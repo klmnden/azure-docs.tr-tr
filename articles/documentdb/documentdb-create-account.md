@@ -13,21 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 02/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
-ms.openlocfilehash: 1f7faf166c1ddab8b25fb6a1fe4cc432b8a47432
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
+ms.openlocfilehash: 086c87c52adf972307003ff78fd0c07f3035321c
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-nosql-account-using-the-azure-portal"></a>Azure portalını kullanarak DocumentDB NoSQL hesabı oluşturma
 > [!div class="op_single_selector"]
 > * [Azure Portal](documentdb-create-account.md)
-> * [Azure CLI'si ve Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
->
->
+> * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+> * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
 Microsoft Azure DocumentDB ile bir veritabanı oluşturmak için:
 
@@ -81,7 +81,7 @@ Artık bir DocumentDB hesabınız var. Bir sonraki adımda DocumentDB koleksiyon
 
 Veritabanınızı ve koleksiyonunuzu oluşturduktan sonra, koleksiyonlara [belge eklemeniz](documentdb-view-json-document-explorer.md) gerekir.
 
-Koleksiyonda belge yükledikten sonra, [DocumentDB SQL](documentdb-sql-query.md)'i kullanarak belgelerinizde [sorgu yürütebilirsiniz](documentdb-sql-query.md#executing-sql-queries). Portaldaki [Sorgu Gezgini](documentdb-query-collections-query-explorer.md)'ni, [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)'yi veya [SDK](documentdb-sdk-dotnet.md)'lardan birini kullanarak sorgu yürütebilirsiniz.
+Koleksiyonda belge yükledikten sonra, [DocumentDB SQL](documentdb-sql-query.md)'i kullanarak belgelerinizde [sorgu yürütebilirsiniz](documentdb-sql-query.md#ExecutingSqlQueries). Portaldaki [Sorgu Gezgini](documentdb-query-collections-query-explorer.md)'ni, [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)'yi veya [SDK](documentdb-sdk-dotnet.md)'lardan birini kullanarak sorgu yürütebilirsiniz.
 
 ### <a name="learn-more"></a>Daha fazla bilgi edinin
 DocumentDB hakkında daha fazla bilgi edinmek için şu kaynakları keşfedin:

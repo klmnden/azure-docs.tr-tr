@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/11/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9fe3ce6f5556c92e51a74e51772e1e020f8628
-ms.openlocfilehash: 41f36df071c5bddc91ba12e6b278cdece84e4161
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: e31be1a97b9b3d7718e4e6f58f22a2c6f5550beb
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -425,7 +426,7 @@ Aşağıdaki diyagram oluşturduğunuz koleksiyonda DocumentDB SQL sorgusu söz 
 
 ![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan sorgunun kapsamını ve anlamını gösteren diyagram](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-DocumentDB sorguları zaten tek bir koleksiyon kapsamında olduğundan, sorgudaki [FROM](documentdb-sql-query.md#from-clause) anahtar sözcüğü isteğe bağlıdır. Bu nedenle, "FROM Families f", "FROM root r" veya seçtiğiniz herhangi bir başka değişken adıyla değiştirilebilir. DocumentDB; Families, root veya seçtiğiniz değişken adının varsayılan olarak geçerli koleksiyona başvurduğu sonucuna varır.
+DocumentDB sorguları zaten tek bir koleksiyon kapsamında olduğundan, sorgudaki [FROM](documentdb-sql-query.md#FromClause) anahtar sözcüğü isteğe bağlıdır. Bu nedenle, "FROM Families f", "FROM root r" veya seçtiğiniz herhangi bir başka değişken adıyla değiştirilebilir. DocumentDB; Families, root veya seçtiğiniz değişken adının varsayılan olarak geçerli koleksiyona başvurduğu sonucuna varır.
 
 ## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>8. Adım: JSON belgesini değiştirme
 DocumentDB, JSON belgelerini değiştirmeyi destekler.  
@@ -559,9 +560,4 @@ Başvuruları Visual Studio'daki DocumentDB .NET Core SDK'ya geri yüklemek içi
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

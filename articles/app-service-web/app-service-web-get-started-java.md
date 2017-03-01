@@ -4,7 +4,7 @@ description: "Örnek bir uygulama dağıtarak App Service&quot;te web uygulamala
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 82accfbfa92dfe77d17da05425c2e05af33e5a31
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Beş dakika içinde Azure’a ilk Java web uygulamanızı dağıtın (CLI 2.0 Önizleme)
-
-> [!div class="op_single_selector"]
-> * [İlk HTML sitesi](app-service-web-get-started-html-cli-nodejs.md)
-> * [İlk .NET uygulaması](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [İlk PHP uygulaması](app-service-web-get-started-php-cli-nodejs.md)
-> * [İlk Node.js uygulaması](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [İlk Python uygulaması](app-service-web-get-started-python-cli-nodejs.md)
-> * [İlk Java uygulaması](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Bu öğretici, [Azure Uygulama Hizmeti](../app-service/app-service-value-prop-what-is.md)’nde basit bir Java web uygulaması dağıtmanıza yardımcı olur.
 Web uygulamaları, [mobil uygulama arka uçları](/documentation/learning-paths/appservice-mobileapps/) ve [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) oluşturmak için App Service kullanabilirsiniz.
@@ -127,10 +119,5 @@ Veya ilk web uygulamanızla daha fazlasını yapın. Örnek:
 
 * [Kodunuzu Azure'a dağıtmanın diğer yollarını](web-sites-deploy.md) deneyin. 
 * Azure uygulamanızı bir sonraki seviyeye taşıyın. Kullanıcılarınızın kimliklerini doğrulayın. Talebe göre ölçeklendirin. Performans uyarıları ayarlayın. Tümünü birkaç tıklamayla gerçekleştirin. Bkz. [İlk web uygulamanıza işlevsellik ekleme](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

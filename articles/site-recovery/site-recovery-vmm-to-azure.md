@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 89668033a5e9cf6b727992b7d221e49624fb3314
-ms.openlocfilehash: 448023b57d0beadc49e89d7dc22d324303700fa4
+ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
+ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -66,7 +67,7 @@ Senaryo bileşenleri şu şekildedir:
 ## <a name="protected-machine-prerequisites"></a>Korumalı makine önkoşulları
 | **Önkoşul** | **Ayrıntılar** |
 | --- | --- |
-| **Korumalı VM'ler** |Bir VM'ye yük devretmeden önce, Azure VM'sine atanan adın [Azure önkoşullarına](site-recovery-best-practices.md#azure-virtual-machine-requirements) uygun olduğundan emin olun. VM için çoğaltma işlemini etkinleştirdikten sonra adı değiştirebilirsiniz. <br/><br/> Korumalı makinelerdeki bağımsız disk kapasitesinin 1023 GB'tan fazla olmaması gerekir. Bir VM 64 adede kadar disk barındırabilir (64 TB'ye kadar).<br/><br/> Paylaşılan disk konuk kümeleri desteklenmez.<br/><br/> Birleşik Genişletilebilir Bellenim Arabirimi (UEFI)/Genişletilebilir Bellenim Arabirimi (EFI) önyüklemesi desteklenmez.<br/><br/> Kaynak VM, NIC grubu oluşturma özelliğine sahipse Azure'a yük devretme işleminin ardından tek bir NIC'ye dönüştürülür.<br/><br/>Statik bir IP adresiyle Linux çalıştıran Hyper-V sanal makinelerini koruma işlemi desteklenmez. |
+| **Korumalı VM'ler** |Bir VM'ye yük devretmeden önce, Azure VM'sine atanan adın [Azure önkoşullarına](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) uygun olduğundan emin olun. VM için çoğaltma işlemini etkinleştirdikten sonra adı değiştirebilirsiniz. <br/><br/> Korumalı makinelerdeki bağımsız disk kapasitesinin 1023 GB'tan fazla olmaması gerekir. Bir VM 64 adede kadar disk barındırabilir (64 TB'ye kadar).<br/><br/> Paylaşılan disk konuk kümeleri desteklenmez.<br/><br/> Birleşik Genişletilebilir Bellenim Arabirimi (UEFI)/Genişletilebilir Bellenim Arabirimi (EFI) önyüklemesi desteklenmez.<br/><br/> Kaynak VM, NIC grubu oluşturma özelliğine sahipse Azure'a yük devretme işleminin ardından tek bir NIC'ye dönüştürülür.<br/><br/>Statik bir IP adresiyle Linux çalıştıran Hyper-V sanal makinelerini koruma işlemi desteklenmez. |
 
 ## <a name="prepare-for-deployment"></a>Dağıtım için hazırlanma
 Dağıtıma hazırlanmak için şunları yapmanız gerekir:
@@ -260,7 +261,7 @@ Hyper-V ana bilgisayarlarında çalışan Kurtarma Hizmetleri aracısının VM �
 
 ### <a name="configure-network-mapping"></a>Ağ eşlemesini yapılandırma
 
-* Ağ eşlemesi işlevine kısaca genel bir bakış atmak için [okuyun](#prepare-for-network-mapping).
+* Ağ eşlemesi işlevinin genel hatlarını [okuyun](#prepare-for-network-mapping).
 * VMM sunucusu üzerindeki sanal makinelerin VM ağına bağlı olduğunu ve en az bir Azure sanal ağı oluşturduğunuzu doğrulayın. Tek bir Azure ağına birden çok VM ağı eşlenebilir.
 
 Eşleme işlemini şu şekilde yapılandırın:
@@ -359,7 +360,8 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
 6. **Sanal Makineler** > **Sanal makine seçin** seçeneklerine tıklayın ve çoğaltmak istediğiniz makineleri seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. **Özellikler** > **Özellikleri yapılandır** seçeneklerinde, seçili VM'ler için işletim sistemini ve işletim sistemi diskini belirtin. Varsayılan olarak VM'nin tüm diskleri çoğaltma için seçilir. Gereksiz verilerin Azure'da çoğaltılmasını önleyerek bant genişliği tüketimini azaltmak için belirli diskleri çoğaltma dışı bırakmayı tercih edebilirsiniz. Örneğin geçici verilere veya bilgisayar ya da uygulama yeniden başlatıldığında yenilenen verilere (pagefile.sys veya Microsoft SQL Server tempdb gibi) sahip diskleri çoğaltmak istemeyebilirsiniz. Diskin seçimini kaldırarak çoğaltma kapsamı dışında bırakabilirsiniz. Azure VM adının (Hedef Ad) [Azure sanal makine gereksinimlerine](site-recovery-best-practices.md#azure-virtual-machine-requirements) uygun olduğundan emin olun ve gerekirse değiştirin. Daha sonra, **Tamam**'a tıklayın. Daha sonra ek özellikleri ayarlayabilirsiniz.
+
+7. **Özellikler** > **Özellikleri yapılandır** seçeneklerinde, seçili VM'ler için işletim sistemini ve işletim sistemi diskini belirtin. Varsayılan olarak VM'nin tüm diskleri çoğaltma için seçilir. Gereksiz verilerin Azure'da çoğaltılmasını önleyerek bant genişliği tüketimini azaltmak için belirli diskleri çoğaltma dışı bırakmayı tercih edebilirsiniz. Örneğin geçici verilere veya bilgisayar ya da uygulama yeniden başlatıldığında yenilenen verilere (pagefile.sys veya Microsoft SQL Server tempdb gibi) sahip diskleri çoğaltmak istemeyebilirsiniz. Diskin seçimini kaldırarak çoğaltma kapsamı dışında bırakabilirsiniz. Azure VM adının (Hedef Ad) [Azure sanal makine gereksinimlerine](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) uygun olduğundan emin olun ve gerekirse değiştirin. Daha sonra, **Tamam**'a tıklayın. Daha sonra ek özellikleri ayarlayabilirsiniz.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -380,7 +382,7 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
 **Ayarlar** > **İşler** > **Site Recovery işleri** üzerinden **Korumayı Etkinleştir** işinin ilerleyişini izleyebilirsiniz. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 
 ### <a name="view-and-manage-vm-properties"></a>VM özelliklerini görüntüleme ve yönetme
-Kaynak makinenin özelliklerini doğrulamanızı öneririz. Azure VM adının [Azure sanal makine gereksinimlerini](site-recovery-best-practices.md#azure-virtual-machine-requirements) karşılaması gerektiğini unutmayın.
+Kaynak makinenin özelliklerini doğrulamanızı öneririz. Azure VM adının [Azure sanal makine gereksinimlerini](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) karşılaması gerektiğini unutmayın.
 
 1. **Ayarlar** > **Korunan Öğeler** > **Çoğaltılan Öğeler** seçeneklerine tıklayıp ayrıntılarını görmek istediğiniz makineyi seçin.
 
@@ -388,7 +390,7 @@ Kaynak makinenin özelliklerini doğrulamanızı öneririz. Azure VM adının [A
 2. **Özellikler** kısmında VM'nin çoğaltma ve yük devretme bilgilerini inceleyebilirsiniz.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. **İşlem ve Ağ** > **İşlem özellikleri** seçeneklerinden Azure VM adını ve hedef boyutu belirtebilirsiniz. Gerekirse [Azure gereksinimleri](site-recovery-best-practices.md#azure-virtual-machine-requirements) ile uyum sağlamak için adı değiştirin. Azure VM'sine atanan IP adresi, alt ağ ve hedef ağ ile ilgili bilgileri de görüntüleyip değiştirebilirsiniz.
+3. **İşlem ve Ağ** > **İşlem özellikleri** seçeneklerinden Azure VM adını ve hedef boyutu belirtebilirsiniz. Gerekirse [Azure gereksinimleri](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) ile uyum sağlamak için adı değiştirin. Azure VM'sine atanan IP adresi, alt ağ ve hedef ağ ile ilgili bilgileri de görüntüleyip değiştirebilirsiniz.
 Şunlara dikkat edin:
 
    * Hedef IP adresini ayarlayabilirsiniz. Bir IP adresi sağlamazsanız yük devredilen makine DHCP kullanır. Yük devretmede kullanılamayan bir adres ayarlarsanız yük devretme işlemi başarısız olur. Hedef IP adresi, yük devretme ağı testinde kullanılabilirse aynı IP adresi yük devretme sınamasında da kullanılabilir.
@@ -457,9 +459,4 @@ Site Recovery dağıtımınızın durumunu, yapılandırma ayarlarını ve siste
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Dağıtımınız ayarlandıktan ve çalışmaya başladıktan sonra farklı türdeki yük devretmeler hakkında [daha fazla bilgi edinebilirsiniz](site-recovery-failover.md).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

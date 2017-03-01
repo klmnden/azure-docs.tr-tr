@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
-ms.openlocfilehash: f0edea9c1509b0eb4b2590019610ccc9eb9d5f55
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 2fb457166b4ebe61c11173aa75bdcd2fbce3f03d
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -47,7 +48,7 @@ Yorumlarınızı bu makalenin altında paylaşabilirsiniz. Teknik sorular için 
 
 Şirket içi Hyper-V VM’leri, VMware VM’leri ve fiziksel sunucuları geçirmek için normal çoğaltma için kullanılan adımlara yakın bir süreç izlersiniz. Kurtarma Hizmetleri kasası kurar, gerekli yönetim sunucularını yapılandırır (geçirmek istediğiniz nesneye göre), bunları kasaya ekler ve çoğaltma ayarlarını belirlersiniz. Geçirmek istediğiniz makinelerde çoğaltmayı etkinleştirir ve her şeyin düzgün çalıştığından emin olmak için hızlı bir yük devretme testi yaparsınız.
 
-Çoğaltma ortamınızın çalıştığını doğruladıktan sonra senaryonuz için [desteklenen özelliklere](site-recovery-failover.md#failover-and-failback) göre planlanmış veya planlanmamış yük devretme seçeneğini kullanırsınız. Geçiş için yük devretme yapmanız gerekmez. Bunun yerine geçirmek istediğiniz her makine için **Geçişi Tamamla** seçeneğini belirlemeniz gerekir. **Geçişi Tamamla** işlemi, geçiş işlemini tamamlar, makine için çoğaltmayı kaldırır ve makinede Site Recovery faturalandırmasını durdurur.
+Çoğaltma ortamınızın çalıştığını doğruladıktan sonra senaryonuz için [desteklenen özelliklere](site-recovery-failover.md) göre planlanmış veya planlanmamış yük devretme seçeneğini kullanırsınız. Geçiş için yük devretme yapmanız gerekmez. Bunun yerine geçirmek istediğiniz her makine için **Geçişi Tamamla** seçeneğini belirlemeniz gerekir. **Geçişi Tamamla** işlemi, geçiş işlemini tamamlar, makine için çoğaltmayı kaldırır ve makinede Site Recovery faturalandırmasını durdurur.
 
 ![tamgeçiş](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
@@ -69,9 +70,4 @@ AWS örneklerini Azure VM’lerine geçirebilirsiniz. Bu senaryoda yalnızca ge�
 - [Hyper-V sanal makinelerini (VMM olmadan) Azure’a geçirme](site-recovery-hyper-v-site-to-azure.md)
 - [Azure VM’lerini bir Azure bölgesinden diğerine geçirme](site-recovery-migrate-azure-to-azure.md)
 - [AWS örneklerini Azure’a geçirme](site-recovery-migrate-aws-to-azure.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

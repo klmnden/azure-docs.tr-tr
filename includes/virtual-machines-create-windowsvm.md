@@ -16,7 +16,7 @@ Temel Bilgiler dikey penceresi, sanal makine için yönetim bilgileri ister.
 
 2. Sanal makinede yerel hesap oluşturmak için kullanılan bir **Kullanıcı adı** ve güçlü bir **Parola** girin. Yerel hesap VM’de oturum açmak ve VM’yi yönetmek için kullanılır. Bu örnekte, kullanıcı adı _azureuser_’dır.
 
- Parola 8-123 karakter uzunluğunda olmalıdır ve en az şu dört karmaşıklık gereksinimini karşılamalıdır: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. [Kullanıcı adı ve parola gereksinimleri](../articles/virtual-machines.md/virtual-machines-windows-faq) hakkında daha fazla bilgi edinin.
+ Parola 8-123 karakter uzunluğunda olmalıdır ve en az şu dört karmaşıklık gereksinimini karşılamalıdır: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. [Kullanıcı adı ve parola gereksinimleri](../articles/virtual-machines/virtual-machines-windows-faq.md) hakkında daha fazla bilgi edinin.
 
 3. **Abonelik** isteğe bağlıdır. Yaygın olarak kullanılan bir ayar "Kullandıkça Öde"dir.
 
@@ -51,15 +51,6 @@ Değişiklikleriniz bittiğinde **Tamam**’a tıklayın.
 
  ![Sanal makine için belirtilen ayarları gösteren Özet dikey penceresi raporu](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
-<!--  deleted 2/16/2017 - RABixby
-  * A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For more information, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-  -->
-
 Sanal makine oluşturulduktan sonra portal tarafından **Tüm kaynaklar** altında listelenir ve panoda sanal makine için bir kutucuk görüntülenir. Ayrıca, sanal makineye karşılık gelen bulut hizmeti ve depolama hesabı da oluşturulur ve listelenir. Hem sanal makine hem de bulut hizmeti otomatik olarak başlatılır ve durumları **Çalışıyor** olarak listelenir.
 
  ![Sanal makinenin VM Aracısı’nı ve uç noktalarını yapılandırma](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
