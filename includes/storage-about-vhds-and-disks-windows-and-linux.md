@@ -1,3 +1,14 @@
+### <a name="disk-persistence"></a>Disk Kalıcılığı 
+
+Aşağıdaki tabloda, bir Azure VM’deki farklı disklerin farklı durumları ve bu durumlarda verilerin kalıcı olup olmadığı gösterilmektedir.
+
+| Disk | Başlatma | Durdurma/<br>Serbest bırakma | Duraklat | Yeniden<br>başlatma | Kapat-<br>ma | Sil | Hata | Yeniden boyutlandırma | 
+| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
+| İşletim Sistemi Diski | Evet | Evet  | Evet | Evet | Evet  | Hayır | Hayır  | Evet | 
+| RAM  | Evet | Evet | Evet | Evet | Hayır   | Hayır | Hayır | Hayır | 
+| Yerel Geçici Disk | Evet | Hayır | Yes | Hayır | Hayır  | Hayır | Hayır | Hayır | 
+| Ekli Veri Diski | Evet | Evet | Evet | Evet | Evet  | Evet | Evet | Evet | 
+
 ## <a name="about-vhds"></a>VHD'ler hakkında
 
 Azure’da kullanılan VHD’ler, Azure’daki standart veya premium depolama hesabında sayfa blobları olarak depolanır. Sayfa blobları hakkında bilgi için bkz. [Blok bloblarını ve sayfa bloblarını anlama](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Premium depolama hakkında daha fazla ayrıntı için bkz. [Yüksek performanslı premium depolama ve Azure VM'leri](../articles/storage/storage-premium-storage.md).
@@ -47,14 +58,12 @@ Aşağıdaki tabloda, kullanacağınız seçeneğe karar vermenize yardımcı ol
 |    | Azure Premium Disk | Azure Standart Disk |
 |--- | ------------------ | ------------------- |
 | Disk Türü | Katı Hal Sürücüleri (SSD) | Sabit Disk Sürücüleri (HDD)  |
-| Genel Bakış  | G/Ç yoğunluklu iş yükleri çalıştıran veya kritik görev üretim ortamı barındıran VM’ler için SSD temelli yüksek performans, düşük gecikme süreli disk desteği | Geliştirime/Test VM senaryoları için HDD temelli, uygun maliyetli disk desteği |
+| Genel Bakış  | G/Ç yoğunluklu iş yükleri çalıştıran veya görev açısından kritik üretim ortamı barındıran VM’ler için SSD tabanlı, yüksek performans ve düşük gecikme süresi sunan disk desteği | Geliştirme/Test VM senaryoları için HDD tabanlı, uygun maliyetli disk desteği |
 | Senaryo  | Üretim ve performansa duyarlı iş yükleri | Geliştirme/Test, kritik olmayan, <br>Nadir erişim |
-| Disk Boyutu | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Yönetilmeyen Diskler: 1 GB – 1TB <br><br>Yönetilen Diskler:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
+| Disk Boyutu | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Yönetilmeyen Diskler: 1 GB – 1 TB <br><br>Yönetilen Diskler:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
 | Disk Başına En Fazla Aktarım Hızı | 200 MB/sn | 60 MB/sn |
 | Disk başına en fazla IOPS | 5000 IOPS | 500 IOPS |
 
-
-
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

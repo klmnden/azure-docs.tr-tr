@@ -1,6 +1,6 @@
 ---
-title: "PowerShell kullanarak Sanal Makine Ölçek Kümesi Oluşturma | Microsoft Belgeleri"
-description: "PowerShell kullanarak Sanal Makine Ölçek Kümesi oluşturma"
+title: "PowerShell kullanarak Azure Sanal Makine Ölçek Kümesi Oluşturma | Microsoft Belgeleri"
+description: "PowerShell kullanarak Azure Sanal Makine Ölçek Kümesi oluşturma"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 02/21/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
+ms.sourcegitcommit: 1f8e66fac5b82698525794f0486dd0432c7421a7
+ms.openlocfilehash: 7286fed39839675eb960b749f3235f83e36c5e9a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -55,46 +56,6 @@ Bir kaynak grubunda bir sanal makine ölçek kümesi yer almalıdır.
         ProvisioningState : Succeeded
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
-
-### <a name="storage-account"></a>Depolama hesabı
-Ölçeklendirme için kullanılan işletim sistemi diskini ve tanılama verilerini depolamak için sanal makine tarafından bir depolama hesabı kullanılır. Mümkün olduğunda, bir ölçek kümesi içinde oluşturulan her sanal makine için bir depolama hesabına sahip olunması en iyi uygulamadır. Bu mümkün değilse, her depolama hesabı için en fazla 20 VM planlayın. Bu makaledeki örnekte üç sanal makine için oluşturulan üç depolama hesabı gösterilmektedir.
-
-1. **$saName** değerini depolama hesabının adıyla değiştirin. Adın benzersizliğini test edin. 
-   
-        $saName = "storage account name"
-        Get-AzureRmStorageAccountNameAvailability $saName
-   
-    Yanıt **True** ise önerdiğiniz ad benzersizdir.
-2. **$saType** değerini depolama hesabının türüyle değiştirin ve ardından değişkeni oluşturun:  
-   
-        $saType = "storage account type"
-   
-    Olası değerler şunlardır: Standard_LRS, Standard_GRS, Standard_RAGRS veya Premium_LRS.
-3. Hesabı oluşturun:
-   
-        New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
-   
-    Bu örnektekine benzer bir şey görmeniz gerekir:
-   
-        ResourceGroupName   : myrg1
-        StorageAccountName  : myst1
-        Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-                              .Storage/storageAccounts/myst1
-        Location            : centralus
-        AccountType         : StandardLRS
-        CreationTime        : 3/15/2016 4:51:52 PM
-        CustomDomain        :
-        LastGeoFailoverTime :
-        PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
-        PrimaryLocation     : centralus
-        ProvisioningState   : Succeeded
-        SecondaryEndpoints  :
-        SecondaryLocation   :
-        StatusOfPrimary     : Available
-        StatusOfSecondary   :
-        Tags                : {}
-        Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
-4. Üç depolama hesabı oluşturmak için 1 ile 4 arasındaki adımları tekrarlayın: örneğin myst1, myst2 ve myst3.
 
 ### <a name="virtual-network"></a>Sanal ağ
 Ölçek kümesindeki sanal makineler için bir sanal ağ gereklidir.
@@ -173,12 +134,10 @@ Bir kaynak grubunda bir sanal makine ölçek kümesi yer almalıdır.
         $imageSku = "2012-R2-Datacenter"
    
     Kullanılacak diğer görüntüler hakkında bilgi almak için [Windows PowerShell ve Azure CLI ile Azure sanal makine görüntülerinde gezinme ve seçme](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-3. **$vhdContainers** değerini, "https://mystorage.blob.core.windows.net/vhds" gibi sanal sabit disklerin depolandığı yolları içeren bir listeyle değiştirin ve ardından değişkeni oluşturun:
+
+3. Depolama profilini oluşturun:
    
-        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
-4. Depolama profilini oluşturun:
-   
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### <a name="virtual-machine-scale-set"></a>Sanal makine ölçek kümesi
 Son olarak, ölçek kümesini oluşturabilirsiniz.
@@ -221,10 +180,5 @@ Oluşturduğunuz sanal makine ölçek kümesini keşfetmek için aşağıdaki ka
 * [Bir Sanal Makine Ölçek Kümesindeki sanal makineleri yönetme](virtual-machine-scale-sets-windows-manage.md) bölümündeki bilgileri kullanarak yeni oluşturduğunuz ölçek kümesini yönetin
 * [Otomatik ölçeklendirme ve sanal makine ölçek kümeleri](virtual-machine-scale-sets-autoscale-overview.md) bölümündeki bilgileri kullanarak ölçek kümenizin otomatik ölçeklendirmesini ayarlamayı düşünün
 * [Sanal Makine Ölçek kümeleri ile dikey otomatik ölçeklendirme](virtual-machine-scale-sets-vertical-scale-reprovision.md) bölümünü gözden geçirerek dikey ölçeklendirme hakkında daha fazla bilgi edinin
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

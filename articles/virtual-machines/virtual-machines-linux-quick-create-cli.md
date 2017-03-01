@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 01/13/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
-ms.openlocfilehash: 0fd7aa8f941adaeb9961fd0e4724161b9fe2eeee
+ms.sourcegitcommit: 1081eb18bd63b1ad580f568201e03258901e4eaf
+ms.openlocfilehash: e926f22b94da30e1d3b790432ffdc229d9f4e609
 
 
 ---
@@ -119,7 +119,7 @@ Yönetilen diskleri kullanarak yeni sanal makinenizle yapabileceğiniz diğer i�
 
 ## <a name="using-unmanaged-disks"></a>Yönetilmeyen diskleri kullanma 
 
-Yönetilmeyen depolama disklerini kullanan sanal makineler, yönetilmeyen depolama hesaplarına sahiptir. İlk olarak, [az group create](/cli/azure/group#create) yazarak dağıtılmış tüm kaynakları içeren kaynak grubunuzu oluşturun:
+Yönetilmeyen depolama diskleri kullanan sanal makinelerin yönetilmeyen depolama hesapları vardır. İlk olarak, dağıtılan tüm kaynakları içerecek kaynak grubunuzu oluşturmak için [az group create](/cli/azure/group#create) yazın:
 
 ```azurecli
 az group create --name nativedisks --location westus
@@ -142,7 +142,7 @@ az group create --name nativedisks --location westus
 
 ### <a name="create-your-vm"></a>VM oluşturma 
 
-Artık VM’nizi ve ortamını oluşturabilirsiniz. `--public-ip-address-dns-name` değerinin yerine benzersiz bir değer yazmayı unutmayın. Aşağıda gösterilen değer başkası tarafından alınmış olabilir.
+Artık VM’nizi ve ortamını oluşturabilirsiniz. Sanal makineyi yönetilmeyen disklerle oluşturmak için `--use-unmanaged-disk` bayrağını kullanın. Yönetilmeyen bir depolama hesabı da oluşturulur. `--public-ip-address-dns-name` değerinin yerine benzersiz bir değer yazmayı unutmayın. Aşağıda gösterilen değer başkası tarafından alınmış olabilir.
 
 ```azurecli
 az vm create \
@@ -153,7 +153,7 @@ az vm create \
 --resource-group nativedisks \
 --location westus \
 --name myVM \
---use-native-disk
+--use-unmanaged-disk
 ```
 
 Çıktı aşağıdakine benzer olacaktır. `publicIpAddress` veya `fqdn` değerini, VM’nize **ssh** bağlantısı kurarken kullanmak için not edin.
@@ -206,6 +206,6 @@ Docker ana bilgisayarı olarak hızlı şekilde bir Linux VM'si oluşturmak [iç
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

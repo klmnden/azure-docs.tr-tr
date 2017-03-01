@@ -1,5 +1,5 @@
 ---
-title: "Windows Azure Resource Manager dağıtım modelini kullanarak Azure Backup ile dosya ve klasörleri Windows&quot;dan Azure&quot;a yedekleme| Microsoft Docs"
+title: "Windows Azure Resource Manager dağıtım modelini kullanarak dosya ve klasörleri Windows&quot;dan Azure&quot;a yedekleme| Microsoft Docs"
 description: "Windows dosya ve klasörlerini bir Resource Manager dağıtımında Azure’a yedekleme hakkında bilgi alın."
 services: backup
 documentationcenter: 
@@ -16,8 +16,9 @@ ms.topic: hero-article
 ms.date: 2/10/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: cdccfe1215bb8f62381c73becdc9d90f45800966
-ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
+ms.sourcegitcommit: 1a87af9efeb6c00f3c67f2c2d8d8f2e0491d248d
+ms.openlocfilehash: cb464ad823b9123ad0bfa66e0df64a616e3fb5d0
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -229,9 +230,4 @@ Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik var
 * [Windows makinelerini yedekleme](backup-configure-vault.md) konusunda daha fazla bilgi edinin.
 * Dosya ve klasörlerinizi yedeklediğinize göre artık [kasa ve sunucularınızı yönetebilirsiniz](backup-azure-manage-windows-server.md).
 * Bir yedeklemeyi geri yüklemeniz gerekirse [dosyaları bir Windows makinesine geri yüklemek](backup-azure-restore-windows-server.md) için bu makaleyi kullanın.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

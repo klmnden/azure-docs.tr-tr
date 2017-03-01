@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 83f9a2716086730f22527a9321b6b111f6e69907
-ms.openlocfilehash: 9e794e89e5ecf4633c2e6312c69487bfa0c7795c
+ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
+ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
 
 
 ---
@@ -52,10 +52,10 @@ Azure altyapısının yönlendirici rolünü üstlendiğine ve herhangi bir yap�
   >
 
 ## <a name="subnets"></a>Alt ağlar
-Alt ağ, sanal ağ içindeki bir IP adresleri aralığıdır, bir sanal ağı organizasyon ve güvenlik için birden çok alt ağa bölebilirsiniz. Bir sanal ağ içindeki alt ağlara (aynı veya farklı) dağıtılan VM'ler ve PaaS rolü örnekleri, ek bir yapılandırma gerektirmeden birbirleriyle iletişim kurabilir. Ayrıca yol tablolarını ve NSG'leri bir alt ağ için yapılandırabilirsiniz.
+Alt ağ, sanal ağdaki IP adresleri aralığıdır ve sanal ağı kuruluşunuz ve güvenliğiniz için birden çok alt ağa bölebilirsiniz. Bir sanal ağ içindeki alt ağlara (aynı veya farklı) dağıtılan VM'ler ve PaaS rolü örnekleri, ek bir yapılandırma gerektirmeden birbirleriyle iletişim kurabilir. Ayrıca yol tablolarını ve NSG'leri bir alt ağ için yapılandırabilirsiniz.
 
 ## <a name="ip-addresses"></a>IP adresleri
-Azure'daki kaynaklara atanan iki tür IP adresi bulunur: *genel* ve *özel*. Genel IP Adresleri, Azure kaynaklarının İnternet ile ve [Azure Redis Önbelleği](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/) gibi Azure'ın genel kullanıma yönelik diğer hizmetleriyle iletişim kurmasını sağlar. Özel IP Adresleri, İnternet'ten yönlendirilebilir IP adresleri kullanmadan, VPN yoluyla bağlı olanlar da dahil olmak üzere bir sanal ağ içindeki kaynaklar arasında iletişime olanak sağlar.
+Azure'daki kaynaklara atanan iki tür IP adresi bulunur: *genel* ve *özel*. Genel IP Adresleri, Azure kaynaklarının İnternet ile ve [Azure Redis Önbelleği](https://azure.microsoft.com/services/cache/), [Azure Olay Hub’ları](https://azure.microsoft.com/documentation/services/event-hubs/) gibi genel kullanıma yönelik diğer Azure hizmetleriyle iletişim kurmasına imkan tanır. Özel IP Adresleri, bir sanal ağdaki kaynakların yanı sıra İnternet’ten yönlendirilebilen IP adresleri kullanmadan bir VPN üzerinden bağlanan kaynaklar arasında iletişim olanağı sağlar.
 
 Azure'daki IP adresleri hakkında daha fazla bilgi edinmek için bkz. [sanal ağdaki IP adresleri](virtual-network-ip-addresses-overview-arm.md)
 
@@ -91,6 +91,6 @@ Azure'da Virtual Network'ü kullanmanın ek bir maliyeti yoktur. Sanal ağ için
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -15,16 +15,17 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
+ms.sourcegitcommit: e34b10aec5ee4316c8e2ffc03e1714dc6753e4d1
+ms.openlocfilehash: 96504042c4fb6a83c4ab2c35c20a8264d7db85bb
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-vmm-to-azure.md)
+> * [Azure portalı](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-> * [Klasik Portal](site-recovery-vmm-to-azure-classic.md)
+> * [Klasik portal](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - Klasik](site-recovery-deploy-with-powershell.md)
 >
 >
@@ -50,7 +51,7 @@ Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure
 | **Önkoşul** | **Ayrıntılar** |
 | --- | --- |
 | **Azure hesabı** |Bir [Microsoft Azure](https://azure.microsoft.com/) hesabınızın olması gerekir. [Ücretsiz deneme sürümüyle](https://azure.microsoft.com/pricing/free-trial/) başlayabilirsiniz. Site Recovery fiyatlandırması hakkında [daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/site-recovery/). |
-| **Azure depolama alanı** |Çoğaltılan verileri depolamak için bir Azure depolama hesabınızın olması gerekir. Çoğaltılan veriler Azure depolama alanında depolanır ve yük devretme durumunda Azure VM'leri çalışmaya başlar. <br/><br/>[Standart coğrafi olarak yedekli depolama hesabınızın](../storage/storage-redundancy.md#geo-redundant-storage) olması gerekir. Bu hesabın Site Recovery ile aynı bölgede olması ve aynı abonelikle ilişkilendirilmiş olması gerekir. Premium depolama hesaplarında çoğaltmanın şu anda desteklenmediğini ve bu hesapların kullanılmaması gerektiğini unutmayın.<br/><br/>Azure depolama alanı [hakkında bilgi edinin](../storage/storage-introduction.md). |
+| **Azure depolama alanı** |Çoğaltılan verileri depolamak için bir Azure depolama hesabınızın olması gerekir. Çoğaltılan veriler Azure depolama alanında depolanır ve yük devretme durumunda Azure VM'leri çalışmaya başlar. <br/><br/>[Standart coğrafi olarak yedekli depolama hesabınızın](../storage/storage-redundancy.md#geo-redundant-storage) olması gerekir. Bu hesabın Site Recovery ile aynı bölgede ve aynı abonelikle ilişkilendirilmiş olması gerekir. Premium depolama hesaplarında çoğaltmanın şu anda desteklenmediğini ve bu hesapların kullanılmaması gerektiğini unutmayın.<br/><br/>Azure depolama alanı [hakkında bilgi edinin](../storage/storage-introduction.md). |
 | **Azure ağı** |Yük devretme gerçekleştiğinde Azure VM'lerinin bağlanabileceği bir Azure sanal ağı gerekir. Azure sanal ağının Site Recovery kasasıyla aynı bölgede olması gerekir. |
 
 ## <a name="on-premises-prerequisites"></a>Şirket içi önkoşullar
@@ -66,7 +67,7 @@ Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure
 Azure'da sanal makineleri koruduğunuzda, ağ eşlemesi kaynak VMM sunucusundaki VM ağlarını hedef Azure ağları ile eşleyerek şu işlemlere olanak sağlar:
 
 * Aynı ağda yük devreden tüm makineler, hangi kurtarma planında yer aldıklarına bakılmaksızın birbiriyle bağlantı kurabilir.
-* Bir ağ geçidi hedef Azure ağında ayarlanırsa sanal makineler diğer şirket içi sanal makinelere bağlanabilir.
+* Hedef Azure ağında bir ağ geçidi ayarlanırsa sanal makineler diğer şirket içi sanal makinelere bağlanabilir.
 * Ağ eşlemesini yapılandırmazsanız yalnızca aynı kurtarma planında yük devreden sanal makineler, Azure'a yük devretme işleminin ardından birbirleriyle bağlantı kurabilir.
 
 Ağ eşlemesi dağıtmak isterseniz şunlara ihtiyaç duyarsınız:
@@ -74,13 +75,6 @@ Ağ eşlemesi dağıtmak isterseniz şunlara ihtiyaç duyarsınız:
 * Kaynak VMM sunucusunda korumak istediğinizde sanal makinelerin bir VM ağına bağlanması gerekir. Bu ağın, bulutla ilişkilendirilen mantıksal bir ağ ile bağlantılı olması gerekir.
 * Yük devretme işleminin ardından çoğaltılan sanal makinelerin bağlanabileceği bir Azure ağı. Bu ağı yük devretme sırasında seçersiniz. Ağın Azure Site Recovery aboneliğinizle aynı bölgede olması gerekir.
 
-Aşağıdaki talimatlara göre ağ eşlemesi için hazırlık yapın:
-
-1. Ağ eşlemesi gereksinimleri [hakkında bilgi edinin](site-recovery-network-mapping.md).
-2. VMM'de VM ağlarına için hazırlık yapın:
-
-   * [Mantıksal ağlar ayarlayın](https://technet.microsoft.com/library/jj721568.aspx).
-   * [VM ağları ayarlayın](https://technet.microsoft.com/library/jj721575.aspx).
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>1. Adım: Site Recovery kasası oluşturma
 1. Kaydolmak istediğiniz VMM sunucusundan [Yönetim Portalı](https://portal.azure.com)'nda oturum açın.
@@ -146,9 +140,9 @@ Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı 
 12. **Bulut meta verilerini eşitle** bölümünde VMM sunucusundaki tüm bulutlar için meta verileri kasa ile eşitlemek isteyip istemediğinizi seçin. Bu eylemin her sunucuda yalnızca bir kez gerçekleştirilmesi gerekir. Tüm bulutları eşitlemek istemezseniz bu ayarı işaretlemeden bırakıp her bulutu VMM konsolundaki bulut özelliklerinde bağımsız olarak eşitleyebilirsiniz.
 13. İşlemi tamamlamak için **İleri**'ye tıklayın. Kayıttan sonra Azure Site Recovery tarafından VMM sunucusundan meta veriler alınır. Sunucu, kasadaki **Sunucular** sayfasında **VMM Sunucuları** sekmesinde görünür.
 
-    ![Lastpage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
+    ![Son sayfa](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
-Kayıttan sonra Azure Site Recovery tarafından VMM sunucusundan meta veriler alınır. Sunucu, kasadaki **Sunucular** sayfasında **VMM Sunucuları** sekmesinde görüntülenir.
+Kayıttan sonra Azure Site Recovery tarafından VMM sunucusundan meta veriler alınır. Sunucu, kasadaki **Sunucular** sayfasında bulunan **VMM Sunucuları** sekmesinde görüntülenir.
 
 ### <a name="command-line-installation"></a>Komut satırı yüklemesi
 Azure Site Recovery sağlayıcısı, aşağıdaki komut satırını kullanarak da yüklenebilir. Bu yöntem, sağlayıcıyı Windows Server 2012 R2 için Sunucu Çekirdeği'nde yüklerken kullanılabilir.
@@ -217,7 +211,7 @@ VMM sunucusunu kaydettikten sonra bulut koruma ayarlarını yapılandırabilirsi
 2. **Korunan Öğeler** sekmesinde, yapılandırmak istediğiniz buluta tıklayın ve **Yapılandırma** sekmesine gidin.
 3. **Hedef** alanı için **Azure**'ı seçin.
 4. **Depolama Hesabı** kısmında çoğaltma için kullandığınız Azure depolama hesabını seçin.
-5. **Depolanan verileri şifrele** seçeneğini **Kapalı** olarak ayarlayın. Bu ayar, şirket içi site ile Azure arasında çoğaltılan verilerin şifrelenmesi gerektiğini belirtir.
+5. **Depolanan verileri şifrele** seçeneğini **Kapalı** olarak ayarlayın. Bu ayar, şirket içi site ile Azure arasında çoğaltma gerçekleştiği sırada verilerin şifrelenmesi gerektiğini belirtir.
 6. **Kopyalama sıklığı** alanında varsayılan ayarları koruyun. Bu değer, verilerin kaynak ve hedef konumlar arasında hangi sıklıkla eşitlenmesi gerektiğini belirtir.
 7. **Koruma noktalarını şu değere göre koru:** kısmında varsayılan ayarı koruyun. Varsayılan değerin sıfır olması durumunda, birincil sanal makinenin yalnızca en son kurtarma noktası çoğaltılan ana bilgisayar sunucusunda depolanır.
 8. **Uygulamayla tutarlı anlık görüntü sıklığı** alanında varsayılan ayarı koruyun. Bu değer, anlık görüntülerin hangi sıklıkta oluşturulacağını belirtir. Anlık görüntüler, anlık görüntü alınırken uygulamaların tutarlı bir durumda olmalarını sağlamak için Birim Gölge Kopyası Hizmeti'ni (VSS) kullanır.  Bir değer ayarlarsanız bu değerin yapılandırdığınız ilave kurtarma noktası sayısından daha az olduğundan emin olun.
@@ -296,10 +290,10 @@ Dağıtımınızı test etmek için tek bir sanal makine için bir yük devretme
 Yük devretme testi, yük devretme işleminizi ve kurtarma mekanizmanızı yalıtılmış bir ortamda benzetimli olarak gerçekleştirir. Şunlara dikkat edin:
 
 * Yük devretmenin ardından Azure'daki sanal makineye Uzak Masaüstü kullanarak bağlanmak isterseniz yük devretme testini çalıştırmadan önceden sanal makinenizde Uzak Masaüstü Bağlantısı'nı etkinleştirin.
-* Yük devretmeden sonra Azure'daki sanal makineyi Uzak Masaüstü kullanarak bağlamak için genel IP adresi kullanırsınız. Bu işlemi gerçekleştirmek isterseniz genel bir adres kullanarak sanal makineye bağlanmanızı engelleyecek etki alanı ilkelerine sahip olmadığınızdan emin olun.
+* Yük devretmeden sonra Uzak Masaüstü kullanarak Azure sanal makinesine bağlamak için genel IP adresi kullanırsınız. Bu işlemi gerçekleştirmek isterseniz genel bir adres kullanarak sanal makineye bağlanmanızı engelleyecek etki alanı ilkelerine sahip olmadığınızdan emin olun.
 
 > [!NOTE]
-> Azure'a yük devretme sırasında en iyi performansı elde etmek için korumalı makineye Azure Aracısı'nı yüklediğinizden emin olun. Bu işlem, daha hızlı önyükleme yapılmasına ve sorunların meydana gelmesi durumunda tanılama işlemine yardımcı olur. Linux aracısına [buradan](https://github.com/Azure/WALinuxAgent) ve Windows aracısına da [buradan](http://go.microsoft.com/fwlink/?LinkID=394789) ulaşabilirsiniz.
+> Azure'a yük devrederken en iyi performansı elde etmek için sanal makineye Azure aracısını yüklediğinizden emin olun. Aracı daha hızlı önyükleme gerçekleştirilmesini sağlar ve sorun giderme konusunda yardımcı olur. [Linux aracısını](https://github.com/Azure/WALinuxAgent) veya [Windows aracısını](http://go.microsoft.com/fwlink/?LinkID=394789) indirin.
 >
 >
 
@@ -334,12 +328,12 @@ Yük devretme testi çalıştırmak için şunları yapın:
     ![Ağ yok](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
 3. Bulut için veri şifreleme etkinleştirilmişse **Şifreleme Anahtarı** kısmında Sağlayıcı'nın VMM sunucusuna yüklenmesi sırasında bulut için veri şifrelemeyi etkinleştirme seçeneğini açtığınızda verilen sertifikayı seçin.
 4. **İşler** sekmesinden yük devretme işleminin ilerleyişini izleyebilirsiniz. Ayrıca, sanal makine testi çoğaltmasının Azure portalında görünür olması gerekir. Şirket içi ağınızdan sanal makinelere erişimi ayarladıysanız sanal makineye yönelik Uzak Masaüstü bağlantısını başlatabilirsiniz.
-5. Yük devretme işlemi **Testi Tamamla** aşamasına ulaştığında yük devretmeyi sonlandırmak için **Testi Tamamla**'ya tıklayın. Yük devretme işleminin ilerleyişini durumunu izlemek için ve gerekli eylemleri gerçekleştirmek için **İş** sekmesinin ayrıntılarına göz atabilirsiniz.
-6. Yük devretmeden sonra sanal makinenin test çoğaltmasını Azure portalında görürsünüz. Şirket içi ağınızdan sanal makinelere erişimi ayarladıysanız sanal makineye yönelik Uzak Masaüstü bağlantısını başlatabilirsiniz. Şunları yapın:
+5. Yük devretme işlemi **Testi tamamla** aşamasına ulaştığında işlemi sonlandırmak için **Testi Tamamla**'ya tıklayın. Yük devretme işleminin ilerleyişini durumunu izlemek için ve gerekli eylemleri gerçekleştirmek için **İş** sekmesinin ayrıntılarına göz atabilirsiniz.
+6. Yük devretmeden sonra sanal makine test çoğaltmasını Azure portalında görebilirsiniz. Şirket içi ağınızdan sanal makinelere erişimi ayarladıysanız sanal makineye yönelik Uzak Masaüstü bağlantısını başlatabilirsiniz. Şunları yapın:
 
    1. Sanal makinelerin başarılı bir şekilde başlatıldığını doğrulayın.
    2. Yük devretmenin ardından Azure'daki sanal makineye Uzak Masaüstü kullanarak bağlanmak isterseniz yük devretme testini çalıştırmadan önceden sanal makinenizde Uzak Masaüstü Bağlantısı'nı etkinleştirin. Ayrıca, sanal makinede bir RDP uç noktası eklemeniz gerekir. Bu işlemi gerçekleştirmek için [Azure Automation Runbook](site-recovery-runbook-automation.md)'larından yararlanabilirsiniz.
-   3. Yük devretmenin ardından Uzak Masaüstü'nü kullanarak Azure'daki sanal makineye bağlanmak için genel bir IP adresi kullanırsanız genel bir adres kullanarak sanal makineye bağlanmanızı engelleyecek etki alanı ilkelerine sahip olmadığınızdan emin olun
+   3. Yük devretme bittikten sonra Uzak Masaüstü'nü kullanarak Azure'daki sanal makineye bağlanmak için genel bir IP adresi kullanırsanız, genel bir adres kullanarak sanal makineye bağlanmanızı engelleyecek herhangi bir etki alanı ilkeniz olmadığından emin olun.
 7. Test tamamlandıktan sonra şunları yapın:
 
    * **Yük devretme testi tamamlandı** seçeneğine tıklayın. Otomatik olarak kapatmak ve sanal makine testlerini silmek için test ortamını temizleyin.
@@ -348,9 +342,4 @@ Yük devretme testi çalıştırmak için şunları yapın:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Kurtarma planlarını ayarlama](site-recovery-create-recovery-plans.md) ve [yük devretme](site-recovery-failover.md) hakkında daha fazla bilgi edinin.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

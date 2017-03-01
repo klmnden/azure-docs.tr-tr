@@ -17,13 +17,14 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 25de4caa583f128dd049899de288bd214e5918ba
-ms.openlocfilehash: 92a8ce45ba6b9938581778f37a544a323cd90b7c
+ms.sourcegitcommit: 7d061c083b23de823d373c30f93cccfe1c856ba3
+ms.openlocfilehash: 8a6dc7d3dca80782a55e13b53180b1542b61544b
+ms.lasthandoff: 02/18/2017
 
 
 ---
-# <a name="sql-database-tutorial-azure-ad-authentication-access-and-database-level-firewall-rules"></a>SQL Veritabanı öğreticisi: Azure AD kimlik doğrulama erişimi ve veritabanı düzeyinde güvenlik duvarı kuralları
-Bu başlangıç öğreticisinde SQL Server Management Studio kullanarak Azure Active Directory kimlik doğrulaması, oturum açma bilgileri, kullanıcılar ve veritabanı rolleriyle çalışarak Azure SQL Veritabanı sunucuları ve veritabanlarına erişim izni vermeyi öğreneceksiniz. Şunları öğreneceksiniz:
+# <a name="azure-ad-authentication-access-and-database-level-firewall-rules"></a>Azure AD kimlik doğrulaması, erişimi ve veritabanı düzeyinde güvenlik duvarı kuralları
+Bu öğreticide SQL Server Management Studio kullanarak Azure Active Directory kimlik doğrulaması, oturumlar, kullanıcılar ve veritabanı rolleriyle çalışarak Azure SQL Veritabanı sunucuları ve veritabanlarına erişim izni vermeyi öğreneceksiniz. Şunları öğreneceksiniz:
 
 - Asıl veritabanı ve kullanıcı veritabanlarındaki kullanıcı izinlerini görüntüleme
 - Azure Active Directory kimlik doğrulamasını temel alan oturum açma bilgileri ve kullanıcılar oluşturma
@@ -36,17 +37,17 @@ Bu başlangıç öğreticisinde SQL Server Management Studio kullanarak Azure Ac
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](https://azure.microsoft.com/free/) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Azure portalına, abonelik sahibi veya katkıda bulunan rolü üyesi olan bir hesap kullanarak bağlanabiliyor olmanız gerekir. Rol tabanlı erişim denetimi (RBAC) ile ilgili daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](../active-directory/role-based-access-control-what-is.md).
 
 * [Azure portalı ve SQL Server Management Studio aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama](sql-database-get-started.md) öğreticisini veya bu öğreticinin [PowerShell sürümünü](sql-database-get-started-powershell.md) tamamladınız. Tamamlamadıysanız, bu öğretici önkoşulunu tamamlayın veya devam etmeden önce bu öğreticinin [PowerShell sürümünün](sql-database-get-started-powershell.md) sonundaki PowerShell betiğini yürütün.
 
    > [!NOTE]
-   > SQL Server kimlik doğrulamasıyla ilgili öğretici olan [SQL Veritabanı öğreticisi: SQL kimlik doğrulaması, oturum açma bilgileri ve kullanıcı hesapları, veritabanı rolleri, izinler, sunucu düzeyinde güvenlik duvarı kuralları ve veritabanı düzeyinde güvenlik duvarı kuralları](sql-database-control-access-sql-authentication-get-started.md) öğreticisini tamamlamak isteğe bağlıdır ancak belirtilen öğreticide yer verilen kavramlar burada tekrarlanmamaktadır. İlgili öğreticiyi aynı bilgisayarlarda tamamladıysanız (aynı IP adreslerine sahip) bu öğreticideki sunucu ve veritabanı düzeyinde güvenlik duvarlarıyla ilgili yordamlar gerekli değildir ve bu nedenle isteğe bağlı olarak işaretlenmiştir. Ayrıca bu öğreticideki ekran görüntülerinde de ilgili öğreticiyi tamamladığınız kabul edilmiştir. 
+   > SQL Server kimlik doğrulamasıyla ilgili bir öğretici olan [SQL kimlik doğrulaması, oturumlar ve kullanıcı hesapları, veritabanı rolleri, izinler, sunucu düzeyinde güvenlik duvarı kuralları ve veritabanı düzeyinde güvenlik duvarı kuralları](sql-database-control-access-sql-authentication-get-started.md) öğreticisini tamamlamak isteğe bağlıdır, ancak belirtilen öğreticide yer verilen kavramlar burada tekrarlanmamaktadır. İlgili öğreticiyi aynı bilgisayarlarda tamamladıysanız (aynı IP adreslerine sahip) bu öğreticideki sunucu ve veritabanı düzeyinde güvenlik duvarlarıyla ilgili yordamlar gerekli değildir ve bu nedenle isteğe bağlı olarak işaretlenmiştir. Ayrıca bu öğreticideki ekran görüntülerinde de ilgili öğreticiyi tamamladığınız kabul edilmiştir. 
    >
 
-* Azure Active Directory oluşturdunuz ve kayıtlarla doldurdunuz. Daha fazla bilgi için bkz. [Azure Active Directory ile şirket içi kimliklerinizi tümleştirme](../active-directory/active-directory-aadconnect.md), [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-add-domain.md), [Microsoft Azure artık Windows Server Active Directory ile federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD dizininizi yönetme](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure AD'yi Windows PowerShell kullanarak yönetme](https://msdn.microsoft.com/library/azure/jj151815.aspx) ve [Karma Kimlik için gerekli bağlantı noktaları ve protokoller](../active-directory/active-directory-aadconnect-ports.md).
+* Azure Active Directory oluşturdunuz ve kayıtlarla doldurdunuz. Daha fazla bilgi edinmek için bkz. [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/active-directory-aadconnect.md), [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-add-domain.md), [Microsoft Azure artık Windows Server Active Directory ile federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD dizininizi yönetme](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure AD'yi Windows PowerShell kullanarak yönetme](https://msdn.microsoft.com/library/azure/jj151815.aspx) ve [Karma Kimlik için gerekli bağlantı noktaları ve protokoller](../active-directory/active-directory-aadconnect-ports.md).
 
 > [!NOTE]
 > Bu öğretici, şu konuların içeriğini öğrenmenize yardımcı olur: [SQL Veritabanında erişim ve denetim](sql-database-control-access.md), [Oturum açma bilgileri, kullanıcılar ve veritabanı rolleri](sql-database-manage-logins.md), [Sorumlular](https://msdn.microsoft.com/library/ms181127.aspx), [Veritabanı rolleri](https://msdn.microsoft.com/library/ms189121.aspx), [SQL Veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md) ve [Azure Active Directory kimlik doğrulaması](sql-database-aad-authentication.md). 
@@ -85,7 +86,7 @@ Bu başlangıç öğreticisinde SQL Server Management Studio kullanarak Azure Ac
    ![Seçilen AAD yönetici hesabını kaydetme](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> Bu sunucunun bağlantı bilgilerini gözden geçirmek için [Sunucu ayarlarını görüntüleme veya güncelleştirme](sql-database-view-update-server-settings.md) bölümüne gidin. Bu öğretici dizisinde tam sunucu adı "sqldbtutorialserver.database.windows.net" olarak belirlenmiştir.
+> Bu sunucunun bağlantı bilgilerini gözden geçirmek için [Sunucuları yönetme](sql-database-manage-servers-portal.md) bölümüne gidin. Bu öğretici dizisinde tam sunucu adı "sqldbtutorialserver.database.windows.net" olarak belirlenmiştir.
 >
 
 ## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>SQL sunucusuna, SQL Server Management Studio (SSMS) kullanarak bağlanma
@@ -256,7 +257,7 @@ Bu başlangıç öğreticisinde SQL Server Management Studio kullanarak Azure Ac
 ## <a name="create-a-database-level-firewall-rule-for-adventureworkslt-database-users"></a>AdventureWorksLT veritabanı kullanıcıları için veritabanı düzeyinde güvenli duvarı oluşturma
 
 > [!NOTE]
-> [SQL Veritabanı öğreticisi: SQL kimlik doğrulaması, oturum açma bilgileri ve kullanıcı hesapları, veritabanı rolleri, izinler, sunucu düzeyinde güvenlik duvarı kuralları ve veritabanı düzeyinde güvenlik duvarı kuralları](sql-database-control-access-sql-authentication-get-started.md) başlıklı SQL Server kimlik doğrulaması öğreticisindeki eşdeğer yordamı tamamladıysanız ve bu öğreticiyi aynı bilgisayarda ve aynı IP adresiyle tamamlıyorsanız bu yordamı tamamlamanıza gerek yoktur.
+> SQL Server kimlik doğrulamasına yönelik ilgili öğreticide ([SQL kimlik doğrulaması ve yetkilendirmesi](sql-database-control-access-sql-authentication-get-started.md)) açıklanan eşdeğer yordamı tamamladıysanız ve aynı IP adresine sahip aynı bilgisayarı kullanarak öğreniyorsanız bu yordamı tamamlamanız gerekmez.
 >
 
 Öğreticinin bu bölümünde farklı IP adresine sahip bir bilgisayardan yeni kullanıcı hesabını kullanarak oturum açmayı deneyecek, Sunucu yöneticisi olarak veritabanı düzeyinde güvenlik duvarı kuralı oluşturacak ve ardından bu yeni veritabanı düzeyinde güvenlik duvarını kullanarak başarıyla oturum açacaksınız. 
@@ -313,10 +314,5 @@ Bu başlangıç öğreticisinde SQL Server Management Studio kullanarak Azure Ac
 - Veritabanı sorumluları hakkında daha fazla bilgi için bkz. [Sorumlular](https://msdn.microsoft.com/library/ms181127.aspx).
 - Veritabanı rolleri hakkında daha fazla bilgi için bkz. [Veritabanı rolleri](https://msdn.microsoft.com/library/ms189121.aspx).
 - SQL Veritabanındaki güvenlik duvarı kuralları hakkında daha fazla bilgi için bkz. [SQL Veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

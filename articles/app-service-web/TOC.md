@@ -257,7 +257,7 @@
 ### [Web uygulaması performans sorunlarını giderme](app-service-web-troubleshoot-performance-degradation.md)
 
 # Başvuru
-## [Azure CLI 2.0 Önizleme](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
@@ -273,9 +273,3 @@
 # Kaynaklar
 ## [En iyi uygulamalar](app-service-best-practices.md)
 ## [Web İşi kaynaklarının listesi](websites-webjobs-resources.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

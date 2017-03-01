@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
 
 
 ---
@@ -29,7 +29,7 @@ Genel İnternet'ten erişilebilen herhangi bir HTTP veya HTTPS uç noktası içi
 İki tür web testi bulunur:
 
 * [URL ping testi](#create): Azure portalında oluşturabileceğiniz basit bir test.
-* [Çok adımlı web testi](#multi-step-web-tests): Visual Studio Ultimate veya Visual Studio Enterprise’da oluşturup portala yüklediğiniz test.
+* [Çok adımlı web testi](#multi-step-web-tests): Visual Studio Enterprise’da oluşturup portala yüklediğiniz test.
 
 Her uygulama kaynağı için 10 web testine kadar test oluşturabilirsiniz.
 
@@ -78,37 +78,20 @@ Bu grafikler, bu uygulamanın tüm web testleri için sonuçları birleştirir.
 ## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Hata görürseniz
 Kırmızı noktaya tıklayın.
 
-![Kırmızı noktaya tıklama](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Kırmızı noktaya tıklama](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-Bunun yerine, ekranı kaydırıp %100 başarı değerinden küçük olduğunu gördüğünüz bir teste de tıklayabilirsiniz.
 
-![Belirli bir web testine tıklama](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+Bir web testi sonucundan aşağıdakileri yapabilirsiniz:
 
-Test sonuçları açılır.
+* Sunucunuzdan alınan yanıtı denetleme.
+* Başarısız istek örneği işlenirken sunucu uygulamanız tarafından gönderilen telemetriyi açma.
+* Sorunu izlemek için bir sorunu veya iş öğesini Git’te ya da VSTS’de günlüğe kaydetme. Hata, bu olayın bir bağlantısını içerir.
+* Web testi sonucunu Visual Studio’da açın.
 
-![Belirli bir web testine tıklama](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-Test çeşitli konumlardan çalıştırılır; sonucu %100'den küçük olan birini seçin.
-
-![Belirli bir web testine tıklama](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Aşağı kaydırarak **Başarısız testler**’e gidip bir sonuç seçin.
-
-Portalda değerlendirmek ve neden başarısız olduğun görmek için sonuca tıklayın.
-
-![Web testi çalıştırma sonucu](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-Alternatif olarak, sonuç dosyasını indirip Visual Studio’da inceleyebilirsiniz.
 
 *Sorunsuz görünüyor ancak hata olarak mı bildiriliyor?* Tüm görüntüleri, betikleri, stil sayfalarını ve sayfa tarafından yüklenen diğer dosyaları denetleyin. Herhangi biri başarısızsa, ana html sayfası Tamam olarak yüklense bile test başarısız olarak raporlanır.
 
-### <a name="open-the-server-request-and-exceptions"></a>Sunucu isteği ve özel durumlar bölümünü açın
-
-Belirli bir testin ayrıntılı özellikler sayfasından isteğin sunucu tarafı raporunu ve özel durumlar gibi diğer olayları açabilirsiniz.
-
-![Web testi çalıştırma sonucu](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-İlgili öğelerin görünmeme nedeni [örnekleme](app-insights-sampling.md) işleminin devam ediyor olması olabilir.
+*İlgili öğe yok mu?* Bunun nedeni, [örnekleme](app-insights-sampling.md) işleminin devam ediyor olması olabilir.
 
 ## <a name="multi-step-web-tests"></a>Çok adımlı web testleri
 Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satış web sitesi izliyorsanız, öğelerin alışveriş sepetine doğru eklendiğini test edebilirsiniz.
@@ -122,7 +105,7 @@ Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satı
 Testlerinizde kodlanmış işlevleri kullanamadığınızı unutmayın: senaryo adımları .webtest dosyasında betik olarak yer almalıdır.
 
 #### <a name="1-record-a-scenario"></a>1. Senaryo kaydetme
-Web oturumu kaydetmek için Visual Studio Enterprise veya Ultimate kullanın.
+Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
 
 1. Web performans testi projesi oluşturun.
 
@@ -239,7 +222,7 @@ Genel Bakış dikey penceresinde **Ayarlar**, **Performans Testleri**’ni açı
 Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
 ## <a name="automation"></a>Automation
-* Otomatik olarak [web testini ayarlamak için PowerShell betiklerini kullanın](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/).
+* Otomatik olarak [web testini ayarlamak için PowerShell betiklerini kullanın](app-insights-powershell.md#add-an-availability-test).
 * Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md) ayarlayın.
 
 ## <a name="questions-problems"></a>Sorularınız mı var? Sorunlarınız mı var?
@@ -294,6 +277,6 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

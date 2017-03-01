@@ -50,6 +50,7 @@ Azure SKU'larının işlem (CPU) performansını karşılaştırabilmek için Az
 | [G1-G5](#g-series) |180-240* |
 | [GS1-GS5](#gs-series) |180-240* |
 | [H](#h-series) |290-300* |
+| [L4s L32s](#l-series) |180-240* |
 
 * işaretli ACU'lar, CPU frekansını artırmak ve performans artışı sağlamak için Intel® Turbo Boost teknolojisinden faydalanır.  Performans artışının oranı VM boyutuna, iş yüküne ve aynı ana bilgisayarda çalışan iş yüklerine göre değişiklik gösterebilir.
 
@@ -251,8 +252,26 @@ Bilgi ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. 
 
 <br>
 
+
+## <a name="ls-series"></a>Ls serisi 
+
+Ls serisi NoSQL veritabanları (örneğin Cassandra, MongoDB, Cloudera ve Redis) gibi düşük gecikme süresine sahip yerel depolama alanları gerektiren iş yükleri için optimize edilmiştir. Ls serisi, [Intel® Xeon İşlemci E5 v3 ailesi](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html) ile 32’ye kadar CPU çekirdeği kullanım olanağı sunar. Bu, G/GS serisi ile aynı CPU performansı sunar ve her CPU çekirdeği başına 8 GiB bellek içerir.  
+
+ 
+| Boyut          | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği | 
+|---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standart_L4s  | 4    | 32   | 678   | 8              | Yok / Yok (0)          | 5000/125                               | 2/yüksek       | 
+| Standart_L8s  | 8    | 64   | 1,388 | 16             | Yok / Yok (0)          | 10.000/250                              | 4/çok yüksek  | 
+| Standart_L16s | 16   | 128  | 2,807 | 32             | Yok / Yok (0)          | 20.000/500                              | 8/aşırı yüksek | 
+| Standart_L32s | 32   | 256  | 5,630 | 64             | Yok / Yok (0)          | 40.000/1000                            | 8/aşırı yüksek | 
+ 
+MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt. 
+
+
+
 ## <a name="n-series"></a>N Serisi
 NC ve NV boyutları, GPU özellikli örnekler olarak da bilinir. NVIDIA GPU kartlarına sahip bu özel amaçlı sanal makineler, farklı senaryolar ve kullanım amaçları için iyileştirilmiştir. NV boyutları uzaktan görselleştirme, içerik akışı, oyun ve kodlamanın yanı sıra OpenGL ve DirectX gibi çerçeveleri kullanan VDI senaryoları için tasarlanmış ve iyileştirilmiştir. NC boyutları ise CUDA ve OpenCL tabanlı uygulama ve simülasyonlar gibi yoğun işlem ve ağ kullanımlı uygulamalar ve algoritmalar için iyileştirilmiştir. 
+
 
 ### <a name="nv-instances"></a>NV Örnekleri
 NVIDIA'nın Tesla M60 GPU kartının yanı sıra hızlandırılmış masaüstü uygulamaları ve sanal masaüstü düzenleri için NVIDIA GRID özelliğine sahip olan NV örnekleri, müşterilerin verilerini veya simülasyonlarını görselleştirmek için kullanabileceği sistemlerdir. Kullanıcılar yoğun grafik kullanımlı iş akışlarını NV örneklerinde görselleştirerek üstün grafik özelliğine sahip olurken kodlama ve işleme gibi hassas iş yüklerini de tek başına çalıştırabilir. Tesla M60, çift GPU tasarımda 4096 CUDA çekirdeği ve en fazla 36 adet 1080p H.264 akışı sunar. 
@@ -303,9 +322,4 @@ Klasik dağıtım modelinde bazı VM boyutu adları CLI ve PowerShell'dekilerden
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../articles/azure-subscription-service-limits.md) hakkında bilgi edinin.
 * Yüksek performanslı bilgi işlem (HPC) gibi iş yükleri için [H Serisi ve yoğun işlemci kullanımlı A Serisi VM'ler](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) hakkında daha fazla bilgi edinin.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

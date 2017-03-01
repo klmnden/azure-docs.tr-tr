@@ -1,6 +1,6 @@
 ---
-title: "VMM bulutlarındaki Hyper-V sanal makinelerini Azure&quot;a çoğaltma| Microsoft Docs"
-description: "Site Recovery&quot;nin, VMM bulutlarındaki Hyper-V sanal makinelerinden Azure&quot;a yönelik çoğaltma, yük devretme ve kurtarma işlemlerini gerçekleştirmek üzere nasıl dağıtılacağını açıklar."
+title: "VMM bulutlarındaki Hyper-V sanal makinelerini Azure&quot;a çoğaltma | Microsoft Belgeleri"
+description: "System Center VMM bulutlarında yönetilen Hyper-V sanal makinelerinden Azure&quot;a çoğaltma, yük devretme ve kurtarmayı düzenleme"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,62 +12,29 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/23/2017
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
-ms.openlocfilehash: bdf9ce3d4ac359aa4150bc8912ce8b8302828343
+ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
+ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-the-azure-portal"></a>Azure portalını kullanarak VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
-
+# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Azure portalında Site Recovery’yi kullanarak VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-vmm-to-azure.md)
+> * [Azure portal](site-recovery-vmm-to-azure.md)
 > * [Azure klasik](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [PowerShell klasik](site-recovery-deploy-with-powershell.md)
 
 
-Azure Site Recovery hizmetine hoş geldiniz!
+Bu makalede, Azure portalındaki [Azure Site Recovery](site-recovery-overview.md) hizmetini kullanarak System Center VMM bulutlarında yönetilen şirket içi Hyper-V sanal makinelerini Azure'a nasıl çoğaltacağınız açıklanmıştır.
 
-Site Recovery, iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunan bir Azure hizmetidir. Site Recovery, şirket içi fiziksel sunucuların ve sanal makinelerin buluta (Azure) veya ikincil bir veri merkezine çoğaltılmasını düzenler. Kesinti birincil konumunuzda meydana gelirse uygulamaları ve iş yüklerini kullanılabilir durumda tutmak için ikincil konuma yük devredersiniz. Normal çalışma koşullarına dönüldüğünde de yükü birincil konuma geri alabilirsiniz. [Azure Site Recovery nedir?](site-recovery-overview.md) bölümünden daha fazla bilgi edinebilirsiniz.
-
-Bu makalede, Azure portalındaki Azure Site Recovery'yi kullanarak System Center VMM bulutlarında yönetilen şirket içi Hyper-V sanal makinelerini Azure'a nasıl çoğaltacağınız açıklanmıştır.
-
-Bu makaleyi okuduktan sonra yorumlarınızı aşağıda paylaşabilirsiniz. Teknik sorular için [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nu kullanın.
-
-## <a name="quick-reference"></a>Hızlı başvuru
-Tam bir dağıtım için makaledeki tüm adımları uygulamanızı öneririz. Ancak zamanınız kısıtlıysa, burada kısa bir özet bulabilirsiniz.
-
-| **Alan** | **Ayrıntılar** |
-| --- | --- |
-| **Dağıtım senaryosu** |Azure portalını kullanarak VMM bulutlarındaki Hyper-V VM’lerini Azure'a çoğaltma |
-| **Şirket içi gereksinimleri** |Bir veya daha fazla bulutla System Center 2012 R2 üzerinde çalışan bir veya daha fazla VMM sunucusu.<br/><br/> Bulutlar, bir veya daha fazla VMM konak grubu içermelidir.<br/><br/> En azından Hyper-V rolüne sahip Windows Server 2012 R2’yi veya en son güncelleştirmeleri içeren Microsoft Hyper-V Server 2012 R2’yi çalıştıran buluttaki en az bir Hyper-V sunucusu.<br/><br/> VMM sunucuları ve Hyper-V konaklarının internete ve doğrudan veya bir ara sunucu aracılığıyla belirli URL’lere erişebilmesi gerekir. [Tüm ayrıntılar](#on-premises-prerequisites). |
-| **Şirket içi sınırlamaları** |HTTPS tabanlı ara sunucu desteklenmez |
-| **Sağlayıcı/aracı** |Çoğaltılan VM’ler için Azure Site Recovery Sağlayıcısı gerekir.<br/><br/> Hyper-V konakları için Kurtarma Hizmetleri aracısı gerekir.<br/><br/> Bunları dağıtım sırasında yüklersiniz. |
-|  **Azure gereksinimleri** |Azure hesabı<br/><br/> Kurtarma hizmetleri kasası<br/><br/> Kasa bölgesindeki LRS veya GRS depolama hesabı<br/><br/> Standart depolama hesabı<br/><br/> Kasa bölgesinde Azure sanal ağı. [Tüm ayrıntılar](#azure-prerequisites). |
-|  **Azure sınırlamaları** |GRS kullanırsanız oturum açmak için başka bir LRS hesabına ihtiyacınız olur<br/><br/> Azure portalında oluşturulan depolama hesapları, aynı veya farklı aboneliklerdeki kaynak grupları arasında taşınamaz. <br/><br/> Premium depolama desteklenmiyor.<br/><br/> Site Recovery için kullanılan Azure ağları, aynı veya farklı aboneliklerdeki kaynak grupları arasında taşınamaz.
-|  **VM çoğaltması** |[Sanal makineler, Azure önkoşullarıyla uyumlu olmalıdır](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
-|  **Çoğaltma sınırlamaları** |Statik bir IP adresiyle Linux çalıştıran VM'leri çoğaltamazsınız.<br/><br/> İşletim sistemi diski haricindeki belirli diskleri çoğaltmanın dışında tutabilirsiniz.
-| **Dağıtım adımları** |1) Azure’u hazırlama (abonelik, depolama, ağ) -> 2) Şirket içi ile ilgili hazırlıkları yapma (VMM ve ağ eşlemesi) -> 3) Kurtarma Hizmetleri kasası oluşturma -> 4) VMM ve Hyper-V konaklarını ayarlama -> 5) Çoğaltma ayarlarını yapılandırma -> 6) Çoğaltmayı etkinleştirme -> 7) Çoğaltma ve yük devretmeyi test etme. |
-
-## <a name="site-recovery-in-the-azure-portal"></a>Azure portalında Site Recovery
-
-Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki [dağıtım modeli](../resource-manager-deployment-model.md) kullanır: Azure Resource Manager ve klasik model. Azure’da ayrıca iki portal bulunur: Klasik Azure portalı ve Azure portalı. Bu makalede, Azure portalında nasıl dağıtım yapılacağı açıklanmıştır.
+Bu makaleyi okuduktan sonra yapmak istediğiniz tüm yorumları makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
 
-Bu makalede, kolaylaştırılmış bir dağıtım deneyimi sunan Azure portalında nasıl dağıtım yapılacağı açıklanmıştır. Klasik portal, mevcut kasaları korumak için kullanılabilir. Klasik portalı kullanarak yeni kasalar oluşturamazsınız.
 
-
-## <a name="site-recovery-in-your-business"></a>İşletmenizde Site Recovery
-
-Kuruluşlar, planlı ve plansız kesinti süreleri boyunca uygulamalarla verilerin çalışır durumda ve kullanılabilir olmasına yönelik izlenecek yolu belirleyip mümkün olan en kısa sürede normal çalışma koşullarına dönmeyi sağlayan bir BCDR stratejisine gereksinim duyar. Site Recovery'nin sağladığı avantajlar şunlardır:
-
-* Hyper-V VM’lerinde çalışan iş uygulamaları için şirket dışında koruma.
-* Çoğaltma, yük devretme ve kurtarma işlemlerini izlemek, yönetmek ve ayarlamak için tek bir konum.
-* Azure'a kolayca yük devretme ve Azure'dan şirket içi konumunuzdaki Hyper-V konak sunucularından yeniden çalışma (kurtarma).
-* Katmanlı uygulama iş yüklerinin birlikte yük devredebilmesi için birden çok VM içeren kurtarma planları.
 
 ## <a name="scenario-architecture"></a>Senaryo mimarisi
 Senaryo bileşenleri şu şekildedir:
@@ -100,7 +67,7 @@ Senaryo bileşenleri şu şekildedir:
 ## <a name="protected-machine-prerequisites"></a>Korumalı makine önkoşulları
 | **Önkoşul** | **Ayrıntılar** |
 | --- | --- |
-| **Korumalı VM'ler** |Bir VM'ye yük devretmeden önce, Azure VM'sine atanan adın [Azure önkoşullarına](site-recovery-best-practices.md#azure-virtual-machine-requirements) uygun olduğundan emin olun. VM için çoğaltma işlemini etkinleştirdikten sonra adı değiştirebilirsiniz. <br/><br/> Korumalı makinelerdeki bağımsız disk kapasitesinin 1023 GB'tan fazla olmaması gerekir. Bir VM 64 adede kadar disk barındırabilir (64 TB'ye kadar).<br/><br/> Paylaşılan disk konuk kümeleri desteklenmez.<br/><br/> Birleşik Genişletilebilir Bellenim Arabirimi (UEFI)/Genişletilebilir Bellenim Arabirimi (EFI) önyüklemesi desteklenmez.<br/><br/> Kaynak VM, NIC grubu oluşturma özelliğine sahipse Azure'a yük devretme işleminin ardından tek bir NIC'ye dönüştürülür.<br/><br/>Statik bir IP adresiyle Linux çalıştıran Hyper-V sanal makinelerini koruma işlemi desteklenmez. |
+| **Korumalı VM'ler** |Bir VM'ye yük devretmeden önce, Azure VM'sine atanan adın [Azure önkoşullarına](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) uygun olduğundan emin olun. VM için çoğaltma işlemini etkinleştirdikten sonra adı değiştirebilirsiniz. <br/><br/> Korumalı makinelerdeki bağımsız disk kapasitesinin 1023 GB'tan fazla olmaması gerekir. Bir VM 64 adede kadar disk barındırabilir (64 TB'ye kadar).<br/><br/> Paylaşılan disk konuk kümeleri desteklenmez.<br/><br/> Birleşik Genişletilebilir Bellenim Arabirimi (UEFI)/Genişletilebilir Bellenim Arabirimi (EFI) önyüklemesi desteklenmez.<br/><br/> Kaynak VM, NIC grubu oluşturma özelliğine sahipse Azure'a yük devretme işleminin ardından tek bir NIC'ye dönüştürülür.<br/><br/>Statik bir IP adresiyle Linux çalıştıran Hyper-V sanal makinelerini koruma işlemi desteklenmez. |
 
 ## <a name="prepare-for-deployment"></a>Dağıtım için hazırlanma
 Dağıtıma hazırlanmak için şunları yapmanız gerekir:
@@ -108,7 +75,7 @@ Dağıtıma hazırlanmak için şunları yapmanız gerekir:
 1. Yük devretmeden sonra Azure VM’lerinin içinde bulunacağı [bir Azure ağı ayarlayın](#set-up-an-azure-network).
 2. Çoğaltılan veriler için [Azure depolama hesabı ayarlama](#set-up-an-azure-storage-account).
 3. Site Recovery dağıtımı için [VMM sunucusunu hazırlama](#prepare-the-vmm-server).
-4. [Ağ eşlemesi için hazırlanma](#prepare-for-network-mapping). Site Recovery dağıtımı sırasında ağ eşlemesini yapılandırabilmeniz için ağları ayarlayın.
+4. Ağ eşlemesi için hazırlanın. Site Recovery dağıtımı sırasında ağ eşlemesini yapılandırabilmeniz için ağları ayarlayın.
 
 ### <a name="set-up-an-azure-network"></a>Azure ağı ayarlama
 Yük devretme işleminden sonra oluşturulan Azure VM'lerinin bağlanacağı bir Azure ağınızın olması gerekir.
@@ -137,7 +104,6 @@ Site Recovery dağıtımı sırasında ağ eşlemesini ayarlamanız gerekir. Şu
 
   * Kaynak Hyper-V ana bilgisayar sunucusundaki VM'lerin bir VMM VM ağına bağlı olduğundan emin olun. Bu ağın, bulutla ilişkilendirilen mantıksal bir ağ ile bağlantılı olması gerekir.
   * [Yukarıda](#set-up-an-azure-network) açıklandığı gibi bir Azure ağına sahip olmanız gerekir.
-* Ağ eşlemesinin nasıl çalıştığı hakkında [daha fazla bilgi edinin](site-recovery-network-mapping.md).
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 1. [Azure portalında](https://portal.azure.com) oturum açın.
@@ -177,14 +143,17 @@ Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna yükleyin ve sunucuyu kas
 1. **2. Adım: Altyapıyı Hazırlama** > **Kaynak** seçeneklerine tıklayın.
 
     ![Kaynağı ayarlama](./media/site-recovery-vmm-to-azure/set-source1.png)
+    
 2. **Kaynağı ayarla** kısmında, bir VMM sunucusu eklemek için **+ VMM**'ye tıklayın.
 
     ![Kaynağı ayarlama](./media/site-recovery-vmm-to-azure/set-source2.png)
+    
 3. **Sunucu Ekle** dikey penceresinde, **Sunucu türü** alanında **System Center VMM sunucusunun** görünüp görünmediğini ve VMM sunucusunun [önkoşulları ve URL gereksinimlerini](#on-premises-prerequisites) karşılayıp karşılamadığını kontrol edin.
 4. Azure Site Recovery Sağlayıcısı yükleme dosyasını indirin.
 5. Kayıt anahtarını indirin. Kurulumu çalıştırırken buna ihtiyacınız olur. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
 
     ![Kaynağı ayarlama](./media/site-recovery-vmm-to-azure/set-source3.png)
+    
 6. VMM sunucusunda Azure Site Recovery Sağlayıcısı'nı yükleyin.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>Azure Site Recovery Sağlayıcısı'nı ayarlama
@@ -291,7 +260,8 @@ Hyper-V ana bilgisayarlarında çalışan Kurtarma Hizmetleri aracısının VM �
    Klasik modeli kullanarak bir ağ oluşturmak isterseniz bu işlemi Azure portalından gerçekleştirin. [Daha fazla bilgi edinin](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ### <a name="configure-network-mapping"></a>Ağ eşlemesini yapılandırma
-* Ağ eşlemesi işlevinin genel hatlarını [okuyun](#prepare-for-network-mapping). Daha ayrıntılı bir açıklama için [bunu okuyun](site-recovery-network-mapping.md).
+
+* Ağ eşlemesi işlevinin genel hatlarını [okuyun](#prepare-for-network-mapping).
 * VMM sunucusu üzerindeki sanal makinelerin VM ağına bağlı olduğunu ve en az bir Azure sanal ağı oluşturduğunuzu doğrulayın. Tek bir Azure ağına birden çok VM ağı eşlenebilir.
 
 Eşleme işlemini şu şekilde yapılandırın:
@@ -390,16 +360,17 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
 6. **Sanal Makineler** > **Sanal makine seçin** seçeneklerine tıklayın ve çoğaltmak istediğiniz makineleri seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. **Özellikler** > **Özellikleri yapılandır** seçeneklerinde, seçili VM'ler için işletim sistemini ve işletim sistemi diskini belirtin. Varsayılan olarak VM'nin tüm diskleri çoğaltma için seçilir. Gereksiz verilerin Azure'da çoğaltılmasını önleyerek bant genişliği tüketimini azaltmak için belirli diskleri çoğaltma dışı bırakmayı tercih edebilirsiniz. Örneğin geçici verilere veya bilgisayar ya da uygulama yeniden başlatıldığında yenilenen verilere (pagefile.sys veya Microsoft SQL Server tempdb gibi) sahip diskleri çoğaltmak istemeyebilirsiniz. Diskin seçimini kaldırarak çoğaltma kapsamı dışında bırakabilirsiniz. Azure VM adının (Hedef Ad) [Azure sanal makine gereksinimlerine](site-recovery-best-practices.md#azure-virtual-machine-requirements) uygun olduğundan emin olun ve gerekirse değiştirin. Daha sonra, **Tamam**'a tıklayın. Ek özellikleri daha sonra ayarlayabilirsiniz.
+
+7. **Özellikler** > **Özellikleri yapılandır** seçeneklerinde, seçili VM'ler için işletim sistemini ve işletim sistemi diskini belirtin. Varsayılan olarak VM'nin tüm diskleri çoğaltma için seçilir. Gereksiz verilerin Azure'da çoğaltılmasını önleyerek bant genişliği tüketimini azaltmak için belirli diskleri çoğaltma dışı bırakmayı tercih edebilirsiniz. Örneğin geçici verilere veya bilgisayar ya da uygulama yeniden başlatıldığında yenilenen verilere (pagefile.sys veya Microsoft SQL Server tempdb gibi) sahip diskleri çoğaltmak istemeyebilirsiniz. Diskin seçimini kaldırarak çoğaltma kapsamı dışında bırakabilirsiniz. Azure VM adının (Hedef Ad) [Azure sanal makine gereksinimlerine](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) uygun olduğundan emin olun ve gerekirse değiştirin. Daha sonra, **Tamam**'a tıklayın. Daha sonra ek özellikleri ayarlayabilirsiniz.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
     >[!NOTE]
     >
-    > * Yalnızca temel diskler çoğaltma dışı bırakılabilir. İşletim sistemi hariç tutulamaz ve dinamik disklerin hariç tutulması önerilmez. ASR, konuk VM içindeki VHD disklerinin hangisinin temel, hangisinin dinamik olduğunu belirleyemez.  Bağımlı dinamik hacim disklerinin tümü hariç bırakılmazsa, korumalı dinamik disk yük devredilen VM'de hatalı disk olarak gelir ve diskteki verilere erişim sağlanamaz.
+    > * Yalnızca temel diskler çoğaltma dışı bırakılabilir. İşletim sistemi disklerini hariç tutamazsınız ve dinamik disklerin hariç tutulması önerilmez. Site Recovery, konuk sanal makine içerisindeki bir VHD diskinin temel mi yoksa dinamik mi olduğunu anlayamaz.  Bağımlı dinamik birim disklerinin tümü hariç bırakılmazsa, korumalı dinamik disk sanal makine yük devrinde başarısız olur ve diskteki verilere erişim sağlanamaz.
     > * Çoğaltmayı etkinleştirdikten sonra çoğaltma için disk ekleme veya kaldırma gerçekleştiremezsiniz. Bir diski eklemek veya hariç tutmak istiyorsanız, VM için korumayı devre dışı bırakmanız ve yeniden etkinleştirmeniz gerekir.
     > * Bir uygulamanın çalışması için gerekli olan bir diski hariç tutarsanız, Azure'a yük devretme gerçekleştirildikten sonra çoğaltılan uygulamanın çalışması için Azure'da el ile oluşturmanız gerekir. Alternatif olarak makinenin yük devri sırasında diskin otomatik olarak oluşturulması için Azure otomasyonunu bir kurtarma planıyla tümleştirebilirsiniz.
-    > * Azure'da el ile oluşturduğunuz diskler yeniden çalışmaz. Örneğin, üç disk için yük devretme gerçekleştirirseniz ve ikisini doğrudan Azure VM'de oluşturursanız, yalnızca yük devretme gerçekleştirilen üç disk Azure'dan Hyper-V'ye çoğaltılarak yeniden çalışır hale getirilir. El ile oluşturulmuş diskleri yeniden çalışma veya Hyper-V'den Azure'a geri çoğaltma işlemine dahil edemezsiniz.
+    > * Azure'da el ile oluşturduğunuz diskler yeniden çalışır duruma getirilmez. Örneğin, üç disk için yük devretme gerçekleştirir ve ikisini doğrudan Azure sanal makinesinde oluşturursanız, yalnızca yük devretme gerçekleştirilen üç disk Azure'dan Hyper-V'ye çoğaltılarak yeniden çalışır hale getirilir. El ile oluşturulmuş diskleri yeniden çalışma veya Hyper-V'den Azure'a geri çoğaltma işlemine dahil edemezsiniz.
     >
     >
 
@@ -411,7 +382,7 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
 **Ayarlar** > **İşler** > **Site Recovery işleri** üzerinden **Korumayı Etkinleştir** işinin ilerleyişini izleyebilirsiniz. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 
 ### <a name="view-and-manage-vm-properties"></a>VM özelliklerini görüntüleme ve yönetme
-Kaynak makinenin özelliklerini doğrulamanızı öneririz. Azure VM adının [Azure sanal makine gereksinimlerini](site-recovery-best-practices.md#azure-virtual-machine-requirements) karşılaması gerektiğini unutmayın.
+Kaynak makinenin özelliklerini doğrulamanızı öneririz. Azure VM adının [Azure sanal makine gereksinimlerini](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) karşılaması gerektiğini unutmayın.
 
 1. **Ayarlar** > **Korunan Öğeler** > **Çoğaltılan Öğeler** seçeneklerine tıklayıp ayrıntılarını görmek istediğiniz makineyi seçin.
 
@@ -419,7 +390,7 @@ Kaynak makinenin özelliklerini doğrulamanızı öneririz. Azure VM adının [A
 2. **Özellikler** kısmında VM'nin çoğaltma ve yük devretme bilgilerini inceleyebilirsiniz.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. **İşlem ve Ağ** > **İşlem özellikleri** seçeneklerinden Azure VM adını ve hedef boyutu belirtebilirsiniz. Gerekirse [Azure gereksinimleri](site-recovery-best-practices.md#azure-virtual-machine-requirements) ile uyum sağlamak için adı değiştirin. Azure VM'sine atanan IP adresi, alt ağ ve hedef ağ ile ilgili bilgileri de görüntüleyip değiştirebilirsiniz.
+3. **İşlem ve Ağ** > **İşlem özellikleri** seçeneklerinden Azure VM adını ve hedef boyutu belirtebilirsiniz. Gerekirse [Azure gereksinimleri](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) ile uyum sağlamak için adı değiştirin. Azure VM'sine atanan IP adresi, alt ağ ve hedef ağ ile ilgili bilgileri de görüntüleyip değiştirebilirsiniz.
 Şunlara dikkat edin:
 
    * Hedef IP adresini ayarlayabilirsiniz. Bir IP adresi sağlamazsanız yük devredilen makine DHCP kullanır. Yük devretmede kullanılamayan bir adres ayarlarsanız yük devretme işlemi başarısız olur. Hedef IP adresi, yük devretme ağı testinde kullanılabilirse aynı IP adresi yük devretme sınamasında da kullanılabilir.
@@ -473,7 +444,7 @@ Dağıtımı test etmek için tek bir sanal makine için yük devretme testi vey
 1. Yük devretmeyi başlatmak için **Tamam**'a tıklayın. Özelliklerini açmak için VM'ye tıklayarak veya **Ayarlar** > **Site Recovery işleri** seçeneklerinde **Yük Devretme Testi**'ne tıklayarak ilerlemeyi izleyebilirsiniz.
 1. Yük devretme tamamlandıktan sonra çoğaltılan makineyi Azure portalı > **Sanal Makineler** kısmında da görmeniz gerekir. VM'nin uygun boyutta olduğundan, uygun bir ağa bağlandığından ve çalıştığından emin olmanız gerekir.
 1. [Yük devretme sonrasındaki bağlantılar için hazırlık yaptıysanız](#prepare-to-connect-to-Azure-VMs-after-failover) Azure VM'ye bağlanabilmeniz gerekir.
-1. İşiniz bittiğinde kurtarma planındaki **Temizleme testi yük devretme** öğesine tıklayın. Yük devretme testiyle ilişkili gözlemlerinizi kaydetmek ve saklamak için **Notlar**'a tıklayın. Bunun yapılması, yük devretme testi sırasında oluşturulan sanal makineleri siler. 
+1. İşiniz bittiğinde kurtarma planındaki **Temizleme testi yük devretme** öğesine tıklayın. Yük devretme testiyle ilişkili gözlemlerinizi kaydetmek ve saklamak için **Notlar**'a tıklayın. Bunun yapılması, yük devretme testi sırasında oluşturulan sanal makineleri siler.
 
 Daha fazla ayrıntı için [Azure'a yük devretme testi](site-recovery-test-failover-to-azure.md) belgesine bakın.
 
@@ -483,14 +454,9 @@ Site Recovery dağıtımınızın durumunu, yapılandırma ayarlarını ve siste
 1. **Temel Bileşenler** panosuna erişmeniz için kasa adına tıklayın. Bu panoda Site Recovery işlerini, çoğaltma durumunu, kurtarma planlarını, sunucu sistem durumunu ve olayları izleyebilirsiniz.  **Temel Bileşenler** panosunu, Site Recovery ve Backup kasalarının durumu dahil olmak üzere sizin için en faydalı olan kutucukları ve düzenlemeleri gösterecek şekilde özelleştirebilirsiniz.
 
     ![Temel Bileşenler](./media/site-recovery-vmm-to-azure/essentials.png)
-2. **Sistem durumu** kutucuğunda, konum sunucularındaki (VMM veya yapılandırma sunucuları) sorunları ve Site Recovery tarafından son 24 saat içinde tetiklenen olayları izleyebilirsiniz.
+2. *Sistem Durumu** bölümünde şirket içi sunuculardaki (VMM veya yapılandırma sunucuları) sorunları ve Site Recovery tarafından son 24 saat içinde tetiklenen olayları izleyebilirsiniz.
 3. **Çoğaltılan Öğeler**, **Kurtarma Planları** ve **Site Recovery İşleri** kutucuklarında çoğaltma işlemini yönetebilir ve izleyebilirsiniz. **Ayarlar** > **İşler** > **Site Recovery İşleri** seçeneklerinden işlerin ayrıntılarına ulaşabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Dağıtımınız ayarlandıktan ve çalışmaya başladıktan sonra farklı türdeki yük devretmeler hakkında [daha fazla bilgi edinebilirsiniz](site-recovery-failover.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
