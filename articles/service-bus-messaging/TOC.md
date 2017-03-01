@@ -39,6 +39,7 @@
 ### [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md)
 ### [Teslim edilemeyen iletiler sırası](service-bus-dead-letter-queues.md)
 ### [İşlem gerçekleştirme](service-bus-transactions.md)
+### [Tanılama günlükleri](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -71,10 +72,5 @@
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

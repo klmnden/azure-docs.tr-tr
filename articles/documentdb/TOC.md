@@ -44,8 +44,9 @@
 ### [Yedekleme ve geri yükleme](documentdb-online-backup-and-restore.md)
 ### [S1, S2, S3’ü devre dışı bırakma](documentdb-performance-levels.md)
 ### [İstek birimleri](documentdb-request-units.md)
-### Azure CLI
-#### [Hesap oluşturma](documentdb-automation-resource-manager-cli.md)
+### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+### Azure CLI 1.0
+#### [Hesap oluşturma](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Bölge ekleme veya kaldırma](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Güvenlik duvarı desteği](documentdb-firewall-support.md)
@@ -124,8 +125,3 @@
 ## [Beyzbol örneği ile açıklanan veri tutarlılığı](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Kitap: Using Microsoft Azure DocumentDB in a Node.js Application (Node.js Uygulamasında Microsoft Azure DocumentDB Kullanma)](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

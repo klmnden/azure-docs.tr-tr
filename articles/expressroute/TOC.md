@@ -51,7 +51,7 @@
 ### [ARP tablolarını alma (Klasik)](expressroute-troubleshooting-arp-classic.md)
 
 # Başvuru
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klasik)](https://msdn.microsoft.com/library/azure/dn606310)
 
@@ -79,8 +79,3 @@
 ### [Bağlanılabilirlik için ağ altyapınızı geliştirme](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Karma ortaklıklar: Şirket içi senaryoları etkinleştirme](https://go.microsoft.com/fwlink/p/?LinkId=615125)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=expressroute)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
