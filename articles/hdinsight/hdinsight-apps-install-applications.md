@@ -1,6 +1,6 @@
 ---
-title: "HDInsight’a Hadoop uygulamaları yükleme | Microsoft Belgeleri"
-description: "HDInsight uygulamalarına HDInsight uygulamalarını nasıl yükleyeceğinizi öğrenin."
+title: "Azure HDInsight’a üçüncü taraf Hadoop uygulamaları yükleme | Microsoft Docs"
+description: "Azure HDInsight&quot;a üçüncü taraf Hadoop uygulamaları yükleme hakkında bilgi alın."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,25 +13,30 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/23/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
-ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
+ms.sourcegitcommit: 8e7911a3a8080ef8fa125779aa1f6778b9655cde
+ms.openlocfilehash: 8780c193c6aa4b6b183723f88d67ac0990347d1e
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="install-hdinsight-applications"></a>HDInsight uygulamaları yükleme
-HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükleyebileceği bir uygulamadır. Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir. Bu makalede yayımlanmış bir uygulamanın nasıl yükleneceğini öğreneceksiniz. Kendi uygulamanızı yüklemek için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md). 
+# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight'a üçüncü taraf Hadoop uygulamaları yükleme
 
-Şu anda, yayımlanmış üç uygulama vardır:
+Bu makalede, daha önce yayımlanmış bir üçüncü taraf Hadoop uygulamasını Azure HDInsight’a yükleme hakkında bilgi edineceksiniz. Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
 
+HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükleyebileceği bir uygulamadır. Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir.  
+
+Şu anda, yayımlanmış dört uygulama vardır:
+
+* **HDInsight üzerinde DATAIKU DDS**: Dataiku DSS (Data Science Studio), veri uzmanlarının (veri araştırmacıları, iş analizi uzmanları, geliştiriciler...), ham verileri etkili iş tahminlerine dönüştüren yüksek oranda ayrıntılı hizmetler için prototip oluşturma, derleme ve dağıtma işlemlerini gerçekleştirmesine olanak tanıyan bir yazılımdır.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft), analiz uzmanlarına Büyük Veri üzerinde sonuçları bulma, çözümleme ve görselleştirme için etkileşimli bir yol sunar. Yeni ilişkileri keşfetmek ve ihtiyaç duyduğunuz yanıtları almak için ek veri kaynaklarını kolayca alın.
 * **HDnsight için Akış Kümeleri Veri Toplayıcısı**, tam özellikli bir tümleşik geliştirme ortamı (IDE) sağlar. Bu ortam, akış ve toplu işlem verileri arasında ağ oluşturan “herhangi birinden herhangi birine” alma işlem hatlarını tasarlamanıza, test etmenize, dağıtmanıza ve yönetmenize olanak tanır. Üstelik hiçbiri için özel kod yazmanız gerekmez. 
 * **HDInsight için Cask CDAP 3.5**, büyük veriler için veri uygulamaları ve veri göllerinin üretim süresini %80 azaltan ilk birleşik tümleştirme platformunu sağlar. Bu uygulama yalnızca Standart HBase 3.4 kümelerini destekler.
 
 
-Bu makalede verilen yönergeler Azure portalı kullanmaktadır. Ayrıca portaldan Azure Resouce Manager şablonunu dışarı aktarabilir veya satıcılardan Resouce Manager şablonunun bir kopyasını edinebilir ve Azure PowerShell ile Azure CLI kullanarak şablonu dağıtabilirsiniz.  Bkz. [HDInsight’ta Resource Manager şablonları kullanarak Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+Bu makalede verilen yönergeler Azure portalı kullanmaktadır. Ayrıca portaldan Azure Resource Manager şablonunu dışarı aktarabilir veya satıcılardan Resource Manager şablonunun bir kopyasını edinebilir ve Azure PowerShell ile Azure CLI kullanarak şablonu dağıtabilirsiniz.  Bkz. [HDInsight’ta Resource Manager şablonları kullanarak Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 HDInsight uygulamalarını mevcut bir HDInsight kümesine yüklemek istiyorsanız bir HDInsight kümesine sahip olmanız gerekir. Küme oluşturmak için bkz. [Küme oluşturma](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). HDInsight uygulamalarını ayrıca bir HDInsight kümesi oluştururken yükleyebilirsiniz.
@@ -41,19 +46,19 @@ Aşağıdaki yordamda var olan bir HDInsight kümesine HDInsight uygulamaların�
 
 **Bir HDInsight uygulaması yüklemek için**
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Soldaki menüde **HDInsight Kümeleri**’ne tıklayın.  Bu seçeneği görmüyorsanız **Gözat**’a ve ardından **HDInsight Kümeleri**’ne tıklayın.
+1. [Azure portalında](https://portal.azure.com) oturum açın.
+2. Soldaki menüde **HDInsight Kümeleri**’ne tıklayın.  Bu seçeneği görmüyorsanız **Diğer Hizmetler** ve ardından **HDInsight Kümeleri**’ne tıklayın.
 3. Bir HDInsight kümesine tıklayın.  Henüz yoksa öncelikle bir tane oluşturmanız gerekir.  bkz. [Küme oluşturma](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. **Yapılandırmalar** kategorisinden **Uygulamalar**‘a tıklayın. Yüklü uygulamalar varsa bunların listesini görebilirsiniz.
+4. **Yapılandırmalar** kategorisinden **Uygulamalar**‘a tıklayın. Yüklü uygulamalar varsa bunların listesini görebilirsiniz. Uygulamalar seçeneğini bulamıyorsanız bu, HDInsight kümesinin bu sürümü için bir uygulama olmadığı anlamına gelir.
    
-    ![hdinsight uygulamaları portal menüsü](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    ![HDInsight uygulamaları portal menüsü](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Dikey pencere menüsünden **Ekle**’ye tıklayın. 
    
-    ![hdinsight uygulamaları yüklü uygulamalar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
+    ![HDInsight uygulamaları yüklü uygulamalar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
    
     Mevcut HDInsight uygulamalarının listesini görebilirsiniz.
    
-    ![hdinsight uygulamaları kullanılabilir uygulamalar](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+    ![HDInsight uygulamaları kullanılabilir uygulamalar](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
 6. Uygulamalardan birine tıklayın, yasal koşulları kabul edin ve ardından **Seç**’e tıklayın.
 
 Yükleme durumunu portal bildirimlerinden görebilirsiniz (portalın üst kısmındaki zil simgesine tıklayın). Uygulama yüklendikten sonra Yüklü Uygulamalar dikey penceresinde görünür.
@@ -84,12 +89,12 @@ Portal bir küme için yüklü HDInsight uygulamalarının listesini ve yüklü 
 
 **HDInsight uygulamasını listelemek ve özellikleri görüntülemek için**
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. [Azure portalında](https://portal.azure.com) oturum açın.
 2. Soldaki menüde **HDInsight Kümeleri**’ne tıklayın.  Bu seçeneği görmüyorsanız **Gözat**’a ve ardından **HDInsight Kümeleri**’ne tıklayın.
 3. Bir HDInsight kümesine tıklayın.
 4. **Ayarlar** dikey penceresinde **Genel** kategorisi altındaki **Uygulamalar**’a tıklayın. Yüklü Uygulamalar dikey penceresinde tüm yüklü uygulamalar listelenir. 
    
-    ![hdinsight uygulamaları yüklü uygulamalar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    ![HDInsight uygulamaları yüklü uygulamalar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Özelliği görüntülemek için yüklü uygulamalardan birine tıklayın. Özellik dikey penceresinde şunlar listelenir:
    
    * Uygulama adı: uygulamanın adı.
@@ -114,10 +119,5 @@ Bkz. [Yükleme sorunlarını giderme](hdinsight-apps-install-custom-applications
 * [Betik Eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirme](hdinsight-hadoop-customize-cluster-linux.md): ek uygulamalar yüklemek için Betik Eyleminin nasıl kullanılacağını öğrenin.
 * [Resource Manager şablonları kullanarak HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md): HDInsight kümeleri oluşturmak için Resource Manager şablonlarının nasıl çağrılacağını öğrenin.
 * [HDInsight’ta boş kenar düğümleri kullanma](hdinsight-apps-use-edge-node.md): HDInsight kümesine erişmek, HDInsight uygulamalarını test etmek ve HDInsight uygulamalarını barındırmak için boş bir kenar düğümünü kullanmayı öğrenin.
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

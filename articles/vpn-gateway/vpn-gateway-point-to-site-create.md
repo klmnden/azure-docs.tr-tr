@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 02/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: f6fa6511c8d54e191de27fda73aad9feb734191f
-ms.openlocfilehash: 1065ad38f5c3627e4afd441fcd4540db01632373
+ms.sourcegitcommit: cf72197aba2c6e6c7a51f96d1161cf1fbe88a0c5
+ms.openlocfilehash: 149f3daf1f61f459b0a0834c0f112574510d5259
 
 
 ---
@@ -32,9 +32,9 @@ ms.openlocfilehash: 1065ad38f5c3627e4afd441fcd4540db01632373
 
 Noktadan Siteye (P2S) yapılandırması, ayrı bir istemci bilgisayardan bir sanal ağa yönelik güvenli bağlantı oluşturmanıza olanak sağlar. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda P2S bağlantısı kullanışlıdır.
 
-Bu makalede **klasik portal** kullanılarak **klasik dağıtım modelinde** Noktadan Siteye bağlantı ile sanal ağ oluşturma işlemi adım adım açıklanır.
+Noktadan Siteye bağlantıların çalışması için bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısı, bağlantının istemci bilgisayardan başlatılmasıyla oluşturulur. Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için bu makalenin sonunda yer alan [Noktadan Siteye hakkında SSS](#faq) bölümünü inceleyin.
 
-Noktadan Siteye bağlantıların çalışması için bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısı, bağlantının istemci bilgisayardan başlatılmasıyla oluşturulur. Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için [VPN Gateway ile ilgili SSS](vpn-gateway-vpn-faq.md#point-to-site-connections) ve [Planlama ve Tasarım](vpn-gateway-plan-design.md) başlıklı makalelere bakın.
+Bu makalede klasik portal kullanılarak klasik dağıtım modelinde Noktadan Siteye bağlantı ile sanal ağ oluşturma işlemi adım adım açıklanır.
 
 ### <a name="deployment-models-and-methods-for-p2s-connections"></a>P2S bağlantıları için dağıtım modelleri ve yöntemleri
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -44,11 +44,11 @@ Aşağıdaki tabloda, P2S yapılandırmaları için iki dağıtım modeli ve kul
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="basic-workflow"></a>Temel iş akışı
-![Noktadan Siteye diyagramı](./media/vpn-gateway-point-to-site-create/p2sclassic.png "point-to-site")
+![Noktadan Siteye Diyagramı](./media/vpn-gateway-point-to-site-create/p2sclassic.png "point-to-site")
 
 Aşağıda, sanal ağa yönelik güvenli bir Noktadan Siteye bağlantı oluşturma işlemi adım adım açıklanmaktadır. 
 
-Noktadan Siteye bağlantı yapılandırması 4 bölüme ayrılmıştır. Bu bölümlerin her birini hangi sırada yapılandıracağınız önemlidir. Adımları atlamayın ve aşağıdaki sıraya uygun ilerleyin.
+Noktadan Siteye bağlantı yapılandırması&4; bölüme ayrılmıştır. Bu bölümlerin her birini hangi sırada yapılandıracağınız önemlidir. Adımları atlamayın ve aşağıdaki sıraya uygun ilerleyin.
 
 * **1. Bölüm** Bir sanal ağ ve VPN ağ geçidi oluşturun.
 * **2. Bölüm** Kimlik doğrulaması için kullanılan sertifikaları oluşturun ve karşıya yükleyin.
@@ -84,7 +84,7 @@ Noktadan Siteye bağlantı yapılandırması 4 bölüme ayrılmıştır. Bu böl
 Ağ geçidi türü, dinamik şeklinde yapılandırılmalıdır. Statik yönlendirme ağ geçitleri bu özellikle kullanılamaz.
 
 1. Klasik Azure portalındaki **Ağlar** sayfasında, oluşturduğunuz sanal ağa tıklayın ve **Pano** sayfasına gidin.
-2. **Pano** sayfasının alt kısmında yer alan **Ağ Geçidi Oluştur**’a tıklayın. **"VNet1" sanal ağınız için bir ağ geçidi oluşturmak ister misiniz?** şeklinde bir ileti göreceksiniz. Ağ geçidini oluşturmaya başlamak için **Evet**’e tıklayın. Ağ geçidinin oluşturulması yaklaşık 15 dakika sürebilir.
+2. **Pano** sayfasının en altında yer alan **Ağ Geçidi Oluştur**’a tıklayın. **"VNet1" sanal ağınız için bir ağ geçidi oluşturmak ister misiniz?** şeklinde bir ileti göreceksiniz. Ağ geçidini oluşturmaya başlamak için **Evet**’e tıklayın. Ağ geçidinin oluşturulması 45 dakikayı bulabilir.
 
 ## <a name="a-namegenerateasection-2---generate-and-upload-certificates"></a><a name="generate"></a>2. Bölüm - Sertifika oluşturma ve karşıya yükleme
 Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak için sertifikalar kullanılır. Kurumsal bir sertifika çözümü tarafından oluşturulan bir kök sertifika veya otomatik olarak imzalanan sertifika kullanabilirsiniz. Azure’a en çok 20 kök sertifikası yükleyebilirsiniz. .cer dosyası karşıya yüklendiğinde Azure, bu dosyada yer alan bilgileri kullanarak istemci sertifikası yüklü olan istemcilerin kimliklerini doğrulayabilir. İstemci sertifikası, .cer dosyasının temsil ettiği aynı sertifikadan oluşturulmuş olmalıdır.
@@ -109,8 +109,12 @@ Azure'a güvenilen bir sertifika ekleyin. Azure'a Base64 ile kodlanmış bir X.5
 ### <a name="a-namecreateclientcertapart-3-generate-a-client-certificate"></a><a name="createclientcert"></a>3. Kısım: İstemci sertifikası oluşturma
 Bir sonraki adımda istemci sertifikalarını oluşturacaksınız. Bağlanacak her istemci için benzersiz bir sertifika oluşturabileceğiniz gibi, birden çok istemcide aynı sertifikayı da kullanabilirsiniz. Benzersiz istemci sertifikaları oluşturmanın avantajı, gerektiğinde tek bir sertifikayı iptal edebiliyor olmanızdır. Herkesin aynı istemci sertifikasını kullandığı bir durumda bir istemcinin sertifikasını iptal etmeniz gerektiğinde, kimlik doğrulaması için söz konusu sertifikayı kullanan tüm istemciler için yeni sertifikalar oluşturmanız ve yüklemeniz gerekir.
 
-* Kurumsal bir sertifika çözümü kullanıyorsanız NetBIOS "ETKİALANI\kullanıcıadı" biçimini kullanmak yerine, yaygın olarak kullanılan 'name@yourdomain.com', ad değer biçimiyle bir istemci sertifikası oluşturun. 
-* Otomatik olarak imzalanan sertifika kullanıyorsanız istemci sertifikası oluşturmak için bkz. [Noktadan Siteye yapılandırmaları için otomatik olarak imzalanan kök sertifikalar ile çalışma](vpn-gateway-certificates-point-to-site.md).
+####<a name="enterprise-certificate"></a>Kurumsal sertifika
+- Kurumsal bir sertifika çözümü kullanıyorsanız, 'etkialanıadı\kullanıcıadı' biçimini kullanmak yerine, yaygın olarak kullanılan 'name@yourdomain.com', ad değer biçimiyle bir istemci sertifikası oluşturun.
+- Verdiğiniz istemci sertifikasının, kullanım listesindeki ilk öğe olarak Akıllı Kart Oturumu, vb. yerine ‘İstemci Kimlik Doğrulaması’na sahip ‘Kullanıcı’ sertifikası şablonunu temel alarak hazırlandığından emin olun. İstemci sertifikasına sağ tıklayıp **Ayrıntılar > Gelişmiş Anahtar Kullanımı**’nı görüntüleyerek sertifikayı denetleyebilirsiniz.
+
+####<a name="self-signed-certificate"></a>Otomatik olarak imzalanan sertifika 
+Otomatik olarak imzalanan sertifika kullanıyorsanız istemci sertifikası oluşturmak için bkz. [Noktadan Siteye yapılandırmaları için otomatik olarak imzalanan kök sertifikalar ile çalışma](vpn-gateway-certificates-point-to-site.md).
 
 ## <a name="a-nameinstallclientcertasection-3---export-and-install-the-client-certificate"></a><a name="installclientcert"></a>3. Bölüm - İstemci sertifikasını dışarı aktarma ve yükleme
 Sanal ağa bağlamak istediğiniz her bilgisayara bir istemci sertifikası yükleyin. Kimlik doğrulaması için istemci sertifikası gereklidir. İstemci sertifikası yükleme işlemini otomatik hale getirebilir veya elle yapabilirsiniz. Aşağıda, istemci sertifikasını dışarı aktarma ve elle yükleme işlemleri adım adım açıklanmıştır.
@@ -123,7 +127,7 @@ Sanal ağa bağlamak istediğiniz her bilgisayara bir istemci sertifikası yükl
 Sanal ağa bağlanmak için bir VPN istemcisi de yapılandırmanız gerekir. İstemcinin bağlanması için bir istemci sertifikasına ve uygun VPN istemcisi yapılandırmasına gerek vardır. Bir VPN istemcisi yapılandırmak için aşağıdaki adımları sırayla uygulayın.
 
 ### <a name="part-1-create-the-vpn-client-configuration-package"></a>1. Kısım: VPN istemcisi yapılandırma paketini oluşturma
-1. Klasik Azure portalında, sanal ağınıza ilişkin **Pano** sayfasında sağ üst köşedeki hızlı bakış menüsüne gidin. Desteklenen istemci işletim sistemlerinin listesi için VPN Gateway ile ilgili SSS başlıklı makalenin [Noktadan Siteye bağlantılar](vpn-gateway-vpn-faq.md#point-to-site-connections) bölümüne göz atın. VPN istemci paketi, Windows'da yerleşik bulunan VPN istemci yazılımını yapılandırmaya yönelik yapılandırma bilgileri içerir. Paket, ek yazılım yüklemez. Ayarlar bağlanmak istediğiniz sanal ağa özeldir.<br><br>Yükleneceği istemci işletim sistemine karşılık gelen indirme paketini seçin:
+1. Klasik Azure portalında, sanal ağınıza ilişkin **Pano** sayfasında sağ üst köşedeki hızlı bakış menüsüne gidin. VPN istemci paketi, Windows'da yerleşik bulunan VPN istemci yazılımını yapılandırmaya yönelik yapılandırma bilgileri içerir. Paket, ek yazılım yüklemez. Ayarlar bağlanmak istediğiniz sanal ağa özeldir. Desteklenen istemci işletim sistemlerinin listesi için bu makalenin sonundaki [Noktadan Siteye bağlantılar hakkında SSS](#faq) bölümüne bakın.<br><br>Yükleneceği istemci işletim sistemine karşılık gelen indirme paketini seçin:
    
    * 32 bit istemciler için **32 bit İstemci VPN Paketini İndir**’i seçin.
    * 64 bit istemciler için **64 bit İstemci VPN Paketini İndir**’i seçin.
@@ -146,6 +150,11 @@ Sanal ağa bağlanmak için bir VPN istemcisi de yapılandırmanız gerekir. İs
    
     ![VPN istemcisi 3](./media/vpn-gateway-point-to-site-create/connected.png "VPN client connection 2")
 
+> [!NOTE]
+> Bir Kuruluş Sertifika Yetkilisi çözümü kullanarak verilen bir sertifika kullanıyor ve kimlik doğrulama sorunu yaşıyorsanız, istemci sertifikasındaki kimlik doğrulama sırasını denetleyin. Kimlik doğrulama listesinin sırasını istemci sertifikasına çift tıklayıp **Ayrıntılar > Gelişmiş Anahtar Kullanımı**’na giderek denetleyebilirsiniz. Listede ilk öğe olarak ‘İstemci Kimlik Doğrulaması’nın göründüğünden emin olun. Aksi takdirde, listedeki ilk öğe olarak İstemci Kimlik Doğrulaması’nı içeren Kullanıcı şablonunu temel alarak oluşturulmuş bir istemci sertifikası vermeniz gerekir. 
+>
+>
+
 ### <a name="part-4-verify-the-vpn-connection"></a>Bölüm 4: VPN bağlantısını doğrulama
 1. VPN bağlantınızın etkin olduğunu doğrulamak için, yükseltilmiş bir komut istemi açın ve *ipconfig/all* komutunu çalıştırın.
 2. Sonuçlara bakın. Aldığınız IP adresinin, sanal ağınızı oluştururken belirlediğiniz Noktadan Siteye bağlantı adres aralığı içerisinden bir adres olduğuna dikkat edin. Sonuçlar aşağıdakine benzer olmalıdır:
@@ -163,6 +172,10 @@ Sanal ağa bağlanmak için bir VPN istemcisi de yapılandırmanız gerekir. İs
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
 
+## <a name="a-namefaqapoint-to-site-faq"></a><a name="faq"></a>Noktadan Siteye hakkında SSS
+
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
@@ -172,6 +185,6 @@ Sanal Ağlar hakkında daha fazla bilgi edinmek için [Sanal Ağ Belgeleri](/azu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

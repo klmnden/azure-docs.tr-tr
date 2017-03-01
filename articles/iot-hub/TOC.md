@@ -3,7 +3,7 @@
 ## [Azure IoT Hub nedir?](iot-hub-what-is-iot-hub.md)
 ## [Cihaz yönetimine genel bakış](iot-hub-device-management-overview.md)
 
-# Kullanmaya Başlama
+# [Kullanmaya Başlama](iot-hub-get-started.md)
 ## Sanal cihaz kullanma
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
@@ -23,7 +23,7 @@
 ##### [Azure araçlarını edinme (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [IoT hub'ı oluşturma Raspberry Pi’yi kaydetme](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Ders 3: Cihazdan buluta ileti gönderme
-##### [Bir Azure işlev uygulaması ve depolama hesabı oluşturma]#(iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Azure işlev uygulaması ve depolama hesabı oluşturma](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [İleti göndermek için örnek uygulamayı çalıştırma](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
 ##### [Depolamada kalıcı olan iletileri okuma](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
 #### Ders 4: Buluttan cihaza ileti gönderme
@@ -66,7 +66,7 @@
 ##### [Azure araçlarını edinme (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
 ##### [IoT hub'ı oluşturma Raspberry Pi’yi kaydetme](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
 #### Ders 3: Cihazdan buluta ileti gönderme
-##### [Bir Azure işlev uygulaması ve depolama hesabı oluşturma]#(iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+##### [Azure işlev uygulaması ve depolama hesabı oluşturma](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
 ##### [İleti göndermek için örnek uygulamayı çalıştırma](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
 ##### [Depolamada kalıcı olan iletileri okuma](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
 #### Ders 4: Buluttan cihaza ileti gönderme
@@ -107,13 +107,13 @@
 ##### [Azure araçlarını edinme (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
 ##### [Azure araçlarını edinme (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
 ##### [Azure araçlarını edinme (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
-##### [IoT hub’ınızı oluşturma Raspberry Pi’nizi kaydetme]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+##### [IoT hub'ı oluşturma Raspberry Pi’yi kaydetme](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
 #### Ders 3: Cihazdan buluta ileti gönderme
-##### [Azure işlev uygulaması ve depolama hesabı oluşturma]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+##### [Azure işlev uygulaması ve depolama hesabı oluşturma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
 ##### [İleti göndermek için örnek uygulamayı çalıştırma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
 ##### [Depolamada kalıcı olan iletileri okuma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
 #### Ders 4: Buluttan cihaza ileti gönderme
-##### [İletileri almak için örnek uygulamayı çalıştırma]#(iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+##### [İleti almak için örnek uygulamayı çalıştırma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [İsteğe bağlı: LED davranışını değiştirme](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Sorun giderme](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
 
@@ -172,7 +172,7 @@
 ### [Çözümünüzü ölçeklendirme](iot-hub-scaling.md)
 ### [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](iot-hub-ha-dr.md)
 ### [Ek protokollerin desteklenmesi](iot-hub-protocol-gateway.md)
-## Geliştirme
+## [Geliştirme](iot-hub-how-to.md)
 ### [Geliştirici kılavuzu](iot-hub-devguide.md)
 #### [İleti alma ve gönderme](iot-hub-devguide-messaging.md)
 #### [Cihazdan buluta özellik kılavuzu](iot-hub-devguide-d2c-guidance.md)
@@ -269,8 +269,3 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Geliştirici Merkezi](https://azure.microsoft.com/develop/iot/)
 ## [IoT için Azure Sertifikalı cihaz kataloğu](https://catalog.azureiotsuite.com/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

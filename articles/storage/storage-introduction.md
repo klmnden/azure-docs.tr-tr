@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
-ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
+ms.sourcegitcommit: f4b26aa9a4dd110eafb8f9f8d658cc0f530136ec
+ms.openlocfilehash: 4548d83525dba6024d1892950e3acbc6b857977a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -179,21 +180,21 @@ Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir
 * [Depolama Hizmetleri REST API'si](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [.NET, Windows Phone, ve Windows Çalışma Zamanı için Depolama İstemcisi Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [C++ için Depolama İstemcisi Kitaplığı](https://github.com/Azure/azure-storage-cpp)
-* [Java/Android için Depolama İstemcisi Kitaplığı](/develop/java/)
+* [Java/Android için Depolama İstemcisi Kitaplığı](https://azure.microsoft.com/develop/java/)
 * [Node.js için Depolama İstemcisi Kitaplığı](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [PHP için Depolama İstemcisi Kitaplığı](/develop/php/)
-* [Ruby için Depolama İstemcisi Kitaplığı](/develop/ruby/)
-* [Python için Depolama İstemcisi Kitaplığı](/develop/python/)
+* [PHP için Depolama İstemcisi Kitaplığı](https://azure.microsoft.com/develop/php/)
+* [Ruby için Depolama İstemcisi Kitaplığı](https://azure.microsoft.com/develop/ruby/)
+* [Python için Depolama İstemcisi Kitaplığı](https://azure.microsoft.com/develop/python/)
 * [PowerShell 1.0 için Depolama Cmdlet'leri](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### <a name="azure-storage-management-services"></a>Azure Depolama yönetim hizmetleri
-* [Depolama Kaynak Sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/azure/mt163683.aspx)
-* [.NET için Depolama Kaynak Sağlayıcısı İstemci Kitaplığı](https://msdn.microsoft.com/library/azure/mt131037.aspx)
-* [PowerShell 1.0 için Depolama Kaynak Sağlayıcısı Cmdlet'leri](https://msdn.microsoft.com/library/azure/mt607151.aspx)
+* [Depolama Kaynak Sağlayıcısı REST API Başvurusu](/rest/api/storagerp/)
+* [.NET için Depolama Kaynak Sağlayıcısı İstemci Kitaplığı](/dotnet/api/microsoft.azure.management.storage)
+* [PowerShell 1.0 için Depolama Kaynak Sağlayıcısı Cmdlet'leri](/powershell/storage/)
 * [Depolama Hizmet Yönetimi REST API'si (Klasik)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Azure Depolama veri taşıma hizmetleri
-* [Depolama İçeri/Dışarı Aktarma Hizmeti REST API'si](https://msdn.microsoft.com/library/azure/dn529096.aspx)
+* [Depolama İçeri/Dışarı Aktarma Hizmeti REST API'si](storage-import-export-service.md)
 * [.NET için Depolama Veri Taşıma İstemcisi Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>Araçlar ve Yardımcı Programlar
@@ -248,9 +249,4 @@ Azure Storage hakkında daha fazla bilgi için şu kaynakları araştırın:
 * [Python'da Tablo Depolama'yı kullanma](storage-python-how-to-use-table-storage.md)
 * [Python'da Kuyruk Depolama'yı kullanma](storage-python-how-to-use-queue-storage.md)
 * [Python'da Dosya Depolama'yı kullanma](storage-python-how-to-use-file-storage.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

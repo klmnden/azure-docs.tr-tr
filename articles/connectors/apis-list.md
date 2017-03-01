@@ -1,6 +1,6 @@
 ---
-title: "Azure Logic Apps içinde kullanılacak bağlayıcılar listesi | Microsoft Docs"
-description: "Mantıksal uygulamalar derleyip oluşturmak için kullanabileceğiniz Microsoft tarafından yönetilen bağlayıcıların tam listesini alın"
+title: "Azure Logic Apps için Bağlayıcılar | Microsoft Belgeleri"
+description: "Mantıksal uygulamalar derlemek ve oluşturmak için Microsoft tarafından yönetilen bağlayıcılar arasından seçim yapın"
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
+ms.sourcegitcommit: 671eed117f5577f3fdec2e03b1ba814e0e1a439b
+ms.openlocfilehash: 094d7a9ca2d14e506371488ee880fe8a2ab36707
 
 
 ---
-# <a name="list-of-connectors"></a>Bağlayıcıların listesi
+# <a name="connectors-list"></a>Bağlayıcıların listesi
 İş akışlarını hızlı bir şekilde oluşturma hakkında bilgi edinmek için bir bağlayıcı seçin.
 
 ## <a name="standard-connectors"></a>Standart bağlayıcılar
@@ -32,21 +32,21 @@ ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
 |![API Icon][Bitlyicon]<br/>**Bitly**|![API Icon][BizTalk-Servericon]<br/>**BizTalk Server**|![API Icon][Bloggericon]<br/>**Blogger**|[![API Icon][Boxicon]<br/>**Box**][boxDoc]|
 |![API Icon][Campfireicon]<br/>**Campfire**|![API Icon][Cognitive-Services-Text-Analyticsicon]<br/>**Bilişsel Hizmetler<br/>Metin Analizi**|![API Icon][Common-Data-Serviceicon]<br/>**Ortak Veri<br/>Hizmeti**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
 |[![API Icon][Delayicon]<br/>**Delay**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![API Icon][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|
-|![API Icon][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![API Icon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|
-|![API Icon][GitHubicon]<br/>**GitHub**|![API Icon][Google-Calendaricon]<br/>**Google Takvim**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|![API Icon][Google-Sheetsicon]<br/>**Google E-Tablolar**|
-|![API Icon][Google-Tasksicon]<br/>**Google Görevler**|![API Icon][HideKeyicon]<br/>**HideKey**|![API Icon][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP<br/>Request**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP<br/>Response**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
-|![API Icon][Insightlyicon]<br/>**Insightly**|![API Icon][Instagramicon]<br/>**Instagram**|![API Icon][Instapapericon]<br/>**Instapaper**|![API Icon][JIRAicon]<br/>**JIRA**|
-|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API Icon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Nested<br/>Logic App**][Nested-Logic-Appdoc]|
-|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Kullanıcıları**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|
-|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API Icon][PagerDutyicon]<br/>**PagerDuty**|![API Icon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
-|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Recurrence**][Recurrencedoc]|![API Icon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
-|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
-|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![API Icon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]
-|![API Icon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![API Icon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|
-|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|![API Icon][Vimeoicon]<br/>**Vimeo**|![API Icon][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
-|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API Icon][WordPressicon]<br/>**WordPress**|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|
-|![API Icon][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]|
+|![API Icon][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![API Icon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]|
+|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![API Icon][GitHubicon]<br/>**GitHub**|![API Icon][Google-Calendaricon]<br/>**Google Takvim**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|
+|![API Icon][Google-Sheetsicon]<br/>**Google E-Tablolar**|![API Icon][Google-Tasksicon]<br/>**Google Görevler**|![API Icon][HideKeyicon]<br/>**HideKey**|![API Icon][HipChaticon]<br/>**HipChat**|
+|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP<br/>Request**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP<br/>Response**][HTTP-Responsedoc]|
+|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|![API Icon][Insightlyicon]<br/>**Insightly**|![API Icon][Instagramicon]<br/>**Instagram**|![API Icon][Instapapericon]<br/>**Instapaper**|
+|![API Icon][JIRAicon]<br/>**JIRA**|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API Icon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|
+|[![API Icon][Nested-Logic-Appicon]<br/>**Nested<br/>Logic App**][Nested-Logic-Appdoc]|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Kullanıcıları**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|
+|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API Icon][PagerDutyicon]<br/>**PagerDuty**|
+|![API Icon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Recurrence**][Recurrencedoc]|
+|![API Icon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
+|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
+|![API Icon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API Icon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
+|![API Icon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
+|![API Icon][Vimeoicon]<br/>**Vimeo**|![API Icon][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API Icon][WordPressicon]<br/>**WordPress**|
+|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API Icon][YouTubeicon]<br/>**YouTube**|
 
 ### <a name="integration-account-connectors"></a>Tümleştirme hesabı bağlayıcıları 
 
@@ -57,12 +57,10 @@ ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
 | [![API Icon][x12icon]<br/>**EDIFACT</br>decode**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT</br>encode**][EDIFACTencode] | | |
 
 > [!NOTE]
-> Bir Azure hesabı için kaydolmadan önce Azure Logic Apps’i kullanmaya başlamak istiyorsanız [Logic Apps’i Deneyin](https://tryappservice.azure.com/?appservice=logic)’e gidin. App Service’de başlangıç düzeyinde kısa süreli mantıksal uygulamayı hemen oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
-> 
-> 
+> Azure hesabına kaydolmadan Azure Logic Apps’i kullanmaya başlamak istiyorsanız [Logic Apps’i Deneyin](https://tryappservice.azure.com/?appservice=logic) sayfasına gidin. App Service’de başlangıç düzeyinde kısa süreli mantıksal uygulamayı hemen oluşturabilirsiniz. Kredi kartı veya taahhüt gerekmez.
 
 ## <a name="enterprise-connectors"></a>Kurumsal bağlayıcılar
-EAI ve EDI içeren B2B senaryolarına yönelik Mantıksal uygulamalar oluşturmak için kurumsal bağlayıcıları kullanın.  
+EAI ve EDI içeren B2B senaryolarına yönelik mantıksal uygulamalar oluşturmak için kurumsal bağlayıcıları kullanın.  
 
 | kurumsal<br/>bağlayıcılar |  |
 | --- | --- |
@@ -72,7 +70,7 @@ EAI ve EDI içeren B2B senaryolarına yönelik Mantıksal uygulamalar oluşturma
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### <a name="connectors-can-be-triggers"></a>Bağlayıcılar tetikleyiciler olabilir
-Bazı bağlayıcılar, belirli olaylar meydana geldiğinde, uygulamanızı bilgilendirebilecek tetikleyiciler sağlar. Örneğin, FTP bağlayıcısı OnUpdatedFile tetikleyicisine sahiptir. Bu tetikleyiciyi dinleyen ve tetikleyici her tetiklendiğinde eyleme geçen bir Mantıksal uygulama, PowerApp ya da Akış oluşturabilirsiniz.
+Bazı bağlayıcılar, belirli olaylar meydana geldiğinde, uygulamanızı bilgilendirebilecek tetikleyiciler sağlar. Örneğin, FTP bağlayıcısı OnUpdatedFile tetikleyicisine sahiptir. Bu tetikleyiciyi dinleyen ve tetiklendiğinde bir eylem gerçekleştiren bir mantıksal uygulama, PowerApp ya da Akış oluşturabilirsiniz.
 
 İki tür tetikleyici sunucusu bulunur:  
 
@@ -80,11 +78,11 @@ Bazı bağlayıcılar, belirli olaylar meydana geldiğinde, uygulamanızı bilgi
 * Anında İletme Tetikleyicileri: Bu tetikleyiciler, uç noktada bir olayın meydana gelmesine ilişkin verileri dinler ve ardından uygulamanızın yeni bir örneğini tetikler. Twitter bağlayıcısı böyle bir örnektir.
 
 ### <a name="connectors-can-be-actions"></a>Bağlayıcılar eylemler olabilir
-Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Eylemler, daha sonra uygulamanızın yürütülmesinde kullanılabilecek verilere bakılmasında faydalıdır. Örneğin, sipariş işleme sırasında bir SQL veritabanında müşteri verilerini aramanız gerekebilir. Veya, hedef tablodaki verileri yazmanız, güncelleştirmeniz ya da silmeniz gerekebilir. Bağlayıcılar tarafından sağlanan eylemleri kullanarak bunu yapabilirsiniz. Eylemler Swagger meta verilerde tanımlanan eylemlere eşlenir.
+Uygulamalarınızda bağlayıcıları eylemler olarak da kullanabilirsiniz. Eylemler verilerin aranması için kullanışlıdır ve bu veriler uygulamanızın çalışması için kullanılabilir. Örneğin, bir siparişi işlerken bir SQL veritabanında müşteri verilerini aramanız gerekebilir. Veya bir hedef tabloda veri yazmanız, güncelleştirmeniz ya da silmeniz gerekebilir. Bu görevleri bağlayıcılar tarafından sağlanan eylemleri kullanarak gerçekleştirebilirsiniz. Eylemler Swagger meta verilerde tanımlanan eylemlere eşlenir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [Şimdi mantıksal uygulama oluşturun](../logic-apps/logic-apps-create-a-logic-app.md)  
-* [Özel bir bağlayıcı oluşturun](../logic-apps/logic-apps-create-api-app.md)
+* [İlk mantıksal uygulamanızı oluşturma](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Mantıksal uygulamalar için özel API’ler oluşturma](../logic-apps/logic-apps-create-api-app.md)
 * [Mantıksal uygulamalarınızı izleyin](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
@@ -105,7 +103,7 @@ Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Ey
 [onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "İş Microsoft OneDrive’ınıza bağlanır ve dosyaları karşıya yükler, siler, listeler ve daha fazlasını yapar."
 [outlook.comdoc]: ./connectors-create-api-outlook.md "Outlook posta kutunuza bağlanın ve e-posta adresinize erişin ve daha fazlasını yapın."
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Microsoft Project Online’a bağlanır."
-[rssdoc]: ./connectors-create-api-rss.md "RSS bağlayıcısı kullanıcıların akış öğelerini yayımlamasını ve almasını sağlar. Ayrıca, akışta yeni bir öğe yayımlandığında, kullanıcıların işlemleri tetiklemesini sağlar."
+[rssdoc]: ./connectors-create-api-rss.md "RSS bağlayıcısı, akış öğelerini yayımlamanıza ve almanıza imkan tanır. Akışa yeni bir öğe yayımlandığında çeşitli işlemler tetiklemenize de imkan sağlar."
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Salesforce hesabınıza bağlanın ve hesapları, müşteri adaylarını, fırsatları yönetin ve daha fazlasını yapın."
 [sendgriddoc]: ./connectors-create-api-sendgrid.md "Microsoft Project Online’a bağlanır."
 [service-busdoc]: ./connectors-create-api-servicebus.md "Service Bus Kuyruklarından ve Konu Başlıklarından iletiler gönderebilir ve Service Bus Kuyrukları ve Aboneliklerinden iletiler alabilir."

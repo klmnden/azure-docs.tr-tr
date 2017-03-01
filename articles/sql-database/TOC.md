@@ -12,7 +12,6 @@
 ### [SQL ve NoSQL karşılaştırması](../documentdb/documentdb-nosql-vs-sql.md)
 ## [SQL Veritabanı araçları](sql-database-manage-overview.md)
 ## [SQL Veritabanı öğreticileri](sql-database-explore-tutorials.md)
-## [Çözüm hızlı başlangıçları](sql-database-solution-quick-starts.md)
 ## Güvenlik
 ### [Güvenliğe genel bakış](sql-database-security-overview.md)
 ### [Azure SQL Veritabanı için Azure Güvenlik Merkezi](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
@@ -273,6 +272,7 @@
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
 ## [PowerShell (Esnek DB)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [Azure CLI 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
 ## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
@@ -302,8 +302,3 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

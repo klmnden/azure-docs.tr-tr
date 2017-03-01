@@ -13,10 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
-ms.author: dhanyahk
+ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ce0e0ce9004e1b331328fca5830f01b6ce6af6c
+ms.sourcegitcommit: eec9b73cbaccfa50eec6f237e4d1d810c6efa1d9
+ms.openlocfilehash: e5b8ac91914203156bd395d7f462385e9f6dbcb4
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -113,7 +114,7 @@ Sayfayı kaydırarak "Bildirimler" bölümüne gidin.
 ### <a name="integrate-with-the-azure-ad-reporting-api"></a>Azure AD Raporlama API'si ile tümleştirme
 Bkz. [Raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).
 
-### <a name="engage-multifactor-authentication-on-users"></a>Multi-Factor Authentication'ı kullanıcılar üzerinde uygulama
+### <a name="engage-multi-factor-authentication-on-users"></a>Multi-Factor Authentication'ı kullanıcılar üzerinde uygulama
 Rapordaki bir kullanıcıyı seçin.
 
 Ekranın alt kısmındaki "MFA'yı etkinleştir" düğmesine tıklayın.
@@ -139,10 +140,5 @@ Geri bildirim, yardım veya her türlü sorularınız için [aadreportinghelp@mi
 > Azure AD Raporlama ile ilgili daha fazla belge için [Erişim ve kullanım raporlarınızı görüntüleme](active-directory-view-access-usage-reports.md) bölümüne bakın.
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

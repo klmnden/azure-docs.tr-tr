@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
-ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
+ms.sourcegitcommit: f9a0218b55ed30c0dd5022965241d1374c70c3d7
+ms.openlocfilehash: 1b5f96750b92bc7b7398fdaa177f360746747964
 
 
 ---
@@ -139,10 +139,10 @@ Artık bir kullanıcı sıfırlama ilkesi yapılandırdığınıza ve kullanıc�
 4. Bu durumda, ilk olarak **ofis telefonunu** **aramayı** tercih edin.  Telefon tabanlı bir yöntem seçildiğinde kullanıcılardan parolalarını sıfırlayabilmeleri için ilk olarak **telefon numaralarını doğrulamaları** istenir.  Bunun amacı, kötü amaçlı kişilerin kuruluşunuzdaki kullanıcıların telefon numaralarını istenmeyen şekilde kullanmasını engellemektir.
    
    ![][014]
-5. Kullanıcı, telefon numarasını onayladıktan sonra, arama seçeneğine tıklanması bir değer değiştiricinin görünmesine ve kullanıcının telefonunun çalmasına neden olur.  Kullanıcı, aramanızı açtığında hesabını doğrulamak için **kullanıcının "#" tuşuna basması gerektiğini** belirten bir ileti oynatılır.  Bu tuşa basılması kullanıcının birinci testi geçtiğini otomatik olarak doğrular ve kullanıcı arabirimini ikinci doğrulama adımına geçirir.
+5. Kullanıcı telefon numarasını doğruladıktan sonra ara seçeneğine tıklandığında bir değer değiştirici görünür ve kullanıcının telefonu çalar.  Kullanıcı, aramanızı açtığında hesabını doğrulamak için **kullanıcının "#" tuşuna basması gerektiğini** belirten bir ileti oynatılır.  Bu tuşa basılması kullanıcının birinci testi geçtiğini otomatik olarak doğrular ve kullanıcı arabirimini ikinci doğrulama adımına geçirir.
    
    ![][015]
-6. İlk testi başarıyla geçmenizin ardından, kullanıcı arabirimi bunu kullanıcının sahip olduğu seçeneklerin listesinden kaldıracak şekilde otomatik olarak güncelleştirilir.  Bu durumda, ilk olarak **Ofis Telefonu** seçeneğinizi kullanmanız nedeniyle, yalnızca **Cep Telefonu** ve **Alternatif E-posta** seçenekleri ikinci doğrulama adımı için geriye geçerli seçenekler olarak kalır.  **Alternatif e-posta adresime gönder** seçeneğine tıklayın.  Bu işlemin ardından, e-posta seçeneğine basılması kayıtlı alternatif e-posta adresine e-posta gönderir.
+6. İlk testi başarıyla geçmenizin ardından, kullanıcı arabirimi bunu kullanıcının sahip olduğu seçeneklerin listesinden kaldıracak şekilde otomatik olarak güncelleştirilir.  Bu durumda, ilk olarak **Ofis Telefonu**’nuzu kullandığınızdan, ikinci doğrulama adımı için sınama olarak kullanabileceğiniz geriye kalan geçerli seçenekler yalnızca **Cep Telefonu** ve **Alternatif E-posta** olur.  **Alternatif e-posta adresime gönder** seçeneğine tıklayın.  Bu işlemin ardından, e-posta seçeneğine basılması kayıtlı alternatif e-posta adresine e-posta gönderir.
    
    ![][016]
 7. Aşağıda, kullanıcıların göreceği e-postaya örnek verilmiştir. Kiracı markasına dikkat edin:
@@ -393,6 +393,6 @@ Aşağıda, tüm Azure AD Parola Sıfırlama belge sayfalarının bağlantılar�
 
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

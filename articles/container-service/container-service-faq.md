@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 02/21/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 3bb83f231d16819e5f5da7edbc9fc3f38baff011
-ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: c28391b752c071161796421aee63402899d2a0a4
 
 
 ---
@@ -29,15 +29,15 @@ ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Azure Container Service’te hangi kapsayıcı düzenleyicileri desteklenir? 
 
-Açık kaynak DC/OS, Docker Swarm ve Kubernetes desteği mevcuttur. DC/OS ve Docker Swarm desteği genel olarak mevcutken, Kubernetes desteği şu anda önizleme aşamasındadır. Daha fazla bilgi için bkz. [Genel Bakış](container-service-intro.md).
+Açık kaynak DC/OS, Docker Swarm ve Kubernetes desteği mevcuttur. Daha fazla bilgi için bkz. [Genel Bakış](container-service-intro.md).
  
-### <a name="do-you-support-swarm-mode"></a>Swarm modu destekleniyor mu? 
+### <a name="do-you-support-docker-swarm-mode"></a>Docker Swarm modu destekleniyor mu? 
 
 Swarm modu, şu anda desteklenmiyor ancak hizmet yol haritası kapsamında. 
 
 ### <a name="does-azure-container-service-support-windows-containers"></a>Azure Container Service, Windows kapsayıcılarını destekliyor mu?  
 
-Şu anda Linux kapsayıcıları desteklenmektedir. DC/OS, Docker Swarm ve Kubernetes düzenleyicileri ile Windows kapsayıcılarına yönelik destek, hizmet yol haritası kapsamındadır. 
+Şu anda Linux kapsayıcıları tüm düzenleyicilerle desteklenmektedir. Kubernetes ile Windows kapsayıcıları desteği önizleme aşamasındadır.
 
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Azure Container Service için önerilen belirli bir düzenleyici var mı? 
 Genellikle belirli bir düzenleyici önerilmemektedir. Desteklenen düzenleyicilerden biriyle deneyiminiz varsa, bu deneyimi Azure Container Service’e uygulayabilirsiniz. Ancak, veri eğilimleri DC/OS’nin Büyük Veri ve IoT iş yükleri için üretimde kanıtlandığını, Kubernetes’in bulut yerel iş yükleri için uygun olduğunu, Docker Swarm’ın ise Docker araçları ve kolay öğrenme eğrisi konusunda ünlü olduğunu ortaya koymaktadır.
@@ -55,29 +55,23 @@ Azure Container Service; Azure portalı, Azure komut satırı araçları ve Azur
 
 Kümeniz için Linux sanal makinelerinde kimlik doğrulamasına yönelik bir SSH RSA genel ve özel anahtar çifti oluşturmak için, işletim sisteminizde standart araçları kullanabilirsiniz. Adımlar için [OS X ve Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) veya [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) yönergelerine bakın. 
 
-Bir kapsayıcı hizmeti kümesini dağıtmak için [Azure CLI 2.0 (Önizleme) komutlarını](container-service-create-acs-cluster-cli.md) kullanırsanız, kümenize yönelik SSH anahtarları otomatik olarak oluşturulabilir.
+Bir kapsayıcı hizmeti kümesini dağıtmak için [Azure CLI 2.0 komutlarını](container-service-create-acs-cluster-cli.md) kullanırsanız kümenize yönelik SSH anahtarları otomatik olarak oluşturulabilir.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Kubernetes kümem için nasıl hizmet sorumlusu oluşturabilirim?
 
-Azure Container Service’te bir Kubernetes kümesi oluşturmak için ayrıca bir Azure Active Directory hizmet sorumlusu kimliği ve parolası gereklidir. Daha fazla bilgi için bkz. [Bir Kubernetes kümesi için hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md)
+Azure Container Service’te bir Kubernetes kümesi oluşturmak için ayrıca bir Azure Active Directory hizmet sorumlusu kimliği ve parolası gereklidir. Daha fazla bilgi için bkz. [Bir Kubernetes kümesi için hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md).
 
 
-Bir Kubernetes kümesini dağıtmak için [Azure CLI 2.0 (Önizleme) komutlarını](container-service-create-acs-cluster-cli.md) kullanırsanız, kümenize yönelik hizmet sorumlusu kimlik bilgileri otomatik olarak oluşturulabilir.
+Bir Kubernetes kümesini dağıtmak için [Azure CLI 2.0 komutlarını](container-service-create-acs-cluster-cli.md) kullanırsanız kümenize yönelik hizmet sorumlusu kimlik bilgileri otomatik olarak oluşturulabilir.
 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Bir küme oluşturulduktan sonra ana sunucu sayısını nasıl artırabilirim? 
-Küme oluşturulduktan sonra ana sunucu sayısı sabittir ve değiştirilemez. Küme oluşturma sırasında, yüksek kullanılabilirlik için üç veya beş ana sunucu seçmeniz idealdir.
+Küme oluşturulduktan sonra ana sunucu sayısı sabittir ve değiştirilemez. Küme oluşturma sırasında, yüksek kullanılabilirlik için birden çok ana düğüm seçmeniz en uygunudur.
 
-> [!NOTE]
-> Önizleme sürümünde, Azure Container Service’teki bir Kubernetes kümesi yalnızca bir ana sunucuya sahip olabilir.
->
 
 ### <a name="how-do-i-increase-the-number-of-agents-after-a-cluster-is-created"></a>Bir küme oluşturulduktan sonra aracı sayısını nasıl artırabilirim? 
 Azure portalını veya komut satırı araçlarını kullanarak kümedeki aracı sayısını ölçeklendirebilirsiniz. Bkz. [Azure Container Service kümesini ölçeklendirme](container-service-scale.md).
 
-> [!NOTE]
-> Önizleme sürümünde, Azure Container Service’teki bir Kubernetes kümesi sabit sayıda aracıya sahiptir. 
->
 
 ### <a name="what-are-the-urls-of-my-masters-and-agents"></a>Ana sunucu ve aracılarımın URL'leri nelerdir? 
 Azure Container Service’teki küme kaynaklarının URL’leri, belirttiğiniz DNS adı ön ekine ve dağıtım için seçtiğiniz Azure bölgesinin adına bağlıdır. Örneğin, ana düğümünün tam etki alanı adı (FQDN) şu biçimdedir:
@@ -114,9 +108,9 @@ Daha fazla bilgi için bkz. [Azure Container Service kümesine bağlanma](contai
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Azure Container Service hakkında [daha fazla bilgi edinin](container-service-intro.md).
-* [Portal](container-service-deployment.md) veya [Azure CLI 2.0 (Önizleme)](container-service-create-acs-cluster-cli.md) seçeneğini kullanarak bir kapsayıcı hizmeti kümesi dağıtın.
+* [Portal](container-service-deployment.md)’ı veya [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) aracını kullanarak bir Container Service kümesi dağıtın.
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

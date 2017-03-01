@@ -4,7 +4,7 @@ description: "Azure App Service’de CORS desteğini kullanmayı öğrenin."
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
 ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -248,10 +249,5 @@ Sorun gidermeyi basitleştiren Visual Studio özellikleri hakkında daha fazla b
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, istemci JavaScript kodunun farklı bir etki alanındaki bir API’yi çağırması için App Service CORS desteğini nasıl etkinleştireceğinizi öğrendiniz. API uygulamaları hakkında daha fazla bilgi için, [App Service’de kimlik doğrulamasına giriş](../app-service/app-service-authentication-overview.md) bölümünü okuyun ve ardından [API uygulamaları için kullanıcı kimlik doğrulamaları](app-service-api-dotnet-user-principal-auth.md) öğreticisine gidin.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

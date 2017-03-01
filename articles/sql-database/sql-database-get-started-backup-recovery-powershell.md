@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: d026933869d98c469855e02a6906ed74f8ee03a3
-ms.openlocfilehash: fd1412bcc367472990f645ef7f90ad94def562d6
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: 8a3ede8af471e656e830e38e0cf2f3a909fdaadb
 
 
 ---
@@ -38,7 +38,7 @@ Bu öğreticide, Azure PowerShell’i kullanarak aşağıdaki işlemleri gerçek
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](https://azure.microsoft.com/free/) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Abonelik sahibi veya katkıda bulunan rolü üyesi olan bir hesap kullanarak Azure'a bağlanmış olmanız gerekir. Rol tabanlı erişim denetimi (RBAC) ile ilgili daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](../active-directory/role-based-access-control-what-is.md).
 
@@ -47,7 +47,7 @@ Bu öğreticide, Azure PowerShell’i kullanarak aşağıdaki işlemleri gerçek
 * [Azure portalı ve SQL Server Management Studio aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama](sql-database-get-started.md) öğreticisini veya [PowerShell sürümünü](sql-database-get-started-powershell.md) tamamladınız. Tamamlamadıysanız, bu öğretici önkoşulunu tamamlayın veya devam etmeden önce [PowerShell sürümünün](sql-database-get-started-powershell.md) sonundaki PowerShell betiğini çalıştırın.
 
 > [!TIP]
-> Aynı görevleri, [Azure portalı](sql-database-get-started-backup-recovery.md) aracılığıyla kullanmaya başlama öğreticilerinde de gerçekleştirebilirsiniz.
+> Aynı görevleri, [Azure portalı](sql-database-get-started-backup-recovery-portal.md) aracılığıyla kullanmaya başlama öğreticilerinde de gerçekleştirebilirsiniz.
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -114,7 +114,7 @@ $restoredDb
 
 
 > [!TIP]
-> Uzun süreli saklama yedeklerini silmek için bkz. [Uzun süreli saklama yedeklerini silme](sql-database-long-term-retention-delete.md).
+> Uzun süreli saklama yedeklerini silmek için bkz. [PowerShell’i kullanarak uzun süreli saklama yedeklerini yönetme](sql-database-manage-long-term-backup-retention-powershell.md).
 
 
 ### <a name="create-a-recovery-services-vault"></a>Kurtarma hizmetleri kasası oluşturma
@@ -381,6 +381,6 @@ $restoredDbFromLtr
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

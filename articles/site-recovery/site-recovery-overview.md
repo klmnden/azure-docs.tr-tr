@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
+ms.sourcegitcommit: 5adacea6033070e808f9bf5e76bae0f45f7f1199
+ms.openlocfilehash: e922590c500517c93f7682b5cca5ef6a2c89de53
 
 
 ---
@@ -49,6 +49,9 @@ Site Recovery'nin sağladığı avantajlar şunlardır:
 * **Birden çok VM’de yük devretme işlemi**—Betikler ve Azure Otomasyonu runbook’ları içeren kurtarma planları ayarlayabilirsiniz. Kurtarma planları, birden çok VM’ye dağılmış olan çok katmanlı uygulamalarda, yük devretme ve kurtarma işlemlerinin modellerini oluşturmanıza ve bu işlemleri özelleştirmenize olanak sağlar.
 * **Mevcut BCDR teknolojileri ile tümleştirme**—Site Recovery, diğer BCDR teknolojileriyle tümleştirilebilir. Örneğin, kullanılabilir grupların yük devretme işlemlerini yönetmek amacıyla SQL Server AlwaysOn yerel desteği dahil olmak üzere kurumsal iş yüklerinin SWL Server arka ucunu korumak için Site Recovery'yi kullanabilirsiniz.
 
+## <a name="which-regions-are-supported"></a>Hangi bölgeler desteklenir?
+Azure Site Recovery’nin kullanılabildiği bölgeler hakkında daha fazla bilgi edinmek için [buraya](https://azure.microsoft.com/en-us/regions/services/) başvurun 
+
 ## <a name="what-can-i-replicate"></a>Neleri çoğaltabilirim?
 Site Recovery kullanarak çoğaltabileceğiniz öğelerin özeti aşağıda verilmiştir.
 
@@ -78,7 +81,6 @@ Site Recovery uygulamayla tutarlı çoğaltma sağladığından, iş yükleri ve
 
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

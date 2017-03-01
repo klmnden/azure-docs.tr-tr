@@ -4,7 +4,7 @@ description: "Azure Portal&quot;ı kullanarak Azure Marketi&quot;nde yeni bir Wo
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 972a296d-f927-470b-8534-0f2cb9eac223
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: a04c7129cd2e16c129f3e4b8e8e40f76ff37114d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -165,9 +166,4 @@ Azure'da WordPress web uygulamaları geliştirme hakkında daha fazla bilgi içi
 [WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

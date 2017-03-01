@@ -42,13 +42,35 @@ Bir kaynağa veya kaynak grubuna etiket uyguladığınız her durumda ilgili kay
   Set-AzureRmResource -Tag $tags -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
   ```
 
-Bir kaynak grubundaki tüm etiketleri, **kaynak üzerindeki mevcut etiketleri saklamadan** kaynak grubundaki kaynaklara uygulamak için aşağıdaki betiği kullanın:
+Bir kaynak grubundaki tüm etiketleri **kaynaklardaki mevcut etiketleri korumadan** gruptaki kaynaklara uygulamak için aşağıdaki betiği kullanın:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups) 
 {
     Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force } 
+}
+```
+
+Bir kaynak grubundaki tüm etiketleri **yinelenmeyen kaynaklardaki mevcut etiketleri koruyarak** gruptaki kaynaklara uygulamak için aşağıdaki betiği kullanın:
+
+```powershell
+$groups = Get-AzureRmResourceGroup
+foreach ($g in $groups) 
+{
+    if ($g.Tags -ne $null) {
+        $resources = Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName 
+        foreach ($r in $resources)
+        {
+            $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+            foreach ($key in $g.Tags.Keys)
+            {
+                if ($resourcetags.ContainsKey($key)) { $resourcetags.Remove($key) }
+            }
+            $resourcetags += $g.Tags
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+        }
+    }
 }
 ```
 
@@ -69,9 +91,4 @@ Belirli bir etiket ve değere sahip tüm kaynakları almak için `Find-AzureRmRe
 ```powershell
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 ```
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

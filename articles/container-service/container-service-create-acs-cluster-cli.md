@@ -1,6 +1,6 @@
 ---
 title: "Docker kapsayıcı kümesi dağıtma - Azure CLI | Microsoft Docs"
-description: "Azure CLI 2.0 Önizlemesini kullanarak Azure Container Service dağıtma"
+description: "Azure CLI 2.0 ile Azure Container Service kümesi dağıtma"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,23 +17,23 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
-ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Azure CLI 2.0 (Önizleme) sürümünü kullanarak bir Azure Container Service kümesi oluşturma
+# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Azure CLI 2.0 ile bir Azure Container Service kümesi oluşturma
 
-Azure Container Service’te küme oluşturmak ve yönetmek için Azure CLI 2.0 (Önizleme) içinde `az acs` komutlarını kullanın. Bir Azure Container Service kümesini ayrıca [Azure portalı](container-service-deployment.md) veya Azure Container Service API’leri kullanarak dağıtabilirsiniz.
+Azure Container Service’te küme oluşturmak ve yönetmek için Azure CLI 2.0 aracındaki `az acs` komutlarını kullanın. Bir Azure Container Service kümesini ayrıca [Azure portalı](container-service-deployment.md) veya Azure Container Service API’leri kullanarak dağıtabilirsiniz.
 
 `az acs` komutları hakkında yardım için `-h` parametresini herhangi bir komuta geçirin. Örneğin: `az acs create -h`.
 
 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Azure CLI 2.0 (Önizleme) ile bir Azure Container Service kümesi oluşturmak için şunlar gerekir:
+Azure CLI 2.0 ile bir Azure Container Service kümesi oluşturmak için şunlar gerekir:
 * bir Azure hesabı ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/))
-* yüklü ve ayarlanmış [Azure CLI sürüm 2.0 (Önizleme)](/cli/azure/install-az-cli2)
+* [Azure CLI 2.0](/cli/azure/install-az-cli2) aracının yüklü ve ayarlanmış olması
 
 ## <a name="get-started"></a>Başlarken 
 ### <a name="log-in-to-your-account"></a>Hesabınızda oturum açın
@@ -41,7 +41,7 @@ Azure CLI 2.0 (Önizleme) ile bir Azure Container Service kümesi oluşturmak i�
 az login 
 ```
 
-Etkileşimli olarak oturum açmak için istemleri izleyin. Diğer oturum açma yöntemleri için bkz. [Azure CLI 2.0 (Önizleme) ile çalışmaya başlama](/cli/azure/get-started-with-az-cli2).
+Etkileşimli olarak oturum açmak için istemleri izleyin. Diğer oturum açma yöntemleri için bkz. [Azure CLI 2.0 ile çalışmaya başlama](/cli/azure/get-started-with-az-cli2).
 
 ### <a name="set-your-azure-subscription"></a>Azure aboneliğinizi ayarlama
 
@@ -74,7 +74,7 @@ Küme oluşturmak için `az acs create` seçeneğini kullanın.
 
 
 ### <a name="quick-acs-create-using-defaults"></a>Varsayılan değerleri kullanarak hızlı `acs create`
-Varsayılan konumda bir `id_rsa.pub` SSH ortak anahtar dosyanız varsa (veya [OS X ve Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) ya da [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) için bir tane oluşturduysanız) aşağıdakine benzer bir komut kullanın:
+Varsayılan konumda bir `id_rsa.pub` SSH RSA ortak anahtar dosyanız varsa (veya [OS X ve Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) ya da [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) için bir tane oluşturduysanız) aşağıdakine benzer bir komut kullanın:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -145,6 +145,6 @@ Artık çalışan bir kümeniz olduğuna göre, bağlantı ve yönetim ayrıntı
 * [Azure Container Service ve Kubernetes ile çalışma](container-service-kubernetes-walkthrough.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 
