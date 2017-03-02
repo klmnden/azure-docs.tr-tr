@@ -18,6 +18,7 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 002fa917e0cc17c34e0e617a28f2e21ba9b7e35f
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Azure CLI kullanarak internet yük dengeleyici oluşturma
@@ -131,7 +132,7 @@ Bu örnek aşağıdaki nesneleri oluşturur.
 2. Yük dengeleyici kuralı oluşturun.
 
     ```azurecli
-        azure network lb rule create --resource-group nrprg nrplb --lb-name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
+        azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
     ```
 
 3. Durum araştırması oluşturun.
@@ -308,9 +309,4 @@ azure network lb delete --resource-group nrprg --name nrplb
 [Yük dengeleyici dağıtım modu yapılandırma](load-balancer-distribution-mode.md)
 
 [Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
