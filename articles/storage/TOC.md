@@ -45,7 +45,7 @@
 
 ## Disk Depolama 
 ### [Resource Manager ve PowerShell kullanarak VM oluşturma](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Azure CLI 2.0 (Önizleme) kullanarak Linux VM oluşturma](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Azure CLI 2.0 kullanarak bir Linux VM oluşturma](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 ### [PowerShell kullanarak bir Windows VM’ye yönetilen disk ekleme](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 ### [Linux VM’ye yönetilen disk ekleme](../virtual-machines/virtual-machines-linux-add-disk.md)
 ### [Windows’da Anlık Görüntüler kullanılarak Yönetilen Disk olarak depolanmış VHD kopyası oluşturma](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
@@ -100,7 +100,7 @@
 ### [Özellikler ile meta verileri ayarlama ve alma](storage-properties-metadata.md)
 ## Yönet
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI 2.0 (Önizleme)](storage-azure-cli.md)
+### [Azure CLI 2.0](storage-azure-cli.md)
 ### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Otomasyonu](automation-manage-storage.md)
 ## Güvenlik
@@ -219,8 +219,3 @@
 ### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
 ### [iOS](https://github.com/Azure/azure-storage-ios)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

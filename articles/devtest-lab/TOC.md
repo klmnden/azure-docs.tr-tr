@@ -5,8 +5,8 @@
 
 # Kullanmaya Başlama
 ## [Laboratuvar oluşturma](devtest-lab-create-lab.md)
-## [VM yapıları oluşturma](devtest-lab-add-vm-with-artifacts.md)
-## [Eğitim için bir laboratuvar oluşturma](devtest-lab-training-lab.md)
+## [VM oluşturma](devtest-lab-add-vm.md)
+## [Eğitim için laboratuvar oluşturma](devtest-lab-training-lab.md)
 ## [SSS](devtest-lab-faq.md)
 
 # Nasıl yapılır?
@@ -20,6 +20,7 @@
 ## Yapıtları Yönetme
 ### [Yapıt deposu ekleme](devtest-lab-add-artifact-repo.md)
 ### [Özel yapıtlar oluşturma](devtest-lab-artifact-author.md)
+### [Yapıtları yönetme](devtest-lab-add-vm-with-artifacts.md)
 
 ## VM tabanlarını ve şablonlarını yönetme
 ### [Azure Resource Manager şablonları ile çoklu VM ortamları oluşturma](devtest-lab-create-environment-from-arm.md)
@@ -41,8 +42,3 @@
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

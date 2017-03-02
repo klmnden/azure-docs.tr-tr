@@ -105,6 +105,7 @@
 #### Azure’da küme oluşturma
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+##### [Visual Studio ve Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
 #### [Düğüm türleri ve VM Ölçek Kümeleri](service-fabric-cluster-nodetypes.md)
 #### [Küme ölçeklendirme](service-fabric-cluster-scale-up-down.md)
 #### [Kümeyi yükseltme](service-fabric-cluster-upgrade.md)
@@ -116,6 +117,8 @@
 #### [Bir Parti Kümesi’ni ücretsiz olarak deneme](http://aka.ms/tryservicefabric)
 
 ### Tek başına kümeler
+#### [Dağıtımınızı planlama ve dağıtım için hazırlanma](service-fabric-cluster-standalone-deployment-preparation.md)
+#### [Service Fabric tek başına paketinin içeriği](service-fabric-cluster-standalone-package-contents.md)
 #### [Tek başına küme oluşturma](service-fabric-cluster-creation-for-windows-server.md)
 #### [Azure Sanal Makinelerde tek başına küme oluşturma](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Küme ölçeklendirme](service-fabric-cluster-windows-server-add-remove-nodes.md)
@@ -211,8 +214,3 @@
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

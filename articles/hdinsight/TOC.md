@@ -54,6 +54,7 @@
 ### [RStudio’yu yükleme](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [İşlem bağlamları](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Bellek içi işleme için Spark’ı kullanma
+### [Derin öğrenme için Caffe kullanma](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Data Lake Store ile](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [BI araçları ile](hdinsight-apache-spark-use-bi-tools.md)
 ### [Tek başına uygulama](hdinsight-apache-spark-create-standalone-application.md)
@@ -223,8 +224,3 @@
 # Kaynaklar
 ## [Forumdan yardım alma](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

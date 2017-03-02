@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 9816de3f1925e79fdd2814f5a65f80d0fe912137
-ms.openlocfilehash: d9bc1b35580377b8b5edd73c4b8797d9da30cf11
+ms.sourcegitcommit: 491bbfe61cf387f18b903caa45529be206876d49
+ms.openlocfilehash: fe253f5d95b0b9351d6ffd382cbba0c490074f15
+ms.lasthandoff: 02/28/2017
 
 ---
 # <a name="site-recovery-documentation"></a>Site Recovery Belgeleri
@@ -41,7 +42,25 @@ ms.openlocfilehash: d9bc1b35580377b8b5edd73c4b8797d9da30cf11
         </a>
     </li>
     <li>
-        <a href="/azure/site-recovery/site-recovery-best-practices">
+        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Site Recovery Video Kitaplığı</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/site-recovery/site-recovery-vmware-to-azure">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -58,6 +77,42 @@ ms.openlocfilehash: d9bc1b35580377b8b5edd73c4b8797d9da30cf11
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/site-recovery/site-recovery-hyper-v-site-to-azure">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Hyper-V VM’lerini Azure’a çoğaltmaya başlayın (VMM olmadan)</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/site-recovery/site-recovery-vmm-to-azure">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>VMM bulutlarındaki Hyper-V VM’lerini Azure’a çoğaltmaya başlayın</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+   </li>
 </ul>
 
 ---
@@ -91,10 +146,5 @@ ms.openlocfilehash: d9bc1b35580377b8b5edd73c4b8797d9da30cf11
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

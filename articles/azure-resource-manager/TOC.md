@@ -17,6 +17,7 @@
 ### [Yazma şablonları](resource-group-authoring-templates.md)
 ### [Şablon işlevleri](resource-group-template-functions.md)
 ### [Kaynaklar arasında bağımlılık tanımlama](resource-group-define-dependencies.md)
+### [Alt kaynak adı ve türünü ayarlama](resource-manager-template-child-resource.md)
 ### [Kaynak türünün birden çok örneğini oluşturma](resource-group-create-multiple.md)
 ### [Dağıtım sırasında güvenlik değerlerini geçirme](resource-manager-keyvault-parameter.md)
 ### [Diğer şablonlara bağlantı](resource-group-linked-templates.md)
@@ -71,8 +72,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
