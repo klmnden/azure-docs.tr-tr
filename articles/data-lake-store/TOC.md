@@ -21,6 +21,7 @@
 ### [DistCp’yi kullanma](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop’u kullanma](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Çevrimdışı kaynaklardan veri yükleme](data-lake-store-offline-bulk-data-upload.md)
+### [Azure Data Lake Store’u bölgeler arasında geçirme](data-lake-store-migration-cross-region.md)
 
 ## Verileri Güvenli Hale Getirme
 ### [Güvenliğe genel bakış](data-lake-store-security-overview.md)
@@ -70,8 +71,3 @@
 ## [UserVoice üzerinden geri bildirim gönderin](https://feedback.azure.com/forums/327234-data-lake)
 ## [Data Lake Store Blogu](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

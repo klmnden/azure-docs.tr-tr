@@ -22,8 +22,10 @@
 ## Planlama ve tasarım
 ### [Tasarım kavramları](active-directory-aadconnect-design-concepts.md)
 ### [Azure AD Connect için topolojiler](active-directory-aadconnect-topologies.md)
+### [Çoklu Oturum Açma](active-directory-aadconnect-sso.md)
+### [Azure’da Active Directory Federasyon Hizmeti](active-directory-aadconnect-azure-adfs.md)
 ### [Örneklerle ilgili özel konular](active-directory-aadconnect-instances.md)
-
+### [Azure AD zaten olduğunda](active-directory-aadconnect-existing-tenant.md)
 ## [Azure AD Connect'i yönetme](active-directory-aadconnect-whats-next.md)
 ### [O365 ve Azure AD için sertifikaları yenileme](active-directory-aadconnect-o365-certs.md)
 ### [Cihaz geri yazmayı etkinleştirme](active-directory-aadconnect-feature-device-writeback.md)
@@ -32,20 +34,24 @@
 ### [Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 
+
 ## Azure AD Connect Sync'i yönetme
 ### [Yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Doğrudan kimlik doğrulama](active-directory-aadconnect-pass-through-authentication.md)
 ### [Azure AD hizmet hesabı](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Yükleme sihirbazı](active-directory-aadconnectsync-installation-wizard.md)
 ### [Varsayılan yapılandırmayı değiştirme](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Filtrelemeyi Yapılandırma](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Dizin genişletmeleri](active-directory-aadconnectsync-feature-directory-extensions.md)
+
 ### [Eşitleme Hizmeti Yöneticisi](active-directory-aadconnectsync-service-manager-ui.md)
-#### [İşlemler](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [İşlemler](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Bağlayıcılar](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [Meta Veri Deposu Tasarımcısı](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [Meta veri deposu arama](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+
 
 ## Federasyon Hizmetlerini Yönetme
 ### [Özelleştirme ve yönetme](active-directory-aadconnect-federation-management.md)
@@ -83,8 +89,3 @@
 # Kaynaklar
 ##[Azure AD Connect ile ilgili SSS](active-directory-aadconnect-faq.md)
 ##[DirSync’i Kullanımdan Kaldırma](active-directory-aadconnect-dirsync-deprecated.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

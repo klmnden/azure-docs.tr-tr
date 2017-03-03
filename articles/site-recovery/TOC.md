@@ -20,19 +20,22 @@
 ### [Ağ altyapısı ile ilgili önemli noktalar](site-recovery-network-design.md)
 ### [Site Recovery Capacity Planner’ı kullanma](site-recovery-capacity-planner.md)
 ### [Kapasite planlama ve Azure'aa VMware çoğaltma işlemini ölçeklendirme](site-recovery-plan-capacity-vmware.md)
+### [Azure’a VMware çoğaltması için Dağıtım Planlayıcısı’nı çalıştırma](site-recovery-deployment-planner.md)
 ## Yapılandırma
-### [Kaynak çoğaltma ortamını ayarlama](site-recovery-set-up-vmware-to-azure.md)
+### [Kaynak ortamını ayarlama](site-recovery-set-up-vmware-to-azure.md)
+### [Hedef ortamını ayarlama](site-recovery-prepare-target-vmware-to-azure.md)
 ### [Çoğaltma ayarlarını yapılandırma](site-recovery-setup-replication-settings-vmware.md)
 ### [VMware çoğaltma için Mobility hizmetini dağıtma](site-recovery-vmware-to-azure-install-mob-svc.md)
-#### [System Center Configuration Manager kullanarak Mobility hizmetini dağıtma](site-recovery-install-mobility-service-using-sccm.md)
-#### [Azure Automation DSC kullanarak Mobility hizmetini dağıtma](site-recovery-automate-mobility-service-install.md)
+#### [System Center Configuration Manager ile Mobility hizmetini dağıtma](site-recovery-install-mobility-service-using-sccm.md)
+#### [Azure Otomasyonu DSC ile Mobility hizmetini dağıtma](site-recovery-automate-mobility-service-install.md)
 ## Yük devretme ve yeniden çalışma
 ### [Site Recovery'de yük devretme](site-recovery-failover.md)
 ### [Kurtarma planları oluşturma](site-recovery-create-recovery-plans.md)
 #### [Kurtarma planlarına Azure runbook ekleme](site-recovery-runbook-automation.md)
 ### [Azure’a yük devretme testi çalıştırma](site-recovery-test-failover-to-azure.md)
 ### [İki VMM sitesi arasında yük devretme testi çalıştırma](site-recovery-test-failover-vmm-to-vmm.md)
-### [VMware VM’lerini ve fiziksel sunucuları ilk durumuna geri döndürme](site-recovery-failback-azure-to-vmware.md)
+### [Azure’dan VMware VM’lerini/fiziksel sunucuları ilk durumuna geri döndürme](site-recovery-how-to-failback-azure-to-vmware.md)
+### [Azure’dan Hyper-V VM’lerini Hedef ortamını ayarlama](site-recovery-failback-from-azure-to-hyper-v.md)
 
 ## Geçiş
 ### [Azure’a geçiş](site-recovery-migrate-to-azure.md)
@@ -53,8 +56,8 @@
 ### [İkincil siteye Hyper-V çoğaltma işlemini (VMM ile) otomatikleştirme](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Yönet
 ### [Sunucuları kaldırma ve korumayı devre dışı bırakma](site-recovery-manage-registration-and-protection.md)
-### [Çoğaltma ayarlarını düzenleme](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
-## [İzleme ve sorun giderme](site-recovery-monitoring-and-troubleshooting.md)
+### [İşlem sunucularının ölçeğini genişletme](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+### [İzleme ve sorun giderme](site-recovery-monitoring-and-troubleshooting.md)
 
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
@@ -70,8 +73,3 @@
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/site-recovery/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=site-recovery)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

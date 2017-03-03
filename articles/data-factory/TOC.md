@@ -63,6 +63,7 @@
 ### [HDInsight MapReduce Etkinliği](data-factory-map-reduce.md)
 ### [HDInsight Akış Etkinliği](data-factory-hadoop-streaming-activity.md)
 ### [Machine Learning Batch Yürütme Etkinliği](data-factory-azure-ml-batch-execution-activity.md)
+### [Machine Learning Kaynak Güncelleştirme Etkinliği](data-factory-azure-ml-update-resource-activity.md)
 ### [Saklı Yordam Etkinliği](data-factory-stored-proc-activity.md)
 ### [Data Lake Analytics U-SQL Etkinliği](data-factory-usql-activity.md)
 ### [.NET özel etkinliği](data-factory-use-custom-activities.md)
@@ -99,8 +100,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Özellik isteme](https://feedback.azure.com/forums/270578-azure-data-factory)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

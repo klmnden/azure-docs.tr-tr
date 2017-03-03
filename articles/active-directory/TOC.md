@@ -9,12 +9,31 @@
 ## [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
 ## [Azure aboneliklerini ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
-## [AD lisanslamayı yönetme](active-directory-licensing-what-is.md)
+## Azure AD lisanslamayı yönetme
+### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
+### [Klasik portal](active-directory-licensing-what-is.md)
 ## [Kuruluşunuz için Azure’u edinme](sign-up-organization.md)
 ## [SSS](active-directory-faq.md)
 ## [SaaS uygulama öğreticileri](active-directory-saas-tutorial-list.md)
 
-# Nasıl yapılır
+# Nasıl yapılır?
+## Planlama ve tasarım
+### [Karma kimlik çözümü dağıtma](active-directory-hybrid-identity-design-considerations-overview.md)
+#### Gereksinimlerini belirleme
+##### [Kimlik](active-directory-hybrid-identity-design-considerations-business-needs.md)
+##### [Dizin eşitlemesi](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Multi-Factor Authentication](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [Kimlik yaşam döngüsü stratejisi](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [Veri güvenliği planlama](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [Veri koruma](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [İçerik yönetimi](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [Erişim denetimi](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [Olay yanıtı](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+#### Kimlik yaşam döngünüzü planlama
+##### [Görevler](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [Benimseme stratejisi](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [Sonraki adımlar](active-directory-hybrid-identity-design-considerations-nextsteps.md)
+#### [Araç karşılaştırması](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 ## Kullanıcıları yönetme
 ### Kullanıcı ekle
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
@@ -47,17 +66,26 @@
 ### Gelişmiş kurallar oluşturma
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [Klasik portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
+### [Grup tabanlı lisanslama](active-directory-licensing-whatis-azure-portal.md)
+#### [Bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Bir grup için lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
+#### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
 ### [Self servis gruplarını kurma](active-directory-accessmanagement-self-service-group-management.md)
 ### [Sorun giderme](active-directory-accessmanagement-troubleshooting.md)
 
-## [Etkinlik ve güvenlik raporlarını görüntüleme](active-directory-view-access-usage-reports.md)
-### [Azure AD raporlama](active-directory-reporting-getting-started.md)
+## [Etkinlik raporlarını görüntüle](active-directory-view-access-usage-reports.md)
+### [Oturum açma işlemleri](active-directory-reporting-activity-sign-ins.md)
+### [Denetim günlükleri](active-directory-reporting-activity-audit-logs.md)
+### [Risk altındaki kullanıcılar](active-directory-reporting-security-user-at-risk.md)
+### [Riskli oturum açma işlemleri](active-directory-reporting-security-risky-sign-ins.md)
 ### [SSS](active-directory-reporting-faq.md)
 ### [Rapor geçişi](active-directory-reporting-migration.md)
-
 ### [Bilinen ağlar](active-directory-known-networks.md)
 
-### [Raporlama kılavuzu](active-directory-reporting-guide.md)
+### Klasik portal
+#### [Azure AD raporlama](active-directory-reporting-getting-started.md)
+#### [Raporlama kılavuzu](active-directory-reporting-guide.md)
 #### [Önizleme](active-directory-reporting-azure-portal.md)
 #### [API](active-directory-reporting-api-getting-started.md)
 ##### [Denetim Başvurusu](active-directory-reporting-api-audit-reference.md)
@@ -65,20 +93,18 @@
 ##### [Önkoşullar](active-directory-reporting-api-prerequisites.md)
 ##### [Oturum açma başvurusu](active-directory-reporting-api-sign-in-activity-reference.md)
 ##### [Oturum açma örnekleri](active-directory-reporting-api-sign-in-activity-samples.md)
-
-
 #### [Denetim olayları](active-directory-reporting-audit-events.md)
 #### [Bekletme](active-directory-reporting-retention.md)
 #### [Gecikmeler](active-directory-reporting-latencies.md)
 #### [Bildirimler](active-directory-reporting-notifications.md)
-### Raporları anlama
-#### [Düzensiz oturum açma](active-directory-reporting-irregular-sign-in-activity.md)
-#### [Birden fazla hata](active-directory-reporting-sign-ins-after-multiple-failures.md)
-#### [Şüpheli IP adresleri](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-#### [Birden fazla coğrafya](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-#### [Büyük olasılıkla virüs bulaşmış cihazlar](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-#### [Bilinmeyen kaynaklar](active-directory-reporting-sign-ins-from-unknown-sources.md)
-#### [Anormal oturum açma işlemleri](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
+#### Raporları anlama
+##### [Düzensiz oturum açma](active-directory-reporting-irregular-sign-in-activity.md)
+##### [Birden fazla hata](active-directory-reporting-sign-ins-after-multiple-failures.md)
+##### [Şüpheli IP adresleri](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
+##### [Birden fazla coğrafya](active-directory-reporting-sign-ins-from-multiple-geographies.md)
+##### [Büyük olasılıkla virüs bulaşmış cihazlar](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
+##### [Bilinmeyen kaynaklar](active-directory-reporting-sign-ins-from-unknown-sources.md)
+##### [Anormal oturum açma işlemleri](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Parolaları yönetme](active-directory-manage-passwords.md)
 ### [Kendi parolanızı güncelleştirme](active-directory-passwords-update-your-own-password.md)
@@ -99,9 +125,11 @@
 #### [Sorun giderme](active-directory-passwords-troubleshoot.md)
 
 ## Cihazları yönetme
+### [Cihaz kaydetme](active-directory-conditional-access-device-registration-overview.md)
+#### [Otomatik kaydı yönetme](active-directory-conditional-access-automatic-device-registration.md)
+#### [Kurulum](active-directory-conditional-access-automatic-device-registration-setup.md)
 ### [Cihazınızı kaydetme](active-directory-azureadjoin-personal-device.md)
 ### [Bir Windows 10 cihazını kaydetme](active-directory-azureadjoin-user-upgrade.md)
-
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Cihaz kaydı oluşturma](active-directory-azureadjoin-setup.md)
@@ -176,6 +204,7 @@
 ### [Belge kitaplığı](active-directory-apps-index.md)
 
 ## Dizininizi yönetme
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Özel etki alanı adları
 #### [Genel Bakış](active-directory-add-domain-concepts.md)
 #### Etki alanı adınızı ekleme
@@ -249,10 +278,6 @@
 ### [Koşullu erişim](active-directory-conditional-access.md)
 #### [Kullanmaya başlama](active-directory-conditional-access-azuread-connected-apps.md)
 #### [Desteklenen uygulamalar](active-directory-conditional-access-supported-apps.md)
-#### [Cihaz kaydetme](active-directory-conditional-access-device-registration-overview.md)
-#### [Otomatik kaydı yönetme](active-directory-conditional-access-automatic-device-registration.md)
-##### [Kurulum](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Doğrulayıcı uygulamasını yönetme](active-directory-conditional-access-azure-authenticator-app.md)
 #### [Cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### [Bağlı uygulamalara erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
 #### [Şirket içi dağıtma](active-directory-conditional-access-on-premises-setup.md)
@@ -274,27 +299,12 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Azure VM’lerinde dağıtma](virtual-networks-windows-server-active-directory-virtual-machines.md)
+## [Azure VM’lerinde AD DS dağıtma](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Azure VM’lerinde Windows Server Active Directory](active-directory-deploying-ws-ad-guidelines.md)
 ### [Azure Sanal Ağında kopya etki alanı denetleyicisi](active-directory-install-replica-active-directory-domain-controller.md)
 ### [Azure Sanal Ağında yeni orman](active-directory-new-forest-virtual-machine.md)
 
-## [Karma kimlik çözümü dağıtma](active-directory-hybrid-identity-design-considerations-overview.md)
-### Gereksinimlerini belirleme
-#### [Kimlik](active-directory-hybrid-identity-design-considerations-business-needs.md)
-#### [Dizin eşitlemesi](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-#### [Multi-Factor Authentication](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-#### [Kimlik yaşam döngüsü stratejisi](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-### [Veri güvenliği planlama](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-#### [Veri koruma](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-#### [İçerik yönetimi](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-#### [Erişim denetimi](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-#### [Olay yanıtı](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
-### Kimlik yaşam döngünüzü planlama
-#### [Görevler](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-#### [Benimseme stratejisi](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-### [Sonraki adımlar](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-### [Araç karşılaştırması](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 
 ## [Azure’a AD FS dağıtma](active-directory-aadconnect-azure-adfs.md)
 ### [Yüksek kullanılabilirlik](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
@@ -323,8 +333,3 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

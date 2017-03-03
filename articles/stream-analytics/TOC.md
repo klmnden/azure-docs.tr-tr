@@ -31,6 +31,7 @@
 ### [Pencere işlevleri](stream-analytics-window-functions.md)
 
 ## Yönet
+### [İş güvenilirliği](stream-analytics-job-reliability.md)
 ### [İşleri izleme](stream-analytics-monitoring.md)
 ### [Tanılama günlükleri](stream-analytics-job-diagnostic-logs.md)
 ### [Programlama yoluyla işleri izleme](stream-analytics-monitor-jobs.md)
@@ -59,8 +60,3 @@
 ## [Geri Bildirim forumu](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

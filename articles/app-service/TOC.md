@@ -28,6 +28,20 @@
 ### [Market uygulaması](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
+# Ortak örnekler
+## CLI örnekleri
+### [GitHub’dan web uygulaması oluşturma ve kod dağıtma](./scripts/app-service-cli-deploy-github.md)
+### [GitHub’dan sürekli dağıtım ile bir web uygulaması oluşturma](./scripts/app-service-cli-continuous-deployment-github.md)
+### [Yerel Git deposundan web uygulaması oluşturma ve kod dağıtma](./scripts/app-service-cli-deploy-local-git.md)
+### [Hazırlık ortamında web uygulaması oluşturma ve kod dağıtma](./scripts/app-service-cli-deploy-staging-environment.md)
+### [Bir Docker kapsayıcısında bir ASP.NET Core web uygulaması oluşturma](./scripts/app-service-cli-linux-docker-aspnetcore.md)
+### [Özel bir etki alanını bir web uygulaması ile eşleştirme](./scripts/app-service-cli-configure-custom-domain.md)
+### [Web uygulamasını el ile ölçeklendirme](./scripts/app-service-cli-scale-manual.md)
+### [Web uygulaması dünya çapında yüksek kullanılabilirlik mimarisi ile ölçeklendirme](./scripts/app-service-cli-scale-high-availability.md)
+### [Bir web uygulamasını bir SQL veritabanına bağlama](./scripts/app-service-cli-app-service-sql.md)
+### [Bir web uygulamasını bir depolama hesabına bağlama](./scripts/app-service-cli-app-service-storage.md)
+### [Web sunucusu günlükleri ile bir web uygulamasını izleme](./scripts/app-service-cli-monitor.md)
+
 # Nasıl yapılır?
 
 ## Planlama ve tasarım
@@ -45,7 +59,7 @@
 ### Web Jobs
 #### [Azure Web İşleri SDK’sı nedir?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Azure Uygulama Hizmeti’nde .NET Web İşi oluşturma](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [WebJobs SDK ile Azure blob depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Web İşleri SDK’sı ile Azure blob depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Web İşleri SDK’sı ile Azure kuyruk depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Web İşleri SDK’sı ile Azure Service Bus kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Web İşleri SDK’sı ile Azure tablo depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -146,7 +160,7 @@
 ### [Visual Studio kullanarak sorun giderme](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 # Kaynaklar
-## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [App Service başvurusu](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [En iyi uygulamalar](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Web İşleri kaynakları](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -156,8 +170,3 @@
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=app-service) 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
