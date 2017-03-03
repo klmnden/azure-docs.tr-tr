@@ -15,6 +15,7 @@
 ### [AAD ile Web API arka ucunu koruma](api-management-howto-protect-backend-with-aad.md)
 ### [Sanal ağa bağlanma](api-management-using-with-vnet.md)
 ### [İç sanal ağa bağlanma](api-management-using-with-internal-vnet.md)
+### [Application Gateway’i bir iç sanal ağ ile tümleştirme](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Karşılıklı Sertifika kimlik doğrulaması](api-management-howto-mutual-certificates.md)
 ## İlkeleri yapılandırma
 ### [Özel önbelleğe alma](api-management-sample-cache-by-key.md)
@@ -24,13 +25,16 @@
 ### [İlke başvuru dizini](api-management-policy-reference.md)
 ### [İlkelere genel bakış](api-management-howto-policies.md)
 ### [Özellikleri kullanarak parolaları yönetme](api-management-howto-properties.md)
+### [İstemci sertifikası kimlik doğrulaması kullanarak API’leri güvenli hale getirme](api-management-howto-mutual-certificates-for-clients.md)
 ## Geliştirici deneyimini özelleştirme
-### [Geliştirici Portalını özelleştirme](api-management-customize-portal.md)
+### [Sayfa içeriği ve düzenini değiştirme](api-management-modify-content-layout.md)
+### [Sayfa öğelerinin stilini özelleştirme](api-management-customize-styles.md)
+### [Şablonları kullanarak sistem sayfalarını özelleştirme](api-management-developer-portal-templates.md)
 ### [AAD ile kimlik doğrulama](api-management-howto-aad.md)
+### [AAD B2C ile kimlik doğrulama](api-management-howto-aad-b2c.md)
 ### [Temsilcili kimlik doğrulama](api-management-howto-setup-delegation.md)
 ### [E-posta bildirimleri ve şablonlar](api-management-howto-configure-notifications.md)
 ### [Konsolda OAuth desteğini etkinleştirme](api-management-howto-oauth2.md)
-### [Şablonları kullanarak özelleştirme](api-management-developer-portal-templates.md)
 ## Üretimi yönetin
 ### [Grupları yönetme](api-management-howto-create-groups.md)
 ### [Birden çok Azure bölgesine dağıtma](api-management-howto-deploy-multi-region.md)
@@ -80,9 +84,4 @@
 ## [REST API kullanarak RBAC benzeri erişim sağlama](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [API Management API’leri çağırmak için PostMan’ı ayarlama](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [SmartBear Ready! API’si için API Management eklentisi](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

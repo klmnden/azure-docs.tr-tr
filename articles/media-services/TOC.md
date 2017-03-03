@@ -45,9 +45,17 @@
 
 ## [İçerik kodlama](media-services-encode-asset.md)
 ### [Kodlayıcıları karşılaştır](media-services-compare-encoders.md)
-### [Hata kodları](media-services-encoding-error-codes.md)
 ### Media Encoder Standard (MES)
 #### [Media Encoder Standard Biçimleri ve Kod Çözücüleri](media-services-media-encoder-standard-formats.md)
+#### [Otomatik olarak bit hızı merdiveni oluşturmak için MES kullanma](media-services-autogen-bitrate-ladder-with-mes.md)
+#### Media Encoder Standard ile kodlama
+##### [Portal](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [MES ile gelişmiş kodlama](media-services-advanced-encoding-with-mes.md)
+##### [Media Encoder Standard hazır ayarlarını özelleştirme](media-services-custom-mes-presets-with-dotnet.md)
+##### [.NET ile Media Encoder Standard kullanarak küçük resim oluşturma](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Videoları Media Encoder Standard ile kırpma](media-services-crop-video.md)
 #### MES Şemaları
 ##### [Media Encoder Standard şeması](media-services-mes-schema.md)
 ##### [Giriş meta verileri](media-services-input-metadata-schema.md)
@@ -78,13 +86,6 @@
 ##### [Android için H264 Tekli Bit Hızı 720p](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [Android için H264 Tekli Bit Hızı Yüksek Kaliteli SD](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
 ##### [Android için H264 Tekli Bit Hızı Düşük Kaliteli SD](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
-#### Media Encoder Standard ile kodlama
-##### [Portal](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-##### [REST](media-services-rest-encode-asset.md)
-#### [MES ile gelişmiş kodlama](media-services-advanced-encoding-with-mes.md)
-##### [.NET ile Media Encoder Standard kullanarak küçük resim oluşturma](media-services-dotnet-generate-thumbnail-with-mes.md)
-##### [Videoları Media Encoder Standard ile kırpma](media-services-crop-video.md)
 ### Media Encoder Premium İş Akışı
 #### [Media Encoder Premium İş Akışı Biçimleri ve Kod Çözücüleri](media-services-premium-workflow-encoder-formats.md)
 #### Media Encoder Premium İş Akışı ile kodlama
@@ -92,9 +93,11 @@
 ##### [Media Encoder Premium İş Akışı öğreticileri](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [İş Akışı Tasarımcısı ile Gelişmiş Kodlama İş Akışları Oluşturma](media-services-workflow-designer.md)
 ##### [Birden fazla giriş ile premium iş akışı](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### [fMP4 öbekleri oluşturan bir görev oluşturma](media-services-generate-fmp4-chunks.md)
 ### Medya işlemcileri
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### [Hata kodları](media-services-encoding-error-codes.md)
 ### Kullanım Dışı
 #### [Statik paketleme ve şifreleme](media-services-static-packaging.md)
 
@@ -215,8 +218,3 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services Topluluğu](media-services-community.md)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=media-services)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

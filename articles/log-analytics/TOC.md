@@ -16,7 +16,7 @@
 #### [Windows aracıları](log-analytics-windows-agents.md)
 #### [Linux aracıları](log-analytics-linux-agents.md)
 #### [Azure sanal makineleri](log-analytics-azure-vm-extension.md)
-#### [Azure kaynakları](log-analytics-azure-storage.md)
+#### [Azure depolama alanı](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [OMS Ağ Geçidi](log-analytics-oms-gateway.md)
@@ -31,8 +31,8 @@
 ## Verileri sorgulama
 ### [Günlük aramalarına genel bakış](log-analytics-log-searches.md)
 ### [Arama başvurusu](log-analytics-search-reference.md)
+#### [Normal ifadeler](log-analytics-log-searches-regex.md)
 ### [Bilgisayar grupları](log-analytics-computer-groups.md)
-### [Uyarılar](log-analytics-alerts.md)
 ## Verileri çözümleme
 ### [Panolar](log-analytics-dashboards.md)
 ### [Görünüm Tasarımcısı](log-analytics-view-designer.md)
@@ -42,6 +42,7 @@
 #### [AD Değerlendirmesi](log-analytics-ad-assessment.md)
 #### [AD Çoğaltma Durumu](log-analytics-ad-replication-status.md)
 #### [Uyarı yönetimi](log-analytics-solution-alert-management.md)
+#### [Azure SQL Analizi](log-analytics-azure-sql.md)
 #### [Kapasite Yönetimi](log-analytics-capacity.md)
 #### [Değişiklik İzleme](log-analytics-change-tracking.md)
 #### [Kapsayıcılar](log-analytics-containers.md)
@@ -60,6 +61,15 @@
 #### [VMware](log-analytics-vmware.md)
 #### [Kablo Verileri](log-analytics-wire-data.md)
 #### [SCOM Değerlendirmesi](log-analytics-scom-assessment.md)
+## Uyarı oluşturma
+### [Uyarıları anlama](log-analytics-alerts.md)
+### [Uyarı eylemleri](log-analytics-alerts-actions.md)
+### Uyarı kuralları oluşturma
+#### [OMS portalı](log-analytics-alerts-creating.md)
+#### [REST API](log-analytics-api-alerts.md)
+#### [Resource Manager Şablonu](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
+### [Web kancası eylem örneği](log-analytics-alerts-webhooks.md)
+### [Uyarı Yönetimi çözümü](log-analytics-solution-alert-management.md)
 ## Geliştirme
 ### [Veri Toplayıcı API’si](log-analytics-data-collector-api.md)
 ### [PowerShell cmdlet'leri](log-analytics-powershell-workspace-configuration.md)
@@ -75,8 +85,3 @@
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=log-analytics)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
