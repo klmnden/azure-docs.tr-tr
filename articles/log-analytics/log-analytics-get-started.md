@@ -17,6 +17,7 @@ ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
 ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -150,9 +151,4 @@ Bu öğreticide bir sanal makineye aracı yükleyip hızlıca çalışmaya başl
 * Log Analytics’e [Operations Manager aracıları](log-analytics-om-agents.md) bağlama hakkında bilgi edinin.
 * İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md).
 * Çözümler tarafından toplanan ayrıntılı bilgileri görüntülemek için [günlük aramaları](log-analytics-log-searches.md) hakkında bilgi edinin.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
