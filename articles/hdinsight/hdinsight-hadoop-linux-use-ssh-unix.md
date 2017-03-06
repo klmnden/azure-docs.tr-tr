@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4cde035f75bfa3c448f12e9ebf2896b9a54a6873
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Windows, Linux, Unix ya da OS X'te HDInsight (Hadoop) ile SSH kullanma
+# <a name="use-ssh-with-hdinsight-hadoop-from-bash-on-windows-10-linux-unix-or-os-x"></a>Bash on Windows 10, Linux, Unix ya da OS X'te HDInsight (Hadoop) ile SSH kullanma
 
 > [!div class="op_single_selector"]
 > * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -42,13 +43,11 @@ Birçok işletim sistemi `ssh` ve `scp` komut satırı yardımcı programları a
 * __ssh__: Uzak komut satırı oturumu açmak ve tünel oluşturmak için kullanılabilen genel SSH istemcisi.
 * __scp__: SSH protokolünü kullanarak yerel sistemlerle uzak sistemler arasında dosya kopyalama imkanı sunan yardımcı program.
 
-Windows, Windows 10 Yıldönümü Sürümü’ne kadar SSH istemcisine sahip değildi. Windows’un bu sürümünde yer alan Bash on Windows 10 özelliği, geliştiricilere `ssh`, `scp` ve diğer Linux komutlarını sunmaktadır. Bash on Windows 10’u kullanma hakkında daha fazla bilgi için bkz. [Windows’da Ubuntu Bash](https://msdn.microsoft.com/commandline/wsl/about).
+Windows 10 Anniversary Edition'da Bash, geliştirici özelliği olarak sunulmuştur. `ssh`, `scp` ve Linux komutlarını sunar. Bash on Windows 10’u kullanma hakkında daha fazla bilgi için bkz. [Windows’da Ubuntu Bash](https://msdn.microsoft.com/commandline/wsl/about).
 
 Windows kullanıyorsanız ancak Bash on Windows 10’a erişiminiz yoksa aşağıdaki SSH istemcisi önerilerinden faydalanabilirsiniz:
 
 * [Git For Windows](https://git-for-windows.github.io/): `ssh` ve `scp` komut satırı yardımcı programlarını sunar.
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/): Grafik arayüzlü SSH istemcisi sunar.
-* [MobaXterm](http://mobaxterm.mobatek.net/): Grafik arayüzlü SSH istemcisi sunar.
 * [Cygwin](https://cygwin.com/): `ssh` ve `scp` komut satırı yardımcı programlarını sunar.
 
 > [!NOTE]
@@ -64,7 +63,7 @@ Ortak anahtar şifrelemesini kullanmak için _ortak_ ve _özel_ anahtar çifti o
 
 * **Özel anahtar**, SSH istemcisi kullanarak HDInsight kümesinde oturum açtığınızda kimliğinizi doğrulamak için sunduğunuz bilgidir. Bu özel anahtarı koruyun. Özel anahtarı paylaşmayın.
 
-    Özel anahtar için bir parola oluşturarak ek güvenlik katmanı ekleyebilirsiniz. Anahtarın kullanılabilmesi için bu parolanın sağlanması gerekir.
+    Özel anahtar için bir parola oluşturarak ek güvenlik katmanı ekleyebilirsiniz. Parola kullanıyorsanız, SSH kullanarak kimlik doğrulaması yapılırken girmelisiniz.
 
 ### <a name="create-a-public-and-private-key"></a>Ortak ve özel anahtar oluşturma
 
@@ -91,7 +90,7 @@ Komut bittikten sonra iki yeni dosya oluşturulur:
 * __id\_rsa__: Bu dosya özel anahtarı içerir.
 
     > [!WARNING]
-    > Güvenliği ortak anahtarla sağlanan hizmetlere yetkisiz erişimi önlemek için bu dosyaya erişimi kısıtlamanız gerekir.
+    > Güvenliği ortak anahtarla sağlanan hizmetlere yetkisiz erişimi önlemek için bu dosyaya erişimi kısıtlayın.
 
 * __id\_rsa.pub__: Bu dosya ortak anahtarı içerir. HDInsight kümesi oluştururken kullanmanız gereken dosya budur.
 
@@ -115,7 +114,7 @@ Küme oluşturma sırasında SSH yapılandırma hakkında daha fazla bilgi için
 
 Küme oluşturulduktan sonra SSH kullanıcıları eklenebilir ancak bu işlem önerilmez.
 
-* Yeni SSH kullanıcılarını kümedeki her düğüme el ile eklemeniz gerekir.
+* Yeni SSH kullanıcılarının kümedeki tüm düğümlere eklenmesi gerekir.
 
 * Yeni SSH kullanıcıları, varsayılan kullanıcıyla aynı HDInsight erişimine sahip olur. HDInsight üzerindeki verilere veya işlere erişimi SSH kullanıcı hesabına göre kısıtlama imkanı yoktur.
 
@@ -147,7 +146,7 @@ SSH hesabının güvenliğini sağlamak için ortak anahtar kullanıyorsanız, `
 
 ### <a name="connect-to-other-nodes"></a>Diğer düğümlere bağlanma
 
-Çalışan düğümlerine ve Zookeeper düğümlerine kümenin dışından doğrudan erişim sağlamak mümkün değildir. Ancak bu düğümlere kümenin baş düğümlerinden veya kenar düğümlerinden erişebilirsiniz. Bunu yapmak için uygulamanız gereken genel adımlar şunlardır:
+Çalışan düğümlerine ve Zookeeper düğümlerine kümenin dışından doğrudan erişim sağlamak mümkün değildir. Ancak bu düğümlere kümenin baş düğümlerinden veya kenar düğümlerinden erişebilirsiniz. Diğer düğümlere bağlanmak için uygulamanız gereken genel adımlar şunlardır:
 
 1. SSH kullanarak bir baş veya kenar düğümüne bağlanın:
 
@@ -196,7 +195,7 @@ Hesabınızda kimlik doğrulaması için SSH anahtarı kullanıyorsanız, yerel 
 
 [Etki alanına katılmış HDInsight](hdinsight-domain-joined-introduction.md), Kerberos ile HDInsight’ta Hadoop arasında entegrasyon sağlar. SSH kullanıcısı bir Active Directory etki alanı kullanıcısı olmadığı için Active Directory kimlik doğrulamasından geçene kadar Hadoop komutlarını çalıştıramazsınız. SSH oturumunuzda Active Directory ile kimlik doğrulaması yapmak için aşağıdaki adımları kullanın:
 
-1. SSH kullanarak etki alanına katılmış HDInsight kümesine bağlanmak için [HDInsight bağlantısı yapma](#connect) bölümündeki adımları uygulayın. Örneğin, aşağıdaki komut __myhdi__ adlı HDInsight kümesine __sshuser__ adlı SSH hesabını kullanarak bağlanmanızı sağlar.
+1. Etki alanına katılmış bir HDInsight kümesine SSH kullanarak bağlanın. Örneğin, aşağıdaki komut __myhdi__ adlı HDInsight kümesine __sshuser__ adlı SSH hesabını kullanarak bağlanmanızı sağlar.
 
         ssh sshuser@myhdi-ssh.azurehdinsight.net
 
@@ -212,7 +211,7 @@ Hesabınızda kimlik doğrulaması için SSH anahtarı kullanıyorsanız, yerel 
 
 ## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH tünel oluşturma
 
-SSH, web istekleri gibi yerel istekler için HDInsight kümesine tünel oluşturmak üzere kullanılabilir. Daha sonra istek, HDInsight kümesi baş düğümünde oluşturulmuş gibi istenen kaynağa iletilir.
+SSH, web istekleri gibi yerel istekler için HDInsight kümesine tünel oluşturmak üzere kullanılabilir. İstek kümeye iletilir ve ardından kümede çözümlenir.
 
 > [!IMPORTANT]
 > SSH tüneli bazı Hadoop hizmetleri için web kullanıcı arabirimine erişmek üzere bir gereksinimdir. Örneğin, İş Geçmişi kullanıcı arabirimi veya Kaynak Yöneticisi kullanıcı arabirimine yalnızca SSH tüneli kullanılarak erişilebilir.
@@ -228,9 +227,4 @@ Artık bir SSH anahtarı kullanarak kimlik doğrulaması yapacağınızı anlad�
 * [HDInsight ile MapReduce işleri kullanma](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

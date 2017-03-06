@@ -13,11 +13,12 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/15/2017
+ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: cb0843ec739d11e997794a8217c95696c4e78d23
-ms.openlocfilehash: 70999d615038e7a5a11a623a9eef3e08c09f5eb9
+ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
+ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -102,50 +103,93 @@ Verilerin içeri aktarılmasını izlemek için hizmet panosuna dönün, sayfay�
 ## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Dizini sorgulama
 Artık sorgulamaya hazır bir arama dizininiz var. **Arama gezgini**, portalda yerleşik bir sorgu aracıdır. Arama sonuçlarının beklediğiniz gibi olduğunu doğrulayabilmeniz için bir arama kutusu sağlar. 
 
-   ![Search gezgini komutu][5]
-
 > [!TIP]
 > [Azure Search’e Genel Bakış videosunu](https://channel9.msdn.com/Events/Connect/2016/138) 6 dakika 8 saniye ileri alarak aşağıdaki adımların gösterimini izleyebilirsiniz.
 >
 
 1. Komut çubuğunda **Arama gezgini**'ne tıklayın.
 
+   ![Search gezgini komutu][5]
+
 2. *realestate-us-sample* öğesine geçmek için komut çubuğundan **Dizini değiştir**’e tıklayın.
 
    ![Dizin ve API komutları][6]
 
-3. Hangi REST API’lerin kullanılabildiğini görmek için komut çubuğundan **API sürümünü ayarla**’ya tıklayın. Önizleme API’leri ile henüz genel kullanıma sunulmamış yeni özelliklere erişebilirsiniz. Yönlendirilmezseniz genel kullanıma sunulan sürümü (2016-09-01) kullanın. 
+3. Hangi REST API’lerin kullanılabildiğini görmek için komut çubuğundan **API sürümünü ayarla**’ya tıklayın. Önizleme API’leri ile henüz genel kullanıma sunulmamış yeni özelliklere erişebilirsiniz. Aşağıdaki sorgular için yönlendirilmezseniz genel kullanıma sunulan sürümü (2016-09-01) kullanın. 
 
     > [!NOTE]
     > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) ve [.NET kitaplığı](search-howto-dotnet-sdk.md#core-scenarios) birbirine tamamen eşdeğerdir, ancak **Arama gezgini** yalnızca REST çağrılarını işleyebilir. Hem [basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) hem de [tam Lucene sorgu ayrıştırıcısına](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) yönelik söz dizimlerinin yanı sıra [Belgede Arama](https://docs.microsoft.com/rest/api/searchservice/search-documents) işlemlerinde kullanılabilen arama parametrelerini kabul eder.
     > 
-    > **Search gezgini** sonuçları JSON biçiminde döndürülür. Bu biçim ayrıntılı olmakla birlikte, belgelerin yoğun bir yapısı varsa okunması zordur. Belgelerinize bağlı olarak, önemli öğeleri ayrıştırmak amacıyla arama sonuçlarını işleyen kod yazmanız gerekebilir.
 
 4. Arama kutusuna aşağıdaki sorgu dizelerini girin ve **Ara**’ya tıklayın.
 
   ![Arama sorgusu örneği][7]
 
-**`search=seattle`** Bu durumda anahtar sözcük arama girişi yapmak için `search` parametresi kullanılmıştır ve belgedeki aranabilir alanların herhangi birinde Seattle ifadesini içeren Washington eyaletinin King County bölgesindeki listelemeler döndürülmüştür.
+**`search=seattle`**
 
-**`search=seattle&facet=beds`** `facet` parametresi, bir kullanıcı arabirimi denetimine geçirebileceğiniz bir gezinti yapısı döndürür. Kategorileri ve bir sayımı döndürür. Bu durumda, kategoriler yatak odası sayısını temel alır ve her birine yönelik belgelerin ya da eşleşmelerin sayımını içerir. `"beds"` dizinde filtrelenebilen ve modellenebilen bir alan olarak işaretlendiğinden bir model olarak belirtilebilir ve içerdiği değerler (sayısal, 1’den 5’e kadar), listelemelerin gruplar (3 yatak odalı, 4 yatak odalı listelemeler) halinde kategorilere ayrılması için uygundur.  Arama parametrelerini eklemek için `&` sembolü kullanılır.
++ Bu durumda tam metin aramak üzere anahtar sözcük arama girişi yapmak için `search` parametresi kullanılmıştır ve belgedeki aranabilir alanların herhangi birinde *Seattle* ifadesini içeren Washington eyaletinin King County bölgesindeki listelemeler döndürülmüştür. 
 
-**`search=seattle&filter=bed gt 3`** `filter` parametresi, sağladığınız ölçütlerle eşleşen sonuçları döndürür. Bu durumda yatak odası sayısı 3’ten büyük olanlar. Filtre söz dizimi bir OData yapısıdır. Daha fazla bilgi edinmek için bkz. [OData söz dizimini filtreleme](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
++ **Search gezgini** sonuçları JSON biçiminde döndürülür. Bu biçim ayrıntılı olmakla birlikte, belgelerin yoğun bir yapısı varsa okunması zordur. Belgelerinize bağlı olarak, önemli öğeleri ayrıştırmak amacıyla arama sonuçlarını işleyen kod yazmanız gerekebilir. 
 
-**`search=granite countertops&highlight=description`** İsabet vurguları, belirli bir alanda eşleşme bulunduğunda anahtar sözcükle eşleşen metinlere biçimlendirme ekler. Arama teriminiz uzun bir açıklamanın belirsiz bir yerindeyse, terimi bulmayı kolaylaştırmak için isabet vurgulama ekleyebilirsiniz. Bu durumda, açıklama alanında biçimlendirilen `"granite countertops"` ifadesini görmek daha kolaydır.
++ Belgeler, dizinde alınabilir olarak işaretlenmiş tüm alanlardan oluşur. Portalda dizin özniteliklerini görüntülemek için **Dizinler** kutucuğundaki *realestate-us-sample* öğesine tıklayın.
 
-**`search=mice&highlight=description`** Tam metin arama, benzer semantiğe sahip sözcük biçimlerini bulur. Bu durumda, “sıçan” anahtar sözcüğüyle yapılan bir aramanın sonuçları, fare istilasına uğramış evler için “fare” sözcüğünün vurgulandığı metinleri içerir. Dilbilimsel analiz nedeniyle sonuçlarda aynı kelimenin farklı biçimleri görüntülenebilir. Azure Search, Lucene ve Microsoft’tan 56 çözümleyiciyi destekler. Azure Search tarafından standart olarak Lucene çözümleyici kullanılır. 
+**`search=seattle&$count=true&$top=100`**
 
-**`search=samamish`** Seattle bölgesindeki Samammish platosu için 'samamish' yazılması örneğindeki gibi yazım hatası yapılan normal aramalarda bir eşleşme döndürülmez. Yazım hatalarını işlemek için bir sonraki örnekte açıklanan belirsiz aramayı kullanabilirsiniz.
++ `&` simgesi, herhangi bir sırada belirtilebilen arama parametreleri eklemek için kullanılır. 
 
-**`search=samamish~&queryType=full`** `~` sembolünü belirttiğinizde ve tam sorgu ayrıştırıcıyı kullandığınızda belirsiz arama etkinleştirilir ve `~` söz dizimi yorumlanıp doğru bir şekilde ayrıştırılır. Basit sorgu ayrıştırıcı daha hızlı olduğu için varsayılan olarak kullanılır, ancak belirsiz arama, normal ifadeler, yakınlık araması ya da diğer gelişmiş sorgu türlerini kullanmanız gerekiyorsa tam sorgu ayrıştırıcıyı tercih edebilirsiniz. Tam sorgu ayrıştırıcı tarafından etkinleştirilen sorgu senaryoları hakkında daha fazla bilgi edinmek için bkz. [Azure Search’te Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
++  `$count=true` parametresi, döndürülen tüm belgelerin toplam sayısını döndürür. `$count=true` tarafından bildirilen değişiklikleri izleyerek filtre sorgularını doğrulayabilirsiniz. 
 
-**`search=*`** Boş aramalar her şeyi döndürür. Dizininizdeki toplam belge sayısını görmek ya da bir sonraki bölümde açıklandığı gibi tüm belgeler üzerinde filtreleme veya modelleme uygulamak istiyorsanız boş sorgu kullanabilirsiniz.
++ `$top=100`, tüm belgelerin arasından en yüksek puana sahip 100 belgeyi döndürür. Azure Search varsayılan olarak ilk 50 en iyi eşleşmeyi döndürür. `$top` ile bu miktarı artırabilir veya azaltabilirsiniz.
 
-**`search=*&filter=geo.distance(location,geography'POINT(-122.13+47.64)')+le+10`** Koordinat içeren bir alanda [edm.GeographyPoint veri türü](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) aracılığıyla jeo-uzamsal arama desteklenir. Bu sorgu tüm sonuçları konumsal verilere göre filtreler ve belirli bir noktaya 10 kilometreden daha yakın olan sonuçlar (enlem ve boylam koordinatları olarak belirtilir) döndürülür. Coğrafi arama, [OData söz dizimini filtrele](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) seçeneğinde belirtilen bir tür filtredir. 
+**`search=*&facet=city&$top=2`**
 
-Normalde filtre ifadeleri bir `$` karakteriyle $filtre olarak belirtilir. Search Gezgini’nde `$` karakterini atmanız gerekir.
++ `search=*` boş bir aramadır. Boş aramalar her şeyi arar. Boş sorgu göndermenin nedenlerinden biri, belge kümesinin tamamını filtrelemek veya görüntülemektir. Örneğin, dizindeki tüm şehirleri içeren bir gezinme yapısı görünümü oluşturmak isteyebilirsiniz.
 
-Arama uygulamanız ‘yakınımda bul’ özelliği içeriyorsa ya da harita navigasyonu kullanıyorsa jeo-uzamsal arama kullanışlıdır. Ancak tam metin arama değildir. Bir şehir veya ülkede ada göre arama yapmak için kullanıcı gereksinimleriniz varsa koordinatlara ek olarak şehir veya bölge adlarını içeren alanlar ekleyin.
++  `facet`, bir kullanıcı arabirimi denetimine geçirebileceğiniz bir gezinti yapısı döndürür. Kategorileri ve bir sayımı döndürür. Bu durumda, kategoriler şehir sayısını temel alır. Azure Search'te toplama yoktur ancak her kategorideki belge sayısını veren `facet` ile tahmini bir toplama gerçekleştirebilirsiniz.
+
++ `$top=2` iki belge getirir ve sonuçları azaltmak veya artırmak için `top` kullanabileceğinizi gösterir.
+
+**`search=seattle&facet=beds`**
+
++ Bu sorgu *Seattle* için yapılan metin aramasında yatakların görünümüdür. `"beds"` alan dizinde getirilebilen, filtrelenebilen ve görünüm oluşturulabilen bir alan olarak işaretlendiğinden bir model olarak belirtilebilir ve içerdiği değerler (sayısal, 1'den 5'e kadar), listelemelerin gruplar (3 yatak odalı, 4 yatak odalı listelemeler) halinde kategorilere ayrılması için uygundur. 
+
++ Yalnızca filtrelenebilir alanlardan görünüm oluşturulabilir. Yalnızca getirilebilir alanlar sonuçlarda döndürülebilir.
+
+**`search=seattle&$filter=beds gt 3`**
+
++ `filter` parametresi, sağladığınız ölçütlerle eşleşen sonuçları döndürür. Bu durumda yatak odası sayısı 3’ten büyük olanlar. 
+
++ Filtre söz dizimi bir OData yapısıdır. Daha fazla bilgi edinmek için bkz. [OData söz dizimini filtreleme](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+
+**`search=granite countertops&highlight=description`**
+
++ İsabet vurgulama, belirli bir alanda eşleşme bulunduğunda anahtar sözcükle eşleşen metinlere biçimlendirme eklenmesini ifade eder. Arama teriminiz uzun bir açıklamanın belirsiz bir yerindeyse, terimi bulmayı kolaylaştırmak için isabet vurgulama ekleyebilirsiniz. Bu durumda, açıklama alanında biçimlendirilen `"granite countertops"` ifadesini görmek daha kolaydır.
+
+**`search=mice&highlight=description`**
+
++ Tam metin arama, benzer semantiğe sahip sözcük biçimlerini bulur. Bu durumda, “sıçan” anahtar sözcüğüyle yapılan bir aramanın sonuçları, fare istilasına uğramış evler için “fare” sözcüğünün vurgulandığı metinleri içerir. Dilbilimsel analiz nedeniyle sonuçlarda aynı kelimenin farklı biçimleri görüntülenebilir. 
+
++ Azure Search, Lucene ve Microsoft’tan 56 çözümleyiciyi destekler. Azure Search tarafından standart olarak Lucene çözümleyici kullanılır. 
+
+**`search=samamish`**
+
++ Seattle bölgesindeki Samammish platosu için "samamish" yazılması örneğindeki gibi yazım hatası yapılan normal aramalarda bir eşleşme döndürülmez. Yazım hatalarını işlemek için bir sonraki örnekte açıklanan belirsiz aramayı kullanabilirsiniz.
+
+**`search=samamish~&queryType=full`**
+
++ `~` sembolünü belirttiğinizde ve tam sorgu ayrıştırıcıyı kullandığınızda belirsiz arama etkinleştirilir ve `~` söz dizimi yorumlanıp doğru bir şekilde ayrıştırılır. 
+
++ Belirsiz arama, `queryType=full` belirttiğinizde gerçekleşen tam sorgu ayrıştırıcı ile kullanılabilir. Tam sorgu ayrıştırıcı tarafından etkinleştirilen sorgu senaryoları hakkında daha fazla bilgi edinmek için bkz. [Azure Search’te Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+
++ `queryType` belirtildiğinde varsayılan basit sorgu ayrıştırıcı kullanılır. Basit sorgu ayrıştırıcı daha hızlıdır ancak belirsiz arama, normal ifadeler, yakınlık araması ya da diğer gelişmiş sorgu türlerini kullanmanız gerekiyorsa tam söz dizimi gereklidir. 
+
+**`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
+
++ Koordinat içeren bir alanda [edm.GeographyPoint veri türü](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) aracılığıyla jeo-uzamsal arama desteklenir. Coğrafi arama, [OData söz dizimini filtrele](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) seçeneğinde belirtilen bir tür filtredir. 
+
++ Örnek sorgu tüm sonuçları konumsal verilere göre filtreler ve belirli bir noktaya 5 kilometreden daha yakın olan sonuçlar (enlem ve boylam koordinatları olarak belirtilir) döndürülür. `$count` ekleyerek mesafeyi veya koordinatları değiştirdiğinizde döndürülen sonuç sayısını görebilirsiniz. 
+
++ Arama uygulamanız ‘yakınımda bul’ özelliği içeriyorsa ya da harita navigasyonu kullanıyorsa jeo-uzamsal arama kullanışlıdır. Ancak tam metin arama değildir. Bir şehir veya ülkede ada göre arama yapmak için kullanıcı gereksinimleriniz varsa koordinatlara ek olarak şehir veya bölge adlarını içeren alanlar ekleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -153,9 +197,9 @@ Arama uygulamanız ‘yakınımda bul’ özelliği içeriyorsa ya da harita nav
 
   Bileşenlerin tek tek görüntülemek için panonuzda **Dizin**, **Dizin Oluşturucu** veya **Veri Kaynakları** kutucuğuna tıklayarak var olan nesnelerin bir listesini görüntüleyin. Yeniden derleme gerektirmeyen dizin düzenleme işlemleri hakkında daha fazla bilgi edinmek için bkz. [Dizini Güncelleştirme (Azure Search REST API’si)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Araçları ve adımları diğer veri kaynaklarıyla kullanın. `realestate-us-sample` örnek veri kümesi, Azure Search’ün içinde gezinebileceği bir Azure SQL Veritabanı’ndan alınmıştır. Azure Search, Azure SQL Veritabanı’nın yanı sıra Azure Tablo depolama, Blob depolama, bir Azure sanal makinesindeki SQL Server ve DocumentDB’de gezinebilir. Sihirbazda bu veri kaynaklarının tamamı desteklenir. Kodda bir *dizin oluşturucu* kullanarak bir dizini kolayca oluşturup doldurabilirsiniz.
++ Araçları ve adımları diğer veri kaynaklarıyla kullanın. `realestate-us-sample` örnek veri kümesi, Azure Search’ün içinde gezinebileceği bir Azure SQL Veritabanı’ndan alınmıştır. Azure Search, Azure SQL Veritabanı'nın yanı sıra Azure Tablo depolama, Blob depolama, Azure VM'deki SQL Server ve DocumentDB'de gezinebilir ve düz veri yapılarından dizin oluşturabilir. Sihirbazda bu veri kaynaklarının tamamı desteklenir. Kodda bir *dizin oluşturucu* kullanarak bir dizini kolayca doldurabilirsiniz.
 
-+ Diğer tüm veri kaynakları bir gönderme modeli aracılığıyla desteklenir. Bu modelde, yeni ve değiştirilmiş satır kümeleri kodunuz tarafından JSON biçiminde dizininize gönderir. Daha fazla bilgi edinmek için bkz. [Azure Search’te belge ekleme, güncelleştirme veya silme](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
++ Diğer dizin oluşturucu olmayan tüm veri kaynakları bir gönderme modeli aracılığıyla desteklenir. Bu modelde, yeni ve değiştirilmiş satır kümeleri kodunuz tarafından JSON biçiminde dizininize gönderir. Daha fazla bilgi edinmek için bkz. [Azure Search’te belge ekleme, güncelleştirme veya silme](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 Aşağıdaki bağlantıları ziyaret ederek burada bahsedilen diğer özellikler hakkında daha fazla bilgi edinin:
 
@@ -175,8 +219,3 @@ Aşağıdaki bağlantıları ziyaret ederek burada bahsedilen diğer özellikler
 [7]: ./media/search-get-started-portal/search-explorer-query2.png
 [8]: ./media/search-get-started-portal/realestate-indexer2.png
 [9]: ./media/search-get-started-portal/import-datasource-sample2.png
-
-
-<!--HONumber=Feb17_HO3-->
-
-

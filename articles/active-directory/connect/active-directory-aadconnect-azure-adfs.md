@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/03/2016
+ms.date: 02/27/2017
 ms.author: anandy;billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 6cf809dd6d3c74d1459179f9b16ae9dbfec99757
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 7a7ac3f34860cedb05e9e4423ca7878b2ed5913a
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="ad-fs-deployment-in-azure"></a>Azure’da AD FS dağıtımı
+# <a name="deloying-active-directory-federation-services-in-azure"></a>Azure'da Active Directory Federasyon Hizmetlerini dağıtma
 AD FS basitleştirilmiş, güvenli kimlik federasyonu ve Web’de çoklu oturum açma (SSO) özellikleri sağlar. Azure AD veya O365 ile federasyon, kullanıcıların şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması yapmasını ve buluttaki tüm kaynaklara erişmesini sağlar. Sonuç olarak, hem şirket içindeki hem de buluttaki kaynaklara erişimi sağlamak için yüksek oranda kullanılabilir bir AD FS altyapısına sahip olunması önemlidir. AD FS'nin Azure’da dağıtılması en az çaba ile yüksek kullanılabilirlik elde etmeye yardımcı olabilir.
 AD FS'yi Azure’da dağıtmanın çeşitli avantajları vardır ve birkaç tanesi aşağıda listelenmiştir:
 
@@ -209,7 +210,7 @@ Bunun yapılması fs.contoso.com ile ilgili tüm iletişimlerin ILB’de sona er
 ### <a name="7----configuring-the-web-application-proxy-server"></a>7.    Web Uygulaması Proxy sunucusunu yapılandırma
 **7.1.    Web Uygulaması Proxy sunucularını AD FS sunucularına ulaşacak şekilde yapılandırma**
 
-Web Uygulaması Proxy sunucularının ILB’nin arkasında AD FS sunucularına ulaşabildiğinden emin olmak için %systemroot%\system32\drivers\etc\hosts dizininde ILB için bir kayıt oluşturun. Ayırt edici ad (DN) federasyon hizmetinin adı olmalıdır, örneğin fs.contoso.com. IP girişi ise ILB'nin IP adresi olmalıdır (örnekte olduğu gibi 10.3.0.8).
+Web Uygulaması Proxy sunucularının ILB’nin arkasında AD FS sunucularına ulaşabildiğinden emin olmak için %systemroot%\system32\drivers\etc\hosts dizininde ILB için bir kayıt oluşturun. Ayırt edici ad (DN) federasyon hizmetinin adı olmalıdır, örneğin fs.contoso.com. IP girişi ise ILB'nin IP adresi olmalıdır (örnekte olduğu gibi&10;.3.0.8).
 
 **7.2.    Web Uygulaması Proxy rolünü yükleme**
 
@@ -353,10 +354,5 @@ Bu şablonu dağıtırken var olan bir sanal ağı kullanabilir veya yeni bir sa
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
 * [Azure AD Connect kullanarak AD FS’yi yapılandırma ve yönetme](active-directory-aadconnectfed-whatis.md)
 * [Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

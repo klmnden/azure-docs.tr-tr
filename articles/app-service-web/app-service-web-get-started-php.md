@@ -4,7 +4,7 @@ description: "Örnek PHP uygulamasını dağıtarak, App Service&quot;te web uyg
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,25 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: f739bf6101936ff6bb25738e4888476e3b33a38f
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 68298208d2e2cc1fe7ab4050afecb25ca7d619cd
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="deploy-your-first-php-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Beş dakika içinde Azure’a ilk PHP web uygulamanızı dağıtın (CLI 2.0 Önizleme)
-
-> [!div class="op_single_selector"]
-> * [İlk HTML sitesi](app-service-web-get-started-html.md)
-> * [İlk .NET uygulaması](app-service-web-get-started-dotnet.md)
-> * [İlk PHP uygulaması](app-service-web-get-started-php.md)
-> * [İlk Node.js uygulaması](app-service-web-get-started-nodejs.md)
-> * [İlk Python uygulaması](app-service-web-get-started-python.md)
-> * [İlk Java uygulaması](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Bu öğretici, ilk PHP web uygulamanızı [Azure Uygulama Hizmeti](../app-service/app-service-value-prop-what-is.md)’nde dağıtmanıza yardımcı olur.
 Web uygulamaları, [mobil uygulama arka uçları](/documentation/learning-paths/appservice-mobileapps/) ve [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) oluşturmak için App Service kullanabilirsiniz.
@@ -49,7 +41,7 @@ Yapacaklarınız:
 Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 
 - [Azure CLI 1.0](app-service-web-get-started-php-cli-nodejs.md): Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI’mız
-- [Azure CLI 2.0 (Önizleme)](app-service-web-get-started-php.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI’mız
+- [Azure CLI 2.0](app-service-web-get-started-php.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız
 
 ## <a name="prerequisites"></a>Ön koşullar
 * [Git](http://www.git-scm.com/downloads).
@@ -62,7 +54,7 @@ Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 > 
 
 ## <a name="deploy-a-php-web-app"></a>PHP web uygulaması dağıtma
-1. Yeni bir Windows komut istemi, PowerShell penceresi, Linux kabuğu veya OS X terminali açın. Makinenizde Git ve Azure CLI’nın yüklü olduğunu doğrulamak için `git --version` ve `azure --version` çalıştırın.
+1. Yeni bir Windows komut istemi, PowerShell penceresi, Linux kabuğu veya OS X terminali açın. Makinenizde Git ve Azure CLI’nın yüklü olduğunu doğrulamak için `git --version` ve `az --version` çalıştırın.
    
     ![Azure’da ilk web uygulamanız için CLI araçlarının test yüklemesi](./media/app-service-web-get-started-languages/1-test-tools-2.0.png)
    
@@ -77,7 +69,7 @@ Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 
 3. App Service için dağıtım kullanıcısını ayarlayın. Kodu daha sonra bu kimlik bilgilerini kullanarak dağıtacaksınız.
    
-        az appservice web deployment user set --user-name <username> --password <password>
+        az appservice web deployment user set --user-name <unique-username> --password <8-char-or-longer-password-letters-and-numbers>
 
 3. Yeni bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Bu ilk App Service öğreticisi için bunun ne olduğunu bilmeniz gerekmez.
 
@@ -128,7 +120,7 @@ Tebrikler, Azure App Service’ize uygulamanızı dağıttınız.
 ## <a name="see-your-app-running-live"></a>Uygulamanızı çalışırken görme
 Azure’da uygulamanızı çalışırken görmek için deponuzun herhangi bir dizininden bu komutu çalıştırın:
 
-    azure site browse
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Uygulamanızda güncelleştirmeler yapma
 Artık canlı sitede bir güncelleştirme yapmak için projenizin (depo) kökünden gönderme yapmak üzere Git’i kullanabilirsiniz. Kodunuzu ilk kez dağıtırken de bu yolu izlersiniz. Örneğin yerel olarak test ettiğiniz yeni bir değişikliği her göndermek istediğinizde tek yapmanız gereken projenizin (depo) kökünden aşağıdaki komutları çalıştırmaktır:
@@ -151,10 +143,5 @@ Veya ilk web uygulamanızla daha fazlasını yapın. Örnek:
 
 * [Kodunuzu Azure'a dağıtmanın diğer yollarını](web-sites-deploy.md) deneyin. Örneğin, GitHub depolarınızın birinden dağıtım yapmak için **Dağıtım seçenekleri**'nde **Yerel Git Deposu** yerine **GitHub**'ı seçmeniz yeterlidir.
 * Azure uygulamanızı bir sonraki seviyeye taşıyın. Kullanıcılarınızın kimliklerini doğrulayın. Talebe göre ölçeklendirin. Performans uyarıları ayarlayın. Tümünü birkaç tıklamayla gerçekleştirin. Bkz. [İlk web uygulamanıza işlevsellik ekleme](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

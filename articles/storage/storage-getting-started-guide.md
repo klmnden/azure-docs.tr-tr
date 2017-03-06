@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
-ms.openlocfilehash: 47b2623eb3b83220ef8e3cfafde06dab3ac3d22e
+ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
+ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -24,13 +25,13 @@ ms.openlocfilehash: 47b2623eb3b83220ef8e3cfafde06dab3ac3d22e
 ## <a name="overview"></a>Genel Bakış
 Azure Storage ile geliştirmeye başlamak kolaydır. Bu öğretici bir Azure Storage uygulamasını nasıl hızla çalıştırabileceğinizi gösterir. .NET için Azure SDK ile birlikte gelen Hızlı Başlangıç şablonlarını kullanacaksınız. Bu Hızlı Başlangıçlar Azure Storage ile bazı temel programlama senaryolarını gösteren çalıştırılmaya hazır kodlar içerir.
 
-Kodlara başlamadan önce Azure Storage hakkında daha fazla bilgi edinmek için bkz. [Sonraki Adımlar](#next-steps).
+Kodlara başlamadan önce Azure Depolama hakkında daha fazla bilgi edinmek için bkz. [Sonraki adımlar](#next-steps).
 
 ## <a name="prerequisites"></a>Ön koşullar
 Başlamadan önce aşağıdaki ön koşulları yerine getirmeniz gerekir:
 
-1. Bir uygulama derlemek ve oluşturmak için bilgisayarınızda [Visual Studio](https://www.visualstudio.com/)’nun bir sürümünün yüklü olması gerekir.
-2. [.NET için Azure SDK](https://azure.microsoft.com/downloads/)’nin en yeni sürümünü yükleyin. SDK Azure QuickStart örnek projelerini, Azure Storage öykünücüsünü ve [.NET için Azure Storage İstemcisi](https://msdn.microsoft.com/library/azure/dn261237.aspx)ni içerir.
+1. Bir uygulama derlemek ve oluşturmak için bilgisayarınızda [Visual Studio 2015](https://www.visualstudio.com/) veya üzeri yüklü olması gerekir.
+2. [.NET için Azure SDK](https://azure.microsoft.com/downloads/) uygulamasının en yeni sürümünü yükleyin. SDK Azure QuickStart örnek projelerini, Azure Storage öykünücüsünü ve [.NET için Azure Storage İstemcisi](https://msdn.microsoft.com/library/azure/dn261237.aspx)ni içerir.
 3. Bu öğretide kullanacağımız Azure Hızlı Başlangıç örnek projeler için gerekli olduğundan [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653)’in bilgisayarınızda yüklü olduğundan emin olun.
 
     Bilgisayarınızda yüklü .NET Framework’ün sürümünü bilmiyorsanız, bkz. [Nasıl Yapılır: Hangi .NET Framework Sürümlerinin Yüklendiğini Belirleme](https://msdn.microsoft.com/vstudio/hh925568.aspx). Veya **Başlat** düğmesine ya da Windows tuşuna basın, **Denetim Paneli** yazın. Ardından **Programlar** > **Programlar ve Özellikler**’e tıklayarak yüklü programlar arasında .NET Framework 4.5’in yüklü olup olmadığını görün.
@@ -45,9 +46,12 @@ Hesabınızı edindikten sonra Visual Studio’da Azure Hızlı Başlangıç ör
 1. Visual Studio’yu çalıştırın.
 2. **Dosya** menüsünden **Yeni Proje**’ye tıklayın.
 3. **Yeni Proje** iletişim kutusundan **Yüklenen** > **Şablonlar** > **Visual C#** > **Bulut** > **QuickStarts** > **Veri Hizmetleri**’ne tıklayın.
-    a. Aşağıdaki şablonlardan birini seçin: **Azure Storage: Blob’lar**, **Azure Storage: Dosyalar**, **Azure Storage: Kuyruklar** veya **Azure Storage: Tablolar**.
-    b. Hedef altyapı olarak **.NET Framework 4.5**’in seçildiğinden emin olun.
-    c. Aşağıda gösterildiği şekilde projeniz için bir ad belirleyin ve yeni Visual Studio çözümünü oluşturun:
+   
+   a. Aşağıdaki şablonlardan birini seçin: **Azure Storage: Blob’lar**, **Azure Storage: Dosyalar**, **Azure Storage: Kuyruklar** veya **Azure Storage: Tablolar**.
+   
+   b. Hedef altyapı olarak **.NET Framework 4.5**’in seçildiğinden emin olun.
+   
+   c. Aşağıda gösterildiği şekilde projeniz için bir ad belirleyin ve yeni Visual Studio çözümünü oluşturun:
 
     ![Azure Hızlı Başlangıçlar][Image1]
 
@@ -55,11 +59,11 @@ Uygulamayı çalıştırmadan önce kaynak kodunu incelemek isteyebilirsiniz. Ko
 
 Ardından örnek uygulamayı çalıştırın:
 
-1. Visual Studio’da **Görünüm** menüsünde **Çözüm Gezgini**’ni seçin. App.config dosyasını açın ve Azure Storage öykünücüsü için bağlantı dizesine açıklama yerleştirin:
+1. Visual Studio’da **Görünüm** menüsünde **Çözüm Gezgini**’ni seçin. **App.config** dosyasını açın ve Azure Depolama öykünücüsü için bağlantı dizesine açıklama yerleştirin:
 
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
-2. Azure Storage Hizmeti için bağlantı dizesinin açıklamasını kaldırın ve App.config dosyasında depolama hesabı adı ile erişim anahtarını sağlayın:
+2. Azure Depolama hizmeti için bağlantı dizesinin açıklamasını kaldırın ve App.config dosyasında `[AccountName]` ve `[AccountKey]` yerine hesap bilgilerinizi yazın:
 
    `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
 
@@ -76,8 +80,11 @@ Denemek için Visual Studio’da Azure Hızlı Başlangıç örnek projelerinden
 1. Visual Studio’yu çalıştırın.
 2. **Dosya** menüsünden **Yeni Proje**’ye tıklayın.
 3. **Yeni Proje** iletişim kutusundan **Yüklenen** > **Şablonlar** > **Visual C#** > **Bulut** > **QuickStarts** > **Veri Hizmetleri**’ne tıklayın.
+    
     a. Aşağıdaki şablonlardan birini seçin: **Azure Storage: Blob’lar**, **Azure Storage: Dosyalar**, **Azure Storage: Kuyruklar** veya **Azure Storage: Tablolar**.
+    
     b. Hedef altyapı olarak **.NET Framework 4.5**’in seçildiğinden emin olun.
+    
     c. Aşağıda gösterildiği şekilde projeniz için bir ad belirleyin ve yeni Visual Studio çözümünü oluşturun:
 
     ![Azure Hızlı Başlangıçlar][Image1]
@@ -94,7 +101,7 @@ Ardından Azure Storage Öykünücüsünde örnek uygulamayı çalıştırın:
 2. Visual Studio’da **Yapı** menüsünde **Yapı Çözümü**’ne tıklayın.
 3. **Hata Ayıklama** menüsünde **F11**’e basarak adım adım çözümü çalıştırın veya **F5**’e basarak çözümü başından sonuna kadar çalıştırın.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Azure Storage ile ilgili daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 * [Microsoft Azure Depolama'ya Giriş](storage-introduction.md)
@@ -109,9 +116,4 @@ Azure Storage ile ilgili daha fazla bilgi edinmek için şu kaynaklara bakın:
 * [Azure Depolama Hizmetleri REST API'si](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

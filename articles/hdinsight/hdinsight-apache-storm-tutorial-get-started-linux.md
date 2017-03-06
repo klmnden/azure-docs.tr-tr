@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4950dbe528290c7d839c97cc8770db4ae0ec08c6
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="apache-storm-tutorial-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Apache Storm öğreticisi: HDInsight’ta büyük veri analizi için Storm Starter örneklerini kullanmaya başlama
+#<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Linux tabanlı HDInsight'ta büyük veri analizi için Storm Starter örneklerini kullanmaya başlama
 
 Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya dayanıklı, dağıtılmış ve gerçek zamanlı bir işlem sistemidir. Azure HDInsight’ta Storm ile büyük veri analizini gerçek zamanlı olarak gerçekleştiren bulut tabanlı bir Storm kümesi oluşturabilirsiniz.
 
@@ -32,15 +33,13 @@ Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya da
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Bu Apache Storm öğreticisini başarıyla tamamlamak için şunlara sahip olmanız gerekir:
-
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **SSH ve SCP hakkında bilgi**. HDInsight ile SSH ve SCP kullanma hakkında daha fazla bilgi için aşağıdakilere bakın:
+* **SSH ve SCP hakkında bilgi**. HDInsight ile SSH ve SCP kullanma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
   
-    * **Linux, Unix veya OS X istemcileri**: Bkz. [HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Windows 10 üzerinde Bash, Linux, Unix veya OS X işletim sistemlerinden HDInsight'ta Linux tabanlı Hadoop ile SSH'yi kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
     
-    * **Windows istemcileri**: [Windows’dan HDInsight’ta Linux tabanlı Hadoop ile SSH (PuTTY) kullanma](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Windows’dan HDInsight’ta Linux tabanlı Hadoop ile SSH (PuTTY) kullanma](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ### <a name="access-control-requirements"></a>Erişim denetimi gereksinimleri
 
@@ -48,45 +47,51 @@ Bu Apache Storm öğreticisini başarıyla tamamlamak için şunlara sahip olman
 
 ## <a name="create-a-storm-cluster"></a>Storm kümesi oluşturma
 
-Bu bölümde, Azure Resource Manager şablonu kullanarak bir HDInsight sürüm 3.5 kümesi (Storm 1.0.1 sürümü) oluşturacaksınız. HDInsight sürümleri ve SLA’ları hakkında bilgi için bkz. [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md). Diğer küme oluşturma yöntemleri için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
+HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
-1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın.         
+1. [Azure portalı](https://portal.azure.com)’ndan **+YENİ**, **Akıllı Özellikler ve Analiz** ve ardından **HDInsight**’ı seçin.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight-35.json" target="_blank"><img src="./media/hdinsight-apache-storm-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    ![HDInsight kümesi oluşturma](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
+
+2. **Temel bilgiler** dikey penceresinde aşağıdaki bilgileri girin:
+
+    * **Küme Adı**: HDInsight kümesinin adı.
+    * **Abonelik**: Kullanılacak abonelik.
+    * **Küme oturumu kullanıcı adı** ve **Küme oturumu parolası**: HTTPS üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Ambari Web kullanıcı arabirimi veya REST API gibi hizmetlere erişmek için bu kimlik bilgilerini kullanın.
+    * **Güvenli Kabuk (SSH) kullanıcı adı**: SSH üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Varsayılan olarak parola, küme oturum açma parolası ile aynıdır.
+    * **Kaynak Grubu**: Kümenin oluşturulduğu kaynak grubu.
+    * **Konum**: Kümenin oluşturulacağı Azure bölgesi.
    
-    Şablon bir ortak blob kapsayıcısında, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json* adresinde bulunur. 
+    ![Abonelik seçme](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
-2. __Özel dağıtım__ dikey penceresine şu değerleri girin:
+3. **Küme türü**’nü seçin, ardından **Küme yapılandırması** dikey penceresinde aşağıdaki değerleri ayarlayın:
    
-    * __Kaynak grubu__: Kümenin oluşturulduğu kaynak grubu.
+    * **Küme Türü**: Storm
 
-    * **Küme Adı**: Hadoop kümesinin adı.
+    * **İşletim Sistemi**: Linux
 
-    * __Küme oturum açma adı__ ve __parola__: Varsayılan oturum açma adı admin’dir.
-    
-    * __SSH kullanıcı adı__ ve __parola__: SSH kullanılarak kümeye bağlanmak için gerekli kullanıcı adı ve parola.
+    * **Sürüm**: Storm 1.0.1 (HDI 3.5)
 
-    * __Konum__: Kümenin coğrafi konumu.
+    * **Küme Katmanı**: Standart
      
-     Lütfen bu değerleri yazın.  Öğreticide daha sonra bunlara ihtiyacınız olacaktır.
+    Son olarak, **Seç** düğmesini kullanarak ayarları kaydedin.
      
-     > [!NOTE]
-     > SSH bir komut satırı kullanarak HDInsight’a uzaktan erişmek için kullanılır. Burada kullandığınız kullanıcı adı ve parola, kümeye SSH üzerinden bağlanırken kullanılır. Ayrıca, SSH kullanıcı adı tüm HDInsight küme düğümlerinde bir kullanıcı hesabı oluşturduğundan benzersiz olmalıdır. Kümedeki hizmetlerin kullanımı için ayrılmış olup SSH kullanıcı adı olarak kullanılamayan hesap adlarının bazıları aşağıda verilmiştir:
-     > 
-     > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
-     > 
-     > HDInsight ile SSH kullanma hakkında daha fazla bilgi için aşağıdaki makalelerden birine bakın:
-     > 
-     > * [HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
-     > * [Windows’dan HDInsight’ta Linux tabanlı Hadoop ile SSH (PuTTY) kullanma](hdinsight-hadoop-linux-use-ssh-windows.md)
+    ![Küme türü seçme](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
-3. __Yukarıdaki hüküm ve koşulları kabul ediyorum__’u seçin, **Tamam**’a tıklayın ve ardından __Panoya sabitle__’yi seçin
+4. Küme türünü seçtikten sonra __Seç__ düğmesini kullanarak küme türünü ayarlayın. Ardından, __İleri__ düğmesini kullanarak temel yapılandırmayı tamamlayın.
 
-6. **Satın al**’a tıklayın. Şablon dağıtımı için Dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümeyi oluşturmak yaklaşık 20 dakika sürer.
+5. **Depolama** dikey penceresinden bir depolama hesabı seçin veya oluşturun. Bu belgedeki adımlar için bu dikey penceredeki diğer alanları varsayılan değerlerinde bırakın. __İleri__ düğmesini kullanarak depolama yapılandırmasını kaydedin.
+
+    ![HDInsight depolama hesabı ayarlarını belirleme](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
+
+6. **Özet** dikey penceresinden kümenin yapılandırmasını gözden geçirin. Yanlış olan ayarları değiştirmek için __Düzenle__ bağlantılarını kullanın. Son olarak, __Oluştur__ düğmesini kullanarak kümeyi oluşturun.
+   
+    ![Küme yapılandırma özeti](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
+   
+    > [!NOTE]
+    > Kümenin oluşturulması 20 dakika sürebilir.
 
 ## <a name="run-a-storm-starter-sample-on-hdinsight"></a>HDInsight’ta bir Storm Starter örneği çalıştırma
-
-[storm-starter](https://github.com/apache/storm/tree/master/examples/storm-starter) örnekleri HDInsight kümesine dahil edilir. Aşağıdaki adımlarda WordCount örneği çalıştırılacaktır.
 
 1. SSH kullanarak HDInsight kümesine bağlanma:
    
@@ -96,7 +101,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir HDInsight sürüm 3
    
     Linux tabanlı HDInsight ile SSH kullanma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
    
-    * [HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Windows 10 üzerinde Bash, Linux, Unix veya OS X işletim sistemlerinden HDInsight'ta Linux tabanlı Hadoop ile SSH'yi kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
 
     * [Windows’dan HDInsight’ta Linux tabanlı Hadoop ile SSH (PuTTY) kullanma](hdinsight-hadoop-linux-use-ssh-windows.md)
 
@@ -107,10 +112,10 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir HDInsight sürüm 3
     > [!NOTE]
     > HDInsight’ın önceki sürümlerinde, topolojinin sınıf adı `storm.starter.WordCountTopology` yerine `org.apache.storm.starter.WordCountTopology` şeklindedir.
    
-    Bu durum kümede 'wordcount' kolay adı ile örnek WordCount topolojisini başlatır. Rastgele cümleler oluşturur ve cümlelerde her bir sözcüğün kaç kez geçtiğini sayar.
+    Bu komut kümede "wordcount" kolay adı ile örnek WordCount topolojisini başlatır. Rastgele cümleler oluşturur ve cümlelerde her bir sözcüğün kaç kez geçtiğini sayar.
    
     > [!NOTE]
-    > Kümeye kendi topolojilerinizi gönderirken `storm` komutunu kullanmadan önce kümeyi içeren jar dosyasını kopyalamanız gerekir. Bu işlem, dosyanın mevcut olduğu istemciden `scp` komutu kullanılarak gerçekleştirilebilir. Örneğin, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+    > Kümeye kendi topolojilerinizi gönderirken `storm` komutunu kullanmadan önce kümeyi içeren jar dosyasını kopyalamanız gerekir. Dosyayı kopyalamak için `scp` komutunu kullanın. Örneğin, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     > 
     > WordCount örneği ve diğer storm starter örnekleri `/usr/hdp/current/storm-client/contrib/storm-starter/` konumunda kümenize zaten dahil edilmiştir.
 
@@ -122,12 +127,12 @@ Storm Kullanıcı Arabirimi çalışan topolojilerle çalışmaya yönelik bir w
 
 Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki adımları kullanın:
 
-1. https://CLUSTERNAME.azurehdinsight.net/stormui adresini bir web tarayıcısında açın; burada **CLUSTERNAME**, kümenizin adıdır. Bu işlem Storm Kullanıcı Arabirimini açar.
+1. Storm Kullanıcı Arabirimini görüntülemek için bir web tarayıcı açarak https://CLUSTERNAME.azurehdinsight.net/stormui adresine gidin. **CLUSTERNAME** değerini kümenizin adıyla değiştirin.
     
     > [!NOTE]
     > Bir kullanıcı adı ve parola girmeniz istenirse kümeyi oluştururken kullandığınız küme yöneticisi (yönetici) ve parolayı girin.
 
-2. **Topoloji özeti** altında **Ad** sütunundaki **wordcount** girişini seçin. Bunun yapılması topoloji hakkında daha fazla bilgi görüntüler.
+2. **Topoloji özeti** altında **Ad** sütunundaki **wordcount** girişini seçin. Topoloji hakkında bilgiler görüntülenir.
     
     ![Storm Starter WordCount topoloji bilgilerini içeren Storm Panosu.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
     
@@ -150,11 +155,11 @@ Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki a
     
     * **Devre dışı bırak** - Çalışan topolojiyi duraklatır.
     
-    * **Yeniden dengele** - Topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Bunun yapılması kümede artan/azalan düğüm sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır. Daha fazla bilgi için bkz. [Bir Storm topolojisinin paralelliğini anlama](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    * **Yeniden dengele** - Topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Yeniden dengeleme, kümede artan/azalan düğüm sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır. Daha fazla bilgi için bkz. [Bir Storm topolojisinin paralelliğini anlama](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
     
     * **Sonlandır** - Belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
 
-3. Bu sayfada **Spout’lar** veya **Cıvatalar** bölümünden bir giriş seçin. Bunun yapılması seçilen bileşenle ilgili bilgileri görüntüler.
+3. Bu sayfada **Spout’lar** veya **Cıvatalar** bölümünden bir giriş seçin. Seçilen bileşen hakkında bilgiler görüntülenir.
    
     ![Seçili bileşenler hakkında bilgi içeren Storm Panosu.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
    
@@ -184,7 +189,7 @@ Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki a
         2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
         2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
    
-    Bu verilerde **yedi** sözcüğünün 1493957 kez ortaya çıktığını görebilirsiniz. Bu sayı, bu topoloji başlatıldığından beri kaç kez karşılaşıldığını gösterir.
+    Bu örnekte **seven** kelimesi 1493957 kez geçmiştir. Bu sayı, bu topoloji başlatıldığından beri kelimeyle kaç kez karşılaşıldığını gösterir.
 
 ## <a name="stop-the-topology"></a>Topolojiyi durdurma
 
@@ -196,7 +201,7 @@ Word-count topolojisi için **Topoloji özeti** sayfasına geri dönün ve ardı
 
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Sonraki adımlar
 
-Bu Apache Storm öğreticisinde HDInsight kümesinde bir Storm oluşturmak ve Storm topolojilerini dağıtmak, izlemek ve yönetmek üzere Storm Panosunu kullanmak için Storm Starter’ı kullandınız. Ardından, [Maven kullanarak Java tabanlı topolojiler geliştirme](hdinsight-storm-develop-java-topology.md) hakkında bilgi edindiniz.
+Bu Apache Storm öğreticisinde HDInsight üzerinde Storm ile çalışma hakkındaki temel bilgileri edindiniz. Ardından, [Maven kullanarak Java tabanlı topolojiler geliştirme](hdinsight-storm-develop-java-topology.md) hakkında bilgi edindiniz.
 
 Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz ve mevcut bir topolojiyi HDInsight’a dağıtmak istiyorsanız bkz. [HDInsight’ta Apache Storm topolojilerini dağıtma ve yönetme](hdinsight-storm-deploy-monitor-topology-linux.md).
 
@@ -213,9 +218,4 @@ HDInsight üzerinde Storm ile kullanılabilecek örnek topolojiler için şu ör
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

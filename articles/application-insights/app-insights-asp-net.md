@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 02/28/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 13ff55ff06d0afd5e29ce85e7cc8e1c7e0a12a6c
-ms.openlocfilehash: b2e82cffa9c258d99dc26346851ebfc016d09839
+ms.sourcegitcommit: 05b642949205d7698fbcf791a5d2f06528ff239e
+ms.openlocfilehash: e827bddfa0bcc1c1e46d06c6856033e77859c7fb
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -34,16 +35,23 @@ Gerekenler:
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
 ## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a> 1. Adım: Application Insights SDK’yı ekleme
-Yeni bir proje üzerinde çalışıyorsanız, Visual Studio’da yeni proje oluştururken Application Insights’ın seçili olduğundan emin olun.
 
-![Yeni ASP.NET projesinin ekran görüntüsü](./media/app-insights-asp-net/appinsights-01-vsnewp1.png)
-
-Mevcut bir proje üzerinde çalışıyorsanız Çözüm Gezgini’nde projeye sağ tıklayıp **Application Insights Telemetrisi Ekle...** veya **Application Insights’ı Yapılandır**’ı seçin.
+Çözüm Gezgini'nde web uygulaması projenize sağ tıklayın ve **Ekle**, **Application Insights Telemetrisi...**'ni veya **Application Insights'ı Yapılandır**'ı seçin.
 
 ![Application Insights Telemetrisi Ekle seçeneğinin vurgulandığı Çözüm Gezgini’nin ekran görüntüsü](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
-> [!NOTE]
-> Bir ASP.NET Core projesi üzerinde çalışıyorsanız [bu yönergeleri izleyerek birkaç satır kodu düzeltin](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs).
+(Visual Studio 2015'te Yeni Proje iletişim kutusunda da Application Insights ekleme seçeneği mevcuttur.)
+
+Application Insights yapılandırma sayfasına gidin:
+
+![Uygulamanızı Application Insights'a kaydedin sayfasının ekran görüntüsü](./media/app-insights-asp-net/visual-studio-register-dialog.png)
+
+1. Azure'a erişmek için kullandığınız hesabı ve aboneliği seçin.
+2. Uygulamanızdan gelen verileri görmek istediğiniz Azure kaynağını seçin. Genellikle her uygulama için ayrı bir kaynak oluşturmanız gerekir. Verilerin depolandığı kaynak grubunu veya konumu ayarlamak isterseniz **Ayarları yapılandır**'a tıklayın. Kaynak grupları, verilere erişimi denetlemek için kullanılır. Örneğin aynı sistemin parçalarını oluşturan birden uygulamanız varsa bunların Application Insights verilerini aynı kaynak grubuna ekleyebilirsiniz.
+3. Application Insights, belirli bir telemetri hacmine kadar ücretsizdir. Ücretlendirmeden kaçınmak için bu seviyede bir sınır belirleyebilirsiniz. Kaynak oluşturulduktan sonra portalda **Özellikler + fiyatlandırma**, **Veri hacmi yönetimi**, **Günlük hacim sınırı** sayfasından seçiminizi değiştirebilirsiniz.
+4. Devam etmek ve web uygulamanızda Application Insights'ı yapılandırmak için **Kaydol**'a tıklayın. Telemetri hem hata ayıklama sırasında hem de uygulamanızı yayımladıktan sonra [Azure portalına](https://portal.azure.com) gönderilir.
+5. Alternatif olarak uygulamanıza yalnızca Application Insights SDK'sını ekleyebilirsiniz. Bu durumda hata ayıklama sırasında telemetri verilerini Visual Studio'da görebilirsiniz. Daha sonra bu yapılandırma sayfasına dönebilir veya uygulamanızı dağıtana kadar bekleyip [telemetriyi çalışma zamanında açabilirsiniz](app-insights-monitor-performance-live-website-now.md).
+
 
 ## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a> 2. Adım: Uygulamanızı çalıştırma
 F5 tuşuna basarak uygulamanızı çalıştırın. Farklı sayfalar açarak telemetri verileri oluşturun.
@@ -194,9 +202,4 @@ Visual Studio Team Services’ı kullanıyorsanız yeni bir sürüm yayımladı�
 **[Visual Studio’da Application Insights ile çalışma](app-insights-visual-studio.md)**<br/>Telemetri, tanılama araması ve kodun detayına gitme ile hata ayıklama hakkında bilgi içerir.
 
 **[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/> Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma hakkında bilgi içerir.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

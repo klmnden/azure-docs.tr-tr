@@ -17,8 +17,9 @@ ms.workload: data-management
 ms.date: 12/20/2016
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: c99f16e7aa6ea6fe82f7a115b4642025a05bb241
+ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
+ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>SQL Database nedir? SQL Database'e Giriş
@@ -43,7 +44,7 @@ Tek veritabanı oluşturabilmek ve veritabanı performansını isteğe göre yü
 Peki tek veritabanlarıyla ve elastik havuzların performanslarını nasıl karşılaştırabilirsiniz? Performansı yükseltmeye veya düşürmeye karar vereceğiniz doğru zamanı nasıl belirlersiniz? [Yerleşik performans izleme](sql-database-performance.md) ve [uyarı](sql-database-insights-alerts-portal.md) araçlarına ek olarak [tek veritabanları için Veritabanı İşlem Birimlerini (DTU), elastik havuzlar için de elastik DTU’ları (eDTU’lar)](sql-database-what-is-a-dtu.md) kullanırsınız. Bu araçları kullanarak geçerli veya projeye özgü performans ihtiyaçlarınıza göre ölçek büyütme veya küçültme işlemlerinin etkisini hızlı bir şekilde değerlendirebilirsiniz. Ayrıntılı bilgi için bkz. [SQL Database seçenekleri ve performansı: Her hizmet katmanında nelerin kullanılabildiğini anlama](sql-database-service-tiers.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Uygulamanızın ve işinizin hiç kesintiye uğramamasını sağlayın
-Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi [(SLA)](http://azure.microsoft.com/support/legal/sla/), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. SQL veritabanları sayesinde satın almanız, tasarlamanız, oluşturmanız ve yönetmeniz gerekmeksizin; yerleşik güvenlik, hataya dayanıklılık ve [veri koruması](sql-database-automated-backups.md) olanaklarından yararlanırsınız. SQL Database'deki her hizmet katmanı, uygulamanızı ve işinizi oluşturup çalışır halde kalmasını sağlamanız amacıyla kullanabileceğiniz kapsamlı bir iş sürekliliği özellikleri ve seçenekleri kümesi sunar. Bir veritabanını daha önceki bir durumuna (35 güne kadar) geri döndürmek üzere[ belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md) işlemini gerçekleştirebilirsiniz. Yedekleri güvenli bir kasada 10 yıla kadar saklamak için [uzun süreli yedek saklama](sql-database-long-term-retention.md) özelliğini yapılandırabilirsiniz. Ayrıca, veritabanlarınızı barındıran veri merkezinde bir kesinti oluşursa, son yedeklemelerin [coğrafi olarak yedekli kopyalarından]((sql-database-recovery-using-backups.md) veritabanlarını geri yükleyebilirsiniz. Gerekirse veri merkezinde kesinti oluşması halinde bir veya daha fazla bölgede hızlı yük devretme gerçekleştirmek için [coğrafi olarak yedekli okunabilir kopya](sql-database-geo-replication-overview.md) yapılandırabilirsiniz. Ayrıca bu kopyaları kullanarak farklı coğrafi bölgelerde daha hızlı okuma performansı elde edebilir veya [kesinti yaşamadan uygulama yükseltmelerini gerçekleştirebilirsiniz](sql-database-manage-application-rolling-upgrade.md). 
+Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi [(SLA)](http://azure.microsoft.com/support/legal/sla/), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. SQL veritabanları sayesinde satın almanız, tasarlamanız, oluşturmanız ve yönetmeniz gerekmeksizin; yerleşik güvenlik, hataya dayanıklılık ve [veri koruması](sql-database-automated-backups.md) olanaklarından yararlanırsınız. SQL Database'deki her hizmet katmanı, uygulamanızı ve işinizi oluşturup çalışır halde kalmasını sağlamanız amacıyla kullanabileceğiniz kapsamlı bir iş sürekliliği özellikleri ve seçenekleri kümesi sunar. Bir veritabanını daha önceki bir durumuna (35 güne kadar) geri döndürmek üzere[ belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md) işlemini gerçekleştirebilirsiniz. Yedekleri güvenli bir kasada 10 yıla kadar saklamak için [uzun süreli yedek saklama](sql-database-long-term-retention.md) özelliğini yapılandırabilirsiniz. Ayrıca, veritabanlarınızı barındıran veri merkezinde bir kesinti oluşursa, son yedeklemelerin [coğrafi olarak yedekli kopyalarından](sql-database-recovery-using-backups.md) veritabanlarını geri yükleyebilirsiniz. Gerekirse veri merkezinde kesinti oluşması halinde bir veya daha fazla bölgede hızlı yük devretme gerçekleştirmek için [coğrafi olarak yedekli okunabilir kopya](sql-database-geo-replication-overview.md) yapılandırabilirsiniz. Ayrıca bu kopyaları kullanarak farklı coğrafi bölgelerde daha hızlı okuma performansı elde edebilir veya [kesinti yaşamadan uygulama yükseltmelerini gerçekleştirebilirsiniz](sql-database-manage-application-rolling-upgrade.md). 
 
 ![SQL Database Coğrafi Çoğaltma](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
@@ -59,9 +60,4 @@ SQL Database'e giriş niteliğindeki makaleyi okuduğunuza ve "SQL Database Nedi
 * [Esnek havuzlar](sql-database-elastic-pool.md) hakkında bilgi edinin.
 * [İlk veritabanınızı oluşturarak](sql-database-get-started.md) başlayın.
 * C#, Java, Node.js, PHP, Python veya Ruby kullanarak ilk uygulamanızı oluşturma: [SQL Database ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

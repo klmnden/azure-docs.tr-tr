@@ -1,21 +1,22 @@
 ---
-title: "Node.js uygulamanızı izlemek için Application Insights SDK’sı ekleme | Microsoft Belgeleri"
-description: "Application Insights ile şirket içi veya Microsoft Azure web uygulamanızın kullanımını, kullanılabilirliğini ve performansını analiz edin."
+title: "Node.js uygulamanızı Azure Application Insights SDK&quot;sı ile izleme | Microsoft Docs"
+description: "Application Insights kullanarak şirket içi veya Microsoft Azure web uygulamanızın kullanımını, kullanılabilirliğini ve performansını analiz edin."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
+ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
+ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -31,15 +32,14 @@ SDK, gelen HTTP isteği oranlarının ve yanıtlarının, performans sayaçları
 #### <a name="before-you-start"></a>Başlamadan önce
 Gerekenler:
 
-* Visual Studio 2013 veya üstü. Ne kadar yeniyse o kadar iyidir.
 * Bir [Microsoft Azure](http://azure.com) aboneliği. Ekibinizin ve kuruluşunuzun Azure aboneliği varsa, sahibi [Microsoft hesabınızı](http://live.com) kullanarak sizi buna ekleyebilir.
 
 ## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Application Insights kaynağı oluşturma
-[Azure portalında][portal] oturum açın ve yeni bir Application Insights kaynağı oluşturun. Azure’da [kaynak][roles] bir hizmetin örneğidir. Bu kaynak, uygulamanızdan alınan telemetri verilerinin analiz edilip size sunulacağı yerdir.
+[Azure portalında][portal] oturum açın ve yeni bir Application Insights kaynağı oluşturun. Azure'da [kaynak][roles] bir hizmetin örneğidir. Bu kaynak, uygulamanızdan alınan telemetri verilerinin analiz edilip size sunulacağı yerdir.
 
 ![Yeni, Application Insights öğesine tıklayın](./media/app-insights-nodejs/01-new-asp.png)
 
-Uygulama türü olarak Diğer’i seçin. Uygulama türü seçimi, kaynak dikey pencerelerinin varsayılan içeriğini ve [Ölçüm Gezgini][metrics] içinde görünen özellikleri belirler.
+Uygulama türü olarak Genel'i seçin. Uygulama türü seçimi, kaynak dikey pencerelerinin varsayılan içeriğini ve [Ölçüm Gezgini][metrics] içinde görünen özellikleri belirler.
 
 #### <a name="copy-the-instrumentation-key"></a>İzleme Anahtarını Kopyalama
 Kaynağı tanımlayan bu anahtarı kısa bir süre sonra verileri kaynağa yönlendirmek için SDK’ya yükleyeceksiniz.
@@ -197,9 +197,4 @@ server.on("listening", () => {
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

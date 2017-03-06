@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
-ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
+ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
+ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -111,7 +112,7 @@ Aşağıdaki tabloda iki depolama katmanı arasındaki karşılaştırma vurgula
     <td colspan="2"><center>milisaniye</center></td>
 </tr>
 <tr>
-    <td><strong><center>Ölçeklenebilirlik ve performans hedefleri<center></strong></td>
+    <td><strong><center>Ölçeklenebilirlik ve Performans Hedefleri<center></strong></td>
     <td colspan="2"><center>Genel amaçlı depolama hesaplarıyla aynı</center></td>
 </tr>
 </tbody>
@@ -160,7 +161,7 @@ Bu bölümde Azure portalı kullanarak aşağıdaki senaryolar gösterilmektedir
     Bunu seçtiğinizde performans katmanı Standart olarak ayarlanır. Katmanlı depolama, Premium performans katmanı ile kullanılamaz.
 6. Depolama hesabı için çoğaltma seçeneğini seçin: **LRS**, **GRS** veya **RA-GRS**. Varsayılan seçenek **RA-GRS**’dir.
    
-    LRS = yerel olarak yedekli depolama; GRS = coğrafi olarak yedekli depolama (2 bölge); RA-GRS okuma erişimli, coğrafi olarak yedekli depolama (ikincisine okuma erişiminin bulunduğu 2 bölge).
+    LRS = yerel olarak yedekli depolama; GRS = coğrafi olarak yedekli depolama (2 bölge); RA-GRS okuma erişimli, coğrafi olarak yedekli depolama (ikincisine okuma erişiminin bulunduğu&2; bölge).
    
     Azure Depolama çoğaltma seçenekleri ile ilgili ayrıntılar için bkz. [Azure Depolama çoğaltma](storage-redundancy.md).
 7. Gereksinimlerinize uygun depolama katmanını seçin: **Erişim katmanı** ayarını **Seyrek Erişimli** veya **Sık Erişimli** olarak belirleyin. Varsayılan seçenek **Sık Erişimli**’dir.
@@ -341,10 +342,5 @@ Daha fazla bilgi için,bkz. [Azure Blob Storage’ı kullanmaya başlayın](stor
 [AzCopy Komut Satırı Yardımcı Programı ile veri aktarımı](storage-use-azcopy.md)
 
 [Depolama hesaplarınıza göz atma ve bu hesapları keşfetme](http://storageexplorer.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

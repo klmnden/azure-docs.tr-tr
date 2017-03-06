@@ -1,5 +1,5 @@
 ---
-title: "Bulutta Batch ve HPC çözümleri | Microsoft Belgeleri"
+title: "Bulutta Batch ve HPC çözümleri - Azure | Microsoft Docs"
 description: "Azure’de toplu işlem ve yüksek performanslı bilgi işlem (HPC ve Big Compute) senaryoları ve çözüm seçenekleri hakkında bilgi alın"
 services: batch, virtual-machines, cloud-services
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: c3e80bc18e4d1007146d9d3c80c2618400480046
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="batch-and-hpc-solutions-in-the-azure-cloud"></a>Azure bulutta Batch ve HPC çözümleri
+# <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Büyük ölçekli bilgi işlem iş yükleri için Batch ve HPC çözümleri
+
 Azure toplu işlem ve *Big Compute* olarak da bilinen yüksek performanslı bilgi işlem (HPC) için verimli, ölçeklenebilir bulut çözümleri sunar. Burada, desteklemek için Big Compute iş yükleri ve Azure hizmetleri hakkında bilgi edinin veya doğrudan bu makalenin ilerisinde yer alan [çözüm senaryolarına](#scenarios) gidin. Temel olarak teknik karar verenler, BT yöneticileri ve bağımsız yazılım satıcıları için olan bu makaleyi başka BT profesyonelleri ve geliştiricileri de bu çözümlerle tanışmak amacıyla kullanabilir.
 
 Kuruluşlarda büyük ölçekli bilgi işlem sorunları vardır: mühendislik tasarımı ve analizi, görüntü işleme, karmaşık modelleme, Monte Carlo benzetimleri, finansal risk hesaplamaları ve diğerleri. Azure gerekli kaynaklar, ölçek ve zamanlama ile ilgili sorunları çözmeleri için kuruluşlara yardımcı olur. Azure’le kuruluşların yapabildikleri:
@@ -134,9 +137,4 @@ Big Compute çözümünüze, şirket içi veya başka ortamlardaki kaynaklara ba
 [iaas_cluster]: ./media/batch-hpc-solutions/iaas_cluster.png
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 12/09/2016
+ms.date: 02/23/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
-ms.openlocfilehash: cf626be4914168d3ed3caae7f959a79324487b4e
+ms.sourcegitcommit: 78d9194f50bcdc4b0db7871f2480f59b26cfa8f6
+ms.openlocfilehash: 7b7273edfa33f297cb5dc30ef380b6a737787b33
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -58,27 +59,14 @@ Bu öğreticiyi tamamladığınızda; Azure kaynak grubu içinde çalışan ve m
 
 * Abonelik sahibi veya katkıda bulunan rolü üyesi olan bir hesap kullanarak oturum açmış olmanız gerekir. Rol tabanlı erişim denetimi (RBAC) ile ilgili daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](../active-directory/role-based-access-control-what-is.md).
 
-* Azure blob depolama alanında AdventureWorksLT örnek veritabanı .bacpac dosyasının bulunması gerekir
-
-### <a name="download-the-adventureworkslt-sample-database-bacpac-file-and-save-it-in-azure-blob-storage"></a>AdventureWorksLT örnek veritabanı .bacpac dosyasını indirin ve Azure blob depolama alanına kaydedin
-
-Bu öğreticide, Azure Depolama kaynağından bir .bacpac dosyası içeri aktarılarak yeni bir AdventureWorksLT veritabanı oluşturulmaktadır. Birinci adım, AdventureWorksLT.bacpac dosyasının bir kopyasını edinmek ve blob depolama alanına yüklemektir.
-Aşağıdaki adımlar örnek veritabanını içeri aktarmaya hazır hale getirir:
-
-1. [AdventureWorksLT.bacpac dosyasını indirin](https://sqldbbacpacs.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac) ve .bacpac dosya uzantısıyla kaydedin.
-2. [Depolama hesabı oluşturun](../storage/storage-create-storage-account.md#create-a-storage-account) Depolama hesabını varsayılan ayarlarla oluşturabilirsiniz.
-3. Yeni bir **Kapsayıcı** oluşturmak için depolama hesabına gidin, **Blob'lar** öğesini seçin ve ardından **+Kapsayıcı**'ya tıklayın.
-4. .bacpac dosyasını depolama hesabınızdaki blob kapsayıcısına yükleyin. Kapsayıcı sayfasının en üstündeki **Yükle** düğmesine tıklayabilir veya [AzCopy kullanabilirsiniz](../storage/storage-use-azcopy.md#blob-upload). 
-5. AdventureWorksLT.bacpac dosyasını kaydettikten sonra, kod parçacığını bu öğreticinin sonraki adımlarında içeri aktarmak üzere URL'yi ve depolama hesabı anahtarını not etmeniz gerekir. 
-   * bacpac dosyanızı seçin ve URL'yi kopyalayın. Şuna benzer olacaktır: https://{depolama-hesabı-adı}.blob.core.windows.net/{kapsayıcı-adı}/AdventureWorksLT.bacpac. Depolama hesabı sayfasında **Erişim anahtarları**'na tıklayın ve **key1** değerini kopyalayın.
-
-
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 
 ## <a name="create-a-new-logical-sql-server-using-azure-powershell"></a>Azure PowerShell kullanarak yeni bir mantıksal SQL sunucusu oluşturma
 
 Sunucuyu içerecek yeni bir kaynak grubuna ihtiyacınız olduğundan ilk adım yeni bir kaynak grubu veya sunucu oluşturmak ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)) veya var olanlara başvurmaktır ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
+
+
 Aşağıdaki kod parçacıkları, mevcut değilse bir kaynak grubu ve Azure SQL sunucusu oluşturur:
 
 Geçerli Azure konumlarının listesi ve dize biçimi için aşağıdaki [Yardımcı kod parçacıkları](#helper-snippets) bölümüne bakın.
@@ -178,6 +166,25 @@ else
    Write-host "Server firewall rule $serverFirewallRuleName already exists:"
 }
 $myFirewallRule
+
+# Allow Azure services to access the server
+$serverFirewallRuleName2 = "allowAzureServices"
+$serverFirewallStartIp2 = "0.0.0.0"
+$serverFirewallEndIp2 = "0.0.0.0"
+
+$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+
+if(!$myFirewallRule2)
+{
+   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
+   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
+}
+else
+{
+   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
+}
+$myFirewallRule2
+
 ```
 
 
@@ -217,8 +224,8 @@ $connection.Close()
 
 ## <a name="create-new-adventureworkslt-sample-database-using-azure-powershell"></a>Azure PowerShell kullanarak yeni AdventureWorksLT örnek veritabanı oluşturma
 
-Aşağıdaki kod parçacığı [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) cmdlet'ini kullanarak AdventureWorksLT örnek veritabanının bir bacpac dosyasını içeri aktarır. bacpac dosyası, Azure blob depolama alanında bulunur. İçeri aktarma cmdlet'ini çalıştırdıktan sonra [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus) cmdlet'ini kullanarak içeri aktarma işleminin ilerleme durumunu izleyebilirsiniz.
-$storageUri, önceden portala yüklediğiniz bacpac dosyasının URL özelliğidir ve şuna benzer olmalıdır: https://{depolama-hesabı}.blob.core.windows.net/{kapsayıcı}/AdventureWorksLT.bacpac
+Aşağıdaki kod parçacığı [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) cmdlet'ini kullanarak AdventureWorksLT örnek veritabanının bir bacpac dosyasını içeri aktarır. bacpac dosyası genel ve salt okunur bir Azure blob depolama hesabında yer alır. İçeri aktarma cmdlet'ini çalıştırdıktan sonra [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus) cmdlet'ini kullanarak içeri aktarma işleminin ilerleme durumunu izleyebilirsiniz.
+
 
 ```
 #$resourceGroupName = "{resource-group-name}"
@@ -228,9 +235,9 @@ $databaseName = "AdventureWorksLT"
 $databaseEdition = "Basic"
 $databaseServiceLevel = "Basic"
 
-$storageKeyType = "StorageAccessKey"
-$storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
-$storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
+$storageKeyType = "SharedAccessKey"
+$storageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
+$storageKey = "?"
 
 $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
@@ -348,10 +355,14 @@ $myDatabaseName = "AdventureWorksLT"
 $myDatabaseEdition = "Basic"
 $myDatabaseServiceLevel = "Basic"
 
-$myStorageKeyType = "StorageAccessKey"
-# Get these values from your Azure storage account:
-$myStorageUri = "{http://your-storage-account.blob.core.windows.net/your-container/AdventureWorksLT.bacpac}"
-$myStorageKey = "{your-storage-key}"
+
+# Storage account details for locating
+# and accessing the sample .bacpac 
+# Do Not Edit for this tutorial
+$myStorageKeyType = "SharedAccessKey"
+$myStorageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
+$myStorageKey = "?"
+
 
 
 # Create new, or get existing resource group
@@ -415,9 +426,8 @@ Write-Host "Server location: " $myServer.Location
 Write-Host "Server version: " $myServer.ServerVersion
 Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
 
-
-# Create or update server firewall rule
-#######################################
+# Create or update server firewall rules
+########################################
 
 $serverFirewallRuleName = $myServerFirewallRuleName
 $serverFirewallStartIp = $myServerFirewallStartIp
@@ -435,6 +445,24 @@ else
    Write-host "Server firewall rule $serverFirewallRuleName already exists:"
 }
 $myFirewallRule
+
+# Allows Azure services to access the server
+$serverFirewallRuleName2 = "allowAzureServices"
+$serverFirewallStartIp2 = "0.0.0.0"
+$serverFirewallEndIp2 = "0.0.0.0"
+
+$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+
+if(!$myFirewallRule2)
+{
+   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
+   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
+}
+else
+{
+   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
+}
+$myFirewallRule2
 
 
 # Connect to the server and master database
@@ -577,9 +605,4 @@ Bu ilk kullanmaya başlama öğreticisini tamamladığınıza ve örnek veriler 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 [SQL Database nedir?](sql-database-technical-overview.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

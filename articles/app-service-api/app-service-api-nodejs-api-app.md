@@ -4,7 +4,7 @@ description: "Node.js RESTful API’si oluşturma ve Azure App Service’deki bi
 services: app-service\api
 documentationcenter: node
 author: bradygaster
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service-api
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
-ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
+ms.sourcegitcommit: 9e62ed235d872738bc1a99ad33d977745c8b2d08
+ms.openlocfilehash: a3dacff719588be707418248ddc35c6f686b9b49
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -277,10 +278,5 @@ Bu bölümde API için sunucu kodunuzu içeren yerel bir Git deposu oluşturursu
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu noktada bir API uygulamasını başarıyla oluşturdunuz ve Node.js API kodunu dağıttınız. Sonraki öğreticide [CORS kullanarak JavaScript istemcilerinden API uygulamalarını kullanma](app-service-api-cors-consume-javascript.md) işlemi gösterilmektedir.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
