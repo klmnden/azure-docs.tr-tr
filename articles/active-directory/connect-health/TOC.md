@@ -22,8 +22,3 @@
 # Kaynaklar
 ##[Azure AD Connect Health ile ilgili SSS](active-directory-aadconnect-health-faq.md)
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-
