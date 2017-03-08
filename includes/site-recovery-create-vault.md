@@ -1,4 +1,4 @@
-## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
+
 1. [Azure portalında](https://portal.azure.com) oturum açın > **Site Recovery**’ye gidin
 2. **Yeni** > **Yönetim** >’e tıklayın.
 3. **Ad** alanında, kasayı tanımlamak için bir kolay ad belirtin. Birden fazla aboneliğiniz varsa bunlardan birini seçin.
@@ -8,8 +8,3 @@
    ![Yeni kasa](./media/site-recovery-create-vault/new-vault-settings.png)
 
    Yeni kasa **Pano** > **Tüm kaynaklar** kısmında ve ana **Kurtarma Hizmetleri kasaları** dikey penceresinde görünür.
-
-
-<!--HONumber=Feb17_HO4-->
-
-

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: f438db1d0129dfb0e2eaa00146147084cd8c11b6
-ms.openlocfilehash: 179e8cf928d83a3a66ed3489173e4c28a2bc9d4f
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -309,7 +309,7 @@ ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter
 
 **%90 RPO süresini karşılamak için**: Geniş bant fiyatlandırması veya istediğiniz %100 RPO süresini karşılamak için gereken bant genişliğini sağlayamamanız durumunda başka bir nedenle, istediğiniz %90 RPO süresini karşılayabilen daha düşük bir bant genişliği sağlamayı seçebilirsiniz. Daha düşük olan bu bant genişliğini sağlamanın etkilerini anlamak için, raporda beklenen RPO ihlallerinin sayısı ve süresine ilişkin bir ne yapmalı analizi sağlar.
 
-**Arşivlenen Aktarım Hızı:** Azure Depolama hesabının bulunduğu Microsoft Azure bölgesine GetThroughput komutunu gönderdiğiniz sunucudan aktarım hızıdır. Yapılandırma Sunucusu / İşlem Sunucusu depolama ve ağ özelliklerinin, aracı çalıştırdığınız sunucudakilerle aynı kalması şartıyla, Azure Site Recovery kullanarak uyumlu sanal makineleri koruduğunuzda ulaşılabilecek yaklaşık aktarım hızını gösterir. Arşivlenen Aktarım Hızı, Azure Depolama hesabının bulunduğu Microsoft Azure bölgesine GetThroughput komutunu gönderdiğiniz sunucudan aktarım hızıdır. Yapılandırma Sunucusu / İşlem Sunucusu depolama ve ağ özelliklerinin, aracı çalıştırdığınız sunucudakilerle aynı kalması şartıyla, Azure Site Recovery kullanarak uyumlu sanal makineleri koruduğunuzda ulaşılabilecek yaklaşık aktarım hızını gösterir.
+**Arşivlenen Aktarım Hızı:** Azure Depolama hesabının bulunduğu Microsoft Azure bölgesine GetThroughput komutunu gönderdiğiniz sunucudan aktarım hızıdır. Yapılandırma Sunucusu / İşlem Sunucusu depolama ve ağ özelliklerinin, aracı çalıştırdığınız sunucudakilerle aynı kalması şartıyla, Azure Site Recovery kullanarak uyumlu sanal makineleri koruduğunuzda ulaşılabilecek yaklaşık aktarım hızını gösterir.    
 
 Çoğaltma için sürenin %100 RPO’sunu karşılamak üzere önerilen bant genişliğini sağlamanız gerekir. Doğru bant genişliğini sağladıktan sonra bile, araç tarafından ulaşıldığı bildirilen aktarım hızında herhangi bir artış görmezseniz aşağıdakileri denetleyin:
 

@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
-ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e4302e7c5b54a46994eccaa8cf9ecbb0a84446d
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -50,7 +51,7 @@ Bu eğiticide, Azure Active Directory belirteci (hizmetten hizmete kimlik doğru
 2. Azure AD web uygulaması için istemci kimliğini, istemci gizli anahtarını ve belirteç uç noktasını alın.
 3. Oluşturduğunuz Java uygulamasından erişmek istediğiniz Data Lake Store dosyasında/klasöründe Azure AD web uygulaması için erişimi yapılandırın.
 
-Bu adımların nasıl gerçekleştirileceğine ilişkin yönergeler için bkz. [Active Directory uygulaması oluşturma](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application).
+Bu adımların nasıl gerçekleştirileceğine ilişkin yönergeler için bkz. [Active Directory uygulaması oluşturma](data-lake-store-authenticate-using-active-directory.md).
 
 Azure Active Directory, belirteç almak için başka seçenekler de sunar. Tarayıcınızda çalışan bir uygulama, masaüstü uygulaması olarak dağıtılan bir uygulama ya da şirket içinde veya Azure sanal makinesinde çalışan sunucu uygulaması gibi farklı kimlik doğrulama mekanizmaları arasından senaryonuza en uygun olanını seçebilirsiniz. Parolalar, sertifikalar, 2 öğeli kimlik doğrulaması vb. farklı kimlik bilgileri arasından da seçim yapabilirsiniz. Ayrıca Azure Active Directory, şirket içi Active Directory kullanıcılarınızı bulutla eşitlemenize olanak tanır. Ayrıntılar için bkz. [Azure Active Directory için Kimlik Doğrulama Senaryoları](../active-directory/active-directory-authentication-scenarios.md). 
 
@@ -158,10 +159,5 @@ Dosyalar, standart Java akışları kullanılarak okunur ve yazılır. Bu, stand
 * [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

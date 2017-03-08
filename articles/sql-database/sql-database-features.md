@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 3f8ad9bf72555b9ab19af4c7a15f66b982fe66fe
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -117,7 +118,8 @@ V12'ye özellik eklemeye devam ediyoruz. Bu nedenle Azure için Hizmet Güncelle
 | Polybase | [Destekleniyor](https://msdn.microsoft.com/library/mt143171.aspx) | [Desteklenmiyor]
 | İlke tabanlı yönetim | [Destekleniyor](https://msdn.microsoft.com/library/bb510667.aspx) | Desteklenmiyor |
 | Koşullar | [Destekleniyor](https://msdn.microsoft.com/library/ms189523.aspx) | [Çoğu](https://msdn.microsoft.com/library/ms189523.aspx)
-| Kaynak idarecisi | [Destekleniyor](https://msdn.microsoft.com/library/bb933866.aspx) | [Yerleşik](sql-database-service-tiers.md) |
+| R Hizmetleri | [Destekleniyor](https://msdn.microsoft.com/library/mt604845.aspx)
+| Kaynak idarecisi | [Destekleniyor](https://msdn.microsoft.com/library/bb933866.aspx) | Desteklenmiyor |
 | Veritabanını yedekten geri yükleme | [Destekleniyor](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [Yalnızca yerleşik yedeklerden](sql-database-recovery-using-backups.md) |
 | Satır Düzeyi Güvenlik | [Destekleniyor](https://msdn.microsoft.com/library/dn765131.aspx) | [Destekleniyor](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Güvenlik deyimleri | [Destekleniyor](https://msdn.microsoft.com/library/ff848791.aspx) | [Bazıları](https://msdn.microsoft.com/library/ff848791.aspx) |
@@ -158,9 +160,4 @@ V12'ye özellik eklemeye devam ediyoruz. Bu nedenle Azure için Hizmet Güncelle
 - **Hizmet katmanınızı** temel alan özel kaynak kotaları ve sınırlamalar hakkında bilgi edinmek için. Hizmet katmanlarına genel bir bakış için bkz. [SQL Veritabanı hizmet katmanları](sql-database-service-tiers.md).
 - Güvenlik özelliklerine genel bakış için bkz. [Azure SQL Veritabanı Güvenliğine Genel Bakış](sql-database-security-overview.md).
 - Sürücü kullanılabilirliği ve SQL Veritabanı desteği hakkında bilgi edinmek için bkz. [SQL Veritabanı ve SQL Server için Bağlantı Kitaplıkları](sql-database-libraries.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
