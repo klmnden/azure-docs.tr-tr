@@ -57,7 +57,7 @@ Birçok müşteri ücretsiz hizmetle başlar. Bu sürüm üç dizin, üç veri k
 > ![Dizin oluşturucular ve veri kaynakları için kutucuklar][1]
 >
 
-## <a name="a-namecreate-indexa-create-an-index-and-load-data"></a><a name="create-index"></a> Dizin oluşturma ve verileri yükleme
+## <a name="create-index"></a> Dizin oluşturma ve verileri yükleme
 Arama sorguları, belirli arama davranışlarını iyileştirmek için kullanılan aranabilir verileri, meta verileri ve yapıları içeren bir *dizinde* yinelenir.
 
 Bu görevin portal tabanlı kalmasını sağlamak için **Verileri içeri aktar** sihirbazı kullanılarak gezilebilen yerleşik bir örnek veri kümesi kullanıyoruz. 
@@ -100,7 +100,7 @@ Verilerin içeri aktarılmasını izlemek için hizmet panosuna dönün, sayfay�
 
    ![Dizin oluşturucu ilerleme durumu iletisi][4]
 
-## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Dizini sorgulama
+## <a name="query-index"></a> Dizini sorgulama
 Artık sorgulamaya hazır bir arama dizininiz var. **Arama gezgini**, portalda yerleşik bir sorgu aracıdır. Arama sonuçlarının beklediğiniz gibi olduğunu doğrulayabilmeniz için bir arama kutusu sağlar. 
 
 > [!TIP]

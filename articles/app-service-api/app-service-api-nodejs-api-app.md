@@ -162,7 +162,7 @@ App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu d
    
     ![Swagger kullanıcı arabirimi](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a name="a-idcreateapiappa-create-a-new-api-app"></a><a id="createapiapp"></a> Yeni bir API Uygulaması oluşturma
+## <a id="createapiapp"></a> Yeni bir API Uygulaması oluşturma
 Bu bölümde Azure portalı kullanarak Azure içinde yeni bir API uygulaması oluşturursunuz. Bu API uygulaması kodunuzu çalıştırmak için Azure tarafından sağlanacak işlem kaynaklarını temsil eder. Sonraki bölümlerde kodunuzu yeni API uygulamasına dağıtacaksınız.
 
 1. [Azure Portal](https://portal.azure.com/)’a göz atın. 

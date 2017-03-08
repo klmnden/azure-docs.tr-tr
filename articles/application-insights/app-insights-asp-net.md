@@ -34,7 +34,7 @@ Gerekenler:
 * [Çalışma zamanında bir web uygulamasını izleme](app-insights-monitor-performance-live-website-now.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)
 
-## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a> 1. Adım: Application Insights SDK’yı ekleme
+## <a name="ide"></a> 1. Adım: Application Insights SDK’yı ekleme
 
 Çözüm Gezgini'nde web uygulaması projenize sağ tıklayın ve **Ekle**, **Application Insights Telemetrisi...**'ni veya **Application Insights'ı Yapılandır**'ı seçin.
 
@@ -53,7 +53,7 @@ Application Insights yapılandırma sayfasına gidin:
 5. Alternatif olarak uygulamanıza yalnızca Application Insights SDK'sını ekleyebilirsiniz. Bu durumda hata ayıklama sırasında telemetri verilerini Visual Studio'da görebilirsiniz. Daha sonra bu yapılandırma sayfasına dönebilir veya uygulamanızı dağıtana kadar bekleyip [telemetriyi çalışma zamanında açabilirsiniz](app-insights-monitor-performance-live-website-now.md).
 
 
-## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a> 2. Adım: Uygulamanızı çalıştırma
+## <a name="run"></a> 2. Adım: Uygulamanızı çalıştırma
 F5 tuşuna basarak uygulamanızı çalıştırın. Farklı sayfalar açarak telemetri verileri oluşturun.
 
 Visual Studio'da, günlüğe kaydedilmiş etkinliklerin sayısını görürsünüz.
@@ -124,7 +124,7 @@ Telemetrinizi tanılama araması ve [eğilimler](app-insights-visual-studio-tren
 >
 >
 
-## <a name="a-namelanda-what-does-the-add-application-insights-command-do"></a><a name="land"></a> Application Insights Ekle komutu ne işe yarar?
+## <a name="land"></a> Application Insights Ekle komutu ne işe yarar?
 Application Insights, uygulamanızdan alınan telemetriyi Azure’da barındırılan Application Insights portalına gönderir.
 
 ![Telemetri hareketlerinin diyagramı](./media/app-insights-asp-net/01-scheme.png)

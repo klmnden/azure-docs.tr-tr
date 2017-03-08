@@ -57,7 +57,7 @@ Azure İşlevleri; verileri işleme, sistemleri tümleştirme, nesnelerin İnter
 
 Azure İşlevleri, kodunuzu yürütmeye başlama yolu olan *tetikleyicileri* ve giriş ve çıkış verilerini kodlamayı basitleştirme yolu olan *bağlamaları* destekler. Azure İşlevlerinin sağladığı tetikleyicilerin ve bağlamaların ayrıntılı bir açıklaması için bkz. [Azure İşlevleri tetikleyicileri ve bağlamaları geliştirici başvurusu](functions-triggers-bindings.md)
 
-## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Tümleştirmeler
+## <a name="integrations"></a>Tümleştirmeler
 Azure İşlevleri, çeşitli Azure ve üçüncü taraf hizmetleri ile tümleştirilebilir. Bu hizmetler, işlevinizi tetikleyip yürütmeyi başlatabilir ya da kodunuz için giriş ve çıkış görevi görebilir. Aşağıdaki hizmet tümleştirmeleri Azure İşlevleri tarafından desteklenir. 
 
 * Azure DocumentDB
@@ -70,7 +70,7 @@ Azure İşlevleri, çeşitli Azure ve üçüncü taraf hizmetleri ile tümleşti
 * Şirket içi (Service Bus kullanarak)
 * Twilio (SMS mesajları)
 
-## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>İşlevlerin maliyeti ne kadardır?
+## <a name="pricing"></a>İşlevlerin maliyeti ne kadardır?
 Azure İşlevlerinin iki tür fiyatlandırma planı bulunur; ihtiyaçlarınızı en iyi şekilde karşılayanı seçin: 
 
 * **Tüketim planı** - İşleviniz çalıştığında Azure tüm gerekli bilgi işlem kaynaklarını sağlar. Kaynak yönetimi hakkında endişelenmenize gerek yoktur ve yalnızca kodunuzun çalıştığı süre için ödeme yaparsınız. 

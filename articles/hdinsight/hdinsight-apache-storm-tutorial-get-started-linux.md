@@ -199,7 +199,7 @@ Word-count topolojisi için **Topoloji özeti** sayfasına geri dönün ve ardı
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Sonraki adımlar
+## <a id="next"></a>Sonraki adımlar
 
 Bu Apache Storm öğreticisinde HDInsight üzerinde Storm ile çalışma hakkındaki temel bilgileri edindiniz. Ardından, [Maven kullanarak Java tabanlı topolojiler geliştirme](hdinsight-storm-develop-java-topology.md) hakkında bilgi edindiniz.
 

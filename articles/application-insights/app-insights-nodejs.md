@@ -34,7 +34,7 @@ Gerekenler:
 
 * Bir [Microsoft Azure](http://azure.com) aboneliği. Ekibinizin ve kuruluşunuzun Azure aboneliği varsa, sahibi [Microsoft hesabınızı](http://live.com) kullanarak sizi buna ekleyebilir.
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Application Insights kaynağı oluşturma
+## <a name="add"></a>Application Insights kaynağı oluşturma
 [Azure portalında][portal] oturum açın ve yeni bir Application Insights kaynağı oluşturun. Azure'da [kaynak][roles] bir hizmetin örneğidir. Bu kaynak, uygulamanızdan alınan telemetri verilerinin analiz edilip size sunulacağı yerdir.
 
 ![Yeni, Application Insights öğesine tıklayın](./media/app-insights-nodejs/01-new-asp.png)
@@ -46,7 +46,7 @@ Kaynağı tanımlayan bu anahtarı kısa bir süre sonra verileri kaynağa yönl
 
 ![Özellikler'e tıklayın, anahtarı seçin ve ctrl + C tuşlarına basın](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Uygulamanıza SDK'yı yükleme
+## <a name="sdk"></a> Uygulamanıza SDK'yı yükleme
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ appInsights.setup("<instrumentation_key>").start();
 
 SDK’yı telemetri verilerini göndermeden deneyebilirsiniz: İzleme anahtarını boş olmayan bir dize olarak ayarlayın.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Projenizi çalıştırma
+## <a name="run"></a> Projenizi çalıştırma
 Uygulamanızı çalıştırın ve deneyin: Birkaç telemetri oluşturmak için farklı sayfalar açın.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Telemetrinizi görüntüleme
+## <a name="monitor"></a> Telemetrinizi görüntüleme
 [Azure portal](https://portal.azure.com)’a geri dönün ve Application Insights kaynağınıza göz atın.
 
 Genel Bakış sayfasında veri arayın. İlk olarak yalnızca bir veya iki nokta görürsünüz. Örneğin:

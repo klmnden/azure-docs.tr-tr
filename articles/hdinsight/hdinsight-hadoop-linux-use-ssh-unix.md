@@ -122,7 +122,7 @@ Erişimi kullanıcı tabanlı olarak kısıtlamak için etki alanına katılmı�
 
 Etki alanına katılmış HDInsight kümesi kullandığınızda, SSH ile bağlantı kurduktan sonra Active Directory ile kimlik doğrulaması yapabilirsiniz. Birden fazla kullanıcı SSH kullanarak bağlandıktan sonra Active Directory hizmetiyle kimlik doğrulaması gerçekleştirebilir. Daha fazla bilgi için [Etki alanına katılmış HDInsight](#domainjoined) bölümüne bakın.
 
-##<a name="a-idconnecta-connect-to-hdinsight"></a><a id="connect"></a> HDInsight’a bağlanma
+##<a id="connect"></a> HDInsight’a bağlanma
 
 Bir HDInsight kümesindeki tüm düğümler SSH sunucusunu çalıştırsa da genel internet üzerinden yalnızca baş veya kenar düğümlerine bağlanabilirsiniz.
 
@@ -209,7 +209,7 @@ Hesabınızda kimlik doğrulaması için SSH anahtarı kullanıyorsanız, yerel 
 
 `kinit` komutunu kullanarak kimlik doğrulaması gerçekleştirdikten sonra `hdfs dfs -ls /` veya `hive` gibi Hadoop komutlarını kullanabilirsiniz.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH tünel oluşturma
+## <a id="tunnel"></a>SSH tünel oluşturma
 
 SSH, web istekleri gibi yerel istekler için HDInsight kümesine tünel oluşturmak üzere kullanılabilir. İstek kümeye iletilir ve ardından kümede çözümlenir.
 
