@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0afada6b5ade6c1f246b99e924a972cd7d34fdfa
-ms.openlocfilehash: b17defc732be9f1fbdb816727d5602eb037b7e06
+ms.sourcegitcommit: 4f20e8d3d5774eb57038e40fac6a4bac2e17909e
+ms.openlocfilehash: 569786c864d5f8ceb93422c65ae1ffb47f66a787
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -70,6 +71,7 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **Hizmet sağlayıcı** | **Microsoft Azure** | **Office 365 ve CRM Online** | **Konumlar** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Destekleniyor |Destekleniyor |Melbourne, Sidney |
+| **Airtel** | Çok Yakında | Çok Yakında | Chennai, Mumbai |
 | **[Aryaka Networks](http://www.aryaka.com/)** |Destekleniyor |Destekleniyor |Amsterdam, Dallas, Silikon Vadisi, Singapur, Tokyo, Washington DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Destekleniyor |Destekleniyor |Amsterdam, Chicago, Dallas, Londra, Silikon Vadisi, Singapur, Sidney, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Destekleniyor |Destekleniyor |Toronto |
@@ -79,16 +81,16 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Destekleniyor |Destekleniyor |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Destekleniyor |Destekleniyor |Amsterdam, Dublin, Londra, Tokyo |
 | **Comcast** |Destekleniyor |Destekleniyor |Chicago, Silikon Vadisi, Washington DC |
-| **Console**| Destekleniyor | Destekleniyor |Silikon Vadisi |
+| **Console**| Destekleniyor | Destekleniyor |Silicon Valley, Toronto |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Destekleniyor |Destekleniyor |Los Angeles, New York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Destekleniyor |Destekleniyor |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, Osaka, Paris+, Sao Paulo, Seattle, Silikon Vadisi, Singapur, Sidney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Destekleniyor |Destekleniyor |Amsterdam |
-| **Genel Bulut Değişimi (GCX)** | Çok Yakında | Çok Yakında | Chennai |
+| **Global CloudXchange (GCX)** | Destekleniyor| Destekleniyor | Chennai |
 | **GÉANT** |Destekleniyor |Destekleniyor |Amsterdam |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Destekleniyor |Destekleniyor |Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** |Destekleniyor |Destekleniyor |Amsterdam, Londra, Singapur, Washington DC |
 | **Internet Solutions - Cloud Connect** |Destekleniyor |Destekleniyor |Amsterdam, Londra |
-| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Destekleniyor |Destekleniyor |Amsterdam, Londra, Paris |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Destekleniyor |Destekleniyor |Amsterdam, Londra, Paris |
 | **Jisc** |Destekleniyor |Destekleniyor |Londra |
 | **KINX** |Destekleniyor |Destekleniyor |Seul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Destekleniyor | Destekleniyor | Amsterdam | 
@@ -150,7 +152,7 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
   * [Cologix](http://www.cologix.com/)
   * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)
+  * [Interxion](http://www.interxion.com/products/interconnection/cloud-connect/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [NextDC](http://www.nextdc.com/)
   * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
@@ -162,21 +164,24 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 | **Bağlantı sağlayıcı** | **Exchange** | **Konumlar** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapur |
+| **[Airgate Technologies, Inc.](http://airgate.ca/cloud-express/)** | Equinix, Cologix | Toronto, Montreal |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
+| **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | Londra
 | **[Cogeco Peer 1](https://www.cogecopeer1.com/en/)**| Equinix | Montreal, Toronto |
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
 | **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | Londra |
+| **[Fastweb S.p.A](http://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | Amsterdam |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | Londra, Slough |
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |New York, Washington DC |
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sidney |
 | **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | Washington DC |
 | **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | Amsterdam, Frankfurt |  
+| **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | Londra
 | **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |  
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Frankfurt |  
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix |Chicago, Silikon Vadisi, Washington DC |
-| **[XO Communications](http://www.xo.com/)** |Equinix |Silikon Vadisi |
 | **[Zertia](http://www.zertia.es/index.php/novedades)**| Level 3 | Madrid |
 
 
@@ -185,13 +190,16 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 | **Sistem tümleştirici** | **Continent** |
 | --- | --- |
+| **[Altogee](http://www.altogee.be/expressroute)** | Avrupa |
 | **[Avanade Inc.](http://www.avanade.com/)** | Asya, Avrupa, Kuzey Amerika, Güney Amerika |
+| **Bright Skies GmbH** | Avrupa
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | Avrupa |
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | Kuzey Amerika |
 | **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Avustralya |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Avrupa (Almanya) |
 | **[Nelite](http://nelite.com/)** | Avrupa |
 | **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asya |
+| **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Avrupa |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | Kuzey Amerika |
 | **[Project Leadership](http://www.projectleadership.net/azure)** | Kuzey Amerika |
 
@@ -202,9 +210,4 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Konum eşleme"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

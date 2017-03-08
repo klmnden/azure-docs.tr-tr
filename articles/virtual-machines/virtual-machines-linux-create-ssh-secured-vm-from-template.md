@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ea1274dd53a93f00fa251ed03684b17b58b009c2
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-linux-vm-using-an-azure-template"></a>Bir Azure şablonu kullanarak bir Linux VM oluşturma
+# <a name="how-to-create-a-linux-vm-using-an-azure-resourec-manager-template"></a>Azure Resource Manager şablonu kullanarak Linux VM oluşturma
 Bu makalede, Azure’da bir Azure Şablonu kullanarak nasıl hızlı bir şekilde Linux Sanal Makine dağıtacağınız gösterilmiştir.  Bu makale için şunlar gereklidir:
 
 * bir Azure hesabı ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/)).
@@ -78,10 +80,5 @@ Bu örnekte, `--template-uri` parametresi kullanılarak bir VM dağıtıldı.  A
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha sonra dağıtılacak uygulama altyapılarını keşfetmek için [şablon galerisi](https://azure.microsoft.com/documentation/templates/)nde arama yapın.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

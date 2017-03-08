@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 1ee1e7d0c6f239abfda474d51c8d02d5338dabc7
-ms.openlocfilehash: ec8d7cf64786a3347998f243fc7e4f9550fd9f08
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: d27016559ede5d810d7efcec2a3abc78334f0f0a
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -34,7 +35,7 @@ Karma Bağlantılar hem istemci hem de sunucu bileşenini gerektirdiğinden bu �
 4. İleti göndermek için bir istemci (gönderen) konsol uygulaması yazma.
 
 ## <a name="prerequisites"></a>Ön koşullar
-1. [Visual Studio 2013 veya Visual Studio 2015](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2015 kullanılır.
+1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2015 kullanılır.
 2. Azure aboneliği.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -72,10 +73,5 @@ Tebrikler, uçtan uca Karma Bağlantılar uygulaması oluşturdunuz.
 * [Geçiş hakkında SSS](relay-faq.md)
 * [Ad alanı oluşturma](relay-create-namespace-portal.md)
 * [Node kullanmaya başlama](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

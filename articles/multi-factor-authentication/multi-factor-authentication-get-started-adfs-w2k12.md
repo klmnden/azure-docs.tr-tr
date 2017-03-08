@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 02/19/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 337a88105d1d19fd69805caeaaef5040dad42316
-ms.openlocfilehash: 663b8a0d27e3746aec5097364643eac981810368
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: 7fd5c4edadc6d9cc070dff937a963f9a83ec66c2
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="secure-your-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-in-windows-server-2012-r2"></a>Windows Server 2012 R2’de AD FS ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynaklarınızı güvenli hale getirme
+# <a name="configure-azure-multi-factor-authentication-server-to-work-with-with-ad-fs-in-windows-server-2012-r2"></a>Azure Multi-Factor Authentication Sunucusunu Windows Server 2012 R2'de AD FS ile çalışacak şekilde yapılandırma
 Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız ve bulut ya da şirket içi kaynaklarınızı güvenli hale getirmek istiyorsanız Azure Multi-Factor Authentication Sunucusunu AD FS ile çalışmak üzere yapılandırabilirsiniz. Bu yapılandırma yüksek değerli uç noktalar için iki aşamalı doğrulamayı tetikler.
 
 Bu makale Windows Server 2012 R2’de AD FS ile Multi-Factor Authentication Sunucusu kullanmayı ele alır. Daha fazla bilgi için [AD FS 2.0 ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynakları güvenli hale getirme](multi-factor-authentication-get-started-adfs-adfs2.md) konusunu okuyun.
@@ -141,9 +142,4 @@ Bulut kaynağınızın güvenliğini sağlamak için, kullanıcı iki adımlı d
 
 ## <a name="related-topics"></a>İlgili konular
 Sorun giderme yardımı için bkz. [Azure Multi-Factor Authentication SSS](multi-factor-authentication-faq.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

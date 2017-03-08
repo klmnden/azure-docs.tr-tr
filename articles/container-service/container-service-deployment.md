@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 02/22/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: b9be92498f9daf1d2f964cc689bacb2358b237be
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 716a6f4507b05b8a8548cd34f8227e8366a91645
+ms.openlocfilehash: 17a4ab1920e020ddf453e9b42319ba260e9700a5
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -31,15 +31,16 @@ Azure Kapsayıcı Hizmeti popüler açık kaynak kapsayıcı kümeleme ve düzen
 
 Bir Azure Container Service kümesini ayrıca [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) veya Azure Container Service API’leri kullanarak dağıtabilirsiniz.
 
+Arka plan bilgileri için bkz. [Azure Container Service'e giriş](container-service-intro.md).
 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* **Azure aboneliği**: Aboneliğiniz yoksa [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935) sürümüne kaydolun.
+* **Azure aboneliği**: Aboneliğiniz yoksa [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935) sürümüne kaydolun. 
 
 * **SSH RSA ortak anahtarı**: Portal veya Azure hızlı başlangıç şablonlarından biri ile dağıtım yaparken, Azure Container Service sanal makinelerinde kimlik doğrulamak için ortak anahtar belirtmeniz gerekir. Güvenli Kabuk (SSH) RSA anahtarları oluşturmak için [OS X ve Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) veya [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) kılavuzuna bakın. 
 
-* **Hizmet sorumlusu istemci kimliği ve parolası** (yalnızca Kubernetes): Hizmet sorumlusu oluşturma hakkında bilgi ve yönergeler için bkz. [Kubernetes kümelerinde hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md).
+* **Hizmet sorumlusu istemci kimliği ve parolası** (yalnızca Kubernetes): Azure Active Directory Hizmet sorumlusu oluşturma hakkında bilgi ve yönergeler için bkz. [Kubernetes kümelerinde hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md).
 
 
 
@@ -48,63 +49,61 @@ Bir Azure Container Service kümesini ayrıca [Azure CLI 2.0](container-service-
 
     ![Market’te Azure Container Service](media/container-service-deployment/acs-portal1.png)  <br />
 
-2. **Azure Container Service**’i seçin ve **Oluştur**’a tıklayın.
+2. **Azure Container Service**'e ve ardından **Oluştur**'a tıklayın.
 
-    ![Kapsayıcı hizmeti oluşturma](media/container-service-deployment/acs-portal2.png)  <br />
+3. **Temel bilgiler** dikey penceresinde aşağıdaki bilgileri girin:
 
-3. Aşağıdaki bilgileri girin:
-
-    * **Kullanıcı adı**: Azure Container Service kümesindeki her sanal makine ve sanal makine ölçek grubunda bir hesap için kullanılacak olan kullanıcı adıdır.
+    * **Düzenleyici**: Kümede dağıtmak üzere kapsayıcı düzenleyicilerinden birini seçin.
+        * **DC/OS**: DC/OS kümesi dağıtır.
+        * **Swarm** Docker Swarm kümesi dağıtır.
+        * **Kubernetes**: Bir Kubernetes kümesi dağıtır.
     * **Abonelik**: Bir Azure aboneliği seçin.
-    * **Kaynak grubu**: Yeni bir kaynak grubu seçin ya da yeni bir tane oluşturun. En iyi uygulama olarak her dağıtım için yeni bir kaynak grubu kullanın.
-    * **Konum**: Azure Container Service dağıtımı için Azure bölgesini seçin.
-    * **SSH RSA ortak anahtarı** – Azure Container Service sanal makinelerinde kimlik doğrulaması için kullanılacak ortak anahtarı ekleyin. Bu anahtarın satır sonu içermemesi ve `ssh-rsa` ön ekini içermesi gerekir. `username@domain` son eki isteğe bağlıdır. Anahtar, şunun gibi görünmelidir: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
-
-4. Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
-
+    * **Kaynak grubu**: Dağıtım için yeni bir kaynak grubu adı girin.
+    * **Konum**: Azure Container Service dağıtımı için Azure bölgesini seçin. Kullanım durumu için bkz. [Bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/regions/services/).
+    
     ![Temel ayarlar](media/container-service-deployment/acs-portal3.png)  <br />
+    
+    Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
 
-5. **Altyapı yapılandırma** bölmesinde bir **Düzenleyici yapılandırması** seçin. Seçeneklere şunlar dahildir:
+4. **Ana yapılandırma** dikey penceresinde kümedeki Linux ana düğümü veya düğümleri için aşağıdaki ayarları girin (bazı ayarlar her bir düzenleyiciye özeldir):
 
-  * **DC/OS**: DC/OS kümesi dağıtır.
-  * **Swarm** Docker Swarm kümesi dağıtır.
-  * **Kubernetes**: Bir Kubernetes kümesi dağıtır.
-
-
-6. Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
-
-    ![Düzenleyici seçme](media/container-service-deployment/acs-portal4-new.png)  <br />
-
-7. Açılan menüden **Kubernetes** seçilirse hizmet sorumlusu istemci kimliği (appId de denir) ve hizmet sorumlusu istemci gizli dizisini (parola) girmeniz gerekir. Daha fazla bilgi için bkz. [Bir Kubernetes kümesi için hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md).
-
-    ![Kubernetes için hizmet sorumlusu girme](media/container-service-deployment/acs-portal10.png)  <br />
-
-7. **Azure Container hizmet ayarları** dikey penceresinde aşağıdaki bilgileri girin:
-
+    * **Ana DNS adı**: Ana DNS için benzersiz bir tam etki alanı adı (FQDN) oluşturma amacıyla kullanılan ön ektir. Ana FQDN, *önek*mgmt.*konum*.cloudapp.azure.com şeklindedir.
+    * **Kullanıcı adı**: Kümedeki Linux sanal makinelerin tümünde bulunan hesabın kullanıcı adıdır.
+    * **SSH RSA ortak anahtarı**: Linux sanal makinelerinde kimlik doğrulaması için kullanılacak ortak anahtarı ekleyin. Bu anahtarın satır sonu içermemesi ve `ssh-rsa` ön ekini içermesi gerekir. `username@domain` son eki isteğe bağlıdır. Anahtar, şunun gibi görünmelidir: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. 
+    * **Hizmet sorumlusu**: Kubernetes düzenleyicisini seçtiyseniz Azure Active Directory **Hizmet sorumlusu istemci kimliği** (appId olarak da adlandırılır) ve **Hizmet sorumlusu istemci parolası** (parola) değerlerini girin. Daha fazla bilgi için bkz. [Bir Kubernetes kümesi için hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md).
     * **Ana sunucu sayısı**: Kümedeki ana sunucu sayısı.
-    * **Aracı sayısı**: Docker Swarm ve Kubernetes için bu değer, aracı ölçek grubundaki aracıların başlangıçtaki sayısıdır. DC/OS için bu, özel ölçek grubundaki başlangıç aracıları sayısıdır. Ayrıca, DC/OS için önceden belirlenen sayıda aracı içeren bir ortak ölçek kümesi oluşturulur. Bu ortak ölçek kümesindeki aracıların sayısı, kümede kaç tane ana sunucu oluşturulduğuna göre belirlenir: bir ana sunucu için bir ortak aracı ve üç ya da beş ana sunucu için iki ortak sunucu.
+    * **VM tanılama**: Bazı düzenleyiciler için ana sunucularda VM tanılamayı etkinleştirebilirsiniz.
+
+    ![Ana sunucu yapılandırması](media/container-service-deployment/acs-portal4.png)  <br />
+
+    Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
+
+5. **Aracı yapılandırması** dikey penceresinde aşağıdaki bilgileri girin:
+
+    * **Aracı sayısı**: Docker Swarm ve Kubernetes için bu değer, aracı ölçek grubundaki aracıların başlangıçtaki sayısıdır. DC/OS için bu, özel ölçek grubundaki başlangıç aracıları sayısıdır. Ayrıca, DC/OS için önceden belirlenen sayıda aracı içeren bir ortak ölçek kümesi oluşturulur. Bu ortak ölçek kümesindeki aracıların sayısı, kümedeki ana sunucu sayısına göre belirlenir: bir ana sunucu için bir ortak aracı ve üç ya da beş ana sunucu için iki ortak sunucu.
     * **Aracı sanal makine boyutu**: Aracı sanal makinelerinin boyutudur.
-    * **DNS öneki**: Hizmetin tam etki alanı adlarının temel parçalarına ön ek olarak eklemek için kullanılan ve global çapta benzersiz olan addır.
-    * **VM tanılama**: Bazı düzenleyiciler için VM tanılamayı etkinleştirmeyi seçebilirsiniz.
+    * **İşletim sistemi**: Bu ayarı yalnızca Kubernetes düzenleyicisini seçtiğinizde kullanabilirsiniz. Aracılarda çalıştırmak üzere bir Linux dağıtımı veya Windows Server işletim sistemi seçin. Bu ayar, kümenizin kapsayıcı uygulamalarında Linux mu yoksa Windows mu çalıştırabileceğini belirler. 
 
-8. Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
+        > [!NOTE]
+        > Windows kapsayıcı desteği Kubernetes kümeleri için önizleme sürümündedir. DC/OS ve Swarm kümelerinde Azure Container Service şu an için yalnızca Linux aracıları desteklemektedir.
 
-    ![Container Service ayarları](media/container-service-deployment/acs-portal5.png)  <br />
+    * **Aracı kimlik bilgileri**: Windows işletim sistemini seçtiyseniz aracı VM'ler için yönetici yetkilerine sahip **Kullanıcı adı** ve **Parola** girin. 
 
-9. Hizmet doğrulama tamamlandıktan sonra **Tamam**’a tıklayın.
+    ![Aracı yapılandırması](media/container-service-deployment/acs-portal5.png)  <br />
+
+    Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
+
+6. Hizmet doğrulama tamamlandıktan sonra **Tamam**'a tıklayın.
 
     ![Doğrulama](media/container-service-deployment/acs-portal6.png)  <br />
 
-10. Koşulları gözden geçirin. Dağıtım işlemini başlatmak için **Satın Al**’a tıklayın.
-
-    ![Satın Al](media/container-service-deployment/acs-portal7.png)  <br />
+7. Koşulları gözden geçirin. Dağıtım işlemini başlatmak için **Oluştur**'a tıklayın.
 
     Azure portalda dağıtımı sabitlemeyi seçtiyseniz dağıtım durumunu görebilirsiniz.
 
     ![Dağıtım durumu](media/container-service-deployment/acs-portal8.png)  <br />
 
 Dağıtımın tamamlanması birkaç dakika sürer. Tamamlandıktan sonra, Azure Container Service kümesi kullanıma hazır duruma gelir.
-
 
 
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Hızlı başlangıç şablonu kullanarak küme oluşturma
@@ -115,7 +114,7 @@ Bir şablon ve Azure CLI 2.0 kullanarak küme dağıtmak için bu adımları izl
 > [!NOTE] 
 > Bir Windows sistemi kullanıyorsanız, Azure PowerShell kullanarak şablon dağıtmak için benzer adımları kullanabilirsiniz. Bu bölümün sonraki kısımlarında verilen adımlara bakın. Ayrıca [portalı](../azure-resource-manager/resource-group-template-deploy-portal.md) veya diğer yöntemleri kullanarak da şablon dağıtabilirsiniz.
 
-1. DC/OS, Docker Swarm veya Kubernetes kümesi dağıtmak için GitHub’da aşağıdaki hızlı başlangıç şablonlarından birini seçin. Kısmi bir liste görüntülenir. DC/OS ve Swarm şablonlarının, varsayılan düzenleyici seçimi dışında aynı olduğunu unutmayın.
+1. DC/OS, Docker Swarm veya Kubernetes kümesi dağıtmak için GitHub’da aşağıdaki hızlı başlangıç şablonlarından birini seçin. Kısmi bir liste görüntülenir. DC/OS ve Swarm şablonları, varsayılan düzenleyici seçimi dışında aynıdır.
 
     * [DC/OS şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -187,7 +186,7 @@ Azure Container Service küme şablonu dağıtmak için PowerShell de kullanabil
     New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
     ```
 
-5. Bir kaynak grubu oluşturduktan sonra, kümenizi aşağıdaki komutla oluşturabilirsiniz. İstenen şablon URI’si `-TemplateUri` parametresi için belirtilir. Bu komutu çalıştırdığınızda, PowerShell sizden dağıtım parametre değerlerini ister.
+5. Bir kaynak grubu oluşturduktan sonra, kümenizi aşağıdaki komutla oluşturabilirsiniz. İstenen şablon URI'si `-TemplateUri` parametresiyle belirtilir. Bu komutu çalıştırdığınızda, PowerShell sizden dağıtım parametre değerlerini ister.
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
@@ -196,7 +195,7 @@ Azure Container Service küme şablonu dağıtmak için PowerShell de kullanabil
 #### <a name="provide-template-parameters"></a>Şablon parametrelerini belirtin
 PowerShell hakkında bilginiz varsa, eksi işareti (-) yazarak ve ardından SEKME tuşuna basarak bir cmdlet için kullanılabilir parametrelerde gezinebileceğinizi bilirsiniz. Bu işlev şablonunuzda tanımladığınız parametreler için de geçerlidir. Şablon adını yazmanızın hemen ardından, cmdlet şablonu getirir, parametreleri ayrıştırır ve şablon parametrelerini dinamik olarak komuta ekler. Bu, şablon parametre değerlerini belirtmeyi kolaylaştırır. Ve gerekli parametre değerini unutursanız, PowerShell sizden değeri ister.
 
-Aşağıda parametreleri içeren tam komut verilmiştir. Kaynakların adları için kendi değerlerinizi sağlayabilirsiniz.
+Burada parametreleri içeren tam komut verilmiştir. Kaynakların adları için kendi değerlerinizi sağlayın.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....

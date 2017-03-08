@@ -16,7 +16,7 @@
 #### [Windows aracıları](log-analytics-windows-agents.md)
 #### [Linux aracıları](log-analytics-linux-agents.md)
 #### [Azure sanal makineleri](log-analytics-azure-vm-extension.md)
-#### [Azure depolama alanı](log-analytics-azure-storage.md)
+#### [Azure kaynakları](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [OMS Ağ Geçidi](log-analytics-oms-gateway.md)

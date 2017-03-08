@@ -11,16 +11,18 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ca87ad0165c7333fd43a828f7d92d46a432d8f78
-ms.openlocfilehash: 6956353771e6b4bcb814eb7cc9dfde01c452b8bd
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 15db7dad6b83f6df3891aea60b308f2cf6008dd9
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="application-gateway-overview"></a>Application Gateway’e genel bakış
+# <a name="overview-of-application-gateway"></a>Application Gateway'e genel bakış
 
 ## <a name="what-is-application-gateway"></a>Application Gateway Nedir?
 
@@ -92,9 +94,4 @@ REST API’leri, PowerShell cmdlet’leri, Azure CLI veya [Azure portalını](ht
 Application Gateway hakkında bilgi aldıktan sonra [bir uygulama ağ geçidi oluşturabilir](application-gateway-create-gateway-portal.md) veya HTTPS bağlantılarının yük dengelemesini yapmak üzere [bir uygulama ağ geçidi SSL yük boşaltması oluşturabilirsiniz](application-gateway-ssl-arm.md).
 
 URL tabanlı içerik yönlendirmeyi kullanarak bir uygulama ağ geçidi oluşturma hakkında daha fazla bilgi almak için [URL tabanlı yönlendirme kullanarak uygulama ağ geçidi oluşturma](application-gateway-create-url-route-arm-ps.md) bölümüne gidin.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

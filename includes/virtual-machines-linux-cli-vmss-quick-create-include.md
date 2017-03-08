@@ -1,69 +1,33 @@
-Daha önce yapmadıysanız [Azure aboneliği ücretsiz deneme sürümünü](https://azure.microsoft.com/pricing/free-trial/) ve [Azure hesabınıza bağlı](../articles/xplat-cli-connect.md) [Azure CLI](../articles/xplat-cli-install.md)’yı alabilirsiniz. Azure CLI’nin Resource Manager’da şu şekilde olduğundan emin olun:
+## <a name="prerequisites"></a>Ön koşullar
+
+Henüz yapmadıysanız [Azure aboneliği ücretsiz deneme sürümüne](https://azure.microsoft.com/pricing/free-trial/) kaydolun ve [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)'ı yükleyin.
+
+## <a name="create-the-scale-set"></a>Ölçek kümesini oluşturma
+
+İlk olarak ölçek kümesini dağıtacağınız kaynak grubunu oluşturun:
 
 ```azurecli
-azure config mode arm
+az group create --location westus --name myResourceGroup
 ```
 
-Şimdi `azure vmss quick-create` komutunu kullanarak ölçek kümenizi oluşturabilirsiniz. Aşağıdaki örnek, `myResourceGroup` adlı kaynak grubunun içinde 5 VM örneğine sahip `myVMSS` adlı Linux ölçek kümesi oluşturur:
+Şimdi `az vmss create` komutunu kullanarak ölçek kümenizi oluşturabilirsiniz. Aşağıdaki örnek, `myrg` adlı kaynak grubunun içinde `myvmss` adlı Linux ölçek kümesi oluşturur:
 
 ```azurecli
-azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
-    -u ops -p P@ssw0rd! \
-    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+az vmss create --resource-group myResourceGroup --name myVmss \
+    --image UbuntuLTS --admin-username azureuser \
+    --authentication-type password --admin-password P4$$w0rd
 ```
 
 Aşağıdaki örnek aynı yapılandırmayla bir Windows ölçek kümesi oluşturur:
 
 ```azurecli
-azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
-    -u ops -p P@ssw0rd! \
-    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
+az vmss create --resource-group myResourceGroup --name myVmss \
+    --image Win2016Datacenter --admin-username azureuser \
+    --authentication-type password --admin-password P4$$w0rd
 ```
 
-Konum veya görüntü urn’sini özelleştirmek istiyorsanız `azure location list` ve `azure vm image {list-publishers|list-offers|list-skus|list|show}` komutlarına bakın.
+Farklı bir işletim sistemi görüntüsü seçmek isterseniz `az vm image list` veya `az vm image list --all` komutuyla uygun görüntüleri görebilirsiniz. Ölçek kümesindeki VM'lerin bağlantı bilgilerini görmek için `az vmss list_instance_connection_info` komutunu kullanın:
 
-Bu komut döndürüldükten sonra, ölçek kümesi oluşturulacaktır. Bu ölçekte, yük dengeleyicideki bağlantı noktası 50.000+i’yi VM i’deki bağlantı noktası 22’yle eşleyen NAT kurallarına sahip yük dengeleyici olacaktır. Bu nedenle, yük dengeleyicinin FQDN’sini belirledikten sonra VM’lerimize ssh aracılığıyla bağlanabileceğiz:
-
-```bash
-# (if you decide to run this as a script, please invoke using bash)
-
-# list load balancers in the resource group we created
-#
-# generic syntax:
-# azure network lb list -g RESOURCE-GROUP-NAME
-#
-# example with some quick-and-dirty grep-fu to store the result in a variable:
-line=$(azure network lb list -g negatvmssrg | grep negatvmssrg)
-split_line=( $line )
-lb_name=${split_line[1]}
-
-# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is 
-# associated to it
-#
-# generic syntax:
-# azure network lb show -g RESOURCE-GROUP-NAME -n LOAD-BALANCER-NAME
-#
-# example with some quick-and-dirty grep-fu to store the result in a variable:
-line=$(azure network lb show -g negatvmssrg -n $lb_name | grep loadBalancerFrontEnd)
-split_line=( $line )
-pip_name=${split_line[4]}
-
-# now that we have the name of the public IP address, we can show the details to find the FQDN
-#
-# generic syntax:
-# azure network public-ip show -g RESOURCE-GROUP-NAME -n PIP-NAME
-#
-# example with some quick-and-dirty grep-fu to store the result in a variable:
-line=$(azure network public-ip show -g negatvmssrg -n $pip_name | grep FQDN)
-split_line=( $line )
-FQDN=${split_line[3]}
-
-# now that we have the FQDN, we can use ssh on port 50,000+i to connect to VM i (where i is 0-indexed)
-#
-# example to connct via ssh into VM "0":
-ssh -p 50000 negat@$FQDN
+```azurecli
+az vmss list_instance_connection_info --resource-group myResourceGroup --name myVmss
 ```
-
-<!--HONumber=Dec16_HO1-->
-
-

@@ -14,16 +14,18 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 02/27/2017
 ms.author: cfowler;mahender;glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 30cc3b8749d5b36b89b242e2691003cc6f67f7d2
-ms.openlocfilehash: 00359057d702c556cd8beb91cf17ccf41c96f601
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: 045ec40811468eeffb25ed28ec5bfc84f074c19d
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="azure-functions-overview"></a>Azure İşlevlerine Genel Bakış
-Azure İşlevleri, küçük kod parçalarını veya "işlevleri" bulutta kolayca çalıştırmaya yönelik bir çözümdür. Tüm uygulama veya bunu çalıştıracak altyapı hakkında endişelenmeden elinizdeki sorun için ihtiyacınız olan kodu yazabilirsiniz. İşlevler geliştirme sürecinizi daha da verimli hale getirebilir ve tercih ettiğiniz geliştirme dilini (C#, F#, Node.js, Python veya PHP gibi) kullanabilirsiniz. Yalnızca kodunuzun çalıştığı zaman için ödeme yapın ve ihtiyaca göre ölçekleme konusunda Azure'a güvenin.
+# <a name="an-introduction-to-azure-functions"></a>Azure İşlevleri'ne giriş  
+Azure İşlevleri, küçük kod parçalarını veya "işlevleri" bulutta kolayca çalıştırmaya yönelik bir çözümdür. Tüm uygulama veya bunu çalıştıracak altyapı hakkında endişelenmeden elinizdeki sorun için ihtiyacınız olan kodu yazabilirsiniz. İşlevler geliştirme sürecinizi daha da verimli hale getirebilir ve tercih ettiğiniz geliştirme dilini (C#, F#, Node.js, Python veya PHP gibi) kullanabilirsiniz. Yalnızca kodunuzun çalıştığı zaman için ödeme yapın ve ihtiyaca göre ölçekleme konusunda Azure'a güvenin. Azure İşlevleri, Microsoft Azure'da sunucusuz uygulamalar geliştirmenizi sağlar.
 
 Bu konu başlığında, Azure İşlevlerine üst düzey bir genel bakış sağlanmıştır. Azure İşlevlerini kullanmaya hemen başlamak isterseniz [İlk Azure İşlevinizi oluşturma](functions-create-first-azure-function.md) ile başlayın. İşlevler hakkında daha teknik bilgi arıyorsanız bkz. [geliştirici başvurusu](functions-reference.md).
 
@@ -39,7 +41,7 @@ Azure İşlevlerinin önemli özelliklerinden bazıları şunlardır:
 * **Açık kaynak** - İşlevler çalışma zamanı açık kaynaklıdır ve [GitHub'da kullanılabilir](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>İşlevler ile ne yapabilirim?
-Azure İşlevleri; verileri işleme, sistemleri tümleştirme, nesnelerin İnterneti (IoT) ile çalışma ve basit API'ler ve mikro hizmetler oluşturma için harika bir çözümdür. Görüntü veya sıra işleme, dosya bakımı, arka plan iş parçacığında çalıştırmak istediğiniz uzun süre çalışan görevler veya bir zamanlayıcıyla çalıştırmak istediğiniz herhangi bir görev için İşlevleri dikkate alın. 
+Azure İşlevleri; verileri işleme, sistemleri tümleştirme, nesnelerin İnterneti (IoT) ile çalışma ve basit API'ler ve mikro hizmetler oluşturma için harika bir çözümdür. Görüntü veya sıra işleme, dosya bakımı veya bir zamanlayıcıyla çalıştırmak istediğiniz herhangi bir görev için İşlevleri kullanabilirsiniz. 
 
 İşlevler, aşağıdakiler dahil olmak üzere önemli senaryolara giriş için şablonlar sağlar:
 
@@ -55,7 +57,7 @@ Azure İşlevleri; verileri işleme, sistemleri tümleştirme, nesnelerin İnter
 
 Azure İşlevleri, kodunuzu yürütmeye başlama yolu olan *tetikleyicileri* ve giriş ve çıkış verilerini kodlamayı basitleştirme yolu olan *bağlamaları* destekler. Azure İşlevlerinin sağladığı tetikleyicilerin ve bağlamaların ayrıntılı bir açıklaması için bkz. [Azure İşlevleri tetikleyicileri ve bağlamaları geliştirici başvurusu](functions-triggers-bindings.md)
 
-## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>Tümleştirmeler
+## <a name="integrations"></a>Tümleştirmeler
 Azure İşlevleri, çeşitli Azure ve üçüncü taraf hizmetleri ile tümleştirilebilir. Bu hizmetler, işlevinizi tetikleyip yürütmeyi başlatabilir ya da kodunuz için giriş ve çıkış görevi görebilir. Aşağıdaki hizmet tümleştirmeleri Azure İşlevleri tarafından desteklenir. 
 
 * Azure DocumentDB
@@ -66,8 +68,9 @@ Azure İşlevleri, çeşitli Azure ve üçüncü taraf hizmetleri ile tümleşti
 * Azure Storage (blob, kuyruklar ve tablolar) 
 * GitHub (web kancaları)
 * Şirket içi (Service Bus kullanarak)
+* Twilio (SMS mesajları)
 
-## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>İşlevlerin maliyeti ne kadardır?
+## <a name="pricing"></a>İşlevlerin maliyeti ne kadardır?
 Azure İşlevlerinin iki tür fiyatlandırma planı bulunur; ihtiyaçlarınızı en iyi şekilde karşılayanı seçin: 
 
 * **Tüketim planı** - İşleviniz çalıştığında Azure tüm gerekli bilgi işlem kaynaklarını sağlar. Kaynak yönetimi hakkında endişelenmenize gerek yoktur ve yalnızca kodunuzun çalıştığı süre için ödeme yaparsınız. 
@@ -86,10 +89,5 @@ Fiyatlandırma ayrıntılarının tümü [İşlevler Fiyatlandırma sayfasında]
   Tüketim barındırma planı dahil olmak üzere, Azure İşlevlerinde kullanılabilen hizmet planlarını ve doğru planın nasıl seçileceğini açıklar. 
 * [Azure Uygulama Hizmeti hakkında daha fazla bilgi edinin](../app-service/app-service-value-prop-what-is.md)  
   Azure İşlevleri; dağıtımlar, ortam değişkenleri ve tanılama gibi temel işlevler için Azure App Service platformunu kullanır. 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

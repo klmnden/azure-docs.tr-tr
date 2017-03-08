@@ -25,8 +25,3 @@
 # İlgili
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Rol Tabanlı Access Control](../role-based-access-control-what-is.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

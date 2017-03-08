@@ -15,8 +15,9 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
-ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
+ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
+ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -215,10 +216,10 @@ Azure dosya paylaşımının nasıl bağlandığını göstermek üzere Windows 
 3. Sanal makinede bir PowerShell penceresi açın.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Sanal makine için depolama hesabı kimlik bilgilerinizi kalıcı yapma
-Dosya paylaşımını bağlamadan önce, ilk olarak depolama hesabı kimlik bilgilerinizi sanal makinede kalıcı yapın. Bu adım uygulanmasıyla birlikte sanal makine yeniden başlatıldığında Windows otomatik olarak dosya paylaşımıyla yeniden bağlantı kurar. Hesap kimlik bilgilerinizi kalıcı yapmak için sanal makinede PowerShell penceresinden `cmdkey` komutunu çalıştırın. `<storage-account-name>` değerini depolama hesabınızın adıyla ve `<storage-account-key>` değerini depolama hesabınızın anahtarıyla değiştirin.
+Dosya paylaşımını bağlamadan önce, ilk olarak depolama hesabı kimlik bilgilerinizi sanal makinede kalıcı yapın. Bu adım uygulanmasıyla birlikte sanal makine yeniden başlatıldığında Windows otomatik olarak dosya paylaşımıyla yeniden bağlantı kurar. Hesap kimlik bilgilerinizi kalıcı yapmak için sanal makinede PowerShell penceresinden `cmdkey` komutunu çalıştırın. `<storage-account-name>` değerini depolama hesabınızın adıyla ve `<storage-account-key>` değerini depolama hesabınızın anahtarıyla değiştirin. Aşağıdaki örnekte olduğu gibi "AZURE" etki alanını açıkça belirtmeniz gerekir. 
 
 ```
-cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 ```
 
 Artık, sanal makine yeniden başlatıldığında Windows dosya paylaşımınızla yeniden bağlantı kurar. PowerShell penceresinde `net use` komutunu çalıştırarak paylaşımla yeniden bağlantı kurulduğunu doğrulayabilirsiniz.
@@ -238,10 +239,10 @@ net use z: \\samples.file.core.windows.net\logs
 Önceki adımda, depolama hesabının kimlik bilgilerini kalıcı yaptığınızdan, `net use` komutu ile bunları sağlamanız gerekmez. Kimlik bilgilerinizi kalıcı yapmadıysanız, aşağıdaki örnekte gösterildiği gibi bunları geçirilen parametre olarak `net use` komutuna ekleyin.
 
 ```
-net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
 
 example :
-net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-account-key>
 ```
 
 Artık başka bir sürücüyle yaptığınız gibi sanal makineden File Storage paylaşımı ile çalışabilirsiniz. Komut isteminden standart dosya komutları kullanabilir veya bağlanılan paylaşımı ve içeriklerini Dosya Gezgini’nde görüntüleyebilirsiniz. Ayrıca, .NET Framework’teki [System.IO ad alanları](http://msdn.microsoft.com/library/gg145019.aspx) tarafından sağlananlar gibi standart Windows dosyası G/Ç API’lerini kullanarak dosya paylaşımına erişen sanal makinede kod çalıştırabilirsiniz.
@@ -680,9 +681,4 @@ Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara g
 * [Azure Dosya Depolama İncelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure Dosya Hizmeti’ne Giriş](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Microsoft Azure Dosyaları ile kalıcı bağlantılar](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

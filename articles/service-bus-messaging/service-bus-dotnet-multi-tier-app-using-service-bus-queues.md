@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
-ms.openlocfilehash: 0f2caeed40b59a65ec08e7d94701c93b862199fc
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -63,10 +63,10 @@ Aşağıdaki bölümlerde, bu mimariyi uygulayan kod ele alınır.
 Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliştirme ortamınızı ayarlayın.
 
 1. SDK [indirme sayfasından](https://azure.microsoft.com/downloads/) .NET için Azure SDK'sını yükleyin.
-2. **.NET** sütununda, kullandığınız Visual Studio sürümüne tıklayın. Bu öğreticideki adımlarda Visual Studio 2015 kullanılır.
+2. **.NET** sütununda, kullandığınız [Visual Studio](http://www.visualstudio.com) sürümüne tıklayın. Bu öğreticideki adımlarda Visual Studio 2015 kullanılır.
 3. Yükleyiciyi çalıştırmanız veya kaydetmeniz istendiğinde **Çalıştır**'a tıklayın.
 4. **Web Platformu Yükleyicisi**'nde **Yükle**'ye tıklayın ve kuruluma devam edin.
-5. Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir. Visual Studio yüklü değilse SDK ücretsiz Visual Studio Express de yükler.
+5. Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir.
 
 ## <a name="create-a-namespace"></a>Ad alanı oluşturma
 İlk adım, bir hizmet ad alanı oluşturmak ve Paylaşılan Erişim İmzası (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Bir ad alanı oluşturulduğunda sistem tarafından bir SAS anahtarı oluşturulur. Ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.

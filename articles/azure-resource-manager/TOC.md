@@ -36,8 +36,6 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Kaynakları düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
-### [İlgili kaynakları bağlama](resource-group-link-resources.md)
-### [Azure Kaynak Gezgini](resource-manager-resource-explorer.md)
 ## Erişim Denetleme
 ### [PowerShell ile hizmet sorumlusu oluşturma](resource-group-authenticate-service-principal.md)
 ### [Azure CLI ile hizmet sorumlusu oluşturma](resource-group-authenticate-service-principal-cli.md)

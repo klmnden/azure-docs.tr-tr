@@ -1,6 +1,6 @@
 ---
 title: "Azure Batch için PowerShell kullanmaya başlama | Microsoft Docs"
-description: "Azure Batchhizmetini yönetmek için kullanabileceğiniz Azure PowerShell cmdlet’lerine bir giriş gerçekleştirin."
+description: "Batch kaynaklarını yönetmek için kullanabileceğiniz Azure PowerShell cmdlet&quot;lerine hızlı bir giriş."
 services: batch
 documentationcenter: 
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 9bd1c2a1f273d2487e4ce9063c286896cc414e42
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-azure-batch-powershell-cmdlets"></a>Azure Batch PowerShell cmdlet’leri kullanmaya başlama
+# <a name="manage-batch-resources-with-powershell-cmdlets"></a>Batch kaynaklarını PowerShell cmdlet'leriyle yönetme
+
 Azure Batch PowerShell cmdlet’leri ile Batch API'leri, Azure portalı ve Azure Komut Satırı Arabirimi (CLI) ile gerçekleştirdiğiniz Batch aynı görevlerin çoğunu gerçekleştirebilir ve betik oluşturabilirsiniz. Bu bilgiler, Batch hesabınızı yönetmek, havuzlar, işler ve görevler gibi Batch kaynaklarınızla da çalışmak için kullanabildiğiniz cmdlet’lere hızlı bir giriş yapmanızı sağlar.
 
 Tam Batch cmdlet’leri listesi ve ayrıntılı cmdlet sözdizimi için bkz. [Azure Batch cmdlet başvurusu](https://msdn.microsoft.com/library/azure/mt125957.aspx).
@@ -236,10 +239,5 @@ Batch hizmetinde havuzun özelliklerini güncelleştirmiş oldunuz. Bununla birl
 ## <a name="next-steps"></a>Sonraki adımlar
 * Ayrıntılı cmdlet sözdizimi ve örnekleri için bkz. [Azure Batch cmdlet başvurusu](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 * Batch’deki uygulamalar ve uygulama paketleri hakkında daha fazla bilgi için bkz. [Azure Batch uygulama paketleriyle uygulama dağıtımı](batch-application-packages.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

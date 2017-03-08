@@ -4,7 +4,7 @@ description: "Örnek bir uygulama dağıtarak App Service&quot;te web uygulamala
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: fccbab2baafed3b0347f2c35b7926200ec69a450
-ms.openlocfilehash: 640f04ca9a8351543d44899946464ed7cd4db437
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 7bc52251f2d0a6aca271bd3d013690bdd0d6b752
+ms.lasthandoff: 02/28/2017
 
 
 ---
 # <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Beş dakika içinde Azure’a ilk HTML web uygulamanızı dağıtma (CLI 2.0 Önizleme)
-
-> [!div class="op_single_selector"]
-> * [İlk HTML sitesi](app-service-web-get-started-html.md)
-> * [İlk .NET uygulaması](app-service-web-get-started-dotnet.md)
-> * [İlk PHP uygulaması](app-service-web-get-started-php.md)
-> * [İlk Node.js uygulaması](app-service-web-get-started-nodejs.md)
-> * [İlk Python uygulaması](app-service-web-get-started-python.md)
-> * [İlk Java uygulaması](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 Bu öğretici, [Azure Uygulama Hizmeti](../app-service/app-service-value-prop-what-is.md)'nde basit bir HTML+CSS web uygulaması dağıtmanıza yardımcı olur.
 Web uygulamaları, [mobil uygulama arka uçları](/documentation/learning-paths/appservice-mobileapps/) ve [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) oluşturmak için App Service kullanabilirsiniz.
@@ -49,7 +41,7 @@ Yapacaklarınız:
 Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 
 - [Azure CLI 1.0](app-service-web-get-started-html-cli-nodejs.md): Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI’mız
-- [Azure CLI 2.0 (Önizleme)](app-service-web-get-started-html.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI’mız
+- [Azure CLI 2.0](app-service-web-get-started-html.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız
 
 ## <a name="prerequisites"></a>Ön koşullar
 * [Git](http://www.git-scm.com/downloads).
@@ -150,10 +142,5 @@ Veya ilk web uygulamanızla daha fazlasını yapın. Örnek:
 
 * [Kodunuzu Azure'a dağıtmanın diğer yollarını](web-sites-deploy.md) deneyin. Örneğin, GitHub depolarınızın birinden dağıtım yapmak için **Dağıtım seçenekleri**'nde **Yerel Git Deposu** yerine **GitHub**'ı seçmeniz yeterlidir.
 * Azure uygulamanızı bir sonraki seviyeye taşıyın. Kullanıcılarınızın kimliklerini doğrulayın. Talebe göre ölçeklendirin. Performans uyarıları ayarlayın. Tümünü birkaç tıklamayla gerçekleştirin. Bkz. [İlk web uygulamanıza işlevsellik ekleme](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

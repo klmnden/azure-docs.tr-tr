@@ -1,8 +1,8 @@
 
 
-## <a name="azure-cli-20-preview"></a>Azure CLI 2.0 (Önizleme)
+## <a name="azure-cli-20"></a>Azure CLI 2.0
 
-[Azure CLI 2.0 (Önizleme) aracını yükledikten](https://docs.microsoft.com/cli/azure/install-az-cli2) sonra, popüler sanal makine görüntülerinin önbelleğe alınmış bir listesini görmek için `az vm image list` komutunu kullanın. Örneğin, `az vm image list -o table` komutunun aşağıdaki örneği şunu görüntüler:
+[Azure CLI 2.0 aracını yükledikten](https://docs.microsoft.com/cli/azure/install-az-cli2) sonra, popüler VM görüntülerinin önbelleğe alınmış bir listesini görmek için `az vm image list` komutunu kullanın. Örneğin, `az vm image list -o table` komutunun aşağıdaki örneği şunu görüntüler:
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -294,7 +294,3 @@ Bu listeden seçtiğiniz SKU adını kopyaladığınızda, `Set-AzureRMVMSourceI
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
-
-<!--HONumber=Feb17_HO3-->
-
-

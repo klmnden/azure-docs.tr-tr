@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/14/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
-ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
+ms.sourcegitcommit: c2b0c6b125ededd30e9db8e7f42796bdf6b413d4
+ms.openlocfilehash: 559ecab373adf6441635f2ed0d572ab02159f50c
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -37,7 +38,7 @@ Bu öğreticinin sonunda üç Java konsol uygulamanız olur:
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Java SE 8. <br/> [Geliştirme ortamınızı hazırlama][lnk-dev-setup], bu öğretici için Java'nın Windows veya Linux'ta nasıl yükleneceğini açıklar.
-* Maven 3.  <br/> [Geliştirme ortamınızı hazırlama][lnk-dev-setup], bu öğretici için Maven'ın Windows veya Linux'ta nasıl yükleneceğini açıklar.
+* Maven 3.  <br/> [Geliştirme ortamınızı hazırlama][lnk-dev-setup], bu öğretici için [Maven][lnk-maven]'ın Windows veya Linux'ta nasıl yükleneceğini açıklar.
 * Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -471,9 +472,4 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+[lnk-maven]: https://maven.apache.org/what-is-maven.html

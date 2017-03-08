@@ -1,5 +1,5 @@
 ---
-title: "Azure Batch hizmetine genel bakış | Microsoft Docs"
+title: "Azure Batch bulutta büyük ölçekli paralel bilgi işlem çözümleri çalıştırır | Microsoft Docs"
 description: "Büyük ölçekli paralel ve HPC iş yükleri için Azure Batch hizmetini kullanma hakkında bilgi edinin"
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3a01764b6a0e777e947cf8648606cdd568d118ff
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: e204a3c79768ddbd433f3b00a3db456ef3258173
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="basics-of-azure-batch"></a>Azure Batch temel bilgileri
+# <a name="run-intrinsically-parallel-workloads-with-batch"></a>Batch ile doğası gereği paralel iş yüklerini çalıştırın
+
 Azure Batch, büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmanızı sağlayan bir platform hizmetidir. Azure Batch, yönetilen sanal makineler koleksiyonunda çalıştırılacak işlem yoğunluklu işi zamanlar ve işinizin gereksinimlerini karşılayacak işlem kaynaklarını otomatik olarak ölçekler.
 
 Azure Batch ile uygulamalarınızı paralel olarak ve uygun ölçekte yürütmek için Azure işlem kaynaklarını kolayca tanımlayabilirsiniz. HPC kümesi, tek tek sanal makineler, sanal ağlar veya karmaşık iş ve görev zamanlama altyapısını el ile oluşturmanız, yapılandırmanız ve yönetmeniz gerekmez. Azure Batch bu görevleri sizin için otomatikleştirir ya da basitleştirir.
@@ -156,9 +159,4 @@ Batch hizmetine yüksek düzeyli bir genel bakışı gördüğünüze göre işl
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

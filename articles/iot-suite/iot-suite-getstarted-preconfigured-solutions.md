@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/15/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
+ms.sourcegitcommit: 9e1bcba086a9f70c689a5d7d7713a8ecdc764492
+ms.openlocfilehash: 8248e0a02cb0775a87f0c8130e53b98f8bcfe581
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
 ## <a name="introduction"></a>Giriş
 Azure IoT Paketi [önceden yapılandırılmış çözümleri][lnk-preconfigured-solutions], ortak IoT iş senaryolarını uygulayan uçtan uca çözümler sunmak için birden çok Azure IoT hizmetini birleştirir. Önceden yapılandırılmış *uzaktan izleme* çözümü cihazlarınıza bağlanır ve cihazları izler. Cihazlarınızdan alınan veri akışını analiz etmek ve işlemleri bu veri akışına otomatik olarak yanıt verecek hale getirerek iş sonuçlarını iyileştirmek için bu çözümü kullanabilirsiniz.
 
-Bu öğretici, önceden yapılandırılmış uzaktan izleme çözümünün nasıl hazırlanacağını gösterir. Ayrıca, uzaktan izleme çözümünün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözüm ile birlikte dağıtılan çözüm panosundan erişebilirsiniz:
+Bu öğretici, önceden yapılandırılmış uzaktan izleme çözümünün nasıl hazırlanacağını gösterir. Ayrıca, önceden yapılandırılmış çözümün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözümün bir parçası olarak dağıtılan çözüm panosundan erişebilirsiniz:
 
 ![Önceden yapılandırılmış uzaktan izleme panosu][img-dashboard]
 
@@ -53,28 +54,68 @@ Pano aşağıdaki bilgileri gösterir:
 * Harita, çözüme bağlı olan her bir cihazın konumunu görüntüler. Çözümü ilk kez çalıştırdığınızda, dört sanal cihaz bulunur. Sanal cihazlar Azure WebJobs olarak uygulanır ve çözüm de haritada bilgileri çizmek için Bing Haritaları API'sini kullanır.
 * **Telemetri Geçmişi** paneli, seçilen yakın gerçek zamanlı cihazdan nem ve sıcaklık telemetrisini çizer ve maksimum, minimum ve ortalama nem gibi toplu verileri görüntüler.
 * **Uyarı Geçmişi** paneli bir telemetri değeri bir eşiği aştığında yeni uyarı etkinliklerini gösterir. Önceden yapılandırılmış çözüm tarafından oluşturulan örneklere ek olarak kendi alarmlarınızı tanımlayabilirsiniz.
+* **İşler** panelinde, zamanlanmış işler hakkında bilgi gösterilir. **Yönetim işleri** sayfasından kendi işlerinizi zamanlayabilirsiniz.
 
 ## <a name="view-the-device-list"></a>Cihaz listesini görüntüleme
-Cihaz listesi, çözümde kayıtlı olan tüm cihazları gösterir. Meta verileri görüntüleyebilir ve düzenleyebilir, cihazları ekleyebilir veya kaldırabilir ve cihazlara komutlar gönderebilirsiniz.
+*Cihaz listesi*, çözümde kayıtlı olan tüm cihazları gösterir. Cihaz listesinden cihaz meta verilerini görüntüleyip düzenleyebilir, cihaz ekleyip kaldırabilir ve cihazlarda yöntemler çağırabilirsiniz.
 
-1. Bu çözüm için *cihaz listesini* göstermek üzere sol menüdeki **Cihazlar**'a tıklayın.
+1. Bu çözümün cihaz listesini görüntülemek için sol menüdeki **Cihazlar**'a tıklayın.
    
    ![Panoda cihaz listesi][img-devicelist]
-2. Cihaz listesi, hazırlama işlemi tarafından oluşturulan dört sanal cihaz olduğunu gösterir.
-3. Cihaz ayrıntılarını görüntülemek için cihaz listesindeki bir cihaza tıklayın.
+2. Cihaz listesi başlangıçta hazırlama işlemi tarafından oluşturulan dört sanal cihazı gösterir. Çözüme başka sanal ve fiziksel cihazlar ekleyebilirsiniz.
+3. **Sütun düzenleyicisi**’ne tıklayarak cihaz listesinde gösterilen bilgileri özelleştirebilirsiniz. Bildirilen özellik ve etiket değerlerini gösteren sütunlar ekleyip kaldırabilirsiniz. Ayrıca, sütunları yeniden sıralayabilir ve yeniden adlandırabilirsiniz:
+   
+   ![Panoda sütun düzenleyicisi][img-columneditor]
+4. Cihaz ayrıntılarını görüntülemek için cihaz listesindeki bir cihaza tıklayın.
    
    ![Panoda cihaz ayrıntıları][img-devicedetails]
 
-**Cihaz Ayrıntıları** panelinde üç bölüm bulunur:
+**Cihaz Ayrıntıları** panelinde altı bölüm bulunur:
 
-* **Eylemler** bölümü cihazda gerçekleştirebileceğiniz eylemleri listeler. Cihazı devre dışı bırakırsanız artık telemetri göndermesine veya komutları almasına izin verilmez. Bir cihazı devre dışı bırakırsanız daha sonra yeniden etkinleştirebilirsiniz. Bir telemetri değeri bir eşiği aştığında bir uyarıyı tetikleyen cihaz ile ilişkili bir kural ekleyebilirsiniz. Ayrıca, bir cihaza komut gönderebilirsiniz. Bir cihaz ilk kez bağlandığında, yanıt verebileceği komutları çözüme söyler.
-* **Cihaz Özelliklerini** bölümü cihazın meta verilerini listeler. Bu meta verilerin bazıları cihazın kendisinden gelir (üretici gibi) ve bazıları da çözüm tarafından oluşturulur (oluşturma tarihi gibi). Cihaz meta verilerini buradan düzenleyebilirsiniz.
-* **Kimlik Doğrulama Anahtarları** bölümü cihazın çözümle kimlik doğrulamada kullanabileceği anahtarları listeler.
+* Cihaz simgesini özelleştirmenizi, cihazı devre dışı bırakmanızı, kural eklemenizi, bir yöntem çağırmanızı veya bir komut göndermenizi sağlayan bağlantı koleksiyonu. Komutlar (cihazdan buluta iletiler) ile yöntemlerin (doğrudan yöntemler) bir karşılaştırması için bkz. [Buluttan cihaza iletişim kılavuzu][lnk-c2d-guidance].
+* **Cihaz İkizi - Etiketler** bölümünde, cihazın etiket değerlerini düzenleyebilirsiniz. Cihaz listesindeki etiket değerlerini görüntüleyebilir ve etiket değerlerini kullanarak cihaz listesini filtreleyebilirsiniz.
+* **Cihaz İkizi - İstenen Özellikler** bölümünde, cihaza gönderilecek özellik değerlerini ayarlayabilirsiniz.
+* **Cihaz İkizi - Bildirilen Özellikler** bölümünde cihazdan gönderilen özellik değerleri gösterilir.
+* **Cihaz Özellikleri** bölümünde cihaz kimliği ve kimlik doğrulama anahtarları gibi kimlik kayıt defteri bilgileri gösterilir.
+* **Son İşler** bölümünde yakın zamanda bu cihazı hedefleyen tüm işlere ilişkin bilgiler gösterilir.
+
+## <a name="customize-the-device-icon"></a>Cihaz simgesini özelleştirme
+
+Cihaz listesinde gösterilen cihaz simgesini, **Cihaz Ayrıntıları** panelinden aşağıdaki gibi özelleştirebilirsiniz:
+
+1. Bir cihazın **Görüntü düzenleme** panelini açmak için kalem simgesine tıklayın:
+   
+   ![Cihaz görüntüsü düzenleyicisini açma][img-startimageedit]
+2. Karşıya yeni bir görüntü yükleyip veya var olan görüntülerden birini seçip **Kaydet**’e tıklayın:
+   
+   ![Cihaz görüntüsü düzenleyicisini düzenleme][img-imageedit]
+3. Seçtiğiniz görüntü, cihazın **Simge** sütununda gösterilir.
+
+> [!NOTE]
+> Görüntü, blob depolama alanına depolanır. Cihaz ikizindeki etiket, blob depolama alanındaki görüntünün bir bağlantısını içerir.
+> 
+> 
+
+## <a name="invoke-a-method-on-a-device"></a>Cihazda yöntem çağırma
+**Cihaz Ayrıntıları** panelinden cihaz üzerinde yöntem çağırabilirsiniz. Bir cihaz ilk kez başlatıldığında, desteklediği yöntemler hakkında çözüme bilgi gönderir.
+
+1. Seçilen cihazın **Cihaz Ayrıntıları** bölmesinde **Yöntemler**'e tıklayın:
+   
+   ![Panodaki cihaz yöntemleri][img-devicemethods]
+2. Yöntem listesinden **Yeniden Başlat**’ı seçin.
+3. **Yöntemi Çağır**’a tıklayın.
+4. Yöntem geçmişinde yöntem çağırma durumunu görebilirsiniz.
+   
+   ![Panoda yöntem durumu][img-pingmethod]
+
+Çözüm, çağırdığı her bir yöntemin durumunu takip eder. Cihaz yöntemi tamamladığında, yöntem geçmişi tablosunda yeni bir giriş görürsünüz.
+
+Bazı yöntemler, cihaz üzerinde zaman uyumsuz işler başlatır. Örneğin, **InitiateFirmwareUpdate** yöntemi güncelleştirmeyi gerçekleştirmek üzere zaman uyumsuz bir görev başlatır. Cihaz, üretici yazılımı güncelleştirmesi devam ederken güncelleştirme durumunu bildirmek üzere bildirilen özellikleri kullanır.
 
 ## <a name="send-a-command-to-a-device"></a>Bir cihaza bir komut gönderme
-Cihaz ayrıntıları bölmesi, belirli bir cihazın desteklediği komutların tümünü gösterir ve bir cihaza komut göndermenizi sağlar. Bir cihaz ilk kez başlatıldığında, desteklediği komutlar hakkında çözüme bilgi gönderir.
+**Cihaz Ayrıntıları** panelinden cihaza komut gönderebilirsiniz. Bir cihaz ilk kez başlatıldığında, desteklediği komutlar hakkında çözüme bilgi gönderir.
 
-1. Seçilen cihaz için cihaz ayrıntıları bölmesinde **Komutlar**'a tıklayın.
+1. Seçilen cihaz için **Cihaz Ayrıntıları** bölmesinde **Komutlar**'a tıklayın:
    
    ![Panoda cihaz komutları][img-devicecommands]
 2. Komut listesinden **PingDevice**'ı seçin.
@@ -111,25 +152,66 @@ Aşağıdaki adımlar bir sanal cihazın çözüme nasıl ekleneceğini gösterm
    
     ![Yeni cihazdan telemetri görüntüleme][img-runningnew-2]
 
-## <a name="edit-the-device-metadata"></a>Cihaz meta verilerini düzenleme
-Bir cihaz çözüme ilk kez bağlandığında çözüme meta verilerini gönderir. Çözüm panosu aracılığıyla cihaz meta verilerini düzenlediğinizde yeni meta veri değerleri cihaza gönderilir ve yeni değerler çözüm DocumentDB veritabanına depolanır. Daha fazla bilgi için bkz. [Cihaz kimliği kayıt defteri ve DocumentDB][lnk-devicemetadata].
+## <a name="device-properties"></a>Cihaz özellikleri
+Önceden yapılandırılmış uzaktan izleme çözümü, cihazlar ile çözüm arka ucu arasında cihaz meta verilerini eşitlemek üzere [cihaz ikizlerini][lnk-device-twin] kullanır. Cihaz ikizi, IoT Hub'da tek bir cihazın özellik değerlerini depolayan bir JSON belgesidir. Cihazlar, meta verileri *bildirilen özellikler* halinde cihaz ikizinde depolanmak üzere çözüm arka ucuna düzenli olarak gönderir. Çözüm arka ucu, meta veri güncelleştirmelerini cihazlara göndermek üzere cihaz ikizinde *istenen özellikleri* ayarlayabilir. Bildirilen özellikler, cihaz tarafından gönderilen en son meta veri değerlerini gösterir. Daha fazla bilgi için bkz. [Cihaz kimliği kayıt defteri, cihaz ikizi ve DocumentDB][lnk-devicemetadata].
+
+> [!NOTE]
+> Çözüm ayrıca komutlar ve yöntemlerle ilgili cihaza özgü verileri depolamak üzere bir DocumentDB veritabanı kullanır.
+> 
+> 
 
 1. Cihaz listesine geri gidin.
-2. **Cihazlar Listesi**'nde yeni cihazınızı seçin ve ardından **Cihaz Özelliklerini** düzenlemek için **Düzenle**'ye tıklayın.
+2. **Cihazlar Listesi**'nde yeni cihazınızı seçin ve ardından **Cihaz İkizi - İstenen Özellikler**’i düzenlemek için **Düzenle**'ye tıklayın:
    
-   ![Cihaz meta verilerini düzenleme][img-editdevice]
-3. Aşağı kaydırın ve enlem ve boylam değerlerinde değişiklik yapın. Ardından, **Değişiklikleri cihaz kayıt defterine kaydet**'e tıklayın.
+   ![İstenen cihaz özelliklerini düzenleme][img-editdevice]
+3. **İstenen Özellik Adı** değerini **Enlem** olarak belirleyin ve değeri **47.639521** olarak ayarlayın. Ardından, **Değişiklikleri Cihaz Kayıt Defterine Kaydet**'e tıklayın:
    
-    ![Cihaz meta verilerini düzenleme][img-editdevice2]
-4. Panoya geri gidin; cihazın konumu haritada değişmiştir:
+    ![İstenen cihaz özelliğini düzenleme][img-editdevice2]
+4. **Cihaz Ayrıntıları** panelinde yeni enlem değeri başlangıçta istenen bir özellik olarak gösterilir ve eski enlem değeri bildirilen özellik olarak görünür:
    
-    ![Cihaz meta verilerini düzenleme][img-editdevice3]
+    ![Bildirilen özelliği görüntüleme][img-editdevice3]
+5. Şu anda, önceden yapılandırılmış çözümdeki sanal cihazlar yalnızca istenen **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** özelliklerini işlemektedir. Gerçek bir cihaz, istenen tüm özellikleri IoT hub’ından okur, yapılandırmasında gerekli değişiklikleri yapar ve yeni değerleri bildirilen özellik olarak hub’a bildirir.
+
+**Cihaz Ayrıntıları** panelinde **Cihaz İkizi - Etiketler** ayarını, **Cihaz İkizi - İstenen Özellikler** ayarı ile aynı şekilde düzenleyebilirsiniz. Ancak, istenmeyen özelliklerin aksine, etiketler cihazla eşitlenmez. Etiketler yalnızca IoT hub’ındaki cihaz ikizinde bulunur. Etiketler, cihaz listesinde özel filtreler oluşturmak için faydalıdır.
+
+## <a name="sort-the-device-list"></a>Cihaz listesini sıralama
+
+Bir sütun başlığına tıklayarak cihaz listesini sıralayabilirsiniz. İlk tıklama artan sıraya göre düzenlerken, ikinci tıklama azalan sıraya göre düzenler:
+
+![Cihaz listesini sıralama][img-sortdevices]
+
+## <a name="filter-the-device-list"></a>Cihaz listesini filtreleme
+
+Cihaz listesinde, hub’ınıza bağlı cihazların özelleştirilmiş bir listesini görüntülemek üzere filtreler oluşturabilir, kaydedebilir ve yeniden yükleyebilirsiniz. Bir filtre oluşturmak için:
+
+1. Cihaz listesinin üzerindeki filtre düzenleme simgesine tıklayın:
+   
+   ![Filtre düzenleyicisini açın][img-editfiltericon]
+2. **Filtre düzenleyicisi**’nde cihaz listesini filtrelemek için alan, işleç ve değerler ekleyin. Filtrenizi daraltmak için birden fazla yan tümce ekleyebilirsiniz. **Filtre**’ye tıklayarak filtrenizi uygulayın:
+   
+   ![Filtre oluşturma][img-filtereditor]
+3. Bu örnekte liste, üreticiye ve model numarasına göre filtrelenmiştir:
+   
+   ![Filtrelenmiş liste][img-filterelist]
+4. Filtrenizi özel bir adla kaydetmek için **Farklı kaydet** simgesine tıklayın:
+   
+   ![Filtre kaydetme][img-savefilter]
+5. Daha önce kaydettiğiniz bir filtreyi yeniden uygulamak için **Kaydedilmiş filtreyi aç** simgesine tıklayın:
+   
+   ![Filtre açma][img-openfilter]
+
+Cihaz kimliği, cihaz durumu, istenen özellikler, bildirilen özellikler ve etiketlere göre filtreler oluşturabilirsiniz.
+
+> [!NOTE]
+> **Filtre düzenleyicisi**’nde **Gelişmiş görünüm**’ü kullanarak sorgu metnini doğrudan düzenleyebilirsiniz.
+> 
+> 
 
 ## <a name="add-a-rule-for-the-new-device"></a>Yeni cihaz için bir kural ekleme
 Yeni eklediğiniz yeni cihaz için hiçbir kural bulunmamaktadır. Bu bölümde, yeni cihaz tarafından bildirilen sıcaklık 47 dereceyi aştığında uyarı tetikleyen bir kural ekleyeceksiniz. Başlamadan önce, panoda yeni cihaz için telemetri geçmişinin, cihaz sıcaklığının hiçbir zaman 45 dereceyi aşmadığını gösterdiğine dikkat edin.
 
 1. Cihaz listesine geri gidin.
-2. **Cihazlar Listesi**'nde yeni cihazınızı seçin ve ardından cihaz için bir kural eklemek üzere **Kural ekle**'ye tıklayın.
+2. Cihaz için bir kural eklemek üzere **Cihazlar Listesi**'nde yeni cihazınızı seçin ve ardından **Kural ekle**'ye tıklayın.
 3. Veri alanı olarak **Temperature** ve sıcaklık 47 dereceyi aştığında çıktı olarak **AlarmTemp** kullanan bir kural oluşturun:
    
     ![Cihaz kuralı ekleme][img-adddevicerule]
@@ -155,14 +237,55 @@ Yeni eklediğiniz yeni cihaz için hiçbir kural bulunmamaktadır. Bu bölümde,
 > 
 > 
 
-## <a name="other-features"></a>Diğer özellikler
-Çözüm portalını kullanarak model numarası gibi belirli özelliklere sahip cihazları arayabilirsiniz:
-
-![Cihaz arama][img-search]
-
+## <a name="disable-and-remove-devices"></a>Cihazları devre dışı bırakma ve kaldırma
 Bir Cihazı devre dışı bırakabilir, devre dışı kaldıktan sonra da kaldırabilirsiniz:
 
 ![Bir cihazı devre dışı bırakma ve kaldırma][img-disable]
+
+## <a name="run-jobs"></a>İşleri çalıştırma
+Cihazlarınız üzerinde toplu işlemler gerçekleştirmek için iş zamanlayabilirsiniz. Cihaz listesi için bir iş oluşturun. Bu liste tüm cihazlarınızı içerebilir veya cihaz listesindeki [filtreleme araçları](#filter-the-device-list) kullanılarak filtrelenmiş bir liste oluşturulabilir. Bir iş, listedeki her cihaz üzerinde bir yöntemi çağırabilir veya cihaz listesindeki her cihaz için cihaz ikizini güncelleştirebilir.
+
+### <a name="create-a-job-to-invoke-a-method"></a>Yöntem çağırmak için iş oluşturma
+
+Aşağıdaki adımlar bir listedeki her cihaz üzerinde üretici yazılımı güncelleştirme yöntemini çağıran bir iş oluşturma işlemini gösterir. Yöntem yalnızca yöntemi destekleyen cihazlarda çağrılır:
+
+1. Üretici yazılımı güncelleştirmesini alacak cihazların listesini oluşturmak için, cihaz listesindeki filtreleme araçlarını kullanın:
+   
+   ![Filtre düzenleyicisini açın][img-editfiltericon]
+2. Filtrelenmiş listenizde **İş zamanlayıcısı**’na tıklayın:
+   
+   ![İş zamanlayıcısını açın][img-clickjobscheduler]
+3. **İş zamanla** panelinde **Yöntemi Çağır**’a tıklayın.
+4. **Yöntem Çağır** sayfasına çağrılacak yöntemin ayrıntılarını girip **Zamanla**’ya tıklayın:
+   
+   ![Yöntem işini yapılandırma][img-invokemethodjob]
+
+**InitiateFirmwareUpdate** yöntemi cihaz üzerinde zaman uyumsuz bir görev başlatır ve hemen döndürür. Üretici yazılımı güncelleştirme işlemi bundan sonra çalışan güncelleştirme işlemiyle ilgili rapor oluşturmak üzere bildirilen özellikleri kullanır.
+
+### <a name="create-a-job-to-edit-the-device-twin"></a>Cihaz ikizini düzenlemek için iş oluşturma
+
+Aşağıdaki adımlar bir listedeki her cihaz üzerinde cihaz ikizini düzenleyen bir iş oluşturma işlemini gösterir:
+
+1. Cihaz ikizi düzenlemelerini alacak cihazların listesini oluşturmak için, cihaz listesindeki filtreleme araçlarını kullanın:
+   
+   ![Filtre düzenleyicisini açın][img-editfiltericon]
+2. Filtrelenmiş listenizde **İş zamanlayıcısı**’na tıklayın:
+   
+   ![İş zamanlayıcısını açın][img-clickjobscheduler]
+3. **İş zamanla** panelinde **Cihaz İkizini Düzenle**’ye tıklayın.
+4. **Cihaz İkizini Düzenle** sayfasına **İstenen Özellikler** ve **Etiketler** ile ilgili ayrıntıları girip **Zamanla**’ya tıklayın:
+   
+   ![Yöntem işini yapılandırma][img-edittwinjob]
+
+### <a name="monitor-the-job"></a>İş izleme
+Zamanladığınız işlerin durumunu **Yönetim İşleri** sayfasında izleyebilirsiniz. **İş Ayrıntıları** panelinde seçili işle ilgili bilgiler gösterilir:
+   
+   ![İş durumunu görüntüleme][img-jobstatus]
+
+Ayrıca **Pano** üzerinden işlere ilişkin bilgileri görüntüleyebilirsiniz:
+   
+   ![Panoda işleri görüntüleme][img-jobdashboard]
+
 
 ## <a name="behind-the-scenes"></a>Arka planda
 Önceden yapılandırılmış bir çözümü dağıttığınızda, dağıtım işlemi seçtiğiniz Azure aboneliğinde birden çok kaynak oluşturur. Bu kaynakları Azure [portalında][lnk-portal] görüntüleyebilirsiniz. Dağıtım işlemi, önceden yapılandırılmış çözümünüz için seçtiğiniz adı temel alan bir ada sahip bir **kaynak grubu** oluşturur:
@@ -196,7 +319,9 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 [img-devicelist]: media/iot-suite-getstarted-preconfigured-solutions/devicelist.png
 [img-devicedetails]: media/iot-suite-getstarted-preconfigured-solutions/devicedetails.png
 [img-devicecommands]: media/iot-suite-getstarted-preconfigured-solutions/devicecommands.png
+[img-devicemethods]: media/iot-suite-getstarted-preconfigured-solutions/devicemethods.png
 [img-pingcommand]: media/iot-suite-getstarted-preconfigured-solutions/pingcommand.png
+[img-pingmethod]: media/iot-suite-getstarted-preconfigured-solutions/pingmethod.png
 [img-adddevice]: media/iot-suite-getstarted-preconfigured-solutions/adddevice.png
 [img-addnew]: media/iot-suite-getstarted-preconfigured-solutions/addnew.png
 [img-definedevice]: media/iot-suite-getstarted-preconfigured-solutions/definedevice.png
@@ -212,8 +337,21 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 [img-adddevicerule4]: media/iot-suite-getstarted-preconfigured-solutions/addrule4.png
 [img-actions]: media/iot-suite-getstarted-preconfigured-solutions/actions.png
 [img-portal]: media/iot-suite-getstarted-preconfigured-solutions/portal.png
-[img-search]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_07.png
 [img-disable]: media/iot-suite-getstarted-preconfigured-solutions/solutionportal_08.png
+[img-columneditor]: media/iot-suite-getstarted-preconfigured-solutions/columneditor.png
+[img-startimageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit1.png
+[img-imageedit]: media/iot-suite-getstarted-preconfigured-solutions/imagedit2.png
+[img-sortdevices]: media/iot-suite-getstarted-preconfigured-solutions/sortdevices.png
+[img-editfiltericon]: media/iot-suite-getstarted-preconfigured-solutions/editfiltericon.png
+[img-filtereditor]: media/iot-suite-getstarted-preconfigured-solutions/filtereditor.png
+[img-filterelist]: media/iot-suite-getstarted-preconfigured-solutions/filteredlist.png
+[img-savefilter]: media/iot-suite-getstarted-preconfigured-solutions/savefilter.png
+[img-openfilter]:  media/iot-suite-getstarted-preconfigured-solutions/openfilter.png
+[img-clickjobscheduler]: media/iot-suite-getstarted-preconfigured-solutions/clickscheduler.png
+[img-invokemethodjob]: media/iot-suite-getstarted-preconfigured-solutions/invokemethodjob.png
+[img-edittwinjob]: media/iot-suite-getstarted-preconfigured-solutions/edittwinjob.png
+[img-jobstatus]: media/iot-suite-getstarted-preconfigured-solutions/jobstatus.png
+[img-jobdashboard]: media/iot-suite-getstarted-preconfigured-solutions/jobdashboard.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -221,14 +359,10 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
-[lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
+[lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-device-twin-and-documentdb
 [lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
 [lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-
+[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

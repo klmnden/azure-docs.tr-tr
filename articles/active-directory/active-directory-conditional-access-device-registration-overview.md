@@ -5,7 +5,7 @@ services: active-directory
 keywords: "cihaz kaydı, cihaz kaydını etkinleştirme, cihaz kaydı ve MDM"
 documentationcenter: 
 author: femila
-manager: swadhwa
+manager: femila
 editor: 
 ms.assetid: 1e92c1a2-01b8-4225-950b-373cd601b035
 ms.service: active-directory
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 02/22/2017
 ms.author: Markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98f1b1856a6c457349decefeb277208a3b483bad
+ms.sourcegitcommit: 8df5889bfe2757ef68d0895d140dd44a765a89d0
+ms.openlocfilehash: 06fb59f627ea6aff3916787e321069c6b58c3e10
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -65,7 +66,7 @@ Windows 7 ve Windows 8.1 cihazları, kullanıcı hesabı adı ile iyi bilinen Ci
 
 Azure Active Directory Cihaz Kaydı hizmetiniz ile ilişkili A kaydına işaret eden DNS CNAME oluşturmanız gerekir. CNAME kaydı, kuruluşunuzdaki kullanıcı hesapları tarafından kullanılan UPN sonekinin izlediği iyi bilinen enterpriseregistration önekini kullanmalıdır. Kuruluşunuz birden fazla UPN soneki kullanırsa DNS'de birden çok CNAME kaydının oluşturulması gerekir.
 
-Örneğin, kuruluşunuzda @contoso.com ve @region.contoso.com, adlı iki UPN soneki kullanırsanız aşağıdaki DNS kayıtlarını oluşturursunuz.
+Örneğin, kuruluşunuzda @contoso.com ve @region.contoso.com adlı iki UPN soneki kullanırsanız aşağıdaki DNS kayıtlarını oluşturursunuz.
 
 | Girdi | Tür | Adres |
 | --- | --- | --- |
@@ -89,10 +90,5 @@ Azure AD Cihaz Kaydı ile Windows 7 ve Windows 8.1 Etki Alanına Katılmış cih
 * [Windows 7 etki alanına katılmış cihazlar için otomatik cihaz kaydını yapılandırma](active-directory-conditional-access-automatic-device-registration-windows7.md)
 * [Windows 8.1 etki alanına katılmış cihazlar için otomatik cihaz kaydını yapılandırma](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Windows 10 etki alanına katılmış cihazlar için Azure Active Directory ile otomatik cihaz kaydı](active-directory-azureadjoin-devices-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

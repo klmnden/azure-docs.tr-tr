@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
-ms.openlocfilehash: ae5e08e7a5c483fd89390580647722b2c9da0ecb
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -54,10 +54,10 @@ Aşağıdaki görüntü, tamamlanan web uygulamasının başlangıç sayfasında
 Azure uygulamalarını geliştirmeye başlamadan önce, araçları indirip geliştirme ortamınızı ayarlayın:
 
 1. SDK [indirme sayfasından](https://azure.microsoft.com/downloads/) .NET için Azure SDK'sını yükleyin.
-2. **.NET** sütununda, kullandığınız Visual Studio sürümüne tıklayın. Bu öğreticideki adımlarda Visual Studio 2015 kullanılır.
+2. **.NET** sütununda, kullandığınız [Visual Studio](http://www.visualstudio.com) sürümüne tıklayın. Bu öğreticideki adımlarda Visual Studio 2015 kullanılır.
 3. Yükleyiciyi çalıştırmanız veya kaydetmeniz istendiğinde **Çalıştır**'a tıklayın.
 4. **Web Platformu Yükleyicisi**'nde **Yükle**'ye tıklayın ve kuruluma devam edin.
-5. Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir. Visual Studio yüklü değilse SDK ücretsiz Visual Studio Express de yükler.
+5. Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir.
 
 ## <a name="create-a-namespace"></a>Ad alanı oluşturma
 Azure'da geçiş özelliklerini kullanmaya başlamak için öncelikle bir hizmet ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Azure kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar. [Buradaki yönergeleri](relay-create-namespace-portal.md) izleyerek bir Geçiş ad alanı oluşturun.

@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: ca1e8b9ef8c7543c2b21441c761b0c309d22f202
-ms.openlocfilehash: e148fbe6e27eef747ad757fea4be038d3b662f87
+ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
+ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -38,7 +39,7 @@ OMS’de Güncelleştirme Yönetimi çözümü, Windows ve Linux bilgisayarları
 Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklemek ve Linux aracılarını eklemek için aşağıdaki adımları uygulayın. Windows aracıları ek bir yapılandırma olmadan otomatik olarak eklenir.
 
 > [!NOTE]
-> Şimdilik, bu çözümü etkinleştirmeniz durumunda çözümün bir parçası olan runbook’ların desteklenmesi amacıyla OMS çalışma alanınıza bağlı tüm Windows bilgisayarları otomatik olarak bir Karma Runbook Çalışanı olarak yapılandırılır.  Ancak, Otomasyon hesabınızda oluşturduğunuz herhangi bir Karma Çalışanı grubuna kaydedilmez ve kendi runbook’larınızı çalıştırmak için bir Karma Çalışanı grubuna ekleyemezsiniz.  Bir Windows bilgisayarı zaten bir Karma Runbook Çalışanı olarak belirlendi ve OMS çalışma alanına bağlandıysa, runbook’larınızın beklendiği gibi çalışmamasını engellemek için çözüm eklemeden önce bilgisayarı OMS çalışma alanından kaldırmanız gerekir.  
+> Bu çözümü etkinleştirmeniz durumunda çözümde yer alan runbook'ların desteklenmesi amacıyla OMS çalışma alanınıza bağlı tüm Windows bilgisayarları otomatik olarak bir Karma Runbook Çalışanı olarak yapılandırılır.  Ancak varsa Otomasyon hesabınızda önceden tanımlı Karma Çalışanı gruplarıyla kaydedilmemiştir.  Çözüm ve Karma Runbook Çalışanı grup üyeliği için aynı hesabı kullandığınız sürece Otomasyon gruplarını desteklemek için Otomasyon hesabınızdaki bir Karma Runbook Çalışanı grubuna eklenebilir.  Bu işlev Karma Runbook Çalışanının 7.2.12024.0 sürümüne eklenmiştir.   
 
 1. Çözüm Galerisi’ndeki [OMS çözümü ekleme](../log-analytics/log-analytics-add-solutions.md) bölümünde anlatılan şekilde Güncelleştirme Yönetimi çözümünü OMS çalışma alanına ekleyin.  
 2. OMS portalında **Ayarlar** ve ardından **Bağlı Kaynaklar**’ı seçin.  **Çalışma Alanı Kimliği**’ni ve **Birincil Anahtar** ya da **İkincil Anahtar**’ı not edin.
@@ -247,10 +248,5 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 * Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../log-analytics/log-analytics-log-searches.md)’te Günlük Aramalarını kullanın.
 * Yönetilen bilgisayarlarınızın güncelleştirme uyumluluğunu gösteren [kendi panolarınızı oluşturun](../log-analytics/log-analytics-dashboards.md).
 * Bilgisayardan eksik kritik güncelleştirmeler algılandığında veya bilgisayarda otomatik güncelleştirmeler devre dışı olduğunda [uyarılar oluşturun](../log-analytics/log-analytics-alerts.md).  
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: dd8009e8fb012a4271a0f110351ee3e74a706af6
+ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
+ms.openlocfilehash: 37a966d15caba073dcfda77d4d0aaf32be0199ac
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -58,8 +59,8 @@ Bu tabloda, kullanılabilen konumların listesini edinme yöntemlerinden bazıla
 | Yöntem | Açıklama |
 | --- | --- |
 | Azure portal |VM oluştururken listeden konum seçin. |
-| Azure PowerShell |[Get-AzureRmLocation](https://msdn.microsoft.com/library/mt619449.aspx) komutunu kullanın. |
-| REST API |[List locations](https://msdn.microsoft.com/library/dn790540.aspx) işlemini kullanın. |
+| Azure PowerShell |[Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation) komutunu kullanın. |
+| REST API |[List locations](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) işlemini kullanın. |
 
 ### <a name="vm-size"></a>VM boyutu
 Kullandığınız VM’nin [boyutu](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), çalıştırmak istediğiniz iş yüküne göre belirlenir. Seçtiğiniz boyut işlemci gücü, bellek ve depolama kapasitesi gibi ölçütleri belirler. Azure çok sayıda kullanım türünü desteklemek için büyük çeşitlilikteki boyutları sunar.
@@ -79,8 +80,8 @@ Bu tabloda bir görüntünün bilgilerine nasıl erişebileceğiniz gösterilmi�
 | Yöntem | Açıklama |
 | --- | --- |
 | Azure portal |Bir görüntüyü kullanmak istediğinizde değerler otomatik olarak belirtilir. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx) -Location "konum"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx) -Location "konum" -Publisher "yayımcıAdı"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx) -Location "konum" -Publisher "yayımcıAdı" -Offer "teklifAdı" |
-| REST API'leri |[Görüntü yayımcılarını listeleme](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[Görüntü tekliflerini listeleme](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[Görüntü sku’larını listeleme](https://msdn.microsoft.com/library/mt743701.aspx) |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "konum"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "konum" -Publisher "yayımcıAdı"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagesku) -Location "konum" -Publisher "yayımcıAdı" -Offer "teklifAdı" |
+| REST API'leri |[Görüntü yayımcılarını listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Görüntü tekliflerini listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Görüntü sku’larını listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
 [Kendi görüntünüzü yükleyip kullanmanız halinde](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) yayımcı adı, teklif ve sku kullanılmaz.
 
@@ -91,7 +92,7 @@ Uzantıları kullanarak şu genel görevleri gerçekleştirebilirsiniz:
 
 * **Özel betik çalıştırma** – [Özel Betik Uzantısı](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), VM hazırlandığında kendi betiğinizi çalıştırarak iş yükü yapılandırması gerçekleştirmenize yardımcı olur.
 * **Yapılandırma dağıtma ve yönetme** – [PowerShell İstenen Durum Yapılandırması (DSC) Uzantısı](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), yapılandırma ve ortam yönetimi amacıyla bir VM üzerinde DSC kurulumu yapmanıza yardımcı olur.
-* **Tanılama verilerini toplama** – [Azure Tanılama Uzantısı](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), VM’i uygulama durumunu izlemek için kullanılabilecek tanılama verilerini toplayacak şekilde yapılandırmanıza yardımcı olur.
+* **Tanılama verilerini toplama** – [Azure Tanılama Uzantısı](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), VM’i uygulama durumunu izlemek için kullanılabilecek tanılama verilerini toplayacak şekilde yapılandırmanıza yardımcı olur.
 
 ### <a name="related-resources"></a>İlgili kaynaklar
 Bu tablodaki kaynaklar VM tarafından kullanılır ve VM oluşturulduğunda mevcut olmaları ya da oluşturulmaları gerekir.
@@ -116,7 +117,7 @@ Bu tabloda VM’nizi oluşturmak için ihtiyaç duyacağınız giriş bilgileri 
 | Şablonlar |[Resource Manager şablonu kullanarak Windows sanal makine oluşturma](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[PowerShell kullanarak Windows VM oluşturma](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | İstemci SDK'ları |[C# kullanarak Azure Kaynaklarını dağıtma](virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| REST API'leri |[VM oluşturma veya güncelleştirme](https://msdn.microsoft.com/library/mt163591.aspx) |
+| REST API'leri |[VM oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 
 Hiç istemeyiz ama bazen ters giden bir şeyler olabilir. Bu gibi durumlarda [Azure’da Windows sanal makine oluşturmayla ilgili Resource Manager dağıtım sorunlarını giderme](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasına bakın.
 
@@ -130,7 +131,7 @@ Bu tabloda VM hakkında bilgi almak için kullanabileceğiniz yöntemlerden baz�
 | --- | --- |
 | Azure portal |Hub menüsünde **Sanal Makineler**’e tıklayıp açılan listeden VM’yi seçin. VM’nin dikey penceresinden özet bilgilere, ayar değerlerine ve izleme ölçümlerine erişebilirsiniz. |
 | Azure PowerShell |VM yönetimi için PowerShell kullanma hakkında daha fazla bilgi için bkz. [Azure Sanal Makinelerini Resource Manager ve PowerShell ile yönetme](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| REST API |Bir VM hakkında bilgi almak için [VM bilgilerini alma](https://msdn.microsoft.com/library/mt163682.aspx) işlemini kullanın. |
+| REST API |Bir VM hakkında bilgi almak için [VM bilgilerini alma](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) işlemini kullanın. |
 | İstemci SDK'ları |VM yönetimi için C# kullanımı hakkında bilgi almak için bkz. [Azure Sanal Makinelerini Azure Resource Manager ve C# ile yönetme](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
 ### <a name="log-on-to-the-vm"></a>VM’de oturum açma
@@ -148,10 +149,5 @@ Verileri ve varlıkları hem Azure Backup hem de Azure Site Recovery hizmetlerin
 * Linux VM’leri ile çalışmayı düşünüyorsanız bkz. [Azure ve Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Altyapınızı kurma hakkında daha fazla bilgi almak için [Örnek Azure altyapısı gözden geçirme](virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasını inceleyin.
 * [Azure’da Windows VM çalıştırmaya yönelik En İyi Uygulamalar](virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasını incelemeyi unutmayın.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

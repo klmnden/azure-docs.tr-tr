@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: vakarand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
-ms.openlocfilehash: 7a2f53de0067879a811c9954199026ecfe3ec906
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: f5d5f238f8f57c8dcf7a3759274f9d565e73ecce
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="using-azure-ad-connect-health-for-sync"></a>Eşitleme için Azure AD Connect Health'i kullanma
+# <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect eşitlemesini Azure AD Connect Health ile izleme
 Aşağıdaki belgeler Azure AD Connect Health ile Azure AD Connect’in (Eşitleme) izlenmesine özgüdür.  Azure Connect Health ile AD FS'yi izleme hakkında bilgi almak için bkz. [Azure AD Connect Health'i AD FS ile kullanma](active-directory-aadconnect-health-adfs.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
 
 ![Eşitleme için Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/sync-blade.png)
@@ -117,8 +118,3 @@ Hataların ayrıntılı görünümünde aşağıdaki veriler bulunur
 * [Azure AD Connect Health'i AD DS ile Kullanma](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health ile ilgili SSS](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Sürüm Geçmişi](active-directory-aadconnect-health-version-history.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
