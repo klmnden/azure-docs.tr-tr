@@ -2,6 +2,7 @@
 # Genel Bakış
 ## [Bilişsel Hizmetler nedir?](https://azure.microsoft.com/services/cognitive-services/)
 # Kullanmaya Başlama
+## [Hesap oluşturma](cognitive-services-apis-create-account.md)
 ## [Metin Analizi’ne hızlı başlangıç](cognitive-services-text-analytics-quick-start.md)
 ## [Önerilere hızlı başlangıç](cognitive-services-recommendations-quick-start.md)
 
@@ -52,8 +53,3 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=cognitive-services)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

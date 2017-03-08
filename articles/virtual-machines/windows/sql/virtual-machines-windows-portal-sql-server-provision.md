@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/02/2017
+ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
-ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
+ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
+ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -52,11 +53,14 @@ Bu öğreticide şunları yapacaksınız:
 
    ![Azure Virtual Machines Dikey Penceresi](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Kullanılabilir SQL Server şablonlarını gözden geçirin.
-6. Her şablon bir SQL Server sürümü ve işletim sistemi tanımlar. Listede bu görüntülerden birini seçin. Ardından sanal makine görüntüsünün bir açıklaması veren ayrıntılar dikey penceresini gözden geçirin.
+5. Kullanılabilir SQL Server şablonlarını gözden geçirin. Her şablon bir SQL Server sürümü ve işletim sistemi tanımlar. 
+6. Windows Server 2016 üzerinde SQL Server 2016 SP1 Developer şablonunu seçin.
+
+   > [!TIP]
+   > Geliştirme testi amacıyla kullanım için ücretsiz olan tam özellikli SQL Server sürümü olduğundan bu öğreticide Developer sürümü kullanılmıştır. Yalnızca çalışan VM'ler için ücret ödersiniz.
    
    > [!NOTE]
-   > SQL sanal makine görüntüleri, oluşturduğunuz sanal makinenin dakika başına fiyatına SQL Server lisans maliyetlerini ekler. Diğer seçenek ise kendi lisansınızı getirmeniz (KLG) ve böylece yalnızca sanal makine için ödeme yapmanızdır. Bu görüntü adlarının başına {BYOL} ön eki getirilir. Bu seçenek hakkında daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server kullanmaya başlama](virtual-machines-windows-sql-server-iaas-overview.md).
+   > SQL VM görüntüleri, oluşturduğunuz VM'nin dakika başına fiyatlandırmasına SQL Server lisans maliyetlerini ekler (Developer ve Express sürümler hariç). SQL Server Developer geliştirme/test için (üretim için değil), SQL Express ise hafif iş yükleri (1 GB bellek ve 10 GB depolama alanı sınırının altı) için ücretsizdir. Diğer seçenek ise kendi lisansınızı getirmeniz (KLG) ve böylece yalnızca sanal makine için ödeme yapmanızdır. Bu görüntü adlarının başına {BYOL} ön eki getirilir. Bu seçenek hakkında daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server kullanmaya başlama](virtual-machines-windows-sql-server-iaas-overview.md).
    > 
    > 
 7. **Dağıtım modeli seçin** altında, **Resource Manager**’ın seçili olduğunu doğrulayın. Yeni sanal makineler için önerilen dağıtım modeli Resource Manager’dır. **Oluştur**’a tıklayın.
@@ -243,14 +247,10 @@ Daha fazla bilgi için bkz. [Azure VM’lerde SQL Server için Azure Anahtar Kas
 SQL Server ayarlarını yapılandırmayı bitirdiğinizde, **Tamam**’a tıklayın.
 
 ### <a name="r-services"></a>R hizmetleri
-SQL Server 2016 Enterprise sürümü için [SQL Server R Hizmetleri](https://msdn.microsoft.com/library/mt604845.aspx) seçeneğini etkinleştirebilirsiniz. Bu özellik, SQL Server 2016 ile gelişmiş analizi kullanmanıza olanak sağlar. **SQL Server Ayarları** dikey penceresinde **Etkinleştir** seçeneğini belirleyin.
+[SQL Server R Hizmetleri](https://msdn.microsoft.com/library/mt604845.aspx) seçeneğini etkinleştirebilirsiniz. Bu özellik, SQL Server 2016 ile gelişmiş analizi kullanmanıza olanak sağlar. **SQL Server Ayarları** dikey penceresinde **Etkinleştir** seçeneğini belirleyin.
 
 ![SQL Server R Hizmetlerini Etkinleştirme](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
-> [!NOTE]
-> 2016 Enterprise sürümü olmayan SQL Server görüntüleri için R Hizmetleri'ni etkinleştirme seçeneği devre dışı bırakılmıştır.
-> 
-> 
 
 ## <a name="5-review-the-summary"></a>5. Özeti gözden geçirme
 **Özet** dikey penceresinde, özeti gözden geçirin ve **Tamam**’a tıklayarak bu VM için belirtilen SQL Server, kaynak grubu ve kaynakları oluşturun.
@@ -299,10 +299,5 @@ Azure’da SQL Server'ı kullanma hakkında diğer bilgiler için bkz. [Azure Vi
 Azure Virtual Machines’de SQL Server’a videolu genel bakış için [Azure VM, SQL Server 2016 için en iyi platformdur](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) videosunu izleyin.
 
 Azure Virtual Machines’de SQL Server için.[Öğrenme Yolunu keşfedin](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

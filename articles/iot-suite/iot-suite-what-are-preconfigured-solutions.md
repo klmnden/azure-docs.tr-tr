@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/15/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 7c289437beca78dacc7d3136680c54dde01f3798
-ms.openlocfilehash: fb4b12543ac4910ea9c4789f4ebe5ef0ca5997ae
+ms.sourcegitcommit: a3657f8bb60cd1181740b0700f503b5bd1bd559f
+ms.openlocfilehash: a3847f83af1f28e40572af95ff31f44d2f3d6dc4
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -38,16 +39,17 @@ Azure’de çözümleri dağıtmanın ve çalıştırmanın yanı sıra, tam kay
 
 Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşıladığı gösterilmektedir:
 
-| Çözüm | Veri Alımı | Cihaz Kimliği | Komut ve Denetim | Kurallar ve Eylemler | Tahmine Dayalı Analiz |
-| --- | --- | --- | --- | --- | --- |
-| [Uzaktan izleme][lnk-getstarted-preconfigured] |Evet |Evet |Evet |Evet |- |
-| [Tahmine dayalı bakım][lnk-predictive-maintenance] |Evet |Evet |Evet |Evet |Evet |
+| Çözüm | Veri alımı | Cihaz kimliği | Cihaz yönetimi | Komut ve denetim | Kurallar ve eylemler | Tahmine dayalı analiz |
+| --- | --- | --- | --- | --- | --- | --- |
+| [Uzaktan izleme][lnk-getstarted-preconfigured] |Evet |Evet |Evet |Evet |Evet |- |
+| [Tahmine dayalı bakım][lnk-predictive-maintenance] |Evet |Evet |- |Evet |Evet |Evet |
 
 * *Veri alımı*: Bulut ölçeğinde veri girişi.
-* *Cihaz kimliği*: Bağlı her cihazın benzersiz kimliklerini yönetme.
-* *Komut ve denetim*: Cihazın bazı işlemler yapması için buluttan cihaza ileti gönderme.
+* *Cihaz kimliği*: Benzersiz cihaz kimliklerini yönetin ve çözüme cihaz erişimini denetleyin.
+* *Cihaz yönetimi*: Cihaz meta verilerini yönetin ve cihazı yeniden başlatma ile üretici yazılımını yükseltme gibi işlemleri gerçekleştirin.
+* *Komut ve denetim*: Cihazın bir işlem yapması için buluttan cihaza ileti gönderme.
 * *Kurallar ve eylemler*: Belirli cihazdan buluta verilerde işlem yapmak için çözüm arka ucu kuralları kullanır.
-* *Tahmine dayalı analiz*: Belirli işlemlerin ne zaman gerçekleştirileceğini tahmin etmek için çözüm arka ucu cihazdan buluta verilerine analiz uygular. Örneğin, motor bakımının ne zaman olacağını saptamak için uçak motoru telemetrisinin analiz edilmesi.
+* *Tahmine dayalı analiz*: Çözüm arka ucu, belirli işlemlerin ne zaman gerçekleştirileceğini tahmin etmek için cihazdan buluta verileri analiz eder. Örneğin, motor bakımının ne zaman olacağını saptamak için uçak motoru telemetrisinin analiz edilmesi.
 
 ## <a name="remote-monitoring-preconfigured-solution-overview"></a>Önceden yapılandırılmış Uzaktan İzleme çözümüne genel bakış
 Diğer çözümlerin de paylaştığı çok sayıda ortak tasarım öğesi gösterdiğinden, bu makalede önceden yapılandırılmış uzaktan izleme çözümünü seçtik.
@@ -57,18 +59,36 @@ Aşağıdaki diyagram uzaktan izleme çözümünün önemli öğelerin gösterme
 ![Önceden yapılandırılmış Uzaktan İzleme çözümü mimarisi][img-remote-monitoring-arch]
 
 ## <a name="devices"></a>Cihazlar
-Önceden yapılandırılmış uzaktan izleme çözümünü dağıttığınızda, dört sanal cihaz bir soğutma cihazının benzetimini yapan çözümde önceden hazırlanır. Bu sanal cihazlarda telemetri yayan yerleşik bir sıcaklık ve nem modeline bulunur. Bu sanal cihazlar, çözüm aracılığıyla uçtan uca veri akışının gösterilmesine, müşteri uygulaması için başlangıç noktası olarak çözümü kullanan bir arka uç geliştiriciyseniz de uygun telemetri kaynağının ve komut hedefinin sağlanmasına katılırlar.
+Önceden yapılandırılmış uzaktan izleme çözümünü dağıttığınızda, dört sanal cihaz bir soğutma cihazının benzetimini yapan çözümde önceden hazırlanır. Bu sanal cihazlarda telemetri yayan yerleşik bir sıcaklık ve nem modeline bulunur. Bu sanal cihazlar aşağıdaki amaçlar için dahil edilir:
+- Verilerin çözümde uçtan uca akışını göstermek.
+- Kullanışlı bir telemetri kaynağı sağlamak.
+- Çözümü özel bir uygulama için başlangıç noktası olarak kullanan bir arka uç geliştiriciyseniz, yöntemler veya komutlar için bir hedef sağlayın.
 
-Cihaz önce, önceden yapılandırılmış uzaktan izleme çözümünde IoT Hub'ına bağlandığında, IoT hub'ına gönderilen cihaz bilgileri iletisi cihazın karşılık verebildiği komutların listesini numaralandırır. Önceden yapılandırılmış uzaktan izleme çözümünde komutlar şunlardır: 
+Çözümdeki sanal cihazlar aşağıdaki buluttan cihaza iletişimlere yanıt verebilir:
 
-* *Cihaza Ping Yap*: Cihaz bu komutu bir bildirimle yanıtlar. Cihazın halen etkin ve dinleniyor olduğunu denetlemek için yararlıdır.
+- *Yöntemler ([doğrudan yöntemler][lnk-direct-methods])*: Bağlı bir cihazın hemen yanıt vermesinin beklendiği iki yönlü bir iletişim yöntemi.
+- *Komutlar (buluttan cihaza iletiler)*: Bir cihazın dayanıklı bir kuyruktan komut aldığı tek yönlü bir iletişim yöntemi.
+
+Bu farklı yaklaşımların bir karşılaştırması için bkz. [Buluttan cihaza iletişim kılavuzu][lnk-c2d-guidance].
+
+Cihaz önceden yapılandırılmış çözümde IoT Hub’ına ilk kez bağlandığında, cihazın yanıt verebildiği yöntemlerin listesini numaralandıran bir cihaz bilgi iletisini hub’a gönderir. Önceden yapılandırılmış uzaktan izleme çözümünde, sanal cihazlar şu yöntemleri destekler:
+
+* *Üretici Yazılımı Güncelleştirmelerini Başlatma*: bu yöntem cihaz üzerinde bir üretici yazılımı güncelleştirmesi gerçekleştirmek üzere zaman uyumsuz bir görev başlatır. Zaman uyumsuz görev, çözüm panosuna durum güncelleştirmelerini iletmek üzere bildirilen özellikleri kullanır.
+* *Yeniden başlatma*: bu yöntem sanal cihazın yeniden başlatılmasına neden olur.
+* *FactoryReset*: bu yöntem sanal cihaz üzerinde bir fabrika sıfırlaması tetikler.
+
+Cihaz önceden yapılandırılmış çözümde IoT Hub’ına ilk kez bağlandığında, cihazın yanıt verebildiği komutların listesini numaralandıran bir cihaz bilgi iletisini hub’a gönderir. Önceden yapılandırılmış uzaktan izleme çözümünde, sanal cihazlar şu komutları destekler:
+
+* *Cihaza Ping Yap*: Cihaz bu komutu bir bildirimle yanıtlar. Bu komut, cihazın halen etkin ve dinleniyor olduğunu denetlemek için yararlıdır.
 * *Telemetriyi Başlat*: Cihaza telemetri göndermeye başlaması talimatı verir.
 * *Telemetriyi Durdur*: Cihaza telemetri göndermeyi durdurması talimatı verir.
-* *Sıcaklık Ayar Noktasını Değiştir*: Cihazın gönderdiği benzetimli sıcaklık telemetri değerlerini denetler. Arka uç mantığının test edilmesi için yararlıdır.
+* *Sıcaklık Ayar Noktasını Değiştir*: Cihazın gönderdiği benzetimli sıcaklık telemetri değerlerini denetler. Bu komut, arka uç mantığının test edilmesi için yararlıdır.
 * *Telemetriyi Tanıla*: Cihazın dış sıcaklığı telemetri olarak gönderip göndermediğini denetler.
-* *Cihaz Durumunu Değiştir*: Cihaz durumu meta veri özelliğini cihaz raporlarına ait olarak ayarlar. Arka uç mantığının test edilmesi için yararlıdır.
+* *Cihaz Durumunu Değiştir*: Cihaz durumu meta veri özelliğini cihaz raporlarına ait olarak ayarlar. Bu komut, arka uç mantığının test edilmesi için yararlıdır.
 
-Aynı telemetriyi yayan ve aynı komutu yanıtlayan çözüme daha fazla sanal cihaz ekleyebilirsiniz. 
+Aynı telemetriyi yayan ve aynı yöntem ile komutu yanıtlayan çözüme daha fazla sanal cihaz ekleyebilirsiniz.
+
+Çözüm, komut ve yöntemleri yanıtlamaya ek olarak [cihaz ikizlerini][lnk-device-twin] kullanır. Cihazlar çözüm arka ucuna özellik değerlerini bildirmek için cihaz ikizlerini kullanır. Çözüm panosu, cihazlar üzerinde istenen yeni özellik değerlerini ayarlamak için cihaz ikizlerini kullanır. Örneğin, üretici yazılımı güncelleştirme işlemi sırasında sanal cihaz, bildirilen özellikleri kullanarak güncelleştirmenin durumunu bildirir.
 
 ## <a name="iot-hub"></a>IoT Hub’ı
 Önceden yapılandırılmış bu çözümde, IoT Hub'ı örneği tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] *Bulut Ağ Geçidi*'ne karşılık gelir.
@@ -77,29 +97,43 @@ IoT hub’ı telemetriyi tek uç noktada yer alan cihazlardan alır. IoT hub'ı,
 
 IoT hub’ı, sunucu tarafı telemetri okuma uç noktasında alınan telemetriyi kullanılabilir hale getirir.
 
+IoT Hub’ının cihaz yönetimi özelliği, cihaz özelliklerini çözüm portalından yönetmenize ve aşağıdaki gibi işlemleri gerçekleştiren işleri zamanlamanıza olanak tanır:
+
+- Cihazları yeniden başlatma
+- Cihaz durumlarını değiştirme
+- Üretici yazılımı güncelleştirmeleri
+
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Önceden yapılandırılmış çözüm, cihazlara ait telemetri akışına filtre uygulamak için üç [Azure Akış Analizi][lnk-asa] (ASA) işini kullanır:
 
-* *DeviceInfo işi* - cihaz kaydına özel iletileri yönlendiren Olay hub’ına verilerin çıktısını alır, cihaz çözüm cihazı kayıt defterine (DocumentDB veritabanı) ilk bağlandığında veya **Cihaz durumunu değiştir** komutuna yanıt olarak gönderilir. 
+* *DeviceInfo işi* - cihaz kaydına özel iletileri çözüm cihaz kayıt defterine (DocumentDB veritabanı) yönlendiren Olay hub’ına verileri çıkarır. Bir cihaz ilk kez bağlandığında veya **Cihaz durumunu değiştir** komutuna yanıt olarak bu ileti gönderilir.
 * *Telemetry işi* - ham telemetrenin tümünü soğuk depolama için Azure blob depolamaya gönderir ve çözüm panosunda görüntülenen telemetri toplamalarını hesaplar.
-* *Rules işi* - kural eşiklerini aşan değerlerle ilgili telemetri akışına filtre uygular ve verilerin çıktısını bir Olay hub’ına alır. Bir kural başlatıldığında, çözüm portalı panosu görünümü bu olayı alarm geçmişi tablosunun yeni bir satırı olarak görüntüler ve çözüm portalında Kurallar ve Eylemler görünümlerinde tanımlanan ayarlar tabanında eylemi tetikler.
+* *Rules işi* - kural eşiklerini aşan değerlerle ilgili telemetri akışına filtre uygular ve verilerin çıktısını bir Olay hub’ına alır. Bir kural başlatıldığında, çözüm portalı pano görünümünde bu olay, alarm geçmişi tablosundaki yeni bir satır olarak gösterilir. Bu kurallar ayrıca çözüm portalındaki **Kurallar** ve **Eylemler** görünümlerinde tanımlanan ayarları temel alarak bir eylemi tetikleyebilir.
 
 Önceden yapılandırılmış bu çözümde, ASA işleri tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını oluşturur.
 
 ## <a name="event-processor"></a>Olay işlemcisi
 Önceden yapılandırılmış bu çözümde, olay işlemcisi tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını oluşturur.
 
-**DeviceInfo** ve **Rules** ASA işleri, diğer arka iç hizmetlerine dağıtılması amacıyla kendi çıktılarını Olay hub’larına gönderir. Çözüm, bu Olay Hub’larından iletileri okumak için [WebJob][lnk-web-job]'da çalışan bir [EventProcessorHost][lnk-event-processor] örneğini kullanır. **EventProcessorHost**, DocumentDB veritabanındaki cihaz verilerini güncelleştirmek için **DeviceInfo** verilerini, Mantıksal uygulamayı çağırmak ve çözüm portalında uyarılar ekranını güncelleştirmek için de **Rules** verilerini kullanır.
+**DeviceInfo** ve **Rules** ASA işleri, diğer arka iç hizmetlerine dağıtılması amacıyla kendi çıktılarını Olay hub’larına gönderir. Çözüm, bu Olay Hub’larından iletileri okumak için [WebJob][lnk-web-job]'da çalışan bir [EventProcessorHost][lnk-event-processor] örneğini kullanır. **EventProcessorHost** şunları kullanır:
+- DocumentDB veritabanındaki cihaz verilerini güncelleştirmek için **DeviceInfo** verileri.
+- Mantıksal uygulamayı çağırmak ve çözüm portalındaki uyarı görüntüsünü güncelleştirmek için **Kural** verileri.
 
-## <a name="device-identity-registry-and-documentdb"></a>Cihaz kimliği kayıt defteri ve DocumentDB
+## <a name="device-identity-registry-device-twin-and-documentdb"></a>Cihaz kimliği kayıt defteri, cihaz ikizi ve DocumentDB
 Her IoT hub'ında cihaz anahtarlarını depolayan bir [cihaz kimliği kayıt defteri][lnk-identity-registry] vardır. IoT hub'ı bu bilgileri cihazların kimliğini doğrulamak için kullanır - hub’a bağlanmadan önce cihazların kayıtlı ve geçerli bir anahtara sahip olması gerekir.
 
-Bu çözüm, durumları, destekledikleri komutlar ve diğer meta veriler gibi cihazlar hakkında ek bilgileri depolar. Çözüme özel bu cihaz verilerin depolamak için çözüm DocumentDB veritabanını kullanır; çözüm portalı da görüntülenmeleri ve düzenlenmeleri amacıyla verileri bu DocumentDB veritabanından alır.
+[Cihaz ikizi][lnk-device-twin], IoT Hub tarafından yönetilen bir JSON belgesidir. Bir cihazın cihaz ikizi şunları içerir:
+
+- Cihaz tarafından hub’a gönderilen bildirilen özellikler. Bu özellikleri çözüm portalında görüntüleyebilirsiniz.
+- Cihaza göndermek istediğiniz, istenen özellikler. Bu özellikleri çözüm portalında ayarlayabilirsiniz.
+- Yalnızca cihaz ikizinde bulunan ve cihazda mevcut olmayan etiketler. Bu etiketleri kullanarak çözüm portalındaki cihaz listesini filtreleyebilirsiniz.
+
+Bu çözümde cihaz meta verilerini yönetmek için cihaz ikizleri kullanılır. Çözümde ayrıca her bir cihaz tarafından desteklenen komutlar ve komut geçmişi gibi çözüme özel ek cihaz verilerini depolamak için DocumentDB veritabanı kullanılır.
 
 Çözüm bu bilgileri, DocumentDB veritabanı içeriğiyle eşitlenmiş cihaz kimliği kayıt defterinde tutmalıdır. **EventProcessorHost**, eşitlemeyi yönetmek için **DeviceInfo** akış analizi işine ait verileri kullanır.
 
 ## <a name="solution-portal"></a>Çözüm portalı
-![Çözüm panosu][img-dashboard]
+![çözüm portalı][img-dashboard]
 
 Çözüm portalı, önceden yapılandırılmış çözümün bir parçası olarak buluta dağıtılan web tabanlı bir UI’dir. Şunları yapmanızı sağlar:
 
@@ -107,7 +141,9 @@ Bu çözüm, durumları, destekledikleri komutlar ve diğer meta veriler gibi ci
 * Yeni cihazları hazırlama.
 * Cihazları yönetme ve izleme.
 * Komutları belirli cihazlara gönderme.
+* Belirli cihazlarda yöntemleri çağırın.
 * Kuralları ve eylemleri yönetme.
+* Bir veya daha fazla cihazda çalıştırılacak işleri zamanlayın.
 
 Önceden yapılandırılmış bu çözümde, çözüm portalı tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını ve **İşleme ve iş bağlantısının** bir parçasını oluşturur.
 
@@ -127,9 +163,7 @@ IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 

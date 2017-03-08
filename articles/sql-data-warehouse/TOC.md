@@ -3,6 +3,7 @@
 ## [SQL Veri Ambarı nedir?](sql-data-warehouse-overview-what-is.md)
 ## [Veri ambarı iş yükü](sql-data-warehouse-overview-workload.md)
 ## [Dağıtılmış veriler](sql-data-warehouse-distributed-data.md)
+## [Sık sorulan sorular](sql-data-warehouse-overview-faq.md)
 
 # Kullanmaya Başlama
 
@@ -10,8 +11,9 @@
 ## [En iyi uygulamalar](sql-data-warehouse-best-practices.md)
 ## [Yönetme](sql-data-warehouse-overview-manage.md)
 ## [Destek alın](sql-data-warehouse-get-started-create-support-ticket.md)
+## [Sorun giderme](sql-data-warehouse-troubleshoot.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 
 ## Yedekleme ve geri yükleme
 
@@ -114,7 +116,6 @@
 ### [Columnstore sıkıştırması](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Sorgular](sql-data-warehouse-manage-monitor.md)
 ### [İş yükü](sql-data-warehouse-develop-concurrency.md)
-### [Sorun giderme](sql-data-warehouse-troubleshoot.md)
 
 ## Güvenlik
 

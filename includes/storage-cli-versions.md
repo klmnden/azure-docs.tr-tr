@@ -1,7 +1,6 @@
-## <a name="versions-of-the-azure-cli"></a>Versions of the Azure CLI
+## <a name="versions-of-the-azure-cli"></a>Azure CLI sürümleri
 
-There are two versions of the Azure Command-line Interface (CLI) currently available:
+Şu anda kullanılabilir durumda olan iki Azure Komut Satırı Arabirimi (CLI) sürümü vardır:
 
-[Azure CLI 1.0](../articles/storage/storage-azure-cli-nodejs.md)--our CLI written in Node.js, for use with both the classic and resource management deployment models.
-
-[Azure CLI 2.0 (Preview)](../articles/storage/storage-azure-cli.md)--a next-generation CLI written in Python, for use with the resource management deployment model.
+* [Azure CLI 2.0](../articles/storage/storage-azure-cli.md): Resource Manager dağıtım modeliyle kullanılmak üzere tasarlanmış ve Python ile yazılmış yeni nesil CLI.
+* [Azure CLI 1.0](../articles/storage/storage-azure-cli-nodejs.md): Hem klasik hem de Resource Manager dağıtım modelleriyle kullanılmak üzere tasarlanmış ve Node.js ile yazılmış CLI.

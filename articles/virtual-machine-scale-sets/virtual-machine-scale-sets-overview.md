@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/25/2017
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 868d65642ab9ca3e1c35d33a7cb9e9dd8c31c430
-ms.openlocfilehash: f945ac0357c11c70780dea8e62f094457a213d96
+ms.sourcegitcommit: 54673cbc69e418bdbe7cb5791dfb5d20e7ebcb9f
+ms.openlocfilehash: 2294587fd3f978a3f8383112ece329b47307db7a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="virtual-machine-scale-sets-overview"></a>Sanal Makine Ölçek Kümelerine Genel Bakış
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure'daki Sanal Makine Ölçek Kümeleri nedir?
 Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini dağıtıp yönetmek için kullanabileceğiniz bir Azure İşlem kaynağıdır. Tüm VM’lerin aynı şekilde yapılandırıldığı VM ölçek kümeleri, gerçek otomatik ölçeklendirmeyi destekleyecek şekilde tasarlanmıştır (VM’lerin önceden sağlanması gerekmez) ve böylece büyük işlem, büyük veri ve kapsayıcılı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolay hale getirir.
 
 İşlem kaynaklarının ölçeğini artırmaya veya azaltmaya gerek duyan uygulamalar için ölçeklendirme işlemleri, arıza ve güncelleştirme etki alanlarında örtülü olarak dengelenir. VM ölçek kümelerine giriş için bkz. [Azure blog duyuruları](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -127,9 +129,4 @@ Bu bölümde tipik VM ölçek kümesi senaryolarından bazıları listelenmekted
 **S.** VM ölçek kümeleri Azure kullanılabilirlik kümeleri ile birlikte çalışır mı?
 
 **C.** Evet. Bir VM ölçek kümesi, 5 FD ve 5 UD’ye sahip örtülü bir kullanılabilirlik kümesidir. VirtualMachineProfile altında herhangi bir yapılandırma yapılması gerekmez. 100’den fazla sanal makineden oluşan VM ölçek kümeleri, birden fazla kullanılabilirlik kümesine eşdeğer olan birden fazla 'yerleştirme grubuna' yayılır. Bir sanal makine kullanılabilirlik kümesi, sanal makine ölçek kümesiyle aynı sanal ağda bulunabilir. Genellikle kullanılabilirlik kümesinde benzersiz yapılandırma gerektiren denetim düğümünü sanal makinelere, veri düğümlerini ise ölçek kümesine yerleştirmek, yaygın bir yapılandırmadır.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

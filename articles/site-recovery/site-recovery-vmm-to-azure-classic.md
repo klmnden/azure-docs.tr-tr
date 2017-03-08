@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e34b10aec5ee4316c8e2ffc03e1714dc6753e4d1
-ms.openlocfilehash: 96504042c4fb6a83c4ab2c35c20a8264d7db85bb
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: d315c5ed186c24236c860df1ad1b79d55c9a4d57
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -61,7 +61,7 @@ Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure
 | --- | --- |
 | **VMM** |Bir fiziksel veya sanal bağımsız sunucu olarak veya sanal küme olarak dağıtılmış en az bir VMM sunucusu gerekir. <br/><br/>VMM sunucusunun, en yeni birikmeli güncelleştirmeleri içeren System Center 2012 R2'yi çalıştırması gerekir.<br/><br/>En az bir adet VMM sunucusunda yapılandırılan bulut gerekir.<br/><br/>Korumak istediğiniz kaynak bulutun, bir veya birden fazla VMM ana bilgisayar grubu içermesi gerekir.<br/><br/>VMM bulutlarını ayarlama hakkında daha fazla bilgi edinmek için Keith Mayer'ın blogundaki [Adım adım kılavuz: System Center 2012 SP1 VMM içeren özel bulut oluşturma](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) |
 | **Hyper-V** |VMM bulutunda bir veya birden çok Hyper-V ana bilgisayar sunucusu veya kümesine sahip olmanız gerekir. Ana bilgisayar sunucusunun bir veya birden çok VM'ye sahip olması gerekir. <br/><br/>Hyper-V sunucusunun, Hyper-V rolü içeren **Windows Server 2012 R2** veya **Microsoft Hyper-V Server 2012 R2** sürümünde ya da bunların sonraki sürümlerinde çalıştırılması ve en son güncelleştirmelerinin yüklenmiş olması gerekir.<br/><br/>Korumak istediğiniz ve VM'leri içeren herhangi bir Hyper-V sunucusunun, VMM bulutunda yer alması gerekir.<br/><br/>Hyper-V'yi bir kümede çalıştırıyorsanız statik IP adresi temelli bir kümeye sahip olmanız durumunda küme aracısının otomatik olarak oluşturulamayacağını unutmayın. Küme aracısını sizin yapılandırmanız gerekir. Aidan Finn'in blog girdisi aracılığıyla [daha fazla bilgi edinin](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters). |
-| **Korumalı makineler** |Korumak istediğiniz VM'lerin [Azure gereksinimlerini](site-recovery-best-practices.md#azure-virtual-machine-requirements) karşılaması gerekir. |
+| **Korumalı makineler** | Korumak istediğiniz VM'lerin [Azure gereksinimlerini](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) karşılaması gerekir. |
 
 ## <a name="network-mapping-prerequisites"></a>Ağ eşlemesi önkoşulları
 Azure'da sanal makineleri koruduğunuzda, ağ eşlemesi kaynak VMM sunucusundaki VM ağlarını hedef Azure ağları ile eşleyerek şu işlemlere olanak sağlar:
@@ -74,6 +74,12 @@ Ağ eşlemesi dağıtmak isterseniz şunlara ihtiyaç duyarsınız:
 
 * Kaynak VMM sunucusunda korumak istediğinizde sanal makinelerin bir VM ağına bağlanması gerekir. Bu ağın, bulutla ilişkilendirilen mantıksal bir ağ ile bağlantılı olması gerekir.
 * Yük devretme işleminin ardından çoğaltılan sanal makinelerin bağlanabileceği bir Azure ağı. Bu ağı yük devretme sırasında seçersiniz. Ağın Azure Site Recovery aboneliğinizle aynı bölgede olması gerekir.
+
+
+VMM'de ağları hazırlayın:
+
+   * [Mantıksal ağlar ayarlayın](https://technet.microsoft.com/library/jj721568.aspx).
+   * [VM ağları ayarlayın](https://technet.microsoft.com/library/jj721575.aspx).
 
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>1. Adım: Site Recovery kasası oluşturma
@@ -247,7 +253,7 @@ Hedef ağın birden çok alt ağı varsa ve bu alt ağlardan biri kaynak sanal m
 ## <a name="step-8-enable-protection-for-virtual-machines"></a>8. Adım: Sanal makinelere yönelik korumayı etkinleştirme
 Sunucular, bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra buluttaki sanal makineler için korumayı etkinleştirebilirsiniz. Şunlara dikkat edin:
 
-* Sanal makinelerin [Azure gereksinimlerini](site-recovery-best-practices.md#azure-virtual-machine-requirements) karşılaması gerekir.
+* Sanal makinelerin [Azure gereksinimlerini](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) karşılaması gerekir.
 * Korumayı etkinleştirmek için işletim sisteminin ve işletim sistemi diski özelliklerinin sanal makineye göre ayarlanmış olması gerekir. Sana makine şablonu kullanarak VMM'de bir sanal makine oluşturduğunuzda özelliği de ayarlayabilirsiniz. Ayrıca var olan sanal makineler için bu özellikleri, sanal makinenin **Genel** ve **Donanım Yapılandırması** sekmelerinde de ayarlayabilirsiniz. Özellikleri VMM'de ayarlamazsanız Azure Site Recovery portalından da yapılandırabilirsiniz.
 
     ![Sanal makine oluşturma](./media/site-recovery-vmm-to-azure-classic/enable-new.png)
@@ -316,7 +322,7 @@ Azure için yük devretme testi çalıştırmanın iki yöntemi vardır.
 * **Azure ağı olmadan yük devretme testi** - Bu türdeki yük devretme testi sanal makinenin Azure'a doğru şekilde alınıp alınmadığını denetler. Yük devretmeden sonra sanal makine herhangi bir Azure ağına bağlanmaz.
 * **Azure ağıyla yük devretme testi** - Bu türdeki yük devretme testi ise tüm çoğaltma ortamının istendiği şekilde alınıp alınmadığını ve yük devredilen sanal makinelerin belirlenen bir hedef ağa bağlanıp bağlanmayacağını denetler. Alt ağı ele almaya ilişkin yük devretme testi için test edilen sanal makinenin alt ağı, çoğaltılan sanal makinenin alt ağına göre belirlenir. Bu işlem, çoğaltılan sanal makinenin alt ağının kaynak sanal makinenin alt ağına bağlı olduğunda normal çoğaltmadan farklıdır.
 
-Azure hedef ağı belirtmeden Azure için koruması etkinleştirilmiş bir sanal makine için yük devretme testi çalıştırmak isterseniz herhangi bir hazırlık yapmanız gerekmez. Hedef Azure ağıyla bir yük devretme testi çalıştırmak isterseniz Azure üretim ağınızdan yalıtılmış olan yeni bir Azure ağı oluşturmanız gerekir (Azure'da yeni bir ağ oluştururken, varsayılan davranıştır). Daha fazla ayrıntı için [yük devretme testi çalıştırma](site-recovery-failover.md#run-a-test-failover) bölümüne bakın.
+Azure hedef ağı belirtmeden Azure için koruması etkinleştirilmiş bir sanal makine için yük devretme testi çalıştırmak isterseniz herhangi bir hazırlık yapmanız gerekmez. Hedef Azure ağıyla bir yük devretme testi çalıştırmak isterseniz Azure üretim ağınızdan yalıtılmış olan yeni bir Azure ağı oluşturmanız gerekir (Azure'da yeni bir ağ oluştururken, varsayılan davranıştır). Daha fazla ayrıntı için [yük devretme testi çalıştırma](site-recovery-failover.md) bölümüne bakın.
 
 Ayrıca, istenildiği gibi çalışması için çoğaltılan sanal makineye yönelik altyapı ayarlamanız gerekir. Örneğin, Etki Alanı Denetleyicisi ve DNS içeren bir sanal makine Azure'da Azure Site Recovery kullanılarak çoğaltılabilir ve Yük Devretme Testi kullanılarak test ağında oluşturulabilir. Daha fazla ayrıntı için [active directory için yük devretme testi ile ilgili dikkat edilmesi gerekenler](site-recovery-active-directory.md#test-failover-considerations) bölümüne bakın
 

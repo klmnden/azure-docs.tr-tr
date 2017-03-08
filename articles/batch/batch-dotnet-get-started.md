@@ -1,6 +1,6 @@
 ---
 title: "Öğretici - .NET için Azure Batch istemci kitaplığını kullanma | Microsoft Docs"
-description: "Azure Batch’in temel kavramlarını ve basit bir senaryoyla Batch hizmetini geliştirmeyi öğrenin."
+description: "Temel Azure Batch kavramlarını öğrenin ve .NET kullanarak basit bir çözüm derleyin."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 5af894b60180d32593ed19c13aecf2732645120a
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: edda9dc389d670b463d518edf8c4703062ba169d
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-the-azure-batch-library-for-net"></a>.NET için Azure Batch itaplığını kullanmaya başlama
+# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>.NET için Batch istemci kitaplığıyla çözüm derlemeye başlama
+
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -802,9 +805,4 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 [9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "Portalda Batch kimlik bilgileri"
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Portalda Depolama kimlik bilgileri"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Batch çözümü iş akışı (minimal diyagram)"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

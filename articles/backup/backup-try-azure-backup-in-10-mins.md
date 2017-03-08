@@ -1,6 +1,6 @@
 ---
-title: "Windows Azure Resource Manager dağıtım modelini kullanarak dosya ve klasörleri Windows&quot;dan Azure&quot;a yedekleme| Microsoft Docs"
-description: "Windows dosya ve klasörlerini bir Resource Manager dağıtımında Azure’a yedekleme hakkında bilgi alın."
+title: "Windows dosyalarını ve klasörlerini Azure&quot;a yedekleme (Resource Manager) | Microsoft Docs"
+description: "Windows dosya ve klasörlerini bir Resource Manager dağıtımında Azure&quot;a yedekleme hakkında bilgi alın."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,12 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/10/2017
+ms.date: 2/23/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 1a87af9efeb6c00f3c67f2c2d8d8f2e0491d248d
-ms.openlocfilehash: cb464ad823b9123ad0bfa66e0df64a616e3fb5d0
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
+ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -27,17 +27,6 @@ Bu makalede, Resource Manager dağıtımını kullanarak Windows Server (veya Wi
 
 Azure Backup hakkında daha fazla bilgi edinmek istiyorsanız bu [genel bakışı](backup-introduction-to-azure-backup.md) okuyun.
 
-Dosya ve klasörlerin Azure'a yüklenmesi için şu etkinliklerin gerçekleştirilmesi gerekir:
-
-![1. Adım](./media/backup-try-azure-backup-in-10-mins/step-1.png) Bir Azure aboneliği edinme (zaten mevcut değilse).<br>
-![2. Adım](./media/backup-try-azure-backup-in-10-mins/step-2.png) Bir Kurtarma Hizmetleri kasası oluşturma.<br>
-![3. Adım](./media/backup-try-azure-backup-in-10-mins/step-3.png) Gerekli dosyaları indirme.<br>
-![4. Adım](./media/backup-try-azure-backup-in-10-mins/step-4.png) Kurtarma Hizmetleri aracısını yükleme ve kaydetme.<br>
-![5. Adım](./media/backup-try-azure-backup-in-10-mins/step-5.png) Dosya ve klasörlerinizi yedekleme.
-
-![Windows makinenizi Azure Backup ile yedekleme](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
-## <a name="get-an-azure-subscription"></a>Azure aboneliği edinme
 Azure aboneliğiniz yoksa istediğiniz Azure hizmetine erişmenizi sağlayan [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma hizmetleri kasası oluşturma
@@ -71,6 +60,7 @@ Dosya ve klasörlerinizi yedeklemek için, verileri depolamak istediğiniz bölg
   Kaynak grupları hakkında eksiksiz bilgiler için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md).
 
 7. Kasa için coğrafi bölgeyi seçmek üzere **Konum**'a tıklayın. Bu seçim, yedekleme verilerinizin gönderildiği coğrafi bölgeyi belirler.
+
 8. Kurtarma Hizmetleri kasası dikey penceresinin alt kısmındaki **Oluştur**’a tıklayın.
 
     Kurtarma Hizmetleri kasasının oluşturulması birkaç dakika sürebilir. Portalın sağ üst kısmından durum bildirimlerini izleyin. Kasanız oluşturulduktan sonra Kurtarma Hizmetleri kasaları listesinde görünür. Birkaç dakika sonra kasayı görmezseniz **Yenile**’ye tıklayın.

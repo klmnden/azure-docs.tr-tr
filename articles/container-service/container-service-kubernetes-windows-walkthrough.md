@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: dlepow
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 010a9a4a9ad0f6f7584b1c9a54e665557078d25b
+ms.sourcegitcommit: 31aaa122bfca5140dcd22d2a2233c46cd28f27b9
+ms.openlocfilehash: c139fc34d15545ce6a7a91842a3ebdff7c029a01
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -55,9 +56,13 @@ Tüm VM’ler aynı gizli sanal ağ üzerindedir ve birbirlerine tam olarak eri�
 
 ## <a name="create-the-cluster"></a>Kümeyi oluşturma
 
-Azure portalını kullanarak Windows aracı düğümleri içeren bir [Kubernetes kümesi oluşturabilirsiniz](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal). 
+Azure portalını kullanarak Windows aracı düğümleri içeren bir [Kubernetes kümesi oluşturabilirsiniz](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal). Kümeyi oluştururken aşağıdaki ayarlara dikkat edin:
 
-**Altyapı yapılandırma** bölmesindeki **Düzenleyici yapılandırma** kısmında **Kubernetes - Windows**’u seçin. 
+* **Temel bilgiler** dikey penceresinin **Düzenleyici** bölümünde **Kubernetes**'i seçin. 
+* **Ana yapılandırma** dikey penceresinde Linux ana düğümleri için kullanıcı kimlik bilgilerini ve hizmet sorumlusu kimlik bilgilerini girin.
+* **Aracı yapılandırması** dikey penceresinin **İşletim sistemi** bölümünde **Windows (önizleme)** öğesini seçin. Windows aracısı düğümleri için yönetici kimlik bilgilerini girin.
+
+Ayrıntılar için bkz. [Azure Container Service kümesini dağıtma](container-service-deployment.md).
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 
@@ -67,7 +72,7 @@ Yerel bilgisayarınızdan Kubernetes kümesi ana düğümüne bağlanmak için `
 
 Kümeyi oluşturup `kubectl` ile bağlandıktan sonra temel bir Windows web uygulamasını başlatmayı ve İnternet'te kullanıma sunmayı deneyebilirsiniz. Bu örnekte, bir YAML dosyası kullanılarak kapsayıcı kaynakları belirtilmekte ve `kubctl apply` ile kapsayıcı oluşturulmaktadır.
 
-1. Düğümlerinizin listesini görmek için `kubectl get nodes` yazın.  Düğümlerin tüm ayrıntılarını öğrenmek istiyorsanız şunu yazın:  
+1. Düğümlerinizin listesini görmek için `kubectl get nodes` yazın. Düğümlerin tüm ayrıntılarını öğrenmek istiyorsanız şunu yazın:  
 
   ```
   kubectl get nodes -o yaml
@@ -150,7 +155,7 @@ Kümeyi oluşturup `kubectl` ile bağlandıktan sonra temel bir Windows web uygu
 ## <a name="access-the-windows-nodes"></a>Windows düğümlerine erişim
 Windows düğümlerine, Uzak Masaüstü Bağlantısı aracılığıyla yerel bir Windows bilgisayarından erişilebilir. Ana düğüm aracılığıyla bir RDP SSH tüneli kullanmanızı öneririz. 
 
-Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Bu bölüm, tüneli oluşturmak için PuTTy’nin nasıl kullanılacağını açıklar.
+Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Bu bölüm, tüneli oluşturmak için PuTTY’nin nasıl kullanılacağını açıklar.
 
 1. [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)’yi Windows sisteminize indirin.
 
@@ -198,8 +203,3 @@ Kubernetes hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılarda
 * [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html) - kapsayıcılı uygulamalar için dağıtma, ölçeklendirme, güncelleştirme ve hata ayıklama işlemlerini gösterir.
 * [Kubernetes Kullanıcı Kılavuzu](http://kubernetes.io/docs/user-guide/) - var olan bir Kubernetes kümesindeki çalışan programlar hakkında bilgi sağlar.
 * [Kubernetes Örnekleri](https://github.com/kubernetes/kubernetes/tree/master/examples) - Kubernetes ile gerçek uygulama çalıştırmaya ilişkin örnekler sunar.
-
-
-<!--HONumber=Feb17_HO4-->
-
-

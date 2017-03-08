@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 02/26/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: 749267a5bb6e45714daa1fc06cd3aabcac326e76
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
+ms.openlocfilehash: e696b95c9db86b062440f0c4fd788bf97223317a
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="radius-authentication-and-azure-multi-factor-authentication-server"></a>RADIUS Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
+# <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>RADIUS kimlik doğrulamasını ve Azure Multi-Factor Authentication Sunucusuyla tümleştirme
 RADIUS kimlik doğrulamasını etkinleştirmek ve yapılandırmak için Azure MFA Sunucusu’nun RADIUS Kimlik Doğrulaması bölümünü kullanın. RADIUS, kimlik doğrulama isteklerini kabul etmek ve bu istekleri işlemek için standart bir protokoldür. Azure Multi-Factor Authentication Sunucusu bir RADIUS sunucusu işlevi görür. Azure Multi-Factor Authentication eklemek istiyorsanız MFA Sunucusu’nu RADIUS istemciniz (VPN gereci) ile Active Directory (AD), LDAP dizini ya da başka bir RADIUS sunucusu olabilecek kimlik doğrulama hedefiniz arasına ekleyin. Azure Multi-Factor Authentication’ın (MFA) çalışması için Azure MFA Sunucusu’nu hem istemci sunucuları hem de kimlik doğrulama hedefi ile iletişim kurabilecek şekilde yapılandırmalısınız. Azure MFA Sunucusu, RADIUS istemcisinden gelen istekleri kabul eder, kimlik doğrulama hedefine göre kimlik bilgilerini doğrular, Azure Multi-Factor Authentication ekler ve RADIUS istemcisine bir yanıt döndürür. Kimlik doğrulama isteği yalnızca hem birincil kimlik doğrulamasının hem de Azure Multi-Factor Authentication’ın başarılı olması durumunda başarılı olur.
 
 > [!NOTE]

@@ -13,18 +13,26 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: c1262b7708918cbdc8ce35f3e65a47a04797f195
-ms.openlocfilehash: 8a67352a65e755f2177fb4870f34c41440bf90a2
+ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
+ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
+ms.lasthandoff: 02/23/2017
 
 ---
 
 # <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Resource Manager ve PowerShell kullanarak Windows VM oluşturma
 
-Bu makalede, [Resource Manager](../azure-resource-manager/resource-group-overview.md) ve PowerShell kullanarak Windows Server çalıştıran bir Azure Virtual Machine’i ve ihtiyacı olan kaynakları nasıl hızlı bir şekilde oluşturacağınız gösterilir. Bu makaledeki tüm adımlar bir sanal makine oluşturmak için gereklidir ve bu adımların tamamlanması yaklaşık 30 dakika sürer. Komutlardaki örnek parametre değerlerini, ortamınız için anlamlı olan adlarla değiştirin.
+Bu makalede, [Resource Manager](../azure-resource-manager/resource-group-overview.md) ve Azure PowerShell kullanarak Windows Server çalıştıran bir Azure sanal makinesini ve ihtiyacı olan kaynakları nasıl hızlı bir şekilde oluşturacağınız gösterilir.  
+
+Bu makaledeki tüm adımlar bir sanal makine oluşturmak için gereklidir ve bu adımların tamamlanması yaklaşık 30 dakika sürer. Komutlardaki örnek parametre değerlerini, ortamınız için anlamlı olan adlarla değiştirin.
 
 ## <a name="step-1-install-azure-powershell"></a>1. adım: Azure PowerShell'i yükleme
 
 Azure PowerShell’in en son sürümünü yükleme, aboneliğinizi seçme ve hesabınızda oturum açma hakkında bilgi almak için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
+
+> [!NOTE]
+> Bu makalede anlatılan işlevi kullanmak için Azure PowerShell'i yeniden yüklemeniz gerekebilir. Yönetilen Diskler özellikleri sürüm 3.5 ve üzerinde mevcuttur.
+> 
+> 
 
 ## <a name="step-2-create-a-resource-group"></a>2. adım: bir kaynak grubu oluşturma
 
@@ -175,10 +183,5 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti. 
 * Dağıtımla ilgili sorunlar varsa, bir sonraki adım için bkz. [Azure Resource Manager ile genel Azure dağıtım hatalarını giderme](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 * [Azure Resource Manager ve PowerShell kullanarak sanal makineleri yönetme](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) gözden geçirerek, oluşturduğunuz sanal makineyi yönetmeyi öğrenin.
 * [Bir Resource Manager şablonu ile Windows sanal makine oluşturma](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)’daki bilgileri kullanarak sanal makine oluşturmak için şablon kullanma avantajından yararlanın
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

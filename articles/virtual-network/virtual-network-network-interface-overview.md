@@ -1,6 +1,6 @@
 ---
 title: "Azure’da ağ arabirimleri | Microsoft Docs"
-description: "Azure Resource Manager dağıtım modelindeki Azure ağ arabirimleri hakkında bilgi edinin."
+description: "Azure ağ arabirimleri ve sanal makinelerdeki kullanımı hakkında bilgi edinin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 02/24/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
-ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 395cff80b3f97b6340e15f370c13f783e2f5dde3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="network-interfaces-in-azure"></a>Azure’da ağ arabirimleri
+# <a name="what-are-network-interfaces"></a>Ağ arabirimi nedir?
+
 Ağ arabirimi (NIC), bir Sanal Makine (VM) ile onun yazılım altyapısı arasındaki çift yönlü bağlantıdır. Bu makalede bir ağ arabiriminin ne olduğu ve Azure Resource Manager dağıtım modelinde nasıl kullanıldığı açıklanmıştır.
 
 Microsoft yeni kaynakların Resource Manager dağıtım modeli kullanılarak dağıtılmasını önerir, ancak ağ bağlantısı [klasik](virtual-network-ip-addresses-overview-classic.md) dağıtım modelinde olan VM’ler de dağıtabilirsiniz. Klasik model hakkında bilgi sahibiyseniz, Resource Manager dağıtım modelindeki VM ağ bağlantısında önemli farklar vardır. [Sanal makine ağ bağlantısı - Klasik](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) makalesini okuyarak farklar hakkında daha fazla bilgi edinin.
@@ -34,7 +37,7 @@ Azure’daki bir ağ arabirimi:
 4. Bir VM’ye bağlı olabilir, ancak yalnızca NIC ile aynı konumdaki tek bir VM’ye bağlanabilir.
 5. Bir MAC adresi vardır ve NIC bir VM’ye bağlı kaldığı sürece bu adres kalıcıdır. Azure Portal, Azure PowerShell veya Azure Komut Satırı Arabirimi kullanılarak VM yeniden başlatıldığında veya durdurulup (serbest bırakılıp) başlatıldığında MAC adresi değişmez. NIC bir VM’den ayrılıp farklı bir VM’ye bağlanırsa başka bir MAC adresi alır. NIC silinirse MAC adresi diğer NIC’lere atanır.
 6. Bir **birincil** *IPv4* statik veya dinamik IP adresi atanmış olmalıdır.
-7. Kaynakla ilişkili bir genel IP adresi kaynağı olabilir.
+7. İlişkili bir veya daha fazla genel IP adresi kaynağı bulunabilir, daha fazla bilgi için [NIC başına birden fazla IP adresi](virtual-network-multiple-ip-addresses-portal.md) belgesini okuyun.
 8. Microsoft Windows Server işletim sisteminin belirli sürümlerini çalıştıran belirli VM boyutları için tek köklü G/Ç sanallaştırması (SR-IOV) ile hızlandırılmış ağı destekler. Bu ÖNİZLEME özelliği hakkında daha fazla bilgi edinmek için [Sanal makine için hızlandırılmış ağ](virtual-network-accelerated-networking-powershell.md) makalesini okuyun.
 9. NIC için IP iletme etkinleştirilmişse kendisine atanan özel IP adreslerine yönelik olmayan trafiği alabilir. Örneğin, bir VM güvenlik duvarı yazılımı çalıştırıyorsa kendi IP adreslerine yönelik olmayan paketleri yönlendirir. VM’nin yine de trafiği yönlendirebilen veya iletebilen yazılımlar çalıştırması gerekir, ancak bunu yapabilmesi, bir NIC için IP iletiminin etkin olmasını gerektirir.
 10. Genellikle bağlı olduğu VM veya VNet ile aynı kaynak grubunda oluşturulur, ancak bu gerekli değildir.
@@ -52,10 +55,5 @@ Bir VM’ye birden çok NIC bağlanabilir, ancak bunu yaparken aşağıdakilere 
 * [VM oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md) makalesini okuyarak tek NIC’li VM oluşturmayı öğrenin.
 * [Birden çok NIC’li VM dağıtma](virtual-network-deploy-multinic-arm-ps.md) makalesini okuyarak birden çok NIC içeren bir VM oluşturmayı öğrenin.
 * [Azure sanal makineleri için birden çok IP adresi](virtual-network-multiple-ip-addresses-powershell.md) makalesini okuyarak birden çok IP yapılandırması içeren bir NIC oluşturmayı öğrenin.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

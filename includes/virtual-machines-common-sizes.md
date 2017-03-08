@@ -92,44 +92,45 @@ Bilgi ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. 
 
 ## <a name="av2-series"></a>Av2 Serisi
 
-| Boyut        | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum veri diski aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
-|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2x500              | 1/orta              |
-| Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4x500              | 2/orta              |
-| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8x500              | 4/yüksek                  |
-| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16x500             | 8/yüksek                  |
-| Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4X500              | 2/orta              |
-| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8x500              | 4/yüksek                  |
-| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16x500             | 8/yüksek                  |
-
+| Boyut            | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum yerel disk aktarım hızı: IOPS/Okuma MB/sn/Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+|-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_A1_v2  | 1         | 2           | 10             | 1000/20/10                                           | 2/2x500                         | 1/orta                 |
+| Standard_A2_v2  | 2         | 4           | 20             | 2000/40/20                                           | 4/4x500                         | 2/orta                 |
+| Standard_A4_v2  | 4         | 8           | 40             | 4000/80/40                                           | 8/8x500                         | 4/yüksek                     |
+| Standard_A8_v2  | 8         | 16          | 80             | 8000/160/80                                          | 16/16x500                       | 8/yüksek                     |
+| Standard_A2m_v2 | 2         | 16          | 20             | 2000/40/20                                           | 4/4X500                         | 2/orta                 |
+| Standard_A4m_v2 | 4         | 32          | 40             | 4000/80/40                                           | 8/8x500                         | 4/yüksek                     |
+| Standard_A8m_v2 | 8         | 64          | 80             | 8000/160/80                                          | 16/16x500                       | 8/yüksek                     |
 
 ## <a name="d-series"></a>D Serisi
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum veri diski aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1 |1 |3,5 |50 |2 |2x500 |1/orta |
-| Standard_D2 |2 |7 |100 |4 |4x500 |2/yüksek |
-| Standard_D3 |4 |14 |200 |8 |8x500 |4/yüksek |
-| Standard_D4 |8 |28 |400 |16 |16x500 |8/yüksek |
-| Standard_D11 |2 |14 |100 |4 |4x500 |2/yüksek |
-| Standard_D12 |4 |28 |200 |8 |8x500 |4/yüksek |
-| Standard_D13 |8 |56 |400 |16 |16x500 |8/yüksek |
-| Standard_D14 |16 |112 |800 |32 |32x500 |8/çok yüksek |
 
+| Boyut         | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum yerel disk aktarım hızı: IOPS/Okuma MB/sn/Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1  | 1         | 3,5         | 50             | 3000/46/23                                           | 2/2x500                         | 1/orta                 |
+| Standard_D2  | 2         | 7           | 100            | 6000/93/46                                           | 4/4x500                         | 2/yüksek                     |
+| Standard_D3  | 4         | 14          | 200            | 12000/187/93                                         | 8/8x500                         | 4/yüksek                     |
+| Standard_D4  | 8         | 28          | 400            | 24000/375/187                                        | 16/16x500                       | 8/yüksek                     |
+| Standard_D11 | 2         | 14          | 100            | 6000/93/46                                           | 4/4x500                         | 2/yüksek                     |
+| Standard_D12 | 4         | 28          | 200            | 12000/187/93                                         | 8/8x500                         | 4/yüksek                     |
+| Standard_D13 | 8         | 56          | 400            | 24000/375/187                                        | 16/16x500                       | 8/yüksek                     |
+| Standard_D14 | 16        | 112         | 800            | 48000/750/375                                        | 32/32x500                       | 8/çok yüksek                |
 <br>
 
 ## <a name="dv2-series"></a>Dv2 Serisi
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum veri diski aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3,5 |50 |2 |2x500 |1/orta |
-| Standard_D2_v2 |2 |7 |100 |4 |4x500 |2/yüksek |
-| Standard_D3_v2 |4 |14 |200 |8 |8x500 |4/yüksek |
-| Standard_D4_v2 |8 |28 |400 |16 |16x500 |8/yüksek |
-| Standard_D5_v2 |16 |56 |800 |32 |32x500 |8/aşırı yüksek |
-| Standard_D11_v2 |2 |14 |100 |4 |4x500 |2/yüksek |
-| Standard_D12_v2 |4 |28 |200 |8 |8x500 |4/yüksek |
-| Standard_D13_v2 |8 |56 |400 |16 |16x500 |8/yüksek |
-| Standard_D14_v2 |16 |112 |800 |32 |32x500 |8/aşırı yüksek |
-| Standard_D15_v2** |20 |140 |1000 |40 |40x500 |8/aşırı yüksek* |
+
+
+| Boyut              | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum yerel disk aktarım hızı: IOPS/Okuma MB/sn/Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1_v2    | 1         | 3,5         | 50             | 3000/46/23                                           | 2/2x500                         | 1/orta                 |
+| Standard_D2_v2    | 2         | 7           | 100            | 6000/93/46                                           | 4/4x500                         | 2/yüksek                     |
+| Standard_D3_v2    | 4         | 14          | 200            | 12000/187/93                                         | 8/8x500                         | 4/yüksek                     |
+| Standard_D4_v2    | 8         | 28          | 400            | 24000/375/187                                        | 16/16x500                       | 8/yüksek                     |
+| Standard_D5_v2    | 16        | 56          | 800            | 48000/750/375                                        | 32/32x500                       | 8/aşırı yüksek           |
+| Standard_D11_v2   | 2         | 14          | 100            | 6000/93/46                                           | 4/4x500                         | 2/yüksek                     |
+| Standard_D12_v2   | 4         | 28          | 200            | 12000/187/93                                         | 8/8x500                         | 4/yüksek                     |
+| Standard_D13_v2   | 8         | 56          | 400            | 24000/375/187                                        | 16/16x500                       | 8/yüksek                     |
+| Standard_D14_v2   | 16        | 112         | 800            | 48000/750/375                                        | 32/32x500                       | 8/aşırı yüksek           |
+| Standard_D15_v2** | 20        | 140         | 1000          | 60000/937/468                                        | 40/40x500                       | 8/aşırı yüksek*          |
 
 *Bazı bölgelerde Standard_D15_v2 boyutuyla hızlandırılmış ağ iletişimi kullanılabilir. Bu özelliğin kullanım durumu ve şekli hakkında daha fazla bilgi için bkz. [Hızlandırılmış Ağ İletişimi Önizlemede](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) ve [Sanal makine için Hızlandırılmış Ağ İletişimi](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
@@ -138,7 +139,7 @@ Bilgi ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. 
 <br>
 
 ## <a name="ds-series"></a>DS Serisi*
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği |
+| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve yerel disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3,5 |7 |2 |4000/32 (43) |3200/32 |1/orta |
 | Standard_DS2 |2 |7 |14 |4 |8000/64 (86) |6400/64 |2/yüksek |
@@ -179,18 +180,18 @@ MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt.
 <br>
 
 ## <a name="f-series"></a>F Serisi
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum diski aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1 |1 |2 |16 |2 |2x500 |1/orta |
-| Standard_F2 |2 |4 |32 |4 |4x500 |2/yüksek |
-| Standard_F4 |4 |8 |64 |8 |8x500 |4/yüksek |
-| Standard_F8 |8 |16 |128 |16 |16x500 |8/yüksek |
-| Standard_F16 |16 |32 |256 |32 |32x500 |8/aşırı yüksek |
 
+| Boyut         | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum yerel disk aktarım hızı: IOPS/Okuma MB/sn/Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_F1  | 1         | 2           | 16             | 3000/46/23                                           | 2/2x500                         | 1/orta                 |
+| Standard_F2  | 2         | 4           | 32             | 6000/93/46                                           | 4/4x500                         | 2/yüksek                     |
+| Standard_F4  | 4         | 8           | 64             | 12000/187/93                                         | 8/8x500                         | 4/yüksek                     |
+| Standard_F8  | 8         | 16          | 128            | 24000/375/187                                        | 16/16x500                       | 8/yüksek                     |
+| Standard_F16 | 16        | 32          | 256            | 48000/750/375                                        | 32/32x500                       | 8/aşırı yüksek           |
 <br>
 
 ## <a name="fs-series"></a>Fs Serisi*
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği |
+| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve yerel disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |2 |4000/32 (12) |3200/48 |1/orta |
 | Standard_F2s |2 |4 |8 |4 |8000/64 (24) |6400/96 |2/yüksek |
@@ -205,19 +206,20 @@ MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt.
 <br>
 
 ## <a name="g-series"></a>G Serisi
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum diski aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_G1 |2 |28 |384 |4 |4x500 |1/yüksek |
-| Standard_G2 |4 |56 |768 |8 |8x500 |2/yüksek |
-| Standard_G3 |8 |112 |1536 |16 |16x500 |4/çok yüksek |
-| Standard_G4 |16 |224 |3072 |32 |32x500 |8/aşırı yüksek |
-| Standard_G5* |32 |448 |6144 |64 |64x500 |8/aşırı yüksek |
+
+| Boyut         | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum yerel disk aktarım hızı: IOPS/Okuma MB/sn/Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_G1  | 2         | 28          | 384            | 6000/93/46                                           | 4/4x500                       | 1/yüksek                     |
+| Standard_G2  | 4         | 56          | 768            | 12000/187/93                                         | 8/8x500                       | 2/yüksek                     |
+| Standard_G3  | 8         | 112         | 1536          | 24000/375/187                                        | 16/16x500                     | 4/çok yüksek                |
+| Standard_G4  | 16        | 224         | 3072          | 48000/750/375                                        | 32/32x500                     | 8/aşırı yüksek           |
+| Standard_G5* | 32        | 448         | 6144          | 96000/1500/750                                       | 64/64x500                     | 8/aşırı yüksek           |
 
 *Örnek, tek bir müşteriye özel donanımla yalıtılmıştır.
 <br>
 
 ## <a name="gs-series"></a>GS Serisi*
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği |
+| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve yerel disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |28 |56 |4 |10.000/100 (264) |5000/125 |1/yüksek |
 | Standard_GS2 |4 |56 |112 |8 |20.000/200 (528) |10.000/250 |2/Yüksek |
@@ -227,7 +229,7 @@ MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt.
 
 MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt.
 
-*GS Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir. 
+*GS Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/storage/storage-premium-storage.md). 
 
 **Örnek, tek bir müşteriye özel donanımla yalıtılmıştır.
 <br>
@@ -253,7 +255,7 @@ Bilgi ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. 
 <br>
 
 
-## <a name="ls-series"></a>Ls serisi 
+## <a name="ls-series"></a>Ls-serisi* 
 
 Ls serisi NoSQL veritabanları (örneğin Cassandra, MongoDB, Cloudera ve Redis) gibi düşük gecikme süresine sahip yerel depolama alanları gerektiren iş yükleri için optimize edilmiştir. Ls serisi, [Intel® Xeon İşlemci E5 v3 ailesi](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html) ile 32’ye kadar CPU çekirdeği kullanım olanağı sunar. Bu, G/GS serisi ile aynı CPU performansı sunar ve her CPU çekirdeği başına 8 GiB bellek içerir.  
 
@@ -263,9 +265,13 @@ Ls serisi NoSQL veritabanları (örneğin Cassandra, MongoDB, Cloudera ve Redis)
 | Standart_L4s  | 4    | 32   | 678   | 8              | Yok / Yok (0)          | 5000/125                               | 2/yüksek       | 
 | Standart_L8s  | 8    | 64   | 1,388 | 16             | Yok / Yok (0)          | 10.000/250                              | 4/çok yüksek  | 
 | Standart_L16s | 16   | 128  | 2,807 | 32             | Yok / Yok (0)          | 20.000/500                              | 8/aşırı yüksek | 
-| Standart_L32s | 32   | 256  | 5,630 | 64             | Yok / Yok (0)          | 40.000/1000                            | 8/aşırı yüksek | 
+| Standard_L32s** | 32   | 256  | 5,630 | 64             | Yok / Yok (0)          | 40.000/1000                            | 8/aşırı yüksek | 
  
 MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt. 
+
+*Ls Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/storage/storage-premium-storage.md). 
+
+**Örnek, tek bir müşteriye özel donanımla yalıtılmıştır.
 
 
 

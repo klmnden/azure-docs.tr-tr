@@ -4,7 +4,7 @@ description: "Azure App Service’te Node.js uygulamasını bir web uygulamasın
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 55c349f19055e4e4d17f5c7290a2ee82d2d3d19d
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 9482315aba089f3f00e114b835963c247a4f5007
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -34,7 +35,7 @@ Bu öğreticide cmd.exe veya bash gibi bir komut satırı ortamında basit bir [
 Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 
 - [Azure CLI 1.0](app-service-web-nodejs-get-started-cli-nodejs.md): Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI’mız
-- [Azure CLI 2.0 (Önizleme)](app-service-web-nodejs-get-started.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI’mız
+- [Azure CLI 2.0](app-service-web-nodejs-get-started.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız
 
 ## <a name="prerequisites"></a>Ön koşullar
 * [Node.js]
@@ -270,9 +271,4 @@ Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
 [iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

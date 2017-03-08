@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2017
+ms.date: 02/25/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: d3a122d7d26635e13281b1cba450937519ed4be6
-
+ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
+ms.openlocfilehash: 4014bf0217e25ea9bc8473ef2383279e5eb79b87
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="getting-started-with-the-mfa-server-mobile-app-web-service"></a>MFA Sunucusu Mobil Uygulama Web Hizmeti’ni kullanmaya başlama
+# <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile mobil uygulama kimlik doğrulamasını etkinleştirme
+
 Microsoft Authenticator uygulaması ek bir bant dışı doğrulama seçeneği sunar. Oturum açma sırasında kullanıcıya otomatik telefon çağrısı yapmak veya SMS göndermek yerine, Azure Multi-Factor Authentication, kullanıcının akıllı telefonu ya da tabletindeki Microsoft Authenticator uygulamasına anında iletme bildirimi gönderir. Kullanıcının oturum açma işlemini tamamlamak için uygulamada **Doğrula** seçeneğine dokunması (ya da PIN’i girip “Kimliği Doğrula” seçeneğine dokunması ) yeterlidir. 
 
 Şebeke sinyal gücünün güvenilir olmadığı durumlarda iki aşamalı doğrulama için bir mobil uygulama kullanmak tercih edilir. Uygulamayı bir OATH belirteci oluşturucu olarak kullanıyorsanız ağ veya İnternet bağlantısı gerekmez. 
@@ -99,9 +101,4 @@ Artık mobil uygulama web hizmeti yüklendiğine göre, portal ile çalışmak i
 5. Azure Multi-Factor AuthenticationMobileAppWebServiceSetup yüklenirken oluşturulan sanal dizinle kullanılan URL’yi girin. Sağlanan alana bir Hesap Adı girilebilir. Bu şirket adı mobil uygulamada görüntülenir. Bu alan boş bırakılırsa, klasik Azure portalında oluşturulan Multi-Factor Auth Sağlayıcınızın adı görüntülenir.
 
 <center>![Kurulum](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
