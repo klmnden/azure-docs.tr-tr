@@ -60,7 +60,8 @@
 ## Sorun giderme
 ### [Bağlantı](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Eşitleme sırasında karşılaşılan hatalar](active-directory-aadconnect-troubleshoot-sync-errors.md)
-
+### [Nesne eşitlenmemiş](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Parola eşitleme](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 
 # Başvuru
 ## [Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

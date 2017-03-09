@@ -1,12 +1,16 @@
 # Genel Bakış
 ## [Azure Otomasyonu Nedir?](automation-intro.md)
-## [Azure Otomasyonu’nda güvenlik](automation-security-overview.md)
-# Başlarken
+# başlarken
 ## [Runbook oluşturma](automation-first-runbook-graphical.md)
 ## [PowerShell runbook’u oluşturma](automation-first-runbook-textual-powershell.md)
 ## [PowerShell İş Akışı runbook’u oluşturma](automation-first-runbook-textual.md)
 ## [Rol tabanlı erişim denetimini yönetme](automation-role-based-access-control.md)
 # Nasıl yapılır?
+## Kimlik doğrulamasını ayarlama
+### [Azure Otomasyonu’nda kimlik doğrulaması](automation-security-overview.md)
+### [Azure Farklı Çalıştır hesabı](automation-sec-configure-azure-runas-account.md)
+### [Azure Hizmet Yönetimi ve Azure Resource Manager](automation-sec-configure-aduser-account.md)
+### [Amazon Web Hizmetleri](automation-sec-configure-aws-account.md)
 ## Runbook oluşturma
 ### [Runbook türleri](automation-runbook-types.md)
 ### [Runbook oluşturma ve çalıştırma](automation-creating-importing-runbook.md)
@@ -28,15 +32,11 @@
 ### [Azure Otomasyonu verilerini yönetme](automation-managing-data.md)
 ### [Log Analytics uyarısından Azure Otomasyonu Runbook’u çağırma](automation-invoke-runbook-from-omsla-alert.md)
 ## Yapılandırma yönetimi (DSC) dağıtma
-### [İstenen Durum Yapılandırması (DSC)](automation-dsc-overview.md)
+### [İstenen Durum Yapılandırması’na (DSC) genel bakış](automation-dsc-overview.md)
 ### [Başlarken](automation-dsc-getting-started.md)
 ### [Makineleri yönetim için hazırlama](automation-dsc-onboarding.md)
 ### [DSC yapılandırmaları derleme](automation-dsc-compile.md)
 ### [Chocolatey kullanarak sürekli dağıtım](automation-dsc-cd-chocolatey.md)
-## Kimlik doğrulamasını ayarlama
-### [Azure Hizmet Yönetimi ve Azure Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Hizmetleri](automation-sec-configure-aws-account.md)
-### [Azure RunAs hesabı](automation-sec-configure-azure-runas-account.md)
 ## Otomasyon varlıklarını yönetme
 ### [Sertifikalar](automation-certificates.md)
 ### [Bağlantılar](automation-connections.md)
@@ -47,8 +47,6 @@
 ### [Azure PowerShell modüllerini güncelleştirme](automation-update-azure-modules.md)
 ## Senaryoları otomatik hale getirme
 ### [Runbook galerisi](automation-runbook-gallery.md)
-### [Sanal makineleri Başlatma/Durdurma](automation-solution-startstopvm-graphical.md)
-### [PowerShell ile sanal makineleri Başlatma/Durdurma](automation-solution-startstopvm-psworkflow.md)
 ### [Amazon Web Hizmetleri Sanal Makinesi oluşturma](automation-scenario-aws-deployment.md)
 ### [Azure VM uyarısını düzeltme](automation-azure-vm-alert-integration.md)
 ### [JSON Etiketleriyle VM Başlatma/Durdurma](automation-scenario-start-stop-vm-wjson-tags.md)
@@ -81,8 +79,3 @@
 ## [Azure Otomasyonu eğitimi](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Otomasyon tanıtım videosu](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

@@ -264,6 +264,7 @@
 
 # İlgili
 ## [.NET için Azure SDK sürüm notları](azure-sdk-dotnet-release-notes.md)
+### [3.0 sürümü](azure-sdk-dotnet-release-notes-3-0.md)
 ### [2.9 sürümü](azure-sdk-dotnet-release-notes-2-9.md)
 ### [2.8.X sürümleri](azure-sdk-dotnet-release-notes-2-8.md)
 ### [2.7.X sürümleri](azure-sdk-dotnet-release-notes-2-7.md)

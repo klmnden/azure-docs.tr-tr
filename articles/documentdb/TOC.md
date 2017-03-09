@@ -1,6 +1,7 @@
 
 # Genel Bakış
 ## [DocumentDB nedir?](documentdb-introduction.md)
+## [DocumentDB: MongoDB için API nedir?](documentdb-protocol-mongodb.md)
 ## [Temel kavramlar](documentdb-resources.md)
 ## [Genel dağıtım](documentdb-distribute-data-globally.md)
 ## [NoSQL TCO analizi](https://aka.ms/documentdb-tco-paper)
@@ -14,9 +15,11 @@
 ### [.NET Core konsol uygulaması](documentdb-dotnetcore-get-started.md)
 ### [Java konsol uygulaması](documentdb-java-get-started.md)
 ### [Node.js konsol uygulaması](documentdb-nodejs-get-started.md)
+### [MongoDB API’leri için Node.js](documentdb-mongodb-samples.md)
 ### [C++ konsol uygulaması](documentdb-cpp-get-started.md)
 ## Web uygulaması oluşturma
 ### [.NET web uygulaması](documentdb-dotnet-application.md)
+### [MongoDB API’leri için .NET web uygulaması](documentdb-mongodb-application.md)
 ### [Node.js web uygulaması](documentdb-nodejs-application.md)
 ### [Java web uygulaması](documentdb-java-application.md)
 ### [Python Flask web uygulaması](documentdb-python-application.md)
@@ -34,6 +37,10 @@
 
 ## Yönet
 ### [Verilerinizi içeri aktarma](documentdb-import-data.md)
+### [MongoDB için API’ye içeri aktarma](documentdb-mongodb-migrate.md)
+### [MongoDB hesabınıza bağlanma](documentdb-connect-mongodb-account.md)
+### [MongoChef kullanma](documentdb-mongodb-mongochef.md)
+### [Robomongo kullanma](documentdb-mongodb-robomongo.md)
 ### [Veri modeli oluşturma](documentdb-modeling-data.md)
 ### [Jeo-uzamsal veriler kullanma](documentdb-geospatial.md)
 ### [Birden çok bölgeye yönelik geliştirme](documentdb-developing-with-multiple-regions.md)
@@ -60,15 +67,6 @@
 ### En iyi uygulamalar
 #### [Çok yöneticili kurulum](documentdb-multi-region-writers.md)
 #### [DateTimes](documentdb-working-with-dates.md)
-
-## MongoDB için DocumentDB Desteğini Kullanma
-### [MongoDB için protokol desteği](documentdb-protocol-mongodb.md)
-### [Hesap oluşturma](documentdb-create-mongodb-account.md)
-### [Hesabınıza bağlanma](documentdb-connect-mongodb-account.md)
-### [Verilerinizi geçirme](documentdb-mongodb-migrate.md)
-### [Robomongo’yu kullanma](documentdb-mongodb-robomongo.md)
-### [MongoChef kullanma](documentdb-mongodb-mongochef.md)
-### [Protokol desteği örnekleri](documentdb-mongodb-samples.md)
 
 ## Portalı kullanma
 ### [Veritabanı hesabı oluşturma](documentdb-create-account.md)

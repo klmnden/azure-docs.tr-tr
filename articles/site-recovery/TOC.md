@@ -1,10 +1,11 @@
 # Genel Bakış
 ## [Site Recovery nedir?](site-recovery-overview.md)
 ## [Site Recovery nasıl çalışır?](site-recovery-components.md)
+## [Azure’a Hyper-V çoğaltma nasıl çalışır?](site-recovery-hyper-v-azure-architecture.md)
 ## [Hangi iş yüklerini korur?](site-recovery-workload.md)
 ## [Site Recovery destek matrisi](site-recovery-support-matrix-to-azure.md)
 ## [SSS](site-recovery-faq.md)
-## [Tanıtımı izleyin](https://www.youtube.com/watch?v=eOOwMQPBKfM)
+## [Tanıtımı izleyin](https://azure.microsoft.com/resources/videos/index/?services=recovery-manager)
 
 # Kullanmaya Başlama
 ## [VMWare VM'lerini Azure'a çoğaltma](site-recovery-vmware-to-azure.md)
@@ -18,7 +19,7 @@
 ## Planlama
 ### [Dağıtım önkoşulları](site-recovery-prereq.md)
 ### [Ağ altyapısı ile ilgili önemli noktalar](site-recovery-network-design.md)
-### [Site Recovery Capacity Planner’ı kullanma](site-recovery-capacity-planner.md)
+### [Hyper-V çoğaltması için Site Recovery Capacity Planner’ı çalıştırma](site-recovery-capacity-planner.md)
 ### [Kapasite planlama ve Azure'aa VMware çoğaltma işlemini ölçeklendirme](site-recovery-plan-capacity-vmware.md)
 ### [Azure’a VMware çoğaltması için Dağıtım Planlayıcısı’nı çalıştırma](site-recovery-deployment-planner.md)
 ## Yapılandırma

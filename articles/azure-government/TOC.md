@@ -1,3 +1,4 @@
+
 # Genel Bakış
 ## [Azure Government nedir?](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
@@ -31,6 +32,7 @@
 ### [İşlem](documentation-government-compute.md)
 ### [Depolama](documentation-government-services-storage.md)
 ### [Veritabanı](documentation-government-services-database.md)
+### [Zeka + Analiz](documentation-government-services-intelligenceandanalytics.md)
 ### [Ağ](documentation-government-networking.md)
 ### [Güvenlik ve Kimlik](documentation-government-services-securityandidentity.md)
 ### [İzleme + Yönetim](documentation-government-services-monitoringandmanagement.md)
@@ -42,8 +44,3 @@
 ## [Deneme](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Azure Kamu Web Sitesi](https://azure.microsoft.com/overview/clouds/government/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
