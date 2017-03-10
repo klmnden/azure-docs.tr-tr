@@ -48,7 +48,7 @@ RADIUS kimlik doğrulamasını yapılandırmak için, bir Windows sunucusuna Azu
 7. Mobil doğrulama uygulamalarınızdan edindiğiniz OATH parolalarını bant dışı telefon araması, SMS veya anında iletme bildirimlerinin yedeği olarak kullanmak istiyorsanız **Yedek OATH belirtecini etkinleştir** kutusunu işaretleyin.
 8. **Tamam** düğmesine tıklayın.
 
-4. adımdan 8. adıma kadar yapılan işlemleri tekrarlayarak dilediğiniz kadar RADIUS istemcisi ekleyebilirsiniz.
+4 adımdan 8 adıma kadar yapılan işlemleri tekrarlayarak dilediğiniz kadar RADIUS istemcisi ekleyebilirsiniz.
 
 ## <a name="configure-your-radius-client"></a>RADIUS istemcinizi yapılandırma
 
