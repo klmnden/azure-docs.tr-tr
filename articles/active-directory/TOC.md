@@ -34,15 +34,13 @@
 ##### [Benimseme stratejisi](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 #### [Sonraki adımlar](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 #### [Araç karşılaştırması](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+
 ## Kullanıcıları yönetme
 ### Kullanıcı ekle
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
 #### [Klasik portal](active-directory-create-users.md)
 
-### Diğer dizinlerden kullanıcıları ekleme
-#### [Azure Portal](active-directory-users-create-external-azure-portal.md)
-#### [Klasik portal](active-directory-create-users-external.md)
-
+### [Diğer dizinlerden kullanıcıları ekleme (klasik portal)](active-directory-create-users-external.md)
 ### [Kullanıcıları silme](active-directory-users-delete-user-azure-portal.md)
 ### [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
 ### [Parola sıfırlama](active-directory-users-reset-password-azure-portal.md)
@@ -74,27 +72,28 @@
 ### [Self servis gruplarını kurma](active-directory-accessmanagement-self-service-group-management.md)
 ### [Sorun giderme](active-directory-accessmanagement-troubleshooting.md)
 
-## [Etkinlik raporlarını görüntüle](active-directory-view-access-usage-reports.md)
-### [Oturum açma işlemleri](active-directory-reporting-activity-sign-ins.md)
-### [Denetim günlükleri](active-directory-reporting-activity-audit-logs.md)
+## [Raporları yönetme](active-directory-reporting-azure-portal.md)
+### [Oturum açma etkinliği](active-directory-reporting-activity-sign-ins.md)
+### [Denetim etkinliği](active-directory-reporting-activity-audit-logs.md)
 ### [Risk altındaki kullanıcılar](active-directory-reporting-security-user-at-risk.md)
 ### [Riskli oturum açma işlemleri](active-directory-reporting-security-risky-sign-ins.md)
+### [Risk olayları](active-directory-reporting-risk-events.md)
+### [Adlandırılmış ağlar](active-directory-known-networks-azure-portal.md)
 ### [SSS](active-directory-reporting-faq.md)
 ### [Rapor geçişi](active-directory-reporting-migration.md)
-### [Bilinen ağlar](active-directory-known-networks.md)
-
-### Klasik portal
+### [Bekletme](active-directory-reporting-retention.md)
+###    Programlı Erişim
+#### [Denetim başvurusu](active-directory-reporting-api-audit-reference.md)
+#### [Denetim örnekleri](active-directory-reporting-api-audit-samples.md)
+#### [Önkoşullar](active-directory-reporting-api-prerequisites.md)
+#### [Oturum açma başvurusu](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Oturum açma örnekleri](active-directory-reporting-api-sign-in-activity-samples.md)
+### [Klasik portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD raporlama](active-directory-reporting-getting-started.md)
 #### [Raporlama kılavuzu](active-directory-reporting-guide.md)
-#### [Önizleme](active-directory-reporting-azure-portal.md)
+#### [Bilinen ağlar](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
-##### [Denetim Başvurusu](active-directory-reporting-api-audit-reference.md)
-##### [Denetim Örnekleri](active-directory-reporting-api-audit-samples.md)
-##### [Önkoşullar](active-directory-reporting-api-prerequisites.md)
-##### [Oturum açma başvurusu](active-directory-reporting-api-sign-in-activity-reference.md)
-##### [Oturum açma örnekleri](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Denetim olayları](active-directory-reporting-audit-events.md)
-#### [Bekletme](active-directory-reporting-retention.md)
 #### [Gecikmeler](active-directory-reporting-latencies.md)
 #### [Bildirimler](active-directory-reporting-notifications.md)
 #### Raporları anlama
@@ -108,6 +107,7 @@
 
 ## [Parolaları yönetme](active-directory-manage-passwords.md)
 ### [Kendi parolanızı güncelleştirme](active-directory-passwords-update-your-own-password.md)
+### [Self servis parola sıfırlamayı ayarlama](active-directory-passwords.md)
 ### [Parola yönetimini anlama](active-directory-passwords-how-it-works.md)
 ### [İlkeleri ve kısıtlamaları anlama](active-directory-passwords-policy.md)
 ### Parolaları sıfırla
@@ -117,7 +117,6 @@
 ### Parola yönetimini etkinleştirme
 #### [Kullanmaya Başlama](active-directory-passwords-getting-started.md)
 #### [Dağıtma](active-directory-passwords-best-practices.md)
-#### [Self servis parola sıfırlamayı ayarlama](active-directory-passwords.md)
 #### [Özelleştirme](active-directory-passwords-customize.md)
 #### [Raporları görüntüleme](active-directory-passwords-get-insights.md)
 #### [Daha fazla bilgi](active-directory-passwords-learn-more.md)
@@ -128,22 +127,19 @@
 ### [Cihaz kaydetme](active-directory-conditional-access-device-registration-overview.md)
 #### [Otomatik kaydı yönetme](active-directory-conditional-access-automatic-device-registration.md)
 #### [Kurulum](active-directory-conditional-access-automatic-device-registration-setup.md)
-### [Cihazınızı kaydetme](active-directory-azureadjoin-personal-device.md)
-### [Bir Windows 10 cihazını kaydetme](active-directory-azureadjoin-user-upgrade.md)
+#### [SSS](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Sorun giderme
+##### [Windows 10 ve Windows Server 2016 için sorun giderme](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Windows alt düzey istemciler için sorun giderme](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Cihaz kaydı oluşturma](active-directory-azureadjoin-setup.md)
 #### [Yeni cihazları kaydetme](active-directory-azureadjoin-user-frx.md)
 #### [Dağıtma](active-directory-azureadjoin-devices-group-policy.md)
-#### [Parolasız kimlik doğrulama](active-directory-azureadjoin-passport.md)
-#### [İş İçin Windows Hello’yu etkinleştirme](active-directory-azureadjoin-passport-deployment.md)
-
 #### [Windows 10 ile tümleştirmeyi anlama](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Windows 10 cihazları kullanma](active-directory-azureadjoin-windows10-devices.md)
-#### [SSS](active-directory-conditional-access-automatic-device-registration-faq.md)
-#### Sorun giderme
-##### [Windows 10 ve Windows Server 2016 için sorun giderme](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Windows alt düzey istemciler için sorun giderme](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+#### [Cihazınızı ekleme](active-directory-azureadjoin-personal-device.md)
+#### [Bir Windows 10 cihazını ekleme](active-directory-azureadjoin-user-upgrade.md)
 
 ## Uygulamaları yönetme
 ### [Genel Bakış](active-directory-enable-sso-scenario.md)
@@ -237,6 +233,7 @@
 #### [Davet kullanma](active-directory-b2b-redemption-experience.md)
 #### [B2B kullanıcı özellikleri](active-directory-b2b-user-properties.md)
 #### [Bir role konuk kullanıcı ekleme](active-directory-b2b-add-guest-to-role.md)
+#### [Denetim ve raporlar](active-directory-b2b-auditing-and-reporting.md)
 #### [API ve özelleştirme](active-directory-b2b-api.md)
 #### [Temsilci davetleri](active-directory-b2b-delegate-invitations.md)
 #### [Dinamik gruplar ve B2B](active-directory-b2b-dynamic-groups.md)
@@ -284,6 +281,9 @@
 #### [SSS](active-directory-conditional-faqs.md)
 #### [Sorun giderme](active-directory-conditional-access-device-remediation.md)
 #### [Başvuru](active-directory-conditional-access-technical-reference.md)
+### Windows Hello
+#### [Parolasız kimlik doğrulama](active-directory-azureadjoin-passport.md)
+#### [İş İçin Windows Hello’yu etkinleştirme](active-directory-azureadjoin-passport-deployment.md)
 ### Sertifika Tabanlı Kimlik Doğrulaması
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

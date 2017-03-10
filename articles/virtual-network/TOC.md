@@ -12,10 +12,9 @@
 ### [Ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Kullanmaya Başlama
-## [Sanal ağ oluşturma](virtual-networks-create-vnet-arm-pportal.md)
-## [VM’yi sanal ağa dağıtma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [İlk sanal ağınızı oluşturma](virtual-network-get-started-vnet-subnet.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama ve tasarım
 ### [Sanal ağlar](virtual-network-vnet-plan-design-arm.md)
 ### [Ağ güvenlik grupları](virtual-networks-nsg.md)
@@ -146,8 +145,3 @@
 ## [Ağ forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

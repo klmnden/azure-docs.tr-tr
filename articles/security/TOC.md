@@ -9,13 +9,13 @@
 ### [Veri güvenliği ve şifreleme için en iyi uygulamalar](azure-security-data-encryption-best-practices.md)
 ### [Depolama alanı güvenliği kılavuzu](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [İşlem güvenliği](security-virtual-machines-overview.md)
+### [Azure VM’leri için en iyi uygulamalar](azure-security-best-practices-vms.md)
 ### [IaaS iş yükleri için en iyi uygulamalar](azure-security-iaas.md)
 ### [Microsoft Kötü Amaçlı Yazılımdan Koruma](azure-security-antimalware.md)
 ### [Disk şifrelemesi](azure-security-disk-encryption.md)
 ### [Azure VM’yi şifreleme](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Güvenlik yönetimi ve izleme](security-management-and-monitoring-overview.md)
 ### [Güvenlik yönetimi](azure-security-management.md)
-### [IaaS’de yazılım güncelleştirmeleri için en iyi uygulamalar](azure-security-best-practices-software-updates-iaas.md)
 ### [Azure Güvenlik Merkezi](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Azure günlük tümleştirmesi](security-azure-log-integration-overview.md)
 #### [Başlarken](security-azure-log-integration-get-started.md)
@@ -63,8 +63,3 @@
 ###[Giriş doğrulaması](azure-security-threat-modeling-tool-input-validation.md)
 ###[Hassas veriler](azure-security-threat-modeling-tool-sensitive-data.md)
 ###[Oturum yönetimi](azure-security-threat-modeling-tool-session-management.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

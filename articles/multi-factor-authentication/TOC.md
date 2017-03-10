@@ -1,8 +1,9 @@
 # Genel Bakış
 ## [Azure Multi-Factor Authentication nedir?](multi-factor-authentication.md)
 ## [Nasıl çalışır?](multi-factor-authentication-how-it-works.md)
+## [Azure MFA’yı edinme](multi-factor-authentication-versions-plans.md)
 
-# Başlarken
+# başlarken
 ## [Dağıtılacağı yeri seçme](multi-factor-authentication-get-started.md)
 ## [Bulutta MFA](multi-factor-authentication-get-started-cloud.md)
 ## [Şirket içi MFA](multi-factor-authentication-get-started-server.md)
@@ -20,6 +21,7 @@
 #### [Gelişmiş VPN Yapılandırmaları](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Mobil Uygulama Web Hizmeti](multi-factor-authentication-get-started-server-webservice.md)
 #### [Windows Kimlik Doğrulaması](multi-factor-authentication-get-started-server-windows.md)
+#### [MFA Sunucusu’nu yükseltme](multi-factor-authentication-server-upgrade.md)
 #### [PhoneFactor'den yükseltme](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Kullanıcıları yönetme
@@ -45,8 +47,3 @@
 ## Sorun giderme
 ### [SSS](multi-factor-authentication-faq.md)
 ### [Özel Uygulamalarda (SDK) oluşturma](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
