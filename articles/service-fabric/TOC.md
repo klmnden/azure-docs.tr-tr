@@ -81,9 +81,10 @@
 #### [Zamanlayıcılar ve anımsatıcılar](service-fabric-reliable-actors-timers-reminders.md)
 #### [Olaylar](service-fabric-reliable-actors-events.md)
 #### [Durum yönetimi](service-fabric-reliable-actors-state-management.md)
-#### [Durum sağlayıcısı yapılandırma](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
+#### [KvsActorStateProvider’ı yapılandırma](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Türü seri hale getirme](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [İletişim ayarlarını yapılandırma](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [ReliableDictionaryActorStateProvider’ı yapılandırma](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ## Cloud Services’tan geçiş
 ### [Cloud Services ile Service Fabric karşılaştırması](service-fabric-cloud-services-migration-differences.md)
@@ -106,6 +107,7 @@
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 ##### [Visual Studio ve Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
+#### [Küme ağ desenleri](service-fabric-patterns-networking.md)
 #### [Düğüm türleri ve VM Ölçek Kümeleri](service-fabric-cluster-nodetypes.md)
 #### [Küme ölçeklendirme](service-fabric-cluster-scale-up-down.md)
 #### [Kümeyi yükseltme](service-fabric-cluster-upgrade.md)

@@ -58,33 +58,37 @@
 ## Verileri geçirme ve taşıma
 ### Öğrenin
 #### [Bir veritabanını geçirme](sql-database-cloud-migrate.md)
-#### [İşlem çoğaltması](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+#### [Veritabanını dışarı aktarma](sql-database-export.md)
 #### [Veri eşitleme](sql-database-get-started-sql-data-sync.md)
 #### [SQL veritabanı kopyalama](sql-database-copy.md)
 ## Güvenlik Duvarı kuralları, kimlik doğrulaması ve yetkilendirme
 ### Öğrenin
 #### [Erişim denetimi](sql-database-control-access.md)
-#### [Güvenlik duvarı](sql-database-firewall-configure.md)
+#### [Güvenlik duvarı kuralları](sql-database-firewall-configure.md)
 #### [Oturum açmaları yönetme](sql-database-manage-logins.md)
+#### [Azure AD kimlik doğrulaması](sql-database-aad-authentication.md)
+#### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
 ### Yapın
 #### [SQL kimlik doğrulaması ve yetkilendirme](sql-database-control-access-sql-authentication-get-started.md)
 #### [Azure AD kimlik doğrulama ve yetkilendirme](sql-database-control-access-aad-authentication-get-started.md)
 ## Verileri güvenli hale getirme ve koruma
 ### Öğrenin
 #### Denetim
-##### [Denetim](sql-database-auditing-get-started.md)
+##### [Denetim](sql-database-auditing.md)
 ##### [Alt düzey istemci desteği ve denetim için IP uç noktası değişiklikleri](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-#### [Tehdit algılama](sql-database-threat-detection-get-started.md)
+#### [Tehdit algılama](sql-database-threat-detection.md)
 #### Verileri şifreleme
-##### [Azure anahtar kasası](sql-database-always-encrypted-azure-key-vault.md)
 ##### [Saydam veri şifrelemesi](https://msdn.microsoft.com/library/azure/dn948096)
 ##### [Sütun şifreleme](https://msdn.microsoft.com/library/azure/ms179331)
 #### Verileri maskeleme
-##### Dinamik veri maskeleme
-###### [Azure portal](sql-database-dynamic-data-masking-get-started.md)
+##### [Dinamik veri maskeleme](sql-database-dynamic-data-masking-get-started.md)
 ### Yapın
-#### [Azure portalını kullanarak dinamik veri maskeleme](sql-database-dynamic-data-masking-get-started.md)
-##### [Windows sertifika deposunu kullanan Always Encrypted](sql-database-always-encrypted.md)
+#### [Azure portalını kullanarak dinamik veri maskeleme](sql-database-dynamic-data-masking-get-started-portal.md)
+#### [Azure portalını kullanarak denetimi yapılandırma](sql-database-auditing-portal.md)
+#### [PowerShell’i kullanarak denetimi yapılandırma](sql-database-auditing-powershell.md)
+#### [REST API’yi kullanarak denetimi yapılandırma](sql-database-auditing-rest.md)
+#### [Windows sertifikasını kullanan Always Encrypted](sql-database-always-encrypted.md)
+#### [Azure Key Vault kullanan Always Encrypted](sql-database-always-encrypted-azure-key-vault.md)
 ## İş sürekliliği
 ### Öğrenin
 #### [Genel Bakış](sql-database-business-continuity.md)
@@ -100,7 +104,7 @@
 #### [Olağanüstü durum kurtarma tatbikatı gerçekleştirme](sql-database-disaster-recovery-drills.md)
 #### [Etkin Coğrafi Çoğaltmaya genel bakış](sql-database-geo-replication-overview.md)
 ### Yapın
-#### [Azure portalı: Yedekleme ve geri yükleme](sql-database-get-started-backup-recovery.md)
+#### [Azure portalı: Yedekleme ve geri yükleme](sql-database-get-started-backup-recovery-portal.md)
 #### [PowerShell: Yedekleme ve geri yükleme](sql-database-get-started-backup-recovery-powershell.md)
 ## Uygulama geliştirme
 ### Öğrenin
@@ -140,7 +144,7 @@
 ### Yapın
 #### [SQL Server geliştirme](https://msdn.microsoft.com/library/ms179422.aspx)
 #### [Bellek içi OLTP’yi benimseme](sql-database-in-memory-oltp-migration.md)
-## İzleme ve Ayarlama
+## İzleme ve ayarlama
 ### Öğrenin
 #### [Tek veritabanları](sql-database-single-database-monitor.md)
 #### [SQL Veritabanı Danışmanına genel bakış](sql-database-advisor.md)
@@ -157,67 +161,55 @@
 #### [PowerShell’i kullanarak yükseltme](sql-database-upgrade-server-powershell.md)
 # Nasıl yapılır
 ## Oluşturma ve yönetme
-### [Azure portalını kullanarak SQL Veritabanı’nı yönetme](sql-database-manage-portal.md)
-### [PowerShell’i kullanarak SQL Veritabanı'nı yönetme](sql-database-manage-powershell.md)
-### [SMSS’yi kullanarak SQL Veritabanı'nı yönetme](sql-database-manage-azure-ssms.md)
+### [Azure portalını kullanarak yönetme](sql-database-manage-portal.md)
+### [PowerShell’i kullanarak yönetme](sql-database-manage-powershell.md)
+### [SSMS kullanarak yönetme](sql-database-manage-azure-ssms.md)
 ### Sunucular
-#### [Sunucu oluşturma](sql-database-create-servers.md)
-#### [Sunucu ayarlarını görüntüleme veya güncelleştirme](sql-database-view-update-server-settings.md)
+#### [Azure portalını kullanarak yönetme](sql-database-manage-servers-portal.md)
+#### [PowerShell’i kullanarak yönetme](sql-database-manage-servers-powershell.md)
 ### Tek veritabanları
-#### [Tek veritabanları oluşturma](sql-database-create-databases.md)
-#### [Veritabanı ayarlarını görüntüleme veya güncelleştirme](sql-database-view-update-database-settings.md)
+#### [Azure portalını kullanarak yönetme](sql-database-manage-single-databases-portal.md)
+#### [PowerShell’i kullanarak yönetme](sql-database-manage-single-databases-powershell.md)
+#### [Transact-SQL kullanarak yönetme](sql-database-manage-single-databases-tsql.md)
 ### Güvenlik duvarı kuralları
-#### [Azure portalını kullanarak güvenlik duvarı kuralları oluşturma](sql-database-configure-firewall-settings.md)
-#### [PowerShell’i kullanarak güvenlik duvarı kuralları oluşturma](sql-database-configure-firewall-settings-powershell.md)
-#### [REST API’yi kullanarak güvenlik duvarı kuralları oluşturma](sql-database-configure-firewall-settings-rest.md)
-#### [T-SQL’yi kullanarak güvenlik duvarı kuralları oluşturma](sql-database-configure-firewall-settings-tsql.md)
+#### [Azure portalını kullanarak oluşturma](sql-database-configure-firewall-settings.md)
+#### [PowerShell kullanarak oluşturma](sql-database-configure-firewall-settings-powershell.md)
+#### [REST API kullanarak oluşturma](sql-database-configure-firewall-settings-rest.md)
+#### [T-SQL kullanarak oluşturma](sql-database-configure-firewall-settings-tsql.md)
 ### Birden çok veritabanı
 #### [İstemci uygulamalarında istemci kitaplığını yükseltme](sql-database-elastic-scale-upgrade-client-library.md)
 #### Parçalı veritabanları
 ##### [Güvenlik yapılandırması](sql-database-elastic-scale-split-merge-security-configuration.md)
 ##### [Parça ekleme](sql-database-elastic-scale-add-a-shard.md)
 ##### [Parça eşleme sorunlarını giderme](sql-database-elastic-database-recovery-manager.md)
-##### [Ölçeği genişletilen mevcut veritabanlarını parçalı veritabanlarına geçirme](sql-database-elastic-convert-to-use-elastic-tools.md)
+##### [Parçalı veritabanlarına geçirme](sql-database-elastic-convert-to-use-elastic-tools.md)
 ##### [Parça eşleme yöneticisi için performans sayaçları oluşturma](sql-database-elastic-database-perf-counters.md)
 #### Esnek işler
-##### [Elastik işler hizmetini nasıl yükleyebilirim?](sql-database-elastic-jobs-service-installation.md)
-##### [PowerShell’i kullanarak esnek işler oluşturma ve yönetme](sql-database-elastic-jobs-powershell.md) 
-##### [Azure portalını kullanarak elastik işler oluşturma ve yönetme](sql-database-elastic-jobs-create-and-manage.md)
-##### [Elastik işleri nasıl kaldırabilirim?](sql-database-elastic-jobs-uninstall.md)
+##### [Nasıl yüklerim?](sql-database-elastic-jobs-service-installation.md)
+##### [PowerShell’i kullanarak yönetme](sql-database-elastic-jobs-powershell.md) 
+##### [Azure portalını kullanarak yönetme](sql-database-elastic-jobs-create-and-manage.md)
+##### [Nasıl kaldırırım?](sql-database-elastic-jobs-uninstall.md)
 #### Esnek havuzlar
-##### [Azure portalını kullanarak oluşturma](sql-database-elastic-pool-create-portal.md)
-##### [PowerShell kullanarak oluşturma](sql-database-elastic-pool-create-powershell.md)
-##### [C# kullanarak oluşturma](sql-database-elastic-pool-create-csharp.md)
 ##### [Azure portalını kullanarak yönetme](sql-database-elastic-pool-manage-portal.md)
 ##### [PowerShell’i kullanarak yönetme](sql-database-elastic-pool-manage-powershell.md)
 ##### [C# kullanarak yönetme](sql-database-elastic-pool-manage-csharp.md)
 ##### [T-SQL kullanarak yönetme](sql-database-elastic-pool-manage-tsql.md)
-##  Kimlik doğrulama ve yetkilendirme
-### [Azure AD kimlik doğrulaması](sql-database-aad-authentication.md)
-### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
+## Kimlik doğrulama ve yetkilendirme
+### [Azure AD kimlik doğrulamasını yapılandırma](sql-database-aad-authentication-configure.md)
+### [Multi-Factor Authentication’ı yapılandırma](sql-database-ssms-mfa-authentication-configure.md)
+## Tehdit algılamayı yapılandırma
+### [Azure portalını kullanarak tehdit algılamayı yapılandırma](sql-database-threat-detection-portal.md)
 ## Verileri şifreleme
 ### [Saydam veri şifrelemesi](https://msdn.microsoft.com/library/azure/dn948096)
 ### [Sütun şifreleme](https://msdn.microsoft.com/library/azure/ms179331)
-## Veritabanlarını geçirme
-### Uyumluluk belirleme
-#### [SQL Paketi yardımcı programını kullanarak uyumluluğu belirleme](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-#### [SSMS‘yi kullanarak uyumluluğu belirleme](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-### Uyumluluk sorunlarını giderme
-#### [SSDT’yi kullanarak uyumluluk sorunlarını düzeltme](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-#### [SSMS’yi kullanarak uyumluluk sorunlarını düzeltme](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-#### [SMW’yi kullanarak uyumluluk sorunlarını düzeltme](sql-database-cloud-migrate-fix-compatibility-issues.md)
-### [SSMS Geçiş Sihirbazı'nı kullanarak geçiş yapma](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 ## İzleme ve ayarlama
 ### [Sorgu Performansı Öngörüleri](sql-database-query-performance.md)
 ### [SQL Veritabanı Danışmanı](sql-database-advisor-portal.md)
 ### [DMV’ler](sql-database-monitoring-with-dmvs.md)
 ### [Uyumluluk düzeyleri](sql-database-compatibility-level-query-performance-130.md)
 ### [Performans ayarlama ipuçları](sql-database-troubleshoot-performance.md)
-### Hizmet katmanlarını ve performans düzeylerini değiştirme
-#### [Azure portalını kullanarak hizmet katmanlarını değiştirme](sql-database-scale-up.md)
-#### [PowerShell’i kullanarak hizmet katmanlarını değiştirme](sql-database-scale-up-powershell.md)
 ### [Uyarı oluşturma](sql-database-insights-alerts-portal.md)
-#### [Bellek içi OLTP Depolama Alanını izleme](sql-database-in-memory-oltp-monitoring.md)
+### [Bellek içi OLTP Depolama Alanını izleme](sql-database-in-memory-oltp-monitoring.md)
 ### Sorgu Deposu
 #### [Sorgu Deposu kullanarak performans izleme](https://msdn.microsoft.com/library/dn817826.aspx)
 #### [Sorgu Deposu kullanım senaryoları](https://msdn.microsoft.com/library/mt614796.aspx)
@@ -231,31 +223,30 @@
 #### [PowerShell’i kullanarak kopyalama](sql-database-copy-powershell.md)
 #### [T-SQL kullanarak kopyalama](sql-database-copy-transact-sql.md)
 ### Veritabanını BACPAC dosyasına aktarma
-#### [Azure portalını kullanarak dışarı aktarma](sql-database-export.md)
-#### [SSMS‘yi kullanarak dışarı aktarma](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-#### [SQL Paketi yardımcı programını kullanarak dışarı aktarma](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+#### [Azure portalını kullanarak dışarı aktarma](sql-database-export-portal.md)
+#### [SQL Paketi yardımcı programını kullanarak dışarı aktarma](sql-database-export-sqlpackage.md)
 #### [PowerShell’i kullanarak dışarı aktarma](sql-database-export-powershell.md)
-### Veritabanını BACPAC dosyasından alma
-#### [Azure portalını kullanarak dışarı aktarma](sql-database-import.md)
-#### [PowerShell’i kullanarak içeri aktarma](sql-database-import-powershell.md)
-#### [SSMS‘yi kullanarak içeri aktarma](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-#### [SQL Paketi yardımcı programını kullanarak içeri aktarma](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+#### [SSMS‘yi kullanarak dışarı aktarma](sql-database-export-ssms.md)
+## Veri içeri aktarma
+### [Azure portalını kullanarak dışarı aktarma](sql-database-import-portal.md)
+### [PowerShell’i kullanarak içeri aktarma](sql-database-import-powershell.md)
+### [SQLPackage kullanarak içeri aktarma](sql-database-import-sqlpackage.md)
 ### [CSV dosyasından BCP kullanarak yükleme](sql-database-load-from-csv-with-bcp.md)
 ## Sorgu
 ### [SSMS‘yi kullanarak sorgulama](sql-database-connect-query-ssms.md)
-## Yedekleme ve Geri Yükleme
+## Yedekleme ve geri yükleme
 ### Uzun süreli yedek saklama
-#### [Uzun süreli yedek saklama yapılandırma](sql-database-configure-long-term-retention.md)
-#### [Kurtarma Hizmetleri kasasındaki yedekleri görüntüleme](sql-database-view-backups-in-vault.md)
-#### [Uzun süreli yedek saklamadan geri yükleme](sql-database-restore-from-long-term-retention.md)
-#### [Uzun süreli yedek saklamadan silme](sql-database-long-term-retention-delete.md)
+#### [Azure portalını kullanarak uzun vadeli yedekleme bekletmeyi yönetme](sql-database-manage-long-term-backup-retention-portal.md)
+#### [PowerShell kullanarak uzun vadeli yedekleme bekletmeyi yönetme](sql-database-manage-long-term-backup-retention-powershell.md)
 ### Silinen veritabanını geri yükleme
 #### [Azure portalını kullanarak silinmiş öğeleri geri yükleme](sql-database-restore-deleted-database-portal.md)
 #### [PowerShell’i kullanarak silinmiş öğeleri geri yükleme](sql-database-restore-deleted-database-powershell.md)
-### Belirli bir noktaya geri yükleme
-#### [Zaman içinde bir noktaya geri yükleme](sql-database-point-in-time-restore.md)
-#### [En eski geri yükleme noktasını görüntüleme](sql-database-view-oldest-restore-point.md)
-### [Coğrafi olarak yedekli bir yedekten geri yükleme](sql-database-geo-restore.md)
+### Zaman noktasında veritabanını geri yükleme
+#### [Azure portalı kullanarak belirli bir noktaya geri yükleme](sql-database-point-in-time-restore-portal.md)
+#### [PowerShell kullanarak veritabanını belirli bir noktaya geri yükleme](sql-database-point-in-time-restore-powershell.md)
+### Coğrafi olarak yedekli bir yedekten geri yükleme
+### [Azure portalını kullanarak coğrafi geri yükleme](sql-database-geo-restore-portal.md)
+### [PowerShell’i kullanarak coğrafi geri yükleme](sql-database-geo-restore-powershell.md)
 ## Etkin Coğrafi Çoğaltma
 ### [Azure portalını kullanarak yapılandırma](sql-database-geo-replication-portal.md)
 ### [PowerShell’i kullanarak yapılandırma](sql-database-geo-replication-powershell.md)

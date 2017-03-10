@@ -4,8 +4,9 @@
 # Kullanmaya Başlama
 ## [Portalda ölçek kümesi oluşturma](virtual-machine-scale-sets-portal-create.md)
 ## [Azure CLI kullanarak ölçek kümesi oluşturma](virtual-machine-scale-sets-linux-create-cli.md)
+## [Resource Manager şablonu kullanarak ölçek kümesi oluşturma](virtual-machine-scale-sets-mvss-start.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama ve tasarım
 ### [Tasarım konusunda dikkat edilmesi gerekenler](virtual-machine-scale-sets-design-overview.md)
 
@@ -46,8 +47,3 @@
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

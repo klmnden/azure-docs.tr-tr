@@ -79,6 +79,7 @@
 ### [DNS Ad Çözümleme Seçenekleri](../virtual-machines-linux-azure-dns.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [VM’ler ile Azure DNS’i kullanma](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [VM’ler ile Azure Traffic Manager’ı kullanma](../../traffic-manager/traffic-manager-endpoint-types.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [NAT güvenlik duvarı oluşturmak için FreeBSD PF kullanma](../virtual-machines-linux-freebsd-pf-nat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Dağıtma
 ### [VM kopyalama](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
