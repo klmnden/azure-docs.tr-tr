@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı kayıt defteri oluşturma - CLI | Microsoft Docs"
-description: "Azure CLI 2.0 ile Azure kapsayıcısı kayıt defterleri oluşturmaya ve yönetmeye başlayın"
+title: "Özel Docker kapsayıcısı kayıt defteri oluşturma - Azure CLI| Microsoft Docs"
+description: "Azure CLI 2.0 ile Docker kapsayıcısı kayıt defterleri oluşturmaya ve yönetmeye başlayın"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/03/2017
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1d5e16952cbc56a381ead23843515cf6ed1d74a9
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 6ef43ed43358357c94460a27d3e2b2c8530b6c54
+ms.lasthandoff: 03/06/2017
 
 ---
-# <a name="create-a-container-registry-using-the-azure-cli"></a>Azure CLI’yı kullanarak kapsayıcı kayıt defteri oluşturma
+# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Azure CLI 2.0’ı özel bir Docker kapsayıcı kayıt defteri oluşturma
 Linux, Mac veya Windows bilgisayarınızdan bir kapsayıcı kayıt defteri oluşturmak ve ayarlarını yönetmek için [Azure CLI 2.0](https://github.com/Azure/azure-cli)’daki komutları kullanın. Ayrıca, [Azure portalını](container-registry-get-started-portal.md) kullanarak veya Kapsayıcı Kayıt Defteri [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) ile programlı olarak da kapsayıcı kayıt defterleri oluşturup yönetebilirsiniz.
 
 
-* Arka plan bilgisi ve kavramlar için bkz. [Azure Container Kayıt Defteri nedir?](container-registry-intro.md)
+* Arka plan ve kavramlar için, bkz: [genel bakış](container-registry-intro.md)
 * Kapsayıcı Kayıt Defteri CLI komutlarıyla (`az acr` komutları) ilgili yardım almak için herhangi bir komuta `-h` parametresini geçirin.
 
 > [!NOTE]
@@ -35,9 +36,9 @@ Linux, Mac veya Windows bilgisayarınızdan bir kapsayıcı kayıt defteri oluş
 > 
 
 ## <a name="prerequisites"></a>Ön koşullar
-* **Azure CLI 2.0** - CLI 2.0’ı yüklemek ve kullanmaya başlamak için bkz. [yükleme yönergeleri](https://github.com/Azure/azure-cli/blob/master/README.rst). `az login` komutunu çalıştırarak Azure aboneliğinizde oturum açın.
-* **Kaynak grubu** - Kapsayıcı kayıt defteri oluşturmadan önce bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups) oluşturun veya mevcut bir kaynak grubunu kullanın. Kaynak grubunun Container Kayıt Defteri hizmetinin [kullanılabilir](https://azure.microsoft.com/regions/services/) olduğu bir konumda olduğundan emin olun. CLI 2.0’ı kullanarak bir kaynak grubu oluşturmak için bkz. [CLI 2.0 örnekleri](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
-* **Depolama hesabı** (isteğe bağlı) - Kapsayıcı kayıt defterini aynı konumda yedeklemek için standart bir Azure [depolama hesabı](../storage/storage-introduction.md) oluşturun. `az acr create` ile kayıt defteri oluştururken bir depolama hesabı belirtmezseniz komut sizin için bir depolama hesabı oluşturur. CLI 2.0’ı kullanarak bir depolama hesabı oluşturmak için bkz. [CLI 2.0 örnekleri](https://github.com/Azure/azure-cli-samples/tree/master/storage).
+* **Azure CLI 2.0**: CLI 2.0’ı yüklemek ve kullanmaya başlamak için, bkz. [yükleme yönergeleri](/cli/azure/install-azure-cli). `az login` komutunu çalıştırarak Azure aboneliğinizde oturum açın. Daha fazla bilgi için, bkz: [CLI 2.0’a başlangıç](/cli/azure/get-started-with-azure-cli).
+* **Kaynak grubu**: Kapsayıcı kayıt defteri oluşturmadan önce bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups) oluşturun veya mevcut bir kaynak grubunu kullanın. Kaynak grubunun Container Kayıt Defteri hizmetinin [kullanılabilir](https://azure.microsoft.com/regions/services/) olduğu bir konumda olduğundan emin olun. CLI 2.0’ı kullanarak bir kaynak grubu oluşturmak için bkz. [CLI 2.0 referansı](/cli/azure/group). 
+* **Depolama hesabı** (isteğe bağlı): Kapsayıcı kayıt defterini aynı konumda yedeklemek için standart bir Azure [depolama hesabı](../storage/storage-introduction.md) oluşturun. `az acr create` ile kayıt defteri oluştururken bir depolama hesabı belirtmezseniz komut sizin için bir depolama hesabı oluşturur. CLI 2.0’ı kullanarak bir depolama hesabı oluşturmak için, bkz. [CLI 2.0 referansı](/cli/azure/storage/account). Premium Depolama şu anda desteklenmemektedir.
 * **Hizmet sorumlusu** (isteğe bağlı): CLI ile bir kayıt defteri oluşturduğunuzda, kayıt defteri varsayılan olarak erişim için ayarlanmaz. Gereksinimlerinize bağlı olarak mevcut bir Azure Active Directory hizmet sorumlusunu bir kayıt defterine atayabilir (veya bir hizmet sorumlusu oluşturup atayabilir) ya da kayıt defterinin yönetici kullanıcı hesabını etkinleştirebilirsiniz. Bu makalenin sonraki bölümlerine bakın. Kayıt defteri erişimi hakkında daha fazla bilgi için bkz. [Kapsayıcı kayıt defteri ile kimlik doğrulama](container-registry-authentication.md). 
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma

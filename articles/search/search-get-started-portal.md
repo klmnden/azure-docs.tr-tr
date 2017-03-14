@@ -16,9 +16,9 @@ ms.tgt_pltfrm: na
 ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
-ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -35,11 +35,13 @@ Bu kodsuz giriş yazısı, hemen ilginç sorgular yazmaya başlayabilmeniz için
 
 **Tahmini Süre:** Yaklaşık 15 dakika sürer, ancak hesap veya hizmete kaydolunması da gerekiyorsa daha uzun sürebilir. 
 
-Alternatif olarak, bu [Azure Search’e Genel Bakış videosunun](https://channel9.msdn.com/Events/Connect/2016/138) üçüncü dakikasından izlemeye başlayarak bu öğreticideki adımların 6 dakikalık bir gösterimini izleyebilirsiniz.
+Alternatif olarak, [.NET’te Azure Search programlamaya kod tabanlı bir giriş](search-howto-dotnet-sdk.md) kullanarak artırın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğretici, bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ve [Azure Search hizmeti](search-create-service-portal.md) kullanıldığını varsayar. 
+
+Hemen bir hizmet sağlamak istemiyorsanız, bu [Azure Search’e Genel Bakış videosunun](https://channel9.msdn.com/Events/Connect/2016/138) üçüncü dakikasından izlemeye başlayarak bu öğreticideki adımların 6 dakikalık bir gösterimini izleyebilirsiniz.
 
 ## <a name="find-your-service"></a>Hizmetinizi bulma
 1. [Azure portalında](https://portal.azure.com) oturum açın.

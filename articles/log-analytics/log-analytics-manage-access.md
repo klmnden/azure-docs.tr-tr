@@ -1,6 +1,6 @@
 ---
-title: "Çalışma alanlarını yönetme | Microsoft Belgeleri"
-description: "Kullanıcılar, hesaplar, çalışma alanları ve Azure hesapları ile ilgili çeşitli yönetim görevlerini kullanarak Azure Log Analytics&quot;teki çalışma alanlarını yönetin."
+title: "Azure Log Analytics ve OMS portalında çalışma alanlarını yönetme | Microsoft Docs"
+description: "Kullanıcılar, hesaplar, çalışma alanları ve Azure hesapları ile ilgili çeşitli yönetim görevlerini kullanarak Azure Log Analytics’teki çalışma alanlarını ve OMS portalını yönetebilirsiniz."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
+ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -163,25 +163,16 @@ OMS hesabınızla ilişkili bir kullanıcı için hesap rolünü değiştirebili
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Mevcut bir çalışma alanını Azure aboneliğine bağlama
 26 Eylül 2016'dan sonra oluşturulan tüm çalışma alanları, oluşturma zamanında bir Azure aboneliğine bağlanmalıdır. Bu tarihten önce oluşturulan çalışma alanları, bir sonraki oturum açışınızda bir çalışma alanına bağlanmalıdır. Çalışma alanını Azure portalından oluşturduğunuzda veya çalışma alanınızı bir Azure aboneliğine bağladığınızda, Azure Active Directory'niz kuruluş hesabınız olarak bağlanır.
 
-![Azure aboneliğini bağlama](./media/log-analytics-manage-access/required-link.png)
-
-> [!IMPORTANT]
-> Bir çalışma alanını bağlamak için, Azure hesabınızın bağlamak istediğiniz çalışma alanına erişiminin olması gerekir.  Diğer bir deyişle Azure portalına erişmek için kullandığınız hesap, çalışma alanına erişmek için kullandığınız hesapla **aynı** olmalıdır. Aynı değilse bkz. [Mevcut bir çalışma alanına kullanıcı ekleme](#add-a-user-to-an-existing-workspace).
->
->
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Çalışma alanını OMS portalında bir Azure aboneliğine bağlama
-Çalışma alanını OMS portalında bir Azure aboneliğine bağlamak için, oturum açmış olan kullanıcının ücretli bir Azure hesabının olması gerekir.
 
-1. OMS portalında **Ayarlar** kutucuğuna tıklayın.
-2. **Hesaplar** sekmesine ve ardından **Azure Aboneliği ve Veri Planı** sekmesine tıklayın.
-3. Kullanmak istediğiniz veri planına tıklayın.
-4. **Kaydet** düğmesine tıklayın.  
-   ![abonelik ve veri planları](./media/log-analytics-manage-access/subscription-tab.png)
+- OMS portalında oturum açtığınızda, bir Azure aboneliği seçmeniz istenir. Çalışma alanınıza bağlamak istediğiniz aboneliği seçin ve ardından **Bağla**’ya tıklayın.  
+    ![Azure aboneliğini bağlama](./media/log-analytics-manage-access/required-link.png)
 
-Yeni veri planınız, web sayfanızın üst kısmındaki OMS portalı şeridinde görüntülenir.
+    > [!IMPORTANT]
+    > Bir çalışma alanını bağlamak için, Azure hesabınızın bağlamak istediğiniz çalışma alanına erişiminin olması gerekir.  Diğer bir deyişle Azure portalına erişmek için kullandığınız hesap, çalışma alanına erişmek için kullandığınız hesapla **aynı** olmalıdır. Aynı değilse bkz. [Mevcut bir çalışma alanına kullanıcı ekleme](#add-a-user-to-an-existing-workspace).
 
-![OMS şeridi](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Çalışma alanını, Azure portalında bir Azure aboneliğine bağlama
 1. [Azure portal](http://portal.azure.com) oturum açın.
@@ -236,7 +227,7 @@ Azure aboneliklerinizin bağlı olduğu kurumsal kayıt anlaşmasında bir Azure
 
 Çalışma alanının bağlı olduğu Azure aboneliğini değiştirmeniz gerekiyorsa Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet'ini kullanabilirsiniz.  
 
-### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Çalışma alanını ücretli fiyatlandırma katmanı olarak değiştirme
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Azure portalında çalışma alanını ücretli fiyatlandırma katmanı olarak değiştirme
 1. [Azure portal](http://portal.azure.com) oturum açın.
 2. **Log Analytics**’e göz atın ve ardından bu seçeneği belirleyin.
 3. Mevcut çalışma alanlarınızın listesini görürsünüz. Bir çalışma alanı seçin.  
@@ -250,6 +241,21 @@ Azure aboneliklerinizin bağlı olduğu kurumsal kayıt anlaşmasında bir Azure
 > Çalışma alanınız bir Otomasyon hesabıyla bağlantılıysa, *Tek Başına (GB başına)* fiyatlandırma katmanını seçebilmeniz için tüm **Otomasyon ve Denetim** çözümlerini silmeniz ve Otomasyon hesabının bağlantısını kaldırmanız gerekir. Çalışma alanı dikey penceresindeki **Genel** altında **Çözümler**’e tıklayıp çözümleri silin. Bir Otomasyon hesabının bağlantısını kaldırmak için **Fiyatlandırma katmanı** dikey penceresinde Otomasyon hesabının adına tıklayın.
 >
 >
+
+## <a name="change-your-data-plan-in-the-oms-portal"></a>OMS portalında veri planınızı değiştirme
+
+OMS portalını kullanarak bir veri planını değiştirmek için, oturum açmış kullanıcının zaten bir Azure hesabı olmalıdır.
+
+1. OMS portalında **Ayarlar** kutucuğuna tıklayın.
+2. **Hesaplar** sekmesine ve ardından **Azure Aboneliği ve Veri Planı** sekmesine tıklayın.
+3. Kullanmak istediğiniz veri planına tıklayın.
+4. **Kaydet** düğmesine tıklayın.  
+   ![abonelik ve veri planları](./media/log-analytics-manage-access/subscription-tab.png)
+
+Yeni veri planınız, web sayfanızın üst kısmındaki OMS portalı şeridinde görüntülenir.
+
+![OMS şeridi](./media/log-analytics-manage-access/data-plan-changed.png)
+
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Log Analytics'in veri saklama süresini değiştirme
 
@@ -266,8 +272,8 @@ Veri bekletme süresini değiştirmek için:
 2. **Log Analytics**’e göz atın ve ardından bu seçeneği belirleyin.
 3. Mevcut çalışma alanlarınızın listesini görürsünüz. Bir çalışma alanı seçin.  
 4. **Genel** altındaki çalışma alanı dikey penceresinde **Bekletme**'ye tıklayın.  
-5. Kaydırıcıyı kullanarak bekletme günü sayısını artırın veya azaltın, ardından **Kaydet**
-![bekletmeyi değiştir](./media/log-analytics-manage-access/manage-access-change-retention01.png)’e tıklayın.
+5. Kaydırıcıyı kullanarak bekletme günü sayısını artırın veya azaltın, ardından **Kaydet**’e tıklayın.  
+    ![bekletmeyi değiştirme](./media/log-analytics-manage-access/manage-access-change-retention01.png)
 
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Çalışma alanı için Azure Active Directory Kuruluşunu değiştirme
 

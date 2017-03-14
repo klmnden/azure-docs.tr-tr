@@ -15,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 623f502a92dc8eb152a9b01c4f6db0640ce57e54
-ms.openlocfilehash: 38156f31bfacbefd0518581d05ad9854e47b0c12
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: ecae2cb9c0cdc78226c100cd287b840b6b2a6bb8
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="what-is-azure-iot-suite"></a>Azure IoT Paketi nedir?
+# <a name="overview-of-azure-iot-suite"></a>Azure IoT Paketi’ne Genel Bakış
 Azure nesnelerin interneti (IoT) hizmetleri çok çeşitli özellikler sunar. Bu kurumsal sınıf hizmetler şunları yapmanızı sağlar:
 
 * Cihazlardan veri toplama

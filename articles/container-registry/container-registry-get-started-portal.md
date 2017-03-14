@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı kayıt defteri oluşturma - portal | Microsoft Docs"
-description: "Azure portalı ile Azure kapsayıcısı kayıt defterleri oluşturmaya ve yönetmeye başlayın"
+title: "Özel Docker kayıt defteri oluşturma - Azure portalı | Microsoft Docs"
+description: "Azure portalı ile özel Docker kapsayıcısı kayıt defterleri oluşturmaya ve yönetmeye başlayın"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,15 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
-ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 33944d34ce695e1729b761a7f762e24a6dce70a2
+ms.lasthandoff: 03/06/2017
 
 ---
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma
-Kapsayıcı kayıt defteri oluşturmak ve kayıt defteri ayarlarını yönetmek için Azure portalını kullanın. Ayrıca, [Azure CLI 2.0 Önizleme komutlarını](container-registry-get-started-azure-cli.md) kullanarak veya Kapsayıcı Kayıt Defteri [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) ile programlı olarak da kapsayıcı kayıt defterleri oluşturup yönetebilirsiniz.
 
-Arka plan bilgisi ve kavramlar için bkz. [Azure Container Kayıt Defteri nedir?](container-registry-intro.md)
+# <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Azure portalı kullanarak özel bir Docker kapsayıcı kayıt defteri oluşturma
+Kapsayıcı kayıt defteri oluşturmak ve kayıt defteri ayarlarını yönetmek için Azure portalını kullanın. Ayrıca, [Azure CLI 2.0 komutlarını](container-registry-get-started-azure-cli.md) kullanarak veya Kapsayıcı Kayıt Defteri [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) ile programlı olarak da kapsayıcı kayıt defterleri oluşturup yönetebilirsiniz.
+
+Arka plan ve kavramlar için, bkz: [genel bakış](container-registry-intro.md)
 
 
 > [!NOTE]
@@ -41,18 +44,20 @@ Arka plan bilgisi ve kavramlar için bkz. [Azure Container Kayıt Defteri nedir?
     ![Container kayıt defteri ayarları](./media/container-registry-get-started-portal/container-registry-settings.png)
 5. **Container Kayıt Defteri** dikey penceresinde aşağıdaki bilgileri girin. İşiniz bittiğinde **Oluştur**’a tıklayın.
    
-    a. **Kayıt defteri adı** - Oluşturduğunuz kayıt defterinize özel olan, genel olarak benzersiz bir üst düzey etki alanı adı. Bu örnekte kayıt defterinin adı *myRegistry01*, ancak bunu kendi bulduğunuz bir adla değiştirin. Ad yalnızca harf ve sayı içerebilir.
+    a. **Kayıt defteri adı**: Oluşturduğunuz kayıt defterinize özel olan, genel olarak benzersiz bir üst düzey etki alanı adı. Bu örnekte kayıt defterinin adı *myRegistry01*, ancak bunu kendi bulduğunuz bir adla değiştirin. Ad yalnızca harf ve sayı içerebilir.
    
-    b. **Kaynak grubu** - Mevcut bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups) seçin ya da yeni bir grup için ad yazın. 
+    b. **Kaynak grubu**: Mevcut bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups) seçin ya da yeni bir grup için ad yazın. 
    
-    c. **Konum** - Hizmetin [kullanılabilir](https://azure.microsoft.com/regions/services/) olduğu bir Azure veri merkezi bölgesi (**Orta Güney ABD** gibi) seçin. 
+    c. **Konum**: Hizmetin [kullanılabilir](https://azure.microsoft.com/regions/services/) olduğu bir Azure veri merkezi bölgesi seçin, örneğin **Orta Güney ABD**. 
    
-    d. **Yönetici kullanıcı** - İsterseniz bir yönetici kullanıcıya kayıt defterine erişim izni verin. Kayıt defterini oluşturduktan sonra bu ayarı değiştirebilirsiniz.
+    d. **Yönetici kullanıcı**: İsterseniz bir yönetici kullanıcıya kayıt defterine erişim izni verin. Kayıt defterini oluşturduktan sonra bu ayarı değiştirebilirsiniz.
    
-   > [!IMPORTANT]
-   > Kapsayıcı kayıt defterleri, bir yönetici kullanıcı hesabı aracılığıyla erişim sağlamaya ek olarak Azure Active Directory hizmet sorumluları tarafından desteklenen kimlik doğrulamasını destekler. Daha fazla bilgi ve göz önünde bulundurulması gereken diğer noktalar için bkz. [Kapsayıcı kayıt defteri ile kimlik doğrulama](container-registry-authentication.md).
-   
-    e. **Depolama hesabı** - Varsayılan ayarı kullanarak bir [depolama hesabı](../storage/storage-introduction.md) oluşturun veya aynı konumdaki mevcut bir depolama hesabını seçin. Premium ve Klasik depolama hesapları desteklenmez.
+    > [!IMPORTANT]
+    > Kapsayıcı kayıt defterleri, bir yönetici kullanıcı hesabı aracılığıyla erişim sağlamaya ek olarak Azure Active Directory hizmet sorumluları tarafından desteklenen kimlik doğrulamasını destekler. Daha fazla bilgi ve göz önünde bulundurulması gereken diğer noktalar için bkz. [Kapsayıcı kayıt defteri ile kimlik doğrulama](container-registry-authentication.md).
+    >
+    
+    e. **Depolama hesabı**: Varsayılan ayarı kullanarak bir [depolama hesabı](../storage/storage-introduction.md) oluşturun veya aynı konumdaki mevcut bir depolama hesabını seçin. Premium Depolama şu anda desteklenmemektedir.
+
 
 ## <a name="manage-registry-settings"></a>Kayıt defteri ayarlarını yönetme
 Kayıt defterini oluşturduktan sonra portaldaki **Container Kayıt Defterleri** dikey penceresinden başlayarak kayıt defteri ayarlarını bulun. Örneğin, kayıt defterinizde oturum açmak için ayarlara ihtiyacınız olabilir ya da yönetici kullanıcıyı etkinleştirmek veya devre dışı bırakmak isteyebilirsiniz.
@@ -73,10 +78,5 @@ Kayıt defterini oluşturduktan sonra portaldaki **Container Kayıt Defterleri**
 * [Docker CLI’yı kullanarak ilk görüntünüzü itme](container-registry-get-started-docker-cli.md)
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

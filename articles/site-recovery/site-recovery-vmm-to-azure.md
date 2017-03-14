@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/21/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
-ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: b1bbe3a43d071b452b7b60e1c56571958b444237
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -129,8 +129,8 @@ Site Recovery'yi nasıl dağıtmak istediğinizi seçerek Başlarken deneyimine 
 ## <a name="step-1-choose-your-protection-goals"></a>1. Adım: Koruma hedeflerinizi seçme
 Neleri çoğaltmak istediğinizi ve bunları nereye çoğaltacağınızı seçin.
 
-1. **Kurtarma Hizmetleri kasaları** dikey penceresinde kasanızı seçin ve **Ayarlar**'a tıklayın.
-2. **Başlarken** bölümünde **Site Recovery** > **1. Adım: Altyapıyı Hazırlama** > **Koruma hedefi** seçeneklerine tıklayın.
+1. **Kurtarma Hizmetleri kasaları** dikey penceresinde kasayı seçin.
+2. **Başlarken** bölümünde, **Site Recovery** > **1. Adım: Altyapıyı Hazırlama** > **Koruma hedefi** seçeneklerine tıklayın.
 
     ![Hedefleri seçme](./media/site-recovery-vmm-to-azure/choose-goals.png)
 3. **Koruma hedefi** kısmında **Azure'a** seçeneğini belirleyin ve **Evet, Hyper-V ile**'yi seçin. Hyper-V ana bilgisayarlarını ve kurtarma sitesini yönetmek için VMM kullandığınızı doğrulamak için **Evet** seçeneğini belirleyin. Daha sonra, **Tamam**'a tıklayın.
@@ -143,17 +143,17 @@ Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna yükleyin ve sunucuyu kas
 1. **2. Adım: Altyapıyı Hazırlama** > **Kaynak** seçeneklerine tıklayın.
 
     ![Kaynağı ayarlama](./media/site-recovery-vmm-to-azure/set-source1.png)
-    
+
 2. **Kaynağı ayarla** kısmında, bir VMM sunucusu eklemek için **+ VMM**'ye tıklayın.
 
     ![Kaynağı ayarlama](./media/site-recovery-vmm-to-azure/set-source2.png)
-    
+
 3. **Sunucu Ekle** dikey penceresinde, **Sunucu türü** alanında **System Center VMM sunucusunun** görünüp görünmediğini ve VMM sunucusunun [önkoşulları ve URL gereksinimlerini](#on-premises-prerequisites) karşılayıp karşılamadığını kontrol edin.
 4. Azure Site Recovery Sağlayıcısı yükleme dosyasını indirin.
 5. Kayıt anahtarını indirin. Kurulumu çalıştırırken buna ihtiyacınız olur. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
 
     ![Kaynağı ayarlama](./media/site-recovery-vmm-to-azure/set-source3.png)
-    
+
 6. VMM sunucusunda Azure Site Recovery Sağlayıcısı'nı yükleyin.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>Azure Site Recovery Sağlayıcısı'nı ayarlama
@@ -163,7 +163,7 @@ Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna yükleyin ve sunucuyu kas
 
     ![Yükleme konumu](./media/site-recovery-vmm-to-azure/provider2.png)
 4. Yükleme tamamlandığında VMM sunucusunu kasaya kaydetmek için **Kaydet**'e tıklayın.
-5. **Kasa Ayarları** sayfasında, kasa anahtarı dosyasını seçmek için **Gözat**'a tıklayın. Azure Site Recovery aboneliğini ve kasa adını belirtin.
+5. **Kasa Ayarları** sayfasında, kasa anahtarı dosyasını seçmek için **Gözat**’a tıklayın. Azure Site Recovery aboneliğini ve kasa adını belirtin.
 
     ![Sunucu kaydı](./media/site-recovery-vmm-to-azure/provider10.PNG)
 6. **İnternet Bağlantısı** alanında, VMM sunucusunda çalışan Sağlayıcı'nın İnternet üzerinden Site Recovery'ye nasıl bağlanacağını belirtin.
@@ -180,7 +180,7 @@ Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna yükleyin ve sunucuyu kas
 9. VMM sunucusundaki tüm bulutlara yönelik meta verileri kasayla eşitlemek isterseniz **Bulut meta verilerini eşitle** seçeneğini etkinleştirin. Bu eylemin her sunucuda yalnızca bir kez gerçekleştirilmesi gerekir. Tüm bulutları eşitlemek istemezseniz bu ayarı işaretlemeden bırakıp her bulutu VMM konsolundaki bulut özelliklerinde bağımsız olarak eşitleyebilirsiniz. İşlemi tamamlamak için **Kaydet**'e tıklayın.
 
     ![Sunucu kaydı](./media/site-recovery-vmm-to-azure/provider16.PNG)
-10. Kayıt başlar. Kayıt tamamlandıktan sonra, sunucu kasadaki **Ayarlar** > **Sunucular** dikey penceresinde görüntülenir.
+10. Kayıt başlar. Kayıt tamamlandıktan sonra, sunucu **Site Recovery Altyapısı** >  **VMM Sunucuları** içinde gösterilir.
 
 #### <a name="command-line-installation-for-the-azure-site-recovery-provider"></a>Azure Site Recovery Sağlayıcısı'na yönelik komut satırı yüklemesi
 Azure Site Recovery Sağlayıcısı komut satırından yüklenebilir. Bu yöntem, Sağlayıcı'yı Windows Server 2012 R2 için Sunucu Çekirdeği'nde yüklerken kullanılabilir.
@@ -266,7 +266,7 @@ Hyper-V ana bilgisayarlarında çalışan Kurtarma Hizmetleri aracısının VM �
 
 Eşleme işlemini şu şekilde yapılandırın:
 
-1. **Ayarlar** > **Site Recovery Altyapısı** > **Ağ eşlemeleri** > **Ağ Eşleme** bölümünde **+Ağ Eşlemesi** simgesine tıklayın.
+1. **Site Recovery Altyapısı** > **Ağ eşlemeleri** > **Ağ Eşleme** bölümünde, **+Ağ Eşlemesi** simgesine tıklayın.
 
     ![Ağ eşlemesi](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. **Ağ eşlemesi ekle** seçeneğinde, kaynak olarak VMM sunucusunu, hedef olarak ise **Azure**'u seçin.
@@ -295,7 +295,7 @@ Ağ eşlemesi başladığında gerçekleşecekler şunlardır:
 7. **Azure'da depolanan verileri şifrele** bölümünde, Azure depolama alanındaki bekleyen verilerin şifrelenip şifrelenmeyeceğini belirtin. Daha sonra, **Tamam**'a tıklayın.
 
     ![Çoğaltma ilkesi](./media/site-recovery-vmm-to-azure/gs-replication2.png)
-8. Yeni bir ilke oluşturduğunuzda, bu ilke otomatik olarak VMM bulutuyla ilişkilendirilir. **Tamam** düğmesine tıklayın. **Ayarlar** > **Çoğaltma** > ilke adı > **VMM Bulutu ile İlişkilendir** üzerinden ilave VM Bulutlarını (ve bu bulutların içindeki VM'leri) bu çoğaltma ilkesi ile ilişkilendirebilirsiniz.
+8. Yeni bir ilke oluşturduğunuzda, bu ilke otomatik olarak VMM bulutuyla ilişkilendirilir. **Tamam**’a tıklayın. **Çoğaltma** > ilke adı > **VMM Bulutu ile İlişkilendir** üzerinden ilave VMM bulutlarını (ve bu bulutların içindeki VM’leri) bu çoğaltma ilkesi ile ilişkilendirebilirsiniz.
 
     ![Çoğaltma ilkesi](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -375,16 +375,16 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
     >
 
 
-8. **Çoğaltma ayarları** > **Çoğaltma ayarlarını yapılandır** seçeneklerinde, korumalı VM'lere uygulamak istediğiniz çoğaltma ilkesini seçin. Daha sonra, **Tamam**'a tıklayın. **Ayarlar** > **Çoğaltma ilkeleri** > ilke adı > **Ayarları Düzenle**'de çoğaltma ilkesini değiştirebilirsiniz. Uyguladığınız değişiklikler, zaten çoğaltılmakta olan makinelere ve yeni makinelere uygulanır.
+8. **Çoğaltma ayarları** > **Çoğaltma ayarlarını yapılandır** seçeneklerinde, korumalı VM'lere uygulamak istediğiniz çoğaltma ilkesini seçin. Daha sonra, **Tamam**'a tıklayın. **Çoğaltma ilkeleri** > ilke adı > **Ayarları Düzenle**’de çoğaltma ilkesini değiştirebilirsiniz. Uyguladığınız değişiklikler, zaten çoğaltılmakta olan makinelere ve yeni makinelere uygulanır.
 
    ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-**Ayarlar** > **İşler** > **Site Recovery işleri** üzerinden **Korumayı Etkinleştir** işinin ilerleyişini izleyebilirsiniz. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
+**İşler** > **Site Recovery işleri** üzerinden **Korumayı Etkinleştir** işinin ilerleyişini izleyebilirsiniz. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 
 ### <a name="view-and-manage-vm-properties"></a>VM özelliklerini görüntüleme ve yönetme
 Kaynak makinenin özelliklerini doğrulamanızı öneririz. Azure VM adının [Azure sanal makine gereksinimlerini](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) karşılaması gerektiğini unutmayın.
 
-1. **Ayarlar** > **Korunan Öğeler** > **Çoğaltılan Öğeler** seçeneklerine tıklayıp ayrıntılarını görmek istediğiniz makineyi seçin.
+1. **Korunan Öğeler**’de **Çoğaltılan Öğeler**’e tıklayıp ayrıntılarını görmek istediğiniz makineyi seçin.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/vm-essentials.png)
 2. **Özellikler** kısmında VM'nin çoğaltma ve yük devretme bilgilerini inceleyebilirsiniz.
@@ -438,10 +438,10 @@ Yük devretmeden sonra Secure Shell istemcisi kullanarak Linux çalıştıran bi
 ## <a name="step-7-test-your-deployment"></a>7. Adım: Dağıtımınızı test etme
 Dağıtımı test etmek için tek bir sanal makine için yük devretme testi veya bir ya da daha fazla sanal makine içeren bir kurtarma planı çalıştırabilirsiniz.
 
-1. Tek bir VM'de yük devretme için **Ayarlar** > **Çoğaltılan Öğeler** altında VM > **+Yük Devretme Testi**'ne tıklayın.
-1. Kurtarma planında yük devretme için **Ayarlar** > **Kurtarma Planları** seçeneklerinde plana sağ tıklayıp **Yük Devretme Testi**'ne tıklayın. Kurtarma planı oluşturmak için [aşağıdaki yönergeleri uygulayın](site-recovery-create-recovery-plans.md).
+1. Tek bir VM’de yük devretme için **Çoğaltılan Öğeler** altında VM > **+Yük Devretme Testi**’ne tıklayın.
+1. Kurtarma planında yük devretme için **Kurtarma Planları** seçeneklerinde plana sağ tıklayıp **Yük Devretme Testi**’ne tıklayın. Kurtarma planı oluşturmak için [aşağıdaki yönergeleri uygulayın](site-recovery-create-recovery-plans.md).
 1. **Yük Devretme Testi** kısmında, yük devretme gerçekleştikten sonra Azure VM'lerinin bağlandığı Azure ağını seçin.
-1. Yük devretmeyi başlatmak için **Tamam**'a tıklayın. Özelliklerini açmak için VM'ye tıklayarak veya **Ayarlar** > **Site Recovery işleri** seçeneklerinde **Yük Devretme Testi**'ne tıklayarak ilerlemeyi izleyebilirsiniz.
+1. Yük devretmeyi başlatmak için **Tamam**'a tıklayın. Özelliklerini açmak için VM’e tıklayarak veya **Site Recovery işleri** seçeneklerinde **Yük Devretme Testi**’ne tıklayarak ilerlemeyi izleyebilirsiniz.
 1. Yük devretme tamamlandıktan sonra çoğaltılan makineyi Azure portalı > **Sanal Makineler** kısmında da görmeniz gerekir. VM'nin uygun boyutta olduğundan, uygun bir ağa bağlandığından ve çalıştığından emin olmanız gerekir.
 1. [Yük devretme sonrasındaki bağlantılar için hazırlık yaptıysanız](#prepare-to-connect-to-Azure-VMs-after-failover) Azure VM'ye bağlanabilmeniz gerekir.
 1. İşiniz bittiğinde kurtarma planındaki **Temizleme testi yük devretme** öğesine tıklayın. Yük devretme testiyle ilişkili gözlemlerinizi kaydetmek ve saklamak için **Notlar**'a tıklayın. Bunun yapılması, yük devretme testi sırasında oluşturulan sanal makineleri siler.
@@ -454,9 +454,9 @@ Site Recovery dağıtımınızın durumunu, yapılandırma ayarlarını ve siste
 1. **Temel Bileşenler** panosuna erişmeniz için kasa adına tıklayın. Bu panoda Site Recovery işlerini, çoğaltma durumunu, kurtarma planlarını, sunucu sistem durumunu ve olayları izleyebilirsiniz.  **Temel Bileşenler** panosunu, Site Recovery ve Backup kasalarının durumu dahil olmak üzere sizin için en faydalı olan kutucukları ve düzenlemeleri gösterecek şekilde özelleştirebilirsiniz.
 
     ![Temel Bileşenler](./media/site-recovery-vmm-to-azure/essentials.png)
-2. *Sistem Durumu** bölümünde şirket içi sunuculardaki (VMM veya yapılandırma sunucuları) sorunları ve Site Recovery tarafından son 24 saat içinde tetiklenen olayları izleyebilirsiniz.
-3. **Çoğaltılan Öğeler**, **Kurtarma Planları** ve **Site Recovery İşleri** kutucuklarında çoğaltma işlemini yönetebilir ve izleyebilirsiniz. **Ayarlar** > **İşler** > **Site Recovery İşleri** seçeneklerinden işlerin ayrıntılarına ulaşabilirsiniz.
+2. **Sistem Durumu** bölümünde yerinde sunuculardaki (VMM veya yapılandırma sunucuları) sorunları ve Site Recovery tarafından son 24 saat içinde tetiklenen olayları izleyebilirsiniz.
+3. **Çoğaltılan Öğeler**, **Kurtarma Planları** ve **Site Recovery İşleri** kutucuklarında çoğaltma işlemini yönetebilir ve izleyebilirsiniz. **İşler** > **Site Recovery İşleri** seçeneklerinden işlerin ayrıntılarına ulaşabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Dağıtımınız ayarlandıktan ve çalışmaya başladıktan sonra farklı türdeki yük devretmeler hakkında [daha fazla bilgi edinebilirsiniz](site-recovery-failover.md).
+Dağıtımınız ayarlandıktan ve çalışmaya başladıktan sonra yük devretme hakkında [daha fazla bilgi edinebilirsiniz](site-recovery-failover.md).
 

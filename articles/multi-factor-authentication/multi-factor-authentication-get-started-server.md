@@ -13,18 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 02/26/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: eccd394a29376a20371732023bfbf9b53435f0ae
-ms.openlocfilehash: 51c994a37ebaca472c360e0c5f7b4a7fab5f55fc
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c5a26a17ab50993f8b57c8868b02541251de1cb1
+ms.lasthandoff: 03/06/2017
 
 ---
 
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama
+
 <center>![Şirket içi MFA](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Artık şirket içi Multi-Factor Authentication Sunucusu’nı kullanıp kullanmayacağımıza karar verdiğimize göre, devam edebiliriz. Bu sayfa yeni bir sunucu yüklemeyi ve şirket içi Active Directory’de kurulumunu yapmayı ele alır. Zaten yüklü PhoneFactor sunucunuz varsa ve yükseltmek istiyorsanız, bkz. [Azure Multi-Factor Sunucusu’na yükseltme](multi-factor-authentication-get-started-server-upgrade.md) ya da yalnızca web hizmetini yüklemeye ilişkin bilgi arıyorsanız, bkz. [Azure Multi-Factor Authentication Sunucusu Mobil Uygulama Web Hizmeti’ni dağıtma](multi-factor-authentication-get-started-server-webservice.md).
+Artık şirket içi Multi-Factor Authentication Sunucusu’nı kullanıp kullanmayacağımıza karar verdiğimize göre, devam edebiliriz. Bu sayfa yeni bir sunucu yüklemeyi ve şirket içi Active Directory’de kurulumunu yapmayı ele alır. MFA sunucusu zaten yüklüyse ve yükseltmek istiyorsanız bkz. [En yeni Azure Multi-Factor Authentication Sunucusu’na yükseltme](multi-factor-authentication-server-upgrade.md). Yalnızca web hizmetini yükleme hakkında bilgi almak istiyorsanız bkz. [Azure Multi-Factor Authentication Sunucusu Mobil Uygulama Web Hizmeti’ni dağıtma](multi-factor-authentication-get-started-server-webservice.md).
+ 
 
 ## <a name="download-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu indirme
 Azure Multi-Factor Authentication Sunucusu’nu indirmenin iki farklı yolu vardır. Her ikisi de Azure portal aracılığıyla yapılır. Birinci yol Multi-Factor Auth Sağlayıcısı’nı doğrudan yöneterek yapılandır. İkinci yol hizmet ayarları aracılığıyla yapılandır. İkinci seçenek Multi-Factor Auth Sağlayıcısı ya da Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansı gerektirir.
@@ -86,7 +89,7 @@ Giden güvenlik duvarları bağlantı noktası 443’te kısıtlı ise aşağıd
 | 134.170.165.0/25 |255.255.255.128 |134.170.165.1 – 134.170.165.126 |
 | 70.37.154.128/25 |255.255.255.128 |70.37.154.129 – 70.37.154.254 |
 
-Olay Onayı özelliğini kullanmıyorsanız ve kullanıcılar şirket ağındaki cihazlardan doğrulama yapmak için mobil uygulamalar kullanmıyorsa, IP adresleri aşağıdaki aralıklara küçültülebilir:
+Olay Onayı özelliğini kullanmıyorsanız ve kullanıcılarınız şirket ağındaki cihazlardan doğrulama yapmak için mobil uygulamalar kullanmıyorsa, yalnızca aşağıdaki aralıklar gereklidir:
 
 | IP Alt ağı | Ağ maskesi | IP aralığı |
 |:--- |:--- |:--- |
@@ -96,14 +99,14 @@ Olay Onayı özelliğini kullanmıyorsanız ve kullanıcılar şirket ağındaki
 
 ### <a name="to-install-and-configure-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu yüklemek ve yapılandırma k için
 
-1. Yürütülebilir dosyaya çift tıklayın. Yükleme başlatılır.
+Aşağıdaki adımlar yapılandırma sihirbazı ile hızlı kurulumu gösterir. Sihirbazı görmüyorsanız veya yeniden çalıştırmak istiyorsanız, sunucuda **Araçlar** menüsünden seçebilirsiniz.
+
+1. Yürütülebilir dosyaya çift tıklayın. 
 2. Yükleme Klasörünü Seçin ekranında klasörün doğru olduğundan emin olun ve **İleri**’ye tıklayın.
 3. Yükleme tamamlandıktan sonra **Son**'a tıklayın.  Yapılandırma sihirbazı başlatılır.
 4. Yapılandırma sihirbazı karşılama ekranında **Kimlik Doğrulaması Yapılandırma Sihirbazı kullanmayı atla** seçeneğini işaretleyin ve **İleri**’ye tıklayın.  Sihirbaz kapatılır ve sunucu başlatılır.
     ![Bulut](./media/multi-factor-authentication-get-started-server/skip2.png)
 5. Sunucuyu indirdiğimiz sayfaya dönerek, **Etkinleştirme Kimlik Bilgileri Oluştur** düğmesine tıklayın. Bu bilgileri verilen kutularda Azure MFA Sunucusu’na kopyalayın ve **Etkinleştir**’e tıklayın.
-
-Yukarıdaki adımlar yapılandırma sihirbazı ile hızlı kurulumu gösterir.  Sunucudaki Araçlar menüsünden seçim yaparak kimlik doğrulama sihirbazını yeniden çalıştırabilirsiniz.
 
 ## <a name="import-users-from-active-directory"></a>Kullanıcıları Active Directory'den içeri aktarma
 Artık sunucu yüklendiğine ve yapılandırıldığına göre, hızlı bir şekilde kullanıcıları Azure MFA Sunucusu’na aktarabilirsiniz
@@ -116,9 +119,9 @@ Artık sunucu yüklendiğine ve yapılandırıldığına göre, hızlı bir şek
 ![Bulut](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ## <a name="send-users-an-email"></a>Kullanıcılara e-posta gönderme
-Kullanıcılarınızı MFA Sunucusuna aktardıktan sonra, iki adımlı doğrulamaya kaydolduklarını bildirmek amacıyla kullanıcılara bir e-posta göndermeniz önerilir.
+Kullanıcılarınızı MFA Sunucusuna aktardıktan sonra, iki adımlı doğrulamaya kaydolduklarını bildirmek amacıyla kullanıcılara bir e-posta gönderin.
 
-Gönderdiğiniz e-posta, kullanıcılarınızı iki adımlı doğrulama için nasıl yapılandırdığınıza göre belirlenir. Örneğin, kullanıcılarınızın telefon numaralarını şirket dizininden alabildiyseniz, kullanıcıların beklentilerini bilebilmesi için e-posta varsayılan telefon numaralarını içermelidir. Benzer şekilde, kullanıcıların telefon numaraları içeri aktarılmadıysa veya kullanıcılar mobil uygulama kullanacak şekilde yapılandırıldıysa, kullanıcılara Azure Multi-Factor Authentication Kullanıcı Portalının köprü bağlantısı üzerinden hesap kaydını tamamlama yönergeleri veren bir e-posta gönderin.
+Gönderdiğiniz e-posta, kullanıcılarınızı iki adımlı doğrulama için nasıl yapılandırdığınıza göre belirlenir. Örneğin, telefon numaralarını şirket dizininden alabildiyseniz, kullanıcıların beklentilerini bilebilmesi için e-posta varsayılan telefon numaralarını içermelidir. Telefon numaralarını içeri aktarmadıysanız veya kullanıcılar mobil uygulama kullanacaksa, kullanıcılara Azure Multi-Factor Authentication Kullanıcı Portalının köprü bağlantısı üzerinden hesap kaydını tamamlama yönergeleri veren bir e-posta gönderin.
 
 E-postanın içeriği aynı zamanda kullanıcı için ayarlanmış doğrulama yöntemine (telefonla arama, SMS veya mobil uygulama) bağlı olarak değişir.  Örneğin, kullanıcının kimlik doğrularken PIN kullanması gerekiyorsa, e-posta kullanıcıya ilk PIN’ini bildirir.  Kullanıcıların ilk doğrulama sırasında kendi PIN'lerini değiştirmesi gerekir.
 
@@ -149,23 +152,18 @@ E-posta İçeriği sekmesinde, seçim yapabileceğiniz e-posta şablonlarını g
 Yukarıdaki alanlara ek olarak, doğrulama sonucu (başarılı/reddedildi) ve reddetme nedeni kimlik doğrulama verileriyle birlikte depolanır ve kimlik doğrulama/kullanım raporlarıyla kullanıma sunulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Gelişmiş kurulum ve yapılandırma bilgisi hakkında ek bilgiler için aşağıdaki tabloda yer alan bağlantıları kullanın:
 
-| Yöntem | Açıklama |
-|:--- |:--- |
-| [Kullanıcı Portalı](multi-factor-authentication-get-started-portal.md) |Dağıtım ve kullanıcı self servis dahil Kullanıcı portalı kurulumu ve yapılandırması hakkında bilgiler. |
-| [Active Directory Federasyon Hizmeti](multi-factor-authentication-get-started-adfs.md) |AD FS ile Azure Multi-Factor Authentication kurulumu hakkında bilgiler |
-| [Radius Kimlik Doğrulaması](multi-factor-authentication-get-started-server-radius.md) |RADIUS ile Azure MFA Sunucusu kurulumu ve yapılandırması hakkında bilgiler. RADIUS kullanarak çeşitli üçüncü taraf sistemleri Azure MFA Sunucusu ile tümleştirebilirsiniz. |
-| [IIS Kimlik Doğrulaması](multi-factor-authentication-get-started-server-iis.md) |IIS ile Azure MFA Sunucusu kurulumu ve yapılandırması hakkında bilgiler. IIS kullanarak çeşitli üçüncü taraf sistemleri Azure MFA Sunucusu ile tümleştirebilirsiniz. |
-| [Windows Kimlik Doğrulaması](multi-factor-authentication-get-started-server-windows.md) |Windows Kimlik Doğrulaması ile Azure MFA Sunucusu kurulumu ve yapılandırması hakkında bilgiler. |
-| [LDAP Kimlik Doğrulaması](multi-factor-authentication-get-started-server-ldap.md) |LDAP Kimlik Doğrulaması ile Azure MFA Sunucusu kurulumu ve yapılandırması hakkında bilgiler. LDAP kullanarak çeşitli üçüncü taraf sistemleri Azure MFA Sunucusu ile tümleştirebilirsiniz. |
-| [RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu](multi-factor-authentication-get-started-server-rdg.md) |RADIUS kullanan Uzak Masaüstü Ağ Geçidi ile Azure MFA Sunucusu kurulumu ve yapılandırması hakkında bilgiler. |
-| [Windows Server Active Directory ile eşitleme](multi-factor-authentication-get-started-server-dirint.md) |Active Directory ile Azure MFA Sunucusu arasındaki eşitleme kurulumu ve yapılandırması hakkında bilgiler. |
-| [Azure Multi-Factor Authentication Sunucusu Mobil Uygulama Web Hizmeti’ni dağıtma](multi-factor-authentication-get-started-server-webservice.md) |Azure MFA sunucusu web hizmeti kurulumu ve yapılandırması hakkında bilgiler. |
-| [Azure Multi-Factor Authentication ve üçüncü taraf VPN’ler ile gelişmiş senaryolar](multi-factor-authentication-advanced-vpn-configurations.md) | Cisco, Citrix ve Juniper VPN cihazları için adım adım yapılandırma kılavuzları. |
+- Kullanıcı self servis işlemleri için [Kullanıcı Portalı](multi-factor-authentication-get-started-portal.md)’nı ayarlayın ve yapılandırın.
 
+- Azure Multi-Factor Authentication’ı [Active Directory Federasyon Hizmetleri](multi-factor-authentication-get-started-adfs.md) ile ayarlayın.
 
+- [RADIUS Kimlik Doğrulaması](multi-factor-authentication-get-started-server-radius.md) ile Azure MFA Sunucusu’nu kurun ve yapılandırın. RADIUS kullanarak çeşitli üçüncü taraf sistemleri Azure MFA Sunucusu ile tümleştirebilirsiniz. 
 
-<!--HONumber=Feb17_HO3-->
+- [Windows Kimlik Doğrulaması](multi-factor-authentication-get-started-server-windows.md) ile Azure MFA Sunucusu’nu kurun ve yapılandırın.
 
+- [RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu](multi-factor-authentication-get-started-server-rdg.md)’nu kurun ve yapılandırın. 
+
+- [Azure Multi-Factor Authentication Sunucusu Mobil Uygulama Web Hizmeti’ni dağıtın](multi-factor-authentication-get-started-server-webservice.md).
+
+- [Azure Multi-Factor Authentication ve üçüncü taraf VPN’ler ile gelişmiş senaryolar](multi-factor-authentication-advanced-vpn-configurations.md).
 

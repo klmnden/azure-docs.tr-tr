@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
-ms.author: dlepow
+ms.date: 03/03/2017
+ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 31aaa122bfca5140dcd22d2a2233c46cd28f27b9
-ms.openlocfilehash: c139fc34d15545ce6a7a91842a3ebdff7c029a01
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: ef1e790edc4cd329245331bf1178ed1f610e914c
+ms.lasthandoff: 03/06/2017
 
 
 ---
 
-# <a name="get-started-with-windows-containers-in-a-kubernetes-cluster"></a>Kubernetes kümesindeki Windows kapsayıcılarını kullanmaya başlama
+# <a name="get-started-with-kubernetes-and-windows-containers-in-container-service"></a>Kapsayıcı Hizmetinde Kubernetes ve Windows kapsayıcılarına başlangıç
 
 
 Bu makalede, Azure Container Service’te Windows kapsayıcılarını çalıştırmaya yönelik Windows düğümleri içeren bir Kubernetes kümesinin nasıl oluşturulacağı açıklanmaktadır. 
@@ -59,10 +60,16 @@ Tüm VM’ler aynı gizli sanal ağ üzerindedir ve birbirlerine tam olarak eri�
 Azure portalını kullanarak Windows aracı düğümleri içeren bir [Kubernetes kümesi oluşturabilirsiniz](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal). Kümeyi oluştururken aşağıdaki ayarlara dikkat edin:
 
 * **Temel bilgiler** dikey penceresinin **Düzenleyici** bölümünde **Kubernetes**'i seçin. 
-* **Ana yapılandırma** dikey penceresinde Linux ana düğümleri için kullanıcı kimlik bilgilerini ve hizmet sorumlusu kimlik bilgilerini girin.
+
+  ![Kubernetes orchestrator’ı seçin](media/container-service-kubernetes-windows-walkthrough/portal-select-kubernetes.png)
+
+* **Ana yapılandırma** dikey penceresinde Linux ana düğümleri için kullanıcı kimlik bilgilerini ve hizmet sorumlusu kimlik bilgilerini girin. 1, 3 ya da 5 ana seçin.
+
 * **Aracı yapılandırması** dikey penceresinin **İşletim sistemi** bölümünde **Windows (önizleme)** öğesini seçin. Windows aracısı düğümleri için yönetici kimlik bilgilerini girin.
 
-Ayrıntılar için bkz. [Azure Container Service kümesini dağıtma](container-service-deployment.md).
+  ![Windows aracılarını seçin](media/container-service-kubernetes-windows-walkthrough/portal-select-windows.png)
+
+Ayrıntılar için, bkz. [Azure Container Service kümesi dağıtma](container-service-deployment.md).
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 

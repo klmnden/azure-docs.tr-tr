@@ -1,5 +1,5 @@
 ---
-title: "Azure bulutundaki Docker kapsayıcı kümeleri | Microsoft Docs"
+title: "Azure bulutunda Docker kapsayıcı barındırma | Microsoft Docs"
 description: "Azure Container Service, kapsayıcı uygulamalarda çalışmak üzere önceden yapılandırılmış olan sanal makine kümeleriyle ilgili oluşturma, yapılandırma ve yönetim süreçlerinin basitleştirmesini sağlar."
 services: container-service
 documentationcenter: 
@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: a11b133794f7aedfa6740757fd8c1e89da665744
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
+ms.openlocfilehash: 04fabadb1c713deb007b740369496b61bb5f424f
+ms.lasthandoff: 03/02/2017
+
 
 
 ---
-# <a name="azure-container-service-introduction"></a>Azure Container Service’e giriş
+# <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Azure Container Service ile Docker kapsayıcı barındırma çözümlerine giriş 
 Azure Container Service, kapsayıcı uygulamalarda çalışmak üzere önceden yapılandırılmış olan sanal makine kümeleriyle ilgili oluşturma, yapılandırma ve yönetim süreçlerinin basitleştirir. Bu hizmet, popüler açık kaynak planlama ve düzenleme araçlarının iyileştirilmiş yapılandırmalarını kullanır. Bu sayede Microsoft Azure’daki kapsayıcı tabanlı uygulamaları dağıtmak ve yönetmek için mevcut becerilerinizi kullanabilir veya kapsamlı ve gelişmeye devam eden topluluk uzmanlığından faydalanabilirsiniz.
 
 ![Azure Container Service, Azure üzerindeki birden fazla ana bilgisayarda yer alan kapsayıcı uygulamaların yönetilmesi için yeni bir yöntem sunar.](./media/acs-intro/acs-cluster-new.png)
