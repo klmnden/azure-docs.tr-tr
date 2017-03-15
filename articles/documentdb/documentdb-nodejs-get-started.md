@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 49b765010be87bacdb486391c28bf58aad1a9d24
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: e955366aa6fb8481fc8a76158b298dd927e855a2
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -26,8 +26,9 @@ ms.lasthandoff: 02/23/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [MongoDB için Node.js](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +65,7 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupnodeastep-2-setup-your-nodejs-application"></a><a id="SetupNode"></a>2. Adım: Node.js uygulamanızı kurma
+## <a id="SetupNode"></a>2. Adım: Node.js uygulamanızı kurma
 1. Sık kullandığınız terminali açın.
 2. Node.js uygulamanızı kaydetmek istediğiniz klasör veya dizini bulun.
 3. Aşağıdaki komutlarla iki adet boş JavaScript dosyası oluşturun:
@@ -79,7 +80,7 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
 
 Harika! Kurulumu tamamladığınıza göre, biraz kod yazmaya başlayalım.
 
-## <a name="a-idconfigastep-3-set-your-apps-configurations"></a><a id="Config"></a>3. Adım: Uygulamanızın yapılandırmalarını ayarlama
+## <a id="Config"></a>3. Adım: Uygulamanızın yapılandırmalarını ayarlama
 Sık kullandığınız metin düzenleyicisinde ```config.js``` öğesini açın.
 
 Ardından, aşağıdaki kod parçacığını kopyalayıp yapıştırın ve DocumentDB uç noktası uri ve birincil anahtarınıza ```config.endpoint``` ve ```config.primaryKey``` özelliklerini ayarlayın. Bu yapılandırmaların her ikisini de [Azure Portalı](https://portal.azure.com)'nda bulabilirsiniz.
@@ -176,7 +177,7 @@ Son olarak, ```app.js``` dosyasının içinde başvurabilmek için ```config``` 
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a name="a-idconnecta-step-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>4. Adım: DocumentDB hesabına bağlanma
+## <a id="Connect"></a>4. Adım: DocumentDB hesabına bağlanma
 Bir metin düzenleyicisinde boş ```app.js``` dosyanızı açın. ```documentdb``` modülünü ve yeni oluşturduğunuz ```config``` modülünü içeri aktarmak için aşağıdaki kodu kopyalayıp yapıştırın.
 
     // ADD THIS PART TO YOUR CODE
@@ -260,7 +261,7 @@ Terminalinizde ```app.js``` dosyanızı bulun ve şu komutu çalıştırın: ```
 
 Tebrikler! Başarılı bir şekilde bir DocumentDB veritabanı oluşturdunuz.
 
-## <a name="a-idcreatecollastep-6-create-a-collection"></a><a id="CreateColl"></a>6. Adım: Koleksiyon oluşturma
+## <a id="CreateColl"></a>6. Adım: Koleksiyon oluşturma
 > [!WARNING]
 > **CreateDocumentCollectionAsync**, fiyatlandırmaya yönelik etkilere sahip yeni bir koleksiyon oluşturur. Daha ayrıntılı bilgi için lütfen [fiyatlandırma sayfamızı](https://azure.microsoft.com/pricing/details/documentdb/) ziyaret edin.
 > 
@@ -314,7 +315,7 @@ Terminalinizde ```app.js``` dosyanızı bulun ve şu komutu çalıştırın: ```
 
 Tebrikler! Başarılı bir şekilde bir DocumentDB koleksiyonu oluşturdunuz.
 
-## <a name="a-idcreatedocastep-7-create-a-document"></a><a id="CreateDoc"></a>7. Adım: Belge oluşturma
+## <a id="CreateDoc"></a>7. Adım: Belge oluşturma
 Bir [belge](documentdb-resources.md#documents), **DocumentClient** sınıfının [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) işlevi kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içeriğidir. Artık DocumentDB'ye bir belge yerleştirebilirsiniz.
 
 ```config``` nesnesinde kaydedilen JSON verilerini içeren belgeleri oluşturmak için **getFamilyDocument** işlevini **getCollection** işlevinin altına kopyalayıp yapıştırın. Yine aynı kimliğe sahip bir belgenin zaten var olup olmadığını denetleyeceğiz.
@@ -368,7 +369,7 @@ Tebrikler! Başarılı bir şekilde bir DocumentDB belgesi oluşturdunuz.
 
 ![Node.js öğreticisi - Hesap, veritabanı, koleksiyon ve belgeler arasındaki hiyerarşik ilişkiyi gösteren diyagram - Node veritabanı](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-8-query-documentdb-resources"></a><a id="Query"></a>8. Adım: DocumentDB kaynaklarını sorgulama
+## <a id="Query"></a>8. Adım: DocumentDB kaynaklarını sorgulama
 DocumentDB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler. Aşağıdaki örnek kod, koleksiyonunuzdaki belgeler için çalıştırabileceğiniz bir sorguyu gösterir.
 
 **queryCollection** işlevini kopyalayıp app.js dosyasındaki **getFamilyDocument** işlevinin altına yapıştırın. DocumentDB, aşağıda gösterildiği gibi SQL benzeri sorguları destekler. Karmaşık sorgular derleme hakkında daha fazla bilgi için [Query Playground](https://www.documentdb.com/sql/demo) sayfasını ve [sorgu belgelerini](documentdb-sql-query.md) inceleyin.
@@ -425,7 +426,7 @@ Terminalinizde ```app.js``` dosyanızı bulun ve şu komutu çalıştırın: ```
 
 Tebrikler! DocumentDB belgelerini başarılı bir şekilde sorguladınız.
 
-## <a name="a-idreplacedocumentastep-9-replace-a-document"></a><a id="ReplaceDocument"></a>9. Adım: Bir belgeyi değiştirme
+## <a id="ReplaceDocument"></a>9. Adım: Bir belgeyi değiştirme
 DocumentDB, JSON belgelerini değiştirmeyi destekler.
 
 **replaceFamilyDocument** işlevini kopyalayıp app.js dosyasındaki **queryCollection** işlevinin altına yapıştırın.
@@ -472,7 +473,7 @@ Terminalinizde ```app.js``` dosyanızı bulun ve şu komutu çalıştırın: ```
 
 Tebrikler! Bir DocumentDB belgesini başarıyla değiştirdiniz.
 
-## <a name="a-iddeletedocumentastep-10-delete-a-document"></a><a id="DeleteDocument"></a>10. Adım: Bir belgeyi silme
+## <a id="DeleteDocument"></a>10. Adım: Bir belgeyi silme
 DocumentDB, JSON belgelerini silmeyi destekler.
 
 **deleteFamilyDocument** işlevini **replaceFamilyDocument** işlevinin altına kopyalayıp yapıştırın.
@@ -516,7 +517,7 @@ Terminalinizde ```app.js``` dosyanızı bulun ve şu komutu çalıştırın: ```
 
 Tebrikler! Bir DocumentDB belgesini başarıyla sildiniz.
 
-## <a name="a-iddeletedatabaseastep-11-delete-the-node-database"></a><a id="DeleteDatabase"></a>11. Adım: Node veritabanını silme
+## <a id="DeleteDatabase"></a>11. Adım: Node veritabanını silme
 Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler vb.) kaldırılır.
 
 Veritabanını ve tüm alt kaynaklarını kaldırmak için **cleanup** işlevini kopyalayıp **deleteFamilyDocument** işlevinin altına yapıştırın.
@@ -551,7 +552,7 @@ Veritabanını ve tüm alt kaynaklarını kaldırmak için **cleanup** işlevini
     .then(() => { exit(`Completed successfully`); })
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
-## <a name="a-idrunastep-12-run-your-nodejs-application-all-together"></a><a id="Run"></a>12. Adım: Node.js uygulamanızı hep birlikte çalıştırın!
+## <a id="Run"></a>12. Adım: Node.js uygulamanızı hep birlikte çalıştırın!
 İşlevlerinizi çağırma dizisinin bütünüyle şu şekilde görünmesi gerekir:
 
     getDatabase()
@@ -602,7 +603,7 @@ Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı aşağıda
 
 Tebrikler! Node.js öğreticisini tamamladınız ve ilk DocumentDB konsol uygulamanızı oluşturdunuz.
 
-## <a name="a-idgetsolutionaget-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>Eksiksiz Node.js öğreticisi çözümünü edinme
+## <a id="GetSolution"></a>Eksiksiz Node.js öğreticisi çözümünü edinme
 Bu öğreticideki adımları tamamlama fırsatınız olmadıysa veya yalnızca kodu indirmek isterseniz [Github](https://github.com/Azure-Samples/documentdb-node-getting-started)'dan ulaşabilirsiniz.
 
 Bu makaledeki tüm örnekleri içeren GetStarted çözümünü çalıştırmak için aşağıdakilere ihtiyacınız vardır:

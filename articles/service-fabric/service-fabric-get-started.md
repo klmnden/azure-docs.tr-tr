@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: a3367bc4eb66a97263abc2e057eda41770e3face
-ms.openlocfilehash: c461706167728361576f42f8ac7f9b4a2d120609
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 935b0ba8725b083878a0f9213e4fbd31bd27ab2c
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -46,8 +47,8 @@ Geliştirme için şu işletim sistemi sürümleri desteklenir:
 > 
 
 ## <a name="install-the-sdk-and-tools"></a>SDK'yı ve araçları yükleme
-### <a name="to-use-visual-studio-2017-rc"></a>Visual Studio 2017 RC'yi kullanmak için
-Service Fabric Araçları, Visual Studio 2017 RC'de Azure Geliştirme ve Yönetim iş yükünün parçasıdır. Bu iş yükünü Visual Studio yüklemenizin bir parçası olarak etkinleştirin.
+### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017’yi kullanmak için
+Service Fabric Araçları, Visual Studio 2017’de Azure Geliştirme ve Yönetim iş yükünün parçasıdır. Bu iş yükünü Visual Studio yüklemenizin bir parçası olarak etkinleştirin.
 Ayrıca Web Platformu Yükleyicisini kullanarak Microsoft Azure Service Fabric SDK'sını da yüklemeniz gerekir.
 
 * [Microsoft Azure Service Fabric SDK'sını yükleyin][core-sdk]
@@ -99,9 +100,4 @@ Artık geliştirme ortamınızı ayarlamayı tamamladığınıza göre, uygulama
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI bağlantısı"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI bağlantısı"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

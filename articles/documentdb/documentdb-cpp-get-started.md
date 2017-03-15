@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 78c3da6fd83a6fca0351a90846d10acd82924be3
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -24,8 +25,9 @@ ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [MongoDB için Node.js](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +66,7 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupcastep-2-set-up-your-c-application"></a><a id="SetupC++"></a>2. Adım: C++ uygulamanızı ayarlama
+## <a id="SetupC++"></a>2. Adım: C++ uygulamanızı ayarlama
 1. Visual Studio’yu açın ve **Dosya** menüsünde **Yeni**’ye, ardından **Proje**’ye tıklayın. 
 2. **Yeni Proje** penceresindeki **Yüklü** bölmesinde **Visual C++** seçeneğini genişletin, **Win32**’ye ve ardından **Win32 Konsol Uygulaması**’na tıklayın. Projeyi hellodocumentdb olarak adlandırıp **Tamam**’a tıklayın. 
    
@@ -79,12 +81,12 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
    
     Paketler projenize eklendikten sonra biraz kod yazmaya hazırız demektir.   
 
-## <a name="a-idconfigastep-3-copy-connection-details-from-azure-portal-for-your-documentdb-database"></a><a id="Config"></a>3. Adım: DocumentDB veritabanınıza yönelik bağlantı ayrıntılarını Azure portaldan kopyalama
+## <a id="Config"></a>3. Adım: DocumentDB veritabanınıza yönelik bağlantı ayrıntılarını Azure portaldan kopyalama
 [Azure portalını](https://portal.azure.com) açın ve oluşturduğunuz NoSQL (DocumentDB) veritabanı hesabına gidin. C++ kod parçacığımızdan bir bağlantı oluşturmak için bir sonraki adımda Azure portalından alınan URI ve birincil anahtara ihtiyacımız olacak. 
 
 ![Azure portalında DocumentDB URI’si ve anahtarlar](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a name="a-idconnectastep-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>4. Adım: DocumentDB hesabına bağlanma
+## <a id="Connect"></a>4. Adım: DocumentDB hesabına bağlanma
 1. Aşağıdaki üst bilgileri ve ad alanlarını kaynak kodunuza `#include "stdafx.h"` ifadesinden sonra gelecek şekilde ekleyin.
    
         #include <cpprest/json.h>
@@ -102,7 +104,7 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
    
     Artık documentdb istemcisini başlatmaya yarayacak koda sahip olduğunuza göre, DocumentDB kaynaklarıyla çalışmaya bakalım.
 
-## <a name="a-idcreatedbcollastep-5-create-a-c-database-and-collection"></a><a id="CreateDBColl"></a>5. Adım: C++ veritabanı ve koleksiyonu oluşturma
+## <a id="CreateDBColl"></a>5. Adım: C++ veritabanı ve koleksiyonu oluşturma
 Bu adımı gerçekleştirmeden önce, DocumentDB konusunda acemi olanlar için veritabanı, koleksiyon ve belgelerin nasıl etkileşimde bulunduğundan bahsedelim. [Veritabanı](documentdb-resources.md#databases), koleksiyonlar genelinde bölümlenmiş belge depolama alanının mantıksal bir kapsayıcısıdır. [Koleksiyon](documentdb-resources.md#collections), JSON belgeleri ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır. [DocumentDB hiyerarşik kaynak modeli ve kavramları](documentdb-resources.md) konusundan DocumentDB hiyerarşik kaynak modeli ve kavramları hakkında daha fazla bilgi edinebilirsiniz.
 
 Bir veritabanı ve ona karşılık gelen bir koleksiyon oluşturmak için aşağıdaki kodu ana işlevinizin sonuna ekleyin. Bunu yaptığınızda, önceki adımda belirttiğiniz istemci yapılandırması kullanılarak 'FamilyRegistry’ adlı bir veritabanı ve ‘FamilyCollection’ adlı bir koleksiyon oluşturulur.
@@ -115,7 +117,7 @@ Bir veritabanı ve ona karşılık gelen bir koleksiyon oluşturmak için aşağ
     }
 
 
-## <a name="a-idcreatedocastep-6-create-a-document"></a><a id="CreateDoc"></a>6. Adım: Belge oluşturma
+## <a id="CreateDoc"></a>6. Adım: Belge oluşturma
 [Belgeler](documentdb-resources.md#documents), kullanıcı tanımlı (rastgele) JSON içeriğidir. Artık DocumentDB'ye bir belge yerleştirebilirsiniz. Aşağıdaki kodu ana işlevin sonuna kopyalayarak bir belge oluşturabilirsiniz. 
 
     try {
@@ -137,7 +139,7 @@ Bir veritabanı ve ona karşılık gelen bir koleksiyon oluşturmak için aşağ
 
 ![C++ öğreticisi - Hesap, veritabanı, koleksiyon ve belgeler arasındaki hiyerarşik ilişkiyi gösteren diyagram](media/documentdb-cpp-get-started/documentdbdocs.png)
 
-## <a name="a-idquerydbastep-7-query-documentdb-resources"></a><a id="QueryDB"></a>7. Adım: DocumentDB kaynaklarını sorgulama
+## <a id="QueryDB"></a>7. Adım: DocumentDB kaynaklarını sorgulama
 DocumentDB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler. Aşağıdaki örnek kod, önceki adımda oluşturduğumuz belgelerde DocumentDB SQL söz dizimi kullanarak gerçekleştirebileceğimiz bir sorguyu gösterir.
 
 Bu işlev, veritabanı ve koleksiyonun yanı sıra belge istemcisinin benzersiz tanımlayıcısı ve kaynak kimliğini bağımsız değişkenler olarak alır. Bu kodu ana işlevden önce ekleyin.
@@ -168,7 +170,7 @@ Bu işlev, veritabanı ve koleksiyonun yanı sıra belge istemcisinin benzersiz 
       }
     }
 
-## <a name="a-idreplaceastep-8-replace-a-document"></a><a id="Replace"></a>8. Adım: Bir belgeyi değiştirme
+## <a id="Replace"></a>8. Adım: Bir belgeyi değiştirme
 DocumentDB, aşağıdaki kodda gösterildiği gibi JSON belgelerinin değiştirilmesini destekler. Bu kodu executesimplequery işlevinden sonra ekleyin.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -188,7 +190,7 @@ DocumentDB, aşağıdaki kodda gösterildiği gibi JSON belgelerinin değiştiri
       }
     }
 
-## <a name="a-iddeleteastep-9-delete-a-document"></a><a id="Delete"></a>9. Adım: Bir belgeyi silme
+## <a id="Delete"></a>9. Adım: Bir belgeyi silme
 DocumentDB JSON belgelerinin silinmesini destekler; aşağıdaki kodu kopyalayıp replacedocument işlevinden sonra yapıştırarak bunu gerçekleştirebilirsiniz. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
@@ -203,7 +205,7 @@ DocumentDB JSON belgelerinin silinmesini destekler; aşağıdaki kodu kopyalayı
       }
     }
 
-## <a name="a-iddeletedbastep-10-delete-a-database"></a><a id="DeleteDB"></a>10. Adım: Bir veritabanını silme
+## <a id="DeleteDB"></a>10. Adım: Bir veritabanını silme
 Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler vb.) kaldırılır.
 
 Veritabanını ve tüm alt kaynaklarını kaldırmak için aşağıdaki kod parçacığını (cleanup işlevi) kopyalayıp deletedocument işlevinden sonra yapıştırın.
@@ -216,7 +218,7 @@ Veritabanını ve tüm alt kaynaklarını kaldırmak için aşağıdaki kod par�
       }
     }
 
-## <a name="a-idrunastep-11-run-your-c-application-all-together"></a><a id="Run"></a>11. Adım: C++ uygulamanızı hep birlikte çalıştırın!
+## <a id="Run"></a>11. Adım: C++ uygulamanızı hep birlikte çalıştırın!
 Farklı DocumentDB kaynaklarını oluşturmak, sorgulamak, değiştirmek ve silmek için kod ekledik.  Şimdi de bu farklı işlevlere hellodocumentdb.cpp’deki ana işlevimizden çağrıların yanı sıra bazı tanılama iletileri ekleyerek bağlantıları tamamlayalım.
 
 Bunu, uygulamanızın ana işlevini aşağıdaki kodla değiştirerek gerçekleştirebilirsiniz. Bu işlem 3. adımda koda kopyaladığınız account_configuration_uri ve primary_key değerlerinin üzerine yazacağından, bu satırı kaydedin veya değerleri yeniden portaldan kopyalayın. 
@@ -276,7 +278,7 @@ Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıkışın aşağ
 
 Tebrikler! C++ öğreticisini tamamladınız ve ilk DocumentDB konsol uygulamanızı oluşturdunuz!
 
-## <a name="a-idgetsolutionaget-the-complete-c-tutorial-solution"></a><a id="GetSolution"></a>Tam C++ öğreticisi çözümünü edinin
+## <a id="GetSolution"></a>Tam C++ öğreticisi çözümünü edinin
 Bu makaledeki tüm örnekleri içeren GetStarted çözümünü derlemek için aşağıdakilere ihtiyacınız vardır:
 
 * [DocumentDB hesabı][documentdb-create-account].
@@ -289,10 +291,5 @@ Bu makaledeki tüm örnekleri içeren GetStarted çözümünü derlemek için a�
 
 [documentdb-create-account]: documentdb-create-account.md
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

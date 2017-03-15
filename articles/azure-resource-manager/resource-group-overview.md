@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 03/06/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
-ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: eed360b6c996d1901b40f3d1fcf4b8ff859da573
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -92,10 +93,10 @@ Tüm kaynak sağlayıcılarını aşağıdaki PowerShell cmdlet’i ile alabilir
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-Veya Azure CLI kullanarak tüm kaynak sağlayıcılarını aşağıdaki komutla alabilirsiniz:
+Veya Azure CLI 2.0 kullanarak tüm kaynak sağlayıcılarını aşağıdaki komutla alabilirsiniz:
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 Kullanmanız gereken kaynak sağlayıcıları için döndürülen listeye bakabilirsiniz.
@@ -106,10 +107,10 @@ Bir kaynak sağlayıcısına ilişkin ayrıntıları almak için sağlayıcı ad
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 
-Veya Azure CLI kullanarak aşağıdaki komutla Microsoft.Compute için desteklenen kaynak türlerini, konumları ve API sürümlerini alabilirsiniz:
+Veya Azure CLI 2.0 kullanarak aşağıdaki komutla Microsoft.Compute için desteklenen kaynak türlerini, konumları ve API sürümlerini alabilirsiniz:
 
 ```azurecli
-azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+az provider show --namespace Microsoft.Compute
 ```
 
 Daha fazla bilgi için bkz. [Resource Manager sağlayıcıları, bölgeleri, API sürümleri ve şemaları](resource-manager-supported-services.md).
@@ -214,10 +215,10 @@ Bir etiket değerine sahip tüm kaynakları almak için aşağıdaki PowerShell 
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-Veya aşağıdaki Azure CLI komutunu kullanın:
+Veya aşağıdaki Azure CLI 2.0 komutunu kullanın:
 
 ```azurecli
-azure resource list -t costCenter=Finance --json
+az resource list --tag costCenter=Finance
 ```
 
 Azure portalından etiketli kaynakları da görüntüleyebilirsiniz.
@@ -343,9 +344,4 @@ Bu genel bakışın sunulduğu videoya şuradan ulaşabilirsiniz:
 
 
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

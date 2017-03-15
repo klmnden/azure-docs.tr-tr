@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
-ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -125,7 +126,7 @@ Oluşturduğunuz kuyruktaki iletileri görüntüleyerek, işlevinizin çalışı
 
     ![Bir Azure Depolama tablosuna bağlama ekleme](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. **Tablo adı** için `TableItem` ve **Tablo parametre adı** için `functionbindings` girin, bir **Depolama hesabı bağlantısı** seçin ya da yeni bir tane oluşturun ve ardından **Kaydet**’e tıklayın.
+2. **Tablo adı** için `functionbindings` ve **Tablo parametre adı** için `myTable` girin, bir **Depolama hesabı bağlantısı** seçin ya da yeni bir tane oluşturun ve ardından **Kaydet**’e tıklayın.
 
     ![Depolama tablo bağlamasını yapılandırma](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -180,7 +181,7 @@ Oluşturduğunuz kuyruktaki iletileri görüntüleyerek, işlevinizin çalışı
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure İşlevleri hakkında daha fazla bilgi edinmek için bu konulara göz atın.
+Azure İşlevleri hakkında daha fazla bilgi edinmek için, aşağıdaki konulara bakın:
 
 * [Azure İşlevleri geliştirici başvurusu](functions-reference.md)  
   İşlevleri kodlamak ve tetikleyicileri ve bağlamaları tanımlamak için programcı başvurusu
@@ -190,10 +191,5 @@ Azure İşlevleri hakkında daha fazla bilgi edinmek için bu konulara göz atı
   Tüketim barındırma planı dahil olmak üzere, Azure İşlevlerinde kullanılabilen hizmet planlarını ve doğru planın nasıl seçileceğini açıklar. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

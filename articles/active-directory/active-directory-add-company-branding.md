@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/03/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -133,6 +134,10 @@ Dil tercihiniz Almanca ise varsayılan Başlık Logosunu ve Almanca metni alırs
 
 Teknik olarak, Azure AD tarafından desteklenen her dil için farklı bir küme yapılandırabilirsiniz ancak bakım ve performans nedeniyle varyasyon sayısını düşük tutmanızı öneririz.
 
+> [!IMPORTANT]
+> Yammer, kullanıcı oturum açtıktan sonra Azure AD işaretli oturum açma sayfasını göstermez. Kullanıcı önce genel Office 365 oturum açma sayfasını ve ardından işaretli sayfayı görür.   
+ 
+ 
 **Dizininize şirket markası eklemek için şu adımları uygulayın:**
 
 1. Özelleştirmek istediğiniz dizinin yöneticisi olarak [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
@@ -148,7 +153,7 @@ Oturum açma sayfası markasında yaptığınız yeni değişikliğin görünmes
 
 1. Özelleştirmek istediğiniz dizinin yöneticisi olarak [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
 2. Özelleştirmek istediğiniz dizini seçin.
-3. Üstteki araç çubuğunda **Configure (Yapılandır)** düğmesine tıklayın.
+fs3. Üstteki araç çubuğunda **Configure (Yapılandır)** düğmesine tıklayın.
 4. **Customize Branding (Markayı Özelleştir)**düğmesine tıklayın.
 5. **Add branding for a specific language (Belirli bir dil için marka ekle)** düğmesine tıklayın.
 6. Logoyu özelleştirmek istediğiniz dili seçip **Next (İleri)** düğmesine tıklayın.
@@ -221,9 +226,4 @@ Azure AD'deki bazı özelleştirilebilir öğelerin birden çok kullanım durumu
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

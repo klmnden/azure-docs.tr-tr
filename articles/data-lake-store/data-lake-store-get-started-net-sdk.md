@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 2ab4e2be8509bb264f496e7ebc6b4b50187c0151
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -37,8 +38,11 @@ Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel 
 
 ## <a name="prerequisites"></a>Önkoşullar
 * **Visual Studio 2013 veya 2015**. Aşağıdaki yönergelerde Visual Studio 2015 kullanılmıştır.
+
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
+
 * **Azure Data Lake Store hesabı**. Hesap oluşturmaya ilişkin yönergeler için bkz. [Azure Data Lake Store kullanmaya başlama](data-lake-store-get-started-portal.md)
+
 * **Azure Active Directory Uygulaması oluşturma**. Data Lake Store uygulamasında Azure AD ile kimlik doğrulaması yapmak için Azure AD uygulamasını kullanın. Azure AD kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** gibi farklı yaklaşımlar bulunmaktadır. Kimlik doğrulaması hakkında yönergeler ve daha fazla bilgi için bkz. [Azure Active Directory kullanarak Data Lake Store kimlik doğrulaması yapma](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>.NET uygulaması oluşturma
@@ -58,9 +62,9 @@ Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel 
    2. **Nuget Paket Yöneticisi** sekmesinde, **Paket kaynağının** **nuget.org** olarak ayarlandığından ve **Ön sürümü dahil et** onay kutusunun işaretli olduğundan emin olun.
    3. Aşağıdaki NuGet paketlerini arayıp yükleyin:
       
-      * `Microsoft.Azure.Management.DataLake.Store` - Bu öğreticide v0.12.5-preview kullanılır.
-      * `Microsoft.Azure.Management.DataLake.StoreUploader` - Bu öğreticide v0.10.6-preview kullanılır.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Bu öğreticide v2.2.8-preview kullanılır.
+      * `Microsoft.Azure.Management.DataLake.Store` - Bu öğreticide v1.0.4 kullanılır.
+      * `Microsoft.Azure.Management.DataLake.StoreUploader` - Bu öğreticide v1.0.1-preview kullanılır.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Bu öğreticide v2.2.11 kullanılır.
         
         ![Nuget kaynağı ekleme](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Yeni bir Azure Data Lake hesabı oluşturma")
    4. **Nuget Paket Yöneticisi**'ni kapatın.
@@ -71,7 +75,11 @@ Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel 
    
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.Azure.Management.DataLake.StoreUploader;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using System.Security.Cryptography.X509Certificates; //Required only if you are using an Azure AD application created with certificates
+
 7. Aşağıda gösterildiği gibi değişkenleri tanımlayın ve Data Lake Store adına ve zaten var olan kaynak grubu adına yönelik değerleri sağlayın. Ayrıca, burada sağladığınız yerel yolun ve dosya adının bilgisayar üzerinde var olduğundan emin olun. Aşağıdaki kod parçacığını ad alanı bildirimlerinden sonra ekleyin.
    
         namespace SdkSample
@@ -104,32 +112,31 @@ Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel 
 Makalenin geriye kalan bölümlerinde, kullanılabilir .NET yöntemlerinin, kimlik doğrulama, dosyayı karşıya yükleme vb. işlemleri gerçekleştirmek üzere nasıl kullanılacağını öğrenebilirsiniz.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
+
 ### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Son kullanıcı kimlik doğrulaması kullanıyorsanız (bu öğretici için önerilir)
-Bunu mevcut Azure AD "Yerel İstemci" Uygulamanız ile birlikte kullanın; aşağıda bir tanesi verilmiştir. Bu öğreticiyi daha hızlı tamamlamanıza yardımcı olması için bu yaklaşımı kullanmanız önerilir.
+
+Uygulamanızın kimliğini **etkileşimli olarak** doğrulamak üzere bunu var olan bir Azure AD yerle uygulamasıyla kullanın, bunun anlamı Azure kimlik bilgilerinizi girmeniz isteneceğidir. 
+
+Kullanım kolaylığı için, aşağıdaki kod parçacığında, herhangi bir Azure aboneliğiyle çalışacak yönlendirme URI’si ve istemci kimliği için varsayılan değerler kullanılır. Bu öğreticiyi daha hızlı tamamlamanıza yardımcı olması için bu yaklaşımı kullanmanız önerilir. Aşağıdaki kod parçacığında, yalnızca kiracı kimliğiniz için değeri sağlayın. [Active Directory Uygulaması oluşturma](data-lake-store-end-user-authenticate-using-active-directory.md) kısmında verilen yönergeleri kullanarak bunu alabilirsiniz.
 
     // User login via interactive popup
-    // Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD Web application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
+    var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-    var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
+    var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
 
 Yukarıdaki bu kod parçacığı hakkında bilmeniz gereken birkaç şey.
 
 * Öğreticiyi daha hızlı tamamlamanıza yardımcı olmak üzere bu kod parçacığı tüm Azure abonelikleri için varsayılan olarak kullanılabilen bir Azure AD etki alanı ve istemci kimliği kullanır. Böylece **bu kod parçacığını uygulamanızda olduğu gibi kullanabilirsiniz**.
-* Ancak, kendi Azure AD etki alanınızı ve uygulama istemci kimliğinizi kullanmak istemiyorsanız bir Azure AD yerel uygulaması oluşturmanız ve ardından oluşturduğunuz uygulamaya ait Azure AD etki alanı, istemci kimliği ve yeniden yönlendirme URI’sini kullanmanız gerekir. Yönergeler için bkz. [Active Directory Uygulaması oluşturma](data-lake-store-end-user-authenticate-using-active-directory.md).
-
-> [!NOTE]
-> Yukarıdaki bağlantılarda verilen yönergeler bir Azure AD web uygulaması içindir. Bununla birlikte, bunun yerine yerel istemci uygulaması oluşturmayı seçtiğinizde bile adımlar tam olarak aynıdır. 
-> 
-> 
+* Ancak, kendi Azure AD etki alanınızı ve uygulama istemci kimliğinizi kullanmak istemiyorsanız, bir Azure AD yerel uygulaması oluşturmanız ve ardından oluşturduğunuz uygulamaya ait Azure AD kiracı kimliği, istemci kimliği ve yeniden yönlendirme URI’sini kullanmanız gerekir. Yönergeler için, bkz: [Data Lake Store ile son kullanıcı kimlik doğrulaması için Active Directory Uygulama oluşturma](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Gizli anahtar ile hizmetten hizmete kimlik doğrulaması kullanıyorsanız
-Gizli anahtar / uygulama anahtarı / hizmet sorumlusu kullanılarak aşağıdaki kod parçacığı uygulamanızın etkileşimli olmayan kimlik doğrulaması için kullanılabilir. Bunu var olan [Azure AD "Web App" Uygulaması](../azure-resource-manager/resource-group-create-service-principal-portal.md) ile birlikte kullanın.
+Gizli anahtar / uygulama anahtarı / hizmet sorumlusu kullanılarak aşağıdaki kod parçacığı uygulamanızın **etkileşimli olmayan** kimlik doğrulaması için kullanılabilir. Bunu var olan Azure AD "Web App" uygulaması ile birlikte kullanın. Azure AD web uygulamasının nasıl oluşturulacağını ve aşağıdaki kod parçacığında gereken istemci kimliği ile istemci parolasının nasıl alınacağıyla ilgili yönergeler için, bkz: [Data Lake Store ile servis-servis kimlik doğrulaması için Active Directory Uygulaması oluşturma](data-lake-store-authenticate-using-active-directory.md).
 
     // Service principal / appplication authentication with client secret / key
-    // Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -138,7 +145,7 @@ Gizli anahtar / uygulama anahtarı / hizmet sorumlusu kullanılarak aşağıdaki
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Sertifika ile hizmetten hizmete kimlik doğrulaması kullanıyorsanız
-Üçüncü bir seçenek olarak, uygulama sertifikası / hizmet sorumlusu kullanılarak aşağıdaki kod parçacığı uygulamanızın etkileşimli olmayan kimlik doğrulaması için kullanılabilir. Bunu var olan [Azure AD "Web App" Uygulaması](../azure-resource-manager/resource-group-create-service-principal-portal.md) ile birlikte kullanın.
+Üçüncü bir seçenek olarak, bir Azure Active Directory uygulama sertifikası / hizmet sorumlusu kullanılarak aşağıdaki kod parçacığı uygulamanızın **etkileşimli olmayan** kimlik doğrulaması için kullanılabilir. Bunu var olan, [Sertifikalı Azure AD Uygulaması](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate) ile birlikte kullanın.
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -257,10 +264,5 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabındaki bir dosyayı
 * [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Data Lake Store .NET SDK Başvurusu](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Data Lake Store REST Başvurusu](https://msdn.microsoft.com/library/mt693424.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

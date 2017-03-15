@@ -15,25 +15,28 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 6ec7c5ac984476e3645b45f5e8cf98cf0aa18e5d
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: c03122972228f30d56a8e0636b1c35ac92b42977
+ms.lasthandoff: 03/07/2017
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Visual Studio için Python web ve çalışan rolleri içeren Python Araçları
 
-Bu makalede, [Visual Studio için Python Araçları][Visual Studio için Python Araçları] ile Python web ve çalışan rollerini kullanmaya genel bir bakış sunulmuştur. Visual Studio’yu kullanarak Python kullanan temel bir Bulut Hizmetinin nasıl oluşturulup dağıtılacağını öğreneceksiniz.
+Bu makalede, [Visual Studio için Python Araçları][Python Tools for Visual Studio] ile Python web ve çalışan rollerini kullanmaya genel bir bakış sunulmuştur. Visual Studio’yu kullanarak Python kullanan temel bir Bulut Hizmetinin nasıl oluşturulup dağıtılacağını öğreneceksiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
-* Visual Studio 2013 veya 2015
-* [Visual Studio için Python Araçları][Visual Studio için Python Araçları] (PTVS)
-* [VS 2013 için Azure SDK Araçları][VS 2013 için Azure SDK Araçları] veya [VS 2015 için Azure SDK Araçları][VS 2015 için Azure SDK Araçları]
-* [Python 2.7 32 bit][Python 2.7 32 bit] veya [Python 3.5 32 bit][Python 3.5 32 bit]
+* [Visual Studio 2013, 2015 veya 2017](https://www.visualstudio.com/)
+* [Visual Studio için Python Araçları][Python Tools for Visual Studio] (PTVS)
+* [VS 2013 için Azure SDK Araçları][Azure SDK Tools for VS 2013] veya  
+[VS 2015 için Azure SDK Araçları][Azure SDK Tools for VS 2015] veya  
+[VS 2017 için Azure SDK Araçları][Azure SDK Tools for VS 2017]
+* [Python 2.7 32-bit][Python 2.7 32-bit] veya [Python 3.5 32-bit][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Python web ve çalışan rolleri nelerdir?
-Azure uygulamaları çalıştırmak üzere üç işlem modeli sunar: [Azure App Service için Web Apps][execution model-web sites], [Azure Virtual Machines][execution model-vms], ve [Azure Cloud Services][execution model-cloud services]. Python bu üç modeli de destekler. Web ve çalışan rolleri içeren Cloud Services *Hizmet Olarak Platform (PaaS)* sunar. Web rolü, bir bulut hizmetinde ön uç web uygulamalarını barındırmak için özel Internet Information Services (IIS) web sunucusu sağlar. Çalışan rolü ise kullanıcı etkileşimi ve girişinden bağımsız zaman uyumsuz, uzun çalışan ve kalıcı görevleri çalıştırabilir.
+Azure, uygulama çalıştırmak için üç işlem modeli sağlar: [Azure App Service’teki Web Apps özelliği][execution model-web sites], [Azure Sanal Makineler][execution model-vms] ve [Azure Cloud Services][execution model-cloud services]. Python bu üç modeli de destekler. Web ve çalışan rolleri içeren Cloud Services *Hizmet Olarak Platform (PaaS)* sunar. Web rolü, bir bulut hizmetinde ön uç web uygulamalarını barındırmak için özel Internet Information Services (IIS) web sunucusu sağlar. Çalışan rolü ise kullanıcı etkileşimi ve girişinden bağımsız zaman uyumsuz, uzun çalışan ve kalıcı görevleri çalıştırabilir.
 
 Daha fazla bilgi için bkz. [Bulut Hizmeti nedir?].
 
@@ -98,7 +101,7 @@ Aşağıdaki betikler Python 3.5 hedeflenerek yazılmıştır. Python 2.x sürü
 </Startup>
 ```
 
-**PYTHON2** ve **PYPATH** değişkenlerinin çalışan başlangıç görevine eklenmesi gerekir.  **PYPATH** değişkeni yalnızca **PYTHON2** değişkeni **açık** olarak ayarlandığında kullanılır.
+**PYTHON2** ve **PYPATH** değişkenlerinin çalışan başlangıç görevine eklenmesi gerekir. **PYPATH** değişkeni yalnızca **PYTHON2** değişkeni **açık** olarak ayarlandığında kullanılır.
 
 ```xml
 <Runtime>
@@ -329,15 +332,15 @@ Bulut hizmeti sanal makinesi başlatılıp Python’u yükledikten sonra herhang
 ## <a name="next-steps"></a>Sonraki adımlar
 Visual Studio için Python Araçları’ndaki web ve çalışan rolleri ile çalışma hakkında daha ayrıntılı bilgi için PTVS belgelerine bakın:
 
-* [Bulut Hizmeti Projeleri][Bulut Hizmeti Projeleri]
+* [Bulut Hizmeti Projeleri][Cloud Service Projects]
 
 Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmetlerini kullanma hakkında daha ayrıntılı bilgi için aşağıdaki makalelere göz atın.
 
-* [Blob Hizmeti][Blob Hizmeti]
-* [Tablo Hizmeti][Tablo Hizmeti]
-* [Kuyruk Hizmeti][Kuyruk Hizmeti]
-* [Service Bus Kuyrukları][Service Bus Kuyrukları]
-* [Service Bus Konuları][Service Bus Konuları]
+* [Blob Hizmeti][Blob Service]
+* [Tablo Hizmeti][Table Service]
+* [Kuyruk Hizmeti][Queue Service]
+* [Service Bus Kuyrukları][Service Bus Queues]
+* [Service Bus Konuları][Service Bus Topics]
 
 <!--Link references-->
 
@@ -345,27 +348,23 @@ Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmet
 [execution model-web sites]: ../app-service-web/app-service-web-overview.md
 [execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
 [execution model-cloud services]: cloud-services-choose-me.md
-[Python Geliştirici Merkezi]: /develop/python/
+[Python Developer Center]: /develop/python/
 
-[Blob Hizmeti]: ../storage/storage-python-how-to-use-blob-storage.md
-[Kuyruk Hizmeti]: ../storage/storage-python-how-to-use-queue-storage.md
-[Tablo Hizmeti]: ../storage/storage-python-how-to-use-table-storage.md
-[Service Bus Kuyrukları]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
-[Service Bus Konuları]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
+[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
-[Visual Studio için Python Araçları]: http://aka.ms/ptvs
-[Visual Studio için Python Araçları Belgeleri]: http://aka.ms/ptvsdocs
-[Bulut Hizmeti Projeleri]: http://go.microsoft.com/fwlink/?LinkId=624028
-[VS 2013 için Azure SDK Araçları]: http://go.microsoft.com/fwlink/?LinkId=323510
-[VS 2015 için Azure SDK Araçları]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32 bit]: https://www.python.org/downloads/
-[Python 3.5 32 bit]: https://www.python.org/downloads/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=746482
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=746481
+[Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
+[Python 2.7 32-bit]: https://www.python.org/downloads/
+[Python 3.5 32-bit]: https://www.python.org/downloads/
 

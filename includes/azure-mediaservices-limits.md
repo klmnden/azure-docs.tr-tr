@@ -4,20 +4,20 @@
 | Kaynak | Varsayılan Sınır | 
 | --- | --- | 
 | Tek bir abonelikte Azure Media Services (AMS) hesabı sayısı | 25 (sabit) |
-| AMS hesabı başına Medya Ayrılmış Birimleri (RU’lar) |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
-| AMS hesabı başına iş sayısı | 50.000<sup>2</sup> |
+| AMS hesabı başına Medya Ayrılmış Birimleri (RU’lar) |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| AMS hesabı başına iş sayısı | 50,000<sup>(2)</sup> |
 | İş başına zincirleme görev sayısı | 30 (sabit) |
 | AMS hesabı başına varlık sayısı | 1.000.000|
 | Görev başına varlık sayısı | 50 |
 | İş başına varlık sayısı | 100 |
-| Tek seferde bir varlıkla ilişkilendirilen benzersiz bulucu sayısı | 5<sup>4</sup> |
+| Tek seferde bir varlıkla ilişkilendirilen benzersiz bulucu sayısı | 5<sup>(4)</sup> |
 | AMS hesabı başına canlı kanal sayısı |5|
 | Kanal başına durdurulmuş durumdaki program sayısı |50|
 | Kanal başına çalışır durumdaki program sayısı |3|
 | AMS hesabı başına çalışır durumdaki akış uç noktaları|2|
 | Akış uç noktası başına akış birimleri |10 |
-| Depolama hesapları | 1.000<sup>5</sup> (sabit) |
-| İlkeler | 1.000.000<sup>6</sup> |
+| Depolama hesapları | 1,000<sup>(5)</sup> (sabit) |
+| İlkeler | 1,000,000<sup>(6)</sup> |
 | Dosya boyutu| Bazı senaryolarda, Media Services ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. <sup>7</sup> |
   
 <sup>1</sup> S3 RU’ları Hindistan Batı bölgesinde kullanılamaz.
@@ -44,8 +44,3 @@
 |S1    | 325|
 |S2    | 640|
 |S3    | 260|
-
-
-<!--HONumber=Feb17_HO2-->
-
-

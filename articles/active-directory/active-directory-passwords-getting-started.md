@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d391aeacd5a755c3d344a359cae130788d1a5402
-ms.openlocfilehash: 02c7cd73951b7af83760ee10be4bb8f2da142283
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -80,13 +80,10 @@ Kullanıcı parolası sıfırlama ilkesini yapılandırmak için aşağıdaki ad
 
    ![][003]
 
-5. **Configure (Yapılandır)** sekmesinde, aşağı kaydırarak **user password reset policy (kullanıcı parolası sıfırlama ilkesi)** bölümüne gidin.  Burada, belirli bir dizin için kullanıcı parolası sıfırlama ilkesinin tüm özelliklerini yapılandırabilirsiniz. *Yapılandır sekmesini görmüyorsanız Azure Active Directory Premium veya Basic sürümüne kaydolduğunuzdan ve bu özelliği yapılandıran yönetici hesabına **lisans atadığınızdan** emin olun.*  
+5. **Configure (Yapılandır)** sekmesinde, aşağı kaydırarak **user password reset policy (kullanıcı parolası sıfırlama ilkesi)** bölümüne gidin.  Burada, belirli bir dizin için kullanıcı parolası sıfırlama ilkesinin tüm özelliklerini yapılandırabilirsiniz. *Yapılandır sekmesini görmüyorsanız Azure Active Directory Premium veya Temel sürümüne kaydolduğunuzdan ve bu özelliği yapılandıran yönetici hesabına __lisans atadığınızdan__ emin olun.*  
 
    > [!NOTE]
    > **Belirlediğiniz ilke yöneticiler için değil, yalnızca kuruluşunuzdaki son kullanıcılar için geçerlidir**. Güvenlikle ilgili nedenlerle, yöneticilere yönelik parola sıfırlama ilkesini Microsoft denetler. Mevcut yönetici ilkesi iki aşama gerektirir: Cep Telefonu ve E-posta Adresi.
-
-   >
-   >
 
    ![][004]
 6. Kullanıcı parolası sıfırlama ilkesini yapılandırmak üzere **users enabled for password reset (kullanıcılar parola sıfırlayabilir)** seçeneğini **yes (evet)** ayarına kaydırın.  Bu işlem, bu özelliğin dizininizde çalışma biçimini yapılandırmanızı sağlayan birkaç ek denetimi görünür hale getirir.  Parola sıfırlama özelliğini uygun gördüğünüz şekilde özelleştirebilirsiniz.  Parola sıfırlama ilkesi denetimlerinden her birinin işlevi hakkında daha fazla bilgi edinmek istiyorsanız lütfen bkz. [Özelleştirme: Azure AD Parola Yönetimi](active-directory-passwords-customize.md).
@@ -264,13 +261,19 @@ Ayrıca Olay Görüntüleyicisi'ni açarak, uygulama olay günlüğüne giderek 
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>3. Adım: Güvenlik duvarınızı yapılandırma
-Parola Geri Yazma işlevini etkinleştirdikten sonra, Azure AD Connect uygulamasını çalıştıran bilgisayarın, parola geri yazma isteklerini almak için Microsoft bulut hizmetlerine erişebildiğinden emin olun. Bu adımda ağ cihazlarınızdaki (proxy sunucuları, güvenlik duvarları vs.) bağlantı kurallarını, belirli ağ bağlantı noktaları üzerinden belirli Microsoft URL'lerine ve IP adreslerine yönelik giden bağlantılara izin verecek şekilde güncelleştirmeniz gerekir. Bu değişiklikler Azure AD Connect aracının sürümüne göre değişiklik gösterebilir. Daha fazla bağlam için [parola geri yazma özelliğinin çalışma şekli](active-directory-passwords-learn-more.md#how-password-writeback-works) ve [parola geri yazma güvenlik modeli](active-directory-passwords-learn-more.md#password-writeback-security-model) hakkında daha fazla bilgi edinebilirsiniz.
+Parola Geri Yazma işlevini etkinleştirdikten sonra, Azure AD Connect uygulamasını çalıştıran bilgisayarın, parola geri yazma isteklerini almak için Microsoft bulut hizmetlerine erişebildiğinden emin olun. Bu adımda ağ cihazlarınızdaki (proxy sunucuları, güvenlik duvarları vs.) bağlantı kurallarını, belirli ağ bağlantı noktaları üzerinden belirli [Microsoft URL'lerine ve IP adreslerine](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US) yönelik giden bağlantılara izin verecek şekilde güncelleştirmeniz gerekir. Bu değişiklikler Azure AD Connect aracının sürümüne göre değişiklik gösterebilir. Daha fazla bağlam için [parola geri yazma özelliğinin çalışma şekli](active-directory-passwords-learn-more.md#how-password-writeback-works) ve [parola geri yazma güvenlik modeli](active-directory-passwords-learn-more.md#password-writeback-security-model) hakkında daha fazla bilgi edinebilirsiniz.
 
 #### <a name="why-do-i-need-to-do-this"></a>Bunu neden yapmam gerekiyor?
 
 Parola Geri Yazma işlevinin düzgün çalışabilmesi için Azure AD Connect uygulamasını çalıştıran bilgisayarın **.servicebus.windows.net* adresiyle ve [Microsoft Azure Veri Merkezi IP Aralıkları listesinde](https://www.microsoft.com/download/details.aspx?id=41653) belirtilen Azure IP adresleriyle HTTPS bağlantısı kurabilmesi gerekir.
 
-Azure AD Connect aracı sürüm 1.0.8667.0 ve üzeri için:
+Azure AD Connect aracı **1.1.439.0** (en son) ve üzeri için:
+
+- Azure AD Connect aracının en son sürümünün aşağıdakilere **giden HTTPS** erişimi gerekir:
+    - *passwordreset.microsoftonline.com*
+    - *servicbus.windows.net*
+
+Azure AD Connect aracı sürüm **1.0.8667.0** ila **1.1.380.0** için:
 
 - **1. Seçenek:** 443 numaralı bağlantı noktasından (URL veya IP adresi kullanan) tüm giden HTTPS bağlantılara izin verin.
     - Bunu kullanmanız gereken durum:
@@ -298,6 +301,9 @@ Azure AD Connect aracı sürüm 1.0.8667.0 ve üzeri için:
 > Azure AD Connect'in 1.0.8667.0 öncesi bir sürümünü kullanıyorsanız Microsoft, yapılandırmayı daha kolay hale getirmek için birkaç geri yazma ağ geliştirmesi de içeren [Azure AD Connect'in son sürümüne](https://www.microsoft.com/download/details.aspx?id=47594) yükseltmenizi önerir.
 
 Ağ cihazları yapılandırıldıktan sonra Azure AD Connect aracını çalıştıran bilgisayarı yeniden başlatın.
+
+#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Azure AD Connect’te boşta bağlantılar (1.1.439.0 ve üstü)
+Azure AD Connect aracı, bağlantıların etkin kalmasını sağlamak için ServiceBus Uç noktalarına düzenli aralıklarla ping/canlı tutma gönderir. Aracın çok fazla bağlantının sonlandırıldığını algılaması halinde, uç noktasına ping sıklığını otomatik olarak artırır. En düşük 'ping aralıkları' 60 saniyede 1 ping şeklindedir, ancak **proxy/güvenlik duvarlarının, boşta bağlantıların en az 2-3 dakika boyunca devam etmesine izin vermesini önemle tavsiye ediyoruz.** \*Eski sürümler için, 4 dakika veya daha fazlasını öneririz.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>4. Adım: İlgili Active Directory izinlerini ayarlama
 Parolaları sıfırlanacak olan kullanıcıları içeren her bir orman için, yapılandırma sihirbazında söz konusu orman için belirtilen hesap X ise X hesabına `lockoutTime` üzerinde **Parola Sıfırlama**, **Parola Değiştirme**, **Yazma İzinleri**, `pwdLastSet` üzerinde **Yazma İzinleri** ve bu ormandaki her bir etki alanının kök nesnesi üzerinde genişletilmiş haklar verilmelidir. Hak, tüm kullanıcı nesneleri tarafından devralınmış olarak işaretlenmelidir.  

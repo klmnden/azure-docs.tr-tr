@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: anhowe
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1742a6d4d99b81509564696e6faaf9e6fbf8f604
-ms.lasthandoff: 02/22/2017
-
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: 49602804cc6b4d4f98c802c1a3b651dda2634bb7
+ms.lasthandoff: 03/02/2017
 
 ---
 
-# <a name="azure-container-service---kubernetes-walkthrough"></a>Azure Container Service - Kubernetes kılavuzu
+# <a name="get-started-with-a-kubernetes-cluster-in-container-service"></a>Kapsayıcı Hizmetinde Kubernetes kümesine başlangıç
 
 
 Bu makaledeki yönergeler, Azure CLI 2.0 komutlarını kullanarak Kubernetes kümesi oluşturmayı gösterir. Daha sonra `kubectl` komut satırı aracını kullanarak kümedeki kapsayıcılarla çalışmaya başlayabilirsiniz.

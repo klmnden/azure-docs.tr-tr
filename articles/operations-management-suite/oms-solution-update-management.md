@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
-ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -48,12 +48,9 @@ Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklemek ve L
    a.    Aşağıdaki komutları çalıştırarak Linux için OMS Aracısı’nın en son sürümünü yükleyin.  <Workspace ID> öğesini Çalışma Alanı Kimliği ile, <Key> öğesini ise Birincil Anahtar veya İkincil Anahtar ile değiştirin.
    
         cd ~
-        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID>  -s <PrimaryKey> -d opinsights.azure.com 
 
-   b. Aracıyı kaldırmak için aşağıdaki komutu çalıştırın.
-   
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+   b. Aracıyı kaldırmak için, [Linux için OMS Aracısı’nı kaldırma](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#uninstalling-the-oms-agent-for-linux) bölümünde açıklanan işlemi kullanın.  
 
 ## <a name="management-packs"></a>Yönetim paketleri
 System Center Operations Manager yönetim grubunuz OMS çalışma alanınıza bağlıysa, bu çözümü eklediğinizde Operation Manager’a aşağıdaki yönetim paketleri yüklenir. Bu yönetim paketleri için bir yapılandırma veya bakım gerekmez. 

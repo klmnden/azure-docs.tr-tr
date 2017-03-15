@@ -1,6 +1,6 @@
 ---
 title: "PowerShell kullanarak bir VM oluşturma | Microsoft Belgeleri"
-description: "Kolayca Windows Server çalıştıran bir VM oluşturmak için Azure PowerShell ve Azure Resource Manager kullanın."
+description: "Kolayca bir Windows Server VM’i oluşturmak için Azure PowerShell ve Azure Resource Manager kullanın."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -10,20 +10,20 @@ tags: azure-resource-manager
 ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
 ms.service: virtual-machines-windows
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8dfb9b165d82e8567f6b5577d46d562f9f8db3
-ms.openlocfilehash: 89e306d3e3312531878da088575c7429a941d34f
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 3de1e04c3ce1d6d465c5a54bc9db676639709371
+ms.lasthandoff: 03/08/2017
 
 ---
 
-# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Resource Manager ve PowerShell kullanarak Windows VM oluşturma
+# <a name="create-a-windows-vm-using-azure-resource-manager-and-powershell"></a>Azure Resource Manager ve PowerShell kullanarak Windows VM oluşturma
 
-Bu makalede, [Resource Manager](../azure-resource-manager/resource-group-overview.md) ve Azure PowerShell kullanarak Windows Server çalıştıran bir Azure sanal makinesini ve ihtiyacı olan kaynakları nasıl hızlı bir şekilde oluşturacağınız gösterilir.  
+Bu makalede, [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) ve Azure PowerShell kullanarak Windows Server çalıştıran bir Azure Sanal Makinesini ve ihtiyacı olan kaynakları nasıl hızlı bir şekilde oluşturacağınız gösterilir.  
 
-Bu makaledeki tüm adımlar bir sanal makine oluşturmak için gereklidir ve bu adımların tamamlanması yaklaşık 30 dakika sürer. Komutlardaki örnek parametre değerlerini, ortamınız için anlamlı olan adlarla değiştirin.
+Bu makaledeki tüm adımlar bir sanal makine oluşturmak için gereklidir ve bu adımların kopyalanması, yapıştırılması ve çalıştırılması yaklaşık 10 dakika sürer.
 
 ## <a name="step-1-install-azure-powershell"></a>1. adım: Azure PowerShell'i yükleme
 
@@ -79,7 +79,7 @@ Kaynak grubu tüm kaynakları içermelidir, bu nedenle önce bu grubu oluştural
 
 ## <a name="step-4-create-a-virtual-network"></a>4. adım: Sanal ağ oluşturma
 
-Tüm sanal makineler bir [sanal ağın](../virtual-network/virtual-networks-overview.md) parçasıdır.
+Tüm sanal makineler bir [sanal ağın](virtual-machines-windows-network-overview.md) parçasıdır.
 
 1. Sanal ağ için bir alt ağ oluşturun. Bu komut, 10.0.0.0/24 adres ön ekini içerecek şekilde **mySubnet** adlı bir alt ağ oluşturur.
    

@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 31157645006b24e9ed6ee9187c355310356615a7
-ms.openlocfilehash: 7d9dbf3af8e7d84d470bf6f42e2d2be01c5cb27d
+ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
+ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -83,7 +84,7 @@ Bir Machine Learning Studio denemesine üç yöntemle veri indirebilirsiniz:
 
 Desteklenen dosya biçimleri hakkında daha fazla bilgi edinmek için bkz. [Machine Learning Studio'da eğitim verilerini içeri aktarma](machine-learning-data-science-import-data.md).
 
-#### <a name="a-idmodulelimitahow-large-can-the-data-set-be-for-my-modules"></a><a id="ModuleLimit"></a>Veri kümesi, modüllerim için ne kadar büyüyebilir?
+#### <a id="ModuleLimit"></a>Veri kümesi, modüllerim için ne kadar büyüyebilir?
 Machine Learning Studio'daki modüller, ortak kullanım durumları için en fazla 10 GB boyutunda yoğun sayısal verili veri kümelerini destekler. Bir modülün birden fazla giriş aldığı durumlarda 10 GB değeri tüm giriş boyutlarının toplamıdır. Ayrıca, Hive veya Azure SQL Veritabanı’ndan yapılan sorguları kullanarak daha büyük veri kümelerinden örnek oluşturabilir ya da alımdan önce Sayımlarla Öğrenme ön işlemesini kullanabilirsiniz.  
 
 Aşağıdaki veri türleri, özellik normalleştirme sırasında daha büyük veri kümelerine genişleyebilir ve boyutu 10 GB’den az olacak şekilde sınırlıdır:
@@ -101,7 +102,7 @@ Aşağıdaki modüller, boyutu 10 GB'den az veri kümeleriyle sınırlıdır:
 * Katılma veya Özellik Karma gibi çıkış veri boyutunun giriş veri boyutundan büyük olabileceği modüller
 * Yineleme sayısının çok büyük olduğu durumlarda Çapraz doğrulama, Model Ayarlama Hiperparametreleri, Sıralı Regresyon ve Tek veya Tüm Çoklu Sınıflar
 
-#### <a name="a-iduploadlimitawhat-are-the-limits-for-data-upload"></a><a id="UploadLimit"></a>Karşıya veri yükleme limitleri nelerdir?
+#### <a id="UploadLimit"></a>Karşıya veri yükleme limitleri nelerdir?
 Boyutu birkaç GB'den büyük olan veri kümeleri için, verileri doğrudan bir yerel dosyadan karşıya yüklemek yerine Azure Depolama veya Azure SQL Veritabanı’na yükleyin ya da Azure HDInsight’ı kullanın.
 
 **Verileri Amazon S3'ten okuyabilir miyim?**
@@ -429,7 +430,11 @@ Standart S1 katmanı ile başlangıç yapmanız ve hizmetinizin kullanımını i
 
 **Yeni planlar hangi bölgelerde kullanılabilir?**
 
-Bölge kullanılabilirliği hakkında daha fazla bilgi için bkz. [Bölgeye göre kullanılabilir ürünler](https://azure.microsoft.com/regions/services/).
+Yeni faturalandırma planları yeni web hizmetlerini desteklediğimiz üç üretim bölgesinde kullanılabilir:
+
+* Orta Güney ABD
+* Batı Avrupa
+* Güneydoğu Asya
 
 **Birden çok bölgede web hizmetim var. Her bölge için bir planımın olması gerekiyor mu?**
 
@@ -464,7 +469,13 @@ Evet, Azure Machine Learning’de Klasik web hizmetleri hala kullanılabilmekted
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Azure Machine Learning Ücretsiz ve Standart katmanı
 **Azure Machine Learning Ücretsiz katmanına neler dahildir?**
 
-Azure Machine Learning Ücretsiz katmanı, Azure Machine Learning Studio’ya kapsamlı bir giriş sağlamaya yöneliktir. Kaydolmak için tek ihtiyacınız olan bir Microsoft hesabıdır. Ücretsiz katmanı her [Microsoft hesabı](https://www.microsoft.com/account/default.aspx) için bir Azure Machine Learning Studio çalışma alanına ücretsiz erişim içerir. Bu katmanda en fazla 10 GB depolama alanı kullanabilir ve modelleri hazırlama API'leri olarak operasyona dahil edebilirsiniz. Ücretsiz katmanı iş yükleri bir SLA kapsamında değildir ve yalnızca geliştirme ve kişisel kullanım amaçlıdır. Ücretsiz katmanı iş yükleri, verilere erişmek için SQL Server çalıştıran şirket içi bir sunucuya bağlanarak verilere erişemez.
+Azure Machine Learning Ücretsiz katmanı, Azure Machine Learning Studio’ya kapsamlı bir giriş sağlamaya yöneliktir. Kaydolmak için tek ihtiyacınız olan bir Microsoft hesabıdır. Ücretsiz katmanı her [Microsoft hesabı](https://www.microsoft.com/account/default.aspx) için bir Azure Machine Learning Studio çalışma alanına ücretsiz erişim içerir. Bu katmanda en fazla 10 GB depolama alanı kullanabilir ve modelleri hazırlama API'leri olarak operasyona dahil edebilirsiniz. Ücretsiz katmanı iş yükleri bir SLA kapsamında değildir ve yalnızca geliştirme ve kişisel kullanım amaçlıdır. 
+
+Ücretsiz katmanı çalışma alanları aşağıdaki sınırlamalara sahiptir:
+
+* İş yükleri, verilere erişmek için SQL Server çalıştıran yerinde bir sunucuya bağlanarak verilere erişemez.
+* Yeni Resource Manager temel web hizmetleri dağıtılamaz.
+
 
 **Azure Machine Learning Standart katmanına ve planlarına neler dahildir?**
 
@@ -547,9 +558,4 @@ Konuk Erişimi kısıtlı bir deneme deneyimidir. Azure Machine Learning Studio�
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

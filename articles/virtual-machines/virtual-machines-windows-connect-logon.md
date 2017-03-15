@@ -13,16 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2016
+ms.date: 03/01/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 9077746d8ffe968504f1dde90ed5f76dd1facc19
+ms.sourcegitcommit: 00f6b2e60c20eb27771d9d54df63f930ee88a55a
+ms.openlocfilehash: 7427c8126ab73a851bc696d4925366b3b714616d
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Windows çalıştıran bir Azure Virtual Machine’e bağlanma ve oturum açma
-Uzak Masaüstü (RDP) oturumu başlatmak için Azure portalda **Bağlan**düğmesini kullanacaksınız. Önce sanal makineye bağlandıktan sonra oturum açın.
+Bir Windows masaüstü bilgisayarından Uzak Masaüstü (RDP) oturumu başlatmak için Azure portalında **Bağlan** düğmesini kullanırsınız. Önce sanal makineye bağlandıktan sonra oturum açın.
+
+Bir Mac bilgisayardan bir Windows VM’e bağlanmaya çalışıyorsanız, Mac bilgisayar için [Microsoft Uzak Masaüstü](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417) gibi bir RDP istemcisi yüklemeniz gerekir.
 
 ## <a name="connect-to-the-virtual-machine"></a>Sanal makineye bağlanma
 1. Önceden yapmadıysanız, [Azure portal](https://portal.azure.com/)da oturum açın
@@ -42,10 +45,5 @@ Uzak Masaüstü (RDP) oturumu başlatmak için Azure portalda **Bağlan**düğme
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bağlanmayı denediğinizde sorun yaşıyorsanız, bkz. [Uzak Masaüstü bağlantı sorunlarını giderme](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu makale ortak sorunları tanılama ve çözme boyunca size yol gösterecektir.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 
