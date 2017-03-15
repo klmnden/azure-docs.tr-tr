@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 03/07/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 8bea5c13b8657be737cdc135b2d46bd0068b6b88
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,17 +32,11 @@ Visual Studio için Data Lake Araçları hem Data Lake Analytics’e hem de HDIn
 
 Bu öğreticiyi tamamlamak ve Visual Studio'da Data Lake Araçları’nı kullanmak için şunlar gerekir:
 
-* Azure HDInsight kümesi: Windows tabanlı veya Linux tabanlı bir küme bu belgede yer alan adımlara uygun olacaktır. Bir küme oluşturma ile ilgili bilgi için aşağıdakilerden birine bakın:
-  
-  * [Linux tabanlı HDInsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
-  * [Windows tabanlı HDInsight kullanmaya başlama](hdinsight-hadoop-tutorial-get-started-windows.md)
+* Azure HDInsight kümesi: Bir tane oluşturmak için, bkz: [Linux tabanlı HDInsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
 * Aşağıdaki yazılımı içeren bir iş istasyonu:
   
-  * Windows 8.1, Windows 8 ya da Windows 7
-  * Visual Studio (aşağıdaki sürümlerinden biri):
-    
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate, [Update 4](https://www.microsoft.com/download/details.aspx?id=44921) ile
-    * Visual Studio 2015 (Community/Enterprise)
+  * Windows 10, Windows 8.1, Windows 8 veya Windows 7.
+  * Visual Studio 2013/2015/2017.
     
     > [!NOTE]
     > Şu anda, Visual Studio için Data Lake Araçları yalnızca İngilizce sürüm ile birlikte gelir.
@@ -49,7 +44,8 @@ Bu öğreticiyi tamamlamak ve Visual Studio'da Data Lake Araçları’nı kullan
     > 
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake Araçları’nı yükleme.
-Data Lake Araçları’nı [Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/)’ni kullanarak yükleyebilirsiniz. Visual Studio sürümünüzle eşleşen birini seçmeniz gerekir. Visual Studio yüklü değilse, en son Visual Studio Community ve Azure SDK'sını [Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/)’ni kullanarak yükleyebilirsiniz:
+
+Data Lake Araçları, Visual Studio 2017 için varsayılan olarak yüklenir. Daha eski sürümler için, [Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/)’ni kullanarak yükleyebilirsiniz. Visual Studio sürümünüzle eşleşen birini seçmeniz gerekir. Visual Studio yüklü değilse, en son Visual Studio Community ve Azure SDK'sını [Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/)’ni kullanarak yükleyebilirsiniz:
 
 ![Visual Studio için Data Lake Araçları Web Platformu Yükleyicisi.][1]
 
@@ -128,7 +124,7 @@ Bir Hive tablosu oluşturmak için GUI’yi kullanabilir ya da Hive sorguların�
    
     ![Data Lake Araçları: HDInsight Visual Studio Araçları hive tablosu oluşturma][7]
 
-### <a name="a-namerunqueriesavalidate-and-run-hive-queries"></a><a name="run.queries"></a>Hive sorgularını çalıştırma ve doğrulama
+### <a name="run.queries"></a>Hive sorgularını çalıştırma ve doğrulama
 Hive sorgularını çalıştırmak ve doğrulamak için iki yol vardır:
 
 * Geçici sorgular oluşturma
@@ -278,9 +274,4 @@ Bu makalede, Data Lake (HDInsight) Araçları paketini kullanarak Visual Studio�
 [hdinsight.access.application.logs]: hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

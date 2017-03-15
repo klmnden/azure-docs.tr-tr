@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/17/2017
+ms.date: 03/02/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: cf72197aba2c6e6c7a51f96d1161cf1fbe88a0c5
-ms.openlocfilehash: 149f3daf1f61f459b0a0834c0f112574510d5259
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 3ff2dcba568ed7ff83154cb6e1f1861ffb32a0d2
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -55,7 +56,7 @@ Noktadan Siteye bağlantı yapılandırması&4; bölüme ayrılmıştır. Bu bö
 * **3. Bölüm** İstemci sertifikalarınızı dışarı aktarın ve yükleyin.
 * **4. Bölüm** VPN istemcinizi yapılandırın.
 
-## <a name="a-namevnetvpnasection-1---create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>1. Bölüm - Sanal ağ ve VPN ağ geçidi oluşturma
+## <a name="vnetvpn"></a>1. Bölüm - Sanal ağ ve VPN ağ geçidi oluşturma
 ### <a name="part-1-create-a-virtual-network"></a>1. Kısım: Sanal ağ oluşturma
 1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın. Buradaki adımlarda Azure portalı değil, klasik portal kullanılmaktadır. Şu anda Azure portalını kullanarak bir P2S bağlantısı oluşturamazsınız.
 2. Ekranın sol alt köşesinde **Yeni**’ye tıklayın. Gezinme bölmesinde **Ağ Hizmetleri**’ne, sonra da **Virtual Network**’a tıklayın. Yapılandırma sihirbazını başlatmak için **Özel Oluştur**’a tıklayın.
@@ -86,7 +87,7 @@ Ağ geçidi türü, dinamik şeklinde yapılandırılmalıdır. Statik yönlendi
 1. Klasik Azure portalındaki **Ağlar** sayfasında, oluşturduğunuz sanal ağa tıklayın ve **Pano** sayfasına gidin.
 2. **Pano** sayfasının en altında yer alan **Ağ Geçidi Oluştur**’a tıklayın. **"VNet1" sanal ağınız için bir ağ geçidi oluşturmak ister misiniz?** şeklinde bir ileti göreceksiniz. Ağ geçidini oluşturmaya başlamak için **Evet**’e tıklayın. Ağ geçidinin oluşturulması 45 dakikayı bulabilir.
 
-## <a name="a-namegenerateasection-2---generate-and-upload-certificates"></a><a name="generate"></a>2. Bölüm - Sertifika oluşturma ve karşıya yükleme
+## <a name="generate"></a>2. Bölüm - Sertifika oluşturma ve karşıya yükleme
 Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak için sertifikalar kullanılır. Kurumsal bir sertifika çözümü tarafından oluşturulan bir kök sertifika veya otomatik olarak imzalanan sertifika kullanabilirsiniz. Azure’a en çok 20 kök sertifikası yükleyebilirsiniz. .cer dosyası karşıya yüklendiğinde Azure, bu dosyada yer alan bilgileri kullanarak istemci sertifikası yüklü olan istemcilerin kimliklerini doğrulayabilir. İstemci sertifikası, .cer dosyasının temsil ettiği aynı sertifikadan oluşturulmuş olmalıdır.
 
 Bu bölümde şunları yapacaksınız:
@@ -95,35 +96,48 @@ Bu bölümde şunları yapacaksınız:
 * .cer dosyasını Azure'a yükleme.
 * İstemci sertifikalarını oluşturma.
 
-### <a name="a-namerootapart-1-obtain-the-cer-file-for-the-root-certificate"></a><a name="root"></a>1. Kısım: Kök sertifikaya ilişkin .cer dosyasını alma
-Kurumsal bir sertifika sistemi kullanıyorsanız kullanmak istediğiniz kök sertifikaya ilişkin .cer dosyasını alın. [3. Kısım](#createclientcert)'da, kök sertifikadan istemci sertifikalarını oluşturursunuz.
+### <a name="root"></a>1. Kısım: Kök sertifikaya ilişkin .cer dosyasını alma
+Bir kuruluş çözümü kullanıyorsanız var olan sertifika zincirinizi kullanabilirsiniz. Kullanmak istediğiniz kök sertifika için .cer dosyasını alın.
 
-Kurumsal bir sertifika çözümü kullanmıyorsanız, otomatik olarak imzalanan bir sertifika oluşturmanız gerekir. Windows 10’a yönelik adımlar için [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Noktadan Siteye yapılandırmaları için otomatik olarak imzalanan kök sertifikalar ile çalışma) makalesine başvurabilirsiniz. Bu makalede, makecert işlevi kullanılarak otomatik olarak imzalanan sertifika oluşturma ve .cer dosyasını dışarı aktarma işlemleri adım adım açıklanmaktadır.
+Kurumsal bir sertifika çözümü kullanmıyorsanız, otomatik olarak imzalanan bir sertifika oluşturmanız gerekir. P2S kimlik doğrulaması için gerekli alanları içeren bir otomatik olarak imzalanan sertifika oluşturmak için makecert kullanın. [P2S bağlantıları için otomatik olarak imzalanan bir kök sertifika oluşturma](vpn-gateway-certificates-point-to-site.md) bölümü, otomatik olarak imzalanan bir kök sertifika oluşturma konusunda size adım adım yol gösterir. Makecert kullanım dışı bırakılmış olsa da, şu an için desteklenen çözümdür.
 
-### <a name="a-nameuploadapart-2-upload-the-root-certificate-cer-file-to-the-azure-classic-portal"></a><a name="upload"></a>2. Kısım: Kök sertifika .cer dosyasını klasik Azure portalına yükleme
+>[!NOTE]
+>Otomatik olarak imzalanan sertifikalar oluşturmak için PowerShell kullanılması mümkün olsa da, PowerShell kullanılarak oluşturulan sertifika Noktadan Siteye kimlik doğrulaması için gereken alanları içermez.
+>
+
+
+#### <a name="to-obtain-the-cer-file-from-a-self-signed-root-certificate"></a>Otomatik olarak imzalanan bir kök sertifika için .cer dosyasını alma
+
+1. Otomatik olarak imzalanan bir kök sertifika için .cer dosyasını almak için, **certmgr.msc**’yi açın ve oluşturduğunuz kök sertifikayı bulun. Sertifika genellikle 'Sertifikalar-Geçerli Kullanıcı/ Kişisel/Sertifikalar' içinde bulunur ve oluşturduğunuz zaman seçtiğiniz ada sahiptir. Otomatik olarak imzalanmış kök sertifikaya sağ tıklayın, **Tüm görevler**'e ve ardından **Dışarı aktar**'a tıklayın. **Sertifika Dışarı Aktarma Sihirbazı** açılır.
+2. Sihirbazda **İleri**'ye tıklayın, **Hayır, özel anahtarı dışarı aktarma**'yı seçin ve **İleri**'ye tıklayın.
+3. **Dışarı Aktarma Dosyası Biçimi** sayfasında **Base-64 ile kodlanmış X.509 (.CER)** seçeneğini belirleyin. Ardından **İleri**'ye tıklayın.
+4. **Dışarı Aktarılan Dosya** sayfasında **Gözat**'a tıklayarak sertifika için dışarı aktarma konumunu seçin. **Dosya adı** alanına, sertifika dosyası için bir ad girin. Ardından **İleri**'ye tıklayın.
+5. Sertifikayı dışarı aktarmak için **Son**'a tıklayın.
+
+### <a name="upload"></a>2. Kısım: Kök sertifika .cer dosyasını klasik Azure portalına yükleme
 Azure'a güvenilen bir sertifika ekleyin. Azure'a Base64 ile kodlanmış bir X.509 (*.cer) dosyası eklediğinizde, Azure'a dosyanın temsil ettiği kök sertifikaya güvenebileceğini söylemiş olursunuz.
 
 1. Klasik Azure Portalı’nda, sanal ağınıza ait **Sertifikalar** sayfasında **Upload a root certificate** (Kök sertifikası yükle) seçeneğine tıklayın.
 2. **Upload Certificate** (Sertifika Yükle) sayfasında .cer kök sertifikasını bulun ve onay işaretine tıklayın.
 
-### <a name="a-namecreateclientcertapart-3-generate-a-client-certificate"></a><a name="createclientcert"></a>3. Kısım: İstemci sertifikası oluşturma
+### <a name="createclientcert"></a>3. Kısım: İstemci sertifikası oluşturma
 Bir sonraki adımda istemci sertifikalarını oluşturacaksınız. Bağlanacak her istemci için benzersiz bir sertifika oluşturabileceğiniz gibi, birden çok istemcide aynı sertifikayı da kullanabilirsiniz. Benzersiz istemci sertifikaları oluşturmanın avantajı, gerektiğinde tek bir sertifikayı iptal edebiliyor olmanızdır. Herkesin aynı istemci sertifikasını kullandığı bir durumda bir istemcinin sertifikasını iptal etmeniz gerektiğinde, kimlik doğrulaması için söz konusu sertifikayı kullanan tüm istemciler için yeni sertifikalar oluşturmanız ve yüklemeniz gerekir.
 
 ####<a name="enterprise-certificate"></a>Kurumsal sertifika
-- Kurumsal bir sertifika çözümü kullanıyorsanız, 'etkialanıadı\kullanıcıadı' biçimini kullanmak yerine, yaygın olarak kullanılan 'name@yourdomain.com', ad değer biçimiyle bir istemci sertifikası oluşturun.
+- Kurumsal bir sertifika çözümü kullanıyorsanız, 'etkialaniadi\kullaniciadi' biçimini kullanmak yerine, yaygın olarak kullanılan 'name@yourdomain.com' ad değer biçimiyle bir istemci sertifikası oluşturun.
 - Verdiğiniz istemci sertifikasının, kullanım listesindeki ilk öğe olarak Akıllı Kart Oturumu, vb. yerine ‘İstemci Kimlik Doğrulaması’na sahip ‘Kullanıcı’ sertifikası şablonunu temel alarak hazırlandığından emin olun. İstemci sertifikasına sağ tıklayıp **Ayrıntılar > Gelişmiş Anahtar Kullanımı**’nı görüntüleyerek sertifikayı denetleyebilirsiniz.
 
 ####<a name="self-signed-certificate"></a>Otomatik olarak imzalanan sertifika 
 Otomatik olarak imzalanan sertifika kullanıyorsanız istemci sertifikası oluşturmak için bkz. [Noktadan Siteye yapılandırmaları için otomatik olarak imzalanan kök sertifikalar ile çalışma](vpn-gateway-certificates-point-to-site.md).
 
-## <a name="a-nameinstallclientcertasection-3---export-and-install-the-client-certificate"></a><a name="installclientcert"></a>3. Bölüm - İstemci sertifikasını dışarı aktarma ve yükleme
+## <a name="installclientcert"></a>3. Bölüm - İstemci sertifikasını dışarı aktarma ve yükleme
 Sanal ağa bağlamak istediğiniz her bilgisayara bir istemci sertifikası yükleyin. Kimlik doğrulaması için istemci sertifikası gereklidir. İstemci sertifikası yükleme işlemini otomatik hale getirebilir veya elle yapabilirsiniz. Aşağıda, istemci sertifikasını dışarı aktarma ve elle yükleme işlemleri adım adım açıklanmıştır.
 
 1. İstemci sertifikasını dışarı aktarmak için *certmgr.msc* kullanabilirsiniz. Dışarı aktarmak istediğiniz istemci sertifikasına sağ tıklayın, **tüm görevler**’e ve ardından **dışarı aktar**’a tıklayın.
 2. Özel anahtara sahip istemci sertifikasını dışarı aktarın. Bu bir *.pfx* dosyasıdır. Bu sertifika için ayarladığınız parolayı (anahtar) kaydettiğinizden ya da unutmayacağınızdan emin olun.
 3. *.pfx* dosyasını istemci bilgisayara kopyalayın. İstemci bilgisayarda *.pfx* dosyasına çift tıklayarak yükleme işlemini gerçekleştirin. İstendiğinde parolayı girin. Yükleme konumunu değiştirmeyin.
 
-## <a name="a-namevpnclientconfigasection-4---configure-your-vpn-client"></a><a name="vpnclientconfig"></a>4. Bölüm - VPN istemcinizi yapılandırma
+## <a name="vpnclientconfig"></a>4. Bölüm - VPN istemcinizi yapılandırma
 Sanal ağa bağlanmak için bir VPN istemcisi de yapılandırmanız gerekir. İstemcinin bağlanması için bir istemci sertifikasına ve uygun VPN istemcisi yapılandırmasına gerek vardır. Bir VPN istemcisi yapılandırmak için aşağıdaki adımları sırayla uygulayın.
 
 ### <a name="part-1-create-the-vpn-client-configuration-package"></a>1. Kısım: VPN istemcisi yapılandırma paketini oluşturma
@@ -172,7 +186,7 @@ Sanal ağa bağlanmak için bir VPN istemcisi de yapılandırmanız gerekir. İs
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
 
-## <a name="a-namefaqapoint-to-site-faq"></a><a name="faq"></a>Noktadan Siteye hakkında SSS
+## <a name="faq"></a>Noktadan Siteye hakkında SSS
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
@@ -181,10 +195,5 @@ Sanal ağa bağlanmak için bir VPN istemcisi de yapılandırmanız gerekir. İs
 Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 Sanal Ağlar hakkında daha fazla bilgi edinmek için [Sanal Ağ Belgeleri](/azure/virtual-network) sayfasına bakın.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "NoSQL öğreticisi: Azure DocumentDB Java SDK’sı | Microsoft Belgeleri"
+title: "NoSQL öğreticisi: Azure DocumentDB Java SDK’sı | Microsoft Docs"
 description: "DocumentDB Java SDK’sını kullanarak çevrimiçi bir veritabanı ve Java konsol uygulaması oluşturan bir NoSQL öğreticisi. Azure DocumentDB, JSON için bir NoSQL veritabanıdır."
 keywords: "nosql öğreticisi, çevrimiçi veritabanı, java konsol uygulaması"
 services: documentdb
@@ -16,8 +16,9 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: ddd676df429c20d1c07cfe64abc9ab69ef11bd8c
-ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 74af5fda495adc726bfa85ad48a407fd61d4dd88
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -25,8 +26,9 @@ ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [MongoDB için Node.js](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -62,7 +64,7 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idgitcloneastep-2-clone-the-github-project"></a><a id="GitClone"></a>2. Adım: Github projesini kopyalama
+## <a id="GitClone"></a>2. Adım: Github projesini kopyalama
 [DocumentDB ve Java’yı kullanmaya başlama](https://github.com/Azure-Samples/documentdb-java-getting-started) Github deposunu kopyalayarak başlayabilirsiniz. Örneğin, yerel bir dizinden örnek projesini yerele almak için aşağıdaki komutu çalıştırın.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
@@ -77,7 +79,7 @@ Dizinde proje için bir `pom.xml` nesnesinin yanı sıra Java kaynak kodunu içe
         <version>LATEST</version>
     </dependency>
 
-## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>3. Adım: DocumentDB hesabına bağlanma
+## <a id="Connect"></a>3. Adım: DocumentDB hesabına bağlanma
 Ardından, uç noktanızı ve birincil ana anahtarınızı almak için tekrar [Azure Portal](https://portal.azure.com)’a gidin. DocumentDB uç noktası ve birincil anahtar, uygulamanızın nereye bağlanacağını anlaması ve DocumentDB’nin uygulamanızın bağlantısına güvenmesi için gereklidir.
 
 Azure Portal'da DocumentDB hesabınıza gidin ve ardından **Anahtarlar**’a tıklayın. Portaldaki URI’yi kopyalayın ve Program.java dosyasındaki `<your endpoint URI>` içine yapıştırın. Ardından portaldan BİRİNCİL ANAHTARI kopyalayın ve `<your key>` içine yapıştırın.
@@ -97,7 +99,7 @@ DocumentDB [veritabanınız](documentdb-resources.md#databases), **DocumentClien
     database.setId("familydb");
     this.client.createDatabase(database, null);
 
-## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>5. Adım: Koleksiyon oluşturma
+## <a id="CreateColl"></a>5. Adım: Koleksiyon oluşturma
 > [!WARNING]
 > **createCollection**, ayrılmış işleme ile yeni bir koleksiyon oluşturur, bu da ücret ödenmesini gerektirebilir. Daha ayrıntılı bilgi için [fiyatlandırma sayfamızı](https://azure.microsoft.com/pricing/details/documentdb/) ziyaret edin.
 > 
@@ -116,7 +118,7 @@ Bir [koleksiyon](documentdb-resources.md#collections), **DocumentClient** sını
 
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
-## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
+## <a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
 Bir [belge](documentdb-resources.md#documents), **DocumentClient** sınıfının [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) metodu kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Şimdi bir veya daha fazla belge ekleyebiliriz. Veritabanınızda depolamak istediğiniz veriler zaten varsa, verileri veritabanına aktarmak için DocumentDB'nin [Veri Geçiş Aracı](documentdb-import-data.md)'nı kullanabilirsiniz.
 
     // Insert your Java objects as documents 
@@ -139,7 +141,7 @@ Bir [belge](documentdb-resources.md#documents), **DocumentClient** sınıfının
 
 ![Bir Java konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan belgeler, hesap, çevrimiçi veritabanı ve koleksiyon arasındaki hiyerarşik ilişkiyi gösteren diyagram](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>7. Adım: DocumentDB kaynaklarını sorgulama
+## <a id="Query"></a>7. Adım: DocumentDB kaynaklarını sorgulama
 DocumentDB, her bir koleksiyonda depolanan JSON belgelerde yapılan zengin [sorguları](documentdb-sql-query.md) destekler.  Aşağıdaki örnek kodda DocumentDB içindeki belgelerin SQL söz dizimi ve [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-) metodu kullanılarak nasıl sorgulanacağı gösterilmektedir.
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
@@ -152,7 +154,7 @@ DocumentDB, her bir koleksiyonda depolanan JSON belgelerde yapılan zengin [sorg
         System.out.println(String.format("\tRead %s", family));
     }
 
-## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>8. Adım: JSON belgesini değiştirme
+## <a id="ReplaceDocument"></a>8. Adım: JSON belgesini değiştirme
 DocumentDB, [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-) metoduyla JSON belgelerinin güncelleştirilmesini destekler.
 
     // Update a property
@@ -163,17 +165,17 @@ DocumentDB, [replaceDocument](http://azure.github.io/azure-documentdb-java/com/m
         andersenFamily,
         null);
 
-## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>9. Adım: JSON belgesini silme
+## <a id="DeleteDocument"></a>9. Adım: JSON belgesini silme
 Benzer şekilde DocumentDB, [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-) metoduyla JSON belgelerinin silinmesini de destekler.  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
-## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>10. Adım: Veritabanını silme
+## <a id="DeleteDatabase"></a>10. Adım: Veritabanını silme
 Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler vb.) kaldırılır.
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a name="a-idrunastep-11-run-your-java-console-application-all-together"></a><a id="Run"></a>11. Adım: Java konsol uygulamanızı hep birlikte çalıştırın!
+## <a id="Run"></a>11. Adım: Java konsol uygulamanızı hep birlikte çalıştırın!
 Uygulamayı konsoldan çalıştırmak için önce Maven kullanarak derleyin:
     
     mvn package
@@ -192,9 +194,4 @@ Tebrikler! Bu NoSQL öğreticisini tamamladınız ve çalışan bir Java konsol 
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

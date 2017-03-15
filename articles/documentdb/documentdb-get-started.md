@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 1622566c34c1ff9c8e83f0356e04743f8a890e96
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2ca704e3ef14589b5a0c44c9b6857445e3e62dd7
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -26,7 +26,9 @@ ms.lasthandoff: 02/23/2017
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [MongoDB için Node.js](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -64,7 +66,7 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupvsastep-2-setup-your-visual-studio-solution"></a><a id="SetupVS"></a>2. Adım: Visual Studio çözümünüzü kurma
+## <a id="SetupVS"></a>2. Adım: Visual Studio çözümünüzü kurma
 1. Bilgisayarınızda **Visual Studio 2015**'i açın.
 2. **Dosya** menüsünde **Yeni**'yi seçin ve ardından **Proje**'yi seçin.
 3. **Yeni Proje** iletişim kutusunda, **Şablonlar** / **Visual C#** / **Konsol Uygulaması**'nı seçin, projenizi adlandırın ve ardından **Tamam**'a tıklayın.
@@ -81,7 +83,7 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
 
 Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu öğreticinin tamamlanmış kod projesini [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)'da bulabilirsiniz.
 
-## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>3. Adım: DocumentDB hesabına bağlanma
+## <a id="Connect"></a>3. Adım: DocumentDB hesabına bağlanma
 İlk olarak, Program.cs dosyasında C# uygulamanızın başlangıcına bu başvuruları ekleyin:
 
     using System;
@@ -214,7 +216,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Başarılı bir şekilde bir DocumentDB veritabanı oluşturdunuz.  
 
-## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>5. Adım: Koleksiyon oluşturma
+## <a id="CreateColl"></a>5. Adım: Koleksiyon oluşturma
 > [!WARNING]
 > **CreateDocumentCollectionAsync**, ayrılmış işleme ile yeni bir koleksiyon oluşturur, bu da ücret ödenmesini gerektirebilir. Daha ayrıntılı bilgi için lütfen [fiyatlandırma sayfamızı](https://azure.microsoft.com/pricing/details/documentdb/) ziyaret edin.
 > 
@@ -271,7 +273,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Bir DocumentDB belge koleksiyonunu başarıyla oluşturdunuz.  
 
-## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
+## <a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
 Bir [belge](documentdb-resources.md#documents), **DocumentClient** sınıfının [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) yöntemi kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içeriğidir. Şimdi bir veya daha fazla belge ekleyebiliriz. Veritabanınızda depolamak istediğiniz veriler zaten varsa, verileri veritabanına aktarmak için DocumentDB'nin [Veri Geçiş Aracı](documentdb-import-data.md)'nı kullanabilirsiniz.
 
 İlk olarak, bu örnekte DocumentDB içinde depolanan nesneleri temsil edecek bir **Family** sınıfı oluşturmamız gerekir. **Family**'nin içinde kullanılan **Parent**, **Child**, **Pet**, **Address** alt sınıflarını da oluşturacağız. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olmaları gerektiğini unutmayın. Bu sınıfları oluşturmak için **GetStartedDemo** yönteminden sonra aşağıdaki iç alt sınıfları ekleyin.
@@ -432,7 +434,7 @@ Tebrikler! İki DocumentDB belgesini başarıyla oluşturdunuz.
 
 ![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan belgeler, hesap, çevrimiçi veritabanı ve koleksiyon arasındaki hiyerarşik ilişkiyi gösteren diyagram](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>7. Adım: DocumentDB kaynaklarını sorgulama
+## <a id="Query"></a>7. Adım: DocumentDB kaynaklarını sorgulama
 DocumentDB, her bir koleksiyonda depolanan JSON belgelerde yapılan zengin [sorguları](documentdb-sql-query.md) destekler.  Aşağıdaki örnek kod, önceki adımda yerleştirdiğimiz belgelerde hem DocumentDB SQL söz dizimi hem de LINQ kullanarak çalıştırabileceğimiz çeşitli sorguları gösterir.
 
 **ExecuteSimpleQuery** yöntemini kopyalayın ve **CreateFamilyDocumentIfNotExists** yönteminizin sonrasına yapıştırın.
@@ -490,7 +492,7 @@ Aşağıdaki diyagram oluşturduğunuz koleksiyonda DocumentDB SQL sorgusu söz 
 
 DocumentDB sorguları zaten tek bir koleksiyon kapsamında olduğundan, sorgudaki [FROM](documentdb-sql-query.md#FromClause) anahtar sözcüğü isteğe bağlıdır. Bu nedenle, "FROM Families f", "FROM root r" veya seçtiğiniz herhangi bir başka değişken adıyla değiştirilebilir. DocumentDB; Families, root veya seçtiğiniz değişken adının varsayılan olarak geçerli koleksiyona başvurduğu sonucuna varır.
 
-## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>8. Adım: JSON belgesini değiştirme
+## <a id="ReplaceDocument"></a>8. Adım: JSON belgesini değiştirme
 DocumentDB, JSON belgelerini değiştirmeyi destekler.  
 
 **ReplaceFamilyDocument** yöntemini kopyalayın ve **ExecuteSimpleQuery** yönteminizin sonrasına yapıştırın.
@@ -527,7 +529,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Bir DocumentDB belgesini başarıyla değiştirdiniz.
 
-## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>9. Adım: JSON belgesini silme
+## <a id="DeleteDocument"></a>9. Adım: JSON belgesini silme
 DocumentDB, JSON belgelerini silmeyi destekler.  
 
 **DeleteFamilyDocument** yöntemini kopyalayın ve **ReplaceFamilyDocument** yönteminizin sonrasına yapıştırın.
@@ -559,7 +561,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Bir DocumentDB belgesini başarıyla sildiniz.
 
-## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>10. Adım: Veritabanını silme
+## <a id="DeleteDatabase"></a>10. Adım: Veritabanını silme
 Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler vb.) kaldırılır.
 
 Tüm veritabanını ve tüm alt kaynaklarını silmek için aşağıdaki kodu kopyalayın ve belge silmenin sonrasında **GetStartedDemo** yönteminize yapıştırın.
@@ -576,7 +578,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Bir DocumentDB veritabanını başarıyla sildiniz.
 
-## <a name="a-idrunastep-11-run-your-c-console-application-all-together"></a><a id="Run"></a>11. Adım: C# konsol uygulamanızı hep birlikte çalıştırın!
+## <a id="Run"></a>11. Adım: C# konsol uygulamanızı hep birlikte çalıştırın!
 Uygulamayı hata ayıklama modunda oluşturmak için Visual Studio'da F5'e basın.
 
 Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı, eklediğimiz sorguların sonuçlarını gösterir ve aşağıdaki örnek metinle eşleşmelidir.
@@ -604,7 +606,7 @@ Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı, eklediği
 
 Tebrikler! Bu NoSQL öğreticisini tamamladınız ve çalışan bir C# konsol uygulamasına sahipsiniz!
 
-## <a name="a-idgetsolutiona-get-the-complete-nosql-tutorial-solution"></a><a id="GetSolution"></a> NoSQL öğreticisi tam çözümünü edinme
+## <a id="GetSolution"></a> NoSQL öğreticisi tam çözümünü edinme
 Bu öğreticideki adımları tamamlama fırsatınız olmadıysa veya yalnızca kod örneklerini indirmek isterseniz [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)'dan ulaşabilirsiniz. 
 
 GetStarted çözümünü oluşturmak için aşağıdakilere ihtiyacınız olacak:

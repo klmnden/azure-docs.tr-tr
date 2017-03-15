@@ -215,7 +215,7 @@ Dosyayı karşıya yükleme işleminde, *python_tutorial_client.py* önce **uygu
 
 Liste anlamayı kullanarak, `upload_file_to_container` işlevi koleksiyondaki her dosya için çağrılır ve iki [ResourceFile][py_resource_file] koleksiyonu doldurulur. `upload_file_to_container` İşlevi aşağıda görünür:
 
-```
+```python
 def upload_file_to_container(block_blob_client, container_name, file_path):
     """
     Uploads a local file to an Azure Blob storage container.
@@ -572,7 +572,7 @@ def download_blobs_from_container(block_blob_client,
 ## <a name="step-8-delete-containers"></a>8. Adım: Sil kapsayıcıları
 Azure Storage’da yer alan veriler için ücretlendirildiğinizden, Batch işleriniz için artık gerekmeyen blobları kaldırmak iyi bir fikirdir. *python_tutorial_client.py* ’de üç [BlockBlobService.delete_container][py_delete_container] çağrısıyla yapılır:
 
-```
+```python
 # Clean up storage resources
 print('Deleting containers...')
 blob_client.delete_container(app_container_name)

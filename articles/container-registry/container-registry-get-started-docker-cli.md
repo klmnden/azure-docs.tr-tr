@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcısı kayıt defterindeki Docker görüntüleri | Microsoft Docs"
-description: "Docker CLI’yı kullanarak bir Azure kapsayıcısına Docker görüntüleri itme ve kapsayıcıdan görüntü çekme"
+title: "Docker görüntüsünü özel Azure kayıt defterine itme | Microsoft Docs"
+description: "Docker CLI’yı kullanarak Azure’da özel bir kapsayıcı kayıt defterine Docker görüntüleri itme ve kapsayıcıdan görüntü çekme"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,16 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 1e70f41dd15b0243fb8edd137710ac555821434e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: e778c09991da73cd5064532119d92bff36f0a00e
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Docker CLI’yı kullanarak bir kapsayıcı kayıt defterine ilk görüntünüzü itme
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI’yı kullanarak özel bir Dockler kapsayıcı kayıt defterine ilk görüntünüzü itme
 Azure kapsayıcısı kayıt defteri, [Docker Hub](https://hub.docker.com/)’ın genel Docker görüntülerini depolama yöntemine benzer şekilde özel [Docker](http://hub.docker.com) kapsayıcı görüntülerini depolar ve yönetir. Kapsayıcı kayıt defterinizde [oturum açma](https://docs.docker.com/engine/reference/commandline/login/), [itme](https://docs.docker.com/engine/reference/commandline/push/), [çekme](https://docs.docker.com/engine/reference/commandline/pull/) ve diğer işlemleri gerçekleştirmek için [Docker Komut Satırı Arabirimi](https://docs.docker.com/engine/reference/commandline/cli/)’ni (Docker CLI) kullanırsınız. 
 
-Daha fazla arka plan bilgisi ve kavramlar için bkz. [Azure Container Kayıt defteri nedir?](container-registry-intro.md)
+Arka plan ve kavramlar için, bkz: [genel bakış](container-registry-intro.md)
 
 
 > [!NOTE]
