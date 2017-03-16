@@ -53,6 +53,7 @@
 ### [Depolama seçenekleri](hdinsight-hadoop-r-server-storage.md)
 ### [RStudio’yu yükleme](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [İşlem bağlamları](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR ve SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Bellek içi işleme için Spark’ı kullanma
 ### [Data Lake Store ile](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [BI araçları ile](hdinsight-apache-spark-use-bi-tools.md)

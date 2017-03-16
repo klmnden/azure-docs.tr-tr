@@ -5,17 +5,20 @@
 
 # Kullanmaya Başlama
 ## [Laboratuvar oluşturma](devtest-lab-create-lab.md)
+## [Formüller oluşturma](devtest-lab-create-formulas.md)
 ## [VM oluşturma](devtest-lab-add-vm.md)
+## [Temel laboratuvar ilkelerini yönetme](devtest-lab-get-started-with-lab-policies.md)
 ## [Eğitim için laboratuvar oluşturma](devtest-lab-training-lab.md)
 ## [SSS](devtest-lab-faq.md)
 
 # Nasıl yapılır?
 ## Laboratuvarları Yönetme
 ### [Laboratuvar sahibini ve kullanıcıları ekleme](devtest-lab-add-devtest-user.md)
-### [Laboratuvar ilkelerini tanımlama](devtest-lab-set-lab-policy.md)
+### [Tüm laboratuvar ilkelerini yönetme](devtest-lab-set-lab-policy.md)
 ### [İlkelere izin verme](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [Maliyet yönetimini yapılandırma](devtest-lab-configure-cost-management.md)
 ### [Sanal ağları yapılandırma](devtest-lab-configure-vnet.md)
+### [Paylaşılan IP adreslerini anlama](devtest-lab-shared-ip.md)
 
 ## Yapıtları Yönetme
 ### [Yapıt deposu ekleme](devtest-lab-add-artifact-repo.md)
@@ -33,8 +36,6 @@
 ### [AzCopy kullanarak karşıya VHD dosyası yükleme](devtest-lab-upload-vhd-using-azcopy.md)
 ### [PowerShell kullanarak karşıya VHD dosyası yükleme](devtest-lab-upload-vhd-using-powershell.md)
 ### [Depolama Gezgini'ni kullanarak karşıya VHD dosyası yükleme](devtest-lab-upload-vhd-using-storage-explorer.md)
-
-
 
 # Kaynaklar
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=devtest-lab)

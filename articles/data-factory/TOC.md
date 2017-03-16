@@ -62,12 +62,12 @@
 ### [HDInsight Pig Etkinliği](data-factory-pig-activity.md)
 ### [HDInsight MapReduce Etkinliği](data-factory-map-reduce.md)
 ### [HDInsight Akış Etkinliği](data-factory-hadoop-streaming-activity.md)
+### [HDInsight Spark Etkinliği](data-factory-spark.md)
 ### [Machine Learning Batch Yürütme Etkinliği](data-factory-azure-ml-batch-execution-activity.md)
 ### [Machine Learning Kaynak Güncelleştirme Etkinliği](data-factory-azure-ml-update-resource-activity.md)
 ### [Saklı Yordam Etkinliği](data-factory-stored-proc-activity.md)
 ### [Data Lake Analytics U-SQL Etkinliği](data-factory-usql-activity.md)
 ### [.NET özel etkinliği](data-factory-use-custom-activities.md)
-### [Spark programlarını çağırma](data-factory-spark.md)
 ### [R betiklerini çağırma](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## Geliştirme
 ### [Azure Resource Manager şablonu](data-factory-how-to-use-resource-manager-templates.md)

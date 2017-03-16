@@ -2,13 +2,16 @@
 ## [Sanal makine ölçek kümeleri nedir?](virtual-machine-scale-sets-overview.md)
 
 # Kullanmaya Başlama
-## [Portalda ölçek kümesi oluşturma](virtual-machine-scale-sets-portal-create.md)
-## [Azure CLI kullanarak ölçek kümesi oluşturma](virtual-machine-scale-sets-linux-create-cli.md)
-## [Resource Manager şablonu kullanarak ölçek kümesi oluşturma](virtual-machine-scale-sets-mvss-start.md)
+## [Portalda ölçek kümesi dağıtma](virtual-machine-scale-sets-portal-create.md)
+## [Azure CLI kullanarak ölçek kümesi dağıtma](virtual-machine-scale-sets-linux-create-cli.md)
+## [Resource Manager Şablonu kullanarak basit bir ölçek kümesi dağıtma](virtual-machine-scale-sets-mvss-start.md)
 
 # Nasıl yapılır
 ## Planlama ve tasarım
 ### [Tasarım konusunda dikkat edilmesi gerekenler](virtual-machine-scale-sets-design-overview.md)
+## Ölçek Kümesi Şablonlarının Yazılacağı Öğe:
+### [Basit bir ölçek kümesini dağıtma](virtual-machine-scale-sets-mvss-start.md)
+### [Bir ölçek kümesini mevcut bir sanal ağa dağıtma](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Dağıtma
 ### [Portalı kullanan ölçek kümesi](virtual-machine-scale-sets-portal-create.md)
@@ -36,6 +39,9 @@
 
 ## Sorun giderme
 ### [Otomatik Ölçeklendirme](virtual-machine-scale-sets-troubleshoot.md)
+
+## SSS
+### [Ölçek Kümesi hakkında SSS](virtual-machine-scale-sets-faq.md)
 
 # Başvuru
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
