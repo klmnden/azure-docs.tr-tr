@@ -38,7 +38,8 @@
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
 ## Erişim Denetleme
 ### [PowerShell ile hizmet sorumlusu oluşturma](resource-group-authenticate-service-principal.md)
-### [Azure CLI ile hizmet sorumlusu oluşturma](resource-group-authenticate-service-principal-cli.md)
+### [Azure CLI 2.0 ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Azure CLI 1.0 ile hizmet sorumlusu oluşturma](resource-group-authenticate-service-principal-cli.md)
 ### [Portal aracılığıyla hizmet sorumlusu oluşturma](resource-group-create-service-principal-portal.md)
 ### [Aboneliklere erişmek için kimlik doğrulama API’si](resource-manager-api-authentication.md)
 ### [Kaynakları kilitleme](resource-group-lock-resources.md)

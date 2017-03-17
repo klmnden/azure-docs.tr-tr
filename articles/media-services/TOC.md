@@ -45,6 +45,7 @@
 
 ## [İçerik kodlama](media-services-encode-asset.md)
 ### [Kodlayıcıları karşılaştır](media-services-compare-encoders.md)
+### [Kodlamanızın hızını ve eşzamanlılığını yönetme](media-services-manage-encoding-speed.md)
 ### Media Encoder Standard (MES)
 #### [Media Encoder Standard Biçimleri ve Kod Çözücüleri](media-services-media-encoder-standard-formats.md)
 #### [Otomatik olarak bit hızı merdiveni oluşturmak için MES kullanma](media-services-autogen-bitrate-ladder-with-mes.md)
@@ -120,16 +121,16 @@
 ## [Koruma](media-services-content-protection-overview.md)
 ### [Portalda içerik korumayı yapılandırma](media-services-portal-protect-content.md)
 ### [Akışınız için AES-128 şifresiz anahtarını yapılandırma](media-services-protect-with-aes128.md)
-### [AMS REST API kullanarak İçeriğinizi Depolama Şifreleme ile şifreleme](media-services-rest-storage-encryption.md)
-### [Media Services PlayReady Lisans Şablonuna Genel Bakış](media-services-playready-license-template-overview.md)
+### [İçeriklerinizi şifrelemek için depolama şifreleme ile REST’i kullanma](media-services-rest-storage-encryption.md)
+### [Media Services PlayReady lisans şablonuna genel bakış](media-services-playready-license-template-overview.md)
 ### [Widevine lisans şablonuna genel bakış](media-services-widevine-license-template-overview.md)
 ### [DRM lisansı teslimi](media-services-deliver-keys-and-licenses.md)
-### [Azure Media Services’ta Widevine lisanslarını teslim etmek için iş ortaklarıyla çalışma](media-services-licenses-partner-integration.md)
+### [Media Services’da Widevine lisanslarını teslim etmek için iş ortaklarıyla çalışma](media-services-licenses-partner-integration.md)
 ### [PlayReady ve/ya Widevine dinamik ortak şifreleme işlemini kullanma](media-services-protect-with-drm.md)
-### [Apple FairPlay ile korunan HLS içeriğinizin akışını yapmak için Azure Media Services kullanma](media-services-protect-hls-with-fairplay.md)
-### [Çoklu DRM ve Access Control ile CENC: Azure ve Azure Media Services Tasarım ve Uygulama Başvurusu](media-services-cenc-with-multidrm-access-control.md)
-### [Azure Media Services’ta Widevine lisanslarını teslim etmek için Axinom kullanma  ](media-services-axinom-integration.md)
-### [Azure Media Services’ta Widevine lisanslarını teslim etmek için castLabs kullanma](media-services-castlabs-integration.md)
+### [Apple FairPlay ile korunan HLS içeriğinizin akışını yapma ](media-services-protect-hls-with-fairplay.md)
+### [Çoklu DRM ve Access Control ile CENC](media-services-cenc-with-multidrm-access-control.md)
+### [Media Services’da Widevine lisanslarını teslim etmek için Axinom kullanma  ](media-services-axinom-integration.md)
+### [Media Services’da Widevine lisanslarını teslim etmek için castLabs kullanma](media-services-castlabs-integration.md)
 
 ### Varlık teslimi
 #### Varlık teslim ilkelerini yapılandırma
@@ -191,7 +192,8 @@
 ### [Microsoft† Kesintisiz Akış İstemci Taşıma Kitini Lisanslama](media-services-sspk.md)
 
 ## Tümleştirme
-### [Azure İşlevleri](https://github.com/azure-samples/media-services-dotnet-functions-integration)
+### [Azure İşlevleri’ni Media Services ile kullanma](media-services-dotnet-how-to-use-azure-functions.md)
+### [Azure İşlevleri ile Media Services örnekleri](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 ## İzleme
 ### İşin ilerleme durumunu denetleme

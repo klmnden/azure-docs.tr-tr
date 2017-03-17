@@ -13,11 +13,12 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
-ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.lasthandoff: 03/15/2017
 
 ---
-#<a name="application-gateway-documentation"></a>Application Gateway Belgeleri
+# <a name="application-gateway-documentation"></a>Application Gateway Belgeleri
 
 Bir hizmet olarak uygulama teslim denetleyicisi (ADC) olan Application Gateway’i nasıl dağıtabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, kullanılabilirlik düzeyi yüksek ve ölçeklenebilir web ön ucu oluşturmanızı sağlayan uygulama düzeyinde yönlendirme ve yük dengeleme hizmetlerini nasıl ayarlayacağınız açıklanmıştır.
 
@@ -125,7 +126,7 @@ Bir hizmet olarak uygulama teslim denetleyicisi (ADC) olan Application Gateway�
                     <div class="cardText">
                         <h3>Komut Satırı</h3>
                         <p><a href="/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0 Önizleme</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -162,10 +163,5 @@ Bir hizmet olarak uygulama teslim denetleyicisi (ADC) olan Application Gateway�
     </li>
 </ul>    
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

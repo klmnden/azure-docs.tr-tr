@@ -1,269 +1,212 @@
 # Genel Bakış
-## [SQL Veritabanı nedir?](sql-database-technical-overview.md)
+## [SQL DB hakkında](sql-database-technical-overview.md)
+## Karşılaştır
+### [SQL DB özellikleri](sql-database-features.md)
+# Hızlı Başlangıç
+## [DB Oluşturma - Portal](sql-database-get-started.md)
+## [DB Oluşturma - Azure CLI](sql-database-get-started-cli.md)
+## [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
+# Örnekler
+## [Azure CLI](sql-database-cli-samples.md)
+## [PowerShell](sql-database-powershell-samples.md)
+# Öğreticiler
+## Veritabanları, sunucular ve güvenlik duvarları
+### [PowerShell](sql-database-get-started-powershell.md)
+### [C#](sql-database-get-started-csharp.md)
+## Kimlik doğrulaması ve erişim
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure Active Directory](sql-database-control-access-aad-authentication-get-started.md)
+## Yedekleme ve geri yükleme
+### [Azure Portal](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+# Kavramlar
+## Veritabanları ve sunucular
+### [Veritabanları](sql-database-overview.md)
+### [Sunucular](sql-database-server-overview.md)
+### [Elastik havuzlar](sql-database-elastic-pool.md)
+### [Elastik havuz ne zaman kullanılır?](sql-database-elastic-pool-guidance.md)
+## İşlem ve depolama
 ### [Hizmet katmanları](sql-database-service-tiers.md)
 ### [DTU ve eDTU](sql-database-what-is-a-dtu.md)
 ### [DTU kıyaslamaya genel bakış](sql-database-benchmark-overview.md)
 ### [Kaynak sınırları](sql-database-resource-limits.md)
-### [Özellikler](sql-database-features.md)
-### [SQL Veritabanı SSS](sql-database-faq.md)
-## Karşılaştırmalar
-### [Sanal makine üzerinde SQL Veritabanı ile SQL karşılaştırması](sql-database-paas-vs-sql-server-iaas.md)
-### [T-SQL farklılıkları](sql-database-transact-sql-information.md)
-### [SQL ve NoSQL karşılaştırması](../documentdb/documentdb-nosql-vs-sql.md)
-## [SQL Veritabanı araçları](sql-database-manage-overview.md)
-## [SQL Veritabanı öğreticileri](sql-database-explore-tutorials.md)
-## Güvenlik
-### [Güvenliğe genel bakış](sql-database-security-overview.md)
+## [Geliştirme ve yönetim araçları](sql-database-manage-overview.md)
+## Veri bölümleme
+### [Parçalı veritabanları](sql-database-elastic-scale-introduction.md)    
+###    [Elastik istemci kitaplığı](sql-database-elastic-database-client-library.md)
+### [Parça eşleme yönetimi](sql-database-elastic-scale-shard-map-management.md)
+### [Verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md)
+### [Kimlik bilgilerini yönetme](sql-database-elastic-scale-manage-credentials.md)
+### [Çok parçalı sorgulama](sql-database-elastic-scale-multishard-querying.md)
+### [Elastik araçlar sözlüğü](sql-database-elastic-scale-glossary.md)
+### [Parçalar arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md)
+### [Esnek araçlar hakkında SSS](sql-database-elastic-scale-faq.md)
+## Veritabanları arası sorgular
+### [Genel Bakış](sql-database-elastic-query-overview.md)
+### [Yatay olarak bölümlenmiş veriler](sql-database-elastic-query-horizontal-partitioning.md)
+### [Dikey olarak bölümlenmiş veriler](sql-database-elastic-query-vertical-partitioning.md)
+## [Veritabanları arası işlemler](sql-database-elastic-transactions-overview.md)
+## [Veritabanları arası işler](sql-database-elastic-jobs-overview.md)
+## Veri ve veritabanı güvenliği
+### [Genel Bakış](sql-database-security-overview.md)
 ### [Azure SQL Veritabanı için Azure Güvenlik Merkezi](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
-### [SQL Güvenlik Merkezi](https://msdn.microsoft.com/library/azure/bb510589)
-# Kullanmaya Başlama
-## Veritabanları ve sunucular
-### Öğrenin
-#### [Sunucular](sql-database-server-overview.md)
-#### [Tek veritabanları](sql-database-overview.md)
-#### [Birden çok veritabanı](sql-database-elastic-scale-introduction.md)
-##### Kiracıları eşleme
-###### [Elastik istemci kitaplığı](sql-database-elastic-database-client-library.md)
-###### [Parça eşleme yöneticisi](sql-database-elastic-scale-shard-map-management.md)
-###### [Verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md)
-###### [Kimlik bilgilerini yönetme](sql-database-elastic-scale-manage-credentials.md)
-###### [Çok parçalı sorgulama](sql-database-elastic-scale-multishard-querying.md)
-##### Elastik havuzlar (kaynak havuzları)
-###### [Elastik havuz nedir?](sql-database-elastic-pool.md)
-###### [Elastik havuz ne zaman kullanılır?](sql-database-elastic-pool-guidance.md)
-###### [Esnek havuz fiyatlandırması](sql-database-elastic-pool-price.md)
-##### Parçalı veritabanları
-###### [Elastik araçlar sözlüğü](sql-database-elastic-scale-glossary.md)
-###### [Parçalar arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md)
-###### [Esnek araçlar hakkında SSS](sql-database-elastic-scale-faq.md)
-##### Elastik sorgu (veritabanları arası sorgular)
-###### [Elastik sorgu nedir?](sql-database-elastic-query-overview.md)
-##### Elastik işlemler (dağıtılmış işlemler)
-###### [Bulut veritabanlarında işlemler](sql-database-elastic-transactions-overview.md)
-##### Elastik işler (veritabanları arası işler)
-###### [Elastik iş nedir?](sql-database-elastic-jobs-overview.md)
-#### [Azure RemoteApp’i kullanarak SQL Veritabanı’na bağlanma](sql-database-ssms-remoteapp.md)
-#### [Azure Otomasyonu hizmetini kullanarak SQL Veritabanlarını yönetme](sql-database-manage-automation.md)
-### Yapın
-#### [Azure portalını kullanarak tek veritabanı oluşturma](sql-database-get-started.md)
-#### [PowerShell’i kullanarak tek veritabanı oluşturma](sql-database-get-started-powershell.md)
-#### [C# kullanarak tek veritabanı oluşturma](sql-database-get-started-csharp.md)
-#### [Parçalı uygulama oluşturma](sql-database-elastic-scale-get-started.md)
-#### [Parçalar arasında veri taşıma](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-#### [Elastik işler kullanmaya başlama](sql-database-elastic-jobs-getting-started.md)
-#### [Elastik sorgular kullanmaya başlama](sql-database-elastic-query-getting-started-vertical.md)
-#### [Elastik sorgu kullanarak rapor oluşturma](sql-database-elastic-query-getting-started.md)
-#### [Farklı şemalara sahip veritabanlarında sorgulama yapma](sql-database-elastic-query-vertical-partitioning.md)
-#### [Ölçeği genişletilmiş veritabanlarında raporlama](sql-database-elastic-query-horizontal-partitioning.md)
-## Verileri geçirme ve taşıma
-### Öğrenin
-#### [Bir veritabanını geçirme](sql-database-cloud-migrate.md)
-#### [Veritabanını dışarı aktarma](sql-database-export.md)
-#### [Veri eşitleme](sql-database-get-started-sql-data-sync.md)
-#### [SQL veritabanı kopyalama](sql-database-copy.md)
-## Güvenlik Duvarı kuralları, kimlik doğrulaması ve yetkilendirme
-### Öğrenin
-#### [Erişim denetimi](sql-database-control-access.md)
-#### [Güvenlik duvarı kuralları](sql-database-firewall-configure.md)
-#### [Oturum açmaları yönetme](sql-database-manage-logins.md)
-#### [Azure AD kimlik doğrulaması](sql-database-aad-authentication.md)
-#### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
-### Yapın
-#### [SQL kimlik doğrulaması ve yetkilendirme](sql-database-control-access-sql-authentication-get-started.md)
-#### [Azure AD kimlik doğrulama ve yetkilendirme](sql-database-control-access-aad-authentication-get-started.md)
-## Verileri güvenli hale getirme ve koruma
-### Öğrenin
-#### Denetim
-##### [Denetim](sql-database-auditing.md)
-##### [Alt düzey istemci desteği ve denetim için IP uç noktası değişiklikleri](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
-#### [Tehdit algılama](sql-database-threat-detection.md)
-#### Verileri şifreleme
-##### [Saydam veri şifrelemesi](https://msdn.microsoft.com/library/azure/dn948096)
-##### [Sütun şifreleme](https://msdn.microsoft.com/library/azure/ms179331)
-#### Verileri maskeleme
-##### [Dinamik veri maskeleme](sql-database-dynamic-data-masking-get-started.md)
-### Yapın
-#### [Azure portalını kullanarak dinamik veri maskeleme](sql-database-dynamic-data-masking-get-started-portal.md)
-#### [Azure portalını kullanarak denetimi yapılandırma](sql-database-auditing-portal.md)
-#### [PowerShell’i kullanarak denetimi yapılandırma](sql-database-auditing-powershell.md)
-#### [REST API’yi kullanarak denetimi yapılandırma](sql-database-auditing-rest.md)
-#### [Windows sertifikasını kullanan Always Encrypted](sql-database-always-encrypted.md)
-#### [Azure Key Vault kullanan Always Encrypted](sql-database-always-encrypted-azure-key-vault.md)
+## Kimlik doğrulaması ve erişim
+### [Genel Bakış](sql-database-control-access.md)
+### [Güvenlik duvarı kuralları](sql-database-firewall-configure.md)
+### [Azure AD kimlik doğrulaması](sql-database-aad-authentication.md)
+### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
+### [Roller ve izinler](sql-database-manage-logins.md)
+## Denetim
+### [Genel Bakış](sql-database-auditing.md)
+### [Alt düzey istemci desteği](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
+## [Tehdit algılama](sql-database-threat-detection.md)
+## Veri şifrelemesi
+### [Saydam veri şifrelemesi](https://msdn.microsoft.com/library/azure/dn948096)
+### [Her zaman şifreli](https://msdn.microsoft.com/library/mt163865.aspx)
+### [Sütun şifreleme](https://msdn.microsoft.com/library/azure/ms179331)
+## [Veri maskeleme](sql-database-dynamic-data-masking-get-started.md)
 ## İş sürekliliği
-### Öğrenin
-#### [Genel Bakış](sql-database-business-continuity.md)
-#### [Veritabanı yedeklemeleri](sql-database-automated-backups.md)
-#### [Uzun vadeli bekletme](sql-database-long-term-retention.md)
-#### [Yedeklemeleri kullanarak veritabanı kurtarma](sql-database-recovery-using-backups.md)
-#### [Tek tabloyu kurtarma](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
-#### [Veri merkezi kesintisinden kurtarma](sql-database-disaster-recovery.md)
-#### [Olağanüstü durum kurtarma için kimlik doğrulama gereksinimleri](sql-database-geo-replication-security-config.md)
-#### [İş sürekliliği tasarım senaryoları](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-#### [Esnek havuzlar ile olağanüstü durum kurtarma stratejileri](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
-#### [Toplu yükseltmeler](sql-database-manage-application-rolling-upgrade.md)
-#### [Olağanüstü durum kurtarma tatbikatı gerçekleştirme](sql-database-disaster-recovery-drills.md)
-#### [Etkin Coğrafi Çoğaltmaya genel bakış](sql-database-geo-replication-overview.md)
-### Yapın
-#### [Azure portalı: Yedekleme ve geri yükleme](sql-database-get-started-backup-recovery-portal.md)
-#### [PowerShell: Yedekleme ve geri yükleme](sql-database-get-started-backup-recovery-powershell.md)
-## Uygulama geliştirme
-### Öğrenin
-#### [Veritabanı uygulaması geliştirmeye genel bakış](sql-database-develop-overview.md)
-#### [Bağlantı kitaplıkları](sql-database-libraries.md)
-#### [Çok müşterili SaaS uygulamaları](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-#### [Satır düzeyi güvenlik ile çok kiracılı SaaS uygulamalarını ölçeklendirme](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-#### [ADO.NET 4.5 için 1433’ten sonraki bağlantı noktalarını kullanma](sql-database-develop-direct-route-ports-adonet-v12.md)
-#### [Uygulamada kimlik doğrulaması için gerekli değerleri alma](sql-database-client-id-keys.md)
-### Yapın
-#### Uygulamayı bağlama
-##### [.NET](sql-database-develop-dotnet-simple.md)
-##### [C ve C++](sql-database-develop-cplusplus-simple.md)
-##### [Java](sql-database-develop-java-simple.md)
-##### [Node.js](sql-database-develop-nodejs-simple.md)
-##### [PHP](sql-database-develop-php-simple.md)
-##### [Python](sql-database-develop-python-simple.md)
-##### [Ruby](sql-database-develop-ruby-simple.md)
-##### [Excel](sql-database-connect-excel.md)
-#### [Visual Studio ile bağlanma](sql-database-connect-query.md)
-#### [İstemci uygulaması oluşturma](https://www.microsoft.com/sql-server/developer-get-started)
-#### [Hata iletileriyle çalışma](sql-database-develop-error-messages.md)
-#### [Entity framework kullanma](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-#### [Dapper ile istemci kitaplığı kullanma](sql-database-elastic-scale-working-with-dapper.md)
-### Müşteri uygulamaları
-#### [Daxko/CSI Yazılımı](sql-database-implementation-daxko.md)
-#### [GEP](sql-database-implementation-gep.md)
-#### [SnelStart](sql-database-implementation-snelstart.md)
-#### [Umbraco](sql-database-implementation-umbraco.md)
-## Veritabanı geliştirme
-### Öğrenin
-#### Zamana bağlı tablolar
-##### [Zamana bağlı tablolar](sql-database-temporal-tables.md)
-##### [Elde tutma ilkeleri](sql-database-temporal-tables-retention-policy.md)
-#### [JSON verileri](sql-database-json-features.md)
-#### [Bellek içi iyileştirme](sql-database-in-memory.md)
-### Yapın
-#### [SQL Server geliştirme](https://msdn.microsoft.com/library/ms179422.aspx)
-#### [Bellek içi OLTP’yi benimseme](sql-database-in-memory-oltp-migration.md)
+### [Genel Bakış](sql-database-business-continuity.md)
+### [Veritabanı yedeklemeleri](sql-database-automated-backups.md)
+### [Uzun süreli yedek saklama](sql-database-long-term-retention.md)
+### [Yedeklemeleri kullanarak veritabanı kurtarma](sql-database-recovery-using-backups.md)
+### [Etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md)
+### [Olağanüstü durum kurtarma ve kimlik doğrulaması](sql-database-geo-replication-security-config.md)
+### [İş sürekliliğine yönelik uygulama tasarımı](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+### [Esnek havuzlar ile olağanüstü durum kurtarma stratejileri](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+### [Toplu uygulama yükseltmeleri](sql-database-manage-application-rolling-upgrade.md)
+## Geliştirme
+### [Veritabanı uygulaması geliştirmeye genel bakış](sql-database-develop-overview.md)
+### [Bağlantı kitaplıkları](sql-database-libraries.md)
+### [Çok kiracılı SaaS uygulamaları için uygulama tasarımı](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+### [Satır düzeyi güvenlik ve çok kiracılı SaaS uygulamaları](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+### [ADO.NET 4.5 için 1433’ten sonraki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md)
+### [Uygulamanın kimliğini doğrulama](sql-database-client-id-keys.md)
+### [Hata iletileri](sql-database-develop-error-messages.md)
+### [İstemci kitaplığı ve Dapper](sql-database-elastic-scale-working-with-dapper.md)
+### [JSON verileri](sql-database-json-features.md)
+### [Bellek içi iyileştirme](sql-database-in-memory.md)
+## Veritabanı geçişi
+### [SQL Server veritabanını geçirme](sql-database-cloud-migrate.md)
+### [Geçiş için T-SQL değişiklikleri](sql-database-transact-sql-information.md)
+## Veri taşıma
+### [SQL veritabanı kopyalama](sql-database-copy.md)
+### [Veritabanını dışarı aktarma](sql-database-export.md)
 ## İzleme ve ayarlama
-### Öğrenin
-#### [Tek veritabanları](sql-database-single-database-monitor.md)
-#### [SQL Veritabanı Danışmanına genel bakış](sql-database-advisor.md)
-#### [Tek veritabanı kılavuzu](sql-database-performance-guidance.md)
-#### [Performans öngörüleri: Azure portalı](sql-database-performance.md)
-#### [Toplu işlem kullanma](sql-database-use-batching-to-improve-performance.md)
-#### [Genişletilmiş olaylar](sql-database-xevent-db-diff-from-svr.md)
-## SQL Veritabanı V11
-### [Web ve işletme sürümlerinin kullanımdan kaldırılması](sql-database-web-business-sunset-faq.md)
-### [Service Tier Advisor](sql-database-service-tier-advisor.md)
-### [Esnek havuz değerlendirme aracı](sql-database-elastic-pool-database-assessment-powershell.md)
-### [V12'ye yükseltme](sql-database-v12-plan-prepare-upgrade.md)
-#### [Azure portalını kullanarak yükseltme](sql-database-upgrade-server-portal.md)
-#### [PowerShell’i kullanarak yükseltme](sql-database-upgrade-server-powershell.md)
-# Nasıl yapılır
-## Oluşturma ve yönetme
-### [Azure portalını kullanarak yönetme](sql-database-manage-portal.md)
-### [PowerShell’i kullanarak yönetme](sql-database-manage-powershell.md)
-### [SSMS kullanarak yönetme](sql-database-manage-azure-ssms.md)
-### Sunucular
-#### [Azure portalını kullanarak yönetme](sql-database-manage-servers-portal.md)
-#### [PowerShell’i kullanarak yönetme](sql-database-manage-servers-powershell.md)
-### Tek veritabanları
-#### [Azure portalını kullanarak yönetme](sql-database-manage-single-databases-portal.md)
-#### [PowerShell’i kullanarak yönetme](sql-database-manage-single-databases-powershell.md)
-#### [Transact-SQL kullanarak yönetme](sql-database-manage-single-databases-tsql.md)
-### Güvenlik duvarı kuralları
-#### [Azure portalını kullanarak oluşturma](sql-database-configure-firewall-settings.md)
-#### [PowerShell kullanarak oluşturma](sql-database-configure-firewall-settings-powershell.md)
-#### [REST API kullanarak oluşturma](sql-database-configure-firewall-settings-rest.md)
-#### [T-SQL kullanarak oluşturma](sql-database-configure-firewall-settings-tsql.md)
-### Birden çok veritabanı
-#### [İstemci uygulamalarında istemci kitaplığını yükseltme](sql-database-elastic-scale-upgrade-client-library.md)
-#### Parçalı veritabanları
-##### [Güvenlik yapılandırması](sql-database-elastic-scale-split-merge-security-configuration.md)
-##### [Parça ekleme](sql-database-elastic-scale-add-a-shard.md)
-##### [Parça eşleme sorunlarını giderme](sql-database-elastic-database-recovery-manager.md)
-##### [Parçalı veritabanlarına geçirme](sql-database-elastic-convert-to-use-elastic-tools.md)
-##### [Parça eşleme yöneticisi için performans sayaçları oluşturma](sql-database-elastic-database-perf-counters.md)
-#### Esnek işler
-##### [Nasıl yüklerim?](sql-database-elastic-jobs-service-installation.md)
-##### [PowerShell’i kullanarak yönetme](sql-database-elastic-jobs-powershell.md) 
-##### [Azure portalını kullanarak yönetme](sql-database-elastic-jobs-create-and-manage.md)
-##### [Nasıl kaldırırım?](sql-database-elastic-jobs-uninstall.md)
-#### Esnek havuzlar
-##### [Azure portalını kullanarak yönetme](sql-database-elastic-pool-manage-portal.md)
-##### [PowerShell’i kullanarak yönetme](sql-database-elastic-pool-manage-powershell.md)
-##### [C# kullanarak yönetme](sql-database-elastic-pool-manage-csharp.md)
-##### [T-SQL kullanarak yönetme](sql-database-elastic-pool-manage-tsql.md)
-## Kimlik doğrulama ve yetkilendirme
-### [Azure AD kimlik doğrulamasını yapılandırma](sql-database-aad-authentication-configure.md)
-### [Multi-Factor Authentication’ı yapılandırma](sql-database-ssms-mfa-authentication-configure.md)
-## Tehdit algılamayı yapılandırma
-### [Azure portalını kullanarak tehdit algılamayı yapılandırma](sql-database-threat-detection-portal.md)
-## Verileri şifreleme
+### [Tek veritabanları](sql-database-single-database-monitor.md)
+### [SQL Veritabanı Danışmanına genel bakış](sql-database-advisor.md)
+### [Sorgu Performansı Öngörüleri](sql-database-query-performance.md)
+### [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+### [Query Store kullanım senaryoları](https://msdn.microsoft.com/library/mt614796.aspx)
+### [DMV’ler](sql-database-monitoring-with-dmvs.md)
+### [Tek veritabanı kılavuzu](sql-database-performance-guidance.md)
+### [Toplu işlem kullanma](sql-database-use-batching-to-improve-performance.md)
+### [Genişletilmiş olaylar](sql-database-xevent-db-diff-from-svr.md)
+### [Uyumluluk düzeyleri](sql-database-compatibility-level-query-performance-130.md)
+# Nasıl yapılır kılavuzları
+## Güvenlik duvarı kurallarını oluşturma ve yönetme
+### [Azure Portal](sql-database-configure-firewall-settings.md)
+### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
+### [REST API](sql-database-configure-firewall-settings-rest.md)
+### [Transact-SQL](sql-database-configure-firewall-settings-tsql.md)
+## Esnek havuzları yönetme
+### [Azure Portal](sql-database-elastic-pool-manage-portal.md)
+### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
+### [C#](sql-database-elastic-pool-manage-csharp.md)
+## Denetimi ve tehdit algılamayı yapılandırma
+### [Azure Portal: Denetim](sql-database-auditing-portal.md)
+### [Azure Portal: Tehdit algılama](sql-database-threat-detection-portal.md)
+## Veritabanını geri yükleme
+### [Azure portal](sql-database-restore-database-portal.md)
+## Uzun süreli yedek saklamayı yönetme
+### [Azure portal](sql-database-manage-long-term-backup-retention-portal.md)
+### [PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
+## [Tek tabloyu kurtarma](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Coğrafi çoğaltmayı yapılandırma
+### [Azure portal](sql-database-geo-replication-portal.md)
+### [Transact-SQL: Yapılandırma](sql-database-geo-replication-transact-sql.md)
+### [Transact-SQL: Yük devretme](sql-database-geo-replication-failover-transact-sql.md)
+## [Veri merkezi kesintisinden kurtarma](sql-database-disaster-recovery.md)
+## [Olağanüstü durum kurtarma tatbikatı gerçekleştirme](sql-database-disaster-recovery-drills.md)
+## Veritabanı kopyalama
+### [Azure portal](sql-database-copy-portal.md)
+### [Transact-SQL](sql-database-copy-transact-sql.md)
+## Veritabanını içeri aktarma
+### [Azure Portal](sql-database-import-portal.md)
+### [SQLPackage](sql-database-import-sqlpackage.md)
+## Veritabanını dışarı aktarma
+### [Azure portal](sql-database-export-portal.md)
+### [PowerShell](sql-database-export-powershell.md)
+### [SSMS](sql-database-export-ssms.md)
+### [SQLPackage](sql-database-export-sqlpackage.md)
+## Veri yükleme
+### [BCP](sql-database-load-from-csv-with-bcp.md)
+### [Azure Data Factory](../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+## [Veri eşitlemeyi yapılandırma](sql-database-get-started-sql-data-sync.md)
+## Kullanıcıların kimliğini doğrulama ve kullanıcıları yetkilendirme
+### [Azure AD kimlik doğrulaması](sql-database-aad-authentication-configure.md)
+## Uygulamaları bağlama
+### [.NET](sql-database-develop-dotnet-simple.md)
+### [C ve C++](sql-database-develop-cplusplus-simple.md)
+### [Java](sql-database-develop-java-simple.md)
+### [Node.js](sql-database-develop-nodejs-simple.md)
+### [PHP](sql-database-develop-php-simple.md)
+### [Python](sql-database-develop-python-simple.md)
+### [Ruby](sql-database-develop-ruby-simple.md)
+### [Visual Studio](sql-database-connect-query.md)
+### [Azure RemoteApp ile SSMS](sql-database-ssms-remoteapp.md)
+### [Çok faktörlü kimlik doğrulaması ile SSMS](sql-database-ssms-mfa-authentication-configure.md)
+### [Excel](sql-database-connect-excel.md)
+### [Bağlantı kılavuzu](sql-database-connectivity-issues.md)
+### [Bağlantı sorunlarını çözme](sql-database-troubleshoot-common-connection-issues.md)
+## Şifrelemeyi yapılandırma
+### [Windows sertifikasını kullanarak verileri şifreleme](sql-database-always-encrypted.md)
+### [Azure Key Vault’u kullanarak verileri şifreleme](sql-database-always-encrypted-azure-key-vault.md)
 ### [Saydam veri şifrelemesi](https://msdn.microsoft.com/library/azure/dn948096)
 ### [Sütun şifreleme](https://msdn.microsoft.com/library/azure/ms179331)
+## Dinamik veri maskelemeyi yapılandırma
+### [Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
+## Zamana bağlı tabloları oluşturma ve yönetme
+### [Genel Bakış](sql-database-temporal-tables.md)
+### [Elde tutma ilkeleri](sql-database-temporal-tables-retention-policy.md)
+## [Bellek içi OLTP’yi yapılandırma](sql-database-in-memory-oltp-migration.md)
+## Parçalı veritabanlarını oluşturma ve yönetme
+### [Parçalı uygulama oluşturma](sql-database-elastic-scale-get-started.md)
+### [Parçalar arasında veri taşıma](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+### [Güvenlik yapılandırması](sql-database-elastic-scale-split-merge-security-configuration.md)
+### [Parça ekleme](sql-database-elastic-scale-add-a-shard.md)
+### [Parça eşleme sorunlarını giderme](sql-database-elastic-database-recovery-manager.md)
+### [Mevcut parçalı veritabanlarını geçirme](sql-database-elastic-convert-to-use-elastic-tools.md)
+### [Performans sayaçları oluşturma](sql-database-elastic-database-perf-counters.md)
+### [Entity framework kullanma](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
+## [Esnek ölçek istemcisi kitaplığını yükseltme](sql-database-elastic-scale-upgrade-client-library.md)
+## Esnek işleri oluşturma ve yönetme
+### [Yükleme](sql-database-elastic-jobs-service-installation.md)
+### [Azure Portal](sql-database-elastic-jobs-create-and-manage.md)
+### [PowerShell](sql-database-elastic-jobs-powershell.md) 
+### [Veritabanları arası işler](sql-database-elastic-jobs-getting-started.md)
+### [Kaldırma](sql-database-elastic-jobs-uninstall.md)
+## Verileri sorgulama
+### [SSMS](sql-database-connect-query-ssms.md)
+### [Yatay olarak bölümlenmiş veriler](sql-database-elastic-query-getting-started.md)
+### [Dikey olarak bölümlenmiş veriler](sql-database-elastic-query-getting-started-vertical.md)
 ## İzleme ve ayarlama
-### [Sorgu Performansı Öngörüleri](sql-database-query-performance.md)
-### [SQL Veritabanı Danışmanı](sql-database-advisor-portal.md)
-### [DMV’ler](sql-database-monitoring-with-dmvs.md)
-### [Uyumluluk düzeyleri](sql-database-compatibility-level-query-performance-130.md)
-### [Performans ayarlama ipuçları](sql-database-troubleshoot-performance.md)
+### [SQL Veritabanı Danışmanını kullanma](sql-database-advisor-portal.md)
+### [Sorgu Performansı öngörülerini kullanma](sql-database-performance.md)
+### [Değerlendirme ve ayarlama](sql-database-troubleshoot-performance.md)
 ### [Uyarı oluşturma](sql-database-insights-alerts-portal.md)
-### [Bellek içi OLTP Depolama Alanını izleme](sql-database-in-memory-oltp-monitoring.md)
-### Sorgu Deposu
-#### [Sorgu Deposu kullanarak performans izleme](https://msdn.microsoft.com/library/dn817826.aspx)
-#### [Sorgu Deposu kullanım senaryoları](https://msdn.microsoft.com/library/mt614796.aspx)
-#### [Sorgu Deposunu çalıştırma](sql-database-operate-query-store.md)
-### Genişletilmiş olaylar
-#### [Olay dosyası hedef kodu](sql-database-xevent-code-event-file.md)
-#### [Halka arabelleği hedef kodu](sql-database-xevent-code-ring-buffer.md)
-## Veri taşıma
-### SQL veritabanı kopyalama
-#### [Azure portalını kullanarak kopyalama](sql-database-copy-portal.md)
-#### [PowerShell’i kullanarak kopyalama](sql-database-copy-powershell.md)
-#### [T-SQL kullanarak kopyalama](sql-database-copy-transact-sql.md)
-### Veritabanını BACPAC dosyasına aktarma
-#### [Azure portalını kullanarak dışarı aktarma](sql-database-export-portal.md)
-#### [SQL Paketi yardımcı programını kullanarak dışarı aktarma](sql-database-export-sqlpackage.md)
-#### [PowerShell’i kullanarak dışarı aktarma](sql-database-export-powershell.md)
-#### [SSMS‘yi kullanarak dışarı aktarma](sql-database-export-ssms.md)
-## Veri içeri aktarma
-### [Azure portalını kullanarak dışarı aktarma](sql-database-import-portal.md)
-### [PowerShell’i kullanarak içeri aktarma](sql-database-import-powershell.md)
-### [SQLPackage kullanarak içeri aktarma](sql-database-import-sqlpackage.md)
-### [CSV dosyasından BCP kullanarak yükleme](sql-database-load-from-csv-with-bcp.md)
-## Sorgu
-### [SSMS‘yi kullanarak sorgulama](sql-database-connect-query-ssms.md)
-## Yedekleme ve geri yükleme
-### Uzun süreli yedek saklama
-#### [Azure portalını kullanarak uzun vadeli yedekleme bekletmeyi yönetme](sql-database-manage-long-term-backup-retention-portal.md)
-#### [PowerShell kullanarak uzun vadeli yedekleme bekletmeyi yönetme](sql-database-manage-long-term-backup-retention-powershell.md)
-### Silinen veritabanını geri yükleme
-#### [Azure portalını kullanarak silinmiş öğeleri geri yükleme](sql-database-restore-deleted-database-portal.md)
-#### [PowerShell’i kullanarak silinmiş öğeleri geri yükleme](sql-database-restore-deleted-database-powershell.md)
-### Zaman noktasında veritabanını geri yükleme
-#### [Azure portalı kullanarak belirli bir noktaya geri yükleme](sql-database-point-in-time-restore-portal.md)
-#### [PowerShell kullanarak veritabanını belirli bir noktaya geri yükleme](sql-database-point-in-time-restore-powershell.md)
-### Coğrafi olarak yedekli bir yedekten geri yükleme
-### [Azure portalını kullanarak coğrafi geri yükleme](sql-database-geo-restore-portal.md)
-### [PowerShell’i kullanarak coğrafi geri yükleme](sql-database-geo-restore-powershell.md)
-## Etkin Coğrafi Çoğaltma
-### [Azure portalını kullanarak yapılandırma](sql-database-geo-replication-portal.md)
-### [PowerShell’i kullanarak yapılandırma](sql-database-geo-replication-powershell.md)
-### [T-SQL’yi kullanarak yapılandırma](sql-database-geo-replication-transact-sql.md)
-### [Azure portalını kullanarak yük devretme](sql-database-geo-replication-failover-portal.md)
-### [PowerShell'i kullanarak yük devretme](sql-database-geo-replication-failover-powershell.md)
-### [T-SQL’yi kullanarak yük devretme](sql-database-geo-replication-failover-transact-sql.md)
-## Sorun giderme
-### [Bağlantı sorunları](sql-database-troubleshoot-common-connection-issues.md)
-### [Geçici bağlantı hatası](sql-database-troubleshoot-connection.md)
-### [Tanılama ve engelleme](sql-database-connectivity-issues.md)
-### [İzinler](sql-database-troubleshoot-permissions.md)
-### [Veritabanlarını taşıma](sql-database-troubleshoot-moving-data.md)
+### [Bellek içi OLTP depolama alanını izleme](sql-database-in-memory-oltp-monitoring.md)
+### [Query Store’u yapılandırma](sql-database-operate-query-store.md)
+### [Genişletilmiş olayları yakalayarak olay dosya hedefine kaydetme](sql-database-xevent-code-event-file.md)
+### [Genişletilmiş olayları yakalayarak halka arabelleği hedefine kaydetme](sql-database-xevent-code-ring-buffer.md)
+### [PowerShell ile elastik havuz telemetrisi](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools)
+### [SaaS için elastik havuz özel panosu](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard)
+## [Azure Otomasyonu hizmetini kullanarak yönetme](sql-database-manage-automation.md)
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
 ## [PowerShell (Esnek DB)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
-## [Azure CLI 2.0](/cli/azure/appservice)
+## [Azure CLI 2.0](/cli/azure/sql)
 ## [.NET](/dotnet/api/microsoft.azure.management.sql.models)
 ## [Java](/java/api/com.microsoft.azure.management.sql)
 ## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
@@ -272,24 +215,28 @@
 ## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/bb510741.aspx)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163571.aspx)
-
-# İlgili
-## SQL Veritabanı Yönetim Kitaplığı
-### [SQL Veritabanı Yönetim Kitaplığı paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
-## [SQL Server Sürücüleri](https://msdn.microsoft.com/library/mt654049.aspx)
-### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
-### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-
-# Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/)
-## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-azure)
-## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?service=sql-database)
-## [SQL Server Araçları](https://msdn.microsoft.com/library/mt238365.aspx)
+## [SQL Server araçları](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Veri Araçları (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
+## [SQL Veritabanı Yönetim Kitaplığı paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
+## [SQL Server sürücüleri](https://msdn.microsoft.com/library/mt654049.aspx)
+### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
+### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
+### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
+# Kaynaklar
+## [SSS](sql-database-faq.md)
+## [Bağlantı sorunlarını giderme](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-azure)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?service=sql-database)
+## [Mimari kılavuzu](https://docs.microsoft.com/sql/#pivot=architecture)
+## [Müşteri uygulamaları](sql-database-customer-implementations.md)
+## Örnek uygulamalar
+### [Tailspin Surveys örnek uygulaması](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md)
+### [Contoso Clinic tanıtım uygulaması](https://github.com/Microsoft/azure-sql-security-sample)
+

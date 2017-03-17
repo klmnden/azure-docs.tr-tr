@@ -54,6 +54,9 @@
 ### [Hizmetin kapalı olduğu saatlerde Sanal Makineleri Başlatma/Durdurma](automation-solution-vm-management.md)
 ### [GitHub Enterprise ile kaynak denetimi tümleştirmesi](automation-scenario-source-control-integration-with-github-ent.md)
 ### [VSTS ile kaynak denetimi tümleştirmesi](automation-scenario-source-control-integration-with-VSTS.md)
+## Çözümler
+### [Değişiklik İzleme](../log-analytics/log-analytics-change-tracking.md)
+### [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md)
 ## İzleme
 ### [Azure Otomasyonu iş verilerini Log Analytics’e iletme](automation-manage-send-joblogs-log-analytics.md)
 ### [Azure Otomasyonu hesabı ile Log Analytics arasındaki bağlantıyı kaldırma](automation-unlink-from-log-analytics.md)

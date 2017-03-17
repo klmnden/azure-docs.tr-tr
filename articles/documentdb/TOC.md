@@ -4,6 +4,7 @@
 ## [DocumentDB: MongoDB için API nedir?](documentdb-protocol-mongodb.md)
 ## [Temel kavramlar](documentdb-resources.md)
 ## [Genel dağıtım](documentdb-distribute-data-globally.md)
+## [Güvenlik](documentdb-nosql-database-security.md)
 ## [NoSQL TCO analizi](https://aka.ms/documentdb-tco-paper)
 ## Senaryolar
 ### [Genel kullanım örnekleri](documentdb-use-cases.md)
@@ -15,11 +16,11 @@
 ### [.NET Core konsol uygulaması](documentdb-dotnetcore-get-started.md)
 ### [Java konsol uygulaması](documentdb-java-get-started.md)
 ### [Node.js konsol uygulaması](documentdb-nodejs-get-started.md)
-### [MongoDB API’leri için Node.js](documentdb-mongodb-samples.md)
+### [MongoDB API’si için Node.js konsol uygulaması](documentdb-mongodb-samples.md)
 ### [C++ konsol uygulaması](documentdb-cpp-get-started.md)
 ## Web uygulaması oluşturma
 ### [.NET web uygulaması](documentdb-dotnet-application.md)
-### [MongoDB API’leri için .NET web uygulaması](documentdb-mongodb-application.md)
+### [MongoDB API’si için .NET web uygulaması](documentdb-mongodb-application.md)
 ### [Node.js web uygulaması](documentdb-nodejs-application.md)
 ### [Java web uygulaması](documentdb-java-application.md)
 ### [Python Flask web uygulaması](documentdb-python-application.md)
@@ -36,32 +37,33 @@
 ### [Düşük maliyetli okuma ve yazmalar](documentdb-key-value-store-cost.md)
 
 ## Yönet
+### [İstek birimleri](documentdb-request-units.md)
 ### [Verilerinizi içeri aktarma](documentdb-import-data.md)
 ### [MongoDB için API’ye içeri aktarma](documentdb-mongodb-migrate.md)
 ### [MongoDB hesabınıza bağlanma](documentdb-connect-mongodb-account.md)
 ### [MongoChef kullanma](documentdb-mongodb-mongochef.md)
 ### [Robomongo kullanma](documentdb-mongodb-robomongo.md)
 ### [Veri modeli oluşturma](documentdb-modeling-data.md)
-### [Jeo-uzamsal veriler kullanma](documentdb-geospatial.md)
-### [Birden çok bölgeye yönelik geliştirme](documentdb-developing-with-multiple-regions.md)
-### [Bölgesel yük devretme](documentdb-regional-failovers.md)
 ### [Verilerin süresini otomatik olarak sonlandırma](documentdb-time-to-live.md)
-### [Dizinlerinizi özelleştirme](documentdb-indexing-policies.md)
-### [Veri erişiminin güvenliğini sağlama](documentdb-secure-access-to-data.md)
 ### [Yedekleme ve geri yükleme](documentdb-online-backup-and-restore.md)
+### [Bölgesel yük devretme](documentdb-regional-failovers.md)
+### Otomasyon
+#### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
+#### [Azure CLI 1.0: Hesap oluşturma](documentdb-automation-resource-manager-cli-nodejs.md)
+#### [Azure CLI 1.0: Bölge ekleme veya kaldırma](documentdb-automation-region-management.md)
+#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### Güvenlik
+#### [Veri erişiminin güvenliğini sağlama](documentdb-secure-access-to-data.md)
+#### [Güvenlik duvarı desteği](documentdb-firewall-support.md)
 ### [S1, S2, S3’ü devre dışı bırakma](documentdb-performance-levels.md)
-### [İstek birimleri](documentdb-request-units.md)
-### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
-### Azure CLI 1.0
-#### [Hesap oluşturma](documentdb-automation-resource-manager-cli-nodejs.md)
-#### [Bölge ekleme veya kaldırma](documentdb-automation-region-management.md)
-### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
-### [Güvenlik duvarı desteği](documentdb-firewall-support.md)
 
 ## Geliştirme
 ### [SQL sorgusu](documentdb-sql-query.md)
 ### [Saklı yordamlar, tetikleyiciler ve UDF'ler](documentdb-programming.md)
+### [Dizinlerinizi özelleştirme](documentdb-indexing-policies.md)
+### [Birden çok bölgede geliştirme](documentdb-developing-with-multiple-regions.md)
 ### [Değişiklik akışı ile değişiklikleri izleme](documentdb-change-feed.md)
+### [Jeo-uzamsal veriler kullanma](documentdb-geospatial.md)
 ### [Performansı test etme](documentdb-performance-testing.md)
 ### [Performans ipuçları](documentdb-performance-tips.md)
 ### En iyi uygulamalar

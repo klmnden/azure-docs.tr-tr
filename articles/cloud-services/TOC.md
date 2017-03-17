@@ -36,8 +36,8 @@
 #### [Bir Bulut Hizmeti rolünde görev kullanarak .NET Yükleme](cloud-services-dotnet-install-dotnet.md)
 
 ### Uzak Masaüstü’nü Yapılandırma
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
-#### [Node.js](cloud-services-nodejs-enable-remote-desktop.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Klasik portal](cloud-services-role-enable-remote-desktop.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Dağıtma
@@ -115,8 +115,3 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

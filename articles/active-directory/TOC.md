@@ -79,9 +79,12 @@
 ### [Riskli oturum açma işlemleri](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk olayları](active-directory-reporting-risk-events.md)
 ### [Adlandırılmış ağlar](active-directory-known-networks-azure-portal.md)
-### [SSS](active-directory-reporting-faq.md)
 ### [Rapor geçişi](active-directory-reporting-migration.md)
 ### [Bekletme](active-directory-reporting-retention.md)
+### [SSS](active-directory-reporting-faq.md)
+### Sorun giderme
+#### [Eksik denetim verileri](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [İndirmelerde eksik veriler](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    Programlı Erişim
 #### [Denetim başvurusu](active-directory-reporting-api-audit-reference.md)
 #### [Denetim örnekleri](active-directory-reporting-api-audit-samples.md)
@@ -124,13 +127,14 @@
 #### [Sorun giderme](active-directory-passwords-troubleshoot.md)
 
 ## Cihazları yönetme
-### [Cihaz kaydetme](active-directory-conditional-access-device-registration-overview.md)
-#### [Otomatik kaydı yönetme](active-directory-conditional-access-automatic-device-registration.md)
+### [Cihaz kaydetme](active-directory-device-registration-overview.md)
+#### [Otomatik kaydı yönetme](active-directory-device-registration.md)
 #### [Kurulum](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [SSS](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### [Şirket içi dağıtma](active-directory-device-registration-on-premises-setup.md)
+#### [SSS](active-directory-device-registration-faq.md)
 #### Sorun giderme
-##### [Windows 10 ve Windows Server 2016 için sorun giderme](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Windows alt düzey istemciler için sorun giderme](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+##### [Windows 10 ve Windows Server 2016 için sorun giderme](active-directory-device-registration-troubleshoot-windows.md)
+##### [Windows alt düzey istemciler için sorun giderme](active-directory-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Cihaz kaydı oluşturma](active-directory-azureadjoin-setup.md)
@@ -277,7 +281,6 @@
 #### [Desteklenen uygulamalar](active-directory-conditional-access-supported-apps.md)
 #### [Cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### [Bağlı uygulamalara erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
-#### [Şirket içi dağıtma](active-directory-conditional-access-on-premises-setup.md)
 #### [SSS](active-directory-conditional-faqs.md)
 #### [Sorun giderme](active-directory-conditional-access-device-remediation.md)
 #### [Başvuru](active-directory-conditional-access-technical-reference.md)
