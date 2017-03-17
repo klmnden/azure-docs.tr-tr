@@ -49,6 +49,10 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Şablon](virtual-networks-create-vnetpeering-arm-template-click.md)
 
+### [Ağ arabirimleri](virtual-network-network-interface.md)
+
+### [Genel IP adresleri](virtual-network-public-ip-address.md)
+
 ### Sanal makineler
 
 #### Statik genel IP adresleri
@@ -123,9 +127,9 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Başvuru
-## [PowerShell (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (Klasik)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [Azure CLI](/cli/azure/)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell (Klasik)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (Klasik)](https://msdn.microsoft.com/library/jj157182.aspx)
