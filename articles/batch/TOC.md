@@ -1,6 +1,7 @@
 # Genel Bakış
 ## [Azure Batch nedir?](batch-technical-overview.md)
 ## [Özelliklere genel bakış](batch-api-basics.md)
+## [API’ler ve araçlar](batch-apis-tools.md)
 ## [Kotalar ve sınırlar](batch-quota-limit.md)
 # Kullanmaya Başlama
 ## [Batch hesabı oluşturma](batch-account-create-portal.md)
@@ -25,7 +26,8 @@
 ### [Batch tanılama günlükleri](batch-diagnostics.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
@@ -45,9 +47,4 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C# kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

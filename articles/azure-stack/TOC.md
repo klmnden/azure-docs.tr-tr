@@ -55,6 +55,8 @@
 #### [Başlamadan önce](azure-stack-app-service-before-you-get-started.md)
 #### [App Service kaynak sağlayıcısı dağıtma](azure-stack-app-service-deploy.md)
 #### [Daha fazla Web çalışanı rolü ekleme](azure-stack-app-service-add-worker-roles.md)
+#### [Dağıtım kaynaklarını yapılandırma](azure-stack-app-service-configure-deployment-sources.md)
+#### [Azure Stack üzerinde App Service’te FTP’yi etkinleştirme ](azure-stack-app-service-enable-ftp.md)
 ### Market’i doldurma
 #### [Market’e genel bakış](azure-stack-marketplace.md)
 #### [Market öğelerini indirme](azure-stack-download-azure-marketplace-item.md)
@@ -110,6 +112,7 @@
 
 # Sorun giderme
 ## [Bilinen sorunlar](azure-stack-troubleshooting.md)
+## [Azure Stack’te tanılama](azure-stack-diagnostics.md)
 
 # Kaynaklar
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

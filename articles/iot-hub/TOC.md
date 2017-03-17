@@ -96,7 +96,10 @@
 #### [Sorun giderme](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Arduino kullanma
-### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+
+### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+
+### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Ders 1: Cihazınızı yapılandırma
 ##### [Cihazınızı yapılandırma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Araçları edinme (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -116,6 +119,7 @@
 ##### [İleti almak için örnek uygulamayı çalıştırma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [İsteğe bağlı: LED davranışını değiştirme](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Sorun giderme](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 
 ## Ağ Geçidi SDK'sını kullanma
 ### [Linux üzerinde benzetim](iot-hub-linux-gateway-sdk-get-started.md)
@@ -140,6 +144,8 @@
 ##### [Azure işlev uygulaması ve Azure Depolama hesabı oluşturma](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 ##### [Azure Tablo depolamada kalıcı olan iletileri okuma](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
 
+#### [Ders 5: İlk Azure IoT Ağ Geçidi modülünüzü oluşturma](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
+
 #### [Sorun giderme](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
 ### [SensorTag cihazı](iot-hub-gateway-kit-c-get-started.md)
@@ -159,6 +165,8 @@
 #### Ders 4: İletileri Azure Tablo depolamaya kaydetme
 ##### [Azure işlev uygulaması ve Azure Depolama hesabı oluşturma](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 ##### [Azure Tablo depolamada kalıcı olan iletileri okuma](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+#### [Ders 5: İlk Azure IoT Ağ Geçidi modülünüzü oluşturma](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
 
 ##### [Sorun giderme](iot-hub-gateway-kit-c-troubleshooting.md)
 
@@ -219,8 +227,8 @@
 ## Yönet
 ### IoT hub oluşturma 
 #### [Portalı kullanma](iot-hub-create-through-portal.md)
-#### [CLI 2.0 Önizleme kullanma](iot-hub-create-using-cli.md)
-#### [CLI kullanma](iot-hub-create-using-cli-nodejs.md)
+#### [CLI 2.0’ı kullanma](iot-hub-create-using-cli.md)
+#### [CLI’yi kullanma](iot-hub-create-using-cli-nodejs.md)
 #### [REST API kullanma](iot-hub-rm-rest.md)
 #### [PowerShell kullanma](iot-hub-rm-template-powershell.md)
 #### [.NET’ten şablon kullanma](iot-hub-rm-template.md)

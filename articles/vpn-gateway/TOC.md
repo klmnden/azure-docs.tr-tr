@@ -39,9 +39,10 @@
 ## [PowerShell’i kullanarak Azure VPN Gateway için BGP yapılandırma](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Yüksek oranda kullanılabilir etkin-etkin bağlantıları yapılandırma](vpn-gateway-activeactive-rm-powershell.md)
 ## [PowerShell’i kullanarak yerel ağ geçidi ayarlarını değiştirme](vpn-gateway-modify-local-network-gateway.md)
-## [Ağ geçidi bağlantısını doğrulama](vpn-gateway-verify-connection-resource-manager.md)
-## [Azure VPN Gateway’i sıfırlama](vpn-gateway-resetgw-classic.md)
-## [Noktadan Siteye bağlantılar için otomatik olarak imzalanan sertifikalarla çalışma](vpn-gateway-certificates-point-to-site.md)
+## [VPN ağ geçidi bağlantısını doğrulama](vpn-gateway-verify-connection-resource-manager.md)
+## [VPN ağ geçidini sıfırlama](vpn-gateway-resetgw-classic.md)
+## [VPN ağ geçidini silme](vpn-gateway-delete-vnet-gateway-powershell.md)
+## [P2S bağlantıları için otomatik olarak imzalanan kök sertifikaları oluşturma](vpn-gateway-certificates-point-to-site.md)
 ## [VPN ağ geçidi yapılandırma (klasik)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Başvuru
@@ -64,8 +65,3 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

@@ -54,7 +54,6 @@
 #### Başlarken
 ##### [Windows üzerinde C#](service-fabric-reliable-services-quick-start.md)
 ##### [Linux üzerinde Java](service-fabric-reliable-services-quick-start-java.md)
-#### [Mimari](service-fabric-reliable-services-platform-architecture.md)
 #### [Reliable Services yaşam döngüsü](service-fabric-reliable-services-lifecycle.md)
 #### [Güvenilir Koleksiyonlar](service-fabric-reliable-services-reliable-collections.md)
 #### [Reliable Collections kullanımı](service-fabric-work-with-reliable-collections.md)
@@ -78,8 +77,8 @@
 #### [Yaşam döngüsü ve atık toplama](service-fabric-reliable-actors-lifecycle.md)
 #### [Çok biçimlilik](service-fabric-reliable-actors-polymorphism.md)
 #### [Yeniden giriş](service-fabric-reliable-actors-reentrancy.md)
+#### [Olaylar](service-fabric-reliable-actors-events.md) 
 #### [Zamanlayıcılar ve anımsatıcılar](service-fabric-reliable-actors-timers-reminders.md)
-#### [Olaylar](service-fabric-reliable-actors-events.md)
 #### [Durum yönetimi](service-fabric-reliable-actors-state-management.md)
 #### [KvsActorStateProvider’ı yapılandırma](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Türü seri hale getirme](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
@@ -166,7 +165,6 @@
 ### [Durum bilgisi olan Reliable Services özelliğinde tanılama](service-fabric-reliable-services-diagnostics.md)
 ### [Reliable Actors hizmetinde tanılama](service-fabric-reliable-actors-diagnostics.md)
 ### [Yerel kümenizde sorun giderme](service-fabric-troubleshoot-local-cluster-setup.md)
-### [Yerel kümenizde sorun giderme](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
 ## Uygulamaları ölçeklendirme
 ### [Reliable Services özelliğini bölümleme](service-fabric-concepts-partitioning.md)
@@ -181,7 +179,6 @@
 #### [Denetimli Chaos kullanma](service-fabric-controlled-chaos.md)
 #### [Test eylemlerini kullanma](service-fabric-testability-actions.md)
 #### [İş yükleri sırasında](service-fabric-testability-workload-tests.md)
-#### [Veri kaybı çağırarak](service-fabric-use-data-loss-api.md)
 #### [Test senaryolarını kullanma](service-fabric-testability-scenarios.md)
 #### [Düğüm geçişi API’lerini kullanma](service-fabric-node-transition-apis.md)
 ### [Uygulamanıza yük testi yapma](service-fabric-vso-load-test.md)

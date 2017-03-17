@@ -35,8 +35,3 @@ articles/sql-data-warehouse-get-started-provision.md
 > [!Tip]
 > Öğretici için bkz. [SQL Veritabanı öğreticisi: Sunucu, sunucu düzeyinde güvenlik duvarı kuralı, örnek veritabanı, veritabanı düzeyinde güvenlik duvarı oluşturma ve SQL Server’a bağlanma](../articles/sql-database/sql-database-get-started.md).    
 >
-
-
-<!--HONumber=Jan17_HO1-->
-
-
