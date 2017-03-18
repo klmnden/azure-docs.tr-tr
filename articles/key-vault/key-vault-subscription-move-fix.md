@@ -17,6 +17,7 @@ ms.author: ambapat
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7fc69510ee07f8a0c50fa7ab59c7e1fac38fc5bb
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -40,10 +41,5 @@ Artık kasanız doğru kiracı kimliğiyle ilişkilendirildiğine ve eski erişi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Anahtar Kasası ile ilgili sorularınız varsa bkz. [Azure Anahtar Kasası Forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
