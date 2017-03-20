@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 03/09/2017
 ms.author: briz
 translationtype: Human Translation
-ms.sourcegitcommit: 55d3f08de7f8c7ba68faba1945e8fd960e888853
-ms.openlocfilehash: 5e1b1333212af0b9042e7ed3793c08e305085519
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -38,7 +39,11 @@ IoT bir dizi benzersiz cihaz yönetimi zorluğunu beraberinde getirir ve kurumsa
 
 * **Ölçek ve otomasyon**: IoT çözümleri, rutin görevleri otomatik hale getirebilen ve oldukça küçük bir operasyon ekibinin milyonlarca cihazı yönetmesine olanak tanıyabilen basit araçlar gerektirir. Operatörler toplu cihaz işlemlerini günlük olarak uzaktan gerçekleştirmeyi ve yalnızca doğrudan dikkat gerektiren sorunlar oluştuğunda uyarılmayı beklemektedir.
 * **Açıklık ve uyumluluk**: Cihaz ekosistemi olağanüstü çeşitliliğe sahiptir. Yönetim araçları çok sayıda cihaz sınıfına, platforma ve protokole uyum sağlayacak şekilde uyarlanmalıdır. Operatörler en kısıtlı katıştırılmış tek işlemli yongalardan güçlü ve tam işlevsel bilgisayarlara kadar çok sayıda cihaz türünü destekleyebilmelidir.
-* **Bağlam tanıma**: IoT ortamları dinamik ve sürekli değişen yapıdadır. Hizmet güvenilirliği üst düzey öneme sahiptir. Cihaz yönetimi işlemleri; bakım kaynaklı kapalı kalma süresinin kritik iş işlemlerini etkilemediğinden veya tehlikeli koşullar oluşturmadığından emin olmak üzere SLA bakım pencerelerini, ağ ve güç durumlarını, kullanım sırasındaki koşulları ve cihazın coğrafi konumunu hesaba katmalıdır.
+* **Bağlam tanıma**: IoT ortamları dinamik ve sürekli değişen yapıdadır. Hizmet güvenilirliği üst düzey öneme sahiptir. Cihaz yönetimi işlemleri bakım kapalı kalma süresinin kritik iş işlemlerini etkilemediğinden veya tehlikeli koşullar oluşturmadığından emin olmak için aşağıdaki faktörleri göz önünde bulundurmalıdır:
+    * SLA bakım pencereleri
+    * Ağ ve güç durumları
+    * Kullanım koşulları
+    * Cihaz coğrafi konumu
 * **Çok sayıda servis rolü**: Benzersiz iş akışları ve IoT işlemleri için destek çok önemlidir. Operasyon personeli, şirket içi BT bölümlerinin belirtilen kısıtlamalarıyla uyumlu bir şekilde çalışmalıdır.  Ayrıca, denetçilere ve diğer iş yönetimi rollerine gerçek zamanlı cihaz çalışma bilgilerini sunmanın uygun yollarını bulmalıdır.
 
 ## <a name="device-lifecycle"></a>Cihaz yaşam döngüsü
@@ -50,19 +55,19 @@ Bu beş aşamanın her birinde, tam bir çözüm sağlamak için yerine getirilm
 
 * **Plan**: Operatörlerin toplu yönetim işlemleri için bir cihaz grubunu kolayca ve doğru bir şekilde sorgulamasına ve hedeflemesine olanak tanıyan cihaz meta verileri düzeni oluşturmasını sağlar. Bu cihaz meta verilerini etiketler ve özellikler halinde depolamak için cihaz ikizlerini kullanabilirsiniz.
   
-    *Daha fazla makale*: [Cihaz ikizlerini kullanmaya başlama][lnk-twins-getstarted], [Cihaz ikizleri hakkında bilgi sahibi olma][lnk-twins-devguide], [Cihaz ikiz özelliklerini kullanma][lnk-twin-properties]
+    *Daha fazla makale*: [Cihaz ikizlerini kullanmaya başlama][lnk-twins-getstarted], [Cihaz ikizlerini anlama][lnk-twins-devguide], [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties].
 * **Sağlama**: IoT Hub’ına yeni cihazları güvenli bir şekilde sağlar ve operatörlerin cihaz özelliklerini hemen bulmasına olanak tanır.  Esnek cihaz kimlikleri ve kimlik bilgileri oluşturmanın yanı sıra bu işlemi bir iş kullanarak toplu halde gerçekleştirmek için IoT Hub kimlik kayıt defterini kullanın. Cihaz ikizindeki cihaz özellikleri aracılığıyla kapasite ve koşullarını raporlamak için cihazlar oluşturun.
   
-    *Daha fazla makale*: [Cihaz ikizlerini yönetme][lnk-identity-registry], [Cihaz kimliklerinin toplu yönetimi][lnk-bulk-identity], [Cihaz ikiz özelliklerini kullanma][lnk-twin-properties]
+    *Daha fazla makale*: [Cihaz kimliklerini yönetme][lnk-identity-registry], [Cihaz kimliklerinin toplu yönetimi][lnk-bulk-identity], [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties].
 * **Yapılandırma**: Cihazların hem sistem durumunu hem de güvenliğini korurken toplu yapılandırma değişikliklerini ve üretici yazılımı güncelleştirmelerini kolaylaştırır. İstediğiniz özellikleri kullanarak ve doğrudan yöntemler ve yayın işleri ile bu cihaz yönetimi işlemlerini toplu olarak gerçekleştirin.
   
-    *Daha fazla makale*:  [Doğrudan yöntemler kullanma][lnk-c2d-methods], [Bir cihazda doğrudan metot çağırma][lnk-methods-devguide], [Cihaz ikiz özelliklerini kullanma][lnk-twin-properties], [İşleri zamanlama ve yayınlama][lnk-jobs], [İşleri birden fazla cihazda zamanlama][lnk-jobs-devguide]
+    *Daha fazla makale*:  [Doğrudan yöntemler kullanma][lnk-c2d-methods], [Bir cihazda doğrudan yöntem çağırma][lnk-methods-devguide], [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [İşleri zamanlama ve yayınlama][lnk-jobs], [İşleri birden fazla cihazda zamanlama][lnk-jobs-devguide].
 * **İzleme**: Operatörleri dikkat gerektirebilecek sorunlar konusunda uyarmak için genel cihaz koleksiyonu durumunu ve devam eden işlemlerin durumunu izler.  Cihazların gerçek zamanlı çalışma koşullarını ve güncelleştirme işlemlerinin durumunu raporlamasına olanak tanımak üzere cihaz ikisi uygulayın. Cihaz ikizi sorgularını kullanarak en acil sorunları ortaya çıkaran güçlü pano raporları oluşturun.
   
-    *Daha fazla makale*: [Cihaz ikiz özelliklerini kullanma][lnk-twin-properties], [Cihaz ikizleri ve işler için IoT Hub sorgu dili][lnk-query-language]
+    *Daha fazla makale*: [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [Cihaz ikizleri ve işler için IoT Hub sorgu dili][lnk-query-language].
 * **Devre dışı bırakma**: Bir hata ya da yükseltme döngüsü sonrasında veya hizmet ömrünün sonunda cihazları değiştirin ya da kullanımdan kaldırın.  Fiziksel cihaz değiştiriliyorsa cihaz bilgilerini korumak veya kullanım dışı bırakılıyorsa cihaz bilgilerini arşivlemek için cihaz ikizini kullanın. Cihaz kimliklerini ve kimlik bilgilerini güvenli bir şekilde iptal etmek için IoT Hub kimlik kayıt defterini kullanın.
   
-    *Daha fazla makale*: [Cihaz ikiz özelliklerini kullanma][lnk-twin-properties], [Cihaz kimliklerini yönetme][lnk-identity-registry]
+    *Daha fazla makale*: [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [Cihaz kimliklerini yönetme][lnk-identity-registry].
 
 ## <a name="device-management-patterns"></a>Cihaz yönetimi modelleri
 IoT Hub aşağıdaki cihaz yönetim modellerini sağlar.  [Cihaz yönetimi öğreticileri][lnk-get-started], bu desenleri gerçek senaryonuza uygun hale getirme ve bu çekirdek şablonları temel alan yeni desenler tasarlama konularını daha ayrıntılı olarak gösterir.
@@ -84,7 +89,7 @@ IoT Hub aşağıdaki cihaz yönetim modellerini sağlar.  [Cihaz yönetimi öğr
     ![Cihaz yönetimi raporlama ilerleme ve durum deseninin grafiği][img-report_progress_pattern]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Her cihaz yaşam döngüsü aşamasında kurumsal IoT operatörünün gereksinimlerini yerine getiren IoT uygulamaları oluşturmak amacıyla IoT Hub’ın cihaz yönetimi için sağladığı özellik, desen ve kod kitaplıklarını kullanabilirsiniz.
+IoT Hub’ın cihaz yönetimi için sağladığı özellik, desen ve kod kitaplıkları, her cihaz yaşam döngüsü aşamasında kurumsal IoT operatörünün gereksinimlerini yerine getiren IoT uygulamaları oluşturmanıza olanak sağlar.
 
 IoT Hub’ında cihaz yönetimi özellikleri hakkında daha fazla bilgi almak için [Cihaz yönetimini kullanmaya başlama][lnk-get-started] eğitmenine bakın.
 
@@ -109,9 +114,4 @@ IoT Hub’ında cihaz yönetimi özellikleri hakkında daha fazla bilgi almak i�
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

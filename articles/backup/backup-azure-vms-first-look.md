@@ -1,6 +1,6 @@
 ---
-title: "İlk Bakış: Azure sanal makinelerini bir yedekleme kasasıyla koruma | Microsoft Belgeleri"
-description: "Azure sanal makinelerini Yedekleme kasasıyla koruyun. Öğretici, Azure&quot;da kasa oluşturma, VM&quot;leri kaydetme, ilke oluşturma ve VM&quot;leri koruma işlemlerini açıklar."
+title: "İlk Bakış: Azure sanal makinelerini bir yedekleme kasasıyla yedekleme | Microsoft Belgeleri"
+description: "Azure VM’leri bir Backup kasasına yedeklemek için klasik portalı kullanın. Bu öğreticide Backup kasası oluşturma, VM’leri kaydetme, yedekleme ilkesi oluşturma ve ilk yedekleme işini çalıştırma dahil tüm aşamalar açıklanmaktadır."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/10/2017
+ms.date: 3/10/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8883ff1601c521d05068452b1b58cadaee1a941f
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -27,66 +28,30 @@ ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
 >
 >
 
-Bu öğretici bir Azure sanal makinesini (VM) Azure'daki bir yedekleme kasasına yedeklemeye yönelik adımlar boyunca size yol gösterir. Bu makalede sanal makineleri yedeklemeye yönelik Klasik modeli veya Service Manager dağıtım modeli açıklanmaktadır. Bir sanal makineyi bir Kaynak Grubuna ait Kurtarma Hizmetleri kasasına yedeklemek istiyorsanız bkz. [İlk bakış: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md). Bu öğreticiyi başarıyla tamamlamak için şu önkoşulların mevcut olması gerekir:
+Bu öğretici bir Azure sanal makinesini (VM) Azure'daki bir yedekleme kasasına yedeklemeye yönelik adımlar boyunca size yol gösterir. Bu makalede sanal makineleri yedeklemeye yönelik klasik model veya Service Manager dağıtım modeli açıklanmaktadır. Aşağıdaki adımlar yalnızca klasik portalda oluşturulan Backup kasaları için geçerlidir. Microsoft, yeni dağıtımlar için Resource Manager modelinin kullanılmasını önerir.
+
+Bir sanal makineyi bir Kaynak Grubuna ait Kurtarma Hizmetleri kasasına yedeklemek istiyorsanız bkz. [İlk bakış: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md).
+
+Aşağıdaki öğreticiyi başarıyla tamamlamak için şu önkoşulların mevcut olması gerekir:
 
 * Azure aboneliğinizde bir VM oluşturmuş olmanız gerekir.
 * VM'nin Azure genel IP adreslerine bağlantısı olmalıdır. Ek bilgi için bkz. [Ağ bağlantısı](backup-azure-vms-prepare.md#network-connectivity).
 
-Bir VM'yi yedeklemek için beş ana adım gerçekleştirilir:  
-
-![birinci adım](./media/backup-azure-vms-first-look/step-one.png) Yedekleme kasası oluşturma veya mevcut bir yedekleme kasası tanımlama. <br/>
-![ikinci adım](./media/backup-azure-vms-first-look/step-two.png) Sanal makineleri bulmak ve kaydetmek için Klasik Azure portalını kullanma. <br/>
-![üçüncü adım](./media/backup-azure-vms-first-look/step-three.png) VM Aracısı'nı yükleme. <br/>
-![dördüncü adım](./media/backup-azure-vms-first-look/step-four.png) Sanal makineleri korumaya yönelik ilkeyi oluşturma. <br/>
-![beşinci adım](./media/backup-azure-vms-first-look/step-five.png) Yedeklemeyi çalıştırma.
-
-![VM yedekleme işleminin üst düzey görünümü](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
 > [!NOTE]
-> Azure'da kaynak oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli mevcuttur: [Resource Manager ve Klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu öğretici, Klasik Azure portalında oluşturulabilen VM'lerle kullanıma yöneliktir. Azure Backup hizmeti Resource Manager temelli sanal makineleri destekler. Sanal makineleri bir kurtarma hizmetleri kasasına yedekleme hakkında bilgi için bkz. [İlk bakış: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md).
+> Azure'da kaynak oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli mevcuttur: [Resource Manager ve Klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu öğretici, klasik portalda oluşturulan sanal makinelerle birlikte kullanıma yöneliktir.
 >
 >
 
-## <a name="step-1---create-a-backup-vault-for-a-vm"></a>1. Adım - Bir VM için yedekleme kasası oluşturma
+## <a name="create-a-backup-vault"></a>Yedekleme kasası oluşturma
 Yedekleme kasası, zaman içinde oluşturulan tüm yedeklemeleri ve kurtarma noktalarını depolayan bir varlıktır. Yedekleme kasası, yedeklenmekte olan sanal makinelere uygulanan yedekleme ilkelerini de içerir.
 
-1. [Klasik Azure portalında](http://manage.windowsazure.com/) oturum açın.
-2. Azure portalının sol alt köşesinde **Yeni**'ye tıklayın
+> [!IMPORTANT]
+> Mart 2017’den itibaren Backup kasaları oluşturmak için klasik portalı kullanamayacaksınız. Mevcut Backup kasaları desteklenmeye devam eder ve [Backup kasaları oluşturmak için Azure PowerShell kullanabilirsiniz](./backup-client-automation-classic.md#create-a-backup-vault). Ancak, gelecekteki iyileştirmeler yalnızca Kurtarma Hizmetleri kasaları için geçerli olacağından, Microsoft tüm dağıtımlar için Kurtarma Hizmetleri kasalarının kullanılmasını önerir.
 
-    ![Yeni menüsüne tıklama](./media/backup-azure-vms-first-look/new-button.png)
-3. Hızlı Oluşturma sihirbazında **Veri Hizmetleri** > **Kurtarma Hizmetleri** > **Yedekleme Kasası** > **Hızlı Oluştur**'a tıklayın.
 
-    ![Yedekleme kasası oluşturma](./media/backup-azure-vms-first-look/new-vault-wizard-one-subscription.png)
 
-    Sihirbaz sizden **Ad** ve **Bölge** bilgilerini ister. Birden fazla aboneliği yönetiyorsanız aboneliği seçmeye yönelik bir iletişim kutusu görünür.
-4. **Ad** alanına, kasayı tanımlayacak kolay bir ad girin. Adın Azure aboneliği için benzersiz olması gerekir.
-5. **Bölge** içinde, kasa için coğrafi bölgeyi seçin. Kasa koruduğu sanal makinelerle aynı bölgede **olmalıdır**.
-
-    VM'nizin hangi bölgede bulunduğunu bilmiyorsanız bu sihirbazı kapatın ve Azure hizmetleri listesinde **Virtual Machines**'e tıklayın. Konum sütunu bölgenin adını belirtir. Birden çok bölgede sanal makineniz varsa her bölgede bir yedekleme kasası oluşturun.
-6. Sihirbazda **Abonelik** iletişim kutusu yoksa sonraki adıma geçin. Birden çok abonelik ile çalışıyorsanız yeni bir yedekleme kasası ile ilişkilendirmek üzere bir abonelik seçin.
-
-    ![Kasa bildirimi oluşturma](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
-7. **Kasa Oluştur**'a tıklayın. Yedekleme kasasının oluşturulması biraz zaman alabilir. Portalın alt kısmındaki durum bildirimlerini izleyin.
-
-    ![Kasa bildirimi oluşturma](./media/backup-azure-vms-first-look/create-vault-demo.png)
-
-    Bir ileti, kasanın başarıyla oluşturulduğunu onaylar. Kasa **Kurtarma Hizmetleri** sayfasında **Etkin** olarak listelenir.
-
-    ![Kasa bildirimi oluşturma](./media/backup-azure-vms-first-look/create-vault-demo-success.png)
-8. **Kurtarma Hizmetleri** sayfasındaki kasa listesinde, **Hızlı Başlangıç** sayfasını açmak için oluşturduğunuz kasayı seçin.
-
-    ![Yedekleme kasalarının listesi](./media/backup-azure-vms-first-look/active-vault-demo.png)
-9. **Hızlı Başlangıç** sayfasında, depolama çoğaltma seçeneğini açmak için **Yapılandır**'a tıklayın.
-    ![Yedekleme kasalarının listesi](./media/backup-azure-vms-first-look/configure-storage.png)
-10. **Depolama çoğaltma** seçeneğinde, kasanız için bir çoğaltma seçeneği belirleyin.
-
-    ![Yedekleme kasalarının listesi](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
-
-    Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Bu, birincil yedeklemenizse coğrafi olarak yedekli depolamayı seçin. Daha düşük dayanıklılık düzeyinde olan daha uygun maliyetli bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin. Coğrafi olarak yedekli ve yerel olarak yedekli depolama seçenekleri hakkında daha fazla bilgiyi [Azure Storage çoğaltmaya genel bakış](../storage/storage-redundancy.md) bölümünde edinebilirsiniz.
-
-Kasanız için depolama seçeneğini belirledikten sonra, VM'yi kasa ile ilişkilendirmek için hazır duruma gelirsiniz. İlişkilendirmeyi başlatmak için Azure sanal makinelerini bulun ve kaydedin.
-
-## <a name="step-2---discover-and-register-azure-virtual-machines"></a>2. Adım - Azure sanal makinelerini bulma ve kaydetme
+## <a name="discover-and-register-azure-virtual-machines"></a>Azure sanal makinelerini bulma ve kaydetme
 VM'yi bir kasaya kaydetmeden önce yeni VM'leri tanımlamak için bulma işlemini çalıştırın. Bu, bulut hizmeti adı ve bölge gibi ek bilgilerle birlikte, abonelikteki sanal makinelerin listesini döndürür.
 
 1. [Klasik Azure portalında](http://manage.windowsazure.com/) oturum açın
@@ -133,12 +98,12 @@ VM'yi bir kasaya kaydetmeden önce yeni VM'leri tanımlamak için bulma işlemin
 
     ![Kayıt durumu 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="step-3---install-the-vm-agent-on-the-virtual-machine"></a>3. Adım - VM Aracısı'nı sanal makineye yükleme
-Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı VM üzerinde zaten mevcuttur. [VM'lerinizi koruma](backup-azure-vms-first-look.md#step-4---create-the-backup-policy) adımına atlayabilirsiniz.
+## <a name="install-the-vm-agent-on-the-virtual-machine"></a>VM Aracısı'nı sanal makineye yükleme
+Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı VM üzerinde zaten mevcuttur; [VM’lerinizi koruma](backup-azure-vms-first-look.md#create-the-backup-policy) bölümüne geçebilirsiniz.
 
 VM'nizin bir şirket içi veri merkezinden geçişi sağlandıysa VM için VM Aracısı büyük olasılıkla yüklü değildir. VM'yi koruma aşamasına geçmeden önce sanal makine üzerinde VM Aracısı'nı yüklemeniz gerekir. VM Aracısı'nı yükleme konusunda ayrıntılı adımlar için bkz. [VM'leri Yedekleme makalesinin VM Aracısı bölümü](backup-azure-vms-prepare.md#vm-agent).
 
-## <a name="step-4---create-the-backup-policy"></a>4. Adım - Yedekleme ilkesini oluşturma
+## <a name="create-the-backup-policy"></a>Yedekleme ilkesi oluşturma
 İlk yedekleme işini tetiklemeden önce, yedekleme anlık görüntülerinin alınma zamanlamasını ayarlayın. Yedekleme anlık görüntülerinin alınma zamanlaması ve bu anlık görüntülerin tutulma süresinin uzunluğu, yedekleme ilkesini oluşturur. Bekletme bilgileri, Üst öğe-orta öğe-alt öğe rotasyon düzenini temel alır.
 
 1. Klasik Azure portalında **Kurtarma Hizmetleri**'nin altındaki yedekleme kasasına gidin ve **Kayıtlı Öğeler**'e tıklayın.
@@ -175,7 +140,7 @@ VM'nizin bir şirket içi veri merkezinden geçişi sağlandıysa VM için VM Ar
 
     İlkeyi belirlediğinize göre, artık sonraki adıma geçebilir ve ilk yedeklemeyi çalıştırabilirsiniz.
 
-## <a name="step-5---initial-backup"></a>5. Adım - İlk yedekleme
+## <a name="initial-backup"></a>İlk yedekleme
 Bir sanal makine bir ilke ile koruma altına alındıktan sonra, bu ilişkiyi **Korumalı Öğeler** sekmesinde görüntüleyebilirsiniz. İlk yedekleme gerçekleşene kadar, **Koruma Durumu** **Korumalı - (ilk yedekleme bekleniyor)** olarak gösterilir. Varsayılan olarak, ilk zamanlanmış yedekleme *ilk yedekleme* olacaktır.
 
 ![Yedekleme beklemede](./media/backup-azure-vms-first-look/protection-pending-border.png)
@@ -208,9 +173,4 @@ Bir VM'yi başarıyla yedeklediğinize göre, sonraki birkaç adım ilginizi çe
 
 ## <a name="questions"></a>Sorularınız mı var?
 Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](http://aka.ms/azurebackup_feedback).
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

@@ -16,33 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bea87fce9f1b1587af5a3e0d827a75e93d7bf534
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 13ef48ebe79571c7139e46f9510a5f8d2f504cb7
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Siteden siteye VPN Gateway bağlantıları için VPN cihazları hakkında
-Bir VPN ağ geçidi kullanılarak Siteden Siteye (S2S) şirketler arası VPN bağlantısı yapılandırmak için bir VPN cihazı gereklidir. Siteden siteye bağlantılar karma çözüm oluşturmak amacıyla ya da şirket içi ağınız ile sanal ağınız arasında güvenli bir bağlantı istediğinizde kullanılabilir. Bu makalede uyumlu VPN cihazları ve yapılandırma parametreleri açıklanır.
+# <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Siteden Siteye VPN Gateway bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında
+
+Bir VPN ağ geçidi kullanılarak Siteden Siteye (S2S) şirketler arası VPN bağlantısı yapılandırmak için bir VPN cihazı gereklidir. Siteden siteye bağlantılar karma çözüm oluşturmak amacıyla ya da şirket içi ağınız ile sanal ağınız arasında güvenli bir bağlantı istediğinizde kullanılabilir. Bu makalede uyumlu VPN cihazları ve yapılandırma parametreleri açıklanır. Bu belgede Azure VPN ağ geçitleri için IPsec/IKE parametrelerinin listesi ve Azure VPN ağ geçitlerine bağlanmak için doğrulanmış VPN cihazlarının bir listesi sağlanmıştır.
 
 
 > [!IMPORTANT]
-> Yerinde VPN cihazlarınızla Azure VPN ağ geçitleri arasında bağlantı sorunları yaşıyorsanız lütfen [Bilinen cihaz uyumluluk sorunları](#known) konusuna başvurun.
-> 
-> 
+> Yerinde VPN cihazlarınızla Azure VPN ağ geçitleri arasında bağlantı sorunları yaşıyorsanız lütfen [Bilinen cihaz uyumluluk sorunları](#known) konusuna başvurun. 
 
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Tabloları görüntülerken dikkate alınacaklar:
 
-* Statik ve dinamik yönlendirme terimlerinde bir değişiklik meydana gelmiştir. Büyük ihtimalle iki terimle de karşılaşacaksınız. İşlev değişikliği değil yalnızca ad değişikliği söz konusudur.
+* Azure VPN ağ geçitleri terimlerinde bir değişiklik meydana gelmiştir. Büyük ihtimalle iki terimle de karşılaşacaksınız. İşlev değişikliği değil yalnızca ad değişikliği söz konusudur.
   * Statik Yönlendirme = PolicyBased
   * Dinamik Yönlendirme = RouteBased
 * Yüksek Performanslı VPN ağ geçidi ve RouteBased VPN ağ geçidi özellikleri aksi belirtilmedikçe aynıdır. Örneğin, RouteBased VPN ağ geçitleri ile uyumlu doğrulanmış VPN cihazları, Azure Yüksek Performanslı VPN ağ geçidi ile de uyumludur.
 
 > [!NOTE]
 > Siteden Siteye bağlantı yapılandırırken, VPN cihazınız için genel kullanıma yönelik bir IPv4 IP adresi gereklidir.                                                                                                                                                                               
->
->
 
 
 ## <a name="devicetable"></a>Doğrulanan VPN cihazları
@@ -102,58 +99,80 @@ Sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra, ortamınıza 
 | &lt;SP_AzureGatewayIpAddress&gt; |Bu bilgiler sanal ağınıza özeldir ve **Ağ geçidi IP adresi** olarak Yönetim Portalı’nda yer almaktadır. |
 | &lt;SP_PresharedKey&gt; |Bu bilgiler sanal ağınıza özeldir ve Yönetme Anahtarı olarak Yönetim Portalı’nda yer almaktadır. |
 
-## <a name="IPSec"></a>IPsec parametreleri
+## <a name="IPSec"></a>IPsec/IKE parametreleri
 > [!NOTE]
-> Aşağıdaki tabloda listelenen değerler Azure VPN Gateway tarafından desteklense de şu anda Azure VPN Gateway'den belirli bir birleşim belirtemez ya da seçemezsiniz. Tüm kısıtlamaları şirket içi VPN cihazında belirtmeniz gerekir. Ayrıca, MSS’i 1350’de sıkıştırmanız gerekir.
->
->
+> Aşağıdaki tabloda listelenen değerler Azure VPN Gateway tarafından desteklense de şu anda Azure VPN Gateway’den belirli bir algoritma veya parametre birleşimi belirtme mekanizması yoktur. Tüm kısıtlamaları şirket içi VPN cihazında belirtmeniz gerekir.
+> 
+> Ayrıca, **MSS**’i **1350**’de sıkıştırmanız gerekir.
 
-### <a name="ike-phase-1-setup"></a>IKE Aşama 1 kurulumu
-| **Özellik** | **PolicyBased** | **RouteBased ve Standart ya da Yüksek Performanslı VPN ağ geçidi** |
-| --- | --- | --- |
-| IKE Sürümü |IKEv1 |IKEv2 |
-| Diffie-Hellman Grubu |Grup 2 (1024 bit) |Grup 2 (1024 bit) |
-| Kimlik Doğrulama Yöntemi |Önceden Paylaşılan Anahtar |Önceden Paylaşılan Anahtar |
-| Şifreleme Algoritmaları |AES256 AES128 3DES |AES256 3DES |
-| Karma Algoritma |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Aşama 1 Güvenlik İlişkisi (SA) Yaşam Süresi (Zaman) |28.800 saniye |10.800 saniye |
+Aşağıdaki tablolarda:
 
-### <a name="ike-phase-2-setup"></a>IKE Aşama 2 kurulumu
-| **Özellik** | **PolicyBased** | **RouteBased ve Standart ya da Yüksek Performanslı VPN ağ geçidi** |
-| --- | --- | --- |
-| IKE Sürümü |IKEv1 |IKEv2 |
-| Karma Algoritma |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
-| Aşama 2 Güvenlik İlişkisi (SA) Yaşam süresi (Saat) |3.600 saniye |3.600 saniye |
-| Aşama 2 Güvenlik İlişkisi (SA) Yaşam süresi (Verim) |102.400.000 KB |- |
-| IPsec SA Şifreleme ve kimlik Doğrulama Teklifleri (öncelik sırasına göre) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Yok |Bkz. 'RouteBased Ağ Geçidi IPsec Güvenlik İlişkisi (SA) Teklifleri' (aşağıda) |
-| Kusursuz İletme Gizliliği (PFS) |Hayır |Hayır (*) |
-| Kullanılmayan Eş Algılama |Desteklenmiyor |Destekleniyor |
+* SA = Güvenlik İlişkisi
+* IKE Aşama 1 "Ana Mod" olarak da adlandırılır
+* IKE Aşama 2 "Hızlı Mod" olarak da adlandırılır
 
-(*) IKE Yanıtlayıcı olarak Azure Gateway, PFS DH Grubu 1, 2, 5, 14, 24’ü kabul edebilir.
+### <a name="ike-phase-1-main-mode-parameters"></a>IKE Aşama 1 (Ana Mod) parametreleri
+| **Özellik**          |**PolicyBased**    | **RouteBased**    |
+| ---                   | ---               | ---               |
+| IKE Sürümü           |IKEv1              |IKEv2              |
+| Diffie-Hellman Grubu  |Grup 2 (1024 bit) |Grup 2 (1024 bit) |
+| Kimlik Doğrulama Yöntemi |Önceden Paylaşılan Anahtar     |Önceden Paylaşılan Anahtar     |
+| Şifreleme ve Karma Algoritmaları |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
+| SA Yaşam Süresi           |28.800 saniye     |10.800 saniye     |
 
-### <a name="routebased-gateway-ipsec-security-association-sa-offers"></a>RouteBased Ağ Geçidi IPsec Güvenlik İlişkisi (SA) Teklifleri
-Aşağıdaki tabloda IPsec SA Şifreleme ve Kimlik Doğrulama Teklifleri listelenmiştir. Teklifler, teklifin sunulduğu ya da kabul edildiği tercih sırasına göre listelenmiştir.
+### <a name="ike-phase-2-quick-mode-parameters"></a>IKE Aşama 2 (Hızlı Mod) parametreleri
+| **Özellik**                  |**PolicyBased**| **RouteBased**                              |
+| ---                           | ---           | ---                                         |
+| IKE Sürümü                   |IKEv1          |IKEv2                                        |
+| Şifreleme ve Karma Algoritmaları |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA Teklifleri](#RouteBasedOffers) |
+| SA Yaşam Süresi (Zaman)            |3.600 saniye  |3.600 saniye                                |
+| SA Yaşam Süresi (Bayt)           |102.400.000 KB | -                                           |
+| Kusursuz İletme Gizliliği (PFS) |Hayır             |[RouteBased QM SA Teklifleri](#RouteBasedOffers) |
+| Kullanılmayan Eş Algılama (DPD)     |Desteklenmiyor  |Destekleniyor                                    |
 
-| **IPsec SA Şifreleme ve Kimlik Doğrulama Teklifleri** | **Başlatıcı olarak Azure Ağ Geçidi** | **Yanıtlayıcı olarak Azure Ağ Geçidi** |
-| --- | --- | --- |
-| 1 |ESP AES_256 SHA |ESP AES_128 SHA |
-| 2 |ESP AES_128 SHA |ESP 3_DES MD5 |
-| 3 |ESP 3_DES MD5 |ESP 3_DES SHA |
-| 4 |ESP 3_DES SHA |AH SHA1 ile ESP AES_128 ve HMAC Null |
-| 5 |AH SHA1 ile ESP AES_256 ve HMAC Null |AH SHA1 ile ESP 3_DES ve HMAC Null |
-| 6 |AH SHA1 ile ESP AES_128 ve HMAC Null |AH MD5 ile ESP 3_DES ve HMAC Null, önerilen yaşam süresi yok |
-| 7 |AH SHA1 ile ESP 3_DES ve HMAC Null |AH SHA1 ile ESP 3_DES SHA1, yaşam süresi yok |
-| 8 |AH MD5 ile ESP 3_DES ve HMAC Null, önerilen yaşam süresi yok |AH MD5 ile ESP 3_DES MD5, yaşam süresi yok |
-| 9 |AH SHA1 ile ESP 3_DES SHA1, yaşam süresi yok |ESP DES MD5 |
-| 10 |AH MD5 ile ESP 3_DES MD5, yaşam süresi yok |ESP DES SHA1, yaşam süresi yok |
-| 11 |ESP DES MD5 |AH SHA1 ile ESP DES HMAC Null, önerilen yaşam süresi yok |
-| 12 |ESP DES SHA1, yaşam süresi yok |AH MD5 ile ESP DES HMAC Null, önerilen yaşam süresi yok |
-| 13 |AH SHA1 ile ESP DES HMAC Null, önerilen yaşam süresi yok |AH SHA1 ile ESP DES SHA1, yaşam süresi yok |
-| 14 |AH MD5 ile ESP DES HMAC Null, önerilen yaşam süresi yok |AH MD5 ile ESP DES MD5, yaşam süresi yok |
-| 15 |AH SHA1 ile ESP DES SHA1, yaşam süresi yok |ESP SHA, yaşam süresi yok |
-| 16 |AH MD5 ile ESP DES MD5, yaşam süresi yok |ESP MD5, yaşam süresi yok |
-| 17 |- |AH SHA, yaşam süresi yok |
-| 18 |- |AH MD5, yaşam süresi yok |
+
+### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec Güvenlik İlişkisi (IKE Hızlı Mod SA) Teklifleri
+Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler, teklifin sunulduğu ya da kabul edildiği tercih sırasına göre listelenmiştir.
+
+#### <a name="azure-gateway-as-initiator"></a>Başlatıcı olarak Azure Gateway
+|-  |**Şifreleme**|**Kimlik doğrulaması**|**PFS Grubu**|
+|---| ---          |---               |---          |
+| 1 |GCM AES256    |GCM (AES256)      |None         |
+| 2 |AES256        |SHA1              |None         |
+| 3 |3DES          |SHA1              |None         |
+| 4 |AES256        |SHA256            |None         |
+| 5 |AES128        |SHA1              |None         |
+| 6 |3DES          |SHA256            |None         |
+
+#### <a name="azure-gateway-as-responder"></a>Yanıtlayıcı olarak Azure Gateway
+|-  |**Şifreleme**|**Kimlik doğrulaması**|**PFS Grubu**|
+|---| ---          | ---              |---          |
+| 1 |GCM AES256    |GCM (AES256)      |None         |
+| 2 |AES256        |SHA1              |None         |
+| 3 |3DES          |SHA1              |None         |
+| 4 |AES256        |SHA256            |None         |
+| 5 |AES128        |SHA1              |None         |
+| 6 |3DES          |SHA256            |None         |
+| 7 |DES           |SHA1              |None         |
+| 8 |AES256        |SHA1              |1            |
+| 9 |AES256        |SHA1              |2            |
+| 10|AES256        |SHA1              |14           |
+| 11|AES128        |SHA1              |1            |
+| 12|AES128        |SHA1              |2            |
+| 13|AES128        |SHA1              |14           |
+| 14|3DES          |SHA1              |1            |
+| 15|3DES          |SHA1              |2            |
+| 16|3DES          |SHA256            |2            |
+| 17|AES256        |SHA256            |1            |
+| 18|AES256        |SHA256            |2            |
+| 19|AES256        |SHA256            |14           |
+| 20|AES256        |SHA1              |24           |
+| 21|AES256        |SHA256            |24           |
+| 22|AES128        |SHA256            |None         |
+| 23|AES128        |SHA256            |1            |
+| 24|AES128        |SHA256            |2            |
+| 25|AES128        |SHA256            |14           |
+| 26|3DES          |SHA1              |14           |
 
 * RouteBased ve Yüksek Performanslı VPN ağ geçitleri ile IPsec ESP NULL şifrelemesini belirtebilirsiniz. Null tabanlı şifreleme aktarımdaki verilere koruma sağlamaz ve yalnızca maksimum performans ve minimum gecikme gerekli olduğunda kullanılmalıdır.  İstemciler, bunu Sanal Ağ-Sanal Ağ iletişim senaryolarında ya da çözümdeki başka bir yere şifreleme uygulandığında kullanmayı seçebilir.
 * İnternet üzerinden şirket içi ve dışı bağlantı için, kritik iletişiminizin güvenliğini sağlamak üzere yukarıdaki tablolarda listelenen şifreleme ve karma algoritmalarla birlikte varsayılan Azure VPN ağ geçidi ayarlarını kullanın.

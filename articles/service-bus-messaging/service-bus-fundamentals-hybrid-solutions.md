@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 03/08/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 4d7523c2bd865039cc989b3d6a288f870288b102
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,7 +33,7 @@ Service Bus çok kiracılı bir bulut hizmetidir, yani hizmet birçok kullanıc�
 
 **Şekil 1: Service Bus, bulut üzerinden uygulamaları bağlamak için çok kiracılı bir hizmet sunar.**
 
-Ad alanı içinde, dört farklı iletişim mekanizmasının bir veya birden fazla örneğini kullanabilirsiniz. Bu mekanizmaların her biri, uygulamaları farklı yöntemlerle bağlar. Seçenekler şunlardır:
+Ad alanı içinde, üç farklı iletişim mekanizmasının bir veya birden fazla örneğini kullanabilirsiniz. Bu mekanizmaların her biri, uygulamaları farklı yöntemlerle bağlar. Seçenekler şunlardır:
 
 * Tek yönlü iletişime izin veren *kuyruklar*. Her kuyruk, alınana kadar gönderilen iletileri depolayan bir ara hizmet olarak görev yapar (bazen *aracı* olarak adlandırılır). Her ileti tek bir alıcı tarafından alınır.
 * *Abonelikler* olmak üzere tek konu başlığı kullanan, tek yönlü iletişim sağlayan *Konu Başlıkları*, birden çok aboneliği barındırabilir. Kuyrukta olduğu gibi konu başlığı, aracı gibi davranır ancak her abonelik isteğe bağlı olarak yalnızca belirli kriterlerle eşleşen iletileri almak için filtre kullanabilir.
@@ -40,7 +41,7 @@ Ad alanı içinde, dört farklı iletişim mekanizmasının bir veya birden fazl
 
 Bir kuyruk, konu veya geçiş oluşturduğunuzda bunları adlandırırsınız. Ad alanınız ne olursa olsun, bu ad nesne için benzersiz bir tanıtıcı oluşturur. Uygulamalar bu adı Service Bus'a verebilir ve ardından birbirleriyle iletişim kurmak için bu kuyruğu, konuyu veya geçişi kullanabilir. 
 
-Geçiş senaryosundaki bu nesnelerden herhangi birini kullanmak için Windows uygulamaları Windows Communication Foundation'ı (WCF) kullanabilir. Windows uygulamaları kuyruklar ve konular için Service Bus tanımlı mesajlaşma API'lerini kullanabilir. Bu nesnelerin Windows uygulaması olmayan uygulamalar tarafından kullanımını kolaylaştırmak için Microsoft Java, Node.js ve diğer dillere yönelik SDK sunar. Kuyruklara ve konulara HTTP(s) üzerinden REST API'lerini kullanarak da erişebilirsiniz. 
+Geçiş senaryosundaki bu nesnelerden herhangi birini kullanmak için Windows uygulamaları Windows Communication Foundation'ı (WCF) kullanabilir. Windows uygulamaları kuyruklar ve konular için Service Bus tanımlı mesajlaşma API'lerini kullanabilir. Bu nesnelerin Windows uygulaması olmayan uygulamalar tarafından kullanımını kolaylaştırmak için Microsoft Java, Node.js ve diğer dillere yönelik SDK sunar. Kuyruklara ve konu başlıklarına HTTP(s) üzerinden [REST API'lerini](/rest/api/servicebus/) kullanarak da erişebilirsiniz. 
 
 Service Bus hizmeti bulutta (Microsoft'un Azure veri merkezlerinde) çalışıyor olsa da Service Bus hizmetini kullanan uygulamaların herhangi bir yerde çalışabileceğini kavramak önemlidir. Service Bus hizmetini Azure'da çalışan uygulamaları (örneğin, kendi veri merkezinizde çalışan uygulamalar) bağlamak için kullanabilirsiniz . Ayrıca, bu hizmeti Azure veya başka bulut platformunda çalışan bir uygulama ile şirket içi bir uygulamayı veya tablet ve telefonları bağlamak için de kullanabilirsiniz. Ev aletlerini, sensörleri ve diğer cihazları merkezi bir uygulamaya veya başka bir uygulamaya bağlamak bile mümkündür. Service Bus, neredeyse her yerden erişilebilen bulut tabanlı bir iletişim mekanizmasıdır. Service Bus hizmetini kullanım şekliniz uygulamanızın gereksinimlerine göre değişir.
 
@@ -55,15 +56,15 @@ Service Bus hizmeti bulutta (Microsoft'un Azure veri merkezlerinde) çalışıyo
 
 Her ileti iki bölümden oluşur: özellikler kümesi (her biri anahtar/değer çifti olmak üzere) ve ileti yükü. Yük ikili değer, metin, hatta XML olabilir. Bunların nasıl kullanıldığı, uygulama tarafından gerçekleştirilmeye çalışılan işleme bağlıdır. Örneğin, yakın zamandaki bir satış hakkında bir ileti gönderen uygulama *Seller="Ava"* ve *Amount=10000* özelliklerini içerebilir. İleti gövdesi, satışın imzalı sözleşmesinin taranmış bir görüntüsünü içerebilir veya görüntü mevcut değilse bu kısım boş bırakılır.
 
-Bir alıcı iki farklı şekilde Service Bus kuyruğundaki iletileri okuyabilir. *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)* olarak adlandırılan ilk seçenek, kuyruktan iletiyi kaldırır ve anında siler. Bu yöntem basittir ancak alıcı iletiyi işlemeyi tamamlamadan bir çökme gerçekleşirse ileti kaybolur. Kuyruktan kaldırılmış olduğundan başka bir alıcı bu iletiye erişemez. 
+Bir alıcı iki farklı şekilde Service Bus kuyruğundaki iletileri okuyabilir. *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)* olarak adlandırılan ilk seçenek, kuyruktan iletiyi kaldırır ve anında siler. Bu yöntem basittir ancak alıcı iletiyi işlemeyi tamamlamadan bir çökme gerçekleşirse ileti kaybolur. Kuyruktan kaldırılmış olduğundan başka bir alıcı bu iletiye erişemez. 
 
-*[PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)* olan ikinci seçenek ise bu soruna çözüm bulmak için tasarlanmıştır. **ReceiveAndDelete** gibi, **PeekLock** yöntemindeki okuma işlemi de iletiyi kuyruktan kaldırır. Ancak iletiyi silmez. Bunun yerine, iletiyi kilitleyerek diğer alıcılar için görünmez yapar ve aşağıdaki olaylardan birinin gerçekleşmesini bekler:
+*[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)* olan ikinci seçenek ise bu soruna çözüm bulmak için tasarlanmıştır. **ReceiveAndDelete** gibi, **PeekLock** yöntemindeki okuma işlemi de iletiyi kuyruktan kaldırır. Ancak iletiyi silmez. Bunun yerine, iletiyi kilitleyerek diğer alıcılar için görünmez yapar ve aşağıdaki olaylardan birinin gerçekleşmesini bekler:
 
-* Alıcı iletiyi başarıyla işlediğinde **[Complete()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)** çağrısı yapar ve kuyruk iletiyi siler. 
-* Alıcı, iletiyi başarıyla işleyemediğine karar verirse **[Abandon()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon)** çağrısını yapar. Daha sonra kuyruk iletinin kilidini açar ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
+* Alıcı iletiyi başarıyla işlediğinde [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) çağrısı yapar ve kuyruk iletiyi siler. 
+* Alıcı, iletiyi başarıyla işleyemediğine karar verirse [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) çağrısını yapar. Daha sonra kuyruk iletinin kilidini açar ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
 * Ayarlanabilir bir süre içinde alıcı bu yöntemlerin hiçbirini çağırmazsa (varsayılan 60 saniyedir) kuyruk alıcının başarısız olduğunu varsayar. Bu durumda, alıcının **Abandon** çağrısı yaptığını varsayarak hareket eder ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
 
-Burada gerçekleşebilecek şu duruma dikkat edin: Aynı ileti iki kez (belki de iki farklı alıcıya) teslim edilebilir. Service Bus kuyruklarını kullanan uygulamalar bu duruma karşı hazırlıklı olmalıdır. Yinelenen öğe algılamasını daha kolay hale getirmek için her iletinin benzersiz **[MessageID](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)** özelliği vardır. Bu özellik, iletinin kuyruktan kaç kez okunduğuna bakılmaksızın varsayılan olarak sürekli aynıdır. 
+Burada gerçekleşebilecek şu duruma dikkat edin: Aynı ileti iki kez (belki de iki farklı alıcıya) teslim edilebilir. Service Bus kuyruklarını kullanan uygulamalar bu duruma karşı hazırlıklı olmalıdır. Yinelenen öğe algılamasını daha kolay hale getirmek için her iletinin benzersiz [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) özelliği vardır. Bu özellik, iletinin kuyruktan kaç kez okunduğuna bakılmaksızın varsayılan olarak sürekli aynıdır. 
 
 Kuyruklar birçok durumda oldukça faydalıdır. Kuyruklar sayesinde aynı anda çalışmayan uygulamaların bile iletişim kurmasına olanak sağlanır; özellikle toplu işlem ve mobil uygulamalarda olmak üzere bu özellik oldukça kullanışlıdır. Ayrıca, birden çok alıcısı bulunan bir kuyruk otomatik olarak yük dengelemesi sunar. Bu durum, gönderilen iletilerin tüm alıcılara dağıtılmasından kaynaklanır.
 
@@ -80,7 +81,7 @@ Ne kadar faydalı olsalar da kuyruklar her zaman doğru çözüm değildir. Baz�
 * Abone 2 ise *Seller="Ruby"* ve/veya değeri 100.000'den fazla olan *Amount* özelliklerini içeren iletileri alır. Ruby'nin bir satış müdürü olduğunu varsayarsak Ruby kendi satışları haricindeki tüm büyük satışları kimin yaptığına bakmaksızın görmek isteyebilir.
 * Abone 3, filtresini *True* olarak ayarlar ve tüm iletileri alır. Örneğin, bu uygulama bir denetim kaydı tutmakla görevlendirilmiştir ve tüm iletileri görmesi gerekir.
 
-Kuyruklarda olduğu gibi, bir konu başlığının aboneleri de iletileri [**ReceiveAndDelete** veya **PeekLock**](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) kullanarak okuyabilir. Ancak kuyrukların aksine, konu başlığına gönderilen tek bir ileti birden çok abonelik tarafından alınabilir. Yaygın şekilde *yayımla ve abone ol* (veya *pub/sub*) olarak adlandırılan bu yaklaşım, aynı iletilerin birden çok uygulamanın ilgi alanına girmesi durumunda faydalıdır. Her abone, doğru filtreyi tanımlayarak ileti akışının yalnızca görmesi gereken kısmını seçebilir.
+Kuyruklarda olduğu gibi, bir konu başlığının aboneleri de iletileri [ReceiveAndDelete veya PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) kullanarak okuyabilir. Ancak kuyrukların aksine, konu başlığına gönderilen tek bir ileti birden çok abonelik tarafından alınabilir. Yaygın şekilde *yayımla ve abone ol* (veya *pub/sub*) olarak adlandırılan bu yaklaşım, aynı iletilerin birden çok uygulamanın ilgi alanına girmesi durumunda faydalıdır. Her abone, doğru filtreyi tanımlayarak ileti akışının yalnızca görmesi gereken kısmını seçebilir.
 
 ## <a name="relays"></a>Geçişler
 Hem kuyruklar hem de konu başlıkları, bir aracı yoluyla tek yönlü zaman uyumsuz iletişim sağlar. Trafik akışları sadece tek yöndedir ve göndericiler ile alıcılar arasında doğrudan bağlantı yoktur. Peki bunu istemezseniz çözüm nedir? Uygulamalarınızın iletileri hem göndermesi hem de alması gerektiğini ya da gönderici ile alıcılar arasında doğrudan bağlantı istediğinizi ve iletileri depolamak için aracıya ihtiyacınız olmadığını düşünelim. Bunun gibi bir senaryoya uyum sağlamak için Service Bus, Şekil 4'te gösterildiği gibi *geçişleri* kullanır.
@@ -116,9 +117,4 @@ Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre,
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

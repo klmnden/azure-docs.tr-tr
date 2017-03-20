@@ -8,14 +8,11 @@
 
 # Başlarken
 ## [Advisor’ı kullanmaya başlama](advisor-get-started.md)
-
+# Başvuru
+## [REST](https://docs.microsoft.com/rest/api/advisor)
 # İlgili
 ## [Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/)
 ## [SQL Veritabanı Danışmanı](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
 ## [Redis Önbelleği](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [Uygulama Hizmetleri](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
  
-
-<!--HONumber=Nov16_HO4-->
-
-

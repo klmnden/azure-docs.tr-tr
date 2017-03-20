@@ -17,6 +17,7 @@ ms.author: osamam
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -71,10 +72,5 @@ Asimetrik yönlendirme sorunlarını çözmenin bir başka yolu da SNAT kullanma
 
 ## <a name="asymmetric-routing-detection"></a>Asimetrik yönlendirmenin algılanması
 Traceroute, ağ trafiğinizin beklenen yoldan gittiğinden emin olmanın en iyi yoludur. Şirket içi SMTP sunucunuzdan Microsoft’a giden trafiğin İnternet yolunu tercih etmesini bekliyorsanız, beklenen traceroute SMTP sunucusundan Office 365’e gider. Sonuç, ağınızdan çıkan trafiğin ExpressRoute’a değil, gerçekten de İnternet’e gittiğini doğrular.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: dc9234760b0dfb5d109fc86ac47a89c8fcf7d991
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 88b16b0b7c951ab0350649de05c00263ec76e630
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -101,40 +102,22 @@ Actor projeleri kendi başına bir işlem yapamaz. Bunlar başka bir hizmet veya
 
 3. Önceki adımda bulduğunuz düğüme tıklayın, ardından Eylemler menüsünden **Devre dışı bırak (yeniden başlat)** öğesini seçin. Bu eylem yerel kümenizdeki beş düğümden birini yeniden başlatır ve başka bir düğümde çalışan ikincil çoğaltmalardan birine yük devretmeye zorlar. Bu eylemi gerçekleştirirken, test istemcisinden gelen çıkışa dikkat edin ve sayacın yük devretmeye rağmen artmaya devam ettiğini unutmayın.
 
-## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Eclipse Neon eklentisiyle uygulama oluşturma ve dağıtma
+## <a name="create-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Eclipse Neon eklentisiyle uygulama oluşturma ve dağıtma
 
-Eclipse Neon için [Service Fabric Eklentisini](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) yüklediyseniz Service Fabric uygulamaları oluşturmak, derlemek ve Java ile derlenmiş uygulamaları dağıtmak için bu eklentiyi kullanabilirsiniz.  Eclipse’i yüklerken, **Java geliştiricileri için Eclipse IDE**’yi seçin.
-
-### <a name="create-the-application"></a>Uygulama oluşturma
-
-Service Fabric eklentisi Eclipse genişletilebilirliği ile kullanılabilir.
-
-1. Eclipse'te **Dosya > Diğer > Service Fabric** öğesini seçin. Aktörler ve Kapsayıcılar dahil bir dizi seçenek görürsünüz.
-
-    ![Eclipse'te Service Fabric şablonları][sf-eclipse-templates]
-
-2. Bu durumda Durum Bilgisi Olmayan Hizmet’i seçin.
-
-3. Service Fabric projeleriyle Eclipse kullanımını iyileştiren Service Fabric perspektifinin kullanıldığını onaylamanız istenir. 'Evet' öğesini seçin.
-
-### <a name="deploy-the-application"></a>Uygulamayı dağıtma
-Service Fabric şablonları, Eclipse ile tetikleyebileceğiniz uygulama oluşturma ve dağıtmaya yönelik bir dizi Gradle görevi içerir.
-
-1. **Çalıştır > Yapılandırmaları Çalıştır**’ı seçin.
-2. **yerel** veya **bulut** seçeneğini belirtin. Varsayılan olarak **yerel** seçilidir. Uzak bir kümeye dağıtmak için **bulut** seçeneğini belirleyin.
-3. Duruma göre `local.json` veya `cloud.json` öğesine düzenleyerek yayımlama profillerine doğru bilgilerin eklendiğinden emin olun.
-4. **Çalıştır**’a tıklayın.
-
-Uygulamanız birkaç dakika içinde oluşturulur ve dağıtılır. Durumunu Service Fabric Explorer’dan izleyebilirsiniz.
+Service Fabric ayrıca Eclipse kullanarak Service Fabric Java uygulaması oluşturma, derleme ve dağıtma için sağlama sunar. Eclipse’i yüklerken, **Java geliştiricileri için Eclipse IDE**’yi seçin. Ayrıca, Service Fabric şu anda Eclipse **Neon** için eklentiyi destekler. [Linux üzerinde Eclipse için Service Fabric Eklentisi kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-get-started-eclipse.md) adlı ayrıntılı belgelere bakın
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Mevcut bir uygulamaya daha fazla hizmet ekleme
 
+### <a name="using-command-line-utility"></a>Komut satırı yardımcı programını kullanma
 `yo` kullanılarak oluşturulmuş bir uygulamaya başka bir hizmet eklemek için aşağıdaki adımları uygulayın:
 1. Dizini mevcut uygulamanın kök dizinine değiştirin.  Örneğin Yeoman tarafından oluşturulan uygulama `MyApplication` ise `cd ~/YeomanSamples/MyApplication` olacaktır.
 2. `yo azuresfjava:AddService` öğesini çalıştırın
 
+### <a name="using-service-fabric-eclipse-plugin-for-java-on-linux"></a>Linux’ta Java için Service Fabric Eclipse eklentisini kullanma
+Service Fabric için Eclipse eklentisini kullanarak mevcut bir uygulamaya hizmet eklemek için [buradaki](service-fabric-get-started-eclipse.md#add-new-service-fabric-service-to-your-service-fabric-application) belgelere bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+* [Linux üzerinde Eclipse için Service Fabric Eklentisi kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-get-started-eclipse.md)
 * [Reliable Actors hakkında daha fazla bilgi edinin](service-fabric-reliable-actors-introduction.md)
 * [Azure CLI kullanarak Service Fabric kümeleriyle etkileşim kurma](service-fabric-azure-cli.md)
 * [Dağıtım sorunlarını giderme](service-fabric-azure-cli.md#troubleshooting)
@@ -144,9 +127,4 @@ Uygulamanız birkaç dakika içinde oluşturulur ve dağıtılır. Durumunu Serv
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
