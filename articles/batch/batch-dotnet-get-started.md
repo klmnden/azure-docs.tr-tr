@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: edda9dc389d670b463d518edf8c4703062ba169d
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 08b478b3108f0673f3a130612020408a0e61c815
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -48,7 +48,7 @@ Bu makalede, C# ve Visual Studio deneyimine sahip olduğunuz varsayılmaktadır.
 >
 
 ### <a name="visual-studio"></a>Visual Studio
-Örnek proje oluşturmak için **Visual Studio 2015** sürümünüz olmalıdır. Visual Studio'nun ücretsiz ve deneme sürümlerini [Visual Studio 2015 Ürünlerine Genel Bakış][visual_studio] sayfasında bulabilirsiniz.
+Örnek projeyi oluşturmak için **Visual Studio 2015 veya sonraki** bir sürüme sahip olmanız gerekir. Visual Studio'nun ücretsiz ve deneme sürümlerini [Visual Studio ürünlerine genel bakış][visual_studio] sayfasında bulabilirsiniz.
 
 ### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* kodu örneği
 [DotNetTutorial][github_dotnettutorial] örneği GitHub’daki [azure-batch-samples][github_samples] deposunda bulunan çok sayıda Batch kodu örneğinden biridir. Örneklerin tümünü, depo giriş sayfasındaki **Kopyala veya indir > ZIP’i İndir**’e veya [azure-batch-samples-master.zip][github_samples_zip] doğrudan indirme bağlantısına tıklayarak indirebilirsiniz. ZIP dosyasının içeriğini ayıkladıktan sonra çözümü aşağıdaki klasörde bulabilirsiniz:
@@ -59,7 +59,7 @@ Bu makalede, C# ve Visual Studio deneyimine sahip olduğunuz varsayılmaktadır.
 [Azure Batch Gezgini][github_batchexplorer], GitHub’daki [azure-batch-samples][github_samples] deposunda yer alan ücretsiz bir yardımcı programdır. Bu öğreticiyi tamamlamak için gerekli olmasa da, Batch çözümlerinizi geliştirirken ve hatalarını ayıklarken yararlı olabilir.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>DotNetTutorial örnek projesine genel bakış
-*DotNetTutorial* kod örneği buradaki iki projeden oluşan bir Visual Studio 2015 çözümüdür: **DotNetTutorial** ve **TaskApplication**.
+*DotNetTutorial* kod örneği buradaki iki projeden oluşan bir Visual Studio çözümüdür: **DotNetTutorial** ve **TaskApplication**.
 
 * **DotNetTutorial**, işlem düğümlerinde paralel iş yükünü yürütmek için Batch ve Storage hizmetleriyle etkileşime giren istemci uygulamasıdır (sanal makineler). DotNetTutorial yerel iş istasyonunuzda çalışır.
 * **TaskApplication**, asıl işi gerçekleştirmek için Azure’deki işlem düğümlerinde çalışan programdır. Örnekte, `TaskApplication.exe` metni (girdi dosyası), Azure Storage’dan indirilen dosyada ayrıştırıyor. Ardından, girdi dosyasında ilk üç sözcüğün göründüğü listenin bulunduğu bir metin dosyası (çıktı dosyası) oluşturur. TaskApplication, çıktı dosyasını oluşturduktan sonra dosyayı Azure Storage’a yükler. Böylece, indirmek üzere istemci uygulamasının kullanımına hazır hale getirir. TaskApplication, Batch hizmetinde paralel olarak birden çok işlem düğümünde çalışır.
@@ -792,7 +792,7 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
-[visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
+[visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Azure Depolama’da kapsayıcı oluşturma"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Görev uygulamasını ve girdi (veriler) dosyalarını kapsayıcılara yükleme"

@@ -17,8 +17,9 @@ ms.topic: hero-article
 ms.date: 02/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c70b3b23fa95af6614c34bd951943f0559409220
-ms.openlocfilehash: cf43790c329ef156ae17579d2281c861533ec201
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a5084b62a309dba433e2b363322b9a9c362bcdc3
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -46,8 +47,9 @@ Bu öğreticide SQL Server Management Studio kullanarak SQL Server kimlik doğru
 
 * **SQL Server Management Studio**. SQL Server Management Studio’nun en son sürümünü [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio’yu İndirin) sayfasından indirip yükleyebilirsiniz. SSMS için sürekli yeni özellikler yayınlandığından Azure SQL Veritabanı’na bağlanırken her zaman en son sürümü kullanın.
 
-* **Temel öğretici tamamlandı**. [Azure portalı ve SQL Server Management Studio aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama](sql-database-get-started.md) öğreticisini veya bu öğreticinin [PowerShell sürümünü](sql-database-get-started-powershell.md) tamamladınız. Tamamlamadıysanız, bu öğretici önkoşulunu tamamlayın veya devam etmeden önce bu öğreticinin [PowerShell sürümünün](sql-database-get-started-powershell.md) sonundaki PowerShell betiğini yürütün.
+* **Taban sunucu ve veritabanları** Bu öğreticide kullanılan bir sunucu ve iki veritabanını yükleyip yapılandırmak için **Azure’a Dağıt** düğmesine tıklayın. Düğmeye tıklandığında **Şablondan dağıt** dikey penceresi açılır; yeni bir kaynak grubu oluşturun ve oluşturulacak yeni sunucu için **Yönetici Oturum Açma Parolası** belirtin:
 
+   [![indir](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
 
 ## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Azure hesabınızı kullanarak Azure portalında oturum açma
@@ -437,10 +439,5 @@ CREATE USER blankdbuser1
 - Veritabanı rolleri hakkında daha fazla bilgi için bkz. [Veritabanı rolleri](https://msdn.microsoft.com/library/ms189121.aspx).
 - SQL Veritabanındaki güvenlik duvarı kuralları hakkında daha fazla bilgi için bkz. [SQL Veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md).
 - Azure Active Directory kimlik doğrulamasını kullanmaya yönelik bir öğretici için bkz. [Azure AD kimlik doğrulaması ve yetkilendirme](sql-database-control-access-aad-authentication-get-started.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

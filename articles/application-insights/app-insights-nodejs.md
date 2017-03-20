@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
-ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: bc7b0d4037effd7bcc8685a357a49de339e31d7b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -86,10 +86,7 @@ Daha ayrıntılı ölçümler görmek için herhangi bir grafiğe tıklayın. [�
 Şimdi uygulamanızı IIS veya Azure’a dağıtın ve verilerin birikmesini izleyin.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>Sunucunuza yayımladıktan sonra veri yok mu?
-Sunucunuzun güvenlik duvarında giden trafik için şu bağlantı noktalarını açın:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+[Gerekli güvenlik duvarı bağlantı noktalarının açık olduğunu](app-insights-ip-addresses.md) kontrol edin.
 
 #### <a name="trouble-on-your-build-server"></a>Derleme sunucunuzda sorun mu yaşıyorsunuz?
 Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild) bakın.

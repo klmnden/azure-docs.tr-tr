@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: e204a3c79768ddbd433f3b00a3db456ef3258173
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 9ea205cb5034fea66c770ec71934e302ee818a89
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -100,7 +100,7 @@ Batch için Azure Resource Manager API'leri, Batch hesaplarına programlı eriş
 Batch kullanarak çözüm derlemek için gerekmese de Batch uygulamalarınızı ve hizmetlerinizi derlerken veya bunların hatalarını ayıklarken kullanabileceğiniz değerli araçlardan bazıları aşağıda verilmiştir.
 
 * [Azure portalı][portal]: Azure portalının Batch dikey pencerelerinde, Batch havuzlarını, işlerini ve görevlerini oluşturabilir, izleyebilir ve silebilirsiniz. Bu ve diğer kaynakların durum bilgilerini işlerinizi çalıştırırken görüntüleyebilir, hatta havuzlarınızdaki işlem düğümlerinden dosya indirebilirsiniz (örneğin sorun giderme sırasında, başarısız olan bir görevin `stderr.txt`’ini indirebilirsiniz). İşlem düğümlerinde oturum açmak için kullanabileceğiniz Uzak Masaüstü (RDP) dosyalarını da indirebilirsiniz.
-* [Azure Batch Gezgini][batch_explorer]: Batch Gezgini, Azure portalının sağladığına benzer bir Batch kaynak yönetimi işlevselliği sağlar, ancak bunu bağımsız bir Windows Presentation Foundation (WPF) istemci uygulamasında yapar. [GitHub][github_samples] üzerinde kullanılabilir Batch .NET örnek uygulamalarından biridir; Batch Gezgini'ni Visual Studio 2015 veya üzeri ile derleyebilir, Batch çözümlerinizi geliştirdiğiniz ve bunların hatalarını ayıkladığınız sırada da Batch hesabınızdaki kaynaklara göz atıp yönetmek için kullanabilirsiniz. İşi, havuzu ve görev ayrıntılarını görüntüleyin, işlem düğümlerinden dosya indirin ve Batch Gezgini ile indirebileceğiniz Uzak Masaüstü (RDP) dosyalarını kullanarak düğümlere bağlanın.
+* [Azure Batch Gezgini][batch_explorer]: Batch Gezgini, Azure portalının sağladığına benzer bir Batch kaynak yönetimi işlevselliği sağlar, ancak bunu bağımsız bir Windows Presentation Foundation (WPF) istemci uygulamasında yapar. [GitHub][github_samples] üzerinde kullanılabilir Batch .NET örnek uygulamalarından biridir; Batch Gezgini'ni Visual Studio 2015 veya daha yeni sürümlerle derleyebilir, Batch çözümlerinizi geliştirdiğiniz ve bunların hatalarını ayıkladığınız sırada da Batch hesabınızdaki kaynaklara göz atıp yönetmek için kullanabilirsiniz. İşi, havuzu ve görev ayrıntılarını görüntüleyin, işlem düğümlerinden dosya indirin ve Batch Gezgini ile indirebileceğiniz Uzak Masaüstü (RDP) dosyalarını kullanarak düğümlere bağlanın.
 * [Microsoft Azure Depolama Gezgini][storage_explorer]: Azure Batch aracı kesinlikle olmadığında, Batch çözümlerinizi geliştirdiğiniz ve hatalarını ayıkladığınız sırada Depolama Gezgini sahip olunması gereken başka bir değerli araçtır.
 
 ## <a name="scenario-scale-out-a-parallel-workload"></a>Senaryo: Paralel iş yükünü ölçeklendirme

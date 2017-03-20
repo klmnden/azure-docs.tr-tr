@@ -13,35 +13,168 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Parola Yönetimine Başlarken
 > [!IMPORTANT]
-> **Oturum açmada sorun yaşadığınız için mi buradasınız?** Sorun yaşıyorsanız bkz. [kendi parolanızı değiştirme ve sıfırlama](active-directory-passwords-update-your-own-password.md).
+> **Oturum açmada sorun yaşadığınız için mi buradasınız?** Sorun yaşıyorsanız bkz. [kendi parolanızı değiştirme ve sıfırlama](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
 Kullanıcıların kendi bulut Azure Active Directory veya şirket içi Active Directory parolalarını yönetmesine olanak tanımak için birkaç basit adımı tamamlamak yeterlidir. Birkaç basit önkoşulu yerine getirdiğinizi doğrulamanızın ardından, kuruluşunuzun tamamı için parola değiştirme ve sıfırlama işlemleri çok kısa süre içinde etkinleştirilir. Bu makalede aşağıdaki kavramlarla ilgili olarak size yol gösterilecektir:
 
+* [**Başlamadan önce okumanız için müşterilerimizden önemli ipuçları**](#top-tips-from-our-customers-to-read-before-you-begin)
+ * [**ÖNEMLİ İPUCU: BELGELERDE GEZİNME** - Yanıtları bulmak için içindekiler bölümümüzü ve tarayıcınızın bulma özelliğini kullanın](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+ * [**İpucu 1: LİSANSLAMA** - Lisanslama gereksinimlerini anladığınızdan emin olun](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+ * [**İpucu 2: TEST** - Yönetici değil bir son kullanıcı ile test edin ve küçük bir kullanıcı grubuyla pilot uygulaması yapın](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**İpucu 3: DAĞITIM** - Kullanıcılarınızın kaydetmek zorunda kalmaması için verilerini önceden doldurun](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+ * [**İpucu 4: DAĞITIM** - Geçici parola iletme gereksinimini ortadan kaldırmak için parola sıfırlama özelliğini kullanın](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+ * [**İpucu 5: GERİ YAZMA** - Parola geri yazma sorunlarını gidermek için AAD Connect makinenizdeki uygulama olay günlüğüne bakın](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+ * [**İpucu 6: GERİ YAZMA** - Parola geri yazma için doğru izinleri, güvenlik duvarı kurallarını ve bağlantı ayarlarını etkinleştirdiğinizden emin olun](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+ * [**İpucu 7: RAPORLAMA** - Azure AD SSPR Denetim Günlükleri ile kimlerin kaydolduğunu veya parola sıfırladığını görün](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+ * [**İpucu 8: SORUN GİDERME** - Birçok sorunu çözmek için sorun giderme kılavuzumuzu ve SSS bölümünü okuyun](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+ * [**İpucu 9: SORUN GİDERME** - Hala yardıma ihtiyacınız varsa, size yardımcı olabilmemiz için yeterli bilgi sağlayın](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 * [**Kullanıcılara Azure Active Directory parolalarını sıfırlama olanağı tanıma**](#enable-users-to-reset-their-azure-ad-passwords)
-  * [Self servis parola sıfırlama önkoşulları](#prerequisites)
-  * [1. Adım: Parola sıfırlama ilkesini yapılandırma](#step-1-configure-password-reset-policy)
-  * [2. Adım: Test kullanıcınız için iletişim verileri ekleme](#step-2-add-contact-data-for-your-test-user)
-  * [3. Adım: Kullanıcı olarak parolanızı sıfırlama](#step-3-reset-your-azure-ad-password-as-a-user)
+ * [Self servis parola sıfırlama önkoşulları](#prerequisites)
+ * [1. Adım: Parola sıfırlama ilkesini yapılandırma](#step-1-configure-password-reset-policy)
+ * [2. Adım: Test kullanıcınız için iletişim verileri ekleme](#step-2-add-contact-data-for-your-test-user)
+ * [3. Adım: Kullanıcı olarak parolanızı sıfırlama](#step-3-reset-your-azure-ad-password-as-a-user)
 * [**Kullanıcılara şirket içi Azure Active Directory parolalarını sıfırlama veya değiştirme olanağı tanıma**](#enable-users-to-reset-or-change-their-ad-passwords)
-  * [Parola Geri Yazma önkoşulları](#writeback-prerequisites)
-  * [1. Adım: Azure AD Connect'in en son sürümünü indirme](#step-1-download-the-latest-version-of-azure-ad-connect)
-  * [2. Adım: Kullanıcı arabirimi veya PowerShell ile Azure AD Connect'te Parola Geri Yazma'yı etkinleştirme ve doğrulama](#step-2-enable-password-writeback-in-azure-ad-connect)
-  * [3. Adım: Güvenlik duvarınızı yapılandırma](#step-3-configure-your-firewall)
-  * [4. Adım: Uygun izinleri ayarlama](#step-4-set-up-the-appropriate-active-directory-permissions)
-  * [5. Adım: Kullanıcı olarak AD parolanızı sıfırlama ve doğrulama](#step-5-reset-your-ad-password-as-a-user)
+ * [Parola Geri Yazma önkoşulları](#writeback-prerequisites)
+ * [1. Adım: Azure AD Connect'in en son sürümünü indirme](#step-1-download-the-latest-version-of-azure-ad-connect)
+ * [2. Adım: Kullanıcı arabirimi veya PowerShell ile Azure AD Connect'te Parola Geri Yazma'yı etkinleştirme ve doğrulama](#step-2-enable-password-writeback-in-azure-ad-connect)
+ * [3. Adım: Güvenlik duvarınızı yapılandırma](#step-3-configure-your-firewall)
+ * [4. Adım: Uygun izinleri ayarlama](#step-4-set-up-the-appropriate-active-directory-permissions)
+ * [5. Adım: Kullanıcı olarak AD parolanızı sıfırlama ve doğrulama](#step-5-reset-your-ad-password-as-a-user)
+
+## <a name="top-tips-from-our-customers-to-read-before-you-begin"></a>Başlamadan önce okumanız için müşterilerimizden önemli ipuçları
+Kuruluşlarında parola yönetimi dağıtan müşteriler için faydalı gördüğümüz önemli ipuçlarından bazıları aşağıda verilmiştir.
+
+* [**ÖNEMLİ İPUCU: BELGELERDE GEZİNME** - Yanıtları bulmak için içindekiler bölümümüzü ve tarayıcınızın bulma özelliğini kullanın](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
+* [**İpucu 1: LİSANSLAMA** - Lisanslama gereksinimlerini anladığınızdan emin olun](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
+* [**İpucu 2: TEST** - Yönetici değil bir son kullanıcı ile test edin ve küçük bir kullanıcı grubuyla pilot uygulaması yapın](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**İpucu 3: DAĞITIM** - Kullanıcılarınızın kaydetmek zorunda kalmaması için verilerini önceden doldurun](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
+* [**İpucu 4: DAĞITIM** - Geçici parola iletme gereksinimini ortadan kaldırmak için parola sıfırlama özelliğini kullanın](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
+* [**İpucu 5: GERİ YAZMA** - Parola geri yazma sorunlarını gidermek için AAD Connect makinenizdeki uygulama olay günlüğüne bakın](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
+* [**İpucu 6: GERİ YAZMA** - Parola geri yazma için doğru izinleri, güvenlik duvarı kurallarını ve bağlantı ayarlarını etkinleştirdiğinizden emin olun](#tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback)
+* [**İpucu 7: RAPORLAMA** - Azure AD SSPR Denetim Günlükleri ile kimlerin kaydolduğunu veya parola sıfırladığını görün](#tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs)
+* [**İpucu 8: SORUN GİDERME** - Birçok sorunu çözmek için sorun giderme kılavuzumuzu ve SSS bölümünü okuyun](#tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues)
+* [**İpucu 9: SORUN GİDERME** - Hala yardıma ihtiyacınız varsa, size yardımcı olabilmemiz için yeterli bilgi sağlayın](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
+
+### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>ÖNEMLİ İPUCU: BELGELERDE GEZİNME - Yanıtları bulmak için içindekiler bölümümüzü ve tarayıcınızın bulma özelliğini kullanın
+Belgelerimizden herhangi birini kullanıyorsanız, içindekiler bölümünde yöneticilerin bilgi alması için ilgi çekici yerlerin tümüne ait hızlı bağlantılar verilmiştir. 
+
+Aşağıdaki içindekiler bölümüne bakın: 
+* [Azure AD Parola Sıfırlama: Belgelerin İçindekiler](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
+
+### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>İpucu 1: LİSANSLAMA - Lisanslama gereksinimlerini anladığınızdan emin olun
+Azure AD Parola Sıfırlama işlevinin çalışması için kuruluşunuza en az bir lisans atanmış olmalıdır. Parola sıfırlama deneyiminde kullanıcı başına lisans kuralı uygulanmaz, ancak bir kullanıcıya atanmış lisans olmadan özelliği kullanırsanız, Microsoft lisans sözleşmenize uymadığınız kabul edilir ve bu kullanıcılara lisans atamanız gerekir.
+
+Parola sıfırlama için hangi lisansların gerekli olduğunu anlamanıza yardımcı olabilecek bazı belgeler aşağıda verilmiştir.
+* [Genel parola sıfırlama lisans bilgileri]()
+* [Özellik başına parola sıfırlama lisans bilgileri]()
+* [Parola geri yazma için desteklenen senaryolar]()
+
+### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>İpucu 2: TEST - Yönetici değil bir son kullanıcı ile test edin ve küçük bir kullanıcı grubuyla pilot uygulaması yapın
+Yönetici ile test ettiğinizde, aşağıda tanımlanan yönetici parola sıfırlama ilkesi uygulanır.  Bu durum, son kullanıcılarınız için yapılandırdığınız ilkenin beklenen sonuçlarını GÖRMEYECEĞİNİZ anlamına gelir.
+
+Yöneticiye ait YALNIZCA UX içinde yapılandırılmış ilkeler, yöneticiler için değil, son kullanıcılar için geçerlidir. Microsoft, kuruluşunuzun güvenliğini korumak amacıyla yöneticiler için güçlü varsayılan parola sıfırlama ilkeleri uygular; bu ilkeler, son kullanıcılarınız için ayarladığınız ilkelerden farklı olabilir.
+
+#### <a name="administrator-password-reset-policy"></a>Yönetici parolası sıfırlama ilkesi
+* **Uygulandığı yer** - herhangi bir yönetici rolü (Genel Yönetici, Yardım Masası Yöneticisi, Parola Yöneticisi vb.)
+* **Bir ağ geçidi ilkesi...**
+ * ...bir deneme sürümü başlatıldıktan sonraki 30 gün için **VEYA**
+ * ...bir gösterim etki alanı mevcut olmadığında **VE** Azure AD Connect kimlikleri eşitlemediğinde geçerlidir
+ * **_Gereksinimler_**: Kimlik Doğrulama E-postası, Alternatif E-posta, Kimlik Doğrulama Telefonu, Cep Telefonu veya İş Telefonu değerlerinden herhangi **birinin** mevcut olması
+* **İki ağ geçidi ilkesi...** 
+ * .. deneme sürümünün ilk 30 günü geçtikten sonra **VEYA**
+ * .. bir gösterim etki alanı mevcut olduğunda **VEYA** 
+ * ... şirket içi ortamınızdaki kimlikleri eşitlemek üzere Azure AD Connect’i etkinleştirdiğinizde geçerlidir
+ * _**Gereksinimler**_: Kimlik Doğrulama E-postası, Alternatif E-posta, Kimlik Doğrulama Telefonu, Cep Telefonu veya İş Telefonu değerlerinden herhangi **ikisinin** mevcut olması
+
+### <a name="tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register"></a>İpucu 3: DAĞITIM - Kullanıcılarınızın kaydetmek zorunda kalmaması için verilerini önceden doldurun
+Birçok insan, kullanıcılarınızın özelliği kullanmak için parola sıfırlamaya kaydolmak zorunda olmadığının farkında değil.  Kullanıcılarınız için önceden telefon veya e-posta özelliklerini ayarlayarak, **kullanıcılarınızın herhangi bir şey yapmasına gerek kalmadan** parola sıfırlamayı kuruluş geneline anında yayabilirsiniz!
+
+Bir API, PowerShell veya Azure AD Connect ile bu işlemi yapma hakkında bilgi için aşağıdaki belgeleri okuyun:
+* [Kullanıcıların kaydolmasına gerek olmadan parola sıfırlamayı dağıtma](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration)
+* [Parola sıfırlamada hangi veriler kullanılır?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset)
+
+### <a name="tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords"></a>İpucu 4: DAĞITIM - Geçici parola iletme gereksinimini ortadan kaldırmak için parola sıfırlama özelliğini kullanın
+Bu ipucu, İpucu 3’ün bir etiketidir. Kullanıcılarınızı parola sıfırlama için önceden yapılandırdıktan sonra, bir çalışanın şirketinize yeni katıldığı bir senaryo düşünün. Çalışana geçici parola iletmek yerine, parolasını sıfırlamak için [Azure AD Parola Sıfırlama Portalı](https://passwordreset.microsoftonline.com)’na gitmesini isteyebilirsiniz.
+
+Kullanıcı, [Windows 10 Azure AD Etki Alanına Katılmış cihaz](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) kullanıyorsa, bu işlemi Windows 10 İlk Kez oturum açma ekranından bile yapabilir. Böylece parmağınızı oynatmadan yepyeni bir bilgisayara erişmesini sağlayabilirsiniz :).
+
+Bir API, PowerShell veya Azure AD Connect ile bu işlemi yapma hakkında bilgi için aşağıdaki belgeleri okuyun. Bu verileri önceden doldurduktan sonra, hesaplarına hemen giriş yapabilmeleri için kullanıcılarınızı parola sıfırlamaya göndermeniz yeterlidir:
+* [Kullanıcıların kaydolmasına gerek olmadan parola sıfırlamayı dağıtma](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#deploying-password-reset-without-requiring-end-user-registration)
+* [Parola sıfırlamada hangi veriler kullanılır?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-data-is-used-by-password-reset)
+
+### <a name="tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback"></a>İpucu 5: GERİ YAZMA - Parola geri yazma sorunlarını gidermek için AAD Connect makinenizdeki uygulama olay günlüğüne bakın
+Azure AD Connect Uygulama Olay günlüğü, parola geri yazma hizmetinde gerçekleşen olayların birçoğunu gerçek zamanlı olarak açıklayan zengin günlük bilgileri içerir. Bu günlüğe erişmek için aşağıdaki adımları izleyin:
+
+1. **Azure AD Connect** makinenizde oturum açın
+2. **Başlat**’a basıp **"Olay Görüntüleyicisi"** yazarak **Windows Olay Görüntüleyicisi**’ni açın
+3. **Uygulama** olay günlüğünü açın
+4. Hangi sorunun gerçekleşebileceği hakkında daha fazla bilgi için şu kaynaklardaki olaylarını arayın: **PasswordResetService** veya **ADSync**
+
+Bu günlükte görünebilen olayların tam listesi ile birlikte parola geri yazma ile ilgili daha fazla sorun giderme yönergesi için bkz:
+* [Sorun giderme: parola geri yazma](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)
+* [Geri yazma olay günlüğü hata kodları](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
+* [Sorun giderme: parola geri yazma bağlantısı](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)
+* [Geri yazma dağıtımı - Adım 3: Güvenlik duvarınızı yapılandırma](#step-3-configure-your-firewall)
+* [Geri yazma dağıtımı - Adım 4: Uygun izinleri ayarlama](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-6-writeback---ensure-you-enable-the-correct-permissions-firewall-rules-and-connection-settings-for-password-writeback"></a>İpucu 6: GERİ YAZMA - Parola geri yazma için doğru izinleri, güvenlik duvarı kurallarını ve bağlantı ayarlarını etkinleştirdiğinizden emin olun
+Geri yazma işleminin doğru çalışması için şunları sağlamanız gerekir:
+
+1. Kullanıcıların AD’de kendi parola ve hesap kilidi açma bayraklarını değiştirme hakkına sahip olması için, parola geri yazma özelliği kullanılarak kullanıcılara doğru **Active Directory izinlerinin** verilmesi
+2. Parola geri yazma hizmetinin giden bağlantı kullanarak dış dünya ile güvenli bir iletişim kurmasına olanak tanımak üzere doğru **güvenlik duvarı bağlantı noktalarının** açılması
+3. Service Bus gibi temel parola sıfırlama hizmeti URL’leri için uygun **güvenlik duvarı özel durumlarının** oluşturulması
+4. **Proxy ve güvenlik duvarınızın boşta giden bağlantıları sonlandırmaması**, 10 dakika veya daha uzun bir süre önerilir
+
+Sorun giderme yönergeleri ile parola geri yazmaya ilişkin izin ve güvenlik duvarı kurallarını yapılandırma yönergelerinin tam listesi için bkz:
+* [Sorun giderme: parola geri yazma](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)
+* [Geri yazma olay günlüğü hata kodları](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
+* [Sorun giderme: parola geri yazma bağlantısı](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)
+* [Geri yazma dağıtımı - Adım 3: Güvenlik duvarınızı yapılandırma](#step-3-configure-your-firewall)
+* [Geri yazma dağıtımı - Adım 4: Uygun izinleri ayarlama](#step-4-set-up-the-appropriate-active-directory-permissions)
+
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>İpucu 7: RAPORLAMA - Azure AD SSPR Denetim Günlükleri ile kimlerin kaydolduğunu veya parola sıfırladığını görün 
+Parola sıfırlama dağıtılıp çalışır duruma getirildikten sonra, çalışmasını görmek ve hala kaydolması gereken kişileri, sıfırlama sırasında kullanıcılarınızın karşılaştığı yaygın sorunları ve özellik için yatırım getirinizi analiz etmek sonraki mantıksal adımdır.
+
+Azure AD Parola Sıfırlama Denetim Günlüklerini kullanarak, bunu ve daha fazlasını Azure portalı, PowerBI, Azure AD Raporlama Olayları API’si veya PowerShell üzerinden yapabilirsiniz.  Bu raporlama özelliklerini kullanma hakkında daha fazla bilgi için bkz:
+* [Parola yönetim raporlarına genel bakış](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#overview-of-password-management-reports)
+* [Azure portalında parola yönetim raporlarını görüntüleme](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-view-password-management-reports)
+* [Azure portalında Self Servis Parola Yönetimi etkinlik türleri](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#self-service-password-management-activity-types-in-the-new-azure-portal)
+* [Azure AD Raporlar ve Olaylar API’sinden parola yönetimi olaylarını alma](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api)
+* [PowerShell ile parola sıfırlama kayıt olaylarını hızlıca indirme](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-get-insights#how-to-download-password-reset-registration-events-quickly-with-powershell)
+
+### <a name="tip-8-troubleshoot---read-our-troubleshooting-guide-and-faq-to-solve-many-issues"></a>İpucu 8: SORUN GİDERME - Birçok sorunu çözmek için sorun giderme kılavuzumuzu ve SSS bölümünü okuyun
+Parola sıfırlama işlemiyle ilgili zengin sorun giderme yönergeleri ve SSS bölümünün olduğunu biliyor muydunuz? Bir sorunuz olursa, yanıtını aşağıdaki bağlantılardan bulma olasılığınız yüksektir.
+
+Buna ek olarak, [Azure portalı](https://portal.azure.com) içindeki **"Destek ve Sorun Giderme"** dikey penceresini kullanarak, **Azure Active Directory** -> **Kullanıcılar ve Gruplar** -> **Parola Sıfırlama** -> **Destek ve Sorun Giderme** altında bulunan parola yönetimi yönetim kullanıcısı deneyiminden zengin sorun giderme içerikleri alabilirsiniz.
+
+Parola sıfırlama sorun giderme yönergeleri ve SSS bağlantıları:
+* [Parola Yönetimi Sorun Giderme](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot)
+* [Parola Yönetimi Hakkında SSS](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-faq)
+
+### <a name="tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you"></a>İpucu 9: SORUN GİDERME - Hala yardıma ihtiyacınız varsa, size yardımcı olabilmemiz için yeterli bilgi sağlayın
+Hala sorun gidermeyle ilgili yardım gerekiyorsa, yardımcı olmaya hazırız. Bir destek talebi açabilir veya doğrudan bize ulaşması için hesap yönetimi ekibinizle temas kurabilirsiniz. Fikrinizi öğrenmek isteriz!
+
+Ancak, size hızlıca yardım edebilmemiz için bize ulaşmadan önce lütfen **aşağıda istenen tüm bilgileri topladığınızdan emin olun**!
+* [Yardıma ihtiyacınız olduğunda eklenecek bilgiler](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#information-to-include-when-you-need-help)
+
+#### <a name="ways-to-provide-password-reset-feedback"></a>Parola sıfırlama geri bildirimi sağlamanın yolları
+* [Özellik istekleri veya sorun giderme - Azure AD MSDN forumlarında yazın](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
+* [Özellik istekleri veya sorun giderme - StackOverflow üzerinde yazın](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Özellik istekleri veya sorun giderme - Tweet atın@azuread!](https://twitter.com/azuread)
+* [Yalnızca özellik istekleri - UserVoice üzerinde not bırakın](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 ## <a name="enable-users-to-reset-their-azure-ad-passwords"></a>Kullanıcıların Azure AD parolalarını sıfırlamalarına olanak tanıma
 Bu bölümde, AAD bulut dizininiz için self servis parola sıfırlamayı etkinleştirme, kullanıcıları self servis parola sıfırlama özelliğine kaydetme ve ardından son olarak, test amaçlı self servis parola sıfırlama işlemini kullanıcı olarak gerçekleştirme işlemlerinde size yol gösterilir.
@@ -267,11 +400,11 @@ Parola Geri Yazma işlevini etkinleştirdikten sonra, Azure AD Connect uygulamas
 
 Parola Geri Yazma işlevinin düzgün çalışabilmesi için Azure AD Connect uygulamasını çalıştıran bilgisayarın **.servicebus.windows.net* adresiyle ve [Microsoft Azure Veri Merkezi IP Aralıkları listesinde](https://www.microsoft.com/download/details.aspx?id=41653) belirtilen Azure IP adresleriyle HTTPS bağlantısı kurabilmesi gerekir.
 
-Azure AD Connect aracı **1.1.439.0** (en son) ve üzeri için:
+Azure AD Connect aracı **1.1.443.0** (en son) ve üzeri için:
 
 - Azure AD Connect aracının en son sürümünün aşağıdakilere **giden HTTPS** erişimi gerekir:
     - *passwordreset.microsoftonline.com*
-    - *servicbus.windows.net*
+    - *servicebus.windows.net*
 
 Azure AD Connect aracı sürüm **1.0.8667.0** ila **1.1.380.0** için:
 
@@ -302,11 +435,11 @@ Azure AD Connect aracı sürüm **1.0.8667.0** ila **1.1.380.0** için:
 
 Ağ cihazları yapılandırıldıktan sonra Azure AD Connect aracını çalıştıran bilgisayarı yeniden başlatın.
 
-#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Azure AD Connect’te boşta bağlantılar (1.1.439.0 ve üstü)
+#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Azure AD Connect’te boşta bağlantılar (1.1.443.0 ve üstü)
 Azure AD Connect aracı, bağlantıların etkin kalmasını sağlamak için ServiceBus Uç noktalarına düzenli aralıklarla ping/canlı tutma gönderir. Aracın çok fazla bağlantının sonlandırıldığını algılaması halinde, uç noktasına ping sıklığını otomatik olarak artırır. En düşük 'ping aralıkları' 60 saniyede 1 ping şeklindedir, ancak **proxy/güvenlik duvarlarının, boşta bağlantıların en az 2-3 dakika boyunca devam etmesine izin vermesini önemle tavsiye ediyoruz.** \*Eski sürümler için, 4 dakika veya daha fazlasını öneririz.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>4. Adım: İlgili Active Directory izinlerini ayarlama
-Parolaları sıfırlanacak olan kullanıcıları içeren her bir orman için, yapılandırma sihirbazında söz konusu orman için belirtilen hesap X ise X hesabına `lockoutTime` üzerinde **Parola Sıfırlama**, **Parola Değiştirme**, **Yazma İzinleri**, `pwdLastSet` üzerinde **Yazma İzinleri** ve bu ormandaki her bir etki alanının kök nesnesi üzerinde genişletilmiş haklar verilmelidir. Hak, tüm kullanıcı nesneleri tarafından devralınmış olarak işaretlenmelidir.  
+Parolaları sıfırlanacak olan kullanıcıları içeren her bir orman için, yapılandırma sihirbazında söz konusu orman için belirtilen hesap X ise X hesabına `lockoutTime` üzerinde **Parola Sıfırlama**, **Parola Değiştirme**, **Yazma İzinleri**, `pwdLastSet` üzerinde **Yazma İzinleri** ve bu ormandaki her bir etki alanının kök nesnesi VEYA SSPR kapsamında olmasını istediğiniz kullanıcı OU’ları üzerinde genişletilmiş haklar verilmelidir.  Etki alanı kökü kabul edilebilir olmadığında sıfırlama izinlerinizin kapsamına yalnızca belirli bir kullanıcı nesneleri kümesini almak istiyorsanız ikinci seçeneği kullanabilirsiniz. Hak, tüm kullanıcı nesneleri tarafından devralınmış olarak işaretlenmelidir.  
 
 Yukarıdakilerin hangi hesaba başvuruda bulunduğundan emin değilseniz Azure Active Directory Connect yapılandırma kullanıcı arabirimini açın ve **Çözümünüzü İnceleme** seçeneğine tıklayın.  Aşağıdaki ekran görüntüsünde, izin eklemeniz gereken hesabın kırmızıyla altı çizilmiştir.
 
@@ -361,7 +494,7 @@ Parola Geri Yazma etkinleştirildikten sonra, hesabı bulut kiracınızın hesab
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıda, tüm Azure AD Parola Sıfırlama belge sayfalarının bağlantıları verilmiştir:
 
-* **Oturum açmada sorun yaşadığınız için mi buradasınız?** Sorun yaşıyorsanız bkz. [kendi parolanızı değiştirme ve sıfırlama](active-directory-passwords-update-your-own-password.md).
+* **Oturum açmada sorun yaşadığınız için mi buradasınız?** Sorun yaşıyorsanız bkz. [kendi parolanızı değiştirme ve sıfırlama](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Nasıl çalışır?**](active-directory-passwords-how-it-works.md) - Hizmetin altı farklı bileşeni ve işlevleri hakkında bilgi edinin
 * [**Özelleştirin**](active-directory-passwords-customize.md) - Hizmetin genel görünümünü ve hareketlerini kuruluşunuzun ihtiyaçlarına göre nasıl özelleştireceğinizi öğrenin
 * [**En iyi uygulamalar**](active-directory-passwords-best-practices.md) - Kuruluşunuzdaki parolaları nasıl hızlı bir şekilde dağıtacağınızı ve etkili bir şekilde yöneteceğinizi öğrenin
