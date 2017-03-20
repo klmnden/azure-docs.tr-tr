@@ -276,7 +276,7 @@ Sanal makine üzerinde bir yedekleme ilkesinin dağıtılmış olması, verileri
 
   ![Tetiklenmiş yedekleme işi](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-3. **Yedekleme Öğeleri** listesinde üç noktaya **... ** tıklayarak Bağlam menüsünü açın.
+3. **Yedekleme Öğeleri** listesinde üç noktaya **...** tıklayarak Bağlam menüsünü açın.
 
   ![Bağlam menüsü](./media/backup-azure-vms-first-look-arm/context-menu.png)
 

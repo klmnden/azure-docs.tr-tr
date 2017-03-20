@@ -79,13 +79,13 @@ JSP uygulaması oluşturmak için:
    
     ![Yeni bir JSP Dosyası Oluşturma - Java Web Uygulaması Öğreticisi](./media/documentdb-java-application/image11.png)
 5. **Select JSP Template (JSP Şablon Seçme)** iletişim kutusunda bu öğreticinin amacı doğrultusunda **New JSP File (html) (Yeni JSP Dosyası (html))** seçeneğini belirleyin ve ardından **Finish (Son)** düğmesine tıklayın.
-6. index.jsp dosyası Eclipse'te açıldığında, var olan ** öğesinin içinde** <body>Hello World! (Merhaba Dünya!) ifadesinin görüntülenmesi için metni ekleyin. Güncelleştirilmiş <body> içeriğiniz aşağıdaki kod gibi görünmelidir:
+6. index.jsp dosyası Eclipse'te açıldığında, var olan **öğesinin içinde** <body>Hello World! (Merhaba Dünya!) ifadesinin görüntülenmesi için metni ekleyin. Güncelleştirilmiş <body> içeriğiniz aşağıdaki kod gibi görünmelidir:
    
         <body>
             <% out.println("Hello World!"); %>
         </body>
 7. index.jsp dosyasını kaydedin.
-8. 2. adımda bir hedef çalışma zamanı ayarlarsanız **Proje**'ye ve ardından **Çalıştır**'a tıklayıp JSP uygulamanızı yerel olarak çalıştırabilirsiniz:
+8. 2 adımda bir hedef çalışma zamanı ayarlarsanız **Proje**'ye ve ardından **Çalıştır**'a tıklayıp JSP uygulamanızı yerel olarak çalıştırabilirsiniz:
    
     ![Hello World - Java Uygulaması Öğreticisi](./media/documentdb-java-application/image12.png)
 
