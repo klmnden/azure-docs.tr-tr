@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2c88c1abd2af7a1ca041cd5003fd1f848e1b311c
-ms.openlocfilehash: 12f72e76ee991dfb701637847f2e406cd0f8c449
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -59,7 +59,7 @@ SQL Veri Ambarı, yüksek düzeyde paralel işleme için tasarlanmış özel bir
 ### <a name="create-a-data-warehouse"></a>Veri ambarı oluşturma
 
 1. [Azure portal](https://portal.azure.com) oturum açın.
-2. ** Yeni** > **Veritabanları** > **SQL Veri Ambarı** öğelerine tıklayın.
+2. **Yeni** > **Veritabanları** > **SQL Veri Ambarı** öğelerine tıklayın.
 
     ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
     ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
@@ -76,7 +76,7 @@ SQL Veri Ambarı, yüksek düzeyde paralel işleme için tasarlanmış özel bir
 
     **Kaynak**: Boş Veritabanı
 
-    **Sunucu**: [Önkoşullar] içerisinde oluşturduğunuz sunucuyu seçin.
+    **Sunucu**: [Önkoşullar] içerisinde, oluşturduğunuz sunucu seçin.
 
     **Harmanlama**: Varsayılan harmanlamayı SQL_Latin1_General_CP1_CI_AS şeklinde bırakın.
 
@@ -415,13 +415,13 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
         REJECT_VALUE = 0
     )
     ;
-    ```
+```
 
-### Import the data from Azure blob storage.
+### <a name="import-the-data-from-azure-blob-storage"></a>Azure blob depolamadan veri alma
 
-SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
+SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini destekler. Bu deyim bir select deyiminin sonuçlarına göre yeni bir tablo oluşturur. Yeni tablo, select deyiminin sonuçları ile aynı sütunlara ve veri türlerine sahiptir.  Bu yöntem, Azure blob depolamadan SQL Veri Ambarı’na veri almanın güzel bir yoludur.
 
-1. Run this script to import your data.
+1. Verilerinizi içeri aktarmak için bu betiği çalıştırın.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -496,9 +496,9 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     ;
     ```
 
-2. View your data as it loads.
+2. Verilerinizi yüklenirken görüntüleyin.
 
-   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+   Birkaç GB veri yüklüyorsunuz ve yüksek performanslı kümelenmiş columnstore dizinlerine sıkıştırıyorsunuz. Yüklemenin durumunu göstermek için, dinamik yönetim görünümleri (DMV’ler) kullanan aşağıdaki sorguyu çalıştırın. Sorguyu başlattıktan sonra, SQL Veri Ambarı ağır yükü kaldırırken siz bir kahve alıp arkanıza yaslanın.
     
     ```sql
     SELECT
@@ -528,62 +528,61 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         gb_processed desc;
     ```
 
-3. View all system queries.
+3. Tüm sistem sorgularını görüntüleyin.
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse.
+4. Azure SQL Veri Ambarı’nıza verilerinizin sorunsuz şekilde yüklenmesinin keyfini çıkarın.
 
-    ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
+    ![Yüklenen Verilere bakın](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-## Improve query performance
+## <a name="improve-query-performance"></a>Sorgu performansını artırma
 
-There are several ways to improve query performance and to achieve the high-speed performance that SQL Data Warehouse is designed to provide.  
+Sorgu performansını artırmanın ve SQL Veri Ambarı’nın tasarım amacı olan yüksek hızlı performans elde etmenin birkaç yolu vardır.  
 
-### See the effect of scaling on query performance 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>Ölçeklendirmenin sorgu performansı üzerindeki etkisine bakın 
 
-One way to improve query performance is to scale resources by changing the DWU service level for your data warehouse. Each service level costs more, but you can scale back or pause resources at any time. 
+Sorgu performansını artırmanın bir yolu, veri ambarınız için DWU hizmet düzeyini değiştirerek kaynakları ölçeklendirmektir. Her hizmet düzeyi daha fazla maliyet getirir, ancak dilediğiniz zaman kaynakların ölçeğini azaltabilir veya kaynakları duraklatabilirsiniz. 
 
-In this step, you compare performance at two different DWU settings.
+Bu adımda, iki farklı DWU ayarında performansı karşılaştırırsınız.
 
-First, let's scale the sizing down to 100 DWU so we can get an idea of how one compute node might perform on its own.
+İlk olarak, bir işlem düğümünün kendi kendine nasıl çalışabileceğini anlamak için boyutu ölçeklendirerek 100 DWU’ya düşürelim.
 
-1. Go to the portal and select your SQL Data Warehouse.
+1. Portala gidin ve SQL Veri Ambarı’nızı seçin.
 
-2. Select scale in the SQL Data Warehouse blade. 
+2. SQL Veri Ambarı dikey penceresinde ölçeği seçin. 
 
-    ![Scale DW From portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
+    ![Portaldan Ölçek DW](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
-3. Scale down the performance bar to 100 DWU and hit save.
+3. Performans çubuğunun ölçeğini düşürerek 100 DWU yapın ve kaydet öğesine tıklayın.
 
-    ![Scale and save](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
+    ![Ölçek ve kayıt](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
 
-4. Wait for your scale operation to finish.
+4. Ölçek işleminizin tamamlanmasını bekleyin.
 
     > [!NOTE]
-    > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
+    > Ölçek değiştirilirken sorgular çalıştırılamaz. Ölçeklendirme, o anda çalışmakta olan sorgularınızı **sonlandırır**. İşlemi tamamladığında sorgularınızı yeniden başlatabilirsiniz.
     >
     
-5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
+5. Tüm sütunlar için üst milyon girişler seçerek, giden veriler üzerinde tarama işlemi gerçekleştirin. Hızlı ilerlemek istiyorsanız, daha az satır seçmekten çekinmeyin. Bu işlemin çalıştırılması için geçen süreyi not edin.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
-6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
+6. Veri ambarınızı 400 DWU’ya geri ölçeklendirin. Her 100 DWU’nun, Azure SQL Veri Ambarı’nıza başka bir işlem düğümü eklediğini unutmayın.
 
-7. Run the query again! You should notice a significant difference. 
+7. Sorguyu tekrar çalıştırın! Önemli bir fark dikkat göreceksiniz. 
 
 > [!NOTE]
-> Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
-> Azure SQL Data Warehouse.
+> SQL Veri Ambarı, yüksek düzeyde paralel işleme kullanır. Milyonlarca satır üzerinde tarama yapan veya analiz işlevleri gerçekleştiren sorgular, Azure SQL Veri Ambarı’nın gerçek gücünü deneyimler.
 >
 
-### See the effect of statistics on query performance
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>İstatistiklerin sorgu performansı üzerindeki etkisine bakın
 
-1. Run a query that joins the Date table with the Trip table
+1. Tarih tablosu Seyahat tablosu ile birleştiren bir sorgu çalıştırın
 
     ```sql
     SELECT TOP (1000000) 
@@ -615,10 +614,10 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
         ON  tr.DateID = dt.DateID
     ```
 
-    This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
+    SQL Veri Ambarı’nın birleştirme işleminden önce verileri karıştırması gerektiğinden bu sorgu biraz uzun sürer. Birleşimler, verileri dağıtıldığı şekilde birleştirmek üzere tasarlanırsa verilerin karıştırılması gerekmez. Bu daha derin bir konudur. 
 
-2. Statistics make a difference. 
-3. Run this statement to create statistics on the join columns.
+2. İstatistikler fark yaratır. 
+3. Birleşim sütunlarında istatistikler oluşturmak için bu deyimi çalıştırın.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -626,48 +625,45 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     ```
 
     > [!NOTE]
-    > SQL DW does not automatically manage statistics for you. Statistics are important for query
-    > performance and it is highly recommended you create and update statistics.
+    > SQL DW istatistikleri sizin için otomatik olarak yönetmez. İstatistikleri sorgu performansı için önemlidir ve istatistikleri oluşturmanız ve güncelleştirmeniz önemle tavsiye edilir.
     > 
-    > **You gain the most benefit by having statistics on columns involved in joins, columns
-    > used in the WHERE clause and columns found in GROUP BY.**
+    > **En çok faydayı, birleştirmelerin bulunduğu sütunlar, WHERE yan tümcesinde kullanılan sütunlar ve GROUP BY içinde bulunan sütunlar için istatistik tutarak elde edebilirsiniz.**
     >
 
-3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
+3. Önkoşullar’dan sorguyu yeniden çalıştırın ve tüm performans farklarını inceleyin. Sorgu performansı farklılıkları ölçek büyütme kadar güçlü olmaz, ancak bir hız yükselmesi fark edersiniz. 
 
-## Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-You're now ready to query and explore. Check out our best practices or tips.
+Şimdi sorgulamaya ve incelemeye hazırsınız. En iyi yöntemlerimize veya ipuçlarımıza bakın.
 
-If you're done exploring for the day, make sure to pause your instance! In production, you can experience enormous 
-savings by pausing and scaling to meet your business needs.
+Keşfetmeyi bitirdiğinizde, örneğinizi duraklatmayı unutmayın! Üretimde, iş gereksinimlerinizi karşılamak üzere, duraklatma ve ölçeklendirme yoluyla muazzam tasarruflar sağlayabilirsiniz.
 
-![Pause](./media/sql-data-warehouse-get-started-tutorial/pause.png)
+![Duraklat](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## Useful readings
+## <a name="useful-readings"></a>Yararlı okumalar
 
-[Concurrency and Workload Management][]
+[Eşzamanlılık ve İş Yükü Yönetimi][]
 
-[Best practices for Azure SQL Data Warehouse][]
+[Azure SQL Veri Ambarı için en iyi yöntemler][]
 
-[Query Monitoring][]
+[Sorgu İzleme][]
 
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][]
+[Büyük Ölçekli İlişkisel Veri Ambarı Oluşturmaya Yönelik En İyi 10 Yöntem][]
 
-[Migrating Data to Azure SQL Data Warehouse][]
+[Azure SQL Veri Ambarı’na Veri Geçirme][]
 
-[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
-[Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
-[Query Monitoring]: sql-data-warehouse-manage-monitor.md
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-[Migrating Data to Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Eşzamanlılık ve İş Yükü Yönetimi]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Azure SQL Veri Ambarı için en iyi yöntemler]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[Sorgu İzleme]: sql-data-warehouse-manage-monitor.md
+[Büyük Ölçekli İlişkisel Veri Ambarı Oluşturmaya Yönelik En İyi 10 Yöntem]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
+[Azure SQL Veri Ambarı’na Veri Geçirme]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Prerequisites]: sql-data-warehouse-get-started-tutorial.md#prerequisites
+[Önkoşullar]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/

@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
-ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 851319639f1443c062b87305bbde351f41846433
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -55,8 +56,8 @@ Bu bağlantılar hizmeti derinlemesine keşfetmek için kullanışlıdır:
 
 * Bkz. [Azure Active Directory B2C fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Azure Active Directory B2C için [kod örneklerimizi](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) gözden geçirin. 
-* Stack Overflow konusunda yardım almak için [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) veya [adal](http://stackoverflow.com/questions/tagged/adal) etiketlerini kullanın.
-* Fikirlerinizi duymak istiyoruz! [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/) kullanarak fikirlerinizi bize ulaştırabilirsiniz. Gönderinizi bulabilmemiz için başlıkta "AzureADB2C:" tümceciğini kullanın.
+* Stack Overflow konusunda yardım almak için [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c) etiketini kullanın.
+* Fikirlerinizi duymak istiyoruz! [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) kullanarak fikirlerinizi bize ulaştırabilirsiniz.
 * [Azure AD B2C Protokolü Başvurusu](active-directory-b2c-reference-protocols.md)’nu gözden geçirin.
 * [Azure AD B2C Belirteci Başvurusu](active-directory-b2c-reference-tokens.md)’nu gözden geçirin.
 * [Azure Active Directory B2C ile ilgili SSS](active-directory-b2c-faqs.md) makalesini okuyun.
@@ -64,10 +65,5 @@ Bu bağlantılar hizmeti derinlemesine keşfetmek için kullanışlıdır:
 
 ## <a name="get-security-updates-for-our-products"></a>Ürünlerimiz için güvenlik güncelleştirmelerini alma
 [Bu sayfayı](https://technet.microsoft.com/security/dd252948) ziyaret ederek ve Güvenlik Önerisi Uyarılarına abone olarak güvenlik olaylarının ne zaman ortaya çıkacağı hakkında bildirimleri almanızı öneririz.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

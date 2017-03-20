@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: fc04c5f8a9cdee4b51c67b480d70678c3dca7c93
-ms.openlocfilehash: 49391b604446ae1b08d04ca42c5bdcd132f8cf31
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 1e961eccbc4fb8af90c7da831429c942f92bdf79
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -46,17 +47,25 @@ SDK ve ilişkili çalışma zamanı paketini apt-get ile yüklemek için önceli
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Yeni GPG anahtarınızı apt anahtarlığınıza ekleyin.
+3. DotNet deponuzu kaynaklar listenize ekleyin.
+
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    ```
+4. Yeni GPG anahtarınızı apt anahtarlığınıza ekleyin.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     ```
-4. Paket listelerinizi yeni eklenen depolara göre yenileyin.
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    ```
+
+5. Paket listelerinizi yeni eklenen depolara göre yenileyin.
 
     ```bash
     sudo apt-get update
     ```
-
 ## <a name="install-and-set-up-the-sdk"></a>SDK yükleme ve ayarlama
 Kaynaklarınız güncelleştirildikten sonra SDK’yı yükleyebilirsiniz.
 
@@ -136,16 +145,19 @@ Java SDK’sı, Java kullanan Service Fabric hizmetleri oluşturmak için gereke
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
 
-Service Fabric için Eclipse eklentisini Eclipse Neon IDE içinden yükleyebilirsiniz.
+Service Fabric için Eclipse eklentisini **Java Geliştiricileri için Eclipse IDE** içinden yükleyebilirsiniz.
 
-1. Eclipse'te, Buildship 1.0.17 veya sonraki bir sürümün yüklü olduğundan emin olun. **Yardım > Yükleme Ayrıntıları**’nı seçerek yüklü bileşenlerin sürümlerini denetleyebilirsiniz. Buildship'i güncelleştirmek için [buradaki][buildship-update] yönergeleri kullanabilirsiniz.
+1. Eclipse’te, en yeni Eclipse **Neon** ve en yeni Buildship sürümü (1.0.17) veya sonraki bir sürümün yüklü olduğundan emin olun. **Yardım > Yükleme Ayrıntıları**’nı seçerek yüklü bileşenlerin sürümlerini denetleyebilirsiniz. Buildship'i güncelleştirmek için [buradaki][buildship-update] yönergeleri kullanabilirsiniz.
 2. Service Fabric eklentisini yüklemek için **Yardım > Yeni Yazılım Yükle...** öğesini seçin
 3. "Birlikte çalış" metin kutusuna şunu girin: http://dl.windowsazure.com/eclipse/servicefabric
 4. Ekle'ye tıklayın.
-
     ![Eclipse eklentisi][sf-eclipse-plugin]
 5. Service Fabric eklentisini seçin ve İleri’ye tıklayın.
 6. Yükleme işlemine devam edin ve son kullanıcı lisans sözleşmesini kabul edin.
+
+Service Fabric Eclipse eklentisi zaten yüklüyse, en yeni sürümü kullandığınızdan emin olun. ``Help => Installation Details`` konumuna giderek daha fazla güncelleştirilebilir olup olmadığını kontrol edebilirsiniz. Daha sonra yüklenen eklentiler listesinde Service Fabric’i arayın ve Güncelleştir’e tıklayın. Bekleyen bir güncelleştirme varsa alınır ve yüklenir.
+
+Service Fabric Java uygulamaları oluşturma, derleme, dağıtma ve yükseltme hakkında daha fazla bilgi almak için lütfen ayrıntılı [Service Fabric Eclipse kullanmaya başlama](service-fabric-get-started-eclipse.md) kılavuzumuza bakın.
 
 ## <a name="install-the-net-core-sdk-optional"></a>.NET Core SDK'sını yükleme (isteğe bağlı)
 .NET Core SDK’sı, platformlar arası .NET Core kullanan Service Fabric hizmetleri oluşturmak için gereken kitaplıkları ve şablonları sağlar.
@@ -174,7 +186,8 @@ SDK ve çalışma zamanının son sürümüne güncelleştirmek için aşağıda
 CLI'yı güncelleştirmek için CLI'yı kopyaladığınız dizine gidin ve `git pull` komutunu çalıştırarak güncelleştirmeyi başlatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Linux üzerinde ilk Java uygulamanızı oluşturma](service-fabric-create-your-first-linux-application-with-java.md)
+* [Linux üzerinde Yeoman kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-create-your-first-linux-application-with-java.md)
+* [Linux üzerinde Eclipse için Service Fabric Eklentisi kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-get-started-eclipse.md)
 * [Linux üzerinde ilk CSharp uygulamanızı oluşturma](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [OSX üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started-mac.md)
 * [Service Fabric uygulamalarınızı yönetmek için Azure CLI kullanma](service-fabric-azure-cli.md)
@@ -189,9 +202,4 @@ CLI'yı güncelleştirmek için CLI'yı kopyaladığınız dizine gidin ve `git 
 
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

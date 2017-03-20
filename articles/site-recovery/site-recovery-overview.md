@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/26/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e4bb13a73f6338d2d844a0561edc65063c685d59
-ms.openlocfilehash: e554a0ba87efb0272e092a121ba96edc9d9eb011
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="what-is-site-recovery"></a>Site Recovery nedir?
 
-Azure Site Recovery hizmetine hoş geldiniz! Bu makalede hizmete genel bakış sağlanmakta ve daha fazla bilgi için bağlantılar verilmektedir.
+Azure Site Recovery hizmetine hoş geldiniz! Bu makalede hizmet, genel hatlarıyla kısaca ele alınmaktadır.
 
-İş kesintileri, doğal olaylar ve işletimsel hatalardan kaynaklanır. Kuruluşunuz, planlı veya plansız kapalı kalma süreleri boyunca verileri güvende ve uygulamaları kullanılabilir durumda tutmanın yanı sıra mümkün olan en kısa zamanda normal çalışma koşullarına döndüren bir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejisine ihtiyaç duyar.
+Kesintiler, doğal olaylar ve işletimsel hatalardan kaynaklanır. Kuruluşunuz, planlı veya plansız kapalı kalma süreleri boyunca verileri güvende ve uygulamaları kullanılabilir durumda tutmanın yanı sıra mümkün olan en kısa zamanda normal çalışma koşullarına döndüren bir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejisine ihtiyaç duyar.
 
-Azure kurtarma hizmetleri, BCDR stratejisine katkıda bulunur. Verilerinizi güvenli ve kurtarılabilir durumda tutmak için [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/)’ı kullanın. Site Recovery iş yüklerinin hata durumunda ulaşılabilir durumda kalmalarını sağlamak için bunları çoğaltır, kurtarır ve yük devretme gerçekleştirir.
+Azure Kurtarma Hizmetleri, BCDR stratejinize katkıda bulunur. [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) hizmeti verilerinizi güvenli ve kurtarılabilir durumda tutar. Site Recovery iş yüklerinin hata durumunda ulaşılabilir durumda kalmalarını sağlamak için bunları çoğaltır, kurtarır ve yük devretme gerçekleştirir.
 
 ## <a name="what-does-site-recovery-provide"></a>Site Recovery ne sağlar?
 
@@ -47,12 +47,6 @@ Azure kurtarma hizmetleri, BCDR stratejisine katkıda bulunur. Verilerinizi güv
 * **Otomasyon kitaplığıyla tümleştirme**: Zengin Azure Otomasyonu kitaplığı, indirilebilen ve Site Recovery ile tümleştirilebilen üretime hazır ve uygulamaya özgü betikler sağlar.
 * **Basit ağ yönetimi** - Site Recovery'deki gelişmiş ağ yönetimi ve Azure; IP adresini koruma, yük dengeleyicileri yapılandırma ve etkili ağ değişimleri için Azure Traffic Manager ile tümleştirme dahil olmak üzere uygulama ağ gereksinimlerini basitleştirir.
 
-## <a name="which-azure-portal"></a>Hangi Azure portalı?
-
-* Site Recovery hem yeni [Azure portalında](https://portal.azure.com) hem de [klasik Azure portalında](https://manage.windowsazure.com/) dağıtılabilir.
-* Klasik Azure portalında, klasik hizmet yönetim modeliyle Site Recovery’yi destekleyebilirsiniz.
-* Azure portalında, klasik modeli veya yeni [Resource Manager dağıtım modelini](../azure-resource-manager/resource-manager-deployment-model.md) destekleyebilirsiniz.
-- Klasik portal yalnızca var olan Site Recovery dağıtımlarının bakımını yapmak için kullanılmalıdır. Klasik portalda yeni kasalar oluşturamazsınız.
 
 ## <a name="whats-supported"></a>Neler desteklenir?
 
@@ -64,6 +58,14 @@ Azure kurtarma hizmetleri, BCDR stratejisine katkıda bulunur. Verilerinizi güv
 **Nereye çoğaltabilirim?** | Azure depolama alanına veya bir ikincil veri merkezine<br/><br/> Hyper-V için, yalnızca System Center VMM bulutlarında barındırılan Hyper-V ana bilgisayarlarındaki VM’ler ikincil veri merkezine çoğaltılabilir.
 **Hangi VMware sunucularına/ana bilgisayarlarına ihtiyacımız var?** | Çoğaltmak istediğiniz VMware VM'leri [desteklenen vSphere ana bilgisayarları/vCenter sunucuları](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) ile yönetilebilir
 **Hangi iş yüklerini çoğaltabilirim?** | Desteklenen bir çoğaltma makinesinde çalışan tüm iş yüklerini çoğaltabilirsiniz. Ayrıca, Site Recovery ekibi [çeşitli uygulamalar](site-recovery-workload.md#workload-summary) için uygulamaya özgü testler gerçekleştirdi.
+
+
+## <a name="which-azure-portal"></a>Hangi Azure portalı?
+
+* Site Recovery hem yeni [Azure portalında](https://portal.azure.com) hem de [klasik Azure portalında](https://manage.windowsazure.com/) dağıtılabilir.
+* Klasik Azure portalında, klasik hizmet yönetim modeliyle Site Recovery’yi destekleyebilirsiniz.
+* Azure portalında, klasik modeli veya yeni [Resource Manager dağıtım modelini](../azure-resource-manager/resource-manager-deployment-model.md) destekleyebilirsiniz.
+- Klasik portal yalnızca var olan Site Recovery dağıtımlarının bakımını yapmak için kullanılmalıdır. Klasik portalda yeni kasalar oluşturamazsınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [İş yükü desteği](site-recovery-workload.md) hakkında daha fazla bilgi edinin

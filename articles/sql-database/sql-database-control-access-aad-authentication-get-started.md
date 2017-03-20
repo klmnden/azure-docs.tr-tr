@@ -17,9 +17,9 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7d061c083b23de823d373c30f93cccfe1c856ba3
-ms.openlocfilehash: 8a6dc7d3dca80782a55e13b53180b1542b61544b
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b97872ed00746009a800817b345f31937309ed67
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -37,11 +37,15 @@ Bu öğreticide SQL Server Management Studio kullanarak Azure Active Directory k
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](https://azure.microsoft.com/free/) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
+* **Bir Azure hesabı**. Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](https://azure.microsoft.com/free/) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
-* Azure portalına, abonelik sahibi veya katkıda bulunan rolü üyesi olan bir hesap kullanarak bağlanabiliyor olmanız gerekir. Rol tabanlı erişim denetimi (RBAC) ile ilgili daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](../active-directory/role-based-access-control-what-is.md).
+* **Azure oluşturma izinleri**. Azure portalına, abonelik sahibi veya katkıda bulunan rolü üyesi olan bir hesap kullanarak bağlanabiliyor olmanız gerekir. Rol tabanlı erişim denetimi (RBAC) ile ilgili daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](../active-directory/role-based-access-control-what-is.md).
 
-* [Azure portalı ve SQL Server Management Studio aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama](sql-database-get-started.md) öğreticisini veya bu öğreticinin [PowerShell sürümünü](sql-database-get-started-powershell.md) tamamladınız. Tamamlamadıysanız, bu öğretici önkoşulunu tamamlayın veya devam etmeden önce bu öğreticinin [PowerShell sürümünün](sql-database-get-started-powershell.md) sonundaki PowerShell betiğini yürütün.
+* **SQL Server Management Studio**. SQL Server Management Studio’nun en son sürümünü [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio’yu İndirin) sayfasından indirip yükleyebilirsiniz. SSMS için sürekli yeni özellikler yayınlandığından Azure SQL Veritabanı’na bağlanırken her zaman en son sürümü kullanın.
+
+* **Taban sunucu ve veritabanları** Bu öğreticide kullanılan bir sunucu ve iki veritabanını yükleyip yapılandırmak için **Azure’a Dağıt** düğmesine tıklayın. Düğmeye tıklandığında **Şablondan dağıt** dikey penceresi açılır; yeni bir kaynak grubu oluşturun ve oluşturulacak yeni sunucu için **Yönetici Oturum Açma Parolası** belirtin:
+
+   [![indir](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
    > [!NOTE]
    > SQL Server kimlik doğrulamasıyla ilgili bir öğretici olan [SQL kimlik doğrulaması, oturumlar ve kullanıcı hesapları, veritabanı rolleri, izinler, sunucu düzeyinde güvenlik duvarı kuralları ve veritabanı düzeyinde güvenlik duvarı kuralları](sql-database-control-access-sql-authentication-get-started.md) öğreticisini tamamlamak isteğe bağlıdır, ancak belirtilen öğreticide yer verilen kavramlar burada tekrarlanmamaktadır. İlgili öğreticiyi aynı bilgisayarlarda tamamladıysanız (aynı IP adreslerine sahip) bu öğreticideki sunucu ve veritabanı düzeyinde güvenlik duvarlarıyla ilgili yordamlar gerekli değildir ve bu nedenle isteğe bağlı olarak işaretlenmiştir. Ayrıca bu öğreticideki ekran görüntülerinde de ilgili öğreticiyi tamamladığınız kabul edilmiştir. 

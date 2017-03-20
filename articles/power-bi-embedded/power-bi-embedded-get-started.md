@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: bd7925f3fa9a717cbe0649bf899cdd00511d5ca6
-ms.openlocfilehash: b9dff45d1bb60d50c882c6daf363fca86a7f8f4c
-ms.lasthandoff: 02/22/2017
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4afa8d2c7f8ec1942521ba5fa131967dfd581c91
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Microsoft Power BI Embedded kullanmaya başlama
+
 **Power BI Embedded**, uygulama geliştiricilerin kendi uygulamalarına etkileşimli Power BI raporları eklemelerini sağlayan bir Azure hizmetidir. **Power BI Embedded** kullanıcıların oturum açma yöntemini yeniden tasarlamaya veya değiştirmeye gerek kalmadan var olan uygulamalarla birlikte çalışır.
 
 **Microsoft Power BI Embedded** kaynakları [Azure ARM API’leri](https://msdn.microsoft.com/library/mt712306.aspx) aracılığıyla sağlanır. Bu örnekte, sağladığınız kaynak **Power BI Çalışma Alanı Koleksiyonu**’dur.
@@ -30,6 +30,7 @@ ms.lasthandoff: 02/22/2017
 ![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Çalışma alanı koleksiyonu oluşturma
+
 **Çalışma Alanı Koleksiyonu**, uygulamanıza eklenecek içerik için üst düzey Azure kaynağı ve kapsayıcıdır. **Çalışma Alanı Koleksiyonu** iki şekilde oluşturulabilir:
 
 * Azure Portal’ı el ile kullanarak
@@ -55,7 +56,8 @@ ms.lasthandoff: 02/22/2017
 
 <a name="view-access-keys"/>
 
-## <a name="view-power-bi-api-access-keys"></a>Power BI API’si Erişim Anahtarlarınız
+## <a name="view-power-bi-api-access-keys"></a>Power BI API’si erişim anahtarlarını görüntüleme
+
 Power BI API’lerini çağırmanın en önemli parçalarından biri **Erişim Anahtarları**’dır. Bunlar API isteklerinizin kimlik doğrulaması için kullanılan **uygulama belirteçlerini** oluşturmak için kullanılır. **Erişim Anahtarları**’nızı görüntülemek için **Ayarlar Dikey Penceresi**’nde **Erişim Anahtarları**’na tıklayın. **Uygulama belirteçleri** hakkında daha fazla bilgi için bkz. [Power BI Embedded ile kimlik doğrulama ve yetkilendirme](power-bi-embedded-app-token-flow.md).
 
    ![](media/power-bi-embedded-get-started/access-keys.png)
@@ -74,7 +76,8 @@ Artık uygulamanız için bir Power BI örneğine ve **Erişim Anahtarları**’
 
 Çalışma alanı koleksiyonunuzu oluşturduktan sonra, raporlarınızı ve veri kümelerinizi barındıracak bir çalışma alanı oluşturmanız gerekir. Bir çalışma alanı oluşturmak için [Post Worksapce REST API’sini](https://msdn.microsoft.com/library/azure/mt711503.aspx) kullanmanız gerekir.
 
-## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Bir uygulamaya eklemek için Power BI veri kümeleri ve raporları oluşturma
+## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Power BI Desktop kullanarak bir uygulamaya eklemek için Power BI veri kümeleri ve raporları oluşturma
+
 Artık, uygulamanız için Power BI örneğini oluşturduğunuza ve**Erişim Anahtarları**’na sahip olduğunuza göre, eklemek istediğiniz Power BI veri kümelerini ve raporlarını oluşturmanız gerekir. Veri kümeleri ve raporlar **Power BI Desktop** kullanarak oluşturulabilir. [Power BI Desktop’u ücretsiz olarak](https://go.microsoft.com/fwlink/?LinkId=521662) indirebilirsiniz. Hızlı bir şekilde kullanmaya başlamak için [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)’i de indirebilirsiniz.
 
 > [!NOTE]
@@ -95,20 +98,25 @@ Veri kaynağına bağlanma hakkında daha fazla bilgi için bkz. [Veri kaynağı
 > [!NOTE]
 > **Power BI Embedded**, veri kümenizin işaret ettiği sunucuyu ve veri tabanını değiştirmek ve veri kümesinin veri tabanınıza bağlanmak için kullanacağı bir hizmet hesabı kimlik bilgisi ayarlamak üzere ek API’lere sahiptir. Bkz. e [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) ve [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx).
 
-## <a name="next-steps"></a>Sonraki Adımlar
-Önceki adımlarda, çalışma alanı koleksiyonu ve ilk raporunuzu ve veri kümenizi oluşturdunuz. Şimdi **Power BI Embedded** için kod yazmayı öğrenme zamanı. Başlamanıza yardımcı olmak için, örnek web uygulaması oluşturduk: [Örneği kullanmaya başlama](power-bi-embedded-get-started-sample.md). Örnek size şunların nasıl yapılacağını gösterir:
+## <a name="create-power-bi-datasets-and-reports-using-apis"></a>API kullanarak Power BI veri kümeleri ve raporları oluşturma
 
-* İçerik sağlama
-  * Çalışma Alanı oluşturma
-  * PBIX dosyasını içeri aktarma
-  * Veri kümeleriniz için bağlantı dizelerini güncelleştirin ve kimlik bilgilerini ayarlayın.
-* Güvenli bir şekilde rapor ekleme
+### <a name="datsets"></a>Veri kümeleri
+
+REST API kullanarak Power BI Embedded içinde veri kümeleri oluşturabilirsiniz. Daha sonra verileri veri kümenize gönderebilirsiniz. Bu, Power BI Desktop olmadan verilerinizle çalışmanıza olanak sağlar. Daha fazla bilgi için bkz. [Veri Kümeleri Gönderme](https://msdn.microsoft.com/library/azure/mt778875.aspx).
+
+### <a name="reports"></a>Reports
+
+JavaScript API kullanarak doğrudan uygulamanızda bir veri kümesinden rapor oluşturabilirsiniz. Daha fazla bilgi için bkz. [Power BI Embedded’de bir veri kümesinden yeni bir rapor oluşturma](power-bi-embedded-create-report-from-dataset.md).
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Bir örnek ile kullanmaya başlama](power-bi-embedded-get-started-sample.md)
-* [Power BI Embedded ile kimlik doğrulaması ve yetkilendirme](power-bi-embedded-app-token-flow.md)
-* [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+[Bir örnek ile kullanmaya başlama](power-bi-embedded-get-started-sample.md)  
+[Power BI Embedded ile kimlik doğrulaması ve yetkilendirme](power-bi-embedded-app-token-flow.md)  
+[Rapor ekleme](power-bi-embedded-embed-report.md)  
+[Power BI Embedded’de bir veri kümesinden yeni bir rapor oluşturma](power-bi-embedded-create-report-from-dataset.md)
+[Raporları kaydetme](power-bi-embedded-save-reports.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[JavaScript Örnek Ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)
 
 

@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f72a3650de5b1d43c992a801ffce1384774594f2
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -54,8 +55,9 @@ Uygulamayı bir Azure aboneliği olmadan yerel olarak çalıştırabilirsiniz, a
 
 * Visual Studio 2013
 * Visual Studio 2015
+* Visual Studio 2017
 
-Bunlardan birine sahip değilseniz Azure SDK'yı yüklediğinizde Visual Studio 2015 otomatik olarak yüklenir.
+Bunlardan birine sahip değilseniz Azure SDK'yı yüklediğinizde Visual Studio otomatik olarak yüklenebilir.
 
 ## <a name="application-architecture"></a>Uygulama mimarisi
 Uygulama, tablolar oluşturmak ve verilere erişmek için Entity Framework Code First kullanarak reklamları bir SQL veritabanına depolar. Her reklam için veritabanı, biri tam boyutlu görüntü ve diğeri küçük resim olmak üzere iki URL depolar.
@@ -76,7 +78,7 @@ Bir kullanıcı görüntü yüklediğinde bir web rolünde çalışan ön uç g�
 
     Varsayılan olarak Visual Studio, *.zip* dosyasına dahil edilmeyen NuGet paketini otomatik olarak geri yükler. Paketler geri yüklenmezse **Çözüm için NuGet Paketlerini Yönet** iletişim kutusuna gidip sağ üst köşedeki **Geri Yükle** düğmesine tıklayarak el ile yükleyin.
 5. **Çözüm Gezgini**’nde başlangıç projesi olarak **ContosoAdsCloudService** öğesinin seçildiğinden emin olun.
-6. Visual Studio 2015 kullanıyorsanız ContosoAdsWeb projesinin uygulama *Web.config* dosyasında SQL Server bağlantı dizesini ve ContosoAdsCloudService projesinin *ServiceConfiguration.Local.cscfg* dosyasını değiştirin. Her iki örnekte de "(localdb)\v11.0" seçeneğini "(localdb)\MSSQLLocalDB" olarak değiştirin.
+6. Visual Studio 2015 veya sonraki bir sürümü kullanıyorsanız ContosoAdsWeb projesinin uygulama *Web.config* dosyasında SQL Server bağlantı dizesini ve ContosoAdsCloudService projesinin *ServiceConfiguration.Local.cscfg* dosyasını değiştirin. Her iki örnekte de "(localdb)\v11.0" seçeneğini "(localdb)\MSSQLLocalDB" olarak değiştirin.
 7. Uygulamayı çalıştırmak için CTRL+F5'e basın.
 
     Bir bulut hizmeti projesini yerel olarak çalıştırdığınızda Visual Studio, Azure *işlem öykünücüsü* ve Azure *depolama öykünücüsünü* otomatik olarak çağırır. İşlem öykünücüsü, web rolü ve çalışan rolü ortamlarını benzetmek için bilgisayarınızın kaynaklarını kullanır. Depolama öykünücüsü Azure bulut depolamayı benzetmek için bir [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) veritabanı kullanır.
@@ -364,7 +366,7 @@ Bu bölümde yerel olarak test etmek amacıyla Azure Storage ve SQL bağlantı d
     </connectionStrings>
     ```
 
-    Visual Studio 2015 kullanıyorsanız "v11.0" ifadesini "MSSQLLocalDB" ile değiştirin.
+    Visual Studio 2015 ve sonraki bir sürümü kullanıyorsanız "v11.0" ifadesini "MSSQLLocalDB" ile değiştirin.
 2. Yaptığınız değişiklikleri kaydedin.
 3. ContosoAdsCloudService projesinde **Roller** altındaki ContosoAdsWeb öğesine sağ tıklayın ve ardından **Özellikler**’e tıklayın.
 
@@ -381,7 +383,7 @@ Bu bölümde yerel olarak test etmek amacıyla Azure Storage ve SQL bağlantı d
 
    * Ad: ContosoAdsDbConnectionString
    * Türü: Dize
-   * Değer: Web rolü projesi kullandığınız bağlantı dizesinin aynısını yapıştırın. (Aşağıdaki örnek Visual Studio 2013 içindir; bu örneği kopyalarsanız ve Visual Studio 2015 kullanıyorsanız Veri Kaynağını değiştirmeyi unutmayın.)
+   * Değer: Web rolü projesi kullandığınız bağlantı dizesinin aynısını yapıştırın. (Aşağıdaki örnek Visual Studio 2013 içindir; bu örneği kopyalarsanız ve Visual Studio 2015 veya sonraki bir sürümü kullanıyorsanız Veri Kaynağını değiştirmeyi unutmayın.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -769,9 +771,4 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 * [Cloud Services nasıl yönetilir?](cloud-services-how-to-manage.md)
 * [Azure Depolama](/documentation/services/storage/)
 * [Bulut hizmeti sağlayıcısı seçme](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

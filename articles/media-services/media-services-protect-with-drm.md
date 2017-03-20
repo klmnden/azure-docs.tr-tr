@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 03/16/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8f11b9a6606e30e323295d4144497fae90040d2a
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -88,17 +88,17 @@ Dinamik şifreleme ile tek ihtiyacınız, bir grup çoklu bit hızlı MP4 dosyas
 
 Kodlama yönergeleri için bkz. [Medya Kodlayıcı Standart kullanarak bir varlık kodlama](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirme
+## <a id="create_contentkey"></a>Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirme
 Media Services’de, içerik anahtarı bir varlığı şifrelerken kullanmak istediğiniz anahtarı içerir.
 
 Ayrıntılı bilgi için bkz. [İçerik anahtarı oluşturma](media-services-dotnet-create-contentkey.md).
 
-## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>İçerik anahtarının yetkilendirme ilkesini yapılandırma
+## <a id="configure_key_auth_policy"></a>İçerik anahtarının yetkilendirme ilkesini yapılandırma
 Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamasını yapmanın birden çok yöntemini destekler. Anahtarın istemciye teslimi için, içerik anahtarı yetkilendirme ilkesinin tarafınızdan yapılandırılması ve istemci (oynatıcı) tarafından karşılanması gerekir. İçerik anahtarı yetkilendirme ilkesinin bir veya daha fazla yetkilendirme kısıtlaması olabilir: açık veya belirteç kısıtlaması.
 
 Ayrıntılı bilgi için bkz. [İçerik Anahtarı Yetkilendirme İlkesini Yapılandırma](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Varlık teslim ilkesini yapılandırma
+## <a id="configure_asset_delivery_policy"></a>Varlık teslim ilkesini yapılandırma
 Varlığınıza ilişkin teslim ilkesini yapılandırın. Varlık teslim ilkesi yapılandırmasının içerdiklerinden bazıları şunlardır:
 
 * DRM lisans edinme URL'si.
@@ -107,7 +107,7 @@ Varlığınıza ilişkin teslim ilkesini yapılandırın. Varlık teslim ilkesi 
 
 Ayrıntılı bilgi için bkz. [Varlık teslim ilkesini yapılandırma](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Akış URL’si almak için bir OnDemand akış bulucusu oluşturma
+## <a id="create_locator"></a>Akış URL’si almak için bir OnDemand akış bulucusu oluşturma
 Kesintisiz, DASH veya HLS için kullanıcınıza akış URL'sini sağlamanız gerekir.
 
 > [!NOTE]
@@ -134,7 +134,7 @@ Anahtar yetkilendirme ilkesi için kullanılan belirteç kısıtlamasına dayal�
 
 Akışınızı test etmek için [AMS Oynatıcısı](http://amsplayer.azurewebsites.net/azuremediaplayer.html)’nı kullanabilirsiniz.
 
-## <a name="a-idexampleaexample"></a><a id="example"></a>Örnek
+## <a id="example"></a>Örnek
 Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’de tanıtılan işlevleri göstermektedir (özellikle, Widevine lisans şablonu tanımlama ve Azure Media Services’den Widevine lisansı isteme yeteneği). Paketi yüklemek için aşağıdaki Nuget paketi komutu kullanıldı:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.5.2
@@ -160,6 +160,9 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
               </appSettings>
         </configuration>
 7. Bu bölümde gösterilen kodu Program.cs dosyanızdaki kodun üzerine yazın.
+
+    >[!NOTE]
+    >Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
 
     Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek şekilde güncelleştirdiğinizden emin olun.
 
@@ -276,20 +279,10 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }
@@ -484,7 +477,6 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
 
                     return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
                 }
-
 
                 private static string ConfigureWidevineLicenseTemplate()
                 {

@@ -1,6 +1,6 @@
 ---
 title: "HDFS uyumlu Azure Depolama’da veri sorgulama | Microsoft Belgeleri"
-description: "Azure Blob depolamasında verileri sorgulamayı ve Azure Data Lake Store’da analiz sonuçlarınızı depolamayı öğrenin."
+description: "Analiz sonuçlarını kaydetmek üzere Azure depolama ve Azure Data Lake Store’dan veri sorgulamayı öğrenin."
 keywords: "blob depolama,hdfs,yapılandırılmış veriler,yapılandırılmamış veriler, data lake store"
 services: hdinsight,storage
 documentationcenter: 
@@ -17,28 +17,33 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8133299b062bf3935df9c30dc8a6fcf88a525e
-ms.openlocfilehash: d3af6358a5786510f4f150425d0eb8ed45e52a6c
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: f739459681b0941a3dde6ec615ee468444d92c36
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="use-hdfs-compatible-storage-with-hadoop-in-hdinsight"></a>HDInsight’ta Hadoop ile HDFS uyumlu depolama kullanma
 
-HDInsight kümesindeki verileri çözümlemek için Azure Blob Depolama, Azure Data Lake Store veya her ikisinde birden saklanan verileri kullanabilirsiniz. İki depolama seçeneği de işlem için kullanılan HDInsight kümelerini kullanıcı verilerini kaybetmeden güvenle silmenizi sağlar.
+HDInsight kümesindeki verileri çözümlemek için Azure Depolama, Azure Data Lake Store veya her ikisinde birden verileri depolayabilirsiniz. İki depolama seçeneği de işlem için kullanılan HDInsight kümelerini kullanıcı verilerini kaybetmeden güvenle silmenizi sağlar.
 
-Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında Azure Blob Depolama kapsayıcılarını varsayılan dosya sistemi olarak belirtebilir veya HDInsight 3.5 ile Azure Blob Depolama veya Azure Data Lake Store'u varsayılan dosya sistemi olarak seçebilirsiniz.
+Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında Azure Depolama’da bir blob kapsayıcıyı varsayılan dosya sistemi olarak belirtebilir veya HDInsight 3.5 ile Azure Depolama ya da Azure Data Lake Store'u varsayılan dosya sistemi olarak seçebilirsiniz.
 
-Bu makalede, iki depolama seçeneğinin HDInsight kümeleri ile nasıl çalıştığı hakkında bilgi edineceksiniz. HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz. [HDInsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md).
+Bu makalede, iki depolama seçeneğinin HDInsight kümeleri ile nasıl çalıştığı hakkında bilgi edinirsiniz. HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz. [HDInsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-## <a name="using-azure-blob-storage-with-hdinsight-clusters"></a>HDInsight kümeleri ile Azure Blob Depolama'yı kullanma
+## <a name="using-azure-storage-with-hdinsight-clusters"></a>HDInsight kümeleri ile Azure depolamayı kullanma
 
-Azure Blob Storage HDInsight ile sorunsuz bir şekilde tümleşen, güçlü, genel amaçlı depolama çözümüdür. Hadoop dağıtılmış dosya sistemi (HDFS) arabirimi aracılığıyla, HDInsight’taki bileşenler kümesinin tümü Blob Storage’daki yapılandırılmış veya yapılandırılmamış veriler üzerinde doğrudan çalışabilir.
+Azure depolama, HDInsight ile sorunsuz bir şekilde tümleşen, sağlam ve genel amaçlı bir depolama çözümüdür. HDInsight, Azure Depolama’daki bir blob kapsayıcıyı kümenin varsayılan dosya sistemi olarak kullanabilir. Hadoop dağıtılmış dosya sistemi (HDFS) arabirimi aracılığıyla, HDInsight’taki bileşenler kümesinin tümü blob olarak depolanan yapılandırılmış veya yapılandırılmamış veriler üzerinde doğrudan çalışabilir.
 
-> [!IMPORTANT]
-> HDInsight yalnızca blok blob'larını destekler. Blob sayfalamayı veya eklemeyi desteklemez.
+> [!WARNING]
+> Bir Azure depolama hesabı oluştururken çeşitli seçenekleri kullanabilirsiniz. Aşağıdaki tabloda HdInsight ile hangi seçeneklerin desteklendiği gösterilmektedir:
 > 
-> 
+> | Depolama hesabı türü | Depolama katmanı | HDInsight ile desteklenen |
+> | ------- | ------- | ------- |
+> | Genel amaçlı Depolama Hesabı | Standart | __Evet__ |
+> | &nbsp; | Premium | Hayır |
+> | Blob Depolama Hesabı | Sık Erişimli | Hayır |
+> | &nbsp; | Seyrek Erişimli | Hayır |
 
 ### <a name="hdinsight-storage-architecture"></a>HDInsight depolama mimarisi
 Aşağıdaki diyagram, HDInsight depolama mimarisine ilişkin özet görünümünü sağlar:
@@ -49,7 +54,7 @@ HDInsight, işlem düğümlerine yerel olarak bağlı olan dağıtılmış dosya
 
     hdfs://<namenodehost>/<path>
 
-Ayrıca, HDInsight Azure Blob Storage’da depolanan verilere erişebilmeyi sağlar. Söz dizimi aşağıdaki gibidir:
+Ayrıca, HDInsight Azure Depolama’da depolanan verilere erişebilmeyi sağlar. Söz dizimi aşağıdaki gibidir:
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -65,27 +70,27 @@ HDInsight kümeleriyle Azure Depolama hesabını kullanırken dikkat etmeniz ger
   > 
 * **Bir kümeye bağlı OLMAYAN depolama hesaplarındaki özel kapsayıcılar:** WebHCat işleri gönderdiğinizde, depolama hesabını tanımlamadığınız sürece kapsayıcılardaki blob’lara erişemezsiniz. Bu, bu makalenin sonraki bölümlerinde açıklanmıştır.
 
-Oluşturma işleminde tanımlanan depolama hesapları ve bunların anahtarların %HADOOP_HOME%/conf/core-site.xml küme düğümlerinde depolanır. HDInsight’ın varsayılan davranışı core-site.xml dosyasında tanımlanan depolama hesaplarını kullanmaktır. Küme baş düğümü (ana) görüntüsü yeniden oluşturulabildiği veya taşınabildiği ve bu dosyalardaki değişiklikler kaybolacağı için core-site.xml dosyasının düzenlenmesi önerilmez.
+Oluşturma işleminde tanımlanan depolama hesapları ve bunların anahtarların %HADOOP_HOME%/conf/core-site.xml küme düğümlerinde depolanır. HDInsight’ın varsayılan davranışı core-site.xml dosyasında tanımlanan depolama hesaplarını kullanmaktır. Küme baş düğümünün (ana) görüntüsü yeniden oluşturulabildiği veya taşınabildiği için ve bu dosyalardaki değişiklikler kaybolacağından core-site.xml dosyasının doğrudan düzenlenmesi önerilmez.
 
 Hive, MapReduce, Hadoop akış ve Pig dahil olmak üzere birden çok WebHCat işleri kendileriyle birlikte depolama hesapları açıklaması ve meta veriler taşıyabilir. (Bu şu anda yalnızca Pig depolama hesapları ile çalışmakta, ancak meta verilerle çalışmamaktadır.) Bu makalenin [Azure PowerShell kullanarak blob’lara erişme](#powershell) bölümünde bu makalede, bu özelliğin bir örneği yer almaktadır. Daha fazla bilgi için bkz. [Alternatif Depolama Hesapları ve Meta Depolarla HDInsight Kümesi kullanma](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
-Blob Storage yapılandırılmış ve yapılandırılmamış veriler için kullanılabilir. Blob Storage kapsayıcıları verileri anahtar/değer çiftleri olarak depolar ve dizin hiyerarşisi bulunmaz. Ancak, bir dosyayı dizin yapısında depolanmış gibi göstermek için anahtar adında eğik çizgi karakteri (/) kullanılabilir. Örneğin, bir blob'un anahtarı *input/log1.txt* şeklinde olabilir. Gerçek *giriş* dizini yoktur, ancak anahtar adında eğik çizgi karakteri bulunması nedeniyle, bir dosya yolu görünümüne sahiptir.
+Bloblar yapılandırılmış ve yapılandırılmamış veriler için kullanılabilir. Blob kapsayıcıları, verileri anahtar/değer çiftleri olarak depolar ve dizin hiyerarşisi bulunmaz. Ancak, bir dosyayı dizin yapısında depolanmış gibi göstermek için anahtar adında eğik çizgi karakteri (/) kullanılabilir. Örneğin, bir blob'un anahtarı *input/log1.txt* şeklinde olabilir. Gerçek *giriş* dizini yoktur, ancak anahtar adında eğik çizgi karakteri bulunması nedeniyle, bir dosya yolu görünümüne sahiptir.
 
-### <a id="benefits"></a>Blob depolamanın avantajları
-İşlem kümelerini ve depolama kaynaklarını yeniden bulmamanın örtülü performans maliyeti, yüksek hızlı ağın işlem düğümlerinin Azure Blob Storage’daki verilere erişimini çok verimli hale getirdiği, Azure bölgesindeki depolama hesabı kaynaklarına yakın şekilde oluşturulmasıyla azaltılabilir.
+### <a id="benefits"></a>Azure Depolamanın yararları
+İşlem kümelerini ve depolama kaynaklarını yeniden bulmamanın örtülü performans maliyeti, yüksek hızlı ağın işlem düğümlerinin Azure Depolama’daki verilere erişimini çok verimli hale getirdiği, Azure bölgesindeki depolama hesabı kaynaklarına yakın şekilde oluşturulmasıyla azaltılabilir.
 
-Verileri HDFS yerine Azure Blob Storage’da depolamanın çeşitli avantajları vardır:
+Verileri HDFS yerine Azure Depolama’da depolamanın çeşitli avantajları vardır:
 
-* **Verileri yeniden kullanma ve paylaşma:** HDFS’deki veriler işlem kümesi içinde bulunur. Yalnızca işlem kümesi erişimi olan uygulamalar HDFS API'lerini kullanarak verileri kullanabilir. Azure Blob Depolama'da bulunan verilere HDFS API'si aracılığıyla veya [Blob Depolama REST API'leri][blob-storage-restAPI] aracılığıyla erişilir. Bu nedenle, daha büyük uygulama kümeleri (diğer HDInsight kümeleri dahil olmak üzere) ve araçları veri üretmek ve kullanmak için kullanılabilir.
-* **Veri arşivleme:**Verileri Azure Blob Storage’da depolamak, hesaplama için kullanılan HDInsight kümelerinin kullanıcı verilerini kaybetmeden güvenle silinmesini sağlar.
-* **Veri depolama maliyeti:** Verileri DFS uzun süreli depolamak verileri Azure Blob Storage’da depolamaktan daha maliyetlidir; çünkü işlem kümesinin maliyeti Azure Blob Storage kapsayıcısının maliyetinden daha fazladır. Ayrıca, verilerin her işlem kümesi oluşturmada yeniden yüklenmesi gerekmediğinden, veri yükleme maliyetlerinden de tasarruf edersiniz.
-* **Esnek ölçeklendirme:** HDFS size ölçeklendirilmiş dosya sistemi sağlamakla birlikte, ölçek, kümeniz için oluşturduğunuz düğüm sayısı tarafından belirlenir. Ölçeği değiştirmek, Azure Blob Storage’da otomatik olarak aldığınız esnek ölçeklendirme özelliklere bağlı kalmaktan daha karmaşık bir işlem haline gelebilir.
-* **Coğrafi çoğaltma:** Azure Blob Storage kapsayıcılarınız coğrafi olarak çoğaltılabilir. Bu, size coğrafi kurtarma ve veri yedekliği sağlamakla birlikte, coğrafi olarak çoğaltılan bir konuma yük devretmek performansınızı ciddi bir şekilde etkiler ve ek ücrete neden olabilir. Bu nedenle, coğrafi çoğaltmayı akıllıca ve yalnızca verilerin değeri ek maliyetlere değer durumdaysa tercih etmenizi öneririz.
+* **Verileri yeniden kullanma ve paylaşma:** HDFS’deki veriler işlem kümesi içinde bulunur. Yalnızca işlem kümesi erişimi olan uygulamalar HDFS API'lerini kullanarak verileri kullanabilir. Azure depolamada bulunan verilere HDFS API'si aracılığıyla veya [Blob Depolama REST API'leri][blob-storage-restAPI] aracılığıyla erişilir. Bu nedenle, daha büyük uygulama kümeleri (diğer HDInsight kümeleri dahil olmak üzere) ve araçları veri üretmek ve kullanmak için kullanılabilir.
+* **Veri arşivleme:** Verileri Azure depolamada depolamak, hesaplama için kullanılan HDInsight kümelerinin kullanıcı verilerini kaybetmeden güvenle silinmesini sağlar.
+* **Veri depolama maliyeti:** Verileri DFS uzun süreli depolamak verileri Azure depolamada depolamaktan daha maliyetlidir; çünkü işlem kümesinin maliyeti Azure depolama maliyetinden daha fazladır. Ayrıca, verilerin her işlem kümesi oluşturmada yeniden yüklenmesi gerekmediğinden, veri yükleme maliyetlerinden de tasarruf edersiniz.
+* **Esnek ölçeklendirme:** HDFS size ölçeklendirilmiş dosya sistemi sağlamakla birlikte, ölçek, kümeniz için oluşturduğunuz düğüm sayısı tarafından belirlenir. Ölçeği değiştirmek, Azure depolamada otomatik olarak aldığınız esnek ölçeklendirme özelliklere bağlı kalmaktan daha karmaşık bir işlem haline gelebilir.
+* **Coğrafi çoğaltma:** Azure depolamanız coğrafi olarak çoğaltılabilir. Bu, size coğrafi kurtarma ve veri yedekliği sağlamakla birlikte, coğrafi olarak çoğaltılan bir konuma yük devretmek performansınızı ciddi bir şekilde etkiler ve ek ücrete neden olabilir. Bu nedenle, coğrafi çoğaltmayı akıllıca ve yalnızca verilerin değeri ek maliyetlere değer durumdaysa tercih etmenizi öneririz.
 
-Bazı MapReduce işleri ve paketleri gerçekte Azure Blob Storage’da depolamak istemediğiniz ara sonuçlar oluşturabilir. Bu durumda, verileri yerel HDFS’de depolamak üzere seçebilirsiniz. Aslında, HDInsight Hive işleri ve diğer işlemlerdeki bu ara sonuçların bazıları için DFS kullanır.
+Bazı MapReduce işleri ve paketleri gerçekte Azure depolamada depolamak istemediğiniz ara sonuçlar oluşturabilir. Bu durumda, verileri yerel HDFS’de depolamak üzere seçebilirsiniz. Aslında, HDInsight Hive işleri ve diğer işlemlerdeki bu ara sonuçların bazıları için DFS kullanır.
 
 > [!NOTE]
-> Çoğu HDFS komutu (örneğin, <b>ls</b>, <b>copyFromLocal</b> ve <b>mkdir</b>) hala beklendiği gibi çalışmaktadır. Yalnızca, <b>fschk</b> ve <b>dfsadmin</b> gibi yerel HDFS uygulamasına özgü komutlar (DFS olarak adlandırılır), Azure Blob Storage’da farklı bir davranış gösterir.
+> Çoğu HDFS komutu (örneğin, <b>ls</b>, <b>copyFromLocal</b> ve <b>mkdir</b>) hala beklendiği gibi çalışmaktadır. Yalnızca, <b>fschk</b> ve <b>dfsadmin</b> gibi yerel HDFS uygulamasına özgü komutlar (DFS olarak adlandırılır), Azure depolamada farklı bir davranış gösterir.
 > 
 > 
 
@@ -94,7 +99,7 @@ Blob'ları kullanmak için önce bir [Azure depolama hesabı][azure-storage-crea
 
 Nerede olursa olsun, oluşturduğunuz her blob Azure Storage hesabınızdaki bir kapsayıcıya aittir. Bu kapsayıcı HDInsight dışında oluşturulmuş bir blob veya bir HDInsight kümesi için oluşturulan bir kapsayıcı olabilir.
 
-Varsayılan Blob kapsayıcısı iş geçmişi ve günlükleri gibi kümeye özel bilgileri depolar. Varsayılan Blob kapsayıcısını birden çok HDInsight kümesiyle paylaşmayın. Bu iş geçmişinin bozulmasına ve kümenin işlememesine neden olabilir. Her küme için farklı bir kapsayıcı kullanmanız ve paylaşılan verileri varsayılan depolama hesabı yerine tüm ilgili kümelerin dağıtımında belirtilen bağlantılı depolama hesabına yerleştirmeniz önerilir. Bağlantılı Depolama hesaplarını yapılandırma hakkında daha fazla bilgi için bkz: [HDInsight kümeleri oluşturma][hdinsight-creation]. Ancak özgün HDInsight kümesi silindikten sonra varsayılan depolama kapsayıcısını yeniden kullanabilirsiniz. HBase kümeleri için, silinmiş bir HBase kümesi tarafından kullanılan varsayılan Blob Storage kapsayıcısını kullanan yeni bir HBase kümesi oluşturarak aslında HBase tablo şemasını ve verileri tutarsınız.
+Varsayılan Blob kapsayıcısı iş geçmişi ve günlükleri gibi kümeye özel bilgileri depolar. Varsayılan Blob kapsayıcısını birden çok HDInsight kümesiyle paylaşmayın. Bu durum iş geçmişinin bozulmasına neden olabilir. Her küme için farklı bir kapsayıcı kullanmanız ve paylaşılan verileri varsayılan depolama hesabı yerine tüm ilgili kümelerin dağıtımında belirtilen bağlantılı depolama hesabına yerleştirmeniz önerilir. Bağlantılı Depolama hesaplarını yapılandırma hakkında daha fazla bilgi için bkz: [HDInsight kümeleri oluşturma][hdinsight-creation]. Ancak özgün HDInsight kümesi silindikten sonra varsayılan depolama kapsayıcısını yeniden kullanabilirsiniz. HBase kümeleri için, silinmiş bir HBase kümesi tarafından kullanılan varsayılan blob kapsayıcısını kullanan yeni bir HBase kümesi oluşturarak aslında HBase tablo şemasını ve verileri tutarsınız.
 
 #### <a name="using-the-azure-portal"></a>Azure portalını kullanma
 Portal’da HDInsight kümesi oluştururken, depolama hesabı ayrıntılarını girmek için aşağıdaki seçenekleriniz vardır. Kümeyle ilişkili ek bir depolama hesabı isteyip istemediğinizi de belirtebilirsiniz. İstiyorsanız, ek depolama alanı olarak Data Lake Store veya başka bir Azure Depolama Blobu seçebilirsiniz.
@@ -109,11 +114,11 @@ Portal’da HDInsight kümesi oluştururken, depolama hesabı ayrıntılarını 
     azure storage account create <storageaccountname> --type LRS
 
 > [!NOTE]
-> `--type` parametresi depolama hesabının nasıl çoğaltılacağını gösterir. Daha fazla bilgi için bkz. [Azure Storage çoğaltma](../storage/storage-redundancy.md). ZRS, sayfa blobu, dosya, tablo veya kuyruğu desteklemediğinden, ZRS kullanmayın.
+> `--type` parametresi depolama hesabının nasıl çoğaltıldığını gösterir. Daha fazla bilgi için bkz. [Azure Storage çoğaltma](../storage/storage-redundancy.md). ZRS, sayfa blobu, dosya, tablo veya kuyruğu desteklemediğinden, ZRS kullanmayın.
 > 
 > 
 
-Depolama hesabının bulunacağı coğrafi bölgeyi belirtmeniz istenir. HDInsight kümenizi oluşturmayı planladığınızla aynı bölgede depolama hesabı oluşturmanız gerekir.
+Depolama hesabının oluşturulacağı coğrafi bölgeyi belirtmeniz istenir. HDInsight kümenizi oluşturmayı planladığınızla aynı bölgede depolama hesabı oluşturmanız gerekir.
 
 Depolama hesabı oluşturulduğunda, depolama hesabı anahtarlarını almak için aşağıdaki komutu kullanın:
 
@@ -149,15 +154,14 @@ Bir kapsayıcı oluşturmak için aşağıdaki komutu kullanın:
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="address-files-in-blob-storage"></a>Blob Storage’da dosyaları adresleme
-HDInsight’ta Blob Storage’daki dosyalara erişmek için URI şeması aşağıdaki gibidir:
+### <a name="address-files-in-azure-storage"></a>Azure depolamada dosyaları adresleme
+HDInsight’ta Azure depolamadaki dosyalara erişmek için URI şeması aşağıdaki gibidir:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-
 URI şeması şifrelenmemiş erişim (ile *wasb:* öneki ile) ve SSL şifreli erişim (*wasbs* ile) şifrelenmemiş erişim sağlar. Azure’da aynı bölgede bulunan verilere erişirken dahi mümkün olduğunda *wasbs* kullanmanızı öneririz.
 
-&lt;BlobStorageContainerName&gt; Azure Blob Storage’da kapsayıcının adını tanımlar.
+&lt;BlobStorageContainerName&gt; Azure depolamada blob kapsayıcının adını tanımlar.
 &lt;StorageAccountName&gt; Azure Storage hesabı adını tanımlar. Tam uygun etki alanı adı (FQDN) gereklidir.
 
 &lt;BlobStorageContainerName&gt; ya da &lt;StorageAccountName&gt; belirtilmediyse, varsayılan dosya sistemi kullanılır. Varsayılan dosya sistemindeki dosyalar için göreli bir yol veya mutlak bir yol kullanabilirsiniz. Örneğin, HDInsight kümeleriyle gelen *hadoop mapreduce examples.jar* dosyasına aşağıdakilerden birini kullanarak başvurulabilir:
@@ -171,7 +175,7 @@ URI şeması şifrelenmemiş erişim (ile *wasb:* öneki ile) ve SSL şifreli er
 > 
 > 
 
-&lt;Yol&gt; dosya veya dizin HDFS yol adıdır. Azure Blob Storage’daki kapsayıcılar anahtar-değer depoları olduğundan, doğru hiyerarşik dosya sistemi yoktur. Bir blob anahtarındaki bir eğik çizgi karakteri (/) dizin ayırıcı olarak yorumlanır. Örneğin, *hadoop mapreduce examples.jar* için blob adı aşağıdaki gibidir:
+&lt;Yol&gt; dosya veya dizin HDFS yol adıdır. Azure depolamadaki kapsayıcılar anahtar-değer depoları olduğundan, doğru hiyerarşik dosya sistemi yoktur. Bir blob anahtarındaki bir eğik çizgi karakteri (/) dizin ayırıcı olarak yorumlanır. Örneğin, *hadoop mapreduce examples.jar* için blob adı aşağıdaki gibidir:
 
     example/jars/hadoop-mapreduce-examples.jar
 
@@ -346,7 +350,7 @@ Data Lake Store erişimi olan HDInsight kümeleri oluşturma hakkında ayrıntı
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, HDFS uyumlu Azure Blob Depolama ve HDInsight ile Azure Data Lake Store kullanmayı öğrendiniz. Bu, ölçeklenebilir, uzun vadeli, arşivlemeli veri edinme çözümleri oluşturmanıza ve depolanan yapılandırılmış ve yapılandırılmamış verilerdeki bilgilerin kilidini açmak için HDInsight kullanmanıza olanak sağlar.
+Bu makalede, HDFS uyumlu Azure depolama ve HDInsight ile Azure Data Lake Store kullanmayı öğrendiniz. Bu, ölçeklenebilir, uzun vadeli, arşivlemeli veri edinme çözümleri oluşturmanıza ve depolanan yapılandırılmış ve yapılandırılmamış verilerdeki bilgilerin kilidini açmak için HDInsight kullanmanıza olanak sağlar.
 
 Daha fazla bilgi için bkz.
 

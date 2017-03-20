@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/09/2017
 ms.author: babanisa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 1b9423c22ff6e003a6236e01118b600a2c746db4
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 9fd40892c77630bd4f0b7abf5c3458a6dc200402
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -32,7 +33,7 @@ Geçiş tarafından sağlanan önemli özellik öğeleri, TCP gibi azaltma, uç 
 Azure Geçiş iki özelliğe sahiptir:
 
 1. [Karma Bağlantılar](#hybrid-connections) - Çok platformlu senaryoları etkinleştiren açık standart web yuvalarını kullanır.
-2. [WCF Geçişleri](#wcf-relays) - Windows Communication Foundation’ı (WCF) kullanarak uzak yordam çağrılarını etkinleştirir. WCF Geçişi, birçok müşterinin WCF programlama modelleriyle zaten kullanıyor olabileceği eski Geçiş teklifidir.
+2. [WCF Geçişleri](#wcf-relays) - Windows Communication Foundation’ı (WCF) kullanarak uzak yordam çağrılarını etkinleştirir. WCF Geçişi, birçok müşterinin WCF programlama modelleriyle zaten kullandığı eski Geçiş teklifidir.
 
 Hem Karma Bağlantılar hem de WCF Geçişleri bir kurumsal kuruluş ağı içinde bulunan varlıklara güvenli bağlantı olanağı sağlar. Hangisinin diğerine tercih edileceği, aşağıdaki tabloda açıklandığı gibi özel gereksinimlerinize bağlıdır:
 
@@ -41,12 +42,9 @@ Hem Karma Bağlantılar hem de WCF Geçişleri bir kurumsal kuruluş ağı için
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript/NodeJS*** | |x |
-| **Java*** | |x |
+| **JavaScript/NodeJS** | |x |
 | **Standart Tabanlı Açık Protokol** | |x |
 | **Birden Çok RPC Programlama Modeli** | |x |
-
-*Genel Erişilebilirlik tarihinde
 
 ## <a name="hybrid-connections"></a>Karma Bağlantılar
 [Azure Geçiş Karma Bağlantılar](relay-hybrid-connections-protocol.md) özelliği, yaygın olarak kullanılan web tarayıcılarındaki WebSocket API’yi açıkça içeren temel bir WebSocket özelliğine sahip tüm platform ve dillerde uygulanabilen mevcut Geçiş özelliklerinin güvenli, açık yordam kullanılarak evrim geçirmiş bir halidir. Karma Bağlantılar HTTP ve WebSocket’ları temel alır.
@@ -62,10 +60,5 @@ Karma Bağlantılar, Azure Service Bus WCF Geçişi üzerinde oluşturulan eski 
 * [Ad alanı oluşturma](relay-create-namespace-portal.md)
 * [.NET kullanmaya başlama](relay-hybrid-connections-dotnet-get-started.md)
 * [Node kullanmaya başlama](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

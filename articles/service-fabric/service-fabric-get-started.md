@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/07/2017
 ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 935b0ba8725b083878a0f9213e4fbd31bd27ab2c
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: cf48dc816661fa3d61f831fb176aba048a6f5b58
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -56,7 +56,7 @@ Ayrıca Web Platformu Yükleyicisini kullanarak Microsoft Azure Service Fabric S
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Visual Studio 2015'i kullanmak için (Visual Studio 2015 Güncelleştirme 2 veya üzeri gerekir)
 Visual Studio 2015 için Service Fabric araçları Web Platformu Yükleyicisi kullanılarak SDK ile birlikte yüklenir:
 
-* [Microsoft Azure Service Fabric SDK'sını ve Araçları yükleyin][full-bundle-vs2015]
+* [Microsoft Azure Service Fabric SDK’sını ve Araçları yükleyin][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>Yalnızca SDK'yı yükleme
 Yalnızca SDK'yı yüklemeniz gerekiyorsa bu paketi yükleyebilirsiniz:

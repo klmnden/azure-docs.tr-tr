@@ -12,30 +12,33 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 22b50dd6242e8c10241b0626b48f8ef842b6b0fd
-ms.openlocfilehash: c33ca9e5292096a0fd96d98da3e89d721463e903
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4674985363bc1267449e018ab15a53757a8fd32d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="how-does-azure-site-recovery-work"></a>Azure Site Recovery nasıl çalışır?
 
-[Azure Site Recovery](site-recovery-overview.md) hizmetinin temel mimarisini ve bu hizmetin çalışmasını sağlayan bileşenleri anlamak için bu makaleyi okuyun.
+Bu makalede [Azure Site Recovery](site-recovery-overview.md) hizmetinin temel mimarisi ve bu hizmetin çalışmasını sağlayan bileşenler açıklanmaktadır.
 
 Tüm yorumlarınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
 
-## <a name="replication-to-azure"></a>Azure’a çoğaltma
+## <a name="replicate-to-azure"></a>Azure’a çoğaltma
 
 Azure’a aşağıdakileri çoğaltabilirsiniz:
+
 - **VMware**: [Desteklenen bir ana bilgisayarda](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) çalışan yerinde VMware sanal makineleri. [Desteklenen işletim sistemlerini](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) çalıştıran VMware sanal makinelerini çoğaltabilirsiniz
 - **Hyper-V**: [Desteklenen bir ana bilgisayarda](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) çalışan yerinde Hyper-V sanal makineleri.
-- **Fiziksel makineler**: [Desteklenen işletim sistemlerinde](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) Windows veya Linux çalıştıran yerinde fiziksel sunucular. [Hyper-V ve Azure tarafından desteklenen](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) herhangi bir konuk işletim sistemini çalıştıran Hyper-V sanal makinelerini çoğaltabilirsiniz.
+- **Fiziksel makineler**: [Desteklenen işletim sistemlerinde](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) Windows veya Linux çalıştıran yerinde fiziksel sunucular. [Hyper-V ve Azure tarafından desteklenen](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) herhangi bir konuk işletim sistemini çalıştıran Hyper-V VM’lerini çoğaltabilirsiniz.
 
-## <a name="vmware-replication-to-azure"></a>Azure’a VMware çoğaltma
+## <a name="vmware-to-azure"></a>Vmware’den Azure’a
+
+VMware VM’lerini Azure’a çoğaltmak için aşağıdakiler gerekir.
 
 Alan | Bileşen | Ayrıntılar
 --- | --- | ---
@@ -85,14 +88,16 @@ Birkaç yeniden çalışma gereksinimi vardır:
 
 ![Yeniden çalışma](./media/site-recovery-components/enhanced-failback.png)
 
-## <a name="physical-server-replication-to-azure"></a>Azure’a fiziksel sunucu çoğaltması
+## <a name="physical-to-azure"></a>Fizikselden Azure’a
 
-Bu çoğaltma senaryosu da [VMware’den Azure’a](#vmware-replication-to-azure) ile aynı bileşenleri ve işlemi kullanır ancak aşağıdaki farklılıkları göz önünde bulundurmanız gerekir:
+Fiziksel şirket içi sunucuları Azure’a çoğalttığınızda, çoğaltma [VMware’den Azure’a](#vmware-replication-to-azure) ile aynı bileşen ve işlemleri kullanır ancak şu farklılıklara dikkat etmelisiniz:
 
 - Yapılandırma sunucusu için bir VMware VM’i yerine fiziksel bir sunucu kullanabilirsiniz
 - Yeniden çalışma için bir yerinde VMware altyapısı gerekir. Bir fiziksel sunucuda yeniden çalışma gerçekleştiremezsiniz.
 
-## <a name="hyper-v-replication-to-azure"></a>Azure'a Hyper-V çoğaltması
+## <a name="hyper-v-to-azure"></a>Hyper-V’den Azure’a
+
+Hyper-V VM’lerini Azure’a çoğaltmak için aşağıdakiler gerekir.
 
 **Alan** | **Bileşen** | **Ayrıntılar**
 --- | --- | ---
@@ -130,22 +135,24 @@ Bu çoğaltma senaryosu da [VMware’den Azure’a](#vmware-replication-to-azure
 ![Bileşenler](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-## <a name="replication-to-a-secondary-site"></a>İkincil bir siteye çoğaltma
+## <a name="replicate-to-a-secondary-site"></a>İkincil bir siteye çoğaltma
 
 İkincil sitenize aşağıdakileri çoğaltabilirsiniz:
 
 - **VMware**: [Desteklenen bir ana bilgisayarda](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) çalışan yerinde VMware sanal makineleri. [Desteklenen işletim sistemlerini](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions) çalıştıran VMware sanal makinelerini çoğaltabilirsiniz
 - **Fiziksel makineler**: [Desteklenen işletim sistemlerinde](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions) Windows veya Linux çalıştıran yerinde fiziksel sunucular.
-- **Hyper-V**: VMM bulutlarında yönetilen [desteklenen Hyper-V ana bilgisayarlarında](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) çalışan yerinde Hyper-V sanal makineleri. [desteklenen ana bilgisayarlar](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). [Hyper-V ve Azure tarafından desteklenen](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) herhangi bir konuk işletim sistemini çalıştıran Hyper-V sanal makinelerini çoğaltabilirsiniz.
+- **Hyper-V**: VMM bulutlarında yönetilen [desteklenen Hyper-V ana bilgisayarlarında](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) çalışan yerinde Hyper-V sanal makineleri. [desteklenen ana bilgisayarlar](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). [Hyper-V ve Azure tarafından desteklenen](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) herhangi bir konuk işletim sistemini çalıştıran Hyper-V VM’lerini çoğaltabilirsiniz.
 
 
-## <a name="vmware-vmphysical-server-replication-to-a-secondary-site"></a>VMware VM’lerini/Fiziksel sunucuları ikincil bir siteye çoğaltma
+## <a name="vmwarephysical-to-a-secondary-site"></a>VMware/fiziksel sunucuları ikincil bir siteye
+
+VMware sanal makineleri veya fiziksel sunucuları InMage Scout kullanarak ikincil bir siteye çoğaltırsınız.
 
 ### <a name="components"></a>Bileşenler
 
 **Alan** | **Bileşen** | **Ayrıntılar**
 --- | --- | ---
-**Azure** | Bu senaryoyu, InMage Scout kullanarak dağıtırsınız. | InMage Scout elde etmek için bir Azure aboneliğine sahip olmanız gerekir.<br/><br/> Bir Kurtarma Hizmetleri kasası oluşturduktan sonra InMage Scout hizmetini indirip dağıtımı ayarlamak üzere en son güncelleştirmeleri yüklersiniz.
+**Azure** | InMage Scout. | InMage Scout elde etmek için bir Azure aboneliğine sahip olmanız gerekir.<br/><br/> Bir Kurtarma Hizmetleri kasası oluşturduktan sonra InMage Scout hizmetini indirip dağıtımı ayarlamak üzere en son güncelleştirmeleri yüklersiniz.
 **İşlem sunucusu** | Birincil sitede bulunur | Önbelleğe alma, sıkıştırma ve veri iyileştirme işlemlerini yürütmek için işlem sunucusunu dağıtırsınız.<br/><br/> Ayrıca bu sunucu, Birleşik Aracı'nın korumak istediğiniz makinelere göndermeli yükleme işlemini yürütür.
 **Yapılandırma sunucusu** | İkincil sitede bulunur | Yapılandırma sunucusu, yönetim Web sitesini veya vContinuum konsolunu kullanarak dağıtımınızı yönetir, yapılandırır ve izler.
 **vContinuum sunucusu** | İsteğe bağlı. Yapılandırma sunucusuyla aynı konuma yüklenir. | Korunan ortamınızı yönetmeye ve izlemeye yönelik bir konsol sağlar.
@@ -166,7 +173,9 @@ Bu çoğaltma senaryosu da [VMware’den Azure’a](#vmware-replication-to-azure
 
 
 
-## <a name="hyper-v-vm-replication-to-a-secondary-site"></a>İkincil bir siteye Hyper-V VM çoğaltması
+## <a name="hyper-v-to-a-secondary-site"></a>Hyper-V’den ikincil siteye
+
+Hyper-V VM’lerini ikincil bir siteye çoğaltmak için aşağıdakiler gerekir.
 
 
 **Alan** | **Bileşen** | **Ayrıntılar**
@@ -202,25 +211,8 @@ Bu çoğaltma senaryosu da [VMware’den Azure’a](#vmware-replication-to-azure
 7. Birincil siteyi yeniden etkin konum durumuna getirmek için ikincil siteden birincil siteye planlı yük devretme başlatır ve arkasından başka bir ters çoğaltma gerçekleştirirsiniz.
 
 
-## <a name="hyper-v-replication-workflow"></a>Hyper-V çoğaltma iş akışı
-
-**İş akışı aşaması** | **Eylem**
---- | ---
-1. **Korumayı etkinleştir** | Bir Hyper-V VM için korumayı etkinleştirdiğinizde, makinenin önkoşullarla uyumlu olup olmadığının denetlenmesi için **Korumayı Etkinleştir** işi başlatılır. İş tarafından iki yöntem çağırılır:<br/><br/> Yapılandırdığınız ayarlarla çoğaltmanın ayarlanması için [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx).<br/><br/> Tam VM çoğaltması başlatmak için [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx).
-2. **İlk çoğaltma** |  Bir sanal makine anlık görüntüsü alınır ve sanal sabit diskler tamamı ikincil konuma kopyalanana kadar tek tek çoğaltılır.<br/><br/> Bu işlemi tamamlamak için gereken süre VM boyutuna, ağ bant genişliğine ve iş çoğaltma yöntemine bağlıdır.<br/><br/> İlk çoğaltma sırasında disk değişimi meydana gelirse Hyper-V Çoğaltma'nın Çoğaltma İzleyicisi bu değişiklikleri, disklerle aynı klasörde yer alan Hyper-V Çoğaltma Günlükleri (.hrl) olarak izler.<br/><br/> Her diskin ikincil depolamaya gönderilecek bir ilişkili .hrl dosyası vardır.<br/><br/> İlk çoğaltma sırasında anlık görüntü ve günlük dosyaları disk kaynaklarını kullanır. İlk çoğaltma tamamlandığında VM anlık görüntüsü silinir, günlükteki değişim diski değişiklikleri eşitlenir ve birleştirilir.
-3. **Korumayı sonlandırma** | İlk çoğaltma sonlandırıldıktan sonra **Korumayı sonlandır** işi, ağ ayarlarını ve diğer çoğaltma sonrası ayarları yapılandırır ve sanal makine korunur.<br/><br/> Azure'da çoğaltma yapıyorsanız sanal makinede ince ayar yapmanız gerekebilir. Böylece sanal makine yük devretme için hazır hale gelir.<br/><br/> Bu noktada, her şeyin istendiği şekilde çalıştığını denetlemek için yük devretme testi çalıştırabilirsiniz.
-4. **Çoğaltma** | İlk çoğaltma sonrasında, çoğaltma ayarlarına uygun olarak değişim eşitlemesi başlar.<br/><br/> **Çoğaltma hatası**: Değişim çoğaltması başarısız olursa ve tam çoğaltma bant genişliği ve zaman konusunda fazla kaynak tüketimine yol açarsa yeniden eşitleme meydana gelir. Örneğin, .hrl dosyası disk boyutunun %50'sine ulaşırsa VM, yeniden eşitleme için işaretlenir. Yeniden eşitleme, kaynak ve hedef sanal makinelerin sağlama toplamlarını hesaplar ve yalnızca değişim verilerini gönderir. Böylece gönderilen veri miktarını azaltır. Yeniden eşitleme bittikten sonra değişim çoğaltması devam eder. Varsayılan olarak, yeniden eşitleme ofis saatleri dışında otomatik olarak çalışacak şekilde planlanmıştır ancak sanal makineyi elle yeniden eşitleyebilirsiniz.<br/><br/> **Çoğaltma hatası**: Bir çoğaltma hatası meydana gelmesi durumunda yerleşik olarak yeniden deneme işlevi bulunur. Kimlik doğrulama veya yetkilendirme ya da çoğaltılan makinenin geçersiz durumda olması gibi kurtarılamaz bir hata olursa yeniden deneme işlevi uygulanmaz. Ağ hatası veya düşük disk alanı/belleği gibi kurtarılabilir bir hata oluşursa artan aralıklarla yeniden denemeler meydana gelir (her 1, 2, 4, 8, 10 ve ardından 30 dakikada bir şeklinde).
-5. **Planlanan/planlanmamış yük devretme** | Gerektiğinde planlanan veya planlanmamış yük devretme işlemleri çalıştırabilirsiniz.<br/><br/> Planlı bir yük devretme çalıştırırsanız, veri kaybı olmaması için kaynak VM’ler kapatılır.<br/><br/> Oluşturulan çoğaltma VM’leri, yürütme bekleniyor durumuna geçirilir. Yük devretmeyi tamamlamak için işlemleri yürütmeniz gerekir.<br/><br/> Birincil site çalışır duruma geldikten sonra, site kullanılabilir hale geldiğinde buraya yeniden çalışma gerçekleştirebilirsiniz.
-
-
-**Şekil 8: Hyper-V iş akışı**
-
-![iş akışı](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
-
-
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Önkoşulları denetleme](site-recovery-prereq.md)
+- Hyper-V çoğaltma iş akışı hakkında [daha fazla bilgi edinin](site-recovery-hyper-v-azure-architecture.md).
+- [Önkoşulları denetleme](site-recovery-prereq.md)
 

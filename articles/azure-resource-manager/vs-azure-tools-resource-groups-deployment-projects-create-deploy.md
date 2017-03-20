@@ -1,5 +1,5 @@
 ---
-title: Azure Kaynak Grubu Visual Studio projeleri | Microsoft Belgeleri
+title: Visual Studio Azure kaynak grubu projeleri | Microsoft Belgeleri
 description: "Azure kaynak grubu projesi oluşturmak ve kaynakları Azure&quot;a dağıtmak için Visual Studio&quot;yu kullanın."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2016
+ms.date: 03/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
-ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -25,17 +26,17 @@ Visual Studio ve [Azure SDK](https://azure.microsoft.com/downloads/) ile altyap�
 
 Azure Kaynak Grubu projeleri, Azure’da dağıttığınız kaynakları tanımlayan Azure Resource Manager JSON şablonlarını içerir. Resource Manager şablonu bileşenleri hakkında daha fazla bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md). Visual Studio bu şablonları düzenlemenize olanak tanır ve şablonlarla çalışmayı basitleştiren araçlar sunar.
 
-Bu konuda, bir web uygulaması ve SQL veritabanı dağıtacaksınız. Ancak, adımlar tüm kaynak türleri için neredeyse aynıdır. Bir Sanal Makineyi ve ilgili kaynaklarını da kolayca dağıtabilirsiniz. Visual Studio genelde karşılaşılan senaryoların dağıtılması için birçok farklı başlangıç şablonu sağlar.
+Bu makalede bir web uygulaması ve SQL Veritabanı dağıtacaksınız. Ancak, adımlar tüm kaynak türleri için neredeyse aynıdır. Bir Sanal Makineyi ve ilgili kaynaklarını da kolayca dağıtabilirsiniz. Visual Studio genelde karşılaşılan senaryoların dağıtılması için birçok farklı başlangıç şablonu sağlar.
 
-Bu makalede, Visual Studio 2015 Güncelleştirme 2 ve .NET 2.9 için Microsoft Azure SDK gösterilmiştir. Azure SDK 2.9 ile Visual Studio 2013 kullanıyorsanız, deneyiminiz büyük ölçüde aynı olacaktır. Azure SDK 2.6 veya sonraki sürümlerini kullanabilirsiniz. Ancak, kullanıcı arabirimindeki deneyiminiz bu makalede gösterilenden farklı olabilir. Adımları uygulamaya başlamadan önce [Azure SDK](https://azure.microsoft.com/downloads/)’nın en son sürümünü yüklemenizi kesinlikle öneririz. 
+Bu makalede Visual Studio 2017 gösterilmektedir. Visual Studio 2015 Güncelleştirme 2 ve .NET 2.9 için Microsoft Azure SDK veya Azure SDK 2.9 ile Visual Studio 2013 kullanıyorsanız, deneyiminiz büyük ölçüde aynıdır. Azure SDK 2.6 veya sonraki sürümlerini kullanabilirsiniz. Ancak, kullanıcı arabirimindeki deneyiminiz bu makalede gösterilenden farklı olabilir. Adımları uygulamaya başlamadan önce [Azure SDK](https://azure.microsoft.com/downloads/)’nın en son sürümünü yüklemenizi kesinlikle öneririz. 
 
 ## <a name="create-azure-resource-group-project"></a>Azure Kaynak Grubu projesi oluşturma
 Bu yordamda, bir **Web uygulaması + SQL** şablonu ile Azure Kaynak Grubu projesi oluşturacaksınız.
 
-1. Visual Studio’da, **Dosya**, **Yeni Proje**’yi ve ardından **C#** veya **Visual Basic** seçeneğini belirleyin. Daha sonra **Bulut** ve ardından **Azure Kaynak Grubu** projesi seçeneğini belirleyin.
+1. Visual Studio’da, **Dosya**, **Yeni Proje**’yi ve ardından **C#** veya **Visual Basic** seçeneğini belirleyin. Daha sonra **Bulut** ve **Azure Kaynak Grubu** projesini seçin.
    
     ![Bulut Dağıtım Projesi](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Azure Resource Manager’da dağıtmak istediğiniz şablonu seçin. Dağıtmak istediğiniz proje türüne bağlı olarak çok sayıda farklı seçeneğiniz olduğunu unutmayın. Bu konu için **Web uygulaması + SQL** şablonunu seçin.
+2. Azure Resource Manager’da dağıtmak istediğiniz şablonu seçin. Dağıtmak istediğiniz proje türüne bağlı olarak çok sayıda farklı seçeneğiniz olduğunu unutmayın. Bu makale için **Web uygulaması + SQL** şablonunu seçin.
    
     ![Şablon seçme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
@@ -47,7 +48,7 @@ Bu yordamda, bir **Web uygulaması + SQL** şablonu ile Azure Kaynak Grubu proje
    > 
    
     Visual Studio, web uygulaması ve SQL Database için bir kaynak grubu dağıtım projesi oluşturur.
-3. Oluşturduğunuz öğeleri görmek için dağıtım projesindeki düğümleri genişletin.
+3. Oluşturduğunuz öğeleri görmek için dağıtım projesindeki düğümlere bakın.
    
     ![düğümleri gösterme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
@@ -113,7 +114,7 @@ Visual Studio, şablonu düzenlerken hangi özellikleri kullanabileceğinizi anl
 ## <a name="deploy-the-resource-group-project-to-azure"></a>Azure’da Kaynak Grubu projesi dağıtma
 Artık, projenizi dağıtmaya hazırsınız. Bir Azure Kaynak Grubu projesi dağıttığınızda, bunu bir Azure kaynak grubuna dağıtırsınız. Kaynak grubu, ortak bir yaşam döngüsünü paylaşan kaynakların mantıksal bir gruplandırmasıdır.
 
-1. Dağıtım proje düğümünün kısayol menüsünde **Dağıt** > **Yeni Dağıtım** seçeneklerini belirleyin.
+1. Dağıtım proje düğümünün kısayol menüsünde **Dağıt** > **Yeni** seçeneklerini belirleyin.
    
     ![Dağıt, Yeni Dağıtım menü öğesi](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
    
@@ -150,7 +151,7 @@ Artık, projenizi dağıtmaya hazırsınız. Bir Azure Kaynak Grubu projesi dağ
 6. Dağıtım birkaç dakika sürebilir. **Çıktı** pencerelerinde dağıtımın durumunu görürsünüz. Dağıtım tamamlandığında son ileti aşağıdakine benzer bir ifadeyle dağıtımın başarılı olduğunu belirtir:
    
         ... 
-        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
+        18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
 7. Bir tarayıcıda [Azure portal](https://portal.azure.com/)’ı açın ve hesabınızda oturum açın. Kaynak grubunu görmek için **Kaynak grupları**’nu ve dağıttığınız kaynak grubunu seçin.
    
     ![grup seçme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
@@ -162,7 +163,7 @@ Artık, projenizi dağıtmaya hazırsınız. Bir Azure Kaynak Grubu projesi dağ
     ![Dağıtılan Azure kaynak grubu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
 ## <a name="deploy-code-with-your-infrastructure"></a>Altyapınızla kodları dağıtma
-Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıtılan gerçek bir kod yoktur. Bu konuda, bir web uygulaması ve SQL Database tablolarını dağıtım sırasında nasıl dağıtacağınız gösterilir. Bir web uygulaması yerine bir Sanal Makine dağıtıyorsanız, dağıtımının bir parçası olarak bazı kodlar çalıştırmak isteyebilirsiniz. Bir web uygulaması için kod dağıtma veya Sanal Makine kurma işlemi neredeyse aynıdır.
+Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıtılan gerçek bir kod yoktur. Bu makalede bir web uygulaması ve SQL Database tablolarını dağıtım sırasında nasıl dağıtacağınız gösterilir. Bir web uygulaması yerine bir Sanal Makine dağıtıyorsanız, dağıtımının bir parçası olarak bazı kodlar çalıştırmak isteyebilirsiniz. Bir web uygulaması için kod dağıtma veya Sanal Makine kurma işlemi neredeyse aynıdır.
 
 1. Visual Studio çözümünüze bir proje ekleyin. Çözüme sağ tıklayın ve **Ekle** > **Yeni Proje** öğesini seçin.
    
@@ -170,7 +171,7 @@ Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıt�
 2. Bir **ASP.NET Web Uygulaması** oluşturun. 
    
     ![web uygulaması ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
-3. **MVC**’yi seçin ve kaynak grubu projesi bu görevi gerçekleştirdiğinden **Bulutta barındır** alanını temizleyin.
+3. **MVC** öğesini seçin.
    
     ![MVC’yi seçme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
 4. Visual Studio web uygulamanızı oluşturduktan sonra her iki projeyi de çözümde görürsünüz.
@@ -194,7 +195,7 @@ Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıt�
    * **Build;Package** varsayılan değeri, dağıtımın bir web dağıtımı paketi (package.zip) oluşturmasını sağlar.  
      
      Dağıtım paketi oluşturmak için gereken bilgileri özelliklerden elde ettiği için bir yayımlama profili gerekmez.
-7. Şablona bir kaynak ekleyin.
+7. WebSiteSQLDatabase.json dosyasına geri dönüp şablona bir kaynak ekleyin.
    
     ![kaynak ekle](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 8. Bu kez **Web Apps için Web Dağıtımı**’nı seçin. 
@@ -215,10 +216,5 @@ Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıt�
 ## <a name="next-steps"></a>Sonraki adımlar
 * Portalı kullanarak kaynaklarınızı yönetme hakkında daha fazla bilgi için bkz. [Azure portalı kullanarak Azure kaynaklarınızı yönetme](resource-group-portal.md).
 * Şablonlar hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -16,16 +16,17 @@ ms.topic: get-started-article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 2cb69f253e1a6d01b412775bbfc37de3423bde0b
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 858d6115ed3a96e3b6a3362ff8f5c1fc4c279bd2
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="overview-apache-spark-on-hdinsight"></a>Genel Bakış: HDInsight’ta Apache Spark
 
-<a href="http://spark.apache.org/" target="_blank">Apache Spark</a>, Büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen açık kaynaklı bir paralel işleme altyapısıdır. Spark işleme altyapısı hız, kullanım kolaylığı, gelişmiş analizler için oluşturulmuştur. Spark'ın bellek içi hesaplama özellikleri onu, machine learning ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim haline getirir. Azure'da depolanan mevcut verilerinizi Spark aracılığıyla kolayca işleyebileceğiniz şekilde Spark Azure Blob Storage (WASB) ile de uyumludur.
+<a href="http://spark.apache.org/" target="_blank">Apache Spark</a>, Büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen açık kaynaklı bir paralel işleme altyapısıdır. Spark işleme altyapısı hız, kullanım kolaylığı, gelişmiş analizler için oluşturulmuştur. Spark'ın bellek içi hesaplama özellikleri onu, machine learning ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim haline getirir. Azure'da depolanan mevcut verilerinizi Spark aracılığıyla kolayca işleyebileceğiniz şekilde Spark Azure Depolama (WASB) ile de uyumludur.
 
-HDInsight’ta Spark kümesi oluşturduğunuzda, Spark yüklenmiş ve yapılandırılmış olarak Azure işlem kaynakları oluşturursunuz. HDInsight’ta Spark kümesi oluşturmak yalnızca yaklaşık on dakika sürer. İşlenecek veriler Azure Blob Storage’da depolanır. Bkz. [HDInsight ile Azure Blob Depolama'yı kullanma][hdinsight-storage].
+HDInsight’ta Spark kümesi oluşturduğunuzda, Spark yüklenmiş ve yapılandırılmış olarak Azure işlem kaynakları oluşturursunuz. HDInsight’ta Spark kümesi oluşturmak yalnızca yaklaşık on dakika sürer. İşlenecek veriler Azure Depolama’da depolanır. Bkz. [HDInsight ile Azure Depolama'yı kullanma][hdinsight-storage].
 
 ![Azure HDInsight’ta Apache Spark](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Azure HDInsight’ta Apache Spark")
 
@@ -52,7 +53,7 @@ Azure HDInsight tam olarak yönetilen bir Spark hizmeti sunar. HDInsight’ta Sp
 | SSD’de önbelleğe alma |Bellekte veya küme düğümlerine ekli SSD’lerde verileri önbelleğe almayı için seçebilirsiniz. Bellekte önbelleğe alma, en iyi sorgu performansını sağlar, ancak pahalı olabilir; SSD’lerde önbelleğe alma, veri kümesinin tamamının belleğe sığması için gerekli olan boyutta bir küme oluşturmak zorunda kalmadan sorgu performansını artırmak için harika bir seçenek sağlar. |
 | BI araçları ile tümleştirme |HDInsight için Spark veri analizleri amacıyla BI araçları için [Power BI](http://www.powerbi.com/) ve [Tableau](http://www.tableau.com/products/desktop) gibi bağlayıcılar sağlar.  |
 | Önceden yüklenmiş Anaconda kitaplıkları |HDInsight’ta Spark kümeleri önceden yüklenmiş Anaconda kitaplıkları ile gelir. [Anaconda](http://docs.continuum.io/anaconda/) machine learning, veri analizi, görselleştirme vb. için 200’e yakın kitaplık sağlar. |
-| Ölçeklenebilirlik |Oluşturma sırasında kümedeki düğüm sayısını belirtebilseniz de, iş yüküyle eşleşmesi için kümeyi büyütmek ya da küçültmek isteyebilirsiniz. Tüm HDInsight kümeleri kümedeki düğüm sayısını değiştirmenize izin verir. Ayrıca, tüm veriler Azure Blob Storage’da depolandığından, Spark kümeleri veri kaybı olmadan bırakılabilir. |
+| Ölçeklenebilirlik |Oluşturma sırasında kümedeki düğüm sayısını belirtebilseniz de, iş yüküyle eşleşmesi için kümeyi büyütmek ya da küçültmek isteyebilirsiniz. Tüm HDInsight kümeleri kümedeki düğüm sayısını değiştirmenize izin verir. Ayrıca, tüm veriler Azure Depolama’da depolandığından, Spark kümeleri veri kaybı olmadan bırakılabilir. |
 | 7/24 Destek |HDInsight’ta Spark kuruluş düzeyinde 7/24 destek ve % 99,9 çalışma süreli SLA ile birlikte gelir. |
 
 ## <a name="what-are-the-use-cases-for-spark-on-hdinsight"></a>HDInsight’ta Spark için kullanım örnekleri nelerdir?
@@ -75,7 +76,7 @@ Apache Spark, Spark üzerinde kurulu bir machine learning kitaplığı olan [MLl
 
 Gerçek zamanlı verileri çözümleme, verileri yerleşimi boyunca işleyerek veri öngörüleri için süreyi azaltmaktan gerçek akışlı bir çözüm oluşturmaya değişen senaryolar için kullanılır. HDInsight’ta Spark gerçek zamanlı analiz çözümleri oluşturmak için zengin destek sunar. Spark, Kafka, Flume, Twitter, ZeroMQ veya TCP yuvaları gibi pek çok kaynaktan veri almak için halihazırda bağlayıcılara sahip olmakla birlikte,HDInsight’ta Spark Azure Event Hubs’tan veri almak için birinci sınıf destek eklemektedir. Event Hubs Azure’da en yaygın şekilde kullanılan sıraya alma hizmetidir. Event Hubs için sahip olduğu sıra dışı destek HDInsight’ta Spark’ı gerçek zamanlı çözümlemeler işlem hattı oluşturmak için ideal bir platform haline getirir.
 
-## <a name="a-namenext-stepsawhat-components-are-included-as-part-of-a-spark-cluster"></a><a name="next-steps"></a>Spark kümesinin birer parçası olarak hangi bileşenler dahildir?
+## <a name="next-steps"></a>Spark kümesinin birer parçası olarak hangi bileşenler dahildir?
 HDInsight’ta Spark, kümelerinde varsayılan olarak bulunan aşağıdaki bileşenleri içerir.
 
 * [Spark Core](https://spark.apache.org/docs/1.5.1/). Spark Core, Spark SQL, Spark akış API’leri, GraphX ve MLlib’i içerir.
@@ -113,9 +114,4 @@ HDInsight Linux’ta Spark kümesi oluşturma ile başlayın. Bkz. [Hızlı Baş
 * [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](hdinsight-apache-spark-job-debugging.md)
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

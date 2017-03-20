@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 5121b2f9d33ebf4749fae6d990feab3bf9244e93
-ms.openlocfilehash: 6b99dbbacd9451285cca29de4a72ffb1473479fc
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -53,14 +53,14 @@ Bu öğreticide şunları yapacaksınız:
 
    ![Azure Virtual Machines Dikey Penceresi](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Kullanılabilir SQL Server şablonlarını gözden geçirin. Her şablon bir SQL Server sürümü ve işletim sistemi tanımlar. 
-6. Windows Server 2016 üzerinde SQL Server 2016 SP1 Developer şablonunu seçin.
+5. Kullanılabilir SQL Server görüntülerini gözden geçirin. Her görüntü bir SQL Server sürümü ve işletim sistemi tanımlar. 
+6. Windows Server 2016 üzerinde SQL Server 2016 SP1 Developer görüntüsünü seçin.
 
    > [!TIP]
    > Geliştirme testi amacıyla kullanım için ücretsiz olan tam özellikli SQL Server sürümü olduğundan bu öğreticide Developer sürümü kullanılmıştır. Yalnızca çalışan VM'ler için ücret ödersiniz.
    
    > [!NOTE]
-   > SQL VM görüntüleri, oluşturduğunuz VM'nin dakika başına fiyatlandırmasına SQL Server lisans maliyetlerini ekler (Developer ve Express sürümler hariç). SQL Server Developer geliştirme/test için (üretim için değil), SQL Express ise hafif iş yükleri (1 GB bellek ve 10 GB depolama alanı sınırının altı) için ücretsizdir. Diğer seçenek ise kendi lisansınızı getirmeniz (KLG) ve böylece yalnızca sanal makine için ödeme yapmanızdır. Bu görüntü adlarının başına {BYOL} ön eki getirilir. Bu seçenek hakkında daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server kullanmaya başlama](virtual-machines-windows-sql-server-iaas-overview.md).
+   > SQL VM görüntüleri, oluşturduğunuz VM'nin dakika başına fiyatlandırmasına SQL Server lisans maliyetlerini ekler (Developer ve Express sürümleri hariç). SQL Server Developer geliştirme/test için (üretim için değil), SQL Express ise hafif iş yükleri (1 GB bellek ve 10 GB depolama alanı sınırının altı) için ücretsizdir. Diğer seçenek ise kendi lisansınızı getirmeniz (KLG) ve böylece yalnızca sanal makine için ödeme yapmanızdır. Bu görüntü adlarının başına {BYOL} ön eki getirilir. Bu seçenek hakkında daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server kullanmaya başlama](virtual-machines-windows-sql-server-iaas-overview.md).
    > 
    > 
 7. **Dağıtım modeli seçin** altında, **Resource Manager**’ın seçili olduğunu doğrulayın. Yeni sanal makineler için önerilen dağıtım modeli Resource Manager’dır. **Oluştur**’a tıklayın.
@@ -97,7 +97,7 @@ Bir SQL Server sanal makineyi yapılandırmak için beş dikey pencere vardır.
     ![SQL Temel Bilgileri Dikey Penceresi](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Sanal makine boyutunu seçme
-**Boyut** adımında, **Boyutu seç** dikey penceresinde bir sanal makine boyutunu seçin. Dikey pencere ilk başta seçtiğiniz şablona göre önerilen makine boyutlarını görüntüler. Ayrıca VM’yi çalıştırmak için aylık maliyeti de hesaplar.
+**Boyut** adımında, **Boyutu seç** dikey penceresinde bir sanal makine boyutunu seçin. Dikey pencere ilk başta seçtiğiniz görüntüye göre önerilen makine boyutlarını görüntüler. Ayrıca VM’yi çalıştırmak için aylık maliyeti de hesaplar.
 
 ![SQL VM Boyut Seçenekleri](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -121,7 +121,8 @@ Makine boyutunuzu seçin ve ardından **Seç**’e tıklayın.
 > 
 
 * **Depolama hesabı** altında, otomatik olarak sağlanan depolama hesabı adını kabul edebilirsiniz. Ayrıca varolan bir hesabı seçmek için **Depolama hesabı**’na da tıklayabilir ve hesap türünü yapılandırabilirsiniz. Varsayılan olarak, Azure yerel olarak yedekli depolama ile yeni bir depolama hesabı oluşturur. Depolama seçenekleri hakkında daha fazla bilgi için bkz. [Azure Storage çoğaltma](../../../storage/storage-redundancy.md).
-* **Ağ** altında, otomatik olarak doldurulan değerleri kabul edebilirsiniz. **Sanal ağ**, **Alt ağ**, **Genel IP adresi** ve **Ağ Güvenlik Grubu**’nu el ile yapılandırmak için her bir özelliğe de tıklayabilirsiniz.. Bu öğreticinin amaçları doğrultusunda, varsayılan değerleri koruyun.
+* **Ağ** altında, otomatik olarak doldurulan değerleri kabul edebilirsiniz. <seg>
+  **Sanal ağ**, **Alt ağ**, **Genel IP adresi** ve **Ağ Güvenlik Grubu**’nu el ile yapılandırmak için her bir özelliğe de tıklayabilirsiniz..</seg> Bu öğreticinin amaçları doğrultusunda, varsayılan değerleri koruyun.
 * Azure varsayılan olarak, VM için belirlenen aynı depolama hesabıyla **İzleme**’yi etkinleştirir. Burada bu ayarları değiştirebilirsiniz.
 * **Kullanılabilirlik kümesi** altında, bir kullanılabilirlik kümesi belirtin. Bu öğreticinin amaçları doğrultusunda, **yok**u seçebilirsiniz. SQL AlwaysOn Kullanılabilirlik Grupları kurulumunu planlıyorsanız, sanal makinenin yeniden oluşturulmasını önlemek için kullanılabilirliği yapılandırın.  Daha fazla bilgi için bkz. [Sanal Makinelerin Kullanılabilirliğini Yönetme](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

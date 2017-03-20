@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 2575621d72b7db2b090ba923324697b7fa7b8308
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -82,9 +82,9 @@ Zip dosyasını, aracı çalıştırmak istediğiniz Windows Server’a kopyalay
 Zip klasörünü ayıklayın. Birden fazla dosya ve alt klasör görebilirsiniz. Yürütülebilir dosya, üst klasördeki ASRDeploymentPlanner.exe dosyasıdır.
 
 Örnek: .zip dosyasını E:\ sürücüsüne kopyalayıp ayıklayın.
-E:\ASR Deployment Planner-Preview_v1.0.zip
+E:\ASR Deployment Planner-Preview_v1.1.zip
 
-E:\ASR Deployment Planner-Preview_v1.0\ ASR Deployment Planner-Preview_v1.0\ ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
 ##<a name="capabilities"></a>Özellikler
 Komut satırı aracı (ASRDeploymentPlanner.exe) aşağıdaki üç modun herhangi birinde çalıştırılabilir:
@@ -199,7 +199,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 
 
 ##### <a name="example-2-to-generate-report-when-profiled-data-is-on-a-remote-server-user-should-have-readwrite-access-on-the-remote-directory"></a>Örnek 2: Profili oluşturulan veriler uzak bir sunucuda olduğunda rapor oluşturma. Kullanıcının uzak dizin üzerinde okuma/yazma erişimi olmalıdır.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 
 ##### <a name="example-3-generate-report-with-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Örnek 3: Belirli bir bant genişliği ve belirtilen süre içinde IR tamamlama hedefi ile rapor oluşturma
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
@@ -407,10 +407,10 @@ Tüm uyumlu sanal makinelerdeki toplam disk sayısı, tüm uyumlu sanal makinele
 
 **Yerleştirilecek Sanal Makineler**, en iyi performans ve kullanım için belirli bir Azure Depolama hesabına yerleştirilmesi gereken tüm sanal makineleri listeler.
 
-##<a name="compatible-vms"></a>Uyumlu VM’ler
+## <a name="compatible-vms"></a>Uyumlu VM’ler
 ![Dağıtım Planlayıcısı](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM Adı**, rapor oluşturma sırasında VMListFile içinde kullanılan sanal makine adı veya IP adresidir. Bu sütunda ayrıca sanal makinelere bağlanan diskler (VMDK) listelenir.
+**VM Adı**, rapor oluşturma sırasında VMListFile içinde kullanılan sanal makine adı veya IP adresidir. Bu sütunda ayrıca sanal makinelere bağlanan diskler (VMDK) listelenir. Bir vCenter üzerinde yinelenen adlara veya IP adreslerine sahip sanal makineler, her bir sanal makineyi ayırt etmek için ESXi ana bilgisayar adıyla belirtilir. Listelenen ESXi ana bilgisayarı, profil oluşturma sırasında sanal makine araç tarafından ilk kez bulunduğunda sanal makinenin yerleştirildiği ana bilgisayardır.
 
 **VM Uyumluluğu** iki değere sahiptir – Evet / Evet*. Evet*, sanal makinenin P20 veya P30 kategorisinde profili oluşturulmuş yüksek değişim sıklığı /IOPS disk uyumu ile [premium Azure Depolama](https://aka.ms/premium-storage-workload)’ya uygun olduğu, ancak disk boyutunun P10 veya P20 ile eşlenmeye neden olduğu durumlar için geçerlidir. Azure Depolama, bir diskin hangi premium depolama disk türüne eşleneceğine, boyutuna göre karar verir – örn. < 128 GB P10, 128 ila 512 GB P20, 512 GB ila 1023 GB ise P30’dur. Bu nedenle, bir diskin iş yükü özellikleri onu P20 veya P30’a yerleştirir, ancak boyutu onu daha düşük bir premium depolama disk türü ile eşlerse, araç bu sanal makineyi Evet* olarak işaretler ve kaynak disk boyutunu önerilen doğru premium depolama disk türüne uyacak şekilde değiştirmenizi ya da yük devretme sonrasındaki hedef disk türünü değiştirmenizi önerir.
 Depolama Türü standart veya premiumdur.
@@ -439,7 +439,7 @@ Depolama Türü standart veya premiumdur.
 
 ![Dağıtım Planlayıcısı](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**VM Adı**, rapor oluşturma sırasında VMListFile içinde kullanılan sanal makine adı veya IP adresidir. Bu sütunda ayrıca sanal makinelere bağlanan diskler (VMDK) listelenir.
+**VM Adı**, rapor oluşturma sırasında VMListFile içinde kullanılan sanal makine adı veya IP adresidir. Bu sütunda ayrıca sanal makinelere bağlanan diskler (VMDK) listelenir. Bir vCenter üzerinde yinelenen adlara veya IP adreslerine sahip sanal makineler, her bir sanal makineyi ayırt etmek için ESXi ana bilgisayar adıyla belirtilir. Listelenen ESXi ana bilgisayarı, profil oluşturma sırasında sanal makine araç tarafından ilk kez bulunduğunda sanal makinenin yerleştirildiği ana bilgisayardır.
 
 **VM Uyumluluğu**, belirli bir sanal makinenin Azure Site recovery ile kullanıma neden uyumlu olmadığını gösterir. Nedenler sanal makinenin her uyumsuz diski için ayrıca gösterilir ve yayımlanan Azure Depolama [limitlerine](https://aka.ms/azure-storage-scalbility-performance) göre aşağıdakilerden biri olabilir.
 
@@ -483,7 +483,24 @@ Bunlar %30 G/Ç çakışmasını varsayan ortalama sayılardır. Azure Site Reco
 
 Yukarıdaki yayımlanmış limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişir. En iyi sonuçlar için, gerçek performans görüntüsünü elde etmek üzere, dağıtım planlamasından sonra bile yük devretme testi kullanılarak her zaman kapsamlı uygulama testleri gerçekleştirilmesi önerilir.
 
-##<a name="release-notes"></a>Sürüm notları
+## <a name="how-to-update-the-deployment-planner"></a>Dağıtım Planlayıcısı nasıl güncelleştirilir?
+Azure Site Recovery Dağıtım Planlayıcısı’nın en son sürümünü [indirin](site-recovery-deployment-planner.md#download). Zip dosyasını çalıştırmak istediğiniz sunucuya kopyalayın. Zip dosyasını ayıklayın.
+Dağıtım planlayıcısının önceki bir sürümü zaten varsa ve profil oluşturma devam ediyorsa, yeni sürümde profil oluşturma düzeltmesi olmadıkça profil oluşturma işlemini durdurmanız gerekmez. Sürümün profil oluşturma bileşeninde düzeltmeleri varsa, eski sürümü kullanarak profil oluşturmayı durdurmanız ve yeni sürümü kullanarak profil oluşturma işlemini yeniden başlatmanız önerilir. Yeni sürümü kullanarak profil oluşturma işlemini başlattığınızda, aracın profil verilerini mevcut dosyalara ekleyebilmesi ve rapor oluşturma işleminde profili oluşturulmuş tüm verilerin kullanılabilmesi için aynı çıkış dizini yolundan geçmeniz gerekir. Farklı bir çıkış dizininden geçerseniz, yeni dosyalar oluşturulur ve profili oluşturulmuş eski veriler rapor oluşturma işleminde kullanılamaz.<br> Her güncelleştirme, zip dosyası içeren bir toplu güncelleştirmedir. Yeni sürüm dosyalarını, kullanılabilmesi için önceki sürüm klasörüne kopyalamanız gerekmez. Bunun için yeni klasörü kullanabilirsiniz.
+
+
+##<a name="version-history"></a>Sürüm Geçmişi
+### <a name="11"></a>1.1
+Güncelleştirme: 09 Mar 2017 <br>
+
+Aşağıdaki sorunlar çözülmüştür<br>
+
+* vCenter farklı ESXi ana bilgisayarları üzerinde aynı ad/IP adresine sahip iki veya daha fazla sanal makineye sahipse, sanal makinelerin profili oluşturulamaz.<br>
+* Uyumlu VM'ler ve Uyumsuz VM sayfaları için kopyalama ve arama devre dışı bırakıldı.
+
+
+### <a name="10"></a>1.0 
+Güncelleştirme: 23 Şub 2017 
+
 Azure Site Recovery Dağıtım Planlayıcısı Genel Önizleme 1.0 sürümünde, gelecek güncelleştirmelerde giderilecek aşağıdaki bilinen sorunlar bulunmaktadır.
 
 * Araç yalnızca VMware’den Azure’a senaryosu için çalışır, Hyper-V’den Azure’a dağıtımlar için çalışmaz. Hyper-V’den Azure’a dağıtım senaryosu için [Hyper-V kapasite planlayıcısı aracını](./site-recovery-capacity-planning-for-hyper-v-replication.md) kullanın.

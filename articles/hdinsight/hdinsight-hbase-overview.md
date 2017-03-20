@@ -17,8 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: ec9e3c6c6919bb5ce50553a29536f821fe79f577
-ms.openlocfilehash: 3d8ee1d23fab0b410bce711afc27f8bbbad4c7e4
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 8b1d057ab533e5665513b5b5969b48e18a3ae40c
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -28,7 +29,7 @@ Apache HBase, Hadoop’ta oluşturulan ve Google BigTable’a göre modellenen a
 Veriler bir tablonun satırlarında depolanır ve satır içindeki veriler sütun ailesi tarafından gruplandırılır. HBase, kullanılmadan önce sütunların ya da bunlarda depolanan veri türünün tanımlanmasına gerek duyulmayan, şemasız bir veritabanıdır. Açık kaynak kodu, binlerce düğümdeki petabaytlarca verileri işlemek için doğrusal olarak ölçeklendirir. Veri yedekleme, toplu işleme ve Hadoop ekosistemindeki dağıtılmış uygulamalar tarafından sağlanan diğer özelliklere dayanabilir.
 
 ## <a name="how-is-hbase-implemented-in-azure-hdinsight"></a>Azure HDInsight’ta HBase nasıl uygulanır?
-HDInsight HBase, Azure ortamına tümleştirilmiş yönetilen bir küme olarak sunulur. Kümeler, düşük gecikme süresi ve performans ve maliyet seçeneklerinde artan esneklik sağlayan, Azure Blob Storage’da verileri doğrudan depolamak için yapılandırılmıştır. Bu, müşterilerin milyonlarca uç noktadan gelen algılayıcı ve telemetri verilerini depolayan hizmetleri oluşturmak ve bu verileri Hadoop işleriyle çözümlemek üzere etkileşimli web siteleri oluşturmalarını sağlar. HBase ve Hadoop Azure’da büyük veri projeleri için yi başlangıç noktalarıdır; bunlar özellikle büyük veri kümeleriyle çalışmak üzere gerçek zamanlı uygulamaları etkinleştirebilir.
+HDInsight HBase, Azure ortamına tümleştirilmiş yönetilen bir küme olarak sunulur. Kümeler, düşük gecikme süresi ve performans ve maliyet seçeneklerinde artan esneklik sağlayan, Azure Depolama’da verileri doğrudan depolamak için yapılandırılmıştır. Bu, müşterilerin milyonlarca uç noktadan gelen algılayıcı ve telemetri verilerini depolayan hizmetleri oluşturmak ve bu verileri Hadoop işleriyle çözümlemek üzere etkileşimli web siteleri oluşturmalarını sağlar. HBase ve Hadoop Azure’da büyük veri projeleri için yi başlangıç noktalarıdır; bunlar özellikle büyük veri kümeleriyle çalışmak üzere gerçek zamanlı uygulamaları etkinleştirebilir.
 
 HDInsight uygulaması, tabloların otomatik parçalanmasını, okumalar ve yazmalar için yüksek tutarlılık ve otomatik yük devretme sağlamak için HBase’in ölçek genişletmeli mimarisinden yararlanır. Performans, okumalar için bellek içi önbelleğe alma ve yazmalar için yüksek verimlilikli akış tarafından geliştirilmiştir. HBase kümesi sanal ağda oluşturulabilir. Ayrıntılar için bkz. [Azure Sanal Ağ'da HDInsight kümeleri oluşturma][hbase-provision-vnet].
 
@@ -51,14 +52,14 @@ BigTable’ın (ve uzantılarının, HBase) oluşturulma nedeni olan kurallı ku
   
     Uygulamalar, bir veri deposu olarak kullanarak HBase’in üstünde çalışabilir. Örnek olarak Phoenix, OpenTSDB, Kiji ve Titan verilebilir. Uygulamalar HBase ile de tümleştirebilir. Örnek olarak, Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia ve Dril verilebilir.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [HDInsight'ta Hadoop ile HBase kullanmaya başlama][hbase-get-started]
 * [Azure Sanal Ağ'da HDInsight kümeleri oluşturma][hbase-provision-vnet]
 * [HDInsight’ta HBase çoğaltmayı yapılandırma](hdinsight-hbase-replication.md)
 * [HDInsight'ta HBase ile Twitter düşüncelerini çözümleme][hbase-twitter-sentiment]
 * [HDInsight ile HBase kullanan Java uygulamaları oluşturmak için Maven kullanma (Hadoop)][hbase-build-java-maven]
 
-## <a name="a-namesee-alsoasee-also"></a><a name="see-also"></a>Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 * [Apache HBase](https://hbase.apache.org/)
 * [Bigtable: Yapılandırılmış Veriler için Dağıtılmış Depolama Sistemi](http://research.google.com/archive/bigtable.html)
 
@@ -81,9 +82,4 @@ BigTable’ın (ve uzantılarının, HBase) oluşturulma nedeni olan kurallı ku
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

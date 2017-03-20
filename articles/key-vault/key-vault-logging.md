@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
-ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -64,6 +64,11 @@ Birden çok aboneliğiniz varsa Azure Anahtar Kasanızı oluşturmak için kulla
 Ardından, günlüğünü tutacağınız anahtar kasasıyla ilişkili aboneliği belirtmek için şunu yazın:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
+
+> [!NOTE]
+> Bu önemli bir adımdır ve hesabınızla ilişkili birden çok abonelik varsa özellikle yararlıdır. Bu adım atlanırsa Microsoft.Insights’ı kaydetme hatası alabilirsiniz. 
+>   
+>
 
 Azure Power Shell'i yapılandırma hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
@@ -120,8 +125,13 @@ Günlüğe kaydedilenler:
 ## <a id="access"></a>Günlüklerinize erişme
 Anahtar kasası günlükleri, sağladığınız depolama hesabındaki **insights-logs-auditevent** kapsayıcısında depolanır. Bu kapsayıcıdaki tüm blobları listelemek için şunu yazın:
 
-    Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
+İlk olarak, kapsayıcı adı için bir değişken oluşturun. Bu, öğreticinin ilerleyen bölümlerinde kullanılır.
 
+    $container = 'insights-logs-auditevent'
+
+Bu kapsayıcıdaki tüm blobları listelemek için şunu yazın:
+
+    Get-AzureStorageBlob -Container $container -Context $sa.Context
 Çıkış buna benzer şekilde görünür:
 
 **Kapsayıcı Uri'si: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**

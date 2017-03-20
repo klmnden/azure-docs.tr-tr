@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3f8ad9bf72555b9ab19af4c7a15f66b982fe66fe
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -60,7 +60,7 @@ V12'ye özellik eklemeye devam ediyoruz. Bu nedenle Azure için Hizmet Güncelle
 | Uygulama rolleri | [Destekleniyor](https://msdn.microsoft.com/library/ms190998.aspx) | [Destekleniyor](https://msdn.microsoft.com/library/ms190998.aspx) |
 | Otomatik ölçeklendirme | Desteklenmiyor | [Destekleniyor](sql-database-service-tiers.md) |
 | Azure Active Directory | Desteklenmiyor | [Destekleniyor](sql-database-aad-authentication.md) |
-| Azure Data Factory | Desteklenmiyor - Bkz. [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Destekleniyor](https://azure.microsoft.com/services/data-factory/) |
+| Azure Data Factory | [Destekleniyor](../data-factory/data-factory-introduction.md) | [Destekleniyor](../data-factory/data-factory-introduction.md) |
 | Denetim | [Destekleniyor](https://msdn.microsoft.com/library/cc280386.aspx) | [Destekleniyor](sql-database-auditing.md) |
 | BACPAC dosyası (dışarı aktarma) | [Destekleniyor](https://msdn.microsoft.com/library/hh213241.aspx) | [Destekleniyor](sql-database-export.md) |
 | BACPAC dosyası (içeri aktarma) | [Destekleniyor](https://msdn.microsoft.com/library/hh710052.aspx) | [Destekleniyor](sql-database-import-portal.md) |

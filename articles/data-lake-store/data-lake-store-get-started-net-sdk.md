@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
+ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 2ab4e2be8509bb264f496e7ebc6b4b50187c0151
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 1886f806d0c1bdbf5e24720ff84cd00ce2c6d77a
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -36,8 +36,8 @@ ms.lasthandoff: 03/03/2017
 
 Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel işlemler gerçekleştirmek üzere [Azure Data Lake Store .NET SDK’sını](https://msdn.microsoft.com/library/mt581387.aspx) kullanma hakkında bilgi edinin. Data Lake hakkında daha fazla bilgi için bkz. [Azure Data Lake Store](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Önkoşullar
-* **Visual Studio 2013 veya 2015**. Aşağıdaki yönergelerde Visual Studio 2015 kullanılmıştır.
+## <a name="prerequisites"></a>Ön koşullar
+* **Visual Studio 2013, 2015 veya 2017**. Aşağıdaki yönergelerde Visual Studio 2015 Güncelleştirme 2 kullanılmıştır.
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -71,6 +71,7 @@ Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel 
 6. **Program.cs** öğesini açın, var olan kodu silin ve ardından ad alanlarına başvurular eklemek için aşağıdaki deyimleri ekleyin.
    
         using System;
+        using System.IO;
         using System.Threading;
    
         using Microsoft.Rest.Azure.Authentication;
@@ -102,9 +103,9 @@ Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel 
                     _subId = "<SUBSCRIPTION-ID>";
 
                     string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
+                    string localFilePath = Path.Combine(localFolderPath, "file.txt"); // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
-                    string remoteFilePath = remoteFolderPath + "file.txt";
+                    string remoteFilePath = Path.Combine(remoteFolderPath, "file.txt");
                 }
             }
         }
@@ -239,9 +240,10 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabında zaten depolanm
     // Append to file
     public static void AppendToFile(string path, string content)
     {
-        var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
-
-        _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
+        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
+        {
+            _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
+        }
     }
 
 ## <a name="download-a-file"></a>Dosya indirme
@@ -250,12 +252,11 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabındaki bir dosyayı
     // Download file
     public static void DownloadFile(string srcPath, string destPath)
     {
-        var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath);
-        var fileStream = new FileStream(destPath, FileMode.Create);
-
-        stream.CopyTo(fileStream);
-        fileStream.Close();
-        stream.Close();
+        using (var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath))
+        using (var fileStream = new FileStream(destPath, FileMode.Create))
+        {
+            stream.CopyTo(fileStream);
+        }
     }
 
 ## <a name="next-steps"></a>Sonraki adımlar
