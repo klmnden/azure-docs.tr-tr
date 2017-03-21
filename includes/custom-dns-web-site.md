@@ -1,4 +1,4 @@
-# Configuring a custom domain name for an Azure website
+# <a name="configuring-a-custom-domain-name-for-an-azure-website"></a>Configuring a custom domain name for an Azure website
 When you create a website, Azure provides a friendly subdomain on the azurewebsites.net domain so your users can access your website using a URL like http://&lt;mysite>.azurewebsites.net. However, if you configure your websites for Shared or Standard mode, you can map your website to your own domain name.
 
 Optionally, you can use Azure Traffic Manager to load balance incoming traffic to your website. For more information on how Traffic Manager works with Websites, see [Controlling Azure Web Sites Traffic with Azure Traffic Manager][trafficmanager].
@@ -23,7 +23,7 @@ In this article:
 
 CNAME (or alias records) and A records both allow you to associate a domain name with a website, however they each work differently.
 
-### CNAME or Alias record
+### <a name="cname-or-alias-record"></a>CNAME or Alias record
 A CNAME record maps a *specific* domain, such as **contoso.com** or **www.contoso.com**, to a canonical domain name. In this case, the canonical domain name is the either the **&lt;myapp>.azurewebsites.net** domain name of your Azure website or the **&lt;myapp>.trafficmgr.com** domain name of your Traffic Manager profile. Once created, the CNAME creates an alias for the **&lt;myapp>.azurewebsites.net** or **&lt;myapp>.trafficmgr.com** domain name. The CNAME entry will resolve to the IP address of your **&lt;myapp>.azurewebsites.net** or **&lt;myapp>.trafficmgr.com** domain name automatically, so if the IP address of the website changes, you do not have to take any action.
 
 > [!NOTE]
@@ -31,7 +31,7 @@ A CNAME record maps a *specific* domain, such as **contoso.com** or **www.contos
 > 
 > 
 
-### A record
+### <a name="a-record"></a>A record
 An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a wildcard domain* such as **\*.contoso.com**, to an IP address. In the case of an Azure Website, either the virtual IP of the service or a specific IP address that you purchased for your website. So the main benefit of an A record over a CNAME record is that you can have one entry that uses a wildcard, such as ***.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **login.contoso.com**, or **www.contso.com**.
 
 > [!NOTE]
@@ -98,8 +98,7 @@ For example, the following CNAME record forwards all traffic from **www.contoso.
 </tr>
 </table>
 
-A visitor of **www.contoso.com** will never see the true host
-(contoso.azurewebsite.net), so the forwarding process is invisible to the end user.
+A visitor of **www.contoso.com** will never see the true host (contoso.azurewebsite.net), so the forwarding process is invisible to the end user.
 
 > [!NOTE]
 > If you are using Traffic Manager with a website, you do not need to follow the steps in the following sections, '**Add a CNAME for your custom domain**' and '**Add an A record for your custom domain**'. The CNAME record created in the previous steps will route incoming traffic to Traffic Manager, which then routes the traffic to the website endpoint(s).
@@ -139,9 +138,7 @@ For example, the following CNAME record forwards all traffic from **www.contoso.
 </tr>
 </table>
 
-A visitor of **www.contoso.com** will never see the true host
-(contoso.azurewebsite.net), so the forwarding process is invisible to the
-end user.
+A visitor of **www.contoso.com** will never see the true host (contoso.azurewebsite.net), so the forwarding process is invisible to the end user.
 
 > [!NOTE]
 > The example above only applies to traffic at the **www** subdomain. Since you cannot use wildcards with CNAME records, you must create one CNAME for each domain/subdomain. If you want to direct  traffic from subdomains, such as *.contoso.com, to your azurewebsite.net address, you can configure a **URL Redirect** or **URL Forward** entry in your DNS settings, or create an A record.
@@ -151,7 +148,7 @@ end user.
 > 
 > 
 
-### Add the domain name to your website
+### <a name="add-the-domain-name-to-your-website"></a>Add the domain name to your website
 After the CNAME record for domain name has propagated, you must associate it with your website. You can add the custom domain name defined by the CNAME record to your website by using either the Azure Command-Line Interface (Azure CLI) or by using the Azure Management Portal.
 
 **To add a domain name using the command-line tools**
@@ -241,7 +238,7 @@ To create an A record, you must first find the IP address of your website. Then 
 > 
 > 
 
-### Add the domain name to your website
+### <a name="add-the-domain-name-to-your-website"></a>Add the domain name to your website
 After the **awverify** CNAME record for domain name has propagated, you can then associate the custom domain defined by the A record with your website. You can add the custom domain name defined by the A record to your website by using either the Azure CLI or by using the Azure Management Portal.
 
 **To add a domain name using the Azure Command-Line Interface (Azure CLI)**
@@ -278,7 +275,7 @@ Once configuration has completed, the custom domain name will be listed in the *
 > 
 > 
 
-## Next steps
+## <a name="next-steps"></a>Next steps
 * [How to manage web sites](/manage/services/web-sites/how-to-manage-websites/)
 * [Configure an SSL certificate for Web Sites](/develop/net/common-tasks/enable-ssl-web-site/)
 

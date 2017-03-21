@@ -1,4 +1,4 @@
-## Azure portal and Azure preview portal
+## <a name="azure-portal-and-azure-preview-portal"></a>Azure portal and Azure preview portal
 > [!IMPORTANT]
 > The steps in this document use the Azure preview portal. Microsoft recommends using the Azure preview portal when creating new services. For an explanation of the advantages of the preview portal, see [DevOps just got a whole lot more awesome](https://azure.microsoft.com/overview/preview-portal/). 
 > 

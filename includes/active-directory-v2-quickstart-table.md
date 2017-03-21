@@ -1,15 +1,9 @@
-| Mobil ve Yerel Uygulamalar | Web Apps ve Web API'leri | Protokollerle Doğrudan Tümleştirme |
+| Mobile & Native Apps | Web Apps & Web APIs | Integrate Directly with Protocols |
 | --- | --- | --- |
-| [iOS Uygulamasına Oturum Açma Ekleme](../articles/active-directory/develop/active-directory-v2-devquickstarts-ios.md) |[AngularJS SPA’ya Oturum Açma Ekleme (NodeJS)](../articles/active-directory/develop/active-directory-v2-devquickstarts-angular-node.md) |[Uygulamayı Kaydetme](../articles/active-directory/develop/active-directory-v2-app-registration.md) |
-| [Android Uygulamasına Oturum Açma Ekleme](../articles/active-directory/develop/active-directory-v2-devquickstarts-android.md) |[AngularJS SPA’ya Oturum Açma Ekleme (.NET)](../articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md) |[OAuth 2.0 ile Mobile Apps](../articles/active-directory/develop/active-directory-v2-protocols-oauth-code.md) |
-| [Windows Masaüstü Uygulamasına Oturum Açma Ekleme](../articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md) |[.NET MVC Uygulamasına Oturum Açma Ekleme](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md) |[OpenID Connect ile Web Apps](../articles/active-directory/develop/active-directory-v2-protocols-oidc.md) |
-| [Bir uygulamadan Office 365 Rest API’lerini çağırma](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |[Node JS Web Uygulamasına Oturum Açma Ekleme](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md) |[OpenID Connect ile Tek Sayfa Uygulamaları](../articles/active-directory/develop/active-directory-v2-protocols-implicit.md) |
-| [.NET Web API Güvenliğini Sağlama](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-api.md) |[İstemci Kimlik Bilgileri Akışı ile arka plan programları](../articles/active-directory/develop/active-directory-v2-protocols-oauth-client-creds.md) | |
-| [NodeJS Web API Güvenliğini Sağlama](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-api.md) | | |
-| [Web’den Office 365 REST API’lerini çağırma](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | | |
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+| [Add Sign-In to an iOS App](../articles/active-directory/develop/active-directory-v2-devquickstarts-ios.md) |[Add Sign-In to an JS SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |[Register an Application](../articles/active-directory/develop/active-directory-v2-app-registration.md) |
+| [Add Sign-In to an Android App](../articles/active-directory/develop/active-directory-v2-devquickstarts-android.md) |[Add Sign-In to a .NET MVC App](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md) |[Mobile Apps with OAuth 2.0](../articles/active-directory/develop/active-directory-v2-protocols-oauth-code.md) |
+| [Add Sign-In to a Windows Desktop App](../articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md) |[Add Sign-In to a Node JS Web App](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md) |[Web Apps with OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-oidc.md) |
+| [Call Office 365 Rest APIs from an app](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |[Daemon apps with the Client Credentials Flow](../articles/active-directory/develop/active-directory-v2-protocols-oauth-client-creds.md) |[Single Page Apps with OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-implicit.md) |
+| [Secure a .NET Web API](../articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-api.md) | | |
+| [Secure a NodeJS Web API](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-api.md) | | |
+| [Call Office 365 REST APIs from the web](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | | |

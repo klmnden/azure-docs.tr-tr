@@ -2,23 +2,27 @@
 services: virtual-machines
 title: Setting up PowerShell
 author: JoeDavies-MSFT
-solutions: ''
+solutions: 
 manager: timlt
 editor: tysonn
-
 ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: ''
+ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: b3fd172d8dc468780d483821d7067c053e39968e
+ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
+ms.lasthandoff: 01/18/2017
+
 
 ---
-## Setting up PowerShell
+## <a name="setting-up-powershell"></a>Setting up PowerShell
 Before you can use Azure PowerShell, follow these steps.
 
-### Verify PowerShell versions
+### <a name="verify-powershell-versions"></a>Verify PowerShell versions
 Before you can use Windows PowerShell, you must have Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type this command at a Windows PowerShell command prompt.
 
     $PSVersionTable
@@ -47,9 +51,9 @@ You should see something like this.
     -------
     0.8.16.1
 
-For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell](../articles/powershell-install-configure.md).
+For instructions and a link to the latest version, see [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-### Set your Azure account and subscription
+### <a name="set-your-azure-account-and-subscription"></a>Set your Azure account and subscription
 If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 Open an Azure PowerShell command prompt and log on to Azure with this command.
@@ -78,5 +82,6 @@ You can set the current Azure subscription by running these commands at the Azur
     $subscr="<SubscriptionName from the display of Get-AzureSubscription>"
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
-For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](../articles/powershell-install-configure.md#Connect).
+For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](/powershell/azureps-cmdlets-docs#Connect).
+
 

@@ -1,4 +1,4 @@
-## How to deploy with Azure CLI
+## <a name="how-to-deploy-with-azure-cli"></a>How to deploy with Azure CLI
 1. Login to your Azure account.
    
         azure login

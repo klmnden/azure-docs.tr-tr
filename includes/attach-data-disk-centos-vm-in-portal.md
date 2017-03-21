@@ -12,7 +12,7 @@
    
     When you attach a data disk, it's not ready for use until you log in to complete the setup.
 
-## Connect to the Virtual Machine Using SSH or PuTTY and Complete Setup
+## <a name="connect-to-the-virtual-machine-using-ssh-or-putty-and-complete-setup"></a>Connect to the Virtual Machine Using SSH or PuTTY and Complete Setup
 Log on to the virtual machine to complete setup of the disk so you can use it to store data.
 
 1. After the virtual machine is provisioned, connect using SSH or PuTTY and login as **newuser** (as described in the steps above).    

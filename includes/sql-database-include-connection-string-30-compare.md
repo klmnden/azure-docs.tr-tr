@@ -8,7 +8,7 @@ Latest Freshness check:  2015-09-03 , GeneMi.
 -->
 
 
-### Compare the connection string
+### <a name="compare-the-connection-string"></a>Compare the connection string
 The following table compares the connection strings that your C# program needs to connect to your on-premises SQL Server versus your Azure SQL Database in the cloud. The differences are in bold.
 
 | Connection string for<br/>Azure SQL Database | Connection string for<br/>Microsoft SQL Server |
