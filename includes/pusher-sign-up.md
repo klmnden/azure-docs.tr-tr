@@ -1,6 +1,6 @@
 Your first step is to create a new account to use for the tutorial. You can use the FREE Sandbox plan, it's perfect for this tutorial.
 
-### To sign up for a Pusher account
+### <a name="to-sign-up-for-a-pusher-account"></a>To sign up for a Pusher account
 1. Log in to the [Azure Management Portal][Azure Management Portal].
 2. In the lower pane of the management portal, click **New**.
    
@@ -30,7 +30,7 @@ To modify your subscription plan or see the Pusher contact settings, click the n
 
 When using Pusher you will need to supply your Pusher app connection settings.
 
-### To find your Pusher connection settings
+### <a name="to-find-your-pusher-connection-settings"></a>To find your Pusher connection settings
 1. Click **Connection Info**.
    
     ![pusher-connection-info-button][pusher-connection-info-button]

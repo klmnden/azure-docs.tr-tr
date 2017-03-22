@@ -1,58 +1,60 @@
-Aşağıdaki tabloda farklı hizmet katmanları (S1, S2, S3, F1) ile ilişkili sınırlar listelenmektedir. Bir katmandaki her bir *birimin* maliyeti hakkında bilgi için bkz. [IoT Hub Fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/).
+The following table lists the limits associated with the different service tiers (S1, S2, S3, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Kaynak | S1 Standart | S2 Standart | S3 Standart | F1 Ücretsiz |
+| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Free |
 | --- | --- | --- | --- | --- |
-| İleti/gün |400,000 |6,000,000 |300,000,000 |8,000 |
-| En fazla birim |200 |200 |10 |1 |
+| Messages/day |400,000 |6,000,000 |300,000,000 |8,000 |
+| Maximum units |200 |200 |10 |1 |
 
 > [!NOTE]
-> S1 veya S2 hub’ı ile 200’den fazla veya S3 hub’ı ile 10’dan fazla birim kullanacağınızı düşünüyorsanız lütfen Microsoft desteğine başvurun.
+> If you anticipate using more than 200 units with an S1 or S2 or 10 units with an S3 tier hub, contact Microsoft support.
 > 
 > 
 
-Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelenmektedir:
+The following table lists the limits that apply to IoT Hub resources:
 
-| Kaynak | Sınır |
+| Resource | Limit |
 | --- | --- |
-| Azure aboneliği başına en fazla ücretli IoT hub’ı sayısı |10 |
-| Azure aboneliği başına en fazla ücretsiz IoT hub’ı sayısı |1 |
-| En fazla cihaz kimliği sayısı<br/> (tek bir çağrıda döndürülen) |1000 |
-| Cihazdan buluta iletiler için IoT Hub en fazla ileti bekletme süresi |7 gün |
-| Cihazdan bulut iletinin en büyük boyutu |256 KB |
-| Cihazdan buluta toplu işin en büyük boyutu |256 KB |
-| Cihazdan buluta toplu işte en fazla ileti sayısı |500 |
-| Buluttan cihaza iletinin en büyük boyutu |64 KB |
-| Buluttan cihaza iletiler için en büyük TTL |2 gün |
-| Buluttan cihaza iletiler için en fazla teslim <br/> sayısı |100 |
-| Geri bildirim iletileri için en fazla teslim sayısı <br/> (buluttan cihaza iletiye yanıt olarak) |100 |
-| Buluttan cihaza iletiye yanıt olarak <br/> geri bildirim iletileri için en fazla TTL |2 gün |
-| En büyük cihaz ikizi boyutu <br/> (etiketler, rapor edilen özellikler ve istenen özellikler) | 8 KB |
-| Cihaz ikizi dize değerinin en büyük boyutu | 512 bayt |
-| Cihaz ikizindeki en büyük nesne derinliği | 5 |
-| Doğrudan yöntem yükünün en büyük boyutu | 8 KB |
-| En büyük iş geçmişi bekletme süresi | 30 gün |
-| En fazla eşzamanlı iş sayısı | 10 (S3 için), 5 (S2 için), 1 (S1 için) |
-| En fazla ek uç nokta sayısı | 10 (S1, S2, S3 için) |
-| En fazla ileti yönlendirme kuralı sayısı | 100 (S1, S2, S3 için) |
+| Maximum paid IoT hubs per Azure subscription |10 |
+| Maximum free IoT hubs per Azure subscription |1 |
+| Maximum number of device identities<br/> returned in a single call |1000 |
+| IoT Hub message maximum retention for device-to-cloud messages |7 days |
+| Maximum size of device-to-cloud message |256 KB |
+| Maximum size of device-to-cloud batch |256 KB |
+| Maximum messages in device-to-cloud batch |500 |
+| Maximum size of cloud-to-device message |64 KB |
+| Maximum TTL for cloud-to-device messages |2 days |
+| Maximum delivery count for cloud-to-device <br/> messages |100 |
+| Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message |100 |
+| Maximum TTL for feedback messages in <br/> response to a cloud-to-device message |2 days |
+| Maximum size of device twin <br/> (tags, reported properties, and desired properties) | 8 KB |
+| Maximum size of device twin string value | 512 bytes |
+| Maximum depth of object in device twin | 5 |
+| Maximum size of direct method payload | 8 KB |
+| Job history maximum retention | 30 days |
+| Maximum concurrent jobs | 10 (for S3), 5 for (S2), 1 (for S1) |
+| Maximum additional endpoints | 10 (for S1, S2, S3) |
+| Maximum message routing rules | 100 (for S1, S2, S3) |
 
 
 > [!NOTE]
-> Bir Azure aboneliğinde 10’dan fazla ücretli IoT hub’ı gerekirse Microsoft desteğine başvurun.
-> 
-> 
+> If you need more than 10 paid IoT hubs in an Azure subscription, contact Microsoft support.
 
-Aşağıdaki kotalar aşıldığında IoT Hub hizmeti istekleri kısıtlar:
 
-| Kısıtlama | Hub başına değer |
+> [!NOTE]
+> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+
+The IoT Hub service throttles requests when the following quotas are exceeded:
+
+| Throttle | Per-hub value |
 | --- | --- |
-| Kimlik kayıt defteri işlemleri <br/> (oluşturma, alma, listeleme, güncelleştirme, silme) <br/> tek tek veya toplu içeri/dışarı aktarma |5000/dk/birim (S3 için) <br/> 100/dk/birim (S1 ve S2 için). |
-| Cihaz bağlantıları |6000/sn/birim (S3 için), 120/sn/birim (S2 için), 12/sn/birim (S1 için). <br/>En az 100/sn. |
-| Cihazdan buluta gönderim |6000/sn/birim (S3 için), 120/sn/birim (S2 için), 12/sn/birim (S1 için). <br/>En az 100/sn. |
-| Buluttan cihaza gönderim |5000/dk/birim (S3 için), 100/dk/birim (S1 ve S2 için). |
-| Buluttan cihaza alım |50000/dk/birim (S3 için), 1000/dk/birim (S1 ve S2 için). |
-| Dosya karşıya yükleme işlemleri |5000 dosya yükleme bildirimi/dk/birim (S3 için), 100 dosya yükleme bildirimi/dk/birim (S1 ve S2 için). <br/> Bir Azure Depolama hesabı için tek seferde&10000; SAS URI’si çıkarılabilir.<br/> Tek seferde&10; SAS URI’si/cihaz çıkarılabilir. |
-| Doğrudan yöntemler | 1500/sn/birim (S3 için), 30/sn/birim (S2 için), 10/sn/birim (S1 için) |
-| Cihaz ikizi okumaları | 50/sn/birim (S3 için), En fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için) |
-| Cihaz ikizi güncelleştirmeleri | 50/sn/birim (S3 için), En fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için) |
-| İş işlemleri <br/> (oluşturma, güncelleştirme, listeleme, silme) | 5000/dk/birim (S3 için), 100/dk/birim (S2 için), 100/dk/birim (S1 için) |
-| İşler işlemleri için cihaz başına aktarım hızı | 50/sn/birim (S3 için), En fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için) |
+| Identity registry operations <br/> (create, retrieve, list, update, delete), <br/> individual or bulk import/export |5000/min/unit (for S3) <br/> 100/min/unit (for S1 and S2). |
+| Device connections |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. |
+| Device-to-cloud sends |6000/sec/unit (for S3), 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. |
+| Cloud-to-device sends |5000/min/unit (for S3), 100/min/unit (for S1 and S2). |
+| Cloud-to-device receives |50000/min/unit (for S3), 1000/min/unit (for S1 and S2). |
+| File upload operations |5000 file upload notifications/min/unit (for S3), 100 file upload notifications/min/unit (for S1 and S2). <br/> 10000 SAS URIs can be out for an Azure Storage account at one time.<br/> 10 SAS URIs/device can be out at one time. |
+| Direct methods | 1500/sec/unit (for S3), 30/sec/unit (for S2), 10/sec/unit (for S1) |
+| Device twin reads | 50/sec/unit (for S3), Maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1) |
+| Device twin updates | 50/sec/unit (for S3), Maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1) |
+| Jobs operations <br/> (create, update, list, delete) | 5000/min/unit (for S3), 100/min/unit (for S2), 100/min/unit (for S1) |
+| Jobs per-device operation throughput | 50/sec/unit (for S3), Maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1) |

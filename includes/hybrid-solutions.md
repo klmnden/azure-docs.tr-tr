@@ -1,7 +1,7 @@
-# Azure Service Bus
+# <a name="azure-service-bus"></a>Azure Service Bus
 Whether an application or service runs in the cloud or on premises, it often needs to interact with other applications or services. To provide a broadly useful way to do this, Azure offers Service Bus. This article takes a look at this technology, describing what it is and why you might want to use it.
 
-## Service Bus fundamentals
+## <a name="service-bus-fundamentals"></a>Service Bus fundamentals
 Different situations call for different styles of communication. Sometimes, letting applications send and receive messages through a simple queue is the best solution. In other situations, an ordinary queue isn't enough; a queue with a publish-and-subscribe mechanism is better. And in some cases, all that's really needed is a connection between applications&#151;queues aren't required. Service Bus provides all three options, letting your applications interact in several different ways.
 
 Service Bus is a multi-tenant cloud service, which means that the service is shared by multiple users. Each user, such as an application developer, creates a *namespace*, then defines the communication mechanisms she needs within that namespace. [Figure 1](#Fig1) shows how this looks.
@@ -23,7 +23,7 @@ To use any of these objects, Windows applications can use Windows Communication 
 
 It's important to understand that even though Service Bus itself runs in the cloud (that is, in Microsoft's Azure datacenters), applications that use it can run anywhere. You can use Service Bus to connect applications running on Azure, for example, or applications running inside your own datacenter. You can also use it to connect an application running on Azure or another cloud platform with an on-premises application or with tablets and phones. It's even possible to connect household appliances, sensors, and other devices to a central application or to one other. Service Bus is a generic communication mechanism in the cloud that's accessible from pretty much anywhere. How you use it depends on what your applications need to do.
 
-## Queues
+## <a name="queues"></a>Queues
 Suppose you decide to connect two applications using a Service Bus queue. [Figure 2](#Fig2) illustrates this situation.
 
 <a name="Fig2"></a>![Diagram of Service Bus Queues][queues]
@@ -46,7 +46,7 @@ Notice what can happen here: The same message might be delivered twice, perhaps 
 
 Queues are useful in quite a few situations. They let applications communicate even when both aren't running at the same time, something that's especially handy with batch and mobile applications. A queue with multiple receivers also provides automatic load balancing, since sent messages are spread across these receivers.
 
-## Topics
+## <a name="topics"></a>Topics
 Useful as they are, queues aren't always the right solution. Sometimes, Service Bus topics are better. [Figure 3](#Fig3) illustrates this idea.
 
 <a name="Fig3"></a>![Diagram of Service Bus Topics and Subscriptions][topics-subs]
@@ -61,7 +61,7 @@ A topic is similar in many ways to a queue. Senders submit messages to a topic i
 
 As with queues, subscribers to a topic can read messages using either ReceiveAndDelete or PeekLock. Unlike queues, however, a single message sent to a topic can be received by multiple subscribers. This approach, commonly called *publish and subscribe*, is useful whenever multiple applications might be interested in the same messages. By defining the right filter, each subscriber can tap into just the part of the message stream that it needs to see.
 
-## Relays
+## <a name="relays"></a>Relays
 Both queues and topics provide one-way asynchronous communication through a broker. Traffic flows in just one direction, and there's no direct connection between senders and receivers. But what if you don't want this? Suppose your applications need to both send and receive messages, or perhaps you want a direct link between them and you don't need a broker to store messages. To address scenarios such as this, Service Bus provides relays, as [Figure 4](#Fig4) shows.
 
 <a name="Fig4"></a>![Diagram of Service Bus Relay][relay]
@@ -80,10 +80,10 @@ Unlike queues and topics, applications don't explicitly create relays. Instead, 
 
 Relays are the right solution when you need direct communication between applications. For example, consider an airline reservation system running in an on-premises datacenter that must be accessed from check-in kiosks, mobile devices, and other computers. Applications running on all of these systems could rely on Service Bus relays in the cloud to communicate, wherever they might be running.
 
-## Event Hubs
+## <a name="event-hubs"></a>Event Hubs
 Event Hubs is a highly scalable ingestion system that can process millions of events per second, enabling your application to process and analyze the massive amounts of data produced by your connected devices and applications. For example, you could use an Event Hub to collect live engine performance data from a fleet of cars. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster. For more information about Event Hubs, see the [Event Hubs overview][Event Hubs overview].
 
-## Summary
+## <a name="summary"></a>Summary
 Connecting applications has always been part of building complete solutions, and the range of scenarios that require applications and services to communicate with each other is set to increase as more applications and devices are connected to the Internet. By providing cloud-based technologies for achieving this through queues, topics, relays, and Event Hubs, Service Bus aims to make this essential function easier to implement and more broadly available.
 
 [svc-bus]: ./media/hybrid-solutions/SvcBus_01_architecture.png

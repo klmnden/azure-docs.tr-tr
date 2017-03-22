@@ -559,7 +559,7 @@ Web uygulamasını dağıtmaya çalışırken "İsteğiniz işlenirken bir hata 
     - Bölge: Uygulamanızın kullanıcılarına en yakın bölgeyi seçin
     - Veritabanı sunucusu: Veritabanı yok’a ve ardından **Oluştur**’a tıklayın. 
 
-4. "todo-net-app * ekranı"nda **Bağlantıyı Doğrula**’ya tıklayın. Bağlantı doğrulandıktan sonra **Yayımla*’ya tıklayın*. 
+4. "todo-net-app * ekranı"nda **Bağlantıyı Doğrula**’ya tıklayın. Bağlantı doğrulandıktan sonra **Yayımla** ’ya tıklayın. 
     
     Bu adımın ardından uygulama tarayıcınızda görüntülenir.
 

@@ -8,7 +8,7 @@ Latest Freshness check:  2015-09-04 , GeneMi.
 -->
 
 
-### Example config file for connection string security
+### <a name="example-config-file-for-connection-string-security"></a>Example config file for connection string security
 It is unsound to put the connection string as literals in your C# code. It is better to put the connection string in a config file. There you can edit the string any time without the need to recompile.
 
 Let's assume your compiled C# program is named **ConsoleApplication1.exe**, and that this .exe resides in a **bin\debug\** directory.

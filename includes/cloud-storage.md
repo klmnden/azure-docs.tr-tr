@@ -1,7 +1,7 @@
-# Data Management and Business Analytics
+# <a name="data-management-and-business-analytics"></a>Data Management and Business Analytics
 Managing and analyzing data in the cloud is just as important as it is anywhere else. To let you do this, Azure provides a range of technologies for working with relational and non-relational data. This article introduces each of the options. 
 
-## Table of Contents
+## <a name="table-of-contents"></a>Table of Contents
 * [Blob Storage](#blob)
 * [Running a DBMS in a Virtual Machine](#dbinvm)
 * [SQL Database](#sqldb)
@@ -148,8 +148,7 @@ On Azure, the data a MapReduce job works on is typically kept in blob storage. I
 
 MapReduce jobs are commonly written in Java today, an approach that Hadoop on Azure supports. Microsoft has also added support for creating MapReduce jobs in other languages, including C#, F#, and JavaScript. The goal is to make this big data technology more easily accessible to a larger group of developers.
 
-Along with HDFS and MapReduce, Hadoop includes other technologies that let people analyze data without writing a MapReduce job themselves. For example, Pig is a high-level language designed for analyzing big data, while Hive offers a SQL-like language called HiveQL. Both Pig and Hive actually generate MapReduce jobs that process HDFS data, but they hide this complexity from their users. 
-Both are provided with Hadoop on Azure.
+Along with HDFS and MapReduce, Hadoop includes other technologies that let people analyze data without writing a MapReduce job themselves. For example, Pig is a high-level language designed for analyzing big data, while Hive offers a SQL-like language called HiveQL. Both Pig and Hive actually generate MapReduce jobs that process HDFS data, but they hide this complexity from their users. Both are provided with Hadoop on Azure.
 
 Microsoft also provides a HiveQL driver for Excel. Using an Excel add-in, business analysts can create HiveQL queries (and thus MapReduce jobs) directly from Excel, then process and visualize the results using PowerPivot and other Excel tools. Hadoop on Azure includes other technologies as well, such as the machine learning libraries Mahout, the graph mining system Pegasus, and more.
 

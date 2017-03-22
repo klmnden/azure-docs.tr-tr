@@ -1,4 +1,4 @@
-## Azure portal and Azure preview portal
+## <a name="azure-portal-and-azure-preview-portal"></a>Azure portal and Azure preview portal
 > [!IMPORTANT]
 > The steps in this document use the Azure Classic portal. Microsoft does not recommend using the classic portal when creating new services. For an explanation of the advantages of the Azure portal, see [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/). 
 > 
