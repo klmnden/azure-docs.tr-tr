@@ -62,9 +62,10 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluştu
 3. Bir metin düzenleyicisi kullanarak create-device-identity klasöründeki pom.xml dosyasını açın ve aşağıdaki bağımlılığı **bağımlılıklar** düğümüne ekleyin. Bu bağımlılık, uygulamanızda iot-service-client paketini kullanmanıza olanak sağlar:
    
     ```
-    <groupId>com.microsoft.azure.sdk.iot</groupId>
+    </dependency>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.1.15</version>
     </dependency>
     ```
     
@@ -77,8 +78,8 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluştu
    
     ```
     import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
-    import com.microsoft.azure.sdk.iot.service.sdk.Device;
-    import com.microsoft.azure.sdk.iot.service.sdk.RegistryManager;
+    import com.microsoft.azure.sdk.iot.service.Device;
+    import com.microsoft.azure.sdk.iot.service.RegistryManager;
    
     import java.io.IOException;
     import java.net.URISyntaxException;
