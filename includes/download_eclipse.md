@@ -1,4 +1,4 @@
-## Azure Toolkit for Eclipse
+## <a name="azure-toolkit-for-eclipse"></a>Azure Toolkit for Eclipse
 Prerequisites:
 
 1. Windows 7, Windows 8, Windows 10, Windows Server 2008, or Windows Server 2012.

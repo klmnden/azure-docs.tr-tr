@@ -1,4 +1,4 @@
-## How to deploy with PowerShell
+## <a name="how-to-deploy-with-powershell"></a>How to deploy with PowerShell
 1. Login to your Azure account.
    
           Add-AzureAccount

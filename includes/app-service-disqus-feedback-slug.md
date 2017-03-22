@@ -1,10 +1,7 @@
 
 > [!TIP]
-> **Başka bir şey mi arıyorsunuz?**  
-> Beklediklerinizi bu konuda bulamadıysanız, eksik bir şeyler varsa veya herhangi bir nedenle gereksinimleriniz karşılanmadıysa, lütfen aşağıdaki Disqus yazışmasını kullanarak bize geri bildirimde bulunun.
+> **Looking for something else?**  
+> If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
 > 
 > 
-
-<!--HONumber=Sep16_HO3-->
-
 

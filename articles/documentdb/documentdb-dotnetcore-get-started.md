@@ -77,7 +77,7 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
 
    ![Yeni Proje penceresinin ekran görüntüsü](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. **Çözüm Gezgini** içinde, **DocumentDBGettingStarted**’a sağ tıklayın.
-5. Ardından, menüden çıkmadan **NuGet Paketlerini Yönet... ** öğesine tıklayın.
+5. Ardından, menüden çıkmadan **NuGet Paketlerini Yönet...** öğesine tıklayın.
 
    ![Proje için Sağ Tıklama Menüsünün ekran görüntüsü](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. **NuGet** sekmesinde, pencerenin üst kısmındaki **Gözat**'a tıklayın ve arama kutusuna **azure documentdb** yazın.

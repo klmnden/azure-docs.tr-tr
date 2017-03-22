@@ -1,9 +1,5 @@
-# Using CDN for Azure
-The Azure Content Delivery Network (CDN) offers developers a
-global solution for delivering high-bandwidth content by caching blobs
-and static content of compute instances at physical nodes in the United
-States, Europe, Asia, Australia and South America. For a current list of
-CDN node locations, see [Azure CDN Node Locations].
+# <a name="using-cdn-for-azure"></a>Using CDN for Azure
+The Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content by caching blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia and South America. For a current list of CDN node locations, see [Azure CDN Node Locations].
 
 This task includes the following steps:
 
@@ -23,20 +19,12 @@ Existing CDN customers can now use the Azure CDN in the [Azure classic portal]. 
 
 <h2>Step 1: Create a storage account</h2>
 
-Use the following procedure to create a new storage account for a
-Azure subscription. A storage account gives access to 
-Azure storage services. The storage account represents the highest level
-of the namespace for accessing each of the Azure storage service
-components: Blob services, Queue services, and Table services. For more
-information about the Azure storage services, see [Using the
-Azure Storage Services](http://msdn.microsoft.com/library/azure/gg433040.aspx).
+Use the following procedure to create a new storage account for a Azure subscription. A storage account gives access to Azure storage services. The storage account represents the highest level of the namespace for accessing each of the Azure storage service components: Blob services, Queue services, and Table services. For more information about the Azure storage services, see [Using the Azure Storage Services](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 
-To create a storage account, you must be either the service
-administrator or a co-administrator for the associated subscription.
+To create a storage account, you must be either the service administrator or a co-administrator for the associated subscription.
 
 > [!NOTE]
-> For information about performing this operation by using the
-> Azure Service Management API, see the [Create Storage Account](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) reference topic.
+> For information about performing this operation by using the Azure Service Management API, see the [Create Storage Account](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) reference topic.
 > 
 > 
 
@@ -50,17 +38,11 @@ administrator or a co-administrator for the associated subscription.
    ![Create Storage Account][create-new-storage-account]
 3. In the **URL** field, type a subdomain name. This entry can contain from 3-24 lowercase letters and numbers.
    
-    This value becomes the host name within the URI that is used to
-    address Blob, Queue, or Table resources for the subscription. To
-    address a container resource in the Blob service, you would use a
-    URI in the following format, where *&lt;StorageAccountLabel&gt;* refers
-    to the value you typed in **Enter a URL**:
+    This value becomes the host name within the URI that is used to address Blob, Queue, or Table resources for the subscription. To address a container resource in the Blob service, you would use a URI in the following format, where *&lt;StorageAccountLabel&gt;* refers to the value you typed in **Enter a URL**:
    
     http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
    
-    **Important:** The URL label forms the subdomain of the storage
-    account URI and must be unique among all hosted services in 
-    Azure.
+    **Important:** The URL label forms the subdomain of the storage  account URI and must be unique among all hosted services in  Azure.
    
     This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 4. From the **Region/Affinity Group** drop-down list, select a region or affinity group for the storage account. Select an affinity group instead of a region if you want your storage services to be in the same data center with other Windows Azure services that you are using. This can improve performance, and no charges are incurred for egress.  
@@ -74,11 +56,7 @@ administrator or a co-administrator for the associated subscription.
 
 <h2>Step 2: Create a new CDN endpoint for your storage account</h2>
 
-Once you enable CDN access to a storage account or hosted service, all
-publicly available objects are eligible for CDN edge caching. If you
-modify an object that is currently cached in the CDN, the new content
-will not be available via the CDN until the CDN refreshes its content
-when the cached content time-to-live period expires.
+Once you enable CDN access to a storage account or hosted service, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
 
 **To create a new CDN endpoint for your storage account**
 
@@ -88,14 +66,9 @@ when the cached content time-to-live period expires.
 4. Click the **Create** button to create the new endpoint.
 5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
    
-    The origin domain is the location from which the CDN caches
-    content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. 
+    The origin domain is the location from which the CDN caches content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. 
 
-    > [AZURE.NOTE] The configuration created for the endpoint will not
-    immediately be available; it can take up to 60 minutes for the
-    registration to propagate through the CDN network. Users who try to
-    use the CDN domain name immediately may receive status code 400
-    (Bad Request) until the content is available via the CDN.
+    > [AZURE.NOTE] The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
 
 <a id="Step3"> </a>
 
@@ -109,26 +82,18 @@ http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
 
 <h2>Step 4: Remove content from the CDN</h2>
 
-If you no longer wish to cache an object in the Azure Content
-Delivery Network (CDN), you can take one of the following steps:
+If you no longer wish to cache an object in the Azure Content Delivery Network (CDN), you can take one of the following steps:
 
-* For an Azure blob, you can delete the blob from the public
-  container.
+* For an Azure blob, you can delete the blob from the public container.
 * You can make the container private instead of public. See [Restrict Access to Containers and Blobs](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) for more information.
-* You can disable or delete the CDN endpoint using the Management
-  Portal.
-* You can modify your hosted service to no longer respond to requests for the
-  object.
+* You can disable or delete the CDN endpoint using the Management Portal.
+* You can modify your hosted service to no longer respond to requests for the object.
 
-An object already cached in the CDN will remain cached until the
-time-to-live period for the object expires. When the time-to-live period
-expires, the CDN will check to see whether the CDN endpoint is still
-valid and the object still anonymously accessible. If it is not, then
-the object will no longer be cached.
+An object already cached in the CDN will remain cached until the time-to-live period for the object expires. When the time-to-live period expires, the CDN will check to see whether the CDN endpoint is still valid and the object still anonymously accessible. If it is not, then the object will no longer be cached.
 
 The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](https://azure.microsoft.com/support/options/)  if you need to immediately purge content. 
 
-## Additional resources
+## <a name="additional-resources"></a>Additional resources
 * [How to Create an Affinity Group in Azure]
 * [How to: Manage Storage Accounts for an Azure Subscription]
 * [About the Service Management API]

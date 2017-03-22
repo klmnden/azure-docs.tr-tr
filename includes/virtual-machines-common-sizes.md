@@ -1,39 +1,39 @@
 
 
 
-Azure'da birden fazla standart boyut seçeneği vardır. Bu boyutlarla ilgili önemli noktalardan bazıları şunlardır:
+There are multiple standard sizes to choose from on Azure. Considerations for some of these sizes include:
 
-* D Serisi VM'ler, daha yüksek işlem gücüne ve geçici süreli disk performansına ihtiyaç duyan uygulamaları çalıştıracak şekilde tasarlanmıştır. D Serisi VM'ler daha hızlı işlemcilere, daha yüksek bellek-çekirdek oranına ve geçici disk için katı hal sürücüsüne (SSD) sahiptir. Ayrıntılı bilgi için Azure blogundaki [Yeni D Serisi Sanal Makine Boyutları](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) duyurusunu inceleyin.
-* Orijinal D Serisinin üzerine geliştirilen Dv2 Serisi, daha güçlü bir CPU'ya sahiptir. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Yeni nesil 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
-* F Serisi, Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan saat hızlarına ulaşabilen 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemciyi temel alır. Bu değer Dv2 Serisi VM'lerdeki CPU performansıyla aynıdır.  Daha düşük bir saatlik liste fiyatına sahip olan F Serisi, çekirdek başına Azure İşlem Birimi (ACU) açısından fiyat-performans alanında Azure portföyündeki en iyi seçenektir. 
+* D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+* Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+* F-series is based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can achieve clock speeds as high as 3.1 GHz with the Intel Turbo Boost Technology 2.0. This is the same CPU performance as the Dv2-series of VMs.  At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per core. 
   
-    F Serisi ile ayrıca Azure'daki VM boyutu adlandırmalarında yeni bir standart kullanıma sunulmuştur. Bu seride ve gelecekte yayımlanacak VM boyutlarında aile adını belirten harften sonra gelen sayı değeri, CPU çekirdeği sayısını gösterecektir. İyileştirilmiş premium depolama gibi ek özellikler, CPU çekirdeği sayısını gösteren rakamdan sonra gelen harflerle ifade edilecektir. Bu adlandırma biçimi gelecekte yayımlanacak VM boyutları için kullanılacak ancak önceden yayımlanmış olan VM boyutlarının adında geçmişe dönük bir değişiklik yapılmayacaktır.
-* En fazla belleği sunan G Serisi VM'ler, Intel Xeon E5 V3 ailesi işlemcilere sahip ana bilgisayarlarda çalışır.
-* DS Serisi, DSv2 Serisi, Fs Serisi ve GS Serisi VM'ler, yoğun G/Ç kullanımlı iş yükleri için yüksek performanslı ve düşük gecikmeli Premium Depolama kullanabilir. Bu VM'ler, sanal makine disklerini barındırmak için katı hal sürücüsü (SSD) kullanmanın yanı sıra yerel SSD disk önbelleğine de sahiptir. Premium Depolama belirli bölgelerde kullanılabilir. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/storage/storage-premium-storage.md).
-*   A Serisi ve Av2 Serisi VM'ler, farklı donanım türleri ve işlemciler üzerinde dağıtılabilir. Dağıtıldığı donanımdan bağımsız olarak, çalışan örneğe tutarlı işlemci performansı sunmak için boyut donanıma göre genişletilir. Bu boyutun dağıtıldığı fiziksel donanımı belirlemek için Sanal Makinenin içinden sanal donanımı sorgulayın.
-* A0 boyutunun fiziksel donanım üzerindeki abone sayısı planlanandan fazladır. Yalnızca bu boyutta diğer müşteri dağıtımları, çalışan iş yükünüzün performansını etkileyebilir. Göreli performans aşağıda beklenen temel düzey olarak belirtilmiştir ve %15 oranında değişiklik gösterebilir.
+    The F-series also introduces a new standard in VM size naming for Azure. For this series and VM sizes released in the future, the numeric value after the family name letter will match the number of CPU cores. Additional capabilities, such as optimized for premium storage, will be designated by letters following the numeric CPU core count. This naming format will be used for future VM sizes released but will not retroactively change the names of any existing VM sizes which have been released.
+* G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
+* DS-series, DSv2-series, Fs-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
+*   The A-series and Av2-series VMs can be deployed on a variety of hardware types and processors. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
+* The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
 
-Sanal makinenin boyutu, fiyatlandırmayı etkiler. Boyut, sanal makinenin işlem, bellek ve depolama kapasitesini de etkiler. Depolama maliyetleri, depolama hesabında kullanılan sayfa sayısına göre ayrıca hesaplanır. Ayrıntılar için bkz. [Sanal Makine Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/virtual-machines/) ve [Azure Depolama Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/). 
+The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/). 
 
-Aşağıdaki önemli noktalar boyut konusunda karar vermenize yardımcı olabilir:
+The following considerations might help you decide on a size:
 
-* A8-A11 ve H Serisi boyutlar *yoğun işlem gücü kullanımlı örnekler* olarak da bilinir. Bu boyutları çalıştıran donanım; yüksek performanslı bilgi işlem (HPC) kümesi uygulamaları, modellemeler ve simülasyonlar gibi yoğun işlem ve ağ kullanımlı uygulamalar için tasarlanmış ve iyileştirilmiştir. A8-A11 Serisinde, Intel Xeon E5-2670 @ 2,6 GHZ, H Serisinde ise Intel Xeon E5-2667 v3 @ 3,2 GHz işlemciler kullanılmaktadır. Ayrıntılı bilgiler ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. [H Serisi ve yoğun işlem gücü kullanımlı A Serisi VM'ler hakkında](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-* Dv2 Serisi, D Serisi, G Serisi ve bunlara karşılık gelen DS/GS modelleri daha hızlı CPU'ya, daha iyi yerel disk performansına veya daha yüksek belleğe ihtiyaç duyan uygulamalar için idealdir.  Bu seçenekler birçok kurumsal sınıf uygulama için güçlü bir bileşim sunar.
-* F Serisi VM'ler, daha hızlı CPU'ya ihtiyaç duyan ancak çok fazla belleğe veya CPU çekirdeği başına yerel SSD'ye ihtiyaç duymayan iş yükleri için harika bir seçenektir.  Analitikler, oyun sunucuları, web sunucuları ve toplu işleme gibi iş yükleri, F Serisinin özelliklerinden en fazla yarar sağlayacak iş yükleridir.
-* Azure veri merkezlerindeki fiziksel ana bilgisayarlardan bazıları A5 – A11 gibi daha büyük sanal makine boyutlarını desteklemeyebilir. Bunun sonucunda var olan bir sanal makine için yeni boyut belirlerken, 16 Nisan 2013'dan önce oluşturulmuş bir sanal ağda yeni bir sanal makine oluştururken veya yeni bir sanal makineyi var olan bir bulut hizmetine eklerken **Sanal makine yapılandırılamadı<machine name>** veya **Sanal makine oluşturulamadı<machine name>** hata iletisini görebilirsiniz. Her dağıtım senaryosuna özel geçici çözümler için destek forumundaki [Hata: "Sanal makine yapılandırılamadı"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) konusunu inceleyin.  
-* Ayrıca aboneliğiniz, belirli boyut ailelerinde dağıtabileceğiniz çekirdek sayısını da sınırlıyor olabilir. Artırmak istediğini kotalar için Azure Desteği'ne başvurun.
+* The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. For detailed information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+* Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
+* The F-series VMs are an excellent choice for workloads that demand faster CPUs but do not need as much memory or local SSD per CPU core.  Workloads such as analytics, gaming servers, web servers, and batch processing will benefit from the value of the F-series.
+* Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine <machine name>** or **Failed to create virtual machine <machine name>** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See  [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.  
+* Your subscription might also limit the number of cores you can deploy in certain size families. To increase a quota, contact Azure Support.
 
-## <a name="performance-considerations"></a>Performansla ilgili önemli noktalar
-Azure SKU'larının işlem (CPU) performansını karşılaştırabilmek için Azure İşlem Birimi (ACU) birimini ortaya çıkardık. Bu birim, performans ihtiyaçlarınızı karşılayabilecek SKU'yu kolayca belirlemenize yardımcı olacak.  ACU şu anda Küçük (Standard_A1) VM'de 100 olarak standart haline getirilmiş ve diğer tüm SKU'lar, standart bir karşılaştırmalı testte sunabilecekleri yaklaşık hıza göre derecelendirilmiştir. 
+## <a name="performance-considerations"></a>Performance considerations
+We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
 
 > [!IMPORTANT]
-> ACU yalnızca rehberlik etme amacı taşımaktadır.  İş yükünüzle aldığınız sonuçlar farklılık gösterebilir. 
+> The ACU is only a guideline.  The results for your workload may vary. 
 > 
 > 
 
 <br>
 
-| SKU Ailesi | ACU/Çekirdek |
+| SKU Family | ACU/Core |
 | --- | --- |
 | [A0](#a-series) |50 |
 | [A1-A4](#a-series) |100 |
@@ -42,290 +42,290 @@ Azure SKU'larının işlem (CPU) performansını karşılaştırabilmek için Az
 | [A2m_v2-A8m_v2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
 | [D1-D14](#d-series) |160 |
-| [D1_v2-D15_v2](#dv2-series) |210-250* |
+| [D1_v2-D15_v2](#dv2-series) |210 - 250* |
 | [DS1-DS14](#ds-series) |160 |
 | [DS1_v2-DS15_v2](#dsv2-series) |210-250* |
 | [F1-F16](#f-series) |210-250* |
 | [F1s-F16s](#fs-series) |210-250* |
-| [G1-G5](#g-series) |180-240* |
-| [GS1-GS5](#gs-series) |180-240* |
-| [H](#h-series) |290-300* |
-| [L4s L32s](#l-series) |180-240* |
+| [G1-G5](#g-series) |180 - 240* |
+| [GS1-GS5](#gs-series) |180 - 240* |
+| [H](#h-series) |290 - 300* |
+| [L4s-L32s](#l-series) |180 - 240* |
 
-* işaretli ACU'lar, CPU frekansını artırmak ve performans artışı sağlamak için Intel® Turbo Boost teknolojisinden faydalanır.  Performans artışının oranı VM boyutuna, iş yüküne ve aynı ana bilgisayarda çalışan iş yüklerine göre değişiklik gösterebilir.
+ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
 
-## <a name="size-tables"></a>Boyut tabloları
-Aşağıdaki tablolarda boyutlara ve sundukları kapasiteye yer verilmiştir.
+## <a name="size-tables"></a>Size tables
+The following tables show the sizes and the capacities they provide.
 
-* Depolama kapasitesi GiB veya 1024^3 bayt cinsinden gösterilmiştir. GB (1000^3 bayt) ile ölçülen diskleri GiB (1024^3 bayt) ile ölçülen disklerle karşılaştırırken GiB cinsinden verilen kapasite rakamlarının daha küçük görünebileceğini unutmayın. Örneğin: 1023 GiB = 1098,4 GB
-* Disk aktarım hızı, saniye başına giriş/çıkış işlemi sayısı (IOPS) ve MB/sn (MB/sn = 10^6 bayt/sn) üzerinden ölçülür.
-* Veri diskleri önbelleğe alınmış veya alınmamış modlarda çalışabilir.  Önbelleğe alınmış veri diski işlemi için ana bilgisayar önbelleği **SaltOkunur** veya **OkuYaz** moduna ayarlanır.  Önbelleğe alınmamış veri diski işlemi için ana bilgisayar önbelleği **Yok** moduna ayarlanır.
-* Maksimum ağ bant genişliği, VM türü başına ayrılan ve atanan toplam maksimum bant genişliğidir. Maksimum bant genişliği, yeterli ağ kapasitesinin mevcut olduğundan emin olarak doğru VM'i seçme konusunda yardımcı olur. Düşük, Orta, Yüksek ve Çok Yüksek arasında geçiş yapıldığında aktarım hızı da artacaktır. Gerçek ağ performansı, ağ ve uygulama yüklerinin yanı sıra uygulama ağ ayarları gibi birçok faktöre bağlıdır.
+* Storage capacity is shown in units of GiB or 1024^3 bytes. When comparing disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB
+* Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
+* Data disks can operate in cached or uncached modes.  For cached data disk operation, the host cache mode is set to **ReadOnly** or **ReadWrite**.  For uncached data disk operation, the host cache mode is set to **None**.
+* Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput will increase accordingly. Actual network performance will depend on many factors including network and application loads, and application network settings.
 
-## <a name="a-series"></a>A Serisi
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel HDD: GiB | Maksimum veri diskleri | Maksimum veri diski aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+## <a name="a-series"></a>A-series
+| Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 |1 |0,768 |20 |1 |1x500 |1/düşük |
-| Standard_A1 |1 |1,75 |70 |2 |2x500 |1/orta |
-| Standard_A2 |2 |3,5 |135 |4 |4x500 |1/orta |
-| Standard_A3 |4 |7 |285 |8 |8x500 |2/yüksek |
-| Standard_A4 |8 |14 |605 |16 |16x500 |4/yüksek |
-| Standard_A5 |2 |14 |135 |4 |4X500 |1/orta |
-| Standard_A6 |4 |28 |285 |8 |8x500 |2/yüksek |
-| Standard_A7 |8 |56 |605 |16 |16x500 |4/yüksek |
+| Standard_A0 |1 |0.768 |20 |1 |1x500 |1 / low |
+| Standard_A1 |1 |1.75 |70 |2 |2x500 |1 / moderate |
+| Standard_A2 |2 |3.5 |135 |4 |4x500 |1 / moderate |
+| Standard_A3 |4 |7 |285 |8 |8x500 |2 / high |
+| Standard_A4 |8 |14 |605 |16 |16x500 |4 / high |
+| Standard_A5 |2 |14 |135 |4 |4X500 |1 / moderate |
+| Standard_A6 |4 |28 |285 |8 |8x500 |2 / high |
+| Standard_A7 |8 |56 |605 |16 |16x500 |4 / high |
 
 <br>
 
-## <a name="a-series---compute-intensive-instances"></a>A Serisi - Yoğun işlem gücü kullanımlı örnekler
-Bilgi ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. [H Serisi ve yoğun işlem gücü kullanımlı A Serisi VM'ler hakkında](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="a-series---compute-intensive-instances"></a>A-series - compute-intensive instances
+For information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel HDD: GiB | Maksimum veri diskleri | Maksimum veri diski aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+| Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16x500 |2/yüksek |
-| Standard_A9* |16 |112 |382 |16 |16x500 |4/çok yüksek |
-| Standard_A10 |8 |56 |382 |16 |16x500 |2/yüksek |
-| Standard_A11 |16 |112 |382 |16 |16x500 |4/çok yüksek |
+| Standard_A8* |8 |56 |382 |16 |16x500 |2 / high |
+| Standard_A9* |16 |112 |382 |16 |16x500 |4 / very high |
+| Standard_A10 |8 |56 |382 |16 |16x500 |2 / high |
+| Standard_A11 |16 |112 |382 |16 |16x500 |4 / very high |
 
-*RDMA özellikli
+*RDMA capable
 
 <br>
 
-## <a name="av2-series"></a>Av2 Serisi
+## <a name="av2-series"></a>Av2-series
 
-| Boyut            | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum yerel disk aktarım hızı: IOPS/Okuma MB/sn/Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+| Size            | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_A1_v2  | 1         | 2           | 10             | 1000/20/10                                           | 2/2x500                         | 1/orta                 |
-| Standard_A2_v2  | 2         | 4           | 20             | 2000/40/20                                           | 4/4x500                         | 2/orta                 |
-| Standard_A4_v2  | 4         | 8           | 40             | 4000/80/40                                           | 8/8x500                         | 4/yüksek                     |
-| Standard_A8_v2  | 8         | 16          | 80             | 8000/160/80                                          | 16/16x500                       | 8/yüksek                     |
-| Standard_A2m_v2 | 2         | 16          | 20             | 2000/40/20                                           | 4/4X500                         | 2/orta                 |
-| Standard_A4m_v2 | 4         | 32          | 40             | 4000/80/40                                           | 8/8x500                         | 4/yüksek                     |
-| Standard_A8m_v2 | 8         | 64          | 80             | 8000/160/80                                          | 16/16x500                       | 8/yüksek                     |
+| Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2x500                         | 1 / moderate                 |
+| Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4x500                         | 2 / moderate                 |
+| Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8x500                         | 4 / high                     |
+| Standard_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16 / 16x500                       | 8 / high                     |
+| Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4X500                         | 2 / moderate                 |
+| Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8x500                         | 4 / high                     |
+| Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500                       | 8 / high                     |
 
-## <a name="d-series"></a>D Serisi
+## <a name="d-series"></a>D-series
 
-| Boyut         | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum yerel disk aktarım hızı: IOPS/Okuma MB/sn/Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+| Size         | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3,5         | 50             | 3000/46/23                                           | 2/2x500                         | 1/orta                 |
-| Standard_D2  | 2         | 7           | 100            | 6000/93/46                                           | 4/4x500                         | 2/yüksek                     |
-| Standard_D3  | 4         | 14          | 200            | 12000/187/93                                         | 8/8x500                         | 4/yüksek                     |
-| Standard_D4  | 8         | 28          | 400            | 24000/375/187                                        | 16/16x500                       | 8/yüksek                     |
-| Standard_D11 | 2         | 14          | 100            | 6000/93/46                                           | 4/4x500                         | 2/yüksek                     |
-| Standard_D12 | 4         | 28          | 200            | 12000/187/93                                         | 8/8x500                         | 4/yüksek                     |
-| Standard_D13 | 8         | 56          | 400            | 24000/375/187                                        | 16/16x500                       | 8/yüksek                     |
-| Standard_D14 | 16        | 112         | 800            | 48000/750/375                                        | 32/32x500                       | 8/çok yüksek                |
+| Standard_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 2 / 2x500                         | 1 / moderate                 |
+| Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / high                     |
+| Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / high                     |
+| Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / high                     |
+| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / high                     |
+| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / high                     |
+| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / high                     |
+| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / very high                |
 <br>
 
-## <a name="dv2-series"></a>Dv2 Serisi
+## <a name="dv2-series"></a>Dv2-series
 
 
-| Boyut              | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum yerel disk aktarım hızı: IOPS/Okuma MB/sn/Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+| Size              | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1_v2    | 1         | 3,5         | 50             | 3000/46/23                                           | 2/2x500                         | 1/orta                 |
-| Standard_D2_v2    | 2         | 7           | 100            | 6000/93/46                                           | 4/4x500                         | 2/yüksek                     |
-| Standard_D3_v2    | 4         | 14          | 200            | 12000/187/93                                         | 8/8x500                         | 4/yüksek                     |
-| Standard_D4_v2    | 8         | 28          | 400            | 24000/375/187                                        | 16/16x500                       | 8/yüksek                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48000/750/375                                        | 32/32x500                       | 8/aşırı yüksek           |
-| Standard_D11_v2   | 2         | 14          | 100            | 6000/93/46                                           | 4/4x500                         | 2/yüksek                     |
-| Standard_D12_v2   | 4         | 28          | 200            | 12000/187/93                                         | 8/8x500                         | 4/yüksek                     |
-| Standard_D13_v2   | 8         | 56          | 400            | 24000/375/187                                        | 16/16x500                       | 8/yüksek                     |
-| Standard_D14_v2   | 16        | 112         | 800            | 48000/750/375                                        | 32/32x500                       | 8/aşırı yüksek           |
-| Standard_D15_v2** | 20        | 140         | 1000          | 60000/937/468                                        | 40/40x500                       | 8/aşırı yüksek*          |
+| Standard_D1_v2    | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 2 / 2x500                         | 1 / moderate                 |
+| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / high                     |
+| Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / high                     |
+| Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / high                     |
+| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / extremely high           |
+| Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / high                     |
+| Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / high                     |
+| Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / high                     |
+| Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / extremely high           |
+| Standard_D15_v2** | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 40 / 40x500                       | 8 / extremely high*          |
 
-*Bazı bölgelerde Standard_D15_v2 boyutuyla hızlandırılmış ağ iletişimi kullanılabilir. Bu özelliğin kullanım durumu ve şekli hakkında daha fazla bilgi için bkz. [Hızlandırılmış Ağ İletişimi Önizlemede](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) ve [Sanal makine için Hızlandırılmış Ağ İletişimi](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
+*In some regions, accelerated networking is available for the Standard_D15_v2 size. For more information about usage and availability, see [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) and [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
-**Örnek, tek bir müşteriye özel donanımla yalıtılmıştır.
+**Instance is isolated to hardware dedicated to a single customer.
 
 <br>
 
-## <a name="ds-series"></a>DS Serisi*
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve yerel disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği |
+## <a name="ds-series"></a>DS-series*
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3,5 |7 |2 |4000/32 (43) |3200/32 |1/orta |
-| Standard_DS2 |2 |7 |14 |4 |8000/64 (86) |6400/64 |2/yüksek |
-| Standard_DS3 |4 |14 |28 |8 |16.000/128 (172) |12.800/128 |4/yüksek |
-| Standard_DS4 |8 |28 |56 |16 |32.000/256 (344) |25.600/256 |8/yüksek |
-| Standard_DS11 |2 |14 |28 |4 |8000/64 (72) |6400/64 |2/yüksek |
-| Standard_DS12 |4 |28 |56 |8 |16.000/128 (144) |12.800/128 |4/yüksek |
-| Standard_DS13 |8 |56 |112 |16 |32.000/256 (288) |25.600/256 |8/yüksek |
-| Standard_DS14 |16 |112 |224 |32 |64.000/512 (576) |51.200/512 |8/çok yüksek |
+| Standard_DS1 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 32 |1 / moderate |
+| Standard_DS2 |2 |7 |14 |4 |8,000 / 64 (86) |6,400 / 64 |2 / high |
+| Standard_DS3 |4 |14 |28 |8 |16,000 / 128 (172) |12,800 / 128 |4 / high |
+| Standard_DS4 |8 |28 |56 |16 |32,000 / 256 (344) |25,600 / 256 |8 / high |
+| Standard_DS11 |2 |14 |28 |4 |8,000 / 64 (72) |6,400 / 64 |2 / high |
+| Standard_DS12 |4 |28 |56 |8 |16,000 / 128 (144) |12,800 / 128 |4 / high |
+| Standard_DS13 |8 |56 |112 |16 |32,000 / 256 (288) |25,600 / 256 |8 / high |
+| Standard_DS14 |16 |112 |224 |32 |64,000 / 512 (576) |51,200 / 512 |8 / very high |
 
-MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt.
+MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
-*DS Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/storage/storage-premium-storage.md).
+*The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 <br>
 
-## <a name="dsv2-series"></a>DSv2 Serisi*
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği |
+## <a name="dsv2-series"></a>DSv2-series*
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1_v2 |1 |3,5 |7 |2 |4000/32 (43) |3200/48 |1 orta |
-| Standard_DS2_v2 |2 |7 |14 |4 |8000/64 (86) |6400/96 |2 yüksek |
-| Standard_DS3_v2 |4 |14 |28 |8 |16.000/128 (172) |12.800/192 |4 yüksek |
-| Standard_DS4_v2 |8 |28 |56 |16 |32.000/256 (344) |25.600/384 |8 yüksek |
-| Standard_DS5_v2 |16 |56 |112 |32 |64.000/512 (688) |51.200/768 |8 aşırı yüksek |
-| Standard_DS11_v2 |2 |14 |28 |4 |8000/64 (72) |6400/96 |2 yüksek |
-| Standard_DS12_v2 |4 |28 |56 |8 |16.000/128 (144) |12.800/192 |4 yüksek |
-| Standard_DS13_v2 |8 |56 |112 |16 |32.000/256 (288) |25.600/384 |8 yüksek |
-| Standard_DS14_v2 |16 |112 |224 |32 |64.000/512 (576) |51.200/768 |8 aşırı yüksek |
-| Standard_DS15_v2*** |20 |140 |280 |40 |80.000/640 (720) |64.000/960 |8 aşırı yüksek** |
+| Standard_DS1_v2 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 48 |1 moderate |
+| Standard_DS2_v2 |2 |7 |14 |4 |8,000 / 64 (86) |6,400 / 96 |2 high |
+| Standard_DS3_v2 |4 |14 |28 |8 |16,000 / 128 (172) |12,800 / 192 |4 high |
+| Standard_DS4_v2 |8 |28 |56 |16 |32,000 / 256 (344) |25,600 / 384 |8 high |
+| Standard_DS5_v2 |16 |56 |112 |32 |64,000 / 512 (688) |51,200 / 768 |8 extremely high |
+| Standard_DS11_v2 |2 |14 |28 |4 |8,000 / 64 (72) |6,400 / 96 |2 high |
+| Standard_DS12_v2 |4 |28 |56 |8 |16,000 / 128 (144) |12,800 / 192 |4 high |
+| Standard_DS13_v2 |8 |56 |112 |16 |32,000 / 256 (288) |25,600 / 384 |8 high |
+| Standard_DS14_v2 |16 |112 |224 |32 |64,000 / 512 (576) |51,200 / 768 |8 extremely high |
+| Standard_DS15_v2*** |20 |140 |280 |40 |80,000 / 640 (720) |64,000 / 960 |8 extremely high** |
 
-MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt.
+MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
-*DSv2 Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/storage/storage-premium-storage.md).
+*The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
-**Bazı bölgelerde Standard_DS15_v2 boyutuyla hızlandırılmış ağ iletişimi kullanılabilir. Bu özelliğin kullanım durumu ve şekli hakkında daha fazla bilgi için bkz. [Hızlandırılmış Ağ İletişimi Önizlemede](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) ve [Sanal makine için Hızlandırılmış Ağ İletişimi](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
+**In some regions, accelerated networking is available for the Standard_DS15_v2 size. For more information about usage and availability, see [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) and [Accelerated Networking for a virtual machine](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
-***Örnek, tek bir müşteriye özel donanımla yalıtılmıştır.
+***Instance is isolated to hardware dedicated to a single customer.
 <br>
 
-## <a name="f-series"></a>F Serisi
+## <a name="f-series"></a>F-series
 
-| Boyut         | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum yerel disk aktarım hızı: IOPS/Okuma MB/sn/Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+| Size         | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_F1  | 1         | 2           | 16             | 3000/46/23                                           | 2/2x500                         | 1/orta                 |
-| Standard_F2  | 2         | 4           | 32             | 6000/93/46                                           | 4/4x500                         | 2/yüksek                     |
-| Standard_F4  | 4         | 8           | 64             | 12000/187/93                                         | 8/8x500                         | 4/yüksek                     |
-| Standard_F8  | 8         | 16          | 128            | 24000/375/187                                        | 16/16x500                       | 8/yüksek                     |
-| Standard_F16 | 16        | 32          | 256            | 48000/750/375                                        | 32/32x500                       | 8/aşırı yüksek           |
+| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2 / 2x500                         | 1 / moderate                 |
+| Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4 / 4x500                         | 2 / high                     |
+| Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 8 / 8x500                         | 4 / high                     |
+| Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 16 / 16x500                       | 8 / high                     |
+| Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8 / extremely high           |
 <br>
 
-## <a name="fs-series"></a>Fs Serisi*
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve yerel disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği |
+## <a name="fs-series"></a>Fs-series*
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1s |1 |2 |4 |2 |4000/32 (12) |3200/48 |1/orta |
-| Standard_F2s |2 |4 |8 |4 |8000/64 (24) |6400/96 |2/yüksek |
-| Standard_F4s |4 |8 |16 |8 |16.000/128 (48) |12.800/192 |4/yüksek |
-| Standard_F8s |8 |16 |32 |16 |32.000/256 (96) |25.600/384 |8/yüksek |
-| Standard_F16s |16 |32 |64 |32 |64.000/512 (192) |51.200/768 |8/aşırı yüksek |
+| Standard_F1s |1 |2 |4 |2 |4,000 / 32 (12) |3,200 / 48 |1 / moderate |
+| Standard_F2s |2 |4 |8 |4 |8,000 / 64 (24) |6,400 / 96 |2 / high |
+| Standard_F4s |4 |8 |16 |8 |16,000 / 128 (48) |12,800 / 192 |4 / high |
+| Standard_F8s |8 |16 |32 |16 |32,000 / 256 (96) |25,600 / 384 |8 / high |
+| Standard_F16s |16 |32 |64 |32 |64,000 / 512 (192) |51,200 / 768 |8 / extremely high |
 
-MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt.
+MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
-*Fs Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/storage/storage-premium-storage.md).
+*The maximum disk throughput (IOPS or MBps) possible with a Fs series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 <br>
 
-## <a name="g-series"></a>G Serisi
+## <a name="g-series"></a>G-series
 
-| Boyut         | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum yerel disk aktarım hızı: IOPS/Okuma MB/sn/Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+| Size         | CPU cores | Memory: GiB | Local SSD: GiB | Max local disk throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Network bandwidth |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_G1  | 2         | 28          | 384            | 6000/93/46                                           | 4/4x500                       | 1/yüksek                     |
-| Standard_G2  | 4         | 56          | 768            | 12000/187/93                                         | 8/8x500                       | 2/yüksek                     |
-| Standard_G3  | 8         | 112         | 1536          | 24000/375/187                                        | 16/16x500                     | 4/çok yüksek                |
-| Standard_G4  | 16        | 224         | 3072          | 48000/750/375                                        | 32/32x500                     | 8/aşırı yüksek           |
-| Standard_G5* | 32        | 448         | 6144          | 96000/1500/750                                       | 64/64x500                     | 8/aşırı yüksek           |
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4 / 4 x 500                       | 1 / high                     |
+| Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 8 / 8 x 500                       | 2 / high                     |
+| Standard_G3  | 8         | 112         | 1,536          | 24000 / 375 / 187                                        | 16 / 16 x 500                     | 4 / very high                |
+| Standard_G4  | 16        | 224         | 3,072          | 48000 / 750 / 375                                        | 32 / 32 x 500                     | 8 / extremely high           |
+| Standard_G5* | 32        | 448         | 6,144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / extremely high           |
 
-*Örnek, tek bir müşteriye özel donanımla yalıtılmıştır.
+*Instance is isolated to hardware dedicated to a single customer.
 <br>
 
-## <a name="gs-series"></a>GS Serisi*
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve yerel disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği |
+## <a name="gs-series"></a>GS-series*
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_GS1 |2 |28 |56 |4 |10.000/100 (264) |5000/125 |1/yüksek |
-| Standard_GS2 |4 |56 |112 |8 |20.000/200 (528) |10.000/250 |2/Yüksek |
-| Standard_GS3 |8 |112 |224 |16 |40.000/400 (1056) |20.000/500 |4/çok yüksek |
-| Standard_GS4 |16 |224 |448 |32 |80.000/800 (2112) |40.000/1000 |8/aşırı yüksek |
-| Standard_GS5** |32 |448 |896 |64 |160.000/1600 (4224) |80.000/2000 |8/aşırı yüksek |
+| Standard_GS1 |2 |28 |56 |4 |10,000 / 100 (264) |5,000 / 125 |1 / high |
+| Standard_GS2 |4 |56 |112 |8 |20,000 / 200 (528) |10,000 / 250 |2 / High |
+| Standard_GS3 |8 |112 |224 |16 |40,000 / 400 (1,056) |20,000 / 500 |4 / very high |
+| Standard_GS4 |16 |224 |448 |32 |80,000 / 800 (2,112) |40,000 / 1,000 |8 / extremely high |
+| Standard_GS5** |32 |448 |896 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8 / extremely high |
 
-MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt.
+MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
-*GS Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/storage/storage-premium-storage.md). 
+*The maximum disk throughput (IOPS or MBps) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md). 
 
-**Örnek, tek bir müşteriye özel donanımla yalıtılmıştır.
+**Instance is isolated to hardware dedicated to a single customer.
 <br>
 
-## <a name="h-series"></a>H Serisi
-Azure H Serisi sanal makineler, moleküler modelleme ve hesaplamalı akışkanlar dinamiği gibi üst düzey işlem hesaplama gereksinimlerine hitap eden yeni nesil yüksek performanslı bilgi işlem VM'leridir. Intel Haswell E5-2667 V3 işlemci teknolojisini kullanan bu 8 ve 16 çekirdekli VM'ler, DDR4 belleğe ve yerel SSD tabanlı depolamaya sahiptir. 
+## <a name="h-series"></a>H-series
+Azure H-series virtual machines are the next generation high performance computing VMs aimed at high end computational needs, like molecular modeling, and computational fluid dynamics. These 8 and 16 core VMs are built on the Intel Haswell E5-2667 V3 processor technology featuring DDR4 memory and local SSD based storage. 
 
-H Serisi önemli miktarda CPU gücünün yanı sıra, FDR InfiniBand ile düşük gecikmeli RDMA ağ iletişimi için farklı seçeneklere ek olarak yoğun bellek kullanımlı işlem gereksinimlerini için çok sayıda bellek yapılandırması sunar.
+In addition to the substantial CPU power, the H-series offers diverse options for low latency RDMA networking using FDR InfiniBand and several memory configurations to support memory intensive computational requirements.
 
-Bilgi ve bu boyutları kullanırken dikkat edilmesi gereken noktalar için bkz. [H Serisi ve yoğun işlem gücü kullanımlı A Serisi VM'ler hakkında](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum diski aktarım hızı: IOPS | Maksimum NIC/Ağ bant genişliği |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |16 |16x500 |2/yüksek |
-| Standard_H16 |16 |112 |2000 |32 |32x500 |4/çok yüksek |
-| Standard_H8m |8 |112 |1000 |16 |16x500 |2/yüksek |
-| Standard_H16m |16 |224 |2000 |32 |32x500 |4/çok yüksek |
-| Standard_H16r* |16 |112 |2000 |32 |32x500 |4/çok yüksek |
-| Standard_H16mr* |16 |224 |2000 |32 |32x500 |4/çok yüksek |
+| Standard_H8 |8 |56 |1000 |16 |16 x 500 |2 / high |
+| Standard_H16 |16 |112 |2000 |32 |32 x 500 |4 / very high |
+| Standard_H8m |8 |112 |1000 |16 |16 x 500 |2 / high |
+| Standard_H16m |16 |224 |2000 |32 |32 x 500 |4 / very high |
+| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |4 / very high |
+| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |4 / very high |
 
-*RDMA özellikli
+*RDMA capable
 
 <br>
 
 
-## <a name="ls-series"></a>Ls-serisi* 
+## <a name="ls-series"></a>Ls-series* 
 
-Ls serisi NoSQL veritabanları (örneğin Cassandra, MongoDB, Cloudera ve Redis) gibi düşük gecikme süresine sahip yerel depolama alanları gerektiren iş yükleri için optimize edilmiştir. Ls serisi, [Intel® Xeon İşlemci E5 v3 ailesi](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html) ile 32’ye kadar CPU çekirdeği kullanım olanağı sunar. Bu, G/GS serisi ile aynı CPU performansı sunar ve her CPU çekirdeği başına 8 GiB bellek içerir.  
+The Ls-series is optimized for workloads that require low latency local storage, like NoSQL databases (e.g. Cassandra, MongoDB, Cloudera and Redis). The Ls-series offers up to 32 CPU cores, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). This is the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per CPU core.  
 
  
-| Boyut          | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış disk aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maksimum NIC/Ağ bant genişliği | 
+| Size          | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth | 
 |---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
-| Standart_L4s  | 4    | 32   | 678   | 8              | Yok / Yok (0)          | 5000/125                               | 2/yüksek       | 
-| Standart_L8s  | 8    | 64   | 1,388 | 16             | Yok / Yok (0)          | 10.000/250                              | 4/çok yüksek  | 
-| Standart_L16s | 16   | 128  | 2,807 | 32             | Yok / Yok (0)          | 20.000/500                              | 8/aşırı yüksek | 
-| Standard_L32s** | 32   | 256  | 5,630 | 64             | Yok / Yok (0)          | 40.000/1000                            | 8/aşırı yüksek | 
+| Standard_L4s  | 4    | 32   | 678   | 8              | NA / NA (0)          | 5,000 / 125                               | 2 / high       | 
+| Standard_L8s  | 8    | 64   | 1,388 | 16             | NA / NA (0)          | 10,000 / 250                              | 4 / very high  | 
+| Standard_L16s | 16   | 128  | 2,807 | 32             | NA / NA (0)          | 20,000 / 500                              | 8 / extremely high | 
+| Standard_L32s** | 32   | 256  | 5,630 | 64             | NA / NA (0)          | 40,000 / 1,000                            | 8 / extremely high | 
  
-MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt. 
+MBps = 10^6 bytes per second, and GiB = 1024^3 bytes. 
 
-*Ls Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/storage/storage-premium-storage.md). 
+*The maximum disk throughput (IOPS or MBps) possible with a Ls series VM may be limited by the number, size and striping of the attached disk(s). For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md). 
 
-**Örnek, tek bir müşteriye özel donanımla yalıtılmıştır.
-
-
-
-## <a name="n-series"></a>N Serisi
-NC ve NV boyutları, GPU özellikli örnekler olarak da bilinir. NVIDIA GPU kartlarına sahip bu özel amaçlı sanal makineler, farklı senaryolar ve kullanım amaçları için iyileştirilmiştir. NV boyutları uzaktan görselleştirme, içerik akışı, oyun ve kodlamanın yanı sıra OpenGL ve DirectX gibi çerçeveleri kullanan VDI senaryoları için tasarlanmış ve iyileştirilmiştir. NC boyutları ise CUDA ve OpenCL tabanlı uygulama ve simülasyonlar gibi yoğun işlem ve ağ kullanımlı uygulamalar ve algoritmalar için iyileştirilmiştir. 
+**Instance is isolated to hardware dedicated to a single customer.
 
 
-### <a name="nv-instances"></a>NV Örnekleri
-NVIDIA'nın Tesla M60 GPU kartının yanı sıra hızlandırılmış masaüstü uygulamaları ve sanal masaüstü düzenleri için NVIDIA GRID özelliğine sahip olan NV örnekleri, müşterilerin verilerini veya simülasyonlarını görselleştirmek için kullanabileceği sistemlerdir. Kullanıcılar yoğun grafik kullanımlı iş akışlarını NV örneklerinde görselleştirerek üstün grafik özelliğine sahip olurken kodlama ve işleme gibi hassas iş yüklerini de tek başına çalıştırabilir. Tesla M60, çift GPU tasarımda 4096 CUDA çekirdeği ve en fazla 36 adet 1080p H.264 akışı sunar. 
+
+## <a name="n-series"></a>N-series
+The NC and NV sizes are also known as GPU-enabled instances. These are specialized virtual machines that include NVIDIA's GPU cards, optimized for different scenarios and use cases. The NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding and VDI scenarios utilizing frameworks such as OpenGL and DirectX. The NC sizes are more optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations. There is no Premium storage option for the N-series sizes.
 
 
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | GPU |
+### <a name="nv-instances"></a>NV instances
+The NV instances are powered by NVIDIA’s Tesla M60 GPU card and NVIDIA GRID for desktop accelerated applications and virtual desktops where customers will be able to visualize their data or simulations. Users will be able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. The Tesla M60 delivers 4096 CUDA cores in a dual-GPU design with up to 36 streams of 1080p H.264. 
+
+
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
 | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |380 | 1 |
 | Standard_NV12 |12 |112 |680 | 2 |
 | Standard_NV24 |24 |224 |1440 | 4 |
 
-1 GPU = M60 kartın yarısı.
+1 GPU = one-half M60 card.
 
-**Desteklenen işletim sistemleri**
+**Supported operating systems**
 
-* Windows Server 2016, Windows Server 2012 R2, bkz. [Windows için N Serisi sürücü kurulumu](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
+* Windows Server 2016, Windows Server 2012 R2 - see [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
 
-### <a name="nc-instances"></a>NC Örnekleri
-NC örnekleri, NVIDIA Tesla K80 kartını kullanmaktadır. Kullanıcılar artık enerji keşif uygulamaları, kaza simülasyonları, ışın izlemeli işleme, derin öğrenme ve çok daha fazlası için CUDA yardımıyla verileri çok daha hızlı işleyebilir. Tesla K80, çift GPU tasarımında 4992 CUDA çekirdeği, 2,91 Teraflop'a kadar çift duyarlıklı ve 8,93 Teraflop'a kadar tek duyarlıklı performans sunar.
+### <a name="nc-instances"></a>NC instances
+The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch through data much faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance.
 
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | GPU |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
 | --- | --- | --- | --- | --- |
 | Standard_NC6 |6 |56 | 380 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 |
 | Standard_NC24 |24 |224 | 1440 | 4 |
 | Standard_NC24r* |24 |224 | 1440 | 4 |
 
-1 GPU = K80 kartın yarısı.
+1 GPU = one-half K80 card.
 
-*RDMA özellikli
+*RDMA capable
 
-**Desteklenen işletim sistemleri**
+**Supported operating systems**
 
-* Windows Server 2016, Windows Server 2012 R2, bkz. [Windows için N Serisi sürücü kurulumu](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
-* Ubuntu 16.04 LTS, bkz. [Linux için N Serisi sürücü kurulumu](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md)
+* Windows Server 2016, Windows Server 2012 R2 - see [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md)
+* Ubuntu 16.04 LTS - see [N-series driver setup for Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md)
 
 <br>
 
-## <a name="notes-standard-a0---a4-using-cli-and-powershell"></a>Notlar: Standard A0 - A4, CLI ve PowerShell kullanarak
-Klasik dağıtım modelinde bazı VM boyutu adları CLI ve PowerShell'dekilerden biraz farklıdır:
+## <a name="notes-standard-a0---a4-using-cli-and-powershell"></a>Notes: Standard A0 - A4 using CLI and PowerShell
+In the classic deployment model, some VM size names are slightly different in CLI and PowerShell:
 
-* Standard_A0 = Çok Küçük 
-* Standard_A1 = Küçük
-* Standard_A2 = Orta
-* Standard_A3 = Büyük
-* Standard_A4 = Çok Büyük
+* Standard_A0 is ExtraSmall 
+* Standard_A1 is Small
+* Standard_A2 is Medium
+* Standard_A3 is Large
+* Standard_A4 is ExtraLarge
 
-## <a name="next-steps"></a>Sonraki adımlar
-* [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../articles/azure-subscription-service-limits.md) hakkında bilgi edinin.
-* Yüksek performanslı bilgi işlem (HPC) gibi iş yükleri için [H Serisi ve yoğun işlemci kullanımlı A Serisi VM'ler](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) hakkında daha fazla bilgi edinin.
+## <a name="next-steps"></a>Next steps
+* Learn about [azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
+* Learn more [about the H-series and compute-intensive A-series VMs](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for workloads like High-performance Computing (HPC).
 
