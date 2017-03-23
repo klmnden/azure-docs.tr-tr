@@ -1,6 +1,0 @@
-Telif Hakkı © 2016 Microsoft Corporation.  Aşağıdaki şartlar kapsamında dağıtılır:
-
-1. Microsoft ve bu projenin tüm katılımcıları ilgili telif haklarına tabi olarak size, Microsoft Azure Belgelerini [Creative Commons Atfı 3.0 Amerika Birleşik Devletleri Lisansı](http://creativecommons.org/licenses/by/3.0/us/legalcode) kapsamında kullanma lisansı verir.  Ayrıca, bu belgelerde yer alan herhangi bir örnek kod ile ilgili olarak Microsoft ve bunun gibi tüm katılımcılar ilgili fikri mülkiyet hakları kapsamında size, Microsoft Azure için kendi yazılımınızı geliştirmek veya tasarlamak için kullanmaya ilişkin ek bir lisans vermektedir.
-2. Microsoft, Windows, Microsoft Azure ve/veya belgelerde atıfta bulunulan diğer Microsoft ürünleri ve hizmetleri, Microsoft'un Amerika Birleşik Devletleri'ndeki ve/veya diğer ülkelerdeki ticari markaları ya da tescilli ticari markalarıdır. Bu lisans, size katılımcıların hiçbir adını, logosunu veya ticari markasını kullanma hakkı vermez. Microsoft'un genel ticari marka yönergeleri için [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653) adresini ziyaret edin.
-3. Microsoft ve tüm katılımcılar, telif hakları, patentler veya ticari markalar kapsamındaki tüm diğer hakları saklı tutar ve ima, itiraz hakkının düşmesi ya da başka şekilde hiçbir hak vermez.
-
