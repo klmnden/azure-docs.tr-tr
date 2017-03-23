@@ -3,7 +3,7 @@ title: "App Service’te API Apps’i ve ASP.NET’i kullanmaya başlama | Micro
 description: "Azure App Service’de bir ASP.NET API uygulamasını Visual Studio 2015’i kullanarak oluşturmayı, dağıtmayı ve kullanmayı öğrenin."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
@@ -199,7 +199,7 @@ Swashbuckle her ASP.NET Web API projesi ile çalışır. Mevcut bir projeye Swag
 > 
 > 
 
-## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Azure’da API uygulaması oluşturma ve buna kod dağıtma
+## <a id="createapiapp"></a> Azure’da API uygulaması oluşturma ve buna kod dağıtma
 Bu bölümde, Azure’da yeni bir API uygulaması oluşturmak için Visual Studio **Web’i Yayımla** sihirbazına tümleştirilen Azure araçlarını kullanırsınız. Ardından, yeni API uygulamasına ToDoListDataAPI projesini dağıtır ve Swagger kullanıcı arabirimini çalıştırarak API’yi çağırırsınız.
 
 1. **Çözüm Gezgini**’nde ToDoListDataAPI projesine sağ tıklayın ve ardından **Yayımla**’ya tıklayın.
@@ -303,7 +303,7 @@ Bu bölümde, Azure’da yeni bir API uygulaması oluşturmak için Visual Studi
     
     Kendisi için istemci kodu oluşturmak üzere API uygulamasını seçtiğinizde, Visual Studio meta verileri bu URL’den alır.
 
-## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Veri katmanı için istemci kodu oluşturma
+## <a id="codegen"></a> Veri katmanı için istemci kodu oluşturma
 Swagger’ı Azure API uygulamalarına tümleştirmenin avantajlarından biri otomatik kod oluşturmadır. Oluşturulan istemci sınıfları API uygulamasını çağıran bir kod yazmayı kolaylaştırır.
 
 ToDoListAPI projesinin oluşturulan istemci kodu zaten vardır, ancak aşağıdaki adımlarda bunu silecek ve kod oluşturmanın nasıl yapıldığını görmek için yeniden oluşturacaksınız.
