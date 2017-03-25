@@ -10,7 +10,7 @@
 ## [Portalı kullanarak VM oluşturma](../../virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [VM’de oturum açma](../../virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Azure PowerShell’i yükleme](/powershell/azureps-cmdlets-docs)
-## [Azure CLI'yı yükleme](../../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Azure CLI'yı yükleme](../../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # Nasıl yapılır?
 
@@ -85,6 +85,7 @@
 ### [Bir uygulamaya erişme](../../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Yeni bir VM oluşturmayla ilgili klasik dağıtım sorunları](../../virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Mevcut bir VM'yi yeniden başlatma veya yeniden boyutlandırmayla ilgili klasik dağıtım sorunları](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [RDP parolasını sıfırlama](../../virtual-machines-windows-classic-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Başvuru
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
@@ -102,8 +103,3 @@
 ## [Bölgesel kullanılabilirlik](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

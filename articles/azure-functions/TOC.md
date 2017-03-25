@@ -22,13 +22,15 @@
 #### [Mobile Apps bağlamaları](functions-bindings-mobile-apps.md)
 #### [Notification Hub’ı çıkışı bağlama](functions-bindings-notification-hubs.md)
 #### [Kuyruklar ve konular için Service Bus tetikleyicileri ve bağlamaları](functions-bindings-service-bus.md)
+#### [SendGrid bağlamaları](functions-bindings-sendgrid.md)
 #### Depolama bağlamaları
 ##### [Blob bağlamaları](functions-bindings-storage-blob.md)
 ##### [Kuyruk bağlamaları](functions-bindings-storage-queue.md)
 ##### [Tablo bağlamaları](functions-bindings-storage-table.md)
+##### [SendGrid bağlamaları](functions-bindings-sendgrid.md)
 #### [Zamanlayıcı tetikleyicisi](functions-bindings-timer.md)
 #### [Twilio çıktı bağlaması](functions-bindings-twilio.md)
-### [Azure Portalında işlev oluşturma](functions-create-first-azure-function-azure-portal.md) 
+### [Azure portalından işlev uygulaması oluşturma](functions-create-function-app-portal.md) 
 ### [Azure İşlevlerini test etme](functions-test-a-function.md)
 ### [Yerel olarak geliştirme ve hata ayıklama](functions-run-local.md)
 ### [Azure İşlevleri için en iyi uygulamalar](functions-best-practices.md)
@@ -50,8 +52,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 ## [Azure İşlevleri GitHub deposu](https://github.com/Azure/Azure-Functions/) 
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

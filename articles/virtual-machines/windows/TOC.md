@@ -55,7 +55,6 @@
 ### [C# ve şablon ile VM oluşturma](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Chef ile VM oluşturma](../virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Popüler uygulama çerçevelerini çalıştıran VM oluşturma](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [VM kopyalama](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [VM’yi abonelikler arasında taşıma](../virtual-machines-windows-move-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
@@ -80,22 +79,18 @@
 ### [Azure Karma Kullanım Avantajı lisanslama](../virtual-machines-windows-hybrid-use-benefit-licensing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Windows istemci görüntülerini kullanma](../virtual-machines-windows-client-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [VHD’yi karşıya yükleme işlemi için hazırlama](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Sysprep ile VM’yi genelleştirme](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Bir VHD’yi karşıya yükleme](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [VM biçiminde genelleştirilmiş VHD oluşturma ve karşıya yükleme](../virtual-machines-windows-upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [VM biçiminde özel VHD oluşturma ve karşıya yükleme](../virtual-machines-windows-upload-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Yönetilen Disk görüntüsü oluşturma](../virtual-machines-windows-capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Genelleştirilmiş bir Yönetilen Disk görüntüsünden VM oluşturma](../virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Genelleştirilmiş bir VHD’den yönetilmeyen VM oluşturma](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Özelleştirilmiş bir VHD’den VM oluşturma](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Blob depolamaya yönetilmeyen VM yakalama](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+
+
 
 ## VM depolamayı yönetme
 ### [Azure Yönetilen Diskler](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [SSS](../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Yönetilen Disk oluşturma](../virtual-machines-windows-create-managed-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [VM’yi Yönetilen Disklere dönüştürme](../virtual-machines-windows-migrate-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Azure PowerShell](../virtual-machines-windows-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [VM’leri Yönetilen Disklere geçirme](../virtual-machines-windows-migrate-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Yönetilmeyen disklerden Yönetilen Disklere dönüştürme](../virtual-machines-windows-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Klasik VM’yi Yönetilen Disklere geçirme](../virtual-machines-windows-migrate-single-classic-to-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Yönetilen Diskin anlık görüntüsünü alma](../virtual-machines-windows-snapshot-copy-managed-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### Veri diski ekleme
 #### [Azure PowerShell](../virtual-machines-windows-attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -104,6 +99,12 @@
 ### [İşletim sistemi diskini genişletme](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Veri diskini genişletme](../virtual-machines-windows-expand-data-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [D: sürücüsünü veri diski olarak kullanma](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Yönetilmeyen diskleri kullanarak VM’ler oluşturma
+#### [Bir VHD’yi karşıya yükleme](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Yönetilmeyen görüntü oluşturma](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Genelleştirilmiş bir VHD’den yönetilmeyen VM oluşturma](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [VM kopyalama](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Özelleştirilmiş bir VHD’den VM oluşturma](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## [VM ağı](../virtual-machines-windows-ps-common-network-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Sanal ağlar oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -169,10 +170,11 @@
 ## VM’leri geçirme
 ### [AWS ve yerinde VM’leri Azure genel bakışına geçirme](../virtual-machines-windows-on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Amazon Web Services’den (AWS) Azure’a geçiş](../virtual-machines-windows-aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Genelleştirilmiş VHD’den VM oluşturma ve karşıya yükleme](../virtual-machines-windows-upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [VM biçiminde özel VHD oluşturma ve karşıya yükleme](../virtual-machines-windows-upload-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Klasik’ten Azure Resource Manager’a geçiş](../virtual-machines-windows-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Geçiş planlaması](../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [PowerShell kullanarak VNet içindeki tüm sanal makineleri geçirme](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [PowerShell kullanarak tek bir sanal makine geçirme](../virtual-machines-windows-migrate-single-classic-to-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Sık görülen geçirme hataları](../virtual-machines-migration-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Geçiş için topluluk araçları](../virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

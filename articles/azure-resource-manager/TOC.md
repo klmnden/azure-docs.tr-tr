@@ -7,14 +7,13 @@
 
 # Başlarken
 ## [Şablonu dışarı aktarma](resource-manager-export-template.md)
-## [Şablon kılavuzu](resource-manager-template-walkthrough.md)
+## [İlk şablonunuzu oluşturma](resource-manager-create-first-template.md)
 ## [Resource Manager ile Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [Resource Manager ile VS Kodları](resource-manager-vs-code.md)
 
 # Nasıl yapılır?
 ## Şablon oluşturma
 ### [Şablonlar için en iyi uygulamalar](resource-manager-template-best-practices.md)
-### [Yazma şablonları](resource-group-authoring-templates.md)
+### [Şablon bölümleri](resource-group-authoring-templates.md)
 ### [Şablon işlevleri](resource-group-template-functions.md)
 ### [Kaynaklar arasında bağımlılık tanımlama](resource-group-define-dependencies.md)
 ### [Alt kaynak adı ve türünü ayarlama](resource-manager-template-child-resource.md)
@@ -62,7 +61,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Şablon şemaları](https://github.com/Azure/azure-resource-manager-schemas)
+## [Şablon biçimi](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Kaynaklar

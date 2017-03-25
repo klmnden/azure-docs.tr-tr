@@ -11,6 +11,7 @@
 ## Geliştirme
 ### [Uygulama paketleri](batch-application-packages.md)
 ### [İşlem düğümlerini otomatik ölçeklendirme](batch-automatic-scaling.md)
+### [Azure AD kimlik doğrulaması](batch-aad-auth.md)
 ### [Eşzamanlı düğüm görevleri](batch-parallel-node-tasks.md)
 ### [Etkili liste sorguları](batch-efficient-list-queries.md)
 ### [İş hazırlığı ve tamamlama görevleri](batch-job-prep-release.md)
@@ -47,4 +48,5 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C# kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 

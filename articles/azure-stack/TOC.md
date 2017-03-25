@@ -32,6 +32,7 @@
 ### [Sistem durumu ve uyarıları izleme](azure-stack-monitor-health.md)
 ### [Ağ kaynaklarını yönetme](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
 ### [Depolama kaynaklarını yönetme](azure-stack-manage-storage-accounts.md)
+### [Windows Azure Paketi VM’lerini yönetme](azure-stack-manage-windows-azure-pack.md)
 
 # Güvenlik ve uyumluluk
 ## Nasıl yapılır?
@@ -86,7 +87,6 @@
 #### [Portal ile yönetme](azure-stack-kv-manage-portal.md)
 #### [PowerShell ile Yönetme](azure-stack-kv-manage-powershell.md)
 ### Nasıl yapılır?
-#### [Parola ile VM dağıtma](azure-stack-kv-deploy-vm-with-secret.md)
 #### [Sertifika ile VM oluşturma](azure-stack-kv-push-secret-into-vm.md)
 #### [Anahtar Kasası örnek uygulaması](azure-stack-kv-sample-app.md)
 

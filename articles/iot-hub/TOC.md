@@ -227,10 +227,11 @@
 ## Yönet
 ### IoT hub oluşturma 
 #### [Portalı kullanma](iot-hub-create-through-portal.md)
+#### [PowerShell kullanma](iot-hub-create-using-powershell.md)
 #### [CLI 2.0’ı kullanma](iot-hub-create-using-cli.md)
 #### [CLI’yi kullanma](iot-hub-create-using-cli-nodejs.md)
 #### [REST API kullanma](iot-hub-rm-rest.md)
-#### [PowerShell kullanma](iot-hub-rm-template-powershell.md)
+#### [PowerShell’den şablon kullanma](iot-hub-rm-template-powershell.md)
 #### [.NET’ten şablon kullanma](iot-hub-rm-template.md)
 ### [Karşıya dosya yüklemeyi yapılandırma](iot-hub-configure-file-upload.md)
 ### [IoT cihazlarını toplu yönetme](iot-hub-bulk-identity-mgmt.md)

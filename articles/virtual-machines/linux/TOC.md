@@ -94,6 +94,7 @@
 ### Disk ekleme
 #### [Azure CLI](../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Azure portal](../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Disk ayırma](../virtual-machines-linux-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [İşletim sistemi sürücüsünü genişletme](../virtual-machines-linux-expand-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Yazılım RAID yapılandırma](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [LVM'yi yapılandırma](../virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
