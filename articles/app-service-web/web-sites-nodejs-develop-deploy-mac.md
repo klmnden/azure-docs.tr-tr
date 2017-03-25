@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 4b8eb863a1fcb65c307870619ea9d8942c57a906
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 335c6fc1bab097367f2d380466d19ea70c7660c2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -187,7 +187,7 @@ Node.js, uygulamalarınız tarafından kullanılabilecek zengin bir modül ekosi
 
 Azure’a dağıtılan uygulamanızda sorunlarla karşılaşırsanız, sorunu tanılama hakkında bilgi için bkz. [Azure App Service’teki bir Node.js uygulamasında hata ayıklama](web-sites-nodejs-debug.md).
 
-Bu makalede bir web uygulaması oluşturmak için Azure Portal kullanılmıştır. Aynı işlemleri gerçekleştirmek için [Azure Komut Satırı Arabirimi](../xplat-cli-install.md) veya [Azure PowerShell](/powershell/azureps-cmdlets-docs)’i kullanabilirsiniz.
+Bu makalede bir web uygulaması oluşturmak için Azure Portal kullanılmıştır. Aynı işlemleri gerçekleştirmek için [Azure Komut Satırı Arabirimi](../cli-install-nodejs.md) veya [Azure PowerShell](/powershell/azureps-cmdlets-docs)’i kullanabilirsiniz.
 
 Azure’da Node.js uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi](/develop/nodejs/).
 

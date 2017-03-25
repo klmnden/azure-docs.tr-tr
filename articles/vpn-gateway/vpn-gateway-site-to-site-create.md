@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
-ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 9df9d10d436ac56c881c9547f3095b630d4cb97f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -25,9 +26,10 @@ ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Klasik - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Klasik - Klasik Portal](vpn-gateway-site-to-site-create.md)
-> 
-> 
+>
+>
 
 Bu makale, klasik dağıtım modelini ve klasik portalı kullanarak sanal bir ağ ve şirket içi ağınızda konumdan konuma VPN ağ geçidi bağlantısı oluşturma işleminde size yol gösterir. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir.
 
@@ -50,25 +52,25 @@ Yapılandırmaya başlamadan önce aşağıdaki öğelerin bulunduğunu doğrula
 * VPN cihazınız için dışarıya yönelik genel bir IP adresi. Bu IP adresi bir NAT’nin arkasında olamaz.
 * Azure aboneliği. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
 
-## <a name="a-namecreatevnetacreate-your-virtual-network"></a><a name="CreateVNet"></a>Sanal ağınızı oluşturma
+## <a name="CreateVNet"></a>Sanal ağınızı oluşturma
 1. [Klasik Azure portalında](https://manage.windowsazure.com/) oturum açın.
 2. Ekranın sol alt köşesinde **Yeni**’ye tıklayın. Gezinme bölmesinde **Ağ Hizmetleri**’ne, sonra da **Virtual Network**’a tıklayın. Yapılandırma sihirbazını başlatmak için **Özel Oluştur**’a tıklayın.
 3. Sanal ağınızı oluşturmak için aşağıdaki sayfalara yapılandırma ayarlarınızı girin:
 
-## <a name="a-namedetailsavirtual-network-details-page"></a><a name="Details"></a>Sanal ağ ayrıntıları sayfası
+## <a name="Details"></a>Sanal ağ ayrıntıları sayfası
 Aşağıdaki bilgileri girin:
 
 * **Ad**: Sanal ağınıza bir ad verin. Örneğin, *EastUSVNet*. VM’lerinizi ve PaaS örneklerinizi dağıtırken bu sanal ağ adını kullanacağınız için, karışık bir isim vermekten kaçınmak isteyebilirsiniz.
 * **Konum**: Konum, kaynaklarınızın (VM’ler) bulunmasını istediğiniz fiziksel konum (bölge) ile doğrudan ilişkilidir. Örneğin, bu sanal ağa dağıttığınız VM’lerin fiziksel olarak *Doğu ABD*’de bulunmasını istiyorsanız, o konumu seçin. Sanal ağınızı oluşturduktan sonra sanal ağınızla ilişkili bölgeyi değiştiremezsiniz.
 
-## <a name="a-namednsadns-servers-and-vpn-connectivity-page"></a><a name="DNS"></a>DNS sunucuları ve VPN bağlantı sayfası
+## <a name="DNS"></a>DNS sunucuları ve VPN bağlantı sayfası
 Aşağıdaki bilgileri girin ve sağ alt köşedeki ileri okuna tıklayın.
 
 * **DNS Sunucuları**: DNS sunucusunun adını ve IP adresini girin veya kısayol menüsünden, önceden kaydedilmiş bir DNS sunucusu seçin. Bu ayarla bir DNS sunucusu oluşturulmaz. Söz konusu ayar, bu sanal ağa ilişkin ad çözümlemesi için kullanmak istediğiniz DNS sunucularını belirtmenize olanak sağlar.
 * **Siteden Siteye VPN’i Yapılandırma**: **Siteden siteye VPN’i yapılandırma** onay kutusunu seçin.
 * **Yerel Ağ**: Yerel ağ, fiziksel şirket içi konumunuzu temsil eder. Daha önce oluşturduğunuz bir yerel ağı seçebilir veya yeni bir yerel ağ oluşturabilirsiniz. Ancak daha önce oluşturduğunuz yerel bir ağı kullanmayı seçerseniz **Yerel Ağlar** yapılandırma sayfasına gidin ve VPN cihazına ilişkin VPN Cihazı IP adresinin (genel kullanıma yönelik IPv4 adresi) doğru olduğundan emin olun.
 
-## <a name="a-nameconnectivityasite-to-site-connectivity-page"></a><a name="Connectivity"></a>Konumdan Konuma bağlantı sayfası
+## <a name="Connectivity"></a>Konumdan Konuma bağlantı sayfası
 Yeni bir yerel ağ oluşturuyorsanız **Siteden Siteye Bağlantı** sayfasını görürsünüz. Daha önce oluşturduğunuz bir yerel ağı kullanmak istiyorsanız, sihirbazda bu sayfa görünmez ve bir sonraki bölüme geçebilirsiniz.
 
 Aşağıdaki bilgileri girin ve ileri okuna tıklayın.
@@ -78,7 +80,7 @@ Aşağıdaki bilgileri girin ve ileri okuna tıklayın.
 * **Adres Alanı**: Başlangıç IP’si ve CIDR’si (Adres Sayısı) ekleyin. Sanal ağ geçidinden, yerel şirket içi konumunuza gönderilmesini istediğiniz adres aralığını (veya aralıklarını) burada belirtin. Hedef IP adresi, burada belirttiğiniz aralıkta yer alıyorsa sanal ağ geçidinden yönlendirilir.
 * **Adres alanı ekle**: Sanal ağ geçidinden gönderilmesini istediğiniz birden fazla adres aralığınız varsa ekleyeceğiniz tüm adres aralıklarını burada belirtin. Daha sonra **Yerel Ağ** sayfasından aralık ekleyebilir veya kaldırabilirsiniz.
 
-## <a name="a-nameaddressavirtual-network-address-spaces-page"></a><a name="Address"></a>Sanal ağ adres alanları sayfası
+## <a name="Address"></a>Sanal ağ adres alanları sayfası
 Sanal ağınız için kullanmak istediğiniz adres aralığını belirtin. Belirlediğiniz adresler, bu sanal ağa dağıtacağınız VM’ler ve diğer rol örneklerine atanacak olan dinamik IP adresleridir (DIPS).
 
 Şirket içi ağınız için kullanılan aralıklardan herhangi biriyle çakışmayan bir aralık seçmeniz çok önemlidir. Ağ yöneticinizle birlikte çalışmanız gerekir. Ağ yöneticinizin şirket içi ağ adresi alanınızdan, sanal ağınızda kullanabilmeniz için IP adresi aralığı ayırması gerekebilir.
@@ -93,15 +95,10 @@ Sayfanın altındaki onay işaretine tıkladığınızda sanal ağınız oluştu
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="a-namevnetgatewayaconfigure-your-virtual-network-gateway"></a><a name="VNetGateway"></a>Sanal ağ geçidinizi yapılandırma
+## <a name="VNetGateway"></a>Sanal ağ geçidinizi yapılandırma
 Güvenli bir siteden siteye bağlantı oluşturmak için sanal ağ geçidini yapılandırın. Bkz. [Klasik Azure portalında sanal ağ geçidi yapılandırma](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
  Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

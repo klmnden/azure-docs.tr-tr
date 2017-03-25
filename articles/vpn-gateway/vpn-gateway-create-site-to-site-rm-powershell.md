@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
-ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 1d0addd4f04fb597e7962c21ccbcb61e165a6c1e
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -25,6 +26,7 @@ ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Klasik - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Klasik - Klasik Portal](vpn-gateway-site-to-site-create.md)
 >
 >
@@ -51,7 +53,7 @@ Yapılandırmaya başlamadan önce aşağıdaki öğelerin bulunduğunu doğrula
 * Azure aboneliği. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
 * Azure Resource Manager PowerShell cmdlet'lerinin son sürümü. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
-## <a name="a-namelogina1-connect-to-your-subscription"></a><a name="Login"></a>1. Aboneliğinize bağlanma
+## <a name="Login"></a>1. Aboneliğinize bağlanma
 Resource Manager cmdlet’lerini kullanmak için PowerShell moduna geçtiğinizden emin olun. Daha fazla bilgi için [Windows PowerShell’i Resource Manager ile kullanma](../powershell-azure-resource-manager.md) konusuna bakın.
 
 PowerShell konsolunuzu açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
@@ -66,7 +68,7 @@ Kullanmak istediğiniz aboneliği belirtin.
 
     Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-## <a name="a-namevneta2-create-a-virtual-network-and-a-gateway-subnet"></a><a name="VNet"></a>2. Sanal ağ ve ağ geçidi alt ağı oluşturma
+## <a name="VNet"></a>2. Sanal ağ ve ağ geçidi alt ağı oluşturma
 Örneklerde /28 boyutunda bir ağ geçidi alt ağı kullanılmaktadır. /29 kadar küçük bir ağ geçidi alt ağı oluşturmak mümkün olsa da en az /28 veya /27’yi seçerek daha fazla adres içeren büyük bir alt ağ oluşturmanızı öneririz. Bu, gelecekte isteyebileceğiniz ek yapılandırmaları da içerecek yeteri kadar adres sağlayacaktır.
 
 /29 veya daha büyük bir ağ geçidi alt ağına sahip bir sanal ağınız varsa, [Yerel ağ geçidinizi ekleme](#localnet) bölümüne atlayabilirsiniz.
@@ -94,7 +96,7 @@ VNet'i oluşturun.
     New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg `
     -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
-### <a name="a-namegatewaysubnetato-add-a-gateway-subnet-to-a-virtual-network-you-have-already-created"></a><a name="gatewaysubnet"></a>Önceden oluşturduğunuz bir sanal ağa, bir ağ geçidi alt ağı eklemek için
+### <a name="gatewaysubnet"></a>Önceden oluşturduğunuz bir sanal ağa, bir ağ geçidi alt ağı eklemek için
 Bu adım, yalnızca önceden oluşturduğunuz bir sanal ağa, bir ağ geçidi alt ağı eklemeye ihtiyaç duyduğunuz durumlarda gereklidir.
 
 Aşağıdaki örneği kullanarak ağ geçidi alt ağınızı oluşturabilirsiniz. Ağ geçidi alt ağına 'GatewaySubnet' adını verdiğinizden emin olun. Başka bir ad kullanırsanız alt ağ oluşturulur ancak Azure bunu bir ağ geçidi alt ağı olarak değerlendirmez.
@@ -111,7 +113,7 @@ Yapılandırmayı ayarlayın.
 
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-## <a name="3-a-namelocalnetaadd-your-local-network-gateway"></a>3. <a name="localnet"></a>Yerel ağ geçidinizi ekleme
+## 3. <a name="localnet"></a>Yerel ağ geçidinizi ekleme
 Sanal bir ağda, yerel ağ geçidi genellikle şirket içi konumunuz anlamına gelir. Bu siteye Azure'ın başvururken kullanabileceği bir ad verin. Ayrıca yerel ağ geçidine ait adres alanı ön ekini belirtin.
 
 Azure, belirttiğiniz IP adresi ön ekini kullanarak hangi trafiğin şirket içi konumunuza gönderileceğini belirler. Bu nedenle yerel ağ geçidinizle ilişkili olmasını istediğiniz tüm adres ön eklerini belirtmeniz gerekir. Şirket içi ağınızda bir değişiklik olursa bu ön ekleri kolayca güncelleştirebilirsiniz.
@@ -134,7 +136,7 @@ Birden çok adres ön ekine sahip bir yerel ağ geçidi eklemek için:
 ### <a name="to-modify-ip-address-prefixes-for-your-local-network-gateway"></a>Yerel ağ geçidinizin IP adresi ön eklerini değiştirmek için
 Bazen yerel ağ geçidi ön ekleriniz değişir. IP adresi ön eklerinizi değiştirmek için uygulayacağınız adımlar bir VPN ağ geçidi bağlantısı oluşturup oluşturmadığınıza göre değişir. Bu makalenin [Yerel bir ağ geçidinin IP adresi ön eklerini değiştirme](#modify) bölümüne bakın.
 
-## <a name="a-namepublicipa4-request-a-public-ip-address-for-the-vpn-gateway"></a><a name="PublicIP"></a>4. VPN ağ geçidi için genel bir IP adresi isteme
+## <a name="PublicIP"></a>4. VPN ağ geçidi için genel bir IP adresi isteme
 Bir sonraki adımda, Azure VNet VPN ağ geçidinize genel bir IP adresinin ayrılmasını isteyeceksiniz. Bu, VPN cihazınıza atanan IP adresinin aynısı değildir. Bu IP adresi, Azure VPN ağ geçidinin kendisine atanır. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, ağ geçidinize dinamik olarak ayrılır. Şirket içi VPN cihazınızı ağ geçidine bağlanmak üzere yapılandırırken bu IP adresini kullanırsınız.
 
 Resource Manager dağıtım modeline ait Azure VPN ağ geçidi, genel IP adreslerini şu anda yalnızca Dinamik Ayırma yöntemini kullanarak desteklemektedir. Ancak bu, IP adresinin değişeceği anlamına gelmez. Azure VPN ağ geçidi IP adresi, yalnızca ağ geçidi silinip yeniden oluşturulduğunda değişir. Ağ geçidi genel IP adresi, Azure VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
@@ -143,14 +145,14 @@ Aşağıdaki PowerShell örneğini kullanın:
 
     $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
-## <a name="a-namegatewayipconfiga5-create-the-gateway-ip-addressing-configuration"></a><a name="GatewayIPConfig"></a>5. Ağ geçidi IP adresleme yapılandırmasını oluşturma
+## <a name="GatewayIPConfig"></a>5. Ağ geçidi IP adresleme yapılandırmasını oluşturma
 Ağ geçidi yapılandırması, kullanılacak alt ağı ve genel IP adresini tanımlar. Ağ geçidi yapılandırmanızı oluşturmak için aşağıdaki örneği kullanın.
 
     $vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
     $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
     $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 
-## <a name="a-namecreategatewaya6-create-the-virtual-network-gateway"></a><a name="CreateGateway"></a>6. Sanal ağ geçidini oluşturma
+## <a name="CreateGateway"></a>6. Sanal ağ geçidini oluşturma
 Bu adımda sanal ağ geçidini oluşturursunuz. Ağ geçidi oluşturma işlemi uzun sürebilir. Bu süre genellikle 45 dakika veya daha fazladır.
 
 Aşağıdaki değerleri kullanın:
@@ -163,14 +165,14 @@ Aşağıdaki değerleri kullanın:
         -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
         -VpnType RouteBased -GatewaySku Standard
 
-## <a name="a-nameconfigurevpndevicea7-configure-your-vpn-device"></a><a name="ConfigureVPNDevice"></a>7. VPN cihazınızı yapılandırma
+## <a name="ConfigureVPNDevice"></a>7. VPN cihazınızı yapılandırma
 Bu noktada, şirket içi VPN cihazınızı yapılandırmak için sanal ağ geçidinin genel IP adresi gereklidir. Belirli yapılandırma bilgilerini edinmek için cihazınızın üreticisiyle iş birliği yapın. Daha fazla bilgi edinmek için [VPN Cihazları](vpn-gateway-about-vpn-devices.md) başlıklı makaleye bakabilirsiniz.
 
 Sanal ağ geçidinizin genel IP adresini bulmak için aşağıdaki örneği kullanın:
 
     Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg
 
-## <a name="a-namecreateconnectiona8-create-the-vpn-connection"></a><a name="CreateConnection"></a>8. VPN bağlantısını oluşturma
+## <a name="CreateConnection"></a>8. VPN bağlantısını oluşturma
 Bir sonraki adımda, sanal ağ geçidiniz ile VPN cihazınız arasındaki Siteden Siteye VPN bağlantısını oluşturacaksınız. Değerlerin kendinizinkilerle değiştirildiğinden emin olun. Paylaşılan anahtar, VPN cihazınızın yapılandırması için kullandığınız değerin aynısı olmalıdır. Siteden Siteye bağlantı için `-ConnectionType` değerinin *IPsec* olduğunu unutmayın.
 
 Değişkenleri ayarlayın.
@@ -186,25 +188,20 @@ Bağlantıyı oluşturun.
 
 Kısa bir süre içerisinde bağlantı kurulur.
 
-## <a name="a-nametoverifyato-verify-a-vpn-connection"></a><a name="toverify"></a>VPN bağlantısını doğrulamak için
+## <a name="toverify"></a>VPN bağlantısını doğrulamak için
 VPN bağlantınızı doğrulamanın birkaç farklı yolu vardır.
 
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## <a name="a-namemodifyato-modify-ip-address-prefixes-for-a-local-network-gateway"></a><a name="modify"></a>Yerel bir ağ geçidinin IP adresi ön eklerini değiştirmek için
+## <a name="modify"></a>Yerel bir ağ geçidinin IP adresi ön eklerini değiştirmek için
 Yerel ağ geçidiniz için ön ekleri değiştirmeniz gerekirse aşağıdaki yönergeleri uygulayın. İki ayrı yönerge grubu sunulmuştur. Hangi yönergeleri seçeceğiniz, ağ geçidi bağlantınızı önceden oluşturup oluşturmadığınıza bağlıdır.
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## <a name="a-namemodifygwipaddressato-modify-the-gateway-ip-address-for-a-local-network-gateway"></a><a name="modifygwipaddress"></a>Yerel bir ağ geçidi için ağ geçidi IP adresini değiştirme
+## <a name="modifygwipaddress"></a>Yerel bir ağ geçidi için ağ geçidi IP adresini değiştirme
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 *  Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * BGP hakkında bilgi edinmek için [BGP’ye Genel Bakış](vpn-gateway-bgp-overview.md) ve [BGP’yi yapılandırma](vpn-gateway-bgp-resource-manager-ps.md) makalelerine bakın.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

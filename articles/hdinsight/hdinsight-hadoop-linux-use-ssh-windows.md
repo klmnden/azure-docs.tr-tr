@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 744d41a85d39cb468a17ac5a60cd2517f3e60147
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b1806950581e0adbeec52839f12c70599d28100d
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -110,7 +111,7 @@ Bu belirtilen kullanıcı için bir oturum oluşturur ve parola kimlik doğrulam
 
 ### <a name="azure-command-line-interface-for-mac-linux-and-windows"></a>Mac, Linux ve Windows için Azure Komut Satırı Arabirimi
 
-`azure hdinsight cluster create` komutunu kullanarak yeni bir küme oluşturmak için [Mac, Linux ve Windows için Azure CLI](../xplat-cli-install.md)’yı kullanabilirsiniz.
+`azure hdinsight cluster create` komutunu kullanarak yeni bir küme oluşturmak için [Mac, Linux ve Windows için Azure CLI](../cli-install-nodejs.md)’yı kullanabilirsiniz.
 
 Bu komutu kullanma hakkında daha fazla bilgi için bkz. [Özel seçenekleri kullanarak HDInsight’ta Hadoop Linux kümeleri hazırlama](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -221,7 +222,7 @@ Kümenize daha fazla hesap eklemeniz gerekiyorsa, aşağıdaki adımları gerçe
 
 6. Artık yeni kullanıcı hesabı ve özel anahtarla sunucuda kimlik doğrulaması yapabiliyor olmanız gerekir.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>SSH tünel oluşturma
+## <a id="tunnel"></a>SSH tünel oluşturma
 
 SSH, web istekleri gibi yerel istekler için HDInsight kümesine tünel oluşturmak üzere kullanılabilir. Daha sonra, istek HDInsight kümesi baş düğümünde oluşturulmuş gibi istenen kaynağa iletilir.
 
@@ -239,9 +240,4 @@ Artık bir SSH anahtarı kullanarak kimlik doğrulaması yapacağınızı anlad�
 * [HDInsight ile MapReduce işleri kullanma](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

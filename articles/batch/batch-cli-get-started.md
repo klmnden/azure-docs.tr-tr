@@ -16,9 +16,9 @@ ms.date: 01/23/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: e4a3f3f3bca06e66f39f5acd8b4571b4a498ed83
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 698c481e2eff5e0a3b893a0377d9f4cd2f052eb4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Platformlar arası Azure Komut Satırı Arabirimi (Azure CLI); Linux, Mac ve Win
 Bu makale Azure CLI sürüm 0.10.5’i temel alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
-* [Azure CLI'yı yükleme](../xplat-cli-install.md)
+* [Azure CLI'yı yükleme](../cli-install-nodejs.md)
 * [Azure CLI’yı Azure aboneliğinize bağlama](../xplat-cli-connect.md)
 * **Resource Manager moduna** geçin: `azure config mode arm`
 

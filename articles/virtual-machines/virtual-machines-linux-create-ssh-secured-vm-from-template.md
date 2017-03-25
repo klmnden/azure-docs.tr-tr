@@ -17,9 +17,9 @@ ms.date: 10/24/2016
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e692e87899e49f6ad681de8e682492ec69e47eac
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/28/2017
 Bu makalede, Azure’da bir Azure Şablonu kullanarak nasıl hızlı bir şekilde Linux Sanal Makine dağıtacağınız gösterilmiştir.  Bu makale için şunlar gereklidir:
 
 * bir Azure hesabı ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/)).
-* `azure login` ile oturum açılmış [Azure CLI'si](../xplat-cli-install.md).
+* `azure login` ile oturum açılmış [Azure CLI'si](../cli-install-nodejs.md).
 * Azure CLI'si, `azure config mode arm` Azure Resource Manager modunda *olmalıdır*.
 
 [Azure portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)’ı kullanarak da hızlı bir şekilde Linux VM şablonu dağıtabilirsiniz.

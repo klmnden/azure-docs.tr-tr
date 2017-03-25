@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: bd1f5e497bcf39a0d8848cc63c718e693f775d63
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 128b91c685b5f7e494a69ca5b04165a0ee7cbb78
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -51,7 +52,7 @@ Daha fazla bilgi için bkz. [Yük Dengeleyici için Azure Resource Manager deste
 
 ## <a name="set-up-cli-to-use-resource-manager"></a>CLI’yi Resource Manager’ı kullanacak şekilde ayarlama
 
-1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI hizmetini yükleme ve yapılandırma](../xplat-cli-install.md). Talimatları Azure hesabı ve abonelik seçme adımına kadar uygulayın.
+1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI hizmetini yükleme ve yapılandırma](../cli-install-nodejs.md). Talimatları Azure hesabı ve abonelik seçme adımına kadar uygulayın.
 2. Resource Manager moduna geçmek için **azure config mode** komutunu aşağıdaki gibi çalıştırın:
 
     ```azurecli
@@ -214,10 +215,5 @@ azure network lb delete --resource-group nrprg --name ilbset
 [Kaynak IP benzeşimi kullanarak yük dengeleyici dağıtım modunu yapılandırma](load-balancer-distribution-mode.md)
 
 [Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

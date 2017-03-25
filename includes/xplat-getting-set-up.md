@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 04/13/2015
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
-ms.openlocfilehash: f18a4705c9fd57790bff9cfdd23c19fd30fe0d32
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 737e4be21eefcbd6fbd31d15a6f77770cd59ca67
+ms.lasthandoff: 03/21/2017
 
 
 ---
 ## <a name="using-azure-cli"></a>Using Azure CLI
-The following steps help you use Azure CLI easily with the most recent version and the proper subscription. If you need to install Azure CLI and connect it to your account first, see the [Azure Command-Line Interface (Azure CLI)](../articles/xplat-cli-install.md).
+The following steps help you use Azure CLI easily with the most recent version and the proper subscription. If you need to install Azure CLI and connect it to your account first, see the [Azure Command-Line Interface (Azure CLI)](../articles/cli-install-nodejs.md).
 
 ### <a name="step-1-update-azure-cli-version"></a>Step 1: Update Azure CLI version
 To use Azure CLI for imperative commands with service management mode, you should have a recent version if possible. To verify your version, type `azure --version`. You should see something like:
