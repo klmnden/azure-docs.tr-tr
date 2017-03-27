@@ -82,7 +82,6 @@
 
 ### [IIS’ten geçiş](web-sites-migration-from-iis-server.md)
 ### [Üretimde test](app-service-web-test-in-production-get-start.md)
-### [Performans testleri çalıştırma](app-service-web-app-performance-test.md) 
 
 ## DB/kaynaklara bağlanma        
 

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 36e0a52013b8d12c7e66c5955756a61a2c72b7dc
-ms.openlocfilehash: c3507aed3cc44d6360b8ba3ddf172e1437c1227a
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a28e325e8a7e902a64f8cc267e2f0d3be151bcb3
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -73,7 +73,7 @@ Yönetim düzlemi ve veri düzlemi erişim denetimleri birbirinden bağımsız o
 Yönetim düzlemi, anahtar kasasını etkileyen işlemlerden oluşur. Örneğin, bir anahtar kasası oluşturabilir veya silebilirsiniz. Bir abonelikteki kasaların listesini alabilirsiniz. Anahtar kasası özelliklerini alabilir (SKU, etiketler gibi) ve kasadaki anahtarlara ve parolalara erişebilen kullanıcıları ve uygulamaları denetleyen anahtar kasası erişim ilkelerini ayarlayabilirsiniz. Yönetim düzlemi erişim denetimi, RBAC kullanır. Önceki bölümde yer alan tabloda, yönetim düzlemi üzerinden gerçekleştirilebilecek anahtar kasası işlemlerinin tam listesini görebilirsiniz. 
 
 ### <a name="role-based-access-control-rbac"></a>Rol Tabanlı Access Control (RBAC)
-Her Azure aboneliği bir Azure Active Directory’ye sahiptir. Bu dizindeki kullanıcılara, gruplara ve uygulamalara, Azure aboneliğinde Azure Resource Manager dağıtım modelini kullanan kaynakları yönetmek üzere erişim verilebilir. Bu erişim denetimi türü, Rol Tabanlı Access Control (RBAC) olarak adlandırılır. Bu erişimi yönetmek için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) veya [Azure Resource Manager REST API'lerini](https://msdn.microsoft.com/library/azure/dn906885.aspx) kullanabilirsiniz.
+Her Azure aboneliği bir Azure Active Directory’ye sahiptir. Bu dizindeki kullanıcılara, gruplara ve uygulamalara, Azure aboneliğinde Azure Resource Manager dağıtım modelini kullanan kaynakları yönetmek üzere erişim verilebilir. Bu erişim denetimi türü, Rol Tabanlı Access Control (RBAC) olarak adlandırılır. Bu erişimi yönetmek için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) veya [Azure Resource Manager REST API'lerini](https://msdn.microsoft.com/library/azure/dn906885.aspx) kullanabilirsiniz.
 
 Azure Resource Manager modeliyle, bir kaynak grubunda anahtar kasanızı oluşturur ve Azure Active Directory’yi kullanarak bu anahtar kasasının yönetim düzlemine erişimi denetlersiniz. Örneğin, kullanıcılara veya bir gruba, belirli bir kaynak grubunun içindeki anahtar kasalarını yönetme olanağı verebilirsiniz.
 
@@ -90,7 +90,7 @@ Anahtar kasası veri düzlemi, bir anahtar kasasındaki anahtarlar, parolalar ve
 Veri düzlemi erişimi, bir anahtar kasasına ilişkin erişim ilkeleri ayarlanarak verilir. Bir kullanıcı, grup veya uygulamanın bir anahtar kasasına ait erişim ilkelerini ayarlayabilmesi için, ilgili anahtar kasasının yönetim düzleminde Katkıda Bulunan izinlerine (RBAC) sahip olması gerekir. Bir kullanıcı, grup veya uygulamaya, bir anahtar kasasındaki anahtarlar veya parolalar için belirli işlemleri gerçekleştirmek üzere erişim verilebilir. bir anahtar kasası için en fazla 16 erişim ilkesi girişine yönelik anahtar kasası desteği. Bir Azure Active Directory güvenlik grubu oluşturun ve bir anahtar kasasındaki birkaç kullanıcıya veri düzlemi erişimi vermek amacıyla ilgili gruba kullanıcılar ekleyin.
 
 ### <a name="key-vault-access-policies"></a>anahtar kasası Erişim İlkeleri
-Anahtar kasası erişim ilkeleri anahtarlara, parolalara ve sertifikalara ayrı ayrı izinler verir. Örneğin, bir kullanıcıya parolalar için herhangi bir izin vermeden yalnızca anahtarlar için erişim verebilirsiniz. Ancak, anahtar, parola veya sertifikalara erişim izni kasa düzeyinde verilir. Diğer bir deyişle, anahtar kasası erişim ilkesi nesne düzeyinde izinleri desteklemez. Bir anahtar kasasının erişim ilkelerini ayarlamak için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) veya [anahtar kasası Yönetim REST API’lerini](https://msdn.microsoft.com/library/azure/mt620024.aspx) kullanabilirsiniz.
+Anahtar kasası erişim ilkeleri anahtarlara, parolalara ve sertifikalara ayrı ayrı izinler verir. Örneğin, bir kullanıcıya parolalar için herhangi bir izin vermeden yalnızca anahtarlar için erişim verebilirsiniz. Ancak, anahtar, parola veya sertifikalara erişim izni kasa düzeyinde verilir. Diğer bir deyişle, anahtar kasası erişim ilkesi nesne düzeyinde izinleri desteklemez. Bir anahtar kasasının erişim ilkelerini ayarlamak için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) veya [anahtar kasası Yönetim REST API’lerini](https://msdn.microsoft.com/library/azure/mt620024.aspx) kullanabilirsiniz.
 
 > [!IMPORTANT]
 > Anahtar kasası erişim ilkelerinin kasa düzeyinde geçerli olduğunu unutmayın. Örneğin, bir kullanıcıya anahtar oluşturma ve silme izni verildiğinde kullanıcı bu işlemleri ilgili anahtar kasasındaki tüm anahtarlar üzerinde gerçekleştirebilir.

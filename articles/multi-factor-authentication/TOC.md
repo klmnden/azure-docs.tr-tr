@@ -25,9 +25,9 @@
 #### [PhoneFactor'den yükseltme](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Kullanıcıları yönetme
-### [Lisans atama](multi-factor-authentication-get-started-assign-licenses.md)
 ### [MFA’yı etkinleştirme veya devre dışı bırakma](multi-factor-authentication-get-started-user-states.md)
 ### [Kullanıcı ve cihaz ayarları](multi-factor-authentication-manage-users-and-devices.md)
+### [MFA kullanıcı kılavuzu](./end-user/multi-factor-authentication-end-user.md)
 
 ## Tümleştirme
 ### [Federasyon Hizmetleri](multi-factor-authentication-get-started-adfs.md)

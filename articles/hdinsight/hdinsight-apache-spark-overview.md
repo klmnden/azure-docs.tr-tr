@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 82334b9e-4629-4005-8147-19f875c8774e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 858d6115ed3a96e3b6a3362ff8f5c1fc4c279bd2
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: edfdba3105aba1079d3c707e7320770c4a999a32
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -33,7 +34,7 @@ HDInsight’ta Spark kümesi oluşturduğunuzda, Spark yüklenmiş ve yapıland�
 **Azure HDInsight’ta Apache Spark kullanmaya başlamak mı istiyorsunuz?** Bkz. [Hızlı Başlangıç: HDInsight’ta Spark kümesi oluşturma ve Jupyter kullanarak örnek uygulamaları çalıştırma](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 > [!NOTE]
-> Geçerli sürümle ilgili bilinen sorunlar ve sınırlamaların listesi için bkz: [Azure HDInsight’ta Apache Spark’a ilişkin bilinen sorunlar](hdinsight-apache-spark-jupyter-spark-sql.md).
+> Geçerli sürümle ilgili bilinen sorunlar ve sınırlamaların listesi için bkz: [Azure HDInsight’ta Apache Spark’a ilişkin bilinen sorunlar](hdinsight-apache-spark-known-issues.md).
 > 
 > 
 

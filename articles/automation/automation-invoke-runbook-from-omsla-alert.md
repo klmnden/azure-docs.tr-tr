@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 4ce5ad30d79e92a11231313fe13dd42b94fc2aa4
-ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 8460ed6be3e922fb85f46982662d44eed21dda7c
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -35,7 +36,7 @@ Uyarı yapılandırırken runbook'u çağırmak için iki seçenek vardır.  Dah
 
 ## <a name="calling-a-runbook-using-a-webhook"></a>Web kancası kullanarak bir runbook çağırma
 
-Web kancası tek bir HTTP isteği ile Azure Otomasyonu’nda belirli bir runbook başlatmanıza olanak tanır.  Web kancası kullanarak bir uyarı eylemi olarak runbook’u çağırmak üzere [Log Analytics uyarısını](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule) yapılandırmadan önce, ilk olarak bu yöntem kullanılarak çağrılacak runbook için bir web kancası oluşturmanız gerekir.  [Web kancası oluşturma](automation-webhooks.md#creating-a-webhook) makalesindeki adımları gözden geçirip uygulayın ve uyarı kuralını yapılandırırken başvurabilmeniz için web kancası URL’sini kaydetmeyi unutmayın.   
+Web kancası tek bir HTTP isteği ile Azure Otomasyonu’nda belirli bir runbook başlatmanıza olanak tanır.  Web kancası kullanarak bir uyarı eylemi olarak runbook’u çağırmak üzere [Log Analytics uyarısını](../log-analytics/log-analytics-alerts.md#creating-alert-rules) yapılandırmadan önce, ilk olarak bu yöntem kullanılarak çağrılacak runbook için bir web kancası oluşturmanız gerekir.  [Web kancası oluşturma](automation-webhooks.md#creating-a-webhook) makalesindeki adımları gözden geçirip uygulayın ve uyarı kuralını yapılandırırken başvurabilmeniz için web kancası URL’sini kaydetmeyi unutmayın.   
 
 ## <a name="calling-a-runbook-directly"></a>Doğrudan bir runbook çağırma
 
@@ -52,14 +53,14 @@ Log Analytics uyarısından runbook çağırmaya yönelik her iki yöntem de uya
           [Parameter (Mandatory=$true)]  
           [object] $WebhookData  
          )
-  
+
 *  WebhookData’yı bir PowerShell nesnesine dönüştürmek için kodunuz olmalıdır.
 
     `$SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value`
 
     *$SearchResults* bir nesne dizisidir; her nesne bir arama sonucunun değerlerini içeren alanlardan oluşur
 
-### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>Web kancası seçeneği ile runbook seçeneği arasındaki WebhookData tutarsızlıkları 
+### <a name="webhookdata-inconsistencies-between-the-webhook-option-and-runbook-option"></a>Web kancası seçeneği ile runbook seçeneği arasındaki WebhookData tutarsızlıkları
 
 * Web kancası çağırma uyarısını yapılandırırken, runbook için oluşturduğunuz web kancası URL'si girin ve **Web Kancasını Test Et** düğmesine tıklayın.  Sonuçta runbook’a gönderilen WebhookData, *.SearchResult* veya *.SearchResults* öğelerini içermez.
 
@@ -68,7 +69,7 @@ Log Analytics uyarısından runbook çağırmaya yönelik her iki yöntem de uya
 
 Dolayısıyla, yukarıdaki kod örneğinde, uyarı bir web kancası çağırırsa *.SearchResult* öğesini almanız ve uyarı doğrudan bir runbook çağırırsa *.SearchResults* öğesini almanız gerekir.
 
-## <a name="example-walkthrough"></a>Örnek kılavuz 
+## <a name="example-walkthrough"></a>Örnek kılavuz
 
 Bir Windows hizmetini başlatan aşağıdaki örnek grafiksel runbook kullanılarak bu işlemin nasıl çalıştığı gösterilecektir.<br><br> ![Windows Hizmeti Grafiksel Runbook’unu Başlatma](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
 
@@ -90,9 +91,4 @@ Otomasyon hesabınız OMS çalışma alanınıza bağlı değilse alternatif ola
 * Log Analytics’teki uyarılar ve bir uyarı oluşturma hakkında daha fazla bilgi için bkz. [Log Analytics’teki Uyarılar](../log-analytics/log-analytics-alerts.md).
 
 * Web kancası kullanarak runbook’ları tetikleme hakkında bilgi almak için bkz. [Azure Otomasyonu web kancaları](automation-webhooks.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

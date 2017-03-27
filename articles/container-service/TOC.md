@@ -15,6 +15,7 @@
 ### [DC/OS genel erişimini etkinleştirme](container-service-enable-public-access.md)
 ### [DC/OS kapsayıcılarında yük dengeleme](container-service-load-balancing.md)
 ### [DC/OS üzerinde uygulamaya/kullanıcıya özel düzenleyici](container-service-application-specific-marathon.md)
+### [Dosya paylaşımı ekleme](container-service-dcos-fileshare.md)
 ### DC/OS izleme
 #### [ELK ile izleme](container-service-monitoring-elk.md)
 #### [OMS ile izleme](container-service-monitoring-oms.md)

@@ -14,12 +14,12 @@
 ## Siteden Siteye bağlantı yapılandırma
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Azure portal (klasik)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Klasik portal (klasik)](vpn-gateway-site-to-site-create.md)
 ## Noktadan Siteye bağlantı yapılandırma
 ### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure portal (klasik)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Klasik portal (klasik)](vpn-gateway-point-to-site-create.md)
 ## Sanal ağdan sanal ağa bağlantı yapılandırma
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -41,7 +41,9 @@
 ## [PowerShell’i kullanarak yerel ağ geçidi ayarlarını değiştirme](vpn-gateway-modify-local-network-gateway.md)
 ## [VPN ağ geçidi bağlantısını doğrulama](vpn-gateway-verify-connection-resource-manager.md)
 ## [VPN ağ geçidini sıfırlama](vpn-gateway-resetgw-classic.md)
-## [VPN ağ geçidini silme](vpn-gateway-delete-vnet-gateway-powershell.md)
+## VPN ağ geçidi silme
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (klasik)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [P2S bağlantıları için otomatik olarak imzalanan kök sertifikaları oluşturma](vpn-gateway-certificates-point-to-site.md)
 ## [VPN ağ geçidi yapılandırma (klasik)](vpn-gateway-configure-vpn-gateway-mp.md)
 

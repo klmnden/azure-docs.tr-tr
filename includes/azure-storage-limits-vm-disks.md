@@ -1,16 +1,11 @@
-Bir Azure sanal makinesi birkaç veri diskini eklemeyi destekler. En iyi performans için, olası azalmayı önlemek için sanal makineye bağlı olup yüksek oranda kullanılan disk sayısını azaltmanız gerekebilir. Tüm diskler aynı anda yüksek oranda kullanılmıyorsa, depolama hesabı daha fazla sayıda diski destekler.
+An Azure virtual machine supports attaching a number of data disks. For optimal performance, you will want to limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all disks are not being highly utilized at the same time, the storage account can support a larger number disks.
 
-* **Azure Yönetilen Diskler için:** Yönetilen Disk sayısı sınırı, abonelik için bölgeseldir. Varsayılan geçici sınır 2.000'dir. Sınırınızı artırmak için Azure desteğine başvurun.
+* **For Azure Managed Disks:** Managed Disks count limit is regional for the subscription. The default soft limit is 2,000 per region per subscription. To increase your limit, contact Azure support.
 
-    Yönetilen Anlık Görüntüler ve Görüntüler, Yönetilen Diskler sınırına göre sayılır.
+    Managed Snapshots and Images are counted against the Managed Disks limit.
 
-* **Standart depolama hesapları için:** Standart bir depolama hesabı en fazla toplam 20.000 IOPS istek oranına sahiptir. Standart bir depolama hesabındaki tüm sanal makine disklerinizde toplam IOPS bu sınırı aşmamalıdır.
+* **For standard storage accounts:** A standard storage account has a maximum total request rate of 20,000 IOPS. The total IOPS across all of your virtual machine disks in a standard storage account should not exceed this limit.
   
-    Tek bir standart depolama hesabı tarafından desteklenen yüksek kullanımlı disk sayısını, istek oranı sınırına göre kabaca hesaplayabilirsiniz. Örneğin, aşağıdaki tabloda gösterildiği gibi, bir Temel Katman sanal makine için yüksek oranda kullanılan en fazla disk 66 (disk başına 20.000/300 IOPS) iken, Standart Katman sanal makine için bu sayı yaklaşık 40’tır (disk başına 20.000/500 IOPS). 
-* **Premium depolama hesapları için:** Premium depolama hesabında en fazla aktarım hızı 50 Gbps’dir. Tüm sanal makinelerdeki toplam aktarım hızı bu sınırı aşmamalıdır.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+    You can roughly calculate the number of highly utilized disks supported by a single standard storage account based on the request rate limit. For example, for a Basic Tier VM, the maximum number of highly utilized disks is about 66 (20,000/300 IOPS per disk), and for a Standard Tier VM, it is about 40 (20,000/500 IOPS per disk), as shown in the table below. 
+* **For premium storage accounts:** A premium storage account has a maximum total throughput rate of 50 Gbps. The total throughput across all of your VM disks should not exceed this limit.
 
