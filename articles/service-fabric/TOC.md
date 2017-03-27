@@ -109,11 +109,11 @@
 #### [Küme ağ desenleri](service-fabric-patterns-networking.md)
 #### [Düğüm türleri ve VM Ölçek Kümeleri](service-fabric-cluster-nodetypes.md)
 #### [Küme ölçeklendirme](service-fabric-cluster-scale-up-down.md)
+#### [Bir kümeyi programlama yoluyla ölçeklendirme](service-fabric-cluster-programmatic-scaling.md)
 #### [Kümeyi yükseltme](service-fabric-cluster-upgrade.md)
 #### [Küme silme](service-fabric-cluster-delete.md)
 #### [Erişim denetimi](service-fabric-cluster-security-roles.md)
 #### [Küme yapılandırma](service-fabric-cluster-fabric-settings.md)
-#### [Sertifika kullanarak küme güvenliğini sağlama](service-fabric-windows-cluster-x509-security.md)
 #### [Küme sertifikası ekleme veya geçirme](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Bir Parti Kümesi’ni ücretsiz olarak deneme](http://aka.ms/tryservicefabric)
 
@@ -131,7 +131,8 @@
 
 ## Uygulama yaşam döngüsünü yönetme
 ### [Genel Bakış](service-fabric-application-lifecycle.md)
-### [Sürekli tümleştirme kurulumu](service-fabric-set-up-continuous-integration.md)
+### [VSTS ile sürekli tümleştirmeyi ayarlama](service-fabric-set-up-continuous-integration.md)
+### [Jenkins kullanarak Linux Java uygulamanızı dağıtma](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 ### [ImageStoreConnectionString ayarını anlama](service-fabric-image-store-connection-string.md)
 ### Uygulama dağıtma veya kaldırma
 #### [PowerShell](service-fabric-deploy-remove-applications.md)

@@ -1,29 +1,30 @@
 # Genel Bakış
 ## [Traffic Manager nedir?](traffic-manager-overview.md)
-## [Traffic Manager nasıl çalışır?](traffic-manager-how-traffic-manager-works.md)
-## [Traffic Manager uç noktaları](traffic-manager-endpoint-types.md)
-## [Traffic Manager uç nokta izleme ve yük devretme](traffic-manager-monitoring.md)
-## [Trafik yönlendirme yöntemleri](traffic-manager-routing-methods.md)
-## [İç içe profiller](traffic-manager-nested-profiles.md)
-## [Traffic Manager için performansla ilgili önemli noktalar](traffic-manager-performance-considerations.md)
-## [Azure Resource Manager desteği](traffic-manager-powershell-arm.md)
+## [Yönlendirme yöntemleri](traffic-manager-routing-methods.md)
+### [Traffic Manager tarafından kullanılan Ülke/Bölge hiyerarşisi](traffic-manager-geographic-regions.md)
+## [Uç nokta türleri](traffic-manager-endpoint-types.md)
+## [Uç Nokta izleme](traffic-manager-monitoring.md)
+## [SSS](traffic-manager-FAQs.md)
 
 # Kullanmaya Başlama
-## [Uç noktaları yönetme](traffic-manager-manage-endpoints.md)
-## [Profilleri yönetme](traffic-manager-manage-profiles.md)
-## [İnternet etki alanınızı Traffic Manager’a yönlendirme](traffic-manager-point-internet-domain.md)
+## [Traffic Manager profili oluşturma](traffic-manager-create-profile.md)
 
 # Nasıl yapılır?
-## [Yönlendirme yöntemi yapılandırma](traffic-manager-configure-routing-method.md)
-## [Ayarlarınızı test etme](traffic-manager-testing-settings.md)
+
+## [Coğrafi yönlendirme yöntemini yapılandırma](traffic-manager-configure-geographic-routing-method.md)
+## [Öncelikli yönlendirme yöntemini yapılandırma](traffic-manager-configure-priority-routing-method.md)
+## [Ağırlıklı yönlendirme yöntemini yapılandırma](traffic-manager-configure-weighted-routing-method.md)
+## [Performans yönlendirme yöntemini yapılandırma](traffic-manager-configure-performance-routing-method.md)
+## [Uç noktaları yönetme](traffic-manager-manage-endpoints.md)
+## [Profilleri yönetme](traffic-manager-manage-profiles.md)
+## [Traffic Manager ayarlarını doğrulama](traffic-manager-testing-settings.md)
 ## [Yük dengeleme hizmetlerini birleştirme](traffic-manager-load-balancing-azure.md)
-## [Ağ kaynaklarını kullanma](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
-## Sorun giderme
-### [Düzeyi düşürülmüş bir uç nokta sorununu giderme](traffic-manager-troubleshooting-degraded.md)
+## [Traffic Manager performansını ölçme](traffic-manager-performance-considerations.md)
+## [Traffic Manager’ı yönetmek için PowerShell’i kullanma](traffic-manager-powershell-arm.md)
+## [İnternet etki alanınızı Traffic Manager’a yönlendirme](traffic-manager-point-internet-domain.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
-## [PowerShell (klasik)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

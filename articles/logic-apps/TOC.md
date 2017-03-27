@@ -78,8 +78,8 @@
 ### [Kullanım ölçümü](logic-apps-pricing.md)
 
 # Başvuru
-## [İş akışı tanımı dili](https://docs.microsoft.com/rest/api/logic/definition-language)
-## [İş akışı eylemleri ve tetikleyicileri](https://docs.microsoft.com/rest/api/logic/actions-and-triggers)
+## [İş akışı tanımı dili](logic-apps-workflow-definition-language.md)
+## [İş akışı eylemleri ve tetikleyicileri](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Şema Geçmişi

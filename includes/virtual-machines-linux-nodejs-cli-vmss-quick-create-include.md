@@ -1,6 +1,6 @@
 ## <a name="prerequisites"></a>Ön koşullar
 
-Daha önce yapmadıysanız [Azure aboneliği ücretsiz deneme sürümünü](https://azure.microsoft.com/pricing/free-trial/) ve [Azure hesabınıza bağlı](../articles/xplat-cli-connect.md) [Azure CLI 1.0](../articles/xplat-cli-install.md)'ı alabilirsiniz. Azure CLI’nin Resource Manager’da şu şekilde olduğundan emin olun:
+Daha önce yapmadıysanız [Azure aboneliği ücretsiz deneme sürümünü](https://azure.microsoft.com/pricing/free-trial/) ve [Azure hesabınıza bağlı](../articles/xplat-cli-connect.md) [Azure CLI 1.0](../articles/cli-install-nodejs.md)'ı alabilirsiniz. Azure CLI’nin Resource Manager’da şu şekilde olduğundan emin olun:
 
 ```azurecli
 azure config mode arm

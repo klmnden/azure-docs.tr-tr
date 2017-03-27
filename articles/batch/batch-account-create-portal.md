@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: bdd7f1410906a46c66c1fd33949b30cc669e5a6b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 09be891b5385871554f45bc1f824b4351ffd3bc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -60,7 +60,7 @@ Hesap oluşturulduktan sonra **Batch hesabı dikey penceresini** açarak ayarlar
 
 ![Azure portalında Batch hesabı dikey penceresi][account_blade]
 
-* **Batch hesabı URL'si**: [Batch API'leri](batch-technical-overview.md#batch-development-apis) ile uygulama geliştirirken, Batch kaynaklarınıza erişebilmeniz için bir hesap URL'si gereklidir. Batch hesabı URL’sinin biçimi aşağıdaki gibidir:
+* **Batch hesabı URL'si**: [Batch API'leri](batch-apis-tools.md#batch-development-apis) ile uygulama geliştirirken, Batch kaynaklarınıza erişebilmeniz için bir hesap URL'si gereklidir. Batch hesabı URL’sinin biçimi aşağıdaki gibidir:
   
     `https://<account_name>.<region>.batch.azure.com`
 
@@ -107,7 +107,7 @@ Ayrıca bu kotaların birçoğu yalnızca Azure portalına gönderilen ücretsiz
 Azure portalını kullanmaya ek olarak Batch hesaplarını aşağıdakilerle oluşturup yönetebilirsiniz:
 
 * [Batch PowerShell cmdlet’leri](batch-powershell-cmdlets-get-started.md)
-* [Azure CLI](../xplat-cli-install.md)
+* [Azure CLI](../cli-install-nodejs.md)
 * [Batch Yönetimi .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar

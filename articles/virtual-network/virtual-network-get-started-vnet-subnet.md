@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 071ef9c0784bdb24c7d29f49c36aee2271f4b524
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 214913cb63e38c5df0ab32ad19629507e5fdb35c
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -160,7 +160,7 @@ Bir sanal ağ ve iki VM oluştursanız da Azure portalı, MyRG kaynak grubunda s
 
     ![Kaynak grubu içeriği](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-VM’ler, diskler ve depolama hesapları hakkında daha fazla bilgi için, [Sanal makine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Depolama hesabı](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genel bakış makalelerini okuyun. Portalın sizin için oluşturduğu iki varsayılan NSG’yi görebilirsiniz. Ayrıca, portalın iki ağ arabirimi (NIC) kaynağı oluşturduğunu da görebilirsiniz. Bir NIC, bir VM’nin sanal ağ üzerindeki diğer kaynaklara bağlanmasını sağlar. NIC’ler hakkında daha fazla bilgi için, [NIC](virtual-network-network-interface-overview.md) makalesini okuyun. Portal bir Genel IP adresi kaynağı da oluşturmuştur. Genel IP adresleri, genel bir IP adresi kaynağı için bir ayardır. Genel IP adresleri hakkında daha fazla bilgi edinmek için, [IP adresleri](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) makalesini okuyun.
+VM’ler, diskler ve depolama hesapları hakkında daha fazla bilgi için, [Sanal makine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Depolama hesabı](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genel bakış makalelerini okuyun. Portalın sizin için oluşturduğu iki varsayılan NSG’yi görebilirsiniz. Ayrıca, portalın iki ağ arabirimi (NIC) kaynağı oluşturduğunu da görebilirsiniz. Bir NIC, bir VM’nin sanal ağ üzerindeki diğer kaynaklara bağlanmasını sağlar. NIC’ler hakkında daha fazla bilgi için, [NIC](virtual-network-network-interface.md) makalesini okuyun. Portal bir Genel IP adresi kaynağı da oluşturmuştur. Genel IP adresleri, genel bir IP adresi kaynağı için bir ayardır. Genel IP adresleri hakkında daha fazla bilgi edinmek için, [IP adresleri](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) makalesini okuyun.
 
 ## <a name="connect-to-from-vms"></a>VM’lere bağlanma
 
@@ -250,7 +250,7 @@ Bu alıştırmada, bir sanal ağ ve iki VM oluşturdunuz. VM oluşturma esnasın
 
 - [Sanal ağlar](virtual-networks-overview.md)
 - [Genel IP adresleri](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Ağ arabirimleri](virtual-network-network-interface-overview.md)
+- [Ağ arabirimleri](virtual-network-network-interface.md)
 - [Ağ güvenlik grupları](virtual-networks-nsg.md)
 - [Sanal makineler](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

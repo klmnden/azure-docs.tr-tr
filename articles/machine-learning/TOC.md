@@ -159,6 +159,7 @@
 #### [Excel kullanma](machine-learning-consuming-from-excel.md)
 #### [Excel eklentisini kullanma](machine-learning-excel-add-in-for-web-services.md)
 #### [Web uygulaması şablonunu kullanma](machine-learning-consume-web-service-with-web-app-template.md)
+#### [Batch Havuzu kullanma](machine-learning-dedicated-capacity-for-bes-jobs.md)
 
 ## Örnekler
 ### [Örnek deneyler](machine-learning-sample-experiments.md)
@@ -222,8 +223,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Canlı sohbetten yardım alma](machine-learning-live-chat.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

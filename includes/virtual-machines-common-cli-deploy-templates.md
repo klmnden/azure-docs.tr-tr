@@ -12,7 +12,7 @@
 * [Veri diski ekleme](#attach-a-data-disk)
 
 ## <a name="getting-ready"></a>Hazırlanma
-Azure CLI’yi Azure kaynak gruplarıyla kullanabilmeniz için doğru Azure CLI sürümüne ve bir Azure hesabına sahip olmanız gerekir. Azure CLI yoksa [yükleyin](../articles/xplat-cli-install.md).
+Azure CLI’yi Azure kaynak gruplarıyla kullanabilmeniz için doğru Azure CLI sürümüne ve bir Azure hesabına sahip olmanız gerekir. Azure CLI yoksa [yükleyin](../articles/cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-version-to-090-or-later"></a>Azure CLI sürümünüzü 0.9.0 veya sonraki bir sürüme güncelleştirin
 0.9.0 veya sonraki sürümün yüklü olup olmadığını görmek için `azure --version` yazın.
@@ -80,7 +80,7 @@ Bundan sonra Azure CLI kaynak yönetimi komutlarını kullanarak grup kaynaklar�
 
 Azure kaynak grupları ve size sunabilecekleri hakkında daha fazla bilgiyi [Azure Resource Manager’a genel bakış](../articles/azure-resource-manager/resource-group-overview.md) bölümünde bulabilirsiniz. Şablon yazmak istiyorsanız bkz. [Azure Resource Manager şablonları yazma](../articles/resource-group-authoring-templates.md).
 
-## <a name="a-idquick-create-a-vm-in-azureatask-quick-create-a-vm-in-azure"></a><a id="quick-create-a-vm-in-azure"></a>Görev: Azure’da hızlı bir şekilde VM oluşturma
+## <a id="quick-create-a-vm-in-azure"></a>Görev: Azure’da hızlı bir şekilde VM oluşturma
 Bazı durumlarda gerekli olan görüntüyü bilirsiniz ve bu görüntüden hemen bir VM oluşturmanız gerekirken altyapıyı fazla önemsemezsiniz; belki de temiz bir VM üzerinde bir test yapmanız gerekiyordur. Bu durumda `azure vm quick-create` komutunu kullanmanız ve bir VM ile altyapısını oluşturmak için gerekli bağımsız değişkenleri geçirmeniz gerekir.
 
 İlk olarak kaynak grubunuzu oluşturun.
@@ -214,7 +214,7 @@ info:    vm quick-create command OK
 
 Yeni VM’niz hazırdır.
 
-## <a name="a-iddeploy-a-vm-in-azure-from-a-templateatask-deploy-a-vm-in-azure-from-a-template"></a><a id="deploy-a-vm-in-azure-from-a-template"></a>Görev: Azure’da şablondan VM dağıtma
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Görev: Azure’da şablondan VM dağıtma
 Azure CLI ile bir şablon kullanarak yeni bir Azure VM dağıtmak için bu bölümlerdeki yönergeleri kullanın. Bu şablon tek bir alt ağa sahip yeni bir sanal ağda tek bir sanal makine oluşturur ve `azure vm quick-create` seçeneğinin aksine, tam olarak ne istediğinizi açıklamanıza ve hata olmadan tekrarlamanıza olanak tanır. Bu şablon aşağıdaki gibidir:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
@@ -483,7 +483,7 @@ info:    group deployment create command OK
 ```
 
 
-## <a name="a-idcreate-a-custom-vm-imageatask-create-a-custom-vm-image"></a><a id="create-a-custom-vm-image"></a>Görev: Özel bir VM görüntüsü oluşturma
+## <a id="create-a-custom-vm-image"></a>Görev: Özel bir VM görüntüsü oluşturma
 Şablonların temel kullanımını yukarıda gördünüz; bu nedenle, Azure CLI üzerinden bir şablon kullanarak Azure’daki belirli bir .vhd dosyasından özel bir VM oluşturmak için benzer yönergeler kullanılabilir. Buradaki farklılık, bu şablonun belirli bir sanal sabit diskten (VHD) tek bir sanal makine oluşturmasıdır.
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>Adım 1: Şablon için JSON dosyasını inceleme
@@ -751,7 +751,7 @@ data:    nicName                        String        myNIC
 info:    group deployment create command OK
 ```
 
-## <a name="a-iddeploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balanceratask-deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a><a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Görev: Sanal ağ ve dış yük dengeleyici kullanan çok sanal makineli uygulama dağıtma
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Görev: Sanal ağ ve dış yük dengeleyici kullanan çok sanal makineli uygulama dağıtma
 Bu şablon bir yük dengeleyici altında iki sanal makine oluşturmanıza ve Bağlantı Noktası 80 üzerinde bir yük dengeleme kuralı yapılandırmanıza olanak tanır. Bu şablon ayrıca bir depolama hesabı, sanal ağ, genel IP adresi, kullanılabilirlik kümesi ve ağ arabirimleri dağıtır.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
@@ -1163,7 +1163,7 @@ info:    group deployment create command OK
 
 Bu şablon bir Windows Server görüntüsünü dağıtır; ancak herhangi bir Linux görüntüsü ile kolayca değiştirilebilir. Birden fazla swarm yöneticisine sahip bir Docker kümesi mi oluşturmak istiyorsunuz? [Bunu yapabilirsiniz](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-## <a name="a-idremove-a-resource-groupatask-remove-a-resource-group"></a><a id="remove-a-resource-group"></a>Görev: Kaynak grubunu kaldırma
+## <a id="remove-a-resource-group"></a>Görev: Kaynak grubunu kaldırma
 Bir kaynak grubuna yeniden dağıtım yapabilirsiniz, ancak bir kaynak grubuyla işiniz bittiyse `azure group delete <group name>` komutunu kullanarak kaynak grubunu silebilirsiniz.
 
 ```azurecli
@@ -1174,7 +1174,7 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a name="a-idshow-the-log-for-a-resource-group-deploymentatask-show-the-log-for-a-resource-group-deployment"></a><a id="show-the-log-for-a-resource-group-deployment"></a>Görev: Bir kaynak grubu dağıtımının günlüğünü görüntüleme
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Görev: Bir kaynak grubu dağıtımının günlüğünü görüntüleme
 Şablon oluştururken veya kullanırken bu işlem yaygın olarak yapılır. Bir grubun dağıtım günlüklerini görüntüleme çağrısı, bir olayın neden gerçekleştiğini (veya gerçekleşmediğini) anlamak için yararlı olabilecek bilgileri `azure group log show <groupname>` komutudur. (Dağıtımlarınızla ilgili daha fazla sorun giderme bilgisi ve sorunlar hakkında diğer bilgiler için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).)
 
 Örneğin, belirli hataları hedeflemek için **jq** gibi araçlar kullanarak, düzeltmeniz gereken belirli hatalar gibi sorunları daha kesin bir şekilde sorgulayabilirsiniz. Aşağıdaki örnekte hatalar aranırken **lbgroup** dağıtım günlüğünü ayrıştırmak için **jq** kullanılmaktadır.
@@ -1191,7 +1191,7 @@ Neyin yanlış gittiğini hızlıca bulabilir, düzeltebilir ve yeniden deneyebi
 }
 ```
 
-## <a name="a-iddisplay-information-about-a-virtual-machineatask-display-information-about-a-virtual-machine"></a><a id="display-information-about-a-virtual-machine"></a>Görev: Bir sanal makine hakkında bilgi görüntüleme
+## <a id="display-information-about-a-virtual-machine"></a>Görev: Bir sanal makine hakkında bilgi görüntüleme
 `azure vm show <groupname> <vmname>` komutunu kullanarak kaynak grubunuzdaki belirli VM’ler hakkındaki bilgileri görebilirsiniz. Grubunuzda birden fazla VM varsa, ilk olarak `azure vm list <groupname>` ile gruptaki VM’leri listelemeniz gerekebilir.
 
 ```azurecli
@@ -1263,10 +1263,10 @@ info:    vm show command OK
 >
 >
 
-## <a name="a-idlog-on-to-a-linux-based-virtual-machineatask-log-on-to-a-linux-based-virtual-machine"></a><a id="log-on-to-a-linux-based-virtual-machine"></a>Görev: Linux tabanlı sanal makinede oturum açma
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Görev: Linux tabanlı sanal makinede oturum açma
 Linux makinelerine genellikle SSH aracılığıyla bağlanılır. Daha fazla bilgi için bkz. [Azure’da Linux ile SSH kullanma](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="a-idstop-a-virtual-machineatask-stop-a-vm"></a><a id="stop-a-virtual-machine"></a>Görev: VM durdurma
+## <a id="stop-a-virtual-machine"></a>Görev: VM durdurma
 Şu komutu çalıştırın:
 
 ```azurecli
@@ -1278,14 +1278,14 @@ azure vm stop <group name> <virtual machine name>
 >
 >
 
-## <a name="a-idstart-a-virtual-machineatask-start-a-vm"></a><a id="start-a-virtual-machine"></a>Görev: VM başlatma
+## <a id="start-a-virtual-machine"></a>Görev: VM başlatma
 Şu komutu çalıştırın:
 
 ```azurecli
 azure vm start <group name> <virtual machine name>
 ```
 
-## <a name="a-idattach-a-data-diskatask-attach-a-data-disk"></a><a id="attach-a-data-disk"></a>Görev: Veri diski ekleme
+## <a id="attach-a-data-disk"></a>Görev: Veri diski ekleme
 Ayrıca yeni bir disk veya veri içeren bir disk eklemeye karar vermeniz gerekir. Yeni bir disk için komut .vhd dosyasını oluşturup aynı komuta ekler.
 
 Yeni bir disk eklemek için şu komutu çalıştırın:
@@ -1306,8 +1306,3 @@ Ardından Linux’ta yaptığınız gibi diski bağlamanız gerekir.
 **Arm** modu ile Azure CLI kullanımı hakkında çok daha fazla örnek için bkz. [Azure Resource Manager ile Mac, Linux ve Windows için Azure CLI kullanma](../articles/xplat-cli-azure-resource-manager.md). Azure kaynakları ile kavramları hakkında daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](../articles/azure-resource-manager/resource-group-overview.md).
 
 Kullanabileceğiniz diğer şablonlar için bkz. [Azure Hızlı Başlangıç şablonları](https://azure.microsoft.com/documentation/templates/) ve [Şablon kullanan uygulama çerçeveleri](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-<!--HONumber=Jan17_HO4-->
-
-

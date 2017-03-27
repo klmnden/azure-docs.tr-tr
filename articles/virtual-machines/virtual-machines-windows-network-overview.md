@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 9841096da2d16e35878a1c0013a33e9f051e5932
-ms.openlocfilehash: 71b75afc7a31c875672b53c2b2b106220b8c36dd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6a31b039825acf3033fa58820bb800f53a355ffb
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -46,7 +46,7 @@ Bu temel kaynaklara ek olarak şu isteğe bağlı kaynakları da göz önünde b
 
 ## <a name="network-interfaces"></a>Ağ arabirimleri
 
-[Ağ arabirimi (NIC)](../virtual-network/virtual-network-network-interface-overview.md), bir VM ile bir sanal ağ (VNet) arasındaki çift yönlü bağlantıdır. Bir VM en az bir NIC içermelidir, ancak oluşturduğunuz VM’nin boyutuna bağlı olarak birden fazla NIC içerebilir. [Azure’da sanal makine boyutları](virtual-machines-windows-sizes.md) konusundan her VM boyutunun kaç NIC desteklediğini öğrenebilirsiniz. 
+[Ağ arabirimi (NIC)](../virtual-network/virtual-network-network-interface.md), bir VM ile bir sanal ağ (VNet) arasındaki çift yönlü bağlantıdır. Bir VM en az bir NIC içermelidir, ancak oluşturduğunuz VM’nin boyutuna bağlı olarak birden fazla NIC içerebilir. [Azure’da sanal makine boyutları](virtual-machines-windows-sizes.md) konusundan her VM boyutunun kaç NIC desteklediğini öğrenebilirsiniz. 
 
 Birden fazla NIC içeren bir VM oluşturursanız VM’yi en az iki NIC ile oluşturmanız gerekir.  VM oluşturulduktan sonra VM boyutu tarafından desteklenen sayıya kadar ek NIC ekleyebilirsiniz, ancak tek NIC ile oluşturulmuş bir VM’ye, VM boyutunun kaç NIC desteklediğinden bağımsız olarak, ek NIC ekleyemezsiniz. 
 
@@ -180,3 +180,4 @@ Bu tabloda, bir VNet’te VM oluşturmak için kullanabileceğiniz yöntemler li
 - [Kullanıcı tanımlı yollar ve IP iletimi](../virtual-network/virtual-networks-udr-overview.md) yapılandırma hakkında bilgi edinin. 
 - [VNet’ten VNet’e bağlantılar](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) yapılandırma hakkında bilgi edinin.
 - [Yollarla ilgili sorunları giderme](../virtual-network/virtual-network-routes-troubleshoot-portal.md) hakkında bilgi edinin.
+

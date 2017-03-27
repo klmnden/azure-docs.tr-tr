@@ -3,7 +3,7 @@ title: "App Service’de CORS desteği | Microsoft Belgeleri"
 description: "Azure App Service’de CORS desteğini kullanmayı öğrenin."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/27/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
-ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
-ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
-ms.lasthandoff: 12/21/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 79fe018bb6721c431a935dda14b36968688d34e3
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Bu makale iki bölüm içerir:
 * [CORS yapılandırma](#corsconfig) bölümünde herhangi bir API uygulaması, web uygulaması veya mobil uygulama için CORS’nin nasıl yapılandırılacağı genel olarak açıklanmaktadır. .NET, Node.js ve Java dahil App Service tarafından desteklenen tüm çerçeveler için eşit oranda geçerlidir. 
 * Makale, [.NET kullanmaya başlarken öğreticilerine devam etme](#tutorialstart) bölümünden başlayarak, [ilk API Apps kullanmaya başlarken öğreticisinde](app-service-api-dotnet-get-started.md) yaptıklarınızın üzerine ekleme yaparak CORS desteğini gösteren bir öğreticidir. 
 
-## <a name="a-idcorsconfiga-how-to-configure-cors-in-azure-app-service"></a><a id="corsconfig"></a> Azure Uygulama Hizmeti’nde CORS’yi yapılandırma
+## <a id="corsconfig"></a> Azure Uygulama Hizmeti’nde CORS’yi yapılandırma
 CORS’yi Azure portalında veya [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) araçlarını kullanarak yapılandırabilirsiniz.
 
 #### <a name="configure-cors-in-the-azure-portal"></a>CORS’yi Azure portalında yapılandırın
@@ -52,7 +52,7 @@ CORS’yi Azure portalında veya [Azure Resource Manager](../azure-resource-mana
    **Kaydet**’e tıkladıktan sonra, API uygulaması belirtilen URL’lerden JavaScript çağrılarını kabul eder.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Azure Resource Manager araçlarını kullanarak CORS’yi yapılandırın
-CORS’yi [Azure PowerShell](/powershell/azureps-cmdlets-docs) ve [Azure CLI](../xplat-cli-install.md) gibi komut satırı araçlarında [Azure Resource Manager şablonlarını](../azure-resource-manager/resource-group-authoring-templates.md) kullanarak da yapılandırabilirsiniz. 
+CORS’yi [Azure PowerShell](/powershell/azureps-cmdlets-docs) ve [Azure CLI](../cli-install-nodejs.md) gibi komut satırı araçlarında [Azure Resource Manager şablonlarını](../azure-resource-manager/resource-group-authoring-templates.md) kullanarak da yapılandırabilirsiniz. 
 
 CORS özelliğini ayarlayan bir Azure Resource Manager şablonu örneği için, [bu öğreticinin örnek uygulamasının deposundaki azuredeploy.json dosyasını](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json) açın. Aşağıdaki gibi görünen şablon bölümünü bulun:
 
@@ -62,7 +62,7 @@ CORS özelliğini ayarlayan bir Azure Resource Manager şablonu örneği için, 
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> .NET’i kullanmaya başlama eğiticisinin devamı
+## <a id="tutorialstart"></a> .NET’i kullanmaya başlama eğiticisinin devamı
 API uygulamaları için Node.js ve Java kullanmaya başlama serisini takip ediyorsanız, kullanmaya başlama serisini tamamladınız. API Apps hakkında daha fazla bilgi edinmenizi sağlayacak öneriler için [Sonraki adımlar](#next-steps) bölümüne geçin.
 
 Bu makalenin sonraki bölümleri .NET kullanmaya başlarken serisinin devamıdır ve [ilk öğreticiyi](app-service-api-dotnet-get-started.md) tamamladığınız varsayılır.

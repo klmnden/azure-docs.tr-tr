@@ -7,9 +7,6 @@
 ## IP adresi
 ### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
 ### [Klasik](virtual-network-ip-addresses-overview-classic.md)
-## Sanal makineler
-### [Ağ arabirimleri](virtual-network-network-interface-overview.md)
-### [Ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Kullanmaya Başlama
 ## [İlk sanal ağınızı oluşturma](virtual-network-get-started-vnet-subnet.md)
@@ -107,6 +104,7 @@
 ### Erişim denetimi listeleri
 #### [Klasik portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [VM’ler ve bulut hizmetleri için ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Yönet
 ### Ağ güvenlik grupları

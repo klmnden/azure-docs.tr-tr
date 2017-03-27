@@ -102,7 +102,7 @@
 ### [Geçiş verileri](sql-data-warehouse-migrate-data.md)
 ### [Premium depolamaya geçiş](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Duraklatma ve ölçeklendirme
+## İşlemi yönetme
 
 ### [Genel Bakış](sql-data-warehouse-manage-compute-overview.md)
 ### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)

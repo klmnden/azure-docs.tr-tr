@@ -41,6 +41,7 @@
 ## [Yük dengeleme hizmetlerini birleştirme](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Birden fazla IP yapılandırması kullanma](load-balancer-multiple-ip.md)
 ### [Birden fazla IP yapılandırması kullanma (CLI)](load-balancer-multiple-ip-cli.md)
+### [Birden fazla IP yapılandırması kullanma (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Azure Load Balancer için Log Analytics](load-balancer-monitor-log.md)
 ## [Linux VM’leri için DHCPv6’yı yapılandırma](load-balancer-ipv6-for-linux.md)
 

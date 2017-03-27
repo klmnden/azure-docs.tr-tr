@@ -13,12 +13,13 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: eb364084e5f5155399c8a052b036ec0316616366
-ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9a27b7dc57772a8e4c82c96546463576daa6b1d9
+ms.lasthandoff: 03/17/2017
 
 ---
 
-#<a name="iot-hub-documentation"></a>IoT Hub Belgeleri
+# <a name="iot-hub-documentation"></a>IoT Hub Belgeleri
 
 IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma, bunları izleme ve denetleme hakkında bilgi edinin. Öğreticiler, API başvuruları, videolar ve diğer belgeler, IoT cihazlarıyla bir çözümün arka ucu arasında güvenilir ve çift yönlü iletişim dağıtmanıza yardımcı olur. 
 
@@ -141,8 +142,8 @@ IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Cihazlar)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (Hizmet)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Cihazlar)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">Düğüm (Hizmet)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">Düğüm (Cihazlar)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.7/index.html">Düğüm (Hizmet)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.7/index.html">Düğüm (Cihazlar)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK’ları</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Ağ Geçidi SDK’sı</a></p>
                     </div>
@@ -167,10 +168,5 @@ IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

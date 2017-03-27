@@ -161,6 +161,7 @@
 
 ### Sorun giderme
 #### [Dağıtım sorunları](storsimple-troubleshoot-deployment.md)
+#### [Tanılama aracını kullanma](storsimple-8000-diagnostics.md)
 #### [İşletim sorunları](storsimple-troubleshoot-operational-device.md)
 #### [Donanım değişimi](storsimple-hardware-component-replacement.md)
 ##### [Cihaz denetleyicisini değiştirme](storsimple-controller-replacement.md)
@@ -207,8 +208,10 @@
 ## Başlarken
 ### [StorSimple Veri Yöneticisi’ni kullanma](storsimple-data-manager-ui.md)
 
-## Nasıl yapılır
-### [Verileri dönüştürmek için .NET kullanma](storsimple-data-manager-dotnet-jobs.md)
+## Nasıl yapılır?
+### [İşleri başlatmak için .NET’i kullanma](storsimple-data-manager-dotnet-jobs.md)
+### [İşleri başlatmak için Otomasyon’u kullanma](storsimple-data-manager-job-using-automation.md)
+### [Varsayılan blob yolunu değiştirme](storsimple-data-manager-change-default-blob-path.md)
 
 # İş ortakları için StorSimple
 ## Genel Bakış
@@ -235,10 +238,5 @@
 ## [Destek blogu](http://blogs.msdn.com/b/storsimple/)
 ## [Üçüncü taraf bildirimleri](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
