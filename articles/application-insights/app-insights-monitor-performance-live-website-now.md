@@ -14,15 +14,16 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
-ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights ile çalışma zamanında web uygulamalarını izleme
 
 
-Kodunuzu değiştirmeye veya yeniden dağıtmaya gerek olmadan canlı bir web uygulamasını Azure Application Insights ile izleyebilirsiniz. Uygulamalarınız şirket içi bir IIS sunucusunda barındırılıyorsa Durum İzleyicisi’ni indirin. Uygulamalarınız, Azure web uygulamalarıysa veya bir Azure sanal makinesinde çalıştırılıyorsa Application Insights uzantısını yükleyebilirsiniz. ([Canlı J2EE web uygulamaları](app-insights-java-live.md) ve [Azure Cloud Services](app-insights-cloudservices.md) izleme hakkında ayrı makaleler de vardır.) [Microsoft Azure](http://azure.com) aboneliğiniz olması gerekir.
+Kodunuzu değiştirmeye veya yeniden dağıtmaya gerek olmadan canlı bir web uygulamasını Azure Application Insights ile izleyebilirsiniz. Uygulamalarınız şirket içi IIS sunucusu tarafından barındırılıyorsa, Durum İzleyicisi’ni yükleyin. Uygulamalarınız Azure web uygulamaları ise veya bir Azure VM ortamında çalışıyorsa, Azure denetim masasından Application Insights izlemeyi etkinleştirebilirsiniz. ([Canlı J2EE web uygulamaları](app-insights-java-live.md) ve [Azure Cloud Services](app-insights-cloudservices.md) izleme hakkında ayrı makaleler de vardır.) [Microsoft Azure](http://azure.com) aboneliğiniz olması gerekir.
 
 ![örnek grafikler](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -38,7 +39,7 @@ Burada, her yöntemle kazanacaklarınızın bir özeti verilmiştir:
 | --- | --- | --- |
 | İstekler ve özel durumlar |Evet |Evet |
 | [Daha ayrıntılı özel durumlar](app-insights-asp-net-exceptions.md) | |Yes |
-| [Bağımlılık tanılaması](app-insights-asp-net-dependencies.md) |.NET 4.6+ üzerinde ancak daha az ayrıntılı |Evet, tam ayrıntılı: sonuç kodları, SQL komut metni, HTTP Fiili|
+| [Bağımlılık tanılaması](app-insights-asp-net-dependencies.md) |.NET 4.6+ üzerinde ancak daha az ayrıntılı |Evet, tam ayrıntılı: sonuç kodları, SQL komut metni, HTTP fiili|
 | [Sistem performans sayaçları](app-insights-performance-counters.md) |Evet |Evet |
 | [Özel telemetri için API][api] |Evet | |
 | [İzleme günlüğü tümleştirmesi](app-insights-asp-net-trace-logs.md) |Evet | |
@@ -64,7 +65,7 @@ Uygulamanız bir Azure web hizmeti olarak çalışıyorsa, izlemeyi açma işlem
 Uygulamanız bir IIS sunucusunda barındırılıyorsa, Durum İzleyici’yi kullanarak Application Insights’ı etkinleştirin.
 
 1. IIS web sunucunuzda yönetici kimlik bilgileriyle oturum açın.
-2. Application Insights Durum İzleyicisi henüz yüklü değilse, [Durum İzleyicisi yükleyici](http://go.microsoft.com/fwlink/?LinkId=506648)’yi indirip çalıştırın.
+2. Application Insights Durum İzleyicisi henüz yüklü değilse, [Durum İzleyicisi yükleyicisini](http://go.microsoft.com/fwlink/?LinkId=506648) indirip çalıştırın (veya [Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)’ni çalıştırıp Application Insights Durum İzleyicisi için arama yapın).
 3. Durum İzleyicisi'nde yüklü web uygulamasını veya izlemek istediğiniz web sitesini seçin. Azure kimlik bilgilerinizle oturum açın.
 
     Sonuçlarını Application Insights portalında görmek istediğiniz kaynağı yapılandırın. (Normalde, yeni bir kaynak oluşturmak en iyi yöntemdir. Bu uygulama için zaten [web testleriniz][availability] veya [istemci izleme][client] özelliği varsa mevcut bir kaynağı seçin.) 
@@ -97,7 +98,7 @@ Koda Application Insights eklemeden yeniden yayımlamak istiyorsanız, dağıtı
 
 ### <a name="cant-connect-no-telemetry"></a>Bağlanamıyor musunuz? Telemetri yok mu?
 
-* Durum İzleyicisi’ne izin vermek için sunucunuzun güvenlik duvarında [bazı giden bağlantı noktalarını](app-insights-ip-addresses.md#outgoing-ports) açmanız gerekir.
+* Durum İzleyicisi’nin çalışmasına izin vermek için sunucunuzun güvenlik duvarında [gerekli giden bağlantı noktalarını](app-insights-ip-addresses.md#outgoing-ports) açın.
 
 * Durum İzleyicisi’ni açın ve sol bölmede uygulamanızı seçin. "Yapılandırma bildirimleri" bölümünde bu uygulamayla ilgili herhangi bir tanılama iletisi olup olmadığını denetleyin:
 
@@ -105,7 +106,7 @@ Koda Application Insights eklemeden yeniden yayımlamak istiyorsanız, dağıtı
 * "Yetersiz izinler" hakkında bir ileti görürseniz, sunucuda aşağıdakileri deneyin:
   * IIS Yöneticisi'nde, uygulama havuzunuzu seçin, **Gelişmiş Ayarlar**’ı açın ve **işlem modeli** altında kimliğini not edin.
   * Bilgisayar yönetimi denetim masasında, bu kimliği Performans İzleyicisi Kullanıcıları grubuna ekleyin.
-* Sunucunuza yüklenmiş MMA/SCOM varsa bazı sürümler çakışabilir. Hem SCOM’u, hem de Durum İzleyicisi’ni kaldırın ve en son sürümleri yeniden yükleyin.
+* Sunucunuza yüklenmiş MMA/SCOM (System Center Operations Manager) varsa bazı sürümler çakışabilir. Hem SCOM’u, hem de Durum İzleyicisi’ni kaldırın ve en son sürümleri yeniden yükleyin.
 * Bkz. [Sorun giderme][qna].
 
 ## <a name="system-requirements"></a>Sistem Gereksinimleri
@@ -150,7 +151,7 @@ Hangi uygulamaların izlenmekte olduğunu öğrenin:
 * `-InstrumentationKey` Sonuçların görüntülenmesini istediğiniz Application Insights kaynağına ait iKey.
 * Bu cmdlet yalnızca henüz izlenmemiş uygulamaları etkiler; başka bir deyişle zaten işaretlendiğine değil - diğer bir deyişle, SdkState==NotInstrumented.
 
-    Cmdlet, koda SDK ekleyerek derleme zamanında ya da cmdlet’in önceki bir kullanımıyla çalışma zamanında zaten izlenmiş olan uygulamayı etkilemez.
+    Cmdlet, zaten izleme eklenmiş olan uygulamayı etkilemez. Uygulamanın koda SDK eklenerek derleme zamanında izlenmesi veya cmdlet’in önceki bir kullanımıyla çalışma zamanında izlenmesi farklılık yaratmaz.
 
     Uygulamayı izlemek için kullanılan SDK sürümü sunucuya en son indirilen sürümdür.
 
@@ -183,7 +184,11 @@ Hangi uygulamaların izlenmekte olduğunu öğrenin:
 
 * En son Application Insights SDK’sini sunucuya indirir.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Sonraki adımlar
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="next"></a>Sonraki adımlar
 
 Telemetrinizi görüntüleyin:
 
@@ -208,9 +213,4 @@ Daha fazla telemetri ekleyin:
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

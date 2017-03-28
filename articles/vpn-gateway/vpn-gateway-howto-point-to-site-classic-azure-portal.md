@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: d6e58625e7f90e6290268b55e488540436d3a4da
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 92e573d7f3ebfbe41c8012068a8262d6fc324da8
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -182,7 +182,7 @@ Otomatik olarak imzalanan bir kök sertifika kullanıyorsanız, Noktadan Siteye 
 
 1. İstemci sertifikasını dışarı aktarmak için, **certmgr.msc** öğesini açın. Dışarı aktarmak istediğiniz istemci sertifikasına sağ tıklayın, **tüm görevler**’e ve ardından **dışarı aktar**’a tıklayın. **Sertifika Dışarı Aktarma Sihirbazı** açılır.
 2. Sihirbazda **İleri**’ye tıklayın, **Evet, özel anahtarı dışarı aktar**’ı seçin ve **İleri**’ye tıklayın.
-3. **Dışarı Aktarma Dosyası Biçimi** sayfasında, varsayılan ayarları seçili bırakabilirsiniz. Ardından **İleri**'ye tıklayın. 
+3. **Dışarı Aktarma Dosyası Biçimi** sayfasında, varsayılan ayarları seçili bırakın. **Mümkünse sertifika yolundaki tüm sertifikaları ekle** seçeneğinin işaretli olduğundan emin olun. Ardından **İleri**'ye tıklayın.
 4. **Güvenlik** sayfasında, özel anahtarı korumanız gerekir. Bir parola kullanmayı seçerseniz, bu sertifika için ayarladığınız parolayı kaydettiğinizden ya da unutmayacağınızdan emin olun. Ardından **İleri**'ye tıklayın.
 5. **Dışarı Aktarılan Dosya** sayfasında **Gözat**'a tıklayarak sertifika için dışarı aktarma konumunu seçin. **Dosya adı** alanına, sertifika dosyası için bir ad girin. Ardından **İleri**'ye tıklayın.
 6. Sertifikayı dışarı aktarmak için **Son**'a tıklayın.

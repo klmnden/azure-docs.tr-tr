@@ -1,5 +1,5 @@
 ---
-title: "Windows hizmetleri ve çalışan rolleri için Application Insights | Microsoft Belgeleri"
+title: "Windows hizmetleri ve çalışan rolleri için Azure Application Insights | Microsoft Belgeleri"
 description: "Kullanım, kullanılabilirlik ve performansı analiz etmek için Application Insights SDK’sını ASP.NET uygulamanıza el ile ekleyin."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -30,7 +31,7 @@ Gerekenler:
 * Bir [Microsoft Azure](http://azure.com) aboneliği. Ekibinizin ve kuruluşunuzun Azure aboneliği varsa, sahibi [Microsoft hesabınızı](http://live.com) kullanarak sizi buna ekleyebilir.
 * Visual Studio 2013 veya üstü.
 
-## <a name="a-nameadda1-create-an-application-insights-resource"></a><a name="add"></a>1. Application Insights kaynağı oluşturma
+## <a name="add"></a>1. Application Insights kaynağı oluşturma
 [Azure portalında](https://portal.azure.com/) oturum açın ve yeni bir Application Insights kaynağı oluşturun. Uygulama türü olarak ASP.NET’i seçin.
 
 ![Yeni, Application Insights öğesine tıklayın](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,7 +47,7 @@ Kaynağı tanımlayan bu anahtarı kısa bir süre sonra verileri kaynağa yönl
 
 Yeni bir kaynak oluşturmak üzere az önce uyguladığınız adımlar herhangi bir uygulamada izlemeyi başlatmanın iyi bir yoludur. Şimdi uygulamaya veri gönderebilirsiniz.
 
-## <a name="a-namesdka2-install-the-sdk-in-your-application"></a><a name="sdk"></a>2. Uygulamanıza SDK yükleme
+## <a name="sdk"></a>2. Uygulamanıza SDK yükleme
 Application Insights SDK'sının yüklenmesi ve yapılandırılması üzerinde çalıştığınız platforma bağlı olarak değişir. ASP.NET uygulamaları için kolaydır.
 
 1. Visual Studio'da web uygulaması projenizin NuGet paketlerini düzenleyin.
@@ -84,14 +85,14 @@ ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız
 
 [Farklı derleme yapılandırmalarında anahtarı değiştirmek istiyorsanız](app-insights-separate-resources.md) kodda izleme anahtarı belirlemeniz faydalı olacaktır. Kodda anahtarı ayarladıysanız `.config` dosyasında ayarlamanız gerekmez.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Projenizi çalıştırma
+## <a name="run"></a> Projenizi çalıştırma
 **F5** ile uygulamanızı çalıştırın ve şunu deneyin: birkaç telemetri oluşturmak için farklı sayfalar açın.
 
 Visual Studio'da gönderilmiş etkinliklerin sayısını görürsünüz.
 
 ![Visual Studio’da olay sayımı](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Telemetrinizi görüntüleme
+## <a name="monitor"></a> Telemetrinizi görüntüleme
 [Azure portal](https://portal.azure.com/)’a geri dönün ve Application Insights kaynağınıza göz atın.
 
 Genel Bakış grafiklerinde veri arayın. İlk olarak yalnızca bir veya iki nokta görürsünüz. Örneğin:
@@ -128,12 +129,11 @@ Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.m
 > 
 > 
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>Sonraki adımlar
 * Uygulamanızın 360 derecelik tam görünümünü elde etmek üzere [daha fazla telemetri ekleyin](app-insights-asp-net-more.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

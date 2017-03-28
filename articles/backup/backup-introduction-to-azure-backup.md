@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
-ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -92,7 +92,7 @@ Aşağıdaki tabloda Linux destekli Azure Backup bileşenleri gösterilmektedir.
 | Azure Backup (MARS) aracısı |Hayır (Yalnızca Windows tabanlı aracı) |
 | System Center DPM |Yalnızca Hyper-V üzerinde dosya tutarlı yedekleme<br/> (Azure VM için kullanılamaz) |
 | Azure Backup Sunucusu |Yalnızca Hyper-V üzerinde dosya tutarlı yedekleme<br/> (Azure VM için kullanılamaz) |
-| Azure IaaS VM Backup |Evet |
+| Azure IaaS VM Backup |Evet ([betik öncesi ve betik sonrası çerçeve](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) kullanılarak uygulamada tutarlı yedekleme) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup ile Premium Depolama VM’leri
 Azure Backup, Premium Depolama VM'leri koruma altına alır. Azure Premium Depolama, G/Ç açısından yoğun iş yüklerini desteklemek için tasarlanan katı hal sürücüsü (SSD) tabanlı bir depolama hizmetidir. Premium Depolama, sanal makine (VM) iş yükleri için idealdir. Premium Depolama hakkında daha fazla bilgi almak için bkz. [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../storage/storage-premium-storage.md).
@@ -208,7 +208,7 @@ Azure Backup’ta, *korumalı örnek* başına 9999 kurtarma noktası (yedekleme
 | Bekletme seçenekleri |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |
 | Korumalı örnek başına en fazla kurtarma noktası |9999|9999|9999|9999|
 | En uzun bekletme süresi |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |
-| Yerel diskteki kurtarma noktaları |Uygulanamaz |<li>Dosya Sunucuları için&64;<li>Uygulama Sunucuları için&448; |<li>Dosya Sunucuları için&64;<li>Uygulama Sunucuları için&448; |Uygulanamaz |
+| Yerel diskteki kurtarma noktaları |Uygulanamaz |<li>Dosya Sunucuları için 64<li>Uygulama Sunucuları için 448 |<li>Dosya Sunucuları için 64<li>Uygulama Sunucuları için 448 |Uygulanamaz |
 | Banttaki kurtarma noktaları |Uygulanamaz |Sınırsız |Uygulanamaz |Uygulanamaz |
 
 ## <a name="what-is-a-protected-instance"></a>Korumalı örnek nedir?

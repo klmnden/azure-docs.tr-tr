@@ -12,12 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
+ms.date: 03/17/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c55f844b89729b1ef5a6316b0b2731472074219e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a428e183e7535c7745e214332f8e449b4a8bf22c
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -27,47 +27,52 @@ ms.lasthandoff: 03/15/2017
 
 Bu Hızlı Başlangıç, ilk ASP.NET web uygulamanızı birkaç dakika içinde [Azure Uygulama Hizmeti](../app-service/app-service-value-prop-what-is.md)’ne dağıtmanıza yardımcı olur.
 
-Bu Hızlı Başlangıç’ı başlatmadan önce, [Azure CLI’nin makinenizde yüklü olduğundan](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) emin olun.
+Başlamadan önce Azure CLI’nin yüklü olduğundan emin olun. Daha fazla bilgi için bkz. [Azure CLI yükleme kılavuzu](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="create-an-aspnet-web-app-in-azure"></a>Azure’da ASP.NET web uygulaması oluşturma
-2. `az login` çalıştırarak ve ekrandaki yönergeleri izleyerek Azure’da oturum açın.
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
+`az login` çalıştırarak ve ekrandaki yönergeleri izleyerek Azure’da oturum açın.
    
-    ```azurecli
-    az login
-    ```
-   
-3. Bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Web uygulaması ve SQL Veritabanı arka ucu gibi birlikte yönetmek istediğiniz tüm Azure kaynaklarını buraya yerleştirirsiniz.
+```azurecli
+az login
+```
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma   
+Bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Web uygulaması ve SQL Veritabanı arka ucu gibi birlikte yönetmek istediğiniz tüm Azure kaynaklarını buraya yerleştirirsiniz.
 
-    `---location` için hangi olası değerleri kullanabileceğinizi görmek için `az appservice list-locations` Azure CLI komutunu kullanın.
+```azurecli
+az group create --location "West Europe" --name myResourceGroup
+```
 
-3. "ÜCRETSİZ" bir [App Service planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) oluşturun. 
+`---location` için hangi olası değerleri kullanabileceğinizi görmek için `az appservice list-locations` Azure CLI komutunu kullanın.
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-    ```
+## <a name="create-an-app-service-plan"></a>App Service planı oluşturma
+"ÜCRETSİZ" bir [App Service planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) oluşturun. 
 
-4. `<app_name>` içinde benzersiz bir ada sahip yeni bir web uygulaması oluşturun.
+```azurecli
+az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
+```
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+## <a name="create-a-web-app"></a>Web uygulaması oluşturma
+`<app_name>` içinde benzersiz bir ada sahip bir web uygulaması oluşturun.
 
-4. GitHub’dan örnek bir ASP.NET uygulaması dağıtın.
+```azurecli
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
+```
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git" --branch master --manual-integration 
-    ```
+## <a name="deploy-sample-application"></a>Örnek uygulama dağıtma
+GitHub’dan örnek bir ASP.NET uygulaması dağıtın.
 
-5. Uygulamanızı Azure’da çalışırken görmek için şu komutu çalıştırın.
+```azurecli
+az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
+--repo-url "https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git" --branch master --manual-integration 
+```
 
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+## <a name="browse-to-web-app"></a>Web uygulamasına göz atma
+Uygulamanızı Azure’da çalışırken görmek için şu komutu çalıştırın.
+
+```azurecli
+az appservice web browse --name <app_name> --resource-group myResourceGroup
+```
 
 Tebrikler, ilk ASP.NET web uygulamanız Uygulama Hizmeti’nde çalışıyor.
 
