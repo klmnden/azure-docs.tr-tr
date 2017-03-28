@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -28,14 +29,16 @@ Bu makalede bulutta Azure Multi-Factor Authentication kullanmaya nasıl başlaya
 
 ![Bulutta MFA](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## <a name="prerequisites"></a>Ön koşullar
-Aşağıdaki ön koşullar, kullanıcılarınız için Azure Multi-Factor Authentication’ı etkinleştirebilmeniz için gereklidir.
+## <a name="prerequisite"></a>Önkoşul
+[Azure aboneliği için kaydolun](https://azure.microsoft.com/pricing/free-trial/) - Zaten bir Azure aboneliğiniz yoksa, birisi için kaydolmalısınız. Yeni başlıyor ve Azure MFA’yı henüz kullanmaya başlıyorsanız, deneme aboneliğini kullanabilirsiniz.
 
-1. [Azure aboneliği için kaydolun](https://azure.microsoft.com/pricing/free-trial/) - Zaten bir Azure aboneliğiniz yoksa, birisi için kaydolmalısınız. Yeni başlıyor ve Azure MFA’yı henüz kullanmaya başlıyorsanız, deneme aboneliğini kullanabilirsiniz.
-2. [Multi-Factor Auth Sağlayıcısı oluşturun](multi-factor-authentication-get-started-auth-provider.md) ve dizininize atayın veya [kullanıcılara lisans atayın](multi-factor-authentication-get-started-assign-licenses.md).
+## <a name="enable-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication’ı etkinleştirme
+Kullanıcıların Azure Multi-Factor Authentication içeren lisansları olduğu sürece, Azure MFA’yı etkinleştirmek için hiçbir işlem yapmanız gerekmez. Her kullanıcı için iki aşamalı doğrulama istemeye başlayabilirsiniz. Azure MFA'yı etkinleştiren lisanslar şunlardır:
+- Azure Multi-Factor Authentication
+- Azure Active Directory Premium
+- Enterprise Mobility + Security
 
-> [!NOTE]
-> Lisanlar, Azure MFA, Azure AD Premium ya da Enterprise Mobility Suite (EMS) sahibi kullanıcıların kullanımına sunulmuştur.  MFA, Azure AD Premium ve EMS’de yer almaktadır. Yeterli lisansa sahipseniz, Kimlik Doğrulaması Sağlayıcısı oluşturmanız gerekmez.
+Bu üç lisanstan birine sahip değilseniz veya tüm kullanıcılarınızı kapsamaya yetecek sayıda lisansınız yoksa, bu da sorun değildir. Yalnızca ek bir adım uygulamanız ve dizininizde [Multi-Factor Auth Sağlayıcısı oluşturmanız](multi-factor-authentication-get-started-auth-provider.md) gerekir.
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Kullanıcılar için iki aşamalı doğrulamayı açma
 Bir kullanıcıdan iki aşamalı doğrulama istemeye başlamak için kullanıcının devre dışı olan durumunu etkin olarak değiştirin.  Kullanıcı durumları hakkında daha fazla bilgi için bkz. [ Azure Multi-Factor Authentication’da kullanıcı durumları](multi-factor-authentication-get-started-user-states.md)
@@ -97,10 +100,5 @@ Daha fazla bilgi için bkz. [Azure Multi-Factor Authentication’da kullanıcı 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Bulutta Azure Multi-Factor Authentication özelliğini ayarladığınıza göre, şimdi dağıtımınızı yapılandırıp ayarlayabilirsiniz. Daha fazla bilgi için bkz. [Azure Multi-Factor Authentication’ı yapılandırma](multi-factor-authentication-whats-next.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/20/2016
+ms.date: 03/17/2017
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: ae493fbb3690e80eef4b37e0315d1715a924e568
-ms.openlocfilehash: 7c70c737fb41e8c1c5a339462fa77a8bc7318f7e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c505844cc2b7c745a1106b3c446833fb206ca98a
+ms.lasthandoff: 03/17/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>SQL Database nedir? SQL Database'e Giriş
 SQL Veritabanı, piyasa lideri Microsoft SQL Server altyapısını temel alan ve görev açısından kritik iş yüklerini üstlenebilen, Microsoft bulutu tabanlı bir ilişkisel veritabanı hizmetidir. SQL Veritabanı, yönetime neredeyse hiç gerek olmaksızın birden fazla hizmet seviyesinde tahmin edilebilir performans, kesintisiz dinamik ölçeklenebilirlik, yerleşik iş sürekliliği ve veri koruma özellikleri sunar. Bu özellikler sayesinde değerli zamanınızı ve kaynaklarınızı sanal makine ve altyapı yönetimi yerine hızlı uygulama geliştirmeye ve piyasaya sunma sürenizi kısaltmaya ayırabilirsiniz. SQL Veritabanı, [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) altyapısını kullandığından var olan SQL Server araçlarını, kitaplıklarını ve API’lerini destekler. Sonuç olarak, yeni beceriler edinmenize gerek kalmadan yeni çözümler geliştirebilir, var olan SQL Server çözümlerinizi taşıyabilir ve Microsoft bulutunu kullanarak kapsamlarını genişletebilirsiniz.
 
-Bu makale performans, ölçeklenebilirlik ve yönetilebilirlik ile ilgili temel SQL Database kavramlarına ve özelliklerine bir giriş niteliğindedir ve ayrıntıları inceleyebilmeniz için ilgili bağlantılarla desteklenmiştir. Uygulamalı öğreticilere hemen başlamaya hazırsanız [İlk SQL veritabanınızı oluşturabilir](sql-database-get-started.md) veya [Elastik havuz oluşturabilirsiniz](sql-database-elastic-pool-manage-portal.md). Kısa bir tanıtım için bu videoyu izleyin.
+Bu makale performans, ölçeklenebilirlik ve yönetilebilirlik ile ilgili temel SQL Database kavramlarına ve özelliklerine bir giriş niteliğindedir ve ayrıntıları inceleyebilmeniz için ilgili bağlantılarla desteklenmiştir. Başlamanıza yardımcı olacak şu hızlı başlangıçlara bakın:
+ - [Azure portalda SQL veritabanı oluşturma](sql-database-get-started-portal.md)  
+ - [Azure CLI ile SQL veritabanı oluşturma](sql-database-get-started-cli.md)
+ - [PowerShell ile SQL veritabanı oluşturma](sql-database-get-started-powershell.md)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
-> 
-> 
+Azure CLI ve PowerShell örnekleri için bkz.:
+ - [Azure SQL Veritabanı için Azure CLI örnekleri](sql-database-cli-samples.md)
+ - [Azure SQL Veritabanı için Azure PowerShell örnekleri](sql-database-powershell-samples.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Kesinti olmadan performansı ayarlama ve ölçeklendirme
 SQL Veritabanı hizmeti, üç hizmet katmanı sunmaktadır: Temel, Standart ve Premium. Her bir hizmet katmanı, hafiften ağıra tüm iş yüklerini desteklemek üzere [farklı performans ve işlev düzeyleri](sql-database-service-tiers.md) sunar. Ayda birkaç liraya küçük bir veritabanı üzerinde ilk uygulamanızı oluşturabilir, ardından istediğiniz zaman el ile veya programlama yoluyla [hizmet katmanını değiştirebilirsiniz](sql-database-service-tiers.md). Bunu uygulamanız veya müşterileriniz kesinti yaşamadan gerçekleştirebilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.

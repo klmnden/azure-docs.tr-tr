@@ -1,5 +1,5 @@
 ---
-title: "Node.js uygulamanızı Azure Application Insights SDK&quot;sı ile izleme | Microsoft Docs"
+title: "Node.js uygulamanızı Azure Application Insights ile izleme | Microsoft Belgeleri"
 description: "Application Insights kullanarak şirket içi veya Microsoft Azure web uygulamanızın kullanımını, kullanılabilirliğini ve performansını analiz edin."
 services: application-insights
 documentationcenter: 
@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/23/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: bc7b0d4037effd7bcc8685a357a49de339e31d7b
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: b4e2ca39cf13b25ee02afec3867a57ab4b665cbd
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -181,6 +181,10 @@ server.on("listening", () => {
     appInsights.client.trackMetric("StartupTime", duration);
 });
 ```
+
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Portalda telemetrinizi izleme](app-insights-dashboards.md)

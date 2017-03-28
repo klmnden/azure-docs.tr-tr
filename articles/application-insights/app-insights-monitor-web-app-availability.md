@@ -4,18 +4,19 @@ description: "Application Insights’ta web testleri ayarlayın. Web sitesi kull
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 03/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ Genel İnternet'ten erişilebilen herhangi bir HTTP veya HTTPS uç noktası içi
 
 Her uygulama kaynağı için 10 web testine kadar test oluşturabilirsiniz.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Test raporlarınız için kaynak oluşturma
+## <a name="create"></a>1. Test raporlarınız için kaynak oluşturma
 Bu uygulama için zaten [Application Insights kaynağı ayarladıysanız][start] ve kullanılabilirlik raporlarını aynı yerde görmek istiyorsanız bu adımı atlayın.
 
 [Microsoft Azure](http://azure.com) oturumu açın, [Azure portalına](https://portal.azure.com) gidin ve bir Application Insights kaynağı oluşturun.
@@ -42,7 +43,7 @@ Bu uygulama için zaten [Application Insights kaynağı ayarladıysanız][start]
 
 Yeni kaynağa ait Genel Bakış dikey penceresini açmak için **Tüm kaynaklar**’a tıklayın.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. URL ping testi oluşturma
+## <a name="setup"></a>2. URL ping testi oluşturma
 Application Insights kaynağınızda Kullanılabilirlik kutucuğunu arayın. Uygulamanızla ilgili Web testleri dikey penceresini açmak için tıklayın ve bir web testi ekleyin.
 
 ![En azından web sitenizin URL'sini doldurma](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -66,7 +67,7 @@ Application Insights kaynağınızda Kullanılabilirlik kutucuğunu arayın. Uyg
 ### <a name="test-more-urls"></a>Daha fazla URL test etme
 Daha fazla test ekleyin. Örneğin, giriş sayfanızın test edilmesinin yanı sıra, arama URL’sini de test ederek veritabanınızın çalıştığından emin olursunuz.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. Web testi sonuçlarınıza bakın
+## <a name="monitor"></a>3. Web testi sonuçlarınıza bakın
 Sonuçlar, 1-2 dakika sonra Web Testi dikey penceresinde görüntülenir.
 
 ![Giriş dikey penceresinde özet sonuçları](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -75,7 +76,7 @@ Bu döneme ait daha ayrıntılı bir görünüm için özet grafiğin herhangi b
 
 Bu grafikler, bu uygulamanın tüm web testleri için sonuçları birleştirir.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Hata görürseniz
+## <a name="failures"></a>Hata görürseniz
 Kırmızı noktaya tıklayın.
 
 ![Kırmızı noktaya tıklama](./media/app-insights-monitor-web-app-availability/open-instance.png)
@@ -100,7 +101,7 @@ Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satı
 > Çok adımlı web testleri ücrete tabidir. [Fiyatlandırma düzeni](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-Çok adımlı bir test oluşturmak için Visual Studio’yu kullanarak senaryoyu kaydedin ve kaydı Application Insights'a yükleyin. Application Insights, senaryoyu aralıklarla yeniden yürütür ve yanıtları doğrular.
+Çok adımlı bir test oluşturmak için Visual Studio Enterprise kullanarak senaryoyu kaydedin ve kaydı Application Insights'a yükleyin. Application Insights, senaryoyu aralıklarla yeniden yürütür ve yanıtları doğrular.
 
 Testlerinizde kodlanmış işlevleri kullanamadığınızı unutmayın: senaryo adımları .webtest dosyasında betik olarak yer almalıdır.
 
@@ -109,7 +110,10 @@ Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
 
 1. Web performans testi projesi oluşturun.
 
-    ![Visual Studio’da, Web Performansı ve Yük Testi şablonundan bir proje oluşturun.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Visual Studio Enterprise sürümünde, Web Performansı ve Yük Testi şablonundan bir proje oluşturun.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+ * *Web Performansı ve Yük Testi şablonunu görmüyor musunuz?* - Visual Studio Enterprise’ı kapatın. **Visual Studio Yükleyicisi**’ni açarak Visual Studio Enterprise yüklemesini değiştirin. **Tek Bileşenler** altında **Web Performansı ve yük testi araçları**’nı seçin.
+
 2. .webtest dosyasını açın ve kaydı başlatın.
 
     ![.webtest dosyasını açın ve Kaydet’e tıklayın.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
@@ -162,7 +166,7 @@ Web Testi Eklentileri, zamanları parametreleme yolunu sağlar.
     ![Web Testi Eklentisi Ekle’yi, sonra da bir türü seçin.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
     Bu örnekte, Tarih Saat Eklentisinin iki örneğini kullanacağız. Bir örnek "15 dakika önce" için, bir örnek de "şimdi" için.
-2. Her eklentinin özelliklerini açın. Buna bir ad verip geçerli saat olarak kullanılmak üzere ayarlayın. Bunlardan birini Dakika Ekle =&15; olarak ayarlayın.
+2. Her eklentinin özelliklerini açın. Buna bir ad verip geçerli saat olarak kullanılmak üzere ayarlayın. Bunlardan birini Dakika Ekle = 15 olarak ayarlayın.
 
     ![Adı, Geçerli Saati Kullan’ı ve Dakika Ekle’yi ayarlayın.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)
 3. Web testi parametrelerinde, eklenti adına başvurmak için {{plug-in name}} kullanın.
@@ -207,7 +211,7 @@ Testinizde OAuth kullanılarak oturum açılması gerekiyorsa, genel yaklaşım 
 * Belirteçleri parametreleyin; belirteç kimlik doğrulayıcıdan döndürüldüğünde ve sitede sorgu sırasında kullanıldığında parametre ayarı.
   (Visual Studio testi parametrelemeyi dener, ancak belirteçleri doğru parametrelemez.)
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> Testi düzenleme veya devre dışı bırakma
+## <a name="edit"></a> Testi düzenleme veya devre dışı bırakma
 Düzenlemek veya devre dışı bırakmak için bir test açın.
 
 ![Web testini düzenleme veya devre dışı bırakma](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -256,12 +260,12 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
     Üzgünüz, bunu desteklemiyoruz.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Video
+## <a name="video"></a>Video
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Sonraki adımlar
+## <a name="next"></a>Sonraki adımlar
 [Tanılama günlüklerinde arama yapma][diagnostic]
 
 [Sorun giderme][qna]
@@ -274,9 +278,4 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

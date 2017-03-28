@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 03/21/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 24b0a928967e6abf9f1eb4f085179a8cd6e82955
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7f23ae904461e754b3871b33ca40c2ff4fcb99f0
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Öğretici: Azure portalını kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Azure Data Lake Analytics hesapları oluşturmak, Data Lake Analytics işlerini [U-SQL](data-lake-analytics-u-sql-get-started.md) içinde tanımlamak ve Data Lake Analytics hizmetine iş göndermek için Azure portalının nasıl kullanılacağını öğrenin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
+Azure Data Lake Analytics hesapları oluşturmak, [U-SQL](data-lake-analytics-u-sql-get-started.md) içinde işler tanımlamak ve Data Lake Analytics hizmetine iş göndermek için Azure portalının nasıl kullanılacağını öğrenin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
 Bu öğreticide, bir sekmeyle ayrılmış değerler (TSV) dosyasını okuyan ve bunu virgülle ayrılmış değerler (CSV) dosyasına dönüştüren bir iş geliştireceksiniz. Öğreticiyi desteklenen diğer araçları kullanarak tamamlamak için bu bölümün üst kısmındaki sekmelere tıklayın. İlk işiniz başarılı olduktan sonra, U-SQL ile daha karmaşık veri dönüşümleri yazmaya başlayabilirsiniz.
 
@@ -35,9 +36,9 @@ Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 ## <a name="create-data-lake-analytics-account"></a>Data Lake Analytics hesabı oluşturma
 Herhangi bir işi çalıştırmadan önce bir Data Lake Analytics hesabına sahip olmanız gerekir.
 
-Her Data Lake Analytics hesabı, bir [Azure Data Lake Store]() hesabı bağımlılığına sahiptir.  Bu hesap, varsayılan Data Lake Store hesabı olarak adlandırılır.  Data Lake Store hesabını önceden veya Data Lake Analytics hesabınızı oluşturduğunuzda oluşturabilirsiniz. Bu öğreticide, Data Lake Store hesabını Data Lake Analytics hesabıyla oluşturacaksınız.
+Her Data Lake Analytics hesabı, bir Azure Data Lake Store hesabı bağımlılığına sahiptir.  Bu hesap, varsayılan Data Lake Store hesabı olarak adlandırılır.  Data Lake Store hesabını önceden veya Data Lake Analytics hesabınızı oluşturduğunuzda oluşturabilirsiniz. Bu öğreticide, Data Lake Store hesabını Data Lake Analytics hesabıyla oluşturacaksınız.
 
-**Data Lake Analytics hesabı oluşturmak için**
+**Data Lake Analytics hesabı oluşturma**
 
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
 2. **Yeni**’ye, **Zeka + analiz**’e ve ardından **Data Lake Analytics**'e tıklayın.
@@ -45,21 +46,22 @@ Her Data Lake Analytics hesabı, bir [Azure Data Lake Store]() hesabı bağıml�
 
     ![Azure Data Lake Analytics portalı dikey penceresi](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
-   * **Ad**: Data Lake Analytics hesabını adlandırın.
+   * **Ad**: Data Lake Analytics hesabınızı adlandırın (Yalnızca küçük harf ve sayı kullanılabilir).
    * **Abonelik**: Analytics hesabı için kullanılan Azure aboneliğini seçin.
    * **Kaynak Grubu**. Var olan bir Azure Kaynak Grubu'nu seçin veya yeni bir grup oluşturun. Azure Resource Manager, uygulamanızdaki kaynaklarla bir grup olarak çalışmanıza olanak sağlar. Daha fazla bilgi için bkz. [Azure Resource Manager'a Genel Bakış](../azure-resource-manager/resource-group-overview.md).
    * **Konum**. Data Lake Analytics hesabı için bir Azure veri merkezi seçin.
-   * **Data Lake Store**: Her Data Lake Analytics hesabı, bağımlı bir Data Lake Store hesabına sahiptir. Data Lake Analytics hesabı ve bağımlı Data Lake Store hesabı aynı Azure veri merkezinde bulunmalıdır. Yeni bir Data Lake Store hesabı oluşturmaya yönelik yönergeyi uygulayın veya var olan bir hesabı seçin.
-4. **Oluştur**’a tıklayın. Bu işlem sizi portal ana ekranına götürür. Başlangıç Panosu'na, "Azure Data Lake Analytics'i dağıtma" etiketine sahip yeni bir kutucuk eklenir. Data Lake Analytics hesabının oluşturulması çok kısa süren bir işlemdir. Hesap oluşturulduğunda, portal, hesabı yeni bir dikey pencerede açar.
+   * **Data Lake Store**: *Gerekli ayarları yapılandır*’a tıklayın. Yeni bir Data Lake Store hesabı oluşturmaya yönelik yönergeyi uygulayın veya var olan bir hesabı seçin. Her Data Lake Analytics hesabı, bağımlı bir Data Lake Store hesabına sahiptir. Data Lake Analytics hesabı ve bağımlı Data Lake Store hesabı aynı Azure veri merkezinde bulunmalıdır.
+4. Fiyatlandırma Katmanınızı seçme  
+5. **Oluştur**’a tıklayın. Bu seçenek sizi "Azure Data Lake Analytics Dağıtılıyor" iletisini gösteren yeni bir kutucuğun görüntülendiği portal giriş sayfasına döndürür. Dağıtım işleminin bir Data Lake Analytics hesabı oluşturması birkaç dakika sürer. Hesap oluşturulduğunda, portal, hesabı yeni bir dikey pencerede açar.
 
 Data Lake Analytics hesabı oluşturulduktan sonra, ek Data Lake Store hesapları ve Azure Storage hesapları ekleyebilirsiniz. Yönergeler için bkz. [Data Lake Analytics hesabı veri kaynaklarını yönetme](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
 ## <a name="prepare-source-data"></a>Kaynak verileri hazırlama
-Bu eğiticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü, Data Lake Store veya Azure Blob depolama alanında depolanabilir.
+Bu öğreticide, arama günlüklerini işleyeceksiniz.  Arama günlüğü, Data Lake Store veya Azure Blob depolama alanında depolanabilir.
 
-Azure portalı, bir arama günlüğü dosyası içeren bazı örnek veri dosyalarını varsayılan Data Lake Store hesabına kopyalamak için bir kullanıcı arabirimi sağlar.
+Azure portalı, bir arama günlüğü dosyası içeren örnek veri dosyalarını varsayılan Data Lake Store hesabına kopyalamak için bir kullanıcı arabirimi sağlar.
 
-**Örnek veri dosyalarını kopyalamak için**
+**Örnek veri dosyalarını kopyalama**
 
 1. [Azure portalından](https://portal.azure.com) Data Lake Analytics hesabınızı açın.  Portalda bir hesap oluşturmak ve hesabı açmak için bkz. [Data Lake Analytics hesaplarını yönetme](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
 2. **Temel Bileşenler** bölmesini genişletin ve ardından **Örnek betikleri keşfedin** seçeneğine tıklayın. Bu işlem sonucunda, **Örnek Betikler** adlı başka bir dikey pencere açılır.
@@ -138,9 +140,4 @@ Veri kaynağını hazırladıktan sonra, U-SQL betiği geliştirmeye başlayabil
 * Data Lake Analytics'e yönelik bir genel bakış için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 * Aynı öğreticiyi diğer araçları kullanarak görmek için sayfanın üst kısmındaki sekme seçicilerine tıklayın.
 * Tanılama bilgilerini günlüğe kaydetmek için bkz. [Azure Data Lake Analytics için tanılama günlüklerine erişme](data-lake-analytics-diagnostic-logs.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
