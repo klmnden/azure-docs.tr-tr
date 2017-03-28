@@ -11,8 +11,8 @@ Aşağıdaki tabloda, hizmetler tarafından sunulan özellikler özetlenmiştir:
 | Hizmet | Azure Load Balancer | Application Gateway | Traffic Manager |
 | --- | --- | --- | --- |
 | Teknoloji |Aktarım düzeyi (Katman 4) |Uygulama düzeyi (Katman 7) |DNS düzeyi |
-| Desteklenen uygulama protokolleri |Herhangi biri |HTTP ve HTTPS |Herhangi biri (Uç nokta izleme için HTTP uç noktası gereklidir) |
-| Uç Noktalar |Azure VM’leri ve Cloud Services rol örnekleri |Herhangi bir Azure İç IP adresi ya da genel İnternet IP adresi |Azure VM’leri, Cloud Services, Azure Web Apps ve dış uç noktalar |
+| Desteklenen uygulama protokolleri |Herhangi biri |HTTP, HTTPS ve WebSockets |Herhangi biri (Uç nokta izleme için HTTP uç noktası gereklidir) |
+| Uç Noktalar |Azure VM’leri ve Cloud Services rol örnekleri |Herhangi bir iç Azure IP adresi, genel internet IP adresi, Azure VM veya Azure Bulut Hizmeti |Azure VM’leri, Cloud Services, Azure Web Apps ve dış uç noktalar |
 | Vnet desteği |Hem İnternet’e yönelik hem de iç (Vnet) uygulamalar için kullanılabilir |Hem İnternet’e yönelik hem de iç (Vnet) uygulamalar için kullanılabilir |Yalnızca İnternet'e yönelik uygulamaları destekler |
 | Uç Nokta İzleme |Araştırmalar aracılığıyla desteklenir |Araştırmalar aracılığıyla desteklenir |HTTP/HTTPS GET aracılığıyla desteklenir |
 
@@ -20,14 +20,11 @@ Azure Load Balancer ve Application Gateway, ağ trafiğini uç noktalara yönlen
 
 | Tür | Azure Load Balancer | Application Gateway |
 | --- | --- | --- |
-| Protokoller |UDP/TCP |HTTP/ HTTPS |
+| Protokoller |UDP/TCP |HTTP, HTTPS ve WebSockets |
 | IP ayırma |Destekleniyor |Desteklenmiyor |
 | Yük dengeleme modu |5’li demet (kaynak IP, kaynak bağlantı noktası, hedef IP, hedef bağlantı noktası, protokol türü) |Hepsini Bir Kez Deneme<br>URL'ye dayalı yönlendirme |
 | Yük dengeleme modu (kaynak IP/yapışkan oturumlar) |2’li demet (kaynak IP ve hedef IP), 3’lü demet (kaynak IP, hedef IP ve bağlantı noktası). Sanal makine sayısına bağlı olarak ölçeği artırabilir veya azaltılabilir |Tanımlama bilgisi tabanlı benzeşim<br>URL'ye dayalı yönlendirme |
 | Sistem durumu araştırmaları |Varsayılan: araştırma aralığı - 15 saniye Yönlendirme dışına çıkarma: Arka arkaya 2 hata. Kullanıcı tanımlı araştırmaları destekler |Boşta araştırma aralığı 30 saniye. Arka arkaya 5 canlı trafik hatasından veya boşta modunda tek bir araştırma hatasından sonra çıkarılır. Kullanıcı tanımlı araştırmaları destekler |
 | SSL aktarma |Desteklenmiyor |Destekleniyor |
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+| URL tabanlı yönlendirme | Desteklenmiyor | Destekleniyor|
+| SSL İlkesi | Desteklenmiyor | Destekleniyor|

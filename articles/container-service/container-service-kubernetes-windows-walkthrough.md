@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: ef1e790edc4cd329245331bf1178ed1f610e914c
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c43648dae95d90d0ee9f3d6b5bedfad7ab4889ca
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -32,6 +32,7 @@ Bu makalede, Azure Container Service’te Windows kapsayıcılarını çalışt�
 
 > [!NOTE]
 > Azure Container Service’te Kubernetes ile Windows kapsayıcıları desteği önizleme aşamasındadır. Windows düğümleri içeren bir Kubernetes kümesi oluşturmak için Azure portalını ya da bir Resource Manager şablonu kullanın. Bu özellik, şu anda Azure CLI 2.0 ile desteklenmemektedir.
+>
 
 
 
@@ -81,13 +82,13 @@ Kümeyi oluşturup `kubectl` ile bağlandıktan sonra temel bir Windows web uygu
 
 1. Düğümlerinizin listesini görmek için `kubectl get nodes` yazın. Düğümlerin tüm ayrıntılarını öğrenmek istiyorsanız şunu yazın:  
 
-  ```
-  kubectl get nodes -o yaml
-  ```
+    ```
+    kubectl get nodes -o yaml
+    ```
 
 2. `simpleweb.yaml` adlı bir dosya oluşturun ve aşağıdakini kopyalayın. Bu dosya, [Docker Hub](https://hub.docker.com/r/microsoft/windowsservercore/)’dan Windows Server 2016 Sunucu Çekirdeği temel işletim sistemi görüntüsünü kullanarak bir web uygulaması ayarlar.  
 
-  ```yaml
+```yaml
   apiVersion: v1
   kind: Service
   metadata:
@@ -123,40 +124,44 @@ Kümeyi oluşturup `kubectl` ile bağlandıktan sonra temel bir Windows web uygu
           command:
           - powershell.exe
           - -command
-          - "<#code used from https://gist.github.com/wagnerandrade/5424431#> ; $$ip = (Get-NetIPAddress | where {$$_.IPAddress -Like '*.*.*.*'})[0].IPAddress ; $$url = 'http://'+$$ip+':80/' ; $$listener = New-Object System.Net.HttpListener ; $$listener.Prefixes.Add($$url) ; $$listener.Start() ; $$callerCounts = @{} ; Write-Host('Listening at {0}...' -f $$url) ; while ($$listener.IsListening) { ;$$context = $$listener.GetContext() ;$$requestUrl = $$context.Request.Url ;$$clientIP = $$context.Request.RemoteEndPoint.Address ;$$response = $$context.Response ;Write-Host '' ;Write-Host('> {0}' -f $$requestUrl) ;  ;$$count = 1 ;$$k=$$callerCounts.Get_Item($$clientIP) ;if ($$k -ne $$null) { $$count += $$k } ;$$callerCounts.Set_Item($$clientIP, $$count) ;$$header='<html><body><H1>Windows Container Web Server</H1>' ;$$callerCountsString='' ;$$callerCounts.Keys | % { $$callerCountsString+='<p>IP {0} callerCount {1} ' -f $$_,$$callerCounts.Item($$_) } ;$$footer='</body></html>' ;$$content='{0}{1}{2}' -f $$header,$$callerCountsString,$$footer ;Write-Output $$content ;$$buffer = [System.Text.Encoding]::UTF8.GetBytes($$content) ;$$response.ContentLength64 = $$buffer.Length ;$$response.OutputStream.Write($$buffer, 0, $$buffer.Length) ;$$response.Close() ;$$responseStatus = $$response.StatusCode ;Write-Host('< {0}' -f $$responseStatus)  } ; "
+          - "<#code used from https://gist.github.com/wagnerandrade/5424431#> ; $$listener = New-Object System.Net.HttpListener ; $$listener.Prefixes.Add('http://*:80/') ; $$listener.Start() ; $$callerCounts = @{} ; Write-Host('Listening at http://*:80/') ; while ($$listener.IsListening) { ;$$context = $$listener.GetContext() ;$$requestUrl = $$context.Request.Url ;$$clientIP = $$context.Request.RemoteEndPoint.Address ;$$response = $$context.Response ;Write-Host '' ;Write-Host('> {0}' -f $$requestUrl) ;  ;$$count = 1 ;$$k=$$callerCounts.Get_Item($$clientIP) ;if ($$k -ne $$null) { $$count += $$k } ;$$callerCounts.Set_Item($$clientIP, $$count) ;$$header='<html><body><H1>Windows Container Web Server</H1>' ;$$callerCountsString='' ;$$callerCounts.Keys | % { $$callerCountsString+='<p>IP {0} callerCount {1} ' -f $$_,$$callerCounts.Item($$_) } ;$$footer='</body></html>' ;$$content='{0}{1}{2}' -f $$header,$$callerCountsString,$$footer ;Write-Output $$content ;$$buffer = [System.Text.Encoding]::UTF8.GetBytes($$content) ;$$response.ContentLength64 = $$buffer.Length ;$$response.OutputStream.Write($$buffer, 0, $$buffer.Length) ;$$response.Close() ;$$responseStatus = $$response.StatusCode ;Write-Host('< {0}' -f $$responseStatus)  } ; "
         nodeSelector:
           beta.kubernetes.io/os: windows
   ```
 
-3. Uygulamayı başlatmak için aşağıdakini yazın:
+      
+> [!NOTE] 
+> Yapılandırmaya `type: LoadBalancer` dahildir. Bu ayar, hizmetin bir Azure Load Balancer üzerinden İnternet'te kullanıma sunulmasına neden olur. Daha fazla bilgi edinmek için bkz. [Azure Container Service’teki bir Kubernetes kümesinde yük dengeleme kapsayıcıları](container-service-kubernetes-load-balancing.md).
+>
 
-  ```
-  kubectl apply -f simpleweb.yaml
-  ```
+## <a name="start-the-application"></a>Uygulamayı başlatma
+
+1. Uygulamayı başlatmak için aşağıdakini yazın:  
+
+    ```
+    kubectl apply -f simpleweb.yaml
+    ```  
   
-  > [!NOTE] 
-  > Yapılandırmaya `type: LoadBalancer` dahildir. Bu ayar, hizmetin bir Azure Load Balancer üzerinden İnternet'te kullanıma sunulmasına neden olur. Daha fazla bilgi için bkz. [Azure Container Service’teki bir Kubernetes kümesinde yük dengeleme kapsayıcıları](container-service-kubernetes-load-balancing.md).
   
-4. Hizmeti dağıtımını (yaklaşık 30 saniye sürer) doğrulamak için aşağıdakini yazın:
+2. Hizmeti dağıtımını (yaklaşık 30 saniye sürer) doğrulamak için aşağıdakini yazın:  
 
-  ```
-  kubectl get pods
-  ```
+    ```
+    kubectl get pods
+    ```
 
-5. Hizmet çalışmaya başladıktan sonra hizmete ait iç ve dış IP adreslerini görmek için aşağıdakini yazın:
+3. Hizmet çalışmaya başladıktan sonra hizmete ait iç ve dış IP adreslerini görmek için aşağıdakini yazın:
 
-  ```
-  kubectl get svc
-  ``` 
+    ```
+    kubectl get svc
+    ``` 
+  
+    ![Windows hizmetinin IP adresleri](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
 
-  ![Windows hizmetinin IP adresleri](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
+    Dış IP adresinin eklenmesi birkaç dakika sürer. Dış adres, yük dengeleyici tarafından yapılandırılmadan önce `<pending>` şeklinde görünür.
 
-  Dış IP adresinin eklenmesi birkaç dakika sürer. Dış adres, yük dengeleyici tarafından yapılandırılmadan önce `<pending>` şeklinde görünür.
+4. Dış IP adresi kullanılabilir olduktan sonra hizmete web tarayıcınızda ulaşabilirsiniz.
 
-
-6. Dış IP adresi kullanılabilir olduktan sonra hizmete web tarayıcınızda ulaşabilirsiniz.
-
-  ![Tarayıcıda Windows sunucu uygulaması](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
+    ![Tarayıcıda Windows sunucu uygulaması](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
 
 
 ## <a name="access-the-windows-nodes"></a>Windows düğümlerine erişim
@@ -170,37 +175,31 @@ Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Bu b
 
 3. Küme yöneticisi kullanıcı adı ve kümedeki ilk ana düğümün genel DNS adından oluşan bir ana bilgisayar adı girin. **Ana Bilgisayar Adı** `adminuser@PublicDNSName`’e benzer. **Bağlantı Noktası** için 22 girin.
 
-    ![PuTTY yapılandırması 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
+  ![PuTTY yapılandırması 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
 
 4. **SSH > Yetkilendirme** öğesini seçin. Özel anahtar dosyanıza (.ppk biçimi) kimlik doğrulaması için bir yol ekleyin. [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) gibi bir araç kullanarak bu dosyayı kümenin oluşturulması için kullanılan SSH anahtarından oluşturabilirsiniz.
 
-    ![PuTTY yapılandırması 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
+  ![PuTTY yapılandırması 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
 
 5. **SSH > Tüneller**’i seçin ve iletilen bağlantı noktalarını yapılandırın. Yerel Windows makineniz zaten bağlantı noktası 3389’u kullanmakta olduğundan Windows düğümü 0 ve Windows düğümü 1’e ulaşmak için aşağıdaki ayarları kullanmanız önerilir. (Ek Windows düğümleri için bu şekilde devam edin.)
 
-  **Windows Düğümü 0**
+    **Windows Düğümü 0**
 
-  * **Kaynak Bağlantı Noktası:** 3390
-  * **Hedef:** 10.240.245.5:3389
+    * **Kaynak Bağlantı Noktası:** 3390
+    * **Hedef:** 10.240.245.5:3389
 
-  **Windows Düğümü 1**
+    **Windows Düğümü 1**
 
-  * **Kaynak Bağlantı Noktası:** 3391
-  * **Hedef:** 10.240.245.6:3389
+    * **Kaynak Bağlantı Noktası:** 3391
+    * **Hedef:** 10.240.245.6:3389
 
-  ![Windows RDP tünellerinin görüntüsü](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
+    ![Windows RDP tünellerinin görüntüsü](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
 
 6. İşiniz bittiğinde, bağlantı yapılandırmasını kaydetmek için **Oturum > Kaydet**’e tıklayın.
 
 7. PuTTY oturumuna bağlanmak için **Aç**’a tıklayın. Ana düğüme bağlantıyı tamamlayın.
 
 8. Uzak Masaüstü Bağlantısı'nı başlatın. İlk Windows düğümüne bağlanmak için, **Bilgisayar** kısmında `localhost:3390` belirtip **Bağlan**’a tıklayın. (İkinci düğüme bağlanmak için `localhost:3390` belirtin ve bu şekilde devam edin.) Bağlantınızı tamamlamak için, dağıtım sırasında yapılandırdığınız yerel Windows yönetici parolasını belirtin.
-
-
-
-
-
-
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

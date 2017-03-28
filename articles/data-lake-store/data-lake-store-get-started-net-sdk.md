@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 1886f806d0c1bdbf5e24720ff84cd00ce2c6d77a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1fd8fe3847299d98a55a16ab400b43be074a5f33
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -72,14 +72,10 @@ Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel 
    
         using System;
         using System.IO;
-        using System.Threading;
+    System.Security.Cryptography.X509Certificates kullanma; // Yalnızca sertifikalarla oluşturulmuş bir Azure AD uygulaması kullanıyorsanız      System.Threading kullanarak;
    
-        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.Azure.Management.DataLake.StoreUploader;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using System.Security.Cryptography.X509Certificates; //Required only if you are using an Azure AD application created with certificates
+    Microsoft.Azure.Management.DataLake.Store.Models kullanma;  Microsoft.Azure.Management.DataLake.StoreUploader kullanma;  Microsoft.IdentityModel.Clients.ActiveDirectory kullanma; Microsoft.Rest.Azure.Authentication kullanma;
 
 7. Aşağıda gösterildiği gibi değişkenleri tanımlayın ve Data Lake Store adına ve zaten var olan kaynak grubu adına yönelik değerleri sağlayın. Ayrıca, burada sağladığınız yerel yolun ve dosya adının bilgisayar üzerinde var olduğundan emin olun. Aşağıdaki kod parçacığını ad alanı bildirimlerinden sonra ekleyin.
    
@@ -139,11 +135,12 @@ Gizli anahtar / uygulama anahtarı / hizmet sorumlusu kullanılarak aşağıdaki
     // Service principal / appplication authentication with client secret / key
     // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientSecret = "<AAD-application-client-secret>";
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
-    var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
+    var creds = await ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential);
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Sertifika ile hizmetten hizmete kimlik doğrulaması kullanıyorsanız
 Üçüncü bir seçenek olarak, bir Azure Active Directory uygulama sertifikası / hizmet sorumlusu kullanılarak aşağıdaki kod parçacığı uygulamanızın **etkileşimli olmayan** kimlik doğrulaması için kullanılabilir. Bunu var olan, [Sertifikalı Azure AD Uygulaması](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate) ile birlikte kullanın.
@@ -151,28 +148,27 @@ Gizli anahtar / uygulama anahtarı / hizmet sorumlusu kullanılarak aşağıdaki
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
-    System.Security.Cryptography.X509Certificates.X509Certificate2 clientCert = <AAD-application-client-certificate>
+    var clientCert = <AAD-application-client-certificate>
     var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
-    var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate).Result;
+    var creds = await ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate);
 
 ## <a name="create-client-objects"></a>İstemci nesneleri oluşturma
 Aşağıdaki kod parçacığı Data Lake Store hesabını ve hizmete verme isteği göndermek için kullanılan dosya sistemi istemci nesnelerini oluşturur.
 
     // Create client objects and set the subscription ID
-    _adlsClient = new DataLakeStoreAccountManagementClient(creds);
+    _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
     _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
-
-    _adlsClient.SubscriptionId = _subId;
 
 ## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>Bir abonelik içindeki tüm Data Lake Store hesaplarını listeleme
 Aşağıdaki kod parçacığı belirli bir Azure aboneliği içindeki tüm Data Lake Store hesaplarını listeler.
 
     // List all ADLS accounts within the subscription
-    public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
+    public static async Task<List<DataLakeStoreAccount>> ListAdlStoreAccounts()
     {
-        var response = _adlsClient.Account.List();
+        var response = await _adlsClient.Account.ListAsync();
         var accounts = new List<DataLakeStoreAccount>(response);
 
         while (response.NextPageLink != null)
@@ -188,9 +184,9 @@ Aşağıdaki kod parçacığı belirli bir Azure aboneliği içindeki tüm Data 
 Aşağıdaki kod parçacığında, bir Data Lake Store hesabında dizin oluşturmak için kullanabileceğiniz bir `CreateDirectory` yöntemi gösterilmiştir.
 
     // Create a directory
-    public static void CreateDirectory(string path)
+    public static async Task CreateDirectory(string path)
     {
-        _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
+        await _adlsFileSystemClient.FileSystem.MkdirsAsync(_adlsAccountName, path);
     }
 
 ## <a name="upload-a-file"></a>Dosyayı karşıya yükleme
@@ -211,9 +207,9 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabına dosya yüklemek
 Aşağıdaki kod parçacığında, Data Lake Store'da kullanılabilir olan bir dosya veya dizin ile ilgili bilgileri almak için kullanabileceğiniz bir `GetItemInfo` yöntemi gösterilmiştir. 
 
     // Get file or directory info
-    public static FileStatusProperties GetItemInfo(string path)
+    public static async Task<FileStatusProperties> GetItemInfo(string path)
     {
-        return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
+        return await _adlsFileSystemClient.FileSystem.GetFileStatusAsync(_adlsAccountName, path).FileStatus;
     }
 
 ## <a name="list-file-or-directories"></a>Dosyayı veya dizinleri listeleme
@@ -229,20 +225,20 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabındaki dosyaları v
 Aşağıdaki kod parçacığında, dosyaları birleştirmek için kullanabileceğiniz bir `ConcatenateFiles` yöntemi gösterilmiştir. 
 
     // Concatenate files
-    public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
+    public static Task ConcatenateFiles(string[] srcFilePaths, string destFilePath)
     {
-        _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
+        await _adlsFileSystemClient.FileSystem.ConcatAsync(_adlsAccountName, destFilePath, srcFilePaths);
     }
 
 ## <a name="append-to-a-file"></a>Dosyanın sonuna ekleme
 Aşağıdaki kod parçacığında, bir Data Lake Store hesabında zaten depolanmış olan bir dosyanın sonuna veri eklemek için kullanabileceğiniz bir `AppendToFile` yöntemi gösterilmiştir.
 
     // Append to file
-    public static void AppendToFile(string path, string content)
+    public static async Task AppendToFile(string path, string content)
     {
         using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
         {
-            _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
+            await _adlsFileSystemClient.FileSystem.AppendAsync(_adlsAccountName, path, stream);
         }
     }
 
@@ -250,12 +246,12 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabında zaten depolanm
 Aşağıdaki kod parçacığında, bir Data Lake Store hesabındaki bir dosyayı indirmek için kullanabileceğiniz bir `DownloadFile` yöntemi gösterilmiştir.
 
     // Download file
-    public static void DownloadFile(string srcPath, string destPath)
+    public static async Task DownloadFile(string srcPath, string destPath)
     {
-        using (var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath))
+        using (var stream = await _adlsFileSystemClient.FileSystem.OpenAsync(_adlsAccountName, srcPath))
         using (var fileStream = new FileStream(destPath, FileMode.Create))
         {
-            stream.CopyTo(fileStream);
+            await stream.CopyToAsync(fileStream);
         }
     }
 

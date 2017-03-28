@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -127,7 +127,7 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
 
 - SQL Veri Ambarı, kullanıcılara farklı miktarda bellek, CPU kaynağı ve eşzamanlı kullanım hakkı ayırmak için kaynak sınıfı olarak adlandırılan önceden tanımlanmış veritabanı rolleri kullanır. Her kullanıcı küçük, orta, büyük veya çok büyük bir kaynak sınıfına ait olabilir. Kullanıcının kaynak sınıfı, kullanıcının sorguları ve yük işlemlerini çalıştırması için sahip olması gereken kaynakları belirler.
 
-- Veri sıkıştırmayı iyileştirmek için kullanıcının genellikle büyük veya çok büyük kaynak ayırmaları ile yüklemesi gerekir. Kaynak sınıfları hakkında daha fazla bilgiyi [burada](./sql-data-warehouse-develop-concurrency.md#resource-classes) bulabilirsiniz:
+- En iyi veri sıkıştırma için kullanıcının büyük veya çok büyük kaynak ayırmaları ile yüklemesi gerekebilir. Kaynak sınıfları hakkında daha fazla bilgiyi [burada](./sql-data-warehouse-develop-concurrency.md#resource-classes) bulabilirsiniz:
 
 ### <a name="create-an-account-that-can-control-a-database"></a>Veritabanını denetleyebilen bir hesap oluşturma
 

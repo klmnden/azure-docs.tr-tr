@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/08/2016
-ms.author: edmaca
+ms.date: 03/17/2017
+ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -128,9 +128,9 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
        Ad otomatik olarak tamamlanır ve Satır Kümesi, Sınıflar, Veritabanları, Şemalar ve Kullanıcı Tanımlı Nesneler (UDO'lar) için üyeler gösterilir.
 
        Katalog varlıkları (Veritabanları, Şemalar, Tablolar, UDO'lar vb.) için IntelliSense, işlem hesabınızla ilgilidir. Geçerli etkin işlem hesabını, veritabanını ve şemayı üst araç çubuğundan denetleyebilir ve bunları açılır listelerden değiştirebilirsiniz.
-   * **Sütunları * genişletme**
+   * **Sütunları* genişletme**
 
-       * öğesinin sağına tıklayın; * öğesinin altında mavi bir alt çizgi göreceksiniz. Fare imlecinizi mavi alt çizginin üzerine getirin ve sonra aşağı oka tıklayın.
+       *öğesinin sağına tıklayın;* öğesinin altında mavi bir alt çizgi göreceksiniz. Fare imlecinizi mavi alt çizginin üzerine getirin ve sonra aşağı oka tıklayın.
        ![Data Lake Visual Studio araçlarını genişletme *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        **Sütunları Genişlet**'e tıklayın; araç, * simgesi yerine sütun adlarını getirecektir.
@@ -197,71 +197,11 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 Visual Studio için Data Lake Araçları, her bir aşamaya yönelik ilerleme durumu, veri G/Ç, yürütme zamanı, G/Ç işleme birimi bilgilerini göstermek üzere iş görünümünde kullanıcı tarafından seçilebilen renk yer paylaşımları sağlar. Bu sayede, kullanıcılar olası sorunları ve iş özelliklerinin dağıtımını doğrudan ve sezgisel olarak anlayabilir. Açılır listeden görüntülemek üzere bir veri kaynağı seçebilirsiniz.  
 
 ## <a name="run-u-sql-locally"></a>U-SQL'i yerel olarak çalıştırma
-Visual Studio'da U-SQL yerel çalıştırma deneyimini kullanarak şunları yapabilirsiniz:
 
-* C# Derlemeleri'nin yanı sıra, u-SQL betiklerini yerel olarak çalıştırma.
-* C# derlemeleri üzerinde yerel olarak hata ayıklama.
-* Sunucu Gezgini'nde yerel veritabanlarını, derlemeleri, şemaları ve tabloları Azure Data Lake Analytics hizmetinde olduğu gibi oluşturma/silme/görüntüleme.
+İş istasyonunuzda U-SQL işleri çalıştırmak için, Azure Data Lake hizmetinde yaptığınız gibi Visual Studio için Azure Data Lake Araçları ve Azure Data Lake U-SQL SDK’sını kullanabilirsiniz. Bu iki yerel çalıştırma özelliği, U-SQL işlerinizi test etme ve hata ayıklama işlemlerinde size zaman kazandırır. 
 
-Visual Studio'da bir *Yerel* hesap görürsünüz ve yükleyici, *C:\LocalRunRoot* konumunda bir *DataRoot* klasörü oluşturur. DataRoot klasörü şu amaçlarla kullanılır:
+* [Yerel çalıştırma ve Azure Data Lake U-SQL SDK’sını kullanarak U-SQL işlerini test etme ve hatalarını ayıklama](data-lake-analytics-data-lake-tools-local-run.md)
 
-* Tablo, veritabanı ve TVF gibi öğeler de dahil olmak üzere, meta verileri depolama.
-* Belirli bir betik için: Girdi/çıktı yollarında göreli bir yola başvurulmuşsa DataRoot aranır (girdi olması durumunda betiğin yolu için de geçerlidir)
-* Bir derlemeyi kaydetmeye çalışıyor olmanız ve göreli yol kullanmanız halinde DataRoot klasörüne başvurulmaz (daha ayrıntılı bilgi için "Yerel çalıştırma gerçekleştirirken derlemeleri kullanma" kısmına bakın)
-
-Aşağıdaki videoda U-SQL yerel çalıştırma özelliği gösterilmektedir:
-
-> [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/USQL-LocalRun/player]
->
->
-
-### <a name="known-issues-and-limitations"></a>Bilinen sorunlar ve sınırlamalar
-* Yerel hesap için Sunucu Gezgini'nde tablo/veritabanı vb. oluşturulamıyor.
-* Göreli yola başvurulduğunda:
-
-  * Betik girdisinde (EXTRACT * FROM "/yol/abc"): hem DataRoot yolu hem de betik yolu aranır.
-  * Betik çıktısında (OUTPUT TO "yol/abc"): DataRoot yolu, çıktı klasörü olarak kullanılır.
-  * Derleme kaydında (CREATE ASSEMBLY xyz FROM “/path/abc”): betik yolu aranır, ancak DataRoot aranmaz.
-  * Kayıtlı TVF/Görünüm veya diğer meta veri varlıklarında: DataRoot Yolu aranır ancak betik yolu aranmaz.
-
-    Data Lake hizmeti üzerinde çalıştırılan betikler için, varsayılan depolama hesabı kök klasör olarak kullanılır ve buna uygun şekilde aranır.
-
-### <a name="test-u-sql-scripts-locally"></a>U-SQL betiklerini yerel olarak test etme
-U-SQL betikleri geliştirmeye yönelik yönergeler için bkz. [U-SQL betikleri geliştirme](#develop-and-test-u-sql-scripts). U-SQL betiklerini yerel olarak oluşturup çalıştırmak için küme açılır listesinde **(Yerel)** öğesini seçin ve ardından **Gönder**'e tıklayın. Lütfen doğru verilere başvurulduğundan emin olun; mutlak yola başvurun veya verileri DataRoot klasörünün altına yerleştirin.
-
-![U-SQL Visual Studio projesini yerel olarak gönderme](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
-
-Ayrıca, bir betiğe sağ tıklayıp ardından bağlam menüsünde **Yerel Planı Çalıştır**'a tıklayabilir veya yerel çalıştırmayı tetiklemek için **CTRL+F5** tuşlarına basabilirsiniz.
-
-### <a name="use-assemblies-in-local-run"></a>Yerel çalıştırmada derlemeleri kullanma
-Özelleştirilmiş C# dosyalarını çalıştırmak için iki yol mevcuttur:
-
-* Derlemeler dosyanın arkasındaki kodda yazın; böylece derlemeler, betiğin tamamlanmasının ardından otomatik olarak kaydedilir ve bırakılır.
-* Bir C# derleme projesi oluşturun ve çıktı dll'sini aşağıdaki gibi bir betik ile yerel hesaba kaydedin. Lütfen yolun DataRoot klasörüne değil, betiğe göreli olduğunu unutmayın.
-
-![U-SQL çalıştırmasında derlemeleri kullanma](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
-
-### <a name="debug-scripts-and-c-assemblies-locally"></a>Betikler ve C# derlemeleri üzerinde yerel olarak hata ayıklama
-C# derlemeleri üzerinde hata ayıklama işlemini, Azure Data Lake Analytics Hizmeti'ne göndererek ve kaydederek gerçekleştirebilirsiniz. Hem dosyanın arkasındaki kodda hem de başvuruda bulunulan bir C# projesinde kesme noktaları ayarlayabilirsiniz.
-
-**Arka plan kod dosyasında yerel kod hatalarını ayıklamak için**
-
-1. Dosyanın arkasındaki kodda kesme noktaları ayarlayın.
-2. Betik üzerinde yerel olarak hata ayıklama gerçekleştirmek için **F5**'e basın.
-
-Aşağıdaki yordam yalnızca Visual Studio 2015'te çalışır. Daha eski Visual Studio sürümlerinde, pdb dosyalarını kendiniz eklemeniz gerekebilir.
-
-**Başvurulan bir C# projesinde yerel kod hatalarını ayıklamak için**
-
-1. Bir C# Derleme projesi oluşturun ve projeyi çıktı dll'sini üretmek üzere oluşturun.
-2. U-SQL deyimi kullanarak dll'yi kaydetme:
-
-    ```
-    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-    ```
-    
-3. C# kodunda kesme noktalarını ayarlayın.
-4. C# dll'sine yerel olarak başvuruda bulunarak koddaki hataları ayıklamak için **F5**'e basın.  
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Farklı araçlar kullanarak Data Lake Analytics ile çalışmaya başlamak için bkz.

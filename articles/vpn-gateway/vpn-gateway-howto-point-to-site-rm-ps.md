@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 87b37c32a33a6f6e6affb934a02dcdb89187fe19
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 33646ad42b9209b2970c0745acec899aed3ff88c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -170,7 +170,7 @@ Otomatik olarak imzalanan bir kök sertifika kullanıyorsanız, Noktadan Siteye 
  
 1. İstemci sertifikasını dışarı aktarmak için, **certmgr.msc** öğesini açın. Dışarı aktarmak istediğiniz istemci sertifikasına sağ tıklayın, **tüm görevler**’e ve ardından **dışarı aktar**’a tıklayın. **Sertifika Dışarı Aktarma Sihirbazı** açılır.
 2. Sihirbazda **İleri**’ye tıklayın, **Evet, özel anahtarı dışarı aktar**’ı seçin ve **İleri**’ye tıklayın.
-3. **Dışarı Aktarma Dosyası Biçimi** sayfasında, varsayılan ayarları seçili bırakabilirsiniz. Ardından **İleri**'ye tıklayın. 
+3. **Dışarı Aktarma Dosyası Biçimi** sayfasında, varsayılan ayarları seçili bırakın. **Mümkünse sertifika yolundaki tüm sertifikaları ekle** seçeneğinin işaretli olduğundan emin olun. Ardından **İleri**'ye tıklayın.
 4. **Güvenlik** sayfasında, özel anahtarı korumanız gerekir. Bir parola kullanmayı seçerseniz, bu sertifika için ayarladığınız parolayı kaydettiğinizden ya da unutmayacağınızdan emin olun. Ardından **İleri**'ye tıklayın.
 5. **Dışarı Aktarılan Dosya** sayfasında **Gözat**'a tıklayarak sertifika için dışarı aktarma konumunu seçin. **Dosya adı** alanına, sertifika dosyası için bir ad girin. Ardından **İleri**'ye tıklayın.
 6. Sertifikayı dışarı aktarmak için **Son**'a tıklayın.
@@ -220,7 +220,7 @@ VPN istemci paketi, Windows'da yerleşik bulunan VPN istemci yazılımını yap�
 İstemci sertifikalarını oluşturmak için kullandığınız bilgisayardan farklı bir istemci bilgisayarda bir P2S bağlantı oluşturmak istiyorsanız, bir istemci sertifikası yüklemeniz gerekir. Bir istemci sertifikası yüklenirken, istemci sertifikası dışarı aktarılırken oluşturulan parola gerekir.
 
 1. *.pfx* dosyasını bulun ve istemci bilgisayara kopyalayın. İstemci bilgisayarda *.pfx* dosyasına çift tıklayarak yükleme işlemini gerçekleştirin. **Depolama Konumu**’nu **Geçerli Kullanıcı** olarak bırakın ve **İleri**’ye tıklayın.
-2. İçeri aktarılacak **Dosya** sayfasında herhangi bir değişiklik yapmayın. **Next (İleri)** düğmesine tıklayın.
+2. İçeri aktarılacak **Dosya** sayfasında herhangi bir değişiklik yapmayın. **İleri**'ye tıklayın.
 3. **Özel anahtar koruma** sayfasında, bir sertifika kullandıysanız sertifika için parolayı girin veya sertifikayı yükleyen güvenlik sorumlusunun doğru olduğunu onaylayın ve **İleri**’ye tıklayın.
 4. **Sertifika Deposu** sayfasında, varsayılan konumu bırakın ve **İleri**’ye tıklayın.
 5. **Son**'a tıklayın. Sertifika yüklemesi için **Güvenlik Uyarısı**’nda, **Evet**’e tıklayın. Sertifikayı siz oluşturduğunuz için güvenle ‘Evet’ seçeneğine tıklayabilirsiniz. Sertifika başarıyla içeri aktarılır.

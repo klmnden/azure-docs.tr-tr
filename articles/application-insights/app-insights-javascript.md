@@ -1,21 +1,22 @@
 ---
-title: "JavaScript web uygulamaları için Application Insights | Microsoft Belgeleri"
+title: "JavaScript web uygulamaları için Azure Application Insights | Microsoft Belgeleri"
 description: "Sayfa görünümü ve oturum sayısını, web istemci verilerini alın ve kullanım desenlerini izleyin. JavaScript web sayfalarında özel durumları ve performans sorunlarını yakalayın."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
-ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -97,7 +98,7 @@ Bu parametreleri ayarlamak için kod parçacığında bu satırı bulun ve şunu
 
 
 
-## <a name="a-namerunarun-your-app"></a><a name="run"></a>Uygulamanızı çalıştırma
+## <a name="run"></a>Uygulamanızı çalıştırma
 Web uygulamanızı çalıştırın, telemetri oluşturmak için bir süre bunu kullanın ve birkaç saniye bekleyin. Geliştirme makinenizdeki **F5** tuşunu kullanarak bunu çalıştırabilir ya da yayımlayabilir ve kullanıcıların bunu yürütmesine izin verebilirsiniz.
 
 Web uygulamasının Application Insights’a gönderdiği telemetriyi denetlemek istiyorsanız, tarayıcınızın hata ayıklama araçlarını kullanın (birçok tarayıcıda **F12**). Veriler dc.services.visualstudio.com adresine gönderilir.
@@ -107,7 +108,7 @@ Kullanıcılarınızın tarayıcılarından toplanan performans verilerini göst
 
 ![portal.azure.com adresinde uygulamanızın kaynağını açıp Ayarlar, Tarayıcı’ya tıklama](./media/app-insights-javascript/03.png)
 
-*Henüz veri yok mu? Sayfanın üstündeki **Yenile**'ye tıklayın. Hala hiçbir şey yok mu? Bkz. [Sorun giderme](app-insights-troubleshoot-faq.md).*
+*Henüz veri yok mu? Sayfanın üstündeki**Yenile**'ye tıklayın. Hala hiçbir şey yok mu? Bkz. [Sorun giderme](app-insights-troubleshoot-faq.md).*
 
 Tarayıcı dikey penceresi, hazır filtrelerin ve grafik seçimlerinin bulunduğu [Ölçüm Gezgini dikey penceresidir](app-insights-metrics-explorer.md). İsterseniz zaman aralığını, filtreleri ve grafik yapılandırmasını düzenleyebilir ve sonucu sık kullanılan olarak kaydedebilirsiniz. Asıl dikey pencere yapılandırmasına dönmek için **Varsayılanları geri yükle**’ye tıklayın.
 
@@ -167,6 +168,7 @@ Belirli ayrıntılar için herhangi bir satıra tıklayın.
 
 ![](./media/app-insights-javascript/37.png)
 
+
 Ajax çağrısıyla ilgili tam telemetri için `...` seçeneğine tıklayın.
 
 ### <a name="no-ajax-calls-reported"></a>Hiç Ajax çağrısı bildirilmedi mi?
@@ -180,6 +182,7 @@ Tarayıcılar dikey penceresinde bir özel durum özet grafiği, dikey pencereni
 Tarayıcı özel durumlarının bildirildiğini görmüyorsanız, kod parçacığının `disableExceptionTracking`[parametresini](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) ayarlayıp ayarlamadığını denetleyin.
 
 ## <a name="inspect-individual-page-view-events"></a>Tek tek sayfa görünümü etkinliklerini inceleme
+
 Sayfa görünümü telemetrisi çoğunlukla Application Insights tarafından analiz edilir; yalnızca birikmeli raporları, tüm kullanıcıların ortalamasını görürsünüz. Ancak, hata ayıklama amacıyla tek tek sayfa görünümü etkinliklerine de bakabilirsiniz.
 
 Tanılama Ara dikey penceresinde Filtreler’i Sayfa Görünümü olarak ayarlayın.
@@ -217,19 +220,16 @@ Uygulamanızla kullanıcılarınızın neler yaptığını bilmek ister misiniz?
 * [Kullanımı izleme hakkında bilgi edinin](app-insights-web-track-usage.md)
 * [Özel etkinlikler ve ölçüm API’si hakkında bilgi edinin](app-insights-api-custom-events-metrics.md).
 
-#### <a name="a-namevideoa-video-tracking-usage"></a><a name="video"></a> Video: Kullanımı İzleme
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Tracking-Usage-with-Application-Insights/player]
-> 
-> 
+## <a name="video"></a> Video
 
-## <a name="a-namenexta-next-steps"></a><a name="next"></a> Sonraki adımlar
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+
+
+## <a name="next"></a> Sonraki adımlar
 * [Kullanımı izleme](app-insights-web-track-usage.md)
 * [Özel etkinlikler ve ölçümler](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
