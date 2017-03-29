@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
 ms.openlocfilehash: 493a915fb4e3de4cb70324b22beeaae6720a3492
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -50,10 +51,5 @@ Nesnelerin İnterneti'nden gelen verilerdeki akış analizlerine yönelik bir y�
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
