@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/14/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: a4658f1eee3cdd24b3da47b4c7319c61ea39cb34
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -125,7 +126,7 @@ Bu adımda iki bağlı hizmet oluşturursunuz: **AzureStorageLinkedService** ve 
 4. Ağaç görünümünde **AzureSqlLinkedService** öğesini gördüğünüzü onaylayın. 
 
 > [!NOTE]
-> JSON özellikleri hakkında ayrıntılar için bkz. [SQL Veritabanı’ndan/SQL Veritabanı’na veri taşıma](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+> JSON özellikleri hakkında ayrıntılar için bkz. [SQL Veritabanı’ndan/SQL Veritabanı’na veri taşıma](data-factory-azure-sql-connector.md#linked-service-properties).
 > 
 > 
 
@@ -201,7 +202,7 @@ Bu adımda, Azure Storage hizmetinde **AzureStorageLinkedService** bağlı hizme
 3. **InputDataset** veri kümesini oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. **InputDataset** öğesini ağaç görünümünde gördüğünüzü onaylayın.
 
 > [!NOTE]
-> JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob’dan/Azure Blob’a veri taşıma](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+> JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob’dan/Azure Blob’a veri taşıma](data-factory-azure-blob-connector.md#dataset-properties).
 > 
 > 
 
@@ -247,7 +248,7 @@ Adımın bu bölümünde **OutputDataset** adlı bir çıktı veri kümesi oluş
 3. **OutputDataset** veri kümesini oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. **OutputDataset** öğesini ağaç görünümünde gördüğünüzü onaylayın. 
 
 > [!NOTE]
-> JSON özellikleri hakkında ayrıntılar için bkz. [SQL Veritabanı’ndan/SQL Veritabanı’na veri taşıma](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+> JSON özellikleri hakkında ayrıntılar için bkz. [SQL Veritabanı’ndan/SQL Veritabanı’na veri taşıma](data-factory-azure-sql-connector.md#linked-service-properties).
 > 
 > 
 
@@ -412,9 +413,4 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
 | [İşlem hatları](data-factory-create-pipelines.md) |Bu makale, Azure Data Factory’deki işlem hatlarını ve veri kümelerini anlamanıza yardımcı olur. |
 | [Veri kümeleri](data-factory-create-datasets.md) |Bu makale, Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olur. |
 | [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md) |Bu makalede Azure Data Factory uygulama modelinin zamanlama ve yürütme yönleri açıklanmaktadır. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

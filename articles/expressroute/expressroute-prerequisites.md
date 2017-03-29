@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/6/2017
+ms.date: 03/22/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
-ms.openlocfilehash: 304acc7d2bfdefffde700ecd469b6335b08b85e6
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: a56749a5ac1098db3970140a76b71c77c1f74c07
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -31,11 +31,12 @@ ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için, aşağıd
 * Etkin bir Office 365 aboneliği (Office 365 hizmetlerini kullanıyorsanız) Daha fazla bilgi için bu makalenin [Office 365'e özel gereksinimler](#office-365-specific-requirements) bölümünü okuyun.
 
 ## <a name="connectivity-provider"></a>Bağlantı sağlayıcısı
+
 * Microsoft bulut’a bağlanmak için [ExpressRoute bağlantı ortağı](expressroute-locations.md#partners) ile çalışabilirsiniz. Şirket içi ağınız ve Microsoft arasında bağlantıyı [üç şekilde](expressroute-introduction.md) kurabilirsiniz. 
-* Sağlayıcınız ExpressRoute bağlantı ortağı değilse bile [bulut değişim sağlayıcısı](expressroute-locations.md#nonpartners) yoluyla Microsoft bulut’a bağlanabilirsiniz.
+* Sağlayıcınız ExpressRoute bağlantı ortağı değilse bile [bulut değişim sağlayıcısı](expressroute-locations.md#c1partners) yoluyla Microsoft bulut’a bağlanabilirsiniz.
 
 ## <a name="network-requirements"></a>Ağ gereksinimleri
-* **Yedekli bağlantı**: Siz ve sağlayıcınız arasında fiziksel bağlantıda yedekleme gereksinimi yoktur. Microsoft, [bir bulut değişimine yalnızca bir fiziksel bağlantınız](expressroute-faqs.md#onep2plink) olsa bile, yedekli BGP oturumlarının Microsoft yönlendiricileri ve eşleme yönlendiricileri arasında kurulu olmasını gerektirir. 
+* **Yedekli bağlantı**: Siz ve sağlayıcınız arasında fiziksel bağlantıda yedekleme gereksinimi yoktur. Microsoft, [bir bulut değişimine yalnızca bir fiziksel bağlantınız](expressroute-faqs.md#onep2plink) olsa bile, yedekli BGP oturumlarının Microsoft yönlendiricileri ve eşleme yönlendiricileri arasında kurulu olmasını gerektirir.
 * **Yönlendirme**: Microsoft Bulut’a nasıl bağlandığınıza bağlı olarak, [yönlendirme etki alanları](expressroute-circuit-peerings.md) için BGP oturumlarının siz veya sağlayıcınız tarafından kurulup yönetilmesi gerekir. Bazı Ethernet bağlantı sunucuları veya bulut değişim sunucuları değer ekleme hizmeti olarak BGP yönetimi sunabilir.
 * **NAT**: Microsoft genel IP adreslerini sadece Microsoft eşleme yoluyla kabul eder. Şirket içi ağınızda özel IP adresleri kullanıyorsanız, özel IP adreslerinin [NAT kullanarak](expressroute-nat.md) genel IP adreslerine siz veya sağlayıcınız tarafından çevrilmesi gerekir.
 * **QoS**: Skype Kurumsal’da farklı QoS davranışları gerektiren çeşitli hizmetler (ör. ses, video, mesaj) vardır. [Qos gereksinimleri](expressroute-qos.md)ne siz ve sağlayıcınız tarafından uyulmalıdır.
@@ -65,5 +66,4 @@ ExpressRoute ile CRM Online’ı etkinleştirmeyi planlıyorsanız, CRM Online h
   * [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-classic.md)
   * [Yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md)
   * [ExpressRoute bağlantı hattına bir Sanal Ağ bağlama](expressroute-howto-linkvnet-classic.md)
-
 

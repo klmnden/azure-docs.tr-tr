@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: d315c5ed186c24236c860df1ad1b79d55c9a4d57
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: e2e09cdabd323575c0da6797c9eb2564572629f1
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -274,7 +274,7 @@ Sunucular, bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra bulut
     ![Sanal makineleri doğrulama](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. Sanal makine özelliklerinin **Yapılandır** sekmesinde aşağıdaki ağ özellikleri değiştirilebilir.
 
-* **Hedef sanal makinedeki ağ bağdaştırıcı sayısı** - Ağ bağdaştırıcılarının sayısı, hedef sanal makine için sizin belirlediğiniz boyuta göre dikte edilir. Sanal makine boyutunun desteklediği bağdaştırıcı sayısı için [sanal makine boyutu özellikleri](../virtual-machines/virtual-machines-linux-sizes.md#size-tables)'ni kontrol edin. Bir sanal makine için boyutu değiştirip ayarları kaydettiğinizde, **Yapılandır** sayfasını bir sonraki açışınızda ağ bağdaştırıcısı sayısı değişir. Hedef sanal makinelerin ağ bağdaştırıcısı sayısı, kaynak sanal makinelerin minimum ağ bağdaştırıcı sayısıdır ve seçilen sanal makine boyutu tarafından desteklenen ağ bağdaştırıcıların maksimum sayısı aşağıdaki şekildedir:
+* **Hedef sanal makinedeki ağ bağdaştırıcı sayısı** - Ağ bağdaştırıcılarının sayısı, hedef sanal makine için sizin belirlediğiniz boyuta göre dikte edilir. Sanal makine boyutunun desteklediği bağdaştırıcı sayısı için [sanal makine boyutu özellikleri](../virtual-machines/virtual-machines-linux-sizes.md)'ni kontrol edin. Bir sanal makine için boyutu değiştirip ayarları kaydettiğinizde, **Yapılandır** sayfasını bir sonraki açışınızda ağ bağdaştırıcısı sayısı değişir. Hedef sanal makinelerin ağ bağdaştırıcısı sayısı, kaynak sanal makinelerin minimum ağ bağdaştırıcı sayısıdır ve seçilen sanal makine boyutu tarafından desteklenen ağ bağdaştırıcıların maksimum sayısı aşağıdaki şekildedir:
 
   * Kaynak makinedeki ağ bağdaştırıcılarının sayısı, hedef makine boyutu için verilen ağ bağdaştırıcısı sayısına eşitse veya daha azsa hedef makine kaynakla aynı sayıda bağdaştırıcıya sahip olur.
   * Kaynak sanal makinenin bağdaştırıcı sayısı, hedef boyut için izin verilen sayıyı aşarsa maksimum hedef boyutu kullanılır.
@@ -329,7 +329,7 @@ Ayrıca, istenildiği gibi çalışması için çoğaltılan sanal makineye yön
 Yük devretme testi çalıştırmak için şunları yapın:
 
 1. **Kurtarma Planları** sekmesinde planı seçin ve **Yük devretme Testi**'ne tıklayın.
-2. ** Yük Devretme Testi Onaylama** sayfasında **Hiçbiri** veya özel Azure ağı seçimlerini belirleyin.  Hiçbiri seçeneğini belirlerseniz yük devretme testinin çoğaltma ağı yapılandırmasını denetlemeden yalnızca Azure'a doğru şekilde çoğaltılan sanal makineyi denetleyeceğini unutmayın.
+2. **Yük Devretme Testi Onaylama** sayfasında **Hiçbiri** veya özel Azure ağı seçimlerini belirleyin.  Hiçbiri seçeneğini belirlerseniz yük devretme testinin çoğaltma ağı yapılandırmasını denetlemeden yalnızca Azure'a doğru şekilde çoğaltılan sanal makineyi denetleyeceğini unutmayın.
 
     ![Ağ yok](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
 3. Bulut için veri şifreleme etkinleştirilmişse **Şifreleme Anahtarı** kısmında Sağlayıcı'nın VMM sunucusuna yüklenmesi sırasında bulut için veri şifrelemeyi etkinleştirme seçeneğini açtığınızda verilen sertifikayı seçin.
