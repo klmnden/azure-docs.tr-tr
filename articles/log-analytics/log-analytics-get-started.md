@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
-ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ IT altyapınızdan toplanan çalışma bilgilerini değerlendirmenize yardımcı
 Bu makale, hizmeti kullanmaya başlayabilmeniz için Azure’da küçük bir dağıtım yapmayı gösteren kısa bir öğretici kullanarak Log Analytics’e giriş bilgileri sağlar. Azure’daki yönetim verilerinizin depolandığı mantıksal kapsayıcı, çalışma alanı olarak adlandırılır. Bu bilgileri gözden geçirip kendi değerlendirmenizi tamamladıktan sonra, değerlendirme çalışma alanını kaldırabilirsiniz. Bu makale bir öğretici olduğu için, iş gereksinimlerini, planlamayı veya mimari yönergelerini ele almaz.
 
 >[!NOTE]
->Microsoft Azure Kamu Bulutu kullanıyorsanız, bunun yerine [Azure Kamu İzleme + Yönetim belgelerine](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) bakın.
+>Microsoft Azure Kamu Bulutu kullanıyorsanız, bunun yerine [Azure Kamu İzleme + Yönetim belgelerine](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) bakın.
 
 Başlamak için kullanılan işleme hızlı bir bakış aşağıda verilmiştir:
 

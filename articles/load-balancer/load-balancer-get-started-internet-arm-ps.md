@@ -17,10 +17,11 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 5abd8365ed883831d4c85ebd14de31dbe45d815d
+ms.lasthandoff: 01/24/2017
 
 ---
 
-# <a name="a-nameget-startedacreating-an-internet-facing-load-balancer-in-resource-manager-by-using-powershell"></a><a name="get-started"></a>PowerShell kullanarak Resource Manager’da İnternet’e yönelik yük dengeleyici oluşturma
+# <a name="get-started"></a>PowerShell kullanarak Resource Manager’da İnternet’e yönelik yük dengeleyici oluşturma
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -254,7 +255,7 @@ Sanal makine oluşturma ve NIC atama talimatları için bkz. [PowerShell kullana
 2. Arka uç yapılandırmasını bir değişkene yükleyin.
 
     ```powershell
-    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+    $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
     ```
 
 3. Önceden oluşturulan ağ arabirimini bir değişkene yükleyin. Değişken adı: **$nic**. Ağ arabirimi adı önceki örnekle aynıdır.
@@ -282,7 +283,7 @@ Sanal makine oluşturma ve NIC atama talimatları için bkz. [PowerShell kullana
 1. Önceki örnekte verilen yük dengeleyiciyi kullanarak **$slb** değişkenine `Get-AzureLoadBalancer` aracılığıyla yük dengeleyici nesnesi atayın.
 
     ```powershell
-    $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+    $slb = get-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
     ```
 
 2. Aşağıdaki örnekte mevcut bir yük dengeleyiciye ön uç için 81 numaralı bağlantı noktasını, arka uç havuzu için ise 8181 numaralı arka uç bağlantı noktasını kullanarak yeni bir Gelen NAT kuralı ekleyin.
@@ -302,7 +303,7 @@ Sanal makine oluşturma ve NIC atama talimatları için bkz. [PowerShell kullana
 **NRP-RG** adlı kaynak grubunda yer alan **NRP-LB** adlı önceden oluşturulmuş yük dengeleyiciyi silmek için `Remove-AzureLoadBalancer` komutunu kullanın.
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
@@ -315,9 +316,4 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 [Yük dengeleyici dağıtım modu yapılandırma](load-balancer-distribution-mode.md)
 
 [Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

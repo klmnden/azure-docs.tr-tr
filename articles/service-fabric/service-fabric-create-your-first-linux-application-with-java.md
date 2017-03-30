@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 88b16b0b7c951ab0350649de05c00263ec76e630
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: eedddf7a40acfba7513efd810d115f1afe2f224d
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -114,7 +114,7 @@ Service Fabric ayrıca Eclipse kullanarak Service Fabric Java uygulaması oluşt
 2. `yo azuresfjava:AddService` öğesini çalıştırın
 
 ### <a name="using-service-fabric-eclipse-plugin-for-java-on-linux"></a>Linux’ta Java için Service Fabric Eclipse eklentisini kullanma
-Service Fabric için Eclipse eklentisini kullanarak mevcut bir uygulamaya hizmet eklemek için [buradaki](service-fabric-get-started-eclipse.md#add-new-service-fabric-service-to-your-service-fabric-application) belgelere bakın.
+Service Fabric için Eclipse eklentisini kullanarak mevcut bir uygulamaya hizmet eklemek için [buradaki](service-fabric-get-started-eclipse.md#add-a-service-fabric-service-to-your-service-fabric-application) belgelere bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Linux üzerinde Eclipse için Service Fabric Eklentisi kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-get-started-eclipse.md)

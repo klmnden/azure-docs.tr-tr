@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: cc25d521b4de64643c8920d45ec9aa6c07b94302
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 977fcf74c86e2ab312d99b3f1821cfb7efbe9745
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -313,7 +314,7 @@ Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFCopyTutori
 1. **Azure PowerShell**’i başlatın ve aşağıdaki komutu çalıştırın:
    * Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
     ```PowerShell
-    Login-AzureRmAccount    
+    Login-AzureRmAccount       
     ```  
    * Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
     ```PowerShell
@@ -408,7 +409,7 @@ Bu bölümde Azure depolama hesabınızın adını ve anahtarını belirtirsiniz
 ConnectionString, storageAccountName ve storageAccountKey parametrelerini kullanır. Bu parametrelerin değerleri bir yapılandırma dosyası kullanılarak geçirilir. Tanım ayrıca şu değişkenleri kullanır: şablonda tanımlanan azureStroageLinkedService ve dataFactoryName. 
 
 #### <a name="azure-sql-database-linked-service"></a>Azure SQL Veritabanı bağlı hizmeti
-Bu bölümde Azure SQL sunucu adı, veritabanı adı, kullanıcı adı ve kullanıcı parolasını belirtirsiniz. Bir Azure SQL bağlı hizmetini tanımlamak için kullanılan JSON özelliklerine ilişkin ayrıntılar için bkz. [Azure SQL bağlı hizmeti](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).  
+Bu bölümde Azure SQL sunucu adı, veritabanı adı, kullanıcı adı ve kullanıcı parolasını belirtirsiniz. Bir Azure SQL bağlı hizmetini tanımlamak için kullanılan JSON özelliklerine ilişkin ayrıntılar için bkz. [Azure SQL bağlı hizmeti](data-factory-azure-sql-connector.md#linked-service-properties).  
 
 ```json
 {
@@ -431,7 +432,7 @@ Bu bölümde Azure SQL sunucu adı, veritabanı adı, kullanıcı adı ve kullan
 connectionString; değerleri bir yapılandırma dosyası kullanılarak geçirilen sqlServerName, databaseName, sqlServerUserName ve sqlServerPassword parametrelerini kullanır. Tanımda ayrıca şablondaki şu değişkenler kullanılır: azureSqlLinkedServiceName, dataFactoryName.
 
 #### <a name="azure-blob-dataset"></a>Azure blob veri kümesi
-Blob kapsayıcı, klasör ve girdi verilerini içeren dosyanın adını belirtirsiniz. Bir Azure Blob veri kümesini tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob veri kümesi özellikleri](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+Blob kapsayıcı, klasör ve girdi verilerini içeren dosyanın adını belirtirsiniz. Bir Azure Blob veri kümesini tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob veri kümesi özellikleri](data-factory-azure-blob-connector.md#dataset-properties). 
 
 ```json
 {
@@ -473,7 +474,7 @@ Blob kapsayıcı, klasör ve girdi verilerini içeren dosyanın adını belirtir
 ```
 
 #### <a name="azure-sql-dataset"></a>Azure SQL veri kümesi
-Azure SQL veritabanında Azure Blob depolama biriminden kopyalanan verileri tutan tablonun adını belirtirsiniz. Bir Azure SQL veri kümesini tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılar için bkz. [Azure SQL veri kümesi özellikleri](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties). 
+Azure SQL veritabanında Azure Blob depolama biriminden kopyalanan verileri tutan tablonun adını belirtirsiniz. Bir Azure SQL veri kümesini tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılar için bkz. [Azure SQL veri kümesi özellikleri](data-factory-azure-sql-connector.md#dataset-properties). 
 
 ```json
 {
@@ -591,8 +592,3 @@ Ayrıca tekrarlanan görevleri gerçekleştirmek için şablonu yeniden kullanab
 | [İşlem hatları](data-factory-create-pipelines.md) |Bu makale, Azure Data Factory’deki işlem hatlarını ve veri kümelerini anlamanıza yardımcı olur. |
 | [Veri kümeleri](data-factory-create-datasets.md) |Bu makale, Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olur. |
 | [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md) |Bu makalede Azure Data Factory uygulama modelinin zamanlama ve yürütme yönleri açıklanmaktadır. |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

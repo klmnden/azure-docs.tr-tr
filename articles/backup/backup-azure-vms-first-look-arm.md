@@ -1,5 +1,5 @@
 ---
-title: "İlk Bakış: Azure sanal makinelerini kurtarma hizmetleri kasasıyla koruma | Microsoft Belgeleri"
+title: "İlk Bakış: Azure sanal makinelerini kurtarma hizmetleri kasasıyla koruma | Microsoft Docs"
 description: "Sanal makineleri bir kurtarma hizmetleri kasasıyla koruyun. Verilerinizi korumak için, Resource Manager tarafından dağıtılan, Klasik modunda dağıtılan VM&quot;lerin, Premium Depolama VM&quot;lerinin, Şifrelenmiş VM’lerin ve Yönetilen Diskler üzerindeki VM’lerin yedeklemelerini kullanın. Bir kurtarma hizmetleri kasası oluşturun ve kaydedin. Azure&quot;da VM&quot;leri kaydedin, ilke oluşturun ve VM&quot;leri koruyun."
 services: backup
 documentationcenter: 
@@ -17,9 +17,9 @@ ms.date: 02/15/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 05a3b32e6d059c219b1b99df02536c5b287c29fd
-ms.openlocfilehash: 9a73f361ba80c7c4219de68d39026b936a77aa05
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 763a10b0275d360fa62e5bce7f8c099160f4109a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -38,8 +38,9 @@ Bu öğretici, bir kurtarma hizmetleri kasası oluşturmaya ve bir Azure sanal m
 * Premium depolama VM'leri
 * Yönetilen Diskler üzerinde çalışan sanal makineler
 * Azure Disk Şifrelemesi kullanılarak BEK ve KEK ile şifrelenmiş VM’ler
+* Windows sanal makinelerinin VSS, Linux sanal makinelerinin özel anlık görüntü öncesi ve anlık görüntü sonrası betikler kullanılarak uygulamada tutarlı yedeklenmesi
 
-Premium depolama VM'lerini koruma hakkında daha fazla bilgi için [Premium Storage VM'lerini Yedekleme ve Geri Yükleme](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) makalesine bakın. Yönetilen disk sanal makinelerine yönelik destek hakkında daha fazla bilgi için bkz. [Yönetilen diskler üzerindeki sanal makineleri yedekleme ve geri yükleme](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Premium depolama VM'lerini koruma hakkında daha fazla bilgi için [Premium Storage VM'lerini Yedekleme ve Geri Yükleme](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) makalesine bakın. Yönetilen disk sanal makinelerine yönelik destek hakkında daha fazla bilgi için bkz. [Yönetilen diskler üzerindeki sanal makineleri yedekleme ve geri yükleme](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Linux sanal makine yedeklemesi için betik öncesi ve betik sonrası çerçeve hakkında daha fazla bilgi almak isterseniz bkz. [Betik öncesi ve betik sonrası ile uygulamada tutarlı Linux sanal makine yedeklemesi] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 > [!NOTE]
 > Bu öğretici, Azure aboneliğinizde zaten bir VM'niz olduğunu ve yedekleme hizmetinin VM'ye erişmesine izin vermek üzere gerekli işlemleri yaptığınızı varsayar.
@@ -317,9 +318,9 @@ Sanal makine üzerinde bir yedekleme ilkesinin dağıtılmış olması, verileri
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>VM Aracısı'nı sanal makineye yükleme
-Bu bilgiler, gerekmesi halinde kullanılabilmesi için sağlanmıştır. Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. Ancak VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı, sanal makine üzerinde zaten mevcuttur. Şirket içi veri merkezlerinden geçişi sağlanan VM'lerde VM Aracısı yüklü olmaz. Böyle bir durumda, VM Aracısı'nın yüklenmesi gerekir. Azure VM’yi yedekleme konusunda sorun yaşarsanız Azure VM Aracısı'nın sanal makineye doğru şekilde yüklenip yüklenmediğini kontrol edin (aşağıdaki tabloya bakın). Özel bir VM oluşturuyorsanız sanal makine sağlanmadan önce [**VM Aracısı'nı yükle** onay kutusunun seçili olduğundan emin olun](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Bu bilgiler, gerekmesi halinde kullanılabilmesi için sağlanmıştır. Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. Ancak VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı, sanal makine üzerinde zaten mevcuttur. Şirket içi veri merkezlerinden geçişi sağlanan VM'lerde VM Aracısı yüklü olmaz. Böyle bir durumda, VM Aracısı'nın yüklenmesi gerekir. Azure VM’yi yedekleme konusunda sorun yaşarsanız Azure VM Aracısı'nın sanal makineye doğru şekilde yüklenip yüklenmediğini kontrol edin (aşağıdaki tabloya bakın). Özel bir VM oluşturuyorsanız sanal makine sağlanmadan önce [**VM Aracısı'nı yükle** onay kutusunun seçili olduğundan emin olun](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-[VM Aracısı](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) ve [nasıl yükleneceği](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) konusunda bilgi edinin.
+[VM Aracısı](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) ve [nasıl yükleneceği](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) konusunda bilgi edinin.
 
 Aşağıdaki tabloda, Windows ve Linux VM'ler için VM Aracısı ile ilgili ek bilgiler sağlanmıştır.
 

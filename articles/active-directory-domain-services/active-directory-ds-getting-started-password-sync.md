@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Etki Alanı Hizmetleri: Parola eşitlemeyi etkinleştirme | Microsoft Belgeleri"
+title: "Azure AD Domain Services: Parola eşitlemeyi etkinleştirme | Microsoft Docs"
 description: "Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama"
 services: active-directory-ds
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: e4b1907b95576468654703c843a5f6e06846814b
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: f994edd71c6d8ca8a2c3f5de370115747f87da57
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -68,10 +68,10 @@ Parolanızı değiştirdikten sonra, yeni parola kısa süre içinde Azure AD Et
 <br>
 
 ## <a name="related-content"></a>İlgili İçerik
-* [Kendi parolanızı güncelleştirme](../active-directory/active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).)
+* [Kendi parolanızı güncelleştirme](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password).)
 * [Azure AD’de Parola Yönetimine başlarken](../active-directory/active-directory-passwords-getting-started.md).
 * [Eşitlenmiş Azure AD kiracısı için AAD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Azure AD Etki Alanı Hizmetleri tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
-* [Windows sanal makinesini Azure AD Etki Alanı Hizmetleri tarafından yönetilen bir etki alanına katma](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Red Hat Enterprise Linux sanal makinesini Azure AD Etki Alanı Hizmetleri tarafından yönetilen bir etki alanına katma](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+* [Windows sanal makinesini Azure AD Domain Services tarafından yönetilen bir etki alanına katma](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Red Hat Enterprise Linux sanal makinesini Azure AD Domain Services tarafından yönetilen bir etki alanına ekleme](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 

@@ -41,4 +41,4 @@ VM Aracısı aşağıdaki durumlarda etkinleştirilir:
 >
 
 ## <a name="find-add-update-and-remove-vm-extensions"></a>VM Uzantıları Bulma, Ekleme, Güncelleştirme ve Kaldırma
-Bu görevler hakkında daha fazla bilgi için, bkz: [Azure VM Uzantıları Ekleme, Bulma, Güncelleştirme ve Kaldırma](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Bu görevler hakkında daha fazla bilgi için, bkz: [Azure VM Uzantıları Ekleme, Bulma, Güncelleştirme ve Kaldırma](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

@@ -1,6 +1,7 @@
 # Genel Bakış
 ## [Service Bus Mesajlaşması nedir?](service-bus-messaging-overview.md)
 ## [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
+## [Service Bus mimarisi](service-bus-architecture.md)
 ## [SSS](service-bus-faq.md)
 
 # Kullanmaya Başlama
