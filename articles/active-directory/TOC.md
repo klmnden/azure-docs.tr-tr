@@ -160,6 +160,8 @@
 #### Uygulamaları yayımlama
 ##### [Azure portal](application-proxy-publish-azure-portal.md)
 ##### [Klasik portal](active-directory-application-proxy-publish.md)
+
+#### [Azure AD için PingAccess](application-proxy-ping-access.md)
 #### [Güvenlik](application-proxy-security-considerations.md)
 #### [Ağlar](application-proxy-network-topology-considerations.md)
 #### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)

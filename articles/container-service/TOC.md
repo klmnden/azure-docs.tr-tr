@@ -28,6 +28,7 @@
 ### [Hizmet sorumlusu yapılandırma](container-service-kubernetes-service-principal.md)
 ### [Kapsayıcı yönetimi - Kubernetes UI](container-service-kubernetes-ui.md)
 ### [Kubernetes kapsayıcılarında yük dengeleme](container-service-kubernetes-load-balancing.md)
+### [ACS Kubernetes ile Jenkins tümleştirmesi](container-service-kubernetes-jenkins.md)
 ### Kubernetes izleme
 #### [OMS ile izleme](container-service-kubernetes-oms.md)
 #### [Datadog ile izleme](container-service-kubernetes-datadog.md)
