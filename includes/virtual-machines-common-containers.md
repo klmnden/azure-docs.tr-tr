@@ -146,8 +146,8 @@ Microsoft Azure’da Docker:
 
 * [Azure’da Linux için Docker Sanal Makine Uzantısı](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Docker Sanal Makine Uzantısı Kullanıcı Kılavuzu](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-* [Docker Sanal Makine Uzantısını Azure Komut Satırı Arabirimi (Azure CLI) ile kullanma](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Docker Sanal Makine Uzantısını Azure portalından kullanma](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Docker Sanal Makine Uzantısını Azure Komut Satırı Arabirimi (Azure CLI) ile kullanma](../articles/virtual-machines/linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Docker Sanal Makine Uzantısını Azure portalından kullanma](../articles/virtual-machines/linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Azure’da docker-machine kullanma](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure’da swarm ile docker'ı kullanma](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure’da Docker ve Compose Kullanmaya Başlama](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -193,8 +193,3 @@ Yapılandırma, küme yönetimi ve kapsayıcı düzenleme:
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
-
-
-<!--HONumber=Feb17_HO3-->
-
-

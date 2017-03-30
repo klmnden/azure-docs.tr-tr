@@ -1,0 +1,33 @@
+
+
+
+
+Azure SKU'larının işlem (CPU) performansını karşılaştırabilmek için Azure İşlem Birimi (ACU) birimini ortaya çıkardık. Bu birim, performans ihtiyaçlarınızı karşılayabilecek SKU'yu kolayca belirlemenize yardımcı olacak.  ACU şu anda Küçük (Standard_A1) VM'de 100 olarak standart haline getirilmiş ve diğer tüm SKU'lar, standart bir karşılaştırmalı testte sunabilecekleri yaklaşık hıza göre derecelendirilmiştir. 
+
+> [!IMPORTANT]
+> ACU yalnızca rehberlik etme amacı taşımaktadır.  İş yükünüzle aldığınız sonuçlar farklılık gösterebilir. 
+> 
+> 
+
+<br>
+
+| SKU Ailesi | ACU/Çekirdek |
+| --- | --- |
+| [A0](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |50 |
+| [A1-A4](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |100 |
+| [A5-A7](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |100 |
+| [A1_v2-A8_v2](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |100 |
+| [A2m_v2-A8m_v2](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |100 |
+| [A8-A11](../articles/virtual-machines/virtual-machines-windows-sizes-hpc.md) |225* |
+| [D1-D14](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |160 |
+| [D1_v2-D15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |210-250* |
+| [DS1-DS14](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160 |
+| [DS1_v2-DS15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |210-250* |
+| [F1-F16](../articles/virtual-machines/virtual-machines-windows-sizes-compute.md) |210-250* |
+| [F1s-F16s](../articles/virtual-machines/virtual-machines-windows-sizes-compute.md) |210-250* |
+| [G1-G5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180-240* |
+| [GS1-GS5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180-240* |
+| [H](../articles/virtual-machines/virtual-machines-windows-sizes-hpc.md) |290-300* |
+| [L4s L32s](../articles/virtual-machines/virtual-machines-windows-sizes-storage.md) |180-240* |
+
+* işaretli ACU'lar, CPU frekansını artırmak ve performans artışı sağlamak için Intel® Turbo Boost teknolojisinden faydalanır.  Performans artışının oranı VM boyutuna, iş yüküne ve aynı ana bilgisayarda çalışan iş yüklerine göre değişiklik gösterebilir.

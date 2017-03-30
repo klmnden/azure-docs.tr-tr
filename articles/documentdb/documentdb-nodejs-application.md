@@ -560,6 +560,6 @@ Artık bir kullanıcının uygulamamızla gerçekte etkileşim kurabilmesi için
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
 

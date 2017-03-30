@@ -1,6 +1,6 @@
 ---
 title: ".NET SDK&quot;yı kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Microsoft Belgeleri"
-description: "Data Lake Analytics hesapları oluşturmak, Data Lake Analytics işleri oluşturmak ve U-SQL&quot;de yazılmış işleri göndermek için .NET SDK&quot;nın nasıl kullanılacağını öğrenin. "
+description: "Data Lake Analytics hesapları oluşturmak, Data Lake Analytics işleri oluşturmak ve U-SQL de yazılmış işleri göndermek için .NET SDK nın nasıl kullanılacağını öğrenin. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -17,6 +17,7 @@ ms.author: edmaca
 translationtype: Human Translation
 ms.sourcegitcommit: 8e092e30c9c4186e4687efeacf9ea1f6b4bf431c
 ms.openlocfilehash: f617d997bc34d39f7635a87c4e5c88b1ebdc0ff8
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -253,10 +254,5 @@ Mutlak yolları, bağlı Depolama hesaplarındaki dosyalara erişmek için kulla
 * U-SQL öğrenmek için bkz. [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md) ve [U-SQL dili başvurusu](http://go.microsoft.com/fwlink/?LinkId=691348).
 * Yönetim görevleri için bkz. [Azure portalı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).
 * Data Lake Analytics'e yönelik bir genel bakış için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 
