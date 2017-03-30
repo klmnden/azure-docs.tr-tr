@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0cf2d7f4cbbed730d690693fd006665355155c22
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 0aa2a7075f64b353f6b052ab6b973a06622a9339
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -42,7 +43,7 @@ HDInsight üzerinde Apache Storm aşağıdaki önemli avantajları sunar:
 * Oluşturma sırasında veya sonrasında kümede betik çalıştırarak kolay özelleştirme. Daha fazla bilgi için bkz. [HDInsight kümelerini betik eylemi kullanarak özelleştirme](hdinsight-hadoop-customize-cluster-linux.md).
 
 * Seçtiğiniz dili kullanın: Storm bileşenleri **Java**, **C#** ve **Python** gibi çeşitli dillerde yazılabilir.
-  
+
   * C# topolojisi geliştirme, yönetme ve izleme için HDInsight ile Visual Studio tümleştirmesi. Daha fazla bilgi için bkz. [Visual Studio için HDInsight Araçlarıyla C# Storm topolojileri geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
   * **Trident** Java arabirimini destekler. Bu arabirim iletilerin "tam bir kez" işlenmesini, "işlemsel" veri deposu kalıcılığını ve bir dizi ortak akış analizi işlemlerini destekleyen Storm topolojileri oluşturmanızı sağlar.
@@ -50,13 +51,13 @@ HDInsight üzerinde Apache Storm aşağıdaki önemli avantajları sunar:
 * Kümenin ölçeğini kolayca büyütün veya küçültün: Çalışan Storm topolojilerini etkilemeden çalışan düğümleri ekleyin veya kaldırın.
 
 * Aşağıdaki Azure Hizmetleri ile tümleştirin:
-  
+
     * Event Hubs
     * Sanal Ağ
     * SQL Database
     * Azure Storage
     * DocumentDB.
-  
+
   * Azure Sanal Ağ kullanarak birden fazla HDInsight kümesinin özelliklerini güvenli bir şekilde birleştirin: HDInsight, HBase veya Hadoop kümeleri kullanan analitik işlem hatları oluşturun.
 
 Gerçek zamanlı analiz çözümleri için Apache Storm kullanan şirketlerin listesi için bkz. [Apache Storm Kullanan Şirketler](https://storm.apache.org/documentation/Powered-By.html).
@@ -80,7 +81,7 @@ HDInsight kümesinde dakikalar için yeni bir Storm sağlayabilirsiniz. Küme ad
 
 * __Web bağlantısı__: HDInsight kümeleri Ambari web kullanıcı arabirimini sunar. Ambari web kullanıcı arabirimini kullanarak kümenizdeki hizmetleri kolayca izleyebilir, yapılandırabilir ve yönetebilirsiniz. HDInsight üzerinde Storm'un sunduğu Storm kullanıcı arabirimi de çalışan Storm topolojilerini tarayıcınızdan izlemenizi ve yönetmenizi sağlar.
 
-  Daha fazla bilgi için bkz. [HDInsight'ı Ambari Web Kullanıcı Arabirimini kullanarak yönetme](hdinsight-hadoop-manage-ambari.md) ve [Storm kullanıcı arabirimini kullanarak izleme ve yönetme](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-using-the-storm-ui).
+  Daha fazla bilgi için bkz. [HDInsight'ı Ambari Web Kullanıcı Arabirimini kullanarak yönetme](hdinsight-hadoop-manage-ambari.md) ve [Storm kullanıcı arabirimini kullanarak izleme ve yönetme](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui).
 
 * __Azure PowerShell ve CLI__: Hem Azure PowerShell hem de Azure CLI, HDInsight ve diğer Azure hizmetleriyle çalışmak için istemci sisteminizde kullanabileceğiniz komut satırı yardımcı programları sunar.
 
@@ -152,7 +153,7 @@ Apache Storm, HDInsight veya Hadoop’ta alışkın olabileceğiniz MapReduce i�
 * **Akış**: Bağlantısız bir **tanımlama grubu** koleksiyonu. Akışlar **spout** ve **cıvatalar** ile oluşturulur ve **cıvatalar** tarafından kullanılır.
 * **Tanımlama grubu**: Dinamik olarak yazılan değerlerin adlandırılmış listesi.
 * **Spout**: Bir veri kaynağındaki verileri kullanır ve bir veya daha fazla **akış** yayar.
-  
+
   > [!NOTE]
   > Çoğu durumda veriler Kafka veya Azure Event Hubs gibi bir kuyruktan okunur. Kuyruk, bir kesinti oluşursa verilerin kalıcı olmasını sağlar.
 

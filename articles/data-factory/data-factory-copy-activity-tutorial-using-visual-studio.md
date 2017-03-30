@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7196b4eddc8a00cf2c15e8d8447ef8381db738a3
-ms.openlocfilehash: a1ef4ccb6546f011c405a98cab3cae514de813ea
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -97,7 +97,7 @@ Bu adımda, iki bağlı hizmet oluşturursunuz: **AzureStorageLinkedService1** v
 4. **AzureSqlLinkedService1.json** dosyasını kaydedin. 
 
 > [!NOTE]
-> JSON özellikleri hakkında ayrıntılar için bkz. [SQL Veritabanı’ndan/SQL Veritabanı’na veri taşıma](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+> JSON özellikleri hakkında ayrıntılar için bkz. [SQL Veritabanı’ndan/SQL Veritabanı’na veri taşıma](data-factory-azure-sql-connector.md#linked-service-properties).
 > 
 > 
 
@@ -169,7 +169,7 @@ Bu adımda, Azure Storage hizmetinde **AzureStorageLinkedService1** bağlı hizm
     ```
             
 > [!NOTE]
-> JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob’dan/Azure Blob’a veri taşıma](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+> JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob’dan/Azure Blob’a veri taşıma](data-factory-azure-blob-connector.md#dataset-properties).
 > 
 > 
 
@@ -216,7 +216,7 @@ Bu adımda **OutputDataset** adlı bir çıktı veri kümesi oluşturursunuz. Bu
    * **availability** **hourly** olarak ayarlanmıştır (**frequency** **hour**, **interval** de **1** olarak ayarlanmıştır).  Data Factory hizmeti Azure SQL veritabanındaki **emp** tablosunda her saat bir çıktı veri dilimi oluşturur.
 
 > [!NOTE]
-> JSON özellikleri hakkında ayrıntılar için bkz. [SQL Veritabanı’ndan/SQL Veritabanı’na veri taşıma](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+> JSON özellikleri hakkında ayrıntılar için bkz. [SQL Veritabanı’ndan/SQL Veritabanı’na veri taşıma](data-factory-azure-sql-connector.md#linked-service-properties).
 > 
 > 
 

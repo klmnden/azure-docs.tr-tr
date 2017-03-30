@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
 ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -118,10 +119,5 @@ Burada, **LEFT OUTER** deyimini aynı veri akışı üzerinde kullanırız (kend
 
 ## <a name="conclusion"></a>Sonuç
 Bu öğreticide, farklı Akış Analizi Sorgu Dili sorgularının nasıl yazılacağı ve sonuçların tarayıcıda nasıl görüntüleneceği gösterilecek. Ancak bu sadece bir başlangıçtır. Akış Analizi ile yapabileceğiniz daha birçok şey bulunmaktadır. Akış Analizi birçok giriş ve çıkışı desteklemenin yanı sıra Azure Machine Learning'deki işlevlerden de faydalanır. Bu da onu veri akışlarının analizi için sağlam bir araç haline getirir. [Öğrenme haritamızı](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/) kullanarak Akış Analizi’ni keşfetmeye başlayabilirsiniz. Sorgu yazma hakkında daha fazla bilgi için [ortak sorgu desenleri](stream-analytics-stream-analytics-query-patterns.md) hakkındaki makaleyi okuyun.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
