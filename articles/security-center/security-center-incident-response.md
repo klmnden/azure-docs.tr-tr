@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
 ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -100,9 +101,4 @@ Olay yanıtı ekibi de farklı rapor türlerini görmek için [Güvenlik Merkezi
 
 ## <a name="conclusion"></a>Sonuç
 Olay gerçekleşmeden önce bir ekibin toplanması kuruluşunuz için çok önemlidir ve olayların nasıl ele alındığını olumlu yönde etkiler. Kaynakları izlemek için doğru araçlara sahip olunması bu ekibin bir güvenlik olayını düzeltmek üzere doğru adımları uygulamasına yardımcı olabilir. Güvenlik Merkezi [algılama özellikleri](security-center-detection-capabilities.md), BT’nin güvenlik olaylarına hızlıca yanıt vermesine ve güvenlik sorunlarını düzeltmesine yardımcı olabilir.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

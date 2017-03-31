@@ -1,106 +1,75 @@
-# Genel Bakış
-## [Azure AD ile Tümleştirme](active-directory-how-to-integrate.md)
-## [Kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md)
-## [Grafik API'si](active-directory-graph-api.md)
-## [Kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md)
-## [Kimlik doğrulama protokolleri](active-directory-authentication-protocols.md)
-## [Uygulama ve hizmet sorumlusu nesneleri](active-directory-application-objects.md)
-## [Geliştirici kılavuzu](active-directory-developers-guide.md)
-## [OAuth2 örtük verme](active-directory-dev-understanding-oauth2-implicit-grant.md)
-## [Azure AD uygulamaları](active-directory-how-applications-are-added.md)
-
-# Başlarken
+# [Genel Bakış](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+# Hızlı Başlangıçlar
 ## Mobil ve PC uygulamaları
-### [iOS](active-directory-devquickstarts-ios.md)
-### [Android](active-directory-devquickstarts-android.md)
-### [Windows Phone](active-directory-devquickstarts-windowsphone.md)
-### [.Net](active-directory-devquickstarts-dotnet.md)
-### [Windows mağazası](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
-### [Cordova](active-directory-devquickstarts-cordova.md)
-### [Oauth](active-directory-protocols-oauth-code.md)
+### [iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-ios)
+### [Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-android)
+### [WP](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-windowsphone)
+### [.NET](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-dotnet)
+### [Windows mağazası](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-windowsstore)
+### [Xamarin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-xamarin)
+### [Cordova](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-cordova)
 ## Web uygulamaları
-### [.NET](active-directory-devquickstarts-webapp-dotnet.md)
-### [Java](active-directory-devquickstarts-webapp-java.md)
-### [AngularJS](active-directory-devquickstarts-angular.md)
-### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
-### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-### [Java komut satırı](active-directory-devquickstarts-headless-java.md)
+### [.NET](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapp-dotnet)
+### [Java](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapp-java)
+### [Angular JS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-angular)
+### [NodeJS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-openidconnect-nodejs)
+### [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)
+### [Java komut satırı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-headless-java)
 ## Web API
-### [Web API ve .NET](active-directory-devquickstarts-webapi-dotnet.md)
-### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [Grafik API'si](active-directory-graph-api-quickstart.md)
-
-# Nasıl yapılır?
-## [Kiracı edinme](active-directory-howto-tenant.md)
-## [Herhangi bir Azure AD kullanıcısıyla oturum açma](active-directory-devhowto-multi-tenant-overview.md)
-## [Uygulama tümleştirme](active-directory-integrating-applications.md)
-## SSO etkinleştirme
-### [Android](active-directory-sso-android.md)
-### [iOS](active-directory-sso-ios.md)
-## [AppSource sertifikası alma](active-directory-devhowto-appsource-certified.md)
-## [Uygulamanızı galeride listeleme](active-directory-app-gallery-listing.md)
-## [Uygulama bildirimini anlama](active-directory-application-manifest.md)
-## [Web kullanıcıları kimlik doğrulaması](active-directory-java-authenticate-users-access-control-eclipse.md)
+### [Web API ve .NET](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet)
+### [NodeJS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapi-nodejs)
+# Kılavuzlar
+## [Kimlik doğrulaması desenleri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#basics-of-authentication-in-azure-ad)
+### [Yerel uygulamalar](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#native-application-to-web-api)
+### [Web Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#web-application-to-web-api)
+### [Web API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#web-application-to-web-api)
+### [Tek sayfalı uygulama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#single-page-application-spa)
+## [Oauth 2.0 Örtülü izin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant)
+## [Herhangi bir Azure AD kullanıcısıyla oturum açma](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
+## [Android’de SSO etkinleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)
+## [iOS’te SSO etkinleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)
+## [AppSource Sertifikası alma](http://docs.microsoft.com/azure/active-directory/active-directory-devhowto-appsource-certified)
+## [Uygulamanızı galeride listeleme](http://docs.microsoft.com/azure/active-directory/active-directory-app-gallery-listing)
+## [Bildirimi anlama](http://docs.microsoft.com/azure/active-directory/active-directory-application-manifest)
 ## SAML ile çalışma
-### [Access Control tarafından döndürülen SAML’yi görüntüleme](active-directory-java-view-saml-returned-by-access-control.md)
-### [Azure AD ve SAML](active-directory-saml-protocol-reference.md)
-### [Talep özelleştirme](active-directory-saml-claims-customization.md)
-### [SAML tabanlı SSO hata ayıklama](active-directory-saml-debugging.md)
-## [İmzalama anahtarı geçiş işlemini kullanma](active-directory-signing-key-rollover.md)
-
-
-## V2 uç noktası kullanma
-### [Genel Bakış](active-directory-appmodel-v2-overview.md)
-### [V2’nin farkları nelerdir?](active-directory-v2-compare.md)
-### [Kimlik doğrulama kitaplıkları](active-directory-v2-libraries.md)
-### [Uygulama türleri](active-directory-v2-flows.md)
-### [Sınırlamalar](active-directory-v2-limitations.md)
-### [Kapsam](active-directory-v2-scopes.md)
-### [Kayıt Portalı](active-directory-v2-registration-portal.md)
-### [Belirteç başvurusu](active-directory-v2-tokens.md)
-### Protokoller
-#### [OAuth 2.0 istemci kimlik bilgileri](active-directory-v2-protocols-oauth-client-creds.md)
-#### [OAuth 2.0 ve OpenID](active-directory-v2-protocols.md)
-#### [Son güncelleştirmeler](active-directory-v2-preview-oidc-changes.md)
-### Mobil uygulama
-#### [iOS](active-directory-v2-devquickstarts-ios.md)
-#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
-#### [Android](active-directory-v2-devquickstarts-android.md)
-### Web uygulamaları ve API'leri
-#### [NodeJS özellikli AngularJS](active-directory-v2-devquickstarts-angular-node.md)
-#### [.NET özellikli AngularJS](active-directory-v2-devquickstarts-angular-dotnet.md)
-#### [.NET web uygulaması](active-directory-v2-devquickstarts-dotnet-web.md)
-#### [NodeJS web uygulaması](active-directory-v2-devquickstarts-node-web.md)
-#### [.NET API’si](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [NodeJS API’si](active-directory-v2-devquickstarts-node-api.md)
-#### [Web API çağrısı](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
-### Protokollerle doğrudan tümleştirme
-#### [Bir uygulamayı kaydetme](active-directory-v2-app-registration.md)
-#### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-#### [Örtük akış](active-directory-v2-protocols-implicit.md)
-#### [OAuth 2.0 yetkilendirme kodu](active-directory-v2-protocols-oauth-code.md)
-#### [OAuth 2.0 istemci kimlik bilgileri](active-directory-v2-protocols-oauth-client-creds.md)
-#### [Hizmetten hizmete çağrılar](active-directory-protocols-oauth-service-to-service.md)
-
+### [Access Control tarafından döndürülen SAML’yi görüntüleme] (https://docs.microsoft.com/azure/active-directory/develop/active-directory-java-view-saml-returned-by-access-control)
+### [AzureAD ve SAML] (https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference)
+### [Talepleri Özelleştirme] (https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)
+### [SAML tabanlı SSO’da hata ayıklama] (https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 ## Visual Studio ile çalışma
-### [.NET kullanmaya başlama](vs-active-directory-dotnet-getting-started.md)
-### [MVC projeme ne oldu?](vs-active-directory-dotnet-what-happened.md)
-### [Kimlik doğrulama algılama sırasında bir hata oluştu](vs-active-directory-error.md)
-### [WebApi ile çalışmaya başlama](vs-active-directory-webapi-getting-started.md)
-### [WebApi projeme ne oldu?](vs-active-directory-webapi-what-happened.md)
-
-
+### [Azure Active Directory ve Visual Studio bağlı hizmetlerini kullanmaya başlama (MVC Projeleri)] (https://docs.microsoft.com/azure/active-directory/develop/vs-active-directory-dotnet-getting-started)
+### [MVC projeme ne oldu?] (Visual Studio Azure Active Directory bağlı hizmet)] (https://docs.microsoft.com/azure/active-directory/develop/vs-active-directory-dotnet-what-happened
+### [Kimlik doğrulaması algılama sırasında hata] (https://docs.microsoft.com/azure/active-directory/develop/vs-active-directory-error)
+### [WebApi kullanmaya başlama] (https://docs.microsoft.com/azure/active-directory/develop/vs-active-directory-webapi-getting-started)
+### [Web API projeme ne oldu?] (https://docs.microsoft.com/azure/active-directory/develop/vs-active-directory-webapi-what-happened)
+## v2.0 uç nokta
+### Hızlı Başlangıçlar
+#### Mobile App
+#### [iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-devquickstarts-ios)
+#### [Windows Phone](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-wpf)
+#### [Android](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-android)
+#### Web uygulamaları ve API'leri
+#### [Node JS özellikli AngularJS](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-angular-node)
+#### [.NET özellikli AngularJS](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-angular-dotnet)
+#### [.NET Web Uygulaması](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-dotnet-web)
+#### [.NET Web API’si](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-dotnet-api)
+#### [NodeJS API’si](http://docs.microsoft.com/azure/active-directory/active-directory-v2-devquickstarts-node-api)
+#### [NodeJS Web uygulaması](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-devquickstarts-node-web)
+### Kılavuzlar
+#### [Uygulama türleri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-flows)
+#### Sınırlamalar
+#### [Bir uygulamayı kaydetme](http://docs.microsoft.com/azure/active-directory/active-directory-v2-app-registration)
 # Başvuru
-## [Sözlük](active-directory-dev-glossary.md)
-## [Marka yönergeleri](active-directory-branding-guidelines.md)
-## [Kod örnekleri](active-directory-code-samples.md)
-## [Federasyon meta verileri](active-directory-federation-metadata.md)
-## [Çoklu oturum açma](active-directory-single-sign-on-protocol-reference.md)
-## [Çoklu oturum kapatma](active-directory-single-sign-out-protocol-reference.md)
-## [Belirteçler ve talepler](active-directory-token-and-claims.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+## [Kimlik doğrulama kitaplıkları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
+## [Uygulama ve hizmet sorumlusu nesneleri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)
+## [Oauth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)
+## v2.0 uç nokta
+### [Kapsamlar](http://docs.microsoft.com/azure/active-directory/active-directory-v2-scopes)
+### [Belirteç başvurusu](http://docs.microsoft.com/azure/active-directory/active-directory-v2-tokens)
+### [OpenID Connect](http://docs.microsoft.com/azure/active-directory/active-directory-v2-protocols-oidc)
+### [Örtük akış](http://docs.microsoft.com/azure/active-directory/active-directory-v2-protocols-implicit)
+### [OAuth2.0 yetkilendirme kod akışı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code)
+### [Oauth 2.0 istemci kimlik bilgileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds)
+### [Oauth 2.0 ve OpenID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols)
+### [Hizmetten Hizmete Çağrılar](http://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-service-to-service)
+# [Örnekler](https://docs.microsoft.com/azure/active-directory/develop/active-directory-code-samples)

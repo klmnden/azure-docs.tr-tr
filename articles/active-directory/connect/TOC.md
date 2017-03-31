@@ -62,6 +62,7 @@
 ### [Eşitleme sırasında karşılaşılan hatalar](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Nesne eşitlenmemiş](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Parola eşitleme](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [LocalDB 10 GB sınırından kurtarma](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Başvuru
 ## [Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)

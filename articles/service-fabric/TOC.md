@@ -1,3 +1,4 @@
+
 # Genel Bakış
 ## [Service Fabric nedir?](service-fabric-overview.md)
 ## [Mikro hizmetleri anlama](service-fabric-overview-microservices.md)
@@ -22,11 +23,13 @@
 ### [Modeller ve senaryolar](service-fabric-patterns-and-scenarios.md)
 ### Temel Bilgiler
 #### [Uygulama modeli](service-fabric-application-model.md)
+#### [Uygulamaları paketleme](service-fabric-package-apps.md)
 #### [Desteklenen programlama modeli](service-fabric-choose-framework.md)
 #### [Hizmet durumu](service-fabric-concepts-state.md)
 #### [Hizmet iletişimleri](service-fabric-connect-and-communicate-with-services.md)
 #### [Web ön ucu ekleme](service-fabric-add-a-web-frontend.md)
 #### [Hizmet bildirimi kaynakları](service-fabric-service-manifest-resources.md)
+#### [Java ile geliştirme için Eclipse eklentisini kullanmaya başlama](service-fabric-get-started-eclipse.md)
 #### [Visual Studio’da uygulama yönetme](service-fabric-manage-application-in-visual-studio.md)
 #### [Visual Studio'da güvenli bağlantı yapılandırma](service-fabric-visualstudio-configure-secure-connections.md)
 #### Hata ayıklama
@@ -62,7 +65,7 @@
 #### [Yedekleme ve geri yükleme](service-fabric-reliable-services-backup-restore.md)
 #### [Reliable Services özelliğiyle iletişim kurma](service-fabric-reliable-services-communication.md)
 #### [Reliable Services ile güvenli iletişim](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Uzaktan Hizmet Verme](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Ters Proxy](service-fabric-reverseproxy.md)
@@ -88,6 +91,7 @@
 ## Cloud Services’tan geçiş
 ### [Cloud Services ile Service Fabric karşılaştırması](service-fabric-cloud-services-migration-differences.md)
 ### [Service Fabric’e geçme](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [Önerilen uygulamalar](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Küme oluşturma ve yönetme
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
 ms.openlocfilehash: 99c5ea06a0970c360eb711a8b10894d416146693
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -75,9 +76,4 @@ Bu belgede Azure Güvenlik Merkezi Tehdit Zekası Raporlarının güvenlik uyar�
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md). Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde Güvenlik Olayını İşleme](security-center-incident.md)
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/). Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
