@@ -6,6 +6,7 @@
 ## [Portalda kayıt defteri oluşturma](container-registry-get-started-portal.md)
 ## [Azure CLI 2.0 ile kayıt defteri oluşturma](container-registry-get-started-azure-cli.md)
 ## [Görüntü gönderme ve çekme](container-registry-get-started-docker-cli.md)
+## [Depoları görüntüleme](container-registry-repositories.md)
 
 # Nasıl yapılır
 

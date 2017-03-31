@@ -1,40 +1,55 @@
 # [Genel Bakış](security-get-started-overview.md)
-## [Nasıl çalışır?](azure-security-getting-started.md)
-## [Güvenlik hizmetleri ve teknolojileri](azure-security-services-technologies.md)
 ## [Ağ güvenliği](security-network-overview.md)
+## [Depolama alanı güvenliği](security-storage-overview.md)
+## [İşlem güvenliği](security-virtual-machines-overview.md)
+## [Güvenlik yönetimi ve izleme](security-management-and-monitoring-overview.md)
+## [Kimlik yönetimi](security-identity-management-overview.md)
+## [IoT güvenliği](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Güvenlik mimarisi](azure-security-architecture-overview.md)
+
+# Kullanmaya Başlama
+## [Azure güvenliğini kullanmaya başlama](azure-security-getting-started.md)
+## [Güvenlikle ilgili en iyi uygulamalar ve modeller](security-best-practices-and-patterns.md)
+## [Güvenlik hizmetleri ve teknolojileri](azure-security-services-technologies.md)
+
+## Ağ güvenliği
 ### [Ağ güvenliği için en iyi uygulamalar](azure-security-network-security-best-practices.md)
 ### [Sınır güvenliği](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Güvenli karma ağ mimarisi](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## [Depolama alanı güvenliği](security-storage-overview.md)
+
+## Depolama alanı güvenliği
 ### [Veri güvenliği ve şifreleme için en iyi uygulamalar](azure-security-data-encryption-best-practices.md)
 ### [Depolama alanı güvenliği kılavuzu](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## [İşlem güvenliği](security-virtual-machines-overview.md)
+
+## İşlem güvenliği
 ### [Azure VM’leri için en iyi uygulamalar](azure-security-best-practices-vms.md)
 ### [IaaS iş yükleri için en iyi uygulamalar](azure-security-iaas.md)
 ### [Microsoft Kötü Amaçlı Yazılımdan Koruma](azure-security-antimalware.md)
-### [Disk şifrelemesi](azure-security-disk-encryption.md)
-### [Azure VM’yi şifreleme](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
-## [Güvenlik yönetimi ve izleme](security-management-and-monitoring-overview.md)
+### [IaaS VM’leri için disk şifreleme](azure-security-disk-encryption.md)
+### [Azure VM’lerini şifreleme](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+
+## Güvenlik yönetimi ve izleme
 ### [Güvenlik yönetimi](azure-security-management.md)
 ### [Azure Güvenlik Merkezi](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### [Azure günlük tümleştirmesi](security-azure-log-integration-overview.md)
-#### [Başlarken](security-azure-log-integration-get-started.md)
+### [Azure günlük tümleştirmesine giriş](security-azure-log-integration-overview.md)
+#### [Azure günlük tümleştirmesini kullanmaya başlama](security-azure-log-integration-get-started.md)
 #### [SSS](security-azure-log-integration-faq.md)
-## [Kimlik yönetimi](security-identity-management-overview.md)
+
+## Kimlik yönetimi
 ### [Kimlik yönetimi güvenliği için en iyi uygulamalar](azure-security-identity-management-best-practices.md)
+
 ## PaaS hizmetleri
 ### [PaaS dağıtımlarının güvenliğini sağlama](security-paas-deployments.md)
-#### [SQL kullanarak PaaS uygulamalarının güvenliğini sağlama](security-paas-applications-using-sql.md)
-#### [Uygulama Hizmetleri kullanarak PaaS uygulamalarının güvenliğini sağlama](security-paas-applications-using-app-services.md)
-### [IoT güvenliğine genel bakış](security-internet-of-things-overview.md)
-### [IoT güvenliği için en iyi uygulamalar](azure-security-iot-best-practices.md)
-## Dikey sektörler
-### [Güvenli sistem durumu çözümleri tasarlama](security-health-care-solution.md)
-## [Güvenlik mimarisi](azure-security-architecture-overview.md)
-### [Bulut hazırlığı için veri sınıflandırması](azure-security-data-classification.md)
-### [Azure’da uygulama mimarisi](security-application-architecture-on-azure.md)
-### [Güvenlikle ilgili en iyi uygulamalar ve modeller](security-best-practices-and-patterns.md)
-### [Dayanıklı uygulama mimarileri oluşturma](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
+#### [SQL kullanarak PaaS web ve mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-sql.md)
+#### [Uygulama Hizmetleri’ni kullanarak PaaS web ve mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-app-services.md)
+
+## Nesnelerin İnterneti
+### [IoT dağıtımınızın güvenliğini sağlama](../iot-suite/iot-suite-security-deployment.md)
+### [IoT güvenliği için en iyi uygulamalar](../iot-suite/iot-security-best-practices.md)
+
+## Güvenlik mimarisi
+### [Veri sınıflandırması](azure-security-data-classification.md)
+### [Azure üzerinde geliştirilen uygulamalar için olağanüstü durum kurtarma ve yüksek kullanılabilirlik](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # İlgili
 ## [Güven Merkezi](security-microsoft-trust-center.md)
@@ -45,6 +60,7 @@
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
+## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Kaynaklar
 ## [Güvenlik ve Uyumluluk blogu](http://blogs.msdn.com/b/azuresecurity/)

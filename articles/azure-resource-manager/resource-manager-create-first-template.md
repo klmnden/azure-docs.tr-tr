@@ -31,9 +31,9 @@ Bu konuda, ilk Azure Resource Manager şablonunuzu oluşturma adımları göster
 
 2. [Azure Resource Manager Araçları](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) uzantısını yüklemek için Hızlı Aç (Ctrl+P) menüsüne erişip şu komutu çalıştırın: 
 
-  ```
-  ext install msazurermtools.azurerm-vscode-tools
-  ```
+   ```
+   ext install msazurermtools.azurerm-vscode-tools
+   ```
 
 3. Uzantının etkinleştirilmesi istendiğinde VS Code’u yeniden başlatın.
 
@@ -45,15 +45,15 @@ Bu konuda, ilk Azure Resource Manager şablonunuzu oluşturma adımları göster
 
 2. Aşağıdaki JSON söz dizimini kopyalayıp dosyanıza yapıştırın:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [  ],
-    "outputs": {  }
-  }
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [  ],
+     "outputs": {  }
+   }
    ```
 
 3. Bu dosyayı **azuredeploy.json** olarak kaydedin. 
@@ -63,43 +63,43 @@ Bu konuda, ilk Azure Resource Manager şablonunuzu oluşturma adımları göster
 
 3. Aşağıdaki örnekte gösterildiği gibi, bu JSON dosyasını şablonunuzun **kaynaklar** bölümüne yapıştırın: 
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {  },
-    "variables": {  },
-    "resources": [
-      {
-        "name": "string",
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2016-05-01",
-        "sku": {
-          "name": "string"
-        },
-        "kind": "string",
-        "location": "string",
-        "tags": {},
-        "properties": {
-          "customDomain": {
-            "name": "string",
-            "useSubDomain": boolean
-          },
-          "encryption": {
-            "services": {
-              "blob": {
-                "enabled": boolean
-              }
-            },
-            "keySource": "Microsoft.Storage"
-          },
-          "accessTier": "string"
-        }
-      }
-    ],
-    "outputs": {  }
-  }
-  ```
+   ```json
+   {
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {  },
+     "variables": {  },
+     "resources": [
+       {
+         "name": "string",
+         "type": "Microsoft.Storage/storageAccounts",
+         "apiVersion": "2016-05-01",
+         "sku": {
+           "name": "string"
+         },
+         "kind": "string",
+         "location": "string",
+         "tags": {},
+         "properties": {
+           "customDomain": {
+             "name": "string",
+             "useSubDomain": boolean
+           },
+           "encryption": {
+             "services": {
+               "blob": {
+                 "enabled": boolean
+               }
+             },
+             "keySource": "Microsoft.Storage"
+           },
+           "accessTier": "string"
+         }
+       }
+     ],
+     "outputs": {  }
+   }
+   ```
 
   Önceki örnek çok sayıda yer tutucu değeri ve depolama hesabınızda gerekli olmayabilecek bazı özellikler içermektedir.
 
@@ -111,37 +111,37 @@ Artık depolama hesabınızın değerlerini ayarlamaya hazırsınız.
 
 2. **Properties** öğesinde **customDomain**, **encryption** ve **accessTier** seçeneklerinin gerekli değil olarak listelendiğine dikkat edin. Bu değerler senaryolarınız için önemli olabilir, ancak bu örneği basit tutmak için kaldıralım.
 
-  ```json
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "string",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  ```
+   ```json
+   "resources": [
+     {
+       "name": "string",
+       "type": "Microsoft.Storage/storageAccounts",
+       "apiVersion": "2016-05-01",
+       "sku": {
+         "name": "string"
+       },
+       "kind": "string",
+       "location": "string",
+       "tags": {},
+       "properties": {
+       }
+     }
+   ],
+   ```
 
 3. Şu anda, **kind** öğesi bir yer tutucu değerine ("dize") ayarlanmıştır. VS Code, şablonunuzda kullanılacak değerleri anlamanıza yardımcı olan çok sayıda özellik içerir. VS Code’un, bu değerin geçerli olmadığını gösterdiğine dikkat edin. Fare ile "dize" üzerine gelirseniz, VS Code **kind** için geçerli değerleri `Storage` veya `BlobStorage` olarak önerir. 
 
-  ![VS Code tarafından önerilen değerleri göster](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ![VS Code tarafından önerilen değerleri göster](./media/resource-manager-create-first-template/vs-code-show-values.png)
 
-  Kullanılabilir değerleri görmek için çift tırnak içindeki karakterleri silin ve **Ctrl+Ara Çubuğu** tuşlarını seçin. Kullanılabilir seçeneklerden **Depolama** öğesini seçin.
+   Kullanılabilir değerleri görmek için çift tırnak içindeki karakterleri silin ve **Ctrl+Ara Çubuğu** tuşlarını seçin. Kullanılabilir seçeneklerden **Depolama** öğesini seçin.
   
-  ![IntelliSense’i göster](./media/resource-manager-create-first-template/intellisense.png)
+   ![IntelliSense’i göster](./media/resource-manager-create-first-template/intellisense.png)
 
-  VS Code kullanmıyorsanız, depolama hesapları şablon başvurusu sayfasına bakın. Açıklamada aynı geçerli değerlerin listelendiğine dikkat edin. Öğeyi **Depolama**’ya ayarlayın.
+   VS Code kullanmıyorsanız, depolama hesapları şablon başvurusu sayfasına bakın. Açıklamada aynı geçerli değerlerin listelendiğine dikkat edin. Öğeyi **Depolama**’ya ayarlayın.
 
-  ```json
-  "kind": "Storage",
-  ```
+   ```json
+   "kind": "Storage",
+   ```
 
 Şablonunuz şimdi şuna benzer görünmelidir:
 
@@ -186,8 +186,6 @@ VS Code yine kullanılabilir işlevler önererek size yardımcı olur.
 
 İşlevin köşeli ayraç içine alındığına dikkat edin. [ResourceGroup](resource-group-template-functions.md#resourcegroup) işlevi, `location` adlı bir özellikle nesne döndürür. Kaynak grubu, çözümünüzle ilgili tüm kaynakları tutar. Location özelliğini "Orta ABD" gibi bir değere kodlayabilirsiniz, ancak farklı bir konuma yeniden dağıtmak için şablonu el ile değiştirmeniz gerekecektir. `resourceGroup` işlevinin kullanılması, bu şablonun farklı bir konumdaki farklı bir kaynak grubuna dağıtılmasını kolaylaştırır.
 
-
-
 Şablonunuz şimdi şuna benzer görünmelidir:
 
 ```json
@@ -222,71 +220,71 @@ Depolama hesabı adlarını ayarlamayı zorlaştıran birkaç kısıtlama vardı
 
 1. Adlandırma kurallarınıza uyan bir ad ön eki geçirmek için şablonunuzun **parametreler** bölümüne gidin. Şablona, depolama hesabı adı için ön ek kabul eden bir parametre ekleyin:
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     }
+   },
+   ```
 
   `uniqueString` 13 karakter döndürdüğünden ve ad 24 karakterden uzun olamayacağından, ön ek en fazla 11 karakter ile sınırlıdır. Dağıtım sırasında parametre için bir değer geçirmezseniz varsayılan değer kullanılır.
 
 2. Şablonun **değişkenler** bölümüne gidin. Ön ek ve benzersiz dizeden adı oluşturmak için aşağıdaki değişkeni ekleyin:
 
-  ```json
-  "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-  },
-  ```
+   ```json
+   "variables": {
+     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+   },
+   ```
 
 3. **Kaynaklar** bölümünde depolama hesabı adını bu değişkene ayarlayın.
 
-  ```json
-  "name": "[variables('storageName')]",
-  ```
+   ```json
+   "name": "[variables('storageName')]",
+   ```
 
 3. Depolama hesabı için farklı SKU'ları geçirmeyi etkinleştirmek için **parametreler** bölümüne gidin. Depolama adı ön ekine ait parametreden sonra, izin verilen SKU değerlerini ve varsayılan değeri belirten bir parametre ekleyin. İzin verilen değerleri şablon başvurusu sayfasından veya VS Code’dan bulabilirsiniz. Aşağıdaki örnekte, SKU için tüm geçerli değerleri eklersiniz. Ancak, izin verilen değerleri yalnızca bu şablon aracılığıyla dağıtmak istediğiniz SKU'lar ile sınırlayabilirsiniz.
 
-  ```json
-  "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
-    "storageSKU": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ],
-      "defaultValue": "Standard_LRS",
-      "metadata": {
-        "description": "The type of replication to use for the storage account."
-      }
-    }
-  },
-  ```
+   ```json
+   "parameters": {
+     "storageNamePrefix": {
+       "type": "string",
+       "maxLength": 11,
+       "defaultValue": "storage",
+       "metadata": {
+         "description": "The value to use for starting the storage account name."
+       }
+     },
+     "storageSKU": {
+       "type": "string",
+       "allowedValues": [
+         "Standard_LRS",
+         "Standard_ZRS",
+         "Standard_GRS",
+         "Standard_RAGRS",
+         "Premium_LRS"
+       ],
+       "defaultValue": "Standard_LRS",
+       "metadata": {
+         "description": "The type of replication to use for the storage account."
+       }
+     }
+   },
+   ```
 
 3. Parametrenin değerini kullanmak için SKU özelliğini değiştirin:
 
-  ```json
-  "sku": {
-    "name": "[parameters('storageSKU')]"
-  },
-  ```    
+   ```json
+   "sku": {
+     "name": "[parameters('storageSKU')]"
+   },
+   ```    
 
 4. Dosyanızı kaydedin.
 
