@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -89,7 +90,7 @@ Aracı makinede olayların syslog daemon’dan yerel 25226 numaralı yerel UDP b
     ```
 6. Aşağıdaki komutu yazın ve sonucu gözden geçirerek OMS Aracısı günlüğünde bir hata olmadığını doğrulayın:
 
-    ``` 
+    ```    
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
@@ -110,10 +111,5 @@ Bu belgede, CEF çözümünüzü OMS’ye nasıl bağlayacağınızı öğrendin
 * [Operations Management Suite'e (OMS) genel bakış](operations-management-suite-overview.md)
 * [Operations Management Suite Güvenlik ve Denetim Çözümünde Güvenlik Uyarılarını İzleme ve Yanıtlama](oms-security-responding-alerts.md)
 * [Operations Management Suite Güvenlik ve Denetim Çözümünde Kaynakları İzleme](oms-security-monitoring-resources.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
