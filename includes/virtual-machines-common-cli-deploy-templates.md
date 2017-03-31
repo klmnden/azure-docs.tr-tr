@@ -1,46 +1,46 @@
 
-* [Azure’da hızlı bir şekilde sanal makine oluşturma](#quick-create-a-vm-in-azure)
-* [Azure’da bir sanal makineyi şablondan dağıtma](#deploy-a-vm-in-azure-from-a-template)
-* [Özel bir görüntüden sanal makine oluşturma](#create-a-custom-vm-image)
-* [Sanal ağ ve yük dengeleyicisi kullanan bir sanal makine dağıtma](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
-* [Kaynak grubunu kaldırma](#remove-a-resource-group)
-* [Bir kaynak grubu dağıtımının günlüğünü görüntüleme](#show-the-log-for-a-resource-group-deployment)
-* [Bir sanal makine hakkında bilgi görüntüleme](#display-information-about-a-virtual-machine)
-* [Linux tabanlı sanal makineye bağlanma](#log-on-to-a-linux-based-virtual-machine)
-* [Sanal makineyi durdurma](#stop-a-virtual-machine)
-* [Sanal makineyi başlatma](#start-a-virtual-machine)
-* [Veri diski ekleme](#attach-a-data-disk)
+* [Quick-create a virtual machine in Azure](#quick-create-a-vm-in-azure)
+* [Deploy a virtual machine in Azure from a template](#deploy-a-vm-in-azure-from-a-template)
+* [Create a virtual machine from a custom image](#create-a-custom-vm-image)
+* [Deploy a virtual machine that uses a virtual network and a load balancer](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+* [Remove a resource group](#remove-a-resource-group)
+* [Show the log for a resource group deployment](#show-the-log-for-a-resource-group-deployment)
+* [Display information about a virtual machine](#display-information-about-a-virtual-machine)
+* [Connect to a Linux-based virtual machine](#log-on-to-a-linux-based-virtual-machine)
+* [Stop a virtual machine](#stop-a-virtual-machine)
+* [Start a virtual machine](#start-a-virtual-machine)
+* [Attach a data disk](#attach-a-data-disk)
 
-## <a name="getting-ready"></a>Hazırlanma
-Azure CLI’yi Azure kaynak gruplarıyla kullanabilmeniz için doğru Azure CLI sürümüne ve bir Azure hesabına sahip olmanız gerekir. Azure CLI yoksa [yükleyin](../articles/cli-install-nodejs.md).
+## <a name="getting-ready"></a>Getting ready
+Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and an Azure account. If you don't have the Azure CLI, [install it](../articles/cli-install-nodejs.md).
 
-### <a name="update-your-azure-cli-version-to-090-or-later"></a>Azure CLI sürümünüzü 0.9.0 veya sonraki bir sürüme güncelleştirin
-0.9.0 veya sonraki sürümün yüklü olup olmadığını görmek için `azure --version` yazın.
+### <a name="update-your-azure-cli-version-to-090-or-later"></a>Update your Azure CLI version to 0.9.0 or later
+Type `azure --version` to see whether you have already installed version 0.9.0 or later.
 
 ```azurecli
 azure --version
 0.9.0 (node: 0.10.25)
 ```
 
-Sürümünüz 0.9.0 veya üzeri değilse, yerel yükleyicilerden biriyle ya da `npm update -g azure-cli` yazarak **npm** aracılığıyla güncelleştirmeniz gerekir.
+If your version is not 0.9.0 or later, you need to update it by using one of the native installers or through **npm** by typing `npm update -g azure-cli`.
 
-Aşağıdaki [Docker görüntüsünü](https://registry.hub.docker.com/u/microsoft/azure-cli/) kullanarak Azure CLI’yi bir Docker kapsayıcısı olarak da çalıştırabilirsiniz. Docker ana bilgisayarından aşağıdaki komutu çalıştırın:
+You can also run Azure CLI as a Docker container by using the following [Docker image](https://registry.hub.docker.com/u/microsoft/azure-cli/). From a Docker host, run the following command:
 
 ```bash
 docker run -it microsoft/azure-cli
 ```
 
-### <a name="set-your-azure-account-and-subscription"></a>Azure hesabınızı ve aboneliğinizi ayarlama
-Henüz bir Azure aboneliğiniz olmamasına rağmen bir MSDN aboneliğiniz varsa [MSDN abone avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilirsiniz. Veya [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
+### <a name="set-your-azure-account-and-subscription"></a>Set your Azure account and subscription
+If you don't already have an Azure subscription but you do have an MSDN subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-`azure login` yazarak ve Azure hesabınızda etkileşimli oturum açma deneyimine yönelik istemleri izleyerek [Azure hesabınızda etkileşimli bir oturum açın](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login). 
+Now [log in to your Azure account interactively](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) by typing `azure login` and following the prompts for an interactive login experience to your Azure account. 
 
 > [!NOTE]
-> İş veya okul kimliğiniz varsa ve iki faktörlü kimlik doğrulamasının etkin olmadığını biliyorsanız, iş veya okul kimlik numaranıza **ek olarak** `azure login -u` kullanabilir ve etkileşimli bir oturum *olmadan* oturum açabilirsiniz. İş veya okul kimliğiniz yoksa, aynı şekilde oturum açmak için [kişisel Microsoft hesabınızdan iş veya okul kimliği oluşturabilirsiniz](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> If you have a work or school ID and you know you do not have two-factor authentication enabled, you can **also** use `azure login -u` along with the work or school ID to log in *without* an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to log in the same way.
 >
 >
 
-Hesabınızın birden fazla aboneliği olabilir. `azure account list` yazarak aboneliklerinizin aşağıdakine benzer bir listesini görüntüleyebilirsiniz:
+Your account may have more than one subscription. You can list your subscriptions by typing `azure account list`, which might look something like this:
 
 ```azurecli
 azure account list
@@ -53,37 +53,37 @@ data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
 data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 ```
 
-Aşağıdaki komutu yazarak geçerli Azure aboneliğinizi ayarlayabilirsiniz. Yönetmek istediğiniz kaynaklara sahip abonelik adını veya kimliği kullanın.
+You can set the current Azure subscription by typing the following. Use the subscription name or the ID that has the resources you want to manage.
 
 ```azurecli
 azure account set <subscription name or ID> true
 ```
 
-### <a name="switch-to-the-azure-cli-resource-group-mode"></a>Azure CLI kaynak grubu moduna geçme
-Varsayılan olarak, Azure CLI hizmet yönetimi modunda başlatılır (**asm** modu). Kaynak grubu moduna geçmek için aşağıdaki komutu yazın.
+### <a name="switch-to-the-azure-cli-resource-group-mode"></a>Switch to the Azure CLI resource group mode
+By default, the Azure CLI starts in the service management mode (**asm** mode). Type the following to switch to resource group mode.
 
 ```azurecli
 azure config mode arm
 ```
 
-## <a name="understanding-azure-resource-templates-and-resource-groups"></a>Azure kaynak şablonlarını ve kaynak gruplarını anlama
-Çoğu uygulama farklı kaynak türlerinin bir birleşiminden oluşturulur (bir veya daha fazla VM ve depolama hesabı, bir SQL veritabanı, bir sanal ağ ya da içerik teslim ağı gibi). Varsayılan Azure hizmet yönetim API’si ve klasik Azure portalı, hizmete göre yaklaşım kullanarak bu öğeleri temsil eder. Bu yaklaşım, belirli hizmetleri tek bir dağıtım mantıksal birim olarak değil ayrı ayrı dağıtıp yönetmenizi (veya bunu yapan başka araçlar bulmanızı) gerektirir.
+## <a name="understanding-azure-resource-templates-and-resource-groups"></a>Understanding Azure resource templates and resource groups
+Most applications are built from a combination of different resource types (such as one or more VMs and storage accounts, a SQL database, a virtual network, or a content delivery network). The default Azure service management API and the Azure classic portal represented these items by using a service-by-service approach. This approach requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.
 
-Ancak *Azure Resource Manager şablonları*, bu farklı kaynakları bildirim temelli olarak tek bir mantıksal dağıtım birimi halinde dağıtıp yönetmenizi mümkün hale getirir. Her komuttan sonra Azure’a neyi dağıtacağını zorunlu olarak belirtmek yerine, tüm dağıtımınızı (tüm kaynaklar ve ilişkili yapılandırma ile dağıtım parametreleri) bir JSON dosyasında açıklar ve Azure’a bu kaynakları tek grup haline dağıtmasını söylersiniz.
+*Azure Resource Manager templates*, however, make it possible for you to deploy and manage these different resources as one logical deployment unit in a declarative fashion. Instead of imperatively telling Azure what to deploy one command after another, you describe your entire deployment in a JSON file -- all of the resources and associated configuration and deployment parameters -- and tell Azure to deploy those resources as one group.
 
-Bundan sonra Azure CLI kaynak yönetimi komutlarını kullanarak grup kaynaklarının genel yaşam döngüsünü aşağıdaki işlemlerle yönetebilirsiniz:
+You can then manage the overall life cycle of the group's resources by using Azure CLI resource management commands to:
 
-* Gruptaki tüm kaynakları tek seferde durdurma, başlatma veya silme.
-* Kaynaklar üzerindeki izinleri kilitlemek için Rol Tabanlı Access Control (RBAC) kuralları uygulama.
-* İşlemleri denetleme.
-* Daha iyi izleme için ek meta verilerle kaynakları etiketleme.
+* Stop, start, or delete all of the resources within the group at once.
+* Apply Role-Based Access Control (RBAC) rules to lock down security permissions on them.
+* Audit operations.
+* Tag resources with additional metadata for better tracking.
 
-Azure kaynak grupları ve size sunabilecekleri hakkında daha fazla bilgiyi [Azure Resource Manager’a genel bakış](../articles/azure-resource-manager/resource-group-overview.md) bölümünde bulabilirsiniz. Şablon yazmak istiyorsanız bkz. [Azure Resource Manager şablonları yazma](../articles/resource-group-authoring-templates.md).
+You can learn lots more about Azure resource groups and what they can do for you in the [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager templates](../articles/resource-group-authoring-templates.md).
 
-## <a id="quick-create-a-vm-in-azure"></a>Görev: Azure’da hızlı bir şekilde VM oluşturma
-Bazı durumlarda gerekli olan görüntüyü bilirsiniz ve bu görüntüden hemen bir VM oluşturmanız gerekirken altyapıyı fazla önemsemezsiniz; belki de temiz bir VM üzerinde bir test yapmanız gerekiyordur. Bu durumda `azure vm quick-create` komutunu kullanmanız ve bir VM ile altyapısını oluşturmak için gerekli bağımsız değişkenleri geçirmeniz gerekir.
+## <a id="quick-create-a-vm-in-azure"></a>Task: Quick-create a VM in Azure
+Sometimes you know what image you need, and you need a VM from that image right now and you don't care too much about the infrastructure -- maybe you have to test something on a clean VM. That's when you want to use the `azure vm quick-create` command, and pass the arguments necessary to create a VM and its infrastructure.
 
-İlk olarak kaynak grubunuzu oluşturun.
+First, create your resource group.
 
 ```azurecli
 azure group create coreos-quick westus
@@ -100,22 +100,22 @@ data:
 info:    group create command OK
 ```
 
-İkinci olarak, bir görüntü gereklidir. Azure CLI ile bir görüntü bulmak için bkz. [PowerShell ve Azure CLI ile Azure sanal makine görüntülerine gitme ve görüntüyü seçme](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ancak bu makalede popüler görüntülerin kısa bir listesi verilmiştir. Bu hızlı oluşturma işlemi için CoreOS Kararlı görüntüsü kullanılmaktadır.
+Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and selecting Azure virtual machine images with PowerShell and the Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). But for this article, here's a short list of popular images. We'll use CoreOS's Stable image for this quick-create.
 
 > [!NOTE]
-> ComputeImageVersion için ayrıca hem şablon dilinde hem de Azure CLI’da yalnızca 'latest' parametresini belirtebilirsiniz. Bunun yapılması, betikleri veya şablonları değiştirmek zorunda olmadan görüntünün her zaman en son ve düzeltme eki uygulanmış sürümünü kullanmanıza olanak tanır. Bu örnek aşağıda gösterilmiştir.
+> For ComputeImageVersion, you can also simply supply 'latest' as the parameter in both the template language and in the Azure CLI. This will allow you to always use the latest and patched version of the image without having to modify your scripts or templates. This is shown below.
 >
 >
 
-| PublisherName | Sunduğu | Sku | Sürüm |
+| PublisherName | Offer | Sku | Version |
 |:--- |:--- |:--- |:--- |
 | OpenLogic |CentOS |7 |7.0.201503 |
 | OpenLogic |CentOS |7.1 |7.1.201504 |
 | CoreOS |CoreOS |Beta |647.0.0 |
-| CoreOS |CoreOS |Dengeli |633.1.0 |
+| CoreOS |CoreOS |Stable |633.1.0 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2015 |8.0.40459 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2013 |1.0.0 |
-| msopentech |Oracle-Database-12c-Weblogic-Server-12c |Standart |1.0.0 |
+| msopentech |Oracle-Database-12c-Weblogic-Server-12c |Standard |1.0.0 |
 | msopentech |Oracle-Database-12c-Weblogic-Server-12c |Enterprise |1.0.0 |
 | MicrosoftSQLServer |SQL2014-WS2012R2 |Enterprise-Optimized-for-DW |12.0.2430 |
 | MicrosoftSQLServer |SQL2014-WS2012R2 |Enterprise-Optimized-for-OLTP |12.0.2430 |
@@ -127,7 +127,7 @@ info:    group create command OK
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |1.0.141204 |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |4.3.4665 |
 
-Yalnızca `azure vm quick-create` komutunu girip istemlere hazır olarak VM’nizi oluşturun. Şuna benzer şekilde görünecektir:
+Just create your VM by entering the `azure vm quick-create` command and being ready for the prompts. It should look something like this:
 
 ```azurecli
 azure vm quick-create
@@ -212,29 +212,29 @@ data:            FQDN                    :coreo-westu-1430261891570-pip.westus.c
 info:    vm quick-create command OK
 ```
 
-Yeni VM’niz hazırdır.
+And away you go with your new VM.
 
-## <a id="deploy-a-vm-in-azure-from-a-template"></a>Görev: Azure’da şablondan VM dağıtma
-Azure CLI ile bir şablon kullanarak yeni bir Azure VM dağıtmak için bu bölümlerdeki yönergeleri kullanın. Bu şablon tek bir alt ağa sahip yeni bir sanal ağda tek bir sanal makine oluşturur ve `azure vm quick-create` seçeneğinin aksine, tam olarak ne istediğinizi açıklamanıza ve hata olmadan tekrarlamanıza olanak tanır. Bu şablon aşağıdaki gibidir:
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Task: Deploy a VM in Azure from a template
+Use the instructions in these sections to deploy a new Azure VM by using a template with the Azure CLI. This template creates a single virtual machine in a new virtual network with a single subnet, and unlike `azure vm quick-create`, enables you to describe what you want precisely and repeat it without errors. Here's what this template creates:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
 
-### <a name="step-1-examine-the-json-file-for-the-template-parameters"></a>Adım 1: Şablon parametreleri için JSON dosyasını inceleme
-Şablon için JSON dosyasının içeriği aşağıda verilmiştir. (Şablon [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json) içinde de bulunur.)
+### <a name="step-1-examine-the-json-file-for-the-template-parameters"></a>Step 1: Examine the JSON file for the template parameters
+Here are the contents of the JSON file for the template. (The template is also located in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json).)
 
-Şablonlar esnektir, bu nedenle tasarımcı size çok sayıda parametre sunmayı veya daha sabit bir şablon oluşturarak az sayıda parametre sunmayı seçmiş olabilir. Bilgileri toplamak için şablonu parametre olarak geçirmeniz, şablon dosyasını açmanız (bu konunun sonraki kısımlarında bir şablon satır içi mevcuttur) ve **parameters** değerlerini incelemeniz gerekir.
+Templates are flexible, so the designer may have chosen to give you lots of parameters or chosen to offer only a few by creating a template that is more fixed. In order to collect the information you need to pass the template as parameters, open the template file (this topic has a template inline, below) and examine the **parameters** values.
 
-Bu durumda aşağıdaki şablon şunları ister:
+In this case, the template below will ask for:
 
-* Benzersiz bir depolama hesabı adı.
-* VM için bir yönetici kullanıcı adı.
-* Parola.
-* Dış dünyada kullanmak bir etki alanı adı.
-* Ubuntu Server sürüm numarası -- ancak yalnızca bir listesini kabul eder.
+* A unique storage account name.
+* An admin user name for the VM.
+* A password.
+* A domain name for the outside world to use.
+* An Ubuntu Server version number -- but it will accept only one of a list.
 
-[Kullanıcı adı ve parola gereksinimleri](../articles/virtual-machines/virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm) hakkında daha fazla bilgi edinin.
+See more about [username and password requirements](../articles/virtual-machines/virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
-Bu değerlere karar verdikten sonra bir grup oluşturmaya ve bu şablonu Azure aboneliğinize dağıtmaya hazır olursunuz.
+Once you decide on these values, you're ready to create a group for and deploy this template into your Azure subscription.
 
 ```json
 {
@@ -413,10 +413,10 @@ Bu değerlere karar verdikten sonra bir grup oluşturmaya ve bu şablonu Azure a
 }
 ```
 
-### <a name="step-2-create-the-virtual-machine-by-using-the-template"></a>Adım 2: Şablon kullanarak sanal makine oluşturma
-Parametre değerleriniz hazır olduktan sonra şablon dağıtımınıza yönelik bir kaynak grubu oluşturmanız ve ardından şablonu dağıtmanız gerekir.
+### <a name="step-2-create-the-virtual-machine-by-using-the-template"></a>Step 2: Create the virtual machine by using the template
+Once you have your parameter values ready, you must create a resource group for your template deployment and then deploy the template.
 
-Kaynak grubu oluşturmak için istediğiniz grubun adı ve dağıtımı yapmak istediğiniz veri merkezinin konumu ile birlikte `azure group create <group name> <location>` yazın. Bu işlem hızlı bir şekilde yapılır:
+To create the resource group, type `azure group create <group name> <location>` with the name of the group you want and the datacenter location into which you want to deploy. This happens quickly:
 
 ```azurecli
 azure group create myResourceGroup westus
@@ -433,16 +433,16 @@ data:
 info:    group create command OK
 ```
 
-Şimdi dağıtımı oluşturmak için `azure group deployment create` öğesini çağırıp şu komutu geçirin:
+Now to create the deployment, call `azure group deployment create` and pass:
 
-* Şablon dosyası (yukarıdaki JSON şablonunu bir yerel dosyaya kaydettiyseniz).
-* Bir şablon URI’si (GitHub veya diğer bazı web adreslerinde dosyayı işaret etmek istiyorsanız).
-* Dağıtımı yapmak istediğiniz kaynak grubu.
-* İsteğe bağlı dağıtım adı.
+* The template file (if you saved the above JSON template to a local file).
+* A template URI (if you want to point at the file in GitHub or some other web address).
+* The resource group into which you want to deploy.
+* An optional deployment name.
 
-JSON dosyasının "parameters" bölümünde parametrelerin değerlerini belirtmeniz istenir. Tüm parametre değerlerini belirttiğinizde dağıtımınız başlar.
+You will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, your deployment will begin.
 
-Örnek aşağıda verilmiştir:
+Here is an example:
 
 ```azurecli
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json myResourceGroup firstDeployment
@@ -454,7 +454,7 @@ adminPassword: password
 dnsNameForPublicIP: newdomainname
 ```
 
-Aşağıdaki türde bilgiler alırsınız:
+You will receive the following type of information:
 
 ```azurecli
 + Initializing template configurations and parameters
@@ -483,13 +483,13 @@ info:    group deployment create command OK
 ```
 
 
-## <a id="create-a-custom-vm-image"></a>Görev: Özel bir VM görüntüsü oluşturma
-Şablonların temel kullanımını yukarıda gördünüz; bu nedenle, Azure CLI üzerinden bir şablon kullanarak Azure’daki belirli bir .vhd dosyasından özel bir VM oluşturmak için benzer yönergeler kullanılabilir. Buradaki farklılık, bu şablonun belirli bir sanal sabit diskten (VHD) tek bir sanal makine oluşturmasıdır.
+## <a id="create-a-custom-vm-image"></a>Task: Create a custom VM image
+You've seen the basic usage of templates above, so now we can use similar instructions to create a custom VM from a specific .vhd file in Azure by using a template via the Azure CLI. The difference here is that this template creates a single virtual machine from a specified virtual hard disk (VHD).
 
-### <a name="step-1-examine-the-json-file-for-the-template"></a>Adım 1: Şablon için JSON dosyasını inceleme
-Bu bölümde örnek olarak kullanılan şablon için JSON dosyasının içeriği aşağıda verilmiştir. (Şablon [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json) içinde de bulunur.)
+### <a name="step-1-examine-the-json-file-for-the-template"></a>Step 1: Examine the JSON file for the template
+Here are the contents of the JSON file for the template that this section uses as an example. (The template is also located in [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).)
 
-Burada da, varsayılan değerlere sahip olmayan parametreler için girmek istediğiniz değerleri bulmanız gerekir. `azure group deployment create` komutunu çalıştırdığınızda Azure CLI bu değerleri girmenizi ister.
+Again, you will need to find the values you want to enter for the parameters that do not have default values. When you run the `azure group deployment create` command, the Azure CLI will prompt you to enter those values.
 
 ```json
 {
@@ -674,15 +674,15 @@ Burada da, varsayılan değerlere sahip olmayan parametreler için girmek istedi
 }
 ```
 
-### <a name="step-2-obtain-the-vhd"></a>Adım 2: VHD alma
-Bunun için bir .vhd dosyasının gerekli olduğu açıktır. Azure’da zaten sahip olduğunuz dosyayı kullanabilir veya bir tane yükleyebilirsiniz.
+### <a name="step-2-obtain-the-vhd"></a>Step 2: Obtain the VHD
+Obviously, you'll need a .vhd for this. You can use one you already have in Azure, or you can upload one.
 
-Windows tabanlı bir sanal makine için bkz. [Windows Server VHD’si oluşturup Azure’a yükleme](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+For a Windows-based virtual machine, see [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Linux tabanlı sanal makine için bkz. [Linux işletim sistemi içeren bir sanal sabit disk oluşturma ve karşıya yükleme](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+For a Linux-based virtual machine, see [Creating and uploading a virtual hard disk that contains the Linux operating system](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Adım 3: Şablon kullanarak sanal makine oluşturma
-Şu anda .vhd’yi temel alan yeni bir sanal makine oluşturmaya hazırsınız. `azure group create <location>` komutunu kullanarak dağıtımın yapılacağı grubu oluşturun:
+### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Step 3: Create the virtual machine by using the template
+Now you're ready to create a new virtual machine based on the .vhd. Create a group to deploy into, by using `azure group create <location>`:
 
 ```azurecli
 azure group create myResourceGroupUser eastus
@@ -699,7 +699,7 @@ data:
 info:    group create command OK
 ```
 
-Ardından `--template-uri` seçeneğini kullanarak şablonu doğrudan çağırmak için dağıtımı oluşturun (veya `--template-file` seçeneğini kullanarak yerel olarak kaydettiğiniz bir dosyayı kullanabilirsiniz). Şablonun varsayılan değerleri belirtildiği için sizden yalnızca birkaç şey istenir. Şablonu farklı yerlere dağıtırsanız, varsayılan değerlerle bazı adlandırma çakışmalarının oluştuğunu görebilirsiniz (özellikle oluşturduğunuz DNS adı).
+Then create the deployment by using the `--template-uri` option to call in the template directly (or you can use the `--template-file` option to use a file that you have saved locally). Note that because the template has defaults specified, you are prompted for only a few things. If you deploy the template in different places, you may find that some naming collisions occur with the default values (particularly the DNS name you create).
 
 ```azurecli
 azure group deployment create \
@@ -714,7 +714,7 @@ osType: linux
 subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Çıktı aşağıdakine benzer olacaktır:
+Output looks something like the following:
 
 ```azurecli
 + Initializing template configurations and parameters
@@ -751,15 +751,15 @@ data:    nicName                        String        myNIC
 info:    group deployment create command OK
 ```
 
-## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Görev: Sanal ağ ve dış yük dengeleyici kullanan çok sanal makineli uygulama dağıtma
-Bu şablon bir yük dengeleyici altında iki sanal makine oluşturmanıza ve Bağlantı Noktası 80 üzerinde bir yük dengeleme kuralı yapılandırmanıza olanak tanır. Bu şablon ayrıca bir depolama hesabı, sanal ağ, genel IP adresi, kullanılabilirlik kümesi ve ağ arabirimleri dağıtır.
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Task: Deploy a multi-VM application that uses a virtual network and an external load balancer
+This template allows you to create two virtual machines under a load balancer and configure a load-balancing rule on Port 80. This template also deploys a storage account, virtual network, public IP address, availability set, and network interfaces.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
 
-GitHub şablon deposunda Azure PowerShell komutları aracılığıyla Resource Manager şablonu kullanarak, sanal ağ ve yük dengeleyicisi kullanan çok sanal makineli bir uygulama dağıtmak için bu adımları izleyin.
+Follow these steps to deploy a multi-VM application that uses a virtual network and a load balancer by using a Resource Manager template in the GitHub template repository via Azure PowerShell commands.
 
-### <a name="step-1-examine-the-json-file-for-the-template"></a>Adım 1: Şablon için JSON dosyasını inceleme
-Şablon için JSON dosyasının içeriği aşağıda verilmiştir. En son sürümü istiyorsanız [şablonlar için Github deposunda bulabilirsiniz](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). Bu konu başlığında şablonu çağırmak için `--template-uri` anahtarı kullanılır, ancak yerel bir sürüm geçirmek için `--template-file` anahtarını da kullanabilirsiniz.
+### <a name="step-1-examine-the-json-file-for-the-template"></a>Step 1: Examine the JSON file for the template
+Here are the contents of the JSON file for the template. If you want the most recent version, it's located [at the GitHub repository for templates](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). This topic uses the `--template-uri` switch to call in the template, but you can also use the `--template-file` switch to pass a local version.
 
 ```json
 {
@@ -1094,8 +1094,8 @@ GitHub şablon deposunda Azure PowerShell komutları aracılığıyla Resource M
 }
 ```
 
-### <a name="step-2-create-the-deployment-by-using-the-template"></a>Adım 2: Şablon kullanarak dağıtım oluşturma
-`azure group create <location>` kullanarak şablon için bir kaynak grubu oluşturun. Ardından, `azure group deployment create` komutunu kullanıp kaynak grubunu geçirerek, bir dağıtım adı geçirerek ve varsayılan değerlere sahip olmayan şablondaki parametrelere yönelik istemleri yanıtlayarak bu kaynak grubunda bir dağıtım oluşturun.
+### <a name="step-2-create-the-deployment-by-using-the-template"></a>Step 2: Create the deployment by using the template
+Create a resource group for the template by using `azure group create <location>`. Then, create a deployment into that resource group by using `azure group deployment create` and passing the resource group, passing a deployment name, and answering the prompts for parameters in the template that did not have default values.
 
 ```azurecli
 azure group create lbgroup westus
@@ -1112,7 +1112,7 @@ data:
 info:    group create command OK
 ```
 
-Şimdi `azure group deployment create` komutu ile `--template-uri` seçeneğini kullanarak şablonu dağıtın. Aşağıda gösterildiği gibi sizden istediğinde parametre değerlerini belirtmeye hazır olun.
+Now use the `azure group deployment create` command and the `--template-uri` option to deploy the template. Be ready with your parameter values when it prompts you, as shown below.
 
 ```azurecli
 azure group deployment create \
@@ -1161,10 +1161,10 @@ data:    vmSize                 String        Standard_A1
 info:    group deployment create command OK
 ```
 
-Bu şablon bir Windows Server görüntüsünü dağıtır; ancak herhangi bir Linux görüntüsü ile kolayca değiştirilebilir. Birden fazla swarm yöneticisine sahip bir Docker kümesi mi oluşturmak istiyorsunuz? [Bunu yapabilirsiniz](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+Note that this template deploys a Windows Server image; however, it could easily be replaced by any Linux image. Want to create a Docker cluster with multiple swarm managers? [You can do it](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-## <a id="remove-a-resource-group"></a>Görev: Kaynak grubunu kaldırma
-Bir kaynak grubuna yeniden dağıtım yapabilirsiniz, ancak bir kaynak grubuyla işiniz bittiyse `azure group delete <group name>` komutunu kullanarak kaynak grubunu silebilirsiniz.
+## <a id="remove-a-resource-group"></a>Task: Remove a resource group
+Remember that you can redeploy to a resource group, but if you are done with one, you can delete it by using `azure group delete <group name>`.
 
 ```azurecli
 azure group delete myResourceGroup
@@ -1174,15 +1174,15 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a id="show-the-log-for-a-resource-group-deployment"></a>Görev: Bir kaynak grubu dağıtımının günlüğünü görüntüleme
-Şablon oluştururken veya kullanırken bu işlem yaygın olarak yapılır. Bir grubun dağıtım günlüklerini görüntüleme çağrısı, bir olayın neden gerçekleştiğini (veya gerçekleşmediğini) anlamak için yararlı olabilecek bilgileri `azure group log show <groupname>` komutudur. (Dağıtımlarınızla ilgili daha fazla sorun giderme bilgisi ve sorunlar hakkında diğer bilgiler için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).)
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Task: Show the log for a resource group deployment
+This one is common while you're creating or using templates. The call to display the deployment logs for a group is `azure group log show <groupname>`, which displays quite a bit of information that's useful for understanding why something happened -- or didn't. (For more information on troubleshooting your deployments, as well as other information about issues, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).)
 
-Örneğin, belirli hataları hedeflemek için **jq** gibi araçlar kullanarak, düzeltmeniz gereken belirli hatalar gibi sorunları daha kesin bir şekilde sorgulayabilirsiniz. Aşağıdaki örnekte hatalar aranırken **lbgroup** dağıtım günlüğünü ayrıştırmak için **jq** kullanılmaktadır.
+To target specific failures, for example, you might use tools like **jq** to query things a bit more precisely, such as which individual failures you need to correct. The following example uses **jq** to parse a deployment log for **lbgroup**, looking for failures.
 
 ```azurecli
 azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 ```
-Neyin yanlış gittiğini hızlıca bulabilir, düzeltebilir ve yeniden deneyebilirsiniz. Aşağıdaki örnekte, şablon aynı anda iki VM oluşturmuş ve .vhd üzerinde bir kilit oluşturmuştur. (Şablon değiştirildikten sonra dağıtım hızlıca başarılı olmuştur.)
+You can discover very quickly what went wrong, fix, and retry. In the following case, the template had been creating two VMs at the same time, which created a lock on the .vhd. (After we modified the template, the deployment succeeded quickly.)
 
 ```json
 {
@@ -1191,8 +1191,8 @@ Neyin yanlış gittiğini hızlıca bulabilir, düzeltebilir ve yeniden deneyebi
 }
 ```
 
-## <a id="display-information-about-a-virtual-machine"></a>Görev: Bir sanal makine hakkında bilgi görüntüleme
-`azure vm show <groupname> <vmname>` komutunu kullanarak kaynak grubunuzdaki belirli VM’ler hakkındaki bilgileri görebilirsiniz. Grubunuzda birden fazla VM varsa, ilk olarak `azure vm list <groupname>` ile gruptaki VM’leri listelemeniz gerekebilir.
+## <a id="display-information-about-a-virtual-machine"></a>Task: Display information about a virtual machine
+You can see information about specific VMs in your resource group by using the `azure vm show <groupname> <vmname>` command. If you have more than one VM in your group, you might first need to list the VMs in a group by using `azure vm list <groupname>`.
 
 ```azurecli
 azure vm list zoo
@@ -1204,7 +1204,7 @@ data:    myVM0  Succeeded          westus    Standard_A1
 data:    myVM1  Failed             westus    Standard_A1
 ```
 
-Ardından, myVM1 öğesini arayın:
+And then, looking up myVM1:
 
 ```azurecli
 azure vm show zoo myVM1
@@ -1259,50 +1259,50 @@ info:    vm show command OK
 ```
 
 > [!NOTE]
-> Konsol komutlarınızın çıktısını programlı olarak depolamak ve yönlendirmek istiyorsanız **[jq](https://github.com/stedolan/jq)** veya **[jsawk](https://github.com/micha/jsawk)** gibi bir JSON ayrıştırma aracı ya da görev için yararlı dil kitaplıkları kullanmak isteyebilirsiniz.
+> If you want to programmatically store and manipulate the output of your console commands, you may want to use a JSON parsing tool such as **[jq](https://github.com/stedolan/jq)** or **[jsawk](https://github.com/micha/jsawk)**, or language libraries that are good for the task.
 >
 >
 
-## <a id="log-on-to-a-linux-based-virtual-machine"></a>Görev: Linux tabanlı sanal makinede oturum açma
-Linux makinelerine genellikle SSH aracılığıyla bağlanılır. Daha fazla bilgi için bkz. [Azure’da Linux ile SSH kullanma](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Task: Log on to a Linux-based virtual machine
+Typically Linux machines are connected to through SSH. For more information, see [How to use SSH with Linux on Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a id="stop-a-virtual-machine"></a>Görev: VM durdurma
-Şu komutu çalıştırın:
+## <a id="stop-a-virtual-machine"></a>Task: Stop a VM
+Run this command:
 
 ```azurecli
 azure vm stop <group name> <virtual machine name>
 ```
 
 > [!IMPORTANT]
-> Bir sanal ağ içindeki son VM olması durumunda sanal ağın sanal IP’sini (VIP) saklamak için bu parametreyi kullanın. <br><br> `StayProvisioned` parametresini kullansanız bile VM için fatura almaya devam edersiniz.
+> Use this parameter to keep the virtual IP (VIP) of the vnet in case it's the last VM in that vnet. <br><br> If you use the `StayProvisioned` parameter, you'll still be billed for the VM.
 >
 >
 
-## <a id="start-a-virtual-machine"></a>Görev: VM başlatma
-Şu komutu çalıştırın:
+## <a id="start-a-virtual-machine"></a>Task: Start a VM
+Run this command:
 
 ```azurecli
 azure vm start <group name> <virtual machine name>
 ```
 
-## <a id="attach-a-data-disk"></a>Görev: Veri diski ekleme
-Ayrıca yeni bir disk veya veri içeren bir disk eklemeye karar vermeniz gerekir. Yeni bir disk için komut .vhd dosyasını oluşturup aynı komuta ekler.
+## <a id="attach-a-data-disk"></a>Task: Attach a data disk
+You'll also need to decide whether to attach a new disk or one that contains data. For a new disk, the command creates the .vhd file and attaches it in the same command.
 
-Yeni bir disk eklemek için şu komutu çalıştırın:
+To attach a new disk, run this command:
 
 ```azurecli
     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 ```
 
-Var olan bir veri diski eklemek için şu komutu çalıştırın:
+To attach an existing data disk, run this command:
 
 ```azurecli
 azure vm disk attach <resource-group> <vm-name> [vhd-url]
 ```
 
-Ardından Linux’ta yaptığınız gibi diski bağlamanız gerekir.
+Then you'll need to mount the disk, as you normally would in Linux.
 
-## <a name="next-steps"></a>Sonraki adımlar
-**Arm** modu ile Azure CLI kullanımı hakkında çok daha fazla örnek için bkz. [Azure Resource Manager ile Mac, Linux ve Windows için Azure CLI kullanma](../articles/xplat-cli-azure-resource-manager.md). Azure kaynakları ile kavramları hakkında daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](../articles/azure-resource-manager/resource-group-overview.md).
+## <a name="next-steps"></a>Next steps
+For far more examples of Azure CLI usage with the **arm** mode, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md).
 
-Kullanabileceğiniz diğer şablonlar için bkz. [Azure Hızlı Başlangıç şablonları](https://azure.microsoft.com/documentation/templates/) ve [Şablon kullanan uygulama çerçeveleri](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/) and [Application frameworks using templates](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

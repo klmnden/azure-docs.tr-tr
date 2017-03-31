@@ -2,28 +2,26 @@
 ## [ExpressRoute nedir?](expressroute-introduction.md)
 ## [ExpressRoute ile ilgili SSS](expressroute-faqs.md)
 ## [Bağlantı modelleri](expressroute-connectivity-models.md)
+## [Bağlantı hatları ve etki alanlarının yönlendirilmesi](expressroute-circuit-peerings.md)
 ## [Konumlar ve iş ortakları](expressroute-locations.md)
 ### [Konuma göre sağlayıcılar](expressroute-locations-providers.md)
 ### [Sağlayıcıya göre konumlar](expressroute-locations.md)
+## [ExpressRoute için sanal ağ geçitleri hakkında](expressroute-about-virtual-network-gateways.md)
 
 # Kullanmaya Başlama
-## [İş akışları](expressroute-workflows.md)
 ## [Önkoşullar](expressroute-prerequisites.md)
-## [Bağlantı hatları ve etki alanlarının yönlendirilmesi](expressroute-circuit-peerings.md)
+## [İş akışları](expressroute-workflows.md)
 ## [Yönlendirme gereksinimleri](expressroute-routing.md)
-## [Yönlendirmeyi iyileştirme](expressroute-optimize-routing.md)
 ## [NAT gereksinimleri](expressroute-nat.md)
 ## [QoS gereksinimleri](expressroute-qos.md)
 ## [Bağlantı hatlarını klasikten Resource Manager’a taşıma](expressroute-move.md)
-## [ExpressRoute için sanal ağ geçitleri hakkında](expressroute-about-virtual-network-gateways.md)
 
 # Nasıl yapılır
 ## Bağlantı hattı oluşturma ve değiştirme
 ### [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (Klasik)](expressroute-howto-circuit-classic.md)
-## Yönlendirme yapılandırması oluşturma ve değiştirme
-### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+## Eşleme yapılandırması oluşturma ve değiştirme
+### [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (Klasik)](expressroute-howto-routing-classic.md)
 ## ExpressRoute bağlantı hattına bir sanal ağı bağlama
@@ -38,11 +36,12 @@
 ### [PowerShell (Klasik)](expressroute-howto-coexist-classic.md)
 ## [Bir bağlantı hattını klasikten Resource Manager’a taşıma](expressroute-howto-move-arm.md)
 ## ExpressRoute için yönlendirici yapılandırma
-### [Yönlendirici yapılandırması ayarlama örnekleri](expressroute-config-samples-routing.md)
+### [Yönlendirici yapılandırma](expressroute-config-samples-routing.md)
 ### [NAT için yönlendirici yapılandırma örnekleri](expressroute-config-samples-nat.md)
 
 ## En İyi Uygulamalar
 ### [Ağ güvenliği ve bulut hizmetlerine yönelik en iyi uygulamalar](../best-practices-network-security.md)
+## [Yönlendirmeyi iyileştirme](expressroute-optimize-routing.md)
 ### [Asimetrik yönlendirme](expressroute-asymmetric-routing.md)
 
 ## Sorun giderme

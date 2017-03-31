@@ -36,8 +36,9 @@
 
 # Güvenlik ve uyumluluk
 ## Nasıl yapılır?
-### [Kullanıcı izinlerini yönetme](azure-stack-manage-permissions.md)
+### [RBAC’yi yönetme](azure-stack-manage-permissions.md)
 ### [Kullanıcıları AD FS’ye ekleme](azure-stack-add-users-adfs.md)
+### [Hizmet sorumlusu oluşturma](Azure-stack-create-service-principals.md)
 
 # Hizmet sunma
 ## başlarken
@@ -113,6 +114,9 @@
 # Sorun giderme
 ## [Bilinen sorunlar](azure-stack-troubleshooting.md)
 ## [Azure Stack’te tanılama](azure-stack-diagnostics.md)
+
+# Başvuru
+## [API sürümü profillerini yönetme](azure-stack-version-profiles.md)
 
 # Kaynaklar
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack)  

@@ -3,22 +3,21 @@
 
 # Kullanmaya Başlama
 ## [Portalda ölçek kümesi dağıtma](virtual-machine-scale-sets-portal-create.md)
-## [Azure CLI kullanarak ölçek kümesi dağıtma](virtual-machine-scale-sets-linux-create-cli.md)
-## [Resource Manager Şablonu kullanarak basit bir ölçek kümesi dağıtma](virtual-machine-scale-sets-mvss-start.md)
+## [PowerShell veya Azure CLI kullanarak ölçek kümesi dağıtma](virtual-machine-scale-sets-create.md)
 
 # Nasıl yapılır
 ## Planlama ve tasarım
 ### [Tasarım konusunda dikkat edilmesi gerekenler](virtual-machine-scale-sets-design-overview.md)
-## Ölçek Kümesi Şablonlarının Yazılacağı Öğe:
-### [Basit bir ölçek kümesini dağıtma](virtual-machine-scale-sets-mvss-start.md)
-### [Bir ölçek kümesini mevcut bir sanal ağa dağıtma](virtual-machine-scale-sets-mvss-existing-vnet.md)
+
+## Şablon oluşturma
+### [Ölçek kümesi şablonları hakkında bilgi edinin](virtual-machine-scale-sets-mvss-start.md)
+### [Sanal ağ ekleme](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Dağıtma
-### [Portalı kullanan ölçek kümesi](virtual-machine-scale-sets-portal-create.md)
+### [Portal ile oluşturma](virtual-machine-scale-sets-portal-create.md)
+### [Visual Studio ile oluşturma](virtual-machine-scale-sets-vs-create.md)
+### [PowerShell veya Azure CLI ile oluşturma](virtual-machine-scale-sets-create.md)
 ### [Yönetilen diskler ile ölçek kümesi](virtual-machine-scale-sets-managed-disks.md)
-### [Visual Studio kullanan ölçek kümesi](virtual-machine-scale-sets-vs-create.md)
-### [PowerShell kullanan ölçek kümesi](virtual-machine-scale-sets-windows-create.md)
-### [Azure CLI kullanan ölçek kümesi](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Otomatik ölçeklendirme içeren Linux ölçek kümesi](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Otomatik ölçeklendirme içeren Windows ölçek kümesi](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Ölçek kümelerindeki uygulamalar](virtual-machine-scale-sets-deploy-app.md)

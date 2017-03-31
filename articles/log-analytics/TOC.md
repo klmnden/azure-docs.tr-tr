@@ -70,6 +70,9 @@
 ### [Surface Hub](log-analytics-surface-hubs.md)
 ### [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md)
 ### [VMware](log-analytics-vmware.md)
+### Windows Analizi
+#### [Güncelleştirme Uyumluluğu](https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started)
+#### [Yükseltme Hazırlığı](https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started)
 ### [Kablo Verileri](log-analytics-wire-data.md)
 ## Geliştirme
 ### [Veri Toplayıcı API’si](log-analytics-data-collector-api.md)
@@ -83,6 +86,6 @@
 ## [REST](/rest/api/loganalytics)
 
 # Kaynaklar
-## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Windows Analizi](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=log-analytics)

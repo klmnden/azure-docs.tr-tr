@@ -5,20 +5,17 @@
 ## [DB Oluşturma - Portal](sql-database-get-started-portal.md)
 ## [DB Oluşturma - Azure CLI](sql-database-get-started-cli.md)
 ## [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
-## Bağlan
+## Yönet
 ### [SSMS](sql-database-connect-query-ssms.md)
 ### [VS Code](sql-database-connect-query-vscode.md)
+## Bağlan
 ### [C#](sql-database-connect-query-dotnet.md)
 # Örnekler
 ## [Azure CLI](sql-database-cli-samples.md)
 ## [PowerShell](sql-database-powershell-samples.md)
 # Öğreticiler
-## Access
-### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
-### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-## Kurtarma
-### [Portal](sql-database-get-started-backup-recovery-portal.md)
-### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+## [Veritabanı tasarlama](sql-database-design-first-database.md)
+
 # Kavramlar
 ## Veritabanları ve sunucular
 ### [Veritabanları](sql-database-overview.md)
@@ -110,6 +107,9 @@
 ### [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 ### [Transact-SQL](sql-database-elastic-pool-manage-tsql.md)
 ### [C#](sql-database-elastic-pool-manage-csharp.md)
+## DB Erişimi 
+### [SQL Server](sql-database-control-access-sql-authentication-get-started.md)
+### [Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 ## Verilerin güvenliğini sağlama
 ### [Azure AD ile kimlik doğrulama](sql-database-aad-authentication-configure.md)
 ### [Denetim](sql-database-auditing-portal.md)
@@ -117,11 +117,13 @@
 ### [Şifreleme - sertifika deposu](sql-database-always-encrypted.md)
 ### [Şifreleme - Key Vault](sql-database-always-encrypted-azure-key-vault.md)
 ### [Maskelemeyi yapılandırma](sql-database-dynamic-data-masking-get-started-portal.md)
-## Yedekleme ve geri yükleme
-### [Geri Yükleme - Portal](sql-database-restore-database-portal.md)
+## Kurtarma
+### [Portal](sql-database-get-started-backup-recovery-portal.md)
+### [PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+### [Tek tablo](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
+## Bekletme
 ### [Saklama - Portal](sql-database-manage-long-term-backup-retention-portal.md)
 ### [Saklama - PowerShell](sql-database-manage-long-term-backup-retention-powershell.md)
-### [Tek bir tabloyu kurtarma](sql-database-cloud-migrate-restore-single-table-azure-backup.md)
 ## Verileri coğrafi olarak çoğaltma
 ### [Portal](sql-database-geo-replication-portal.md)
 ### [T-SQL - Yapılandırma](sql-database-geo-replication-transact-sql.md)
