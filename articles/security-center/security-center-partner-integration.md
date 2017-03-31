@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
 ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -56,7 +57,7 @@ Azure ortamınızın yapılandırmasına ve tanımladığınız güvenlik ilkesi
 
 Bir iş ortağı çözümü dağıtıldıktan sonra, ana Güvenlik Merkezi panosundaki İş ortağı çözümü kutucuğundan çözümün durumu hakkında bilgi alabilir ve temel yönetim görevlerini gerçekleştirebilirsiniz. Güvenlik Merkezi'nde iş ortağı çözümlerini yönetme hakkında daha fazla bilgi edinmek için [Azure Güvenlik Merkezi ile İş ortağı çözümlerini izleme](security-center-partner-solutions.md) konusunu okuyun.
 
-![İş Ortağı Tümleştirmesi](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
+![İş Ortağı Tümleştirmesi](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
@@ -69,9 +70,4 @@ Bu belgede, Azure Güvenlik Merkezi'nde iş ortağı çözümünün nasıl tüml
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 * [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
