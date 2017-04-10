@@ -1,5 +1,5 @@
 ---
-title: "Azure Portal ile Azure DNS’i kullanmaya başlama | Microsoft Belgeleri"
+title: "Azure Portal ile Azure DNS’i kullanmaya başlama | Microsoft Docs"
 description: "Azure DNS&quot;te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, Azure portalı kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
 services: dns
 documentationcenter: na
@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 656f2c7d00161d15ebb6f72db0dff33c709973c2
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 79f0c9297c4be70f705f325274f3d9241ea4bc3f
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -79,7 +79,7 @@ Aşağıdaki örnek yeni bir 'A' kaydı oluşturma işlemini göstermektedir. Di
 
 ## <a name="view-records"></a>Kayıtları görüntüleme
 
-DNS bölgesi dikey penceresinin alt bölümünde DNS bölgesine ait kayıtları görebilirsiniz. Her bölgede oluşturulan varsayılan NS ve SOA kayıtlarının yanı sıra, oluşturduğunuz tüm kayıtları görürsünüz.
+DNS bölgesi dikey penceresinin alt bölümünde DNS bölgesine ait kayıtları görebilirsiniz. Her bölgede oluşturulan varsayılan DNS ve SOA kayıtlarının yanı sıra, oluşturduğunuz tüm kayıtları görürsünüz.
 
 ![bölge](./media/dns-getstarted-portal/viewzone500.png)
 

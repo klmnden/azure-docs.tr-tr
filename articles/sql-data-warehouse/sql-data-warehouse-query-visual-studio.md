@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
-ms.openlocfilehash: 71a56d0e99308d3f7f514283792a2155a05a7172
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 342f32596c91d2af7c0f33138a43d5c8925d5350
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,9 +37,9 @@ Azure SQL Data Warehouse’u yalnızca birkaç dakika içinde sorgulamak için V
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiyi kullanmak için şunlar gerekir:
 
-* Var olan bir SQL veri ambarı. SQL veri ambarı oluşturmak için bkz. [SQL Veri Ambarı oluşturma][SQL Veri Ambarı oluşturma].
-* Visual Studio için SSDT. Visual Studio varsa büyük olasılıkla buna da sahip olursunuz. Yükleme yönergeleri ve seçenekleri için bkz. [Visual Studio ve SSDT’yi yükleme][Visual Studio ve SSDT’yi yükleme].
-* Tam SQL server adı. Adı bulmak için bkz. [SQL Veri Ambarı’na bağlanma][SQL Veri Ambarı’na bağlanma].
+* Var olan bir SQL veri ambarı. Bir tane oluşturmak için bkz. [SQL Veri Ambarı oluşturma][Create a SQL Data Warehouse].
+* Visual Studio için SSDT. Visual Studio varsa büyük olasılıkla buna da sahip olursunuz. Yükleme yönergeleri ve seçenekleri için bkz. [Visual Studio’yu ve SSDT’yi yükleme][Installing Visual Studio and SSDT].
+* Tam SQL server adı. Bunu bulmak için bkz. [SQL Veri Ambarı'na bağlanma][Connect to SQL Data Warehouse].
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. SQL Data Warehouse'unuza bağlanma
 1. Visual Studio 2013 veya Visual Studio 2015'i açın.
@@ -79,19 +81,19 @@ Artık veritabanınızla bağlantı kurulduğuna göre bir sorgu yazalım.
     ![Sorgu sonuçları][7]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık bağlanıp sorgulama yapabildiğinize göre [PowerBI ile verileri görselleştirmeyi][PowerBI ile verileri görselleştirmeyi] deneyin.
+Artık bağlanıp sorgulama yapabildiğinize göre [PowerBI ile verileri görselleştirmeyi][visualizing the data with PowerBI] deneyin.
 
-Ortamınızı Azure Active Directory kimlik doğrulaması için yapılandırmak üzere bkz. [SQL Veri Ambarı’nda kimlik doğrulama][SQL Veri Ambarı’nda kimlik doğrulama].
+Ortamınızı Azure Active Directory kimlik doğrulaması için yapılandırmak üzere bkz. [SQL Veri Ambarı’nda kimlik doğrulama][Authenticate to SQL Data Warehouse].
 
 <!--Arcticles-->
-[SQL Veri Ambarı’na bağlanma]: sql-data-warehouse-connect-overview.md
-[SQL Veri Ambarı oluşturma]: sql-data-warehouse-get-started-provision.md
-[Visual Studio ve SSDT’yi yükleme]: sql-data-warehouse-install-visual-studio.md
-[SQL Veri Ambarı’nda kimlik doğrulama]: sql-data-warehouse-authentication.md
-[PowerBI ile verileri görselleştirmeyi]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
+[Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
+[Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
+[visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 
@@ -102,9 +104,4 @@ Ortamınızı Azure Active Directory kimlik doğrulaması için yapılandırmak 
 [5]: media/sql-data-warehouse-query-visual-studio/new-query2.png
 [6]: media/sql-data-warehouse-query-visual-studio/run-query.png
 [7]: media/sql-data-warehouse-query-visual-studio/query-results.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

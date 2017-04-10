@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Veritabanı: SQL Server Management Studio kullanarak verileri bağlama ve sorgulama
 
-Kullanıcı arabiriminde veya betiklerde bulunan SQL Server kaynaklarını oluşturmak ve yönetmek için [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) kullanın. Bu kılavuzda bir Azure SQL veritabanına bağlanmak ve ardından query, insert, update ve delete deyimlerini yürütmek üzere SSMS kullanmayla ilgili ayrıntılar verilmektedir.
+Kullanıcı arabiriminde veya betiklerde bulunan SQL Server kaynaklarını oluşturmak ve yönetmek için [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) kullanın. Bu hızlı başlangıçta bir Azure SQL veritabanına bağlanmak ve ardından query, insert, update ve delete deyimlerini yürütmek üzere SSMS kullanmayla ilgili ayrıntılar verilmektedir.
 
 Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır:
 
@@ -45,11 +45,11 @@ Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsin
 
     <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-## <a name="connect-to-the-server"></a>Sunucuya bağlanma
+## <a name="connect-to-the-server-and-your-new-database"></a>Sunucuya ve yeni veritabanınıza bağlanma
 
 SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla bağlantı kurun.
 
-1. Windows arama kutusuna **SSMS** yazıp **Enter** tuşuna basarak SSMS’i açın.
+1. SQL Server Management Studio’yu açın.
 
 2. **Sunucuya Bağlan** iletişim kutusuna şu bilgileri girin:
    - **Sunucu türü**: Veritabanı altyapısını belirtin

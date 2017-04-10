@@ -9,23 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure portalında Azure SQL veritabanı oluşturma
 
 Bu hızlı başlangıç öğreticisinde, Azure’da SQL veritabanı oluşturma adımlar gösterilmektedir.  Azure SQL Veritabanı, bulutta yüksek oranda kullanılabilir SQL Server veritabanlarını çalıştırıp ölçeklendirmenize olanak tanıyan bir “Hizmet Olarak Veritabanı” teklifidir.  Bu hızlı başlangıç, Azure portalını kullanarak yeni bir SQL veritabanı oluşturma işlemini göstermektedir.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
@@ -43,10 +45,10 @@ Adventure Works LT örnek verilerini içeren bir SQL veritabanı oluşturmak iç
 
     ![create database-1](./media/sql-database-get-started/create-database-1.png)
 
-3. SQL Veritabanı formunu, önceki görüntüde gösterildiği gibi aşağıdaki bilgilerle doldurun: 
-   - Veritabanı adı: **mySampleDatabase** seçeneğini kullanın
-   - Kaynak grubu: **myResourceGroup** seçeneğini kullanın
-   - Kaynak: **Örnek (AdventureWorksLT)** seçeneğini belirleyin
+3. SQL Veritabanı formunu, önceki görüntüde gösterildiği gibi aşağıdaki bilgilerle doldurun:     
+   - Veritabanı adı: **mySampleDatabase**
+   - Kaynak grubu: **myResourceGroup**
+   - Kaynak: **Örnek (AdventureWorksLT)**
 
 4. Yeni veritabanınız için yeni bir sunucu oluşturup yapılandırmak üzere **Sunucu**’ya tıklayın. Genel olarak benzersiz bir sunucu adı belirterek **Yeni sunucu formu**’nu doldurun, Sunucu yönetici oturumu için bir ad sağlayın ve ardından seçtiğiniz parolayı belirtin. 
 
@@ -82,7 +84,7 @@ SQL Veritabanı hizmeti, güvenlik duvarını belirli IP adreslerine açmaya yö
 
 4. **Tamam**’a tıklayın ve ardından **Güvenlik duvarı ayarları** sayfasını kapatmak için **X** öğesine tıklayın.
 
-Artık SQL Server Management Studio veya seçtiğiniz başka bir aracı kullanarak veritabanına ve sunucusuna bağlanabilirsiniz.
+Bundan böyle SQL Server Management Studio veya seçtiğiniz başka bir aracı kullanarak, daha önce oluşturduğunuz Sunucu yönetici hesabıyla bu IP adresinden veritabanına ve sunucusuna bağlanabilirsiniz.
 
 ## <a name="query-the-sql-database"></a>SQL veritabanını sorgulama
 
@@ -103,7 +105,7 @@ SQL veritabanımız oluşturulurken **AdventureWorksLT** örnek veritabanı ile 
 5. Kimlik doğrulaması yaptıktan sonra sorgu düzenleyici bölmesine aşağıdaki sorguyu yazın.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;

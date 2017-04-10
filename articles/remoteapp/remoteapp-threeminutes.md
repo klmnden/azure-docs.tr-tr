@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: ccbae83898ec8ea3bd7bca0beae7f78b2b535562
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 3373e37b8efb1bd7d9b7e6c4fb8d3db468c1ad02
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Azure RemoteApp’i 3 dakika veya daha kısa bir süre içinde cihazınızda deneme
 > [!IMPORTANT]
-> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 > 
 > 
 
@@ -42,10 +43,5 @@ Görüşleriniz önemlidir. Her oturum sonunda, geri bildirim için bir iletişi
 > Bu demo kullanımına yönelik kontrollü bir ortam olduğundan, yayımlanan demo uygulamalarından dış İnternet bağlantısı etkinleştirilmemiştir. Bu nedenle, OneDrive gibi hizmetlere erişilemez. Ayrıca, pano paylaşımı (Kopyala ve Yapıştır) ile USB ve yazıcı yönlendirmesi devre dışı bırakılmıştır.  
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

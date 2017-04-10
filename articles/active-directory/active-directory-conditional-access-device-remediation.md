@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory erişim sorunlarını giderme | Microsoft Belgeleri"
+title: "Azure portalında bir Windows cihazından bu uygulamaya buradan erişemezsiniz sorununu giderme | Microsoft Docs"
 description: "Kuruluşunuzun çevrimiçi kaynaklara erişirken karşılaştığı sorunları çözmek için uygulayabileceğiniz adımları öğrenin."
 services: active-directory
 keywords: "cihaz temelli koşullu erişim, cihaz kaydı, cihaz kaydını etkinleştirme, cihaz kaydı ve MDM"
@@ -12,62 +12,95 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2017
+ms.date: 04/04/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
-ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 9a648ca8f91529bc5aaa7b8ffbcfddb40864f409
+ms.lasthandoff: 04/04/2017
 
 
 ---
-# <a name="troubleshooting-for-azure-active-directory-access-issues"></a>Azure Active Directory erişim sorunlarını giderme
-Kuruluşunuzun SharePoint Online intranetine erişmeye çalışıyorsunuz ve bir "erişim reddedildi" hata iletisi alıyorsunuz. Ne yaparsınız?
+# <a name="troubleshooting-you-cant-get-there-from-here-on-a-windows-device"></a>Bir Windows cihazında bu uygulamaya buradan erişemezsiniz sorununu giderme
+
+Örneğin, kuruluşunuzun SharePoint Online intranetine erişim denemesi sırasında, *bu uygulamaya buradan erişemezsiniz* ifadesini içeren bir sayfa ile karşılaşabilirsiniz. Bu sayfayı görmenizin nedeni, yöneticinizin bazı koşullarda kuruluşunuza ait kaynaklara erişimi engelleyen bir koşullu erişim ilkesi yapılandırmış olmasıdır. Bu sorunu çözmek için yardım masası veya yöneticinize başvurmanız gerekli olabilse de, ilk olarak kendi başınıza deneyebileceğiniz birkaç çözüm vardır.
+
+**Windows** cihaz kullanıyorsanız aşağıdakileri denetlemeniz gerekir:
+
+- Desteklenen bir tarayıcı mı kullanıyorsunuz?
+
+- Cihazınızda desteklenen bir Windows sürümü çalıştırıyor musunuz?
+
+- Cihazınız uyumlu mu?
 
 
-Bu makalede, kuruluşunuzun çevrimiçi kaynaklara erişirken karşılaştığı sorunları çözmenize yardımcı olabilecek düzeltme adımları anlatılmaktadır.
 
-Azure Active Directory (Azure AD) erişim sorunlarını çözmenize yardımcı olması için cihaz platformunuzun anlatıldığı bölüme gidin:
 
-* Windows cihazı
-* iOS cihazı (iPhone'lar ve iPad'ler ile ilgili yardım için yakında tekrar kontrol edin.)
-* Android cihazı (Android telefonlar ve tabletler ile ilgili yardım için yakında tekrar kontrol edin.)
 
-## <a name="access-from-a-windows-device"></a>Windows cihazından erişim
-Cihazınız aşağıdaki platformlardan birini çalıştırıyorsa bir uygulamaya veya hizmete erişmeyi denediğinizde görüntülenen hata iletisi için bir sonraki bölüme bakın:
 
-* Windows 10
-* Windows 8.1
-* Windows 8
-* Windows 7
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
+## <a name="supported-browser"></a>Desteklenen tarayıcı
 
-### <a name="device-is-not-registered"></a>Cihaz kayıtlı değil
-Cihazınız Azure AD'ye kayıtlı değilse ve uygulama, cihaz temelli bir ilkeyle korunuyorsa şu hata iletilerinden birinin görüntülendiği bir sayfa görebilirsiniz:
+Yöneticiniz bir koşullu erişim ilkesi yapılandırdıysa, kuruluşunuzun kaynaklarına yalnızca desteklenen bir tarayıcı kullanarak erişebilirsiniz. Bir Windows cihazda yalnızca **Internet Explorer** ve **Edge** desteklenir.
 
+Hata sayfasının ayrıntılar bölümüne bakarak, bir kaynağa erişememe nedeninizin desteklenmeyen tarayıcı olup olmadığını kolayca belirleyebilirsiniz:
+
+![Desteklenmeyen tarayıcılar için "Buradan oraya ulaşamazsınız" iletisi](./media/active-directory-conditional-access-device-remediation/02.png "Senaryo")
+
+Tek düzeltme seçeneği, cihaz platformunuz için uygulamanın desteklediği bir tarayıcı kullanılmasıdır. Desteklenen tarayıcıların tam listesi için bkz. [desteklenen tarayıcılar](active-directory-conditional-access-supported-apps.md#supported-browsers).  
+
+
+## <a name="supported-versions-of-windows"></a>Desteklenen Windows sürümleri
+
+Cihazınızda Windows işletim sistemi ile ilgili aşağıdakilerin doğru olması gerekir: 
+
+- Cihazınızda bir Windows masaüstü işletim sistemi çalıştırıyorsanız, sürümü Windows 7 veya üzeri olmalıdır.
+- Cihazınızda bir Windows sunucu işletim sistemi çalıştırıyorsanız, sürümü Windows Server 2008 R2 veya üzeri olmalıdır. 
+
+
+## <a name="compliant-device"></a>Uyumlu cihaz
+
+Yöneticiniz, kuruluşunuzun kaynaklarına yalnızca uyumlu cihazlardan erişim izni veren bir koşullu erişim ilkesi yapılandırmış olabilir. Cihazınızın uyumlu olması için şirket içi Active Directory’nize katılmış veya Azure Active Directory’nize katılmış olması gerekir.
+
+Hata sayfasının ayrıntılar bölümüne bakarak, bir kaynağa erişememe nedeninizin uyumlu olmayan bir cihaz olup olmadığını kolayca belirleyebilirsiniz:
+ 
 ![Kaydedilmemiş cihazlar için "Buradan oraya ulaşamazsınız" iletileri](./media/active-directory-conditional-access-device-remediation/01.png "Senaryo")
 
-Cihazınız, kuruluşunuzda Active Directory etki alanına katılmışsa şunu deneyin:
+
+### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>Cihazınız şirket içi Active Directory'ye katılmış mı?
+
+**Cihazınız, şirket içi Active Directory’ye katılmışsa:**
 
 1. Windows'da iş hesabınızı (Active Directory hesabınız) kullanarak oturum açtığınızdan emin olun.
 2. Kurumsal ağınıza bir sanal özel ağ (VPN) veya DirectAccess aracılığıyla bağlanın.
 3. Bağlandıktan sonra, Windows oturumunuzu kilitlemek için Windows logosu tuşu ile birlikte L tuşuna basın.
-4. Windows oturumunuzun kilidini açmak için iş hesabınızın kimlik bilgilerini girin.
+4. İş hesabınızın kimlik bilgilerini girerek Windows oturumunuzun kilidini açın.
 5. Bir dakika bekleyin ve ardından uygulamaya veya hizmete tekrar erişmeyi deneyin.
 6. Aynı sayfayı görürseniz **More details** (Diğer ayrıntılar) bağlantısına tıklayın ve ardından, bu ayrıntılarla birlikte yöneticinizle iletişime geçin.
 
-Cihazınız etki alanına katılmamışsa ve Windows 10 çalıştırıyorsa iki seçeneğiniz vardır:
+
+### <a name="is-your-device-not-joined-to-an-on-premises-active-directory"></a>Cihazınız şirket içi Active Directory'ye katılmamış mı?
+
+Cihazınız şirket içi Active Directory'ye katılmamışsa ve Windows 10 çalıştırıyorsa, iki seçeneğiniz vardır:
 
 * Azure AD'ye Katılım’ı çalıştırmak
 * Windows'a iş veya okul hesabınızı eklemek
 
-Bu iki seçenek arasındaki farklar hakkında bilgi edinmek için bkz. [Çalışma alanınızda Windows 10 cihazlarını kullanma](active-directory-azureadjoin-windows10-devices.md).
+Bu iki seçenek arasındaki farklar hakkında bilgi edinmek için bkz. [Çalışma alanınızda Windows 10 cihazlarını kullanma](active-directory-azureadjoin-windows10-devices.md).  
+Cihazınız:
 
-Azure AD Join'i çalıştırmak için cihazınızın çalıştırdığı platforma göre aşağıdaki adımları uygulayın. (Azure AD Join özelliği, Windows telefonlarda kullanılamıyor.)
+- Kuruluşunuza aitse Azure AD Join’i çalıştırmanız gerekir.
+- Kişisel bir cihaz veya bir Windows phone ise, iş veya okul hesabınızı Windows’a eklemeniz gerekir 
 
-**Windows 10 Yıldönümü Güncelleştirmesi**
+
+
+#### <a name="azure-ad-join-on-windows-10"></a>Windows 10’da Azure AD Join
+
+Cihazınızı Azure AD’ye ekleme adımları, çalıştırdığınız Windows 10 sürümüne bağlıdır. Windows 10 işletim sisteminizin sürümünü belirlemek için **winver** komutunu çalıştırın: 
+
+![Windows sürümü](./media/active-directory-conditional-access-device-remediation/03.png )
+
+
+**Windows 10 Yıldönümü Güncelleştirmesi (Sürüm 1607):**
 
 1. **Ayarlar** uygulamasını başlatın.
 2. **Hesaplar** > **İş veya okul erişimi** öğesine tıklayın.
@@ -77,7 +110,7 @@ Azure AD Join'i çalıştırmak için cihazınızın çalıştırdığı platfor
 6. Oturumu kapatın ve iş hesabınızla oturum açın.
 7. Uygulamaya erişmeyi tekrar deneyin.
 
-**Windows 10 Kasım 2015 Güncelleştirmesi**
+**Windows 10 Kasım 2015 Güncelleştirmesi (Sürüm 1511):**
 
 1. **Ayarlar** uygulamasını başlatın.
 2. **Sistem** > **Hakkında** öğesine tıklayın.
@@ -86,23 +119,8 @@ Azure AD Join'i çalıştırmak için cihazınızın çalıştırdığı platfor
 5. Oturumu kapatın ve ardından iş hesabınızla (Azure AD hesabınız) oturum açın.
 6. Uygulamaya erişmeyi tekrar deneyin.
 
-İş veya okul hesabınızı eklemek için şu adımları uygulayın:
 
-**Windows 10 Yıldönümü Güncelleştirmesi**
-
-1. **Ayarlar** uygulamasını başlatın.
-2. **Hesaplar** > **İş veya okul erişimi** öğesine tıklayın.
-3. **Bağlan**'a tıklayın.
-4. Kuruluşunuzun kimliğini doğrulayın, istenirse çok faktörlü kimlik doğrulaması sağlayın ve gösterilen adımları uygulayın.
-5. Uygulamaya erişmeyi tekrar deneyin.
-
-**Windows 10 Kasım 2015 Güncelleştirmesi**
-
-1. **Ayarlar** uygulamasını başlatın.
-2. **Hesaplar** > **Hesaplarınız** öğesine tıklayın.
-3. **İş veya okul hesabı ekle**’ye tıklayın.
-4. Kuruluşunuzun kimliğini doğrulayın, istenirse çok faktörlü kimlik doğrulaması sağlayın ve gösterilen adımları uygulayın.
-5. Uygulamaya erişmeyi tekrar deneyin.
+#### <a name="workplace-join-on-windows-81"></a>Windows 8.1’de Workplace Join
 
 Cihazınız etki alanına katılmamışsa ve Windows 8.1 çalıştırıyorsa Workplace Join özelliğini kullanmak ve Microsoft Intune'a kaydolmak için şu adımları uygulayın:
 
@@ -113,24 +131,33 @@ Cihazınız etki alanına katılmamışsa ve Windows 8.1 çalıştırıyorsa Wor
 5. **Aç**’a tıklayın.
 6. Uygulamaya erişmeyi tekrar deneyin.
 
-### <a name="browser-is-not-supported"></a>Tarayıcı desteklenmiyor
-Şu tarayıcılardan birini kullanarak bir uygulamaya veya hizmete erişmeyi deniyorsanız erişiminiz engellenebilir:
 
-* Windows 10 veya Windows Server 2016'da Chrome ve Firefox'a ek olarak, Microsoft Edge ya da Microsoft Internet Explorer dışındaki diğer tüm tarayıcılar
-* Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2'de Firefox
 
-Şuna benzer bir hata sayfası görürsünüz:
+#### <a name="add-your-work-or-school-account-to-windows"></a>Windows'a iş veya okul hesabınızı eklemek 
 
-![Desteklenmeyen tarayıcılar için "Buradan oraya ulaşamazsınız" iletisi](./media/active-directory-conditional-access-device-remediation/02.png "Senaryo")
 
-Tek düzeltme seçeneği, cihaz platformunuz için uygulamanın desteklediği bir tarayıcı kullanılmasıdır.
+**Windows 10 Yıldönümü Güncelleştirmesi (Sürüm 1607):**
+
+1. **Ayarlar** uygulamasını başlatın.
+2. **Hesaplar** > **İş veya okul erişimi** öğesine tıklayın.
+3. **Bağlan**'a tıklayın.
+4. Kuruluşunuzun kimliğini doğrulayın, istenirse çok faktörlü kimlik doğrulaması sağlayın ve gösterilen adımları uygulayın.
+5. Uygulamaya erişmeyi tekrar deneyin.
+
+
+**Windows 10 Kasım 2015 Güncelleştirmesi (Sürüm 1511):**
+
+1. **Ayarlar** uygulamasını başlatın.
+2. **Hesaplar** > **Hesaplarınız** öğesine tıklayın.
+3. **İş veya okul hesabı ekle**’ye tıklayın.
+4. Kuruluşunuzun kimliğini doğrulayın, istenirse çok faktörlü kimlik doğrulaması sağlayın ve gösterilen adımları uygulayın.
+5. Uygulamaya erişmeyi tekrar deneyin.
+
+
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure Active Directory koşullu erişimi](active-directory-conditional-access.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

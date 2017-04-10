@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -61,6 +61,7 @@ Site Recovery, desteklenen bir makinede çalışan herhangi bir uygulamayı ço�
 | Dynamics CRM |E |Çok yakında |E |Çok yakında |
 | Oracle |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |
 | Windows Dosya Sunucusu |E |E |E |E |
+| Citrix XenApp ve XenDesktop |Yok |E |Yok |E |
 
 ## <a name="replicate-active-directory-and-dns"></a>Active Directory'yi ve DNS'yi çoğaltma
 Çoğu kurumsal uygulama için Active Directory ve DNS gereklidir. Olağanüstü durum kurtarma sırasında, iş yüklerinizi ve uygulamalarınızı kurtarmadan önce bu altyapı bileşenlerini korumanız ve kurtarmanız gerekir.
@@ -143,6 +144,17 @@ Azure Site Recovery, ortamınızdaki kritik bileşenleri soğuk bir uzak konuma 
 -    DR ayrıntıları için yalıtılmış bir ortamda kurtarma planlarını test edebilme olanağı.
 
 IIS web grubunu koruma hakkında [daha fazla bilgi edinin](https://aka.ms/asr-iis).
+
+## <a name="protect-citrix-xenapp-and-xendesktop"></a>Citrix XenApp ve XenDesktop’u koruma
+Citrix XenApp ve XenDesktop dağıtımlarınızı korumak için aşağıdaki gibi Site Recovery kullanın:
+
+* Citrix XenApp ve XenDesktop dağıtımının korumasını etkinleştirmek için, (AD DNS sunucusu, SQL veritabanı sunucusu, Citrix Delivery Controller, StoreFront sunucusu, XenApp Master (VDA), Citrix XenApp License Server) gibi farklı dağıtım katmanlarını Azure’a çoğaltın.
+* Citrix XenApp ve XenDesktop dağıtımınızı Azure’a geçirmek için Site Recovery’yi kullanarak buluta geçişi basitleştirin.
+* Test ve hata ayıklama uygulamaları için isteğe bağlı üretim benzeri bir kopya oluşturarak Citrix XenApp/XenDesktop testlerini basitleştirin.
+* Bu çözüm yalnızca Windows Server işletim sistemi sanal masaüstleri için geçerli olup, istemci sanal masaüstlerinin lisanslaması Azure’da henüz desteklenmediğinden istemci sanal masaüstleri için geçerli değildir. 
+Azure’da istemci/sunucu masaüstlerini lisanslama hakkında [daha fazla bilgi edinin](https://azure.microsoft.com/en-us/pricing/licensing-faq/).
+
+Citrix XenApp ve XenDesktop dağıtımlarını koruma hakkında [daha fazla bilgi edinin](https://aka.ms/citrix-xenapp-xendesktop-with-asr).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Önkoşulları denetleme](site-recovery-prereq.md) 

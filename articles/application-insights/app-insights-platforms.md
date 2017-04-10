@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 46e6ab8a9c5d4e6a00d61ee4e5bbfd42307bfc69
-ms.openlocfilehash: 5ec35fb0171a4a62b915579b5a079060132998dd
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 42507475b5d15c4704e6bcb3d56dc00c91006655
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -60,9 +61,10 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 ## <a name="logging-frameworks"></a>Günlük altyapıları
 * [Log4Net, NLog veya System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 * [Java, Log4J veya Logback](app-insights-java-trace-logs.md)
-* [Semantik Günlük (SLAB)](https://github.com/fidmor89/SLAB_AppInsights); [Semantik Günlük Uygulama Bloğu](https://msdn.microsoft.com/library/dn440729.aspx) ile tümleşir
+* [Semantik Günlük (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - [Semantik Günlük Uygulama Bloğu](https://msdn.microsoft.com/library/dn440729.aspx) ile tümleşir
 * [Bulut tabanlı yük testi](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash eklentisi](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
+* [OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## <a name="content-management-systems"></a>İçerik Yönetim Sistemleri
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
@@ -77,11 +79,6 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Akış Analizi](app-insights-export-power-bi.md)
 
-## <a name="a-nameprojectsa-build-your-own-sdk"></a><a name="projects"></a>Kendi SDK’nizi derleme
+## <a name="projects"></a>Kendi SDK’nizi derleme
 Diliniz veya platformunuz için henüz bir SDK yoksa, belki de bir tane derlemenin zamanı gelmiştir değil mi? [GitHub’da Application Insights SDK projesi](https://github.com/Microsoft/AppInsights-Home) altında listelenen mevcut SDK kodlarını gözden geçirin.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

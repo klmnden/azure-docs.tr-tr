@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 24d41c7eb6b5bd34c07d21318740ecf4c6db2d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sql-azure-with-azure-remoteapp"></a>Azure RemoteApp ile SQL Azure
 > [!IMPORTANT]
-> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 > 
 > 
 
@@ -56,10 +57,5 @@ Azure’da ya da şirket içinde barındırılan bir SQL veritabanına bağlanan
 * Cihazınızdan Azure’a olan ağ gecikmesi yüksektir. En iyi performans için mümkün olan en iyi ve en hızlı ağ bağlantısına yaklaşın. Cihazlarınızın Azure veri merkezine olan gecikmesini test etmek için genel araç olarak [azurespeed.com](http://azurespeed.com/)’u kullanın.  
 * Azure RemoteApp’te barındırılan istemci uygulaması gerilim altında. Premium faturalama gibi farklı bir fatura planı seçmek performansı iyileştirir. Başka bir çözüm, uygulamanızın kullandığı kaynakları izlemektir: etkin bir oturum sırasında SAS ekranını başlatacak olan ctrl-alt-end tuşlarına basın, Görev Yöneticisi'ni seçin ve uygulamanız için kaynak kullanımını gözleyin 
 * SQL server gerilim altından veya en iyi hale getirilmemiş. Sorun giderme için SQL yönergelerini izleyin. 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

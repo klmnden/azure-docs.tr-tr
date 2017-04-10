@@ -4,7 +4,7 @@ UltraPerformance ağ geçidi SKU’sunun bu tabloda temsil edilmediğini unutmay
 
 |  | **VPN Gateway performansı (1)** | **VPN Gateway maks. IPsec tüneli (2)** | **ExpressRoute Gateway performansı** | **VPN Gateway ve ExpressRoute bir arada** |
 | --- | --- | --- | --- | --- |
-| **Temel SKU (3)(5)** |100 Mbps |10 |500 Mb/sn |Hayır |
+| **Temel SKU (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |Hayır |
 | **Standart SKU (4)(5)** |100 Mbps |10 |1000 Mb/sn |Evet |
 | **Yüksek Performanslı SKU (4)** |200 Mbps |30 |2000 Mb/sn |Yes |
 
@@ -13,9 +13,4 @@ UltraPerformance ağ geçidi SKU’sunun bu tabloda temsil edilmediğini unutmay
 * (3) BGP, Temel SKU için desteklenmez.
 * (4) PolicyBased VPN'ler bu SKU için desteklenmez. Bunlar yalnızca Temel SKU için desteklenir.
 * (5) Etkin-etkin S2S VPN Gateway bağlantıları bu SKU için desteklenmiyor. Etkin-etkin, yalnızca Yüksek Performanslı SKU üzerinde desteklenir.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+* (6) Temel SKU, Expressroute ile birlikte kullanımdan kaldırılmıştır.

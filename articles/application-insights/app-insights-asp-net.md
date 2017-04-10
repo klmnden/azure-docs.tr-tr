@@ -1,5 +1,5 @@
 ---
-title: "Azure Application Insights ile ASP.NET Web uygulaması analizi ayarlama | Microsoft Belgeleri"
+title: "Azure Application Insights ile ASP.NET Web uygulaması analizi ayarlama | Microsoft Docs"
 description: "Şirket içi veya Azure’de barındırılan ASP.NET web siteniz için performans, kullanılabilirlik ve kullanım analizi yapılandırın."
 services: application-insights
 documentationcenter: .net
@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bcd8b3b7fb44a28d7184d14969eb998ce07c8e53
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -83,9 +83,10 @@ Application Insights kaynağınızı açın. [Azure portalında](https://portal.
 ![Visual Studio’da Application Insights portalının nasıl açılacağını gösteren ekran görüntüsü](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
 > [!NOTE]
-> Erişim hatası alırsanız birden çok Microsoft kimlik bilgileri kümeniz olabilir ve yanlış kümeyle oturum açmış olabilirsiniz. Portalda oturumunuzu kapatıp yeniden oturum açın.
+> Bir erişim hatası alırsanız: Birden çok Microsoft kimlik bilgisi kümeniz mi var ve yanlış küme ile mi oturum açtınız? Portalda oturumunuzu kapatıp yeniden oturum açın.
 
 Portal, uygulamanızdan alınan telemetri görünümünde açılır.
+
 ![Application Insights’a genel bakış sayfasının ekran görüntüsü](./media/app-insights-asp-net/66.png)
 
 Daha fazla ayrıntı görmek istediğiniz kutucuğa veya grafiğe tıklayın.

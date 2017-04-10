@@ -1,5 +1,5 @@
 ---
-title: "Windows hizmetleri ve çalışan rolleri için Azure Application Insights | Microsoft Belgeleri"
+title: "Windows sunucu ve çalışan rolleri için Azure Application Insights | Microsoft Docs"
 description: "Kullanım, kullanılabilirlik ve performansı analiz etmek için Application Insights SDK’sını ASP.NET uygulamanıza el ile ekleyin."
 services: application-insights
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 97d750035e79d4780738e660d05e1a41085d51f1
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="manually-configure-application-insights-for-aspnet-4-applications"></a>ASP.NET 4 uygulamaları için Application Insights’ı el ile yapılandırma
-[Application Insights](app-insights-overview.md), web geliştiricilerinin canlı uygulamanızın performansını ve kullanımını izlemesine yönelik genişletilebilir bir araçtır. Bu aracı Windows hizmetleri, çalışan rolleri ve diğer ASP.NET uygulamalarını izlemek üzere el ile yapılandırabilirsiniz. Web uygulamaları için el il yapılandırma, Visual Studio’nun sunduğu [otomatik ayarın](app-insights-asp-net.md) bir alternatifidir.
+# <a name="manually-configure-application-insights-for-aspnet-applications"></a>ASP.NET uygulamaları için Application Insights’ı el ile yapılandırma
+[Application Insights](app-insights-overview.md), web geliştiricilerinin canlı uygulamanızın performansını ve kullanımını izlemesine yönelik genişletilebilir bir araçtır. Bu aracı Windows sunucu, çalışan rolleri ve diğer ASP.NET uygulamalarını izlemek üzere el ile yapılandırabilirsiniz. Web uygulamaları için el il yapılandırma, Visual Studio’nun sunduğu [otomatik ayarın](app-insights-asp-net.md) bir alternatifidir.
 
 ![Örnek performans izleme grafikleri](./media/app-insights-windows-services/10-perf.png)
 
@@ -47,13 +47,13 @@ Kaynağı tanımlayan bu anahtarı kısa bir süre sonra verileri kaynağa yönl
 
 Yeni bir kaynak oluşturmak üzere az önce uyguladığınız adımlar herhangi bir uygulamada izlemeyi başlatmanın iyi bir yoludur. Şimdi uygulamaya veri gönderebilirsiniz.
 
-## <a name="sdk"></a>2. Uygulamanıza SDK yükleme
-Application Insights SDK'sının yüklenmesi ve yapılandırılması üzerinde çalıştığınız platforma bağlı olarak değişir. ASP.NET uygulamaları için kolaydır.
+## <a name="sdk"></a>2. Uygulamanıza Application Insights paketi yükleme
+Application Insights paketinin yüklenmesi ve yapılandırılması, üzerinde çalıştığınız platforma bağlı olarak değişir. ASP.NET uygulamaları için kolaydır.
 
 1. Visual Studio'da web uygulaması projenizin NuGet paketlerini düzenleyin.
    
     ![Projeye sağ tıklayın ve Nuget Paketlerini Yönet’i seçin](./media/app-insights-windows-services/03-nuget.png)
-2. Web Apps için Application Insights SDK’sı yükleme
+2. Windows sunucu uygulamaları için Application Insights paketini yükleyin.
    
     !["Application Insights" araması yapın](./media/app-insights-windows-services/04-ai-nuget.png)
    
@@ -61,10 +61,10 @@ Application Insights SDK'sının yüklenmesi ve yapılandırılması üzerinde �
    
     Evet. API’yi yalnızca kendi telemetrinizi göndermek için kullanmak istiyorsanız Çekirdek API’yi (Microsoft.ApplicationInsights) seçin. Windows Server paketi Çekirdek API’nin yanı sıra performans sayacı koleksiyonu ve bağımlılık izlemesi gibi birkaç paketi daha otomatik olarak içerir. 
 
-#### <a name="to-upgrade-to-future-sdk-versions"></a>Gelecekteki SDK sürümlerine yükseltmek için
+#### <a name="to-upgrade-to-future-package-versions"></a>Gelecekteki paket sürümlerine yükseltmek için
 SDK’nın yeni sürümü zaman zaman yayınlanmaktadır.
 
-[SDK'nın yeni sürümüne](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/) yükseltme yapmak için NuGet paket yöneticisini yeniden açın ve yüklü paketleri filtreleyin. **Microsoft.ApplicationInsights.Web** ve **Yükselt** öğelerini seçin.
+[Paketin yeni sürümüne](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/) yükseltme yapmak için NuGet paket yöneticisini yeniden açın ve yüklü paketleri filtreleyin. **Microsoft.ApplicationInsights.WindowsServer** ve **Yükselt**’i seçin.
 
 ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız yükseltmeden önce bir kopyasını kaydedin ve daha sonra değişikliklerinizi yeni sürümle birleştirin.
 

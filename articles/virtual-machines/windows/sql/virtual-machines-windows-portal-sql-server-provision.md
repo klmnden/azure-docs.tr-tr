@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -97,14 +97,17 @@ Bir SQL Server sanal makineyi yapılandırmak için beş dikey pencere vardır.
     ![SQL Temel Bilgileri Dikey Penceresi](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Sanal makine boyutunu seçme
-**Boyut** adımında, **Boyutu seç** dikey penceresinde bir sanal makine boyutunu seçin. Dikey pencere ilk başta seçtiğiniz görüntüye göre önerilen makine boyutlarını görüntüler. Ayrıca VM’yi çalıştırmak için aylık maliyeti de hesaplar.
+**Boyut** adımında, **Boyutu seç** dikey penceresinde bir sanal makine boyutunu seçin. Dikey pencere ilk başta seçtiğiniz görüntüye göre önerilen makine boyutlarını görüntüler.
+
+> [!IMPORTANT]
+> **Boyut seçin** dikey penceresinde gösterilen tahmini aylık maliyet, SQL Server lisans maliyetlerini içermez. Bu maliyet tek başına VM içindir. SQL Server Express ve Developer sürümleri için bu maliyet, tahmin edilen toplam maliyettir. Diğer sürümler için [Windows Sanal Makineler fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) bakın ve hedef SQL Server sürümünüzü seçin. 
 
 ![SQL VM Boyut Seçenekleri](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
 Üretim iş yükleri için, [Premium Storage](../../../storage/storage-premium-storage.md)’ı destekleyen bir sanal makine boyutu seçilmesini öneriyoruz. Bu düzeyde performans gerekli değilse, tüm makine boyutu seçeneklerini gösteren **Tümünü görüntüle** düğmesini kullanın. Örneğin, geliştirme veya test ortamı için daha küçük bir makine boyutu kullanabilirsiniz.
 
 > [!NOTE]
-> Sanal makine boyutları hakkında daha fazla bilgi için bkz. [Sanal makineler için boyutlar](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). SQL Server VM boyutları hakkında dikkat edilecek noktalar için bkz. [Azure Virtual Machines’de SQL Server için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md).
+> Sanal makine boyutları hakkında daha fazla bilgi için bkz. [Sanal makineler için boyutlar](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). SQL Server VM boyutları hakkında dikkat edilecek noktalar için bkz. [Azure Virtual Machines’de SQL Server için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md).
 > 
 > 
 
@@ -124,7 +127,7 @@ Makine boyutunuzu seçin ve ardından **Seç**’e tıklayın.
 * **Ağ** altında, otomatik olarak doldurulan değerleri kabul edebilirsiniz. <seg>
   **Sanal ağ**, **Alt ağ**, **Genel IP adresi** ve **Ağ Güvenlik Grubu**’nu el ile yapılandırmak için her bir özelliğe de tıklayabilirsiniz..</seg> Bu öğreticinin amaçları doğrultusunda, varsayılan değerleri koruyun.
 * Azure varsayılan olarak, VM için belirlenen aynı depolama hesabıyla **İzleme**’yi etkinleştirir. Burada bu ayarları değiştirebilirsiniz.
-* **Kullanılabilirlik kümesi** altında, bir kullanılabilirlik kümesi belirtin. Bu öğreticinin amaçları doğrultusunda, **yok**u seçebilirsiniz. SQL AlwaysOn Kullanılabilirlik Grupları kurulumunu planlıyorsanız, sanal makinenin yeniden oluşturulmasını önlemek için kullanılabilirliği yapılandırın.  Daha fazla bilgi için bkz. [Sanal Makinelerin Kullanılabilirliğini Yönetme](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* **Kullanılabilirlik kümesi** altında, bir kullanılabilirlik kümesi belirtin. Bu öğreticinin amaçları doğrultusunda, **yok**u seçebilirsiniz. SQL AlwaysOn Kullanılabilirlik Grupları kurulumunu planlıyorsanız, sanal makinenin yeniden oluşturulmasını önlemek için kullanılabilirliği yapılandırın.  Daha fazla bilgi için bkz. [Sanal Makinelerin Kullanılabilirliğini Yönetme](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Yapılandırma ayarlarını tamamladığınızda, **Tamam**’a tıklayın.
 
