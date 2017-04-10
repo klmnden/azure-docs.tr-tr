@@ -14,14 +14,15 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 300ee477a00cdd463a2abf87dd73550777fd9e05
-ms.openlocfilehash: 941cc40c3c1979609649eda42e4b39aa383c3fd2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a6d4fbdf0e552f50673092183e893841ec0c5aa4
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-microsoft-outlook-in-azure-remoteapp"></a>Azure RemoteApp’te Microsoft Outlook kullanma
 > [!IMPORTANT]
-> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 > 
 > 
 
@@ -35,11 +36,6 @@ Kullanıcı, hesap kurulumu sırasında veya hesap ayarlarını değiştirerek *
 [Adım adım önbelleğe alınmış modu etkinleştirme yönergeleri](https://technet.microsoft.com/library/c6f4cad9-c918-420e-bab3-8b49e1885034#proc)ni okuyun.
 
 ## <a name="search"></a>Arama
-Azure RemoteApp’te Outlook arama özelliğini kullanmanın sınırlamaları vardır. Azure RemoteApp kullanıcı oturumlarını yerleştirmek için havuza alınmış sanal makineler kullanır. Arama dizini oluşturma, farklı sanal makineler için farklı olan makine kimliğine bağlıdır. Bir kullanıcının Azure RemoteApp’te oturum açtığı her sefer yeni bir sanal makineye yönlendirilmesi mümkündür. Bu, yerel aramayı etkinleştirdiğimizde, makine kimliği her değiştiğinde dizin oluşturucunun çalışacağı anlamına gelir (kullanıcı farklı sanal makinedeyken).  .OST dosyasının boyutuna bağlı olarak, dizin oluşturucunun diğer uygulamalar için gereken kaynakları tamamlaması ve kullanması uzun sürebilir. Arama yavaş olacağı gibi sonuç da vermeyebilir. Çevrimiçi Mod hesap profilinin kullanılması bunu çözebilir, ancak yerel bir önbelleğin olmaması nedeniyle genel performans etkilenebilir (önbelleğe alınan mod ile çevrimiçi mod arasındaki fark hakkında daha fazla bilgi için yukarıdaki bağlantıya bakın). Ne yazık ki, Outlook 2013’te dizinli/yerel arama devre dışı bırakılamaz ve çevrimiçi arama varsayılan olarak etkinleştirilmez.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
+Azure RemoteApp’te Outlook arama özelliğini kullanmanın sınırlamaları vardır. Azure RemoteApp kullanıcı oturumlarını yerleştirmek için havuza alınmış sanal makineler kullanır. Arama dizini oluşturma, farklı sanal makineler için farklı olan makine kimliğine bağlıdır. Bir kullanıcının Azure RemoteApp’te oturum açtığı her sefer yeni bir sanal makineye yönlendirilmesi mümkündür. Bu, yerel aramayı etkinleştirdiğimizde, makine kimliği her değiştiğinde dizin oluşturucunun çalışacağı anlamına gelir (kullanıcı farklı sanal makinedeyken). .OST dosyasının boyutuna bağlı olarak, dizin oluşturucunun diğer uygulamalar için gereken kaynakları tamamlaması ve kullanması uzun sürebilir. Arama yavaş olacağı gibi sonuç da vermeyebilir. Çevrimiçi Mod hesap profilinin kullanılması bunu çözebilir, ancak yerel bir önbelleğin olmaması nedeniyle genel performans etkilenebilir (önbelleğe alınan mod ile çevrimiçi mod arasındaki fark hakkında daha fazla bilgi için yukarıdaki bağlantıya bakın). Ne yazık ki, Outlook 2013’te dizinli/yerel arama devre dışı bırakılamaz ve çevrimiçi arama varsayılan olarak etkinleştirilmez.
 
 

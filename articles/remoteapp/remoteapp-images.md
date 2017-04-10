@@ -14,14 +14,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: 21ae6458d1d65698c0c8fc7081696cb7406a918c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 348306795fd3c8275b21e4ec6dceae408916bf72
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-is-in-the-azure-remoteapp-template-images"></a>Azure RemoteApp şablon görüntülerinde neler var?
 > [!IMPORTANT]
-> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 > 
 > 
 
@@ -111,10 +112,5 @@ Bu görüntü, temel alınan görüntünün bir uzantısıdır ve Windows Server
 > **Yasal bilgiler:** Bu görüntü bir Microsoft Office lisansı içermez ve *üretim için kullanılamaz*. Office 2013 Professional Plus görüntüsü yalnızca deneme kullanımı için tasarlanmıştır. Office uygulamalarını Azure RemoteApp içinde üretim için kullanmak istiyorsanız, Office 365 ProPlus görüntüsünü kullanmanız gerekir. Office’i lisanslama hakkında daha fazla bilgi için bkz. [Azure RemoteApp ile Office 365’i kullanma](remoteapp-o365.md)
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

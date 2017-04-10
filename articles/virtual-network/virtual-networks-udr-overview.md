@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
-ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -57,7 +57,7 @@ Paketler, fiziksel ağdaki her düğümde tanımlanan bir yol tablosu temel alı
 | --- | --- | --- | --- |
 | Adres Ön Eki |Yolun uygulandığı hedef CIDR'si, ör. 10.1.0.0/16. |Genel İnternet, Azure sanal ağı veya şirket içi veri merkezi üzerindeki adresleri temsil eden geçerli bir CIDR aralığı olmalıdır. |**Adres ön ekinin** **Nexthop adresini** içermediğinden emin olun, aksi halde kaynaktan bir sonraki atlamaya giden paketleriniz hedefe hiç varmadan bir döngüye girer. |
 | Sonraki atlama türü |Paketin gönderilmesi gereken Azure atlama türü. |Aşağıdaki değerlerden biri olmalıdır: <br/> **Sanal Ağ**. Yerel sanal ağı temsil eder. Örneğin, aynı sanal ağ içinde 10.1.0.0/16 ve 10.2.0.0/16 şeklinde iki alt ağınız varsa yol tablosundaki her alt ağ yolunun bir sonraki atlama değeri *Sanal Ağ* olur. <br/> **Sanal Ağ Geçidi**. Azure S2S VPN Gateway'i temsil eder. <br/> **İnternet**. Azure Altyapısı tarafından sağlanan varsayılan İnternet ağ geçidini temsil eder. <br/> **Sanal Gereç**. Azure sanal ağınıza eklediğiniz sanal gereci temsil eder. <br/> **None**. Bir kara deliği temsil eder. Bir kara deliğe iletilen paketler aktarılmaz. |Trafiği bir VM veya Azure Load Balancer iç IP adresine yönlendirmek için **Sanal Gereç** kullanabilirsiniz.  Bu tür, aşağıda belirtilen şekilde bir IP adresinin belirtilmesini sağlar. Paketlerin belirli bir hedefe akmasını durdurmak için bir **None** türünü kullanmayı değerlendirin. |
-| Sonraki atlama adresi |Sonraki atlama adresi, paketlerin iletilmesi gereken IP adresini içerir. Yalnızca sonraki atlama türünün *Sanal Gereç* olduğu yollarda sonraki atlama değerlerine izin verilir. |Kullanıcı Tanımlı Yolun uygulandığı Sanal Ağ içerisinde erişilebilir bir IP adresi olmalıdır. |IP adresi bir VM'yi temsil ediyorsa Azure'da VM için [IP iletimini](#IP-forwarding) etkinleştirdiğinizden emin olun. IP adresi, Azure Load Balancer'ın iç IP adresini temsil ediyorsa, yük dengeleme yapmak istediğiniz her bağlantı noktasına karşılık gelen bir yük dengeleme kuralına sahip olduğunuzdan emin olun.|
+| Sonraki atlama adresi |Sonraki atlama adresi, paketlerin iletilmesi gereken IP adresini içerir. Yalnızca sonraki atlama türünün *Sanal Gereç* olduğu yollarda sonraki atlama değerlerine izin verilir. |Bir **Sanal Ağ Geçidi**’nden geçmeden Kullanıcı Tanımlı Yolun uygulandığı Sanal Ağ içerisinde erişilebilir bir IP adresi olmalıdır. IP adresi, uygulandığı Sanal Ağ üzerinde veya eşlenmiş bir Sanal Ağ üzerinde olmalıdır. |IP adresi bir VM'yi temsil ediyorsa Azure'da VM için [IP iletimini](#IP-forwarding) etkinleştirdiğinizden emin olun. IP adresi, Azure Load Balancer'ın iç IP adresini temsil ediyorsa, yük dengeleme yapmak istediğiniz her bağlantı noktasına karşılık gelen bir yük dengeleme kuralına sahip olduğunuzdan emin olun.|
 
 Azure PowerShell’de "NextHopType" değerlerinin bazıları farklı adlara sahiptir:
 

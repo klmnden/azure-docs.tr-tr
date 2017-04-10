@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,30 +34,31 @@ Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policie
 
 **Kaynak güvenlik durumu** kutucuğunda kaynaklarınızın güvenlik durumunu izleyebilirsiniz. Aşağıdaki örnekte, yüksek ve orta önem derecesine sahip olan ve dikkat gerektiren birkaç sorun görebilirsiniz. Etkinleştirilmiş güvenlik ilkeleri, izlenen denetim türlerini etkiler.
 
-![Kaynaklar güvenlik durumu kutucuğu](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
+![Kaynaklar güvenlik durumu kutucuğu](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
 
 Güvenlik Merkezi, ilgilenilmesi gereken bir güvenlik açığı (eksik güvenlik güncelleştirmelerine sahip bir sanal makine veya [ağ güvenlik grubu](/virtual-network/virtual-networks-nsg.md) olmayan bir alt ağ gibi) tanımlarsa bu güvenlik açığı burada listelenir.
 
-### <a name="monitor-virtual-machines"></a>Sanal makineleri izleme
-**Kaynakların güvenlik durumu** kutucuğunda **Sanal makineler**’e tıkladığınızda, açılan **Sanal makineler** dikey penceresi, aşağıdaki ekran görüntüsünde gösterildiği gibi ekleme ve önleme adımları hakkında daha fazla ayrıntı ve Güvenlik Merkezi’nin izlediği tüm sanal makinelerin bir listesini sağlar.
+### <a name="monitor-compute"></a>İzleyici işlemi
+**Kaynak güvenlik durumu** kutucuğundaki **İşlem**’e tıkladığınızda açılan **İşlem** dikey penceresi üç sekme gösterir:
 
-![Sanal makine tarafından eksik sistem güncelleştirmesi](./media/security-center-monitoring/security-center-monitoring-fig2-ga.png)
+- **Genel Bakış**: izleme ve sanal makine önerileri.
+- **Sanal Makineler**: tüm sanal makineleri ve geçerli güvenlik durumunu listeler.
+- **Cloud Services**: Güvenlik Merkezi tarafından izlenen tüm web ve çalışan rollerinin listesi.
 
-* Ekleme adımları
-* Sanal makine önerileri
-* Sanal makineler
+![Sanal makine tarafından eksik sistem güncelleştirmesi](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
 
-Her bölümde, sorunu çözmek üzere önerilen adımlarla ilgili daha fazla ayrıntı görmek için ayrı ayrı seçenekler belirleyebilirsiniz. Aşağıdaki bölümlerde, bu alanlar daha ayrıntılı açıklanmaktadır.
+Her sekmede birden fazla bölüm olabilir ve her bölümde, sorunu çözmek üzere önerilen adımlarla ilgili daha fazla ayrıntı görmek için ayrı ayrı seçenekler belirleyebilirsiniz. 
 
 #### <a name="monitoring-recommendations"></a>İzleme önerileri
-Bu bölüm, veri toplama ve bunların geçerli durumu için başlatılan sanal makinelerin toplam sayısını gösterir. Tüm sanal makinelerde veri toplama başlatıldıktan sonra, sanal makineler Güvenlik Merkezi güvenlik ilkelerini almaya hazır olurlar. Bu girdiye tıkladığınızda, **Veri toplama yükleme durumu** dikey penceresi açılır ve aşağıdaki ekran görüntüsünde gösterildiği gibi **YÜKLEME DURUMU** sütununda sanal makinelerin adlarını ve veri toplamanın geçerli durumunu görebilirsiniz.
+Bu bölüm, veri toplama ve bunların geçerli durumu için başlatılan sanal makinelerin toplam sayısını gösterir. Tüm sanal makinelerde veri toplama başlatıldıktan sonra, sanal makineler Güvenlik Merkezi güvenlik ilkelerini almaya hazır olurlar. Bu girişe tıkladığınızda, **VM Aracısı eksik veya yanıt vermiyor** dikey penceresi açılır. 
 
-![Sanal makinelerin başlatma durumu](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
+![Sanal makine tarafından eksik sistem güncelleştirmesi](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+
 
 #### <a name="virtual-machine-recommendations"></a>Sanal makine önerileri
 Bu bölümde, Azure Güvenlik Merkezi’nin izlediği [her bir sanal makine için bir öneri](security-center-virtual-machine-recommendations.md) kümesi bulunur. İlk sütunda öneriler listelenmiştir. İkinci sütunda, bu önerinin etkilediği sanal makinelerin toplam sayısı gösterilmiştir. Üçüncü sütunda, aşağıdaki ekran görüntüsünde gösterildiği gibi sorunun önem derecesi belirtilmiştir.
 
-![Sanal makine önerileri](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
+![Sanal makine önerileri](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
 
 > [!NOTE]
 > **Ağ topolojisi listesinin** **Ağ Durumu** dikey penceresinde yalnızca en az bir genel uç nokta içeren sanal makineler gösterilir.
@@ -93,7 +95,7 @@ Her öneride, tıkladıktan sonra gerçekleştirebileceğiniz bir eylemler küme
 #### <a name="virtual-machines-section"></a>Sanal makineler bölümü
 Sanal makineler bölümü, tüm sanal makineler ve öneriler için bir genel bakış sağlar. Her sütun, aşağıdaki ekran görüntüsünde gösterildiği gibi bir dizi öneriyi temsil eder:
 
-![Tüm sanal makinelere ve önerilere genel bakış](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
+![Tüm sanal makinelere ve önerilere genel bakış](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
 
 Her önerinin altında görüntülenen simge, ilgilenilmesi gereken sanal makineleri ve önerinin türünü hızla tanımlamanıza yardımcı olur.
 
@@ -103,12 +105,12 @@ Her önerinin altında görüntülenen simge, ilgilenilmesi gereken sanal makine
 
 Bu dikey pencere, sanal makine için güvenlik ayrıntılarını içerir. Bu dikey pencerenin en altında, önerilen eylemi ve sorunların önem derecesini görebilirsiniz.
 
-#### <a name="cloud-services-preview-section"></a>Bulut hizmetleri (Önizleme) bölümü
-Bulut hizmetlerinin sistem durumu, sanal makinenin **Güvenlik Durumu** kutucuğuna dahil edilir. İşletim sistemi sürümü güncel olmadığında aşağıdaki ekran görüntüsünde gösterildiği gibi bir öneri oluşturulur:
+#### <a name="cloud-services-section"></a>Bulut hizmetleri bölümü
+Bulut hizmetleri için işletim sistemi sürümü güncel olmadığında aşağıdaki ekran görüntüsünde gösterildiği gibi bir öneri oluşturulur:
 
-![Bulut hizmetlerinin sistem durumu](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+![Bulut hizmetlerinin sistem durumu](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-İşletim sistemi sürümünü güncelleştirmek için önerideki adımları uygulamanız gerekir. Örneğin, WebRole1 (web uygulamanızı IIS’e otomatik olarak dağıtarak Windows Server çalıştırır) veya WorkerRole1 (web uygulamanızı IIS’e otomatik olarak dağıtarak Windows Server çalıştırır) satırlarında kırmızı uyarıya tıklarsanız aşağıdaki ekran görüntüsünde gösterildiği gibi bu öneriye ilişkin daha fazla ayrıntı içeren yeni bir dikey pencere açılır:
+Öneri gördüğünüz bir senaryoda (önceki örnek için geçerli bir durum değildir), işletim sistemi sürümünü güncelleştirmek için önerideki adımları izlemeniz gerekir. Bir güncelleştirme mevcut olduğunda uyarı alırsınız (sorunun önem derecesine bağlı olarak kırmızı veya turuncu). WebRole1 (web uygulamanızı IIS’e otomatik olarak dağıtarak Windows Server çalıştırır) veya WorkerRole1 (web uygulamanızı IIS’e otomatik olarak dağıtarak Windows Server çalıştırır) satırlarında bu uyarıya tıkladığınızda aşağıdaki ekran görüntüsünde gösterildiği gibi bu öneriye ilişkin daha fazla ayrıntı içeren yeni bir dikey pencere açılır:
 
 ![Bulut hizmeti ayrıntıları](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
@@ -214,9 +216,4 @@ Bu makalede, Azure Güvenlik Merkezi'nde izleme işlevlerini nasıl kullanacağ�
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md): İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md): Hizmet kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/): Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

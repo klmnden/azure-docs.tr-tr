@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 55cc1559189a37741d866d86241426fb73f72e4f
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,7 +34,7 @@ Event Hubs olay ve telemetri işleme özellikler onu özellikle aşağıdaki dur
 Event Hubs ayrıca mobil uygulamalarda davranış işleme, web gruplarından trafik bilgileri, konsol oyunlarında oyun içi olay yakalama veya sanayi makinelerinden ya da bağlı taşıtlardan telemetri verileri toplamayı sağlar.
 
 ## <a name="azure-event-hubs-overview"></a>Azure Event Hubs’a genel bakış
-Event Hubs’ın çözüm mimarilerinde oynadığı genel rol, bir olay ardışık düzeni için "ön kapı" olarak görev yapmalarıdır ve çoğunlukla *olay alıcı* olarak adlandırılırlar. Olay yutucu, bir olay akışının üretimini ilgili olayların kullanılmasına ayıran, olay yayımcıları ile olay tüketicileri arasında duran bir bileşen veya hizmettir.
+Event Hubs’ın çözüm mimarilerinde oynadığı genel rol, bir olay ardışık düzeni için "ön kapı" olarak görev yapmalarıdır ve çoğunlukla *olay alıcı* olarak adlandırılırlar. Olay yutucu, bir olay akışının üretimini ilgili olayların kullanılmasına ayıran, olay yayımcıları ile olay tüketicileri arasında duran bir bileşen veya hizmettir. Aşağıdaki şekilde bu mimari gösterilir:
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
@@ -104,6 +104,8 @@ Tüketici grubu URI kuralının örnekleri aşağıda verilmiştir:
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
 ```
+
+Aşağıdaki şekilde Event Hubs akış işleme mimarisi gösterilmektedir:
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
 

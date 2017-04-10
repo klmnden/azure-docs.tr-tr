@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 12/09/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 8da480acc04922a3636821c5303f6380236c5ea3
-ms.openlocfilehash: 1bff76371ea1ca3ee68c9f04ea24a42f95bb7da7
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 45ff2ff08cb36f9a4bf49ff04de149accf157e0e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -27,7 +28,7 @@ Bir hizmet olarak kimlik yönetimi (IDMaaS) platformu olan Azure Active Director
 1. [Azure AD tümleştirmesinin avantajları](active-directory-how-to-integrate.md): Güvenli oturum açma ve kimlik doğrulama için en iyi çözümü neden Azure AD ile tümleştirmenin sunduğunu keşfedin.
 2. [Azure AD kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md): Uygulamanıza oturum açma bağlantısı sağlamak için Azure AD'deki basitleştirilmiş kimlik doğrulama özelliğinden yararlanın.
 3. [Uygulamaları Azure AD ile tümleştirme](active-directory-integrating-applications.md): Azure AD'de uygulamaları nasıl ekleyeceğinizi, güncelleştireceğinizi ve kaldıracağınızı öğrenin ve tümleşik uygulamalar için markalama talimatları hakkında bilgi alın.
-4. [Azure AD Grafik API'si](active-directory-graph-api.md): Azure AD'ye REST API uç noktaları yoluyla program aracılığıyla erişmek için Azure AD Grafik API'sini kullanın. Azure AD Grafik API'sine [Microsoft Graph](https://graph.microsoft.io/) üzerinden de erişilebilir. Microsoft Graph, tek bir REST API uç noktası ve tek bir erişim belirteci ile birden çok Microsoft bulut hizmeti API'sine erişim sağlayan bir birleşik API sunar.
+4. [Microsoft Graph](https://graph.microsoft.io/) ve [Azure AD Grafik API'si](active-directory-graph-api.md): Azure AD'ye REST API uç noktaları yoluyla programlı olarak erişin. **Azure Active Directory kaynaklarına erişmek için Azure AD Grafik API'si yerine Microsoft Graph kullanmanız önemle tavsiye edilir.** Geliştirme çalışmalarımız şu anda Microsoft Graph üzerine yoğunlaşmıştır ve Azure AD Grafik API'si için başka bir geliştirme planlanmamaktadır. Azure AD Grafik API'sinin hala uygun olabileceği senaryo sayısı çok sınırlıdır; daha fazla bilgi için Office Geliştirici Merkezi’ndeki [Microsoft Graph veya Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog gönderisine bakın.
 5. [Azure AD kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md): .NET, JavaScript, Objective-C, Android ve daha fazlası için Azure AD kimlik doğrulama kitaplıklarını kullanın ve erişim belirteçleri alacak kullanıcıların kimliklerini kolaylıkla doğrulayın.
 
 ## <a name="getting-started"></a>Başlarken
@@ -56,10 +57,10 @@ Bu öğreticiler birden çok platform için uyarlanabilir ve Azure Active Direct
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
 
-### <a name="querying-the-directory-quickstart-guide"></a>Dizini sorgulama hızlı başlangıç kılavuzu
-| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
-|:---:|
-| [Grafik API'si](active-directory-graph-api-quickstart.md) |
+### <a name="microsoft-graph-and-azure-ad-graph-api-quick-start-guides"></a>Microsoft Graph ve Azure AD Grafik API'si hızlı başlangıç kılavuzları
+| [![Microsoft Graph](./media/active-directory-developers-guide/msgraph.png)](https://developer.microsoft.com/graph/quick-start) | [![Azure AD Grafik API'si](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
+|:---:|:---:|
+| [Microsoft Graph](https://developer.microsoft.com/graph/quick-start) | [Azure AD Grafik API'si](active-directory-graph-api-quickstart.md) |
 
 ## <a name="how-tos"></a>Nasıl yapılır makaleleri
 Bu makalelerde Azure Active Directory kullanılarak belirli görevlerin nasıl gerçekleştirileceği açıklanmaktadır:
@@ -90,9 +91,13 @@ Bu makaleler REST ve kimlik doğrulama kitaplığı API'leri, protokolleri, hata
 * [Azure Active Directory örnekleri](https://github.com/azure-samples?query=active-directory): Örnekler listesinde gezinmenin en kolay yolu [kod örnekleri dizinini](active-directory-code-samples.md) kullanmaktır.
 * [.NET için Active Directory Kimlik Doğrulama Kitaplığı (ADAL)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) - Hem [en son ana sürüm](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory) hem de [önceki ana sürüm](https://docs.microsoft.com/active-directory/adal/v2/microsoft.identitymodel.clients.activedirectory) için başvuru belgeleri bulunur.
 
-### <a name="graph-api"></a>Graph API
-* [Graph API başvurusu](https://msdn.microsoft.com/library/azure/hh974476.aspx): Azure Active Directory Graph API için REST başvurusu. [Etkileşimli Graph API başvurusu deneyimini görüntüleyin](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-* [Graph API izin kapsamları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): Bir kiracıdaki dizin verilerine bir uygulamanın sahip olduğu erişimi kontrol etmek için kullanılan OAuth 2.0 izin kapsamları.
+### <a name="microsoft-graph-and-azure-ad-graph-api"></a>Microsoft Graph ve Azure AD Grafik API'si
+> [!IMPORTANT]
+> Azure Active Directory kaynaklarına erişmek için Azure AD Grafik API'si yerine [Microsoft Graph](https://graph.microsoft.io/) kullanmanız önemle tavsiye edilir. Geliştirme çalışmalarımız şu anda Microsoft Graph üzerine yoğunlaşmıştır ve Azure AD Grafik API'si için başka bir geliştirme planlanmamaktadır. Azure AD Grafik API'sinin hala uygun olabileceği senaryo sayısı çok sınırlıdır; daha fazla bilgi için Office Geliştirici Merkezi’ndeki [Microsoft Graph veya Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog gönderisine bakın.
+> 
+* [Microsoft Graph](https://graph.microsoft.io/): Microsoft Graph için belgeler, başvuru, örnekler ve SDK’lar. 
+* [Azure AD Graph API başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog): Azure Active Directory Grafik API'si için REST başvurusu. 
+* [Azure AD Grafik API'si izin kapsamları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): Bir kiracıdaki dizin verilerine bir uygulamanın sahip olduğu erişimi kontrol etmek için kullanılan OAuth 2.0 izin kapsamları.
 
 ### <a name="authentication-and-authorization-protocols"></a>Kimlik doğrulama ve yetkilendirme protokolleri
 * [Azure AD’de İmzalama Anahtar Geçişi](active-directory-signing-key-rollover.md): Azure AD’nin imzalama anahtar geçişi uyumu ve anahtarın en yaygın uygulama senaryoları için nasıl güncelleştirileceği hakkında bilgi edinin.
@@ -131,9 +136,4 @@ Windows Server kullanımı ve Active Directory Federasyon Hizmetleri (AD FS) gel
 
 * [Geliştiriciler için AD FS Senaryoları](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): Desteklenen kimlik doğrulaması/yetkilendirme senaryolarıyla ilgili ayrıntıların yanı sıra AD FS bileşenleri ve bunların çalışma şekillerine ilişkin genel bir bakış sağlar.
 * [AD FS için izlenecek yollar](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): ilgili kimlik doğrulaması/yetkilendirme akışlarının uygulanması konusunda adım adım yönergeler sağlayan izlenecek yol makalelerinin listesi.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 106b9e8b5fd3461655527004fa7a65bbab9b3182
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: c3c30e51b81886ebc875df7c815a17dfa633a5f8
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +28,7 @@ Bu makale SQL Veri Ambarı’na ilk kez bağlanmanıza yardımcı olur.
 ## <a name="find-your-server-name"></a>Sunucu adınızı bulma
 SQL Veri Ambarına bağlanmanın ilk adımı, sunucunuzun adını bulmayı bilmektir.  Örneğin, aşağıdaki örnekte sunucu adı sample.database.windows.net şeklindedir. Tam sunucu adını bulmak için:
 
-1. [Azure portal][Azure portal] gidin.
+1. [Azure Portalı][Azure portal]’na gidin.
 2. **SQL veritabanları**’na tıklayın 
 3. Bağlanmak istediğiniz veritabanına tıklayın.
 4. Tam sunucu adını bulun.
@@ -34,7 +36,7 @@ SQL Veri Ambarına bağlanmanın ilk adımı, sunucunuzun adını bulmayı bilme
     ![Tam sunucu adı][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Desteklenen sürücüler ve bağlantı dizeleri
-Azure SQL Veri Ambarı [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] ve [JDBC][JDBC]’yi destekler. En son sürümü ve belgeleri bulmak için yukarıdaki sürücülerden birine tıklayın. Azure portalından kullandığınız sürücünün bağlantı dizesini otomatik olarak oluşturmak için önceki örnekte bulunan **Veritabanı bağlantı dizelerini göster**’e tıklayabilirsiniz.  Aşağıda ayrıca her sürücü için bir bağlantı dizesinin nasıl göründüğü ile ilgili bazı örnekler verilmiştir.
+Azure SQL Veri Ambarı; [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] ve [JDBC][JDBC]’yi destekler. En son sürümü ve belgeleri bulmak için yukarıdaki sürücülerden birine tıklayın. Azure portalından kullandığınız sürücünün bağlantı dizesini otomatik olarak oluşturmak için önceki örnekte bulunan **Veritabanı bağlantı dizelerini göster**’e tıklayabilirsiniz.  Aşağıda ayrıca her sürücü için bir bağlantı dizesinin nasıl göründüğü ile ilgili bazı örnekler verilmiştir.
 
 > [!NOTE]
 > Bağlantınızın kısa süreli kesintiler sırasında devam etmesi için bağlantı zaman aşımını 300 saniyeye ayarlayın.
@@ -72,11 +74,11 @@ SQL Veri Ambarı, bağlantı ve nesne oluşturma sırasında bazı ayarları sta
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Visual Studio ile bağlantı kurmak ve sorgulamak için bkz. [Visual Studio ile sorgulama][Visual Studio ile sorgulama]. Kimlik doğrulama seçenekleri hakkında daha fazla bilgi için bkz. [Azure SQL Veri Ambarı’nda kimlik doğrulama][Azure SQL Veri Ambarı’nda kimlik doğrulama].
+Visual Studio ile bağlantı kurmak ve sorgulamak için bkz. [Visual Studio ile Sorgulama][Query with Visual Studio]. Kimlik doğrulama seçenekleri hakkında daha fazla bilgi için bkz. [Azure SQL Veri Ambarı’nda kimlik doğrulama][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->
-[Visual Studio ile sorgulama]: ./sql-data-warehouse-query-visual-studio.md
-[Azure SQL Veri Ambarı’nda kimlik doğrulama]: ./sql-data-warehouse-authentication.md
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
@@ -94,10 +96,5 @@ Visual Studio ile bağlantı kurmak ve sorgulamak için bkz. [Visual Studio ile 
 <!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
 
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,12 +29,12 @@ Ayrıca, Güvenlik Merkezi önerilerini ve güvenlik uyarılarını, örneğin [
 ## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Power BI hizmetine erişmek için Azure Güvenlik Merkezi panosunu kullanma
 Ayrıca, Power BI raporlarına erişmek için Azure Güvenlik Merkezi panosunu da kullanabilirsiniz. Bu görevi gerçekleştirmek için adımları izleyin:
 
-1. **Azure Güvenlik Merkezi** panosunda **Power BI'da Araştır** düğmesine tıklayın.
+1. **Azure Güvenlik Merkezi** panosunda **Power BI** düğmesine tıklayın.
 
-    ![Power BI'ı kullanarak Azure Güvenlik Merkezi'ne bağlanma](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
-2. Aşağıdaki ekranda gösterildiği gibi, sağ tarafta **Power BI'da Araştır** dikey penceresi açılır:
+    ![Power BI'ı kullanarak Azure Güvenlik Merkezi'ne bağlanma](./media/security-center-powerbi/security-center-powerbi-fig1-new10-2017.png)
+2. Aşağıdaki ekranda gösterildiği gibi, sağ tarafta **Power BI** dikey penceresi açılır:
 
-    ![Power BI'ı kullanarak Azure Güvenlik Merkezi'ne bağlanma](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
+    ![Power BI'ı kullanarak Azure Güvenlik Merkezi'ne bağlanma](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
 3. Power BI panosunu ilk kez oluşturuyorsanız **Power BI'da Araştır** dikey penceresinde aşağıdaki seçeneklerden birini belirleyebilirsiniz:
 
    * **Güvenlik öngörüleri panosu**: Güvenlik durumunu, tehditleri ve algılamaları içeren bir pano oluşturmak istiyorsanız bu seçeneği belirleyin. Bu seçenek, aboneliklerde algılanan uyarıları ve koruma durumlarını çözümlemekle sorumlu olan DevOps rolü için daha yaygın kullanılan bir seçenektir.
@@ -119,9 +120,4 @@ Bu belgede, Azure Güvenlik Merkezi'nde Power BI hizmetini nasıl kullanacağın
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) - Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmet kullanımı ile ilgili sık sorulan soruları burada bulabilirsiniz
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

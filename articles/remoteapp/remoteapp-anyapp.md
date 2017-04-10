@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84aaff1f1e8a92583107295643e0ada81376fab0
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Azure RemoteApp ile herhangi bir cihazda tüm Windows uygulamalarını çalıştırma
 > [!IMPORTANT]
-> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 > 
 > 
 
@@ -121,10 +122,5 @@ Artık bir RemoteApp istemcisi yüklemek şartıyla Access’i tüm cihazların�
 Artık koleksiyon oluşturmayı öğrendiğinize göre [Office 365 kullanan bir koleksiyon](remoteapp-tutorial-o365anywhere.md) oluşturmayı deneyin. İsterseniz, yerel ağınıza erişebilen bir [karma koleksiyon](remoteapp-create-hybrid-deployment.md) da oluşturabilirsiniz.
 
 <!--Image references-->
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

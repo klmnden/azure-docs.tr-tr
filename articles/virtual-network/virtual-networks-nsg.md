@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
-ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -65,8 +66,8 @@ Yukarıdaki şekilde NSG kurallarının nasıl işlendiği gösterilmektedir.
 ### <a name="default-tags"></a>Varsayılan Etiketler
 Varsayılan etiketler, bir IP adresi kategorisini belirtmek için sistem tarafından sağlanan tanımlayıcılardır. Herhangi bir kuralın **kaynak adres ön eki** ve **hedef adres ön eki** özelliklerinde varsayılan etiketleri kullanabilirsiniz. Kullanabileceğiniz üç varsayılan etiket vardır.
 
-* **VIRTUAL_NETWORK:** Bu varsayılan etiket tüm ağ adresi alanınızı belirtir. Sanal ağ adresi alanını (Azure'da tanımlanan CIDR aralıkları), bağlı olan tüm şirket içi adres alanlarını ve bağlı Azure sanal ağlarını (yerel ağlar) içerir.
-* **AZURE_LOADBALANCER:** Bu varsayılan etiket Azure'ın Altyapı yük dengeleyicisini belirtir. Bu, Azure'ın sistem durumu araştırmalarının kaynağı olan bir Azure veri merkezi IP'sine çevrilir.
+* **VIRTUAL_NETWORK** (Azure Resource Manager kullanılıyorsa **VirtualNetwork**): Bu varsayılan etiket, ağ adres alanınızın tamamını belirtir. Sanal ağ adresi alanını (Azure'da tanımlanan CIDR aralıkları), bağlı olan tüm şirket içi adres alanlarını ve bağlı Azure sanal ağlarını (yerel ağlar) içerir.
+* **AZURE_LOADBALANCER** (Azure Resource Manager kullanılıyorsa **AzureLoadBalancer**): Bu varsayılan etiket, Azure’un Altyapı yük dengeleyicisini gösterir. Bu, Azure'ın sistem durumu araştırmalarının kaynağı olan bir Azure veri merkezi IP'sine çevrilir.
 * **INTERNET:** Bu varsayılan etiket, sanal ağın dışında olan ve genel İnternet ile ulaşılabilen IP adresi alanını belirtir. [Azure'a ait genel IP alanı](https://www.microsoft.com/download/details.aspx?id=41653) da bu aralığa dahildir.
 
 ### <a name="default-rules"></a>Varsayılan Kurallar
@@ -258,9 +259,4 @@ Yukarıdaki NSG'lerden bazılarının tekil NIC'lerle ilişkilendirilmesi gerekt
 * [Klasik dağıtım modelinde NSG'leri dağıtın](virtual-networks-create-nsg-classic-ps.md).
 * [Resource Manager'da NSG'leri dağıtın](virtual-networks-create-nsg-arm-pportal.md).
 * [NSG günlüklerini yönetin](virtual-network-nsg-manage-log.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Application Gateway’e giriş | Microsoft Belgeleri"
+title: "Azure Application Gateway’e giriş | Microsoft Docs"
 description: "Bu sayfada ağ geçidi boyutları, HTTP yük dengelemesi, tanımlama bilgilerine dayalı oturum benzeşimi ve SSL yük boşaltma dahil olmak üzere 7. katman yük dengeleme için Application Gateway’e genel bakış sunulmaktadır."
 documentationcenter: na
 services: application-gateway
@@ -13,28 +13,38 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 15db7dad6b83f6df3891aea60b308f2cf6008dd9
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: d23b400d8e6db66bc596731770a98e2833302543
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="overview-of-application-gateway"></a>Application Gateway'e genel bakış
 
-## <a name="what-is-application-gateway"></a>Application Gateway Nedir?
+Microsoft Azure Application Gateway, uygulamanız için çeşitli 7. katman yük dengeleme özellikleri sağlayan application delivery controller'ı (ADC) hizmet olarak sunan özel bir sanal gereçtir. Ölçeklenebilirlik ve yüksek kullanılabilirlik için birden fazla çalışan örneği içerir. Müşterilere, yoğun CPU kullanan SSL sonlandırması yükünü uygulama ağ geçidine boşaltarak web grubu üretkenliğini iyileştirme olanağı tanır. Ayrıca, gelen trafiğin “hepsini bir kez deneme” yaklaşımıyla dağıtımı, tanımlama bilgisi tabanlı oturum benzeşimi, URL’yi yol tabanlı yönlendirme ve tek bir uygulama ağ geçidi arkasında birden fazla web sitesi barındırma gibi diğer 7. katman yönlendirme özelliklerini sağlar. Application Gateway; İnternet'e yönelik ağ geçidi, yalnızca dahili ağ geçidi veya bu ikisinin bir birleşimi olarak yapılandırılabilir. Application Gateway tamamen Azure tarafından yönetilir, ölçeklenebilir ve yüksek oranda kullanılabilir. Daha iyi yönetilebilirlik için zengin tanılama ve günlüğe kaydetme özellikleri sağlar. Uygulama ağ geçidi oluşturduğunuzda, bir uç nokta (ortak VIP veya dahili ILB IP), giriş ağ trafiği için ilişkilendirilir ve kullanılır. Bu VIP veya ILB IP, taşıma düzeyinde (TCP/UDP) çalışan ve tüm gelen ağ trafiğinin yükünü uygulama ağ geçidinin çalışan örneklerinde dengeleyen Azure Load Balancer tarafından sağlanır. Ardından uygulama ağ geçidi HTTP/HTTPS trafiğini, yapılandırmasına göre (sanal makine, bulut hizmeti, iç veya dış IP adresi) yönlendirir.
 
-Microsoft Azure Application Gateway, uygulamanız için çeşitli 7. katman yük dengeleme özellikleri sağlayan Application Delivery Controller'ı (ADC) bir hizmet olarak sunar. Müşterilere, yoğun CPU kullanan SSL sonlandırması yükünü Application Gateway'e boşaltarak web grubu üretkenliğini iyileştirme olanağı tanır. Ayrıca, gelen trafiğin dönüşümlü dağıtımı, tanımlama bilgisi tabanlı oturum benzeşimi, URL yolu tabanlı yönlendirme ve tek bir Application Gateway arkasında birden fazla web sitesi barındırma da dahil olmak üzere diğer 7. Katman yönlendirme özelliklerini sağlar. Application Gateway, uygulamanızı OWASP tarafından sunulan en yaygın 10 web güvenlik açığının çoğuna karşı koruyan bir web uygulaması güvenlik duvarına (WAF) da sahiptir. Application Gateway; İnternet'e yönelik ağ geçidi, yalnızca dahili ağ geçidi veya bu ikisinin bir birleşimi olarak yapılandırılabilir. Application Gateway tamamen Azure tarafından yönetilir, ölçeklenebilir ve yüksek oranda kullanılabilir. Daha iyi yönetilebilirlik için zengin tanılama ve günlüğe kaydetme özellikleri sağlar. Application Gateway, sanal makineler, bulut hizmetleri ve dahili veya harici web uygulamalarıyla çalışır.
+Web uygulaması güvenlik duvarı (WAF) ayrıca yaygın web güvenlik açıklarına ve açıklardan yararlanmaya karşı web uygulamalarını koruyan uygulama ağ geçidi WAF SKU’sunun bir parçası olarak sağlanır. Web uygulaması güvenlik duvarı bu işlemi [OWASP çekirdek kural kümeleri](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 veya 2.2.9’daki kurallara göre yapar.
 
-Application Gateway, uygulamanız için adanmış bir sanal gereç olup ölçeklenebilirlik ve yüksek kullanılabilirlik sağlamak üzere birden fazla çalışan örneğinden oluşur. Uygulama ağ geçidi oluşturduğunuzda, bir uç nokta (ortak VIP veya dahili ILB IP), giriş ağ trafiği için ilişkilendirilir ve kullanılır. Bu VIP veya ILB IP, aktarım düzeyinde (TCP/UDP) çalışan ve tüm gelen ağ trafiğinin yükünü Application Gateway'in çalışan örneklerinde dengeleyen Azure Load Balancer tarafından sağlanır. Ardından Application Gateway, HTTP/HTTPS trafiğini, yapılandırmasına göre (sanal makine, bulut hizmeti, iç veya dış IP adresi) yönlendirir. SLA ve fiyatlandırma için [SLA](https://azure.microsoft.com/support/legal/sla/) ve [Fiyatlandırma](https://azure.microsoft.com/pricing/details/application-gateway/) sayfalarına bakın.
+## <a name="differences-between-application-gateway-skus"></a>Application Gateway SKU’ları arasındaki farklar
+
+Application Gateway iki SKU ile sunulur. Standart SKU ve Web Uygulaması Güvenlik Duvarı (WAF) SKU’su.
+
+### <a name="standard"></a>Standart
+
+Standart SKU; SSL sonlandırma, tanımlama bilgilerine dayalı oturum benzeşimi, hepsini bir kez deneme yaklaşımıyla yük dağıtımı, içerik tabanlı yönlendirme, birden fazla web sitesini barındırma olanağı ve güvenlik geliştirmeleri sunar. Uygulama ağ geçidi tarafından sunulan güvenlik geliştirmeleri SSL ilke yönetimi, uçtan uca SSL desteği ve SSL sonlandırma seçenekleridir.
+
+### <a name="web-application-firewall-waf"></a>Web Uygulaması Güvenlik Duvarı (WAF)
+
+WAF SKU’su, standart SKU’nun sağladığı tüm özelliklere ek olarak [web uygulaması güvenlik duvarı](application-gateway-web-application-firewall-overview.md) sağlar. Bu özellik, web uygulamalarınız için yaygın web güvenlik açıklarına ve güvenlik açıklarından yararlanmaya karşı koruma sağlayan saldırı algılama kuralları sunar.
 
 ## <a name="features"></a>Özellikler
 
 Application Gateway şu anda aşağıdaki özelliklerle birlikte 7. katman uygulama teslimini destekler:
 
-* **[Web Uygulaması Güvenlik Duvarı (Önizleme)](application-gateway-webapplicationfirewall-overview.md)** - Azure Application Gateway içindeki web uygulaması güvenlik duvarı (WAF), web uygulamalarını SQL eklemesi, siteler arası komut dosyası saldırıları ve oturum ele geçirmeleri gibi yaygın web tabanlı saldırılardan korur.
+* **[Web Uygulaması Güvenlik Duvarı](application-gateway-webapplicationfirewall-overview.md)** - Azure Application Gateway içindeki web uygulaması güvenlik duvarı (WAF), web uygulamalarını SQL eklemesi, siteler arası komut dosyası saldırıları ve oturum ele geçirmeleri gibi yaygın web tabanlı saldırılardan korur.
 * **HTTP yük dengelemesi** - Application Gateway hepsini bir kez deneme yük dengelemesi sağlar. Yük dengelemesi 7. Katmanda yapılır ve yalnızca HTTP(S) trafiği için kullanılır.
 * **Tanımlama bilgilerine dayalı oturum benzeşimi** - Bu özellik, bir kullanıcı oturumunu aynı arka uçta tutmak istediğinizde kullanışlıdır. Ağ geçidi ile yönetilen tanımlama bilgilerini kullanan Application Gateway, sonraki trafiği işleme amacıyla bir kullanıcı oturumundan aynı arka uca yönlendirebilir. Bu özellik, oturum durumunun bir kullanıcı oturumuna ait arka uca yerel olarak kaydedildiği durumlarda önemlidir.
 * **[Güvenli Yuva Katmanı (SSL) yük boşaltması](application-gateway-ssl-arm.md)** - Bu özellik, web sunucularınızın HTTPS trafiğinin şifresini çözmeyi içeren maliyetli bir görevdir. Application Gateway üzerinde SSL bağlantısını sonlandırarak ve isteği sunucuya şifrelenmemiş olarak ileterek, web sunucusu üzerindeki şifre çözme yükü kaldırılır.  Application Gateway, yanıtı istemciye geri göndermeden önce yeniden şifreler. Bu özellik, arka ucun Azure’da Application Gateway ile aynı güvenli sanal ağda bulunduğu senaryolarda yararlıdır.
@@ -50,7 +60,7 @@ Application Gateway şu anda aşağıdaki özelliklerle birlikte 7. katman uygul
 Application Gateway aşağıdakiler için yararlıdır:
 
 * Aynı kullanıcı/istemci oturumunun aynı arka uç sanal makinesine ulaşmaya yönelik isteklerini gerektiren uygulamalar. Bu uygulamaların örnekleri alışveriş sepeti uygulamaları ve web posta sunucularıdır.
-* Web sunucusu gruplarından SSL sonlandırma yükünü kaldırmak isteyen uygulamalar.
+* Web sunucusu grupları için SSL sonlandırma yükünü kaldırma.
 * Aynı uzun süreli TCP bağlantısı üzerinde birden fazla HTTP isteğinin yönlendirilmesini veya farklı arka uç sunucularına yük dengelemesi yapılmasını gerektiren, içerik teslim ağı gibi uygulamalar.
 * Websocket trafiğini destekleyen uygulamalar
 * Web uygulamalarını SQL ekleme, siteler arası komut dosyası saldırıları ve oturum ele geçirmeleri gibi yaygın web tabanlı saldırılardan koruma.
@@ -64,8 +74,6 @@ Azure tarafından yönetilen bir hizmet olan Application Gateway yük dengelemes
 ## <a name="gateway-sizes-and-instances"></a>Ağ geçidi boyutları ve örnekleri
 
 Application Gateway şu anda üç büyüklükte sunulmaktadır: **Kısa**, **Orta** ve **Uzun**. Küçük örnek boyutları, geliştirme ve test senaryolarına yöneliktir.
-
-Application Gateway için şu anda iki SKU sunulmaktadır: **WAF** ve **Standart**.
 
 Bir abonelik için en fazla 50 uygulama ağ geçidi oluşturabilirsiniz ve her uygulama ağ geçidi en fazla 10 örnek içerebilir. Her uygulama ağ geçidi 20 http dinleyicisinden oluşabilir. Application Gateway limitlerinin tam listesi için bkz. [Application Gateway hizmet limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
@@ -85,9 +93,13 @@ Azure Application Gateway, temel veya özel sistem durumu araştırmaları arac�
 
 ## <a name="configuring-and-managing"></a>Yapılandırma ve yönetme
 
-Uygulama ağ geçidi, uç noktası için bir genel IP, özel IP veya yapılandırıldığında her ikisine birden sahip olabilir. Application Gateway, kendi alt ağındaki bir sanal ağ içinde yapılandırılır. Uygulama ağ geçidi için oluşturulan veya kullanılan alt ağ başka türde kaynaklar içeremez; alt ağda kaynak olarak yalnızca diğer uygulama ağ geçitleri kullanılabilir. Arka uç kaynaklarınızın güvenliğini sağlamak için, arka uç sunucuları uygulama ağ geçidiyle aynı sanal ağdaki farklı bir alt ağ içinde yer alabilir. Bu ek alt ağ, arka uç uygulamaları için gerekli değildir; uygulama ağ geçidi ip adresine ulaşabildiği sürece arka uç sunucuları için ADC özellikleri sağlayabilir.
+Uygulama ağ geçidi, uç noktası için bir genel IP, özel IP veya yapılandırıldığında her ikisine birden sahip olabilir. Application Gateway, kendi alt ağındaki bir sanal ağ içinde yapılandırılır. Uygulama ağ geçidi için oluşturulan veya kullanılan alt ağ başka türde kaynaklar içeremez; alt ağda kaynak olarak yalnızca diğer uygulama ağ geçitleri kullanılabilir. Arka uç kaynaklarınızın güvenliğini sağlamak için, arka uç sunucuları uygulama ağ geçidiyle aynı sanal ağdaki farklı bir alt ağ içinde yer alabilir. Bu ek alt ağ, arka uç uygulamaları için gerekli değildir; uygulama ağ geçidi ip adresine ulaşabildiği sürece arka uç sunucuları için ADC özellikleri sağlayabilir. 
 
-REST API’leri, PowerShell cmdlet’leri, Azure CLI veya [Azure portalını](https://portal.azure.com/) kullanarak bir uygulama ağ geçidi oluşturup yönetebilirsiniz.
+REST API’leri, PowerShell cmdlet’leri, Azure CLI veya [Azure portalını](https://portal.azure.com/) kullanarak bir uygulama ağ geçidi oluşturup yönetebilirsiniz. Application gateway hakkında diğer sorular için, [Application Gateway SSS](application-gateway-faq.md) bölümünü ziyaret ederek sık sorulan soruların listesini görüntüleyin.
+
+## <a name="pricing"></a>Fiyatlandırma
+
+Fiyatlandırma, saatlik ağ geçidi örneği ücretine ve veri işleme ücretine bağlıdır. WAF SKU’su için saatlik ağ geçidi fiyatlandırması, Standart SKU ücretlerinden farklıdır ve [Application Gateway fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/application-gateway/) bölümünde bulunabilir. Veri işleme ücretleri aynı kalır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 06/30/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
-ms.openlocfilehash: 5145418159aa457be6d1fc9ed5bb1a43a955791c
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 1a662d23c7b8eef68e0f182792699210d2b80bac
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -27,11 +28,11 @@ Azure DNS, bir DNS bölgesi barındırmanızı ve Azure'de bir etki alanı için
 
 ### <a name="domains-and-zones"></a>Etki alanları ve bölgeler
 
-Etki Alanı Adı Sistemi, bir etki alanları hiyerarşisidir. Hiyerarşi, adı yalnızca "**.**" olan "kök" etki alanından başlar.  Bunun altında "com", "net", "org", "uk" veya "jp" gibi en üst düzey etki alanları bulunur.  Bunların altında "org.uk" veya "co.jp" gibi ikinci düzey etki alanları bulunur.  Etki alanları bu hiyerarşi sıralamasıyla devam eder. DNS hiyerarşisindeki etki alanları, ayrı DNS bölgeleri kullanılarak barındırılır. Bu bölgeler global olarak dağıtılır ve dünya genelindeki DNS ad sunucuları tarafından barındırılır.
+Etki Alanı Adı Sistemi, bir etki alanları hiyerarşisidir. Hiyerarşi, adı yalnızca "**.**" olan "kök" etki alanından başlar.  Bunun altında "com", "net", "org", "uk" veya "jp" gibi en üst düzey etki alanları bulunur.  Bu üst düzey etki alanlarının altında ‘org.uk’ veya ‘co.jp’ gibi ikinci düzey etki alanları bulunur.  Etki alanları bu hiyerarşi sıralamasıyla devam eder. DNS hiyerarşisindeki etki alanları, ayrı DNS bölgeleri kullanılarak barındırılır. Bu bölgeler global olarak dağıtılır ve dünya genelindeki DNS ad sunucuları tarafından barındırılır.
 
 **DNS bölgesi**
 
-Etki alanı, Etki Alanı Adı Sistemi'nde yer alan "contoso.com" gibi benzersiz bir addır. DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Örneğin, "contoso.com" etki alanı, "mail.contoso.com" (bir posta sunucusu için) ve "www.contoso.com" (bir web sitesi için) gibi bir dizi DNS kaydını içerebilir.
+Etki alanı, Etki Alanı Adı Sistemi'nde yer alan "contoso.com" gibi benzersiz bir addır. DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Örneğin ‘contoso.com’ etki alanı, ‘mail.contoso.com’ (bir posta sunucusu için) ve ‘www.contoso.com’ (bir web sitesi için) gibi birden fazla DNS kaydını içerebilir.
 
 **Etki alanı kayıt şirketi**
 
@@ -50,27 +51,28 @@ Etki alanı kayıt şirketi, İnternet etki alanı adlarını sağlayabilen bir 
 > [!NOTE]
 > Azure DNS, bir yetkili DNS hizmeti sağlar.  Bir özyinelemeli DNS hizmeti sağlamaz.
 >
-> Azure’daki Bulut Hizmetleri ve Sanal Makineler, Azure altyapısının bir parçası olarak ayrıca sağlanan, özyinelemeli bir DNS hizmetini kullanacak şekilde otomatik olarak yapılandırılmıştır.  Bu DNS ayarlarını değiştirme hakkında bilgi edinmek için bkz. [Azure’da Ad Çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+> Azure’daki Cloud Services ve Sanal Makineler, Azure altyapısının bir parçası olarak ayrıca sağlanan, özyinelemeli bir DNS hizmetini kullanacak şekilde otomatik olarak yapılandırılmıştır.  Bu DNS ayarlarını değiştirme hakkında bilgi edinmek için bkz. [Azure’da Ad Çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 Bilgisayarlar veya mobil cihazlarda bulunan DNS istemcileri, istemci uygulamaları için gereken tüm DNS sorgularını gerçekleştirmek için genellikle özyinelemeli bir DNS sunucusu çağırır.
 
-Özyinelemeli bir DNS sunucusu "www.contoso.com" gibi bir DNS kaydı için bir sorguyu aldığında öncelikle "contoso.com" etki alanı için bölgeyi barındıran ad sunucusunu bulması gerekir. Bunu yapmak için kök adı sunucularından başlar ve buradan "com" bölgesini barındıran ad sunucularını bulur. Ardından, "contoso.com" bölgesini barındıran ad sunucularını bulmak için "com" ad sunucularını sorgular.  Son olarak, bu ad sunucularını "www.contoso.com" için sorgulayabilir.
+Özyinelemeli bir DNS sunucusu "www.contoso.com" gibi bir DNS kaydı için bir sorguyu aldığında öncelikle "contoso.com" etki alanı için bölgeyi barındıran ad sunucusunu bulması gerekir. Ad sunucusunu bulmak için kök adı sunucularından başlar ve buradan ‘com’ bölgesini barındıran ad sunucularını bulur. Ardından, "contoso.com" bölgesini barındıran ad sunucularını bulmak için "com" ad sunucularını sorgular.  Son olarak, bu ad sunucularını "www.contoso.com" için sorgulayabilir.
 
-Bu işlem DNS adını çözümleme olarak adlandırılır. Net olarak ifade etmek gerekirse DNS çözümlemesi CNAME'leri izleme gibi ek adımları içerir ancak DNS temsilcisi seçmenin nasıl çalıştığını anlamak için bu önemli değildir.
+Bu yordam DNS adını çözümleme olarak adlandırılır. Net olarak ifade etmek gerekirse DNS çözümlemesi CNAME'leri izleme gibi ek adımları içerir ancak DNS temsilcisi seçmenin nasıl çalıştığını anlamak için bu önemli değildir.
 
 Bir üst bölge, bir alt bölgenin ad sunucularına nasıl "işaret eder"? Bunu, NS kaydı olarak adlandırılan (NS "ad sunucusu" anlamına gelir) özel bir DNS kaydı türünü kullanarak yapar. Örneğin, kök bölgesi "com" için NS kayıtları içerir ve "com" bölgesi için ad sunucularını gösterir. Buna karşılık "com" bölgesi, "contoso.com" bölgesi için ad sunucularını gösteren "contoso.com"un NS kayıtlarını içerir. Bir üst bölge içindeki bir alt bölge için NS kayıtlarının ayarlamasına etki alanını devretme adı verilir.
 
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
-Her temsilci seçimi aslında NS kayıtlarının iki kopyasını içerir, bunlardan biri üst bölgede bulunup alt bölgeyi işaret ederken diğeri de alt bölgede yer alır. "contoso.com" bölgesi, "contoso.com"a ait NS kayıtlarını içerir ("com"daki NS kayıtlarına ek olarak). Bunlar yetkili NS kayıtları olarak adlandırılır ve alt bölgenin tepesinde durur.
+Her temsilci seçimi aslında NS kayıtlarının iki kopyasını içerir, bunlardan biri üst bölgede bulunup alt bölgeyi işaret ederken diğeri de alt bölgede yer alır. "contoso.com" bölgesi, "contoso.com"a ait NS kayıtlarını içerir ("com"daki NS kayıtlarına ek olarak). Bu kayıtlar yetkili NS kayıtları olarak adlandırılır ve alt bölgenin tepesinde durur.
 
 ## <a name="delegating-a-domain-to-azure-dns"></a>Azure DNS'ye bir etki alanı devretme
+
 Azure DNS'de DNS bölgenizi oluşturduktan sonra, Azure DNS'yi bölgenizin ad çözümlemesinin yetkili kaynağı yapmak için üst bölgedeki NS kayıtlarını ayarlamanız gerekir. Bir kayıt şirketinden satın alınan etki alanları için, kayıt şirketiniz bu NS kayıtlarını ayarlama seçeneğini sunar.
 
 > [!NOTE]
-> Azure DNS'de bir etki alanı adını kullanarak DNS bölgesi oluşturmak için bu etki alanına sahip olmanız gerekmez. Ancak Azure DNS'ye temsilci seçmeyi kayıt şirketi ile ayarlamak için etki alanına sahip olmanız gerekir.
+> Azure DNS'de aynı etki alanı adıyla DNS bölgesi oluşturmak için bir etki alanına sahip olmanız gerekmez. Ancak Azure DNS'ye temsilci seçmeyi kayıt şirketi ile ayarlamak için etki alanına sahip olmanız gerekir.
 
-Örneğin, "contoso.com" etki alanını satın aldığınızı ve Azure DNS'de "contoso.com" adlı bir bölge oluşturduğunuzu varsayalım. Etki alanı sahibi olarak, kayıt şirketiniz size etki alanınız için ad sunucusu adreslerini (yani NS kayıtlarını) yapılandırma seçeneğini sunar. Kayıt şirketi bu NS kayıtlarını üst etki alanında (bu durumda ".com"da) depolar. Ardından, dünya genelindeki istemciler "contoso.com"daki DNS kayıtlarını çözümlemeye çalışırken Azure DNS bölgesindeki etki alanınıza yönlendirilir.
+Örneğin, "contoso.com" etki alanını satın aldığınızı ve Azure DNS'de "contoso.com" adlı bir bölge oluşturduğunuzu varsayalım. Etki alanı sahibi olarak, kayıt şirketiniz size etki alanınız için ad sunucusu adreslerini (yani NS kayıtlarını) yapılandırma seçeneğini sunar. Kayıt şirketi bu NS kayıtlarını üst etki alanında (bu durumda ‘.com’da) depolar. Ardından, dünya genelindeki istemciler ‘contoso.com’daki DNS kayıtlarını çözümlemeye çalışırken Azure DNS bölgesindeki etki alanınıza yönlendirebilir.
 
 ### <a name="finding-the-name-server-names"></a>Ad sunucusu adlarını bulma
 DNS bölgenizi Azure DNS'ye devretmeden önce, bölgenizin ad sunucusu adlarını bilmeniz gerekir. Azure DNS, her bölge oluşturmada bir havuzdan ad sunucuları ayırır.
@@ -81,7 +83,7 @@ Azure portalı, bölgenize atanan ad sunucularını görmenin en kolay yoludur. 
 
 Azure DNS, atanan ad sunucularını içeren yetkili NS kayıtlarını bölgenizde otomatik olarak oluşturur.  Ad sunucusu adlarını Azure PowerShell veya Azure CLI aracılığıyla görmek için bu kayıtları almanız yeterlidir.
 
-Azure PowerShell'i kullanarak, yetkili NS kayıtları şu şekilde alınabilir. "@" kayıt adının, bölgenin tepesindeki kayıtları ifade etmek için kullanıldığını unutmayın.
+Azure PowerShell'i kullanarak, yetkili NS kayıtları şu şekilde alınabilir. "@" kayıt adı, bölgenin tepesindeki kayıtları ifade etmek için kullanılır.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName MyResourceGroup
@@ -131,7 +133,7 @@ info:    network dns record-set show command OK
 
 Her kayıt şirketi, bir etki alanının ad sunucusu kayıtlarını değiştirmek için kendi DNS yönetim araçlarına sahiptir. Kayıt şirketinin DNS yönetim sayfasında NS kayıtlarını düzenleyin ve NS kayıtlarını Azure DNS'nin oluşturduklarıyla değiştirin.
 
-Bir etki alanını Azure DNS'ye devrederken Azure DNS tarafından sağlanan ad sunucusu adlarını kullanmanız gerekir.  Etki alanınızın adından bağımsız olarak her zaman 4 sunucu adını da kullanmanız gerekir.  Etki alanı temsilcisi, sunucu adının etki alanınızla aynı üst düzey etki alanını kullanmasını gerektirmez.
+Bir etki alanını Azure DNS'ye devrederken Azure DNS tarafından sağlanan ad sunucusu adlarını kullanmanız gerekir. Etki alanınızın adından bağımsız olarak her zaman dört sunucu adını da kullanmanız önerilir.  Etki alanı temsilcisi, sunucu adının etki alanınızla aynı üst düzey etki alanını kullanmasını gerektirmez.
 
 Azure DNS ad sunucusu IP adresleri gelecekte değişebileceği için, bu IP adreslerine işaret ederken "birleştirici kayıtlar"ı kullanmamanız gerekir. Kendi bölgenizdeki ad sunucusu adlarını kullanan ve bazen "gösterim ad sunucuları" olarak adlandırılan temsilci seçimleri, Azure DNS'de şu anda desteklenmemektedir.
 
@@ -139,7 +141,7 @@ Azure DNS ad sunucusu IP adresleri gelecekte değişebileceği için, bu IP adre
 
 Temsilci seçmeyi tamamladıktan sonra, bölgenizin SOA kaydını (bölge oluşturulduğunda bu da otomatik olarak oluşturulur) sorgulamak için "nslookup" gibi bir araç kullanarak ad çözümlemesinin çalışıp çalışmadığını doğrulayabilirsiniz.
 
-Temsilci seçme doğru şekilde ayarlandığında normal DNS çözümleme işlemi ad sunucularını otomatik olarak bulur, bu nedenle Azure DNS ad sunucularını belirtmek zorunda olmadığınızı unutmayın.
+Azure DNS ad sunucularını belirtmeniz gerekmez; temsil doğru şekilde ayarlandıysa, normal DNS çözümleme işlemi ad sunucularını otomatik olarak bulur.
 
 ```
 nslookup -type=SOA contoso.com
@@ -169,7 +171,7 @@ Bir alt etki alanının ayarlanmasında normal bir temsilci seçmeye benzer bir 
 
 ### <a name="to-delegate-a-sub-domain"></a>Bir alt etki alanını devretme
 
-Aşağıdaki PowerShell örneğinde bunun nasıl çalıştığı gösterilmektedir. Aynı adımlar Azure Portal veya platformlar arası Azure CLI yoluyla gerçekleştirilebilir.
+Aşağıdaki PowerShell örneğinde bunun nasıl çalıştığı gösterilmektedir. Aynı adımlar Azure portalı veya platformlar arası Azure CLI yoluyla gerçekleştirilebilir.
 
 #### <a name="step-1-create-the-parent-and-child-zones"></a>1. Adım Üst ve alt bölgeleri oluşturma
 Öncelikle, üst ve alt bölgeleri oluşturuyoruz. Bunlar aynı kaynak grubunda veya farklı kaynak gruplarında olabilir.
@@ -189,7 +191,7 @@ $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType
 
 #### <a name="step-3-delegate-the-child-zone"></a>3. Adım Alt bölgeyi devretme
 
-Temsilci seçmeyi tamamlamak için üst bölgede karşılık gelen NS kayıt kümesini oluşturun. Üst bölgedeki kayıt kümesi adının alt bölgenin adıyla (bu durumda "partners" ile) eşleştiğine dikkat edin.
+Temsilci seçmeyi tamamlamak için üst bölgede karşılık gelen NS kayıt kümesini oluşturun. Üst bölgedeki kayıt kümesi adı, alt bölgenin adıyla (bu durumda "partners" ile) eşleşir.
 
 ```powershell
 $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
@@ -222,10 +224,5 @@ partners.contoso.com
 [DNS bölgelerini yönetme](dns-operations-dnszones.md)
 
 [DNS kayıtlarını yönetme](dns-operations-recordsets.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

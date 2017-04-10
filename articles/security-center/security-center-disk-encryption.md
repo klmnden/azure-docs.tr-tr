@@ -1,5 +1,5 @@
 ---
-title: "Bir Azure Sanal Makinesi&quot;ni şifreleme | Microsoft Belgeleri"
+title: "Bir Azure Sanal Makinesi&quot;ni şifreleme | Microsoft Docs"
 description: "Bu belge, Azure Güvenlik Merkezi&quot;nden uyarı aldıktan sonra Azure Sanal Makine&quot;yi şifrelemenize yardımcı olur."
 services: security, security-center
 documentationcenter: na
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -142,10 +142,10 @@ Doğru VM adının girildiğini onaylamak için şunu yazın:
 
 ![PowerShell çıkışı](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
-Sanal makineyi şifrelemek için şifreleme komutunu çalıştırabileceğiniz iki yol vardır. İlk yöntem, PowerShell ISE konsolunda aşağıdaki komutu yazmaktır:
+Sanal makinedeki tüm sürücüleri şifrelemek için şifreleme komutunu çalıştırabileceğiniz iki yöntem vardır. İlk yöntem, PowerShell ISE konsolunda aşağıdaki komutu yazmaktır:
 
 ~~~
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId
+Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
 ~~~
 
 Bu komutu yazdıktan sonra **ENTER**'a basın.

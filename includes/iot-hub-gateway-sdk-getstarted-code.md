@@ -1,7 +1,8 @@
 ## <a name="typical-output"></a>Normal çıktı
-Hello World örneği tarafından göre günlük dosyasına yazılmış çıktının bir örneği aşağıda verilmiştir. Yeni Satır ve Sekme karakterleri okunabilirlik için eklenmiştir:
 
-```
+Merhaba Dünya örneği tarafından göre günlük dosyasına yazılmış çıktının bir örneği aşağıda verilmiştir. Çıktı daha okunaklı olması için biçimlendirilir:
+
+```json
 [{
     "time": "Mon Apr 11 13:48:07 2016",
     "content": "Log started"
@@ -30,14 +31,16 @@ Hello World örneği tarafından göre günlük dosyasına yazılmış çıktın
 ```
 
 ## <a name="code-snippets"></a>Kod parçacıkları
-Bu bölümde Hello World örneğindeki kodun bazı önemli bölümleri ele alınmaktadır.
+
+Bu bölümde merhaba\_dünya örneğindeki kodun bazı önemli bölümleri ele alınmaktadır.
 
 ### <a name="gateway-creation"></a>Ağ geçidi oluşturma
-Geliştirici *ağ geçidi işlemini* yazmalıdır. Bu program iç altyapıyı (aracı) oluşturur, modülleri yükler ve her şeyi doğru çalışacak şekilde ayarlar. SDK bir JSON dosyasından ağ geçidini önyüklemenizi sağlayan **Gateway_Create_From_JSON** işlevini sağlar. **Gateway_Create_From_JSON** işlevini kullanmak için yüklenecek modülleri belirten bir JSON dosyası yoluna geçirmeniz gerekir. 
 
-Hello World örneğindeki ağ geçidi işleminin kodunu [main.c][lnk-main-c] dosyasına bulabilirsiniz. Okunaklılık için aşağıdaki kod parçacığında ağ geçidi işlem kodunun kısaltılmış sürümü gösterilmektedir. Bu program bir ağ geçidi oluşturur ve ağ geçidini çıkarmadan önce kullanıcının **ENTER** tuşuna basmasını bekler. 
+Geliştirici *ağ geçidi işlemini* yazmalıdır. Bu program iç altyapıyı (aracı) oluşturur, modülleri yükler ve her şeyi doğru çalışacak şekilde ayarlar. SDK bir JSON dosyasından ağ geçidini önyüklemenizi sağlayan **Gateway\_Create\_From\_JSON** işlevini sağlar. **Gateway\_Create\_From\_JSON** işlevini kullanmak için yüklenecek modülleri belirten bir JSON dosyası yoluna geçirmeniz gerekir.
 
-```
+Hello World örneğindeki ağ geçidi işleminin kodunu [main.c][lnk-main-c] dosyasına bulabilirsiniz. Okunaklılık için aşağıdaki kod parçacığında ağ geçidi işlem kodunun kısaltılmış sürümü gösterilmektedir. Bu örnek program bir ağ geçidi oluşturur ve ağ geçidini çıkarmadan önce kullanıcının **ENTER** tuşuna basmasını bekler.
+
+```c
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -53,22 +56,21 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-} 
+}
 ```
 
-JSON ayarlar dosyası, yüklenecek modüllerin ve modüller arası bağlantıların bir listesini içerir.
-Her modülü aşağıdakileri belirtmelidir:
+JSON ayarlar dosyası, yüklenecek modüllerin ve modüller arası bağlantıların bir listesini içerir. Her modülü aşağıdakileri belirtmelidir:
 
 * **name**: Modül için benzersiz bir ad.
-* **loader**: İstenen modülün nasıl yükleneceğini bilen bir yükleyici.  Yükleyiciler, farklı türlerdeki modüllerin yüklenmesi için bir uzantı noktasıdır. Yerel olarak C, Node.js, Java ve .NET dillerinde yazılan modüllerle kullanıma yönelik yükleyiciler sağlıyoruz. Hello World örneğindeki tüm modüller C dilinde yazılan dinamik kitaplıklar olduğundan, bu örnek yalnızca "yerel" yükleyiciyi kullanır. Farklı dillerde yazılan modülleri kullanma hakkında daha fazla bilgi için lütfen [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) veya [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) örneklerine başvurun.
-    * **name**: Modülü yüklemek için kullanılan yükleyicinin adı.  
-    * **entrypoint**: Modülü içeren kitaplığın yolu. Linux için bu bir .so dosyası, Windows'ta ise bir .dll dosyasıdır. Bu giriş noktasının kullanılan yükleyici türüne özel olduğunu unutmayın. Örneğin, Node.js yükleyicisinin giriş noktası bir .js dosyasıdır; Java yükleyicisinin giriş noktası bir sınıf yolu + sınıf adıdır ve .NET yükleyicisinin giriş noktası bir derleme adı + sınıf adıdır.
+* **loader**: İstenen modülün nasıl yükleneceğini bilen bir yükleyici. Yükleyiciler, farklı türlerdeki modüllerin yüklenmesi için bir uzantı noktasıdır. Yerel olarak C, Node.js, Java ve .NET dillerinde yazılan modüllerle kullanıma yönelik yükleyiciler sağlıyoruz. Merhaba Dünya örneğindeki tüm modüller C dilinde yazılan dinamik kitaplıklar olduğundan, bu örnek yalnızca yerel C yükleyicisi kullanır. Farklı dillerde yazılmış modülleri kullanma hakkında daha fazla bilgi için [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/java_sample) veya [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/dotnet_binding_sample) örneklerine bakın.
+    * **name**: Modülü yüklemek için kullanılan yükleyicinin adı.
+    * **entrypoint**: Modülü içeren kitaplığın yolu. Linux için bu kitaplık bir .so dosyası, Windows'ta ise bir .dll dosyasıdır. Bu giriş noktası kullanılan yükleyici türüne özeldir. Node.js yükleyicisinin giriş noktası bir .js dosyasıdır. Java yükleyicisinin giriş noktası bir sınıf yoluna ek olarak sınıf adıdır. .NET yükleyicisinin giriş noktası bir bütünleştirilmiş kod adına ek olarak sınıf adıdır.
 
 * **args**: modül için gereken tüm yapılandırma bilgileri.
 
-Aşağıdaki kod, Linux’ta Hello World örneğinin tüm modüllerini bildirmek için kullanılan JSON’u göstermektedir. Bir modülün herhangi bir bağımsız değişken gerektirip gerektirmediği modülün tasarımına bağlıdır. Bu örnekte günlükçü modülü, çıkış dosyasının yolu olan bir bağımsız değişkeni alır ve Hello World modülü herhangi bir bağımsız değişken almaz.
+Aşağıdaki kod, Linux’ta Merhaba Dünya örneğinin tüm modüllerini bildirmek için kullanılan JSON’u göstermektedir. Bir modülün herhangi bir bağımsız değişken gerektirip gerektirmediği modülün tasarımına bağlıdır. Bu örnekte günlükçü modülü, çıkış dosyasının yolu olan bir bağımsız değişkeni alır ve merhaba\_dünya modülü herhangi bir bağımsız değişken içermez.
 
-```
+```json
 "modules" :
 [
     {
@@ -94,17 +96,17 @@ Aşağıdaki kod, Linux’ta Hello World örneğinin tüm modüllerini bildirmek
 ]
 ```
 
-JSON dosyası ayrıca aracıya geçirilecek modüller arasındaki bağlantıları içerir. Bir bağlantı iki özelliğe sahiptir:
+JSON dosyası ayrıca aracıya geçirilen modüller arasındaki bağlantıları içerir. Bir bağlantı iki özelliğe sahiptir:
 
 * **kaynak**: `modules` bölümünden bir modül adı veya "\*".
 * **havuz**: `modules` bölümünden bir modül adı.
 
-Her bağlantı bir ileti yolu ve yönü tanımlar. `source` modülünden gelen iletiler `sink` modülüne teslim edilmelidir. Herhangi bir modülden gelen iletilerin `sink` tarafından alınacağını belirtmek üzere `source` ayarı "\*" olarak belirlenebilir.
+Her bağlantı bir ileti yolu ve yönü tanımlar. `source` modülünden gelen iletiler `sink` modülüne teslim edilir. Herhangi bir modülden gelen iletilerin `sink` tarafından alınacağını belirtmek üzere `source` ayarı "\*" olarak belirlenebilir.
 
-Aşağıdaki kod, Linux’ta Hello World örneğinde kullanılan modüller arasında bağlantı yapılandırmak için kullanılan JSON’u göstermektedir. `hello_world` modülü tarafından üretilen her ileti `logger` modülü tarafından kullanılır.
+Aşağıdaki kod, Linux’ta merhaba\_dünya örneğinde kullanılan modüller arasında bağlantı yapılandırmak için kullanılan JSON’u göstermektedir. `hello_world` modülü tarafından üretilen her ileti `logger` modülü tarafından kullanılır.
 
-```
-"links": 
+```json
+"links":
 [
     {
         "source": "hello_world",
@@ -113,10 +115,11 @@ Aşağıdaki kod, Linux’ta Hello World örneğinde kullanılan modüller aras�
 ]
 ```
 
-### <a name="hello-world-module-message-publishing"></a>Hello World modülü ileti yayımlama
-"Hello world" modülü tarafından ileti yayımlamak amacıyla kullanılan kodu ['hello_world.c'][lnk-helloworld-c] dosyasında bulabilirsiniz. Aşağıdaki kod parçacığı ek açıklamalarla birlikte değiştirilmiş bir sürümü göstermektedir ve bazı hata işleme kodları okunaklılık için kaldırılmıştır:
+### <a name="helloworld-module-message-publishing"></a>Merhaba\_dünya modülü ileti yayımlama
 
-```
+Merhaba\_dünya modülü tarafından ileti yayımlamak amacıyla kullanılan modülü ['hello_world.c'][lnk-helloworld-c] dosyasında bulabilirsiniz. Aşağıdaki kod parçacığı, okunaklılık için açıklama eklenen ve bazı hata kodlarının kaldırıldığı değiştirilmiş bir kod sürümünü göstermektedir:
+
+```c
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -162,10 +165,11 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="hello-world-module-message-processing"></a>Hello World modülü ileti işleme
-Diğer modüllerin aracıya yayımladıkları herhangi bir iletiyi Hello World modülünün hiçbir zaman işlemesi gerekmez. Bu özellik Hello World modülünde ileti çağırma uygulamasını işlemsiz bir işlev haline getirir.
+### <a name="helloworld-module-message-processing"></a>Merhaba\_dünya modülü ileti işleme
 
-```
+Merhaba\_dünya modülü, diğer modüllerin aracıda yayımladığı hiçbir iletiyi işlemez. Bu nedenle, merhaba\_dünya modülünde ileti geri çağırma işleminin uygulanması işlemsiz bir işlevdir.
+
+```c
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
@@ -173,11 +177,12 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### <a name="logger-module-message-publishing-and-processing"></a>Günlükçü modülü ileti yayımlama ve işleme
+
 Günlükçü modülü iletileri aracıdan alır ve bir dosyaya yazar. Hiçbir zaman bir ileti yayımlamaz. Bu nedenle, günlükçü modülünün kodu **Broker_Publish** işlevini hiçbir zaman çağırmaz.
 
-[logger.c][lnk-logger-c] dosyasındaki **Logger_Recieve** işlevi, aracının günlükçü modülüne iletileri ulaştırmak üzere çağırdığı geri çağırmadır. Aşağıdaki kod parçacığı ek açıklamalarla birlikte değiştirilmiş bir sürümü göstermektedir ve bazı hata işleme kodları okunaklılık için kaldırılmıştır:
+[logger.c][lnk-logger-c] dosyasındaki **Logger_Recieve** işlevi, aracının günlükçü modülüne iletileri ulaştırmak üzere çağırdığı geri çağırmadır. Aşağıdaki kod parçacığı, okunaklılık için açıklama eklenen ve bazı hata kodlarının kaldırıldığı değiştirilmiş bir sürümü göstermektedir:
 
-```
+```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -217,7 +222,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-IoT Gateway SDK’sını kullanma hakkında bilgi için aşağıdakilere bakın:
+
+IoT Gateway SDK’sını kullanma hakkında bilgi için aşağıdaki makalelere bakın:
 
 * [IoT Gateway SDK’sı – Linux][lnk-gateway-simulated] kullanarak sanal bir cihazla cihazdan buluta iletiler gönderir.
 * GitHub'da [Azure IoT Ağ Geçidi SDK'sı][lnk-gateway-sdk].
@@ -228,7 +234,3 @@ IoT Gateway SDK’sını kullanma hakkında bilgi için aşağıdakilere bakın:
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
-
-<!--HONumber=Dec16_HO1-->
-
-

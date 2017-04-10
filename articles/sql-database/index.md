@@ -1,11 +1,10 @@
 ---
 title: "Azure SQL Veritabanı Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Buluta yönelik bir hizmet olarak veritabanı olan SQL Veritabanı hakkında bilgi edinin. Öğreticiler, videolar ve diğer belgeler, ilişkisel veritabanlarının nasıl ayarlanacağı, bağlanacağı ve yönetileceği ile ilgili bilgiler içerir."
+description: "Azure SQL veritabanlarını kullanmayı öğrenin."
 services: sql-database
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,122 +12,63 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: e982e07b6279c1338398980aa07d46ce08ede11c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 1092d5963cd1b9e21796809374be2534df39e437
+ms.lasthandoff: 04/08/2017
 
 ---
-
-# <a name="sql-database-documentation"></a>SQL Veritabanı Belgeleri
-
-<div class="introHolder">
-    <div class="intro">
-Buluta yönelik bir hizmet olarak ilişkisel veritabanı olan ve Microsoft SQL Server altyapısını temel alan SQL Veritabanı’nı nasıl kullanacağınızı öğrenin. Öğreticiler, videolar ve diğer belgeler, SQL veritabanlarının nasıl ayarlanacağı, bağlanacağı ve yönetileceği ile ilgili bilgiler içerir.
+<div class="content">
+    <h1>SQL Veritabanı Belgeleri</h1>
+    <p style="padding-bottom: 0px; max-width: 1050px;">Azure SQL Veritabanı, Microsoft SQL Server Altyapısını kullanan bir hizmet olarak ilişkisel veritabanıdır. SQL Veritabanı, altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde veri odaklı uygulamalar ve web siteleri oluşturmak için kullanabileceğiniz yüksek performanslı, güvenilir ve güvenli bir veritabanıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.</p>
+<h2 style="margin-top: 36px; margin-bottom: 0px;">Hızlı Başlangıçlar</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">Aşağıdaki kullanarak SQL DB oluşturun:</p>
+<div class="ico48Case">
+    <div class="ico48Link">
+        <a href="/azure/sql-database/sql-database-get-started-portal">
+            <img src="media/index/portal.svg" alt="">
+            <span>Azure Portal</span>
+        </a>
     </div>
-    <div class="calloutHolder">
-        <div class="callout">
-            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
-                <img src="media/index/pluralsight.svg" /> Ücretsiz PluralSight eğitim videosu - Microsoft Azure kullanarak Altyapıyı yönetme</a>
-        </div>
+    <div class="ico48Link">
+        <a href="/azure/sql-database/sql-database-get-started-cli">
+            <img src="media/index/cli.svg" alt="">
+            <span>Azure CLI</span>
+        </a>
+    </div>
+    <div class="ico48Link">
+        <a href="/azure/sql-database/sql-database-get-started-powershell">
+            <img src="media/index/logo_powershell.svg" alt="">
+            <span>Azure PowerShell</span>
+        </a>
     </div>
 </div>
 
-<ul class="panelContent cardsFTitle">
-     <li>
-        <a href="/azure/sql-database/sql-database-technical-overview">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/sql-database.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure SQL Veritabanı hakkında bilgi edinin</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=sql-database">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure SQL Veritabanı Video Kitaplığı</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/sql-database/sql-database-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure SQL Veritabanı ile çalışmaya başlama</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/sql-database/sql-database-elastic-scale-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Esnek Araçlar ile çalışmaya başlama</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/azure/sql-database/sql-database-get-started-security">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Erişimi ve izinleri yönetmeye başlama</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
+<div class="columnHolder">
+    <div class="column50">
+        <h2 style="margin-top: 36px">Öğreticiler</h2>
+        <p>SQL Veritabanı uygulamaları oluşturun ve dağıtın.</p>
+        <ul class="spaced">
+            <li><a href="/azure/sql-database/sql-database-design-first-database">Veritabanı tasarlama</a></li>
+            <li><a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Bir veritabanını geçirme</a></li>
+        </ul>
+        <h2>Örnekler</h2>
+        <p>Genel görevleri yönetmeye yönelik betikleri bulun.</p>
+        <ul class="spaced">
+            <li><a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a></li>
+            <li><a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a></li>
+        </ul>
+    </div>
+    <div class="column50" style="max-width: 400px">
+        <h2 style="margin-top: 36px">Ücretsiz Eğitim Videosu</h2>
+        <a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
+            <img src="media/index/video-training-dotnet.png" width="400" alt="">
+            <p style="margin-top: 0px">Ücretsiz Pluralsight eğitim videosu – .NET ile uygulama geliştirme</a></p>
+    </div>
+</div>
 
----
+<hr />
 
-<h2>Başvuru</h2>
+<h2 style="margin-top: 36px">Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -136,8 +76,8 @@ Buluta yönelik bir hizmet olarak ilişkisel veritabanı olan ve Microsoft SQL S
                 <div class="card">
                     <div class="cardText">
                         <h3>Komut Satırı</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
-                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (Esnek DB)</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">Azure PowerShell</a></p>
+                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">Azure PowerShell (Elastik DB)</a></p>
                         <p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
                     </div>
                 </div>
@@ -206,6 +146,4 @@ Buluta yönelik bir hizmet olarak ilişkisel veritabanı olan ve Microsoft SQL S
         </div>
     </li>
 </ul>
-
-
-
+</div>

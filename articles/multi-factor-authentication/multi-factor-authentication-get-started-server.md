@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 03/26/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c5a26a17ab50993f8b57c8868b02541251de1cb1
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b769f785f67c24b99156dcfc21a42f661cc9da27
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -121,13 +121,13 @@ Artık sunucu yüklendiğine ve yapılandırıldığına göre, hızlı bir şek
 ## <a name="send-users-an-email"></a>Kullanıcılara e-posta gönderme
 Kullanıcılarınızı MFA Sunucusuna aktardıktan sonra, iki adımlı doğrulamaya kaydolduklarını bildirmek amacıyla kullanıcılara bir e-posta gönderin.
 
-Gönderdiğiniz e-posta, kullanıcılarınızı iki adımlı doğrulama için nasıl yapılandırdığınıza göre belirlenir. Örneğin, telefon numaralarını şirket dizininden alabildiyseniz, kullanıcıların beklentilerini bilebilmesi için e-posta varsayılan telefon numaralarını içermelidir. Telefon numaralarını içeri aktarmadıysanız veya kullanıcılar mobil uygulama kullanacaksa, kullanıcılara Azure Multi-Factor Authentication Kullanıcı Portalının köprü bağlantısı üzerinden hesap kaydını tamamlama yönergeleri veren bir e-posta gönderin.
+Gönderdiğiniz e-posta, kullanıcılarınızı iki adımlı doğrulama için nasıl yapılandırdığınıza göre belirlenir. Örneğin, telefon numaralarını şirket dizininden alabildiyseniz, kullanıcıların beklentilerini bilebilmesi için e-posta varsayılan telefon numaralarını içermelidir. Telefon numaralarını içeri aktarmadıysanız veya kullanıcılar mobil uygulama kullanacaksa, kullanıcılara hesap kaydını tamamlama yönergeleri veren bir e-posta gönderin. E-postaya Azure Multi-Factor Authentication Kullanıcı Portalı’nın köprü bağlantısını ekleyin.
 
 E-postanın içeriği aynı zamanda kullanıcı için ayarlanmış doğrulama yöntemine (telefonla arama, SMS veya mobil uygulama) bağlı olarak değişir.  Örneğin, kullanıcının kimlik doğrularken PIN kullanması gerekiyorsa, e-posta kullanıcıya ilk PIN’ini bildirir.  Kullanıcıların ilk doğrulama sırasında kendi PIN'lerini değiştirmesi gerekir.
 
 
 ### <a name="configure-email-and-email-templates"></a>E-posta ve e-posta şablonlarını yapılandırma
-Soldaki e-posta simgesine tıklayarak bu e-postaları gönderme ayarlarını yapabilirsiniz. Burada, posta sunucunuzun SMTP bilgilerini girebilir ve **Kullanıcılara e-posta gönder** onay kutusunu işaretleyerek e-posta gönderebilirsiniz.
+Soldaki e-posta simgesine tıklayarak bu e-postaları gönderme ayarlarını yapabilirsiniz. Bu sayfada, posta sunucunuzun SMTP bilgilerini girebilir ve **Kullanıcılara e-posta gönder** onay kutusunu işaretleyerek e-posta gönderebilirsiniz.
 
 ![E-posta Ayarları](./media/multi-factor-authentication-get-started-server/email1.png)
 
@@ -155,11 +155,7 @@ Yukarıdaki alanlara ek olarak, doğrulama sonucu (başarılı/reddedildi) ve re
 
 - Kullanıcı self servis işlemleri için [Kullanıcı Portalı](multi-factor-authentication-get-started-portal.md)’nı ayarlayın ve yapılandırın.
 
-- Azure Multi-Factor Authentication’ı [Active Directory Federasyon Hizmetleri](multi-factor-authentication-get-started-adfs.md) ile ayarlayın.
-
-- [RADIUS Kimlik Doğrulaması](multi-factor-authentication-get-started-server-radius.md) ile Azure MFA Sunucusu’nu kurun ve yapılandırın. RADIUS kullanarak çeşitli üçüncü taraf sistemleri Azure MFA Sunucusu ile tümleştirebilirsiniz. 
-
-- [Windows Kimlik Doğrulaması](multi-factor-authentication-get-started-server-windows.md) ile Azure MFA Sunucusu’nu kurun ve yapılandırın.
+- Azure MFA Sunucusunu [Active Directory Federasyon Hizmeti](multi-factor-authentication-get-started-adfs.md), [RADIUS Kimlik Doğrulaması](multi-factor-authentication-get-started-server-radius.md) veya [LDAP Kimlik Doğrulaması](multi-factor-authentication-get-started-server-ldap.md) ile ayarlayıp yapılandırın.
 
 - [RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu](multi-factor-authentication-get-started-server-rdg.md)’nu kurun ve yapılandırın. 
 
