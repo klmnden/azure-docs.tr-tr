@@ -50,7 +50,7 @@
 ## Yönet
 ### [Service Bus yönetim kitaplıkları](service-bus-management-libraries.md)
 ### [Azure Resource Manager şablonlarını kullanma](service-bus-resource-manager-overview.md)
-### [Varlıkları sağlamak için PowerShell kullanma](service-bus-powershell-how-to-provision.md)
+### [Varlıkları sağlamak için PowerShell kullanma](service-bus-manage-with-ps.md)
 
 # Başvuru
 ## .NET

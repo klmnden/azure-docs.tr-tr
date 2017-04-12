@@ -196,7 +196,6 @@
 ## Cortana Analytics
 ### API'ler
 #### [Anormallik algılama](machine-learning-apps-anomaly-detection-api.md)
-#### [Metin analizi](machine-learning-apps-text-analytics.md)
 #### [Bilişsel Hizmetler](https://azure.microsoft.com/services/cognitive-services/)
 #### Tahmine dayalı bakım
 ##### [Genel Bakış](cortana-analytics-playbook-predictive-maintenance.md)

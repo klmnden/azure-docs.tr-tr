@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 83c063bb003ccda80ba6c1a74aadcd624d77ae47
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2a1e1004a4dab48aed75740a24ff5556242eaa67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,12 +62,12 @@ Azure, App Service’te Web Apps’in yanı sıra web siteleri ve web uygulamala
 App Service’te basit kodları yeni bir web uygulamasına dağıtmaya başlamak için aşağıdaki açılan kutuda yer alan öğreticilerden birini izleyin. Ücretsiz Azure hesabınızın olması gerekir.
 
 > [!div class="op_single_selector"]
-> * [5 dakikada Azure’a ilk HTML sitenizi dağıtın](app-service-web-get-started-html-cli-nodejs.md)
-> * [5 dakikada Azure’a ilk ASP.NET web uygulamanızı dağıtın](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [5 dakikada Azure’a ilk PHP web uygulamanızı dağıtın](app-service-web-get-started-php-cli-nodejs.md)
-> * [5 dakikada Azure’a ilk Node.js web uygulamanızı dağıtın](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [5 dakikada Azure’a ilk Python web uygulamanızı dağıtın](app-service-web-get-started-python-cli-nodejs.md)
+> * [5 dakikada Azure’a ilk ASP.NET web uygulamanızı dağıtın](app-service-web-get-started-dotnet.md)
+> * [5 dakikada Azure’a ilk PHP web uygulamanızı dağıtın](app-service-web-get-started-php.md)
+> * [5 dakikada Azure’a ilk Node.js web uygulamanızı dağıtın](app-service-web-get-started-nodejs.md)
 > * [5 dakikada Azure’a ilk Java web uygulamanızı dağıtın](app-service-web-get-started-java.md)
+> * [5 dakikada Azure’a ilk Python web uygulamanızı dağıtın](app-service-web-get-started-python.md)
+> * [5 dakikada Azure’a ilk HTML sitenizi dağıtın](app-service-web-get-started-html.md)
 > 
 > 
 

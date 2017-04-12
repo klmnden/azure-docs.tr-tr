@@ -21,12 +21,12 @@
 ### [Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md)
 
 ## Web uygulaması oluşturma
-### [.NET](../app-service-web/web-sites-dotnet-get-started.md)
-### [Node.js](../app-service-web/app-service-web-nodejs-get-started.md)
-### [Python](../app-service-web/web-sites-python-ptvs-django-mysql.md)
-### [Java](../app-service-web/web-sites-java-get-started.md)
-### [Market uygulaması](../app-service-web/web-sites-php-web-site-gallery.md)
-### [PHP](../app-service-web/app-service-web-php-get-started.md)    
+### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
+### [PHP](../app-service-web/app-service-web-get-started-php.md)    
+### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
+### [Java](../app-service-web/app-service-web-get-started-java.md)
+### [Python](../app-service-web/app-service-web-get-started-python.md)
+### [HTML](../app-service-web/app-service-web-get-started-html.md)
 
 # Nasıl yapılır?
 
@@ -45,7 +45,7 @@
 ### Web Jobs
 #### [Azure Web İşleri SDK’sı nedir?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Azure Uygulama Hizmeti’nde .NET Web İşi oluşturma](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [WebJobs SDK ile Azure blob depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Web İşleri SDK’sı ile Azure blob depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Web İşleri SDK’sı ile Azure kuyruk depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Web İşleri SDK’sı ile Azure Service Bus kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Web İşleri SDK’sı ile Azure tablo depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -146,7 +146,7 @@
 ### [Visual Studio kullanarak sorun giderme](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 # Kaynaklar
-## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [App Service başvurusu](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [En iyi uygulamalar](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Web İşleri kaynakları](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)

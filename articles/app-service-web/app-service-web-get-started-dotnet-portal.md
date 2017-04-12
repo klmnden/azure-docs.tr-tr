@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/10/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: fa3f31cdd708729071876ffad707bea70567da83
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6b1dede903083d1771733330a069b6ab533d9f00
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -103,7 +103,7 @@ Azure uygulama dağıtımını tamamladığında başka bir bildirim daha görec
     ![Umbraco yapılandırması - Azure App Service’teki ilk Umbraco](./media/app-service-web-get-started-dotnet-portal/umbraco-config.png)
     
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Visual Studio'yu kullanarak Azure App Service’e bir ASP.NET Web uygulaması dağıtma](web-sites-dotnet-get-started.md) - Mevcut uygulama şablonlarından birini kullanarak Visual Studio'dan yeni bir Azure web uygulaması oluşturmayı öğrenin.
+* [Visual Studio'yu kullanarak Azure App Service’e bir ASP.NET Web uygulaması dağıtma](app-service-web-get-started-dotnet.md) - Mevcut uygulama şablonlarından birini kullanarak Visual Studio'dan yeni bir Azure web uygulaması oluşturmayı öğrenin.
 * [Kodunuzu Azure App Service’e dağıtma](web-sites-deploy.md): FTP veya kaynak denetim depolarından dağıtım yapmayı öğrenin.
 * [İlk web uygulamanıza işlevsellik ekleme](app-service-web-get-started-2.md): Azure uygulamanızı bir sonraki seviyeye taşıyın. Kullanıcılarınızın kimliklerini doğrulayın. Talebe göre ölçeklendirin. Performans uyarıları ayarlayın. Tümünü birkaç tıklamayla gerçekleştirin.
 
