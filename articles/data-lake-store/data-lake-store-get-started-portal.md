@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: efb9e68256765873eb2776637d1a9469af6e46d6
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,6 +29,7 @@ ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -86,7 +88,7 @@ Data Lake Store hesabında şifreleme yapılandırmak için bir Azure Anahtar Ka
    * Erişim yapılandırmak için ilk seçenekte **İzin Ver**’e tıklayın. İlk seçenek yalnızca Data Lake Store hesabını oluşturan kullanıcı aynı zamanda Azure Anahtar Kasası’nın bir yöneticisiyse çalışır.
    * Diğer seçenek, dikey pencerede görüntülenen PowerShell cmdlet’ini çalıştırmak içindir. Azure Anahtar Kasası’nın sahibi olmanız ya da Azure Anahtar Kasası’nda izin verme yetkisine sahip olmanız gerekir. Cmdlet’i çalıştırdıktan sonra, erişimi yapılandırmak için dikey pencereye dönün ve **Etkinleştir**’e tıklayın.
 
-## <a name="a-namecreatefolderacreate-folders-in-azure-data-lake-store-account"></a><a name="createfolder"></a>Azure Data Lake Store hesabında klasör oluşturma
+## <a name="createfolder"></a>Azure Data Lake Store hesabında klasör oluşturma
 Veri depolamak ve yönetmek için Data Lake Store hesabınızın altında klasör oluşturabilirsiniz.
 
 1. Yeni oluşturduğunuz Data Lake Store hesabını açın. Sol bölmeden **Gözat**'a tıklayın, **Data Lake Store**'a tıklayın ve Data Lake Store dikey penceresinden, altında klasör oluşturmak istediğiniz hesabın adına tıklayın. Hesabı başlangıç panosuna sabitlediyseniz bu hesap kutucuğuna tıklayın.
@@ -101,14 +103,14 @@ Veri depolamak ve yönetmek için Data Lake Store hesabınızın altında klasö
    
     ![Data Lake hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
 
-## <a name="a-nameuploaddataaupload-data-to-azure-data-lake-store-account"></a><a name="uploaddata"></a>Azure Data Lake Store hesabına veri yükleme
+## <a name="uploaddata"></a>Azure Data Lake Store hesabına veri yükleme
 Verilerinizi Azure Data Lake Store hesabınıza doğrudan kök düzeyinde veya hesap içinde oluşturduğunuz bir klasöre yüklenecek şekilde yükleyebilirsiniz. Aşağıdaki ekran görüntüsünü kullanarak, **Veri Gezgini** dikey penceresinden bir dosyayı bir alt klasöre yüklemek için aşağıdaki adımları izleyin. Bu ekran yakalama görüntüsünde, dosya içerik haritalarında gösterilen bir alt klasöre yüklenmektedir (kırmızı kutu içinde işaretlenmiştir).
 
 Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz.
 
 ![Veri yükleme](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
 
-## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Depolanan verilerde kullanılabilen özellikler ve eylemler
+## <a name="properties"></a>Depolanan verilerde kullanılabilen özellikler ve eylemler
 **Özellikler** dikey penceresini açmak için yeni eklenen dosyaya tıklayın. Dosyayla ilişkili özellikler ve dosya üzerinde gerçekleştirebileceğiniz eylemler bu dikey pencerede sunulur. Ayrıca tam yolu, aşağıdaki ekran görüntüsünde vurgulanmış olan Azure Data Lake Store hesabınızdaki dosyaya kopyalayabilirsiniz.
 
 ![Verilere yönelik özellikler](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data")
@@ -133,10 +135,5 @@ Bir Azure Data Lake Store hesabını silmek için, Data Lake Store dikey pencere
 * [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Data Lake Store'a ilişkin tanılama günlüklerine erişme](data-lake-store-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -9,8 +9,6 @@ Uygulamalarınızı oluştururken kullanmak isteyebileceğiniz, uyumluluk veya h
 
 * **ABD Virginia** ve **ABD Iowa**
   * ABD kamu kuruluşları ve iş ortaklarına yönelik olarak ABD’de bulunan ve denetlenen kişilerce çalıştırılan fiziksel ve mantıksal ağdan yalıtılmış Azure örneği. [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) ve [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA) gibi ek uyumluluk sertifikaları içerir. [Azure Kamu](https://azure.microsoft.com/features/gov/) hakkında daha fazla bilgi alın.
-* **Orta Hindistan**, **Güney Hindistan** ve **Batı Hindistan**
-  * Bu bölgeler, şu anda Hindistan’da yerel kaydı bulunan toplu lisanslama müşterileri ve iş ortakları tarafından kullanılabilir. 2016 yılında, doğrudan çevrimiçi abonelik satın almış kullanıcılar bölgelere erişebilir.
 * **Çin Doğu** ve **Çin Kuzey**
   * Bu bölgeler, Microsoft ile 21Vianet arasında, Microsoft’un veri merkezlerini doğrudan yönetmediği benzersiz ortaklık ile kullanıma sunulmaktadır. [Çin’de Microsoft Azure](http://www.windowsazure.cn/) hakkında daha fazla bilgi alın.
 * **Almanya Orta** ve **Almanya Kuzeydoğu**

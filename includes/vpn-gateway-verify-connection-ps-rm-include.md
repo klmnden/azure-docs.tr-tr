@@ -1,8 +1,10 @@
 `-Debug` öğesinin mevcut olup olmadığından bağımsız olarak `Get-AzureRmVirtualNetworkGatewayConnection` cmdlet'i ile bağlantınızın başarılı olup olmadığını doğrulayabilirsiniz. 
 
 1. Aşağıdaki cmdlet örneğini kullanın ve değerleri, kendi değerlerinizle eşleşecek şekilde yapılandırın. İstendiğinde "Tümünü" çalıştırmak için "A" seçeneğini belirleyin. Örnekte `-Name`, oluşturduğunuz ve test etmek istediğiniz bağlantının adıdır.
-   
-        Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+
+  ```powershell
+  Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+  ```
 2. cmdlet tamamlandıktan sonra değerleri görüntüleyin. Aşağıdaki örnekte, bağlantı durumu "Bağlandı" olarak gösterilir; ayrıca giriş ve çıkış baytlarını görebilirsiniz.
    
         Body:
@@ -30,9 +32,4 @@
             "ingressBytesTransferred": 33509044,
             "egressBytesTransferred": 4142431
           }
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

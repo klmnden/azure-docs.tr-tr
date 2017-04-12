@@ -21,14 +21,14 @@
 ### [Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md)
 
 ## Web Apps
-### [.NET](../app-service-web/web-sites-dotnet-get-started.md)
-### [Node.js](../app-service-web/app-service-web-nodejs-get-started.md)
-### [Python](../app-service-web/web-sites-python-ptvs-django-mysql.md)
-### [Java](../app-service-web/web-sites-java-get-started.md)
-### [Market uygulaması](../app-service-web/web-sites-php-web-site-gallery.md)
-### [PHP](../app-service-web/app-service-web-php-get-started.md)    
+### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
+### [PHP](../app-service-web/app-service-web-get-started-php.md)    
+### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
+### [Java](../app-service-web/app-service-web-get-started-java.md)
+### [Python](../app-service-web/app-service-web-get-started-python.md)
+### [HTML](../app-service-web/app-service-web-get-started-html.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 
 ## Planlama ve tasarım
 ### [Yapılan değişiklikler](app-service-api-whats-changed.md)
@@ -50,7 +50,7 @@
 ### Web Jobs
 #### [Azure Web İşleri SDK’sı nedir?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Azure Uygulama Hizmeti’nde .NET Web İşi oluşturma](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [WebJobs SDK ile Azure blob depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Web İşleri SDK’sı ile Azure blob depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Web İşleri SDK’sı ile Azure kuyruk depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Web İşleri SDK’sı ile Azure Service Bus kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Web İşleri SDK’sı ile Azure tablo depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)

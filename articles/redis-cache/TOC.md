@@ -26,7 +26,7 @@
 ###[Kümelemeyle önbelleğinizi dağıtma](cache-how-to-premium-clustering.md)
 ## Otomatikleştirme
 ###[Powershell kullanarak dağıtma ve yönetme](cache-howto-manage-redis-cache-powershell.md)
-###[Azure CLI Kullanarak Dağıtın ve Yönetin](cache-manage-cli.md)
+###[Azure CLI Kullanarak Dağıtın ve Yönetin](cli-samples.md)
 ###[Redis Önbelleği Sağlama](cache-redis-cache-arm-provision.md)
 ###[Redis Önbelleği ile Web Uygulaması Sağlama](cache-web-app-arm-with-redis-cache-provision.md)
 ## ASP.NET ile tümleştirme
@@ -57,9 +57,4 @@
 # Kaynaklar
 ## [Redis önbelleği örnekleri](cache-redis-samples.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

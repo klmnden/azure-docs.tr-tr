@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ed1db5521a17988d7936c53afcfe565cc7ba1a38
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -227,7 +227,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 
    ![][19]
 8. **Tamam** düğmesine tıklayın.
-9. Şimdi yeni bir web uygulaması için Azure kaynaklarını yapılandırmanız gerekir. [Web uygulaması oluşturma](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) ve [Azure kaynaklarını oluşturma](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources) adımlarını uygulayın. Daha sonra, bu öğreticiye geri dönün ve sonraki adıma geçin.
+9. Şimdi yeni bir web uygulaması için Azure kaynaklarını yapılandırmanız gerekir. [Web uygulaması oluşturma](../app-service-web/app-service-web-get-started-dotnet.md) ve [Azure kaynaklarını oluşturma](../app-service-web/app-service-web-get-started-dotnet.md) adımlarını uygulayın. Daha sonra, bu öğreticiye geri dönün ve sonraki adıma geçin.
 10. Çözüm Gezgini'nde **Modeller**'e sağ tıklayıp **Ekle**’ye ve ardından **Sınıf**’a tıklayın. **Ad** kutusuna **Product.cs** yazın. Daha sonra **Ekle**'ye tıklayın.
 
     ![][17]
@@ -395,7 +395,7 @@ Uygulamayı yerel olarak test etmek için Visual Studio'da **F5**'e basın. İlk
 Sonraki adıma geçmeden önce her iki uygulamayı da kapatın.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>ProductsPortal projesini bir Azure web uygulamasına dağıtma
-Sonraki adımda, **ProductsPortal** ön ucu bir Azure web uygulamasına dönüştürülür. İlk olarak, [Web projesini Azure'a dağıtma](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure) bölümde yer alan tüm adımları uygulayarak **ProductsPortal** projesini dağıtın. Dağıtma işlemi tamamlandıktan sonra bu öğreticiye dönerek bir sonraki adıma geçin.
+Sonraki adımda, **ProductsPortal** ön ucu bir Azure web uygulamasına dönüştürülür. İlk olarak, [Web projesini Azure'a dağıtma](../app-service-web/app-service-web-get-started-dotnet.md) bölümde yer alan tüm adımları uygulayarak **ProductsPortal** projesini dağıtın. Dağıtma işlemi tamamlandıktan sonra bu öğreticiye dönerek bir sonraki adıma geçin.
 
 > [!NOTE]
 > Dağıtımdan sonra **ProductsPortal** web projesinin otomatik olarak başlatılması durumunda tarayıcıda bir hata iletisi görüntülenebilir. **ProductsServer** uygulaması henüz çalışmadığından bu durumun meydana gelmesi olasıdır.

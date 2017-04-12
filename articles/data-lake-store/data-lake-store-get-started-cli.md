@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2017
+ms.date: 03/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e43a6ea9510c481518becb52cc571ec62e3b151d
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f7748dba30c6e0332c166feda25f4aaa93c06efa
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,19 +29,21 @@ ms.lasthandoff: 03/21/2017
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-> [!NOTE]
-> Büyük miktarda veriyi (büyük dosyalar, çok sayıda dosya veya her ikisi) karşıya yüklemek ve indirmek için [Python SDK](data-lake-store-get-started-python.md), [.NET SDK](data-lake-store-get-started-net-sdk.md) veya [Azure PowerShell](data-lake-store-get-started-powershell.md)’i kullanmanız önerilir. Bu seçenekler veri taşımayı paralel hale getirmek için birden çok iş parçacığı kullandığı için daha iyi performans sunar.
-> 
->  
-
 Azure Data Lake Store hesabı oluşturmak ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure komut satırı arabiriminin nasıl kullanılacağını öğrenin. Data Lake Store hakkında daha fazla bilgi için bkz. [Data Lake Store'a Genel Bakış](data-lake-store-overview.md).
 
 Azure CLI, Node.js içinde uygulanmıştır. Windows, Mac ve Linux da dahil olmak üzere, Node.js'yi destekleyen herhangi bir platformda kullanılabilir. Azure CLI açık kaynaktır. Kaynak kodu, GitHub üzerinde <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a> adresinde yönetilir. Bu makalede yalnızca Azure CLI'nın Data Lake Store ile kullanımı ele alınmaktadır. Azure CLI'nın kullanımı hakkında genel bir kılavuz için bkz. [Azure CLI'yı kullanma][azure-command-line-tools].
+
+
+> [!NOTE]
+> Büyük miktarda veriyi (büyük dosyalar, çok sayıda dosya veya her ikisi) karşıya yüklemek ve indirmek için [Python SDK](data-lake-store-get-started-python.md), [.NET SDK](data-lake-store-get-started-net-sdk.md) veya [Azure PowerShell](data-lake-store-get-started-powershell.md)’i kullanmanız önerilir. Bu seçenekler veri taşımayı paralel hale getirmek için birden çok iş parçacığı kullandığı için daha iyi performans sunar.
+> 
+>
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
@@ -50,10 +52,13 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 * **Azure CLI** - Yükleme ve yapılandırma bilgileri için bkz. [Azure CLI'yı yükleme ve yapılandırma](../cli-install-nodejs.md). CLI'yı yükledikten sonra bilgisayarınızı yeniden başlattığınızdan emin olun.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
+
 Bu makalede Data Lake Store için son kullanıcı olarak oturum açtığınız daha basit bir kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake Store hesabına ve dosya sistemine erişim düzeyi bu durumda oturum açmış kullanıcının erişim düzeyine göre yönetilir. Ancak, Data Lake Store kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** şeklinde diğer yaklaşımlar da mevcuttur. Kimlik doğrulaması hakkında yönergeler ve daha fazla bilgi için bkz. [Azure Active Directory kullanarak Data Lake Store kimlik doğrulaması yapma](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="login-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açma
+
 1. [Azure Komut Satırı Arabirimi'nden (Azure CLI) bir Azure aboneliğine bağlanma](../xplat-cli-connect.md) konusunda belgelenen adımları izleyin ve `azure login` yöntemini kullanarak aboneliğinze bağlanın.
+
 2. `azure account list` komutunu kullanarak hesabınızla ilişkili abonelikleri listeleyin.
    
         info:    Executing command account list
