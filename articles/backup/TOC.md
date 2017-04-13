@@ -19,6 +19,7 @@
 ## Azure Backup Sunucusu
 ### [Azure portalında Azure Backup Sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup.md)
 ### [Klasik Azure portalında Azure Backup Sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup-classic.md)
+### [Bir VMware sunucusunu yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-backup-server-vmware.md)
 ### [Exchange’i yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-exchange-mabs.md)
 ### [Bir SharePoint grubunu yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-backup-sharepoint-mabs.md)
 ### [SQL’i yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-sql-mabs.md)

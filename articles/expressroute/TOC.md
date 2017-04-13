@@ -14,7 +14,7 @@
 ## [Yönlendirme gereksinimleri](expressroute-routing.md)
 ## [NAT gereksinimleri](expressroute-nat.md)
 ## [QoS gereksinimleri](expressroute-qos.md)
-## [Bağlantı hatlarını klasikten Resource Manager’a taşıma](expressroute-move.md)
+## [Devrelerin klasikten Resource Manager’a taşınması hakkında](expressroute-move.md)
 
 # Nasıl yapılır
 ## Bağlantı hattı oluşturma ve değiştirme
@@ -29,6 +29,7 @@
 ## [ExpressRoute için sanal ağ geçidi yapılandırma](expressroute-howto-add-gateway-resource-manager.md)
 ## [Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma](expressroute-howto-coexist-resource-manager.md)
 ## [Bir devreyi klasikten Resource Manager’a taşıma](expressroute-howto-move-arm.md)
+## [İlişkili sanal ağları klasikten Resource Manager’a geçirme](expressroute-migration-classic-resource-manager.md)
 ## ExpressRoute için yönlendirici yapılandırma
 ### [Yönlendirici yapılandırma](expressroute-config-samples-routing.md)
 ### [NAT için yönlendirici yapılandırma örnekleri](expressroute-config-samples-nat.md)

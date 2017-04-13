@@ -11,6 +11,7 @@
 ## [Java SDK’yı kullanma](data-lake-store-get-started-java-sdk.md)
 ## [REST API’sini kullanma](data-lake-store-get-started-rest-api.md)
 ## [Azure CLI’yi kullanma](data-lake-store-get-started-cli.md)
+## [Azure CLI 2.0 kullanma](data-lake-store-get-started-cli-2.0.md)
 ## [Node.js'yi kullanma](data-lake-store-manage-use-nodejs.md)
 ## [Python’u kullanma](data-lake-store-get-started-python.md)
 
@@ -49,6 +50,7 @@
 ### [Power BI ile kullanma](data-lake-store-power-bi.md)
 ### [Veri Kataloğu ile kullanma](data-lake-store-with-data-catalog.md)
 ### [SQL Veri Ambarı’nda PolyBase ile kullanma](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [SQL Server Integration Services ile kullanma](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)
 ### [Diğer Azure tümleştirme seçenekleri](data-lake-store-integrate-with-other-services.md)
 
 ## Yönet
@@ -63,6 +65,7 @@
 ## [Python (Hesap Yönetimi)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (Dosya Sistemi Yönetimi)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
+## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
 
 # Kaynaklar
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=data-lake-store)

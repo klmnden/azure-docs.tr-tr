@@ -45,6 +45,7 @@
 ### [Otomasyonu kullanarak yönetme](automation-manage-api-management.md)
 ### [Git kullanarak yapılandırma](api-management-configuration-repository-git.md)
 ### [Azure İzleyicisi’ni kullanarak izleme](api-management-howto-use-azure-monitor.md)
+### [Rol tabanlı erişim denetimi kullanma](api-management-role-based-access-control.md)
 # Başvuru
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST](/rest/api/apimanagement/)

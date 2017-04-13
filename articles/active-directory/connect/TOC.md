@@ -47,6 +47,7 @@
 ### [Dizin genişletmeleri](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Azure AD Eşitleme hizmeti hesabı parolasını değiştirme](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [AD DS hesap parolasını değiştirme](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [AD geri dönüşüm kutusunu etkinleştirme](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Eşitleme Hizmeti Yöneticisi](active-directory-aadconnectsync-service-manager-ui.md)
@@ -58,6 +59,7 @@
 
 ## Federasyon Hizmetlerini Yönetme
 ### [Özelleştirme ve yönetme](active-directory-aadconnect-federation-management.md)
+### [Azure AD’nin birden çok örneğini tek bir AD FS örneği ile birleştirme](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
 ## Sorun giderme

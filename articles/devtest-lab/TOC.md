@@ -27,7 +27,7 @@
 
 ## VM tabanlarını ve şablonlarını yönetme
 ### [Talep edilebilir VM oluşturma](devtest-lab-add-claimable-vm.md)
-### [Azure Resource Manager şablonları ile çoklu VM ortamları oluşturma](devtest-lab-create-environment-from-arm.md)
+### [Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynakları oluşturma](devtest-lab-create-environment-from-arm.md)
 ### [Market görüntülerini yapılandırma](devtest-lab-configure-marketplace-images.md)
 ### [Görüntülerle formülleri karşılaştırma](devtest-lab-comparing-vm-base-image-types.md)
 ### [Formülleri yönetme](devtest-lab-manage-formulas.md)

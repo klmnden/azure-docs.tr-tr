@@ -18,10 +18,13 @@
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
+### [🔧Azure hizmetleriyle ortak tümleştirme senaryoları](event-hubs-common-integrations.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Kimlik doğrulama ve güvenlik modeline genel bakış](event-hubs-authentication-and-security-model-overview.md)
 ### [Kullanılabilirlik ve tutarlılık](event-hubs-availability-and-consistency.md)
 ## Geliştirme
+### [🔧 İşleme hataları ve yeniden deneme](event-hubs-handling-errors-retry.md)
+### [🔧 Performansı ve ölçeği yönetme](event-hubs-performance-scale.md)
 ### [Kullanılabilir API’ler](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -34,6 +37,7 @@
 #### [Event Hubs Arşivi](event-hubs-archive-overview.md)
 #### [Şablon kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 #### [Python kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-archive-python.md)
+### [Varlıkları sağlamak için PowerShell kullanma](event-hubs-manage-with-ps.md) 
 ### [Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma](event-hubs-streaming-azure-diags-data.md)
 ### [Resource Manager şablonu kullanarak bir Event Hub’ı oluşturup dağıtma](event-hubs-resource-manager-namespace-event-hub.md)
 
@@ -58,8 +62,3 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

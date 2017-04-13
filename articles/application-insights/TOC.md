@@ -30,7 +30,6 @@
 # Nasıl yapılır?
 ## Planlama ve tasarım
 ### [Web uygulamalarını ve hizmetleri ayrıntılı tanılama](app-insights-devops.md)
-### [Application Insights ve HockeyApp ile Geliştirici Analizi](app-insights-developer-analytics.md)
 ### [Web uygulamalarının performansını izleme](app-insights-web-monitor-performance.md)
 ### [Application Insights ile kullanım analizi](app-insights-overview-usage.md)
 ### [Application Insights kaynaklarını ayırma](app-insights-separate-resources.md)
@@ -39,6 +38,7 @@
 
 ## Yapılandırma
 ### Azure
+#### [Profil Oluşturucu](app-insights-profiler.md)
 #### [Tanılama](app-insights-azure-diagnostics.md)
 
 ### ASP.NET
@@ -139,11 +139,6 @@
 
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/application-insights/)  
 
-## [Örnekler ve yönergeler](app-insights-code-samples.md)
-### [Kılavuz: Microsoft Dynamics CRM Online için telemetri etkinleştirme](app-insights-sample-mscrm.md)
-### [Kılavuz: Akış Analizi kullanarak SQL’e aktarma](app-insights-code-sample-export-sql-stream-analytics.md)
-### [Kod örneği: Dış aktarılan verileri ayrıştırma](app-insights-code-sample-export-telemetry-sql-database.md)
-
 ## Haberler
 
 ### [Blog](https://azure.microsoft.com/blog/tag/application-insights/)
@@ -156,7 +151,7 @@
 ### [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
-### [Destek](app-insights-get-dev-support.md)
+### [Destek](https://azure.microsoft.com/support/)
 
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
 

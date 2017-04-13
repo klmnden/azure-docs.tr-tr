@@ -16,6 +16,11 @@
 ### [Sorun giderme ve izleme](troubleshooting-monitoring.md)
 ### [Tek örnek SAP HANA](hana-get-started.md)
 ### [S/4 HANA veya BW/4 HANA dağıtım kılavuzu](cal-s4h.md)
+### Backup
+#### [Genel Bakış](sap-hana-backup-guide.md)
+#### [Dosya düzeyinde yedekleme](sap-hana-backup-file-level.md)
+#### [Depolama anlık görüntüleri](sap-hana-backup-storage-snapshots.md)
+
 ## SAP Netweaver
 ### [Genel bakış ve mimari](suse-quickstart.md)
 ### [Planlama ve uygulama](planning-guide.md)
