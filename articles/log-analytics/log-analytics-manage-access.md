@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
@@ -78,7 +78,7 @@ Her çalışma alanı kendisiyle ilişkilendirilmiş birden çok hesap içerebil
 Bir Log Analytics çalışma alanına erişimi denetleyen iki izin modeli vardır:
 
 1. Eski Log Analytics kullanıcı rolleri
-2. [Azure rol tabanlı erişim](../active-directory/role-based-access-control-configure.md) 
+2. [Azure rol tabanlı erişim](../active-directory/role-based-access-control-configure.md)
 
 Aşağıdaki tabloda her bir izin modeli kullanılarak ayarlanabilen erişim özellikleri özetlenmektedir:
 
@@ -101,13 +101,14 @@ Log Analytics portalında şu etkinlikler de Azure izinleri gerektirir:
 | Yönetim çözümlerini ekleme ve kaldırma                        | Kaynak Grubu yazma <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Fiyatlandırma katmanını değiştirme                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | *Backup* ve *Site Recovery* çözüm kutucuklarındaki verileri görüntüleme | Yönetici / Ortak yönetici | Klasik dağıtım modeli kullanılarak dağıtılan kaynaklara erişir |
- 
+
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Azure izinlerini kullanarak Log Analytics’e erişimi yönetme
 Azure izinlerini kullanarak Log Analytics çalışma alanına izin vermek için, [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](../active-directory/role-based-access-control-configure.md) bölümündeki adımları izleyin.
 
 Log Analytics çalışma alanında en az Azure okuma izniniz varsa, Log Analytics çalışma alanını görüntülerken **OMS Portal** görevine tıklayarak OMS portalını açabilirsiniz.
 
-Log Analytics portalını açarken, eski Log Analytics kullanıcı rollerine geçiş yaparsınız. Log Analytics portalında bir rol atamanız yoksa, hizmet [çalışma alanında sahip olduğunuz Azure izinlerini denetler](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). Log Analytics portalındaki rol atamanız aşağıdaki şekilde belirlenir:
+Log Analytics portalını açarken, eski Log Analytics kullanıcı rollerine geçiş yaparsınız. Log Analytics portalında bir rol atamanız yoksa, hizmet [çalışma alanında sahip olduğunuz Azure izinlerini denetler](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
+Log Analytics portalındaki rol atamanız aşağıdaki şekilde belirlenir:
 
 | Koşullar                                                   | Atanan Log Analytics kullanıcı rolü | Notlar |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -119,7 +120,7 @@ Log Analytics portalını açarken, eski Log Analytics kullanıcı rollerine ge�
 | Bulut Çözümü Sağlayıcısı (CSP) tarafından yönetilen abonelikler için <br> Oturum açtığınız hesap, çalışma alanına bağlı Azure Active Directory’dedir | Yönetici | Genellikle bir CSP’nin müşterisi |
 | Bulut Çözümü Sağlayıcısı (CSP) tarafından yönetilen abonelikler için <br> Oturum açtığınız hesap, çalışma alanına bağlı Azure Active Directory’de değildir | Katılımcı | Genellikle CSP |
 
-<sup>1</sup> Rol tanımları hakkında daha fazla bilgi için [Azure izinlerine](../active-directory/role-based-access-control-custom-roles.md) bakın. Roller değerlendirilirken, `*` eylemi `Microsoft.OperationalInsights/workspaces/*` öğesine eşit değildir. 
+<sup>1</sup> Rol tanımları hakkında daha fazla bilgi için [Azure izinlerine](../active-directory/role-based-access-control-custom-roles.md) bakın. Roller değerlendirilirken, `*` eylemi `Microsoft.OperationalInsights/workspaces/*` öğesine eşit değildir.
 
 Azure portalı hakkında dikkate alınması gereken bazı noktalar:
 
