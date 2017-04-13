@@ -1,16 +1,17 @@
 # Genel Bakış
 ## [Azure Otomasyonu Nedir?](automation-intro.md)
-# başlarken
-## [Runbook oluşturma](automation-first-runbook-graphical.md)
-## [PowerShell runbook’u oluşturma](automation-first-runbook-textual-powershell.md)
-## [PowerShell İş Akışı runbook’u oluşturma](automation-first-runbook-textual.md)
-## [Rol tabanlı erişim denetimini yönetme](automation-role-based-access-control.md)
+# Başlarken
+## Runbook öğreticisi
+### [Grafik runbook oluşturma](automation-first-runbook-graphical.md)
+### [PowerShell runbook’u oluşturma](automation-first-runbook-textual-powershell.md)
+### [PowerShell İş Akışı runbook’u oluşturma](automation-first-runbook-textual.md)
 # Nasıl yapılır?
-## Kimlik doğrulamasını ayarlama
+## Kimlik doğrulama ve güvenlik
 ### [Azure Otomasyonu’nda kimlik doğrulaması](automation-security-overview.md)
-### [Azure Farklı Çalıştır hesabı](automation-sec-configure-azure-runas-account.md)
-### [Azure Hizmet Yönetimi ve Azure Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Hizmetleri](automation-sec-configure-aws-account.md)
+### [Azure Farklı Çalıştır hesabını yapılandırma](automation-sec-configure-azure-runas-account.md)
+### [Azure AD Kullanıcı hesabını yapılandırma](automation-sec-configure-aduser-account.md)
+### [AWS ile kimlik doğrulamasını yapılandırma](automation-sec-configure-aws-account.md)
+### [Rol tabanlı erişim denetimini yönetme](automation-role-based-access-control.md)
 ## Runbook oluşturma
 ### [Runbook türleri](automation-runbook-types.md)
 ### [Runbook oluşturma ve çalıştırma](automation-creating-importing-runbook.md)

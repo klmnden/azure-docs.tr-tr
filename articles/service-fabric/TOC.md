@@ -17,8 +17,9 @@
 ### [Linux üzerinde Java](service-fabric-create-your-first-linux-application-with-java.md)
 ### [Linux üzerinde C#](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Yerel bir kümede uygulamaları dağıtma](service-fabric-get-started-with-a-local-cluster.md)
+## [Tek başına küme oluşturma](service-fabric-get-started-standalone-cluster.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Uygulama oluşturma
 ### [Modeller ve senaryolar](service-fabric-patterns-and-scenarios.md)
 ### Temel Bilgiler
@@ -145,6 +146,7 @@
 ### Uygulama dağıtma veya kaldırma
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+#### [FabricClient API’leri](service-fabric-deploy-remove-applications-fabricclient.md)
 ### [Uygulama yükseltmeye genel bakış](service-fabric-application-upgrade.md)
 ### [Uygulama yükseltmeyi yapılandırma](service-fabric-visualstudio-configure-upgrade.md)
 ### [Uygulama yükseltme parametreleri](service-fabric-application-upgrade-parameters.md)
@@ -208,9 +210,9 @@
 ### [Hizmet taşıma](service-fabric-cluster-resource-manager-movement-cost.md)
 
 # Başvuru
-## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
-## [Java API’si](/java/api/microsoft.servicefabric.services)
-## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [PowerShell](/powershell/module/ServiceFabric/)
+## [Java API’si](/java/api/)
+## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicefabric)
 
 # Kaynaklar

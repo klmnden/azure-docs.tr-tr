@@ -103,6 +103,7 @@
 #### [Power BI’da Veri Görselleştirme](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Web Apps ile Veri Görselleştirme](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Azure Machine Learning kullanarak hava durumu tahmini](iot-hub-weather-forecast-machine-learning.md)
+#### [iothub-explorer ile cihaz yönetimi](iot-hub-device-management-iothub-explorer.md)
 
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [iothub-explorer ile bulut cihaz mesajlaşmasını yönetme](iot-hub-explorer-cloud-device-messaging.md)
@@ -110,6 +111,7 @@
 #### [Power BI’da Veri Görselleştirme](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Web Apps ile Veri Görselleştirme](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Azure Machine Learning kullanarak hava durumu tahmini](iot-hub-weather-forecast-machine-learning.md)
+#### [iothub-explorer ile cihaz yönetimi](iot-hub-device-management-iothub-explorer.md)
 
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
@@ -138,56 +140,15 @@
 ### [Linux üzerinde benzetim](iot-hub-linux-gateway-sdk-get-started.md)
 ### [Windows üzerinde benzetim](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 ## IoT Gateway Başlangıç Paketini kullanma
-### [Sanal cihaz](iot-hub-gateway-kit-c-sim-get-started.md)
-#### Ders 1: NUC cihazınızı yapılandırma
-##### [Intel NUC cihazını IoT ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+### IoT Gateway Başlangıç Paketinizi yapılandırma
+#### [Intel NUC cihazını IoT ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+#### [IoT ağ geçidini IoT Hub’a bağlama](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+#### [Veri dönüştürme için IoT ağ geçidi kullanma](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-#### Ders 2: IoT Hub'ı oluşturma
-##### [Araçları edinme (Windows 7+)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
-##### [Araçları edinme (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
-##### [Araçları edinme (macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
-##### [IoT hub'ı oluşturma ve cihazınızı kaydetme](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 
-#### Ders 3: Sanal cihazdan ileti alma
-##### [BLE örnek uygulamasını yapılandırma ve çalıştırma](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
-##### [IoT hub'ınızdan ileti okuma](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
-
-#### Ders 4: İletileri Azure Tablo depolamaya kaydetme
-##### [Azure işlev uygulaması ve Azure Depolama hesabı oluşturma](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
-##### [Azure Tablo depolamada kalıcı olan iletileri okuma](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
-
-#### [Ders 5: İlk Azure IoT Ağ Geçidi modülünüzü oluşturma](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-#### [Sorun giderme](iot-hub-gateway-kit-c-sim-troubleshooting.md)
-
-### [SensorTag cihazı](iot-hub-gateway-kit-c-get-started.md)
-#### Ders 1: NUC cihazınızı yapılandırma
-##### [Intel NUC cihazını IoT ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-
-#### Ders 2: IoT Hub'ı oluşturma
-##### [Araçları edinme (Windows 7+)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
-##### [Araçları edinme (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
-##### [Araçları edinme (macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
-##### [IoT hub'ı oluşturma ve cihazınızı kaydetme](iot-hub-gateway-kit-c-lesson2-register-device.md)
-
-#### Ders 3: Sanal cihazdan ileti alma
-##### [BLE örnek uygulamasını yapılandırma ve çalıştırma](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
-##### [IoT hub'ınızdan ileti okuma](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-#### Ders 4: İletileri Azure Tablo depolamaya kaydetme
-##### [Azure işlev uygulaması ve Azure Depolama hesabı oluşturma](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
-##### [Azure Tablo depolamada kalıcı olan iletileri okuma](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
-
-#### [Ders 5: İlk Azure IoT Ağ Geçidi modülünüzü oluşturma](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-##### [Sorun giderme](iot-hub-gateway-kit-c-troubleshooting.md)
-
-## [C için IoT cihaz SDK'sını kullanma](iot-hub-device-sdk-c-intro.md)
-### [IoTHubClient kullanma](iot-hub-device-sdk-c-iothubclient.md)
-### [Seri hale getirici kullanma](iot-hub-device-sdk-c-serializer.md)
-
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama
 ### [IoT Hub ile Event Hubs karşılaştırması](iot-hub-compare-event-hubs.md)
 ### [Çözümünüzü ölçeklendirme](iot-hub-scaling.md)
@@ -211,6 +172,9 @@
 #### [Cihaz ve hizmet SDK’ları](iot-hub-devguide-sdks.md)
 #### [MQTT desteği](iot-hub-mqtt-support.md)
 #### [Sözlük](iot-hub-devguide-glossary.md)
+### [C için IoT cihaz SDK'sını kullanma](iot-hub-device-sdk-c-intro.md)
+#### [IoTHubClient kullanma](iot-hub-device-sdk-c-iothubclient.md)
+#### [Seri hale getirici kullanma](iot-hub-device-sdk-c-serializer.md)
 ### Cihazdan buluta iletilerini işleme
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
@@ -268,8 +232,8 @@
 ## [Azure CLI 2.0 Önizleme](/cli/azure/iot)
 ## [.NET (Hizmet)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Cihazlar)](/dotnet/api/microsoft.azure.devices.client)
-## [Java (Hizmet)](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java (Cihazlar)](/java/api/com.microsoft.azure.iothub)
+## [Java (Hizmet)](/java/api/com.microsoft.azure.sdk.iot.service)
+## [Java (Cihazlar)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Azure IoT SDK’ları](http://azure.github.io/azure-iot-sdks/)
 ## [Ağ Geçidi SDK’sı](http://azure.github.io/azure-iot-gateway-sdk)
 ## [REST (Kaynak Sağlayıcısı)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

@@ -30,6 +30,7 @@
 ### [Kapsayıcı yönetimi - Kubernetes UI](container-service-kubernetes-ui.md)
 ### [Kubernetes kapsayıcılarında yük dengeleme](container-service-kubernetes-load-balancing.md)
 ### [ACS Kubernetes ile Jenkins tümleştirmesi](container-service-kubernetes-jenkins.md)
+### [Helm grafikleri dağıtma](container-service-kubernetes-helm.md)
 ### Kubernetes izleme
 #### [OMS ile izleme](container-service-kubernetes-oms.md)
 #### [Datadog ile izleme](container-service-kubernetes-datadog.md)

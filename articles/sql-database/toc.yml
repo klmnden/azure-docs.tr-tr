@@ -185,6 +185,8 @@
     items:
     - name: "Veritabanı kopyalama"
       href: sql-database-copy.md
+    - name: "Veritabanını içeri aktarma"
+      href: sql-database-import.md
     - name: "Veritabanını dışarı aktarma"
       href: sql-database-export.md
   - name: "İzleme ve ayarlama"
@@ -209,16 +211,6 @@
       href: sql-database-compatibility-level-query-performance-130.md
 - name: "Nasıl yapılır kılavuzları"
   items:
-  - name: "Güvenlik duvarını yönetme"
-    items:
-    - name: "Portal"
-      href: sql-database-configure-firewall-settings.md
-    - name: "PowerShell"
-      href: sql-database-configure-firewall-settings-powershell.md
-    - name: "REST API"
-      href: sql-database-configure-firewall-settings-rest.md
-    - name: "Transact-SQL"
-      href: sql-database-configure-firewall-settings-tsql.md
   - name: "Esnek havuzları yönetme"
     items:
     - name: "Portal"
@@ -249,20 +241,10 @@
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: "Maskelemeyi yapılandırma"
       href: sql-database-dynamic-data-masking-get-started-portal.md
-  - name: "Kurtarma"
-    items:
-    - name: "Portal"
-      href: sql-database-get-started-backup-recovery-portal.md
-    - name: "PowerShell"
-      href: sql-database-get-started-backup-recovery-powershell.md
-    - name: "Tek tablo"
-      href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: "Bekletme"
-    items:
-    - name: "Bekletme - Portal"
-      href: sql-database-manage-long-term-backup-retention-portal.md
-    - name: "Bekletme - PowerShell"
-      href: sql-database-manage-long-term-backup-retention-powershell.md
+  - name: "Tek bir tabloyu kurtarma"
+    href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
+  - name: "Yedeklemeler için kasa yapılandırma"
+    href: sql-database-long-term-backup-retention-configure.md
   - name: "Verileri coğrafi olarak çoğaltma"
     items:
     - name: "Portal"
@@ -277,10 +259,6 @@
       href: sql-database-disaster-recovery-drills.md
   - name: "Veri taşıma"
     items:
-    - name: "İçeri Aktarma - Portal"
-      href: sql-database-import-portal.md
-    - name: "İçeri Aktarma - SQLPackage"
-      href: sql-database-import-sqlpackage.md
     - name: "BCP ile veri yükleme"
       href: sql-database-load-from-csv-with-bcp.md
     - name: "ADF ile veri yükleme"

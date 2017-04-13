@@ -24,13 +24,10 @@
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure portal (klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-### [Klasik portal (klasik)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Dağıtım modelleri arasında sanal ağdan sanal ağa bağlantı yapılandırma
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## Birlikte bulunan Siteden Siteye bağlantılar ile ExpressRoute bağlantıları oluşturma
-### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-### [PowerShell (klasik)](../expressroute/expressroute-howto-coexist-classic.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## [Birlikte bulunan Siteden Siteye bağlantılar ile ExpressRoute bağlantılarını yapılandırma](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Zorlamalı tünel yapılandırma
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (klasik)](vpn-gateway-about-forced-tunneling.md)
@@ -50,8 +47,8 @@
 ## [VPN ağ geçidi yapılandırma (klasik)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Başvuru
-## [PowerShell](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (klasik)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
+## [PowerShell (klasik)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (klasik)](https://msdn.microsoft.com/library/jj154113)
 

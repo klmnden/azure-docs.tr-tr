@@ -79,6 +79,7 @@
 ### [Azure IaaS VM Diskleri hakkında Sık Sorulan Sorular](storage-faq-for-disks.md)
 ### Premium Depolama
 #### [VM Diskleri için yüksek performanslı Premium Depolama](storage-premium-storage.md)
+#### [Azure Site Recovery kullanarak Premium Depolamaya geçiş](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
 #### [Yüksek Performans Tasarımı](storage-premium-storage-performance.md)
 ### Standart Depolama
 #### [Uygun maliyetli Standart Depolama ile yönetilmeyen ve yönetilen VM Diskleri](storage-standard-storage.md)

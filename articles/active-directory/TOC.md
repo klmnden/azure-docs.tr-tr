@@ -81,6 +81,7 @@
 ### [Adlandırılmış ağlar](active-directory-known-networks-azure-portal.md)
 ### [Rapor geçişi](active-directory-reporting-migration.md)
 ### [Bekletme](active-directory-reporting-retention.md)
+### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)
 ### [SSS](active-directory-reporting-faq.md)
 ### Sorun giderme
 #### [Eksik denetim verileri](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -109,8 +110,9 @@
 ##### [Anormal oturum açma işlemleri](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Parolaları yönetme](active-directory-manage-passwords.md)
-### [Kendi parolanızı güncelleştirme](active-directory-passwords-update-your-own-password.md)
-### [Self servis parola sıfırlamayı ayarlama](active-directory-passwords.md)
+### [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
+### [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
+### [Yöneticiler self servis parola sıfırlamayı etkinleştirir](active-directory-passwords.md)
 ### [Parola yönetimini anlama](active-directory-passwords-how-it-works.md)
 ### [İlkeleri ve kısıtlamaları anlama](active-directory-passwords-policy.md)
 ### Parolaları sıfırla
@@ -155,19 +157,12 @@
 ### [Uygulamalarınıza uzaktan erişim verme](active-directory-application-proxy-get-started.md)
 #### [Uygulama Ara Sunucusu](active-directory-application-proxy-enable.md)
 #### [Bağlayıcıları anlama](application-proxy-understand-connectors.md)
-
-#### Uygulamaları yayımlama
-##### [Azure portal](application-proxy-publish-azure-portal.md)
-##### [Klasik portal](active-directory-application-proxy-publish.md)
-
+#### [Uygulamaları yayımlama](application-proxy-publish-azure-portal.md)
 #### [Güvenlik](application-proxy-security-considerations.md)
 #### [Ağlar](application-proxy-network-topology-considerations.md)
 #### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
 #### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-
-#### Ayrı ağlarda yayımlama
-##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Klasik portal](active-directory-application-proxy-connectors.md)
+#### [Ayrı ağlarda yayımlama](active-directory-application-proxy-connectors-azure-portal.md)
 #### [Ara sunucular](application-proxy-working-with-proxy-servers.md)
 #### [Özel etki alanları](active-directory-application-proxy-custom-domains.md)
 #### [Uygulamalara erişim](active-directory-appssoaccess-whatis.md)
@@ -181,6 +176,11 @@
 #### [Sessiz yükleme](active-directory-application-proxy-silent-installation.md)
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
+#### Klasik portalı kullanın
+##### [Bağlayıcı indirme](application-proxy-enable-classic-portal.md)
+##### [Uygulamaları yayımlama](active-directory-application-proxy-publish.md)
+##### [Bağlayıcı kullanma](active-directory-application-proxy-connectors.md)
+
 
 ### Kurumsal uygulamaları yönetme
 #### [Kullanıcıları atama](active-directory-coreapps-assign-user-azure-portal.md)
@@ -200,8 +200,21 @@
 #### [Self servis erişimi](active-directory-self-service-application-access.md)
 #### [SSO için sertifikalar](active-directory-sso-certs.md)
 #### [Kiracı kısıtlamaları](active-directory-tenant-restrictions.md)
+#### [SCIM kullanıcı sağlama hizmetinden yararlanma](active-directory-scim-provisioning.md)
 
-### [SCIM kullanıcı sağlama hizmetinden yararlanma](active-directory-scim-provisioning.md)
+### [Sorun giderme](active-directory-application-troubleshoot-content-map.md)
+#### Uygulama Geliştirme
+##### [Yapılandırma ve Kayıt](active-directory-application-dev-config-content-map.md)
+##### [Geliştirme](active-directory-application-dev-development-content-map.md)
+#### Uygulama Yönetimi
+##### [Yapılandırma](active-directory-application-config-content-map.md)
+##### [Oturum açma](active-directory-application-sign-in-content-map.md)
+##### [Sağlama](active-directory-application-provisioning-content-map.md)
+##### [Erişimi yönetme](active-directory-application-access-content-map.md)
+##### [Erişim Paneli](active-directory-application-access-panel-content-map.md)
+##### [Uygulama Proxy’si](active-directory-application-proxy-content-map.md)
+##### [Koşullu erişim](active-directory-application-conditional-access-content-map.md)
+
 ### [Belge kitaplığı](active-directory-apps-index.md)
 
 ## Dizininizi yönetme
@@ -315,6 +328,12 @@
 ### [Değişiklik imzası karma algoritması](active-directory-federation-sha256-guidance.md)
 
 ## [Sorun giderme](active-directory-troubleshooting.md)
+
+## Azure AD Kavram Kanıtı (PoC) Dağıtma
+### [PoC El Kitabı: Giriş](active-directory-playbook-intro.md)
+### [PoC El Kitabı: Malzemeler](active-directory-playbook-ingredients.md)
+### [PoC El Kitabı: Uygulama](active-directory-playbook-implementation.md)
+### [PoC El Kitabı: Yapı Taşları](active-directory-playbook-building-blocks.md)
 
 
 # Başvuru

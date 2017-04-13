@@ -9,6 +9,7 @@
 ## Sanal Makineleri yönetme
 ### [Yazar sanal makine teklifi](./cloud-partner-portal-publish-virtual-machine.md)
 #### [Önkoşullar](./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
+#### [Microsoft Developer hesabı kaydı](./cloud-partner-portal-dev-center-accounts-registration.md)
 #### [Yeni VM teklifi oluşturma](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer)
 #### [Teklif ayarları formu](./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form)
 #### [SKU formu](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus)
@@ -21,6 +22,7 @@
 ### [Mevcut teklifi güncelleştirme](./cloud-partner-portal-update-existing-offer.md)
 ### [VM teklifini/SKU’yu silme](./cloud-partner-portal-delete-an-offer.md)
 ### [Bulut iş ortağı portalına geçirme](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+## [Azure Market satıcı kılavuzu](./cloud-partner-portal-seller-guide.md)
 
 ## [Pazarlama sağlama yönetimi](./cloud-partner-portal-marketing-lead-management.md)
 ### [Azure tablosu](./cloud-partner-portal-lead-management-instructions-azure-table.md)

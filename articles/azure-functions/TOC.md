@@ -29,13 +29,13 @@
 ##### [Tablo bağlamaları](functions-bindings-storage-table.md)
 #### [Zamanlayıcı tetikleyicisi](functions-bindings-timer.md)
 #### [Twilio çıktı bağlaması](functions-bindings-twilio.md)
+### [İşlevler proxy’lerini tanımlama](functions-proxies.md)
 ### [Azure portalından işlev uygulaması oluşturma](functions-create-function-app-portal.md) 
+### [Zamanlanmış bir temizleme görevi gerçekleştirme](functions-scenario-database-table-cleanup.md)
 ### [Azure İşlevlerini test etme](functions-test-a-function.md)
 ### [Yerel olarak geliştirme ve hata ayıklama](functions-run-local.md)
 ### [Azure İşlevleri için en iyi uygulamalar](functions-best-practices.md)
-### [Planlı temizleme görevini gerçekleştirmek için Azure İşlevleri’ni kullanma](functions-scenario-database-table-cleanup.md)
-### [OpenAPI tanımı (önizleme) oluşturma](functions-api-definition-getting-started.md)
-#### [İşlevler başvurusunda OpenAPI 2.0](functions-api-definition.md)
+### [OpenAPI tanımı oluşturma](functions-api-definition-getting-started.md)
 
 ## Yönet
 ### [Bir işlev uygulaması için ayarları yapılandırma](functions-how-to-use-azure-function-app-settings.md)

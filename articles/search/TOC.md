@@ -48,16 +48,19 @@
 ### [JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
 ### [Azure sanal makinesinde dizin oluşturucu SQL Server bağlantılarını yapılandırma](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Dizin oluşturucularda alan eşlemeleri](search-indexer-field-mappings.md)
-##  Arama deneyimi
-### [Basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-### [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-### [Lucene sözdizimi sorgu örnekleri](search-query-lucene-examples.md)
-### [Filtre ifadesi söz dizimi](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+##  Arama 
+### [Tam metin araması nasıl çalışır?](search-lucene-query-architecture.md)
+### Sorgu Oluşturma
+#### [Basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+#### [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+#### [Lucene sözdizimi sorgu örnekleri](search-query-lucene-examples.md)
+#### [Filtre ifadesi söz dizimi](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+### Özel Arama
+#### [Dil çözümleyicileri](https://docs.microsoft.com/rest/api/searchservice/language-support)
+#### [Özel çözümleyiciler](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Puanlama](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Öneriler](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Çok yönlü gezinme](search-faceted-navigation.md)
-### [Dil çözümleyicileri](https://docs.microsoft.com/rest/api/searchservice/language-support)
-### [Özel çözümleyiciler](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 
 # Başvuru
 ## [.NET](/dotnet/api/microsoft.azure.search)

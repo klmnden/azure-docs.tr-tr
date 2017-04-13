@@ -8,6 +8,7 @@
 ## başlarken
 ### [Dağıtım önkoşulları](azure-stack-deploy.md)
 ### [Dağıtma](azure-stack-run-powershell-script.md)
+### [Portalları etkinleştirme](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Kaydolma](azure-stack-register.md)
 ## Nasıl yapılır?
 ### [Azure Stack POC'ye Bağlanma](azure-stack-connect-azure-stack.md)
@@ -56,6 +57,7 @@
 #### [Azure Stack’te App Service’a genel bakış](azure-stack-app-service-overview.md)
 #### [Başlamadan önce](azure-stack-app-service-before-you-get-started.md)
 #### [App Service kaynak sağlayıcısı dağıtma](azure-stack-app-service-deploy.md)
+#### [Çevrimdışı App Service dağıtma](azure-stack-app-service-deploy-offline.md)
 #### [Daha fazla Web çalışanı rolü ekleme](azure-stack-app-service-add-worker-roles.md)
 #### [Dağıtım kaynaklarını yapılandırma](azure-stack-app-service-configure-deployment-sources.md)
 #### [Azure Stack üzerinde App Service’te FTP’yi etkinleştirme ](azure-stack-app-service-enable-ftp.md)
@@ -65,7 +67,7 @@
 #### [Market öğesi oluşturma ve yayımlama](azure-stack-create-and-publish-marketplace-item.md)
 #### [Özel bir sanal makine görüntüsü ekleme](azure-stack-add-vm-image.md)
 #### [Linux sanal makineleri dağıtma](azure-stack-linux.md)
-### Kullanım ve Faturalandırma
+### Kullanım ve faturalandırma
 #### [Genel Bakış](azure-stack-billing-and-chargeback.md)
 #### [Kullanım verilerini raporlama](azure-stack-usage-reporting.md)
 #### [Sağlayıcı kullanım API’si](azure-stack-provider-resource-api.md)
@@ -80,7 +82,7 @@
 ### [Genel Bakış](azure-stack-storage-overview.md)
 ### [Farklılıklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences-tp2.md)
 ## Ağ
-### [Azure Stack için iDNS](azure-stack-understanding-dns-in-tp2.md)
+### [Azure Stack için iDNS](azure-stack-understanding-dns.md)
 ### [Azure Stack’te DNS](azure-stack-dns.md)
 ### [Siteden siteye VPN bağlantılarını anlama](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Anahtar Kasası
