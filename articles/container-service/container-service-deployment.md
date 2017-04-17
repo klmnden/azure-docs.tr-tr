@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 71903120a77aa4d8fd58ea600488d3464570b0cb
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Azure portalını kullanarak Docker kapsayıcısı barındırma çözümü dağıtma
@@ -36,7 +36,11 @@ Arka plan bilgileri için bkz. [Azure Container Service'e giriş](container-serv
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* **Azure aboneliği**: Aboneliğiniz yoksa [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935) sürümüne kaydolun. 
+* **Azure aboneliği**: Aboneliğiniz yoksa [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935) sürümüne kaydolun. Daha büyük bir küme için, kullandıkça öde veya diğer satın alma seçeneklerini göz önünde bulundurun.
+
+    > [!NOTE]
+    > Azure aboneliği kullanımınız ve çekirdek kotaları gibi [kaynak kotalarınız](../azure-subscription-service-limits.md), dağıttığınız kümenin boyutunu sınırlayabilir. Bir kota artışı istemek için ücretsiz olarak [çevrimiçi müşteri destek isteği](../azure-supportability/how-to-create-azure-support-request.md) açın.
+    >
 
 * **SSH RSA ortak anahtarı**: Portal veya Azure hızlı başlangıç şablonlarından biri ile dağıtım yaparken, Azure Container Service sanal makinelerinde kimlik doğrulamak için ortak anahtar belirtmeniz gerekir. Güvenli Kabuk (SSH) RSA anahtarları oluşturmak için [OS X ve Linux](../virtual-machines/linux/mac-create-ssh-keys.md) veya [Windows](../virtual-machines/linux/ssh-from-windows.md) kılavuzuna bakın. 
 
@@ -109,7 +113,7 @@ Dağıtımın tamamlanması birkaç dakika sürer. Tamamlandıktan sonra, Azure 
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Hızlı başlangıç şablonu kullanarak küme oluşturma
 Azure hızlı başlangıç şablonları, Azure Container Service’te küme dağıtmak için kullanılabilir. Sunulan hızlı başlangıç şablonu, ek veya gelişmiş Azure yapılandırmalarını dahil edecek şekilde değiştirilebilir. Azure hızlı başlangıç şablonu kullanarak Azure Container Service kümesi oluşturmak için bir Azure aboneliği gereklidir. Bir aboneliğiniz yoksa [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935) sürümüne kaydolun. 
 
-Bir şablon ve Azure CLI 2.0 kullanarak küme dağıtmak için bu adımları izleyin (bkz. [yükleme ve kurulum yönergeleri](/cli/azure/install-az-cli2.md)).
+Bir şablon ve Azure CLI 2.0 kullanarak küme dağıtmak için bu adımları izleyin (bkz. [yükleme ve kurulum yönergeleri](/cli/azure/install-az-cli2)).
 
 > [!NOTE] 
 > Bir Windows sistemi kullanıyorsanız, Azure PowerShell kullanarak şablon dağıtmak için benzer adımları kullanabilirsiniz. Bu bölümün sonraki kısımlarında verilen adımlara bakın. Ayrıca [portalı](../azure-resource-manager/resource-group-template-deploy-portal.md) veya diğer yöntemleri kullanarak da şablon dağıtabilirsiniz.

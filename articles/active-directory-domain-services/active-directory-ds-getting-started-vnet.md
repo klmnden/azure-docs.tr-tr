@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Etki Alanı Hizmetleri: Sanal ağ oluşturma veya seçme | Microsoft Belgeleri"
+title: "Azure Active Directory Domain Services: Sanal ağ oluşturma veya seçme | Microsoft Docs"
 description: "Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama"
 services: active-directory-ds
 documentationcenter: 
@@ -15,56 +15,57 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9e933774e3b618b1584b4f24a0491eda49e42077
-ms.lasthandoff: 12/07/2016
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: cb372232492e8f98ff1543798b92b4b60fc25021
+ms.lasthandoff: 04/12/2017
 
 
 ---
-# <a name="create-or-select-a-virtual-network-for-azure-ad-domain-services"></a>Azure AD Domain Services için bir sanal ağ oluşturma veya seçme
-## <a name="guidelines-to-select-an-azure-virtual-network"></a>Azure sanal ağı seçmeye yönelik yönergeler
-> [!NOTE]
-> **Başlamadan önce**: [Azure AD Domain Services için ağ ile ilgili dikkat edilmesi gerekenler](active-directory-ds-networking.md) sayfasına bakın.
->
->
+# <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services için sanal ağ oluşturma veya seçme
+## <a name="before-you-begin"></a>Başlamadan önce
+[Azure Active Directory Domain Services için ağ ile ilgili dikkat edilmesi gerekenler](active-directory-ds-networking.md) bölümüne bakın.
 
 ## <a name="task-2-create-an-azure-virtual-network"></a>Görev 2: Azure sanal ağı oluşturma
-Sonraki yapılandırma görevi bir Azure sanal ağı ve onun içinde bir alt ağ oluşturulmasını içerir. Sanal ağınızdaki bu alt ağda Azure AD Etki Alanı Hizmetleri'ni etkinleştirin. Kullanmayı tercih ettiğiniz bir sanal ağınız zaten varsa bu adımı atlayabilirsiniz.
+Sonraki yapılandırma görevi bir Azure sanal ağı ve onun içinde bir alt ağ oluşturulmasını içerir. Sanal ağınızdaki bu alt ağda Azure Active Directory Domain Services’ı etkinleştirin. Kullanmayı tercih ettiğiniz bir sanal ağınız varsa bu adımı atlayabilirsiniz.
 
 > [!NOTE]
-> Oluşturduğunuz veya Azure AD Etki Alanı Hizmetleri ile kullanmayı seçtiğiniz Azure sanal ağının, Azure AD Etki Alanı Hizmetleri tarafından desteklenen bir Azure bölgesine ait olduğundan emin olun. Azure AD Domain Services'in kullanılabildiği Azure bölgelerini öğrenmek için [bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına bakın.
+> Oluşturduğunuz veya Azure Active Directory Domain Services ile kullanmayı seçtiğiniz Azure sanal ağının, Azure Active Directory Domain Services tarafından desteklenen bir Azure bölgesine ait olduğundan emin olun. Azure Active Directory Domain Services’ın kullanılabildiği Azure bölgelerini öğrenmek için [Bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına bakın.
 >
->
+>Sonraki bir yapılandırma adımında Azure Active Directory Domain Services etkinleştirilirken doğru sanal ağı seçebilmek için sanal ağın adını not edin.
 
-Sanal ağın adını not edin, böylece daha sonraki bir yapılandırma adımında Azure AD Domain Services'i etkinleştirirken doğru sanal ağı seçersiniz.
 
-Azure AD Domain Services'i etkinleştirmek istediğiniz bir Azure sanal ağı oluşturmak için aşağıdaki yapılandırma adımlarını gerçekleştirin.
+Azure Active Directory Domain Services’ı etkinleştirmek istediğiniz bir Azure sanal ağı oluşturmak için aşağıdaki yapılandırma yönergelerini izleyin:
 
-1. **Klasik Azure portalına** ([https://manage.windowsazure.com](https://manage.windowsazure.com)) gidin.
-2. Sol bölmede **Ağlar** düğümünü seçin.
+1. [Klasik Azure portalı](https://manage.windowsazure.com)'na gidin.
+2. Sol bölmede **Ağlar**’ı seçin.
 
-    ![Ağlar düğümü](./media/active-directory-domain-services-getting-started/networks-node.png)
-3. Sayfanın altındaki görev bölmesinde **YENİ** seçeneğine tıklayın.
+    ![Ağlar düğümü](./media/active-directory-domain-services-getting-started/networks-node.png)  
+    **Sanal Ağlar** penceresi açılır.
+3. Pencerenin altındaki görev bölmesinde **Yeni**’ye tıklayın.
 
-    ![Sanal ağlar düğümü](./media/active-directory-domain-services-getting-started/virtual-networks.png)
-4. **Ağ Hizmetleri** düğümünde **Virtual Network** seçeneğini belirleyin.
-5. Sanal ağ oluşturmak için **Hızlı Oluştur** seçeneğine tıklayın.
-
+    ![Sanal ağlar penceresi](./media/active-directory-domain-services-getting-started/virtual-networks.png)
+4. **Ağ Hizmetleri** düğümüne tıklayıp **Sanal Ağ** öğesini seçin.
+    
     ![Sanal ağ - hızlı oluştur](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
-6. Sanal ağınız için bir **Ad** belirtin. Ayrıca bu ağ için **Adres alanını** veya **Maksimum VM sayısını** yapılandırmayı tercih edebilirsiniz. Şu an için **DNS sunucusu** ayarını ‘Yok’ olarak ayarlanmış şekilde bırakabilirsiniz. Azure AD Etki Alanı Hizmetleri'ni etkinleştirmenizin ardından DNS sunucusu ayarını güncelleştirebilirsiniz.
-7. **Konum** açılan menüsünde desteklenen bir Azure bölgesini seçtiğinizden emin olun. Azure AD Domain Services'in kullanılabildiği Azure bölgelerini öğrenmek için [bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına bakın.
-8. Sanal ağınızı oluşturmak için **Sanal Ağ Oluştur** düğmesine tıklayın.
+5. Sanal ağ oluşturmak için **Hızlı Oluştur**’a tıklayın.
+    
+6. Sanal ağınız için bir **Ad** belirtin ve aşağıdakileri yapın: 
+    * Bu ağ için **Adres alanını** veya **Maksimum VM sayısını** yapılandırmayı seçebilirsiniz. 
+    * Şu an için **DNS sunucusu** ayarını **Yok** olarak ayarlanmış şekilde bırakabilirsiniz. Azure Active Directory Domain Services’ı etkinleştirmenizin ardından ayarı güncelleştirebilirsiniz.
+7. **Konum** açılır listesinde desteklenen bir Azure bölgesi seçin.  
+    Azure Active Directory Domain Services’ın kullanılabildiği Azure bölgelerini öğrenmek için [Bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına bakın.
+8. Sanal ağınızı oluşturmak için **Sanal Ağ Oluştur**’a tıklayın.
 
-    ![Azure AD Etki Alanı Hizmetleri için bir sanal ağ oluşturun.](./media/active-directory-domain-services-getting-started/create-vnet.png)
-9. Sanal ağ oluşturulduktan sonra sanal ağı seçin ve **YAPILANDIR** sekmesine tıklayın.
+    ![Azure Active Directory Domain Services için sanal ağ oluşturma](./media/active-directory-domain-services-getting-started/create-vnet.png)
+9. Sanal ağ oluşturduktan sonra sanal ağın adını seçin ve **Yapılandır** sekmesine tıklayın.
 
     ![Alt ağ oluşturma](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
-10. **Sanal ağ adres alanları** bölümüne gidin. **Alt ağ ekle**’ye tıklayınb ve **AaddsSubnet** adlı bir alt ağ belirtin. Alt ağı oluşturmak için **Kaydet**’e tıklayın.
+10. **Sanal ağ adres alanları** altında **alt ağ ekle**’ye tıklayın ve ardından **AaddsSubnet** adlı bir alt ağ belirtin. 
 
-    ![Azure AD Etki Alanı Hizmetleri için bir alt ağ oluşturun.](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
+    ![Azure Active Directory Domain Services için alt ağ oluşturma](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
 
-<br>
+11. Alt ağı oluşturmak için **Kaydet**’e tıklayın.
 
-## <a name="task-3---enable-azure-ad-domain-services"></a>Görev 3 - Azure AD Etki Alanı Hizmetleri'ni etkinleştirme
-Sonraki yapılandırma görevi, [Azure AD Etki Alanı Hizmetleri'ni etkinleştirme](active-directory-ds-getting-started-enableaadds.md) olacak.
+## <a name="next-steps"></a>Sonraki adımlar
+Görev 3: [Azure Active Directory Domain Services’ı etkinleştirme](active-directory-ds-getting-started-enableaadds.md)
 

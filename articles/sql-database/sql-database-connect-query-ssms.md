@@ -10,7 +10,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: development
+ms.custom: quick start manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Veritabanı: SQL Server Management Studio kullanarak verileri bağlama ve sorgulama
 
-Kullanıcı arabiriminde veya betiklerde bulunan SQL Server kaynaklarını oluşturmak ve yönetmek için [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) kullanın. Bu hızlı başlangıçta bir Azure SQL veritabanına bağlanmak ve ardından query, insert, update ve delete deyimlerini yürütmek üzere SSMS kullanmayla ilgili ayrıntılar verilmektedir.
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS), kullanıcı arabiriminden veya betiklerden SQL Server kaynakları oluşturup yönetmek için kullanılan bir yönetim aracıdır. Bu hızlı başlangıçta SSMS kullanarak bir Azure SQL veritabanına bağlanma ve daha sonra Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır. 
 
 Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır:
 
@@ -43,11 +43,16 @@ Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsin
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
 3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın.
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![bağlantı bilgileri](./media/sql-database-connect-query-ssms/connection-information.png) 
+
 
 ## <a name="connect-to-the-server-and-your-new-database"></a>Sunucuya ve yeni veritabanınıza bağlanma
 
-SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla bağlantı kurun.
+SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla bağlantı kurun. 
+
+> [!IMPORTANT]
+> Azure SQL Veritabanı mantıksal sunucusu 1433 numaralı bağlantı noktasında dinler. Azure SQL Veritabanı mantıksal sunucusuna bir şirket ağından bağlanmaya çalışıyorsanız, bu bağlantı noktası başarıyla bağlanmanız için şirket güvenlik ağında açık olmalıdır.
+>
 
 1. SQL Server Management Studio’yu açın.
 
@@ -57,12 +62,16 @@ SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla b
    - **Kimlik doğrulama**: SQL Server Kimlik Doğrulaması belirtin
    - **Kullanıcı adı**: Sunucu yöneticisi hesabınızı girin
    - **Parola**: Sunucu yöneticisi hesabınızın parolasını girin
- 
-    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
 
-3. **Bağlan**'a tıklayın. SSMS’te Nesne Gezgini penceresi açılır. 
+   ![sunucuya bağlan](./media/sql-database-connect-query-ssms/connect.png)  
 
-    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 780px;" />
+3. **Seçenekler**’e tıklayın. **Veritabanına bağlan** bölümünde daha önce oluşturduğunuz bu veritabanına bağlanmak için **mySampleDatabase** yazın.
+
+   ![sunucuda veritabanına bağlanma](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+
+4. **Bağlan**'a tıklayın. SSMS’te Nesne Gezgini penceresi açılır. 
+
+   ![sunucuya bağlanıldı](./media/sql-database-connect-query-ssms/connected.png)  
 
 4. Nesne Gezgini’nde **Veritabanları**’nı ve ardından **mySampleDatabase** öğesini genişleterek nesneleri örnek veritabanında görüntüleyin.
 
@@ -88,8 +97,7 @@ Azure SQL veritabanınızdaki verileri sorgulamak için [SELECT](https://msdn.mi
 
 Verileri Azure SQL veritabanınıza eklemek için [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL deyimini kullanın.
 
-1. Araç çubuğunda **Yeni Sorgu**'ya tıklayın. Veritabanınıza bağlı bir boş sorgu penceresi açılır.
-2. Sorgu penceresine aşağıdaki sorguyu girin:
+1. Sorgu penceresinde önceki sorguyu aşağıdaki sorguyla değiştirin:
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -111,7 +119,7 @@ Verileri Azure SQL veritabanınıza eklemek için [INSERT](https://msdn.microsof
            ,GETDATE() );
    ```
 
-3. Araç çubuğunda **Yürüt**’e tıklayarak Product tablosuna yeni bir satır ekleyin.
+2. Araç çubuğunda **Yürüt**’e tıklayarak Product tablosuna yeni bir satır ekleyin.
 
     <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
@@ -119,8 +127,7 @@ Verileri Azure SQL veritabanınıza eklemek için [INSERT](https://msdn.microsof
 
 Azure SQL veritabanınızdaki verileri güncelleştirmek için [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL deyimini kullanın.
 
-1. Araç çubuğunda **Yeni Sorgu**'ya tıklayın. Veritabanınıza bağlı bir boş sorgu penceresi açılır.
-2. Sorgu penceresine aşağıdaki sorguyu girin:
+1. Sorgu penceresinde önceki sorguyu aşağıdaki sorguyla değiştirin:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -128,7 +135,7 @@ Azure SQL veritabanınızdaki verileri güncelleştirmek için [UPDATE](https://
    WHERE Name = 'myNewProduct';
    ```
 
-3. Araç çubuğunda **Yürüt**’e tıklayarak Product tablosunda belirtilen satırı güncelleştirin.
+2. Araç çubuğunda **Yürüt**’e tıklayarak Product tablosunda belirtilen satırı güncelleştirin.
 
     <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
@@ -136,20 +143,25 @@ Azure SQL veritabanınızdaki verileri güncelleştirmek için [UPDATE](https://
 
 Azure SQL veritabanınızdaki verileri silmek için [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL deyimini kullanın.
 
-1. Araç çubuğunda **Yeni Sorgu**'ya tıklayın. Veritabanınıza bağlı bir boş sorgu penceresi açılır.
-2. Sorgu penceresine aşağıdaki sorguyu girin:
+1. Sorgu penceresinde önceki sorguyu aşağıdaki sorguyla değiştirin:
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-3. Araç çubuğunda **Yürüt**’e tıklayarak Product tablosunda belirtilen satırı silin.
+2. Araç çubuğunda **Yürüt**’e tıklayarak Product tablosunda belirtilen satırı silin.
 
     <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - SSMS hakkında bilgi için bkz. [SQL Server Management Studio'yu Kullanma](https://msdn.microsoft.com/library/ms174173.aspx).
-- Visual Studio Code ile veri sorgulama ve düzenleme hakkında bilgi için bkz. [Visual Studio Code](https://code.visualstudio.com/docs)
+- Visual Studio Code’u kullanarak bağlanmak ve sorgulamak için bkz. [Visual Studio Code ile bağlanma ve sorgulama](sql-database-connect-query-vscode.md).
+- .NET kullanarak bağlanıp sorgulamak için bkz. [.NET ile bağlanma ve sorgulama](sql-database-connect-query-dotnet.md).
+- PHP kullanarak bağlanıp sorgulamak için bkz. [PHP ile bağlanma ve sorgulama](sql-database-connect-query-php.md).
+- Node.js kullanarak bağlanıp sorgulamak için bkz. [Node.js ile bağlanma ve sorgulama](sql-database-connect-query-nodejs.md).
+- Java kullanarak bağlanıp sorgulamak için bkz. [Java ile bağlanma ve sorgulama](sql-database-connect-query-java.md).
+- Python kullanarak bağlanıp sorgulamak için bkz. [Python ile bağlanma ve sorgulama](sql-database-connect-query-python.md).
+- Ruby kullanarak bağlanıp sorgulamak için bkz. [Ruby ile bağlanma ve sorgulama](sql-database-connect-query-ruby.md).
 

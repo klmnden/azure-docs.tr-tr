@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
+ms.date: 04/06/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f03099391600bc3b918eb3a8c866c16a02052b7a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -67,7 +67,7 @@ ExpressRoute ile Sanal Ağdan Sanal Ağa (aynı zamanda "VNet" olarak bilinir) i
 ![ExpressRoute Vaka 3: Sanal ağlar arasında yetersiz yönlendirme](./media/expressroute-optimize-routing/expressroute-case3-problem.png)
 
 ### <a name="solution-assign-a-high-weight-to-local-connection"></a>Çözüm: yerel bağlantıya yüksek ağırlık atayın
-Çözüm basittir. Sanal ağların ve bağlantı hatlarının nerede olduğunu bildiğiniz için, her bir sanal ağın hangi yolu tercih etmesi gerektiğini siz belirleyebilirsiniz. Özellikle bu örnek için, yerel bağlantıya atadığınız ağırlık, uzak bağlantıya atadığınız ağırlıktan daha yüksek olmalıdır. Bir sanal ağ, birden fazla bağlantıda diğer sanal ağın ön ekini alırsa, bu ön eki hedefleyen trafiği göndermek için ağırlık değeri en fazla olan bağlantıyı tercih eder.
+Çözüm basittir. Sanal ağların ve bağlantı hatlarının nerede olduğunu bildiğiniz için, her bir sanal ağın hangi yolu tercih etmesi gerektiğini siz belirleyebilirsiniz. Özellikle bu örnek için, yerel bağlantıya atadığınız ağırlık, uzak bağlantıya atadığınız ağırlıktan daha yüksek olmalıdır ([buradaki](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection) yapılandırma örneğine bakın). Bir sanal ağ, birden fazla bağlantıda diğer sanal ağın ön ekini alırsa, bu ön eki hedefleyen trafiği göndermek için ağırlık değeri en fazla olan bağlantıyı tercih eder.
 
 ![ExpressRoute Vaka 3 çözümü - yerel bağlantıya yüksek ağırlık atayın](./media/expressroute-optimize-routing/expressroute-case3-solution.png)
 
@@ -75,3 +75,4 @@ ExpressRoute ile Sanal Ağdan Sanal Ağa (aynı zamanda "VNet" olarak bilinir) i
 > Ayrıca, birden fazla ExpressRoute devreniz varsa, yukarıdaki örnekte açıklanan AS YOLU eklenme tekniğini uygulamak yerine ağırlığı yapılandırarak sanal ağınızdan şirket içi ağınıza yönlendirmeyi etkileyebilirsiniz. Her ön ek için, trafiğin nasıl gönderileceğine karar verirken AS Yolu uzunluğundan önce mutlaka bağlantı ağırlığına bakmanız gerekir.
 >
 >
+

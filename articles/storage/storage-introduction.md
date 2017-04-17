@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: f4b26aa9a4dd110eafb8f9f8d658cc0f530136ec
-ms.openlocfilehash: 4548d83525dba6024d1892950e3acbc6b857977a
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -45,7 +45,7 @@ Azure Storage esnektir, böylece geniş global kullanıcılara yönelik uygulama
 
 Azure Storage trafiğe bağlı olarak verilerinize otomatik olarak yük dengelemesi yapan bir otomatik bölümleme sistemi kullanır. Bu, uygulamanıza yönelik talepler arttıkça Azure Storage’ın bunları karşılamak üzere ilgili kaynakları otomatik olarak ayıracağı anlamına gelir.
 
-Azure Storage hizmetine bulutta, masaüstünde veya şirket içi bir sunucuda, mobil cihazlarda veya tablette çalışan her tür uygulama aracılığıyla dünyanın her yerinden erişilebilir. Azure Storage’ı, uygulamanın bir veri alt kümesini cihazda depoladığı ve buluttaki eksiksiz veri kümesi ile eşitlediği mobil senaryolarda kullanabilirsiniz.
+Azure Depolama hizmetine bulutta, masaüstünde veya şirket içi bir sunucuda, mobil cihazlarda veya tablette çalışan her tür uygulama aracılığıyla dünyanın her yerinden erişilebilir. Azure Storage’ı, uygulamanın bir veri alt kümesini cihazda depoladığı ve buluttaki eksiksiz veri kümesi ile eşitlediği mobil senaryolarda kullanabilirsiniz.
 
 Azure Storage, geliştirme sürecini kolaylaştırmak için farklı işletim sistemleri (Windows ve Linux dahil) kullanan istemcileri ve farklı programlama dillerini (.NET, Java, Node.js, Python, Ruby, PHP, C++ ve mobil programlama dilleri) destekler. Azure Storage HTTP/HTTPS üzerinden veri gönderme ve alma özelliğine sahip herhangi bir istemcinin kullanabileceği basit REST API’leri aracılığıyla veri kaynaklarını da gösterir.
 
@@ -88,7 +88,7 @@ Blob Storage blok blobları, ekleme blobları ve sayfa blobları (diskler) olmak
 Ağ kısıtlamalarının kablo üzerinden Blob Storage’a veri yükleme veya indirme yapmayı kullanışsız hale getirdiği çok büyük veri kümelerinde verileri doğrudan veri merkezinden içeri veya dışarı aktarmak için Microsoft’a bir sabit sürücü gönderebilirsiniz. Bkz: [Blob Storage’a Veri Aktarmak için Microsoft Azure İçeri/Dışarı Aktarma Hizmeti Kullanma](storage-import-export-service.md).
 
 ## <a name="table-storage"></a>Table Storage
-Modern uygulamalar genellikle eski nesil yazılımların gerektirdiğinden daha fazla ölçeklenebilirlik ve esneklik özelliklerine sahip veri depoları gerektirir. Table Storage yüksek seviyede kullanılabilir ve ölçeklenebilir depolama sunar, böylece uygulamanız kullanıcı taleplerini karşılayacak şekilde otomatik olarak ölçeklendirilir. Table Storage Microsoft’un NoSQL anahtar/öznitelik deposudur ve geleneksel ilişkisel veritabanlarından farklı olarak şemasız bir tasarıma sahiptir. Şemasız veri deposu sayesinde, uygulamanızın ihtiyaçları geliştikçe verilerinizi uyarlamak da kolaylaşır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir. Her türlü uygulama için verilere erişim hızlı ve uygun maliyetlidir.  Table Storage, benzer hacimdeki veriler için geleneksel SQL’e oranla çok daha düşük maliyetlidir.
+Modern uygulamalar genellikle eski nesil yazılımların gerektirdiğinden daha fazla ölçeklenebilirlik ve esneklik özelliklerine sahip veri depoları gerektirir. Table Storage yüksek seviyede kullanılabilir ve ölçeklenebilir depolama sunar, böylece uygulamanız kullanıcı taleplerini karşılayacak şekilde otomatik olarak ölçeklendirilir. Tablo depolama, Microsoft’un NoSQL anahtar/öznitelik deposudur ve geleneksel ilişkisel veritabanlarından farklı olarak şemasız bir tasarıma sahiptir. Şemasız veri deposu sayesinde, uygulamanızın ihtiyaçları geliştikçe verilerinizi uyarlamak da kolaylaşır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir. Her türlü uygulama için verilere erişim hızlı ve uygun maliyetlidir.  Table Storage, benzer hacimdeki veriler için geleneksel SQL’e oranla çok daha düşük maliyetlidir.
 
 Table Storage bir anahtar öznitelik deposudur; bu, bir tablodaki her değerin türü belirtilmiş bir özellik adıyla depolandığı anlamına gelir. Özellik adı filtreleme ve seçim kriterlerinin belirlenmesi için kullanılabilir. Özellik ve değerlerinin toplamı bir varlığı oluşturur. Table Storage şemasız olduğu için aynı tablodaki iki varlık farklı özellik koleksiyonları içerebilir ve bu özellikler farklı türde olabilir.
 
@@ -108,7 +108,7 @@ Azure File Storage, dosya paylaşımlarına bağlı olan eski uygulamaları mali
 
 Dosya depolama paylaşımı, standart SMB dosya paylaşımı olduğundan Azure'da çalışan uygulamalar, dosya sisteminin G/Ç API'leri üzerinden paylaşımdaki verilere erişebilir. Böylece geliştiriciler mevcut uygulamalarını taşımak üzere kullandıkları kodlar ve yeteneklerden yararlanabilir. BT Uzmanları Azure uygulamalarını yönetmenin bir parçası olarak File Storage paylaşımlarını oluşturmak, bunları bağlamak ve yönetmek için PowerShell.cmdlet’leri kullanabilir.
 
-File Storage diğer Azure Storage hizmetlerinde olduğu gibi paylaşımdaki verilere erişmek için bir REST API gösterir. Şirket içi uygulamalar dosya paylaşımındaki verilere erişmek için File Storage REST API’sini arayabilir. Bu şekilde bir kuruluş bazı eski uygulamalarını Azure’a taşımayı, diğerleriniyse kendi kurumlarından çalıştırmayı seçebilir. Dosya paylaşımının yalnızca Azure’da çalıştırılan uygulamalar için geçerli olduğunu unutmayın; şirket içi uygulamalar yalnızca REST API üzerinden dosya paylaşımına erişebilir.
+File Storage diğer Azure Storage hizmetlerinde olduğu gibi paylaşımdaki verilere erişmek için bir REST API gösterir. Şirket içi uygulamalar dosya paylaşımındaki verilere erişmek için Dosya Depolama REST API’sini arayabilir. Bu şekilde bir kuruluş bazı eski uygulamalarını Azure’a taşımayı, diğerleriniyse kendi kurumlarından çalıştırmayı seçebilir. Dosya paylaşımının yalnızca Azure’da çalıştırılan uygulamalar için geçerli olduğunu unutmayın; şirket içi uygulamalar yalnızca REST API üzerinden dosya paylaşımına erişebilir.
 
 Dağıtılan uygulamalar ayrıca kullanışlı uygulama verilerini depolamak ve paylaşmak, araç geliştirmek ve test etmek için File Storage kullanabilir. Örneğin bir uygulama File Storage paylaşımındaki günlükler, ölçümler ve kilitlenme bilgi dökümleri gibi yapılandırma dosyaları ve tanılama verilerini depolayabilir. Böylece söz konusu veriler birden çok sanal makine veya rol tarafından erişilebilir. Geliştiriciler ve yöneticiler, her sanal makine veya rol örneğine yükleme yapmak yerine tüm bileşenler tarafından kullanılabilen ve bir uygulamanın oluşturulması veya yönetilmesi için gerekli yardımcı programları File Storage’a depolayabilir.
 
@@ -137,7 +137,7 @@ Bir depolama hesabı oluşturduğunuzda şu çoğaltma seçeneklerinden birini s
 * **Yerel olarak yedekli depolama (LRS).** Yerel olarak yedekli depolama verilerinizin üç kopyasını tutar. LRS, tek bir bölgedeki tek bir veri merkezinde üç kez çoğaltılır. LRS, normal donanım arızalarına karşı verilerinizi korur ancak tek bir veri merkezinin arızalanmasına karşı korumaz.
 
     LRS indirimli fiyatla sunulur. En üst düzeyde dayanıklılık için aşağıda açıklanan coğrafi olarak yedekli depolamayı kullanmanızı öneririz.
-* **Bölgesel olarak yedekli depolama (ZRS).** Bölgesel olarak yedekli depolama verilerinizin üç kopyasını tutar. ZRS bir veya iki bölgede, iki veya üç tesis üzerinde üç kez çoğaltılır ve böylece LRS’den daha fazla dayanıklılık sunar.. ZRS, verilerinizin tek bir bölge içinde dayanıklı olmasını sağlar.
+* **Bölgesel olarak yedekli depolama (ZRS).** Bölgesel olarak yedekli depolama verilerinizin üç kopyasını tutar. ZRS bir veya iki bölgede, iki veya üç tesis üzerinde üç kez çoğaltılır ve böylece LRS’den daha fazla dayanıklılık sunar. ZRS, verilerinizin tek bir bölge içinde dayanıklı olmasını sağlar.
 
     ZRS, LRS'ye daha yüksek düzeyde dayanıklılık sağlar; Ancak, en üst düzeyde dayanıklılık için aşağıda açıklanan coğrafi olarak yedekli depolamayı kullanmanızı öneririz.
 

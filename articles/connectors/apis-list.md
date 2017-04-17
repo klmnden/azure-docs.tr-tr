@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 53bb5d64e27458b4a88981bd20ea4236b31431ec
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -87,7 +87,7 @@ Bağlayıcılar ayrıca uygulamanızın iş akışında kullanabileceğiniz eyle
 
 ## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Microsoft Azure için özel bağlayıcılar ve sertifikalar
 
-Kendi bağlayıcılarınızı oluşturmak istiyorsunuz veya istediğiniz bağlayıcıyı bulamıyor musunuz? [Logic Apps platformunu genişletebilir](../logic-apps/logic-apps-create-api-app.md) ve hazır bağlayıcı olarak kullanılamayan API veya sistemlere çağıran API Uygulamaları oluşturabilirsiniz. Ayrıca, API Uygulamalarınızı Microsoft Azure onayına gönderebilir, ardından Azure ile kullanılabilir hale getirebilirsiniz. Çözümlerinizi [Microsoft Azure Sertifikalı](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/) yapma hakkında daha fazla bilgi alın.
+Özel kod çalıştıran veya bağlayıcı olarak kullanılamayan API’leri çağırmak için, özel bağlayıcı olarak REST tabanlı API Apps oluşturarak [Logic Apps platformunu genişletebilirsiniz](../logic-apps/logic-apps-create-api-app.md). Özel API Apps’i genel kullanıma sunmak ve Azure’da kullanılabilir hale getirmek isterseniz, adaylarınızı [Microsoft Azure Sertifika programına](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/) gönderin.
 
 ## <a name="get-help"></a>Yardım alın
 

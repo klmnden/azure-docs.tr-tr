@@ -18,22 +18,36 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: fd5cb0d45d0955b7e4c471dc5ccecac65ad7400a
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ff5d156ab2b701233c4cdbf08e3d6e517c01b9fb
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Veritabanı: Visual Studio Code kullanarak verileri bağlama ve sorgulama
 
-[Visual Studio Code](https://code.visualstudio.com/docs) Linux, macOS ve Windows için uzantıları destekleyen bir grafiksel kod düzenleyicisidir. Bir Azure SQL veritabanına bağlanmak ve veritabanını sorgulamak için Visual Studio Code’u [mssql uzantısı](https://aka.ms/mssql-marketplace) ile birlikte kullanın. Bu hızlı başlangıçta bir Azure SQL veritabanına bağlanmak ve ardından query, insert, update ve delete deyimlerini yürütmek üzere Visual Studio Code kullanmayla ilgili ayrıntılar verilmektedir.
+Linux, macOS ve Windows’a yönelik bir grafik kod düzenleyicisi olan [Visual Studio Code](https://code.visualstudio.com/docs); Microsoft SQL Server, Azure SQL Veritabanı ve SQL Veri Ambarı’nı sorgulamak için kullanılabilen [mssql uzantısı](https://aka.ms/mssql-marketplace) gibi uzantıları destekler. Bu hızlı başlangıçta Visual Studio Code’u kullanarak bir Azure SQL veritabanına bağlanma ve daha sonra Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır.
 
 Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır:
 
 - [DB Oluşturma - Portal](sql-database-get-started-portal.md)
 - [DB oluşturma - CLI](sql-database-get-started-cli.md)
 
-Başlamadan önce en yeni [Visual Studio Code](https://code.visualstudio.com/Download) sürümünü yüklediğinizden [mssql uzantısının](https://aka.ms/mssql-marketplace) yüklü olduğundan emin olun. mssql uzantısına ilişkin yükleme yönergeleri için bkz. [VS Code Yükleme](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code). 
+Başlamadan önce en yeni [Visual Studio Code](https://code.visualstudio.com/Download) sürümünü yüklediğinizden [mssql uzantısının](https://aka.ms/mssql-marketplace) yüklü olduğundan emin olun. mssql uzantısına ilişkin yükleme yönergeleri için bkz. [VS Code Yükleme](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) ve [Visual Studio Code için mssql](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
+
+## <a name="configure-vs-code-mac-os-only"></a>VS Code’u Yapılandırma (yalnızca Mac OS)
+
+### <a name="mac-os"></a>**Mac OS**
+macOS için, mssql uzantısının kullandığı DotNet Core’a yönelik bir ön koşul olan OpenSSL’yi yüklemeniz gerekir. **brew** ve **OpenSSL***’yi yüklemek için terminalinizi açın aşağıdaki komutları girin. 
+
+```bash
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install openssl
+mkdir -p /usr/local/lib
+ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
+ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
+```
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 
@@ -43,7 +57,7 @@ Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsin
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
 3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, bu hızlı başlangıcın sonraki bölümlerinde kullanılacak **Sunucu adını** bulup kopyalayın.
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
+    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
 
 ## <a name="set-language-mode-to-sql"></a>Dili modunu SQL’e ayarlama
 
@@ -51,7 +65,7 @@ mssql komutlarını ve T-SQL IntelliSense’i etkinleştirmek için dil modunu V
 
 1. Yeni bir Visual Studio Code penceresi açın. 
 
-2. **CTRL+K,M** tuşlarına basın, **SQL** yazın ve **ENTER** tuşuna basarak dil modunu SQL’e ayarlayın. 
+2. Dil modunu SQL olarak ayarlamak için **⌘+K,M** veya **CTRL+K,M** (sırasıyla Mac ve Windows seçenekleri) tuşlarına basın, **SQL** yazın ve **ENTER** tuşuna basın. 
 
 <img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
 
@@ -61,13 +75,11 @@ Visual Studio Code’u kullanarak Azure SQL Veritabanı sunucunuzla bağlantı k
 
 1. VS Code’da **CTRL+SHIFT+P** (veya **F1**) tuşlarına basarak Komut Paletini açın.
 
-2. **sqlcon** yazıp **ENTER** tuşuna basın.
+2. **sqlcon** yazıp **ENTER** tuşuna basın ve dilinizi **SQL** olarak ayarlayın.
 
-3. Dili **SQL**’e ayarlamak için **Evet**’e tıklayın.
+3. **ENTER** tuşuna basarak **Bağlantı Profili Oluştur**’u seçin. Bu işlem, SQL Server örneğiniz için bir bağlantı profili oluşturur.
 
-4. **ENTER** tuşuna basarak **Bağlantı Profili Oluştur**’u seçin. Bu işlem, SQL Server örneğiniz için bir bağlantı profili oluşturur.
-
-5. Yeni bağlantı profilinin bağlantı özelliklerini belirtmek için istemleri izleyin. Her bir değeri belirttikten sonra **ENTER** tuşuna basarak devam edin. 
+4. Yeni bağlantı profilinin bağlantı özelliklerini belirtmek için istemleri izleyin. Her bir değeri belirttikten sonra **ENTER** tuşuna basarak devam edin. 
 
    Aşağıdaki tabloda Bağlantı Profili özellikleri açıklanmaktadır.
 
@@ -81,9 +93,9 @@ Visual Studio Code’u kullanarak Azure SQL Veritabanı sunucunuzla bağlantı k
    | **Parola kaydedilsin mi?** | **Evet** veya **Hayır**'ı seçin |
    | **[İsteğe bağlı] Bu profil için bir ad girin** | **mySampleDatabase** gibi bir bağlantı profili adı girin. 
 
-6. Profilin oluşturulup bağlandığını bildiren bilgi iletisini kapatmak için **ESC** tuşuna basın.
+5. Profilin oluşturulup bağlandığını bildiren bilgi iletisini kapatmak için **ESC** tuşuna basın.
 
-7. Durum çubuğunda bağlantınızı doğrulayın.
+6. Durum çubuğunda bağlantınızı doğrulayın.
 
    <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
 
@@ -100,7 +112,7 @@ Azure SQL veritabanınızdaki verileri sorgulamak için [SELECT](https://msdn.mi
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. **CTRL+SHIFT+E** tuşlarına basarak Product ve ProductCategory tablolarından verileri alın.
+2. **CTRL+SHIFT+E** tuşlarına basarak Product ve ProductCategory tablolarından verileri alın.
 
     <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
 
@@ -130,7 +142,7 @@ Verileri Azure SQL veritabanınıza eklemek için [INSERT](https://msdn.microsof
            ,GETDATE() );
    ```
 
-3. Product tablosuna yeni bir satır eklemek için **CTRL+SHIFT+E** tuşlarına basın.
+2. Product tablosuna yeni bir satır eklemek için **CTRL+SHIFT+E** tuşlarına basın.
 
 ## <a name="update-data"></a>Verileri güncelleştirme
 
@@ -144,7 +156,7 @@ Azure SQL veritabanınızdaki verileri güncelleştirmek için [UPDATE](https://
    WHERE Name = 'myNewProduct';
    ```
 
-3. Product tablosunda belirtilen satırı güncelleştirmek için **CTRL+SHIFT+E** tuşlarına basın.
+2. Product tablosunda belirtilen satırı güncelleştirmek için **CTRL+SHIFT+E** tuşlarına basın.
 
 ## <a name="delete-data"></a>Verileri silme
 
@@ -157,10 +169,15 @@ Azure SQL veritabanınızdaki verileri silmek için [DELETE](https://msdn.micros
    WHERE Name = 'myNewProduct';
    ```
 
-3. Product tablosunda belirtilen satırı silmek için **CTRL+SHIFT+E** tuşlarına basın.
+2. Product tablosunda belirtilen satırı silmek için **CTRL+SHIFT+E** tuşlarına basın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Visual Studio Code hakkında bilgi için bkz. [Visual Studio Code](https://code.visualstudio.com/docs)
-- SQL Server Management Studio kullanarak veri sorgulama ve düzenleme hakkında bilgi için bkz. [SSMS](https://msdn.microsoft.com/library/ms174173.aspx).
+- SQL Server Management Studio kullanarak bağlanmak ve sorgu yürütmek için, bkz. [SSMS ile bağlanma ve sorgu yürütme](sql-database-connect-query-ssms.md)
+- .NET kullanarak bağlanıp sorgulamak için bkz. [.NET ile bağlanma ve sorgulama](sql-database-connect-query-dotnet.md).
+- PHP kullanarak bağlanıp sorgulamak için bkz. [PHP ile bağlanma ve sorgulama](sql-database-connect-query-php.md).
+- Node.js kullanarak bağlanıp sorgulamak için bkz. [Node.js ile bağlanma ve sorgulama](sql-database-connect-query-nodejs.md).
+- Java kullanarak bağlanıp sorgulamak için bkz. [Java ile bağlanma ve sorgulama](sql-database-connect-query-java.md).
+- Python kullanarak bağlanıp sorgulamak için bkz. [Python ile bağlanma ve sorgulama](sql-database-connect-query-python.md).
+- Ruby kullanarak bağlanıp sorgulamak için bkz. [Ruby ile bağlanma ve sorgulama](sql-database-connect-query-ruby.md).
 

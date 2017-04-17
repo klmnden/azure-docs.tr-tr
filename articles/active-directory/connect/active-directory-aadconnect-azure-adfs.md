@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: anandy;billmath
+ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure'da Active Directory Federasyon Hizmetlerini dağıtma
@@ -119,8 +119,8 @@ Aşağıdaki kullanılabilirlik kümelerini oluşturun
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4----deploy-virtual-machines"></a>4.    Sanal makineleri dağıtma
-Sonraki adım altyapınızdaki farklı rolleri barındıran sanal makinelerin dağıtılmasıdır. Her kullanılabilirlik kümesinde en az iki makine olması önerilir. Temel dağıtım için altı sanal makine oluşturun.
+### <a name="4-deploy-virtual-machines"></a>4. Sanal makineleri dağıtma
+Sonraki adım altyapınızdaki farklı rolleri barındıran sanal makinelerin dağıtılmasıdır. Her kullanılabilirlik kümesinde en az iki makine olması önerilir. Temel dağıtım için dört sanal makine oluşturun.
 
 | Makine | Rol | Alt ağ | Kullanılabilirlik kümesi | Depolama hesabı | IP Adresi |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -129,7 +129,7 @@ Sonraki adım altyapınızdaki farklı rolleri barındıran sanal makinelerin da
 | contosowap1 |WAP |DMZ |contosowapset |contososac1 |Statik |
 | contosowap2 |WAP |DMZ |contosowapset |contososac2 |Statik |
 
-Fark etmiş olabileceğiniz gibi hiçbir NSG belirtilmemiştir. Bunun nedeni Azure’un alt ağ düzeyinde NSG kullanmanıza olanak sağlamasıdır. Bu durumda alt ağ veya NIC nesnesi ile ilişkili tek NSG’yi kullanarak makine ağ trafiğini denetleyebilirsiniz. [Ağ Güvenlik Grubu (NSG) nedir?](https://aka.ms/Azure/NSG) makalesinde daha fazla bilgi bulabilirsiniz.
+Fark etmiş olabileceğiniz gibi hiçbir NSG belirtilmemiştir. Bunun nedeni Azure’un alt ağ düzeyinde NSG kullanmanıza olanak sağlamasıdır. Bu durumda alt ağ veya ağ arabirimi nesnesi ile ilişkili tek NSG’yi kullanarak makine ağ trafiğini denetleyebilirsiniz. [Ağ Güvenlik Grubu (NSG) nedir?](https://aka.ms/Azure/NSG) makalesinde daha fazla bilgi bulabilirsiniz.
 DNS yönetiyorsanız statik IP adresi önerilir. Azure DNS kullanabilir ve etki alanınızın DNS kayıtlarında makinelere Azure FQDN'lerine göre bakabilirsiniz.
 Dağıtım tamamlandıktan sonra sanal makine bölmeniz aşağıdaki gibi görünmelidir:
 
@@ -146,8 +146,8 @@ Dağıtım tamamlandıktan sonra sanal makine bölmeniz aşağıdaki gibi görü
 * İki sunucuyu DNS ile çoğaltma etki alanı denetleyicileri olarak yükseltme
 * Sunucu yöneticisi aracılığıyla AD FS rolünü yükleyerek AD FS sunucularını yapılandırın.
 
-### <a name="6----deploying-internal-load-balancer-ilb"></a>6.    İç Yük Dengeleyici’yi (ILB) Dağıtma
-**6.1.    ILB oluşturma**
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. İç Yük Dengeleyici’yi (ILB) Dağıtma
+**6.1. ILB oluşturma**
 
 Bir ILB dağıtmak için Azure portalında Yük Dengeleyiciler’i seçin ve ekle (+) öğesine tıklayın.
 
@@ -172,7 +172,7 @@ Oluştur’a tıklayıp ILB’yi dağıttıktan sonra yük dengeleyiciler listes
 
 Sonraki adım arka uç havuzunun ve arka uç araştırmasının yapılandırılmasıdır.
 
-**6.2.    ILB arka uç havuzunu yapılandırma**
+**6.2. ILB arka uç havuzunu yapılandırma**
 
 Yeni oluşturulan ILB’yi Yük Dengeleyiciler panelinden seçin. Ayarlar paneli açılır. 
 
@@ -183,7 +183,7 @@ Yeni oluşturulan ILB’yi Yük Dengeleyiciler panelinden seçin. Ayarlar paneli
 
 ![ILB arka uç havuzunu yapılandırma](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.    Araştırmayı yapılandırma**
+**6.3. Araştırmayı yapılandırma**
 
 ILB ayarları panelinde Araştırmalar’ı seçin.
 
@@ -192,7 +192,7 @@ ILB ayarları panelinde Araştırmalar’ı seçin.
 
 ![ILB araştırmasını yapılandırma](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.    Yük dengeleme kuralları oluşturma**
+**6.4. Yük dengeleme kuralları oluşturma**
 
 Trafiği etkin bir şekilde dengelemek için ILB’nin yük dengeleme kuralları ile yapılandırılması gerekir. Bir yük dengeleme kuralı oluşturmak için 
 
@@ -202,23 +202,23 @@ Trafiği etkin bir şekilde dengelemek için ILB’nin yük dengeleme kuralları
 
 ![ILB dengeleme kurallarını yapılandırma](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.    ILB ile DNS güncelleme**
+**6.5. ILB ile DNS güncelleme**
 
 DNS sunucunuza gidin ve ILB için bir CNAME oluşturun. CNAME, ILB’nin IP adresini işaret eden IP adresine sahip federasyon hizmetine yönelik olmalıdır. Örneğin, ILB DIP adresi 10.3.0.8 ve yüklü federasyon hizmeti fs.contoso.com ise 10.3.0.8’i işaret eden fs.contoso.com için bir CNAME oluşturun.
 Bunun yapılması fs.contoso.com ile ilgili tüm iletişimlerin ILB’de sona ermesini ve uygun şekilde yönlendirilmesini sağlar.
 
-### <a name="7----configuring-the-web-application-proxy-server"></a>7.    Web Uygulaması Proxy sunucusunu yapılandırma
-**7.1.    Web Uygulaması Proxy sunucularını AD FS sunucularına ulaşacak şekilde yapılandırma**
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. Web Uygulaması Proxy sunucusunu yapılandırma
+**7.1. Web Uygulaması Proxy sunucularını AD FS sunucularına ulaşacak şekilde yapılandırma**
 
-Web Uygulaması Proxy sunucularının ILB’nin arkasında AD FS sunucularına ulaşabildiğinden emin olmak için %systemroot%\system32\drivers\etc\hosts dizininde ILB için bir kayıt oluşturun. Ayırt edici ad (DN) federasyon hizmetinin adı olmalıdır, örneğin fs.contoso.com. IP girişi ise ILB'nin IP adresi olmalıdır (örnekte olduğu gibi&10;.3.0.8).
+Web Uygulaması Proxy sunucularının ILB’nin arkasında AD FS sunucularına ulaşabildiğinden emin olmak için %systemroot%\system32\drivers\etc\hosts dizininde ILB için bir kayıt oluşturun. Ayırt edici ad (DN) federasyon hizmetinin adı olmalıdır, örneğin fs.contoso.com. IP girişi ise ILB'nin IP adresi olmalıdır (örnekte olduğu gibi 10.3.0.8).
 
-**7.2.    Web Uygulaması Proxy rolünü yükleme**
+**7.2. Web Uygulaması Proxy rolünü yükleme**
 
 Web Uygulaması Proxy sunucularının ILB’nin arkasındaki AD FS sunucularına ulaşabildiğinden emin olmak için sonraki adımda Web Uygulaması Proxy sunucularını yükleyebilirsiniz. Web Uygulaması Proxy sunucuları etki alanına katılmaz. Uzaktan Erişim rolünü seçerek Web Uygulaması Proxy rollerini iki Web Uygulaması Proxy sunucusuna yükleyin. Sunucu yöneticisi WAP yüklemesini tamamlamak için size yol gösterecektir.
 WAP dağıtımı hakkında daha fazla bilgi için [Web Uygulaması Proxy Sunucusunu Yükleme ve Yapılandırma](https://technet.microsoft.com/library/dn383662.aspx) makalesini okuyun.
 
-### <a name="8----deploying-the-internet-facing-public-load-balancer"></a>8.    İnternet’e Yönelik (Ortak) Yük Dengeleyiciyi dağıtma
-**8.1.    İnternet’e Yönelik (Genel) Yük Dengeleyici oluşturma**
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  İnternet’e Yönelik (Ortak) Yük Dengeleyiciyi dağıtma
+**8.1.  İnternet’e Yönelik (Genel) Yük Dengeleyici oluşturma**
 
 Azure portalında Yük dengeleyiciler’i seçin ve ardından Ekle’ye tıklayın. Yük dengeleyici oluşturma panelinde aşağıdaki bilgileri girin
 
@@ -232,7 +232,7 @@ Dağıtımdan sonra yük dengeleyici, Yük dengeleyiciler listesinde görünür.
 
 ![Yük dengeleyici listesi](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.    Genel IP’ye bir DNS etiketi atama**
+**8.2. Genel IP’ye bir DNS etiketi atama**
 
 Paneli yapılandırma için açmak üzere Yük dengeleyiciler panelinde yeni oluşturulan yük dengeleyici girişine tıklayın. DNS etiketini genel IP için yapılandırmak üzere aşağıdaki adımları izleyin:
 
@@ -244,26 +244,26 @@ Paneli yapılandırma için açmak üzere Yük dengeleyiciler panelinde yeni olu
 
 ![İnternet'e yönelik yük dengeleyiciyi yapılandırma (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    İnternet’e Yönelik (Genel) Yük Dengeleyici için arka uç havuzunu yapılandırma** 
+**8.3. İnternet’e Yönelik (Genel) Yük Dengeleyici için arka uç havuzunu yapılandırma** 
 
 İnternet’e Yönelik (Genel) Yük Dengeleyicinin arka uç havuzunu WAP sunucularının kullanılabilirlik kümesi olarak yapılandırmak için dahili yük dengeleyici oluşturma ile aynı adımları izleyin. Örneğin, contosowapset.
 
 ![İnternet’e Yönelik Yük Dengeleyicinin arka uç havuzunu yapılandırma](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.    Araştırmayı yapılandırma**
+**8.4. Araştırmayı yapılandırma**
 
 WAP sunucularının arka uç havuzuna ait araştırmayı yapılandırmak için dahili yük dengeleyiciyi yapılandırma adımlarının aynısını izleyin.
 
 ![İnternet'e Yönelik Yük Dengeleyici araştırmasını yapılandırma](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.    Yük dengeleme kuralları oluşturma**
+**8.5. Yük dengeleme kuralları oluşturma**
 
 TCP 443 yük dengeleme kuralını yapılandırmak için ILB’deki adımların aynısını izleyin.
 
 ![İnternet’e Yönelik Yük Dengeleyicinin dengeleme kurallarını yapılandırma](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### <a name="9----securing-the-network"></a>9.    Ağ güvenliğini sağlama
-**9.1.    Dahili alt ağ güvenliğini sağlama**
+### <a name="9-securing-the-network"></a>9. Ağ güvenliğini sağlama
+**9.1. Dahili alt ağ güvenliğini sağlama**
 
 Genel olarak, dahili alt ağınızın güvenliğini verimli bir şekilde sağlamak için aşağıdaki kuralları uygulamanız gerekir (aşağıda listelenen sırayla)
 
@@ -276,7 +276,7 @@ Genel olarak, dahili alt ağınızın güvenliğini verimli bir şekilde sağlam
 
 [comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.    DMZ alt ağ güvenliğini sağlama**
+**9.2. DMZ alt ağ güvenliğini sağlama**
 
 | Kural | Açıklama | Akış |
 |:--- |:--- |:---:|
@@ -292,7 +292,7 @@ Genel olarak, dahili alt ağınızın güvenliğini verimli bir şekilde sağlam
 > 
 > 
 
-### <a name="10----test-the-ad-fs-sign-in"></a>10.    AD FS oturum açmayı test etme
+### <a name="10-test-the-ad-fs-sign-in"></a>10. AD FS oturum açmayı test etme
 AD FS’yi test etmenin en kolay yolu IdpInitiatedSignon.aspx sayfasının kullanılmasıdır. Bunu yapabilmek için AD FS özelliklerinde IdpInitiatedSignOn seçeneğinin etkinleştirilmesi gerekir. AD FS kurulumunuzu doğrulamak için aşağıdaki adımları izleyin
 
 1. AD FS sunucusunda PowerShell ile aşağıdaki cmdlet’i çalıştırarak etkinleştirin.

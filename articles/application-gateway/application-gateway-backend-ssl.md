@@ -13,24 +13,24 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 04/04/2017
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 5009b13cec57e6974f71610c84fdaad837085df0
-ms.openlocfilehash: 5f81d8146f8000e73a2eb578ff2371a62c8875e9
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 40368e31790a7ffa2d34a51a13e78d028cd0a1eb
+ms.lasthandoff: 04/05/2017
 
 
 ---
 # <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Uçtan uca SSL ve Application Gateway üzerinde SSL İlkesine genel bakış
 
-Application Gateway, ağ geçidinde SSL sonlandırmasını destekler. Bu sonlandırmanın ardından, trafik genelde arka uç sunucularına şifrelenmemiş olarak akar. Bu özellik, web sunucularının maliyetli şifreleme/şifre çözme ek yükünden kurtulmasını sağlar. Ancak arka uç sunucularıyla şifrelenmemiş iletişim, bazı müşteriler için kabul edilebilir bir seçenek değildir. Bunun şifrelenmemiş iletişimin nedeni, güvenlik/uyumluluk gereksinimleri veya uygulamanın yalnızca güvenli bağlantı kabul etmesi olabilir. Application Gateway, böyle uygulamalar için artık uçtan uca SSL şifrelemesini desteklemektedir.
+Application Gateway, ağ geçidinde SSL sonlandırmasını destekler. Bu sonlandırmanın ardından, trafik genelde arka uç sunucularına şifrelenmemiş olarak akar. Bu özellik, web sunucularının maliyetli şifreleme ve şifre çözme ek yükünden kurtulmasını sağlar. Ancak arka uç sunucularıyla şifrelenmemiş iletişim, bazı müşteriler için kabul edilebilir bir seçenek değildir. Bunun şifrelenmemiş iletişimin nedeni, güvenlik gereksinimleri, uyumluluk gereksinimleri veya uygulamanın yalnızca güvenli bağlantı kabul etmesi olabilir. Application Gateway, böyle uygulamalar için uçtan uca SSL şifrelemesini desteklemektedir.
 
 ## <a name="overview"></a>Genel Bakış
 
-Uçtan uca SSL, gizli verileri arka uca şifrelenmiş olarak güvenli bir şekilde aktarmanızı sağlar ve bu sırada Application Gateway'in sunduğu 7. Katman yük dengeleme özelliklerinin avantajlarından yararlanmaya devam eder. Bu özelliklerin bazıları tanımlama bilgisi benzeşimi, URL tabanlı yönlendirme, sitelere göre yönlendirme desteği veya X-Forwarded-* üst bilgilerini ekleyebilmedir.
+Uçtan uca SSL, gizli verileri arka uca şifrelenmiş olarak güvenli bir şekilde aktarmanızı sağlar ve bu sırada Application Gateway'in sunduğu 7. Katman yük dengeleme özelliklerinin avantajlarından yararlanmaya devam eder. Bu özelliklerin bazıları tanımlama bilgisi temelli oturum benzeşimi, URL tabanlı yönlendirme, sitelere göre yönlendirme desteği veya X-Forwarded-* üst bilgilerini ekleyebilmedir.
 
-Application Gateway uçtan uca SSL iletişimi modu ile yapılandırıldığında, ağ geçidindeki SSL oturumlarını sonlandırır ve kullanıcı trafiğinin şifresini çözer. Ardından trafiğin yönlendirileceği uygun arka uç havuzunu seçmek için yapılandırılan kuralları uygular. Ardından Application Gateway, arka uç sunucusuyla yeni bir SSL bağlantısı başlatır ve isteği arka uca aktarmadan önce arka uç sunucusunun ortak anahtar sertifikasını kullanarak verileri yeniden şifreler. Uçtan uca SSL, BackendHTTPSetting’de protokol ayarı Https yapılarak etkinleştirilir. Bu ayar, daha sonra arka uç havuzuna uygulanır. Arka uç sunucusunda uçtan uca SSL’nin etkin olduğu her arka uç sunucusunun, güvenli iletişime izin veren bir sertifikayla yapılandırılması gerekir.
+Application Gateway uçtan uca SSL iletişimi modu ile yapılandırıldığında, ağ geçidindeki SSL oturumlarını sonlandırır ve kullanıcı trafiğinin şifresini çözer. Ardından trafiğin yönlendirileceği uygun arka uç havuzunu seçmek için yapılandırılan kuralları uygular. Ardından Application Gateway, arka uç sunucusuyla yeni bir SSL bağlantısı başlatır ve isteği arka uca aktarmadan önce arka uç sunucusunun ortak anahtar sertifikasını kullanarak verileri yeniden şifreler. Uçtan uca SSL, BackendHTTPSetting’de protokol ayarı HTTPS yapılarak etkinleştirilir. Bu ayar, daha sonra arka uç havuzuna uygulanır. Arka uç sunucusunda uçtan uca SSL’nin etkin olduğu her arka uç sunucusunun, güvenli iletişime izin veren bir sertifikayla yapılandırılması gerekir.
 
 ![uçtan uca SSL senaryosu][1]
 
@@ -44,7 +44,7 @@ Uygulama ağ geçidi, yalnızca sertifikalarını uygulama ağ geçidiyle güven
 
 Application Gateway, kullanıcı tarafından yapılandırılabilen SSL anlaşma ilkelerini destekler. Bu ilkeler, müşterilere uygulama ağ geçidindeki SSL bağlantıları üzerinde daha büyük denetim sağlar.
 
-1. SSL 2.0 ve 3.0, tüm Application Gateway'ler için varsayılan olarak devre dışı bırakılır. Bunlar tamamen yapılandırılabilir değildir.
+1. SSL 2.0 ve 3.0, tüm Application Gateway'ler için varsayılan olarak devre dışı bırakılır. Bu ilkeler yapılandırılamaz.
 2. SSL ilkesi tanımı, şu üç protokolden herhangi birini devre dışı bırakma seçeneği sunar: **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2**.
 3. Hiçbir SSL ilkesi tanımlanmazsa üçü de (TLSv1\_0, TLSv1\_1, TLSv1_2) etkinleştirilir.
 

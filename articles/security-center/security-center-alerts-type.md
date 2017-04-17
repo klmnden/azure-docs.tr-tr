@@ -1,5 +1,5 @@
 ---
-title: "Azure Güvenlik Merkezi&quot;nde türe göre güvenlik uyarıları | Microsoft Belgeleri"
+title: "Azure Güvenlik Merkezi&quot;nde türe göre güvenlik uyarıları | Microsoft Docs"
 description: "Bu makalede, Azure Güvenlik Merkezi’nde bulunan farklı güvenlik uyarısı türleri ele alınmaktadır."
 services: security-center
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/05/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 5da00d1d64b258773fa485baa804b283fde731c3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,11 +148,63 @@ Güvenlik Merkezi, hedef sanal makinede yürütülen bir şüpheli işlemi tanı
 ![Şüpheli işlem uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### <a name="multiple-domain-accounts-queried"></a>Birden fazla etki alanı hesabı sorgulandı
-Güvenlik Merkezi, saldırganların ağ keşfi sırasında genellikle gerçekleştirdiği bir işlem olan etki alanı hesaplarını sorgulamaya yönelik birden fazla girişimi algılayabilir. Saldırganlar kullanıcıları, etki alanı yönetici hesaplarını, hangi bilgisayarların etki alanı denetleyicileri olduğunu ve diğer etki alanlarıyla olası etki alanı güven ilişkisini belirlemek üzere etki alanını sorgulamak için bu teknikten yararlanabilir.
+Güvenlik Merkezi, saldırganların ağ keşfi sırasında genellikle gerçekleştirdiği bir işlem olan Active Directory etki alanı hesaplarını sorgulamaya yönelik birden fazla girişimi algılayabilir. Saldırganlar kullanıcıları, etki alanı yönetici hesaplarını, hangi bilgisayarların etki alanı denetleyicileri olduğunu ve diğer etki alanlarıyla olası etki alanı güven ilişkisini belirlemek üzere etki alanını sorgulamak için bu teknikten yararlanabilir.
 
 İşte bu tür bir uyarı örneği:
 
 ![Birden fazla etki alanı hesabı uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### <a name="local-administrators-group-members-were-enumerated"></a>Yerel Yöneticiler grubunun üyeleri numaralandırılmıştır
+
+Güvenlik Merkezi, Windows Server 2016 ve Windows 10’da 4798 numaralı güvenlik olayı tetiklendiğinde bir uyarı tetikler. Bu durum, yerel yönetici grupları numaralandırıldığında gerçekleşir ve genellikle ağ keşfi sırasında saldırganlar tarafından gerçekleştirilir. Saldırganlar, yönetici ayrıcalıklarına sahip kullanıcıların kimliklerini sorgulamak için bu teknikten yararlanabilir.
+
+İşte bu tür bir uyarı örneği:
+
+![Yerel yönetici](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Büyük ve küçük harflerin anormal karışımı
+
+Güvenlik Merkezi, komut satırında büyük ve küçük harf karışımının kullanıldığını algıladığında bir uyarı tetikler. Bazı saldırganlar büyük küçük harfe duyarlı veya karma tabanlı makine kuralından gizlenmek için bu tekniği kullanabilir.
+
+İşte bu tür bir uyarı örneği:
+
+![Anormal karışım](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### <a name="suspected-kerberos-golden-ticket-attack"></a>Şüpheli Kerberos Altın Bilet saldırısı
+
+Bir saldırgan, istediği kullanıcının kimliğine bürünmesine olanak tanıyan Kerberos "Altın Biletleri" oluşturmak üzere güvenliği aşılmış bir [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) anahtarı kullanabilir. Güvenlik Merkezi bu tür bir etkinlik algıladığında bir uyarı tetikler.
+
+> [!NOTE] 
+> Kerberos Altın Bileti hakkında daha fazla bilgi için [Windows 10 kimlik bilgisi hırsızlığı azaltma kılavuzunu](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx) okuyun.
+
+İşte bu tür bir uyarı örneği:
+
+![Altın bilet](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### <a name="suspicious-account-created"></a>Şüpheli hesap oluşturuldu
+
+Yerleşik yönetici ayrıcalıklarına sahip olan mevcut bir hesaba çok benzeyen bir hesap oluşturulduğunda, Güvenlik Merkezi bir uyarı tetikler. Bu teknik, insan doğrulaması ile fark edilemeyecek bir dolandırıcı hesabı oluşturmak üzere saldırganlar tarafından kullanılabilir.
+ 
+İşte bu tür bir uyarı örneği:
+
+![Şüpheli hesap](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### <a name="suspicious-firewall-rule-created"></a>Şüpheli Güvenlik Duvarı kuralı oluşturuldu
+
+Saldırganlar, kötü amaçlı uygulamaların komut ve denetimle iletişim kurmasına izin veren ya da güvenliği aşılmış ana bilgisayar aracılığıyla ağ üzerinden saldırı başlatan özel güvenlik duvarı kuralları oluşturarak ana bilgisayar güvenliğini aşmayı deneyebilir. Güvenlik Merkezi, şüpheli bir konumda yürütülebilir bir dosyadan yeni bir güvenlik duvarı kuralı oluşturulduğunu algılandığında bir uyarı tetikler.
+ 
+İşte bu tür bir uyarı örneği:
+
+![Güvenlik duvarı kuralı](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### <a name="suspicious-combination-of-hta-and-powershell"></a>HTA ve PowerShell şüpheli birleşimi
+
+Güvenlik Merkezi, bir Microsoft HTML Uygulama Ana Bilgisayarının (HTA) PowerShell komutları başlattığını algıladığında bir uyarı tetikler. Bu teknik, saldırganlar tarafından kötü amaçlı PowerShell betikleri başlatmak için kullanılır.
+ 
+İşte bu tür bir uyarı örneği:
+
+![HTA ve PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## <a name="network-analysis"></a>Ağ analizi
 Güvenlik Merkezi ağ tehdidi algılaması, Azure IPFIX (İnternet Protokolü Akış Bilgileri Verme) trafiğinizden güvenlik verilerini otomatik olarak toplayarak çalışır. Tehditleri belirlemek amacıyla bu bilgileri genellikle birden fazla kaynaktan bilgileri ilişkilendirerek analiz eder.

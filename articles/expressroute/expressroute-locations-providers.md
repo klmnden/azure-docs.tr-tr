@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: ccb33119c7fb87cf3d56c02d2a9ac727c347fed6
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: a888593f992913e31bbf04834c86b1d4a2f1b196
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
@@ -77,14 +77,14 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
 | **Dublin** |Colt, Telecity Group |
 | **Hong Kong** |British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **Londra** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Las Vegas** |Level 3 Communications+, Megaport |
+| **Londra** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport(Galler)** |Next Generation Data |
-| **Montreal** |Cologix |
-| **Mumbai** |Tata Communications |
+| **Montreal** |Bell Canada, Cologix |
+| **Mumbai** |Airtel+, Tata Communications |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Paris** |Interxion, Equinix+ |
 | **Quebec City** | Megaport |
@@ -95,7 +95,7 @@ Aşağıdaki tabloda bağlantı konumları ve her konum için hizmet sağlayıc�
 | **Singapur** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sidney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokyo** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
-| **Toronto** |Bell Canada, Cologix, Equinix, Megaport, Zayo Group |
+| **Toronto** |Bell Canada, Cologix, Console, Equinix, Megaport, Zayo Group |
 | **Washington DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** çok yakında anlamına geliyor
@@ -144,16 +144,23 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 | **Konum** | **Exchange** | **Bağlantı Sağlayıcılar** |
 | --- | --- | --- |
-| **Amsterdam** | Equinix | Eurofiber |
-| **Dallas** | Equinix, Megaport | C3ntro, Data Foundry |
-| **Londra** | Equinix | Exponential E, HSO, NexGen Networks |
-| **New York** |Equinix |Lightower |
-| **Seattle** |Equinix |Alaska Communications |
-| **Silikon Vadisi** |Equinix |XO Communications |
+| **Amsterdam** | Equinix, Telecity | Eurofiber , Fastweb S.p.A, Nianet |
+| **Chicago** | Equinix | Windstream |
+| **Dallas** | Equinix, Megaport | C3ntro, Data Foundry, Transtelco |
+| **Frankfurt** | Telecity | Nianet, QSC AG |
+| **Londra** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Exponential E, HSO, NexGen Networks, Tamares Telecom |
+| **Los Angeles** | Equinix |Transtelco |
+| **Madrid** | Level3 | Zertia |
+| **Montreal** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1 |
+| **New York** |Equinix | Lightower |
+| **Seattle** |Equinix | Alaska Communications |
+| **Silikon Vadisi** |Equinix | Windstream |
 | **Singapur** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |
+| **Slough** | Equinix | HSO|
 | **Sidney** | Megaport | Macquarie Telecom Group|
 | **Tokyo** | Equinix | ARTERIA Networks Corporation |
-| **Washington DC** |Equinix | Lightower, Masergy |
+| **Toronto** | Equinix | Airgate Technologies. Inc, Cogeco Peer 1 |
+| **Washington DC** |Equinix | Lightower, Masergy, Windstream |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute sistem tümleştiricileri
 İhtiyaçlarınıza uyan özel bağlantıyı etkinleştirme ağınızın ölçeğine bağlı olarak zorlu olabilir. ExpressRoute’a yönelik ekleme işleminde size yardımcı olmak üzere aşağıdaki tabloda listelenen herhangi bir sistem tümleştirici ile çalışabilirsiniz.
@@ -161,9 +168,9 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 | **Continent** | **Sistem tümleştiricileri** |
 | --- | --- |
 | **Asya** |Avanade Inc., OneAs1a |
-| **Avustralya** | IT Consultancy |
-| **Avrupa** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite, sol-tec |
-| **Kuzey Amerika** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
+| **Avustralya** | IT Consultancy, Vigilant.IT |
+| **Avrupa** |Avanade Inc., Altogee, Bright Skies GmbH, Dotnet Solutions, MSG Services, Nelite, Orange Networks, sol-tec |
+| **Kuzey Amerika** |Avanade Inc., Equinix Professional Services, Perficient, Presidio, Project Leadership |
 | **Güney Amerika** |Avanade Inc. |
 ## <a name="next-steps"></a>Sonraki adımlar
 * ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressroute-faqs.md).

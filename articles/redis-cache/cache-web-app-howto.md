@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 076a85b7b965f163255e919eb61700aef0d1fc18
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -70,7 +70,7 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
 
     **Kimlik Doğrulama** ayarları için **Kimlik Doğrulaması Yok** seçeneğinin belirtildiğinden emin olun. Visual Studio sürümünüze bağlı olarak, varsayılan değer başka bir şeye ayarlanmış olabilir. Değiştirmek için **Kimlik Doğrulamasını Değiştir**’e tıklayıp **Kimlik Doğrulaması Yok**’u seçin.
 
-    Visual Studio 2015 ile takip ediyorsanız, **Bulutta barındır** onay kutusunun işaretini kaldırın. Öğreticinin sonraki adımlarında [Azure kaynaklarını hazırlayacak](#provision-the-azure-resources) ve [uygulamayı Azure’a yayımlayacaksınız](#publish-the-application-to-azure). **Buluttaki konak** öğesini işaretli bırakarak Visual Studio’dan bir App Service web uygulaması hazırlama örneği için, bkz. [ASP.NET ve Visual Studio kullanarak Azure App Service’deki Web Uygulamalarını kullanmaya başlama](../app-service-web/web-sites-dotnet-get-started.md).
+    Visual Studio 2015 ile takip ediyorsanız, **Bulutta barındır** onay kutusunun işaretini kaldırın. Öğreticinin sonraki adımlarında [Azure kaynaklarını hazırlayacak](#provision-the-azure-resources) ve [uygulamayı Azure’a yayımlayacaksınız](#publish-the-application-to-azure). **Buluttaki konak** öğesini işaretli bırakarak Visual Studio’dan bir App Service web uygulaması hazırlama örneği için, bkz. [ASP.NET ve Visual Studio kullanarak Azure App Service’deki Web Uygulamalarını kullanmaya başlama](../app-service-web/app-service-web-get-started-dotnet.md).
    
     ![Proje şablonu seçme][cache-select-template]
 4. Projeyi oluşturmak için **Tamam**'a tıklayın.
@@ -86,7 +86,7 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
 ### <a name="add-the-entity-framework-nuget-package"></a>Entity Framework NuGet paketi ekleme
 
 1. **Araçlar** menüsünden **NuGet Paket Yöneticisi**, **Paket Yöneticisi Konsolu**’na tıklayın.
-2. `Package Manager Console` penceresinden aşağıdaki komutu çalıştırın.
+2. **Paket Yöneticisi Konsolu** penceresinde aşağıdaki komutu çalıştırın.
     
     ```
     Install-Package EntityFramework

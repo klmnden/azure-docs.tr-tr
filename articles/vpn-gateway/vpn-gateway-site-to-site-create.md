@@ -13,40 +13,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9df9d10d436ac56c881c9547f3095b630d4cb97f
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ff70484dff03a44d23d2cf34ce115fd57c4b0390
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Klasik portalı kullanarak Siteden Siteye bağlantı ile sanal ağ oluşturma
-> [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Klasik - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Klasik - Klasik Portal](vpn-gateway-site-to-site-create.md)
->
->
 
-Bu makale, klasik dağıtım modelini ve klasik portalı kullanarak sanal bir ağ ve şirket içi ağınızda konumdan konuma VPN ağ geçidi bağlantısı oluşturma işleminde size yol gösterir. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir.
+Siteden Siteye (S2S) VPN ağ geçidi bağlantısı, IPSec/IKE (IKEv1 veya IKEv2) VPN tüneli üzerinden kurulan bir bağlantıdır. Bu bağlantı türü için, şirket içinde ortak IP adresi atanmış olan ve NAT'nin arkasında bulunmayan bir VPN cihazı gerekir. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir.
 
 ![Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı diyagramı](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
 
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Konumdan Konuma bağlantılar için dağıtım modelleri ve yöntemleri
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+Bu makale, klasik dağıtım modelini ve klasik portalı kullanarak sanal bir ağ ve şirket içi ağınızda konumdan konuma VPN ağ geçidi bağlantısı oluşturma işleminde size yol gösterir. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir. Ayrıca aşağıdaki listeden farklı bir seçenek belirleyerek, Resource Manager dağıtım modeli için bu yapılandırmayı oluşturabilirsiniz:
 
-Aşağıdaki tabloda, şu anda Siteden Siteye yapılandırmalar için kullanılabilen dağıtım modelleri ve yöntemleri gösterilmektedir. Yapılandırma adımlarını içeren bir makale olduğunda, bu tablodan makaleye yönelik doğrudan bağlantı oluştururuz.
-
-[!INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
+> [!div class="op_single_selector"]
+> * [Resource Manager - Azure portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Klasik - Azure portalı](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Klasik - klasik portal](vpn-gateway-site-to-site-create.md)
+>
+>
 
 #### <a name="additional-configurations"></a>Ek yapılandırmalar
 VNet'leri birbirine bağlamak istiyorsanız bkz. [Klasik dağıtım modeli için bir VNet - VNet bağlantısını yapılandırma](virtual-networks-configure-vnet-to-vnet-connection.md). VNet’e Konumdan Konuma bağlantı eklemek istiyorsanız bkz. [VNet’e mevcut bir VPN ağ geçidi bağlantısıyla S2S bağlantısı ekleme](vpn-gateway-multi-site.md).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Yapılandırmaya başlamadan önce aşağıdaki öğelerin bulunduğunu doğrulayın.
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
+Yapılandırmaya başlamadan önce aşağıdaki öğelerin bulunduğunu doğrulayın:
 
 * Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek biri. Bkz. [VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md). VPN cihazınızı yapılandırma konusuyla veya şirket içi ağ yapılandırmanızdaki IP adresi aralıklarıyla ilgili fazla bilginiz yoksa size bu ayrıntıları sağlayabilecek biriyle çalışmanız gerekir.
 * VPN cihazınız için dışarıya yönelik genel bir IP adresi. Bu IP adresi bir NAT’nin arkasında olamaz.
