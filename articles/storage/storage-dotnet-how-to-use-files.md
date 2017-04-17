@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -259,6 +259,16 @@ Azure bulut hizmetindeki çalışan bir rolle uzaktan bağlantı kurarak bu rold
 > Bazı İnternet hizmet sağlayıcıları 445 bağlantı noktasını engelleyebilir. Bu nedenle, hizmet sağlayıcınızı kontrol etmeniz gerekebilir.
 > 
 > 
+
+### <a name="unmount-the-file-share"></a>Dosya paylaşımını ayırma
+Dosya paylaşımını ayırmak için `net use` komutunu `/delete` seçeneği ile kullanabilirsiniz.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
 
 ## <a name="develop-with-file-storage"></a>File Storage ile geliştirme
 File Storage’a çağrı yapan kodlar yazmak için .NET ve Java için depolama istemcisi kitaplıklarını veya Azure Storage REST API’sini kullanabilirsiniz. Bu bölümdeki örnekte, masaüstünde çalışan basit bir konsol uygulaması üzerinden [.NET için Azure Storage İstemci Kitaplığı](https://msdn.microsoft.com/library/mt347887.aspx)’nı kullanarak dosya paylaşmayla nasıl çalışacağınız gösterilmektedir.
@@ -666,11 +676,13 @@ Uçtan uca sorun giderme kılavuzu için [Azure Dosyaları Sorun Giderme Makales
     Uçtan uca sorun giderme kılavuzu için [Azure Dosyaları Sorun Giderme Makalesine](storage-troubleshoot-file-connection-problems.md) bakabilirsiniz.               
 
 18. **Azure Dosyaları için sunucu tarafı şifrelemesini nasıl etkinleştirebilirim?**
+> [!NOTE]
+> Azure Dosyaları için [Sunucu Tarafı Şifrelemesi](storage-service-encryption.md) şu anda önizleme aşamasındadır. Önizleme sırasında sorularınız olursa [SSEDiscussion](mailto:ssediscussions@microsoft.com) ile iletişim kurabilirsiniz.
 
-    Azure Dosyaları için [Sunucu Tarafı Şifrelemesi](storage-service-encryption.md) şu anda önizleme aşamasındadır. Önizleme aşamasında, bu özelliği yalnızca [Azure portalı](https://portal.azure.com) kullanılarak oluşturulmuş yeni Azure Resource Manager depolama hesaplarında etkinleştirebilirsiniz. Bu özelliği etkinleştirmek için ek bir ücret uygulanmamaktadır. Azure Dosya Depolama için Depolama Hizmeti Şifrelemesini etkinleştirdiğinizde verileriniz otomatik olarak şifrelenir. 
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     
-    Gelecekte [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md) ve [Azure Depolama Kaynak Sağlayıcısı REST API’si](/rest/api/storagerp/storageaccounts) ile dosya depolama şifrelemesini desteklemeyi planlıyoruz. 
-    Azure Depolama hizmetinde bekleyen şifreleme hakkında daha fazla bilgi için [Depolama Hizmeti Şifrelemesi](storage-service-encryption.md) bölümüne bakabilir ve önizleme aşamasında sorularınız olursa ssediscussions@microsoft.com ile iletişim kurabilirsiniz.
+    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
+    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.

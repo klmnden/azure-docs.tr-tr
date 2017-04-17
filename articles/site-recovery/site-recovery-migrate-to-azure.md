@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,9 +49,16 @@ Yorumlarınızı bu makalenin altında paylaşabilirsiniz. Teknik sorular için 
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Şirket içi VM’leri ve fiziksel sunucuları geçirme
 
-Şirket içi Hyper-V VM’leri, VMware VM’leri ve fiziksel sunucuları geçirmek için normal çoğaltma için kullanılan adımlara yakın bir süreç izlersiniz. Kurtarma Hizmetleri kasası kurar, gerekli yönetim sunucularını yapılandırır (geçirmek istediğiniz nesneye göre), bunları kasaya ekler ve çoğaltma ayarlarını belirlersiniz. Geçirmek istediğiniz makinelerde çoğaltmayı etkinleştirir ve her şeyin düzgün çalıştığından emin olmak için hızlı bir yük devretme testi yaparsınız.
+Şirket içi Hyper-V VM’leri, VMware VM’leri ve fiziksel sunucuları geçirmek için normal çoğaltma için kullanılan adımlara yakın bir süreç izlersiniz.
 
-Çoğaltma ortamınızın çalıştığını doğruladıktan sonra senaryonuz için [desteklenen özelliklere](site-recovery-failover.md) göre planlanmış veya planlanmamış yük devretme seçeneğini kullanırsınız. Geçiş için yük devretme yapmanız gerekmez. Bunun yerine geçirmek istediğiniz her makine için **Geçişi Tamamla** seçeneğini belirlemeniz gerekir. **Geçişi Tamamla** işlemi, geçiş işlemini tamamlar, makine için çoğaltmayı kaldırır ve makinede Site Recovery faturalandırmasını durdurur.
+1. Kurtarma Hizmetleri kasası ayarlama
+2. Gerekli yönetim sunucularını (geçirmek istediğiniz nesneye bağlı olarak VMware, VMM veya Hyper-V) yapılandırın, bunları kasaya ekleyin ve çoğaltma ayarlarını belirleyin.
+3. Geçirmek istediğiniz makineler için çoğaltmayı etkinleştirin
+4. İlk geçişten sonra her şeyin normal çalıştığından emin olmak için küçük bir yük devretme testi çalıştırın.
+5. Çoğaltma ortamınızın çalıştığını doğruladıktan sonra senaryonuz için [desteklenen özelliklere](site-recovery-failover.md) göre planlanmış veya planlanmamış yük devretme seçeneğini kullanırsınız. Mümkün oldukça planlı yük devretme kullanmanız önerilir.
+6. Geçiş için bir yük devretme yürütmeniz veya öğeyi silmeniz gerekmez. Bunun yerine geçirmek istediğiniz her makine için **Geçişi Tamamla** seçeneğini belirlemeniz gerekir.
+     - **Çoğaltılan Öğeler**’de VM’ye sağ tıklayıp **Geçişi Tamamla**’ya tıklayın. İşlemi tamamlamak için **Tamam**’a tıklayın. İlerleme durumunu VM özelliklerinden **Site Recovery işlerindeki** Geçişi Tamamla işini izleyerek takip edebilirsiniz.
+     - **Geçişi Tamamla** işlemi, geçiş işlemini tamamlar, makine için çoğaltmayı kaldırır ve makinede Site Recovery faturalandırmasını durdurur.
 
 ![tamgeçiş](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 

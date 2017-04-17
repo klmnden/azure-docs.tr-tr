@@ -13,42 +13,38 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 619ea430b13c16e8e4338413613d5798f36458ba
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 81eca4b41b6a0726e5fcf851074bfb7dfca16fb8
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure portalını (klasik) kullanarak Siteden Siteye bağlantı oluşturma
-> [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Klasik - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Klasik - Klasik Portal](vpn-gateway-site-to-site-create.md)
->
->
-
 
 Siteden Siteye (S2S) VPN ağ geçidi bağlantısı, IPSec/IKE (IKEv1 veya IKEv2) VPN tüneli üzerinden kurulan bir bağlantıdır. Bu bağlantı türü için, şirket içinde ortak IP adresi atanmış olan ve NAT'nin arkasında bulunmayan bir VPN cihazı gerekir. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir.
 
-Bu makale, klasik dağıtım modelini ve Azure portalı kullanarak sanal bir ağ ve şirket içi ağınızda siteden siteye VPN ağ geçidi bağlantısı oluşturma işleminde size yol gösterir. 
-
 ![Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı diyagramı](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Konumdan Konuma bağlantılar için dağıtım modelleri ve yöntemleri
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+Bu makale, klasik dağıtım modelini ve Azure portalı kullanarak sanal bir ağ ve şirket içi ağınızda siteden siteye VPN ağ geçidi bağlantısı oluşturma işleminde size yol gösterir. Ayrıca aşağıdaki listeden farklı bir seçenek belirleyerek, Resource Manager dağıtım modeli için bu yapılandırmayı oluşturabilirsiniz:
 
-Aşağıdaki tabloda, şu anda Siteden Siteye yapılandırmalar için kullanılabilen dağıtım modelleri ve yöntemleri gösterilmektedir. Yapılandırma adımlarını içeren bir makale olduğunda, bu tablodan makaleye yönelik doğrudan bağlantı oluştururuz.
-
-[!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
+> [!div class="op_single_selector"]
+> * [Resource Manager - Azure portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Klasik - Azure portalı](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Klasik - klasik portal](vpn-gateway-site-to-site-create.md)
+>
+>
 
 #### <a name="additional-configurations"></a>Ek yapılandırmalar
-Sanal ağları birbirine bağlamak istiyor ancak şirket içi bir konuma bağlantı oluşturmuyorsanız, bkz. [Sanal ağdan sanal ağa bağlantı yapılandırma](virtual-networks-configure-vnet-to-vnet-connection.md). Zaten bağlantısı bulunan bir sanal ağa Siteden Siteye bağlantı eklemek istiyorsanız bkz. [VPN ağ geçidi bağlantısı bulunan bir sanal ağa S2S bağlantısı ekleme](vpn-gateway-multi-site.md).
+Sanal ağları birbirine bağlamak istiyor ancak şirket içi bir konuma bağlantı oluşturmuyorsanız, bkz. [VNet’ten VNet’e bağlantıyı yapılandırma](virtual-networks-configure-vnet-to-vnet-connection.md). Zaten bağlantısı bulunan bir sanal ağa Siteden Siteye bağlantı eklemek istiyorsanız bkz. [VPN ağ geçidi bağlantısı bulunan bir sanal ağa S2S bağlantısı ekleme](vpn-gateway-multi-site.md).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
 Yapılandırmanıza başlamadan önce aşağıdaki öğelerin bulunduğunu doğrulayın:
 
 * Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek biri. Bkz. [VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md). VPN cihazınızı yapılandırma konusuyla veya şirket içi ağ yapılandırmanızdaki IP adresi aralıklarıyla ilgili fazla bilginiz yoksa size bu ayrıntıları sağlayabilecek biriyle çalışmanız gerekir.
@@ -57,8 +53,7 @@ Yapılandırmanıza başlamadan önce aşağıdaki öğelerin bulunduğunu doğr
 * Şu anda, ortak anahtarı belirtmek ve VPN ağ geçidi bağlantısını oluşturmak için PowerShell gereklidir. Azure Hizmet Yönetimi (SM) PowerShell cmdlet’lerinin en son sürümünü yükleyin. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs). Bu yapılandırma için PowerShell ile çalışırken yönetici olarak işlem yaptığınızdan emin olun. 
 
 > [!NOTE]
-> Siteden Siteye bağlantı yapılandırırken, VPN cihazınız için genel kullanıma yönelik bir IPv4 IP adresi gereklidir.                                                                                                                                                                               
->
+> Siteden Siteye bağlantı yapılandırırken, VPN cihazınız için genel kullanıma yönelik bir IPv4 IP adresi gereklidir.
 >
 
 ### <a name="values"></a>Bu alıştırma için örnek yapılandırma değerleri
@@ -103,7 +98,7 @@ S2S bağlantısı için kullanılacak bir sanal ağ oluşturduğunuzda, belirtti
 8. Sanal ağınızı panoda kolay bulmak istiyorsanız **Panoya sabitle**’yi seçin ve ardından **Oluştur**’a tıklayın.
 
     ![Panoya sabitle](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Pin to dashboard")
-9. ‘Oluştur’ seçeneğine tıkladıktan sonra, panonuzda sanal ağınızın ilerleme durumunu yansıtacak bir kutucuk göreceksiniz. Sanal ağ oluşturulurken kutucuk değişir.
+9. “Oluştur”a tıkladıktan sonra, panoda sanal ağınızın ilerleme durumunu yansıtan bir kutucuk görünür. Sanal ağ oluşturulurken kutucuk değişir.
 
     ![Sanal ağ oluşturma kutucuğu](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Creating virtual network")
 
@@ -147,7 +142,7 @@ Yerel site genellikle şirket içi konumunuzu ifade eder. Bağlantı oluşturaca
 
 ## <a name="gatewaysubnet"></a>5. Ağ geçidi alt ağını yapılandırma
 
-VPN ağ geçidiniz için bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ geçidi alt ağı, VPN ağ geçidi hizmetlerinin kullanacağı IP adreslerini içerir.
+VPN ağ geçidiniz için bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ geçidi alt ağı, VPN ağ geçidi hizmetlerinin kullandığı IP adreslerini içerir.
 
 1. **Yeni VPN Bağlantısı** dikey penceresinde, **Ağ geçidini hemen oluştur** onay kutusunu işaretleyin. 'İsteğe bağlı ağ geçidi yapılandırması' dikey penceresi görüntülenir. Onay kutusunu seçmezseniz, ağ geçidi alt ağını yapılandırmak için dikey pencereyi görmezsiniz.
 
@@ -161,7 +156,7 @@ VPN ağ geçidiniz için bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ g
     ![Ağ geçidi alt ağı ekleme](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Add gateway subnet")
 
 ## <a name="sku"></a>6. SKU ve VPN türünü belirtme
-1. Ağ geçidi **Boyutu** seçin. Bu seçenek, sanal ağ geçidinizi oluşturmak için kullanacağınız ağ geçidi SKU’sudur. Portalda, 'Varsayılan SKU' = **Temel** şeklindedir. Ağ geçidi SKU’ları hakkında bilgi için bkz. [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+1. Ağ geçidi **Boyutu** seçin. Bu seçenek, sanal ağ geçidinizi oluşturmak için kullandığınız ağ geçidi SKU’sudur. Portalda, 'Varsayılan SKU' = **Temel** şeklindedir. Ağ geçidi SKU’ları hakkında bilgi için bkz. [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
     ![SKUL ve VPN türü seçme](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "Select SKU and VPN type")
 2. Ağ geçidiniz için **Yönlendirme Türü** seçin. Bu seçenek VPN türü olarak da bilinir. Ağ geçidini bir türden diğerine geçiremeyeceğiniz için doğru ağ geçidi türünün seçilmesi önemlidir. VPN cihazınız seçtiğiniz yönlendirme türü ile uyumlu olmalıdır. VPN türü hakkında daha fazla bilgi için bkz. [VPN Gateway Ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md#vpntype). 'RouteBased' ve 'PolicyBased' VPN türlerine başvuran makaleler görebilirsiniz. 'Dinamik' seçeneği 'RouteBased', 'Statik' seçeneği ise 'PolicyBased' değerine karşılık gelir.
@@ -170,32 +165,48 @@ VPN ağ geçidiniz için bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ g
 
 ## <a name="vpndevice"></a>7. VPN cihazınızı yapılandırma
 
-Belirli yapılandırma bilgileri için cihaz üreticinizle birlikte çalışın ve cihazınızı yapılandırın. Azure ile verimli çalışan VPN cihazları hakkında daha fazla bilgi için [VPN Cihazları](vpn-gateway-about-vpn-devices.md)’na başvurun. Ayrıca, kullanmak istediğiniz VPN cihazının [Bilinen cihaz uyumluluğu sorunları](vpn-gateway-about-vpn-devices.md#known) olup olmadığını denetleyin. 
+Bir şirket içi ağı ile Siteden Siteye bağlantılar için VPN cihazı gerekir. Tüm VPN cihazlarına yönelik yapılandırma adımları verilmese de, aşağıdaki bağlantılarda verilen bilgileri faydalı bulabilirsiniz:
 
-VPN cihazınızı yapılandırırken, oluşturduğunuz VPN ağ geçidinin IP adresi gerekli olacaktır. Sanal ağınızın **Genel bakış** dikey penceresine giderek bu değeri bulabilirsiniz.
+- Uyumlu VPN cihazları hakkında bilgi için bkz. [VPN Cihazları](vpn-gateway-about-vpn-devices.md). 
+- Cihaz yapılandırma ayarlarının bağlantıları için bkz. [Doğrulanan VPN Cihazları](vpn-gateway-about-vpn-devices.md#devicetable). Bu bağlantılar en iyi çabalarımız sonucu elde ettiğimiz bağlantılardır. En son yapılandırma bilgileri için her zaman cihaz üreticinize başvurmanız en iyi yöntemdir.
+- Cihaz yapılandırma örneklerini düzenleme hakkında daha fazla bilgi için bkz. [Örnekleri düzenleme](vpn-gateway-about-vpn-devices.md#editing).
+- IPsec/IKE parametreleri için bkz. [Parametreler](vpn-gateway-about-vpn-devices.md#ipsec).
+- VPN cihazınızı yapılandırmadan önce, kullanmak istediğiniz VPN cihazının [Bilinen cihaz uyumluluğu sorunları](vpn-gateway-about-vpn-devices.md#known) olup olmadığını denetleyin.
+
+VPN cihazınızı yapılandırırken aşağıdaki öğeler gerekir:
+
+- Sanal ağ geçidinizin Genel IP adresi. Sanal ağınızın **Genel bakış** dikey penceresine giderek bu değeri bulabilirsiniz.
+- Paylaşılan bir anahtar. Siteden Siteye VPN bağlantınızı oluştururken belirttiğiniz paylaşılan anahtarın aynısıdır. Bu örneklerde çok temel bir paylaşılan anahtar kullanılır. Kullanmak için daha karmaşık bir anahtar oluşturmanız gerekir.
 
 ## <a name="CreateConnection"></a>8. Bağlantı oluşturma
 Bu adımda, paylaşılan anahtarı ayarlayabilir ve bağlantıyı oluşturabilirsiniz. Ayarladığınız anahtar, VPN cihazı yapılandırmasında kullanılan anahtarla aynı olmalıdır.
 
 > [!NOTE]
-> Şu anda, bu yapılandırma Azure portalında mevcut değildir. Azure PowerShell cmdlet’lerinin Hizmet Yönetimi (SM) sürümünü kullanmanız gerekir.                                                                                                                                                                             
->
+> Şu anda, bu yapılandırma Azure portalında mevcut değildir. Azure PowerShell cmdlet’lerinin Hizmet Yönetimi (SM) sürümünü kullanmanız gerekir.                                        >
 >
 
 ### <a name="step-1-connect-to-your-azure-account"></a>1. Adım Azure hesabınıza bağlanma
 
 1. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
-        Login-AzureRmAccount
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Hesapla ilişkili abonelikleri kontrol edin.
 
-        Get-AzureRmSubscription
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 3. Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin.
 
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. PowerShell cmdlet'lerinin SM sürümünü ekleyin.
 
-        Add-AzureAccount
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>2. Adım Paylaşılan anahtarı ayarlama ve bağlantıyı oluşturma
 
@@ -203,13 +214,17 @@ PowerShell ve klasik dağıtım modeli ile çalışırken, portaldaki kaynaklar�
 
 1. Bilgisayarınızda bir dizin oluşturun ve sonra ağ yapılandırma dosyasını dizine aktarın. Bu örnekte, ağ yapılandırma dosyası C:\AzureNet dizinine aktarılır.
 
-         Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```powershell
+  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```
 2. Ağ yapılandırma dosyasını bir xml düzenleyicisi ile açın ve 'LocalNetworkSite name' ile 'VirtualNetworkSite name' değerlerini denetleyin. Örneği, değerleri yansıtacak şekilde değiştirin. Boşluk içeren bir ad belirtirken, değeri tek tırnak işaretleri içine alın.
 
 3. Paylaşılan anahtarı ayarlayıp bağlantıyı oluşturun. '-SharedKey' sizin oluşturup belirttiğiniz bir değerdir. Örnekte 'abc123' değeri kullanılmıştır, ancak siz daha karmaşık bir değer oluşturabilirsiniz (ve oluşturmalısınız). Önemli olan, burada belirttiğiniz değerin VPN cihazınızı yapılandırırken belirttiğiniz değerle aynı olmasıdır.
 
-        Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
-        -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```powershell
+  Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
+  -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```
 Bağlantı oluşturulduğunda, sonuç şu şekildedir: **Durum: Başarılı**.
 
 ## <a name="verify"></a>9. Bağlantınızı doğrulama

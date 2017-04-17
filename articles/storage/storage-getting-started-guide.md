@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
-ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 6508b5a5d7d654954c68f9390c62a7871c1f032c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -75,7 +75,7 @@ Ardından örnek uygulamayı çalıştırın:
 ## <a name="run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator"></a>İlk Azure Storage uygulamanızı Azure Storage Öykünücüsüne karşı çalıştırma
 [Azure Storage Öykünücüsü](storage-use-emulator.md) geliştirme amaçlı olarak Azure Blob, Kuyruk ve Tablo hizmetlerine öykünen yerel bir ortam sağlar. Bir Azure aboneliği veya depolama hesabı oluşturmadan ve herhangi bir masraf yapmadan depolama uygulamanızı yerel olarak test etmek üzere depolama öykünücüsünü kullanabilirsiniz.
 
-Denemek için Visual Studio’da Azure Hızlı Başlangıç örnek projelerinden birini kullanarak basit bir Azure Storage uygulaması oluşturalım. Bu öğretici **Azure Blob Storage**, **Azure Table Storage** ve **Azure Kuyruk Depolama** örnek projelerine odaklanır:
+Denemek için Visual Studio’da Azure Hızlı Başlangıç örnek projelerinden birini kullanarak basit bir Azure Depolama uygulaması oluşturalım. Bu öğretici **Azure Blob Storage**, **Azure Table Storage** ve **Azure Kuyruk Depolama** örnek projelerine odaklanır:
 
 1. Visual Studio’yu çalıştırın.
 2. **Dosya** menüsünden **Yeni Proje**’ye tıklayın.

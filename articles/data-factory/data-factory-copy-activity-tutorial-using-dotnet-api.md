@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0664888dbb14aaa353d5d126cdf799b62711d71f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -106,7 +106,7 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
     ```PowerShell
     $azureAdApplication    
     ```
-    Uygulama kimliğini (çıktıdaki **applicationID** değeri) not alın.
+    Çıktıdaki uygulama kimliğini (applicationID) not alın.
 
 Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
 
@@ -184,7 +184,7 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
    > [!IMPORTANT]
    > **resourceGroupName** değerini Azure kaynak grubunuzun adıyla değiştirin.
    >
-   > Veri fabrikasının adını (**dataFactoryName**) benzersiz olacak şekilde güncelleştirin. Veri fabrikasının adı genel olarak benzersiz olmalıdır. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
+   > Veri fabrikasının adını (dataFactoryName) benzersiz olacak şekilde güncelleştirin. Veri fabrikasının adı genel olarak benzersiz olmalıdır. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
 
 7. Bir **veri fabrikası** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.
 
@@ -473,7 +473,7 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
     }
     ```
 
-15. Çözüm Gezgini’nde projeyi (**DataFactoryAPITestApp**) genişletin, **Başvurular**’a sağ tıklayın ve **Başvuru Ekle**’ye tıklayın. "**System.Configuration**" derlemesinin onay kutusunu işaretleyip **Tamam**’a tıklayın.
+15. Çözüm Gezgini’nde projeyi (DataFactoryAPITestApp) genişletin, **Başvurular**’a sağ tıklayın ve **Başvuru Ekle**’ye tıklayın. **System.Configuration** derlemesinin onay kutusunu işaretleyin. **Tamam**'a tıklayın.
 16. Konsol uygulamasını derleyin. Menüde **Derle**’ye tıklayın ve **Çözümü Derle**’ye tıklayın.
 17. Azure blob depolamanızdaki **adftutorial** kapsayıcısında en az bir dosya olduğunu onaylayın. Aksi takdirde, Not Defteri’nde aşağıdaki içeriklerle **Emp.txt** dosyası oluşturun ve dosyayı adftutorial kapsayıcısına yükleyin.
 
@@ -486,7 +486,7 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
    * Bağlı hizmet: **LinkedService_AzureStorage**
    * Veri kümesi: **DatasetBlobSource** ve **DatasetBlobDestination**.
    * İşlem hattı: **PipelineBlobSample**
-20. Belirtilen Azure SQL veritabanındaki "**emp**" tablosunda, iki çalışan kaydının oluşturulduğunu doğrulayın.
+20. Belirtilen Azure SQL veritabanındaki **emp** tablosunda, iki çalışan kaydının oluşturulduğunu doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 | Konu | Açıklama |

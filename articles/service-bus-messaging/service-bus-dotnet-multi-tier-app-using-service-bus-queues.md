@@ -12,18 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 04/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus kuyruklarını kullanan çok katmanlı .NET uygulaması
 ## <a name="introduction"></a>Giriş
-Visual Studio ve .NET için ücretsiz Azure SDK kullanarak Microsoft Azure'a yönelik geliştirme işlemleri oldukça kolaydır. Bu öğretici, yerel ortamınızda çalışan birden çok Azure kaynağı kullanan bir uygulama oluşturmak için sizi adım adım yönlendirir. Öğreticideki adımlar, Azure kullanma konusunda deneyim sahibi olmadığınızı varsayar.
+Visual Studio ve .NET için ücretsiz Azure SDK kullanarak Microsoft Azure'a yönelik geliştirme işlemleri oldukça kolaydır. Bu öğretici, yerel ortamınızda çalışan birden çok Azure kaynağı kullanan bir uygulama oluşturmak için sizi adım adım yönlendirir.
 
 Şunları öğreneceksiniz:
 
@@ -34,16 +34,16 @@ Visual Studio ve .NET için ücretsiz Azure SDK kullanarak Microsoft Azure'a yö
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-Bu öğreticide, Azure bulut hizmetinde çok katmanlı bir uygulama derleyip çalıştıracaksınız. Ön uç, bir ASP.NET MVC web rolüdür. Arka uç ise Service Bus kuyruğu kullanan bir çalışan rolüdür. Aynı çok katmanlı uygulamayı, bulut hizmeti yerine bir Azure web sitesine dağıtılan web projesi özelliğine sahip ön uçla da oluşturabilirsiniz. Azure web sitesi ön ucunda gerçekleştirilebilecek farklı işlemler hakkındaki talimatlar için [Sonraki adımlar](#nextsteps) bölümüne bakın. Ayrıca, [.NET bulut/şirket içi karma uygulama](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) öğreticisine de başvurabilirsiniz.
+Bu öğreticide, Azure bulut hizmetinde çok katmanlı bir uygulama derleyip çalıştıracaksınız. Ön uç, bir ASP.NET MVC web rolüdür. Arka uç ise Service Bus kuyruğu kullanan bir çalışan rolüdür. Aynı çok katmanlı uygulamayı, bulut hizmeti yerine bir Azure web sitesine dağıtılan web projesi özelliğine sahip ön uçla da oluşturabilirsiniz. Ayrıca, [.NET bulut/şirket içi karma uygulama](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) öğreticisine de başvurabilirsiniz.
 
 Aşağıdaki ekran görüntüsünde tamamlanan uygulama gösterilir.
 
 ![][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Senaryoya genel bakış: roller arası iletişim
-İşlenmek üzere bir sipariş göndermeniz için web rolünde çalışan ön uç kullanıcı arabirimi bileşeninin çalışan rolünde çalışmakta olan orta katman mantığı ile etkileşim içinde olması gerekir. Bu örnekte, katmanlar arasındaki iletişim için Service Bus aracılı mesajlaşma kullanılır.
+İşlenmek üzere bir sipariş göndermeniz için web rolünde çalışan ön uç kullanıcı arabirimi bileşeninin çalışan rolünde çalışmakta olan orta katman mantığı ile etkileşim içinde olması gerekir. Bu örnekte, katmanlar arasındaki iletişim için Service Bus mesajlaşması kullanılır.
 
-Web katmanı ve orta katman arasında aracılı mesajlaşmayı kullanma iki bileşeni birbirinden ayırır. Doğrudan mesajlaşmanın aksine (yani TCP veya HTTP), web katmanı orta katmanla doğrudan bağlantı kurmaz. Bunun yerine çalışma birimlerini iletiler şeklinde, orta katman bu birimleri kullanmaya ve işlemeye hazır olana kadar güvende tutan Service Bus hizmetine gönderir.
+Web katmanı ve orta katman arasında Service Bus mesajlaşmasını kullanma iki bileşeni birbirinden ayırır. Doğrudan mesajlaşmanın aksine (yani TCP veya HTTP), web katmanı orta katmanla doğrudan bağlantı kurmaz. Bunun yerine çalışma birimlerini iletiler şeklinde, orta katman bu birimleri kullanmaya ve işlemeye hazır olana kadar güvende tutan Service Bus hizmetine gönderir.
 
 Service Bus, kuyruklar ve konu başlıkları olmak üzere aracılı mesajlaşmayı desteklemek için iki varlık sunar. Kuyruklar kısmında, kuyruğa gönderilen her ileti tek bir alıcı tarafından kullanılır. Konu başlıkları ise yayınlanan tüm iletilerin konu başlığına kayıtlı olan bir abonelikte kullanılabilir hale geldiği yayımla/paylaş düzenini destekler. Her abonelik mantıksal olarak kendi ileti kuyruğunu korur. Ayrıca abonelikler, filtreyle eşleşen abonelik kuyruğuna gönderilen ileti kümesini sınırlayan filtre kuralları ile yapılandırabilir. Aşağıdaki örnekte Service Bus kuyrukları kullanılır.
 
@@ -63,7 +63,7 @@ Aşağıdaki bölümlerde, bu mimariyi uygulayan kod ele alınır.
 Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliştirme ortamınızı ayarlayın.
 
 1. SDK [indirme sayfasından](https://azure.microsoft.com/downloads/) .NET için Azure SDK'sını yükleyin.
-2. **.NET** sütununda, kullandığınız [Visual Studio](http://www.visualstudio.com) sürümüne tıklayın. Bu öğreticideki adımlarda Visual Studio 2015 kullanılır.
+2. **.NET** sütununda, kullandığınız [Visual Studio](http://www.visualstudio.com) sürümüne tıklayın. Bu öğreticideki adımlar Visual Studio 2015 kullanır, ancak Visual Studio 2017 ile de çalışır.
 3. Yükleyiciyi çalıştırmanız veya kaydetmeniz istendiğinde **Çalıştır**'a tıklayın.
 4. **Web Platformu Yükleyicisi**'nde **Yükle**'ye tıklayın ve kuruluma devam edin.
 5. Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir.
@@ -78,7 +78,7 @@ Bu bölümde, uygulamanızın ön ucunu derleyin. Öncelikle, uygulamanızda gö
 Daha sonra, Service Bus kuyruğuna öğe gönderen ve kuyruk hakkındaki durum bilgilerini gösteren kodu ekleyin.
 
 ### <a name="create-the-project"></a>Proje oluşturma
-1. Yönetici ayrıcalıklarını kullanarak Microsoft Visual Studio'yu başlatın. Yönetici ayrıcalıklarıyla Visual Studio'yu başlatmak için **Visual Studio** programının simgesine sağ tıklayın ve ardından **Yönetici olarak çalıştır**'a tıklayın. Bu makalenin sonraki bölümlerinde ele alınan Azure işlem öykünücüsü, Visual Studio'nun yönetici ayrıcalıklarıyla başlatılmasını gerektirir.
+1. Yönetici ayrıcalıklarıyla Visual Studio'yu başlatın: **Visual Studio** programının simgesine sağ tıklayın ve ardından **Yönetici olarak çalıştır**'a tıklayın. Bu makalenin sonraki bölümlerinde ele alınan Azure işlem öykünücüsü, Visual Studio'nun yönetici ayrıcalıklarıyla başlatılmasını gerektirir.
    
    Visual Studio'da, **Dosya** menüsündeki **Yeni** seçeneğine ve ardından **Proje**'ye tıklayın.
 2. **Yüklü Şablonlar**'da **Visual C#** kısmında **Bulut** seçeneğine ve ardından **Azure Bulut Hizmeti**'ne tıklayın. Projeyi **MultiTierApp** olarak adlandırın. Daha sonra, **Tamam**'a tıklayın.
@@ -98,7 +98,7 @@ Daha sonra, Service Bus kuyruğuna öğe gönderen ve kuyruk hakkındaki durum b
     ![][16]
 7. **Yeni ASP.NET Projesi** iletişim kutusuna geri döndükten sonra projeyi oluşturmak için **Tamam**'a tıklayın.
 8. **Çözüm Gezgini**'ndeki, **FrontendWebRole** projesinde **Başvurular** seçeneğine ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
-9. **Gözat** sekmesine tıklayıp `Microsoft Azure Service Bus` için arama yapın. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
+9. **Gözat** sekmesine tıklayıp `Microsoft Azure Service Bus` için arama yapın. **WindowsAzure.ServiceBus** paketini seçin, **Yükle**’ye tıklayın ve kullanım koşullarını kabul edin.
    
    ![][13]
    
@@ -179,7 +179,7 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
        }
    }
    ```
-4. Çalışmanızın o ana kadarki doğruluğunu test etmek için **Derle** menüsünde **Çözümü Derle**'ye tıklayın.
+4. Çalışmanızın o ana kadarki doğruluğunu test etmek için **Derle** menüsünden **Çözümü Derle**'ye tıklayın.
 5. Şimdi daha önceden oluşturduğunuz `Submit()` yöntemi görünümünü oluşturun. `Submit()` yöntemi içinde sağ tıklayın (parametre almayan `Submit()` aşırı yükü) ve ardından **Görünüm Ekle**'yi seçin.
    
    ![][14]
@@ -362,7 +362,7 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:  
 
-* [Azure Service Bus][sbmsdn]  
+* [Azure Service Bus belgeleri][sbdocs]  
 * [Service Bus hizmet sayfası][sbacom]  
 * [Service Bus Kuyruklarını kullanma][sbacomqhowto]  
 
@@ -370,7 +370,7 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 * [Depolama Tabloları, Kuyruklar ve Blob'ların Kullanıldığı .NET Çok Katmanlı Uygulaması][mutitierstorage]  
 
-[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
@@ -381,8 +381,8 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
 [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
 [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
-[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
+[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app2.png
 
 [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
 [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
@@ -391,7 +391,7 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
+[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

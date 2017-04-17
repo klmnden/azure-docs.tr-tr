@@ -25,7 +25,7 @@ NuGet paketi, StackExchange.Redis önbellek istemcisiyle Azure Redis Önbelleği
 > 
 > 
 
-Ayrıca, **Araçlar** menüsünden **NuGet Paket Yöneticisi**, **Paket Yöneticisi Konsolu**’na tıklayıp `Package Manager Console` penceresinde aşağıdaki komutu çalıştırarak StackExchange.Redis NuGet paketini yükleyebilirsiniz.
+Ayrıca, **Araçlar** menüsünden **NuGet Paket Yöneticisi**, **Paket Yöneticisi Konsolu**’na tıklayıp **Paket Yöneticisi Konsolu** penceresinde aşağıdaki komutu çalıştırarak StackExchange.Redis NuGet paketini yükleyebilirsiniz.
     
 ```
 Install-Package StackExchange.Redis

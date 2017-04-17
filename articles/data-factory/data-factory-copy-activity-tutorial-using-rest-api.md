@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -49,14 +50,14 @@ Bu öğretici, REST API kullanarak bir Azure veri fabrikası oluşturmayı ve iz
   3. **İstemci kimliğini** alın. 
   4. **ADFCopyTutorialApp** uygulamasını **Data Factory Katılımcısı** rolüne atayın.  
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)'i yükleyin.  
-* **PowerShell**’i başlatın ve aşağıdaki komutu çalıştırın. Bu öğreticide sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız komutları yeniden çalıştırmanız gerekir.
+* **PowerShell**’i başlatın ve aşağıdaki adımları uygulayın. Bu öğreticide sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız komutları yeniden çalıştırmanız gerekir.
   
-  1. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
+  1. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin:
     
     ```PowerShell 
     Login-AzureRmAccount
     ```   
-  2. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
+  2. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın:
 
     ```PowerShell     
     Get-AzureRmSubscription
@@ -66,7 +67,7 @@ Bu öğretici, REST API kullanarak bir Azure veri fabrikası oluşturmayı ve iz
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
-  4. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun.  
+  4. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun:  
 
     ```PowerShell     
       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -172,10 +173,10 @@ JSON tanımı, işlem hattındaki bir etkinliğin girdi verilerini temsil eden *
 * **linkedServiceName** **AzureStorageLinkedService** olarak ayarlanır. 
 * **folderPath** değeri **adftutorial** kapsayıcısı olarak, **fileName** ise **emp.txt** olarak ayarlanmıştır.  
 * biçim **türü** **TextFormat** olarak ayarlanır
-* Metin dosyasında virgül karakteriyle (**columnDelimiter**) ayrılmış, **FirstName** ve **LastName** adlı iki alan vardır    
-* **Availability** **hourly** olarak ayarlanmıştır (sıklık saat olarak, aralıksa 1 olarak ayarlanmıştır). Bu nedenle, Data Factory saatte bir kere belirtilen blob kapsayıcısının (**adftutorial**) kök klasöründe girdi verilerini arar. 
+* Metin dosyasında virgül karakteriyle (columnDelimiter) ayrılmış, **FirstName** ve **LastName** adlı iki alan vardır    
+* **Availability** **hourly** olarak ayarlanmıştır (sıklık saat olarak, aralıksa 1 olarak ayarlanmıştır). Bu nedenle Data Factory, belirtilen blob kapsayıcısının kök klasöründe (adftutorial) girdi verilerini saatlik olarak arar. 
 
-Girdi veri kümesi için bir **fileName** belirtmezseniz, girdi klasörüne (**folderPath**) ait tüm dosyalar/blob’lar girdi olarak kabul edilir. JSON’da bir fileName belirtirseniz yalnızca belirtilen dosya/blob girdi olarak kabul edilir.
+Girdi veri kümesi için bir **fileName** belirtmezseniz, girdi klasörüne (folderPath) ait tüm dosyalar/blob’lar girdi olarak kabul edilir. JSON’da bir fileName belirtirseniz yalnızca belirtilen dosya/blob girdi olarak kabul edilir.
 
 **Çıktı tablosu** için bir **fileName** belirtmezseniz **folderPath**’de oluşturulan dosyalar şu biçimde adlandırılır: Data.&lt;Guid&gt;.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -230,7 +231,7 @@ Aşağıdaki noktalara dikkat edin:
 * **linkedServiceName** **AzureSqlLinkedService** olarak ayarlanır.
 * **tablename** **emp** olarak ayarlanır.
 * Veritabanındaki emp tablosunda üç sütun vardır: **ID**, **FirstName** ve **LastName**. ID bir kimlik sütunu olduğundan, burada yalnızca **FirstName** ve **LastName** değerlerini belirtmeniz gerekir.
-* **availability** **hourly** olarak ayarlanmıştır (**frequency** **hour**, **interval** de **1** olarak ayarlanmıştır).  Data Factory hizmeti Azure SQL veritabanındaki **emp** tablosunda her saat bir çıktı veri dilimi oluşturur.
+* **Availability** değeri **hourly** olarak ayarlanmıştır (frequency değeri hour, interval değeri 1 olarak ayarlanmıştır).  Data Factory hizmeti Azure SQL veritabanındaki **emp** tablosunda her saat bir çıktı veri dilimi oluşturur.
 
 ### <a name="pipelinejson"></a>pipeline.json
 
@@ -316,7 +317,7 @@ $adf = "ADFCopyTutorialDF"
 ```
 
 ## <a name="authenticate-with-aad"></a>AAD ile kimlik doğrulama
-Azure Active Directory (AAD) ile kimlik doğrulamak için aşağıdaki komutu çalıştırın. 
+Azure Active Directory (AAD) ile kimlik doğrulamak için aşağıdaki komutu çalıştırın: 
 
 ```PowerShell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
@@ -360,7 +361,7 @@ Aşağıdaki noktalara dikkat edin:
 * Veri fabrikasının adı gelecekte bir DNS adı olarak kaydedilmiş ve herkese görünür hale gelmiş olabilir.
 * Şu hatayı alırsanız: "**Abonelik, Microsoft.DataFactory ad alanını kullanacak şekilde kaydedilmemiş**", aşağıdakilerden birini yapın ve yeniden yayımlamayı deneyin: 
   
-  * Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın. 
+  * Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın: 
 
     ```PowerShell    
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -428,7 +429,7 @@ Bu öğreticide kullanılacak Azure blob depolama ve Azure SQL veritabanını ha
 * **emp.txt** adıyla bir metin dosyasını oluşturup, bir blob olarak **adftutorial** kapsayıcısına yükleyin. 
 * **AzureSqlLinkedService** tarafından belirtilen Azure SQL Database’de **emp** adlı bir tablo oluşturun.
 
-1. Not Defteri’ni başlatın, aşağıdaki metni yapıştırın ve **emp.txt** olarak sabit diskinizdeki **C:\ADFGetStartedPSH** klasörüne kaydedin. 
+1. Not Defteri'ni başlatın. Aşağıdaki metni kopyalayın ve **emp.txt** olarak sabit diskinizdeki **C:\ADFGetStartedPSH** klasörüne kaydedin. 
 
     ```   
     John, Doe
@@ -456,7 +457,7 @@ Bu öğreticide kullanılacak Azure blob depolama ve Azure SQL veritabanını ha
     İstemcinizin Azure SQL sunucusuna erişim izni yoksa, makinenizden (IP adresi) erişim izni vermek için Azure SQL sunucunuzun güvenlik duvarını yapılandırmanız gerekir. Azure SQL sunucunuzun güvenlik duvarını yapılandırmaya yönelik adımlar için [bu makaleye](../sql-database/sql-database-configure-firewall-settings.md) bakın.
 
 ### <a name="create-input-dataset"></a>Girdi veri kümesi oluşturma
-Bu adımda, **AzureStorageLinkedService** bağlı hizmetiyle temsil edilen Azure Depolama’daki bir blob kapsayıcısını işaret eden **AzureBlobInput** adlı bir veri kümesi oluşturacaksınız. Bu blob kapsayıcısında (**adftutorial**) şu dosyaya ait girdi verileri vardır: **emp.txt**. 
+Bu adımda, **AzureStorageLinkedService** bağlı hizmetiyle temsil edilen Azure Depolama’daki bir blob kapsayıcısını işaret eden **AzureBlobInput** adlı bir veri kümesi oluşturacaksınız. Bu blob kapsayıcısında (adftutorial) şu dosyaya ait girdi verileri vardır: **emp.txt**. 
 
 1. Komutu **cmd** adlı değişkene atayın. 
 
@@ -475,7 +476,7 @@ Bu adımda, **AzureStorageLinkedService** bağlı hizmetiyle temsil edilen Azure
     ```
 
 ### <a name="create-output-dataset"></a>Çıktı veri kümesi oluşturma
-Bu adımda **AzureSqlOutput** adlı bir çıktı tablosu oluşturursunuz. Bu veri kümesi, **AzureSqlLinkedService** ile temsil edilen Azure SQL veritabanında bir SQL tablosunu (**emp**) işaret eder. İşlem hattı verileri girdi blob’undan **emp** tablosuna kopyalar. 
+Bu adımda **AzureSqlOutput** adlı bir çıktı tablosu oluşturursunuz. Bu veri kümesi, **AzureSqlLinkedService** ile temsil edilen Azure SQL veritabanında bir SQL tablosunu (emp) işaret eder. İşlem hattı verileri girdi blob’undan **emp** tablosuna kopyalar. 
 
 1. Komutu **cmd** adlı değişkene atayın.
 
@@ -573,9 +574,4 @@ Bu öğreticide bir Azure blob’undan Azure SQL veritabanına veri kopyalamak i
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

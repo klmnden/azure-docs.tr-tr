@@ -13,43 +13,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c80ddbaf8c2c84735564e514ddaf4308c4aff303
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4133e2e90f51d141044f2ac064c60df1263b498e
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-using-the-azure-portal"></a>Azure portalı kullanarak sanal ağlar arası bağlantı yapılandırma
-> [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Klasik - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Klasik - Klasik Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
-> 
-> 
 
-Bu makalede VPN Gateway ve Azure portal kullanılarak Resource Manager dağıtım modelinde sanal ağlar arası bağlantı oluşturma işlemi adım adım açıklanmaktadır.
-
-Sanal ağlara bağlanmak için Azure portalı kullandığınızda sanal ağların aynı abonelikte olması gerekir. Sanal ağlarınız farklı aboneliklerde ise [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) adımlarını uygulayarak bağlantı kurabilirsiniz.
+Bir sanal ağı başka bir sanal ağa bağlamak (VNet'ten VNet'e), bir VNet'i şirket içi site konumuna bağlamakla aynıdır. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır. Hatta Sanal Ağdan Sanal Ağa iletişimini çok siteli bağlantı yapılandırmalarıyla bile birleştirebilirsiniz. Bu özellik şirket içi ve şirket dışı bağlantıyla ağ içi bağlantıyı birleştiren ağ topolojileri kurabilmenize olanak sağlar.
 
 ![v2v diyagramı](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Sanal ağdan sanal ağa bağlantılar için dağıtım modelleri ve yöntemleri
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+Bu makalede VPN Gateway ve Azure portal kullanılarak Resource Manager dağıtım modelinde sanal ağlar arası bağlantı oluşturma işlemi adım adım açıklanmaktadır. Sanal ağlara bağlanmak için Azure portalı kullandığınızda sanal ağların aynı abonelikte olması gerekir. Sanal ağlarınız farklı aboneliklerde ise [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) adımlarını uygulayarak bağlantı kurabilirsiniz.
 
-Aşağıdaki tabloda, sanal ağdan sanal ağa bağlantı yapılandırmaları için şu anda kullanılabilen dağıtım modelleri ve yöntemleri gösterilmektedir. Yapılandırma adımlarını içeren bir makale olduğunda, bu tablodan makaleye yönelik doğrudan bağlantı oluştururuz.
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] Farklı bir dağıtım modeli kullanarak, farklı dağıtım modelleri arasında veya farklı bir dağıtım aracı kullanarak sanal ağdan sanal ağa bağlantı oluşturmak isterseniz, aşağıdaki makale açılır listesinden bir seçenek belirleyebilirsiniz:
 
-[!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
-
-**Sanal ağ eşlemesi**
+> [!div class="op_single_selector"]
+> * [Resource Manager - Azure portalı](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Klasik - Azure portalı](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Farklı dağıtım modellerini bağlama - Azure portalı](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Farklı dağıtım modellerini bağlama - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+>
+>
 
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
+
 ## <a name="about-vnet-to-vnet-connections"></a>Sanal Ağdan Sanal Ağa bağlantıları hakkında
-Bir sanal ağı başka bir sanal ağa bağlamak (VNet'ten VNet'e), bir VNet'i şirket içi site konumuna bağlamakla aynıdır. Her iki bağlantı türü de Azure VPN ağ geçidini kullanarak IPsec/IKE ile güvenli bir tünel sunar. Bağlandığınız Sanal Ağlar farklı bölgelerde veya farklı aboneliklerde olabilir.
+Bir sanal ağı başka bir sanal ağa bağlamak (VNet'ten VNet'e), bir VNet'i şirket içi site konumuna bağlamakla aynıdır. Her iki bağlantı türü de Azure VPN ağ geçidini kullanarak IPsec/IKE ile güvenli bir tünel sunar. Bağlandığınız Sanal Ağlar farklı bölgelerde veya farklı aboneliklerde olabilir. Sanal ağlarınız farklı aboneliklerdeyse, portalda bağlantı oluşturamazsınız. [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) kullanabilirsiniz.
 
 Hatta Sanal Ağdan Sanal Ağa iletişimini çok siteli yapılandırmalarla bile birleştirebilirsiniz. Bunun yapılması aşağıdaki diyagramda da görüldüğü gibi şirket içi ve şirket dışı bağlantıyla sanal ağ içi bağlantıyı birleştiren ağ topolojileri kurabilmenize olanak sağlar:
 
@@ -144,7 +140,7 @@ Sanal Ağdan Sanal Ağa bağlantılar için DNS gerekli değildir. Ancak, sanal 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>5. Sanal ağ geçidi oluşturma
-Bu adımda sanal ağınız için sanal ağ geçidi oluşturacaksınız. Bu adımın tamamlanması 45 dakika sürebilir. Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız [Örnek ayarlara](#values) başvurabilirsiniz.
+Bu adımda sanal ağınız için sanal ağ geçidi oluşturacaksınız. Bir ağ geçidinin oluşturulması, seçili ağ geçidi SKU’suna bağlı olarak 45 dakika veya daha uzun sürebilir. Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız [Örnek ayarlara](#values) başvurabilirsiniz.
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Bir sanal ağ geçidi oluşturmak için
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
@@ -153,7 +149,7 @@ Bu adımda sanal ağınız için sanal ağ geçidi oluşturacaksınız. Bu adım
 TestVNet1’i oluşturduktan sonra önceki adımlarda verilen değerleri TestVNet4’ün değerleriyle değiştirip tekrar uygulayarak TestVNet4’ü oluşturun. TestVNet4’ü yapılandırmak için TestVNet1’in sanal ağ geçidi oluşturma işlemlerinin tamamlanmasını beklemenize gerek yoktur. Değerleri kendiniz belirliyorsanız adres alanlarının bağlanmak istediğiniz sanal ağlarınkilerle çakışmadığından emin olun.
 
 ## <a name="TestVNet1Connection"></a>7. TestVNet1 bağlantısını yapılandırma
-TestVNet1 ve TestVNet4 için sanal ağ geçidi oluşturma işlemleri tamamlandıktan sonra sanal ağ geçidi bağlantılarınızı oluşturabilirsiniz. Bu bölümde VNet1 ile VNet4 arasında bir bağlantı oluşturacaksınız.
+TestVNet1 ve TestVNet4 için sanal ağ geçidi oluşturma işlemleri tamamlandıktan sonra sanal ağ geçidi bağlantılarınızı oluşturabilirsiniz. Bu bölümde VNet1 ile VNet4 arasında bir bağlantı oluşturacaksınız. Bu adımlar yalnızca aynı abonelikteki sanal ağlar için geçerlidir. Sanal ağlar farklı aboneliklerdeyse, bağlantıyı kurmak için PowerShell kullanmanız gerekir. [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) makalesine bakın.
 
 1. **Tüm kaynaklar** bölümünde sanal ağınıza ait sanal ağ geçidini bulun. Örnek: **TestVNet1GW**. Sanal ağ geçidi dikey penceresini açmak için **TestVNet1GW** öğesine tıklayın.
    

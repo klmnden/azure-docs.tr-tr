@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 78617dc7e3a4b6eb4fc32d32b6850b8c0832d6d8
-ms.openlocfilehash: 9819c5f6a3aea53664d86e3a23b25946c0f2b731
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a63514af636696d168931150cbda2fd30e0b32ce
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,17 +44,99 @@ Kullanıcı oturum açma raporu tarafından sağlanan bilgiler sayesinde aşağ�
 * Bir hafta içerisinde kaç adet kullanıcı oturum açtı?
 * Bu açılan oturumların durumu nedir?
 
+Tüm oturum açma etkinliği verilerine ilk giriş noktanız, **Azure Active Directory**’nin **Oturum açma işlemleri** bölümünde bulunan Etkinlik kısmıdır.
+
+
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/61.png "oturum açma etkinliği")
+
+
+Denetim günlüklerinin aşağıdakileri gösteren bir varsayılan liste görünümü vardır:
+
+- İlgili kullanıcı
+- Kullanıcının oturum açtığı uygulama
+- Oturum açma durumu
+- Oturum açma zamanı
+
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/41.png "oturum açma etkinliği")
+
+Araç çubuğunda **Sütunlar**’a tıklayarak liste görünümünü özelleştirebilirsiniz.
+
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/19.png "oturum açma etkinliği")
+
+Bu sayede ek alanları görüntüleyebilir ya da zaten görüntülenen alanları kaldırabilirsiniz.
+
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/42.png "oturum açma etkinliği")
+
+Liste görünümündeki bir öğeye tıklayarak bu öğe hakkında mevcut olan tüm ayrıntıları öğrenebilirsiniz.
+
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/43.png "oturum açma etkinliği")
+
+
+## <a name="filtering-sign-in-activities"></a>Oturum açma etkinliklerini filtreleme
+
+Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak için aşağıdaki alanları kullanarak oturum açma verilerini filtreleyebilirsiniz:
+
+- Zaman aralığı
+- Kullanıcı
+- Uygulama
+- İstemci
+- Oturum açma durumu
+
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/44.png "oturum açma etkinliği")
+
+
+**Zaman aralığı** filtresi, döndürülen veriler için bir zaman çerçevesi tanımlamanıza olanak sağlar.  
+Olası değerler şunlardır:
+
+- 1 ay
+- 7 gün
+- 24 saat
+- Özel
+
+Özel bir zaman çerçevesi seçerken başlangıç ve bitiş zamanını yapılandırabilirsiniz.
+
+**Kullanıcı** filtresi, önem verdiğiniz kullanıcının adını veya kullanıcı asıl adını (UPN) belirtmenize imkan tanır.
+
+**Uygulama** filtresi, önem verdiğiniz uygulamanın adını belirtmenize imkan tanır.
+
+**İstemci** filtresi, önem verdiğiniz cihazla ilgili bilgileri belirtmenize imkan tanır.
+
+**Oturum açma durumu** filtresi, aşağıdaki filtrelerden birini seçmenize imkan tanır:
+
+- Tümü
+- Başarılı
+- Hata
+
+
+## <a name="sign-in-activities-shortcuts"></a>Oturum açma etkinlikleri kısayolları
+
+Azure portalı, Azure Active Directory’ye ek olarak oturum açma etkinliği verileri için fazladan iki giriş noktası sağlar:
+
+- Kullanıcılar ve gruplar
+- Kurumsal uygulamalar
+
+
+### <a name="users-and-groups-sign-ins-activities"></a>Kullanıcı ve grupların oturum açma etkinlikleri
+
+Kullanıcı oturum açma raporu tarafından sağlanan bilgiler sayesinde aşağıdakiler gibi soruların yanıtlarını bulabilirsiniz:
+
+- Belirli bir kullanıcının oturum açma düzeni nedir?
+- Bir hafta içerisinde kaç adet kullanıcı oturum açtı?
+- Bu açılan oturumların durumu nedir?
+
+
+
 Bu verilere giriş noktanız, **Kullanıcılar ve gruplar** altındaki **Genel Bakış** bölümünde bulunan kullanıcı oturum açma grafiğidir.
 
- ![Raporlama](./media/active-directory-reporting-activity-sign-ins/05.png "Reporting")
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/45.png "oturum açma etkinliği")
 
 Kullanıcı oturum açma grafiği, belirli bir zaman dönemi içerisinde tüm kullanıcılara ait oturum açma işlemlerinin haftalık olarak toplanmış halini gösterir. Zaman dönemi için varsayılan süre 30 gündür.
 
-![Raporlama](./media/active-directory-reporting-activity-sign-ins/02.png "Reporting")
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/46.png "oturum açma etkinliği")
 
-Oturum açma grafiğinde bir güne tıkladığınızda, oturum açma etkinliklerinin ayrıntılı bir listesini alırsınız.
+Oturum açma grafiğinde bir güne tıkladığınızda, o güne ait oturum açma etkinliklerinin ayrıntılı bir listesini alırsınız.
 
-![Raporlama](./media/active-directory-reporting-activity-sign-ins/03.png "Reporting")
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/41.png "oturum açma etkinliği")
 
 Oturum açma etkinlikleri listesindeki her satır, seçili oturum açma hakkında aşağıdakiler gibi ayrıntılı bilgiler sağlar:
 
@@ -63,6 +145,12 @@ Oturum açma etkinlikleri listesindeki her satır, seçili oturum açma hakkınd
 * Oturum açmanın hedefi hangi uygulamaydı?
 * Oturum açmanın IP adresi nedir?
 * Oturum açmanın durumu neydi?
+
+**Oturum açma işlemleri** seçeneği, size tüm kullanıcı oturum açma işlemlerinin genel bir görünümünü sunar.
+
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/51.png "oturum açma etkinliği")
+
+
 
 ## <a name="usage-of-managed-applications"></a>Yönetilen uygulamaların kullanımı
 
@@ -74,43 +162,27 @@ Oturum açma bilgilerinizin uygulama odaklı bir görünümüyle aşağıdakiler
 
 Bu verilere giriş noktanız, **Kurumsal uygulamalar** altındaki **Genel Bakış** bölümünde bulunan kuruluşunuzda son 30 gün içinde en çok kullanılan ilk 3 uygulama raporudur.
 
- ![Raporlama](./media/active-directory-reporting-activity-sign-ins/06.png "Reporting")
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/64.png "oturum açma etkinliği")
 
 Belirli bir zaman döneminde en çok kullanılan ilk 3 uygulamanızda oturum açma işlemlerine ilişkin haftalık toplanan uygulama kullanımı grafiği. Zaman dönemi için varsayılan süre 30 gündür.
 
-![Raporlama](./media/active-directory-reporting-activity-sign-ins/78.png "Reporting")
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/47.png "oturum açma etkinliği")
 
 İsterseniz belirli bir uygulamaya odaklanabilirsiniz.
+
 
 ![Raporlama](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Reporting")
 
 Uygulama kullanımı grafiğinde bir güne tıkladığınızda, oturum açma etkinliklerinin ayrıntılı bir listesini alırsınız.
 
-![Raporlama](./media/active-directory-reporting-activity-sign-ins/top_app_sign_ins.png "Reporting")
+
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/48.png "oturum açma etkinliği")
+
 
 **Oturum açma işlemleri** seçeneği, size tüm uygulamalarınıza ait oturum açma olaylarına genel bir bakış sunar.
 
-![Raporlama](./media/active-directory-reporting-activity-sign-ins/85.png "Reporting")
+![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/49.png "oturum açma etkinliği")
 
-Sütun seçiciyi kullanarak, görüntülenmesini istediğiniz veri alanlarını seçebilirsiniz.
-
-![Raporlama](./media/active-directory-reporting-activity-sign-ins/column_chooser.png "Reporting")
-
-## <a name="filtering-sign-ins"></a>Oturum açma işlemlerini filtreleme
-Görüntülenen veri miktarını sınırlamak için, oturum açma işlemlerini aşağıdaki alanları kullanarak filtreleyebilirsiniz:
-
-* Tarih ve saat 
-* Kullanıcı asıl adı
-* Uygulama adı
-* İstemci adı
-* Oturum açma durumu
-
-![Raporlama](./media/active-directory-reporting-activity-sign-ins/293.png "Reporting")
-
-Oturum açma etkinliklerine ait girişleri filtrelemenin başka bir yöntemi de belirli girdiler için arama gerçekleştirmektir.
-Arama yöntemi, oturum açma işlemlerinin kapsamı olarak belirli **kullanıcıları**, **grupları** veya **uygulamaları** seçmenize olanak tanır.
-
-![Raporlama](./media/active-directory-reporting-activity-sign-ins/84.png "Reporting")
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

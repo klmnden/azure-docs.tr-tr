@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Domain Services: Parola eşitlemeyi etkinleştirme | Microsoft Docs"
+title: "Azure Active Directory Domain Services: Parola eşitlemeyi etkinleştirme | Microsoft Docs"
 description: "Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama"
 services: active-directory-ds
 documentationcenter: 
@@ -15,18 +15,16 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: f994edd71c6d8ca8a2c3f5de370115747f87da57
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6ed35ca1b83f5f7221824d99817800c1e42e68c1
+ms.lasthandoff: 04/12/2017
 
 
 ---
-# <a name="enable-password-synchronization-to-azure-ad-domain-services"></a>Azure AD Domain Services için parola eşitlemeyi etkinleştirme
-Önceki görevlerde Azure AD kiracınız için Azure AD Etki Alanı Hizmetleri’ni etkinleştirdiniz. Sıradaki görev, NTLM ve Kerberos kimlik doğrulamasını Azure AD Etki Alanı Hizmetleri ile eşitlemek için gereken kimlik bilgisi karmalarını etkinleştirmektir. Kimlik bilgisi eşitlemesi ayarlandıktan sonra kullanıcılar, şirket kimlik bilgilerini kullanarak yönetilen etki alanında oturum açabilir.
+# <a name="enable-password-synchronization-with-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme
+Önceki görevlerde Azure Active Directory (Azure AD) kiracınız için Azure Active Directory Domain Services (AD DS) hizmetini etkinleştirdiniz. Sıradaki görev, NT LAN Manager (NTLM) ve Kerberos kimlik doğrulamasını Azure Active Directory Domain Services ile eşitlemek için gereken kimlik bilgisi karmalarını etkinleştirmektir. Kimlik bilgisi eşitlemesini ayarladıktan sonra kullanıcılar, şirket kimlik bilgileri ile yönetilen etki alanında oturum açabilir.
 
-Uygulanan adımlar, kuruluşunuzun yalnızca bulutta yer alan bir Azure AD kiracısına sahip olmasına veya Azure AD Connect yoluyla şirket içi dizininizle eşitlenmek üzere ayarlanmış olmasına göre değişiklik gösterir.
-
-<br>
+Yordamlar, kuruluşunuzun yalnızca bulut Azure AD kiracısı olmasına veya Azure AD Connect kullanarak şirket içi dizininizle eşitlenecek şekilde ayarlanmasına bağlı olarak farklılık gösterir.
 
 > [!div class="op_single_selector"]
 > * [Yalnızca bulutta yer alan Azure AD kiracısı](active-directory-ds-getting-started-password-sync.md)
@@ -34,44 +32,42 @@ Uygulanan adımlar, kuruluşunuzun yalnızca bulutta yer alan bir Azure AD kirac
 >
 >
 
-<br>
-
-## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-cloud-only-azure-ad-tenant"></a>Görev 5: Sadece bulutta yer alan Azure AD kiracısı için AAD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme
-Azure AD Etki Alanı Hizmetleri, yönetilen etki alanında kullanıcıların kimliklerini doğrulamak için NTLM ve Kerberos kimlik doğrulamasına uygun bir biçime sahip kimlik bilgisi karmalarına gerek duyar. AAD Etki Alanı Hizmetleri’ni kiracınız için etkinleştirmediğiniz sürece Azure AD, NTLM veya Kerberos kimlik doğrulaması için gereken biçimde kimlik bilgisi karmaları oluşturmaz veya depolamaz. Güvenliğe dayalı bariz nedenlerle, Azure AD düz metin biçiminde de hiçbir kimlik bilgisi depolamaz. Bu nedenle, Azure AD’nin kullanıcıların mevcut kimlik bilgilerine dayalı olarak bu NTLM veya Kerberos kimlik bilgisi karmalarını oluşturabileceği bir yol yoktur.
+## <a name="task-5-enable-password-synchronization-with-azure-active-directory-domain-services-for-a-cloud-only-azure-ad-tenant"></a>Görev 5: Sadece bulutta yer alan Azure AD kiracısı için Azure Active Directory Domain Services'e parola eşitlemeyi etkinleştirme
+Yönetilen etki alanındaki kullanıcıların kimliklerini doğrulamak için, Azure Active Directory Domain Services’ın NTLM ve Kerberos kimlik doğrulamasına uygun biçimde kimlik bilgisi karmaları olmalıdır. Azure Active Directory Domain Services’ı kiracınız için etkinleştirmediğiniz sürece Azure AD, NTLM veya Kerberos kimlik doğrulaması için gereken biçimde kimlik bilgisi karmaları oluşturmaz veya depolamaz. Güvenliğe dayalı bariz nedenlerle, Azure AD düz metin biçiminde de hiçbir kimlik bilgisi depolamaz. Bu nedenle, Azure AD’nin kullanıcıların mevcut kimlik bilgilerine dayalı olarak bu NTLM veya Kerberos kimlik bilgisi karmalarını oluşturabileceği bir yol yoktur.
 
 > [!NOTE]
-> Kuruluşunuz yalnızca bulutta yer alan bir Azure AD kiracısına sahipse Azure AD Etki Alanı Hizmetleri'ni kullanması gereken kullanıcıların parolalarını değiştirmesi gerekir.
+> Kuruluşunuz yalnızca bulutta yer alan bir Azure AD kiracısına sahipse Azure Active Directory Domain Services'i kullanması gereken kullanıcıların parolalarını değiştirmesi gerekir.
 >
 >
 
-Bu parola değişikliği işlemi, Kerberos ve NTLM kimlik doğrulaması için Azure AD Etki Alanı Hizmetleri'nin gerektirdiği kimlik bilgisi karmalarının Azure AD'de oluşturulmasına neden olur. Kiracıdaki Azure AD Etki Alanı Hizmetleri'ni kullanması gereken tüm kullanıcıların parolalarının süresinin dolmasını sağlayabilir veya bu kullanıcılardan parolalarını değiştirmelerini isteyebilirsiniz.
+Bu parola değişikliği işlemi, Kerberos ve NTLM kimlik doğrulaması için Azure Active Directory Domain Services'in gerektirdiği kimlik bilgisi karmalarının Azure AD'de oluşturulmasına neden olur. Kiracıdaki Azure Active Directory Domain Services'i kullanması gereken tüm kullanıcıların parolalarının süresinin dolmasını sağlayabilir veya bu kullanıcılardan parolalarını değiştirmelerini isteyebilirsiniz.
 
 ### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloud-only-azure-ad-tenant"></a>Yalnızca bulutta yer alan Azure AD kiracısı için NTLM ve Kerberos kimlik bilgisi karması oluşturmayı etkinleştirme
-Son kullanıcılara parolalarını değiştirebilmeleri için sağlamanız gereken yönergeler şunlardır:
+Kullanıcılara parolalarını değiştirebilmeleri için sağlamanız gereken yönergeler şunlardır:
 
-1. Kuruluşunuzun [http://myapps.microsoft.com](http://myapps.microsoft.com) adresindeki Azure AD Erişim Paneli sayfasına gidin.
-2. Sayfadaki **profil** sekmesini seçin.
-3. Bu sayfada **Parola değiştir** kutucuğuna tıklayın.
+1. Kuruluşunuzun [Azure AD Erişim Paneli](http://myapps.microsoft.com) sayfasına gidin.
+2. Erişim Paneli penceresinde **profil** sekmesini seçin.
+3. **Parola değiştir** kutucuğuna tıklayın.
 
-    ![Azure AD Etki Alanı Hizmetleri için bir sanal ağ oluşturun.](./media/active-directory-domain-services-getting-started/user-change-password.png)
+    ![Azure AD Erişim Paneli "Parola değiştir" kutucuğu](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
    > [!NOTE]
-   > Erişim Paneli sayfasında **Parola değiştir** seçeneğini görmüyorsanız, kuruluşunuzun [Azure AD'de parola yönetimini](../active-directory/active-directory-passwords-getting-started.md) yapılandırdığından emin olun.
+   > Erişim Paneli penceresinde **Parola değiştir** seçeneği gösterilmiyorsa, kuruluşunuzun [Azure AD'de parola yönetimini](../active-directory/active-directory-passwords-getting-started.md) yapılandırdığından emin olun.
    >
    >
-4. **Parola değiştir** sayfasında mevcut (eski) parolanızı yazın ve ardından yeni bir parola yazıp onaylayın. **Gönder**’e tıklayın.
+4. **Parola değiştir** sayfasında mevcut (eski) parolanızı yazın ve ardından yeni bir parola yazıp onaylayın. 
 
     ![Azure AD Etki Alanı Hizmetleri için bir sanal ağ oluşturun.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
-Parolanızı değiştirdikten sonra, yeni parola kısa süre içinde Azure AD Etki Alanı Hizmetleri'nde kullanılabilir hale gelir. Birkaç dakika sonra (genellikle 20 dakika civarı), yönetilen etki alanına katılmış bilgisayarlarda yeni değiştirilen parolayı kullanarak oturum açabilirsiniz.
+5. **Gönder**’e tıklayın.
 
-<br>
+Parolanızı değiştirdikten birkaç dakika sonra, yeni parola Azure Active Directory Domain Services ile kullanılabilir. Birkaç dakika daha geçtikten sonra (genellikle 20 dakika civarı), yönetilen etki alanına katılmış bilgisayarlarda yeni değiştirilen parolayı kullanarak oturum açabilirsiniz.
 
-## <a name="related-content"></a>İlgili İçerik
-* [Kendi parolanızı güncelleştirme](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password).)
-* [Azure AD’de Parola Yönetimine başlarken](../active-directory/active-directory-passwords-getting-started.md).
-* [Eşitlenmiş Azure AD kiracısı için AAD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-* [Azure AD Etki Alanı Hizmetleri tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
-* [Windows sanal makinesini Azure AD Domain Services tarafından yönetilen bir etki alanına katma](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Red Hat Enterprise Linux sanal makinesini Azure AD Domain Services tarafından yönetilen bir etki alanına ekleme](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+## <a name="next-steps"></a>Sonraki adımlar
+* [Kendi parolanızı güncelleştirme](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password)
+* [Azure AD’de Parola Yönetimi kullanmaya başlama](../active-directory/active-directory-passwords-getting-started.md)
+* [Eşitlenmiş Azure AD kiracısı için Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+* [Azure Active Directory Domain Services tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
+* [Windows sanal makinesini Azure Active Directory Domain Services tarafından yönetilen bir etki alanına ekleme](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Red Hat Enterprise Linux sanal makinesini Azure Active Directory Domain Services tarafından yönetilen bir etki alanına ekleme](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 

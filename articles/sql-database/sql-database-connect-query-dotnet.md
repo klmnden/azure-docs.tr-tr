@@ -1,6 +1,6 @@
 ---
 title: ".NET (C#) kullanarak Azure SQL Veritabanına bağlanma | Microsoft Docs"
-description: "Azure SQL Veritabanında C# dilinde ve bulutta güçlü bir ilişkisel veritabanı ile desteklenen modern bir uygulama derlemek için bu hızlı başlangıçtaki örnek kodu kullanın."
+description: "Azure SQL Veritabanı’na bağlanmak ve veritabanını sorgulamak için kullanabileceğiniz bir .NET kod örneği sunar"
 services: sql-database
 documentationcenter: 
 author: ajlam
@@ -8,37 +8,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/28/2017
+ms.date: 04/05/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: c6c0c218b8d0456d37a4514238675fd8e75faf9d
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Azure SQL Veritabanı: .NET (C#) kullanarak verileri bağlama ve sorgulama
 
-Bir Azure SQL veritabanına bağlanmak ve veritabanını sorgulamak için [C# ve ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) kullanın. Bu kılavuzda bir Azure SQL veritabanına bağlanmak ve ardından query, insert, update ve delete deyimlerini yürütmek üzere #C kullanmayla ilgili ayrıntılar verilmektedir.
+Bu hızlı başlangıçta [C# ve ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) kullanarak bir Azure SQL veritabanına bağlanma ve daha sonra Windows, Mac OS ve Ubuntu Linux platformlarından Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır.
 
 Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır:
 
 - [DB Oluşturma - Portal](sql-database-get-started-portal.md)
 - [DB oluşturma - CLI](sql-database-get-started-cli.md)
 
-## <a name="configure-development-environment"></a>Geliştirme ortamını yapılandırma
+## <a name="install-net"></a>.NET yükleme
 
-Aşağıdaki bölümler mevcut Mac OS, Linux(Ubuntu) ve Windows geliştirme ortamlarınızı Azure SQL Veritabanı ile çalışacak şekilde yapılandırmaya ilişkin ayrıntıları vermektedir.
+### <a name="windows-net-framework-and-net-core"></a>**Windows .NET çerçevesi ve .NET çekirdeği**
+
+Visual Studio 2017 Community; Android, iOS ve Windows’un yanı sıra web ve veritabanı uygulamaları ile bulut hizmetleri için modern uygulamalar oluşturmaya yönelik tam özellikli, genişletilebilir, ücretsiz bir IDE’dir. Tam .NET çerçevesini ya da yalnızca .NET çekirdeğini yükleyebilirsiniz. Hızlı başlangıçtaki kod parçacıkları her ikisiyle de çalışır. Makinenizde Visual Studio zaten yüklüyse, sonraki birkaç adımı atlayın.
+
+1. [Yükleyiciyi](https://go.microsoft.com/fwlink/?LinkId=691978) indirin. 
+2. Yükleyiciyi çalıştırın ve yükleme istemlerini izleyerek yüklemeyi tamamlayın.
 
 ### <a name="mac-os"></a>**Mac OS**
 Terminalinizi açın ve .NET Core projenizi oluşturmayı planladığınız bir dizine gidin. **brew**, **OpenSSL** ve **.NET Core** yüklemek için aşağıdaki komutları girin. 
 
-```C#
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install openssl
@@ -52,20 +57,12 @@ macOS işletim sisteminde .NET Core yükleyin. [Resmi yükleyiciyi](https://go.m
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Terminalinizi açın ve .NET Core projenizi oluşturmayı planladığınız bir dizine gidin. **.NET Core** yüklemek için aşağıdaki komutları girin.
 
-```C#
+```bash
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
-
-### <a name="windows"></a>**Windows**
-Visual Studio 2015 Community Edition ve .NET Framework yükleyin. Makinenizde Visual Studio zaten yüklüyse, sonraki birkaç adımı atlayın.
-
-Visual Studio 2015 Community; Android, iOS, Windows’un yanı sıra web ile veritabanı uygulamaları ve bulut hizmetleri için modern uygulamalar oluşturmaya yönelik tam özellikli, genişletilebilir, ücretsiz bir IDE’dir.
-
-1. [Yükleyiciyi](https://go.microsoft.com/fwlink/?LinkId=691978) indirin. 
-2. Yükleyiciyi çalıştırın ve yükleme istemlerini izleyerek yüklemeyi tamamlayın.
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 
@@ -309,5 +306,11 @@ namespace ConsoleApplication1
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - .NET belgeleri için bkz. [.NET belgeleri](https://docs.microsoft.com/dotnet/).
-- Visual Studio Code ile veri sorgulama ve düzenleme hakkında bilgi için bkz. [Visual Studio Code](https://code.visualstudio.com/docs).
+- SQL Server Management Studio kullanarak bağlanmak ve sorgu yürütmek için, bkz. [SSMS ile bağlanma ve sorgu yürütme](sql-database-connect-query-ssms.md)
+- Visual Studio’yu kullanarak bağlanmak ve sorgulamak için bkz. [Visual Studio Code ile bağlanma ve sorgulama](sql-database-connect-query-vscode.md).
+- PHP kullanarak bağlanıp sorgulamak için bkz. [PHP ile bağlanma ve sorgulama](sql-database-connect-query-php.md).
+- Node.js kullanarak bağlanıp sorgulamak için bkz. [Node.js ile bağlanma ve sorgulama](sql-database-connect-query-nodejs.md).
+- Java kullanarak bağlanıp sorgulamak için bkz. [Java ile bağlanma ve sorgulama](sql-database-connect-query-java.md).
+- Python kullanarak bağlanıp sorgulamak için bkz. [Python ile bağlanma ve sorgulama](sql-database-connect-query-python.md).
+- Ruby kullanarak bağlanıp sorgulamak için bkz. [Ruby ile bağlanma ve sorgulama](sql-database-connect-query-ruby.md).
 

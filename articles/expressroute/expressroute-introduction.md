@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
-ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 2fc966e7c93e44007f15c3129fbe709beddb21af
+ms.lasthandoff: 04/05/2017
 
 
 ---
-# <a name="expressroute-technical-overview"></a>ExpressRoute teknik genel bakış
+# <a name="expressroute-overview"></a>ExpressRoute'a genel bakış
 Microsoft Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanmış özel bağlantı üzerinden şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. ExpressRoute ile Microsoft Azure, Office 365 ve CRM Online gibi Microsoft bulut hizmetlerine bağlantı kurabilirsiniz. 
 
 Ortak yerleşim tesisinde bağlantı sağlayıcısı üzerinden herhangi bir ağdan herhangi bir ağa (IP VP), noktadan noktaya Ethernet ağı veya sanal çapraz bağlantısından bağlantı olabilir.  ExpressRoute bağlantıları ortak İnternet üzerinden geçmemektedir. Bu, ExpressRoute bağlantılarına İnternet üzerindeki sıradan bağlantılara göre daha fazla güvenilirlik, yüksek hız, düşük gecikme ve normal bağlantılardan daha yüksek güvenlik sağlar. ExpressRoute kullanarak ağınızı Microsoft’a bağlama hakkında bilgi için bkz. [ExpressRoute bağlantı modelleri](expressroute-connectivity-models.md).
 
-![](./media/expressroute-introduction/expressroute-connection-overview-diagram.png)
+![](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## <a name="key-benefits"></a>Önemli avantajlar
 
@@ -46,7 +46,7 @@ Daha fazla bilgi için bkz. [ExpressRoute SSS](expressroute-faqs.md).
 Microsoft, şirket içi ağınız ile Azure ve Microsoft ortak adreslerinde bulunan örnekleriniz arasındaki yolları değiştirmek için endüstri standardı dinamik yönlendirme protokolünü (BGP) kullanır.  Farklı trafik profilleri için ağınızda çoklu BGP oturumları kuruyoruz. Daha fazla bilgi [ExpressRoute bağlantı hattı ve yönlendirme etki alanları](expressroute-circuit-peerings.md) makalesinde bulunabilir. 
 
 ### <a name="redundancy"></a>Yedeklilik
-Her ExpressRoute bağlantı hattı, bağlantı sağlayıcısından veya ağınızın kenarından Microsoft Kurumsal kenar yönlendiricilerine (MSEEs) yapılan iki bağlantıdan oluşur. Microsoft, her bir MSEE için bir adet olmak üzere bağlantı sağlayıcısından veya sizin tarafınızdan ikili BGP bağlantısı gerektirecektir. Kendi tarafınızdaki yedekli cihazlara veya Ethernet bağlantı hattına dağıtmamayı seçebilirsiniz. Ancak, bağlantı sağlayıcılar bağlantılarınızın yedekli olarak Microsoft’a devredildiğinden emin olmak için yedekli cihazlar kullanır. Yedekli Layer 3 bağlantı yapılandırması [SLA](https://azure.microsoft.com/support/legal/sla/)’mızın geçerli olması için bir gereksinimdir. 
+Her ExpressRoute bağlantı hattı, bağlantı sağlayıcısından veya ağınızın kenarından Microsoft Kurumsal kenar yönlendiricilerine (MSEEs) yapılan iki bağlantıdan oluşur. Microsoft, her MSEE için bir adet olmak üzere bağlantı sağlayıcısından veya sizin tarafınızdan ikili BGP bağlantısı gerektirir. Kendi tarafınızdaki yedekli cihazlara veya Ethernet bağlantı hattına dağıtmamayı seçebilirsiniz. Ancak, bağlantı sağlayıcılar bağlantılarınızın yedekli olarak Microsoft’a devredildiğinden emin olmak için yedekli cihazlar kullanır. Yedekli Layer 3 bağlantı yapılandırması [SLA](https://azure.microsoft.com/support/legal/sla/)’mızın geçerli olması için bir gereksinimdir.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Microsoft bulut hizmetlerine bağlantı
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
@@ -74,7 +74,7 @@ ExpressRoute sürekli büyüyen bağlantı sağlayıcıları ve SI ortakları ek
 Microsoft, özel coğrafi bölgeler ve müşteri kesimine yönelik yalıtılmış bulut ortamlarını çalıştırır. Ulusal bulutlar ve sağlayıcılar listesi için [ExpressRoute sağlayıcıları ve konumları](expressroute-locations.md) sayfasına başvurun.
 
 ### <a name="bandwidth-options"></a>Bant genişliği seçenekleri
-ExpressRoute bağlantı hattını çeşitli sayıda bant genişlikleriyle satın alabilirsiniz. Desteklenen bant genişlikleri listesi aşağıda verilmiştir. Sağladıkları desteklenen bant genişlikleri listesini belirlemek için bağlantı sağlayıcınıza danıştığınızdan emin olun.
+ExpressRoute bağlantı hattını çeşitli sayıda bant genişlikleriyle satın alabilirsiniz. Desteklenen bant genişlikleri aşağıda listelenmiştir. Sağladıkları desteklenen bant genişlikleri listesini belirlemek için bağlantı sağlayıcınıza danıştığınızdan emin olun.
 
 * 50 Mbps
 * 100 Mbps
@@ -107,6 +107,6 @@ Size en uygun faturalama modelini seçin. Aşağıda listelenen faturalama model
 * [Yönlendirme](expressroute-routing.md), [NAT](expressroute-nat.md) ve [QoS](expressroute-qos.md) için gereksinimlere bakın.
 * ExpressRoute bağlantınızı yapılandırın.
   * [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-portal-resource-manager.md)
-  * [Yönlendirmeyi yapılandırma](expressroute-howto-routing-portal-resource-manager.md)
-  * [ExpressRoute bağlantı hattına bir Sanal Ağ bağlama](expressroute-howto-linkvnet-portal-resource-manager.md)
+  * [ExpressRoute bağlantı hattı için eşleme yapılandırma](expressroute-howto-routing-portal-resource-manager.md)
+  * [Bir sanal ağı ExpressRoute bağlantı hattına bağlama](expressroute-howto-linkvnet-portal-resource-manager.md)
 

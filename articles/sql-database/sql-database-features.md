@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 7dc5210c073a3130bfc9ffdbc9ce33e19ca5bc1a
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Azure SQL veritabanları hakkında daha fazla bilgi için bkz. [SQL veritabanlar
 
 Aşağıdaki tablolarda Azure SQL Veritabanı ve SQL Server'ın temel özelliklerinin yanı sıra destek durumu belirtilmekte ve her platformda özellikle ilgili ayrıntılı bilgilerin bulunduğu sayfaya bağlantı verilmektedir. Transact-SQL özellikleri için tablodaki özellik kategorisine ait bağlantıya tıklayın. Belirli türlerdeki özelliklere yönelik destek olmayışı hakkında daha fazla arka plan bilgisi edinmek için ayrıca bkz. [Azure SQL Veritabanı Transact-SQL farkları](sql-database-transact-sql-information.md).
 
-V12'ye özellik eklemeye devam ediyoruz. Bu nedenle Azure için Hizmet Güncelleştirmeleri web sayfamızı ziyaret etmenizi ve oradaki filtreleri kullanmanızı öneriyoruz:
+Azure SQL Veritabanı’na özellik eklemeye devam ediyoruz. Bu nedenle Azure için Hizmet Güncelleştirmeleri web sayfamızı ziyaret etmenizi ve oradaki filtreleri kullanmanızı öneriyoruz:
 
 * [SQL Veritabanı hizmeti](https://azure.microsoft.com/updates/?service=sql-database) için filtrelenmiş.
 * SQL Veritabanı özellikleri için Genel Kullanılabilirlik [(GA) duyuruları](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability).

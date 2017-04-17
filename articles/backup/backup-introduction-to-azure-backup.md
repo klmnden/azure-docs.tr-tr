@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ Aşağıdaki tabloda Linux destekli Azure Backup bileşenleri gösterilmektedir.
 | Bileşen | Linux (Azure destekli) Desteği |
 | --- | --- |
 | Azure Backup (MARS) aracısı |Hayır (Yalnızca Windows tabanlı aracı) |
-| System Center DPM |Yalnızca Hyper-V üzerinde dosya tutarlı yedekleme<br/> (Azure VM için kullanılamaz) |
-| Azure Backup Sunucusu |Yalnızca Hyper-V üzerinde dosya tutarlı yedekleme<br/> (Azure VM için kullanılamaz) |
-| Azure IaaS VM Backup |Evet ([betik öncesi ve betik sonrası çerçeve](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) kullanılarak uygulamada tutarlı yedekleme) |
+| System Center DPM |Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/> (Azure VM için kullanılamaz)<br/> Hyper-V ve VMWare Linux Konuk VM’lerinin VM geri yüklemesi |
+| Azure Backup Sunucusu |Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/> (Azure VM için kullanılamaz)<br/> Hyper-V ve VMWare Linux Konuk VM’lerinin VM geri yüklemesi |
+| Azure IaaS VM Backup |[betik öncesi ve betik sonrası çerçeve](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) kullanılarak uygulamada tutarlı yedekleme<br/> [Ayrıntılı dosya kurtarma](backup-azure-restore-files-from-vm.md)<br/> [Tüm VM disklerini geri yükleme](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-backed-up-disks)<br/> [VM geri yükleme](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup ile Premium Depolama VM’leri
 Azure Backup, Premium Depolama VM'leri koruma altına alır. Azure Premium Depolama, G/Ç açısından yoğun iş yüklerini desteklemek için tasarlanan katı hal sürücüsü (SSD) tabanlı bir depolama hizmetidir. Premium Depolama, sanal makine (VM) iş yükleri için idealdir. Premium Depolama hakkında daha fazla bilgi almak için bkz. [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../storage/storage-premium-storage.md).

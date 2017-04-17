@@ -1,5 +1,5 @@
 ---
-title: "Visual Studio için Data Lake Araçları&quot;nı kullanarak U-SQL betikleri geliştirme | Microsoft Belgeleri"
+title: "Visual Studio için Data Lake Araçları&quot;nı kullanarak U-SQL betikleri geliştirme | Microsoft Docs"
 description: "Visual Studio için Data Lake Araçları&quot;nı nasıl yükleyeceğinizi, U-SQL betiklerini nasıl geliştirip test edeceğinizi öğrenin. "
 services: data-lake-analytics
 documentationcenter: 
@@ -12,39 +12,39 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/17/2017
+ms.date: 04/06/2017
 ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="tutorial-develop-u-sql-scripts-using-data-lake-tools-for-visual-studio"></a>Öğretici: Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Visual Studio için Data Lake Araçları'nı nasıl yükleyeceğinizi ve U-SQL betiklerini yazıp test etmek üzere Visual Studio için Data Lake Araçları'nı nasıl kullanacağınızı öğrenin.
+Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri yazın ve test edin.
 
 U-SQL, veri gölü içindeki tüm verilerin ve daha fazlasının hazırlanması, dönüştürülmesi ve analiz edilmesi için kullanılan oldukça ölçeklenebilir, yüksek düzeyde genişletilebilir bir dildir. Daha fazla bilgi edinmek için bkz. [U-SQL Başvurusu](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## <a name="prerequisites"></a>Ön koşullar
-* **Visual Studio 2015 güncelleştirme 3, Visual Studio 2013 güncelleştirme 4 veya Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community sürümleri desteklenir; Express sürümü desteklenmez. Visual Studio 2017 şu anda desteklenmiyor.**
+* **Visual Studio 2017 (veri depolama ve işleme iş yükü altında), Visual Studio 2015 güncelleştirme 3, Visual Studio 2013 güncelleştirme 4 veya Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community sürümleri desteklenir; Express sürümü desteklenmez.**
 * **.NET sürüm 2.7.1 veya üzeri için Microsoft Azure SDK**.  [Web platformu yükleyicisini](http://www.microsoft.com/web/downloads/platform.aspx) kullanarak yükleyin.
 * **[Visual Studio için Data Lake Araçları](http://aka.ms/adltoolsvs)**.
 
-    Visual Studio için Data Lake Araçları yüklendikten sonra, "Azure" düğümünün altında Sunucu Gezgini içinde "Data Lake Analytics" düğümünü göreceksiniz (Sunucu gezginini Ctrl+Alt+S tuşlarına basarak açabilirsiniz).
+    Visual Studio için Data Lake Araçları yüklendikten sonra, "Azure" düğümünün altında Sunucu Gezgini içinde "Data Lake Analytics" düğümünü göreceksiniz (Sunucu Gezginini Ctrl+Alt+S tuşlarına basarak açın).
 
-* **Data Lake Analytics hesabı ve örnek veriler** Data Lake Araçları Data Lake Analytics hesabı oluşturmayı desteklemez. Azure portalı, Azure PowerShell, .NET SDK veya Azure CLI kullanarak hesap oluşturabilirsiniz.
+* **Data Lake Analytics hesabı ve örnek veriler** Data Lake Araçları Data Lake Analytics hesabı oluşturmayı desteklemez. Azure portalı, Azure PowerShell, .NET SDK veya Azure CLI kullanarak bir hesap oluşturun.
 Size kolaylık sağlamak amacıyla, bir Data Lake Analytics hizmeti oluşturmaya ve kaynak veri dosyasını yüklemeye yönelik bir PowerShell betiği, [Ek A - Öğreticiyi hazırlamaya yönelik PowerShell örneğinde](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial) bulunabilir.
 
-    İsteğe bağlı olarak hesabınızı oluşturmak ve verileri el ile yüklemek için [Azure portalını kullanarak Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md) konusunun içerdiği aşağıdaki iki bölümü tamamlayın:
+    İsteğe bağlı olarak, hesabınızı oluşturmak ve verileri karşıya el ile yüklemek için [Azure portalını kullanarak Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md) konu başlığının aşağıdaki iki bölümünü tamamlayabilirsiniz:
 
     1. [Azure Data Lake Analytics hesabı oluşturma](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
     2. [SearchLog.tsv dosyasını varsayılan Data Lake Storage hesabına yükleme](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 ## <a name="connect-to-azure"></a>Azure'a Bağlanma
-**Data Lake Analytics'e bağlanmak için**
+**Data Lake Analytics'e bağlanma**
 
 1. Visual Studio'yu açın.
 2. **Görünüm** menüsünde, **Sunucu Gezgini**'ne tıklayarak Sunucu Gezgini'ni açın. Veya **[CTRL]+[ALT]+S** tuşlarına basın.
@@ -54,7 +54,7 @@ Size kolaylık sağlamak amacıyla, bir Data Lake Analytics hizmeti oluşturmaya
 ## <a name="upload-source-data-files"></a>Kaynak veri dosyalarını yükleme
 Öğreticinin daha önceki **Önkoşul** bölümünde bazı verileri yüklediniz.  
 
-Kendi verilerinizi kullanmak istiyorsanız Data Lake Araçları'ndan veri yüklemeye yönelik yordamlar burada sağlanmıştır.
+Kendi verilerinizi kullanmak için Data Lake Araçları'ndan veri yüklemeye yönelik aşağıdaki adımları izleyin.
 
 **Bağımlı Azure Data Lake hesabına dosya yükleme**
 
@@ -65,7 +65,7 @@ Kendi verilerinizi kullanmak istiyorsanız Data Lake Araçları'ndan veri yükle
 
     ![U-SQL Visual Studio projesi U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**Bağlantılı bir Azure Blob Depolama hesabına dosya yüklemek için**
+**Bağlantılı bir Azure Blob depolama hesabına dosya yükleme**
 
 1. **Sunucu Gezgini**'nden, **Azure** seçeneğini, **Data Lake Analytics** seçeneğini, Data Lake Analytics hesabınızı ve **Storage Hesapları** seçeneğini genişletin. Varsayılan Data Lake Storage hesabını, bağlı Data Lake Storage hesaplarını ve bağlı Azure Storage hesaplarını göreceksiniz.
 2. Azure Storage Hesabı'nı genişletin.
@@ -128,9 +128,9 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
        Ad otomatik olarak tamamlanır ve Satır Kümesi, Sınıflar, Veritabanları, Şemalar ve Kullanıcı Tanımlı Nesneler (UDO'lar) için üyeler gösterilir.
 
        Katalog varlıkları (Veritabanları, Şemalar, Tablolar, UDO'lar vb.) için IntelliSense, işlem hesabınızla ilgilidir. Geçerli etkin işlem hesabını, veritabanını ve şemayı üst araç çubuğundan denetleyebilir ve bunları açılır listelerden değiştirebilirsiniz.
-   * **Sütunları* genişletme**
+   * *** sütunlarını genişletme**
 
-       *öğesinin sağına tıklayın;* öğesinin altında mavi bir alt çizgi göreceksiniz. Fare imlecinizi mavi alt çizginin üzerine getirin ve sonra aşağı oka tıklayın.
+       * öğesinin sağına tıklayın; * öğesinin altında mavi bir alt çizgi göreceksiniz. Fare imlecinizi mavi alt çizginin üzerine getirin ve sonra aşağı oka tıklayın.
        ![Data Lake Visual Studio araçlarını genişletme *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        **Sütunları Genişlet**'e tıklayın; araç, * simgesi yerine sütun adlarını getirecektir.

@@ -12,7 +12,7 @@
     ```
 2. Karma Bağlantının bağlantı ayrıntıları için şu Geçiş `constants` öğesini `listener.js` dosyasına ekleyin. Köşeli ayraçlar içindeki yer tutucuları Karma Bağlantı oluşturulurken edinilen uygun değerlerle değiştirin.
    
-   1. `const ns` - Geçiş ad alanı
+   1. `const ns` - Geçiş ad alanı (FQDN kullanma - örn. `{namespace}.servicebus.windows.net`)
    2. `const path` - Karma Bağlantının adı
    3. `const keyrule` - SAS anahtarının adı
    4. `const key` - SAS anahtarının değeri
@@ -71,9 +71,4 @@
         console.log('error' + err);
     });
     ```
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
