@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 8d9d39d63209b8ab6884ddeff569687b55591f95
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: c6f25b8cf8c133f44644db1507958b2176efa230
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -107,7 +107,7 @@ Telemetriniz üzerinde daha güçlü aramalar gerçekleştirmek için [Analytics
 * Application Insights’a gönderilmek üzere [Azure tanılamayı etkinleştirin](app-insights-azure-diagnostics.md).
 * Hizmetinizin kullanılabilir ve yanıt verir durumda oluğundan emin olmak için [hizmet durumu ölçümlerini izleyin](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 * İşletimsel olaylar gerçekleştiğinde ya da ölçümler bir eşiği aştığında [uyarı bildirimleri alın](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
-* Bir web sayfasını ziyaret eden tarayıcılardan istemci telemetrisi toplamak istiyorsanız [JavaScript uygulamaları ve web sayfaları için Application Insights](app-insights-web-track-usage.md)’ı kullanın.
+* Bir web sayfasını ziyaret eden tarayıcılardan istemci telemetrisi toplamak istiyorsanız [JavaScript uygulamaları ve web sayfaları için Application Insights](app-insights-javascript.md)’ı kullanın.
 * Sitenizin kapalı olması durumunda uyarı almak istiyorsanız [Kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) ayarlayın.
 
 

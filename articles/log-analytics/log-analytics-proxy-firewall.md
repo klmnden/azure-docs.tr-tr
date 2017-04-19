@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 04/12/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
-ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: cc3ff1ca5e638896df155b55145b300f70f7540a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -40,8 +40,7 @@ Microsoft İzleme Aracısının OMS hizmetine bağlanması ve kaydolması için 
 | \*.ods.opinsights.azure.com |443 |Evet |
 | \*.oms.opinsights.azure.com |443 |Evet |
 | \*.blob.core.windows.net |443 |Evet |
-| \*.azure-automation.net |443 |Yes |
-| ods.systemcenteradvisor.com |443 | |
+| \*.azure-automation.net |443 |Evet |
 
 Denetim Masası'nı kullanarak Microsoft İzleme Aracısı'na ilişkin ara sunucu ayarlarını yapılandırmak için aşağıdaki yordamı kullanabilirsiniz. Yordamı her bir sunucu için kullanmanız gerekecektir. Yapılandırmanız gereken birden çok sunucu olması durumunda, bu işlemi otomatikleştirmek için bir betik kullanmak sizin için daha kolay olabilir. Bu durumda, bir sonraki [Microsoft İzleme Aracısı için ara sunucu ayarlarını betik kullanarak yapılandırma](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script) yordamına bakabilirsiniz.
 
@@ -102,7 +101,6 @@ Aracı kaynakları ve bağlantı noktalarının listesi aşağıdadır:<br>
 | \*.ods.opinsights.azure.com |443 |
 | \*.oms.opinsights.azure.com |443 |
 | \*.blob.core.windows.net/\* |443 |
-| ods.systemcenteradvisor.com |443 |
 
 <br>
 Yönetim sunucusu kaynakları ve bağlantı noktalarının listesi aşağıdadır:<br>
@@ -111,9 +109,7 @@ Yönetim sunucusu kaynakları ve bağlantı noktalarının listesi aşağıdadı
 | --- | --- | --- |
 | service.systemcenteradvisor.com |443 | |
 | \*.service.opinsights.azure.com |443 | |
-| \*.blob.core.windows.net |443 |Yes |
-| data.systemcenteradvisor.com |443 | |
-| ods.systemcenteradvisor.com |443 | |
+| \*.blob.core.windows.net |443 |Evet |
 | \*.ods.opinsights.azure.com |443 |Evet |
 | \*.azure-automation.net |443 |Yes |
 

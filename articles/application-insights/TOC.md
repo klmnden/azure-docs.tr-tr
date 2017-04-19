@@ -31,7 +31,7 @@
 ## Planlama ve tasarım
 ### [Web uygulamalarını ve hizmetleri ayrıntılı tanılama](app-insights-devops.md)
 ### [Web uygulamalarının performansını izleme](app-insights-web-monitor-performance.md)
-### [Application Insights ile kullanım analizi](app-insights-overview-usage.md)
+### [Application Insights ile kullanım analizi](app-insights-web-track-usage.md)
 ### [Application Insights kaynaklarını ayırma](app-insights-separate-resources.md)
 ### [Application Insights’ta nasıl ... yapabilirim?](app-insights-how-do-i.md)
 
@@ -49,7 +49,6 @@
 #### [Bağımlılıklar](app-insights-asp-net-dependencies.md)
 #### [Sürüm ek açıklamaları](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-#### [SSS](app-insights-troubleshoot-faq.md)
 
 
 ### J2EE
@@ -92,6 +91,7 @@
 #### [Tur](app-insights-analytics-tour.md)
 #### [Kullanma](app-insights-analytics-using.md)
 #### [İçeri Aktarma](app-insights-analytics-import.md)
+#### [Tanılama](app-insights-analytics-diagnostics.md)
 
 ## Otomatikleştirme
 
@@ -146,6 +146,7 @@
 ### [SDK sürüm notları](app-insights-release-notes.md)
 ### [Geliştirici Analizi Araçları Sürüm Notları](app-insights-release-notes-vsix.md)
 
+## [SSS](app-insights-troubleshoot-faq.md)
 
 ## Yardım
 ### [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  

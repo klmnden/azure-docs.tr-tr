@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6ed35ca1b83f5f7221824d99817800c1e42e68c1
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 51e4665b6372859021237144a0bf7f6763a2638b
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -55,7 +55,7 @@ Kullanıcılara parolalarını değiştirebilmeleri için sağlamanız gereken y
    > Erişim Paneli penceresinde **Parola değiştir** seçeneği gösterilmiyorsa, kuruluşunuzun [Azure AD'de parola yönetimini](../active-directory/active-directory-passwords-getting-started.md) yapılandırdığından emin olun.
    >
    >
-4. **Parola değiştir** sayfasında mevcut (eski) parolanızı yazın ve ardından yeni bir parola yazıp onaylayın. 
+4. **Parola değiştir** sayfasında mevcut (eski) parolanızı yazın ve ardından yeni bir parola yazıp onaylayın.
 
     ![Azure AD Etki Alanı Hizmetleri için bir sanal ağ oluşturun.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
@@ -64,7 +64,7 @@ Kullanıcılara parolalarını değiştirebilmeleri için sağlamanız gereken y
 Parolanızı değiştirdikten birkaç dakika sonra, yeni parola Azure Active Directory Domain Services ile kullanılabilir. Birkaç dakika daha geçtikten sonra (genellikle 20 dakika civarı), yönetilen etki alanına katılmış bilgisayarlarda yeni değiştirilen parolayı kullanarak oturum açabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Kendi parolanızı güncelleştirme](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password)
+* [Kendi parolanızı güncelleştirme](../active-directory/active-directory-passwords-update-your-own-password.md#reset-my-password)
 * [Azure AD’de Parola Yönetimi kullanmaya başlama](../active-directory/active-directory-passwords-getting-started.md)
 * [Eşitlenmiş Azure AD kiracısı için Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Azure Active Directory Domain Services tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)

@@ -48,6 +48,7 @@
 ### [Uyarı Yönetimi çözümü](log-analytics-solution-alert-management.md)
 ## Çözümleri kullanma
 ### [Çözümlere genel bakış](log-analytics-add-solutions.md)
+### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD Değerlendirmesi](log-analytics-ad-assessment.md)
 ### [AD Çoğaltma Durumu](log-analytics-ad-replication-status.md)
 ### [Uyarı yönetimi](log-analytics-solution-alert-management.md)

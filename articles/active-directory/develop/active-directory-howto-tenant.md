@@ -4,7 +4,7 @@ description: "Uygulamaları kaydetmek ve oluşturmak üzere Azure Active Directo
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: terrylan
+manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ Bunu yapmak için şu adımları uygulayın.  Alternatif olarak, benzer bir işl
 3. Otomatik olarak "Varsayılan Dizin"de oturumunuzun açılması gerekir. Oturum açılmazsa sağ üst köşede hesap adınıza tıklayarak dizinleri değiştirebilirsiniz.
 4. **Hızlı Görevler** bölümünde **Kullanıcı ekle**’yi seçin.
 5. Kullanıcı Ekleme Formu'nda şu bilgileri sağlayın:
-   
+
    * Ad: (uygun bir değer seçin)
    * Kullanıcı adı: (bu yönetici için bir kullanıcı adı seçin)
    * Profil: (Ad, Soyadı, İş unvanı ve Bölüm için uygun değerleri girin)
@@ -57,16 +58,10 @@ Bunu yapmak için şu adımları uygulayın.  Alternatif olarak, benzer bir işl
 8. Geçici parolayı değiştirmek için [https://login.microsoftonline.com](https://login.microsoftonline.com) adresinde bu yeni kullanıcı hesabı ile oturum açın ve istendiğinde parolayı değiştirin.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Kuruluş Azure aboneliği kullanma
-Daha önce kuruluş hesabınızla bir Azure aboneliğine kaydolduysanız kiracınız zaten mevcuttur!  [Azure Portal](https://portal.azure.com)’da, "Diğer Hizmetler" ve "Azure Active Directory"e gittiğinizde bir kiracı bulmanız gerekir.  Bu kiracıyı uygun gördüğünüz şekilde kullanabilirsiniz. 
+Daha önce kuruluş hesabınızla bir Azure aboneliğine kaydolduysanız kiracınız zaten mevcuttur!  [Azure Portal](https://portal.azure.com)’da, "Diğer Hizmetler" ve "Azure Active Directory"e gittiğinizde bir kiracı bulmanız gerekir.  Bu kiracıyı uygun gördüğünüz şekilde kullanabilirsiniz.
 
 ## <a name="start-from-scratch"></a>Sıfırdan başlama
 Yukarıdakilerin hiçbiri sizin için bir anlam ifade etmiyorsa endişelenmeyin.  Yeni bir kuruluş ile Azure'a kaydolmak üzere [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) adresini ziyaret etmeniz yeterlidir.  İşlemi tamamladığınızda, kayıt sırasında seçtiğiniz etki alanı adıyla kendi Azure AD kiracınıza sahip olacaksınız.  [Azure Portal](https://portal.azure.com)'da, sol gezinti çubuğunda bulunan "Azure Active Directory" konumuna giderek kiracınızı bulabilirsiniz.
 
 Azure'a kaydolma işleminin bir parçası olarak, kredi kartı bilgileri sağlamanız gerekecektir.  Güvenle devam edebilirsiniz; Azure AD'de uygulama yayınlama veya yeni kiracı oluşturma işlemleri için sizden ücret tahsil edilmeyecektir.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
