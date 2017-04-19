@@ -5,11 +5,6 @@ Geri bildirim sağlamak ve Azure Media Services’ı geliştirme hakkında öner
 * [Kodlama ve işleme](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)
 * [Canlı akış](https://feedback.azure.com/forums/169396-media-services/category/144414-live-streaming/)
 * [Medya analizi](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
-* [Azure Portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
+* [Azure portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [REST API ve platform](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
 * [VoD akışı](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

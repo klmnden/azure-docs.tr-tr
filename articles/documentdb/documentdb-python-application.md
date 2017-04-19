@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
 ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
 ms.openlocfilehash: 4f05075efea0f0fd8ca4424f771d3991a65c6d67
-ms.lasthandoff: 03/08/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -406,7 +406,7 @@ Web uygulamanıza ek işlevsellik eklemek için [DocumentDB Python SDK'sında](d
 
 Azure, Visual Studio ve Python hakkında daha fazla bilgi için bkz. [Python Geliştirici Merkezi](https://azure.microsoft.com/develop/python/). 
 
-Ek Python Flask öğreticileri için bkz. [Büyük Flask Öğreticisi,&1;. Bölüm: Merhaba Dünya!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
+Ek Python Flask öğreticileri için bkz. [Büyük Flask Öğreticisi, 1. Bölüm: Merhaba Dünya!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
 
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [2]: https://www.python.org/downloads/windows/
