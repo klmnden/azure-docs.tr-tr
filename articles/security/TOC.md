@@ -50,7 +50,7 @@
 ### [IoT güvenliği için en iyi uygulamalar](../iot-suite/iot-security-best-practices.md)
 
 ## Güvenlik mimarisi
-### [Veri sınıflandırması](azure-security-data-classification.md)
+### [Veri sınıflandırması](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
 ### [Azure üzerinde geliştirilen uygulamalar için olağanüstü durum kurtarma ve yüksek kullanılabilirlik](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # İlgili

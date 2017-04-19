@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d1094e1b350883c206a9180ff71bd8613156360a
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Parola Yönetimine Başlarken
 > [!IMPORTANT]
-> **Oturum açmada sorun yaşadığınız için mi buradasınız?** Sorun yaşıyorsanız bkz. [kendi parolanızı değiştirme ve sıfırlama](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Oturum açmada sorun yaşadığınız için mi buradasınız?** Sorun yaşıyorsanız bkz. [kendi parolanızı değiştirme ve sıfırlama](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -69,9 +69,9 @@ Kuruluşlarında parola yönetimi dağıtan müşteriler için faydalı gördü�
 * [**İpucu 9: SORUN GİDERME** - Hala yardıma ihtiyacınız varsa, size yardımcı olabilmemiz için yeterli bilgi sağlayın](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>ÖNEMLİ İPUCU: BELGELERDE GEZİNME - Yanıtları bulmak için içindekiler bölümümüzü ve tarayıcınızın bulma özelliğini kullanın
-Belgelerimizden herhangi birini kullanıyorsanız, içindekiler bölümünde yöneticilerin bilgi alması için ilgi çekici yerlerin tümüne ait hızlı bağlantılar verilmiştir. 
+Belgelerimizden herhangi birini kullanıyorsanız, içindekiler bölümünde yöneticilerin bilgi alması için ilgi çekici yerlerin tümüne ait hızlı bağlantılar verilmiştir.
 
-Aşağıdaki içindekiler bölümüne bakın: 
+Aşağıdaki içindekiler bölümüne bakın:
 * [Azure AD Parola Sıfırlama: Belgelerin İçindekiler](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
 
 ### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>İpucu 1: LİSANSLAMA - Lisanslama gereksinimlerini anladığınızdan emin olun
@@ -93,9 +93,9 @@ Yöneticiye ait YALNIZCA UX içinde yapılandırılmış ilkeler, yöneticiler i
  * ...bir deneme sürümü başlatıldıktan sonraki 30 gün için **VEYA**
  * ...bir gösterim etki alanı mevcut olmadığında **VE** Azure AD Connect kimlikleri eşitlemediğinde geçerlidir
  * **_Gereksinimler_**: Kimlik Doğrulama E-postası, Alternatif E-posta, Kimlik Doğrulama Telefonu, Cep Telefonu veya İş Telefonu değerlerinden herhangi **birinin** mevcut olması
-* **İki ağ geçidi ilkesi...** 
+* **İki ağ geçidi ilkesi...**
  * ...deneme sürümünün ilk 30 günü geçtikten sonra **VEYA**
- * ...bir gösterim etki alanı mevcut olduğunda **VEYA** 
+ * ...bir gösterim etki alanı mevcut olduğunda **VEYA**
  * ...şirket içi ortamınızdaki kimlikleri eşitlemek üzere Azure AD Connect’i etkinleştirdiğinizde geçerlidir
  * _**Gereksinimler**_: Kimlik Doğrulama E-postası, Alternatif E-posta, Kimlik Doğrulama Telefonu, Cep Telefonu veya İş Telefonu değerlerinden herhangi **ikisinin** mevcut olması
 
@@ -145,7 +145,7 @@ Sorun giderme yönergeleri ile parola geri yazmaya ilişkin izin ve güvenlik du
 * [Geri yazma dağıtımı - Adım 3: Güvenlik duvarınızı yapılandırma](#step-3-configure-your-firewall)
 * [Geri yazma dağıtımı - Adım 4: Uygun izinleri ayarlama](#step-4-set-up-the-appropriate-active-directory-permissions)
 
-### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>İpucu 7: RAPORLAMA - Azure AD SSPR Denetim Günlükleri ile kimlerin kaydolduğunu veya parola sıfırladığını görün 
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>İpucu 7: RAPORLAMA - Azure AD SSPR Denetim Günlükleri ile kimlerin kaydolduğunu veya parola sıfırladığını görün
 Parola sıfırlama dağıtılıp çalışır duruma getirildikten sonra, çalışmasını görmek ve hala kaydolması gereken kişileri, sıfırlama sırasında kullanıcılarınızın karşılaştığı yaygın sorunları ve özellik için yatırım getirinizi analiz etmek sonraki mantıksal adımdır.
 
 Azure AD Parola Sıfırlama Denetim Günlüklerini kullanarak, bunu ve daha fazlasını Azure portalı, PowerBI, Azure AD Raporlama Olayları API’si veya PowerShell üzerinden yapabilirsiniz.  Bu raporlama özelliklerini kullanma hakkında daha fazla bilgi için bkz:
@@ -495,7 +495,7 @@ Parola Geri Yazma etkinleştirildikten sonra, hesabı bulut kiracınızın hesab
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıda, tüm Azure AD Parola Sıfırlama belge sayfalarının bağlantıları verilmiştir:
 
-* **Oturum açmada sorun yaşadığınız için mi buradasınız?** Sorun yaşıyorsanız bkz. [kendi parolanızı değiştirme ve sıfırlama](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **Oturum açmada sorun yaşadığınız için mi buradasınız?** Sorun yaşıyorsanız bkz. [kendi parolanızı değiştirme ve sıfırlama](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**Nasıl çalışır?**](active-directory-passwords-how-it-works.md) - Hizmetin altı farklı bileşeni ve işlevleri hakkında bilgi edinin
 * [**Özelleştirin**](active-directory-passwords-customize.md) - Hizmetin genel görünümünü ve hareketlerini kuruluşunuzun ihtiyaçlarına göre nasıl özelleştireceğinizi öğrenin
 * [**En iyi uygulamalar**](active-directory-passwords-best-practices.md) - Kuruluşunuzdaki parolaları nasıl hızlı bir şekilde dağıtacağınızı ve etkili bir şekilde yöneteceğinizi öğrenin

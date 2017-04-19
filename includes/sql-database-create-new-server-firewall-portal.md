@@ -14,15 +14,15 @@ articles/sql-data-warehouse-get-started-provision.md
 
 1. SQL sunucusu dikey penceresinde, Ayarlar’ın altında; SQL sunucusunun Güvenlik Duvarı dikey penceresini açmak için **Güvenlik Duvarı**’na tıklayın.
 
-    ![sql sunucusu güvenlik duvarı](../articles/sql-database/media/sql-database-get-started/sql-server-firewall.png)
-    
+    <!-- ![sql server firewall](../articles/sql-database/media/sql-database-get-started/sql-server-firewall.png) -->
+
 2. Görüntülenen istemci IP adresini gözden geçirin ve bunun sizin IP adresiniz olduğunu, tercih ettiğiniz bir tarayıcıyı kullanarak (“IP adresim nedir” sorusuyla) İnternet üzerinden doğrulayın. IP adresleri bazen çeşitli nedenlerle eşleşmez.
 
-    ![IP adresiniz](../articles/sql-database/media/sql-database-get-started/your-ip-address.png)
+    <!-- ![your IP address](../articles/sql-database/media/sql-database-get-started/your-ip-address.png) -->
 
 3. IP adreslerinin eşleştiğini varsayarak, araç çubuğundaki **İstemci IP’si ekle**’ye tıklayın.
 
-    ![istemci IP’si ekle](../articles/sql-database/media/sql-database-get-started/add-client-ip.png)
+    ![istemci IP’si ekle](../articles/sql-data-warehouse/media/sql-data-warehouse-get-started-provision/add-client-ip.png)
 
     > [!NOTE]
     > Sunucudaki SQL Veritabanı güvenlik duvarını, tek bir IP adresi veya bir adresler aralığının tamamı üzerinde açabilirsiniz. Güvenlik duvarını açmak SQL yönetici ve kullanıcılarının; sunucuda, geçerli kimlik bilgilerine sahip oldukları herhangi bir veritabanında oturum açmasını sağlar.
@@ -30,7 +30,7 @@ articles/sql-data-warehouse-get-started-provision.md
 
 4. Sunucu düzeyinde güvenlik duvarı kuralını kaydetmek için, araç çubuğunda **Kaydet**’e ve sonra **Tamam**’a tıklayın.
 
-    ![istemci IP’si ekle](../articles/sql-database/media/sql-database-get-started/save-firewall-rule.png)
+    ![istemci IP’si ekle](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!Tip]
 > Öğretici için bkz. [SQL Veritabanı öğreticisi: Sunucu, sunucu düzeyinde güvenlik duvarı kuralı, örnek veritabanı, veritabanı düzeyinde güvenlik duvarı oluşturma ve SQL Server’a bağlanma](../articles/sql-database/sql-database-get-started.md).    

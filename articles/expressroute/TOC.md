@@ -26,7 +26,9 @@
 ## ExpressRoute bağlantı hattına bir sanal ağı bağlama
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-## [ExpressRoute için sanal ağ geçidi yapılandırma](expressroute-howto-add-gateway-resource-manager.md)
+## ExpressRoute için sanal ağ geçidi yapılandırma
+### [Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma](expressroute-howto-coexist-resource-manager.md)
 ## [Bir devreyi klasikten Resource Manager’a taşıma](expressroute-howto-move-arm.md)
 ## [İlişkili sanal ağları klasikten Resource Manager’a geçirme](expressroute-migration-classic-resource-manager.md)
