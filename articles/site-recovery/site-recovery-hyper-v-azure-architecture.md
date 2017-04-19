@@ -17,7 +17,7 @@ ms.author: raynew
 translationtype: Human Translation
 ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
 ms.openlocfilehash: 9adf266c6a2ac00c3aaa34e2a29aefe34abe2871
-ms.lasthandoff: 03/06/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -37,7 +37,7 @@ Azure'a aşağıdakileri çoğaltabilirsiniz:
 **Alan** | **Bileşen** | **Ayrıntılar**
 --- | --- | ---
 **Azure** | Azure’da bir Microsoft Azure hesabına, bir Azure depolama hesabına ve bir Azure ağına ihtiyacınız vardır. | Depolama ve ağ, Kaynak Yöneticisi tabanlı veya klasik hesaplar olabilir.<br/><br/> Çoğaltılan veriler depolama hesabında depolanır ve şirket içi sitenizden yük devretme gerçekleştiğinde çoğaltılan verilerle Azure VM’leri oluşturulur.<br/><br/> Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
-**VMM sunucusu** | VMM bulutlarında bulunan Hyper-V ana bilgisayarları | Hyper-V ana bilgisayarları VMM bulutlarında yönetiliyorsa, VMM sunucusunu Kurtarma Hizmetleri kasasına kaydedin.<br/><br/> VMM sunucusuna, Azure ile çoğaltmayı düzenlemek için Site Recovery Sağlayıcısı'nı yükleyin.<br/><br/> Ağ eşlemeyi yapılandırmak için, mantıksal ağlar ve VM ağları kurulumu gerekir. VM ağının da bulutla ilişkilendirilen bir mantıksal ağ ile bağlantılı olması gerekir.
+**VMM sunucusu** | VMM bulutlarında bulunan Hyper-V ana bilgisayarları | Hyper-V ana bilgisayarları VMM bulutlarında yönetiliyorsa, VMM sunucusunu Kurtarma Hizmetleri kasasına kaydedin.<br/><br/> VMM sunucusuna, Azure ile çoğaltmayı düzenlemek için Site Recovery Sağlayıcısı’nı yükleyin.<br/><br/> Ağ eşlemeyi yapılandırmak için, mantıksal ağlar ve VM ağları kurulumu gerekir. VM ağının da bulutla ilişkilendirilen bir mantıksal ağ ile bağlantılı olması gerekir.
 **Hyper-V konağı** | Hyper-V sunucuları VMM sunucusu ile veya sunucu olmadan dağıtılabilir. | VMM sunucusu yoksa, İnternet’ten Site Recovery ile çoğaltmayı düzenlemek için ana bilgisayara Site Recovery Sağlayıcısı yüklenir. Bir VMM sunucusu varsa, Sağlayıcı ana bilgisayara değil bu sunucuya yüklenir.<br/><br/> Kurtarma Hizmetleri aracısı, veri çoğaltmayı işlemek için ana bilgisayara yüklenir.<br/><br/> Sağlayıcı ve aracı arasındaki iletişimler şifrelenir ve güvence altına alınır. Azure depolama alanında çoğaltılan veriler de şifrelenir.
 **Hyper-V VM’leri** | Hyper-V konak sunucusunda bir veya daha fazla VM’niz olmalıdır. | Sanal makinelere açıkça bir şey yüklenmesi gerekmez
 

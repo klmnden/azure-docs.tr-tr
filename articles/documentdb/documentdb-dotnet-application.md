@@ -18,7 +18,7 @@ ms.author: syamk
 translationtype: Human Translation
 ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
 ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
-ms.lasthandoff: 03/08/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -559,7 +559,7 @@ Web uygulamasını dağıtmaya çalışırken "İsteğiniz işlenirken bir hata 
     - Bölge: Uygulamanızın kullanıcılarına en yakın bölgeyi seçin
     - Veritabanı sunucusu: Veritabanı yok’a ve ardından **Oluştur**’a tıklayın. 
 
-4. "todo-net-app * ekranı"nda **Bağlantıyı Doğrula**’ya tıklayın. Bağlantı doğrulandıktan sonra **Yayımla** ’ya tıklayın. 
+4. "todo-net-app **ekranı"nda**Bağlantıyı Doğrula’ya tıklayın. Bağlantı doğrulandıktan sonra ****Yayımla* ’ya tıklayın. 
     
     Bu adımın ardından uygulama tarayıcınızda görüntülenir.
 
