@@ -1,17 +1,20 @@
 # Genel Bakış
 ## [Azure Otomasyonu Nedir?](automation-intro.md)
 # Başlarken
+## [Azure Otomasyonunu kullanmaya başlayın](automation-offering-get-started.md)
 ## Runbook öğreticisi
 ### [Grafik runbook oluşturma](automation-first-runbook-graphical.md)
 ### [PowerShell runbook’u oluşturma](automation-first-runbook-textual-powershell.md)
 ### [PowerShell İş Akışı runbook’u oluşturma](automation-first-runbook-textual.md)
 # Nasıl yapılır?
 ## Kimlik doğrulama ve güvenlik
-### [Azure Otomasyonu’nda kimlik doğrulaması](automation-security-overview.md)
-### [Azure Farklı Çalıştır hesabını yapılandırma](automation-sec-configure-azure-runas-account.md)
-### [Azure AD Kullanıcı hesabını yapılandırma](automation-sec-configure-aduser-account.md)
-### [AWS ile kimlik doğrulamasını yapılandırma](automation-sec-configure-aws-account.md)
+### [Tek başına Otomasyon hesabı oluşturma](automation-create-standalone-account.md)
+### [Azure AD Kullanıcı hesabı oluşturma](automation-create-aduser-account.md)
+### [AWS ile Kimlik Doğrulamasını yapılandırma](automation-config-aws-account.md)
+### [PowerShell ile Azure Farklı Çalıştır hesabı oluşturma](automation-update-account-powershell.md)
+### [Otomasyon hesabı yapılandırmasını doğrulama](automation-verify-runas-authentication.md)
 ### [Rol tabanlı erişim denetimini yönetme](automation-role-based-access-control.md)
+### [Otomasyon hesabını yönetme](automation-manage-account.md)
 ## Runbook oluşturma
 ### [Runbook türleri](automation-runbook-types.md)
 ### [Runbook oluşturma ve çalıştırma](automation-creating-importing-runbook.md)
@@ -71,7 +74,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (Klasik)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
-## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST](/rest/api/automation)
 ## [REST (Klasik)](https://msdn.microsoft.com/library/azure/mt163781)
 # Kaynaklar
 ## [Sürüm notları](https://azure.microsoft.com/updates/?product=automation)

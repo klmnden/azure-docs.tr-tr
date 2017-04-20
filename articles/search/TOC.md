@@ -18,6 +18,7 @@
 ## [Arama sonuçlarını işleme](search-pagination-page-layout.md)
 ## Öğreticiler
 ### [.NET](search-howto-dotnet-sdk.md)
+### [.NET eş anlamlıları önizleme](search-synonyms-tutorial-sdk.md)
 ### [Portal](search-get-started-portal.md)
 ### [NodeJS](search-get-started-nodejs.md)
 ### [Java](search-get-started-java.md)
@@ -48,7 +49,7 @@
 ### [JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
 ### [Azure sanal makinesinde dizin oluşturucu SQL Server bağlantılarını yapılandırma](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Dizin oluşturucularda alan eşlemeleri](search-indexer-field-mappings.md)
-##  Arama 
+##  Arama
 ### [Tam metin araması nasıl çalışır?](search-lucene-query-architecture.md)
 ### Sorgu Oluşturma
 #### [Basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
@@ -61,6 +62,7 @@
 ### [Puanlama](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Öneriler](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Çok yönlü gezinme](search-faceted-navigation.md)
+### [Eş anlamlılar önizleme](search-synonyms.md)
 
 # Başvuru
 ## [.NET](/dotnet/api/microsoft.azure.search)

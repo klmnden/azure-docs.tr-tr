@@ -1,9 +1,9 @@
 # Genel Bakış
 ## [Genel Bakış](active-directory-b2c-overview.md)
 ## [Uygulama türleri](active-directory-b2c-apps.md)
-## [Üretim ölçeği - B2C kiracılarını önizleme](active-directory-b2c-reference-tenant-type.md)
+## [Bölge kullanılabilirliği ve veri yerleşikliği](active-directory-b2c-reference-tenant-type.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Azure AD B2C dizini oluşturma](active-directory-b2c-get-started.md)
 ## [Uygulamanızı kaydetme](active-directory-b2c-app-registration.md)
 ## Hızlı Başlangıç Kılavuzları

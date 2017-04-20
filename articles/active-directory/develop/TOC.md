@@ -1,4 +1,5 @@
-# [Genel Bakış](active-directory-developers-guide.md)
+# Genel Bakış
+## [Geliştiriciler için Kılavuz](active-directory-developers-guide.md)
 ## [Uygulamalar ve Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Geliştirici sözlüğü](active-directory-dev-glossary.md)
 ## [AAD Grafik API’si](active-directory-graph-api.md)
@@ -39,14 +40,12 @@
 ## [Marka yönergeleri](active-directory-branding-guidelines.md)
 ## SAML ile çalışma
 ### [Azure AD ve SAML](active-directory-saml-protocol-reference.md)
-### [Access Control tarafından Döndürülen SAML’yi görüntüleme](active-directory-java-view-saml-returned-by-access-control.md)
 ### [Talep Özelleştirme](active-directory-saml-claims-customization.md)
 ### [SAML tabanlı SSO hata ayıklama](active-directory-saml-debugging.md)
 ### [Çoklu Oturum Açma SAML protokolü](active-directory-single-sign-on-protocol-reference.md)
 ### [Çoklu Oturum Kapatma SAML protokolü](active-directory-single-sign-out-protocol-reference.md)
 ## Visual Studio ile çalışma
 ### [Azure Active Directory’yi ve Visual Studio’ya bağlı hizmetlerini kullanmaya başlama (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
-### [MVC projeme ne oldu](Visual Studio Azure Active Directory connected service.md)?](vs-active-directory-dotnet-what-happened
 ### [Kimlik doğrulama algılama sırasında bir hata oluştu](vs-active-directory-error.md)
 ### [WebApi ile çalışmaya başlama](vs-active-directory-webapi-getting-started.md)
 ### [Web API projeme ne oldu?](vs-active-directory-webapi-what-happened.md)
@@ -59,7 +58,8 @@
 ### [Federasyon Meta Verileri](active-directory-federation-metadata.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-# [v2.0 uç nokta](active-directory-appmodel-v2-overview.md)
+### [Hizmetten Hizmete Çağrılar](active-directory-protocols-oauth-service-to-service.md)
+# v2.0 uç nokta
 ## [Genel Bakış](active-directory-appmodel-v2-overview.md)
 ### [Farklılıklar](active-directory-v2-compare.md)
 ### [Uygulama türleri](active-directory-v2-flows.md)
@@ -82,12 +82,11 @@
 ## Başvuru
 ### [Uygulama kayıt başvurusu](active-directory-v2-registration-portal.md)
 ### [Kimlik doğrulama kitaplıkları](active-directory-v2-libraries.md)
+### [v2.0 Kimlik Doğrulama Protokolleri](active-directory-v2-protocols.md)
+#### [Belirteç başvurusu](active-directory-v2-tokens.md)
+#### [OAuth2.0 yetkilendirme kod akışı](active-directory-v2-protocols-oauth-code.md)
+#### [OpenID Connect](active-directory-v2-protocols-oidc.md)
+#### [Örtük akış](active-directory-v2-protocols-implicit.md)
+#### [Oauth 2.0 istemci kimlik bilgileri](active-directory-v2-protocols-oauth-client-creds.md)
 ### [Kapsamlar](active-directory-v2-scopes.md)
-### [Belirteç başvurusu](active-directory-v2-tokens.md)
-### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-### [Örtük akış](active-directory-v2-protocols-implicit.md)
-### [OAuth2.0 yetkilendirme kod akışı](active-directory-v2-protocols-oauth-code.md)
-### [Oauth 2.0 istemci kimlik bilgileri](active-directory-v2-protocols-oauth-client-creds.md)
-### [Oauth 2.0 ve OpenID](active-directory-v2-protocols.md)
-### [Hizmetten Hizmete Çağrılar](active-directory-protocols-oauth-service-to-service.md)
 # [Örnekler](active-directory-code-samples.md)

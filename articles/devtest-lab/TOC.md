@@ -19,6 +19,7 @@
 ### [Maliyet yönetimini yapılandırma](devtest-lab-configure-cost-management.md)
 ### [Sanal ağları yapılandırma](devtest-lab-configure-vnet.md)
 ### [Paylaşılan IP adreslerini anlama](devtest-lab-shared-ip.md)
+### [Şablonlar ve PowerShell kullanarak laboratuvar değiştirmeyi otomatikleştirme](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 
 ## Yapıtları Yönetme
 ### [Yapıt deposu ekleme](devtest-lab-add-artifact-repo.md)

@@ -34,10 +34,11 @@
 ## Birden çok Siteden Siteye bağlantı yapılandırma
 ### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (klasik)](vpn-gateway-multi-site.md)
-## [PowerShell’i kullanarak Azure VPN Gateway için BGP yapılandırma](vpn-gateway-bgp-resource-manager-ps.md)
+## [VPN ağ geçidi için BGP yapılandırma](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Yüksek oranda kullanılabilir etkin-etkin bağlantıları yapılandırma](vpn-gateway-activeactive-rm-powershell.md)
 ## [PowerShell’i kullanarak yerel ağ geçidi ayarlarını değiştirme](vpn-gateway-modify-local-network-gateway.md)
 ## [VPN ağ geçidi bağlantısını doğrulama](vpn-gateway-verify-connection-resource-manager.md)
+## [Bir sanal ağa VPN aktarım hızını doğrulama](vpn-gateway-validate-throughput-to-vnet.md)
 ## [VPN ağ geçidini sıfırlama](vpn-gateway-resetgw-classic.md)
 ## VPN ağ geçidi silme
 ### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)

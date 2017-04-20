@@ -23,7 +23,7 @@
 ### [VM teklifini/SKU’yu silme](./cloud-partner-portal-delete-an-offer.md)
 ### [Bulut iş ortağı portalına geçirme](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 
-## [Pazarlama sağlama yönetimi](../../cloud-partner-portal/cloud-partner-portal-marketing-lead-management.md)
+## [Müşteri adayları alma](./cloud-partner-portal-get-customer-leads.md)
 ### [Azure tablosu](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-azure-table.md)
 ### [Dynamics CRM Online](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-dynamics.md)
 ### [Salesforce](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-salesforce.md)
@@ -31,5 +31,4 @@
 
 ## [Yayımcı profilini yönetme](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Kullanıcıları yönetme](./cloud-partner-portal-manage-users.md)
-## [Geri bildirim gönderin](./cloud-partner-portal-give-feedback.md)
 ## [Destek alın](./cloud-partner-portal-support-for-cloud-partner-portal.md)
