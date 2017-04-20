@@ -14,12 +14,15 @@
 ## Şablon oluşturma
 ### [Şablonlar için en iyi uygulamalar](resource-manager-template-best-practices.md)
 ### [Şablon bölümleri](resource-group-authoring-templates.md)
+### [Diğer şablonlara bağlantı](resource-group-linked-templates.md)
 ### [Kaynaklar arasında bağımlılık tanımlama](resource-group-define-dependencies.md)
+### Birden çok örnek oluşturmak için döngüyü kopyalama
+#### [Temel söz dizimi](resource-group-create-multiple.md)
+#### [Sıralı döngü](resource-manager-sequential-loop.md)
+#### [Özellik kopyalama](resource-manager-property-copy.md)
 ### [Konum ayarlama](resource-manager-template-location.md)
 ### [Etiket atama](resource-manager-template-tags.md)
 ### [Alt kaynak adı ve türünü ayarlama](resource-manager-template-child-resource.md)
-### [Kaynak türünün birden çok örneğini oluşturma](resource-group-create-multiple.md)
-### [Diğer şablonlara bağlantı](resource-group-linked-templates.md)
 ### [Bağlı şablonlar arasında durum paylaşma](best-practices-resource-manager-state.md)
 ### [Şablon tasarlamaya yönelik desenler](best-practices-resource-manager-design-templates.md)
 ## Dağıtma

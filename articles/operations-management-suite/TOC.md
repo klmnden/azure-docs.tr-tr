@@ -2,16 +2,10 @@
 ## [Operations Management Suite nedir?](operations-management-suite-overview.md)
 ## [OMS mimarisi](operations-management-suite-architecture.md)
 
-# başlarken
-## Öngörü ve analiz
-### [Log Analytics’e kaydolma](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Otomasyon ve denetim
-### [İlk runbook’um](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Koruma ve kurtarma
-### [Azure Backup'a giriş](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Güvenlik ve uyumluluk
-### [Güvenlik ve Denetim](oms-security-getting-started.md)
-### [Veri güvenliği](oms-security-data-security.md)
+# Başlarken
+## Kılavuz
+### [Hizmet Eşlemesi](operations-management-suite-walkthrough-servicemap.md)
+
 
 # Nasıl yapılır?
 

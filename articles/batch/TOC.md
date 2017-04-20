@@ -25,6 +25,16 @@
 ### [Batch PowerShell cmdlet’leri](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
 ### [Batch tanılama günlükleri](batch-diagnostics.md)
+### [Toplu Analiz](batch-analytics.md)
+#### [Havuz oluşturma olayı](batch-pool-create-event.md)
+#### [Havuz silme başlangıç olayı](batch-pool-delete-start-event.md)
+#### [Havuz silme tamamlama olayı](batch-pool-delete-complete-event.md)
+#### [Havuz yeniden boyutlandırma başlangıç olayı](batch-pool-resize-start-event.md)
+#### [Havuz yeniden boyutlandırma tamamlama olayı](batch-pool-resize-complete-event.md)
+#### [Görev başlangıç olayı](batch-task-start-event.md)
+#### [Görev tamamlama olayı](batch-task-complete-event.md)
+#### [Görev başarısızlık olayı](batch-task-fail-event.md)
+### [Azure Batch işlem düğümü ortam değişkenleri](batch-compute-node-environment-variables.md)
 
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)

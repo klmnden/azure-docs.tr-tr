@@ -2,7 +2,7 @@
 ## [Event Hubs nedir?](event-hubs-what-is-event-hubs.md)
 ## [SSS](event-hubs-faq.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Olay Hub’ı oluşturma](event-hubs-create.md)
 ## Olayları gönderme
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
@@ -39,18 +39,18 @@
 #### [Python kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-archive-python.md)
 ### [Varlıkları sağlamak için PowerShell kullanma](event-hubs-manage-with-ps.md) 
 ### [Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma](event-hubs-streaming-azure-diags-data.md)
-### [Resource Manager şablonu kullanarak bir Event Hub’ı oluşturup dağıtma](event-hubs-resource-manager-namespace-event-hub.md)
+### [Resource Manager şablonu kullanarak bir Olay Hub’ı oluşturup dağıtma](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Başvuru
+## Java
+### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## .NET
 ### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
 ### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+### [Microsoft.ServiceBus.Messaging.EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 ### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
-## Java
-### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
-### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## [REST](/rest/api/eventhub)
 ## [Özel Durumlar](event-hubs-messaging-exceptions.md)
 ## [Kotalar](event-hubs-quotas.md)

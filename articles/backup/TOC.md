@@ -76,6 +76,7 @@
 ## [Azure Backup kasasını silme](backup-azure-delete-vault.md)
 ## [Çevrimdışı yedekleme yapılandırma](backup-azure-backup-import-export.md)
 ## [Bant kitaplığınızı değiştirme](backup-azure-backup-cloud-as-tape.md)
+## [Uygulama ile tutarlı Linux VM yedekleri](backup-azure-linux-app-consistent.md)
 
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)

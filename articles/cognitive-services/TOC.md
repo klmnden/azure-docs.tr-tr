@@ -287,10 +287,10 @@
 ### [Diller](Translator/languages.md)
 ### [Hub](Translator/translator-hub-overview.md)
 ### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
-### [Konuşma Çevirisi API’sine genel bakış](Translator/speech-overview.md)
-### [Konuşma çevirisi API başvurusu](http://docs.microsofttranslator.com/speech-translate.html)
-### [Metin çevirisi API’sine genel bakış](Translator/text-overview.md)
-### [Metin çevirisi API başvurusu](http://docs.microsofttranslator.com/text-translate.html)
+### [Translator Konuşma Çevirisi API’sine genel bakış](Translator/speech-overview.md)
+### [Translator Konuşma Çevirisi API’si başvurusu](http://docs.microsofttranslator.com/speech-translate.html)
+### [Translator Metin Çevirisi API’sine genel bakış](Translator/text-overview.md)
+### [Translator Metin Çevirisi API’si başvurusu](http://docs.microsofttranslator.com/text-translate.html)
 
 ## Video
 ### [Genel Bakış](Video/Home.md)

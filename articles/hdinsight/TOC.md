@@ -28,7 +28,6 @@
 ## Toplu sorgular için Hadoop kullanma
 ### [Hadoop ile Hive](hdinsight-use-hive.md)
 #### [Hive Görünümünü kullanma](hdinsight-hadoop-use-hive-ambari-view.md)
-#### [SSH kullanma](hdinsight-hadoop-use-hive-ssh.md)
 #### [Beeline kullanma](hdinsight-hadoop-use-hive-beeline.md)
 #### [cURL kullanma](hdinsight-hadoop-use-hive-curl.md)
 #### [PowerShell kullanma](hdinsight-hadoop-use-hive-powershell.md)
@@ -109,6 +108,7 @@
 ### [Spark ile kullanma](hdinsight-apache-spark-with-kafka.md)
 ### [Storm ile kullanma](hdinsight-apache-storm-with-kafka.md)
 ## Geliştirme
+### [C# akış MapReduce programları geliştirme](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Java MapReduce programları geliştirme](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Scalding MapReduce işlerini geliştirme](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Spark uygulamaları geliştirmek için HDInsight Araçlarını kullanma](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -199,6 +199,7 @@
 # İlgili
 ## Windows kümeleri
 ### [Linux kümelerine Windows kümelerini geçirme](hdinsight-migrate-from-windows-to-linux.md)
+### [.NET çözümlerini Linux kümelerine geçirme](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 ### [Hadoop MapReduce örneklerini çalıştırma](hdinsight-run-samples.md)
 ### [Kümeler üzerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
 ### [Büyük ölçekli grafikleri işlemek için Giraph kullanma](hdinsight-hadoop-giraph-install.md)

@@ -5,9 +5,9 @@
 ## [Uygulama senaryoları](service-fabric-application-scenarios.md)
 ## [Mimari](service-fabric-architecture.md)
 ## [Terminoloji](service-fabric-technical-overview.md)
-## [İçerik yol haritası](service-fabric-content-roadmap.md)
+## [Primer](service-fabric-content-roadmap.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## Geliştirme ortamınızı kurma
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
@@ -17,9 +17,10 @@
 ### [Linux üzerinde Java](service-fabric-create-your-first-linux-application-with-java.md)
 ### [Linux üzerinde C#](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Yerel bir kümede uygulamaları dağıtma](service-fabric-get-started-with-a-local-cluster.md)
-## [Tek başına küme oluşturma](service-fabric-get-started-standalone-cluster.md)
+## [Azure’da ilk kümenizi oluşturma](service-fabric-get-started-azure-cluster.md)
+## [İlk tek başına kümenizi oluşturma](service-fabric-get-started-standalone-cluster.md)
 
-# Nasıl yapılır
+# Nasıl yapılır?
 ## Uygulama oluşturma
 ### [Modeller ve senaryolar](service-fabric-patterns-and-scenarios.md)
 ### Temel Bilgiler
@@ -124,7 +125,6 @@
 #### [Erişim denetimi](service-fabric-cluster-security-roles.md)
 #### [Küme yapılandırma](service-fabric-cluster-fabric-settings.md)
 #### [Küme sertifikası ekleme veya geçirme](service-fabric-cluster-security-update-certs-azure.md) 
-#### [Bir Parti Kümesi’ni ücretsiz olarak deneme](http://aka.ms/tryservicefabric)
 
 ### Tek başına kümeler
 #### [Dağıtımınızı planlama ve dağıtım için hazırlanma](service-fabric-cluster-standalone-deployment-preparation.md)
