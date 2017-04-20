@@ -9,13 +9,12 @@
 
 [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/azure/mt619267\(v=azure.300\).aspx) cmdlet’ini çalıştırın; kimlik bilgilerinizi gireceğiniz bir giriş yapma ekranıyla tanınacaksınız. Azure portala giriş yapmak için kullandığınız kimlik bilgilerinin aynısını kullanın.
 
-    Add-AzureRmAccount
+```PowerShell
+Add-AzureRmAccount
+```
 
 Birden fazla aboneliğiniz varsa, PowerShell oturumunuzun hangi aboneliği kullanacağını seçmek için [**Set-AzureRmContext**](https://msdn.microsoft.com/library/azure/mt619263\(v=azure.300\).aspx) cmdlet’ini kullanın. Geçerli PowerShell oturumunda hangi aboneliğin kullanıldığını görmek için [**Get-AzureRmContext**](https://msdn.microsoft.com/library/azure/mt619265\(v=azure.300\).aspx) cmdlet’ini kullanın. Tüm aboneliklerinizi görmek için [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/azure/mt619284\(v=azure.300\).aspx) cmdlet’ini çalıştırın.
 
-    Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+```PowerShell
+Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+```
