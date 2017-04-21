@@ -74,6 +74,8 @@
 ### [Data Lake Analytics U-SQL Etkinliği](data-factory-usql-activity.md)
 ### [.NET özel etkinliği](data-factory-use-custom-activities.md)
 ### [R betiklerini çağırma](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+### [Azure Analysis Services’te modelleri yeniden işleme](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+
 ## Geliştirme
 ### [Azure Resource Manager şablonu](data-factory-how-to-use-resource-manager-templates.md)
 ### [Örnekler](data-factory-samples.md)
