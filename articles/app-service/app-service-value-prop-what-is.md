@@ -83,7 +83,7 @@ Daha fazla ölçeklenebilirlik ve ağ yalıtımını gerekiyorsa uygulamaların�
 App Service’in maliyeti hakkında bilgi için bkz. [App Service Fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="test-drive-app-service"></a>App Service'i Deneyin
-Herhangi bir kredi kartına gerek olmadan, taahhüt vermeden veya sorun yaşamadan [örnek bir web uygulaması, mobil uygulama veya mantıksal uygulama oluşturun](https://azure.microsoft.com/try/app-service/) ve uygulamanızı&1; saat boyunca deneyin.
+Herhangi bir kredi kartına gerek olmadan, taahhüt vermeden veya sorun yaşamadan [örnek bir web uygulaması, mobil uygulama veya mantıksal uygulama oluşturun](https://azure.microsoft.com/try/app-service/) ve uygulamanızı 1 saat boyunca deneyin.
 
 Ya da bir [ücretsiz Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) açıp, kullanmaya başlama öğreticilerimizden birini deneyin:
 
