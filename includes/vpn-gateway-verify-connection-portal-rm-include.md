@@ -5,9 +5,3 @@ Azure portalında, bağlantıya giderek bir Resource Manager VPN Gateway bağlan
 3. **Temel Bileşenler**’i açmak için doğrulamak istediğiniz bağlantının adına tıklayın. Temel Bileşenler’de, bağlantınız hakkında daha fazla bilgi görebilirsiniz. Başarılı bir bağlantı gerçekleştirdiğinizde, **Durum** ‘Başarılı’ ve ‘Bağlandı’ olur.
    
     ![Azure portalını kullanarak VPN Gateway bağlantısını doğrulama](./media/vpn-gateway-verify-connection-portal-rm-include/connectionsucceeded.png)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-
