@@ -40,8 +40,3 @@
     ![Özet](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
 Kayıt tamamlandıktan sonra, sunucu kasadaki **Ayarlar** > **Sunucular** dikey penceresinde görüntülenir.
-
-
-<!--HONumber=Feb17_HO4-->
-
-
