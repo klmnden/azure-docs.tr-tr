@@ -6,8 +6,3 @@
 | [.NET Web Uygulamasından Web API Çağırma](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md) | [Javascript SPA’ya Kaydolma ve Oturum Açma Ekleme (NodeJS)](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)| |
 | [ASP.NET Core uygulamasına Kaydolma ve Oturum Açma ekleme](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | | |
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

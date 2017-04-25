@@ -11,7 +11,3 @@ Azure portalında, bağlantıya giderek klasik bir Sanal Ağ VPN Ağ Geçidi ba�
 5. Bağlantı hakkında daha fazla bilgi görüntülemek için bağlantının adına tıklayarak **Siteden Siteye VPN Bağlantısı** dikey penceresini açın.
 
     ![Daha fazla bağlantı durumu](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Connection status more info")
-
-<!--HONumber=Jan17_HO5-->
-
-
