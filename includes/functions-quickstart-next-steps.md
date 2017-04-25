@@ -10,7 +10,3 @@ Bu hızlı başlangıç, temel bir HTTP tetiklemeli işlevin basit bir yürütme
   Tüketim barındırma planı dahil olmak üzere, Azure İşlevlerinde kullanılabilen hizmet planlarını ve doğru planın nasıl seçileceğini açıklar. 
 * [Azure Uygulama Hizmeti nedir?](../articles/app-service/app-service-value-prop-what-is.md)  
   Azure İşlevleri; dağıtım, ortam değişkenleri ve tanılama gibi temel işlevler için Azure Uygulama Hizmeti platformunu kullanır. 
-
-<!--HONumber=Feb17_HO1-->
-
-
