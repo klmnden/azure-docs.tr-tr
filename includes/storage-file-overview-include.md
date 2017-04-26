@@ -5,8 +5,3 @@ Dosya depolama paylaşımı, standart SMB dosya paylaşımı olduğundan Azure'd
 
 [Azure Portal](https://portal.azure.com)’ı, Azure Storage PowerShell cmdlet’lerini, Azure Storage istemcisi kitaplıklarını veya Azure Storage REST API’sini kullanarak Azure dosya paylaşımları oluşturabilirsiniz. Ayrıca, bu dosya paylaşımları SMB paylaşımları olduğundan bunlara standart ve benzer dosya sistemi API’leriyle erişebilirsiniz.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-
