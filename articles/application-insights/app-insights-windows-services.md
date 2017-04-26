@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 97d750035e79d4780738e660d05e1a41085d51f1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 29598f052778759ed362e3aa4b997acb799717ef
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -115,10 +115,7 @@ Daha ayrıntılı ölçümler görmek için herhangi bir grafiğe tıklayın. [�
 Hata ayıklama modunda çalıştırdığınızda telemetri ardışık düzen üzerinden gönderilir, böylece görüntülenen verileri saniyeler içinde görebilirsiniz. Uygulamanızı Sürüm yapılandırmasında dağıttığınızda veriler daha yavaş birikir.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>Sunucunuza yayımladıktan sonra veri yok mu?
-Sunucunuzun güvenlik duvarında giden trafik için şu bağlantı noktalarını açın:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Sunucunuzun güvenlik duvarında giden trafik için bağlantı noktalarını açın. Gerekli adreslerin listesi için [bu sayfaya](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) bakın 
 
 #### <a name="trouble-on-your-build-server"></a>Derleme sunucunuzda sorun mu yaşıyorsunuz?
 Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild) bakın.
