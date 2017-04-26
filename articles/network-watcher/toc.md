@@ -7,6 +7,7 @@
 ## [Güvenlik grubu görünümü](network-watcher-security-group-view-overview.md)
 ## [Sonraki atlama](network-watcher-next-hop-overview.md)
 ## [VPN bağlantı sorunlarını giderme](network-watcher-troubleshoot-overview.md)
+## [Hizmet sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Kullanmaya Başlama
 ## [Ağ İzleyicisi’ni yapılandırma](network-watcher-create.md)
 ## Paket yakalamayı yönetme

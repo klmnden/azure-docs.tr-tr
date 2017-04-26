@@ -1,6 +1,6 @@
 # Genel Bakış
 ## [Azure Sanal Makineler üzerinde SQL Server nedir?](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [Fiyatlandırma](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [SSS](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Kullanmaya Başlama
@@ -48,9 +48,4 @@
 ## [SQL Server Araçları](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Veri Araçları (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -4,6 +4,7 @@
 ## [DocumentDB: MongoDB için API nedir?](documentdb-protocol-mongodb.md)
 ## [Temel kavramlar](documentdb-resources.md)
 ## [Genel dağıtım](documentdb-distribute-data-globally.md)
+## [Bölgesel yük devretme](documentdb-regional-failovers.md)
 ## [Güvenlik](documentdb-nosql-database-security.md)
 ## [NoSQL TCO analizi](https://aka.ms/documentdb-tco-paper)
 ## Senaryolar
@@ -47,8 +48,7 @@
 ### [Veri modeli oluşturma](documentdb-modeling-data.md)
 ### [Verilerin süresini otomatik olarak sonlandırma](documentdb-time-to-live.md)
 ### [Yedekleme ve geri yükleme](documentdb-online-backup-and-restore.md)
-### [Bölgesel yük devretme](documentdb-regional-failovers.md)
-### Otomasyon
+### Automation
 #### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 #### [Azure CLI 1.0: Hesap oluşturma](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Azure CLI 1.0: Bölge ekleme veya kaldırma](documentdb-automation-region-management.md)

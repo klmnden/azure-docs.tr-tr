@@ -1,8 +1,3 @@
-Data Factory’deki Kopyalama Etkinliği bir kaynak veri deposundan havuz veri deposuna verileri kopyalar. Data Factory aşağıdaki veri depolarını destekler. Herhangi bir kaynaktan gelen veriler herhangi bir havuza yazılabilir. Bir depoya veya depodan veri kopyalama hakkında bilgi edinmek için veri deposuna tıklayın.
-
-> [!NOTE] 
-> Kopyalama Etkinliğinin desteklemediği bir veri deposuna/veri deposundan veri taşımanız gerekirse Data Factory’de **özel bir etkinliği** kendi veri kopyalama/taşıma mantığınızla kullanın. Özel bir etkinlik oluşturma ve kullanma hakkında ayrıntılı bilgi için bkz. [Azure Data Factory işlem hattında özel etkinlikler kullanma](../articles/data-factory/data-factory-use-custom-activities.md).
-
 | Kategori | Veri deposu | Kaynak olarak desteklenen | Havuz olarak desteklenen |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Depolama](../articles/data-factory/data-factory-azure-blob-connector.md) |✓ |✓ |
@@ -36,7 +31,4 @@ Data Factory’deki Kopyalama Etkinliği bir kaynak veri deposundan havuz veri d
 | &nbsp; |[Web Tablosu (HTML tablosu)](../articles/data-factory/data-factory-web-table-connector.md) |✓ | |
 | &nbsp; |[GE Historian](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓ | | |
 
-> [!NOTE]
-> * taşıyan veri depoları şirket içi veya Azure IaaS üzerinde olabilir ve bir şirket içi/Azure IaaS makinesine [Veri Yönetimi Ağ Geçidi](../articles/data-factory/data-factory-data-management-gateway.md) yüklemenizi gerektirir.
->
->
+

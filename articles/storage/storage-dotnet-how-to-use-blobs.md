@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 29d8693dd1d6d1ef26ccb21e3a5b29cf1adbfcc5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e9cfcdd9d6e36c1154b91904da60483825ff8b94
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>.NET kullanarak Azure Blob Storage’ı kullanmaya başlayın
@@ -365,7 +365,7 @@ for (int i = 0; i < numBlocks; i++)
 Console.WriteLine(appendBlob.DownloadText());
 ```
 
-Üç blob türü arasındaki farklar hakkında bilgi edinmek için bkz. [Blok Blobları, Sayfa Blobları ve Ek Bloblarını anlama](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
+Üç blob türü arasındaki farklar hakkında bilgi edinmek için bkz. [Blok Blobları, Sayfa Blobları ve Ek Bloblarını anlama](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ## <a name="managing-security-for-blobs"></a>Blobların güvenliğini sağlama
 Varsayılan olarak Azure Storage, erişimi hesap erişim anahtarlarına sahip olan hesap sahibiyle sınırlandırarak verilerinizi güvende tutar. Depolama hesabınızda blob verileri paylaşmanız gerektiğinde bunu hesap erişim anahtarlarınızın güvenliğini tehlikeye atmadan yapmak önem taşır. Buna ek olarak kablo ve Azure Storage üzerinden güvenle geçmesini sağlamak için blob verilerini şifreleyebilirsiniz.
@@ -395,7 +395,7 @@ Blob Storage’ın temellerini öğrendiğinize göre, daha fazla bilgi edinmek 
 
 ### <a name="blob-storage-reference"></a>Blob Storage başvurusu
 * [.NET başvurusu için Depolama İstemci Kitaplığı](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-* [REST API başvurusu](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+* [REST API başvurusu](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 
 ### <a name="conceptual-guides"></a>Kavramsal kılavuzlar
 * [AzCopy komut satırı yardımcı programı ile veri aktarımı](storage-use-azcopy.md)

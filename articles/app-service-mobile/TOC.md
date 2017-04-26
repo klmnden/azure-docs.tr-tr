@@ -22,7 +22,7 @@
 
 ## Web uygulaması oluşturma
 ### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
-### [PHP](../app-service-web/app-service-web-get-started-php.md)    
+### [PHP](../app-service-web/app-service-web-get-started-php.md)
 ### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
 ### [Java](../app-service-web/app-service-web-get-started-java.md)
 ### [Python](../app-service-web/app-service-web-get-started-python.md)
@@ -68,7 +68,7 @@
 #### [Anında iletme bildirimleri ekleme](app-service-mobile-windows-store-dotnet-get-started-push.md)
 #### [İstemci SDK ile çalışma](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-### Xamarin.Android 
+### Xamarin.Android
 #### [Çevrimdışı eşitlemeyi etkinleştirme](app-service-mobile-xamarin-android-get-started-offline-data.md)
 #### [Kimlik doğrulaması ekleme](app-service-mobile-xamarin-android-get-started-users.md)
 #### [Anında iletme bildirimleri ekleme](app-service-mobile-xamarin-android-get-started-push.md)
@@ -78,7 +78,6 @@
 #### [Çevrimdışı eşitlemeyi etkinleştirme](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [Kimlik doğrulaması ekleme](app-service-mobile-xamarin-forms-get-started-users.md)
 #### [Anında iletme bildirimleri ekleme](app-service-mobile-xamarin-forms-get-started-push.md)
-#### [Xamarin.Forms uygulamanızda Azure Depolama’ya bağlanma](app-service-mobile-xamarin-forms-blob-storage.md)
 #### [İstemci SDK ile çalışma](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
@@ -194,7 +193,6 @@
 ### [Uygulamaları Azure Otomasyonu ile yönetme](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Tümleştirme
-### [Xamarin.Forms uygulamanızda Azure Depolama’ya bağlanma](app-service-mobile-xamarin-forms-blob-storage.md)
 ### [Karma bağlantıları kullanarak şirket içi kaynaklara erişme](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure ile SendGrid kullanarak e-posta gönderme](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -219,10 +217,10 @@
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
-## [MSDN forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
-## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## [Fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [MSDN forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Örnekler
 ### [Saha mühendisi](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Yapılandırılmış verileri eşitleme](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
