@@ -1,16 +1,12 @@
-Azure kaynaklarınızı mantıksal olarak kategorilere ayırmak için etiketler uygulayabilirsiniz. Her etiket bir anahtar ve değerden oluşur. Örneğin, "Ortam" anahtarını ve "Üretim" değerini üretimdeki tüm kaynaklara uygulayabilirsiniz. Bu etiket olmadan, bir kaynağın geliştirme, test veya üretime yönelik olduğunu belirlemekte zorluk yaşayabilirsiniz. Ancak, "Ortam" ve "Üretim" yalnızca örnektir. Aboneliğinizi düzenlemek için en mantıklı anahtar ve değerleri siz tanımlarsınız.
+You apply tags to your Azure resources to logically organize them by categories. Each tag consists of a key and a value. For example, you can apply the key "Environment" and the value "Production" to all the resources in production. Without this tag, you may have difficulty identifying whether a resource is intended for development, test, or production. However, "Environment" and "Production" are just examples. You define the keys and values that make the most sense for organizing your subscription.
 
-Etiketleri uyguladıktan sonra aboneliğinizde bu etiket anahtarını ve değerini taşıyan tüm kaynakları alabilirsiniz. Etiketler farklı kaynak gruplarında bulunan ilgili kaynakları almanızı sağlar. Bu yaklaşım, faturalama veya yönetim için kaynakları düzenlemeniz gerektiğinde yararlıdır.
+After applying tags, you can retrieve all the resources in your subscription with that tag key and value. Tags enable you to retrieve related resources that reside in different resource groups. This approach is helpful when you need to organize resources for billing or management.
 
-Etiketler için aşağıdaki sınırlamalar geçerlidir:
+The following limitations apply to tags:
 
-* Her kaynak veya kaynak grubu en fazla 15 etiket içerebilir. 
-* Etiket adı 512 karakterle sınırlıdır.
-* Etiket değeri 256 karakterle sınırlıdır. 
-* Kaynak grubuna uygulanan etiketler, bu kaynak grubundaki kaynaklar tarafından devralınmaz. 
+* Each resource or resource group can have a maximum of 15 tag key/value pairs. This limitation only applies to tags directly applied to the resource group or resource. A resource group can contain many resources that each have 15 tag key/value pairs. 
+* The tag name is limited to 512 characters.
+* The tag value is limited to 256 characters. 
+* Tags applied to the resource group are not inherited by the resources in that resource group. 
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+If you have more than 15 values that you need to associate with a resource, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag key. An example of assigning a JSON string to the tag key is shown in this article.

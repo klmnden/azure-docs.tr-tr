@@ -1,17 +1,12 @@
-Azure Active Directory hizmetine yönelik kullanım kısıtlamaları ve diğer hizmet sınırlamaları aşağıda verilmiştir.
+Here are the usage constraints and other service limits for the Azure Active Directory service.
 
-| Kategori | Sınırlar |
+| Category | Limits |
 | --- | --- |
-| Dizinler |Tek bir kullanıcı en fazla 20 Azure Active Directory dizini ile ilişkilendirilebilir.<br />Olası birleşimlerin örnekleri: <ul> <li>Tek bir kullanıcı 20 dizin oluşturur.</li><li>Tek bir kullanıcı üye olarak 20 dizine eklenir.</li><li>Tek bir kullanıcı 10 dizin oluşturur ve daha sonra başkaları tarafından 10 farklı dizine eklenir.</li></ul> |
-| Nesneler |<ul><li>Azure Active Directory Ücretsiz sürümünün kullanıcıları tarafından tek bir dizinde en fazla 500.000 nesne kullanılabilir.</li><li>Yönetici olmayan bir kullanıcı en fazla 250 nesne oluşturabilir.</li></ul> |
-| Şema uzantıları |<ul><li>Dize türü uzantılar en fazla 256 karakter olabilir. </li><li>İkili tür uzantılar 256 bayt ile sınırlıdır.</li><li>Herhangi bir tek nesneye&100; uzantı değeri (TÜM türlerde ve TÜM uygulamalarda) yazılabilir.</li><li>“Dize” türü veya “İkili” türü tek değerli özniteliklerle yalnızca “User”, “Group”, “TenantDetail”, “Device”, “Application” ve “ServicePrincipal” varlıkları uzatılabilir.</li><li>Şema uzantıları yalnızca Grafik API’si 1.21-önizleme sürümünde kullanılabilir. Bir uzantıyı kaydetmek için uygulamaya yazma erişimi verilmelidir.</li></ul> |
-| Uygulamalar |Tek bir uygulamanın sahibi en fazla 10 kullanıcı olabilir. |
-| Gruplar |<ul><li>Tek bir grubun sahibi en fazla 10 kullanıcı olabilir.</li><li>Azure Active Directory’de herhangi bir sayıdaki nesne tek bir grubun üyesi olabilir.</li><li>Bir grupta, Azure Active Directory Dizin Eşitleme (DirSync) kullanarak şirket içi Active Directory’den Azure Active Directory’ye eşitleyebileceğiniz üye sayısı 15 bin üye ile sınırlıdır.</li><li>Bir grupta Azure AD Connect kullanarak şirket içi Active Directory’den Azure Active Directory’ye eşitleyebileceğiniz üye sayısı 50 bin üye ile sınırlıdır.</li></ul> |
-| Erişim Paneli |<ul><li>Azure AD Premium veya Enterprise Mobility Suite lisansı atanmış kullanıcılar için, son kullanıcı başına Erişim Panelinde görülebilen uygulama sayısı sınırsızdır.</li><li>Azure Active Directory Ücretsiz ya da Azure AD Temel sürümlerinin lisansına sahip kullanıcılar için, son kullanıcı başına Erişim Panelinde en fazla 10 uygulama kutucuğu (örnek: Box, Salesforce veya Dropbox) görülebilir. Bu sınır, Yönetici hesapları için geçerli değildir.</li></ul> |
-| Reports | Herhangi bir raporda en fazla 1.000 satır görüntülenebilir veya indirilebilir. Bunun üzerindeki veriler kesilir. |
-| Yönetim birimleri | Bir nesne en fazla 30 idari birimin üyesi olabilir. |
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+| Directories |A single user can only be associated with a maximum of 20 Azure Active Directory directories.<br />Examples of possible combinations: <ul> <li>A single user creates 20 directories.</li><li>A single user is added to 20 directories as a member.</li><li>A single user creates 10 directories and later is added by others to 10 different directories.</li></ul> |
+| Objects |<ul><li>A maximum of 500,000 objects can be used in a single directory by users of the Free edition of Azure Active Directory.</li><li>A non-admin user can create no more than 250 objects.</li></ul> |
+| Schema extensions |<ul><li>String type extensions can have maximum of 256 characters. </li><li>Binary type extensions are limited to 256 bytes.</li><li>100 extension values (across ALL types and ALL applications) can be written to any single object.</li><li>Only “User”, “Group”, “TenantDetail”, “Device”, “Application” and “ServicePrincipal” entities can be extended with “String” type or “Binary” type single-valued attributes.</li><li>Schema extensions are available only in Graph API-version 1.21-preview. The application must be granted write access to register an extension.</li></ul> |
+| Applications |A maximum of 100 users can be owners of a single application. |
+| Groups |<ul><li>A maximum of 100 users can be owners of a single group.</li><li>Any number of objects can be members of a single group in Azure Active Directory.</li><li>The number of members in a group you can synchronize from your on-premises Active Directory to Azure Active Directory is limited to 15K members, using Azure Active Directory Directory Synchronization (DirSync).</li><li>The number of members in a group you can synchronize from your on-premises Active Directory to Azure Active Directory using Azure AD Connect is limited to 50K members.</li></ul> |
+| Access Panel |<ul><li>There is no limit to the number of applications that can be seen in the Access Panel per end user, for users assigned licenses for Azure AD Premium or the Enterprise Mobility Suite.</li><li>A maximum of 10 app tiles (examples: Box, Salesforce, or Dropbox) can be seen in the Access Panel for each end user for users assigned licenses for Free or Azure AD Basic editions of Azure Active Directory. This limit does not apply to Administrator accounts.</li></ul> |
+| Reports | A maximum of 1,000 rows can be viewed or downloaded in any report. Any additional data is truncated. |
+| Administrative units | An object can be a member of no more than 30 administrative units. |
