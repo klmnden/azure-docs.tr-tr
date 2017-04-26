@@ -29,7 +29,6 @@
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Tanılama günlükleri](event-hubs-diagnostic-logs.md)
-### [Kimlik doğrulama ve yetkilendirme](../service-bus-messaging/service-bus-sas.md)
 ### [AMQP 1.0 protokol kılavuzu](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Yönet
 ### [Event Hubs yönetim kitaplıkları](event-hubs-management-libraries.md)

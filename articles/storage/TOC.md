@@ -67,7 +67,7 @@
 ### [Tablo Tasarımı Kılavuzu](storage-table-design-guide.md)
 ### [Örnekler](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Dosyaları kullanma
-### [Genel Bakış](/rest/api/storageservices/fileservices/File-Service-Concepts)
+### [Genel Bakış](/rest/api/storageservices/File-Service-Concepts)
 ### [Azure Dosyalarının Sorunlarını Giderme](storage-troubleshoot-file-connection-problems.md)
 ### [Örnekler](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Disk kullanma
@@ -180,7 +180,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Bloblar, Kuyruklar, Tablolar ve Dosyalar](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+### [Bloblar, Kuyruklar, Tablolar ve Dosyalar](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 ### [Kaynak sağlayıcısı](/rest/api/storagerp)
 ### [İçeri/Dışarı Aktarma](/rest/api/storageimportexport)
 

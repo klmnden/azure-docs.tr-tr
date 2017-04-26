@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/31/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: e6a486ebb442b8e2404fd53081fcad6561b7fb41
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: d5126f3b9fa92ff95eaa8bc06554c49f9836bab9
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -290,7 +290,7 @@ Azure portalına giderek yeni oluşturduğunuz web uygulamasına göz atın.
 
 Bunu yapmak için [https://portal.azure.com](https://portal.azure.com) sayfasında oturum açın.
 
-Sol menüden **App Service**’e ve ardından Azure web uygulamanızın adına tıklayın.
+Sol menüden **Uygulama Hizmetleri**’ne ve ardından Azure web uygulamanızın adına tıklayın.
 
 ![Portaldan Azure web uygulamasına gitme](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
