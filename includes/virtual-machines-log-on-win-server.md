@@ -13,8 +13,3 @@
    
    ![VM kimliğini doğrulamaya ilişkin iletiyi gösteren ekran görüntüsü](./media/virtual-machines-log-on-win-server/cert-warning.png)
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-
