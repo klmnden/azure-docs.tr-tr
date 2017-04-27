@@ -8,8 +8,3 @@
 
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. Proje ayarlarınızdaki **Cloud Messaging** sekmesine tıklayın ve **Sunucu anahtarı** ile **Gönderen kimliği** değerini kopyalayın. Bu değerler daha sonra bildirim hub'ı erişim ilkesini ve bildirim işleyicinizi uygulamada yapılandırmak için kullanılacaktır.
-
-
-<!--HONumber=Dec16_HO2-->
-
-
