@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
-ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 07b62cd6f6deb0cf3ff1c806204ebc26c773a164
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -57,6 +58,67 @@ Depolama Gezgini (Önizleme) depolama hesaplarına bağlanmak için birkaç yol 
 4. Sol bölmede seçili Azure abonelikleriyle ilişkili depolama hesapları gösterilir.
 
     ![Seçili Azure abonelikleri][4]
+
+## <a name="connect-to-an-azure-stack-subscription"></a>Bir Azure Stack aboneliğine bağlanma
+
+1. Depolama Gezgini’nin Azure Stack aboneliğine uzaktan erişmesi için VPN bağlantısı gereklidir. Azure Stack ile VPN bağlantısı kurma hakkında bilgi edinmek için bkz. [VPN ile Azure Stack’e Bağlanma](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn)
+
+2. Azure Stack POC için Azure Stack yetkili kök sertifikasını dışarı aktarmanız gerekir. MAS-CON01, Azure Stack ana makinesi veya Azure Stack ile VPN bağlantısı olan yerel makinede `mmc.exe` menüsünü açın. **Dosya** menüsünde **Ek Bileşen Ekle/Kaldır**’ı seçin, **Yerel Bilgisayar**’ın **Bilgisayar hesabı**’nı yönetmek için **Sertifikalar** ekleyin.
+
+   ![mmc.exe dosyası ile Azure Stack kök sertifikasını yükleme][25]   
+
+   **Konsol Kökü\Sertifikalı (Yerel Bilgisayar)\Güvenilir Kök Sertifika Yetkilileri\Sertifikalar** altında **AzureStackCertificationAuthority** öğesini bulun. Öğeye sağ tıklayıp **Tüm Görevler -> Dışarı Aktar**’ı seçin. Ardından iletişim kutularını izleyerek sertifikayı **Base-64 kodlu X.509 (.CER)** ile dışarı aktarın. Dışarı aktarılan sertifika sonraki adımda kullanılır.   
+
+   ![Kök Azure Stack yetkili kök sertifikasını dışarı aktarma][26]   
+
+3. Depolama Gezgini’nde (Önizleme), **Düzenle** menüsünü, **SSL Sertifikaları** ve ardından **Sertifikaları İçeri Aktar**’ı seçin. Dosya seçici iletişim kutusunu kullanarak, önceki adımda bulduğunuz sertifikayı açın. İçeri aktardıktan sonra Depolama Gezgini'ni yeniden başlatmanız istenir.
+
+   ![Depolama Gezgini’ne (Önizleme) sertifika aktarma][27]
+
+4. Depolama Gezgini (Önizleme) yeniden başlatıldıktan sonra **Düzenle** menüsünü seçin ve **Hedef Azure Stack** seçeneğinin işaretli olduğundan emin olun. İşaretli değilse işaretleyin ve değişikliğin etkili olması için Depolama Gezgini’ni yeniden başlatın. Bu yapılandırma, Azure Stack ortamınıza uyum için gereklidir.
+
+   ![Hedef Azure Stack’in seçili olduğundan emin olun][28]
+
+5. Sol taraftaki çubukta **Hesapları Yönet**’i seçin. Oturum açtığınız tüm Microsoft hesapları sol bölmede gösterilir. Azure Stack hesabına bağlanmak için **Hesap ekle**’yi seçin.
+
+   ![Azure stack hesabı ekleme][29]
+
+6. **Yeni hesap ekle** iletişim kutusundaki **Azure ortamı** altında **Özel Ortam Seç** öğesini seçin ve ardından **İleri**’ye tıklayın.
+
+7. Azure Stack ortamıyla ilgili tüm gerekli bilgileri girin ve ardından **Oturum Aç**’a tıklayın.  En az bir etkin Azure Stack aboneliğiyle ilişkili Azure Stack hesabıyla oturum açmak için **Özel Bulut ortamında oturum aç** iletişim kutusunu doldurun. İletişim kutusundaki her bir alanın ayrıntıları aşağıdaki gibidir:
+
+    * **Ortam adı** – Alan kullanıcı tarafından özelleştirilebilir.
+    * **Yetkili** – Değer https://login.windows.net olmalıdır. Azure Çin (Mooncake) için https://login.chinacloudapi.cn kullanılmalıdır.
+    * **Oturum açma kaynak kimliği** – Aşağıdaki PowerShell komutunu yürüterek değeri alın:
+
+    Bulut Yöneticisi iseniz:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    Kiracıysanız:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    * **Graph uç noktası** – Değer https://graph.windows.net olmalıdır. Azure Çin (Mooncake) için https://graph.chinacloudapi.cn kullanılmalıdır.
+    * **ARM kaynak kimliği** – Oturum açma kaynak kimliği ile aynı değeri kullanın.
+    * **ARM kaynak uç noktası** – ARM kaynak uç noktası örnekleri:
+
+    Bulut Yöneticisi için: https://adminmanagement.local.azurestack.external   
+    Kiracı için: https://management.local.azurestack.external
+ 
+    * **Kiracı Kimlikleri** – İsteğe bağlı. Değer yalnızca dizinin belirtilmesi zorunlu olduğunda verilir.
+
+8. Bir Azure Stack hesabı ile başarıyla oturum açtıktan sonra sol bölme ilgili hesapla ilişkili Azure Stack abonelikleriyle doldurulur. Birlikte çalışmak istediğiniz Azure Stack aboneliklerini ve ardından **Uygula**’yı seçin. (**Tüm abonelikler**’in seçilmesi listelenen Azure Stack aboneliklerinin tamamının seçilmesini veya hiçbirinin seçilmemesini sağlar.)
+
+   ![Özel Bulut Ortamı iletişim kutusunu doldurduktan sonra Azure Stack aboneliklerini seçin][30]
+
+9. Sol bölmede seçili Azure Stack abonelikleriyle ilişkili depolama hesapları gösterilir.
+
+   ![Azure Stack abonelik hesaplarını içeren depolama hesaplarının listesi][31]
 
 ## <a name="work-with-local-development-storage"></a>Yerel geliştirme deposu ile çalışma
 Depolama Gezgini (Önizleme) Azure Storage Öykünücüsü kullanarak yerel depolama karşı çalışmanıza olanak tanır. Bu, (depolama hesabı Azure Storage Öykünücüsü tarafından öykündüğü için) depolama hesabını Azure’ye dağıtmadan hesaba karşı kod yazıp test edebilmenizi sağlar.
@@ -207,9 +269,11 @@ Aramayı temizlemek için arama kutusundaki **x** düğmesini seçin.
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+[25]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-certificate-azure-stack.png
+[26]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/export-root-cert-azure-stack.png
+[27]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/import-azure-stack-cert-storage-explorer.png
+[28]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-target-azure-stack.png
+[29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
+[30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
+[31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
 

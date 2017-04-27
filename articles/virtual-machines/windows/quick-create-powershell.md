@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: ace9fc76cd1f007ffbee1dbc3df3e91858f35b93
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 91ef7f432d0954cc8456e5d98c48943aa0ad72a7
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,9 @@ ms.lasthandoff: 04/04/2017
 
 Azure PowerShell modülü, PowerShell komut satırından veya betik içinden Azure kaynakları oluşturmak ve yönetmek için kullanılır. Bu kılavuzda PowerShell kullanarak Windows Server 2016 çalıştıran bir Azure sanal makinesi oluşturma işleminin ayrıntıları verilmektedir.  Dağıtım tamamlandıktan sonra sunucuya bağlanılır ve IIS yüklenir.  
 
-Başlamadan önce Azure PowerShell modülünün en yeni sürümünün yüklü olduğundan emin olun. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) oluşturun.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Ayrıca, Azure PowerShell modülünün en yeni sürümünün yüklü olduğundan emin olun. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 

@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: aef5bce6f440f4a0a57763f915d307297f50281b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -73,8 +73,7 @@ Liste görünümündeki bir öğeye tıklayarak bu öğe hakkında mevcut olan t
 Raporlanan verileri istediğiniz düzeye gelecek şekilde daraltmak için, aşağıdaki alanları kullanarak denetim verilerini filtreleyebilirsiniz:
 
 - Tarih aralığı
-- Başlatan
-- Kategori
+- Başlatan (Aktör)
 - Kategori
 - Etkinlik kaynak türü
 - Etkinlik
@@ -311,7 +310,7 @@ Uygulama tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtl
 * Uygulamaların adları değiştirildi mi?
 * Belirli bir uygulama için kim onay verdi?
 
-Yalnızca uygulamalarınızla ilgili denetim verilerini gözden geçirmek istiyorsanız, **Kurumsal uygulamalar** dikey penceresinin **Etkinlik** bölümündeki **Denetim günlükleri** altında filtrelenmiş bir görünüm bulabilirsiniz. Bu giriş noktasında, **Etkinlik Kaynağı Türü** olarak **Uygulama** önceden seçilidir.
+Yalnızca uygulamalarınızla ilgili denetim verilerini gözden geçirmek istiyorsanız, **Kurumsal uygulamalar** dikey penceresinin **Etkinlik** bölümündeki **Denetim günlükleri** altında filtrelenmiş bir görünüm bulabilirsiniz. Bu giriş noktasında, **Etkinlik Kaynağı Türü** olarak **Kurumsal uygulamalar** önceden seçilidir.
 
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/134.png "Denetim günlükleri")
 

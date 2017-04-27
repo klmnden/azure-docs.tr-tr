@@ -1,5 +1,5 @@
 ---
-title: "JavaScript web uygulamaları için Azure Application Insights | Microsoft Belgeleri"
+title: "JavaScript web uygulamaları için Azure Application Insights | Microsoft Docs"
 description: "Sayfa görünümü ve oturum sayısını, web istemci verilerini alın ve kullanım desenlerini izleyin. JavaScript web sayfalarında özel durumları ve performans sorunlarını yakalayın."
 services: application-insights
 documentationcenter: 
@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -108,7 +108,7 @@ Kullanıcılarınızın tarayıcılarından toplanan performans verilerini göst
 
 ![portal.azure.com adresinde uygulamanızın kaynağını açıp Ayarlar, Tarayıcı’ya tıklama](./media/app-insights-javascript/03.png)
 
-*Henüz veri yok mu? Sayfanın üstündeki**Yenile**'ye tıklayın. Hala hiçbir şey yok mu? Bkz. [Sorun giderme](app-insights-troubleshoot-faq.md).*
+*Henüz veri yok mu? Sayfanın üstündeki **Yenile**'ye tıklayın. Hala hiçbir şey yok mu? Bkz. [Sorun giderme](app-insights-troubleshoot-faq.md).*
 
 Tarayıcı dikey penceresi, hazır filtrelerin ve grafik seçimlerinin bulunduğu [Ölçüm Gezgini dikey penceresidir](app-insights-metrics-explorer.md). İsterseniz zaman aralığını, filtreleri ve grafik yapılandırmasını düzenleyebilir ve sonucu sık kullanılan olarak kaydedebilirsiniz. Asıl dikey pencere yapılandırmasına dönmek için **Varsayılanları geri yükle**’ye tıklayın.
 
@@ -230,6 +230,6 @@ Uygulamanızla kullanıcılarınızın neler yaptığını bilmek ister misiniz?
 ## <a name="next"></a> Sonraki adımlar
 * [Kullanımı izleme](app-insights-web-track-usage.md)
 * [Özel etkinlikler ve ölçümler](app-insights-api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-overview-usage.md)
+* [Build-measure-learn](app-insights-web-track-usage.md)
 
 

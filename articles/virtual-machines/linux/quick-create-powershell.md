@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 8f8ed2396ba0fcff5c6334daa2a095a960e924c5
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: bffbeb5238ec69d763e1cc7ad3c8a6e4fad34306
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,9 +27,11 @@ ms.lasthandoff: 04/04/2017
 
 Azure PowerShell modülü, PowerShell komut satırından veya betik içinden Azure kaynakları oluşturmak ve yönetmek için kullanılır. Bu kılavuzda PowerShell kullanarak Ubuntu 14.04 LTS çalıştıran bir Azure sanal makinesi oluşturma işleminin ayrıntıları verilmektedir.
 
-Başlamadan önce, Windows kullanıcı profilinizin `.ssh` dizininde `id_rsa.pub` adlı bir ortak SSH anahtarının depolanması gerekir. Azure için SSH anahtarları oluşturma hakkında ayrıntılı bilgi için bkz. [Azure için SSH anahtarları oluşturma](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) oluşturun.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Ayrıca, Azure PowerShell modülünün en yeni sürümünün yüklü olduğundan emin olun. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
+
+Son olarak, Windows kullanıcı profilinizin `.ssh` dizininde `id_rsa.pub` adlı bir ortak SSH anahtarının depolanması gerekir. Azure için SSH anahtarları oluşturma hakkında ayrıntılı bilgi için bkz. [Azure için SSH anahtarları oluşturma](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 

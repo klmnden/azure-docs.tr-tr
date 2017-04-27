@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 28a14cc68f44a278274e60cf46d5344c85dcc777
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="what-is-azure-event-hubs"></a>Azure Event Hubs nedir?
-Event Hubs saniyede milyonlarca olayı alabilen, yüksek oranda ölçeklenebilir bir veri akış platformudur. Bir Olay Hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve toplu iş/depolama bağdaştırıcısı kullanılarak dönüştürülüp depolanabilir. Düşük gecikme ile yoğun ölçekte yayımlama-abonelik özellikleri sağlayabilen Event Hubs, Büyük Veriler için "kestirme yol" olarak görev yapar.
+# <a name="what-is-event-hubs"></a>Event Hubs nedir?
+Azure Event Hubs saniyede milyonlarca olayı alabilen, yüksek oranda ölçeklenebilir bir veri akış platformudur. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Düşük gecikme ile yoğun ölçekte yayımlama-abonelik özellikleri sağlayabilen Event Hubs, Büyük Veriler için "kestirme yol" olarak görev yapar.
 
 ## <a name="why-use-event-hubs"></a>Event Hubs’ı neden kullanmalıyım?
 Event Hubs olay ve telemetri işleme özellikler onu özellikle aşağıdaki durumlar için yararlı hale getirir:
@@ -40,13 +40,13 @@ Event Hubs’ın çözüm mimarilerinde oynadığı genel rol, bir olay ardış�
 
 Azure Event Hubs, düşük gecikme süresi ve yüksek güvenilirlik ile bulut ölçekli olay ve telemetri alımı sağlayan bir olay işleme hizmetidir. Event Hubs bir ileti akışı işleme yeteneği sağlar ve bir geleneksel kurumsal mesajlaşmadan farklı olan özelliklere sahiptir. Event Hubs özellikleri, yüksek işleme ve olay işleme senaryoları üzerine inşa edilmiştir. Bu nedenle Event Hubs, konu başlıkları gibi mesajlaşma varlıkları için sunulan bazı mesajlaşma özelliklerini uygulamaz.
 
-Bir Olay Hub'ı, ad alanı düzeyinde oluşturulur ve birincil API arabirimi olarak AMQP ile HTTP kullanır.
+Bir olay hub'ı, ad alanı düzeyinde oluşturulur ve birincil API arabirimi olarak AMQP ile HTTP kullanır.
 
 ## <a name="event-publishers"></a>Olay yayımcıları
-Bir Olay Hub'ına veri gönderen herhangi bir varlık *olay yayımcısıdır*. Olay yayımcıları HTTPS veya AMQP 1.0 kullanarak olayları yayımlayabilir. Olay yayımcıları kendilerini bir Event Hub'ına tanıtmak için Paylaşılan Erişim İmzası (SAS) belirteci kullanır ve benzersiz bir kimliğe sahip olabilir ya da ortak bir SAS belirteci kullanabilir.
+Bir olay hub'ına veri gönderen herhangi bir varlık *olay yayımcısıdır*. Olay yayımcıları HTTPS veya AMQP 1.0 kullanarak olayları yayımlayabilir. Olay yayımcıları kendilerini bir olay hub'ına tanıtmak için Paylaşılan Erişim İmzası (SAS) belirteci kullanır ve benzersiz bir kimliğe sahip olabilir ya da ortak bir SAS belirteci kullanabilir.
 
 ### <a name="publishing-an-event"></a>Olay yayımlama
-Bir olayı AMQP 1.0 veya HTTPS üzerinden yayımlayabilirsiniz. Service Bus, .NET istemcilerinden bir Event Hub'ına olayları yayımlamak için [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) sınıfını sağlar. Diğer çalışma zamanları ve platformlar için [Apache Qpid](http://qpid.apache.org/) gibi herhangi bir AMQP 1.0 istemcisi kullanabilirsiniz. Olayları ayrı ayrı veya toplu olarak yayımlayabilirsiniz. Tek bir yayın (olay verileri örneği), tek bir olay ya da toplu işlem olmasına bakılmaksızın 256 KB sınırlamaya sahiptir. Bundan büyük olayların yayımlanması bir hatayla sonuçlanır. Yayımcıların Event Hub'ındaki bölümleri bilmemesi ve yalnızca bir *bölüm anahtarı* (sonraki bölümde açıklanmıştır) ya da kimliklerini SAS belirteci üzerinden belirtmeleri en iyi yöntemdir.
+Bir olayı AMQP 1.0 veya HTTPS üzerinden yayımlayabilirsiniz. Service Bus, .NET istemcilerinden bir olay hub'ına olayları yayımlamak için [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) sınıfını sağlar. Diğer çalışma zamanları ve platformlar için [Apache Qpid](http://qpid.apache.org/) gibi herhangi bir AMQP 1.0 istemcisi kullanabilirsiniz. Olayları ayrı ayrı veya toplu olarak yayımlayabilirsiniz. Tek bir yayın (olay verileri örneği), tek bir olay ya da toplu işlem olmasına bakılmaksızın 256 KB sınırlamaya sahiptir. Bundan büyük olayların yayımlanması bir hatayla sonuçlanır. Yayımcıların olay hub'ındaki bölümleri bilmemesi ve yalnızca bir *bölüm anahtarı* (sonraki bölümde açıklanmıştır) ya da kimliklerini SAS belirteci üzerinden belirtmeleri en iyi yöntemdir.
 
 AMQP veya HTTPS kullanma seçimi kullanım senaryosuna bağlıdır. AMQP, taşıma düzeyi güvenliği (TLS) veya SSL/TLS’ye ek olarak kalıcı bir çift yönlü yuva oluşturulmasını gerektirir. Oturum başlatılırken AMQP’nin ağ maliyetleri daha yüksektir, ancak HTTPS her istek için ek SSL yükü gerektirir. Daha sık yayımcılar için AMQP daha yüksek performans sunar.
 
@@ -55,7 +55,7 @@ AMQP veya HTTPS kullanma seçimi kullanım senaryosuna bağlıdır. AMQP, taşı
 Event Hubs aynı bölüm anahtarı değerini paylaşan tüm olayların sırayla ve aynı bölüme iletilmesini sağlar. Bölüm anahtarlarının yayımcı ilkeleriyle birlikte kullanılması durumunda yayımcı kimliğinin ve bölüm anahtarı değerinin eşleşmesi gerekir. Aksi takdirde bir hata oluşur.
 
 ### <a name="publisher-policy"></a>Yayımcı ilkesi
-Event Hubs, *yayımcı ilkeleri* aracılığıyla olay yayımcıları üzerinde ayrıntılı denetim sağlar. Yayımcı ilkeleri çok sayıda bağımsız olay yayımcısını kolaylaştırmak için tasarlanmış çalışma zamanı özellikleridir. Yayımcı ilkeleriyle her yayımcı, olayları aşağıdaki mekanizmayı kullanarak bir Event Hub'ında yayımlarken kendi benzersiz tanımlayıcısını kullanır:
+Event Hubs, *yayımcı ilkeleri* aracılığıyla olay yayımcıları üzerinde ayrıntılı denetim sağlar. Yayımcı ilkeleri çok sayıda bağımsız olay yayımcısını kolaylaştırmak için tasarlanmış çalışma zamanı özellikleridir. Yayımcı ilkeleriyle her yayımcı, olayları aşağıdaki mekanizmayı kullanarak bir olay hub'ında yayımlarken kendi benzersiz tanımlayıcısını kullanır:
 
 ```
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
@@ -66,15 +66,15 @@ Yayımcı adlarını önceden oluşturmanız gerekli değildir, ancak bunlar ba�
 ## <a name="partitions"></a>Bölümler
 Event Hubs her bir tüketicinin ileti akışında yalnızca belirli bir alt küme ya da bölümü okuduğu bölünmüş bir tüketici modeli aracılığıyla ileti akışı sağlar. Bu model, olay işleme için yatay ölçek sağlar ve kuyruklar ile konularda kullanılamayan diğer akış odaklı özellikleri sunar.
 
-Bölüm bir Event Hub'ında tutulan olayların sıralı dizisidir. Yeni olaylar geldikçe dizinin sonuna eklenir. Bölüm bir "yürütme günlüğü" olarak düşünülebilir.
+Bölüm bir olay hub'ında tutulan olayların sıralı dizisidir. Yeni olaylar geldikçe dizinin sonuna eklenir. Bölüm bir "yürütme günlüğü" olarak düşünülebilir.
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/partition.png)
 
-Event Hubs, verileri Olay Hub’ındaki tüm bölümler için geçerli olan bir yapılandırılmış elde tutma süresi boyunca saklar. Olayların süresi saat bazında dolar; bunları açıkça silemezsiniz. Bölümler birbirinden bağımsız olup kendi veri dizisini içerdiğinden genellikle farklı hızlarda büyürler.
+Event Hubs, verileri olay hub’ındaki tüm bölümler için geçerli olan bir yapılandırılmış elde tutma süresi boyunca saklar. Olayların süresi saat bazında dolar; bunları açıkça silemezsiniz. Bölümler birbirinden bağımsız olup kendi veri dizisini içerdiğinden genellikle farklı hızlarda büyürler.
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/multiple_partitions.png)
 
-Bölüm sayısı, oluşturma sırasında belirtilir ve 2 ile 32 arasında olmalıdır. Bölüm sayısı değiştirilemez; bu nedenle, bölüm sayısını ayarlarken uzun vadeli ölçeği dikkate almanız gerekir. Bölümler, tüketen uygulamalarda gerekli aşağı akış paralelliğiyle ilişkili bir veri düzenleme mekanizmasıdır. Bir Olay Hub'ındaki bölüm sayısı, sahip olmayı beklediğiniz eşzamanlı okuyucu sayısıyla doğrudan ilgilidir. Event Hubs ekibine başvurarak bölüm sayısını 32’nin üzerine çıkarabilirsiniz.
+Bölüm sayısı, oluşturma sırasında belirtilir ve 2 ile 32 arasında olmalıdır. Bölüm sayısı değiştirilemez; bu nedenle, bölüm sayısını ayarlarken uzun vadeli ölçeği dikkate almanız gerekir. Bölümler, tüketen uygulamalarda gerekli aşağı akış paralelliğiyle ilişkili bir veri düzenleme mekanizmasıdır. Bir olay hub'ındaki bölüm sayısı, sahip olmayı beklediğiniz eşzamanlı okuyucu sayısıyla doğrudan ilgilidir. Event Hubs ekibine başvurarak bölüm sayısını 32’nin üzerine çıkarabilirsiniz.
 
 Bölümler tanımlanabilir olup doğrudan gönderilebilse de bunun yapılması önerilmez. Bunun yerine, [Olay yayımcısı](#event-publishers) ve [Kapasite](#capacity) bölümlerinde sunulan daha yüksek düzeyli yapıları kullanabilirsiniz. 
 
@@ -83,20 +83,20 @@ Bölümler olayın gövdesini, kullanıcı tarafından tanımlanan bir özellik 
 Bölümleri ve kullanılabilirlikleri ile güvenilirlikleri arasındaki dengeleme hakkında daha fazla bilgi için, bkz: [Event Hubs programlama kılavuzu](event-hubs-programming-guide.md#partition-key) ve [Event Hubs’ta kullanılabilirlik ve tutarlılık](event-hubs-availability-and-consistency.md) makalesi.
 
 ### <a name="partition-key"></a>Bölüm anahtarı
-Gelen olay verilerini veri düzenleme amacıyla belirli bölümlere eşlemek için [bölüm anahtarı](event-hubs-programming-guide.md#partition-key) kullanabilirsiniz. Bölüm anahtarı, gönderen tarafından belirtilip bir Event Hub'ına geçirilen değerdir. Statik karma işlevi ile işlenir ve sonuçta bölüm ataması oluşturulur. Bir olayı yayımlarken bölüm anahtarı belirtmezseniz hepsini bir kez deneme ataması kullanılır.
+Gelen olay verilerini veri düzenleme amacıyla belirli bölümlere eşlemek için [bölüm anahtarı](event-hubs-programming-guide.md#partition-key) kullanabilirsiniz. Bölüm anahtarı, gönderen tarafından belirtilip bir olay hub'ına geçirilen değerdir. Statik karma işlevi ile işlenir ve sonuçta bölüm ataması oluşturulur. Bir olayı yayımlarken bölüm anahtarı belirtmezseniz hepsini bir kez deneme ataması kullanılır.
 
 Olay yayımcısı yalnızca bölüm anahtarını bilir, olayların yayımlandığı bölümü bilmez. Anahtar ile bölümün bu şekilde ayrılması göndereni aşağı akış işleme hakkında çok fazla bilgi sahibi olma gereksiniminden kurtarır. Cihaz veya kullanıcı başına benzersiz bir kimlik iyi bir bölüm anahtarı oluşturur, ancak ilgili olayları tek bir bölümde gruplandırmak için coğrafi bölge gibi diğer öznitelikler de kullanılabilir.
 
 ## <a name="sas-tokens"></a>SAS belirteçleri
-Event Hubs, ad alanında ve Olay Hub’ı düzeyinde kullanılabilen *Paylaşılan Erişim İmzaları* kullanır. SAS belirteci bir SAS anahtarından oluşturulur ve belirli bir biçimde kodlanmış bir URL’nin SHA karmasıdır. Event Hubs anahtar (ilke) ve belirtecin adını kullanarak karmayı yeniden oluşturabilir ve böylece gönderenin kimliğini doğrular. Normalde, olay yayımcıları için SAS belirteci yalnızca belirli bir Event Hub'ı üzerindeki **gönder** ayrıcalıkları ile oluşturulur. Bu SAS belirteci URL mekanizması, yayımcı ilkesinde sunulan yayımcı kimliğinin temelini oluşturur. SAS ile çalışma hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması](../service-bus-messaging/service-bus-sas.md).
+Event Hubs, ad alanında ve olay hub’ı düzeyinde kullanılabilen *Paylaşılan Erişim İmzaları* kullanır. SAS belirteci bir SAS anahtarından oluşturulur ve belirli bir biçimde kodlanmış bir URL’nin SHA karmasıdır. Event Hubs anahtar (ilke) ve belirtecin adını kullanarak karmayı yeniden oluşturabilir ve böylece gönderenin kimliğini doğrular. Normalde, olay yayımcıları için SAS belirteci yalnızca belirli bir olay hub'ı üzerindeki **gönder** ayrıcalıkları ile oluşturulur. Bu SAS belirteci URL mekanizması, yayımcı ilkesinde sunulan yayımcı kimliğinin temelini oluşturur. SAS ile çalışma hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması](../service-bus-messaging/service-bus-sas.md).
 
 ## <a name="event-consumers"></a>Olay tüketicileri
-Bir Olay Hub'ından olay verilerini okuyan herhangi bir varlık *olay tüketicisidir*. Tüm Event Hubs tüketicileri AMQP 1.0 oturumu üzerinden bağlanır ve olaylar, kullanılabilir olduğu anda oturum üzerinden iletilir. İstemcinin veri kullanılabilirliğini yoklaması gerekmez.
+Bir olay hub'ından olay verilerini okuyan herhangi bir varlık *olay tüketicisidir*. Tüm Event Hubs tüketicileri AMQP 1.0 oturumu üzerinden bağlanır ve olaylar, kullanılabilir olduğu anda oturum üzerinden iletilir. İstemcinin veri kullanılabilirliğini yoklaması gerekmez.
 
 ### <a name="consumer-groups"></a>Tüketici grupları
-Event Hubs yayımlama/abonelik mekanizması *tüketici grupları* aracılığıyla etkinleştirilir. Tüketici grubu tüm Event Hub'ının bir görünümüdür (durum, konum veya uzaklık). Tüketici grupları birden çok tüketen uygulamayı her biri olay akışının ayrı bir görünümüne sahip olacak ve akışı kendi hızlarında ve kendi sapmalarıyla bağımsız bir şekilde okuyacak şekilde etkinleştirir.
+Event Hubs yayımlama/abonelik mekanizması *tüketici grupları* aracılığıyla etkinleştirilir. Tüketici grubu tüm olay hub'ının bir görünümüdür (durum, konum veya uzaklık). Tüketici grupları birden çok tüketen uygulamayı her biri olay akışının ayrı bir görünümüne sahip olacak ve akışı kendi hızlarında ve kendi sapmalarıyla bağımsız bir şekilde okuyacak şekilde etkinleştirir.
 
-Bir akış işleme mimarisinde her bir aşağı akış uygulaması bir tüketici grubuna karşılık gelir. Olay verilerini uzun süreli depolama alanına yazmak isterseniz bu depolama yazma uygulaması bir tüketici grubudur. Bundan sonra karmaşık olay işlemesi başka ve ayrı bir tüketici grubu tarafından gerçekleştirilebilir. Bölümlere yalnızca bir tüketici grubu üzerinden erişebilirsiniz. Her bölümde **belirli bir tüketici grubundan** aynı anda yalnızca bir etkin okuyucu olabilir. Bir Event Hub'ında her zaman varsayılan bir tüketici grubu vardır ve Standart katmanlı bir Event Hub'ı için en fazla 20 tüketici grubu oluşturabilirsiniz.
+Bir akış işleme mimarisinde her bir aşağı akış uygulaması bir tüketici grubuna karşılık gelir. Olay verilerini uzun süreli depolama alanına yazmak isterseniz bu depolama yazma uygulaması bir tüketici grubudur. Bundan sonra karmaşık olay işlemesi başka ve ayrı bir tüketici grubu tarafından gerçekleştirilebilir. Bölümlere yalnızca bir tüketici grubu üzerinden erişebilirsiniz. Her bölümde **belirli bir tüketici grubundan** aynı anda yalnızca bir etkin okuyucu olabilir. Bir olay hub'ında her zaman varsayılan bir tüketici grubu vardır ve Standart katmanlı bir olay hub'ı için en fazla 20 tüketici grubu oluşturabilirsiniz.
 
 Tüketici grubu URI kuralının örnekleri aşağıda verilmiştir:
 
@@ -117,7 +117,7 @@ Aşağıdaki şekilde Event Hubs akış işleme mimarisi gösterilmektedir:
 ### <a name="checkpointing"></a>Denetim noktası oluşturma
 *Denetim noktası oluşturma*, okuyucuların bir bölüm olay dizisindeki konumlarını işaretledikleri veya uyguladıkları bir işlemdir. Denetim noktası oluşturma, tüketicinin sorumluluğundadır ve bir tüketici grubunda bölüm başına temelinde gerçekleşir. Bu sorumluluk, her bir tüketici grubu için her bölüm okuyucusunun geçerli konumunu olay akışında izlemesi gerektiği ve veri akışının tamamlandığını düşündüğünde hizmeti bilgilendirebileceği anlamına gelir.
 
-Bir okuyucunun bölüm bağlantısı kesilirse yeniden bağlandığında ilgili tüketici grubundaki o bölümün son okuyucusu tarafından daha önce gönderilen denetim noktasında okumaya başlar. Okuyucu bağlandığında okumaya başlayacağı konumu belirtmek üzere bu uzaklığı Event Hub'ına geçirir. Bu şekilde, denetim noktası oluşturma özelliğini hem aşağı akış uygulamaları ile olayları "tamamlandı" olarak işaretlemek hem de farklı makinelerde çalışan okuyucular arasında bir yük devretme oluşması durumunda esneklik sağlamak amacıyla kullanabilirsiniz. Bu denetim noktası oluşturma işleminden daha düşük bir uzaklık belirterek daha eski verilere geri dönülebilir. Bu mekanizmayla denetim noktası oluşturma özelliği hem yük devretme esnekliği hem de olay akışı yeniden yürütmesi sağlar.
+Bir okuyucunun bölüm bağlantısı kesilirse yeniden bağlandığında ilgili tüketici grubundaki o bölümün son okuyucusu tarafından daha önce gönderilen denetim noktasında okumaya başlar. Okuyucu bağlandığında okumaya başlayacağı konumu belirtmek üzere bu uzaklığı olay hub'ına geçirir. Bu şekilde, denetim noktası oluşturma özelliğini hem aşağı akış uygulamaları ile olayları "tamamlandı" olarak işaretlemek hem de farklı makinelerde çalışan okuyucular arasında bir yük devretme oluşması durumunda esneklik sağlamak amacıyla kullanabilirsiniz. Bu denetim noktası oluşturma işleminden daha düşük bir uzaklık belirterek daha eski verilere geri dönülebilir. Bu mekanizmayla denetim noktası oluşturma özelliği hem yük devretme esnekliği hem de olay akışı yeniden yürütmesi sağlar.
 
 ### <a name="common-consumer-tasks"></a>Ortak tüketici görevleri
 Tüm Event Hubs tüketicileri bir AMQP 1.0 oturumu ile durum bilgisi olan iki yönlü iletişim kanalı üzerinden bağlanır. Her bölümde bölüme göre ayrılmış olayların taşınmasını kolaylaştıran bir AMQP 1.0 oturumu vardır.
@@ -152,7 +152,7 @@ Satın alınan işleme birimlerinin kapasitesi aşıldığında giriş azaltıl�
 
 Azure desteğine başvurularak 20’li bloklar halinde olacak şekilde 100’e kadar daha fazla işleme birimi satın alınabilir. Bundan sonraki miktarlar için 100 işleme biriminden oluşan bloklar satın alabilirsiniz.
 
-En iyi ölçeği elde etmek için işleme birimleri ve bölümlerini dengelemeniz önerilir. Tek bir bölüm en fazla bir işleme biriminden oluşan ölçeğe sahiptir. İşleme birimlerinin sayısı bir Event Hub’ındaki bölüm sayısına eşit veya daha az olmalıdır.
+En iyi ölçeği elde etmek için işleme birimleri ve bölümlerini dengelemeniz önerilir. Tek bir bölüm en fazla bir işleme biriminden oluşan ölçeğe sahiptir. İşleme birimlerinin sayısı bir olay hub’ındaki bölüm sayısına eşit veya daha az olmalıdır.
 
 Ayrıntılı fiyatlandırma bilgileri için bkz. [Event Hubs Fiyatlandırması](https://azure.microsoft.com/pricing/details/event-hubs/).
 

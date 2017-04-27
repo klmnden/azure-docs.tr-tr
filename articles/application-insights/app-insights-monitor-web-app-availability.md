@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/12/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -34,23 +34,26 @@ Genel İnternet'ten erişilebilen herhangi bir HTTP veya HTTPS uç noktası içi
 
 Her uygulama kaynağı için 10 web testine kadar test oluşturabilirsiniz.
 
-## <a name="create"></a>1. Test raporlarınız için kaynak oluşturma
-Bu uygulama için zaten [Application Insights kaynağı ayarladıysanız][start] ve kullanılabilirlik raporlarını aynı yerde görmek istiyorsanız bu adımı atlayın.
+## <a name="create"></a>1. Web testi raporlarınız için kaynak açma
 
-[Microsoft Azure](http://azure.com) oturumu açın, [Azure portalına](https://portal.azure.com) gidin ve bir Application Insights kaynağı oluşturun.
+Web uygulamanız için **Application Insights’ı zaten yapılandırdıysanız**, Application Insights kaynağını [Azure portalında](https://portal.azure.com) açın.
+
+**Veya raporlarınızı yeni bir kaynakta görmek istiyorsanız,** [Microsoft Azure](http://azure.com)’a kaydolun, [Azure portalı](https://portal.azure.com)’na gidin ve bir Application Insights kaynağı oluşturun.
 
 ![Yeni > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
 Yeni kaynağa ait Genel Bakış dikey penceresini açmak için **Tüm kaynaklar**’a tıklayın.
 
 ## <a name="setup"></a>2. URL ping testi oluşturma
-Application Insights kaynağınızda Kullanılabilirlik kutucuğunu arayın. Uygulamanızla ilgili Web testleri dikey penceresini açmak için tıklayın ve bir web testi ekleyin.
+Kullanılabilirlik dikey penceresini açın ve bir web testi ekleyin.
 
 ![En azından web sitenizin URL'sini doldurma](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **URL** ortak internet'ten görünür olmalıdır. Bir sorgu dizesi içerebilir; bu nedenle, örneğin, veritabanınızla biraz alıştırma yapabilirsiniz. URL yeniden yönlendirme adresine çözümlenirse, en fazla 10 yeniden yönlendirmeyi izleriz.
-* **Bağımlı istekleri ayrıştır**: Sayfanın görüntüleri, betikleri, stil dosyaları ve diğer kaynakları testin bir parçası olarak istenir ve kaydedilen yanıt süreleri bu süreleri içerir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur.
-* **Yeniden denemeyi etkinleştir**: Test başarısız olduğunda, kısa bir süre sonra yeniden denenir. Art arda üç deneme başarısız olursa bir hata bildirilir. Sonraki testler bundan sonra her zamanki test sıklığında gerçekleştirilir. Bir sonraki başarılı olana kadar yeniden deneme geçici olarak askıya alınır. Bu kural her test konuma bağımsız olarak uygulanır. (Bu ayarı öneriyoruz. Ortalama olarak hataların yaklaşık %80’i yeniden deneme sırasında kaybolur.)
+* **URL**, test etmek istediğiniz herhangi bir web sayfası olabilir, ancak ortak İnternet’te görünür olmalıdır. URL bir sorgu dizesi&#151 içerebilir; bu nedenle, örneğin, veritabanınızla biraz alıştırma yapabilirsiniz. URL yeniden yönlendirme adresine çözümlenirse, en fazla 10 yeniden yönlendirmeyi izleriz.
+* **Bağımlı istekleri ayrıştır**: Bu seçenek işaretlenirse test, test kapsamındaki web sitesine ait görüntü, betik, stil dosyaları ve diğer dosyaları ister. Kayıtlı yanıt süresi, bu dosyaları almak için geçen süreyi içerir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur. 
+
+    Seçenek işaretlenmezse, test yalnızca belirttiğiniz URL’deki dosyayı ister.
+* **Yeniden denemeyi etkinleştir**: Bu seçenek işaretlenirse, test başarısız olduğunda kısa bir süre sonra yeniden denenir. Art arda üç deneme başarısız olursa bir hata bildirilir. Sonraki testler bundan sonra her zamanki test sıklığında gerçekleştirilir. Bir sonraki başarılı olana kadar yeniden deneme geçici olarak askıya alınır. Bu kural her test konuma bağımsız olarak uygulanır. Bu ayar önerilir. Ortalama olarak hataların yaklaşık %80’i yeniden deneme sırasında kaybolur.
 * **Test sıklığı**: Her test konumdan testin ne sıklıkta çalıştırılacağını ayarlar. Beş dakikalık sıklığında ve beş test konumuyla, siteniz ortalama olarak dakikada bir test edilir.
 * **Test konumları**, sunucularımızın URL’nize web istekleri gönderdiği yerlerdir. Bir konumdan fazla seçin; böylece, web sitenizdeki ağ sorunlarını ayırt edebilirsiniz. En fazla 16 konum seçebilirsiniz.
 * **Başarı ölçütleri**:
@@ -67,14 +70,23 @@ Application Insights kaynağınızda Kullanılabilirlik kutucuğunu arayın. Uyg
 ### <a name="test-more-urls"></a>Daha fazla URL test etme
 Daha fazla test ekleyin. Örneğin, giriş sayfanızın test edilmesinin yanı sıra, arama URL’sini de test ederek veritabanınızın çalıştığından emin olursunuz.
 
+
 ## <a name="monitor"></a>3. Web testi sonuçlarınıza bakın
-Sonuçlar, 1-2 dakika sonra Web Testi dikey penceresinde görüntülenir.
+
+5 dakika sonra test sonuçlarını görmek için **Yenile**’ye tıklayın. 
 
 ![Giriş dikey penceresinde özet sonuçları](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
 Bu döneme ait daha ayrıntılı bir görünüm için özet grafiğin herhangi bir çubuğuna tıklayın.
 
-Bu grafikler, bu uygulamanın tüm web testleri için sonuçları birleştirir.
+## <a name="edit"></a> Testleri inceleme ve düzenleme
+
+Özet sayfasından belirli bir test seçin. Burada özel sonuçları görebilir ve düzenleyebilir ya da geçici olarak devre dışı bırakabilirsiniz.
+
+![Web testini düzenleme veya devre dışı bırakma](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+
+Hizmetinizde bakımı gerçekleştirirken web testlerini devre dışı bırakmak isteyebilirsiniz.
+
 
 ## <a name="failures"></a>Hata görürseniz
 Kırmızı noktaya tıklayın.
@@ -103,7 +115,9 @@ Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satı
 
 Çok adımlı bir test oluşturmak için Visual Studio Enterprise kullanarak senaryoyu kaydedin ve kaydı Application Insights'a yükleyin. Application Insights, senaryoyu aralıklarla yeniden yürütür ve yanıtları doğrular.
 
-Testlerinizde kodlanmış işlevleri kullanamadığınızı unutmayın: senaryo adımları .webtest dosyasında betik olarak yer almalıdır.
+> [!NOTE]
+> Testlerinizde kodlanmış işlevler veya döngüler kullanamazsınız. Test tamamen .webtest betiğinde yer almalıdır. Ancak, standart eklentiler kullanabilirsiniz.
+>
 
 #### <a name="1-record-a-scenario"></a>1. Senaryo kaydetme
 Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
@@ -144,13 +158,19 @@ Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
 
     Test konumları, sıklığı ve uyarı parametrelerini aynı ping testlerinde olduğu gibi aynı şekilde ayarlayın.
 
+#### <a name="3-see-the-results"></a>3. Sonuçları görme
+
 Tek url testlerinde olduğu gibi test sonuçlarını ve hatalarını görüntüleyin.
 
-Yaygın bir başarısızlık nedeni testin çok uzun çalışmasıdır. İki dakikadan uzun çalıştırılmamalıdır.
+Ayrıca, test sonuçlarını indirerek Visual Studio’da görüntüleyebilirsiniz.
 
-Betikler, stil sayfaları, görüntüler ve diğerleri de dahil olmak üzere, testin başarılı olması için sayfanın tüm kaynaklarının doğru yüklenmiş olması gerektiğini unutmayın.
+#### <a name="too-many-failures"></a>Çok fazla hata mı var?
 
-Web testinin tamamen .webtest dosyasında olması gerektiğini unutmayın. Testte kodlanmış işlevleri kullanamazsınız.
+* Yaygın bir başarısızlık nedeni testin çok uzun çalışmasıdır. İki dakikadan uzun çalıştırılmamalıdır.
+
+* Betikler, stil sayfaları, görüntüler ve diğerleri de dahil olmak üzere, testin başarılı olması için sayfanın tüm kaynaklarının doğru yüklenmiş olması gerektiğini unutmayın.
+
+* Web testi tamamen .webtest dosyasında olmalıdır: Testte kodlanmış işlevleri kullanamazsınız.
 
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Çok adımlı testinizde bağlı kalma süresi ve rasgele rakamlar
 Dış bir kaynağa ait stoklar gibi zamana bağımlı veriler alan bir aracı test ettiğinizi varsayalım. Web testinizi kaydettiğinizde, belirli zamanları kullanmanız gerekse de, bunları testin parametreleri (StartTime ve EndTime) olarak ayarlarsınız.
@@ -211,12 +231,6 @@ Testinizde OAuth kullanılarak oturum açılması gerekiyorsa, genel yaklaşım 
 * Belirteçleri parametreleyin; belirteç kimlik doğrulayıcıdan döndürüldüğünde ve sitede sorgu sırasında kullanıldığında parametre ayarı.
   (Visual Studio testi parametrelemeyi dener, ancak belirteçleri doğru parametrelemez.)
 
-## <a name="edit"></a> Testi düzenleme veya devre dışı bırakma
-Düzenlemek veya devre dışı bırakmak için bir test açın.
-
-![Web testini düzenleme veya devre dışı bırakma](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
-
-Hizmetinizde bakımı gerçekleştirirken web testlerini devre dışı bırakmak isteyebilirsiniz.
 
 ## <a name="performance-tests"></a>Performans testleri
 Web sitenizde bir yük testi çalıştırabilirsiniz. Kullanılabilirlik testinde olduğu gibi dünyanın dört bir yanındaki noktalarımızdan basit istekler ya da çok adımlı istekler gönderebilirsiniz. Kullanılabilirlik testinden farklı olarak eşzamanlı birden fazla kullanıcıyı benzeten çok sayıda istek gönderilir.
@@ -229,7 +243,7 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 * Otomatik olarak [web testini ayarlamak için PowerShell betiklerini kullanın](app-insights-powershell.md#add-an-availability-test).
 * Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md) ayarlayın.
 
-## <a name="questions-problems"></a>Sorularınız mı var? Sorunlarınız mı var?
+## <a name="qna"></a>Sorularınız mı var? Sorunlarınız mı var?
 * *Web testimden kod çağırabilir miyim?*
 
     Hayır. Test adımları .webtest dosyasında olmalıdır. Bu nedenle, başka web testlerini çağıramaz, döngüleri kullanamazsınız. Ancak yararlı bulabileceğiniz bir dizi eklenti vardır.

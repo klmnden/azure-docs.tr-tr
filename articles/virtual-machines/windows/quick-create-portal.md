@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 17fb538b33a4a4a2b333ff501e6e729f6000f623
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Azure sanal makineleri, Azure portalı üzerinden oluşturulabilir. Bu yöntem, sanal makineleri ve tüm ilgili kaynakları oluşturup yapılandırmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar. Azure portalı kullanarak sanal makine oluşturmaya yönelik Hızlı Başlangıç adımları. Dağıtım tamamlandıktan sonra sunucuya bağlanılır ve IIS yüklenir.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -42,7 +42,9 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
     ![Portal dikey penceresinde VM’niz ile ilgili temel bilgileri girin](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
-5. VM için boyut seçip **Seç** öğesine tıklayın.
+5. VM için bir boyut seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. 
+
+    ![VM boyutlarını gösteren ekran görüntüsü](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
 6. Ayarlar dikey penceresinde, **Yönetilen diskleri kullan** altında **Evet**’i seçin, kalan ayarları varsayılan değerlerinde bırakın ve **Tamam**’a tıklayın.
 
@@ -58,7 +60,7 @@ IIS trafiğine izin vermek için 80 numaralı bağlantı noktasını web trafiğ
 2. Kaynak grubu dikey penceresinde, kaynak listesindeki **Ağ güvenlik grubu**’na tıklayın. NSG adı, sonuna -nsg eklenmiş VM adı olmalıdır.
 3. Gelen kural listesini açmak için **Gelen Güvenlik Kuralı**’na tıklayın. Listede RDP için zaten bir kural olduğunu görürsünüz.
 4. **+ Ekle**’ye tıklayarak **Gelen güvenlik kuralı ekle** dikey penceresini açın.
-5. **Ad** alanına **IIS** yazın **Bağlantı noktası aralığı** değerinin 80’e, **Eylem** seçeneğinin **İzin Ver**’e ayarlandığından emin olup **Tamam**’a tıklayın.
+5. **Ad** alanına **IIS** yazın. **Bağlantı noktası aralığı** değerinin 80, **Eylem** ayarının **İzin Ver** olarak belirlendiğinden emin olun. **Tamam** düğmesine tıklayın.
 
 
 ## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
@@ -78,7 +80,7 @@ Dağıtım tamamlandıktan sonra sanal makine ile bir uzak masaüstü bağlantı
 
 ## <a name="install-iis-using-powershell"></a>PowerShell kullanarak IIS yükleme
 
-Azure VM’de oturum açtıktan sonra tek bir PowerShell satırı kullanarak IIS yükleyebilir ve web trafiğine izin vermek üzere yerel güvenlik duvarı kuralını etkinleştirebilirsiniz.  Bir PowerShell istemi açın ve şu komutu çalıştırın:
+Sanal makinede bir PowerShell istemi açın ve aşağıdaki komutu çalıştırarak IIS yükleyip, web trafiğine izin veren yerel güvenlik kuralı duvarını etkinleştirin:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -90,13 +92,6 @@ Sanal makinenizde İnternet’ten IIS yüklenmiş ve bağlantı noktası 80 aç�
 
 ![Varsayılan IIS sitesi](./media/quick-create-powershell/default-iis-website.png) 
 
-## <a name="delete-virtual-machine"></a>Sanal makineyi silme
-
-Kaynak Grubu, VM ve tüm ilgili kaynaklar artık gerekli olmadığında aşağıdaki komut kullanılarak kaldırılabilir.
-
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
-```
 ## <a name="delete-virtual-machine"></a>Sanal makineyi silme
 
 Artık gerekli olmadığında kaynak grubunu, sanal makineyi ve tüm ilişkili kaynakları silin. Bunu yapmak için sanal makine dikey penceresinden kaynak grubunu seçip **Sil**’e tıklayın.

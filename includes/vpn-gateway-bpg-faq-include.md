@@ -28,6 +28,8 @@ Azure VPN Gateway şirket içi BGP cihazlarınıza şu rotaları tanıtacaktır:
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Varsayılan yolu (0.0.0.0/0) Azure VPN ağ geçitlerine tanıtabilir miyim?
 Evet.
 
+Bunun yapılması, tüm sanal ağ çıkış trafiğini şirket içi sitenize yönelmeye zorlar ve sanal ağ VM’lerinin, İnternet’ten VM’lere RDP veya SSH gibi doğrudan İnternet’ten gelen ortak iletişimi kabul etmesini engeller.
+
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>Tam ön eklerimi Sanal Ağ ön eklerim olarak tanıtabilir miyim?
 
 Hayır, aynı ön eklerin Sanal Ağ adresi ön eklerinden biri olarak tanıtılması Azure platformu tarafından engellenir veya filtrelenir. Ancak, Sanal Ağınızda bulunanların üst kümesi olan bir ön ek tanıtabilirsiniz. 
@@ -65,9 +67,4 @@ Azure Yerel Ağ Geçidi, şirket içi ağ için başlangıç adresi öneklerini 
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>BGP eşdeğer oturumu için şirket içi VPN cihazıma ne eklemeliyim?
 VPN cihazınızdaki Azure BGP Eşdeğer IP adresinin, IPsec S2S VPN tüneline yönlenmiş konak rotasını eklemelisiniz. Örneğin, Azure VPN Eşdeğer IP’si "10.12.255.30" olursa, "10.12.255.30" için VPN cihazınızdaki eşleşen IPsec tüneli arabiriminin sonraki durak arabirimine sahip bir konak rotası eklemelisiniz.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

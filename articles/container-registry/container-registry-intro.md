@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
-ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 25301f1bbacdf2f1e3d04ed3470eafd31098ea32
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Özel Docker kapsayıcısı kayıt defterlerine giriş
@@ -39,7 +39,7 @@ Docker ve kapsayıcılarla ilgili arka plan bilgileri için bkz.
 Azure kapsayıcısı kayıt defterinden çeşitli dağıtım hedeflerine görüntü çekme:
 
 * [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) ve [Kubernetes](http://kubernetes.io/docs/) dahil olmak üzere konak kümeleri arasında kapsayıcı haline getirilmiş uygulamaları yöneten **ölçeklenebilir düzenleme sistemleri** .
-* [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) ve [Service Fabric](../service-fabric/index.md) dahil olmak üzere uygun ölçekte uygulama oluşturulmasını ve çalıştırılmasını destekleyen **Azure hizmetleri**.
+* [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) ve diğerleri gibi uygun ölçekte uygulama oluşturulmasını ve çalıştırılmasını destekleyen **Azure hizmetleri**.
 
 Geliştiriciler bir kapsayıcı geliştirme iş akışı kapsamında bir kapsayıcı kayıt defterine de öğe itebilir. Örneğin, [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) veya [Jenkins](https://jenkins.io/) gibi bir sürekli tümleştirme ve dağıtım aracından bir kapsayıcı kayıt defteri hedeflenebilir.
 

@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a63514af636696d168931150cbda2fd30e0b32ce
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -44,7 +44,7 @@ Kullanıcı oturum açma raporu tarafından sağlanan bilgiler sayesinde aşağ�
 * Bir hafta içerisinde kaç adet kullanıcı oturum açtı?
 * Bu açılan oturumların durumu nedir?
 
-Tüm oturum açma etkinliği verilerine ilk giriş noktanız, **Azure Active Directory**’nin **Oturum açma işlemleri** bölümünde bulunan Etkinlik kısmıdır.
+Tüm oturum açma etkinliği verilerine ilk giriş noktanız, **Azure Active**’in Etkinlik bölümündeki **Oturum açma işlemleri** kısmıdır. kısmıdır.
 
 
 ![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/61.png "oturum açma etkinliği")

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 25ffd1c5bf289fa98a4b350eb916b386eee7f05c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Azure sanal makineleri, Azure portalı üzerinden oluşturulabilir. Bu yöntem, sanal makineleri ve tüm ilgili kaynakları oluşturup yapılandırmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar. Azure portalı kullanarak sanal makine oluşturmaya yönelik Hızlı Başlangıç adımları.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="create-ssh-key-pair"></a>SSH anahtar çifti oluşturma
 
@@ -52,9 +52,9 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
     ![Portal dikey penceresinde VM’niz ile ilgili temel bilgileri girin](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
-4. VM için boyut seçip **Seç** öğesine tıklayın. 
+4. VM için bir boyut seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. 
 
-    ![Portal dikey penceresinde VM için bir boyut seçin](./media/quick-create-portal/create-vm-portal-size-blade.png)
+    ![VM boyutlarını gösteren ekran görüntüsü](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
 5. Ayarlar dikey penceresinde, **Yönetilen diskleri kullan** altında **Evet**’i seçin, kalan ayarları varsayılan değerlerinde bırakın ve **Tamam**’a tıklayın.
 
@@ -71,7 +71,7 @@ Varsayılan olarak, Azure’a dağıtılmış Linux sanal makinelerinde yalnızc
 2. Kaynak grubu dikey penceresinde, kaynak listesindeki **Ağ güvenlik grubu**’na tıklayın. NSG adı, sonuna -nsg eklenmiş VM adı olmalıdır.
 3. Gelen kural listesini açmak için **Gelen Güvenlik Kuralı**’na tıklayın. Listede RDP için zaten bir kural olduğunu görürsünüz.
 4. **+ Ekle**’ye tıklayarak **Gelen güvenlik kuralı ekle** dikey penceresini açın.
-5. **Ad** alanına **nginx** yazın **Bağlantı noktası aralığı** değerinin 80’e, **Eylem** seçeneğinin **İzin Ver**’e ayarlandığından emin olup **Tamam**’a tıklayın.
+5. **Ad** alanına **nginx** yazın. **Bağlantı noktası aralığı** değerinin 80, **Eylem** ayarının **İzin Ver** olarak belirlendiğinden emin olun. **Tamam** düğmesine tıklayın.
 
 
 ## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
@@ -104,7 +104,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>NGIX karşılama sayfasını görüntüleme
 
-NGINX yüklendiğine ve VM’nizde İnternet üzerinden 80 numaralı bağlantı noktası açık olduğuna göre, varsayılan NGINX karşılama sayfasını görüntülemek için, seçtiğiniz bir web tarayıcısını kullanabilirsiniz. Varsayılan sayfayı ziyaret etmek için yukarıda belgelediğiniz `publicIpAddress` seçeneğini kullandığınızdan emin olun. 
+NGINX yüklendiğine ve VM’nizde İnternet üzerinden 80 numaralı bağlantı noktası açık olduğuna göre, varsayılan NGINX karşılama sayfasını görüntülemek için, seçtiğiniz bir web tarayıcısını kullanabilirsiniz. Varsayılan sayfayı ziyaret etmek için belgelediğiniz `publicIpAddress` seçeneğini kullandığınızdan emin olun. 
 
 ![Varsayılan NGINX sitesi](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Sanal makineyi silme

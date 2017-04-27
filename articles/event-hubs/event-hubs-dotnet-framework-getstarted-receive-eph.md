@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 38fe7818771f6a6965cb324631d0935959576541
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6c309a14e00324a9335bde61fe175ec3906c066d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,20 +26,20 @@ ms.lasthandoff: 03/09/2017
 ## <a name="introduction"></a>Giriş
 Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
 
-Bu öğreticide, **[Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]**’nı kullanarak bir Olay Hub’ından iletiler alan .NET Framework konsol uygulamasını yazma işlemi gösterilmektedir. .NET Framework kullanarak olayları göndermek için [.NET Framework kullanarak Azure Event Hubs’a olay gönderme](event-hubs-dotnet-framework-getstarted-send.md) makalesine bakın veya soldaki içindekiler bölümünden uygun gönderme diline tıklayın.
+Bu öğreticide, **[Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]**’nı kullanarak bir olay hub’ından iletiler alan .NET Framework konsol uygulamasını yazma işlemi gösterilmektedir. .NET Framework kullanarak olayları göndermek için [.NET Framework kullanarak Azure Event Hubs’a olay gönderme](event-hubs-dotnet-framework-getstarted-send.md) makalesine bakın veya soldaki içindekiler bölümünden uygun gönderme diline tıklayın.
 
-[Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost], Event Hubs'a ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu Event Hubs'a ait alma olaylarını basitleştiren bir .NET sınıfıdır. [Olay İşleyicisi Ana Bilgisayarı][Event Processor Host]’nı kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nın nasıl kullanıldığını göstermektedir. [Olay işleme ölçeğini genişletme][Scale out Event Processing with Event Hubs] örneği, birden çok alıcıyla [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nın nasıl kullanılacağını göstermektedir.
+[Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost], olay hub’larına ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu olay hub’larına ait alma olaylarını basitleştiren bir .NET sınıfıdır. [Olay İşleyicisi Ana Bilgisayarı][Event Processor Host]’nı kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nın nasıl kullanıldığını göstermektedir. [Olay işleme ölçeğini genişletme][Scale out Event Processing with Event Hubs] örneği, birden çok alıcıyla [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nın nasıl kullanılacağını göstermektedir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için şunlar gerekir:
 
 * [Microsoft Visual Studio 2015 veya üzeri](http://visualstudio.com). Bu öğreticideki ekran görüntülerinde Visual Studio 2017 kullanılır.
-* Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/free/).
+* Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/free/).
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir Olay Hub’ı oluşturma
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
 
-İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın Olay Hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve Olay Hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı izleyin, ardından aşağıdaki adımlarla devam edin.
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı izleyin, ardından aşağıdaki adımlarla devam edin.
 
 ## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma
 
@@ -119,14 +119,14 @@ Bu öğreticiyi tamamlamak için şunlar gerekir:
      }
      ```
     
-     Olay Hub’ından alınan olayları işlemek için bu sınıf **EventProcessorHost** tarafından çağrılır. `SimpleEventProcessor` sınıfının, **EventProcessorHost** bağlamında düzenli olarak denetim noktası yöntemini çağırmak için bir kronometre kullandığını unutmayın. Alıcı yeniden başlatılırsa, çalışmayı sürdürmek için beş dakikadan fazla kaybedilmemesi sağlanır.
+     Olay hub’ından alınan olayları işlemek için bu sınıf **EventProcessorHost** tarafından çağrılır. `SimpleEventProcessor` sınıfının, **EventProcessorHost** bağlamında düzenli olarak denetim noktası yöntemini çağırmak için bir kronometre kullandığını unutmayın. Alıcı yeniden başlatılırsa, çalışmayı sürdürmek için beş dakikadan fazla kaybedilmemesi sağlanır.
 11. **Program** sınıfında aşağıdaki `using` deyimini dosyanın üst kısmına ekleyin:
     
      ```csharp
      using Microsoft.ServiceBus.Messaging;
      ```
     
-     Ardından, `Program` sınıfındaki `Main` yöntemini aşağıdaki kodla değiştirin; bu kodda Olay Hub'ı adı ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesi ve önceki bölümlerde kopyaladığınız depolama hesabı ve anahtarı değişecektir. 
+     Ardından, `Program` sınıfındaki `Main` yöntemini aşağıdaki kodla değiştirin; bu kodda olay hub'ı adı ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesi ve önceki bölümlerde kopyaladığınız depolama hesabı ve anahtarı değişecektir. 
     
      ```csharp
      static void Main(string[] args)
@@ -152,7 +152,7 @@ Bu öğreticiyi tamamlamak için şunlar gerekir:
 
 12. Programı çalıştırın ve herhangi bir hata olmadığından emin olun.
   
-Tebrikler! Olay İşleyicisi Ana Bilgisayarı’nı kullanarak bir Olay Hub’ından iletiler aldınız.
+Tebrikler! Olay İşleyicisi Ana Bilgisayarı’nı kullanarak bir olay hub’ından iletiler aldınız.
 
 
 > [!NOTE]
@@ -168,7 +168,7 @@ Tebrikler! Olay İşleyicisi Ana Bilgisayarı’nı kullanarak bir Olay Hub’ı
 [Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Event Hub'ı oluşturan ve veri gönderip alan çalışan bir uygulama oluşturduğunuza göre aşağıdaki bağlantıları ziyaret ederek daha fazla bilgi alabilirsiniz:
+Olay hub’ını oluşturan ve veri gönderip alan çalışan bir uygulama oluşturduğunuza göre aşağıdaki bağlantıları ziyaret ederek daha fazla bilgi alabilirsiniz:
 
 * [Olay İşleyicisi Konağı](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [Event Hubs'a genel bakış][Event Hubs overview]

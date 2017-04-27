@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: d7c4c5b118dade39bd47ae2c7836157589fcb45a
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -33,21 +33,21 @@ Bir VPN ağ geçidi kullanılarak Siteden Siteye (S2S) şirketler arası VPN ba�
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>Tabloları görüntülerken dikkate alınacaklar:
 
-* Azure VPN ağ geçitleri terimlerinde bir değişiklik meydana gelmiştir. İşlev değişikliği değil yalnızca ad değişikliği söz konusudur.
+* Azure VPN ağ geçitleri terimlerinde bir değişiklik meydana gelmiştir. İşlevsellik değişmez. Yalnızca adlar değişir.
   * Statik Yönlendirme = PolicyBased
   * Dinamik Yönlendirme = RouteBased
 * Yüksek Performanslı VPN ağ geçidi ve RouteBased VPN ağ geçidi özellikleri aksi belirtilmedikçe aynıdır. Örneğin, RouteBased VPN ağ geçitleri ile uyumlu doğrulanmış VPN cihazları, Azure Yüksek Performanslı VPN ağ geçidi ile de uyumludur.
 
 > [!NOTE]
-> Siteden Siteye bağlantı yapılandırırken, VPN cihazınız için genel kullanıma yönelik bir IPv4 IP adresi gereklidir.                                                                                                                                                                               
+> Siteden Siteye bağlantı yapılandırırken, VPN cihazınız için genel kullanıma yönelik bir IPv4 IP adresi gereklidir.
+>                
 
-
-## <a name="devicetable"></a>Doğrulanan VPN cihazları
+## <a name="devicetable"></a>Doğrulanmış VPN cihazları ve cihaz yapılandırma kılavuzları
 Cihaz satıcılarıyla işbirliğiyle bir grup standart VPN cihazının doğruladık. Aşağıdaki listede bulunan cihaz ailelerinde yer alan tüm cihazlar, Azure VPN ağ geçitleriyle birlikte kullanılabilir. Yapılandırmak istediğiniz çözüm için oluşturmanız gereken ağ geçidinin türünü doğrulamak için bkz. [VPN Gateway Hakkında](vpn-gateway-about-vpngateways.md).
 
-VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz ailesine karşılık gelen bağlantılara başvurun.  Mümkün olan en iyi yapılandırma yönergeleri verilmiştir. VPN cihazı desteği için lütfen cihaz üreticinize başvurun.
+VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz ailesine karşılık gelen bağlantılara başvurun. Mümkün olan en iyi yapılandırma yönergeleri verilmiştir. VPN cihazı desteği için lütfen cihaz üreticinize başvurun.
 
-|**Satıcı**          |**Cihaz ailesi**     |**En düşük işletim sistemi sürümü** |**PolicyBased** |**RouteBased** |
+|**Satıcı**          |**Cihaz ailesi**     |**En düşük işletim sistemi sürümü** |**PolicyBased yapılandırma yönergeleri** |**RouteBased yapılandırma yönergeleri** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Uyumlu Değil  |[Yapılandırma kılavuzu](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
 | Allied Telesis     |AR Serisi VPN Yönlendiricileri |2.9.2                  |Çok yakında     |Uyumlu değil  |
@@ -81,7 +81,7 @@ Cihazınızı Doğrulanan VPN cihazları tablosunda görmüyor olsanız bile cih
 ## <a name="editing"></a>Cihaz yapılandırma örneklerini düzenleme
 Sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra, ortamınıza ilişkin ayarları yansıtacak şekilde bazı değerleri değiştirmeniz gerekir.
 
-###<a name="to-edit-a-sample"></a>Bir örneği düzenlemek için:
+### <a name="to-edit-a-sample"></a>Bir örneği düzenlemek için:
 
 1. Not Defteri'ni kullanarak örneği açın.
 2. Tüm <*text*> dizelerini arayın ve ortamınızla ilgili değerlerle değiştirin. < and > eklediğinizden emin olun. Bir ad belirtildiğinde, seçtiğiniz adın benzersiz olması gerekir. Bir komut çalışmazsa, lütfen cihazınızın üretici belgelerine başvurun.
@@ -185,7 +185,7 @@ Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler
 >
 >
 
-###<a name="feb-16-2017"></a>16 Şubat 2017
+### <a name="feb-16-2017"></a>16 Şubat 2017
 
 Azure rota tabanlı VPN için **7.1.4’ten eski bir sürüme sahip Palo Alto Networks cihazları**: Palo Alto Networks tarafından sağlanan ve PAN-OS sürümü 7.1.4’ten eski olan VPN cihazları kullanıyor ve Azure rota tabanlı VPN ile bağlantı sorunları yaşıyorsanız aşağıdaki adımları gerçekleştirin:
 
