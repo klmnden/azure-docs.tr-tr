@@ -74,6 +74,8 @@ Docker Swarm, Docker için yerel kümeleme imkanı sunar. Docker Swarm, standart
 
 ![Swarm kullanacak şekilde yapılandırılmış Azure Container Service.](media/acs-intro/acs-swarm2.png)
 
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
+
 Bir Swarm kümesindeki kapsayıcıları yönetmek için desteklenen araçlar, sınırlı olmamak üzere aşağıdakileri içerir:
 
 * Dokku
