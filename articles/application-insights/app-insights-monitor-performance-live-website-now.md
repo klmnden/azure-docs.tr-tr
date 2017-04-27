@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -184,6 +184,54 @@ Hangi uygulamaların izlenmekte olduğunu öğrenin:
 
 * En son Application Insights SDK’sini sunucuya indirir.
 
+## <a name="questions"></a>Durum İzleyicisi hakkında sorular
+
+### <a name="what-is-status-monitor"></a>Durum İzleyicisi nedir?
+
+IIS web sunucunuza yüklediğiniz bir masaüstü uygulamasıdır. Web uygulamalarını izleyip yapılandırmanıza yardımcı olur. 
+
+### <a name="when-do-i-use-status-monitor"></a>Durum İzleyicisi’ni ne zaman kullanırım?
+
+* Halihazırda çalışıyor olsa bile, IIS sunucunuzda çalışan herhangi bir web uygulamasını izleme.
+* Derleme zamanında [Application Insights SDK'sı ile derlenmiş](app-insights-asp-net.md) web uygulamaları için ek telemetriyi etkinleştirme. 
+
+### <a name="can-i-close-it-after-it-runs"></a>Çalıştıktan sonra kapatabilir miyim?
+
+Evet. Seçtiğiniz web sitelerini izledikten sonra kapatabilirsiniz.
+
+Telemetriyi tek başına toplamaz. Yalnızca web uygulamalarını yapılandırır ve bazı izinleri ayarlar.
+
+### <a name="what-does-status-monitor-do"></a>Durum İzleyicisi ne yapar?
+
+Durum İzleyicisi’nin izlemesi için bir web uygulaması seçtiğinizde:
+
+* Application Insights derlemelerini ve .config dosyasını indirip web uygulamasının ikili dosyalar klasörüne yerleştirir.
+* Application Insights HTTP izleme modülünü eklemek üzere `web.config` üzerinde değişiklik yapar.
+* Bağımlılık çağrılarını toplamak için CLR profil oluşturma özelliğini etkinleştirir.
+
+### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Uygulamayı her güncelleştirdiğimde Durum İzleyicisi’ni çalıştırmam gerekiyor mu?
+
+Artımlı olarak dağıtmanız durumunda gerekli değildir. 
+
+Yayımlama işleminde 'mevcut dosyaları sil' seçeneğini belirlerseniz, Application Insights’ı yapılandırmak için Durum İzleyicisi’ni yeniden çalıştırmanız gerekir.
+
+### <a name="what-telemetry-is-collected"></a>Hangi telemetri toplanır?
+
+Durum İzleyicisi'ni kullanarak yalnızca çalışma zamanında izlediğiniz uygulamalar için:
+
+* HTTP istekleri
+* Bağımlılık çağrıları
+* Özel durumlar
+* Performans sayaçları
+
+Derleme zamanında zaten izlenmekte olan uygulamalar için:
+
+ * İşlem sayaçları.
+ * Bağımlılık çağrıları (.NET 4.5); bağımlılık çağrılarındaki dönüş değerleri (.NET 4.6).
+ * Özel durum yığın izleme değerleri.
+
+[Daha fazla bilgi](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
@@ -212,5 +260,5 @@ Daha fazla telemetri ekleyin:
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

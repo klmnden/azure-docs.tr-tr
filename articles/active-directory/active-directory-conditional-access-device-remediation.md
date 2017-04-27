@@ -1,6 +1,6 @@
 ---
-title: "Azure portalında bir Windows cihazından bu uygulamaya buradan erişemezsiniz sorununu giderme | Microsoft Docs"
-description: "Kuruluşunuzun çevrimiçi kaynaklara erişirken karşılaştığı sorunları çözmek için uygulayabileceğiniz adımları öğrenin."
+title: "Azure portalında bir Windows cihazından bu uygulamaya buradan erişemezsiniz | Microsoft Docs"
+description: "Bu uygulamaya buradan erişemezsiniz iletisinin nereden geldiği ve bu iletişim kutusunun görünmesini engellemek için hangi denetimleri yapabileceğiniz hakkında bilgi edinin."
 services: active-directory
 keywords: "cihaz temelli koşullu erişim, cihaz kaydı, cihaz kaydını etkinleştirme, cihaz kaydı ve MDM"
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 42dcc653b50698cf8ce8145dfb51f27be7ece440
+ms.lasthandoff: 04/12/2017
 
 
 ---

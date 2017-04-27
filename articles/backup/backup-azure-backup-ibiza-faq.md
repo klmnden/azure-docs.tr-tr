@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: 271f447a36f42330ed7b8dea78b32c06eebdeda6
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e5ef305d926a57e32cdebd44f3dbe2185c735dd4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -39,11 +40,7 @@ Kurtarma Hizmetleri kasaları iki modeli de destekler.  Klasik portalda oluştur
 Yedekleme kasasındaki klasik VM yedekleri, VM’leri klasik moddan Resource Manager moduna geçirdiğinizde kurtarma hizmetleri kasasında otomatik olarak yedeklenmez. VM yedeklerinin geçirilmesi için lütfen bu adımları izleyin:
 
 1. Yedekleme kasasıda, **Korunan Öğeler** sekmesine gidin ve VM’yi seçin. [Korumayı Durdur](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın.
-2. Sanal makineyi, klasik moddan Resource Manager moduna geçirin. Sanal makine için karşılık gelen depolama ve ağın da Resource Manager moduna geçirildiğinden emin olun.
-3. Bir kurtarma hizmetleri kasası oluşturun ve kasa panosunun üstündeki **Backup** işlemini kullanarak, geçirilen sanal makinede yedeklemeyi yapılandırın. [Kurtarma hizmetleri kasasında yedeklemeyi etkinleştirme](backup-azure-vms-first-look-arm.md) hakkında daha fazla bilgi edinin
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+2. [Azure portalında](https://portal.azure.com) VM’nin **Uzantılar** menüsüne gidin ve **VMSnapshot/VMSnapshotLinux** uzantısını kaldırın.
+3. Sanal makineyi, klasik moddan Resource Manager moduna geçirin. Sanal makine için karşılık gelen depolama ve ağın da Resource Manager moduna geçirildiğinden emin olun.
+4. Bir kurtarma hizmetleri kasası oluşturun ve kasa panosunun üstündeki **Backup** işlemini kullanarak, geçirilen sanal makinede yedeklemeyi yapılandırın. [Kurtarma hizmetleri kasasında yedeklemeyi etkinleştirme](backup-azure-vms-first-look-arm.md) hakkında daha fazla bilgi edinin
 

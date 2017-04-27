@@ -18,9 +18,9 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f85f6484db177285e0fd64a15991a7eb227cd29b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: f5c36624360b4a09819ea70f3ac23f943688c120
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -106,6 +106,9 @@ Varsayılan Blob kapsayıcısı iş geçmişi ve günlükleri gibi kümeye özel
 Portal’da HDInsight kümesi oluştururken, depolama hesabı ayrıntılarını girmek için aşağıdaki seçenekleriniz vardır. Kümeyle ilişkili ek bir depolama hesabı isteyip istemediğinizi de belirtebilirsiniz. İstiyorsanız, ek depolama alanı olarak Data Lake Store veya başka bir Azure Depolama Blobu seçebilirsiniz.
 
 ![HDInsight hadoop oluşturma veri kaynağı](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+
+> [!WARNING]
+> HDInsight kümesinden farklı bir konumda ek depolama hesabının kullanılması desteklenmez.
 
 #### <a name="using-azure-cli"></a>Azure CLI’yı kullanma
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -285,6 +288,8 @@ $clusterName = "<HDInsightClusterName>"
 
 HDInsight kümesi oluştururken ilişkilendirmek istediğiniz Azure Depolama hesabını belirtirsiniz. Bu depolama hesabına ek olarak, oluşturma işlemi sırasında veya bir küme oluşturulduktan sonra aynı Azure aboneliğinden veya farklı Azure aboneliklerinden başka depolama hesapları ekleyebilirsiniz. Ek depolama hesapları ekleme hakkında yönergeler için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
+> [!WARNING]
+> HDInsight kümesinden farklı bir konumda ek depolama hesabının kullanılması desteklenmez.
 
 ## <a name="using-azure-data-lake-store-with-hdinsight-clusters"></a>Azure Data Lake Store’u HDInsight kümeleri ile kullanma
 

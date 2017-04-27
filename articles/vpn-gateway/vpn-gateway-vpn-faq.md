@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2017
+ms.date: 04/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 15ac382f72cab455246ffcc05f08c8aba5876c8f
-ms.openlocfilehash: c90bb4f41661aedec2bde53abe035fe9bcc80320
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 49aeb711de73bf967f330ec54385fb8bb36dd7ca
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -34,18 +35,18 @@ Windows PowerShell ve Azure REST API'lerini kullanarak birden çok siteye bağla
 ### <a name="what-are-my-cross-premises-connection-options"></a>Şirket içi ve dışı bağlantı seçeneklerim nelerdir?
 Aşağıdaki şirket içi ve dışı bağlantılar desteklenmektedir:
 
-* [Siteden Siteye](vpn-gateway-howto-site-to-site-resource-manager-portal.md) – IPsec üzerinden (IKE v1 ve IKE v2) VPN bağlantısı. Bu bağlantı türüne şirket içi bir VPN cihazı ya da RRAS gerekir.
-* [Noktadan Siteye](vpn-gateway-howto-point-to-site-resource-manager-portal.md) – SSTP (Güvenli Yuva Tünel Protokolü) üzerinden VPN bağlantısı Bu bağlantıya VPN cihazı gerekmez.
-* [VNet - VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) – Bu türden bağlantı Siteden Siteye yapılandırmasıyla aynıdır. VNet - VNet, IPsec üzerinden (IKE v1 ve IKE v2) bir VPN bağlantısıdır. VPN cihazı gerekmez.
-* [Çok Siteli](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) – Birden çok şirket içi sitenin bir sanal ağa bağlanmasına olanak sağlayan Siteden Siteye yapılandırmanın bir çeşididir.
-* [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute genel İnternet üzerinden değil WAN bağlantınızdan Azure’e doğrudan yapılan bir bağlantıdır. Daha fazla bilgi için bkz. [ExpressRoute’a Teknik Genel Bakış](../expressroute/expressroute-introduction.md) ve [ExpressRoute SSS](../expressroute/expressroute-faqs.md).
+* Siteden Siteye – IPsec üzerinden (IKE v1 ve IKE v2) VPN bağlantısı. Bu bağlantı türüne şirket içi bir VPN cihazı ya da RRAS gerekir. Daha fazla bilgi için bkz. [Siteden Siteye](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Noktadan Siteye – SSTP (Güvenli Yuva Tünel Protokolü) üzerinden VPN bağlantısı. Bu bağlantıya VPN cihazı gerekmez. Daha fazla bilgi için bkz. [Noktadan Siteye](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* Sanal Ağdan Sanal Ağa – Bu bağlantı türü, Siteden Siteye yapılandırmasıyla aynıdır. VNet - VNet, IPsec üzerinden (IKE v1 ve IKE v2) bir VPN bağlantısıdır. VPN cihazı gerekmez. Daha fazla bilgi için bkz. [Sanal Ağdan Sanal Ağa](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+* Çok Siteli – Birden çok şirket içi sitenin bir sanal ağa bağlanmasına olanak sağlayan Siteden Siteye yapılandırmanın bir çeşididir. Daha fazla bilgi için bkz. [Çok Siteli](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
+* ExpressRoute – ExpressRoute genel İnternet üzerinden VPN bağlantısı değil, WAN bağlantınızdan Azure’e doğrudan yapılan bir bağlantıdır. Daha fazla bilgi için bkz. [ExpressRoute’a Teknik Genel Bakış](../expressroute/expressroute-introduction.md) ve [ExpressRoute SSS](../expressroute/expressroute-faqs.md).
 
 VPN ağ geçidi bağlantıları hakkında daha fazla bilgi için bkz. [VPN Gateway Hakkında](vpn-gateway-about-vpngateways.md).
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Siteden Siteye bağlantı ve Noktadan Siteye bağlantı arasındaki fark nelerdir?
-**Siteden Siteye** yapılandırmalar, şirket içi konumunuz ile Azure arasında yapılır. Diğer bir deyişle, şirket içinde yer alan bilgisayarlarla sanal makineler arasında ya da rota yapılandırmayı nasıl seçtiğinize bağlı olarak sanal ağınızdaki rol örneği ile bağlantı kurabilirsiniz. Her zaman kullanıma uygun şirket içi ve dışı bağlantı için müthiş bir seçenek; karma yapılandırmalar için de çok uygundur. Bu tür bir bağlantı; ağınıza ucuna dağıtılmış olması gereken IPsec VPN uygulamasına bağlıdır (donanım veya yazılım aracı). Bu tür bir bağlantı oluşturmak için gerekli VPN donanımına ve dışarıya yönelik bir IPv4 adresine sahip olmanız gerekir.
+**Siteden Siteye** (IPsec/IKE VPN tüneli) yapılandırmalar, şirket içi konumunuz ile Azure arasında yapılır. Diğer bir deyişle, şirket içinde yer alan bilgisayarlarla sanal makineler arasında ya da yönlendirme ve izin yapılandırmayı nasıl seçtiğinize bağlı olarak sanal ağınızdaki rol örneği ile bağlantı kurabilirsiniz. Her zaman kullanıma uygun şirket içi ve dışı bağlantı için müthiş bir seçenek; karma yapılandırmalar için de çok uygundur. Bu tür bir bağlantı; ağınıza ucuna dağıtılmış olması gereken IPsec VPN uygulamasına bağlıdır (donanım cihazı veya yazılım aracı). Bu tür bir bağlantı oluşturmak için NAT arkasında olmayan dışarıya dönük bir IPv4 adresine sahip olmanız gerekir.
 
-**Noktadan Siteye** yapılandırmalar, sanal ağınızda bulunan her yerden her şeye tek bir bilgisayardan bağlanmanızı sağlar. Windows yerleşik VPN istemcisi kullanır. Noktadan Siteye yapılandırmasının bir parçası olarak, bir sertifika ve bir VPN istemci yapılandırma paketi yüklerseniz; bu pakette, bilgisayarınızın sanal ağda herhangi bir sanal makineye veya rol örneğine bağlanmasını sağlayan ayarlar bulunur. Şirket içi olmayan sanal ağa bağlanmak istediğinizde çok yararlıdır. Her ikisi de Siteden Siteye bağlantısına gereken VPN donanımına veya dışarıya dönük IPv4 adresine erişiminiz yoksa bu da iyi bir seçenektir.
+**Noktadan Siteye** (SSTP üzerinden VPN) yapılandırmalar, sanal ağınızda bulunan her yerden her şeye tek bir bilgisayardan bağlanmanızı sağlar. Windows yerleşik VPN istemcisi kullanır. Noktadan Siteye yapılandırmasının bir parçası olarak, bir sertifika ve bir VPN istemci yapılandırma paketi yüklerseniz; bu pakette, bilgisayarınızın sanal ağda herhangi bir sanal makineye veya rol örneğine bağlanmasını sağlayan ayarlar bulunur. Şirket içi olmayan sanal ağa bağlanmak istediğinizde çok yararlıdır. Her ikisi de Siteden Siteye bağlantısına gereken VPN donanımına veya dışarıya dönük IPv4 adresine erişiminiz yoksa bu da iyi bir seçenektir.
 
 Siteden Siteye bağlantınızı ağ geçidinizi için rota tabanlı VPN türü kullanarak oluşturmanız kaydıyla, sanal ağınızı aynı anda hem Siteden Siteye, hem de Noktadan Siteye bağlanacak şekilde yapılandırabilirsiniz. Rota tabanlı VPN türlerine klasik dağıtım modelinde dinamik ağ geçitleri adı verilir.
 
@@ -63,7 +64,7 @@ Rota tabanlı ağ geçitleri yol tabanlı VPN'leri uygular. Rota temelli VPN'ler
 ### <a name="do-i-need-a-gatewaysubnet"></a>'GatewaySubnet' gerekli mi?
 Evet. Ağ geçidi alt ağı, sanal ağ geçidi hizmetlerinin kullandığı IP adreslerini içerir. Bir sanal ağ geçidi yapılandırmak için sanal ağınıza yönelik bir ağ geçidi alt ağı oluşturmanız gerekir. Tüm ağ geçidi alt ağlarının düzgün çalışması için GatewaySubnet şeklinde adlandırılması gerekir. Ağ geçidi alt ağını başka şekilde adlandırmayın. VM’leri veya herhangi başka bir şeyi de ağ geçidi alt ağına dağıtmayın.
 
-Ağ geçidi alt ağı oluştururken, alt ağın içerdiği IP adresi sayısını belirtirsiniz. Ağ geçidi alt ağındaki IP adresleri, ağ geçidi hizmetine ayrılır. Bazı yapılandırmalar, ağ geçidi hizmetlerine daha fazla IP adresi ayrılmasını gerektirir. Gelecekteki büyümeye ve meydana gelebilecek diğer yeni bağlantı yapılandırmalarına uyum sağlaması için ağ geçidi alt ağınızın yeterince IP adresi içerdiğinden emin olmanız gerekir. Bu nedenle, /29 kadar küçük bir ağ geçidi alt ağı oluşturmanız mümkün olsa da /28 veya daha büyük bir (/28, /27, /26 vb.) ağ geçidi alt ağı oluşturmanız önerilir. Oluşturmak istediğiniz yapılandırmanın gereksinimlerine bakın ve sahip olduğunuz ağ geçidi alt ağının bu gereksinimleri karşıladığından emin olun.
+Ağ geçidi alt ağı oluştururken, alt ağın içerdiği IP adresi sayısını belirtirsiniz. Ağ geçidi alt ağındaki IP adresleri, ağ geçidi hizmetine ayrılır. Bazı yapılandırmalar, ağ geçidi hizmetlerine daha fazla IP adresi ayrılmasını gerektirir. Gelecekteki büyümeye ve meydana gelebilecek diğer yeni bağlantı yapılandırmalarına uyum sağlaması için ağ geçidi alt ağınızın yeterince IP adresi içerdiğinden emin olmanız gerekir. Bu nedenle, /29 kadar küçük bir ağ geçidi alt ağı oluşturmanız mümkün olsa da /27 veya daha büyük bir (/27, /26, /25 vb.) ağ geçidi alt ağı oluşturmanız önerilir. Oluşturmak istediğiniz yapılandırmanın gereksinimlerine bakın ve sahip olduğunuz ağ geçidi alt ağının bu gereksinimleri karşıladığından emin olun.
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Sanal Makineleri veya rol örneklerini ağ geçidi alt ağıma dağıtabilir miyim?
 Hayır.
@@ -106,11 +107,23 @@ VPN ağ geçidi temel olarak, müşterinin özel ağında dokunulan tek NIC, ort
 Daha fazla bilgi için bkz. [VPN Gateway yapılandırma ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md).
 
 ## <a name="site-to-site-connections-and-vpn-devices"></a>Siteden Siteye bağlantılar ve VPN cihazları
-### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>VPN cihazını seçerken nelere dikkat etmeliyim?
-Cihaz satıcılarıyla işbirliğiyle bir dizi standart Siteden Siteye VPN cihazını doğruladık. Bilinen uyumlu VPN cihazlarının listesi, ilgili yapılandırma yönergeleri veya örnekleri ve cihaz özellikleri listesi [burada](vpn-gateway-about-vpn-devices.md) bulunabilir. Bilinen uyumlu olarak listelenen cihaz ailelerindeki tüm cihazlar Virtual Network ile çalışmalıdır. VPN cihazınızı yapılandırmaya yardım için uygun cihaz ailesine karşılık gelen cihaz yapılandırma örneğine veya bağlantılara bakın.
 
-### <a name="what-do-i-do-if-i-have-a-vpn-device-that-isnt-in-the-known-compatible-device-list"></a>Bilinen uyumlu aygıt listesinde olmayan bir VPN cihazım varsa ne yapmalıyım?
-Cihazınızın bilinen uyumlu VPN cihazı olarak listelendiğini görmüyorsanız ve bunu VPN bağlantınız için kullanmak istiyorsanız, bunun [burada](vpn-gateway-about-vpn-devices.md) listelenen desteklenen IPsec/IKE yapılandırma seçenekleri ve parametreleriyle eşleştiğini doğrulamanız gerekir. Minimum gereksinimleri karşılayan cihazların VPN gateway’lerle sorunsuz çalışması gerekir. Ek destek ve yapılandırma yönergeleri için cihaz üreticinize başvurun.
+### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>VPN cihazını seçerken nelere dikkat etmeliyim?
+Cihaz satıcılarıyla işbirliğiyle bir dizi standart Siteden Siteye VPN cihazını doğruladık. Bilinen uyumlu VPN cihazlarının listesi, ilgili yapılandırma yönergeleri veya örnekleri ve cihaz özellikleri listesi [VPN cihazları hakkında](vpn-gateway-about-vpn-devices.md) makalesinde bulunabilir. Bilinen uyumlu olarak listelenen cihaz ailelerindeki tüm cihazlar Virtual Network ile çalışmalıdır. VPN cihazınızı yapılandırmaya yardım için uygun cihaz ailesine karşılık gelen cihaz yapılandırma örneğine veya bağlantılara bakın.
+
+### <a name="where-can-i-find-configuration-settings-for-vpn-devices"></a>VPN cihazlarının yapılandırma ayarlarını nerede bulabilirim?
+
+Cihaz yapılandırma ayarlarının bağlantıları için bkz. [Doğrulanan VPN Cihazları](vpn-gateway-about-vpn-devices.md#devicetable). Mümkün olan en iyi cihaz yapılandırma bağlantıları verilmiştir. En son yapılandırma bilgileri için her zaman cihaz üreticinize başvurmanız en iyi yöntemdir.
+
+VPN cihazınızı yapılandırmadan önce, kullanmak istediğiniz VPN cihazının [Bilinen cihaz uyumluluğu sorunları](vpn-gateway-about-vpn-devices.md#known) olup olmadığını denetleyin.
+
+### <a name="how-do-i-edit-vpn-device-configuration-samples"></a>VPN cihazı yapılandırma örneklerini nasıl düzenleyebilirim?
+
+Cihaz yapılandırma örneklerini düzenleme hakkında daha fazla bilgi için bkz. [Örnekleri düzenleme](vpn-gateway-about-vpn-devices.md#editing).
+
+### <a name="where-do-i-find-ipsec-and-ike-parameters"></a>IPsec ve IKE parametrelerini nerede bulabilirim?
+
+IPsec/IKE parametreleri için bkz. [Parametreler](vpn-gateway-about-vpn-devices.md#ipsec).
 
 ### <a name="why-does-my-policy-based-vpn-tunnel-go-down-when-traffic-is-idle"></a>Trafik boştayken neden ilke tabanlı VPN tünelim kayboluyor?
 İlke tabanlı (statik rota olarak da bilinir) VPN Ağ geçitleri için bu beklenen bir davranıştır. tünel üzerindeki trafik 5 dakikadan fazla boşta kalırsa tünel bozulur. Herhangi bir yönde trafik akışı başladığında tünel hemen yeniden başlatılır.
@@ -120,11 +133,11 @@ Siteden Siteyi şirket içi ve dışı yapılandırması için Windows Server 20
 
 Endüstri standardı IPsec uygulamalarıyla uyumlu olana kadar diğer yazılım VPN çözümleri bizim ağ geçidimizle çalışmalıdır. Yapılandırma ve destek hakkında yönergeler için yazılım satıcısına başvurun.
 
-## <a name="a-namep2sapoint-to-site-connections"></a><a name="P2S"></a>Noktadan Siteye bağlantıları
+## <a name="P2S"></a>Noktadan Siteye bağlantıları
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## <a name="a-namev2vmultiavnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>Sanal Ağdan Sanal Ağa ve Çok Siteli bağlantılar
+## <a name="V2VMulti"></a>Sanal Ağdan Sanal Ağa ve Çok Siteli bağlantılar
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
@@ -151,7 +164,7 @@ Evet, Noktadan Siteye (P2S) VPN’ler şirket içi sitelere ve başka sanal ağl
 ### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>IPsec VPN’lerle sanal ağı ExpressRoute devreme bağlayabilir miyim?
 Evet, bu desteklenir. Daha fazla bilgi için bkz. [Bir arada var olan ExpressRoute ve Siteden Siteye VPN bağlantıları yapılandırma](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="a-namebgpabgp"></a><a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
 ## <a name="cross-premises-connectivity-and-vms"></a>Şirket içi ve dışı bağlantısı ve VM'ler
@@ -170,8 +183,3 @@ Ek sanal ağ ek bilgilerini [Virtual Network SSS](../virtual-network/virtual-net
 
 * VPN Gateway hakkında daha fazla bilgi için bkz. [VPN Gateway Hakkında](vpn-gateway-about-vpngateways.md).
 * VPN Gateway yapılandırma ayarları hakkında daha fazla bilgi için bkz. [VPN Gateway yapılandırma ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-

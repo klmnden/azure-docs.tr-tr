@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a28e325e8a7e902a64f8cc267e2f0d3be151bcb3
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -31,7 +31,7 @@ Kimlik doğrulaması için yönetim düzlemi ve veri düzleminde Azure Active Di
 
 Ele alınan konulara kısa bir genel bakış aşağıda verilmiştir:
 
-[Azure Active Directory kullanarak kimlik doğrulaması](#authentication-using-azure-active-direcrory) - Bu bölümde bir çağıranın anahtar kasasına yönetim düzlemi ve veri düzlemi üzerinden erişmek için Azure Active Directory ile kimlik doğrulaması yapma işlemi açıklanmaktadır. 
+[Azure Active Directory kullanarak kimlik doğrulaması](#authentication-using-azure-active-directory) - Bu bölümde bir çağıranın anahtar kasasına yönetim düzlemi ve veri düzlemi üzerinden erişmek için Azure Active Directory ile kimlik doğrulaması yapma işlemi açıklanmaktadır. 
 
 [Yönetim düzlemi ve veri düzlemi](#management-plane-and-data-plane) - Yönetim düzlemi ve veri düzlemi, anahtar kasanıza erişmek için kullanılan iki erişim düzlemidir. Her erişim düzlemi belirli işlemleri destekler. Bu bölümde erişim uç noktaları, desteklenen işlemler ve her bir düzlem tarafından kullanılan erişim denetimi açıklanmaktadır. 
 
@@ -87,10 +87,10 @@ Belirli bir kapsamdaki kullanıcılara, gruplara ve uygulamalara uygun RBAC roll
 ## <a name="data-plane-access-control"></a>Veri düzlemi erişim denetimi
 Anahtar kasası veri düzlemi, bir anahtar kasasındaki anahtarlar, parolalar ve sertifikalar gibi nesneleri etkileyen işlemlerden oluşur.  Buna anahtar oluşturma, içeri aktarma, güncelleştirme, listeleme, yedekleme ve geri yükleme gibi anahtar işlemleri, anahtar etiketlerini ve diğer özniteliklerini imzalama, doğrulama, şifreleme, şifresini çözme, sarmalama, sarmalamadan çıkarma ve ayarlama gibi şifreleme işlemleri dahildir. Benzer şekilde, parolalar için alma, ayarlama, listeleme ve silme işlemleri dahildir.
 
-Veri düzlemi erişimi, bir anahtar kasasına ilişkin erişim ilkeleri ayarlanarak verilir. Bir kullanıcı, grup veya uygulamanın bir anahtar kasasına ait erişim ilkelerini ayarlayabilmesi için, ilgili anahtar kasasının yönetim düzleminde Katkıda Bulunan izinlerine (RBAC) sahip olması gerekir. Bir kullanıcı, grup veya uygulamaya, bir anahtar kasasındaki anahtarlar veya parolalar için belirli işlemleri gerçekleştirmek üzere erişim verilebilir. bir anahtar kasası için en fazla 16 erişim ilkesi girişine yönelik anahtar kasası desteği. Bir Azure Active Directory güvenlik grubu oluşturun ve bir anahtar kasasındaki birkaç kullanıcıya veri düzlemi erişimi vermek amacıyla ilgili gruba kullanıcılar ekleyin.
+Veri düzlemi erişimi, bir anahtar kasasına ilişkin erişim ilkeleri ayarlanarak verilir. Bir kullanıcı, grup veya uygulamanın bir anahtar kasasına ait erişim ilkelerini ayarlayabilmesi için, ilgili anahtar kasasının yönetim düzleminde Katkıda Bulunan izinlerine (RBAC) sahip olması gerekir. Bir kullanıcı, grup veya uygulamaya, bir anahtar kasasındaki anahtarlar veya parolalar için belirli işlemleri gerçekleştirmek üzere erişim verilebilir. Key Vault, bir anahtar kasası için en fazla 16 adet erişim ilkesi girişi destekler. Bir Azure Active Directory güvenlik grubu oluşturun ve bir anahtar kasasındaki birkaç kullanıcıya veri düzlemi erişimi vermek amacıyla ilgili gruba kullanıcılar ekleyin.
 
-### <a name="key-vault-access-policies"></a>anahtar kasası Erişim İlkeleri
-Anahtar kasası erişim ilkeleri anahtarlara, parolalara ve sertifikalara ayrı ayrı izinler verir. Örneğin, bir kullanıcıya parolalar için herhangi bir izin vermeden yalnızca anahtarlar için erişim verebilirsiniz. Ancak, anahtar, parola veya sertifikalara erişim izni kasa düzeyinde verilir. Diğer bir deyişle, anahtar kasası erişim ilkesi nesne düzeyinde izinleri desteklemez. Bir anahtar kasasının erişim ilkelerini ayarlamak için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) veya [anahtar kasası Yönetim REST API’lerini](https://msdn.microsoft.com/library/azure/mt620024.aspx) kullanabilirsiniz.
+### <a name="key-vault-access-policies"></a>Key Vault Erişim İlkeleri
+Key Vault erişim ilkeleri, anahtarlara, parolalara ve sertifikalara ayrı ayrı izinler verir. Örneğin, bir kullanıcıya parolalar için herhangi bir izin vermeden yalnızca anahtarlar için erişim verebilirsiniz. Ancak, anahtar, parola veya sertifikalara erişim izni kasa düzeyinde verilir. Diğer bir deyişle, anahtar kasası erişim ilkesi nesne düzeyinde izinleri desteklemez. Bir anahtar kasasının erişim ilkelerini ayarlamak için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) veya [anahtar kasası Yönetim REST API’lerini](https://msdn.microsoft.com/library/azure/mt620024.aspx) kullanabilirsiniz.
 
 > [!IMPORTANT]
 > Anahtar kasası erişim ilkelerinin kasa düzeyinde geçerli olduğunu unutmayın. Örneğin, bir kullanıcıya anahtar oluşturma ve silme izni verildiğinde kullanıcı bu işlemleri ilgili anahtar kasasındaki tüm anahtarlar üzerinde gerçekleştirebilir.

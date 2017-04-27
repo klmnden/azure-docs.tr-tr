@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/11/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6da8b21014966edd9f4cea0fd27f6973b2b820f0
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 5e32f1e534057b5e8e0ed6d5c0a4631f9fefbca5
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/12/2017
 Şirket içinde veya bulutta Windows Server 2012 R2 ya da Windows Server 2016 çalıştıran herhangi bir sanal makinede tek başına Service Fabric kümesi oluşturabilirsiniz. Bu hızlı başlangıç kılavuzu, yalnızca birkaç dakika içerisinde tek başına bir geliştirme kümesi oluşturmanıza yardımcı olur.  Kılavuzu tamamladığınızda, uygulama dağıtabileceğiniz tek bir bilgisayarda çalışan üç düğümlü bir kümeniz olur.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Service Fabric, tek başına Service Fabric kümeleri oluşturmak için bir kurulum paketi sağlar.  [Kurulum paketini indirin](http://go.microsoft.com/fwlink/?LinkId=730690).  Geliştirme kümesini ayarlayacağınız bilgisayarda veya sanal makinede bulunan bir klasörde (örneğin, *C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer*) paketin sıkıştırmasını açın.  Kurulum paketinin içeriği [burada](service-fabric-cluster-standalone-package-contents.md) ayrıntılı olarak açıklanmıştır.
+Service Fabric, tek başına Service Fabric kümeleri oluşturmak için bir kurulum paketi sağlar.  [Kurulum paketini indirin](http://go.microsoft.com/fwlink/?LinkId=730690).  Kurulum paketini, geliştirme kümesini kuracağınız bilgisayar veya sanal makinedeki bir klasöre çıkarın.  Kurulum paketinin içeriği [burada](service-fabric-cluster-standalone-package-contents.md) ayrıntılı olarak açıklanmıştır.
 
 Kümeyi dağıtan ve yapılandıran küme yöneticisinin bilgisayarda yönetici ayrıcalıklarına sahip olması gerekir. Service Fabric’i bir etki alanı denetleyicisine yükleyemezsiniz.
 
@@ -37,7 +37,9 @@ Tek başına paketteki *TestConfiguration.ps1* betiği, bir kümenin belirli bir
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
 ```
 ## <a name="create-the-cluster"></a>Kümeyi oluşturma
-Kurulum paketiyle birlikte birkaç örnek küme yapılandırma dosyası yüklenir. Tek bir bilgisayarda çalışan korumasız ve üç düğümlü bir küme olan *ClusterConfig.Unsecure.DevCluster.json*, en basit küme yapılandırmasıdır. Bu öğretici için varsayılan yapılandırma ayarlarından herhangi birini değiştirmeniz gerekmez.  Diğer yapılandırma dosyalarında X.509 sertifikalarıyla ya da Windows güvenliğiyle korunan tek veya çok makineli kümeler açıklanır.  Service Fabric küme güvenliği hakkında daha fazla bilgi edinmek için [Küme güvenliğini sağlama](service-fabric-cluster-security.md) makalesini okuyun. 
+Kurulum paketiyle birlikte birkaç örnek küme yapılandırma dosyası yüklenir. Tek bir bilgisayarda çalışan korumasız ve üç düğümlü bir küme olan *ClusterConfig.Unsecure.DevCluster.json*, en basit küme yapılandırmasıdır.  Diğer yapılandırma dosyalarında X.509 sertifikalarıyla ya da Windows güvenliğiyle korunan tek veya çok makineli kümeler açıklanır.  Bu öğreticide varsayılan yapılandırma ayarlarından herhangi birini değiştirmeniz gerekmez, ancak yapılandırma dosyasını inceleyip ayarları tanıyın.  **Düğümler** bölümünde, kümedeki üç düğüm açıklanmaktadır: ad, IP adresi, [düğüm türü, hata etki alanı ve yükseltme etki alanı](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  **Özellikler** bölümü kümenin [güvenlik, güvenilirlik düzeyi, tanılama koleksiyonu ve düğüm türlerini](service-fabric-cluster-manifest.md#cluster-properties) tanımlar.
+
+Bu küme güvenli değildir.  Herkes anonim olarak bağlanıp yönetim işlemleri gerçekleştirebileceğinden, üretim kümeleri her zaman X.509 sertifikaları veya Windows güvenliği kullanılarak güvenli hale getirilmelidir.  Güvenlik yalnızca küme oluşturma sırasında yapılandırılır ve küme oluşturulduktan sonra güvenliği etkinleştirmek mümkün değildir.  Service Fabric küme güvenliği hakkında daha fazla bilgi edinmek için [Küme güvenliğini sağlama](service-fabric-cluster-security.md) makalesini okuyun.  
 
 Üç düğümlü geliştirme kümesini oluşturmak için bir yönetici PowerShell oturumundan *CreateServiceFabricCluster.ps1* betiğini çalıştırın:
 
@@ -88,7 +90,7 @@ Service Fabric çalışma zamanını bilgisayardan kaldırmak için paket klasö
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık bir tek başına geliştirme kümesi ayarladığınıza göre aşağıdakileri deneyebilirsiniz:
+Artık bir tek başına geliştirme kümesi ayarladığınıza göre aşağıdaki makaleleri deneyebilirsiniz:
 * [Çok makineli tek başına küme ayarlama](service-fabric-cluster-creation-for-windows-server.md) ve güvenliği etkinleştirme.
 * [PowerShell kullanarak uygulama dağıtma](service-fabric-deploy-remove-applications.md)
 

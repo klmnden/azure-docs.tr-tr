@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 5c326a025a4276ae9b1a777439ed6c728d3e7103
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 306c9c5cb06caa186bc0b7f431a5412dfe810722
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,19 +26,19 @@ ms.lasthandoff: 03/09/2017
 ## <a name="introduction"></a>Giriş
 Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
 
-Bu öğretici, [Azure portalının](https://portal.azure.com) bir Olay Hub'ı oluşturmak için nasıl kullanılacağını gösterir. Ayrıca .NET Framework kullanılarak C# dilinde yazılmış bir konsol uygulaması ile bir Olay Hub’ına olay gönderme işlemini gösterir. .NET Framework kullanarak olayları almak için [.NET Framework kullanarak olay alma](event-hubs-dotnet-framework-getstarted-receive-eph.md) makalesine bakın veya soldaki içindekiler bölümünden uygun alma diline tıklayın.
+Bu öğretici, [Azure portalının](https://portal.azure.com) bir olay hub'ı oluşturmak için nasıl kullanılacağını gösterir. Ayrıca .NET Framework kullanılarak C# dilinde yazılmış bir konsol uygulaması ile bir olay hub’ına olay gönderme işlemini gösterir. .NET Framework kullanarak olayları almak için [.NET Framework kullanarak olay alma](event-hubs-dotnet-framework-getstarted-receive-eph.md) makalesine bakın veya soldaki içindekiler bölümünden uygun alma diline tıklayın.
 
 Bu öğreticiyi tamamlamak için şunlar gerekir:
 
 * [Microsoft Visual Studio 2015 veya üzeri](http://visualstudio.com). Bu öğreticideki ekran görüntülerinde Visual Studio 2017 kullanılır.
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/free/).
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir Olay Hub’ı oluşturma
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
 
-İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın Olay Hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve Olay Hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı izleyin, ardından aşağıdaki adımlarla devam edin.
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı izleyin, ardından aşağıdaki adımlarla devam edin.
 
 ## <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
-Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını yazacaksınız.
+Bu bölümde, olay hub'ınıza olayları gönderen Windows konsol uygulamasını yazacaksınız.
 
 1. Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni bir Visual C# Masaüstü Uygulaması projesi oluşturun. Projeyi **Gönderen** için bir ad verin.
    
@@ -55,7 +55,7 @@ Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
-5. Aşağıdaki alanları **Program** sınıfına ekleyin; bu işlemi yaparken yer tutucu değerlerini önceki bölümde oluşturduğunuz Olay Hub’ı adıyla ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesiyle değiştirin.
+5. Aşağıdaki alanları **Program** sınıfına ekleyin; bu işlemi yaparken yer tutucu değerlerini önceki bölümde oluşturduğunuz olay hub’ı adıyla ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesiyle değiştirin.
    
     ```csharp
     static string eventHubName = "{Event Hub name}";
@@ -87,7 +87,7 @@ Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını
     }
     ```
    
-    Bu yöntem, olayları 200 ms'lik bir gecikmeyle sürekli olarak Olay Hub'ınıza gönderir.
+    Bu yöntem, olayları 200 ms'lik bir gecikmeyle sürekli olarak olay hub'ınıza gönderir.
 7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
    
     ```csharp
@@ -98,10 +98,10 @@ Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını
     ```
 8. Programı çalıştırın ve herhangi bir hata olmadığından emin olun.
   
-Tebrikler! Bir Olay Hub'ına ileti gönderdiniz.
+Tebrikler! Bir olay hub'ına ileti gönderdiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Event Hub'ı oluşturan ve veri gönderen bir çalışan uygulama oluşturduğunuza göre aşağıdaki senaryolara geçebilirsiniz:
+Olay hub'ını oluşturan ve veri gönderen bir çalışan uygulama oluşturduğunuza göre aşağıdaki senaryolara geçebilirsiniz:
 
 * [Olay İşlemcisi Konağı kullanarak olay alma](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 * [Olay İşlemcisi Konağı başvurusu](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)

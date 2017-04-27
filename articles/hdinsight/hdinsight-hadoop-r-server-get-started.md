@@ -13,34 +13,43 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/28/2017
+ms.date: 04/13/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f816a6972c0e80c6a7063705917ecf18debc75f6
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>HDInsight üzerinde R Server kullanmaya başlayın
+
 HDInsight, HDInsight kümenizle tümleştirilecek bir R Server seçeneği içerir. Bu seçenek, R betiklerinin dağıtılmış hesaplamaları çalıştırmak için Spark ve MapReduce kullanmasına olanak tanır. Bu belgede, HDInsight kümesi üzerinde bir R Server oluşturma ve ardından dağıtılmış R hesaplamaları için Spark kullanmayı gönderen bir R betiği çalıştırma hakkında bilgi alacaksınız.
 
 ## <a name="prerequisites"></a>Ön koşullar
-* **Bir Azure aboneliği**: Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Daha fazla bilgi için [Ücretsiz Azure deneme sürümü edinin](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) bölümüne gidin.
-* **Güvenli Kabuk (SSH) istemcisi**: HDInsight kümesine uzaktan bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için bir SSH istemcisi kullanılır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-  * **SSH anahtarları (isteğe bağlı)**: Bir parola veya ortak anahtar kullanarak, kümeye bağlanmak için kullanılan SSH hesabını güvenli hale getirebilirsiniz. Bir parola kullanılması daha kolaydır ve ortak/özel anahtar çifti oluşturmak zorunda kalmadan çalışmaya başlamanızı sağlar. Ancak, bir anahtar kullanılması daha güvenlidir.
+* **Bir Azure aboneliği**: Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Daha fazla bilgi için [Azure ücretsiz denemesi edinin](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) makalesine gidin.
+* **Güvenli Kabuk (SSH) istemcisi**: HDInsight kümesine uzaktan bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için bir SSH istemcisi kullanılır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma.](hdinsight-hadoop-linux-use-ssh-unix.md)
+* **SSH anahtarları (isteğe bağlı)**: Bir parola veya ortak anahtar kullanarak, kümeye bağlanmak için kullanılan SSH hesabını güvenli hale getirebilirsiniz. Bir parola kullanılması daha kolaydır ve ortak/özel anahtar çifti oluşturmak zorunda kalmadan çalışmaya başlamanızı sağlar. Ancak, bir anahtar kullanılması daha güvenlidir.
 
-      Bu belgedeki adımlarda parola kullandığınız kabul edilmiştir.
+> [!NOTE]
+> Bu belgedeki adımlarda parola kullandığınız kabul edilmiştir.
+
 
 ### <a name="access-control-requirements"></a>Erişim denetimi gereksinimleri
+
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## <a name="create-the-cluster"></a>Kümeyi oluşturma
-> [!NOTE]
-> Bu belgedeki adımlar, temel yapılandırma bilgilerini kullanarak HDInsight kümesi üzerinde R Server oluşturma işleminde size kılavuzluk eder. Diğer küme yapılandırma ayarları için (başka depolama hesapları ekleme, Azure Sanal Ağı kullanma veya Hive için meta veri deposu oluşturma gibi) bkz. [Linux tabanlı HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Azure Kaynak Yönetimi şablonu ile R Server oluşturmak için bkz. [R-server HDInsight kümesi dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
->
->
+## <a name="automated-cluster-creation"></a>Otomatik küme oluşturma
+
+HDInsight R Server oluşturma işlemini ARM şablonları, SDK ve aynı zamanda PowerShell kullanarak otomatik hale getirebilirsiniz.
+
+* Azure Kaynak Yönetimi şablonu ile R Server oluşturmak için bkz. [R server HDInsight kümesi dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
+* .NET SDK kullanarak R Server oluşturmak için bkz. [HDInsight’ta .NET SDK kullanarak Linux tabanlı kümeler oluşturma.](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+* PowerShell kullanarak R Server dağıtmak için [HDInsight’ta PowerShell ile R Server oluşturma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) makalesine bakın.
+
+
+## <a name="create-the-cluster-using-the-azure-portal"></a>Azure portalını kullanarak küme oluşturma
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
@@ -164,6 +173,7 @@ Yüklemenize RStudio Server topluluk sürümünü eklemeyi seçtiyseniz, RStudio
    > Yöntem ne olursa olsun, ilk kez oturum açtığınızda iki kez kimlik doğrulaması yapmanız gerekir.  İlk kimlik doğrulamasında kümenin Yönetici kullanıcı kimliğini ve parolasını belirtin. İkinci istemde SSH kullanıcı kimliği ve parolasını sağlayın. Sonraki oturumlarda yalnızca SSH parolası ve kullanıcı kimliği gerekli olacaktır.
 
 ## <a name="connect-to-the-r-server-edge-node"></a>R Server kenar düğümüne bağlanma
+
 HDInsight kümesinin R Server kenar düğümüne SSH kullanarak bağlanma:
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
@@ -225,6 +235,7 @@ WASB stil adreslemesini de kullanabilirsiniz.
 `rxHadoopListFiles("wasbs:///")`
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Microsoft R Server veya Microsoft R Client uzak örneğinden HDI üzerinde R Server kullanma
+
 Kümeye erişim için ortak/özel anahtar çiftleri kullanmayla ilgili yukarıdaki bölüm uyarınca, masaüstü veya dizüstü bilgisayarda çalışan uzak bir Microsoft R Server veya Microsoft R Client örneğinden HDI Hadoop Spark işlem bağlamına erişimin ayarlanması mümkündür (çevrimiçi [RevoScaleR Hadoop Spark Başlarken kılavuzunun](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started) [Spark için İşlem Bağlamı Oluşturma](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) bölümündeki Microsoft R Server’ı Hadoop İstemcisi Olarak Kullanma kısmına bakın).  Bunu yapmak için dizüstü bilgisayarınızda RxSpark işlem bağlamını tanımlarken şu seçenekleri belirtmeniz gerekir: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches ve sshProfileScript. Örneğin:
 
 ```
@@ -253,6 +264,7 @@ Kümeye erişim için ortak/özel anahtar çiftleri kullanmayla ilgili yukarıda
 
 
 ## <a name="use-a-compute-context"></a>İşlem bağlamı kullanma
+
 Bir işlem bağlamı, hesaplamanın kenar düğümünde yerel olarak yapılmasını veya HDInsight kümesindeki düğümlere dağıtılmasını denetlemenize olanak tanır.
 
 1. RStudio Server veya R konsolundan (bir SSH oturumunda), varsayılan HDInsight depolama alanına örnek verileri yüklemek için aşağıdakileri kullanın.
@@ -376,6 +388,7 @@ Bir işlem bağlamı, hesaplamanın kenar düğümünde yerel olarak yapılması
 
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>R kodunu birden fazla düğüme dağıtma
+
 R Server ile mevcut R kodunu kolayca alabilir ve `rxExec` kullanarak kümedeki birden fazla düğümde çalıştırabilirsiniz. Bunun yapılması bir parametre tarama veya benzetme işlemi sırasında yararlıdır. `rxExec` kullanımını gösteren bir örnek aşağıda verilmiştir.
 
 `rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )`
@@ -402,6 +415,7 @@ Hala Spark veya MapReduce bağlamını kullanıyorsanız, bu işlem, üzerinde `
     ```
 
 ## <a name="accessing-data-in-hive-and-parquet"></a>Hive ve Parquet Verilerine Erişim
+
 R Server 9.0 ve sonraki sürümlerinde sunulan yeni bir özellik, Spark işlem bağlamındaki ScaleR işlevleri tarafından kullanım için Hive ve Parquet içindeki verilere doğrudan erişime olanak tanır. Bu özellikler, ScaleR tarafından analiz edilmek üzere bir Spart DataFrame’e doğrudan veri yüklemek için Spark SQL kullanarak çalışan RxHiveData ve RxParquetData adlı yeni ScaleR veri kaynağı işlevleriyle kullanılabilir.  
 
 Yeni işlevlerin kullanımına ilişkin bazı örnek kodlar aşağıda verilmiştir:
@@ -456,6 +470,7 @@ Bu yeni işlevlerin kullanımına ilişkin ek bilgi için, ?RxHivedata ve ?RxPar
 
 
 ## <a name="install-r-packages"></a>R paketlerini yükleme
+
 Kenar düğümüne ek R paketleri yüklemek isterseniz, SSH ile kenar düğümüne bağlı olduğunda doğrudan R konsolu içinden `install.packages()` kullanabilirsiniz. Ancak, kümenin çalışan düğümlerine R paketleri yüklemeniz gerekiyorsa bir Betik Eylemi kullanmanız gerekir.
 
 Betik Eylemleri, HDInsight kümesinde yapılandırma değişiklikleri yapmak veya ek yazılım yüklemek için kullanılan Bash betikleridir. Bu örnekte, ek R paketleri yüklemek için kullanılır. Betik Eylemi kullanarak ek paketler yüklemek için aşağıdaki adımları kullanın.
@@ -501,6 +516,7 @@ Betik Eylemleri, HDInsight kümesinde yapılandırma değişiklikleri yapmak vey
 4. Betiği çalıştırmak için **Oluştur**’u seçin. Betik tamamlandıktan sonra R paketleri tüm çalışan düğümlerinde kullanılabilir.
 
 ## <a name="using-microsoft-r-server-operationalization"></a>Microsoft R Server ile Kullanıma Hazır Hale Getirme
+
 Veri modellemesi tamamlandığında, tahminlerde bulunmak üzere modelinizi kullanıma hazır hale getirebilirsiniz. Microsoft R Server ile kullanıma hazır hale getirme özelliğini yapılandırmak için aşağıdaki adımları uygulayın.
 
 İlk olarak, ssh’yi Kenar düğümüne gönderin. Örneğin, ```ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net```.
@@ -577,6 +593,7 @@ remoteLogin(
 
 
 ### <a name="decommission-the-worker-nodes"></a>Çalışan düğümlerinin yetkisini alma
+
 Microsoft R Server şu anda Yarn üzerinden yönetilmemektedir. Çalışan düğümlerinin yetkisi alınmazsa, Yarn kaynak yöneticisi sunucu tarafından alınan kaynakları fark edemeyeceği için beklendiği gibi çalışmaz. Bunu önlemek için, işlem düğümlerini ölçeklendirmek istediğiniz çalışan düğümlerinin yetkisinin alınması önerilir.
 
 Çalışan düğümlerinin yetkisini alma adımları:
@@ -604,6 +621,7 @@ Microsoft R Server şu anda Yarn üzerinden yönetilmemektedir. Çalışan düğ
 * Yönetim Yardımcı Programından çıkın
 
 ### <a name="add-compute-nodes-details-on-web-node"></a>Web Düğümüne işlem düğümleri ekleme
+
 Yetkisi alınan tüm çalışan düğümleri işlem düğümü üzerinde çalışacak şekilde yapılandırıldıktan sonra, Kenar düğümüne geri dönün ve yetkisi alınmış çalışan düğümlerinin IP adreslerini Microsoft R Server web düğümünün yapılandırmasına ekleyin:
 
 * Kenar düğümüne SSH uygulayın
@@ -613,6 +631,7 @@ Yetkisi alınan tüm çalışan düğümleri işlem düğümü üzerinde çalı�
 ![çalışan düğümlerinin yetkisini alma komut satırı](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 R Server içeren yeni bir HDInsight kümesi oluşturmayı ve bir SSH oturumunda R konsolu kullanmaya ilişkin temel bilgileri öğrendiğinize göre, HDInsight üzerinde R Server ile çalışmanın diğer yollarını bulmak için aşağıdakileri kullanın.
 
 * [HDInsight’a RStudio Server Ekleme (küme oluşturma sırasında yüklenmediyse)](hdinsight-hadoop-r-server-install-r-studio.md)

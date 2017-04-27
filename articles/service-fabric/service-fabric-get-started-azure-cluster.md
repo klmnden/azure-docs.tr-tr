@@ -1,0 +1,121 @@
+---
+title: "Azure Service Fabric kümesi ayarlama | Microsoft Docs"
+description: "Hızlı başlangıç- Azure’da bir Windows veya Linux Service Fabric kümesi oluşturun."
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: 
+ms.assetid: 
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 04/17/2017
+ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 813217567c7e1fa5fc9ac11492933ad0c34553d1
+ms.lasthandoff: 04/18/2017
+
+
+---
+
+# <a name="create-your-first-service-fabric-cluster-on-azure"></a>Azure’da ilk Service Fabric kümenizi oluşturma
+[Service Fabric kümesi](service-fabric-deploy-anywhere.md), mikro hizmetlerin dağıtılıp yönetildiği, ağa bağlı bir sanal veya fiziksel makine kümesidir. Bu hızlı başlangıç, [Azure portalı](http://portal.azure.com) üzerinden yalnızca birkaç dakika içinde Windows veya Linux üzerinde çalışan beş düğümlü bir küme oluşturmanıza yardımcı olur.  
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
+[http://portal.azure.com](http://portal.azure.com) sayfasından Azure portalda oturum açın.
+
+## <a name="create-the-cluster"></a>Kümeyi oluşturma
+
+1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+2. **Yeni** dikey penceresinden **İşlem**’i seçin ve ardından **İşlem** dikey penceresinden **Service Fabric Kümesi**’ni belirleyin.
+3. Service Fabric **Temel Bilgileri** formunu doldurun. **İşletim sistemi** için küme düğümlerinin çalışmasını istediğiniz Windows veya Linux sürümünü seçin. Burada girilen kullanıcı adı ve parola, sanal makinede oturum açarken kullanılır. **Kaynak grubu** için yeni bir tane oluşturun. Kaynak grubu, Azure kaynaklarının oluşturulup toplu olarak yönetildiği bir mantıksal kapsayıcıdır. İşlem tamamlandığında **Tamam**’a tıklayın.
+
+    ![Küme kurulumu çıktısı][cluster-setup-basics]
+
+4. **Küme yapılandırması** formunu doldurun.  **Düğüm türü sayısı** için "1" girin ve [Dayanıklılık katmanı](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) ayarını "Bronz" olarak belirleyin.
+
+5. **Her bir düğüm türünü yapılandır**’ı seçip **Düğüm türü yapılandırma** formunu doldurun. Düğüm türleri VM boyutunu, VM sayısını, özel uç noktaları ve aynı türdeki VM’lerin diğer ayarlarını tanımlar. Tanımlanan her düğüm türü, sanal makineleri küme olarak dağıtıp yönetmek için kullanılan ayrı bir sanal makine ölçek kümesi olarak ayarlanır. Her düğüm türünün ölçeği birbirinden bağımsız olarak artırılabilir veya azaltılabilir, her düğüm türünde farklı bağlantı noktası kümeleri açık olabilir ve farklı kapasite ölçümleri yapılabilir.  Birinci veya birincil düğüm türü, Service Fabric sistem hizmetlerinin barındırıldığı yerdir ve beş ya da daha fazla VM içermelidir.
+
+    Herhangi bir üretim dağıtımı için [kapsite planlaması](service-fabric-cluster-capacity.md) önemli bir adımdır.  Ancak, bu hızlı başlangıçta uygulama çalıştırmadığınız için bir *DS1_v2 Standart* VM boyutu seçin.  [Güvenilirlik katmanı](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) için "Gümüş" seçeneğini belirleyin ve sanal makine ölçek kümesinin başlangıç kapasitesini 5 olarak ayarlayın.  
+
+    Özel uç noktalar Azure Load Balancer’da bağlantı noktaları açtığı için, küme üzerinde çalışan uygulamalarla bağlantı kurabilirsiniz.  80 ve 8172 bağlantı noktalarını açmak için "80, 8172" girin.
+
+    TCP/HTTP yönetim uç noktalarını, uygulama bağlantı noktası aralıklarını, [yerleştirme kısıtlamalarını](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints) ve [kapasite özelliklerini](service-fabric-cluster-resource-manager-metrics.md) özelleştirmek için kullanılan **Gelişmiş ayarları yapılandır** kutusunu işaretlemeyin.    
+
+    **Tamam**’ı seçin.
+
+6. **Küme yapılandırması** formunda **Tanılama** ayarını **Açık** olarak belirleyin.  Bu hızlı başlangıçta herhangi bir [yapı ayarı](service-fabric-cluster-fabric-settings.md) özelliği girmeniz gerekmez.  Microsoft’un kümeyi çalıştıran yapı kodu sürümünü otomatik olarak güncelleştirmesi için **Fabric sürümü** menüsünde **Otomatik** yükseltme modunu seçin.  Yükseltmenin yapılacağı [desteklenen bir sürüm seçmek](service-fabric-cluster-upgrade.md) istiyorsanız modu **El ile** olarak ayarlayın. 
+
+    ![Düğüm türü yapılandırması][node-type-config]
+
+    **Tamam**’ı seçin.
+
+7. **Güvenlik** formunu doldurun.  Bu hızlı başlangıç için **Güvenli olmayan**’ı seçin.  Ancak, güvenli olmayan bir kümeye herhangi bir kişi anonim olarak bağlanıp yönetim işlemlerini gerçekleştirebileceğinden, üretim iş yükleri için güvenli bir küme oluşturmanız önemle tavsiye edilir.  
+
+    Sertifikalar, Service Fabric’te bir küme ile uygulamalarının çeşitli yönlerini güvenli hale getirmek üzere kimlik doğrulaması ve şifreleme sağlamak için kullanılır. Sertifikaların Service Fabric’te kullanılmasıyla ilgili daha fazla bilgi için bkz. [Service Fabric kümesi güvenlik senaryoları](service-fabric-cluster-security.md).  Azure Active Directory kullanarak kullanıcı kimlik doğrulamasını etkinleştirmek veya uygulama güvenliği için sertifika ayarlamak üzere [bir Resource Manager şablonundan küme oluşturun](service-fabric-cluster-creation-via-arm.md).
+
+    **Tamam**’ı seçin.
+
+8. Özeti gözden geçirin.  Girdiğiniz ayarlarla oluşturulmuş bir Resource Manager şablonu indirmek isterseniz, **Şablon ve parametreleri indir**’i seçin.  **Oluştur**’u seçerek kümeyi oluşturun.
+
+    Oluşturma işleminin ilerleme durumunu bildirimler bölümünden görebilirsiniz. (Ekranınızın sağ üst köşesindeki durum çubuğunun yanında bulunan "Zil" simgesine tıklayın.) Kümeyi oluştururken **Başlangıç Panosuna Sabitle**’ye tıkladıysanız, **Service Fabric Kümesi Dağıtılıyor** öğesinin **Başlangıç** panosuna sabitlendiğini görürsünüz.
+
+## <a name="view-cluster-status"></a>Küme durumunu görüntüleme
+Kümeniz oluşturulduktan sonra, portaldaki **Genel Bakış** dikey penceresinden kümenizi inceleyebilirsiniz. Kümenin genel uç noktası ve bir Service Fabric Explorer bağlantısıyla birlikte kümenizin ayrıntılarını panoda görebilirsiniz.
+
+![Küme durumu][cluster-status]
+
+## <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer’ı kullanarak kümeyi görselleştirme
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), kümenizi görselleştirmek ve uygulamaları yönetmek için iyi bir araçtır.  Service Fabric Explorer, kümede çalışan bir hizmettir.  Bir web tarayıcısı ile portaldaki kümeye **Genel Bakış** sayfasının **Service Fabric Explorer** bağlantısına tıklayarak bu hizmete erişin.  Ayrıca adresi doğrudan tarayıcıya girebilirsiniz: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
+
+Küme panosu, kümenize uygulama ve düğüm durumunun özetini de içeren bir genel bakış sağlar. Düğüm görünümü, kümenin fiziksel düzenini gösterir. Belirli bir düğümde, hangi uygulamalara kod dağıtıldığını denetleyebilirsiniz.
+
+![Service Fabric Explorer][service-fabric-explorer]
+
+## <a name="connect-to-the-cluster-using-powershell"></a>PowerShell kullanarak kümeye bağlanma
+PowerShell ile bağlanarak kümenin çalıştığını doğrulayın.  ServiceFabric PowerShell modülü, [Service Fabric SDK’sı](service-fabric-get-started.md) ile birlikte yüklenir.  [Connect-ServiceFabricCluster](/powershell/module/ServiceFabric/Connect-ServiceFabricCluster) cmdlet’i, kümeyle bir bağlantı kurar.   
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
+```
+Bir kümeye bağlanmayla ilgili diğer örnekler için bkz. [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md). Kümeye bağlandıktan sonra, kümedeki düğümlerin listesini ve her bir düğümün durum bilgilerini görüntülemek için [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) cmdlet’ini kullanın. Her düğüm için **HealthState** değerinin *OK* olması gerekir.
+
+```powershell
+PS C:\> Get-ServiceFabricNode |Format-Table
+
+NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
+-------------------- --------     --------------- --------  ----------- ------------- ---------- ---------- ------------ -----------
+                     _nodetype1_2 10.0.0.6        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+                     _nodetype1_1 10.0.0.5        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+                     _nodetype1_0 10.0.0.4        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+                     _nodetype1_4 10.0.0.8        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+                     _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+```
+
+## <a name="remove-the-cluster"></a>Kümeyi kaldırma
+Service Fabric kümesi, küme kaynağının yanı sıra diğer Azure kaynaklarından oluşur. Bu nedenle, bir Service Fabric kümesini tamamen silmek için onu oluşturan tüm kaynakları da silmeniz gerekir. Kümeyi ve tüm kaynaklarını silmenin en basit yolu, kaynak grubunun silinmesidir. Bir kümeyi veya bir kaynak grubundaki bazı (tümü değil) kaynakları silmenin diğer yolları için bkz. [Küme silme](service-fabric-cluster-delete.md)
+
+Azure portalında bir kaynak grubunu silin:
+1. Silmek istediğiniz Service Fabric kümesine gidin.
+2. Küme temel bileşenleri sayfasında **Kaynak Grubu** adına tıklayın.
+3. **Kaynak Grubu Temel Bileşenleri** sayfasında **Sil**’e tıklayın ve bu sayfadaki yönergeleri izleyerek kaynak grubu silme işlemini tamamlayın.
+    ![Kaynak grubunu silme][cluster-delete]
+
+## <a name="next-steps"></a>Sonraki adımlar
+Artık bir tek başına geliştirme kümesi ayarladığınıza göre aşağıdakileri deneyebilirsiniz:
+* [Portalda güvenli küme oluşturma](service-fabric-cluster-creation-via-portal.md)
+* [Şablondan küme oluşturma](service-fabric-cluster-creation-via-arm.md) 
+* [PowerShell kullanarak uygulama dağıtma](service-fabric-deploy-remove-applications.md)
+
+
+[cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png
+[node-type-config]: ./media/service-fabric-get-started-azure-cluster/nodetypeconfig.png
+[cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
+[service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
+[cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
