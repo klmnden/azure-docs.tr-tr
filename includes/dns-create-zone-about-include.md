@@ -12,7 +12,3 @@ Azure DNS'de bir DNS bölgesi oluştururken:
 > Azure DNS'de aynı etki alanıyla DNS bölgesi oluşturmak için bir etki alanına sahip değilsiniz. Ancak Azure DNS ad sunucularını etki alanı kayıt şirketinde etki alanı adı için doğru ad sunucuları olarak yapılandırmak üzere etki alanının sahibi olmanız gerekmez.
 > 
 > Daha fazla bilgi için bkz. [Bir etki alanını Azure DNS'ye devretme](../articles/dns/dns-domain-delegation.md).
-
-<!--HONumber=Jan17_HO1-->
-
-
