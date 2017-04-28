@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 04/26/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
 ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -100,9 +101,4 @@ Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 * [Azure Active Directory nedir?](active-directory-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
