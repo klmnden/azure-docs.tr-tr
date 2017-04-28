@@ -31,8 +31,6 @@ ms.lasthandoff: 02/03/2017
 > * [Azure Resource Manager şablonu](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-> 
-> 
 
 Azure Data Factory **Kopyalama Sihirbazı**, veri alma/taşıma senaryosu uygulayan bir işlem hattını kolayca ve hızlıca oluşturmanıza olanak sağlar. Bu nedenle, veri taşıma senaryosuna yönelik bir örnek işlem hattı oluşturmanın ilk adımı olarak sihirbazı kullanmanız önerilir. Bu öğretici bir Azure veri fabrikası oluşturma ve Kopyalama Sihirbazı’nı başlatma işlemlerini göstermesinin yanı sıra veri alma/taşıma senaryonuza ilişkin ayrıntılar sağlayan bir dizi adım uygular. Sihirbazdaki adımları tamamladığınızda sihirbaz bir Azure blob depolama alanından Azure SQL veritabanına veri kopyalamak için Kopyalama Etkinliği içeren bir işlem hattını otomatik olarak oluşturur. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın. 
 
