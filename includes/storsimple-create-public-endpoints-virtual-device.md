@@ -12,8 +12,3 @@
 
 Uç nokta oluşturulduktan sonra, Genel Sanal IP (VIP) adresini saptamak için ayrıntılarını görüntüleyebilirsiniz. Bu adresini kaydedin.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

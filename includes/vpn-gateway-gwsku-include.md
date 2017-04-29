@@ -15,8 +15,3 @@ SKU seçerken şunları göz önünde bulundurun:
 * ExpressRoute-VPN Gateway ağ geçidi bir arada var olabilen yapılandırmaları, temel SKU'da desteklenmez.
 * Etkin-etkin S2S VPN Gateway bağlantıları, yalnızca HighPerformance değerine sahip SKU'larda yapılandırılabilir.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

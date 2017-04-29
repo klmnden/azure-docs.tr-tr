@@ -21,8 +21,3 @@
    
     Azure’un GCM ile kimlik doğrulaması yapmasını ve uygulamanız adına anında iletme bildirimleri göndermesini etkinleştirmek için bu API anahtarını kullanın.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

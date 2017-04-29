@@ -11,8 +11,3 @@ Burada, bildirim göndermek için gözden geçirmek isteyebileceğiniz bazı ba�
 
 Öğreticinin sonraki bölümünde, bildirim iletisini doğrudan uygulamanıza göndermek için [Bildirim Hub'ı REST arabirimi](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)’nin nasıl kullanıldığını öğreneceksiniz . Tüm kayıtlı cihazlar herhangi bir cihazdan gönderilen bildirimleri alır.  
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -14,8 +14,3 @@ Sanal cihazı yeniden başlatmak için aşağıdaki cmdlet'i kullanın.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

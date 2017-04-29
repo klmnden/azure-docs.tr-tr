@@ -8,8 +8,3 @@ Bu senaryoda, **192.168.0.0./16** bloğuna ayrılmış CIDR bulunan **TestVNet**
 * CIDR bloğu olarak **192.168.1.0/24** kullanan **Ön Uç**.
 * CIDR bloğu olarak **192.168.2.0/24** kullanan **rka Uç**.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
