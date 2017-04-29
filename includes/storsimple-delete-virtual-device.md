@@ -4,8 +4,3 @@
 2. **Virtual Machines**’e tıklayın ve sanal cihazı seçin.
 3. **Sil**’e tıklayın ve silinecek tüm sanal makine disklerini seçin.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -3,8 +3,3 @@
 2. **Virtual Machines**’e tıklayın ve sanal cihazı seçin.
 3. **Kapat**’a tıklayın.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

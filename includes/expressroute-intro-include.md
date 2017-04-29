@@ -3,8 +3,3 @@ Microsoft Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştır�
 
 ![](./media/expressroute-intro-include/expressroute-basic.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -17,8 +17,3 @@ Yapılandırma ve kayıt tamamlandıktan sonra cihaz çevrimiçi duruma gelir. (
 
 ![StorSimple sanal cihaz çevrimiçi aşaması](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
