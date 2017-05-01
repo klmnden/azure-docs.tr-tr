@@ -35,7 +35,3 @@ Evet, olabilir. Ancak sanal ağlarda, sanal ağlar arasında çakışmaması ger
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Siteden Siteye ve Noktadan Siteye bağlantılardan ne kadar verimlilik bekleyebilirim?
 VPN tünellerinin tam verimini elde etmek zordur. IPsec ve SSTP şifrelemesi ağır VPN protokolleridir. Verimlilik, şirket içi ve İnternet arasındaki bant genişliğiyle ve gecikme süresiyle de sınırlıdır.
-
-<!--HONumber=Feb17_HO3-->
-
-
