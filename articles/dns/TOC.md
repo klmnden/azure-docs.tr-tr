@@ -1,6 +1,8 @@
 # Genel Bakış
 ## [Azure DNS nedir?](dns-overview.md)
 ## [DNS bölgeleri ve kayıtları](dns-zones-records.md)
+## [Azure DNS ile DNS temsilcisi atama](dns-domain-delegation.md)
+## [DNS SSS](dns-faq.md)
 
 # Kullanmaya Başlama
 
@@ -10,7 +12,7 @@
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI 2.0](dns-getstarted-cli.md)
 
-## [Etki alanınızı Azure DNS'e atama](dns-domain-delegation.md)
+## [Etki alanınızı Azure DNS'e atama](dns-delegate-domain-azure-dns.md)
 ## [Bir web uygulaması için özel DNS kayıtları oluşturma](dns-web-sites-custom-domain.md)
 
 # Nasıl yapılır

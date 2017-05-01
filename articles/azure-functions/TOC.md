@@ -2,7 +2,7 @@
 ## [Azure İşlevleri nedir?](functions-overview.md)
 # Başlarken
 ## [İlk işlevinizi oluşturma](functions-create-first-azure-function.md)
-## [Web kancası işlevi oluşturma](functions-create-a-web-hook-or-api-function.md)
+## [Web kancası ile tetiklenen bir işlev oluşturma](functions-create-github-webhook-triggered-function.md)
 ## [Azure bağlantılı işlev oluşturma](functions-create-an-azure-connected-function.md)
 ## [Olay işleme işlevi oluşturma](functions-create-an-event-processing-function.md)
 # Nasıl yapılır?

@@ -56,6 +56,7 @@
 ### [Kapasite ve performans](log-analytics-capacity.md)
 ### [Değişiklik İzleme](log-analytics-change-tracking.md)
 ### [Kapsayıcılar](log-analytics-containers.md)
+### [DNS Analizi](log-analytics-dns.md)
 ### [Anahtar Kasası](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B İletileri
 #### [Logic Apps B2B İletileri çözümü](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)

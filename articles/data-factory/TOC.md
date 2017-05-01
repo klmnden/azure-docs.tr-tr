@@ -1,10 +1,9 @@
 # Genel Bakış
 ## [Azure Data Factory'ye giriş](data-factory-introduction.md)
 ## Kavramlar
-### [Veri kümeleri](data-factory-create-datasets.md)
 ### [İşlem hatları ve etkinlikler](data-factory-create-pipelines.md)
+### [Veri kümeleri](data-factory-create-datasets.md)
 ### [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md)
-### [İşlem Bağlı Hizmetleri](data-factory-compute-linked-services.md)
 
 # Kullanmaya Başlama
 ## [Öğretici: Verileri kopyalamak için bir işlem hattı oluşturma](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -21,6 +20,7 @@
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager şablonu](data-factory-build-your-first-pipeline-using-arm.md)
 ### [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Öğretici: Şirket içi ile bulut arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md)
 ## [SSS](data-factory-faq.md)
 
 # Nasıl yapılır
@@ -60,7 +60,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Web tablosu](data-factory-web-table-connector.md)
 ### [Veri Yönetimi Ağ Geçidi](data-factory-data-management-gateway.md)
-### [Şirket içi ile bulut arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [Verileri Dönüştürme](data-factory-data-transformation-activities.md)
 ### [HDInsight Hive Etkinliği](data-factory-hive-activity.md)
@@ -75,6 +75,7 @@
 ### [.NET özel etkinliği](data-factory-use-custom-activities.md)
 ### [R betiklerini çağırma](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ### [Azure Analysis Services’te modelleri yeniden işleme](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [İşlem Bağlı Hizmetleri](data-factory-compute-linked-services.md)
 
 ## Geliştirme
 ### [Azure Resource Manager şablonu](data-factory-how-to-use-resource-manager-templates.md)

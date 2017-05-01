@@ -8,6 +8,7 @@
 ## [Önceden yapılandırılmış çözümleri kullanmaya başlama](iot-suite-getstarted-preconfigured-solutions.md)
 ## [azureiotsuite.com sitesindeki izinler](iot-suite-permissions.md)
 ## [Tahmine dayalı bakım çözümüne genel bakış](iot-suite-predictive-overview.md)
+## [Bağlı fabrika çözümüne genel bakış](iot-suite-connected-factory-overview.md)
 ## [Uzaktan izleme çözüm kılavuzu](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Tahmine dayalı bakım çözüm kılavuzu](iot-suite-predictive-walkthrough.md)
 
@@ -21,6 +22,7 @@
 ## [Uzaktan izleme çözümüyle dinamik telemetri kullanma](iot-suite-dynamic-telemetry.md)
 ## [Uzaktan izleme çözümünde özel kural oluşturma](iot-suite-custom-rule.md)
 ## [Uzaktan izleme çözümündeki cihaz bilgileri](iot-suite-remote-monitoring-device-info.md)
+## [Bağlı fabrika için ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md)
 
 # Başvuru
 ## [Güvenlik mimarisi](iot-security-architecture.md)
@@ -39,10 +41,5 @@
 ## [IoT Paketi öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

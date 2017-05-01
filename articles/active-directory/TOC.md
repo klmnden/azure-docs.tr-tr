@@ -69,6 +69,7 @@
 #### [Bir grup için lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
+#### [Grup tabanlı lisanslama için PowerShell örnekleri](active-directory-licensing-ps-examples.md)
 ### [Self servis gruplarını kurma](active-directory-accessmanagement-self-service-group-management.md)
 ### [Sorun giderme](active-directory-accessmanagement-troubleshooting.md)
 

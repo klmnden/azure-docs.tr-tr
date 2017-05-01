@@ -1,7 +1,6 @@
 # Genel Bakış
-## [DevTest Labs nedir?](devtest-lab-overview.md)
-## [Neden DevTest Labs?](devtest-lab-why.md)
-## [DevTest Labs kavramları](devtest-lab-concepts.md)
+## [Azure DevTest Labs hakkında](devtest-lab-overview.md)
+## [Kavramlar](devtest-lab-concepts.md)
 
 # Kullanmaya Başlama
 ## [Laboratuvar oluşturma](devtest-lab-create-lab.md)

@@ -1,10 +1,11 @@
 # Genel Bakış
+## [Azure AD ile tümleştirme](active-directory-how-to-integrate.md)
 ## [Geliştiriciler için Kılavuz](active-directory-developers-guide.md)
 ## [Uygulamalar ve Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Geliştirici sözlüğü](active-directory-dev-glossary.md)
-## [AAD Grafik API’si](active-directory-graph-api.md)
+## [Azure AD Grafik API'si](active-directory-graph-api.md)
 # Hızlı Başlangıçlar
-## [AAD kiracısı edinme](active-directory-howto-tenant.md)
+## [Azure AD kiracısı edinme](active-directory-howto-tenant.md)
 ## [Uygulamaları AAD ile tümleştirme](active-directory-integrating-applications.md)
 ## Mobil ve PC uygulamaları
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -23,9 +24,9 @@
 ## Web API
 ### [Web API ve .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [AAD Grafik API’si](active-directory-graph-api-quickstart.md)
+## [Azure AD Grafik API'si](active-directory-graph-api-quickstart.md)
 # Kılavuzlar
-## [Kimlik doğrulaması desenleri](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
+## [Kimlik doğrulaması desenleri](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 ### [Yerel uygulamalar](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [Web Apps](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [Web API](active-directory-authentication-scenarios.md#web-application-to-web-api)
@@ -45,7 +46,7 @@
 ### [Çoklu Oturum Açma SAML protokolü](active-directory-single-sign-on-protocol-reference.md)
 ### [Çoklu Oturum Kapatma SAML protokolü](active-directory-single-sign-out-protocol-reference.md)
 ## Visual Studio ile çalışma
-### [Azure Active Directory’yi ve Visual Studio’ya bağlı hizmetlerini kullanmaya başlama (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
+### [Visual Studio bağlı hizmetlerini kullanmaya başlama (MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
 ### [Kimlik doğrulama algılama sırasında bir hata oluştu](vs-active-directory-error.md)
 ### [WebApi ile çalışmaya başlama](vs-active-directory-webapi-getting-started.md)
 ### [Web API projeme ne oldu?](vs-active-directory-webapi-what-happened.md)

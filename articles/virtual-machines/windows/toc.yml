@@ -13,18 +13,24 @@
     href: quick-create-powershell.md
   - name: "VM Oluşturma - Azure CLI"
     href: quick-create-cli.md
+- name: "Öğreticiler"
+  items:
+  - name: "1 - VM oluşturma / yönetme"
+    href: tutorial-manage-vm.md
+  - name: "2 - Disk oluşturma / yönetme"
+    href: tutorial-manage-data-disk.md
+  - name: "3 - Yapılandırmayı otomatikleştirme"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4 - VM&quot;ler için yük dengeleme"
+    href: tutorial-load-balancer.md
+  - name: "5 - Ağı yönetme"
+    href: tutorial-virtual-network.md
 - name: "Örnekler"
   items:
   - name: "PowerShell"
     href: powershell-samples.md
   - name: "Azure CLI"
     href: cli-samples.md
-- name: "Öğreticiler"
-  items:
-  - name: "VM oluşturma ve yönetme"
-    href: ../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: "Yüksek oranda kullanılabilir VM’lerde yük dengeleme"
-    href: load-balanced-iis-tutorial.md
 - name: "Kavramlar"
   items:
   - name: "Bölgeler ve kullanılabilirlik"
@@ -261,7 +267,7 @@
     - name: "Erişimi yönetme"
       href: ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: "Disk şifreleme"
-      href: ../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: encrypt-disks.md
     - name: "VM’lere ilke uygulama"
       href: policy.md
     - name: "Anahtar Kasası ayarlama"
