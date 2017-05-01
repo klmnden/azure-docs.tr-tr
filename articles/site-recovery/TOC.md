@@ -8,17 +8,18 @@
 ## [Tanıtımı izleyin](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Kullanmaya Başlama
-## [VMWare VM'lerini Azure'a çoğaltma](site-recovery-vmware-to-azure.md)
-## [VMware VM’lerini çok kiracılı bir dağıtımda (CSP) Azure’a dağıtma](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [VMware VM'lerini Azure'a çoğaltma](site-recovery-vmware-to-azure.md)
+## [Fiziksel sunucuları Azure'a çoğaltma](site-recovery-physical-servers-to-azure.md) 
 ## [Hyper-V VM’lerini Azure’a çoğaltma (VMM ile)](site-recovery-vmm-to-azure.md)
 ## [Hyper-V VM'lerini Azure'a çoğaltma](site-recovery-hyper-v-site-to-azure.md)
-## [VMware VM’lerini ve fiziksel sunucuları ikincil bir siteye çoğaltma](site-recovery-vmware-to-vmware.md)
 ## [Hyper-V VM'lerini ikincil bir siteye çoğaltma (VMM ile)](site-recovery-vmm-to-vmm.md)
+## [VMware VM’lerini ve fiziksel sunucuları ikincil bir siteye çoğaltma](site-recovery-vmware-to-vmware.md)
+## [VMware VM’lerini çok kiracılı bir dağıtımda (CSP) Azure’a dağıtma](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama
 ### [Dağıtım önkoşulları](site-recovery-prereq.md)
-### [Ağ altyapısı ile ilgili önemli noktalar](site-recovery-network-design.md)
+### [Ağ altyapısını planlama](site-recovery-network-design.md)
 ### [Kapasite planlama ve Azure'aa VMware çoğaltma işlemini ölçeklendirme](site-recovery-plan-capacity-vmware.md)
 ### [Azure’a VMware çoğaltması için Dağıtım Planlayıcısı](site-recovery-deployment-planner.md)
 ### [Hyper-V çoğaltması için Capacity Planner](site-recovery-capacity-planner.md)
@@ -31,7 +32,7 @@
 #### [System Center Configuration Manager ile Mobility hizmetini dağıtma](site-recovery-install-mobility-service-using-sccm.md)
 #### [Azure Otomasyonu DSC ile Mobility hizmetini dağıtma](site-recovery-automate-mobility-service-install.md)
 ### [Çoğaltmayı etkinleştirme](site-recovery-replicate-vmware-to-azure.md)
-## Yük devretme ve yeniden çalışma
+## Yük devretme ve ilk duruma döndürme
 ### [Yük devretme korumalı makineler](site-recovery-failover.md)
 ### [Kurtarma planları oluşturma](site-recovery-create-recovery-plans.md)
 #### [Kurtarma planlarına Azure runbook ekleme](site-recovery-runbook-automation.md)

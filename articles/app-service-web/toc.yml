@@ -21,18 +21,22 @@
     href: app-service-web-get-started-python.md
   - name: "Statik HTML sitesi oluşturma"
     href: app-service-web-get-started-html.md
+- name: "Öğreticiler"
+  items:
+  - name: "1 - SQL DB ile .NET"
+    href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: "1 - MongoDB ile Node.js"
+    href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: "2 - Özel Etki Alanı Eşleme"
+    href: app-service-web-tutorial-custom-domain.md
+  - name: "3- SSL Sertifikası Bağlama"
+    href: app-service-web-tutorial-custom-ssl.md
 - name: "Örnekler"
   items:
   - name: "Azure CLI"
     href: app-service-cli-samples.md
   - name: "PowerShell"
     href: app-service-powershell-samples.md
-- name: "Öğreticiler"
-  items:
-  - name: "SQL Veritabanı ile .NET"
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: "MongoDB ile Node.js"
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
 - name: "Kavramlar"
   items:
   - name: "App Service nasıl çalışır?"
@@ -174,8 +178,6 @@
         href: web-sites-dotnet-entity-framework-row-level-security.md
     - name: "Özel SSL atama"
       items:
-      - name: "SSL sertifikası satın alma"
-        href: web-sites-purchase-ssl-web-site.md
       - name: "Üçüncü taraf SSL sertifikası yapılandırma"
         href: web-sites-configure-ssl-certificate.md
     - name: "HTTPS zorlama"

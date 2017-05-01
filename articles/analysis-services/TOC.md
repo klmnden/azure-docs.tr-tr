@@ -12,7 +12,12 @@
 ##[Şirket içi veri ağ geçidini tümleştirme](analysis-services-gateway.md)
 ##[Excel ile bağlanma](analysis-services-connect-excel.md)
 ##[Power BI ile bağlanma](analysis-services-connect-pbi.md)
+##[Veri sağlayıcılar](analysis-services-data-providers.md)
 ##[Yedekleme ve geri yükleme](analysis-services-backup.md)
+##[Yüksek kullanılabilirlik](analysis-services-bcdr.md)
+##[Veri kaynağı bağlantıları](analysis-services-datasource.md)
+
+##[.odc dosyası oluşturma](analysis-services-odc.md)
 
 # Başvuru
 ##[PowerShell](analysis-services-powershell.md)
@@ -21,6 +26,11 @@
 ##[Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 
 # Kaynaklar
-##[Veri kaynağı bağlantıları](analysis-services-datasource.md)
-##[Veri sağlayıcılar](analysis-services-data-providers.md)
-##[.odc dosyası oluşturma](analysis-services-odc.md)
+##[Analysis Services ekip blogu](https://blogs.msdn.microsoft.com/analysisservices/)
+##[Azure Analysis Services forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
+##[Geri Bildirim](https://feedback.azure.com/forums/556165-azure-analysis-services)
+##[Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+##[Fiyatlandırma](https://azure.microsoft.com/pricing/details/analysis-services/)
+##[Videolar](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+##[Azure durumu](https://azure.microsoft.com/status/)
+

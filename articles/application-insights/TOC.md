@@ -18,6 +18,7 @@
 ### [Web Apps - çalışma zamanı](app-insights-java-live.md)
 ### [Docker uygulamaları](app-insights-docker.md)
 
+
 ## Web sayfalarını izleme
 ### [JavaScript](app-insights-javascript.md)
 
@@ -75,6 +76,7 @@
 #### [Panolar](app-insights-dashboards.md)
 #### [Search](app-insights-diagnostic-search.md)
 #### [Ölçümler](app-insights-metrics-explorer.md)
+#### [Canlı akış](app-insights-live-stream.md)
 
 #### [Uygulama Eşlemesi](app-insights-app-map.md)
 #### [HockeyApp verileri](app-insights-hockeyapp-bridge-app.md)
@@ -132,6 +134,14 @@
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [REST](https://dev.applicationinsights.io/)
+## [Veri modeli](application-insights-data-model.md)
+### [İstek](application-insights-data-model-request-telemetry.md)
+### [Bağımlılık](application-insights-data-model-dependency-telemetry.md)
+### [Özel durum](application-insights-data-model-exception-telemetry.md)
+### [İzleme](application-insights-data-model-trace-telemetry.md)
+### [Olay](application-insights-data-model-event-telemetry.md)
+### [Ölçüm](application-insights-data-model-metric-telemetry.md)
+## [Telemetri bağıntısı](application-insights-correlation.md)
 
 # Kaynaklar
 

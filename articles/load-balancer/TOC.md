@@ -44,6 +44,8 @@
 ### [Birden fazla IP yapılandırması kullanma (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Azure Load Balancer için Log Analytics](load-balancer-monitor-log.md)
 ## [Linux VM’leri için DHCPv6’yı yapılandırma](load-balancer-ipv6-for-linux.md)
+## Sorun giderme
+### [Azure Load Balancer sorunlarını giderme](load-balancer-troubleshoot.md)
 
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)

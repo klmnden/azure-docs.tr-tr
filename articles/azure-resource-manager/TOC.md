@@ -10,6 +10,12 @@
 ## [İlk şablonunuzu oluşturma](resource-manager-create-first-template.md)
 ## [Resource Manager ile Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Örnekler
+## PowerShell
+### [Şablon dağıtma](resource-manager-samples-powershell-deploy.md)
+## Azure CLI
+### [Şablon dağıtma](resource-manager-samples-cli-deploy.md)
+
 # Nasıl yapılır?
 ## Şablon oluşturma
 ### [Şablonlar için en iyi uygulamalar](resource-manager-template-best-practices.md)
@@ -26,8 +32,12 @@
 ### [Bağlı şablonlar arasında durum paylaşma](best-practices-resource-manager-state.md)
 ### [Şablon tasarlamaya yönelik desenler](best-practices-resource-manager-design-templates.md)
 ## Dağıtma
-### [PowerShell](resource-group-template-deploy.md)
-### [Azure CLI](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Şablon dağıtma](resource-group-template-deploy.md)
+#### [SAS belirteci ile özel şablon dağıtma](resource-manager-powershell-sas-token.md)
+### Azure CLI
+#### [Şablon dağıtma](resource-group-template-deploy-cli.md)
+#### [SAS belirteci ile özel şablon dağıtma](resource-manager-cli-sas-token.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Visual Studio Team Services ile sürekli tümleştirme](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

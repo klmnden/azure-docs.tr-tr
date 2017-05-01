@@ -13,20 +13,30 @@
     href: quick-create-portal.md
   - name: "VM Oluşturma - PowerShell"
     href: quick-create-powershell.md
+- name: "Öğreticiler"
+  items:
+  - name: "1 - VM oluşturma / yönetme"
+    href: tutorial-manage-vm.md
+  - name: "2 - Disk oluşturma / yönetme"
+    href: tutorial-manage-disks.md
+  - name: "3 - Yapılandırmayı otomatikleştirme"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4 - VM görüntüleri oluşturma"
+    href: tutorial-custom-images.md
+  - name: "5 - Yüksek oranda kullanılabilir VM’ler"
+    href: tutorial-availability-sets.md
+  - name: "6 - VM ölçek kümesi oluşturma"
+    href: tutorial-create-vmss.md
+  - name: "7 - VM&quot;ler için yük dengeleme"
+    href: tutorial-load-balancer.md
+  - name: "8 - Ağı yönetme"
+    href: tutorial-virtual-network.md
 - name: "Örnekler"
   items:
   - name: "Azure CLI"
     href: cli-samples.md
   - name: "PowerShell"
     href: powershell-samples.md
-- name: "Öğreticiler"
-  items:
-  - name: "VM oluşturma ve yönetme"
-    href: tutorial-manage-vm.md
-  - name: "Yüksek oranda kullanılabilir VM’lerde yük dengeleme"
-    href: tutorial-load-balance-nodejs.md
-  - name: "VM Ölçek Kümesi oluşturma"
-    href: tutorial-create-vmss.md
 - name: "Kavramlar"
   items:
   - name: "Azure destekli dağıtımlar"

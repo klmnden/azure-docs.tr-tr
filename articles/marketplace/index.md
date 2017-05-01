@@ -1,6 +1,6 @@
 ---
-title: "Azure Market Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Windows veya Linux sanal makineleri oluşturma, dağıtma ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
+title: Azure Market Belgeleri | Microsoft Docs
+description: "Azure Market hakkında bilgi edinin."
 services: marketplace
 author: carolz
 manager: carolz
@@ -13,14 +13,14 @@ ms.topic: landing-page
 ms.date: 04/14/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: fc1bb285fbec529724345d3974e42837a3d79114
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 6dca59ddd5fe524b7778abe770b6387f8bb24f01
+ms.lasthandoff: 04/19/2017
 
 ---
 # <a name="azure-marketplace-documentation"></a>Azure Market Belgeleri
 
-Yeni şirketlerden kuruluşlara kadar ISV’lerin çözümlerini dünyanın her yerinden kullanıcılara sunmasına olanak sağlayan bir çevrimiçi uygulama ve hizmet marketi olan Azure Market hakkında bilgi edinin.
+Startup’lardan kuruluşlara kadar tüm ISV’lere, çözümlerini dünyanın her yerinden müşterilere sunma olanağı sağlayan bir çevrimiçi uygulama ve hizmet marketi olan Azure Market hakkında bilgi edinin.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -30,7 +30,7 @@ Yeni şirketlerden kuruluşlara kadar ISV’lerin çözümlerini dünyanın her 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                            <img src="media/index/seller-guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -48,7 +48,7 @@ Yeni şirketlerden kuruluşlara kadar ISV’lerin çözümlerini dünyanın her 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

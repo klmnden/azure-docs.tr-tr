@@ -105,6 +105,7 @@
 ### [Hive ilkelerini yapılandırma](hdinsight-domain-joined-run-hive.md)
 ## Kafka kullanma (Önizleme)
 ### [Kafka verilerini çoğaltma](hdinsight-apache-kafka-mirroring.md)
+### [Sanal Ağlar ile kullanma](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Spark ile kullanma](hdinsight-apache-spark-with-kafka.md)
 ### [Storm ile kullanma](hdinsight-apache-storm-with-kafka.md)
 ## Geliştirme

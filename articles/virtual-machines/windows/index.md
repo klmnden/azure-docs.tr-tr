@@ -12,16 +12,30 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: d6358d1a44b85a475cdf2d489112244152f64395
-ms.lasthandoff: 04/08/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 631eb4c8aa3a41e03cf623fcc5610d3e84f18ec4
+ms.lasthandoff: 04/22/2017
 
 ---
 <div class="content">
     <h1>Windows Sanal Makineleri İle İlgili Belgeler</h1>
-    <p style="padding-bottom: 0px; max-width: 1050px;">Azure Windows Sanal Makineleri, Windows Server kullanarak isteğe bağlı, büyük ölçekli, güvenli, sanallaştırılmış bir altyapı sağlar. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle Windows VM’leri oluşturmayı, yapılandırmayı, yönetmeyi ve ölçeklendirmeyi öğrenin.</p>
-<h2 style="margin-top: 36px; margin-bottom: 0px;">Hızlı Başlangıçlar</h2>
-<p style="margin-top: 6px; margin-bottom: 6px;">Aşağıdakileri kullanarak bir Windows VM oluşturun:</p>
+    <div class="introHolder" style="justify-content: space-between;">
+        <div class="intro" style="min-width: 200px">
+            <p>Azure Windows Sanal Makineleri, Windows Server kullanarak isteğe bağlı, büyük ölçekli, güvenli, sanallaştırılmış bir altyapı sağlar. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle Windows VM’leri oluşturmayı, yapılandırmayı, yönetmeyi ve ölçeklendirmeyi öğrenin.</p>
+        </div>
+        <a href="https://azure.microsoft.com/en-us/resources/videos/create-windows-server-virtual-machine/">
+            <div class="calloutHolder" style="max-width: 250px">
+                <div>
+                    <img src="media/index/create-windows-server-virtual-machine.png" style="width: 250px" />
+                </div>
+                <div>
+                    <p style="margin-top: 0; color: #6e6e6e">Windows Server Sanal Makinesi oluşturun. (3:58)</p>
+                </div>
+            </div>
+        </a>
+    </div>
+<h2 style="margin-top: 0px; margin-bottom: 0px;">5 Dakikalık Hızlı Başlangıçlar</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">Windows Server 2016 çalıştıran bir Sanal Makine içinde IIS web sunucusu dağıtmayı öğrenin:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
@@ -42,37 +56,82 @@ ms.lasthandoff: 04/08/2017
         </a>
     </div>
 </div>
-<div class="columnHolder">
-    <div class="column50">
-        <h2 style="margin-top: 36px">Öğreticiler</h2>
-        <p>Windows sanal makineleri oluşturun ve dağıtın.</p>
-        <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Windows VM’leri oluşturma ve yönetme</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-load-balanced-iis-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Yüksek oranda kullanılabilir VM’lerde yük dengeleme</a></li>
-        </ul>
-        <h2>Örnekler</h2>
-        <p>İlk uygulamanızı Azure’da dağıtın.</p>
-        <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a></li>
-        </ul>
-    </div>
-    <div class="column50" style="max-width: 400px">
-        <h2 style="margin-top: 36px">Ücretsiz Eğitim Videosu</h2>
-        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
-            <p style="margin-top: 0px">Ücretsiz Pluralsight eğitim videosu – Altyapıyı yönetme</a></p>
-            <p style="margin-top: 36px"></p>
-                <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-vms.png" width="400" alt="" />
-            <p style="margin-top: 0px">Ücretsiz Pluralsight eğitim videosu – Sanal Makinelerle Çalışmaya Başlama</a></p>
-        <p style="margin-top: 36px"></p>
-        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
-            <p style="margin-top: 0px">Ücretsiz Pluralsight eğitim videosu – IaaS İzleme ile Çalışmaya Başlama</a></p>
-    </div>
-</div>
-<hr />
+
+<h2 style="margin-top: 36px">Adım Adım Öğreticiler</h2>
+<p>Azure’da Windows VM’lerini dağıtma, yönetme ve izleme hakkında bilgi edinin</p>
+<ol>
+   <li><a href="/azure/virtual-machines/windows/tutorial-manage-vm">Windows VM’leri oluşturma ve yönetme</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">VM diskleri oluşturma ve yönetme</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">VM yapılandırmasını otomatikleştirme</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-load-balancer">VM'ler için yük dengeleme</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">VM ağını yönetme</a></li>
+</ol>
+
+<h2 style="margin-top: 36px">Ücretsiz PluralSight Video Eğitimi</h2>
+<ul class="panelContent cardsW">
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-infrastructure.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Altyapıyı Yönetme</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-vms.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Sanal Makineleri Kullanmaya Başlama</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-iaas-monitoring.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>IaaS İzleme ile Çalışmaya Başlama</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+
+<h2>Örnekler</h2>
+<p>İlk uygulamanızı Azure’da dağıtın.</p>
+<ul class="spaced">
+    <li><a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure CLI</a></li>
+    <li><a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a></li>
+</ul>
+
 <h2 style="margin-top: 36px">Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
