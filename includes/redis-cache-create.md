@@ -34,8 +34,3 @@ Yeni önbellek seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıkla
 
 ![Önbellek oluşturuldu](media/redis-cache-create/redis-cache-cache-created.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-
