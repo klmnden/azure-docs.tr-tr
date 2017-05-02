@@ -111,8 +111,8 @@ Azure portalı, bir arama günlüğü dosyası içeren bazı örnek veri dosyala
 Dosyaları CLI 2.0 aracını kullanarak karşıya yüklemek için aşağıdaki komutları kullanın:
 
 ```azurecli
-az dls file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
-az dls file list --account "<Data Lake Store Account Name>" --path "<Path>"
+az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
+az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
 
 Data Lake Analytics ayrıca Azure Blob depolama alanına da erişebilir.  Verileri Azure Blob depolama alanına yüklemek için bkz. [Azure CLI'yı Azure Storage ile kullanma](../storage/storage-azure-cli.md).
