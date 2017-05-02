@@ -9,9 +9,9 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a12eab1f7bc4177f659771d58a58f749507c994c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 8194e669f943a6c47f02ae0d2a55e0e720420489
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="connect-a-web-app-to-a-content-delivery-network"></a>Web Uygulamasını İçerik Teslim Ağına bağlama
@@ -28,7 +28,7 @@ Bu öğreticide, statik dosyalarınızı Web Uygulamanızdan Azure CDN pop konum
 
 ## <a name="step-2---create-a-cdn-profile"></a>Adım 2 - CDN Profili oluşturun
 
-Sol gezinti bölmesindeki `+ New` düğmesine ve **Web + Mobil**’e tıklayın. Web + Mobil kategorisi altında **CDN**’yi seçin.
+Sol gezinti bölmesindeki **+Yeni** düğmesine ve **Web + Mobil**’e tıklayın. Web + Mobil kategorisi altında **CDN**’yi seçin.
 
 **Ad**, **Konum**, **Kaynak grubu**, **Fiyatlandırma katmanı** belirtip, **Oluştur**’a tıklayın.
 
@@ -38,7 +38,7 @@ Sol gezinti bölmesinden kaynak grupları merkezini açıp, **myResourceGroup**�
 
 ## <a name="step-3---create-a-cdn-endpoint"></a>Adım 3 - CDN Uç Noktası oluşturun
 
-Arama kutusunun yanındaki komutlardan `+ Endpoint` öğesine tıkladığınızda Uç Nokta oluşturma dikey penceresi başlatılır.
+Arama kutusunun yanındaki komutlardan **+ Uç Nokta** öğesine tıkladığınızda Uç Nokta oluşturma dikey penceresi başlatılır.
 
 **Ad**, **Kaynak türü**, **Kaynak ana bilgisayar adı** belirtip **Ekle**’ye tıklayın.
 

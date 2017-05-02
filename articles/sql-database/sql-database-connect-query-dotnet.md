@@ -13,12 +13,12 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/05/2017
+ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -70,16 +70,18 @@ Azure portaldan bağlantı dizesini alın. Azure SQL veritabanına bağlanmak i�
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın **Temel Bilgiler** bölmesinde, tam sunucu adını gözden geçirin. 
+3. Veritabanınızın **Genel Bakış** sayfasında, aşağıdaki görüntüde gösterildiği gibi tam sunucu adını gözden geçirin. Sunucu adının üzerine gelerek **Kopyalamak için tıklayın** seçeneğini ortaya çıkarabilirsiniz. 
 
-    <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. **Veritabanı bağlantı dizelerini göster**’e tıklayın.
+4. Azure SQL Veritabanı sunucunuzun oturum açma bilgilerini unuttuysanız, SQL Veritabanı sunucu sayfasına giderek sunucu yöneticisi adını görüntüleyin ve gerekirse parolayı sıfırlayın.
 
-5. Tam **ADO.NET** bağlantı dizesiniz gözden geçirin.
+5. **Veritabanı bağlantı dizelerini göster**’e tıklayın.
 
-    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
-    
+6. Tam **ADO.NET** bağlantı dizesiniz gözden geçirin.
+
+    ![ADO.NET bağlantı dizesi](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+  
 ## <a name="add-systemdatasqlclient"></a>System.Data.SqlClient ekleme
 .NET core kullanırken, projenizin ***csproj*** dosyasına bağımlılık olarak System.Data.SqlClient ekleyin.
 
@@ -94,8 +96,7 @@ Azure portaldan bağlantı dizesini alın. Azure SQL veritabanına bağlanmak i�
 1. Geliştirme ortamınızda boş bir kod dosyası açın.
 2. Kod dosyanıza ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)) ```using System.Data.SqlClient``` kodunu ekleyin. 
 
-3. Azure SQL veritabanınızdaki verileri sorgulamak için bir [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL deyimiyle birlikte [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) komutunu kullanın. Sunucunuz için uygun değerler ekleme
-
+3. Azure SQL veritabanınızdaki verileri sorgulamak için bir [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL deyimiyle birlikte [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) komutunu kullanın. Sunucunuz için uygun değerleri ekleyin.
 ```csharp
 using System;
 using System.Data;

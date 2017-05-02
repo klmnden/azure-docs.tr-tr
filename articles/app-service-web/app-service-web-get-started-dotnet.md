@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: b575e92d2140ecc0e0f30186302e7733e08d0415
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 24ddf0d81e52960bd582861d324585b8ba0ca357
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/04/2017
 
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-Bu Hızlı Başlangıç, ilk ASP.NET web uygulamanızı birkaç dakika içinde [Azure Uygulama Hizmeti](../app-service/app-service-value-prop-what-is.md)’ne dağıtmanıza yardımcı olur. İşiniz bittiğinde, bulutta çalışır hale gelecek basit bir web uygulamanız olur.
+Bu Hızlı Başlangıç, ilk ASP.NET web uygulamanızı birkaç dakika içinde [Azure Uygulama Hizmeti](../app-service/app-service-value-prop-what-is.md)’ne dağıtmanıza yardımcı olur. İşiniz bittiğinde, bulutta çalışır hale gelecek basit bir uygulamanız olur.
 
 ![Azure App Service’te ASP.NET web uygulaması](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
@@ -159,7 +159,7 @@ Azure portalına giderek yeni oluşturduğunuz web uygulamasına göz atın.
 
 Bunu yapmak için [https://portal.azure.com](https://portal.azure.com) sayfasında oturum açın.
 
-Sol menüden **App Service**’e ve ardından Azure web uygulamanızın adına tıklayın.
+Sol menüden **Uygulama Hizmetleri**’ne ve ardından Azure web uygulamanızın adına tıklayın.
 
 ![Portaldan Azure web uygulamasına gitme](./media/app-service-web-get-started-dotnet/access-portal.png)
 

@@ -15,12 +15,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff5d156ab2b701233c4cdbf08e3d6e517c01b9fb
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -38,7 +38,7 @@ Başlamadan önce en yeni [Visual Studio Code](https://code.visualstudio.com/Dow
 ## <a name="configure-vs-code-mac-os-only"></a>VS Code’u Yapılandırma (yalnızca Mac OS)
 
 ### <a name="mac-os"></a>**Mac OS**
-macOS için, mssql uzantısının kullandığı DotNet Core’a yönelik bir ön koşul olan OpenSSL’yi yüklemeniz gerekir. **brew** ve **OpenSSL***’yi yüklemek için terminalinizi açın aşağıdaki komutları girin. 
+macOS için, mssql uzantısının kullandığı DotNet Core’a yönelik bir ön koşul olan OpenSSL’yi yüklemeniz gerekir. **brew** ve **OpenSSL**’yi yüklemek için terminalinizi açın aşağıdaki komutları girin. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -55,9 +55,11 @@ Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsin
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, bu hızlı başlangıcın sonraki bölümlerinde kullanılacak **Sunucu adını** bulup kopyalayın.
+3. Veritabanınızın **Genel Bakış** sayfasında, aşağıdaki görüntüde gösterildiği gibi tam sunucu adını gözden geçirin. Sunucu adının üzerine gelerek **Kopyalamak için tıklayın** seçeneğini ortaya çıkarabilirsiniz.
 
-    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![bağlantı bilgileri](./media/sql-database-connect-query-ssms/connection-information.png) 
+
+4. Azure SQL Veritabanı sunucunuzun oturum açma bilgilerini unuttuysanız, SQL Veritabanı sunucu sayfasına giderek sunucu yöneticisi adını görüntüleyin ve gerekirse parolayı sıfırlayın. 
 
 ## <a name="set-language-mode-to-sql"></a>Dili modunu SQL’e ayarlama
 
@@ -65,17 +67,22 @@ mssql komutlarını ve T-SQL IntelliSense’i etkinleştirmek için dil modunu V
 
 1. Yeni bir Visual Studio Code penceresi açın. 
 
-2. Dil modunu SQL olarak ayarlamak için **⌘+K,M** veya **CTRL+K,M** (sırasıyla Mac ve Windows seçenekleri) tuşlarına basın, **SQL** yazın ve **ENTER** tuşuna basın. 
+2. Durum çubuğunun sağ alt köşesindeki **Düz Metin**’e tıklayın.
+3. Görüntülenen **Dil modu seç** açılır menüsüne **SQL** yazın ve **ENTER** tuşuna basarak dil modunu SQL’e ayarlayın. 
 
-<img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
+   ![SQL dil modu](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-the-server"></a>Sunucuya bağlanma
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>SQL Veritabanı mantıksal sunucusunda veritabanınıza bağlanma
 
 Visual Studio Code’u kullanarak Azure SQL Veritabanı sunucunuzla bağlantı kurun.
 
+> [!IMPORTANT]
+> Devam etmeden önce sunucu, veritabanı ve oturum açma bilgilerinizin hazır olduğundan emin olun. Bağlantı profili bilgilerini girmeye başladıktan sonra, odağınızı Visual Studio Code’dan değiştirirseniz bağlantı profili oluşturma işlemini yeniden başlatmanız gerekir.
+>
+
 1. VS Code’da **CTRL+SHIFT+P** (veya **F1**) tuşlarına basarak Komut Paletini açın.
 
-2. **sqlcon** yazıp **ENTER** tuşuna basın ve dilinizi **SQL** olarak ayarlayın.
+2. **sqlcon** yazıp **ENTER** tuşuna basın.
 
 3. **ENTER** tuşuna basarak **Bağlantı Profili Oluştur**’u seçin. Bu işlem, SQL Server örneğiniz için bir bağlantı profili oluşturur.
 
@@ -97,7 +104,7 @@ Visual Studio Code’u kullanarak Azure SQL Veritabanı sunucunuzla bağlantı k
 
 6. Durum çubuğunda bağlantınızı doğrulayın.
 
-   <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
+   ![Bağlantı durumu](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
 ## <a name="query-data"></a>Verileri sorgulama
 
@@ -114,7 +121,7 @@ Azure SQL veritabanınızdaki verileri sorgulamak için [SELECT](https://msdn.mi
 
 2. **CTRL+SHIFT+E** tuşlarına basarak Product ve ProductCategory tablolarından verileri alın.
 
-    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
+    ![Sorgu](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Veri ekleme
 
