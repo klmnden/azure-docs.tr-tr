@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -41,12 +41,13 @@ Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsin
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın.
+3. Veritabanınızın **Genel Bakış** sayfasında, aşağıdaki görüntüde gösterildiği gibi tam sunucu adını gözden geçirin. Sunucu adının üzerine gelerek **Kopyalamak için tıklayın** seçeneğini ortaya çıkarabilirsiniz.
 
    ![bağlantı bilgileri](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. Azure SQL Veritabanı sunucunuzun oturum açma bilgilerini unuttuysanız, SQL Veritabanı sunucu sayfasına giderek sunucu yöneticisi adını görüntüleyin ve gerekirse parolayı sıfırlayın. 
 
-## <a name="connect-to-the-server-and-your-new-database"></a>Sunucuya ve yeni veritabanınıza bağlanma
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>SQL Veritabanı mantıksal sunucusunda veritabanınıza bağlanma
 
 SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla bağlantı kurun. 
 
@@ -65,7 +66,7 @@ SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla b
 
    ![sunucuya bağlan](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. **Seçenekler**’e tıklayın. **Veritabanına bağlan** bölümünde daha önce oluşturduğunuz bu veritabanına bağlanmak için **mySampleDatabase** yazın.
+3. **Sunucuya bağlan** iletişim kutusunda **Seçenekler**’e tıklayın. **Veritabanına bağlan** bölümünde bu veritabanına bağlanmak için **mySampleDatabase** yazın.
 
    ![sunucuda veritabanına bağlanma](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -73,7 +74,7 @@ SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla b
 
    ![sunucuya bağlanıldı](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. Nesne Gezgini’nde **Veritabanları**’nı ve ardından **mySampleDatabase** öğesini genişleterek nesneleri örnek veritabanında görüntüleyin.
+5. Nesne Gezgini’nde **Veritabanları**’nı ve ardından **mySampleDatabase** öğesini genişleterek nesneleri örnek veritabanında görüntüleyin.
 
 ## <a name="query-data"></a>Verileri sorgulama
 
@@ -91,7 +92,7 @@ Azure SQL veritabanınızdaki verileri sorgulamak için [SELECT](https://msdn.mi
 
 3. Araç çubuğunda **Yürüt**’e tıklayarak Product ve ProductCategory tablolarından verileri alın.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![sorgu](./media/sql-database-connect-query-ssms/query.png)
 
 ## <a name="insert-data"></a>Veri ekleme
 

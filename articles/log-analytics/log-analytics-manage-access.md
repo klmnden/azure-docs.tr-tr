@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ace5d18cd88d55d167f8447d18d65ca21818ff62
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -60,7 +60,7 @@ System Center Operations Manager'ı kullanıyorsanız her bir Operations Manager
 
 Azure portalında çalışma alanınızla ilgili bilgileri görüntüleyebilirsiniz. Bu bilgileri ayrıca OMS portalından da görüntüleyebilirsiniz.
 
-#### <a name="view-workspace-information-the-azure-portal"></a>Çalışma alanı bilgilerini Azure portalında görüntüleme
+#### <a name="view-workspace-information-in-the-azure-portal"></a>Çalışma alanı bilgilerini Azure portalında görüntüleme
 
 1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
 2. **Hub** menüsünde **Diğer hizmetler**’e tıklayıp kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i tıklayın.  
@@ -202,9 +202,6 @@ OMS hesabınızla ilişkili bir kullanıcı için hesap rolünü değiştirebili
     > [!IMPORTANT]
     > Bir çalışma alanını bağlamak için, Azure hesabınızın bağlamak istediğiniz çalışma alanına erişiminin olması gerekir.  Diğer bir deyişle Azure portalına erişmek için kullandığınız hesap, çalışma alanına erişmek için kullandığınız hesapla **aynı** olmalıdır. Aynı değilse bkz. [Mevcut bir çalışma alanına kullanıcı ekleme](#add-a-user-to-an-existing-workspace).
 
-
-
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Çalışma alanını, Azure portalında bir Azure aboneliğine bağlama
 1. [Azure portal](http://portal.azure.com) oturum açın.
 2. **Log Analytics**’e göz atın ve ardından bu seçeneği belirleyin.
@@ -225,7 +222,7 @@ OMS hesabınızla ilişkili bir kullanıcı için hesap rolünü değiştirebili
 8. **Tamam**’a tıklayın. Çalışma alanı artık Azure hesabınıza bağlı.
 
 > [!NOTE]
-> Bağlamak istediğiniz çalışma alanını görmüyorsanız Azure aboneliğinizin, OMS web sitesini kullanarak oluşturduğunuz çalışma alanına erişimi yoktur.  OMS portalından bu hesaba erişim vermek için bkz. [Mevcut bir çalışma alanına kullanıcı ekleme](#add-a-user-to-an-existing-workspace).
+> Bağlamak istediğiniz çalışma alanını görmüyorsanız Azure aboneliğinizin, OMS portalını kullanarak oluşturduğunuz çalışma alanına erişimi yoktur.  OMS portalından bu hesaba erişim vermek için bkz. [Mevcut bir çalışma alanına kullanıcı ekleme](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -250,7 +247,7 @@ Bir OMS aboneliği satın aldığınızda, destek hakları Kurumsal Anlaşmanız
 OMS aboneliği destek hakları, Azure veya OMS portalında görünmez. Destek haklarını ve kullanımı Enterprise Portal'da görebilirsiniz.  
 
 Çalışma alanınızın bağlı olduğu Azure aboneliğini değiştirmeniz gerekiyorsa Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet'ini kullanabilirsiniz.
--
+
 ### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Kurumsal Anlaşmadaki bir Azure Taahhüdünü Kullanma
 OMS aboneliğiniz yoksa OMS’nin her bir bileşeni için ayrı olarak ödeme yaparsınız ve kullanım Azure faturanızda görünür.
 

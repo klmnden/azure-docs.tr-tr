@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 58af25d90b419b3ddb986118a8c9ba3b42aa95a6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 3366348e6ea3ae296bc249090e75c16ebe9fc1fb
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -50,18 +50,26 @@ Adventure Works LT örnek verilerini içeren bir SQL veritabanı oluşturmak iç
    - Kaynak grubu: **myResourceGroup**
    - Kaynak: **Örnek (AdventureWorksLT)**
 
-4. Yeni veritabanınıza yönelik bir sunucu oluşturup yapılandırmak için **Sunucu**’ya tıklayın. Genel olarak benzersiz bir sunucu adı belirterek **Yeni sunucu formu**’nu doldurun, Sunucu yönetici oturumu için bir ad sağlayın ve ardından seçtiğiniz parolayı belirtin. 
+   > [!IMPORTANT]
+   > Bu hızlı başlangıcın geri kalanında kullanılacağı için bu formdaki örnek veritabanını seçmeniz gerekir.
+   > 
+
+4. **Sunucu**’ya tıklayın ve ardından genel olarak benzersiz bir sunucu adı belirterek **Yeni sunucu formu**’nu doldurun, sunucu yöneticisi oturumu için bir ad sağlayın ve seçtiğiniz parolayı belirtin. 
+
+   > [!IMPORTANT]
+   > Burada belirttiğiniz sunucu yöneticisi kullanıcı adı ve parolası, bu hızlı başlangıcın sonraki bölümlerinde sunucuda ve veritabanlarında oturum açmak için gereklidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin. 
+   >  
 
     ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
-5. **Seç**'e tıklayın.
+5. Formu tamamladığınızda **Seç**’e tıklayın.
 
-6. Yeni veritabanınıza ait hizmet katmanını ve performans düzeyini belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Bu hızlı başlangıç için **20 DTU** ve **250** GB depolama alanı seçin
+6. Yeni veritabanınıza ait hizmet katmanını ve performans düzeyini belirtmek için **Fiyatlandırma katmanı**’na tıklayın. **20 DTU** ve **250** GB depolama seçmek için kaydırıcıyı kullanın. DTU hakkında daha fazla bilgi için bkz. [DTU nedir?](sql-database-what-is-a-dtu.md).
 
     ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. **Uygula**'ya tıklayın.  
+7. DTU miktarını seçtikten sonra **Uygula**’ya tıklayın.  
 
-8. Veritabanını sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika sürer. 
+8. SQL Veritabanı formunu tamamladıktan sonra veritabanını sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika sürer. 
 
 9. Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
 
@@ -72,27 +80,39 @@ Adventure Works LT örnek verilerini içeren bir SQL veritabanı oluşturmak iç
 
 SQL Veritabanı hizmeti, güvenlik duvarını belirli IP adreslerine açmaya yönelik bir güvenlik duvarı kuralı oluşturulmadıkça, dış uygulama ve araçların sunucuya ya da sunucu üzerindeki herhangi bir veritabanına bağlanmasını engelleyen sunucu düzeyinde bir güvenlik duvarı kuralı oluşturur. SQL Veritabanı güvenlik duvarı üzerinden yalnızca IP adresinize yönelik dış bağlantıları etkinleştirmek üzere istemcinizin IP adresi için bir [SQL Veritabanı sunucu düzeyi güvenlik duvarı kuralı](sql-database-firewall-configure.md) oluşturmak için bu adımları izleyin. 
 
-1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**’na tıklayın ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. Veritabanınız için bir genel bakış sayfası açılır ve tam sunucu adı (örneğin **mynewserver20170327.database.windows.net**) görüntülenerek daha fazla yapılandırma seçeneği sunulur.
+> [!NOTE]
+> SQL Veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL veritabanı sunucusuna bağlanamazsınız.
+>
 
-      ![sunucu güvenlik duvarı kuralı](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**’na ve SQL veritabanları sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınız için bir genel bakış sayfası açılır ve tam sunucu adı (örneğin **mynewserver20170411.database.windows.net**) görüntülenerek daha fazla yapılandırma seçeneği sunulur.
+
+   > [!IMPORTANT]
+   > Sonraki hızlı başlangıçlarda sunucunuza ve veritabanlarına bağlanmak için bu tam sunucu adı gerekli olacaktır.
+   > 
+
+      ![sunucu adı](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Önceki görüntüde gösterildiği gibi araç çubuğundaki **sunucu güvenlik duvarı ayarla** öğesine tıklayın. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır. 
 
-3. Araç çubuğundaki **İstemci IP’si ekle** öğesine tıklayın ve ardından **Kaydet**’e tıklayın. Geçerli IP adresiniz için bir sunucu düzeyi güvenlik duvarı kuralı oluşturulur.
+      ![sunucu güvenlik duvarı kuralı](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+
+
+3. Geçerli IP adresinizi yeni bir güvenlik duvarı kuralına eklemek için araç çubuğunda **İstemci IP’si Ekle** öğesine tıklayın. Güvenlik duvarı kuralı, 1433 numaralı bağlantı noktasını tek bir IP adresi veya bir IP adresi aralığı için açabilir.
+
+4. **Kaydet** düğmesine tıklayın. Geçerli IP adresiniz için mantıksal sunucuda 1433 numaralı bağlantı noktası açılarak sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
 
       ![sunucu güvenlik duvarı kuralı ayarla](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
 4. **Tamam**’a tıklayın ve sonra **Güvenlik duvarı ayarları** sayfasını kapatın.
 
-Artık SQL Server Management Studio’yu veya seçtiğiniz başka bir aracı kullanarak, daha önce oluşturduğunuz Sunucu yönetici hesabıyla bu IP adresinden SQL Veritabanı sunucusuna ve sunucuya ait veritabanlarına bağlanabilirsiniz.
+Artık SQL Server Management Studio’yu veya seçtiğiniz başka bir aracı kullanarak, daha önce oluşturduğunuz sunucu yöneticisi hesabıyla bu IP adresinden SQL Veritabanı sunucusuna ve sunucuya ait veritabanlarına bağlanabilirsiniz.
 
-> [!NOTE]
-> SQL Veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL veritabanı sunucusuna bağlanamazsınız.
->
+> [!IMPORTANT]
+> Varsayılan olarak, SQL Veritabanı güvenlik duvarı üzerinden erişim tüm Azure hizmetleri için etkindir. Tüm Azure hizmetleri için devre dışı bırakmak isterseniz bu sayfadaki **KAPALI** öğesine tıklayın.
 
 ## <a name="query-the-sql-database"></a>SQL veritabanını sorgulama
 
-SQL veritabanımız oluşturulurken **AdventureWorksLT** örnek veritabanı ile doldurulmuştur (bu hızlı başlangıcın başındaki Kullanıcı Arabirimi Oluşturma bölümünde belirlediğimiz seçeneklerden biriydi). Şimdi de verileri sorgulamak için Azure portalındaki yerleşik sorgu aracını kullanalım. 
+Azure’da bir örnek veritabanı oluşturduktan sonra, veritabanına bağlanabildiğinizi ve verileri sorgulayabildiğinizi onaylamak üzere Azure portalındaki yerleşik sorgu aracını kullanın. 
 
 1. Veritabanınız için SQL Veritabanı sayfasında, araç çubuğundaki **Araçlar**’a tıklayın. **Araçlar** sayfası açılır.
 
