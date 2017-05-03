@@ -49,12 +49,11 @@ Arka plan ve kavramlar için, bkz: [genel bakış](container-registry-intro.md).
 
     d. **Yönetici kullanıcı**: İsterseniz bir yönetici kullanıcıya kayıt defterine erişim izni verin. Kayıt defterini oluşturduktan sonra bu ayarı değiştirebilirsiniz.
 
-    > [!IMPORTANT]
-    > Kapsayıcı kayıt defterleri, bir yönetici kullanıcı hesabı aracılığıyla erişim sağlamaya ek olarak Azure Active Directory hizmet sorumluları tarafından desteklenen kimlik doğrulamasını destekler. Daha fazla bilgi ve göz önünde bulundurulması gereken diğer noktalar için bkz. [Kapsayıcı kayıt defteri ile kimlik doğrulama](container-registry-authentication.md).
-
+      > [!IMPORTANT]
+      > Kapsayıcı kayıt defterleri, bir yönetici kullanıcı hesabı aracılığıyla erişim sağlamaya ek olarak Azure Active Directory hizmet sorumluları tarafından desteklenen kimlik doğrulamasını destekler. Daha fazla bilgi ve göz önünde bulundurulması gereken diğer noktalar için bkz. [Kapsayıcı kayıt defteri ile kimlik doğrulama](container-registry-authentication.md).
+      >
 
     e. **Depolama hesabı**: Varsayılan ayarı kullanarak bir [depolama hesabı](../storage/storage-introduction.md) oluşturun veya aynı konumdaki mevcut bir depolama hesabını seçin. Premium Depolama şu anda desteklenmemektedir.
-
 
 ## <a name="manage-registry-settings"></a>Kayıt defteri ayarlarını yönetme
 Kayıt defterini oluşturduktan sonra portaldaki **Container Kayıt Defterleri** dikey penceresinden başlayarak kayıt defteri ayarlarını bulun. Örneğin, kayıt defterinizde oturum açmak için ayarlara ihtiyacınız olabilir ya da yönetici kullanıcıyı etkinleştirmek veya devre dışı bırakmak isteyebilirsiniz.
