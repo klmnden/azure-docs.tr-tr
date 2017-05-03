@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -35,7 +35,7 @@ Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçla
 
 Başlamadan önce en yeni [Visual Studio Code](https://code.visualstudio.com/Download) sürümünü yüklediğinizden [mssql uzantısının](https://aka.ms/mssql-marketplace) yüklü olduğundan emin olun. mssql uzantısına ilişkin yükleme yönergeleri için bkz. [VS Code Yükleme](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) ve [Visual Studio Code için mssql](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
-## <a name="configure-vs-code-mac-os-only"></a>VS Code’u Yapılandırma (yalnızca Mac OS)
+## <a name="configure-vs-code"></a>VS Code'u yapılandırma 
 
 ### <a name="mac-os"></a>**Mac OS**
 macOS için, mssql uzantısının kullandığı DotNet Core’a yönelik bir ön koşul olan OpenSSL’yi yüklemeniz gerekir. **brew** ve **OpenSSL**’yi yüklemek için terminalinizi açın aşağıdaki komutları girin. 
@@ -49,9 +49,17 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+
+Hiçbir özel yapılandırma gerekmez.
+
+### <a name="windows"></a>**Windows**
+
+Hiçbir özel yapılandırma gerekmez.
+
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 
-Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsiniz. Tam sunucu adını, Visual Studio Code kullanarak sunucunuza bağlanmak için kullanırsınız.
+Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
@@ -108,7 +116,7 @@ Visual Studio Code’u kullanarak Azure SQL Veritabanı sunucunuzla bağlantı k
 
 ## <a name="query-data"></a>Verileri sorgulama
 
-Azure SQL veritabanınızdaki verileri sorgulamak için [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL deyimini kullanın.
+[SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL deyimini kullanarak ilk 20 ürünü kategoriye göre sorgulamak için aşağıdaki kodu kullanın.
 
 1. **Düzenleyici** penceresinde boş sorgu penceresine aşağıdaki sorguyu girin:
 
@@ -125,7 +133,7 @@ Azure SQL veritabanınızdaki verileri sorgulamak için [SELECT](https://msdn.mi
 
 ## <a name="insert-data"></a>Veri ekleme
 
-Verileri Azure SQL veritabanınıza eklemek için [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL deyimini kullanın.
+[INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL deyimini kullanarak SalesLT.Product tablosuna yeni ürün eklemek için aşağıdaki kodu kullanın.
 
 1. **Düzenleyici** penceresinde önceki sorguyu silip aşağıdaki sorguyu girin:
 
@@ -153,7 +161,7 @@ Verileri Azure SQL veritabanınıza eklemek için [INSERT](https://msdn.microsof
 
 ## <a name="update-data"></a>Verileri güncelleştirme
 
-Azure SQL veritabanınızdaki verileri güncelleştirmek için [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL deyimini kullanın.
+[UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL deyimini kullanarak daha önce eklemiş olduğunuz yeni ürünü güncelleştirmek için aşağıdaki kodu kullanın.
 
 1.  **Düzenleyici** penceresinde önceki sorguyu silip aşağıdaki sorguyu girin:
 
@@ -167,7 +175,7 @@ Azure SQL veritabanınızdaki verileri güncelleştirmek için [UPDATE](https://
 
 ## <a name="delete-data"></a>Verileri silme
 
-Azure SQL veritabanınızdaki verileri silmek için [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL deyimini kullanın.
+[DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL deyimini kullanarak daha önce eklemiş olduğunuz yeni ürünü silmek için aşağıdaki kodu kullanın.
 
 1. **Düzenleyici** penceresinde önceki sorguyu silip aşağıdaki sorguyu girin:
 

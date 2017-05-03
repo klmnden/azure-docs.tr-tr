@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/28/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 22966659db3951316dca11fd555e07a183114062
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c32cb52e4bb7bacde20e21820f277b4e86877e74
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="create-a-nodejs-application-on-web-app"></a>Web Uygulamasında Node.js Uygulaması oluşturma
@@ -148,7 +148,7 @@ App Service Planı oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bi
 
 Bir App Service planı oluşturduktan sonra `quickStartPlan` App Service planı içinde bir Web Uygulaması oluşturun. Web uygulaması, kodun dağıtılacağı bir barındırma alanı ve dağıtılmış uygulamayı görüntülememiz için bir URL sağlar. Web Uygulamasını oluşturmak için [az appservice web create](/cli/azure/appservice/web#create) komutunu kullanın.
 
-Aşağıdaki komutta <app_name> yer tutucusunu kendi benzersiz uygulamanızın adıyla değiştirin. <app_name>, web uygulamasının varsayılan DNS sitesi olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. Daha sonra, uygulamanızı kullanıcılarınızın kullanımına sunmadan önce web uygulamasına herhangi bir özel DNS girişi eşleyebilirsiniz.
+Aşağıdaki komutta `<app_name>` yer tutucusunu kendi benzersiz uygulamanızın adıyla değiştirin. `<app_name>`, web uygulamasının varsayılan DNS sitesi olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. Daha sonra, uygulamanızı kullanıcılarınızın kullanımına sunmadan önce web uygulamasına herhangi bir özel DNS girişi eşleyebilirsiniz.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -296,7 +296,7 @@ Azure portalına giderek yeni oluşturduğunuz web uygulamasına göz atın.
 
 Bunu yapmak için [https://portal.azure.com](https://portal.azure.com) sayfasında oturum açın.
 
-Sol menüden **App Service**’e ve ardından Azure web uygulamanızın adına tıklayın.
+Sol menüden **Uygulama Hizmetleri**’ne ve ardından Azure web uygulamanızın adına tıklayın.
 
 ![Portaldan Azure web uygulamasına gitme](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
@@ -321,3 +321,4 @@ Dikey penceredeki bu sekmelerde web uygulamanıza ekleyebileceğiniz çok sayıd
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Önceden oluşturulmuş [Web Apps CLI betiklerini](app-service-cli-samples.md) keşfedin.
+

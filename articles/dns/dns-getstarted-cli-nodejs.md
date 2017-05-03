@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI 1.0 ile Azure DNS kullanmaya başlama | Microsoft Belgeleri"
+title: "Azure CLI 1.0 ile Azure DNS kullanmaya başlama | Microsoft Docs"
 description: "Azure DNS&quot;te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, Azure CLI 1.0 kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
 services: dns
 documentationcenter: na
@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: f84ac7f1fa20af2e495df89609c810107c65583a
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -36,6 +36,13 @@ DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak 
 
 Bu yönergeler, Azure CLI 1.0’ı zaten yüklediğinizi ve oturum açtığınızı varsayar. Yardım için bkz. [Azure CLI 1.0 ile DNS bölgelerini yönetme](dns-operations-dnszones-cli-nodejs.md).
 
+## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
+
+DNS bölgesini oluşturmadan önce, DNS Bölgesi’ni içerecek bir kaynak grubu oluşturulur. Aşağıda, komut gösterilmektedir.
+
+```azurecli
+azure group create --name MyResourceGroup --location "West US"
+```
 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
@@ -98,6 +105,13 @@ info:    network dns zone show command OK
 
 Bu ad sunucuları, etki alanı adı kayıt şirketi (etki alanı adını satın aldığınız şirket) ile birlikte yapılandırılmalıdır. Kayıt şirketiniz, etki alanı için ad sunucularını ayarlama seçeneğini sunar. Daha fazla bilgi için bkz. [Etki alanınızı Azure DNS’e devretme](dns-domain-delegation.md).
 
+## <a name="delete-all-resources"></a>Tüm kaynakları silme
+ 
+Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları izleyin:
+
+```azurecli
+azure group delete --name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

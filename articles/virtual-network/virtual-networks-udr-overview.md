@@ -16,9 +16,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1657f7c772b7039707a67c4abc788479cc08bdd0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 93920075a8ad8de4fd650d9cbbfd13b7bc18bf52
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -46,7 +46,7 @@ Aşağıdaki şekilde, bir alt ağdan başka bir alt ağa gönderilen paketleri 
 ![Azure'daki sistem yolları](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Kullanıcı tanımlı yollar yalnızca bir alt ağdan çıkan trafiğe uygulanır. Örneğin, İnternet’ten alt ağa trafiğin nasıl geldiğini belirtmek için rotalar oluşturamazsınız. Ayrıca, trafiği ilettiğiniz gereç trafiğin kaynaklandığı alt ağ ile aynı alt ağda olamaz. Gereçleriniz için her zaman ayrı bir alt ağ oluşturun. 
+> Kullanıcı tanımlı yollar, alt ağdaki herhangi bir kaynaktan (VM’lere eklenen ağ arabirimleri gibi) alt ağdan çıkan trafiğe uygulanır. Örneğin, İnternet’ten alt ağa trafiğin nasıl girdiğini belirtmek için rotalar oluşturamazsınız. Trafiği ilettiğiniz gereç, trafiğin kaynaklandığı alt ağda yer alamaz. Gereçleriniz için her zaman ayrı bir alt ağ oluşturun. 
 > 
 > 
 

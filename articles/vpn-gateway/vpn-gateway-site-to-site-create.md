@@ -13,34 +13,36 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff70484dff03a44d23d2cf34ce115fd57c4b0390
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: d0cedf73aa3f73e672a73b6abaca5eb8c22a76a7
+ms.lasthandoff: 04/25/2017
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Klasik portalı kullanarak Siteden Siteye bağlantı ile sanal ağ oluşturma
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal-classic"></a>Klasik portalı (klasik) kullanarak Siteden Siteye bağlantı ile sanal ağ oluşturma
 
-Siteden Siteye (S2S) VPN ağ geçidi bağlantısı, IPSec/IKE (IKEv1 veya IKEv2) VPN tüneli üzerinden kurulan bir bağlantıdır. Bu bağlantı türü için, şirket içinde ortak IP adresi atanmış olan ve NAT'nin arkasında bulunmayan bir VPN cihazı gerekir. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir.
-
-![Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı diyagramı](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
-
-Bu makale, klasik dağıtım modelini ve klasik portalı kullanarak sanal bir ağ ve şirket içi ağınızda konumdan konuma VPN ağ geçidi bağlantısı oluşturma işleminde size yol gösterir. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir. Ayrıca aşağıdaki listeden farklı bir seçenek belirleyerek, Resource Manager dağıtım modeli için bu yapılandırmayı oluşturabilirsiniz:
+Bu makalede, klasik portalı kullanarak şirket içi ağınızdan VNet’e Siteden Siteye VPN ağ geçidi bağlantısı oluşturma işlemi gösterilir. Bu makaledeki adımlar klasik dağıtım modeli için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Klasik - Azure portalı](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Klasik - klasik portal](vpn-gateway-site-to-site-create.md)
+> 
 >
->
+
+![Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı diyagramı](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
+
+
+Siteden Siteye VPN ağ geçidi bağlantısı, şirket içi ağınızı bir IPsec/IKE (IKEv1 veya IKEv2) tüneli üzerinden Azure sanal ağına bağlamak için kullanılır. Bu bağlantı türü için, şirket içinde yer alan ve kendisine atanmış dışarıya yönelik bir genel IP adresi atanmış olan bir VPN cihazı gerekir. VPN ağ geçitleri hakkında daha fazla bilgi için bkz. [VPN ağ geçidi hakkında](vpn-gateway-about-vpngateways.md).
 
 #### <a name="additional-configurations"></a>Ek yapılandırmalar
-VNet'leri birbirine bağlamak istiyorsanız bkz. [Klasik dağıtım modeli için bir VNet - VNet bağlantısını yapılandırma](virtual-networks-configure-vnet-to-vnet-connection.md). VNet’e Konumdan Konuma bağlantı eklemek istiyorsanız bkz. [VNet’e mevcut bir VPN ağ geçidi bağlantısıyla S2S bağlantısı ekleme](vpn-gateway-multi-site.md).
 
+VNet'leri birbirine bağlamak istiyorsanız bkz. [Klasik dağıtım modeli için bir VNet - VNet bağlantısını yapılandırma](virtual-networks-configure-vnet-to-vnet-connection.md). VNet’e Konumdan Konuma bağlantı eklemek istiyorsanız bkz. [VNet’e mevcut bir VPN ağ geçidi bağlantısıyla S2S bağlantısı ekleme](vpn-gateway-multi-site.md).
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -59,7 +61,7 @@ Yapılandırmaya başlamadan önce aşağıdaki öğelerin bulunduğunu doğrula
 ## <a name="Details"></a>Sanal ağ ayrıntıları sayfası
 Aşağıdaki bilgileri girin:
 
-* **Ad**: Sanal ağınıza bir ad verin. Örneğin, *EastUSVNet*. VM’lerinizi ve PaaS örneklerinizi dağıtırken bu sanal ağ adını kullanacağınız için, karışık bir isim vermekten kaçınmak isteyebilirsiniz.
+* **Ad**: Sanal ağınıza bir ad verin. Örneğin, *EastUSVNet*. VM’lerinizi ve PaaS örneklerinizi dağıtırken bu sanal ağ adını kullandığınızdan, karışık bir isim vermekten kaçınmak isteyebilirsiniz.
 * **Konum**: Konum, kaynaklarınızın (VM’ler) bulunmasını istediğiniz fiziksel konum (bölge) ile doğrudan ilişkilidir. Örneğin, bu sanal ağa dağıttığınız VM’lerin fiziksel olarak *Doğu ABD*’de bulunmasını istiyorsanız, o konumu seçin. Sanal ağınızı oluşturduktan sonra sanal ağınızla ilişkili bölgeyi değiştiremezsiniz.
 
 ## <a name="DNS"></a>DNS sunucuları ve VPN bağlantı sayfası
@@ -90,7 +92,7 @@ Aşağıdaki bilgileri girin ve ağınızı yapılandırmak için sağ alt köş
 * **Alt ağ ekle**: Başlangıç IP’si ve Adres Sayısı ekleyin. Ek alt ağlar gerekli değildir, ancak statik DIPS içerecek VM’ler için ayrı bir alt ağ oluşturmak isteyebilirsiniz. Veya VM’lerinizi diğer rol örneklerinizden ayrı bir alt ağda tutmak isteyebilirsiniz.
 * **Ağ geçidi alt ağı ekle**: Ağ geçidi alt ağı eklemek için tıklayın. Ağ geçidi alt ağı, yalnızca sanal ağ geçidi için kullanılır ve bu yapılandırma için gereklidir.
 
-Sayfanın altındaki onay işaretine tıkladığınızda sanal ağınız oluşturulmaya başlar. Tamamlandığında, Klasik Azure Portalı’nın **Ağlar** sayfasındaki **Durum**’un altında, **Oluşturuldu** yazısını görürsünüz. VNet oluşturulduktan sonra sanal ağ geçidinizi yapılandırabilirsiniz.
+Sanal ağınızı oluşturmak için sayfanın altındaki onay işaretine tıklayın. Tamamlandığında, Klasik Azure Portalı’nın **Ağlar** sayfasındaki **Durum**’un altında, **Oluşturuldu** yazısını görürsünüz. VNet oluşturulduktan sonra sanal ağ geçidinizi yapılandırabilirsiniz.
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 

@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -32,6 +32,8 @@ Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçla
 - [DB oluşturma - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-net"></a>.NET yükleme
+
+Bu bölümdeki adımlarda .NET kullanarak geliştirmeyi bildiğiniz ve Azure SQL Veritabanı iye yeni çalışmaya başladığınız varsayılır. .NET ile geliştirmeye yeni başladıysanız, [SQL Server kullanarak uygulama geliştirme](https://www.microsoft.com/en-us/sql-server/developer-get-started/) konusuna gidin, **C#** dilini ve sonra da işletim sisteminizi seçin.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET çerçevesi ve .NET çekirdeği**
 
@@ -66,7 +68,7 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 
-Azure portaldan bağlantı dizesini alın. Azure SQL veritabanına bağlanmak için bağlantı dizesini kullanabilirsiniz.
+Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
@@ -96,7 +98,8 @@ Azure portaldan bağlantı dizesini alın. Azure SQL veritabanına bağlanmak i�
 1. Geliştirme ortamınızda boş bir kod dosyası açın.
 2. Kod dosyanıza ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)) ```using System.Data.SqlClient``` kodunu ekleyin. 
 
-3. Azure SQL veritabanınızdaki verileri sorgulamak için bir [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL deyimiyle birlikte [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) komutunu kullanın. Sunucunuz için uygun değerleri ekleyin.
+3. [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) komutunu [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL deyimiyle kullanarak ilk 20 ürünü kategoriye göre sorgulamak için aşağıdaki kodu kullanın. Sunucunuz, veritabanınız, kullanıcınız ve parolanız için uygun değerleri ekleyin.
+
 ```csharp
 using System;
 using System.Data;
@@ -152,7 +155,7 @@ namespace ConsoleApplication1
 
 ## <a name="insert-data"></a>Veri ekleme
 
-Azure SQL veritabanınıza veri eklemek için bir [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL deyimiyle birlikte [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) komutunu kullanın.
+[SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) komutunu [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL deyimiyle kullanarak SalesLT.Product tablosuna yeni ürün eklemek için aşağıdaki kodu kullanın. Sunucunuz, veritabanınız, kullanıcınız ve parolanız için uygun değerleri ekleyin.
 
 ```csharp
 using System;
@@ -207,7 +210,7 @@ namespace ConsoleApplication1
 
 ## <a name="update-data"></a>Verileri güncelleştirme
 
-Azure SQL veritabanınızdaki verileri güncelleştirmek için bir [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL deyimiyle birlikte [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) komutunu kullanın.
+[SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) komutunu [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL deyimiyle kullanarak daha önce eklemiş olduğunuz yeni ürünü güncelleştirmek için aşağıdaki kodu kullanın. Sunucunuz, veritabanınız, kullanıcınız ve parolanız için uygun değerleri ekleyin.
 
 ```csharp
 using System;
@@ -257,7 +260,7 @@ namespace ConsoleApplication1
 
 ## <a name="delete-data"></a>Verileri silme
 
-Azure SQL veritabanınızdaki verileri silmek için bir [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL deyimiyle birlikte [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) komutunu kullanın.
+[SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) komutunu [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL deyimiyle kullanarak daha önce eklemiş olduğunuz yeni ürünü silmek için aşağıdaki kodu kullanın. Sunucunuz, veritabanınız, kullanıcınız ve parolanız için uygun değerleri ekleyin.
 
 ```csharp
 using System;

@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/19/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -40,7 +40,7 @@ OMS Güvenlik ve Denetim çözümü, ilgilenmenizi gerektiren önemli sorunlar i
 Bu panoya ilk kez erişiyorsanız ve OMS tarafından izlenen cihazlarınız yoksa kutucuklar aracıdan elde edilen verilerle doldurulmaz. Aracıyı yükledikten sonra kutucukların doldurulması biraz zaman alabilir. Bu nedenle, veriler hâlâ buluta yüklenmekte olduğundan, ilk gördüğünüz ekranda bazı veriler eksik olabilir.  Bu durumda, somut bilgiler içermeyen bazı kutucuklar görmeniz normaldir. OMS aracısının Windows sistemine yüklenmesiyle ilgili daha fazla bilgi için bkz. [Windows bilgisayarlarını doğrudan OMS'ye bağlama](https://technet.microsoft.com/library/mt484108.aspx) ve bu görevin bir Linux sisteminde nasıl gerçekleştirileceği hakkında daha fazla bilgi için bkz. [Linux bilgisayarları OMS'ye bağlama](https://technet.microsoft.com/library/mt622052.aspx).
 
 > [!NOTE]
-> Aracı, etkinleştirilmiş geçerli olaylara bağlı olarak bilgileri toplayacaktır; örneğin bilgisayar adı, IP adresi ve kullanıcı adı. Ancak belgeler/dosyalar, veritabanı adı veya özel veriler toplanmaz.   
+> Aracı, etkinleştirilmiş geçerli olaylara bağlı olarak bilgileri toplar; örneğin bilgisayar adı, IP adresi ve kullanıcı adı. Ancak belgeler/dosyalar, veritabanı adı veya özel veriler toplanmaz.   
 > 
 > 
 
@@ -99,12 +99,12 @@ OMS Panosunda yer alan tüm diğer canlı kutucuklarda olduğu gibi, üzerine t�
 Bilgisayarın adına tıkladığınızda, bu bilgisayara ilişkin koruma durumunun kronolojik bir görünümünü elde edersiniz. Bu, kötü amaçlı yazılımdan koruma yazılımının daha önceden yüklenmiş olup bir noktada kaldırıldığını anlamanız gereken senaryolarda çok yararlıdır.   
 
 ### <a name="update-assessment"></a>Güncelleştirme değerlendirmesi
-Bu seçenek olası güvenlik sorunlarına genel olarak maruz kalma durumunu ve bu güncelleştirmelerin ortamınız için ne kadar kritik olduğunu hızlıca belirleyebilmenizi sağlar. OMS Güvenlik ve Denetim çözümü yalnızca bu güncelleştirmelere ilişkin bir görselleştirme sağlar; gerçek veriler OMS içinde farklı bir modül olan [Sistem Güncelleştirme Çözümleri](https://technet.microsoft.com/library/mt484096.aspx)'nden gelir. Güncelleştirmelerin bir örneği aşağıda verilmiştir:
+Bu seçenek olası güvenlik sorunlarına genel olarak maruz kalma durumunu ve bu güncelleştirmelerin ortamınız için ne kadar kritik olduğunu hızlıca belirleyebilmenizi sağlar. OMS Güvenlik ve Denetim çözümü yalnızca bu güncelleştirmelere ilişkin bir görselleştirme sağlar; gerçek veriler OMS içinde farklı bir modül olan [Güncelleştirme Yönetimi Çözümleri](oms-solution-update-management.md)'nden gelir. Güncelleştirmelerin bir örneği aşağıda verilmiştir:
 
-![sistem güncelleştirmeleri](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![sistem güncelleştirmeleri](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
 > [!NOTE]
-> Güncelleştirmeler çözümü hakkında daha fazla bilgi için bkz. [Sunucuları Sistem Güncelleştirmeleri çözümüyle güncelleştirme](https://technet.microsoft.com/library/mt484096.aspx).
+> Güncelleştirme Yönetimi çözümü hakkında daha fazla bilgi için, [OMS’de Güncelleştirme Yönetimi çözümü](oms-solution-update-management.md) konusunu okuyun.
 > 
 > 
 
@@ -135,6 +135,14 @@ Bu kutucuk, etkin bir şekilde güvenlik olayları içeren tüm bilgisayarlara e
 
 Her bir bilgisayara tıklayarak araştırmanızı devam ettirebilir ve bayrak eklenmiş güvenlik olaylarını inceleyebilirsiniz.
 
+### <a name="threat-intelligence"></a>Tehdit Bilgisi
+
+OMS Güvenliği ve Denetimi’nde sağlanan Tehdit Bilgisi seçeneğini kullanarak, BT yöneticileri ortama yönelik güvenlik tehditlerini belirleyebilir, örneğin belirli bir bilgisayarın botnetin parçası olup olmadığını saptayabilir. Bilgisayar korsanları yasa dışı yollarla bu bilgisayarı bir komut veya denetime bağlayan kökü amaçlı bir yazılım yüklediklerinde, bilgisayarlar botnette düğümlere dönüşür. Ayrıca, darknet gibi yeraltı iletişim kanallarından gelen olası tehditleri de belirleyebilir. Tehdit Bilgileri hakkında daha fazla bilgi edinmek için, [Operations Management Suite Güvenlik ve Denetim Çözümü’nde güvenlik uyarılarını izleme ve yanıtlama](oms-security-responding-alerts.md) makalesini okuyun.
+
+### <a name="baseline-assessment"></a>Temel Değerlendirme
+
+Dünya çapındaki sektör ve devlet kuruluşlarıyla birlikte Microsoft, yüksek güvenlikli sunucu dağıtımlarını temsil eden bir Windows yapılandırması tanımlar. Bu yapılandırma, kayıt defteri anahtarlarının, denetim ilkesi ayarlarının ve güvenlik ilkesi ayarlarının yanı sıra Microsoft'un bu ayarlar için önerilen değerlerinden oluşan bir kümedir. Bu kural kümesi, Güvenlik temeli olarak bilinir. Bu seçenek hakkında daha fazla bilgi için [Operations Management Suite Güvenlik ve Denetim Çözümünde Temel Değerlendirmesi](oms-security-baseline.md) makalesini okuyun.
+
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 Bu kutucuk temel olarak Azure Güvenlik Merkezi panosuna erişmek için bir kısayol görevi yapar. Bu çözüm hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezini Kullanmaya Başlama](../security-center/security-center-get-started.md).
 
@@ -153,7 +161,7 @@ Bu seçeneğin ana amacı, IT'nin ortamındaki olası tehditleri ve bu tehditler
 Bu seçenek bir [olay yanıtı araştırması](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) sırasında değerlendirme gerçekleştirmek ve saldırı hakkında daha fazla bilgi elde etmek için de kullanılabilir.
 
 > [!NOTE]
-> OMS'nin Olay Yanıtı için nasıl kullanılabileceği hakkında daha fazla bilgi için [Olay Yanıtı için Azure Güvenlik Merkezi'nden ve Operations Management Suite'ten Yararlanma](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) videosunu izleyin.
+> OMS'nin Olay Yanıtı için nasıl kullanılabileceği hakkında daha fazla bilgi için şu videoyu izleyin: [Olay Yanıtı için Azure Güvenlik Merkezi'nden ve Microsoft Operations Management Suite'ten Yararlanma](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 > 
 > 
 

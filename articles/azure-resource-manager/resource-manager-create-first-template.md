@@ -1,5 +1,5 @@
 ---
-title: "İlk Azure Resource Manager şablonunu oluşturma | Microsoft Belgeleri"
+title: "İlk Azure Resource Manager şablonunu oluşturma | Microsoft Docs"
 description: "İlk Azure Resource Manager şablonunuzu oluşturmaya yönelik adım adım kılavuz. Şablon oluşturmak için bir depolama hesabına ait şablon başvurusunun nasıl kullanılacağını gösterir."
 services: azure-resource-manager
 documentationcenter: 
@@ -11,20 +11,20 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/21/2017
+ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: f861f2ba0376f00ff21e03cbb81a04a266f38630
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
+ms.lasthandoff: 04/19/2017
 
 ---
 
 # <a name="create-your-first-azure-resource-manager-template"></a>İlk Azure Resource Manager şablonunuzu oluşturma
-Bu konuda, ilk Azure Resource Manager şablonunuzu oluşturma adımları gösterilmektedir. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md). Kaynaklarınız varsa ve bu kaynaklara yönelik bir şablon almak istiyorsanız bkz. [Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
+Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adımları gösterilmektedir. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md). Kaynaklarınız varsa ve bu kaynaklara yönelik bir şablon almak istiyorsanız bkz. [Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
 
-Şablonları oluşturup düzeltmek için bir JSON düzenleyicisi gerekir. [Visual Studio Code](https://code.visualstudio.com/) basit, açık kaynaklı ve platformlar arası bir kod düzenleyicisidir. Resource Manager şablonlarını bir uzantı ile oluşturup düzenlemeyi destekler. Bu konu, VS Code kullandığınızı varsayar; ancak başka bir JSON düzenleyiciniz (Visual Studio gibi) varsa kullanabilirsiniz.
+Şablonları oluşturup düzeltmek için bir JSON düzenleyicisi gerekir. [Visual Studio Code](https://code.visualstudio.com/) basit, açık kaynaklı ve platformlar arası bir kod düzenleyicisidir. Resource Manager şablonlarını bir uzantı ile oluşturup düzenlemeyi destekler. Bu konu başlığı, VS Code kullandığınızı varsayar; ancak başka bir JSON düzenleyiciniz (Visual Studio gibi) varsa kullanabilirsiniz.
 
 ## <a name="get-vs-code-and-extension"></a>VS Code ve uzantıyı alma
 1. Gerekirse, VS kodu [https://code.visualstudio.com/](https://code.visualstudio.com/) adresinden yükleyin.
@@ -172,7 +172,7 @@ Artık depolama hesabınızın değerlerini ayarlamaya hazırsınız.
 
 ## <a name="add-template-function"></a>Şablon işlevi ekleme
 
-Şablonun söz dizimini basitleştirmek ve yalnızca şablon dağıtılırken kullanılabilen değerleri almak için, şablonunuzun içindeki işlevleri kullanırsınız. Tüm şablon işlevleri hakkında bilgi edinmek için bkz. [Azure Resource Manager şablon işlevleri](resource-group-template-functions.md).
+Şablonun söz dizimini basitleştirmek ve yalnızca şablon dağıtılırken kullanılabilen değerleri almak için, şablonunuzun içindeki işlevleri kullanırsınız. Tüm şablon işlevleri hakkında bilgi edinmek için bkz. [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
 
 Depolama hesabının kaynak grubuyla aynı konuma dağıtıldığını belirtmek için **location** özelliğini şu şekilde ayarlayın:
 
@@ -288,7 +288,9 @@ Depolama hesabı adlarını ayarlamayı zorlaştıran birkaç kısıtlama vardı
 
 4. Dosyanızı kaydedin.
 
-Şablonunuz şimdi şuna benzer görünmelidir:
+## <a name="final-template"></a>Son şablon
+
+Bu makaledeki adımları tamamladıktan sonra, artık şablonunuz şöyle görünür:
 
 ```json
 {

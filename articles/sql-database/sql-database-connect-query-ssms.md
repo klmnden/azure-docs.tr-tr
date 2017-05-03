@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -37,7 +37,7 @@ Başlamadan önce, en yeni [SSMS](https://msdn.microsoft.com/library/mt238290.as
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 
-Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsiniz. SQL Server Management Studio kullanarak sunucunuza bağlanmak için tam sunucu adını kullanırsınız.
+Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
@@ -78,7 +78,7 @@ SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla b
 
 ## <a name="query-data"></a>Verileri sorgulama
 
-Azure SQL veritabanınızdaki verileri sorgulamak için [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL deyimini kullanın.
+[SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL deyimini kullanarak ilk 20 ürünü kategoriye göre sorgulamak için aşağıdaki kodu kullanın.
 
 1. Nesne Gezgini’nde **mySampleDatabase** öğesine sağ tıklayıp **Yeni Sorgu**’ya tıklayın. Veritabanınıza bağlı boş bir sorgu penceresi açılır.
 2. Sorgu penceresine aşağıdaki sorguyu girin:
@@ -96,7 +96,7 @@ Azure SQL veritabanınızdaki verileri sorgulamak için [SELECT](https://msdn.mi
 
 ## <a name="insert-data"></a>Veri ekleme
 
-Verileri Azure SQL veritabanınıza eklemek için [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL deyimini kullanın.
+[INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL deyimini kullanarak SalesLT.Product tablosuna yeni ürün eklemek için aşağıdaki kodu kullanın.
 
 1. Sorgu penceresinde önceki sorguyu aşağıdaki sorguyla değiştirin:
 
@@ -126,7 +126,7 @@ Verileri Azure SQL veritabanınıza eklemek için [INSERT](https://msdn.microsof
 
 ## <a name="update-data"></a>Verileri güncelleştirme
 
-Azure SQL veritabanınızdaki verileri güncelleştirmek için [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL deyimini kullanın.
+[UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL deyimini kullanarak daha önce eklemiş olduğunuz yeni ürünü güncelleştirmek için aşağıdaki kodu kullanın.
 
 1. Sorgu penceresinde önceki sorguyu aşağıdaki sorguyla değiştirin:
 
@@ -142,7 +142,7 @@ Azure SQL veritabanınızdaki verileri güncelleştirmek için [UPDATE](https://
 
 ## <a name="delete-data"></a>Verileri silme
 
-Azure SQL veritabanınızdaki verileri silmek için [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL deyimini kullanın.
+[DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL deyimini kullanarak daha önce eklemiş olduğunuz yeni ürünü silmek için aşağıdaki kodu kullanın.
 
 1. Sorgu penceresinde önceki sorguyu aşağıdaki sorguyla değiştirin:
 

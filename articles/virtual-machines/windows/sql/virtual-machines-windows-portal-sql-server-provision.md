@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: e16792bb762287bc16c280386981a4d442448674
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -42,11 +42,10 @@ Bu öğreticide şunları yapacaksınız:
 
 ## <a name="select-a-sql-vm-image-from-the-gallery"></a>Galeriden bir SQL VM görüntüsü seçme
 1. Hesabınızı kullanarak [Azure portal](https://portal.azure.com)da oturum açın.
-   
+
    > [!NOTE]
    > Bir Azure hesabınız yoksa, [Azure ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/)yi ziyaret edin.
-   > 
-   > 
+
 2. Azure portalda **Yeni**’ye tıklayın. Portal **Yeni** dikey pencere açar. SQL Server VM kaynakları, Market’in **İşlem** grubundadır.
 3. **Yeni** dikey penceresinde **İşlem**’e ve ardından **Tümünü gör**’e tıklayın.
 4. **Filtre** metin kutusuna SQL Server yazıp ENTER tuşuna basın.
@@ -58,13 +57,13 @@ Bu öğreticide şunları yapacaksınız:
 
    > [!TIP]
    > Geliştirme testi amacıyla kullanım için ücretsiz olan tam özellikli SQL Server sürümü olduğundan bu öğreticide Developer sürümü kullanılmıştır. Yalnızca çalışan VM'ler için ücret ödersiniz.
-   
+
    > [!NOTE]
-   > SQL VM görüntüleri, oluşturduğunuz VM'nin dakika başına fiyatlandırmasına SQL Server lisans maliyetlerini ekler (Developer ve Express sürümleri hariç). SQL Server Developer geliştirme/test için (üretim için değil), SQL Express ise hafif iş yükleri (1 GB bellek ve 10 GB depolama alanı sınırının altı) için ücretsizdir. Diğer seçenek ise kendi lisansınızı getirmeniz (KLG) ve böylece yalnızca sanal makine için ödeme yapmanızdır. Bu görüntü adlarının başına {BYOL} ön eki getirilir. Bu seçenek hakkında daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server kullanmaya başlama](virtual-machines-windows-sql-server-iaas-overview.md).
-   > 
-   > 
+   > SQL VM görüntüleri, oluşturduğunuz VM'nin dakika başına fiyatlandırmasına SQL Server lisans maliyetlerini ekler (Developer ve Express sürümleri hariç). SQL Server Developer geliştirme/test için (üretim için değil), SQL Express ise hafif iş yükleri (1 GB bellek ve 10 GB depolama alanı sınırının altı) için ücretsizdir.
+   > Diğer seçenek ise kendi lisansınızı getirmeniz (KLG) ve böylece yalnızca sanal makine için ödeme yapmanızdır. Bu görüntü adlarının başına {BYOL} ön eki getirilir. Bu seçeneklerle ilgili daha fazla bilgi için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
+
 7. **Dağıtım modeli seçin** altında, **Resource Manager**’ın seçili olduğunu doğrulayın. Yeni sanal makineler için önerilen dağıtım modeli Resource Manager’dır. **Oluştur**’a tıklayın.
-   
+
     ![Resource Manager ile SQL VM oluşturma](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a name="configure-the-vm"></a>VM yapılandırma
@@ -100,7 +99,7 @@ Bir SQL Server sanal makineyi yapılandırmak için beş dikey pencere vardır.
 **Boyut** adımında, **Boyutu seç** dikey penceresinde bir sanal makine boyutunu seçin. Dikey pencere ilk başta seçtiğiniz görüntüye göre önerilen makine boyutlarını görüntüler.
 
 > [!IMPORTANT]
-> **Boyut seçin** dikey penceresinde gösterilen tahmini aylık maliyet, SQL Server lisans maliyetlerini içermez. Bu maliyet tek başına VM içindir. SQL Server Express ve Developer sürümleri için bu maliyet, tahmin edilen toplam maliyettir. Diğer sürümler için [Windows Sanal Makineler fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) bakın ve hedef SQL Server sürümünüzü seçin. 
+> **Boyut seçin** dikey penceresinde gösterilen tahmini aylık maliyet, SQL Server lisans maliyetlerini içermez. Bu maliyet tek başına VM içindir. SQL Server Express ve Developer sürümleri için bu maliyet, tahmin edilen toplam maliyettir. Diğer sürümler için [Windows Sanal Makineler fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) bakın ve hedef SQL Server sürümünüzü seçin. Ayrıca bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 ![SQL VM Boyut Seçenekleri](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -108,8 +107,6 @@ Bir SQL Server sanal makineyi yapılandırmak için beş dikey pencere vardır.
 
 > [!NOTE]
 > Sanal makine boyutları hakkında daha fazla bilgi için bkz. [Sanal makineler için boyutlar](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). SQL Server VM boyutları hakkında dikkat edilecek noktalar için bkz. [Azure Virtual Machines’de SQL Server için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md).
-> 
-> 
 
 Makine boyutunuzu seçin ve ardından **Seç**’e tıklayın.
 
