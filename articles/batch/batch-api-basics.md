@@ -16,9 +16,9 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -73,11 +73,12 @@ Bir Batch hesabı Batch hizmeti dahilinde benzersiz şekilde tanımlanan bir var
 
 [Azure portalını](batch-account-create-portal.md) kullanarak ya da [Toplu Yönetim .NET kitaplığı](batch-management-dotnet.md) ile olduğu gibi program aracılığıyla bir Azure Batch hesabı oluşturabilirsiniz. Hesabı oluştururken bir Azure depolama hesabını ilişkilendirebilirsiniz.
 
-Batch, *havuz ayırma modu* özelliğine bağlı olarak iki hesap yapılandırmasını destekler. Bu iki seçenek, Batch hizmetinde kimlik doğrulamak ve Batch [havuzları](#pool) sağlayıp bunları yönetmek için size farklı seçenekler sunar (bu makalenin devamını okuyun). 
+Batch, *havuz ayırma modu* özelliğine bağlı olarak iki hesap yapılandırmasını destekler. İki yapılandırma, Batch [havuzlarıyla](#pool) ilgili farklı özelliklere erişmenizi sağlar (bu makalenin devamına bakın). 
 
 
-* **Batch hizmeti** (varsayılan): Batch API’lerine paylaşılan anahtar kimlik doğrulamasını veya [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanarak erişebilirsiniz. Batch işlem kaynakları, Azure tarafından yönetilen bir hesapta arka planda ayrılır.   
-* **Kullanıcı aboneliği**: Batch API’lerine yalnızca [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanarak erişebilirsiniz. Batch işlem kaynakları Azure aboneliğinizde doğrudan ayrılır. Bu mod, işlem düğümlerini yapılandırma ve diğer hizmetlerle tümleştirme konusunda daha fazla esnekliğe sahip olmanızı sağlar. Bu mod, Batch hesabınız için ek bir Azure anahtar kasası yapılandırmanızı gerektirir.
+* **Batch hizmeti**: Bu varsayılan seçenektir; Batch havuzu VM’leri Azure tarafından yönetilen aboneliklerde arka planda ayrılır. Cloud Services havuzları gerekliyse bu hesap yapılandırması kullanılmalıdır, ama özel VM görüntülerinden oluşturulan veya sanal ağ kullanan Sanal Makine havuzları gerekliyse bu yapılandırma kullanılamaz. Batch API’lerine paylaşılan anahtar kimlik doğrulamasını veya [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanarak erişebilirsiniz. 
+
+* **Kullanıcı aboneliği**: Özel VM görüntülerinden oluşturulan veya sanal ağ kullanan Sanal Makine havuzları gerekliyse bu hesap yapılandırması kullanılmalıdır. Batch API’lerine yalnızca [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanarak erişebilirsiniz ve Cloud Services havuzları desteklenmez. Batch işlem VM’leri Azure aboneliğinizde doğrudan ayrılır. Bu mod, Batch hesabınız için bir Azure Key Vault yapılandırmanızı gerektirir.
  
 
 ## <a name="compute-node"></a>İşlem düğümü
@@ -348,7 +349,7 @@ Batch hizmeti ayırma modunda, yalnızca **Cloud Services Yapılandırması** ha
 
 * *MicrosoftAzureBatch* hizmet sorumlusu, belirtilen sanal ağ için [Klasik Sanal Makine Katılımcısı](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) Rol Tabanlı Erişim Denetimi (RBAC) rolüne sahip olmalıdır. Azure portalında:
 
-  * **Sanal Ağ**’ı ve ardından **Erişim denetimi (IAM)** > **Roller** > **Klasik Sanal Makine Katılımcısı** > **Ekle**’yi seçin
+  * **Sanal Ağ**’ı ve ardından **Erişim denetimi (IAM)**  > **Roller** > **Klasik Sanal Makine Katılımcısı** > **Ekle**’yi seçin
   * **Arama** kutusuna "MicrosoftAzureBatch" yazın
   * **MicrosoftAzureBatch** onay kutusunu işaretleyin
   * **Seç** düğmesini seçin

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6d88b7c5ad96a1c7cfb60bde3c9d952b654adb9f
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4b7192b22d1583be2b2ab027b040c9a2fce8a293
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -256,7 +256,7 @@ Bazı durumlarda, kaynaklara erişen bir kod ya da komut dosyası çalıştırma
 
 * [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](resource-group-authenticate-service-principal.md)
 * [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure CLI kullanma](resource-group-authenticate-service-principal-cli.md)
-* [Kaynaklara erişebilen bir Active Directory uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](resource-group-create-service-principal-portal.md)
+* [Kaynaklara erişebilen bir Azure Active Directory uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](resource-group-create-service-principal-portal.md)
 
 Kullanıcıların kritik kaynakları silmesini ve değiştirmesini önlemek için bunları açıkça kilitleyebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager ile kaynakları kilitleme](resource-group-lock-resources.md).
 

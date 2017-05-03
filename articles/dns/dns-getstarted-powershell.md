@@ -1,5 +1,5 @@
 ---
-title: "PowerShell ile Azure DNS kullanmaya başlama | Microsoft Belgeleri"
+title: "PowerShell ile Azure DNS kullanmaya başlama | Microsoft Docs"
 description: "Azure DNS&quot;te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, PowerShell kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
 services: dns
 documentationcenter: na
@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9f9c2ad56483919bf676fc84af49a7c90ba042f9
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -35,6 +35,14 @@ Bu makalede, Azure PowerShell kullanarak ilk DNS bölgesi ve kaydınızı oluşt
 DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Son olarak, DNS bölgenizi Internet'te yayımlamak için etki alanının ad sunucularını yapılandırmanız gerekir. Bu adımların her biri aşağıda açıklanmıştır.
 
 Bu yönergeler, Azure PowerShell’i zaten yüklediğinizi ve oturum açtığınızı varsayar. Yardım için bkz. [PowerShell ile DNS bölgelerini yönetme](dns-operations-dnszones.md).
+
+## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
+
+DNS bölgesini oluşturmadan önce, DNS Bölgesi’ni içerecek bir kaynak grubu oluşturulur. Aşağıda, komut gösterilmektedir.
+
+```powershell
+New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
+```
 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
@@ -84,6 +92,13 @@ MaxNumberOfRecordSets : 5000
 
 Bu ad sunucuları, etki alanı adı kayıt şirketi (etki alanı adını satın aldığınız şirket) ile birlikte yapılandırılmalıdır. Kayıt şirketiniz, etki alanı için ad sunucularını ayarlama seçeneğini sunar. Daha fazla bilgi için bkz. [Etki alanınızı Azure DNS’e devretme](dns-domain-delegation.md).
 
+## <a name="delete-all-resources"></a>Tüm kaynakları silme
+
+Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları izleyin:
+
+```powershell
+Remove-AzureRMResourceGroup -Name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

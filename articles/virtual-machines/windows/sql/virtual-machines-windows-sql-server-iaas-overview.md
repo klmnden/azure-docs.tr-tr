@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 1bd099ee9154e920fef5b99e27d2a9711c1d75d1
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 10840ee4ff070436e2c21d51846ea6363825abac
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -66,10 +67,13 @@ Azure VM’lerinde çalışan SQL Server, ilişkisel verilerinizi Azure’da dep
 ## <a name="create-a-new-sql-vm"></a>Yeni bir SQL sanal makinesi oluşturma
 Aşağıdaki bölümlerde SQL Server sanal makine galeri görüntüleri için Azure portalının doğrudan bağlantıları verilmektedir. Seçtiğiniz görüntüye bağlı olarak, SQL Server lisans maliyetlerini dakika başına temelde ödeyebilir veya kendi lisansınızı getirebilirsiniz (KLG).
 
-Bu işleme ilişkin adım adım yönergeler, [Azure portal'da SQL Server sanal makine hazırlama](virtual-machines-windows-portal-sql-server-provision.md) adlı öğreticide mevcuttur. Ayrıca,uygun makine boyutunu seçmeyi ve sağlama işlemi sırasında kullanılabilir diğer seçenekleri açıklayan [ SQL Server VM’ler için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md)’nı gözden geçirin.
+Yeni SQL VM oluşturmaya yönelik adım adım yönergeleri, [Azure Portal'da SQL Server sanal makine hazırlama](virtual-machines-windows-portal-sql-server-provision.md) öğreticisinde bulabilirsiniz. Ayrıca,uygun makine boyutunu seçmeyi ve sağlama işlemi sırasında kullanılabilir diğer seçenekleri açıklayan [ SQL Server VM’ler için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md)’nı gözden geçirin.
 
 ## <a name="option-1-create-a-sql-vm-with-per-minute-licensing"></a>Seçenek 1: Dakika başına lisanslama ile SQL sanal makinesi oluşturma
 Aşağıdaki tabloda sanal makine galerisindeki en son SQL Server görüntülerinin bir matrisi verilmektedir. Belirtilen sürüm, yayın ve işletim sisteminizle yeni bir SQL VM oluşturmaya başlamak için bağlantılardan birine tıklayın. 
+
+> [!TIP]
+> Bu görüntülerin VM ve SQL fiyatlandırmasını anlamak için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 | Sürüm | İşletim Sistemi | Sürüm |
 | --- | --- | --- |
@@ -80,8 +84,11 @@ Aşağıdaki tabloda sanal makine galerisindeki en son SQL Server görüntüleri
 
 Bu listeye ek olarak kullanılabilen başka SQL Server sürümü ve işletim sistemi birleşimleri de vardır. Azure portalda market araması yaparak diğer görüntülere ulaşabilirsiniz. 
 
-## <a name="a-idbyola-option-2-create-a-sql-vm-with-an-existing-license"></a><a id="BYOL"></a> Seçenek 2: Var olan bir lisans ile SQL sanal makinesi oluşturma
+## <a id="BYOL"></a> Seçenek 2: Var olan bir lisans ile SQL sanal makinesi oluşturma
 Ayrıca kendi lisansınızı getirebilirsiniz (KLG). Bu senaryoda, SQL Server Lisans için hiçbir ek bir ücret olmadan yalnızca VM için ödeme yaparsınız. Kendi lisansınızı kullanmak için, aşağıdaki SQL Server sürümleri, yayınları ve işletim sistemleri matrisini kullanın. Portalda, bu görüntü adlarına **{KLG}** ön eki getirilir.
+
+> [!TIP]
+> Kendi lisansınızı getirmek, sürekli üretim iş yüklerinde zaman içinde paradan tasarruf etmenizi sağlayabilir. Daha fazla bilgi için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 | Sürüm | İşletim sistemi | Sürüm |
 | --- | --- | --- |
@@ -92,8 +99,7 @@ Ayrıca kendi lisansınızı getirebilirsiniz (KLG). Bu senaryoda, SQL Server Li
 Bu listeye ek olarak kullanılabilen başka SQL Server sürümü ve işletim sistemi birleşimleri de vardır. Azure portalında market araması yaparak diğer görüntüleri bulabilirsiniz ("{KLG} SQL Server" aratın).
 
 > [!IMPORTANT]
-> KLG VM görüntülerini kullanmak için [Azure’da Yazılım Güvencesi ile Lisans Taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/) içeren bir Kuruluş Sözleşmeniz olmalıdır. Ayrıca, kullanmak istediğiniz SQL Server sürümü/yayını için geçerli bir lisans da gerekir. VM’nizi sağladıktan sonra **10** gün içinde [gerekli KLG bilgilerini Microsoft’a vermelisiniz.](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf)
-> 
+> KLG VM görüntülerini kullanmak için [Azure’da Yazılım Güvencesi ile Lisans Taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/) içeren bir Kuruluş Sözleşmeniz olmalıdır. Ayrıca, kullanmak istediğiniz SQL Server sürümü/yayını için geçerli bir lisans da gerekir. VM’nizi sağladıktan sonra **10** gün içinde [gerekli KLG bilgilerini Microsoft’a vermelisiniz.](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) 
 
 > [!NOTE]
 > Dakika başına ödemeli SQL Server VM'nin lisanslama modelini kendi lisansınızı kullanacak şekilde değiştirmezsiniz. Bu durumda yeni bir KLG VM oluşturmanız ve veritabanlarınızı yeni VM'ye geçirmeniz gerekir. 
@@ -126,13 +132,8 @@ Daha fazla bilgi için [Lisans Koşullarını kabul etme](https://msdn.microsoft
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Virtual Machines’de SQL Server için.[Öğrenme Yolunu keşfedin](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
-Fiyatlandırma hakkındaki sorularınız için bkz. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Hedef SQL Server sürümünüzü **İşletim Sistemi/Yazılım** listesinden seçin. Ardından farklı boyutlardaki sanal makinelerin fiyatlarını görüntüleyebilirsiniz. 
+Fiyatlandırmayla ilgili sorular için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md) ve [Azure fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Hedef SQL Server sürümünüzü **İşletim Sistemi/Yazılım** listesinden seçin. Ardından farklı boyutlardaki sanal makinelerin fiyatlarını görüntüleyebilirsiniz.
 
 Başka sorunuz mu var? Önce, bkz. [Azure Virtual Machines’de SQL Server Kullanmaya Başlama SSS](virtual-machines-windows-sql-server-iaas-faq.md). Ayrıca sorularınızı ve yorumlarınızı, Microsoft ve toplulukla etkileşim kurmak amacıyla bir SQL VM konusunun alt kısmına da ekleyebilirsiniz.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

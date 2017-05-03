@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: aabd0481e6dd264e9a5e91c2e4b2b83f01227db1
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -205,6 +205,7 @@ Azure Backup, Azure Backup Sunucusu ve System Center Data Protection Manager (DP
 | Windows Server 2016 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 ve en son SP'ler |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 ve en son SP'ler |64 bit |Datacenter, Foundation, Standard |
+| Windows Storage Server 2016 ve en son SP'ler |64 bit |Standard, Workgroup | 
 | Windows Storage Server 2012 R2 ve en son SP'ler |64 bit |Standard, Workgroup |
 | Windows Storage Server 2012 ve en son SP'ler |64 bit |Standard, Workgroup |
 | Windows Server 2012 R2 ve en son SP'ler |64 bit |Essential |

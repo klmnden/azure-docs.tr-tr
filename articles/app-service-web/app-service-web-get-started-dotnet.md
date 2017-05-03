@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 24ddf0d81e52960bd582861d324585b8ba0ca357
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -132,7 +132,7 @@ Tebrikler, ilk ASP.NET web uygulamanız Uygulama Hizmeti’nde çalışıyor.
 
 ## <a name="update-the-app-and-redeploy"></a>Uygulamayı güncelleştirme ve yeniden dağıtma
 
-Bir güncelleştirmenin Azure’a yeniden dağıtılması çok kolaydır. Ana sayfada bir güncelleştirme yapalım.
+Güncelleştirmek ve Azure’a yeniden dağıtmak çok kolaydır. Ana sayfada bir güncelleştirme yapalım.
 
 **Çözüm Gezgini** menüsünden **Görünümler\Giriş\Index.cshtml** dosyasını açın.
 

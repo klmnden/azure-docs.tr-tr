@@ -1,28 +1,27 @@
-### <a name="noconnection"></a>Ağ geçidi bağlantısı olmadan ön ek ekleme veya kaldırma
-### <a name="to-add-additional-prefixes"></a>Başka ön ekler eklemek için
+### <a name="noconnection"></a>Ön ekleri değiştirme - ağ geçidi bağlantısı yok
 
-Daha önce oluşturduğunuz ancak henüz ağ geçidi bağlantısı olmayan yerel ağ geçidine başka adres ön ekleri eklemek için aşağıdaki örneği kullanın. Değerleri kendi değerlerinizle değiştirdiğinizden emin olun.
+- Başka adres ön ekleri eklemek için:
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-```
-### <a name="to-remove-an-address-prefix"></a>Bir adres ön ekini kaldırmak için
+  ```powershell
+  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+  ```
 
-VPN bağlantısı olmayan yerel ağ geçidinden adres ön ekini kaldırmak için aşağıdaki örneği kullanın. Artık gereği olmayan önekleri bırakın. Bu örnekte, 20.0.0.0/24 (önceki örnekten) öneki artık bize gerekmiyor; bu nedenle, yerel ağ geçidini güncelleştirip bu öneki de hariç tutacağız.
+- Adres ön ekini kaldırmak için:<br>
+  Artık gereği olmayan önekleri bırakın. Bu örnekte, 20.0.0.0/24 (önceki örnekten) ön eki artık bize gerekmiyor; bu nedenle, yerel ağ geçidini güncelleştiriyor ve bu ön eki hariç tutuyoruz.
 
-```powershell
-$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
--AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
-```
+  ```powershell
+  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+  -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+  ```
 
-### <a name="withconnection"></a>Var olan ağ geçidi bağlantısını kullanarak ön ek ekleme veya kaldırma
-Kendi ağ geçidi bağlantınızı oluşturduysanız ve yerel ağ geçidinizde bulunan IP adresi ön eklerini eklemek veya kaldırmak istiyorsanız aşağıdaki adımları sırasıyla uygulamanız gerekir. Bunun sonucunda, VPN bağlantınızda bazı kesintiler oluşacaktır. Ön ekleri güncelleştirirken ilk olarak bağlantıyı kaldırmanız, önekleri değiştirmeniz ve sonra yeni bir bağlantı oluşturmanız gerekir. Aşağıdaki örneklerde verilen değerleri, kendi değerlerinizle değiştirdiğinizden emin olun.
+### <a name="withconnection"></a>Ön ekleri değiştirme - mevcut ağ bağlantısı
+Ağ geçidi bağlantınız varsa ve yerel ağ geçidinizde bulunan IP adresi ön eklerini eklemek veya kaldırmak istiyorsanız aşağıdaki adımları sırasıyla uygulamanız gerekir. Bunun sonucunda, VPN bağlantınızda kesinti oluşur.
 
 > [!IMPORTANT]
-> VPN ağ geçidini silmeyin. böyle bir durumda, bunu yeniden oluşturmak için adımlarda geri gitmenizin yanı sıra şirket içi yönlendiriciyi de yeni ayarlarla yeniden yapılandırmanız gerekecektir.
+> VPN ağ geçidini silmeyin. Bunu yaparsanız, yeniden oluşturmak için geri dönüp adımları yeniden izlemeniz gerekir. Buna ek olarak, şirket içi VPN cihazınızı da yeni VPN ağ geçidi IP adresiyle güncelleştirmelisiniz.
 > 
 > 
 
@@ -45,7 +44,7 @@ Kendi ağ geçidi bağlantınızı oluşturduysanız ve yerel ağ geçidinizde b
   Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
-3. Bağlantıyı oluşturun. Bu örnekte bir IPsec bağlantı türü yapılandırılmaktadır. Bağlantınızı yeniden oluşturduktan sonra, yapılandırmanız için belirtilen bağlantı türünü kullanın. Ek bağlantı türleri için [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) sayfasına bakın.
+3. Bağlantıyı oluşturun. Bu örnekte bir IPsec bağlantı türü yapılandırıyoruz. Bağlantınızı yeniden oluşturduktan sonra, yapılandırmanız için belirtilen bağlantı türünü kullanın. Ek bağlantı türleri için [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) sayfasına bakın.
    
   VirtualNetworkGateway için değişkeni ayarlayın.
 
@@ -53,7 +52,7 @@ Kendi ağ geçidi bağlantınızı oluşturduysanız ve yerel ağ geçidinizde b
   $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
   ```
    
-  Bağlantıyı oluşturun. Bu örnekte, bir önceki adımda belirlediğiniz $local değişkeninin kullanıldığını unutmayın.
+  Bağlantıyı oluşturun. Bu örnek 2. adımda ayarladığınız $local değişkenini kullanır.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
