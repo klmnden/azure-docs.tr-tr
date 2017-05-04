@@ -19,9 +19,9 @@ ROBOTS: NOINDEX
 redirect_url: /azure/automation/automation-offering-get-started
 redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: fbca3d195290551d37606e231b997a40a602351f
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 90570886b3a1ae0c48683691cb438b5a61195d76
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -245,7 +245,7 @@ Aşağıdaki durumlarda var olan Otomasyon hesabınızı güncelleştirmek için
 Betiğin aşağıdaki önkoşulları vardır:
 
 * Betik yalnızca Azure Resource Manager 2.01 veya sonrasındaki modülleri içeren Windows 10 ve Windows Server 2016 işletim sistemlerinde çalıştırılabilir. Windows'un önceki sürümleri desteklenmez.
-* Azure PowerShell 1.0 ve üzeri. PowerShell 1.0 sürümü hakkında bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell 1.0 ve üzeri. PowerShell 1.0 sürümü hakkında bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
 * Aşağıdaki PowerShell betiğinde *–AutomationAccountName* ve *-ApplicationDisplayName* parametrelerinin değeri olarak başvurulan bir Otomasyon hesabı.
 
 Betiklerin parametreleri için gerekli olan *SubscriptionID*, *ResourceGroup* ve *AutomationAccountName* değerlerini almak için aşağıdakileri yapın:
@@ -515,7 +515,7 @@ Runbook’larınızla Resource Manager kaynaklarını yönetecek Farklı Çalı�
          }
     }
 
-Bu betikte, birden fazla abonelik arasında kolayca çalışmanıza yardımcı olmak üzere abonelik bağlamına başvuruyu destekleyen iki ek kod satırı bulunur. *SubscriptionId* adlı değişken varlık, aboneliğin kimliğini içerir. `Add-AzureRmAccount` cmdlet’i belirtildikten sonra *-SubscriptionId* parametre kümesi ile [`Set-AzureRmContext`](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet’i belirtilir. Değişken adı çok genelse, tanımlanmasını kolaylaştırmak amacıyla bir ön ek veya başka diğer adlandırma kuralı kullanmak için değişken adını gözden geçirebilirsiniz. Alternatif olarak, ilgili değişken varlığıyla *-SubscriptionId* yerine *-SubscriptionName* parametre kümesini kullanabilirsiniz.
+Bu betikte, birden fazla abonelik arasında kolayca çalışmanıza yardımcı olmak üzere abonelik bağlamına başvuruyu destekleyen iki ek kod satırı bulunur. *SubscriptionId* adlı değişken varlık, aboneliğin kimliğini içerir. `Add-AzureRmAccount` cmdlet’i belirtildikten sonra *-SubscriptionId* parametre kümesi ile [`Set-AzureRmContext`](/powershell/module/azurerm.profile/set-azurermcontext) cmdlet’i belirtilir. Değişken adı çok genelse, tanımlanmasını kolaylaştırmak amacıyla bir ön ek veya başka diğer adlandırma kuralı kullanmak için değişken adını gözden geçirebilirsiniz. Alternatif olarak, ilgili değişken varlığıyla *-SubscriptionId* yerine *-SubscriptionName* parametre kümesini kullanabilirsiniz.
 
 Runbook’ta kimlik doğrulaması için kullandığınız cmdlet `Add-AzureRmAccount`, *ServicePrincipalCertificate* parametre kümesini kullanır. Kullanıcı kimlik bilgilerini değil, hizmet sorumlusu sertifikasını kullanarak kimlik doğrulaması yapar.
 

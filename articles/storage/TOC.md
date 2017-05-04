@@ -4,7 +4,6 @@
 
 # Kullanmaya Başlama
 
-## [Hızlı başlangıç kılavuzu](storage-getting-started-guide.md)
 ## [Depolama hesabı oluşturma](storage-create-storage-account.md)
 
 ## Blob Depolama
@@ -166,7 +165,7 @@
 #### [Sürücü bildirimlerini yedekleme](storage-import-export-backing-up-drive-manifests.md)
 #### [İçeri/Dışarı Aktarma işleri için tanılama ve hata kurtarma](storage-import-export-diagnostics-and-error-recovery.md)
 # Başvuru
-## [PowerShell](/powershell/storage)
+## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
@@ -180,7 +179,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Bloblar, Kuyruklar, Tablolar ve Dosyalar](/rest/api/storageservices/azure-storage-services-rest-api-reference)
+### [Bloblar, Kuyruklar, Tablolar ve Dosyalar](/rest/api/storageservices)
 ### [Kaynak sağlayıcısı](/rest/api/storagerp)
 ### [İçeri/Dışarı Aktarma](/rest/api/storageimportexport)
 

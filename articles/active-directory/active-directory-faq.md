@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 025e8c9e575123a3ad9863a35061ebd0af212486
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 521169d52d37e644ba416e27c9adc8587868ab40
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -134,7 +134,7 @@ Azure AD hesapları için yöneticiler aşağıdakilerden birini kullanarak paro
 
 - [Azure portalda hesapları sıfırlama](active-directory-users-reset-password-azure-portal.md)
 - [Klasik portalda hesapları sıfırlama](active-directory-create-users-reset-password.md)
-- [PowerShell’i kullanma](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
+- [PowerShell’i kullanma](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -

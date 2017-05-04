@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -32,7 +32,9 @@ Azure Storage, müşterilerin ihtiyaçlarını karşılamak üzere sağlamlık, 
 * Azure Storage verilerinizin yedekleme ve çoğaltma ile nasıl dayanıklı hale getirildiği
 * İlk Azure Storage uygulamanızı oluşturmak için yapılması gerekenler
 
-Azure Storage’ı sorunsuz şekilde kullanmaya başlamak için bkz. [Beş dakikada Azure Storage’a başlayın](storage-getting-started-guide.md).
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 Azure Storage ile çalışma konusunda gerekli araçlar, kitaplıklar ve diğer kaynaklar için aşağıda yer alan [Sonraki Adımlar](#next-steps)’a göz atın.
 
@@ -185,12 +187,12 @@ Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir
 * [PHP için Depolama İstemcisi Kitaplığı](https://azure.microsoft.com/develop/php/)
 * [Ruby için Depolama İstemcisi Kitaplığı](https://azure.microsoft.com/develop/ruby/)
 * [Python için Depolama İstemcisi Kitaplığı](https://azure.microsoft.com/develop/python/)
-* [PowerShell 1.0 için Depolama Cmdlet'leri](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [PowerShell 1.0 için Depolama Cmdlet'leri](/powershell/module/azurerm.storage/#storage)
 
 ### <a name="azure-storage-management-services"></a>Azure Depolama yönetim hizmetleri
 * [Depolama Kaynak Sağlayıcısı REST API Başvurusu](/rest/api/storagerp/)
 * [.NET için Depolama Kaynak Sağlayıcısı İstemci Kitaplığı](/dotnet/api/microsoft.azure.management.storage)
-* [PowerShell 1.0 için Depolama Kaynak Sağlayıcısı Cmdlet'leri](/powershell/storage/)
+* [PowerShell 1.0 için Depolama Kaynak Sağlayıcısı Cmdlet'leri](/powershell/module/azure.storage)
 * [Depolama Hizmet Yönetimi REST API'si (Klasik)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Azure Depolama veri taşıma hizmetleri
@@ -202,7 +204,7 @@ Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir
 * [Azure Depolama İstemcisi Araçları](storage-explorers.md)
 * [Azure SDK'ları ve Araçları](https://azure.microsoft.com/tools/)
 * [Azure Depolama Öykünücüsü](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [AzCopy Komut Satırı Yardımcı Programı](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -211,7 +213,11 @@ Azure Storage hakkında daha fazla bilgi için şu kaynakları araştırın:
 ### <a name="documentation"></a>Belgeler
 * [Azure Depolama Belgeleri](https://azure.microsoft.com/documentation/services/storage/)
 * [Depolama hesabı oluşturma](storage-create-storage-account.md)
-* [Beş dakikada Azure Storage’ı kullanmaya başlayın](storage-getting-started-guide.md)
+
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### <a name="for-administrators"></a>Yöneticiler için
 * [Azure Depolama ile Azure PowerShell’i kullanma](storage-powershell-guide-full.md)

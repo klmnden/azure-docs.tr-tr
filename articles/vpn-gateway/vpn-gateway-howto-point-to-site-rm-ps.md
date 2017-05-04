@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b0ccde30b93214b161558daf8e2b4e37e58711da
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d340210d799f995cb10a20cf48a9245bbd3bc8d3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -68,7 +68,7 @@ Bu yapılandırma için aşağıdaki değerler kullanılır. Değişkenler makal
 
 ## <a name="before-beginning"></a>Başlamadan önce
 * Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
-* Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs). 
+* Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview). 
 
 ## <a name="declare"></a>1. Bölüm - Oturum açma ve değişkenleri ayarlama
 Bu bölümde oturum açıp bu yapılandırma için kullanılan değerleri bildirirsiniz. Belirtilen değerler örnek betiklerde kullanılır. Değerleri, ortamınızı yansıtacak şekilde değiştirin. Veya, bildirilen değerleri kullanın ve bir alıştırma olarak adımları uygulayın.
@@ -284,7 +284,7 @@ Bağlanmayla ilgili sorun yaşıyorsanız aşağıdakileri denetleyin:
 
 ## <a name="connectVM"></a>Sanal makineye bağlanma
 
-1. Sanal ağınıza bağlandıktan sonra P2S bağlantınız üzerinden bir sanal makineye bağlanabilirsiniz. Sanal makineye bağlanmak için sanal makinenin özel IP adresi gerekir. Aşağıdaki örnek, [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?view=azurermps-3.7.0) ile özel IP adresini almanıza yardımcı olur. Sonuçlar VM’leri ve tüm Kaynak Gruplarınızdaki karşılık gelen özel IP adreslerini içeren bir liste döndürür. 
+1. Sanal ağınıza bağlandıktan sonra P2S bağlantınız üzerinden bir sanal makineye bağlanabilirsiniz. Sanal makineye bağlanmak için sanal makinenin özel IP adresi gerekir. Aşağıdaki örnek, [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) ile özel IP adresini almanıza yardımcı olur. Sonuçlar VM’leri ve tüm Kaynak Gruplarınızdaki karşılık gelen özel IP adreslerini içeren bir liste döndürür. 
 
   ```powershell   
   $vms = get-azurermvm
@@ -424,3 +424,4 @@ Parmak izini, iptal edilen istemci sertifikaları listesinden kaldırarak bir is
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Ağ ve sanal makineler hakkında daha fazla bilgi edinmek için, bkz. [Azure ve Linux VM ağına genel bakış](../virtual-machines/linux/azure-vm-network-overview.md).
+

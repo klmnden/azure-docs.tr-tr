@@ -44,7 +44,7 @@
 ### [Ölçek Kümesi hakkında SSS](virtual-machine-scale-sets-faq.md)
 
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

@@ -54,7 +54,7 @@
 ## [Açık kaynak araçları kullanarak izinsiz giriş algılama gerçekleştirme](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Azure Log Analytics’te Application Gateway günlüklerini analiz etme](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # Başvuru
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/networkwatcher/)
 # İlgili

@@ -1,5 +1,5 @@
 ---
-title: "Bulutta Azure MFA’yı kullanmaya başlama | Microsoft Belgeleri"
+title: "Bulutta Azure MFA’yı kullanmaya başlama | Microsoft Docs"
 description: "Bu, bulutta nasıl Microsoft Azure MFA kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır."
 services: multi-factor-authentication
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +66,7 @@ Kullanıcılarınız için MFA'yı etkinleştirmek üzere aşağıdaki yordamı 
 Kullanıcılarınızı etkinleştirdikten sonra, e-posta ile bildirimde bulunmanız gerekir. Kullanıcılardan sonraki oturum açma girişimleri sırasında iki aşamalı doğrulamaya kaydolmaları istenecektir. İki aşamalı doğrulamayı kullanmaya başlayan kullanıcıların tarayıcı harici uygulamaların devre dışı kalmaması için uygulama parolaları oluşturmaları da gerekecektir.
 
 ## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>İki aşamalı doğrulamayı açmak için PowerShell kullanma
-[Azure AD PowerShell](/powershell/azureps-cmdlets-docs) kullanarak [durumu](multi-factor-authentication-whats-next.md) değiştirmek için aşağıdakileri kullanabilirsiniz.  Aşağıdaki durumlardan birine eşit olacak şekilde `$st.State` öğesini değiştirebilirsiniz:
+[Azure AD PowerShell](/powershell/azure/overview) kullanarak [durumu](multi-factor-authentication-whats-next.md) değiştirmek için aşağıdakileri kullanabilirsiniz.  Aşağıdaki durumlardan birine eşit olacak şekilde `$st.State` öğesini değiştirebilirsiniz:
 
 * Etkin
 * Uygulandı

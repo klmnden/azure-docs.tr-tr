@@ -1,41 +1,31 @@
-NC ve NV boyutları, GPU özellikli örnekler olarak da bilinir. NVIDIA GPU kartlarına sahip bu özel amaçlı sanal makineler, farklı senaryolar ve kullanım amaçları için iyileştirilmiştir. NV boyutları uzaktan görselleştirme, içerik akışı, oyun ve kodlamanın yanı sıra OpenGL ve DirectX gibi çerçeveleri kullanan VDI senaryoları için tasarlanmış ve iyileştirilmiştir. NC boyutları ise CUDA ve OpenCL tabanlı uygulama ve simülasyonlar gibi yoğun işlem ve ağ kullanımlı uygulamalar ve algoritmalar için iyileştirilmiştir. 
+The NC and NV sizes are also known as GPU-enabled instances. These are specialized virtual machines that include NVIDIA's GPU cards, optimized for different scenarios and use cases. The NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding and VDI scenarios utilizing frameworks such as OpenGL and DirectX. The NC sizes are more optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations. 
 
 
-NVIDIA'nın Tesla M60 GPU kartının yanı sıra hızlandırılmış masaüstü uygulamaları ve sanal masaüstü düzenleri için NVIDIA GRID özelliğine sahip olan NV örnekleri, müşterilerin verilerini veya simülasyonlarını görselleştirmek için kullanabileceği sistemlerdir. Kullanıcılar yoğun grafik kullanımlı iş akışlarını NV örneklerinde görselleştirerek üstün grafik özelliğine sahip olurken kodlama ve işleme gibi hassas iş yüklerini de tek başına çalıştırabilir. Tesla M60, çift GPU tasarımda 4096 CUDA çekirdeği ve en fazla 36 adet 1080p H.264 akışı sunar. 
+The NV instances are powered by NVIDIA’s Tesla M60 GPU card and NVIDIA GRID for desktop accelerated applications and virtual desktops where customers will be able to visualize their data or simulations. Users will be able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. The Tesla M60 delivers 4096 CUDA cores in a dual-GPU design with up to 36 streams of 1080p H.264. 
 
-NC örnekleri, NVIDIA Tesla K80 kartını kullanmaktadır. Kullanıcılar artık enerji keşif uygulamaları, kaza simülasyonları, ışın izlemeli işleme, derin öğrenme ve çok daha fazlası için CUDA yardımıyla verileri çok daha hızlı işleyebilir. Tesla K80, çift GPU tasarımında 4992 CUDA çekirdeği, 2,91 Teraflop'a kadar çift duyarlıklı ve 8,93 Teraflop'a kadar tek duyarlıklı performans sunar.
+The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch through data much faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance.
 
-## <a name="nv-instances"></a>NV Örnekleri
+## <a name="nv-instances"></a>NV instances
 
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | GPU |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
 | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |380 | 1 |
 | Standard_NV12 |12 |112 |680 | 2 |
 | Standard_NV24 |24 |224 |1440 | 4 |
 
-1 GPU = M60 kartın yarısı.
+1 GPU = one-half M60 card.
 
-**Desteklenen işletim sistemleri**
+## <a name="nc-instances"></a>NC instances
 
-* Windows Server 2016, Windows Server 2012 R2, bkz. [Windows için N Serisi sürücü kurulumu](../articles/virtual-machines/windows/n-series-driver-setup.md)
-
-## <a name="nc-instances"></a>NC Örnekleri
-
-| Boyut | CPU çekirdekleri | Bellek: GiB | Yerel SSD: GiB | GPU |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
 | --- | --- | --- | --- | --- |
 | Standard_NC6 |6 |56 | 380 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 |
 | Standard_NC24 |24 |224 | 1440 | 4 |
 | Standard_NC24r* |24 |224 | 1440 | 4 |
 
-1 GPU = K80 kartın yarısı.
+1 GPU = one-half K80 card.
 
-*RDMA özellikli
+*RDMA capable
 
-**Desteklenen işletim sistemleri**
-
-* Windows Server 2016, Windows Server 2012 R2, bkz. [Windows için N Serisi sürücü kurulumu](../articles/virtual-machines/windows/n-series-driver-setup.md)
-* Ubuntu 16.04 LTS, bkz. [Linux için N Serisi sürücü kurulumu](../articles/virtual-machines/linux/n-series-driver-setup.md)
-
-<br>
 

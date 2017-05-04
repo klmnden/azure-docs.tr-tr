@@ -47,7 +47,7 @@
 ### [Azure İzleyicisi’ni kullanarak izleme](api-management-howto-use-azure-monitor.md)
 ### [Rol tabanlı erişim denetimi kullanma](api-management-role-based-access-control.md)
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (özgün)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [İlkeler](api-management-policies.md)

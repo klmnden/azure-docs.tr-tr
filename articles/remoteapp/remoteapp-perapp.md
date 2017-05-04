@@ -15,9 +15,9 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 20f9e9b31498f20c2a27f0d82d434abad73d2454
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7970fb624fcf76d9cba6e60c9766e39b63f175ba
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,7 +50,7 @@ Bu artık Azure RemoteApp’te şu anda sınırlı bir önizleme özelliği olar
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Azure RemoteApp PowerShell cmdlet'lerini alma
 Yeni önizleme işlevini denemek için, Azure PowerShell cmdlet'lerini kullanmanız gerekecektir. Şu anda yeni uygulama yayımlama modunu etkinleştirmek için Azure Yönetim portalını kullanmak mümkün değildir.
 
-İlk olarak, [Azure PowerShell modülü](/powershell/azureps-cmdlets-docs) yüklü olduğundan emin olun.
+İlk olarak, [Azure PowerShell modülü](/powershell/azure/overview) yüklü olduğundan emin olun.
 
 Daha sonra, PowerShell konsolunu yönetici modunda başlatın ve aşağıdaki cmdlet'i çalıştırın:
 

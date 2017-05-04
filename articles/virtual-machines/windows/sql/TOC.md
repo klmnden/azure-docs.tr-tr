@@ -36,7 +36,7 @@
 ## [Uygulama desenleri](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [SQL Server Sürücüleri](https://msdn.microsoft.com/library/mt654049.aspx)
