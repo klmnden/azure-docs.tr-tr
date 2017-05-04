@@ -9,5 +9,4 @@ Bir şirket içi ağı ile Siteden Siteye bağlantılar için VPN cihazı gereki
 VPN cihazınızı yapılandırırken şunlar gerekir:
 
 - Paylaşılan bir anahtar. Siteden Siteye VPN bağlantınızı oluştururken belirttiğiniz paylaşılan anahtarın aynısıdır. Bu örneklerde temel bir paylaşılan anahtar kullanılır. Kullanmak için daha karmaşık bir anahtar oluşturmanız önerilir.
-
 - Sanal ağ geçidinizin Genel IP adresi. Azure Portal, PowerShell veya CLI kullanarak genel IP adresini görüntüleyebilirsiniz.
