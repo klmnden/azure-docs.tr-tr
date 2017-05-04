@@ -46,7 +46,7 @@
 ### [Application Gateway’de sorunları giderme](application-gateway-troubleshooting-502.md)
 ### [Tanılama günlüğüne kaydetme ve ölçümler](application-gateway-diagnostics.md)
 # Başvuru
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI 2.0](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)

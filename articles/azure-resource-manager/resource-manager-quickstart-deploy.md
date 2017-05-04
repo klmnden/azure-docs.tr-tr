@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/16/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 41d9476d4ce6b7afc2ba9c757e96db7e8e72d5ae
-ms.openlocfilehash: a77354d0719240e5916b5ec945dad75e534802d3
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3b3162c335be43c9bf2a3d1c14b86cdd9b5d46b9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ Aşağıdaki bölümlerde, bu adımların [PowerShell](#powershell) veya [Azure 
 
 ## <a name="powershell"></a>PowerShell
 
-1. Azure PowerShell'i yüklemek için bkz. [Azure PowerShell cmdlet'lerini kullanmaya başlama](/powershell/azureps-cmdlets-docs).
+1. Azure PowerShell'i yüklemek için bkz. [Azure PowerShell cmdlet'lerini kullanmaya başlama](/powershell/azure/overview).
 
 2. Dağıtımı hızla gerçekleştirmek için aşağıdaki cmdlet'leri kullanın:
 
@@ -186,10 +187,5 @@ Aboneliğinize bir depolama hesabı dağıtmak için aşağıdaki örnek şablon
 * Azure CLI ile şablon dağıtımı hakkında ayrıntılı bilgi edinmek için bkz. [Resource Manager şablonları ve Azure CLI ile kaynak dağıtma](/azure/azure-resource-manager/resource-group-template-deploy-cli).
 
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

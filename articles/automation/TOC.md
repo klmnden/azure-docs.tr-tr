@@ -71,8 +71,8 @@
 ### [Sık karşılaşılan hataları giderme.](automation-troubleshooting-automation-errors.md)
 ### [Karma Runbook Çalışanı için Sorun Giderme](automation-troubleshooting-hybrid-runbook-worker.md)
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
-## [PowerShell (Klasik)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [PowerShell](/powershell/module/azurerm.automation)
+## [PowerShell (Klasik)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (Klasik)](https://msdn.microsoft.com/library/azure/mt163781)

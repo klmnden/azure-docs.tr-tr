@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 493a915fb4e3de4cb70324b22beeaae6720a3492
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -42,7 +42,7 @@ Günümüzde çok büyük miktarda veri kablo üzerinden yüksek hızlarda akmak
 * **Bağlantı:** Akış Analizi, akış alımı için doğrudan Azure Event Hubs'a ve Azure IoT Hub'larına; geçmiş verilerin alımı için de Azure Blob hizmetine bağlanır. Sonuçlar; Akış Analizi'nden Azure Depolama Bloblarına veya Tablolarına, Azure SQL DB'ye, Azure Data Lake Depolarına, DocumentDB'ye, Event Hubs'a, Azure Service Bus Konu Başlıklarına veya Kuyruklarına ve Power BI'a yazılabilir; burada sonuçlar görselleştirilebilir, iş akışları tarafından daha fazla işlenebilir, [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) yoluyla toplu analizlerde kullanılabilir veya bir olay serisi olarak yeniden işlenebilir. Event Hubs'ı kullanırken, hesaplamaların akış yapısını kaybetmeden birden çok Stream Analytics'i diğer veri kaynaklarıyla ve işleme altyapılarıyla birlikte oluşturmak mümkündür.  
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) deneyin.
+Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Nesnelerin İnterneti'nden gelen verilerdeki akış analizlerine yönelik bir yönetilen hizmet olan Stream Analytics'e giriş yaptınız. Bu hizmet hakkında daha fazla bilgi edinmek için bkz:

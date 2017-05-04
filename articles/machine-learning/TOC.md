@@ -173,7 +173,7 @@
 
 # Başvuru
 
-## [PowerShell modülü (Yeni)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [PowerShell modülü (Yeni)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell modülü (Klasik)](machine-learning-powershell-module.md)
 ## [Algoritmalar ve Modül başvurusu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST API başvurusu](/rest/api/machinelearning)

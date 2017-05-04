@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/11/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5e32f1e534057b5e8e0ed6d5c0a4631f9fefbca5
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a96150a6a7f83d1c220e0450f7704634a1f6ed1b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,12 +50,12 @@ Bu küme güvenli değildir.  Herkes anonim olarak bağlanıp yönetim işlemler
 Service Fabric çalışma zamanı paketi küme oluşturulurken otomatik olarak indirilir ve yüklenir.
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
-Üç düğümlü geliştirme kümeniz artık çalışıyor. ServiceFabric PowerShell modülü çalışma zamanıyla birlikte yüklenir.  Aynı bilgisayardan ya da Service Fabric çalışma zamanına sahip uzak bir bilgisayardan kümenin çalıştığını doğrulayabilirsiniz.  [Connect-ServiceFabricCluster](/powershell/module/ServiceFabric/Connect-ServiceFabricCluster) cmdlet’i, kümeyle bir bağlantı kurar.   
+Üç düğümlü geliştirme kümeniz artık çalışıyor. ServiceFabric PowerShell modülü çalışma zamanıyla birlikte yüklenir.  Aynı bilgisayardan ya da Service Fabric çalışma zamanına sahip uzak bir bilgisayardan kümenin çalıştığını doğrulayabilirsiniz.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet’i, kümeyle bir bağlantı kurar.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
 ```
-Bir kümeye bağlanmayla ilgili diğer örnekler için bkz. [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md). Kümeye bağlandıktan sonra, kümedeki düğümlerin listesini ve her bir düğümün durum bilgilerini görüntülemek için [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) cmdlet’ini kullanın. Her düğüm için **HealthState** değerinin *OK* olması gerekir.
+Bir kümeye bağlanmayla ilgili diğer örnekler için bkz. [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md). Kümeye bağlandıktan sonra, kümedeki düğümlerin listesini ve her bir düğümün durum bilgilerini görüntülemek için [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet’ini kullanın. Her düğüm için **HealthState** değerinin *OK* olması gerekir.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
@@ -95,3 +95,4 @@ Artık bir tek başına geliştirme kümesi ayarladığınıza göre aşağıdak
 * [PowerShell kullanarak uygulama dağıtma](service-fabric-deploy-remove-applications.md)
 
 [service-fabric-explorer]: ./media/service-fabric-get-started-standalone-cluster/sfx.png
+

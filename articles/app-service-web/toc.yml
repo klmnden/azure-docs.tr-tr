@@ -6,7 +6,7 @@
     href: app-service-web-overview.md
   - name: "Barındırma seçeneklerini karşılaştırma"
     href: choose-web-site-cloud-service-vm.md
-- name: "Hızlı Başlangıç"
+- name: "Hızlı Başlangıçlar"
   expanded: true
   items:
   - name: ".NET uygulaması oluşturma"

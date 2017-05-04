@@ -39,7 +39,7 @@
 ### [Sorun giderme kılavuzu](dns-troubleshoot.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
+## [PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
@@ -61,3 +61,4 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/dns/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
+## [Özellik istekleri](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)

@@ -66,7 +66,7 @@
 ### [VM’yi yeniden başlatma veya yeniden boyutlandırma](restart-resize-error-troubleshooting.md)
 
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Resource Manager şablonları yazma](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

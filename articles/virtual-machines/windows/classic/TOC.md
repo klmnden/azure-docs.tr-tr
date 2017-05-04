@@ -9,7 +9,7 @@
 # Başlarken
 ## [Portalı kullanarak VM oluşturma](tutorial.md)
 ## [VM’de oturum açma](connect-logon.md)
-## [Azure PowerShell’i yükleme](/powershell/azureps-cmdlets-docs)
+## [Azure PowerShell’i yükleme](/powershell/azure/overview)
 ## [Azure CLI'yı yükleme](../../../cli-install-nodejs.md)
 
 # Nasıl yapılır?
@@ -88,7 +88,7 @@
 ## [RDP parolasını sıfırlama](reset-rdp.md)
 
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

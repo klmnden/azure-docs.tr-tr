@@ -194,10 +194,10 @@
 ### [Güncelleştirme 0.3](storsimple-february-2015-release-notes.md)
 ### [Güncelleştirme 0.2](storsimple-january-2015-release-notes.md)
 ### [Güncelleştirme 0.1](storsimple-october-2014-release-notes.md)
-### [Güncelleştirme&0;.1](storsimple-july-2014-release-notes.md)
+### [Güncelleştirme 0.1](storsimple-july-2014-release-notes.md)
 
 ## Başvuru
-### [Azure PowerShell](/powershell/servicemanagement)
+### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ### [StorSimple cmdlet’leri için Windows PowerShell](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple Veri Yöneticisi (Özel önizleme)

@@ -30,6 +30,7 @@
 ### [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 ### [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md)
 ### [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md)
+### [Şifreleme](data-lake-store-encryption.md)
 
 ## Performans
 ### [Azure Data Lake Store için performans ayarlama kılavuzu](data-lake-store-performance-tuning-guidance.md)
@@ -58,7 +59,7 @@
 ### [Yüksek kullanılabilirlik planı](data-lake-store-troubleshooting-guidance.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)

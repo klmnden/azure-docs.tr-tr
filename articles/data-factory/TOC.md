@@ -29,6 +29,7 @@
 ### [Data Factory Kopyalama Sihirbazı](data-factory-azure-copy-wizard.md)
 #### [15 dakika içinde 1 TB yükleyin](data-factory-load-sql-data-warehouse.md)
 ### [Performans ve ayar kılavuzu](data-factory-copy-activity-performance.md)
+### [Güvenlikle ilgili dikkat edilmesi gerekenler](data-factory-data-movement-security-considerations.md)
 ### Bağlayıcılar
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
@@ -91,7 +92,7 @@
 ### [Veri Yönetimi Ağ Geçidi’ni kullanarak sorun giderme](data-factory-troubleshoot-gateway-issues.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
 ## [JSON](data-factory-json-scripting-reference.md)
