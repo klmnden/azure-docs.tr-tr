@@ -32,23 +32,33 @@
 
 ## Yönet
 ### [İş güvenilirliği](stream-analytics-job-reliability.md)
-### [İşleri izleme](stream-analytics-monitoring.md)
-### [Tanılama günlükleri](stream-analytics-job-diagnostic-logs.md)
 ### [Programlama yoluyla işleri izleme](stream-analytics-monitor-jobs.md)
 ### [PowerShell ile işleri izleme](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [İşlemeyi artırmak için ölçeklendirme](stream-analytics-scale-jobs.md)
 ### [Machine Learning işlevleri ölçeği](stream-analytics-scale-with-machine-learning-functions.md)
 ### [Giriş ve çıkış kimlik bilgilerini döndürme](stream-analytics-login-credentials-inputs-outputs.md)
 
+## Sorun giderme
+### [Sorun giderme kılavuzu](stream-analytics-troubleshooting-guide.md)
+### [İşleri izleme](stream-analytics-monitoring.md)
+### [Kaynak durumu dikey penceresi](stream-analytics-resource-health.md)
+### [İş diyagramı ve ölçümleri](stream-analytics-job-diagram-with-metrics.md)
+### [Test sorguları](stream-analytics-test-query.md)
+### [Örnek giriş verileri](stream-analytics-sample-data-input.md)
+### [SELECT INTO hata ayıklaması](stream-analytics-select-into.md)
+### [Olay sırası işleme](stream-analytics-out-of-order-and-late-events.md)
+### [Olay hub’ı okuyucu limitleri](stream-analytics-event-hub-consumer-groups.md)
+### [Akış Birimlerini İyileştirme](stream-analytics-streaming-unit-consumption.md)
+### [Tanılama günlükleri](stream-analytics-job-diagnostic-logs.md)
+
 ## Otomatikleştirme
 ### [Tek tıklamayla PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Sorgu dili](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
-
 
 # Kaynaklar
 ## [Sürüm notları](stream-analytics-release-notes.md)

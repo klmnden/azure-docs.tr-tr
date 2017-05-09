@@ -15,13 +15,12 @@
 ### [Azure Portal](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
-## [Arama sonuçlarını işleme](search-pagination-page-layout.md)
-## Öğreticiler
-### [.NET](search-howto-dotnet-sdk.md)
-### [.NET eş anlamlıları önizleme](search-synonyms-tutorial-sdk.md)
-### [Portal](search-get-started-portal.md)
-### [NodeJS](search-get-started-nodejs.md)
-### [Java](search-get-started-java.md)
+# Öğreticiler
+## [.NET](search-howto-dotnet-sdk.md)
+## [.NET eş anlamlıları önizleme](search-synonyms-tutorial-sdk.md)
+## [Portal](search-get-started-portal.md)
+## [Node.js](search-get-started-nodejs.md)
+## [Java](search-get-started-java.md)
 # Nasıl yapılır?
 ## Planlama ve tasarım
 ### [Hizmet sınırlamaları](search-limits-quotas-capacity.md)
@@ -59,14 +58,16 @@
 ### Özel Arama
 #### [Dil çözümleyicileri](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Özel çözümleyiciler](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### [Disk belleği sonuçları](search-pagination-page-layout.md)
 ### [Puanlama](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Öneriler](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Çok yönlü gezinme](search-faceted-navigation.md)
 ### [Eş anlamlılar önizleme](search-synonyms.md)
 
 # Başvuru
-## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET (Yönetim)](/dotnet/api/microsoft.azure.management.search)
+
+## [.NET](/dotnet/api/?term=microsoft.azure.search)
+## [.NET (Yönetim)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (Yönetim)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (Yönetim)](/rest/api/searchmanagement)

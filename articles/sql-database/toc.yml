@@ -4,7 +4,7 @@
   items:
   - name: "SQL DB hakkında"
     href: sql-database-technical-overview.md
-- name: "Hızlı Başlangıç"
+- name: "Hızlı Başlangıçlar"
   expanded: true
   items:
   - name: "DB Oluşturma - Portal"
@@ -38,7 +38,9 @@
   - name: "1 - Yeni SQL veritabanı oluşturma/tasarlama"
     href: sql-database-design-first-database.md
   - name: "2 - Mevcut SQL Server’ı geçirme"
-    href: sql-database-migrate-your-sql-server-database.md 
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: "3 - SQL veritabanınızı güvenli hale getirme"
+    href: sql-database-security-tutorial.md
 - name: "Örnekler"
   items:
   - name: "Azure CLI"

@@ -30,6 +30,7 @@
 #### [Notification Hubs](functions-bindings-notification-hubs.md)
 #### [Mobile Apps](functions-bindings-mobile-apps.md)
 #### [Dış dosya](functions-bindings-external-file.md)
+#### [Dış tablo](functions-bindings-external-table.md)
 ### [İşlevler proxy’lerini tanımlama](functions-proxies.md)
 ### [Azure portalından işlev uygulaması oluşturma](functions-create-function-app-portal.md)
 ### [Zamanlanmış bir temizleme görevi gerçekleştirme](functions-scenario-database-table-cleanup.md)

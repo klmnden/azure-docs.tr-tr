@@ -42,8 +42,10 @@
 ### [İşlem gerçekleştirme](service-bus-transactions.md)
 ### [Tanılama günlükleri](service-bus-diagnostic-logs.md)
 ### AMQP
+#### [AMQP’ye genel bakış](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
+#### [Java İleti Hizmeti ve AMQP](service-bus-java-how-to-use-jms-api-amqp.md)
 #### [AMQP protokol kılavuzu](service-bus-amqp-protocol-guide.md)
 #### [AMQP istek-yanıt tabanlı işlemler](service-bus-amqp-request-response.md)
 
@@ -56,7 +58,7 @@
 ## .NET
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
-## [PowerShell](/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus)
+## [PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Özel Durumlar](service-bus-messaging-exceptions.md)
 ## [Kotalar](service-bus-quotas.md)

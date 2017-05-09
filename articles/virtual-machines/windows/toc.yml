@@ -4,7 +4,7 @@
   items:
   - name: "Sanal Makineler hakkında"
     href: overview.md
-- name: "Hızlı Başlangıç"
+- name: "Hızlı Başlangıçlar"
   expanded: true
   items:
   - name: "VM Oluşturma - Portal"
@@ -21,10 +21,19 @@
     href: tutorial-manage-data-disk.md
   - name: "3 - Yapılandırmayı otomatikleştirme"
     href: tutorial-automate-vm-deployment.md
-  - name: "4 - VM&quot;ler için yük dengeleme"
+  - name: "4 - VM görüntüleri oluşturma"
+    href: tutorial-custom-images.md
+  - name: "5 - Yüksek oranda kullanılabilir VM’ler"
+    href: tutorial-availability-sets.md
+  - name: "6 - VM ölçek kümesi oluşturma"
+    href: tutorial-create-vmss.md
+  - name: "7 - VM&quot;ler için yük dengeleme"
     href: tutorial-load-balancer.md
-  - name: "5 - Ağı yönetme"
+  - name: "8 - Ağı yönetme"
     href: tutorial-virtual-network.md
+  - name: "9 - VM güvenliğini yönetme"
+    href: tutorial-azure-security.md
+
 - name: "Örnekler"
   items:
   - name: "PowerShell"

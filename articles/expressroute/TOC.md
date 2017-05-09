@@ -12,7 +12,6 @@
 ## [Önkoşullar](expressroute-prerequisites.md)
 ## [İş akışları](expressroute-workflows.md)
 ## [Yönlendirme gereksinimleri](expressroute-routing.md)
-## [NAT gereksinimleri](expressroute-nat.md)
 ## [QoS gereksinimleri](expressroute-qos.md)
 ## [Devrelerin klasikten Resource Manager’a taşınması hakkında](expressroute-move.md)
 
@@ -38,8 +37,9 @@
 
 ## En İyi Uygulamalar
 ### [Ağ güvenliği ve bulut hizmetlerine yönelik en iyi uygulamalar](../best-practices-network-security.md)
-## [Yönlendirmeyi iyileştirme](expressroute-optimize-routing.md)
+### [Yönlendirmeyi iyileştirme](expressroute-optimize-routing.md)
 ### [Asimetrik yönlendirme](expressroute-asymmetric-routing.md)
+### [ExpressRoute için NAT](expressroute-routing-nat.md)
 
 ## Sorun giderme
 ### [ExpressRoute bağlantısını doğrulama](expressroute-troubleshooting-expressroute-overview.md)
@@ -47,7 +47,7 @@
 ### [ARP tablolarını alma (Klasik)](expressroute-troubleshooting-arp-classic.md)
 
 # Başvuru
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klasik)](https://msdn.microsoft.com/library/azure/dn606310)
 

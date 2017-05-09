@@ -33,6 +33,7 @@
 
 # Başvuru
 ## [API’ye Genel Bakış](billing-usage-rate-card-overview.md)
+## [Kurumsal Raporlama API’sine Genel Bakış](billing-enterprise-api.md)
 ## [Fatura REST](/rest/api/billing)
 ## [Kullanım ve RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [İş ortağı çözümü: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)

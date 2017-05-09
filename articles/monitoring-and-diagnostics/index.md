@@ -1,5 +1,5 @@
 ---
-title: "Azure İzleme ve Tanılama Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+title: "Azure İzleyici Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "İzleme ve tanılama hizmetlerini kullanarak performansı izleme, güvenliği koruma ve eğilimleri belirleme konusunda bilgi edinin. API başvuruları, en iyi yöntemler ve daha fazlası."
 services: monitoring-and-diagnostics
 author: carolz
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0d57ccb26a3dde16c50d2e837d392ab8e6fea979
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 475353f5a5abca1e9d6b5fdf4980d0cf33acc744
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/03/2017
 
 ---
-# <a name="monitoring-and-diagnostics-documentation"></a>İzleme ve Tanılama Belgeleri
+# <a name="azure-monitor-documentation"></a>Azure İzleyici Belgeleri
 
 Azure izleme ve tanılama hizmetlerini kullanarak performansı izleme, güvenliği koruma ve eğilimleri belirleme konusunda bilgi edinin. Öğreticiler, API başvuruları, en iyi yöntemler ve diğer belgeler, izleme ve tanılama özelliklerinin kullanım alanlarının yanı sıra ölçeklenebilir ve güvenilir çözümleri nasıl planlayıp dağıtacağınızı anlamanıza yardımcı olur.
 
