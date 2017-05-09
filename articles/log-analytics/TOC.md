@@ -48,6 +48,7 @@
 ### [Uyarı Yönetimi çözümü](log-analytics-solution-alert-management.md)
 ## Çözümleri kullanma
 ### [Çözümlere genel bakış](log-analytics-add-solutions.md)
+### [Hedef çözümler](../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD Değerlendirmesi](log-analytics-ad-assessment.md)
 ### [AD Çoğaltma Durumu](log-analytics-ad-replication-status.md)
@@ -57,6 +58,8 @@
 ### [Değişiklik İzleme](log-analytics-change-tracking.md)
 ### [Kapsayıcılar](log-analytics-containers.md)
 ### [DNS Analizi](log-analytics-dns.md)
+### [OMS’de BT Hizmet Yönetimi Bağlayıcısı](log-analytics-itsmc-overview.md)
+#### [OMS’de BT Hizmet Yönetimi bağlantıları](log-analytics-itsmc-connections.md)
 ### [Anahtar Kasası](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B İletileri
 #### [Logic Apps B2B İletileri çözümü](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -84,7 +87,7 @@
 ### [Uyarı API’si](log-analytics-api-alerts.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [PowerShell](/powershell/module/azurerm.operationalinsights)
 ## [REST](/rest/api/loganalytics)
 
 # Kaynaklar

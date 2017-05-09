@@ -30,6 +30,7 @@
 
 ## Çözümleri kullanma
 ### [Yönetim çözümleri](operations-management-suite-solutions.md)
+### [Hedef çözümler](operations-management-suite-solution-targeting.md)
 ### Öngörü ve analiz
 #### [AD Değerlendirmesi](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Çoğaltma Durumu](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -58,6 +59,7 @@
 ### [Otomasyon kaynakları](operations-management-suite-solutions-resources-automation.md)
 ### [Günlük aramaları ve uyarıları](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [Görünümler](operations-management-suite-solutions-resources-views.md)
+### [En iyi uygulamalar](operations-management-suite-solutions-best-practices.md)
 
 ## [OMS ile tümleştirme](operations-management-suite-integration.md)
 

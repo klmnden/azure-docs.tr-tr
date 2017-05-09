@@ -11,12 +11,22 @@
 ## [Bağlı fabrika çözümüne genel bakış](iot-suite-connected-factory-overview.md)
 ## [Uzaktan izleme çözüm kılavuzu](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Tahmine dayalı bakım çözüm kılavuzu](iot-suite-predictive-walkthrough.md)
+## [Raspberry Pi’ye bağlanma](iot-suite-raspberry-pi-kit-get-started.md)
+### C kullanma
+#### [Sanal veriler](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
+#### [Gerçek algılayıcılar kullanma](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
+#### [Üretici yazılımı güncelleştirmesini uygulama](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
+### Node.js kullanma
+#### [Sanal veriler](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
+#### [Gerçek algılayıcılar kullanma](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
+#### [Üretici yazılımı güncelleştirmesini uygulama](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
 
 # Nasıl yapılır?
-## [Cihazınızı uzaktan izleme çözümüne bağlama (Windows)](iot-suite-connecting-devices.md)
-## [Cihazınızı uzaktan izleme çözümüne bağlama (Linux)](iot-suite-connecting-devices-linux.md)
-## [Cihazınızı uzaktan izleme çözümüne bağlama (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Cihazınızı uzaktan izleme çözümüne bağlama (Node)](iot-suite-connecting-devices-node.md)
+## Sanal cihaza bağlanma
+### [Windows üzerinde C](iot-suite-connecting-devices.md)
+### [Linux üzerinde C](iot-suite-connecting-devices-linux.md)
+### [Node.js](iot-suite-connecting-devices-node.md)
+## [Mbed cihazınızı bağlama](iot-suite-connecting-devices-mbed.md)
 ## [Mantıksal Uygulama’yı uzaktan izleme çözümüne bağlama](iot-suite-logic-apps-tutorial.md)
 ## [Önceden yapılandırılmış bir çözümü özelleştirme](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Uzaktan izleme çözümüyle dinamik telemetri kullanma](iot-suite-dynamic-telemetry.md)

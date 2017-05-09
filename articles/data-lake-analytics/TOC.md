@@ -19,6 +19,7 @@
 ### [U-SQL pencere işlevleri](data-lake-analytics-use-window-functions.md)
 ### [U-SQL kullanıcı tanımlı işleçler](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python uzantıları](data-lake-analytics-u-sql-python-extensions.md)
+### [U-SQL R uzantıları](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL Bilişsel özellikler](data-lake-analytics-u-sql-cognitive.md)
 
 ## Çözüm oluşturma
@@ -40,7 +41,7 @@
 ### [Köşe Yürütme Görünümünü Kullanma](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)

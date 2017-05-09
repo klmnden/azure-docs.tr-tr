@@ -4,7 +4,7 @@
   items:
   - name: "Sanal Makineler hakkında"
     href: overview.md
-- name: "Hızlı Başlangıç"
+- name: "Hızlı Başlangıçlar"
   expanded: true
   items:
   - name: "VM Oluşturma - Azure CLI"
@@ -31,6 +31,8 @@
     href: tutorial-load-balancer.md
   - name: "8 - Ağı yönetme"
     href: tutorial-virtual-network.md
+  - name: "9 - VM güvenliğini yönetme"
+    href: tutorial-azure-security.md
 - name: "Örnekler"
   items:
   - name: "Azure CLI"

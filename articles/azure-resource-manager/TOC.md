@@ -29,15 +29,19 @@
 ### [Konum ayarlama](resource-manager-template-location.md)
 ### [Etiket atama](resource-manager-template-tags.md)
 ### [Alt kaynak adı ve türünü ayarlama](resource-manager-template-child-resource.md)
+### [Güncelleştirme kaynağı](resource-manager-update.md)
+### [Parametreler için nesneleri kullanma](resource-manager-objects-as-parameters.md)
 ### [Bağlı şablonlar arasında durum paylaşma](best-practices-resource-manager-state.md)
 ### [Şablon tasarlamaya yönelik desenler](best-practices-resource-manager-design-templates.md)
 ## Dağıtma
 ### PowerShell
 #### [Şablon dağıtma](resource-group-template-deploy.md)
 #### [SAS belirteci ile özel şablon dağıtma](resource-manager-powershell-sas-token.md)
+#### [Şablonu dışarı aktarma ve yeniden dağıtma](resource-manager-export-template-powershell.md)
 ### Azure CLI
 #### [Şablon dağıtma](resource-group-template-deploy-cli.md)
 #### [SAS belirteci ile özel şablon dağıtma](resource-manager-cli-sas-token.md)
+#### [Şablonu dışarı aktarma ve yeniden dağıtma](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Visual Studio Team Services ile sürekli tümleştirme](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -72,7 +76,13 @@
 
 # Başvuru
 ## [Şablon işlevleri](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Dizi ve nesne işlevleri](resource-group-template-functions-array.md)
+### [Karşılaştırma işlevleri](resource-group-template-functions-comparison.md)
+### [Dağıtım işlevleri](resource-group-template-functions-deployment.md)
+### [Sayısal işlevler](resource-group-template-functions-numeric.md)
+### [Kaynak işlevleri](resource-group-template-functions-resource.md)
+### [Dize işlevleri](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

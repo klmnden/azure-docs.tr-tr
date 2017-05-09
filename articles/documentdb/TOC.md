@@ -6,6 +6,7 @@
 ## [Genel dağıtım](documentdb-distribute-data-globally.md)
 ## [Bölgesel yük devretme](documentdb-regional-failovers.md)
 ## [Güvenlik](documentdb-nosql-database-security.md)
+## [Bekleme sırasında şifreleme](documentdb-nosql-database-encryption-at-rest.md)
 ## [NoSQL TCO analizi](https://aka.ms/documentdb-tco-paper)
 ## Senaryolar
 ### [Genel kullanım örnekleri](documentdb-use-cases.md)

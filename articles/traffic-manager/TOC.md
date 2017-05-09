@@ -22,9 +22,11 @@
 ## [Traffic Manager performansını ölçme](traffic-manager-performance-considerations.md)
 ## [Traffic Manager’ı yönetmek için PowerShell’i kullanma](traffic-manager-powershell-arm.md)
 ## [İnternet etki alanınızı Traffic Manager’a yönlendirme](traffic-manager-point-internet-domain.md)
+## Sorun giderme
+### [Azure Traffic Manager’da düşürülmüş durum için sorun giderme](traffic-manager-troubleshooting-degraded.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
+## [PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

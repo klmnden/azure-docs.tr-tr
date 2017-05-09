@@ -1,36 +1,34 @@
 # Genel Bakış
 ## [Azure DevTest Labs hakkında](devtest-lab-overview.md)
 ## [Kavramlar](devtest-lab-concepts.md)
+## Senaryolar
+### [Eğitim için laboratuvar kullanma](devtest-lab-training-lab.md)
 
 # Kullanmaya Başlama
 ## [Laboratuvar oluşturma](devtest-lab-create-lab.md)
-## [Formüller oluşturma](devtest-lab-create-formulas.md)
-## [VM oluşturma](devtest-lab-add-vm.md)
-## [Temel laboratuvar ilkelerini yönetme](devtest-lab-get-started-with-lab-policies.md)
-## [Eğitim için laboratuvar oluşturma](devtest-lab-training-lab.md)
-## [SSS](devtest-lab-faq.md)
+## [İlk sanal makinenizi oluşturma](devtest-lab-create-first-vm.md)
+## [Başlangıç ilkeleri ayarlama](devtest-lab-get-started-with-lab-policies.md)
 
 # Nasıl yapılır?
-## Laboratuvarları Yönetme
-### [Laboratuvar sahibini ve kullanıcıları ekleme](devtest-lab-add-devtest-user.md)
-### [Tüm laboratuvar ilkelerini yönetme](devtest-lab-set-lab-policy.md)
-### [İlkelere izin verme](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
-### [Maliyet yönetimini yapılandırma](devtest-lab-configure-cost-management.md)
-### [Sanal ağları yapılandırma](devtest-lab-configure-vnet.md)
-### [Paylaşılan IP adreslerini anlama](devtest-lab-shared-ip.md)
-### [Şablonlar ve PowerShell kullanarak laboratuvar değiştirmeyi otomatikleştirme](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
-
-## Yapıtları Yönetme
-### [Yapıt deposu ekleme](devtest-lab-add-artifact-repo.md)
-### [Özel yapıtlar oluşturma](devtest-lab-artifact-author.md)
-### [Yapıtları yönetme](devtest-lab-add-vm-with-artifacts.md)
-
-## VM tabanlarını ve şablonlarını yönetme
+## Sanal makineleri bir laboratuar ortamında kullanma
+### [VM oluşturma](devtest-lab-add-vm.md)
 ### [Talep edilebilir VM oluşturma](devtest-lab-add-claimable-vm.md)
-### [Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynakları oluşturma](devtest-lab-create-environment-from-arm.md)
+
+## Ortamları laboratuvarda kullanma
+### [Ortam oluşturma](devtest-lab-create-environment-from-arm.md)
+
+## Laboratuvara Güvenli Erişim
+### [Laboratuvar sahibini ve kullanıcıları ekleme](devtest-lab-add-devtest-user.md)
+### [Özel rollerle izinleri özelleştirme](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
+
+## Laboratuvar yapılandırma
+### [İlke ve zamanlamalar ayarlama](devtest-lab-set-lab-policy.md)
+### [Maliyet yönetimini yapılandırma](devtest-lab-configure-cost-management.md)
 ### [Market görüntülerini yapılandırma](devtest-lab-configure-marketplace-images.md)
-### [Görüntülerle formülleri karşılaştırma](devtest-lab-comparing-vm-base-image-types.md)
-### [Formülleri yönetme](devtest-lab-manage-formulas.md)
+
+## [Özel görüntü veya formül seçme](devtest-lab-comparing-vm-base-image-types.md)
+
+## Özel görüntüleri yönetme
 ### [VM’den özel görüntü oluşturma](devtest-lab-create-custom-image-from-vm-using-portal.md)
 ### [Azure portalını kullanarak VHD'den özel görüntü oluşturma](devtest-lab-create-template.md)
 ### [PowerShell kullanarak VHD'den özel görüntü oluşturma](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
@@ -38,9 +36,28 @@
 ### [PowerShell kullanarak karşıya VHD dosyası yükleme](devtest-lab-upload-vhd-using-powershell.md)
 ### [Depolama Gezgini'ni kullanarak karşıya VHD dosyası yükleme](devtest-lab-upload-vhd-using-storage-explorer.md)
 
-# Kaynaklar
+## Yeniden kullanılabilir şablonları yönetme
+### [Yapıtlar ve şablonlar için Git deposu ekleme](devtest-lab-add-artifact-repo.md)
+### [Özel yapıtlar oluşturma](devtest-lab-artifact-author.md)
+### [Formülleri yönetme](devtest-lab-manage-formulas.md)
+
+## Sanal ağları yönetme
+### [Sanal ağları yapılandırma](devtest-lab-configure-vnet.md)
+### [IP yapılandırma seçeneği belirleme](devtest-lab-shared-ip.md)
+
+# Başvuru
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+### [Laboratuvarı otomatik oluşturma veya değiştirme](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
+## [REST API](https://docs.microsoft.com/rest/api/dtl/)
+## [Resource Manager şablonları](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
+
+
+# İlgili
+## [SSS](devtest-lab-faq.md)
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=devtest-lab)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/devtest-lab/)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+## [Ekip Blogu](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/devtest-lab/)

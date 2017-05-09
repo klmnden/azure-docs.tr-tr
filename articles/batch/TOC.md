@@ -7,11 +7,14 @@
 ## [Batch hesabı oluşturma](batch-account-create-portal.md)
 ## [Batch .NET öğreticisi](batch-dotnet-get-started.md)
 ## [Batch Python öğreticisi](batch-python-tutorial.md)
+## [Batch Node.js öğreticisi](batch-nodejs-get-started.md)
 # Nasıl yapılır?
 ## Geliştirme
 ### [Uygulama paketleri](batch-application-packages.md)
 ### [İşlem düğümlerini otomatik ölçeklendirme](batch-automatic-scaling.md)
-### [Azure AD kimlik doğrulaması](batch-aad-auth.md)
+### Azure AD kimlik doğrulaması
+#### [Batch hizmeti ile Azure AD](batch-aad-auth.md)
+#### [Batch Yönetimi ile Azure AD](batch-aad-auth-management.md)
 ### [Eşzamanlı düğüm görevleri](batch-parallel-node-tasks.md)
 ### [Etkili liste sorguları](batch-efficient-list-queries.md)
 ### [İş hazırlığı ve tamamlama görevleri](batch-job-prep-release.md)
@@ -27,7 +30,7 @@
 ### [Azure CLI](batch-cli-get-started.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)

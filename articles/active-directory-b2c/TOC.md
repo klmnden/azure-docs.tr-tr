@@ -9,14 +9,14 @@
 ## Hızlı Başlangıç Kılavuzları
 ### [iOS uygulaması oluşturma](active-directory-b2c-devquickstarts-ios.md)
 ### [Android uygulaması oluşturma](active-directory-b2c-devquickstarts-android.md)
-### [Node.Js Web API’si oluşturma](active-directory-b2c-devquickstarts-api-node.md)
-### [.NET Web Uygulaması oluşturma](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [ASP.NET web uygulamasına kaydolma ve oturum açma](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [.NET Web API’si oluşturma](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Windows masaüstü uygulaması oluşturma](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [.NET web uygulamasından web API çağırma](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### .NET Web Uygulaması oluşturma
+#### [.NET web uygulamasına kaydolma ve oturum açma](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+#### [.NET web uygulamasından web API çağırma](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [.NET web API’si oluşturma](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [Node.js Web uygulaması oluşturma](active-directory-b2c-devquickstarts-web-node.md)
+### [Node.Js web API’si oluşturma](active-directory-b2c-devquickstarts-api-node.md)
+### [.NET masaüstü uygulaması oluşturma](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [Azure AD Grafik API’sini kullanma](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Node.js web uygulamasına oturum açma ekleme](active-directory-b2c-devquickstarts-web-node.md)
 ## [Sık sorulan sorular](active-directory-b2c-faqs.md)
 
 # Nasıl yapılır?
@@ -53,7 +53,7 @@
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Azure geri bildirim forumu](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure AD B2C geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Destek](active-directory-b2c-support.md)

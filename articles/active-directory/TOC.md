@@ -1,11 +1,11 @@
 # Genel Bakış
 ## [Azure Active Directory nedir?](active-directory-whatis.md)
 ## [Sürüm seçin](active-directory-editions.md)
-## [Azure kimlik yönetimi hakkında](fundamentals-identity.md)
-## [Azure AD portalı deneyiminin önizlemesini görüntüleme](active-directory-preview-explainer.md)
 
+## [Azure kimlik yönetimi hakkında](identity-fundamentals.md)
+## [Azure Portalı deneyiminin önizlemesini gerçekleştirme](active-directory-preview-explainer.md)
 
-# başlarken
+# Başlarken
 ## [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
 ## [Azure aboneliklerini ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
@@ -58,6 +58,7 @@
 ### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
 ### [Adanmış grupları etkinleştirme](active-directory-accessmanagement-dedicated-groups.md)
 ### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
+### [Silinen bir Office 365 grubunu geri yükleme](active-directory-groups-restore-azure-portal.md)
 ### Grup ayarlarını yönetme
 #### [Azure portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlet’ler](active-directory-accessmanagement-groups-settings-cmdlets.md)
@@ -110,24 +111,27 @@
 ##### [Bilinmeyen kaynaklar](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Anormal oturum açma işlemleri](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Parolaları yönetme](active-directory-manage-passwords.md)
-### [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
-### [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
-### [Yöneticiler self servis parola sıfırlamayı etkinleştirir](active-directory-passwords.md)
-### [Parola yönetimini anlama](active-directory-passwords-how-it-works.md)
-### [İlkeleri ve kısıtlamaları anlama](active-directory-passwords-policy.md)
-### Parolaları sıfırla
-#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-#### [Klasik portal](active-directory-create-users-reset-password.md)
-### [Süre sonu ilkeleri ayarlama](active-directory-passwords-set-expiration-policy.md)
-### Parola yönetimini etkinleştirme
-#### [Kullanmaya Başlama](active-directory-passwords-getting-started.md)
-#### [Dağıtma](active-directory-passwords-best-practices.md)
-#### [Özelleştirme](active-directory-passwords-customize.md)
-#### [Raporları görüntüleme](active-directory-passwords-get-insights.md)
-#### [Daha fazla bilgi](active-directory-passwords-learn-more.md)
-#### [SSS](active-directory-passwords-faq.md)
-#### [Sorun giderme](active-directory-passwords-troubleshoot.md)
+## [Parolaları yönetme](active-directory-passwords.md)
+### Kullanıcı belgeleri
+#### [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
+#### [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
+### [Hızlı başlangıç: Self servis parola sıfırlama](active-directory-passwords-getting-started.md)
+### [SSPR lisanslama](active-directory-passwords-licensing.md)
+### [SSPR dağıtma](active-directory-passwords-best-practices.md)
+### BT Yöneticileri: Parolaları sıfırlama
+#### [Azure portal](active-directory-users-reset-password-azure-portal.md)
+#### [Klasik Azure Portalı](active-directory-create-users-reset-password.md)
+### [SSPR ilkelerini anlama](active-directory-passwords-policy.md)
+### [Parola sıfırlamayı anlama](active-directory-passwords-how-it-works.md)
+### [SSPR özelleştirme](active-directory-passwords-customize.md)
+### [SSPR tarafından kullanılan veriler](active-directory-passwords-data.md)
+### [SSPR üzerinde raporlama](active-directory-passwords-reporting.md)
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Parola geri yazma](active-directory-passwords-writeback.md)
+### [Parola karması eşitleme](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
+### [Sorun giderme](active-directory-passwords-troubleshoot.md)
+### [SSS](active-directory-passwords-faq.md)
+
 
 ## Cihazları yönetme
 ### [Cihaz kaydetme](active-directory-device-registration-overview.md)
@@ -289,6 +293,7 @@
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
 #### [Sorun giderme](role-based-access-control-troubleshooting.md)
+#### [Kaynak Sağlayıcısı işlemleri](role-based-access-control-resource-provider-operations.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 
 ## Kimliklerinizi güvenli hale getirme
@@ -341,7 +346,7 @@
 
 
 # Başvuru
-## [PowerShell cmdlet'leri](/powershell/ )
+## [PowerShell cmdlet'leri](/powershell/azure/overview)
 ## [Java API Başvurusu](/java/api)
 ## [.NET API’si](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Hizmet sınırlamaları ve kısıtlamalar](active-directory-service-limits-restrictions.md)
