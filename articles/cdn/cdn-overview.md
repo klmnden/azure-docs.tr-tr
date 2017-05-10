@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 8809f35e992d528224fc14e0de01a61d396c082b
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: ede96c450e1aa5e87d4dd2c1131cefec7cf3493c
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -63,7 +64,7 @@ Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları
 | [Hızlı temizleme](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Varlık önceden yükleme](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Temel analiz](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [HTTP/2 desteği](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [HTTP/2 desteği](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Gelişmiş HTTP raporları](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Gerçek zamanlı istatistikler](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Gerçek zamanlı uyarılar](cdn-real-time-alerts.md) | | |**&#x2713;** |

@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/25/2017
 
 Azure Batch hizmetinin temel bileşenlerine ilişkin bu genel bakışta, Batch geliştiricilerinin büyük ölçekli paralel işlem çözümleri derlemek üzere kullanabileceği birincil hizmetler ve kaynaklar ele alınmaktadır.
 
-Doğrudan [REST API][batch_rest_api] çağrıları yayınlayan dağıtılmış bir işlem uygulaması veya hizmet geliştirirken ya da [Batch SDK'ları](batch-apis-tools.md#batch-development-apis) kullanırken, bu makalede ele alınan kaynak ve özelliklerden yararlanabilirsiniz.
+Doğrudan [REST API][batch_rest_api] çağrıları yayınlayan dağıtılmış bir işlem uygulaması veya hizmet geliştirirken ya da [Batch SDK'ları](batch-apis-tools.md#azure-accounts-for-batch-development) kullanırken, bu makalede ele alınan kaynak ve özelliklerden yararlanabilirsiniz.
 
 > [!TIP]
 > Batch hizmetine daha yüksek düzeyde bir giriş için bkz. [Azure Batch temel bilgileri](batch-technical-overview.md).
@@ -73,13 +74,13 @@ Bir Batch hesabı Batch hizmeti dahilinde benzersiz şekilde tanımlanan bir var
 
 [Azure portalını](batch-account-create-portal.md) kullanarak ya da [Toplu Yönetim .NET kitaplığı](batch-management-dotnet.md) ile olduğu gibi program aracılığıyla bir Azure Batch hesabı oluşturabilirsiniz. Hesabı oluştururken bir Azure depolama hesabını ilişkilendirebilirsiniz.
 
-Batch, *havuz ayırma modu* özelliğine bağlı olarak iki hesap yapılandırmasını destekler. İki yapılandırma, Batch [havuzlarıyla](#pool) ilgili farklı özelliklere erişmenizi sağlar (bu makalenin devamına bakın). 
+Batch, *havuz ayırma modu* özelliğine bağlı olarak iki hesap yapılandırmasını destekler. İki yapılandırma, Batch [havuzlarıyla](#pool) ilgili farklı özelliklere erişmenizi sağlar (bu makalenin devamına bakın).
 
 
-* **Batch hizmeti**: Bu varsayılan seçenektir; Batch havuzu VM’leri Azure tarafından yönetilen aboneliklerde arka planda ayrılır. Cloud Services havuzları gerekliyse bu hesap yapılandırması kullanılmalıdır, ama özel VM görüntülerinden oluşturulan veya sanal ağ kullanan Sanal Makine havuzları gerekliyse bu yapılandırma kullanılamaz. Batch API’lerine paylaşılan anahtar kimlik doğrulamasını veya [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanarak erişebilirsiniz. 
+* **Batch hizmeti**: Bu varsayılan seçenektir; Batch havuzu VM’leri Azure tarafından yönetilen aboneliklerde arka planda ayrılır. Cloud Services havuzları gerekliyse bu hesap yapılandırması kullanılmalıdır, ama özel VM görüntülerinden oluşturulan veya sanal ağ kullanan Sanal Makine havuzları gerekliyse bu yapılandırma kullanılamaz. Batch API’lerine paylaşılan anahtar kimlik doğrulamasını veya [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanarak erişebilirsiniz.
 
 * **Kullanıcı aboneliği**: Özel VM görüntülerinden oluşturulan veya sanal ağ kullanan Sanal Makine havuzları gerekliyse bu hesap yapılandırması kullanılmalıdır. Batch API’lerine yalnızca [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanarak erişebilirsiniz ve Cloud Services havuzları desteklenmez. Batch işlem VM’leri Azure aboneliğinizde doğrudan ayrılır. Bu mod, Batch hesabınız için bir Azure Key Vault yapılandırmanızı gerektirir.
- 
+
 
 ## <a name="compute-node"></a>İşlem düğümü
 İşlem düğümü, uygulama iş yükünüzün bir kısmını işlemeye ayrılmış bir Azure sanal makinesidir (VM). Bir düğümün boyutu CPU çekirdeklerinin sayısını, bellek kapasitesini ve düğüme ayrılan yerel dosya sistemi boyutunu belirler. Azure Cloud Services veya Virtual Machines Market görüntülerini kullanarak Windows veya Linux düğümleri içeren havuzlar oluşturabilirsiniz. Bu seçenekler hakkında daha fazla bilgi için aşağıdaki [Havuz](#pool) bölümüne bakın.
@@ -335,16 +336,16 @@ Azure Batch hizmetinde işlem düğümü havuzu oluştururken, API’leri kullan
 
 * Sanal ağ, havuzun `targetDedicated` özelliği için yeterli olacak sayıda boş **IP adresi** içermelidir. Alt ağ yeterli sayıda boş IP adresi içermiyorsa Batch hizmeti, havuzdaki işlem düğümlerini kısmen ayırır ve bir yeniden boyutlandırma hatası döndürür.
 
-* İşlem düğümlerinde görev zamanlanabilmesi için belirtilen alt ağın Batch hizmetinden gelen iletişimlere izin vermesi gerekir. İşlem düğümleriyle iletişim kurulması, sanal ağ ile ilişkili bir **Ağ Güvenlik Grubu (NSG)** tarafından reddedilirse Batch hizmeti, işlem düğümlerinin durumunu **kullanılamıyor** olarak ayarlar. 
+* İşlem düğümlerinde görev zamanlanabilmesi için belirtilen alt ağın Batch hizmetinden gelen iletişimlere izin vermesi gerekir. İşlem düğümleriyle iletişim kurulması, sanal ağ ile ilişkili bir **Ağ Güvenlik Grubu (NSG)** tarafından reddedilirse Batch hizmeti, işlem düğümlerinin durumunu **kullanılamıyor** olarak ayarlar.
 
-* Belirtilen sanal ağla ilişkili herhangi bir NSG varsa gelen iletişim etkinleştirilmelidir. Linux havuzu için 29876, 29877 ve 22 numaralı bağlantı noktaları etkinleştirilmelidir. Windows havuzu için 3389 numaralı bağlantı noktası etkinleştirilmelidir.
+* Belirtilen sanal ağla ilişkili herhangi bir NSG varsa gelen iletişim etkinleştirilmelidir. Linux ve Windows havuzlarında 29876 ve 29877 numaralı bağlantı noktalarının etkinleştirilmesi gerekir. İsterseniz Linux havuzlarında SSH veya Windows havuzlarında RDP için sırasıyla 22 veya 3389 numaralı bağlantı noktalarını etkinleştirebilirsiniz (ya da seçici olarak filtreleyebilirsiniz).
 
 Sanal ağa yönelik ek ayarlar, Batch hesabının havuz ayırma moduna bağlıdır.
 
 ### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Batch hizmetinde sağlanan havuzlar için sanal ağlar
 
 Batch hizmeti ayırma modunda, yalnızca **Cloud Services Yapılandırması** havuzlarına bir sanal ağ atanabilir. Ayrıca, belirtilen sanal ağın **klasik** bir sanal ağ olması gerekir. Azure Resource Manager dağıtım modeliyle oluşturulan sanal ağlar desteklenmez.
-   
+
 
 
 * *MicrosoftAzureBatch* hizmet sorumlusu, belirtilen sanal ağ için [Klasik Sanal Makine Katılımcısı](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) Rol Tabanlı Erişim Denetimi (RBAC) rolüne sahip olmalıdır. Azure portalında:
@@ -367,7 +368,7 @@ Kullanıcı aboneliği ayırma modunda, yalnızca **Sanal Makine Yapılandırmas
 
 Bir [otomatik ölçeklendirme formülü](batch-automatic-scaling.md#automatic-scaling-formulas) yazıp bu formülü bir havuzla ilişkilendirerek otomatik ölçeklendirmeyi etkinleştirebilirsiniz. Batch hizmeti, sonraki ölçeklendirme aralığı (sizin yapılandırabileceğiniz bir aralık) için havuzdaki düğümlerin hedef sayısını belirlemek amacıyla bu formülü kullanır. Bir havuzu oluştururken otomatik ölçeklendirme ayarlarını belirtebilir ya da bir havuz üzerinde ölçeklendirmeyi daha sonra etkinleştirebilirsiniz. Ölçeklendirme özellikli bir havuz üzerinde ölçeklendirme ayarlarını da güncelleştirebilirsiniz.
 
-Örneğin bir iş, yürütülecek çok sayıda görev göndermenizi gerektirebilir. Havuza, kuyruğa alınmış görevlerin mevcut sayısı ve iş içindeki görevlerin tamamlanma oranı temelinde havuzdaki düğüm sayısını ayarlayan bir ölçeklendirme formülü atayabilirsiniz. Batch hizmeti düzenli aralıklarla formülü değerlendirir ve havuzu, iş yükü ile diğer formül ayarlarınız temelinde yeniden boyutlandırır. Hizmet, kuyrukta çok sayıda görev olduğunda düğüm ekler, kuyrukta veya çalışan görev olmadığında ise düğümleri kaldırır. 
+Örneğin bir iş, yürütülecek çok sayıda görev göndermenizi gerektirebilir. Havuza, kuyruğa alınmış görevlerin mevcut sayısı ve iş içindeki görevlerin tamamlanma oranı temelinde havuzdaki düğüm sayısını ayarlayan bir ölçeklendirme formülü atayabilirsiniz. Batch hizmeti düzenli aralıklarla formülü değerlendirir ve havuzu, iş yükü ile diğer formül ayarlarınız temelinde yeniden boyutlandırır. Hizmet, kuyrukta çok sayıda görev olduğunda düğüm ekler, kuyrukta veya çalışan görev olmadığında ise düğümleri kaldırır.
 
 Ölçeklendirme formülü aşağıdaki ölçümleri temel alabilir:
 
