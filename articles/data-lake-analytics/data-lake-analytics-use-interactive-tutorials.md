@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 36677be6bc5599f55f1f15bc145c59033ad20e0a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ca88b355416b4ae4785bc69244185a67756ca916
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="use-azure-data-lake-analytics-interactive-tutorials"></a>Azure Data Lake Analytics etkileşimli öğreticilerini kullanma
 Azure portalı, Data Lake Analytics ile çalışmaya başlamanız için etkileşimli bir öğretici sağlar. Bu makalede, web sitesi günlüklerini çözümlemeye yönelik öğreticinin nasıl tamamlanacağı gösterilmiştir.
-
-> [!NOTE]
-> Visual Studio'yu kullanarak aynı öğreticide ilerlemek istiyorsanız bkz. [Data Lake Analytics'i kullanarak web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md).
-> Portala daha fazla etkinleşimli öğretici eklenecektir.
-> 
-> 
 
 Diğer öğreticiler için bkz.
 
@@ -87,10 +83,5 @@ Her Data Lake Analytics hesabı, varsayılan Data Lake Store hesabı olan [Azure
 * [Azure PowerShell'i kullanarak Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-powershell.md)
 * [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md)
 * [Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
