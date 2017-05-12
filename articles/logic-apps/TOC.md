@@ -80,6 +80,16 @@
 ### [Fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Kullanım ölçümü](logic-apps-pricing.md)
 
+# Sunucusuz
+## Genel Bakış
+### [Azure’da Sunucusuz](logic-apps-serverless-overview.md)
+## Kullanmaya Başlama
+### [Visual Studio’da sunucusuz bir uygulama oluşturma](logic-apps-serverless-get-started-vs.md)
+## Senaryolar ve Kılavuzlar
+### [Müşteri geri bildirimi toplama](logic-apps-scenario-social-serverless.md)
+### [Otomatik e-postalar gönderme](https://channel9.msdn.com/Blogs/Microsoft-Integration/Build-and-Deploy-Serverless-Part-1)
+### [B2B/EDI için sipariş işleme](logic-apps-enterprise-integration-overview.md)
+
 # Başvuru
 ## [İş akışı tanımı dili](logic-apps-workflow-definition-language.md)
 ## [İş akışı eylemleri ve tetikleyicileri](logic-apps-workflow-actions-triggers.md)

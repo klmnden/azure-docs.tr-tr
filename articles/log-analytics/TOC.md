@@ -5,7 +5,6 @@
 # Kullanmaya Başlama
 ## [Log Analytics’e kaydolma](log-analytics-get-started.md)
 ## [Erişimi yönetme](log-analytics-manage-access.md)
-## [Proxy ve güvenlik duvarı](log-analytics-proxy-firewall.md)
 ## [Kullanım verileri](log-analytics-usage.md)
 ## [Log Analytics SSS](log-analytics-faq.md)
 ## [Hizmet sağlayıcıları](log-analytics-service-providers.md)
@@ -14,7 +13,7 @@
 ## Veri toplama
 ### Bağlı kaynaklar
 #### [Windows aracıları](log-analytics-windows-agents.md)
-#### [Linux aracıları](log-analytics-linux-agents.md)
+#### [Linux aracıları](log-analytics-agent-linux.md)
 #### [Azure sanal makineleri](log-analytics-azure-vm-extension.md)
 #### [Azure kaynakları](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
@@ -23,8 +22,12 @@
 ### Veri kaynakları
 #### [Veri kaynaklarına genel bakış](log-analytics-data-sources.md)
 #### [Windows olayları](log-analytics-data-sources-windows-events.md)
+#### [Özel JSON verileri](log-analytics-data-sources-json.md)
+#### [Toplanan performans verileri](log-analytics-data-sources-collectd.md)
+#### [Nagios ve Zabbix uyarıları](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
 #### [Performans sayaçları](log-analytics-data-sources-performance-counters.md)
+#### [Linux uygulama performansı](log-analytics-data-sources-linux-applications.md)
 #### [IIS günlükleri](log-analytics-data-sources-iis-logs.md)
 #### [Özel günlükler](log-analytics-data-sources-custom-logs.md)
 #### [Özel alanlar](log-analytics-custom-fields.md)
@@ -32,6 +35,7 @@
 ### [Günlük aramalarına genel bakış](log-analytics-log-searches.md)
 ### [Arama başvurusu](log-analytics-search-reference.md)
 #### [Normal ifadeler](log-analytics-log-searches-regex.md)
+### [Arama sonuçlarına göre işlem yapma](log-analytics-log-search-takeaction.md)
 ### [Bilgisayar grupları](log-analytics-computer-groups.md)
 ## Verileri çözümleme
 ### [Panolar](log-analytics-dashboards.md)

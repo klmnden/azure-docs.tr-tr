@@ -67,6 +67,7 @@
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [Hizmetten Hizmete Çağrılar](active-directory-protocols-oauth-service-to-service.md)
+### [On-Behalf-Of akışı](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Desteklenen Belirteç ve Talep Türleri](active-directory-token-and-claims.md)
 ### [İmzalama anahtarı geçiş işlemi](active-directory-signing-key-rollover.md)
 ### [Federasyon Meta Verileri](active-directory-federation-metadata.md)
@@ -104,4 +105,5 @@
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [Örtük akış](active-directory-v2-protocols-implicit.md)
 #### [Oauth 2.0 istemci kimlik bilgileri](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Oauth 2.0 On-Behalf-Of akışı](active-directory-v2-protocols-oauth-on-behalf-of.md)
 ### [Kapsamlar](active-directory-v2-scopes.md)

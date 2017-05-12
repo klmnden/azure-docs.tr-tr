@@ -1,36 +1,56 @@
 # Genel Bakış
-##[Azure Analysis Services nedir?](analysis-services-overview.md)
+
+## [Azure Analysis Services nedir?](analysis-services-overview.md)
 
 # Başlarken
-##[Sunucu oluşturma](analysis-services-create-server.md)
-##[Sunucuya dağıtma](analysis-services-deploy.md)
-##[Bağlanma](analysis-services-connect.md)
+## [Sunucu oluşturma](analysis-services-create-server.md)
+## [Sunucuya dağıtma](analysis-services-deploy.md)
+## [Bağlanma](analysis-services-connect.md)
+
+# Öğreticiler
+## Model oluşturma ve dağıtma
+### [Adventure Works öğreticisi](tutorials/aas-adventure-works-tutorial.md)
+### [1. Ders: Yeni bir tablosal model projesi oluşturma](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
+### [2. Ders: Verileri alma](tutorials/aas-lesson-2-get-data.md)
+### [3. Ders: Tarih Tablosu olarak işaretleme](tutorials/aas-lesson-3-mark-as-date-table.md) 
+### [4. Ders: İlişki oluşturma](tutorials/aas-lesson-4-create-relationships.md) 
+### [5. Ders: Hesaplanan sütun oluşturma](tutorials/aas-lesson-5-create-calculated-columns.md)
+### [6. Ders: Ölçü oluşturma](tutorials/aas-lesson-6-create-measures.md)  
+### [7. Ders: Önemli Performans Göstergeleri oluşturma](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
+### [8. Ders: Perspektif oluşturma](tutorials/aas-lesson-8-create-perspectives.md) 
+### [9. Ders: Hiyerarşi oluşturma](tutorials/aas-lesson-9-create-hierarchies.md)  
+### [10. Ders: Bölüm oluşturma](tutorials/aas-lesson-10-create-partitions.md) 
+### [11. Ders: Rol oluşturma](tutorials/aas-lesson-11-create-roles.md)
+### [12. Ders: Excel’de çözümleme](tutorials/aas-lesson-12-analyze-in-excel.md)
+### [13. Ders: Dağıtma](tutorials/aas-lesson-13-deploy.md)
+### [Ek ders - Ayrıntı Satırları](tutorials/aas-supplemental-lesson-detail-rows.md)
+### [Ek ders - Dinamik güvenlik](tutorials/aas-supplemental-lesson-dynamic-security.md)
+### [Ek ders - Düzensiz hiyerarşiler](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
 # Nasıl yapılır 
-##[Sunucu yönetme](analysis-services-manage.md)
-##[Kullanıcıları yönetme](analysis-services-manage-users.md)
-##[Şirket içi veri ağ geçidini tümleştirme](analysis-services-gateway.md)
-##[Excel ile bağlanma](analysis-services-connect-excel.md)
-##[Power BI ile bağlanma](analysis-services-connect-pbi.md)
-##[Veri sağlayıcılar](analysis-services-data-providers.md)
-##[Yedekleme ve geri yükleme](analysis-services-backup.md)
-##[Yüksek kullanılabilirlik](analysis-services-bcdr.md)
-##[Veri kaynağı bağlantıları](analysis-services-datasource.md)
-
-##[.odc dosyası oluşturma](analysis-services-odc.md)
+## [Sunucu yönetme](analysis-services-manage.md)
+## [Kullanıcıları yönetme](analysis-services-manage-users.md)
+## [Şirket içi veri ağ geçidini tümleştirme](analysis-services-gateway.md)
+## [Excel ile bağlanma](analysis-services-connect-excel.md)
+## [Power BI ile bağlanma](analysis-services-connect-pbi.md)
+## [İstemci kitaplıkları alma](analysis-services-data-providers.md)
+## [Yedekleme ve geri yükleme](analysis-services-backup.md)
+## [Yüksek kullanılabilirlik](analysis-services-bcdr.md)
+## [Veri kaynağı bağlantıları](analysis-services-datasource.md)
+## [.odc dosyası oluşturma](analysis-services-odc.md)
 
 # Başvuru
-##[PowerShell](analysis-services-powershell.md)
-##[REST](https://docs.microsoft.com/rest/api/analysisservices/)
-##[DAX](https://msdn.microsoft.com/library/gg413422.aspx)
-##[Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
+## [PowerShell](analysis-services-powershell.md)
+## [REST](/rest/api/analysisservices)
+## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
+## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 
 # Kaynaklar
-##[Analysis Services ekip blogu](https://blogs.msdn.microsoft.com/analysisservices/)
-##[Azure Analysis Services forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-##[Geri Bildirim](https://feedback.azure.com/forums/556165-azure-analysis-services)
-##[Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
-##[Fiyatlandırma](https://azure.microsoft.com/pricing/details/analysis-services/)
-##[Videolar](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
-##[Azure durumu](https://azure.microsoft.com/status/)
+## [Analysis Services ekip blogu](https://blogs.msdn.microsoft.com/analysisservices/)
+## [Azure Analysis Services forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
+## [Geri Bildirim](https://feedback.azure.com/forums/556165-azure-analysis-services)
+## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+## [Azure durumu](https://azure.microsoft.com/status/)
 

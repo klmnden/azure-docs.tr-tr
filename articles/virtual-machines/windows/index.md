@@ -11,10 +11,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 631eb4c8aa3a41e03cf623fcc5610d3e84f18ec4
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: f319bcba8a4eb5f6adfbfb22f99055ea3de13309
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/09/2017
 
 ---
 <div class="content">
@@ -63,8 +64,15 @@ ms.lasthandoff: 04/22/2017
    <li><a href="/azure/virtual-machines/windows/tutorial-manage-vm">Windows VM’leri oluşturma ve yönetme</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">VM diskleri oluşturma ve yönetme</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">VM yapılandırmasını otomatikleştirme</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-custom-images">Özel VM görüntüleri oluşturma</a></li> 
+    <li><a href="/azure/virtual-machines/windows/tutorial-availability-sets">Yüksek oranda kullanılabilir VM’ler oluşturma</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-create-vmss">VM ölçek kümesi oluşturma</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-load-balancer">VM'ler için yük dengeleme</a></li>
-    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">VM ağını yönetme</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">Sanal ağlar ile VM’leri yönetme</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-backup-vms">VM’leri yedekleme</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-monitoring">VM’leri izleme</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-azure-security">VM’lerde güvenliği yönetme</a></li>
+    
 </ol>
 
 <h2 style="margin-top: 36px">Ücretsiz PluralSight Video Eğitimi</h2>

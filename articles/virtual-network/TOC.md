@@ -46,20 +46,22 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Şablon](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### [Ağ arabirimleri](virtual-network-network-interface.md)
+### Ağ arabirimleri
+#### [Ekleme, değiştirme veya silme](virtual-network-network-interface.md)
+#### [IP adreslerini ekleme, değiştirme veya kaldırma](virtual-network-network-interface-addresses.md)
 
 ### [Genel IP adresleri](virtual-network-public-ip-address.md)
 
 ### Sanal makineler
-
-#### Statik genel IP adresleri
+#### [Ağ arabirimi ekleme veya kaldırma](virtual-network-network-interface-vm.md) 
+#### Statik genel IP adresiyle VM oluşturma
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Şablon](virtual-network-deploy-static-pip-arm-template.md)
 ##### [PowerShell (Klasik)](virtual-networks-reserved-public-ip.md)
 
-#### Statik özel IP adresleri
+#### Statik özel IP adresiyle VM oluşturma
 ##### [Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -67,15 +69,14 @@
 ##### [PowerShell (Klasik)](virtual-networks-static-private-ip-classic-ps.md)
 ##### [CLI (Klasik)](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Birden çok ağ arabirimi
-##### [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-##### [CLI](virtual-network-deploy-multinic-arm-cli.md)
-##### [Şablon](virtual-network-deploy-multinic-arm-template.md)
+#### Birden çok ağ arabirimi ile VM oluşturma
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell (Klasik)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI (Klasik)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Birden çok IP adresi
-##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
+#### Birden çok IP adresi ile VM oluşturma
+##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Şablon](virtual-network-multiple-ip-addresses-template.md)

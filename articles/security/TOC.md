@@ -1,4 +1,4 @@
-# [Genel Bakış](security-get-started-overview.md)
+# [Genel Bakış](azure-security.md)
 ## [Ağ güvenliği](security-network-overview.md)
 ## [Depolama alanı güvenliği](security-storage-overview.md)
 ## [İşlem güvenliği](security-virtual-machines-overview.md)
@@ -6,6 +6,10 @@
 ## [Kimlik yönetimi](security-identity-management-overview.md)
 ## [IoT güvenliği](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Güvenlik mimarisi](azure-security-architecture-overview.md)
+### [İşletimsel güvenlik](azure-operational-security.md)
+### [Gelişmiş tehdit algılama](azure-threat-detection.md)
+### [Günlük kaydı ve denetim](azure-log-audit.md)
+### [Genel bulutta yalıtım](azure-isolation.md)
 
 # Kullanmaya Başlama
 ## [Azure güvenliğini kullanmaya başlama](azure-security-getting-started.md)

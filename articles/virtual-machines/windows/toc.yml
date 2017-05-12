@@ -31,7 +31,11 @@
     href: tutorial-load-balancer.md
   - name: "8 - Ağı yönetme"
     href: tutorial-virtual-network.md
-  - name: "9 - VM güvenliğini yönetme"
+  - name: "9 - Sanal makineleri yedekleme"
+    href: tutorial-backup-vms.md
+  - name: "10 - Sanal makineleri izleme"
+    href: tutorial-monitoring.md
+  - name: "11 - VM güvenliğini yönetme"
     href: tutorial-azure-security.md
 
 - name: "Örnekler"
@@ -126,7 +130,7 @@
       href: creation-choices.md
     - name: "Şablon ile VM oluşturma"
       href: ps-template.md
-    - name: "C ile VM oluşturma#"
+    - name: "C# ile VM oluşturma"
       href: csharp.md
     - name: "C# ve şablon ile VM oluşturma"
       href: csharp-template.md
@@ -159,7 +163,7 @@
       href: cli-manage.md
     - name: "CLI kullanarak sanal makineleri yönetme"
       href: cli-deploy-templates.md
-    - name: "C kullanarak sanal makineleri yönetme#"
+    - name: "C# kullanarak VM’leri yönetme"
       href: csharp-manage.md
   - name: "RDP ile bağlanma"
     items:

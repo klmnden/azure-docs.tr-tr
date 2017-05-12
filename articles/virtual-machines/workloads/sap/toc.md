@@ -8,19 +8,19 @@
 ## [SAP Netweaver ile tümleştirme](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [SAP Business ByDesign ile tümleştirme](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 # Azure’da SAP çözümleri
-## SAP HANA
+## SAP HANA Büyük Örnekleri
 ### [Genel bakış ve mimari](hana-overview-architecture.md)
 ### [Altyapı ve bağlantı](hana-overview-infrastructure-connectivity.md)
 ### [SAP HANA yükleyin](hana-installation.md)
 ### [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](hana-overview-high-availability-disaster-recovery.md)
 ### [Sorun giderme ve izleme](troubleshooting-monitoring.md)
+## Sanal Makineler üzerinde SAP HANA
 ### [Tek örnek SAP HANA](hana-get-started.md)
 ### [S/4 HANA veya BW/4 HANA dağıtım kılavuzu](cal-s4h.md)
-### Backup
-#### [Genel Bakış](sap-hana-backup-guide.md)
-#### [Dosya düzeyinde yedekleme](sap-hana-backup-file-level.md)
-#### [Depolama anlık görüntüleri](sap-hana-backup-storage-snapshots.md)
-
+### [VM’lerde Yüksek Kullanılabilirlik](sap-hana-high-availability.md)
+### [Backup’a genel bakış](sap-hana-backup-guide.md)
+### [Dosya düzeyinde yedekleme](sap-hana-backup-file-level.md)
+### [Depolama anlık görüntüsü yedekleri](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
 ### [Genel bakış ve mimari](suse-quickstart.md)
 ### [Planlama ve uygulama](planning-guide.md)

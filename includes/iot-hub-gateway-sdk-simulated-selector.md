@@ -4,58 +4,58 @@
 > 
 > 
 
-[Sanal Cihaz Buluta Yükleme örneği] ile ilgili bu yönergeler, [Azure IoT Gateway SDK’sını][lnk-sdk] kullanarak sanal cihazlardan IoT Hub’ına cihazdan buluta telemetri gönderme işlemini göstermektedir.
+This walkthrough of the [Simulated Device Cloud Upload sample] shows how to use [Azure IoT Edge][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
 
-Bu kılavuzda aşağıdaki konular ele alınmaktadır:
+This walkthrough covers:
 
-1. **Mimari**: Sanal Cihaz Buluta Yükleme örneği hakkında önemli mimari bilgiler.
-2. **Derleme ve çalıştırma**: örneği derlemek ve çalıştırmak için gerekli adımlar.
+1. **Architecture**: important architectural information about the Simulated Device Cloud Upload sample.
+2. **Build and run**: the steps required to build and run the sample.
 
-## <a name="architecture"></a>Mimari
-Sanal Cihaz Buluta Yükleme örneği, sanal cihazlardan bir IoT hub’ına telemetri gönderen ağ geçidi oluşturmak için SDK’nın nasıl kullanılacağını gösterir. Sanal cihazlar aşağıdaki nedenlerden dolayı IoT Hub'ına doğrudan bağlanamaz:
+## <a name="architecture"></a>Architecture
+The Simulated Device Cloud Upload sample shows how to use IoT Edge to create a gateway which sends telemetry from simulated devices to an IoT hub. The simulated devices cannot connect directly to IoT Hub because:
 
-* Cihazlar IoT Hub tarafından anlaşılan bir iletişim protokolü kullanmaz.
-* Cihazlar kendilerine IoT Hub tarafından atanmış kimliği anımsayacak kadar akıllı değildir.
+* The devices do not use a communications protocol understood by IoT Hub.
+* The devices are not smart enough to remember the identity assigned to them by IoT Hub.
 
-Ağ geçidi, sanal cihazlar için bu sorunları aşağıdaki yollarla çözer:
+The gateway solves these problems for the simulated devices in the following ways:
 
-* Ağ geçidi, sanal cihazlar tarafından kullanılan protokolü anlar, cihazdan buluta telemetri alır ve bu iletileri IoT Hub tarafından anlaşılan bir protokol kullanarak IoT hub’ına iletir.
-* Ağ geçidi, IoT Hub kimliklerini sanal cihazlar adına depolar ve sanal cihazlar IoT Hub’a ileti gönderdiğinde ara sunucu olarak görev yapar.
+* The gateway understands the protocol used by the simulated devices, receives device-to-cloud telemetry from the devices, and forwards those messages to IoT Hub using a protocol understood by the IoT hub.
+* The gateway stores IoT Hub identities on behalf of the simulated devices and acts as a proxy when the simulated devices send messages to IoT Hub.
 
-Aşağıdaki diyagramda ağ geçidi modülleriyle birlikte örneğin ana bileşenleri gösterilmektedir:
+The following diagram shows the main components of the sample, including the gateway modules:
 
 ![][1]
 
 > [!NOTE]
-> Modüller iletileri doğrudan birbirine geçirmez. Modüller aşağıdaki diyagramda gösterilen bir abonelik mekanizmasını kullanarak iletileri diğer modüllere ileten bir iç aracıya yayımlar. Daha fazla bilgi için bkz. [IoT Ağ Geçidi SDK’sını kullanmaya başlama][lnk-gw-getstarted].
+> The modules do not pass messages directly to each other. The modules publish messages to an internal broker that delivers the messages to the other modules using a subscription mechanism as shown in the diagram below. For more information, see [Get started with Azure IoT Edge][lnk-gw-getstarted].
 > 
 > 
 
-### <a name="protocol-ingestion-module"></a>Protokol alım modülü
-Bu modül, ağ geçidi aracılığıyla ve buluta cihazlardan veri almanın başlangıç noktasıdır. Örnekte, modül dört görev gerçekleştirir:
+### <a name="protocol-ingestion-module"></a>Protocol ingestion module
+This module is the starting point for getting data from devices, through the gateway, and into the cloud. In the sample, the module performs four tasks:
 
-1. Sanal sıcaklık verileri oluşturur. Gerçek cihazlar kullanırsanız modül, verileri bu fiziksel cihazlardan okur.
-2. Sanal sıcaklık verilerini iletinin içeriğine yerleştirir.
-3. Sanal sıcaklık verilerini içeren iletiye sahte bir MAC adresine sahip özellik ekler.
-4. İletiyi zincirdeki sonraki modülün kullanımına sunar.
+1. It creates simulated temperature data. Note that if you use real devices, the module reads data from those physical devices.
+2. It places the simulated temperature data into the contents of a message.
+3. It adds a property with a fake MAC address to the message that contains the simulated temperature data.
+4. It makes the message available to the next module in the chain.
 
 > [!NOTE]
-> Yukarıdaki diyagramda **Protokol X alımı** adlı modül, kaynak kodunda **Sanal cihaz** olarak adlandırılır.
+> The module called **Protocol X ingestion** in the diagram above is called **Simulated device** in the source code.
 > 
 > 
 
-### <a name="mac-lt-gt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub kimlik modülü
-Bu modül, protokol alım modülü tarafından eklenen sanal cihaz uygulaması MAC adresini içeren bir özelliğin bulunduğu iletileri tarar. Modül böyle bir özellik bulursa, iletiye bir IoT Hub cihaz anahtarıyla birlikte başka bir özellik ekler ve sonra iletiyi zincirdeki sonraki modülün kullanımına sunar. Örnek, IoT Hub cihaz kimliklerini sanal cihazlarla bu şekilde ilişkilendirir. Geliştirici, MAC adresleri ile IoT Hub kimlikleri arasındaki eşlemeyi modül yapılandırması sırasında el ile gerçekleştirir. 
+### <a name="mac-lt-gt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub ID module
+This module scans for messages that include a property that contains the MAC address, added by the protocol ingestion module, of the simulated device app. If the module finds such a property, it adds another property with an IoT Hub device key to the message and then makes the message available to the next module in the chain. This is how the sample associates IoT Hub device identities with simulated devices. The developer sets up the mapping between MAC addresses and IoT Hub identities manually as part of the module configuration. 
 
 > [!NOTE]
-> Bu örnekte benzersiz cihaz tanımlayıcısı olarak bir MAC adresi kullanılır ve bir IoT Hub cihaz kimliğiyle ilişkilendirilir. Bununla birlikte, farklı bir benzersiz tanımlayıcı kullanan kendi modülünüzü yazabilirsiniz. Örneğin, benzersiz seri numaralarına veya cihazın benzersiz adını içeren telemetri verilerine sahip cihazlarınız olabilir ve bunları IoT Hub cihaz kimliğini belirlemek için kullanabilirsiniz.
+> This sample uses a MAC address as a unique device identifier and correlates it with an IoT Hub device identity. However, you can write your own module that uses a different unique identifier. For example, you may have devices with unique serial numbers or telemetry data that has a unique device name embedded in it that you could use to determine the IoT Hub device identity.
 > 
 > 
 
-### <a name="iot-hub-communication-module"></a>IoT Hub iletişim modülü
-Bu modül, önceki modül tarafından atanan bir IoT Hub cihazıyla iletileri alır ve HTTP kullanarak ileti içeriğini IoT Hub’a gönderir. HTTP, IoT Hub tarafından anlaşılan üç protokolden biridir.
+### <a name="iot-hub-communication-module"></a>IoT Hub communication module
+This module takes messages with an IoT Hub device identity assigned by the previous module and sends the message content to IoT Hub using HTTP. HTTP is one of the three protocols understood by IoT Hub.
 
-Bu modül her sanal cihaz uygulaması için IoT Hub’da bir bağlantı açmak yerine, ağ geçidi ile IoT hub’ı arasında tek bir HTTP bağlantısı açar ve bu bağlantı üzerinden tüm sanal cihazlardan bağlantıları çoğaltır. Bunun yapılması tek bir ağ geçidinin, her cihaz için benzersiz bir bağlantının açıldığı duruma kıyasla çok daha fazla sayıda sanal ya da fiziksel cihaza bağlanmasını sağlar.
+Instead of opening a connection to IoT Hub for each simulated device app, this module opens a single HTTP connection from the gateway to the IoT hub and multiplexes connections from all the simulated devices over that connection. This enables a single gateway to connect many more devices, simulated or otherwise, than would be possible if it opened a unique connection for every device.
 
 ![][2]
 
@@ -64,10 +64,6 @@ Bu modül her sanal cihaz uygulaması için IoT Hub’da bir bağlantı açmak y
 [2]: media/iot-hub-gateway-sdk-simulated-selector/image2.png
 
 <!-- Links -->
-[Sanal Cihaz Buluta Yükleme örneği]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/simulated_device_cloud_upload/README.md
+[Simulated Device Cloud Upload sample]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/simulated_device_cloud_upload/README.md
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
-
-<!--HONumber=Feb17_HO1-->
-
-
