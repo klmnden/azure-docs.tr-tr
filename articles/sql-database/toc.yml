@@ -41,6 +41,8 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: "3 - SQL veritabanınızı güvenli hale getirme"
     href: sql-database-security-tutorial.md
+  - name: "4 - SQL DB performansını iyileştirme"
+    href: sql-database-performance-tutorial.md
 - name: "Örnekler"
   items:
   - name: "Azure CLI"

@@ -44,6 +44,7 @@
 ## [Genişletilebilir ilke çerçevesi](active-directory-b2c-reference-policies.md)
 ## [Kimlik doğrulama protokolleri](active-directory-b2c-reference-protocols.md)
 ## [Belirteçler](active-directory-b2c-reference-tokens.md)
+## [Dil özelleştirmesi](active-directory-b2c-reference-language-customization.md)
 
 ## [Tehdit Yönetimi](active-directory-b2c-reference-threat-management.md)
 

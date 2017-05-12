@@ -18,7 +18,9 @@
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
+### [Azure AD mimarisini anlama](active-directory-architecture.md)
 ### [Karma kimlik çözümü dağıtma](active-directory-hybrid-identity-design-considerations-overview.md)
+
 #### Gereksinimlerini belirleme
 ##### [Kimlik](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [Dizin eşitlemesi](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -91,6 +93,7 @@
 ###    Programlı Erişim
 #### [Denetim başvurusu](active-directory-reporting-api-audit-reference.md)
 #### [Denetim örnekleri](active-directory-reporting-api-audit-samples.md)
+#### [Verileri alma](active-directory-reporting-api-with-certificates.md)
 #### [Önkoşullar](active-directory-reporting-api-prerequisites.md)
 #### [Oturum açma başvurusu](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Oturum açma örnekleri](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -114,6 +117,7 @@
 ## [Parolaları yönetme](active-directory-passwords.md)
 ### Kullanıcı belgeleri
 #### [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
+#### [Parolalarla ilgili en iyi yöntemler](active-directory-secure-passwords.md)
 #### [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
 ### [Hızlı başlangıç: Self servis parola sıfırlama](active-directory-passwords-getting-started.md)
 ### [SSPR lisanslama](active-directory-passwords-licensing.md)
@@ -159,33 +163,37 @@
 #### [Kayıt defteri ayarlarını güncelleştirme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Güvenlik ve gizliliği anlama](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [Uygulamalarınıza uzaktan erişim verme](active-directory-application-proxy-get-started.md)
-#### [Uygulama Ara Sunucusu](active-directory-application-proxy-enable.md)
-#### [Bağlayıcıları anlama](application-proxy-understand-connectors.md)
-#### [Uygulamaları yayımlama](application-proxy-publish-azure-portal.md)
-#### [Güvenlik](application-proxy-security-considerations.md)
-#### [Ağlar](application-proxy-network-topology-considerations.md)
-#### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
-#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-#### [Ayrı ağlarda yayımlama](active-directory-application-proxy-connectors-azure-portal.md)
-#### [Ara sunucular](application-proxy-working-with-proxy-servers.md)
-#### [Özel etki alanları](active-directory-application-proxy-custom-domains.md)
-#### [Uygulamalara erişim](active-directory-appssoaccess-whatis.md)
-##### [Azure portal](application-proxy-sso-azure-portal.md)
-#### [KCD ile SSO](active-directory-application-proxy-sso-using-kcd.md)
-#### [Üst bilgi içeren SSO](application-proxy-ping-access.md)
-#### [Talep kullanan uygulamalar](active-directory-application-proxy-claims-aware-apps.md)
-#### [Native Client uygulamaları](active-directory-application-proxy-native-client.md)
-#### [Özel giriş sayfası](application-proxy-office365-app-launcher.md)
-#### [Koşullu erişim](active-directory-application-proxy-conditional-access.md)
-#### [Sessiz yükleme](active-directory-application-proxy-silent-installation.md)
-#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
+### [Uygulama Proxy’si ile uygulamalara uzaktan erişme](active-directory-application-proxy-get-started.md)
+#### başlarken
+##### [Uygulama Ara Sunucusu](active-directory-application-proxy-enable.md)
+##### [Uygulamaları yayımlama](application-proxy-publish-azure-portal.md)
+##### [Özel etki alanları](active-directory-application-proxy-custom-domains.md)
+#### [SSO erişimi](active-directory-appssoaccess-whatis.md)
+##### [KCD ile SSO](active-directory-application-proxy-sso-using-kcd.md)
+##### [Üst bilgi içeren SSO](application-proxy-ping-access.md)
+##### [Parola kasası oluşturma ile SSO](application-proxy-sso-azure-portal.md)
+#### En iyi yöntemleri anlama
+##### [Bağlayıcılar](application-proxy-understand-connectors.md)
+##### [Güvenlik](application-proxy-security-considerations.md)
+##### [Ağlar](application-proxy-network-topology-considerations.md)
+#### 
+#### Gelişmiş yapılandırmalar
+##### [Ayrı ağlarda yayımlama](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Ara sunucular](application-proxy-working-with-proxy-servers.md)
+##### [Talep kullanan uygulamalar](active-directory-application-proxy-claims-aware-apps.md)
+##### [Native Client uygulamaları](active-directory-application-proxy-native-client.md)
+##### [Sessiz yükleme](active-directory-application-proxy-silent-installation.md)
+##### [Özel giriş sayfası](application-proxy-office365-app-launcher.md)
+#### Adım adım kılavuzlar yayımlama
+##### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
+##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
 #### Klasik portalı kullanın
 ##### [Bağlayıcı indirme](application-proxy-enable-classic-portal.md)
 ##### [Uygulamaları yayımlama](active-directory-application-proxy-publish.md)
 ##### [Bağlayıcı kullanma](active-directory-application-proxy-connectors.md)
-
+##### [Koşullu erişim](active-directory-application-proxy-conditional-access.md)
 
 ### Kurumsal uygulamaları yönetme
 #### [Kullanıcıları atama](active-directory-coreapps-assign-user-azure-portal.md)
@@ -297,14 +305,18 @@
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 
 ## Kimliklerinizi güvenli hale getirme
-### [Koşullu erişim](active-directory-conditional-access.md)
-#### [Kullanmaya başlama](active-directory-conditional-access-azuread-connected-apps.md)
+### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
+#### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Desteklenen uygulamalar](active-directory-conditional-access-supported-apps.md)
 #### [Cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### [Bağlı uygulamalara erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
+#### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)
 #### [SSS](active-directory-conditional-faqs.md)
-#### [Sorun giderme](active-directory-conditional-access-device-remediation.md)
-#### [Başvuru](active-directory-conditional-access-technical-reference.md)
+#### [Düzeltme](active-directory-conditional-access-device-remediation.md)
+#### [Klasik portal](active-directory-conditional-access.md)
+##### [Kullanmaya başlama](active-directory-conditional-access-azuread-connected-apps.md)
+
+
 ### Windows Hello
 #### [Parolasız kimlik doğrulama](active-directory-azureadjoin-passport.md)
 #### [İş İçin Windows Hello’yu etkinleştirme](active-directory-azureadjoin-passport-deployment.md)

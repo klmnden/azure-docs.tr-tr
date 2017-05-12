@@ -132,8 +132,9 @@
 ## Kümeleri genişletme
 ### [Bootstrap ile kümeleri özelleştirme](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Betik Eylemi kullanarak kümeleri özelleştirme](hdinsight-hadoop-customize-cluster-linux.md)
-### [Hive kitaplıkları ekleme](hdinsight-hadoop-add-hive-libraries.md)
 ### [Betik eylemleri geliştirme](hdinsight-hadoop-script-actions-linux.md)
+### [Mono yükleme veya güncelleştirme](hdinsight-hadoop-install-mono.md)
+### [Hive kitaplıkları ekleme](hdinsight-hadoop-add-hive-libraries.md)
 ### [Giraph kullanma](hdinsight-hadoop-giraph-install-linux.md)
 ### [Hue kullanma](hdinsight-hadoop-hue-linux.md)
 ### [R kullanma](hdinsight-hadoop-r-scripts-linux.md)
@@ -165,6 +166,7 @@
 #### [Ambari REST API’si kullanma](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [Depolama hesapları ekleme](hdinsight-hadoop-add-storage.md)
 ### [Hadoop işleri için veri yükleme](hdinsight-upload-data.md)
+### [Data Lake Store ile birden çok HDInsight kümesi](hdinsight-multiple-clusters-data-lake-store.md)
 ### [Sqoop ile verileri içeri ve dışarı aktarma](hdinsight-use-sqoop.md)
 #### [SSH ile bağlanma](hdinsight-use-sqoop-mac-linux.md)
 #### [cURL kullanarak çalıştırma](hdinsight-hadoop-use-sqoop-curl.md)
@@ -190,7 +192,7 @@
 #### [Hive sorgu performansı](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)

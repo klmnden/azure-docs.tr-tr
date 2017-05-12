@@ -1,16 +1,28 @@
 # Genel Bakış
-## [Azure Container Service nedir?](container-service-intro.md)
-## [SSS](container-service-faq.md)
-# Kullanmaya Başlama
-## [ACS kümesi dağıtma](container-service-deployment.md)
-## [Azure CLI 2.0 kullanarak ACS’ye dağıtma](container-service-create-acs-cluster-cli.md)
+## [About Container Service](container-service-intro.md)
+## [Azure’da kapsayıcılar](../virtual-machines/linux/containers.md?toc=%2fazure%2fcontainer-service%2ftoc.json)
+
+# Hızlı Başlangıçlar
+## [Kubernetes kümesi - Linux](container-service-kubernetes-walkthrough.md)
+## [Kubernetes kümesi - Windows](container-service-kubernetes-windows-walkthrough.md)
+
+# Öğreticiler
+## [Küme dağıtma - Portal](container-service-deployment.md)
+## [Küme dağıtma - Azure CLI](container-service-create-acs-cluster-cli.md)
+## [Kubernetes ve Jenkins ile CI/CD](container-service-kubernetes-jenkins.md)
+## [DC/OS ve VSTS ile CI/CD](container-service-setup-ci-cd.md)
+## [Docker Swarm ve VSTS ile CI/CD](container-service-docker-swarm-setup-ci-cd.md)
+
+# Kavramlar
+## [Güvenli kapsayıcılar](container-service-security.md)
+## [Hizmet sorumlusu - Kubernetes](container-service-kubernetes-service-principal.md)
+
+# Nasıl yapılır?
 ## [ACS kümesine bağlanma](container-service-connect.md)
 ## [ACS kümesini ölçeklendirme](container-service-scale.md)
-# Nasıl yapılır?
 ## DC/OS ile yönetme
 ### [Kapsayıcı yönetimi - DC/OS UI](container-service-mesos-marathon-ui.md)
 ### [Kapsayıcı yönetimi - DC/OS REST API](container-service-mesos-marathon-rest.md)
-### [DC/OS sürekli tümleştirme](container-service-setup-ci-cd.md)
 ### [DC/OS aracı havuzları](container-service-dcos-agents.md)
 ### [DC/OS genel erişimini etkinleştirme](container-service-enable-public-access.md)
 ### [DC/OS kapsayıcılarında yük dengeleme](container-service-load-balancing.md)
@@ -24,12 +36,8 @@
 #### [Sysdig ile izleme](container-service-monitoring-sysdig.md)
 #### [Dynatrace ile izleme](container-service-monitoring-dynatrace.md)
 ## Kubernetes ile yönetme
-### [Kubernetes’i kullanmaya başlama](container-service-kubernetes-walkthrough.md)
-### [Kubernetes ve Windows’u kullanmaya başlama](container-service-kubernetes-windows-walkthrough.md)
-### [Hizmet sorumlusu yapılandırma](container-service-kubernetes-service-principal.md)
 ### [Kapsayıcı yönetimi - Kubernetes UI](container-service-kubernetes-ui.md)
 ### [Kubernetes kapsayıcılarında yük dengeleme](container-service-kubernetes-load-balancing.md)
-### [ACS Kubernetes ile Jenkins tümleştirmesi](container-service-kubernetes-jenkins.md)
 ### [Helm grafikleri dağıtma](container-service-kubernetes-helm.md)
 ### Kubernetes izleme
 #### [OMS ile izleme](container-service-kubernetes-oms.md)
@@ -37,13 +45,15 @@
 #### [Sysdig ile izleme](container-service-kubernetes-sysdig.md)
 ## Docker Swarm ile yönetme
 ### [Docker ve Docker Compose](container-service-docker-swarm.md)
-### [Docker Swarm sürekli tümleştirme](container-service-docker-swarm-setup-ci-cd.md)
-## [Güvenli kapsayıcılar](container-service-security.md)
+
 # Başvuru
 ## [Azure CLI 2.0](/cli/azure/acs)
 ## [REST](/rest/api/compute/containerservices)
+
 # Kaynaklar
-## [Bölge kullanılabilirliği](https://azure.microsoft.com/regions/services/)
+## [SSS](container-service-faq.md)
+## [Şablonlar - ACS Altyapısı](https://github.com/Azure/acs-engine)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/container-service/)
-## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [Bölge kullanılabilirliği](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-service)
+## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest)

@@ -37,21 +37,25 @@
 ### [PowerShell (klasik)](vpn-gateway-multi-site.md)
 ## [VPN ağ geçidi için BGP yapılandırma](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Yüksek oranda kullanılabilir etkin-etkin bağlantıları yapılandırma](vpn-gateway-activeactive-rm-powershell.md)
-## [PowerShell’i kullanarak yerel ağ geçidi ayarlarını değiştirme](vpn-gateway-modify-local-network-gateway.md)
+## Yerel ağ geçidi ayarlarını değiştirme
+### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+### [CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [VPN ağ geçidi bağlantısını doğrulama](vpn-gateway-verify-connection-resource-manager.md)
 ## [VPN ağ geçidini sıfırlama](vpn-gateway-resetgw-classic.md)
 ## VPN ağ geçidi silme
 ### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klasik)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [P2S bağlantıları için otomatik olarak imzalanan kök sertifikaları oluşturma](vpn-gateway-certificates-point-to-site.md)
+## Noktadan Siteye bağlantılar için otomatik olarak imzalanan sertifikalar oluşturma
+### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [VPN ağ geçidi yapılandırma (klasik)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Sorun giderme
 ### [Bir sanal ağa VPN aktarım hızını doğrulama](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
-## [PowerShell (klasik)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell](/powershell/module/azurerm.network)
+## [PowerShell (klasik)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (klasik)](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)

@@ -50,10 +50,4 @@
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. Güncelleştirmeler başarıyla yüklendikten sonra **Cihaz güncelleştirmeleri** dikey penceresinde bununla ilgili bir ileti görürsünüz. Yazılım sürümü de **10.0.10289.0** olarak değişir.
-
-    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate17m1.png)
-
-<!--HONumber=Feb17_HO1-->
-
-
+9. Güncelleştirmeler başarıyla yüklendikten sonra **Cihaz güncelleştirmeleri** dikey penceresinde bununla ilgili bir ileti görürsünüz. 

@@ -15,12 +15,12 @@
 
 # Nasıl yapılır?
 ## Geliştirme
-### [U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL temelleri](data-lake-analytics-u-sql-get-started.md)
 ### [U-SQL pencere işlevleri](data-lake-analytics-use-window-functions.md)
 ### [U-SQL kullanıcı tanımlı işleçler](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python uzantıları](data-lake-analytics-u-sql-python-extensions.md)
 ### [U-SQL R uzantıları](data-lake-analytics-u-sql-r-extensions.md)
-### [U-SQL Bilişsel özellikler](data-lake-analytics-u-sql-cognitive.md)
+### [U-SQL Bilişsel uzantıları](data-lake-analytics-u-sql-cognitive.md)
 
 ## Çözüm oluşturma
 ### [Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
