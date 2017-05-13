@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Ön ekleri değiştirme - ağ geçidi bağlantısı yok
+### <a name="noconnection"></a>Yerel ağ geçidinin IP adresi ön eklerini değiştirmek için - ağ geçidi bağlantısı yok
 
 - Başka adres ön ekleri eklemek için:
 
@@ -8,7 +8,7 @@
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
 
-- Adres ön ekini kaldırmak için:<br>
+- Adres ön eklerini kaldırmak için:<br>
   Artık gereği olmayan önekleri bırakın. Bu örnekte, 20.0.0.0/24 (önceki örnekten) ön eki artık bize gerekmiyor; bu nedenle, yerel ağ geçidini güncelleştiriyor ve bu ön eki hariç tutuyoruz.
 
   ```powershell
@@ -17,13 +17,10 @@
   -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
   ```
 
-### <a name="withconnection"></a>Ön ekleri değiştirme - mevcut ağ bağlantısı
-Ağ geçidi bağlantınız varsa ve yerel ağ geçidinizde bulunan IP adresi ön eklerini eklemek veya kaldırmak istiyorsanız aşağıdaki adımları sırasıyla uygulamanız gerekir. Bunun sonucunda, VPN bağlantınızda kesinti oluşur.
+### <a name="withconnection"></a>Yerel ağ geçidinin IP adresi ön eklerini değiştirmek için - ağ geçidi bağlantısı var
 
-> [!IMPORTANT]
-> VPN ağ geçidini silmeyin. Bunu yaparsanız, yeniden oluşturmak için geri dönüp adımları yeniden izlemeniz gerekir. Buna ek olarak, şirket içi VPN cihazınızı da yeni VPN ağ geçidi IP adresiyle güncelleştirmelisiniz.
-> 
-> 
+Ağ geçidi bağlantınız varsa ve yerel ağ geçidinizde bulunan IP adresi ön eklerini eklemek veya kaldırmak istiyorsanız aşağıdaki adımları sırasıyla uygulamanız gerekir. Bunun sonucunda, VPN bağlantınızda kesinti oluşur. IP adresi öneklerini değiştirirken, VPN ağ geçidini silmeniz gerekmez. Yalnızca bağlantıyı kaldırmanız gerekir.
+
 
 1. Bağlantıyı kaldırın.
 

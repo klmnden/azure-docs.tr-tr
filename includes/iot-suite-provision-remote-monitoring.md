@@ -1,4 +1,7 @@
 ## <a name="provision-the-solution"></a>Çözüm sağlama
+
+Önceden yapılandırılmış uzaktan izleme çözümünüzü hesabınızda henüz hazırlamadıysanız:
+
 1. Azure hesabı kimlik bilgilerinizi kullanarak [azureiotsuite.com][lnk-azureiotsuite] adresinde oturum açın ve çözüm oluşturmak için **+** seçeneğine tıklayın.
 2. **Uzaktan izleme** kutucuğunda **Seç**'e tıklayın.
 3. Önceden yapılandırılmış uzaktan izleme çözümünüz için bir **Çözüm adı** girin.

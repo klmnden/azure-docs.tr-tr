@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b0624bde9ab53231768beb0c832a4a49b21a8975
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -87,9 +88,14 @@ Bu çözümü etkinleştirdikten sonra çözümde yer alan runbook'ların destek
 Bununla birlikte, Çözüm ve Karma Runbook Çalışanı grup üyeliği için aynı hesabı kullandığınız sürece Otomasyon gruplarını desteklemek için Windows bilgisayarlarını Otomasyon hesabınızdaki bir Karma Runbook Çalışanı grubuna ekleyebilirsiniz.  Bu işlev Karma Runbook Çalışanının 7.2.12024.0 sürümüne eklenmiştir.  
 
 ## <a name="configuration"></a>Yapılandırma
-Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklemek ve aracıların raporladığını doğrulamak için aşağıdaki adımları uygulayın. Windows aracıları ek bir yapılandırma olmadan otomatik olarak eklenir. 
+Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklemek ve aracıların raporladığını doğrulamak için aşağıdaki adımları uygulayın. Çalışma alanınıza zaten bağlı olan Windows aracıları ek bir yapılandırma olmadan otomatik olarak eklenir. 
 
-Bu çözümü eklemek için üç farklı yöntemden birini kullanabilirsiniz: Azure Portal’da Azure Market’ten Otomasyon ve Denetim teklifini veya Güncelleştirme Yönetimi çözümünü seçerek ya da OMS çalışma alanınızdaki OMS Çözüm Galerisi’nden.  Zaten aynı kaynak grubunda ve bölgede birbiriyle bağlantılı bir Otomasyon hesabınız ve OMS çalışma alanınız varsa, Otomasyon ve Denetim’in seçilmesi yapılandırmanızı doğrular ve yalnızca çözümü yükleyip her iki hizmette de yapılandırır.  Azure Market’ten Güncelleştirme Yönetimi çözümünün seçilmesi de aynı davranışa yol açar.  Aboneliğinizde iki hizmet de dağıtılmamışsa, **Yeni Çözüm Oluştur** dikey penceresindeki adımları izleyin ve önceden seçilmiş diğer önerilen çözümleri yüklemek istediğinizi onaylayın.  İsteğe bağlı olarak, Çözüm Galerisi’ndeki [OMS çözümü ekleme](../log-analytics/log-analytics-add-solutions.md) bölümünde açıklanan adımlarla Güncelleştirme Yönetimi çözümünü OMS çalışma alanına ekleyin.  
+Aşağıdaki yöntemleri kullanarak çözümü dağıtabilirsiniz:
+
+* Azure portalında Azure Market’ten Otomasyon ve Denetim teklifini veya Güncelleştirme Yönetimi çözümünü seçerek
+* OMS çalışma alanınızdaki OMS Çözüm Galerisi’nden
+
+Zaten aynı kaynak grubunda ve bölgede birbiriyle bağlantılı bir Otomasyon hesabınız ve OMS çalışma alanınız varsa, Otomasyon ve Denetim’in seçilmesi yapılandırmanızı doğrular ve yalnızca çözümü yükleyip her iki hizmette de yapılandırır.  Azure Market’ten Güncelleştirme Yönetimi çözümünün seçilmesi de aynı davranışa yol açar.  Aboneliğinizde iki hizmet de dağıtılmamışsa, **Yeni Çözüm Oluştur** dikey penceresindeki adımları izleyin ve önceden seçilmiş diğer önerilen çözümleri yüklemek istediğinizi onaylayın.  İsteğe bağlı olarak, Çözüm Galerisi’ndeki [OMS çözümü ekleme](../log-analytics/log-analytics-add-solutions.md) bölümünde açıklanan adımlarla Güncelleştirme Yönetimi çözümünü OMS çalışma alanına ekleyin.  
 
 ### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>OMS aracılarını ve OMS’ye bağlı Operations Manager yönetim grubunu doğrulama
 
@@ -144,7 +150,7 @@ Güncelleştirmeler çalışma alanınızdaki tüm Linux ve Windows bilgisayarla
 > [!NOTE]
 > Azure Market’ten dağıtılan Windows VM’leri varsayılan olarak Windows Update hizmetinden otomatik güncelleştirmeleri alacak şekilde ayarlanmıştır.  Çalışma alanınıza bu çözümü veya Windows VM’lerini ekledikten sonra bu davranış değişmez.  Güncelleştirmeleri bu çözümle etkin olarak yönetmiyorsanız, varsayılan davranış (güncelleştirmeleri otomatik olarak uygulama) geçerli olur.  
 
-Azure Market’ten edinilebilen isteğe bağlı Red Hat Enterprise Linux (RHEL) görüntülerinden oluşturulan sanal makineler için Azure’da dağıtılmış [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) erişimi için kaydedilir.  Diğer tüm Linux dağıtımları, ilgili dağıtımın desteklediği yöntemler izlenerek çevrimiçi dosya deposundan güncelleştirilmelidir.  
+Azure Market’ten edinilebilen isteğe bağlı Red Hat Enterprise Linux (RHEL) görüntülerinden oluşturulan sanal makineler için Azure’da dağıtılmış [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) erişimi için kaydedilir.  Diğer tüm Linux dağıtımları, ilgili dağıtımın desteklediği yöntemler izlenerek çevrimiçi dosya deposundan güncelleştirilmelidir.  
 
 ### <a name="viewing-update-deployments"></a>Güncelleştirme dağıtımlarını görüntüleme
 Var olan Güncelleştirme Dağıtımlarının listesini görüntülemek için **Güncelleştirme Dağıtımı** kutucuğuna tıklayın.  Bunlar duruma göre gruplandırılır: **Zamanlanmış**, **Çalışıyor** ve **Tamamlandı**.<br><br> ![Güncelleştirme Dağıtımları Zamanlama Sayfası](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

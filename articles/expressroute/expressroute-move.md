@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/02/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>ExpressRoute bağlantı hatlarını klasikten Resource Manager dağıtım modeline taşıma
 Bu makale, bir Azure ExpressRoute bağlantı hattını klasikten Azure Resource Manager dağıtım modeline taşmanın ne anlama geldiği hakkında genel bir bakış sağlar.
-
-[!INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 Her iki klasik ve Resource Manager dağıtım modellerinde dağıtılan sanal ağlara bağlanmak için tek bir ExpressRoute bağlantı hattı kullanabilirsiniz. Bir ExpressRoute bağlantı hattını, nasıl oluşturulduğuna bakmaksızın, artık her iki dağıtım modeli üzerinden sanal ağlara bağlayabilirsiniz.
 
@@ -87,11 +87,11 @@ Bu bölümde ExpressRoute bağlantı hatları için desteklenen durumlar açıkl
 * Bir ExpressRoute bağlantı hattı Resource Manager dağıtım modeline taşındıktan sonra ExpressRoute bağlantı hattı yaşam döngüsünü yalnızca Resource Manager dağıtım modeli kullanarak yönetebilirsiniz. Bu, eşlemeleri ekleme/güncelleştirme/silme, bağlantı hattı özelliklerini güncelleştirme (bant genişliği, SKU ve faturalama türü) ve yalnızca Resource Manager dağıtım modelinde bağlantı hatları silme gibi işlemleri gerçekleştirebileceğiniz anlamına gelir.
 * ExpressRoute bağlantı hattı klasik ve Resource Manager dağıtım modelleri arasında bir köprü gibi davranır. Her iki sanal ağ aynı ExpressRoute bağlantı hattına bağlıysa klasik dağıtım modelinde sanal ağlardaki sanal makineler ve Resource Manager dağıtım modelinde sanal ağlardaki sanal makineler arasındaki trafik ExpressRoute aracılığıyla akar.
 * Çapraz abonelik bağlantısı her iki klasik ve Resource Manager dağıtım modellerinde desteklenir.
+* Bir ExpressRoute bağlantı hattını klasik modelden Azure Resource Manager modeline taşıdıktan sonra [ExpressRoute işlem hattına bağlı sanal ağları geçirebilirsiniz](expressroute-migration-classic-resource-manager.md).
 
 ## <a name="whats-not-supported"></a>Desteklenmeyen durumlar
 Bu bölümde ExpressRoute bağlantı hatları için desteklenmeyen durumlar açıklanmaktadır:
 
-* Bağlantı hattı bağlantıları, ağ geçitleri ve sanal ağları klasikten Resource Manager dağıtım modeline taşıma.
 * Klasik dağıtım modelinden bir ExpressRoute bağlantı hattının yaşam döngüsünü yönetme.
 * Klasik dağıtım modeli için rol tabanlı Access Control (RBAC) desteği. Klasik dağıtım modelinde bağlantı hattına yönelik RBAC denetimleri gerçekleştiremezsiniz. Abonelikteki tüm yöneticiler/yardımcı yöneticiler bağlantı hattına sanal ağları bağlayabilir veya bağlantılarını kaldırabilir.
 
@@ -99,16 +99,12 @@ Bu bölümde ExpressRoute bağlantı hatları için desteklenmeyen durumlar aç�
 [Bir ExpressRoute bağlantı hattını klasikten Resource Manager dağıtım modeline taşıma](expressroute-howto-move-arm.md) konusunda açıklanan yönergeleri izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+* [ExpressRoute işlem hattına bağlı sanal ağları klasik modelden Azure Resource Manager modeline geçirme](expressroute-migration-classic-resource-manager.md)
 * İş akışı bilgileri için bkz. [ExpressRoute bağlantı hattı sağlama iş akışları ve devre durumları](expressroute-workflows.md).
 * ExpressRoute’unuzu yapılandırmak için:
   
   * [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-arm.md)
   * [Yönlendirmeyi yapılandırma](expressroute-howto-routing-arm.md)
   * [ExpressRoute bağlantı hattına bir sanal ağ bağlama](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

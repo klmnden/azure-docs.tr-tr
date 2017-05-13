@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/13/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf5b1c0a6e76f712e0be1f16ed1a6b2ac78d68de
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -36,13 +37,9 @@ HDInsight, HDInsight kümenizle tümleştirilecek bir R Server seçeneği içeri
 > Bu belgedeki adımlarda parola kullandığınız kabul edilmiştir.
 
 
-### <a name="access-control-requirements"></a>Erişim denetimi gereksinimleri
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## <a name="automated-cluster-creation"></a>Otomatik küme oluşturma
 
-HDInsight R Server oluşturma işlemini ARM şablonları, SDK ve aynı zamanda PowerShell kullanarak otomatik hale getirebilirsiniz.
+HDInsight R Server oluşturma işlemini Azure Resource Manager şablonları, SDK ve aynı zamanda PowerShell kullanarak otomatik hale getirebilirsiniz.
 
 * Azure Kaynak Yönetimi şablonu ile R Server oluşturmak için bkz. [R server HDInsight kümesi dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 * .NET SDK kullanarak R Server oluşturmak için bkz. [HDInsight’ta .NET SDK kullanarak Linux tabanlı kümeler oluşturma.](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
@@ -83,7 +80,7 @@ HDInsight R Server oluşturma işlemini ARM şablonları, SDK ve aynı zamanda P
 
    `ssh-keygen -t rsa -b 2048`
 
-   * Anahtar dosyasını adlandırmak için istemleri izleyin ve daha fazla güvenlik için bir parola girin. Ekranınız aşağıdaki gibi görünmelidir:
+   * Anahtar dosyasını adlandırmak için istemleri izleyin ve daha fazla güvenlik için bir şifre girin. Ekranınız aşağıdaki gibi görünmelidir:
 
    ![Windows'da SSH cmd satırı](./media/hdinsight-getting-started-with-r/sshcmdline.png)
 
@@ -502,7 +499,7 @@ Betik Eylemleri, HDInsight kümesinde yapılandırma değişiklikleri yapmak vey
 
    * **Parametreler**: Yüklenecek R paketleri. Örneğin, `bitops stringr arules`
 
-   * **Bu betiği kalıcı yap...**: Bu değer **İşaretlenmiş** olmalıdır  
+   * **Bu betiği kalıcı yap...** : Bu değer **İşaretlenmiş** olmalıdır  
 
    > [!NOTE]
    > 1. Varsayılan olarak, tüm R paketleri Microsoft MRAN deposunun yüklü olan R Server sürümüyle tutarlı bir anlık görüntüsünden yüklenir.  Paketlerin yeni sürümlerini yüklemek isterseniz bir uyumsuzluk riski oluşur, ancak paket listesinin ilk öğesi olarak `useCRAN` değerini belirterek bunu yapabilirsiniz (örneğin `useCRAN bitops, stringr, arules`).  
@@ -629,6 +626,10 @@ Yetkisi alınan tüm çalışan düğümleri işlem düğümü üzerinde çalı�
 * "URI’ler" bölümüne bakın ve çalışan düğümünün IP ve bağlantı noktası bilgilerini ekleyin.
 
 ![çalışan düğümlerinin yetkisini alma komut satırı](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## <a name="troubleshoot"></a>Sorun giderme
+
+HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

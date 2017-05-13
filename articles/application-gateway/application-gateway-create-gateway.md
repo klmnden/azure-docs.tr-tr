@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 8b72a3f26e356af588e9f5c2039bcc525366ce11
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 79e373a69f3b899dea1f10ac447a0284931648f4
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 02/28/2017
 > * [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway, bir katman&7; yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok Application Delivery Controller (ADC) özelliği sunar. Desteklenen özelliklerin tam listesi için bkz. [Application Gateway’e Genel Bakış](application-gateway-introduction.md)
+Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok Application Delivery Controller (ADC) özelliği sunar. Desteklenen özelliklerin tam listesi için bkz. [Application Gateway’e Genel Bakış](application-gateway-introduction.md)
 
 Bu makale, uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme adımlarında size eşlik eder.
 
@@ -106,11 +107,11 @@ Ağ geçidi daha başlatılmadığından dolayı *VirtualIPs* ve *DnsName* boş 
 
 XML veya bir yapılandırma nesnesi kullanarak uygulama ağ geçidini yapılandırabilirsiniz.
 
-## <a name="configure-the-application-gateway-by-using-xml"></a>XML kullanarak uygulama ağ geçidi yapılandırma
+### <a name="configure-the-application-gateway-by-using-xml"></a>XML kullanarak uygulama ağ geçidi yapılandırma
 
 Aşağıdaki örnekte, tüm uygulama ağ geçidi ayarlarını yapılandırmak için bir XML dosyası kullanır ve bu ayarları uygulama ağ geçidi kaynağına uygularsınız.  
 
-### <a name="step-1"></a>1. Adım
+#### <a name="step-1"></a>1. Adım
 
 Aşağıdaki metni Notepad’a kopyalayın.
 
@@ -211,7 +212,7 @@ Aşağıdaki örnekte uygulama ağ geçidi ayarlamak için yapılandırma dosyas
 </ApplicationGatewayConfiguration>
 ```
 
-### <a name="step-2"></a>2. Adım
+#### <a name="step-2"></a>2. Adım
 
 Sonra, uygulama ağ geçidini kurun. `Set-AzureApplicationGatewayConfig` cmdlet’ini, yapılandırma XML dosyasıyla kullanın.
 
@@ -219,14 +220,14 @@ Sonra, uygulama ağ geçidini kurun. `Set-AzureApplicationGatewayConfig` cmdlet�
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Bir yapılandırma nesnesi kullanarak uygulama ağ geçidi yapılandırma
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Bir yapılandırma nesnesi kullanarak uygulama ağ geçidi yapılandırma
 
 Aşağıdaki örnek yapılandırma nesnesi kullanarak nasıl uygulama ağ geçidi yapılandırılacağını gösterir. Tüm yapılandırma öğeleri ayrı ayrı yapılandırılıp bir uygulama ağ geçidi yapılandırma nesnesine eklenmelidir. Yapılandırma nesnesini oluşturduktan sonra, yapılandırmayı daha önce oluşturulmuş bir uygulama ağ geçidi kaynağına uygulamak için `Set-AzureApplicationGateway` komutunu kullanın.
 
 > [!NOTE]
 > Her yapılandırma nesnesine değer atamadan önce, PowerShell’in depolama için ne tür bir nesneyi kullanacağını belirtmeniz gerekir. Bağımsız öğeleri oluşturan birinci satır, kullanılan `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` öğelerini tanımlar.
 
-### <a name="step-1"></a>1. Adım
+#### <a name="step-1"></a>1. Adım
 
 Tüm bireysel yapılandırma öğelerini oluşturun.
 
@@ -297,7 +298,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-### <a name="step-2"></a>2. Adım
+#### <a name="step-2"></a>2. Adım
 
 Tüm bireysel yapılandırma öğelerini bir uygulama ağ geçidi yapılandırma nesnesine atayın ($appgwconfig).
 
@@ -385,9 +386,9 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-an-application-gateway"></a>Uygulama ağ geçidini silme
+## <a name="delete-the-application-gateway"></a>Uygulama ağ geçidini silme
 
-Uygulama ağ geçidi silmek için:
+Uygulama ağ geçidini silmek için:
 
 1. Ağ geçidini durdurmak için `Stop-AzureApplicationGateway` cmdlet’ini kullanın.
 2. Ağ geçidini kaldırmak için `Remove-AzureApplicationGateway` cmdlet’ini kullanın.
