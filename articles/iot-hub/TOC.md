@@ -81,6 +81,7 @@
 ### Doğrudan yöntemler kullanma
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-direct-methods.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-direct-methods.md)
+#### [Java arka ucu/Java cihazı](iot-hub-java-java-direct-methods.md)
 ### Cihaz yönetimini kullanmaya başlama
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-device-management-get-started.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-device-management-get-started.md)
@@ -105,6 +106,7 @@
 ### Karşıya dosya yüklemeyi yapılandırma
 #### [Portalı kullanma](iot-hub-configure-file-upload.md)
 #### [PowerShell kullanma](iot-hub-configure-file-upload-powershell.md)
+#### [CLI 2.0’ı kullanma](iot-hub-configure-file-upload-cli.md)
 ### [IoT cihazlarını toplu yönetme](iot-hub-bulk-identity-mgmt.md)
 ### [Ölçümleri kullanma](iot-hub-metrics.md)
 ### [İşlemleri izleme](iot-hub-operations-monitoring.md)
