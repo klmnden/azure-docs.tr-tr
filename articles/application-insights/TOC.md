@@ -18,12 +18,13 @@
 ### [Web Apps - çalışma zamanı](app-insights-java-live.md)
 ### [Docker uygulamaları](app-insights-docker.md)
 
+## Node.js uygulamalarını izleme
+### [Node.js](app-insights-nodejs.md)
 
 ## Web sayfalarını izleme
 ### [JavaScript](app-insights-javascript.md)
-
+ 
 ## Diğer platformları izleme
-### [Node.js uygulamaları](app-insights-nodejs.md)
 ### [SharePoint siteleri](app-insights-sharepoint.md)
 ### [Diğer platformlar](app-insights-platforms.md)
 
@@ -32,7 +33,6 @@
 ## Planlama ve tasarım
 ### [Web uygulamalarını ve hizmetleri ayrıntılı tanılama](app-insights-devops.md)
 ### [Web uygulamalarının performansını izleme](app-insights-web-monitor-performance.md)
-### [Application Insights ile kullanım analizi](app-insights-web-track-usage.md)
 ### [Application Insights kaynaklarını ayırma](app-insights-separate-resources.md)
 ### [Application Insights’ta nasıl ... yapabilirim?](app-insights-how-do-i.md)
 
@@ -50,7 +50,7 @@
 #### [Bağımlılıklar](app-insights-asp-net-dependencies.md)
 #### [Sürüm ek açıklamaları](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-
+#### [Anlık Görüntü Hata Ayıklayıcı](app-insights-snapshot-debugger.md)
 
 ### J2EE
 #### [Günlük izlemeleri](app-insights-java-trace-logs.md)
@@ -86,6 +86,11 @@
 #### [F5 öngörüleri](app-insights-visual-studio.md)
 #### [Eğilimler](app-insights-visual-studio-trends.md)
 #### [CodeLens](app-insights-visual-studio-codelens.md)
+
+### Kullanım
+#### [Genel Bakış](app-insights-usage-overview.md)
+#### [Bekletme](app-insights-usage-retention.md)
+#### [Kullanıcılar, Oturumlar, Etkinlikler](app-insights-usage-segmentation.md)
 
 ### Analiz
 
@@ -152,14 +157,14 @@
 ## Haberler
 
 ### [Blog](https://azure.microsoft.com/blog/tag/application-insights/)
-### [Hizmet güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
+### [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=application-insights) 
 ### [SDK sürüm notları](app-insights-release-notes.md)
 ### [Geliştirici Analizi Araçları Sürüm Notları](app-insights-release-notes-vsix.md)
 
 ## [SSS](app-insights-troubleshoot-faq.md)
 
 ## Yardım
-### [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
 ### [Destek](https://azure.microsoft.com/support/)

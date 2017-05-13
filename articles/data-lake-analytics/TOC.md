@@ -16,6 +16,8 @@
 # Nasıl yapılır?
 ## Geliştirme
 ### [U-SQL temelleri](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL kataloğu](data-lake-analytics-u-sql-catalog.md)
+### [U-SQL parametreleri](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [U-SQL pencere işlevleri](data-lake-analytics-use-window-functions.md)
 ### [U-SQL kullanıcı tanımlı işleçler](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python uzantıları](data-lake-analytics-u-sql-python-extensions.md)

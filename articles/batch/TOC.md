@@ -19,6 +19,7 @@
 ### [Etkili liste sorguları](batch-efficient-list-queries.md)
 ### [İş hazırlığı ve tamamlama görevleri](batch-job-prep-release.md)
 ### [Linux işlem düğümleri](batch-linux-nodes.md)
+### [Düşük öncelikli sanal makineler](batch-low-pri-vms.md)
 ### [Toplu İşlem Yönetimi .NET ile Batch hesaplarını yönetme](batch-management-dotnet.md)
 ### [İş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md)
 ### [Batch’de MPI işlerini çalıştırma](batch-mpi.md)

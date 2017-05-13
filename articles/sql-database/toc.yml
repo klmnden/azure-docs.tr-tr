@@ -43,6 +43,24 @@
     href: sql-database-security-tutorial.md
   - name: "4 - SQL DB performansını iyileştirme"
     href: sql-database-performance-tutorial.md
+  - name: "5 - Çok kiracılı uygulamayı yerleştirme"
+    href: sql-database-multi-tenant-application.md
+  - name: "6 - Çok kiracılı uygulamayı dağıtma"
+    href: sql-database-saas-tutorial.md
+  - name: "7 - Yeni kiracılar sağlama/kataloglama"
+    href: sql-database-saas-tutorial-provision-and-catalog.md
+  - name: "8 - Performansı izleme"
+    href: sql-database-saas-tutorial-performance-monitoring.md
+  - name: "9 - Tek bir kiracıyı geri yükleme"
+    href: sql-database-saas-tutorial-restore-single-tenant.md
+  - name: "10 - Kiracı şemalarını yönetme"
+    href: sql-database-saas-tutorial-schema-management.md
+  - name: "11 - Geçici analizler çalıştırma"
+    href: sql-database-saas-tutorial-adhoc-analytics.md
+  - name: "12 - Log Analytics ile izleme"
+    href: sql-database-saas-tutorial-log-analytics.md
+  - name: "13 - Kiracı analizini yönetme"
+
 - name: "Örnekler"
   items:
   - name: "Azure CLI"
@@ -144,7 +162,7 @@
       href: sql-database-long-term-retention.md
     - name: "Veritabanı kurtarma"
       href: sql-database-recovery-using-backups.md
-    - name: "Coğrafi çoğaltma"
+    - name: "Otomatik yük devretme ve coğrafi çoğaltma"
       href: sql-database-geo-replication-overview.md
     - name: "Oturum açma bilgileri"
       href: sql-database-geo-replication-security-config.md

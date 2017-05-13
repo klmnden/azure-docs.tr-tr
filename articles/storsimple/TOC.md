@@ -1,4 +1,5 @@
 # StorSimple Sanal Dizisi
+
 ## Genel Bakış
 ### [Çözüm nedir?](storsimple-ova-overview.md)
 
@@ -8,7 +9,7 @@
 #### [Sınırları anlama](storsimple-ova-limits.md)
 #### [En iyi uygulamaları inceleme](storsimple-ova-best-practices.md)
 
-### Dağıt (Azure portalı)
+### Dağıtma
 #### [Dağıtmaya hazırlanma](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [StorSimple Yöneticisi hizmetini dağıtma](storsimple-virtual-array-manage-service.md)
 #### [Hyper-V’de sağlama](storsimple-virtual-array-deploy2-provision-hyperv.md)
@@ -16,17 +17,10 @@
 #### [Dosya sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-fs-setup.md)
 #### [iSCSI sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-iscsi-setup.md)
 
-### Dağıt (Klasik portal)
-#### [Dağıtmaya hazırlanma](storsimple-ova-deploy1-portal-prep.md)
-##### [StorSimple Yöneticisi hizmetini dağıtma](storsimple-ova-manage-service.md)
-#### [Hyper-V’de sağlama](storsimple-ova-deploy2-provision-hyperv.md)
-#### [VMware’de sağlama](storsimple-ova-deploy2-provision-vmware.md)
-#### [Dosya sunucusu olarak ayarlama](storsimple-ova-deploy3-fs-setup.md)
-#### [iSCSI sunucusu olarak ayarlama](storsimple-ova-deploy3-iscsi-setup.md)
-
 ## Nasıl yapılır?
 ### [Azure portalı aracılığıyla yönetme](storsimple-virtual-array-manager-service-administration.md)
-#### [En son güncelleştirmeyi yükleme](storsimple-virtual-array-install-update-04.md)
+#### [En son güncelleştirmeyi yükleme](storsimple-virtual-array-install-update-05.md)
+##### [Güncelleştirme 0.4’ü yükleme](storsimple-virtual-array-install-update-04.md)
 ##### [Güncelleştirme 0.3’ü yükleme](storsimple-virtual-array-install-update.md)
 #### [Yedek oluşturma ve yedekleri yönetme](storsimple-virtual-array-backup.md)
 #### [Yedeklerden kopyalama](storsimple-virtual-array-clone.md)
@@ -44,22 +38,11 @@
 #### [Tanılama ve sorun giderme](storsimple-virtual-array-diagnose-problems.md)
 #### [Günlük Desteği isteği](storsimple-virtual-array-log-support-ticket.md)
 
-### [Klasik Azure portalı ile yönetme](storsimple-ova-manager-service-administration.md)
-#### [En son güncelleştirmeyi yükleme](storsimple-ova-install-update-01.md)
-#### [Yedek oluşturma ve yedekleri yönetme](storsimple-ova-backup.md)
-#### [Yedeklerden geri yükleme](storsimple-ova-restore.md)
-#### [Yük Devretme ve DR](storsimple-ova-failover-dr.md)
-#### [Devre dışı bırakma ve silme](storsimple-ova-deactivate-and-delete-device.md)
-#### [Hizmet izleme panosu](storsimple-ova-service-dashboard.md)
-#### [Cihaz parolasını değiştirme](storsimple-ova-change-device-admin-password.md)
-#### [ACR’leri yönetme](storsimple-ova-manage-acrs.md)
-#### [Depolama hesaplarını yönetme](storsimple-ova-manage-storage-accounts.md)
-#### [İşleri yönetme](storsimple-ova-manage-jobs.md)
-#### [Windows Server ana bilgisayarında MPIO yapılandırma](storsimple-ova-configure-mpio-windows-server.md)
 ### [Yerel web arabirimi aracılığıyla yapılandırma](storsimple-ova-web-ui-admin.md)
 
 ## Sürüm notları
-### [Güncelleştirme 0.4 - geçerli](storsimple-virtual-array-update-04-release-notes.md)
+### [Güncelleştirme 0.5 - geçerli](storsimple-virtual-array-update-05-release-notes.md)
+### [Güncelleştirme 0.4](storsimple-virtual-array-update-04-release-notes.md)
 ### [Güncelleştirme 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Güncelleştirme 0.2 ve 0.1](storsimple-ova-update-01-release-notes.md)
 
@@ -71,6 +54,7 @@
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](storsimple-security.md)
 
 ## Başlarken
+
 ### Planlama
 #### [Gereksinimleri inceleme](storsimple-system-requirements.md)
 #### [Teknik özellikleri inceleme](storsimple-technical-specifications-and-compliance.md)
@@ -80,7 +64,6 @@
 ### Yükleme
 #### [Güvenliği inceleme](storsimple-safety.md)
 #### [8100 için açma, raflama ve kablolama](storsimple-8100-hardware-installation.md)
-
 #### [8600 için açma, raflama ve kablolama](storsimple-8600-hardware-installation.md)
 #### [10 GbE ağ arabirimleri için desteklenen donanımlar](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -96,6 +79,7 @@
 #### [SharePoint için StorSimple Bağdaştırıcısı](storsimple-adapter-for-sharepoint.md)
 
 ## Nasıl yapılır?
+
 ### Yönet
 #### [StorSimple Yöneticisi hizmetini kullanma](storsimple-manager-service-administration.md)
 ##### [Bir yedeklemeden geri yükleme](storsimple-restore-from-backup-set-u2.md)
@@ -214,6 +198,7 @@
 ### [Varsayılan blob yolunu değiştirme](storsimple-data-manager-change-default-blob-path.md)
 
 # İş ortakları için StorSimple
+
 ## Genel Bakış
 ### [Çözüm nedir?](storsimple-partner-csp-overview.md)
 

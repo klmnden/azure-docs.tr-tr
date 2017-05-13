@@ -20,6 +20,9 @@
 #### [Sanal veriler](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
 #### [Gerçek algılayıcılar kullanma](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
 #### [Üretici yazılımı güncelleştirmesini uygulama](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Intel NUC ağ geçidinizi bağlama
+### [Sanal veriler](iot-suite-gateway-kit-get-started-simulator.md)
+### [Gerçek algılayıcı kullanma](iot-suite-gateway-kit-get-started-sensortag.md)
 
 # Nasıl yapılır?
 ## Sanal cihaza bağlanma
@@ -33,6 +36,7 @@
 ## [Uzaktan izleme çözümünde özel kural oluşturma](iot-suite-custom-rule.md)
 ## [Uzaktan izleme çözümündeki cihaz bilgileri](iot-suite-remote-monitoring-device-info.md)
 ## [Bağlı fabrika için ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md)
+## [Özel bağlı fabrika](iot-suite-connected-factory-customize.md)
 
 # Başvuru
 ## [Güvenlik mimarisi](iot-security-architecture.md)

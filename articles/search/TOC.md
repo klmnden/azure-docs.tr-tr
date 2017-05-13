@@ -43,7 +43,7 @@
 ### [Azure Blob Depolama dizin oluşturucu](search-howto-indexing-azure-blob-storage.md)
 ### [Azure Tablo Depolama dizin oluşturucu](search-howto-indexing-azure-tables.md)
 ### [Azure SQL dizin oluşturucu](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Azure DocumentDB dizin oluşturucu](search-howto-index-documentdb.md)
+### [Azure Cosmos DB dizinleyici](search-howto-index-documentdb.md)
 ### [CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
 ### [JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
 ### [Azure sanal makinesinde dizin oluşturucu SQL Server bağlantılarını yapılandırma](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
