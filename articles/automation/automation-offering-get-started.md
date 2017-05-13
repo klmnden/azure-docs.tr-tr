@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -98,8 +99,6 @@ Azure portalında bir Otomasyon hesabı oluşturduğunuzda otomatik olarak iki k
 
 Rol tabanlı erişim denetimi, Azure AD kullanıcı hesabı ve Farklı Çalıştır hesabına izin verilen eylemleri vermek, ve bu hizmet sorumlusunun kimliğini doğrulamak için Azure Resource Manager ile kullanılabilir.  Otomasyon izinlerinin yönetilmesi için modelinizin geliştirilmesine yardımcı olma hakkında daha fazla bilgi için [Azure Otomasyonu’nda rol tabanlı erişim denetimi](automation-role-based-access-control.md) makalesini okuyun.  
 
-
-
 #### <a name="authentication-methods"></a>Kimlik doğrulama yöntemleri
 Aşağıdaki tabloda, Azure Otomasyonu tarafından desteklenen her ortamla ilgili farklı kimlik doğrulaması yöntemleri özetlenmiştir.
 
@@ -136,6 +135,13 @@ Belirli bir bölge için tanımlanmış bir Otomasyon hesabınız varsa ve bu b�
 | Avustralya Güneydoğu |ase-jobruntimedata-prod-su1.azure-automation.net |
 | Birleşik Krallık Güney | uks-jobruntimedata-prod-su1.azure-automation.net |
 | ABD Devleti Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+Adların yerine IP adreslerinin bir listesi için Microsoft Yükleme Merkezi’nden [Azure Veri Merkezi IP adresi](https://www.microsoft.com/download/details.aspx?id=41653) xml dosyasını indirip gözden geçirin. 
+
+> [!NOTE]
+> Bu dosya, Microsoft Azure Veri Merkezlerinde kullanılan IP adresi aralıklarını (İşlem, SQL ve Depolama aralıkları dahil olmak üzere) içerir. O anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri yansıtan güncelleştirilmiş bir dosya haftalık olarak yayınlanır. Dosyada görünen yeni aralıklar en az bir hafta boyunca veri merkezlerinde kullanılmaz. Lütfen her hafta yeni xml dosyasını indirin ve Azure’da çalışan hizmetleri doğru şekilde tanımlamak üzere sitenizde gerekli değişiklikleri yapın. Express Route kullanıcıları bu dosyanın, her ayın ilk haftasında Azure alanındaki BGP tanıtımını güncelleştirmek için kullanıldığını fark edebilir. 
+> 
+
 
 ## <a name="implementation"></a>Uygulama
 
@@ -191,27 +197,6 @@ Otomasyon eklemek için önerilen yöntem, Market’ten Otomasyon ve Denetim tek
 8. Otomasyon ve OMS çalışma alanı ekleme işlemine devam etmek için **Oluştur**’a tıklayın. Tüm ayarlar doğrulanır ve sonra teklifin aboneliğinize dağıtılması denenir.  Bu işlemin tamamlanması birkaç saniye alabilir ve ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz. 
 
 Teklif eklendikten sonra runbook oluşturmaya, etkinleştirdiğiniz yönetim çözümleriyle çalışmaya veya bulut ya da şirket içi ortamlarınızdaki kaynaklar tarafından oluşturulan verileri toplamak üzere [Log Analytics](https://docs.microsoft.com/azure/log-analytics) ile çalışmaya başlayabilirsiniz.   
-
-### <a name="resources-included"></a>Kaynaklar dahil
-Otomasyon hesabı başarıyla oluşturulduğunda bazı kaynaklar sizin için otomatik olarak oluşturulur. Kaynaklar aşağıdaki iki tabloda özetlenmiştir:<br>
-
-#### <a name="run-as-account-resources"></a>Farklı Çalıştır hesabının kaynakları
-
-| Kaynak | Açıklama |
-| --- | --- |
-| AzureAutomationTutorial Runbook | Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmayı gösteren ve tüm Resource Manager kaynaklarını alan örnek bir grafik runbook. |
-| AzureAutomationTutorialScript Runbook | Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmayı gösteren ve tüm Resource Manager kaynaklarını alan örnek bir PowerShell runbook. |
-| AzureRunAsCertificate | Bir Otomasyon hesabı oluşturduğunuzda veya var olan bir hesap için aşağıdaki PowerShell betiğini kullandığınızda otomatik olarak oluşturulan sertifika varlığı. Sertifika, Azure Resource Manager kaynaklarını runbook’lardan yönetebilmeniz için Azure kimlik doğrulaması yapmanıza imkan tanır. Bu sertifikanın bir yıllık kullanım ömrü vardır. |
-| AzureRunAsConnection | Bir Otomasyon hesabı oluşturduğunuzda veya var olan bir hesap için PowerShell betiğini kullandığınızda otomatik olarak oluşturulan bağlantı varlığı. |
-
-#### <a name="classic-run-as-account-resources"></a>Klasik Farklı Çalıştır hesabının kaynakları
-
-| Kaynak | Açıklama |
-| --- | --- |
-| AzureClassicAutomationTutorial Runbook | Klasik Farklı Çalıştır hesabı (sertifika) kullanarak, bir abonelikte klasik dağıtım modeli ile oluşturulan tüm VM’leri alan ve sonra VM adı ile durumunu yazan, örnek grafik runbook. |
-| AzureClassicAutomationTutorial Script Runbook | Klasik Farklı Çalıştır hesabı (sertifika) kullanarak bir abonelikteki tüm klasik VM'leri alan ve sonra VM adını ve durumunu yazan, örnek PowerShell runbook. |
-| AzureClassicRunAsCertificate | Otomatik olarak oluşturulan ve Azure klasik kaynaklarını runbook’lardan yönetebilmeniz için Azure kimlik doğrulaması yapmak üzere kullandığınız sertifika varlığı. Bu sertifikanın bir yıllık kullanım ömrü vardır. |
-| AzureClassicRunAsConnection | Otomatik olarak oluşturulan ve Azure klasik kaynaklarını runbook’lardan yönetebilmeniz için Azure kimlik doğrulaması yapmak üzere kullandığınız bağlantı varlığı.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Otomasyonu Farklı Çalıştır hesabı kimlik doğrulama testi](automation-verify-runas-authentication.md) bölümünü gözden geçirerek, yeni Otomasyon hesabınızın Azure kaynaklarıyla kimlik doğrulaması yapıp yapamadığını onaylayabilirsiniz.

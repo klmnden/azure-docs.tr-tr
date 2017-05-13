@@ -4,7 +4,7 @@ description: "Bu belge, Azure Güvenlik Merkezi’nin, Azure kaynaklarınızın 
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
-ms.lasthandoff: 12/02/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 8dddfc8929ab1a0c44522ed2a2596e2c82e3987d
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -37,10 +38,10 @@ Güvenlik Merkezi’nde iş ortağı tümleştirmesinden yararlanmak için dört
 ## <a name="what-partners-are-integrated-with-security-center"></a>Güvenlik Merkezi hangi iş ortakları ile tümleştirilebilir?
 Güvenlik Merkezi şu anda aşağıdaki iş ortaklarıyla tümleştirilebilir:
 
-- Uç Nokta Koruması (Trend Micro), 
-- Web Uygulaması Güvenlik Duvarı (Barracuda, F5, Imperva ve yakında Microsoft WAF ve Fortinet), 
-- Yeni Nesil Güvenlik Duvarı (Check Point, Barracuda ve yakında Fortinet ve Cisco) çözümleri. 
-- Güvenlik Açığı Değerlendirmesi (Qualys - önizleme) çözümleri. 
+- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)) 
+- Web Uygulaması Güvenlik Duvarı ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [App Gateway WAF](https://azure.microsoft.com/en-us/blog/azure-web-application-firewall-waf-generally-available/)) 
+- Yeni Nesil Güvenlik Duvarı ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) ve [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
+- Güvenlik Açığı Değerlendirmesi ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) - önizleme)  
 
 Zamanla, Güvenlik Merkezi bu mevcut kategorilerdeki ortakların sayısını genişletecek ve yeni kategoriler ekleyecektir. 
 
@@ -57,7 +58,7 @@ Azure ortamınızın yapılandırmasına ve tanımladığınız güvenlik ilkesi
 
 Bir iş ortağı çözümü dağıtıldıktan sonra, ana Güvenlik Merkezi panosundaki İş ortağı çözümü kutucuğundan çözümün durumu hakkında bilgi alabilir ve temel yönetim görevlerini gerçekleştirebilirsiniz. Güvenlik Merkezi'nde iş ortağı çözümlerini yönetme hakkında daha fazla bilgi edinmek için [Azure Güvenlik Merkezi ile İş ortağı çözümlerini izleme](security-center-partner-solutions.md) konusunu okuyun.
 
-![İş Ortağı Tümleştirmesi](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
+![İş Ortağı Tümleştirmesi](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
 
 
 ## <a name="see-also"></a>Ayrıca bkz.

@@ -1,9 +1,9 @@
 ---
-title: "Node.js uygulamanızı Azure Application Insights ile izleme | Microsoft Docs"
-description: "Application Insights kullanarak şirket içi veya Microsoft Azure web uygulamanızın kullanımını, kullanılabilirliğini ve performansını analiz edin."
+title: Node.js hizmetlerini Azure Application Insights ile izleme | Microsoft Docs
+description: "Application Insights ile Node.js hizmetlerindeki performansı izleyin ve sorunları tanılayın."
 services: application-insights
-documentationcenter: 
-author: alancameronwills
+documentationcenter: nodejs
+author: joshgav
 manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
@@ -11,191 +11,197 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 310ada88bb4d9b39eeaa10f303b9e1bd3b1f927f
-ms.lasthandoff: 04/13/2017
+ms.date: 05/01/2017
+ms.author: joshgav
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 76a8025cd2a67533beb321c88e924517c1977dfc
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/02/2017
 
 
 ---
-# <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>Node.js uygulamanızı izlemek için Application Insights SDK’sı ekleme
 
+# <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights ile Node.js hizmetlerinizi ve uygulamalarınızı izleme
 
-[Azure Application Insights](app-insights-overview.md), [performans sorunlarını ve özel durumlarını saptayıp tanılamanıza](app-insights-detect-triage-diagnose.md) ve [uygulamanızın nasıl kullanıldığını keşfetmenize](app-insights-web-track-usage.md) yardımcı olmak amacıyla canlı uygulamanızı izler. Azure web uygulamalarının yanı sıra şirket içi kendi IIS sunucularınızda veya Azure sanal makinelerinde barındırılan uygulamalar için çalışır.
+[Azure Application Insights](app-insights-overview.md), [performans ve diğer sorunları keşfetmeye ve hızlıca tanılamaya](app-insights-detect-triage-diagnose.md) yardımcı olmak üzere, arka uç hizmetlerinizi ve bileşenlerinizi dağıtmanızdan sonra izler. Veri merkeziniz, Azure VM’leri, Web Apps ve hatta diğer genel bulutlar dahil herhangi bir yerde barındırılan Node.js hizmetleri için kullanın.
 
-SDK, gelen HTTP isteği oranlarının ve yanıtlarının, performans sayaçlarının (CPU, bellek, RPS) ve işlenmeyen özel durumların otomatik olarak toplanmasını sağlar. Ayrıca, bağımlılıkları, ölçümleri veya diğer olayları izlemek için özel çağrılar ekleyebilirsiniz.
+İzleme verilerinizi almak, depolamak ve araştırmak için kodunuza aracı ekleme ve Azure’da karşılık gelen Application Insights kaynağını ayarlamaya yönelik aşağıdaki yönergeleri izleyin. Aracı daha fazla analiz ve araştırma için verileri bu kaynağa gönderir.
+
+Node.js aracısı gelen ve giden HTTP isteklerini, birçok sistem ölçümünü ve özel durumları otomatik olarak izleyebilir. Sürüm 0.20 sonrası sürümlerde, `mongodb`, `mysql` ve `redis` gibi bazı yaygın üçüncü taraf paketlerini de izleyebilir. Gelen bir HTTP isteği ile ilgili tüm olaylar, daha hızlı sorun giderme için birbiriyle ilişkilendirilir.
+
+Daha sonra açıklanacak olan aracı API’si ile el ile izleyerek, uygulama ve sisteminizin daha fazla yönünü izleyebilirsiniz.
 
 ![Örnek performans izleme grafikleri](./media/app-insights-nodejs/10-perf.png)
 
-#### <a name="before-you-start"></a>Başlamadan önce
-Gerekenler:
+## <a name="getting-started"></a>Başlarken
 
-* Bir [Microsoft Azure](http://azure.com) aboneliği. Ekibinizin ve kuruluşunuzun Azure aboneliği varsa, sahibi [Microsoft hesabınızı](http://live.com) kullanarak sizi buna ekleyebilir.
+Şimdi, bir uygulama veya hizmet için izlemeyi ayarlama adımlarına bakalım.
 
-## <a name="add"></a>Application Insights kaynağı oluşturma
-[Azure portalında][portal] oturum açın ve yeni bir Application Insights kaynağı oluşturun. Azure'da [kaynak][roles] bir hizmetin örneğidir. Bu kaynak, uygulamanızdan alınan telemetri verilerinin analiz edilip size sunulacağı yerdir.
+### <a name="resource"></a> App Insights kaynağı oluşturma
 
-![Yeni, Application Insights öğesine tıklayın](./media/app-insights-nodejs/01-new-asp.png)
+**Başlamadan önce**, bir Azure aboneliğine sahip olduğunuzdan emin olun veya [ücretsiz olarak yeni bir tane edinin][azure-free-offer]. Kuruluşunuzun bir Azure aboneliğini zaten varsa, yöneticiniz [bu yönergeleri][add-aad-user] izleyerek sizi aboneliğe ekleyebilir.
 
-Uygulama türü olarak Genel'i seçin. Uygulama türü seçimi, kaynak dikey pencerelerinin varsayılan içeriğini ve [Ölçüm Gezgini][metrics] içinde görünen özellikleri belirler.
+[azure-free-offer]: https://azure.microsoft.com/en-us/free/
+[add-aad-user]: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-create-azure-portal
 
-#### <a name="copy-the-instrumentation-key"></a>İzleme Anahtarını Kopyalama
-Kaynağı tanımlayan bu anahtarı kısa bir süre sonra verileri kaynağa yönlendirmek için SDK’ya yükleyeceksiniz.
+Şimdi [Azure portalında][portal] oturum açın ve aşağıda gösterilen şekilde bir Application Insights kaynağı oluşturun - "Yeni" > "Geliştirici araçları" > "Application Insights" öğesine tıklayın. Kaynak; telemetri verilerini, bu veriler için depolamayı, kayıtlı rapor ve panoları, kural ve uyarı yapılandırmasını almak ve diğer işlemlere yönelik bir uç nokta içerir.
 
-![Özellikler'e tıklayın, anahtarı seçin ve ctrl + C tuşlarına basın](./media/app-insights-nodejs/02-props-asp.png)
+![App Insights kaynağı oluşturma](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 
-## <a name="sdk"></a> Uygulamanıza SDK'yı yükleme
-```
+Kaynak oluşturma sayfasındaki uygulama türü açılır listesinden "Node.js Uygulaması" öğesini seçin. Uygulama türü, sizin için oluşturulan varsayılan pano ve rapor kümesini belirler. Ancak endişelenmeyin, herhangi bir Application Insights kaynağı herhangi bir dil ve platformdan veri toplayabilir.
+
+![Yeni App Insights kaynağı formu](./media/app-insights-nodejs/04-create_appinsights_resource.png)
+
+### <a name="agent"></a> Node.js aracısını ayarlama
+
+Şimdi aracıyı veri toplayabilmesi için uygulamanıza eklemeniz gerekiyor.
+İlk olarak, aşağıda gösterildiği gibi kaynağınızın İzleme Anahtarını (bundan böyle `ikey`‘iniz olarak ifade edilecektir) portaldan kopyalayın. App Insights sistemi, verileri Azure kaynağınıza eşlemek için bu anahtarı kullanır; bu nedenle, bu anahtarı aracının kullanabilmesi için bir ortam değişkeninde ya da kodunuzda belirtmeniz gerekir.  
+
+![İzleme anahtarını kopyalama](./media/app-insights-nodejs/05-appinsights_ikey_portal.png)
+
+Ardından, Node.js aracı kitaplığını package.json aracılığıyla uygulamanızın bağımlılıklarına ekleyin. Uygulamanızın kök klasöründen şunu çalıştırın:
+
+```bash
 npm install applicationinsights --save
 ```
 
-## <a name="usage"></a>Kullanım
-Bu işlem istek izleme, işlenmemiş özel durum izleme ve sistem performansı izlemeyi (CPU/Bellek/RPS) etkinleştirir.
+Şimdi kitaplığı kodunuza açıkça yüklemeniz gerekir. Aracı diğer birçok kitaplığa izleme eklediği için, aracıyı diğer `require` deyimlerinden de önce olmak üzere mümkün olduğunca erken yüklemeniz gerekir. Başlamak için ilk .js dosyanızın üstüne şunu ekleyin:
 
 ```javascript
-
-var appInsights = require("applicationinsights");
-appInsights.setup("<instrumentation_key>").start();
+const appInsights = require("applicationinsights");
+appInsights.setup("<instrumentation_key>");
+appInsights.start();
 ```
 
-İzleme anahtarı APPINSIGHTS_INSTRUMENTATIONKEY ortam değişkeninde de ayarlanabilir. Bu yapılırsa `appInsights.setup()` veya `appInsights.getClient()` çağrılırken bağımsız değişken gerekmez.
+`setup` yöntemi, izleme anahtarını (ve bu nedenle Azure kaynağını) izlenen tüm öğeler için varsayılan olarak kullanılacak şekilde yapılandırır. Telemetri verilerini toplayıp göndermeye başlamak için yapılandırma tamamlandıktan sonra `start` öğesini çağırın.
 
-SDK’yı telemetri verilerini göndermeden deneyebilirsiniz: İzleme anahtarını boş olmayan bir dize olarak ayarlayın.
+Ayrıca `setup()` veya `getClient()` konumuna el ile geçirmek yerine APPINSIGHTS\_INSTRUMENTATIONKEY ortam değişkeni aracılığıyla bir ikey sağlayabilirsiniz. Bu uygulama, ikey’leri yürütülen kaynak kodunun dışında tutmanıza ve farklı ortamlar için farklı ikey’ler belirtmenize olanak tanır.
 
-## <a name="run"></a> Projenizi çalıştırma
-Uygulamanızı çalıştırın ve deneyin: Birkaç telemetri oluşturmak için farklı sayfalar açın.
+Ek yapılandırma seçenekleri aşağıda belirtilmiştir.
 
-## <a name="monitor"></a> Telemetrinizi görüntüleme
-[Azure portal](https://portal.azure.com)’a geri dönün ve Application Insights kaynağınıza göz atın.
+İzleme anahtarını boş olmayan bir dizeye ayarlayarak, aracıyı telemetri göndermeden deneyebilirsiniz.
 
-Genel Bakış sayfasında veri arayın. İlk olarak yalnızca bir veya iki nokta görürsünüz. Örneğin:
+### <a name="monitor"></a> Uygulamanızı izleme
 
-![Daha fazla veri için tıklayın](./media/app-insights-nodejs/12-first-perf.png)
+Aracı, Node.js çalışma zamanı ve bazı yaygın üçüncü taraf modülleriyle ilgili telemetriyi otomatik olarak toplar. Şimdi uygulamanızı kullanarak bu verilerin bazılarını oluşturun.
 
-Daha ayrıntılı ölçümler görmek için herhangi bir grafiğe tıklayın. [Ölçümler hakkında daha fazla bilgi edinin.][perf]
+Ardından, [Azure portalında][portal] daha önce oluşturduğunuz Application Insights kaynağına göz atın ve aşağıdaki görüntüde gösterildiği gibi Genel Bakış zaman çizelgesinde ilk birkaç veri noktanızı arayın. Daha fazla ayrıntı için grafiklere tıklayın.
+
+![İlk veri noktaları](./media/app-insights-nodejs/12-first-perf.png)
+
+Aşağıdaki görüntüde gösterildiği gibi, uygulamanız için bulunan topolojiyi görüntülemek için Uygulama eşlemesi düğmesine tıklayın. Daha fazla bilgi için eşlemedeki bileşenlere tıklayın.
+
+![Basit uygulama eşlemesi](./media/app-insights-nodejs/06-appinsights_appmap.png)
+
+Uygulamanız hakkında daha fazla bilgi almak ve sorunları gidermek için "Araştır" bölümü altında mevcut olan diğer görünümleri kullanın.
+
+![Araştır bölümü](./media/app-insights-nodejs/07-appinsights_investigate_blades.png)
 
 #### <a name="no-data"></a>Veri yok mu?
-* Birkaç telemetri oluşturması için farklı sayfaları açarak uygulamayı kullanın.
-* Olayları tek tek görmek için [Ara](app-insights-diagnostic-search.md) kutucuğunu açın. Bazı durumlarda olayların ölçüm ardışık düzenine ulaşması biraz daha uzun sürer.
-* Birkaç saniye bekleyin ve **Yenile**’ye tıklayın. Grafikler kendilerini düzenli olarak yeniler, ancak bazı verilerin görüntülenmesini bekliyorsanız el ile yenileyebilirsiniz.
-* Bkz. [Sorun giderme][qna].
 
-## <a name="publish-your-app"></a>Uygulamanızı yayımlama
-Şimdi uygulamanızı IIS veya Azure’a dağıtın ve verilerin birikmesini izleyin.
+Aracı gönderilecek verileri toplu hale getirdiği için, öğelerin portalde gösterilmesi biraz gecikebilir. Verileri kaynağınızda görmüyorsanız, aşağıdaki düzeltmelerden bazılarını deneyin:
 
-#### <a name="no-data-after-you-publish-to-your-server"></a>Sunucunuza yayımladıktan sonra veri yok mu?
-[Gerekli güvenlik duvarı bağlantı noktalarının açık olduğunu](app-insights-ip-addresses.md) kontrol edin.
+* Uygulamayı biraz daha kullanın; daha fazla telemetri oluşturmak için daha fazla eylem gerçekleştirin.
+* Portal kaynak görünümünde **Yenile**’ye tıklayın. Grafikler kendilerini düzenli aralıklarla otomatik olarak yeniler, ancak yenileme işlemi bunu hemen gerçekleşmeye zorlar.
+* [Gerekli giden bağlantı noktalarının](app-insights-ip-addresses.md) açık olduğunu doğrulayın.
+* [Ara](app-insights-diagnostic-search.md) kutucuğunu açın ve olayları tek tek arayın.
+* [SSS][] sayfasını inceleyin.
 
-#### <a name="trouble-on-your-build-server"></a>Derleme sunucunuzda sorun mu yaşıyorsunuz?
-Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild) bakın.
 
-## <a name="customized-usage"></a>Özelleştirilmiş Kullanım
-### <a name="disabling-auto-collection"></a>Otomatik toplamayı devre dışı bırakma
+## <a name="agent-configuration"></a>Aracı Yapılandırması
+
+Aracının yapılandırma yöntemleri ve varsayılan değerleri aşağıda verilmiştir.
+
+Bir hizmetteki olayları tam olarak ilişkilendirmek için `.setAutoDependencyCorrelation(true)` ayarını yaptığınızdan emin olun. Bunun yapılması, aracının Node.js içindeki zaman uyumsuz geri çağırmalar arasında içeriği izlemesine olanak tanır.
+
 ```javascript
-import appInsights = require("applicationinsights");
+const appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
-    .setAutoCollectRequests(false)
-    .setAutoCollectPerformance(false)
-    .setAutoCollectExceptions(false)
-    // no telemetry will be sent until .start() is called
+    .setAutoDependencyCorrelation(false)
+    .setAutoCollectRequests(true)
+    .setAutoCollectPerformance(true)
+    .setAutoCollectExceptions(true)
+    .setAutoCollectDependencies(true)
     .start();
 ```
 
-### <a name="custom-monitoring"></a>Özel izleme
-```javascript
-import appInsights = require("applicationinsights");
-var client = appInsights.getClient();
+## <a name="agent-api"></a>Aracı API'si
 
-client.trackEvent("custom event", {customProperty: "custom property value"});
+<!-- TODO: Fully document agent API. -->
+
+.NET aracı API’si [burada](app-insights-api-custom-events-metrics.md) eksiksiz olarak açıklanmıştır.
+
+Application Insights Node.js istemcisini kullanarak herhangi bir istek, olay, ölçüm veya özel durumu izleyebilirsiniz. Aşağıdaki örnek, kullanılabilir API'lerden bazılarını göstermektedir.
+
+```javascript
+let appInsights = require("applicationinsights");
+appInsights.setup().start(); // assuming ikey in env var
+let client = appInsights.getClient();
+
+client.trackEvent("my custom event", {customProperty: "custom property value"});
 client.trackException(new Error("handled exceptions can be logged with this method"));
 client.trackMetric("custom metric", 3);
 client.trackTrace("trace message");
-```
 
-[Telemetri API’si hakkında daha fazla bilgi edinin](app-insights-api-custom-events-metrics.md).
-
-### <a name="using-multiple-instrumentation-keys"></a>Birden çok izleme anahtarı kullanma
-```javascript
-import appInsights = require("applicationinsights");
-
-// configure auto-collection with one instrumentation key
-appInsights.setup("<instrumentation_key>").start();
-
-// get a client for another instrumentation key
-var otherClient = appInsights.getClient("<other_instrumentation_key>");
-otherClient.trackEvent("custom event");
-```
-
-## <a name="examples"></a>Örnekler
-### <a name="tracking-dependency"></a>Bağımlılık izleme
-```javascript
-import appInsights = require("applicationinsights");
-var client = appInsights.getClient();
-
-var startTime = Date.now();
-// execute dependency call
-var endTime = Date.now();
-
-var elapsedTime = endTime - startTime;
-var success = true;
-client.trackDependency("dependency name", "command name", elapsedTime, success);
-```
-
-
-
-### <a name="manual-request-tracking-of-all-get-requests"></a>Tüm "GET" istekleri için el ile istek izleme
-```javascript
-var http = require("http");
-var appInsights = require("applicationinsights");
-appInsights.setup("<instrumentation_key>")
-    .setAutoCollectRequests(false) // disable auto-collection of requests for this example
-    .start();
-
-// assign common properties to all telemetry sent from the default client
-appInsights.client.commonProperties = {
-    environment: process.env.SOME_ENV_VARIABLE
-};
-
-// track a system startup event
-appInsights.client.trackEvent("server start");
-
-// create server
-var port = process.env.port || 1337
-var server = http.createServer(function (req, res) {
-    // track all "GET" requests
-    if(req.method === "GET") {
-        appInsights.client.trackRequest(req, res);
-    }
-
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end("Hello World\n");
-}).listen(port);
-
-// track startup time of the server as a custom metric
-var start = +new Date;
-server.on("listening", () => {
-    var end = +new Date;
-    var duration = end - start;
-    appInsights.client.trackMetric("StartupTime", duration);
+let http = require("http");
+http.createServer( (req, res) => {
+  client.trackRequest(req, res); // Place at the beginning of your request handler
 });
 ```
 
-## <a name="video"></a>Video
+### <a name="track-your-dependencies"></a>Bağımlılıklarınızı izleme
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+```javascript
+let appInsights = require("applicationinsights");
+let client = appInsights.getClient();
 
-## <a name="next-steps"></a>Sonraki adımlar
+var success = false;
+let startTime = Date.now();
+// execute dependency call here....
+let duration = Date.now() - startTime;
+success = true;
+
+client.trackDependency("dependency name", "command name", duration, success);
+```
+
+### <a name="add-a-custom-property-to-all-events"></a>Tüm olaylara özel bir özellik ekleme
+
+```javascript
+appInsights.client.commonProperties = {
+    environment: process.env.SOME_ENV_VARIABLE
+};
+```
+
+### <a name="track-http-get-requests"></a>HTTP GET isteklerini izleme
+
+```javascript
+var server = http.createServer((req, res) => {
+    if ( req.method === "GET" ) {
+            appInsights.client.trackRequest(req, res);
+    }
+    // other work here....
+    res.end();
+});
+```
+
+### <a name="track-server-startup-time"></a>Sunucu başlangıç saatini izleme
+
+```javascript
+let start = Date.now();
+server.on("listening", () => {
+    let duration = Date.now() - start;
+    appInsights.client.trackMetric("server startup time", duration);
+});
+```
+
+## <a name="more-resources"></a>Diğer kaynaklar
+
 * [Portalda telemetrinizi izleme](app-insights-dashboards.md)
 * [Telemetriniz üzerinden Analiz sorguları yazma](app-insights-analytics-tour.md)
 
-<!--Link references-->
+<!--references-->
 
-[knowUsers]: app-insights-web-track-usage.md
-[metrics]: app-insights-metrics-explorer.md
-[perf]: app-insights-web-monitor-performance.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[roles]: app-insights-resources-roles-access-control.md
+[portal]: https://portal.azure.com/
+[SSS]: app-insights-troubleshoot-faq.md
 

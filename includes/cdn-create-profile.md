@@ -1,6 +1,6 @@
 **Yeni bir CDN profili oluşturmak için**
 
-1. [Azure Portal](https://portal.azure.com)’da, sol üst taraftaki **Yeni**’ye tıklayın.  **Yeni** dikey penceresinde **Medya + CDN**’yi, ardından da **CDN**’yi seçin.
+1. [Azure Portal](https://portal.azure.com)’da, sol üst taraftaki **Yeni**’ye tıklayın.  **Yeni** dikey penceresinde **Web + Mobil**’i, ardından da **CDN**’yi seçin.
    
     Yeni CDN profili dikey penceresi görüntülenir.
    
@@ -13,9 +13,4 @@
     ![CDN fiyatlandırma katmanı seçimi](./media/cdn-create-profile/cdn-choose-sku-include.png)
 6. Bu CDN profiliyle ilgili **Abonelik** seçeneğini belirleyin.
 7. Yeni profili oluşturmak için **Oluştur**’a tıklayın. 
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

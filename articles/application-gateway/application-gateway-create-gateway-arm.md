@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 11ecfc993f17c89d4ac4431e9a835000d30afe76
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -107,7 +108,7 @@ Yukarıdaki örnekte, **appgw-RG** adlı, **Batı ABD** konumlu bir kaynak grubu
 > [!NOTE]
 > Uygulama ağ geçidiniz için özel bir araştırma yapılandırmanız gerekiyorsa, [PowerShell kullanarak özel araştırmalara sahip bir uygulama ağ geçidi oluşturma](application-gateway-create-probe-ps.md) sayfasını ziyaret edin. Daha fazla bilgi için [özel araştırmalar ve sistem durumu izleme](application-gateway-probe-overview.md) konusunu inceleyin.
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Uygulama ağ geçidi için bir sanal ağ ve bir alt ağ oluşturun
+## <a name="create-a-virtual-network-and-a-subnet"></a>Sanal ağ ve alt ağ oluşturma
 
 Aşağıdaki örnek Resource Manager kullanarak nasıl sanal ağ oluşturulacağını gösterir. Bu örnek, Application Gateway için bir sanal ağ oluşturur. Application Gateway kendi alt ağını gerektirdiğinden, Application Gateway için oluşturulan alt ağ, sanal ağ adres alanından küçüktür. Daha küçük bir alt ağ kullanılması, web sunucularını da kapsayan ancak bunlarla sınırlı olmayan diğer kaynakların aynı sanal ağda yapılandırılmasına olanak tanır.
 
@@ -135,7 +136,7 @@ Sonraki adımlar için alt ağ değişkenini atayın; bu değişken sonraki bir 
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Ön uç yapılandırma için genel bir IP adresi oluşturun
+## <a name="create-a-public-ip-address"></a>Genel IP adresi oluşturma
 
 Batı ABD bölgesi için **appgw-rg** kaynak grubunda **publicIP01** genel bir IP kaynağı oluşturun. Application Gateway, yük dengeleme isteklerini almak için genel IP adresi, iç IP adresi veya her ikisini birden kullanabilir.  Bu örnekte yalnızca genel IP adresi kullanılmaktadır. Aşağıdaki örnekte, genel IP adresi oluşturmak için bir DNS adı yapılandırılmaz.  Application Gateway, genel IP adreslerinde özel DNS adlarını desteklemez.  Genel bir uç nokta için özel bir ad gerekirse, genel IP adresi için otomatik oluşturulan DNS adını işaret eden bir CNAME kaydı oluşturulmalıdır.
 
@@ -219,7 +220,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > **InstanceCount** için varsayılan değer 2 ile 10 arasıdır. **GatewaySize** için varsayılan değer Medium’dur. Aynı zamanda **Standard_Small**, **Standard_Medium**, ve **Standard_Large** seçenekleri de bulunmaktadır.
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>New-AzureRmApplicationGateway kullanarak bir uygulama ağ geçidi oluşturma
+## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
 Önceki adımlarda geçen tüm yapılandırma öğeleri ile bir uygulama ağ geçidi oluşturun. Bu örnekte uygulama ağ geçidi **appgwtest** olarak adlandırılmıştır.
 
@@ -233,7 +234,7 @@ Uygulama ağ geçidine eklenen ortak IP kaynağından uygulama ağ geçidinin DN
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## <a name="delete-an-application-gateway"></a>Uygulama ağ geçidini silme
+## <a name="delete-the-application-gateway"></a>Uygulama ağ geçidini silme
 
 Uygulama ağ geçidini silmek için aşağıdaki adımları izleyin:
 
@@ -296,6 +297,14 @@ IpConfiguration          : {
 DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
+```
+
+## <a name="delete-all-resources"></a>Tüm kaynakları silme
+
+Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları tamamlayın:
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
