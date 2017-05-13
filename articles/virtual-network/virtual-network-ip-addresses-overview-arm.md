@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0506de98119576aae8f55cc6067f0bee95334c87
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1156135200e05f8a2585467f37805a72d67279ba
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -72,7 +73,7 @@ Bir genel IP kaynağı için DNS etki alanı ad etiketi belirtebilirsiniz; bu du
 >
 
 ### <a name="virtual-machines"></a>Sanal makineler
-Genel bir IP adresini bir [Windows](../virtual-machines/windows/about.md) veya [Linux](../virtual-machines/virtual-machines-linux-about.md) VM’nin **ağ arabirimine** giderek VM ile ilişkilendirebilirsiniz. Bir VM’nin birden çok ağ arabirimine sahip olması durumunda adresi yalnızca *birincil* ağ arabirimine atayabilirsiniz. Bir VM’ye dinamik veya statik bir genel IP adresi atayabilirsiniz.
+Genel bir IP adresini bir [Windows](../virtual-machines/windows/overview.md) veya [Linux](../virtual-machines/virtual-machines-linux-about.md) VM’nin **ağ arabirimine** giderek VM ile ilişkilendirebilirsiniz. Bir VM’nin birden çok ağ arabirimine sahip olması durumunda adresi yalnızca *birincil* ağ arabirimine atayabilirsiniz. Bir VM’ye dinamik veya statik bir genel IP adresi atayabilirsiniz.
 
 ### <a name="internet-facing-load-balancers"></a>İnternet'e yönelik yük dengeleyiciler
 Genel bir IP adresini bir **Azure Load Balancer**’ın [ön uç](../load-balancer/load-balancer-overview.md) yapılandırmasına atayarak yük dengeleyiciyle ilişkilendirebilirsiniz. Bu genel IP adresi yükü dengelenmiş bir sanal IP adresi (VIP) olarak işlev görür. Bir yük dengeleyici ön ucuna dinamik veya statik bir genel IP adresi atayabilirsiniz. Ayrıca, SSL tabanlı web sitelerinde çok kiracılı bir ortam gibi [çok VIP’li](../load-balancer/load-balancer-multivip.md) senaryoları mümkün kılmak için bir yük dengeleyici ön ucuna birden çok genel IP adresi de atayabilirsiniz.
@@ -116,7 +117,7 @@ Statik özel IP adresleri yaygın olarak şunlar için kullanılır:
 * Bir IP adresi üzerinden diğer uygulamalar/kaynaklar tarafından erişilen kaynaklar.
 
 ### <a name="virtual-machines"></a>Sanal makineler
-Bir [Windows](../virtual-machines/windows/about.md) veya [Linux](../virtual-machines/virtual-machines-linux-about.md) VM’nin **ağ arabirimine** özel bir IP adresi atanır. Bir VM’nin birden çok ağ arabirimi olması durumunda her arabirime özel bir IP adresi atanır. Bir ağ arabirimi için ayırma yöntemini dinamik veya statik olarak belirtebilirsiniz.
+Bir [Windows](../virtual-machines/windows/overview.md) veya [Linux](../virtual-machines/virtual-machines-linux-about.md) VM’nin **ağ arabirimine** özel bir IP adresi atanır. Bir VM’nin birden çok ağ arabirimi olması durumunda her arabirime özel bir IP adresi atanır. Bir ağ arabirimi için ayırma yöntemini dinamik veya statik olarak belirtebilirsiniz.
 
 #### <a name="internal-dns-hostname-resolution-for-vms"></a>İç DNS ana bilgisayar adı çözümlemesi (VM’ler için)
 Siz açıkça özel DNS sunucuları yapılandırmadığınız sürece, tüm Azure VM’leri varsayılan olarak [Azure tarafından yönetilen DNS sunucuları](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) ile yapılandırılmıştır. Bu DNS sunucuları aynı VNet’te bulunan VM’ler için iç ad çözümleme sağlar.
