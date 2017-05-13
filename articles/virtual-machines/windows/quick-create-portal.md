@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: df6f1b86b706d58a5c07a4f3de43a1872da61511
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -36,7 +37,7 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
 2. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
 
-3. **Yeni** dikey penceresinden **İşlem**’i, **İşlem** dikey penceresinden **Windows Server 2016 Datacenter**’ı seçin ve ardından **Oluştur** düğmesine tıklayın.
+3. **Yeni** dikey penceresinden **İşlem**’i, **İşlem** dikey penceresinden *Windows Server 2016 Datacenter*’ı seçin ve ardından **Oluştur** düğmesine tıklayın.
 
 4. Sanal makine **Temel Bilgiler** formunu doldurun. Burada girilen kullanıcı adı ve parola, sanal makinede oturum açarken kullanılır. **Kaynak grubu** için yeni bir tane oluşturun. Kaynak grubu, Azure kaynaklarının oluşturulup toplu olarak yönetildiği bir mantıksal kapsayıcıdır. İşlem tamamlandığında **Tamam**’a tıklayın.
 
@@ -46,21 +47,21 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
     ![VM boyutlarını gösteren ekran görüntüsü](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-6. Ayarlar dikey penceresinde, **Yönetilen diskleri kullan** altında **Evet**’i seçin, kalan ayarları varsayılan değerlerinde bırakın ve **Tamam**’a tıklayın.
+6. Ayarlar dikey penceresinde, **Yönetilen diskleri kullan** altında *Evet*’i seçin, kalan ayarları varsayılan değerlerinde bırakın ve **Tamam**’a tıklayın.
 
 7. Özet sayfasında **Tamam**’a tıklayarak sanal makine dağıtımını başlatın.
 
-8. Dağıtım durumunu izlemek için sanal makineye tıklayın. VM, Azure portal panosunda veya sol menüdeki **Sanal Makineler** seçilerek bulunabilir. VM oluşturulduğunda, **Dağıtılıyor** olan durumu **Çalışıyor** olarak değişir.
+8. Dağıtım durumunu izlemek için sanal makineye tıklayın. VM, Azure portal panosunda veya sol menüdeki **Sanal Makineler** seçilerek bulunabilir. VM oluşturulduğunda, *Dağıtılıyor* olan durumu *Çalışıyor* olarak değişir.
 
 ## <a name="open-port-80-for-web-traffic"></a>Web trafiği için 80 numaralı bağlantı noktasını açın 
 
 IIS trafiğine izin vermek için 80 numaralı bağlantı noktasını web trafiğine açmanız gerekir. Bu adım 80 numaralı bağlantı noktasında gelen bağlantılara izin vermek üzere bir ağ güvenliği grubu (NSG) kuralı oluşturma işlemini gösterir.
 
 1. Sanal makinenin dikey penceresindeki **Temel Bileşenler** bölümünde **Kaynak grubu** adına tıklayın.
-2. Kaynak grubu dikey penceresinde, kaynak listesindeki **Ağ güvenlik grubu**’na tıklayın. NSG adı, sonuna -nsg eklenmiş VM adı olmalıdır.
+2. Kaynak grubu dikey penceresinde, kaynak listesindeki **Ağ güvenlik grubu**’na tıklayın. NSG adı, sonuna *-nsg* eklenmiş VM adı olmalıdır.
 3. Gelen kural listesini açmak için **Gelen Güvenlik Kuralı**’na tıklayın. Listede RDP için zaten bir kural olduğunu görürsünüz.
 4. **+ Ekle**’ye tıklayarak **Gelen güvenlik kuralı ekle** dikey penceresini açın.
-5. **Ad** alanına **IIS** yazın. **Bağlantı noktası aralığı** değerinin 80, **Eylem** ayarının **İzin Ver** olarak belirlendiğinden emin olun. **Tamam** düğmesine tıklayın.
+5. **Ad** alanına *IIS* yazın. **Bağlantı noktası aralığı** değerinin *80*, **Eylem** ayarının *İzin Ver* olarak belirlendiğinden emin olun. **Tamam** düğmesine tıklayın.
 
 
 ## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
@@ -88,7 +89,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>IIS karşılama sayfasını görüntüleme
 
-Sanal makinenizde İnternet’ten IIS yüklenmiş ve bağlantı noktası 80 açık olduğunda, varsayılan IIS karşılama sayfasını görüntülemek için seçtiğiniz bir web tarayıcısını kullanabilirsiniz. VM dikey penceresinden **Genel IP adresini** alın ve bu adresi kullanarak varsayılan web sayfasını ziyaret edin. 
+Sanal makinenizde İnternet’ten IIS yüklenmiş ve bağlantı noktası 80 açık olduğunda, varsayılan IIS karşılama sayfasını görüntülemek için seçtiğiniz bir web tarayıcısını kullanabilirsiniz. VM dikey penceresinden *Genel IP adresini* alın ve bu adresi kullanarak varsayılan web sayfasını ziyaret edin. 
 
 ![Varsayılan IIS sitesi](./media/quick-create-powershell/default-iis-website.png) 
 

@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 71c6c5ffacf49b907e3e9f488789f31928b25823
-ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: b76020e3e5855a63c416851d9b9adefdbdc5874a
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -27,7 +29,7 @@ ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
 
 
 
-Azure Container Service'te Kubernetes'in, Azure API'leri ile etkileşime geçmek için bir hizmet hesabı olarak [Azure Active Directory hizmet sorumlusuna](../active-directory/active-directory-application-objects.md) ihtiyacı vardır. Hizmet sorumlusu, kullanıcı tanımlı yollar ve 4. Katman Azure Load Balancer gibi kaynakları dinamik olarak yönetmek için gereklidir.
+Azure Container Service'te Kubernetes'in, Azure API'leri ile etkileşime geçmek için bir hizmet hesabı olarak [Azure Active Directory hizmet sorumlusuna](../active-directory/active-directory-application-objects.md) ihtiyacı vardır. Hizmet sorumlusu, [kullanıcı tanımlı yollar](../virtual-network/virtual-networks-udr-overview.md) ve [4. Katman Azure Load Balancer](../load-balancer/load-balancer-overview.md) gibi kaynakları dinamik olarak yönetmek için gereklidir.
 
 Bu makalede Kubernetes kümeniz için hizmet sorumlusu belirtmek üzere kullanabileceğini farklı seçenekler gösterilmektedir. Örneğin, [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) yüklemesini ve kurulumunu yaptıysanız, [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) komutunu çalıştırarak Kubernetes kümesini ve hizmet sorumlusunu aynı anda oluşturabilirsiniz.
 
@@ -138,9 +140,4 @@ az vm list-sizes --location westus
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Kapsayıcı hizmeti kümenizde [Kubernetes ile çalışmaya başlama](container-service-kubernetes-walkthrough.md).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 
