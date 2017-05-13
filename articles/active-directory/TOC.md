@@ -3,7 +3,6 @@
 ## [Sürüm seçin](active-directory-editions.md)
 
 ## [Azure kimlik yönetimi hakkında](identity-fundamentals.md)
-## [Azure Portalı deneyiminin önizlemesini gerçekleştirme](active-directory-preview-explainer.md)
 
 # Başlarken
 ## [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
@@ -82,7 +81,7 @@
 ### [Risk altındaki kullanıcılar](active-directory-reporting-security-user-at-risk.md)
 ### [Riskli oturum açma işlemleri](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk olayları](active-directory-reporting-risk-events.md)
-### [Adlandırılmış ağlar](active-directory-known-networks-azure-portal.md)
+### [Adlandırılmış konumlar](active-directory-named-locations.md)
 ### [Rapor geçişi](active-directory-reporting-migration.md)
 ### [Bekletme](active-directory-reporting-retention.md)
 ### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)

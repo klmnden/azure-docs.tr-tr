@@ -53,6 +53,7 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Kaynakları düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
+### [UI tanımları oluşturma](managed-application-createuidefinition-overview.md)
 ## Erişim Denetleme
 ### [PowerShell ile hizmet sorumlusu oluşturma](resource-group-authenticate-service-principal.md)
 ### [Azure CLI 2.0 ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -82,6 +83,7 @@
 ### [Sayısal işlevler](resource-group-template-functions-numeric.md)
 ### [Kaynak işlevleri](resource-group-template-functions-resource.md)
 ### [Dize işlevleri](resource-group-template-functions-string.md)
+## [UI tanımı işlevleri](managed-application-createuidefinition-functions.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

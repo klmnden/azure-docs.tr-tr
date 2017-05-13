@@ -1,5 +1,6 @@
 # Genel Bakış
-## [Azure İzleyiciye Genel Bakış](monitoring-overview.md)
+## [Azure üzerinde izleme araçları](monitoring-overview.md)
+## [Azure İzleyici](monitoring-overview-azure-monitor.md)
 ## [Ölçümler](monitoring-overview-metrics.md)
 ## [Uyarılar](monitoring-overview-alerts.md)
 ## [Otomatik Ölçeklendirme](monitoring-overview-autoscale.md)
@@ -7,12 +8,14 @@
 ## [Eylem Grupları](monitoring-action-groups.md)
 ## [Tanılama Günlükleri](monitoring-overview-of-diagnostic-logs.md)
 ## [İş Ortağı Tümleştirmeleri](monitoring-partners.md)
-## [Azure Tanılama](azure-diagnostics.md)
+## [Azure Tanılama Uzantısı](azure-diagnostics.md)
 
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Azure İzleyici’yi kullanmaya başlama](monitoring-get-started.md)
+## [Otomatik Ölçeklendirmeye Başlama](monitoring-autoscale-get-started.md)
 ## [Rol İzinleri ve Güvenlik](monitoring-roles-permissions-security.md)
+
 
 # Nasıl yapılır?
 ## Uyarıları kullanma
@@ -24,6 +27,8 @@
 ## Otomatik ölçeklendirmeyi kullanma
 ### [Otomatik ölçeklendirme için En İyi Yöntemler](insights-autoscale-best-practices.md)
 ### [Otomatik ölçeklendirme için genel ölçümler](insights-autoscale-common-metrics.md)
+### [Ortak otomatik ölçeklendirme desenleri](monitoring-autoscale-common-scale-patterns.md)
+### [Özel ölçüm kullanarak otomatik ölçeklendirme](monitoring-autoscale-scale-by-custom-metric.md)
 ### [Resource Manager şablonlarını kullanarak VM Ölçek Kümelerini otomatik](insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Sanal Makine Ölçek Kümesi’nde makineleri otomatik olarak ölçeklendirin](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Otomatik ölçeklendirmede web kancalarını ve e-posta bildirimlerini yapılandırma](insights-autoscale-to-webhook-email.md)
@@ -48,7 +53,7 @@
 ### [Resource Manager şablonlarını kullanarak Tanılama Ayarlarını etkinleştirme](monitoring-enable-diagnostic-logs-using-template.md)
 ## REST API kullanma
 ### [REST API kullanımı ile ilgili kılavuz](monitoring-rest-api-walkthrough.md)
-## Azure Tanılama’yı kullanma
+## Azure Tanılama uzantısı kullanma
 ### [Application Insights’a gönderme](azure-diagnostics-configure-application-insights.md)
 ### [Event Hubs’a gönderme](azure-diagnostics-streaming-event-hubs.md)
 ### [Sorun giderme](azure-diagnostics-troubleshooting.md)

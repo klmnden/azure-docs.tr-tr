@@ -78,32 +78,27 @@
 ## [Hizmet Sınırlamaları](../active-directory-service-limits-restrictions.md)
 # v2.0 uç nokta
 ## [Genel Bakış](active-directory-appmodel-v2-overview.md)
-### [Farklılıklar](active-directory-v2-compare.md)
 ### [Uygulama türleri](active-directory-v2-flows.md)
 ### [Sınırlamalar](active-directory-v2-limitations.md)
-## Hızlı Başlangıçlar
-### Mobile Apps
-#### [iOS](active-directory-v2-devquickstarts-ios.md)
-#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
-#### [Android](active-directory-v2-devquickstarts-android.md)
-### Web uygulamaları ve API'leri
-#### [Node JS özellikli AngularJS](active-directory-v2-devquickstarts-angular-node.md)
-#### [.NET özellikli AngularJS](active-directory-v2-devquickstarts-angular-dotnet.md)
-#### [.NET Web Uygulaması](active-directory-v2-devquickstarts-dotnet-web.md)
-#### [.NET Web API’si](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [NodeJS API’si](active-directory-v2-devquickstarts-node-api.md)
+### [v1-v2 karşılaştırması](active-directory-v2-compare.md)
+## Kullanmaya Başlama
+### Mobil ve Masaüstü uygulamaları
+#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [Android](guidedsetups/active-directory-android.md)
+#### [Windows Masaüstü .NET](guidedsetups/active-directory-windesktop.md)
+### Web uygulamaları
+#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [ASP.NET Web Sunucusu](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS Web uygulaması](active-directory-v2-devquickstarts-node-web.md)
-#### [.NET Web Uygulamasından Web API](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 ## Kılavuzlar
 ### [Bir uygulamayı kaydetme](active-directory-v2-app-registration.md)
 ## Başvuru
-### [Uygulama kayıt başvurusu](active-directory-v2-registration-portal.md)
 ### [Kimlik doğrulama kitaplıkları](active-directory-v2-libraries.md)
 ### [v2.0 Kimlik Doğrulama Protokolleri](active-directory-v2-protocols.md)
-#### [Belirteç başvurusu](active-directory-v2-tokens.md)
-#### [OAuth2.0 yetkilendirme kod akışı](active-directory-v2-protocols-oauth-code.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-#### [Örtük akış](active-directory-v2-protocols-implicit.md)
-#### [Oauth 2.0 istemci kimlik bilgileri](active-directory-v2-protocols-oauth-client-creds.md)
+#### [OAuth 2.0 yetkilendirme kodu verme](active-directory-v2-protocols-oauth-code.md)
+#### [OAuth 2.0 örtülü izin](active-directory-v2-protocols-implicit.md)
+#### [OAuth 2.0 istemci kimlik bilgileri verme](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Oauth 2.0 On-Behalf-Of akışı](active-directory-v2-protocols-oauth-on-behalf-of.md)
+#### [Belirteç başvurusu](active-directory-v2-tokens.md)
 ### [Kapsamlar](active-directory-v2-scopes.md)

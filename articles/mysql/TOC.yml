@@ -1,0 +1,105 @@
+- name: MySQL Belgeleri için Azure DB
+  href: index.yml
+- name: Genel Bakış
+  items:
+  - name: MySQL için Azure DB
+    href: overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+  - name: DB Oluşturma - Portal
+    href: quickstart-create-mysql-server-database-using-azure-portal.md
+  - name: DB Oluşturma - Azure CLI
+    href: quickstart-create-mysql-server-database-using-azure-cli.md
+- name: Öğreticiler
+  items:
+  - name: 1 - Veritabanı Tasarlama
+    items:
+    - name: Azure portalına
+      href: tutorial-design-database-using-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-using-cli.md
+  - name: 2 Web Uygulaması Oluşturma
+    items:
+    - name: Wordpress - Portal
+      href: ../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json
+    - name: PHP - Azure CLI
+      href: ../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
+- name: Örnekler
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
+- name: Kavramlar
+  items:
+  - name: DB ve Sunucular
+    items:
+    - name: Sunucular
+      href: concepts-servers.md
+    - name: Desteklenen sürümler
+      href: concepts-supported-versions.md
+  - name: Kaynaklar
+    items:
+    - name: Hizmet katmanları
+      href: concepts-service-tiers.md
+    - name: İşlem birimleri ve Depolama birimleri
+      href: concepts-compute-unit-and-storage.md
+    - name: Sınırlar
+      href: concepts-limits.md
+  - name: Veri erişimi ve güvenlik
+    items:
+    - name: Güvenlik duvarı kuralları
+      href: concepts-firewall-rules.md
+    - name: SSL’i Yapılandırma
+      href: concepts-ssl-connection-security.md
+  - name: Geliştirme
+    items:
+    - name: Bağlantı kitaplıkları
+      href: concepts-connection-libraries.md
+    - name: Uygulama geliştirme
+      href: concepts-database-application-development.md
+  - name: Veritabanınızın geçişini yapma
+    items:
+    - name: Döküm ve geri yükleme
+      href: concepts-migrate-dump-restore.md
+    - name: İçeri ve dışarı aktarma
+      href: concepts-migrate-import-export.md
+- name: Nasıl Yapılır Kılavuzları
+  items:
+  - name: Sunucu Yönetme
+    items:
+    - name: Azure portalına
+      href: howto-create-manage-server-portal.md
+  - name: Güvenlik duvarı kuralları
+    items:
+    - name: Azure portalına
+      href: howto-manage-firewall-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-firewall-using-cli.md
+  - name: Sunucuyu geri yükleme
+    items:
+    - name: Azure portalına
+      href: howto-restore-server-portal.md
+  - name: Uygulamaları Bağlama
+    items:
+    - name: Bağlantı Dizeleri
+      href: howto-connection-string.md
+    - name: SSL yapılandırma
+      href: howto-configure-ssl.md
+- name: Başvuru
+  items:
+  - name: Azure CLI
+    href: /cli/azure/mysql
+- name: Kaynaklar
+  items:
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/mysql/
+  - name: MSDN forumu
+    href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+  - name: Özellik isteme
+    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+  - name: Bölge kullanılabilirliği
+    href: https://azure.microsoft.com/regions/services/
+  - name: Destek seçenekleri
+    href: https://azure.microsoft.com/support/options/

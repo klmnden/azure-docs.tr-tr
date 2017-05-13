@@ -1,0 +1,66 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Azure İşlevleri Belgeleri"
+metadata:
+  title: "Azure İşlevleri Belgeleri - Öğreticileri | Microsoft Docs"
+  description: "Özel bir altyapı gerekmeksizin görevleri arka planda veya bir zamanlamaya göre çalıştırmak için tercih ettiğiniz dilde işlev geliştirme ve dağıtma hakkında bilgi edinin."
+  services: functions
+  author: apexprodleads
+  manager: carolz
+  ms.service: virtual-machines\linux
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01-23-2017
+  ms.author: carolz
+abstract:
+  description: "Azure İşlevleri, açıkça sağlamak veya altyapıyı yönetmek zorunda kalmadan kodu isteğe bağlı çalıştırmanıza olanak sağlayan bir sunucusuz işlem hizmetidir. Çok çeşitli olaylara yanıt olarak bir komut dosyası veya kod parçası çalıştırmak için Azure İşlevleri’ni kullanın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure İşlevleri’ni kullanmayı öğrenin."
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/get-started-with-azure-functions.png
+      width: 250  
+    title: "Azure İşlevleri’ni kullanmaya başlayın. (2:39)"
+    href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
+    width: 250
+sections:
+- title: "5 Dakikalık Hızlı Başlangıçlar"
+  items:
+  - type: paragraph
+    text: 'Learn how to create a Hello World function using:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure portal
+      href: /azure/azure-functions/functions-create-first-azure-function
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/azure-functions/functions-create-first-azure-function-azure-cli
+- title: "Adım Adım Öğreticiler"
+  items:
+  - type: paragraph
+    text: 'Learn how to build and manage Azure Functions'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/azure-functions/functions-twitter-email">Build a serverless social media dashboard</a>
+    - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
+- title: "Örnekler"
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
+- title: "Başvuru"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: "Komut Satırı"
+      html: <p><a href="/cli/azure">Azure CLI</a></p>

@@ -1,270 +1,298 @@
-- name: "Web Apps Belgeleri"
-  href: index.md
-- name: "Genel Bakış"
+- name: Web Apps Belgeleri
+  href: index.yml
+- name: Genel Bakış
   items:
-  - name: "Web Apps hakkında"
+  - name: Web Apps hakkında
     href: app-service-web-overview.md
-  - name: "Barındırma seçeneklerini karşılaştırma"
+  - name: Barındırma seçeneklerini karşılaştırma
     href: choose-web-site-cloud-service-vm.md
-- name: "Hızlı Başlangıçlar"
+- name: Hızlı Başlangıçlar
   expanded: true
   items:
-  - name: ".NET uygulaması oluşturma"
+  - name: .NET uygulaması oluşturma
     href: app-service-web-get-started-dotnet.md
-  - name: "Node.js uygulaması oluşturma"
+  - name: Node.js uygulaması oluşturma
     href: app-service-web-get-started-nodejs.md
-  - name: "PHP uygulaması oluşturma"
+  - name: PHP uygulaması oluşturma
     href: app-service-web-get-started-php.md
-  - name: "Java uygulaması oluşturma"
+  - name: Java uygulaması oluşturma
     href: app-service-web-get-started-java.md
-  - name: "Python uygulaması oluşturma"
+  - name: Python uygulaması oluşturma
     href: app-service-web-get-started-python.md
-  - name: "Statik HTML sitesi oluşturma"
+  - name: Statik HTML sitesi oluşturma
     href: app-service-web-get-started-html.md
-- name: "Öğreticiler"
+- name: Öğreticiler
   items:
-  - name: "1 - SQL DB ile .NET"
+  - name: 1 - SQL DB ile .NET
     href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: "1 - MongoDB ile Node.js"
+  - name: 1 - MongoDB ile Node.js
     href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: "2 - Özel Etki Alanı Eşleme"
+  - name: 1 - MySQL ile PHP
+    href: app-service-web-tutorial-php-mysql.md 
+  - name: 1 - MySQL ile WordPress
+    href: app-service-web-create-web-app-from-marketplace.md
+  - name: 1 - PostgreSQL ile Python
+    href: app-service-web-tutorial-docker-python-postgresql-app.md
+  - name: 2 - Özel Etki Alanı Eşleme
     href: app-service-web-tutorial-custom-domain.md
-  - name: "3- SSL Sertifikası Bağlama"
+  - name: 3- SSL Sertifikası Bağlama
     href: app-service-web-tutorial-custom-ssl.md
-- name: "Örnekler"
+  - name: 4 - Content Delivery Network ekleme
+    href: app-service-web-tutorial-content-delivery-network.md
+#  - name: 5 - Monitor your app
+#    href: app-service-web-tutorial-monitoring.md
+- name: Örnekler
   items:
-  - name: "Azure CLI"
+  - name: Azure CLI
     href: app-service-cli-samples.md
-  - name: "PowerShell"
+  - name: PowerShell
     href: app-service-powershell-samples.md
-- name: "Kavramlar"
+- name: Kavramlar
   items:
-  - name: "App Service nasıl çalışır?"
+  - name: App Service nasıl çalışır?
     href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: "App Service planları"
+  - name: App Service planları
     href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: "App Service ortamları"
+  - name: App Service ortamları
     href: app-service-app-service-environment-intro.md
-  - name: "Kimlik doğrulama ve yetkilendirme"
+  - name: Kimlik doğrulama ve yetkilendirme
     href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: "Şirket içi AD ile kimlik doğrulaması"
+  - name: Şirket içi AD ile kimlik doğrulaması
     href: web-sites-authentication-authorization.md
-- name: "Nasıl Yapılır Kılavuzları"
+- name: Nasıl Yapılır Kılavuzları
   items:
-  - name: "Uygulamanızı geliştirin"
+  - name: Uygulamanızı geliştirin
     items:
-    - name: "ASP.NET"
+    - name: ASP.NET
       items:
-      - name: "SQL Veritabanı ile ASP.NET uygulaması"
+      - name: SQL Veritabanı ile ASP.NET uygulaması
         href: web-sites-dotnet-get-started.md
-      - name: "VS Code ile ASP.NET Core uygulaması geliştirme"
+      - name: VS Code ile ASP.NET Core uygulaması geliştirme
         href: web-sites-create-web-app-using-vscode.md
-    - name: "PHP"
+    - name: PHP
       items:
-      - name: "MySQL ile Laravel uygulaması"
+      - name: MySQL ile Laravel uygulaması
         href: app-service-web-php-get-started.md
-      - name: "PHP projenizi ayarlama"
+      - name: PHP projenizi ayarlama
         href: web-sites-php-configure.md
-      - name: "WordPress Çoklu Sitenizi ayarlama"
+      - name: WordPress Çoklu Sitenizi ayarlama
         href: web-sites-php-convert-wordpress-multisite.md
-    - name: "Node.js"
+    - name: Node.js
       items:
-      - name: "NOSQL DB ile Sails.js uygulaması"
+      - name: NOSQL DB ile Sails.js uygulaması
         href: app-service-web-nodejs-sails.md
-      - name: "io.js kullanma"
+      - name: io.js kullanma
         href: web-sites-nodejs-iojs.md
-      - name: "Node.js uygulamasında hata ayıklama"
+      - name: Node.js uygulamasında hata ayıklama
         href: web-sites-nodejs-debug.md
-    - name: "Java"
+    - name: Java
       items:
-      - name: "Eclipse ile Java uygulaması"
+      - name: Eclipse ile Java uygulaması
         href: app-service-web-eclipse-create-hello-world-web-app.md
-      - name: "IntelliJ ile Java uygulaması"
+      - name: IntelliJ ile Java uygulaması
         href: app-service-web-intellij-create-hello-world-web-app.md
-      - name: "Java için Azure SDK’yı kullanma"
+      - name: Java için Azure SDK’yı kullanma
         href: java-create-azure-website-using-java-sdk.md
-      - name: "Mevcut uygulamayı karşıya yükleme"
+      - name: Mevcut uygulamayı karşıya yükleme
         href: web-sites-java-add-app.md
-      - name: "Eclipse’te uzaktan hata ayıklama"
+      - name: Eclipse’te uzaktan hata ayıklama
         href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: "IntelliJ’de uzaktan hata ayıklama"
+      - name: IntelliJ’de uzaktan hata ayıklama
         href: app-service-web-debug-java-web-app-in-intellij.md
-    - name: "Python"
+    - name: Python
       items:
-      - name: "MySQL ile Django uygulaması"
+      - name: MySQL ile Django uygulaması
         href: web-sites-python-ptvs-django-mysql.md
-    - name: "SendGrid ile e-posta gönderme"
+    - name: SendGrid ile e-posta gönderme
       href: sendgrid-dotnet-how-to-send-email.md
-    - name: "Çalışma zamanını yapılandırma"
+    - name: Çalışma zamanını yapılandırma
       items:
-      - name: "Windows üzerinde PHP"
+      - name: Windows üzerinde PHP
         href: web-sites-php-configure.md
-      - name: "Java"
+      - name: Java
         href: web-sites-java-add-app.md
-      - name: "Linux üzerinde Node.js"
-        href: app-service-linux-using-nodejs-pm2.md
-      - name: "Python"
+      - name: Python
         href: web-sites-python-configure.md
-    - name: "Uygulama yapılandırma"
+    - name: Uygulama yapılandırma
       items:
-      - name: "Uygulama ayarlarını kullanma"
+      - name: Uygulama ayarlarını kullanma
         href: web-sites-configure.md
-  - name: "Azure’a Dağıt"
+    - name: Linux üzerinde Web Uygulaması
+      items:
+      - name: Genel Bakış
+        href: app-service-linux-intro.md
+      - name: Linux üzerinde Web Uygulaması Oluşturma
+        href: app-service-linux-how-to-create-web-app.md
+      - name: Linux üzerinde Ruby Web Uygulaması
+        href: app-service-linux-ruby-get-started.md
+      - name: Linux üzerinde Node.js Web Uygulaması
+        href: app-service-linux-using-nodejs-pm2.md
+      - name: Linux üzerinde .NET Core Web Uygulaması
+        href: app-service-linux-using-dotnetcore.md
+      - name: Linux üzerinde Özel Docker Web Uygulaması
+        href: app-service-linux-using-custom-docker-image.md
+      - name: SSH ile bağlanma
+        href: app-service-linux-ssh-support.md
+      - name: Sürekli Dağıtım
+        href: app-service-linux-ci-cd.md
+      - name: Linux üzerinde Web Uygulaması SSS
+        href: app-service-linux-faq.md
+  - name: Azure’a Dağıt
     href: web-sites-deploy.md
     items:
-    - name: "FTP aracılığıyla dağıtma"
+    - name: FTP aracılığıyla dağıtma
       href: app-service-deploy-content-sync.md
-    - name: "Bulut eşitleme aracılığıyla dağıtma"
+    - name: Bulut eşitleme aracılığıyla dağıtma
       href: web-sites-deploy.md
-    - name: "Sürekli dağıtım"
+    - name: Sürekli dağıtım
       href: app-service-continuous-deployment.md
-    - name: "Hazırlık ortamına dağıtma"
+    - name: Hazırlık ortamına dağıtma
       href: web-sites-staged-publishing.md
-    - name: "Yerel Git’ten dağıtım"
+    - name: Yerel Git’ten dağıtım
       href: app-service-deploy-local-git.md
-    - name: "Şablon ile dağıtım"
+    - name: Şablon ile dağıtım
       href: app-service-deploy-complex-application-predictably.md
-    - name: "Çevik dağıtım"
+    - name: Çevik dağıtım
       href: app-service-agile-software-development.md
-    - name: "Beta testi"
+    - name: Beta testi
       href: app-service-web-test-in-production-controlled-test-flight.md
-    - name: "Dağıtım kimlik bilgilerini ayarlama"
+    - name: Dağıtım kimlik bilgilerini ayarlama
       href: app-service-deployment-credentials.md
-    - name: "Özel etki alanı eşleme"
+    - name: Özel etki alanı eşleme
       items:
-      - name: "Etki alanı satın alma"
+      - name: Etki alanı satın alma
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: "Üçüncü taraf etki alanı eşleme"
+      - name: Üçüncü taraf etki alanı eşleme
         href: web-sites-custom-domain-name.md
-      - name: "Traffic Manager ile etki alanlarını eşleme"
+      - name: Traffic Manager ile etki alanlarını eşleme
         href: web-sites-traffic-manager-custom-domain-name.md
-      - name: "GoDaddy etki alanlarını eşleme"
+      - name: GoDaddy etki alanlarını eşleme
         href: web-sites-godaddy-custom-domain-name.md
-      - name: "Etkin bir etki alanını geçirme"
+      - name: Etkin bir etki alanını geçirme
         href: app-service-custom-domain-name-migrate.md
-    - name: "IIS’ten geçiş"
+    - name: IIS’ten geçiş
       href: web-sites-migration-from-iis-server.md
-    - name: "Üretimde test"
+    - name: Üretimde test
       href: app-service-web-test-in-production-get-start.md
-    - name: "Web uygulamasına işlev ekleme"
+    - name: Web uygulamasına işlev ekleme
       href: app-service-web-get-started-2.md
-  - name: "DB/kaynaklara bağlanma"
+  - name: DB/kaynaklara bağlanma
     items:
-    - name: "Şirket içi verilere bağlanma"
+    - name: Şirket içi verilere bağlanma
       href: web-sites-hybrid-connection-get-started.md
-    - name: "Azure VNet’e bağlanma"
+    - name: Azure VNet’e bağlanma
       href: web-sites-integrate-with-vnet.md
-    - name: "PowerShell ile Azure VNet’e bağlanma"
+    - name: PowerShell ile Azure VNet’e bağlanma
       href: app-service-vnet-integration-powershell.md
-    - name: "Azure VM’de MongoDB’ye bağlanma"
+    - name: Azure VM’de MongoDB’ye bağlanma
       href: web-sites-dotnet-store-data-mongodb-vm.md
-  - name: "Güvenli uygulama"
+  - name: Güvenli uygulama
     items:
-    - name: "Kullanıcıların kimliklerini doğrulama"
+    - name: Kullanıcıların kimliklerini doğrulama
       items:
-      - name: "Azure AD ile kimlik doğrulaması"
+      - name: Azure AD ile kimlik doğrulaması
         href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Facebook ile kimlik doğrulaması"
+      - name: Facebook ile kimlik doğrulaması
         href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Google ile kimlik doğrulaması"
+      - name: Google ile kimlik doğrulaması
         href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Microsoft hesabıyla kimlik doğrulaması"
+      - name: Microsoft hesabıyla kimlik doğrulaması
         href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Twitter ile kimlik doğrulaması"
+      - name: Twitter ile kimlik doğrulaması
         href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: "Şirket için AD ile kimlik doğrulaması"
+      - name: Şirket için AD ile kimlik doğrulaması
         href: web-sites-authentication-authorization.md
-      - name: "Çok kiracılı veritabanı içeren uygulama"
+      - name: Çok kiracılı veritabanı içeren uygulama
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: "Özel SSL atama"
+    - name: Özel SSL atama
       items:
-      - name: "Üçüncü taraf SSL sertifikası yapılandırma"
+      - name: Üçüncü taraf SSL sertifikası yapılandırma
         href: web-sites-configure-ssl-certificate.md
-    - name: "HTTPS zorlama"
+    - name: HTTPS zorlama
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
-    - name: "TLS karşılıklı kimlik doğrulamayı yapılandırma"
+    - name: TLS karşılıklı kimlik doğrulamayı yapılandırma
       href: app-service-web-configure-tls-mutual-auth.md
-  - name: "Uygulama ölçeklendirme"
+  - name: Uygulama ölçeklendirme
     items:
-    - name: "Ölçeği artırma"
+    - name: Ölçeği artırma
       href: web-sites-scale.md
-    - name: "Ölçeği genişletme"
+    - name: Ölçeği genişletme
       href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: "Traffic Manager ile yük dengeleme"
+    - name: Traffic Manager ile yük dengeleme
       href: web-sites-traffic-manager.md
-    - name: "App Service Ortamları ile yüksek ölçek"
+    - name: App Service Ortamları ile yüksek ölçek
       href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: "Genel erişim için Azure CDN’yi kullanma"
+    - name: Genel erişim için Azure CDN’yi kullanma
       href: cdn-websites-with-cdn.md
-    - name: "Memcache aracılığıyla Redis Cache’e bağlanma"
+    - name: Memcache aracılığıyla Redis Cache’e bağlanma
       href: web-sites-connect-to-redis-using-memcache-protocol.md
-    - name: "Redis Cache oluşturma"
+    - name: Redis Cache oluşturma
       href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: "Azure Redis önbelleği ile oturum durumunu yönetme"
+    - name: Azure Redis önbelleği ile oturum durumunu yönetme
       href: web-sites-dotnet-session-state-caching.md
-  - name: "İzleme"
+  - name: İzleme
     items:
-    - name: "Uygulamaları izleme"
+    - name: Uygulamaları izleme
       href: web-sites-monitor.md
-    - name: "Günlükleri etkinleştirme"
+    - name: Günlükleri etkinleştirme
       href: web-sites-enable-diagnostic-log.md
-    - name: "Akış günlükleri"
+    - name: Akış günlükleri
       href: web-sites-streaming-logs-and-console.md
-  - name: "İçerik yedekleme"
+  - name: İçerik yedekleme
     items:
-    - name: "Uygulamanızı yedekleme"
+    - name: Uygulamanızı yedekleme
       href: web-sites-backup.md
-    - name: "Uygulamanızı yedekten geri yükleme"
+    - name: Uygulamanızı yedekten geri yükleme
       href: web-sites-restore.md
-    - name: "REST API ile yedekleme"
+    - name: REST API ile yedekleme
       href: websites-csm-backup.md
-  - name: "Uygulama kaynaklarını yönetme"
+  - name: Uygulama kaynaklarını yönetme
     items:
-    - name: "PowerShell ile uygulama kopyalama"
+    - name: PowerShell ile uygulama kopyalama
       href: app-service-web-app-cloning.md
-    - name: "Portal ile uygulama kopyalama"
+    - name: Portal ile uygulama kopyalama
       href: app-service-web-app-cloning-portal.md
-    - name: "Kaynakları taşıma"
+    - name: Kaynakları taşıma
       href: app-service-move-resources.md
-    - name: "Azure Resource Manager’ı PowerShell ile kullanma"
+    - name: Azure Resource Manager’ı PowerShell ile kullanma
       href: app-service-web-app-azure-resource-manager-powershell.md
-    - name: "Uygulamaları Azure Otomasyonu ile yönetme"
+    - name: Uygulamaları Azure Otomasyonu ile yönetme
       href: automation-manage-web-app.md
-- name: "Başvuru"
+- name: Başvuru
   items:
-  - name: "CLI 2.0"
+  - name: CLI 2.0
     href: /cli/azure/appservice
-  - name: "PowerShell"
+  - name: PowerShell
     href: /powershell
-  - name: "REST API"
+  - name: REST API
     href: /rest/api/appservice/
-- name: "Kaynaklar"
+- name: Kaynaklar
   items:
-  - name: "Sorun giderme"
+  - name: Sorun giderme
     items:
-    - name: "Visual Studio sorunlarını giderme"
+    - name: Visual Studio sorunlarını giderme
       href: web-sites-dotnet-troubleshoot-visual-studio.md
-    - name: "Node.js uygulamasında sorun giderme"
+    - name: Node.js uygulamasında sorun giderme
       href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
-    - name: "HTTP 502 ve 503 hatalarını giderme"
+    - name: HTTP 502 ve 503 hatalarını giderme
       href: app-service-web-troubleshoot-http-502-http-503.md
-    - name: "Performans sorunlarını giderme"
+    - name: Performans sorunlarını giderme
       href: app-service-web-troubleshoot-performance-degradation.md
-  - name: "Fiyatlandırma"
+  - name: Fiyatlandırma
     href: https://azure.microsoft.com/pricing/details/app-service/
-  - name: "Kota Bilgileri"
+  - name: Kota Bilgileri
     href: ../azure-subscription-service-limits.md#app-service-limits
-  - name: "Hizmet Güncelleştirmeleri ve Sürüm Notları"
+  - name: Hizmet Güncelleştirmeleri ve Sürüm Notları
     href: https://azure.microsoft.com/updates/?product=app-service
-  - name: "En iyi uygulamalar"
+  - name: En iyi uygulamalar
     href: app-service-best-practices.md
-  - name: "Örnekler"
+  - name: Örnekler
     href: https://azure.microsoft.com/resources/samples/?service=app-service
-  - name: "Videolar"
+  - name: Videolar
     href: https://azure.microsoft.com/resources/videos/index/?services=app-service
-  - name: "Yemek kitapları"
+  - name: Yemek kitapları
     items:
-    - name: "Başvuru Mimarileri"
+    - name: Başvuru Mimarileri
       href: ../guidance/guidance-ra-app-service.md
-    - name: "Dağıtım Betikleri"
+    - name: Dağıtım Betikleri
       href: https://azure.microsoft.com/documentation/scripts/

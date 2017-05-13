@@ -1,0 +1,128 @@
+- name: "İşlevler Belgeleri"
+  href: index.yml
+- name: "Genel Bakış"
+  items:
+  - name: "İşlevler Hakkında"
+    href: functions-overview.md
+  - name: "İşlevler Çalışma Zamanı"
+    href: functions-runtime-overview.md
+  - name: "Flow, Logic Apps, Functions ve WebJobs arasında seçim yapma"
+    href: functions-compare-logic-apps-ms-flow-webjobs.md
+- name: "Hızlı Başlangıçlar"
+  expanded: true
+  items:
+  - name: "İşlev oluşturma - Portal"
+    href: functions-create-first-azure-function.md
+  - name: "İşlev oluşturma - Azure CLI"
+    href: functions-create-first-azure-function-azure-cli.md
+#  - name: Create function - Visual Studio
+#    href: functions-create-your-first-function-visual-studio.md
+  - name: "Tetikleyiciler"
+    items:
+    - name: "Zamanlayıcı"
+      href: functions-create-scheduled-function.md
+    - name: "GitHub web kancası"
+      href: functions-create-github-webhook-triggered-function.md
+    - name: "Blob depolama"
+      href: functions-create-storage-blob-triggered-function.md
+    - name: "Kuyruk depolama"
+      href: functions-create-storage-queue-triggered-function.md
+  - name: "Tümleştirme"
+    items:
+    - name: "Depolama"
+      href: functions-integrate-storage-queue-output-binding.md
+#    - name: Cosmos DB
+#      href: functions-integrate-store-unstructured-data-cosmosdb.md
+- name: "Örnekler"
+  items:
+  - name: "Azure CLI"
+    href: functions-cli-samples.md
+- name: "Öğreticiler"
+  items:
+  - name: "1 - Logic Apps ile İşlevler"
+    href: functions-twitter-email.md
+  - name: "2 - Sunucusuz API oluşturma"
+    href: functions-create-serverless-api.md
+- name: "Kavramlar"
+  items:
+  - name: "Barındırma planları"
+    href: functions-scale.md
+  - name: "Tetikleyiciler ve bağlamalar"
+    href: functions-triggers-bindings.md
+- name: "Nasıl yapılır kılavuzları"
+  items:
+  - name: "Azure İşlevlerini test etme"
+    href: functions-test-a-function.md
+  - name: "Yerel olarak geliştirme ve hata ayıklama"
+    href: functions-run-local.md
+  - name: "Bir işlev uygulaması için ayarları yapılandırma"
+    href: functions-how-to-use-azure-function-app-settings.md
+  - name: "Azure İşlevleri için sürekli dağıtım"
+    href: functions-continuous-deployment.md
+  - name: "Kod olarak altyapı için İşlevleri Dağıtma"
+    href: functions-infrastructure-as-code.md
+  - name: "Azure İşlevleri’ni izleme"
+    href: functions-monitoring.md
+  - name: "İşlevler Çalışma Zamanını Yükleme"
+    href: functions-runtime-install.md
+- name: "Başvuru"
+  items:
+  - name: "İşlev uygulamaları geliştirme"
+    href: functions-reference.md
+    items:
+    - name: "Open API 2.0"
+      href: functions-api-definition.md
+  - name: "Azure İşlevleri için en iyi uygulamalar"
+    href: functions-best-practices.md
+  - name: "Bağlamalar"
+    items:
+    - name: "DocumentDB bağlamaları"
+      href: functions-bindings-documentdb.md
+    - name: "Olay Hub&quot;ı bağlamaları"
+      href: functions-bindings-event-hubs.md
+    - name: "HTTP ve web kancası bağlamaları"
+      href: functions-bindings-http-webhook.md
+    - name: "Mobile Apps bağlamaları"
+      href: functions-bindings-mobile-apps.md
+    - name: "Notification Hub’ı çıkışı bağlama"
+      href: functions-bindings-notification-hubs.md
+    - name: "Kuyruklar ve konular için Service Bus tetikleyicileri ve bağlamaları"
+      href: functions-bindings-service-bus.md
+    - name: "SendGrid bağlamaları"
+      href: functions-bindings-sendgrid.md
+    - name: "Depolama bağlamaları"
+      items:
+      - name: "Blob bağlamaları"
+        href: functions-bindings-storage-blob.md
+      - name: "Kuyruk bağlamaları"
+        href: functions-bindings-storage-queue.md
+      - name: "Tablo bağlamaları"
+        href: functions-bindings-storage-table.md
+      - name: "Dış dosya bağlamaları"
+        href: functions-bindings-external-file.md
+    - name: "SendGrid bağlamaları"
+      href: functions-bindings-sendgrid.md
+    - name: "Zamanlayıcı tetikleyicisi"
+      href: functions-bindings-timer.md
+    - name: "Twilio çıktı bağlaması"
+      href: functions-bindings-twilio.md
+  - name: "Framework’ler"
+    items:
+    - name: "C#"
+      href: functions-reference-csharp.md
+    - name: "F#"
+      href: functions-reference-fsharp.md
+    - name: "JavaScript"
+      href: functions-reference-node.md
+- name: "Kaynaklar"
+  items:
+  - name: "Fiyatlandırma"
+    href: https://azure.microsoft.com/pricing/details/functions/
+  - name: "MSDN forumu"
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
+  - name: "Stack Overflow"
+    href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: "Azure İşlevleri GitHub deposu"
+    href: https://github.com/Azure/Azure-Functions/
+  - name: "Hizmet güncelleştirmeleri"
+    href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=

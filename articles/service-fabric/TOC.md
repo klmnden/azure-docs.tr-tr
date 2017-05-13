@@ -18,6 +18,7 @@
 ### [Linux üzerinde Java](service-fabric-create-your-first-linux-application-with-java.md)
 ### [Linux üzerinde C#](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Yerel bir kümede uygulamaları dağıtma](service-fabric-get-started-with-a-local-cluster.md)
+## [Bir kapsayıcıda .NET uygulamalarını dağıtma](service-fabric-host-app-in-a-container.md)
 ## [Azure’da ilk kümenizi oluşturma](service-fabric-get-started-azure-cluster.md)
 ## [İlk tek başına kümenizi oluşturma](service-fabric-get-started-standalone-cluster.md)
 ## [İlk kapsayıcı uygulamanızı oluşturma](service-fabric-get-started-containers.md)
@@ -28,6 +29,7 @@
 ### Kavramlar
 #### [Desteklenen programlama modelleri](service-fabric-choose-framework.md)
 #### [Uygulama modeli](service-fabric-application-model.md)
+#### [Barındırma modeli](service-fabric-hosting-model.md)
 #### [Hizmet bildirimi kaynakları](service-fabric-service-manifest-resources.md)
 #### [Hizmet durumu](service-fabric-concepts-state.md)
 #### [Hizmet bölümleme](service-fabric-concepts-partitioning.md)
@@ -45,6 +47,8 @@
 #### [Genel Bakış](service-fabric-containers-overview.md)
 #### [Windows kapsayıcısı dağıtma](service-fabric-deploy-container.md)
 #### [Linux kapsayıcısı dağıtma](service-fabric-deploy-container-linux.md)
+#### [Docker Compose (önizleme)](service-fabric-docker-compose.md)
+#### [Kapsayıcıları ve Hizmetler için Kaynak İdaresi](service-fabric-resource-governance.md)
 
 ### Reliable Service hizmeti oluşturma
 #### [Genel Bakış](service-fabric-reliable-services-introduction.md)
@@ -57,6 +61,8 @@
 ##### [Güvenilir Koleksiyon ile ilgili kılavuzlar ve öneriler](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Güvenilir Koleksiyonlar ile çalışma](service-fabric-work-with-reliable-collections.md)
 ##### [İşlemler ve kilitler](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [Güvenilir Eşzamanlı Sıra](service-fabric-reliable-services-reliable-concurrent-queue.md)
+##### [Güvenilir Koleksiyonu serileştirme](service-fabric-reliable-services-reliable-collections-serialization.md)
 ##### [Güvenilir Durum Yöneticisi ve Güvenilir Koleksiyon iç işlevleri](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### başlarken
@@ -100,6 +106,7 @@
 
 ### Hizmetlerle iletişim kurma
 #### [Hizmet iletişimleri](service-fabric-connect-and-communicate-with-services.md)
+#### [DNS hizmeti](service-fabric-dnsservice.md)
 #### [Ters proxy](service-fabric-reverseproxy.md)
 
 ### [Web ön ucu ekleme](service-fabric-add-a-web-frontend.md)
