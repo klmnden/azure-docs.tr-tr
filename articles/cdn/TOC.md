@@ -29,6 +29,7 @@
 ### [Kaynakları izleme](cdn-resource-health.md)
 ### [Davranışı kurallarla geçersiz kılma](cdn-rules-engine.md)
 ### [Gerçek zamanlı uyarılar alma](cdn-real-time-alerts.md)
+### [HTTP/2 desteği](cdn-http2.md)
 
 ## Çözümleme
 ### [Kullanım biçimlerini çözümleme](cdn-analyze-usage-patterns.md)
