@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: bffbeb5238ec69d763e1cc7ad3c8a6e4fad34306
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: cfbd863ca7e65ddad585d4305d5e24b8f6bb744a
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -29,9 +30,9 @@ Azure PowerShell modülü, PowerShell komut satırından veya betik içinden Azu
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) oluşturun.
 
-Ayrıca, Azure PowerShell modülünün en yeni sürümünün yüklü olduğundan emin olun. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
+Ayrıca, Azure PowerShell modülünün en yeni sürümünün yüklü olduğundan emin olun. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
 
-Son olarak, Windows kullanıcı profilinizin `.ssh` dizininde `id_rsa.pub` adlı bir ortak SSH anahtarının depolanması gerekir. Azure için SSH anahtarları oluşturma hakkında ayrıntılı bilgi için bkz. [Azure için SSH anahtarları oluşturma](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Son olarak, Windows kullanıcı profilinizin *.ssh* dizininde *id_rsa.pub* adlı bir ortak SSH anahtarının depolanması gerekir. Azure için SSH anahtarları oluşturma hakkında ayrıntılı bilgi için bkz. [Azure için SSH anahtarları oluşturma](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -43,10 +44,10 @@ Login-AzureRmAccount
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-Bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) ile yeni bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location westeurope
+New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
 ```
 
 ## <a name="create-networking-resources"></a>Ağ kaynakları oluşturma
@@ -58,11 +59,11 @@ Bir sanal ağ, alt ağ ve genel IP adresi oluşturun. Bu kaynaklar, sanal makine
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location westeurope `
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus `
 -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location westeurope `
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus `
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
@@ -80,15 +81,15 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupR
 -DestinationPortRange 80 -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location westeurope `
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location eastus `
 -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Sanal makine için bir ağ kartı oluşturun. Ağ kartı, sanal makineyi bir alt ağa, ağ güvenliği grubuna ve genel IP adresine bağlar.
+Sanal makine için [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) ile bir ağ kartı oluşturun. Ağ kartı, sanal makineyi bir alt ağa, ağ güvenliği grubuna ve genel IP adresine bağlar.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location westeurope `
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location eastus `
 -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
@@ -112,17 +113,17 @@ $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Sanal makineyi oluşturun.
+[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ile sanal makineyi oluşturun.
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location westeurope -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus -VM $vmConfig
 ```
 
 ## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
 
 Dağıtım tamamlandıktan sonra sanal makine ile bir SSH bağlantısı oluşturun.
 
-Sanal makinenin genel IP adresini döndürmek için aşağıdaki komutları çalıştırın.
+Sanal makinenin genel IP adresini döndürmek için [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) komutunu kullanın.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
@@ -134,7 +135,7 @@ SSH yüklü bir sistemden sanal makineye bağlanmak için aşağıdaki komutu ku
 ssh <Public IP Address>
 ```
 
-Sorulduğunda, kullanıcı adı `azureuser` olarak girilmelidir. SSH anahtarları oluşturulurken bir parola girildiyse, bu parolayı da girmeniz gerekir.
+Sorulduğunda, kullanıcı adı *azureuser* olarak girilmelidir. SSH anahtarları oluşturulurken bir şifre girildiyse, bu şifreyi de girmeniz gerekir.
 
 
 ## <a name="install-nginx"></a>NGINX yükleme
@@ -153,12 +154,12 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>NGIX karşılama sayfasını görüntüleme
 
-NGINX yüklendiğine ve VM’nizde İnternet üzerinden 80 numaralı bağlantı noktası açık olduğuna göre, varsayılan NGINX karşılama sayfasını görüntülemek için, seçtiğiniz bir web tarayıcısını kullanabilirsiniz. Varsayılan sayfayı ziyaret etmek için yukarıda belgelediğiniz `publicIpAddress` seçeneğini kullandığınızdan emin olun. 
+NGINX yüklendiğine ve VM’nizde İnternet üzerinden 80 numaralı bağlantı noktası açık olduğuna göre, varsayılan NGINX karşılama sayfasını görüntülemek için, seçtiğiniz bir web tarayıcısını kullanabilirsiniz. Varsayılan sayfayı ziyaret etmek için yukarıda belgelediğiniz genel IP adresini kullandığınızdan emin olun. 
 
 ![Varsayılan NGINX sitesi](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>Sanal makineyi silme
 
-Kaynak Grubu, VM ve tüm ilgili kaynaklar artık gerekli olmadığında aşağıdaki komut kullanılarak kaldırılabilir.
+Artık gerekli değilse, [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanarak kaynak grubunu, VM’yi ve tüm ilgili kaynakları kaldırabilirsiniz.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

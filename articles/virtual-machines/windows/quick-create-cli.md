@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: a1ccebd6d53c7f02517c7655bdfb5b3ce3f26090
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7461a0006e57608d9baa538175174788692db5f5
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -42,7 +43,7 @@ az login
 
 [az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
-Aşağıdaki örnek `westeurope` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur.
+Aşağıdaki örnek *westeurope* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -52,13 +53,17 @@ az group create --name myResourceGroup --location westeurope
 
 [az vm create](/cli/azure/vm#create) ile bir VM oluşturun. 
 
-Aşağıdaki örnekte `myVM` adlı bir VM oluşturulur. Bu örnekte yönetici kullanıcı için `azureuser` kullanıcı adı ve ` myPassword12` parolası kullanılır. Bu değerleri ortamınız için uygun olan bir değerle güncelleştirin. Bu değerler, sanal makine ile bağlantı oluştururken gereklidir.
+Aşağıdaki örnekte *myVM* adlı bir VM oluşturulur. Bu örnekte yönetici kullanıcı için *azureuser* kullanıcı adı ve *myPassword12* parolası kullanılır. Bu değerleri ortamınız için uygun olan bir değerle güncelleştirin. Bu değerler, sanal makine ile bağlantı oluştururken gereklidir.
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
+az vm create `
+  --resource-group myResourceGroup `
+  --name myVM --image win2016datacenter `
+  --admin-username azureuser `
+  --admin-password myPassword12
 ```
 
-VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir. Genel IP adresini not alın. Bu adres, VM’ye erişmek için kullanılır.
+VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir. `publicIpAaddress` değerini not edin. Bu adres, VM’ye erişmek için kullanılır.
 
 ```azurecli
 {
@@ -75,7 +80,7 @@ VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir
 
 ## <a name="open-port-80-for-web-traffic"></a>Web trafiği için 80 numaralı bağlantı noktasını açın 
 
-Varsayılan olarak, Azure’a dağıtılmış Windows sanal makinelerinde yalnızca RDP bağlantılarına izin verilir. Bu VM bir web sunucusu olacaksa, İnternet’ten 80 numaralı bağlantı noktasını açmanız gerekir.  İstediğiniz bağlantı noktasını açmak için tek bir komut gereklidir.  
+Varsayılan olarak, Azure’a dağıtılmış Windows sanal makinelerinde yalnızca RDP bağlantılarına izin verilir. Bu VM bir web sunucusu olacaksa, İnternet’ten 80 numaralı bağlantı noktasını açmanız gerekir. İstediğiniz bağlantı noktasını açmak için [az vm open-port](/cli/azure/vm#open-port) komutunu kullanın.  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -92,7 +97,7 @@ mstsc /v:<Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>PowerShell kullanarak IIS yükleme
 
-Azure VM’de oturum açtıktan sonra tek bir PowerShell satırı kullanarak IIS yükleyebilir ve web trafiğine izin vermek üzere yerel güvenlik duvarı kuralını etkinleştirebilirsiniz.  Bir PowerShell istemi açın ve şu komutu çalıştırın:
+Azure VM’de oturum açtıktan sonra tek bir PowerShell satırı kullanarak IIS yükleyebilir ve web trafiğine izin vermek üzere yerel güvenlik duvarı kuralını etkinleştirebilirsiniz. Bir PowerShell istemi açın ve şu komutu çalıştırın:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -100,12 +105,12 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>IIS karşılama sayfasını görüntüleme
 
-Sanal makinenizde İnternet’ten IIS yüklenmiş ve bağlantı noktası 80 açık olduğunda, varsayılan IIS karşılama sayfasını görüntülemek için seçtiğiniz bir web tarayıcısını kullanabilirsiniz. Varsayılan sayfayı ziyaret etmek için yukarıda belgelediğiniz `publicIpAddress` seçeneğini kullandığınızdan emin olun. 
+Sanal makinenizde İnternet’ten IIS yüklenmiş ve bağlantı noktası 80 açık olduğunda, varsayılan IIS karşılama sayfasını görüntülemek için seçtiğiniz bir web tarayıcısını kullanabilirsiniz. Varsayılan sayfayı ziyaret etmek için yukarıda belgelediğiniz genel IP adresini kullandığınızdan emin olun. 
 
 ![Varsayılan IIS sitesi](./media/quick-create-powershell/default-iis-website.png) 
 ## <a name="delete-virtual-machine"></a>Sanal makineyi silme
 
-Kaynak Grubu, VM ve tüm ilgili kaynaklar artık gerekli olmadığında aşağıdaki komut kullanılarak kaldırılabilir.
+Artık gerekli değilse, [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, VM’yi ve tüm ilgili kaynakları kaldırabilirsiniz.
 
 ```azurecli
 az group delete --name myResourceGroup

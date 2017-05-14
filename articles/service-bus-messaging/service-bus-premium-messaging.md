@@ -1,5 +1,5 @@
 ---
-title: "Service Bus Premium ve Standart Mesajlaşma hizmeti fiyatlandırma katmanlarına genel bakış | Microsoft Belgeleri"
+title: "Azure Service Bus Premium ve Standart Mesajlaşma hizmeti fiyatlandırma katmanlarına genel bakış | Microsoft Docs"
 description: "Service Bus Premium ve Standart Mesajlaşma katmanları"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/19/2017
+ms.date: 04/28/2017
 ms.author: darosa;sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 606838dbeec5e9762f67159ece1bbc8a78769420
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 72e4c59e1282d97cfc5aa5f55861c6f70d419ce8
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -47,7 +48,7 @@ Aşağıdaki bölümlerde Premium ve Standart mesajlaşma katmanları arasındak
 
 ### <a name="partitioned-queues-and-topics"></a>Bölümlenmiş kuyruklar ve konular
 
-Bölümlenmiş kuyruklar ve konular Premium Mesajlaşmada desteklenir ancak Service Bus Mesajlaşma hizmetinin Standart ve Temel katmanlarında aynı şekilde işlev görmez. Premium Mesajlaşma, SQL’i bir veri deposu olarak kullanmaz ve artık paylaşılan platforma ilişkin olası kaynak rekabetini barındırmaz. Sonuç olarak, bölümleme performans için gerekli değildir. Ayrıca, Standart Mesajlaşmada 16 olan bölüm sayısı Premium’da 2 bölüm olarak değiştirilmiştir. İki bölümlemeye sahip olmak kullanılabilirliği garanti altına alır ve Premium çalışma zamanı ortamı için daha uygun bir sayıdır. Bölümleme hakkında daha fazla bilgi için bkz. [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md).
+Bölümlenmiş kuyruklar ve konular, Premium Mesajlaşma hizmetinde desteklenir; aslında bu varlıklar her zaman bölümlenmiş durumdadır (ve devre dışı bırakılamaz). Ancak, Premium bölümlenmiş kuyruklar ve konular Service Bus mesajlaşma hizmetinin Standart ve Temel katmanlarında aynı şekilde işlev görmez. Premium mesajlaşma, SQL'i bir veri deposu olarak kullanmaz ve artık paylaşılan platforma ilişkin olası kaynak rekabetini barındırmaz. Sonuç olarak, performansı iyileştirmek için bölümleme gerekli değildir. Ayrıca, Standart Mesajlaşmada 16 olan bölüm sayısı Premium’da 2 bölüm olarak değiştirilmiştir. İki bölümlemeye sahip olmak kullanılabilirliği garanti altına alır ve Premium çalışma zamanı ortamı için daha uygun bir sayıdır. Bölümleme hakkında daha fazla bilgi için bkz. [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>İfade varlıkları
 

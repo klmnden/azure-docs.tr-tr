@@ -1,8 +1,7 @@
 ---
-title: "Azure Active Directory geliştirici kılavuzu | Microsoft Belgeleri"
-description: "Bu makale Azure Active Directory&quot;nin geliştirici yönelimli kaynakları için kapsamlı bir kılavuz sağlar."
+title: "Geliştiriciler için Azure Active Directory | Microsoft Docs"
+description: "Bu makale, Azure Active Directory kullanarak Microsoft iş ve okul hesaplarında oturum açmaya genel bakış sunmaktadır."
 services: active-directory
-documentationcenter: dev-center-name
 author: bryanla
 manager: mbaldwin
 editor: 
@@ -12,129 +11,65 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/09/2016
-ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 45ff2ff08cb36f9a4bf49ff04de149accf157e0e
-ms.lasthandoff: 03/31/2017
-
+ms.date: 04/07/2017
+ms.author: bryanla
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 375fdf142f7ecf5881876858178f663f516a6a71
+ms.contentlocale: tr-tr
+ms.lasthandoff: 04/28/2017
 
 ---
-# <a name="azure-active-directory-developers-guide"></a>Azure Active Directory geliştirici kılavuzu
-## <a name="overview"></a>Genel Bakış
-Bir hizmet olarak kimlik yönetimi (IDMaaS) platformu olan Azure Active Directory (AD), kimlik yönetimini uygulamalarına tümleştirmeleri için geliştiricilere etkili bir yol sağlar. Aşağıdaki makaleler Azure AD'nin uygulanmasına ve önemli özelliklerine genel bakış sunar. Bunları sırayla okumanızı öneririz, çalışmaya başlamak için hazır olduğunuzda [Başlarken](#getting-started) bölümüne atlayabilirsiniz.
+# <a name="azure-active-directory-for-developers"></a>Geliştiriciler için Azure Active Directory
+Azure Active Directory, geliştiricilerin Microsoft tarafından desteklenen bir iş veya okul hesabına sahip herhangi bir kullanıcıya güvenli bir şekilde oturum açtırmasını sağlayan bir bulut kimlik hizmetidir.  Buradaki belgeler Azure AD’nin, sektör standardı kimlik doğrulama protokolleri olan OAuth ve OpenID Connect’i kullanarak uygulamanızı nasıl desteklediğini göstermektedir.
 
-1. [Azure AD tümleştirmesinin avantajları](active-directory-how-to-integrate.md): Güvenli oturum açma ve kimlik doğrulama için en iyi çözümü neden Azure AD ile tümleştirmenin sunduğunu keşfedin.
-2. [Azure AD kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md): Uygulamanıza oturum açma bağlantısı sağlamak için Azure AD'deki basitleştirilmiş kimlik doğrulama özelliğinden yararlanın.
-3. [Uygulamaları Azure AD ile tümleştirme](active-directory-integrating-applications.md): Azure AD'de uygulamaları nasıl ekleyeceğinizi, güncelleştireceğinizi ve kaldıracağınızı öğrenin ve tümleşik uygulamalar için markalama talimatları hakkında bilgi alın.
-4. [Microsoft Graph](https://graph.microsoft.io/) ve [Azure AD Grafik API'si](active-directory-graph-api.md): Azure AD'ye REST API uç noktaları yoluyla programlı olarak erişin. **Azure Active Directory kaynaklarına erişmek için Azure AD Grafik API'si yerine Microsoft Graph kullanmanız önemle tavsiye edilir.** Geliştirme çalışmalarımız şu anda Microsoft Graph üzerine yoğunlaşmıştır ve Azure AD Grafik API'si için başka bir geliştirme planlanmamaktadır. Azure AD Grafik API'sinin hala uygun olabileceği senaryo sayısı çok sınırlıdır; daha fazla bilgi için Office Geliştirici Merkezi’ndeki [Microsoft Graph veya Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog gönderisine bakın.
-5. [Azure AD kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md): .NET, JavaScript, Objective-C, Android ve daha fazlası için Azure AD kimlik doğrulama kitaplıklarını kullanın ve erişim belirteçleri alacak kullanıcıların kimliklerini kolaylıkla doğrulayın.
+| | |
+| --- | --- |
+|[Auth temel bilgileri](active-directory-authentication-scenarios.md) | Azure AD ile kimlik doğrulamaya giriş |
+|[Uygulama türleri](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Azure AD tarafından desteklenen kimlik doğrulama senaryolarına genel bakış |                                
+                                                                              
+## <a name="get-started"></a>başlarken
+Bu kılavuzlu ayarlar, Azure Active Directory kullanıcılarının oturumunu açmak için kimlik doğrulama kitaplıklarımızı kullanma işleminde size yol gösterir.
 
-## <a name="getting-started"></a>Başlarken
-Bu öğreticiler birden çok platform için uyarlanabilir ve Azure Active Directory'yi geliştirmeye hızla başlamanıza yardımcı olabilir. Önkoşul olarak, [bir Azure Active Directory kiracısı edinmeniz](active-directory-howto-tenant.md) gerekir.
+|  |  |  |  |
+| --- | --- | --- | --- |
+| <center>![Mobil Uygulamalar ve Masaüstü Uygulamaları](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />Mobil Uygulamalar ve Masaüstü Uygulamaları</center> | [Genel Bakış](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET](active-directory-devquickstarts-dotnet.md)<br /><br />[Windows](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md)<br /><br />[OAuth 2.0](active-directory-protocols-oauth-code.md) |
+| <center>![Web Apps](./media/active-directory-developers-guide/Web_app.png)<br />Web Apps</center> | [Genel Bakış](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)<br /><br />[OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) |  |
+| <center>![Tek Sayfa Uygulamaları](./media/active-directory-developers-guide/SPA.png)<br />Tek Sayfa Uygulamaları</center> | [Genel Bakış](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript]((https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)) |  |  |
+| <center>![Web API'leri](./media/active-directory-developers-guide/Web_API.png)<br />Web API'leri</center> | [Genel Bakış](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[NodeJS](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
+| <center>![Hizmetten hizmete](./media/active-directory-developers-guide/Service_App.png)<br />Hizmetten hizmete</center> | [Genel Bakış](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[OAuth 2.0 İstemci Kimlik Bilgileri](active-directory-protocols-oauth-service-to-service.md) |  |
 
-### <a name="mobile-and-pc-application-quick-start-guides"></a>Mobil ve PC uygulaması hızlı başlangıç kılavuzları
-| [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Windows Evrensel](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | 
-|:---:|:---:|:---:|:---:|:---:|
-| [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Windows</br>Evrensel](active-directory-devquickstarts-windowsstore.md) |
+## <a name="guides"></a>Kılavuzlar
+Bu makaleler Azure Active Directory ile genel görevlerin nasıl gerçekleştirileceği konusunda bilgi verir.
 
-|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
-|:---:|:---:|:---:|
-|[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Doğrudan</br>OAuth 2.0](active-directory-protocols-oauth-code.md) ile tümleştirme |
-
-### <a name="web-application-quick-start-guides"></a>Web uygulaması hızlı başlangıç kılavuzları
-| [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) |
-|:---:|:---:|:---:|
-| [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Doğrudan</br> OpenID Connect](active-directory-protocols-openid-connect-code.md) ile tümleştirme |
-
-| [![JavaScript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
-|:---:|:---:|:---:|
-|[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Doğrudan</br> OpenID Connect](active-directory-protocols-openid-connect-code.md) ile tümleştirme |
-
-### <a name="web-api-quick-start-guides"></a>Web API'si hızlı başlangıç kılavuzları
-| [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
-|:---:|:---:|
-| [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
-
-### <a name="microsoft-graph-and-azure-ad-graph-api-quick-start-guides"></a>Microsoft Graph ve Azure AD Grafik API'si hızlı başlangıç kılavuzları
-| [![Microsoft Graph](./media/active-directory-developers-guide/msgraph.png)](https://developer.microsoft.com/graph/quick-start) | [![Azure AD Grafik API'si](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
-|:---:|:---:|
-| [Microsoft Graph](https://developer.microsoft.com/graph/quick-start) | [Azure AD Grafik API'si](active-directory-graph-api-quickstart.md) |
-
-## <a name="how-tos"></a>Nasıl yapılır makaleleri
-Bu makalelerde Azure Active Directory kullanılarak belirli görevlerin nasıl gerçekleştirileceği açıklanmaktadır:
-
-* [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
-* [Çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure AD kullanıcısı ile oturum açın](active-directory-devhowto-multi-tenant-overview.md)
-* [Uygulama kimliğini doğrulamak için parola yerine sertifika kullanma](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)
-* [Android](active-directory-sso-android.md) ve [iOS](active-directory-sso-ios.md) cihazlarında ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
-* [Uygulamanızı Azure AD için AppSource Sertifikalı yapın](active-directory-devhowto-appsource-certified.md)
-* [Uygulamanızı Azure AD uygulama galerisinde listeleyin](active-directory-app-gallery-listing.md)
-* [Office 365 web uygulamalarını Satıcı Panosu’na gönderme](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-* [Azure portalını kullanarak bir uygulamayı Azure Active Directory'ye kaydetme](../active-directory-app-registration.md)
-* [Azure Active Directory uygulama bildirimini anlama](active-directory-application-manifest.md)
-* [İstemci uygulamanızdaki oturum açma ve uygulama edinme düğmeleri için marka yönergelerini öğrenin](active-directory-branding-guidelines.md)
-* [Önizleme: Kullanıcıların hem kişisel hem de iş veya okul hesaplarıyla oturum açabileceği uygulamalar oluşturma](active-directory-appmodel-v2-overview.md)
-* [Önizleme: Kullanıcıları kaydolabileceği ve oturum açabileceği uygulamalar oluşturma](../../active-directory-b2c/active-directory-b2c-overview.md)
-* [Önizleme: PowerShell kullanarak Azure AD'de](../active-directory-configurable-token-lifetimes.md) belirteç ömrü yapılandırma. Azure AD Grafik API’si ile yapılandırma hakkındaki ayrıntılar için bkz. [İlke işlemleri](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) ve [İlke varlığı](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity).
+|                                                                           |  |
+|---------------------------------------------------------------------------| --- |
+|[Uygulama kaydı](active-directory-integrating-applications.md)           | Bir uygulamayı Azure AD’ye kaydetme |
+|[Çok kiracılı uygulamalar](active-directory-devhowto-multi-tenant-overview.md)    | Herhangi bir Microsoft iş hesabında oturum açma |
+|[OAuth ve OpenID Connect](active-directory-protocols-openid-connect-code.md)| Modern kimlik doğrulama protokollerimizi kullanarak kullanıcıların oturumunu açma ve web API’lerini çağırma |
+|[Diğer kılavuzlar...](active-directory-developers-guide-index.md#guides)        |     |
 
 ## <a name="reference"></a>Başvuru
-Bu makaleler REST ve kimlik doğrulama kitaplığı API'leri, protokolleri, hataları, kod örnekleri ve uç noktaları için temel bir başvuru sağlar.  
+Bu makaleler, Azure Active Directory’de kullanılan API'ler, protokol iletileri ve terimler hakkında ayrıntılı bilgi sağlar.
 
-### <a name="support"></a>Destek
-* [Etiketli sorular](http://stackoverflow.com/questions/tagged/azure-active-directory): Azure Active Directory çözümlerini Stack Overflow'da bulmak için [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ve [adal](http://stackoverflow.com/questions/tagged/adal) etiketlerini arayın.
-* Uygulama geliştirme ve tümleştirmeyle ilgili yaygın olarak kullanılan terimlerden bazılarının tanımları için bkz. [Azure AD geliştirici sözlüğü](active-directory-dev-glossary.md).
+|                                                                                   | |
+| ----------------------------------------------------------------------------------| --- |
+| [Kimlik Doğrulama Kitaplıkları (ADAL)](active-directory-authentication-libraries.md)   | Azure AD tarafından sağlanan kitaplıklara ve SDK’lara genel bakış |
+| [Kod örnekleri](active-directory-code-samples.md)                                  | Tüm Azure AD kod örneklerinin listesi |
+| [Sözlük](active-directory-dev-glossary.md)                                      | Bu belgede kullanılan terminoloji ve sözcük tanımları |
+| [Diğer başvuru kaynakları...](active-directory-developers-guide-index.md#reference)|     |
 
-### <a name="code"></a>Kod
-* [Azure Active Directory açık kaynak kitaplıkları](http://github.com/AzureAD): Bir kitaplığın kaynağını bulmanın en kolay yolu [kitaplık listemizi](active-directory-authentication-libraries.md) kullanmaktır.
-* [Azure Active Directory örnekleri](https://github.com/azure-samples?query=active-directory): Örnekler listesinde gezinmenin en kolay yolu [kod örnekleri dizinini](active-directory-code-samples.md) kullanmaktır.
-* [.NET için Active Directory Kimlik Doğrulama Kitaplığı (ADAL)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) - Hem [en son ana sürüm](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory) hem de [önceki ana sürüm](https://docs.microsoft.com/active-directory/adal/v2/microsoft.identitymodel.clients.activedirectory) için başvuru belgeleri bulunur.
+## <a name="help--support"></a>Yardım ve Destek
+Azure Active Directory’de geliştirme konusunda yardım almak için en iyi yerler bunlardır.
 
-### <a name="microsoft-graph-and-azure-ad-graph-api"></a>Microsoft Graph ve Azure AD Grafik API'si
-> [!IMPORTANT]
-> Azure Active Directory kaynaklarına erişmek için Azure AD Grafik API'si yerine [Microsoft Graph](https://graph.microsoft.io/) kullanmanız önemle tavsiye edilir. Geliştirme çalışmalarımız şu anda Microsoft Graph üzerine yoğunlaşmıştır ve Azure AD Grafik API'si için başka bir geliştirme planlanmamaktadır. Azure AD Grafik API'sinin hala uygun olabileceği senaryo sayısı çok sınırlıdır; daha fazla bilgi için Office Geliştirici Merkezi’ndeki [Microsoft Graph veya Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog gönderisine bakın.
-> 
+|  |  
+|---|
+|[Stack Overflow’da `azure-active-directory` ve `adal` etiketleri](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
+|[Azure Active Directory geri bildirimleri](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
 
-* [Microsoft Graph](https://graph.microsoft.io/): Microsoft Graph için belgeler, başvuru, örnekler ve SDK’lar. 
-* [Azure AD Graph API başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog): Azure Active Directory Grafik API'si için REST başvurusu. 
-* [Azure AD Grafik API'si izin kapsamları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): Bir kiracıdaki dizin verilerine bir uygulamanın sahip olduğu erişimi kontrol etmek için kullanılan OAuth 2.0 izin kapsamları.
+<br />
 
-### <a name="authentication-and-authorization-protocols"></a>Kimlik doğrulama ve yetkilendirme protokolleri
-* [Azure AD’de İmzalama Anahtar Geçişi](active-directory-signing-key-rollover.md): Azure AD’nin imzalama anahtar geçişi uyumu ve anahtarın en yaygın uygulama senaryoları için nasıl güncelleştirileceği hakkında bilgi edinin.
-* [OAuth 2.0 protokolü: Yetkilendirme kodu vermeyi kullanma](active-directory-protocols-oauth-code.md): Azure Active Directory kiracınızdaki Web uygulamalarına ve Web API’lerine erişim izni vermek için OAuth 2.0 protokolünün yetkilendirme kodu verme özelliğini kullanabilirsiniz.
-* [OAuth 2.0 protokolü: Örtük vermeyi anlama](active-directory-dev-understanding-oauth2-implicit-grant.md): Örtük yetki verme ve uygulamanız için doğru olup olmadığını anlama hakkında daha fazla bilgi edinin.
-* [OAuth 2.0 protokolü: İstemci Kimlik Bilgileri ile Hizmetten Hizmete Çağrılar](active-directory-protocols-oauth-service-to-service.md): OAuth 2.0 İstemci Kimlik Bilgileri verme işlemi bir web hizmetinin (gizli bir istemci) başka bir web hizmetini çağırırken bir kullanıcının kimliğine bürünmek yerine kendi kimlik bilgilerini kullanmasına izin verir. Bu senaryoda istemci genellikle bir orta katman web hizmeti, arka plan programı hizmeti veya web sitesi olur.
-* [OpenID Connect 1.0 protokolü: Oturum açma ve kimlik doğrulaması](active-directory-protocols-openid-connect-code.md): OpenID Connect 1.0 protokolü, OAuth 2.0'ı bir kimlik doğrulama protokolü olarak kullanılmak üzere genişletir. Bir istemci uygulaması, oturum açma işlemini yönetmek üzere bir id_token alır ya da yetkilendirme kodu akışını hem bir id_token hem de yetkilendirme kodu alacak şekilde büyütür.
-* [SAML 2.0 protokolü başvurusu](active-directory-saml-protocol-reference.md): SAML 2.0 protokolü, uygulamaların kullanıcılarına çoklu oturum açma deneyimi sunmasını sağlar.
-* [WS-Federasyon 1.2 protokolü](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory, Web Hizmetleri Federasyonu 1.2 Sürümü Belirtimine göre WS-Federasyon 1.2'yi destekler. Federasyon meta veri belgesi hakkında daha fazla bilgi için lütfen bkz. [Federasyon Meta Verileri](active-directory-federation-metadata.md).
-* [Desteklenen belirteç ve talep türleri](active-directory-token-and-claims.md): SAML 2.0 ve JSON Web Token (JWT) belirteçlerindeki talepleri anlamak ve değerlendirmek için bu kılavuzu kullanabilirsiniz.
-
-## <a name="videos"></a>Videolar
-### <a name="build"></a>Oluşturma
-Azure Active Directory kullanılarak uygulamaların geliştirilmesini açıklayan bu genel bakış sunularında, doğrudan mühendislik ekibinde çalışan konuşmacılar yer almaktadır. Sunular IDMaaS, kimlik doğrulama, kimlik federasyonu ve çoklu oturum açma dahil olmak üzere temel konu başlıklarını kapsar.
-
-* [Microsoft Identity: Birliğin Durumu ve Gelecekteki Yönü](https://azure.microsoft.com/documentation/videos/build-2016-microsoft-identity-state-of-the-union-and-future-direction/)
-* [Azure Active Directory: Modern uygulamalar için bir hizmet olarak kimlik yönetimi](https://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications/)
-* [Azure Active Directory ile modern web uygulamaları geliştirin](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory/)
-* [Azure Active Directory ile modern yerel uygulamalar geliştirin](https://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory/)
-
-### <a name="azure-friday"></a>Azure Friday
-[Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/), her Cuma günü yinelenen ve Azure ile ilgili çeşitli konu başlıklarında uzmanlarla bire bir olarak yapılan kısa (10-15 dakikalık) görüşmeleri sizlere aktaran bir video serisidir.  Tüm Azure Active Directory videolarını görmek için sayfadaki Hizmetler Filtresi'ni kullanın.
-
-* [Azure Identity 101](https://azure.microsoft.com/documentation/videos/azure-identity-basics/)
-* [Azure Identity 102](https://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
-* [Azure Identity 103](https://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)
-
-## <a name="social"></a>Sosyal
-* [Active Directory Ekip blogu](http://blogs.technet.com/b/ad/): Azure Active Directory dünyasındaki en son gelişmeler.
-* [Azure Active Directory Graph Ekip blogu](https://blogs.msdn.microsoft.com/aadgraphteam): Graph API’ye özel Azure Active Directory bilgileri.
-* [Bulut Kimliği](http://www.cloudidentity.net): Azure Active Directory'nin ana proje yöneticilerinden birinin hizmet olarak kimlik yönetimi hakkındaki düşünceleri.  
-* [Twitter'da Azure Active Directory](https://twitter.com/azuread): 140 veya daha az karakterli Azure Active Directory duyuruları.
-
-## <a name="windows-server-on-premises-development"></a>Windows Server şirket içi geliştirme
-Windows Server kullanımı ve Active Directory Federasyon Hizmetleri (AD FS) geliştirmesiyle ilgili yönergeler için şunlara göz atın:
-
-* [Geliştiriciler için AD FS Senaryoları](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): Desteklenen kimlik doğrulaması/yetkilendirme senaryolarıyla ilgili ayrıntıların yanı sıra AD FS bileşenleri ve bunların çalışma şekillerine ilişkin genel bir bakış sağlar.
-* [AD FS için izlenecek yollar](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): ilgili kimlik doğrulaması/yetkilendirme akışlarının uygulanması konusunda adım adım yönergeler sağlayan izlenecek yol makalelerinin listesi.
+> [!NOTE]
+> Kişisel Microsoft hesaplarınızda oturum açmanız gerekirse, [Azure AD v2.0 uç noktasını](active-directory-appmodel-v2-overview.md) kullanmanız gerekebilir.  Azure AD v2.0 uç noktası, kişisel Microsoft hesapları ile Microsoft iş hesaplarının (Azure AD’den) tek bir kimlik doğrulama sisteminde birleşmesidir.
 

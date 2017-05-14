@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b26d3952adc4d0bb1993bb46cabf6c7d0850666a
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 08fcde4f5bddccb9de5564455937a637054ebb60
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/20/2017
 
 Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu kılavuzda Ubuntu 16.04 LTS çalıştıran bir sanal makineyi Azure CLI kullanarak dağıtma işleminin ayrıntıları verilmektedir. Sunucu dağıtıldıktan sonra NGINX’i yüklemek için SSH kullanarak VM’ye bağlanırız. 
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) oluşturun.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 Ayrıca, Azure CLI’nin yüklü olduğundan emin olun. Daha fazla bilgi için bkz. [Azure CLI yükleme kılavuzu](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -42,7 +43,7 @@ az login
 
 [az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
-Aşağıdaki örnek `westeurope` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur.
+Aşağıdaki örnek *westeurope* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -52,7 +53,7 @@ az group create --name myResourceGroup --location westeurope
 
 [az vm create](/cli/azure/vm#create) komutuyla bir sanal makine oluşturun. 
 
-Aşağıdaki örnekte `myVM` adlı bir VM oluşturulur ve varsayılan anahtar konumunda henüz yoksa SSH anahtarları oluşturulur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
+Aşağıdaki örnekte *myVM* adlı bir VM oluşturulur ve varsayılan anahtar konumunda henüz yoksa SSH anahtarları oluşturulur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -75,7 +76,7 @@ VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir
 
 ## <a name="open-port-80-for-web-traffic"></a>Web trafiği için 80 numaralı bağlantı noktasını açın 
 
-Varsayılan olarak, Azure’a dağıtılmış Linux sanal makinelerinde yalnızca SSH bağlantılarına izin verilir. Bu VM bir web sunucusu olacaksa, İnternet’ten 80 numaralı bağlantı noktasını açmanız gerekir.  İstediğiniz bağlantı noktasını açmak için tek bir komut gereklidir.  
+Varsayılan olarak, Azure’a dağıtılmış Linux sanal makinelerinde yalnızca SSH bağlantılarına izin verilir. Bu VM bir web sunucusu olacaksa, İnternet’ten 80 numaralı bağlantı noktasını açmanız gerekir. İstediğiniz bağlantı noktasını açmak için [az vm open-port](/cli/azure/vm#open-port)] komutunu kullanın.  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -83,7 +84,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="ssh-into-your-vm"></a>VM’ye SSH uygulama
 
-Sanal makine ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. `<publicIpAddress>` değerini, sanal makinenizin doğru genel IP adresi ile değiştirdiğinizden emin olun.  Yukarıdaki örneğimizde IP adresi `40.68.254.142` şeklindedir.
+Sanal makine ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. *<publicIpAddress>* değerini, sanal makinenizin doğru genel IP adresi ile değiştirdiğinizden emin olun.  Yukarıdaki örneğimizde IP adresi *40.68.254.142* şeklindedir.
 
 ```bash 
 ssh <publicIpAddress>
@@ -105,14 +106,14 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>NGIX karşılama sayfasını görüntüleme
 
-NGINX yüklendiğine ve VM’nizde İnternet üzerinden 80 numaralı bağlantı noktası açık olduğuna göre, varsayılan NGINX karşılama sayfasını görüntülemek için, seçtiğiniz bir web tarayıcısını kullanabilirsiniz. Varsayılan sayfayı ziyaret etmek için yukarıda belgelediğiniz `publicIpAddress` seçeneğini kullandığınızdan emin olun. 
+NGINX yüklendiğine ve VM’nizde İnternet üzerinden 80 numaralı bağlantı noktası açık olduğuna göre, varsayılan NGINX karşılama sayfasını görüntülemek için, seçtiğiniz bir web tarayıcısını kullanabilirsiniz. Varsayılan sayfayı ziyaret etmek için yukarıda belgelediğiniz *publicIpAddress* değerini kullandığınızdan emin olun. 
 
 ![Varsayılan NGINX sitesi](./media/quick-create-cli/nginx.png) 
 
 
 ## <a name="delete-virtual-machine"></a>Sanal makineyi silme
 
-Kaynak Grubu, VM ve tüm ilgili kaynaklar artık gerekli olmadığında aşağıdaki komut kullanılarak kaldırılabilir.
+Artık gerekli değilse, [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, VM’yi ve tüm ilgili kaynakları kaldırabilirsiniz.
 
 ```azurecli
 az group delete --name myResourceGroup

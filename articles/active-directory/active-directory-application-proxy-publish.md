@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2016
+ms.date: 04/20/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: d7fe552e0c8856a8d7799ae8a7732e57a350fee3
-ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 4f7860b906ab988c918de31d53f4a958e4dea83b
+ms.contentlocale: tr-tr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -30,8 +32,8 @@ Azure AD Uygulama Proxy’si internet üzerinden erişilecek şirket içi uygula
 
 > [!NOTE]
 > Uygulama Ara Sunucusu özelliğini, yalnızca Azure Active Directory'nin Premium veya Basic sürümüne yükseltmeniz halinde kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md).
-> 
-> 
+
+Uygulama Proxy’si genel önizleme sürümünü kullanmak isterseniz [Azure portalında uygulama yayımlayabilirsiniz](application-proxy-publish-azure-portal.md).
 
 ## <a name="publish-an-app-using-the-wizard"></a>Sihirbazı kullanarak uygulama yayımlama
 1. [Klasik Azure portalında](https://manage.windowsazure.com/) yönetici olarak oturum açın.
@@ -102,10 +104,5 @@ Bir uygulamayı silmek için listeden bir uygulama seçin ve ardından **Sil**'e
 * [Talepleri kullanan uygulamalarla çalışma](active-directory-application-proxy-claims-aware-apps.md)
 
 En yeni haberler ve güncelleştirmeler için [Uygulama Ara Sunucusu bloguna](http://blogs.technet.com/b/applicationproxyblog/) göz atın
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 24bb7e2ffd212594f50bab735e86d74ab95d8c62
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bef6754f5ffd2b004af01a2e26edeeed63793b6e
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -28,13 +29,11 @@ ms.lasthandoff: 03/28/2017
 HDInsight’ta [Hadoop](http://hadoop.apache.org/) kümeleri oluşturmayı ve HDInsight’ta Hive işleri çalıştırmayı öğrenin. [Apache Hive](https://hive.apache.org/) Hadoop ekosistemindeki en popüler bileşendir. HDInsight şu anda altı farklı küme türüyle sağlanmaktadır: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (Önizleme)](hdinsight-hadoop-use-interactive-hive.md) ve [R server](hdinsight-hadoop-r-server-overview.md).  Her küme türü farklı bir bileşen kümesini destekler. Altı küme türünün tamamı Hive’ı destekler. HDInsight’ta desteklenen bileşenlerin listesi için bkz. [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce
 
 * **Azure aboneliği** gereklidir. Bir aylık ücretsiz deneme hesabı oluşturmak için [azure.microsoft.com/free](https://azure.microsoft.com/free) adresine gidin.
-
-### <a name="access-control-requirements"></a>Erişim denetimi gereksinimleri
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-cluster"></a>Küme oluşturma
 
@@ -123,6 +122,10 @@ Hive işini tamamladıktan sonra, [sonuçları Azure SQL Database’e veya SQL S
 1. [Azure portalında](https://portal.azure.com) oturum açın.
 2. Portal panosunda, bir küme oluştururken kullandığınız kaynak grubu adını içeren kutucuğa tıklayın.
 3. Kümeyi ve varsayılan depolama hesabını içeren kaynak grubunu silmek için kaynak dikey penceresinden **Sil**’e tıklayın; ya da **Kaynaklar** kutucuğunda küme adına tıklayın ve küme dikey penceresinde **Sil**’e tıklayın. Lütfen kaynak grubunun silinmesinin depolama hesabını sileceğini unutmayın. Depolama hesabını tutmak istiyorsanız, yalnızca küme silmeyi seçin.
+
+## <a name="troubleshoot"></a>Sorun giderme
+
+HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, Resource Manager şablonu kullanarak Linux tabanlı bir HDInsight kümesi oluşturmayı ve temel Hive sorguları gerçekleştirmeyi öğrendiniz.
