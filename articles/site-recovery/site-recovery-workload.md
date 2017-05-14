@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 05/08/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -89,7 +90,7 @@ Azure Site Recovery, SharePoint dağıtımlarının korunmasına şu şekilde ya
 * Test ve hata ayıklama işlemleri için üretim benzeri isteğe bağlı bir kopya çoğaltma ortamı oluşturarak SharePoint uygulaması için geliştirme sürecini basitleştirir.
 * SharePoint dağıtımlarını Azure'a geçirmek için Site Recovery'yi kullanarak buluta geçişi basitleştirir.
 
-SharePoint'i koruma hakkında [daha fazla bilgi edinin](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae).
+SharePoint'i koruma hakkında [daha fazla bilgi edinin](site-recovery-sharepoint.md).
 
 ## <a name="protect-dynamics-ax"></a>Dynamics AX'i koruma
 Azure Site Recovery, Dynamics AX ERP çözümünüzün korunmasına şu şekillerde yardımcı olur:
@@ -98,7 +99,7 @@ Azure Site Recovery, Dynamics AX ERP çözümünüzün korunmasına şu şekille
 * Dynamics AX dağıtımlarının buluta (Azure'a) geçişini basitleştirir.
 * Test ve hata ayıklama işlemleri için üretim benzeri isteğe bağlı bir kopya oluşturarak Dynamics AX uygulamasının geliştirme ve test sürecini basitleştirir.
 
-Dynamic AX'i koruma hakkında [daha fazla bilgi edinin](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) 
+Dynamic AX'i koruma hakkında [daha fazla bilgi edinin](site-recovery-dynamicsax.md) 
 
 ## <a name="protect-rds"></a>RDS'yi koruma
 Uzak Masaüstü Hizmetleri (RDS), sanal masaüstü altyapısını (VDI), oturum tabanlı masaüstlerini ve uygulamaları etkinleştirerek kullanıcıların herhangi bir yerden çalışabilmesine olanak sağlar. Azure Site Recovery ile şunları yapabilirsiniz:
