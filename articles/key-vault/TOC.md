@@ -24,7 +24,6 @@
 
 ## Otomatikleştirme
 ### [Azure otomasyonu](automation-manage-key-vault.md)
-### [CLI aracılığıyla oluşturma ve yönetme](key-vault-manage-with-cli.md)
 ### [CLI 2.0 aracılığıyla oluşturma ve yönetme](key-vault-manage-with-cli2.md)
 
 # Başvuru
