@@ -12,12 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: get-started-article
 ms.workload: tbd
-ms.date: 03/14/2017
+ms.date: 05/05/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 65d4c06078d85400e2a1cc3b324821897acfe7d5
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: bfae0fcf992c38d7afef6140fdd79d87ab0ecb4f
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -239,6 +240,7 @@ Sisteminiz tarafından Stream Analytics gibi diğer Azure hizmetleri kullanılı
 * [Azure Tanılama verilerinin Application Insights’a gönderimini yapılandırma](app-insights-azure-diagnostics.md)
 * [Application Insights kaynakları oluşturmayı otomatikleştirme](app-insights-powershell.md)
 * [Azure tanılamayı otomatikleştirme](app-insights-powershell-azure-diagnostics.md)
+* [Azure İşlevleri](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
