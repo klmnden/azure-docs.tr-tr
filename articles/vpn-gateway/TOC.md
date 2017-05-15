@@ -1,7 +1,7 @@
 # Genel Bakış
 ## [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway ile ilgili SSS](vpn-gateway-vpn-faq.md)
-## [Abonelik ve hizmet sınırlamaları](../azure-subscription-service-limits.md)
+## [Abonelik ve hizmet sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Kullanmaya Başlama
 ## [VPN Gateway için planlama ve tasarım](vpn-gateway-plan-design.md)
