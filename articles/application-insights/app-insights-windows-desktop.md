@@ -4,7 +4,7 @@ description: "HockeyApp ve Application Insights ile Windows masaüstü uygulaman
 services: application-insights
 documentationcenter: windows
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
 ms.workload: tbd
@@ -12,10 +12,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: 35ca040ed123f6330f09f7fb1bc6be9ddaf61808
+ms.contentlocale: tr-tr
 ms.lasthandoff: 04/07/2017
 
 
