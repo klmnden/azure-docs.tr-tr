@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 5/3/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -112,10 +113,10 @@ Premium Depolama VM’leri Premium Depolama veya normal depolama birimine geri y
 Azure Backup, yönetilen disk sanal makinelerini korur. Yönetilen diskler, sanal makinelerin depolama hesaplarını yönetme sorumluluğunuzu ortadan kaldırır ve VM sağlama işlemini önemli ölçüde kolaylaştırır.
 
 ### <a name="back-up-managed-disk-vms"></a>Yönetilen disk sanal makinelerini yedekleme
-Yönetilen diskler üzerindeki VM'lerin yedeklenmesi, Resource Manager VM'lerin yedeklenmesinden farklı değildir. Azure portalında yedekleme işini doğrudan Sanal Makine görünümünden veya Kurtarma Hizmetleri kasası görünümünden yapılandırabilirsiniz. Yönetilen diskler üzerindeki VM'ler, yönetilen diskler üzerinde oluşturulmuş RestorePoint koleksiyonları ile yedeklenebilir. Azure Backup şu anda Azure Disk şifrelemesi (ADE) kullanılarak şifrelenmiş yönetilen disk VM'lerinin yedeklenmesini desteklememektedir.
+Yönetilen diskler üzerindeki VM'lerin yedeklenmesi, Resource Manager VM'lerin yedeklenmesinden farklı değildir. Azure portalında yedekleme işini doğrudan Sanal Makine görünümünden veya Kurtarma Hizmetleri kasası görünümünden yapılandırabilirsiniz. Yönetilen diskler üzerindeki VM'ler, yönetilen diskler üzerinde oluşturulmuş RestorePoint koleksiyonları ile yedeklenebilir. Azure Backup ayrıca Azure Disk şifrelemesi (ADE) kullanılarak şifrelenmiş yönetilen disk VM'lerinin yedeklenmesini destekler.
 
 ### <a name="restore-managed-disk-vms"></a>Yönetilen disk sanal makinelerini geri yükleme
-Azure Backup, yönetilen disklerle tüm VM'yi geri yüklemenize veya yönetilen diskleri bir Resource Manager depolama hesabına geri yüklemenize olanak tanır. Geri yükleme işlemi sırasında yönetilen diskleri Azure yönetir. Geri yükleme işleminin bir parçası olarak oluşturulan depolama hesabını ise siz (müşteri olarak) yönetirsiniz.
+Azure Backup, yönetilen disklerle tüm VM'yi geri yüklemenize veya yönetilen diskleri bir Resource Manager depolama hesabına geri yüklemenize olanak tanır. Geri yükleme işlemi sırasında yönetilen diskleri Azure yönetir. Geri yükleme işleminin bir parçası olarak oluşturulan depolama hesabını ise siz (müşteri olarak) yönetirsiniz. Yönetilen şifrelenmiş VM'leri geri yüklemek için, geri yükleme öncesinde VM’nin anahtar ve gizli dizilerinin, anahtar kasasında zaten mevcut olması gerekir.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Her bir Azure Backup bileşeninin özellikleri nelerdir?
 Aşağıdaki bölümlerde her bir Azure Backup bileşeninin kullanılabilirliğini veya desteklediği özellikleri özetleyen tablolar yer almaktadır. Ek destek bilgileri veya ayrıntılar için her tablonun altındaki bilgileri inceleyin.

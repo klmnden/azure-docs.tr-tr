@@ -4,7 +4,7 @@ description: "Yeni bir izleme anahtarı ile yeni bir uygulamayı izlemeye başla
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights
 ms.workload: tbd
@@ -12,10 +12,11 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/24/2016
-ms.author: awills
-translationtype: Human Translation
+ms.author: cfreeman
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: f8c71601d033a2897c83a3a64306a39162360946
+ms.contentlocale: tr-tr
 ms.lasthandoff: 04/07/2017
 
 
