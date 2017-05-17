@@ -14,10 +14,11 @@ ms.devlang: na
 ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -184,7 +185,7 @@ VS Code yine kullanılabilir işlevler önererek size yardımcı olur.
 
 ![işlevleri göster](./media/resource-manager-create-first-template/show-functions.png)
 
-İşlevin köşeli ayraç içine alındığına dikkat edin. [ResourceGroup](resource-group-template-functions.md#resourcegroup) işlevi, `location` adlı bir özellikle nesne döndürür. Kaynak grubu, çözümünüzle ilgili tüm kaynakları tutar. Location özelliğini "Orta ABD" gibi bir değere kodlayabilirsiniz, ancak farklı bir konuma yeniden dağıtmak için şablonu el ile değiştirmeniz gerekecektir. `resourceGroup` işlevinin kullanılması, bu şablonun farklı bir konumdaki farklı bir kaynak grubuna dağıtılmasını kolaylaştırır.
+İşlevin köşeli ayraç içine alındığına dikkat edin. [ResourceGroup](resource-group-template-functions-resource.md#resourcegroup) işlevi, `location` adlı bir özellikle nesne döndürür. Kaynak grubu, çözümünüzle ilgili tüm kaynakları tutar. Location özelliğini "Orta ABD" gibi bir değere kodlayabilirsiniz, ancak farklı bir konuma yeniden dağıtmak için şablonu el ile değiştirmeniz gerekecektir. `resourceGroup` işlevinin kullanılması, bu şablonun farklı bir konumdaki farklı bir kaynak grubuna dağıtılmasını kolaylaştırır.
 
 Şablonunuz şimdi şuna benzer görünmelidir:
 
@@ -216,7 +217,7 @@ VS Code yine kullanılabilir işlevler önererek size yardımcı olur.
 ## <a name="add-parameters-and-variables"></a>Parametre ve değişken ekleme
 Şablonunuzda ayarlanması gereken yalnızca iki değer kalmıştır: **name** ve **sku.name**. Bu özellikler için, dağıtım sırasında bu değerleri özelleştirmenize olanak tanıyan parametreleri ekleyin. 
 
-Depolama hesabı adlarını ayarlamayı zorlaştıran birkaç kısıtlama vardır. Ad 3 ila 24 karakter uzunluğunda olmalı, yalnızca sayı ile küçük harf içermeli ve benzersiz olmalıdır. Kısıtlamalara uyan benzersiz bir değer tahmin etmeye çalışmak yerine, [uniqueString](resource-group-template-functions.md#uniquestring) işlevini kullanarak bir karma değer oluşturabilirsiniz. Bu karma değere daha fazla anlam katmak için, dağıtımdan sonra değeri depolama hesabı olarak tanımlamanıza yardımcı olacak bir ön ek ekleyin. 
+Depolama hesabı adlarını ayarlamayı zorlaştıran birkaç kısıtlama vardır. Ad 3 ila 24 karakter uzunluğunda olmalı, yalnızca sayı ile küçük harf içermeli ve benzersiz olmalıdır. Kısıtlamalara uyan benzersiz bir değer tahmin etmeye çalışmak yerine, [uniqueString](resource-group-template-functions-string.md#uniquestring) işlevini kullanarak bir karma değer oluşturabilirsiniz. Bu karma değere daha fazla anlam katmak için, dağıtımdan sonra değeri depolama hesabı olarak tanımlamanıza yardımcı olacak bir ön ek ekleyin. 
 
 1. Adlandırma kurallarınıza uyan bir ad ön eki geçirmek için şablonunuzun **parametreler** bölümüne gidin. Şablona, depolama hesabı adı için ön ek kabul eden bir parametre ekleyin:
 
