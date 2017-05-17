@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: edmaca, yanacai
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.contentlocale: tr-tr
 ms.lasthandoff: 04/07/2017
 
 
@@ -128,9 +129,9 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
        Ad otomatik olarak tamamlanır ve Satır Kümesi, Sınıflar, Veritabanları, Şemalar ve Kullanıcı Tanımlı Nesneler (UDO'lar) için üyeler gösterilir.
 
        Katalog varlıkları (Veritabanları, Şemalar, Tablolar, UDO'lar vb.) için IntelliSense, işlem hesabınızla ilgilidir. Geçerli etkin işlem hesabını, veritabanını ve şemayı üst araç çubuğundan denetleyebilir ve bunları açılır listelerden değiştirebilirsiniz.
-   * *** sütunlarını genişletme**
+   * **sütunlarını * genişletme**
 
-       * öğesinin sağına tıklayın; * öğesinin altında mavi bir alt çizgi göreceksiniz. Fare imlecinizi mavi alt çizginin üzerine getirin ve sonra aşağı oka tıklayın.
+       \* öğesinin sağına tıklayın; * öğesinin altında mavi bir alt çizgi göreceksiniz. Fare imlecinizi mavi alt çizginin üzerine getirin ve sonra aşağı oka tıklayın.
        ![Data Lake Visual Studio araçlarını genişletme *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        **Sütunları Genişlet**'e tıklayın; araç, * simgesi yerine sütun adlarını getirecektir.
