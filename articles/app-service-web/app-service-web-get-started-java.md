@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 2673a9c0d91510756a97b2dba3801d2925905c9a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/21/2017
 
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-Bu Hızlı Başlangıç, ilk Java web uygulamanızı birkaç dakika içinde [Azure App Service](../app-service/app-service-value-prop-what-is.md)’a dağıtmanıza yardımcı olur. Bu öğreticiyle çalışmanız bittiğinde, bulutta çalışır hale gelecek basit bir Java tabanlı web uygulamanız olur.
+Bu hızlı başlangıç kılavuzu, ilk Java web uygulamanızı yalnızca birkaç dakika içinde [Azure App Service](../app-service/app-service-value-prop-what-is.md)’e dağıtmanıza yardımcı olur. Bu öğreticiyle çalışmanız bittiğinde, bulutta çalışır hale gelecek basit bir Java tabanlı web uygulamanız olur.
 
 ![Web Uygulamasına Göz Atma](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -44,11 +45,9 @@ Bu öğreticideki adımları tamamlamak için bir Azure aboneliğinizin olması 
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Eclipse’te Dinamik Web Projesi oluşturma
 
-Eclipse IDE’de **Dosya**’ya, **Yeni**’ye ve ardından **Dinamik Web Projesi**’ne tıklayın.
+Eclipse'te **Dosya** menüsünü, ardından **Yeni** 'yi ve **Dinamik Web Projesi**'ni seçin.
 
-![Yeni Dinamik Web Projesi](./media/app-service-web-get-started-java/file-new-dynamic-web-project-menu.png)
-
-Dinamik Web Projesi iletişim kutusu görüntülendiğinde, uygulamayı **MyFirstJavaOnAzureWebApp** olarak adlandırın ve **Son**’a tıklayın.
+**Yeni Dinamik Web Projesi** iletişim kutusunda, projeyi **MyFirstJavaOnAzureWebApp** olarak adlandırın ve **Son**’u seçin.
    
 ![Dinamik Web Projesi iletişim kutusu](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -73,13 +72,11 @@ Yeni sayfanız Eclipse’te açıldığında, mevcut `<body></body>` bölümün�
 
 ```jsp
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 ```
 
 Sayfada yaptığınız değişiklikleri kaydedin.
-
-![JSP Kodunu Düzenleme](./media/app-service-web-get-started-java/creating-index-jsp-page.png)
 
 ## <a name="publish-your-web-app-to-azure"></a>Web uygulamanızı Azure’a yayımlama
 
@@ -183,14 +180,12 @@ Web uygulamanızı başarıyla Azure’da yayımladıktan sonra, web uygulamanı
 <title><% out.println(date.format(new Date())); %></title>
 </head>
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 </html>
 ```
 
-![JSP Kodunu Güncelleştirme](./media/app-service-web-get-started-java/updating-index-jsp-page.png)
-
-Sayfada yaptığınız değişiklikleri kaydettikten sonra, Eclipse **Proje Gezgini**’nde projenize sağ tıklayın, ardından **Azure**’a ve **Azure Web App Olarak Yayımla** öğesine tıklayın.
+Yaptığınız değişiklikleri kaydettikten sonra, Eclipse **Proje Gezgini**’nde projenize sağ tıklayın, ardından **Azure**’a ve **Azure Web Uygulaması Olarak Yayımla** öğesine tıklayın.
 
 ![Güncelleştirilen Web Uygulamasını Yayımlama](./media/app-service-web-get-started-java/publish-updated-web-app-context-menu.png)
 
@@ -207,9 +202,9 @@ Değişikliklerinizi yayımladıktan sonra, tarayıcınızda sayfa başlığın�
 
 ![Web Uygulamasına Göz Atma](./media/app-service-web-get-started-java/browse-web-app-2.png)
 
-## <a name="deleting-your-web-app"></a>Web uygulamanızı silme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Web uygulamasını silmek için, Azure Araç Seti’nin bir parçası olan **Azure Gezgini**’ni kullanabilirsiniz. **Azure Gezgini** görünümü henüz Eclipse’te görünür durumda değilse, görüntülemek için aşağıdaki adımları izleyin:
+Web uygulamasını silmek için Azure Araç Seti ile birlikte gelen **Azure Gezgini**'ni kullanın. **Azure Gezgini** görünümü henüz Eclipse’te görünür durumda değilse, görüntülemek için aşağıdaki adımları izleyin:
 
 1. **Pencere**’ye tıklayın, **Görünümü Göster**’e ve sonra da **Diğer**’e tıklayın.
 
