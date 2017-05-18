@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/01/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: f485dc6a52488b44bbd0e68432d3fd2bcdb060a9
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f10a6889944b1dde4f579e575389fa7bab28c51a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -37,9 +37,9 @@ Bu makalede, PowerShell kullanarak şirket içi ağınızdan VNet’e Siteden Si
 >
 
 
-![Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı diyagramı](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-connection-diagram.png)
-
 Siteden Siteye VPN ağ geçidi bağlantısı, şirket içi ağınızı bir IPsec/IKE (IKEv1 veya IKEv2) tüneli üzerinden Azure sanal ağına bağlamak için kullanılır. Bu bağlantı türü için, şirket içinde yer alan ve kendisine atanmış dışarıya yönelik bir genel IP adresi atanmış olan bir VPN cihazı gerekir. VPN ağ geçitleri hakkında daha fazla bilgi için bkz. [VPN ağ geçidi hakkında](vpn-gateway-about-vpngateways.md).
+
+![Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı diyagramı](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-connection-diagram.png)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -144,7 +144,7 @@ Aşağıdaki değerleri kullanın:
 
   ```powershell
   New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
-  -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix   '10.0.0.0/24'
+  -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.0.0.0/24'
   ```
 
 - Birden çok adres ön ekine sahip bir yerel ağ geçidi eklemek için:
@@ -195,13 +195,17 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="ConfigureVPNDevice"></a>7. VPN cihazınızı yapılandırma
 
+Bir şirket içi ağı ile Siteden Siteye bağlantılar için VPN cihazı gerekir. Bu adımda VPN cihazınızı yapılandıracaksınız. VPN cihazınızı yapılandırırken şunlar gerekir:
+
+- Paylaşılan bir anahtar. Siteden Siteye VPN bağlantınızı oluştururken belirttiğiniz paylaşılan anahtarın aynısıdır. Bu örneklerde temel bir paylaşılan anahtar kullanılır. Kullanmak için daha karmaşık bir anahtar oluşturmanız önerilir.
+- Sanal ağ geçidinizin Genel IP adresi. Azure Portal, PowerShell veya CLI kullanarak genel IP adresini görüntüleyebilirsiniz. PowerShell kullanarak sanal ağ geçidinizin Genel IP adresini bulmak için şu örneği kullanın:
+
+  ```powershell
+  Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+  ```
+
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-PowerShell kullanarak sanal ağ geçidinizin Genel IP adresini bulmak için şu örneği kullanın:
-
-```powershell
-Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
-```
 
 ## <a name="CreateConnection"></a>8. VPN bağlantısını oluşturma
 
@@ -223,6 +227,7 @@ Bir sonraki adımda, sanal ağ geçidiniz ile VPN cihazınız arasındaki Sitede
 Kısa bir süre içerisinde bağlantı kurulur.
 
 ## <a name="toverify"></a>9. VPN bağlantısını doğrulama
+
 VPN bağlantınızı doğrulamanın birkaç farklı yolu vardır.
 
 [!INCLUDE [Verify connection](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
@@ -246,4 +251,3 @@ VPN bağlantınızı doğrulamanın birkaç farklı yolu vardır.
 
 *  Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * BGP hakkında bilgi edinmek için [BGP’ye Genel Bakış](vpn-gateway-bgp-overview.md) ve [BGP’yi yapılandırma](vpn-gateway-bgp-resource-manager-ps.md) makalelerine bakın.
-

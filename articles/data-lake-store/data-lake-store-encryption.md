@@ -15,127 +15,129 @@ ms.workload: big-data
 ms.date: 4/14/2017
 ms.author: yagupta
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 9bd9996a4a22b2f57510b6f3b6625e22b3183b1c
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/08/2017
 
 ---
 
-# <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store'da Veri Şifreleme
+# <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store'da veri şifreleme
 
-## <a name="overview-of-encryption-in-azure-data-lake-store"></a>Azure Data Lake Store'da Şifrelemeye Genel Bakış
+Azure Data Lake Store’da şifreleme; verilerinizi koruma, kurumsal güvenlik ilkeleri uygulama ve yasal uyumluluk gereksinimlerini karşılamaya yardımcı olur. Bu makale tasarıma genel bir bakış sunarken uygulamanın birkaç teknik yönünü ele almaktadır.
 
-Azure Data Lake Store’da (ADLS) Şifreleme; verilerinizi koruma, kurumsal güvenlik ilkeleri uygulama ve yasal uyumluluk gereksinimlerini karşılama olanağı sağlar. Bu makalede tasarıma genel bir bakış sunulmuş ve Data Lake Store'da veri şifrelemesinin nasıl uygulandığı konusunda teknik bilgiler verilmiştir.
+Data Lake Store, hem bekleyen hem de aktarımdaki verilerin şifrelenmesini destekler. Bekleyen veriler için Data Lake Store, "varsayılan olarak etkin" saydam şifrelemeyi destekler. Bu terimlerin biraz daha ayrıntılı olarak anlamı şudur:
 
-ADLS, bekleyen verilerin şeffaf ve varsayılan olarak etkin bir şekilde şifrelemesini destekler. Bu terimlerin biraz daha ayrıntılı olarak anlamı şudur:
+* **Varsayılan olarak etkin**: Yeni bir Data Lake Store hesabı oluştururken varsayılan ayar, şifrelemeyi etkinleştirir. Bundan sonra Data Lake Store'da depolanan veriler her zaman kalıcı medyada depolanmadan önce şifrelenir. Bu durum tüm veriler için geçerlidir ve bir hesap oluşturulduktan sonra değiştirilemez.
+* **Şeffaf**: Data Lake Store, kaydetmeden önce verileri şifreler ve almadan öncesinde verilerin şifresini çözer. Bu şifreleme Data Lake Store düzeyinde bir yönetici tarafından yapılandırılır ve yönetilir. Veri erişimi API'lerinde hiçbir değişiklik yapılmaz. Bu nedenle, Data Lake Store ile etkileşimde bulunan uygulamalarda ve hizmetlerde şifreleme için herhangi bir değişiklik yapılması gerekmez.
 
-* Varsayılan olarak etkin: Yeni bir Azure Data Lake Store hesabı oluştururken varsayılan ayar şifrelemeyi etkinleştirir. Bundan sonra Data Lake Store'da depolanan veriler her zaman kalıcı medyada depolanmadan önce şifrelenir. Bu durum tüm veriler için geçerlidir ve bir hesap oluşturulduktan sonra değiştirilemez.
-* Şeffaf: ADLS, kaydetmeden önce verileri şifreler ve almadan öncesinde verilerin şifresini çözer. Bu şifreleme Data Lake Store düzeyinde bir yönetici tarafından yapılandırılır ve yönetilir. Veri erişim API’lerinde değişiklik yapılmadığından Data Lake Store ile etkileşimde bulunan uygulamalarda ve hizmetlerde şifreleme için herhangi bir değişiklik yapılması gerekmez.
+Data Lake Store'da aktarımdaki (diğer adıyla hareket halindeki) veriler de her zaman şifrelenir. Kalıcı medyaya depolama önce veri şifrelemeye ek olarak, aktarımdaki veriler de her zaman HTTPS kullanılarak korunmaktadır. HTTPS, Data Lake Store REST arabirimleri için desteklenen tek protokoldür. Aşağıdaki diyagramda, Data Lake Store'da verilerin nasıl şifrelendiği gösterilmektedir:
 
-Data Lake Store'da aktarımdaki (hareket halindeki) veriler de her zaman şifrelenir. Kalıcı medyaya depolama önce veri şifrelemeye ek olarak, aktarımdaki veya hareket halindeki veriler de her zaman HTTPS (Güvenli Yuva Katmanı üzerinden HTTP) kullanılarak korunmaktadır. HTTPS, Data Lake Store REST arabirimleri için desteklenen tek protokoldür.
-
-![Şekil 1](./media/data-lake-store-encryption/fig1.png)
+![Data Lake Store'da veri şifreleme diyagramı](./media/data-lake-store-encryption/fig1.png)
 
 
-## <a name="setting-up-encryption-with-azure-data-lake-store"></a>Azure Data Lake Store ile Şifrelemeyi Ayarlama
+## <a name="set-up-encryption-with-data-lake-store"></a>Data Lake Store ile şifrelemeyi ayarlama
 
-Azure Data Lake Store için Şifreleme, hesap oluşturma sırasında ayarlanır ve her zaman varsayılan olarak etkindir. Müşteriler anahtarları yönetebilir ya da Azure Data Lake Store’un anahtarları yönetmesine izin verebilir (varsayılan).
+Data Lake Store için Şifreleme, hesap oluşturma sırasında ayarlanır ve her zaman varsayılan olarak etkindir. Anahtarları kendiniz yönetebilir veya Data Lake Store’un sizin için yönetmesine izin verebilirsiniz (varsayılan değer).
 
-Azure Data Lake Store ile Şifreleme ayarlama hakkında bilgi edinmek için bkz. [Başlarken](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Daha fazla bilgi için [Başlarken](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal) bölümüne bakın.
 
-## <a name="under-the-hood--how-encryption-works-in-azure-data-lake-store"></a>Sahne Arkası – Azure Data Lake Store'da Şifreleme nasıl çalışır
+## <a name="how-encryption-works-in-data-lake-store"></a>Data Lake Store'da şifreleme nasıl çalışır
 
-### <a name="master-encryption-keys"></a>Ana Şifreleme Anahtarları
+Aşağıdaki bilgiler ana şifreleme anahtarlarını yönetme konusunu kapsar ve Data Lake Store için veri şifrelemede kullanabileceğiniz üç farklı türü açıklar.
 
-Azure Data Lake Store, ana şifreleme anahtarlarının (MEK’ler) yönetimi için iki mod sağlar. Ana şifreleme anahtarlarının kullanımını aşağıda daha ayrıntılı açıklanmıştır. Şimdilik, ana şifreleme anahtarının en üst düzey anahtar olduğunu varsayabiliriz. Data Lake Store'da depolanan verilerin şifresini çözmek için ana şifreleme anahtarına erişim gereklidir.
+### <a name="master-encryption-keys"></a>Ana şifreleme anahtarları
+
+Data Lake Store, ana şifreleme anahtarlarının (MEK’ler) yönetimi için iki mod sağlar. Şimdilik, ana şifreleme anahtarının en üst düzey anahtar olduğunu varsayabiliriz. Data Lake Store'da depolanan verilerin şifresini çözmek için ana şifreleme anahtarına erişim gereklidir.
 
 Ana şifreleme anahtarını yönetmek için kullanılan iki mod şunlardır:
 
-1.    Hizmet Tarafından Yönetilen Anahtarlar
-2.    Müşteri Tarafından Yönetilen Anahtarlar
+*    Hizmet tarafından yönetilen anahtarlar
+*    Müşteri tarafından yönetilen anahtarlar
 
-Her iki modda da ana şifreleme anahtarı Azure Key Vault’ta depolanarak güvenlik altına alınır. Azure üzerinde tam olarak yönetilen, yüksek güvenlikli bir hizmet olan Azure Key Vault, şifreleme anahtarlarını korumak için kullanılabilir. Azure Key Vault hakkında daha fazla bilgiye [buradan](https://azure.microsoft.com/services/key-vault) ulaşabilirsiniz.
+Her iki modda da ana şifreleme anahtarı Azure Key Vault’ta depolanarak güvenlik altına alınır. Azure üzerinde tam olarak yönetilen, yüksek güvenlikli bir hizmet olan Key Vault, şifreleme anahtarlarını korumak için kullanılabilir. Daha fazla bilgi için bkz. [Key Vault](https://azure.microsoft.com/services/key-vault).
 
 MEK’leri yönetmek için kullanılan iki modun sağladığı özelliklerin kısa bir karşılaştırması aşağıdadır.
 
-|  | Hizmet Tarafından Yönetilen Anahtarlar | Müşteri Tarafından Yönetilen Anahtarlar |
+|  | Hizmet tarafından yönetilen anahtarlar | Müşteri tarafından yönetilen anahtarlar |
 | --- | --- | --- |
-|Veriler nasıl depolanır?|Depolanmadan önce her zaman şifrelenir|Depolanmadan önce her zaman şifrelenir|
-|Ana Şifreleme Anahtarı nerede depolanır?|Azure Key Vault|Azure Key Vault|
-|Azure Key Vault dışında açıkta saklanan şifreleme anahtarı var mı?|Hayır|Hayır|
-|Azure Key Vault’tan MEK alınabilir mi?|Hayır. Key Vault’ta bir kez depolandıktan sonra yalnızca şifreleme ve şifre çözme amacıyla kullanılabilir.|Hayır. Key Vault’ta bir kez depolandıktan sonra yalnızca şifreleme ve şifre çözme amacıyla kullanılabilir.|
-|Azure Key Vault ve MEK kime aittir?|Azure Data Lake Store hizmetine.|Azure Key Vault Azure aboneliğine ve dolayısıyla müşteriye aittir. Key Vault’taki MEK, yazılım veya donanım (HSM) tarafından yönetilebilir.|
-|Müşteri, Azure Data Lake Store hizmetinin MEK’ine erişimi iptal edebilir mi?|Hayır|Evet. Azure Key Vault’taki erişim denetim listelerini yönetebilir ve Azure Data Lake Store hizmeti için hizmet kimliği erişim denetimi girdilerini kaldırabilirler.|
-|Müşteri MEK’i kalıcı olarak silebilir mi?|Hayır|Evet. Müşteri Azure Key Vault'taki MEK’i silerse, ADLS hesabındaki verilerin şifresi Azure Data Lake Store hizmeti de dahil olmak üzere hiç kimse tarafından şifresi çözülemez. <br><br> MEK, Azure Key Vault'tan silinmeden önce müşteri tarafından özellikle yedeklendiyse geri yüklenebilir ve veriler kurtarılabilir. Ancak MEK, Azure Key Vault'tan silinmeden önce müşteri tarafından yedeklenmezse ADLS hesabındaki verilerin şifresi asla çözülemez.|
+|Veriler nasıl depolanır?|Depolanmadan önce her zaman şifrelenir.|Depolanmadan önce her zaman şifrelenir.|
+|Ana Şifreleme Anahtarı nerede depolanır?|Anahtar Kasası|Anahtar Kasası|
+|Key Vault dışında açıkta saklanan şifreleme anahtarı var mı? |Hayır|Hayır|
+|Key Vault’tan MEK alınabilir mi?|Hayır. MEK Key Vault’ta depolandıktan sonra yalnızca şifreleme ve şifre çözme amacıyla kullanılabilir.|Hayır. MEK Key Vault’ta depolandıktan sonra yalnızca şifreleme ve şifre çözme amacıyla kullanılabilir.|
+|Key Vault örneği ve MEK kime aittir?|Data Lake Store hizmeti|Kendi Azure aboneliğiniz kapsamında bulunan Key Vault örneği size aittir. Key Vault’taki MEK, yazılım veya donanım tarafından yönetilebilir.|
+|Data Lake Store hizmeti için MEK erişimini iptal edebilir misiniz?|Hayır|Evet. Azure Key Vault’taki erişim denetimi listelerini yönetebilir ve Data Lake Store hizmeti için hizmet kimliğine erişim denetimi girdilerini kaldırabilirsiniz.|
+|MEK’i kalıcı olarak silebilir misiniz?|Hayır|Evet. Key Vault'taki MEK’i silerseniz, Data Lake Store hesabındaki verilerin şifresi Data Lake Store hizmeti de dahil olmak üzere hiç kimse tarafından çözülemez. <br><br> MEK’i Key Vault'tan silmeden önce özellikle yedeklediyseniz, MEK geri yüklenebilir ve veriler kurtarılabilir. Ancak, MEK’i Key Vault'tan silmeden önce yedeklemediyseniz, Data Lake Store hesabındaki verilerin şifresi asla çözülemez.|
 
 
-MEK ve MEK’in içinde bulunduğu Key Vault’un kim tarafından yönetildiği konusundaki üst düzey farklılıklar dışında, ikisinin de tasarımı aynıdır.
+MEK ve MEK’in içinde bulunduğu Key Vault’un kim tarafından yönetildiği konusundaki bu farklılık dışında, tasarımın geri kalanı her iki mod için aynıdır.
 
-Ana şifreleme anahtarları için modu seçme açısından anımsaması gereken birkaç önemli konu vardır.
+Ana şifreleme anahtarları için modu seçtiğinizde aşağıdakileri unutmamanız gerekir:
 
-1.    Müşteri tarafından mı yoksa ADLS tarafından mı yönetilen anahtarlar kullanacağınızı seçebilirsiniz.
-2.    ADLS hesabı oluşturulduktan sonra mod değiştirilemez.
+*    Bir Data Lake Store hesabı sağladığınızda müşteri tarafından veya hizmet tarafından yönetilen anahtarları kullanacağınızı seçebilirsiniz.
+*    Data Lake Store hesabı oluşturulduktan sonra mod değiştirilemez.
 
-### <a name="encryption-and-decryption-of-data"></a>Verilerin Şifrelenmesi ve Şifresinin Çözülmesi
+### <a name="encryption-and-decryption-of-data"></a>Verilerin şifrelenmesi ve şifresinin çözülmesi
 
-Azure Data Lake’in veri şifreleme tasarımında kullanılan üç tür anahtarlar vardır. Aşağıdaki tabloda rolleri açıklanmıştır:
+Veri şifreleme tasarımında kullanılan üç tür anahtar vardır. Aşağıdaki tabloda bir özet verilmektedir:
 
-| Anahtar                   | Kısaltma | İlişkisi | Depolama Konumu                             | Tür       | Notlar                                                                                                   |
+| Anahtar                   | Kısaltma | İlişkili olduğu yer: | Depolama konumu                             | Tür       | Notlar                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
-| Ana Şifreleme Anahtarı | MEK          | ADLS hesabı | Azure Key Vault                              | Asimetrik | ADLS tarafından veya müşteri tarafından yönetilen                                                              |
-| Veri Şifreleme Anahtarı   | DEK          | ADLS hesabı | Kalıcı depolama – ADLS hizmeti tarafından yönetilen | Simetrik  | DEK, MEK tarafından şifrelenir ve hizmetteki kalıcı medyada şifrelenmiş DEK depolanır. |
+| Ana Şifreleme Anahtarı | MEK          | Bir Data Lake Store hesabı | Anahtar Kasası                              | Asimetrik | Data Lake Store veya sizin tarafınızdan yönetilebilir.                                                              |
+| Veri Şifreleme Anahtarı   | DEK          | Bir Data Lake Store hesabı | Kalıcı depolama, Data Lake Store hizmeti tarafından yönetilir | Simetrik  | DEK, MEK ile şifrelenir. Şifrelenmiş DEK, kalıcı medyada depolanır. |
 | Blok Şifreleme Anahtarı  | BEK          | Bir veri bloğu | None                                         | Simetrik  | BEK, DEK’ten ve veri bloğundan türetilir.                                                      |
 
 Aşağıdaki diyagram bu kavramları göstermektedir:
 
-![Şekil 2](./media/data-lake-store-encryption/fig2.png)
+![Veri şifrelemesindeki anahtarlar](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Bir dosyanın şifresinin çözülmesi için kullanılan genel algoritma:
-1.    ADLS hesabının DEK’inin önbelleğe alınmış ve kullanıma hazır olup olmadığı denetlenir.
-    * Bu koşulları karşılamıyorsa, kalıcı depolamadan şifrelenmiş DEK okunur ve şifresinin çözülmesi için Azure Key Vault’a gönderilir. Şifresi çözülmüş DEK önbelleğe alınır ve kullanmak artık hazırdır.
-2.    Veri dosyasındaki her blok için
-    * Kalıcı depolama alanından şifrelenmiş veri bloğu okunur.
-    * DEK’ten ve şifrelenmiş veri bloğundan BEK oluşturulur.
-    * Verilerin şifresini çözmek için BEK kullanılır.
+1.    Data Lake Store hesabının DEK’inin önbelleğe alınmış ve kullanıma hazır olup olmadığını denetleyin.
+    - Bu koşulları karşılamıyorsa, kalıcı depolamadan şifrelenmiş DEK’i okuyun ve şifresinin çözülmesi için Key Vault’a gönderin. Şifresi çözülmüş DEK’i bellekte önbelleğe alın. Artık kullanıma hazırdır.
+2.    Dosyadaki her veri bloğu için:
+    - Kalıcı depolama alanından şifrelenmiş veri bloğu okunur.
+    - DEK’ten ve şifrelenmiş veri bloğundan BEK oluşturulur.
+    - Verilerin şifresini çözmek için BEK kullanılır.
+
+
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Bir veri bloğu şifrelenecek olduğunda genel algoritma:
-1.    ADLS hesabının DEK’inin önbelleğe alınmış ve kullanıma hazır olup olmadığı denetlenir.
-    * Bu koşulları karşılamıyorsa, kalıcı depolamadan şifrelenmiş DEK okunur ve şifresinin çözülmesi için Azure Key Vault’a gönderilir. Şifresi çözülmüş DEK önbelleğe alınır ve kullanmak artık hazırdır.
+1.    Data Lake Store hesabının DEK’inin önbelleğe alınmış ve kullanıma hazır olup olmadığını denetleyin.
+    - Bu koşulları karşılamıyorsa, kalıcı depolamadan şifrelenmiş DEK’i okuyun ve şifresinin çözülmesi için Key Vault’a gönderin. Şifresi çözülmüş DEK’i bellekte önbelleğe alın. Artık kullanıma hazırdır.
 2.    DEK’ten veri bloğu için benzersiz bir BEK oluşturulur.
 3.    Veri bloğu, BEK ile AES-256 şifreleme kullanılarak şifrelenir.
 4.    Şifrelenmiş veri bloğu kalıcı depolama alanında depolanır.
 
 > [!NOTE] 
-> Performansı artırmak için, açıktaki Veri Şifreleme Anahtarı (DEK) kısa bir süreliğine önbelleğe alınır ve ilgili süre sona erdiğinde hemen silinir. Kalıcı ortamda her zaman Ana Şifreleme Anahtarı (MEK) tarafından şifrelenmiş olarak depolanır.
+> Performans nedeniyle, DEK kısa bir süre için önbelleğe alınır ve sonrasında hemen silinir. Kalıcı ortamda her zaman MEK tarafından şifrelenmiş olarak depolanır.
 
-## <a name="key-rotation"></a>Anahtar Döndürme
+## <a name="key-rotation"></a>Anahtar döndürme
 
-Azure Data Lake Store, müşteri tarafından yönetilen anahtarlar kullanılırken Ana Şifreleme Anahtarı’nın (MEK) döndürülmesine olanak verir. Müşteri tarafından yönetilen anahtarlarla ADLS hesabınızı ayarlama hakkında bilgi edinmek için bkz. [Başlarken](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal) sayfası.
+Müşteri tarafından yönetilen anahtarları kullanırken MEK’i döndürebilirsiniz. Müşteri tarafından yönetilen anahtarlarla Data Lake Store hesabınızı ayarlama hakkında bilgi edinmek için bkz. [Başlarken](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Ön koşullar
 
-Azure Data Lake hesabı ayarlarken, müşteriler kendi anahtarlarını kullanmayı seçti. Bu seçenek, hesap oluşturulduktan sonra değiştirilemez. Şifreleme için varsayılan seçenekleri kullanırsanız, verileriniz Azure Data Lake tarafından yönetilen anahtarlar kullanılarak her zaman şifrelenir, bu seçenekte anahtarlar Azure Data Lake tarafından yönetildiği için müşterinin anahtarları döngü haline getirme olanağı yoktur. Aşağıdaki adımlarda, müşteri tarafından yönetilen anahtarlar kullandığınız (Key Vault'ta kendi anahtarlarınızı seçtiğiniz) varsayılır.
+Data Lake Store hesabınızı ayarlarken kendi anahtarlarınızı kullanmayı seçtiniz. Bu seçenek, hesap oluşturulduktan sonra değiştirilemez. Aşağıdaki adımlarda, müşteri tarafından yönetilen anahtarlar kullandığınız (Key Vault'tan kendi anahtarlarınızı seçtiğiniz) varsayılır.
 
-### <a name="how-to-rotate-the-key-mek-in-azure-data-lake-store"></a>Azure Data Lake Store (MEK) anahtarında döngü
+Şifreleme için varsayılan seçenekleri kullanıyorsanız, verilerinizin her zaman Data Lake Store tarafından yönetilen anahtarlar kullanılarak şifrelendiğini unutmayın. Bu seçenekte, Data Lake Store tarafından yönetildikleri için anahtarları döndüremezsiniz.
 
-1. Yeni [Azure Portal](https://portal.azure.com/)'da oturum açın.
-2. Azure Data Lake Store hesabınızla ilişkili anahtarlarınızı depolayan Key Vault’a gidin ve anahtarları seçin.
+### <a name="how-to-rotate-the-mek-in-data-lake-store"></a>Data Lake Store’da MEK döndürme
 
-    ![Anahtarlar](./media/data-lake-store-encryption/keyvault.png)
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+2. Data Lake Store hesabınızla ilişkili anahtarlarınızı depolayan Key Vault örneğine göz atın. **Anahtarlar**’ı seçin.
 
-3.    Azure Data Lake Store hesabınızla ilişkili anahtarı seçin ve bu anahtarın yeni bir sürümünü oluşturun.
-  
-   Bu noktada, Azure Data Lake yalnızca yeni bir sürüme anahtar döndürmeyi destekler, farklı bir anahtara döndürmeyi desteklemiyoruz.
+    ![Key Vault ekran görüntüsü](./media/data-lake-store-encryption/keyvault.png)
 
-   ![newversion](./media/data-lake-store-encryption/keynewversion.png)
+3.    Data Lake Store hesabınızla ilişkili anahtarı seçin ve bu anahtarın yeni bir sürümünü oluşturun. Data Lake Store şu anda yalnızca bir anahtarın yeni bir sürümüne anahtar döndürmeyi desteklemektedir. Farklı bir anahtara döndürmeyi desteklemez.
 
-4.    Azure Data Lake Depolama hesabına gidin ve Şifreleme’yi seçin.
+   ![Yeni Sürümün vurgulandığı Anahtarlar penceresi ekran görüntüsü](./media/data-lake-store-encryption/keynewversion.png)
 
-    ![newversion](./media/data-lake-store-encryption/select-encryption.png)
+4.    Data Lake Store depolama hesabına gidip **Şifreleme**’yi seçin.
 
-5.    Anahtarın yeni bir sürümü olduğunu bildiren bir not ve anahtarı bu yeni sürüme döndürmenizi sağlayacak bir düğme görürsünüz. Anahtarı yeni sürüme güncelleştirmek için anahtarı döndür seçeneğine tıklayın.
+    ![Şifreleme’nin vurgulandığı Data Lake Store depolama hesabı penceresinin ekran görüntüsü](./media/data-lake-store-encryption/select-encryption.png)
 
-    ![done](./media/data-lake-store-encryption/rotatekey.png)
+5.    Yeni bir anahtar sürümünün mevcut olduğu bir ileti ile bildirilir. Anahtarı yeni sürüme güncelleştirmek için **Anahtarı Döndür** seçeneğine tıklayın.
 
-6. Bu işlem 2 dakikadan kısa sürer ve anahtar döndürme nedeniyle beklenen kapalı kalma süresi yoktur. İşlem tamamlandıktan sonra anahtarın yeni sürümü kullanılır.
+    ![İleti ve Anahtarı Döndür seçenekleri vurgulanmış Data Lake Store penceresinin ekran görüntüsü](./media/data-lake-store-encryption/rotatekey.png)
+
+Bu işlem iki dakikadan kısa sürer ve anahtar döndürme nedeniyle beklenen kapalı kalma süresi yoktur. İşlem tamamlandıktan sonra anahtarın yeni sürümü kullanılır.
 
