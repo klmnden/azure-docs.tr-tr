@@ -9,7 +9,7 @@
 
 # Kullanmaya Başlama
 ## [VMware VM'lerini Azure'a çoğaltma](site-recovery-vmware-to-azure.md)
-## [Fiziksel sunucuları Azure'a çoğaltma](site-recovery-physical-servers-to-azure.md) 
+## [Fiziksel sunucuları Azure'a çoğaltma](site-recovery-physical-servers-to-azure.md)
 ## [Hyper-V VM’lerini Azure’a çoğaltma (VMM ile)](site-recovery-vmm-to-azure.md)
 ## [Hyper-V VM'lerini Azure'a çoğaltma](site-recovery-hyper-v-site-to-azure.md)
 ## [Hyper-V VM'lerini ikincil bir siteye çoğaltma (VMM ile)](site-recovery-vmm-to-vmm.md)
@@ -23,6 +23,7 @@
 ### [Kapasite planlama ve Azure'aa VMware çoğaltma işlemini ölçeklendirme](site-recovery-plan-capacity-vmware.md)
 ### [Azure’a VMware çoğaltması için Dağıtım Planlayıcısı](site-recovery-deployment-planner.md)
 ### [Hyper-V çoğaltması için Capacity Planner](site-recovery-capacity-planner.md)
+### [Rol Tabanlı Access Control](site-recovery-role-based-linked-access-control.md)
 
 ## Yapılandırma
 ### [Kaynak ortamını ayarlama](site-recovery-set-up-vmware-to-azure.md)
