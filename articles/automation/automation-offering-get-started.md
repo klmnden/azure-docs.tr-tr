@@ -1,4 +1,4 @@
---- 
+---
 title: "Azure Otomasyonu Kullanmaya Başlama | Microsoft Docs"
 description: "Bu makale, Azure Market tekliflerini eklemeyle ilgili temel kavramları ve uygulama ayrıntılarını gözden geçirerek Azure Otomasyonu hizmetine genel bakış sağlar."
 services: automation
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 9b4982ffece9283304ad3ab3c82a471ac1dbd463
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 ---
 
 ## <a name="getting-started-with-azure-automation"></a>Azure Otomasyonu’nu Kullanmaya Başlama
 
-Bu başlangıç kılavuzunda Azure Otomasyonu’nun dağıtımıyla ilgili temel kavramlar açıklanmaktadır. Azure’da Otomasyon’u kullanmaya yeni başladıysanız veya System Center Orchestrator gibi otomasyon iş akışı yazılımlarıyla ilgili deneyiminiz varsa, bu kılavuzu kullanarak kavramları ve dağıtım ayrıntılarını öğrenmeye başlayabilirsiniz. 
+Bu başlangıç kılavuzunda Azure Otomasyonu’nun dağıtımıyla ilgili temel kavramlar açıklanmaktadır. Azure’da Otomasyon’u kullanmaya yeni başladıysanız veya System Center Orchestrator gibi otomasyon iş akışı yazılımlarıyla ilgili deneyiminiz varsa, bu kılavuzu kullanarak kavramları ve dağıtım ayrıntılarını öğrenmeye başlayabilirsiniz.
 
 ## <a name="key-concepts"></a>Önemli kavramlar
 
@@ -83,14 +83,14 @@ Karma runbook işleri çalıştırmak üzere bir bilgisayar belirlerken, bu bilg
 ## <a name="security"></a>Güvenlik
 Azure Otomasyonu, Azure’daki şirket içindeki kaynaklara karşı ve diğer bulut sağlayıcılarıyla görevleri otomatikleştirmenizi sağlar.  Runbook'un gerekli işlemlerini gerçekleştirebilmesi için, abonelikte gereken en düşük haklara sahip kaynaklara güvenli erişim izinlerinin olması gerekir.  
 
-### <a name="automation-account"></a>Otomasyon Hesabı 
+### <a name="automation-account"></a>Otomasyon Hesabı
 Azure Otomasyonu’nda Azure cmdlet’lerini kullanarak kaynaklara karşı gerçekleştirdiğiniz tüm otomasyon görevleri, Azure Active Directory kuruluş kimliği kimlik bilgilerine dayalı kimlik doğrulaması kullanılarak Azure’da doğrulanır.  Otomasyon hesabı, Azure kaynaklarını yapılandırmak ve kullanmak üzere portalda oturum açmak için kullandığınız hesaptan farklıdır.  
 
 Her Otomasyon hesabı için Otomasyon kaynakları tek bir Azure bölgesiyle ilişkilendirilir, ancak Otomasyon hesapları aboneliğinizdeki tüm kaynakları yönetebilir. Kaynakların belirli bir bölgede yalıtılmasını gerektiren ilkeleriniz varsa, farklı bölgelerde Otomasyon hesapları oluşturun.
 
 > [!NOTE]
 > Azure portalında oluşturulan Automation hesapları ve içerdikleri kaynaklara Klasik Azure portalında erişilemez. Bu hesapları veya kaynaklarını Windows PowerShell’le yönetmek istiyorsanız, Azure Resource Manager modüllerini kullanmanız gerekir.
-> 
+>
 
 Azure portalında bir Otomasyon hesabı oluşturduğunuzda otomatik olarak iki kimlik doğrulama varlığı oluşturursunuz:
 
@@ -102,17 +102,17 @@ Rol tabanlı erişim denetimi, Azure AD kullanıcı hesabı ve Farklı Çalışt
 #### <a name="authentication-methods"></a>Kimlik doğrulama yöntemleri
 Aşağıdaki tabloda, Azure Otomasyonu tarafından desteklenen her ortamla ilgili farklı kimlik doğrulaması yöntemleri özetlenmiştir.
 
-| Yöntem | Ortam 
-| --- | --- | 
+| Yöntem | Ortam
+| --- | --- |
 | Azure Farklı Çalıştır ve Klasik Farklı Çalıştır hesabı |Azure Resource Manager ve Azure klasik dağıtımı |  
 | Azure AD Kullanıcı hesabı |Azure Resource Manager ve Azure klasik dağıtımı |  
 | Windows kimlik doğrulaması |Yerel veri merkezi veya Karma Runbook Çalışanı kullanan diğer bulut sağlayıcısı |  
 | AWS kimlik bilgileri |Amazon Web Hizmetleri |  
 
 **Nasıl yapılır\Kimlik Doğrulaması ve Güvenlik** bölümü altında, ilgili ortamlar için var olan veya ayırdığınız yeni bir hesapla kimlik doğrulamasını yapılandırmaya yönelik genel bakış ve uygulama adımları verilmektedir.  Azure Farklı Çalıştır ve Klasik Farklı Çalıştır hesabı için, [PowerShell kullanarak Otomasyon Farklı Çalıştır hesabını güncelleştirme](automation-update-account-powershell.md) konu başlığında, başlangıçta Farklı Çalıştır veya Klasik Farklı Çalıştır hesabıyla yapılandırılmamışsa mevcut Otomasyon hesabınızı PowerShell kullanarak Farklı Çalıştır hesaplarıyla güncelleştirme işlemi açıklanmaktadır.   
- 
+
 ## <a name="network"></a>Ağ
-Karma Runbook Çalışanınızın Microsoft Operations Management Suite’e (OMS) bağlanması ve kaydolması için aşağıda belirtilen bağlantı noktası numarası ve URL’lere erişiminin olması gerekir.  Bunlar dışında, OMS’ye bağlanmak için [Microsoft İzleme Aracısının gerektirdiği bağlantı noktaları ve URL’ler](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent) mevcuttur. Aracı ile OMS hizmeti arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olmanız gerekir. İnternet'e erişimi kısıtlamak için güvenlik duvarı kullanıyorsanız erişime izin vermek için güvenlik duvarınızı yapılandırmanız gerekir.
+Karma Runbook Çalışanınızın Microsoft Operations Management Suite’e (OMS) bağlanması ve kaydolması için aşağıda belirtilen bağlantı noktası numarası ve URL’lere erişiminin olması gerekir.  Bunlar dışında, OMS’ye bağlanmak için [Microsoft İzleme Aracısının gerektirdiği bağlantı noktaları ve URL’ler](../log-analytics/log-analytics-windows-agents.md) mevcuttur. Aracı ile OMS hizmeti arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olmanız gerekir. İnternet'e erişimi kısıtlamak için güvenlik duvarı kullanıyorsanız erişime izin vermek için güvenlik duvarınızı yapılandırmanız gerekir.
 
 Aşağıdaki bilgiler, Karma Runbook Çalışanının Otomasyon ile iletişim kurması için gereken bağlantı noktası ve URL’leri listeler.
 
@@ -136,11 +136,11 @@ Belirli bir bölge için tanımlanmış bir Otomasyon hesabınız varsa ve bu b�
 | Birleşik Krallık Güney | uks-jobruntimedata-prod-su1.azure-automation.net |
 | ABD Devleti Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-Adların yerine IP adreslerinin bir listesi için Microsoft Yükleme Merkezi’nden [Azure Veri Merkezi IP adresi](https://www.microsoft.com/download/details.aspx?id=41653) xml dosyasını indirip gözden geçirin. 
+Adların yerine IP adreslerinin bir listesi için Microsoft Yükleme Merkezi’nden [Azure Veri Merkezi IP adresi](https://www.microsoft.com/download/details.aspx?id=41653) xml dosyasını indirip gözden geçirin.
 
 > [!NOTE]
-> Bu dosya, Microsoft Azure Veri Merkezlerinde kullanılan IP adresi aralıklarını (İşlem, SQL ve Depolama aralıkları dahil olmak üzere) içerir. O anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri yansıtan güncelleştirilmiş bir dosya haftalık olarak yayınlanır. Dosyada görünen yeni aralıklar en az bir hafta boyunca veri merkezlerinde kullanılmaz. Lütfen her hafta yeni xml dosyasını indirin ve Azure’da çalışan hizmetleri doğru şekilde tanımlamak üzere sitenizde gerekli değişiklikleri yapın. Express Route kullanıcıları bu dosyanın, her ayın ilk haftasında Azure alanındaki BGP tanıtımını güncelleştirmek için kullanıldığını fark edebilir. 
-> 
+> Bu dosya, Microsoft Azure Veri Merkezlerinde kullanılan IP adresi aralıklarını (İşlem, SQL ve Depolama aralıkları dahil olmak üzere) içerir. O anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri yansıtan güncelleştirilmiş bir dosya haftalık olarak yayınlanır. Dosyada görünen yeni aralıklar en az bir hafta boyunca veri merkezlerinde kullanılmaz. Lütfen her hafta yeni xml dosyasını indirin ve Azure’da çalışan hizmetleri doğru şekilde tanımlamak üzere sitenizde gerekli değişiklikleri yapın. Express Route kullanıcıları bu dosyanın, her ayın ilk haftasında Azure alanındaki BGP tanıtımını güncelleştirmek için kullanıldığını fark edebilir.
+>
 
 
 ## <a name="implementation"></a>Uygulama
@@ -175,16 +175,16 @@ Otomasyon eklemek için önerilen yöntem, Market’ten Otomasyon ve Denetim tek
 
 4. Teklifin açıklamasını okuduktan sonra **Oluştur**’a tıklayın.  
 
-5. **Otomasyon ve Denetim** ayarları dikey penceresinde **OMS Çalışma Alanı**’nı seçin.  **OMS Çalışma Alanları** dikey penceresinde, Otomasyon hesabının bulunduğu Azure aboneliğine bağlı olan bir OMS çalışma alanı seçin ya da yeni bir OMS çalışma alanı oluşturun.  OMS çalışma alanınız yoksa **Yeni Çalışma Alanı Oluştur**’u seçip **OMS Çalışma Alanı** dikey penceresinde aşağıdakileri yapın: 
+5. **Otomasyon ve Denetim** ayarları dikey penceresinde **OMS Çalışma Alanı**’nı seçin.  **OMS Çalışma Alanları** dikey penceresinde, Otomasyon hesabının bulunduğu Azure aboneliğine bağlı olan bir OMS çalışma alanı seçin ya da yeni bir OMS çalışma alanı oluşturun.  OMS çalışma alanınız yoksa **Yeni Çalışma Alanı Oluştur**’u seçip **OMS Çalışma Alanı** dikey penceresinde aşağıdakileri yapın:
    - Yeni **OMS Çalışma Alanı** için bir ad belirtin.
    - Varsayılan seçili abonelik uygun değilse açılan listeden bağlanacak bir **Abonelik** seçin.
    - **Kaynak Grubu** için bir kaynak grubu oluşturabilir veya mevcut bir kaynak grubunu seçebilirsiniz.  
    - Bir **Konum** seçin.  Şu anda yalnızca **Avustralya Güneydoğu**, **Doğu ABD**, **Güneydoğu Asya**, **Batı Orta ABD** ve **Batı Avrupa** konumları kullanılabilir.
    - Bir **Fiyatlandırma katmanı** seçin.  Çözüm iki katmanda sunulur: ücretsiz ve Düğüm Başına (OMS) katmanı.  Ücretsiz katmanında günlük toplanan veri miktarı, elde tutma süresi ve runbook işi çalışma zamanı dakika sayısına ilişkin sınırlar vardır.  Düğüm Başına (OMS) katmanında günlük toplanan veri miktarı için bir sınır yoktur.  
-   - **Otomasyonu Hesabı**’nı seçin.  Yeni bir OMS çalışma alanı oluşturuyorsanız Azure aboneliğiniz, kaynak grubunuz ve bölgeniz dahil olmak üzere belirtilen yeni OMS çalışma alanı ile ilişkilendirilen bir Otomasyon hesabı da oluşturmanız gerekir.  **Otomasyon hesabı oluştur**’u seçin ve **Otomasyon Hesabı** dikey penceresinde aşağıdaki bilgileri girin: 
+   - **Otomasyonu Hesabı**’nı seçin.  Yeni bir OMS çalışma alanı oluşturuyorsanız Azure aboneliğiniz, kaynak grubunuz ve bölgeniz dahil olmak üzere belirtilen yeni OMS çalışma alanı ile ilişkilendirilen bir Otomasyon hesabı da oluşturmanız gerekir.  **Otomasyon hesabı oluştur**’u seçin ve **Otomasyon Hesabı** dikey penceresinde aşağıdaki bilgileri girin:
   - **Ad** alanına Otomasyon hesabının adını girin.
 
-    Tüm diğer seçenekler, seçili OMS çalışma alanına dayalı olarak otomatik doldurulur ve bu seçenekler değiştirilemez.  Teklif için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır.  **Tamam**’a tıkladığınızda yapılandırma seçenekleri doğrulanır ve Otomasyon hesabı oluşturulur.  Bu işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz. 
+    Tüm diğer seçenekler, seçili OMS çalışma alanına dayalı olarak otomatik doldurulur ve bu seçenekler değiştirilemez.  Teklif için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır.  **Tamam**’a tıkladığınızda yapılandırma seçenekleri doğrulanır ve Otomasyon hesabı oluşturulur.  Bu işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.
 
     Aksi takdirde, mevcut bir Otomasyon Farklı Çalıştır hesabını seçebilirsiniz.  Seçtiğiniz hesap önceden başka bir OMS çalışma alanına bağlı olamaz, böyle olması durumunda dikey pencerede bir bildirim iletisi gösterilir.  Önceden bağlıysa, farklı bir Otomasyon Farklı Çalıştır hesabı seçmeniz veya bir hesap oluşturmanız gerekir.
 
@@ -194,7 +194,7 @@ Otomasyon eklemek için önerilen yöntem, Market’ten Otomasyon ve Denetim tek
 
 7. **Otomasyon ve Denetim** ayarları dikey penceresinde, önceden seçilmiş önerilen çözümleri yüklemek istediğinizi onaylayın. Herhangi bir seçimi kaldırırsanız, daha sonra tek tek yükleyebilirsiniz.  
 
-8. Otomasyon ve OMS çalışma alanı ekleme işlemine devam etmek için **Oluştur**’a tıklayın. Tüm ayarlar doğrulanır ve sonra teklifin aboneliğinize dağıtılması denenir.  Bu işlemin tamamlanması birkaç saniye alabilir ve ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz. 
+8. Otomasyon ve OMS çalışma alanı ekleme işlemine devam etmek için **Oluştur**’a tıklayın. Tüm ayarlar doğrulanır ve sonra teklifin aboneliğinize dağıtılması denenir.  Bu işlemin tamamlanması birkaç saniye alabilir ve ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.
 
 Teklif eklendikten sonra runbook oluşturmaya, etkinleştirdiğiniz yönetim çözümleriyle çalışmaya veya bulut ya da şirket içi ortamlarınızdaki kaynaklar tarafından oluşturulan verileri toplamak üzere [Log Analytics](https://docs.microsoft.com/azure/log-analytics) ile çalışmaya başlayabilirsiniz.   
 
@@ -202,5 +202,4 @@ Teklif eklendikten sonra runbook oluşturmaya, etkinleştirdiğiniz yönetim ç�
 * [Azure Otomasyonu Farklı Çalıştır hesabı kimlik doğrulama testi](automation-verify-runas-authentication.md) bölümünü gözden geçirerek, yeni Otomasyon hesabınızın Azure kaynaklarıyla kimlik doğrulaması yapıp yapamadığını onaylayabilirsiniz.
 * PowerShell runbook'ları kullanmaya başlamak için bkz. [İlk PowerShell runbook’um](automation-first-runbook-textual-powershell.md).
 * Grafik Yazma hakkında daha fazla bilgi için bkz. [Azure Otomasyonu’nda grafik yazma](automation-graphical-authoring-intro.md).
-
 

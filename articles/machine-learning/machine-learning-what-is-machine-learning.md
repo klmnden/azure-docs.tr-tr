@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
-translationtype: Human Translation
-ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
-ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 247c26b3988664bcf93fb5face6514a3dc74cebc
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -50,7 +52,7 @@ Azure Machine Learning, büyük bir algoritma kitaplığından model oluşturmay
 * [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md)’de başkaları tarafından yazılan analiz çözümlerini deneyebilir veya kendi çözümlerinizle katkı sağlayabilirsiniz. Denemeler hakkında topluluğa soru veya yorum gönderin ya da LinkedIn ve Twitter gibi sosyal ağlar aracılığıyla deneme bağlantılarını paylaşın.
 
   ![Azure Cortana Intelligence Galerisi'nde tahmine dayalı denemeleri deneyin veya kendinizinkini paylaşın.](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
-* Tahmine dayalı modellerinizi hızla başlatmak için Machine Learning Studio'daki büyük [Machine Learning algoritmaları ve modülleri](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) kitaplığını kullanın. Örnek denemeler, R ve Python paketleri, Xbox ve Bing gibi Microsoft işletmelerinden en iyi sınıf algoritmalar arasından seçim yapın. Özel [R](machine-learning-r-quickstart.md) ve [Python](machine-learning-execute-python-scripts.md) betiklerinizle Studio modüllerini genişletin.
+* Tahmine dayalı modellerinizi hızla başlatmak için Machine Learning Studio'daki büyük [Machine Learning algoritmaları ve modülleri](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) kitaplığını kullanın. Örnek denemeler, R ve Python paketleri, Xbox ve Bing gibi Microsoft işletmelerinden en iyi sınıf algoritmalar arasından seçim yapın. Özel [R](machine-learning-extend-your-experiment-with-r.md) ve [Python](machine-learning-execute-python-scripts.md) betiklerinizle Studio modüllerini genişletin.
 
   ![Tahmine dayalı analiz nedir? Azure Machine Learning Studio'da tahmine dayalı bir analiz denemesi örneği](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
@@ -112,9 +114,4 @@ Tahmine dayalı analizin ve makine öğreniminin temellerini, [adım adım öğr
 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
