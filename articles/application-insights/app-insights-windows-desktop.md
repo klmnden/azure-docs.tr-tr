@@ -3,7 +3,7 @@ title: "Windows masaüstü uygulamaları için kullanımı ve performansı izlem
 description: "HockeyApp ve Application Insights ile Windows masaüstü uygulamanızın kullanımını ve performansını analiz edin."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
