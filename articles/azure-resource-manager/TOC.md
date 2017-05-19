@@ -1,11 +1,11 @@
 # Genel Bakış
 ## [Resource Manager nedir?](resource-group-overview.md)
-## [Desteklenen hizmetler, bölgeler ve API sürümleri](resource-manager-supported-services.md)
-## [Resource Manager’ı ve Klasik dağıtımı anlama](resource-manager-deployment-model.md)
-## [Öngörücü abonelik idaresi](resource-manager-subscription-governance.md)
-## [Kuruluşlar için idare örnekleri](resource-manager-subscription-examples.md)
+## [Desteklenen hizmetler](resource-manager-supported-services.md)
+## [Resource Manager ve Klasik dağıtım](resource-manager-deployment-model.md)
+## [Abonelik idaresi](resource-manager-subscription-governance.md)
+## [Yönetilen Uygulamalar](managed-application-overview.md)
 
-# Başlarken
+# başlarken
 ## [Şablonu dışarı aktarma](resource-manager-export-template.md)
 ## [İlk şablonunuzu oluşturma](resource-manager-create-first-template.md)
 ## [Resource Manager ile Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
@@ -13,6 +13,7 @@
 # Örnekler
 ## PowerShell
 ### [Şablon dağıtma](resource-manager-samples-powershell-deploy.md)
+
 ## Azure CLI
 ### [Şablon dağıtma](resource-manager-samples-cli-deploy.md)
 
@@ -22,10 +23,8 @@
 ### [Şablon bölümleri](resource-group-authoring-templates.md)
 ### [Diğer şablonlara bağlantı](resource-group-linked-templates.md)
 ### [Kaynaklar arasında bağımlılık tanımlama](resource-group-define-dependencies.md)
-### Birden çok örnek oluşturmak için döngüyü kopyalama
-#### [Temel söz dizimi](resource-group-create-multiple.md)
-#### [Sıralı döngü](resource-manager-sequential-loop.md)
-#### [Özellik kopyalama](resource-manager-property-copy.md)
+### [Birden çok örnek oluşturma](resource-group-create-multiple.md)
+### [Sıralı döngü](resource-manager-sequential-loop.md)
 ### [Konum ayarlama](resource-manager-template-location.md)
 ### [Etiket atama](resource-manager-template-tags.md)
 ### [Alt kaynak adı ve türünü ayarlama](resource-manager-template-child-resource.md)
@@ -33,6 +32,7 @@
 ### [Parametreler için nesneleri kullanma](resource-manager-objects-as-parameters.md)
 ### [Bağlı şablonlar arasında durum paylaşma](best-practices-resource-manager-state.md)
 ### [Şablon tasarlamaya yönelik desenler](best-practices-resource-manager-design-templates.md)
+
 ## Dağıtma
 ### PowerShell
 #### [Şablon dağıtma](resource-group-template-deploy.md)
@@ -44,8 +44,10 @@
 #### [Şablonu dışarı aktarma ve yeniden dağıtma](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
+### [Birden çok kaynak grubu dağıtımı](resource-manager-cross-resource-group-deployment.md)
 ### [Visual Studio Team Services ile sürekli tümleştirme](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Dağıtım sırasında güvenlik değerlerini geçirme](resource-manager-keyvault-parameter.md)
+
 ## Yönet
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -53,15 +55,18 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Kaynakları düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
-### [UI tanımları oluşturma](managed-application-createuidefinition-overview.md)
+### [İdare örnekleri](resource-manager-subscription-examples.md)
+
 ## Erişim Denetleme
-### [PowerShell ile hizmet sorumlusu oluşturma](resource-group-authenticate-service-principal.md)
-### [Azure CLI 2.0 ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Azure CLI 1.0 ile hizmet sorumlusu oluşturma](resource-group-authenticate-service-principal-cli.md)
-### [Portal aracılığıyla hizmet sorumlusu oluşturma](resource-group-create-service-principal-portal.md)
+### Hizmet sorumlusu oluşturma
+#### [PowerShell](resource-group-authenticate-service-principal.md)
+#### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
+#### [Portal](resource-group-create-service-principal-portal.md)
 ### [Aboneliklere erişmek için kimlik doğrulama API’si](resource-manager-api-authentication.md)
 ### [Kaynakları kilitleme](resource-group-lock-resources.md)
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](best-practices-resource-manager-security.md)
+
 ## Kaynak ilkeleri ayarlama
 ### [Kaynak ilkeleri nelerdir?](resource-manager-policy.md)
 ### [Portal ilke ataması](resource-manager-policy-portal.md)
@@ -70,12 +75,21 @@
 ### [Depolama ilkeleri](resource-manager-policy-storage.md)
 ### [Linux VM ilkeleri](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Windows VM ilkeleri](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## Denetim ve Sorun Giderme
-### [Sık karşılaşılan dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md)
+
+## Yönetilen uygulamaları kullanma
+### [Yönetilen uygulamaları yayımlama](managed-application-publishing.md)
+### [Yönetilen uygulamaları tüketme](managed-application-consumption.md)
+### [UI tanımları oluşturma](managed-application-createuidefinition-overview.md)
+
+## Denetim
 ### [Etkinlik günlüklerini görüntüleme](resource-group-audit.md)
 ### [Dağıtım işlemlerini görüntüleme](resource-manager-deployment-operations.md)
 
+## Sorun giderme
+### [Sık karşılaşılan dağıtım hataları](resource-manager-common-deployment-errors.md)
+
 # Başvuru
+## [Şablon biçimi](/azure/templates/)
 ## [Şablon işlevleri](resource-group-template-functions.md)
 ### [Dizi ve nesne işlevleri](resource-group-template-functions-array.md)
 ### [Karşılaştırma işlevleri](resource-group-template-functions-comparison.md)
@@ -84,12 +98,25 @@
 ### [Kaynak işlevleri](resource-group-template-functions-resource.md)
 ### [Dize işlevleri](resource-group-template-functions-string.md)
 ## [UI tanımı işlevleri](managed-application-createuidefinition-functions.md)
+## [UI tanımı öğeleri](managed-application-createuidefinition-elements.md)
+### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
+### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
+### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
+### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
+### [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
+### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
+### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
+### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
+### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
+### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
+### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
+### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
+### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
-## [Azure 2.0 CLI](/cli/azure/resource)
+## [Azure CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Şablon biçimi](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Kaynaklar
