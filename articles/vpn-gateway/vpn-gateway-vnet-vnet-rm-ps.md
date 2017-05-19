@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 19cd1cf60a14f4a2087bcfdbb4b223039c82dec3
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 8f370918b86c5519f370b0042866d2cc089655d4
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -358,7 +359,7 @@ Bu adım, yeni abonelik bağlamında tamamlanmalıdır. Bu kısım, aboneliğin 
   $GWIPconfName5 = "gwipconf5"
   $Connection51 = "VNet5toVNet1"
   ```
-2. 5. aboneliğe bağlanın.
+2. 5 aboneliğe bağlanın.
    
     PowerShell konsolunuzu açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
@@ -382,7 +383,7 @@ Bu adım, yeni abonelik bağlamında tamamlanmalıdır. Bu kısım, aboneliğin 
   ```powershell
   New-AzureRmResourceGroup -Name $RG5 -Location $Location5
   ```
-4. TestVNet4 için alt ağ yapılandırmalarını oluşturun.
+4. TestVNet5 için alt ağ yapılandırmalarını oluşturun.
 
   ```powershell
   $fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
