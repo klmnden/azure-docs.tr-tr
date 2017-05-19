@@ -3,7 +3,7 @@ title: Bir SharePoint sitesini Application Insights ile izleme
 description: "Yeni bir izleme anahtarı ile yeni bir uygulamayı izlemeye başlama"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights
