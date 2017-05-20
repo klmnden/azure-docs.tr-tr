@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: dea338477ca82eead9e272ed9a1709cb2643f743
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -116,7 +117,18 @@ Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyin.
    
     ![Yük devretme sonrası tanılama olayları görüntüleyicisi][diagnostic-events-viewer-detail-post-failover]
 
-## <a name="switch-cluster-mode"></a>Küme moduna geçme
+## <a name="cleaning-up-the-local-cluster-optional"></a>Yerel kümeyi temizleme (isteğe bağlı)
+Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. Hata ayıklayıcının durdurulması uygulama örneğinizi ve uygulama türünün kaydını kaldırır. Ancak, küme arka planda çalışmaya devam eder. Kümeyi yönetmek için birkaç seçeneğiniz vardır:
+
+1. Kümeyi kapatıp uygulama verilerini ve izlemelerini tutmak için sistem tepsisi uygulamasında **Yerel Kümeyi Durdur**'a tıklayın.
+2. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçenek başka bir yavaş dağıtımla sonuçlanır. Kümeyi yalnızca bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa silin.
+
+## <a name="deploy-your-application-to-an-azure-cluster"></a>Uygulamanızı Azure kümesine dağıtma
+Uygulamanızı yerel olarak dağıttığınıza göre aynı uygulamayı Azure'a dağıtabilirsiniz. [Azure’da ilk Service Fabric kümenizi oluşturma](service-fabric-get-started-azure-cluster.md) belgesinde, Azure PowerShell veya portal kullanma adımları gösterilmektedir.
+
+Bir Azure kümesi oluşturduktan sonra, [Azure kümesinde yayımlama](service-fabric-publish-app-remote-cluster.md) makalesini izleyerek bu uygulamayı Visual Studio’dan Azure’a yayımlayabilirsiniz.  
+
+## <a name="switch-cluster-mode-of-your-local-development-cluster"></a>Yerel geliştirme kümenizin küme modunu değiştirme
 Varsayılan olarak, yerel geliştirme kümesi beş düğümlü bir küme olarak çalışacak şekilde yapılandırılmıştır. Bu, birden fazla düğümde dağıtılmış hizmetlerin hatalarını ayıklamak için faydalıdır. Ancak, bir uygulamanın beş düğümlü dağıtım kümesine dağıtılması biraz zaman alabilir. Uygulamanızı beş düğüm üzerinde çalıştırmadan kod değişikliklerini hızlıca yinelemek istiyorsanız, geliştirme kümesini tek düğümlü moda geçirin. Kodunuzu tek düğümlü bir kümede çalıştırmak için sistem tepsisindeki Yerel Küme Yöneticisi’ne sağ tıklayın ve **Küme Modunu Değiştir -> 1 Düğüm** öğesini seçin.  
 
 ![Küme moduna geçme][switch-cluster-mode]
@@ -136,11 +148,7 @@ Küme modunu PowerShell kullanarak da değiştirebilirsiniz:
    
     ![Küme kurulumu çıktısı][cluster-setup-success-1-node]
 
-## <a name="cleaning-up"></a>Temizleme
-Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. Hata ayıklayıcının durdurulması uygulama örneğinizi ve uygulama türünün kaydını kaldırır. Ancak, küme arka planda çalışmaya devam eder. Kümeyi yönetmek için birkaç seçeneğiniz vardır:
 
-1. Kümeyi kapatıp uygulama verilerini ve izlemelerini tutmak için sistem tepsisi uygulamasında **Yerel Kümeyi Durdur**'a tıklayın.
-2. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçenek başka bir yavaş dağıtımla sonuçlanır. Kümeyi yalnızca bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure’da küme](service-fabric-cluster-creation-via-portal.md) veya [Windows’ta tek başına küme](service-fabric-cluster-creation-for-windows-server.md) oluşturma hakkında bilgi edinin.

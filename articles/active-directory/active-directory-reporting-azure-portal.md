@@ -1,6 +1,7 @@
 ---
-title: "Azure Active Directory raporlama - önizleme | Microsoft Belgeleri"
-description: "Azure Active Directory önizlemesinde kullanılabilen çeşitli raporları listeler"
+
+title: Azure Active Directory raporlama | Microsoft Docs
+description: "Azure Active Directory’de kullanılabilen çeşitli raporları listeler"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
-ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="azure-active-directory-reporting---preview"></a>Azure Active Directory raporlama - önizleme
+# <a name="azure-active-directory-reporting"></a>Azure Active Directory raporlama
 
 
 *Bu belge, [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md)’nun bir parçasıdır.*
 
-Azure Active Directory önizlemesindeki raporlama ile ortamınızın nasıl çalıştığını belirlemek için gereken tüm bilgileri edinirsiniz. [Önizlemede neler var?](active-directory-preview-explainer.md)
+Azure Active Directory’deki (Azure AD) raporlama özelliğiyle ortamınızın nasıl çalıştığını belirlemek için gereken bilgileri alabilirsiniz.
 
 İki temel raporlama alanı vardır:
 

@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 05/03/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: da4e3826d809b82d595d4ca7695019786f308c3c
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 0ba2158a45eb4ec9254ef829894152fe92276920
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/04/2017
 
 
 ---
 
 # <a name="web-application-firewall-waf"></a>Web uygulaması güvenlik duvarı (WAF)
 
-Application Gateway WAF SKU’sunda mevcut olan web uygulaması güvenlik duvarı (WAF), web uygulamalarını yaygın web güvenlik açıklarına ve açıklardan yararlanmaya karşı korur. Web uygulaması güvenlik duvarı bu işlemi [OWASP çekirdek kural kümeleri](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 veya 2.2.9’daki kurallara göre yapar. Web uygulamaları, bilinen yaygın güvenlik açıklarından yararlanan kötü amaçlı saldırıların giderek daha fazla hedefi olmaktadır. Bu açıklardan yararlanma örnekleri arasında SQL ekleme saldırıları, siteler arası komut dosyası saldırıları yaygındır. Uygulama kodunda bu tür saldırıların önlenmesi zor olabilir ve uygulama topolojisinin birden fazla katmanında ayrıntılı bakım, düzeltme eki uygulama ve izleme işlemleri gerektirebilir. Merkezi bir web uygulaması güvenlik duvarı, güvenlik yönetimini çok daha kolay hale getirir ve yetkisiz erişim ya da izinsiz giriş tehditlerine karşı uygulama yöneticilerine daha iyi güvence verir. Bir WAF çözümü, bilinen bir güvenlik açığına merkezi bir konumda düzeltme eki uygulayarak güvenlik tehdidine karşı, web uygulamalarının her birinin güvenliğini sağlamaya göre daha hızlı tepki verebilir. Var olan uygulama ağ geçitleri, web uygulaması güvenlik duvarı bulunan bir uygulama ağ geçidine kolaylıkla dönüştürülebilir.
+Web uygulaması güvenlik duvarı (WAF), web uygulamalarınızda açıklardan yararlanmaya ve güvenlik açıklarına karşı merkezi koruma sağlayan bir Application Gateway özelliğidir. 
+
+Web uygulaması güvenlik duvarı bu işlemi [OWASP çekirdek kural kümeleri](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 veya 2.2.9’daki kurallara göre yapar. Web uygulamaları, bilinen yaygın güvenlik açıklarından yararlanan kötü amaçlı saldırıların giderek daha fazla hedefi olmaktadır. Bu açıklardan yararlanma örnekleri arasında SQL ekleme saldırıları, siteler arası komut dosyası saldırıları yaygındır. Uygulama kodunda bu tür saldırıların önlenmesi zor olabilir ve uygulama topolojisinin birden fazla katmanında ayrıntılı bakım, düzeltme eki uygulama ve izleme işlemleri gerektirebilir. Merkezi bir web uygulaması güvenlik duvarı, güvenlik yönetimini çok daha kolay hale getirir ve yetkisiz erişim ya da izinsiz giriş tehditlerine karşı uygulama yöneticilerine daha iyi güvence verir. Bir WAF çözümü, bilinen bir güvenlik açığına merkezi bir konumda düzeltme eki uygulayarak güvenlik tehdidine karşı, web uygulamalarının her birinin güvenliğini sağlamaya göre daha hızlı tepki verebilir. Var olan uygulama ağ geçitleri, web uygulaması güvenlik duvarı bulunan bir uygulama ağ geçidine kolaylıkla dönüştürülebilir.
 
 ![imageURLroute](./media/application-gateway-web-application-firewall-overview/WAF1.png)
 
@@ -42,7 +45,7 @@ Application Gateway ve web uygulaması güvenlik duvarının sunduğu temel avan
 
 ### <a name="monitoring"></a>İzleme
 
-* Gerçek zamanlı bir WAF günlüğü kullanarak web uygulamanızı saldırılara karşı izleyin. Bu günlük, WAF uyarılarını ve günlüklerini izleyip eğilimleri daha kolay izlemek üzere [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md) ile tümleştirilmiştir.
+* Gerçek zamanlı bir WAF günlüğü kullanarak web uygulamanızı saldırılara karşı izleyin. Bu günlük, WAF uyarılarını ve günlüklerini takip edip eğilimleri daha kolay izlemek için [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md) ile tümleştirilmiştir.
 
 * WAF yakında Azure Güvenlik Merkezi ile tümleştirilecektir. Azure Güvenlik Merkezi, tüm Azure kaynaklarınızın güvenlik durumuna ilişkin genel bir görünüm sağlar.
 
@@ -60,13 +63,13 @@ Web uygulaması güvenlik duvarı, CRS 3.0 ile varsayılan olarak önceden yapı
 * HTTP protokolü ihlallerine karşı koruma
 * Eksik konak kullanıcısı-aracısı ve kabul üst bilgileri gibi HTTP protokolü anormalliklerine karşı koruma
 * Robotlar, gezginler ve tarayıcıları önleme
-* Yaygın yanlış uygulama yapılandırmalarını (i.e. Apache, IIS, vb.) algılama
+* Yaygın yanlış uygulama yapılandırmalarını (i.e. Apache, IIS vb.) algılama
 
 Kurallar ve korumalarını içeren daha ayrıntılı bir liste için aşağıdaki [Çekirdek kural kümeleri](#core-rule-sets) bölümüne bakın.
 
 ### <a name="core-rule-sets"></a>Çekirdek kural kümeleri
 
-Application Gateway CRS 3.0 ve CRS 2.2.9 şeklinde iki kural kümesini destekler. Bu çekirdek kural kümeleri, web uygulamalarınızı kötü amaçlı etkinliğe karşı koruyan kural koleksiyonudur.
+Application Gateway CRS 3.0 ve CRS 2.2.9 şeklinde iki kural kümesini destekler. Bu çekirdek kural kümeleri, web uygulamalarınızı kötü amaçlı etkinliğe karşı koruyan kurallar içeren koleksiyonlardır.
 
 #### <a name="owasp30"></a>OWASP_3.0
 
@@ -81,8 +84,8 @@ Sağlanan 3.0 çekirdek kural kümesi, aşağıdaki tabloda gösterilen 13 kural
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Protokol ve kodlama sorunlarına karşı korumaya yönelik kurallar içerir.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Üst bilgi ekleme, istek kaçakçılığı ve yanıt bölmeye karşı korumaya yönelik kurallar içerir|
 |**[REQUEST-930-APPLICATION-ATTACK-LFI](application-gateway-crs-rulegroups-rules.md#crs930)**|Dosya ve yol saldırılarına karşı korumaya yönelik kurallar içerir.|
-|**[REQUEST-931-APPLICATION-ATTACK-RFI](application-gateway-crs-rulegroups-rules.md#crs931)**|Uzak Dosya Eklemeye (RFI) karşı korumaya yönelik kurallar içerir|
-|**[REQUEST-932-APPLICATION-ATTACK-RCE](application-gateway-crs-rulegroups-rules.md#crs932)**|Uzak Kod Yürütmeye karşı korumaya yönelik kurallar içerir.|
+|**[REQUEST-931-APPLICATION-ATTACK-RFI](application-gateway-crs-rulegroups-rules.md#crs931)**|Uzaktan Dosya Eklemeye (RFI) karşı korumaya yönelik kurallar içerir|
+|**[REQUEST-932-APPLICATION-ATTACK-RCE](application-gateway-crs-rulegroups-rules.md#crs932)**|Uzaktan Kod Yürütmeye karşı korumaya yönelik kurallar içerir.|
 |**[REQUEST-933-APPLICATION-ATTACK-PHP](application-gateway-crs-rulegroups-rules.md#crs933)**|PHP ekleme saldırılarına karşı korumaya yönelik kurallar içerir.|
 |**[REQUEST-941-APPLICATION-ATTACK-XSS](application-gateway-crs-rulegroups-rules.md#crs941)**|Siteler arası betik oluşturmaya karşı korumaya yönelik kurallar içerir.|
 |**[REQUEST-942-APPLICATION-ATTACK-SQLI](application-gateway-crs-rulegroups-rules.md#crs942)**|SQL ekleme saldırılarına karşı korumaya yönelik kurallar içerir.|
@@ -94,12 +97,12 @@ Sağlanan 2.2.9 çekirdek kural kümesi, aşağıdaki tabloda gösterilen 10 kur
 
 |RuleGroup|Açıklama|
 |---|---|
-|**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|Protokol ihlallerine (geçersiz karakterler, istek gövdesi ile GET, vb.) karşı korumaya yönelik kurallar içerir.|
+|**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|Protokol ihlallerine (geçersiz karakterler, istek gövdesi ile GET vb.) karşı korumaya yönelik kurallar içerir.|
 |**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|Hatalı üst bilgilere karşı korumaya yönelik kurallar içerir.|
 |**[crs_23_request_limits](application-gateway-crs-rulegroups-rules.md#crs23)**|Sınırları aşan bağımsız değişken veya dosyalara karşı korumaya yönelik kurallar içerir.|
 |**[crs_30_http_policy](application-gateway-crs-rulegroups-rules.md#crs30)**|Kısıtlı yöntemler, üst bilgiler ve dosya türlerine karşı korumaya yönelik kurallar içerir. |
 |**[crs_35_bad_robots](application-gateway-crs-rulegroups-rules.md#crs35)**|Web gezginleri ve tarayıcılara karşı korumaya yönelik kurallar içerir.|
-|**[crs_40_generic_attacks](application-gateway-crs-rulegroups-rules.md#crs40)**|Genel saldırılara (oturum sabitleme, uzak dosya ekleme, PHP ekleme, vb.) karşı korumaya yönelik kurallar içerir|
+|**[crs_40_generic_attacks](application-gateway-crs-rulegroups-rules.md#crs40)**|Genel saldırılara (oturum sabitleme, uzak dosya ekleme, PHP ekleme vb.) karşı korumaya yönelik kurallar içerir|
 |**[crs_41_sql_injection_attacks](application-gateway-crs-rulegroups-rules.md#crs41sql)**|SQL ekleme saldırılarına karşı korumaya yönelik kurallar içerir|
 |**[crs_41_xss_attacks](application-gateway-crs-rulegroups-rules.md#crs41xss)**|Siteler arası betik oluşturmaya karşı korumaya yönelik kurallar içerir.|
 |**[crs_42_tight_security](application-gateway-crs-rulegroups-rules.md#crs42)**|Yol çapraz geçişi saldırılarına karşı korumaya yönelik bir kural içerir|

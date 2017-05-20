@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/04/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: eb3af43b8a13eaaebfa9147848383ff889119d97
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 4e730b65a98af05ea00c5f8ebd9914e3367b66a7
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -28,184 +29,203 @@ ms.lasthandoff: 04/03/2017
 # <a name="get-started-with-kubernetes-and-windows-containers-in-container-service"></a>Kapsayıcı Hizmetinde Kubernetes ve Windows kapsayıcılarına başlangıç
 
 
-Bu makalede, Azure Container Service’te Windows kapsayıcılarını çalıştırmaya yönelik Windows düğümleri içeren bir Kubernetes kümesinin nasıl oluşturulacağı açıklanmaktadır. 
+Bu makalede, Azure Container Service’te Windows kapsayıcılarını çalıştırmaya yönelik Windows düğümleri içeren bir Kubernetes kümesinin nasıl oluşturulacağı açıklanmaktadır. Azure Container Service’te bir Kubernetes kümesi oluşturmak için `az acs` Azure CLI 2.0 komutlarını kullanmaya başlayın. Ardından, Kubernetes `kubectl` komut satırı aracını kullanarak Docker görüntülerinden oluşturulmuş Windows kapsayıcıları ile çalışmaya başlayın. 
 
 > [!NOTE]
-> Azure Container Service’te Kubernetes ile Windows kapsayıcıları desteği önizleme aşamasındadır. Windows düğümleri içeren bir Kubernetes kümesi oluşturmak için Azure portalını ya da bir Resource Manager şablonu kullanın. Bu özellik, şu anda Azure CLI 2.0 ile desteklenmemektedir.
+> Azure Container Service’te Kubernetes ile Windows kapsayıcıları desteği önizleme aşamasındadır. 
 >
 
 
 
 Aşağıdaki görüntüde, Azure Container Service’te bir Linux ana düğümü ve iki Windows aracı düğümü içeren bir Kubernetes kümesinin mimarisi gösterilmektedir. 
 
+![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-windows-walkthrough/kubernetes-windows.png)
+
 * Linux ana düğümü, Kubernetes REST API’ye hizmet verir ve SSH tarafından bağlantı noktası 22’de veya `kubectl` tarafından bağlantı noktası 443'te erişilebilir durumdadır. 
 * Windows aracı düğümleri, bir Azure kullanılabilirlik kümesinde gruplandırılıp kapsayıcılarınızı çalıştırır. Windows düğümlerine, bir RDP SSH tüneli üzerinden ana düğüm aracılığıyla erişilebilir. Azure Load Balancer kuralları, kullanıma sunulan hizmetlere göre kümeye dinamik olarak eklenir.
 
 
-![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-windows-walkthrough/kubernetes-windows.png)
 
-Tüm VM’ler aynı gizli sanal ağ üzerindedir ve birbirlerine tam olarak erişilebilir. Tüm VM’ler, bir kubelet, Docker ve bir ara sunucu çalıştırır.
+Tüm sanal makineler aynı gizli sanal ağ üzerindedir ve birbirlerine tam olarak erişilebilir. Tüm VM’ler, bir kubelet, Docker ve bir ara sunucu çalıştırır.
+
+Daha fazla arka plan bilgisi için bkz. [Azure Container Service’e giriş](container-service-intro.md) ve [Kubernetes belgeleri](https://kubernetes.io/docs/home/).
 
 ## <a name="prerequisites"></a>Ön koşullar
+Azure CLI 2.0 ile bir Azure Container Service kümesi oluşturmak için şunlar gerekir:
+* bir Azure hesabı ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/))
+* [Azure CLI 2.0](/cli/azure/install-az-cli2) aracının yüklü ve oturumunun açık olması
+
+Ayrıca Kubernetes kümeniz için aşağıdakiler gerekir. Bunları önceden hazırlayabilir veya `az acs create` komut seçeneklerini kullanarak küme dağıtımı sırasında otomatik olarak oluşturabilirsiniz. 
+
+* **SSH RSA ortak anahtarı**: Güvenli Kabuk (SSH) RSA anahtarları oluşturmak istiyorsanız, [macOS ve Linux](../virtual-machines/linux/mac-create-ssh-keys.md) ya da [Windows](../virtual-machines/linux/ssh-from-windows.md) yönergelerine bakın. 
+
+* **Hizmet sorumlusu istemci kimliği ve gizli dizi** : Azure Active Directory hizmet sorumlusu oluşturma adımları ve ek bilgiler için bkz. [Kubernetes kümesinde hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md).
+
+Bu makaledeki komut örneği, SSH anahtarlarını ve hizmet sorumlusunu otomatik olarak oluşturur.
+  
+## <a name="create-your-kubernetes-cluster"></a>Kubernetes kümenizi oluşturma
+
+Kümenizi oluşturmaya yönelik Azure CLI 2.0 komutları aşağıda verilmiştir. 
+
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+Azure Container Service’in [kullanılabilir](https://azure.microsoft.com/regions/services/) olduğu bir konumda kaynak grubu oluşturun. Aşağıdaki komut *westus* konumunda *myKubernetesResourceGroup* adlı bir kaynak grubu oluşturur:
+
+```azurecli
+az group create --name=myKubernetesResourceGroup --location=westus
+```
+
+### <a name="create-a-kubernetes-cluster-with-windows-agent-nodes"></a>Windows aracı düğümleri içeren bir Kubernetes kümesi oluşturma
+
+Kaynak grubunuzda `--orchestrator-type=kubernetes` ve `--windows` aracı seçeneği ile `az acs create` komutunu kullanarak bir Kubernetes kümesi oluşturun. Komut söz dizimi için bkz. `az acs create` [yardım](/cli/azure/acs#create).
+
+Aşağıdaki komut, yönetim düğümü için *myPrefix* DNS ön eki ve Windows düğümlerine ulaşmak için belirtilen kimlik bilgileri ile *myKubernetesClusterName* adlı bir Container Service kümesi oluşturur. Komutun bu sürümü, Kubernetes kümesinin SSH RSA anahtarları ve hizmet sorumlusunu otomatik olarak oluşturur.
 
 
-* **SSH RSA ortak anahtarı**: Portal veya Azure hızlı başlangıç şablonlarından biri ile dağıtım yaparken, Azure Container Service sanal makinelerinde kimlik doğrulamak için bir SSH RSA ortak anahtarı belirtmeniz gerekir. Güvenli Kabuk (SSH) RSA anahtarları oluşturmak için [OS X ve Linux](../virtual-machines/linux/mac-create-ssh-keys.md) veya [Windows](../virtual-machines/linux/ssh-from-windows.md) kılavuzuna bakın. 
+```azurecli
+az acs create --orchestrator-type=kubernetes \
+    --resource-group myKubernetesResourceGroup \
+    --name=myKubernetesClusterName \
+    --dns-prefix=myPrefix \
+    --agent-count=2 \
+    --generate-ssh-keys \
+    --windows --admin-username myWindowsAdminName \
+    --admin-password myWindowsAdminPassword
+```
 
-* **Hizmet sorumlusu istemci kimliği ve gizli dizisi**: Daha fazla bilgi ve rehberlik için bkz. [Kubernetes kümelerinde hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md).
+Birkaç dakika geçtikten sonra komut tamamlanır ve çalışan bir Kubernetes kümesi görmeniz gerekir.
+
+> [!IMPORTANT]
+> Hesabınız Azure AD hizmet sorumlusu oluşturma izinlerine sahip değilse, komut `Insufficient privileges to complete the operation.` benzeri bir hata oluşturur. Daha fazla bilgi için bkz. [Kubernetes kümesinde hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md). 
+> 
+
+## <a name="connect-to-the-cluster-with-kubectl"></a>kubectl ile kümeye bağlanma
+
+İstemci bilgisayarınızdan Kubernetes kümesine bağlanmak için Kubernetes’in komut satırı istemcisini ([`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)) kullanın. 
+
+`kubectl` yerel olarak yüklü değilse `az acs kubernetes install-cli` ile yükleyebilirsiniz. (Ayrıca [Kubernetes sitesinden](https://kubernetes.io/docs/tasks/kubectl/install/) indirebilirsiniz.)
+
+**Linux veya macOS**
+
+```azurecli
+sudo az acs kubernetes install-cli
+```
+
+**Windows**
+```azurecli
+az acs kubernetes install-cli
+```
+
+> [!TIP]
+> Varsayılan olarak, bu komut `kubectl` ikili dosyasını Linux veya macOS sistemlerde `/usr/local/bin/kubectl` konumuna ya da Windows’da `C:\Program Files (x86)\kubectl.exe` konumuna yükler. Farklı bir yükleme yolu belirtmek için `--install-location` parametresini kullanın.
+>
+> `kubectl` yüklendikten sonra, dizininin sistem yolunuzda olduğundan emin olun veya dizini yola ekleyin. 
 
 
+Sonra, aşağıdaki komutu çalıştırarak ana Kubernetes kümesinin yapılandırmasını yerel `~/.kube/config` dosyasına indirin:
 
+```azurecli
+az acs kubernetes get-credentials --resource-group=myKubernetesResourceGroup --name=myKubernetesClusterName
+```
 
-## <a name="create-the-cluster"></a>Kümeyi oluşturma
+Bu noktada makinenizden kümenize erişmeye hazır olursunuz. Şunu çalıştırmayı deneyin:
 
-Azure portalını kullanarak Windows aracı düğümleri içeren bir [Kubernetes kümesi oluşturabilirsiniz](container-service-deployment.md#create-a-cluster-by-using-the-azure-portal). Kümeyi oluştururken aşağıdaki ayarlara dikkat edin:
+```bash
+kubectl get nodes
+```
 
-* **Temel bilgiler** dikey penceresinin **Düzenleyici** bölümünde **Kubernetes**'i seçin. 
+Kümenizdeki bir makine listesi görebildiğinizi doğrulayın.
 
-  ![Kubernetes orchestrator’ı seçin](media/container-service-kubernetes-windows-walkthrough/portal-select-kubernetes.png)
-
-* **Ana yapılandırma** dikey penceresinde Linux ana düğümleri için kullanıcı kimlik bilgilerini ve hizmet sorumlusu kimlik bilgilerini girin. 1, 3 ya da 5 ana seçin.
-
-* **Aracı yapılandırması** dikey penceresinin **İşletim sistemi** bölümünde **Windows (önizleme)** öğesini seçin. Windows aracısı düğümleri için yönetici kimlik bilgilerini girin.
-
-  ![Windows aracılarını seçin](media/container-service-kubernetes-windows-walkthrough/portal-select-windows.png)
-
-Ayrıntılar için, bkz. [Azure Container Service kümesi dağıtma](container-service-deployment.md).
-
-## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
-
-Yerel bilgisayarınızdan Kubernetes kümesi ana düğümüne bağlanmak için `kubectl` komut satırı aracını kullanın. `kubectl` yüklemesi ve ayarlanması hakkında daha fazla bilgi için bkz. [Azure Container Service kümesine bağlanma](container-service-connect.md#connect-to-a-kubernetes-cluster). `kubectl` komutlarını kullanarak Kubernetes web kullanıcı arabirimine erişip Windows kapsayıcısı iş yükleri oluşturabilir ve yönetebilirsiniz.
+![Kubernetes kümesinde çalışan düğümler](media/container-service-kubernetes-windows-walkthrough/kubectl-get-nodes.png)
 
 ## <a name="create-your-first-kubernetes-service"></a>İlk Kubernetes hizmetinizi oluşturma
 
-Kümeyi oluşturup `kubectl` ile bağlandıktan sonra temel bir Windows web uygulamasını başlatmayı ve İnternet'te kullanıma sunmayı deneyebilirsiniz. Bu örnekte, bir YAML dosyası kullanılarak kapsayıcı kaynakları belirtilmekte ve `kubctl apply` ile kapsayıcı oluşturulmaktadır.
+Kümeyi oluşturup `kubectl` ile bağlandıktan sonra bir Docker kapsayıcısından Windows uygulaması başlatmayı ve İnternet'te kullanıma sunmayı deneyin. Bu temel örnekte Microsoft Internet Information Server (IIS) kapsayıcısı belirtmek için bir JSON dosyası kullanılır ve sonra `kubctl apply` kullanılarak kapsayıcı oluşturulur. 
 
-1. Düğümlerinizin listesini görmek için `kubectl get nodes` yazın. Düğümlerin tüm ayrıntılarını öğrenmek istiyorsanız şunu yazın:  
+1. `iis.json` adlı bir yerel dosya oluşturun ve aşağıdakini kopyalayın. Bu dosya Kubernetes’e, Windows Server 2016 Server Core üzerinde [Docker Hub](https://hub.docker.com/r/microsoft/iis/)’daki bir genel görüntüyü kullanarak IIS çalıştırmasını söyler. Kapsayıcı 80 numaralı bağlantı noktasını kullanır, ancak başlangıçta yalnızca küme ağından erişim sağlanabilir.
 
-    ```
-    kubectl get nodes -o yaml
-    ```
+  ```JSON
+  {
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": {
+      "name": "iis",
+      "labels": {
+        "name": "iis"
+      }
+    },
+    "spec": {
+      "containers": [
+        {
+          "name": "iis",
+          "image": "microsoft/iis",
+          "ports": [
+            {
+            "containerPort": 80
+            }
+          ]
+        }
+      ],
+      "nodeSelector": {
+        "beta.kubernetes.io/os": "windows"
+      }
+    }
+  }
+  ```
+2. Uygulamayı başlatmak için aşağıdakini yazın:  
+  
+  ```bash
+  kubectl apply -f iis.json
+  ```  
+3. Kapsayıcının dağıtımını izlemek için şunu yazın:  
+  ```bash
+  kubectl get pods
+  ```
+  Kapsayıcı dağıtılırken durum `ContainerCreating` şeklindedir. 
 
-2. `simpleweb.yaml` adlı bir dosya oluşturun ve aşağıdakini kopyalayın. Bu dosya, [Docker Hub](https://hub.docker.com/r/microsoft/windowsservercore/)’dan Windows Server 2016 Sunucu Çekirdeği temel işletim sistemi görüntüsünü kullanarak bir web uygulaması ayarlar.  
+  ![ContainerCreating durumundaki IIS kapsayıcısı](media/container-service-kubernetes-windows-walkthrough/iis-pod-creating.png)   
 
-```yaml
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: win-webserver
-    labels:
-      app: win-webserver
-  spec:
-    ports:
-      # the port that this service should serve on
-    - port: 80
-      targetPort: 80
-    selector:
-      app: win-webserver
-    type: LoadBalancer
-  ---
-  apiVersion: extensions/v1beta1
-  kind: Deployment
-  metadata:
-    labels:
-      app: win-webserver
-    name: win-webserver
-  spec:
-    replicas: 1
-    template:
-      metadata:
-        labels:
-          app: win-webserver
-        name: win-webserver
-      spec:
-        containers:
-        - name: windowswebserver
-          image: microsoft/windowsservercore
-          command:
-          - powershell.exe
-          - -command
-          - "<#code used from https://gist.github.com/wagnerandrade/5424431#> ; $$listener = New-Object System.Net.HttpListener ; $$listener.Prefixes.Add('http://*:80/') ; $$listener.Start() ; $$callerCounts = @{} ; Write-Host('Listening at http://*:80/') ; while ($$listener.IsListening) { ;$$context = $$listener.GetContext() ;$$requestUrl = $$context.Request.Url ;$$clientIP = $$context.Request.RemoteEndPoint.Address ;$$response = $$context.Response ;Write-Host '' ;Write-Host('> {0}' -f $$requestUrl) ;  ;$$count = 1 ;$$k=$$callerCounts.Get_Item($$clientIP) ;if ($$k -ne $$null) { $$count += $$k } ;$$callerCounts.Set_Item($$clientIP, $$count) ;$$header='<html><body><H1>Windows Container Web Server</H1>' ;$$callerCountsString='' ;$$callerCounts.Keys | % { $$callerCountsString+='<p>IP {0} callerCount {1} ' -f $$_,$$callerCounts.Item($$_) } ;$$footer='</body></html>' ;$$content='{0}{1}{2}' -f $$header,$$callerCountsString,$$footer ;Write-Output $$content ;$$buffer = [System.Text.Encoding]::UTF8.GetBytes($$content) ;$$response.ContentLength64 = $$buffer.Length ;$$response.OutputStream.Write($$buffer, 0, $$buffer.Length) ;$$response.Close() ;$$responseStatus = $$response.StatusCode ;Write-Host('< {0}' -f $$responseStatus)  } ; "
-        nodeSelector:
-          beta.kubernetes.io/os: windows
+  IIS görüntüsünün boyutu nedeniyle, kapsayıcının `Running` durumuna girmesi birkaç dakika sürebilir.
+
+  ![Çalışıyor durumundaki IIS kapsayıcısı](media/container-service-kubernetes-windows-walkthrough/iis-pod-running.png)
+
+4. Kapsayıcıyı kullanıma sunmak için aşağıdaki komutu yazın:
+
+  ```bash
+  kubectl expose pods iis --port=80 --type=LoadBalancer
   ```
 
-      
-> [!NOTE] 
-> Yapılandırmaya `type: LoadBalancer` dahildir. Bu ayar, hizmetin bir Azure Load Balancer üzerinden İnternet'te kullanıma sunulmasına neden olur. Daha fazla bilgi edinmek için bkz. [Azure Container Service’teki bir Kubernetes kümesinde yük dengeleme kapsayıcıları](container-service-kubernetes-load-balancing.md).
->
+  Bu komut ile Kubernetes genel bir IP adresi ile Azure Load Balancer kuralı oluşturur. Değişikliğin yük dengeleyiciye yayılması yaklaşık birkaç dakika sürer. Ayrıntılar için bkz. [Azure Container Service’teki bir Kubernetes kümesinde yük dengeleme kapsayıcıları](container-service-kubernetes-load-balancing.md).
 
-## <a name="start-the-application"></a>Uygulamayı başlatma
+5. Hizmetin durumunu görmek için aşağıdaki komutu çalıştırın.
 
-1. Uygulamayı başlatmak için aşağıdakini yazın:  
+  ```bash
+  kubectl get svc
+  ```
 
-    ```
-    kubectl apply -f simpleweb.yaml
-    ```  
+  IP adresi başlangıçta `pending` olarak görünür:
+
+  ![Bekleyen dış IP adresi](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose.png)
+
+  Birkaç dakika sonra IP adresi ayarlanır:
   
-  
-2. Hizmeti dağıtımını (yaklaşık 30 saniye sürer) doğrulamak için aşağıdakini yazın:  
-
-    ```
-    kubectl get pods
-    ```
-
-3. Hizmet çalışmaya başladıktan sonra hizmete ait iç ve dış IP adreslerini görmek için aşağıdakini yazın:
-
-    ```
-    kubectl get svc
-    ``` 
-  
-    ![Windows hizmetinin IP adresleri](media/container-service-kubernetes-windows-walkthrough/externalipa.png)
-
-    Dış IP adresinin eklenmesi birkaç dakika sürer. Dış adres, yük dengeleyici tarafından yapılandırılmadan önce `<pending>` şeklinde görünür.
-
-4. Dış IP adresi kullanılabilir olduktan sonra hizmete web tarayıcınızda ulaşabilirsiniz.
-
-    ![Tarayıcıda Windows sunucu uygulaması](media/container-service-kubernetes-windows-walkthrough/wincontainerwebserver.png)
+  ![IIS için dış IP adresi](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose-public.png)
 
 
-## <a name="access-the-windows-nodes"></a>Windows düğümlerine erişim
-Windows düğümlerine, Uzak Masaüstü Bağlantısı aracılığıyla yerel bir Windows bilgisayarından erişilebilir. Ana düğüm aracılığıyla bir RDP SSH tüneli kullanmanızı öneririz. 
+6. Dış IP adresi kullanılabilir olduktan sonra tarayıcınızdan bu adrese gidebilirsiniz:
 
-Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Bu bölüm, tüneli oluşturmak için PuTTY’nin nasıl kullanılacağını açıklar.
+  ![IIS’e göz atma görüntüsü](media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
 
-1. [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)’yi Windows sisteminize indirin.
+7. IIS pod’unu silmek için şunu yazın:
 
-2. Uygulamayı çalıştırın.
-
-3. Küme yöneticisi kullanıcı adı ve kümedeki ilk ana düğümün genel DNS adından oluşan bir ana bilgisayar adı girin. **Ana Bilgisayar Adı** `adminuser@PublicDNSName`’e benzer. **Bağlantı Noktası** için 22 girin.
-
-  ![PuTTY yapılandırması 1](media/container-service-kubernetes-windows-walkthrough/putty1.png)
-
-4. **SSH > Yetkilendirme** öğesini seçin. Özel anahtar dosyanıza (.ppk biçimi) kimlik doğrulaması için bir yol ekleyin. [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) gibi bir araç kullanarak bu dosyayı kümenin oluşturulması için kullanılan SSH anahtarından oluşturabilirsiniz.
-
-  ![PuTTY yapılandırması 2](media/container-service-kubernetes-windows-walkthrough/putty2.png)
-
-5. **SSH > Tüneller**’i seçin ve iletilen bağlantı noktalarını yapılandırın. Yerel Windows makineniz zaten bağlantı noktası 3389’u kullanmakta olduğundan Windows düğümü 0 ve Windows düğümü 1’e ulaşmak için aşağıdaki ayarları kullanmanız önerilir. (Ek Windows düğümleri için bu şekilde devam edin.)
-
-    **Windows Düğümü 0**
-
-    * **Kaynak Bağlantı Noktası:** 3390
-    * **Hedef:** 10.240.245.5:3389
-
-    **Windows Düğümü 1**
-
-    * **Kaynak Bağlantı Noktası:** 3391
-    * **Hedef:** 10.240.245.6:3389
-
-    ![Windows RDP tünellerinin görüntüsü](media/container-service-kubernetes-windows-walkthrough/rdptunnels.png)
-
-6. İşiniz bittiğinde, bağlantı yapılandırmasını kaydetmek için **Oturum > Kaydet**’e tıklayın.
-
-7. PuTTY oturumuna bağlanmak için **Aç**’a tıklayın. Ana düğüme bağlantıyı tamamlayın.
-
-8. Uzak Masaüstü Bağlantısı'nı başlatın. İlk Windows düğümüne bağlanmak için, **Bilgisayar** kısmında `localhost:3390` belirtip **Bağlan**’a tıklayın. (İkinci düğüme bağlanmak için `localhost:3390` belirtin ve bu şekilde devam edin.) Bağlantınızı tamamlamak için, dağıtım sırasında yapılandırdığınız yerel Windows yönetici parolasını belirtin.
-
+  ```bash
+  kubectl delete pods iis
+  ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kubernetes hakkında daha fazla bilgi edinmek için aşağıdaki bağlantılardan yararlanabilirsiniz:
+* Kubernetes kullanıcı arabirimini kullanmak için `kubectl proxy` komutunu çalıştırın. Ardından, http://localhost:8001/ui sayfasına göz atın.
 
-* [Kubernetes Bootcamp](https://kubernetesbootcamp.github.io/kubernetes-bootcamp/index.html) - kapsayıcılı uygulamalar için dağıtma, ölçeklendirme, güncelleştirme ve hata ayıklama işlemlerini gösterir.
-* [Kubernetes Kullanıcı Kılavuzu](http://kubernetes.io/docs/user-guide/) - var olan bir Kubernetes kümesindeki çalışan programlar hakkında bilgi sağlar.
-* [Kubernetes Örnekleri](https://github.com/kubernetes/kubernetes/tree/master/examples) - Kubernetes ile gerçek uygulama çalıştırmaya ilişkin örnekler sunar.
+* Özel bir IIS web sitesi oluşturma ve bir Windows kapsayıcısında çalıştırma adımları için [Docker Hub'ı](https://hub.docker.com/r/microsoft/iis/) yönergelerine bakın.
+
+* Windows düğümlerine PuTTy ile ana öğenin RDP SSH tüneli üzerinden erişmek için bkz. [ACS Altyapısı belgeleri](https://github.com/Azure/acs-engine/blob/master/docs/ssh.md#create-port-80-tunnel-to-the-master). 
+

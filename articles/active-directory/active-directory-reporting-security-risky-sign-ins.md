@@ -1,6 +1,7 @@
 ---
-title: "Azure Active Directory portalındaki riskli oturum açma işlemleri raporu - önizleme | Microsoft Belgeleri"
-description: "Azure Active Directory portalındaki riskli oturum açma işlemleri raporunun önizleme sürümü hakkında bilgi edinin"
+
+title: "Azure Active Directory portalındaki riskli oturum açma işlemleri raporu | Microsoft Docs"
+description: "Azure Active Directory portalındaki riskli oturum açma işlemleri raporu hakkında bilgi edinin"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,20 +11,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 69b2166dcbc3e4abd99084b47907c90e157791de
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal---preview"></a>Azure Active Directory portalındaki riskli oturum açma işlemleri raporu - önizleme
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki riskli oturum açma işlemleri raporu
 
-Azure Active Directory [önizleme](active-directory-preview-explainer.md) sürümünde güvenlik raporları ile ortamınızda güvenliği tehlikeye girmiş kullanıcı hesaplarının olasılığı hakkında bilgi sahibi olabilirsiniz. 
+Azure Active Directory’de (Azure AD) güvenlik raporları ile ortamınızda güvenliği tehlikeye girmiş kullanıcı hesaplarının olasılığı hakkında bilgi sahibi olabilirsiniz. 
 
-Azure Active Directory, kullanıcı hesaplarınızla ilgili kuşkulu eylemleri algılar. Algılanan her eylem için *risk olayı* adlı bir kayıt oluşturulur. Daha ayrıntılı bilgi için bkz. [Azure Active Directory risk olayları](active-directory-identity-protection-risk-events.md). 
+Azure AD, kullanıcı hesaplarınızla ilgili kuşkulu eylemleri algılar. Algılanan her eylem için *risk olayı* adlı bir kayıt oluşturulur. Daha ayrıntılı bilgi için bkz. [Azure Active Directory risk olayları](active-directory-identity-protection-risk-events.md). 
 
 Algılanan risk olayları aşağıdakileri hesaplamak için kullanılır:
 
@@ -31,7 +33,7 @@ Algılanan risk olayları aşağıdakileri hesaplamak için kullanılır:
 
 - **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. Daha fazla bilgi için bkz. [Riskli oldukları belirlenen kullanıcılar](active-directory-identityprotection.md#users-flagged-for-risk).  
 
-Güvenlik raporlarını, Azure portalında **Azure Active Directory** dikey penceresindeki **Güvenlik** bölümünde bulabilirsiniz. 
+Güvenlik raporlarını, [Azure portalının](https://portal.azure.com) **Azure Active Directory** dikey penceresindeki **Güvenlik** bölümünde bulabilirsiniz. 
 
 ![Riskli Oturum Açma İşlemleri](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 

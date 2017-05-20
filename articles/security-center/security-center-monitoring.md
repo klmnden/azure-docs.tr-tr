@@ -4,7 +4,7 @@ description: "Bu makale, Azure Güvenlik Merkezi&quot;nde izleme özelliklerini 
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -28,18 +29,17 @@ Bu makale, ilkelerle uyumluluğu izlemek için Azure Güvenlik Merkezi'ndeki izl
 Genellikle izlemeyi, izleme ve bir olayın gerçekleşmesini bekleyip duruma tepki verme olarak ele alırız. Güvenliği izleme, kuruluş standartlarıyla veya en iyi uygulamalarla uyumlu olmayan sistemleri tanımlamak için kaynaklarınızı denetleyen öngörülü bir stratejiye sahip olma anlamına gelir.
 
 ## <a name="monitoring-security-health"></a>Güvenlik durumunu izleme
-Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policies.md) etkinleştirmenizin ardından, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder. Ağ yapılandırmanız ile ilgili bilgiler hemen kullanımınıza sunulur. Sanal makine yapılandırması hakkındaki bilgilerin (güvenlik güncelleştirme durumu ve işletim sistemi yapılandırması gibi) kullanılabilir hale gelmesi bir saat veya daha uzun sürebilir. **Kaynak Güvenlik Durumu** dikey penceresinde kaynaklarınızın güvenlik durumunu ve sorunları görüntüleyebilirsiniz. Ayrıca, bu sorunların bir listesini **Öneriler** dikey penceresinde görüntüleyebilirsiniz.
+Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policies.md) etkinleştirmenizin ardından, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder. Ağ yapılandırmanız ile ilgili bilgiler hemen kullanımınıza sunulur. Sanal makine yapılandırması hakkındaki bilgilerin (güvenlik güncelleştirme durumu ve işletim sistemi yapılandırması gibi) kullanılabilir hale gelmesi bir saat veya daha uzun sürebilir. **Önleme** bölümünde kaynaklarınızın güvenlik durumunu ve sorunları görüntüleyebilirsiniz. Ayrıca, bu sorunların bir listesini **Öneriler** kutucuğunda görüntüleyebilirsiniz.
 
 Önerileri uygulama hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'nde güvenlik önerilerini uygulama](security-center-recommendations.md)'yı okuyun.
 
-**Kaynak güvenlik durumu** kutucuğunda kaynaklarınızın güvenlik durumunu izleyebilirsiniz. Aşağıdaki örnekte, yüksek ve orta önem derecesine sahip olan ve dikkat gerektiren birkaç sorun görebilirsiniz. Etkinleştirilmiş güvenlik ilkeleri, izlenen denetim türlerini etkiler.
+**Önleme** bölümünde kaynaklarınızın güvenlik durumunu izleyebilirsiniz. Aşağıdaki örnekte, her bir kaynağın kutucuğunda (İşlem, Ağ, Depolama ve veriler ile Uygulama) tanımlanan toplam sorun sayısının olduğunu görebilirsiniz.
 
-![Kaynaklar güvenlik durumu kutucuğu](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
+![Kaynaklar güvenlik durumu kutucuğu](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
-Güvenlik Merkezi, ilgilenilmesi gereken bir güvenlik açığı (eksik güvenlik güncelleştirmelerine sahip bir sanal makine veya [ağ güvenlik grubu](/virtual-network/virtual-networks-nsg.md) olmayan bir alt ağ gibi) tanımlarsa bu güvenlik açığı burada listelenir.
 
 ### <a name="monitor-compute"></a>İzleyici işlemi
-**Kaynak güvenlik durumu** kutucuğundaki **İşlem**’e tıkladığınızda açılan **İşlem** dikey penceresi üç sekme gösterir:
+**İşlem** kutucuğuna tıkladığınızda açılan **İşlem** dikey penceresi üç sekme gösterir:
 
 - **Genel Bakış**: izleme ve sanal makine önerileri.
 - **Sanal Makineler**: tüm sanal makineleri ve geçerli güvenlik durumunu listeler.
@@ -119,7 +119,7 @@ Bu öneriyle ilgili daha kesin bir açıklama görmek için **AÇIKLAMA** sütun
 ![Bulut hizmeti önerileri](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### <a name="monitor-virtual-networks"></a>Sanal ağları izleme
-**Kaynak güvenlik durumu** kutucuğunda **Ağ**'a tıkladığınızda, **Ağ** dikey penceresi aşağıdaki ekran görüntüsünde gösterildiği gibi daha fazla ayrıntıyla açılır:
+**Ağ** kutucuğuna tıkladığınızda, **Ağ** dikey penceresi aşağıdaki ekran görüntüsünde gösterildiği gibi daha fazla ayrıntıyla açılır:
 
 ![Ağ dikey penceresi](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -170,11 +170,11 @@ Bu topoloji görünümünde, ilk düzeyde [sanal ağlar](../virtual-network/virt
 
 Bu dikey pencerenin en altında, daha önce açıklanana benzer şekilde bu sanal makine için öneriler bulunur. Daha fazla bilgi edinmek ya da gerekli güvenlik denetimini veya yapılandırmasını uygulamak için bir öneriye tıklayabilirsiniz.
 
-### <a name="monitor-data"></a>Veri izleme
+### <a name="monitor-storage--data"></a>Depolama ve verileri izleme
 
-**Kaynak güvenliği durumu** kutucuğundaki **SQL ve Veri**'ye tıkladığınızda açılan **Veri Kaynakları** dikey penceresinde SQL ve Depolama önerileri sunulur. Ayrıca, veritabanının genel sağlık durumu için [öneriler](security-center-sql-service-recommendations.md) içerir. Depolama şifrelemesi hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'ndeki Azure depolama hesabı için şifrelemeyi etkinleştirme](security-center-enable-encryption-for-storage-account.md) bölümünü okuyun.
+**Önleme** bölümünde **Depolama ve veriler**’e tıkladığınızda, **Veri Kaynakları** dikey penceresi SQL ve Depolama’ya yönelik önerilerle birlikte açılır. Ayrıca, veritabanının genel sağlık durumu için [öneriler](security-center-sql-service-recommendations.md) içerir. Depolama şifrelemesi hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'ndeki Azure depolama hesabı için şifrelemeyi etkinleştirme](security-center-enable-encryption-for-storage-account.md) bölümünü okuyun.
 
-![Veri Kaynakları](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
+![Veri Kaynakları](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
 **SQL Önerileri** altında herhangi bir öneriye tıklayabilir ve sorunu çözmek için yapılacak diğer eylemlerle ilgili daha fazla ayrıntı görebilirsiniz. Aşağıdaki örnekte, **SQL veritabanlarında Veritabanı Denetimi ve Tehdit algılama** önerisinin genişletilmiş hali gösterilmiştir.
 
