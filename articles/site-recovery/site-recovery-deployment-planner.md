@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery dağıtım planlayıcısı
-Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery kullanım kılavuzudur.
+Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -36,7 +37,7 @@ Araç aşağıdaki bilgileri sağlar:
 
 **Uyumluluk değerlendirmesi**
 
-* Disk sayısı, disk boyutu, IOPS ve değişim sıklığına göre VM uygunluk değerlendirmesi
+* Disk sayısı, disk boyutu, IOPS, değişim sıklığı ve önyükleme türüne (EFI/BIOS) göre VM uygunluk değerlendirmesi
 * Delta çoğaltma için gereken tahmini ağ bant genişliği
 
 **Ağ bant genişliği ile RPO değerlendirmesi karşılaştırması**
@@ -204,6 +205,10 @@ Profil oluşturma tamamlandıktan sonra, aracı rapor oluşturma modunda çalı�
 | -StartDate | (İsteğe bağlı) AA-GG-YYYY:SS:DD (24 saat biçiminde) cinsinden başlangıç tarihi ve saati. *StartDate* değeri *EndDate* ile birlikte belirtilmelidir. StartDate belirtildiğinde, StartDate ile EndDate arasında toplanan profili oluşturulmuş veriler için rapor oluşturulur. |
 | -EndDate | (İsteğe bağlı) AA-GG-YYYY:SS:DD (24 saat biçiminde) cinsinden bitiş tarihi ve saati. *EndDate* değeri *StartDate* ile birlikte belirtilmelidir. EndDate belirtildiğinde, StartDate ile EndDate arasında toplanan profili oluşturulmuş veriler için rapor oluşturulur. |
 | -GrowthFactor | (İsteğe bağlı) Yüzde olarak ifade edilen büyüme faktörü. Varsayılan değer yüzde 30'dur. |
+| -UseManagedDisks | (Optional) UseManagedDisks - Evet/Hayır. Varsayılan değer Evet’tir. Tek bir depolama hesabına yerleştirilebilecek sanal makine sayısı, Yük Devretme/Yük devretme testi için yönetilen disk seçilip seçilmemesine bağlı olarak hesaplanır. |
+
+tek bir depolama hesabına yerleşim, sanal makine Yük Devretme/Yük Devretme testinin Yönetilmeyen disk yerine Yönetilen Disk üzerinde gerçekleştirilmesine bağlı olarak hesaplanır. |
+
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Örnek 1: Profili oluşturulan veriler yerel sürücüde olduğunda raporu varsayılan değerlerle oluşturma
 ```
@@ -480,7 +485,7 @@ Bir diskin iş yükü özellikleri diski P20 veya P30 kategorisine koyarken boyu
 
 **NIC**: VM üzerindeki NIC sayısı.
 
-**Önyükleme Türü**: VM’nin önyükleme türüdür. BIOS veya EFI olabilir. Şu anda Azure Site Recovery yalnızca BIOS önyükleme türünü destekler. EFI önyükleme türündeki tüm sanal makineler Uyumsuz VM'ler çalışma sayfasında listelenmiştir. 
+**Önyükleme Türü**: VM’nin önyükleme türüdür. BIOS veya EFI olabilir. Şu anda Azure Site Recovery yalnızca BIOS önyükleme türünü destekler. EFI önyükleme türündeki tüm sanal makineler Uyumsuz VM'ler çalışma sayfasında listelenmiştir.
 
 **İşletim sistemi türü**: VM’nin işletim sistemi türü. Windows veya Linux ya da başka bir işletim sistemi olabilir.
 
@@ -517,7 +522,7 @@ Bir diskin iş yükü özellikleri diski P20 veya P30 kategorisine koyarken boyu
 
 **NIC**: VM üzerindeki NIC sayısı.
 
-**Önyükleme Türü**: VM’nin önyükleme türüdür. BIOS veya EFI olabilir. Şu anda Azure Site Recovery yalnızca BIOS önyükleme türünü destekler. EFI önyükleme türündeki tüm sanal makineler Uyumsuz VM'ler çalışma sayfasında listelenmiştir. 
+**Önyükleme Türü**: VM’nin önyükleme türüdür. BIOS veya EFI olabilir. Şu anda Azure Site Recovery yalnızca BIOS önyükleme türünü destekler. EFI önyükleme türündeki tüm sanal makineler Uyumsuz VM'ler çalışma sayfasında listelenmiştir.
 
 **İşletim sistemi türü**: VM’nin işletim sistemi türü. Windows veya Linux ya da başka bir işletim sistemi olabilir.
 
@@ -558,6 +563,15 @@ Dağıtım planlayıcısını güncelleştirmek için aşağıdakileri yapın:
 
 
 ## <a name="version-history"></a>Sürüm geçmişi
+
+### <a name="13"></a>1.3
+Güncelleştirme: 9 Mart 2017
+
+Aşağıdaki yeni özellik eklenmiştir:
+
+* Rapor oluşturma işlemine Yönetilen Disk desteği eklendi. Tek bir depolama hesabına yerleştirilebilecek sanal makine sayısı, Yük Devretme/Yük devretme testi için yönetilen disk seçilip seçilmemesine bağlı olarak hesaplanır.        
+
+
 ### <a name="12"></a>1.2
 Güncelleştirme: 7 Nisan 2017
 

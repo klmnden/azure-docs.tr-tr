@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -29,7 +30,7 @@ Bu Hızlı Başlangıç, ilk ASP.NET web uygulamanızı birkaç dakika içinde [
 
 ![Azure App Service’te ASP.NET web uygulaması](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="before-you-begin"></a>Başlamadan önce
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticide Visual Studio 2017’yi kullanarak bir ASP.NET web uygulaması oluşturma ve Azure’a dağıtma işlemi gösterilmektedir. Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
@@ -89,13 +90,13 @@ Kaynak grubunuzu **myResourceGroup** olarak adlandırıp **Tamam**’a tıklayı
 Azure web uygulamanız için bir _App Service planı_ da gereklidir. 
 
 > [!NOTE]
-> App Service planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynak bileşimini temsil eder. Bir App Service planına atanan tüm uygulamalar plan tarafından tanımlanan kaynakları paylaşarak birden çok uygulamayı barındırırken maliyetten tasarruf etmenize imkan sağlar. 
+> App Service planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları içeren koleksiyonu temsil eder. Bir App Service planına atanan tüm uygulamalar plan tarafından tanımlanan kaynakları paylaşarak birden çok uygulamayı barındırırken maliyetten tasarruf etmenize imkan sağlar. 
 >
 > App Service planları şunları tanımlar:
 >
 > - Bölge (Kuzey Avrupa, Doğu ABD, Güneydoğu Asya)
 > - Örnek Boyutu (Küçük, Orta, Büyük)
-> - Ölçek Sayısı (bir, iki, üç örnek, vb.) 
+> - Ölçek Sayısı (bir, iki, üç örnek vb.) 
 > - SKU (Ücretsiz, Paylaşılan, Temel, Standart, Premium)
 >
 >
@@ -110,7 +111,7 @@ Azure web uygulamanız için bir _App Service planı_ da gereklidir.
 
 **Tamam** düğmesine tıklayın.
 
-![Yeni App Service planı oluşturma](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![App Service planı oluşturma](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## <a name="create-and-publish-the-web-app"></a>Web uygulaması oluşturma ve yayımlama
 
@@ -149,7 +150,7 @@ Azure’a yeniden dağıtmak için **Çözüm Gezgini**’nde **myFirstAzureWebA
 
 Yayımlama sayfasında **Yayımla**'ya tıklayın.
 
-Visual Studio tamamlandığında güncelleştirilmiş Azure web uygulamasını tarayıcınızda başlatır.
+Visual Studio işlemi tamamladığında güncelleştirilmiş Azure web uygulamasını tarayıcınızda başlatır.
 
 ![Azure’da güncelleştirilmiş ASP.NET web uygulaması](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
@@ -165,11 +166,11 @@ Sol menüden **Uygulama Hizmetleri**’ne ve ardından Azure web uygulamanızın
 
 Web uygulamanızın _dikey penceresini_ açtınız (yatay yönde açılan portal sayfası). 
 
-Varsayılan olarak, web uygulamanızın dikey penceresinde **Genel Bakış** sayfası gösterilir. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Dikey pencerenin sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırma sayfalarını gösterir. 
+Varsayılan olarak, web uygulamanızın dikey penceresinde **Genel Bakış** sayfası gösterilir. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz.  
 
 ![Azure portalında App Service dikey penceresi](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Dikey penceredeki bu sekmelerde web uygulamanıza ekleyebileceğiniz çok sayıda harika özellik gösterilir. Aşağıdaki listede yalnızca birkaç olasılık sunulmaktadır:
+Dikey pencerenin sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırma sayfalarını gösterir. Aşağıdaki listede yalnızca birkaç olasılık sunulmaktadır:
 
 - Özel bir DNS adı eşleme
 - Özel bir SSL sertifikası bağlama
@@ -193,5 +194,9 @@ Onay dikey penceresinde **myResourceGroup** kaynak grubu adını metin kutusuna 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Önceden oluşturulmuş [Web apps PowerShell betiklerini](app-service-powershell-samples.md) keşfedin.
+> [!div class="nextstepaction"]
+> [Azure'da SQL Veritabanı ile ASP.NET uygulaması oluşturmayı öğrenin](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Örnek Web Apps PowerShell betiklerini keşfedin](app-service-powershell-samples.md)
 

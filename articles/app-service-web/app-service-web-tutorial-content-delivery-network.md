@@ -1,148 +1,300 @@
 ---
-title: "Azure App Service’a İçerik Teslim Ağı Ekleme | Microsoft Docs"
-description: "Kenar düğümlerinden statik dosyalarınızı teslim etmek için Azure App Service’a bir İçerik Teslim Ağı ekleyin."
+title: Bir Azure Uygulama Hizmetine Content Delivery Network (CDN) Ekleme | Microsoft Docs
+description: "Statik dosyalarınızı, dünya çapındaki müşterilerinize yakın sunucularda önbelleğe almak ve dağıtmak için bir Azure Uygulama Hizmetine Content Delivery Network (CDN) ekleyin."
 services: app-service
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/03/2017
+ms.date: 05/01/2017
 ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 7ba3737566401152a3171e8926beca188045230c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7208abc0e6eaa9067c5bb36a09e1bfd276fe0b0c
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 ---
-# <a name="add-a-content-deliver-network-on-an-azure-app-service"></a>Azure App Service’a İçerik Teslim Ağı Ekleme
+# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Bir Azure Uygulama Hizmetine Content Delivery Network (CDN) Ekleme
 
-Bu öğreticide, uç sunucusundaki statik içeriği ortaya çıkarmak için Azure App Service’ınıza bir Content Delivery Network (CDN) ekleyeceksiniz. En çok 10 CDN Uç Noktasından oluşturulmuş bir koleksiyon olan bir CDN Profili oluşturacaksınız.
+[Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md), kullanıcılara içerik teslim etmek için en yüksek aktarım hızını sağlamak üzere stratejik olarak yerleştirilmiş konumlardaki statik web içeriğini önbelleğe alır. CDN, ayrıca web uygulamanızdaki sunucu yükünü de azaltır. Bu öğretici, [Azure Uygulama Hizmeti'ndeki bir web uygulamasına](app-service-web-overview.md) nasıl Azure CDN ekleyeceğinizi gösterir. 
 
-Content Delivery Network, kullanıcılara içerik teslim etmek için en yüksek verimliliği sağlamak üzere stratejik olarak yerleştirilmiş konumlardaki statik web içeriğini önbelleğe alır. Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları şunlardır:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
-* Özellikle içeriğin yüklenmesi için birden çok gidiş dönüş gerektiren uygulamaların kullanımı sırasında, son kullanıcılar için daha iyi performans ve kullanıcı deneyimi.
-* Bir ürün sunumu etkinliğinin başlangıcında olduğu gibi, anlık yüksek düzeyde yükü daha iyi işleyebilmek için büyük ölçeklendirme.
-* Kullanıcı isteklerinin dağıtımı ve uç sunuculardan içerik sunulması yoluyla kaynağa daha az trafik gönderilir.
+> [!div class="checklist"]
+> * CDN uç noktası oluşturma.
+> * Önbelleğe alınan varlıkları yenileme.
+> * Önbelleğe alınan sürümleri denetlemek için sorgu dizeleri kullanma.
+> * CDN uç noktası için özel bir etki alanı kullanma.
 
-> [!TIP]
-> [Azure CDN pop konumlarının](https://docs.microsoft.com/en-us/azure/cdn/cdn-pop-locations) güncel listesini gözden geçirin.
->
+Kullanacağınız örnek statik HTML sitesinin ana sayfası:
 
-## <a name="deploy-the-sample"></a>Örneği dağıtma
+![Örnek uygulama ana sayfası](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
 
-Bu öğreticiyi tamamlamak için Web Uygulamasında dağıtılmış bir uygulamaya ihtiyacınız olacaktır. Bu öğreticiye temel oluşturmak için [statik HTML hızlı başlangıcını](app-service-web-get-started-html.md) izleyin.
+## <a name="create-the-web-app"></a>Web uygulaması oluşturma
 
-## <a name="step-1---login-to-azure-portal"></a>Adım 1 - Azure Portalında oturum açın
+Kullanacağınız web uygulamasını oluşturmak için, **Kaynakları temizleme** yerine [statik HTML hızlı başlangıç](app-service-web-get-started-html.md) adımını uygulayın.
 
-İlk olarak, sık kullandığınız tarayıcıyı açın ve Azure [Portal](https://portal.azure.com)’a gidin.
+Öğreticiyi tamamladığınızda, bu öğreticinin sonraki bölümlerinde web uygulaması ek değişiklikleri dağıtabilmeniz için komut istemini açık tutun.
 
-## <a name="step-2---create-a-cdn-profile"></a>Adım 2 - CDN Profili oluşturun
+### <a name="have-a-custom-domain-ready"></a>Özel bir etki alanına sahip olma
 
-Sol gezinti bölmesindeki `+ New` düğmesine ve **Web + Mobil**’e tıklayın. Web + Mobil kategorisi altında **CDN**’yi seçin.
+Bu öğreticinin özel etki alanı adımını tamamlamak üzere, etki alanı sağlayıcınız (GoDaddy gibi) için DNS kayıt defterinize erişmeniz gerekir. Örneğin, `contoso.com` ve `www.contoso.com` için DNS girdileri eklemek üzere `contoso.com` kök etki alanının DNS ayarlarını yapılandırmanız gerekir.
 
-Aşağıdaki alanları belirtin:
+Henüz bir etki alanınız yoksa, Azure portalını kullanarak bir etki alanı satın almak için [App Service etki alanı öğreticisini](custom-dns-web-site-buydomains-web-app.md) izlemeniz yararlı olabilir. 
 
-| Alan | Örnek değer | Açıklama |
-|---|---|---|
-| Adı | myCDNProfile | CDN profilinin adı. |
-| Konum | Batı Avrupa | Burası CDN profil bilgilerinizin depolanacağı Azure konumdur. CDN uç noktalarına hiç etkisi yoktur. |
-| Kaynak grubu | myResourceGroup | Kaynak Grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md#resource-groups) |
-| Fiyatlandırma katmanı | Standart Akamai | Fiyatlandırma katmanlarını karşılaştırmak için bkz. [CDN’ye Genel Bakış](../cdn/cdn-overview.md#azure-cdn-features). |
+## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
-**Oluştur**’a tıklayın.
+Bir tarayıcıyı açın ve [Azure portalına](https://portal.azure.com) gidin.
 
-Sol gezinti bölmesinden kaynak grupları merkezini açıp, **myResourceGroup**’u seçin. Kaynak listesinden **myCDNProfile** öğesini seçin.
+## <a name="create-a-cdn-profile-and-endpoint"></a>CDN profili ve uç noktası oluşturma
 
-![azure-cdn-profile-created](media/app-service-web-tutorial-content-delivery-network/azure-cdn-profile-created.png)
+Sol gezinti bölmesinde **Uygulama Hizmetleri**’ni ve sonra [statik HTML hızlı başlangıç](app-service-web-get-started-html.md) içinde oluşturduğunuz uygulamayı seçin.
 
-## <a name="step-3---create-a-cdn-endpoint"></a>Adım 3 - CDN Uç Noktası oluşturun
+![Portalda, App Service uygulamasını seçin](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
 
-Arama kutusunun yanındaki komutlardan **+ Uç Nokta** öğesine tıkladığınızda Uç Nokta oluşturma dikey penceresi başlatılır.
+**App Service** sayfasındaki **Ayarlar** bölümünde, **Ağ > Uygulamanız için Azure CDN'i yapılandırın** seçeneğini belirleyin.
 
-Aşağıdaki alanları belirtin:
+![Portalda CDN’yi seçin](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
 
-| Alan | Örnek değer | Açıklama |
-|---|---|
-| Ad |  | Bu ad, `<endpointname>.azureedge.net` etki alanındaki önbelleğe alınmış kaynaklarınıza erişmek için kullanılır. |
-| Çıkış noktası türü | Web Uygulaması | Çıkış noktası türünün seçilmesi, kalan alanlar için size bağlam menüleri sağlar. Özel çıkış noktasının seçilmesi, çıkış noktası konağı için size bir metin alanı sağlar. |
-| Çıkış noktası konağı | |  Belirttiğiniz çıkış noktası türündeki tüm kullanılabilir kaynaklar açılır listede listelenir. Çıkış noktası türünüz olarak Özel çıkış noktasını seçtiyseniz, özel çıkış noktanızın etki alanını yazarsınız  |
+**Azure Content Delivery Network** sayfasında, **Yeni uç nokta** ayarlarını tabloda belirtildiği gibi girin.
 
-**Ekle**'ye tıklayın.
+![Portalda profil ve uç nokta oluşturma](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
 
-Uç Nokta oluşturulur ve İçerik Teslim Ağı uç noktası oluşturulduktan sonra durum **çalışıyor** olarak güncelleştirilir.
+| Ayar | Önerilen değer | Açıklama |
+| ------- | --------------- | ----------- |
+| **CDN profili** | myCDNProfile | Yeni bir CDN profili oluşturmak için **Yeni oluştur**’u seçin. CDN profili, aynı fiyatlandırma katmanına sahip bir CDN uç noktaları koleksiyonudur. |
+| **Fiyatlandırma katmanı** | Standart Akamai | [Fiyatlandırma katmanı](../cdn/cdn-overview.md#azure-cdn-features), sağlayıcıyı ve kullanılabilir özellikleri belirtir. Bu öğreticide standart Akamai kullanıyoruz. |
+| **CDN uç noktası adı** | azureedge.net etki alanında benzersiz olan tüm adlar | Önbelleğe alınmış kaynaklarınıza *\<uçnoktaadı> .azureedge.net* etki alanından erişebilirsiniz.
 
-![azure-cdn-endpoint-created](media/app-service-web-tutorial-content-delivery-network/azure-cdn-endpoint-created.png)
+**Oluştur**’u seçin.
 
-## <a name="step-4---serve-from-azure-cdn"></a>4. Adım - Azure CDN’den hizmet verme
+Azure, profili ve uç noktayı oluşturur. Yeni uç nokta, aynı sayfada bulunan **Uç noktalar** listesinde görünür ve sağlandığında **Çalışıyor** durumundadır.
 
-Artık CDN Uç Noktası **çalıştığına** göre, CDN uç noktasından içeriğe erişebiliyor olmalısınız.
+![Listede yeni uç nokta](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint-in-list.png)
 
-Bu öğreticinin temeli olarak [statik HTML hızlı başlangıcını](app-service-web-get-started-html.md) kullandığımızı düşünürsek, CDN’mizde aşağıdaki dosyaların bulunması gerekir: `css`, `img`, `js`.
+### <a name="test-the-cdn-endpoint"></a>CDN uç noktasını sınama
 
-Web Uygulaması URL’si `http://<app_name>.azurewebsites.net/img/` ile CDN Uç Nokta URL’si `http://<endpointname>.azureedge.net/img/` arasında içerik yolları aynıdır; bu da CDN’den hizmet alması için herhangi bir statik içeriğin yerine CDN Uç Nokta etki alanını kullanabileceğiniz anlamına gelir.
+Verizon fiyatlandırma katmanını seçtiyseniz, uç noktayı yayma işlemi genellikle yaklaşık 90 dakika sürer. Akamai için, yayma işlemi birkaç dakika sürer
 
-Şimdi sık kullandığınız web tarayıcısında şu url’ye giderek CDN Uç Noktası’ndan ilk görüntümüzü alalım:
+Örnek uygulama, `index.html` dosyası ile *css*, *img* ve diğer statik varlıkları içeren *js* klasörlerine sahiptir. Bu dosyaların tümünün içerik yolları, CDN uç noktasında aynıdır. Örneğin, aşağıdaki URL'ler *css* klasöründeki *bootstrap.css* dosyasına erişir:
 
-```bash
-http://<endpointname>.azureedge.net/img/03-enterprise.png
+```
+http://<appname>.azurewebsites.net/css/bootstrap.css
 ```
 
-Artık statik içerik CDN’de kullanılabilir olduğundan, içeriği son kullanıcıya teslim etmek için CDN uç noktasını kullanacak şekilde uygulamanızı güncelleştirebilirsiniz.
+```
+http://<endpointname>.azureedge.net/css/bootstrap.css
+```
 
-Sitenizin oluşturulduğu dile bağlı olarak, CDN geri dönüşünde yardımcı olacak birçok çerçeve bulunabilir. Örneğin, ASP.NET [paketleme ve küçültme](https://docs.microsoft.com/en-us/aspnet/mvc/overview/performance/bundling-and-minification#using-a-cdn) desteği sağladığı gibi, CDN geri dönüş özelliklerini de etkinleştirir.
+Bir tarayıcıda aşağıdaki URL'ye gittiğinizde, Azure web uygulamasında daha önce çalıştırdığınız, ancak şimdi CDN'den sunulan sayfayı görürsünüz.
 
-Kullandığınız dilde yerleşik olarak veya bir kitaplıkla sağlanan CDN geri dönüş desteği yoksa, [betikleri](https://github.com/dolox/fallback/tree/master/examples/loading-scripts), [stil sayfalarını](https://github.com/dolox/fallback/tree/master/examples/loading-stylesheets) ve [görüntüleri](https://github.com/dolox/fallback/tree/master/examples/loading-images) yüklemeyi destekleyen [FallbackJS](http://fallback.io/) gibi bir javascript çerçevesi kullanabilirsiniz.
+```
+http://<endpointname>.azureedge.net/index.html
+```
 
-## <a name="step-5---purge-the-cdn"></a>5. Adım - CDN’yi temizleme
+![CDN'den sunulan örnek uygulama ana sayfası](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
-Bazen yaşam süresi (TTL) dolmadan önce içeriğin kullanım süresini sona erdirmek isterseniz, CDN’de bir temizleme işlemini zorlamanız gerekebilir.
+Bu, Azure CDN'nin kaynak web uygulamasının varlıklarını aldığını ve CDN uç noktasından sunduğunu gösterir. 
 
-Azure CDN’yi, CDN Profili dikey penceresinden veya CDN Uç Noktası dikey penceresinden el ile temizlemeniz mümkündür. Profil sayfasında temizleme seçeneğini kullanırsanız, hangi uç noktayı temizlemek istediğinizi seçmeniz gerekir.
+Bu sayfanın CDN'de önbelleğe alınmasını sağlamak için sayfayı yenileyin. CDN'nin istenen içeriği önbelleğe alması için bazen aynı varlığa ilişkin iki istekte bulunulması gerekir.
 
-İçeriği temizlemek için, temizlemek istediğiniz içerik yollarını yazın. Tek bir dosyayı temizlemek için tam bir dosya yolu geçirebileceğiniz gibi, belirli bir klasördeki içeriği temizlemek ve yenilemek için bir yol kesimi de geçirebilirsiniz.
+Azure CDN profilleri ve uç noktaları oluşturma hakkında daha fazla bilgi için bkz. [Azure CDN kullanmaya başlama](../cdn/cdn-create-new-endpoint.md).
 
-Temizlemek istediğiniz tüm içerik yollarını sağladıktan sonra **Temizle**’ye tıklayın.
+## <a name="purge-the-cdn"></a>CDN’yi temizleme
 
-![app-service-web-purge-cdn](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+CDN, yaşam süresi (TTL) yapılandırmasına bağlı olarak kaynak web uygulamasındaki kaynaklarını düzenli aralıklarla yeniler. Varsayılan TTL 7 gündür.
 
-## <a name="step-6---map-a-custom-domain"></a>6. Adım - Özel etki alanını eşleme
+TTL’nin süresi dolmadan önce CDN'yi yenilemeniz gerekebilir (örn. güncelleştirilmiş içeriği web uygulamasına dağıtırken). Yenileme tetiklemek için, CDN kaynaklarını el ile temizleyebilirsiniz. 
 
-CDN uç noktanıza özel bir etki alanı eşlemek, web uygulamanız için tekdüzen bir etki alanı sağlar.
+Öğreticinin bu bölümünde, web uygulamasına bir değişiklik dağıtabilir ve önbelleğini yenilemek üzere CDN’i tetiklemek için CDN’i temizleyebilirsiniz.
 
-Özel bir etki alanını CDN Uç Noktanıza eşlemek için, etki alanı kayıt şirketinizde bir CNAME kaydı oluşturun.
+### <a name="deploy-a-change-to-the-web-app"></a>Web uygulamasına değişiklik dağıtma
 
-> [!NOTE]
-> CNAME kaydı, `www.contosocdn.com` veya `static.contosocdn.com` gibi bir kaynak etki alanını hedef etki alanına eşleyen bir DNS özelliğidir.
+Aşağıdaki örnekte gösterildiği gibi, `index.html` dosyasını açın ve H1 başlığına "- V2" ekleyin: 
 
-Bizim durumumuzda, bir `static.contosocdn.com` kaynak etki alanı ekleyecek, CDN Uç Noktası olan hedef etki alanına işaret edeceğiz.
+```
+<h1>Azure App Service - Sample Static HTML Site - V2</h1>
+```
 
-| kaynak etki alanı | hedef etki alanı |
-|---|---|
-| static.contosocdn.com | &lt;endpointname&gt;.azureedge.net |
+Değişikliğinizi uygulayın ve web uygulamasına dağıtın.
 
-CDN Uç Noktasına genel bakış dikey penceresinde `+ Custom domain` düğmesine tıklayın.
+```bash
+git commit -am "version 2"
+git push azure master
+```
 
-Özel etki alanı ekle dikey penceresinde, iletişim kutusuna özel etki alanınızı alt etki alanıyla birlikte girin. Örneğin, etki alanı adını `static.contosocdn.com` biçiminde girin.
+Dağıtım tamamlandıktan sonra, web uygulaması URL'sine göz atarak değişikliği görebilirsiniz.
 
-**Ekle**'ye tıklayın.
+```
+http://<appname>.azurewebsites.net/index.html
+```
 
-## <a name="step-7---version-content"></a>7. Adım - Sürüm içeriği
+![Web uygulamasındaki başlıkta V2](media/app-service-web-tutorial-content-delivery-network/v2-in-web-app-title.png)
 
-CDN Uç Noktası sol gezintisinde, Ayarlar başlığı altından **Önbellek**’i seçin.
+Ana sayfa için CDN uç noktası URL'sine göz attığınızda, CDN'de önbelleğe alınmış sürümün henüz süresi dolmadığından, değişikliği göremezsiniz. 
 
-**Önbellek** dikey penceresi CDN’nin istekteki sorgu dizelerini nasıl işleyeceğini yapılandırmanıza olanak tanır.
+```
+http://<endpointname>.azureedge.net/index.html
+```
 
-> [!NOTE]
-> Sorgu dizesi önbellek davranışı seçeneklerinin açıklaması için, [Azure CDN’nin sorgu dizeleriyle önbellek davranışını denetleme](../cdn/cdn-query-string.md) konusuna bakın.
+![CDN'deki başlıkta V2 yok](media/app-service-web-tutorial-content-delivery-network/no-v2-in-cdn-title.png)
 
-Sorgu dizesi önbellek davranışı için açılan listeden **Her benzersiz URL’yi önbelleğe al**’ı seçin.
+### <a name="purge-the-cdn-in-the-portal"></a>Portalda CDN'i temizleme
 
-**Kaydet**’e tıklayın.
+Önbelleğe alınmış sürümünü güncelleştirmek üzere CDN'i tetiklemek için, CDN'i temizleyin.
+
+Portalın sol gezinti bölümünde, **Kaynak grupları**’nı ve ardından ve web uygulamanız için oluşturduğunuz kaynak grubunu (myResourceGroup) seçin.
+
+![Kaynak grubu seçin](media/app-service-web-tutorial-content-delivery-network/portal-select-group.png)
+
+Kaynak listesinden CDN uç noktanızı seçin.
+
+![Uç nokta seçin](media/app-service-web-tutorial-content-delivery-network/portal-select-endpoint.png)
+
+**Uç nokta** sayfasının üst kısmında, **Temizle**'ye tıklayın.
+
+![Temizleme seçin](media/app-service-web-tutorial-content-delivery-network/portal-select-purge.png)
+
+Temizlemek istediğiniz içerik yollarını girin. Tek bir dosyayı temizlemek için tam bir dosya yolunu geçirebileceğiniz gibi, bir klasördeki tüm içeriği temizlemek ve yenilemek için bir yol kesimini de geçirebilirsiniz. `index.html` öğesini değiştirdiğinizden, bu öğenin yollardan biri olduğundan emin olun.
+
+Sayfanın alt kısmındaki **Temizle**'yi seçin.
+
+![Sayfayı temizleyin](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+
+### <a name="verify-that-the-cdn-is-updated"></a>CDN'in güncelleştirildiğini doğrulayın
+
+Temizleme isteğinin işlenmesi tamamlanana kadar bekleyin. Bu işlem bu genellikle birkaç dakika sürer. Geçerli durumu görmek için, sayfanın üst kısmındaki zil simgesini seçin. 
+
+![Temizleme bildirimi](media/app-service-web-tutorial-content-delivery-network/portal-purge-notification.png)
+
+`index.html` için CDN uç noktası URL'sine göz attıktan sonra, ana sayfadaki başlığa eklediğiniz V2'yi görürsünüz. Bu, CDN önbelleğinin yenilendiğini gösterir.
+
+```
+http://<endpointname>.azureedge.net/index.html
+```
+
+![CDN'deki başlıkta V2](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title.png)
+
+Daha fazla bilgi için bkz. [Azure CDN uç noktasını temizleme](../cdn/cdn-purge-endpoint.md). 
+
+## <a name="use-query-strings-to-version-content"></a>Sürüm içeriğini belirlemek için sorgu dizelerini kullanın
+
+Azure CDN, aşağıdaki önbelleğe alma davranışı seçeneklerini sunar:
+
+* Sorgu dizelerini yoksay
+* Sorgu dizeleri için önbelleğe almayı atla
+* Her benzersiz URL'yi önbelleğe al 
+
+Bunlardan ilki varsayılan davranıştır ve varlığa erişen URL'de kullanılan sorgu dizesine bakılmaksızın, bir varlığın yalnızca önbelleğe alınmış bir sürümü olduğu anlamına gelir. 
+
+Öğreticinin bu bölümünde, önbelleğe alma davranışını, her benzersiz URL'yi önbelleğe alacak şekilde değiştirme hakkında bilgi edineceksiniz.
+
+### <a name="change-the-cache-behavior"></a>Önbellek davranışını değiştirme
+
+Azure portalında bulunan **CDN Uç Noktası** sayfasında **Önbellek**’i seçin.
+
+**Sorgu dizesi önbellek davranışı** açılan listesinden, **Her benzersiz URL’yi önbelleğe al**’ı seçin.
+
+**Kaydet**’i seçin.
+
+![Sorgu dizesini önbelleğe alma davranışı seçin](media/app-service-web-tutorial-content-delivery-network/portal-select-caching-behavior.png)
+
+### <a name="verify-that-unique-urls-are-cached-separately"></a>Benzersiz URL'lerin ayrı olarak önbelleğe alındığını doğrulayın
+
+Bir tarayıcıda, CDN uç noktasındaki ana sayfaya gidin, ancak bir sorgu dizesi ekleyin: 
+
+```
+http://<endpointname>.azureedge.net/index.html?q=1
+```
+
+CDN, başlıkta "V2" içeren geçerli web uygulaması içeriğini döndürür. 
+
+Bu sayfanın CDN'de önbelleğe alınmasını sağlamak için sayfayı yenileyin. 
+
+`index.html` öğesini açın, "V2"yi "V3" olarak değiştirin ve değişikliği dağıtın. 
+
+```bash
+git commit -am "version 3"
+git push azure master
+```
+
+Bir tarayıcıda, `q=2` gibi yeni bir sorgu dizesini içeren CDN uç noktası URL'sine gidin. CDN geçerli `index.html` dosyasını alır ve "V3" öğesini görüntüler.  Ancak, `q=1` sorgu dizesini içeren CDN uç noktasına giderseniz "V2" öğesini görürsünüz.
+
+```
+http://<endpointname>.azureedge.net/index.html?q=2
+```
+
+![CDN'deki başlıkta V3, sorgu dizesi 2](media/app-service-web-tutorial-content-delivery-network/v3-in-cdn-title-qs2.png)
+
+```
+http://<endpointname>.azureedge.net/index.html?q=1
+```
+
+![CDN'deki başlıkta V2, sorgu dizesi 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
+
+Bu çıktı, her bir sorgu dizesinin farklı şekilde işlendiğini gösterir: q=1 daha önce kullanıldığından, önbelleğe alınan içerikler döndürülür (V2); q=2 yeni olduğundan, en son web uygulaması içeriği alınır ve döndürülür (V3).
+
+Daha fazla bilgi için bkz. [Sorgu dizeleri içeren Azure CDN önbelleğe alma davranışını kontrol etme](../cdn/cdn-query-string.md).
+
+## <a name="map-a-custom-domain-to-a-cdn-endpoint"></a>Özel bir etki alanını CDN uç noktası ile eşleme
+
+CNAME kaydı oluşturarak, özel etki alanınızı CDN Uç Noktanız ile eşleyebilirsiniz. CNAME kaydı, bir kaynak etki alanını hedef etki alanına eşleyen bir DNS özelliğidir. Örneğin, `cdn.contoso.com` veya `static.contoso.com` öğesini `contoso.azureedge.net` ile eşleyebilirsiniz.
+
+Özel bir etki alanınız yoksa, Azure portalını kullanarak bir etki alanı satın almak için [App Service etki alanı öğreticisini](custom-dns-web-site-buydomains-web-app.md) izlemeniz yararlı olabilir. 
+
+### <a name="find-the-hostname-to-use-with-the-cname"></a>CNAME ile kullanılacak ana bilgisayar adını bulma
+
+Azure portalının **Uç nokta** sayfasında, sol gezinti bölmesinde **Genel Bakış** öğesinin seçili olduğundan emin olun ve ardından sayfanın üst kısmındaki **+ Özel Etki Alanı** düğmesini seçin.
+
+![Özel Etki Alanı Ekle'yi seçin](media/app-service-web-tutorial-content-delivery-network/portal-select-add-domain.png)
+
+**Özel alan adı ekle** sayfasında, bir CNAME kaydı oluştururken kullanılacak uç nokta ana bilgisayar adını görürsünüz. Ana bilgisayar adı, CDN uç nokta URL'nizden türetilir: **&lt;UçnoktaAdı>.azureedge.net** . 
+
+![Etki Alanı Ekle sayfası](media/app-service-web-tutorial-content-delivery-network/portal-add-domain.png)
+
+### <a name="configure-the-cname-with-your-domain-registrar"></a>Etki alanı kayıt şirketinizle CNAME yapılandırma
+
+Etki alanı kayıt şirketinizin web sitesine gidin ve DNS kayıtları oluşturma bölümünü bulun. Bunu, **Etki Alanı Adı**, **DNS** veya **Ad Sunucusu Yönetimi** gibi bir bölümde bulabilirsiniz.
+
+CNAME'leri yönetme ile ilgili bölümü bulun. Gelişmiş ayarlar sayfasına gidip CNAME, Diğer Ad veya Alt Etki Alanları sözcüklerini aramanız gerekebilir.
+
+Seçtiğiniz alt etki alanının (örneğin, **statik** veya **cdn**) portalın başında gösterilen **Uç nokta ana bilgisayar adı** ile eşleşen yeni bir CNAME kaydı oluşturun. 
+
+### <a name="enter-the-custom-domain-in-azure"></a>Azure'de özel etki alanını girme
+
+**Özel etki alanı ekle** sayfasına geri dönün ve iletişim kutusuna alt etki alanıyla birlikte özel etki alanınızı girin. Örneğin, `cdn.contoso.com` girin.   
+   
+Azure, girdiğiniz alan adı için CNAME kaydının bulunduğunu doğrular. CNAME doğruysa, özel alan adınız doğrulanır.
+
+CNAME kaydını İnternet üzerindeki ad sunucularına yayma işlemi zaman alabilir. Etki alanınız hemen doğrulanmazsa ve CNAME kaydının doğru olduğuna inanıyorsanız, birkaç dakika bekleyin ve yeniden deneyin.
+
+### <a name="test-the-custom-domain"></a>Özel etki alanını sınama
+
+Bir tarayıcıda, sonuçların doğrudan `<endpointname>azureedge.net/index.html` öğesine gidildiğinde aynı doğruluğunu doğrulamak için, özel etki alanınızı (örneğin, `cdn.contoso.com/index.html`) kullanarak `index.html` dosyasına gidin.
+
+![Özel etki alanı URL'si kullanan örnek uygulama ana sayfası](media/app-service-web-tutorial-content-delivery-network/home-page-custom-domain.png)
+
+Daha fazla bilgi için bkz. [Azure CDN içeriğini özel bir etki alanıyla eşleme](../cdn/cdn-map-content-to-custom-domain.md).
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-* [Azure CDN nedir?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-* [Azure CDN özel etki alanı üzerinde HTTPS'yi etkinleştirme](../cdn/cdn-custom-ssl.md)
-* [Azure CDN’de dosyaları sıkıştırarak performansı geliştirme](../cdn/cdn-improve-performance.md)
-* [Azure CDN uç noktasında varlıkları önceden yükleme](../cdn/cdn-preload-endpoint.md)
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
+
+> [!div class="checklist"]
+> * CDN uç noktası oluşturma.
+> * Önbelleğe alınan varlıkları yenileme.
+> * Önbelleğe alınan sürümleri denetlemek için sorgu dizeleri kullanma.
+> * CDN uç noktası için özel bir etki alanı kullanma.
+
+CDN performansını nasıl iyileştirebileceğinizi öğrenmek için aşağıdaki makalelere göz atın.
+
+> [!div class="nextstepaction"]
+> [Azure CDN’de dosyaları sıkıştırarak performansı geliştirme](../cdn/cdn-improve-performance.md)
+
+> [!div class="nextstepaction"]
+> [Azure CDN uç noktasında varlıkları önceden yükleme](../cdn/cdn-preload-endpoint.md)
+
 

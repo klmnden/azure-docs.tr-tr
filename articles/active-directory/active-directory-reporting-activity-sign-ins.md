@@ -1,6 +1,7 @@
 ---
-title: "Azure Active Directory portalındaki oturum açma etkinlik raporları - önizleme | Microsoft Docs"
-description: "Azure Active Directory portalı önizleme sürümündeki oturum açma etkinlik raporlarına giriş"
+
+title: "Azure Active Directory portalındaki oturum açma etkinlik raporları | Microsoft Docs"
+description: "Azure Active Directory portalındaki oturum açma etkinlik raporlarına giriş"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal---preview"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları - önizleme
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
-Azure Active Directory [önizleme sürümündeki](active-directory-preview-explainer.md) raporlama ile ortamınızın nasıl çalıştığını belirlemek için gereken tüm bilgileri edinirsiniz.
+[Azure portalında](https://portal.azure.com) Azure Active Directory (Azure AD) raporlama özelliğiyle ortamınızın nasıl çalıştığını belirlemek için gereken bilgileri alabilirsiniz.
 
 Azure Active Directory'nin raporlama mimarisi aşağıdaki bileşenlerden oluşur:
 
@@ -44,7 +46,7 @@ Kullanıcı oturum açma raporu tarafından sağlanan bilgiler sayesinde aşağ�
 * Bir hafta içerisinde kaç adet kullanıcı oturum açtı?
 * Bu açılan oturumların durumu nedir?
 
-Tüm oturum açma etkinliği verilerine ilk giriş noktanız, **Azure Active**’in Etkinlik bölümündeki **Oturum açma işlemleri** kısmıdır. kısmıdır.
+Tüm oturum açma etkinliği verilerine ilk giriş noktanız, **Azure Active**’in Etkinlik bölümündeki **Oturum açma işlemleri** kısmıdır.
 
 
 ![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/61.png "oturum açma etkinliği")

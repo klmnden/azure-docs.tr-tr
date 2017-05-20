@@ -1,6 +1,7 @@
 ---
-title: "Azure Active Directory portalındaki denetim etkinlik raporları - önizleme | Microsoft Docs"
-description: "Azure Active Directory portalı önizleme sürümündeki denetim etkinlik raporlarına giriş"
+
+title: "Azure Active Directory portalındaki denetim etkinliği raporları | Microsoft Docs"
+description: "Azure Active Directory portalındaki denetim etkinliği raporlarına giriş"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,20 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal---preview"></a>Azure Active Directory portalındaki denetim etkinlik raporları - önizleme
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki denetim etkinliği raporları 
 
-Azure Active Directory [önizleme sürümündeki](active-directory-preview-explainer.md) raporlama ile ortamınızın nasıl çalıştığını belirlemek için gereken tüm bilgileri edinirsiniz.
+Azure Active Directory’deki (Azure AD) raporlama özelliğiyle ortamınızın nasıl çalıştığını belirlemek için gereken bilgileri alabilirsiniz.
 
-Azure Active Directory'nin raporlama mimarisi aşağıdaki bileşenlerden oluşur:
+Azure AD'nin raporlama mimarisi aşağıdaki bileşenlerden oluşur:
 
 - **Etkinlik** 
     - **Oturum açma etkinlikleri**: Yönetilen uygulamaların kullanımı ve kullanıcıların oturum açma etkinlikleri hakkında bilgiler

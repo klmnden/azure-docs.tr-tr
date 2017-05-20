@@ -1,7 +1,7 @@
 ---
 title: "Azure HDInsight’ta HBase ile çalışmaya başlama | Microsoft Docs"
 description: "HDInsight’ta Hadoop ile Apache HBase kullanmaya başlamak için bu HBase öğreticisini izleyin. HBase kabuğundan tablolar oluşturun ve Hive kullanarak bunları sorgulayın."
-keywords: "apache hbase,hbase,hbase kabuğu,hbase öğreticisi"
+keywords: "apache hbase,hbase,hbase kabuğu,hbase öğreticisi,beeline"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/22/2017
+ms.date: 05/08/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 4e9ee21a7eac240cccdfac650992063244364185
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a935fe574bffaad109abd13151c4da1027210014
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -31,7 +31,7 @@ HDInsight’ta HBase kümesi oluşturma, HBase tabloları oluşturma ve tablolar
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
-HBase öğreticisine başlamadan önce aşağıdakilere sahip olmanız gerekir:
+HBase öğreticisine başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell(SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
@@ -45,10 +45,10 @@ Aşağıdaki yordamda 3.4 sürümü Linux tabanlı HBase kümesi ve bağlı vars
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. **Özel dağıtım** dikey penceresine şu değerleri girin:
    
-   * **Abonelik**: Kümeyi oluşturmak için kullanılacak Azure aboneliğinizi seçin.
-   * **Kaynak grubu**: Yeni bir Azure Resource Management grubu oluşturun veya var olan gruplardan birini kullanın.
+   * **Abonelik**: Kümeyi oluşturmak için kullanılan Azure aboneliğinizi seçin.
+   * **Kaynak grubu**: Bir Azure Resource Management grubu oluşturun veya var olan gruplardan birini kullanın.
    * **Konum**: Kaynak grubu konumunu belirtin. 
-   * **ClusterName**: Oluşturacağınız HBase kümesi için bir ad girin.
+   * **ClusterName**: HBase kümesi için bir ad girin.
    * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı **admin** şeklindedir.
    * **SSH kullanıcı adı ve parolası**: Varsayılan kullanıcı adı **sshuser** şeklindedir.  Bunu yeniden adlandırabilirsiniz.
      
@@ -73,7 +73,6 @@ Bir BigTable uygulaması olan HBase’de aynı veriler şu şekilde görünür:
 
 ![HDInsight HBase BigTable verileri][img-hbase-sample-data-bigtable]
 
-Bir sonraki yordamı tamamladıktan sonra bunlar daha anlamlı olacaktır.  
 
 **HBase kabuğunu kullanmak için**
 
@@ -121,7 +120,7 @@ HBase’de verileri tablolara yüklemek için bazı yöntemler vardır.  Daha fa
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-Bir metin dosyası oluşturabilir ve isterseniz dosyayı kendi depolama hesabınıza yükleyebilirsiniz. Yönergeler için bkz. [HDInsight'ta Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data].
+İsterseniz, bir metin dosyası oluşturabilir ve dosyayı kendi depolama hesabınıza yükleyebilirsiniz. Yönergeler için bkz. [HDInsight'ta Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data].
 
 > [!NOTE]
 > Bu yordam son yordamda oluşturduğunuz Kişiler HBase tablosunu kullanır.
@@ -137,19 +136,14 @@ Bir metin dosyası oluşturabilir ve isterseniz dosyayı kendi depolama hesabın
 3. HBase kabuğunu açabilir ve tarama komutunu kullanarak tablo içeriğini listeleyebilirsiniz.
 
 ## <a name="use-hive-to-query-hbase"></a>Hive kullanarak HBase sorgulama
-Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölüm HBase tablosuyla eşlenen bir Hive tablosu oluşturur ve HBase tablosunda verileri sorgulamak için kullanır.
 
-> [!NOTE]
-> Hive ve HBase aynı sanal ağ içindeki farklı kümelerdeyse, Hive kabuğunu çağırırken zookeper çekirdeği geçirmeniz gerekir:
->
->       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
->
->
+Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölümde HBase tablosuyla eşlenen bir Hive tablosu oluşturur ve HBase tablosunda verileri sorgulamak için kullanırsınız.
 
 1. **PuTTY** uygulamasını açın ve kümeye bağlanın.  Önceki yordamda bulunan yönergelere bakın.
-2. Hive kabuğunu açın.
-   
-       hive
+2. Beeline’ı başlatmak için SSH oturumunda aşağıdaki komutu kullanın:
+
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    Beeline hakkında daha fazla bilgi için bkz. [Beeline ile HDInsight’ta Hadoop ile Hive kullanma](hdinsight-hadoop-use-hive-beeline.md).
        
 3. HBase tablosuyla eşlenen bir Hive tablosu oluşturmak için aşağıdaki HiveQL betiğini çalıştırın. Bu deyimi çalıştırmadan önce HBase kabuğunu kullanarak bu öğreticinin daha önceki bölümlerinde başvurulan örnek tablosunu oluşturduğunuzdan emin olun.
    
@@ -159,31 +153,12 @@ Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölüm H
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. HBase tablosundaki verileri sorgulamak için aşağıdaki HiveQL betiğini çalıştırın:
    
-         SELECT count(*) FROM hbasecontacts;
+         SELECT * FROM hbasecontacts;
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Curl kullanarak HBase REST API’lerini kullanma
-> [!NOTE]
-> Curl’ü veya WebHCat ile başka bir REST iletişimini kullanırken HDInsight küme yöneticisinin kullanıcı adı ve parolasını sağlayarak isteklerin kimliğini doğrulamanız gerekir. Ayrıca, sunucuya istek göndermek için kullanılan Tekdüzen Kaynak Tanımlayıcısı’nın (URI) bir parçası olarak küme adını kullanmanız gerekir.
-> 
-> Bu bölümdeki komutlar için **USERNAME** ifadesini küme kimliğini doğrulayacak kullanıcı ile, **PASSWORD** ifadesini ise kullanıcı hesabının parolası ile değiştirin. **CLUSTERNAME** değerini kümenizin adıyla değiştirin.
-> 
-> REST API’sinin güvenliği [temel kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilmesi için istekleri her zaman Güvenli HTTP (HTTPS) kullanarak yapmanız gerekir.
-> 
-> 
 
-1. HDInsight kümenize bağlanabildiğinizi doğrulamak için bir komut satırında aşağıdaki komutu kullanın:
-   
-        curl -u <UserName>:<Password> \
-        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
-   
-    Aşağıdakine benzer bir yanıt almanız gerekir:
-   
-        {"status":"ok","version":"v1"}
-   
-    Bu komutta kullanılan parametreler aşağıdaki gibidir:
-   
-   * **-u** - İstek kimliğini doğrulamak için kullanılan kullanıcı adı ve parola.
-   * **-G** - Bunun bir GET isteği olduğunu belirtir.
+REST API’sinin güvenliği [temel kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilmesi için istekleri her zaman Güvenli HTTP (HTTPS) kullanarak yapmanız gerekir.
+
 2. Mevcut HBase tablolarını listelemek için şu komutu kullanın:
    
         curl -u <UserName>:<Password> \
@@ -223,10 +198,20 @@ Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölüm H
 
 HBase Rest hakkında daha fazla bilgi için bkz. [Apache HBase Başvuru Kılavuzu](https://hbase.apache.org/book.html#_rest).
 
->
 > [!NOTE]
 > Thrift, HDInsight’ta HBase tarafından desteklenmez.
 >
+> Curl’ü veya WebHCat ile başka bir REST iletişimini kullanırken HDInsight küme yöneticisinin kullanıcı adı ve parolasını sağlayarak isteklerin kimliğini doğrulamanız gerekir. Ayrıca, sunucuya istek göndermek için kullanılan Tekdüzen Kaynak Tanımlayıcısı’nın (URI) bir parçası olarak küme adını kullanmanız gerekir:
+> 
+>   
+>        curl -u <UserName>:<Password> \
+>        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+>   
+>    Aşağıdakine benzer bir yanıt almanız gerekir:
+>   
+>        {"status":"ok","version":"v1"}
+   
+
 
 ## <a name="check-cluster-status"></a>Küme durumunu denetleme
 HDInsight içinde HBase, kümelerin izlenmesi için bir Web Kullanıcı Arabirimi ile birlikte gönderilir. Web Kullanıcı Arabirimini kullanarak istatistikler veya bölgeler hakkında bilgi isteyebilirsiniz.

@@ -13,18 +13,19 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;sstein;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Azure SQL Veritabanı: .NET (C#) kullanarak verileri bağlama ve sorgulama
 
-Bu hızlı başlangıçta [C# ve ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) kullanarak bir Azure SQL veritabanına bağlanma ve daha sonra Windows, Mac OS ve Ubuntu Linux platformlarından Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır.
+Bu hızlı başlangıç kılavuzunda, Azure SQL veritabanına bağlanmak için [C# ve ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) kullanma ve ardından Transact-SQL deyimlerini kullanarak Windows, Mac OS ve Ubuntu Linux platformlarındaki veritabanı verilerini sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır.
 
 Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır:
 
@@ -33,13 +34,13 @@ Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçla
 
 ## <a name="install-net"></a>.NET yükleme
 
-Bu bölümdeki adımlarda .NET kullanarak geliştirmeyi bildiğiniz ve Azure SQL Veritabanı iye yeni çalışmaya başladığınız varsayılır. .NET ile geliştirmeye yeni başladıysanız, [SQL Server kullanarak uygulama geliştirme](https://www.microsoft.com/en-us/sql-server/developer-get-started/) konusuna gidin, **C#** dilini ve sonra da işletim sisteminizi seçin.
+Bu bölümdeki adımlarda, .NET kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve Azure SQL Veritabanı ile çalışmaya yeni başladığınız varsayılır. .NET ile geliştirmeye yeni başladıysanız, [SQL Server kullanarak uygulama geliştirme](https://www.microsoft.com/en-us/sql-server/developer-get-started/) konusuna gidin, **C#** dilini ve sonra da işletim sisteminizi seçin.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET çerçevesi ve .NET çekirdeği**
 
 Visual Studio 2017 Community; Android, iOS ve Windows’un yanı sıra web ve veritabanı uygulamaları ile bulut hizmetleri için modern uygulamalar oluşturmaya yönelik tam özellikli, genişletilebilir, ücretsiz bir IDE’dir. Tam .NET çerçevesini ya da yalnızca .NET çekirdeğini yükleyebilirsiniz. Hızlı başlangıçtaki kod parçacıkları her ikisiyle de çalışır. Makinenizde Visual Studio zaten yüklüyse, sonraki birkaç adımı atlayın.
 
-1. [Yükleyiciyi](https://go.microsoft.com/fwlink/?LinkId=691978) indirin. 
+1. [Visual Studio 2017 yükleyicisi](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)ni indirin. 
 2. Yükleyiciyi çalıştırın ve yükleme istemlerini izleyerek yüklemeyi tamamlayın.
 
 ### <a name="mac-os"></a>**Mac OS**
@@ -308,13 +309,9 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+- [İlk Azure SQL veritabanınızı tasarlama](sql-database-design-first-database.md)
+- [.NET belgeleri](https://docs.microsoft.com/dotnet/).
+- [SSMS ile bağlanma ve sorgu yürütme](sql-database-connect-query-ssms.md)
+- [Visual Studio Code ile bağlanma ve sorgulama](sql-database-connect-query-vscode.md).
 
-- .NET belgeleri için bkz. [.NET belgeleri](https://docs.microsoft.com/dotnet/).
-- SQL Server Management Studio kullanarak bağlanmak ve sorgu yürütmek için, bkz. [SSMS ile bağlanma ve sorgu yürütme](sql-database-connect-query-ssms.md)
-- Visual Studio’yu kullanarak bağlanmak ve sorgulamak için bkz. [Visual Studio Code ile bağlanma ve sorgulama](sql-database-connect-query-vscode.md).
-- PHP kullanarak bağlanıp sorgulamak için bkz. [PHP ile bağlanma ve sorgulama](sql-database-connect-query-php.md).
-- Node.js kullanarak bağlanıp sorgulamak için bkz. [Node.js ile bağlanma ve sorgulama](sql-database-connect-query-nodejs.md).
-- Java kullanarak bağlanıp sorgulamak için bkz. [Java ile bağlanma ve sorgulama](sql-database-connect-query-java.md).
-- Python kullanarak bağlanıp sorgulamak için bkz. [Python ile bağlanma ve sorgulama](sql-database-connect-query-python.md).
-- Ruby kullanarak bağlanıp sorgulamak için bkz. [Ruby ile bağlanma ve sorgulama](sql-database-connect-query-ruby.md).
 
