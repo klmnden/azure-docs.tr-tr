@@ -16,7 +16,7 @@
     Ayar|Önerilen değer|Açıklama
     ---|---|---
     Kimlik|*Benzersiz değer*|Azure Cosmos DB hesabını tanımlamak için kullanılacak benzersiz ad. Girdiğiniz kimliğe *documents.azure.com* eklenerek URI'niz oluşturulur, bu nedenle benzersiz ancak uygun bir kimlik kullanmanız gerekir. Kimlik yalnızca küçük harf, rakam ve "-" karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır.
-    AP|Tablo (anahtar-değer)|Bu makalenin ilerleyen bölümlerinde [Tablo API'si](../articles/cosmos-db/table-introduction.md) ile programlama yapacağız.|
+    API|Tablo (anahtar-değer)|Bu makalenin ilerleyen bölümlerinde [Tablo API'si](../articles/cosmos-db/table-introduction.md) ile programlama yapacağız.|
     Abonelik|*Aboneliğiniz*|Azure Cosmos DB hesabı için kullanmak istediğiniz Azure aboneliği. 
     Kaynak Grubu|*Kimlikle aynı değer*|Hesabınız için yeni kaynak grubu adı. Kolaylık olması için kimliğinizle aynı adı kullanabilirsiniz. 
     Konum|*Kullanıcılarınıza en yakın bölge*|Azure Cosmos DB hesabınızın barındırılacağı coğrafi konum. Verilere en hızlı erişim için kullanıcılarınıza en yakın konumu seçin.   
