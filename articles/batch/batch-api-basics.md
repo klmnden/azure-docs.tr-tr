@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -77,13 +77,12 @@ Bir Batch hesabı Batch hizmeti dahilinde benzersiz şekilde tanımlanan bir var
 Batch, *havuz ayırma modu* özelliğine bağlı olarak iki hesap yapılandırmasını destekler. İki yapılandırma, Batch [havuzlarıyla](#pool) ilgili farklı özelliklere erişmenizi sağlar (bu makalenin devamına bakın).
 
 
-* **Batch hizmeti**: Bu varsayılan seçenektir; Batch havuzu VM’leri Azure tarafından yönetilen aboneliklerde arka planda ayrılır. Cloud Services havuzları gerekliyse bu hesap yapılandırması kullanılmalıdır, ama özel VM görüntülerinden oluşturulan veya sanal ağ kullanan Sanal Makine havuzları gerekliyse bu yapılandırma kullanılamaz. Batch API’lerine paylaşılan anahtar kimlik doğrulamasını veya [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanarak erişebilirsiniz.
+* **Batch hizmeti**: Bu varsayılan seçenektir; Batch havuzu VM’leri Azure tarafından yönetilen aboneliklerde arka planda ayrılır. Cloud Services havuzları gerekliyse bu hesap yapılandırması kullanılmalıdır, ama özel VM görüntülerinden oluşturulan veya sanal ağ kullanan Sanal Makine havuzları gerekliyse bu yapılandırma kullanılamaz. Batch API’lerine paylaşılan anahtar kimlik doğrulamasını veya [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanarak erişebilirsiniz. Batch hizmet hesabı yapılandırmasındaki havuzlarda adanmış veya düşük öncelikli işlem düğümlerini kullanabilirsiniz.
 
-* **Kullanıcı aboneliği**: Özel VM görüntülerinden oluşturulan veya sanal ağ kullanan Sanal Makine havuzları gerekliyse bu hesap yapılandırması kullanılmalıdır. Batch API’lerine yalnızca [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanarak erişebilirsiniz ve Cloud Services havuzları desteklenmez. Batch işlem VM’leri Azure aboneliğinizde doğrudan ayrılır. Bu mod, Batch hesabınız için bir Azure Key Vault yapılandırmanızı gerektirir.
-
+* **Kullanıcı aboneliği**: Özel VM görüntülerinden oluşturulan veya sanal ağ kullanan Sanal Makine havuzları gerekliyse bu hesap yapılandırması kullanılmalıdır. Batch API’lerine yalnızca [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanarak erişebilirsiniz ve Cloud Services havuzları desteklenmez. Batch işlem VM’leri Azure aboneliğinizde doğrudan ayrılır. Bu mod, Batch hesabınız için bir Azure Key Vault yapılandırmanızı gerektirir. Kullanıcı abonelik hesabı yapılandırmasındaki havuzlarda yalnızca adanmış işlem düğümleri kullanabilirsiniz. 
 
 ## <a name="compute-node"></a>İşlem düğümü
-İşlem düğümü, uygulama iş yükünüzün bir kısmını işlemeye ayrılmış bir Azure sanal makinesidir (VM). Bir düğümün boyutu CPU çekirdeklerinin sayısını, bellek kapasitesini ve düğüme ayrılan yerel dosya sistemi boyutunu belirler. Azure Cloud Services veya Virtual Machines Market görüntülerini kullanarak Windows veya Linux düğümleri içeren havuzlar oluşturabilirsiniz. Bu seçenekler hakkında daha fazla bilgi için aşağıdaki [Havuz](#pool) bölümüne bakın.
+İşlem düğümü, uygulama iş yükünüzün bir kısmını işlemeye ayrılmış bir Azure sanal makinesi (VM) veya bulut hizmeti sanal makinesidir. Bir düğümün boyutu CPU çekirdeklerinin sayısını, bellek kapasitesini ve düğüme ayrılan yerel dosya sistemi boyutunu belirler. Azure Cloud Services veya Virtual Machines Market görüntülerini kullanarak Windows veya Linux düğümleri içeren havuzlar oluşturabilirsiniz. Bu seçenekler hakkında daha fazla bilgi için aşağıdaki [Havuz](#pool) bölümüne bakın.
 
 Düğümler, düğümün işletim sistemi ortamı tarafından desteklenen herhangi bir yürütülebilir dosyayı ya da komut dosyasını çalıştırabilir. Buna Windows için \*.exe, \*.cmd, \*.bat ve PowerShell komut dosyaları ile Linux için ikili dosyalar, kabuk ve Python komut dosyaları dahildir.
 
@@ -117,6 +116,25 @@ Bir havuz oluştururken aşağıdaki öznitelikleri belirtebilirsiniz. Batch [he
   * *İşletim Sistemi Ailesi*, işletim sistemiyle hangi .NET sürümlerinin yüklendiğini de belirler.
   * Cloud Services dahilindeki çalışan rollerinde olduğu gibi bir *İşletim Sistemi Sürümü* belirtebilirsiniz (çalışan rolleri hakkında daha fazla bilgi için [Cloud Services’e genel bakış](../cloud-services/cloud-services-choose-me.md) içindeki [Bana cloud services hakkında bilgi ver](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) bölümüne bakın).
   * Çalışan rollerinde olduğu gibi düğümlerin otomatik olarak yükseltilmesi için *İşletim Sistemi Sürümü* ’ne yönelik `*` belirtilmesi önerilir ve yeni yayımlanmış sürümlerin gereksinimini karşılamak için çalışma yapılması gerekmez. Belirli bir işletim sistemi sürümünün seçildiği birincil kullanım durumu, sürümün güncelleştirilmesine izin vermeden önce geriye dönük uyumluluk testinin gerçekleştirilmesine izin vererek uygulama uyumluluğunun sağlandığından emin olmaktır. Doğrulama sonrasında havuzun *İşletim Sistemi Sürümü* güncelleştirilebilir ve yeni işletim sistemi görüntüsü yüklenebilir; çalışan tüm görevler kesilir ve yeniden kuyruğa alınır.
+
+* **İşlem düğümü türü** ve **hedef düğüm sayısı**
+
+    Bir havuz oluşturduğunuzda, istediğiniz işlem düğümü türlerini ve her biri için hedeflenen sayıyı belirtebilirsiniz. İki tür işlem düğümü vardır:
+
+    - **Düşük öncelikli işlem düğümleri.** Düşük öncelikli düğümler, Batch iş yüklerinizi çalıştırmak için Azure’daki fazla kapasiteden yararlanır. Düşük öncelikli düğümler, adanmış düğümlerden daha uygun maliyetlidir ve çok fazla işlem gücü gerektiren iş yüklerini etkinleştirir. Daha fazla bilgi için bkz. [Batch ile düşük öncelikli VM’ler kullanma](batch-low-pri-vms.md).
+
+        Azure’daki fazla kapasite yetersiz olduğunda, düşük öncelikli işlem düğümleri etkisiz hale getirilebilir. Görevler çalıştırılırken bir düğüm etkisiz hale getirilirse, işlem düğümü yeniden kullanılabilir olduğunda görevler yeniden kuyruğa alınır ve tekrar çalıştırılır. Düşük öncelikli düğümler, iş tamamlama süresinin esnek olduğu ve işin çok sayıda düğüme dağıtıldığı iş yükleri için iyi bir seçenektir.
+
+        Düşük öncelikli işlem düğümleri yalnızca havuzu ayırma modu **Batch Hizmeti** olarak ayarlanarak oluşturulmuş Batch hesapları için kullanılabilir.
+
+    - **Adanmış işlem düğümleri.** Adanmış bir işlem düğümleri, iş yükleriniz için ayrılmıştır. Bunlar düşük öncelikli düğümlerinden daha pahalıdır, ancak hiçbir zaman etkisiz hale getirilmeyeceği garanti edilir.    
+
+    Aynı havuzda hem düşük öncelikli hem de adanmış işlem düğümleri olabilir. &mdash;Düşük öncelikli ve adanmış&mdash; düğüm türlerinin her biri, istediğiniz işlem sayısını belirtebileceğiniz kendi hedef ayarına sahiptir. 
+        
+    Bazı durumlarda havuzunuz istenilen düğüm sayısına ulaşmayabileceğinden işlem düğümleri sayısı *hedef* olarak adlandırılır. Örneğin, bir havuz ilk olarak Batch hesabınızın [çekirdek kotasına](batch-quota-limit.md) ulaşırsa hedefe ulaşamayabilir. Veya havuza en fazla düğüm sayısını sınırlandıran bir otomatik ölçeklendirme formülü uyguladıysanız havuz hedefe ulaşamayabilir.
+
+    Hem düşük öncelikli hem de adanmış işlem düğümlerinin fiyatlandırma bilgileri için bkz. [Batch Fiyatlandırması](https://azure.microsoft.com/pricing/details/batch/).
+
 * **Düğümlerin boyutu**
 
     **Cloud Services Yapılandırması** işlem düğümü boyutları [Cloud Services Boyutları](../cloud-services/cloud-services-sizes-specs.md) içinde listelenmiştir. Batch hizmeti `ExtraSmall`, `STANDARD_A1_V2` ve `STANDARD_A2_V2` dışında tüm Cloud Services boyutlarını destekler.
@@ -126,12 +144,11 @@ Bir havuz oluştururken aşağıdaki öznitelikleri belirtebilirsiniz. Batch [he
     Bir işlem düğümü boyutu seçerken, düğümler üzerinde çalıştıracağınız uygulamaların özelliklerini ve gereksinimlerini göz önünde bulundurun. Uygulamanın çok iş parçacıklı olup olmadığı ve ne kadar bellek kullandığı gibi konular en uygun ve ekonomik düğüm boyutunu belirlemeye yardımcı olabilir. Genellikle düğümde aynı anda bir görevin çalışacağını varsayarak düğüm boyutu seçilir. Ancak, iş yürütme sırasında işlem düğümleri üzerinde birden fazla görevin (ve dolayısıyla birden fazla uygulama örneğinin) [paralel olarak çalışması](batch-parallel-node-tasks.md) mümkündür. Bu durumda, paralel görev yürütmeye yönelik artan talebi karşılamak üzere genellikle daha büyük bir düğüm boyutu seçilir. Daha fazla bilgi için bkz. [Görev zamanlama ilkesi](#task-scheduling-policy).
 
     Bir havuzdaki tüm düğümler aynı boyuttadır. Farklı sistem gereksinimlerine ve/veya yük düzeylerine sahip uygulamalar çalıştırmayı planlıyorsanız ayrı havuzlar oluşturmanız önerilir.
-* **Hedef düğüm sayısı**
 
-    Havuzda dağıtmak istediğiniz işlem düğümlerinin sayısıdır. Bazı durumlarda havuzunuz istenilen düğüm sayısına ulaşmayabileceğinden buna *hedef* adı verilir. Bir havuz Batch hesabınızın [çekirdek kotasına](batch-quota-limit.md) ulaşırsa veya havuza uyguladığınız en büyük düğüm sayısını sınırlandıran bir otomatik ölçeklendirme formülü varsa istenilen düğüm sayısına ulaşmayabilir (aşağıdaki "Ölçeklendirme ilkesi" bölümüne bakın).
 * **Ölçeklendirme ilkesi**
 
     Dinamik iş yükleri için [otomatik ölçeklendirme formülü](#scaling-compute-resources) yazabilir ve bir havuza uygulayabilirsiniz. Batch hizmeti formülünüzü düzenli olarak değerlendirir ve belirtebileceğiniz çeşitli havuz, iş ve görev parametrelerine göre düğüm sayısını ayarlar.
+
 * **Görev zamanlama ilkesi**
 
     [Düğüm başına en fazla görev](batch-parallel-node-tasks.md) yapılandırma seçeneği havuzdaki her bir işlem düğümünde paralel olarak çalıştırabilecek en fazla görev sayısını belirler.

@@ -1,58 +1,94 @@
 ---
-title: "İlk Azure İşlevinizi oluşturma | Microsoft Belgeleri"
-description: "İki dakikadan kısa bir süre içinde sunucusuz bir uygulama olan ilk Azure İşlevinizi oluşturun."
+title: "Azure portalında ilk işlevinizi oluşturma | Microsoft Docs"
+description: "Azure portalını kullanarak sunucusuz yürütme için ilk Azure İşlevinizi oluşturma hakkında bilgi edinin."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
 editor: 
 tags: 
-ms.assetid: 4a1669e7-233e-4ea2-9b83-b8624f2dbe59
+ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/14/2016
+ms.date: 05/10/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: a797910e286cd2aacf5a8aa6c509e2b0f5f60276
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: abd508631787ba5f839a4ae2ea82e76c4bfab425
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="create-your-first-azure-function"></a>İlk Azure İşlevinizi oluşturma
+# <a name="create-your-first-function-in-the-azure-portal"></a>Azure portalında ilk işlevinizi oluşturma
 
-Bu konu başlığında, bir HTTP isteği tarafından çağrılan basit bir "merhaba dünya" işlevi oluşturmak için portaldaki Azure İşlevleri hızlı başlangıcının nasıl kullanılacağı gösterilmektedir. Azure İşlevleri hakkında daha fazla bilgi edinmek için bkz. [Azure İşlevlerine Genel Bakış](functions-overview.md).
+Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu sunucusuz bir ortamda yürütmenize olanak tanır. Bu konu başlığında, Azure portalında İşlevler’i kullanarak bir "hello world" işlevi oluşturmayı öğrenebilirsiniz.
 
-Başlamadan önce bir Azure hesabınızın olması gerekir. [Ücretsiz hesaplar](https://azure.microsoft.com/free/) mevcuttur. Ayrıca, Azure’a kaydolmadan [Azure İşlevleri’ni deneyebilirsiniz](https://azure.microsoft.com/try/app-service/functions/).
+![Azure portalında işlev uygulaması oluşturma](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
-## <a name="create-a-function-from-the-portal-quickstart"></a>Portal hızlı başlangıcından işlev oluşturma
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-1. [Azure İşlevleri portalına](https://functions.azure.com/signin) gidin ve Azure hesabınız ile oturum açın. 
- 
-2. Yeni işlev uygulamanız için benzersiz bir **Ad** yazın veya otomatik olarak oluşturulan adı kabul edin, tercih ettiğiniz **Region (Bölge)** seçeneğini belirleyin ve ardından **Create + get started (Oluştur + başla)** düğmesine tıklayın. Geçerli adlar yalnızca küçük harf, sayı ve kısa çizgi içerebilir. Alt çizgi (**_**) izin verilen bir karakter değildir.
+Bu konu başlığı altındaki adımların tümünü beş dakikadan kısa bir sürede tamamlamalısınız.
 
-3. **Hızlı Başlangıç** sekmesinde, **Web Kancası + API**’ye tıklayıp işlevinizin dilini seçin ve **İşlev oluştur**'a tıklayın. Seçtiğiniz dilde önceden tanımlanmış yeni bir işlev oluşturulur. 
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
+
+[Azure Portal](https://portal.azure.com/)’da oturum açın.
+
+## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
+
+İşlevlerinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, kaynakların daha kolay yönetilmesi, dağıtılması ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır. 
+
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
+
+![İşlev uygulaması başarıyla oluşturuldu.](./media/functions-create-first-azure-function/function-app-create-success.png)
+
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+Ardından, yeni işlev uygulamasında bir işlev oluşturun.
+
+## <a name="create-function"></a>HTTP ile tetiklenen bir işlev oluşturma
+
+1. Yeni işlev uygulamanızı genişletin, ardından **İşlevler**’in yanındaki **+** düğmesine tıklayın.
+
+2.  **Hızlıca çalışmaya başlayın** sayfasında **Web Kancası ve API**’ye tıklayın, işleviniz için bir dil seçin ve **Bu işlevi oluştur**’a tıklayın. 
    
-    ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![Azure portalındaki İşlevler hızlı başlangıcı.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-4. (İsteğe bağlı) Hızlı başlangıcın bu noktasında portaldaki Azure İşlevleri özelliklerinin hızlı turuna bakmayı seçebilirsiniz. Turu tamamladıktan veya atladıktan sonra bir HTTP isteği göndererek yeni işlevinizi test edebilirsiniz.
+HTTP ile tetiklenen işlevin şablonu kullanılarak, seçtiğiniz dilde bir işlev oluşturulur. Bir HTTP isteği göndererek yeni işlevi çalıştırabilirsiniz.
 
 ## <a name="test-the-function"></a>İşlevi test etme
-[!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
 
-## <a name="watch-the-video"></a>Videoyu izleme
-Aşağıdaki video bu öğreticideki temel adımların nasıl gerçekleştirileceğini gösterir. 
+1. Yeni işlevinizde **</> İşlev URL’sini al**’a tıklayıp **İşlev URL’si** değerini kopyalayın. 
 
-> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-your-first-Azure-Function-simple/player]
-> 
+    ![Azure portalından işlev URL’sini kopyalama](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
+2. HTTP isteğinin URL’sini tarayıcınızın adres çubuğuna yapıştırın. `&name=<yourname>` sorgu dizesini bu URL’ye ekleyip isteği yürütün. İşlevin döndürdüğü GET isteğine tarayıcıda verilen yanıt aşağıda gösterilmiştir:
+
+    ![Tarayıcıdaki işlev yanıtı.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+
+    İstek URL’si, işlevinize HTTP üzerinden erişmek için varsayılan olarak gerekli olan bir anahtar içerir.   
+
+## <a name="view-the-function-logs"></a>İşlev günlüklerini görüntüleme 
+
+İşleviniz çalıştığında, izleme bilgileri günlüklere yazılır. Önceki yürütme işleminden alınan izleme çıktısını görmek için, portalda işlevinize geri dönün ve ekranın altındaki yukarı okuna tıklayarak **Günlükler**’i genişletin. 
+
+![Azure portalında İşlevler günlük görüntüleyicisi.](./media/functions-create-first-azure-function/function-view-logs.png)
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+HTTP ile tetiklenen basit bir işlevi kullanarak işlev uygulaması oluşturdunuz.  
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md).
+
+
 
 

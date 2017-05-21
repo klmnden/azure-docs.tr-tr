@@ -13,57 +13,60 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d4354546f3342d65353a86a4cec7d02547ab92e7
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 34988ef05a27062ca109a1640e39695b52b8773f
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub web kancası tarafından tetiklenen bir işlev oluşturma
 
-GitHub web kancası tarafından tetiklenen bir işlev oluşturmayı öğrenin. 
+GitHub’a özel bir yük kullanarak, HTTP web kancası isteğiyle tetiklenmiş bir işlev oluşturma hakkında bilgi edinin. 
 
-![Azure portalında işlev uygulaması oluşturma](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
-
-Bu konu için, [Azure Portal’dan ilk işlevinizi oluşturma](functions-create-first-azure-function.md) konusunda oluşturulan kaynaklar gereklidir.
-
-Ayrıca bir de GitHub hesabı gerekir. Henüz yoksa [ücretsiz GitHub hesabına kaydolabilirsiniz](https://github.com/join). 
+![Azure portalında GitHub Web Kancası ile tetiklenen işlev](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
 Bu konu başlığı altındaki adımların tümünü beş dakikadan kısa bir sürede tamamlamalısınız.
 
-## <a name="find-your-function-app"></a>İşlev uygulamanızı bulma    
+## <a name="prerequisites"></a>Ön koşullar 
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın. 
+[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-2. Portalın en üstündeki arama çubuğunda, işlev uygulamanızın adını yazın ve uygulamayı listeden seçin.
+Ayrıca en az bir proje içeren bir GitHub hesabı gerekir. Henüz yoksa [ücretsiz GitHub hesabına kaydolabilirsiniz](https://github.com/join).
+
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
 ## <a name="create-function"></a>GitHub web kancası ile tetiklenen bir işlev oluşturma
 
-1. İşlev uygulamanızda, **İşlevler**’in yanındaki **+** düğmesine tıklayın, tercih ettiğiniz dildeki **GitHubWebHook** şablonuna tıklayın ve sonra da **Oluştur**’a tıklayın.
-   
-    ![Azure Portal’da GitHub web kancası ile tetiklenen bir işlev oluşturun.](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+1. İşlev uygulamanızı genişletin, **İşlevler**’in yanındaki **+** düğmesine tıklayın, tercih ettiğiniz dildeki **GitHubWebHook** şablonuna tıklayın. **İşlevinizi adlandırın**, ardından **Oluştur**’a tıklayın. 
 
-2. **</> İşlev URL’sini al**’a tıklayın, sonra da değerleri kopyalayın ve kaydedin. **</> GitHub parolasını al** için de aynı işlemi yapın. GitHub’da web kancasını yapılandırırken bu değerleri kullanırsınız. 
+2. Yeni işlevinizde, **</> İşlev URL’sini al**’a tıklayın, sonra da değerleri kopyalayın ve kaydedin. **</> GitHub parolasını al** için de aynı işlemi yapın. GitHub’da web kancasını yapılandırırken bu değerleri kullanırsınız. 
 
     ![İşlev kodunu gözden geçirme](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png) 
          
 Ardından, GitHub deponuzda web kancasını oluşturursunuz. 
 
 ## <a name="configure-the-webhook"></a>Web kancası yapılandırma
-1. GitHub’da sahip olduğunuz bir depoya gidin. Varsa çatallandırdığınız depoları da kullanabilirsiniz.
+1. GitHub’da sahip olduğunuz bir depoya gidin. Varsa çatallandırdığınız depoları da kullanabilirsiniz. Bir depoyu çatallaştırmanız gerekirse, <https://github.com/Azure-Samples/functions-quickstart> sayfasını kullanın. 
  
 2. **Ayarlar**’a tıklayın, sonra da **Web Kancaları**’na ve **Web kancası ekle**’ye tıklayın.
    
     ![GitHub web kancası ekleme](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-3. İşlevinizin URL’sini ve gizli anahtarını **Yük URL’si** ve **Gizli Anahtar** alanına yapıştırıp **İçerik türü** için **uygulama/json** öğesini seçin.
-
-4. **Olayları tek tek seçmeme izin ver**’e tıklayın, **Sorun Açıklaması**’nı seçin ve **Web kancası ekle**’ye tıklayın.
-   
+3. Tabloda belirtilen ayarları kullanın, ardından **Web kancası ekle**'ye tıklayın.
+ 
     ![Web kancası URL'sini ve parolasını ayarlama](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
+
+    | Ayar      |  Önerilen değer   | Açıklama                              |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Yük URL'si** | Kopyalanan değer | **</> İşlev URL’sini Al** tarafından döndürülen değeri kullanın. |
+    | **Gizli dizi**   | Kopyalanan değer | **</> GitHub gizli dizisini al** tarafından döndürülen değeri kullanın. |
+    | **İçerik türü** | uygulama/json | İşlev bir JSON yükü bekler. |
+    | Olay tetikleyicileri | Olayları ayrı ayrı seçmeme izin ver | Yalnızca sorun yorum olaylarını tetiklemek istiyoruz.  |
+    |                | Sorun açıklaması                    |  |
 
 Şimdi, web kancası yeni bir sorun açıklaması eklendiğinde işlevinizi tetikleyecek şekilde yapılandırılır. 
 
@@ -74,16 +77,22 @@ Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
 2. Sorunda bir açıklama yazın ve **Açıklama**’ya tıklayın. 
 
-3. Diğer GitHub penceresinde, yeni web kancanızın yanındaki **Düzenle** seçeneğine tıklayın, ekranı aşağı kaydırarak **Son Teslimler**’e gelin, ardından bir web kancası isteğinin işleviniz tarafından işlendiğini doğrulayın. 
- 
-    ![Web kancası URL'sini ve parolasını ayarlama](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-triggered.png)
+    ![GitHub sorun açıklaması ekleyin.](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-add-comment.png) 
 
-   İşlevinizden gelen yanıt `New GitHub comment: <Your issue comment text>` içermelidir.
+3. Portala geri dönün ve günlükleri görüntüleyin. Yeni açıklama metnini içeren bir izleme girişi görmeniz gerekir. 
+    
+     ![Günlüklerde açıklama metnini görüntüleyin.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
+ 
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+GitHub web kancasından istek alındığında çalıştırılan bir işlev oluşturdunuz. 
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Web kancası bağlamaları hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md). 
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 
 
