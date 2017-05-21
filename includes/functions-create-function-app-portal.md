@@ -1,14 +1,15 @@
+1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. **İşlem** > **İşlev Uygulaması**'na tıklayın ve **Aboneliğinizi** seçin. Ardından tabloda belirtilen işlev uygulaması ayarlarını kullanın.
 
-2. Click **Compute** > **Function App**, select your **Subscription**, type a unique **App name** that identifies your function app, then specify the following settings:
-   
-   * **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)**: Select **Create new** and enter a name for your new resource group. 
-   * **[Hosting plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)**, which can be one of these plans: 
-     * **Consumption plan**: The default plan type for Azure Functions. When you choose a consumption plan, you must also choose the **Location**.  
-     * **App Service plan**: An App Service plan requires you to create an **App Service plan/location** or select an existing one. These settings determine the [location, features, cost, and compute resources](https://azure.microsoft.com/pricing/details/app-service/) associated with your app.  
-   * **Storage account**: Each function app requires a storage account. You can either choose an existing storage account or [create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account). 
-     
-    ![Create function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
+    ![Azure portalında işlev uygulaması oluşturma](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-3. Click **Create** to provision and deploy the new function app.  
+    | Ayar      | Önerilen değer  | Açıklama                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Uygulama adı** | Genel olarak benzersiz bir ad | Yeni işlev uygulamanızı tanımlayan ad. | 
+    | **[Kaynak Grubu](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | İşlev uygulamanızın oluşturulacağı yeni kaynak grubunun adı. | 
+    | **[Barındırma planı](../articles/azure-functions/functions-scale.md)** |   Tüketim planı | Kaynakların işlev uygulamanıza nasıl ayrılacağını tanımlayan barındırma planı. Varsayılan **Tüketim Planı**'nda kaynaklar işlevlerin taleplerine göre dinamik olarak eklenir. Yalnızca işlevlerinizin çalıştığı süre için ödeme yaparsınız.   |
+    | **Konum** | Batı Avrupa | Kendinize veya işlevinizin erişeceği diğer hizmetlere yakın bir konum seçin. |
+    | **[Depolama hesabı](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** |  Genel olarak benzersiz bir ad |  İşlev uygulamanız tarafından kullanılan yeni depolama hesabının adı. Var olan bir hesabı da kullanabilirsiniz. |
+
+1. Yeni işlev uygulamasını sağlamak ve dağıtmak için **Oluştur**'a tıklayın.

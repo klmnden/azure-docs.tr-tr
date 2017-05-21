@@ -3,7 +3,7 @@ title: "Beş dakika içinde Azure’da statik HTML web uygulaması oluşturma | 
 description: "Örnek bir uygulama dağıtarak App Service&quot;te web uygulamaları çalıştırmanın ne kadar kolay olduğunu öğrenin."
 services: app-service\web
 documentationcenter: 
-author: cephalin
+author: rick-anderson
 manager: wpickett
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
@@ -12,73 +12,77 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
-ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: ba9b9b780da74c44f6314fa289f1d6b8c231dd30
-ms.lasthandoff: 05/03/2017
+ms.date: 05/08/2017
+ms.author: riande
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 895906e1ab4bc50093ed3b18f043c3dd515ca054
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="create-a-static-html-web-app-in-azure-in-five-minutes"></a>Beş dakika içinde Azure’da statik HTML web uygulaması oluşturma
-[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-Bu Hızlı Başlangıç, basit bir HTML+CSS sitesini birkaç dakika içinde [Azure Uygulama Hizmeti](../app-service/app-service-value-prop-what-is.md)’ne dağıtmanıza yardımcı olur.
+Bu hızlı başlangıç kılavuzunda, bir HTML+CSS sitesinin Azure’a nasıl dağıtılacağı gösterilir. Uygulamayı bir [Azure App Service planı](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) kullanarak çalıştıracak ve [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli) aracılığıyla uygulamanın içinde yeni bir web uygulaması oluşturacaksınız. Uygulamayı Azure’a dağıtmak için Git’i kullanırsınız. Önkoşullar yüklendikten sonra öğreticinin tamamlanması yaklaşık beş dakika sürer.
 
-Başlamadan önce Azure CLI’nin yüklü olduğundan emin olun. Daha fazla bilgi için bkz. [Azure CLI yükleme kılavuzu](https://docs.microsoft.com/cli/azure/install-azure-cli).
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
-`az login` çalıştırarak ve ekrandaki yönergeleri izleyerek Azure’da oturum açın.
-   
-```azurecli
-az login
+## <a name="prerequisites"></a>Ön koşullar
+
+Bu örneği oluşturmadan önce aşağıdaki bileşenleri indirip yükleyin:
+
+- [Git](https://git-scm.com/)
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="download-the-sample"></a>Örneği indirme
+
+Bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalayın:
+
+```bash
+git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma   
-Bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Web uygulaması ve SQL Veritabanı arka ucu gibi birlikte yönetmek istediğiniz tüm Azure kaynaklarını buraya yerleştirirsiniz.
+## <a name="view-the-html"></a>HTML’yi görüntüleme
 
-```azurecli
-az group create --location "West Europe" --name myResourceGroup
+Örnek HTML’yi içeren dizine gidin. *index.html* dosyasını tarayıcınızda açın.
+
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser.png)
+
+[!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
+
+[!INCLUDE [app-service-web-quickstart1](../../includes/app-service-web-quickstart1.md)] 
+
+`quickStartPlan` App Service planında bir [Web Uygulaması](app-service-web-overview.md) oluşturun. Web uygulaması, kodunuz için bir barındırma alanı ve dağıtılan uygulamayı görüntülemek için bir URL sağlar.
+
+[!INCLUDE [app-service-web-quickstart2](../../includes/app-service-web-quickstart2.md)] 
+
+Sayfa bir Azure App Service web uygulaması çalışıyor:
+
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+
+## <a name="update-and-redeploy-the-app"></a>Uygulamayı güncelleştirme ve yeniden dağıtma
+
+*index.html* dosyasını açın. İşaretlemede bir değişiklik yapın. Örneğin, `Hello world!` öğesini `Hello Azure!` olarak değiştirin
+
+Değişikliklerinizi Git’e işleyin ve ardından kod değişikliklerini Azure’a gönderin.
+
+```bash
+git commit -am "updated HTML"
+git push azure master
 ```
 
-`--location` için hangi olası değerleri kullanabileceğinizi görmek için `az appservice list-locations` Azure CLI komutunu kullanın.
+Dağıtım tamamlandıktan sonra değişiklikleri görmek için tarayıcınızı yenileyin.
 
+[!INCLUDE [manage-azure-web-app](../../includes/manage-azure-web-app.md)]
 
-## <a name="create-an-app-service-plan"></a>App Service planı oluşturma
-"ÜCRETSİZ" bir [App Service planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) oluşturun. 
-
-```azurecli
-az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-```
-
-## <a name="create-a-web-app"></a>Web uygulaması oluşturma
-`<app_name>` içinde benzersiz bir ada sahip bir web uygulaması oluşturun.
-
-```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-```
-
-## <a name="deploy-sample-application"></a>Örnek uygulama dağıtma
-GitHub’dan örnek bir HTML sitesi dağıtın.
-
-```azurecli
-az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
---repo-url "https://github.com/Azure-Samples/app-service-web-html-get-started.git" --branch master --manual-integration 
-```
-
-## <a name="browse-to-web-app"></a>Web uygulamasına göz atma
-Uygulamanızı Azure’da çalışırken görmek için şu komutu çalıştırın.
-
-```azurecli
-az appservice web browse --name <app_name> --resource-group myResourceGroup
-```
-
-Tebrikler, ilk statik HTML siteniz Azure Uygulama Hizmeti’nde çalışıyor.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Önceden oluşturulmuş [Web uygulamaları CLI betiklerini](app-service-cli-samples.md) keşfedin.
-
+- Örnek [Web Apps CLI betiklerini](app-service-cli-samples.md) keşfedin.
+- Bir [App Service uygulamasına](app-service-web-tutorial-custom-domain.md) contoso.com gibi [özel bir etki alanı adını eşleme](app-service-web-tutorial-custom-domain.md) işlemini öğrenin.

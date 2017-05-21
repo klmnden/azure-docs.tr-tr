@@ -3,7 +3,7 @@ title: "Azure Application Insights ile canlı bir ASP.NET web uygulamasını izl
 description: "Yeniden dağıtmadan web sitesinin performansını izleme. Şirket içinde, sanal makinelerde veya Azure üzerinde ASP.NET web uygulamaları ile çalışır."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -59,6 +60,20 @@ Uygulamanız bir Azure web hizmeti olarak çalışıyorsa, izlemeyi açma işlem
     ![Application Insights'a tıklayın](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [Bulut ve VM uygulamalarını izleme](app-insights-azure.md).
+
+### <a name="enable-client-side-monitoring-in-azure"></a>Azure'da istemci tarafı izlemeyi etkinleştirme
+
+Azure'da Application Insights'ı etkinleştirdiyseniz sayfa görüntülemesi ve kullanıcı telemetrisi ekleyebilirsiniz.
+
+1. Ayarlar > Uygulama Ayarları'nı seçin.
+2.  Uygulama Ayarları'nın altında yeni bir anahtar değer çifti ekleyin: 
+   
+    Anahtar: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Değer:`true`
+3. Ayarları **Kaydedin** ve uygulamanızı **Yeniden başlatın**.
+
+Bu işlemle Application Insights JavaScript SDK tüm web sayfalarına eklenmiş olur.
 
 ## <a name="monitor-a-live-iis-web-app"></a>Canlı bir IIS web uygulamasını izleme
 

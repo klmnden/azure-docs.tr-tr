@@ -7,7 +7,7 @@
 
     Azure Cosmos DB'de dört programlama modelinden birini seçebilirsiniz: Gremlin (grafik), MongoDB, SQL (DocumentDB) ve Tablo (anahtar-değer). 
     
-    Bu hızlı başlangıçta DocumentDB API'si ile programlama yapacağımız için formu doldururken **SQL (DocumentDB)** seçeneğini belirleyin. Ancak bir sosyal medya uygulaması için grafik verileriniz, anahtar/değer (tablo) verileriniz veya bir MongoDB uygulamasından aktarılmış verileriniz varsa Azure Cosmos DB'nin tüm görev açısından kritik uygulamalarınız için yüksek oranda kullanılabilir ve genel olarak dağıtılmış bir veritabanı hizmeti platformu sunacağını unutmayın.
+    Bu hızlı başlangıçta Tablo API'si ile programlama yapacağımız için formu doldururken **Tablo (anahtar-değer)** seçeneğini belirleyin. Ancak bir sosyal medya uygulaması için grafik verileriniz, bir katalog uygulamasından belge verileriniz veya bir MongoDB uygulamasından aktarılmış verileriniz varsa Azure Cosmos DB'nin tüm görev açısından kritik uygulamalarınız için yüksek oranda kullanılabilir ve genel olarak dağıtılmış bir veritabanı hizmeti platformu sunacağını unutmayın.
 
     Yeni hesap dikey penceresini ekran görüntüsündeki bilgileri kullanarak doldurun. Hesabınızın kurulumunu yaparken benzersiz değerler belirleyeceğiniz için değerler ekran görüntüsündekilerle bire bir aynı olmayacaktır. 
  
@@ -15,13 +15,14 @@
 
     Ayar|Önerilen değer|Açıklama
     ---|---|---
-    Kimlik|*Benzersiz değer*|Azure Cosmos DB hesabınızı tanımlamak için kullanılacak benzersiz ad. Girdiğiniz kimliğe *documents.azure.com* eklenerek URI'niz oluşturulur, bu nedenle benzersiz ancak uygun bir kimlik kullanmanız gerekir. Kimlik yalnızca küçük harf, rakam ve "-" karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır.
-    API|SQL (DocumentDB)|Bu makalenin ilerleyen bölümlerinde [DocumentDB API'si](../articles/documentdb/documentdb-introduction.md) ile programlama yapacağız.|
-    Abonelik|*Aboneliğiniz*|Azure Cosmos DB hesabınız için kullanmak istediğiniz Azure aboneliği. 
+    Kimlik|*Benzersiz değer*|Azure Cosmos DB hesabını tanımlamak için kullanılacak benzersiz ad. Girdiğiniz kimliğe *documents.azure.com* eklenerek URI'niz oluşturulur, bu nedenle benzersiz ancak uygun bir kimlik kullanmanız gerekir. Kimlik yalnızca küçük harf, rakam ve "-" karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır.
+    AP|Tablo (anahtar-değer)|Bu makalenin ilerleyen bölümlerinde [Tablo API'si](../articles/cosmos-db/table-introduction.md) ile programlama yapacağız.|
+    Abonelik|*Aboneliğiniz*|Azure Cosmos DB hesabı için kullanmak istediğiniz Azure aboneliği. 
     Kaynak Grubu|*Kimlikle aynı değer*|Hesabınız için yeni kaynak grubu adı. Kolaylık olması için kimliğinizle aynı adı kullanabilirsiniz. 
-    Konum|*Kullanıcılarınıza en yakın bölge*|Azure Cosmos DB hesabınızın barındırılacağı coğrafi konum. Verilere en hızlı erişim için kullanıcılarınıza en yakın konumu seçin.
+    Konum|*Kullanıcılarınıza en yakın bölge*|Azure Cosmos DB hesabınızın barındırılacağı coğrafi konum. Verilere en hızlı erişim için kullanıcılarınıza en yakın konumu seçin.   
+
 4. Hesabı oluşturmak için **Oluştur**’a tıklayın.
-5. Üst araç çubuğunda **Bildirimler**'e tıklayarak dağıtım işlemini izleyin.
+5. Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
 
     ![Dağıtım başlatıldı bildirimi](./media/documentdb-create-dbaccount/azure-documentdb-nosql-notification.png)
 

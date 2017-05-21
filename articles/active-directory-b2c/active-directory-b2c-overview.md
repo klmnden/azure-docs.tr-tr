@@ -3,9 +3,9 @@ title: "Azure Active Directory B2C: Genel Bakış | Microsoft Belgeleri"
 description: "Azure Active Directory B2C ile tüketiciye yönelik uygulamalar geliştirme"
 services: active-directory-b2c
 documentationcenter: 
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: saeeda
+manager: krassk
+editor: parja
 ms.assetid: c465dbde-f800-4f2e-8814-0ff5f5dae610
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,36 +13,49 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
-ms.author: swkrish
+ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 2f64c905d2304bfc94415e871012a783cd2cf328
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6032eaa040b9f995d673117ee48c2d1da6200b52
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications"></a>Azure Active Directory B2C: Tüketicilerinizin uygulamanıza kaydolmalarını ve oturum açmalarını sağlama
-Azure Active Directory B2C, tüketiciye yönelik web ve mobil uygulamalarınız için kapsamlı bulut kimlik yönetimi çözümüdür. Yüz milyonlarca tüketici kimliği ölçeğinde yüksek oranda kullanılabilir bir küresel hizmettir. Kurumsal düzeyde güvenli bir platform üzerinde oluşturulan Azure Active Directory B2C uygulamalarınızın, işinizin ve tüketicilerinizin korunmasını sağlar.
+# <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C: Siz uygulamanıza odaklanın, kayıt ve oturum açma işlemlerini bize bırakın
 
-Geçmişte tüketicilerin uygulamalarına kaydolmasını ve oturum açmasını isteyen uygulama geliştiricileri kendi kodlarını yazardı. Ayrıca, kullanıcı adları ile parolaları depolamak için şirket içi veritabanlarını veya sistemleri kullanırlardı. Azure Active Directory B2C, geliştiricilere tüketici kimlik yönetimini uygulamalarıyla tümleştirmek için daha iyi bir yol sunar. Bunu da güvenli, standart temelli bir platform ve bir dizi zengin ilkeler yardımıyla gerçekleştirir. Azure Active Directory B2C kullandığınızda tüketicileriniz, var olan sosyal medya hesaplarını (Facebook, Google, Amazon, LinkedIn) kullanarak veya yeni kimlik bilgileri (e-posta adresi ve parola veya kullanıcı adı ve parola) oluşturarak uygulamalarınıza kaydolabilir. İkinci yöntemde kullanılan kimlik bilgilerine "yerel hesaplar" diyoruz.
+Azure AD B2C, web ve mobil uygulamalarınızda kullanabileceğiniz bulut tabanlı kimlik yönetim çözümüdür. Yüz milyonlarca kimlik ölçeğinde yüksek oranda kullanılabilir bir küresel hizmettir. Kurumsal düzeyde güvenli bir platform üzerinde oluşturulan Azure AD B2C uygulamalarınızın, işinizin ve müşterilerinizin korunmasını sağlar.
+
+Minimum düzeyde yapılandırma gereksinimine sahip olan Azure AD B2C, uygulamanızın şu kimlikleri doğrulamasını sağlar:
+
+* **Sosyal Hesaplar** (Facebook, Google, LinkedIn vs.)
+* **Kurumsal Hesaplar** (açık standart protokollerini, OpenID Connect veya SAML kullanarak)
+* **Yerel Hesaplar** (e-posta adresi ve parola veya kullanıcı adı ve parola)
 
 ## <a name="get-started"></a>başlarken
-Tüketicinin kaydolma ve oturum açma işlemlerini kabul eden bir uygulama oluşturmak için öncelikle uygulamayı Azure Active Directory B2C kiracısı ile kaydetmeniz gerekir. [Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md) makalesinde ana hatlarıyla belirtilen adımları izleyerek kendi kiracınızı edinin.
 
-[OAuth 2.0 veya Open ID Connect](active-directory-b2c-reference-protocols.md) ile protokol iletilerini doğrudan göndermeyi seçerek veya bu işlemi sizin yerinize yapmaları için kitaplıklarımızı kullanarak Azure Active Directory B2C hizmetinde kendi uygulamanızı yazabilirsiniz. Aşağıdaki tabloda en sevdiğiniz platformu seçin ve çalışmaya başlayın.
+Öncelikle [Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md) makalesinde ana hatlarıyla belirtilen adımları izleyerek kendi kiracınızı edinin.
 
-[!INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
+Ardından uygulama geliştirme senaryonuzu seçin:
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| <center>![Mobil Uygulamalar ve Masaüstü Uygulamaları](../active-directory/develop/media/active-directory-developers-guide/NativeApp_Icon.png)<br />Mobil Uygulamalar ve Masaüstü Uygulamaları</center> | [Genel Bakış](active-directory-b2c-reference-oauth-code.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><br />[iOS](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)<br /><br />[Android](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)<br /><br />[Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) |  |
+| <center>![Web Apps](../active-directory/develop/media/active-directory-developers-guide/Web_app.png)<br />Web Apps</center> | [Genel Bakış](active-directory-b2c-reference-oidc.md)<br /><br />[ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)<br /><br />[ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | [NodeJS](active-directory-b2c-devquickstarts-web-node.md) |  |
+| <center>![Tek Sayfa Uygulamaları](../active-directory/develop/media/active-directory-developers-guide/SPA.png)<br />Tek Sayfa Uygulamaları</center> | [Genel Bakış](active-directory-b2c-reference-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)<br /><br /> |  |  |
+| <center>![Web API'leri](../active-directory/develop/media/active-directory-developers-guide/Web_API.png)<br />Web API'leri</center> | [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)<br /><br />[NodeJS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)<br /><br />[.NET web API'si çağırma](active-directory-b2c-devquickstarts-web-api-dotnet.md) | &nbsp; |
 
 ## <a name="whats-new"></a>Yenilikler
+
 Gelecekteki Azure Active Directory B2C değişiklikleri için burayı sıkça tekrar kontrol edin. @AzureAD kullanarak tüm değişiklikler hakkında tweet de göndereceğiz.
 
-* [Genişletilebilir ilke çerçevemiz](active-directory-b2c-reference-policies.md) ve uygulamalarınızda oluşturup kullanabileceğiniz ilke türleri hakkında bilgi edinin.
-* Küçük hizmet sorunları, güncelleştirmeler, durum ve düzeltmeler hakkında bildirimler için [hizmet blogumuzu](https://blogs.msdn.microsoft.com/azureadb2c/) yer işaretlerine ekleyin. [Azure durum panosunu](https://azure.microsoft.com/status/) da izlemeye devam edin.
-* Geçerli [hizmet sınırlamaları, kısıtlamalar ve engeller](active-directory-b2c-limitations.md).
-* Son olarak Azure AD B2C & ASP.NET Core kullanan bir [kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c).
+* "Yerleşik İlkeler"e (Genel Kullanım) ek olarak ["Özel İlkeler"](active-directory-b2c-overview-custom.md) özelliği de genel önizleme sürümünde.  Özel ilkeler, kimlik deneyiminin içeriğini denetlemek isteyen kimlik uzmanlarına özeldir.
+* [Erişim Belirteci](https://azure.microsoft.com/en-us/blog/azure-ad-b2c-access-tokens-now-in-public-preview) özelliği genel önizleme sürümünde.
+* [Avrupa tabanlı Azure AD B2C dizinlerinin genel kullanıma açıldığı](https://azure.microsoft.com/en-us/blog/azuread-b2c-ga-eu/) duyuruldu.
+* Her geçen gün büyüyen [GitHub'daki kod örnekleri](https://github.com/Azure-Samples?q=b2c) kitaplığımıza göz atın!
 
 ## <a name="how-to-articles"></a>Nasıl yapılır makaleleri
+
 Belirli Azure Active Directory B2C özelliklerinin nasıl kullanılacağını öğrenin:
 
 * [Facebook](active-directory-b2c-setup-fb-app.md), [Google +](active-directory-b2c-setup-goog-app.md), [Microsoft hesabı](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) ve [LinkedIn](active-directory-b2c-setup-li-app.md) gibi hesapları, tüketiciye yönelik uygulamalarınızda kullanım için yapılandırın.
@@ -53,6 +66,7 @@ Belirli Azure Active Directory B2C özelliklerinin nasıl kullanılacağını ö
 * Azure Active Directory B2C kiracınızda [Tüketicileri programlama yoluyla oluşturma, okuma, güncelleştirme ve silme için Azure Active Directory Grafik API'sini kullanın](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu bağlantılar hizmeti derinlemesine keşfetmek için kullanışlıdır:
 
 * Bkz. [Azure Active Directory B2C fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
@@ -65,6 +79,7 @@ Bu bağlantılar hizmeti derinlemesine keşfetmek için kullanışlıdır:
 * [Azure Active Directory B2C için dosya desteği istekleri](active-directory-b2c-support.md).
 
 ## <a name="get-security-updates-for-our-products"></a>Ürünlerimiz için güvenlik güncelleştirmelerini alma
+
 [Bu sayfayı](https://technet.microsoft.com/security/dd252948) ziyaret ederek ve Güvenlik Önerisi Uyarılarına abone olarak güvenlik olaylarının ne zaman ortaya çıkacağı hakkında bildirimleri almanızı öneririz.
 
 

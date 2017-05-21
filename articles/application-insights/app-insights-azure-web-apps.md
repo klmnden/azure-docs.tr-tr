@@ -3,7 +3,7 @@ title: "Azure web uygulaması performansını izleme | Microsoft Docs"
 description: "Azure web uygulamaları için uygulama performansını izleme. Yük, yanıt süresi ve bağımlılık bilgilerinin grafiğini çıkarın ve performansa bağlı uyarılar ayarlayın."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal
@@ -11,12 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c6f25b8cf8c133f44644db1507958b2176efa230
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -40,9 +41,19 @@ Azure’da çalışmakta olan bir web uygulamanız varsa zaten bazı izleme veri
 2. Application Insights yüklendikten sonra **web uygulamanızı izleyin** . 
    
     ![Web uygulamanızı izleme](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
+
+   Sayfa görüntülemesi ve kullanıcı telemetrisi için **istemci tarafı izlemeyi etkinleştirin**.
+
+   * Ayarlar > Uygulama Ayarları'nı seçin.
+   * Uygulama Ayarları'nın altında yeni bir anahtar değer çifti ekleyin: 
+   
+    Anahtar: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Değer:`true`
+   * Ayarları **Kaydedin** ve uygulamanızı **Yeniden başlatın**.
 3. **Uygulamanızı izleyin**.  [Verileri keşfedin](#explore-the-data).
 
-İsterseniz, daha sonra uygulamayı Application Insights ile derleyip yeniden dağıtabilirsiniz.
+İsterseniz, daha sonra uygulamayı Application Insights ile derleyebilirsiniz.
 
 *Application Insights’ı nasıl kaldırabilirim veya başka bir kaynağa nasıl geçiş yapabilirim?*
 
@@ -104,6 +115,7 @@ Telemetriniz üzerinde daha güçlü aramalar gerçekleştirmek için [Analytics
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Canlı uygulamanızda profil oluşturucuyu çalıştırın](app-insights-profiler.md).
+* [Azure İşlevleri](https://github.com/christopheranderson/azure-functions-app-insights-sample) - Application Insights ile Azure İşlevlerini izleyin
 * Application Insights’a gönderilmek üzere [Azure tanılamayı etkinleştirin](app-insights-azure-diagnostics.md).
 * Hizmetinizin kullanılabilir ve yanıt verir durumda oluğundan emin olmak için [hizmet durumu ölçümlerini izleyin](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 * İşletimsel olaylar gerçekleştiğinde ya da ölçümler bir eşiği aştığında [uyarı bildirimleri alın](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
