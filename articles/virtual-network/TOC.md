@@ -17,14 +17,17 @@
 ### [Ağ güvenlik grupları](virtual-networks-nsg.md)
 
 ## Dağıtma
-### Sanal ağlar
-#### [Portal](virtual-networks-create-vnet-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [Şablon](virtual-networks-create-vnet-arm-template-click.md)
-#### [Portal (Klasik)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (Klasik)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [CLI (Klasik)](virtual-networks-create-vnet-classic-cli.md)
+### Sanal ağlar (VNet’ler)
+#### [VNet’leri oluşturma, değiştirme veya silme](virtual-network-manage-network.md)
+#### [Alt ağları oluşturma, değiştirme veya silme](virtual-network-manage-subnet.md)
+#### [VNet oluşturma - birden çok alt ağ](virtual-networks-create-vnet-arm-pportal.md) 
+##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+##### [CLI](virtual-networks-create-vnet-arm-cli.md)
+##### [Şablon](virtual-networks-create-vnet-arm-template-click.md)
+#### VNet oluşturma - birden çok alt ağ (Klasik)
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Ağ güvenlik grupları
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -46,8 +49,8 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Şablon](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### Ağ arabirimleri
-#### [Ekleme, değiştirme veya silme](virtual-network-network-interface.md)
+### Ağ arabirimleri (NIC’ler)
+#### [NIC’leri oluşturma, değiştirme veya silme](virtual-network-network-interface.md)
 #### [IP adreslerini ekleme, değiştirme veya kaldırma](virtual-network-network-interface-addresses.md)
 
 ### [Genel IP adresleri](virtual-network-public-ip-address.md)
@@ -81,6 +84,8 @@
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Şablon](virtual-network-multiple-ip-addresses-template.md)
 
+#### [Hızlandırılmış ağ ile bir VM oluşturma](virtual-network-create-vm-accelerated-networking.md)
+
 ### Bağlantı senaryoları
 #### [Sanal ağdan (VNet) Sanal ağa](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [Sanal ağdan (Resource Manager) Sanal ağa (Klasik)](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -98,9 +103,6 @@
 ##### [Örnek uygulama](virtual-networks-sample-app.md)
 
 ## Yapılandırma
-### VM’ler için hızlandırılmış ağ
-#### [Azure portal](virtual-network-accelerated-networking-portal.md)
-#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
 ### [VM’de ağ aktarım hızını iyileştirme](virtual-network-optimize-network-bandwidth.md)
 ### Erişim denetimi listeleri
 #### [Klasik portal](virtual-networks-acl.md)

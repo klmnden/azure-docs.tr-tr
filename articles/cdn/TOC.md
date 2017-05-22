@@ -36,6 +36,7 @@
 ### [Gelişmiş HTTP raporları oluşturma](cdn-advanced-http-reports.md)
 ### [Gerçek zamanlı istatistikleri görüntüleme](cdn-real-time-stats.md)
 ### [Kenar düğümü performansını çözümleme](cdn-edge-performance.md)
+### [Tanılama Günlükleriyle ölçümleri dışarı aktarma](cdn-log-analysis.md)
 
 ## Geliştirme
 ### [.NET](cdn-app-dev-net.md)

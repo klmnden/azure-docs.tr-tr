@@ -1,5 +1,6 @@
 # Genel Bakış
 ## [Event Hubs nedir?](event-hubs-what-is-event-hubs.md)
+## [Event Hubs özellikleri](event-hubs-features.md)
 ## [SSS](event-hubs-faq.md)
 
 # Başlarken

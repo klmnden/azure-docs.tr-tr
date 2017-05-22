@@ -1,8 +1,9 @@
 # Genel Bakış
 ## [Azure Active Directory nedir?](active-directory-whatis.md)
 ## [Sürüm seçin](active-directory-editions.md)
-
-## [Azure kimlik yönetimi hakkında](identity-fundamentals.md)
+## [Azure kimlik yönetimi hakkında](fundamentals-identity.md)
+## [Azure kimlik çözümlerini anlama](understand-azure-identity-solutions.md)
+## [Azure Portalı deneyiminin önizlemesini gerçekleştirme](active-directory-preview-explainer.md)
 
 # Başlarken
 ## [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
@@ -91,16 +92,17 @@
 #### [İndirmelerde eksik veriler](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###    Programlı Erişim
 #### [Denetim başvurusu](active-directory-reporting-api-audit-reference.md)
-#### [Denetim örnekleri](active-directory-reporting-api-audit-samples.md)
-#### [Verileri alma](active-directory-reporting-api-with-certificates.md)
-#### [Önkoşullar](active-directory-reporting-api-prerequisites.md)
 #### [Oturum açma başvurusu](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Önkoşullar](active-directory-reporting-api-prerequisites-azure-portal.md)
+#### [Denetim örnekleri](active-directory-reporting-api-audit-samples.md)
 #### [Oturum açma örnekleri](active-directory-reporting-api-sign-in-activity-samples.md)
+#### [Verileri alma](active-directory-reporting-api-with-certificates.md)
 ### [Klasik portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD raporlama](active-directory-reporting-getting-started.md)
 #### [Raporlama kılavuzu](active-directory-reporting-guide.md)
 #### [Bilinen ağlar](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
+##### [Önkoşullar](active-directory-reporting-api-prerequisites.md)
 #### [Denetim olayları](active-directory-reporting-audit-events.md)
 #### [Gecikmeler](active-directory-reporting-latencies.md)
 #### [Bildirimler](active-directory-reporting-notifications.md)
@@ -171,11 +173,14 @@
 ##### [KCD ile SSO](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Üst bilgi içeren SSO](application-proxy-ping-access.md)
 ##### [Parola kasası oluşturma ile SSO](application-proxy-sso-azure-portal.md)
-#### En iyi yöntemleri anlama
+#### Kavramlar
 ##### [Bağlayıcılar](application-proxy-understand-connectors.md)
 ##### [Güvenlik](application-proxy-security-considerations.md)
 ##### [Ağlar](application-proxy-network-topology-considerations.md)
-#### 
+
+
+##### [TMG veya UAG’den yükseltme](application-proxy-transition-from-uag-tmg.md)
+
 #### Gelişmiş yapılandırmalar
 ##### [Ayrı ağlarda yayımlama](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Ara sunucular](application-proxy-working-with-proxy-servers.md)
@@ -186,7 +191,6 @@
 #### Adım adım kılavuzlar yayımlama
 ##### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
 #### Klasik portalı kullanın
 ##### [Bağlayıcı indirme](application-proxy-enable-classic-portal.md)
@@ -201,12 +205,6 @@
 #### [Kullanıcıları kaldırma](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [Tüm uygulamalarımı görüntüleme](active-directory-coreapps-view-azure-portal.md)
 #### [Kullanıcı hesabı hazırlamayı yönetme](active-directory-enterprise-apps-manage-provisioning.md)
-
-### Geliştirme
-#### [Kullanıcıları atama](active-directory-applications-guiding-developers-assigning-users.md)
-#### [Grupları atama](active-directory-applications-guiding-developers-assigning-groups.md)
-#### [Atama isteme](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [İş kolu uygulamaları geliştirme](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
 #### [Self servis erişimi](active-directory-self-service-application-access.md)
@@ -226,7 +224,7 @@
 ##### [Erişim Paneli](active-directory-application-access-panel-content-map.md)
 ##### [Uygulama Proxy’si](active-directory-application-proxy-content-map.md)
 ##### [Koşullu erişim](active-directory-application-conditional-access-content-map.md)
-
+### [Uygulama geliştirme](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Belge kitaplığı](active-directory-apps-index.md)
 
 ## Dizininizi yönetme
@@ -294,6 +292,7 @@
 ##### [Kaynağa göre](role-based-access-control-configure.md)
 #### [Yerleşik roller](role-based-access-built-in-roles.md)
 #### [Özel roller](role-based-access-control-custom-roles.md)
+#### [İç ve dış kullanıcılar için özel roller atama](role-based-access-control-create-custom-roles-for-internal-external-users.md)
 #### [Raporlama](role-based-access-control-access-change-history-report.md)
 #### Daha fazla rol yönetme yolu
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
@@ -306,12 +305,13 @@
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
 #### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
+#### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
+#### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)
 #### [Desteklenen uygulamalar](active-directory-conditional-access-supported-apps.md)
 #### [Cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### [Bağlı uygulamalara erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
-#### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)
-#### [SSS](active-directory-conditional-faqs.md)
 #### [Düzeltme](active-directory-conditional-access-device-remediation.md)
+#### [SSS](active-directory-conditional-faqs.md)
 #### [Klasik portal](active-directory-conditional-access.md)
 ##### [Kullanmaya başlama](active-directory-conditional-access-azuread-connected-apps.md)
 
@@ -332,6 +332,7 @@
 #### [Oturum açma deneyimi](active-directory-identityprotection-flows.md)
 #### [Risk olaylarının benzetimini gerçekleştirme](active-directory-identityprotection-playbook.md)
 #### [Kullanıcıların engelini kaldırma](active-directory-identityprotection-unblock-howto.md)
+#### [SSS](active-directory-identity-protection-faqs.md)
 #### [Sözlük](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)

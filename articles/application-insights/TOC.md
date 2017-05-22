@@ -12,6 +12,7 @@
 ### [Yayındaki web uygulamaları](app-insights-monitor-performance-live-website-now.md)
 ### [Windows hizmetleri](app-insights-windows-services.md)
 ### [Windows masaüstü](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Java uygulamalarını izleme
 ### [Web Apps](app-insights-java-get-started.md)
@@ -33,7 +34,8 @@
 ## Planlama ve tasarım
 ### [Web uygulamalarını ve hizmetleri ayrıntılı tanılama](app-insights-devops.md)
 ### [Web uygulamalarının performansını izleme](app-insights-web-monitor-performance.md)
-### [Application Insights kaynaklarını ayırma](app-insights-separate-resources.md)
+### [Geliştirme, test ve üretimi ayırma](app-insights-separate-resources.md)
+### [Birden çok rol ile uygulamaları izleme](app-insights-monitor-multi-role-apps.md)
 ### [Application Insights’ta nasıl ... yapabilirim?](app-insights-how-do-i.md)
 
 
@@ -112,7 +114,6 @@
 ### [Özel olaylar ve ölçümler API'si](app-insights-api-custom-events-metrics.md)
 ### [Filtreleme ve telemetri ön işleme](app-insights-api-filtering-sampling.md)
 ### [Örnekleme](app-insights-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Yönet
 ### [Fiyatlandırma ve kota yönetimi](app-insights-pricing.md)

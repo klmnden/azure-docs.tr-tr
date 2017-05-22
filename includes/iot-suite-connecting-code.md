@@ -4,7 +4,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
 
 1. `#include` deyimlerinden sonra aşağıdaki değişken bildirimlerini ekleyin. [Cihaz Kimliği] ve [Cihaz Anahtarı] yer tutucu değerlerini uzaktan izleme çözümü panosunda not ettiğiniz cihaz değerleriyle değiştirin. Çözüm panosundaki IoT Hub Ana Bilgisayar Adını [IoTHub Adı] yerine girin. Örneğin, IoT Hub Ana Bilgisayar Adınız **contoso.azure-devices.net** şeklindeyse [IoTHub Adı] yerine **contoso** yazın:
    
-    ```
+    ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
@@ -17,7 +17,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
    - IoT Hub'daki cihaz ikizinde ayarlanan istenen özellikleri alabilir ve bunlara göre hareket edebilir.
    - Çözüm portalından çağrılan **Reboot** ve **InitiateFirmwareUpdate** direkt yöntemlerine yanıt verebilir. Cihaz, bildirilen özellikleri kullanarak desteklediği direkt yöntemlerle ilgili bilgi gönderir.
    
-    ```
+    ```c
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
 
@@ -90,7 +90,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
 
 1. Çözüm panosunda belirtilen istenen özellikleri işleyen aşağıdaki işlevleri ekleyin. Modelde şu istenen özellikler tanımlanmıştır:
 
-    ```
+    ```c
     void onDesiredTemperatureMeanValue(void* argument)
     {
       /* By convention 'argument' is of the type of the MODEL */
@@ -109,7 +109,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
 
 1. IoT Hub üzerinden çağrılan direkt yöntemleri işleyen aşağıdaki işlevleri ekleyin. Bu direkt yöntemler modelde tanımlanmıştır:
 
-    ```
+    ```c
     /* Handlers for direct methods */
     METHODRETURN_HANDLE Reboot(Thermostat* thermostat)
     {
@@ -132,7 +132,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
 
 1. Önceden yapılandırılmış çözüme bir ileti gönderen aşağıdaki işlevi ekleyin:
    
-    ```
+    ```c
     /* Send data to IoT Hub */
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
@@ -160,7 +160,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
 
 1. Cihaz önceden yapılandırılmış çözüme yeni bildirilen özellik değerleri gönderdiğinde çalışan aşağıdaki geri çağırma işleyiciyi ekleyin:
 
-    ```
+    ```c
     /* Callback after sending reported properties */
     void deviceTwinCallback(int status_code, void* userContextCallback)
     {
@@ -180,7 +180,7 @@ IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletile
     - Her saniyede telemetri göndermek için bir döngü oluşturur.
     - Tüm kaynakların başlatılmasını geri alır.
 
-      ```
+      ```c
       void remote_monitoring_run(void)
       {
         if (platform_init() != 0)

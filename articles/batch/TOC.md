@@ -29,6 +29,10 @@
 ## Yönet
 ### [Batch PowerShell cmdlet’leri](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
+#### [Batch hesabı oluşturma](./scripts/batch-cli-sample-create-account.md)
+#### [Uygulama ekleme](./scripts/batch-cli-sample-add-application.md)
+#### [Havuzları yönetme](./scripts/batch-cli-sample-manage-pool.md)
+#### [Bir işi ve görevleri çalıştırma](./scripts/batch-cli-sample-run-job.md)
 
 # Başvuru
 ## [PowerShell](/powershell/module/azurerm.batch)
@@ -63,7 +67,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C# kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [CLI örnekleri](batch-cli-samples.md)
 ## [Big Compute kaynakları](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 

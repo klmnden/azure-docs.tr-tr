@@ -29,6 +29,7 @@
 ### [DC/OS üzerinde uygulamaya/kullanıcıya özel düzenleyici](container-service-application-specific-marathon.md)
 ### [Dosya paylaşımı ekleme](container-service-dcos-fileshare.md)
 ### [Azure kapsayıcı kayıt defteri kullanma](container-service-dcos-acr.md)
+### [Vamp ile Canary sürümü](container-service-dcos-vamp-canary-release.md)
 ### DC/OS izleme
 #### [ELK ile izleme](container-service-monitoring-elk.md)
 #### [OMS ile izleme](container-service-monitoring-oms.md)

@@ -58,6 +58,7 @@
 ### [AD Çoğaltma Durumu](log-analytics-ad-replication-status.md)
 ### [Uyarı yönetimi](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analizi](log-analytics-azure-sql.md)
+### [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)
 ### [Kapasite ve performans](log-analytics-capacity.md)
 ### [Değişiklik İzleme](log-analytics-change-tracking.md)
 ### [Kapsayıcılar](log-analytics-containers.md)

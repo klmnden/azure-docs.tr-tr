@@ -116,7 +116,7 @@
 ### [En iyi güvenlik uygulamaları](iot-hub-security-best-practices.md)
 ### [Güvenlik mimarisi](iot-hub-security-architecture.md)
 ### [IoT dağıtımınızın güvenliğini sağlama](iot-hub-security-deployment.md)
-## Ağ Geçidi SDK'sı
+## IoT Edge
 ### Cihazı benzetme
 #### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
 #### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
@@ -129,7 +129,7 @@
 ## [Java (Hizmet)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Cihazlar)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Azure IoT SDK’ları](http://azure.github.io/azure-iot-sdks/)
-## [Ağ Geçidi SDK’sı](http://azure.github.io/azure-iot-gateway-sdk)
+## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Kaynak Sağlayıcısı)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (Cihaz Kimlikleri)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
 ## [REST (Cihaz İkizleri)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
