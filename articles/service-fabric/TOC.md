@@ -70,9 +70,9 @@
 ##### [Linux üzerinde Java](service-fabric-reliable-services-quick-start-java.md)
 
 #### Reliable Services yaşam döngüsü
-#### [Yapılandırma](service-fabric-reliable-services-configuration.md)
-#### [Bildirim gönderme](service-fabric-reliable-services-notifications.md)
-#### [Yedekleme ve geri yükleme](service-fabric-reliable-services-backup-restore.md)
+##### [Yapılandırma](service-fabric-reliable-services-configuration.md)
+##### [Bildirim gönderme](service-fabric-reliable-services-notifications.md)
+##### [Yedekleme ve geri yükleme](service-fabric-reliable-services-backup-restore.md)
 
 #### Hizmetlerle iletişim kurma
 ##### [Reliable Services özelliğiyle iletişim kurma](service-fabric-reliable-services-communication.md)
@@ -215,6 +215,7 @@
 ### [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md)
 
 ### [Azure CLI kullanarak bir kümeyi yönetme](service-fabric-azure-cli.md)
+### [Küme düğümleri yamalama](service-fabric-patch-orchestration-application.md)
 
 ### Küme kaynaklarını yönetme ve düzenleme
 #### [Cluster Resource Manager’a genel bakış](service-fabric-cluster-resource-manager-introduction.md)
@@ -249,11 +250,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Bir hizmet işleminden günlük toplama](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Windows Server kapsayıcılarını izleme](service-fabric-diagnostics-containers-windowsserver.md)
 ### [Durum bilgisi olan Reliable Services özelliğinde tanılama](service-fabric-reliable-services-diagnostics.md)
 ### [Reliable Actors hizmetinde tanılama](service-fabric-reliable-actors-diagnostics.md)
 ### [Yerel kümenizde sorun giderme](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Başvuru
+## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [Java API’si](/java/api/)
 ## [.NET](/dotnet/api/)
