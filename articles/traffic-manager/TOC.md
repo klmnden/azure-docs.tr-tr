@@ -2,6 +2,7 @@
 ## [Traffic Manager nedir?](traffic-manager-overview.md)
 ## [Yönlendirme yöntemleri](traffic-manager-routing-methods.md)
 ### [Traffic Manager tarafından kullanılan Ülke/Bölge hiyerarşisi](traffic-manager-geographic-regions.md)
+## [İç İçe Traffic Manager profilleri](traffic-manager-nested-profiles.md)
 ## [Uç nokta türleri](traffic-manager-endpoint-types.md)
 ## [Uç Nokta izleme](traffic-manager-monitoring.md)
 ## [SSS](traffic-manager-FAQs.md)

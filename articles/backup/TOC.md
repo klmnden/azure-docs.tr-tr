@@ -71,9 +71,11 @@
 ### [Azure Backup'ta dosya ve klasörlerin yavaş yedeklenmesi](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Kavramlar
+## [Kurtarma Hizmetleri kasalarına genel bakış](backup-azure-recovery-services-vault-overview.md)
+## [Bir Backup kasasının Kurtarma Hizmetleri kasasına geçişi](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Azure Backup kasasını silme](backup-azure-delete-vault.md)
 ## [Rol Tabanlı Access Control](backup-rbac-rs-vault.md)
 ## [Karma yedeklemeler için güvenlik](backup-azure-security-feature.md)
-## [Azure Backup kasasını silme](backup-azure-delete-vault.md)
 ## [Çevrimdışı yedekleme yapılandırma](backup-azure-backup-import-export.md)
 ## [Bant kitaplığınızı değiştirme](backup-azure-backup-cloud-as-tape.md)
 ## [Uygulama ile tutarlı Linux VM yedekleri](backup-azure-linux-app-consistent.md)

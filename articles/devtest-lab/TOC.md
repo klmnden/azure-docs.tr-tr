@@ -4,12 +4,12 @@
 ## Senaryolar
 ### [Eğitim için laboratuvar kullanma](devtest-lab-training-lab.md)
 
-# Kullanmaya Başlama
+# başlarken
 ## [Laboratuvar oluşturma](devtest-lab-create-lab.md)
 ## [İlk sanal makinenizi oluşturma](devtest-lab-create-first-vm.md)
 ## [Başlangıç ilkeleri ayarlama](devtest-lab-get-started-with-lab-policies.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır kılavuzları
 ## Sanal makineleri bir laboratuar ortamında kullanma
 ### [VM oluşturma](devtest-lab-add-vm.md)
 ### [Talep edilebilir VM oluşturma](devtest-lab-add-claimable-vm.md)
@@ -44,6 +44,8 @@
 ## Sanal ağları yönetme
 ### [Sanal ağları yapılandırma](devtest-lab-configure-vnet.md)
 ### [IP yapılandırma seçeneği belirleme](devtest-lab-shared-ip.md)
+
+## [Laboratuvarınızı ölçeklendirme](devtest-lab-scale-lab.md)
 
 # Başvuru
 ## [CLI 2.0](/cli/azure/lab)

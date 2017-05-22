@@ -1,5 +1,5 @@
 # Genel Bakış
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [HDInsight ve Hadoop hakkında](hdinsight-hadoop-introduction.md)
 ## [HDInsight üzerindeki Hadoop bileşenleri](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
@@ -133,6 +133,7 @@
 ### [Bootstrap ile kümeleri özelleştirme](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Betik Eylemi kullanarak kümeleri özelleştirme](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Betik eylemleri geliştirme](hdinsight-hadoop-script-actions-linux.md)
+### [Presto yükleme ve kullanma](hdinsight-hadoop-install-presto.md)
 ### [Mono yükleme veya güncelleştirme](hdinsight-hadoop-install-mono.md)
 ### [Hive kitaplıkları ekleme](hdinsight-hadoop-add-hive-libraries.md)
 ### [Giraph kullanma](hdinsight-hadoop-giraph-install-linux.md)
@@ -221,5 +222,6 @@
 ### [Ambari API’sini kullanarak kümeleri izleme](hdinsight-monitor-use-ambari-api.md)
 
 # Kaynaklar
+## [HDInsight için Windows araçları](hdinsight-hadoop-windows-tools.md)
 ## [Forumdan yardım alma](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

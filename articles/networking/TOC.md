@@ -3,6 +3,7 @@
 ## Mimari
 ### [Birden çok ağ yoluyla Asimetrik yönlendirme](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Ağ tasarımlarının güvenliğini sağlama](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Merkez-uç topolojisi](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 ### [Ağ güvenliği için en iyi uygulamalar](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Yüksek oranda kullanılabilir ağ sanal gereçleri](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Yük dengeleme metotlarını birleştirme](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)

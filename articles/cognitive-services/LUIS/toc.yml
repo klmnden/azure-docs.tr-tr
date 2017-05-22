@@ -1,85 +1,87 @@
-- name: "LUIS Documentation"
+- name: LUIS Belgeleri
   href: ../index.md
-- name: "Overview"
+- name: Genel Bakış
   items: 
-  - name: "Learn about Language Understanding Intelligent Service"
+  - name: Language Understanding Intelligent Service hakkında bilgi edinin
     href: Home.md
-- name: "Quickstarts"
+- name: Hızlı Başlangıçlar
   expanded: true
   items: 
-  - name: "Create a new app"
+  - name: Yeni bir uygulama oluşturma
     href: luis-get-started-create-app.md
-- name: "Tutorials"
+- name: Öğreticiler
   items: 
-  - name: "Integrate LUIS with a bot using Node.js"
+  - name: Node.js kullanarak LUIS’i bir bot ile tümleştirme
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
-- name: "Concepts"
+- name: Kavramlar
   items: 
-  - name: "Intents"
+  - name: Hedefler
     href: luis-concept-intent.md
-  - name: "Entities"
+  - name: Varlıklar
     href: luis-concept-entity-types.md
-  - name: "Utterances"
+  - name: Konuşmalar
     href: luis-concept-utterance.md
-  - name: "Support for multiple languages"
+  - name: Birçok dil desteği
     href: luis-concept-language-support.md
-- name: "How-to guides"
+- name: Nasıl yapılır kılavuzları
   items: 
-  - name: "Plan your app"
+  - name: Uygulamanızı planlama
     href: Plan-your-app.md
-  - name: "Build a LUIS app"
+  - name: LUIS uygulaması oluşturma
     items: 
-    - name: "Start a new app"
+    - name: Yeni bir uygulama başlatma
       href: Create-new-app.md
-    - name: "Add intents"
+    - name: Hedef ekleme
       href: Add-intents.md
-    - name: "Add utterances"
+    - name: Konuşma ekleme
       href: Add-example-utterances.md
-    - name: "Add entities"
+    - name: Varlık ekleme
       href: Add-entities.md
-    - name: "Improve performance using features"
+    - name: Özellikleri kullanarak performansı artırma
       href: Add-Features.md
-    - name: "Train and test the app"
+    - name: Uygulamayı eğitme ve test etme
       href: Train-Test.md
-    - name: "Use active learning"
+    - name: Etkin öğrenmeyi kullanma
       href: Label-Suggested-Utterances.md
-    - name: "Publish your app"
+    - name: Uygulamanızı yayımlama
       href: PublishApp.md
-  - name: "Prebuilt models"
+  - name: Önceden oluşturulmuş modeller
     items: 
-    - name: "Use prebuilt entities"
+    - name: Önceden oluşturulmuş varlıklar kullanma
       href: Pre-builtEntities.md
-    - name: "Use prebuilt domains"
+    - name: Önceden oluşturulmuş etki alanları kullanma
       href: luis-how-to-use-prebuilt-domains.md
-    - name: "Use the Cortana prebuilt app"
+    - name: Önceden oluşturulmuş Cortana uygulamasını kullanma
       href: Cortana-Prebuilt-App.md
-  - name: "Manage your LUIS app"
+  - name: LUIS uygulamanızı yönetme
     items: 
-    - name: "Monitor your app using the dashboard"
+    - name: Panoyu kullanarak uygulamanızı izlemek
       href: App-Dashboard.md
-    - name: "Manage keys"
+    - name: Anahtarları yönetme
       href: Manage-Keys.md
-    - name: "Create subscription keys"
+    - name: Abonelik anahtarları oluşturma
       href: AzureIbizaSubscription.md
-    - name: "Manage versions"
+    - name: Sürümleri yönetme
       href: luis-how-to-manage-versions.md
-    - name: "Collaborate on a LUIS app"
+    - name: Bir LUIS uygulaması üzerinde işbirliği yapma
       href: luis-how-to-collaborate.md    
-- name: "Reference"
+- name: Başvuru
   items: 
-  - name: "LUIS API"
+  - name: Yazma API’leri
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-  - name: "SDKs"
+  - name: Uç nokta API’leri
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
+  - name: SDK’lar
     items:
-    - name: "Android"
+    - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
-    - name: "Node.js"
+    - name: Node.js
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
-    - name: "Python"
+    - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
-    - name: "Windows"
+    - name: Windows
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
-- name: "Resources"
+- name: Kaynaklar
   items: 
-  - name: "LUIS FAQ"
+  - name: LUIS SSS
     href: luis-resources-faq.md

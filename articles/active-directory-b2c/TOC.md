@@ -1,35 +1,34 @@
 # [Genel Bakış](active-directory-b2c-overview.md)
 
-# Kullanmaya Başlama
+# başlarken
 ## [Azure AD B2C dizini oluşturma](active-directory-b2c-get-started.md)
 ## [Uygulamanızı kaydetme](active-directory-b2c-app-registration.md)
-## Mobil ve Masaüstü Uygulamaları
+## Mobil ve masaüstü uygulamalar
 ### [Genel Bakış](active-directory-b2c-reference-oauth-code.md)
 ### iOS
 #### [MSAL kullanarak iOS Swift](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
-#### [AppAuth kullanarak iOS ObjC ](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth)
+#### [AppAuth kullanarak iOS ObjC ](active-directory-b2c-devquickstarts-ios.md)
 ### Android
 #### [MSAL kullanarak Android](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
-#### [AppAuth kullanarak Android](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth)
+#### [AppAuth kullanarak Android](active-directory-b2c-devquickstarts-android.md)
 ### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
-## Web Apps
+## Web uygulamaları
 ### [Genel Bakış](active-directory-b2c-reference-oidc.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
-### [NodeJS](active-directory-b2c-devquickstarts-web-node.md)
-## Tek Sayfa Uygulamaları
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
+### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
+## Tek sayfa uygulamalar
 ### [Genel Bakış](active-directory-b2c-reference-spa.md)
-### [JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-### [.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
-### [NodeJS](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
+### [MSAL kullanarak JavaScript ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+### [Hello kullanarak JavaScript ](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web API'leri
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [NodeJS](active-directory-b2c-devquickstarts-api-node.md)
+### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [.NET web API’si çağırma](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Kılavuzlar
-## Kimlik Sağlayıcıları Yapılandırma
+## Kimlik sağlayıcılarını yapılandırma
 ### [Microsoft Hesabı](active-directory-b2c-setup-msa-app.md)
 ### [Facebook](active-directory-b2c-setup-fb-app.md)
 ### [Google](active-directory-b2c-setup-goog-app.md)
@@ -48,38 +47,39 @@
 ## [Kullanıcı arabirimini özelleştirme](active-directory-b2c-reference-ui-customization.md)
 ### [Özelleştirme için yardımcı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Dil özelleştirmesi](active-directory-b2c-reference-language-customization.md)
+## [Raporlama API’sini kullanma](active-directory-b2c-refererence-usage-reporting-api.md)
 ## [Self servis parola sıfırlamayı ayarlama](active-directory-b2c-reference-sspr.md)
 
 # Kimlik Deneyimi Altyapısı
-## [Özel İlkeler](active-directory-b2c-overview-custom.md)
+## [Özel ilkeler](active-directory-b2c-overview-custom.md)
 ## Kılavuzlar
-### [Kullanmaya Başlama](active-directory-b2c-get-started-custom.md)
-### OIDC Sağlayıcılarını Yapılandırma
+### [Kullanmaya başlama](active-directory-b2c-get-started-custom.md)
+### OIDC sağlayıcılarını yapılandırma
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
-### SAML Sağlayıcılarını Yapılandırma
+### SAML sağlayıcılarını yapılandırma
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### RESTful API’lerini tümleştirme
 #### [Ek talep alma](active-directory-b2c-rest-api-step-custom.md)
 #### [Kullanıcı girişini doğrulama](active-directory-b2c-rest-api-validation-custom.md)
-### Özel Giriş
-#### [Kullanıcı Erişimini Yapılandırma](active-directory-b2c-configure-signup-self-asserted-custom.md)
+### Oturum açmayı özelleştirme
+#### [Kullanıcı erişimini yapılandırma](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Kullanıcı Arabirimini Özelleştirme](active-directory-b2c-ui-customization-custom.md)
-#### [Belirteci Özelleştirme](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Belirteçleri özelleştirme](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Sorun giderme
 #### [Application Insights’ı kullanarak günlük toplama](active-directory-b2c-troubleshoot-custom.md)
 ## Başvuru
 ### [Sürüm notları](active-directory-b2c-developer-notes-custom.md)
 
-
 # Başvuru
 ## Sözlük
 ### [Uygulama türleri](active-directory-b2c-apps.md)
 ### [Kimlik doğrulama protokolleri](active-directory-b2c-reference-protocols.md)
-### [Yerleşik İlkeler](active-directory-b2c-reference-policies.md)
+### [Yerleşik ilkeler](active-directory-b2c-reference-policies.md)
 ### [Belirteçler](active-directory-b2c-reference-tokens.md)
 ## [Bölge kullanılabilirliği ve veri yerleşikliği](active-directory-b2c-reference-tenant-type.md)
-## [Tehdit Yönetimi](active-directory-b2c-reference-threat-management.md)
-## [Sınırlamalar ve Kısıtlamalar](active-directory-b2c-limitations.md)
+## [Faturalamayı etkinleştirme](active-directory-b2c-how-to-enable-billing.md)
+## [Tehdit yönetimi](active-directory-b2c-reference-threat-management.md)
+## [Sınırlamalar ve kısıtlamalar](active-directory-b2c-limitations.md)
 ## [Dizin oluştururken yaşanan sorunlar](active-directory-b2c-support-create-directory.md)
 
 # İlgili

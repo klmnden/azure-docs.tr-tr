@@ -11,6 +11,7 @@
 ## [Bağlı fabrika çözümüne genel bakış](iot-suite-connected-factory-overview.md)
 ## [Uzaktan izleme çözüm kılavuzu](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Tahmine dayalı bakım çözüm kılavuzu](iot-suite-predictive-walkthrough.md)
+## [Bağlı fabrika çözümü kılavuzu](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Raspberry Pi’ye bağlanma](iot-suite-raspberry-pi-kit-get-started.md)
 ### C kullanma
 #### [Sanal veriler](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
