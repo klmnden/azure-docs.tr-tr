@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/08/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: df5832478bf7049a7bb883eacac4be961ef65cf9
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: acb68b274228aa647dc7be5d36b2b077bd213c1b
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,7 +32,7 @@ Bir Service Fabric kümesindeki Windows kapsayıcısında mevcut olan bir uygula
 * [Service Fabric SDK’sı ve araçları](service-fabric-get-started.md).
 *  Windows için Docker.  [Windows için Docker CE edinme (dengeli)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Docker’ı yükleyip başlattıktan sonra tepsi simgesine sağ tıklayıp **Windows kapsayıcılarına geç** öğesini seçin. Bu işlem, Windows temelinde Docker görüntülerini çalıştırmak için gereklidir.
 
-Kapsayıcı içeren Windows Server 2016 üzerinde üç veya daha fazla düğüme sahip bir Windows kümesi - [Küme oluşturun](service-fabric-get-started-azure-cluster.md) veya [Service Fabric’i ücretsiz deneyin](http://tryazureservicefabrictest.westus.cloudapp.azure.com/). 
+Kapsayıcı içeren Windows Server 2016 üzerinde üç veya daha fazla düğüme sahip bir Windows kümesi - [Küme oluşturun](service-fabric-get-started-azure-cluster.md) veya [Service Fabric’i ücretsiz deneyin](http://tryazureservicefabric.westus.cloudapp.azure.com/). 
 
 Azure Container Registry’deki bir kayıt defteri - Azure aboneliğinizde [Kapsayıcı kayıt defteri oluşturun](../container-registry/container-registry-get-started-portal.md). 
 
@@ -193,7 +193,7 @@ Service Fabric SDK’sı ve araçları, bir kapsayıcıyı Service Fabric kümes
 4. Bir tarayıcı açıp http://containercluster.westus2.cloudapp.azure.com adresine gidin. "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
 
 ## <a name="clean-up"></a>Temizleme
-Küme çalışırken size ücret yansımaya devam edebilir, bu nedenle [kümenizi silmeyi](service-fabric-get-started-azure-cluster.md#remove-the-cluster) düşünün.  [Taraf kümeleri](http://tryazureservicefabrictest.westus.cloudapp.azure.com/) birkaç saat sonra otomatik olarak silinir.
+Küme çalışırken size ücret yansımaya devam edebilir, bu nedenle [kümenizi silmeyi](service-fabric-get-started-azure-cluster.md#remove-the-cluster) düşünün.  [Taraf kümeleri](http://tryazureservicefabric.westus.cloudapp.azure.com/) birkaç saat sonra otomatik olarak silinir.
 
 Görüntüyü kapsayıcı kayıt defterine gönderdikten sonra yerel görüntüyü geliştirme bilgisayarınızdan silebilirsiniz:
 
