@@ -1,11 +1,10 @@
 # Genel Bakış
-
 ## [Azure Analysis Services nedir?](analysis-services-overview.md)
 
-# Başlarken
-## [Sunucu oluşturma](analysis-services-create-server.md)
-## [Sunucuya dağıtma](analysis-services-deploy.md)
-## [Bağlanma](analysis-services-connect.md)
+# Hızlı Başlangıçlar
+## [Sunucu oluşturma - portal](analysis-services-create-server.md)
+## [Bir model dağıtma - SSDT](analysis-services-deploy.md)
+
 
 # Öğreticiler
 ## Model oluşturma ve dağıtma
@@ -31,6 +30,7 @@
 ## [Sunucu yönetme](analysis-services-manage.md)
 ## [Kullanıcıları yönetme](analysis-services-manage-users.md)
 ## [Şirket içi veri ağ geçidini tümleştirme](analysis-services-gateway.md)
+## [Sunuculara bağlanma](analysis-services-connect.md)
 ## [Excel ile bağlanma](analysis-services-connect-excel.md)
 ## [Power BI ile bağlanma](analysis-services-connect-pbi.md)
 ## [İstemci kitaplıkları alma](analysis-services-data-providers.md)

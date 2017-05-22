@@ -24,7 +24,6 @@
 ### [Diğer şablonlara bağlantı](resource-group-linked-templates.md)
 ### [Kaynaklar arasında bağımlılık tanımlama](resource-group-define-dependencies.md)
 ### [Birden çok örnek oluşturma](resource-group-create-multiple.md)
-### [Sıralı döngü](resource-manager-sequential-loop.md)
 ### [Konum ayarlama](resource-manager-template-location.md)
 ### [Etiket atama](resource-manager-template-tags.md)
 ### [Alt kaynak adı ve türünü ayarlama](resource-manager-template-child-resource.md)
@@ -44,7 +43,7 @@
 #### [Şablonu dışarı aktarma ve yeniden dağıtma](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Birden çok kaynak grubu dağıtımı](resource-manager-cross-resource-group-deployment.md)
+### [Çapraz kaynak grubu dağıtımı](resource-manager-cross-resource-group-deployment.md)
 ### [Visual Studio Team Services ile sürekli tümleştirme](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Dağıtım sırasında güvenlik değerlerini geçirme](resource-manager-keyvault-parameter.md)
 
