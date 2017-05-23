@@ -63,7 +63,7 @@ Genel olarak dağıtılan bir veritabanı hizmeti olarak Azure Cosmos DB, ölçe
     * Boyut gereksinimlerinizi şimdi ve sonsuza dek karşılamak için depolama alanınızı [şeffaf ve otomatik bir şekilde](partition-data.md) ölçeklendirin.
 
 * [**Yüksek hızda yanıt veren ve görev açısından kritik uygulamalar oluşturun**](#low-latency) 
-    * 99. yüzdebirlik dilimde tek haneli milisaniyelik gecikme süreleriyle verilerinize erişin. 
+    * 99 yüzdebirlik dilimde tek haneli milisaniyelik gecikme süreleriyle verilerinize erişin. 
 
 * [**"Her zaman açık" özelliği ile kullanılabilirlik endişeniz olmaz**](#high-availability)
     * Tek bir bölge içinde %99,99 kullanılabilirlik.
