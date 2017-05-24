@@ -1,28 +1,29 @@
 ---
-title: "DocumentDB kullanarak Java uygulaması geliştirme öğreticisi | Microsoft Belgeleri"
-description: "Bu Java web uygulaması öğreticisi, Azure Web Siteleri&quot;nde barındırılan bir Java uygulamasında verileri depolamak ve bunlara erişmek için Azure DocumentDB hizmetinin nasıl kullanılacağını size gösterir."
+title: "Azure Cosmos DB kullanarak Java uygulaması geliştirme öğreticisi | Microsoft Docs"
+description: "Bu Java web uygulaması öğreticisi, Azure Web Siteleri&quot;nde barındırılan bir Java uygulamasında verileri depolamak ve bunlara erişmek için Azure Cosmos DB hizmetinin nasıl kullanılacağını size gösterir."
 keywords: "Uygulama geliştirme, veritabanı öğreticisi, java uygulaması, java web uygulaması öğreticisi, documentdb, Azure, Microsoft Azure"
-services: documentdb
+services: cosmosdb
 documentationcenter: java
 author: dennyglee
 manager: jhubbard
 editor: mimig
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: denlee
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6e315ea33fe4a493f1ab349482f9af3a732b3127
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a9ba49cb52fee446b7bffaa1579995f2cd095ead
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="build-a-java-web-application-using-documentdb"></a>DocumentDB kullanarak bir Java web uygulaması oluşturma
+# <a name="build-a-java-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB kullanarak bir Java web uygulaması oluşturma
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [MongoDB için .NET](documentdb-mongodb-application.md)
@@ -32,12 +33,12 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Bu Java web uygulaması öğreticisi, Azure Web Siteleri'nde barındırılan bir Java uygulamasında verileri depolamak ve bunlara erişmek için [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) hizmetinin nasıl kullanılacağını size gösterir. Bu konu başlığında şunları öğreneceksiniz:
+Bu Java web uygulaması öğreticisi, Azure Web Siteleri'nde barındırılan bir Java uygulamasında verileri depolamak ve bunlara erişmek için [Microsoft Azure Cosmos DB](https://portal.azure.com/#gallery/Microsoft.Azure Cosmos DB) hizmetinin nasıl kullanılacağını size gösterir. Bu konu başlığında şunları öğreneceksiniz:
 
 * Eclipse'te temel bir JSP uygulaması oluşturma.
-* [DocumentDB Java SDK'sını](https://github.com/Azure/azure-documentdb-java) kullanarak Azure DocumentDB hizmetiyle çalışma.
+* [Azure Cosmos DB Java SDK’sı](https://github.com/Azure/azure-documentdb-java) kullanılarak Azure Cosmos DB hizmetiyle çalışma.
 
-Bu Java uygulaması öğreticisi görevleri oluşturmanızı, almanızı ve aşağıdaki görüntüde gösterilen şekilde tamamlandı olarak işaretlemenizi sağlayan bir web tabanlı görev yönetimi uygulamasını nasıl oluşturacağınızı gösterir. Yapılacaklar listesindeki görevlerin her biri, Azure DocumentDB'de JSON belgeleri olarak depolanır.
+Bu Java uygulaması öğreticisi görevleri oluşturmanızı, almanızı ve aşağıdaki görüntüde gösterilen şekilde tamamlandı olarak işaretlemenizi sağlayan bir web tabanlı görev yönetimi uygulamasını nasıl oluşturacağınızı gösterir. Yapılacaklar listesindeki görevlerin her biri, Azure Cosmos DB'de JSON belgeleri olarak depolanır.
 
 ![Yapılacaklar Listesi Java uygulamam](./media/documentdb-java-application/image1.png)
 
@@ -53,15 +54,15 @@ Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip 
 
     OR
 
-    Yerel bir [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md) yüklemesi.
+    Yerel bir [Azure Cosmos DB Öykünücüsü](documentdb-nosql-local-emulator.md) yüklemesi.
 * [Java Geliştirme Seti (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Java EE Geliştiricileri için Eclipse IDE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Java çalışma zamanı ortamı (ör. Tomcat veya Jetty) etkin bir Azure Web Sitesi.](../app-service-web/web-sites-java-get-started.md)
 
 Bu araçları ilk kez yüklüyorsanız coreservlets.com adresindeki [Öğretici: TomCat7'yi yükleme ve Eclipse ile kullanma](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesinin Hızlı Başlangıç bölümünde yükleme işlem için bir adım adım kılavuz mevcuttur.
 
-## <a id="CreateDB"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
-Bir DocumentDB hesabı oluşturarak başlayalım. Zaten bir hesabınız varsa veya bu öğretici için DocumentDB Öykünücüsü’nü kullanıyorsanız [2. Adım: Java JSP uygulaması oluşturma](#CreateJSP) adımına atlayabilirsiniz.
+## <a id="CreateDB"></a>1. Adım: Azure Cosmos DB veritabanı hesabı oluşturma
+İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [2. Adım: Java JSP uygulaması oluşturma](#CreateJSP) adımına atlayabilirsiniz.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -116,7 +117,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
 6. **Tamam**'a tıkladığınızda Maven DocumentDB Java SDK'sını yükler.
 7. Pom.xml dosyasını kaydedin.
 
-## <a id="UseService"></a>4. Adım: DocumentDB hizmetini bir Java uygulamasında kullanma
+## <a id="UseService"></a>4. Adım: Azure Cosmos DB hizmetini bir Java uygulamasında kullanma
 1. İlk olarak, TodoItem nesnesini tanımlayalım:
    
         @Data
@@ -129,7 +130,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
         }
    
     Bu projede oluşturucuyu, alıcıları ve ayarlayıcıları oluşturmak için [Project Lombok](http://projectlombok.org/)'u kullanıyoruz. Alternatif olarak, bu kodu el ile yazabilir veya IDE'nin oluşturmasını sağlayabilirsiniz.
-2. DocumentDB hizmetini çağırmak için yeni bir **DocumentClient** örneği oluşturmanız gerekir. Genel olarak, sonraki her istek için yeni bir istemci oluşturmak yerine **DocumentClient**'ı tekrar kullanmak en iyisidir. İstemciyi bir **DocumentClientFactory**'ye sarmalayarak tekrar kullanabiliriz. [1. adımda](#CreateDB) panonuza kopyaladığınız URI ve BİRİNCİL ANAHTAR değerini de yapıştırmanız gereken yer burasıdır. [YOUR\_ENDPOINT\_HERE] yerine URI'nizi ve [YOUR\_KEY\_HERE] yerine BİRİNCİL ANAHTARINIZI girin.
+2. Azure Cosmos DB hizmetini çağırmak için yeni bir **DocumentClient** örneği oluşturmanız gerekir. Genel olarak, sonraki her istek için yeni bir istemci oluşturmak yerine **DocumentClient**'ı tekrar kullanmak en iyisidir. İstemciyi bir **DocumentClientFactory**'ye sarmalayarak tekrar kullanabiliriz. [1. adımda](#CreateDB) panonuza kopyaladığınız URI ve BİRİNCİL ANAHTAR değerini de yapıştırmanız gereken yer burasıdır. [YOUR\_ENDPOINT\_HERE] yerine URI'nizi ve [YOUR\_KEY\_HERE] yerine BİRİNCİL ANAHTARINIZI girin.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -140,7 +141,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
         public static DocumentClient getDocumentClient() {
             return documentClient;
         }
-3. Şimdi Yapılacaklar öğelerimizi DocumentDB'de kalıcı hale getirmeyi özetlemek için bir Veri Erişim Nesnesi (DAO) oluşturalım.
+3. Şimdi Yapılacaklar öğelerimizi Azure Cosmos DB'de kalıcı hale getirmeyi özetlemek için bir Veri Erişim Nesnesi (DAO) oluşturalım.
    
     Yapılacaklar öğelerini bir koleksiyona kaydetmek için, istemcinin hangi veritabanı ve koleksiyona kalıcı hale getireceğini (kendine bağlantılar tarafından başvurulduğu üzere) bilmesi gerekir. Genel olarak, veritabanına ek gidiş gelişleri önlemek için veritabanı ve koleksiyonu mümkün olduğunda ön belleğe almak en iyisidir.
    
@@ -153,7 +154,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
             // The name of our collection.
             private static final String COLLECTION_ID = "TodoCollection";
    
-            // The DocumentDB Client
+            // The Azure Cosmos DB Client
             private static DocumentClient documentClient = DocumentClientFactory
                     .getDocumentClient();
    
@@ -257,7 +258,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. DocumentDB veritabanları ve koleksiyonlarına benzer şekilde belgelere de kendine bağlantılar tarafından başvurulur. Aşağıdaki yardımcı işlevi, belgeleri kendine bağlantı yerine başka bir öznitelik (ör. "id") aracılığıyla almamızı sağlar:
+5. Azure Cosmos DB veritabanları ve koleksiyonlarına benzer şekilde belgelere de kendine bağlantılar tarafından başvurulur. Aşağıdaki yardımcı işlevi, belgeleri kendine bağlantı yerine başka bir öznitelik (ör. "id") aracılığıyla almamızı sağlar:
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -334,7 +335,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
    
         @Override
         public boolean deleteTodoItem(String id) {
-            // DocumentDB refers to documents by self link rather than id.
+            // Azure Cosmos DB refers to documents by self link rather than id.
    
             // Query for the document to retrieve the self link.
             Document todoItemDocument = getDocumentById(id);
@@ -464,7 +465,7 @@ Artık eğlenceli kısımları tamamladığımıza göre, geriye sadece hızlı 
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
           <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
-          <title>Azure DocumentDB Java Sample</title>
+          <title>Azure Cosmos DB Java Sample</title>
    
           <!-- Bootstrap -->
           <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -748,7 +749,7 @@ Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Sam
 7. **Dal Seçimi** ekranında **master**'ın seçili olduğundan emin olun ve ardından **İleri**'ye tıklayın.
 8. **Yerel Hedef** ekranında deponun kopyalanabileceği bir klasör seçmek için **Gözat**'a tıklayın ve ardından **İleri**'ye tıklayın.
 9. **Projeleri içeri aktarmada kullanmak için sihirbaz seçin** ekranında **Var olan projeleri içeri aktar**'ın seçili olduğundan emin olun ve ardından **İleri**'ye tıklayın.
-10. **Projeleri İçeri Aktar** ekranında **DocumentDB** projesinin seçimini kaldırın ve ardından **Son**'a tıklayın. DocumentDB projesi, daha sonra bağımlılık olarak ekleyeceğimiz DocumentDB Java SDK'sını içerir.
+10. **Projeleri İçeri Aktar** ekranında **Azure Cosmos DB** projesinin seçimini kaldırın ve ardından **Son**'a tıklayın. Azure Cosmos DB projesi, daha sonra bağımlılık olarak ekleyeceğimiz Azure Cosmos DB Java SDK'sını içerir.
 11. **Proje Gezgini**'nde azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java konumuna gidin ve HOST ve MASTER_KEY değerlerini DocumentDB hesabınızın URI ve BİRİNCİL ANAHTAR değerleriyle değiştirin ve ardından dosyayı kaydedin. Daha fazla bilgi için bkz. [1. Adım. DocumentDB veritabanı hesabı oluşturma](#CreateDB).
 12. **Proje Gezgini**'nde **azure-documentdb-java-sample**'a sağ tıklayın, **Yapı Yolu**'na tıklayın ve ardından **Oluşturma Yolunu Yapılandır**'a tıklayın.
 13. **Java Oluşturma Yolu** ekranında sağ bölmedeki **Kitaplıklar** sekmesini seçin ve ardından **Dış JAR'lar Ekle**'ye tıklayın. Lombok.jar dosyasının konumuna gidin, **Aç**'a tıklayın ve ardından **Tamam**'a tıklayın.

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fba7f5f33d1a0d39219a6790e1d5c6b4515b794c
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 29e8639a6f1f0c2733d24dda78975ea7cfb6107a
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -107,7 +108,7 @@ IoT Hub’ının cihaz yönetimi özelliği, cihaz özelliklerini çözüm porta
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Önceden yapılandırılmış çözüm, cihazlara ait telemetri akışına filtre uygulamak için üç [Azure Akış Analizi][lnk-asa] (ASA) işini kullanır:
 
-* *DeviceInfo işi* - cihaz kaydına özel iletileri çözüm cihaz kayıt defterine (DocumentDB veritabanı) yönlendiren Olay hub’ına verileri çıkarır. Bir cihaz ilk kez bağlandığında veya **Cihaz durumunu değiştir** komutuna yanıt olarak bu ileti gönderilir.
+* *DeviceInfo işi* - cihaz kaydına özel iletileri çözüm cihaz kayıt defterine (Azure Cosmos DB veritabanı) yönlendiren Olay hub’ına verileri çıkarır. Bir cihaz ilk kez bağlandığında veya **Cihaz durumunu değiştir** komutuna yanıt olarak bu ileti gönderilir.
 * *Telemetry işi* - ham telemetrenin tümünü soğuk depolama için Azure blob depolamaya gönderir ve çözüm panosunda görüntülenen telemetri toplamalarını hesaplar.
 * *Rules işi* - kural eşiklerini aşan değerlerle ilgili telemetri akışına filtre uygular ve verilerin çıktısını bir Olay hub’ına alır. Bir kural başlatıldığında, çözüm portalı pano görünümünde bu olay, alarm geçmişi tablosundaki yeni bir satır olarak gösterilir. Bu kurallar ayrıca çözüm portalındaki **Kurallar** ve **Eylemler** görünümlerinde tanımlanan ayarları temel alarak bir eylemi tetikleyebilir.
 
@@ -117,10 +118,10 @@ IoT Hub’ının cihaz yönetimi özelliği, cihaz özelliklerini çözüm porta
 Önceden yapılandırılmış bu çözümde, olay işlemcisi tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını oluşturur.
 
 **DeviceInfo** ve **Rules** ASA işleri, diğer arka iç hizmetlerine dağıtılması amacıyla kendi çıktılarını Olay hub’larına gönderir. Çözüm, bu Olay Hub’larından iletileri okumak için [WebJob][lnk-web-job]'da çalışan bir [EventProcessorHost][lnk-event-processor] örneğini kullanır. **EventProcessorHost** şunları kullanır:
-- DocumentDB veritabanındaki cihaz verilerini güncelleştirmek için **DeviceInfo** verileri.
+- Cosmos DB veritabanındaki cihaz verilerini güncelleştirmek için **DeviceInfo** verileri.
 - Mantıksal uygulamayı çağırmak ve çözüm portalındaki uyarı görüntüsünü güncelleştirmek için **Kural** verileri.
 
-## <a name="device-identity-registry-device-twin-and-documentdb"></a>Cihaz kimliği kayıt defteri, cihaz ikizi ve DocumentDB
+## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Cihaz kimliği kayıt defteri, cihaz ikizi ve Cosmos DB
 Her IoT hub'ında cihaz anahtarlarını depolayan bir [cihaz kimliği kayıt defteri][lnk-identity-registry] vardır. IoT hub'ı bu bilgileri cihazların kimliğini doğrulamak için kullanır - hub’a bağlanmadan önce cihazların kayıtlı ve geçerli bir anahtara sahip olması gerekir.
 
 [Cihaz ikizi][lnk-device-twin], IoT Hub tarafından yönetilen bir JSON belgesidir. Bir cihazın cihaz ikizi şunları içerir:
@@ -129,9 +130,9 @@ Her IoT hub'ında cihaz anahtarlarını depolayan bir [cihaz kimliği kayıt def
 - Cihaza göndermek istediğiniz, istenen özellikler. Bu özellikleri çözüm portalında ayarlayabilirsiniz.
 - Yalnızca cihaz ikizinde bulunan ve cihazda mevcut olmayan etiketler. Bu etiketleri kullanarak çözüm portalındaki cihaz listesini filtreleyebilirsiniz.
 
-Bu çözümde cihaz meta verilerini yönetmek için cihaz ikizleri kullanılır. Çözümde ayrıca her bir cihaz tarafından desteklenen komutlar ve komut geçmişi gibi çözüme özel ek cihaz verilerini depolamak için DocumentDB veritabanı kullanılır.
+Bu çözümde cihaz meta verilerini yönetmek için cihaz ikizleri kullanılır. Çözümde ayrıca her bir cihaz tarafından desteklenen komutlar ve komut geçmişi gibi çözüme özel ek cihaz verilerini depolamak için Cosmos DB veritabanı kullanılır.
 
-Çözüm bu bilgileri, DocumentDB veritabanı içeriğiyle eşitlenmiş cihaz kimliği kayıt defterinde tutmalıdır. **EventProcessorHost**, eşitlemeyi yönetmek için **DeviceInfo** akış analizi işine ait verileri kullanır.
+Çözüm bu bilgileri, Cosmos DB veritabanı içeriğiyle eşitlenmiş cihaz kimliği kayıt defterinde tutmalıdır. **EventProcessorHost**, eşitlemeyi yönetmek için **DeviceInfo** akış analizi işine ait verileri kullanır.
 
 ## <a name="solution-portal"></a>Çözüm portalı
 ![çözüm portalı][img-dashboard]
@@ -168,3 +169,4 @@ IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+

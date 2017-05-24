@@ -1,28 +1,29 @@
 ---
-title: "DocumentDB için NoSQL Node.js öğreticisi | Microsoft Belgeleri"
-description: "DocumentDB Node.js SDK&quot;sını kullanarak NoSQL veritabanı ve konsol uygulaması oluşturan bir NoSQL Node.js öğreticisi. DocumentDB, JSON için bir NoSQL veritabanıdır."
+title: "Azure Cosmos DB için DocumentDB API’si Node.js öğreticisi | Microsoft Docs"
+description: "DocumentDB API’si ile Cosmos DB oluşturan Node.js öğreticisi."
 keywords: "node.js öğreticisi, düğüm veritabanı"
-services: documentdb
+services: cosmosdb
 documentationcenter: node.js
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 8e34fe6461683801ad6c0423567308b7b38d7a00
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="nosql-nodejs-tutorial-documentdb-nodejs-console-application"></a>NoSQL Node.js öğreticisi: DocumentDB Node.js konsol uygulaması
+# <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Node.js öğreticisi: DocumentDB Node.js konsol uygulaması
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -33,11 +34,11 @@ ms.lasthandoff: 03/28/2017
 >  
 > 
 
-Azure DocumentDB Node.js SDK'sı için Node.js öğreticisine hoş geldiniz! Bu öğreticiyi uyguladıktan sonra, DocumentDB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
+Azure Cosmos DB Node.js SDK'sı için Node.js öğreticisine hoş geldiniz! Bu öğreticiyi uyguladıktan sonra, Azure Cosmos DB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
 
 Şu konulara değineceğiz:
 
-* DocumentDB hesabı oluşturma ve DocumentDB hesabına bağlanma
+* Azure Cosmos DB hesabı oluşturma ve hesaba bağlanma
 * Uygulamanızı kurma
 * Düğüm veritabanı oluşturma
 * Koleksiyon oluşturma
@@ -57,11 +58,11 @@ Node.js öğreticisini tamamladıktan sonra, bize geri bildirim sağlamak için 
 Lütfen aşağıdakilere sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [Ücretsiz Azure Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-    * Alternatif olarak bu öğretici için [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md)’nü kullanabilirsiniz.
+    * Alternatif olarak bu öğretici için [Azure Cosmos DB Öykünücüsü](documentdb-nosql-local-emulator.md)’nü kullanabilirsiniz.
 * [Node.js](https://nodejs.org/) v0.10.29 sürümü veya sonraki bir sürüm.
 
-## <a name="step-1-create-a-documentdb-account"></a>1. Adım: DocumentDB hesabı oluşturma
-Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [Node.js uygulamanızı kurma](#SetupNode)'ya atlayabilirsiniz. DocumentDB Öykünücüsü’nü kullanıyorsanız öykünücünün kurulumunu gerçekleştirmek için lütfen [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md) konusundaki adımları izleyin ve [Node.js uygulamanızı kurma](#SetupNode) adımına atlayın.
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
+Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [Node.js uygulamanızı kurma](#SetupNode)'ya atlayabilirsiniz. Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız öykünücünün kurulumunu gerçekleştirmek için lütfen [Azure Cosmos DB Öykünücüsü](documentdb-nosql-local-emulator.md) konusundaki adımları izleyin ve [Node.js uygulamanızı ayarlama](#SetupNode) adımına atlayın.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -85,7 +86,7 @@ Sık kullandığınız metin düzenleyicisinde ```config.js``` öğesini açın.
 
 Ardından, aşağıdaki kod parçacığını kopyalayıp yapıştırın ve DocumentDB uç noktası uri ve birincil anahtarınıza ```config.endpoint``` ve ```config.primaryKey``` özelliklerini ayarlayın. Bu yapılandırmaların her ikisini de [Azure Portalı](https://portal.azure.com)'nda bulabilirsiniz.
 
-![Node.js öğreticisi - ETKİN hub'ı vurgulanmış, DocumentDB hesabı dikey penceresinde ANAHTARLAR düğmesi vurgulanmış ve Anahtarlar dikey penceresinde URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir DocumentDB hesabını gösteren Azure Portalı'nın ekran görüntüsü - Node veritabanı][keys]
+![Node.js öğreticisi - ETKİN hub'ı vurgulanmış, Azure Cosmos DB hesabı dikey penceresinde ANAHTARLAR düğmesi vurgulanmış ve Anahtarlar dikey penceresinde URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir Azure Cosmos DB hesabını gösteren Azure Portalı'nın ekran görüntüsü - Node veritabanı][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
@@ -93,7 +94,7 @@ Ardından, aşağıdaki kod parçacığını kopyalayıp yapıştırın ve Docum
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
-Aşağıdaki ```config.endpoint``` ve ```config.authKey``` özelliklerinizi ayarladığınız ```config``` nesnenize ```database id```, ```collection id``` ve ```JSON documents``` öğelerini kopyalayıp yapıştırın. Veritabanınızda depolamak istediğiniz veriler zaten varsa belge tanımları eklemek yerine DocumentDB'nin [Veri Geçiş Aracı](documentdb-import-data.md)'nı kullanabilirsiniz.
+Aşağıdaki ```config.endpoint``` ve ```config.authKey``` özelliklerinizi ayarladığınız ```config``` nesnenize ```database id```, ```collection id``` ve ```JSON documents``` öğelerini kopyalayıp yapıştırın. Veritabanınızda depolamak istediğiniz veriler zaten varsa belge tanımları eklemek yerine Azure Cosmos DB'nin [Veri Geçiş Aracı](documentdb-import-data.md)'nı kullanabilirsiniz.
 
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
@@ -177,7 +178,7 @@ Son olarak, ```app.js``` dosyasının içinde başvurabilmek için ```config``` 
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a id="Connect"></a>4. Adım: DocumentDB hesabına bağlanma
+## <a id="Connect"></a> 4. Adım: Azure Cosmos DB hesabına bağlanma
 Bir metin düzenleyicisinde boş ```app.js``` dosyanızı açın. ```documentdb``` modülünü ve yeni oluşturduğunuz ```config``` modülünü içeri aktarmak için aşağıdaki kodu kopyalayıp yapıştırın.
 
     // ADD THIS PART TO YOUR CODE
@@ -259,7 +260,7 @@ Aşağıdaki kodu kopyalayın ve çıkış iletisini ve **getDatabase** işlevin
 
 Terminalinizde ```app.js``` dosyanızı bulun ve şu komutu çalıştırın: ```node app.js```
 
-Tebrikler! Başarılı bir şekilde bir DocumentDB veritabanı oluşturdunuz.
+Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanı oluşturdunuz.
 
 ## <a id="CreateColl"></a>6. Adım: Koleksiyon oluşturma
 > [!WARNING]
@@ -369,8 +370,8 @@ Tebrikler! Başarılı bir şekilde bir DocumentDB belgesi oluşturdunuz.
 
 ![Node.js öğreticisi - Hesap, veritabanı, koleksiyon ve belgeler arasındaki hiyerarşik ilişkiyi gösteren diyagram - Node veritabanı](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-## <a id="Query"></a>8. Adım: DocumentDB kaynaklarını sorgulama
-DocumentDB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler. Aşağıdaki örnek kod, koleksiyonunuzdaki belgeler için çalıştırabileceğiniz bir sorguyu gösterir.
+## <a id="Query"></a>8. Adım: Azure Cosmos DB kaynaklarını sorgulama
+Azure Cosmos DB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler. Aşağıdaki örnek kod, koleksiyonunuzdaki belgeler için çalıştırabileceğiniz bir sorguyu gösterir.
 
 **queryCollection** işlevini kopyalayıp app.js dosyasındaki **getFamilyDocument** işlevinin altına yapıştırın. DocumentDB, aşağıda gösterildiği gibi SQL benzeri sorguları destekler. Karmaşık sorgular derleme hakkında daha fazla bilgi için [Query Playground](https://www.documentdb.com/sql/demo) sayfasını ve [sorgu belgelerini](documentdb-sql-query.md) inceleyin.
 
@@ -424,10 +425,10 @@ DocumentDB sorguları zaten tek bir koleksiyon kapsamında olduğundan, sorgudak
 
 Terminalinizde ```app.js``` dosyanızı bulun ve şu komutu çalıştırın: ```node app.js```
 
-Tebrikler! DocumentDB belgelerini başarılı bir şekilde sorguladınız.
+Tebrikler! Başarılı bir şekilde Azure Cosmos DB belgelerini sorguladınız.
 
 ## <a id="ReplaceDocument"></a>9. Adım: Bir belgeyi değiştirme
-DocumentDB, JSON belgelerini değiştirmeyi destekler.
+Azure Cosmos DB, JSON belgelerini değiştirmeyi destekler.
 
 **replaceFamilyDocument** işlevini kopyalayıp app.js dosyasındaki **queryCollection** işlevinin altına yapıştırın.
 
@@ -471,10 +472,10 @@ DocumentDB, JSON belgelerini değiştirmeyi destekler.
 
 Terminalinizde ```app.js``` dosyanızı bulun ve şu komutu çalıştırın: ```node app.js```
 
-Tebrikler! Bir DocumentDB belgesini başarıyla değiştirdiniz.
+Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belgesini değiştirdiniz.
 
 ## <a id="DeleteDocument"></a>10. Adım: Bir belgeyi silme
-DocumentDB, JSON belgelerini silmeyi destekler.
+Azure Cosmos DB, JSON belgelerini silmeyi destekler.
 
 **deleteFamilyDocument** işlevini **replaceFamilyDocument** işlevinin altına kopyalayıp yapıştırın.
 
@@ -515,7 +516,7 @@ DocumentDB, JSON belgelerini silmeyi destekler.
 
 Terminalinizde ```app.js``` dosyanızı bulun ve şu komutu çalıştırın: ```node app.js```
 
-Tebrikler! Bir DocumentDB belgesini başarıyla sildiniz.
+Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belgesini sildiniz.
 
 ## <a id="DeleteDatabase"></a>11. Adım: Node veritabanını silme
 Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler vb.) kaldırılır.
@@ -601,14 +602,14 @@ Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı aşağıda
     Completed successfully
     Press any key to exit
 
-Tebrikler! Node.js öğreticisini tamamladınız ve ilk DocumentDB konsol uygulamanızı oluşturdunuz.
+Tebrikler! Node.js öğreticisini tamamladınız ve ilk Azure Cosmos DB konsol uygulamanızı oluşturdunuz!
 
 ## <a id="GetSolution"></a>Eksiksiz Node.js öğreticisi çözümünü edinme
 Bu öğreticideki adımları tamamlama fırsatınız olmadıysa veya yalnızca kodu indirmek isterseniz [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started)'dan ulaşabilirsiniz.
 
 Bu makaledeki tüm örnekleri içeren GetStarted çözümünü çalıştırmak için aşağıdakilere ihtiyacınız vardır:
 
-* [DocumentDB hesabı][documentdb-create-account].
+* [Azure Cosmos DB hesabı][documentdb-create-account].
 * GitHub'da bulunan [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) çözümü.
 
 Npm aracılığıyla **documentdb** modülünü yükleyin. Aşağıdaki komutu kullanın:
@@ -622,10 +623,10 @@ Ardından terminalinizde ```app.js``` dosyanızı bulun ve şu komutu çalışt�
 Hepsi bu kadar, derleyin ve devam edin! 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha karmaşık bir Node.js örneği ister misiniz? Bkz. [DocumentDB kullanarak bir Node.js web uygulaması derleme](documentdb-nodejs-application.md).
-* [Bir DocumentDB hesabını izleme](documentdb-monitor-accounts.md) hakkında bilgi edinin.
+* Daha karmaşık bir Node.js örneği ister misiniz? Bkz. [Azure Cosmos DB kullanarak bir Node.js web uygulaması oluşturma](documentdb-nodejs-application.md).
+* [Azure Cosmos DB hesabını nasıl izleyebileceğinizi](documentdb-monitor-accounts.md) öğrenin.
 * [Query Playground](https://www.documentdb.com/sql/demo)'daki örnek veri kümelerimizde sorgular çalıştırın.
-* [DocumentDB belge sayfasının](https://azure.microsoft.com/documentation/services/documentdb/) Geliştirme bölümünde programlama modeli hakkında daha fazla bilgi edinin.
+* [Azure Cosmos DB belgeleri sayfasının](https://azure.microsoft.com/documentation/services/documentdb/) Geliştirme bölümünde programlama modeli hakkında daha fazla bilgi edinin.
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png

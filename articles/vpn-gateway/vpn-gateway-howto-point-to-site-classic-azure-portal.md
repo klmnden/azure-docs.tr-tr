@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: add8cf22430c9e7af47e6d3c242fbd25797dd099
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: c64e352a0a814b869703e1b00a6a0698f19b0ff9
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -36,9 +36,19 @@ Bu makalede, Azure portalı kullanılarak klasik dağıtım modelinde Noktadan S
 >
 >
 
-Noktadan Siteye (P2S) yapılandırması, ayrı bir istemci bilgisayardan bir sanal ağa yönelik güvenli bağlantı oluşturmanıza olanak sağlar. P2S, SSTP (Güvenli Yuva Tünel Protokolü) aracılığıyla gerçekleşen bir VPN bağlantısıdır. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda Noktadan Siteye bağlantıları kullanışlıdır. P2S bağlantılarının bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısını istemci bilgisayardan kurarsınız. Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için bu makalenin sonunda yer alan [Noktadan Siteye hakkında SSS](#faq) bölümünü inceleyin.
+Noktadan Siteye (P2S) yapılandırması, ayrı bir istemci bilgisayardan bir sanal ağa yönelik güvenli bağlantı oluşturmanıza olanak sağlar. P2S, SSTP (Güvenli Yuva Tünel Protokolü) aracılığıyla gerçekleşen bir VPN bağlantısıdır. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda Noktadan Siteye bağlantıları kullanışlıdır. P2S bağlantılarının bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısını istemci bilgisayardan kurarsınız. 
+
 
 ![Noktadan Siteye diyagramı](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
+
+P2S bağlantıları aşağıdakileri gerektirir:
+
+* Bir Dinamik VPN ağ geçidi.
+* Azure’a yüklenmiş bir kök sertifikanın ortak anahtarı (.cer dosyası). Bu dosya, güvenilen bir sertifika olarak kabul edilir ve kimlik doğrulaması için kullanılır.
+* Kök sertifikadan oluşturulmuş ve bağlanacak her bir istemci bilgisayara yüklenmiş istemci sertifikası. Bu sertifika, istemci kimlik doğrulaması için kullanılır.
+* Bir VPN istemcisi yapılandırma paketi oluşturulmalı ve bağlanan her istemci bilgisayara yüklenmelidir. İstemci yapılandırma paketi, işletim sistemi üzerinde zaten bulunan yerel VPN istemcisini sanal ağa bağlanmak için gereken bilgilerle yapılandırır.
+
+Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için bu makalenin sonunda yer alan [Noktadan Siteye hakkında SSS](#faq) bölümünü inceleyin.
 
 ### <a name="example-settings"></a>Örnek ayarlar
 
@@ -98,7 +108,7 @@ Bu adımda bir ağ geçidi alt ağı ve dinamik yönlendirme ağ geçidi oluştu
 3. **Yeni VPN Bağlantısı** dikey penceresinde **Noktadan siteye** öğesini seçin.
 
   ![Noktadan Siteye bağlantı türü](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. **İstemci Adres Alanı** için IP adresi aralığını ekleyin. Bu aralık, VPN istemcilerinin bağlanırken bir IP adresi aldığı aralıktır. Otomatik olarak doldurulan aralığı silin ve kendi aralığınızı ekleyin.
+4. **İstemci Adres Alanı** için IP adresi aralığını ekleyin. Bu aralık, VPN istemcilerinin bağlanırken bir IP adresi aldığı aralıktır. Bağlantıyı kuracağınız şirket içi konum veya bağlanmak istediğiniz sanal ağ ile çakışmayan özel bir IP adresi aralığı kullanın. Otomatik olarak doldurulan aralığı silebilir, ardından kullanmak istediğiniz özel IP adresi aralığını ekleyebilirsiniz.
 
   ![İstemci adres alanı](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. **Ağ geçidini hemen oluştur** onay kutusunu seçin.
@@ -116,11 +126,11 @@ Bu adımda bir ağ geçidi alt ağı ve dinamik yönlendirme ağ geçidi oluştu
 9. Ağ geçidiniz için **Yönlendirme Türü** seçin. P2S yapılandırmaları bir **Dinamik** yönlendirme türü gerektirir. Bu dikey pencereyi yapılandırmayı bitirdiğinizde **Tamam**’a tıklayın.
 
   ![Yönlendirme türünü yapılandırma](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
-10. **Yeni VPN Bağlantısı** dikey penceresinde, sanal ağ geçidinizi oluşturmaya başlamak için dikey pencerenin en altındaki **Tamam**’a tıklayın. Bir VPN ağ geçidinin tamamlanması 45 dakika sürebilir.
+10. **Yeni VPN Bağlantısı** dikey penceresinde, sanal ağ geçidinizi oluşturmaya başlamak için dikey pencerenin en altındaki **Tamam**’a tıklayın. Bir VPN ağ geçidi işleminin tamamlanması, seçtiğiniz ağ geçidi sku'suna bağlı olarak 45 dakikaya kadar sürebilir.
 
 ## <a name="generatecerts"></a>2. Bölüm - Sertifika oluşturma
 
-Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak için Azure tarafından sertifikalar kullanılır.
+Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak için Azure tarafından sertifikalar kullanılır. Kök sertifikanın ortak anahtar bilgilerini Azure'a yükleyin. Bundan sonra ortak anahtar, 'güvenilir' olarak kabul edilir. Güvenilir kök sertifikadan istemci sertifikaları oluşturulmalı ve sonra Sertifikalar-Geçerli Kullanıcı/Kişisel sertifika deposundaki her bir istemci bilgisayara yüklenmelidir. Sertifika, sanal ağ ile bağlantı başlattığında istemcinin kimliğini doğrulamak için kullanılır. Sertifika oluşturma ve yükleme hakkında daha fazla bilgi için bkz. [Noktadan Siteye Sertifikaları](vpn-gateway-certificates-point-to-site.md).
 
 ### <a name="cer"></a>1. Kısım: Kök sertifikaya ilişkin ortak anahtarı (.cer) alma
 
@@ -132,7 +142,7 @@ Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak i�
 
 ## <a name="upload"></a>3. Bölüm - Kök sertifika .cer dosyasını karşıya yükleme
 
-Ağ geçidi oluşturulduktan sonra güvenilen bir kök sertifika için .cer dosyasını Azure’a yükleyebilirsiniz. 20 adede kadar kök sertifikasının dosyasını yükleyebilirsiniz. Kök sertifikanın özel anahtarını Azure'a yüklemezsiniz. .cer dosyası yüklendikten sonra Azure, sanal ağa bağlanan istemcilerin kimliğini doğrulamak için bu anahtarı kullanır.
+Ağ geçidi oluşturulduktan sonra, güvenilen kök sertifikanın .cer dosyasını (ortak anahtar bilgilerini içerir) Azure’a yükleyebilirsiniz. Kök sertifikanın özel anahtarını Azure'a yüklemezsiniz. Bir .cer dosyası karşıya yüklendikten sonra Azure, güvenilir kök sertifikadan oluşturulmuş bir istemci sertifikasının yüklü olduğu istemcilerin kimliklerini doğrulamak için bu dosyayı kullanabilir. Daha sonra gerekirse, toplam 20 adede kadar güvenilir kök sertifika dosyasını karşıya yükleyebilirsiniz.  
 
 1. Sanal ağınıza ait dikey pencerenin **VPN bağlantıları** bölümünde **istemciler** grafiğine tıklayarak **Noktadan siteye VPN bağlantısı** dikey penceresini açın.
 
@@ -149,9 +159,9 @@ Ağ geçidi oluşturulduktan sonra güvenilen bir kök sertifika için .cer dosy
 
 ## <a name="vpnclientconfig"></a>4. Bölüm - İstemciyi yapılandırma
 
-Noktadan Siteye VPN kullanarak bir sanal ağa bağlanmak için her istemcinin bir VPN istemcisi yapılandırma paketi yüklemesi gerekir. Paket bir VPN istemcisi yüklemez. Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayarda aynı VPN istemcisi yapılandırma paketini kullanabilirsiniz. Desteklenen istemci işletim sistemlerinin listesi için bu makalenin sonundaki [Noktadan Siteye bağlantılar hakkında SSS](#faq) bölümüne bakın.
+Noktadan Siteye VPN kullanarak bir sanal ağa bağlanmak için her istemcinin yerel Windows VPN istemcisini yapılandırmaya yönelik bir paket yüklemesi gerekir. Yapılandırma paketi, yerel Windows VPN istemcisini sanal ağa bağlanmak için gereken ayarlarla yapılandırır ve sanal ağınız için bir DNS sunucusu belirttiyseniz, istemcinin ad çözümlemesi için kullanacağı DNS sunucusu IP adresini içerir. Belirtilen DNS sunucusunu daha sonra değiştirirseniz, istemci yapılandırma paketini oluşturduktan sonra istemci bilgisayarlarınıza yüklenecek yeni bir istemci yapılandırma paketi oluşturduğunuzdan emin olun.
 
-Yapılandırma paketi, yerel Windows VPN istemcisini sanal ağa bağlanmak için gereken ayarlarla yapılandırır ve sanal ağınız için bir DNS sunucusu belirttiyseniz, istemcinin ad çözümlemesi için kullanacağı DNS sunucusu IP adresini içerir. Belirtilen DNS sunucusunu daha sonra değiştirirseniz, istemci yapılandırma paketini oluşturduktan sonra istemci bilgisayarlarınıza yüklenecek yeni bir istemci yapılandırma paketi oluşturduğunuzdan emin olun.
+Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayarda aynı VPN istemcisi yapılandırma paketini kullanabilirsiniz. Desteklenen istemci işletim sistemlerinin listesi için bu makalenin sonundaki [Noktadan Siteye bağlantılar hakkında SSS](#faq) bölümüne bakın.
 
 ### <a name="part-1-generate-and-install-the-vpn-client-configuration-package"></a>1. Kısım - VPN istemcisi yapılandırma paketini oluşturma ve yükleme
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: dc8ee6a0f17c20c5255d95c7b6f636d89ffe3aee
-ms.openlocfilehash: 9bd4232670256ec7889dd367ea2ea01a2845e789
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 57544151cc020e5170ebd231b5e4d8f424aeada0
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,7 +51,7 @@ Her sanal cihaz IoT Hub'ına aşağıdaki ileti türlerini gönderebilir:
 | Telemetri |Bir cihaz, düzenli aralıklarla cihazın sanal sensörlerinden toplanan sıcaklık ve nem sanal değerlerini bildiren bir **telemetri** iletisi gönderir. |
 
 > [!NOTE]
-> Çözüm, cihaz tarafından desteklenen komutların listesini cihaz ikizinde değil, DocumentDB veritabanında depolar.
+> Çözüm, cihaz tarafından desteklenen komutların listesini cihaz ikizinde değil, Cosmos DB veritabanında depolar.
 > 
 > 
 
@@ -229,10 +230,10 @@ ASA işleri **cihaz bilgisi** ve **kurallar** verilerini, WebJob’da çalışan
 Çözüm, çözümdeki cihazlarda bulunan tüm ham ve özet telemetri verilerini kalıcı hale getirmek için Azure Blob Depolama kullanır. Portal, blob depolama alanından telemetri verilerini okuyarak grafikleri doldurur. Uyarıları görüntülemek için çözüm portalı, telemetri değerleri yapılandırılmış eşik değerlerini aştığında kayıt altına alan blob depolama alanından verileri okur. Çözüm, çözüm portalında sizin ayarladığınız eşik değerlerini kaydetmek için de blob depolama alanını kullanır.
 
 ## <a name="webjobs"></a>WebJobs
-WebJobs cihaz benzeticilerini barındırmaya ek olarak çözüm içinde komut yanıtlarını işleyen bir Azure WebJob içinde çalışan **Olay İşleyicisi**’ni de barındırır. Cihaz komut geçmişini (DocumentDB veritabanında depolanır) güncelleştirmek için komut yanıtı iletilerini kullanır.
+WebJobs cihaz benzeticilerini barındırmaya ek olarak çözüm içinde komut yanıtlarını işleyen bir Azure WebJob içinde çalışan **Olay İşleyicisi**’ni de barındırır. Cihaz komut geçmişini (Cosmos DB veritabanında depolanır) güncelleştirmek için komut yanıtı iletilerini kullanır.
 
-## <a name="documentdb"></a>DocumentDB
-Çözüm, kendisine bağlı cihazlarla ilgili bilgileri depolamak için bir DocumentDB veritabanı kullanır. Bu bilgiler çözüm portalından cihazlara gönderilen komutların ve çözüm portalından çağrılan yöntemlerin geçmişini içerir.
+## <a name="cosmos-db"></a>Cosmos DB
+Çözüm, kendisine bağlı cihazlarla ilgili bilgileri depolamak için bir Cosmos DB veritabanı kullanır. Bu bilgiler çözüm portalından cihazlara gönderilen komutların ve çözüm portalından çağrılan yöntemlerin geçmişini içerir.
 
 ## <a name="solution-portal"></a>Çözüm portalı
 
@@ -244,7 +245,7 @@ Web uygulamasındaki bu sayfa, cihazlardaki telemetri verilerini görselleştirm
 ### <a name="device-list"></a>Cihaz listesi
 Çözüm portalındaki bu sayfadan şunları yapabilirsiniz:
 
-* Yeni bir cihaz hazırlayın. Bu eylem, benzersiz cihaz kimliğini ayarlar ve kimlik doğrulaması anahtarını oluşturur. Hem IoT Hub kimlik kayıt defterine hem de çözüme özel DocumentDB veritabanına cihaz hakkındaki bilgileri yazar.
+* Yeni bir cihaz hazırlayın. Bu eylem, benzersiz cihaz kimliğini ayarlar ve kimlik doğrulaması anahtarını oluşturur. Hem IoT Hub kimlik kayıt defterine hem de çözüme özel Cosmos DB veritabanına cihaz hakkındaki bilgileri yazar.
 * Cihaz özelliklerini yönetin. Bu eylem, mevcut özellikleri görüntülemeyi ve yeni özelliklerle güncelleştirmeyi kapsar.
 * Cihaza komut gönderme.
 * Cihaz için komut geçmişini görüntüleme.
@@ -271,3 +272,4 @@ Aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+

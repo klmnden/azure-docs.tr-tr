@@ -11,7 +11,7 @@ Yapılandırılmış ve ilişkisel olmayan verilerin büyük kümelerini depolam
 ## <a name="table-service-concepts"></a>Tablo Hizmeti Kavramları
 Tablo hizmetinde şu bileşenler bulunur:
 
-![Table1][Table1]
+![Tablo hizmeti bileşen diyagramı][Table1]
 
 * **URL biçimi:** Kod, buradaki adres biçimini kullanarak hesaptaki tabloları işaret eder:   
   http://`<storage account>`.table.core.windows.net/`<table>`  
@@ -26,8 +26,3 @@ Tabloları ve özellikleri adlandırma hakkında daha fazla bilgi için bkz. [Ta
 
 [Table1]: ./media/storage-table-concepts-include/table1.png
 [OData.org]: http://www.odata.org/
-
-
-<!--HONumber=Nov16_HO2-->
-
-

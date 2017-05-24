@@ -13,19 +13,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/3/2017
+ms.date: 5/8/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: cd07cfe9663ffe2561f87b76b3eef1a551c9d665
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup özelliklerine genel bakış
-Azure Backup, verilerinizi Microsoft bulutunda yedeklemek (veya korumak) ve geri yüklemek için kullanabileceğiniz Azure tabanlı bir hizmettir. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir) verileri Azure’daki bir yedek kasasına yedeklemek için kullanılabilir. Belirli verileri, uygulamaları veya iş yüklerini korumak için kullanılacak bileşenler hakkında bilgi almak için [Azure Backup bileşen tablosuna](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (bu makalenin ilerleyen bölümlerinde) bakın.
+Azure Backup, verilerinizi Microsoft bulutunda yedeklemek (veya korumak) ve geri yüklemek için kullanabileceğiniz Azure tabanlı bir hizmettir. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir), verileri Azure’daki bir Kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. Belirli verileri, uygulamaları veya iş yüklerini korumak için kullanılacak bileşenler hakkında bilgi almak için [Azure Backup bileşen tablosuna](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (bu makalenin ilerleyen bölümlerinde) bakın.
 
 [Azure Backup'a genel bakış videosunu izleyin](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
 
@@ -42,7 +42,7 @@ Geleneksel yedekleme çözümleri, bulutu disk veya bantlara benzer bir uç nokt
 
 * Coğrafi olarak yedekli depolama (GRS), verilerinizi ikincil bir bölgeye (kaynak verilerin birincil konumundan yüzlerce kilometre uzakta) kopyalar. GRS’nin maliyeti LRS’den yüksektir ancak bölgesel kesintiler olsa bile daha yüksek veri dayanıklılık düzeyi sunar.
 
-**Sınırsız veri aktarımı** - Azure Backup, aktardığınız verilerde aşağı ya da yukarı yönlü bir sınırlama yapmaz. Azure Backup ayrıca aktarılan veriler için ücret talep etmez. Ancak, büyük miktarda veriyi içeri aktarmak için Azure İçeri/Dışarı Aktarma hizmetini kullanırsanız gelen verilerden ücret alınır. Bu maliyet hakkında daha fazla bilgi için bkz. [Azure Backup’ta çevrimdışı yedekleme iş akışı](backup-azure-backup-import-export.md). Giden veriler, geri yükleme işlemi sırasında bir yedek kasasından aktarılan verileri tanımlar.
+**Sınırsız veri aktarımı** - Azure Backup, aktardığınız verilerde aşağı ya da yukarı yönlü bir sınırlama yapmaz. Azure Backup ayrıca aktarılan veriler için ücret talep etmez. Ancak, büyük miktarda veriyi içeri aktarmak için Azure İçeri/Dışarı Aktarma hizmetini kullanırsanız gelen verilerden ücret alınır. Bu maliyet hakkında daha fazla bilgi için bkz. [Azure Backup’ta çevrimdışı yedekleme iş akışı](backup-azure-backup-import-export.md). Giden veriler, geri yükleme işlemi sırasında bir Kurtarma Hizmetleri kasasından aktarılan verileri tanımlar.
 
 **Veri şifrelemesi** - Veri şifrelemesi, genel bulutta verilerinizin güvenli şekilde iletilmesini ve depolanmasını sağlar. Şifreleme parolası yerel olarak depolanır ve hiçbir zaman Azure'a iletilmez veya orada depolanmaz. Verileri geri yüklemeniz gerekirse, şifreleme parolası veya anahtarı yalnızca sizde olur.
 
@@ -55,18 +55,18 @@ Geleneksel yedekleme çözümleri, bulutu disk veya bantlara benzer bir uç nokt
 
 | Bileşen | Avantajlar | Sınırlar | Neler korunuyor? | Yedekler nerede saklanıyor? |
 | --- | --- | --- | --- | --- |
-| Azure Backup (MARS) aracısı |<li>Fiziksel veya sanal Windows işletim sistemi üzerindeki dosya ve klasörleri yedekler (VM’ler şirket içinde veya Azure’da olabilir)<li>Ayrı bir yedekleme sunucusu gerekli değildir. |<li>Günde 3 kez yedekleme <li>Uygulamayı algılamaz; yalnızca dosya, klasör ve birim düzeyinde geri yükleme, <li>  Linux desteği yok. |<li>Dosyalar, <li>Klasörler |Azure Backup kasası |
-| System Center DPM |<li>Uygulama kullanan anlık görüntüler (VSS)<li>Yedeklemelerin alınma zamanı için tam esneklik<li>Kurtarma ayrıntı düzeyi (tümü)<li>Azure Backup kasasını kullanabilir<li>Hyper-V ve VMware VM’lerinde Linux desteği <li>DPM 2012 R2 kullanarak VMware WM’lerini yedekleme ve geri yükleme |Oracle iş yükü yedeklenemiyor.|<li>Dosyalar, <li>Klasörler,<li> Birimler, <li>VM’ler,<li> Uygulamalar,<li> İş yükleri |<li>Azure Backup kasası,<li> Yerel olarak bağlı disk,<li>  Bant (yalnızca şirket içi) |
-| Azure Backup Sunucusu |<li>Uygulama kullanan anlık görüntüler (VSS)<li>Yedeklemelerin alınma zamanı için tam esneklik<li>Kurtarma ayrıntı düzeyi (tümü)<li>Azure Backup kasasını kullanabilir<li>Hyper-V ve VMware VM’lerinde Linux desteği<li>VMware VM’lerini yedekleme ve geri yükleme <li>System Center lisansı gerektirmez |<li>Oracle iş yükü yedeklenemiyor.<li>Her zaman canlı Azure aboneliği gerektirir<li>Bant yedekleme desteği yoktur |<li>Dosyalar, <li>Klasörler,<li> Birimler, <li>VM’ler,<li> Uygulamalar,<li> İş yükleri |<li>Azure Backup kasası,<li> Yerel olarak bağlı disk |
-| Azure IaaS VM Backup |<li>Windows/Linux için yerel yedeklemeler<li>Belirli bir aracı yüklemesi gerekmez<li>Yedekleme altyapısı gerekmeden yapı düzeyinde yedekleme |<li>VM’leri günde bir kez yedekleme <li>VM’leri yalnızca disk düzeyinde geri yükleme<li>Şirket içi yedekleme gerçekleştirilemez |<li>VM’ler, <li>Tüm diskler (PowerShell kullanarak) |<p>Azure Backup kasası</p> |
+| Azure Backup (MARS) aracısı |<li>Fiziksel veya sanal Windows işletim sistemi üzerindeki dosya ve klasörleri yedekler (VM’ler şirket içinde veya Azure’da olabilir)<li>Ayrı bir yedekleme sunucusu gerekli değildir. |<li>Günde 3 kez yedekleme <li>Uygulamayı algılamaz; yalnızca dosya, klasör ve birim düzeyinde geri yükleme, <li>  Linux desteği yok. |<li>Dosyalar, <li>Klasörler |Kurtarma Hizmetleri kasası |
+| System Center DPM |<li>Uygulama kullanan anlık görüntüler (VSS)<li>Yedeklemelerin alınma zamanı için tam esneklik<li>Kurtarma ayrıntı düzeyi (tümü)<li>Kurtarma Hizmetleri kasasını kullanabilir<li>Hyper-V ve VMware VM’lerinde Linux desteği <li>DPM 2012 R2 kullanarak VMware WM’lerini yedekleme ve geri yükleme |Oracle iş yükü yedeklenemiyor.|<li>Dosyalar, <li>Klasörler,<li> Birimler, <li>VM’ler,<li> Uygulamalar,<li> İş yükleri |<li>Kurtarma Hizmetleri kasası,<li> Yerel olarak bağlı disk,<li>  Bant (yalnızca şirket içi) |
+| Azure Backup Sunucusu |<li>Uygulama kullanan anlık görüntüler (VSS)<li>Yedeklemelerin alınma zamanı için tam esneklik<li>Kurtarma ayrıntı düzeyi (tümü)<li>Kurtarma Hizmetleri kasasını kullanabilir<li>Hyper-V ve VMware VM’lerinde Linux desteği<li>VMware VM’lerini yedekleme ve geri yükleme <li>System Center lisansı gerektirmez |<li>Oracle iş yükü yedeklenemiyor.<li>Her zaman canlı Azure aboneliği gerektirir<li>Bant yedekleme desteği yoktur |<li>Dosyalar, <li>Klasörler,<li> Birimler, <li>VM’ler,<li> Uygulamalar,<li> İş yükleri |<li>Kurtarma Hizmetleri kasası,<li> Yerel olarak bağlı disk |
+| Azure IaaS VM Backup |<li>Windows/Linux için yerel yedeklemeler<li>Belirli bir aracı yüklemesi gerekmez<li>Yedekleme altyapısı gerekmeden yapı düzeyinde yedekleme |<li>VM’leri günde bir kez yedekleme <li>VM’leri yalnızca disk düzeyinde geri yükleme<li>Şirket içi yedekleme gerçekleştirilemez |<li>VM’ler, <li>Tüm diskler (PowerShell kullanarak) |<p>Kurtarma Hizmetleri kasası</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Her bileşen için dağıtım senaryoları nelerdir?
 | Bileşen | Azure'da dağıtılabilir mi? | Şirket içinde dağıtılabilir mi? | Hedef depolama desteklenir |
 | --- | --- | --- | --- |
-| Azure Backup (MARS) aracısı |<p>**Evet**</p> <p>Azure Backup aracısı, Azure'da çalışan herhangi bir Windows Server VM üzerinde dağıtılabilir.</p> |<p>**Evet**</p> <p>Azure Backup aracısı, herhangi bir Windows Server VM veya fiziksel makinesi üzerinde dağıtılabilir.</p> |<p>Azure Backup kasası</p> |
-| System Center DPM |<p>**Evet**</p><p>[System Center DPM'yi kullanarak Azure'da iş yüklerini koruma](backup-azure-dpm-introduction.md) hakkında daha fazla bilgi edinin.</p> |<p>**Evet**</p> <p>[Veri merkezinizde iş yüklerini ve VM'leri koruma](https://technet.microsoft.com/en-us/system-center-docs/dpm/data-protection-manager) hakkında daha fazla bilgi edinin.</p> |<p>Yerel olarak bağlı disk,</p> <p>Azure Backup kasası,</p> <p>bant (yalnızca şirket içi)</p> |
-| Azure Backup Sunucusu |<p>**Evet**</p><p>[Azure Backup'ı kullanarak Azure'da iş yüklerini koruma](backup-azure-microsoft-azure-backup.md) hakkında daha fazla bilgi edinin.</p> |<p>**Evet**</p> <p>[Azure Backup'ı kullanarak Azure'da iş yüklerini koruma](backup-azure-microsoft-azure-backup.md) hakkında daha fazla bilgi edinin.</p> |<p>Yerel olarak bağlı disk,</p> <p>Azure Backup kasası</p> |
-| Azure IaaS VM Backup |<p>**Evet**</p><p>Azure yapısının parçası</p><p>[Hizmet olarak Azure altyapısı (IaaS) sanal makinelerinin yedeklemesine](backup-azure-vms-introduction.md) yöneliktir.</p> |<p>**Hayır**</p> <p>Veri merkezinizdeki sanal makineleri yedeklemek için System Center DPM'yi kullanın.</p> |<p>Azure Backup kasası</p> |
+| Azure Backup (MARS) aracısı |<p>**Evet**</p> <p>Azure Backup aracısı, Azure'da çalışan herhangi bir Windows Server VM üzerinde dağıtılabilir.</p> |<p>**Evet**</p> <p>Azure Backup aracısı, herhangi bir Windows Server VM veya fiziksel makinesi üzerinde dağıtılabilir.</p> |<p>Kurtarma Hizmetleri kasası</p> |
+| System Center DPM |<p>**Evet**</p><p>[System Center DPM'yi kullanarak Azure'da iş yüklerini koruma](backup-azure-dpm-introduction.md) hakkında daha fazla bilgi edinin.</p> |<p>**Evet**</p> <p>[Veri merkezinizde iş yüklerini ve VM'leri koruma](https://technet.microsoft.com/system-center-docs/dpm/data-protection-manager) hakkında daha fazla bilgi edinin.</p> |<p>Yerel olarak bağlı disk,</p> <p>Kurtarma Hizmetleri kasası,</p> <p>bant (yalnızca şirket içi)</p> |
+| Azure Backup Sunucusu |<p>**Evet**</p><p>[Azure Backup'ı kullanarak Azure'da iş yüklerini koruma](backup-azure-microsoft-azure-backup.md) hakkında daha fazla bilgi edinin.</p> |<p>**Evet**</p> <p>[Azure Backup'ı kullanarak Azure'da iş yüklerini koruma](backup-azure-microsoft-azure-backup.md) hakkında daha fazla bilgi edinin.</p> |<p>Yerel olarak bağlı disk,</p> <p>Kurtarma Hizmetleri kasası</p> |
+| Azure IaaS VM Backup |<p>**Evet**</p><p>Azure yapısının parçası</p><p>[Hizmet olarak Azure altyapısı (IaaS) sanal makinelerinin yedeklemesine](backup-azure-vms-introduction.md) yöneliktir.</p> |<p>**Hayır**</p> <p>Veri merkezinizdeki sanal makineleri yedeklemek için System Center DPM'yi kullanın.</p> |<p>Kurtarma Hizmetleri kasası</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Hangi uygulamalar ve iş yükleri yedeklenebilir?
 Aşağıdaki tabloda Azure Backup kullanarak koruma altına alınabilecek veriler ve iş yükleri verilmiştir. Azure Backup çözümü sütununda ilgili çözüme ait dağıtım belgelerine bağlantı sunulmuştur. Her bir Azure Backup bileşeni Klasik (Service Manager dağıtımı) veya Resource Manager dağıtım modeli ortamında dağıtılabilir.
@@ -91,15 +91,15 @@ Aşağıdaki tabloda Linux destekli Azure Backup bileşenleri gösterilmektedir.
 | Bileşen | Linux (Azure destekli) Desteği |
 | --- | --- |
 | Azure Backup (MARS) aracısı |Hayır (Yalnızca Windows tabanlı aracı) |
-| System Center DPM |Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/> (Azure VM için kullanılamaz)<br/> Hyper-V ve VMWare Linux Konuk VM’lerinin VM geri yüklemesi |
-| Azure Backup Sunucusu |Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/> (Azure VM için kullanılamaz)<br/> Hyper-V ve VMWare Linux Konuk VM’lerinin VM geri yüklemesi |
-| Azure IaaS VM Backup |[betik öncesi ve betik sonrası çerçeve](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) kullanılarak uygulamada tutarlı yedekleme<br/> [Ayrıntılı dosya kurtarma](backup-azure-restore-files-from-vm.md)<br/> [Tüm VM disklerini geri yükleme](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-backed-up-disks)<br/> [VM geri yükleme](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-new-vm-from-restore-point) |
+| System Center DPM |<li> Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/> <li> Hyper-V ve VMWare Linux Konuk VM’lerinin VM geri yüklemesi </br> </br>  *Tutarlı dosya yedekleme Azure VM için kullanılamaz* <br/> |
+| Azure Backup Sunucusu |<li>Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/> <li> Hyper-V ve VMWare Linux Konuk VM’lerinin VM geri yüklemesi </br></br> *Tutarlı dosya yedekleme Azure VM için kullanılamaz*  |
+| Azure IaaS VM Backup |[betik öncesi ve betik sonrası çerçeve](backup-azure-linux-app-consistent.md) kullanılarak uygulamada tutarlı yedekleme<br/> [Ayrıntılı dosya kurtarma](backup-azure-restore-files-from-vm.md)<br/> [Tüm VM disklerini geri yükleme](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM geri yükleme](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup ile Premium Depolama VM’leri
 Azure Backup, Premium Depolama VM'leri koruma altına alır. Azure Premium Depolama, G/Ç açısından yoğun iş yüklerini desteklemek için tasarlanan katı hal sürücüsü (SSD) tabanlı bir depolama hizmetidir. Premium Depolama, sanal makine (VM) iş yükleri için idealdir. Premium Depolama hakkında daha fazla bilgi almak için bkz. [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Premium Storage VM'lerini yedekleme
-Premium Depolama VM'lerini yedeklerken, Backup hizmeti, Premium Depolama hesabında “AzureBackup-” adlı geçici bir hazırlama konumu oluşturur. Hazırlama konumu, kurtarma noktası anlık görüntüsünü boyutuna eşittir. Depolama hesabında, geçici hazırlama konumu barındırmak için boş alan olduğundan emin olun. Daha fazla bilgi için [premium depolama sınırlamaları](../storage/storage-premium-storage.md#scalability-and-performance-targets) makalesine bakın. Yedekleme işi tamamlandıktan sonra, hazırlama konumu silinir. Hazırlama konumu için kullanılan depolama alanının fiyatı tüm [Premium depolama fiyatlandırması](../storage/storage-premium-storage.md#pricing-and-billing) ile tutarlıdır.
+Premium Depolama VM'lerini yedeklerken, Backup hizmeti, Premium Depolama hesabında “AzureBackup-” adlı geçici bir hazırlama konumu oluşturur. Hazırlama konumunun boyutu, kurtarma noktası anlık görüntüsünü boyutuna eşittir. Premium Depolama hesabında, geçici hazırlama konumu barındırmak için yeterli boş alan olduğundan emin olun. Daha fazla bilgi için [premium depolama sınırlamaları](../storage/storage-premium-storage.md#scalability-and-performance-targets) makalesine bakın. Yedekleme işi tamamlandıktan sonra, hazırlama konumu silinir. Hazırlama konumu için kullanılan depolama alanının fiyatı tüm [Premium depolama fiyatlandırması](../storage/storage-premium-storage.md#pricing-and-billing) ile tutarlıdır.
 
 > [!NOTE]
 > Hazırlama konumunu değiştirmeyin veya düzenlemeyin.
@@ -116,7 +116,7 @@ Azure Backup, yönetilen disk sanal makinelerini korur. Yönetilen diskler, sana
 Yönetilen diskler üzerindeki VM'lerin yedeklenmesi, Resource Manager VM'lerin yedeklenmesinden farklı değildir. Azure portalında yedekleme işini doğrudan Sanal Makine görünümünden veya Kurtarma Hizmetleri kasası görünümünden yapılandırabilirsiniz. Yönetilen diskler üzerindeki VM'ler, yönetilen diskler üzerinde oluşturulmuş RestorePoint koleksiyonları ile yedeklenebilir. Azure Backup ayrıca Azure Disk şifrelemesi (ADE) kullanılarak şifrelenmiş yönetilen disk VM'lerinin yedeklenmesini destekler.
 
 ### <a name="restore-managed-disk-vms"></a>Yönetilen disk sanal makinelerini geri yükleme
-Azure Backup, yönetilen disklerle tüm VM'yi geri yüklemenize veya yönetilen diskleri bir Resource Manager depolama hesabına geri yüklemenize olanak tanır. Geri yükleme işlemi sırasında yönetilen diskleri Azure yönetir. Geri yükleme işleminin bir parçası olarak oluşturulan depolama hesabını ise siz (müşteri olarak) yönetirsiniz. Yönetilen şifrelenmiş VM'leri geri yüklemek için, geri yükleme öncesinde VM’nin anahtar ve gizli dizilerinin, anahtar kasasında zaten mevcut olması gerekir.
+Azure Backup, yönetilen disklerle tüm VM'yi geri yüklemenize veya yönetilen diskleri bir depolama hesabına geri yüklemenize olanak tanır. Geri yükleme işlemi sırasında yönetilen diskleri Azure yönetir. Geri yükleme işleminin bir parçası olarak oluşturulan depolama hesabını ise siz (müşteri olarak) yönetirsiniz. Yönetilen şifrelenmiş VM'leri geri yüklerken, geri yükleme işlemini başlatmadan önce VM’lerin anahtar ve gizli dizilerinin anahtar kasasında zaten mevcut olması gerekir.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Her bir Azure Backup bileşeninin özellikleri nelerdir?
 Aşağıdaki bölümlerde her bir Azure Backup bileşeninin kullanılabilirliğini veya desteklediği özellikleri özetleyen tablolar yer almaktadır. Ek destek bilgileri veya ayrıntılar için her tablonun altındaki bilgileri inceleyin.
@@ -124,19 +124,19 @@ Aşağıdaki bölümlerde her bir Azure Backup bileşeninin kullanılabilirliği
 ### <a name="storage"></a>Depolama
 | Özellik | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| Azure Backup kasası |![Evet][green] |![Evet][green] |![Evet][green] |![Evet][green] |
+| Kurtarma Hizmetleri kasası |![Evet][green] |![Evet][green] |![Evet][green] |![Evet][green] |
 | Disk depolama | |![Evet][green] |![Evet][green] | |
 | Bant depolama | |![Evet][green] | | |
-| Sıkıştırma <br/>(Backup kasasında) |![Evet][green] |![Evet][green] |![Evet][green] | |
+| Sıkıştırma <br/>(Kurtarma hizmetleri kasasında) |![Evet][green] |![Evet][green] |![Evet][green] | |
 | Artımlı yedekleme |![Evet][green] |![Evet][green] |![Evet][green] |![Evet][green] |
-| Disk için yinelenenleri kaldırma | |![Kısmi][yellow] |![Kısmi][yellow] | |
+| Disk için yinelenenleri kaldırma | |![Kısmi][yellow] |![Kısmi][yellow] | | |
 
 ![tablo anahtarı](./media/backup-introduction-to-azure-backup/table-key.png)
 
-Backup kasası, tüm bileşenler genelinde tercih edilen depolama hedefidir. System Center DPM ve Azure Backup Sunucusu da yerel disk kopyası bulundurma seçeneğini sağlar. Ancak yalnızca System Center DPM, bir bant depolama cihazına veri yazma seçeneği sağlar.
+Kurtarma Hizmetleri kasası, tüm bileşenler genelinde tercih edilen depolama hedefidir. System Center DPM ve Azure Backup Sunucusu da yerel disk kopyası bulundurma seçeneğini sağlar. Ancak yalnızca System Center DPM, bir bant depolama cihazına veri yazma seçeneği sağlar.
 
 #### <a name="compression"></a>Sıkıştırma
-Yedeklemeler, gerekli depolama alanını azaltmak için sıkıştırılır. Sıkıştırma kullanmayan tek bileşen, VM uzantısıdır. VM uzantısı, depolama hesabınızdaki tüm yedekleme verilerini aynı bölgedeki Backup kasasına kopyalar. Veri aktarımı sırasında sıkıştırma yapılmaz. Veriler, sıkıştırma kullanılmadan aktarıldığı için kullanılan depolama alanı biraz fazla olur. Ancak verilerin sıkıştırma olmadan depolanması, ilgili kurtarma noktasına ihtiyaç duymanız halinde geri yüklemenin daha hızlı gerçekleştirilmesini sağlar.
+Yedeklemeler, gerekli depolama alanını azaltmak için sıkıştırılır. Sıkıştırma kullanmayan tek bileşen, VM uzantısıdır. VM uzantısı, depolama hesabınızdaki tüm yedekleme verilerini aynı bölgedeki Kurtarma Hizmetleri kasasına kopyalar. Veri aktarımı sırasında sıkıştırma yapılmaz. Veriler, sıkıştırma kullanılmadan aktarıldığı için kullanılan depolama alanı biraz fazla olur. Ancak verilerin sıkıştırma olmadan depolanması, ilgili kurtarma noktasına ihtiyaç duymanız halinde geri yüklemenin daha hızlı gerçekleştirilmesini sağlar.
 
 
 #### <a name="disk-deduplication"></a>Disk İçin Yinelenenleri Kaldırma
@@ -148,7 +148,7 @@ Yedeklemeler, gerekli depolama alanını azaltmak için sıkıştırılır. Sık
 >
 
 ### <a name="incremental-backup-explained"></a>Artımlı yedekleme açıklaması
-Her Azure Backup bileşeni, hedef depolamadan (disk, bant, yedekleme kasası) bağımsız olarak artımlı yedeklemeyi destekler. Artımlı yedekleme, yalnızca son yedeklemeden sonra yapılan değişiklikleri aktararak yedeklemelerin depolama ve zaman açısından verimli olmasını sağlar.
+Her Azure Backup bileşeni, hedef depolamadan (disk, bant, Kurtarma Hizmetleri kasası) bağımsız olarak artımlı yedeklemeyi destekler. Artımlı yedekleme, yalnızca son yedeklemeden sonra yapılan değişiklikleri aktararak yedeklemelerin depolama ve zaman açısından verimli olmasını sağlar.
 
 #### <a name="comparing-full-differential-and-incremental-backup"></a>Tam Yedekleme, Değişiklik Yedeği ve Artımlı Yedekleme karşılaştırması
 
@@ -171,10 +171,10 @@ Her yedekleme yönteminin depolama alanı tüketimi, kurtarma süresi hedefi (RT
 ![tablo anahtarı](./media/backup-introduction-to-azure-backup/table-key.png)
 
 #### <a name="network-security"></a>Ağ güvenliği
-Sunucularınızdan Backup kasasına giden tüm yedekleme trafiği, Gelişmiş Şifreleme Standardı 256 kullanılarak şifrelenir. Yedekleme verileri güvenli bir HTTPS bağlantısı üzerinden gönderilir. Ayrıca yedekleme verileri, şifreli biçimde Backup kasasında depolanır. Yalnızca Azure müşterisi olarak siz bu verilerin kilidini açmak için kullanılan parolaya sahip olursunuz. Microsoft herhangi bir noktada yedekleme verilerinin şifresini çözemez.
+Sunucularınızdan Kurtarma Hizmetleri kasasına giden tüm yedekleme trafiği, Gelişmiş Şifreleme Standardı 256 kullanılarak şifrelenir. Yedekleme verileri güvenli bir HTTPS bağlantısı üzerinden gönderilir. Ayrıca yedekleme verileri, şifreli biçimde Kurtarma Hizmetleri kasasında depolanır. Yalnızca Azure müşterisi olarak siz bu verilerin kilidini açmak için kullanılan parolaya sahip olursunuz. Microsoft herhangi bir noktada yedekleme verilerinin şifresini çözemez.
 
 > [!WARNING]
-> Backup kasasını oluşturduktan sonra şifreleme anahtarına yalnızca sizin erişiminiz olur. Microsoft, şifreleme anahtarınızın bir kopyasını saklamaz ve bu anahtara asla erişimi yoktur. Anahtarın kaybedilmesi durumunda Microsoft yedekleme verilerini kurtaramaz.
+> Kurtarma Hizmetleri kasasını oluşturduktan sonra şifreleme anahtarına yalnızca sizin erişiminiz olur. Microsoft, şifreleme anahtarınızın bir kopyasını saklamaz ve bu anahtara asla erişimi yoktur. Anahtarın kaybedilmesi durumunda Microsoft yedekleme verilerini kurtaramaz.
 >
 >
 
@@ -185,15 +185,15 @@ Azure VM'lerin yedeklenmesi için şifrelemenin sanal makine *içinde* ayarlanma
 | Özellik | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Ağ sıkıştırma <br/>(**backup sunucusuna**) | |![Evet][green] |![Evet][green] | |
-| Ağ sıkıştırma <br/>(**backup kasasına**) |![Evet][green] |![Evet][green] |![Evet][green] | |
+| Ağ sıkıştırma <br/>(**Kurtarma hizmetleri kasasına**) |![Evet][green] |![Evet][green] |![Evet][green] | |
 | Ağ protokolü <br/>(**backup sunucusuna**) | |TCP |TCP | |
-| Ağ protokolü <br/>(**backup kasasına**) |HTTPS |HTTPS |HTTPS |HTTPS |
+| Ağ protokolü <br/>(**Kurtarma hizmetleri kasasına**) |HTTPS |HTTPS |HTTPS |HTTPS |
 
 ![tablo anahtarı](./media/backup-introduction-to-azure-backup/table-key-2.png)
 
 VM uzantısı (IaaS VM üzerindeki) verileri doğrudan depolama ağı aracılığıyla Azure depolama hesabından okuduğu için bu trafiğin sıkıştırılması gerekmez.
 
-Verileri System Center DPM veya Azure Backup Sunucusu'na yedekliyorsanız, ana sunucudan yedekleme sunucusuna giden verileri sıkıştırın. Verileri DPM veya Azure Backup Sunucusu'na yedeklemeden önce sıkıştırdığınızda daha az bant genişliği kullanmış olursunuz.
+İkincil yedekleme sunucusu olarak bir System Center DPM sunucusu veya Azure Backup Sunucusu kullanıyorsanız, birincil sunucudan yedekleme sunucusuna giden verileri sıkıştırın. Verileri DPM veya Azure Backup Sunucusu'na yedeklemeden önce sıkıştırdığınızda daha az bant genişliği kullanmış olursunuz.
 
 #### <a name="network-throttling"></a>Ağ Kapasitesi Azaltma
 Azure Backup aracı, veri aktarımı sırasında ağ bant genişliğinin nasıl kullanıldığını denetlemenizi sağlayan ağ kapasitesi azaltma özelliğine sahiptir. Azaltma özelliği, çalışma saatlerinde veri yedeklemesi yapmanız gerektiğinde ancak yedekleme işleminin diğer İnternet trafiğine engel olmasını istemediğinizde faydalı olabilir. Veri aktarımına yönelik azaltma, yedekleme ve geri yükleme etkinlikleri için geçerlidir.
@@ -204,7 +204,7 @@ Azure Backup’ta, *korumalı örnek* başına 9999 kurtarma noktası (yedekleme
 
 |  | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| Yedekleme sıklığı<br/> (Backup kasasına) |Günde üç yedekleme |Günde iki yedekleme |Günde iki yedekleme |Günde bir yedekleme |
+| Yedekleme sıklığı<br/> (Kurtarma hizmetleri kasasına) |Günde üç yedekleme |Günde iki yedekleme |Günde iki yedekleme |Günde bir yedekleme |
 | Yedekleme sıklığı<br/> (diske) |Uygulanamaz |<li>SQL Server için 15 dakikada bir <li>Diğer iş yükleri için saatte bir |<li>SQL Server için 15 dakikada bir <li>Diğer iş yükleri için saatte bir</p> |Uygulanamaz |
 | Bekletme seçenekleri |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |
 | Korumalı örnek başına en fazla kurtarma noktası |9999|9999|9999|9999|
@@ -222,12 +222,12 @@ Korumalı örneklere sanal makineler, uygulama sunucuları, veritabanları ve Wi
 
 
 ## <a name="what-is-the-vault-credential-file"></a>Kasa kimlik bilgileri dosyası nedir?
-Kasa kimlik bilgileri dosyası, her bir Backup kasası için portal tarafından oluşturulan bir sertifikadır. Portal daha sonra ortak anahtarı Access Control Service'e (ACS) yükler. Özel anahtar, kimlik bilgilerini indirdiğinizde sizinle paylaşılır. Koruma altına alacağınız bilgisayarları kaydetmek için bu anahtarı kullanın. Özel anahtar, sunucuların veya bilgisayarların belirli bir Backup kasasına veri göndermesi için kimlik doğrulamasından geçmesini sağlar.
+Kasa kimlik bilgileri dosyası, her bir Kurtarma Hizmetleri kasası için portal tarafından oluşturulan bir sertifikadır. Portal daha sonra ortak anahtarı Access Control Service'e (ACS) yükler. Özel anahtar, kimlik bilgilerini indirdiğinizde sizinle paylaşılır. Koruma altına alacağınız bilgisayarları kaydetmek için bu anahtarı kullanın. Özel anahtar, sunucuların veya bilgisayarların belirli bir Kurtarma Hizmetleri kasasına veri göndermesi için kimlik doğrulamasından geçmesini sağlar.
 
-Kasa kimlik bilgilerini yalnızca sunucuları veya bilgisayarları kaydetmek için kullanırsınız. Ancak, kasa kimlik bilgilerini iyi saklamanız gerekir. Bu anahtarın kaybolması veya başkaları tarafından ele geçirilmesi halinde, kasa kimlik bilgileri aynı kasaya başka makinelerin kaydedilmesi için kullanılabilir. Yedeklenen veriler yalnızca sizin erişebildiğiniz bir parola ile korunduğundan, var olan yedek bilgilerine izinsiz erişim sağlanamaz. Kasa kimlik bilgilerinin süresi 48 sonra dolar. Backup kasasının kimlik bilgilerini dilediğiniz zaman indirebilirsiniz ancak kayıt işlemi için yalnızca en güncel kimlik bilgileri kullanılabilir.
+Kasa kimlik bilgilerini yalnızca sunucuları veya bilgisayarları kaydetmek için kullanırsınız. Ancak, kasa kimlik bilgilerini iyi saklamanız gerekir. Bu anahtarın kaybolması veya başkaları tarafından ele geçirilmesi halinde, kasa kimlik bilgileri aynı kasaya başka makinelerin kaydedilmesi için kullanılabilir. Yedeklenen veriler yalnızca sizin erişebildiğiniz bir parola ile korunduğundan, var olan yedek bilgilerine izinsiz erişim sağlanamaz. Kasa kimlik bilgilerinin süresi 48 sonra dolar. Kurtarma Hizmetleri kasasının kimlik bilgilerini dilediğiniz zaman indirebilirsiniz ancak kayıt işlemi için yalnızca en güncel kimlik bilgileri kullanılabilir.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Azure Backup'ın Azure Site Recovery'den farkı nedir?
-Azure Backup ve Azure Site Recovery, veri yedekleme ve geri yükleme özelliklerine sahip olmaları açısından aynıdır. Ancak temelde sundukları değerler farklıdır.
+Azure Backup ve Azure Site Recovery, veri yedekleme ve geri yükleme özelliklerine sahip olmaları açısından aynıdır. Ancak, bu hizmetler işletmenizde iş sürekliliği sağlama ve olağanüstü durum kurtarma konularında farklı amaçlara hizmet eder. Verileri daha ayrıntılı bir düzeyde korumak ve geri yüklemek için Azure Backup’ı kullanın. Örneğin, bir dizüstü bilgisayardaki sunu bozulduysa, sunuyu geri yüklemek için Azure Backup kullanabilirsiniz. Bir VM üzerindeki yapılandırma ve verileri başka bir veri merkezine çoğaltmak istediyseniz, Azure Site Recovery’yi kullanın.
 
 Azure Backup, şirket içinde ve bulutta yer alan verileri korur. Azure Site Recovery, sanal makine ve fiziksel sunucu çoğaltma, yük devretme ve yeniden çalışma işlemlerini düzenler. Olağanüstü durum kurtarma çözümünüzün verilerinizin güvenli ve kurtarılabilir kalmasını sağlaması (Backup) *ve* kesintiler meydana geldiğinde, iş yüklerinizin kullanılabilirliğini koruması (Site Recovery) gerektiği için her iki hizmet de önemlidir.
 

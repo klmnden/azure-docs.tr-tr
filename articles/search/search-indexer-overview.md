@@ -1,6 +1,6 @@
 ---
 title: "Azure Search&quot;te dizin oluşturucular | Microsoft Belgeleri"
-description: "Aranabilir verileri ayıklamak ve bir Azure Search dizinini doldurmak için Azure SQL Database, DocumentDB veya Azure depolama alanında gezinin."
+description: "Aranabilir verileri ayıklamak ve bir Azure Search dizinini doldurmak için Azure SQL Database, Azure Cosmos DB veya Azure depolama alanında gezinin."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
-ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -27,9 +29,9 @@ ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
 > * [Genel Bakış](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](search-howto-index-documentdb.md)
-> * [Blob Depolama (önizleme)](search-howto-indexing-azure-blob-storage.md)
-> * [Tablo Depolama (önizleme)](search-howto-indexing-azure-tables.md)
+> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Azure Blob Depolama](search-howto-indexing-azure-blob-storage.md)
+> * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 >
 >
 
@@ -40,7 +42,7 @@ Bir dizin oluşturucusunu yalnızca veri alımı amacıyla kullanabilir veya diz
 Dizin oluşturucuları isteğe bağlı olarak veya her on beş dakikada bir çalıştırılan bir yinelenen veri yenileme zamanlamasıyla çalıştırabilirsiniz. Daha sık güncelleştirmeler için hem Azure Search'te hem de dış veri kaynağınızda verileri aynı anda güncelleştiren bir gönderme modeli gerekir.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Dizin oluşturucular oluşturma ve yönetme yaklaşımları
-Azure SQL veya DocumentDB gibi genel kullanıma açık dizin oluşturucular için bu yaklaşımları kullanarak dizin oluşturucular oluşturabilir ve bunları yönetebilirsiniz:
+Azure SQL veya Azure Cosmos DB gibi genel kullanıma açık dizin oluşturucular için bu yaklaşımları kullanarak dizin oluşturucular oluşturabilir ve bunları yönetebilirsiniz:
 
 * [Portal > Veri Alma Sihirbazı](search-get-started-portal.md)
 * [Hizmet REST API'si](https://msdn.microsoft.com/library/azure/dn946891.aspx)
@@ -56,7 +58,7 @@ Dizin oluşturucu veri alımıyla ilgili bazı görevleri otomatikleştirir, anc
 Dizin oluşturucu, bağlantı dizesi gibi bilgileri içeren bir **veri kaynağından** veri çeker. Şu anda aşağıdaki veri kaynakları desteklenmektedir:
 
 * [Bir Azure sanal makinesinde Azure SQL Veritabanı veya SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Azure Blob depolama ](search-howto-indexing-azure-blob-storage.md): PDF, Office belgeleri, HTML veya XML’den metin ayıklamak için kullanılır
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
@@ -69,14 +71,9 @@ Dizin oluşturucu tanımı dizini, veri kaynağını ve bir zamanlamayı belirte
 Artık temel fikri anladığınıza göre, atmanız gereken bir sonraki adım her bir veri kaynağı türüne özgü gereksinimleri ve görevleri incelemektir.
 
 * [Bir Azure sanal makinesinde Azure SQL Veritabanı veya SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Azure Blob Depolama ](search-howto-indexing-azure-blob-storage.md): PDF, Office belgeleri, HTML veya XML’den metin ayıklamak için kullanılır
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [Azure Search Blob dizin oluşturucu (Önizleme) kullanarak CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
-* [Azure Search Blob dizin oluşturucu (Önizleme) ile JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+* [Azure Search Blob dizin oluşturucu kullanarak CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
+* [Azure Search Blob dizin oluşturucu ile JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
 

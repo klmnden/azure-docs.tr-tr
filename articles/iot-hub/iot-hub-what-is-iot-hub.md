@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: ed204c466c5cfb60e5ba250b9dacb2524ca384eb
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5b5792d2edee2069c7d021415632511643d68136
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -66,7 +67,7 @@ Azure IoT Hub, cihaz bağlantısı sorunlarını mesajlaşma, dosya aktarımı v
 * **Kapsamlı bir cihaz kitaplıkları kümesi**. [Azure IoT cihaz SDK'ları][lnk-device-sdks], Linux dağıtımları, Windows ve gerçek zamanlı işletim sistemlerinin çoğu için C gibi çeşitli diller ve platformlarda kullanılabilir ve desteklenir. Azure IoT cihaz SDK'ları C#, Java ve JavaScript gibi yönetilen dilleri de destekler.
 * **IoT protokolleri ve genişletilebilirlik**. Çözümünüz cihaz kitaplıklarını kullanamazsa IoT Hub, cihazların yerel olarak MQTT v3.1.1, HTTP 1.1 veya AMQP 1.0 protokollerini kullanmasını sağlayan bir genel protokolü kullanıma sunar. Ayrıca, özel protokollere destek sağlamak için şunları yaparak IoT Hub'ı genişletebilirsiniz:
   
-  * Özel protokolünüzü IoT Hub tarafından anlaşılan üç protokolden birine dönüştüren [Azure IoT Ağ Geçidi SDK'sı][lnk-gateway-sdk] ile bir alan ağ geçidi oluşturarak. 
+  * Özel protokolünüzü IoT Hub tarafından anlaşılan üç protokolden birine dönüştüren [Azure IoT Edge][lnk-gateway-sdk] ile bir alan ağ geçidi oluşturarak. 
   * Bulutta çalışan açık kaynaklı bir bileşen olan [Azure IoT protokolü ağ geçidini][protocol-gateway] özelleştirerek.
 * **Ölçek**. Azure IoT Hub, saniye başına milyonlarca eş zamanlı cihazı ve milyonlarca etkinliği ölçeklendirir.
 
@@ -117,7 +118,7 @@ Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 [lnk-send-messages]: iot-hub-devguide-messaging.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 

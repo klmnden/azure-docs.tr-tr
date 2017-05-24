@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 01/11/2017
+ms.date: 05/01/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
-ms.openlocfilehash: e522d608e8ff51e00b3c1a461bf9ba909b0105af
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5a601b75ec67824e72d8736bc3c45f8e1231ca86
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -41,11 +43,11 @@ Belgeleri tek tek veya toplu işlemle karşıya yükleyebileceğinizden (toplu i
 Azure Search, JSON biçimindeki verileri işler ve veri kümesindeki tüm belgelerin dizin şemanızda tanımlı alanlara karşılık gelen alanlara sahip olmaları gerekir. 
 
 ## <a name="pull-data-into-an-index"></a>Bir dizine veri çekme
-Çekme modeli, desteklenen veri kaynağında gezinir ve dizininize verileri otomatik olarak yükler. Azure Search'te bu işlev, şu anda [Blob depolama](search-howto-indexing-azure-blob-storage.md), [Tablo depolama](search-howto-indexing-azure-tables.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL Veritabanı ve Azure VM'lerdeki SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)'da kullanılabilen *dizin oluşturucular* aracılığıyla uygulanır. 
+Çekme modeli, desteklenen veri kaynağında gezinir ve dizininize verileri otomatik olarak yükler. Azure Search'te bu işlev, şu anda [Blob depolama](search-howto-indexing-azure-blob-storage.md), [Tablo depolama](search-howto-indexing-azure-tables.md), [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer), [Azure SQL Veritabanı ve Azure VM'lerdeki SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)'da kullanılabilen *dizin oluşturucular* aracılığıyla uygulanır. 
 
 Dizin oluşturucular bir dizini bir veri kaynağına (genelde tablo, görünüm veya eşdeğer bir yapı) bağlar ve kaynak alanları dizindeki eşdeğer alanlara eşler. Yürütme sırasında satır kümesi otomatik olarak JSON'a dönüştürülür ve belirtilen dizine yüklenir. Tüm dizin oluşturucular zamanlamayı destekler ve bu sayede verilerin yenilenme sıklığını belirleyebilirsiniz. Çoğu dizin oluşturucular veri kaynağının desteklemesi durumunda değişiklik izleme özelliği sunar. Dizin oluşturucular, var olan belgelerdeki değişiklikleri ve silmeleri takip etmenin yanı sıra yeni belgeleri tanıyarak, dizininizdeki verileri aktif şekilde yönetme ihtiyacını ortadan kaldırır. 
 
-Dizin oluşturucu işlevleri [Azure portalı](search-import-data-portal.md), [REST API'sı](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) ve [.NET SDK'sında](https://docs.microsoft.com/otnet/api/microsoft.azure.search.iindexersoperations?redirectedfrom=MSDN#microsoft_azure_search_iindexersoperations) belirtilmiştir. 
+Dizin oluşturucu işlevleri [Azure portalı](search-import-data-portal.md), [REST API'sı](/rest/api/searchservice/Indexer-operations) ve [.NET SDK'sında](/dotnet/api/microsoft.azure.search.indexersoperations) belirtilmiştir. 
 
 Portalı kullanmanın avantajlarından biri, Azure Search'ün genelde kaynak veri kümesinin meta verilerini okuyarak sizin için varsayılan dizin şeması oluşturabilmesidir. Oluşturulan dizini işlenene kadar değiştirebilirsiniz ancak işlendikten sonra yalnızca dizinin yeniden oluşturulmasını gerektirmeyen şema düzenlemelerine izin verilir. Yapmak istediğiniz değişikliklerin şemayı doğrudan etkilemesi halinde dizini yeniden oluşturmanız gerekir. 
 
@@ -53,12 +55,7 @@ Dizin doldurulduktan sonra doğrulamak için portal komut çubuğundaki **Arama 
 
 ## <a name="query-an-index-using-search-explorer"></a>Arama Gezgini kullanarak dizin sorgulama
 
-Portalda **Arama Gezgini**'ni kullanarak yüklenen belgede hızlı bir ön denetim gerçekleştirebilirsiniz. Bu gezgin, bir dizini kod yazmadan sorgulamanızı sağlar. Arama deneyimi [basit söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ve varsayılan [searchMode sorgu parametresi](https://docs.microsoft.com/rest/api/searchservice/search-documents) gibi varsayılan ayarlara bağlıdır. Belgenin tamamını inceleyebilmeniz için sonuçlar JSON biçiminde döndürülür.
+Portalda **Arama Gezgini**'ni kullanarak yüklenen belgede hızlı bir ön denetim gerçekleştirebilirsiniz. Bu gezgin, bir dizini kod yazmadan sorgulamanızı sağlar. Arama deneyimi [basit söz dizimi](/rest/api/searchservice/simple-query-syntax-in-azure-search) ve varsayılan [searchMode sorgu parametresi](/rest/api/searchservice/search-documents) gibi varsayılan ayarlara bağlıdır. Belgenin tamamını inceleyebilmeniz için sonuçlar JSON biçiminde döndürülür.
 
 > [!TIP]
 > Çok sayıda [Azure Search kod örneği](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) tarafından sunulan yerleşik veya hazır veri kümeleri hızlı bir şekilde kullanmaya başlamanızı sağlar. Portalda ayrıca örnek dizin oluşturucu ve küçük bir emlak veri kümesini ("realestate-us-sample" adlı) içeren veri kaynağı mevcuttur. Önceden yapılandırılmış dizin oluşturucuyu örnek veri kaynağında çalıştırdığınızda oluşturulan ve belgelerle yüklenen dizini Arama Gezgini veya yazdığınız kod aracılığıyla sorgulayabilirsiniz.
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
-ms.lasthandoff: 04/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e041a4d88d93b5ea9fcd792800c4a12a6a44ce36
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -90,7 +91,7 @@ Blob Storage blok blobları, ekleme blobları ve sayfa blobları (diskler) olmak
 Ağ kısıtlamalarının kablo üzerinden Blob Storage’a veri yükleme veya indirme yapmayı kullanışsız hale getirdiği çok büyük veri kümelerinde verileri doğrudan veri merkezinden içeri veya dışarı aktarmak için Microsoft’a bir sabit sürücü gönderebilirsiniz. Bkz: [Blob Storage’a Veri Aktarmak için Microsoft Azure İçeri/Dışarı Aktarma Hizmeti Kullanma](storage-import-export-service.md).
 
 ## <a name="table-storage"></a>Table Storage
-Modern uygulamalar genellikle eski nesil yazılımların gerektirdiğinden daha fazla ölçeklenebilirlik ve esneklik özelliklerine sahip veri depoları gerektirir. Table Storage yüksek seviyede kullanılabilir ve ölçeklenebilir depolama sunar, böylece uygulamanız kullanıcı taleplerini karşılayacak şekilde otomatik olarak ölçeklendirilir. Tablo depolama, Microsoft’un NoSQL anahtar/öznitelik deposudur ve geleneksel ilişkisel veritabanlarından farklı olarak şemasız bir tasarıma sahiptir. Şemasız veri deposu sayesinde, uygulamanızın ihtiyaçları geliştikçe verilerinizi uyarlamak da kolaylaşır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir. Her türlü uygulama için verilere erişim hızlı ve uygun maliyetlidir.  Table Storage, benzer hacimdeki veriler için geleneksel SQL’e oranla çok daha düşük maliyetlidir.
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)] Modern uygulamalar genellikle eski nesil yazılımların gerektirdiğinden daha fazla ölçeklenebilirlik ve esneklik özelliklerine sahip veri depoları gerektirir. Table Storage yüksek seviyede kullanılabilir ve ölçeklenebilir depolama sunar, böylece uygulamanız kullanıcı taleplerini karşılayacak şekilde otomatik olarak ölçeklendirilir. Tablo depolama, Microsoft’un NoSQL anahtar/öznitelik deposudur ve geleneksel ilişkisel veritabanlarından farklı olarak şemasız bir tasarıma sahiptir. Şemasız veri deposu sayesinde, uygulamanızın ihtiyaçları geliştikçe verilerinizi uyarlamak da kolaylaşır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir. Her türlü uygulama için verilere erişim hızlı ve uygun maliyetlidir.  Table Storage, benzer hacimdeki veriler için geleneksel SQL’e oranla çok daha düşük maliyetlidir.
 
 Table Storage bir anahtar öznitelik deposudur; bu, bir tablodaki her değerin türü belirtilmiş bir özellik adıyla depolandığı anlamına gelir. Özellik adı filtreleme ve seçim kriterlerinin belirlenmesi için kullanılabilir. Özellik ve değerlerinin toplamı bir varlığı oluşturur. Table Storage şemasız olduğu için aynı tablodaki iki varlık farklı özellik koleksiyonları içerebilir ve bu özellikler farklı türde olabilir.
 
@@ -200,7 +201,7 @@ Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir
 * [.NET için Depolama Veri Taşıma İstemcisi Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>Araçlar ve Yardımcı Programlar
-* [Azure Depolama Gezgini](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
 * [Azure Depolama İstemcisi Araçları](storage-explorers.md)
 * [Azure SDK'ları ve Araçları](https://azure.microsoft.com/tools/)
 * [Azure Depolama Öykünücüsü](http://www.microsoft.com/download/details.aspx?id=43709)

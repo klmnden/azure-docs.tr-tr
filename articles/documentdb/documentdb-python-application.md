@@ -1,14 +1,14 @@
 ---
-title: "Azure DocumentDB için Python Flask web uygulaması öğreticisi | Microsoft Docs"
-description: "Azure&quot;da barındırılan bir Python Flask web uygulamasından veri depolamak ve verilere erişmek için DocumentDB kullanma konulu veritabanı öğreticisini inceleyin. Uygulama geliştirme çözümleri bulun."
+title: "Azure Cosmos DB için Python Flask web uygulaması öğreticisi | Microsoft Docs"
+description: "Azure&quot;da barındırılan bir Python Flask web uygulamasından veri depolamak ve verilere erişmek için Azure Cosmos DB kullanma konulu veritabanı öğreticisini inceleyin. Uygulama geliştirme çözümleri bulun."
 keywords: "Uygulama geliştirme, python flask, python web uygulaması, python web geliştirme"
-services: documentdb
+services: cosmosdb
 documentationcenter: python
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
@@ -16,14 +16,15 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 4f05075efea0f0fd8ca4424f771d3991a65c6d67
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 68b3fd109291551294b58b3cda75fd6a9619b4b4
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="build-a-python-flask-web-application-using-documentdb"></a>DocumentDB kullanarak bir Python Flask web uygulaması derleme
+# <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB kullanarak bir Python Flask web uygulaması derleme
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [MongoDB için .NET](documentdb-mongodb-application.md)
@@ -33,13 +34,13 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Bu öğretici, Azure'da barındırılan bir Python Flask web uygulamasından veri depolamak ve verilere erişmek için Azure DocumentDB'nin nasıl kullanılacağını gösterir ve Python ve Azure web sitelerini kullanma konusunda biraz deneyim sahibi olduğunuzu varsayar.
+Bu öğretici, Azure'da barındırılan bir Python Flask web uygulamasından veri depolamak ve verilere erişmek için Azure Cosmos DB'nin nasıl kullanılacağını gösterir ve Python ve Azure web sitelerini kullanma konusunda biraz deneyim sahibi olduğunuzu varsayar.
 
 Bu veritabanı öğreticisi şunlara değinir:
 
-1. DocumentDB hesabı oluşturma ve hazırlama.
+1. Cosmos DB hesabı oluşturma ve sağlama.
 2. Python MVC uygulaması oluşturma.
-3. Web uygulamanızdan Azure DocumentDB'ye bağlanma ve bunu kullanma.
+3. Web uygulamanızdan Cosmos DB'ye bağlanma ve Cosmos DB’yi kullanma.
 4. Web uygulamasını Azure Web Sitelerine dağıtma.
 
 Bu öğreticiyi izleyerek, bir yoklama için oy kullanmanıza olanak tanıyan basit bir oylama uygulaması oluşturacaksınız.
@@ -53,7 +54,7 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
  
     OR 
 
-    Yerel bir [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md) yüklemesi.
+    Yerel bir [Azure Cosmos DB Öykünücüsü](documentdb-nosql-local-emulator.md) yüklemesi.
 * [Visual Studio 2013](http://www.visualstudio.com/) veya sonraki bir sürümü ya da ücretsiz sürüm olan [Visual Studio Express](). Bu öğreticideki yönergeler özellikle Visual Studio 2015 için yazılmıştır. 
 * [GitHub](http://microsoft.github.io/PTVS/)'dan Visual Studio için Python Araçları. Bu öğreticide, VS 2015 için Python Araçları kullanır. 
 * Visual Studio için Azure Python SDK 2.4 veya sonraki bir sürüm [azure.com](https://azure.microsoft.com/downloads/) adresinde bulunabilir. Python 2.7 için Microsoft Azure SDK'yı kullandık.
@@ -68,8 +69,8 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
 
 * [Microsoft İndirme Merkezi][3]'nden Python 2.7 için Microsoft Visual C++ Derleyicisi.
 
-## <a name="step-1-create-a-documentdb-database-account"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
-Bir DocumentDB hesabı oluşturarak başlayalım. Zaten bir hesabınız varsa veya bu öğretici için DocumentDB Öykünücüsü’nü kullanıyorsanız [2. Adım: Yeni bir Python Flask web uygulaması oluşturma](#step-2:-create-a-new-python-flask-web-application) adımına atlayabilirsiniz.
+## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>1. Adım: Azure Cosmos DB veritabanı hesabı oluşturma
+İlk olarak bir Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [2. Adım: Yeni bir Python Flask web uygulaması oluşturma](#step-2:-create-a-new-python-flask-web-application) adımına atlayabilirsiniz.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -155,7 +156,7 @@ class VoteForm(Form):
 
 ### <a name="add-the-required-imports-to-viewspy"></a>Gerekli içeri aktarmaları views.py'ye ekleme
 1. Çözüm Gezgini'nde **öğretici** klasörünü genişletin ve **views.py** dosyasını açın. 
-2. Aşağıdaki içeri aktarma deyimlerini **views.py** dosyasının üstüne ekleyin ve ardından dosyayı kaydedin. Bunlar, DocumentDB'nin PythonSDK'sını ve Flask paketlerini içeri aktarır.
+2. Aşağıdaki içeri aktarma deyimlerini **views.py** dosyasının üstüne ekleyin ve ardından dosyayı kaydedin. Bunlar, Cosmos DB'nin PythonSDK'sını ve Flask paketlerini içeri aktarır.
    
     ```python
     from forms import VoteForm
@@ -202,7 +203,7 @@ def create():
 ```
 
 > [!TIP]
-> **CreateCollection** yöntemi, üçüncü parametre olarak isteğe bağlı bir **RequestOptions** alır. Bu, koleksiyon için Teklif Türü belirtmek için kullanılabilir. Hiçbir offerType değeri sağlanmazsa koleksiyon varsayılan Teklif Türü kullanılarak oluşturulur. DocumentDB Teklif Türleri hakkında daha fazla bilgi için bkz. [DocumentDB'de performans düzeyleri](documentdb-performance-levels.md).
+> **CreateCollection** yöntemi, üçüncü parametre olarak isteğe bağlı bir **RequestOptions** alır. Bu, koleksiyon için Teklif Türü belirtmek için kullanılabilir. Hiçbir offerType değeri sağlanmazsa koleksiyon varsayılan Teklif Türü kullanılarak oluşturulur. Cosmos DB Teklif Türleri hakkında daha fazla bilgi için bkz. [Azure Cosmos DB'de performans düzeyleri](documentdb-performance-levels.md).
 > 
 > 
 
@@ -314,7 +315,7 @@ def vote():
     ```html
     {% extends "layout.html" %}
     {% block content %}
-    <h2>Python + DocumentDB Voting Application.</h2>
+    <h2>Python + Azure Cosmos DB Voting Application.</h2>
     <h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
     <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
@@ -336,7 +337,7 @@ def vote():
     DOCUMENTDB_COLLECTION = 'voting collection'
     DOCUMENTDB_DOCUMENT = 'voting document'
     ```
-3. [Azure Portalı](https://portal.azure.com/)'nda **Anahtarlar** dikey penceresine gitmek için **Gözat**, **DocumentDB Hesapları**'na tıklayın, kullanılacak hesabın adına çift tıklayın ve ardından **Temel Bileşenler** alanındaki **Anahtarlar** düğmesine tıklayın. **Anahtarlar** dikey penceresinde **URI** değerini kopyalayın ve **DOCUMENTDB\_HOST** özelliğinin değeri olarak **config.py** dosyasına yapıştırın. 
+3. [Azure Portalı](https://portal.azure.com/)'nda **Anahtarlar** dikey penceresine gitmek için **Gözat**, **Azure Cosmos DB Hesapları**'na tıklayın, kullanılacak hesabın adına çift tıklayın ve ardından **Temel Bileşenler** alanındaki **Anahtarlar** düğmesine tıklayın. **Anahtarlar** dikey penceresinde **URI** değerini kopyalayın ve **DOCUMENTDB\_HOST** özelliğinin değeri olarak **config.py** dosyasına yapıştırın. 
 4. Azure Portalı'ndaki **Anahtarlar** dikey penceresinde **Birincil Anahtar** veya **İkincil Anahtar** değerini kopyalayın ve **DOCUMENTDB\_KEY** özelliğinin değeri olarak **config.py** dosyasına yapıştırın.
 5. **\_\_init\_\_.py** dosyasında, aşağıdaki satırı ekleyin. 
    
@@ -358,7 +359,7 @@ def vote():
 1. **Ctrl**+**Shift**+**B** tuşlarına basarak çözümü oluşturun.
 2. Derleme başarılı olduktan sonra, **F5**'e basarak web sitesini başlatın. Ekranınızda şunu göreceksiniz:
    
-    ![Python + DocumentDB Oylama uygulamasının bir web tarayıcısında görüntülenen ekran görüntüsü](./media/documentdb-python-application/image16.png)
+    ![Python + Azure Cosmos DB Oylama Uygulamasının bir web tarayıcısında görüntülenen ekran görüntüsü](./media/documentdb-python-application/image16.png)
 3. Veritabanını oluşturmak için **Oylama Veritabanını Oluştur/Temizle**'ye tıklayın.
    
     ![Web uygulamasının Oluşturma Sayfası'nın ekran görüntüsü - geliştirme ayrıntıları](./media/documentdb-python-application/image17.png)
@@ -371,7 +372,7 @@ def vote():
 6. Shift + F5'e basarak projenin hata ayıklamasını durdurun.
 
 ## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>5. Adım: Web uygulamasını Azure Web Sitelerine dağıtma
-Artık uygulamanın tamamı doğrudan DocumentDB'de çalıştığına göre, bunu Azure Web Sitelerine dağıtacağız.
+Artık uygulamanın tamamı doğrudan Cosmos DB'de çalıştığına göre, bunu Azure Web Sitelerine dağıtacağız.
 
 1. Çözüm Gezgini'nde projeye sağ tıklayın (yerel olarak çalıştırmaya devam etmediğinizden emin olun) ve **Yayımla**'yı seçin.  
    
@@ -398,7 +399,7 @@ Bilgisayarınızda çalıştırdığınız ilk Python uygulaması buysa YOL değ
 Oy sayfanızda bir hata alırsanız ve projenize **öğretici** dışında bir ad verdiyseniz **\_\_init\_\_.py**'nin doğru proje adına şu satırda başvurduğundan emin olun: `import tutorial.view`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tebrikler! Azure DocumentDB kullanarak ilk Python web uygulamanızı tamamladınız ve bunu Azure Web Siteleri'nde yayımladınız.
+Tebrikler! Cosmos DB kullanarak ilk Python web uygulamanızı tamamladınız ve bunu Azure Web Siteleri'nde yayımladınız.
 
 Geri bildirimlerinizi temel alarak bu konu başlığını sıklıkla güncelleştirip iyileştiriyoruz.  Öğreticiyi tamamladıktan sonra, lütfen bu sayfanın üst ve alt kısmındaki oylama düğmelerini kullanın ve yapılmasını görmek istediğiniz iyileştirmeler hakkında geri bildiriminizi ekleyin. Doğrudan sizinle iletişim kurmamızı isterseniz yorumlarınıza e-posta adresinizi ekleyin.
 

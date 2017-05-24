@@ -1,27 +1,28 @@
 ---
-title: "DocumentDB için NoSQL C++ öğreticisi | Microsoft Belgeleri"
-description: "C++ için DocumentDB onaylı bir SDK’yı kullanarak bir C++ veritabanı ve konsol uygulaması oluşturan bir NoSQL C++ öğreticisi. DocumentDB, çok büyük ölçekli bir NoSQL veritabanı hizmetidir."
-services: documentdb
+title: "Azure Cosmos DB için C++ öğreticisi | Microsoft Docs"
+description: "C++ için Azure Cosmos DB onaylı bir SDK’yı kullanarak bir C++ veritabanı ve konsol uygulaması oluşturan öğretici. Azure Cosmos DB, çok büyük ölçekli bir veritabanı hizmetidir."
+services: cosmosdb
 documentationcenter: cpp
 author: asthana86
 manager: jhubbard
 editor: 
 ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: aasthan
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 78c3da6fd83a6fca0351a90846d10acd82924be3
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 17cf6de0256983f383a417573d02fddd81ccd104
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="nosql-c-tutorial-documentdb-c-console-application"></a>NoSQL C++ öğreticisi: DocumentDB C++ konsol uygulaması
+# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api"></a>Azure Cosmos DB: DocumentDB API’si için C++ konsol uygulaması öğreticisi
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -33,19 +34,19 @@ ms.lasthandoff: 04/18/2017
 > 
  
 
-C++ için Azure DocumentDB onaylı SDK için C++ öğreticisine hoş geldiniz! Bu öğreticiden yararlandıktan sonra, bir C++ veritabanı dahil olmak üzere DocumentDB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
+C++ için Azure Cosmos DB DocumentDB API’si onaylı SDK için C++ öğreticisine hoş geldiniz! Bu öğreticiden yararlandıktan sonra, bir C++ veritabanı dahil olmak üzere Azure Cosmos DB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
 
 Şu konulara değineceğiz:
 
-* DocumentDB hesabı oluşturma ve DocumentDB hesabına bağlanma
+* Azure Cosmos DB hesabı oluşturma ve hesaba bağlanma
 * Uygulamanızı kurma
-* C++ DocumentDB veritabanı oluşturma
+* C++ Azure Cosmos DB veritabanı oluşturma
 * Koleksiyon oluşturma
 * JSON belgeleri oluşturma
 * Koleksiyonu sorgulama
 * Bir belgeyi değiştirme
 * Bir belgeyi silme
-* C++ DocumentDB veritabanını silme
+* C++ Azure Cosmos DB veritabanını silme
 
 Zamanınız yok mu? Endişelenmeyin! Eksiksiz çözümü [GitHub](https://github.com/stalker314314/DocumentDBCpp)'da bulabilirsiniz. Hızlı yönergeler için bkz. [Eksiksiz çözüm edinme](#GetSolution).
 
@@ -61,8 +62,8 @@ Lütfen aşağıdakilere sahip olduğunuzdan emin olun:
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [Ücretsiz Azure Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 * C++ dil bileşenleri yüklü [Visual Studio](https://www.visualstudio.com/downloads/).
 
-## <a name="step-1-create-a-documentdb-account"></a>1. Adım: DocumentDB hesabı oluşturma
-Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [C++ uygulamanızı kurma](#SetupNode)'ya atlayabilirsiniz.
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
+Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [C++ uygulamanızı kurma](#SetupNode)'ya atlayabilirsiniz.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -81,12 +82,12 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
    
     Paketler projenize eklendikten sonra biraz kod yazmaya hazırız demektir.   
 
-## <a id="Config"></a>3. Adım: DocumentDB veritabanınıza yönelik bağlantı ayrıntılarını Azure portaldan kopyalama
-[Azure portalını](https://portal.azure.com) açın ve oluşturduğunuz NoSQL (DocumentDB) veritabanı hesabına gidin. C++ kod parçacığımızdan bir bağlantı oluşturmak için bir sonraki adımda Azure portalından alınan URI ve birincil anahtara ihtiyacımız olacak. 
+## <a id="Config"></a>3. Adım: Azure Cosmos DB veritabanınıza yönelik bağlantı ayrıntılarını Azure portaldan kopyalama
+[Azure portalını](https://portal.azure.com) açın ve oluşturduğunuz Azure Cosmos DB veritabanı hesabına gidin. C++ kod parçacığımızdan bir bağlantı oluşturmak için bir sonraki adımda Azure portalından alınan URI ve birincil anahtara ihtiyacımız olacak. 
 
-![Azure portalında DocumentDB URI’si ve anahtarlar](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
+![Azure portalında Azure Cosmos DB URI’si ve anahtarlar](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a id="Connect"></a>4. Adım: DocumentDB hesabına bağlanma
+## <a id="Connect"></a>4. Adım: Azure Cosmos DB hesabına bağlanma
 1. Aşağıdaki üst bilgileri ve ad alanlarını kaynak kodunuza `#include "stdafx.h"` ifadesinden sonra gelecek şekilde ekleyin.
    
         #include <cpprest/json.h>
@@ -97,15 +98,15 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
         using namespace documentdb;
         using namespace std;
         using namespace web::json;
-2. Ardından, aşağıdaki kodu ana işlevinize ekleyin ve hesap yapılandırması ile birincil anahtarı 3. adımdaki DocumentDB ayarlarınızla eşleşecek şekilde değiştirin. 
+2. Ardından, aşağıdaki kodu ana işlevinize ekleyin ve hesap yapılandırması ile birincil anahtarı 3. adımdaki Azure Cosmos DB ayarlarınızla eşleşecek şekilde değiştirin. 
    
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    Artık documentdb istemcisini başlatmaya yarayacak koda sahip olduğunuza göre, DocumentDB kaynaklarıyla çalışmaya bakalım.
+    Artık documentdb istemcisini başlatmaya yarayacak koda sahip olduğunuza göre, Azure Cosmos DB kaynaklarıyla çalışmaya bakalım.
 
 ## <a id="CreateDBColl"></a>5. Adım: C++ veritabanı ve koleksiyonu oluşturma
-Bu adımı gerçekleştirmeden önce, DocumentDB konusunda acemi olanlar için veritabanı, koleksiyon ve belgelerin nasıl etkileşimde bulunduğundan bahsedelim. [Veritabanı](documentdb-resources.md#databases), koleksiyonlar genelinde bölümlenmiş belge depolama alanının mantıksal bir kapsayıcısıdır. [Koleksiyon](documentdb-resources.md#collections), JSON belgeleri ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır. [DocumentDB hiyerarşik kaynak modeli ve kavramları](documentdb-resources.md) konusundan DocumentDB hiyerarşik kaynak modeli ve kavramları hakkında daha fazla bilgi edinebilirsiniz.
+Bu adımı gerçekleştirmeden önce, Azure Cosmos DB konusunda acemi olanlar için veritabanı, koleksiyon ve belgelerin nasıl etkileşimde bulunduğundan bahsedelim. [Veritabanı](documentdb-resources.md#databases), koleksiyonlar genelinde bölümlenmiş belge depolama alanının mantıksal bir kapsayıcısıdır. [Koleksiyon](documentdb-resources.md#collections), JSON belgeleri ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır. [Azure Cosmos DB hiyerarşik kaynak modeli ve kavramları](documentdb-resources.md) konusundan Azure Cosmos DB hiyerarşik kaynak modeli ve kavramları hakkında daha fazla bilgi edinebilirsiniz.
 
 Bir veritabanı ve ona karşılık gelen bir koleksiyon oluşturmak için aşağıdaki kodu ana işlevinizin sonuna ekleyin. Bunu yaptığınızda, önceki adımda belirttiğiniz istemci yapılandırması kullanılarak 'FamilyRegistry’ adlı bir veritabanı ve ‘FamilyCollection’ adlı bir koleksiyon oluşturulur.
 
@@ -118,7 +119,7 @@ Bir veritabanı ve ona karşılık gelen bir koleksiyon oluşturmak için aşağ
 
 
 ## <a id="CreateDoc"></a>6. Adım: Belge oluşturma
-[Belgeler](documentdb-resources.md#documents), kullanıcı tanımlı (rastgele) JSON içeriğidir. Artık DocumentDB'ye bir belge yerleştirebilirsiniz. Aşağıdaki kodu ana işlevin sonuna kopyalayarak bir belge oluşturabilirsiniz. 
+[Belgeler](documentdb-resources.md#documents), kullanıcı tanımlı (rastgele) JSON içeriğidir. Artık Azure Cosmos DB'ye bir belge yerleştirebilirsiniz. Aşağıdaki kodu ana işlevin sonuna kopyalayarak bir belge oluşturabilirsiniz. 
 
     try {
       value document_family;
@@ -135,12 +136,12 @@ Bir veritabanı ve ona karşılık gelen bir koleksiyon oluşturmak için aşağ
       wcout << ex.message();
     }
 
-Özetlemek gerekirse, bu kod bir DocumentDB veritabanı, koleksiyonu ve belgeleri oluşturur ve bunları Azure portalındaki Belge Gezgini’nde sorgulayabilirsiniz. 
+Özetlemek gerekirse, bu kod bir Azure Cosmos DB veritabanı, koleksiyonu ve belgeleri oluşturur ve bunları Azure portalındaki Belge Gezgini’nde sorgulayabilirsiniz. 
 
 ![C++ öğreticisi - Hesap, veritabanı, koleksiyon ve belgeler arasındaki hiyerarşik ilişkiyi gösteren diyagram](media/documentdb-cpp-get-started/documentdbdocs.png)
 
-## <a id="QueryDB"></a>7. Adım: DocumentDB kaynaklarını sorgulama
-DocumentDB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler. Aşağıdaki örnek kod, önceki adımda oluşturduğumuz belgelerde DocumentDB SQL söz dizimi kullanarak gerçekleştirebileceğimiz bir sorguyu gösterir.
+## <a id="QueryDB"></a>7. Adım: Azure Cosmos DB kaynaklarını sorgulama
+Azure Cosmos DB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler. Aşağıdaki örnek kod, önceki adımda oluşturduğumuz belgelerde SQL söz dizimi kullanarak gerçekleştirebileceğimiz bir sorguyu gösterir.
 
 Bu işlev, veritabanı ve koleksiyonun yanı sıra belge istemcisinin benzersiz tanımlayıcısı ve kaynak kimliğini bağımsız değişkenler olarak alır. Bu kodu ana işlevden önce ekleyin.
 
@@ -171,7 +172,7 @@ Bu işlev, veritabanı ve koleksiyonun yanı sıra belge istemcisinin benzersiz 
     }
 
 ## <a id="Replace"></a>8. Adım: Bir belgeyi değiştirme
-DocumentDB, aşağıdaki kodda gösterildiği gibi JSON belgelerinin değiştirilmesini destekler. Bu kodu executesimplequery işlevinden sonra ekleyin.
+Azure Cosmos DB, aşağıdaki kodda gösterildiği gibi JSON belgelerinin değiştirilmesini destekler. Bu kodu executesimplequery işlevinden sonra ekleyin.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
                          const wstring collresourceid,
@@ -191,7 +192,7 @@ DocumentDB, aşağıdaki kodda gösterildiği gibi JSON belgelerinin değiştiri
     }
 
 ## <a id="Delete"></a>9. Adım: Bir belgeyi silme
-DocumentDB JSON belgelerinin silinmesini destekler; aşağıdaki kodu kopyalayıp replacedocument işlevinden sonra yapıştırarak bunu gerçekleştirebilirsiniz. 
+Azure Cosmos DB JSON belgelerinin silinmesini destekler; aşağıdaki kodu kopyalayıp replacedocument işlevinden sonra yapıştırarak bunu gerçekleştirebilirsiniz. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
                         const wstring collresourceid, const wstring docresourceid) {
@@ -219,7 +220,7 @@ Veritabanını ve tüm alt kaynaklarını kaldırmak için aşağıdaki kod par�
     }
 
 ## <a id="Run"></a>11. Adım: C++ uygulamanızı hep birlikte çalıştırın!
-Farklı DocumentDB kaynaklarını oluşturmak, sorgulamak, değiştirmek ve silmek için kod ekledik.  Şimdi de bu farklı işlevlere hellodocumentdb.cpp’deki ana işlevimizden çağrıların yanı sıra bazı tanılama iletileri ekleyerek bağlantıları tamamlayalım.
+Farklı Azure Cosmos DB kaynaklarını oluşturmak, sorgulamak, değiştirmek ve silmek için kod ekledik.  Şimdi de bu farklı işlevlere hellodocumentdb.cpp’deki ana işlevimizden çağrıların yanı sıra bazı tanılama iletileri ekleyerek bağlantıları tamamlayalım.
 
 Bunu, uygulamanızın ana işlevini aşağıdaki kodla değiştirerek gerçekleştirebilirsiniz. Bu işlem 3. adımda koda kopyaladığınız account_configuration_uri ve primary_key değerlerinin üzerine yazacağından, bu satırı kaydedin veya değerleri yeniden portaldan kopyalayın. 
 
@@ -274,20 +275,20 @@ Artık F5’e basarak veya alternatif olarak terminal penceresinden uygulamayı 
 
 Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıkışın aşağıdaki görüntüyle eşleşmesi gerekir.
 
-![DocumentDB C++ uygulama çıkışı](media/documentdb-cpp-get-started/docdbconsole.png)
+![Azure Cosmos DB C++ uygulama çıktısı](media/documentdb-cpp-get-started/docdbconsole.png)
 
-Tebrikler! C++ öğreticisini tamamladınız ve ilk DocumentDB konsol uygulamanızı oluşturdunuz!
+Tebrikler! C++ öğreticisini tamamladınız ve ilk Azure Cosmos DB konsol uygulamanızı oluşturdunuz!
 
 ## <a id="GetSolution"></a>Tam C++ öğreticisi çözümünü edinin
 Bu makaledeki tüm örnekleri içeren GetStarted çözümünü derlemek için aşağıdakilere ihtiyacınız vardır:
 
-* [DocumentDB hesabı][documentdb-create-account].
+* [Azure Cosmos DB hesabı][documentdb-create-account].
 * GitHub'da bulunan [GetStarted](https://github.com/stalker314314/DocumentDBCpp) çözümü.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Bir DocumentDB hesabını izleme](documentdb-monitor-accounts.md) hakkında bilgi edinin.
+* [Azure Cosmos DB hesabını nasıl izleyebileceğinizi](documentdb-monitor-accounts.md) öğrenin.
 * [Query Playground](https://www.documentdb.com/sql/demo)'daki örnek veri kümelerimizde sorgular çalıştırın.
-* [DocumentDB belge sayfasının](https://azure.microsoft.com/documentation/services/documentdb/) Geliştirme bölümünde programlama modeli hakkında daha fazla bilgi edinin.
+* [Azure Cosmos DB belgeleri sayfasının](https://azure.microsoft.com/documentation/services/documentdb/) Geliştirme bölümünde programlama modeli hakkında daha fazla bilgi edinin.
 
 [documentdb-create-account]: documentdb-create-account.md
 

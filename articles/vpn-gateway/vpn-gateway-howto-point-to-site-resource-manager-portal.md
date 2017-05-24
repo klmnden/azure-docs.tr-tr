@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: a8c815326c255833fc7944821199d80e26b735ee
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 3daf74e480854255a40e7ee74e96993fff930471
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,9 +34,16 @@ Bu makalede, Azure portalı kullanılarak Resource Manager dağıtım modelinde 
 >
 >
 
-Noktadan Siteye (P2S) yapılandırması, ayrı bir istemci bilgisayardan bir sanal ağa yönelik güvenli bağlantı oluşturmanıza olanak sağlar. P2S, SSTP (Güvenli Yuva Tünel Protokolü) aracılığıyla gerçekleşen bir VPN bağlantısıdır. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda Noktadan Siteye bağlantıları kullanışlıdır. P2S bağlantılarının bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısını istemci bilgisayardan kurarsınız. Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için bu makalenin sonunda yer alan [Noktadan Siteye hakkında SSS](#faq) bölümünü inceleyin.
+Noktadan Siteye (P2S) yapılandırması, ayrı bir istemci bilgisayardan bir sanal ağa yönelik güvenli bağlantı oluşturmanıza olanak sağlar. P2S, SSTP (Güvenli Yuva Tünel Protokolü) aracılığıyla gerçekleşen bir VPN bağlantısıdır. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda Noktadan Siteye bağlantıları kullanışlıdır. P2S bağlantılarının bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısını istemci bilgisayardan kurarsınız.
 
 ![Noktadan Siteye diyagramı](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
+
+P2S bağlantıları aşağıdakileri gerektirir:
+
+* RouteBased VPN ağ geçidi.
+* Azure’a yüklenmiş bir kök sertifikanın ortak anahtarı (.cer dosyası). Bu dosya, güvenilen bir sertifika olarak kabul edilir ve kimlik doğrulaması için kullanılır.
+* Kök sertifikadan oluşturulmuş ve bağlanacak her bir istemci bilgisayara yüklenmiş istemci sertifikası. Bu sertifika, istemci kimlik doğrulaması için kullanılır.
+* Bir VPN istemcisi yapılandırma paketi oluşturulmalı ve bağlanan her istemci bilgisayara yüklenmelidir. İstemci yapılandırma paketi, işletim sistemi üzerinde zaten bulunan yerel VPN istemcisini sanal ağa bağlanmak için gereken bilgilerle yapılandırır.
 
 ### <a name="example"></a>Örnek değerler
 
@@ -98,7 +105,7 @@ Noktadan siteye bağlantılar için şu ayarların yapılması gerekir:
 
 ## <a name="generatecert"></a>6 - Sertifika oluşturma
 
-Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak için Azure tarafından sertifikalar kullanılır.
+Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak için Azure tarafından sertifikalar kullanılır. Kök sertifikanın ortak anahtar bilgilerini Azure'a yükleyin. Bundan sonra ortak anahtar, 'güvenilir' olarak kabul edilir. Güvenilir kök sertifikadan istemci sertifikaları oluşturulmalı ve sonra Sertifikalar-Geçerli Kullanıcı/Kişisel sertifika deposundaki her bir istemci bilgisayara yüklenmelidir. Sertifika, sanal ağ ile bağlantı başlattığında istemcinin kimliğini doğrulamak için kullanılır. Sertifika oluşturma ve yükleme hakkında daha fazla bilgi için bkz. [Noktadan Siteye Sertifikaları](vpn-gateway-certificates-point-to-site.md).
 
 ### <a name="getcer"></a>1. Adım: Kök sertifikaya ilişkin .cer dosyasını alma
 
@@ -110,16 +117,18 @@ Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak i�
 
 ## <a name="addresspool"></a>7 - İstemci adres havuzu ekleme
 
+İstemci adres havuzu, belirttiğiniz özel IP adresleri aralığıdır. P2S üzerinden bağlanan istemciler bu aralıktaki bir IP adresini alır. Bağlantıyı kuracağınız şirket içi konum veya bağlanmak istediğiniz sanal ağ ile çakışmayan özel bir IP adresi aralığı kullanın.
+
 1. Sanal ağ geçidini oluşturduktan sonra dikey penceresindeki **Ayarlar** bölümüne gidin. **Ayarlar** bölümünde **Noktadan siteye yapılandırma**’ya tıklayarak **Yapılandırma** dikey penceresini açın.
 
   ![Noktadan Siteye dikey penceresi](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png)
-2. **Adres havuzu**, bağlanan istemcilerin alacağı IP adreslerinin bulunduğu IP adresi havuzdur. Adres havuzunu ekleyip **Kaydet**’e tıklayın.
+2. Otomatik olarak doldurulan aralığı silebilir, ardından kullanmak istediğiniz özel IP adresi aralığını ekleyebilirsiniz. Ayarı doğrulayıp kaydetmek için **Kaydet**’e tıklayın.
 
   ![İstemci adres havuzu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 
 ## <a name="uploadfile"></a>8 - Kök sertifika .cer dosyasını karşıya yükleme
 
-Ağ geçidi oluşturulduktan sonra güvenilen bir kök sertifika için .cer dosyasını Azure’a yükleyebilirsiniz. 20 adede kadar kök sertifikasının dosyasını yükleyebilirsiniz. Kök sertifikanın özel anahtarını Azure'a yüklemezsiniz. .cer dosyası yüklendikten sonra Azure, sanal ağa bağlanan istemcilerin kimliğini doğrulamak için bu anahtarı kullanır.
+Ağ geçidi oluşturulduktan sonra, güvenilen kök sertifikanın .cer dosyasını (ortak anahtar bilgilerini içerir) Azure’a yükleyebilirsiniz. Bir .cer dosyası karşıya yüklendikten sonra Azure, güvenilir kök sertifikadan oluşturulmuş bir istemci sertifikasının yüklü olduğu istemcilerin kimliklerini doğrulamak için bu dosyayı kullanabilir. Daha sonra gerekirse, toplam 20 adede kadar güvenilir kök sertifika dosyasını karşıya yükleyebilirsiniz. 
 
 1. Sertifikalar **Kök sertifikası** bölümünün **Noktadan siteye yapılandırma** dikey penceresine eklenir.  
 2. Kök sertifikayı Base-64 ile kodlanmış X.509 (.cer) dosyası olarak dışarı aktardığınızdan emin olun. Sertifikayı metin düzenleyiciyle açabilmek için bu biçimde dışa aktarmanız gerekir.
@@ -132,9 +141,9 @@ Ağ geçidi oluşturulduktan sonra güvenilen bir kök sertifika için .cer dosy
 
 ## <a name="clientconfig"></a>9 - VPN istemcisi yapılandırma paketini yükleme
 
-Noktadan Siteye VPN kullanarak bir sanal ağa bağlanmak için her istemcinin bir VPN istemcisi yapılandırma paketi yüklemesi gerekir. Paket bir VPN istemcisi yüklemez. Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayarda aynı VPN istemcisi yapılandırma paketini kullanabilirsiniz. Desteklenen istemci işletim sistemlerinin listesi için bu makalenin sonundaki [Noktadan Siteye bağlantılar hakkında SSS](#faq) bölümüne bakın.
+Noktadan Siteye VPN kullanarak bir sanal ağa bağlanmak için her istemcinin yerel Windows VPN istemcisini yapılandırmaya yönelik bir paket yüklemesi gerekir. Yapılandırma paketi, yerel Windows VPN istemcisini sanal ağa bağlanmak için gereken ayarlarla yapılandırır ve sanal ağınız için bir DNS sunucusu belirttiyseniz, istemcinin ad çözümlemesi için kullanacağı DNS sunucusu IP adresini içerir. Belirtilen DNS sunucusunu daha sonra değiştirirseniz, istemci yapılandırma paketini oluşturduktan sonra istemci bilgisayarlarınıza yüklenecek yeni bir istemci yapılandırma paketi oluşturduğunuzdan emin olun.
 
-Yapılandırma paketi, yerel Windows VPN istemcisini sanal ağa bağlanmak için gereken ayarlarla yapılandırır ve sanal ağınız için bir DNS sunucusu belirttiyseniz, istemcinin ad çözümlemesi için kullanacağı DNS sunucusu IP adresini içerir. Belirtilen DNS sunucusunu daha sonra değiştirirseniz, istemci yapılandırma paketini oluşturduktan sonra istemci bilgisayarlarınıza yüklenecek yeni bir istemci yapılandırma paketi oluşturduğunuzdan emin olun.
+Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayarda aynı VPN istemcisi yapılandırma paketini kullanabilirsiniz. Desteklenen istemci işletim sistemlerinin listesi için bu makalenin sonundaki [Noktadan Siteye bağlantılar hakkında SSS](#faq) bölümüne bakın.
 
 ### <a name="step-1---download-the-client-configuration-package"></a>1 Adım - İstemci yapılandırma paketini indirme
 
