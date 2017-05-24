@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 06f81b11205085357ba4ba4e2f0d2e1e4c0e940a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 5120b3f11549c936daacdfab37190a7193fde89f
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -74,9 +75,19 @@ Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa bkz. [Bağl
 ## <a name="pages-under-the-section-sync"></a>Eşitleme bölümünde yer alan sayfalar
 
 ### <a name="connect-your-directories"></a>Dizinlerinizi bağlama
-Azure AD Connect'in Active Directory Etki Alanı Hizmetinize bağlanabilmesi için yeterli izinlere sahip bir hesabın kimlik bilgilerine sahip olması gerekir. Etki alanı bölümünü NetBIOS veya FQDN biçiminde (ör. FABRIKAM\eşitlemekullanıcısı veya fabrikam.com\eşitlemekullanıcısı) girebilirsiniz. Yalnızca varsayılan okuma izinleri gerekli olduğundan, bu hesap normal bir kullanıcı hesabı olabilir. Ancak senaryonuza bağlı olarak daha fazla izin gerekebilir. Daha fazla bilgi için bkz. [Azure AD Connect Hesapları ve izinleri](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+Azure AD Connect'in, Active Directory Etki Alanı Hizmetinize bağlanabilmesi için yeterli izinlere sahip bir hesabın orman adı ve kimlik bilgilerine sahip olması gerekir.
 
-![Connect Dizini](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
+![Connect Dizini](./media/active-directory-aadconnect-get-started-custom/connectdir01.png)
+
+Orman adını girip **Dizin Ekle**’ye tıkladıktan sonra, bir iletişim kutusu açılır ve aşağıdaki seçenekler sunulur:
+
+| Seçenek | Açıklama |
+| --- | --- |
+| Mevcut hesabı kullan | Dizin eşitlemesi sırasında Azure AD Connect tarafından AD ormanına bağlanmak için kullanılmak üzere mevcut bir AD DS hesabı sağlamak istiyorsanız bu seçeneği belirleyin. Etki alanı bölümünü NetBIOS veya FQDN biçiminde (ör. FABRIKAM\eşitlemekullanıcısı veya fabrikam.com\eşitlemekullanıcısı) girebilirsiniz. Yalnızca varsayılan okuma izinleri gerekli olduğundan, bu hesap normal bir kullanıcı hesabı olabilir. Ancak senaryonuza bağlı olarak daha fazla izin gerekebilir. Daha fazla bilgi için bkz. [Azure AD Connect Hesapları ve izinleri](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
+| Yeni hesap oluştur | Dizin eşitlemesi sırasında Azure AD Connect’in AD ormanına bağlanması için gereken AD DS hesabını Azure AD Connect sihirbazının oluşturmasını istiyorsanız bu seçeneği belirleyin. Bu seçenek belirlendiğinde, bir kuruluş yöneticisi hesabının kullanıcı adını ve parolasını girmeniz gerekir. Sağlanan kuruluş yöneticisi hesabı, Azure AD Connect sihirbazı tarafından gerekli AD DS hesabını oluşturmak için kullanılır. Etki alanı bölümünü NetBIOS veya FQDN biçiminde (örneğin, FABRIKAM\yönetici veya fabrikam.com\yönetici) girebilirsiniz. |
+
+![Connect Dizini](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
+
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD oturum açma yapılandırması
 Bu sayfa, Azure AD'de doğrulanmış olup şirket içi AD DS'de var olan UPN etki alanlarını gözden geçirmenize olanak sağlar. Ayrıca bu sayfa sayesinde userPrincipalName için kullanılacak özniteliği yapılandırabilirsiniz.
@@ -99,7 +110,7 @@ Varsayılan olarak tüm etki alanları ve OU'lar eşitlenir. Azure AD ile eşitl
 ![DomainOU filtreleme](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
 Sihirbazın bu sayfası, etki alanı tabanlı ve OU tabanlı filtrelemeyi yapılandırmaya yöneliktir. Değişiklik yapmayı planlıyorsanız, yapmadan önce [etki alanı tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) ve [OU tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) konularını inceleyin. Bazı OU’lar işlevsellik açısından gereklidir ve bunların seçimi kaldırılmamalıdır.
 
-OU tabanlı filtreleme kullanırsanız, daha sonra eklenen yeni OU'lar varsayılan olarak eşitlenir. Yeni OU'ların eşitlenmesini istemezseniz, sihirbazın [ou tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) yapılandırması tamamlandıktan sonra gerekli ayarları yapabilirsiniz.
+Azure AD Connect’in 1.1.524.0’dan önceki bir sürümü ile OU tabanlı filtreleme kullanıyorsanız, daha sonra eklenen yeni OU’lar varsayılan olarak eşitlenir. Yeni OU'ların eşitlenmesini istemezseniz, sihirbazın [ou tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) yapılandırması tamamlandıktan sonra gerekli ayarları yapabilirsiniz. Azure AD Connect sürüm 1.1.524.0 ve üzeri sürümlerde, yeni OU’ların eşitlenmesini isteyip istemediğinizi belirtebilirsiniz.
 
 [Grup tabanlı filtreleme](#sync-filtering-based-on-groups) kullanmayı planlıyorsanız, gruba sahip OU'nun dahil olduğundan ve OU filtreleme ile filtrelenmediğinden emin olun. OU filtreleme, grup tabanlı filtrelemeden önce değerlendirilir.
 
@@ -108,6 +119,8 @@ Güvenlik duvarı kısıtlamaları nedeniyle bazı etki alanlarına erişilemeye
 Bu uyarıyı görürseniz bu etki alanlarına gerçekten erişilemediğinden ve bir uyarının beklendiğinden emin olun.
 
 ### <a name="uniquely-identifying-your-users"></a>Kullanıcılarınızı benzersiz olarak tanımlama
+
+#### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>Şirket içi dizinlerinizde kullanıcıların nasıl tanımlanması gerektiğini seçin
 Ormanlar arasında eşleştirme özelliği sayesinde, AD DS ormanlarındaki kullanıcıların Azure AD'de nasıl temsil edildiğini tanımlayabilirsiniz. Bir kullanıcı ya tüm ormanlarda yalnızca bir kez temsil edilebilir ya da etkin ve devre dışı hesapların birleşimine sahip olabilir. Ayrıca kullanıcı, bazı ormanlarda kişi olarak da temsil edilebilir.
 
 ![Benzersiz](./media/active-directory-aadconnect-get-started-custom/unique.png)
@@ -120,7 +133,15 @@ Ormanlar arasında eşleştirme özelliği sayesinde, AD DS ormanlarındaki kull
 | sAMAccountName ve MailNickName |Bu seçenek, kullanıcı için oturum açma kimliğinin bulunması beklenen öznitelikleri birleştirir. |
 | Belirli bir öznitelik |Bu seçenek, kendi özniteliğinizi seçmenize olanak tanır. **Sınırlama:** Meta veri deposunda bulabileceğiniz bir özniteliği seçtiğinizden emin olun. Özel bir öznitelik (meta veri deposunda olmayan) seçerseniz sihirbaz tamamlanamaz. |
 
-**Kaynak Bağlantısı** - sourceAnchor özniteliği, kullanıcı nesnesinin yaşam süresi boyunca sabit olan bir özniteliktir. Şirket içi kullanıcıyı Azure AD'deki kullanıcıya bağlayan birincil anahtardır. Öznitelik değiştirilemeyeceği için kullanmak üzere iyi bir öznitelik seçmeniz gerekir. ObjectGUID iyi bir seçenektir. Kullanıcı hesabı ormanlar/etki alanları arasında taşınmadığı sürece bu öznitelik değiştirilemez. Hesapları ormanlar arasında taşıdığınız çoklu orman ortamında başka bir öznitelik (örneğin, employeeID içeren bir öznitelik) kullanmanız gerekir. Bir kişi evlendiğinde değişecek olan veya atamaları değiştirecek olan öznitelikleri kullanmaktan kaçının. @-sign içeren nitelikleri kullanamazsınız. Bu nedenle e-posta ve userPrincipalName seçeneği kullanılamaz. Ayrıca öznitelikler büyük küçük harfe duyarlıdır. Bu nedenle bir nesneyi ormanlar arasında taşıdığınızda, büyük/küçük harfleri doğru yazdığınızdan emin olun. İkili öznitelikler base64 kodludur ancak diğer öznitelik türleri kodlanmamış durumda kalır. Federasyon senaryolarında ve bazı Azure AD arabirimlerinde, bu öznitelik immutableID özniteliği olarak da bilinir. Kaynak bağlantısı hakkında daha fazla bilgi için bkz. [tasarım kavramları](active-directory-aadconnect-design-concepts.md#sourceanchor).
+#### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Azure AD - Kaynak Bağlantısı ile kullanıcıların nasıl tanımlanması gerektiğini seçin
+SourceAnchor özniteliği, kullanıcı nesnesinin yaşam süresi boyunca sabit olan bir özniteliktir. Şirket içi kullanıcıyı Azure AD'deki kullanıcıya bağlayan birincil anahtardır.
+
+| Ayar | Açıklama |
+| --- | --- |
+| Kaynak bağlantısını benim için Azure yönetsin | Azure AD’nin sizin için özniteliği seçmesini istiyorsanız bu seçeneği belirleyin. |
+| Belirli bir öznitelik | SourceAnchor özniteliği olarak mevcut bir AD özniteliğini belirtmek istiyorsanız bu seçeneği belirleyin. |
+
+Öznitelik değiştirilemeyeceği için kullanmak üzere iyi bir öznitelik seçmeniz gerekir. ObjectGUID iyi bir seçenektir. Kullanıcı hesabı ormanlar/etki alanları arasında taşınmadığı sürece bu öznitelik değiştirilemez. Hesapları ormanlar arasında taşıdığınız çoklu orman ortamında başka bir öznitelik (örneğin, employeeID içeren bir öznitelik) kullanmanız gerekir. Bir kişi evlendiğinde değişecek olan veya atamaları değiştirecek olan öznitelikleri kullanmaktan kaçının. @-sign içeren nitelikleri kullanamazsınız. Bu nedenle e-posta ve userPrincipalName seçeneği kullanılamaz. Ayrıca öznitelikler büyük küçük harfe duyarlıdır. Bu nedenle bir nesneyi ormanlar arasında taşıdığınızda, büyük/küçük harfleri doğru yazdığınızdan emin olun. İkili öznitelikler base64 kodludur ancak diğer öznitelik türleri kodlanmamış durumda kalır. Federasyon senaryolarında ve bazı Azure AD arabirimlerinde, bu öznitelik immutableID özniteliği olarak da bilinir. Kaynak bağlantısı hakkında daha fazla bilgi için bkz. [tasarım kavramları](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Grup tabanlı eşitleme filtrelemesi
 Grup filtreleme özelliği, pilot için yalnızca küçük bir nesne alt kümesini eşitlemenize olanak sağlar. Bu özelliği kullanmak için şirket içi Active Directory'nizde bu amaca uygun bir grup oluşturun. Ardından, doğrudan üye olarak Azure AD ile eşitlenecek kullanıcıları ve grupları ekleyin. Daha sonra, Azure AD'de mevcut olması gereken nesnelerin listesini korumak için bu gruba kullanıcı ekleyebilir ve gruptan kullanıcı çıkarabilirsiniz. Eşitlemek istediğiniz tüm nesneler grubun doğrudan üyesi olmalıdır. Tüm kullanıcılar, gruplar, kişiler ve bilgisayarlar/cihazlar doğrudan üye olmalıdır. İç içe geçmiş grup üyelikleri çözümlenmez. Bir grubu üye olarak eklediğinizde, yalnızca grubun kendisi eklenir; üyeleri eklenmez.
@@ -147,6 +168,7 @@ Bu ekran, belirli senaryolarınız için isteğe bağlı özellikler seçmenizi 
 | İsteğe Bağlı Özellikler | Açıklama |
 | --- | --- |
 | Exchange Karma Dağıtımı |Exchange Karma Dağıtımı özelliği, Exchange posta kutularının hem şirket içinde hem de Office 365'te aynı anda var olmalarına olanak sağlar. Azure AD Connect, Azure AD'den belirli bir [öznitelikler](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) kümesini şirket içi dizininize geri eşitler. |
+| Exchange Posta Ortak Klasörleri | Exchange Posta Ortak Klasörleri özelliğini kullanarak, posta özellikli Ortak Klasör nesnelerini şirket içi Active Directory’den Azure AD’ye eşitleyebilirsiniz. |
 | Azure AD uygulaması ve öznitelik filtreleme |Azure AD uygulaması ve öznitelik filtreleme etkinleştirilerek, eşitlenen öznitelikler kümesi uyarlanabilir. Bu seçenek sihirbaza iki yapılandırma sayfası daha ekler. Daha fazla bilgi için bkz. [Azure AD uygulaması ve öznitelik filtreleme](#azure-ad-app-and-attribute-filtering). |
 | Parola eşitleme |Oturum açma çözümü olarak federasyonu seçtiyseniz bu seçeneği etkinleştirebilirsiniz. Bu durumda parola eşitleme, bir yedekleme seçeneği olarak kullanılabilir. Ek bilgi için bkz. [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Doğrudan Kimlik Doğrulama’yı seçtiyseniz, eski istemcilere yönelik destek sağlanması ve bir yedek seçenek olarak kullanılması için bu seçenek otomatik olarak etkinleştirilir. Ek bilgi için bkz. [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Parola geri yazma |Parola geri yazma etkinleştirildiğinde Azure AD'de gerçekleşen parola değişiklikleri şirket içi dizininize geri yazılır. Daha fazla bilgi için bkz. [Parola yönetimine başlarken](../active-directory-passwords-getting-started.md). |

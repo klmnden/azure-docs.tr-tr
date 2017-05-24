@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-translationtype: Human Translation
-ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
-ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: e4c1c2b956b2cae673e60223ce777ba1096dce33
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -32,7 +33,7 @@ Microsoft Azure portalı, Azure kaynaklarınızı sağlayabileceğiniz ve yönet
   ![Azure Portal UI Yönlendirme][UIOrientation]
 
 ## <a name="before-you-get-started"></a>Başlamadan önce
-Bu öğreticiyi incelemek için geçerli bir Azure aboneliğinizin olması gerekir.  Bir aboneliğiniz yoksa, hemen şimdi [ücretsiz deneme için kaydolabilirsiniz](https://azure.microsoft.com/pricing/free-trial/).  Abonelik aldıktan sonra, [https://portal.azure.com] adresinden portala erişebilirsiniz.
+Bu öğreticiyi incelemek için geçerli bir Azure aboneliğinizin olması gerekir.  Bir aboneliğiniz yoksa, hemen şimdi [ücretsiz deneme için kaydolabilirsiniz](https://azure.microsoft.com/pricing/free-trial/).  Abonelik aldıktan sonra, <https://portal.azure.com> adresinden portala erişebilirsiniz.
 
 ## <a name="how-to-create-a-resource"></a>Kaynak oluşturma
 Azure’da, tek bir yerden oluşturabileceğiniz binlerce öğe içeren bir market bulunur.  Yeni bir Windows Server 2012 VM oluşturmak istediğinizi düşünelim.  +YENİ hub’ı, markette öne çıkan bir dizi seçkin kategoriye giriş noktanızdır.  Her kategoride bir dizi öne çıkan öğenin yanı sıra tüm kategorileri ve arama işlevini gösteren tüm markete bir bağlantı bulunur. Yeni bir Windows Server 2012 VM oluşturmak için aşağıdaki eylemleri gerçekleştirin:  

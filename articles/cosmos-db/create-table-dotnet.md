@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 73b9448153ec520d77afd1bdb65b9694e7bf7b9e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: cba0b278d84e25876a8b73cedb7e35f84500fc5e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -70,27 +70,33 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. DocumentDBRepository.cs dosyasını açtığınızda Azure Cosmos DB kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
+Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Program.cs dosyasını açtığınızda Azure Cosmos DB kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
 
 * DocumentClient başlatılır.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-* Yeni bir veritabanı oluşturulur.
+* Henüz yoksa yeni bir tablo oluşturulur.
 
     ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    CloudTable table = tableClient.GetTableReference("people");
+    table.CreateIfNotExists();
     ```
 
-* Yeni bir grafik kapsayıcısı oluşturulur.
+* Yeni bir Tablo kapsayıcısı oluşturulur. Bu kodun normal Azure Tablo depolama SDK'sına çok benzer olduğunu fark edeceksiniz 
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
-        new RequestOptions { OfferThroughput = 1000 });
+    CustomerEntity item = new CustomerEntity()
+                {
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    Email = $"{GetRandomString(6)}@contoso.com",
+                    PhoneNumber = "425-555-0102",
+                    Bio = GetRandomString(1000)
+                };
     ```
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
@@ -106,7 +112,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 3. Azure Cosmos DB hesap adınızı portaldan kopyalayın ve app.config dosyasındaki PremiumStorageConnection dize değerinde AccountName değerine yapıştırın. Yukarıdaki ekran görüntüsünde, hesap adı cosmos-db-quickstart şeklindedir. Hesap adınız portalın üst kısmında gösterilir.
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMODB.documents.azure.com" />`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
 
 4. Ardından portaldaki BİRİNCİL ANAHTAR değerinizi kopyalayıp PremiumStorageConnectionString dosyasına accountKey değeri olarak yapıştırın. 
 
@@ -114,7 +120,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 5. Son olarak, URI değerinizi portalın Anahtarlar sayfasından kopyalayın (kopyala düğmesini kullanarak) ve PremiumStorageConnectionString dosyasına TableEndpoint değeri olarak yapıştırın.
 
-    `TableEndpoint=https://COSMODB.documents.azure.com`
+    `TableEndpoint=https://COSMOSDB.documents.azure.com`
 
     StandardStorageConnectionString değerini olduğu gibi bırakabilirsiniz.
 
