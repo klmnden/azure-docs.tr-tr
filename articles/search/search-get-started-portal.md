@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -199,7 +200,7 @@ Artık sorgulamaya hazır bir arama dizininiz var. **Arama gezgini**, portalda y
 
   Bileşenlerin tek tek görüntülemek için panonuzda **Dizin**, **Dizin Oluşturucu** veya **Veri Kaynakları** kutucuğuna tıklayarak var olan nesnelerin bir listesini görüntüleyin. Yeniden derleme gerektirmeyen dizin düzenleme işlemleri hakkında daha fazla bilgi edinmek için bkz. [Dizini Güncelleştirme (Azure Search REST API’si)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Araçları ve adımları diğer veri kaynaklarıyla kullanın. `realestate-us-sample` örnek veri kümesi, Azure Search’ün içinde gezinebileceği bir Azure SQL Veritabanı’ndan alınmıştır. Azure Search, Azure SQL Veritabanı'nın yanı sıra Azure Tablo depolama, Blob depolama, Azure VM'deki SQL Server ve DocumentDB'de gezinebilir ve düz veri yapılarından dizin oluşturabilir. Sihirbazda bu veri kaynaklarının tamamı desteklenir. Kodda bir *dizin oluşturucu* kullanarak bir dizini kolayca doldurabilirsiniz.
++ Araçları ve adımları diğer veri kaynaklarıyla kullanın. `realestate-us-sample` örnek veri kümesi, Azure Search’ün içinde gezinebileceği bir Azure SQL Veritabanı’ndan alınmıştır. Azure Search, Azure SQL Veritabanı'nın yanı sıra Azure Tablo depolama, Blob depolama, Azure VM'deki SQL Server ve Azure Cosmos DB'de gezinebilir ve düz veri yapılarından dizin oluşturabilir. Sihirbazda bu veri kaynaklarının tamamı desteklenir. Kodda bir *dizin oluşturucu* kullanarak bir dizini kolayca doldurabilirsiniz.
 
 + Diğer dizin oluşturucu olmayan tüm veri kaynakları bir gönderme modeli aracılığıyla desteklenir. Bu modelde, yeni ve değiştirilmiş satır kümeleri kodunuz tarafından JSON biçiminde dizininize gönderir. Daha fazla bilgi edinmek için bkz. [Azure Search’te belge ekleme, güncelleştirme veya silme](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 

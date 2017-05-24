@@ -1,28 +1,29 @@
 ---
-title: "Node.js öğrenin - DocumentDB Node.js Öğreticisi | Microsoft Belgeleri"
-description: "Node.js öğrenin! Öğretici, Azure Web Siteleri&quot;nde barındırılan bir Node.js Express web uygulamasında verileri depolamak ve bunlara erişmek için Microsoft Azure DocumentDB&quot;nin nasıl kullanılacağını açıklar."
+title: "Node.js hakkında bilgi edinme - Azure Cosmos DB Node.js Öğreticisi | Microsoft Docs"
+description: "Node.js öğrenin! Öğretici, Azure Web Siteleri&quot;nde barındırılan bir Node.js Express web uygulamasında verileri depolamak ve bunlara erişmek için Microsoft Azure Cosmos DB&quot;nin nasıl kullanılacağını açıklar."
 keywords: "Uygulama geliştirme, veritabanı öğreticisi, node.js öğrenme, node.js öğreticisi, documentdb, azure, Microsoft azure"
-services: documentdb
+services: cosmosdb
 documentationcenter: nodejs
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: syamk
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 6c84c21a0a61ab3e4d043e85d48780fc23f23a08
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 20b04f07581354144ef3dd3fc98da10cbff78e63
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="_Toc395783175"></a>DocumentDB kullanarak bir Node.js web uygulaması oluşturma
+# <a name="_Toc395783175"></a>Azure Cosmos DB kullanarak bir Node.js web uygulaması oluşturma
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [MongoDB için .NET](documentdb-mongodb-application.md)
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Bu Node.js öğreticisi, Azure Web Siteleri'nde barındırılan bir Node.js Express uygulamasında verileri depolamak ve bunlara erişmek için Azure DocumentDB'nin nasıl kullanılacağını size gösterir. Görevlerin oluşturulmasını, alınmasını ve tamamlanmasını sağlayan basit bir web tabanlı görev yönetimi uygulaması, yani yapılacak işler uygulaması oluşturacaksınız. Görevler, JSON belgeleri olarak Azure DocumentDB'de depolanır. Bu öğretici, uygulamayı oluşturma ve dağıtma konusunda rehberlik yapmaktadır ve her kod parçacığında yapılanlar anlatılmaktadır.
+Bu Node.js öğreticisi, Azure Web Siteleri'nde barındırılan bir Node.js Express uygulamasında verileri depolamak ve bunlara erişmek için Azure Cosmos DB'nin nasıl kullanılacağını size gösterir. Görevlerin oluşturulmasını, alınmasını ve tamamlanmasını sağlayan basit bir web tabanlı görev yönetimi uygulaması, yani yapılacak işler uygulaması oluşturacaksınız. Görevler, JSON belgeleri olarak Azure Cosmos DB'de depolanır. Bu öğretici, uygulamayı oluşturma ve dağıtma konusunda rehberlik yapmaktadır ve her kod parçacığında yapılanlar anlatılmaktadır.
 
 ![Bu Node.js öğreticisinde oluşturulan Yapılacaklar Listem uygulamasının ekran görüntüsü](./media/documentdb-nodejs-application/image1.png)
 
@@ -50,13 +51,13 @@ Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzda
 
    OR
 
-   Yerel bir [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md) yüklemesi.
+   Yerel bir [Azure Cosmos DB Öykünücüsü](documentdb-nosql-local-emulator.md) yüklemesi.
 * [Node.js][Node.js] sürüm v0.10.29 veya üzeri.
 * [Express oluşturucu](http://www.expressjs.com/starter/generator.html) (bunu `npm install express-generator -g` aracılığıyla yükleyebilirsiniz)
 * [Git][Git].
 
-## <a name="_Toc395637761"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
-Bir DocumentDB hesabı oluşturarak başlayalım. Zaten bir hesabınız varsa veya bu öğretici için DocumentDB Öykünücüsü’nü kullanıyorsanız [2. Adım: Yeni Node.js uygulaması oluşturma](#_Toc395783178) adımına atlayabilirsiniz.
+## <a name="_Toc395637761"></a>1. Adım: Azure Cosmos DB veritabanı hesabı oluşturma
+İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [2. Adım: Yeni Node.js uygulaması oluşturma](#_Toc395783178) adımına atlayabilirsiniz.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -116,8 +117,8 @@ Bir DocumentDB hesabı oluşturarak başlayalım. Zaten bir hesabınız varsa ve
    
     Bu düğüm, Düğüme (ve daha sonra Azure’a) uygulamanızın bu ek modüllere bağlı olduğunu bildirir.
 
-## <a name="_Toc395783180"></a>4. Adım: DocumentDB hizmetini bir düğüm uygulamasında kullanma
-Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada olma nedenimize dönelim ve Azure DocumentDB'yi kullanarak biraz kod yazalım.
+## <a name="_Toc395783180"></a>4. Adım: Azure Cosmos DB hizmetini bir düğüm uygulamasında kullanma
+Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada olma nedenimize dönelim ve Azure Cosmos DB'yi kullanarak biraz kod yazalım.
 
 ### <a name="create-the-model"></a>Modeli oluşturma
 1. Proje dizininde package.json dosyasıyla aynı dizinde **models** adlı yeni bir dizin oluşturun.
@@ -194,7 +195,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
    > [!TIP]
    > createCollection, Koleksiyon için Teklif Türü'nü belirtmek üzere kullanılabilecek bir isteğe bağlı requestOptions parametresi alır. Hiçbir requestOptions.offerType değeri sağlanmazsa Koleksiyon varsayılan Teklif Türü kullanılarak oluşturulur.
    > 
-   > DocumentDB Teklif Türleri hakkında daha fazla bilgi için lütfen [DocumentDB'de performans düzeyleri](documentdb-performance-levels.md)'ne başvurun. 
+   > Azure Cosmos DB Teklif Türleri hakkında daha fazla bilgi için lütfen [Azure Cosmos DB'de performans düzeyleri](documentdb-performance-levels.md)'ne başvurun 
    > 
    > 
 5. **docdbUtils.js** dosyasını kaydedin ve kapatın.
@@ -214,7 +215,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
         }
    
         module.exports = TaskDao;
-8. Ardından DocumentDB'de depolanan verilerle etkileşimi sağlayan ek yöntemleri Task nesnesinde tanımlamak için aşağıdaki kodu ekleyin.
+8. Ardından Azure Cosmos DB'de depolanan verilerle etkileşimi sağlayan ek yöntemleri Task nesnesinde tanımlamak için aşağıdaki kodu ekleyin.
    
         TaskDao.prototype = {
             init: function (callback) {
@@ -397,7 +398,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
         config.collectionId = "Items";
    
         module.exports = config;
-3. **config.js** dosyasında [Microsoft Azure portalındaki](https://portal.azure.com) DocumentDB hesabınızın Anahtarlar dikey penceresinde bulunan değerleri kullanarak HOST ve AUTH_KEY değerlerini güncelleştirin.
+3. **config.js** dosyasında [Microsoft Azure portalındaki](https://portal.azure.com) Azure Cosmos DB hesabınızın Anahtarlar dikey penceresinde bulunan değerleri kullanarak HOST ve AUTH_KEY değerlerini güncelleştirin.
 4. **config.js** dosyasını kaydedin ve kapatın.
 
 ### <a name="modify-appjs"></a>App.js'yi değiştirme
@@ -427,7 +428,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
         app.post('/addtask', taskList.addTask.bind(taskList));
         app.post('/completetask', taskList.completeTask.bind(taskList));
         app.set('view engine', 'jade');
-5. Bu satırlar, DocumentDB'ye yeni bir bağlantıyla (**config.js**'den okunan değerleri kullanarak) **TaskDao** nesnemizin yeni bir örneğini tanımlar, görev nesnesini başlatır ve ardından form eylemlerini **TaskList** denetleyicimizdeki yöntemlere bağlar. 
+5. Bu satırlar, Azure Cosmos DB'ye yeni bir bağlantıyla (**config.js**'den okunan değerleri kullanarak) **TaskDao** nesnemizin yeni bir örneğini tanımlar, görev nesnesini başlatır ve ardından form eylemlerini **TaskList** denetleyicimizdeki yöntemlere bağlar. 
 6. Son olarak, **app.js** dosyasını kaydedip kapattığınızda işimiz neredeyse bitti demektir.
 
 ## <a name="_Toc395783181"></a>5. Adım: Kullanıcı arabirimi oluşturma
@@ -529,7 +530,7 @@ Artık bir kullanıcının uygulamamızla gerçekte etkileşim kurabilmesi için
     > [!TIP]
     > layout.jade veya index.jade dosyasındaki girintilerle ilgili bir hata alırsanız iki dosyanın da ilk iki satırının sola dayalı olduğundan ve öncesinde boşluk bulunmadığından emin olun. İlk iki satırdan önce boşluk varsa silin, iki dosyayı da kaydedin ve tarayıcı pencerenizi yenileyin. 
 
-2. Öğe, Öğe Adı ve Kategori alanlarını kullanarak yeni bir görev girin ve ardından **Öğe Ekle**'ye tıklayın. Bu işlemden sonra DocumentDB içinde bu özelliklere sahip bir belge oluşturulur. 
+2. Öğe, Öğe Adı ve Kategori alanlarını kullanarak yeni bir görev girin ve ardından **Öğe Ekle**'ye tıklayın. Bu işlemden sonra Azure Cosmos DB içinde bu özelliklere sahip bir belge oluşturulur. 
 3. Sayfa, Yapılacaklar listesinde yeni oluşturulan öğeyi görüntülemek üzere güncelleştirilmelidir.
    
     ![Yapılacaklar listesinde yeni bir öğeyi içeren uygulamanın ekran görüntüsü](./media/documentdb-nodejs-application/image19.png)
@@ -547,16 +548,16 @@ Artık bir kullanıcının uygulamamızla gerçekte etkileşim kurabilmesi için
         git push azure master
 4. Git birkaç saniye içinde web uygulamanızı yayımlamayı bitirecek ve eserinizi Azure'da çalışırken görebileceğiniz bir tarayıcıyı başlatacak!
 
-    Tebrikler! Azure DocumentDB kullanarak ilk Node.js Express Web Uygulamanızı oluşturdunuz ve bunu Azure Web Siteleri'ne yayımladınız.
+    Tebrikler! Azure Cosmos DB kullanarak ilk Node.js Express Web Uygulamanızı oluşturdunuz ve bunu Azure Web Siteleri'ne yayımladınız.
 
     Bu öğreticinin başvuru uygulamasının tamamını indirmek veya incelemek isterseniz [GitHub][GitHub]'dan indirebilirsiniz.
 
 ## <a name="_Toc395637775"></a>Sonraki adımlar
 
-* DocumentDB ile ölçek ve performans testi mi yapmak istiyorsunuz? Bkz. [Azure DocumentDB ile Performans ve Ölçek Testi](documentdb-performance-testing.md)
-* [Bir DocumentDB hesabını izleme](documentdb-monitor-accounts.md) hakkında bilgi edinin.
+* Azure Cosmos DB ile ölçek ve performans testi mi yapmak istiyorsunuz? Bkz. [Azure Cosmos DB ile Performans ve Ölçek Testi](documentdb-performance-testing.md)
+* [Azure Cosmos DB hesabını nasıl izleyebileceğinizi](documentdb-monitor-accounts.md) öğrenin.
 * [Query Playground](https://www.documentdb.com/sql/demo)'daki örnek veri kümelerimizde sorgular çalıştırın.
-* [DocumentDB belgelerini](https://docs.microsoft.com/en-us/azure/documentdb/) keşfedin.
+* [Azure Cosmos DB belgelerini](https://docs.microsoft.com/azure/documentdb/) keşfedin.
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

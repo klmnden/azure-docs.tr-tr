@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: a935fe574bffaad109abd13151c4da1027210014
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5f9b421571fa98d9881a9e955b05041de124f922
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -153,7 +153,7 @@ Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölümde
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. HBase tablosundaki verileri sorgulamak için aşağıdaki HiveQL betiğini çalıştırın:
    
-         SELECT * FROM hbasecontacts;
+         SELECT count(rowkey) FROM hbasecontacts;
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Curl kullanarak HBase REST API’lerini kullanma
 

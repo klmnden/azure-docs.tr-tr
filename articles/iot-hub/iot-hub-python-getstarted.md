@@ -13,10 +13,11 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d020fc6b51f3b20f56fa056e666ba9c7441a3065
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d0ccbcfa5fc8006590951707f7162f7864110f38
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -285,7 +286,7 @@ IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için
 
 * [Cihazınızı bağlama][lnk-connect-device]
 * [Cihaz yönetimini kullanmaya başlama][lnk-device-management]
-* [IoT Gateway SDK'sını kullanmaya başlama][lnk-gateway-SDK]
+* [Azure IoT Edge’i kullanmaya başlama][lnk-gateway-SDK]
 
 IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin doğru ölçekte nasıl işleneceğini öğrenmek için [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
 

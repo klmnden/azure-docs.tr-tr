@@ -1,6 +1,6 @@
 ---
 title: "Verileri portalda Azure Search’e aktarma | Microsoft Docs"
-description: "Azure VM’lerde bulunan NoSQL DocumentDB, Blob depolama, tablo depolama, SQL Veritabanı ve SQL Server verilerinde gezinmek için Azure portalındaki Azure Search Veri İçeri Aktarma Sihirbazı’nı kullanın."
+description: "Azure VM’lerde bulunan NoSQL Azure Cosmos DB, Blob depolama, tablo depolama, SQL Veritabanı ve SQL Server verilerinde gezinmek için Azure portalındaki Azure Search Veri İçeri Aktarma Sihirbazı’nı kullanın."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
-ms.openlocfilehash: c03c26d0e5ea2529162262664412f4f8f7e854dc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,17 +34,17 @@ Sihirbaz kendi içinde bir *dizin oluşturucu* yapılandırıp çağırır ve di
 * Kaynak veri yapısına dayalı değiştirilebilir dizin şeması oluşturma
 * JSON belgelerini veri kaynağından alınan bir satır kümesi kullanarak dizine yükleme
 
-DocumentDB’deki örnek verileri kullanarak bu iş akışını deneyebilirsiniz. Yönergeler için [Azure Portal'da Azure Search ile çalışmaya başlama](search-get-started-portal.md) başlıklı sayfayı ziyaret edin.
+Azure Cosmos DB’deki örnek verileri kullanarak bu iş akışını deneyebilirsiniz. Yönergeler için [Azure Portal'da Azure Search ile çalışmaya başlama](search-get-started-portal.md) başlıklı sayfayı ziyaret edin.
 
 > [!NOTE]
-> İlgili veri kaynağı için dizin oluşturmayı kolaylaştırmak üzere DocumentDB panosundan **Verileri içeri aktarma** sihirbazını başlatabilirsiniz. Başlamak için sol gezinti bölmesinde **Koleksiyonlar** > **Azure Search Ekle** menüsüne gidin.
+> İlgili veri kaynağı için dizin oluşturmayı kolaylaştırmak üzere Azure Cosmos DB panosundan **Verileri içeri aktarma** sihirbazını başlatabilirsiniz. Başlamak için sol gezinti bölmesinde **Koleksiyonlar** > **Azure Search Ekle** menüsüne gidin.
 
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Veri Alma Sihirbazı tarafından desteklenen veri kaynakları
 Veri Alma Sihirbazı aşağıdaki veri kaynaklarını destekler: 
 
 * Azure SQL Database
 * Azure VM’lerdeki SQL Server ilişkisel verileri
-* Azure DocumentDB
+* Azure Cosmos DB
 * Azure Blob depolama
 * Azure Tablo depolama
 
@@ -58,7 +60,7 @@ Düzleştirilmiş veri kümesi gerekli bir giriştir. Yalnızca tek bir tablo, v
 | **Mevcut veri kaynağı** |Arama hizmetinizde önceden tanımlanmış dizin oluşturuculara sahipseniz başka bir içeri aktarma için var olan bir veri kaynağı seçebilirsiniz. |
 | **Azure SQL Veritabanı** |Hizmet adı, okuma iznine sahip bir veritabanı kullanıcısının kimlik bilgileri ve veritabanı adı, sayfa üzerinde ya da ADO.NET bağlantı dizesi aracılığıyla belirtilebilir. Özellikleri görüntülemek veya özelleştirmek için bağlantı dizesini seçin. <br/><br/>Sayfada satır kümesini sağlayan tablo veya görünüm belirtilmelidir. Bu seçenek bağlantı başarılı olduktan sonra görünür ve bir seçim yapmanızı sağlayan açılır listeyi gösterir. |
 | **Azure VM’lerde SQL Server** |Bağlantı dizesi olarak tam hizmet adı, kullanıcı kimliği ve parola ile veritabanı belirtin. Bu veri kaynağını kullanmak için bağlantıyı şifreleyen yerel depoya daha önce bir sertifika yüklemiş olmanız gerekir. Yönergeler için bkz. [Azure Search ile SQL VM bağlantısı](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Sayfada satır kümesini sağlayan tablo veya görünüm belirtilmelidir. Bu seçenek bağlantı başarılı olduktan sonra görünür ve bir seçim yapmanızı sağlayan açılır listeyi gösterir. |
-| **DocumentDB** |Hesap, veritabanı ve bağlantı gereklidir. Koleksiyondaki tüm belgeler dizine dahil edilir. Satır kümesini düzleştirmek veya filtrelemek ya da sonraki veri yenileme işlemleri için değiştirilen belgeleri algılamak üzere bir sorgu tanımlayabilirsiniz. |
+| **Azure Cosmos DB** |Hesap, veritabanı ve bağlantı gereklidir. Koleksiyondaki tüm belgeler dizine dahil edilir. Satır kümesini düzleştirmek veya filtrelemek ya da sonraki veri yenileme işlemleri için değiştirilen belgeleri algılamak üzere bir sorgu tanımlayabilirsiniz. |
 | **Azure Blob Depolama** |Depolama hesabı ve bir kapsayıcı gereklidir. İsteğe bağlı olarak, gruplandırma amacıyla blob adlarından önce bir sanal adlandırma kuralı varsa adın sanal dizin kısmını kapsayıcı altındaki bir klasör olarak belirtebilirsiniz. Daha fazla bilgi için bkz. [Blob Depolama Dizini Oluşturma](search-howto-indexing-azure-blob-storage.md). |
 | **Azure Table Storage** |Depolama hesabı ve bir tablo adı gereklidir. İsteğe bağlı olarak, tabloların bir alt kümesini almak için sorgu belirtebilirsiniz. Daha fazla bilgi için bkz. [Tablo Depolama Dizini Oluşturma](search-howto-indexing-azure-tables.md). |
 
@@ -113,16 +115,11 @@ Yeni bir alan ekleme, puanlama profillerini değiştirme, öneri araçlarını d
 Dizin oluşturucular hakkında daha fazla bilgi için bu bağlantıları gözden geçirin:
 
 * [Azure SQL Veritabanı dizini oluşturma](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB dizini oluşturma](search-howto-index-documentdb.md)
+* [Azure Cosmos DB’yi dizine ekleme](search-howto-index-documentdb.md)
 * [Blob Depolama dizini oluşturma](search-howto-indexing-azure-blob-storage.md)
 * [Tablo Depolama dizini oluşturma](search-howto-indexing-azure-tables.md)
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

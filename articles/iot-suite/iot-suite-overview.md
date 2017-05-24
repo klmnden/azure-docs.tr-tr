@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 309a36b1aa5db95a287b7a6b21449f9d61880cf4
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -47,7 +48,7 @@ Aşağıdaki video Azure IoT paketine giriş sağlar:
 
 * Azure IoT paketinin çekirdeği [Azure IoT Hub][lnk-iot-hub] hizmetidir. Bu hizmet cihaz-bulut arası ve bulut-cihaz arası ileti gönderme özellikleri sağlar ve buluta ve diğer temel IoT Paketi hizmetlerine ağ geçidi görevi görür. Hizmet cihazınızdan ölçekte mesajlar almanızı ve cihazlarınıza komutlar göndermenizi sağlar. Hizmet ayrıca [cihazlarınızı yönetmenizi][lnk-device-management] de sağlar. Örneğin hub'a bağlı bir veya daha fazla cihazı yapılandırabilir, yeniden başlatabilir veya fabrika ayarlarına döndürebilirsiniz.
 * [Azure Stream Analytics][lnk-asa] hareket halinde veri çözümleme sağlar. IoT Paketi, gelen telemetri işlemek, toplama gerçekleştirmek ve olayları algılamak için bu hizmeti kullanır. Önceden yapılandırılmış çözümler, meta veriler ya da cihazlardan alınan komut yanıtları gibi verileri içeren bilgi iletilerini işlemek için de akış analizini kullanır. Çözümler cihazlarınızdan gelen iletileri işlemek ve bu iletileri diğer cihazlara göndermek için Stream Analytics kullanır.
-* [Azure Depolama][lnk-azure-storage] ve [Azure DocumentDB][lnk-document-db] veri depolama özellikleri sağlar. Önceden yapılandırılmış çözümler, telemetri depolamak ve çözümleme için kullanılabilir hale getirmek üzere blob depolamayı kullanır. Çözümler cihaz meta verilerini depolamak ve çözümlerin cihaz yönetimi özelliklerini etkinleştirmek için DocumentDB kullanır.
+* [Azure Depolama][lnk-azure-storage] ve [Azure Cosmos DB][lnk-document-db] veri depolama özellikleri sağlar. Önceden yapılandırılmış çözümler, telemetri depolamak ve çözümleme için kullanılabilir hale getirmek üzere blob depolamayı kullanır. Çözümler cihaz meta verilerini depolamak ve çözümlerin cihaz yönetimi özelliklerini etkinleştirmek için Cosmos DB kullanır.
 * [Azure Web Apps][lnk-web-apps] ve [Microsoft Power BI][lnk-power-bi] veri görselleştirme özellikleri sağlar. Power BI esnekliği, IoT Paketi verilerini kullanan kendi etkileşimli panolarınızı hızlı bir şekilde oluşturmanızı sağlar.
 
 Tipik bir IoT çözüm mimarisine genel bakış için bkz. [Microsoft Azure ve Nesnelerin İnterneti (IoT)][iot-suite-what-is-azure-iot].

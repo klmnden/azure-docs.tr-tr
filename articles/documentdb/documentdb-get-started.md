@@ -1,28 +1,29 @@
 ---
-title: "NoSQL öğreticisi: DocumentDB .NET SDK&quot;sı | Microsoft Docs"
-description: "DocumentDB .NET SDK&quot;sını kullanarak çevrimiçi bir veritabanı ve C# konsol uygulaması oluşturan bir NoSQL öğreticisi. DocumentDB, JSON için bir NoSQL veritabanıdır."
+title: "Azure Cosmos DB: DocumentDB API başlangıç öğreticisi | Microsoft Docs"
+description: "DocumentDB API&quot;sini kullanarak çevrimiçi bir veritabanı ve C# konsol uygulaması oluşturan öğretici."
 keywords: "nosql öğreticisi, çevrimiçi veritabanı, c# konsol uygulaması"
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/19/2017
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 648aa01beaffccf69250f1028e27bc13ed70837c
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 765c1329422f5890c018f71d6e3c409fc0d56a6e
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="nosql-tutorial-build-a-documentdb-c-console-application"></a>NoSQL öğreticisi: DocumentDB C# konsol uygulaması oluşturma
+# <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: DocumentDB API başlangıç öğreticisi
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -33,11 +34,11 @@ ms.lasthandoff: 03/28/2017
 >  
 > 
 
-Azure DocumentDB .NET SDK'sı için NoSQL öğreticisine hoş geldiniz! Bu öğreticiyi uyguladıktan sonra, DocumentDB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
+Azure Cosmos DB: DocumentDB API başlangıç öğreticisine hoş geldiniz! Bu öğreticiyi uyguladıktan sonra, DocumentDB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
 
 Şu konulara değineceğiz:
 
-* DocumentDB hesabı oluşturma ve DocumentDB hesabına bağlanma
+* Azure Cosmos DB hesabı oluşturma ve hesaba bağlanma
 * Visual Studio Çözümünüzü yapılandırma
 * Çevrimiçi bir veritabanı oluşturma
 * Koleksiyon oluşturma
@@ -57,11 +58,11 @@ Ardından bize geri bildirim sağlamak için lütfen bu sayfanın üst veya alt 
 Lütfen aşağıdakilere sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz. 
-    * Alternatif olarak bu öğretici için [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md)’nü kullanabilirsiniz.
+    * Alternatif olarak bu öğretici için [Azure Cosmos DB Öykünücüsü](documentdb-nosql-local-emulator.md)’nü kullanabilirsiniz.
 * [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 
-## <a name="step-1-create-a-documentdb-account"></a>1. Adım: DocumentDB hesabı oluşturma
-Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [Visual Studio Çözümünüzü Kurma](#SetupVS)'ya atlayabilirsiniz. DocumentDB Öykünücüsü’nü kullanıyorsanız öykünücünün kurulumunu gerçekleştirmek için lütfen [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md) konusundaki adımları izleyin ve [Visual Studio Çözümünüzü Ayarlama](#SetupVS) adımına atlayın.
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
+Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [Visual Studio Çözümünüzü Kurma](#SetupVS)'ya atlayabilirsiniz. Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız öykünücünün kurulumunu gerçekleştirmek için lütfen [Azure Cosmos DB Öykünücüsü](documentdb-nosql-local-emulator.md) konusundaki adımları izleyin ve [Visual Studio Çözümünüzü Ayarlama](#SetupVS) adımına atlayın.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -75,14 +76,14 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
     ![Proje için Sağ Tıklama Menüsünün ekran görüntüsü](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 5. **NuGet** sekmesinde **Gözat**'a tıklayın ve arama kutusuna **azure documentdb** yazın.
 6. Sonuçlarda **Microsoft.Azure.DocumentDB**'yi bulun ve **Yükle**'ye tıklayın.
-   DocumentDB İstemci Kitaplığı'nın paket kimliği: [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
-   ![DocumentDB İstemci SDK'sını bulmak için Nuget Menüsünün ekran görüntüsü](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   Azure Cosmos DB İstemci Kitaplığının paket kimliği [Microsoft.Azure.Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Azure Cosmos DB)’dir.
+   ![Azure Cosmos DB İstemci SDK'sını bulmak için Nuget Menüsünün ekran görüntüsü](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Çözümdeki değişiklikleri gözden geçirme hakkında bir ileti alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
 
 Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu öğreticinin tamamlanmış kod projesini [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)'da bulabilirsiniz.
 
-## <a id="Connect"></a>3. Adım: DocumentDB hesabına bağlanma
+## <a id="Connect"></a>3. Adım: Azure Cosmos DB hesabına bağlanma
 İlk olarak, Program.cs dosyasında C# uygulamanızın başlangıcına bu başvuruları ekleyin:
 
     using System;
@@ -96,7 +97,7 @@ Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu �
     using Newtonsoft.Json;
 
 > [!IMPORTANT]
-> Bu NoSQL öğreticisini tamamlamak için, yukarıdaki bağımlılıkları eklediğinizden emin olun.
+> Bu öğreticiyi tamamlamak için, yukarıdaki bağımlılıkları eklediğinizden emin olun.
 > 
 > 
 
@@ -109,13 +110,13 @@ Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu �
         private const string PrimaryKey = "<your primary key>";
         private DocumentClient client;
 
-Ardından, uç nokta URL’nizi ve birincil anahtarınızı almak için tekrar [Azure Portal](https://portal.azure.com)’a gidin. Uç nokta URL’si ve birincil anahtar, uygulamanızın nereye bağlanacağını anlaması ve DocumentDB’nin uygulamanızın bağlantısına güvenmesi için gereklidir.
+Ardından, uç nokta URL’nizi ve birincil anahtarınızı almak için tekrar [Azure Portal](https://portal.azure.com)’a gidin. Uç nokta URL’si ve birincil anahtar, uygulamanızın nereye bağlanacağını anlaması ve Azure Cosmos DB’nin uygulamanızın bağlantısına güvenmesi için gereklidir.
 
-Azure Portal'da DocumentDB hesabınıza gidin ve ardından **Anahtarlar**’a tıklayın.
+Azure Portal'da Azure Cosmos DB hesabınıza gidin ve ardından **Anahtarlar**’a tıklayın.
 
 Portaldaki URI’yi kopyalayın ve program.cs dosyasındaki `<your endpoint URL>` içine yapıştırın. Ardından portaldan BİRİNCİL ANAHTARI kopyalayın ve `<your primary key>` içine yapıştırın.
 
-![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan Azure Portal'ın ekran görüntüsü DocumentDB hesabı dikey penceresinde ANAHTARLAR düğmesi vurgulanmış, ETKİN hub'ı vurgulanmış ve Anahtarlar dikey penceresinde URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir DocumentDB hesabını gösterir][keys]
+![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan Azure Portal'ın ekran görüntüsü Azure Cosmos DB hesabı dikey penceresinde ANAHTARLAR düğmesi vurgulanmış, ETKİN hub'ı vurgulanmış ve Anahtarlar dikey penceresinde URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir Azure Cosmos DB hesabını gösterir][keys]
 
 Ardından **DocumentClient**'ın yeni bir örneğini oluşturarak uygulamayı başlatacağız.
 
@@ -159,7 +160,7 @@ Zaman uyumsuz görevinizi **Main** yönteminizden çalıştırmak için aşağı
 
 Uygulamanızı çalıştırmak için **F5**'e basın. Konsol penceresi çıktısı, bağlantının kurulduğunu onaylayan `End of demo, press any key to exit.` iletisini görüntüler.  Ardından konsol penceresini kapatabilirsiniz. 
 
-Tebrikler! Bir DocumentDB hesabına başarıyla bağlandınız, şimdi DocumentDB kaynaklarıyla çalışmaya bakalım.  
+Tebrikler! Bir Azure Cosmos DB hesabına başarıyla bağlandınız, şimdi Azure Cosmos DB kaynaklarıyla çalışmaya bakalım.  
 
 ## <a name="step-4-create-a-database"></a>4. Adım: Veritabanı oluşturma
 Bir veritabanı oluşturmak için kodu eklemeden önce, konsola yazma için bir yardımcı yöntemi ekleyin.
@@ -174,7 +175,7 @@ Bir veritabanı oluşturmak için kodu eklemeden önce, konsola yazma için bir 
             Console.ReadKey();
     }
 
-DocumentDB [veritabanınız](documentdb-resources.md#databases), **DocumentClient** sınıfının [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) yöntemi kullanılarak oluşturulabilir. Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
+Azure Cosmos DB [veritabanınız](documentdb-resources.md#databases), **DocumentClient** sınıfının [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) yöntemi kullanılarak oluşturulabilir. Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
 
 Aşağıdaki kodu kopyalayın ve istemci oluşturmanın sonrasında **GetStartedDemo** yönteminize yapıştırın. Bu, *FamilyDB* adlı bir veritabanı oluşturur.
 
@@ -187,7 +188,7 @@ Aşağıdaki kodu kopyalayın ve istemci oluşturmanın sonrasında **GetStarted
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
-Tebrikler! Başarılı bir şekilde bir DocumentDB veritabanı oluşturdunuz.  
+Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanı oluşturdunuz.  
 
 ## <a id="CreateColl"></a>5. Adım: Koleksiyon oluşturma
 > [!WARNING]
@@ -208,12 +209,12 @@ Aşağıdaki kodu kopyalayın ve veritabanı oluşturmanın sonrasında **GetSta
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
-Tebrikler! Bir DocumentDB belge koleksiyonunu başarıyla oluşturdunuz.  
+Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belge koleksiyonu oluşturdunuz.  
 
 ## <a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
 Bir [belge](documentdb-resources.md#documents), **DocumentClient** sınıfının [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) yöntemi kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içeriğidir. Şimdi bir veya daha fazla belge ekleyebiliriz. Veritabanınızda depolamak istediğiniz veriler zaten varsa, verileri veritabanına aktarmak için DocumentDB'nin [Veri Geçiş Aracı](documentdb-import-data.md)'nı kullanabilirsiniz.
 
-İlk olarak, bu örnekte DocumentDB içinde depolanan nesneleri temsil edecek bir **Family** sınıfı oluşturmamız gerekir. **Family**'nin içinde kullanılan **Parent**, **Child**, **Pet**, **Address** alt sınıflarını da oluşturacağız. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olmaları gerektiğini unutmayın. Bu sınıfları oluşturmak için **GetStartedDemo** yönteminden sonra aşağıdaki iç alt sınıfları ekleyin.
+İlk olarak, bu örnekte Azure Cosmos DB içinde depolanan nesneleri temsil edecek bir **Family** sınıfı oluşturmamız gerekir. **Family**'nin içinde kullanılan **Parent**, **Child**, **Pet**, **Address** alt sınıflarını da oluşturacağız. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olmaları gerektiğini unutmayın. Bu sınıfları oluşturmak için **GetStartedDemo** yönteminden sonra aşağıdaki iç alt sınıfları ekleyin.
 
 **Family**, **Parent**, **Child**, **Pet** ve **Address** sınıflarını kopyalayın ve **WriteToConsoleAndPromptToContinue** yönteminin sonrasına yapıştırın.
 
@@ -368,12 +369,12 @@ Aşağıdaki kodu kopyalayın ve belge koleksiyonu oluşturmanın sonrasında **
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
-Tebrikler! İki DocumentDB belgesini başarıyla oluşturdunuz.  
+Tebrikler! Başarılı bir şekilde iki Azure Cosmos DB belgesi oluşturdunuz.  
 
 ![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan belgeler, hesap, çevrimiçi veritabanı ve koleksiyon arasındaki hiyerarşik ilişkiyi gösteren diyagram](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>7. Adım: DocumentDB kaynaklarını sorgulama
-DocumentDB, her bir koleksiyonda depolanan JSON belgelerde yapılan zengin [sorguları](documentdb-sql-query.md) destekler.  Aşağıdaki örnek kod, önceki adımda yerleştirdiğimiz belgelerde hem DocumentDB SQL söz dizimi hem de LINQ kullanarak çalıştırabileceğimiz çeşitli sorguları gösterir.
+## <a id="Query"></a>7. Adım: Azure Cosmos DB kaynaklarını sorgulama
+Azure Cosmos DB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler.  Aşağıdaki örnek kod, önceki adımda yerleştirdiğimiz belgelerde hem Azure Cosmos DB SQL söz dizimi hem de LINQ kullanarak çalıştırabileceğimiz çeşitli sorguları gösterir.
 
 **ExecuteSimpleQuery** yöntemini kopyalayın ve **CreateFamilyDocumentIfNotExists** yönteminizin sonrasına yapıştırın.
 
@@ -420,16 +421,16 @@ Aşağıdaki kodu kopyalayın ve ikinci belge oluşturmanın sonrasında **GetSt
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
-Tebrikler! Bir DocumentDB koleksiyonunu başarıyla sorguladınız.
+Tebrikler! Bir Azure Cosmos DB koleksiyonunu başarıyla sorguladınız.
 
-Aşağıdaki diyagram oluşturduğunuz koleksiyonda DocumentDB SQL sorgusu söz diziminin nasıl çağrıldığını gösterir, aynı mantık LINQ sorgusu için de geçerlidir.
+Aşağıdaki diyagram oluşturduğunuz koleksiyonda Azure Cosmos DB SQL sorgusu söz diziminin nasıl çağrıldığını gösterir, aynı mantık LINQ sorgusu için de geçerlidir.
 
 ![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan sorgunun kapsamını ve anlamını gösteren diyagram](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
 DocumentDB sorguları zaten tek bir koleksiyon kapsamında olduğundan, sorgudaki [FROM](documentdb-sql-query.md#FromClause) anahtar sözcüğü isteğe bağlıdır. Bu nedenle, "FROM Families f", "FROM root r" veya seçtiğiniz herhangi bir başka değişken adıyla değiştirilebilir. DocumentDB; Families, root veya seçtiğiniz değişken adının varsayılan olarak geçerli koleksiyona başvurduğu sonucuna varır.
 
 ## <a id="ReplaceDocument"></a>8. Adım: JSON belgesini değiştirme
-DocumentDB, JSON belgelerini değiştirmeyi destekler.  
+Azure Cosmos DB, JSON belgelerini değiştirmeyi destekler.  
 
 **ReplaceFamilyDocument** yöntemini kopyalayın ve **ExecuteSimpleQuery** yönteminizin sonrasına yapıştırın.
 
@@ -456,10 +457,10 @@ Aşağıdaki kodu kopyalayın ve sorgu yürütmenin sonrasına, **GetStartedDemo
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
-Tebrikler! Bir DocumentDB belgesini başarıyla değiştirdiniz.
+Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belgesini değiştirdiniz.
 
 ## <a id="DeleteDocument"></a>9. Adım: JSON belgesini silme
-DocumentDB, JSON belgelerini silmeyi destekler.  
+Azure Cosmos DB, JSON belgelerini silmeyi destekler.  
 
 **DeleteFamilyDocument** yöntemini kopyalayın ve **ReplaceFamilyDocument** yönteminizin sonrasına yapıştırın.
 
@@ -481,7 +482,7 @@ Aşağıdaki kodu kopyalayın ve ikinci sorgu yürütmenin sonrasına, **GetStar
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
-Tebrikler! Bir DocumentDB belgesini başarıyla sildiniz.
+Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belgesini sildiniz.
 
 ## <a id="DeleteDatabase"></a>10. Adım: Veritabanını silme
 Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler vb.) kaldırılır.
@@ -498,7 +499,7 @@ Tüm veritabanını ve tüm alt kaynaklarını silmek için aşağıdaki kodu ko
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
-Tebrikler! Bir DocumentDB veritabanını başarıyla sildiniz.
+Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanını sildiniz.
 
 ## <a id="Run"></a>11. Adım: C# konsol uygulamanızı hep birlikte çalıştırın!
 Uygulamayı hata ayıklama modunda oluşturmak için Visual Studio'da F5'e basın.
@@ -526,28 +527,28 @@ Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı, eklediği
     Deleted Family Andersen.1
     End of demo, press any key to exit.
 
-Tebrikler! Bu NoSQL öğreticisini tamamladınız ve çalışan bir C# konsol uygulamasına sahipsiniz!
+Tebrikler! Bu öğreticiyi tamamladınız ve çalışan bir C# konsol uygulamasına sahipsiniz!
 
-## <a id="GetSolution"></a> NoSQL öğreticisi tam çözümünü edinme
+## <a id="GetSolution"></a> Tam öğretici çözümünü edinin
 Bu öğreticideki adımları tamamlama fırsatınız olmadıysa veya yalnızca kod örneklerini indirmek isterseniz [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)'dan ulaşabilirsiniz. 
 
 GetStarted çözümünü oluşturmak için aşağıdakilere ihtiyacınız olacak:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz.
-* Bir [DocumentDB hesabı][documentdb-create-account].
+* Bir [Azure Cosmos DB hesabı][documentdb-create-account].
 * GitHub'da bulunan [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) çözümü.
 
-Başvuruları Visual Studio'daki DocumentDB .NET SDK'sına geri yüklemek için, Çözüm Gezgini'nde **GetStarted** çözümüne sağ tıklayın ve ardından **NuGet Paketi Geri Yüklemeyi Etkinleştir**'e tıklayın. Ardından, App.config dosyasında EndpointUrl ve AuthorizationKey değerlerini [DocumentDB hesabına bağlanma](#Connect)'da açıklandığı gibi güncelleştirin.
+Başvuruları Visual Studio'daki DocumentDB .NET SDK'sına geri yüklemek için, Çözüm Gezgini'nde **GetStarted** çözümüne sağ tıklayın ve ardından **NuGet Paketi Geri Yüklemeyi Etkinleştir**'e tıklayın. Ardından, App.config dosyasında EndpointUrl ve AuthorizationKey değerlerini [Azure Cosmos DB hesabına bağlanma](#Connect) bölümünde açıklandığı gibi güncelleştirin.
 
 Hepsi bu kadar, derleyin ve devam edin!
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha karmaşık bir ASP.NET MVC NoSQL öğreticisi mi istiyorsunuz? Bkz. [DocumentDB kullanarak ASP.NET MVC ile bir web uygulaması oluşturma](documentdb-dotnet-application.md).
-* DocumentDB ile ölçek ve performans testi mi yapmak istiyorsunuz? Bkz. [Azure DocumentDB ile Performans ve Ölçek Testi](documentdb-performance-testing.md)
-* [Bir DocumentDB hesabını izleme](documentdb-monitor-accounts.md) hakkında bilgi edinin.
+* Daha karmaşık bir ASP.NET MVC öğreticisi mi istiyorsunuz? Bkz. [Azure Cosmos DB kullanarak ASP.NET MVC ile bir web uygulaması oluşturma](documentdb-dotnet-application.md).
+* Azure Cosmos DB ile ölçek ve performans testi mi yapmak istiyorsunuz? Bkz. [Azure Cosmos DB ile Performans ve Ölçek Testi](documentdb-performance-testing.md)
+* [Azure Cosmos DB hesabını nasıl izleyebileceğinizi](documentdb-monitor-accounts.md) öğrenin.
 * [Query Playground](https://www.documentdb.com/sql/demo)'daki örnek veri kümelerimizde sorgular çalıştırın.
-* [DocumentDB belge sayfasının](https://azure.microsoft.com/documentation/services/documentdb/) Geliştirme bölümünde programlama modeli hakkında daha fazla bilgi edinin.
+* [Azure Cosmos DB belgeleri sayfasının](https://azure.microsoft.com/documentation/services/documentdb/) Geliştirme bölümünde programlama modeli hakkında daha fazla bilgi edinin.
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

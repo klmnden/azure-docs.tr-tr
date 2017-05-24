@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/31/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 73e524bf9e7d51cee841a3c5599ab33aa31cbc37
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 90043b27360cfea4235c4401bcba9e6a254b8627
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -65,7 +66,7 @@ HDInsight üzerinde Storm aşağıdaki önemli avantajları sunar:
 
     * Azure Storage
 
-    * Azure DocumentDB
+    * Azure Cosmos DB
 
 * Sanal Ağ kullanarak birden fazla HDInsight kümesinin özelliklerini güvenli bir şekilde birleştirir. HDInsight, HBase veya Hadoop kümeleri kullanan analitik işlem hatları oluşturabilirsiniz.
 
@@ -103,7 +104,7 @@ HDInsight üzerinde dakikalar için yeni bir Storm kümesi sağlayabilirsiniz. S
 
     * [HDInsight üzerinde Storm ile Azure Event Hubs’tan olay işleme (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL Veritabanı__, __DocumentDB__, __Event Hubs__ ve __HBase__: Visual Studio için Data Lake Araçlarına şablon örnekleri eklenmiştir. Daha fazla bilgi için bkz. [HDInsight'ta Storm için C# topolojisi geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+* __SQL Veritabanı__, __Cosmos DB__, __Event Hubs__ ve __HBase__: Visual Studio için Data Lake Araçlarına şablon örnekleri eklenmiştir. Daha fazla bilgi için bkz. [HDInsight'ta Storm için C# topolojisi geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="reliability"></a>Güvenilirlik
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 42f77fbea2ac9572940e8c428999c79d6b4b6e23
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -39,7 +40,7 @@ Günümüzde çok büyük miktarda veri kablo üzerinden yüksek hızlarda akmak
 * **Düşük maliyet:** Bir bulut hizmeti olan Stream Analytics, kullanıcıların çok düşük bir maliyetle başlangıç yapmalarını ve gerçek zamanlı analiz sonuçlarını kullanmalarını sağlamak amacıyla iyileştirilmiştir. Hizmet, Akış Birimi kullanımına ve sistemin işlediği veri miktarına göre kullandıkça ödemenizi sağlayacak şekilde oluşturulmuştur. Kullanım miktarı, ilgili Stream Analytics işlerinin işlenmesi için küme içinde sağlanan işlem gücü miktarına ve işlenen olayların hacmine göre üretilir.  
 * **Başvuru verileri:** Stream Analytics kullanıcıların başvuru verilerini belirtmelerine ve kullanmalarına olanak tanır. Bunlar zaman içinde daha nadir olarak değişen akış dışındaki veriler veya geçmiş verileri olabilir. Sistem, başvuru verilerinin kullanımını basitleştirerek bunların diğer herhangi bir gelen olay akışı şeklinde değerlendirilmesini sağlar ve bunları gerçek zamanlı olarak alınan diğer olay akışlarıyla birleştirerek dönüşümleri gerçekleştirir.  
 * **Kullanıcı Tanımlı İşlevler:** Akış Analizi, Machine Learning hizmetindeki işlev çağrılarını Akış Analizi sorgusunun bir parçası olarak tanımlamak üzere Azure Machine Learning ile tümleşiktir. Bu, Akış Analizi'nin mevcut Azure Machine Learning çözümlerinden faydalanma olanağını artırır. Bu konuda daha fazla bilgi edinmek için lütfen bkz. [Machine Learning tümleştirme öğreticisi](stream-analytics-machine-learning-integration-tutorial.md).
-* **Bağlantı:** Akış Analizi, akış alımı için doğrudan Azure Event Hubs'a ve Azure IoT Hub'larına; geçmiş verilerin alımı için de Azure Blob hizmetine bağlanır. Sonuçlar; Akış Analizi'nden Azure Depolama Bloblarına veya Tablolarına, Azure SQL DB'ye, Azure Data Lake Depolarına, DocumentDB'ye, Event Hubs'a, Azure Service Bus Konu Başlıklarına veya Kuyruklarına ve Power BI'a yazılabilir; burada sonuçlar görselleştirilebilir, iş akışları tarafından daha fazla işlenebilir, [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) yoluyla toplu analizlerde kullanılabilir veya bir olay serisi olarak yeniden işlenebilir. Event Hubs'ı kullanırken, hesaplamaların akış yapısını kaybetmeden birden çok Stream Analytics'i diğer veri kaynaklarıyla ve işleme altyapılarıyla birlikte oluşturmak mümkündür.  
+* **Bağlantı:** Akış Analizi, akış alımı için doğrudan Azure Event Hubs'a ve Azure IoT Hub'larına; geçmiş verilerin alımı için de Azure Blob hizmetine bağlanır. Sonuçlar; Stream Analytics’ten Azure Depolama Bloblarına veya Tablolarına, Azure SQL DB'ye, Azure Data Lake Depolarına, Azure Cosmos DB'ye, Event Hubs'a, Azure Service Bus Konu Başlıklarına veya Kuyruklarına ve Power BI'a yazılabilir; burada sonuçlar görselleştirilebilir, iş akışları tarafından daha fazla işlenebilir, [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) yoluyla toplu analizlerde kullanılabilir veya bir olay serisi olarak yeniden işlenebilir. Event Hubs'ı kullanırken, hesaplamaların akış yapısını kaybetmeden birden çok Stream Analytics'i diğer veri kaynaklarıyla ve işleme altyapılarıyla birlikte oluşturmak mümkündür.  
 
 ## <a name="get-help"></a>Yardım alın
 Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) deneyin.

@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Hub&quot;ı (Node) kullanmaya başlama | Microsoft Belgeleri"
+title: "Azure IoT Hub&quot;ı (Node) kullanmaya başlama | Microsoft Docs"
 description: "Node.js için Azure IoT SDK&quot;larını kullanarak bir cihazdan bir Azure IoT hub&quot;ına cihazdan buluta iletiler gönderme. İleti göndermek için bir sanal cihaz uygulaması, cihazınızı kimlik kayıt defterine kaydetmek için bir hizmet uygulaması ve cihazdan buluta gönderilen iletileri IoT hub&quot;ından okumak için bir hizmet uygulaması oluşturmanız gerekir."
 services: iot-hub
 documentationcenter: nodejs
@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e5cfa4c0a6964c3722ecaa6727336f5497565885
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 259477f26686eb43c1a06d8a72544d4ca8a72c71
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -272,7 +273,7 @@ IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için
 
 * [Cihazınızı bağlama][lnk-connect-device]
 * [Cihaz yönetimini kullanmaya başlama][lnk-device-management]
-* [IoT Gateway SDK'sını kullanmaya başlama][lnk-gateway-SDK]
+* [Azure IoT Edge’i kullanmaya başlama][lnk-gateway-SDK]
 
 IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin doğru ölçekte nasıl işleneceğini öğrenmek için [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
 

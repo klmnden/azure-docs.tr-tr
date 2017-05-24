@@ -1,28 +1,29 @@
 ---
-title: "DocumentDB için ASP.NET MVC öğreticisi: Web Uygulaması Geliştirme | Microsoft Belgeleri"
-description: "DocumentDB&quot;yi kullanarak bir MVC web uygulaması oluşturmak için hazırlanan ASP.NET MVC öğreticisi. Azure Web Siteleri&quot;nde barındırılan bir yapılacaklar uygulamasında JSON ve erişim verilerini depolayacaksınız - adım adım ASP.NET MVC öğreticisi."
+title: "Azure Cosmos DB için ASP.NET MVC öğreticisi: Web Uygulaması Geliştirme | Microsoft Docs"
+description: "Azure Cosmos DB&quot;yi kullanarak bir MVC web uygulaması oluşturmak için hazırlanan ASP.NET MVC öğreticisi. Azure Web Siteleri&quot;nde barındırılan bir yapılacaklar uygulamasında JSON ve erişim verilerini depolayacaksınız - adım adım ASP.NET MVC öğreticisi."
 keywords: "asp.net mvc öğreticisi, web uygulaması dağıtımı, mvc web uygulaması, asp net mvc adım adım öğreticisi"
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 48736ab63a74c78a7d111011faf135f32c0c4f9e
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="_Toc395809351"></a>ASP.NET MVC Öğreticisi: DocumentDB ile web uygulaması geliştirme
+# <a name="_Toc395809351"></a>ASP.NET MVC Öğreticisi: Azure Cosmos DB ile Web uygulaması geliştirme
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [MongoDB için .NET](documentdb-mongodb-application.md)
@@ -32,11 +33,11 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Bu makale, JSON belgelerini depolama ve sorgulama amacıyla Azure DocumentDB'yi nasıl verimli bir şekilde kullanabileceğinizi vurgulamak için, Azure DocumentDB kullanarak bir yapılacaklar uygulamasının nasıl oluşturulacağını gösteren uçtan uca bir kılavuz sağlar. Görevler, JSON belgeleri olarak Azure DocumentDB'de depolanır.
+Bu makale, JSON belgelerini depolama ve sorgulama amacıyla Azure Cosmos DB'yi nasıl verimli bir şekilde kullanabileceğinizi vurgulamak için, Azure Cosmos DB kullanarak bir yapılacaklar uygulamasının nasıl oluşturulacağını gösteren uçtan uca bir kılavuz sağlar. Görevler, JSON belgeleri olarak Azure Cosmos DB'de depolanır.
 
 ![Bu öğreticiyle oluşturulan yapılacaklar listesi MVC web uygulamasının ekran görüntüsü - adım adım ASP.NET MVC öğreticisi](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
-Bu adım adım kılavuz, Azure tarafından sağlanan DocumentDB hizmetinin, Azure üzerinde barındırılan bir ASP.NET MVC web uygulamasında verileri depolamak ve bunlara erişmek için nasıl kullanılacağını gösterir. ASP.NET MVC bileşenleri yerine yalnızca DocumentDB'ye odaklanan bir öğretici arıyorsanız bkz. [DocumentDB C# konsol uygulaması oluşturma](documentdb-get-started.md).
+Bu adım adım kılavuz, Azure tarafından sağlanan Azure Cosmos DB hizmetinin, Azure üzerinde barındırılan bir ASP.NET MVC web uygulamasında verileri depolamak ve bunlara erişmek için nasıl kullanılacağını gösterir. ASP.NET MVC bileşenleri yerine yalnızca Azure Cosmos DB'ye odaklanan bir öğretici arıyorsanız bkz. [Azure Cosmos DB C# konsol uygulaması oluşturma](documentdb-get-started.md).
 
 > [!TIP]
 > Bu öğretici, ASP.NET MVC ve Azure Web Siteleri'ni kullanma konusunda deneyim sahibi olduğunuzu varsayar. ASP.NET veya [önkoşul araçlarında](#_Toc395637760) yeniyseniz [GitHub][GitHub] konumundan örnek projenin tamamını indirmenizi ve bu örnekteki yönergeleri uygulamanızı öneririz. Oluşturduktan sonra, proje bağlamında kodu daha iyi kavramak için bu makaleyi inceleyebilirsiniz.
@@ -50,14 +51,14 @@ Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzda
 
     OR
 
-    Yerel bir [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md) yüklemesi.
+    Yerel bir [Azure Cosmos DB Öykünücüsü](documentdb-nosql-local-emulator.md) yüklemesi.
 * [Visual Studio 2015](http://www.visualstudio.com/) veya Visual Studio 2013 Güncelleştirme 4 ya da üzeri. Visual Studio 2013 kullanıyorsanız C# 6.0 desteği eklemek için [Microsoft.Net.Compilers nuget paketi](https://www.nuget.org/packages/Microsoft.Net.Compilers/) yüklemeniz gerekir. 
 * [Microsoft Web Platformu Yükleyicisi][Microsoft Web Platform Installer] aracılığıyla kullanılabilen .NET için Azure SDK'sı 2.5.1 veya sonraki bir sürümü.
 
 Bu makaledeki tüm ekran görüntüleri, Güncelleştirme 4 uygulanmış Visual Studio 2013 ve .NET için Azure SDK'sı 2.5.1 sürümü kullanılarak alınmıştır. Sisteminiz farklı sürümlerle yapılandırılmışsa ekranlarınızın ve seçeneklerinizin tamamen eşleşmeme olasılığı bulunur ancak yukarıdaki önkoşulları karşılarsanız bu çözümün çalışması gerekir.
 
-## <a name="_Toc395637761"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
-Bir DocumentDB hesabı oluşturarak başlayalım. Zaten bir hesabınız varsa veya bu öğretici için DocumentDB Öykünücüsü’nü kullanıyorsanız [Yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762) adımına atlayabilirsiniz.
+## <a name="_Toc395637761"></a>1. Adım: Azure Cosmos DB veritabanı hesabı oluşturma
+İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [Yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762) adımına atlayabilirsiniz.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -89,26 +90,26 @@ Artık bir hesabınız olduğuna göre yeni ASP.NET projemizi oluşturalım.
 
 8. Bunu bulutta barındırmayı seçerseniz Azure hesabınızda oturum açmanızı ve yeni web siteniz için bazı değerler sağlamanızı isteyen en az bir ek ekran görürsünüz. Tüm ek değerleri sağlayın ve devam edin. 
    
-      Burada bir Azure SQL Database Sunucusu kullanmadığımız için "Veritabanı sunucusu" seçeneğini belirlemedim, Azure Portal'da daha sonra yeni bir Azure DocumentDB hesabını oluşturacağız.
+      Burada bir Azure SQL Veritabanı Sunucusu kullanmadığımız için "Veritabanı sunucusu" seçeneğini belirlemedim, Azure Portal'da daha sonra yeni bir Azure Cosmos DB hesabını oluşturacağız.
    
     Bir **App Service planı** ve **Kaynak grubu** seçme hakkında daha fazla bilgi için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
    
       ![Microsoft Azure Web Sitesi Yapılandırma iletişim kutusunun ekran görüntüsü](./media/documentdb-dotnet-application/image11_1.png)
 9. Visual Studio demirbaş MVC uygulamasını oluşturmayı tamamlandıktan sonra, yerel olarak çalıştırabileceğiniz boş bir ASP.NET uygulamasına sahip olursunuz.
    
-    Hepimizin ASP.NET "Hello World" uygulamasını gördüğünden emin olduğum için, projeyi yerel olarak çalıştırmayı atlayacağız. Şimdi doğrudan bu projeye DocumentDB eklemeye ve uygulamamızı oluşturmaya geçelim.
+    Hepimizin ASP.NET "Hello World" uygulamasını gördüğünden emin olduğum için, projeyi yerel olarak çalıştırmayı atlayacağız. Şimdi doğrudan bu projeye Azure Cosmos DB eklemeye ve uygulamamızı oluşturmaya geçelim.
 
-## <a name="_Toc395637767"></a>3. Adım: MVC web uygulaması projenize DocumentDB ekleme
-Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize göre, bu öğreticinin asıl amacı olan MVC web uygulamamıza Azure DocumentDB'yi eklemeye geçelim.
+## <a name="_Toc395637767"></a>3. Adım: MVC web uygulaması projenize Azure Cosmos DB ekleme
+Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize göre, bu öğreticinin asıl amacı olan MVC web uygulamamıza Azure Cosmos DB'yi eklemeye geçelim.
 
 1. DocumentDB .NET SDK'sı bir NuGet paketi olarak paketlenir ve dağıtılır. NuGet paketini Visual Studio'da almak için, **Çözüm Gezgini**'nde projeye sağ tıklayarak ve ardından **NuGet Paketlerini Yönet**'e tıklayarak Visual Studio'daki NuGet paket yöneticisini kullanın.
    
       ![NuGet Paketlerini Yönet vurgulanmış şekilde, Çözüm Gezgini'nde web uygulaması projesi için sağ tıklama seçeneklerinin ekran görüntüsü.](./media/documentdb-dotnet-application/image21.png)
    
     **NuGet Paketlerini Yönet** iletişim kutusu görünür.
-2. NuGet **Gözat** kutusunda ***Azure DocumentDB*** yazın.
+2. NuGet **Gözat** kutusunda ***Azure Cosmos DB*** yazın.
    
-    Sonuçlardan **Microsoft Azure DocumentDB İstemci Kitaplığı** paketini yükleyin. Bu işlem DocumentDB paketini ve aynı zamanda Newtonsoft.Json gibi tüm bağımlılıkları indirir ve yükler. **Önizleme** penceresinde **Tamam**'a tıklayıp **Lisans Kabulü** penceresinde **Kabul Ediyorum**'a tıklayarak yüklemeyi tamamlayın.
+    Sonuçlardan **Microsoft Azure Cosmos DB İstemci Kitaplığı** paketini yükleyin. Bu işlem Azure Cosmos DB paketini ve aynı zamanda Newtonsoft.Json gibi tüm bağımlılıkları indirir ve yükler. **Önizleme** penceresinde **Tamam**'a tıklayıp **Lisans Kabulü** penceresinde **Kabul Ediyorum**'a tıklayarak yüklemeyi tamamlayın.
    
       ![Microsoft Azure DocumentDB İstemci Kitaplığı vurgulanmış şekilde NuGet Paketlerini Yönet penceresinin ekran görüntüsü](./media/documentdb-dotnet-application/nuget.png)
    
@@ -159,7 +160,7 @@ MVC'de **M** olan modeli oluşturarak başlayalım.
             public bool Completed { get; set; }
         }
    
-    DocumentDB'deki tüm veriler kablo üzerinden geçer ve JSON olarak depolanır. JSON.NET tarafından nesnelerinizin seri hale getirilme/seri durumundan çıkarılma yolunu denetlemek için, yeni oluşturduğumuz **Item** sınıfında gösterildiği şekilde **JsonProperty** özniteliğini kullanabilirsiniz. Bunu yapmak **zorunda** değilsiniz ancak özelliklerimin JSON camelCase adlandırma kurallarına uyduğundan emin olmak istiyorum. 
+    Azure Cosmos DB'deki tüm veriler kablo üzerinden geçer ve JSON olarak depolanır. JSON.NET tarafından nesnelerinizin seri hale getirilme/seri durumundan çıkarılma yolunu denetlemek için, yeni oluşturduğumuz **Item** sınıfında gösterildiği şekilde **JsonProperty** özniteliğini kullanabilirsiniz. Bunu yapmak **zorunda** değilsiniz ancak özelliklerimin JSON camelCase adlandırma kurallarına uyduğundan emin olmak istiyorum. 
    
     Özellik adının biçimini JSON'a gittiği zaman denetlemenin yanı sıra, **Açıklama** özelliğinde yaptığım gibi .NET özelliklerinizi tamamen yeniden adlandırabilirsiniz. 
 
@@ -232,8 +233,8 @@ Son olarak, bir **Öğe**'yi düzenlemek için daha önce kullandığımız yolu
 
 Bunu yaptıktan sonra, bu görünümlere daha sonra geri döneceğimiz için Visual Studio'daki tüm cshtml belgelerini kapatın.
 
-## <a name="_Toc395637769"></a>5. Adım: DocumentDB'yi bağlama
-Standart MVC işleri hallolduğuna göre, DocumentDB için kod eklemeye dönelim. 
+## <a name="_Toc395637769"></a>5. Adım: Azure Cosmos DB’yi bağlama
+Standart MVC işleri hallolduğuna göre, Azure Cosmos DB için kod eklemeye dönelim. 
 
 Bu bölümde, aşağıdakileri işlemek için kod ekleyeceğiz:
 
@@ -242,7 +243,7 @@ Bu bölümde, aşağıdakileri işlemek için kod ekleyeceğiz:
 * [Öğeleri düzenleme](#_Toc395637772).
 
 ### <a name="_Toc395637770"></a>MVC web uygulamanızda tamamlanmamış Öğeleri listeleme
-Burada yapılacak ilk şey, DocumentDB'ye bağlanmayı ve kullanmayı sağlayan tüm mantığı içeren bir sınıf eklemektir. Bu öğretici için tüm bu mantığı DocumentDBRepository adlı bir depo sınıfına kapsülleyeceğiz. 
+Burada yapılacak ilk şey, Azure Cosmos DB'ye bağlanmayı ve kullanmayı sağlayan tüm mantığı içeren bir sınıf eklemektir. Bu öğretici için tüm bu mantığı DocumentDBRepository adlı bir depo sınıfına kapsülleyeceğiz. 
 
 1. **Çözüm Gezgini**'nde projeye sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Sınıf**'a tıklayın. Yeni sınıfa **DocumentDBRepository** adını verin ve **Ekle**'ye tıklayın.
 2. Yeni oluşturulan **DocumentDBRepository** sınıfında *ad alanı* bildiriminin üstüne aşağıdaki *using deyimlerini* ekleyin
@@ -318,7 +319,7 @@ Burada yapılacak ilk şey, DocumentDB'ye bağlanmayı ve kullanmayı sağlayan 
         }
    
    > [!TIP]
-   > Yeni bir DocumentCollection oluştururken, yeni koleksiyonun performans düzeyini belirlemenize izin veren OfferType'ın isteğe bağlı bir RequestOptions parametresini sağlayabilirsiniz. Bu parametre geçirilmezse varsayılan teklif türü kullanılır. DocumentDB teklif türleri hakkında daha fazla bilgi için lütfen [DocumentDB Performans Düzeyleri](documentdb-performance-levels.md)'ne başvurun.
+   > Yeni bir DocumentCollection oluştururken, yeni koleksiyonun performans düzeyini belirlemenize izin veren OfferType'ın isteğe bağlı bir RequestOptions parametresini sağlayabilirsiniz. Bu parametre geçirilmezse varsayılan teklif türü kullanılır. Azure Cosmos DB teklif türleri hakkında daha fazla bilgi için lütfen [Azure Cosmos DB Performans Düzeyleri](documentdb-performance-levels.md)'ne başvurun
    > 
    > 
 3. Bazı değerleri yapılandırmadan okuyoruz, bu nedenle uygulamanızın **Web.config** dosyasını açın ve `<AppSettings>` bölümünün altına aşağıdaki satırları ekleyin.
@@ -395,7 +396,7 @@ Bu projeyi şimdi oluşturur ve çalıştırırsanız buna benzeyen bir şey gö
 ### <a name="_Toc395637771"></a>Öğeler ekleme
 Boş bir kılavuzdan başka şeyler görmek için veritabanımıza biraz öğe ekleyelim.
 
-DocumentDB'deki kaydı kalıcı hale getirmek için DocumentDBRepository ve ItemController'a biraz kod ekleyelim.
+Azure Cosmos DB'deki kaydı kalıcı hale getirmek için Azure Cosmos DBRepository ve ItemController'a biraz kod ekleyelim.
 
 1. **DocumentDBRepository** sınıfınıza aşağıdaki yöntemi ekleyin.
    
@@ -468,9 +469,9 @@ Yapacağımız son bir şey kaldı, bu da veritabanında **Öğeler**'i düzenle
             }
         }
    
-    Bu yöntemlerin ilki olan **GetItem**, DocumentDB'den bir Öğe getirir ve bu öğe **ItemController**'a ve sonra **Düzenle** görünümüne geçirilir.
+    Bu yöntemlerin ilki olan **GetItem**, Azure Cosmos DB'den bir Öğe getirir ve bu öğe **ItemController**'a ve sonra **Düzenle** görünümüne geçirilir.
    
-    Yeni eklediğimiz yöntemlerin ikincisi, DocumentDB'deki **Belge**'yi, **ItemController**'dan geçirilen **Belge**'nin sürümüyle değiştirir.
+    Yeni eklediğimiz yöntemlerin ikincisi, Azure Cosmos DB'deki **Belge**'yi, **ItemController**'dan geçirilen **Belge**'nin sürümüyle değiştirir.
 2. Aşağıdakileri **ItemController** sınıfına ekleyin.
    
         [HttpPost]
@@ -504,11 +505,11 @@ Yapacağımız son bir şey kaldı, bu da veritabanında **Öğeler**'i düzenle
             return View(item);
         }
    
-    İlk yöntem, kullanıcı **Dizin** görünümünden **Düzenle** bağlantısına tıkladığında meydana gelen Http GET'ini işler. Bu yöntem DocumentDB'den bir [**Belge**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) getirir ve bunu **Düzenle** görünümüne geçirir.
+    İlk yöntem, kullanıcı **Dizin** görünümünden **Düzenle** bağlantısına tıkladığında meydana gelen Http GET'ini işler. Bu yöntem Azure Cosmos DB'den bir [**Belge**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) getirir ve bunu **Düzenle** görünümüne geçirir.
    
     Ardından, **Düzenle** görünümü **IndexController**'a bir Http POST yapar. 
    
-    Eklediğimiz ikinci yöntem, güncelleştirilmiş nesneyi veritabanında kalıcı hale getirmek üzere DocumentDB'ye geçirir.
+    Eklediğimiz ikinci yöntem, güncelleştirilmiş nesneyi veritabanında kalıcı hale getirmek üzere Azure Cosmos DB'ye geçirir.
 
 Hepsi bu; uygulamamızı çalıştırmak, tamamlanmamış **Öğeleri** listelemek, yeni **Öğeler** eklemek ve **Öğeleri** düzenlemek için ihtiyacımız olan her şey bu kadar.
 
@@ -534,7 +535,7 @@ Yerel makinenizde uygulamayı test etmek için aşağıdakileri yapın:
 5. Uygulamayı test ettikten sonra, uygulamanın hata ayıklamasını durdurmak için Ctrl+F5'e basın. Dağıtıma hazırsınız!
 
 ## <a name="_Toc395637774"></a>7. Adım: Uygulamayı Azure Web Siteleri'ne dağıtma
-Artık uygulamanın tamamı DocumentDB ile doğru şekilde çalıştığına göre, bu web uygulamasını Azure Web Siteleri'ne dağıtacağız. Boş ASP.NET MVC projesini oluştururken **Bulutta barındır**'ı seçtiyseniz Visual Studio bu işlemi gerçekten kolaylaştırır ve işlerin çoğunu sizin için yapar. 
+Artık uygulamanın tamamı Azure Cosmos DB ile doğru şekilde çalıştığına göre, bu web uygulamasını Azure Web Siteleri'ne dağıtacağız. Boş ASP.NET MVC projesini oluştururken **Bulutta barındır**'ı seçtiyseniz Visual Studio bu işlemi gerçekten kolaylaştırır ve işlerin çoğunu sizin için yapar. 
 
 1. Bu uygulamayı yayımlamak için yapmanız gereken tek şey, **Çözüm Gezgini**'nde projeye sağ tıklamak ve **Yayımla**'ya tıklamaktır.
    
@@ -559,13 +560,13 @@ Web uygulamasını dağıtmaya çalışırken "İsteğiniz işlenirken bir hata 
     - Bölge: Uygulamanızın kullanıcılarına en yakın bölgeyi seçin
     - Veritabanı sunucusu: Veritabanı yok’a ve ardından **Oluştur**’a tıklayın. 
 
-4. "todo-net-app  **ekranı"nda** Bağlantıyı Doğrula’ya tıklayın. Bağlantı doğrulandıktan sonra ****Yayımla* ’ya tıklayın. 
+4. "todo-net-app  **ekranı"nda** Bağlantıyı Doğrula’ya tıklayın. Bağlantı doğrulandıktan sonra **Yayımla** ’ya tıklayın. 
     
     Bu adımın ardından uygulama tarayıcınızda görüntülenir.
 
 
 ## <a name="_Toc395637775"></a>Sonraki adımlar
-Tebrikler! Azure DocumentDB kullanarak ilk ASP.NET MVC web uygulamanızı oluşturdunuz ve bunu Azure Web Siteleri'ne yayımladınız. Bu öğreticide bulunmayan ayrıntı ve silme işlevleri dahil olmak üzere, tüm uygulamanın kaynak kodu [GitHub][GitHub]'dan indirilebilir veya kopyalanabilir. Uygulamanıza bunları eklemek isterseniz kodu alın ve bu uygulamaya ekleyin.
+Tebrikler! Azure Cosmos DB kullanarak ilk ASP.NET MVC web uygulamanızı oluşturdunuz ve bunu Azure Web Siteleri'ne yayımladınız. Bu öğreticide bulunmayan ayrıntı ve silme işlevleri dahil olmak üzere, tüm uygulamanın kaynak kodu [GitHub][GitHub]'dan indirilebilir veya kopyalanabilir. Uygulamanıza bunları eklemek isterseniz kodu alın ve bu uygulamaya ekleyin.
 
 Uygulamanıza işlev eklemek için [DocumentDB .NET Kitaplığı](https://msdn.microsoft.com/library/azure/dn948556.aspx)'ndaki mevcut API'lere başvurun. [GitHub][GitHub]'daki DocumentDB .NET Kitaplığı'na istediğiniz zaman katkıda bulunabilirsiniz. 
 
