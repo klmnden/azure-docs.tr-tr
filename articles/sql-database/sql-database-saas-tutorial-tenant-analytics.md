@@ -1,6 +1,6 @@
 ---
-title: "Birden fazla kiracıya yönelik analiz sorguları çalıştırma (Azure SQL Veritabanı’nı kullanan örnek SaaS uygulaması) | Microsoft Belgeleri"
-description: "Birden fazla kiracıya yönelik analiz sorguları çalıştırma"
+title: "Birden çok Azure SQL veritabanına göre analiz sorguları çalıştırma | Microsoft Docs"
+description: "Birden fazla Azure SQL veritabanında dağıtılmış sorgular çalıştırma"
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b512e2f7833be1947ef7674d6e0266879789ac5a
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="run-analytics-queries-against-multiple-tenants"></a>Birden fazla kiracıya yönelik analiz sorguları çalıştırma
+# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Birden fazla Azure SQL veritabanında dağıtılmış sorgular çalıştırma
 
 Bu öğreticide, katalogdaki her kiracıya yönelik analiz sorguları çalıştıracaksınız. Sorguları çalıştıran esnek bir iş oluşturulur. İş, verileri alır ve katalog sunucusunda oluşturulan ayrı bir analiz veritabanına yükler. Bu veritabanı, tüm kiracıların günlük çalışma verilerinde gömülü olan bilgileri ayıklamak için sorgulanabilir. İşin sonucu olarak, kiracı analiz veritabanının içindeki sonuç döndüren sorgulardan bir tablo oluşturulur.
 

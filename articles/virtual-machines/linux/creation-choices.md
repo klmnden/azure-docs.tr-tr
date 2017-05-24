@@ -13,12 +13,13 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d7ff1317cdf6ccfe6b4e5035878fc4e096fcc0f9
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 756711abb014829971af126c5cb60c12e79c920e
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -27,59 +28,43 @@ Azure’da size uygun araçları ve iş akışlarını kullanarak bir Linux sana
 
 [Azure CLI 2.0](/cli/azure/install-az-cli2) bir npm paketi, distro ile sağlanan paketler veya Docker kapsayıcısı üzerinden çeşitli platformlarda kullanılabilir. Ortamınız için en uygun derlemeyi yükleyin ve [az login](/cli/azure/#login) komutunu kullanarak Azure’da oturum açın
 
-Aşağıdaki örnekler Azure CLI 2.0 sürümünü kullanır. Gösterilen komutlara ilişkin daha fazla ayrıntı için her bir makaleyi okuyun. Ayrıca [Azure CLI 1.0](creation-choices-nodejs.md) kullanarak Linux oluşturma seçeneklerine ilişkin örnekleri bulabilirsiniz.
-
-* [Azure CLI 2.0 kullanarak bir Linux VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI 2.0 ile Linux VM oluşturma](quick-create-cli.md)
   
-  * Bu örnekte `myResourceGroup` adlı bir kaynak grubu oluşturmak için [az group create](/cli/azure/group#create) komutu kullanılmaktadır: 
--    
+  * [az group create](/cli/azure/group#create) ile *myResourceGroup* adlı bir kaynak grubu oluşturun: 
+   
     ```azurecli
-    az group create --name myResourceGroup --location westus
+    az group create --name myResourceGroup --location eastus
     ```
     
-  * Bu örnekte Azure Yönetilen Diskler ve `id_rsa.pub` adlı ortak anahtarla en son Debian görüntüsü kullanılarak `myVM` adlı bir VM oluşturmak için [az vm create](/cli/azure/vm#create) komutu kullanılmaktadır:
+  * [az vm create](/cli/azure/vm#create) komutu ile en son *UbuntuLTS* görüntüsünü kullanan *myVM* adlı bir VM oluşturun ve *~/.ssh* içinde henüz yoksa SSH anahtarları oluşturun:
 
     ```azurecli
     az vm create \
-    --image credativ:Debian:8:latest \
-     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –-new --size-gb 5    --public-ip-address-dns-name myPublicDNS \
-    --resource-group myResourceGroup \
-    --location westus \
-    --name myVM
+        --resource-group myResourceGroup \
+        --name myVM \
+        --image UbuntuLTS \
+        --generate-ssh-keys
     ```
 
-    * Yönetilmeyen diskler kullanmak isterseniz yukarıdaki komuta `--use-unmanaged-disks` bayrağını ekleyin. Sizin için bir depolama hesabı oluşturulur. Daha fazla bilgi için bkz. [Azure Yönetilen Disklere Genel Bakış](../../storage/storage-managed-disks-overview.md).
-
-* [Bir Azure şablonu kullanarak güvenli bir Linux VM oluşturma](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure şablonu ile Linux VM oluşturma](create-ssh-secured-vm-from-template.md)
   
-  * Aşağıdaki örnekte GitHub’a depolanmış bir şablon kullanılarak VM oluşturmak için [az group deployment create](/cli/azure/group/deployment#create) komutu kullanılmaktadır:
+  * Aşağıdaki örnekte, GitHub’da depolanmış bir şablondan VM oluşturmak için [az group deployment create](/cli/azure/group/deployment#create) komutu kullanılmaktadır:
     
     ```azurecli
     az group deployment create --resource-group myResourceGroup \ 
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
       --parameters @myparameters.json
     ```
-    
-* [Azure CLI kullanarak eksiksiz bir Linux ortamı oluşturma](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-  
-  * Bir yük dengeleyici ve kullanılabilirlik kümesi içinde birden fazla sanal makine oluşturmayı içerir.
+* [Linux VM oluşturma ve cloud-init ile özelleştirme](tutorial-automate-vm-deployment.md)
 
-* [Linux VM’ye disk ekleme](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-  
-  * Aşağıdaki örnekte `myVM` adlı var olan VM'ye 50 GB boyutunda bir yönetilen disk eklemek için [az vm disk attach-new](/cli/azure/vm/disk#attach-new) komutu kullanılmaktadır:
-  
-    ```azurecli
-    az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  \
-    –-new --size-gb 50
-    ```
+* [Birden fazla Linux VM üzerinde yük dengeli ve yüksek oranda kullanılabilir bir uygulama oluşturma](tutorial-load-balancer.md)
 
-## <a name="azure-portal"></a>Azure portal
+
+## <a name="azure-portal"></a>Azure portalına
 [Azure portalı](https://portal.azure.com) sisteminize yüklenecek bir şey olmadığı için sanal makineyi hızlıca oluşturmanıza imkan tanır. VM oluşturmak için Azure portalını kullanma:
 
-* [Azure portalını kullanarak Linux VM oluşturma](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
-* [Azure portalını kullanarak bir diski kullanıma açma](../windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure portalını kullanarak Linux VM oluşturma](quick-create-portal.md) 
+
 
 ## <a name="operating-system-and-image-choices"></a>İşletim sistemi ve görüntü seçimi
 Bir sanal makine oluşturulurken çalıştırmak istediğiniz işletim sistemini temel alan bir görüntü seçebilirsiniz. Azure ve ortakları, bazıları önyüklü uygulamalar ve araçlarla gelen çok sayıda görüntü sağlar. Veya kendi görüntülerinizden birini karşıya yükleyin ([aşağıdaki bölüme](#use-your-own-image) bakın).
@@ -90,30 +75,30 @@ Yayımcı, distro sürümü ve derlemelere göre kullanılabilir seçenekleri g�
 Kullanılabilir yayımcıların listesi:
 
 ```azurecli
-az vm image list-publishers --location WestUS
+az vm image list-publishers --location eastus
 ```
 
 Belirli bir yayımcının kullanılabilir ürünlerinin (teklifler) listesi:
 
 ```azurecli
-az vm image list-offers --publisher Canonical --location WestUS
+az vm image list-offers --publisher Canonical --location eastus
 ```
 
 Belirli bir teklif için kullanılabilir SKU’ların (distro sürümleri) listesi:
 
 ```azurecli
-az vm image list-skus --publisher Canonical --offer UbuntuServer --location WestUS
+az vm image list-skus --publisher Canonical --offer UbuntuServer --location eastus
 ```
 
 Belirli bir sürüm için kullanılabilir tüm görüntülerin listesi:
 
 ```azurecli
-az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --location WestUS
+az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --location eastus
 ```
 
-Gezinme ve geçerli görüntüleri kullanma ile ilgili daha fazla örnek için bkz. [Azure CLI ile Azure Virtual Machine görüntülerine erişin ve seçin](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Gezinme ve geçerli görüntüleri kullanma ile ilgili daha fazla örnek için bkz. [Azure CLI ile Azure Virtual Machine görüntülerine erişin ve seçin](cli-ps-findimage.md).
 
-**az vm create** komutu daha yaygın distro’lara ve en son sürümlerine hızlıca erişmek için kullanabileceğiniz bazı diğer adlara sahiptir. Diğer adların kullanılması yayımcı, teklif, SKU ve sürümün bir sanal makine oluşturulan her durumda belirtilmesinden çoğunlukla daha hızlıdır:
+[az vm create](/cli/azure/vm#create) komutu daha yaygın distro’lara ve en son sürümlerine hızlıca erişmek için kullanabileceğiniz bazı diğer adlara sahiptir. Diğer adların kullanılması yayımcı, teklif, SKU ve sürümün bir sanal makine oluşturulan her durumda belirtilmesinden çoğunlukla daha hızlıdır:
 
 | Diğer ad | Yayımcı | Sunduğu | SKU | Sürüm |
 |:--- |:--- |:--- |:--- |:--- |
@@ -126,22 +111,22 @@ Gezinme ve geçerli görüntüleri kullanma ile ilgili daha fazla örnek için b
 | UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |en son |
 
 ### <a name="use-your-own-image"></a>Kendi görüntünüzü kullanma
-Belirli özelleştirmelere ihtiyaç duyuyorsanız, mevcut bir Azure VM’i temel alan bir görüntü kullanabilirsiniz, bunun için söz konusu VM’i *yakalayabilirsiniz*. Şirket içinde oluşturduğunuz bir görüntüyü de yükleyebilirsiniz. Desteklenen distro’lar ve kendi görüntünüzü kullanma ile ilgili daha fazla bilgi için aşağıdaki makalelere bakın:
+Belirli özelleştirmelere ihtiyaç duyuyorsanız, mevcut bir Azure VM’yi yakalayarak bu VM’yi temel alan bir görüntü kullanabilirsiniz. Şirket içinde oluşturduğunuz bir görüntüyü de yükleyebilirsiniz. Desteklenen distro’lar ve kendi görüntünüzü kullanma ile ilgili daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Azure destekli dağıtımlar](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Desteklenmeyen dağıtımlarla ilgili bilgiler](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Linux sanal makinesini Resource Manager şablonu olarak yakalama](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Azure destekli dağıtımlar](endorsed-distros.md)
+* [Desteklenmeyen dağıtımlarla ilgili bilgiler](create-upload-generic.md)
+* [Mevcut bir Azure VM’den görüntü oluşturma](tutorial-custom-images.md).
   
-  * Yönetilmeyen diskleri kullanarak mevcut bir sanal makineyi yakalamaya yönelik örnek **az vm** hızlı başlangıç komutları:
+  * Mevcut bir Azure VM’den görüntü oluşturmaya yönelik hızlı başlangıç örnek komutları:
     
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     az vm generalize --resource-group myResourceGroup --name myVM
-    az vm capture --resource-group myResourceGroup --name myVM --vhd-name-prefix myCapturedVM
+    az vm image create --resource-group myResourceGroup --source myVM --name myImage
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile [portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) üzerinden veya [Azure Resource Manager şablonu](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kullanarak bir Linux VM oluşturun.
-* Bir Linux VM oluşturduktan sonra [veri diski ekleyin](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* [Parola veya SSH anahtarlarını sıfırlama ve kullanıcıları yönetme](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile ilgili hızlı adımlar
+* [CLI](quick-create-portal.md) ile, [portal](quick-create-cli.md) üzerinden veya [Azure Resource Manager şablonu](../windows/cli-deploy-templates.md) kullanarak bir Linux VM oluşturun.
+* Linux VM oluşturduktan sonra [Azure diskleri ve depolama hakkında bilgi edinin](tutorial-manage-disks.md).
+* [Parola veya SSH anahtarlarını sıfırlama ve kullanıcıları yönetme](using-vmaccess-extension.md) ile ilgili hızlı adımlar.
 

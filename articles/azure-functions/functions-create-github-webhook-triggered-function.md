@@ -16,73 +16,86 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 34988ef05a27062ca109a1640e39695b52b8773f
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 7423ef26a4a1c49245a1f8df79bbcaabea222596
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub web kancası tarafından tetiklenen bir işlev oluşturma
 
-GitHub’a özel bir yük kullanarak, HTTP web kancası isteğiyle tetiklenmiş bir işlev oluşturma hakkında bilgi edinin. 
+GitHub’a özel bir yük kullanarak, HTTP web kancası isteğiyle tetiklenmiş bir işlev oluşturma hakkında bilgi edinin.
 
 ![Azure portalında GitHub Web Kancası ile tetiklenen işlev](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
 Bu konu başlığı altındaki adımların tümünü beş dakikadan kısa bir sürede tamamlamalısınız.
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Ön koşullar
 
-[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
+Bu örneği çalıştırmadan önce aşağıdakilere sahip olmanız gerekir:
 
-Ayrıca en az bir proje içeren bir GitHub hesabı gerekir. Henüz yoksa [ücretsiz GitHub hesabına kaydolabilirsiniz](https://github.com/join).
+- En az bir proje içeren bir GitHub hesabı.
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="create-function"></a>GitHub web kancası ile tetiklenen bir işlev oluşturma
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-1. İşlev uygulamanızı genişletin, **İşlevler**’in yanındaki **+** düğmesine tıklayın, tercih ettiğiniz dildeki **GitHubWebHook** şablonuna tıklayın. **İşlevinizi adlandırın**, ardından **Oluştur**’a tıklayın. 
+## <a name="create-an-azure-function-app"></a>Azure İşlev uygulaması oluşturma
 
-2. Yeni işlevinizde, **</> İşlev URL’sini al**’a tıklayın, sonra da değerleri kopyalayın ve kaydedin. **</> GitHub parolasını al** için de aynı işlemi yapın. GitHub’da web kancasını yapılandırırken bu değerleri kullanırsınız. 
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![İşlev kodunu gözden geçirme](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png) 
-         
-Ardından, GitHub deponuzda web kancasını oluşturursunuz. 
+![İşlev uygulaması başarıyla oluşturuldu.](./media/functions-create-first-azure-function/function-app-create-success.png)
+
+Ardından, yeni işlev uygulamasında bir işlev oluşturun.
+
+<a name="create-function"></a>
+
+## <a name="create-a-github-webhook-triggered-function"></a>GitHub web kancası ile tetiklenen bir işlev oluşturma
+
+1. İşlev uygulamanızı genişletin, **İşlevler**’in yanındaki **+** düğmesine tıklayın, tercih ettiğiniz dildeki **GitHubWebHook** şablonuna tıklayın. **İşlevinizi adlandırın**, ardından **Oluştur**’a tıklayın.
+
+1. Yeni işlevinizde, **</> İşlev URL’sini al**’a tıklayın, sonra da değerleri kopyalayın ve kaydedin. **</> GitHub parolasını al** için de aynı işlemi yapın. GitHub’da web kancasını yapılandırırken bu değerleri kullanırsınız.
+
+    ![İşlev kodunu gözden geçirme](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
+
+Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
 ## <a name="configure-the-webhook"></a>Web kancası yapılandırma
-1. GitHub’da sahip olduğunuz bir depoya gidin. Varsa çatallandırdığınız depoları da kullanabilirsiniz. Bir depoyu çatallaştırmanız gerekirse, <https://github.com/Azure-Samples/functions-quickstart> sayfasını kullanın. 
- 
-2. **Ayarlar**’a tıklayın, sonra da **Web Kancaları**’na ve **Web kancası ekle**’ye tıklayın.
-   
+
+1. GitHub’da sahip olduğunuz bir depoya gidin. Varsa çatallandırdığınız depoları da kullanabilirsiniz. Bir depoyu çatallaştırmanız gerekirse, <https://github.com/Azure-Samples/functions-quickstart> sayfasını kullanın.
+
+1. **Ayarlar**’a tıklayın, sonra da **Web Kancaları**’na ve **Web kancası ekle**’ye tıklayın.
+
     ![GitHub web kancası ekleme](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-3. Tabloda belirtilen ayarları kullanın, ardından **Web kancası ekle**'ye tıklayın.
- 
+1. Tabloda belirtilen ayarları kullanın, ardından **Web kancası ekle**'ye tıklayın.
+
     ![Web kancası URL'sini ve parolasını ayarlama](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
-    | Ayar      |  Önerilen değer   | Açıklama                              |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Yük URL'si** | Kopyalanan değer | **</> İşlev URL’sini Al** tarafından döndürülen değeri kullanın. |
-    | **Gizli dizi**   | Kopyalanan değer | **</> GitHub gizli dizisini al** tarafından döndürülen değeri kullanın. |
-    | **İçerik türü** | uygulama/json | İşlev bir JSON yükü bekler. |
-    | Olay tetikleyicileri | Olayları ayrı ayrı seçmeme izin ver | Yalnızca sorun yorum olaylarını tetiklemek istiyoruz.  |
-    |                | Sorun açıklaması                    |  |
+| Ayar | Önerilen değer | Açıklama |
+|---|---|---|
+| **Yük URL'si** | Kopyalanan değer | **</> İşlev URL’sini Al** tarafından döndürülen değeri kullanın. |
+| **Gizli dizi**   | Kopyalanan değer | **</> GitHub gizli dizisini al** tarafından döndürülen değeri kullanın. |
+| **İçerik türü** | uygulama/json | İşlev bir JSON yükü bekler. |
+| Olay tetikleyicileri | Olayları ayrı ayrı seçmeme izin ver | Yalnızca sorun yorum olaylarını tetiklemek istiyoruz.  |
+| | Sorun açıklaması |  |
 
-Şimdi, web kancası yeni bir sorun açıklaması eklendiğinde işlevinizi tetikleyecek şekilde yapılandırılır. 
+Şimdi, web kancası yeni bir sorun açıklaması eklendiğinde işlevinizi tetikleyecek şekilde yapılandırılır.
 
 ## <a name="test-the-function"></a>İşlevi test etme
+
 1. GitHub deposunda **Sorunlar** sekmesini yeni bir tarayıcı penceresinde açın.
 
-2. Yeni pencerede **Yeni Sorun**’a tıklayın, bir başlık yazın ve ardından **Yeni sorunu gönder**’e tıklayın. 
+1. Yeni pencerede **Yeni Sorun**’a tıklayın, bir başlık yazın ve ardından **Yeni sorunu gönder**’e tıklayın.
 
-2. Sorunda bir açıklama yazın ve **Açıklama**’ya tıklayın. 
+1. Sorunda bir açıklama yazın ve **Açıklama**’ya tıklayın.
 
-    ![GitHub sorun açıklaması ekleyin.](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-add-comment.png) 
+    ![GitHub sorun açıklaması ekleyin.](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-add-comment.png)
 
-3. Portala geri dönün ve günlükleri görüntüleyin. Yeni açıklama metnini içeren bir izleme girişi görmeniz gerekir. 
-    
+1. Portala geri dönün ve günlükleri görüntüleyin. Yeni açıklama metnini içeren bir izleme girişi görmeniz gerekir.
+
      ![Günlüklerde açıklama metnini görüntüleyin.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
- 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -91,8 +104,4 @@ Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 GitHub web kancasından istek alındığında çalıştırılan bir işlev oluşturdunuz. 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Web kancası bağlamaları hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md). 
-
-
-
-
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Web kancası bağlamaları hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md).

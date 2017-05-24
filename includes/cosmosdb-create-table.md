@@ -11,6 +11,6 @@
     Koleksiyon kimliği|sample-table|Yeni koleksiyonunuzun kimliği. Koleksiyon adı karakter gereksinimleri veritabanı kimliğiyle aynıdır.
     Depolama Kapasitesi| 10 GB|Varsayılan değeri değiştirmeyin. Bu, veritabanının depolama kapasitesidir.
     Aktarım hızı|400 RU|Varsayılan değeri değiştirmeyin. Daha sonra gecikme süresini azaltmak isterseniz, aktarım hızının ölçeğini artırabilirsiniz.
-    Bölüm anahtarı|/databases|Verileri bölümlere eşit şekilde dağıtacak bölüm anahtarıdır. Koleksiyon performansının yüksek olması için doğru bölüm anahtarının seçilmesi önemlidir. Daha fazla bilgi için bkz. [Bölümleme için tasarlama](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
+    Bölüm anahtarı|/lastname|Verileri bölümlere eşit şekilde dağıtacak bölüm anahtarıdır. Koleksiyon performansının yüksek olması için doğru bölüm anahtarının seçilmesi önemlidir. Daha fazla bilgi için bkz. [Bölümleme için tasarlama](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
 3. Formu doldurduktan sonra **Tamam**'a tıklayın.

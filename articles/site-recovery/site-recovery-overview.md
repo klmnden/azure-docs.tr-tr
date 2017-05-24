@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/14/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 89921997f68bd72ee6086d2b635361eeeaba1c28
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -33,7 +34,7 @@ Azure Kurtarma Hizmetleri, BCDR stratejinize katkıda bulunur. [Azure Backup](ht
 
 - **Bulutta olağanüstü durum kurtarma**: VM'lerde ve fiziksel sunucularda çalışan iş yüklerini ikinci bir site yerine Azure'da çoğaltabilirsiniz. Bu işlem, ikincil bir veri merkezi kullanmanın maliyetini ve karmaşıklığını ortadan kaldırır.
 - **Karma ortamlar için esnek çoğaltma**: Desteklenen şirket içi Hyper-V VM'lerinde, VMware VM'lerinde ve Windows/Linux fiziksel sunucularında çalışan tüm iş yüklerini çoğaltabilirsiniz.
-- **Geçirme**: Şirket içi AWS örneklerini Azure VM'lerine veya bir bölgedeki Azure VM'lerini başka bir bölgeye geçirmek için Site Recovery'yi kullanabilirsiniz.
+- **Geçirme**: AWS örneklerini Azure VM'lerine geçirmek veya Azure bölgeleri arasında VM geçişi yapmak için Site Recovery'yi kullanabilirsiniz.
 - **Basitleştirilmiş BCDR**: Azure portalındaki tek bir konumdan çoğaltma dağıtabilirsiniz.  Basit yük devretmenin yanı sıra tek ve birden çok makineyi yeniden çalıştırabilirsiniz.
 - **Esneklik**: Site Recovery, uygulama verilerini kesintiye uğratmadan çoğaltma ve yük devretme işlemlerini yönetir.
 Çoğaltılan veriler, dayanıklılık özelliği sunan Azure Depolama'da saklanır. Yük devretme işlemi gerçekleştiğinde, çoğaltılan veriler temel alınarak Azure VM'leri oluşturulur.
