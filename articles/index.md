@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: true
 experimental: true
-experiment_id: d6155f71-baae-45
+experiment_id: 81ba5f65-59fb-4d
 title: Microsoft Azure Belgeleri
 description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
 ms.translationtype: Human Translation
