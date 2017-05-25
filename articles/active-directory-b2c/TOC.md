@@ -47,7 +47,7 @@
 ## [Kullanıcı arabirimini özelleştirme](active-directory-b2c-reference-ui-customization.md)
 ### [Özelleştirme için yardımcı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Dil özelleştirmesi](active-directory-b2c-reference-language-customization.md)
-## [Raporlama API’sini kullanma](active-directory-b2c-refererence-usage-reporting-api.md)
+## [Raporlama API’sini kullanma](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Self servis parola sıfırlamayı ayarlama](active-directory-b2c-reference-sspr.md)
 
 # Kimlik Deneyimi Altyapısı
@@ -59,8 +59,8 @@
 ### SAML sağlayıcılarını yapılandırma
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### RESTful API’lerini tümleştirme
-#### [Ek talep alma](active-directory-b2c-rest-api-step-custom.md)
 #### [Kullanıcı girişini doğrulama](active-directory-b2c-rest-api-validation-custom.md)
+#### [Ek talep alma](active-directory-b2c-rest-api-step-custom.md)
 ### Oturum açmayı özelleştirme
 #### [Kullanıcı erişimini yapılandırma](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Kullanıcı Arabirimini Özelleştirme](active-directory-b2c-ui-customization-custom.md)
@@ -79,7 +79,6 @@
 ## [Bölge kullanılabilirliği ve veri yerleşikliği](active-directory-b2c-reference-tenant-type.md)
 ## [Faturalamayı etkinleştirme](active-directory-b2c-how-to-enable-billing.md)
 ## [Tehdit yönetimi](active-directory-b2c-reference-threat-management.md)
-## [Sınırlamalar ve kısıtlamalar](active-directory-b2c-limitations.md)
 ## [Dizin oluştururken yaşanan sorunlar](active-directory-b2c-support-create-directory.md)
 
 # İlgili

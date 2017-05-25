@@ -30,7 +30,6 @@
 ### [Windows üzerinde C](iot-suite-connecting-devices.md)
 ### [Linux üzerinde C](iot-suite-connecting-devices-linux.md)
 ### [Node.js](iot-suite-connecting-devices-node.md)
-## [Mbed cihazınızı bağlama](iot-suite-connecting-devices-mbed.md)
 ## [Mantıksal Uygulama’yı uzaktan izleme çözümüne bağlama](iot-suite-logic-apps-tutorial.md)
 ## [Önceden yapılandırılmış bir çözümü özelleştirme](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Uzaktan izleme çözümüyle dinamik telemetri kullanma](iot-suite-dynamic-telemetry.md)

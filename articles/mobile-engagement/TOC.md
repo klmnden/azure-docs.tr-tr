@@ -76,7 +76,6 @@
 ### Reach
 #### [İletmeleri kullanmaya ve yönetmeye başlama](mobile-engagement-how-tos.md)
 #### [Bildirimlerde Emoji gönderme](mobile-engagement-use-emoji-with-push.md)
-#### [Kişiselleştirilmiş bildirimler gönderme](mobile-engagement-send-personalized-notifications.md)
 
 ### Erişim hizmeti API'leri
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)
@@ -145,10 +144,5 @@
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
