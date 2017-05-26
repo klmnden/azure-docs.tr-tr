@@ -21,9 +21,13 @@
 ### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure portal (klasik)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### Noktadan Siteye bağlantılar için otomatik olarak imzalanan sertifikalar oluşturma
+#### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+#### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## Sanal ağdan sanal ağa bağlantı yapılandırma
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure portal (klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Dağıtım modelleri arasında sanal ağdan sanal ağa bağlantı yapılandırma
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -46,9 +50,6 @@
 ### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klasik)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## Noktadan Siteye bağlantılar için otomatik olarak imzalanan sertifikalar oluşturma
-### [PowerShell](vpn-gateway-certificates-point-to-site.md)
-### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [VPN ağ geçidi yapılandırma (klasik)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Sorun giderme
 ### [Bir sanal ağa VPN aktarım hızını doğrulama](vpn-gateway-validate-throughput-to-vnet.md)
@@ -56,9 +57,9 @@
 # Başvuru
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [PowerShell (klasik)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST (klasik)](https://msdn.microsoft.com/library/jj154113)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
 
 # İlgili
 ## [Sanal Ağ](/azure/virtual-network/)

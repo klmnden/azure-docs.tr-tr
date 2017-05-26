@@ -18,12 +18,13 @@
 
 # Nasıl yapılır
 ## Planlama
-### [Dağıtım önkoşulları](site-recovery-prereq.md)
+### [Azure çoğaltma için önkoşullar](site-recovery-prereq.md)
 ### [Ağ altyapısını planlama](site-recovery-network-design.md)
+### [Ağ eşlemesi planlama](site-recovery-network-mapping.md)
 ### [Kapasite planlama ve Azure'aa VMware çoğaltma işlemini ölçeklendirme](site-recovery-plan-capacity-vmware.md)
 ### [Azure’a VMware çoğaltması için Dağıtım Planlayıcısı](site-recovery-deployment-planner.md)
 ### [Hyper-V çoğaltması için Capacity Planner](site-recovery-capacity-planner.md)
-### [Rol Tabanlı Access Control](site-recovery-role-based-linked-access-control.md)
+### [Rol tabanlı erişim ile VM çoğaltmayı denetleme](site-recovery-role-based-linked-access-control.md)
 
 ## Yapılandırma
 ### [Kaynak ortamını ayarlama](site-recovery-set-up-vmware-to-azure.md)
@@ -53,6 +54,8 @@
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
+### [IIS tabanlı web uygulamaları](site-recovery-iis.md)
+### [Citrix XenApp ve XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Diğer iş yükleri](site-recovery-workload.md#workload-summary)
 ## Çoğaltmayı otomatik hale getirme
 ### [Azure’a Hyper-V çoğaltma işlemini (VMM olmadan) otomatikleştirme](site-recovery-deploy-with-powershell-resource-manager.md)

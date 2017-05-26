@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: Kavramlar
   items:
-  - name: Barındırma planları
+  - name: Tüketim ve App Service planları
     href: functions-scale.md
   - name: Tetikleyiciler ve bağlamalar
     href: functions-triggers-bindings.md
+  - name: Diller
+    items:
+    - name: 'C# işlevleri kavramı'
+      href: functions-reference-csharp.md
+    - name: 'F# işlevleri kavramı'
+      href: functions-reference-fsharp.md
+    - name: JavaScript işlevleri kavramı
+      href: functions-reference-node.md    
 - name: Nasıl yapılır kılavuzları
   items:
+  - name: Geliştirici kılavuzu
+    href: functions-reference.md
   - name: Azure İşlevlerini test etme
     href: functions-test-a-function.md
   - name: Yerel olarak geliştirme ve hata ayıklama
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: İşlevler Çalışma Zamanını Yükleme
     href: functions-runtime-install.md
+  - name: SQL Veritabanı’na bağlanma
+    href: functions-scenario-database-table-cleanup.md
+  - name: Open API 2.0 tanımı oluşturma
+    href: functions-api-definition-getting-started.md     
+  - name: Azure İşlevleri için en iyi uygulamalar
+    href: functions-best-practices.md     
 - name: Başvuru
   items:
-  - name: İşlev uygulamaları geliştirme
-    href: functions-reference.md
-    items:
-    - name: Open API 2.0
-      href: functions-api-definition.md
-  - name: Azure İşlevleri için en iyi uygulamalar
-    href: functions-best-practices.md
   - name: Bağlamalar
     items:
     - name: Cosmos DB bağlamaları
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Twilio çıktı bağlaması
       href: functions-bindings-twilio.md
-  - name: Framework’ler
-    items:
-    - name: 'C#'
-      href: functions-reference-csharp.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+  - name: OpenAPI Başvurusu
+    href: functions-api-definition.md     
 - name: Kaynaklar
   items:
   - name: Fiyatlandırma

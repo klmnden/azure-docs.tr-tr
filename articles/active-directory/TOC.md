@@ -1,7 +1,7 @@
 # Genel Bakış
 ## [Azure Active Directory nedir?](active-directory-whatis.md)
 ## [Sürüm seçin](active-directory-editions.md)
-## [Azure kimlik yönetimi hakkında](fundamentals-identity.md)
+## [Azure kimlik yönetimi hakkında](identity-fundamentals.md)
 ## [Azure kimlik çözümlerini anlama](understand-azure-identity-solutions.md)
 ## [Azure Portalı deneyiminin önizlemesini gerçekleştirme](active-directory-preview-explainer.md)
 
@@ -90,7 +90,7 @@
 ### Sorun giderme
 #### [Eksik denetim verileri](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [İndirmelerde eksik veriler](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    Programlı Erişim
+###    [Programlı Erişim](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Denetim başvurusu](active-directory-reporting-api-audit-reference.md)
 #### [Oturum açma başvurusu](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Önkoşullar](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -115,7 +115,7 @@
 ##### [Bilinmeyen kaynaklar](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Anormal oturum açma işlemleri](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Parolaları yönetme](active-directory-passwords.md)
+## [Parolaları yönetme](active-directory-passwords-overview.md)
 ### Kullanıcı belgeleri
 #### [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
 #### [Parolalarla ilgili en iyi yöntemler](active-directory-secure-passwords.md)
@@ -298,6 +298,7 @@
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
+#### [Kiracı yönetici erişimini yükseltme](role-based-access-control-tenant-admin-access.md)
 #### [Sorun giderme](role-based-access-control-troubleshooting.md)
 #### [Kaynak Sağlayıcısı işlemleri](role-based-access-control-resource-provider-operations.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)

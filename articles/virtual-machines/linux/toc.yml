@@ -57,7 +57,8 @@
     href: azure-vm-network-overview.md
   - name: VM Ölçek Kümeleri
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-  - name: Örnek Meta Veri Hizmeti 
+  - name: Örnek Meta Veri Hizmeti
+ 
     href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Kapsayıcılar
     href: containers.md
@@ -296,6 +297,8 @@
       href: extensions-customscript.md
     - name: OMS Aracı Uzantısı
       href: extensions-oms.md
+    - name: Linux Tanılama Uzantısı
+      href: diagnostic-extension.md
   - name: Uygulama çalıştırma
     items:
     - name: Cloud Foundry
@@ -353,19 +356,24 @@
       href: migration-classic-resource-manager-faq.md
   - name: Sorun giderme
     items:
-    - name: SSH bağlantısı sorunlarını giderme
+    - name: SSH bağlantıları
       href: troubleshoot-ssh-connection.md
       items:
       - name: Ayrıntılı sorun giderme adımları
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Uygulama erişimi ile ilgili sorunları giderme
+    - name: Önyükleme tanılamaları
+ 
+      href: boot-diagnostics.md
+    - name: Uygulamalara erişim
       href: troubleshoot-app-connection.md
-    - name: Ayırma hataları ile ilgili sorunları giderme
+    - name: Ayırma hataları
       href: allocation-failure.md
-    - name: Dağıtım sorunlarını giderme
+    - name: Dağıtım sorunları
       href: troubleshoot-deployment-new-vm.md
     - name: VM’yi yeni Azure düğümüne yeniden dağıtma
       href: redeploy-to-new-node.md
+    - name: Genel hata iletileri
+      href: error-messages.md
     - name: Sorun giderme için sanal sabit disk ekleme
       items:
       - name: Azure CLI

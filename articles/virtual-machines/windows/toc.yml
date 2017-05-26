@@ -55,7 +55,8 @@
     href: network-overview.md
   - name: VM Ölçek Kümeleri
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Örnek Meta Veri Hizmeti 
+  - name: Örnek Meta Veri Hizmeti
+ 
     href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Kapsayıcılar
     href: containers.md
@@ -370,6 +371,9 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: RDP parolasını sıfırlama
       href: reset-rdp.md
+    - name: Önyükleme tanılamaları
+ 
+      href: boot-diagnostics.md
     - name: VM oluşturma
       href: troubleshoot-deployment-new-vm.md
     - name: VM’yi yeniden başlatma veya yeniden boyutlandırma
@@ -380,6 +384,8 @@
       href: allocation-failure.md
     - name: Bir VM’yi yeniden dağıtma
       href: redeploy-to-new-node.md
+    - name: Genel hata iletileri
+      href: error-messages.md
     - name: VM sorunlarını gidermek için sanal sabit disk takma
       items:
       - name: Azure PowerShell

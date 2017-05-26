@@ -10,7 +10,6 @@
 ## [Küme dağıtma - Portal](container-service-deployment.md)
 ## [Küme dağıtma - Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [Kubernetes ve Jenkins ile CI/CD](container-service-kubernetes-jenkins.md)
-## [DC/OS ve VSTS ile CI/CD](container-service-setup-ci-cd.md)
 ## [Docker Swarm ve VSTS ile CI/CD](container-service-docker-swarm-setup-ci-cd.md)
 
 # Kavramlar
@@ -44,6 +43,7 @@
 #### [OMS ile izleme](container-service-kubernetes-oms.md)
 #### [Datadog ile izleme](container-service-kubernetes-datadog.md)
 #### [Sysdig ile izleme](container-service-kubernetes-sysdig.md)
+#### [CoScale ile izleme](container-service-kubernetes-coscale.md)
 ## Docker Swarm ile yönetme
 ### [Docker ve Docker Compose](container-service-docker-swarm.md)
 
