@@ -24,6 +24,8 @@
 
 # Nasıl yapılır?
 
+## [Kullanıcı verilerinin Azure RemoteApp’ten geçişi](remoteapp-migrate.md)
+## [Citrix XenApp Essentials’a geçiş](remoteapp-migrate-citrix.md)
 ## RemoteApp koleksiyonu oluşturma
 ### [Hangi koleksiyona ihtiyacınız var?](remoteapp-collections.md)
 ### [Bulut koleksiyonu oluşturma](remoteapp-create-cloud-deployment.md)
@@ -69,8 +71,3 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/remoteapp/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

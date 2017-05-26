@@ -44,6 +44,7 @@
 
 ## Yönet
 ### [Kayıtlar](notification-hubs-push-notification-registration-management.md)
+### [APNS belirteç tabanlı kimlik doğrulama](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [Güvenlik](notification-hubs-push-notification-security.md)
 ### Güvenli gönderme

@@ -13,6 +13,7 @@
 ## Sanal makineleri bir laboratuar ortamında kullanma
 ### [VM oluşturma](devtest-lab-add-vm.md)
 ### [Talep edilebilir VM oluşturma](devtest-lab-add-claimable-vm.md)
+### [Azure CLI ile sanal makine oluşturma ve yönetme](devtest-lab-vmcli.md)
 
 ## Ortamları laboratuvarda kullanma
 ### [Ortam oluşturma](devtest-lab-create-environment-from-arm.md)

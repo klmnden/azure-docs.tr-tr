@@ -117,6 +117,7 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## İzleme ve sorun giderme
+### [Depolama Gezgini sorunu giderme](storage-explorer-troubleshooting.md)
 ### Ölçümler ve günlüğe kaydetme
 #### [Depolama Analizi](storage-analytics.md)
 #### [Ölçümleri etkinleştirme ve görüntüleme](storage-enable-and-view-metrics.md)

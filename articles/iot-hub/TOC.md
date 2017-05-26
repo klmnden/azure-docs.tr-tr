@@ -12,9 +12,9 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Sanal ağ geçidi kullanma 
-#### [Linux üzerinde benzetim](iot-hub-linux-gateway-sdk-get-started.md)
-#### [Windows üzerinde benzetim](iot-hub-windows-gateway-sdk-get-started.md)
+### Sanal ağ geçidi kullanma
+#### [Linux üzerinde benzetim](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows üzerinde benzetim](iot-hub-windows-iot-edge-get-started.md)
 
 ### Fiziksel cihaz kullanma
 #### [Node.js ile Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -28,9 +28,9 @@
 #### [Arduino IDE ile Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### IoT Gateway Başlangıç Paketini kullanma
-##### [Intel NUC cihazını IoT ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [IoT ağ geçidini IoT Hub’a bağlama](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Veri dönüştürme için IoT ağ geçidi kullanma](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Intel NUC cihazını ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [Ağ geçidini IoT Hub’a bağlama](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [Veri dönüştürme için ağ geçidi kullanma](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
 ## [iothub-explorer ile bulut cihaz mesajlaşmasını yönetme](iot-hub-explorer-cloud-device-messaging.md)
 ## [IoT Hub iletilerini Azure veri depolamaya kaydetme](iot-hub-store-data-in-azure-table-storage.md)
@@ -78,6 +78,7 @@
 ### Cihaz ikizlerini kullanmaya başlama
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-twin-getstarted.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-twin-getstarted.md)
 ### Doğrudan yöntemler kullanma
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-direct-methods.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-direct-methods.md)
@@ -85,6 +86,7 @@
 ### Cihaz yönetimini kullanmaya başlama
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-device-management-get-started.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-device-management-get-started.md)
+#### [Java arka ucu/Java cihazı](iot-hub-java-java-device-management-getstarted.md)
 ### İkiz özelliklerini kullanma
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -118,9 +120,9 @@
 ### [IoT dağıtımınızın güvenliğini sağlama](iot-hub-security-deployment.md)
 ## IoT Edge
 ### Cihazı benzetme
-#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
-#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Gerçek cihaz kullanma](iot-hub-gateway-sdk-physical-device.md)
+#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
+#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
+### [Gerçek cihaz kullanma](iot-hub-iot-edge-physical-device.md)
 
 # Başvuru
 ## [Azure CLI 2.0 Önizleme](/cli/azure/iot)
@@ -154,3 +156,4 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Geliştirici Merkezi](https://azure.microsoft.com/develop/iot/)
 ## [IoT için Azure Sertifikalı cihaz kataloğu](https://catalog.azureiotsuite.com/)
+## [Teknik örnek olay incelemeleri](https://microsoft.github.io/techcasestudies/#technology=IoT)

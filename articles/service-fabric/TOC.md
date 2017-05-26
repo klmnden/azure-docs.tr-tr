@@ -48,7 +48,8 @@
 #### [Windows kapsayıcısı dağıtma](service-fabric-deploy-container.md)
 #### [Linux kapsayıcısı dağıtma](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (önizleme)](service-fabric-docker-compose.md)
-#### [Kapsayıcıları ve Hizmetler için Kaynak İdaresi](service-fabric-resource-governance.md)
+#### [Kapsayıcılar ve hizmetler için kaynak idaresi](service-fabric-resource-governance.md)
+#### [Hacim ve günlüğe kaydetme sürücüleri](service-fabric-containers-volume-logging-drivers.md)
 
 ### Reliable Service hizmeti oluşturma
 #### [Genel Bakış](service-fabric-reliable-services-introduction.md)
@@ -69,10 +70,9 @@
 ##### [Windows üzerinde C#](service-fabric-reliable-services-quick-start.md)
 ##### [Linux üzerinde Java](service-fabric-reliable-services-quick-start-java.md)
 
-#### Reliable Services yaşam döngüsü
-##### [Yapılandırma](service-fabric-reliable-services-configuration.md)
-##### [Bildirim gönderme](service-fabric-reliable-services-notifications.md)
-##### [Yedekleme ve geri yükleme](service-fabric-reliable-services-backup-restore.md)
+#### [Yapılandırma](service-fabric-reliable-services-configuration.md)
+#### [Bildirim gönderme](service-fabric-reliable-services-notifications.md)
+#### [Yedekleme ve geri yükleme](service-fabric-reliable-services-backup-restore.md)
 
 #### Hizmetlerle iletişim kurma
 ##### [Reliable Services özelliğiyle iletişim kurma](service-fabric-reliable-services-communication.md)
@@ -87,12 +87,12 @@
 ### Güvenilir Aktör hizmeti oluşturma
 #### [Genel Bakış](service-fabric-reliable-actors-introduction.md)
 #### Kavramlar
-#### [Mimari](service-fabric-reliable-actors-platform.md)
-#### [Yaşam döngüsü ve atık toplama](service-fabric-reliable-actors-lifecycle.md)
-#### [Durum yönetimi](service-fabric-reliable-actors-state-management.md)
-#### [Çok biçimlilik](service-fabric-reliable-actors-polymorphism.md)
-#### [Yeniden giriş](service-fabric-reliable-actors-reentrancy.md)
-#### [Türü seri hale getirme](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [Mimari](service-fabric-reliable-actors-platform.md)
+##### [Yaşam döngüsü ve atık toplama](service-fabric-reliable-actors-lifecycle.md)
+##### [Durum yönetimi](service-fabric-reliable-actors-state-management.md)
+##### [Çok biçimlilik](service-fabric-reliable-actors-polymorphism.md)
+##### [Yeniden giriş](service-fabric-reliable-actors-reentrancy.md)
+##### [Türü seri hale getirme](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### başlarken
 ##### [Windows üzerinde C#](service-fabric-reliable-actors-get-started.md)
@@ -108,6 +108,7 @@
 #### [Hizmet iletişimleri](service-fabric-connect-and-communicate-with-services.md)
 #### [DNS hizmeti](service-fabric-dnsservice.md)
 #### [Ters proxy](service-fabric-reverseproxy.md)
+#### [Güvenli iletişim için ters proxy ayarlarını yapılandırma](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [Web ön ucu ekleme](service-fabric-add-a-web-frontend.md)
 

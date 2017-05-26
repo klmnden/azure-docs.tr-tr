@@ -39,9 +39,9 @@
       href: concepts-server-logs.md
   - name: Kaynaklar
     items:
-    - name: Hizmet katmanları
+    - name: Fiyatlandırma katmanları
       href: concepts-service-tiers.md
-    - name: İşlem Birimleri ve Depolama Birimleri
+    - name: İşlem Birimleri
       href: concepts-compute-unit-and-storage.md
     - name: Sınırlar
       href: concepts-limits.md

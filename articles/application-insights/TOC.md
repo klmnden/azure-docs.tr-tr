@@ -35,7 +35,7 @@
 ### [Web uygulamalarını ve hizmetleri ayrıntılı tanılama](app-insights-devops.md)
 ### [Web uygulamalarının performansını izleme](app-insights-web-monitor-performance.md)
 ### [Geliştirme, test ve üretimi ayırma](app-insights-separate-resources.md)
-### [Birden çok rol ile uygulamaları izleme](app-insights-monitor-multi-role-apps.md)
+### [Birden çok içerik ile uygulamaları izleme](app-insights-monitor-multi-role-apps.md)
 ### [Application Insights’ta nasıl ... yapabilirim?](app-insights-how-do-i.md)
 
 
@@ -139,7 +139,7 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST](https://dev.applicationinsights.io/)
+## [Veri erişimi API’si](https://dev.applicationinsights.io/)
 ## [Veri modeli](application-insights-data-model.md)
 ### [İstek](application-insights-data-model-request-telemetry.md)
 ### [Bağımlılık](application-insights-data-model-dependency-telemetry.md)
@@ -147,6 +147,7 @@
 ### [İzleme](application-insights-data-model-trace-telemetry.md)
 ### [Olay](application-insights-data-model-event-telemetry.md)
 ### [Ölçüm](application-insights-data-model-metric-telemetry.md)
+### [Bağlam](application-insights-data-model-context.md)
 ## [Telemetri bağıntısı](application-insights-correlation.md)
 
 # Kaynaklar

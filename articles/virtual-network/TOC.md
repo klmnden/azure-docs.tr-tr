@@ -17,17 +17,13 @@
 ### [Ağ güvenlik grupları](virtual-networks-nsg.md)
 
 ## Dağıtma
-### Sanal ağlar (VNet’ler)
-#### [VNet’leri oluşturma, değiştirme veya silme](virtual-network-manage-network.md)
-#### [Alt ağları oluşturma, değiştirme veya silme](virtual-network-manage-subnet.md)
-#### [VNet oluşturma - birden çok alt ağ](virtual-networks-create-vnet-arm-pportal.md) 
-##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-##### [CLI](virtual-networks-create-vnet-arm-cli.md)
-##### [Şablon](virtual-networks-create-vnet-arm-template-click.md)
-#### VNet oluşturma - birden çok alt ağ (Klasik)
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+### [Sanal ağlar](virtual-networks-create-vnet-arm-pportal.md)
+#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+#### [CLI](virtual-networks-create-vnet-arm-cli.md)
+#### [Şablon](virtual-networks-create-vnet-arm-template-click.md)
+#### [Portal (klasik)](virtual-networks-create-vnet-classic-pportal.md)
+#### [PowerShell (klasik)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+#### [CLI (klasik)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Ağ güvenlik grupları
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -49,14 +45,9 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Şablon](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### Ağ arabirimleri (NIC’ler)
-#### [NIC’leri oluşturma, değiştirme veya silme](virtual-network-network-interface.md)
-#### [IP adreslerini ekleme, değiştirme veya kaldırma](virtual-network-network-interface-addresses.md)
-
 ### [Genel IP adresleri](virtual-network-public-ip-address.md)
 
 ### Sanal makineler
-#### [Ağ arabirimi ekleme veya kaldırma](virtual-network-network-interface-vm.md) 
 #### Statik genel IP adresiyle VM oluşturma
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -103,20 +94,29 @@
 ##### [Örnek uygulama](virtual-networks-sample-app.md)
 
 ## Yapılandırma
-### [VM’de ağ aktarım hızını iyileştirme](virtual-network-optimize-network-bandwidth.md)
+
 ### Erişim denetimi listeleri
 #### [Klasik portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
-### [VM’ler ve bulut hizmetleri için ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+### Sanal makineler
+#### [Ağ arabirimi ekleme veya kaldırma](virtual-network-network-interface-vm.md)
+#### [VM’ler ve bulut hizmetleri için ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [Ağ aktarım hızını iyileştirme](virtual-network-optimize-network-bandwidth.md)
+#### [Konak adlarını görüntüleme ve değiştirme](virtual-networks-viewing-and-modifying-hostnames.md)
 
 ## Yönet
+### [Sanal ağlar](virtual-network-manage-network.md)
+#### [Alt ağlar](virtual-network-manage-subnet.md)
+#### [Eşlemeler](virtual-network-manage-peering.md)
 ### Ağ güvenlik grupları
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Günlükler](virtual-network-nsg-manage-log.md)
+### Ağ arabirimleri (NIC’ler)
+#### [NIC’leri oluşturma, değiştirme veya silme](virtual-network-network-interface.md)
+#### [IP adreslerini ekleme, değiştirme veya kaldırma](virtual-network-network-interface-addresses.md)
 ### Sanal makineler
-#### [Konak adlarını görüntüleme ve değiştirme](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [VM’yi farklı bir alt ağa taşıma](virtual-networks-move-vm-role-to-subnet.md)
 
 ## Sorun giderme

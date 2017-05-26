@@ -5,7 +5,7 @@
   - name: Azure Cosmos DB hakkında
     href: introduction.md
   - name: DocumentDB müşterilerini karşılama
-    href: welcome-documentdb-customers.md
+    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -236,7 +236,13 @@
       href: ../documentdb/documentdb-online-backup-and-restore.md
     - name: Bölgesel yük devretme
       href: ../documentdb/documentdb-regional-failovers.md
-    - name: Automation
+    - name: Aktarım hızı ayarlama
+      href: ../documentdb/documentdb-set-throughput.md
+    - name: SLA’ları izleme
+      href: ../documentdb/documentdb-monitor-accounts.md
+    - name: Anahtarları yönetme ve tutarlılık
+      href: ../documentdb/documentdb-manage-account.md
+    - name: Otomasyon
       items:
       - name: Azure CLI 1.0 - Hesap oluşturma
         href: ../documentdb/documentdb-automation-resource-manager-cli-nodejs.md
@@ -250,10 +256,14 @@
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
       - name: Güvenlik duvarı desteği
         href: ../documentdb/documentdb-firewall-support.md
+      - name: Veriye erişimi güvenli hale getirme
+        href: ../documentdb/documentdb-secure-access-to-data.md
   - name: Tümleştirme
     items:
     - name: Spark’a bağlanma
       href: ../documentdb/documentdb-spark-connector.md
+    - name: Spark GraphX’e bağlanma
+      href: spark-connector-graph.md      
     - name: Azure Uygulama Hizmeti ile web sitesi dağıtma
       href: ../documentdb/documentdb-create-documentdb-website.md
     - name: Logic Apps ile uygulama günlüğü kaydı

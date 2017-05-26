@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: e59cdcf2d54edece06feb0ee5675bdef35dfae03
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 5583254cd559314478bdc42e3f41171c6cf1e85a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="azure-monitor-documentation"></a>Azure İzleyici Belgeleri
@@ -197,7 +197,7 @@ Azure izleme ve tanılama hizmetlerini kullanarak performansı izleme, güvenli�
                         <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Azure Tanılama uzantı şeması</a></p>
                         <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Azure Tanılama uzantı şeması 1.0</a></p>
                         <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Azure Tanılama uzantı şeması 1.2</a></p>
-                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later">Azure Tanılama uzantı şeması 1.3’ten 1.7’ye</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later">Azure Tanılama uzantı şeması 1.3 ve üzeri</a></p>
                     </div>
                 </div>
             </div>
