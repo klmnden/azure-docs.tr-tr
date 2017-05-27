@@ -3,7 +3,7 @@ title: "Azure portalında SQL Veri Ambarı Oluşturma | Microsoft Belgeleri"
 description: "Azure portalında Azure SQL Veri Ambarı oluşturmayı öğrenin"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 tags: azure-sql-data-warehouse
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: elbutter;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
 ms.openlocfilehash: 75f4792ff2aa2b73ebc3ff976887a74ce09988f3
+ms.contentlocale: tr-tr
 ms.lasthandoff: 03/10/2017
 
 

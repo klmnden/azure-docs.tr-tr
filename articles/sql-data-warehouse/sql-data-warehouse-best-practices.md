@@ -3,7 +3,7 @@ title: "Azure SQL Veri Ambarı için en iyi uygulamalar | Microsoft Belgeleri"
 description: "Azure SQL Veri Ambarı için çözüm geliştirirken bilmeniz gerekenlerle ilgili öneriler ve en iyi yöntemler. Bu veriler, başarılı olmanıza yardımcı olacaktır."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: shivaniguptamsft
 manager: jhubbard
 editor: 
 ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: shigu;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: aac6261cd3e8a8d6775c44dc6e3b279db4474ff8
+ms.contentlocale: tr-tr
 ms.lasthandoff: 04/03/2017
 
 
