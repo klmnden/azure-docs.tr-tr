@@ -1,8 +1,7 @@
 # Genel Bakış
 ## [Data Lake Analytics nedir?](data-lake-analytics-overview.md)
 
-# Başlarken
-## [Etkileşimli öğretici: Web sitesi günlüklerini çözümleme](data-lake-analytics-use-interactive-tutorials.md)
+# başlarken
 ## [Azure portal](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
@@ -27,6 +26,8 @@
 
 ## Çözüm oluşturma
 ### [Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
+### [Etkileşimli öğretici: Web sitesi günlüklerini çözümleme](data-lake-analytics-use-interactive-tutorials.md)
+
 
 ## Yönet
 ### [Azure portal](data-lake-analytics-manage-use-portal.md)
