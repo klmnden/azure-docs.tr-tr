@@ -1,5 +1,6 @@
 # Genel Bakış
 ## [Azure Analysis Services nedir?](analysis-services-overview.md)
+## [Desteklenen veri kaynakları](analysis-services-datasource.md)
 
 # Hızlı Başlangıçlar
 ## [Sunucu oluşturma - portal](analysis-services-create-server.md)
@@ -17,7 +18,7 @@
 ### [6. Ders: Ölçü oluşturma](tutorials/aas-lesson-6-create-measures.md)  
 ### [7. Ders: Önemli Performans Göstergeleri oluşturma](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 ### [8. Ders: Perspektif oluşturma](tutorials/aas-lesson-8-create-perspectives.md) 
-### [9. Ders: Hiyerarşi oluşturma](tutorials/aas-lesson-9-create-hierarchies.md)  
+### [9. Ders: Hiyerarşi oluşturma](tutorials/aas-lesson-9-create-hierarchies.md) 
 ### [10. Ders: Bölüm oluşturma](tutorials/aas-lesson-10-create-partitions.md) 
 ### [11. Ders: Rol oluşturma](tutorials/aas-lesson-11-create-roles.md)
 ### [12. Ders: Excel’de çözümleme](tutorials/aas-lesson-12-analyze-in-excel.md)
@@ -36,7 +37,6 @@
 ## [İstemci kitaplıkları alma](analysis-services-data-providers.md)
 ## [Yedekleme ve geri yükleme](analysis-services-backup.md)
 ## [Yüksek kullanılabilirlik](analysis-services-bcdr.md)
-## [Veri kaynağı bağlantıları](analysis-services-datasource.md)
 ## [.odc dosyası oluşturma](analysis-services-odc.md)
 
 # Başvuru

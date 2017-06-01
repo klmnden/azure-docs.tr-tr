@@ -11,10 +11,12 @@
     href: quickstart-create-server-database-portal.md
   - name: DB Oluşturma - Azure CLI
     href: quickstart-create-server-database-azure-cli.md
-- name: Örnek Betikler
-  items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
+  - name: Bağlan
+    items:
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Python
+      href: connect-python.md
 - name: Öğreticiler
   items:
   - name: 1 - Veritabanı Tasarlama
@@ -55,7 +57,11 @@
     items:
     - name: Bağlantı kitaplıkları
       href: concepts-connection-libraries.md
-- name: Nasıl Yapılır Kılavuzları
+- name: Örnekler
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
+- name: Nasıl yapılır kılavuzları
   items:
   - name: Güvenlik duvarı kuralları
     items:

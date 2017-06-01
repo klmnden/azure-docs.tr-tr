@@ -11,9 +11,9 @@
 ## [En iyi uygulamalar](sql-data-warehouse-best-practices.md)
 ## [Yönetme](sql-data-warehouse-overview-manage.md)
 ## [Destek alın](sql-data-warehouse-get-started-create-support-ticket.md)
-## [Sorun giderme](sql-data-warehouse-troubleshoot.md)
 
-# Nasıl yapılır
+
+# Nasıl yapılır?
 
 ## Yedekleme ve geri yükleme
 
@@ -114,7 +114,7 @@
 
 ### [Genel Bakış](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore sıkıştırması](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Sorgular](sql-data-warehouse-manage-monitor.md)
+### [İzleme](sql-data-warehouse-manage-monitor.md)
 ### [İş yükü](sql-data-warehouse-develop-concurrency.md)
 
 ## Güvenlik
@@ -126,6 +126,9 @@
 ### [Şifreleme](sql-data-warehouse-encryption-tde.md)
 ### [T-SQL ile şifreleme](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Tehdit algılama](sql-data-warehouse-security-threat-detection.md)
+
+## Sorun giderme
+### [Sorun giderme](sql-data-warehouse-troubleshoot.md)
 
 # Başvuru
 

@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: d7f6274b6c72827c0f73da816a524bc35a30bb27
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 8252bc979fdeb034384fc65e416643de8ef97031
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -161,8 +161,8 @@ IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Cihazlar)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (Hizmet)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Cihazlar)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html">Düğüm (Hizmet)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html">Düğüm (Cihazlar)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.11/index.html">Düğüm (Hizmet)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.12/index.html">Düğüm (Cihazlar)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK’ları</a></p>
                         <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>

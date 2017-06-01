@@ -12,7 +12,9 @@
 ## [IoT Hub olay kaynağı oluşturma](time-series-insights-how-to-add-an-event-source-iothub.md)
 ## [Ortamınızı ölçeklendirme](time-series-insights-how-to-scale-your-environment.md)
 ## [Sorunları tanılama ve çözme](time-series-insights-diagnose-and-solve-problems.md)
-## [C# kullanarak verileri sorgulama](time-series-insights-query-data-csharp.md)
+## Geliştirme
+### [Kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md)
+### [C# kullanarak verileri sorgulama](time-series-insights-query-data-csharp.md)
 
 # Başvuru
 ## [Sorgu API'si](/rest/api/time-series-insights/time-series-insights-reference-queryapi)

@@ -130,6 +130,8 @@
     items:
     - name: VM oluşturmaya genel bakış
       href: creation-choices.md
+    - name: Özelleştirilmiş bir VHD’den VM oluşturma
+      href: create-vm-specialized.md
     - name: Şablon ile VM oluşturma
       href: ps-template.md
     - name: 'C# ile VM oluşturma'
@@ -215,20 +217,6 @@
       href: expand-data-disks.md
     - name: D sürücüsünü veri diski olarak kullanma
       href: change-drive-letter.md
-    - name: Yönetilmeyen diskleri kullanarak VM’ler oluşturma
-      items:
-      - name: VHD’yi karşıya yükleme
-        href: upload-image.md
-      - name: Yönetilmeyen görüntü oluşturma
-        href: capture-image.md
-      - name: Genelleştirilmiş bir VHD’den yönetilmeyen VM oluşturma
-        href: create-vm-generalized.md
-      - name: VM kopyalama
-        href: vhd-copy.md
-      - name: Özelleştirilmiş bir VHD’den VM oluşturma
-        href: create-vm-specialized.md
-      - name: Yönetilmeyen veri diski ekleme
-        href: attach-disk-portal.md
   - name: VM ağı
     href: ps-common-network-ref.md
     items:
@@ -341,10 +329,8 @@
       items:
       - name: Amazon Web Services’den (AWS) Azure’a geçiş
         href: aws-to-azure.md
-    - name: Genelleştirilmiş VHD’den VM oluşturma ve karşıya yükleme
-      href: upload-generalized-managed.md
-    - name: Genelleştirilmiş VHD’den VM oluşturma ve karşıya yükleme
-      href: upload-specialized.md
+      - name: Genelleştirilmiş VHD’den VM oluşturma ve karşıya yükleme
+        href: upload-generalized-managed.md
     - name: Klasik’ten Azure Resource Manager’a geçiş
       href: migration-classic-resource-manager-overview.md
       items:

@@ -10,12 +10,13 @@ ms.service: stream-analytics
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 4835208ce6dcff978cb7b4d722763f705dc6dd33
-ms.openlocfilehash: 8cfa25410edc7c54e9139a596ab39d8d580f44a5
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: f82be4ff7bd0839be4f826f9a04ba0876f4ec91d
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/25/2017
 
 ---
 
@@ -156,7 +157,7 @@ Tam olarak yönetilen bir işleme altyapısı olan Stream Analytics ile bulutta 
                 <div class="card">
                     <div class="cardText">
                         <h3>Diller</h3>
-                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Sorgu dili</a></p>
                     </div>
                 </div>
