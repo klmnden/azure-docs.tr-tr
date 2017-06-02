@@ -12,10 +12,6 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Sanal ağ geçidi kullanma
-#### [Linux üzerinde benzetim](iot-hub-linux-iot-edge-get-started.md)
-#### [Windows üzerinde benzetim](iot-hub-windows-iot-edge-get-started.md)
-
 ### Fiziksel cihaz kullanma
 #### [Node.js ile Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [C ile Raspberry Pi](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -31,6 +27,8 @@
 ##### [Intel NUC cihazını ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Ağ geçidini IoT Hub’a bağlama](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Veri dönüştürme için ağ geçidi kullanma](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [Çevrimiçi cihaz simülatörü kullanma](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [iothub-explorer ile bulut cihaz mesajlaşmasını yönetme](iot-hub-explorer-cloud-device-messaging.md)
 ## [IoT Hub iletilerini Azure veri depolamaya kaydetme](iot-hub-store-data-in-azure-table-storage.md)
@@ -48,15 +46,21 @@
 ### [Ek protokollerin desteklenmesi](iot-hub-protocol-gateway.md)
 ## [Geliştirme](iot-hub-how-to.md)
 ### [Geliştirici kılavuzu](iot-hub-devguide.md)
-#### [İleti alma ve gönderme](iot-hub-devguide-messaging.md)
 #### [Cihazdan buluta özellik kılavuzu](iot-hub-devguide-d2c-guidance.md)
 #### [Buluttan cihaza özellik kılavuzu](iot-hub-devguide-c2d-guidance.md)
+#### [İleti alma ve gönderme](iot-hub-devguide-messaging.md)
+##### [IoT Hub’a cihazdan buluta iletileri gönderme](iot-hub-devguide-messages-d2c.md)
+##### [Cihazdan buluta iletilerini yerleşik uç noktadan okuma](iot-hub-devguide-messages-read-builtin.md)
+##### [Cihazdan buluta iletileri için özel uç noktalar ve yönlendirme kuralları kullanma](iot-hub-devguide-messages-read-custom.md)
+##### [IoT Hub’dan buluttan cihaza iletileri gönderme](iot-hub-devguide-messages-c2d.md)
+##### [IoT Hub iletilerini oluşturma ve okuma](iot-hub-devguide-messages-construct.md)
 #### [Bir cihazdan karşıya dosya yükleme](iot-hub-devguide-file-upload.md)
 #### [Cihaz kimliklerini yönetme](iot-hub-devguide-identity-registry.md)
 #### [IoT Hub’a erişimi denetleme](iot-hub-devguide-security.md)
 #### [Cihaz ikizlerini anlama](iot-hub-devguide-device-twins.md)
 #### [Bir cihazda doğrudan yöntemleri çağırma](iot-hub-devguide-direct-methods.md)
 #### [Birden fazla cihazda işleri zamanlama](iot-hub-devguide-jobs.md)
+#### [İletişim protokolü seçme](iot-hub-devguide-protocols.md)
 #### [IoT Hub uç noktaları](iot-hub-devguide-endpoints.md)
 #### [Sorgu dili](iot-hub-devguide-query-language.md)
 #### [Kotalar ve azaltma](iot-hub-devguide-quotas-throttling.md)
@@ -119,18 +123,22 @@
 ### [Güvenlik mimarisi](iot-hub-security-architecture.md)
 ### [IoT dağıtımınızın güvenliğini sağlama](iot-hub-security-deployment.md)
 ## IoT Edge
+### başlarken
+#### [Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### Cihazı benzetme
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Gerçek cihaz kullanma](iot-hub-iot-edge-physical-device.md)
 
 # Başvuru
-## [Azure CLI 2.0 Önizleme](/cli/azure/iot)
+## [Azure CLI 2.0](/cli/azure/iot)
 ## [.NET (Hizmet)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Cihazlar)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Hizmet)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Cihazlar)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Azure IoT SDK’ları](http://azure.github.io/azure-iot-sdks/)
+## [Node.js SDK’ları](http://azure.github.io/azure-iot-sdk-node/)
+## [C cihaz API’si](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Kaynak Sağlayıcısı)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (Cihaz Kimlikleri)](https://docs.microsoft.com/rest/api/iothub/deviceapi)

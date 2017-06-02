@@ -5,6 +5,7 @@
 ## [Azure kimlik çözümlerini anlama](understand-azure-identity-solutions.md)
 ## [Azure Portalı deneyiminin önizlemesini gerçekleştirme](active-directory-preview-explainer.md)
 
+
 # Başlarken
 ## [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
@@ -14,7 +15,8 @@
 ### [Klasik portal](active-directory-licensing-what-is.md)
 ## [Kuruluşunuz için Azure’u edinme](sign-up-organization.md)
 ## [SSS](active-directory-faq.md)
-## [SaaS uygulama öğreticileri](active-directory-saas-tutorial-list.md)
+## [Azure Active Directory için destek alma](active-directory-troubleshooting-support-howto.md)
+## [SaaS uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md)
 
 # Nasıl yapılır?
 ## Planlama ve tasarım

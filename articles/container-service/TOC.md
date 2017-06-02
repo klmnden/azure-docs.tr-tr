@@ -11,6 +11,7 @@
 ## [Küme dağıtma - Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [Kubernetes ve Jenkins ile CI/CD](container-service-kubernetes-jenkins.md)
 ## [Docker Swarm ve VSTS ile CI/CD](container-service-docker-swarm-setup-ci-cd.md)
+## [ACS Altyapısı kullanarak Docker Swarm modu ve VSTS ile CI/CD](container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md)
 
 # Kavramlar
 ## [Güvenli kapsayıcılar](container-service-security.md)

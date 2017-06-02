@@ -116,7 +116,7 @@
 ### [Örnekleme](app-insights-sampling.md)
 
 ## Yönet
-### [Fiyatlandırma ve kota yönetimi](app-insights-pricing.md)
+### [Fiyatlandırmayı ve veri hacmini yönetme](app-insights-pricing.md)
 ### [SCOM için Application Insights kullanarak uygulama performansı izleme](app-insights-scom.md)
 
 ## Dışarı Aktarma

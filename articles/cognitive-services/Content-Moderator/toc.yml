@@ -1,57 +1,56 @@
-- name: "Content Moderator Documentation"
+- name: Content Moderator Belgeleri
   href: ../index.md
-- name: "Overview"
+- name: Genel Bakış
   items: 
-  - name: "Learn about the Content Moderator API"
+  - name: Content Moderator API’si hakkında bilgi edinin
     href: overview.md
-- name: "Get started"
+- name: başlarken
   items: 
-  - name: "Get started with Content Moderator"
+  - name: Content Moderator’ı kullanmaya başlama
     href: quick-start.md
-- name: "How to"
+- name: Nasıl yapılır?
   items: 
-  - name: "Review tool user guide"
+  - name: Gözden geçirme aracı kullanıcı kılavuzu
     items:
-    - name: "Human in the loop"
+    - name: İnsan destekli döngü
       href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: "Create team"
+    - name: Ekip oluşturma
       href: Review-Tool-User-Guide/Sign-up.md
-    - name: "Upload images"
+    - name: Görüntüleri karşıya yükleme
       href: Review-Tool-User-Guide/Upload-Images.md
-    - name: "Image reviews"
+    - name: Görüntü incelemeleri
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: "Text reviews"
+    - name: Metin incelemeleri
       href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: "Team and subteams"
+    - name: Ekipler ve alt ekipler
       href: Review-Tool-User-Guide/SubTeams.md
-    - name: "Using workflows"
+    - name: İş akışlarını kullanma
       href: Review-Tool-User-Guide/Workflows.md
-    - name: "Settings"
+    - name: Ayarlar
       href: Review-Tool-User-Guide/Configure.md
-    - name: "View dashboard"
+    - name: Panoyu görüntüleme
       href: Review-Tool-User-Guide/View-Dashboard.md
-- name: "Reference"
+- name: Başvuru
   items: 
-  - name: "API Reference Guide"  
+  - name: API Başvurusu Kılavuzu
+  
     href: api-reference.md
     items:
-  - name: "Review APIs"
+  - name: API’leri inceleme
     href: review-api.md
-  - name: "Review Authentication"
-    href: Review-API-Authentication.md
-  - name: "Image moderation"
+  - name: Görüntü denetimi
     href: image-moderation-api.md
-  - name: "Text moderation"
+  - name: Metin denetimi
     href: text-moderation-api.md
-  - name: "Text moderation - languages"
+  - name: Metin denetimi - diller
     href: Text-Moderation-API-Languages.md
-  - name: "Video moderation"
+  - name: Video denetimi
     href: video-moderation-api.md
-- name: "Resources"
+- name: Kaynaklar
   items:  
-  - name: "Windows SDK"
+  - name: Windows SDK’sı
     href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
-  - name: "Samples"
+  - name: Örnekler
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
-  - name: "FAQ"
+  - name: SSS
     href: FAQs.md

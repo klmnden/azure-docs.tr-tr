@@ -10,6 +10,7 @@
 ### [Gelişmiş tehdit algılama](azure-threat-detection.md)
 ### [Günlük kaydı ve denetim](azure-log-audit.md)
 ### [Genel bulutta yalıtım](azure-isolation.md)
+### [Güvenliğe yönelik teknik özellikler](azure-security-technical-capabilities.md)
 
 # Kullanmaya Başlama
 ## [Azure güvenliğini kullanmaya başlama](azure-security-getting-started.md)
@@ -18,6 +19,7 @@
 
 ## Ağ güvenliği
 ### [Ağ güvenliği için en iyi uygulamalar](azure-security-network-security-best-practices.md)
+###[Azure ağ güvenliği](azure-network-security.md)
 ### [Sınır güvenliği](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Güvenli karma ağ mimarisi](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 

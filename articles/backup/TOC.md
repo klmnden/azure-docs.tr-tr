@@ -17,12 +17,22 @@
 ### [Klasik portaldaki Windows Server](backup-client-automation-classic.md)
 
 ## Azure Backup Sunucusu
-### [Azure portalında Azure Backup Sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup.md)
-### [Klasik Azure portalında Azure Backup Sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup-classic.md)
-### [Bir VMware sunucusunu yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-backup-server-vmware.md)
-### [Exchange’i yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-exchange-mabs.md)
-### [Bir SharePoint grubunu yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-backup-sharepoint-mabs.md)
-### [SQL’i yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-sql-mabs.md)
+### [Azure Backup Sunucusu koruma matrisi](backup-mabs-protection-matrix.md)
+### Yükleme veya yükseltme
+#### [Azure portalında Azure Backup Sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup.md)
+#### [Klasik Azure portalında Azure Backup Sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup-classic.md)
+#### [Azure Backup Sunucusu’na depolama alanı ekleme](backup-mabs-add-storage.md)
+#### [Azure Backup Sunucusu’nu v.2’ye yükseltme](backup-mabs-upgrade-to-v2.md)
+#### [Azure Backup Sunucusu için katılımsız yükleme](backup-mabs-unattended-install.md)
+### İş yüklerini koruma
+#### [Bir VMware sunucusunu yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-backup-server-vmware.md)
+#### [Exchange’i yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-exchange-mabs.md)
+#### [Bir SharePoint grubunu yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-backup-sharepoint-mabs.md)
+#### [SQL’i yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-sql-mabs.md)
+#### [Sistem durumunu koruma ve tam kurtarma](backup-mabs-system-state-and-bmr.md)
+### Sorun giderme
+#### [Azure Backup Sunucusu sorunlarını giderme](backup-azure-mabs-troubleshoot.md)
+
 
 ## Data Protection Manager
 ### [Azure portalında DPM iş yükleri hazırlama](backup-azure-dpm-introduction.md)
@@ -33,19 +43,25 @@
 ### [SharePoint grubunu yedeklemek için DPM'yi kullanma](backup-azure-backup-sharepoint.md)
 
 ## Azure VM’leri
-### [Azure sanal makineleri hazırlama](backup-azure-vms-prepare.md)
-### [Resource Manager ile dağıtılan sanal makineleri hazırlama](backup-azure-arm-vms-prepare.md)
-### [VM yedekleme altyapısını planlama](backup-azure-vms-introduction.md)
-### [Azure sanal makinelerini Backup kasasına yedekleme](backup-azure-vms.md)
-### [Azure sanal makinelerini bir Kurtarma Hizmetleri kasasına yedekleme](backup-azure-arm-vms.md)
-### [Şifrelenmiş sanal makineleri yedekleme ve geri yükleme](backup-azure-vms-encryption.md)
-### [Klasik portalda Azure VM yedeklemelerini yönetme ve izleme](backup-azure-manage-vms-classic.md)
-### [Azure portal’da Azure VM yedeklemelerini yönetme](backup-azure-manage-vms.md)
-### [Azure portal’da Azure VM yedeklemeleri için uyarıları yönetme](backup-azure-monitor-vms.md)
-### [Azure VM yedeklerinden dosya kurtarma](backup-azure-restore-files-from-vm.md)
-### [Azure’da sanal makineleri geri yükleme](backup-azure-restore-vms.md)
-### [Azure portalında Resource Manager tarafından dağıtılan VM'leri geri yükleme](backup-azure-arm-restore-vms.md)
-### [Azure Backup kullanarak şifreli VM’ler için Key Vault anahtarını ve parolasını geri yükleme](backup-azure-restore-key-secret.md)
+### VM’yi hazırlama
+#### [Azure sanal makineleri hazırlama](backup-azure-vms-prepare.md)
+#### [Resource Manager ile dağıtılan sanal makineleri hazırlama](backup-azure-arm-vms-prepare.md)
+### Ortamınızı planlama
+#### [VM yedekleme altyapısını planlama](backup-azure-vms-introduction.md)
+### Sunucuları ve iş yüklerini yedekleme
+#### [Yedekleme kasasına Azure sanal makineleri yedekleme](backup-azure-vms.md)
+#### [Azure sanal makinelerini bir Kurtarma Hizmetleri kasasına yedekleme](backup-azure-arm-vms.md)
+#### [Şifrelenmiş sanal makineleri yedekleme](backup-azure-vms-encryption.md)
+### VM’leri yönetme ve izleme
+#### [Klasik portalda Azure VM yedeklemelerini yönetme ve izleme](backup-azure-manage-vms-classic.md)
+#### [Azure portal’da Azure VM yedeklemelerini yönetme](backup-azure-manage-vms.md)
+#### [Azure portal’da Azure VM yedeklemeleri için uyarıları yönetme](backup-azure-monitor-vms.md)
+### Verileri VM'lerden geri yükleme
+#### [Azure VM yedeklerinden dosya kurtarma](backup-azure-restore-files-from-vm.md)
+#### [Azure’da sanal makineleri geri yükleme](backup-azure-restore-vms.md)
+#### [Azure portalında Resource Manager tarafından dağıtılan VM'leri geri yükleme](backup-azure-arm-restore-vms.md)
+#### [Azure Backup kullanarak şifreli VM’ler için Key Vault anahtarını ve parolasını geri yükleme](backup-azure-restore-key-secret.md)
+#### [Şifrelenmiş sanal makineleri geri yükleme](backup-azure-vms-encryption.md)
 
 ## Azure SQL Database
 ### [Uzun süreli yedek saklama yapılandırma](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
@@ -66,7 +82,6 @@
 ## Sorun giderme
 ### [Azure portalındaki Azure VM yedekleme sorunları](backup-azure-vms-troubleshoot.md)
 ### [Klasik portaldaki Azure VM yedekleme sorunları](backup-azure-vms-troubleshoot-classic.md)
-### [Azure Backup Sunucusu](backup-azure-mabs-troubleshoot.md)
 ### [Azure VM Yedeklemesi başarısız oluyor: Anlık görüntü durumu için VM aracısı ile iletişim kurulamadı - Anlık görüntü VM alt görevi zaman aşımına uğradı](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Azure Backup'ta dosya ve klasörlerin yavaş yedeklenmesi](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 

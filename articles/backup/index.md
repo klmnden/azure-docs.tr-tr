@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 4d159b2cec70d9491a562f460629d8efa511d695
-ms.openlocfilehash: 29466a465865dc17350eb4aa70a86f9c973b693a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3d8b07dc9903a48f6481ceda1922479cc7cd9ef6
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/26/2017
 
 ---
 #<a name="backup-documentation"></a>Backup Belgeleri
@@ -77,7 +79,7 @@ Bulutta Azure Backup hizmetini kullanarak verileri uzun vadeli bekletme ve kurta
         </a>
     </li>
      <li>
-        <a href="/azure/backup/backup-azure-vms-first-look">
+        <a href="/azure/backup/backup-azure-backup-server-vmware">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -87,7 +89,7 @@ Bulutta Azure Backup hizmetini kullanarak verileri uzun vadeli bekletme ve kurta
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure sanal makinelerini Azure Backup ile yedeklemeye başlama</h3>
+                        <h3>Bir VMware sunucusunu Azure Backup Sunucusu ile yedeklemeye başlama</h3>
                     </div>
                 </div>
             </div>
@@ -142,12 +144,17 @@ Bulutta Azure Backup hizmetini kullanarak verileri uzun vadeli bekletme ve kurta
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/recoveryservices">Kurtarma Hizmetleri REST API Başvurusu</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -61,6 +61,9 @@
 ### [Görünümler](operations-management-suite-solutions-resources-views.md)
 ### [En iyi uygulamalar](operations-management-suite-solutions-best-practices.md)
 
+## Yönetim senaryoları
+### [Runbook'tan analiz verileri toplama](operations-management-suite-runbook-datacollect.md)
+
 ## [OMS ile tümleştirme](operations-management-suite-integration.md)
 
 # Başvuru
