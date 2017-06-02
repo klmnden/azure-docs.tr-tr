@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: b481f480d44696476497e0eaeeee7150ed8d365b
-ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 350264be2b885720359b72660397d24dc4d03e11
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="vpn-gateway-documentation"></a>VPN Gateway Belgeleri
@@ -142,8 +144,9 @@ Sanal bir özel ağ geçidi olan VPN Gateway’i nasıl yapılandıracağınız�
                 <div class="card">
                     <div class="cardText">
                         <h3>Komut Satırı</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (resource manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (klasik)</a></p>
+                        <p><a href="/powershell/module/azurerm.network/#vpn">PowerShell (resource manager)</a></p>
+                        <p><a href="/powershell/module/azure/#networking">PowerShell (klasik)</a></p> 
+                        <p><a href="/cli/azure/network/vnet-gateway">Azure CLI</a></p> 
                     </div>
                 </div>
             </div>
@@ -155,7 +158,7 @@ Sanal bir özel ağ geçidi olan VPN Gateway’i nasıl yapılandıracağınız�
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (resource manager)</a></p>
+                        <p><a href="/rest/api/network/virtualnetworkgateways">REST (resource manager)</a></p>
                         <p><a href="https://msdn.microsoft.com/library/jj154113">REST (klasik)</a></p>
                     </div>
                 </div>
@@ -164,10 +167,5 @@ Sanal bir özel ağ geçidi olan VPN Gateway’i nasıl yapılandıracağınız�
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
