@@ -140,6 +140,14 @@
       href: move-vm.md
     - name: Yüksek oranda kullanılabilir VM’ler oluşturma
       href: create-cli-complete.md
+    - name: Ansible
+      items:
+      - name: Yükleme ve yapılandırma
+        href: ansible-install-configure.md
+      - name: Temel VM oluşturma
+        href: ansible-create-vm.md
+      - name: Tam VM oluşturma
+        href: ansible-create-complete-vm.md
     - name: VM şablonuyla uygulama dağıtma
       items:
       - name: Öğreticiye genel bakış
@@ -194,7 +202,7 @@
       href: upload-vhd.md
     - name: Mevcut VM’yi yakalayarak görüntüye kaydetme
       href: capture-image.md
-    - name: Azure onaylı görüntüler oluşturma
+    - name: Azure görüntüleri oluşturma
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -206,6 +214,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: VM depolamayı yönetme
     items:
     - name: Azure Yönetilen Diskleri

@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: DB Oluşturma - PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Yönet
+  - name: Bağlanma ve sorgulama
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
-  - name: Bağlan
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -37,7 +35,7 @@
   items:
   - name: 1 - Yeni SQL veritabanı oluşturma/tasarlama
     href: sql-database-design-first-database.md
-  - name: 2 - Mevcut SQL Server’ı geçirme
+  - name: 2 - SQL Server DB’yi geçirme
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - SQL veritabanınızı güvenli hale getirme
     href: sql-database-security-tutorial.md
@@ -45,6 +43,8 @@
     href: sql-database-performance-tutorial.md
   - name: 5 - Çok kiracılı uygulamayı yerleştirme
     href: sql-database-multi-tenant-application.md
+  - name: 6 - Coğrafi olarak dağıtılmış bir veritabanı uygulama
+    href: sql-database-implement-geo-distributed-database.md 
   - name: Wingtip SaaS öğreticileri
     items:
     - name: Wingtip SaaS’a girişi
@@ -55,15 +55,15 @@
       href: sql-database-saas-tutorial-provision-and-catalog.md
     - name: Performansı izleme
       href: sql-database-saas-tutorial-performance-monitoring.md
+    - name: Log Analytics ile izleme
+      href: sql-database-saas-tutorial-log-analytics.md
     - name: Tek bir kiracıyı geri yükleme
       href: sql-database-saas-tutorial-restore-single-tenant.md
     - name: Kiracı şemalarını yönetme
       href: sql-database-saas-tutorial-schema-management.md
     - name: Geçici analizler çalıştırma
       href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Log Analytics ile izleme
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Kiracı analizini yönetme
+    - name: Kiracı analizi çalıştırma
       href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Örnekler
   items:
@@ -145,7 +145,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Denetim
       href: sql-database-auditing.md
-    - name: Denetim ve TDS
+    - name: Tablo denetimi ve TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Tehdit algılama
       href: sql-database-threat-detection.md
@@ -355,6 +355,8 @@
       href: sql-database-xevent-code-event-file.md
     - name: Genişletilmiş olaylar - halka arabelleği
       href: sql-database-xevent-code-ring-buffer.md
+    - name: Tanılama günlüğüne kaydetme
+      href: sql-database-metrics-diag-logging.md
   - name: Yönet
     items:
     - name: Azure Otomasyonu

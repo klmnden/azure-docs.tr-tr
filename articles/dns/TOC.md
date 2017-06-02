@@ -1,4 +1,5 @@
 # Genel Bakış
+
 ## [Azure DNS nedir?](dns-overview.md)
 ## [DNS bölgeleri ve kayıtları](dns-zones-records.md)
 ## [Azure DNS ile DNS temsilcisi atama](dns-domain-delegation.md)
@@ -18,17 +19,21 @@
 # Nasıl yapılır
 
 ## DNS bölgelerini yönetme
+### [Portal](dns-operations-dnszones-portal.md)
 ### [PowerShell](dns-operations-dnszones.md)
-### [Azure CLI](dns-operations-dnszones-cli.md)
+### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
-
-## [DNS kayıtlarını yönetme](dns-operations-recordsets-portal.md)
+## DNS kayıtlarını yönetme
+### [Portal](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Azure CLI](dns-operations-recordsets-cli.md)
+### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 
-## [Ters DNS kayıtlarını yönetme](dns-reverse-dns-record-operations-ps.md)
-### [Azure CLI](dns-reverse-dns-record-operations-cli.md)
-### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+## Ters DNS’yi yönetme
+### [Genel Bakış](dns-reverse-dns-overview.md)
+### [Azure DNS'de geriye doğru arama bölgeleri barındırma](dns-reverse-dns-hosting.md)
+### [Azure hizmetleri için ters DNS kayıtlarını yönetme](dns-reverse-dns-for-azure-services.md)
 
 ## [DNS bölge dosyasını içeri ve dışarı aktarma](dns-import-export.md)
 ## [Diğer Azure hizmetleri ile tümleştirme](dns-for-azure-services.md)

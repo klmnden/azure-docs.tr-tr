@@ -1,6 +1,7 @@
 # Genel Bakış
 ## [Azure ağı hakkında](networking-overview.md)
 ## Mimari
+### [Sanal Veri Merkezleri](networking-virtual-datacenter.md)
 ### [Birden çok ağ yoluyla Asimetrik yönlendirme](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Ağ tasarımlarının güvenliğini sağlama](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Merkez-uç topolojisi](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -44,6 +45,7 @@
 ### [Bir VM için IP akışlarını doğrulama](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Örnek komut dosyaları
 ### [Azure CLI](cli-samples.md)
+### [PowerShell](powershell-samples.md)
 ## Öğreticiler
 ### [VM'ler için yük dengeleme](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Bilgisayarı sanal ağa bağlama](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)

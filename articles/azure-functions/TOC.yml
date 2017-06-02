@@ -69,7 +69,7 @@
     href: functions-how-to-use-azure-function-app-settings.md
   - name: Azure İşlevleri için sürekli dağıtım
     href: functions-continuous-deployment.md
-  - name: Kod olarak altyapı için İşlevleri Dağıtma
+  - name: Kaynak dağıtımını otomatikleştirme
     href: functions-infrastructure-as-code.md
   - name: Azure İşlevleri’ni izleme
     href: functions-monitoring.md
@@ -85,35 +85,31 @@
   items:
   - name: Bağlamalar
     items:
-    - name: Cosmos DB bağlamaları
+    - name: Blob depolama
+      href: functions-bindings-storage-blob.md
+    - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Olay Hub'ı bağlamaları
+    - name: Olay Hub'ı
       href: functions-bindings-event-hubs.md
-    - name: HTTP ve web kancası bağlamaları
+    - name: Dış dosya
+      href: functions-bindings-external-file.md
+    - name: HTTP ve web kancaları
       href: functions-bindings-http-webhook.md
-    - name: Mobile Apps bağlamaları
+    - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
-    - name: Notification Hub’ı çıkışı bağlama
+    - name: Notification Hubs
       href: functions-bindings-notification-hubs.md
-    - name: Kuyruklar ve konular için Service Bus tetikleyicileri ve bağlamaları
+    - name: Kuyruk depolama
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Service Bus
       href: functions-bindings-service-bus.md
-    - name: SendGrid bağlamaları
-      href: functions-bindings-sendgrid.md
-    - name: Depolama bağlamaları
-      items:
-      - name: Blob bağlamaları
-        href: functions-bindings-storage-blob.md
-      - name: Kuyruk bağlamaları
-        href: functions-bindings-storage-queue.md
-      - name: Tablo bağlamaları
-        href: functions-bindings-storage-table.md
-      - name: Dış dosya bağlamaları
-        href: functions-bindings-external-file.md
-    - name: SendGrid bağlamaları
-      href: functions-bindings-sendgrid.md
-    - name: Zamanlayıcı tetikleyicisi
+    - name: Table Storage
+      href: functions-bindings-storage-table.md
+    - name: Zamanlayıcı
       href: functions-bindings-timer.md
-    - name: Twilio çıktı bağlaması
+    - name: Twilio
       href: functions-bindings-twilio.md
   - name: OpenAPI Başvurusu
     href: functions-api-definition.md     

@@ -7,6 +7,7 @@
 ## [İlk mantıksal uygulamanızı oluşturma](logic-apps-create-a-logic-app.md)
 ## [Mantıksal uygulamalar için şablonlar](logic-apps-use-logic-app-templates.md)
 ## [Şablonlardan mantıksal uygulamalar oluşturma](logic-apps-arm-provision.md)
+## [MABS uygulamalarını mantıksal uygulamalara taşıma](logic-apps-move-from-mabs.md)
 
 # Nasıl yapılır?
 ## Oluşturma
@@ -80,6 +81,7 @@
 ### [Fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Kullanım ölçümü](logic-apps-pricing.md)
 
+
 # Sunucusuz
 ## Genel Bakış
 ### [Azure’da Sunucusuz](logic-apps-serverless-overview.md)
@@ -128,6 +130,8 @@
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
 ### [X12](logic-apps-enterprise-integration-x12.md)
 ### [XML Doğrulaması](logic-apps-enterprise-integration-xml-validation.md)
+
+## [Bağlayıcılar: Tüm ayrıntılar](https://docs.microsoft.com/connectors/)
 ## Şema Geçmişi
 ### [GA](logic-apps-schema-2016-04-01.md)
 ### [Önizleme](logic-apps-schema-2015-08-01.md)

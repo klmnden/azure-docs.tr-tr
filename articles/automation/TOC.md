@@ -41,6 +41,7 @@
 ### [Makineleri yönetim için hazırlama](automation-dsc-onboarding.md)
 ### [DSC yapılandırmaları derleme](automation-dsc-compile.md)
 ### [Chocolatey kullanarak sürekli dağıtım](automation-dsc-cd-chocolatey.md)
+### [Azure Automation DSC raporlama verilerini OMS Log Analytics’e iletme](automation-dsc-diagnostics.md)
 ## Otomasyon varlıklarını yönetme
 ### [Sertifikalar](automation-certificates.md)
 ### [Bağlantılar](automation-connections.md)

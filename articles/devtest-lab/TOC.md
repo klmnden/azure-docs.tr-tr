@@ -2,6 +2,7 @@
 ## [Azure DevTest Labs hakkında](devtest-lab-overview.md)
 ## [Kavramlar](devtest-lab-concepts.md)
 ## Senaryolar
+### [Geliştiricilere yönelik laboratuvarları kullanma](devtest-lab-developer-lab.md)
 ### [Eğitim için laboratuvar kullanma](devtest-lab-training-lab.md)
 
 # başlarken

@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Mevcut uygulamayı karşıya yükleme
         href: web-sites-java-add-app.md
-      - name: Eclipse’te uzaktan hata ayıklama
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: IntelliJ’de uzaktan hata ayıklama
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: MySQL ile Django uygulaması
@@ -162,8 +158,6 @@
       items:
       - name: Etki alanı satın alma
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: Üçüncü taraf etki alanı eşleme
-        href: web-sites-custom-domain-name.md
       - name: Traffic Manager ile etki alanlarını eşleme
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: GoDaddy etki alanlarını eşleme
@@ -204,10 +198,6 @@
         href: web-sites-authentication-authorization.md
       - name: Çok kiracılı veritabanı içeren uygulama
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Özel SSL atama
-      items:
-      - name: Üçüncü taraf SSL sertifikası yapılandırma
-        href: web-sites-configure-ssl-certificate.md
     - name: HTTPS zorlama
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: TLS karşılıklı kimlik doğrulamayı yapılandırma
@@ -278,6 +268,18 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Performans sorunlarını giderme
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: SSS
+      items:
+      - name: 'kullanılabilirlik, performans ve uygulama hakkında SSS'
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Dağıtım hakkında SSS
+        href: app-service-web-deployment-faq.md
+      - name: Açık kaynak teknolojileri hakkında SSS
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Yapılandırma ve yönetim hakkında SSS
+        href: app-service-web-configuration-and-management-faq.md
+      - name: Daha fazla SSS
+        href: app-service-web-others-faq.md
   - name: Fiyatlandırma
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Kota Bilgileri

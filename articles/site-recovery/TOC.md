@@ -1,13 +1,14 @@
 # Genel Bakış
 ## [Site Recovery nedir?](site-recovery-overview.md)
-## [Site Recovery nasıl çalışır?](site-recovery-components.md)
+## [Site Recovery nasıl çalışır?](site-recovery-azure-to-azure-architecture.md)
 ## [Azure’a Hyper-V çoğaltma nasıl çalışır?](site-recovery-hyper-v-azure-architecture.md)
 ## [Hangi iş yüklerini korur?](site-recovery-workload.md)
-## [Site Recovery destek matrisi](site-recovery-support-matrix-to-azure.md)
+## [Site Recovery destek matrisi](site-recovery-support-matrix-azure-to-azure.md)
 ## [SSS](site-recovery-faq.md)
 ## [Tanıtımı izleyin](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Kullanmaya Başlama
+## [Azure sanal makinelerini çoğaltma (önizleme)](site-recovery-azure-to-azure.md)
 ## [VMware VM'lerini Azure'a çoğaltma](site-recovery-vmware-to-azure.md)
 ## [Fiziksel sunucuları Azure'a çoğaltma](site-recovery-physical-servers-to-azure.md)
 ## [Hyper-V VM’lerini Azure’a çoğaltma (VMM ile)](site-recovery-vmm-to-azure.md)
@@ -18,9 +19,10 @@
 
 # Nasıl yapılır
 ## Planlama
-### [Azure çoğaltma için önkoşullar](site-recovery-prereq.md)
-### [Ağ altyapısını planlama](site-recovery-network-design.md)
-### [Ağ eşlemesi planlama](site-recovery-network-mapping.md)
+### [Azure çoğaltma için önkoşullar](site-recovery-azure-to-azure-prereq.md)
+### [Azure VM’leri için ağ giden bağlantısı planlama (önizleme)](site-recovery-azure-to-azure-networking-guidance.md)
+### [Şirket içi makineler için ağ altyapısını planlama](site-recovery-network-design.md)
+### [Ağ eşlemesi planlama](site-recovery-network-mapping-azure-to-azure.md)
 ### [Kapasite planlama ve Azure'aa VMware çoğaltma işlemini ölçeklendirme](site-recovery-plan-capacity-vmware.md)
 ### [Azure’a VMware çoğaltması için Dağıtım Planlayıcısı](site-recovery-deployment-planner.md)
 ### [Hyper-V çoğaltması için Capacity Planner](site-recovery-capacity-planner.md)
@@ -33,19 +35,21 @@
 ### [VMware çoğaltma için Mobility hizmetini dağıtma](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [System Center Configuration Manager ile Mobility hizmetini dağıtma](site-recovery-install-mobility-service-using-sccm.md)
 #### [Azure Otomasyonu DSC ile Mobility hizmetini dağıtma](site-recovery-automate-mobility-service-install.md)
-### [Çoğaltmayı etkinleştirme](site-recovery-replicate-vmware-to-azure.md)
-## Yük devretme ve ilk duruma döndürme
-### [Yük devretme korumalı makineler](site-recovery-failover.md)
+### [Çoğaltmayı etkinleştirme](site-recovery-replicate-azure-to-azure.md)
+## Yük devretme ve yeniden çalışma
 ### [Kurtarma planları oluşturma](site-recovery-create-recovery-plans.md)
 #### [Kurtarma planlarına Azure runbook ekleme](site-recovery-runbook-automation.md)
 ### [Yük devretme testi çalıştırma](site-recovery-test-failover-to-azure.md)
-### [Yük devretme işleminden sonra makineleri yeniden koruma](site-recovery-how-to-reprotect.md)
+### [Yük devretme korumalı makineler](site-recovery-failover.md)
+### [Yük devretme işleminden sonra makineleri yeniden koruma](site-recovery-how-to-reprotect-azure-to-azure.md)
 ### [Azure’da yeniden çalışma](site-recovery-failback-azure-to-vmware.md)
 
 ## Geçiş
 ### [Azure’a geçiş](site-recovery-migrate-to-azure.md)
 ### [Azure bölgeleri arasında geçiş yapma](site-recovery-migrate-azure-to-azure.md)
 ### [AWS Windows örneklerini Azure’a geçirme](site-recovery-migrate-aws-to-azure.md)
+### [Geçirilen makineleri başka bir Azure bölgesine çoğaltma](site-recovery-azure-to-azure-after-migration.md)
+
 ## İş yükleri
 ### [Active Directory ve DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
@@ -68,7 +72,9 @@
 ### [Ölçekli işlem sunucularını yönetme](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [vCenter sunucularını yönetme](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Sunucuları kaldırma ve korumayı devre dışı bırakma](site-recovery-manage-registration-and-protection.md)
-## [İzleme ve sorun giderme](site-recovery-monitoring-and-troubleshooting.md)
+## İzleme ve sorun giderme
+### [Azure VM çoğaltma sorunları](site-recovery-azure-to-azure-troubleshoot-errors.md)
+### [Şirket içinden Azure’a çoğaltma sorunları](site-recovery-monitoring-and-troubleshooting.md)
 
 # Başvuru
 ## [PowerShell](/powershell/module/azurerm.siterecovery)
