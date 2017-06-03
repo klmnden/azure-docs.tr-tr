@@ -1,21 +1,21 @@
 ### <a name="noconnection"></a>Yerel ağ geçidinin IP adresi ön eklerini değiştirmek için - ağ geçidi bağlantısı yok
 
-- Başka adres ön ekleri eklemek için:
+Başka adres ön ekleri eklemek için:
 
-  ```powershell
-  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-  ```
+```powershell
+$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+-AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+```
 
-- Adres ön eklerini kaldırmak için:<br>
-  Artık gereği olmayan önekleri bırakın. Bu örnekte, 20.0.0.0/24 (önceki örnekten) ön eki artık bize gerekmiyor; bu nedenle, yerel ağ geçidini güncelleştiriyor ve bu ön eki hariç tutuyoruz.
+Adres ön eklerini kaldırmak için:<br>
+Artık gereği olmayan önekleri bırakın. Bu örnekte, 20.0.0.0/24 (önceki örnekten) ön eki artık bize gerekmiyor; bu nedenle, yerel ağ geçidini güncelleştiriyor ve bu ön eki hariç tutuyoruz.
 
-  ```powershell
-  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
-  ```
+```powershell
+$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+-AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+```
 
 ### <a name="withconnection"></a>Yerel ağ geçidinin IP adresi ön eklerini değiştirmek için - ağ geçidi bağlantısı var
 
