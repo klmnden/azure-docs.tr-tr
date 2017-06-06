@@ -3,7 +3,7 @@ title: "Azure Geçiş nedir ve neden kullanılır? - Genel bakış | Microsoft D
 description: "Azure Geçiş’e Genel Bakış"
 services: service-bus-relay
 documentationcenter: .net
-author: banisadr
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 03/09/2017
-ms.author: babanisa;sethm
-translationtype: Human Translation
+ms.author: sethm
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 9fd40892c77630bd4f0b7abf5c3458a6dc200402
+ms.contentlocale: tr-tr
 ms.lasthandoff: 03/10/2017
 
 

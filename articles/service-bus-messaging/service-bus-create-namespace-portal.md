@@ -3,7 +3,7 @@ title: "Azure portalını kullanarak Service Bus ad alanı oluşturma | Microsof
 description: "Azure portalını kullanarak Service Bus ad alanı oluşturma."
 services: service-bus-messaging
 documentationcenter: .net
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
@@ -13,10 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 03/23/2017
-ms.author: jotaub
-translationtype: Human Translation
+ms.author: sethm
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
 ms.openlocfilehash: 5de92033eb7eb4fef8d27a215b3284ab80594065
+ms.contentlocale: tr-tr
 ms.lasthandoff: 03/24/2017
 
 
