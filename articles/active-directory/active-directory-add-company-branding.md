@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/23/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
-ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: c558bd5f2b7fae91483cc2c6724c40442bb65045
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -205,12 +205,12 @@ Azure AD'deki bazı özelleştirilebilir öğelerin birden çok kullanım durumu
 
 | Ad | Açıklama | Kısıtlamalar | Öneriler |
 | --- | --- | --- | --- |
-| Başlık Logosu |Başlık Logosu, oturum açma sayfasında ve Erişim panelinde görüntülenir. |<p>JPG veya PNG</p><p>60 x&280; piksel</p><p>10 KB</p> |<p>Kuruluşunuzun tam logosunu (piktogram ve logo türü dahil) kullanın</p><p>Mobil cihazlarda kaydırma çubuklarının görünmemesi için logoyu 30 pikselden düşük tutun.</p><p>4 KB altında tutun</p><p>Saydam bir PNG kullanın (oturum açma sayfasının her zaman beyaz bir arka plana sahip olacağını varsaymayın)</p> |
-| Kutucuk Logosu |(şu anda oturum açma sayfasında kullanılmıyor) Gelecekte bu metin, farklı deneyim alanlarındaki genel "iş veya okul hesabı" piktogramını değiştirmek için kullanılabilir. |<p>JPG veya PNG</p><p>120 x&120; piksel</p><p>10 KB</p> |<p>Bu görüntü % 50 olarak yeniden boyutlandırılabileceği için (küçük metin olmaksızın) basit olmasını sağlayın |
+| Başlık Logosu |Başlık Logosu, oturum açma sayfasında ve Erişim panelinde görüntülenir. |<p>JPG veya PNG</p><p>60x280 piksel</p><p>10 KB</p> |<p>Kuruluşunuzun tam logosunu (piktogram ve logo türü dahil) kullanın</p><p>Mobil cihazlarda kaydırma çubuklarının görünmemesi için logoyu 30 pikselden düşük tutun.</p><p>4 KB altında tutun</p><p>Saydam bir PNG kullanın (oturum açma sayfasının her zaman beyaz bir arka plana sahip olacağını varsaymayın)</p> |
+| Kutucuk Logosu |(şu anda oturum açma sayfasında kullanılmıyor) Gelecekte bu metin, farklı deneyim alanlarındaki genel "iş veya okul hesabı" piktogramını değiştirmek için kullanılabilir. |<p>JPG veya PNG</p><p>120x120 piksel</p><p>10 KB</p> |<p>Bu görüntü % 50 olarak yeniden boyutlandırılabileceği için (küçük metin olmaksızın) basit olmasını sağlayın |
 | </p> | | | |
 | Oturum Açma Sayfası Kullanıcı Adı Etiketi |(şu anda oturum açma sayfasında kullanılmıyor) Gelecekte bu metin, farklı deneyim alanlarındaki genel "iş veya okul hesabı" dizesini değiştirmek için kullanılabilir. Bunu "Contoso hesabı" veya "Contoso kimliği" olarak ayarlayabilirsiniz. |<p>Maksimum 50 karakterlik Unicode metni</p><p>Yalnızca düz metin (bağlantılar veya HTML etiketleri olmadan)</p> |<p>Kısa ve basit tutun</p><p>Kullanıcılarınıza, sağlamış olduğunuz iş veya okul hesaplarını genel olarak nasıl adlandırdıklarını sorun.</p> |
 | Oturum Açma Sayfası Metni |Bu "ortak" metin, oturum açma sayfası formunun altında görünür; ek yönergeler için veya yardım ya da desteğin nereden alınabileceğiyle ilgili bilgi vermek için kullanılabilir. |<p>Maksimum 256 karakterlik Unicode metni</p><p>Yalnızca düz metin (bağlantılar veya HTML etiketleri olmadan)</p> |250 karakterin altında tutun (yaklaşık 3 metin satırı)  |
-| Oturum Açma Sayfası Çizimi |Çizim, oturum açma sayfasında oturum açma sayfası formunun solunda görüntülenen büyük görüntüdür. |<p>JPG veya PNG</p><p>1420 x&1200;</p><p>500 KB</p> |<p>1420 x&1200; piksel</p><p>Önemli: Olabildiğince küçük tutun; 200 KB'ın altında olması idealdir. Bu görüntü, çok büyük olduğu için önbelleğe alınmadığında Oturum Açma sayfasının performansı etkilenir</p><p>Bu görüntü genellikle, farklı ekran oranları uyum sağlayacak şekilde kırpılır. Tarayıcı küçüldükçe yeniden boyutlandırma işlemi yukarı doğru sağ/alt köşeden sol/üst köşeye doğru gerçekleştiği için, birincil görsel öğeleri sol üst köşede (RTL dilleri için sağ üstte) tutun.</p> |
+| Oturum Açma Sayfası Çizimi |Çizim, oturum açma sayfasında oturum açma sayfası formunun solunda görüntülenen büyük görüntüdür. |<p>JPG veya PNG</p><p>1420x1200</p><p>500 KB</p> |<p>1420x1200 piksel</p><p>Önemli: Olabildiğince küçük tutun; 200 KB'ın altında olması idealdir. Bu görüntü, çok büyük olduğu için önbelleğe alınmadığında Oturum Açma sayfasının performansı etkilenir</p><p>Bu görüntü genellikle, farklı ekran oranları uyum sağlayacak şekilde kırpılır. Tarayıcı küçüldükçe yeniden boyutlandırma işlemi yukarı doğru sağ/alt köşeden sol/üst köşeye doğru gerçekleştiği için, birincil görsel öğeleri sol üst köşede (RTL dilleri için sağ üstte) tutun.</p> |
 | Oturum Açma Sayfası Arka Plan Rengi |Oturum açma sayfası arka plan rengi, oturum açma sayfası formunun solundaki alanda kullanılır. |Arka plan rengi, onaltılık biçimde bir RGB rengi olmalıdır (örnek: #FFFFFF) |<p>Düşük bant genişliğine sahip bağlantılarda büyük Çizim yerine arka plan rengi gösterilebilir.</p><p>Başlık logosunun birincil rengini seçmenizi öneririz</p> |
 
 ## <a name="next-steps"></a>Sonraki adımlar
