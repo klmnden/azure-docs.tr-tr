@@ -2,6 +2,6 @@
 
 Kaynaklarınızı temizlemek için aşağıdaki komutu çalıştırın:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
