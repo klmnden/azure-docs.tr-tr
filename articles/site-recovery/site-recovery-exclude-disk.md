@@ -8,7 +8,7 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -108,8 +108,8 @@ Yük devretme sonrasında Azure sanal makinesindeki diskler aşağıdaki gibidir
 
 **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | ---
-DISK0 |    C:\ | İşletim sistemi diski
-Disk1 |    E:\ | Geçici depolama</br /> </br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini buna atar.
+DISK0 | C:\ | İşletim sistemi diski
+Disk1 | E:\ | Geçici depolama</br /> </br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini buna atar.
 Disk2 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 Disk3 | G:\ | Kullanıcı Veritabanı2
 
@@ -141,13 +141,13 @@ Bu yolu oluşturmanın iki yöntemi vardır:
 3. tempdb yolunu yeni yola değiştirmek için aşağıdaki sqlcmd’yi çalıştırın.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;        
-        GO        
-        ALTER DATABASE tempdb        
+        USE master;     
+        GO      
+        ALTER DATABASE tempdb       
         MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO        
-        ALTER DATABASE tempdb        
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');        
+        GO      
+        ALTER DATABASE tempdb       
+        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
         GO
 
 
@@ -173,9 +173,9 @@ Geçici depolama diski için aşağıdaki Azure kılavuzuna bakın:
 **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | ---
 DISK0 | C:\ | İşletim sistemi diski
-Disk1 |    E:\ | Geçici depolama</br /> </br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini buna atar.
-Disk2 |    D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
-Disk3 |    G:\ | Kullanıcı Veritabanı2
+Disk1 | E:\ | Geçici depolama</br /> </br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini buna atar.
+Disk2 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
+Disk3 | G:\ | Kullanıcı Veritabanı2
 
 
 #### <a name="vmware-to-azure"></a>Vmware’den Azure’a
@@ -186,8 +186,8 @@ Azure'dan şirket içi VMware’e planlı yük devretmenin ardında, VMWare sana
 **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | ---
 DISK0 | C:\ | İşletim sistemi diski
-Disk1 |    D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
-Disk2 |    G:\ | Kullanıcı Veritabanı2
+Disk1 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
+Disk2 | G:\ | Kullanıcı Veritabanı2
 
 #### <a name="hyper-v-to-azure"></a>Hyper-V’den Azure’a
 Yeniden çalışma özgün konum için olduğunda, yeniden çalışma sanal makinesi disk yapılandırması, Hyper-V’ye ait özgün sanal makine disk yapılandırması ile aynı kalır. Hyper-V sitesinden Azure'a çoğaltmanın dışında tutulan diskler, yeniden çalışır hale getirme sanal makinesinde mevcut olacaktır.
@@ -196,7 +196,7 @@ Azure'dan şirket içi Hyper-V’ye planlı yük devretmenin ardından, Hyper-V 
 
 **Disk Adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |    C:\ | İşletim sistemi diski
+DB-Disk0-OS | DISK0 |   C:\ | İşletim sistemi diski
 DB-Disk1 | Disk1 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 DB-Disk2 (Dışlanan disk) | Disk2 | E:\ | Geçici dosyalar
 DB-Disk3 (Dışlanan disk) | Disk3 | F:\ | SQL tempdb veritabanı (klasör yolu (F:\MSSQL\Data\)
