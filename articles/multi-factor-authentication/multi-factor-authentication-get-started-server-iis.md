@@ -5,19 +5,20 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017,it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
 ms.openlocfilehash: 71ba44c00036b3ed45518f58fa534a1767ab8c34
+ms.contentlocale: tr-tr
 ms.lasthandoff: 02/28/2017
 
 ---
@@ -36,17 +37,17 @@ Form tabanlı kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli 
 4. Kullanıcı adı, parola ve etki alanı değişkenlerini otomatik olarak algılamak için, Otomatik Yapılandırma Form Tabanlı Web Sitesi iletişim kutusuna Oturum Açma URL’sini (https://localhost/contoso/auth/login.aspx gibi) girin ve **Tamam**’a tıklayın.
 5. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve multi-factor authentication’a tabi olacaksa, **Multi-Factor Authentication İste kullanıcı eşleme** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu’ya henüz aktarılmadı ve/veya multi-factor authentication’da muaf tutulacaksa, kutunun işaretini kaldırın.
 6. Sayfa değişkenleri otomatik olarak algılanamıyorsa Otomatik Yapılandırma Form Tabanlı Web Sitesi iletişim kutusunda **Elle Belirt**’e tıklayın.
-7. Otomatik Yapılandırma Form Tabanlı Web Sitesi iletişim kutusunda, URL Gönder alanına oturum açma sayfası URL’sini girin ve Uygulama adı girin (isteğe bağlı). Uygulama adı Azure Multi-Factor Authentication raporlarında görünür ve SMS veya Mobil Uygulama kimlik doğrulama iletilerinde görüntülenebilir. 
+7. Otomatik Yapılandırma Form Tabanlı Web Sitesi iletişim kutusunda, URL Gönder alanına oturum açma sayfası URL’sini girin ve Uygulama adı girin (isteğe bağlı). Uygulama adı Azure Multi-Factor Authentication raporlarında görünür ve SMS veya Mobil Uygulama kimlik doğrulama iletilerinde görüntülenebilir.
 8. Doğru İstek biçimini seçin. Bu, çoğu web uygulaması için **POST or GET** olarak ayarlanır.
 9. Kullanıcı adı değişkenini, Parola değişkenini ve Etki alanı değişkenini (oturum açma sayfasında görünüyorsa) girin. Girdi kutularının adlarını bulmak için bir web tarayıcısında oturum açma sayfasına gidin, sayfaya sağ tıklayın ve **Kaynağı Görüntüle**’yi seçin.
-10. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve multi-factor authentication’a tabi olacaksa, **Azure Multi-Factor Authentication İste kullanıcı eşleme** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu’ya henüz aktarılmadı ve/veya multi-factor authentication’da muaf tutulacaksa, kutunun işaretini kaldırın. 
+10. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve multi-factor authentication’a tabi olacaksa, **Azure Multi-Factor Authentication İste kullanıcı eşleme** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu’ya henüz aktarılmadı ve/veya multi-factor authentication’da muaf tutulacaksa, kutunun işaretini kaldırın.
 11. Aşağıdaki gibi gelişmiş ayarları gözden geçirmek için **Gelişmiş**’e tıklayın:
 
   - Özel bir reddetme sayfa dosyası seçme
   - Tanımlama bilgilerini kullanarak web sitesinde başarılı kimlik doğrulamalarını belirli bir dönem boyunca önbelleğe alma
   - Birincil kimlik bilgilerinin bir Windows Etki Alanı, LDAP dizinine göre mi yoksa RADIUS sunucusuna göre mi doğrulanacağını belirtin.
 
-12. Form Tabanlı Web Sitesi Ekle iletişim kutusuna dönmek için **Tamam**’a tıklayın. 
+12. Form Tabanlı Web Sitesi Ekle iletişim kutusuna dönmek için **Tamam**’a tıklayın.
 13. **Tamam** düğmesine tıklayın.
 14. URL ve sayfa değişkenleri algılandığında veya girildiğinde, web sitesi verileri Form Tabanlı panelde görüntülenir.
 
@@ -54,11 +55,11 @@ Form tabanlı kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli 
 Tümleşik Windows HTTP kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli hale getirmek için, IIS web sunucusuna Azure MFA Sunucusu’nu yükleyin ve aşağıdaki adımları izleyerek Sunucu’yu yapılandırın:
 
 1. Azure Multi-Factor Authentication Sunucusu’nun soldaki menüsünde IIS Kimlik Doğrulaması simgesine tıklayın.
-2. **HTTP** sekmesine tıklayın. 
+2. **HTTP** sekmesine tıklayın.
 3. **Ekle**'ye tıklayın.
 4. Taban URL’si Ekle iletişim kutusuna, HTTP kimlik doğrulamasının gerçekleştirileceği web sitesinin URL’sini (http://localhost/owa gibi) girin ve bir Uygulama adı sağlayın (isteğe bağlı). Uygulama adı Azure Multi-Factor Authentication raporlarında görünür ve SMS veya Mobil Uygulama kimlik doğrulama iletilerinde görüntülenebilir.
 5. Varsayılan yeterli değilse, Boşta kalma zaman aşımı ve Maksimum oturum sürelerini ayarlayın.
-6. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve multi-factor authentication’a tabi olacaksa, **Multi-Factor Authentication İste kullanıcı eşleme** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu’ya henüz aktarılmadı ve/veya multi-factor authentication’da muaf tutulacaksa, kutunun işaretini kaldırın. 
+6. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve multi-factor authentication’a tabi olacaksa, **Multi-Factor Authentication İste kullanıcı eşleme** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu’ya henüz aktarılmadı ve/veya multi-factor authentication’da muaf tutulacaksa, kutunun işaretini kaldırın.
 7. İsterseniz **Tanımlama bilgisi önbelleği** kutusunu işaretleyin.
 8. **Tamam** düğmesine tıklayın.
 
@@ -76,5 +77,4 @@ Güvenilen IP'ler kullanıcıların belirli IP adresleri veya alt ağlardan kayn
 2. **Ekle**'ye tıklayın.
 3. Güvenilen IP'leri Ekle iletişim kutusu göründüğünde **Tek IP**, **IP aralığı** veya **Alt ağ** radyo düğmesini seçin.
 4. Güvenilir listesinde olması gereken IP adresini, IP adresleri aralığını ya da alt ağı girin. Bir alt ağ giriyorsanız uygun Ağ maskesini seçip **Tamam**’a tıklayın. Güvenilir listesi şimdi eklendi.
-
 

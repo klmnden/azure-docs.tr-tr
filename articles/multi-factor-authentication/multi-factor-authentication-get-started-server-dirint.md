@@ -5,19 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
 ms.openlocfilehash: 07b14394b0e07fd78d70d77aeef8a2feb17284e0
-
+ms.contentlocale: tr-tr
+ms.lasthandoff: 02/17/2017
 
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Sunucusu ile Active Directory arasında dizin tümleştirme
@@ -94,7 +96,7 @@ Belirli bir dizinin özniteliklerini gerektiği şekilde özelleştirebilirsini
 | Dahili numara |Kullanıcı kaydındaki telefon numarası dahili numarasını içeren özniteliğin öznitelik adını girin.  Dahili numara alanının değeri yalnızca birincil telefon numarası için dahili numara olarak kullanılır.  Varsayılan boştur. <br><br>Dahili numara özniteliği belirtilmezse, dahili numaralar telefon özniteliğinin parçası olarak eklenebilir. Bu durumda, uzantının düzgün ayrıştırılabilmesi için önüne 'x' ekleyin.  Örneğin, 555-123-4567 x890, telefon numarası olarak 555-123-4567 ve dahili numara olarak 890’ı ifade eder. |
 | Varsayılanları Geri Yükle düğmesi |Tüm öznitelikleri varsayılan değerlerine geri döndürmek için **Varsayılanları Geri Yükle**’ye tıklayın.  Varsayılanlar normal Active Directory ya da ADAM şemasıyla düzgün çalışmalıdır. |
 
-Öznitelikleri düzenlemek için Öznitelikler sekmesinden **Düzenle**’ye tıklayın.  Bunu yaptığınızda öznitelikleri düzenleyebileceğiniz bir pencere açılır. Herhangi bir özniteliğin yanındaki **...** simgesini seçerek hangi özelliklerin görüntüleneceğini seçebileceğiniz pencereyi açın. 
+Öznitelikleri düzenlemek için Öznitelikler sekmesinden **Düzenle**’ye tıklayın.  Bunu yaptığınızda öznitelikleri düzenleyebileceğiniz bir pencere açılır. Herhangi bir özniteliğin yanındaki **...** simgesini seçerek hangi özelliklerin görüntüleneceğini seçebileceğiniz pencereyi açın.
 
 ![Öznitelikleri Düzenleme](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
@@ -137,10 +139,4 @@ Yukarı Taşı ve Aşağı Taşı düğmeleri yöneticinin eşitleme öğelerini
 Yedek RADIUS proxy, LDAP proxy olarak hizmet etmesi ya da IIS Kimlik Doğrulaması için ek Multi-Factor Auth Sunucuları kurulabilir. Eşitleme yapılandırması tüm aracılar arasında paylaşılır. Ancak, bu aracılardan yalnızca birinde Multi-Factor Auth Sunucusu hizmeti çalışıyor olabilir. Bu sekme, eşitleme için etkinleştirilmesi gereken Multi-Factor Auth Sunucusu’nu seçmenizi sağlar.
 
 ![Multi-Factor Auth Sunucuları](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
