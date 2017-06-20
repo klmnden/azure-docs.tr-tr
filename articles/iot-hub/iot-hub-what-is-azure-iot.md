@@ -1,6 +1,6 @@
 ---
 title: "Nesnelerin İnterneti (IoT Paketi) için Azure çözümleri | Microsoft Docs"
-description: "Örnek bir IoT çözümü mimarisi ile cihazlar, Azure IoT Hub hizmeti, Azure IoT cihaz SDK&quot;ları, Azure IoT hizmeti SDK&quot;ları ve diğer Azure hizmetleriyle olan ilişkisi."
+description: "Örnek bir IoT çözümü mimarisi ile cihazlar, Azure IoT Hub hizmeti, Azure IoT cihaz SDK'ları, Azure IoT hizmeti SDK'ları ve diğer Azure hizmetleriyle olan ilişkisi."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 06/16/2017
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
+ms.contentlocale: tr-tr
 ms.lasthandoff: 01/24/2017
 
 
