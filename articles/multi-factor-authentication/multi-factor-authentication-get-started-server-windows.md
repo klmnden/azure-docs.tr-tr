@@ -5,19 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 06/06/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
 ms.openlocfilehash: e3ad33dd12b4fb831ba43738bc5af4e5561a0682
-
+ms.contentlocale: tr-tr
+ms.lasthandoff: 02/07/2017
 
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
@@ -49,9 +51,4 @@ Uygulamalara yönelik Windows kimlik doğrulamasını etkinleştirmek ve yapıla
 - [Azure MFA Sunucusu için üçüncü taraf VPN cihazları yapılandırma](multi-factor-authentication-advanced-vpn-configurations.md)
 
 - [Azure MFA’ya yönelik NPS uzantısı ile mevcut kimlik doğrulama altyapınızı büyütün](multi-factor-authentication-nps-extension.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

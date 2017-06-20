@@ -5,27 +5,28 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/25/2017
+ms.date: 06/15/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017,it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
 ms.openlocfilehash: 4014bf0217e25ea9bc8473ef2383279e5eb79b87
+ms.contentlocale: tr-tr
 ms.lasthandoff: 02/28/2017
 
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile mobil uygulama kimlik doğrulamasını etkinleştirme
 
-Microsoft Authenticator uygulaması ek bir bant dışı doğrulama seçeneği sunar. Oturum açma sırasında kullanıcıya otomatik telefon çağrısı yapmak veya SMS göndermek yerine, Azure Multi-Factor Authentication, kullanıcının akıllı telefonu ya da tabletindeki Microsoft Authenticator uygulamasına anında iletme bildirimi gönderir. Kullanıcının oturum açma işlemini tamamlamak için uygulamada **Doğrula** seçeneğine dokunması (ya da PIN’i girip “Kimliği Doğrula” seçeneğine dokunması ) yeterlidir. 
+Microsoft Authenticator uygulaması ek bir bant dışı doğrulama seçeneği sunar. Oturum açma sırasında kullanıcıya otomatik telefon çağrısı yapmak veya SMS göndermek yerine, Azure Multi-Factor Authentication, kullanıcının akıllı telefonu ya da tabletindeki Microsoft Authenticator uygulamasına anında iletme bildirimi gönderir. Kullanıcının oturum açma işlemini tamamlamak için uygulamada **Doğrula** seçeneğine dokunması (ya da PIN’i girip “Kimliği Doğrula” seçeneğine dokunması ) yeterlidir.
 
-Şebeke sinyal gücünün güvenilir olmadığı durumlarda iki aşamalı doğrulama için bir mobil uygulama kullanmak tercih edilir. Uygulamayı bir OATH belirteci oluşturucu olarak kullanıyorsanız ağ veya İnternet bağlantısı gerekmez. 
+Şebeke sinyal gücünün güvenilir olmadığı durumlarda iki aşamalı doğrulama için bir mobil uygulama kullanmak tercih edilir. Uygulamayı bir OATH belirteci oluşturucu olarak kullanıyorsanız ağ veya İnternet bağlantısı gerekmez.
 
 Azure Multi-Factor Authentication Sunucusu dışında bir sunucuya kullanıcı portalını yüklemek aşağıdaki adımları gerektirir:
 
@@ -51,10 +52,10 @@ Microsoft Authenticator uygulamasını kullanmak için, uygulamanın Mobil Uygul
 
 
 ## <a name="install-the-web-service-sdk"></a>Web hizmeti SDK’sını yükleme
-Azure Multi-Factor Authentication Web Hizmeti SDK’sı Azure Multi-Factor Authentication (MFA) Sunucusu’nda halihazırda yüklü değilse, bu sunucuya gidin ve Azure MFA Sunucusu’nu açın. 
+Azure Multi-Factor Authentication Web Hizmeti SDK’sı Azure Multi-Factor Authentication (MFA) Sunucusu’nda halihazırda yüklü değilse, bu sunucuya gidin ve Azure MFA Sunucusu’nu açın.
 
 1. Web Hizmeti SDK’sı simgesine tıklayın.
-2. **Web Hizmeti SDK’sını Yükle**’ye tıklayın ve verilen yönergeleri uygulayın. 
+2. **Web Hizmeti SDK’sını Yükle**’ye tıklayın ve verilen yönergeleri uygulayın.
 
 Web Hizmeti SDK’sı bir SSL sertifikası ile güvenli hale getirilmelidir. Bu amaç için otomatik olarak imzalanan bir sertifika kullanılabilir. Kullanıcı Portalı web sunucusunun SSL bağlantısı başlatırken bu sertifikaya güvenebilmesi için sertifikayı sunucudaki Yerel Bilgisayar hesabının “Güvenilen Kök Sertifika Yetkilileri” deposuna aktarın.
 
@@ -65,7 +66,7 @@ Mobil uygulama web hizmetini yüklemeden önce aşağıdaki ayrıntılara dikkat
 
 * Azure MFA Kullanıcı Portalı İnternet’e yönelik sunucuda zaten yüklüyse, Web Hizmeti SDK’sına ilişkin kullanıcı adı, parola ve URL Kullanıcı Portalı’nın web.config dosyasından kopyalanabilir.
 * İnternet'e yönelik web sunucusunda bir web tarayıcısı açmak ve web.config dosyasına girilen Web hizmeti SDK’sının URL’sine gitmek faydalıdır. Tarayıcı web hizmetine başarıyla gidebilirse, sizden kimlik bilgilerinizi ister. Aynen dosyada göründüğü gibi web.config dosyasına girilen parola girilen kullanıcı adını ve parolayı girin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
-* Mobil Uygulama Web Hizmeti web sunucusunun önünde ters bir proxy ya da güvenlik duvarı yer alıyorsa ve SSL boşaltma gerçekleştiriyorsa, Mobil Uygulama Web Hizmeti’nin https yerine http kullanabilmesi için Mobil Uygulama Web Hizmeti web.config dosyasını düzenleyebilirsiniz. Güvenlik duvarı/ters proxy’ye yönelik Mobil Uygulamadan alınan SSL hala gereklidir. Aşağıdaki anahtarları \<appSettings\> bölümüne ekleyin: 
+* Mobil Uygulama Web Hizmeti web sunucusunun önünde ters bir proxy ya da güvenlik duvarı yer alıyorsa ve SSL boşaltma gerçekleştiriyorsa, Mobil Uygulama Web Hizmeti’nin https yerine http kullanabilmesi için Mobil Uygulama Web Hizmeti web.config dosyasını düzenleyebilirsiniz. Güvenlik duvarı/ters proxy’ye yönelik Mobil Uygulamadan alınan SSL hala gereklidir. Aşağıdaki anahtarları \<appSettings\> bölümüne ekleyin:
 
         <add key="SSL_REQUIRED" value="false"/>
 
@@ -79,11 +80,11 @@ Mobil uygulama web hizmetini yüklemeden önce aşağıdaki ayrıntılara dikkat
 
   Kullanıcıların Mobil Uygulama Web Hizmeti URL’sini etkinleştirme sırasında mobil cihaza girmesi gerektiğinden, kısa bir sanal dizin adın önerilir.
 
-4. Azure Multi-Factor AuthenticationMobileAppWebServiceSetup yüklenmesi tamamlandıktan sonra, C:\inetpub\wwwroot\PA (veya sanal dizin adını temel alarak uygun dizin) gidin ve web.config dosyasını düzenleyin. 
+4. Azure Multi-Factor AuthenticationMobileAppWebServiceSetup yüklenmesi tamamlandıktan sonra, C:\inetpub\wwwroot\PA (veya sanal dizin adını temel alarak uygun dizin) gidin ve web.config dosyasını düzenleyin.
 
 5. WEB_SERVICE_SDK_AUTHENTICATION_USERNAME ve WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD anahtarlarını bulun. Bu değerleri PhoneFactor Admins güvenlik grubunun üyesi olan bir hizmet hesabının kullanıcı adı ve parolası olarak ayarlayın. Daha önce yüklenmişse, bu Azure Multi-Factor Authentication Kullanıcı Portalı’nın Kimliği olarak kullanılanla aynı hesap olabilir. Satırın sonundaki tırnak işaretlerinin arasına, (value=””/>) Kullanıcı Adı ve Parolayı girdiğinizden emin olun. Etki alanı\kullanıcı adı veya makine\kullanıcı adı gibi tam bir kullanıcı adı kullanın.  
 
-6. pfMobile App Web Service_pfwssdk_PfWsSdk ayarını bulun. *http://localhost:4898/PfWsSdk.asmx* değerini Azure Multi-Factor Authentication Sunucusu’nda çalışan Web Hizmeti SDK’sının URL’si (örneğin, https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx) ile değiştirin. 
+6. pfMobile App Web Service_pfwssdk_PfWsSdk ayarını bulun. *http://localhost:4898/PfWsSdk.asmx* değerini Azure Multi-Factor Authentication Sunucusu’nda çalışan Web Hizmeti SDK’sının URL’si (örneğin, https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx) ile değiştirin.
 
   Bu bağlantı için SSL kullanıldığından, Web Hizmeti SDK'sına IP adresi ile değil sunucu adı ile başvurmanız gerekir. SSL sertifikası sunucu adı için verilmiş olacaktır ve kullanılan URL’nin sertifikadaki adla eşleşmesi gerekir. Sunucu adı İnternet’e yönelik sunucudan bir IP adresine çözümlenmeyebilir. Bu durumda, Azure Multi-Factor Authentication Sunucusu’nun adını bu IP adresine eşlemek için bu sunucudaki hosts dosyasına bir giriş ekleyin. Değişiklikler yapıldıktan sonra web.config dosyasını kaydedin.
 
