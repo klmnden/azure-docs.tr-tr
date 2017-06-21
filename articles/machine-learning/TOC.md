@@ -155,7 +155,7 @@
 #### [Mevcut bir web hizmetini yeniden eğitme](machine-learning-retrain-existing-resource-manager-based-web-service.md)
 #### [Sorun giderme](machine-learning-troubleshooting-retraining-models.md)
 ### Tüketim modelleri
-#### [Genel Bakış](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [Genel Bakış](machine-learning-consume-web-services.md)
 #### [Excel kullanma](machine-learning-consuming-from-excel.md)
 #### [Excel eklentisini kullanma](machine-learning-excel-add-in-for-web-services.md)
 #### [Web uygulaması şablonunu kullanma](machine-learning-consume-web-service-with-web-app-template.md)

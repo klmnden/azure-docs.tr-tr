@@ -10,7 +10,6 @@
 ## [.NET SDK’yı kullanma](data-lake-store-get-started-net-sdk.md)
 ## [Java SDK’yı kullanma](data-lake-store-get-started-java-sdk.md)
 ## [REST API’sini kullanma](data-lake-store-get-started-rest-api.md)
-## [Azure CLI’yi kullanma](data-lake-store-get-started-cli.md)
 ## [Azure CLI 2.0 kullanma](data-lake-store-get-started-cli-2.0.md)
 ## [Node.js'yi kullanma](data-lake-store-manage-use-nodejs.md)
 ## [Python’u kullanma](data-lake-store-get-started-python.md)

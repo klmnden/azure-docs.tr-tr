@@ -40,12 +40,7 @@
 #### [PowerShell (Klasik)](virtual-network-create-udr-classic-ps.md)
 #### [CLI (Klasik)](virtual-network-create-udr-classic-cli.md)
 
-### Sanal ağ eşleme
-#### [Portal](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Şablon](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-### [Genel IP adresleri](virtual-network-public-ip-address.md)
+### [Sanal ağ eşleme](virtual-network-create-peering.md)
 
 ### Sanal makineler
 #### Statik genel IP adresiyle VM oluşturma
@@ -118,6 +113,7 @@
 #### [IP adreslerini ekleme, değiştirme veya kaldırma](virtual-network-network-interface-addresses.md)
 ### Sanal makineler
 #### [VM’yi farklı bir alt ağa taşıma](virtual-networks-move-vm-role-to-subnet.md)
+### [Genel IP adresleri](virtual-network-public-ip-address.md)
 
 ## Sorun giderme
 ### Ağ güvenlik grupları

@@ -23,6 +23,7 @@
 
 # Başvuru
 ## [REST](/rest/api/datacatalog/)
+## [Arama söz dizimi başvurusu](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Geliştirici kavramları](data-catalog-developer-concepts.md)
 ## [Geliştirici örnekleri](data-catalog-samples.md)
 
@@ -34,8 +35,3 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
