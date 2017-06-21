@@ -200,13 +200,13 @@
 #### [Silme](service-fabric-cluster-delete.md)
 
 ### Tek başına kümeler
-#### [Tek başına paketin içeriği](service-fabric-cluster-standalone-package-contents.md)
 #### [Dağıtımınızı planlama ve dağıtım için hazırlanma](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Oluştur
 ##### [Şirket içi oluşturma](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Azure sanal makinelerde oluşturma](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Sertifikaları kullanarak güvenli hale getirme](service-fabric-windows-cluster-x509-security.md)  
 ##### [Windows güvenliğini kullanarak güvenli hale getirme](service-fabric-windows-cluster-windows-security.md)
+##### [Tek başına paketin içeriği](service-fabric-cluster-standalone-package-contents.md)
 #### [Ölçeklendirme](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Erişim denetimini ayarlama](service-fabric-cluster-security-roles.md)
 #### [Yapılandırma](service-fabric-cluster-manifest.md)
@@ -232,8 +232,6 @@
 #### [Küme Dengeleme](service-fabric-cluster-resource-manager-balancing.md)
 #### [Azaltma](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Hizmet taşıma](service-fabric-cluster-resource-manager-movement-cost.md)
-
-### [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md)
 
 ## İzleme ve tanılama
 ### [İzleme ve tanılama uygulamaları](service-fabric-diagnostics-overview.md)
@@ -261,8 +259,9 @@
 # Başvuru
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
-## [Java API’si](/java/api/)
-## [.NET](/dotnet/api/)
+## [Azure CLI](/cli/azure/sf)
+## [Java API’si](/java/api/overview/azure/servicefabric)
+## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Kaynaklar
