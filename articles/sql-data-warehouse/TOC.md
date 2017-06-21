@@ -48,6 +48,7 @@
 #### [Veri türleri](sql-data-warehouse-tables-data-types.md)
 #### [Dağıtılmış tablolar](sql-data-warehouse-tables-distribute.md)
 #### [Dizinler](sql-data-warehouse-tables-index.md)
+#### [Kimlik](sql-data-warehouse-tables-identity.md)
 #### [Bölümler](sql-data-warehouse-tables-partition.md)
 #### [İstatistikler](sql-data-warehouse-tables-statistics.md)
 #### [Geçici](sql-data-warehouse-tables-temporary.md)
