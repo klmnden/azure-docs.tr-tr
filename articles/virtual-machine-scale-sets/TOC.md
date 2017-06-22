@@ -12,7 +12,7 @@
 
 ## Şablon oluşturma
 ### [Ölçek kümesi şablonları hakkında bilgi edinin](virtual-machine-scale-sets-mvss-start.md)
-### [Sanal ağ ekleme](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Mevcut bir sanal ağı kullanma](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [Özel görüntü kullanma](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Dağıtma
