@@ -3,6 +3,7 @@
 # başlarken
 ## [Azure AD B2C dizini oluşturma](active-directory-b2c-get-started.md)
 ## [Uygulamanızı kaydetme](active-directory-b2c-app-registration.md)
+## [Yerleşik ilkeler](active-directory-b2c-reference-policies.md)
 ## Mobil ve masaüstü uygulamalar
 ### [Genel Bakış](active-directory-b2c-reference-oauth-code.md)
 ### iOS
@@ -24,6 +25,7 @@
 ### [Hello kullanarak JavaScript ](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web API'leri
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [.NET web API’si çağırma](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
@@ -63,6 +65,7 @@
 #### [Ek talep alma](active-directory-b2c-rest-api-step-custom.md)
 ### Oturum açmayı özelleştirme
 #### [Kullanıcı erişimini yapılandırma](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Özel öznitelikler](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Kullanıcı Arabirimini Özelleştirme](active-directory-b2c-ui-customization-custom.md)
 #### [Belirteçleri özelleştirme](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Sorun giderme
@@ -74,7 +77,6 @@
 ## Sözlük
 ### [Uygulama türleri](active-directory-b2c-apps.md)
 ### [Kimlik doğrulama protokolleri](active-directory-b2c-reference-protocols.md)
-### [Yerleşik ilkeler](active-directory-b2c-reference-policies.md)
 ### [Belirteçler](active-directory-b2c-reference-tokens.md)
 ## [Bölge kullanılabilirliği ve veri yerleşikliği](active-directory-b2c-reference-tenant-type.md)
 ## [Faturalamayı etkinleştirme](active-directory-b2c-how-to-enable-billing.md)

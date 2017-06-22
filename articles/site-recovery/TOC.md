@@ -72,9 +72,10 @@
 ### [Ölçekli işlem sunucularını yönetme](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [vCenter sunucularını yönetme](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Sunucuları kaldırma ve korumayı devre dışı bırakma](site-recovery-manage-registration-and-protection.md)
-## İzleme ve sorun giderme
+## Sorun giderme
+### [Günlük toplama](site-recovery-monitoring-and-troubleshooting.md)
 ### [Azure VM çoğaltma sorunları](site-recovery-azure-to-azure-troubleshoot-errors.md)
-### [Şirket içinden Azure’a çoğaltma sorunları](site-recovery-monitoring-and-troubleshooting.md)
+### [Şirket içinden Azure’a çoğaltma sorunları](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 
 # Başvuru
 ## [PowerShell](/powershell/module/azurerm.siterecovery)

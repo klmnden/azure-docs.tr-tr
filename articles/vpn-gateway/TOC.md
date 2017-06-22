@@ -30,31 +30,34 @@
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure portal (klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-## Bağlantılarda IPsec/IKE ilkelerini yapılandırma
-### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 ## Dağıtım modelleri arasında sanal ağdan sanal ağa bağlantı yapılandırma
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## [Birlikte bulunan Siteden Siteye bağlantılar ile ExpressRoute bağlantılarını yapılandırma](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## Birlikte bulunan Siteden Siteye bağlantılar ile ExpressRoute bağlantılarını yapılandırma
+### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Birden çok Siteden Siteye bağlantı yapılandırma
 ### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (klasik)](vpn-gateway-multi-site.md)
 ## Birden çok ilke tabanlı VPN cihazı bağlama
 ### [PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
-## [VPN ağ geçidi için BGP yapılandırma](vpn-gateway-bgp-resource-manager-ps.md)
+## Bağlantılarda IPsec/IKE ilkelerini yapılandırma
+### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+## Yüksek oranda kullanılabilir etkin-etkin bağlantıları yapılandırma
+### [PowerShell](vpn-gateway-activeactive-rm-powershell.md)
+## Bir VPN ağ geçidi için BGP yapılandırma
+### [PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## Zorlamalı tünel yapılandırma
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (klasik)](vpn-gateway-about-forced-tunneling.md)
-## [Yüksek oranda kullanılabilir etkin-etkin bağlantıları yapılandırma](vpn-gateway-activeactive-rm-powershell.md)
-## Azure’da VPN ağ geçitlerini yönetme
-### [VPN ağ geçidini sıfırlama](vpn-gateway-resetgw-classic.md)
-### [Azure portalını kullanarak ağ geçidini silme](vpn-gateway-delete-vnet-gateway-portal.md)
-### [PowerShell’i kullanarak ağ geçidini silme](vpn-gateway-delete-vnet-gateway-powershell.md)
-### [Klasik PowerShell’i kullanarak ağ geçidini silme](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## Yerel ağ geçidi ayarlarını değiştirme
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-### [CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [VPN ağ geçidi bağlantısını doğrulama](vpn-gateway-verify-connection-resource-manager.md)
+## [VPN ağ geçidini sıfırlama](vpn-gateway-resetgw-classic.md)
+## VPN ağ geçidi silme
+### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (klasik)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [VPN ağ geçidi yapılandırma (klasik)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Sorun giderme
 ### [Bir sanal ağa VPN aktarım hızını doğrulama](vpn-gateway-validate-throughput-to-vnet.md)
