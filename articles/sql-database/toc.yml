@@ -45,26 +45,6 @@
     href: sql-database-multi-tenant-application.md
   - name: 6 - Coğrafi olarak dağıtılmış bir veritabanı uygulama
     href: sql-database-implement-geo-distributed-database.md 
-  - name: Wingtip SaaS öğreticileri
-    items:
-    - name: Wingtip SaaS’a girişi
-      href: sql-database-wtp-overview.md
-    - name: Wingtip SaaS örneğini dağıtma
-      href: sql-database-saas-tutorial.md
-    - name: Yeni kiracılar sağlama/kataloglama
-      href: sql-database-saas-tutorial-provision-and-catalog.md
-    - name: Performansı izleme
-      href: sql-database-saas-tutorial-performance-monitoring.md
-    - name: Log Analytics ile izleme
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Tek bir kiracıyı geri yükleme
-      href: sql-database-saas-tutorial-restore-single-tenant.md
-    - name: Kiracı şemalarını yönetme
-      href: sql-database-saas-tutorial-schema-management.md
-    - name: Geçici analizler çalıştırma
-      href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Kiracı analizi çalıştırma
-      href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Örnekler
   items:
   - name: Azure CLI
@@ -175,25 +155,12 @@
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
     - name: Uygulama yükseltmeleri
       href: sql-database-manage-application-rolling-upgrade.md
-  - name: Geliştirme
+  - name: Veritabanı geliştirme
     items:
     - name: Genel Bakış
       href: sql-database-develop-overview.md
     - name: Bağlantı
       href: sql-database-libraries.md
-    - name: Uygulama tasarımı- SaaS
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: Güvenlik - SaaS
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: Bağlantı noktaları - ADO.NET
-      href: sql-database-develop-direct-route-ports-adonet-v12.md
-    - name: Uygulamanın Kimliğini Doğrulama
- 
-      href: sql-database-client-id-keys.md
-    - name: Hata iletileri
-      href: sql-database-develop-error-messages.md
-    - name: Dapper
-      href: sql-database-elastic-scale-working-with-dapper.md
     - name: JSON verileri
       href: sql-database-json-features.md
     - name: Bellek içi
@@ -231,8 +198,6 @@
       href: sql-database-monitoring-with-dmvs.md
     - name: Performans rehberi
       href: sql-database-performance-guidance.md
-    - name: Toplu İşleme
-      href: sql-database-use-batching-to-improve-performance.md
     - name: Genişletilmiş olaylar
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Uyumluluk düzeyleri
@@ -365,6 +330,25 @@
       href: sql-database-ssms-remoteapp.md
     - name: SSMS - MFA
       href: sql-database-ssms-mfa-authentication-configure.md
+  - name: Uygulamaları geliştirme
+    items:
+    - name: Bağlantı noktaları - ADO.NET
+      href: sql-database-develop-direct-route-ports-adonet-v12.md
+    - name: Uygulamanın Kimliğini Doğrulama
+ 
+      href: sql-database-client-id-keys.md
+    - name: Hata iletileri
+      href: sql-database-develop-error-messages.md
+    - name: Dapper
+      href: sql-database-elastic-scale-working-with-dapper.md
+    - name: Performans için işlem grubu oluşturma
+      href: sql-database-use-batching-to-improve-performance.md
+    - name: SaaS uygulama tasarımı
+      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: SaaS uygulama güvenliği
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: SaaS uygulama öğreticisi
+      href: sql-database-wtp-overview.md
 - name: Başvuru
   items:
   - name: PowerShell
@@ -444,5 +428,3 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: Elastik havuz özel panosu
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
-
-
