@@ -45,10 +45,12 @@
 ### [EDIFACT kurumsal tümleştirme](logic-apps-enterprise-integration-edifact.md)
 ### [EDIFACT kodlama](logic-apps-enterprise-integration-edifact-encode.md)
 ### [EDIFACT kodunu çözme](logic-apps-enterprise-integration-edifact-decode.md)
+### [UNH2.5 segmenti içeren EDIFACT belgelerini kullanma](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [X12 kurumsal tümleştirme](logic-apps-enterprise-integration-x12.md)
 ### [X12 kodlama](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12 kodunu çözme](logic-apps-enterprise-integration-x12-decode.md)
 ### [Olağanüstü durum kurtarma](logic-apps-enterprise-integration-b2b-business-continuity.md)
+### [Hatalar ve çözümleri](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Şirket içi verilere erişim
 ### [Şirket içi verilere bağlanma](logic-apps-gateway-connection.md)
@@ -75,7 +77,6 @@
 ### [Azure İşlevleri ile mantıksal uygulamaları çağırma](logic-apps-scenario-function-sb-trigger.md)
 ### [Hata ve özel durum işleme ekleme](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B işleme](logic-apps-enterprise-integration-b2b.md)
-### [UNH2.5 segmenti içeren EDIFACT belgelerini kullanma](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 
 ## Fiyatlandırma ve faturalandırma
 ### [Fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -116,6 +117,7 @@
 ### [HTTP Web kancası](../connectors/connectors-native-webhook.md)
 ### [Informix](../connectors/connectors-create-api-informix.md)
 ### [Tümleştirme Hesabı](logic-apps-enterprise-integration-metadata.md)
+### [MQ](../connectors/connectors-create-api-mq.md)
 ### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
 ### [Oracle Veritabanı](../connectors/connectors-create-api-oracledatabase.md)
 ### [İstek / Yanıt](../connectors/connectors-native-reqres.md)

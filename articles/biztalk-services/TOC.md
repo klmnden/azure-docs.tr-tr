@@ -1,6 +1,5 @@
 # Genel Bakış
 ## [Sürümler](biztalk-editions-feature-chart.md)
-## [Karma Bağlantılar hakkında](integration-hybrid-connection-overview.md)
 
 # Kullanmaya Başlama
 ## [BizTalk Services oluşturma](biztalk-provision-services.md)
@@ -12,8 +11,6 @@
 ## Yapılandırma
 ### [Azaltma](biztalk-throttling-thresholds.md)
 ### [Hizmet ayarları ve izleme](biztalk-dashboard-monitor-scale-tabs.md)
-## Tümleştirme
-### [Karma Bağlantılar](integration-hybrid-connection-create-manage.md)
 ## Geçiş
 ### [BizTalk Server EDI Çözümlerini BizTalk Services’a](biztalk-migrating-to-edi-guide.md)
 ## İzleme
@@ -21,6 +18,9 @@
 ## Güvenlik
 ### [Erişim denetimi](biztalk-issuer-name-issuer-key.md)
 ## [Sorun giderme](biztalk-troubleshoot-using-ops-logs.md)
+## Karma bağlantılar
+### [Genel Bakış](integration-hybrid-connection-overview.md)
+### [Oluşturma ve yönetme](integration-hybrid-connection-create-manage.md)
 
 # Kaynaklar
 ## [Sürüm notları](biztalk-release-notes.md)
@@ -29,8 +29,3 @@
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -102,7 +102,11 @@
 ### [Yaygın dağıtım sorunları](cloud-services-troubleshoot-deployment-problems.md)
 ### [Rol başlatılamadı](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Kurtarma kılavuzu](cloud-services-disaster-recovery-guidance.md)
-### [Cloud Services ile ilgili SSS](cloud-services-faq.md)
+### Cloud Services SSS
+#### [Uygulama ve hizmet kullanılabilirliği hakkında SSS](cloud-services-application-and-service-availability-faq.md)
+#### [Yapılandırma ve yönetim hakkında SSS](cloud-services-configuration-and-management-faq.md)
+#### [Bağlantı ve ağ hakkında SSS](cloud-services-connectivity-and-networking-faq.md)
+#### [Dağıtım hakkında SSS](cloud-services-deployment-faq.md)
 
 # Başvuru
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)

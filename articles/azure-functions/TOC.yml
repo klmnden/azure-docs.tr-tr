@@ -4,8 +4,6 @@
   items:
   - name: İşlevler Hakkında
     href: functions-overview.md
-  - name: İşlevler Çalışma Zamanı
-    href: functions-runtime-overview.md
   - name: 'Flow, Logic Apps, Functions ve WebJobs arasında seçim yapma'
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Hızlı Başlangıçlar
@@ -15,8 +13,8 @@
     href: functions-create-first-azure-function.md
   - name: İşlev oluşturma - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
-#  - name: Create function - Visual Studio
-#    href: functions-create-your-first-function-visual-studio.md
+  - name: İşlev oluşturma - Visual Studio
+    href: functions-create-your-first-function-visual-studio.md
   - name: Tetikleyiciler
     items:
     - name: Zamanlayıcı
@@ -33,16 +31,16 @@
       href: functions-integrate-storage-queue-output-binding.md
     - name: Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
-- name: Örnekler
-  items:
-  - name: Azure CLI
-    href: functions-cli-samples.md
 - name: Öğreticiler
   items:
   - name: 1 - Logic Apps ile İşlevler
     href: functions-twitter-email.md
   - name: 2 - Sunucusuz API oluşturma
     href: functions-create-serverless-api.md
+- name: Örnekler
+  items:
+  - name: Azure CLI
+    href: functions-cli-samples.md
 - name: Kavramlar
   items:
   - name: Tüketim ve App Service planları
@@ -51,36 +49,49 @@
     href: functions-triggers-bindings.md
   - name: Diller
     items:
-    - name: 'C# işlevleri kavramı'
+    - name: 'C# betiği'
+ 
       href: functions-reference-csharp.md
-    - name: 'F# işlevleri kavramı'
+    - name: .NET sınıf kitaplığı
+      href: functions-dotnet-class-library.md
+    - name: 'F#'
       href: functions-reference-fsharp.md
-    - name: JavaScript işlevleri kavramı
+    - name: JavaScript
       href: functions-reference-node.md    
+  - name: Performansla ilgili önemli noktalar
+    href: functions-best-practices.md 
+  - name: İşlevler Proxy’leri
+    href: functions-proxies.md 
+  - name: İşlevler Çalışma Zamanı
+    href: functions-runtime-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Geliştirici kılavuzu
-    href: functions-reference.md
-  - name: Azure İşlevlerini test etme
-    href: functions-test-a-function.md
-  - name: Yerel olarak geliştirme ve hata ayıklama
-    href: functions-run-local.md
-  - name: Bir işlev uygulaması için ayarları yapılandırma
+  - name: Geliştirme
+    items: 
+     - name: Geliştirici kılavuzu
+       href: functions-reference.md
+     - name: İşlevleri test etme
+       href: functions-test-a-function.md
+     - name: Yerel olarak geliştirme ve hata ayıklama
+       href: functions-run-local.md
+  - name: Dağıtma
+    items:
+    - name: Sürekli dağıtım
+      href: functions-continuous-deployment.md
+    - name: Kaynak dağıtımını otomatikleştirme
+      href: functions-infrastructure-as-code.md
+    - name: Şirket içi işlevler
+      href: functions-runtime-install.md
+  - name: Yapılandırma
     href: functions-how-to-use-azure-function-app-settings.md
-  - name: Azure İşlevleri için sürekli dağıtım
-    href: functions-continuous-deployment.md
-  - name: Kaynak dağıtımını otomatikleştirme
-    href: functions-infrastructure-as-code.md
-  - name: Azure İşlevleri’ni izleme
+  - name: İzleme
     href: functions-monitoring.md
-  - name: İşlevler Çalışma Zamanını Yükleme
-    href: functions-runtime-install.md
-  - name: SQL Veritabanı’na bağlanma
-    href: functions-scenario-database-table-cleanup.md
-  - name: Open API 2.0 tanımı oluşturma
-    href: functions-api-definition-getting-started.md     
-  - name: Azure İşlevleri için en iyi uygulamalar
-    href: functions-best-practices.md     
+  - name: Tümleştirme
+    items:   
+    - name: SQL Veritabanı’na bağlanma
+      href: functions-scenario-database-table-cleanup.md
+    - name: Open API 2.0 tanımı oluşturma
+      href: functions-api-definition-getting-started.md         
 - name: Başvuru
   items:
   - name: Bağlamalar
@@ -117,10 +128,14 @@
   items:
   - name: Fiyatlandırma
     href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Bölgesel kullanılabilirlik
+    href: https://azure.microsoft.com/regions/services/
   - name: MSDN forumu
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: Twitter
+    href: https://twitter.com/azurefunctions
   - name: Azure İşlevleri GitHub deposu
     href: https://github.com/Azure/Azure-Functions/
   - name: Hizmet güncelleştirmeleri

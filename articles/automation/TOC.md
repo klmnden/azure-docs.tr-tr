@@ -11,7 +11,7 @@
 ### [Tek başına Otomasyon hesabı oluşturma](automation-create-standalone-account.md)
 ### [Azure AD Kullanıcı hesabı oluşturma](automation-create-aduser-account.md)
 ### [AWS ile Kimlik Doğrulamasını yapılandırma](automation-config-aws-account.md)
-### [PowerShell ile Azure Farklı Çalıştır hesabı oluşturma](automation-update-account-powershell.md)
+### [Otomasyon Farklı Çalıştır hesabını oluşturma](automation-create-runas-account.md)
 ### [Otomasyon hesabı yapılandırmasını doğrulama](automation-verify-runas-authentication.md)
 ### [Rol tabanlı erişim denetimini yönetme](automation-role-based-access-control.md)
 ### [Otomasyon hesabını yönetme](automation-manage-account.md)
@@ -56,12 +56,12 @@
 ### [Azure VM uyarısını düzeltme](automation-azure-vm-alert-integration.md)
 ### [JSON Etiketleriyle VM Başlatma/Durdurma](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Kaynak Grubunu Kaldırma](automation-scenario-remove-resourcegroup.md)
-### [Hizmetin kapalı olduğu saatlerde Sanal Makineleri Başlatma/Durdurma](automation-solution-vm-management.md)
 ### [GitHub Enterprise ile kaynak denetimi tümleştirmesi](automation-scenario-source-control-integration-with-github-ent.md)
 ### [VSTS ile kaynak denetimi tümleştirmesi](automation-scenario-source-control-integration-with-VSTS.md)
 ## Çözümler
 ### [Değişiklik İzleme](../log-analytics/log-analytics-change-tracking.md)
 ### [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md)
+### [Hizmetin kapalı olduğu saatlerde Sanal Makineleri Başlatma/Durdurma](automation-solution-vm-management.md)
 ## İzleme
 ### [Azure Otomasyonu iş verilerini Log Analytics’e iletme](automation-manage-send-joblogs-log-analytics.md)
 ### [Azure Otomasyonu hesabı ile Log Analytics arasındaki bağlantıyı kaldırma](automation-unlink-from-log-analytics.md)

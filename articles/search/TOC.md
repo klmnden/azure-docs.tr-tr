@@ -78,6 +78,7 @@
 ## [Hizmet REST (Önizleme)](search-api-2015-02-28-preview.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/search/)
 ## Tanıtım siteleri
+### [Arama Çözümleyicisi Tanıtımı](http://alice.unearth.ai/)
 ### [İş listeleri uygulaması](http://aka.ms/azjobsdemo)
 ### [Canlı tanıtım uygulamaları](https://searchsamples.azurewebsites.net/)
 ## Eğitim yazılımı ve öğreticiler

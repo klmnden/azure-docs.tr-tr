@@ -140,6 +140,14 @@
       href: csharp-template.md
     - name: Chef ile VM oluşturma
       href: chef-automation.md
+    - name: Python ile VM oluşturma
+      href: python.md
+    - name: Terraform ile VM oluşturma
+      items:
+      - name: Yükleme ve yapılandırma
+        href: ../terraform-install-configure.md
+      - name: Temel altyapıyı oluşturma
+        href: ../terraform-create-complete-vm.md      
     - name: Popüler uygulama çerçevelerini çalıştıran VM oluşturma
       href: app-frameworks.md
     - name: VM’yi abonelikler arasında taşıma
@@ -185,13 +193,10 @@
       href: capture-image-resource.md
     - name: Genelleştirilmiş bir Yönetilen Disk görüntüsünden VM oluşturma
       href: create-vm-generalized-managed.md
+    - name: Packer ile görüntü oluşturma
+      href: build-image-with-packer.md
   - name: VM depolamayı yönetme
     items:
-    - name: Azure Yönetilen Diskleri
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-      - name: SSS
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Yönetilen Disk oluşturma
       href: create-managed-disk-ps.md
     - name: VM’leri Yönetilen Disklere geçirme
@@ -215,6 +220,8 @@
       href: expand-os-disk.md
     - name: Veri diskini genişletme
       href: expand-data-disks.md
+    - name: Dosya paylaşımı kullanma
+      href: mount-azure-file-storage.md
     - name: D sürücüsünü veri diski olarak kullanma
       href: change-drive-letter.md
   - name: VM ağı
@@ -348,6 +355,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Sorun giderme
     items:
+    - name: Sistemin yeniden başlatılma nedenini anlama
+      href: understand-vm-reboot.md
     - name: Uzak Masaüstü bağlantıları
       href: troubleshoot-rdp-connection.md
       items:

@@ -22,6 +22,8 @@
 ### [Düşük öncelikli sanal makineler](batch-low-pri-vms.md)
 ### [Toplu İşlem Yönetimi .NET ile Batch hesaplarını yönetme](batch-management-dotnet.md)
 ### [İş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md)
+#### [Batch API’si ile çıkışı kalıcı hale getirme](batch-task-output-files.md)
+#### [Dosya Kuralları kitaplığı](batch-task-output-file-conventions.md)
 ### [Batch’de MPI işlerini çalıştırma](batch-mpi.md)
 ### [Görev bağımlılıkları](batch-task-dependencies.md)
 ### [Görev çalıştırmaya yönelik kullanıcı hesapları](batch-user-accounts.md)

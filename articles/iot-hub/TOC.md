@@ -6,13 +6,15 @@
 # [Kullanmaya Başlama](iot-hub-get-started.md)
 
 ## Cihazınızı ayarlama
-### Sanal cihaz kullanma
+### [Bilgisayarınızda bir cihazı benzetme](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Fiziksel cihaz kullanma
+### [Çevrimiçi simülatör kullanma](iot-hub-raspberry-pi-web-simulator-get-started.md)
+
+### [Fiziksel cihaz kullanma](iot-hub-get-started-physical.md)
 #### [Node.js ile Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [C ile Raspberry Pi](iot-hub-raspberry-pi-kit-c-get-started.md)
 
@@ -28,15 +30,14 @@
 ##### [Ağ geçidini IoT Hub’a bağlama](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Veri dönüştürme için ağ geçidi kullanma](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-### [Çevrimiçi cihaz simülatörü kullanma](iot-hub-raspberry-pi-web-simulator-get-started.md)
-
-## [iothub-explorer ile bulut cihaz mesajlaşmasını yönetme](iot-hub-explorer-cloud-device-messaging.md)
-## [IoT Hub iletilerini Azure veri depolamaya kaydetme](iot-hub-store-data-in-azure-table-storage.md)
-## [Power BI’da Veri Görselleştirme](iot-hub-live-data-visualization-in-power-bi.md)
-## [Web Apps ile Veri Görselleştirme](iot-hub-live-data-visualization-in-web-apps.md)
-## [Azure Machine Learning kullanarak hava durumu tahmini](iot-hub-weather-forecast-machine-learning.md)
-## [iothub-explorer ile cihaz yönetimi](iot-hub-device-management-iothub-explorer.md)
-## [Logic Apps ile uzaktan izleme ve bildirimler](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+## Genişletilmiş IoT senaryoları
+### [iothub-explorer ile bulut cihaz mesajlaşmasını yönetme](iot-hub-explorer-cloud-device-messaging.md)
+### [IoT Hub iletilerini Azure veri depolamaya kaydetme](iot-hub-store-data-in-azure-table-storage.md)
+### [Power BI’da Veri Görselleştirme](iot-hub-live-data-visualization-in-power-bi.md)
+### [Web Apps ile Veri Görselleştirme](iot-hub-live-data-visualization-in-web-apps.md)
+### [Azure Machine Learning kullanarak hava durumu tahmini](iot-hub-weather-forecast-machine-learning.md)
+### [iothub-explorer ile cihaz yönetimi](iot-hub-device-management-iothub-explorer.md)
+### [Logic Apps ile uzaktan izleme ve bildirimler](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Nasıl yapılır?
 ## Planlama
@@ -54,13 +55,13 @@
 ##### [Cihazdan buluta iletileri için özel uç noktalar ve yönlendirme kuralları kullanma](iot-hub-devguide-messages-read-custom.md)
 ##### [IoT Hub’dan buluttan cihaza iletileri gönderme](iot-hub-devguide-messages-c2d.md)
 ##### [IoT Hub iletilerini oluşturma ve okuma](iot-hub-devguide-messages-construct.md)
+##### [İletişim protokolü seçme](iot-hub-devguide-protocols.md)
 #### [Bir cihazdan karşıya dosya yükleme](iot-hub-devguide-file-upload.md)
 #### [Cihaz kimliklerini yönetme](iot-hub-devguide-identity-registry.md)
 #### [IoT Hub’a erişimi denetleme](iot-hub-devguide-security.md)
 #### [Cihaz ikizlerini anlama](iot-hub-devguide-device-twins.md)
 #### [Bir cihazda doğrudan yöntemleri çağırma](iot-hub-devguide-direct-methods.md)
 #### [Birden fazla cihazda işleri zamanlama](iot-hub-devguide-jobs.md)
-#### [İletişim protokolü seçme](iot-hub-devguide-protocols.md)
 #### [IoT Hub uç noktaları](iot-hub-devguide-endpoints.md)
 #### [Sorgu dili](iot-hub-devguide-query-language.md)
 #### [Kotalar ve azaltma](iot-hub-devguide-quotas-throttling.md)
@@ -122,7 +123,8 @@
 ### [En iyi güvenlik uygulamaları](iot-hub-security-best-practices.md)
 ### [Güvenlik mimarisi](iot-hub-security-architecture.md)
 ### [IoT dağıtımınızın güvenliğini sağlama](iot-hub-security-deployment.md)
-## IoT Edge
+## Azure IoT Edge
+### [Genel Bakış](iot-hub-iot-edge-overview.md)
 ### başlarken
 #### [Linux](iot-hub-linux-iot-edge-get-started.md)
 #### [Windows](iot-hub-windows-iot-edge-get-started.md)
@@ -130,9 +132,22 @@
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Gerçek cihaz kullanma](iot-hub-iot-edge-physical-device.md)
+### Bir modül oluşturma
+#### [Java](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-java-modules-windows-10ubuntu-linux-14)
+#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-net-modules-windows-10)
+#### [Node.js](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-javascript-modules-windows-10ubuntu-linux-14)
+### Oluşturma
+#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
+#### [.NET Core modülü](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
+#### [.NET Core yönetilen ağ geçidi](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
+#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
+#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
+#### [Modülü dinamik olarak ekleme](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
+#### [İşlem dışı ara sunucu modülü](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
+#### [Yerel modül konağı](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Başvuru
-## [Azure CLI 2.0](/cli/azure/iot)
+## [Azure CLI](/cli/azure/iot)
 ## [.NET (Hizmet)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Cihazlar)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Hizmet)](/java/api/com.microsoft.azure.sdk.iot.service)
@@ -164,4 +179,4 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Geliştirici Merkezi](https://azure.microsoft.com/develop/iot/)
 ## [IoT için Azure Sertifikalı cihaz kataloğu](https://catalog.azureiotsuite.com/)
-## [Teknik örnek olay incelemeleri](https://microsoft.github.io/techcasestudies/#technology=IoT)
+## [Teknik örnek olay incelemeleri](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

@@ -1,6 +1,6 @@
 # Genel Bakış
 ## [Resource Manager nedir?](resource-group-overview.md)
-## [Desteklenen hizmetler](resource-manager-supported-services.md)
+## [Kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md)
 ## [Resource Manager ve Klasik dağıtım](resource-manager-deployment-model.md)
 ## [Abonelik idaresi](resource-manager-subscription-governance.md)
 ## [Yönetilen Uygulamalar](managed-application-overview.md)
@@ -67,12 +67,13 @@
 
 ## Kaynak ilkeleri ayarlama
 ### [Kaynak ilkeleri nelerdir?](resource-manager-policy.md)
-### [Portal ilke ataması](resource-manager-policy-portal.md)
-### [Betik ilke ataması](resource-manager-policy-create-assign.md)
-### [Kaynak etiketi ilkeleri](resource-manager-policy-tags.md)
-### [Depolama ilkeleri](resource-manager-policy-storage.md)
-### [Linux VM ilkeleri](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Windows VM ilkeleri](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [İlke atamak için portalı kullanma](resource-manager-policy-portal.md)
+### [İlke atamak için betikleri kullanma](resource-manager-policy-create-assign.md)
+### Örnekler
+#### [Kaynak etiketleri](resource-manager-policy-tags.md)
+#### [Depolama](resource-manager-policy-storage.md)
+#### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Yönetilen uygulamaları kullanma
 ### [Yönetilen uygulamaları yayımlama](managed-application-publishing.md)

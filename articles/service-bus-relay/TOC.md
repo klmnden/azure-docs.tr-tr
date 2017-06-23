@@ -4,6 +4,7 @@
 
 # Kullanmaya Başlama
 ## [Ad alanı oluşturma](relay-create-namespace-portal.md)
+## [Karma şirket içi/bulut uygulaması oluşturma](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Karma Bağlantılar
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)

@@ -11,6 +11,7 @@
 ### [Günlük kaydı ve denetim](azure-log-audit.md)
 ### [Genel bulutta yalıtım](azure-isolation.md)
 ### [Güvenliğe yönelik teknik özellikler](azure-security-technical-capabilities.md)
+### [Azure’da idare](governance-in-azure.md)
 
 # Kullanmaya Başlama
 ## [Azure güvenliğini kullanmaya başlama](azure-security-getting-started.md)

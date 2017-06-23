@@ -19,13 +19,11 @@
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
-### [🔧Azure hizmetleriyle ortak tümleştirme senaryoları](event-hubs-common-integrations.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Kimlik doğrulama ve güvenlik modeline genel bakış](event-hubs-authentication-and-security-model-overview.md)
 ### [Kullanılabilirlik ve tutarlılık](event-hubs-availability-and-consistency.md)
+### [İşleme birimlerini otomatik ölçeklendirme](event-hubs-auto-inflate.md)
 ## Geliştirme
-### [🔧 İşleme hataları ve yeniden deneme](event-hubs-handling-errors-retry.md)
-### [🔧 Performansı ve ölçeği yönetme](event-hubs-performance-scale.md)
 ### [Kullanılabilir API’ler](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

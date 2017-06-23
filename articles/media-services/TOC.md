@@ -6,7 +6,13 @@
 ## [Geliştirme ortamınızı kurma](media-services-set-up-computer.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
-## Program aracılığıyla bağlanma
+## [API erişimi için AAD kimlik doğrulaması kullanma](media-services-use-aad-auth-to-access-ams-api.md)
+###[AAD kimlik doğrulamasını yönetmek için portalı kullanma](media-services-portal-get-started-with-aad.md)
+###[API’ye .NET ile erişme](media-services-dotnet-get-started-with-aad.md)
+###[API’ye REST ile erişme](media-services-rest-connect-with-aad.md)
+###[AAD uygulamasını oluşturmak ve yapılandırmak için CLI kullanma](media-services-cli-create-and-configure-aad-app.md)
+###[AAD uygulamasını oluşturmak ve yapılandırmak için PowerShell kullanma](media-services-powershell-create-and-configure-aad-app.md)
+## ACS anahtarıyla programlama yoluyla bağlanma
 ### [.NET](media-services-dotnet-connect-programmatically.md)
 ### [REST](media-services-rest-connect-programmatically.md)
 
@@ -214,7 +220,7 @@
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (Hizmet Yönetimi)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [REST](/rest/api/media/mediaservice)  
 
 # Kaynaklar
 ## [Sürüm notları](media-services-release-notes.md)

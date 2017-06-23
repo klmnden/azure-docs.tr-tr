@@ -43,6 +43,7 @@
 ### Azure
 #### [Profil Oluşturucu](app-insights-profiler.md)
 #### [Tanılama](app-insights-azure-diagnostics.md)
+#### [Önizlemeler](app-insights-previews.md)
 
 ### ASP.NET
 #### [Daha fazla telemetri toplama](app-insights-asp-net-more.md)
@@ -91,8 +92,9 @@
 
 ### Kullanım
 #### [Genel Bakış](app-insights-usage-overview.md)
-#### [Bekletme](app-insights-usage-retention.md)
 #### [Kullanıcılar, Oturumlar, Etkinlikler](app-insights-usage-segmentation.md)
+#### [Bekletme](app-insights-usage-retention.md)
+#### [Çalışma kitapları](app-insights-usage-workbooks.md)
 
 ### Analiz
 
@@ -108,6 +110,7 @@
 ### [Kaynak oluşturma](app-insights-powershell-script-create-resource.md)
 ### [Uyarı ayarlama](app-insights-powershell-alerts.md)
 ### [Azure tanılama verilerini alma](app-insights-powershell-azure-diagnostics.md)
+### [Microsoft Flow ile otomatikleştirme](app-insights-automate-with-flow.md)
 
 ## Geliştirme
 

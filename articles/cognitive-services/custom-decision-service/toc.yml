@@ -1,14 +1,16 @@
-- name: "Custom Decision Service"
+- name: Özel Karar Hizmeti
   href: ../index.md
-- name: "Overview"
+- name: Genel Bakış
   href: custom-decision-service-overview.md
-- name: "Get started"
+- name: başlarken
   items:
-  - name: "Call API from a browser"
+  - name: Uygulamanızı kaydetme
+    href: custom-decision-service-get-started-register.md
+  - name: Tarayıcıdan API çağrısı yapma
     href: custom-decision-service-get-started-browser.md
-  - name: "Call API from an app"
+  - name: Uygulamadan API çağrısı yapma
     href: custom-decision-service-get-started-app.md
-- name: "Tutorial"
+- name: Öğretici
   href: custom-decision-service-tutorial.md
-- name: "API reference"
+- name: API başvurusu
   href: custom-decision-service-api-reference.md
