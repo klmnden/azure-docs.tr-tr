@@ -140,6 +140,12 @@
       href: move-vm.md
     - name: Yüksek oranda kullanılabilir VM’ler oluşturma
       href: create-cli-complete.md
+    - name: Terraform
+      items:
+      - name: Yükleme ve yapılandırma
+        href: ../terraform-install-configure.md
+      - name: Temel altyapıyı oluşturma
+        href: ../terraform-create-complete-vm.md
     - name: Ansible
       items:
       - name: Yükleme ve yapılandırma
@@ -202,6 +208,8 @@
       href: upload-vhd.md
     - name: Mevcut VM’yi yakalayarak görüntüye kaydetme
       href: capture-image.md
+    - name: Packer ile görüntü oluşturma
+      href: build-image-with-packer.md
     - name: Azure görüntüleri oluşturma
       items:
       - name: Ubuntu
@@ -312,7 +320,11 @@
   - name: Uygulama çalıştırma
     items:
     - name: Cloud Foundry
-      href: cloudfoundry-get-started.md
+      items:
+      - name: Genel Bakış
+        href: cloudfoundry-get-started.md
+      - name: İlk uygulamanızı dağıtma
+        href: cloudfoundry-deploy-your-first-app.md
     - name: Veri Bilimi VM’sine genel bakış
       href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: MongoDB
@@ -366,6 +378,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Sorun giderme
     items:
+    - name: Sistemin yeniden başlatılma nedenini anlama
+      href: understand-vm-reboot.md
     - name: SSH bağlantıları
       href: troubleshoot-ssh-connection.md
       items:

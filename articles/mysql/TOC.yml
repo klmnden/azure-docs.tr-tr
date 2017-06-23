@@ -11,6 +11,12 @@
     href: quickstart-create-mysql-server-database-using-azure-portal.md
   - name: DB Oluşturma - Azure CLI
     href: quickstart-create-mysql-server-database-using-azure-cli.md
+  - name: Bağlanma ve sorgulama
+    items:
+    - name: PHP
+      href: connect-php.md
+    - name: Java
+      href: connect-java.md
 - name: Öğreticiler
   items:
   - name: 1 - Veritabanı Tasarlama
@@ -79,14 +85,18 @@
     items:
     - name: Azure portalına
       href: howto-restore-server-portal.md
-  - name: Uygulamaları Bağlama
+  - name: Uygulamaları bağlama
     items:
-    - name: Bağlantı Dizeleri
+    - name: Bağlantı dizeleri
       href: howto-connection-string.md
     - name: SSL yapılandırma
       href: howto-configure-ssl.md
-    - name: Web Uygulaması
+    - name: Web uygulamaları
       href: howto-connect-webapp.md
+  - name: Sunucu parametrelerini yapılandırma
+    items:
+    - name: Azure portalına
+      href: howto-server-parameters.md
 - name: Başvuru
   items:
   - name: Azure CLI
@@ -99,6 +109,8 @@
     href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+  - name: Videolar
+    href: videos.md
   - name: Özellik isteme
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Bölge kullanılabilirliği

@@ -16,12 +16,13 @@
 ### [Sorun giderme ve izleme](troubleshooting-monitoring.md)
 ## Sanal Makineler üzerinde SAP HANA
 ### [Tek örnek SAP HANA](hana-get-started.md)
-### [S/4 HANA veya BW/4 HANA dağıtım kılavuzu](cal-s4h.md)
+### [S/4 HANA veya BW/4 HANA SAP CAL dağıtım kılavuzu](cal-s4h.md)
 ### [VM’lerde Yüksek Kullanılabilirlik](sap-hana-high-availability.md)
 ### [Backup’a genel bakış](sap-hana-backup-guide.md)
 ### [Dosya düzeyinde yedekleme](sap-hana-backup-file-level.md)
 ### [Depolama anlık görüntüsü yedekleri](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
+### [Windows üzerinde SAP IDES/SQL Server SAP CAL dağıtım kılavuzu](sap-cal-ides-erp6-ehp7-sp3-sql.md)
 ### [Genel bakış ve mimari](suse-quickstart.md)
 ### [Planlama ve uygulama](planning-guide.md)
 ### [Yüksek kullanılabilirlik](high-availability-guide.md)

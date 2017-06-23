@@ -21,6 +21,9 @@
 ### [İstemci kimliğini değiştirme](key-vault-subscription-move-fix.md)
 ### [Kullanılabilirlik ve yedekleme](key-vault-disaster-recovery-guidance.md)
 ### [Anahtar kasanızın güvenliğini sağlama](key-vault-secure-your-key-vault.md)
+### [Güvenlik dünyalarına genel bakış](key-vault-ovw-security-worlds.md)
+### [Geçici silmeye genel bakış](key-vault-ovw-soft-delete.md)
+### [Depolama hesabı anahtarlarına genel bakış](key-vault-ovw-storage-keys.md)
 
 ## Otomatikleştirme
 ### [Azure otomasyonu](automation-manage-key-vault.md)
@@ -32,7 +35,7 @@
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js
-### [Kasa yönetimi](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+### [Vault yönetimi](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 ### [Kasa içeriği yönetimi](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
 ## [REST](/rest/api/keyvault)
 
@@ -43,7 +46,7 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Kaynaklar
-## [Anahtarlar ve Gizlilikler Hakkında](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Anahtarlar, gizli diziler ve sertifikalar hakkında](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [Kod örnekleri](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)

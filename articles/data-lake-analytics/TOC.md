@@ -3,43 +3,38 @@
 
 # başlarken
 ## [Azure portal](data-lake-analytics-get-started-portal.md)
-## [PowerShell](data-lake-analytics-get-started-powershell.md)
-## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
-## [Java SDK](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [Azure CLI](data-lake-analytics-get-started-cli.md)
+## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
-## [REST API](data-lake-analytics-get-started-rest-api.md)
-## [Python](data-lake-analytics-get-started-python.md)
 
 # Nasıl yapılır?
-## Geliştirme
+
+## Data Lake Analytics hesaplarını yönetme
+### [Azure portal](data-lake-analytics-manage-use-portal.md)
+### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+### [PowerShell](data-lake-analytics-manage-use-powershell.md)
+### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [Python SDK'sı](data-lake-analytics-manage-use-python-sdk.md)
+### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
+### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Tanılama günlüklerine erişim](data-lake-analytics-diagnostic-logs.md)
+
+## U-SQL programlarını geliştirme
 ### [U-SQL temelleri](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL dil başvurusu](https://msdn.microsoft.com/library/azure/mt591959)
 ### [U-SQL kataloğu](data-lake-analytics-u-sql-catalog.md)
 ### [U-SQL birleşimleri](data-lake-analytics-u-sql-combine-data-with-joins.md)
-### [U-SQL parametreleri](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [U-SQL pencere işlevleri](data-lake-analytics-use-window-functions.md)
 ### [U-SQL kullanıcı tanımlı işleçler](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python uzantıları](data-lake-analytics-u-sql-python-extensions.md)
 ### [U-SQL R uzantıları](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL Bilişsel uzantıları](data-lake-analytics-u-sql-cognitive.md)
-
-## Çözüm oluşturma
-### [Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
-### [Etkileşimli öğretici: Web sitesi günlüklerini çözümleme](data-lake-analytics-use-interactive-tutorials.md)
-
-
-## Yönet
-### [Azure portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Kod ve veri yapılandırması için U-SQL Kataloğu](data-lake-analytics-use-u-sql-catalog.md)
+### [Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
+### [U-SQL Etkileşimli öğreticisini kullanma](data-lake-analytics-use-interactive-tutorials.md)
 
-## Sorun giderme
+## U-SQL programlarında hata ayıklama
 ### [İşleri izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-### [Tanılama günlüklerine erişim](data-lake-analytics-diagnostic-logs.md)
 ### [U-SQL’de C# kodu hatalarını ayıklama](data-lake-analytics-debug-u-sql-jobs.md)
 ### [İş Tarayıcı ve İş Görünümünü kullanma](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Köşe Yürütme Görünümünü Kullanma](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
@@ -49,7 +44,6 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
-## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 

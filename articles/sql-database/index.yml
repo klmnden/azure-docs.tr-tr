@@ -1,0 +1,96 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure SQL Veritabanı Belgeleri
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: 'Azure SQL Veritabanı Belgeleri - Öğreticiler, API Başvurusu'
+  meta.description: Learn how to use Azure SQL databases.
+  services: sql-database
+  author: carolz
+  manager: carolz
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/03/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure SQL Veritabanı, Microsoft SQL Server Altyapısını kullanan bir hizmet olarak ilişkisel veritabanıdır. SQL Veritabanı, altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde veri odaklı uygulamalar ve web siteleri oluşturmak için kullanabileceğiniz yüksek performanslı, güvenilir ve güvenli bir veritabanıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.'
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/create-sql-database-on-azure.png
+      width: 250  
+    title: 'Azure’da SQL veritabanı oluşturun. (3:12)'
+    href: https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/
+    width: 250
+sections:
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: 'SQL Veritabanı oluşturma, SQL Management Studio kullanarak yönetme ve C#, Java, Python, Node.js ve Ruby dillerinde geliştirme hakkında bilgi edinin:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure Portal
+      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-cli
+    - image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-powershell
+- title: Adım Adım Öğreticiler
+  items:
+  - type: paragraph
+    text: 'SQL veritabanı kullanarak veritabanları oluşturma, yönetme ve geçirme hakkında bilgi edinin'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sql-database/sql-database-design-first-database">Yeni SQL Veritabanı için şema oluşturma ve tasarlama</a>
+    - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Mevcut SQL Server Veritabanını Azure SQL Veritabanı kullanmak üzere geçirme</a>
+    - html: <a href="/azure/sql-database/sql-database-security-tutorial">SQL Veritabanınızın güvenliğini sağlama</a>
+    - html: <a href="/azure/sql-database/sql-database-performance-tutorial">SQL Veritabanı performansını iyileştirme</a>
+    - html: <a href="/azure/sql-database/sql-database-multi-tenant-application">SQL DB kullanarak çok kiracılı SaaS uygulaması yerleştirme</a>
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Coğrafi olarak dağıtılmış bir veritabanı uygulama</a>
+- title: Ücretsiz PluralSight Video Eğitimi
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - html: '<p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">.NET ile geliştirme</a></p>'
+      image: 
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/video-training-dotnet.png
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+- title: Örnekler
+  items:
+  - type: paragraph
+    text: Genel görevleri yönetmeye yönelik betikleri bulun.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
+    - html: <a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a>
+- title: Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Komut Satırı
+      html: <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">Azure PowerShell</a></p><p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">Azure PowerShell (Elastik DB)</a></p><p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>
+    - title: Diller
+      html: '<p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>'
+    - title: REST
+      html: <p><a href="/rest/api/sql/">REST API başvurusu</a></p>
+    - title: SQL Server Araçları
+      html: '<p><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server Araçları</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Veri Araçları (SSDT)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">SQL Veritabanı Yönetim Kitaplığı paketi</a></p>'
+    - title: SQL Server Sürücüleri
+      html: '<p><a href="https://msdn.microsoft.com/library/mt654049.aspx">SQL Server Sürücüleri</a></p><p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p><p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p><p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>'

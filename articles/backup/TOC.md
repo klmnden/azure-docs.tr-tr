@@ -48,7 +48,7 @@
 #### [Resource Manager ile dağıtılan sanal makineleri hazırlama](backup-azure-arm-vms-prepare.md)
 ### Ortamınızı planlama
 #### [VM yedekleme altyapısını planlama](backup-azure-vms-introduction.md)
-### Sunucuları ve iş yüklerini yedekleme
+### VM’leri yedekleme
 #### [Yedekleme kasasına Azure sanal makineleri yedekleme](backup-azure-vms.md)
 #### [Azure sanal makinelerini bir Kurtarma Hizmetleri kasasına yedekleme](backup-azure-arm-vms.md)
 #### [Şifrelenmiş sanal makineleri yedekleme](backup-azure-vms-encryption.md)

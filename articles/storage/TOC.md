@@ -1,6 +1,7 @@
 # Genel Bakış
 
 ## [Giriş](storage-introduction.md)
+## [Blob, Dosya veya Veri Diski seçme](storage-decide-blobs-files-disks.md)
 
 # Kullanmaya Başlama
 
@@ -50,8 +51,9 @@
 ### [Linux VM’ye yönetilen disk ekleme](../virtual-machines/linux/add-disk.md)
 ### [Windows’da Anlık Görüntüler kullanılarak Yönetilen Disk olarak depolanmış VHD kopyası oluşturma](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Linux’ta Anlık Görüntüler kullanılarak Yönetilen Disk olarak depolanmış VHD kopyası oluşturma](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Resource Manager şablonlarında yönetilen diskleri kullanma](storage-using-managed-disks-template-deployments.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## [Depolama hesabı oluşturma](storage-create-storage-account.md)
 ## Blob'ları kullanma
 ### [Hizmete genel bakış](https://msdn.microsoft.com/library/dd179376.aspx)
@@ -70,7 +72,8 @@
 ### [Örnekler](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Dosyaları kullanma
 ### [Genel Bakış](/rest/api/storageservices/File-Service-Concepts)
-### [Azure Dosyalarının Sorunlarını Giderme](storage-troubleshoot-file-connection-problems.md)
+### [Azure Dosyaları Sorunlarını Giderme - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Azure Dosyaları Sorunlarını Giderme - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Örnekler](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Disk kullanma
 ### [Windows VM’ler için diskler ve VHD’ler](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +112,7 @@
 ## Güvenlik
 ### [Güvenlik kılavuzu](storage-security-guide.md)
 ### [Bekleyen verilerin şifrelenmesi](storage-service-encryption.md)
+### [Müşteri anahtarlarıyla bekleme sırasında şifreleme](storage-service-encryption-customer-managed-keys.md)
 ### [Paylaşılan anahtar kimlik doğrulaması](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Paylaşılan erişim imzaları (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Öğretici: Azure Anahtar Kasasını kullanarak blob’ları şifreleme ve şifre çözme](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -130,7 +134,8 @@
 ### [Olağanüstü durum kurtarma kılavuzu](storage-disaster-recovery-guidance.md)
 ## Veri Aktarma
 ### [Verileri depolamaya ve depolamadan aktarma](storage-moving-data.md)
-### [AzCopy komut satırı yardımcı programı](storage-use-azcopy.md)
+### [Windows üzerinde AzCopy](storage-use-azcopy.md)
+### [Linux üzerinde AzCopy](storage-use-azcopy-linux.md)
 ### [İçeri/Dışarı Aktarma hizmetini kullanma](storage-import-export-service.md)
 ### [İçeri/Dışarı Aktarma Aracı’nı kullanma](storage-import-export-tool-how-to.md)
 #### [İçeri/Dışarı Aktarma Aracı’nı ayarlama](storage-import-export-tool-setup.md)

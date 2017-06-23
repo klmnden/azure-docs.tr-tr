@@ -22,7 +22,8 @@
 ## [Hadoop korumalı alanı](hdinsight-hadoop-emulator-get-started.md)
 ## [Hortonworks Korumalı Alanı ile Data Lake Araçları](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Visual Studio Araçları](hdinsight-hadoop-visual-studio-tools-get-started.md)
-## [HDInsight depolama seçenekleri](hdinsight-hadoop-use-blob-storage.md)
+## [Azure Depolama kullanarak HDInsight](hdinsight-hadoop-use-blob-storage.md)
+## [Azure Data Lake Store kullanarak HDInsight](hdinsight-hadoop-use-data-lake-store.md)
 
 # Nasıl yapılır
 ## Toplu sorgular için Hadoop kullanma
@@ -105,14 +106,17 @@
 ### [Hive ilkelerini yapılandırma](hdinsight-domain-joined-run-hive.md)
 ## Kafka kullanma (Önizleme)
 ### [Kafka verilerini çoğaltma](hdinsight-apache-kafka-mirroring.md)
+### [Kafka depolama ve ölçeklenebilirlik yapılandırması](hdinsight-apache-kafka-scalability.md)
 ### [Sanal Ağlar ile kullanma](hdinsight-apache-kafka-connect-vpn-gateway.md)
-### [Spark ile kullanma](hdinsight-apache-spark-with-kafka.md)
+### [Spark (Yapılandırılmış Akış) ile kullanma](hdinsight-apache-kafka-spark-structured-streaming.md)
+### [Spark (DStream) ile kullanma](hdinsight-apache-spark-with-kafka.md)
 ### [Storm ile kullanma](hdinsight-apache-storm-with-kafka.md)
 ## Geliştirme
 ### [C# akış MapReduce programları geliştirme](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Java MapReduce programları geliştirme](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Scalding MapReduce işlerini geliştirme](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Spark uygulamaları geliştirmek için HDInsight Araçlarını kullanma](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Spark uygulamalarında uzaktan hata ayıklamak için HDInsight Araçlarını kullanma](hdinsight-apache-spark-intellij-tool-debug-remotely.md)
 ### [Boş kenar düğümlerini kullanma](hdinsight-apps-use-edge-node.md)
 ### [Python akış programları geliştirme](hdinsight-hadoop-streaming-python.md)
 ### [JSON belgelerini işleme ve çözümleme](hdinsight-using-json-in-hive.md)
@@ -141,7 +145,7 @@
 ### [R kullanma](hdinsight-hadoop-r-scripts-linux.md)
 ### [Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
 ### [Sanal Ağ kullanma](hdinsight-extend-hadoop-virtual-network.md)
-### [Zeppelin kullanma](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Zeppelin kullanma](hdinsight-apache-spark-zeppelin-notebook.md)
 ### HDInsight uygulamalarını derleme
 #### [HDInsight uygulamaları yükleme](hdinsight-apps-install-applications.md)
 #### [Özel uygulamaları yükleme](hdinsight-apps-install-custom-applications.md)
@@ -222,6 +226,7 @@
 ### [Ambari API’sini kullanarak kümeleri izleme](hdinsight-monitor-use-ambari-api.md)
 
 # Kaynaklar
-## [HDInsight için Windows araçları](hdinsight-hadoop-windows-tools.md)
+## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
 ## [Forumdan yardım alma](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+## [HDInsight için Windows araçları](hdinsight-hadoop-windows-tools.md)
