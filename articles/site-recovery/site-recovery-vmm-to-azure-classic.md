@@ -1,6 +1,6 @@
 ---
-title: "VMM bulutlarındaki Hyper-V sanal makinelerini Azure&quot;a çoğaltma | Microsoft Belgeleri"
-description: "Bu makalede, System Center VMM bulutlarında bulunan Hyper-V ana bilgisayarlarındaki Hyper-V sanal makinelerini Azure&quot;a çoğaltma işlemi açıklanır."
+title: "VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma | Microsoft Belgeleri"
+description: "Bu makalede, System Center VMM bulutlarında bulunan Hyper-V ana bilgisayarlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma işlemi açıklanır."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,7 +12,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/06/2017
+ms.date: 06/23/2017
 ms.author: raynew
 ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
