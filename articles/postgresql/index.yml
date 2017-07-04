@@ -1,9 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "PostgreSQL Belgeleri için Azure Veritabanı"
+title: PostgreSQL Belgeleri için Azure Veritabanı
 metadata:
-  title: "Azure PostgreSQL Belgeleri - Öğreticiler, API Başvurusu"
-  description: "PostgreSQL için Azure Veritabanı, açık kaynak PostgreSQL veritabanı altyapısını temel alan, Microsoft bulutunda geliştiriciler için oluşturulmuş ilişkisel bir veritabanı hizmetidir."
+  document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
+  title: 'Azure PostgreSQL Belgeleri - Öğreticiler, API Başvurusu'
+  description: 'PostgreSQL için Azure Veritabanı, açık kaynak PostgreSQL veritabanı altyapısını temel alan, Microsoft bulutunda geliştiriciler için oluşturulmuş ilişkisel bir veritabanı hizmetidir.'
   services: app-service
   author: jasonwhowell
   manager: jhubbard
@@ -14,12 +15,12 @@ metadata:
   ms.date: 01/23/2017
   ms.author: jasonh
 abstract:
-  description: "PostgreSQL için Azure Veritabanı, açık kaynak Postgres veritabanı altyapısını temel alan ilişkisel bir veritabanı hizmetidir.  Bu; kritik iş yüklerini işleyebilen, tahmin edilebilir performans, güvenlik, yüksek kullanılabilirlik ve dinamik ölçeklenebilirlik sunan, tam olarak yönetilen bir hizmet olarak veritabanıdır.  PostgreSQL için Azure Veritabanı ile açık kaynak araçları ve seçtiğiniz platformu kullanarak uygulamalar geliştirin.  Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, PostgreSQL için Azure Veritabanı’nı kullanmayı öğrenin."
+  description: 'PostgreSQL için Azure Veritabanı, açık kaynak Postgres veritabanı altyapısını temel alan ilişkisel bir veritabanı hizmetidir.  Bu; kritik iş yüklerini işleyebilen, tahmin edilebilir performans, güvenlik, yüksek kullanılabilirlik ve dinamik ölçeklenebilirlik sunan, tam olarak yönetilen bir hizmet olarak veritabanıdır.  PostgreSQL için Azure Veritabanı ile açık kaynak araçları ve seçtiğiniz platformu kullanarak uygulamalar geliştirin.  Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, PostgreSQL için Azure Veritabanı’nı kullanmayı öğrenin.'
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: 'Learn how to create a PostgreSQL database using:'
+    text: 'Şunları kullanarak PostgreSQL veritabanı oluşturmayı öğrenin:'
   - type: list
     style: icon48
     items: 
@@ -31,29 +32,29 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
       text: Azure CLI
       href: /azure/postgresql/quickstart-create-server-database-azure-cli
-- title: "Adım Adım Öğreticiler"
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: 'Learn how to:'
+    text: 'Şunları nasıl yapacağınızı öğrenin:'
   - type: list
     style: ordered
     items:
-    - html: Design a Database&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Build a Web App using Python and the CLI</a>
-- title: "Örnekler"
+    - html: 'Veritabanı Tasarlama&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portalı</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Python ve CLI kullanarak bir Web Uygulaması oluşturma</a>
+- title: Örnekler
   items:
   - type: paragraph
-    text: Find scripts to manage common tasks.
+    text: Genel görevleri yönetmeye yönelik betikleri bulun.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Azure CLI</a>
-- title: "Başvuru"
+- title: Başvuru
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Komut Satırı"
+    - title: Komut Satırı
       html: <p><a href="/cli/azure">Azure CLI</a></p>

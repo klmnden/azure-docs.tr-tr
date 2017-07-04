@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Lake Store&quot;a genel bakış | Microsoft Belgeleri"
-description: "Azure Data Lake Store&quot;un ve diğer veri depolarına kıyasla sağladığı değeri anlama"
+title: "Azure Data Lake Store'a genel bakış | Microsoft Belgeleri"
+description: "Azure Data Lake Store'un ve diğer veri depolarına kıyasla sağladığı değeri anlama"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
+ms.contentlocale: tr-tr
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -55,7 +57,7 @@ Azure Data Lake Store tüm verileri yerel biçiminde, olduğu gibi ve önceden y
 
 Verilere yönelik Azure Data Lake Store kapsayıcıları esasen klasör ve dosyadır. SDK'ları, Azure Portal'ı ve Azure PowerShell'i kullanarak depolanan veriler üzerinde işlem yaparsınız. Verilerinizi bu arabirimleri kullanarak depoya yerleştirdiğiniz ve ilgili kapsayıcıları kullandığınız sürece, istediğiniz türde veriyi depolayabilirsiniz. Data Lake Store, depoladığı verilerin türüne göre herhangi bir özel veri işleme işlemi gerçekleştirmez.
 
-## <a name="a-namedatalakestoresecurityasecuring-data-in-azure-data-lake-store"></a><a name="DataLakeStoreSecurity"></a>Azure Data Lake Store'da verilerin güvenliğini sağlama
+## <a name="DataLakeStoreSecurity"></a>Azure Data Lake Store'da verilerin güvenliğini sağlama
 Azure Data Lake Store, verilerinize erişimi yönetmek üzere kimlik doğrulaması ve erişim denetim listeleri (ACL'ler) için Azure Active Directory'yi kullanır.
 
 | Özellik | Açıklama |
@@ -101,10 +103,5 @@ Azure Portal'ı kullanarak Data Lake Store sağlamaya yönelik bilgiler için bk
 * [İlişkisel kaynaklar ile Azure Data Lake Store arasında veri taşımak için Apache Sqoop'u kullanma](https://mix.office.com/watch/1butcdjxmu114)
 * [Azure Data Lake Store için Azure Data Factory'yi kullanarak Veri Düzenlemesi](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Azure Data Lake Store'da Verilerin Güvenliğini Sağlama](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
