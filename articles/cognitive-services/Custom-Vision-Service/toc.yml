@@ -1,32 +1,36 @@
 
-- name: Custom Vision Belgeleri
+- name: Custom Vision Documentation
   href: ../index.md
-- name: Genel Bakış
+- name: Overview
   href: home.md
-- name: Hızlı Başlangıçlar
+- name: Quickstarts
   expanded: true
   items: 
-  - name: Sınıflandırıcı oluşturma
+  - name: Build a classifier
     href: getting-started-build-a-classifier.md
-  - name: Sınıflandırıcınızı geliştirme
+  - name: Improve your classifier
     href: getting-started-improving-your-classifier.md
-  - name: Modelinizi test etme
+  - name: Test your model
     href: test-your-model.md
-  - name: Tahmin API’sini kullanma
+  - name: Use the prediction API
     href: use-prediction-api.md
-- name: Öğreticiler
+- name: Tutorials
   items:
-  - name: 'C# Öğreticisi'
+  - name: 'C# Tutorial'
     href: csharp-tutorial.md
-- name: Başvuru
+- name: Reference
   items:
-  - name: Custom Vision Tahmin API’si Başvurusu
+  - name: Custom Vision Prediction API Reference
  
     href: https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814 
-  - name: Custom Vision Eğitim API’si Başvurusu
+  - name: Custom Vision Training API Reference
   
     href: https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3
-  - name: Sözlük
+  - name: Glossary
     href: glossary-of-terms.md
   - name: SDK
     href: http://github.com/Microsoft/Cognitive-CustomVision-Windows/
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

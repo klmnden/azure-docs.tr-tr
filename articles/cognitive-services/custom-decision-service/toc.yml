@@ -1,16 +1,20 @@
-- name: Özel Karar Hizmeti
+- name: Custom Decision Service
   href: ../index.md
-- name: Genel Bakış
+- name: Overview
   href: custom-decision-service-overview.md
-- name: başlarken
+- name: Get started
   items:
-  - name: Uygulamanızı kaydetme
+  - name: Register your application
     href: custom-decision-service-get-started-register.md
-  - name: Tarayıcıdan API çağrısı yapma
+  - name: Call API from a browser
     href: custom-decision-service-get-started-browser.md
-  - name: Uygulamadan API çağrısı yapma
+  - name: Call API from an app
     href: custom-decision-service-get-started-app.md
-- name: Öğretici
+- name: Tutorial
   href: custom-decision-service-tutorial.md
-- name: API başvurusu
+- name: API reference
   href: custom-decision-service-api-reference.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
