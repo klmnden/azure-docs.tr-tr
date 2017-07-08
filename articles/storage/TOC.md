@@ -113,9 +113,10 @@
 ### [Güvenlik kılavuzu](storage-security-guide.md)
 ### [Bekleyen verilerin şifrelenmesi](storage-service-encryption.md)
 ### [Müşteri anahtarlarıyla bekleme sırasında şifreleme](storage-service-encryption-customer-managed-keys.md)
-### [Paylaşılan anahtar kimlik doğrulaması](https://msdn.microsoft.com/library/dd179428.aspx)
+### [Paylaşılan anahtar kimlik doğrulaması](/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [Paylaşılan erişim imzaları (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Öğretici: Azure Anahtar Kasasını kullanarak blob’ları şifreleme ve şifre çözme](storage-encrypt-decrypt-blobs-key-vault.md)
+### [Güvenli aktarım gerektir](storage-require-secure-transfer.md)
 ### İstemci Tarafında Şifreleme
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
@@ -201,11 +202,12 @@
 ### [Sorun giderme öğreticisi](storage-e2e-troubleshooting-classic-portal.md)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Azure Depolama İstemci Araçları](storage-explorers.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storage/blobs/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=storage)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=storage)
 
 ## Azure Depolama Gezgini

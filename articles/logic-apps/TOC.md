@@ -139,6 +139,7 @@
 ### [Önizleme](logic-apps-schema-2015-08-01.md)
 
 # Kaynaklar
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=logic-apps)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)

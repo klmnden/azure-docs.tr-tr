@@ -63,6 +63,10 @@
 ## [Ağ geçidi SKU’ları (eski)](vpn-gateway-about-skus-legacy.md)
 ## Sorun giderme
 ### [Bir sanal ağa VPN aktarım hızını doğrulama](vpn-gateway-validate-throughput-to-vnet.md)
+### [Topluluk tarafından önerilen VPN veya güvenlik duvarı cihaz ayarları](vpn-gateway-third-party-settings.md)
+### [Noktadan Siteye bağlantı sorunu](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+### [Siteden Siteye bağlantı aralıklı olarak kesiliyor](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+### [Siteden Siteye bağlantı kurulamıyor](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
 
 # Başvuru
 ## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
@@ -80,6 +84,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/vpn-gateway)

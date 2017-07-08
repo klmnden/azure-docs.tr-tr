@@ -1,8 +1,8 @@
 # Genel Bakış
 ## [Application Insights nedir?](app-insights-overview.md)
-## [devOps döngüsünde performans izleme](app-insights-detect-triage-diagnose.md)
+## [DevOps için performans izlemeye genel bakış](app-insights-detect-triage-diagnose.md)
 
-# Başlarken
+# başlarken
 ## Azure izleme
 ### [Azure Web Apps](app-insights-azure-web-apps.md)
 ### [Azure Cloud Services](app-insights-cloudservices.md)
@@ -80,7 +80,6 @@
 #### [Search](app-insights-diagnostic-search.md)
 #### [Ölçümler](app-insights-metrics-explorer.md)
 #### [Canlı akış](app-insights-live-stream.md)
-
 #### [Uygulama Eşlemesi](app-insights-app-map.md)
 #### [HockeyApp verileri](app-insights-hockeyapp-bridge-app.md)
 
@@ -93,6 +92,7 @@
 ### Kullanım
 #### [Genel Bakış](app-insights-usage-overview.md)
 #### [Kullanıcılar, Oturumlar, Etkinlikler](app-insights-usage-segmentation.md)
+#### [Huniler](app-insights-understand-usage-patterns.md)
 #### [Bekletme](app-insights-usage-retention.md)
 #### [Çalışma kitapları](app-insights-usage-workbooks.md)
 
@@ -111,6 +111,7 @@
 ### [Uyarı ayarlama](app-insights-powershell-alerts.md)
 ### [Azure tanılama verilerini alma](app-insights-powershell-azure-diagnostics.md)
 ### [Microsoft Flow ile otomatikleştirme](app-insights-automate-with-flow.md)
+### [Azure Mantıksal Uygulaması ile otomatikleştirme](automate-with-logic-apps.md)
 
 ## Geliştirme
 
@@ -154,6 +155,7 @@
 ## [Telemetri bağıntısı](application-insights-correlation.md)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 
 ## [Diller ve platformlar](app-insights-platforms.md)
 

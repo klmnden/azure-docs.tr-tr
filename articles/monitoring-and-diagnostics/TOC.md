@@ -70,6 +70,7 @@
 ### [1.3 ve üzeri](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Kaynaklar
-## [PowerShell örnekleri](insights-powershell-samples.md)
 ## [Azure CLI 1.0 örnekleri](insights-cli-samples.md)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [PowerShell örnekleri](insights-powershell-samples.md)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=monitor)

@@ -5,6 +5,7 @@
 ## [Ortam oluşturma](time-series-insights-get-started.md)
 ## [Veri erişim izni verme](time-series-insights-data-access.md)
 ## [Olay kaynağı oluşturma](time-series-insights-add-event-source.md)
+## [Başvuru veri kümesi oluşturma](time-series-insights-add-reference-data-set.md)
 ## [Olay gönderme](time-series-insights-send-events.md)
 
 # Nasıl yapılır
@@ -15,6 +16,7 @@
 ## Geliştirme
 ### [Kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md)
 ### [C# kullanarak verileri sorgulama](time-series-insights-query-data-csharp.md)
+### [C# kullanarak başvuru verilerini yönetme](time-series-insights-manage-reference-data-csharp.md)
 
 # Başvuru
 ## [Sorgu API'si](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
@@ -26,4 +28,5 @@
 ## [Azure Akış Analizi](/azure/stream-analytics/)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/time-series-insights/)

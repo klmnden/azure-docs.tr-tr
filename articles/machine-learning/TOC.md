@@ -193,6 +193,10 @@
 ### [Koleksiyonlar](machine-learning-gallery-collections.md)
 ### [Özel Modüller](machine-learning-gallery-custom-modules.md)
 
+## Cortana Intelligence İş Ortağı Çözümleri
+### [Cortana Intelligence yayımlama kılavuzu](cortana-intelligence-appsource-publishing-guide.md)
+### [Cortana Intelligence çözüm değerlendirme aracı](cortana-intelligence-appsource-evaluation-tool.md)
+
 ## Cortana Analytics
 ### API'ler
 #### [Anormallik algılama](machine-learning-apps-anomaly-detection-api.md)
@@ -207,6 +211,7 @@
 ##### [Kurulum](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 
 ## [Net# Sinir Ağları Dili](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/machine-learning/)

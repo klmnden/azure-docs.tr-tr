@@ -22,10 +22,12 @@
 ### [Dosya düzeyinde yedekleme](sap-hana-backup-file-level.md)
 ### [Depolama anlık görüntüsü yedekleri](sap-hana-backup-storage-snapshots.md)
 ## SAP Netweaver
-### [Windows üzerinde SAP IDES/SQL Server SAP CAL dağıtım kılavuzu](sap-cal-ides-erp6-ehp7-sp3-sql.md)
+### [Windows üzerinde SAP IDES/SQL Server SAP CAL dağıtım kılavuzu](cal-ides-erp6-erp7-sp3-sql.md)
 ### [Genel bakış ve mimari](suse-quickstart.md)
 ### [Planlama ve uygulama](planning-guide.md)
 ### [Yüksek kullanılabilirlik](high-availability-guide.md)
 ### [Çoklu SID yapılandırmaları](high-availability-multi-sid.md)
 ### [Dağıtım kılavuzu](deployment-guide.md)
 ### [DBMS dağıtım kılavuzu](dbms-guide.md)
+# Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

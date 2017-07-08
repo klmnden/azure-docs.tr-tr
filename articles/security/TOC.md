@@ -42,6 +42,7 @@
 #### [Azure günlük tümleştirmesini kullanmaya başlama](security-azure-log-integration-get-started.md)
 #### [Azure Active Directory denetim günlüklerini tümleştirme](security-azure-log-integration-ad.md)
 #### [Güvenlik Merkezi uyarılarını tümleştirme](security-azure-log-integration-security-center.md)
+#### [Event Hubs kullanarak Key Vault’tan günlükleri tümleştirme](security-azure-log-integration-keyvault-eventhub.md)
 #### [SSS](security-azure-log-integration-faq.md)
 
 ## Kimlik yönetimi
@@ -72,9 +73,10 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Kaynaklar
-## [Güvenlik ve Uyumluluk blogu](http://blogs.msdn.com/b/azuresecurity/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Azure güvenlik MVP programı](azure-security-mvp.md)
 ## [Siber güvenlik danışmanlığı](azure-security-cyber-services.md)
+## [Güvenlik ve Uyumluluk blogu](http://blogs.msdn.com/b/azuresecurity/)
 ## [Sanal Akademi’den güvenlik kursları](security-microsoft-virtual-academy.md)
 ## [Channel 9’da güvenlik videoları](security-channel-nine.md)
 ## [Tehdit modelleme aracı](azure-security-threat-modeling-tool.md)

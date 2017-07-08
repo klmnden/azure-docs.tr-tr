@@ -15,6 +15,9 @@
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
+## Olayları yakalama
+### [Event Hubs Capture için Azure portalını kullanma](event-hubs-capture-enable-through-portal.md)
+### [Event Hubs Capture’ı etkinleştirmek için bir Resource Manager şablonu kullanma](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 ## [Programlama kılavuzu](event-hubs-programming-guide.md)
 
 # Nasıl yapılır?
@@ -31,10 +34,9 @@
 ### [AMQP 1.0 protokol kılavuzu](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Yönet
 ### [Event Hubs yönetim kitaplıkları](event-hubs-management-libraries.md)
-### Arşiv
-#### [Event Hubs Arşivi](event-hubs-archive-overview.md)
-#### [Şablon kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
-#### [Python kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-archive-python.md)
+### Capture
+#### [Event Hubs Capture](event-hubs-capture-overview.md)
+#### [Python kullanarak Event Hubs verilerini yakalama](event-hubs-capture-python.md)
 ### [Varlıkları sağlamak için PowerShell kullanma](event-hubs-manage-with-ps.md) 
 ### [Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma](event-hubs-streaming-azure-diags-data.md)
 ### [Resource Manager şablonu kullanarak bir Olay Hub’ı oluşturup dağıtma](event-hubs-resource-manager-namespace-event-hub.md)
@@ -54,9 +56,10 @@
 ## [Kotalar](event-hubs-quotas.md)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Kod örnekleri](event-hubs-samples.md)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)

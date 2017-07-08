@@ -25,7 +25,8 @@
 ## [Kapsayıcı Hizmeti](/azure/container-service/)
 
 # Kaynaklar
-## [Bölge kullanılabilirliği](https://azure.microsoft.com/regions/services/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/container-registry/)
+## [Bölge kullanılabilirliği](https://azure.microsoft.com/regions/services/)
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)

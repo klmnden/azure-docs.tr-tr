@@ -21,24 +21,27 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Şablon](virtual-networks-create-vnet-arm-template-click.md)
-#### [Portal (klasik)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (klasik)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [CLI (klasik)](virtual-networks-create-vnet-classic-cli.md)
+#### Klasik
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Ağ güvenlik grupları
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Şablon](virtual-networks-create-nsg-arm-template.md)
-#### [PowerShell (Klasik)](virtual-networks-create-nsg-classic-ps.md)
-#### [CLI (Klasik)](virtual-networks-create-nsg-classic-cli.md)
+#### Klasik
+##### [PowerShell](virtual-networks-create-nsg-classic-ps.md)
+##### [CLI](virtual-networks-create-nsg-classic-cli.md)
 
 ### Kullanıcı tanımlı yollar
 #### [PowerShell](virtual-network-create-udr-arm-ps.md)
 #### [CLI](virtual-network-create-udr-arm-cli.md)
 #### [Şablon](virtual-network-create-udr-arm-template.md)
-#### [PowerShell (Klasik)](virtual-network-create-udr-classic-ps.md)
-#### [CLI (Klasik)](virtual-network-create-udr-classic-cli.md)
+#### Klasik
+##### [PowerShell](virtual-network-create-udr-classic-ps.md)
+##### [CLI](virtual-network-create-udr-classic-cli.md)
 
 ### [Sanal ağ eşleme](virtual-network-create-peering.md)
 
@@ -48,21 +51,24 @@
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Şablon](virtual-network-deploy-static-pip-arm-template.md)
-##### [PowerShell (Klasik)](virtual-networks-reserved-public-ip.md)
+##### Klasik
+###### [PowerShell](virtual-networks-reserved-public-ip.md)
 
 #### Statik özel IP adresiyle VM oluşturma
 ##### [Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
-##### [Portal (Klasik)](virtual-networks-static-private-ip-classic-pportal.md)
-##### [PowerShell (Klasik)](virtual-networks-static-private-ip-classic-ps.md)
-##### [CLI (Klasik)](virtual-networks-static-private-ip-classic-cli.md)
+##### Klasik
+###### [Portal](virtual-networks-static-private-ip-classic-pportal.md)
+###### [PowerShell](virtual-networks-static-private-ip-classic-ps.md)
+###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
 
 #### Birden çok ağ arabirimi ile VM oluşturma
 ##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [PowerShell (Klasik)](virtual-network-deploy-multinic-classic-ps.md)
-##### [CLI (Klasik)](virtual-network-deploy-multinic-classic-cli.md)
+##### Klasik
+###### [PowerShell](virtual-network-deploy-multinic-classic-ps.md)
+###### [CLI](virtual-network-deploy-multinic-classic-cli.md)
 
 #### Birden çok IP adresi ile VM oluşturma
 ##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
@@ -103,6 +109,9 @@
 ### [Sanal ağlar](virtual-network-manage-network.md)
 #### [Alt ağlar](virtual-network-manage-subnet.md)
 #### [Eşlemeler](virtual-network-manage-peering.md)
+#### Klasik
+##### [Ağ yapılandırması dosyası](virtual-networks-using-network-configuration-file.md)
+##### [Bir benzeşim grubundan bölgeye geçiş](virtual-networks-migrate-to-regional-vnet.md)
 ### Ağ güvenlik grupları
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
@@ -126,7 +135,7 @@
 
 # Başvuru
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
-## [PowerShell (Klasik)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [PowerShell (Klasik)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
@@ -143,6 +152,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Kaynaklar
+## [Azure yol haritası](https://azure.microsoft.com/roadmap/)
 ## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
 ## [Ağ forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-network)

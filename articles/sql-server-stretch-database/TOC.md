@@ -20,7 +20,8 @@
 ### [Esnetme Veritabanı'nı devre dışı bırakma](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=sql-server-stretch-database)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database)

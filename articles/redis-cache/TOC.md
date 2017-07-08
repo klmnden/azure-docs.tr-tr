@@ -55,6 +55,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
 
 # Kaynaklar
-## [Redis önbelleği örnekleri](cache-redis-samples.md)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/)
+## [Redis önbelleği örnekleri](cache-redis-samples.md)
 

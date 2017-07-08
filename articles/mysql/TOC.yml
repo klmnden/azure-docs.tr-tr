@@ -103,6 +103,8 @@
     href: /cli/azure/mysql
 - name: Kaynaklar
   items:
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
   - name: Fiyatlandırma
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: MSDN forumu

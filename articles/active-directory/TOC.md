@@ -3,24 +3,25 @@
 ## [Sürüm seçin](active-directory-editions.md)
 ## [Azure kimlik yönetimi hakkında](identity-fundamentals.md)
 ## [Azure kimlik çözümlerini anlama](understand-azure-identity-solutions.md)
-## [Azure Portalı deneyiminin önizlemesini gerçekleştirme](active-directory-preview-explainer.md)
+## [Karma kimlik çözümü seçin](choose-hybrid-identity-solution.md)
 
-
-# Başlarken
+# başlarken
 ## [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
 ## [Azure aboneliklerini ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
 ## Azure AD lisanslamayı yönetme
 ### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Klasik portal](active-directory-licensing-what-is.md)
-## [Kuruluşunuz için Azure’u edinme](sign-up-organization.md)
+### [Grupları kullanarak lisansları atama](active-directory-licensing-whatis-azure-portal.md)
+#### [Bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Bir gruptaki lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
+#### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
+#### [Grup tabanlı lisanslama için PowerShell örnekleri](active-directory-licensing-ps-examples.md)
 ## [SSS](active-directory-faq.md)
 ## [Azure Active Directory için destek alma](active-directory-troubleshooting-support-howto.md)
 ## [SaaS uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md)
-## Azure AD Denetimleri
-### [Erişim gözden geçirmesini tamamlama](active-directory-azure-ad-controls-complete-an-access-review.md)
-### [Erişim gözden geçirmesi oluşturma](active-directory-azure-ad-controls-create-an-access-review.md)
-### [Erişim gözden geçirmesi gerçekleştirme](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 
 # Nasıl yapılır?
@@ -53,9 +54,7 @@
 ### Kullanıcı ekle
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
 #### [Klasik portal](active-directory-create-users.md)
-### Azure AD Denetimleri
-#### [Erişim gözden geçirmesi ile konuk erişimi](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-#### [Gözden geçirmelerle kullanıcı erişimini yönetme](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+
 
 ### [Grupları kullanarak lisansları atama](active-directory-licensing-whatis-azure-portal.md)
 #### [Bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
@@ -106,11 +105,13 @@
 ### [Risk altındaki kullanıcılar](active-directory-reporting-security-user-at-risk.md)
 ### [Riskli oturum açma işlemleri](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk olayları](active-directory-reporting-risk-events.md)
-### [Adlandırılmış konumlar](active-directory-named-locations.md)
-### [Rapor geçişi](active-directory-reporting-migration.md)
 ### [Bekletme](active-directory-reporting-retention.md)
 ### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)
 ### [SSS](active-directory-reporting-faq.md)
+### Görevler
+#### [Adlandırılmış konumları yapılandırma](active-directory-named-locations.md)
+#### [Etkinlik raporlarını bulma](active-directory-reporting-migration.md)
+#### [Azure Active Directory Power BI İçerik Paketi’ni kullanma](active-directory-reporting-power-bi-content-pack-how-to.md)  
 ### Sorun giderme
 #### [Eksik denetim verileri](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [İndirmelerde eksik veriler](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -188,8 +189,7 @@
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Kayıt defteri ayarlarını güncelleştirme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Güvenlik ve gizliliği anlama](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
-### Azure AD Denetimleri
-####[Programları ve denetimlerini yönetme](active-directory-azure-ad-controls-manage-programs-and-controls.md)
+
 
 ### [Uygulama Proxy’si ile uygulamalara uzaktan erişme](active-directory-application-proxy-get-started.md)
 #### başlarken
@@ -215,6 +215,7 @@
 ##### [Native Client uygulamaları](active-directory-application-proxy-native-client.md)
 ##### [Sessiz yükleme](active-directory-application-proxy-silent-installation.md)
 ##### [Özel giriş sayfası](application-proxy-office365-app-launcher.md)
+##### [Satır içi bağlantıları çevirme](application-proxy-link-translation.md)
 #### Adım adım kılavuzlar yayımlama
 ##### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -399,9 +400,10 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory)
-## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)

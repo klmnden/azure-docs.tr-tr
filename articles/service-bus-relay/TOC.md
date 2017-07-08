@@ -27,7 +27,8 @@
 ## [Bağlantı noktası ayarları](relay-port-settings.md)
 
 # Kaynaklar
-## [Örnekler](https://github.com/azure/azure-relay/tree/master/samples)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Örnekler](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

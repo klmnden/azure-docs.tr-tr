@@ -40,4 +40,5 @@
 ## [İş ortağı çözümü: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Desteğe başvurun](../azure-supportability/how-to-create-azure-support-request.md)

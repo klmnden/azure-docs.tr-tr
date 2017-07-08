@@ -134,13 +134,13 @@
       href: create-vm-specialized.md
     - name: Şablon ile VM oluşturma
       href: ps-template.md
-    - name: 'C# ile VM oluşturma'
+    - name: 'C# ile VM oluşturma / yönetme'
       href: csharp.md
     - name: 'C# ve şablon ile VM oluşturma'
       href: csharp-template.md
     - name: Chef ile VM oluşturma
       href: chef-automation.md
-    - name: Python ile VM oluşturma
+    - name: Python ile VM oluşturma / yönetme
       href: python.md
     - name: Terraform ile VM oluşturma
       items:
@@ -173,8 +173,6 @@
       href: cli-manage.md
     - name: CLI kullanarak sanal makineleri yönetme
       href: cli-deploy-templates.md
-    - name: 'C# kullanarak VM’leri yönetme'
-      href: csharp-manage.md
   - name: RDP ile bağlanma
     items:
     - name: VM’de oturum açma
@@ -187,6 +185,8 @@
       href: hybrid-use-benefit-licensing.md
     - name: Windows istemci görüntülerini kullanma
       href: client-images.md
+    - name: VHD indirme
+      href: download-vhd.md
     - name: VHD’yi karşıya yükleme işlemi için hazırlama
       href: prepare-for-upload-vhd-image.md
     - name: Yönetilen Disk görüntüsü oluşturma
@@ -366,15 +366,22 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: RDP parolasını sıfırlama
       href: reset-rdp.md
+    - name: NIC’yi sıfırlama
+      href: reset-network-interface.md
     - name: Önyükleme tanılamaları
  
       href: boot-diagnostics.md
     - name: VM oluşturma
       href: troubleshoot-deployment-new-vm.md
+    - name: Dağıtım sorunları
+ 
+      href: troubleshoot-deploy-vm.md
     - name: VM’yi yeniden başlatma veya yeniden boyutlandırma
       href: restart-resize-error-troubleshooting.md
     - name: Uygulama erişimi
       href: troubleshoot-app-connection.md
+    - name: Etkinleştirme sorunları
+      href: troubleshoot-activation-problems.md
     - name: Ayırma hataları
       href: allocation-failure.md
     - name: Bir VM’yi yeniden dağıtma
@@ -409,6 +416,8 @@
   items:
   - name: Yazar şablonları
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
   - name: Topluluk şablonları
     href: https://azure.microsoft.com/documentation/templates
   - name: Fiyatlandırma

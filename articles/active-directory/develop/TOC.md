@@ -105,3 +105,5 @@
 #### [Belirteç başvurusu](active-directory-v2-tokens.md)
 #### [Sertifika kimlik bilgileri](active-directory-certificate-credentials.md)
 ### [Kapsamlar](active-directory-v2-scopes.md)
+# Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

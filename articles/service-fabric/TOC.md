@@ -2,11 +2,11 @@
 # Genel Bakış
 ## [Service Fabric nedir?](service-fabric-overview.md)
 ## [Mikro hizmetleri anlama](service-fabric-overview-microservices.md)
+## [Büyük resim](service-fabric-content-roadmap.md)
 ## [Uygulama senaryoları](service-fabric-application-scenarios.md)
 ## [Modeller ve senaryolar](service-fabric-patterns-and-scenarios.md)
 ## [Mimari](service-fabric-architecture.md)
 ## [Terminoloji](service-fabric-technical-overview.md)
-## [Primer](service-fabric-content-roadmap.md)
 
 # başlarken
 ## Geliştirme ortamınızı kurma
@@ -131,6 +131,10 @@
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
+### API Yönetimi ile tümleştirme
+#### [Genel Bakış](service-fabric-api-management-overview.md)
+#### [Hızlı başlangıç](service-fabric-api-management-quick-start.md)
+
 ### Cloud Services’tan geçiş
 #### [Cloud Services ile Service Fabric karşılaştırması](service-fabric-cloud-services-migration-differences.md)
 #### [Service Fabric’e geçme](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -142,6 +146,7 @@
 ### [ImageStoreConnectionString ayarını anlama](service-fabric-image-store-connection-string.md)
 ### Uygulama dağıtma veya kaldırma
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API’leri](service-fabric-deploy-remove-applications-fabricclient.md)
 ### Uygulama yükseltme
@@ -215,7 +220,8 @@
 ### [Küme görselleştirme](service-fabric-visualizing-your-cluster.md)
 ### [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md)
 
-### [Azure CLI kullanarak bir kümeyi yönetme](service-fabric-azure-cli.md)
+### [XPlat CLI kullanarak bir kümeyi yönetme](service-fabric-azure-cli.md)
+### [Azure CLI 2.0 komutlarını kullanarak bir kümeyi yönetme](service-fabric-azure-cli-2-0.md)
 ### [Küme düğümleri yamalama](service-fabric-patch-orchestration-application.md)
 
 ### Küme kaynaklarını yönetme ve düzenleme
@@ -258,18 +264,19 @@
 
 # Başvuru
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
-## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
+## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Java API’si](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Service Fabric hakkında sık sorulan sorular](service-fabric-common-questions.md)
-## [Service Fabric destek seçenekleri](service-fabric-support.md)
-## [Örnek kod](http://aka.ms/servicefabricsamples)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/service-fabric/)
-## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Örnek kod](http://aka.ms/servicefabricsamples)
+## [Service Fabric destek seçenekleri](service-fabric-support.md)
+## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)

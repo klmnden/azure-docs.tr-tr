@@ -10,7 +10,11 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Depolama](cdn-create-a-storage-account-with-cdn.md)
 ### [Çıkış noktaları arası kaynak paylaşımı](cdn-cors.md)
-
+## İçeriği iyileştirme
+### [İyileştirmeye genel bakış](cdn-optimization-overview.md)
+####[Büyük dosyaları iyileştirme](cdn-large-file-optimization.md)
+####[Medya akışını iyileştirme](cdn-media-streaming-optimization.md)
+ 
 ## Yönet
 ### [Özel bir etki alanı üzerinde HTTPS'yi etkinleştirme](cdn-custom-ssl.md)
 ### [PowerShell ile Yönetme](cdn-manage-powershell.md)
@@ -54,12 +58,13 @@
 
 # Kaynaklar
 ##  [Kural Altyapısı başvurusu](cdn-rules-engine-reference.md)
-### [Kural Altyapısı koşullu ifadeleri](cdn-rules-engine-reference-conditional-expressions.md)
-### [Kural Altyapısı eşleşme koşulları](cdn-rules-engine-reference-match-conditions.md)
-### [Kural Altyapısı özellikleri](cdn-rules-engine-reference-features.md)
 ## [Azure CDN POP konumları](cdn-pop-locations.md)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=cdn)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cdn/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cdn/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+### [Kural Altyapısı koşullu ifadeleri](cdn-rules-engine-reference-conditional-expressions.md)
+### [Kural Altyapısı özellikleri](cdn-rules-engine-reference-features.md)
+### [Kural Altyapısı eşleşme koşulları](cdn-rules-engine-reference-match-conditions.md)

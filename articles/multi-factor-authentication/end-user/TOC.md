@@ -14,8 +14,5 @@
 ### [Telefonunuzla oturum açma](microsoft-authenticator-app-phone-signin-faq.md)
 ### [SSS](microsoft-authenticator-app-faq.md)
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+# Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

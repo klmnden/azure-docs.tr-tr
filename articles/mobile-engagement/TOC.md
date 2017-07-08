@@ -127,17 +127,18 @@
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-sdk-content.md)
 
 # Kaynaklar
+## [.NET API Örneği](mobile-engagement-dotnet-sdk-service-api.md)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [Örnek Tanıtım uygulamaları](mobile-engagement-demo-apps.md)
+## [Hizmet Düzeyi Sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+## [Videolar ve Güncelleştirmeler](https://azure.microsoft.com/documentation/services/mobile-engagement/)
 ## Sürüm notları
 ### [Android SDK](mobile-engagement-android-release-notes.md)
 ### [iOS SDK](mobile-engagement-ios-release-notes.md)
 ### [Web SDK](mobile-engagement-web-release-notes.md)
-### [Windows Evrensel Uygulamaları SDK](mobile-engagement-windows-store-release-notes.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-release-notes.md)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/mobile-engagement/)
-## [Örnek Tanıtım uygulamaları](mobile-engagement-demo-apps.md)
-## [.NET API Örneği](mobile-engagement-dotnet-sdk-service-api.md)
-## [Videolar ve Güncelleştirmeler](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Hizmet Düzeyi Sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+### [Windows Evrensel Uygulamaları SDK](mobile-engagement-windows-store-release-notes.md)
 
 
 

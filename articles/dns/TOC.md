@@ -62,8 +62,9 @@
 ## [Web Apps](/azure/app-service-web/)
 
 # Kaynaklar
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=dns)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/dns/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Özellik istekleri](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
-## [Özellik istekleri](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/dns/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=dns)

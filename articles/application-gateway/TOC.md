@@ -64,8 +64,9 @@
 ## [Yük Dengeleyici](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

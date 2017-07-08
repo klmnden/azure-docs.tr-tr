@@ -140,10 +140,11 @@
 ## [PowerShell cmdlet'leri](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## İş Ortakları

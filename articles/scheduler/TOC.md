@@ -25,11 +25,12 @@
 ## [REST](/rest/api/scheduler)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/scheduler/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=scheduler)
 
 
 

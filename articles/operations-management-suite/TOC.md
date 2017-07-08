@@ -36,6 +36,7 @@
 ### Öngörü ve analiz
 #### [AD Değerlendirmesi](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Çoğaltma Durumu](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Aracı Durumu](oms-solution-agenthealth.md)
 #### [Uyarı Yönetimi](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Azure Ağ Analizi](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Kapsayıcılar](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -73,3 +74,5 @@
 # Başvuru
 ## [SDK](operations-management-suite-sdk.md)
 
+# Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

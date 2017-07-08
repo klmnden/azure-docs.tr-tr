@@ -28,10 +28,11 @@
 ## [Geliştirici örnekleri](data-catalog-samples.md)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Azure Veri Kataloğu için klavye kısayolları](data-catalog-keyboard-shortcuts.md)
-## [Terminoloji](data-catalog-terminology.md)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [Sürüm notları](data-catalog-whats-new.md)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-catalog/)
-## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Terminoloji](data-catalog-terminology.md)

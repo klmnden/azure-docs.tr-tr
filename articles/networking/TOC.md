@@ -59,9 +59,10 @@
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
 
 # Kaynaklar
-## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
 ## [Yazar şablonları](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Topluluk şablonları](https://azure.microsoft.com/resources/templates/)
+## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing)
 ## [Bölgesel kullanılabilirlik](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
