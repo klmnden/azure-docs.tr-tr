@@ -7,10 +7,10 @@
 ## [Uyumlu üçüncü taraf yazılımı](active-directory-ds-compatible-software.md)
 
 # Başlarken
-## [Yönetim grubu oluşturma](active-directory-ds-getting-started.md)
+## [Yönetim grubu oluşturma](active-directory-ds-getting-started-create-group.md)
 ## [Sanal ağ oluşturma veya seçme](active-directory-ds-getting-started-vnet.md)
 ## [Azure AD DS’yi etkinleştirme](active-directory-ds-getting-started-enableaadds.md)
-## [DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
+## [DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-update-dns.md)
 ## Parola eşitlemeyi etkinleştirme
 ### [Yalnızca bulut kiracı](active-directory-ds-getting-started-password-sync.md)
 ### [Eşitlenen kiracı](active-directory-ds-getting-started-password-sync-synced-tenant.md)
@@ -41,12 +41,8 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [Azure AD geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Bizimle iletişim kurun](active-directory-ds-contact-us.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory-ds)

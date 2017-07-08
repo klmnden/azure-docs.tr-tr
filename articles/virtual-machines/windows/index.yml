@@ -6,7 +6,7 @@ metadata:
   title: 'Azure Windows Sanal Makineler Belgeleri - Öğreticiler, API Başvurusu'
   meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
   services: virtual-machines\windows
-  author: apexprodleads
+  author: czeumault
   manager: carolz
   ms.service: virtual-machines-windows
   ms.tgt_pltfrm: na
@@ -29,7 +29,7 @@ sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: 'Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:'
+    text: 'Windows Server 2016 çalıştıran bir Sanal Makine içinde IIS web sunucusu dağıtmayı öğrenin:'
   - type: list
     style: icon48
     items: 
@@ -48,43 +48,44 @@ sections:
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and monitor Windows VMs on Azure
+    text: 'Azure’da Windows VM’lerini dağıtma, yönetme ve izleme hakkında bilgi edinin'
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-vm">Create and manage Windows VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Create and manage VM disks</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automate VM configuration</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-custom-images">Create custom VM images</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-availability-sets">Create highly available VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-create-vmss">Create a VM scale set</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-load-balancer">Load balance VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-virtual-network">Manage VMs with virtual networks</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-backup-vms">Backup VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Monitor VMs</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Manage security on VMs</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-vm">Windows VM’leri oluşturma ve yönetme</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">VM diskleri oluşturma ve yönetme</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">VM yapılandırmasını otomatikleştirme</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-custom-images">Özel VM görüntüleri oluşturma</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-availability-sets">Yüksek oranda kullanılabilir VM’ler oluşturma</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-create-vmss">VM ölçek kümesi oluşturma</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-load-balancer">VM'ler için yük dengeleme</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-virtual-network">Sanal ağlar ile VM’leri yönetme</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-backup-vms">VM’leri yedekleme</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">VM’leri izleme</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">VM’lerde güvenliği yönetme</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Visual Studio ile sürekli tümleştirme işlem hattı oluşturma</a>
 - title: Ücretsiz PluralSight Video Eğitimi
   items:
   - type: list
     style: cards
     className: cardsW
     items:
-    - html: <p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Managing Infrastructure</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Altyapıyı Yönetme</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-infrastructure.png
         href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with Virtual Machines</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Sanal Makineleri Kullanmaya Başlama</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-vms.png
         href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with IaaS Monitoring</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">IaaS İzleme ile Çalışmaya Başlama</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-iaas-monitoring.png
         href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
 - title: Örnekler
   items:
   - type: paragraph
-    text: Deploy your first application to Azure.
+    text: İlk uygulamanızı Azure’da dağıtın.
   - type: list
     style: unordered
     className: spaced noBullet
@@ -100,6 +101,6 @@ sections:
     - title: Komut Satırı
       html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/vm">Azure CLI</a></p>
     - title: Diller
-      html: <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+      html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
     - title: REST
-      html: <p><a href="/rest/api/compute">Compute REST API Reference</a></p>
+      html: <p><a href="/rest/api/compute">İşlem REST API’si Başvurusu</a></p>

@@ -6,7 +6,7 @@ metadata:
   title: Azure İşlevleri Belgeleri - Öğreticileri | Microsoft Docs
   meta.description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
   services: functions
-  author: apexprodleads
+  author: czeumault
   manager: carolz
   ms.service: virtual-machines\linux
   ms.tgt_pltfrm: na
@@ -29,7 +29,7 @@ sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: 'Learn how to create functions that execute based on events created via:'
+    text: 'Şunlardan biriyle oluşturulan olayları temel alarak çalışan işlevleri oluşturmayı öğrenin:'
   - type: list
     style: icon48
     items: 
@@ -39,11 +39,11 @@ sections:
       href: /azure/azure-functions/functions-create-first-azure-function
     - image: 
         src: media/index/stopwatch.svg
-      text: Timer
+      text: Zamanlayıcı
       href: /azure/azure-functions/functions-create-scheduled-function
     - image: 
         src: media/index/octokitty.svg
-      text: GitHub webhook
+      text: GitHub web kancası
       href: /azure/azure-functions/functions-create-github-webhook-triggered-function
     - image: 
         src: media/index/blob.svg
@@ -51,17 +51,26 @@ sections:
       href: /azure/azure-functions/functions-create-storage-blob-triggered-function
     - image: 
         src: media/index/storage.svg
-      text: Queue
+      text: Kuyruk
       href: /azure/azure-functions/functions-create-storage-queue-triggered-function
+  - type: paragraph
+    text: 'Yerel olarak geliştirme ve hata ayıklamayı öğrenin:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /media/logos/logo_visual-studio.svg
+      text: Visual Studio
+      href: /azure/azure-functions/functions-create-your-first-function-visual-studio
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: 'Learn how to build and manage Azure Functions'
+    text: 'Azure İşlevlerini oluşturmayı ve yönetmeyi öğrenin:'
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-functions/functions-twitter-email">Create a function that integrates with Azure Logic Apps</a>
-    - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
+    - html: <a href="/azure/azure-functions/functions-twitter-email">Azure Logic Apps ile tümleşen bir işlev oluşturma</a>
+    - html: <a href="/azure/azure-functions/functions-create-serverless-api">Azure İşlevlerini kullanarak sunucusuz bir API oluşturma</a>
 - title: Örnekler
   items:
   - type: list
@@ -81,4 +90,4 @@ sections:
       html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
     - title: Bağlamalar
  
-      html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Event Hub</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">External file</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP and webhooks</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Queue storage</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Table storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Timer</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio output binding</a></p>
+      html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Olay Hub’ı</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Dış dosya</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP ve web kancaları</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Kuyruk depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Tablo depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Zamanlayıcı</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio çıktı bağlaması</a></p>

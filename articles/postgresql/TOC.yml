@@ -17,8 +17,16 @@
       href: connect-python.md
     - name: Node.js
       href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: PHP
+      href: connect-php.md
     - name: .NET
       href: connect-csharp.md
+    - name: Başlayın
+      href: connect-go.md
 - name: Öğreticiler
   items:
   - name: 1 - Veritabanı Tasarlama
@@ -97,6 +105,8 @@
     href: /cli/azure/postgres
 - name: Kaynaklar
   items:
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
   - name: Fiyatlandırma
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: MSDN forumu

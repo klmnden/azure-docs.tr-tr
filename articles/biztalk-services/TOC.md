@@ -23,9 +23,10 @@
 ### [Oluşturma ve yönetme](integration-hybrid-connection-create-manage.md)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [Sürüm notları](biztalk-release-notes.md)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=biztalk-services)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/biztalk-services/)
-## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)

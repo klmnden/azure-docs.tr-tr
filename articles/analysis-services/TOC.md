@@ -1,11 +1,14 @@
 # Genel Bakış
 ## [Azure Analysis Services nedir?](analysis-services-overview.md)
 ## [Desteklenen veri kaynakları](analysis-services-datasource.md)
+## [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md)
 
 # Hızlı Başlangıçlar
 ## [Sunucu oluşturma - portal](analysis-services-create-server.md)
 ## [Bir model dağıtma - SSDT](analysis-services-deploy.md)
 
+# Örnekler
+## [GitHub’daki Analysis Services örnekleri](https://github.com/Microsoft/Analysis-Services)
 
 # Öğreticiler
 ## Model oluşturma ve dağıtma
@@ -29,9 +32,9 @@
 
 # Nasıl yapılır 
 ## [Sunucu yönetme](analysis-services-manage.md)
-## [Kullanıcıları yönetme](analysis-services-manage-users.md)
+## [Veritabanı kullanıcılarını yönetme](analysis-services-database-users.md)
+## [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)
 ## [Şirket içi veri ağ geçidini tümleştirme](analysis-services-gateway.md)
-## [Sunuculara bağlanma](analysis-services-connect.md)
 ## [Excel ile bağlanma](analysis-services-connect-excel.md)
 ## [Power BI ile bağlanma](analysis-services-connect-pbi.md)
 ## [İstemci kitaplıkları alma](analysis-services-data-providers.md)
@@ -44,13 +47,15 @@
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
+## [Tablosal Model Betik Dili (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Kaynaklar
 ## [Analysis Services ekip blogu](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Geri Bildirim](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/analysis-services/)
-## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Azure durumu](https://azure.microsoft.com/status/)
+## [Geri Bildirim](https://feedback.azure.com/forums/556165-azure-analysis-services)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

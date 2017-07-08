@@ -41,10 +41,11 @@
 ## [Azure DNS](/azure/dns/)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/traffic-manager/)
-## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-## [Hizmet Sınırlamaları](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [Hizmet Sınırlamaları](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

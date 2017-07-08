@@ -33,8 +33,10 @@
       href: sql-database-connect-query-ruby.md
 - name: Öğreticiler
   items:
-  - name: 1 - Yeni SQL veritabanı oluşturma/tasarlama
+  - name: 1 - SSMS kullanarak DB tasarlama
     href: sql-database-design-first-database.md
+  - name: 1 - .NET kullanarak DB tasarlama
+    href: sql-database-design-first-database-csharp.md
   - name: 2 - SQL Server DB’yi geçirme
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - SQL veritabanınızı güvenli hale getirme
@@ -55,10 +57,8 @@
   items:
   - name: Veritabanları ve sunucular
     items:
-    - name: Veritabanları
-      href: sql-database-overview.md
-    - name: Sunucular
-      href: sql-database-server-overview.md
+    - name: Genel Bakış
+      href: sql-database-servers-databases.md
     - name: Hizmet katmanları
       href: sql-database-service-tiers.md
     - name: Esnek havuzlar
@@ -75,8 +75,6 @@
       href: sql-database-paas-vs-sql-server-iaas.md  
     - name: Özellikler
       href: sql-database-features.md
-    - name: Araçlar
-      href: sql-database-manage-overview.md
   - name: Güvenlik
     items:
     - name: Genel Bakış
@@ -100,7 +98,7 @@
     - name: SQL DB ile TDE
       href: https://msdn.microsoft.com/library/dn948096
     - name: Always encrypted
-      href: https://msdn.microsoft.com/library/mt163865.aspx
+      href: https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine
     - name: Veri maskeleme
       href: sql-database-dynamic-data-masking-get-started.md
   - name: İş sürekliliği
@@ -139,6 +137,8 @@
       href: sql-database-import.md
     - name: Veritabanını dışarı aktarma
       href: sql-database-export.md
+    - name: Veri eşitleme
+      href: sql-database-sync-data.md
   - name: İzleme ve ayarlama
     items:
     - name: Genel Bakış
@@ -391,6 +391,8 @@
       href: https://msdn.microsoft.com/library/mt654048.aspx
 - name: Kaynaklar
   items:
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
   - name: SSS
     href: sql-database-faq.md
   - name: Genel veri kümeleri

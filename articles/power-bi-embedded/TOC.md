@@ -33,9 +33,10 @@
 
 
 # Kaynaklar
-## [Örnek uygulama](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [JavaScript örnek ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 ## [JavaScript Git deposu](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Power BI C# Git deposu](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Power BI topluluğu](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Örnek uygulama](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)

@@ -91,6 +91,8 @@
 ## [Azure Backup kasasını silme](backup-azure-delete-vault.md)
 ## [Rol Tabanlı Access Control](backup-rbac-rs-vault.md)
 ## [Karma yedeklemeler için güvenlik](backup-azure-security-feature.md)
+## [Azure Backup raporlarını yapılandırma](backup-azure-configure-reports.md)
+## [Azure Backup raporları için veri modeli](backup-azure-reports-data-model.md)
 ## [Çevrimdışı yedekleme yapılandırma](backup-azure-backup-import-export.md)
 ## [Bant kitaplığınızı değiştirme](backup-azure-backup-cloud-as-tape.md)
 ## [Uygulama ile tutarlı Linux VM yedekleri](backup-azure-linux-app-consistent.md)
@@ -100,7 +102,8 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
-## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=backup)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=backup)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=backup)

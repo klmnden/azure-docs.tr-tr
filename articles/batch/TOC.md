@@ -62,14 +62,15 @@
 ## [Azure bulutta Batch ve HPC çözümleri](batch-hpc-solutions.md)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/batch/)
-## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
-## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=batch)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [C# kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Python kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Big Compute kaynakları](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
+## [C# kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/batch/)
+## [Python kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
 

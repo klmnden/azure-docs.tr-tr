@@ -33,6 +33,7 @@
 ## [Azure Insights CLI hızlı başlangıç örnekleri](../monitoring-and-diagnostics/insights-cli-samples.md)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 

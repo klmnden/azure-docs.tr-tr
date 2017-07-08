@@ -6,3 +6,5 @@
 ## [Oracle ASM’yi yapılandırma](configure-oracle-asm.md)
 ## [Oracle DataGuard’ı yapılandırma](configuring-oracle-dataguard.md)
 ## [Oracle GoldenGate’i yapılandırma](configure-oracle-golden-gate.md)
+# Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

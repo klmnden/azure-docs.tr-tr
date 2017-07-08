@@ -99,3 +99,5 @@
 #### [Bilgisayarı sanal ağa bağlama](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Sonraki adımlar](azure-operations-guide.md#next-steps)
+# Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

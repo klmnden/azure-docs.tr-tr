@@ -65,8 +65,9 @@
 ## [REST](/rest/api/notificationhubs)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=notification-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=notification-hubs)

@@ -105,5 +105,6 @@
 
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ##[Azure AD Connect ile ilgili SSS](active-directory-aadconnect-faq.md)
 ##[DirSync’i Kullanımdan Kaldırma](active-directory-aadconnect-dirsync-deprecated.md)

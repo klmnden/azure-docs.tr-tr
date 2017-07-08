@@ -20,5 +20,6 @@
 ## [Karma Kimlik Tasarım Kılavuzu](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ##[Azure AD Connect Health ile ilgili SSS](active-directory-aadconnect-health-faq.md)
 

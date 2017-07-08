@@ -37,7 +37,7 @@
     href: tutorial-monitoring.md
   - name: 11 - VM güvenliğini yönetme
     href: tutorial-azure-security.md
-  - name: 12 - Jenkins CI/CD
+  - name: 12 - Jenkins dağıtma
     href: tutorial-jenkins-github-docker-cicd.md
 - name: Örnekler
   items:
@@ -204,6 +204,8 @@
       href: cli-ps-findimage.md
     - name: Özel VM görüntüleri oluşturma
       href: create-upload-generic.md
+    - name: VHD indirme
+      href: download-vhd.md
     - name: Özel VM görüntülerini karşıya yükleme
       href: upload-vhd.md
     - name: Mevcut VM’yi yakalayarak görüntüye kaydetme
@@ -331,6 +333,8 @@
       href: install-mongodb.md
     - name: MySQL
       href: mysql-install.md
+    - name: OpenShift
+      href: openshift-get-started.md
     - name: PostgreSQL
       href: postgresql-install.md
     - name: LAMP yığını dağıtma
@@ -378,6 +382,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Sorun giderme
     items:
+    - name: Linux VM parolasını sıfırlama
+      href: virtual-machines-linux-reset-password.md
     - name: Sistemin yeniden başlatılma nedenini anlama
       href: understand-vm-reboot.md
     - name: SSH bağlantıları
@@ -393,6 +399,8 @@
     - name: Ayırma hataları
       href: allocation-failure.md
     - name: Dağıtım sorunları
+      href: troubleshoot-deploy-vm.md
+    - name: VM oluşturma
       href: troubleshoot-deployment-new-vm.md
     - name: VM’yi yeni Azure düğümüne yeniden dağıtma
       href: redeploy-to-new-node.md
@@ -424,6 +432,8 @@
   items:
   - name: Yazar şablonları
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
   - name: Topluluk şablonları
     href: https://azure.microsoft.com/documentation/templates
   - name: Fiyatlandırma

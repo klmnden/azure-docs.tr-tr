@@ -56,15 +56,17 @@
 ### [Activity Log Analytics](log-analytics-activity.md)
 ### [AD Değerlendirmesi](log-analytics-ad-assessment.md)
 ### [AD Çoğaltma Durumu](log-analytics-ad-replication-status.md)
+### [Aracı Durumu](../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Uyarı yönetimi](log-analytics-solution-alert-management.md)
+### [Application Insights Bağlayıcısı](log-analytics-app-insights-connector.md)
 ### [Azure SQL Analizi](log-analytics-azure-sql.md)
 ### [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)
 ### [Kapasite ve performans](log-analytics-capacity.md)
 ### [Değişiklik İzleme](log-analytics-change-tracking.md)
 ### [Kapsayıcılar](log-analytics-containers.md)
 ### [DNS Analizi](log-analytics-dns.md)
-### [OMS’de BT Hizmet Yönetimi Bağlayıcısı](log-analytics-itsmc-overview.md)
-#### [OMS’de BT Hizmet Yönetimi bağlantıları](log-analytics-itsmc-connections.md)
+### [BT Hizmet Yönetimi Bağlayıcısı](log-analytics-itsmc-overview.md)
+#### [BT Hizmet Yönetimi bağlayıcıları](log-analytics-itsmc-connections.md)
 ### [Anahtar Kasası](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B İletileri
 #### [Logic Apps B2B İletileri çözümü](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -89,6 +91,7 @@
 ### [PowerShell cmdlet'leri](log-analytics-powershell-workspace-configuration.md)
 ### [Resource Manager şablonları](log-analytics-template-workspace-configuration.md)
 ### [Log Arama API’si](log-analytics-log-search-api.md)
+#### [Python](log-analytics-log-search-api-python.md)
 ### [Uyarı API’si](log-analytics-api-alerts.md)
 
 # Başvuru
@@ -96,6 +99,7 @@
 ## [REST](/rest/api/loganalytics)
 
 # Kaynaklar
-## [Windows Analizi](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=log-analytics)
+## [Windows Analizi](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

@@ -1,0 +1,66 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Container Service Belgeleri
+metadata:
+  document_id: 
+  title: 'Azure Container Service Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+  meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster.  Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
+  services: container-service
+  author: carolz
+  manager: carolz
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01-23-2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Container Service, üretime hazır Kubernetes, DC/OS veya Docker Swarm kümelerini hızlı bir şekilde dağıtmanızı sağlar.  Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Service kullanmayı öğrenin.'
+sections:
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: 'Azure Container Service kullanarak Kubernetes kümelerini dağıtmayı öğrenin:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /media/logos/logo_linux.svg
+      text: Linux
+      href: /azure/container-service/container-service-kubernetes-walkthrough
+    - image: 
+        src: /media/logos/logo_Windows.svg
+      text: Windows
+      href: /azure/container-service/container-service-kubernetes-windows-walkthrough
+- title: Adım Adım Öğreticiler
+  items:
+  - type: paragraph
+    text: 'Bir Azure Container Service Kubernetes kümesindeki uygulamaları dağıtmayı, yönetmeyi ve güncelleştirmeyi öğrenin.'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-prepare-app">Uygulamadan kapsayıcı görüntüsü oluşturma</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-prepare-acr">Kapsayıcı görüntülerini Azure Container Registry’ye yükleme</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-deploy-cluster">Azure Container Service’te Kubernetes kümesi dağıtma</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-deploy-application">Kubernetes’te kapsayıcı görüntülerinizi çalıştırma</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-scale">Bir uygulamayı ve Kubernetes altyapısını ölçeklendirme</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-app-update">Kubernetes’te çalışan bir uygulamayı güncelleştirme</a>
+    - html: <a href="/azure/container-service/container-service-tutorial-kubernetes-monitor">OMS ile Kubernetes’i izleme</a>
+- title: Örnekler
+ 
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/container-service/cli-samples">Azure CLI</a>
+- title: Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Komut Satırı
+      html: <p><a href="/cli/azure/acs">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/compute/containerservices">REST API</a></p>

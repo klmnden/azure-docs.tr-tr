@@ -51,6 +51,7 @@
 ## [Machine Learning](/azure/machine-learning/)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [SSS](iot-suite-faq.md)
 ## [IoT Paketi öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 

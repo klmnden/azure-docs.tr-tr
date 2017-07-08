@@ -111,5 +111,6 @@
 
 # Kaynaklar
 ## [Azure bölgeleri](https://azure.microsoft.com/regions/)
-## [Videolar](https://azure.microsoft.com/resources/videos/home/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Örnekler](https://azure.microsoft.com/resources/samples/)
+## [Videolar](https://azure.microsoft.com/resources/videos/home/)

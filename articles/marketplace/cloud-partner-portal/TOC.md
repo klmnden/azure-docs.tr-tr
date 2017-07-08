@@ -32,3 +32,5 @@
 ## [Yayımcı profilini yönetme](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Kullanıcıları yönetme](./cloud-partner-portal-manage-users.md)
 ## [Destek alın](./cloud-partner-portal-support-for-cloud-partner-portal.md)
+# Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

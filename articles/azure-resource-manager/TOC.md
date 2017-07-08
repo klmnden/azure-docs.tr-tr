@@ -70,7 +70,8 @@
 ### [İlke atamak için portalı kullanma](resource-manager-policy-portal.md)
 ### [İlke atamak için betikleri kullanma](resource-manager-policy-create-assign.md)
 ### Örnekler
-#### [Kaynak etiketleri](resource-manager-policy-tags.md)
+#### [Etiketler](resource-manager-policy-tags.md)
+#### [Adlandırma kuralları](resource-manager-policy-naming-convention.md)
 #### [Depolama](resource-manager-policy-storage.md)
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -119,8 +120,9 @@
 ## [REST](/rest/api/resources/)
 
 # Kaynaklar
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [İstekleri azaltma](resource-manager-request-limits.md)
 ## [Zaman uyumsuz işlemleri izleme](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=azure-resource-manager)

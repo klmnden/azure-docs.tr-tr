@@ -74,6 +74,8 @@
        href: functions-test-a-function.md
      - name: Yerel olarak geliştirme ve hata ayıklama
        href: functions-run-local.md
+     - name: Visual Studio geliştirme
+       href: functions-develop-vs.md
   - name: Dağıtma
     items:
     - name: Sürekli dağıtım
@@ -100,7 +102,7 @@
       href: functions-bindings-storage-blob.md
     - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Olay Hub'ı
+    - name: Event Hubs
       href: functions-bindings-event-hubs.md
     - name: Dış dosya
       href: functions-bindings-external-file.md
@@ -126,6 +128,8 @@
     href: functions-api-definition.md     
 - name: Kaynaklar
   items:
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
   - name: Fiyatlandırma
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Bölgesel kullanılabilirlik

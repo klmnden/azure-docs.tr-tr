@@ -70,8 +70,9 @@
 ## [Sanal makineler](/azure/virtual-machines/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/network-watcher/)
-## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=network-watcher)
+## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)

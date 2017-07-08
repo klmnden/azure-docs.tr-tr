@@ -66,14 +66,15 @@
 ## [SQLRuleAction söz dizimi](service-bus-messaging-sql-rule-action.md)
 
 # Kaynaklar
-## [Fiyatlandırma ayrıntıları](service-bus-pricing-billing.md)
-## [Örnekler](service-bus-samples.md)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN forumları](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Fiyatlandırma ayrıntıları](service-bus-pricing-billing.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Örnekler](service-bus-samples.md)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=service-bus)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
