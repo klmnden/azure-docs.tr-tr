@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -35,9 +37,8 @@ Azure AD Connect, şirket içi Active Directory’niz ile Azure Active Directory
 * Aşağıdaki özellikler kullanılamaz:
   * Azure AD Connect Health
   * Otomatik güncelleştirmeler
-  * Parola geri yazma
-
-## <a name="download"></a>İndir
+ 
+## <a name="download"></a>İndirme
 Azure AD Connect’i portalın içerisindeki Azure AD Connect dikey penceresinden indirebilirsiniz.  Azure AD Connect dikey penceresini bulmak için aşağıdaki yönergeleri kullanın.
 
 ### <a name="the-azure-ad-connect-blade"></a>Azure AD Connect Dikey Penceresi
@@ -64,10 +65,5 @@ Azure AD Connect'i yüklemek için [buradaki](active-directory-aadconnect.md#ins
 
 ## <a name="advanced-features-and-additional-information"></a>Gelişmiş özellikler ve Ek Bilgiler
 Özel ayarlar veya gelişmiş yapılandırmalar hakkında ek bilgiler ya da kılavuzluk edinmek için [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) (Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme) makalesinden başlayın.  Bu sayfada, bilgiler ve ek rehberlik sağlayan diğer sayfalara bağlantılar bulabilirsiniz.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

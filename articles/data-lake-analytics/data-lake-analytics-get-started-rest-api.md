@@ -1,10 +1,10 @@
 ---
-title: "REST API&quot;yi kullanarak Data Lake Analytics ile çalışmaya başlama| Microsoft Belgeleri"
-description: "Data Lake Analytics üzerinde işlem yapmak için WebHDFS REST API&quot;lerini kullanma"
+title: "REST API'yi kullanarak Data Lake Analytics ile çalışmaya başlama| Microsoft Belgeleri"
+description: "Data Lake Analytics üzerinde işlem yapmak için WebHDFS REST API'lerini kullanma"
 services: data-lake-analytics
 documentationcenter: 
-author: mumian
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
 ms.service: data-lake-analytics
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2fea3686b1484406d31c5447c7d3d7e2451b827e
-ms.openlocfilehash: 1898b3d6aa1a9ccbc9f4427cf994c02f9fa35abd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 332d7af2539eea8890745005104ac5b0921c2b7f
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -345,11 +347,5 @@ Aşağıdaki Curl komutu katalogdan veritabanlarının nasıl alınacağını g�
 * Yönetim görevleri için bkz. [Azure portalı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).
 * Data Lake Analytics'e yönelik bir genel bakış için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 * Aynı öğreticiyi diğer araçları kullanarak görmek için sayfanın üst kısmındaki sekme seçicilerine tıklayın.
-* Tanılama bilgilerini günlüğe kaydetmek için bkz. [Azure Data Lake Analytics için tanılama günlüklerine erişme](data-lake-analytics-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

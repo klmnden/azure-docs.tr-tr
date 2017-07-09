@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -53,7 +54,7 @@ Bilgisayarınızda Azure PowerShell 1.2.1 sürümü veya üstünün yüklü olma
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Azure disk şifrelemesi önkoşulları yapılandırma betiğini elde edip çalıştırma
 Azure Disk Şifrelemesi Önkoşulları Yapılandırma Betiği, Azure Virtual Machines'inizi şifrelemek için gereken tüm önkoşulları ayarlar.
 
-1. [Azure Disk Şifrelemesi Önkoşulları Kurulum Betiği](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)'ne sahip olan GitHub sayfasına gidin.
+1. [Azure Disk Şifrelemesi Önkoşulları Kurulum Betiği](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)'ne sahip olan GitHub sayfasına gidin.
 2. GibHub sayfasında **Ham** düğmesine tıklayın.
 3. Sayfadaki tüm metni seçmek için **CTRL-A**'yı kullanın ve ardından sayfadaki tüm metni panoya kopyalamak için **CTRL-C**'yi kullanın.
 4. **Not Defteri**'ni açın ve kopyalanan metni Not Defteri'ne yapıştırın.

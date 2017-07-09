@@ -1,5 +1,3 @@
-## <a name="create-a-service-namespace"></a>Hizmet ad alanı oluşturma
-
 Azure'da Service Bus kuyruklarını kullanmaya başlamak için öncelikle bir ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar. 
 
 Ad alanı oluşturmak için:
@@ -16,6 +14,7 @@ Ad alanı oluşturmak için:
 8. **Oluştur**’a tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
 
 ### <a name="obtain-the-management-credentials"></a>Yönetim kimlik bilgilerini alma
+
 1. Ad alanları listesinde, yeni oluşturulan ad alanı adına tıklayın.
 2. Ad alanı dikey penceresinde, **Paylaşılan erişim ilkeleri**'ne tıklayın.
 3. **Paylaşılan erişim ilkeleri** dikey penceresinde, **RootManageSharedAccessKey** öğesine tıklayın.
