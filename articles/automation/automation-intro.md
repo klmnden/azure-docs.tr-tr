@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
-ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +52,7 @@ Okumak yerine izlemeyi mi tercih ediyorsunuz? Mayıs 2015 tarihli Microsoft Igni
 [Azure Automation DSC](automation-dsc-overview.md), PowerShell DSC’ye yönelik kurumsal ortamlar için hizmetler için gerekli hizmetleri sağlayan bulut tabanlı bir çözümdür.  Azure Automation DSC kaynaklarınızı yönetebilir ve bunları Azure buluttaki DSC Çekme Sunucusu’ndan alana sanal veya fiziksel makinelere uygulayabilirsiniz.  Bu ayrıca, düğümlerin kendilerine atanan yapılandırmalardan sapması ve yeni bir yapılandırma uygulanması gibi önemli olayları size bildiren raporlama hizmetleri de sağlar. 
 
 ## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Azure Automation’da kendi DSC yapılandırmalarınızı oluşturma
-[DSC yapılandırmaları](automation-dsc-overview.md#azure-automation-dsc-terms) istenen düğüm durumunu belirtir.  Birden çok düğüm, tümünün aynı durumu yapılandırmayı sağlamak üzere aynı yapılandırmayı uygulayabilir.  Yerel makinenizde bir metin düzenleyicisi kullanarak yapılandırma oluşturabilir ve ardından bunu derleyebileceğiniz ve düğümlerini uygulayabileceğiniz Azure Automation’a aktarabilirsiniz.
+[DSC yapılandırmaları](automation-dsc-overview.md) istenen düğüm durumunu belirtir.  Birden çok düğüm, tümünün aynı durumu yapılandırmayı sağlamak üzere aynı yapılandırmayı uygulayabilir.  Yerel makinenizde bir metin düzenleyicisi kullanarak yapılandırma oluşturabilir ve ardından bunu derleyebileceğiniz ve düğümlerini uygulayabileceğiniz Azure Automation’a aktarabilirsiniz.
 
 ## <a name="getting-modules-and-configurations"></a>Modülleri ve yapılandırmaları alma
 Runbook’larınızda ve DSC yapılandırmalarınızda kullanabileceğiniz cmdlet’leri içeren [PowerShell modüllerini](automation-runbook-gallery.md#modules-in-powershell-gallery) [PowerShell Galerisi](http://www.powershellgallery.com/)’nden alabilirsiniz. Bu galeriyi Azure portaldan başlatabilir ve modülleri doğrudan Azure Automation’a aktarabilir ya da bunları el ile indirebilir ve içeri aktarabilirsiniz. Modülleri doğrudan Azure portalına yükleyemezsiniz, ancak bunları herhangi başka bir modül gibi indirebilir ve yükleyebilirsiniz. 
@@ -83,10 +85,5 @@ Azure Automation ve kendi runbook'larınızı oluşturma hakkında daha fazla bi
 
 ## <a name="can-i-provide-feedback"></a>Geribildirim sağlayabilir miyim?
 **Lütfen bize geri bildirimde bulunun.** Bir Azure Automation runbook çözümü veya bir tümleştirme modülü arıyorsanız, Betik Merkezi'ne bir Betik İsteği gönderin. Azure Automation ile ilgili geribildirim ya da özellik isteğiniz varsa, [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback)’da yayınlayın. Teşekkür ederiz! 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

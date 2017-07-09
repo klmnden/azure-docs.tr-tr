@@ -1,14 +1,14 @@
 ---
 title: 'Azure Cosmos DB: Node.js ve DocumentDB API&quot;si ile bir uygulama derleme | Microsoft Docs'
 description: "Azure Cosmos DB DocumentDB API&quot;sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Node.js kodu örneği sunar"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 9c0f033c-240e-4fee-8421-08907231087f
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: deab76fadee7b825cb359d0cebf7f84b26fcf3a8
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 26e3548bf6aacbc60c4c46a5cc88749ca14cec01
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından [DocumentDB Node.js API'si](../documentdb/documentdb-sdk-node.md) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz.
+Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından [DocumentDB Node.js API'si](documentdb-sdk-node.md) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -39,11 +39,11 @@ Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-collection"></a>Koleksiyon ekleme
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
@@ -140,7 +140,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -154,7 +154,7 @@ Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanara
 Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak koleksiyon oluşturmayı ve bir uygulamayı çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB hesabınıza veri aktarma](../documentdb/documentdb-import-data.md)
+> [Azure Cosmos DB hesabınıza veri aktarma](import-data.md)
 
 
 

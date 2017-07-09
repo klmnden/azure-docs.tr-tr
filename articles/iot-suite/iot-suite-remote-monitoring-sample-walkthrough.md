@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 57544151cc020e5170ebd231b5e4d8f424aeada0
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: c6d76cc741a6d932a506017781e45bc9b8f8c640
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış uzaktan izleme çözümünde gezinme
-## <a name="introduction"></a>Giriş
+
 IoT Paketi önceden yapılandırılmış [uzaktan izleme çözümü][lnk-preconfigured-solutions], uzak konumlarda çalışan birden fazla makine için uçtan uca izleme çözümünün bir uygulamasıdır. Bu çözüm, iş senaryosunun genel uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir. Çözümü kendi uygulamanız için bir başlangıç noktası olarak kullanabilir ve özel iş gereksinimlerinizi karşılayacak şekilde [özelleştirebilirsiniz][lnk-customize].
 
 Bu makalede uzaktan izleme çözümünün nasıl çalıştığını anlamanız için çözümün temel öğelerinden bazıları açıklanmaktadır. Bu bilgiler şunları yapmanıza yardımcı olur:
@@ -34,14 +34,17 @@ Bu makalede uzaktan izleme çözümünün nasıl çalıştığını anlamanız i
 * Azure hizmetlerini kullanan kendi IoT çözümünüzü tasarlama.
 
 ## <a name="logical-architecture"></a>Mantıksal mimari
+
 Aşağıdaki diyagram önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
 
 ![Mantıksal mimari](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="simulated-devices"></a>Sanal cihazlar
+
 Önceden yapılandırılmış çözümde, sanal cihaz bir soğutma cihazını temsil eder (örneğin, bir yapının klimaları veya bir tesisin havalandırma birimi). Önceden yapılandırılmış çözümü dağıttığınızda bir [Azure WebJob][lnk-webjobs] içinde çalışan dört sanal cihazı da otomatik olarak sağlamış olursunuz. Sanal cihazlar herhangi bir fiziksel cihaza dağıtmaya gerek olmadan çözümün davranışını keşfetmenizi kolaylaştırır. Gerçek bir fiziksel cihaz dağıtmak için [Cihazınızı önceden yapılandırılmış uzaktan izleme çözümüne bağlama][lnk-connect-rm] öğreticisine bakın.
 
 ### <a name="device-to-cloud-messages"></a>Cihazdan buluta iletiler
+
 Her sanal cihaz IoT Hub'ına aşağıdaki ileti türlerini gönderebilir:
 
 | İleti | Açıklama |
@@ -52,10 +55,9 @@ Her sanal cihaz IoT Hub'ına aşağıdaki ileti türlerini gönderebilir:
 
 > [!NOTE]
 > Çözüm, cihaz tarafından desteklenen komutların listesini cihaz ikizinde değil, Cosmos DB veritabanında depolar.
-> 
-> 
 
 ### <a name="properties-and-device-twins"></a>Özellikler ve cihaz ikizleri
+
 Sanal cihazlar IoT hub içindeki [ikize][lnk-device-twins] aşağıdaki cihaz özelliklerini *bildirilen özellikler* olarak gönderir. Cihaz başlangıçta ve bir **Cihaz Durumunu Değiştir** komut ya da yöntemine yanıt olarak bildirilen özellikleri gönderir.
 
 | Özellik | Amaç |
@@ -78,6 +80,7 @@ Sanal cihazlar IoT hub içindeki [ikize][lnk-device-twins] aşağıdaki cihaz ö
 | System.InstalledRAM |Cihazda yüklü RAM miktarı |
 
 Benzetici, örnek değerlerle sanal cihazlarda bu özelliklerin çekirdeğini oluşturur. Simülatör sanal cihazı her başlattığında, cihaz IoT Hub'ına önceden tanımlanmış meta verileri bildirilen özellik olarak gönderir. Bildirilen özellikler yalnızca cihaz tarafından güncelleştirilebilir. Bildirilen bir özelliği değiştirmek için çözüm portalında istenen bir özelliği ayarlayın. Aşağıdaki işlemler cihazın sorumluluğundadır:
+
 1. İstenen özellikleri IoT hub'ından düzenli olarak alma.
 2. Yapılandırmasını istenen özellik değeriyle güncelleştirme.
 3. Yeni değeri bildirilen özellik olarak hub’a geri gönderme.
@@ -88,6 +91,7 @@ Benzetici, örnek değerlerle sanal cihazlarda bu özelliklerin çekirdeğini ol
 > Sanal cihaz kodu, IoT Hub’ına geri gönderilen bildirilen özellikleri güncelleştirmek üzere yalnızca istenen **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** özelliklerini kullanır. Diğer tüm istenen özellik değişiklik istekleri, sanal cihazda yok sayılır.
 
 ### <a name="methods"></a>Yöntemler
+
 Sanal cihazlar IoT hub aracılığıyla çözüm portalından çağrılan aşağıdaki yöntemleri ([doğrudan yöntemler][lnk-direct-methods]) işleyebilir:
 
 | Yöntem | Açıklama |
@@ -98,7 +102,8 @@ Sanal cihazlar IoT hub aracılığıyla çözüm portalından çağrılan aşağ
 
 Bazı yöntemler ilerleme durumunu bildirmek üzere bildirilen özellikleri kullanır. Örneğin, **InitiateFirmwareUpdate** yöntemi, güncelleştirmeyi cihaz üzerinde zaman uyumsuz olarak çalıştırma işlemini taklit eder. Yöntem cihaz üzerinde hemen döndürülürken, zaman uyumsuz görev bildirilen özellikleri kullanarak çözüm panosuna durum güncelleştirmeleri göndermeye devam eder.
 
-### <a name="commands"></a>Komutlar 
+### <a name="commands"></a>Komutlar
+
 Sanal cihazlar IoT hub aracılığıyla çözüm portalından gönderilen aşağıdaki komutları (buluttan cihaza iletiler) işleyebilir:
 
 | Komut | Açıklama |
@@ -112,10 +117,9 @@ Sanal cihazlar IoT hub aracılığıyla çözüm portalından gönderilen aşağ
 
 > [!NOTE]
 > Bu komutlar (buluttan cihaza iletiler) ile yöntemlerin (doğrudan yöntemler) bir karşılaştırması için bkz. [Buluttan cihaza iletişim kılavuzu][lnk-c2d-guidance].
-> 
-> 
 
 ## <a name="iot-hub"></a>IoT Hub’ı
+
 [IoT hub][lnk-iothub], cihazlardan buluta gönderilen verileri alır ve Azure Stream Analytics (ASA) işlerinde kullanılabilir hale getirir. ASA işinin kullandığı her akış, cihazlarınızdaki ileti akışını okumak için ayrı bir IoT Hub tüketici grubu kullanır.
 
 IoT hub çözümde aynı zamanda şunları yapar:
@@ -127,6 +131,7 @@ IoT hub çözümde aynı zamanda şunları yapar:
 - Birden fazla cihaza ait özellikleri ayarlamak veya birden fazla cihaz üzerinde yöntem çağırmak için işleri zamanlar.
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+
 Uzaktan izleme çözümünde [Azure Stream Analytics ][lnk-asa] (ASA), IoT hub tarafından alınan cihaz iletilerini işleme veya depolama amacıyla diğer arka uç bileşenlerine gönderir. Farklı ASA işleri, iletilerin içeriğine göre belirli işlevler gerçekleştirir.
 
 **İş 1: Cihaz bilgileri** gelen ileti akışından cihaz bilgileri iletilerine filtre uygular ve bunları olay hub'ı uç noktasına gönderir. Cihaz, başlangıçta ve **SendDeviceInfo** komutuna yanıt olarak cihaz bilgi iletileri gönderir. Bu iş **device-info** iletilerini tanımlamak için aşağıdaki sorgu tanımını kullanır:
@@ -224,15 +229,19 @@ GROUP BY
 ```
 
 ## <a name="event-hubs"></a>Event Hubs
+
 ASA işleri **cihaz bilgisi** ve **kurallar** verilerini, WebJob’da çalışan **Olay İşleyicisi**’ne güvenli bir şekilde iletmek üzere Event Hubs’a gönderir.
 
 ## <a name="azure-storage"></a>Azure Storage
+
 Çözüm, çözümdeki cihazlarda bulunan tüm ham ve özet telemetri verilerini kalıcı hale getirmek için Azure Blob Depolama kullanır. Portal, blob depolama alanından telemetri verilerini okuyarak grafikleri doldurur. Uyarıları görüntülemek için çözüm portalı, telemetri değerleri yapılandırılmış eşik değerlerini aştığında kayıt altına alan blob depolama alanından verileri okur. Çözüm, çözüm portalında sizin ayarladığınız eşik değerlerini kaydetmek için de blob depolama alanını kullanır.
 
 ## <a name="webjobs"></a>WebJobs
+
 WebJobs cihaz benzeticilerini barındırmaya ek olarak çözüm içinde komut yanıtlarını işleyen bir Azure WebJob içinde çalışan **Olay İşleyicisi**’ni de barındırır. Cihaz komut geçmişini (Cosmos DB veritabanında depolanır) güncelleştirmek için komut yanıtı iletilerini kullanır.
 
 ## <a name="cosmos-db"></a>Cosmos DB
+
 Çözüm, kendisine bağlı cihazlarla ilgili bilgileri depolamak için bir Cosmos DB veritabanı kullanır. Bu bilgiler çözüm portalından cihazlara gönderilen komutların ve çözüm portalından çağrılan yöntemlerin geçmişini içerir.
 
 ## <a name="solution-portal"></a>Çözüm portalı
@@ -240,9 +249,11 @@ WebJobs cihaz benzeticilerini barındırmaya ek olarak çözüm içinde komut ya
 Çözüm portalı, önceden yapılandırılmış çözümün bir parçası olarak dağıtılan bir web uygulamasıdır. Çözüm portalındaki temel sayfalar pano ve cihaz listesidir.
 
 ### <a name="dashboard"></a>Pano
+
 Web uygulamasındaki bu sayfa, cihazlardaki telemetri verilerini görselleştirmek için PowerBI javascript denetimlerini kullanır (bkz. [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)). Çözüm, blob depolama alanına telemetri verilerini yazmak için ASA telemetri işini kullanır.
 
 ### <a name="device-list"></a>Cihaz listesi
+
 Çözüm portalındaki bu sayfadan şunları yapabilirsiniz:
 
 * Yeni bir cihaz hazırlayın. Bu eylem, benzersiz cihaz kimliğini ayarlar ve kimlik doğrulaması anahtarını oluşturur. Hem IoT Hub kimlik kayıt defterine hem de çözüme özel Cosmos DB veritabanına cihaz hakkındaki bilgileri yazar.
@@ -252,6 +263,7 @@ Web uygulamasındaki bu sayfa, cihazlardaki telemetri verilerini görselleştirm
 * Cihazları etkinleştirin ve devre dışı bırakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Aşağıdaki TechNet blog gönderileri önceden yapılandırılmış uzaktan izleme çözümü hakkında daha ayrıntılı bilgi sağlar:
 
 * [IoT Paketi - Başlık Altında - Uzaktan İzleme](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)

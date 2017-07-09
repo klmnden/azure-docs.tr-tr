@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ead9fcc5ec582420d731faccb7abba0dc815ed84
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -69,7 +70,7 @@ Aşağıdaki bölümlerde, StorSimple sanal cihazınız için yapılandırma ön
 #### <a name="azure-requirements"></a>Azure gereksinimleri
 Sanal cihaz sağlamadan önce, Azure ortamınızda aşağıdaki hazırlıkları yapmanız gerekir:
 
-* Sanal cihaz için, [Azure üzerinde bir sanal ağ yapılandırın](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Premium Storage kullanıyorsanız, Premium Storage’ı destekleyen bir Azure bölgesinde sanal ağ oluşturmanız gerekir. Premium depolama bölgeleri, [Bölgeye Göre Azure Hizmetleri](https://azure.microsoft.com/en-us/regions/services) listesinde *Disk depolama* satırına karşılık gelen bölgelerdir.
+* Sanal cihaz için, [Azure üzerinde bir sanal ağ yapılandırın](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Premium Storage kullanıyorsanız, Premium Storage’ı destekleyen bir Azure bölgesinde sanal ağ oluşturmanız gerekir. Premium depolama bölgeleri, [Bölgeye Göre Azure Hizmetleri](https://azure.microsoft.com/en-us/regions/services) listesinde *Disk depolama* satırına karşılık gelen bölgelerdir.
 * Kendi DNS sunucu adınızı belirtmek yerine Azure tarafından sağlanan varsayılan DNS sunucusunu kullanmanız önerilir. DNS sunucusu adınız geçerli değilse veya DNS sunucusu IP adreslerini doğru çözümleyemiyorsa, sanal cihaz oluşturma başarısız olur.
 * Noktadan siteye ve siteden siteye isteğe bağlıdır, ancak gerekli değildir. İsterseniz, daha gelişmiş senaryolar için bu seçenekleri yapılandırabilirsiniz.
 * Sanal cihaz tarafından sunulan birimleri kullanabileceğiniz sanal ağda [Azure Sanal Makineleri](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (barındırma sunucuları) oluşturabilirsiniz. Bu sunucular aşağıdaki gereksinimleri karşılamalıdır:                             

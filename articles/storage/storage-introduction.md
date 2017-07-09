@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e041a4d88d93b5ea9fcd792800c4a12a6a44ce36
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 1cab34785d6e4f7751245ebf77b29fa8dc3c685b
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -91,7 +91,10 @@ Blob Storage blok blobları, ekleme blobları ve sayfa blobları (diskler) olmak
 Ağ kısıtlamalarının kablo üzerinden Blob Storage’a veri yükleme veya indirme yapmayı kullanışsız hale getirdiği çok büyük veri kümelerinde verileri doğrudan veri merkezinden içeri veya dışarı aktarmak için Microsoft’a bir sabit sürücü gönderebilirsiniz. Bkz: [Blob Storage’a Veri Aktarmak için Microsoft Azure İçeri/Dışarı Aktarma Hizmeti Kullanma](storage-import-export-service.md).
 
 ## <a name="table-storage"></a>Table Storage
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)] Modern uygulamalar genellikle eski nesil yazılımların gerektirdiğinden daha fazla ölçeklenebilirlik ve esneklik özelliklerine sahip veri depoları gerektirir. Table Storage yüksek seviyede kullanılabilir ve ölçeklenebilir depolama sunar, böylece uygulamanız kullanıcı taleplerini karşılayacak şekilde otomatik olarak ölçeklendirilir. Tablo depolama, Microsoft’un NoSQL anahtar/öznitelik deposudur ve geleneksel ilişkisel veritabanlarından farklı olarak şemasız bir tasarıma sahiptir. Şemasız veri deposu sayesinde, uygulamanızın ihtiyaçları geliştikçe verilerinizi uyarlamak da kolaylaşır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir. Her türlü uygulama için verilere erişim hızlı ve uygun maliyetlidir.  Table Storage, benzer hacimdeki veriler için geleneksel SQL’e oranla çok daha düşük maliyetlidir.
+
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
+Modern uygulamalar genellikle eski nesil yazılımların gerektirdiğinden daha fazla ölçeklenebilirlik ve esneklik özelliklerine sahip veri depoları gerektirir. Table Storage yüksek seviyede kullanılabilir ve ölçeklenebilir depolama sunar, böylece uygulamanız kullanıcı taleplerini karşılayacak şekilde otomatik olarak ölçeklendirilir. Tablo depolama, Microsoft’un NoSQL anahtar/öznitelik deposudur ve geleneksel ilişkisel veritabanlarından farklı olarak şemasız bir tasarıma sahiptir. Şemasız veri deposu sayesinde, uygulamanızın ihtiyaçları geliştikçe verilerinizi uyarlamak da kolaylaşır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir. Her türlü uygulama için verilere erişim hızlı ve uygun maliyetlidir.  Table Storage, benzer hacimdeki veriler için geleneksel SQL’e oranla çok daha düşük maliyetlidir.
 
 Table Storage bir anahtar öznitelik deposudur; bu, bir tablodaki her değerin türü belirtilmiş bir özellik adıyla depolandığı anlamına gelir. Özellik adı filtreleme ve seçim kriterlerinin belirlenmesi için kullanılabilir. Özellik ve değerlerinin toplamı bir varlığı oluşturur. Table Storage şemasız olduğu için aynı tablodaki iki varlık farklı özellik koleksiyonları içerebilir ve bu özellikler farklı türde olabilir.
 

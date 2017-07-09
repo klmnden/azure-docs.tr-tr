@@ -16,23 +16,25 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0148c3900f2bb6b6a227da01d954e6f79bff4270
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 48fd6daf7bae4d658b1cecd89088e6d78638a20a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure portalını (klasik) kullanarak Siteden Siteye bağlantı oluşturma
 
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
 Bu makalede, Azure portalını kullanarak şirket içi ağınızdan VNet’e Siteden Siteye VPN ağ geçidi bağlantısı oluşturma işlemi gösterilir. Bu makaledeki adımlar klasik dağıtım modeli için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Klasik - Azure portalı](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Klasik - klasik portal](vpn-gateway-site-to-site-create.md)
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Azure portal (klasik)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Klasik portal (klasik)](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -183,22 +185,17 @@ Bu adımda, paylaşılan anahtarı ayarlayabilir ve bağlantıyı oluşturabilir
 1. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
   ```powershell
-  Login-AzureRmAccount
+  Add-AzureAccount
   ```
 2. Hesapla ilişkili abonelikleri kontrol edin.
 
   ```powershell
-  Get-AzureRmSubscription
+  Get-AzureSubscription
   ```
 3. Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin.
 
   ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
-4. PowerShell cmdlet'lerinin SM sürümünü ekleyin.
-
-  ```powershell
-  Add-AzureAccount
+  Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
   ```
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>2. Adım Paylaşılan anahtarı ayarlama ve bağlantıyı oluşturma

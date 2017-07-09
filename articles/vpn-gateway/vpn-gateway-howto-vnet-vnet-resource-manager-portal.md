@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 50934bcc065b4039467d7371d4bbac11f5933888
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: c614efa25e2e7ddbb9b6c90094cf84fa8b6b4243
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -27,9 +28,10 @@ ms.lasthandoff: 04/25/2017
 Bu makalede, sanal ağlar arasında VPN ağ geçidi bağlantısının nasıl oluşturulduğu gösterilir. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Bu makaledeki adımlar Resource Manager dağıtım modeli ve Azure portalı için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portalı](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Klasik - Azure portalı](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure portal (klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Farklı dağıtım modellerini bağlama - Azure portalı](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Farklı dağıtım modellerini bağlama - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >

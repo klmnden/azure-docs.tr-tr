@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 48b3a3090573718ff5d3ba70e93567e6428ff59b
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 33a1ab822f2900fd51d801f94ad8679fe65ba21f
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -104,7 +104,7 @@ Aşağıdaki örnekte Azure CLI 2.0 ile parametreleri iletme yollarından biri g
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>2. Seçenek: `az acs create` ile küme oluştururken hizmet sorumlusu oluşturma
 
-Kubernetes kümesini oluşturmak için [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) komutunu çalıştırırsanız, otomatik olarak bir hizmet sorumlusu oluşturma seçeneğine sahip olursunuz.
+Kubernetes kümesini oluşturmak için [`az acs create`](/cli/azure/acs#create) komutunu çalıştırırsanız, otomatik olarak bir hizmet sorumlusu oluşturma seçeneğine sahip olursunuz.
 
 Diğer Kubernetes kümesi oluşturma seçeneklerinde olduğu gibi, `az acs create` çalıştırırken mevcut bir hizmet sorumlusunun parametrelerini belirtebilirsiniz. Ancak, bu parametreleri atlarsanız Azure CLI, Container Service ile kullanılacak bir hizmet sorumlusunu otomatik olarak oluşturur. Bu işlem dağıtım sırasında saydam bir şekilde gerçekleştirilir. 
 

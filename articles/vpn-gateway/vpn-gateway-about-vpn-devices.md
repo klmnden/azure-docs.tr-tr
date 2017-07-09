@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 06/14/2017
 ms.author: yushwang;cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 215269e041fa962c943dc0132ec9952363db3006
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 8a7419c7a759060dc91f11ec94085ff0afd4a457
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -61,7 +61,7 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Yapılandırma örnekleri*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 ve sonraki sürümleri |[Yapılandırma kılavuzu](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Uyumlu değil |
 | F5 |BIG-IP serisi |12.0 |[Yapılandırma kılavuzu](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Yapılandırma kılavuzu](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.4.2 |[Yapılandırma kılavuzu](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Yapılandırma kılavuzu](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
+| Fortinet |FortiGate |FortiOS 5.4.2 |  |[Yapılandırma kılavuzu](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
 | Internet Initiative Japan (IIJ) |SEIL Serisi |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Yapılandırma kılavuzu](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Uyumlu değil |
 | Juniper |SRX |PolicyBased: JunOS 10.2<br>Routebased: JunOS 11.4 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
 | Juniper |J-Serisi |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |

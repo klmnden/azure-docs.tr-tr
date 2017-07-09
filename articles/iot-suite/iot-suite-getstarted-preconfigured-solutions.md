@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e68815c2dafc596c3560ad3fcb2a7bf96d29182b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 2364ab79ec4091d41e4d340e13033181df05b507
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Öğretici: Önceden yapılandırılmış çözümleri kullanmaya başlama
-## <a name="introduction"></a>Giriş
+# <a name="get-started-with-the-preconfigured-solutions"></a>Önceden yapılandırılmış çözümleri kullanmaya başlama
+
 Azure IoT Paketi [önceden yapılandırılmış çözümleri][lnk-preconfigured-solutions], ortak IoT iş senaryolarını uygulayan uçtan uca çözümler sunmak için birden çok Azure IoT hizmetini birleştirir. Önceden yapılandırılmış *uzaktan izleme* çözümü cihazlarınıza bağlanır ve cihazları izler. Cihazlarınızdan alınan veri akışını analiz etmek ve işlemleri bu veri akışına otomatik olarak yanıt verecek hale getirerek iş sonuçlarını iyileştirmek için bu çözümü kullanabilirsiniz.
 
 Bu öğretici, önceden yapılandırılmış uzaktan izleme çözümünün nasıl hazırlanacağını gösterir. Ayrıca, önceden yapılandırılmış çözümün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözümün bir parçası olarak dağıtılan çözüm *panosundan* erişebilirsiniz:
@@ -34,8 +35,6 @@ Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir
 
 > [!NOTE]
 > Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk_free_trial].
-> 
-> 
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
