@@ -1,55 +1,69 @@
 ---
-title: "Grafik API&quot;sini kullanarak Azure Cosmos DB Node.js uygulaması derleme | Microsoft Docs"
+title: "Grafik API&quot;sini kullanarak Azure Cosmos DB Node.js uygulaması oluşturma | Microsoft Docs"
 description: "Azure Cosmos DB&quot;ye bağlanmak ve veritabanını sorgulamak için kullanabileceğiniz bir Node.js kod örneği sunar"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 45adf2accd3d9f43bc1d73b9ff93cc34d4d7c90a
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: b9e8c46ba2f029f8dae2b357f05a806d769d0920
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="azure-cosmos-db-build-a-nodejs-application-using-the-graph-api"></a>Azure Cosmos DB: Grafik API'sini kullanarak bir Node.js uygulaması derleme
+<a id="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api" class="xliff"></a>
+
+# Azure Cosmos DB: Grafik API'sini kullanarak bir Node.js uygulaması oluşturma
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıç belgesinde Azure portalı kullanarak Grafik API'si (önizleme) için bir Azure Cosmos DB hesabını, veritabanını ve grafiğini nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından OSS [Gremlin Node.js](https://aka.ms/gremlin-node) sürücüsünü kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz.  
+Bu hızlı başlangıç makalesinde, Azure portalı kullanılarak Grafik API'si (önizleme), veritabanı ve grafik için Azure Cosmos DB hesabının nasıl oluşturulacağı gösterilmiştir. Bu adımların ardından açık kaynaklı [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) sürücüsünü kullanarak bir konsol uygulaması oluşturabilir ve çalıştırabilirsiniz.  
 
-## <a name="prerequisites"></a>Ön koşullar
+> [!NOTE]
+> `gremlin-secure` npm modülü, `gremlin` modülünün Azure Cosmos DB ile bağlantı kurmak için gereken SSL ve SASL desteğine sahip değiştirilmiş bir sürümüdür. Kaynak kodu [GitHub](https://github.com/CosmosDB/gremlin-javascript)’dan edinilebilir.
+>
 
-* Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
-    * [Node.js](https://nodejs.org/en/) sürüm v0.10.29 veya üzeri
-    * [Git](http://git-scm.com/)
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
+
+Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
+* [Node.js](https://nodejs.org/en/) v0.10.29 sürümü veya sonraki bir sürüm
+* [Git](http://git-scm.com/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
+<a id="create-a-database-account" class="xliff"></a>
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+## Veritabanı hesabı oluşturma
 
-## <a name="add-a-graph"></a>Grafik ekleme
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
+<a id="add-a-graph" class="xliff"></a>
 
-## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
+## Grafik ekleme
+
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+
+<a id="clone-the-sample-application" class="xliff"></a>
+
+## Örnek uygulamayı kopyalama
 
 Şimdi GitHub'dan bir Grafik API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
-1. Git bash gibi bir git terminal penceresi açın ve `cd` ile çalışma dizinine gidin.  
+1. Git Bash gibi bir Git terminal penceresi açın ve bir çalışma diziniyle değiştirin (`cd` komutuyla).  
 
 2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. 
 
@@ -57,46 +71,15 @@ Bu hızlı başlangıç belgesinde Azure portalı kullanarak Grafik API'si (öni
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git
     ```
 
-3. Ardından çözüm dosyasını Visual Studio'da açın. 
+3. Çözüm dosyasını Visual Studio'da açın. 
 
-## <a name="review-the-code"></a>Kodu gözden geçirin
+<a id="review-the-code" class="xliff"></a>
 
-Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `app.js` dosyasını açtığınızda bu kod satırlarıyla karşılaşacaksınız.
+## Kodu gözden geçirin
+
+Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `app.js` dosyasını açtığınızda aşağıdaki kod satırlarıyla karşılaşacaksınız. 
 
 * Gremlin istemcisi oluşturulur.
-
-    ```nodejs
-    const client = Gremlin.createClient(
-        443, 
-        "https://<fillme>.graphs.azure.com", 
-        { 
-            "session": false, 
-            "ssl": true, 
-            "user": "/dbs/<db>/colls/<coll>",
-            "password": "<authKey>"
-        });
-    ```
-
-* Bir dizi Gremlin adımı `client.execute` yöntemi kullanılarak çalıştırılır.
-
-    ```nodejs
-    console.log('Running Count'); 
-    client.execute("g.V().count()", { }, (err, results) => {
-        if (err) return console.error(err);
-        console.log(JSON.stringify(results));
-        console.log();
-    });
-    ```
-
-## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
-
-Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
-
-1. [Azure portalında](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünden **Anahtarlar**'a ve ardından **Okuma/Yazma Anahtarları**'na tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak URI ve Birincil Anahtar değerlerini kopyalayarak sonraki adımda `app.js` dosyasına yapıştırın.
-
-    ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-documentdb-dotnet/keys.png)
-
-2. `app.js` dosyasına *endpoint*, *db*, *coll* ve *authKey* değerlerini girin:
 
     ```nodejs
     const client = Gremlin.createClient(
@@ -110,40 +93,94 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
         });
     ```
 
-## <a name="run-the-console-app"></a>Konsol uygulamasını çalıştırma
+  Tüm yapılandırmalar, aşağıdaki bölümde düzenlediğimiz `config.js` öğesinde yer alır.
 
-1. Gerekli npm modüllerini yüklemek için bir terminalde `npm install` komutunu çalıştırın
+* `client.execute` yöntemiyle bir dizi Gremlin adımı yürütülür.
 
-2. `node_modules\gremlin` içeriğini [Cosmos DB Gremlin çatalının](https://github.com/CosmosDB/gremlin-javascript) içeriğiyle değiştirin. Bu içerikte Azure Cosmos DB için gerekli olan ancak şu anda sürücü tarafından sunulmayan (sürücüdeki değişiklikler kabul edilene kadar, geçici olarak) SSL ve SASL desteği mevcuttur.
+    ```nodejs
+    console.log('Running Count'); 
+    client.execute("g.V().count()", { }, (err, results) => {
+        if (err) return console.error(err);
+        console.log(JSON.stringify(results));
+        console.log();
+    });
+    ```
 
-2. Node.js uygulamanızı başlatmak için bir terminalde `node app.js` komutunu çalıştırın.
+<a id="update-your-connection-string" class="xliff"></a>
 
-Şimdi Veri Gezgini'ne dönüp bu yeni verileri görebilir, sorgulayabilir, değiştirebilir ve onlarla çalışabilirsiniz. 
+## Bağlantı dizenizi güncelleştirme
 
-## <a name="browse-using-the-data-explorer"></a>Veri Gezgini'ni kullanarak göz atma
+Bu adımda, Azure portalına dönerek bağlantı dizesi bilgilerinizi alıp uygulamaya kopyalayın.
 
-Şimdi Azure portalındaki Veri Gezgini'ne dönerek yeni grafik verilerinize göz atıp sorgu gönderebilirsiniz.
+1. [Azure portalı](http://portal.azure.com/)’nda, Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünde **Anahtarlar**'a ve ardından **Okuma/Yazma Anahtarları**'na tıklayın. Sağ taraftaki kopyalama düğmelerini kullanarak URI ve birincil anahtarı, sonraki adımdaki `app.js` dosyasına kopyalarsınız.
 
-* Yeni veritabanı, Veri Gezgini'nin Koleksiyonlar bölmesinde görüntülenir. **graphdb**, **graphcoll** öğelerini genişletip **Grafik** öğesine tıklayın.
+    ![Azure portalı Anahtarlar dikey penceresi](./media/create-graph-nodejs/keys.png)
 
-    Örnek uygulama tarafından oluşturulan veriler Grafikler bölmesinde görüntülenir.
+2. Portaldaki Gremlin URI değerinizi kopyalayın (kopyalama düğmesini kullanarak) ve config.js dosyasında `config.endpoint` anahtarının değeri yapın. Gremlin uç noktası, `mygraphdb.graphs.azure.com` (`https://mygraphdb.graphs.azure.com` veya `mygraphdb.graphs.azure.com:433` değil) gibi protokol/bağlantı noktası numarası olmayan tek ana bilgisayar adı olmalıdır.
 
-## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
+    `config.endpoint = "GRAPHENDPOINT";`
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+3. Portaldaki birincil anahtar değerinizi kopyalayın ve config.js dosyasında config.primaryKey’in değeri yapın. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
+    `config.primaryKey = "PRIMARYKEY";`
 
-Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin: 
+4. Veritabanı adını ve config.database ve config.collection değerinin grafik (kapsayıcı) adını girin. 
 
-1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
-2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
+Aşağıda, tamamlanan config.js dosyanızın nasıl görüneceğine ilişkin bir örnek bulabilirsiniz:
 
-## <a name="next-steps"></a>Sonraki adımlar
+```nodejs
+var config = {}
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak grafik oluşturmayı ve bir uygulamayı çalıştırmayı öğrendiniz. Artık daha karmaşık sorgular derleyebilir ve Gremlin kullanarak güçlü grafik geçişi mantığını kullanabilirsiniz. 
+// Note that this must not have HTTPS or the port number
+config.endpoint = "mygraphdb.graphs.azure.com";
+config.primaryKey = "OjlhK6tjxfSXyKtrmCiM9O6gQQgu5DmgAoauzD1PdPIq1LZJmILTarHvrolyUYOB0whGQ4j21rdAFwoYep7Kkw==";
+config.database = "graphdb"
+config.collection = "Persons"
+
+module.exports = config;
+```
+
+<a id="run-the-console-app" class="xliff"></a>
+
+## Konsol uygulamasını çalıştırma
+
+1. Terminal penceresi açın ve projeye dahil olan package.json dosyası için yükleme diziniyle değiştirin (`cd` komutuyla).  
+
+2. `gremlin-secure` dahil gerekli npm modüllerini yüklemek için `npm install` öğesini çalıştırın.
+
+3. Node.js uygulamanızı başlatmak için bir terminalde `node app.js` komutunu çalıştırın.
+
+<a id="browse-with-data-explorer" class="xliff"></a>
+
+## Veri Gezgini ile Göz Ama
+
+Artık Azure portalındaki Veri Gezgini'ne dönerek yeni grafik verilerinizi görüntüleyebilir, sorgulayabilir, değiştirebilir ve bu verilerle çalışabilirsiniz.
+
+Yeni veritabanı, Veri Gezgini'nin **Koleksiyonlar** bölmesinde görünür. **graphdb**, **graphcoll** öğelerini genişletip **Grafik** öğesine tıklayın.
+
+Örnek uygulama tarafından oluşturulan veriler **Grafikler** bölmesinde görüntülenir.
+
+<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+
+## Azure portalında SLA'ları gözden geçirme
+
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+
+<a id="clean-up-your-resources" class="xliff"></a>
+
+## Kaynaklarınızı temizleme
+
+Bu uygulamayı kullanmaya devam etmeyi düşünmüyorsanız aşağıdakileri yaparak bu makalede oluşturduğunuz tüm kaynakları silin: 
+
+1. Azure portalında sol taraftaki menüden **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
+2. Kaynak grubu sayfanızda **Sil**'e tıklayın, silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
+
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
+
+Bu makalede, Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak grafik oluşturmayı ve bir uygulamayı çalıştırmayı öğrendiniz. Artık daha karmaşık sorgular oluşturabilir ve Gremlin kullanarak güçlü grafik geçişi mantığını kullanabilirsiniz. 
 
 > [!div class="nextstepaction"]
 > [Gremlin kullanarak sorgulama](tutorial-query-graph.md)
-
 

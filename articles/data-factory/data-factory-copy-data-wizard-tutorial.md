@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Kopyalama Sihirbazı&quot;nı kullanarak bir işlem hattı oluşturma | Microsoft Belgeleri"
+title: "Öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma | Microsoft Belgeleri"
 description: "Bu öğreticide, Data Factory ile desteklenen Kopyalama Sihirbazı’nı kullanarak Kopyalama Etkinlikli bir Azure Data Factory işlem hattı oluşturursunuz"
 services: data-factory
 documentationcenter: 
@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/24/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6a83d5e5939744137e11a441048ade407c63ee86
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Öğretici: Data Factory Kopyalama Sihirbazı kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
+<a id="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard" class="xliff"></a>
+
+# Öğretici: Data Factory Kopyalama Sihirbazı kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
@@ -32,36 +35,39 @@ ms.lasthandoff: 02/03/2017
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-Azure Data Factory **Kopyalama Sihirbazı**, veri alma/taşıma senaryosu uygulayan bir işlem hattını kolayca ve hızlıca oluşturmanıza olanak sağlar. Bu nedenle, veri taşıma senaryosuna yönelik bir örnek işlem hattı oluşturmanın ilk adımı olarak sihirbazı kullanmanız önerilir. Bu öğretici bir Azure veri fabrikası oluşturma ve Kopyalama Sihirbazı’nı başlatma işlemlerini göstermesinin yanı sıra veri alma/taşıma senaryonuza ilişkin ayrıntılar sağlayan bir dizi adım uygular. Sihirbazdaki adımları tamamladığınızda sihirbaz bir Azure blob depolama alanından Azure SQL veritabanına veri kopyalamak için Kopyalama Etkinliği içeren bir işlem hattını otomatik olarak oluşturur. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın. 
+Bu öğretici, verileri bir Azure blob depolamadan Azure SQL veritabanına kopyalamak için **Kopyalama Sihirbazı**’nın nasıl kullanılacağını gösterir. 
 
-## <a name="prerequisites"></a>Ön koşullar
-- Öğreticiye genel bir bakış atmak ve **ön koşul** adımlarını tamamlamak için [Öğreticiye Genel Bakış ve Ön Koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümündeki adımları tamamlayın.
+Azure Data Factory **Kopyalama Sihirbazı**, verileri desteklenen kaynak veri deposundan desteklenen bir hedef veri deposuna kopyalayan veri işlem hattını hızlıca oluşturmanıza olanak tanır. Bu nedenle, veri taşıma senaryonuza yönelik bir örnek işlem hattı oluşturmanın ilk adımı olarak sihirbazı kullanmanız önerilir. Kaynak ve hedef olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
 
+Bu öğretici bir Azure veri fabrikası oluşturma ve Kopyalama Sihirbazı’nı başlatma işlemlerini göstermesinin yanı sıra veri alma/taşıma senaryonuza ilişkin ayrıntılar sağlayan bir dizi adım uygular. Sihirbazdaki adımları tamamladığınızda sihirbaz bir Azure blob depolama alanından Azure SQL veritabanına veri kopyalamak için Kopyalama Etkinliği içeren bir işlem hattını otomatik olarak oluşturur. Kopyalama Etkinliği hakkında daha fazla bilgi için bkz. [veri taşıma etkinlikleri](data-factory-data-movement-activities.md).
 
-## <a name="create-data-factory"></a>Veri fabrikası oluşturma
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
+Bu öğreticiyi uygulamadan önce [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesinde listelenen önkoşulları tamamlayın.
+
+<a id="create-data-factory" class="xliff"></a>
+
+## Veri fabrikası oluşturma
 Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak için Azure Portal’ı kullanırsınız.
 
-1. [Azure portalında](https://portal.azure.com) oturum açtıktan sonra sol üst köşesdeki **+ YENİ** öğesine ve ardından **Intelligence + analytics** ve **Data Factory** öğelerine tıklayın. 
+1. [Azure portalı](https://portal.azure.com)’nda oturum açın.
+2. Sol üst köşedeki **+YENİ** öğesine **Veri + analiz**’e ve **Data Factory** öğesine tıklayın. 
    
    ![Yeni->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. **Yeni data factory** dikey penceresinde:
    
    1. **Ad** için **ADFTutorialDataFactory** girin.
-       Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Şu hatayı alırsanız: **“ADFTutorialDataFactory” veri fabrikası adı yok**, veri fabrikasının adını değiştirin (örneğin, yournameADFTutorialDataFactory) ve oluşturmayı yeniden deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.  
+       Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. `Data factory name “ADFTutorialDataFactory” is not available` hatasını alırsanız veri fabrikasının adını değiştirin (örneğin, yournameADFTutorialDataFactoryYYYYMMDD) ve yeniden oluşturmayı deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.  
       
-       ![Data Factory adı yok](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)
-      
-      > [!NOTE]
-      > Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.
-      > 
-      > 
+       ![Data Factory adı yok](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Azure **aboneliğinizi** seçin.
    3. Kaynak Grubu için aşağıdaki adımlardan birini uygulayın: 
       
       - Var olan bir kaynak grubu seçmek için **Var olanı kullan**’ı seçin.
       - Bir kaynak grubunun adını girmek için **Yeni oluştur**’u seçin.
-         
-          Bu öğreticideki adımlardan bazıları kaynak grubu için şu adı kullandığınızı varsayar: **ADFTutorialResourceGroup**. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).
+          
+        Bu öğreticideki adımlardan bazıları kaynak grubu için şu adı kullandığınızı varsayar: **ADFTutorialResourceGroup**. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).
    4. Veri fabrikası için bir **konum** seçin.
    5. Dikey pencerenin alt kısmındaki **Panoya sabitle** onay kutusunu seçin.  
    6. **Oluştur**’ tıklayın.
@@ -71,22 +77,22 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
    
    ![Data factory giriş sayfası](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## <a name="launch-copy-wizard"></a>Kopyalama Sihirbazı'nı başlatma
-1. Data Factory giriş sayfasında **Veri kopyala** kutucuğuna tıklayarak **Kopyalama Sihirbazı**’nı başlatın. 
+<a id="launch-copy-wizard" class="xliff"></a>
+
+## Kopyalama Sihirbazı'nı başlatma
+1. Data Factory dikey penceresinde **Veri kopyala [ÖNİZLEME]** öğesine tıklayarak **Kopyalama Sihirbazı**’nı başlatın. 
    
    > [!NOTE]
-   > Web tarayıcısının "Yetkilendiriliyor..." durumunda takıldığını görürseniz **Üçüncü taraf tanımlama bilgilerini ve site verilerini engelle** ayarını devre dışı bırakın/işaretini kaldırın (ya da) etkin durumda bırakıp **login.microsoftonline.com** için bir özel durum oluşturun ve ardından sihirbazı yeniden başlatmayı deneyin.
-   > 
-   > 
+   > Web tarayıcısının "Yetkilendiriliyor..." durumunda takıldığını görürseniz, tarayıcı ayarlarından **Üçüncü taraf tanımlama bilgilerini ve site verilerini engelle** ayarını devre dışı bırakın/ayarının işaretini kaldırın (veya) etkin durumda bırakıp **login.microsoftonline.com** için bir özel durum oluşturun ve ardından sihirbazı yeniden başlatmayı deneyin.
 2. **Özellikler** sayfasında:
    
    1. **Görev adı** için **CopyFromBlobToAzureSql** girin
    2. **Açıklama** girin (isteğe bağlı).
-   3. Bitiş tarihini bugüne, başlangıç tarihini ise geçerli günden beş gün öncesine ayarlayacak şekilde **Başlangıç tarihi ve saati** ile **Bitiş tarihi ve saati** değerlerini değiştirin.  
+   3. Bitiş tarihini bugüne, başlangıç tarihini ise beş gün öncesine ayarlayacak şekilde **Başlangıç tarihi ve saati** ile **Bitiş tarihi ve saati** değerlerini değiştirin.  
    4. **İleri**’ye tıklayın.  
       
       ![Kopyalama Aracı - Özellikler sayfası](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
-3. **Kaynak veri deposu** sayfasında **Azure Blob Storage** kutucuğuna tıklayın. Kopyalama görevine yönelik kaynak veri deposunu belirtmek için bu sayfayı kullanın. Yeni bir veri deposu belirtmek için mevcut bir veri deposu bağlı hizmetini kullanabilirsiniz (veya) yeni bir veri deposu belirtebilirsiniz. Mevcut bir bağlı hizmeti kullanmak için **MEVCUT BAĞLI HİZMETLERDEN** öğesine tıklayın ve doğru bağlı hizmeti seçin. 
+3. **Kaynak veri deposu** sayfasında **Azure Blob Storage** kutucuğuna tıklayın. Kopyalama görevine yönelik kaynak veri deposunu belirtmek için bu sayfayı kullanın. 
    
     ![Kopyalama Aracı - Kaynak veri deposu sayfası](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
 4. **Azure Blob depolama hesabı belirtin** sayfasında:
@@ -99,9 +105,8 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
       ![Kopyalama Aracı - Azure Blob depolama hesabı belirtin](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
 5. **Girdi dosyası veya klasörü seçin** sayfasında:
    
-   1. **adftutorial** klasörüne gidin.
+   1. **adftutorial** seçeneğine (klasör) çift tıklayın.
    2. **emp.txt** dosyasını seçip **Seç** öğesine tıklayın
-   3. **İleri**’ye tıklayın. 
       
       ![Kopyalama Aracı - Girdi dosyası veya klasörü seçin](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. **Girdi dosyası veya klasörü seçin** sayfasında **İleri**’ye tıklayın. **İkili kopya**’yı seçmeyin. 
@@ -136,27 +141,29 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
     
     ![Kopyalama Aracı - performans ayarları](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-## <a name="launch-monitor-and-manage-application"></a>Uygulama İzleme ve Yönetmeyi başlatma
+<a id="launch-monitor-and-manage-application" class="xliff"></a>
+
+## Uygulama İzleme ve Yönetmeyi başlatma
 1. **Dağıtım** sayfasında, şu bağlantıya tıklayın: `Click here to monitor copy pipeline`.
    
    ![Kopyalama Aracı - Dağıtım başarılı](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-2. Oluşturduğunuz işlem hattını izleme hakkında bilgi almak için [İzleme Uygulamasını kullanarak işlem hattını izleme ve yönetme](data-factory-monitor-manage-app.md) bölümündeki yönergeleri kullanın. Dilimi görmek için **ETKİNLİK PENCERELERİ** listesindeki **Yenile** simgesine tıklayın. 
+2. İzleme uygulaması, web tarayıcınızdaki ayrı bir sekmede başlatılır.   
    
-   ![İzleme Uygulaması](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
-   
-   
-   En son durumu görmek için alt kısmındaki **ETKİNLİK PENCERELERİ** listesinde **Yenile** düğmesine tıklayın. Durum otomatik olarak yenilenmez. 
+   ![İzleme Uygulaması](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)   
+3. Saatlik dilimlerin en son durumu görmek için alt kısımdaki **ETKİNLİK PENCERELERİ** listesinde **Yenile** düğmesine tıklayın. İşlem hattının başlangıç ve bitiş saatleri arasındaki beş gün için beş etkinlik görürsünüz. Liste otomatik olarak yenilenmez. Bu nedenle, tüm etkinlik pencerelerini Hazır durumunda görebilmeniz için Yenile düğmesine birkaç kez tıklamanız gerekebilir. 
+4. Listeden bir etkinlik penceresi seçin. Ayrıntılarını sağ taraftaki **Etkinlik Penceresi Gezgini**’nde görebilirsiniz.
 
-> [!NOTE]
-> Bu öğreticideki veri işlem hattı, bir kaynak veri deposundaki verileri hedef veri deposuna kopyalar. Çıkış verileri üretmek için giriş verilerini dönüştürmez. Azure Data Factory kullanarak verileri dönüştürme hakkında bir öğretici için bkz. [Öğretici: Hadoop kümesi kullanarak verileri dönüştürmek için ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline.md).
-> 
-> Bir etkinliğin çıkış veri kümesini diğer etkinliğin giriş veri kümesi olarak ayarlayarak iki etkinliği zincirleyebilir, yani bir etkinliği diğerinden sonra çalıştırılmasını sağlayabilirsiniz. Ayrıntılı bilgi için bkz. [Data Factory’de zamanlama ve yürütme](data-factory-scheduling-and-execution.md).
+    ![Etkinlik penceresi ayrıntıları](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)    
 
-## <a name="see-also"></a>Ayrıca Bkz.
-| Konu | Açıklama |
-|:--- |:--- |
-| [İşlem hatları](data-factory-create-pipelines.md) |Bu makale, Azure Data Factory’de işlem hatlarının ve etkinliklerini anlamanıza ve senaryonuz ya da işletmeniz için uçtan uca veri odaklı iş akışları oluşturmak amacıyla bunları nasıl kullanacağınızı anlamanıza yardımcı olur. |
-| [Veri kümeleri](data-factory-create-datasets.md) |Bu makale, Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olur. |
-| [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md) |Bu makalede Azure Data Factory uygulama modelinin zamanlama ve yürütme yönleri açıklanmaktadır. |
+    11, 12, 13, 14 ve 15 tarihlerinin yeşil renkli olduğuna dikkat edin; yeşil renk, bu tarihlerin günlük çıktı dilimlerinin zaten oluşturulduğu anlamına gelir. Bu renk kodlamasını, diyagram görünümünde işlem hattı ve çıktı veri kümesinde de görebilirsiniz. Önceki adımda, iki dilimin zaten oluşturulduğuna, bir dilimin o anda işlenmekte olduğuna ve diğer ikisinin işlenmeyi beklediğine dikkat edin (renk kodlamasına göre). 
 
+    Bu uygulamayı kullanma hakkında daha fazla bilgi için [İzleme Uygulamasını kullanarak işlem hattını izleme ve yönetme](data-factory-monitor-manage-app.md) makalesine bakın.
 
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
+Bu öğreticide, bir kopyalama işleminde kaynak veri deposu olarak Azure blob depolama alanını ve hedef veri deposu olarak Azure SQL veritabanını kullandınız. Aşağıdaki tabloda, kopyalama etkinliği tarafından kaynaklar ve hedefler olarak desteklenen veri depolarının listesi sağlanmıştır: 
+
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+Bir veri deposu için kopyalama sihirbazında gördüğünüz alanlar/özellikler hakkında bilgi için tablodaki veri deposu bağlantısına tıklayın. 

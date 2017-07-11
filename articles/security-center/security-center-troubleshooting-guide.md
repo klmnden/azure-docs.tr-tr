@@ -4,7 +4,7 @@ description: "Bu belge Azure Güvenlik Merkezi’ndeki sorunları gidermenize ya
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
@@ -12,20 +12,29 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 06/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: b9f4a8b185f9fb06f8991b6da35a5d8c94689367
-ms.openlocfilehash: dbbec729c14d0d9dc5781e7a88a1db3f66f7df97
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: fa70dffc2a4bade44e1dec583bdfcf7b5dae6801
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="azure-security-center-troubleshooting-guide"></a>Azure Güvenlik Merkezi Sorun Giderme Kılavuzu
+<a id="azure-security-center-troubleshooting-guide" class="xliff"></a>
+
+# Azure Güvenlik Merkezi Sorun Giderme Kılavuzu
 Bu kılavuz, kuruluşları Azure Güvenlik Merkezi'ni kullanmayı planlayan ve Güvenlik Merkezi ile ilgili sorunları gidermeye ihtiyaç duyan bilgi teknolojisi (BT) uzmanları, bilgi güvenlik analizi uzmanları ve bulut yöneticileri içindir.
 
-## <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
-Bu kılavuzda Güvenlik Merkezi ile ilgili sorunların nasıl giderildiği açıklanmaktadır. Güvenlik Merkezi’nde yapılan sorun giderme işlemlerinin büyük bölümü, başarısız bileşen için ilk olarak [Denetim Günlüğü](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) kayıtlarına bakılarak yapılır. Denetim günlükleri ile aşağıdakileri belirleyebilirsiniz:
+>[!NOTE] 
+>Haziran 2017'nin ilk günlerinden itibaren Güvenlik Merkezi, veri toplamak ve depolamak için Microsoft Monitoring Agent'ı kullanacak. Daha fazla bilgi edinmek için [Azure Güvenlik Merkezi Platform Geçişi](security-center-platform-migration.md) makalesine bakın. Bu makaledeki bilgiler, Microsoft Monitoring Agent'a geçiş sonrasındaki Güvenlik Merkezi işlevselliğine yöneliktir.
+>
+
+<a id="troubleshooting-guide" class="xliff"></a>
+
+## Sorun giderme kılavuzu
+Bu kılavuzda Güvenlik Merkezi ile ilgili sorunların nasıl giderildiği açıklanmaktadır. Güvenlik Merkezi’nde yapılan sorun giderme işlemlerinin birçoğu, öncelikle başarısız bileşenlere ilişkin [Denetim Günlüğü](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) kayıtlarına bakılarak gerçekleştirilir. Denetim günlükleri ile aşağıdakileri belirleyebilirsiniz:
 
 * Hangi işlemlerin gerçekleştirildiği
 * İşlemi kimin başlattığı
@@ -35,49 +44,58 @@ Bu kılavuzda Güvenlik Merkezi ile ilgili sorunların nasıl giderildiği açı
 
 Denetim günlüğü, kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE) içerir, ancak okuma işlemlerini (GET) içermez.
 
-## <a name="troubleshooting-monitoring-agent-installation-in-windows"></a>Windows’ta izleme aracısı yükleme sorunlarını giderme
-Güvenlik Merkezi izleme aracısı, veri toplamayı gerçekleştirmek için kullanılır. Veri toplama etkinleştirildikten ve aracı hedef makineye doğru yüklendikten sonra şu işlemler yürütülmelidir:
+<a id="microsoft-monitoring-agent" class="xliff"></a>
 
-* ASMAgentLauncher.exe - Azure İzleme Aracısı 
-* ASMMonitoringAgent.exe - Azure Güvenlik İzleme uzantısı
-* ASMSoftwareScanner.exe – Azure Tarama Yöneticisi
+## Microsoft Monitoring Agent
+Güvenlik Merkezi, Azure sanal makinelerinizden güvenlik verilerini toplamak için Microsoft Monitoring Agent’ı (Operations Management Suite ve Log Analytics hizmeti tarafından kullanılan aracının aynısı) kullanır. Veri toplama etkinleştirilip aracı hedef makineye doğru şekilde yüklendikten sonra, aşağıdaki işlem yürütülmelidir:
 
-Azure Security Monitoring uzantısı, güvenlikle ilgili çeşitli yapılandırmaları tarar ve güvenlik günlüklerini sanal makineden toplar. Tarama yöneticisi bir düzeltme eki tarayıcısı olarak kullanılır.
+* HealthService.exe
 
-Yükleme başarıyla gerçekleştirilirse hedef sanal makinenin Denetim Günlüklerinde aşağıdakine benzer bir giriş görmeniz gerekir:
+Hizmet yönetimi konsolunu (services.msc) açarsanız, aynı zamanda Microsoft Monitoring Agent hizmetinin aşağıda gösterildiği gibi çalıştığını görürsünüz:
 
-![Denetim Günlükleri](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig1.png)
+![Hizmetler](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-*%systemdrive%\windowsazure\logs* (örnek: C:\WindowsAzure\Logs) konumunda bulunan aracı günlüklerini okuyarak yükleme işlemi hakkında daha fazla bilgi elde edebilirsiniz.
+Sahip olduğunuz aracı sürümünü görmek için **Görev Yöneticisi**’ni açın, **İşlemler** sekmesinde **Microsoft Monitoring Agent Hizmeti**’ni bulun, sağ tıklayın ve **Özellikler**’e tıklayın. **Ayrıntılar** sekmesinde aşağıda gösterildiği gibi dosya sürümüne bakın:
 
-> [!NOTE]
-> Azure Güvenlik Merkezi Aracısı hatalı davranıyorsa aracıyı durdurup başlatmaya yönelik bir komut olmadığından hedef sanal makineyi yeniden başlatmanız gerekir.
+![Dosya](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
+   
+
+<a id="microsoft-monitoring-agent-installation-scenarios" class="xliff"></a>
+
+## Microsoft Monitoring Agent yükleme senaryoları
+Microsoft Monitoring Agent’ı bilgisayarınıza yüklerken farklı sonuçlar üretebilen iki yükleme senaryosu vardır. Desteklenen senaryolar şunlardır:
+
+* **Aracı Güvenlik Merkezi tarafından otomatik olarak yüklenir**: Bu senaryoda hem Güvenlik Merkezi hem de Günlük aramasında uyarıları görüntüleyebilirsiniz. Kaynağın ait olduğu aboneliğe ait güvenlik ilkesinde yapılandırılmış e-posta adresine e-posta bildirimleri alırsınız.
+.
+* **Aracı, Azure’da bulunan bir VM’ye el ile yüklenir**: Bu senaryoda, Şubat 2017’den önce indirilip yüklenmiş aracılar kullanıyorsanız, uyarıları yalnızca çalışma alanının ait olduğu abonelikte filtrelemeniz durumunda Güvenlik Merkezi portalında görüntüleyebilirsiniz. Kaynağın ait olduğu abonelikte filtrelemeniz halinde, herhangi bir uyarı göremezsiniz. Çalışma alanının ait olduğu aboneliğe ait güvenlik ilkesinde yapılandırılmış e-posta adresine e-posta bildirimleri alırsınız.
+
+>[!NOTE]
+> İkinci durumda açıklanan davranışı önlemek için aracının en son sürümünü indirdiğinizden emin olun.
+> 
+
+<a id="troubleshooting-monitoring-agent-network-requirements" class="xliff"></a>
+
+## Monitoring agent ağ gereksinimi sorunlarını giderme
+Aracıların Güvenlik Merkezi’ne bağlanması ve kaydolması için, bağlantı noktası numaraları ve etki alanı URL’leri dahil olmak üzere ağ kaynaklarına erişebilmesi gerekir.
+
+- Proxy sunucuları için, aracı ayarlarında uygun proxy sunucusu kaynaklarının yapılandırıldığından emin olmanız gerekir. [Proxy ayarlarını değiştirme](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings) hakkında daha fazla bilgi için bu makaleyi okuyun.
+- İnternet’e erişimi kısıtlayan güvenlik duvarları için, güvenlik duvarınızı OMS erişimine izin verecek şekilde yapılandırmanız gerekir. Aracı ayarlarında bir işlem yapılması gerekmez.
+
+Aşağıdaki tabloda iletişim için gereken kaynaklar gösterilmektedir.
+
+| Aracı Kaynağı | Bağlantı Noktaları | HTTPS denetlemesini atlama |
+|---|---|---|
+| *.ods.opinsights.azure.com | 443 | Evet |
+| *.oms.opinsights.azure.com | 443 | Evet |
+| *.blob.core.windows.net | 443 | Evet |
+| *.azure-automation.net | 443 | Evet |
+
+Aracıyla ekleme sorunları yaşarsanız, [Operations Management Suite ekleme sorunlarını giderme](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) makalesini okuduğunuzdan emin olun.
 
 
-Veri toplamayla ilgili sorun yaşamaya devam ediyorsanız, aşağıdaki adımları izleyerek aracıyı kaldırabilirsiniz:
+<a id="troubleshooting-endpoint-protection-not-working-properly" class="xliff"></a>
 
-1. **Azure Portal**’dan veri toplama sorunları yaşayan sanal makineyi seçin ve **Uzantılar**’a tıklayın.
-2. **Microsoft.Azure.Security.Monitoring** öğesine sağ tıklayıp **Kaldır**’a tıklayın.
-
-![Aracıyı kaldırma](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
-
-Azure Güvenlik İzleme uzantısı birkaç dakika içinde otomatik olarak yeniden yüklenir.
-
-## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Linux’ta izleme aracısı yükleme sorunlarını giderme
-Bir Linux sisteminde Sanal Makine Aracısı yükleme sorunlarını giderirken uzantının /var/lib/waagent/ dizinine indirildiğinden emin olmanız gerekir. Yüklendiğini doğrulamak için aşağıdaki komutu çalıştırabilirsiniz:
-
-`cat /var/log/waagent.log` 
-
-Sorun giderme amacıyla gözden geçirebileceğiniz diğer günlük dosyaları şunlardır: 
-
-* /var/log/mdsd.err
-* /var/log/azure/
-
-Çalışan bir sistemde TCP 29130 üzerinde mdsd işlemiyle bir bağlantı görmeniz gerekir. Bu bağlantı mdsd işlemiyle iletişim kuran syslog dosyasıdır. Aşağıdaki komutu çalıştırarak bu davranışı doğrulayabilirsiniz:
-
-`netstat -plantu | grep 29130`
-
-## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Uç nokta korumasıyla ilgili sorunları giderme işlemi düzgün çalışmıyor
+## Uç nokta korumasıyla ilgili sorunları giderme işlemi düzgün çalışmıyor
 
 Konuk aracı, [Microsoft Kötü Amaçlı Yazılımdan Koruma](../security/azure-security-antimalware.md) uzantısının gerçekleştirdiği tüm işlemlerin üst işlemidir. Konuk aracı işleminin başarısız olması durumunda konuk aracının alt işlemi olarak çalışan Microsoft Kötü Amaçlı Yazılımdan Koruma da başarısız olabilir.  Bu gibi senaryolarda aşağıdaki seçenekleri doğrulamanız önerilir:
 
@@ -91,16 +109,22 @@ Konuk aracı, [Microsoft Kötü Amaçlı Yazılımdan Koruma](../security/azure-
 
 Microsoft Kötü Amaçlı Yazılımdan Koruma Kullanıcı Arabirimi varsayılan olarak devre dışıdır; gerektiğinde bu arabirimi nasıl etkinleştirebileceğiniz hakkında daha fazla bilgi edinmek için [Azure Resource Manager Sanal Makinelerinde Dağıtımdan Sonra Microsoft Kötü Amaçlı Yazılımdan Koruma Kullanıcı Arabirimi’ni Etkinleştirme](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) konusunu okuyun.
 
-## <a name="troubleshooting-problems-loading-the-dashboard"></a>Pano yükleme sorunlarını giderme
+<a id="troubleshooting-problems-loading-the-dashboard" class="xliff"></a>
+
+## Pano yükleme sorunlarını giderme
 
 Güvenlik Merkezi panosunu yüklemeyle ilgili sorun yaşıyorsanız, aboneliği Güvenlik Merkezi’ne kaydeden kullanıcı (Güvenlik Merkezi’ni bu abonelikle ilk kez açan kullanıcı) ile veri toplamayı etkinleştirmek isteyen kullanıcının abonelikte *Sahip* veya *Katkıda Bulunan* rolüne sahip olduğundan emin olun. O andan itibaren, abonelikte *Okuyucu* rolüne sahip kullanıcılar da pano/uyarılar/öneri/ilke sayfasını görebilir.
 
-## <a name="contacting-microsoft-support"></a>Microsoft Destek ile iletişim kurma
-Bazı sorunlar bu makalede verilen yönergeler kullanılarak tanımlanabilirken, bazılarını Güvenlik Merkezi genel [Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)’nda da bulabilirsiniz. Ancak daha fazla sorun giderme adımı gerekirse aşağıda gösterildiği gibi **Azure Portal**’ı kullanarak yeni bir destek isteği açabilirsiniz: 
+<a id="contacting-microsoft-support" class="xliff"></a>
+
+## Microsoft Destek ile iletişim kurma
+Bazı sorunlar bu makalede verilen yönergeler kullanılarak tanımlanabilirken, bazılarını Güvenlik Merkezi genel [Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)’nda da bulabilirsiniz. Ancak, daha fazla sorun giderme bilgisi gerekirse, **Azure portalında** aşağıda gösterildiği gibi yeni bir destek isteği oluşturabilirsiniz: 
 
 ![Microsoft Destek](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>Ayrıca bkz.
+<a id="see-also" class="xliff"></a>
+
+## Ayrıca bkz.
 Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandırılacağını öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md) - Azure Güvenlik Merkezi'ni benimsemek için tasarım ile ilgili dikkat edilmesi gerekenleri planlama ve anlama hakkında bilgi edinin.
