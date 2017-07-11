@@ -1,6 +1,6 @@
 ---
-title: "Akış Analizi&quot;ne Giriş | Microsoft Belgeleri"
-description: "Nesnelerin İnterneti&quot;nden (IoT) sağlanan akış verilerini gerçek zamanlı olarak analiz etmenize yardım eden bir yönetilen hizmet olan Stream Analytics hakkında bilgi edinin."
+title: "Akış Analizi'ne Giriş | Microsoft Belgeleri"
+description: "Nesnelerin İnterneti'nden (IoT) sağlanan akış verilerini gerçek zamanlı olarak analiz etmenize yardım eden bir yönetilen hizmet olan Stream Analytics hakkında bilgi edinin."
 keywords: "hizmet olarak analytics, yönetilen hizmetler, akış işleme, streaming analytics, stream analytics nedir"
 services: stream-analytics
 documentationcenter: 
@@ -13,44 +13,114 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 06/16/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 42f77fbea2ac9572940e8c428999c79d6b4b6e23
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 421bdfb3132bc8c9f193bcca8d55c9cf9eba1c3b
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="what-is-stream-analytics"></a>Stream Analytics nedir?
-Azure Akış Analizi (ASA), verilerden ayrıntılı öngörüler elde etmenizi sağlayan, tam olarak yönetilen, düşük maliyetli ve gerçek zamanlı bir olay işleme altyapısıdır. Stream Analytics cihazlar, algılayıcılar, web siteleri, sosyal medya, uygulamalar, altyapı sistemleri ve daha fazlasından sağlanan veri akışlarında gerçek zamanlı analitik hesaplamalar ayarlamanızı kolaylaştırır.
 
-Azure portalında birkaç tıklama ile akış verilerine ilişkin giriş kaynağının, işinizin sonuçları için çıkış havuzunun ve SQL benzeri bir dille ifade edilen bir veri dönüşümünün yer aldığı bir Stream Analytics işini yazabilirsiniz. Azure portalında işinizin ölçeğini/hızını izleyip ayarlayabilir ve her saniye işlenen olayların birkaç kilobayttan bir gigabayta kadarını veya daha fazlasını ölçeklendirebilirsiniz.
+<a id="what-is-stream-analytics" class="xliff"></a>
 
-Stream Analytics, zamana duyarlı işlemeye yönelik üst düzey ayarlamaları yapılmış olan akış altyapılarının, aynı zamanda bu altyapıların sezgisel belirtimleri için dil tümleştirmelerinin geliştirilmesi konusunda Microsoft Research'ün yıllar süren çalışmalarından faydalanmaktadır.
+# Stream Analytics nedir?
 
-## <a name="what-can-i-use-stream-analytics-for"></a>Stream Analytics'i ne için kullanabilirim?
-Günümüzde çok büyük miktarda veri kablo üzerinden yüksek hızlarda akmaktadır. Bu akış verilerini gerçek zamanlı olarak işleyip buna göre hareket edebilen kuruluşlar, verimliliklerini ciddi düzeyde yükseltebilir ve piyasada rakiplerinden ayrılabilirler. Gerçek zamanlı akış analizlerini içeren senaryolar tüm sektörlerde bulunabilir: finansal hizmetler şirketlerinin sağladığı kişiselleştirilmiş ve gerçek zamanlı hisse senedi alım-satım analizleri ve uyarıları; gerçek zamanlı sahtekarlık algılama; veri ve kimlik koruma hizmetleri; fiziksel nesnelere katıştırılmış algılayıcılar ve erişim düzenekleri tarafından oluşturulan verilerin güvenilir şekilde alımı ve analizi (Nesnelerin İnterneti veya IoT); web tıklama dizisi analizleri; bir zaman dilimi içindeki müşteri deneyimi değeri düştüğünde uyarı sağlayan müşteri ilişkileri yönetimi (CRM) uygulamaları. İşletmeler, modern iş dünyasının son derece rekabetçi olan ortamında başarılı olmak için söz konusu gerçek zamanlı olay akışı veri analizlerini kullanmanın en esnek, güvenilir ve uygun maliyetli yolunu aramaktadır.
+Azure Stream Analytics, akış verilerine gerçek zamanlı analitik hesaplamalar eklemenizi sağlayan tam yönetimli bir olay işleme sistemidir. Veriler cihazlardan, sensörlerden, web sitelerinden, sosyal medya akışlarından, uygulamalardan, altyapı sistemlerinden ve çok daha fazlasından gelebilir. 
 
-## <a name="key-capabilities-and-benefits"></a>Temel işlevler ve avantajlar
-* **Kullanım kolaylığı:** Stream Analytics, dönüşümlerin açıklanmasında basit ve bildirim temelli bir sorgu modelini destekler. Akış Analizi, kullanım kolaylığını iyileştirmek için bir T-SQL varyantı kullanır, böylece müşterilerin akış işleme sistemlerinin teknik karmaşıklıklarıyla uğraşma zorunluluğunu ortadan kaldırır. Tarayıcı içi sorgu düzenleyicisinde [Akış Analizi sorgu dilini](https://msdn.microsoft.com/library/azure/dn834998.aspx) kullanarak IntelliSense otomatik tamamlama özelliğinden yararlanabilirsiniz; bu özellik zaman tabanlı birleşimler, pencereli toplamlar, zamana bağlı filtreler; ayrıca birleşimler, toplamlar, izdüşümler ve filtreler gibi diğer yaygın işlemler de dahil olmak üzere zaman serisi sorgularını hızlı ve kolay bir şekilde uygulamanızı sağlar. Ayrıca bir örnek veri dosyasında tarayıcı içi sorgu testi yapılması, hızlı ve yinelemeli bir geliştirme sağlar.  
-* **Ölçeklenebilirlik:** Stream Analytics 1 GB/saniyeye varan yüksek olay performanslarını işleyebilir. [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) ve [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)'ları ile tümleştirme; bağlı cihazlar, tıklama dizileri ve günlük dosyaları gibi çeşitli kaynaklardan gelen, saniyede milyonlarca olayın alınması sorunu için çözüm sağlar. Stream Analytics bunu başarmak için Event Hubs'ın bölüm başına 1 MB/sn sağlayabilen bölümleme işlevinden yararlanır. Kullanıcılar sorgu tanımı içinde hesaplamayı belirli sayıda mantıksal adıma bölebilirler, bu adımların her biri ölçeklenebilirliği artırmak üzere yeniden bölümlenebilir.  
-* **Güvenilirlik, yinelenebilirlik ve hızlı kurtarma:** Bulutta yönetilen bir hizmet olan Akış Analizi, veri kaybını önlemeye yardımcı olur, yerleşik kurtarma özellikleri sayesinde hatalar söz konusu olduğunda işin devamlılığını sağlar. Dahili olarak durumunu koruma özelliği sayesinde, hizmet tekrarlanabilir sonuçlar sunar ve gelecekte işlemenin yeniden uygulanmasını ve olayların arşivlenmesini, böylelikle de her zaman için aynı sonuçların alınmasını sağlar. Bu sayede müşteriler kök neden analizi, durum çözümlemesi vb. gerçekleştirirken zamanda geriye giderek hesaplamaları araştırabilirler.  
-* **Düşük maliyet:** Bir bulut hizmeti olan Stream Analytics, kullanıcıların çok düşük bir maliyetle başlangıç yapmalarını ve gerçek zamanlı analiz sonuçlarını kullanmalarını sağlamak amacıyla iyileştirilmiştir. Hizmet, Akış Birimi kullanımına ve sistemin işlediği veri miktarına göre kullandıkça ödemenizi sağlayacak şekilde oluşturulmuştur. Kullanım miktarı, ilgili Stream Analytics işlerinin işlenmesi için küme içinde sağlanan işlem gücü miktarına ve işlenen olayların hacmine göre üretilir.  
-* **Başvuru verileri:** Stream Analytics kullanıcıların başvuru verilerini belirtmelerine ve kullanmalarına olanak tanır. Bunlar zaman içinde daha nadir olarak değişen akış dışındaki veriler veya geçmiş verileri olabilir. Sistem, başvuru verilerinin kullanımını basitleştirerek bunların diğer herhangi bir gelen olay akışı şeklinde değerlendirilmesini sağlar ve bunları gerçek zamanlı olarak alınan diğer olay akışlarıyla birleştirerek dönüşümleri gerçekleştirir.  
-* **Kullanıcı Tanımlı İşlevler:** Akış Analizi, Machine Learning hizmetindeki işlev çağrılarını Akış Analizi sorgusunun bir parçası olarak tanımlamak üzere Azure Machine Learning ile tümleşiktir. Bu, Akış Analizi'nin mevcut Azure Machine Learning çözümlerinden faydalanma olanağını artırır. Bu konuda daha fazla bilgi edinmek için lütfen bkz. [Machine Learning tümleştirme öğreticisi](stream-analytics-machine-learning-integration-tutorial.md).
-* **Bağlantı:** Akış Analizi, akış alımı için doğrudan Azure Event Hubs'a ve Azure IoT Hub'larına; geçmiş verilerin alımı için de Azure Blob hizmetine bağlanır. Sonuçlar; Stream Analytics’ten Azure Depolama Bloblarına veya Tablolarına, Azure SQL DB'ye, Azure Data Lake Depolarına, Azure Cosmos DB'ye, Event Hubs'a, Azure Service Bus Konu Başlıklarına veya Kuyruklarına ve Power BI'a yazılabilir; burada sonuçlar görselleştirilebilir, iş akışları tarafından daha fazla işlenebilir, [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) yoluyla toplu analizlerde kullanılabilir veya bir olay serisi olarak yeniden işlenebilir. Event Hubs'ı kullanırken, hesaplamaların akış yapısını kaybetmeden birden çok Stream Analytics'i diğer veri kaynaklarıyla ve işleme altyapılarıyla birlikte oluşturmak mümkündür.  
+<a id="what-can-i-use-stream-analytics-for" class="xliff"></a>
 
-## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) deneyin.
+## Stream Analytics'i ne için kullanabilirim?
 
-## <a name="next-steps"></a>Sonraki adımlar
-Nesnelerin İnterneti'nden gelen verilerdeki akış analizlerine yönelik bir yönetilen hizmet olan Stream Analytics'e giriş yaptınız. Bu hizmet hakkında daha fazla bilgi edinmek için bkz:
+Stream Analytics'i kullanarak cihazlardan veya işlemlerden geçen yüksek hacimli verileri inceleyebilir, veri akışından bilgi çıkarabilir ve modeller, eğilimler ve ilişkilere bakabilirsiniz. Ardından verilerin içeriğine bağlı olarak uygulama görevleri gerçekleştirebilirsiniz. Örneğin uyarı oluşturabilir, otomatik iş akışlarını başlatabilir, Power BI gibi bir raporlama aracına bilgi aktarabilir veya verileri daha sonra incelemek üzere saklayabilirsiniz. 
 
-* [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-get-started.md)
-* [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+Streaming Analytics senaryolarına örnekler şunlardır:
+
+* Finansal hizmet şirketleri tarafından sunulan kişiselleştirilmiş, gerçek zamanlı borsa analizi ve uyarılar.
+* İşlem verilerinin incelenmesiyle gerçek zamanlı sahtekarlık algılama. 
+* Veri ve kimlik koruması hizmetleri.
+* Fiziksel nesnelere takılı sensörler ve aktüatörler tarafından üretilen verilerin analiz edilmesi (Nesnelerin İnterneti, IoT).
+* Web tıklama dizisi çözümlemeleri.
+* Belirli bir zaman aralığındaki müşteri deneyimi kötüye gittiğinde uyarı oluşturma gibi müşteri ilişkileri yönetimi (CRM) uygulamaları.
+
+<a id="how-does-stream-analytics-work" class="xliff"></a>
+
+## Stream Analytics nasıl çalışır?
+
+Aşağıdaki diyagramda Streaming Analytics işlem hattı üzerinde verilerin toplanma, analiz edilme ve sunum ya da eylem için gönderilme şekli gösterilmektedir. 
+
+![Stream Analytics işlem hattı](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
+
+Stream Analytics bir veri kaynağından gelen akışla başlar. Veriler, Azure olay hub'ı veya IoT hub'ı kullanan bir cihazdan Azure'a aktarılabilir. Veriler aynı zamanda Azure Blob Depolama gibi bir veri kaynağından da çekilebilir. 
+
+Akışı incelemek için verilerin nereden geldiğini belirten bir Streaming Analytics *işi* oluşturursunuz. İş ayrıca verilerin, modellerin veya ilişkilerin arama şeklini belirten bir *dönüşüme*&mdash; de sahiptir. Bu görev için Streaming Analytics belirli bir zaman aralığında toplanan akış verilerinin filtrelenmesini, sıralanmasını, toplanmasını ve birleştirilmesini destekleyen SQL benzeri bir sorgu dilini destekler.
+
+Son olarak iş, dönüştürülen verilerin gönderileceği bir çıktı belirtir. Bu da analiz edilen verileri ne yapacağınızı belirlemenizi sağlar. Örneğin analiz sonucunda:
+
+* Bir cihazın ayarlarını değiştirmek üzere komut gönderebilirsiniz. 
+* Bulgulara göre eyleme geçen bir işlem tarafından izlenen bir kuyruğa veri gönderebilirsiniz. 
+* Raporlama için bir Power BI panosuna veri gönderebilirsiniz.
+* Verileri Data Lake Store, SQL Server veritabanı, Azure Blob veya Tablo depolama gibi depolama ortamlarına gönderebilirsiniz.
+
+Bir iş çalışırken onu izleyebilir ve saniye başına işlenen olay sayısını ayarlayabilirsiniz. Aynı zamanda sorun giderme amacıyla tanılama günlüğü oluşturan işler de oluşturabilirsiniz.
+
+<a id="key-capabilities-and-benefits" class="xliff"></a>
+
+## Temel işlevler ve avantajlar
+
+Stream Analytics kullanımı kolay, esnek, her boyuttaki iş için ölçeklenebilir ve ekonomik olacak şekilde tasarlanmıştır.
+
+<a id="connectivity-to-many-inputs-and-outputs" class="xliff"></a>
+
+### Birçok giriş ve çıkışa bağlanabilme
+
+Akış Analizi, akış alımı için doğrudan [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)'a ve [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)'larına; geçmiş verilerin alımı için de [Azure Blob depolama](https://docs.microsoft.com/azure/storage/storage-introduction#blob-storage-accounts) hizmetine bağlanır. Olay hub'larından veri alıyorsanız Stream Analytics'i diğer veri kaynakları ve işleme sistemleriyle birlikte kullanabilirsiniz.
+
+İş girdisi aynı zamanda başvuru bilgilerini (statik veya yavaş değişen veriler) de içerebilir. Akış verilerini bu başvuru verileriyle birleştirerek veritabanı sorgusu gibi arama işlemleri gerçekleştirebilirsiniz.
+
+Bir Stream Analytics işinin çıktısı birçok şekilde yönlendirilebilir. Azure Depolama blobları veya tabloları, Azure SQL DB, Azure Data Lake Store veya Azure Cosmos DB gibi depolama ortamlarına yazılabilir. Veriler buradan Azure HDInsight aracılığıyla toplu analizden geçirilebilir. Çıktıyı başka bir işlem tarafından kullanılmak üzere başka bir hizmete gönderebilirsiniz (olay hub'ları, Azure Service Bus konuları veya kuyruklar gibi). Çıktıyı görselleştirme için Power BI'a gönderebilirsiniz.
+
+<a id="ease-of-use" class="xliff"></a>
+
+### Kullanım kolaylığı
+
+Dönüşümleri tanımlamak için programlama bilgisine ihtiyaç duymadan gelişmiş analizler oluşturmanızı sağlayan basit ve bildirim temelli [Stream Analytics sorgu dilini](https://msdn.microsoft.com/library/azure/dn834998.aspx) kullanırsınız. Sorgu dili, girdi olarak veri akışını kullanır. Ardından verileri filtreleyip sıralayabilir, değerleri toplayabilir, hesaplamalar yapabilir, verileri birleştirebilir (akış veya başvuru verileriyle) ve jeo-uzamsal işlevleri kullanabilirsiniz. IntelliSense ve söz dizimi denetimini kullanarak sorguları portalda düzenleyebilir ve sorguları canlı akıştan ayıklayabileceğiniz örnek verilerle test edebilirsiniz.
+
+<a id="extensible-query-language" class="xliff"></a>
+
+### Genişletilebilir sorgu dili
+
+Ek işlevler tanımlayıp çağırarak sorgu dilinin yapabileceklerini artırabilirsiniz. Azure Machine Learning hizmetinde işlev çağrıları tanımlayarak Azure Machine Learning çözümlerinden faydalanabilirsiniz. Ayrıca JavaScript kullanıcı tanımlı işlevlerini (UDF) tümleştirerek Stream Analytics sorgusunun bir parçası olarak karmaşık hesaplamalar gerçekleştirebilirsiniz.
+
+<a id="scalability" class="xliff"></a>
+
+### Ölçeklenebilirlik
+
+Stream Analytics saniyede 1 GB gelen veri işleyebilir. [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) ve [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)'ları ile tümleştirme; bağlı cihazlar, tıklama dizileri ve günlük dosyaları gibi çeşitli kaynaklardan gelen, saniyede milyonlarca olayın işler tarafından alınmasını sağlar. Olay hub'larının bölümleme özelliğini kullanarak hesaplamaları mantıksal adımlara ayırabilir, her birini bölümlere ayırarak ölçeklenebilirliği artırabilirsiniz.
+
+<a id="low-cost" class="xliff"></a>
+
+### Düşük maliyet
+
+Bir bulut hizmeti olan Stream Analytics, maliyetlerinizi düşürmeniz için iyileştirilmiştir. Akış birimi kullanımına ve sistemin işlediği veri miktarına göre kullandıkça ödersiniz. Kullanım miktarı, Stream Analytics işlerinin işlenmesi için küme içinde sağlanan işlem gücü miktarına ve işlenen olayların hacmine göre belirlenir.
+
+<a id="reliability-quick-recovery-and-repeatability" class="xliff"></a>
+
+### Güvenilirlik, hızlı kurtarma ve tekrarlama
+
+Bulutta yönetilen bir hizmet olan Stream Analytics, veri kaybının önlenmesine yardımcı olur ve iş sürekliliği sağlar. Hata oluşması halinde hizmetin sunduğu yerleşik kurtarma özelliklerinden faydalanabilirsiniz. Dahili olarak durumunu koruma özelliği sayesinde, hizmet tekrarlanabilir sonuçlar sunar ve gelecekte işlemenin yeniden uygulanmasını ve olayların arşivlenmesini, böylelikle de her zaman için aynı sonuçların alınmasını sağlar. Bu sayede kök neden analizi, durum çözümlemesi vb. gerçekleştirirken zamanda geriye giderek hesaplamaları araştırabilirsiniz.
+
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
+
+* [IoT cihazlarından gelen girdiler ve sorgularla çalışmayı deneyerek](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md) başlangıç yapın.
+* Dolandırıcılık amaçlı çağrıları bulmak için telefon meta verilerini inceleyen [uçtan uca Streaming Analytics çözümü](stream-analytics-real-time-fraud-detection.md) oluşturun.
+* Stream Analytics'in SQL benzeri sorgu dili ve [pencere işlevleri](stream-analytics-window-functions.md) gibi benzersiz kavramları hakkında bilgi edinin.
+* [Streaming Analytics işlerini ölçeklendirmeyi](stream-analytics-scale-jobs.md) öğrenin. 
+* [Streaming Analytics ve Azure Machine Learning hizmetlerini tümleştirmeyi](stream-analytics-machine-learning-integration-tutorial.md) öğrenin.
+* Stream Analytics ile ilgili sorularınıza yanıt almak için [Azure Stream Analytics forumunu](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) ziyaret edin.
 
 
