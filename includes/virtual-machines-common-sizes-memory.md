@@ -1,13 +1,34 @@
 
+* The M-Series offers the highest CPU count (up to 128 vCPUs) and largest memory (up to 2.0 TiB) of any VM in the cloud.  It’s ideal for extremely large databases or other applications that benefit from high CPU counts and large amounts of memory.
 
 * Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
-D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+* D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+* Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+
+<a id="m-series" class="xliff"></a>
+
+## M-series*
+
+ACU: 160-180
+
+| Size            | vCPU | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
+|-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
+| Standard_M64ms  | 64   | 1792        | 2048           | 32             | 80,000 / 800 (6348)                                                   | 40,000 / 1,000                            | 32 / extremely high          |
+| Standard_M128s** | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696)                                              | 80,000 / 2,000                            | 32 / extremely high          |
 
 
-## <a name="gs-series"></a>GS-series*
+
+*M-series VM’s feature Intel® Hyper-Threading Technology
+
+**More than 64 vCPU’s require one of these supported guest OSes: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux or CentOS 7.3 with LIS 4.2.1 
+
+<br>
+
+<a id="gs-series" class="xliff"></a>
+
+## GS-series*
 
 ACU: 180 - 240
 
@@ -26,7 +47,9 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 **Instance is isolated to hardware dedicated to a single customer.
 <br>
 
-## <a name="g-series"></a>G-series
+<a id="g-series" class="xliff"></a>
+
+## G-series
 
 ACU: 180 - 240
 
@@ -42,11 +65,13 @@ ACU: 180 - 240
 <br>
 
 
-## <a name="dsv2-series"></a>DSv2-series*
+<a id="dsv2-series" class="xliff"></a>
+
+## DSv2-series*
 
 ACU: 210 - 250
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2 |2 |14 |28 |4 |8,000 / 64 (72) |6,400 / 96 |2 high |
 | Standard_DS12_v2 |4 |28 |56 |8 |16,000 / 128 (144) |12,800 / 192 |4 high |
@@ -66,7 +91,9 @@ Bps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 *The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
-## <a name="dv2-series"></a>Dv2-series
+<a id="dv2-series" class="xliff"></a>
+
+## Dv2-series
 
 ACU: 210 - 250
 
@@ -84,11 +111,13 @@ ACU: 210 - 250
 
 <br>
 
-## <a name="ds-series"></a>DS-series*
+<a id="ds-series" class="xliff"></a>
+
+## DS-series*
 
 ACU: 160
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |4 |8,000 / 64 (72) |6,400 / 64 |2 / high |
 | Standard_DS12 |4 |28 |56 |8 |16,000 / 128 (144) |12,800 / 128 |4 / high |
@@ -100,7 +129,9 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 *The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
-## <a name="d-series"></a>D-series
+<a id="d-series" class="xliff"></a>
+
+## D-series
 
 ACU: 160
 

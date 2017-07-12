@@ -5,24 +5,28 @@ The NV instances are powered by NVIDIA’s Tesla M60 GPU card and NVIDIA GRID fo
 
 The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch through data much faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance.
 
-## <a name="nv-instances"></a>NV instances
+<a id="nv-instances" class="xliff"></a>
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 |
-| Standard_NV24 |24 |224 |1440 | 4 |
+## NV instances
+
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 8 |
+| Standard_NV12 |12 |112 |680 | 2 | 16 |
+| Standard_NV24 |24 |224 |1440 | 4 | 32 |
 
 1 GPU = one-half M60 card.
 
-## <a name="nc-instances"></a>NC instances
+<a id="nc-instances" class="xliff"></a>
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 |
-| Standard_NC12 |12 |112 | 680 | 2 |
-| Standard_NC24 |24 |224 | 1440 | 4 |
-| Standard_NC24r* |24 |224 | 1440 | 4 |
+## NC instances
+
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NC6 |6 |56 | 380 | 1 | 8 |
+| Standard_NC12 |12 |112 | 680 | 2 | 16 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 32 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 32 |
 
 1 GPU = one-half K80 card.
 

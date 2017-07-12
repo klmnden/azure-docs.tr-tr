@@ -1,102 +1,135 @@
-# <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure'da sanal makineler için kullanılabilirlik ve bölgeler
-Sanal makinelerinizin (VM’ler) Azure’da nasıl ve hangi konumda çalıştığının yanı sıra performans, kullanılabilirlik ve yedekliliği artırmak için kullanabileceğiniz seçeneklerin de anlaşılması önemlidir. Azure, dünyanın dört bir yanındaki birden fazla veri merkezinde çalışmaktadır. Bu veri merkezleri, coğrafi bölgeler halinde gruplandırılarak uygulamalarınızı oluşturacağınız yeri seçme esnekliği tanır. Bu makalede, Azure’un kullanılabilirlik ve yedeklilik özelliklerine genel bakış sunulmaktadır.
+<a id="regions-and-availability-for-virtual-machines-in-azure" class="xliff"></a>
 
-## <a name="what-are-azure-regions"></a>Azure bölgeleri nelerdir?
-Azure 'Batı ABD', 'Kuzey Avrupa' veya 'Güneydoğu Asya' gibi tanımlı coğrafi bölgelerde VM gibi kaynaklar oluşturmanıza olanak tanır. Şu anda dünya çapında 30 Azure bölgesi mevcuttur. [Bölgeler ve konumlarının listesini](https://azure.microsoft.com/regions/) gözden geçirebilirsiniz. Her bölge içinde, yedeklilik ve kullanılabilirlik sağlayan birden fazla veri merkezi mevcuttur. Bu yaklaşım, uygulamalarınızı oluştururken kullanıcılarınıza en yakın VM'leri oluşturmak ve her türlü hukuk, uyumluluk veya vergi gereksinimlerini karşılamak için size esneklik sağlar.
+# Regions and availability for virtual machines in Azure
+It is important to understand how and where your virtual machines (VMs) operate in Azure, along with your options to maximize performance, availability, and redundancy. Azure operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. This article provides you with an overview of the availability and redundancy features of Azure.
 
-## <a name="special-azure-regions"></a>Özel Azure bölgeleri
-Uygulamalarınızı oluştururken kullanmak isteyebileceğiniz, uyumluluk veya hukuk gereksinimlerine yönelik bazı özel Azure bölgeleri mevcuttur. Bu özel bölgeleri şunlardır:
+<a id="what-are-azure-regions" class="xliff"></a>
 
-* **ABD Virginia** ve **ABD Iowa**
-  * ABD kamu kuruluşları ve iş ortaklarına yönelik olarak ABD’de bulunan ve denetlenen kişilerce çalıştırılan fiziksel ve mantıksal ağdan yalıtılmış Azure örneği. [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) ve [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA) gibi ek uyumluluk sertifikaları içerir. [Azure Kamu](https://azure.microsoft.com/features/gov/) hakkında daha fazla bilgi alın.
-* **Çin Doğu** ve **Çin Kuzey**
-  * Bu bölgeler, Microsoft ile 21Vianet arasında, Microsoft’un veri merkezlerini doğrudan yönetmediği benzersiz ortaklık ile kullanıma sunulmaktadır. [Çin’de Microsoft Azure](http://www.windowsazure.cn/) hakkında daha fazla bilgi alın.
-* **Almanya Orta** ve **Almanya Kuzeydoğu**
-  * Bu bölgeler şu anda, müşteri verilerinin Almanya’da barındırıldığı bir veri emanetçisi modeli aracılığıyla sunulmaktadır. Bu modelde veriler, Deutsche Telekom’a ait bir şirket olan ve Alman veri emanetçisi olarak görev yapan T-Systems’ın denetimindedir.
+## What are Azure regions?
+Azure allows you to create resources, such as VMs, in defined geographic regions like 'West US', 'North Europe', or 'Southeast Asia'. There are currently 30 Azure regions around the world. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). Within each region, multiple datacenters exist to provide for redundancy and availability. This approach gives you flexibility when building your applications to create VMs closest to your users and to meet any legal, compliance, or tax purposes.
 
-## <a name="region-pairs"></a>Bölge çiftleri
-Her Azure bölgesi aynı coğrafyadaki (ABD, Avrupa veya Asya) başka bir bölgeyle eşleştirilir. Bu yaklaşım her iki bölgeyi de aynı anda etkileyen bir doğal felaket, toplumsal karmaşa, güç kesintisi veya fiziksel ağ kesintisi olasılığını azaltması gereken bir coğrafyada VM depolama gibi kaynak çoğaltma işlemlerine olanak tanır. Bölge çiftlerinin diğer avantajları şunlardır:
+<a id="special-azure-regions" class="xliff"></a>
 
-* Daha geniş bir Azure kesintisi durumunda, uygulamalar için geri yükleme süresini azaltmak üzere her çift içinden bir bölgeye öncelik verilir. 
-* Kapalı kalma süresini ve uygulama kesintisi riskini azaltmak amacıyla, planlı Azure güncelleştirmeleri, bölge çiftlerine tek tek uygulanır.
-* Veriler, vergi ve yasa uygulama yetkisi bakımından çiftiyle aynı coğrafyada (Brezilya Güney hariç) bulunmaya devam eder.
+## Special Azure regions
+There are some special Azure regions for compliance or legal purposes that you may wish to use when building out your applications. These special regions include:
 
-Bölge çiftlerinin örnekleri şunlardır:
+* **US Gov Virginia** and **US Gov Iowa**
+  * A physical and logical network-isolated instance of Azure for US government agencies and partners, operated by screened US persons. Includes additional compliance certifications such as [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) and [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Read more about [Azure Government](https://azure.microsoft.com/features/gov/).
+* **China East** and **China North**
+  * These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft does not directly maintain the datacenters. See more about [Microsoft Azure in China](http://www.windowsazure.cn/).
+* **Germany Central** and **Germany Northeast**
+  * These regions are currently available via a data trustee model whereby customer data remains in Germany under control of T-Systems, a Deutsche Telekom company, acting as the German data trustee.
 
-| Birincil | İkincil |
+<a id="region-pairs" class="xliff"></a>
+
+## Region pairs
+Each Azure region is paired with another region within the same geography (such as US, Europe, or Asia). This approach allows for the replication of resources, such as VM storage, across a geography that should reduce the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once. Additional advantages of region pairs include:
+
+* In the event of a wider Azure outage, one region is prioritized out of every pair to help reduce the time to restore for applications. 
+* Planned Azure updates are rolled out to paired regions one at a time to minimize downtime and risk of application outage.
+* Data continues to reside within the same geography as its pair (except for Brazil South) for tax and law enforcement jurisdiction purposes.
+
+Examples of region pairs include:
+
+| Primary | Secondary |
 |:--- |:--- |
-| Batı ABD |Doğu ABD |
-| Kuzey Avrupa |Batı Avrupa |
-| Güneydoğu Asya |Doğu Asya |
+| West US |East US |
+| North Europe |West Europe |
+| Southeast Asia |East Asia |
 
-[Bölgesel çiftlerin tam listesini burada](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions) görebilirsiniz.
+You can see the full [list of regional pairs here](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-## <a name="feature-availability"></a>Özellik kullanılabilirliği
-Belirli VM boyutları ya da depolama türleri gibi bazı hizmetler veya VM özellikleri yalnızca belirli bölgelerde kullanılabilir. Ayrıca, belirli bir bölge seçmenizi gerektirmeyen [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) veya [Azure DNS](../articles/dns/dns-overview.md) gibi bazı genel Azure hizmetleri de vardır. Uygulama ortamınızı tasarlamanıza yardımcı olmak üzere [her bölgedeki Azure hizmetleri kullanılabilirliğini](https://azure.microsoft.com/regions/#services) denetleyebilirsiniz. 
+<a id="feature-availability" class="xliff"></a>
 
-## <a name="storage-availability"></a>Depolama kullanılabilirliği
-Kullanılabilir çoğaltma seçenekleri düşünüldüğünde Azure bölge ve coğrafyalarının anlaşılması önemlidir. Depolama türüne bağlı olarak farklı çoğaltma seçenekleriniz vardır.
+## Feature availability
+Some services or VM features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that do not require you to select a particular region, such as [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md), or [Azure DNS](../articles/dns/dns-overview.md). To assist you in designing your application environment, you can check the [availability of Azure services across each region](https://azure.microsoft.com/regions/#services). 
 
-**Azure Yönetilen Diskler**
-* Yerel olarak yedekli depolama (LRS)
-  * Depolama hesabınızı oluşturduğunuz bölge içinde verilerinizi üç kez çoğaltır.
+<a id="storage-availability" class="xliff"></a>
 
-**Depolama hesabı temelli diskler**
-* Yerel olarak yedekli depolama (LRS)
-  * Depolama hesabınızı oluşturduğunuz bölge içinde verilerinizi üç kez çoğaltır.
-* Bölgesel olarak yedekli depolama (ZRS)
-  * Tek bir bölge ya da iki bölgedeki iki veya üç tesiste verilerinizi üç kez çoğaltır.
-* Coğrafi olarak yedekli depolama (GRS)
-  * Verilerinizi birincil bölgeden yüzlerce kilometre uzaktaki bir ikincil bölgeye çoğaltır.
-* Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)
-  * GRS ile olduğu gibi verilerinizi ikincil bölgeye çoğaltır, ancak daha sonra ikincil konumdaki verilere salt okunur erişim sağlar.
+## Storage availability
+Understanding Azure regions and geographies becomes important when you consider the available storage replication options. Depending on the storage type, you have different replication options.
 
-Aşağıdaki tabloda, depolama çoğaltma türleri arasındaki farkları hızlı bir genel bakış sunulmaktadır:
+**Azure Managed Disks**
+* Locally redundant storage (LRS)
+  * Replicates your data three times within the region in which you created your storage account.
 
-| Çoğaltma stratejisi | LRS | ZRS | GRS | RA-GRS |
+**Storage account-based disks**
+* Locally redundant storage (LRS)
+  * Replicates your data three times within the region in which you created your storage account.
+* Zone redundant storage (ZRS)
+  * Replicates your data three times across two to three facilities, either within a single region or across two regions.
+* Geo-redundant storage (GRS)
+  * Replicates your data to a secondary region that is hundreds of miles away from the primary region.
+* Read-access geo-redundant storage (RA-GRS)
+  * Replicates your data to a secondary region, as with GRS, but also then provides read-only access to the data in the secondary location.
+
+The following table provides a quick overview of the differences between the storage replication types:
+
+| Replication strategy | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Veriler birden çok tesis arasında çoğaltılır. |Hayır |Evet |Evet |Evet |
-| Veriler ikincil konumdan ve birincil konumdan okunabilir. |Hayır |Hayır |Hayır |Evet |
-| Ayrı düğümlerde tutulan veri kopyası sayısı. |3 |3 |6 |6 |
+| Data is replicated across multiple facilities. |No |Yes |Yes |Yes |
+| Data can be read from the secondary location and from the primary location. |No |No |No |Yes |
+| Number of copies of data maintained on separate nodes. |3 |3 |6 |6 |
 
-[Azure Depolama çoğaltma seçenekleri hakkında buradan](../articles/storage/storage-redundancy.md) daha fazla bilgi alabilirsiniz. Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Disklere genel bakış](../articles/storage/storage-managed-disks-overview.md).
+You can read more about [Azure Storage replication options here](../articles/storage/storage-redundancy.md). For more information about managed disks, see [Azure Managed Disks overview](../articles/storage/storage-managed-disks-overview.md).
 
-### <a name="storage-costs"></a>Depolama maliyetleri
-Fiyatlar seçtiğiniz depolama türüne ve kullanılabilirliğe bağlı olarak değişir.
+<a id="storage-costs" class="xliff"></a>
 
-**Azure Yönetilen Diskler**
-* Premium Yönetilen Diskler, Katı Hal Sürücüleri (SSD) ile desteklenirken, Standart Yönetilen Diskler, normal dönen disklerle desteklenir. Hem Premium hem de Standart Yönetilen Diskler, diskin sağlanan kapasitesine göre ücretlendirilir.
+### Storage costs
+Prices vary depending on the storage type and availability that you select.
 
-**Yönetilmeyen diskler**
-* Premium depolama, Katı Hal Sürücüleri (SSD) ile desteklenirken, diskin kapasitesine göre ücretlendirilir.
-* Standart depolama, normal dönen disklerle desteklenir ve kullanımdaki kapasiteye ve istenen depolama kullanılabilirliğine göre ücretlendirilir.
-  * RA-GRS için, verileri başka bir Azure bölgesine çoğaltmak için gereken bant genişliğine yönelik ek bir Coğrafi Çoğaltma Veri Aktarımı ücreti vardır.
+**Azure Managed Disks**
+* Premium Managed Disks are backed by Solid State Drives (SSDs) and Standard Managed Disks are backed by regular spinning disks. Both Premium and Standard Managed Disks are charged based on the provisioned capacity for the disk.
 
-Farklı depolama türleri ve kullanılabilirlik seçenekleri hakkında fiyatlandırma bilgileri için bkz. [Azure Depolama Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
+**Unmanaged disks**
+* Premium storage is backed by Solid State Drives (SSDs) and is charged based on the capacity of the disk.
+* Standard storage is backed by regular spinning disks and is charged based on the in-use capacity and desired storage availability.
+  * For RA-GRS, there is an additional Geo-Replication Data Transfer charge for the bandwidth of replicating that data to another Azure region.
 
-## <a name="azure-images"></a>Azure görüntüleri
-Azure'da VM’ler bir görüntüden oluşturulur. Genellikle, görüntüler iş ortaklarının önceden yapılandırılmış tam işletim sistemi veya uygulama görüntüleri sağlayabildiği [Azure Market](https://azure.microsoft.com/marketplace/)’ten alınır.
+See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different storage types and availability options.
 
-Azure Market’te bir görüntüden VM oluşturduğunuzda, aslında şablonlarla çalışırsınız. Azure Resource Manager şablonları; VM, depolama, sanal ağ vb. öğelerden oluşan karmaşık uygulama ortamları oluşturmak için kullanılabilen, bildirim temelli JavaScript Nesne Gösterimi (JSON) dosyalarıdır. [Şablonlarınızı oluşturma](../articles/resource-group-authoring-templates.md) işlemi dahil [Azure Resource Manager şablonlarını](../articles/azure-resource-manager/resource-group-overview.md) kullanma hakkında daha fazla bilgi alabilirsiniz.
+<a id="azure-images" class="xliff"></a>
 
-Ayrıca, kendi özel görüntülerinizi oluşturabilir ve derleme gereksinimlerinize göre özel VM’leri hızlıca oluşturmak üzere [Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ya da [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kullanarak karşıya yükleyebilirsiniz.
+## Azure images
+In Azure, VMs are created from an image. Typically, images are from the [Azure Marketplace](https://azure.microsoft.com/marketplace/) where partners can provide pre-configured complete OS or application images.
 
-## <a name="availability-sets"></a>Kullanılabilirlik kümeleri
-Kullanılabilirlik kümesi, Azure’un, uygulamanızın yedeklilik ve kullanılabilirlik sağlamak üzere nasıl oluşturulduğunu anlamasına olanak tanıyan bir mantıksal VM grubudur. Yüksek oranda kullanılabilir bir uygulama sağlamak ve [%99,95 Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) hedefini karşılamak üzere bir kullanılabilirlik kümesinde iki ya da daha fazla BM oluşturulması önerilir. Tek bir VM, [Azure Premium Depolama](../articles/storage/storage-premium-storage.md) kullanıyorsa, Azure SLA planlanmamış bakım olayları için geçerli olur. Kullanılabilirlik kümesi, donanım hatalarına karşı koruyan ve güncelleştirmelerin güvenli bir şekilde uygulanmasını sağlayan iki ek gruptan oluşur: hata etki alanları (FD) ve güncelleme etki alanları (UD).
+When you create a VM from an image in the Azure Marketplace, you are actually working with templates. Azure Resource Manager templates are declarative JavaScript Object Notation (JSON) files that can be used to create complex application environments comprising VMs, storage, virtual networking, etc. You can read more about using [Azure Resource Manager templates](../articles/azure-resource-manager/resource-group-overview.md), including how to [build your own templates](../articles/resource-group-authoring-templates.md).
 
-![Güncelleme etki alanı ve hata etki alanı yapılandırmasının kavramsal çizimi](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
+You can also create your own custom images and upload them using [Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure PowerShell](../articles/virtual-machines/windows/upload-generalized-managed.md) to quickly create custom VMs to your specific build requirements.
 
-[Linux VM](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [Windows VM](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kullanılabilirliğini yönetme hakkında daha fazla bilgi alabilirsiniz.
+<a id="availability-sets" class="xliff"></a>
 
-### <a name="fault-domains"></a>Hata etki alanları
-Hata etki alanı, ortak bir güç kaynağı ve ağ anahtarını paylaşan, şirket içi veri merkezindeki rafa benzer bir temel alınan donanım mantık grubudur. Bir kullanılabilirlik kümesinde VM’ler oluşturduğunuzda, Azure platformu VM’lerinizi bu hata etki alanlarına otomatik olarak dağıtır. Bu yaklaşım, olası fiziksel donanım hatalarının, ağ kesintilerinin veya güç kesintilerinin etkisini sınırlar.
+## Availability sets
+An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. It is recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). When a single VM is using [Azure Premium Storage](../articles/storage/storage-premium-storage.md), the Azure SLA applies for unplanned maintenance events. An availability set is compromised of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains (FDs) and update domains (UDs).
 
-#### <a name="managed-disk-fault-domains-and-availability-sets"></a>Yönetilen Disk hata etki alanları ve kullanılabilirlik kümeleri
-[Azure Yönetilen Diskler](../articles/storage/storage-faq-for-disks.md)’i kullanan sanal makineler, yönetilen kullanılabilirlik kümesi kullanılırken yönetilen disk hata etki alanları ile hizalanır. Bu hizalama, bir VM'ye bağlı tüm yönetilen disklerin, aynı yönetilen disk hata etki alanı içinde olmasını sağlar. Yönetilen bir kullanılabilirlik kümesinde yalnızca, yönetilen disklere sahip VM’ler oluşturulabilir. Yönetilen disk hata etki alanlarının sayısı bölgeye göre farklılık gösterir (bölge başına iki ya da üç yönetilen disk hata etki alanı).
+![Conceptual drawing of the update domain and fault domain configuration](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-### <a name="update-domains"></a>Güncelleme etki alanları
-Güncelleme etki alanı, bakımdan geçirilebilen ya da aynı anda yeniden başlatılabilen bir temel alınan donanım mantıksal grubudur. Bir kullanılabilirlik kümesinde VM’ler oluşturduğunuzda, Azure platformu VM’lerinizi bu güncelleme etki alanlarına otomatik olarak dağıtır. Bu yaklaşım, Azure platformu periyodik bakımdan geçirilirken uygulamanızın en az bir örneğinin her zaman çalışır durumda kalmasını sağlar. Yeniden başlatılmakta olan güncelleme etki alanlarının sırası, planlanan bakım sırasında sıralı olarak uygulanmayabilir, ancak aynı anda yalnızca bir güncelleme etki alanı yeniden başlatılır.
+You can read more about how to manage the availability of [Linux VMs](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Windows VMs](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="next-steps"></a>Sonraki adımlar
-Azure ortamınızı oluşturmak için bu kullanılabilirlik ve yedeklilik özelliklerini kullanmaya başlayabilirsiniz. En iyi uygulama bilgileri için bkz. [Azure kullanılabilirlik en iyi uygulamaları](../articles/best-practices-availability-checklist.md).
+<a id="fault-domains" class="xliff"></a>
+
+### Fault domains
+A fault domain is a logical group of underlying hardware that share a common power source and network switch, similar to a rack within an on-premises datacenter. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these fault domains. This approach limits the impact of potential physical hardware failures, network outages, or power interruptions.
+
+<a id="managed-disk-fault-domains-and-availability-sets" class="xliff"></a>
+
+#### Managed Disk fault domains and availability sets
+For VMs using [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), VMs are aligned with managed disk fault domains when using a managed availability set. This alignment ensures that all the managed disks attached to a VM are within the same managed disk fault domain. Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region.
+
+![Managed Disk FDs](./media/virtual-machines-common-manage-availability/md-fd.png)
+
+> [!IMPORTANT]
+> The number of fault domains for managed availability sets varies by region - either two or three per region. The following table shows the number per region
+
+[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+
+<a id="update-domains" class="xliff"></a>
+
+### Update domains
+An update domain is a logical group of underlying hardware that can undergo maintenance or be rebooted at the same time. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these update domains. This approach ensures that at least one instance of your application always remains running as the Azure platform undergoes periodic maintenance. The order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time.
+
+<a id="next-steps" class="xliff"></a>
+
+## Next steps
+You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](../articles/best-practices-availability-checklist.md).
 

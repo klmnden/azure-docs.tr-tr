@@ -1,4 +1,6 @@
-## <a name="view-the-solution-dashboard"></a>View the solution dashboard
+<a id="view-the-solution-dashboard" class="xliff"></a>
+
+## View the solution dashboard
 
 The solution dashboard enables you to manage the deployed solution. For example, you can view telemetry, add devices, and invoke methods.
 
@@ -10,7 +12,9 @@ The solution dashboard enables you to manage the deployed solution. For example,
 
     ![Remote monitoring preconfigured solution dashboard][img-menu]
 
-## <a name="add-a-device"></a>Add a device
+<a id="add-a-device" class="xliff"></a>
+
+## Add a device
 
 For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial.
 
@@ -28,7 +32,7 @@ To add a device to your remote monitoring solution, complete the following steps
 
    ![Add device ID][3]
 
-1. Make a note the device credentials (**Device ID**, **IoT Hub Hostname**, and **Device Key**). Your client application on the Raspberry Pi needs these values to connect to the remote monitoring solution. Then click **Done**.
+1. Make a note the device credentials (**Device ID**, **IoT Hub Hostname**, and **Device Key**). Your client application on the Intel NUC needs these values to connect to the remote monitoring solution. Then click **Done**.
 
     ![View device credentials][4]
 
