@@ -12,45 +12,48 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/27/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: abb27292d4b5533fe6f3d66d6921fea8c82f18dd
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: c704ee189072ce8ed196d1ef0a23edd528a10025
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="update-dns-settings-for-the-azure-virtual-network"></a>Azure sanal ağı için DNS ayarlarını güncelleştirme
-## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme
+<a id="enable-azure-active-directory-domain-services-preview" class="xliff"></a>
+
+# Azure Active Directory Domain Services'i etkinleştirme (Önizleme)
+
+<a id="task-4-update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
+
+## Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme
 Önceki yapılandırma görevlerinde dizininiz için Azure Active Directory Domain Services başarıyla etkinleştirdiniz. Sonraki göreviniz sanal ağınızdaki bilgisayarların bu hizmetlere bağlanabilmesini ve bu hizmetleri kullanabilmesini sağlamaktır. Bu makalede, sanal ağınızdaki DNS sunucusu ayarlarını, sanal ağda Azure Active Directory Domain Services’in kullanılabilir olduğu iki IP adresini işaret edecek şekilde güncelleştirin.
 
-> [!NOTE]
-> Azure Active Directory Domain Services'i dizin için etkinleştirdikten sonra, dizinin **Yapılandır** sekmesinde görüntülenen Azure Active Directory Domain Services'in IP adreslerini not edin.
->
->
+Azure Active Directory Domain Services'i etkinleştirdiğiniz sanal ağın DNS sunucusu ayarını güncelleştirmek için aşağıdaki adımları uygulayın:
 
-Azure Active Directory Domain Services’i etkinleştirdiğiniz sanal ağın DNS sunucusu ayarını güncelleştirmek için aşağıdaki işlemleri yapın:
+1. **Genel Bakış** sekmesinde, yönetilen etki alanınız tamamen hazır hale getirildikten sonra gerçekleştirilecek **gerekli yapılandırma adımları** kümesi bulunur. İlk yapılandırma adımı, **sanal ağınız için DNS sunucusu ayarlarını güncelleştirmektir**.
 
-1. [Klasik Azure portalı](https://manage.windowsazure.com)'na gidin.
-2. Sol bölmede **Ağlar**’ı seçin.  
-    **Ağlar** penceresi açılır.
+    ![Etki Alanı Hizmetleri - Tamamen hazır haldeki Genel Bakış sekmesi](./media/getting-started/domain-services-provisioned-overview.png)
 
-    ![Sanal ağlar penceresi](./media/active-directory-domain-services-getting-started/virtual-network-select.png)
-3. **Sanal Ağlar** sekmesinde, Azure Active Directory Domain Services'i etkinleştirdiğiniz sanal ağı seçerek özelliklerini görüntüleyin.
-4. **Configure (Yapılandır)** sekmesine tıklayın.
+2. Etki alanınız tamamen hazır hale getirildiğinde bu kutucukta iki IP adresi görüntülenir. Bu IP adreslerinden her biri, yönetilen etki alanınıza yönelik bir etki alanı denetleyicisini temsil eder.
 
-    ![Sanal ağlar penceresi](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
-5. **DNS sunucuları** bölümünde, dizininizin **Yapılandır** sekmesindeki **Domain Services** kısmında görüntülenen her iki IP adresini de girdiğinizden emin olun.
-6. Bu sanal ağa ait DNS sunucusu ayarlarını kaydetmek için pencerenin alt kısmındaki görev bölmesinde **Kaydet**’e tıklayın.
+3. İlk IP adresini panoya kopyalamak için yanında bulunan kopyalama düğmesine tıklayın. Ardından **DNS sunucularını yapılandır** düğmesine tıklayın.
 
-   ![Sanal ağın DNS sunucusu ayarlarını güncelleştirme](./media/active-directory-domain-services-getting-started/update-dns.png)
+4. İlk IP adresini **DNS sunucuları** dikey penceresinde bulunan **DNS sunucusu ekle** metin kutusuna yapıştırın. İkinci IP adresini kopyalamak için yatay olarak sola kaydırma yapın ve IP adresini **DNS sunucusu ekle** metin kutusuna yapıştırın.
+
+    ![Etki Alanı Hizmetleri - DNS'yi güncelleştirme](./media/getting-started/domain-services-update-dns.png)
+
+5. İşlemi tamamladığınızda, sanal ağ için DNS sunucularını güncelleştirmek üzere **Kaydet**'e tıklayın.
 
 > [!NOTE]
-> Sanal ağın DNS sunucusu ayarlarını güncelleştirdikten sonra, ağdaki sanal makinelerin güncelleştirilen DNS yapılandırmasını almaları biraz sürebilir. Bir sanal makine etki alanına bağlanamıyorsa, sanal makinedeki DNS önbelleğini boşaltabilirsiniz ('ipconfig /flushdns'). Bu komut, sanal makinedeki DNS ayarlarını yenilenmeye zorlar.
+> Ağ üzerindeki sanal makineler, yeni DNS ayarlarını yalnızca yeniden başlatma işleminin ardından alabilir. Sanal makinelerin güncelleştirilen DNS ayarlarını doğrudan almasını istiyorsanız portal, PowerShell veya CLI aracılığıyla bir yeniden başlatma tetikleyin.
 >
 >
 
-## <a name="next-steps"></a>Sonraki adımlar
-Görev 5: [Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
+<a id="next-step" class="xliff"></a>
+
+## Sonraki adım
+[Görev 5: Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
 

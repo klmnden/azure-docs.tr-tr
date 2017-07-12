@@ -16,31 +16,39 @@ ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
 ms.contentlocale: tr-tr
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="get-started-with-sql-data-warehouse"></a>SQL Veri Ambarı'nı kullanmaya başlayın
+<a id="get-started-with-sql-data-warehouse" class="xliff"></a>
+
+# SQL Veri Ambarı'nı kullanmaya başlayın
 
 Bu öğreticide verilerin sağlanması ve Azure SQL Veri Ambarı'na yüklenmesi gösterilir. Ayrıca, ölçekleme, duraklatma ve ayarlama ile ilgili temel bilgileri öğrenirsiniz. Öğreticiyi tamamladığınızda, veri tabanınızı sorgulayabilir ve araştırabilirsiniz.
 
 **Tahmini tamamlanma süresi:** Ön koşulları yerine getirmeniz durumunda yaklaşık 30 dakikada tamamlanan bir örnek kod ile birlikte uçtan uca öğreticidir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
 
 Bu öğreticide SQL Veri Ambarı ile ilgili temel kavramları bildiğiniz varsayılır. Bir tanıtım gerekirse bkz. [SQL Veri Ambarı nedir?](sql-data-warehouse-overview-what-is.md) 
 
-### <a name="sign-up-for-microsoft-azure"></a>Microsoft Azure’a kaydolun
+<a id="sign-up-for-microsoft-azure" class="xliff"></a>
+
+### Microsoft Azure’a kaydolun
 Bir Microsoft Azure hesabınız yoksa, bu hizmeti kullanabilmek için kaydolmanız gerekir. Zaten bir hesabınız varsa, bu adımı geçebilirsiniz. 
 
 1. Hesap sayfalarına [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/) gidin
 2. Ücretsiz bir Azure hesabı oluşturun veya bir hesap satın alın.
 3. Talimatları uygulayın
 
-### <a name="install-appropriate-sql-client-drivers-and-tools"></a>Uygun SQL istemci sürücülerini ve araçlarını yükleyin
+<a id="install-appropriate-sql-client-drivers-and-tools" class="xliff"></a>
+
+### Uygun SQL istemci sürücülerini ve araçlarını yükleyin
 
 Çoğu SQL istemci aracı, JDBC, ODBC veya ADO.NET kullanarak SQL Veri Ambarı’na bağlanabilir. SQL Veri Ambarı’nın desteklediği çok sayıda T-SQL özelliği nedeniyle bazı istemci uygulamalar SQL Veri Ambarı ile tam olarak uyumlu değildir.
 
@@ -50,7 +58,9 @@ Bir Windows işletim sistemi çalıştırıyorsanız [Visual Studio] veya [SQL S
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## <a name="create-a-sql-data-warehouse"></a>SQL Data Warehouse oluşturma
+<a id="create-a-sql-data-warehouse" class="xliff"></a>
+
+## SQL Data Warehouse oluşturma
 
 SQL Veri Ambarı, yüksek düzeyde paralel işleme için tasarlanmış özel bir veritabanı türüdür. Veritabanı birden fazla düğüme dağıtılmıştır ve sorguları paralel olarak işler. SQL Veri Ambarı tüm düğümlerin etkinliklerini düzenleyen bir denetim düğümüne sahiptir. Düğümler, verilerinizi yönetmek için SQL Veritabanı kullanır.  
 
@@ -58,7 +68,9 @@ SQL Veri Ambarı, yüksek düzeyde paralel işleme için tasarlanmış özel bir
 > SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Ayrıntılı bilgi için bkz. [SQL Veri Ambarı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 
-### <a name="create-a-data-warehouse"></a>Veri ambarı oluşturma
+<a id="create-a-data-warehouse" class="xliff"></a>
+
+### Veri ambarı oluşturma
 
 1. [Azure portal](https://portal.azure.com) oturum açın.
 2. **Yeni** > **Veritabanları** > **SQL Veri Ambarı** öğelerine tıklayın.
@@ -89,12 +101,16 @@ SQL Veri Ambarı, yüksek düzeyde paralel işleme için tasarlanmış özel bir
 
 5. Arkanıza yaslanın ve veri ambarınızın dağıtılmasını bekleyin! Bu işlemin birkaç dakika sürmesi normal bir durumdur. Veri ambarınız kullanıma hazır olduğunda portal size bildirir. 
 
-## <a name="connect-to-sql-data-warehouse"></a>SQL Data Warehouse'a bağlanma
+<a id="connect-to-sql-data-warehouse" class="xliff"></a>
+
+## SQL Data Warehouse'a bağlanma
 
 Bu öğreticide veri ambarına bağlanmak için SQL Server Management Studio (SSMS) kullanılır. SQL Veri Ambarı’na desteklenen şu bağlayıcılar üzerinden bağlanabilirsiniz: ADO.NET, JDBC, ODBC ve PHP. Microsoft tarafından desteklenmeyen araçlar için işlevselliğin sınırlı olabileceğini unutmayın.
 
 
-### <a name="get-connection-information"></a>Bağlantı bilgilerini alma
+<a id="get-connection-information" class="xliff"></a>
+
+### Bağlantı bilgilerini alma
 
 Veri ambarınıza bağlanmak için [Önkoşullar] içerisinde oluşturduğunuz mantıksal SQL sunucusu aracılığıyla bağlanmanız gerekir.
 
@@ -119,11 +135,15 @@ Bir Azure active directory yönetici hesabına da sahip olabilirsiniz. Onunla il
 Ardından, ek oturumlar ve kullanıcılar oluşturma hakkında bilgi verilir.
 
 
-## <a name="create-a-database-user"></a>Veritabanı kullanıcısı oluşturma
+<a id="create-a-database-user" class="xliff"></a>
+
+## Veritabanı kullanıcısı oluşturma
 
 Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluşturursunuz. Ayrıca, o kullanıcıya büyük miktarda bellek ve CPU kaynağı ile sorguları çalıştırma olanağı verme işlemi gösterilir.
 
-### <a name="notes-about-resource-classes-for-allocating-resources-to-queries"></a>Sorgulara kaynak ayırmaya yönelik kaynak sınıfları ile ilgili notlar
+<a id="notes-about-resource-classes-for-allocating-resources-to-queries" class="xliff"></a>
+
+### Sorgulara kaynak ayırmaya yönelik kaynak sınıfları ile ilgili notlar
 
 - Verilerinizin güvenliğini sürdürmek için, üretim veritabanlarınızda sorgu çalıştırırken sunucu yöneticisini kullanmayın. Sunucu yöneticisi herhangi bir kullanıcıdan daha fazla ayrıcalığa sahiptir ve kullanıcı verileri üzerinde işlem yapmak için bu hesabın kullanılması, verilerinizi riske sokar. Ayrıca, sunucu yöneticisi yönetim işlemlerini yapmaya yönelik olduğundan, işlemleri az miktarda bellek ve CPU kaynağı ayırarak gerçekleştirir. 
 
@@ -131,7 +151,9 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
 
 - En iyi veri sıkıştırma için kullanıcının büyük veya çok büyük kaynak ayırmaları ile yüklemesi gerekebilir. Kaynak sınıfları hakkında daha fazla bilgiyi [burada](./sql-data-warehouse-develop-concurrency.md#resource-classes) bulabilirsiniz:
 
-### <a name="create-an-account-that-can-control-a-database"></a>Veritabanını denetleyebilen bir hesap oluşturma
+<a id="create-an-account-that-can-control-a-database" class="xliff"></a>
+
+### Veritabanını denetleyebilen bir hesap oluşturma
 
 Şu anda sunucu yöneticisi olarak oturum açtığınız için oturum ve kullanıcı oluşturma izinleriniz vardır.
 
@@ -163,7 +185,9 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
     > Veritabanı adınızda kısa çizgi varsa, köşeli ayraç içine aldığınızdan emin olun! 
     >
 
-### <a name="give-the-user-medium-resource-allocations"></a>Kullanıcıya orta büyüklükte kaynak ayırmalar sağlayın
+<a id="give-the-user-medium-resource-allocations" class="xliff"></a>
+
+### Kullanıcıya orta büyüklükte kaynak ayırmalar sağlayın
 
 1. Bu T-SQL komutunu çalıştırarak mediumrc adlı orta büyüklükte kaynak sınıfının üyesi yapın. 
 
@@ -179,7 +203,9 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
     ![Yeni Oturum Bilgileriyle oturum açın](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
-## <a name="load-data-from-azure-blob-storage"></a>Azure blob depolamadan veri yükleme
+<a id="load-data-from-azure-blob-storage" class="xliff"></a>
+
+## Azure blob depolamadan veri yükleme
 
 Şimdi veri ambarınıza veri yüklemeye hazırsınız. Bu adımda, New York taksi verilerini genel bir Azure depolama blobundan nasıl yükleyeceğiniz gösterilmektedir. 
 
@@ -188,7 +214,9 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
 - [Yüklemeye genel bakış](sql-data-warehouse-overview-load.md) bölümünde, verilerinizi Azure blob depolama alanına alma veya doğrudan kaynağınızdan SQL Veri Ambarı’na yükleme konusunda ileride işinize yarayacak bilgiler edinebilirsiniz.
 
 
-### <a name="define-external-data"></a>Dış veri tanımlama
+<a id="define-external-data" class="xliff"></a>
+
+### Dış veri tanımlama
 
 1. Bir ana anahtar oluşturun. Veritabanı başına yalnızca bir kez ana anahtar oluşturmanız gerekir. 
 
@@ -419,7 +447,9 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
     ;
 ```
 
-### <a name="import-the-data-from-azure-blob-storage"></a>Azure blob depolamadan veri alma
+<a id="import-the-data-from-azure-blob-storage" class="xliff"></a>
+
+### Azure blob depolamadan veri alma
 
 SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini destekler. Bu deyim bir select deyiminin sonuçlarına göre yeni bir tablo oluşturur. Yeni tablo, select deyiminin sonuçları ile aynı sütunlara ve veri türlerine sahiptir.  Bu yöntem, Azure blob depolamadan SQL Veri Ambarı’na veri almanın güzel bir yoludur.
 
@@ -541,11 +571,15 @@ SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini deste
     ![Yüklenen Verilere bakın](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-## <a name="improve-query-performance"></a>Sorgu performansını artırma
+<a id="improve-query-performance" class="xliff"></a>
+
+## Sorgu performansını artırma
 
 Sorgu performansını artırmanın ve SQL Veri Ambarı’nın tasarım amacı olan yüksek hızlı performans elde etmenin birkaç yolu vardır.  
 
-### <a name="see-the-effect-of-scaling-on-query-performance"></a>Ölçeklendirmenin sorgu performansı üzerindeki etkisine bakın 
+<a id="see-the-effect-of-scaling-on-query-performance" class="xliff"></a>
+
+### Ölçeklendirmenin sorgu performansı üzerindeki etkisine bakın 
 
 Sorgu performansını artırmanın bir yolu, veri ambarınız için DWU hizmet düzeyini değiştirerek kaynakları ölçeklendirmektir. Her hizmet düzeyi daha fazla maliyet getirir, ancak dilediğiniz zaman kaynakların ölçeğini azaltabilir veya kaynakları duraklatabilirsiniz. 
 
@@ -578,11 +612,16 @@ Bu adımda, iki farklı DWU ayarında performansı karşılaştırırsınız.
 
 7. Sorguyu tekrar çalıştırın! Önemli bir fark dikkat göreceksiniz. 
 
+    > [!NOTE]
+    > Sorgu çok miktarda veri döndürdüğünden, SSMS çalıştıran makinenin bant genişliğinin kullanılabilirliğine yönelik olarak performans sorunu ortaya çıkabilir. Bu da herhangi bir performans artışıyla karşılaşmamanıza yol açabilir.
+
 > [!NOTE]
 > SQL Veri Ambarı, yüksek düzeyde paralel işleme kullanır. Milyonlarca satır üzerinde tarama yapan veya analiz işlevleri gerçekleştiren sorgular, Azure SQL Veri Ambarı’nın gerçek gücünü deneyimler.
 >
 
-### <a name="see-the-effect-of-statistics-on-query-performance"></a>İstatistiklerin sorgu performansı üzerindeki etkisine bakın
+<a id="see-the-effect-of-statistics-on-query-performance" class="xliff"></a>
+
+### İstatistiklerin sorgu performansı üzerindeki etkisine bakın
 
 1. Tarih tablosu Seyahat tablosu ile birleştiren bir sorgu çalıştırın
 
@@ -634,7 +673,9 @@ Bu adımda, iki farklı DWU ayarında performansı karşılaştırırsınız.
 
 3. Önkoşullar’dan sorguyu yeniden çalıştırın ve tüm performans farklarını inceleyin. Sorgu performansı farklılıkları ölçek büyütme kadar güçlü olmaz, ancak bir hız yükselmesi fark edersiniz. 
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 Şimdi sorgulamaya ve incelemeye hazırsınız. En iyi yöntemlerimize veya ipuçlarımıza bakın.
 
@@ -642,7 +683,9 @@ Keşfetmeyi bitirdiğinizde, örneğinizi duraklatmayı unutmayın! Üretimde, i
 
 ![Duraklat](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## <a name="useful-readings"></a>Yararlı okumalar
+<a id="useful-readings" class="xliff"></a>
+
+## Yararlı okumalar
 
 [Eşzamanlılık ve İş Yükü Yönetimi][]
 

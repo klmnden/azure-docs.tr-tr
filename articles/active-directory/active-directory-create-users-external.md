@@ -12,25 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/14/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
-ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleme
+<a id="add-users-from-other-directories-or-partner-companies-in-azure-active-directory" class="xliff"></a>
+
+# Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleme
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-users-create-external-azure-portal.md)
+> * [Azure Portal](active-directory-users-create-external-azure-portal.md )
 > * [Klasik Azure Portalı](active-directory-create-users-external.md)
 >
 >
 
 Bu makalede Azure Active Directory'de diğer dizinlerden kullanıcıların eklenmesi veya iş ortağı şirketlerden kullanıcıların eklenmesi açıklanmaktadır. Kuruluşunuzdaki yeni kullanıcıların ve Microsoft hesabına sahip kullanıcıların eklenmesi hakkında daha fazla bilgi için bkz. [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-create-users.md). Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmaz ancak bu kullanıcılara herhangi bir zamanda roller atayabilirsiniz.
 
-## <a name="add-a-user"></a>Kullanıcı ekleme
+<a id="add-a-user" class="xliff"></a>
+
+## Kullanıcı ekleme
 1. Dizin için genel yönetici olan bir hesapla [klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
 2. **Active Directory**'yi seçin ve ardından dizininizi açın.
 3. **Users (Kullanıcılar)** sekmesini seçin ve ardından komut çubuğunda **Add User (Kullanıcı Ekle)** seçeneğini belirleyin.
@@ -44,19 +49,22 @@ Bu makalede Azure Active Directory'de diğer dizinlerden kullanıcıların eklen
 > [!IMPORTANT]
 > Kuruluşunuz birden fazla etki alanı kullanıyorsa bir kullanıcı hesabını eklerken aşağıdakileri bilmeniz gerekir:
 >
-> * Etki alanlarında aynı kullanıcı asıl adına (UPN) sahip kullanıcı hesapları eklemek için, örneğin, **önce** geoffgrisso@contoso.onmicrosoft.com, ve **ardından** geoffgrisso@contoso.com ekleyin.
-> * geoffgrisso@contoso.onmicrosoft.com eklemeden önce geoffgrisso@contoso.com **eklemeyin**. Bu sıra önemlidir, sıralamanın geri alınması ise çok uğraşmayı gerektirebilir.
->
+> * Etki alanlarında aynı kullanıcı asıl adına (UPN) sahip kullanıcı hesaplarını eklemek için, örneğin, **önce** geoffgrisso@contoso.onmicrosoft.com hesabını ve **ardından** geoffgrisso@contoso.com hesabını ekleyin.
+> * geoffgrisso@contoso.onmicrosoft.com eklemeden önce geoffgrisso@contoso.com **eklemeyin**.
 >
 
 Bilgilerini değiştirdiğiniz bir kullanıcının kimliği şirket içi Active Directory hizmetinizle eşitlenmişse kullanıcı bilgilerini klasik Azure portalında değiştiremezsiniz. Kullanıcı bilgilerini değiştirmek için şirket içi Active Directory yönetim araçlarınızı kullanın.
 
-## <a name="add-external-users"></a>Dış kullanıcılar ekleme
+<a id="add-external-users" class="xliff"></a>
+
+## Dış kullanıcılar ekleme
 Aynı zamanda ait olduğunuz başka bir Azure AD dizininden veya bir CSV dosyasını karşıya yükleyerek iş ortağı şirketlerden kullanıcılar ekleyebilirsiniz. **Type of User (Kullanıcı Türü)** için bir dış kullanıcı eklerken **User in another Microsoft Azure AD directory (Başka bir Microsoft Azure AD dizinindeki kullanıcı)** veya **Users in partner companies (İş ortağı şirketlerindeki kullanıcılar)** seçeneğini belirtin.
 
 Her iki türdeki kullanıcıların da kaynağı başka bir dizindir ve **dış kullanıcılar** olarak eklenirler. Dış kullanıcılar, yeni hesaplar ve kimlik bilgileri ekleme gereksinimleri olmadan bir dizindeki diğer kullanıcılarla işbirliği yapabilir. Dış kullanıcılar oturum açarken giriş dizinleriyle kimlik doğrulaması yapar ve bu kimlik doğrulaması eklenmiş oldukları diğer tüm dizinlerde de geçerli olur.
 
-## <a name="external-user-management-and-limitations"></a>Dış kullanıcı yönetimi ve sınırlamalar
+<a id="external-user-management-and-limitations" class="xliff"></a>
+
+## Dış kullanıcı yönetimi ve sınırlamalar
 Başka bir dizinden kendi dizininize kullanıcı eklediğinizde bu kullanıcı sizin dizininizde bir dış kullanıcı olur. Görünen ad ve kullanıcı adı bu kullanıcının giriş dizininden kopyalanır ve sizin dizininizdeki dış kullanıcı için kullanılır. Daha sonrasında dış kullanıcı hesabının özellikleri tamamen bağımsız olur. Kullanıcının kendi giriş dizininde özellikleri değiştirilirse bu değişiklikler dizininizdeki dış kullanıcı hesabına yayılmaz.
 
 İki hesap arasındaki tek bağlantı, kullanıcının her zaman kendi giriş dizininde veya Microsoft hesabında kimlik doğrulaması yapmasıdır. Bir dış kullanıcı için parolayı sıfırlama veya çok faktörlü kimlik doğrulaması seçeneğini görmemenizin nedeni budur. Şu anda kullanıcı oturum açtığı zaman değerlendirilen tek ilke, giriş dizininin veya Microsoft hesabının kimlik doğrulama ilkesidir.
@@ -68,21 +76,17 @@ Başka bir dizinden kendi dizininize kullanıcı eklediğinizde bu kullanıcı s
 
 Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal ederse sizin dizininizde dış kullanıcı var olmaya devam eder. Ancak dizininizdeki kullanıcı bir giriş dizininde veya Microsoft hesabında kimlik doğrulaması yapamadığı için kaynaklara erişemez.
 
-### <a name="services-that-currently-support-access-by-azure-ad-external-users"></a>Şu anda Azure AD dış kullanıcılarının erişimini destekleyen hizmetler
+<a id="services-that-currently-support-access-by-azure-ad-external-users" class="xliff"></a>
+
+### Şu anda Azure AD dış kullanıcılarının erişimini destekleyen hizmetler
 * **Klasik Azure portalı**: Birden çok dizinin yöneticisi olan bir dış kullanıcının bu dizinlerin her birini yönetmesine izin verir.
 * **SharePoint Online**: Dış paylaşım etkinleştirilmişse bir dış kullanıcının SharePoint Online yetkili kaynaklarına erişmesine izin verir.
 * **Dynamics CRM**: Kullanıcı PowerShell yoluyla lisanslanmışsa bir dış kullanıcının Dynamics CRM'deki yetkili kaynaklara erişmesine izin verir.
 * **Dynamics AX**: Kullanıcı PowerShell yoluyla lisanslanmışsa bir dış kullanıcının Dynamics AX'teki yetkili kaynaklara erişmesine izin verir. [Azure AD dış kullanıcıları](#known-limitations-of-azure-ad-external-users) için geçerli olan sınırlamalar Dynamics AX'teki dış kullanıcılar için de geçerlidir.
 
-### <a name="known-limitations-of-azure-ad-external-users"></a>Azure AD dış kullanıcılarının bilinen sınırlamaları
-* Yönetici olan dış kullanıcılar, iş ortağı şirketlerdeki kullanıcıları kendi dizinlerinin (B2B işbirliği) dışındaki dizinlere ekleyemez
-* Dış kullanıcılar kendi dizinlerinin dışındaki dizinlerde çok kiracılı uygulamalara onay veremez
-* PowerBI şu anda dış kullanıcıların erişimini desteklememektedir
-* Office Portalı dış kullanıcıların lisanslanmasına desteklemez
-* Azure AD PowerShell'de dış kullanıcılar kendi giriş dizinlerinde oturum açar ve dış kullanıcı oldukları dizinleri yönetemezler
-* Dynamics CRM Outlook eklentisini yapılandırırken dış kullanıcıların 'CRM Online' öğesini seçmek yerine Dynamics CRM Online kiracısına ait URL’yi el ile girmeleri gerekebilir
+<a id="next-steps" class="xliff"></a>
 
-## <a name="whats-next"></a>Sırada ne var?
+## Sonraki adımlar
 * [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-create-users.md)
 * [Azure AD'yi yönetme](active-directory-administer.md)
 * [Azure AD'de parolaları yönetme](active-directory-manage-passwords.md)

@@ -13,17 +13,20 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: abd508631787ba5f839a4ae2ea82e76c4bfab425
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: f00ca3b8a35c0c49277457bd42fe8a314520d5a5
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="create-your-first-function-in-the-azure-portal"></a>Azure portalında ilk işlevinizi oluşturma
+<a id="create-your-first-function-in-the-azure-portal" class="xliff"></a>
+
+# Azure portalında ilk işlevinizi oluşturma
 
 Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu sunucusuz bir ortamda yürütmenize olanak tanır. Bu konu başlığında, Azure portalında İşlevler’i kullanarak bir "hello world" işlevi oluşturmayı öğrenebilirsiniz.
 
@@ -31,13 +34,15 @@ Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayım
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Bu konu başlığı altındaki adımların tümünü beş dakikadan kısa bir sürede tamamlamalısınız.
+<a id="log-in-to-azure" class="xliff"></a>
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## Azure'da oturum açma
 
 [Azure Portal](https://portal.azure.com/)’da oturum açın.
 
-## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
+<a id="create-a-function-app" class="xliff"></a>
+
+## İşlev uygulaması oluşturma
 
 İşlevlerinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, kaynakların daha kolay yönetilmesi, dağıtılması ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır. 
 
@@ -53,15 +58,17 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 1. Yeni işlev uygulamanızı genişletin, ardından **İşlevler**’in yanındaki **+** düğmesine tıklayın.
 
-2.  **Hızlıca çalışmaya başlayın** sayfasında **Web Kancası ve API**’ye tıklayın, işleviniz için bir dil seçin ve **Bu işlevi oluştur**’a tıklayın. 
+2.  **Hemen kullanmaya başlayın** sayfasında **Web Kancası + API**'ye tıklayın, işleviniz için bir dil seçin ve **Bu işlevi oluştur**'a tıklayın. 
    
     ![Azure portalındaki İşlevler hızlı başlangıcı.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
 HTTP ile tetiklenen işlevin şablonu kullanılarak, seçtiğiniz dilde bir işlev oluşturulur. Bir HTTP isteği göndererek yeni işlevi çalıştırabilirsiniz.
 
-## <a name="test-the-function"></a>İşlevi test etme
+<a id="test-the-function" class="xliff"></a>
 
-1. Yeni işlevinizde **</> İşlev URL’sini al**’a tıklayıp **İşlev URL’si** değerini kopyalayın. 
+## İşlevi test etme
+
+1. Yeni işlevinizde **</> İşlev URL'sini al**'a tıklayın, **varsayılan (İşlev anahtarı)** seçeneğini belirleyin ve ardından **Kopyala**'ya tıklayın. 
 
     ![Azure portalından işlev URL’sini kopyalama](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
@@ -71,17 +78,23 @@ HTTP ile tetiklenen işlevin şablonu kullanılarak, seçtiğiniz dilde bir işl
 
     İstek URL’si, işlevinize HTTP üzerinden erişmek için varsayılan olarak gerekli olan bir anahtar içerir.   
 
-## <a name="view-the-function-logs"></a>İşlev günlüklerini görüntüleme 
+<a id="view-the-function-logs" class="xliff"></a>
+
+## İşlev günlüklerini görüntüleme 
 
 İşleviniz çalıştığında, izleme bilgileri günlüklere yazılır. Önceki yürütme işleminden alınan izleme çıktısını görmek için, portalda işlevinize geri dönün ve ekranın altındaki yukarı okuna tıklayarak **Günlükler**’i genişletin. 
 
 ![Azure portalında İşlevler günlük görüntüleyicisi.](./media/functions-create-first-azure-function/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
+<a id="clean-up-resources" class="xliff"></a>
+
+## Kaynakları temizleme
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 HTTP ile tetiklenen basit bir işlevi kullanarak işlev uygulaması oluşturdunuz.  
 

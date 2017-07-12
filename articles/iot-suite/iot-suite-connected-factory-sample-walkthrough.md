@@ -16,18 +16,20 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: fd5e1083c65068c7f6b019838586b1bc7e37aa9f
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="connected-factory-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış bağlı fabrika çözüm kılavuzu
+<a id="connected-factory-preconfigured-solution-walkthrough" class="xliff"></a>
+
+# Önceden yapılandırılmış bağlı fabrika çözüm kılavuzu
 
 Önceden yapılandırılmış IoT Paketi bağlı fabrika [çözümü][lnk-preconfigured-solutions], aşağıdaki özellikleri sunan uçtan uca endüstriyel bir çözümün uygulamasıdır:
 
-* Hem sanal fabrika üretim hatlarında OPC UA sunucuları çalıştıran sanal endüstriyel cihazlara hem de gerçek OPC UA sunucu cihazlarına bağlanır.
+* Hem sanal fabrika üretim hatlarında OPC UA sunucuları çalıştıran sanal endüstriyel cihazlara hem de gerçek OPC UA sunucu cihazlarına bağlanır. OPC UA hakkında daha fazla bilgi için bkz. [SSS][lnk-faq].
 * Bu cihazların ve üretim hatlarının işlem KPI ve OEE değerlerini gösterir.
 * OPC UA sunucu sistemleri ile etkileşimde bulunmak için bulut tabanlı bir uygulamanın nasıl kullanılabileceğini gösterir.
 * Kendi OPC UA sunucu cihazlarınıza bağlanmanızı sağlar.
@@ -42,37 +44,49 @@ Bu makalede bağlı fabrika çözümünün nasıl çalıştığını anlamanız 
 * Çözümü kendinize özel gereksinimleri karşılayacak şekilde nasıl özelleştireceğinizi planlama.
 * Azure hizmetlerini kullanan kendi IoT çözümünüzü tasarlama.
 
-## <a name="logical-architecture"></a>Mantıksal mimari
+<a id="logical-architecture" class="xliff"></a>
+
+## Mantıksal mimari
 
 Aşağıdaki diyagram önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
 
 ![Bağlı fabrika mantıksal mimarisi][connected-factory-logical]
 
-## <a name="simulation"></a>Benzetim
+<a id="simulation" class="xliff"></a>
+
+## Benzetim
 
 Sanal istasyonlar ve sanal üretim yürütme sistemleri (MES) bir fabrikanın üretim hattını oluşturur. Sanal cihazlar ve OPC Yayımcı Modülü, OPC Fundation tarafından yayımlanan [OPC UA .NET Standardı][lnk-OPC-UA-NET-Standard]’nı temel alır.
 
-OPC Proxy ve OPC Yayımcısı, [Azure IoT Edge][lnk-Azure-IoT-Gateway]’i temel alan modüller olarak uygulanır. Her sanal üretim hattına bağlı, atanmış bir ağ geçidi bulunur.
+OPC Proxy ve OPC Yayımcısı [Azure IoT Edge][lnk-Azure-IoT-Gateway]'i temel alan modüller olarak uygulanır. Her sanal üretim hattına bağlı, atanmış bir ağ geçidi bulunur.
 
 Tüm benzetim bileşenleri bir Azure Linux VM’sinde barındırılan Docker kapsayıcıları içinde çalışır. Benzetim, varsayılan olarak sekiz sanal üretim hattını çalıştırmak üzere yapılandırılmıştır.
 
-## <a name="simulated-production-line"></a>Sanal üretim hattı
+<a id="simulated-production-line" class="xliff"></a>
+
+## Sanal üretim hattı
 
 Üretim hattı, parça üretir. Farklı istasyonlardan oluşur: derleme istasyonu, test istasyonu ve paketleme istasyonu.
 
 Benzetim çalışır, OPC UA düğümleri aracılığıyla gösterilen verileri çalıştırır ve güncelleştirir. Tüm sanal üretim hattı istasyonları, OPC UA aracılığıyla MES tarafından düzenlenir.
 
-## <a name="simulated-manufacturing-execution-system"></a>Sanal üretim yürütme sistemi
+<a id="simulated-manufacturing-execution-system" class="xliff"></a>
+
+## Sanal üretim yürütme sistemi
 
 MES, istasyon durumu değişikliklerini algılamak üzere üretim hattındaki her bir istasyonu OPC UA aracılığıyla izler. İstasyonları denetlemek üzere OPC UA yöntemlerini çağırır ve işlem tamamlanana kadar ürünü bir istasyondan diğerine geçirir.
 
-## <a name="gateway-opc-publisher-module"></a>Ağ geçidi OPC yayımcı modülü
+<a id="gateway-opc-publisher-module" class="xliff"></a>
+
+## Ağ geçidi OPC yayımcı modülü
 
 OPC Yayımcı Modülü, istasyonun OPC UA sunucularına bağlanır ve yayımlanacak OPC düğümlerine abone olur. Modül, düğüm verilerini JSON biçimine dönüştürür, şifreler ve OPC UA Pub/Sub iletileri olarak IoT Hub’a gönderir.
 
 OPC Yayımcı modülü, yalnızca bir giden https bağlantı noktası (443) gerektirir ve mevcut kuruluş altyapısı ile birlikte çalışabilir.
 
-## <a name="gateway-opc-proxy-module"></a>Ağ geçidi OPC proxy modülü
+<a id="gateway-opc-proxy-module" class="xliff"></a>
+
+## Ağ geçidi OPC proxy modülü
 
 Ağ Geçidi OPC UA Proxy Modülü, ikili OPC UA komutu ile denetim iletileri arasında tünel oluşturur ve yalnızca bir giden https bağlantı noktası (443) gerektirir. Web Proxy’leri dahil olmak üzere, mevcut kuruluş altyapısı ile birlikte çalıştırabilir.
 
@@ -80,7 +94,9 @@ Paketlenmiş TCP/IP verilerini uygulama katmanında aktarmak üzere IoT Hub Ciha
 
 Proxy üzerinden geçirilen OPC UA ikili protokolü, UA kimlik doğrulaması ve şifrelemesi kullanır.
 
-## <a name="azure-time-series-insights"></a>Azure Zaman Serisi Görüşleri
+<a id="azure-time-series-insights" class="xliff"></a>
+
+## Azure Zaman Serisi Görüşleri
 
 Ağ Geçidi OPC Yayımcı Modülü, veri değerlerindeki değişikliği algılamak üzere OPC UA sunucu düğümlerine abone olur. Düğümlerden birinde veri değişikliği algılanırsa, bu modül Azure IoT Hub’a iletiler gönderir.
 
@@ -104,20 +120,28 @@ Buna ek olarak, OEE ve KPI topolojisi için zaman serisi, görüntülenen bir za
 
 Düğüm verilerinin zaman serisi görünümü, zaman aralığı toplaması kullanılarak doğrudan TSI’den gelir.
 
-## <a name="iot-hub"></a>IoT Hub’ı
+<a id="iot-hub" class="xliff"></a>
+
+## IoT Hub’ı
 [IoT hub’ı][lnk-IoT Hub], OPC Yayımcı Modülünden buluta gönderilen verileri alır ve Azure TSI hizmetinde kullanılabilir hale getirir. 
 
 IoT Hub çözümde aynı zamanda şunları yapar:
 - Tüm OPC Yayımcı Modülleri ve tüm OPC Proxy Modülleri için kimlikleri depolayan bir kimlik kayıt defteri tutar.
 - OPC Proxy Modülünün iki yönlü iletişimi için taşıma kanalı olarak kullanılır.
 
-## <a name="azure-storage"></a>Azure Storage
+<a id="azure-storage" class="xliff"></a>
+
+## Azure Storage
 Çözüm, VM’nin disk deposu ve dağıtım verilerinin depolanması için Azure blob depolama kullanır.
 
-## <a name="web-app"></a>Web uygulaması
+<a id="web-app" class="xliff"></a>
+
+## Web uygulaması
 Önceden yapılandırılmış çözümün bir parçası olarak dağıtılan web uygulaması; tümleşik OPC UA istemcisi, uyarı işleme ve telemetri görselleştirmesinden oluşur.
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 Aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
 
@@ -130,5 +154,6 @@ Aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
-[lnk-Azure-IoT-Gateway]: https://github.com/azure/azure-iot-gateway-sdk
+[lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-faq]: iot-suite-faq.md

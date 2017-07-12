@@ -1,5 +1,5 @@
 ---
-title: "Azure&quot;da Blob depolama tarafından tetiklenen bir işlev oluşturma | Microsoft Docs"
+title: "Azure'da Blob depolama tarafından tetiklenen bir işlev oluşturma | Microsoft Docs"
 description: "Azure Blob depolamaya eklenen öğeler tarafından çağrılan sunucusuz bir işlev oluşturmak için Azure İşlevlerini kullanın."
 services: azure-functions
 documentationcenter: na
@@ -13,33 +13,36 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: c0d1271bc083688bbc72bd2556546c2f738e7345
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: a55f28fad4c70e49e417d2856568791b313ad1eb
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/20/2017
 
 ---
-# <a name="create-a-function-triggered-by-azure-blob-storage"></a>Azure Blob depolama ile tetiklenen bir işlev oluşturma
+<a id="create-a-function-triggered-by-azure-blob-storage" class="xliff"></a>
+
+# Azure Blob depolama ile tetiklenen bir işlev oluşturma
 
 Azure Blob depolamada dosyalar karşıya yüklendiğinde veya güncelleştirildiğinde tetiklenen bir işlev oluşturma hakkında bilgi edinin.
 
 ![Günlüklerde iletiyi görüntüleyin.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+<a id="prerequisites" class="xliff"></a>
 
-Bu örneği çalıştırmadan önce aşağıdaki işlemleri gerçekleştirmiş olmanız gerekir:
+## Ön koşullar
 
-- [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/)'ni indirip yükleme.
-
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
++ [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/)'ni indirip yükleme.
++ Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## <a name="create-an-azure-function-app"></a>Azure İşlev uygulaması oluşturma
+<a id="create-an-azure-function-app" class="xliff"></a>
+
+## Azure İşlev uygulaması oluşturma
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -49,21 +52,31 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 <a name="create-function"></a>
 
-## <a name="create-a-blob-storage-triggered-function"></a>Blob depolama ile tetiklenen bir işlev oluşturma
+<a id="create-a-blob-storage-triggered-function" class="xliff"></a>
 
-İşlev uygulamanızı genişletin, **İşlevler**'in yanındaki **+** düğmesine ve ardından tercih ettiğiniz dildeki **BlobTrigger** şablonuna tıklayın. Sonra, tabloda belirtilen ayarları kullanın ve **Oluştur**'a tıklayın.
+## Blob depolama ile tetiklenen bir işlev oluşturma
 
-![Blob depolama ile tetiklenen bir işlev oluşturun.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesine tıklayın. Bu, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
 
-| Ayar | Önerilen değer | Açıklama |
-|---|---|---|
-| **Path**   | mycontainer/{name}    | İzlenmekte olan Blob depolamanın konumu. Blob’un dosya adı bağlamaya _name_ parametresi olarak geçirilir.  |
-| **Depolama hesabı bağlantısı** | AzureWebJobStorage | İşlev uygulamanız tarafından kullanılmakta olan depolama hesabı bağlantısını kullanabilir veya yeni bir bağlantı oluşturabilirsiniz.  |
-| **İşlevinizi adlandırın** | İşlev uygulamanızda benzersiz olmalıdır | Kuyruk tarafından tetiklenen bu işlevin adı. |
+    ![Azure portalındaki İşlevler hızlı başlangıç sayfası](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+
+2. İstediğiniz dil için **BlobTrigger** şablonunu seçin ve tabloda belirtilen ayarları kullanın.
+
+    ![Blob depolama ile tetiklenen bir işlev oluşturun.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+
+    | Ayar | Önerilen değer | Açıklama |
+    |---|---|---|
+    | **Path**   | mycontainer/{name}    | İzlenmekte olan Blob depolamanın konumu. Blob’un dosya adı bağlamaya _name_ parametresi olarak geçirilir.  |
+    | **Depolama hesabı bağlantısı** | AzureWebJobStorage | İşlev uygulamanız tarafından kullanılmakta olan depolama hesabı bağlantısını kullanabilir veya yeni bir bağlantı oluşturabilirsiniz.  |
+    | **İşlevinizi adlandırın** | İşlev uygulamanızda benzersiz olmalıdır | Blob ile tetiklenen bu işlevin adı. |
+
+3. İşlevinizi oluşturmak için **Oluştur**'a tıklayın.
 
 Ardından Azure Depolama hesabınıza bağlanıp **mycontainer** kapsayıcısını oluşturun.
 
-## <a name="create-the-container"></a>Kapsayıcı oluşturma
+<a id="create-the-container" class="xliff"></a>
+
+## Kapsayıcı oluşturma
 
 1. İşlevinizde **Tümleştir**'e tıklayın, **Belgeler**'i genişletin ve hem **Hesap adı** hem de **Hesap anahtarı** değerlerini kopyalayın. Depolama hesabına bağlanmak için bu kimlik bilgilerini kullanacaksınız. Depolama hesabınıza önceden bağlandıysanız 4. adıma geçin.
 
@@ -83,7 +96,9 @@ Ardından Azure Depolama hesabınıza bağlanıp **mycontainer** kapsayıcısın
 
 Artık bir blob kapsayıcısına sahip olduğunuza göre, kapsayıcıya bir dosya yükleyerek işlevi test edebilirsiniz.
 
-## <a name="test-the-function"></a>İşlevi test etme
+<a id="test-the-function" class="xliff"></a>
+
+## İşlevi test etme
 
 1. Azure portalına dönün, işlevinizi bulun, sayfanın en altındaki **Günlükler** bölümünü genişletin ve günlük akışının duraklatılmış olmadığından emin olun.
 
@@ -100,14 +115,19 @@ Artık bir blob kapsayıcısına sahip olduğunuza göre, kapsayıcıya bir dosy
     >[!NOTE]
     > İşlev uygulamanız varsayılan Tüketim planında çalıştığında, blob’un eklenmesi veya güncelleştirilmesi ile işlevin tetiklenmesi arasında birkaç dakika gecikme olabilir. Blob ile tetiklenen işlevlerde düşük gecikme süresi gerekiyorsa, işlev uygulamanızı bir App Service planında çalıştırmayı düşünün.
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
+<a id="clean-up-resources" class="xliff"></a>
+
+## Kaynakları temizleme
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 Blob depolamaya bir blob eklendiğinde çalışacak bir işlev oluşturdunuz. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Blob depolama tetikleyicileri hakkında daha fazla bilgi için bkz. [Azure İşlevleri Blob depolama bağlamaları](functions-bindings-storage-blob.md).
+

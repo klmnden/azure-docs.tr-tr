@@ -1,7 +1,7 @@
 ---
-title: "Azure HDInsight’ta HBase ile çalışmaya başlama | Microsoft Docs"
-description: "HDInsight’ta Hadoop ile Apache HBase kullanmaya başlamak için bu HBase öğreticisini izleyin. HBase kabuğundan tablolar oluşturun ve Hive kullanarak bunları sorgulayın."
-keywords: "apache hbase,hbase,hbase kabuğu,hbase öğreticisi,beeline"
+title: "HDInsight&quot;ta HBase örneğiyle çalışmaya başlama - Azure | Microsoft Docs"
+description: "HDInsight&quot;ta kullanmaya başlamak için bu Apache HBase örneğini uygulayın. HBase kabuğundan tablolar oluşturun ve Hive kullanarak bunları sorgulayın."
+keywords: "hbase komutu,hbase örneği"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,27 +17,33 @@ ms.topic: get-started-article
 ms.date: 05/09/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5f9b421571fa98d9881a9e955b05041de124f922
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 5bac1fcc39d052dd1bd9bf710a45a3494b70cae9
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>HBase öğreticisi: HDInsight’ta Apache HBase kullanmaya başlayın
+<a id="get-started-with-an-apache-hbase-example-in-hdinsight" class="xliff"></a>
+
+# HDInsight'ta Apache HBase örneğiyle çalışmaya başlama
 
 HDInsight’ta HBase kümesi oluşturma, HBase tabloları oluşturma ve tabloları Hive kullanarak sorgulama hakkında bilgi edinin. Genel HBase bilgileri için bkz. [HDInsight HBase’e genel bakış][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
-HBase öğreticisine başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
+Bu HBase örneğini denemeye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell(SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
 
-## <a name="create-hbase-cluster"></a>HBase kümesi oluşturma
+<a id="create-hbase-cluster" class="xliff"></a>
+
+## HBase kümesi oluşturma
 Aşağıdaki yordamda 3.4 sürümü Linux tabanlı HBase kümesi ve bağlı varsayılan Azure Storage hesabı oluşturmak için Azure Resource Manager şablonu kullanılmaktadır. Yordamda ve diğer küme oluşturma yöntemlerinde kullanılan parametreleri anlamak için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablon, ortak bir blob kapsayıcısında bulunur. 
@@ -62,7 +68,9 @@ Aşağıdaki yordamda 3.4 sürümü Linux tabanlı HBase kümesi ve bağlı vars
 > 
 > 
 
-## <a name="create-tables-and-insert-data"></a>Tablo oluşturma ve veri ekleme
+<a id="create-tables-and-insert-data" class="xliff"></a>
+
+## Tablo oluşturma ve veri ekleme
 HBase kümelerine bağlanmak ve HBase Kabuğu kullanarak HBase tabloları oluşturmak, veri eklemek ve verileri sorgulamak için SSH kullanabilirsiniz. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Çoğu kişi için veriler tablo biçiminde görünür:
@@ -76,7 +84,7 @@ Bir BigTable uygulaması olan HBase’de aynı veriler şu şekilde görünür:
 
 **HBase kabuğunu kullanmak için**
 
-1. SSH’den aşağıdaki komutu çalıştırın:
+1. SSH'den aşağıdaki HBase komutu çalıştırın:
    
         hbase shell
 2. İki sütun ailesi ile bir HBase oluşturun:
@@ -135,7 +143,9 @@ HBase’de verileri tablolara yüklemek için bazı yöntemler vardır.  Daha fa
         hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
 3. HBase kabuğunu açabilir ve tarama komutunu kullanarak tablo içeriğini listeleyebilirsiniz.
 
-## <a name="use-hive-to-query-hbase"></a>Hive kullanarak HBase sorgulama
+<a id="use-hive-to-query-hbase" class="xliff"></a>
+
+## Hive kullanarak HBase sorgulama
 
 Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölümde HBase tablosuyla eşlenen bir Hive tablosu oluşturur ve HBase tablosunda verileri sorgulamak için kullanırsınız.
 
@@ -155,7 +165,9 @@ Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölümde
    
          SELECT count(rowkey) FROM hbasecontacts;
 
-## <a name="use-hbase-rest-apis-using-curl"></a>Curl kullanarak HBase REST API’lerini kullanma
+<a id="use-hbase-rest-apis-using-curl" class="xliff"></a>
+
+## Curl kullanarak HBase REST API’lerini kullanma
 
 REST API’sinin güvenliği [temel kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilmesi için istekleri her zaman Güvenli HTTP (HTTPS) kullanarak yapmanız gerekir.
 
@@ -213,7 +225,9 @@ HBase Rest hakkında daha fazla bilgi için bkz. [Apache HBase Başvuru Kılavuz
    
 
 
-## <a name="check-cluster-status"></a>Küme durumunu denetleme
+<a id="check-cluster-status" class="xliff"></a>
+
+## Küme durumunu denetleme
 HDInsight içinde HBase, kümelerin izlenmesi için bir Web Kullanıcı Arabirimi ile birlikte gönderilir. Web Kullanıcı Arabirimini kullanarak istatistikler veya bölgeler hakkında bilgi isteyebilirsiniz.
 
 **HBase Master Kullanıcı Arabirimi’ne erişmek için**
@@ -232,16 +246,22 @@ HDInsight içinde HBase, kümelerin izlenmesi için bir Web Kullanıcı Arabirim
   - Görevler
   - Yazılım öznitelikleri
 
-## <a name="delete-the-cluster"></a>Küme silme
+<a id="delete-the-cluster" class="xliff"></a>
+
+## Küme silme
 Tutarsızlıkları önlemek için kümeyi silmeden önce HBase tablolarını devre dışı bırakmanız önerilir.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="troubleshoot"></a>Sorun giderme
+<a id="troubleshoot" class="xliff"></a>
+
+## Sorun giderme
 
 HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 HDInsight’a yönelik bir HBase öğreticisinde bir HBase kümesi oluşturmayı ve tablo oluşturup bu tablolardaki verileri HBase kabuğundan görüntülemeyi öğrendiniz. Ayrıca HBase tablolarındaki veriler üzerinde bir Hive sorgusu kullanmayı, HBase C# REST API’lerini kullanarak bir HBase tablosu oluşturmayı ve tablodan veri almayı öğrendiniz.
 
 Daha fazla bilgi için bkz:

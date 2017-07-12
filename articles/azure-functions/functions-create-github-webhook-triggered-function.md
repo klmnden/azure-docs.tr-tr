@@ -13,35 +13,36 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 7423ef26a4a1c49245a1f8df79bbcaabea222596
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: accd5c55e7adafd5a387bf420660b808335192e6
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
-# <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub web kancası tarafından tetiklenen bir işlev oluşturma
+<a id="create-a-function-triggered-by-a-github-webhook" class="xliff"></a>
+
+# GitHub web kancası tarafından tetiklenen bir işlev oluşturma
 
 GitHub’a özel bir yük kullanarak, HTTP web kancası isteğiyle tetiklenmiş bir işlev oluşturma hakkında bilgi edinin.
 
 ![Azure portalında GitHub Web Kancası ile tetiklenen işlev](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-Bu konu başlığı altındaki adımların tümünü beş dakikadan kısa bir sürede tamamlamalısınız.
+<a id="prerequisites" class="xliff"></a>
 
-## <a name="prerequisites"></a>Ön koşullar
+## Ön koşullar
 
-Bu örneği çalıştırmadan önce aşağıdakilere sahip olmanız gerekir:
-
-- En az bir proje içeren bir GitHub hesabı.
-
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
++ En az bir proje içeren bir GitHub hesabı.
++ Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## <a name="create-an-azure-function-app"></a>Azure İşlev uygulaması oluşturma
+<a id="create-an-azure-function-app" class="xliff"></a>
+
+## Azure İşlev uygulaması oluşturma
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -51,17 +52,27 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 <a name="create-function"></a>
 
-## <a name="create-a-github-webhook-triggered-function"></a>GitHub web kancası ile tetiklenen bir işlev oluşturma
+<a id="create-a-github-webhook-triggered-function" class="xliff"></a>
 
-1. İşlev uygulamanızı genişletin, **İşlevler**’in yanındaki **+** düğmesine tıklayın, tercih ettiğiniz dildeki **GitHubWebHook** şablonuna tıklayın. **İşlevinizi adlandırın**, ardından **Oluştur**’a tıklayın.
+## GitHub web kancası ile tetiklenen bir işlev oluşturma
 
-1. Yeni işlevinizde, **</> İşlev URL’sini al**’a tıklayın, sonra da değerleri kopyalayın ve kaydedin. **</> GitHub parolasını al** için de aynı işlemi yapın. GitHub’da web kancasını yapılandırırken bu değerleri kullanırsınız.
+1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesine tıklayın. Bu, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
+
+    ![Azure portalındaki İşlevler hızlı başlangıç sayfası](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
+
+2. İstediğiniz dil için **GitHubWebHook** şablonunu seçin. **İşlevinizi adlandırın** ve ardından **Oluştur**'a tıklayın.
+
+     ![Azure portalında GitHub web kancası ile tetiklenen bir işlev oluşturma](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+3. Yeni işlevinizde, **</> İşlev URL’sini al**’a tıklayın, sonra da değerleri kopyalayın ve kaydedin. **</> GitHub parolasını al** için de aynı işlemi yapın. GitHub’da web kancasını yapılandırırken bu değerleri kullanırsınız.
 
     ![İşlev kodunu gözden geçirme](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
 
 Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
-## <a name="configure-the-webhook"></a>Web kancası yapılandırma
+<a id="configure-the-webhook" class="xliff"></a>
+
+## Web kancası yapılandırma
 
 1. GitHub’da sahip olduğunuz bir depoya gidin. Varsa çatallandırdığınız depoları da kullanabilirsiniz. Bir depoyu çatallaştırmanız gerekirse, <https://github.com/Azure-Samples/functions-quickstart> sayfasını kullanın.
 
@@ -83,7 +94,9 @@ Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
 Şimdi, web kancası yeni bir sorun açıklaması eklendiğinde işlevinizi tetikleyecek şekilde yapılandırılır.
 
-## <a name="test-the-function"></a>İşlevi test etme
+<a id="test-the-function" class="xliff"></a>
+
+## İşlevi test etme
 
 1. GitHub deposunda **Sorunlar** sekmesini yeni bir tarayıcı penceresinde açın.
 
@@ -97,11 +110,15 @@ Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
      ![Günlüklerde açıklama metnini görüntüleyin.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
+<a id="clean-up-resources" class="xliff"></a>
+
+## Kaynakları temizleme
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 GitHub web kancasından istek alındığında çalıştırılan bir işlev oluşturdunuz. 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Web kancası bağlamaları hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md).

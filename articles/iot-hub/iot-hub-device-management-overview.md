@@ -14,15 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: briz
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ae476dbaf51ae90cc3c5948b0ec8901d7a536da
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="overview-of-device-management-with-iot-hub"></a>IoT Hub ile cihaz yönetimine genel bakış
-## <a name="introduction"></a>Giriş
+<a id="overview-of-device-management-with-iot-hub" class="xliff"></a>
+
+# IoT Hub ile cihaz yönetimine genel bakış
+<a id="introduction" class="xliff"></a>
+
+## Giriş
 Azure IoT Hub, cihaz ve arka uç geliştiricilerinin güçlü cihaz yönetimi çözümleri oluşturmasını sağlayan özellikler ve bir genişletilebilirlik modeli sunar. Cihazlar, kısıtlı algılayıcılardan tek amaçlı mikro denetleyicilere ve cihaz grupları için iletişimi yönlendiren güçlü ağ geçitlerine varan çeşitler barındırır.  Ayrıca, kullanım örnekleri ve IoT operatörlerinin gereksinimleri sektörler arasında farklılık gösterir.  Bu farklılığa rağmen, IoT Hub ile cihaz yönetimi çok çeşitli cihaz ve son kullanıcılara uygun özellikler, desenler ve kod kitaplıkları sağlar.
 
 Başarılı bir kurumsal IoT çözümü oluşturmanın önemli bir kısmı, operatörlerin cihaz koleksiyonu için devam eden yönetimi nasıl gerçekleştirdiğine ilişkin bir strateji sağlanmasıdır. IoT operatörleri, işlerinin daha stratejik yönlerine odaklanmalarını sağlayan basit ve güvenilir araç ve uygulamalar gerektirir. Bu makalede aşağıdakiler sunulmaktadır:
@@ -32,7 +37,9 @@ Başarılı bir kurumsal IoT çözümü oluşturmanın önemli bir kısmı, oper
 * Cihaz yaşam döngüsü açıklaması.
 * Genel cihaz yönetimi desenlerine genel bakış.
 
-## <a name="device-management-principles"></a>Cihaz yönetimi ilkeleri
+<a id="device-management-principles" class="xliff"></a>
+
+## Cihaz yönetimi ilkeleri
 IoT bir dizi benzersiz cihaz yönetimi zorluğunu beraberinde getirir ve kurumsal sınıftaki her çözüm aşağıdaki ilkeleri hesaba katmalıdır:
 
 ![Cihaz yönetimi ilkeleri grafiği][img-dm_principles]
@@ -46,7 +53,9 @@ IoT bir dizi benzersiz cihaz yönetimi zorluğunu beraberinde getirir ve kurumsa
     * Cihaz coğrafi konumu
 * **Çok sayıda servis rolü**: Benzersiz iş akışları ve IoT işlemleri için destek çok önemlidir. Operasyon personeli, şirket içi BT bölümlerinin belirtilen kısıtlamalarıyla uyumlu bir şekilde çalışmalıdır.  Ayrıca, denetçilere ve diğer iş yönetimi rollerine gerçek zamanlı cihaz çalışma bilgilerini sunmanın uygun yollarını bulmalıdır.
 
-## <a name="device-lifecycle"></a>Cihaz yaşam döngüsü
+<a id="device-lifecycle" class="xliff"></a>
+
+## Cihaz yaşam döngüsü
 Tüm kurumsal IoT projelerinde ortak olan genel cihaz yönetimi aşamaları vardır. Azure IoT içinde, cihaz yaşam döngüsünün beş aşaması vardır:
 
 ![Beş Azure IoT cihaz yaşam döngüsü aşaması şunlardır: planlama, sağlama, yapılandırma, izleme, devre dışı bırakma][img-device_lifecycle]
@@ -64,12 +73,14 @@ Bu beş aşamanın her birinde, tam bir çözüm sağlamak için yerine getirilm
     *Daha fazla makale*:  [Doğrudan yöntemler kullanma][lnk-c2d-methods], [Bir cihazda doğrudan yöntem çağırma][lnk-methods-devguide], [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [İşleri zamanlama ve yayınlama][lnk-jobs], [İşleri birden fazla cihazda zamanlama][lnk-jobs-devguide].
 * **İzleme**: Operatörleri dikkat gerektirebilecek sorunlar konusunda uyarmak için genel cihaz koleksiyonu durumunu ve devam eden işlemlerin durumunu izler.  Cihazların gerçek zamanlı çalışma koşullarını ve güncelleştirme işlemlerinin durumunu raporlamasına olanak tanımak üzere cihaz ikisi uygulayın. Cihaz ikizi sorgularını kullanarak en acil sorunları ortaya çıkaran güçlü pano raporları oluşturun.
   
-    *Daha fazla makale*: [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [Cihaz ikizleri ve işler için IoT Hub sorgu dili][lnk-query-language].
+    *Daha fazla makale*: [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [Cihaz ikizleri, işler ve ileti yönlendirme için IoT Hub sorgu dili][lnk-query-language].
 * **Devre dışı bırakma**: Bir hata ya da yükseltme döngüsü sonrasında veya hizmet ömrünün sonunda cihazları değiştirin ya da kullanımdan kaldırın.  Fiziksel cihaz değiştiriliyorsa cihaz bilgilerini korumak veya kullanım dışı bırakılıyorsa cihaz bilgilerini arşivlemek için cihaz ikizini kullanın. Cihaz kimliklerini ve kimlik bilgilerini güvenli bir şekilde iptal etmek için IoT Hub kimlik kayıt defterini kullanın.
   
     *Daha fazla makale*: [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [Cihaz kimliklerini yönetme][lnk-identity-registry].
 
-## <a name="device-management-patterns"></a>Cihaz yönetimi modelleri
+<a id="device-management-patterns" class="xliff"></a>
+
+## Cihaz yönetimi modelleri
 IoT Hub aşağıdaki cihaz yönetim modellerini sağlar.  [Cihaz yönetimi öğreticileri][lnk-get-started], bu desenleri gerçek senaryonuza uygun hale getirme ve bu çekirdek şablonları temel alan yeni desenler tasarlama konularını daha ayrıntılı olarak gösterir.
 
 * **Yeniden başlatma** - Arka uç uygulaması, yeniden başlatma işleminin başlatıldığını bir doğrudan yöntem aracılığıyla cihaza bildirir.  Cihaz, bildirilen özellikleri kullanarak cihazın yeniden başlatma durumunu güncelleştirir.
@@ -88,7 +99,9 @@ IoT Hub aşağıdaki cihaz yönetim modellerini sağlar.  [Cihaz yönetimi öğr
   
     ![Cihaz yönetimi raporlama ilerleme ve durum deseninin grafiği][img-report_progress_pattern]
 
-## <a name="next-steps"></a>Sonraki Adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki Adımlar
 IoT Hub’ın cihaz yönetimi için sağladığı özellik, desen ve kod kitaplıkları, her cihaz yaşam döngüsü aşamasında kurumsal IoT operatörünün gereksinimlerini yerine getiren IoT uygulamaları oluşturmanıza olanak sağlar.
 
 IoT Hub’ında cihaz yönetimi özellikleri hakkında daha fazla bilgi almak için [Cihaz yönetimini kullanmaya başlama][lnk-get-started] eğitmenine bakın.

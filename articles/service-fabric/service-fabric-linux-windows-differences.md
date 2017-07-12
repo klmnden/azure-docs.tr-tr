@@ -12,28 +12,33 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/23/2017
+ms.date: 6/28/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 68c7e1f3f51ca5bec30a0f71aaccbafa58078e69
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux (önizleme) ve Windows (genel kullanıma açık) üzerindeki Service Fabric arasındaki farklar
+<a id="differences-between-service-fabric-on-linux-preview-and-windows-generally-available" class="xliff"></a>
 
-Linux üzerinde Service Fabric önizleme aşamasında olduğundan, Windows’ta desteklenip Linux’ta henüz desteklenmeyen bazı özellikler mevcuttur. Linux üzerindeki Service Fabric genel kullanıma sunulduğunda özellik kümeleri de eşit olacaktır.
+# Linux (önizleme) ve Windows (genel kullanıma açık) üzerindeki Service Fabric arasındaki farklar
 
-* Güvenilir Koleksiyonlar (ve Güvenilir Durum Bilgisi Olan Hizmetler) Linux üzerinde desteklenmez.
-* ReverseProxy, Linux üzerinde kullanılamaz.
-* Tek başına yükleyici, Linux üzerinde kullanılamaz.
-* Linux üzerinde bildirim dosyaları için XML şema doğrulaması yapılmaz. 
-* Konsol yönlendirmesi, Linux üzerinde desteklenmez. 
-* Hata Analizi Hizmeti (FAS), Linux üzerinde kullanılamaz.
-* Azure Active Directory desteği, Linux üzerinde mevcut değildir.
-* PowerShell komutlarının bazı CLI komutu eşdeğerleri mevcut değildir.
+Linux üzerinde Service Fabric önizleme aşamasında olduğundan, Windows’ta desteklenip Linux’ta henüz desteklenmeyen bazı özellikler mevcuttur. Linux üzerindeki Service Fabric genel kullanıma sunulduğunda özellik kümeleri de eşit olacaktır. Gelecek sürümlerle birlikte bu özellik farkı azalacaktır. Mevcut son sürümler arasında (diğer bir deyişle Windows üzerindeki 5.6 sürümü ve Linux üzerindeki 5.5 sürümü arasında) aşağıdaki farklar mevcuttur: 
+
+* Güvenilir Koleksiyonlar (ve Güvenilir Durum Bilgisi Olan Hizmetler) 
+* Ters ara sunucu 
+* Tek başına yükleyici 
+* Bildirim dosyaları için XML şema doğrulaması 
+* Konsol yeniden yönlendirmesi 
+* Hata Analizi Hizmeti (FAS)
+* Kapsayıcılar için Docker Compose, birim ve günlük sürücüleri 
+* Kapsayıcılar ve hizmetler için kaynak idaresi 
+* DNS hizmeti
+* Azure Active Directory desteği
+* Belirli PowerShell komutlarının CLI komutu eşdeğerleri 
 * Bir Linux kümesinde PowerShell komutlarının yalnızca bir alt kümesi çalıştırılabilir (sonraki bölümde ayrıntılı olarak verilmiştir).
 
 >[!NOTE]
@@ -41,7 +46,9 @@ Linux üzerinde Service Fabric önizleme aşamasında olduğundan, Windows’ta 
 
 Geliştirme araçları da Windows ile Linux arasında farklılık gösterir. VisualStudio, Powershell, VSTS ve ETW özellikleri Windows üzerinde kullanılabilirken, Linux üzerinde Yeoman, Eclipse, Jenkins ve LTTng kullanılabilir.
 
-## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Linux Service Fabric kümesinde çalışmayan PowerShell cmdlet'leri
+<a id="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster" class="xliff"></a>
+
+## Linux Service Fabric kümesinde çalışmayan PowerShell cmdlet'leri
 
 * Invoke-ServiceFabricChaosTestScenario
 * Invoke-ServiceFabricFailoverTestScenario
@@ -99,7 +106,9 @@ Geliştirme araçları da Windows ile Linux arasında farklılık gösterir. Vis
 
 
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 * [Linux üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started-linux.md)
 * [OSX üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started-mac.md)
 * [Linux üzerinde Yeoman kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-create-your-first-linux-application-with-java.md)

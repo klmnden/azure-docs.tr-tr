@@ -1,0 +1,2 @@
+> [!NOTE]
+> Yeni VPN ağ geçidi SKU'ları (VpnGw1, VpnGw2 ve VpnGw3) yalnızca Resource Manager dağıtım modeli için desteklenir. Klasik sanal ağlarda eski SKU'ların kullanılmasına devam edilmesi gerekir. Eski ağ geçidi SKU'ları hakkında daha fazla bilgi için bkz. [Sanal ağ geçidi SKU'ları (eski) ile çalışma](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

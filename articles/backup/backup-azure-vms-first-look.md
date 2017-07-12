@@ -12,16 +12,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 3/10/2017
+ms.date: 6/14/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 8883ff1601c521d05068452b1b58cadaee1a941f
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 61328e32763faea90074fc6d499e660c4109ab6d
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="first-look-backing-up-azure-virtual-machines"></a>İlk bakış: Azure sanal makinelerini yedekleme
+<a id="first-look-backing-up-azure-virtual-machines" class="xliff"></a>
+
+# İlk bakış: Azure sanal makinelerini yedekleme
 > [!div class="op_single_selector"]
 > * [VM'leri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md)
 > * [Azure VM'lerini yedekleme kasasıyla koruma](backup-azure-vms-first-look.md)
@@ -43,15 +46,21 @@ Aşağıdaki öğreticiyi başarıyla tamamlamak için şu önkoşulların mevcu
 >
 >
 
-## <a name="create-a-backup-vault"></a>Yedekleme kasası oluşturma
+<a id="create-a-backup-vault" class="xliff"></a>
+
+## Yedekleme kasası oluşturma
 Yedekleme kasası, zaman içinde oluşturulan tüm yedeklemeleri ve kurtarma noktalarını depolayan bir varlıktır. Yedekleme kasası, yedeklenmekte olan sanal makinelere uygulanan yedekleme ilkelerini de içerir.
 
 > [!IMPORTANT]
-> Mart 2017’den itibaren Backup kasaları oluşturmak için klasik portalı kullanamayacaksınız. Mevcut Backup kasaları desteklenmeye devam eder ve [Backup kasaları oluşturmak için Azure PowerShell kullanabilirsiniz](./backup-client-automation-classic.md#create-a-backup-vault). Ancak, gelecekteki iyileştirmeler yalnızca Kurtarma Hizmetleri kasaları için geçerli olacağından, Microsoft tüm dağıtımlar için Kurtarma Hizmetleri kasalarının kullanılmasını önerir.
+> Mart 2017’den itibaren Backup kasaları oluşturmak için klasik portalı kullanamayacaksınız.
+> Artık Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltebilirsiniz. Ayrıntılı bilgi için [Backup kasasını Kurtarma Hizmetleri kasasına yükseltme](backup-azure-upgrade-backup-to-recovery-services.md) makalesine bakın. Microsoft, Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltmenizi önerir.<br/> **1 Kasım 2017'den itibaren**:
+>- Yükseltilmemiş olan tüm Backup kasaları Kurtarma Hizmetleri kasalarına otomatik olarak yükseltilecektir.
+>- Klasik portalda yedekleme verilerinize erişemeyeceksiniz. Bunun yerine, Kurtarma Hizmetleri kasalarındaki yedekleme verilerinize erişmek için Azure portalını kullanabilirsiniz.
+>
 
+<a id="discover-and-register-azure-virtual-machines" class="xliff"></a>
 
-
-## <a name="discover-and-register-azure-virtual-machines"></a>Azure sanal makinelerini bulma ve kaydetme
+## Azure sanal makinelerini bulma ve kaydetme
 VM'yi bir kasaya kaydetmeden önce yeni VM'leri tanımlamak için bulma işlemini çalıştırın. Bu, bulut hizmeti adı ve bölge gibi ek bilgilerle birlikte, abonelikteki sanal makinelerin listesini döndürür.
 
 1. [Klasik Azure portalında](http://manage.windowsazure.com/) oturum açın
@@ -98,12 +107,16 @@ VM'yi bir kasaya kaydetmeden önce yeni VM'leri tanımlamak için bulma işlemin
 
     ![Kayıt durumu 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="install-the-vm-agent-on-the-virtual-machine"></a>VM Aracısı'nı sanal makineye yükleme
+<a id="install-the-vm-agent-on-the-virtual-machine" class="xliff"></a>
+
+## VM Aracısı'nı sanal makineye yükleme
 Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı VM üzerinde zaten mevcuttur; [VM’lerinizi koruma](backup-azure-vms-first-look.md#create-the-backup-policy) bölümüne geçebilirsiniz.
 
 VM'nizin bir şirket içi veri merkezinden geçişi sağlandıysa VM için VM Aracısı büyük olasılıkla yüklü değildir. VM'yi koruma aşamasına geçmeden önce sanal makine üzerinde VM Aracısı'nı yüklemeniz gerekir. VM Aracısı'nı yükleme konusunda ayrıntılı adımlar için bkz. [VM'leri Yedekleme makalesinin VM Aracısı bölümü](backup-azure-vms-prepare.md#vm-agent).
 
-## <a name="create-the-backup-policy"></a>Yedekleme ilkesi oluşturma
+<a id="create-the-backup-policy" class="xliff"></a>
+
+## Yedekleme ilkesi oluşturma
 İlk yedekleme işini tetiklemeden önce, yedekleme anlık görüntülerinin alınma zamanlamasını ayarlayın. Yedekleme anlık görüntülerinin alınma zamanlaması ve bu anlık görüntülerin tutulma süresinin uzunluğu, yedekleme ilkesini oluşturur. Bekletme bilgileri, Üst öğe-orta öğe-alt öğe rotasyon düzenini temel alır.
 
 1. Klasik Azure portalında **Kurtarma Hizmetleri**'nin altındaki yedekleme kasasına gidin ve **Kayıtlı Öğeler**'e tıklayın.
@@ -140,7 +153,9 @@ VM'nizin bir şirket içi veri merkezinden geçişi sağlandıysa VM için VM Ar
 
     İlkeyi belirlediğinize göre, artık sonraki adıma geçebilir ve ilk yedeklemeyi çalıştırabilirsiniz.
 
-## <a name="initial-backup"></a>İlk yedekleme
+<a id="initial-backup" class="xliff"></a>
+
+## İlk yedekleme
 Bir sanal makine bir ilke ile koruma altına alındıktan sonra, bu ilişkiyi **Korumalı Öğeler** sekmesinde görüntüleyebilirsiniz. İlk yedekleme gerçekleşene kadar, **Koruma Durumu** **Korumalı - (ilk yedekleme bekleniyor)** olarak gösterilir. Varsayılan olarak, ilk zamanlanmış yedekleme *ilk yedekleme* olacaktır.
 
 ![Yedekleme beklemede](./media/backup-azure-vms-first-look/protection-pending-border.png)
@@ -164,13 +179,17 @@ Bir sanal makine bir ilke ile koruma altına alındıktan sonra, bu ilişkiyi **
    >
    >
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 Bir VM'yi başarıyla yedeklediğinize göre, sonraki birkaç adım ilginizi çekebilir. En mantıklı adım, bir VM'ye veri geri yükleme konusunda bilgi edinmektir. Bununla birlikte, verilerinizin güvenliğini nasıl koruyacağınızı ve maliyetleri nasıl en aza indireceğinizi anlamanıza yardımcı olacak yönetim görevleri mevcuttur.
 
 * [Sanal makinelerinizi yönetme ve izleme](backup-azure-manage-vms.md)
 * [Sanal makineleri geri yükleme](backup-azure-restore-vms.md)
 * [Sorun giderme rehberi](backup-azure-vms-troubleshoot.md)
 
-## <a name="questions"></a>Sorularınız mı var?
+<a id="questions" class="xliff"></a>
+
+## Sorularınız mı var?
 Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](http://aka.ms/azurebackup_feedback).
 

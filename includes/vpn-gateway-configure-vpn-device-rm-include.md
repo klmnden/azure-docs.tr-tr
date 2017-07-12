@@ -1,7 +1,9 @@
-VPN cihazı yapılandırma bilgileri için aşağıdaki bağlantılara bakın:
+Yapılandırma bilgileri için aşağıdaki bağlantılara bakın:
 
-- Uyumlu VPN cihazları hakkında bilgi için bkz. [VPN Cihazları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md). 
+- Uyumlu VPN cihazları hakkında bilgi için bkz. [VPN Cihazları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
+- VPN cihazınızı yapılandırmadan önce, kullanmak istediğiniz VPN cihazının [Bilinen cihaz uyumluluğu sorunları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) olup olmadığını denetleyin.
 - Cihaz yapılandırma ayarlarının bağlantıları için bkz. [Doğrulanan VPN Cihazları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Mümkün olan en iyi cihaz yapılandırma bağlantıları verilmiştir. En son yapılandırma bilgileri için her zaman cihaz üreticinize başvurmanız en iyi yöntemdir.
 - Cihaz yapılandırma örneklerini düzenleme hakkında daha fazla bilgi için bkz. [Örnekleri düzenleme](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing).
-- IPsec/IKE parametreleri için bkz. [Parametreler](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec).
-- VPN cihazınızı yapılandırmadan önce, kullanmak istediğiniz VPN cihazının [Bilinen cihaz uyumluluğu sorunları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) olup olmadığını denetleyin.
+- Şifrelemeyle ilgili gereksinimler için bkz. [Şifrelemeyle ilgili gereksinimler ve Azure VPN ağ geçitleri hakkında](../articles/vpn-gateway/vpn-gateway-about-compliance-crypto.md).
+- IPsec/IKE parametreleri hakkında bilgi için bkz. [Siteden Siteye VPN ağ geçidi bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec).
+- IPsec/IKE ilke yapılandırma adımları için bkz. [S2S VPN veya VNet-VNet bağlantıları için IPsec/IKE ilkesi yapılandırma](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md).

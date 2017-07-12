@@ -9,26 +9,32 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/19/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c67ada15c11b81021ff5e6f6e5edc5cb530ece98
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
-# <a name="create-an-azure-database-for-postgresql-in-the-azure-portal"></a>Azure portalında PostgreSQL için Azure Veritabanı oluşturma
+<a id="create-an-azure-database-for-postgresql-in-the-azure-portal" class="xliff"></a>
+
+# Azure portalında PostgreSQL için Azure Veritabanı oluşturma
 
 PostgreSQL için Azure Veritabanı, bulutta son derece kullanılabilir olan PostgreSQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Bu hızlı başlangıçta, Azure portalını kullanarak nasıl PostgreSQL için Azure Veritabanı sunucusu oluşturacağınız gösterilir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+<a id="log-in-to-the-azure-portal" class="xliff"></a>
+
+## Azure portalında oturum açma
 
 [Azure Portal](https://portal.azure.com)’da oturum açın.
 
-## <a name="create-an-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı oluşturma
+<a id="create-an-azure-database-for-postgresql" class="xliff"></a>
+
+## PostgreSQL için Azure Veritabanı oluşturma
 
 PostgreSQL için Azure Veritabanı sunucusu, tanımlı bir dizi [işlem ve depolama kaynağı](./concepts-compute-unit-and-storage.md) ile oluşturulur. Sunucu, [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) içinde oluşturulur.
 
@@ -61,7 +67,9 @@ PostgreSQL için Azure veritabanı sunucusu oluşturmak üzere şu adımları uy
    
   Varsayılan olarak, **postgres** veritabanı sunucunuz altında oluşturulur. [Postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) veritabanı; kullanıcılar, yardımcı programlar ve üçüncü taraf uygulamalar tarafından kullanılmak üzere geliştirilmiş varsayılan bir veritabanıdır. 
 
-## <a name="configure-a-server-level-firewall-rule"></a>Sunucu düzeyinde güvenlik duvarı kuralı oluşturma
+<a id="configure-a-server-level-firewall-rule" class="xliff"></a>
+
+## Sunucu düzeyinde güvenlik duvarı kuralı oluşturma
 
 PostgreSQL için Azure Veritabanı hizmeti, sunucu düzeyinde bir güvenlik duvarı oluşturur. Bu güvenlik duvarı, belirli IP adresleri için güvenlik duvarını açmak üzere bir güvenlik duvarı kuralı oluşturulmadıkça, dış uygulama ve araçların sunucuya ve sunucu üzerindeki herhangi bir veritabanına bağlanmasını engeller. 
 
@@ -77,10 +85,12 @@ PostgreSQL için Azure Veritabanı hizmeti, sunucu düzeyinde bir güvenlik duva
 4.  **Kaydet**’e ve ardından **X**’e tıklayarak **Bağlantı Güvenliği** sayfasını kapatın.
 
   > [!NOTE]
-  > Azure PostgreSQL sunucusu, 5432 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içerisinden bağlanmaya çalışıyorsanız ağınızın güvenlik duvarı, bağlantı noktası 5432 üzerinden giden trafiğe izin vermeyebilir. Bu durumda, BT departmanınız 5432 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
+  > Azure PostgreSQL sunucusu, 5432 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 5432 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, BT departmanınız 5432 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
   >
 
-## <a name="get-the-connection-information"></a>Bağlantı bilgilerini alma
+<a id="get-the-connection-information" class="xliff"></a>
+
+## Bağlantı bilgilerini alma
 
 PostgreSQL için Azure Veritabanımızı oluşturduğumuzda, varsayılan **postgres** veritabanı da oluşturulur. Veritabanı sunucunuza bağlanmak için ana bilgisayar bilgilerini ve erişim kimlik bilgilerini sağlamanız gerekir.
 
@@ -93,7 +103,9 @@ PostgreSQL için Azure Veritabanımızı oluşturduğumuzda, varsayılan **postg
 
  ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma](./media/quickstart-create-database-portal/6-server-name.png)
 
-## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Cloud Shell’de psql’i kullanarak PostgreSQL veritabanına bağlanma
+<a id="connect-to-postgresql-database-using-psql-in-cloud-shell" class="xliff"></a>
+
+## Cloud Shell’de psql’i kullanarak PostgreSQL veritabanına bağlanma
 
 Şimdi PostgreSQL için Azure Veritabanı sunucusuna bağlanmak üzere psql komut satır yardımcı programını kullanalım. 
 1. Sol gezinme bölmesindeki terminal simgesiyle Azure Cloud Shell’i başlatın.
@@ -124,7 +136,9 @@ CREATE DATABASE mypgsqldb;
 \c mypgsqldb
 ```
 
-## <a name="connect-to-postgresql-database-using-pgadmin"></a>pgAdmin’i kullanarak PostgreSQL veritabanına bağlanma
+<a id="connect-to-postgresql-database-using-pgadmin" class="xliff"></a>
+
+## pgAdmin’i kullanarak PostgreSQL veritabanına bağlanma
 
 _pgAdmin_ GUI aracını kullanarak Azure PostgreSQL sunucusuna bağlanmak için
 1.  İstemci bilgisayarınızda _pgAdmin_ uygulamasını başlatın. _pgAdmin_’i http://www.pgadmin.org/ adresinden yükleyebilirsiniz.
@@ -154,7 +168,9 @@ _pgAdmin_ GUI aracını kullanarak Azure PostgreSQL sunucusuna bağlanmak için
  ![pgAdmin - Oluştur - Veritabanı](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
+<a id="clean-up-resources" class="xliff"></a>
+
+## Kaynakları temizleme
 [Azure kaynak grubunu](../azure-resource-manager/resource-group-overview.md) silerek hızlı başlangıçta oluşturduğunuz tüm kaynakları temizleyin.
 
 > [!TIP]
@@ -168,7 +184,9 @@ Yalnızca yeni oluşturulan sunucuyu silmek istiyorsanız:
 2.  Genel bakış sayfasında, ![PostgreSQL için Azure Veritabanı - Sunucuyu silme](./media/quickstart-create-database-portal/12-delete.png) üst bölmesinde Sil düğmesine tıklayın
 3.  Silmek istediğiniz sunucu adını onaylayın ve altındaki etkilenen veritabanlarını gösterin. Metin kutusuna **mypgserver-20170401** yazıp Sil’e tıklayın.
 
-## <a name="next-steps"></a>Sonraki adımlar
-- Veritabanınızı, [Dışarı ve İçeri Aktar](./howto-migrate-using-export-and-import.md)’ı veya [Döküm Al ve Geri Yükle](./howto-migrate-using-dump-and-restore.md)’yi kullanarak geçirin.
-- Azure CLI’yı kullanarak PostgreSQL için Azure Veritabanı sunucusu oluşturmak isterseniz [PostgreSQL sunucusu oluşturma - CLI](./quickstart-create-server-database-azure-cli.md) bölümünü inceleyin.
-- Teknik genel bakış için [PostgreSQL için Azure Veritabanı hizmeti hakkında](./overview.md) bölümüne bakın.
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
+> [!div class="nextstepaction"]
+> [Dışarı Aktarma ve İçeri Aktarma seçeneğini kullanarak veritabanınızı geçirme](./howto-migrate-using-export-and-import.md)
+

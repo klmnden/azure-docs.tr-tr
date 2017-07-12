@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-translationtype: Human Translation
-ms.sourcegitcommit: 11aa3f74d112244cd96278c2b2e3d701e031aee8
-ms.openlocfilehash: 6415b0e1c7feb744c6c13a0ae19ed434b6e9befc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="what-are-logic-apps"></a>Logic Apps nedir?
-Logic Apps ölçeklenebilir tümleştirmeleri ve iş akışlarını basitleştirmenin ve buluta uygulamanın bir yolunu sağlar. İşleminizi iş akışı olarak bilinen bir dizi adım olarak modelleyen ve otomatikleştiren bir görsel tasarımcı sağlar.  Bulutta ve şirket içinde hizmet ve protokolleri hızlıca tümleştirmeye yönelik [çok sayıda bağlayıcı](../connectors/apis-list.md) vardır.  Mantıksal uygulama bir tetikleyici ile başlar ('Dynamics CRM’e bir hesabın eklenmesi' gibi) ve başlatma sonrasında çok sayıda birleştirme eylemi, dönüştürme ve koşul mantığı başlayabilir.
+<a id="what-are-logic-apps" class="xliff"></a>
+
+# Logic Apps nedir?
+Logic Apps ölçeklenebilir tümleştirmeleri ve iş akışlarını basitleştirmenin ve buluta uygulamanın bir yolunu sağlar. İşleminizi iş akışı olarak bilinen bir dizi adım olarak modelleyen ve otomatikleştiren bir görsel tasarımcı sağlar.  Bulutta ve şirket içinde hizmet ve protokolleri hızlıca tümleştirmeye yönelik [çok sayıda bağlayıcı](../connectors/apis-list.md) vardır.  Mantıksal uygulama bir tetikleyici ile başlar ve başlatma sonrasında çok sayıda eylem, dönüştürme ve koşul mantığı birleşimi başlayabilir.
 
 Logic Apps kullanmanın avantajları şunlardır:  
 
@@ -44,7 +48,9 @@ Daha önce bahsedildiği gibi Logic Apps ile iş süreçlerini otomatik hale get
 
 Bunlar gibi senaryoların tümü görsel tasarımcıdan ve tek bir satır kod yazmadan yapılandırılabilir. [Mantıksal uygulamanızı derlemeye][create] hemen başlayın.  Mantıksal uygulama yazıldıktan sonra birden fazla ortam ve bölgeye [hızlı bir şekilde dağıtılabilir ve yeniden yapılandırılabilir](../logic-apps/logic-apps-create-deploy-template.md).
 
-## <a name="why-logic-apps"></a>Logic Apps neden kullanılmalıdır?
+<a id="why-logic-apps" class="xliff"></a>
+
+## Logic Apps neden kullanılmalıdır?
 Logic Apps kuruluş tümleştirme alanına hız ve ölçeklenebilirlik kazandırır.  Tasarımcının kullanım kolaylığı, kullanılabilir tetikleyici ve eylemlerin çeşitliliği ve güçlü yönetim araçları API’lerinizi merkezi hale getirmeyi hiç olmadığı kadar kolaylaştırır.  İşletmeler dijitalleştirmeye doğru ilerlerken Logic Apps eski ve modern sistemleri birbirine bağlamanıza olanak sağlar.
 
 Ayrıca, [Enterprise Integration Hesabı][biztalk] ile [XML mesajlaşması][xml], [ticari ortak yönetimi][tpm] ve daha fazlasının gücü sayesinde olgun tümleştirme senaryolarında ölçeklendirme yapabilirsiniz.
@@ -55,7 +61,9 @@ Ayrıca, [Enterprise Integration Hesabı][biztalk] ile [XML mesajlaşması][xml]
 * **Desteklenmiş genişletilebilirlik** - İhtiyaç duyduğunuz bağlayıcıyı görmüyor musunuz? Logic Apps kendi API’leriniz ve kodunuzla çalışacak şekilde tasarlanmıştır; kendi API uygulamanızı özel bir bağlayıcı kullanacak şekilde kolayca oluşturabilir veya bir [Azure İşlevi](https://functions.azure.com)’ne çağırarak kod parçacıklarını talep üzerine yürütebilirsiniz. 
 * **Gerçek tümleştirme gücü** - Basitten başlayın ve gerektikçe büyütün. Logic Apps, profesyonellerin ihtiyaç duydukları çözümleri oluşturmasını sağlayan sektör lideri Microsoft çözümü BizTalk’tan kolayca yararlanır. [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) hakkında daha fazla bilgi edinin.
 
-## <a name="logic-app-concepts"></a>Mantıksal Uygulama Kavramları
+<a id="logic-app-concepts" class="xliff"></a>
+
+## Mantıksal Uygulama Kavramları
 Logic Apps deneyimini oluşturan bazı temel parçalar aşağıda verilmiştir. 
 
 * **İş Akışı** - MLogic Apps ş süreçlerinizi bir dizi adım veya bir iş akışı olarak modellemenizi sağlayan grafiksel bir yöntem sunar.
@@ -64,7 +72,9 @@ Logic Apps deneyimini oluşturan bazı temel parçalar aşağıda verilmiştir.
 * **Eylemler** - Bir iş akışında tetikleyiciden sonraki her adım eylem olarak adlandırılır. Her eylem genellikle yönetilen bağlayıcı veya özel API uygulamalarınızdaki bir işlemle eşlenir.
 * **Enterprise Integration Pack** - Daha gelişmiş tümleştirme senaryoları için Logic Apps, BizTalk özelliklerini içerir. BizTalk, Microsoft'un sektör lideri tümleştirme platformudur. Enterprise Integration Pack bağlayıcıları Logic App iş akışlarınıza doğrulama, dönüşüm ve daha fazlasını kolayca dahil etmenize imkan tanır.
 
-## <a name="getting-started"></a>Başlarken
+<a id="getting-started" class="xliff"></a>
+
+## Başlarken
 * Logic Apps’i kullanmaya başlamak için [Mantıksal Uygulama oluşturma][create] öğreticisini izleyin.  
 * [Sık rastlanan örnekleri ve senaryoları inceleyin](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Logic Apps ile iş süreçlerini otomatik hale getirebilirsiniz](http://channel9.msdn.com/Events/Build/2016/T694) 
@@ -77,9 +87,4 @@ Logic Apps deneyimini oluşturan bazı temel parçalar aşağıda verilmiştir.
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

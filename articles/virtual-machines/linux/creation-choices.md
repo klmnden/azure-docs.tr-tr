@@ -16,14 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 756711abb014829971af126c5cb60c12e79c920e
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: b2f93579eb1c7a69d0dbd1b0ef112aed9b2168c3
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="different-ways-to-create-a-linux-vm"></a>Linux VM oluşturmak için farklı yöntemler
+<a id="different-ways-to-create-a-linux-vm" class="xliff"></a>
+
+# Linux VM oluşturmak için farklı yöntemler
 Azure’da size uygun araçları ve iş akışlarını kullanarak bir Linux sanal makine (VM) oluşturma esnekliğine sahipsiniz. Bu makalede bu farklılıklar ve Azure CLI 2.0 dahil olmak üzere Linux VM'lerinizi oluşturmaya yönelik örnekler özetlenmektedir. [Azure CLI 1.0](creation-choices-nodejs.md) dahil oluşturma seçeneklerini de görüntüleyebilirsiniz.
 
 [Azure CLI 2.0](/cli/azure/install-az-cli2) bir npm paketi, distro ile sağlanan paketler veya Docker kapsayıcısı üzerinden çeşitli platformlarda kullanılabilir. Ortamınız için en uygun derlemeyi yükleyin ve [az login](/cli/azure/#login) komutunu kullanarak Azure’da oturum açın
@@ -60,16 +62,22 @@ Azure’da size uygun araçları ve iş akışlarını kullanarak bir Linux sana
 * [Birden fazla Linux VM üzerinde yük dengeli ve yüksek oranda kullanılabilir bir uygulama oluşturma](tutorial-load-balancer.md)
 
 
-## <a name="azure-portal"></a>Azure portalına
+<a id="azure-portal" class="xliff"></a>
+
+## Azure portalına
 [Azure portalı](https://portal.azure.com) sisteminize yüklenecek bir şey olmadığı için sanal makineyi hızlıca oluşturmanıza imkan tanır. VM oluşturmak için Azure portalını kullanma:
 
 * [Azure portalını kullanarak Linux VM oluşturma](quick-create-portal.md) 
 
 
-## <a name="operating-system-and-image-choices"></a>İşletim sistemi ve görüntü seçimi
+<a id="operating-system-and-image-choices" class="xliff"></a>
+
+## İşletim sistemi ve görüntü seçimi
 Bir sanal makine oluşturulurken çalıştırmak istediğiniz işletim sistemini temel alan bir görüntü seçebilirsiniz. Azure ve ortakları, bazıları önyüklü uygulamalar ve araçlarla gelen çok sayıda görüntü sağlar. Veya kendi görüntülerinizden birini karşıya yükleyin ([aşağıdaki bölüme](#use-your-own-image) bakın).
 
-### <a name="azure-images"></a>Azure görüntüleri
+<a id="azure-images" class="xliff"></a>
+
+### Azure görüntüleri
 Yayımcı, distro sürümü ve derlemelere göre kullanılabilir seçenekleri görmek için [az vm image](/cli/azure/vm/image) komutlarını kullanın.
 
 Kullanılabilir yayımcıların listesi:
@@ -110,7 +118,9 @@ Gezinme ve geçerli görüntüleri kullanma ile ilgili daha fazla örnek için b
 | SLES |SLES |SLES |12 SP1 |en son |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |en son |
 
-### <a name="use-your-own-image"></a>Kendi görüntünüzü kullanma
+<a id="use-your-own-image" class="xliff"></a>
+
+### Kendi görüntünüzü kullanma
 Belirli özelleştirmelere ihtiyaç duyuyorsanız, mevcut bir Azure VM’yi yakalayarak bu VM’yi temel alan bir görüntü kullanabilirsiniz. Şirket içinde oluşturduğunuz bir görüntüyü de yükleyebilirsiniz. Desteklenen distro’lar ve kendi görüntünüzü kullanma ile ilgili daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Azure destekli dağıtımlar](endorsed-distros.md)
@@ -125,7 +135,9 @@ Belirli özelleştirmelere ihtiyaç duyuyorsanız, mevcut bir Azure VM’yi yaka
     az vm image create --resource-group myResourceGroup --source myVM --name myImage
     ```
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 * [CLI](quick-create-portal.md) ile, [portal](quick-create-cli.md) üzerinden veya [Azure Resource Manager şablonu](../windows/cli-deploy-templates.md) kullanarak bir Linux VM oluşturun.
 * Linux VM oluşturduktan sonra [Azure diskleri ve depolama hakkında bilgi edinin](tutorial-manage-disks.md).
 * [Parola veya SSH anahtarlarını sıfırlama ve kullanıcıları yönetme](using-vmaccess-extension.md) ile ilgili hızlı adımlar.

@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: c9d5fdc2ff27454b2492751034b43658ee9d46c5
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: ed78d25f2bac0a9996f1796ee503f31a36940977
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20-preview"></a>Azure CLI 2.0 (Önizleme) aracını kullanarak Azure Data Lake Store ile çalışmaya başlama
+<a id="get-started-with-azure-data-lake-store-using-azure-cli-20" class="xliff"></a>
+
+# Azure CLI 2.0 kullanarak Azure Data Lake Store ile çalışmaya başlama
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
@@ -40,27 +42,25 @@ Azure Data Lake Store hesabı oluşturma ve klasör oluşturma, veri dosyaların
 Azure CLI 2.0, Azure kaynaklarını yönetmek için Azure tarafından sunulan yeni komut satırı deneyimidir. MacOS, Linux ve Windows’da kullanılabilir. Daha fazla bilgi edinmek için bkz. [Azure CLI 2.0 aracına genel bakış](https://docs.microsoft.com/cli/azure/overview). Tam komut ve söz dizimi listesi için [Azure Data Lake Store CLI 2.0 başvurusuna](https://docs.microsoft.com/cli/azure/dls) da bakabilirsiniz.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Azure CLI 2.0** - Yönergeler için kz. [Azure CLI 2.0 aracını yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+<a id="authentication" class="xliff"></a>
 
-Bu makalede Data Lake Store için son kullanıcı olarak oturum açtığınız daha basit bir kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake Store hesabına ve dosya sistemine erişim düzeyi bu durumda oturum açmış kullanıcının erişim düzeyine göre yönetilir. Ancak, Data Lake Store kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** şeklinde diğer yaklaşımlar da mevcuttur. Kimlik doğrulaması hakkında yönergeler ve daha fazla bilgi için bkz. [Azure Active Directory kullanarak Data Lake Store kimlik doğrulaması yapma](data-lake-store-authenticate-using-active-directory.md).
+## Kimlik Doğrulaması
 
-## <a name="enable-data-lake-store-preview-in-azure-cli-20"></a>Azure CLI 2.0 aracında Data Lake Store’u (Önizleme) etkinleştirme
-
-Data Lake Store CLI 2.0 şu anda Önizleme aşamasındadır ve Azure CLI 2.0 aracını yüklediğinizde varsayılan olarak etkinleştirilmez. Data Lake Store CLI 2.0 aracını etkinleştirmek için aşağıdaki komutu çalıştırın.
-
-```azurecli
-az component update --add dls
-```
+Bu makalede Data Lake Store için son kullanıcı olarak oturum açtığınız daha basit bir kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake Store hesabına ve dosya sistemine erişim düzeyi bu durumda oturum açmış kullanıcının erişim düzeyine göre yönetilir. Ancak, Data Lake Store kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** şeklinde diğer yaklaşımlar da mevcuttur. Kimlik doğrulaması gerçekleştirmeyle ilgili yönergeler ve daha fazla bilgi için [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md) veya [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md) bölümlerine göz atın.
 
 
-## <a name="log-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
+<a id="log-in-to-your-azure-subscription" class="xliff"></a>
+
+## Azure aboneliğinizde oturum açın
 
 1. Azure aboneliğinizde oturum açın.
 
@@ -76,7 +76,9 @@ az component update --add dls
     az account set --subscription <subscription id> 
     ```
 
-## <a name="create-an-azure-data-lake-store-account"></a>Azure Data Lake Store hesabı oluşturma
+<a id="create-an-azure-data-lake-store-account" class="xliff"></a>
+
+## Azure Data Lake Store hesabı oluşturma
 
 1. Yeni bir kaynak grubu oluşturun. Aşağıdaki komut içinde kullanmak istediğiniz parametre değerlerini sağlayın. Konum adı boşluk içeriyorsa adı tırnak işaretleri içine alın. Örneğin, "Doğu ABD 2". 
    
@@ -90,7 +92,9 @@ az component update --add dls
     az dls account create --account mydatalakestore --resource-group myresourcegroup
     ```
 
-## <a name="create-folders-in-a-data-lake-store-account"></a>Data Lake Store hesabında klasör oluşturma
+<a id="create-folders-in-a-data-lake-store-account" class="xliff"></a>
+
+## Data Lake Store hesabında klasör oluşturma
 
 Veri depolamak ve yönetmek için Azure Data Lake Store hesabınızın altında klasör oluşturabilirsiniz. Aşağıdaki komutu kullanarak Data Lake Store'un kökünde **mynewfolder** adlı bir klasör oluşturun.
 
@@ -103,11 +107,13 @@ az dls fs create --account mydatalakestore --path /mynewfolder --folder
 > 
 >
 
-## <a name="upload-data-to-a-data-lake-store-account"></a>Data Lake Store hesabına veri yükleme
+<a id="upload-data-to-a-data-lake-store-account" class="xliff"></a>
+
+## Data Lake Store hesabına veri yükleme
 
 Data Lake Store'a doğrudan kök düzeyinde veya hesap içinde oluşturduğunuz bir klasöre yüklenecek şekilde veri yükleyebilirsiniz. Aşağıdaki kod parçacıkları, birtakım örnek verilerin önceki bölümde oluşturduğunuz klasöre (**mynewfolder**) nasıl yükleneceğini göstermektedir.
 
-Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz. Dosyayı indirin ve bilgisayarınız üzerinde C:\sampledata\. gibi yerel bir dizinde depolayın
+Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz. Dosyayı indirin ve bilgisayarınızda C:\sampledata\ gibi yerel bir dizinde depolayın.
 
 ```azurecli
 az dls fs upload --account mydatalakestore --source-path "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" --destination-path "/mynewfolder/vehicle1_09142014.csv"
@@ -119,7 +125,9 @@ az dls fs upload --account mydatalakestore --source-path "C:\SampleData\Ambulanc
 >
 
 
-## <a name="list-files-in-a-data-lake-store-account"></a>Data Lake Store hesabındaki dosyaları listeleme
+<a id="list-files-in-a-data-lake-store-account" class="xliff"></a>
+
+## Data Lake Store hesabındaki dosyaları listeleme
 
 Bir Data Lake Store hesabındaki dosyaları listelemek için aşağıdaki komutu kullanın.
 
@@ -147,7 +155,9 @@ Bunun çıktısının aşağıdakine benzer olması gerekir:
         }
     ]
 
-## <a name="rename-download-and-delete-data-from-a-data-lake-store-account"></a>Data Lake Store hesabındaki verileri yeniden adlandırma, indirme ve silme 
+<a id="rename-download-and-delete-data-from-a-data-lake-store-account" class="xliff"></a>
+
+## Data Lake Store hesabındaki verileri yeniden adlandırma, indirme ve silme 
 
 * **Bir dosyayı yeniden adlandırmak için** aşağıdaki komutu kullanın:
   
@@ -157,7 +167,7 @@ Bunun çıktısının aşağıdakine benzer olması gerekir:
 
 * **Bir dosyayı indirmek için** aşağıdaki komutu kullanın. Belirttiğiniz hedef yolun önceden var olduğundan emin olun.
   
-    ```azurecli        
+    ```azurecli     
     az dls fs download --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
     ```
 
@@ -178,7 +188,9 @@ Bunun çıktısının aşağıdakine benzer olması gerekir:
     az dls fs delete --account mydatalakestore --path /mynewfolder --recurse
     ```
 
-## <a name="work-with-permissions-and-acls-for-a-data-lake-store-account"></a>Data Lake Store hesabı için izin ve ACL’ler ile çalışma
+<a id="work-with-permissions-and-acls-for-a-data-lake-store-account" class="xliff"></a>
+
+## Data Lake Store hesabı için izin ve ACL’ler ile çalışma
 
 Bu bölümde, Azure CLI 2.0 aracını kullanarak ACL’leri ve izinleri nasıl yönetebileceğiniz hakkında bilgi edineceksiniz. Azure Data Lake Store’da ACL’lerin nasıl uygulandığıyla ilgili ayrıntılı bir tartışma için bkz. [Azure Data Lake Store’da erişim denetimi](data-lake-store-access-control.md).
 
@@ -238,7 +250,9 @@ Bu bölümde, Azure CLI 2.0 aracını kullanarak ACL’leri ve izinleri nasıl y
     az dls fs access remove-all --account mydatalakestore --path /mynewfolder
     ```
     
-## <a name="delete-a-data-lake-store-account"></a>Data Lake Store hesabını silme
+<a id="delete-a-data-lake-store-account" class="xliff"></a>
+
+## Data Lake Store hesabını silme
 Bir Data Lake Store hesabını silmek için aşağıdaki komutu kullanın.
 
 ```azurecli
@@ -247,7 +261,9 @@ az dls account delete --account mydatalakestore
 
 İstendiğinde, hesabı silmek için **Y** yazın.
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 * [Azure Data Lake Store CLI 2.0 başvurusu](https://docs.microsoft.com/cli/azure/dls)
 * [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)

@@ -1,6 +1,6 @@
 ---
 title: "SSMS: Azure SQL Veritabanında verileri bağlama ve sorgulama | Microsoft Docs"
-description: "SQL Server Management Studio (SSMS) kullanarak Azure&quot;da SQL Database&quot;e nasıl bağlanılacağını öğrenin. Ardından, verileri sorgulamak ve düzenlemek için Transact-SQL (T-SQL) deyimleri çalıştırın."
+description: "SQL Server Management Studio (SSMS) kullanarak Azure'da SQL Database'e nasıl bağlanılacağını öğrenin. Ardından, verileri sorgulamak ve düzenlemek için Transact-SQL (T-SQL) deyimleri çalıştırın."
 metacanonical: 
 keywords: "sql veritabanına bağlanma,sql server management studio"
 services: sql-database
@@ -10,32 +10,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/15/2017
+ms.date: 05/26/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 29883e37f1f506f33f44cf02dbf08221274e109d
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Veritabanı: SQL Server Management Studio kullanarak verileri bağlama ve sorgulama
+<a id="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data" class="xliff"></a>
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS), kullanıcı arabiriminden veya betiklerden SQL Server kaynakları oluşturup yönetmek için kullanılan bir yönetim aracıdır. Bu hızlı başlangıçta SSMS kullanarak bir Azure SQL veritabanına bağlanma ve daha sonra Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır. 
+# Azure SQL Veritabanı: SQL Server Management Studio kullanarak verileri bağlama ve sorgulama
+
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) Microsoft Windows için SQL Server'dan SQL Veritabanı'na tüm SQL altyapılarını yönetebileceğiniz tümleşik bir ortamdır. Bu hızlı başlangıçta SSMS kullanarak bir Azure SQL veritabanına bağlanma ve daha sonra Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır. 
+
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
 
 Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır:
 
 - [DB Oluşturma - Portal](sql-database-get-started-portal.md)
 - [DB oluşturma - CLI](sql-database-get-started-cli.md)
+- [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
 
 Başlamadan önce, en yeni [SSMS](https://msdn.microsoft.com/library/mt238290.aspx) sürümünü yüklediğinizden emin olun. 
 
-## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
+<a id="get-connection-information" class="xliff"></a>
+
+## Bağlantı bilgilerini alma
 
 Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
 
@@ -43,11 +53,13 @@ Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. S
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
 3. Veritabanınızın **Genel Bakış** sayfasında, aşağıdaki görüntüde gösterildiği gibi tam sunucu adını gözden geçirin. Sunucu adının üzerine gelerek **Kopyalamak için tıklayın** seçeneğini ortaya çıkarabilirsiniz.
 
-   ![bağlantı bilgileri](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![bağlantı bilgileri](./media/sql-database-get-started-portal/server-name.png) 
 
 4. Azure SQL Veritabanı sunucunuzun oturum açma bilgilerini unuttuysanız, SQL Veritabanı sunucu sayfasına giderek sunucu yöneticisi adını görüntüleyin ve gerekirse parolayı sıfırlayın. 
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>SQL Veritabanı mantıksal sunucusunda veritabanınıza bağlanma
+<a id="connect-to-your-database" class="xliff"></a>
+
+## Veritabanınıza bağlanın
 
 SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla bağlantı kurun. 
 
@@ -58,11 +70,14 @@ SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla b
 1. SQL Server Management Studio’yu açın.
 
 2. **Sunucuya Bağlan** iletişim kutusuna şu bilgileri girin:
-   - **Sunucu türü**: Veritabanı altyapısını belirtin
-   - **Sunucu adı**: **mynewserver20170313.database.windows.net** gibi bir tam sunucu adı girin
-   - **Kimlik doğrulama**: SQL Server Kimlik Doğrulaması belirtin
-   - **Kullanıcı adı**: Sunucu yöneticisi hesabınızı girin
-   - **Parola**: Sunucu yöneticisi hesabınızın parolasını girin
+
+   | Ayar       | Önerilen değer | Açıklama | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Sunucu türü** | Veritabanı altyapısı | Bu değer gereklidir. |
+   | **Sunucu adı** | Tam sunucu adı | Ad şunun gibi olmalıdır: **mynewserver20170313.database.windows.net**. |
+   | **Kimlik doğrulaması** | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırdığımız tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
+   | **Oturum açma** | Sunucu yöneticisi hesabı | Bu, sunucuyu oluştururken belirttiğiniz hesaptır. |
+   | **Parola** | Sunucu yöneticisi hesabınızın parolası | Bu, sunucuyu oluştururken belirttiğiniz paroladır. |
 
    ![sunucuya bağlan](./media/sql-database-connect-query-ssms/connect.png)  
 
@@ -76,7 +91,9 @@ SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla b
 
 5. Nesne Gezgini’nde **Veritabanları**’nı ve ardından **mySampleDatabase** öğesini genişleterek nesneleri örnek veritabanında görüntüleyin.
 
-## <a name="query-data"></a>Verileri sorgulama
+<a id="query-data" class="xliff"></a>
+
+## Verileri sorgulama
 
 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL deyimini kullanarak ilk 20 ürünü kategoriye göre sorgulamak için aşağıdaki kodu kullanın.
 
@@ -94,7 +111,9 @@ SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla b
 
     ![sorgu](./media/sql-database-connect-query-ssms/query.png)
 
-## <a name="insert-data"></a>Veri ekleme
+<a id="insert-data" class="xliff"></a>
+
+## Veri ekleme
 
 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL deyimini kullanarak SalesLT.Product tablosuna yeni ürün eklemek için aşağıdaki kodu kullanın.
 
@@ -124,7 +143,9 @@ SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla b
 
     <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
-## <a name="update-data"></a>Verileri güncelleştirme
+<a id="update-data" class="xliff"></a>
+
+## Verileri güncelleştirme
 
 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL deyimini kullanarak daha önce eklemiş olduğunuz yeni ürünü güncelleştirmek için aşağıdaki kodu kullanın.
 
@@ -140,7 +161,9 @@ SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla b
 
     <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
-## <a name="delete-data"></a>Verileri silme
+<a id="delete-data" class="xliff"></a>
+
+## Verileri silme
 
 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL deyimini kullanarak daha önce eklemiş olduğunuz yeni ürünü silmek için aşağıdaki kodu kullanın.
 
@@ -155,8 +178,11 @@ SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucunuzla b
 
     <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
 
+## Sonraki adımlar
+
+- Transact-SQL ile sunucu oluşturma ve yönetme hakkında daha fazla bilgi için bkz. [Azure SQL Veritabanı sunucuları ve veritabanları hakkında bilgi edinin](sql-database-servers-databases.md).
 - SSMS hakkında bilgi için bkz. [SQL Server Management Studio'yu Kullanma](https://msdn.microsoft.com/library/ms174173.aspx).
 - Visual Studio Code’u kullanarak bağlanmak ve sorgulamak için bkz. [Visual Studio Code ile bağlanma ve sorgulama](sql-database-connect-query-vscode.md).
 - .NET kullanarak bağlanıp sorgulamak için bkz. [.NET ile bağlanma ve sorgulama](sql-database-connect-query-dotnet.md).

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services: Azure Active Directory Domain Services’ı etkinleştirme | Microsoft Docs"
-description: "Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama"
+description: "Klasik Azure portalını kullanarak Azure Active Directory Domain Services'i etkinleştirme"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,18 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e5f1fe51d8931985fa55b2d8c0a3fd25bb93f20f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="enable-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services’ı etkinleştirme
-## <a name="task-3-enable-azure-active-directory-domain-services"></a>Görev 3: Azure Active Directory Domain Services’ı etkinleştirme
-Bu görevde aşağıdaki işlemleri yaparak dizininiz için Azure Active Directory Domain Services’ı (Azure AD DS) etkinleştirirsiniz:
+<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+
+# Klasik Azure portalını kullanarak Azure Active Directory Domain Services'i etkinleştirme
+
+<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
+
+## Görev 3: Azure Active Directory Domain Services'i etkinleştirme
+Bu görevde, aşağıdaki adımları uygulayarak dizininiz için Azure Active Directory Domain Services'i (Azure AD DS) etkinleştireceksiniz:
 
 1. [Klasik Azure portalı](https://manage.windowsazure.com)'na gidin.
 2. Sol bölmede **Active Directory** düğmesini seçin.
@@ -70,20 +76,20 @@ Bu görevde aşağıdaki işlemleri yaparak dizininiz için Azure Active Directo
    * Azure Active Directory Domain Services için sanal ağ üzerinde adanmış bir alt ağ kullanın. Ağ geçidi alt ağını *seçmeyin*. Bkz. [ağ ile ilgili dikkat edilmesi gerekenler](active-directory-ds-networking.md).
 
    * Benzer şekilde, Azure Resource Manager kullanılarak oluşturulan sanal ağlar açılan listede görünmez. Resource Manager tabanlı sanal ağlar şu anda Azure Active Directory Domain Services'de desteklenmemektedir.
-9. Azure Active Directory Domain Services'i etkinleştirmek için sayfanın altındaki görev bölmesinde **Kaydet**'e tıklayın. 
+9. Azure Active Directory Domain Services'i etkinleştirmek için sayfanın altındaki görev bölmesinde **Kaydet**'e tıklayın.
     * Azure Active Directory Domain Services dizininiz için etkinleştirilirken, sayfada *Bekliyor* durumu gösterilir.
 
         ![Domain Services Etkinleştirme penceresi](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
         > [!NOTE]
-        > Azure Active Directory Domain Services, yönetilen etki alanınız için yüksek kullanılabilirlik sağlar. Azure Active Directory Domain Services etkinleştirildikten sonra, sanal ağ üzerinde etki alanı hizmetlerine yönelik IP adresleri birer birer görüntülenir. İkinci IP adresi, hizmet tarafından etki alanınız için yüksek kullanılabilirlik etkinleştirildikten sonra, birincisinin hemen ardından görüntülenir. Yüksek kullanılabilirlik etki alanınız için yapılandırıldığında ve etkin olduğunda **Yapılandır** sekmesinin **etki alanı hizmetleri** bölümünde iki IP adresi görmeniz gerekir.
+        > Azure Active Directory Domain Services, yönetilen etki alanınız için yüksek kullanılabilirlik sağlar. Azure Active Directory Domain Services etkinleştirildikten sonra, etki alanı hizmetlerinin sanal ağ üzerinde kullanılabilir olduğu IP adresleri birer birer görüntülenir. İkinci IP adresi, hizmet tarafından etki alanınız için yüksek kullanılabilirlik etkinleştirildikten sonra, birincisinin hemen ardından görüntülenir. Yüksek kullanılabilirlik etki alanınız için yapılandırıldığında ve etkin olduğunda **Yapılandır** sekmesinin **etki alanı hizmetleri** bölümünde iki IP adresi görmeniz gerekir.
         >
         >
     * Yaklaşık 20 ila 30 dakika sonra, etki alanı hizmetlerinin sanal ağınızda kullanılabilir olduğu ilk IP adresini **Yapılandır** sayfasının **IP adresi** alanında görürsünüz.
 
         ![Sağlanan ilk IP’yi gösteren Domain Services penceresi](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
-    * Etki alanınız için yüksek kullanılabilirlik uygulandığında sayfada iki IP adresi gösterilir. Yönetilen etki alanınız, bu iki IP adresindeki seçilen sanal ağlarınız üzerinde kullanılabilir. 
-    
+    * Etki alanınız için yüksek kullanılabilirlik uygulandığında sayfada iki IP adresi gösterilir. Yönetilen etki alanınız, bu iki IP adresindeki seçilen sanal ağlarınız üzerinde kullanılabilir.
+
 10. Sanal ağınızın DNS ayarlarını güncelleştirebilmek için bu iki IP adresini not edin. Bunun yapılması, etki alanına katılım gibi işlemler için sanal ağdaki sanal makinelerin etki alanına bağlanmasını sağlar.
 
     ![Sağlanan her iki IP’yi gösteren Domain Services penceresi](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
@@ -93,6 +99,8 @@ Bu görevde aşağıdaki işlemleri yaparak dizininiz için Azure Active Directo
 >
 >
 
-## <a name="next-steps"></a>Sonraki adımlar
-Görev 4: [Azure sanal ağı için DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
+<a id="next-step" class="xliff"></a>
+
+## Sonraki adım
+[Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-update-dns.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Beş dakika içinde Azure’da ilk Python web uygulamanızı oluşturma | Microsoft Docs"
-description: "App Service Web Uygulaması ile birkaç dakika içinde ilk Python Hello World uygulamanızı dağıtın."
+title: "Azure'da Python web uygulaması oluşturma | Microsoft Docs"
+description: "Azure App Service Web Uygulamalarında ilk Python Hello World uygulamanızı birkaç dakika içinde dağıtın."
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -14,40 +14,49 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 233db1cb74a6c81cf044953ecdf6e9de6cc50ee8
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 06/28/2017
 
 ---
-# <a name="create-a-python-application-on-web-app"></a>Web Uygulaması üzerinde Python uygulaması oluşturma
+<a id="create-a-python-web-app-in-azure" class="xliff"></a>
 
-Bu hızlı başlangıç öğreticisi, Azure’da bir Python uygulaması geliştirip dağıtma konusunda yol göstermektedir. Uygulamayı Azure App Service kullanılarak çalıştıracağız ve Azure CLI aracılığıyla uygulamanın içinde yeni bir web uygulaması oluşturulup yapılandıracağız. Sonra da, Python uygulamasını Azure’a dağıtmak için git kullanacağız.
+# Azure’da Python web uygulaması oluşturma
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisi, Azure Web Apps'te bir Python uygulaması geliştirip dağıtma konusunda yol göstermektedir. Web uygulamasını [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'yi kullanarak oluşturabilir ve web uygulamasında örnek Python kodu dağıtmak için Git'i kullanabilirsiniz.
 
-Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirsiniz. Aşağıdaki tüm adımların tamamlanması yalnızca yaklaşık 5 dakika sürer.
+![Azure'da çalışan örnek uygulama](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.
+<a id="prerequisites" class="xliff"></a>
 
-Bu örneği çalıştırmadan önce aşağıdaki önkoşulları yerel olarak yükleyin:
+## Önkoşullar
 
-1. [Git indirip yükleyin](https://git-scm.com/)
-1. [Python indirme ve yükleme](https://www.python.org/downloads/)
-1. [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) indirip yükleyin
+Bu öğreticiyi tamamlamak için:
 
-## <a name="download-the-sample"></a>Örneği indirme
+1. [Git'i yükleyin](https://git-scm.com/)
+1. [Python'ı yükleyin](https://www.python.org/downloads/)
 
-Hello World örnek uygulama deposunu yerel makinenize kopyalayın.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+
+<a id="download-the-sample" class="xliff"></a>
+
+## Örneği indirme
+
+Bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-> [!TIP]
-> Alternatif olarak, [örneği zip dosyası olarak indirip](https://github.com/Azure-Samples/Python-docs-hello-world/archive/master.zip) ayıklayabilirsiniz.
+Bu hızlı başlangıç öğreticisindeki tüm komutları çalıştırmak için bu terminal penceresini kullanırsınız.
 
 Örnek kodu içeren dizine geçin.
 
@@ -55,189 +64,54 @@ git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd Python-docs-hello-world
 ```
 
-## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
+<a id="run-the-app-locally" class="xliff"></a>
 
-Yerleşik Python web sunucusunu başlatmak üzere örnek için bir terminal penceresi açıp `Python` komutunu kullanarak uygulamayı yerel olarak çalıştırın.
+## Uygulamayı yerel olarak çalıştırma
+
+Yerleşik Python web sunucusunu başlatmak için bir terminal penceresi açıp ve `Python` komutunu kullanıp uygulamayı yerel olarak çalıştırın.
 
 ```bash
 python main.py
 ```
 
-Bir web tarayıcısı açın ve örneğe gidin.
-
-```bash
-http://localhost:5000
-```
+Bir web tarayıcısı açın ve http://localhost:5000 konumundaki örnek uygulamaya gidin.
 
 Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
 
-![localhost-hello-world-in-browser](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
+![Yerel olarak çalışan örnek uygulama](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
 
 Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
 
-Şimdi Python uygulamamızı Azure’da barındırmak için gereken kaynakları oluşturmak üzere bir terminal penceresinde Azure CLI 2.0 kullanacağız. [az login](/cli/azure/#login) komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-```azurecli
-az login
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+
+![Boş web uygulaması sayfası](media/app-service-web-get-started-python/app-service-web-service-created.png)
+
+Azure'da yeni bir boş uygulama oluşturdunuz.
+
+<a id="configure-to-use-python" class="xliff"></a>
+
+## Python kullanacak şekilde yapılandırma
+
+Web uygulamasını Python `3.4` sürümünü kullanacak şekilde yapılandırmak için [az webapp config set](/cli/azure/webapp/config#set) komutunu kullanın.
+
+```azurecli-interactive
+az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
-## <a name="configure-a-deployment-user"></a>Dağıtım Kullanıcısı Yapılandırma
 
-FTP ve yerel Git için dağıtım kimliğini doğrulamak amacıyla sunucu üzerinde bir dağıtım kullanıcısı yapılandırılmış olmalıdır. Dağıtım kullanıcısı oluşturmak tek seferlik bir yapılandırmadır; aşağıdaki bir adımda kullanacağınız kullanıcı adı ile parolayı not alın.
+Python sürümü bu şekilde ayarlandığında, platform tarafından sağlanan varsayılan bir kapsayıcı kullanılır. Kendi kapsayıcınızı kullanmak üzere, [az webapp config container set](/cli/azure/webapp/config/container#set) komutuna ilişkin CLI başvurusuna bakın.
 
-> [!NOTE]
-> Web uygulamasına FTP ve Yerel Git dağıtımı için dağıtım kullanıcısı gereklidir.
-> `username` ve `password`, Azure Aboneliği kimlik bilgilerinizden farklı olduğundan, hesap düzeyindedir. **Bu kimlik bilgilerinin yalnızca bir kez oluşturulması gerekir**.
->
+[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
-Hesap düzeyinde kimlik bilgilerinizi oluşturmak için [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) komutunu kullanın.
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
-
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-
-[az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Azure kaynak grubu; web uygulamaları, veritabanları ve depolama hesapları gibi Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
-
-```azurecli
-az group create --name myResourceGroup --location westeurope
-```
-
-## <a name="create-an-azure-app-service"></a>Azure App Service oluşturma
-
-[az appservice plan create](/cli/azure/appservice/plan#create) komutu ile bir App Service planı oluşturun.
-
-> [!NOTE]
-> App Service planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları içeren koleksiyonu temsil eder. Bir App Service planına atanan tüm uygulamalar plan tarafından tanımlanan kaynakları paylaşarak birden çok uygulamayı barındırırken maliyetten tasarruf etmenize imkan sağlar.
->
-> App Service planları şunları tanımlar:
-> * Bölge (Kuzey Avrupa, Doğu ABD, Güneydoğu Asya)
-> * Örnek Boyutu (Küçük, Orta, Büyük)
-> * Ölçek Sayısı (bir, iki, üç örnek vb.)
-> * SKU (Ücretsiz, Paylaşılan, Temel, Standart, Premium)
->
-
-Aşağıdaki örnek, **ÜCRETSİZ** fiyatlandırma katmanını kullanarak `quickStartPlan` adlı bir App Service planı oluşturur.
-
-```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
-```
-
-App Service Planı oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir.
-
-```json
-{
-"appServicePlanName": "quickStartPlan",
-"geoRegion": "North Europe",
-"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-"kind": "app",
-"location": "North Europe",
-"maximumNumberOfWorkers": 1,
-"name": "quickStartPlan",
-"provisioningState": "Succeeded",
-"resourceGroup": "myResourceGroup",
-"sku": {
-  "capacity": 0,
-  "family": "F",
-  "name": "F1",
-  "size": "F1",
-  "tier": "Free"
-},
-"status": "Ready",
-"type": "Microsoft.Web/serverfarms",
-}
-```
-
-## <a name="create-a-web-app"></a>Web uygulaması oluşturma
-
-App Service planı oluşturulduktan sonra, `quickStartPlan` App Service planı içinde bir web uygulaması oluşturun. Web uygulaması, kodun dağıtılacağı bir barındırma alanı ve dağıtılmış uygulamayı görüntülememiz için bir URL sağlar. Web uygulamasını oluşturmak için [az appservice web create](/cli/azure/appservice/web#create) komutunu kullanın.
-
-Aşağıdaki komutta `<app_name>` yer tutucusunu kendi benzersiz uygulamanızın adıyla değiştirin. `<app_name>`, web uygulamasının varsayılan DNS sitesi olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. Daha sonra, uygulamanızı kullanıcılarınızın kullanımına sunmadan önce web uygulamasına herhangi bir özel DNS girişi eşleyebilirsiniz.
-
-```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
-```
-
-Web uygulaması oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir.
-
-```json
-{
-  "clientAffinityEnabled": true,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "<app_name>.azurewebsites.net",
-    "<app_name>.scm.azurewebsites.net"
-  ],
-  "hostNames": [
-    "<app_name>.azurewebsites.net"
-  ],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
-  "kind": "app",
-  "location": "North Europe",
-  "outboundIpAddresses": "13.69.190.80,13.69.191.239,13.69.186.193,13.69.187.34",
-  "resourceGroup": "myResourceGroup",
-  "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-  "state": "Running",
-  "type": "Microsoft.Web/sites",
-}
-```
-
-Yeni oluşturduğunuz web uygulamasını görmek için siteye göz atın.
-
-```bash
-http://<app_name>.azurewebsites.net
-```
-
-![app-service-web-service-created](media/app-service-web-get-started-python/app-service-web-service-created.png)
-
-Azure’da yeni bir boş web uygulaması oluşturduk. Şimdi de web uygulamamızı Python kullanacak şekilde yapılandırıp uygulamamızı dağıtalım.
-
-## <a name="configure-to-use-python"></a>Python kullanacak şekilde yapılandırma
-
-Web uygulamasını Python `3.4` sürümünü kullanacak şekilde yapılandırmak için [az appservice web config update](/cli/azure/app-service/web/config#update) komutunu kullanın.
-
-> [!TIP]
-> Python sürümü bu şekilde ayarlandığında platform tarafından sağlanan varsayılan kapsayıcı kullanılır; kendi kapsayıcınızı kullanmak isterseniz [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) komutunun CLI başvurusuna bakın.
-
-```azurecli
-az appservice web config update --python-version 3.4 --name <app-name> --resource-group myResourceGroup
-```
-
-## <a name="configure-local-git-deployment"></a>Yerel git dağıtımını yapılandırma
-
-Web uygulamanıza FTP, yerel Git, GitHub, Visual Studio Team Services ve Bitbucket gibi çeşitli yollarla dağıtım yapabilirsiniz.
-
-Web uygulamasına yerel git erişimini yapılandırmak için [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) komutunu kullanın.
-
-```azurecli
-az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
-```
-
-Sonraki adımda kullanılacak çıktıyı terminalden kopyalayın.
-
-```bash
-https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
-```
-
-## <a name="push-to-azure-from-git"></a>Git üzerinden Azure'a gönderme
-
-Yerel Git deponuza bir Azure uzak deposu ekleyin.
-
-```bash
-git remote add azure <paste-previous-command-output-here>
-```
-
-Uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Daha önce dağıtım kullanıcısı oluştururken belirttiğiniz parola istenir.
-
-```azurecli
-git push azure master
-```
-
-Dağıtım sırasında Azure App Service, ilerleme durumunu Git’e iletir.
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 18, done.
@@ -281,7 +155,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## <a name="browse-to-the-app"></a>Uygulamaya göz atma
+<a id="browse-to-the-app" class="xliff"></a>
+
+## Uygulamaya göz atma
 
 Web tarayıcınızı kullanarak dağıtılan uygulamaya göz atın.
 
@@ -289,59 +165,55 @@ Web tarayıcınızı kullanarak dağıtılan uygulamaya göz atın.
 http://<app_name>.azurewebsites.net
 ```
 
-Bu kez, Hello World iletisini gösteren sayfa bir Azure Uygulama Hizmeti web uygulaması olarak çalışan Python kodumuz kullanılarak çalıştırılır.
+Python örnek kodu bir Azure App Service web uygulamasında çalışıyor.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![Azure'da çalışan örnek uygulama](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-## <a name="updating-and-deploying-the-code"></a>Kodu Güncelleştirme ve Dağıtma
+**Tebrikler!** App Service’e ilk Python uygulamanızı dağıttınız.
 
-Bir yerel metin düzenleyicisi kullanarak `main.py` dosyasını Python uygulaması içinde açın ve `return` deyiminin yanındaki dizenin içinde bulunan metinde küçük bir değişiklik yapın:
+<a id="update-and-redeploy-the-code" class="xliff"></a>
+
+## Kodu güncelleştirme ve yeniden dağıtma
+
+Yerel bir metin düzenleyici kullanarak `main.py` dosyasını Python uygulamasında açın ve `return` deyiminin yanındaki metinde küçük bir değişiklik yapın:
 
 ```python
 return 'Hello, Azure!'
 ```
 
-Değişikliklerinizi git’e işleyin, ardından kod değişikliklerini Azure’a gönderin.
+Değişikliklerinizi Git’e işleyin ve ardından kod değişikliklerini Azure’a gönderin.
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-Dağıtım tamamlandıktan sonra uygulama adımındaki Göz At menüsünde açılan tarayıcı penceresine dönüp yenile öğesine dokunun.
+Dağıtım tamamlandıktan sonra [Uygulamaya göz atma](#browse-to-the-app) adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.
 
-![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
+![Azure'da çalışan güncelleştirilmiş örnek uygulama](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Yeni Azure web uygulamanızı yönetme
+<a id="manage-your-new-azure-web-app" class="xliff"></a>
 
-Azure portalına giderek yeni oluşturduğunuz web uygulamasına göz atın.
+## Yeni Azure web uygulamanızı yönetme
 
-Bunu yapmak için [https://portal.azure.com](https://portal.azure.com) sayfasında oturum açın.
+Oluşturduğunuz web uygulamasını yönetmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
 
-Sol menüden **Uygulama Hizmetleri**’ne ve ardından Azure web uygulamanızın adına tıklayın.
+Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın adına tıklayın.
 
-![Portaldan Azure web uygulamasına gitme](./media/app-service-web-get-started-python/app-service-list.png)
+![Portaldan Azure web uygulamasına gitme](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
-Web uygulamanızın _dikey penceresini_ açtınız (yatay yönde açılan portal sayfası).
+Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. 
 
-Varsayılan olarak, web uygulamanızın dikey penceresinde **Genel Bakış** sayfası gösterilir. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Dikey pencerenin sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırma sayfalarını gösterir.
+![Azure portalında App Service dikey penceresi](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-![Azure portalında App Service dikey penceresi](media/app-service-web-get-started-python/app-service-detail.png)
-
-Dikey penceredeki bu sekmelerde web uygulamanıza ekleyebileceğiniz çok sayıda harika özellik gösterilir. Aşağıdaki listede yalnızca birkaç olasılık sunulmaktadır:
-
-* Özel bir DNS adı eşleme
-* Özel bir SSL sertifikası bağlama
-* Sürekli dağıtımı yapılandırma
-* Ölçeği artırma ve genişletme
-* Kullanıcı kimlik doğrulaması ekleme
-
-**Tebrikler!** App Service’e ilk Python uygulamanızı dağıttınız.
+Soldaki menü, uygulamanızın yaplandırılmasına yönelik farklı sayfalar sağlar. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Örnek Web Apps CLI betiklerini keşfedin](app-service-cli-samples.md)
+> [PostgreSQL ile Python](app-service-web-tutorial-docker-python-postgresql-app.md)
 
