@@ -12,18 +12,20 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8cfe8689494a9f85d1533d259a2744e18407ecef
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 053e2ae7f382bc55a6638ccd612289ab2ba64e52
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="create-a-batch-account-with-the-azure-portal"></a>Azure portalıyla Batch hesabı oluşturma
+<a id="create-a-batch-account-with-the-azure-portal" class="xliff"></a>
+
+# Azure portalıyla Batch hesabı oluşturma
 
 > [!div class="op_single_selector"]
 > * [Azure portal](batch-account-create-portal.md)
@@ -37,11 +39,15 @@ Batch hesapları ve senaryoları hakkında arka plan bilgileri için bkz. [özel
 
 
 
-## <a name="create-a-batch-account"></a>Batch hesabı oluşturma
+<a id="create-a-batch-account" class="xliff"></a>
+
+## Batch hesabı oluşturma
 
 Portalı kullanarak iki *havuz ayırma modundan* birinde Batch hesabı oluşturma: **Batch hizmeti** modu veya daha fazla yapılandırma gerektiren yeni **kullanıcı aboneliği** modu. Bu iki mod hakkında bilgi için bkz. [özelliğe genel bakış](batch-api-basics.md#account). Kullanıcı aboneliği modunun özellikleri için ayrıca bkz. [blog gönderisi](https://blogs.technet.microsoft.com/windowshpc/2017/03/17/azure-batch-vnet-and-custom-image-support-for-virtual-machine-pools/).
 
-## <a name="batch-service-mode"></a>Batch hizmeti modu
+<a id="batch-service-mode" class="xliff"></a>
+
+## Batch hizmeti modu
 
 
 
@@ -69,9 +75,13 @@ Portalı kullanarak iki *havuz ayırma modundan* birinde Batch hesabı oluşturm
 
    Portal, dağıtımın devam ettiğini gösterir. İşlem tamamlandıktan sonra **Bildirimler** bölümünde **Dağıtım başarılı** bildirimi görünür.
 
-## <a name="user-subscription-mode"></a>Kullanıcı aboneliği modu
+<a id="user-subscription-mode" class="xliff"></a>
 
-### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Azure Batch hizmetinin aboneliğe erişmesine izin verme (tek seferlik işlem)
+## Kullanıcı aboneliği modu
+
+<a id="allow-azure-batch-to-access-the-subscription-one-time-operation" class="xliff"></a>
+
+### Azure Batch hizmetinin aboneliğe erişmesine izin verme (tek seferlik işlem)
 Kullanıcı aboneliği modunda ilk Batch hesabınızı oluştururken, aboneliğinizi Batch hizmetine kaydetmek için aşağıdaki adımları uygulayın. (Bunu daha önce yaptıysanız sonraki bölüme atlayın.)
 
 1. [Azure portalında][azure_portal] oturum açın.
@@ -82,18 +92,27 @@ Kullanıcı aboneliği modunda ilk Batch hesabınızı oluştururken, aboneliği
 
     ![Abonelik erişim denetimi][subscription_access]
 
-4. **İzin ekle** dikey penceresinde **Katkıda Bulunan** rolünü seçin ve **MicrosoftAzureBatch** araması yapın (boşluksuz). **MicrosoftAzureBatch** öğesini seçip **Kaydet**’e tıklayın.
+4. **İzin ekle** dikey penceresinde **Katkıda Bulunan** rolünü seçin ve Batch API'sini arayın. API'yi bulana kadar aşağıdaki dizelerden her birini arayın:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Daha yeni Azure AD kiracıları bu adı kullanıyor olabilir.
+    3. Batch API'sinin kimliği: **ddbf3205-c6bd-46ae-8127-60eb93363864**. 
+
+5. Batch API'sini bulduktan sonra seçin ve **Kaydet**'e tıklayın.
 
     ![Batch izinleri ekleme][add_permission]
 
-### <a name="create-a-key-vault"></a>Bir anahtar kasası oluşturma
+<a id="create-a-key-vault" class="xliff"></a>
+
+### Bir anahtar kasası oluşturma
 Kullanıcı aboneliği modunda, oluşturulacak Batch hesabı ile aynı kaynak grubuna ait olan bir Azure key vault gereklidir. Kaynak grubunun, Batch hizmetinin [mevcut](https://azure.microsoft.com/regions/services/) olduğu ve aboneliğinizin desteklediği bir bölgede olduğundan emin olun.
 
 1. [Azure portalı][azure_portal]’nda **Yeni** > **Güvenlik + Kimlik** > **Key Vault**’a tıklayın.
 
 2. **Key Vault Oluştur** dikey penceresinde anahtar kasası için bir ad girin ve Batch hesabınız için istediğiniz bölgede bir kaynak grubu oluşturun. Kalan ayarları varsayılan değerlerinde bırakın ve ardından **Oluştur**’a tıklayın.
 
-### <a name="create-a-batch-account"></a>Batch hesabı oluşturma
+<a id="create-a-batch-account" class="xliff"></a>
+
+### Batch hesabı oluşturma
 
 1. [Azure portalı][azure_portal]’nda **Yeni** > **İşlem** > **Batch Hizmeti**’ne tıklayın.
 
@@ -122,7 +141,9 @@ Kullanıcı aboneliği modunda, oluşturulacak Batch hesabı ile aynı kaynak gr
 
 
 
-## <a name="view-batch-account-properties"></a>Batch hesabı özelliklerini görüntüleme
+<a id="view-batch-account-properties" class="xliff"></a>
+
+## Batch hesabı özelliklerini görüntüleme
 Hesap oluşturulduktan sonra **Batch hesabı dikey penceresini** açarak ayarlarına ve özelliklerine erişebilirsiniz. Batch hesabı dikey penceresinin sol menüsünü kullanarak tüm hesap ayarlarına ve özelliklerine erişebilirsiniz.
 
 ![Azure portalında Batch hesabı dikey penceresi][account_blade]
@@ -141,7 +162,9 @@ Hesap oluşturulduktan sonra **Batch hesabı dikey penceresini** açarak ayarlar
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 
-## <a name="linked-azure-storage-account"></a>Bağlı Azure Storage hesabı
+<a id="linked-azure-storage-account" class="xliff"></a>
+
+## Bağlı Azure Storage hesabı
 
 Genel amaçlı bir Azure Depolama hesabını isteğe bağlı olarak Batch hesabınıza bağlayabilirsiniz. Batch'in [uygulama paketleri](batch-application-packages.md) özelliği, [Batch Dosya Kuralları .NET](batch-task-output.md) kitaplığının yaptığı gibi Azure Blob depolama kullanır. Bu isteğe bağlı özellikler Batch görevlerinizin çalıştırdığı uygulamaları dağıtmanıza ve oluşturduğu verileri kalıcı hale getirmeniz yardımcı olur.
 
@@ -161,7 +184,9 @@ Yalnızca Batch hesabınız tarafından kullanılacak yeni bir Depolama hesabı 
 
 ![Depolama hesabı anahtarlarını yeniden oluşturma][4]
 
-## <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
+<a id="batch-service-quotas-and-limits" class="xliff"></a>
+
+## Batch hizmet kotaları ve limitleri
 Azure aboneliğinizde ve diğer Azure hizmetlerinde olduğu gibi Batch hesapları için belirli [kotalar ve limitler](batch-quota-limit.md) geçerlidir. Bir Batch hesabı için geçerli kotalar hesap **Özellikleri** içindeki portalda görüntülenir.
 
 ![Azure portalında Batch hesabı kotaları][quotas]
@@ -170,14 +195,18 @@ Azure aboneliğinizde ve diğer Azure hizmetlerinde olduğu gibi Batch hesaplar�
 
 Ayrıca bu kotaların birçoğu yalnızca Azure portalına gönderilen ücretsiz bir ürün destek isteği ile artırılabilir. Kota artışı istemeye ilişkin ayrıntılar için bkz. [Azure Batch hizmeti için kotalar ve limitler](batch-quota-limit.md).
 
-## <a name="other-batch-account-management-options"></a>Diğer Batch hesabı yönetim seçenekleri
+<a id="other-batch-account-management-options" class="xliff"></a>
+
+## Diğer Batch hesabı yönetim seçenekleri
 Azure portalını kullanmaya ek olarak Batch hesaplarını aşağıdakilerle oluşturup yönetebilirsiniz:
 
 * [Batch PowerShell cmdlet’leri](batch-powershell-cmdlets-get-started.md)
 * [Azure CLI](batch-cli-get-started.md)
 * [Batch Yönetimi .NET](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 * Batch hizmeti kavramları ve özellikler hakkında daha fazla bilgi edinmek için bkz. [Batch özelliklerine genel bakışı](batch-api-basics.md). Makale havuzlar, işlem düğümleri, işler ve görevler gibi birincil Batch kaynaklarını ele alır ve büyük ölçekli işlem iş yükü yürütmeye olanak tanıyan hizmetin özelliklerine genel bir bakış sağlar. 
 * [Batch .NET istemci kitaplığı](batch-dotnet-get-started.md) veya [Python](batch-python-tutorial.md) kullanarak Batch özellikli bir uygulama geliştirmenin temellerini öğrenin. Bu tanıtıcı makaleler, bir iş yükünü birden fazla işlem düğümünde yürütmek üzere Batch hizmetini kullanan çalışan uygulamalar konusunda size rehberlik sağlamanın yanı sıra, iş yükü dosyası hazırlama ve alma işlemleri için Azure Depolama kullanma ile ilgili bilgiler içerir.
 

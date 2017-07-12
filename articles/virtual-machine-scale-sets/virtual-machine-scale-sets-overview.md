@@ -13,17 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 07/03/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 14a5da0430b4eaaa61ef875e59454e2b6d88de91
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 8b2fbc230faf01797109114d6ebdffe5ec50e48b
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure’daki sanal makine ölçek kümeleri nedir?
+<a id="what-are-virtual-machine-scale-sets-in-azure" class="xliff"></a>
+
+# Azure’daki sanal makine ölçek kümeleri nedir?
 Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini dağıtıp yönetmek için kullanabileceğiniz bir Azure işlem kaynağıdır. Tüm sanal makinelerin aynı şekilde yapılandırıldığı ölçek kümeleri, gerçek otomatik ölçeklendirmeyi destekleyecek şekilde tasarlanmıştır ve sanal makinelerin önceden hazırlanması gerekmez. Bu nedenle büyük işlem, büyük veri ve kapsayıcı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolaylaştırır.
 
 İşlem kaynaklarının ölçeğini artırmaya veya azaltmaya gerek duyan uygulamalar için ölçeklendirme işlemleri, arıza ve güncelleştirme etki alanlarında örtülü olarak dengelenir. Ölçek kümelerine daha ayrıntılı bir giriş için bkz. [Azure blog duyuruları](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -33,16 +36,20 @@ Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kü
 * [Mark Russinovich, Azure ölçek kümeleri hakkında konuşuyor](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 * [Guy Bowerman ile Sanal Makine Ölçek Kümeleri](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-## <a name="creating-and-managing-scale-sets"></a>Ölçek kümeleri oluşturma ve yönetme
+<a id="creating-and-managing-scale-sets" class="xliff"></a>
+
+## Ölçek kümeleri oluşturma ve yönetme
 [Azure portalında](https://portal.azure.com) **yeni** öğesini seçip arama çubuğuna **ölçek** yazarak bir ölçek kümesi oluşturabilirsiniz. Sonuçlar arasında **Sanal makine ölçek kümesi** seçeneği listelenir. Buradan gerekli alanları doldurarak ölçek kümenizi özelleştirip dağıtabilirsiniz. Portalda CPU kullanımına göre temel otomatik ölçeklendirme kurallarını ayarlamaya yönelik seçenekler de mevcuttur.
 
 Tıpkı tek Azure Resource Manager VM’lerinde olduğu gibi JSON şablonları ve [REST API’leri](https://msdn.microsoft.com/library/mt589023.aspx) kullanarak da ölçek kümeleri tanımlayıp dağıtabilirsiniz. Bu nedenle, tüm standart Azure Resource Manager dağıtım yöntemlerini kullanabilirsiniz. Şablonlar hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Sanal makine ölçek kümelerine ilişkin örnek şablon kümesini [Azure Hızlı Başlangıç şablonları GitHub deposunda](https://github.com/Azure/azure-quickstart-templates) bulabilirsiniz. (Başlığında **vmss** olan şablonları arayın.)
 
-Bu şablonların ayrıntı sayfalarında, portal dağıtım özelliğine bağlanan bir düğme bulunur. Ölçek kümesini dağıtmak için düğmeye tıklayın ve ardından portalda gerekli olan tüm parametreleri doldurun. Bir kaynağın büyük harfleri veya büyük/küçük harflerin karışımını destekleyip desteklemediğinden emin değilseniz, parametre değerlerinde küçük harf ve sayı kullanılması daha güvenlidir. [VM Ölçek Kümesi Şablon Açıklaması](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player), ölçek kümesi şablonuna ilişkin yararlı bir video açıklamasıdır.
+Hızlı Başlangıç şablon örneklerinde, her bir şablona yönelik Benioku belgesinde bulunan "Azure'a dağıtın" düğmesi, portal dağıtım özelliğine bağlantı sağlar. Ölçek kümesini dağıtmak için düğmeye tıklayın ve ardından portalda gerekli olan tüm parametreleri doldurun. 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>Ölçek kümesinin ölçeğini artırma veya azaltma
+<a id="scaling-a-scale-set-out-and-in" class="xliff"></a>
+
+## Ölçek kümesinin ölçeğini artırma veya azaltma
 Azure portalında bir ölçek kümesinin kapasitesini **Ayarlar** altında **Ölçeklendirme** bölümüne tıklayarak değiştirebilirsiniz. 
 
 Ölçek kümesi kapasitesini komut satırında değiştirmek için, [Azure CLI’da](https://github.com/Azure/azure-cli) **scale** komutunu kullanın. Örneğin, bir ölçek kümesini 10 VM kapasitesine ayarlamak için şu komutu kullanın:
@@ -63,7 +70,9 @@ Azure Resource Manager şablonu kullanarak bir ölçek kümesindeki sanal makine
 
 Kapasiteyi değiştirmek için bir Azure Resource Manager şablonunu yeniden dağıtıyorsanız, yalnızca güncel kapasiteli **SKU** özellik paketini içeren çok daha küçük bir şablon tanımlayabilirsiniz. [Bir örneği aşağıda verilmiştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## <a name="autoscale"></a>Otomatik Ölçeklendirme
+<a id="autoscale" class="xliff"></a>
+
+## Otomatik Ölçeklendirme
 
 Bir ölçek kümesi Azure portalında oluşturulurken isteğe bağlı olarak otomatik ölçeklendirme ayarlarıyla da yapılandırılabilir. VM sayısı daha sonra ortalama CPU kullanımına göre artırılabilir veya azaltılabilir. 
 
@@ -82,19 +91,23 @@ $profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -
 Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
 ```
 
- Ölçeklendirme için geçerli ölçümlerin bir listesini “Microsoft.Compute/virtualMachineScaleSets” başlığı altında [Azure İzleyici ile desteklenen ölçümler](../monitoring-and-diagnostics/monitoring-supported-metrics.md) içinde bulabilirsiniz. Zamanlama tabanlı ölçeklendirme ve uyarı sistemleri ile tümleştirme için web kancalarını kullanma gibi daha gelişmiş otomatik ölçeklendirme seçenekleri de sunulur.
+Ölçeklendirme için geçerli ölçümlerin bir listesini “Microsoft.Compute/virtualMachineScaleSets” başlığı altında [Azure İzleyici ile desteklenen ölçümler](../monitoring-and-diagnostics/monitoring-supported-metrics.md) içinde bulabilirsiniz. Zamanlama tabanlı ölçeklendirme ve uyarı sistemleri ile tümleştirme için web kancalarını kullanma gibi daha gelişmiş otomatik ölçeklendirme seçenekleri de sunulur.
 
-## <a name="monitoring-your-scale-set"></a>Ölçek kümenizi izleme
+<a id="monitoring-your-scale-set" class="xliff"></a>
+
+## Ölçek kümenizi izleme
 [Azure portalı](https://portal.azure.com) ölçek kümelerini listeler ve özelliklerini gösterir. Portal ayrıca yönetim işlemlerini destekler. Yönetim işlemlerini hem ölçek kümeleri hem de bir ölçek kümesindeki tek VM’ler üzerinde gerçekleştirebilirsiniz. Portal ayrıca özelleştirilebilir bir kaynak kullanımı grafiği sağlar. 
 
 Bir Azure kaynağının temel aldığı JSON tanımını görmeniz veya düzenlemeniz gerekiyorsa, [Azure Kaynak Gezgini](https://resources.azure.com)’ni de kullanabilirsiniz. Ölçek kümeleri, Microsoft.Compute Azure kaynak sağlayıcısı altında bir kaynaktır. Bu siteden, aşağıdaki bağlantıları genişleterek bunları görebilirsiniz:
 
 **Abonelikler** > **aboneliğiniz** > **resourceGroups** > **sağlayıcılar** > **Microsoft.Compute** > **virtualMachineScaleSets** > **ölçek kümeniz** > vb.
 
-## <a name="scale-set-scenarios"></a>Ölçek kümesi senaryoları
+<a id="scale-set-scenarios" class="xliff"></a>
+
+## Ölçek kümesi senaryoları
 Bu bölümde tipik ölçek kümesi senaryolarından bazıları listelenmektedir. Daha yüksek düzeydeki bazı Azure hizmetleri (Batch, Service Fabric ve Container Service gibi) bu senaryoları kullanır.
 
-* **RDP veya SSH kullanarak ölçek kümesi örneklerine bağlanma** - Bir sanal ağ ve ölçek kümesi içinde genel IP adresleri atanmamış tek VM’ler içinde ölçek kümesi oluşturulur. Bu ilke, işlem kılavuzunuzdaki tüm düğümlere ayrı genel IP adresleri atama maliyeti ve yönetim yükünü ortadan kaldırır. Bu VM’lere sanal ağınızdaki genel IP adresi atanabilen diğer kaynaklardan (örneğin, yük dengeleyiciler ve tek başına sanal makineler) bağlanabilirsiniz.
+* **RDP veya SSH kullanarak ölçek kümesi örneklerine bağlanma**: Sanal ağ içinde bir ölçek kümesi oluşturulur ve ölçek kümesindeki ayrı VM'ler için genel IP adresleri varsayılan olarak ayrılmaz. Bu ilke, işlem kılavuzunuzdaki tüm düğümlere ayrı genel IP adresleri atama maliyeti ve yönetim yükünü ortadan kaldırır. Ölçek kümesi VM'lerine yönelik doğrudan harici bağlantıya ihtiyacınız varsa bir ölçek kümesini, yeni VM'lere otomatik olarak genel IP adresi atayacak şekilde yapılandırabilirsiniz. Alternatif olarak, sanal ağınızda bulunan ve genel IP adresi atanabilen diğer VM'lere (örneğin, yük dengeleyiciler ve tek başına sanal makineler) diğer kaynaklardan bağlanabilirsiniz. 
 * **NAT kurallarını kullanarak VM’lere bağlanma** - Bir genel IP adresi oluşturabilir, bunu bir yük dengeleyiciye bağlayabilir ve bir gelen NAT havuzu tanımlayabilirsiniz. Bu eylemler, IP adresindeki bağlantı noktalarını ölçek kümesindeki VM’nin bir bağlantı noktasına eşler. Örneğin:
   
   | Kaynak | Kaynak bağlantı noktası | Hedef | Hedef bağlantı noktası |
@@ -115,19 +128,23 @@ Bu bölümde tipik ölçek kümesi senaryolarından bazıları listelenmektedir.
 
    [Bu Linux örneği](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-app-gateway) ile [bu Windows örneği](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-app-gateway), Application Gateway kullanır.  
 
-* **Bir ölçek kümesini PaaS küme yöneticisi içinde işlem kümesi olarak dağıtma**: Ölçek kümeleri bazı durumlarda yeni nesil çalışan rolü olarak tanımlanır. Bu geçerli bir açıklamadır, ancak Azure Cloud Services özellikleriyle ölçek kümesi özelliklerini karıştırma riskini taşır. Bir bakımdan, ölçek kümeleri gerçek bir çalışan rolü veya çalışan kaynağı sağlar. Bunlar platform/çalışma zamanından bağımsız, özelleştirilebilir ve Azure Resource Manager IaaS ile tümleşen genelleştirilmiş işlem kaynaklarıdır.
+* **Bir ölçek kümesini PaaS küme yöneticisi içinde işlem kümesi olarak dağıtma**: Ölçek kümeleri bazı durumlarda yeni nesil çalışan rolü olarak tanımlanır. Bu geçerli bir açıklamadır, ancak Azure Cloud Services özellikleriyle ölçek kümesi özelliklerini karıştırma riskini taşır. Bir anlamda, ölçek kümeleri gerçek bir çalışan rolü veya çalışan kaynağı sağlar. Bunlar platform/çalışma zamanından bağımsız, özelleştirilebilir ve Azure Resource Manager IaaS ile tümleşen genelleştirilmiş işlem kaynaklarıdır.
   
    Bir Cloud Services çalışan rolü, platform/çalışma zamanı desteği bakımından sınırlıdır (yalnızca Windows platform görüntüleri). Ancak, aynı zamanda VIP değiştirme, yapılandırılabilir yükseltme ayarları ve çalışma zamanı/uygulama dağıtımına özel ayarlar gibi hizmetleri içerir. Bu hizmetler ölçek kümelerinde *henüz* kullanılamamaktadır veya Azure Service Fabric gibi diğer üst düzey PaaS hizmetleri tarafından sunulmaktadır. Ölçek kümelerini PaaS desteğine sahip bir altyapı olarak düşünebilirsiniz. [Service Fabric](https://azure.microsoft.com/services/service-fabric/) gibi PaaS çözümleri bu altyapıyı kullanır.
   
    Bu yaklaşımın [bu örneğinde](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) [Azure Container Service](https://azure.microsoft.com/services/container-service/), bir kapsayıcı düzenleyicisi ile ölçek kümelerini temel alan bir küme dağıtır.
 
-## <a name="scale-set-performance-and-scale-guidance"></a>Ölçek kümesi performansı ve ölçek kılavuzu
+<a id="scale-set-performance-and-scale-guidance" class="xliff"></a>
+
+## Ölçek kümesi performansı ve ölçek kılavuzu
 * Bir ölçek kümesi en çok 1.000 VM’yi destekler. Kendi özel VM görüntülerinizi oluşturur ve karşıya yüklerseniz, sınır 100’dür. Büyük ölçek kümeleri kullanma hakkında konular için bkz. [Büyük sanal makine ölçek kümeleri ile çalışma](virtual-machine-scale-sets-placement-groups.md).
 * Ölçek kümelerini kullanmak için Azure depolama hesaplarını önceden oluşturmanız gerekmez. Ölçek kümeleri Azure yönetilen diskleri destekleyerek depolama hesabı başına disk sayısı ile ilgili performans endişelerini giderir. Daha fazla bilgi için bkz. [Azure sanal makine ölçek kümeleri ve yönetilen diskler](virtual-machine-scale-sets-managed-disks.md).
 * Daha hızlı, daha öngörülebilir VM sağlama zamanları ve gelişmiş G/Ç performansı için Azure Depolama yerine Azure Premium Depolama kullanmayı düşünün.
 * Dağıtım yaptığınız bölgedeki çekirdek kotası, oluşturabileceğiniz VM sayısını sınırlar. Şu anda Azure Cloud Services ile kullanmak üzere yüksek çekirdek sınırına sahip olsanız bile, işlem kota sınırınızı yükseltmek için Müşteri Desteği ile iletişim kurmanız gerekebilir. Kotanızı sorgulamak için bu Azure CLI komutunu çalıştırın: `azure vm list-usage`. Veya bu PowerShell komutunu çalıştırın: `Get-AzureRmVMUsage`.
 
-## <a name="frequently-asked-questions-for-scale-sets"></a>Ölçek kümeleri için sık sorulan sorular
+<a id="frequently-asked-questions-for-scale-sets" class="xliff"></a>
+
+## Ölçek kümeleri için sık sorulan sorular
 **S.** Bir ölçek kümesinde kaç tane sanal makinem olabilir?
 
 **C.** Ölçek kümeleri, platform görüntülerini temel alan 0 ila 1.000 VM’ye veya özel görüntüleri temel alan 0 ila 100 VM’ye sahip olabilir. 
@@ -156,11 +173,11 @@ Bu bölümde tipik ölçek kümesi senaryolarından bazıları listelenmektedir.
 
 **S.** Kapasiteyi 15’ten 18’e yükseltirsem ne olur?
 
-**C.** Kapasiteyi 18’e artırırsanız 3 yeni VM oluşturulur. Her defasında VM örnek kimliği önceki en yüksek değerden artırılır (örneğin 20, 21, 22). VM’ler hata etki alanları ile güncelleştirme etki alanları arasında dengelenir.
+**C.** Kapasiteyi 18’e artırırsanız 3 yeni VM oluşturulur. Her defasında VM örnek kimliği önceki en yüksek değerden artırılır (örneğin 20, 21, 22). VM’ler hata etki alanlarında ve güncelleştirme etki alanlarında dengelenir.
 
 **S.** Bir ölçek kümesinde birden fazla uzantı kullanırken bir yürütme sırası uygulamayı zorunlu kılabilir miyim?
 
-**C.** Doğrudan olmasa da, customScript uzantısı için komut dosyanız başka bir uzantının tamamlanmasını bekleyebilir ([örneğin, uzantı günlüğü izlenerek](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Uzantı sıralama hakkında ek yönergeleri şu blog gönderisinde bulabilirsiniz: [Azure VM Ölçek Kümelerinde Uzantı Sıralama](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**C.** Doğrudan olmasa da customScript uzantısı için betiğiniz başka bir uzantının tamamlanmasını bekleyebilir. Uzantı sıralama hakkında ek yönergeleri şu blog gönderisinde bulabilirsiniz: [Azure VM Ölçek Kümelerinde Uzantı Sıralama](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
 **S.** Ölçek kümeleri Azure kullanılabilirlik kümeleri ile birlikte çalışır mı?
 

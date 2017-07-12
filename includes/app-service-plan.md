@@ -1,9 +1,8 @@
-> [!NOTE]
-> App Service planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları içeren koleksiyonu temsil eder. Bir App Service planına atanan tüm uygulamalar plan tarafından tanımlanan kaynakları paylaşır. Bu durum, birden çok uygulamayı barındırırken maliyetten tasarruf etmenize imkan sağlar.
->
-> App Service planları şunları tanımlar:
-> * Bölge (Kuzey Avrupa, Doğu ABD, Güneydoğu Asya vs.)
-> * Örnek Boyutu (Küçük, Orta, Büyük)
-> * Ölçek Sayısı (varsayılan olarak biri için 20 örnek)
-> * SKU (Ücretsiz, Paylaşılan, Temel, Standart, Premium)
-> 
+[App Service planı](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), uygulamanızı barındıran web sunucusu grubunun konumunu, boyutunu ve özelliklerini belirtir. Web uygulamalarında ortak bir App Service planının kullanılacağı şekilde yapılandırma gerçekleştirerek birden fazla uygulama barındırdığınızda maliyet tasarrufu elde edebilirsiniz.
+
+App Service planları şunları tanımlar:
+
+* Bölge (örneğin, Kuzey Avrupa, Doğu ABD veya Güneydoğu Asya)
+* Örnek boyutu (küçük, orta veya büyük)
+* Ölçek sayısı (1 ila 20 örnek)
+* SKU (Ücretsiz, Paylaşılan, Temel, Standart veya Premium)

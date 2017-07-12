@@ -1,0 +1,3 @@
+Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirme bilgisayarınızda çalıştırmanıza olanak sağlar. Visual Studio'da ilk kez bir işlev başlattığınızda bu araçları yüklemeniz istenir.  
+
+İşlevinizi test etmek için **Çözüm Gezgini**'nde proje düğümünüze sağ tıklayın ve **Hata ayıkla** > **Yeni örnek başlat** seçeneğini belirleyin. İstenirse Visual Studio'dan gelen Azure İşlevleri Temel (CLI) araçlarını indirme ve yükleme isteğini kabul edin.  HTTP isteklerini işlemek için araçları etkinleştirmek üzere bir güvenlik duvarı özel durumu etkinleştirmeniz de gerekebilir.

@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Resource Manager Şablonu kullanarak bir işlem hattı oluşturma | Microsoft Belgeleri"
-description: "Bu öğreticide, Azure Resource Manager şablonu kullanarak Kopyalama Etkinliği ile bir Azure Data Factory işlem hattı oluşturursunuz."
+description: "Bu öğreticide, Azure Resource Manager şablonu kullanarak bir Azure Data Factory işlem hattı oluşturacaksınız. İşlem hattı, verileri Azure blob depolama alanlarından Azure SQL veritabanlarına kopyalar."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d14b4a638868f0206542825f05dd9473fd5e6c95
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: aaa8758281f239ad0984d8d1de65f5ea8951d366
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
+<a id="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data" class="xliff"></a>
+
+# Öğretici: Verileri kopyalamak üzere bir Data Factory işlem hattı oluşturmak için Azure Resource Manager şablonunu kullanma 
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
@@ -34,19 +37,25 @@ ms.lasthandoff: 04/27/2017
 > 
 > 
 
-Bu öğretici, Azure Resource Manager şablonu kullanarak bir Azure veri fabrikası oluşturmayı ve izlemeyi gösterir. Veri fabrikasındaki işlem hattı, verileri Azure Blob Depolama’dan Azure SQL Veritabanı’na kopyalar.
+Bu öğreticide, Azure Resource Manager şablonu kullanarak bir Azure veri fabrikasını nasıl oluşturacağınız ve izleyeceğiniz gösterilmektedir. Bu öğreticideki veri işlem hattı, bir kaynak veri deposundaki verileri hedef veri deposuna kopyalar. Çıkış verileri üretmek için giriş verilerini dönüştürmez. Azure Data Factory kullanarak verileri dönüştürme hakkında bir öğretici için bkz. [Öğretici: Hadoop kümesi kullanarak verileri dönüştürmek için işlem hattı oluşturma](data-factory-build-your-first-pipeline.md).
 
-> [!NOTE]
-> Bu öğreticideki veri işlem hattı, bir kaynak veri deposundaki verileri hedef veri deposuna kopyalar. Çıkış verileri üretmek için giriş verilerini dönüştürmez. Azure Data Factory kullanarak verileri dönüştürme hakkında bir öğretici için bkz. [Öğretici: Hadoop kümesi kullanarak verileri dönüştürmek için işlem hattı oluşturma](data-factory-build-your-first-pipeline.md).
-> 
-> Bir etkinliğin çıkış veri kümesini diğer etkinliğin giriş veri kümesi olarak ayarlayarak iki etkinliği zincirleyebilir, yani bir etkinliği diğerinden sonra çalıştırılmasını sağlayabilirsiniz. Ayrıntılı bilgi için bkz. [Data Factory’de zamanlama ve yürütme](data-factory-scheduling-and-execution.md). 
+Bu öğreticide, içinde yalnızca şu etkinlik olan bir işlem hattı oluşturacaksınız: Kopyalama Etkinliği. Kopyalama etkinliği, verileri, desteklenen bir veri deposundan desteklenen bir havuz veri deposuna kopyalar. Kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama Etkinliği hakkında daha fazla bilgi için bkz. [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+Bir işlem hattında birden fazla etkinlik olabilir. Bir etkinliğin çıkış veri kümesini diğer etkinliğin giriş veri kümesi olarak ayarlayarak iki etkinliği zincirleyebilir, yani bir etkinliğin diğerinden sonra çalıştırılmasını sağlayabilirsiniz. Daha fazla bilgi için bkz. [bir işlem hattında birden fazla etkinlik](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
+
+> [!NOTE] 
+> Bu öğreticideki veri işlem hattı, bir kaynak veri deposundaki verileri hedef veri deposuna kopyalar. Azure Data Factory kullanarak verileri dönüştürme hakkında bir öğretici için bkz. [Öğretici: Hadoop kümesi kullanarak verileri dönüştürmek için işlem hattı oluşturma](data-factory-build-your-first-pipeline.md). 
+
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
 * [Öğreticiye Genel Bakış ve Ön Koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümünü inceleyin ve **ön koşul** adımlarını tamamlayın.
 * Bilgisayarınıza Azure PowerShell’in en son sürümünü yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview) makalesindeki yönergeleri izleyin. Bu öğreticide PowerShell’i kullanarak Data Factory varlıklarını dağıtırsınız. 
 * (isteğe bağlı) Azure Resource Manager şablonları hakkında bilgi için bkz. [Azure Resource Manager Şablonları Yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 
-## <a name="in-this-tutorial"></a>Bu öğreticide
+<a id="in-this-tutorial" class="xliff"></a>
+
+## Bu öğreticide
 Bu öğreticide, aşağıdaki Data Factory varlıklarıyla bir veri fabrikası oluşturursunuz:
 
 | Varlık | Açıklama |
@@ -63,7 +72,9 @@ Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hatt�
 
 Aşağıdaki bölümde, öğreticiyi hızlıca geçip şablonu test etmeniz için Data Factory varlıklarını tanımlamaya yönelik tam bir Resource Manager şablonu verilmektedir. Her bir Data Factory varlığının nasıl tanımlandığını anlamak için [Şablondaki Data Factory varlıkları](#data-factory-entities-in-the-template) bölümüne bakın.
 
-## <a name="data-factory-json-template"></a>Data Factory JSON şablonu
+<a id="data-factory-json-template" class="xliff"></a>
+
+## Data Factory JSON şablonu
 Bir veri fabrikasını tanımlamaya yönelik en üst düzey Resource Manager şablonu şudur: 
 
 ```json
@@ -183,7 +194,7 @@ Bir veri fabrikasını tanımlamaya yönelik en üst düzey Resource Manager şa
                 }
               },
               "availability": {
-                "frequency": "Day",
+                "frequency": "Hour",
                 "interval": 1
               },
               "external": true
@@ -214,7 +225,7 @@ Bir veri fabrikasını tanımlamaya yönelik en üst düzey Resource Manager şa
                 "tableName": "[parameters('targetSQLTable')]"
               },
               "availability": {
-                "frequency": "Day",
+                "frequency": "Hour",
                 "interval": 1
               }
             }
@@ -267,8 +278,8 @@ Bir veri fabrikasını tanımlamaya yönelik en üst düzey Resource Manager şa
                   }
                 }
               ],
-              "start": "2016-10-02T00:00:00Z",
-              "end": "2016-10-03T00:00:00Z"
+              "start": "2017-05-11T00:00:00Z",
+              "end": "2017-05-12T00:00:00Z"
             }
           }
         ]
@@ -277,13 +288,15 @@ Bir veri fabrikasını tanımlamaya yönelik en üst düzey Resource Manager şa
   }
 ```
 
-## <a name="parameters-json"></a>Parametreler JSON
+<a id="parameters-json" class="xliff"></a>
+
+## Parametreler JSON
 Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFCopyTutorialARM-Parameters.json** adlı bir JSON dosyası oluşturun. 
 
 > [!IMPORTANT]
-> **storageAccountName** ve **storageAccountKey** parametreleri için Azure Storage hesabınızın adını ve anahtarını belirtin.  
+> storageAccountName ve storageAccountKey parametreleri için Azure Depolama hesabınızın adını ve anahtarını belirtin.  
 > 
-> 
+> sqlServerName, databaseName, sqlServerUserName ve sqlServerPassword parametreleri için Azure SQL sunucusunu, veritabanını, kullanıcıyı ve parolayı belirtin.  
 
 ```json
 {
@@ -310,17 +323,22 @@ Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFCopyTutori
 > 
 > 
 
-## <a name="create-data-factory"></a>Veri fabrikası oluşturma
+<a id="create-data-factory" class="xliff"></a>
+
+## Veri fabrikası oluşturma
 1. **Azure PowerShell**’i başlatın ve aşağıdaki komutu çalıştırın:
    * Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
+   
     ```PowerShell
-    Login-AzureRmAccount       
+    Login-AzureRmAccount    
     ```  
    * Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
+   
     ```PowerShell
     Get-AzureRmSubscription
     ```   
-   * Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. 
+   * Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın.
+    
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
     ```    
@@ -330,32 +348,34 @@ Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFCopyTutori
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
     ```
 
-## <a name="monitor-pipeline"></a>İşlem hattını izleme
+<a id="monitor-pipeline" class="xliff"></a>
+
+## İşlem hattını izleme
 
 1. Azure hesabınızı kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
 2. Sol menüdeki **Veri fabrikaları**’na tıklayın (veya) **INTELLIGENCE + ANALYTICS** kategorisi altındaki **Diğer hizmetler** ve **Veri fabrikaları** öğelerine tıklayın.
    
     ![Veri fabrikaları menüsü](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
-3. **Veri fabrikaları** sayfasında veri fabrikanızı arayıp bulun. 
+3. **Veri fabrikaları** sayfasında veri fabrikanızı (AzureBlobToAzureSQLDatabaseDF) bulun. 
    
     ![Veri fabrikası arama](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
 4. Azure veri fabrikanıza tıklayın. Veri fabrikasının giriş sayfasını görürsünüz.
    
     ![Veri fabrikasının giriş sayfası](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-5. Veri fabrikanızın diyagram görünümünü görmek için **Diyagram** kutucuğuna tıklayın.
-   
-    ![Veri fabrikanızın diyagram görünümü](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-diagram-view.png)
-6. Diyagram görünümünde **SQLOutputDataset** veri kümesine çift tıklayın. Dilimin durumu görürsünüz. Kopyalama işlemi tamamlandığında durumu **Hazır** olarak ayarlayın.
-   
-    ![Çıktı dilimi hazır durumda](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/output-slice-ready.png)
-7. Dilim **Hazır** durumunda olduğunda verilerin Azure SQL veritabanındaki **emp** tablosuna kopyalandığını doğrulayın.
+6. Bu öğreticide oluşturduğunuz işlem hattını ve veri kümelerini izlemek için [Veri kümelerini ve işlem hatlarını izleme](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) makalesindeki yönergeleri uygulayın. Visual Studio şu anda Data Factory işlem hatlarını izlemeyi desteklememektedir.
+7. Bir dilim **Hazır** durumundayken verilerin Azure SQL veritabanındaki **emp** tablosuna kopyalandığını doğrulayın.
 
-Bu öğreticide oluşturduğunuz işlem hattını ve veri kümelerini izlemek üzere Azure portalı dikey pencerelerinin kullanımına ilişkin yönergeler için bkz. [Veri kümelerini ve işlem hatlarını izleme](data-factory-monitor-manage-pipelines.md).
 
-Veri işlem hatlarınızı izlemek için İzleme ve Yönetme Uygulaması’nı da kullanabilirsiniz. Uygulamanın kullanımına ilişkin ayrıntılar için bkz. [İzleme Uygulaması kullanarak Azure Data Factory işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md).
+Bu öğreticide oluşturduğunuz işlem hattını ve veri kümelerini izlemek üzere Azure portalı dikey pencerelerinin kullanımına ilişkin daha fazla bilgi için bkz. [Veri kümelerini ve işlem hatlarını izleme](data-factory-monitor-manage-pipelines.md).
 
-## <a name="data-factory-entities-in-the-template"></a>Şablondaki Data Factory varlıkları
-### <a name="define-data-factory"></a>Veri fabrikası tanımlama
+Veri işlem hatlarınızı izlemek üzere İzleme ve Yönetme uygulamasının kullanımına ilişkin daha fazla bilgi için bkz. [İzleme Uygulamasını kullanarak Azure Data Factory işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md).
+
+<a id="data-factory-entities-in-the-template" class="xliff"></a>
+
+## Şablondaki Data Factory varlıkları
+<a id="define-data-factory" class="xliff"></a>
+
+### Veri fabrikası tanımlama
 Resource Manager şablonunda bir veri fabrikasını aşağıdaki örnekte gösterildiği gibi tanımlayın:  
 
 ```json
@@ -376,7 +396,9 @@ dataFactoryName aşağıdaki gibi tanımlanır:
 
 Bu değer, kaynak grubu kimliğini temel alan benzersiz bir dizedir.  
 
-### <a name="defining-data-factory-entities"></a>Data Factory varlıklarını tanımlama
+<a id="defining-data-factory-entities" class="xliff"></a>
+
+### Data Factory varlıklarını tanımlama
 Aşağıdaki Data Factory varlıkları JSON şablonunda tanımlanır: 
 
 1. [Azure Storage bağlı hizmeti](#azure-storage-linked-service)
@@ -385,8 +407,10 @@ Aşağıdaki Data Factory varlıkları JSON şablonunda tanımlanır:
 4. [Azure SQL veri kümesi](#azure-sql-dataset)
 5. [Kopyalama etkinliği içeren bir veri işlem hattı](#data-pipeline)
 
-#### <a name="azure-storage-linked-service"></a>Azure Storage bağlı hizmeti
-Bu bölümde Azure depolama hesabınızın adını ve anahtarını belirtirsiniz. Bir Azure Storage bağlı hizmetini tanımlamak için kullanılan JSON özelliklerine ilişkin ayrıntılar için bkz. [Azure Storage bağlı hizmeti](data-factory-azure-blob-connector.md#azure-storage-linked-service). 
+<a id="azure-storage-linked-service" class="xliff"></a>
+
+#### Azure Storage bağlı hizmeti
+AzureStorageLinkedService, Azure depolama hesabınızı veri fabrikasına bağlar. Bir kapsayıcı oluşturup verileri [önkoşulların](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) parçası olarak bu depolama hesabına yüklediniz. Bu bölümde Azure depolama hesabınızın adını ve anahtarını belirtirsiniz. Bir Azure Storage bağlı hizmetini tanımlamak için kullanılan JSON özelliklerine ilişkin ayrıntılar için bkz. [Azure Storage bağlı hizmeti](data-factory-azure-blob-connector.md#azure-storage-linked-service). 
 
 ```json
 {
@@ -408,8 +432,10 @@ Bu bölümde Azure depolama hesabınızın adını ve anahtarını belirtirsiniz
 
 ConnectionString, storageAccountName ve storageAccountKey parametrelerini kullanır. Bu parametrelerin değerleri bir yapılandırma dosyası kullanılarak geçirilir. Tanım ayrıca şu değişkenleri kullanır: şablonda tanımlanan azureStroageLinkedService ve dataFactoryName. 
 
-#### <a name="azure-sql-database-linked-service"></a>Azure SQL Veritabanı bağlı hizmeti
-Bu bölümde Azure SQL sunucu adı, veritabanı adı, kullanıcı adı ve kullanıcı parolasını belirtirsiniz. Bir Azure SQL bağlı hizmetini tanımlamak için kullanılan JSON özelliklerine ilişkin ayrıntılar için bkz. [Azure SQL bağlı hizmeti](data-factory-azure-sql-connector.md#linked-service-properties).  
+<a id="azure-sql-database-linked-service" class="xliff"></a>
+
+#### Azure SQL Veritabanı bağlı hizmeti
+AzureSqlLinkedService, Azure SQL veritabanınızı veri fabrikasına bağlar. Blob depolama alanından kopyalanan veriler bu veritabanında depolanır. Bu veritabanındaki emp tablosunu, [önkoşulların](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) parçası olarak oluşturdunuz. Bu bölümde Azure SQL sunucu adı, veritabanı adı, kullanıcı adı ve kullanıcı parolasını belirtirsiniz. Bir Azure SQL bağlı hizmetini tanımlamak için kullanılan JSON özelliklerine ilişkin ayrıntılar için bkz. [Azure SQL bağlı hizmeti](data-factory-azure-sql-connector.md#linked-service-properties).  
 
 ```json
 {
@@ -431,8 +457,10 @@ Bu bölümde Azure SQL sunucu adı, veritabanı adı, kullanıcı adı ve kullan
 
 connectionString; değerleri bir yapılandırma dosyası kullanılarak geçirilen sqlServerName, databaseName, sqlServerUserName ve sqlServerPassword parametrelerini kullanır. Tanımda ayrıca şablondaki şu değişkenler kullanılır: azureSqlLinkedServiceName, dataFactoryName.
 
-#### <a name="azure-blob-dataset"></a>Azure blob veri kümesi
-Blob kapsayıcı, klasör ve girdi verilerini içeren dosyanın adını belirtirsiniz. Bir Azure Blob veri kümesini tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob veri kümesi özellikleri](data-factory-azure-blob-connector.md#dataset-properties). 
+<a id="azure-blob-dataset" class="xliff"></a>
+
+#### Azure blob veri kümesi
+Azure Depolama bağlı hizmeti, Data Factory hizmetinin Azure depolama hesabınıza bağlanmak için çalışma zamanında kullandığı bağlantı dizesini belirtir. Azure blob veri kümesi tanımında blob kapsayıcısını, klasörü ve giriş verilerini içeren dosyanın adını belirtirsiniz. Bir Azure Blob veri kümesini tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob veri kümesi özellikleri](data-factory-azure-blob-connector.md#dataset-properties). 
 
 ```json
 {
@@ -465,7 +493,7 @@ Blob kapsayıcı, klasör ve girdi verilerini içeren dosyanın adını belirtir
             }
           },
           "availability": {
-            "frequency": "Day",
+            "frequency": "Hour",
             "interval": 1
           },
           "external": true
@@ -473,7 +501,9 @@ Blob kapsayıcı, klasör ve girdi verilerini içeren dosyanın adını belirtir
 }
 ```
 
-#### <a name="azure-sql-dataset"></a>Azure SQL veri kümesi
+<a id="azure-sql-dataset" class="xliff"></a>
+
+#### Azure SQL veri kümesi
 Azure SQL veritabanında Azure Blob depolama biriminden kopyalanan verileri tutan tablonun adını belirtirsiniz. Bir Azure SQL veri kümesini tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılar için bkz. [Azure SQL veri kümesi özellikleri](data-factory-azure-sql-connector.md#dataset-properties). 
 
 ```json
@@ -502,14 +532,16 @@ Azure SQL veritabanında Azure Blob depolama biriminden kopyalanan verileri tuta
             "tableName": "[parameters('targetSQLTable')]"
           },
           "availability": {
-            "frequency": "Day",
+            "frequency": "Hour",
             "interval": 1
           }
     }
 }
 ```
 
-#### <a name="data-pipeline"></a>Veri işlem hattı
+<a id="data-pipeline" class="xliff"></a>
+
+#### Veri işlem hattı
 Verileri Azure blob veri kümesinden Azure SQL veri kümesine kopyalayan bir işlem hattı tanımlayın. Bu örnekte bir işlem hattı tanımlamak için kullanılan JSON öğelerinin açıklamaları için bkz. [İşlem Hattı JSON](data-factory-create-pipelines.md#pipeline-json). 
 
 ```json
@@ -561,13 +593,15 @@ Verileri Azure blob veri kümesinden Azure SQL veri kümesine kopyalayan bir iş
               }
         }
           ],
-          "start": "2016-10-02T00:00:00Z",
-          "end": "2016-10-03T00:00:00Z"
+          "start": "2017-05-11T00:00:00Z",
+          "end": "2017-05-12T00:00:00Z"
     }
 }
 ```
 
-## <a name="reuse-the-template"></a>Şablonu yeniden kullanma
+<a id="reuse-the-template" class="xliff"></a>
+
+## Şablonu yeniden kullanma
 Bu öğreticide, Data Factory varlıkları tanımlamaya yönelik bir şablon ve parametrelerin değerlerini geçirmeye yönelik bir şablon oluşturdunuz. İşlem hattı, verileri bir Azure Storage hesabından parametreler aracılığıyla belirtilen bir Azure SQL veritabanına kopyalar. Data Factory varlıklarını farklı ortamlara dağıtmak üzere aynı şablonu kullanmak için, her bir ortama yönelik bir parametre dosyası oluşturur ve bu ortama dağıtırken kullanırsınız.     
 
 Örnek:  
@@ -586,10 +620,12 @@ Birinci komut geliştirme ortamına, ikinci komut test ortamına ve üçüncü k
 
 Ayrıca tekrarlanan görevleri gerçekleştirmek için şablonu yeniden kullanabilirsiniz. Örneğin, aynı mantığı uygulamasına karşın her veri fabrikasının farklı Depolama ve SQL Veritabanı hesaplarını kullandığı bir veya daha fazla işlem hattı ile çok sayıda veri fabrikası oluşturmanız gerekir. Bu senaryoda, aynı şablonu veri fabrikaları oluşturmaya yönelik farklı parametre dosyaları ile aynı ortamda (geliştirme, test veya üretim) kullanırsınız.   
 
-## <a name="see-also"></a>Ayrıca Bkz.
-| Konu | Açıklama |
-|:--- |:--- |
-| [İşlem hatları](data-factory-create-pipelines.md) |Bu makale, Azure Data Factory’deki işlem hatlarını ve veri kümelerini anlamanıza yardımcı olur. |
-| [Veri kümeleri](data-factory-create-datasets.md) |Bu makale, Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olur. |
-| [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md) |Bu makalede Azure Data Factory uygulama modelinin zamanlama ve yürütme yönleri açıklanmaktadır. |
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
+Bu öğreticide, bir kopyalama işleminde kaynak veri deposu olarak Azure blob depolama alanını ve hedef veri deposu olarak Azure SQL veritabanını kullandınız. Aşağıdaki tabloda, kopyalama etkinliği tarafından kaynak ve hedef olarak desteklenen veri depolarının listesi sağlanmıştır: 
+
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+Veri deposundan/veri deposuna veri kopyalama hakkında bilgi edinmek için tablodaki veri deposunun bağlantısına tıklayın.
 

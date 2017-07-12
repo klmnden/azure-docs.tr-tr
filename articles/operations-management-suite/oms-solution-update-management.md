@@ -12,34 +12,45 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2017
+ms.date: 06/21/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: b4d5ab66db64a50d1b87edd4bf445e49004e67b4
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="update-management-solution-in-oms"></a>OMS’de Güncelleştirme Yönetimi çözümü
-OMS’de Güncelleştirme Yönetimi çözümü, Windows ve Linux bilgisayarlarınıza yönelik güncelleştirmeleri yönetmenize olanak tanır.  Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızlıca değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini başlatabilirsiniz. 
+<a id="update-management-solution-in-oms" class="xliff"></a>
 
-## <a name="solution-components"></a>Çözüm bileşenleri
+# OMS’de Güncelleştirme Yönetimi çözümü
 
-OMS tarafından yönetilen bilgisayarlar değerlendirme ve güncelleştirme dağıtımları yapmak için aşağıdakileri kullanır: 
+![Güncelleştirme Yönetimi sembolü](./media/oms-solution-update-management/update-management-symbol.png)
+
+OMS’de Güncelleştirme Yönetimi çözümü, Windows ve Linux bilgisayarlarınıza yönelik güncelleştirmeleri yönetmenize olanak tanır.  Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızlıca değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini başlatabilirsiniz.
+
+
+<a id="solution-overview" class="xliff"></a>
+
+## Çözüme genel bakış
+OMS tarafından yönetilen bilgisayarlar değerlendirme ve güncelleştirme dağıtımları yapmak için aşağıdakileri kullanır:
 
 * Windows veya Linux için OMS aracısı
-* Linux için PowerShell İstenen Durum Yapılandırması (DSC) 
-* Otomasyon Karma Runbook Çalışanı 
+* Linux için PowerShell İstenen Durum Yapılandırması (DSC)
+* Otomasyon Karma Runbook Çalışanı
 * Windows bilgisayarları için Microsoft Update veya Windows Server Update Hizmetleri
 
 Aşağıdaki diyagramlarda, çözümün çalışma alanındaki tüm bağlı Windows Server ve Linux bilgisayarlarını nasıl değerlendirdiğini ve bu bilgisayarlara güncelleştirmeleri nasıl uyguladığını ortaya koyan, davranış ve veri akışının kavramsal bir görünümü gösterilir.    
 
-#### <a name="windows-server"></a>Windows Server
+<a id="windows-server" class="xliff"></a>
+
+#### Windows Server
 ![Windows Server güncelleştirme yönetimi işlem akışı](media/oms-solution-update-management/update-mgmt-windows-updateworkflow.png)
 
-#### <a name="linux"></a>Linux
+<a id="linux" class="xliff"></a>
+
+#### Linux
 ![Linux güncelleştirme yönetimi işlem akışı](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
 Bilgisayar güncelleştirme uyumluluğu için bir tarama yaptıktan sonra, OMS aracısı bilgileri toplu olarak OMS’ye iletir. Window bilgisayarında, uyumluluk taraması varsayılan olarak her 12 saatte bir gerçekleştirilir.  Tarama zamanlamasına ek olarak, Microsoft Monitoring Agent’ın (MMA) yeniden başlatılması durumunda, güncelleştirme yüklemesi öncesinde ve güncelleştirme yüklemesi sonrasında 15 dakika içinde güncelleştirme uyumluluğu için tarama başlatılır.  Linux bilgisayarıyla, uyumluluk taraması varsayılan olarak her 3 saatte bir gerçekleştirilir ve MMA aracısının yeniden başlatılması durumunda 15 dakika içinde uyumluluk taraması başlatılır.  
@@ -50,11 +61,17 @@ Zamanlanmış bir dağıtım oluşturarak, yazılım güncelleştirmelerinin ger
 
 Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar dağıtımı paralel olarak yürütür.  İlk olarak güncelleştirmelerin hala gerekli olduğunu doğrulamak için bir tarama yapılır ve bunlar yüklenir.  WSUS istemci bilgisayarları için, güncelleştirmelerin WSUS’ta onaylanmaması durumunda güncelleştirme dağıtımının başarısız olacağı unutulmamalıdır.  Uygulanan güncelleştirmelerin sonuçları, panolarda veya olayları arama yoluyla işlenmek ve özetlenmek üzere OMS’ye iletilir.     
 
-## <a name="prerequisites"></a>Ön koşullar
-* Çözüm Windows Server 2008 ve üzeri sürümlere göre güncelleştirme değerlendirmeleri; Windows Server 2012 ve üzeri sürümlere göre güncelleştirme dağıtımları gerçekleştirmeyi destekler.  Sunucu Çekirdeği ve Nano Sunucu yükleme seçenekleri desteklenmez.
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
+* Çözüm, Windows Server 2008 ve sonraki sürümlerine yönelik güncelleştirme değerlendirmelerinin yanı sıra Windows Server 2008 R2 SP1 ve sonraki sürümlerine yönelik güncelleştirme dağıtımları gerçekleştirilmesini destekler.  Sunucu Çekirdeği ve Nano Sunucu yükleme seçenekleri desteklenmez.
+
+    > [!NOTE]
+    > Windows Server 2008 R2 SP1'e yönelik güncelleştirme dağıtımı desteği için .NET Framework 4.5 ve WMF 5.0 veya sonraki bir sürümü gerekir.
+    >  
 * Windows istemci işletim sistemleri desteklenmez.  
 * Windows aracıları Windows Server Update Services (WSUS) sunucusuyla iletişim kuracak veya Microsoft Update’e erişecek şekilde yapılandırılmış olmalıdır.  
-  
+
     > [!NOTE]
     > Windows aracısı System Center Configuration Manager tarafından eşzamanlı olarak yönetilemez.  
     >
@@ -62,19 +79,26 @@ Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar
 * Red Hat Enterprise 6 (x86/x64) ve 7 (x64)
 * SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)
 * Ubuntu 12.04 LTS ve daha yeni x86/x64  
+    > [!NOTE]  
+    > Güncelleştirmelerin Ubuntu'daki bakım penceresinin dışında uygulanmasının önüne geçmek için Katılımsız Yükseltme paketini otomatik güncelleştirmeler devre dışı bırakılacak şekilden yeniden yapılandırın. Bahsedilen yapılandırma işlemiyle ilgili bilgi için bkz. [Ubuntu Server Kılavuzu'ndaki Otomatik Güncelleştirmeler konu başlığı](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
 * Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.  
 
     > [!NOTE]
     > Birden çok OMS çalışma alanına raporlayacak şekilde yapılandırılmış bir Linux için OMS Aracısı, bu çözümde desteklenmez.  
-    > 
+    >
 
 Linux için OMS Aracısı’nı yükleme ve en son sürümü indirme hakkında ek bilgi için, [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux) konusuna bakın.  Windows için OMS Aracısı’nı yükleme hakkında bilgi için, [Windows için Operations Management Suite Aracısı](../log-analytics/log-analytics-windows-agents.md) konusunu gözden geçirin.  
 
-## <a name="solution-components"></a>Çözüm bileşenleri
-Bu çözüm, Otomasyon hesabınıza eklenen aşağıdaki kaynaklardan ve doğrudan bağlanılan aracılardan veya Operations Manager bağlantılı yönetim grubundan oluşur. 
+<a id="solution-components" class="xliff"></a>
 
-### <a name="management-packs"></a>Yönetim paketleri
-System Center Operations Manager yönetim grubunuz OMS çalışma alanına bağlıysa, Operation Manager’a aşağıdaki yönetim paketleri yüklenir.  Bu çözüm eklendikten sonra bu yönetim paketleri doğrudan bağlı Windows bilgisayarlarına da yüklenir. Bu yönetim paketlerinde yapılandırılacak veya yönetilecek hiçbir şey yoktur. 
+## Çözüm bileşenleri
+Bu çözüm, Otomasyon hesabınıza eklenen aşağıdaki kaynaklardan ve doğrudan bağlanılan aracılardan veya Operations Manager bağlantılı yönetim grubundan oluşur.
+
+<a id="management-packs" class="xliff"></a>
+
+### Yönetim paketleri
+System Center Operations Manager yönetim grubunuz OMS çalışma alanına bağlıysa, Operation Manager’a aşağıdaki yönetim paketleri yüklenir.  Bu çözüm eklendikten sonra bu yönetim paketleri doğrudan bağlı Windows bilgisayarlarına da yüklenir. Bu yönetim paketlerinde yapılandırılacak veya yönetilecek hiçbir şey yoktur.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -82,13 +106,17 @@ System Center Operations Manager yönetim grubunuz OMS çalışma alanına bağl
 
 Çözüm yönetim paketlerini güncelleştirme hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics’e Bağlama](../log-analytics/log-analytics-om-agents.md).
 
-### <a name="hybrid-worker-groups"></a>Karma Çalışanı grupları
+<a id="hybrid-worker-groups" class="xliff"></a>
+
+### Karma Çalışanı grupları
 Bu çözümü etkinleştirdikten sonra çözümde yer alan runbook'ların desteklenmesi için OMS çalışma alanınıza doğrudan bağlı tüm Windows bilgisayarları otomatik olarak bir Karma Runbook Çalışanı olarak yapılandırılır.  Çözüm tarafından yönetilen her Windows bilgisayarı için, Otomasyon hesabının Karma Runbook Çalışan Grupları dikey penceresinde, *Hostname FQDN_GUID* adlandırma kuralının ardından listelenir.  Hesabınızdaki runbook’larla bu grupları hedefleyemezsiniz, aksi takdirde başarısız olur. Bu gruplar yalnızca yönetim çözümünü desteklemeye yöneliktir.   
 
 Bununla birlikte, Çözüm ve Karma Runbook Çalışanı grup üyeliği için aynı hesabı kullandığınız sürece Otomasyon gruplarını desteklemek için Windows bilgisayarlarını Otomasyon hesabınızdaki bir Karma Runbook Çalışanı grubuna ekleyebilirsiniz.  Bu işlev Karma Runbook Çalışanının 7.2.12024.0 sürümüne eklenmiştir.  
 
-## <a name="configuration"></a>Yapılandırma
-Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklemek ve aracıların raporladığını doğrulamak için aşağıdaki adımları uygulayın. Çalışma alanınıza zaten bağlı olan Windows aracıları ek bir yapılandırma olmadan otomatik olarak eklenir. 
+<a id="configuration" class="xliff"></a>
+
+## Yapılandırma
+Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklemek ve aracıların raporladığını doğrulamak için aşağıdaki adımları uygulayın. Çalışma alanınıza zaten bağlı olan Windows aracıları ek bir yapılandırma olmadan otomatik olarak eklenir.
 
 Aşağıdaki yöntemleri kullanarak çözümü dağıtabilirsiniz:
 
@@ -97,7 +125,9 @@ Aşağıdaki yöntemleri kullanarak çözümü dağıtabilirsiniz:
 
 Zaten aynı kaynak grubunda ve bölgede birbiriyle bağlantılı bir Otomasyon hesabınız ve OMS çalışma alanınız varsa, Otomasyon ve Denetim’in seçilmesi yapılandırmanızı doğrular ve yalnızca çözümü yükleyip her iki hizmette de yapılandırır.  Azure Market’ten Güncelleştirme Yönetimi çözümünün seçilmesi de aynı davranışa yol açar.  Aboneliğinizde iki hizmet de dağıtılmamışsa, **Yeni Çözüm Oluştur** dikey penceresindeki adımları izleyin ve önceden seçilmiş diğer önerilen çözümleri yüklemek istediğinizi onaylayın.  İsteğe bağlı olarak, Çözüm Galerisi’ndeki [OMS çözümü ekleme](../log-analytics/log-analytics-add-solutions.md) bölümünde açıklanan adımlarla Güncelleştirme Yönetimi çözümünü OMS çalışma alanına ekleyin.  
 
-### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>OMS aracılarını ve OMS’ye bağlı Operations Manager yönetim grubunu doğrulama
+<a id="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms" class="xliff"></a>
+
+### OMS aracılarını ve OMS’ye bağlı Operations Manager yönetim grubunu doğrulama
 
 Doğrudan bağlı Linux ve Windows için OMS Aracı’nın OMS ile iletişim kurduğunu doğrulamak için, birkaç dakika sonra aşağıdaki günlük aramasını çalıştırabilirsiniz:
 
@@ -110,14 +140,24 @@ Windows bilgisayarında, OMS ile aracı bağlantısını doğrulamak için aşa�
 1.  Denetim Masası’nda Microsoft Monitoring Agent’i açın; **Azure Log Analytics (OMS)** sekmesinde aracı şöyle bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.   
 2.  Windows Olay Günlüğü’nü açın, **Uygulama ve Hizmet Günlükleri\Operations Manager** bölümüne gidin ve kaynak Hizmet Bağlayıcısı’nda Olay Kimliği 3000 ve 5002’yi arayın.  Bu olaylar bilgisayarın OMS çalışma alanına kaydolduğunu ve yapılandırmayı aldığını gösterir.  
 
-Aracı OMS hizmetiyle iletişim kuramıyorsa ve İnternet’le güvenlik duvarı veya ara sunucu üzerinden iletişim kuracak şekilde yapılandırıldıysa, [Log Analytics'te ara sunucu ve güvenlik duvarı ayarlarını yapılandırma](../log-analytics/log-analytics-proxy-firewall.md) konusunu gözden geçirerek güvenlik duvarının ve ara sunucunun düzgün yapılandırıldığını onaylayın.
-  
-Yeni eklenen Linux aracılarında, değerlendirme yapıldıktan sonra **Güncelleştirildi** durumu gösterilir.  Bu işlem 6 saat kadar sürebilir. 
+Aracı, OMS hizmetiyle iletişim kuramıyorsa ve İnternet ile güvenlik duvarı veya ara sunucu üzerinden iletişim kuracak şekilde yapılandırıldıysa [Windows aracısı için ağ yapılandırması](../log-analytics/log-analytics-windows-agents.md#network) ya da [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md#network) konu başlığını gözden geçirerek güvenlik duvarının ve ara sunucunun düzgün yapılandırıldığını doğrulayın.
+
+> [!NOTE]
+> Linux sistemleriniz bir ara sunucu veya OMS Ağ Geçidi ile iletişim kuracak şekilde yapılandırıldıysa ve bu çözümü ekliyorsanız lütfen şu komutları kullanarak *proxy.conf* izinlerini, omi kullanıcı grubuna dosyada okuma izni verilecek şekilde güncelleştirin:  
+> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
+
+
+Yeni eklenen Linux aracılarında, değerlendirme yapıldıktan sonra **Güncelleştirildi** durumu gösterilir.  Bu işlem 6 saat kadar sürebilir.
 
 Operations Manager yönetim grubunun OMS’yle iletişim kurduğunu onaylamak için bkz. [OMS ile Operations Manager Tümleştirmesini Doğrulama](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
-## <a name="data-collection"></a>Veri toplama
-### <a name="supported-agents"></a>Desteklenen aracılar
+<a id="data-collection" class="xliff"></a>
+
+## Veri toplama
+<a id="supported-agents" class="xliff"></a>
+
+### Desteklenen aracılar
 Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açıklanmaktadır.
 
 | Bağlı Kaynak | Destekleniyor | Açıklama |
@@ -127,32 +167,42 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | Operations Manager yönetim grubu |Evet |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br>Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekmez. Veriler yönetim grubundan OMS deposuna iletilir. |
 | Azure depolama hesabı |Hayır |Azure Storage, sistem güncelleştirmeleri hakkında bilgi içermez. |
 
-### <a name="collection-frequency"></a>Toplama sıklığı
-Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştirilir. Her 15 dakikada bir Windows API’si çağrılarak son güncelleştirme zamanı sorgulanır; böylelikle durumun değişip değişmediği saptanır ve değişmişse bir uyumluluk taraması başlatılır.  Yönetilen her Linux bilgisayarı için 3 saatte bir tarama gerçekleştirilir. 
+<a id="collection-frequency" class="xliff"></a>
+
+### Toplama sıklığı
+Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştirilir. Her 15 dakikada bir Windows API’si çağrılarak son güncelleştirme zamanı sorgulanır; böylelikle durumun değişip değişmediği saptanır ve değişmişse bir uyumluluk taraması başlatılır.  Yönetilen her Linux bilgisayarı için 3 saatte bir tarama gerçekleştirilir.
 
 Yönetilen bilgisayarlardan gelen güncelleştirilmiş verilerin panoda görüntülenmesi 30 dakika ile 6 saat arasında bir zaman alabilir.   
 
-## <a name="using-the-solution"></a>Çözümü kullanma
+<a id="using-the-solution" class="xliff"></a>
+
+## Çözümü kullanma
 Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklediğinizde OMS panonuza **Güncelleştirme Yönetimi** kutucuğu eklenir. Bu kutucukta, ortamınızdaki bilgisayarların sayısına ve güncelleştirme uyumluluğuna ilişkin bir sayı ve grafik gösterimi görüntülenir.<br><br>
 ![Güncelleştirme Yönetimi Özet Kutucuğu](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
-## <a name="viewing-update-assessments"></a>Güncelleştirme değerlendirmelerini görüntüleme
-**Güncelleştirme Yönetimi** kutucuğuna tıklayarak **Güncelleştirme Yönetimi** panosunu açın.<br><br> ![Güncelleştirme Yönetimi Özet Panosu](./media/oms-solution-update-management/update-management-dashboard.png)<br> 
+<a id="viewing-update-assessments" class="xliff"></a>
+
+## Güncelleştirme değerlendirmelerini görüntüleme
+**Güncelleştirme Yönetimi** kutucuğuna tıklayarak **Güncelleştirme Yönetimi** panosunu açın.<br><br> ![Güncelleştirme Yönetimi Özet Panosu](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
 Bu pano, güncelleştirme durumunun işletim sistemi türüne ve güncelleştirme sınıflandırmasına (kritik, güvenlik ve diğer, örneğin tanım güncelleştirmesi) göre kategorilere ayrılmış, ayrıntılı bir dökümünü sağlar. **Güncelleştirme Dağıtımları** kutucu seçildiğinde, sizi zamanlamaları, çalışmakta olan dağıtımları ve tamamlanmış dağıtımları görüntüleyebileceğiniz veya yeni dağıtım zamanlayabileceğiniz Güncelleştirme Dağıtımları sayfasını yönlendirir.  
 
 Belirli bir kutucuğa tıklayarak tüm kayıtları döndüren bir günlük araması çalıştırabilirsiniz. Öte yandan belirli bir kategorinin veya önceden tanımlanmış ölçütün sorgusunu çalıştırmak için, **Sık Kullanılan Güncelleştirme Sorguları** sütununun altında sağlanan listeden bir seçim yapın.    
 
-## <a name="installing-updates"></a>Güncelleştirmeleri yükleme
-Güncelleştirmeler çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için değerlendirildikten sonra bir *Güncelleştirme Dağıtımı* oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz.  Güncelleştirme Dağıtımı, bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir.  Dağıtımın tarih ve saatine ek olarak, dağıtım kapsamına alınacak bilgisayarı veya bilgisayar grubunu belirtmeniz gerekir.  Bilgisayar grupları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md).  Güncelleştirme dağıtımınıza bilgisayar gruplarını eklediğinizde, grup üyeliği yalnızca bir kez, zamanlama oluşturulurken değerlendirilir.  Grupta daha sonra yapılan değişiklikler yansıtılmaz.  Bu soruna geçici bir çözüm olarak, zamanlanmış güncelleştirme dağıtımını silin ve yeniden oluşturun. 
+<a id="installing-updates" class="xliff"></a>
+
+## Güncelleştirmeleri yükleme
+Güncelleştirmeler çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için değerlendirildikten sonra bir *Güncelleştirme Dağıtımı* oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz.  Güncelleştirme Dağıtımı, bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir.  Dağıtımın tarih ve saatine ek olarak, dağıtım kapsamına alınacak bilgisayarı veya bilgisayar grubunu belirtmeniz gerekir.  Bilgisayar grupları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md).  Güncelleştirme dağıtımınıza bilgisayar gruplarını eklediğinizde, grup üyeliği yalnızca bir kez, zamanlama oluşturulurken değerlendirilir.  Grupta daha sonra yapılan değişiklikler yansıtılmaz.  Bu soruna geçici bir çözüm olarak, zamanlanmış güncelleştirme dağıtımını silin ve yeniden oluşturun.
 
 > [!NOTE]
 > Azure Market’ten dağıtılan Windows VM’leri varsayılan olarak Windows Update hizmetinden otomatik güncelleştirmeleri alacak şekilde ayarlanmıştır.  Çalışma alanınıza bu çözümü veya Windows VM’lerini ekledikten sonra bu davranış değişmez.  Güncelleştirmeleri bu çözümle etkin olarak yönetmiyorsanız, varsayılan davranış (güncelleştirmeleri otomatik olarak uygulama) geçerli olur.  
 
 Azure Market’ten edinilebilen isteğe bağlı Red Hat Enterprise Linux (RHEL) görüntülerinden oluşturulan sanal makineler için Azure’da dağıtılmış [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) erişimi için kaydedilir.  Diğer tüm Linux dağıtımları, ilgili dağıtımın desteklediği yöntemler izlenerek çevrimiçi dosya deposundan güncelleştirilmelidir.  
 
-### <a name="viewing-update-deployments"></a>Güncelleştirme dağıtımlarını görüntüleme
+<a id="viewing-update-deployments" class="xliff"></a>
+
+### Güncelleştirme dağıtımlarını görüntüleme
 Var olan Güncelleştirme Dağıtımlarının listesini görüntülemek için **Güncelleştirme Dağıtımı** kutucuğuna tıklayın.  Bunlar duruma göre gruplandırılır: **Zamanlanmış**, **Çalışıyor** ve **Tamamlandı**.<br><br> ![Güncelleştirme Dağıtımları Zamanlama Sayfası](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
 
 Her Güncelleştirme Dağıtımı için gösterilen özellikler aşağıdaki tabloda açıklanmıştır.
@@ -175,10 +225,12 @@ Aşağıdaki tabloda gösterilen sütunları içeren ayrıntı ekranını görü
 | Linux Bilgisayarları |Güncelleştirme Dağıtımındaki Linux bilgisayarı sayısını durumlarına göre listeler.  Güncelleştirme Dağıtımında bir duruma sahip tüm güncelleştirme kayıtlarını döndüren günlük araması gerçekleştirmek için ilgili duruma tıklayın. |
 | Bilgisayar Yükleme Durumu |Güncelleştirme Dağıtımında rol alan bilgisayarları ve başarıyla yüklenen güncelleştirme yüzdesini listeler. Tüm eksik ve kritik güncelleştirmeleri döndüren bir günlük araması gerçekleştirmek için girişlerden birine tıklayın. |
 | **Güncelleştirmeler Görünümü** | |
-| Windows Güncelleştirmeleri |Güncelleştirme Dağıtımı’na dahil edilen Windows güncelleştirmelerini ve her güncelleştirme için yükleme durumunu listeler.  Belirli bir güncelleştirmenin tüm güncelleştirme kayıtlarını döndüren bir günlük araması çalıştırmak için bir güncelleştirme seçin veya dağıtımın tüm güncelleştirme kayıtlarını döndüren bir günlük araması çalıştırmak için duruma tıklayın. | 
-| Linux Güncelleştirmeleri |Güncelleştirme Dağıtımı’na dahil edilen Linux güncelleştirmelerini ve her güncelleştirme için yükleme durumunu listeler.  Belirli bir güncelleştirmenin tüm güncelleştirme kayıtlarını döndüren bir günlük araması çalıştırmak için bir güncelleştirme seçin veya dağıtımın tüm güncelleştirme kayıtlarını döndüren bir günlük araması çalıştırmak için duruma tıklayın. | 
+| Windows Güncelleştirmeleri |Güncelleştirme Dağıtımı’na dahil edilen Windows güncelleştirmelerini ve her güncelleştirme için yükleme durumunu listeler.  Belirli bir güncelleştirmenin tüm güncelleştirme kayıtlarını döndüren bir günlük araması çalıştırmak için bir güncelleştirme seçin veya dağıtımın tüm güncelleştirme kayıtlarını döndüren bir günlük araması çalıştırmak için duruma tıklayın. |
+| Linux Güncelleştirmeleri |Güncelleştirme Dağıtımı’na dahil edilen Linux güncelleştirmelerini ve her güncelleştirme için yükleme durumunu listeler.  Belirli bir güncelleştirmenin tüm güncelleştirme kayıtlarını döndüren bir günlük araması çalıştırmak için bir güncelleştirme seçin veya dağıtımın tüm güncelleştirme kayıtlarını döndüren bir günlük araması çalıştırmak için duruma tıklayın. |
 
-### <a name="creating-an-update-deployment"></a>Güncelleştirme Dağıtımı oluşturma
+<a id="creating-an-update-deployment" class="xliff"></a>
+
+### Güncelleştirme Dağıtımı oluşturma
 Yeni bir Güncelleştirme Dağıtımı oluşturmak için ekranın üst kısmındaki **Ekle** düğmesine tıklayarak **Yeni Güncelleştirme Dağıtımı** sayfasını açın.  Aşağıdaki tabloda gösterilen özelliklerin değerlerini belirtmeniz gerekir.
 
 | Özellik | Açıklama |
@@ -192,15 +244,21 @@ Yeni bir Güncelleştirme Dağıtımı oluşturmak için ekranın üst kısmınd
 
 <br><br> ![Yeni Güncelleştirme Dağıtımı Sayfası](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
-### <a name="time-range"></a>Zaman aralığı
-Varsayılan olarak, Güncelleştirme Yönetimi çözümünde analiz edilen verilerin kapsamı son 1 gün içinde oluşturulan tüm bağlı yönetim gruplarından belirlenir. 
+<a id="time-range" class="xliff"></a>
+
+### Zaman aralığı
+Varsayılan olarak, Güncelleştirme Yönetimi çözümünde analiz edilen verilerin kapsamı son 1 gün içinde oluşturulan tüm bağlı yönetim gruplarından belirlenir.
 
 Verileri zaman aralığını değiştirmek için panonun üst kısmındaki **Veri temeli**’ni seçin. Son 7 gün, 1 gün veya 6 saat içinde oluşturulan veya güncelleştirilen kayıtları seçebilirsiniz. Ya da **Özel**’i seçip özel bir tarih aralığı belirtebilirsiniz.
 
-## <a name="log-analytics-records"></a>Log Analytics kayıtları
+<a id="log-analytics-records" class="xliff"></a>
+
+## Log Analytics kayıtları
 Güncelleştirme Yönetimi çözümü, OMS deposunda iki tür kayıt oluşturur.
 
-### <a name="update-records"></a>Güncelleştirme kayıtları
+<a id="update-records" class="xliff"></a>
+
+### Güncelleştirme kayıtları
 Her bilgisayara yüklenen veya gerekli olan her bir güncelleştirme için **Güncelleştirme** türünde bir kayıt oluşturulur. Güncelleştirme kayıtları aşağıdaki tabloda gösterilen özelliklere sahiptir.
 
 | Özellik | Açıklama |
@@ -229,11 +287,11 @@ Her bilgisayara yüklenen veya gerekli olan her bir güncelleştirme için **Gü
 | UpdateID |Güncelleştirmeyi benzersiz olarak tanımlayan GUID. |
 | UpdateState |Güncelleştirmenin bu bilgisayarda yüklü olup olmadığını belirtir.<br>Olası değerler şunlardır:<br>- Yüklü: Güncelleştirme bu bilgisayarda yüklü.<br>- Gerekli - Güncelleştirme yüklü değil ve bu bilgisayarda gerekli. |
 
-**Update** türünde kayıtlar döndüren bir günlük araması yaptığınızda, arama tarafından döndürülen güncelleştirmeleri özetleyen bir kutucuk kümesi görüntülemek üzere **Güncelleştirmeler** görünümünü seçebilirsiniz. **Eksik ve uygulanan güncelleştirmeler** ile **Gerekli ve isteğe bağlı güncelleştirmeler** kutucuklarındaki girişlere tıklayarak görünümün kapsamını bu güncelleştirme kümesine ayarlayabilirsiniz. Kayıtları tek tek döndürmek için **Liste** veya **Tablo** görünümünü seçin.<br> 
+**Update** türünde kayıtlar döndüren bir günlük araması yaptığınızda, arama tarafından döndürülen güncelleştirmeleri özetleyen bir kutucuk kümesi görüntülemek üzere **Güncelleştirmeler** görünümünü seçebilirsiniz. **Eksik ve uygulanan güncelleştirmeler** ile **Gerekli ve isteğe bağlı güncelleştirmeler** kutucuklarındaki girişlere tıklayarak görünümün kapsamını bu güncelleştirme kümesine ayarlayabilirsiniz. Kayıtları tek tek döndürmek için **Liste** veya **Tablo** görünümünü seçin.<br>
 
 ![Güncelleştirme Kayıt Türü ile Günlük Arama Güncelleştirme Görünümü](./media/oms-solution-update-management/update-la-view-updates.png)  
 
-**Tablo** görünümünde, KB makalesiyle bir tarayıcı açmak üzere herhangi bir kayda ait **KBID** öğesine tıklayabilirsiniz. Bunun yapılması, ilgili güncelleştirmenin ayrıntıları hakkında hızlıca bilgi almanızı sağlar.<br> 
+**Tablo** görünümünde, KB makalesiyle bir tarayıcı açmak üzere herhangi bir kayda ait **KBID** öğesine tıklayabilirsiniz. Bunun yapılması, ilgili güncelleştirmenin ayrıntıları hakkında hızlıca bilgi almanızı sağlar.<br>
 
 ![Güncelleştirme Kayıt Türü Kutucukları ile Günlük Arama Tablosu](./media/oms-solution-update-management/update-la-view-table.png)
 
@@ -241,7 +299,9 @@ Her bilgisayara yüklenen veya gerekli olan her bir güncelleştirme için **Gü
 
 ![Güncelleştirme Kayıt Türü Kutucukları ile Günlük Arama Listesi](./media/oms-solution-update-management/update-la-view-list.png)
 
-### <a name="updatesummary-records"></a>UpdateSummary kayıtları
+<a id="updatesummary-records" class="xliff"></a>
+
+### UpdateSummary kayıtları
 Her Windows aracı bilgisayarı için **UpdateSummary** türünde bir kayıt oluşturulur. Bilgisayarda yapılan her güncelleştirme taramasında kayıt güncelleştirilir. **UpdateSummary** kayıtları aşağıdaki tabloda gösterilen özelliklere sahiptir.
 
 | Özellik | Açıklama |
@@ -264,45 +324,52 @@ Her Windows aracı bilgisayarı için **UpdateSummary** türünde bir kayıt olu
 | WindowsUpdateSetting |Bilgisayarın önemli güncelleştirmeleri yükleme yöntemiyle ilgili ayar.<br>Olası değerler şunlardır:<br>- Devre dışı<br>- Yüklemeden önce bildir<br>- Zamanlanmış yükleme |
 | WSUSServer |Bilgisayar, kullanacak için yapılandırılmışsa WSUS sunucusunun URL’si. |
 
-## <a name="sample-log-searches"></a>Örnek günlük aramaları
-Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtlarına ilişkin örnek günlük aramaları sunulmaktadır. 
+<a id="sample-log-searches" class="xliff"></a>
+
+## Örnek günlük aramaları
+Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtlarına ilişkin örnek günlük aramaları sunulmaktadır.
 
 | Sorgu | Açıklama |
 | --- | --- |
-|Güncelleştirmelere gerek duyan Windows tabanlı sunucu bilgisayarları |`Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false | measure count() by Computer` |
-|Güncelleştirmelere gerek duyan Linux sunucuları | `Type:Update OSType=Linux UpdateState!="Not needed" | measure count() by Computer` |
-| Eksik güncelleştirmeleri olan tüm bilgisayarlar |`Type=Update UpdateState=Needed Optional=false | select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin) |`Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" | select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate` |
-| Eksik kritik güncelleştirmeleri veya güvenlik güncelleştirmeleri olan tüm bilgisayarlar |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates"`) |
-| Güncelleştirmelerin el ile uygulandığı makinelerde gerekli olan kritik güncelleştirmeler veya güvenlik güncelleştirmeleri |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual | Distinct Computer} | Distinct KBID` |
-| Kritik güncelleştirmeleri veya gerekli güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |`Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false | Distinct Computer}` |
-| Eksik güncelleştirme paketleri olan tüm bilgisayarlar |`Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed| select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler |`Type=Update UpdateState=Needed Optional=false | Distinct Title` |
-| Bir güncelleştirme çalıştırmasında güncelleştirmeleri başarısız olan Windows tabanlı sunucu bilgisayarı | `Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Title, UpdateRunName` |
-| Bir güncelleştirme çalıştırmasında güncelleştirmeleri başarısız olan Linux sunucusu |`Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Product, UpdateRunName` |
-| WSUS bilgisayar üyeliği |`Type=UpdateSummary | measure count() by WSUSServer` |
-| Otomatik güncelleştirme yapılandırması |`Type=UpdateSummary | measure count() by WindowsUpdateSetting` |
-| Otomatik güncelleştirmenin devre dışı olduğu bilgisayarlar |`Type=UpdateSummary WindowsUpdateSetting=Manual` |
-| Paket güncelleştirmesi mevcut olan tüm Linux makinelerinin listesi |`Type=Update and OSType=Linux and UpdateState!="Not needed" | measure count() by Computer` |
-| Kritik veya Güvenlik türünde güvenlik açığını ele alan paket güncelleştirmesine sahip tüm Linux makinelerinin listesi |`Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") | measure count() by Computer` |
-| Bir güncelleştirmenin kullanılabilir olduğu tüm paketlerin listesi |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| Kritik veya Güvenlik türünde güvenlik açığını ele alan güncelleştirmeye sahip tüm paketlerin listesi |`Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates")` |
-| Hangi dağıtımların bilgisayarlarda değişiklik yaptığını gösteren liste |`Type:UpdateRunProgress | measure Count() by UpdateRunName` |
-|Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) |`Type:UpdateRunProgress UpdateRunName="DeploymentName" | measure Count() by Computer` |
-| Herhangi bir güncelleştirmenin mevcut olduğu tüm "Ubuntu" makinelerinin listesi |`Type=Update and OSType=Linux and OSName = Ubuntu &| measure count() by Computer` |
+| Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false &#124; measure count() by Computer |Güncelleştirmelere gerek duyan Windows tabanlı sunucu bilgisayarları |
+| Type:Update OSType=Linux UpdateState!="Not needed" &#124; measure count() by Computer |Güncelleştirmelere gerek duyan Linux sunucuları | 
+| Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |Eksik güncelleştirmeleri olan tüm bilgisayarlar |
+| Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |Eksik kritik güncelleştirmeleri veya güvenlik güncelleştirmeleri olan tüm bilgisayarlar | 
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |Güncelleştirmelerin el ile uygulandığı makinelerde gerekli olan kritik güncelleştirmeler veya güvenlik güncelleştirmeleri |
+| Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |Kritik güncelleştirmeleri veya gerekli güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |
+| Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |Eksik güncelleştirme paketleri olan tüm bilgisayarlar | 
+| Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler | 
+| Type:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Title, UpdateRunName |Bir güncelleştirme çalıştırmasında güncelleştirmeleri başarısız olan Windows tabanlı sunucu bilgisayarı | 
+| Type:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Product, UpdateRunName |Bir güncelleştirme çalıştırmasında güncelleştirmeleri başarısız olan Linux sunucusu | 
+| Type=UpdateSummary &#124; measure count() by WSUSServer |WSUS bilgisayar üyeliği | 
+| Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |Otomatik güncelleştirme yapılandırması | 
+| Type=UpdateSummary WindowsUpdateSetting=Manual |Otomatik güncelleştirmenin devre dışı olduğu bilgisayarlar | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |Paket güncelleştirmesi mevcut olan tüm Linux makinelerinin listesi | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |Kritik veya Güvenlik türünde güvenlik açığını ele alan paket güncelleştirmesine sahip tüm Linux makinelerinin listesi | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" |Bir güncelleştirmenin kullanılabilir olduğu tüm paketlerin listesi | 
+| Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |Kritik veya Güvenlik türünde güvenlik açığını ele alan güncelleştirmeye sahip tüm paketlerin listesi | 
+| Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |Hangi dağıtımların bilgisayarlarda değişiklik yaptığını gösteren liste | 
+| Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Herhangi bir güncelleştirmenin mevcut olduğu tüm "Ubuntu" makinelerinin listesi | 
 
-## <a name="troubleshooting"></a>Sorun giderme 
+<a id="troubleshooting" class="xliff"></a>
+
+## Sorun giderme
 
 Bu bölümde, Güncelleştirme Yönetimi çözümüyle ilgili sorunları gidermeye yardımcı olacak bilgiler sağlanır.  
 
-### <a name="how-do-i-troubleshoot-update-deployments"></a>Güncelleştirme dağıtımlarının sorunlarını nasıl giderebilirim?
+<a id="how-do-i-troubleshoot-update-deployments" class="xliff"></a>
+
+### Güncelleştirme dağıtımlarının sorunlarını nasıl giderebilirim?
 Bu çözümü destekleyen OMS çalışma alanıyla bağlantı Otomasyon hesabınızın İşler dikey penceresindeki zamanlanmış güncelleştirme dağıtımına dahil olan güncelleştirmeleri dağıtmaktan sorumlu runbook’un sonuçlarını görüntüleyebilirsiniz.  **Patch-MicrosoftOMSComputer** runbook’u, belirli bir yönetilen bilgisayarı hedefleyen bir alt runbook’tur; ayrıntılı Akışın gözden geçirilmesi bu dağıtımla ilgili ayrıntılı bilgileri sağlar.  Çıkışta, hangi gerekli güncelleştirmelerin uygulanabilir olduğu, indirme durumu, yükleme durumu ve ek ayrıntılar gösterilir.<br><br> ![Güncelleştirme Dağıtımı iş durumu](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 Daha fazla bilgi için bkz. [Otomasyon runbook’u çıkışı ve iletileri](../automation/automation-runbook-output-and-messages.md).   
-  
-## <a name="next-steps"></a>Sonraki adımlar
+
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 * Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../log-analytics/log-analytics-log-searches.md)’te Günlük Aramalarını kullanın.
 * Yönetilen bilgisayarlarınızın güncelleştirme uyumluluğunu gösteren [kendi panolarınızı oluşturun](../log-analytics/log-analytics-dashboards.md).
 * Bilgisayardan eksik kritik güncelleştirmeler algılandığında veya bilgisayarda otomatik güncelleştirmeler devre dışı olduğunda [uyarılar oluşturun](../log-analytics/log-analytics-alerts.md).  
-
 

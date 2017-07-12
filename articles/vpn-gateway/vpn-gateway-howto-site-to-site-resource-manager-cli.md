@@ -13,26 +13,28 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 06/01/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7132c83168efcebc9ac03b42afdec9f760e4fcbe
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 43ac7ccada8aa156d41b42839cac0644c061f25c
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>CLI kullanarak Siteden Siteye VPN bağlantısı olan bir sanal ağ oluşturma
+<a id="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli" class="xliff"></a>
+
+# CLI kullanarak Siteden Siteye VPN bağlantısı olan bir sanal ağ oluşturma
 
 Bu makalede, Azure CLI kullanarak şirket içi ağınızdan VNet’e Siteden Siteye VPN ağ geçidi bağlantısı oluşturma işlemi gösterilir. Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:<br>
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Klasik - Azure portalı](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Klasik - klasik portal](vpn-gateway-site-to-site-create.md)
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Azure portal (klasik)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Klasik portal (klasik)](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -41,17 +43,21 @@ Bu makalede, Azure CLI kullanarak şirket içi ağınızdan VNet’e Siteden Sit
 
 Siteden Siteye VPN ağ geçidi bağlantısı, şirket içi ağınızı bir IPsec/IKE (IKEv1 veya IKEv2) tüneli üzerinden Azure sanal ağına bağlamak için kullanılır. Bu bağlantı türü için, şirket içinde yer alan ve kendisine atanmış dışarıya yönelik bir genel IP adresi atanmış olan bir VPN cihazı gerekir. VPN ağ geçitleri hakkında daha fazla bilgi için bkz. [VPN ağ geçidi hakkında](vpn-gateway-about-vpngateways.md).
 
-## <a name="before-you-begin"></a>Başlamadan önce
+<a id="before-you-begin" class="xliff"></a>
+
+## Başlamadan önce
 
 Yapılandırmaya başlamadan önce aşağıdaki ölçütleri karşıladığınızı doğrulayın:
 
-* Resource Manager dağıtım modeliyle çalışmak istediğinizi doğrulayın. [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
+* Resource Manager dağıtım modeliyle çalışmak istediğinizi doğrulayın. [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-rm-include.md)]
 * Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek biri. Uyumlu VPN cihazları ve cihaz yapılandırması hakkında daha fazla bilgi için bkz.[VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md).
 * VPN cihazınız için dışarıya yönelik genel bir IPv4 adresi. Bu IP adresi bir NAT’nin arkasında olamaz.
-* Şirket içi ağ yapılandırmanızda bulunan IP adresi aralıklarıyla ilgili fazla bilginiz yoksa size bu ayrıntıları sağlayabilecek biriyle çalışmanız gerekir. Bu yapılandırmayı oluşturduğunuzda, Azure’un şirket içi konumunuza yönlendireceği IP adres aralığı ön eklerini oluşturmanız gerekir. Şirket içi ağınızın alt ağlarından hiçbiri, bağlanmak istediğiniz sanal ağ alt ağlarıyla çakışamaz. 
+* Şirket içi ağ yapılandırmanızda bulunan IP adresi aralıklarıyla ilgili fazla bilginiz yoksa size bu ayrıntıları sağlayabilecek biriyle çalışmanız gerekir. Bu yapılandırmayı oluşturduğunuzda, Azure’un şirket içi konumunuza yönlendireceği IP adres aralığı ön eklerini oluşturmanız gerekir. Şirket içi ağınızın alt ağlarından hiçbiri, bağlanmak istediğiniz sanal ağ alt ağlarıyla çakışamaz.
 * CLI komutlarının en son sürümü (2.0 veya üzeri). CLI komutlarını yükleme hakkında bilgi için bkz. [Azure CLI 2.0’ı yükleme](/cli/azure/install-azure-cli) ve [Azure CLI 2.0’ı Kullanmaya Başlama](/cli/azure/get-started-with-azure-cli).
 
-### <a name="example-values"></a>Örnek değerler
+<a id="example-values" class="xliff"></a>
+
+### Örnek değerler
 
 Aşağıdaki değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bu değerlere bakabilirsiniz:
 
@@ -67,7 +73,7 @@ Subnet                  = 10.12.0.0/24
 GatewaySubnet           = 10.12.255.0/27 
 LocalNetworkGatewayName = Site2 
 LNG Public IP           = <VPN device IP address>
-LocalAddrPrefix1        = 10.0.0.0/24 
+LocalAddrPrefix1        = 10.0.0.0/24
 LocalAddrPrefix2        = 20.0.0.0/24   
 GatewayName             = VNet1GW 
 PublicIP                = VNet1GWIP 
@@ -80,7 +86,9 @@ ConnectionName          = VNet1toSite2
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## <a name="2-create-a-resource-group"></a>2. Kaynak grubu oluşturma
+<a id="2-create-a-resource-group" class="xliff"></a>
+
+## 2. Kaynak grubu oluşturma
 
 Aşağıdaki örnekte, 'eastus' konumunda 'TestRG1' adlı bir kaynak grubu oluşturulur. VNet’inizi oluşturmak istediğiniz bölgede zaten bir kaynak grubunuz varsa, bunun yerine onu da kullanabilirsiniz.
 
@@ -90,7 +98,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="VNet"></a>3. Sanal ağ oluşturma
 
-Henüz bir sanal ağınız yoksa, [az network vnet create](/cli/azure/network/vnet#create) komutunu kullanarak bir tane oluşturun. Sanal ağ oluştururken, belirlediğiniz adres alanlarının şirket içi ağınızdaki adres alanlarından herhangi biriyle çakışmadığından emin olun. 
+Henüz bir sanal ağınız yoksa, [az network vnet create](/cli/azure/network/vnet#create) komutunu kullanarak bir tane oluşturun. Sanal ağ oluştururken, belirlediğiniz adres alanlarının şirket içi ağınızdaki adres alanlarından herhangi biriyle çakışmadığından emin olun.
 
 Aşağıdaki örnekte, 'TestVNet1' adlı bir sanal ağ ve 'Subnet1' adlı alt ağ oluşturulur.
 
@@ -146,12 +154,12 @@ Aşağıdaki değerleri kullanın:
 
 * Siteden Siteye bir yapılandırma için *--gateway-type* değeri *Vpn* olmalıdır. Ağ geçidi türü her zaman, uygulamakta olduğunuz yapılandırmaya özeldir. Daha fazla bilgi için bkz. [Ağ geçidi türleri](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 * *-vpn-type*, *RouteBased* (bazı belgelerde Dinamik Ağ Geçidi olarak adlandırılır) veya *PolicyBased* (bazı belgelerde Statik Ağ Geçidi olarak adlandırılır) olabilir. Ayar, bağlamakta olduğunuz cihazın gereksinimlerine özgüdür. VPN ağ geçidi türleri hakkında daha fazla bilgi için bkz. [VPN Gateway yapılandırma ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
-* *--sku* değeri Basic, Standard veya HighPerformance olabilir. Bazı SKU’larda yapılandırma sınırlamaları vardır. Daha fazla bilgi için bkz. [Ağ geçidi SKU'ları](vpn-gateway-about-vpngateways.md#gateway-skus).
+* Kullanmak istediğiniz Ağ Geçidi SKU'sunu seçin. Bazı SKU’larda yapılandırma sınırlamaları vardır. Daha fazla bilgi için bkz. [Ağ geçidi SKU'ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create) komutunu kullanarak VPN ağ geçidini oluşturun. Bu komutu '--no-wait' parametresiyle çalıştırırsanız herhangi bir geri bildirim veya çıktı görmezsiniz. Bu parametre, ağ geçidinin arka planda oluşturulmasına olanak tanır. Ağ geçidinin oluşturulması 45 dakika kadar sürebilir.
 
 ```azurecli
-az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
 ## <a name="VPNDevice"></a>8. VPN cihazınızı yapılandırma
@@ -183,19 +191,28 @@ Kısa bir süre içerisinde bağlantı kurulur.
 
 ## <a name="toverify"></a>10. VPN bağlantısını doğrulama
 
-[!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)] 
+[!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 Bağlantınızı doğrulamak için başka bir yöntem kullanmak istiyorsanız, bkz. [VPN Gateway bağlantısını doğrulama](vpn-gateway-verify-connection-resource-manager.md).
 
-## <a name="common-tasks"></a>Genel görevler
+## <a name="connectVM"></a>Sanal makineye bağlanma
+
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+
+<a id="common-tasks" class="xliff"></a>
+
+## Genel görevler
 
 Bu bölüm, siteden siteye yapılandırmalarla çalışırken yararlı olan genel komutları içerir. CLI ağ komutlarının tam listesi için bkz. [Azure CLI - Ağ](/cli/azure/network).
 
-[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)] 
+[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)]
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 *  Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * BGP hakkında bilgi edinmek için [BGP’ye Genel Bakış](vpn-gateway-bgp-overview.md) ve [BGP’yi yapılandırma](vpn-gateway-bgp-resource-manager-ps.md) makalelerine bakın.
 * Zorlamalı tünel hakkında bilgi için bkz. [Zorlamalı tüneli yapılandırma](vpn-gateway-forced-tunneling-rm.md).
 * Ağ Azure CLI komutlarının listesi için bkz. [Azure CLI](https://docs.microsoft.com/cli/azure/network).
+

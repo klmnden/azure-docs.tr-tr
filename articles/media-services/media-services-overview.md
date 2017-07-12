@@ -12,24 +12,29 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 42baa7a6e80468e47dda1e652fc2bbd20e5a4ee6
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="azure-media-services-overview-and-common-scenarios"></a>Azure Media Services’e genel bakış ve sıklıkla karşılaşılan senaryolar
+<a id="azure-media-services-overview-and-common-scenarios" class="xliff"></a>
 
-Microsoft Azure Media Services, geliştiricilerin ölçeklenebilir medya yönetimi ve teslimi uygulamaları oluşturmalarına olanak tanıyan genişletilebilir bir bulut tabanlı platformdur. Media Services, çeşitli istemcilere (TV, PC ve mobil cihazlar gibi) isteğe bağlı olarak veya canlı akış halinde teslim amacıyla video ve ses içeriklerini güvenli bir şekilde yüklemenizi, depolamanızı, kodlamanızı ve paketlemenizi sağlayan REST API’lerini temel alır.
+# Azure Media Services’e genel bakış ve sıklıkla karşılaşılan senaryolar
+
+Microsoft Azure Media Services, geliştiricilerin ölçeklenebilir medya yönetimi ve teslimi uygulamaları oluşturmalarına olanak tanıyan genişletilebilir bir bulut tabanlı platformdur. Media Services, çeşitli istemcilere (TV, PC ve mobil cihazlar gibi) isteğe bağlı olarak veya canlı akış halinde teslim amacıyla video ve ses içeriklerini güvenli bir şekilde yüklemenizi, depolamanızı, kodlamanızı ve paketlemenizi sağlayan REST API'lerini temel alır.
 
 Yalnızca Media Services’i kullanarak uçtan uca iş akışları oluşturabilirsiniz. Ayrıca, iş akışınızın bazı bölümleri için üçüncü taraf bileşenleri kullanmayı da tercih edebilirsiniz. Örneğin, bir üçüncü taraf kodlayıcısı kullanarak kodlayın. Daha sonra Media Services’i kullanarak yükleyin, koruyun, paketleyin ve teslim edin.
 
 İçeriğinizi canlı akışla aktarmayı veya isteğe bağlı teslim etmeyi tercih edebilirsiniz. Bu konuda, içeriğinizin [canlı](media-services-overview.md#live_scenarios) veya [isteğe bağlı](media-services-overview.md#vod_scenarios) teslimiyle ilgili yaygın senaryolar gösterilmektedir. Konu, aynı zamanda ilgili diğer konulara bağlantılar içerir.
 
-## <a name="sdks-and-tools"></a>SDK’lar ve araçlar
+<a id="sdks-and-tools" class="xliff"></a>
+
+## SDK’lar ve araçlar
 
 Media Services çözümleri oluşturmak için şunları kullanabilirsiniz:
 
@@ -51,14 +56,17 @@ Resmi tam boyutlu görüntülemek için tıklayın.
 
 Modelin tamamını [buradan](https://media.windows.net/API/$metadata?api-version=2.15) görüntüleyebilirsiniz.  
 
+<a id="media-services-learning-paths" class="xliff"></a>
 
-## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
+## Media Services’i öğrenme yolları
 AMS öğrenme yollarını burada görebilirsiniz:
 
 * [AMS Canlı Akış İş Akışı](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 * [AMS İsteğe Bağlı Akış İş Akışı](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-## <a name="prerequisites"></a>Önkoşullar
+<a id="prerequisites" class="xliff"></a>
+
+## Önkoşullar
 
 Azure Media Services’i kullanmaya başlamak için aşağıdakilerin bulunması gerekir:
 
@@ -69,12 +77,14 @@ Azure Media Services’i kullanmaya başlamak için aşağıdakilerin bulunması
     Ayrıca, [programlı olarak nasıl bağlanılacağını](media-services-dotnet-connect-programmatically.md) öğrenin.
 4. Standart veya premium akış uç noktası başlatılmış durumda.  Daha fazla bilgi için bkz. [Akış uç noktalarını yönetme](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-manage-streaming-endpoints)
 
-## <a name="concepts-and-overview"></a>Kavramlar ve genel bakış
+<a id="concepts-and-overview" class="xliff"></a>
+
+## Kavramlar ve genel bakış
 Azure Media Services kavramları hakkında bilgi edinmek için bkz. [Kavramlar](media-services-concepts.md).
 
-Azure Media Services ana bileşenlerinin tümünü tanıtan bir dizi nasıl yapılır makalesi için bkz. [Azure Media Services Adım Adım öğreticileri](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Bu makale dizisi, kavramlara çok iyi bir genel bakış sunar ve AMSE aracını kullanarak AMS görevlerini gösterir. AMSE aracının bir Windows aracı olduğunu unutmayın. Bu araç, [.NET için AMS SDK](https://github.com/Azure/azure-sdk-for-media-services), [Java için Azure SDK](https://github.com/Azure/azure-sdk-for-java) veya [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) ile programlama aracılığıyla elde edebileceğiniz görevlerin çoğunu destekler.
+Azure Media Services ana bileşenlerinin tümünü tanıtan bir dizi nasıl yapılır makalesi için bkz. [Azure Media Services Adım Adım öğreticileri](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Bu makale dizisi, kavramlara çok iyi bir genel bakış sunar ve AMSE aracını kullanarak AMS görevlerini gösterir. AMSE aracı bir Windows aracıdır. Bu araç, [.NET için AMS SDK](https://github.com/Azure/azure-sdk-for-media-services), [Java için Azure SDK](https://github.com/Azure/azure-sdk-for-java) veya [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) ile programlama aracılığıyla elde edebileceğiniz görevlerin çoğunu destekler.
 
-## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Azure Media Services ile İsteğe Bağlı Medya Teslimi: yaygın senaryolar ve görevler
+## <a id="vod_scenarios"></a>Azure Media Services ile isteğe bağlı Medya Teslimi: yaygın senaryolar ve görevler
 Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar sağlanmaktadır. Aşağıdaki diyagramda, Media Services platformunun isteğe bağlı içerik tesliminde rol oynayan başlıca parçaları gösterilmektedir.
 
 ![VoD iş akışı](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
@@ -82,7 +92,9 @@ Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar
 >[!NOTE]
 >AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir.
 
-### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Depolama alanında içeriği koruma ve akan medyayı temiz olarak (şifrelenmemiş) teslim etme
+<a id="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted" class="xliff"></a>
+
+### Depolama alanında içeriği koruma ve akan medyayı temiz olarak (şifrelenmemiş) teslim etme
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin.
 
     İçeriğinizi yükleme sırasında ve depolama alanında beklerken korumak için depolama şifrelemesi seçeneğini uygulamanız önerilir.
@@ -95,7 +107,9 @@ Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar
 4. Bir OnDemand bulucu oluşturarak varlığı yayımlayın.
 5. Yayımlanan içeriği akışla aktarın.
 
-### <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Depolama alanında içeriği koruma, dinamik olarak şifrelenmiş akan medya teslim etme
+<a id="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media" class="xliff"></a>
+
+### Depolama alanında içeriği koruma, dinamik olarak şifrelenmiş akan medya teslim etme
 
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin. Varlığa depolama şifrelemesi seçeneğini uygulayın.
 2. Uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın. Çıktı varlığına depolama şifrelemesi seçeneğini uygulayın.
@@ -105,7 +119,9 @@ Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar
 6. Bir OnDemand bulucu oluşturarak varlığı yayımlayın.
 7. Yayımlanan içeriği akışla aktarın.
 
-### <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Medya Analizi kullanarak videolarınızdan eyleme dönüştürülebilir öngörüler türetme
+<a id="use-media-analytics-to-derive-actionable-insights-from-your-videos" class="xliff"></a>
+
+### Medya Analizi kullanarak videolarınızdan eyleme dönüştürülebilir öngörüler türetme
 Medya Analizi, kuruluş ve işletmelerin video dosyalarından eyleme dönüştürülebilir öngörüler türetmesini kolaylaştıran bir grup konuşma ve görme bileşenidir. Daha fazla bilgi için bkz. [Azure Media Services Analizi’ne Genel Bakış](media-services-analytics-overview.md).
 
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin.
@@ -118,7 +134,9 @@ Medya Analizi, kuruluş ve işletmelerin video dosyalarından eyleme dönüştü
    * **Video özetleme** – [Azure Medya Video Küçük Resimleri’ni Kullanarak Bir Video Özeti Oluşturma](media-services-video-summarization.md)
 3. Medya Analizi medya işlemcileri MP4 veya JSON dosyaları üretir. Medya işlemcisi bir MP4 dosyası oluşturduysa dosyayı aşamalı olarak indirebilirsiniz. Medya işlemcisi bir JSON dosyası oluşturduysa dosyayı Azure blob depolamadan indirebilirsiniz.
 
-### <a name="deliver-progressive-download"></a>Aşamalı indirme teslimi
+<a id="deliver-progressive-download" class="xliff"></a>
+
+### Aşamalı indirme teslimi
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin.
 2. Tek bir MP4 dosyasına kodlayın.
 3. Bir OnDemand veya SAS bulucu oluşturarak varlığı yayımlayın.
@@ -126,7 +144,7 @@ Medya Analizi, kuruluş ve işletmelerin video dosyalarından eyleme dönüştü
     SAS Bulucu kullanıyorsanız içerik, Azure blob depolama alanından indirilir. Bu durumda, başlatılmış durumda akış uç noktası gerekli değildir.
 4. Aşamalı olarak içerik indirin.
 
-## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Azure Media Services ile Etkinliklerin Canlı Akış Halinde Teslimi
+## <a id="live_scenarios"></a>Azure Media Services ile etkinliklerin Canlı Akış Halinde teslimi
 Canlı Akış ile çalışırken aşağıdaki bileşenler yaygın olarak kullanılır:
 
 * Etkinliği yayınlamak için kullanılan bir kamera.
@@ -158,45 +176,78 @@ Azure Media Services’de **Kanallar**, **Programlar** ve **Akış Uç Noktalar�
 
 * Şirket içi gerçek zamanlı bir kodlayıcı, Media Services ile şu biçimlerden birinde gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş Kanala tek bit hızlı bir akış gönderir: RTP (MPEG-TS), RTMP veya Kesintisiz Akış (Parçalanmış MP4). Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
 
-### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Şirket içi kodlayıcılardan çoklu bit hızlı canlı akış alan Kanallar ile çalışma (doğrudan geçiş)
+<a id="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through" class="xliff"></a>
+
+### Şirket içi kodlayıcılardan çoklu bit hızlı canlı akış alan kanallar ile çalışma (doğrudan geçiş)
 Aşağıdaki diyagramda, AMS platformunun **doğrudan geçiş** iş akışında rol oynayan başlıca parçaları gösterilmektedir.
 
 ![Canlı iş akışı][live-overview2]
 
 Daha fazla bilgi için bkz. [Şirket İçi Kodlayıcılardan Çoklu Bit Hızlı Canlı Akış Alan Kanallar ile Çalışma](media-services-live-streaming-with-onprem-encoders.md).
 
-### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Azure Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş Kanallar ile çalışma
+<a id="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services" class="xliff"></a>
+
+### Azure Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanallar ile çalışma
 Aşağıdaki diyagramda, AMS platformunun bir Kanalın, Media Services ile kodlama gerçekleştirmek için etkinleştirildiği Canlı Akış iş akışında rol oynayan başlıca parçaları gösterilmektedir.
 
 ![Canlı iş akışı][live-overview1]
 
 Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
 
-## <a name="consuming-content"></a>İçerik kullanma
+<a id="supported-media-processors" class="xliff"></a>
+
+## Desteklenen medya işleyicileri
+
+|Ad|Durum|Veri Merkezleri
+|---|---|---|
+|Azure Media Face Detector|Önizleme|Tümü|
+|Azure Media Hyperlapse|Önizleme|Tümü|
+|Azure Media Indexer|GA|Tümü|
+|Azure Media Motion Detector|Önizleme|Tümü|
+|Azure Media OCR|Önizleme|Tümü|
+|Azure Media Redactor|Önizleme|Tümü|
+|Azure Media Stabilizer|Önizleme|Tümü|
+|Azure Media Video Thumbnails|Önizleme|Tümü|
+|Media Encoder Standard|GA|Tümü|
+|Media Indexer v2|Önizleme|Çin ve Federal Devlet bölgesi dışında tümü|
+|Media Encoder Premium İş Akışı|GA|Çin dışında tümü|
+
+<a id="consuming-content" class="xliff"></a>
+
+## İçerik kullanma
 Azure Media Services, şunlar dahil olmak üzere çoğu platform için zengin ve dinamik istemci oynatıcı uygulamaları oluştururken ihtiyacınız olan araçları sağlar: iOS Cihazları, Android Cihazları, Windows, Windows Phone, Xbox ve Alıcı kutuları. Aşağıdaki konu, Media Services’den akan medyayı kullanabilecek kendi istemci uygulamalarınızı geliştirmek için yararlanabileceğiniz SDK'lar ve Oynatıcı Çerçevelerine bağlantılar sağlar.
 
 [Video Oynatıcı Uygulamaları Geliştirme](media-services-develop-video-players.md)
 
-## <a name="enabling-azure-cdn"></a>Azure CDN'yi etkinleştirme
+<a id="enabling-azure-cdn" class="xliff"></a>
+
+## Azure CDN'yi etkinleştirme
 Media Services, Azure CDN ile tümleştirmeyi destekler. Azure CDN'yi etkinleştirme hakkında daha fazla bilgi için bkz. [Media Services Hesabında Akış Uç Noktalarını Yönetme](media-services-portal-manage-streaming-endpoints.md).
 
-## <a name="scaling-a-media-services-account"></a>Media Services hesabını ölçeklendirme
+<a id="scaling-a-media-services-account" class="xliff"></a>
+
+## Media Services hesabını ölçeklendirme
 
 Hesabınıza sağlanmasını istediğiniz **Akışa Ayrılan Birim** ve **Kodlamaya Ayrılan Birim** sayısını belirterek **Media Services**’i ölçeklendirebilirsiniz.
 
 Media Services hesabınızı, depolama hesapları ekleyerek de ölçeklendirebilirsiniz. Her depolama hesabı 500 TB ile sınırlıdır. Depolama alanınızı varsayılan sınırlamaların ötesine genişletmek için, tek bir Media Services hesabına birden çok depolama hesabı eklemeyi seçebilirsiniz.
-Media Services müşterileri ihtiyaçlarına göre **Standart** bir akış uç noktası veya bir veya daha fazla **Premium** akış uç noktası seçer. Standart Akış Uç Noktası çoğu akış iş yükü için uygundur. Premium Akış Birimleriyle aynı özelliklere sahiptir.
-Standart Akış Uç Noktası çoğu akış iş yükü için uygundur. Gelişmiş iş yükünüz varsa, akış kapasitesi gereksinimleriniz standart akış uç noktası çıkış hedeflerine uymuyorsa veya ölçek birimlerini (premium akış birimleri olarak da bilinir) ayarlayarak, artan bant genişliği ihtiyaçlarını yönetmek amacıyla StreamingEndpoint hizmetinin kapasitesini yönetmek istiyorsanız, ölçek birimleri atamanız önerilir.
+Media Services müşterileri ihtiyaçlarına göre **Standart** bir akış uç noktası veya bir veya daha fazla **Premium** akış uç noktası seçer. Standart Akış Uç Noktası çoğu akış iş yükü için uygundur. Premium Akış Birimleriyle aynı özelliklere sahiptir. Gelişmiş iş yükünüz varsa, akış kapasitesi gereksinimleriniz standart akış uç noktası çıkış hedeflerine uymuyorsa veya ölçek birimlerini (premium akış birimleri olarak da bilinir) ayarlayarak, artan bant genişliği ihtiyaçlarını yönetmek amacıyla StreamingEndpoint hizmetinin kapasitesini yönetmek istiyorsanız, ölçek birimleri atamanız önerilir.
 
 [Bu](media-services-portal-scale-streaming-endpoints.md) konuda, ilgili konulara bağlantılar sağlanmaktadır.
 
-## <a name="support"></a>Destek
+<a id="support" class="xliff"></a>
+
+## Destek
 [Azure Desteği](https://azure.microsoft.com/support/options/), Media Services de dahil olmak üzere Azure için destek seçenekleri sağlar.
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+<a id="provide-feedback" class="xliff"></a>
+
+## Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="service-level-agreement-sla"></a>Hizmet Düzeyi Sözleşmesi (SLA)
+<a id="service-level-agreement-sla" class="xliff"></a>
+
+## Hizmet Düzeyi Sözleşmesi (SLA)
 * Media Services Kodlama için, REST API işlemlerinin %99,9 kullanılabilirliğini garanti ediyoruz.
 * Akış için, standart veya premium akış uç noktası satın alındığında mevcut medya içeriğinin %99,9 kullanılabilirliği garantisi ile isteklere başarıyla hizmet vereceğiz.
 * Canlı Kanallar için, çalışan Kanalların en az %99,9 oranda dış bağlantıya sahip olacağını garanti ediyoruz.

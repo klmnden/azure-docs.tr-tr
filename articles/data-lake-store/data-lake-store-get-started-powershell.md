@@ -1,6 +1,6 @@
 ---
 title: "PowerShell kullanarak Azure Data Lake Store ile çalışmaya başlama | Microsoft Docs"
-description: "Bir Data Lake Store hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure PowerShell&quot;i kullanma"
+description: "Bir Data Lake Store hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure PowerShell'i kullanma"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bdb06783d0ec7db867381504d89e76db179be78d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: f78385e8ce96567f5a1e669ecf4a6c2efce3aaeb
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Azure PowerShell'i kullanarak Azure Data Lake Store ile çalışmaya başlama
+<a id="get-started-with-azure-data-lake-store-using-azure-powershell" class="xliff"></a>
+
+# Azure PowerShell'i kullanarak Azure Data Lake Store ile çalışmaya başlama
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
@@ -37,16 +39,22 @@ ms.lasthandoff: 04/27/2017
 
 Azure Data Lake Store hesabı oluşturma ve klasör oluşturma, veri dosyalarını yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure PowerShell'in nasıl kullanılacağını öğrenin. Data Lake Store hakkında daha fazla bilgi için bkz. [Data Lake Store'a Genel Bakış](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Önkoşullar
+<a id="prerequisites" class="xliff"></a>
+
+## Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 veya üstü**. Bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
 
-## <a name="authentication"></a>Kimlik Doğrulaması
-Bu makalede, Azure hesabı kimlik bilgilerinizi girmenizi isteyen daha basit bir Data Lake Store kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake Store hesabına ve dosya sistemine erişim düzeyi bu durumda oturum açmış kullanıcının erişim düzeyine göre yönetilir. Ancak, Data Lake Store kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** şeklinde diğer yaklaşımlar da mevcuttur. Kimlik doğrulaması hakkında yönergeler ve daha fazla bilgi için bkz. [Azure Active Directory kullanarak Data Lake Store kimlik doğrulaması yapma](data-lake-store-authenticate-using-active-directory.md).
+<a id="authentication" class="xliff"></a>
 
-## <a name="create-an-azure-data-lake-store-account"></a>Azure Data Lake Store hesabı oluşturma
+## Kimlik Doğrulaması
+Bu makalede, Azure hesabı kimlik bilgilerinizi girmenizi isteyen daha basit bir Data Lake Store kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake Store hesabına ve dosya sistemine erişim düzeyi bu durumda oturum açmış kullanıcının erişim düzeyine göre yönetilir. Ancak, Data Lake Store kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** şeklinde diğer yaklaşımlar da mevcuttur. Kimlik doğrulaması gerçekleştirmeyle ilgili yönergeler ve daha fazla bilgi için [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md) veya [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md) bölümlerine göz atın.
+
+<a id="create-an-azure-data-lake-store-account" class="xliff"></a>
+
+## Azure Data Lake Store hesabı oluşturma
 1. Masaüstünüzde yeni bir Windows PowerShell penceresi açın ve Azure hesabınızda oturum açmak, aboneliği ayarlamak ve Data Lake Store sağlayıcısını kaydetmek için aşağıdaki kod parçacığını girin. Oturum açmanız istendiğinde, bir abonelik yöneticisi/sahibi olarak oturum açtığınızdan emin olun.
 
         # Log in to your Azure account
@@ -78,7 +86,9 @@ Bu makalede, Azure hesabı kimlik bilgilerinizi girmenizi isteyen daha basit bir
 
     Bu işlemin çıktısı **True** olmalıdır.
 
-## <a name="create-directory-structures-in-your-azure-data-lake-store"></a>Azure Data Lake Store'unuzda dizin yapıları oluşturma
+<a id="create-directory-structures-in-your-azure-data-lake-store" class="xliff"></a>
+
+## Azure Data Lake Store'unuzda dizin yapıları oluşturma
 Veri depolamak ve yönetmek için Azure Data Lake Store hesabınızın altında dizin oluşturabilirsiniz.
 
 1. Bir kök dizin belirtin.
@@ -95,15 +105,19 @@ Veri depolamak ve yönetmek için Azure Data Lake Store hesabınızın altında 
 
     ![Dizin Doğrulama](./media/data-lake-store-get-started-powershell/ADL.PS.Verify.Dir.Creation.png "Verify Directory")
 
-## <a name="upload-data-to-your-azure-data-lake-store"></a>Azure Data Lake Store'unuza veri yükleme
+<a id="upload-data-to-your-azure-data-lake-store" class="xliff"></a>
+
+## Azure Data Lake Store'unuza veri yükleme
 Verilerinizi Data Lake Store'a doğrudan kök düzeyinde veya hesap içinde oluşturduğunuz bir dizine yüklenecek şekilde yükleyebilirsiniz. Aşağıdaki kod parçacıkları, birtakım örnek verilerin önceki bölümde oluşturduğunuz dizine (**mynewdirectory**) nasıl yükleneceğini göstermektedir.
 
-Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz. Dosyayı indirin ve bilgisayarınız üzerinde C:\sampledata\. gibi yerel bir dizinde depolayın
+Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz. Dosyayı indirin ve bilgisayarınızda C:\sampledata\ gibi yerel bir dizinde depolayın.
 
     Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
 
-## <a name="rename-download-and-delete-data-from-your-data-lake-store"></a>Data Lake Store'unuzda verileri yeniden adlandırma, indirme ve silme
+<a id="rename-download-and-delete-data-from-your-data-lake-store" class="xliff"></a>
+
+## Data Lake Store'unuzda verileri yeniden adlandırma, indirme ve silme
 Bir dosyayı yeniden adlandırmak için aşağıdaki komutu kullanın:
 
     Move-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $myrootdir\mynewdirectory\vehicle1_09142014.csv -Destination $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
@@ -120,14 +134,18 @@ Bir dosyayı silmek için aşağıdaki komutu kullanın:
 
     Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
 
-## <a name="delete-your-azure-data-lake-store-account"></a>Azure Data Lake Store hesabınızı silme
+<a id="delete-your-azure-data-lake-store-account" class="xliff"></a>
+
+## Azure Data Lake Store hesabınızı silme
 Data Lake Store hesabınızı silmek için aşağıdaki komutu kullanın.
 
     Remove-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
 İstendiğinde, hesabı silmek için **Y** yazın.
 
-## <a name="performance-guidance-while-using-powershell"></a>PowerShell’i kullanırken performans rehberi
+<a id="performance-guidance-while-using-powershell" class="xliff"></a>
+
+## PowerShell’i kullanırken performans rehberi
 
 Aşağıda, Data Lake Store ile çalışmak için PowerShell’i kullanırken en iyi performansı elde etmek için ayarlanabilecek en önemli ayarlar sağlanmıştır:
 
@@ -142,7 +160,9 @@ Bu komut, dosya başına 20 iş parçacığı ve 100 eşzamanlı dosya kullanara
 
     Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
-### <a name="how-do-i-determine-the-value-to-set-for-these-parameters"></a>Bu parametreler için ayarlanacak değerleri nasıl belirlerim?
+<a id="how-do-i-determine-the-value-to-set-for-these-parameters" class="xliff"></a>
+
+### Bu parametreler için ayarlanacak değerleri nasıl belirlerim?
 
 Aşağıda kullanabileceğiniz bazı yönergeler verilmiştir.
 
@@ -179,7 +199,9 @@ Aşağıda kullanabileceğiniz bazı yönergeler verilmiştir.
 
     Sonuç olarak **ConcurrentFileCount** değeri **2,4** ve bunu **2**’ye yuvarlayabiliriz.
 
-### <a name="further-tuning"></a>Daha fazla ayar
+<a id="further-tuning" class="xliff"></a>
+
+### Daha fazla ayar
 
 Üzerinde çalışılan dosyaların boyutu çeşitlilik gösterdiğinden daha fazla ayar yapmanız gerekebilir. Dosyaların hepsi veya çoğu 10 GB aralığından büyükse veya bu aralığa daha yakınsa yukarıdaki hesaplama iyi bir sonuç verir. Bunun yerine çoğu dosya küçük olacak şekilde birçok farklı dosya boyutu varsa PerFileThreadCount değerini azaltabilirsiniz. PerFileThreadCount değerini azaltarak ConcurrentFileCount değerini artırabiliriz. Dolayısıyla, dosyalarımızın çoğunun daha küçük (5 GB aralığında) olduğunu varsayarsak hesaplamayı yeniden yapabiliriz:
 
@@ -189,7 +211,9 @@ Bu durumda **ConcurrentFileCount** değeri 96/20 işlemi sonucunda 4.8 olarak bu
 
 Dosya boyutlarınızın dağılımına göre **PerFileThreadCount** değerini artırıp azaltarak bu ayarları değiştirmeye devam edebilirsiniz.
 
-### <a name="limitation"></a>Sınırlama
+<a id="limitation" class="xliff"></a>
+
+### Sınırlama
 
 * **Dosya sayısı ConcurrentFileCount değerinden az**: Karşıya yüklemekte olduğunuz dosyaların sayısı hesapladığınız **ConcurrentFileCount** değerinden azsa **ConcurrentFileCount** değerini dosya sayısına eşit olacak şekilde azaltmanız gerekir. **PerFileThreadCount** değerini artırmak için kalan iş parçacıklarından dilediğinizi kullanabilirsiniz.
 
@@ -199,7 +223,9 @@ Dosya boyutlarınızın dağılımına göre **PerFileThreadCount** değerini ar
 
 * **Azaltma hataları**: Eşzamanlılığınız çok yüksekse azaltma hataları görebilirsiniz. Azaltma hataları görüyorsanız eşzamanlılığı azaltmanız veya bize ulaşmanız gerekir.
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 * [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)

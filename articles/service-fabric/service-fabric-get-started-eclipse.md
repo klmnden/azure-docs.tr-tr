@@ -12,20 +12,25 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 06/29/2016
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 6f0f6d6399d53ae2ef81454e4d686e6cc59151c2
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/30/2017
 
 
 ---
 
-# <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java uygulama geliştirmesi için Service Fabric eklentisi
+<a id="service-fabric-plug-in-for-eclipse-java-application-development" class="xliff"></a>
+
+# Eclipse Java uygulama geliştirmesi için Service Fabric eklentisi
 Eclipse, Java geliştiricileri için en yaygın kullanılan tümleşik geliştirme ortamlarından (IDE’ler) biridir. Bu makalede, Azure Service Fabric ile çalışmak için Eclipse geliştirme ortamınızı ayarlama işlemi ele alınmaktadır. Service Fabric eklentisini kurma, Service fabric uygulamaları oluşturup Service Fabric uygulamanızı yerel veya Eclipse Neon’daki uzak bir Service Fabric kümesine dağıtma hakkında bilgi edinin yardımcı olur.
 
-## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>Eclipse Neon’da Service Fabric eklentisi yükleme veya güncelleştirme
+<a id="install-or-update-the-service-fabric-plug-in-in-eclipse-neon" class="xliff"></a>
+
+## Eclipse Neon’da Service Fabric eklentisi yükleme veya güncelleştirme
 Eclipse'te Service Fabric eklentisi yükleyebilirsiniz. Eklenti, Java hizmetleri oluşturup dağıtma işlemini kolaylaştırmaya yardımcı olur.
 
 1.  En son Eclipse Neon sürümüne sahip olduğunuzdan ve en son Buildship sürümünün (1.0.17 veya sonraki bir sürüm) yüklü olduğundan emin olun:
@@ -34,18 +39,21 @@ Eclipse'te Service Fabric eklentisi yükleyebilirsiniz. Eklenti, Java hizmetleri
     -   Eclipse Neon güncelleştirmelerini denetleyip yüklemek için **Yardım** > **Güncelleştirmeleri Denetle** menüsüne gidin.
 
 2.  Service Fabric eklentisini yüklemek için, Eclipse Neon’da **Yardım** > **Yeni Yazılım Yükle**’ye gidin.
-  1.    **Birlikte çalış** kutusuna **http://dl.windowsazure.com/eclipse/servicefabric** girin.
+  1.    **Birlikte çalışın** kutusuna şunu girin: **http://dl.microsoft.com/eclipse**.
   2.    **Ekle**'ye tıklayın.
-    ![Eclipse Neon için Service Fabric eklentisi][sf-eclipse-plugin-install]
+
+         ![Eclipse Neon için Service Fabric eklentisi][sf-eclipse-plugin-install]
   3.    Service Fabric eklentisini seçip **İleri**’ye tıklayın.
   4.    Yükleme adımlarını tamamlayın ve ardından Microsoft Yazılım Lisans Koşulları’nı kabul edin.
 
 Service Fabric eklentisi zaten yüklüyse, en yeni sürümü kullandığınızdan emin olun. Kullanılabilir güncelleştirmeleri denetlemek için **Yardım** > **Yükleme Ayrıntıları**’na gidin. Yüklü eklentiler listesinde Service Fabric’i seçip **Güncelleştir**’e tıklayın. Kullanılabilir güncelleştirmeler yüklenir.
 
 > [!NOTE]
-> Service Fabric eklentisi yavaş yükleniyor veya güncelleştiriliyorsa, bunun nedeni bir Eclipse ayarı olabilir. Eclipse, Eclipse örneğinize kaydedilmiş siteleri güncelleştirmek üzere tüm değişikliklere ait meta verileri toplar. Bir Service Fabric eklenti güncelleştirmesini denetleme ve yükleme işlemini hızlandırmak için **Kullanılabilir Yazılım Siteleri** bölümüne gidin. Service Fabric eklenti konumunu (http://dl.windowsazure.com/eclipse/servicefabric) işaret eden site dışındaki tüm sitelerin onay kutularını temizleyin.
+> Service Fabric eklentisi yavaş yükleniyor veya güncelleştiriliyorsa, bunun nedeni bir Eclipse ayarı olabilir. Eclipse, Eclipse örneğinize kaydedilmiş siteleri güncelleştirmek üzere tüm değişikliklere ait meta verileri toplar. Bir Service Fabric eklenti güncelleştirmesini denetleme ve yükleme işlemini hızlandırmak için **Kullanılabilir Yazılım Siteleri** bölümüne gidin. Service Fabric eklenti konumunu (http://dl.microsoft.com/eclipse/azure/servicefabric) işaret eden site dışındaki tüm sitelerin onay kutularını temizleyin.
 
-## <a name="create-a-service-fabric-application-in-eclipse"></a>Eclipse’te Service Fabric uygulaması oluşturma
+<a id="create-a-service-fabric-application-in-eclipse" class="xliff"></a>
+
+## Eclipse’te Service Fabric uygulaması oluşturma
 
 1.  Eclipse Neon’da **Dosya** > **Yeni** > **Diğer** öğesine gidin. **Service Fabric Projesi**’ni seçip **İleri**’ye tıklayın.
 
@@ -71,7 +79,9 @@ Service Fabric eklentisi zaten yüklüyse, en yeni sürümü kullandığınızda
 
     ![Service Fabric Yeni Proje sayfa 6][create-application/p6]
 
-## <a name="build-and-deploy-a-service-fabric-application-in-eclipse"></a>Eclips’te Service Fabric uygulaması derleme ve dağıtma
+<a id="build-and-deploy-a-service-fabric-application-in-eclipse" class="xliff"></a>
+
+## Eclips’te Service Fabric uygulaması derleme ve dağıtma
 
 1.  Yeni Service Fabric uygulamanıza sağ tıklayın ve ardından **Service Fabric**’i seçin.
 
@@ -103,7 +113,9 @@ Service Fabric uygulamanızı dağıtmanın alternatif bir yolu, Eclipse çalı�
 
 Uygulamanız birkaç dakika içinde derlenip dağıtılır. Dağıtım durumunu Service Fabric Explorer’dan izleyebilirsiniz.  
 
-## <a name="add-a-service-fabric-service-to-your-service-fabric-application"></a>Service Fabric uygulamanıza Service Fabric hizmeti ekleme
+<a id="add-a-service-fabric-service-to-your-service-fabric-application" class="xliff"></a>
+
+## Service Fabric uygulamanıza Service Fabric hizmeti ekleme
 
 Var olan bir Service Fabric uygulamasına Service Fabric hizmeti eklemek için aşağıdaki adımları uygulayın:
 
@@ -124,7 +136,17 @@ Var olan bir Service Fabric uygulamasına Service Fabric hizmeti eklemek için a
 
     ![Service Fabric Hizmet Ekleme sayfa 4][add-service/p4]
 
-## <a name="upgrade-your-service-fabric-java-application"></a>Service Fabric Java uygulamanızı yükseltme
+<a id="edit-manifest-versions-of-your-service-fabric-java-application" class="xliff"></a>
+
+## Service Fabric Java uygulamanızın Bildirim sürümlerini düzenleme
+
+Bildirim sürümlerini düzenlemek için projeye sağ tıklayın, **Service Fabric**'e gidin ve açılan menüden **Bildirim Sürümlerini Düzenle...** seçeneğini belirleyin. Sihirbazda uygulama bildiriminin ve hizmet bildiriminin yanı sıra **Kod**, **Yapılandırma** ve **Veriler** adlı paketlere ilişkin sürümlere yönelik bildirim sürümlerini güncelleştirebilirsiniz.
+
+**Uygulama ve hizmet sürümlerini otomatik olarak güncelleştir** seçeneğini işaretler ve ardından bir sürümü güncelleştirirseniz bildirim sürümleri de otomatik olarak güncelleştirilir. Örneğin, onay kutusunu işaretleyip **Kod** sürümünü 0.0.0'dan 0.0.1'e güncelleştirir ve ardından **Son**'a tıklarsanız hizmet bildirim sürümü ve uygulama bildirim sürümü otomatik olarak 0.0.1'e güncelleştirilir.
+
+<a id="upgrade-your-service-fabric-java-application" class="xliff"></a>
+
+## Service Fabric Java uygulamanızı yükseltme
 
 Bir yükseltme senaryosu için, Eclips’te Service Fabric eklentisini kullanarak **App1** projesini oluşturduğunuzu varsayalım. **fabric:/App1Application** adlı bir uygulama oluşturmak için eklentiyi kullanarak projeyi dağıttınız. Uygulama türü **App1AppicationType**, uygulama sürümü ise 1.0’dır. Şimdi de uygulamanızı kesinti olmadan yükseltmek istiyorsunuz.
 
@@ -142,7 +164,7 @@ Uygulama yükseltmesi birkaç dakika sürer. Uygulama yükseltme işlemini Servi
 
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png

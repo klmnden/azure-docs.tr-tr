@@ -6,25 +6,31 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: b4d2819f51506651ebeb5b7b7c2d016c0cfc154d
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 663041285f7b64a8f38ace91bcb3673f46c1218a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="quick-start-azure-ad-self-service-password-reset"></a>Hızlı Başlangıç: Azure AD self servis parola sıfırlama
+<a id="quick-start-azure-ad-self-service-password-reset" class="xliff"></a>
 
-## <a name="rapidly-deploy-self-service-password-reset"></a>Self servis parola sıfırlamayı hızlıca dağıtma
+# Hızlı Başlangıç: Azure AD self servis parola sıfırlama
+
+<a id="rapidly-deploy-self-service-password-reset" class="xliff"></a>
+
+## Self servis parola sıfırlamayı hızlıca dağıtma
 
 Self servis parola sıfırlama (SSPR), BT uzmanlarının kullanıcılara parolalarını veya hesaplarını sıfırlama ya da bunların kilidini açma yetkisi vermesi için basit bir yol sunar. Sistem, kullanıcıların sistemi kullanması sırasında kötüye kullanım veya uygunsuz kullanım konusunda uyaran bildirimlerle birlikte izlemeye yönelik ayrıntılı raporlama içerir.
 
@@ -63,19 +69,25 @@ Bu kılavuz, çalışan bir deneme sürümü ya da lisanslı bir Azure AD kirac�
 > [!NOTE]
 > Microsoft, Azure yönetici hesapları için güçlü kimlik doğrulama gereksinimleri uyguladığından, SSPR özelliğini yönetici olmayan bir kullanıcıyla test edin. Yönetici parolası ilkesiyle ilgili daha fazla bilgi için [parola ilkesi makalemize](active-directory-passwords-policy.md#administrator-password-policy-differences) bakın.
 
-## <a name="configure-synchronization-to-existing-identity-source"></a>Var olan kimlik kaynağına eşitlemeyi yapılandırma
+<a id="configure-synchronization-to-existing-identity-source" class="xliff"></a>
+
+## Var olan kimlik kaynağına eşitlemeyi yapılandırma
 
 Azure AD ile şirket içi kimlik eşitlemesini etkinleştirmek için [Azure AD Connect](./connect/active-directory-aadconnect.md)’i kuruluşunuzdaki bir sunucuya yükleyip yapılandırmanız gerekir. Bu uygulama, var olan kimlik kaynağınızdan Azure AD etki alanınıza kullanıcı ve grupları eşitleme işlemini gerçekleştirir.
 
-[Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama](./connect/active-directory-aadconnect-get-started-express.md)
+* [DirSync veya Azure AD Eşitleme’den Azure AD Connect’e yükseltme](./connect/active-directory-aadconnect-dirsync-deprecated.md)
+* [Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama](./connect/active-directory-aadconnect-get-started-express.md)
+* Azure AD'deki izinleri şirket içi dizininize geri yazmak için [parola geri yazmayı yapılandırın](active-directory-passwords-writeback.md#configuring-password-writeback).
 
-[DirSync veya Azure AD Eşitleme’den Azure AD Connect’e yükseltme](./connect/active-directory-aadconnect-dirsync-deprecated.md)
+<a id="disabling-self-service-password-reset" class="xliff"></a>
 
-## <a name="disabling-self-service-password-reset"></a>Self servis parola sıfırlamayı devre dışı bırakma
+## Self servis parola sıfırlamayı devre dışı bırakma
 
 Self servis parola sıfırlama özelliğini devre dışı bırakmak için Azure AD kiracınızı açıp **Parola Sıfırlama**, **Özellikler** menüsüne gidin ve **Self Servis Parola Sıfırlama Etkinleştirildi** altından **Hiç Kimse**’yi seçin
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek bilgiler sağlar
 
 * [**Lisanslama**](active-directory-passwords-licensing.md) - Azure AD Lisanslarınızı yapılandırın

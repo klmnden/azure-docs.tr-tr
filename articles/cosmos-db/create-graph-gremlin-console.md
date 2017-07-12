@@ -1,37 +1,40 @@
 ---
-title: "Azure Cosmos DB öğreticisi: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma | Microsoft Docs"
+title: "Azure Cosmos DB öğreticisi: Apache TinkerPop tarafından kullanıma sunulan Gremlin Console&quot;da oluşturma, sorgulama ve çapraz geçiş yapma | Microsoft Docs"
 description: "Azure Cosmos DB Graph API’sini kullanarak köşe, kenar ve sorgu oluşturmaya yönelik Azure Cosmos DB hızlı başlangıcı."
-services: cosmosdb
+services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/10/2017
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fb27ba1a70959ba92fbd021e9e42438081000e45
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 44972270a13f5ab5b3aa22557b36e80ae406a4a6
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/13/2017
 
 ---
-# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma
+<a id="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console" class="xliff"></a>
+
+# Azure Cosmos DB: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Cosmos DB hesabını, veritabanını ve grafiği (kapsayıcı) oluşturma ve [Gremlin konsolu](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)’nu kullanarak Grafik API’si (önizleme) verileri ile çalışma işlemi anlatılmaktadır. Bu öğreticide köşe ve kenarlar oluşturup sorgulayacak, bir köşe özelliğini güncelleştirecek, köşeleri sorgulayacak, grafiğin çapraz geçişini yapacak ve bir köşeyi bırakacaksınız.
+Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Cosmos DB hesabı, veritabanı ve grafik (kapsayıcı) oluşturma işlemi ve [Apache TinkerPop](http://tinkerpop.apache.org) tarafından kullanıma sunulan [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)'u kullanarak Grafik API'si (önizleme) verileri ile çalışma işlemi anlatılmaktadır. Bu öğreticide köşe ve kenarlar oluşturup sorgulayacak, bir köşe özelliğini güncelleştirecek, köşeleri sorgulayacak, grafiğin çapraz geçişini yapacak ve bir köşeyi bırakacaksınız.
 
 ![Apache Gremlin konsolunda Azure Cosmos DB](./media/create-graph-gremlin-console/gremlin-console.png)
 
 Gremlin konsolu, Groovy/Java tabanlıdır ve Linux, Mac ve Windows üzerinde çalışır. Konsolu [Apache TinkerPop sitesinden](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.4/apache-tinkerpop-gremlin-console-3.2.4-bin.zip) indirebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
 
 Bu hızlı başlangıca yönelik bir Azure Cosmos DB hesabı oluşturmak için Azure aboneliğinizin olması gerekir.
 
@@ -39,13 +42,17 @@ Bu hızlı başlangıca yönelik bir Azure Cosmos DB hesabı oluşturmak için A
 
 Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3.2.4 veya daha yüksek bir sürüm kullanın.
 
-## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
+<a id="create-a-database-account" class="xliff"></a>
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+## Veritabanı hesabı oluşturma
 
-## <a name="add-a-graph"></a>Grafik ekleme
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
+<a id="add-a-graph" class="xliff"></a>
+
+## Grafik ekleme
+
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Uygulama hizmetinize bağlanma
 1. Gremlin Konsolu’nu başlatmadan önce *apache-tinkerpop-gremlin-console-3.2.4/conf* dizininde *remote-secure.yaml* yapılandırma dosyasını oluşturun veya değiştirin.
@@ -65,56 +72,88 @@ Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3
 
 Harika! Kurulumu tamamladığımıza göre, bazı konsol komutlarını çalıştırmaya başlayalım.
 
-## <a name="create-vertices-and-edges"></a>Köşe ve kenar oluşturma
+Basit bir count() komutunu deneyelim. İstendiğinde konsola aşağıdakileri yazın:
+```
+:> g.V().count()
+```
 
-İlk olarak *Thomas*, *Mary Kay*, *Robin* ve *Ben* için dört kişi köşesi ekleyelim.
+> [!TIP]
+> ***:>*** öğesinin g.V().count() text? öğesinden önce yazıldığına dikkat edin 
+>
+> Bu yazmanız gereken komutun bir parçasıdır. Gremlin Console ile Azure Cosmos DB birlikte kullanıldığında bu kısım önemlidir.  
+>
+> Bu :> ön ekini attığınızda konsola, komutu yerel olarak (genellikle bellek içi bir grafikte) yürütmesini söylemiş olursunuz.
+> ***:>*** ön ekini kullandığınızda, bu örnekte Cosmos DB'de (localhost öykünücüsü veya bir > Azure örneği) olmak üzere, konsola uzaktan komut yürütmesini söylemiş olursunuz.
+
+
+<a id="create-vertices-and-edges" class="xliff"></a>
+
+## Köşe ve kenar oluşturma
+
+İlk olarak *Thomas*, *Mary Kay*, *Robin*, *Ben* ve *Jack* için beş kişi köşesi ekleyelim.
 
 Giriş (Thomas):
 
 ```
-:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
+:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
 ```
 
 Çıktı:
 
 ```
-==>[id:1eb91f79-94d7-4fd4-b026-18f707952f21,label:person,type:vertex,properties:[firstName:[[id:ec5fcfbe-040e-48c3-b961-31233c8b1801,value:Thomas]],lastName:[[id:86e5b580-0bca-4bc2-bc53-a46f92c1a182,value:Andersen]],age:[[id:2caeab3c-c66d-4098-b673-40a8101bb72a,value:44]]]]
+==>[id:796cdccc-2acd-4e58-a324-91d6f6f5ed6d,label:person,type:vertex,properties:[firstName:[[id:f02a749f-b67c-4016-850e-910242d68953,value:Thomas]],lastName:[[id:f5fa3126-8818-4fda-88b0-9bb55145ce5c,value:Andersen]],age:[[id:f6390f9c-e563-433e-acbf-25627628016e,value:44]],userid:[[id:796cdccc-2acd-4e58-a324-91d6f6f5ed6d|userid,value:1]]]]
 ```
 Giriş (Mary Kay):
 
 ```
-:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39)
+:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+
 ```
 
 Çıktı:
 
 ```
-==>[id:899a9d37-6701-48fc-b0a1-90950be7e0f4,label:person,type:vertex,properties:[firstName:[[id:c79c5599-8646-47d1-9a49-3456200518ce,value:Mary Kay]],lastName:[[id:c1362095-9dcc-479d-ab21-86c1b6d4ffc1,value:Andersen]],age:[[id:0b530408-bfae-4e8f-98ad-c160cd6e6a8f,value:39]]]]
+==>[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e,label:person,type:vertex,properties:[firstName:[[id:ea0604f8-14ee-4513-a48a-1734a1f28dc0,value:Mary Kay]],lastName:[[id:86d3bba5-fd60-4856-9396-c195ef7d7f4b,value:Andersen]],age:[[id:bc81b78d-30c4-4e03-8f40-50f72eb5f6da,value:39]],userid:[[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e|userid,value:2]]]]
+
 ```
 
 Giriş (Robin):
 
 ```
-:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield')
+:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
 ```
 
 Çıktı:
 
 ```
-==>[id:953aefd9-5a54-4033-9b3a-d4dc3049f720,label:person,type:vertex,properties:[firstName:[[id:bbda02e0-8a96-4ca1-943e-621acbb26824,value:Robin]],lastName:[[id:f0291ad3-05a3-40ec-aabb-6538a7c331e3,value:Wakefield]]]]
+==>[id:8dc14d6a-8683-4a54-8d74-7eef1fb43a3e,label:person,type:vertex,properties:[firstName:[[id:ec65f078-7a43-4cbe-bc06-e50f2640dc4e,value:Robin]],lastName:[[id:a3937d07-0e88-45d3-a442-26fcdfb042ce,value:Wakefield]],userid:[[id:8dc14d6a-8683-4a54-8d74-7eef1fb43a3e|userid,value:3]]]]
 ```
 
 Giriş (Ben):
 
 ```
-:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller')
+:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+
 ```
 
 Çıktı:
 
 ```
-==>[id:81c891d9-beca-4c87-9009-13a826c9ed9a,label:person,type:vertex,properties:[firstName:[[id:3a3b53d3-888c-46da-bb54-1c42194b1e18,value:Ben]],lastName:[[id:48c6dd50-79c4-4585-ab71-3bf998061958,value:Miller]]]]
+==>[id:ee86b670-4d24-4966-9a39-30529284b66f,label:person,type:vertex,properties:[firstName:[[id:a632469b-30fc-4157-840c-b80260871e9a,value:Ben]],lastName:[[id:4a08d307-0719-47c6-84ae-1b0b06630928,value:Miller]],userid:[[id:ee86b670-4d24-4966-9a39-30529284b66f|userid,value:4]]]]
 ```
+
+Giriş (Jack):
+
+```
+:> g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+```
+
+Çıktı:
+
+```
+==>[id:4c835f2a-ea5b-43bb-9b6b-215488ad8469,label:person,type:vertex,properties:[firstName:[[id:4250824e-4b72-417f-af98-8034aa15559f,value:Jack]],lastName:[[id:44c1d5e1-a831-480a-bf94-5167d133549e,value:Connor]],userid:[[id:4c835f2a-ea5b-43bb-9b6b-215488ad8469|userid,value:5]]]]
+```
+
 
 Ardından, kişilerimiz arasındaki ilişkiler için kenarlar ekleyelim.
 
@@ -154,7 +193,9 @@ Giriş (Robin -> Ben):
 ==>[id:889c4d3c-549e-4d35-bc21-a3d1bfa11e00,label:knows,type:edge,inVLabel:person,outVLabel:person,inV:40fd641d-546e-412a-abcc-58fe53891aab,outV:3e324073-ccfc-4ae1-8675-d450858ca116]
 ```
 
-## <a name="update-a-vertex"></a>Köşe güncelleştirme
+<a id="update-a-vertex" class="xliff"></a>
+
+## Köşe güncelleştirme
 
 *Thomas* köşesini yeni yaşı olan *45* ile güncelleştirelim.
 
@@ -168,7 +209,9 @@ Giriş:
 ==>[id:ae36f938-210e-445a-92df-519f2b64c8ec,label:person,type:vertex,properties:[firstName:[[id:872090b6-6a77-456a-9a55-a59141d4ebc2,value:Thomas]],lastName:[[id:7ee7a39a-a414-4127-89b4-870bc4ef99f3,value:Andersen]],age:[[id:a2a75d5a-ae70-4095-806d-a35abcbfe71d,value:45]]]]
 ```
 
-## <a name="query-your-graph"></a>Grafiğinizi sorgulama
+<a id="query-your-graph" class="xliff"></a>
+
+## Grafiğinizi sorgulama
 
 Şimdi de grafiğinize karşı çeşitli sorgular çalıştıralım.
 
@@ -200,7 +243,9 @@ Giriş (filtre + planlama sorgusu):
 ==>Thomas
 ```
 
-## <a name="traverse-your-graph"></a>Grafiğinizi çapraz geçirme
+<a id="traverse-your-graph" class="xliff"></a>
+
+## Grafiğinizi çapraz geçirme
 
 Şimdi grafiği Thomas'ın tüm arkadaşlarını döndürecek şekilde geçirelim.
 
@@ -230,40 +275,51 @@ Giriş (Thomas’ın arkadaşlarının arkadaşları):
 ==>[id:a801a0cb-ee85-44ee-a502-271685ef212e,label:person,type:vertex,properties:[firstName:[[id:b9489902-d29a-4673-8c09-c2b3fe7f8b94,value:Ben]],lastName:[[id:e084f933-9a4b-4dbc-8273-f0171265cf1d,value:Miller]]]]
 ```
 
-## <a name="drop-a-vertex"></a>Köşe bırakma
+<a id="drop-a-vertex" class="xliff"></a>
+
+## Köşe bırakma
 
 Şimdi de grafik veritabanından bir köşeyi silelim.
 
-Giriş (Robin köşesini bırak):
+Giriş (Jack köşesini bırakın):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Robin').drop()
+:> g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
-## <a name="clear-your-graph"></a>Grafiğinizi temizleme
+<a id="clear-your-graph" class="xliff"></a>
+
+## Grafiğinizi temizleme
 
 Son olarak, veritabanındaki tüm köşe ve kenarları temizleyelim.
 
 Giriş:
 
 ```
+:> g.E().drop()
 :> g.V().drop()
 ```
 
 Tebrikler! Bu Azure Cosmos DB: Grafik API’si öğreticisini tamamladınız!
 
-## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
+<a id="review-slas-in-the-azure-portal" class="xliff"></a>
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+## Azure portalında SLA'ları gözden geçirme
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+
+<a id="clean-up-resources" class="xliff"></a>
+
+## Kaynakları temizleme
 
 Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin:  
 
 1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
 2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 Bu hızlı başlangıçta bir Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini’ni kullanarak grafik oluşturmayı, köşe ve kenar oluşturmayı ve Gremlin konsolunu kullanarak grafiğinizi çapraz geçirmeyi öğrendiniz. Artık daha karmaşık sorgular derleyebilir ve Gremlin kullanarak güçlü grafik geçişi mantığını kullanabilirsiniz. 
 

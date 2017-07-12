@@ -13,17 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/05/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki denetim etkinliği raporları 
+<a id="audit-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a>
+
+# Azure Active Directory portalındaki denetim etkinliği raporları 
 
 Azure Active Directory’deki (Azure AD) raporlama özelliğiyle ortamınızın nasıl çalıştığını belirlemek için gereken bilgileri alabilirsiniz.
 
@@ -38,9 +40,17 @@ Azure AD'nin raporlama mimarisi aşağıdaki bileşenlerden oluşur:
 
 Bu konu başlığı denetim etkinliklerine genel bakış sunmaktadır.
  
+<a id="who-can-access-the-data" class="xliff"></a>
+
+## Verilere kimler erişebilir?
+* Güvenlik Yöneticisi veya Güvenlik Okuyucusu rolündeki kullanıcılar
+* Genel Yöneticiler
+* Bireysel kullanıcılar (yönetici olmayanlar) kendi etkinliklerini görebilir
 
 
-## <a name="audit-logs"></a>Denetim günlükleri
+<a id="audit-logs" class="xliff"></a>
+
+## Denetim günlükleri
 
 Azure Active Directory'deki denetim günlükleri uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar.  
 Tüm denetim verilerine ilk giriş noktanız, **Azure Active Directory**’nin **Etkinlik** bölümünde bulunan **Denetim günlükleri** kısmıdır.
@@ -70,7 +80,9 @@ Liste görünümündeki bir öğeye tıklayarak bu öğe hakkında mevcut olan t
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/22.png "Denetim günlükleri")
 
 
-## <a name="filtering-audit-logs"></a>Denetim günlüklerini filtreleme
+<a id="filtering-audit-logs" class="xliff"></a>
+
+## Denetim günlüklerini filtreleme
 
 Raporlanan verileri istediğiniz düzeye gelecek şekilde daraltmak için, aşağıdaki alanları kullanarak denetim verilerini filtreleyebilirsiniz:
 
@@ -102,10 +114,11 @@ Olası değerler şunlardır:
 - Çekirdek dizin
 - Self servis parola yönetimi
 - Self servis grup yönetimi
-- Hesap sağlama
-- Otomatik parola geçişi
-- Davet edilen kullanıcılar
+- Hesap sağlama - Otomatik parola geçişi
+- Davetli kullanıcılar
 - MIM hizmeti
+- Kimlik Koruması
+- B2C
 
 **Etkinlik kaynağı türü** filtresi, aşağıdaki filtrelerden birini seçmenize imkan tanır:
 
@@ -124,161 +137,23 @@ Olası değerler şunlardır:
 - O365
 
 
-
-
 **Etkinlik** filtresi, yaptığınız kategori ve Etkinlik kaynağı türü seçimine bağlıdır. Görmek istediğiniz belirli bir etkinliği ya da tüm etkinlikleri seçebilirsiniz. 
 
-| Etkinlik Kategorisi| Etkinlik Kaynağı Türü| Etkinlik |
-| :-- | :-: | :-- |
-| Çekirdek Dizin| Grup| Grup Ayarlarını Silme|
-| Çekirdek Dizin| Dizin| Güncelleme Etki Alanı|
-| Çekirdek Dizin| Dizin| İş Ortağını Şirketten Kaldırma|
-| Çekirdek Dizin| Kullanıcı| Rolü Güncelleştirme|
-| Çekirdek Dizin| Kullanıcı| Şablondan Rol Ekleme|
-| Çekirdek Dizin| Grup| Gruba Uygulama Rolü Ataması Ekleme|
-| Çekirdek Dizin| Grup| Kullanıcılara Grup Tabanlı Lisans Uygulamaya Başlama|
-| Çekirdek Dizin| Uygulama| Hizmet Sorumlusu Ekleme|
-| Çekirdek Dizin| İlke| İlkeyi Güncelleştirme|
-| Çekirdek Dizin| İlke| Hizmet Sorumlusuna İlke Ekleme|
-| Çekirdek Dizin| Cihaz| Cihaza Kayıtlı Sahip Ekleme|
-| Çekirdek Dizin| Cihaz| Cihaza Kayıtlı Kullanıcılar Ekleme|
-| Çekirdek Dizin| Cihaz| Cihaz Yapılandırmasını Güncelleştirme|
-| Self Servis Parola Yönetimi| Kullanıcı| Parola Sıfırlama (Self Servis)|
-| Self Servis Parola Yönetimi| Kullanıcı| Kullanıcı Hesabının Kilidini Açma (Self Servis)|
-| Self Servis Parola Yönetimi| Kullanıcı| Parola Sıfırlama (Yönetici Tarafından)|
-| Self Servis Grup Yönetimi| Grup| Onay Bekleyen Bir Gruba Katılma İsteğini Silme|
-| Hesap Sağlama| Uygulama| Emanet İşleme|
-| Otomatik Parola Geçişi| Uygulama| Otomatik Parola Geçişi|
-| Davetli Kullanıcılar| Diğer| İşlenen Toplu Davetler|
-| Çekirdek Dizin| Dizin| Doğrulanmamış Etki Alanını Kaldırma|
-| Çekirdek Dizin| Dizin| Doğrulanmamış Etki Alanı Ekleme|
-| Çekirdek Dizin| Dizin| Doğrulanmış Etki Alanı Ekleme|
-| Çekirdek Dizin| Dizin| Kiracıda Dizin Özelliğini Ayarlama|
-| Çekirdek Dizin| Dizin| Dirsyncenabled Bayrağını Ayarlama|
-| Çekirdek Dizin| Dizin| Şirket Ayarları Oluşturma|
-| Çekirdek Dizin| Dizin| Şirket Ayarlarını Güncelleştirme|
-| Çekirdek Dizin| Dizin| Şirket Ayarlarını Silme|
-| Çekirdek Dizin| Dizin| Şirket Tarafından İzin Verilen Veri Konumunu Ayarlama|
-| Çekirdek Dizin| Dizin| Şirket Çok Uluslu Özelliğini Etkin Olarak Ayarlama|
-| Çekirdek Dizin| Kullanıcı| Kullanıcıyı Güncelleştirme|
-| Çekirdek Dizin| Kullanıcı| Kullanıcıyı Silme|
-| Çekirdek Dizin| Grup| Gruptan Üye Kaldırma|
-| Çekirdek Dizin| Grup| Grup Lisansı Ayarlama|
-| Çekirdek Dizin| Grup| Grup Ayarlarını Oluşturma|
-| Çekirdek Dizin| Uygulama| Hizmet Sorumlusunu Güncelleştirme|
-| Çekirdek Dizin| Uygulama| Uygulamayı Silme|
-| Çekirdek Dizin| Uygulama| Uygulamayı Güncelleştirme|
-| Çekirdek Dizin| Uygulama| Hizmet Sorumlusunu Kaldırma|
-| Çekirdek Dizin| Uygulama| Hizmet Sorumlusu Kimlik Bilgileri Ekleme|
-| Çekirdek Dizin| Uygulama| Hizmet Sorumlusundan Uygulama Rol Atamasını Kaldırma|
-| Çekirdek Dizin| Uygulama| Sahibi Uygulamadan Kaldırma|
-| Çekirdek Dizin| Cihaz| Kayıtlı Sahibi Cihazdan Kaldırma|
-| Self Servis Parola Yönetimi| Kullanıcı| Self Servis Parola Sıfırlama Akış Etkinliği İlerleme Durumu|
-| Hesap Sağlama| Uygulama| Yönetim|
-| Hesap Sağlama| Uygulama| Dizin İşlemi|
-| MIM Hizmeti| Grup| Üye Kaldırma|
-| Çekirdek Dizin| İlke| İlke Silme|
-| Davetli Kullanıcılar| Kullanıcı| Virüslü Kiracı Oluşturma|
-| Çekirdek Dizin| Dizin| Dış Gizli Anahtarları Güncelleştirme|
-| Çekirdek Dizin| Dizin| Rights Management Özelliklerini Ayarlama|
-| Çekirdek Dizin| Dizin| Şirketi Güncelleştirme|
-| Çekirdek Dizin| Kullanıcı| Kullanıcı Ekleme|
-| Çekirdek Dizin| Kullanıcı| Federasyon Kullanıcısını Yönetilen Kullanıcıya Dönüştürme|
-| Çekirdek Dizin| Kullanıcı| Kullanıcı için Uygulama Parolası Oluşturma|
-| Çekirdek Dizin| Grup| Gruba Üye Ekleme|
-| Çekirdek Dizin| Grup| Grup Ekleme|
-| Çekirdek Dizin| Uygulama| Uygulama Onayı|
-| Çekirdek Dizin| Uygulama| Uygulama Ekleme|
-| Çekirdek Dizin| Uygulama| Hizmet Sorumlusuna Sahip Ekleme|
-| Çekirdek Dizin| Uygulama| Oauth2Permissiongrant’i Kaldırma|
-| Çekirdek Dizin| İlke| İlke Kimlik Bilgilerini Kaldırma|
-| Çekirdek Dizin| Cihaz| Cihaz Yapılandırmasını Silme|
-| Self Servis Grup Yönetimi| Grup| Dinamik Grup Özelliklerini Ayarlama|
-| Self Servis Grup Yönetimi| Grup| Yaşam Döngüsü Yönetim İlkesini Güncelleştirme|
-| Hesap Sağlama| Uygulama| Eşitleme Kuralı Eylemi|
-| Davetli Kullanıcılar| Diğer| Karşıya Yüklenen Toplu Davetler|
-| MIM Hizmeti| Grup| Üye Ekleme|
-| Çekirdek Dizin| Kullanıcı| Lisans Özelliklerini Ayarlama|
-| Çekirdek Dizin| Kullanıcı| Kullanıcıyı Geri Yükleme|
-| Çekirdek Dizin| Kullanıcı| Rolden Üye Kaldırma|
-| Çekirdek Dizin| Kullanıcı| Kullanıcıdan Uygulama Rol Atamasını Kaldırma|
-| Çekirdek Dizin| Kullanıcı| Rolden Kapsamlı Üye Kaldırma|
-| Çekirdek Dizin| Grup| Grubu Güncelleştirme|
-| Çekirdek Dizin| Grup| Gruba Sahip Ekleme|
-| Çekirdek Dizin| Grup| Kullanıcılara Grup Tabanlı Lisans Uygulamayı Sonlandırma|
-| Çekirdek Dizin| Grup| Gruptan Uygulama Rol Atamasını Kaldırma|
-| Çekirdek Dizin| Grup| Grubu Kullanıcı Tarafından Yönetilecek Şekilde Ayarlama|
-| Çekirdek Dizin| Uygulama| Oauth2Permissiongrant ekleme|
-| Çekirdek Dizin| Uygulama| Hizmet Sorumlusuna Uygulama Rol Ataması Ekleme|
-| Çekirdek Dizin| Uygulama| Hizmet Sorumlusu Kimlik Bilgilerini Kaldırma|
-| Çekirdek Dizin| İlke| Hizmet Sorumlusundan İlke Kaldırma|
-| Çekirdek Dizin| Cihaz| Cihazı Güncelleştirme|
-| Çekirdek Dizin| Cihaz| Cihaz Ekleme|
-| Çekirdek Dizin| Cihaz| Cihaz Yapılandırması Ekleme|
-| Self Servis Parola Yönetimi| Kullanıcı| Parolayı Değiştirme (Self Servis)|
-| Self Servis Parola Yönetimi| Kullanıcı| Self Servis Parola Sıfırlama için Kaydolan Kullanıcı|
-| Self Servis Grup Yönetimi| Grup| Onay Bekleyen Bir Gruba Katılma İsteğini Onaylama|
-| Çekirdek Dizin| Dizin| Doğrulanmamış Etki Alanını Kaldırma|
-| Çekirdek Dizin| Dizin| Etki Alanını Doğrulama|
-| Çekirdek Dizin| Dizin| Etki Alanı Kimlik Doğrulaması Ayarlama|
-| Çekirdek Dizin| Dizin| Parola İlkesi Ayarlama|
-| Çekirdek Dizin| Dizin| Şirkete İş Ortağı Ekleme|
-| Çekirdek Dizin| Dizin| Şirketi İş Ortağına Yükseltme|
-| Çekirdek Dizin| Dizin| İş Ortaklığı Ayarlama|
-| Çekirdek Dizin| Dizin| Yanlışlıkla Silme Eşiği Ayarlama|
-| Çekirdek Dizin| Dizin| İş Ortağını İndirgeme|
-| Davetli Kullanıcılar| Kullanıcı| Dış Kullanıcı Davet Etme|
-| Hesap Sağlama| Uygulama| İçeri Aktarma|
-| Çekirdek Dizin| Uygulama| Hizmet Sorumlusundan Sahibi Kaldırma|
-| Çekirdek Dizin| Cihaz| Cihazdan Kayıtlı Kullanıcıları Kaldırma|
-| Çekirdek Dizin| Dizin| Şirket Bilgilerini Ayarlama|
-| Çekirdek Dizin| Dizin| Etki Alanında Federasyon Ayarlarını Belirleme|
-| Çekirdek Dizin| Dizin| Şirket Oluşturma|
-| Çekirdek Dizin| Dizin| Rights Management Özelliklerini Temizleme|
-| Çekirdek Dizin| Dizin| Dirsync Özelliğini Ayarlama|
-| Çekirdek Dizin| Dizin| E-posta ile Doğrulanmış Etki Alanını Doğrulama|
-| Çekirdek Dizin| Kullanıcı| Kullanıcı Lisansını Değiştirme|
-| Çekirdek Dizin| Kullanıcı| Kullanıcı Parolasını Değiştirme|
-| Çekirdek Dizin| Kullanıcı| Kullanıcı Parolasını Sıfırlama|
-| Çekirdek Dizin| Kullanıcı| Kullanıcıya Uygulama Rolü Ataması İzni Ekleme|
-| Çekirdek Dizin| Kullanıcı| Role Üye Ekleme|
-| Çekirdek Dizin| Kullanıcı| Kullanıcı için Uygulama Parolasını Silme|
-| Çekirdek Dizin| Kullanıcı| Kullanıcı Kimlik Bilgilerini Güncelleştirme|
-| Çekirdek Dizin| Kullanıcı| Kullanıcı Yöneticisini Ayarlama|
-| Çekirdek Dizin| Kullanıcı| Role Kapsamlı Üye Ekleme|
-| Çekirdek Dizin| Grup| Grubu Silme|
-| Çekirdek Dizin| Grup| Sahibi Gruptan Kaldırma|
-| Çekirdek Dizin| Grup| Grup Ayarlarını Güncelleştirme|
-| Çekirdek Dizin| Uygulama| Uygulamaya Sahip Ekleme|
-| Çekirdek Dizin| Uygulama| Onayı İptal Etme|
-| Çekirdek Dizin| İlke| İlke Ekleme|
-| Çekirdek Dizin| Cihaz| Cihaz Silme|
-| Self Servis Parola Yönetimi| Kullanıcı| Self Servis Parola Sıfırlaması Engellendi|
-| Self Servis Grup Yönetimi| Grup| Bir Gruba Katılma İsteğinde Bulunma|
-| Self Servis Grup Yönetimi| Grup| Yaşam Döngüsü Yönetim İlkesi Oluşturma|
-| Self Servis Grup Yönetimi| Grup| Onay Bekleyen Bir Gruba Katılma İsteğini Reddetme|
-| Self Servis Grup Yönetimi| Grup| Onay Bekleyen Bir Gruba Katılma İsteğini İptal Etme|
-| Self Servis Grup Yönetimi| Grup| Grubu Yenileme|
-| Hesap Sağlama| Uygulama| Dışarı Aktarma|
-| Hesap Sağlama| Uygulama| Diğer|
-| Davetli Kullanıcılar| Kullanıcı| Dış Kullanıcı Davetini Kullanma|
-| Davetli Kullanıcılar| Kullanıcı| Virüslü Kullanıcı Oluşturma|
-| Davetli Kullanıcılar| Kullanıcı| Uygulamaya Dış Kullanıcı Atama|
+Grafik API'si ($tenantdomain = etki alanı adınız olacak şekilde https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta) kullanarak tüm Denetim Etkinliklerinin listesini alabilir veya [denetim raporu olayları](active-directory-reporting-audit-events.md#list-of-audit-report-events) makalesine bakabilirsiniz.
 
 
+<a id="audit-logs-shortcuts" class="xliff"></a>
 
-
-## <a name="audit-logs-shortcuts"></a>Denetim günlükleri kısayolları
+## Denetim günlükleri kısayolları
 
 Azure portalı, **Azure Active Directory**’ye ek olarak verileri denetlemeniz için fazladan iki giriş noktası sağlar:
 
 - Kullanıcılar ve gruplar
 - Kurumsal uygulamalar
 
-Denetim rapor etkinliklerinin tam listesi için [denetim raporu olaylarının listesi](active-directory-reporting-audit-events.md#list-of-audit-report-events) bölümüne bakın.
+<a id="users-and-groups-audit-logs" class="xliff"></a>
 
-
-### <a name="users-and-groups-audit-logs"></a>Kullanıcı ve gruplara yönelik denetim günlükleri
+### Kullanıcı ve gruplara yönelik denetim günlükleri
 
 Kullanıcı ve grup tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtlarını alabilirsiniz:
 
@@ -302,7 +177,9 @@ Yalnızca kullanıcı ve gruplarla ilgili denetim verilerini gözden geçirmek i
 
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/93.png "Denetim günlükleri")
 
-### <a name="enterprise-applications-audit-logs"></a>Kurumsal uygulamaların denetim günlükleri
+<a id="enterprise-applications-audit-logs" class="xliff"></a>
+
+### Kurumsal uygulamaların denetim günlükleri
 
 Uygulama tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtlarını alabilirsiniz:
 
@@ -321,7 +198,9 @@ Bu görünümü yalnızca **grupları** veya yalnızca **kullanıcıları** içe
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/25.png "Denetim günlükleri")
 
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 Bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md).
 
 

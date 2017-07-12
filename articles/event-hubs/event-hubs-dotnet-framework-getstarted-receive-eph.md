@@ -12,37 +12,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
+ms.date: 06/12/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 6c309a14e00324a9335bde61fe175ec3906c066d
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: c97cd41e503b5f2792f55e27038a2e07e254826e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>.NET Framework kullanarak Azure Event Hubs’dan olay alma
+<a id="receive-events-from-azure-event-hubs-using-the-net-framework" class="xliff"></a>
 
-## <a name="introduction"></a>Giriş
+# .NET Framework kullanarak Azure Event Hubs’dan olay alma
+
+<a id="introduction" class="xliff"></a>
+
+## Giriş
+
 Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
 
 Bu öğreticide, **[Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]**’nı kullanarak bir olay hub’ından iletiler alan .NET Framework konsol uygulamasını yazma işlemi gösterilmektedir. .NET Framework kullanarak olayları göndermek için [.NET Framework kullanarak Azure Event Hubs’a olay gönderme](event-hubs-dotnet-framework-getstarted-send.md) makalesine bakın veya soldaki içindekiler bölümünden uygun gönderme diline tıklayın.
 
 [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost], olay hub’larına ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu olay hub’larına ait alma olaylarını basitleştiren bir .NET sınıfıdır. [Olay İşleyicisi Ana Bilgisayarı][Event Processor Host]’nı kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nın nasıl kullanıldığını göstermektedir. [Olay işleme ölçeğini genişletme][Scale out Event Processing with Event Hubs] örneği, birden çok alıcıyla [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nın nasıl kullanılacağını göstermektedir.
 
-## <a name="prerequisites"></a>Ön koşullar
+<a id="prerequisites" class="xliff"></a>
 
-Bu öğreticiyi tamamlamak için şunlar gerekir:
+## Ön koşullar
+
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
 * [Microsoft Visual Studio 2015 veya üzeri](http://visualstudio.com). Bu öğreticideki ekran görüntülerinde Visual Studio 2017 kullanılır.
-* Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/free/).
+* Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/free/).
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
+<a id="create-an-event-hubs-namespace-and-an-event-hub" class="xliff"></a>
 
-İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı izleyin, ardından aşağıdaki adımlarla devam edin.
+## Event Hubs ad alanı ve bir olay hub’ı oluşturma
 
-## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı uygulayın, ardından bu öğreticide yer alan aşağıdaki adımlarla devam edin.
+
+<a id="create-an-azure-storage-account" class="xliff"></a>
+
+## Azure Depolama hesabı oluşturma
 
 [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nı kullanabilmeniz için bir [Azure Depolama hesabınızın][Azure Storage account] olması gerekir:
 
@@ -53,125 +64,126 @@ Bu öğreticiyi tamamlamak için şunlar gerekir:
 3. **Depolama hesabı oluştur** dikey penceresinde depolama hesabı için bir ad yazın. Bir Azure aboneliği, kaynak grubu ve kaynağın oluşturulacağı konumu seçin. Sonra **Oluştur**’a tıklayın.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
-4. Depolama hesabı listesinde yeni oluşturulan depolama hesabına tıklayın.
+4. Depolama hesabı listesinde, yeni oluşturulan depolama hesabına tıklayın.
 5. Depolama hesabı dikey penceresinde **Erişim anahtarları**’na tıklayın. **key1** değerini bu öğreticide daha sonra kullanmak üzere kopyalayın.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
-6. Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni Visual C# Masaüstü Uygulaması projesi oluşturun. Proje **Alıcı** için bir ad verin.
+
+<a id="create-a-receiver-console-application" class="xliff"></a>
+
+## Alıcı konsol uygulaması oluşturma
+
+1. Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni Visual C# Masaüstü Uygulaması projesi oluşturun. Proje **Alıcı** için bir ad verin.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
-7. Çözüm Gezgini'nde **Alıcı** projesine sağ tıklayın ve ardından **Çözüm için NuGet Paketlerini Yönet**'e tıklayın.
-8. **Gözat** sekmesine tıklayıp `Microsoft Azure Service Bus Event Hub - EventProcessorHost` için arama yapın. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
+2. Çözüm Gezgini'nde **Alıcı** projesine sağ tıklayın ve ardından **Çözüm için NuGet Paketlerini Yönet**'e tıklayın.
+3. **Gözat** sekmesine tıklayıp `Microsoft Azure Service Bus Event Hub - EventProcessorHost` için arama yapın. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
     Visual Studio, tüm bağımlılıklarıyla birlikte [Azure Service Bus Olay Hub'ı - EventProcessorHost NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) indirir, yükler ve ona başvuru ekler.
-9. **Alıcı** projesine sağ tıklayın, **Ekle** ve **Sınıf**’a tıklayın. Yeni sınıf **SimpleEventProcessor**’ı adlandırın ve ardından sınıfı oluşturmak için **Ekle**’ye tıklayın.
+4. **Alıcı** projesine sağ tıklayın, **Ekle** ve **Sınıf**’a tıklayın. Yeni sınıf **SimpleEventProcessor**’ı adlandırın ve ardından sınıfı oluşturmak için **Ekle**’ye tıklayın.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
-10. Aşağıdaki deyimleri SimpleEventProcessor.cs dosyasının en üstüne ekleyin:
+5. Aşağıdaki deyimleri SimpleEventProcessor.cs dosyasının en üstüne ekleyin:
     
-     ```csharp
-     using Microsoft.ServiceBus.Messaging;
-     using System.Diagnostics;
-     ```
+  ```csharp
+  using Microsoft.ServiceBus.Messaging;
+  using System.Diagnostics;
+  ```
     
-     Sonra da, aşağıdaki kodu sınıfın gövdesi yerine geçirin:
+  Sonra da, aşağıdaki kodu sınıfın gövdesi yerine geçirin:
     
-     ```csharp
-     class SimpleEventProcessor : IEventProcessor
-     {
-         Stopwatch checkpointStopWatch;
+  ```csharp
+  class SimpleEventProcessor : IEventProcessor
+  {
+    Stopwatch checkpointStopWatch;
     
-         async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
-         {
-             Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
-             if (reason == CloseReason.Shutdown)
-             {
-                 await context.CheckpointAsync();
-             }
-         }
+    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
+    {
+        Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
+        if (reason == CloseReason.Shutdown)
+        {
+            await context.CheckpointAsync();
+        }
+    }
     
-         Task IEventProcessor.OpenAsync(PartitionContext context)
-         {
-             Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
-             this.checkpointStopWatch = new Stopwatch();
-             this.checkpointStopWatch.Start();
-             return Task.FromResult<object>(null);
-         }
+    Task IEventProcessor.OpenAsync(PartitionContext context)
+    {
+        Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+        this.checkpointStopWatch = new Stopwatch();
+        this.checkpointStopWatch.Start();
+        return Task.FromResult<object>(null);
+    }
     
-         async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-         {
-             foreach (EventData eventData in messages)
-             {
-                 string data = Encoding.UTF8.GetString(eventData.GetBytes());
+    async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+    {
+        foreach (EventData eventData in messages)
+        {
+            string data = Encoding.UTF8.GetString(eventData.GetBytes());
     
-                 Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
-                     context.Lease.PartitionId, data));
-             }
+            Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
+                context.Lease.PartitionId, data));
+        }
     
-             //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
-             if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
-             {
-                 await context.CheckpointAsync();
-                 this.checkpointStopWatch.Restart();
-             }
-         }
-     }
-     ```
+        //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
+        if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
+        {
+            await context.CheckpointAsync();
+            this.checkpointStopWatch.Restart();
+        }
+    }
+  }
+  ```
     
-     Olay hub’ından alınan olayları işlemek için bu sınıf **EventProcessorHost** tarafından çağrılır. `SimpleEventProcessor` sınıfının, **EventProcessorHost** bağlamında düzenli olarak denetim noktası yöntemini çağırmak için bir kronometre kullandığını unutmayın. Alıcı yeniden başlatılırsa, çalışmayı sürdürmek için beş dakikadan fazla kaybedilmemesi sağlanır.
-11. **Program** sınıfında aşağıdaki `using` deyimini dosyanın üst kısmına ekleyin:
+  Olay hub'ından alınan olayları işlemesi için bu sınıf, **EventProcessorHost** tarafından çağrılır. `SimpleEventProcessor` sınıfı, **EventProcessorHost** bağlamında düzenli olarak denetim noktası yöntemini çağırmak için bir kronometre kullanır. Bu işlem, alıcının yeniden çağrılması durumunda, işleme sürecinde beş dakikadan fazla zaman kaybedilmemesini sağlar.
+6. **Program** sınıfında aşağıdaki `using` deyimini dosyanın üst kısmına ekleyin:
     
-     ```csharp
-     using Microsoft.ServiceBus.Messaging;
-     ```
+  ```csharp
+  using Microsoft.ServiceBus.Messaging;
+  ```
     
-     Ardından, `Program` sınıfındaki `Main` yöntemini aşağıdaki kodla değiştirin; bu kodda olay hub'ı adı ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesi ve önceki bölümlerde kopyaladığınız depolama hesabı ve anahtarı değişecektir. 
+  Ardından, `Program` sınıfındaki `Main` yöntemini aşağıdaki kodla değiştirin; bu kodda olay hub'ı adı ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesi ve önceki bölümlerde kopyaladığınız depolama hesabı ve anahtarı değişecektir. 
     
-     ```csharp
-     static void Main(string[] args)
-     {
-       string eventHubConnectionString = "{Event Hubs namespace connection string}";
-       string eventHubName = "{Event Hub name}";
-       string storageAccountName = "{storage account name}";
-       string storageAccountKey = "{storage account key}";
-       string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
+  ```csharp
+  static void Main(string[] args)
+  {
+    string eventHubConnectionString = "{Event Hubs namespace connection string}";
+    string eventHubName = "{Event Hub name}";
+    string storageAccountName = "{storage account name}";
+    string storageAccountKey = "{storage account key}";
+    string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
     
-       string eventProcessorHostName = Guid.NewGuid().ToString();
-       EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
-       Console.WriteLine("Registering EventProcessor...");
-       var options = new EventProcessorOptions();
-       options.ExceptionReceived += (sender, e) => { Console.WriteLine(e.Exception); };
-       eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>(options).Wait();
+    string eventProcessorHostName = Guid.NewGuid().ToString();
+    EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+    Console.WriteLine("Registering EventProcessor...");
+    var options = new EventProcessorOptions();
+    options.ExceptionReceived += (sender, e) => { Console.WriteLine(e.Exception); };
+    eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>(options).Wait();
     
-       Console.WriteLine("Receiving. Press enter key to stop worker.");
-       Console.ReadLine();
-       eventProcessorHost.UnregisterEventProcessorAsync().Wait();
-     }
-     ```
+    Console.WriteLine("Receiving. Press enter key to stop worker.");
+    Console.ReadLine();
+    eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+  }
+  ```
 
-12. Programı çalıştırın ve herhangi bir hata olmadığından emin olun.
+7. Programı çalıştırın ve herhangi bir hata olmadığından emin olun.
   
 Tebrikler! Olay İşleyicisi Ana Bilgisayarı’nı kullanarak bir olay hub’ından iletiler aldınız.
 
 
 > [!NOTE]
-> Bu öğretici, [EventProcessorHost][EventProcessorHost]'un tek bir örneğini kullanır. Aktarım hızını artırmak için, birden çok [EventProcessorHost][EventProcessorHost] örneğinin [Ölçeği genişletilmiş olay işleme][Ölçeği genişletilmiş olay işleme] örneğinde gösterildiği gibi çalıştırmanız önerilir. Bu gibi durumlarda, alınan olayların yükünü dengelemek üzere çeşitli örnekler otomatik olarak birbiriyle koordine olur. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan [EventProcessorHost][EventProcessorHost] örnekleri için ad belirtmek yararlı olabilir. Bu konular hakkında daha fazla bilgi için [Event Hubs'a Genel Bakış][Event Hubs Overview] ve [Event Hubs Programlama Kılavuzu][Event Hubs Programming Guide] konu başlıklarına bakın.
+> Bu öğretici, [EventProcessorHost][EventProcessorHost]'un tek bir örneğini kullanır. Aktarım hızını artırmak için, birden çok [EventProcessorHost][EventProcessorHost] örneğinin [Ölçeği genişletilmiş olay işleme][Ölçeği genişletilmiş olay işleme] örneğinde gösterildiği gibi çalıştırmanız önerilir. Bu gibi durumlarda, alınan olayların yükünü dengelemek üzere çeşitli örnekler otomatik olarak birbiriyle koordine olur. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan [EventProcessorHost][EventProcessorHost] örnekleri için ad belirtmek yararlı olabilir. Bu konu başlıkları hakkında daha fazla bilgi için [Event Hubs'a genel bakış][Event Hubs overview] ve [Event Hubs programlama kılavuzu][Event Hubs Programming Guide] konu başlıklarına bakın.
 > 
 > 
 
-<!-- Links -->
-[Event Hubs Overview]: event-hubs-overview.md
-[Event Hubs Programming Guide]: event-hubs-programming-guide.md
-[Azure Storage account]: ../storage/storage-create-storage-account.md
-[Event Processor Host]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-[Azure portal]: https://portal.azure.com
+<a id="next-steps" class="xliff"></a>
 
-## <a name="next-steps"></a>Sonraki adımlar
+## Sonraki adımlar
+
 Olay hub’ını oluşturan ve veri gönderip alan çalışan bir uygulama oluşturduğunuza göre aşağıdaki bağlantıları ziyaret ederek daha fazla bilgi alabilirsiniz:
 
-* [Olay İşleyicisi Konağı](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* [Olay İşlemcisi Konağı][Event Processor Host]
 * [Event Hubs'a genel bakış][Event Hubs overview]
 * [Event Hubs ile ilgili SSS](event-hubs-faq.md)
 
@@ -183,5 +195,10 @@ Olay hub’ını oluşturan ve veri gönderip alan çalışan bir uygulama oluş
 
 <!-- Links -->
 [EventProcessorHost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Hubs Programming Guide]: event-hubs-programming-guide.md
+[Azure Storage account]: ../storage/storage-create-storage-account.md
+[Event Processor Host]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Azure portal]: https://portal.azure.com
+

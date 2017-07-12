@@ -11,17 +11,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/25/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 74cd4dbf74afbf5e7e0e7d0b7aca49b5aa214b83
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
+<a id="monitor-availability-and-responsiveness-of-any-web-site" class="xliff"></a>
+
+# Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
 
 Genel İnternet'ten erişilebilen herhangi bir HTTP veya HTTPS uç noktası için kullanılabilirlik testleri ayarlayabilirsiniz. Test ettiğiniz web sitesine eklemeniz gereken bir şey yoktur. Kendi siteniz olması bile gerekmez. Kullandığınız bir REST API hizmetini test edebilirsiniz.
@@ -66,7 +68,9 @@ Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekle
 
     Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md) ayarlayabilirsiniz. (Ancak şu anda sorgu parametreleri Özellikler aracılığıyla geçirilmez.)
 
-### <a name="test-more-urls"></a>Daha fazla URL test etme
+<a id="test-more-urls" class="xliff"></a>
+
+### Daha fazla URL test etme
 Daha fazla test ekleyin. Örneğin, giriş sayfanızın test edilmesine ek olarak arama URL’sini de test ederek veritabanınızın çalıştığından emin olursunuz.
 
 
@@ -113,7 +117,9 @@ Bir kullanılabilirlik testi sonucundan şunları yapabilirsiniz:
 
 *İlgili öğe yok mu?* Sunucu tarafı uygulamanız için Application Insights ayarlanmışsa, bunun nedeni [örnekleme](app-insights-sampling.md) işleminin devam ediyor olması olabilir. 
 
-## <a name="multi-step-web-tests"></a>Çok adımlı web testleri
+<a id="multi-step-web-tests" class="xliff"></a>
+
+## Çok adımlı web testleri
 Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satış web sitesi izliyorsanız, öğelerin alışveriş sepetine doğru eklendiğini test edebilirsiniz.
 
 > [!NOTE] 
@@ -126,7 +132,9 @@ Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satı
 > Testlerinizde kodlanmış işlevler veya döngüler kullanamazsınız. Test tamamen .webtest betiğinde yer almalıdır. Ancak, standart eklentiler kullanabilirsiniz.
 >
 
-#### <a name="1-record-a-scenario"></a>1. Senaryo kaydetme
+<a id="1-record-a-scenario" class="xliff"></a>
+
+#### 1. Senaryo kaydetme
 Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
 
 1. Web performans testi projesi oluşturun.
@@ -155,7 +163,9 @@ Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
 
     ![Visual Studio’da .webtest dosyasını açın ve Çalıştır’a tıklayın.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-#### <a name="2-upload-the-web-test-to-application-insights"></a>2. Web testi Application Insights'a yükleme
+<a id="2-upload-the-web-test-to-application-insights" class="xliff"></a>
+
+#### 2. Web testi Application Insights'a yükleme
 1. Application Insights portalında bir web testi oluşturun.
 
     ![Web testleri dikey penceresinde Ekle'yi seçin.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
@@ -165,13 +175,17 @@ Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
 
     Test konumları, sıklığı ve uyarı parametrelerini aynı ping testlerinde olduğu gibi aynı şekilde ayarlayın.
 
-#### <a name="3-see-the-results"></a>3. Sonuçları görme
+<a id="3-see-the-results" class="xliff"></a>
+
+#### 3. Sonuçları görme
 
 Tek url testlerinde olduğu gibi test sonuçlarını ve hatalarını görüntüleyin.
 
 Ayrıca, test sonuçlarını indirerek Visual Studio’da görüntüleyebilirsiniz.
 
-#### <a name="too-many-failures"></a>Çok fazla hata mı var?
+<a id="too-many-failures" class="xliff"></a>
+
+#### Çok fazla hata mı var?
 
 * Yaygın bir başarısızlık nedeni testin çok uzun çalışmasıdır. İki dakikadan uzun çalıştırılmamalıdır.
 
@@ -179,7 +193,9 @@ Ayrıca, test sonuçlarını indirerek Visual Studio’da görüntüleyebilirsin
 
 * Web testi tamamen .webtest dosyasında olmalıdır: Testte kodlanmış işlevleri kullanamazsınız.
 
-### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Çok adımlı testinizde bağlı kalma süresi ve rasgele rakamlar
+<a id="plugging-time-and-random-numbers-into-your-multi-step-test" class="xliff"></a>
+
+### Çok adımlı testinizde bağlı kalma süresi ve rasgele rakamlar
 Dış bir kaynağa ait stoklar gibi zamana bağımlı veriler alan bir aracı test ettiğinizi varsayalım. Web testinizi kaydettiğinizde, belirli zamanları kullanmanız gerekse de, bunları testin parametreleri (StartTime ve EndTime) olarak ayarlarsınız.
 
 ![Parametrelere sahip web testi.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -202,18 +218,26 @@ Web Testi Eklentileri, zamanları parametreleme yolunu sağlar.
 
 Artık testi portala yükleyin. Testin her çalıştırılışında dinamik değerler kullanılır.
 
-## <a name="dealing-with-sign-in"></a>Oturum açmayla ilgilenme
+<a id="dealing-with-sign-in" class="xliff"></a>
+
+## Oturum açmayla ilgilenme
 Kullanıcılarınız uygulamanızda oturum açarsa, oturum açma benzetimi için bir dizi seçeneğiniz vardır; böylece, oturum açmanın ötesinde sayfaları test edebilirsiniz. Kullandığınız yaklaşım, uygulamanın sağladığı güvenlik türüne bağlıdır.
 
 Her durumda, uygulamanızda yalnızca test amacıyla bir hesap oluşturmalısınız. Mümkünse, web testlerinin gerçek kullanıcıları etkileme olasılığını önlemek için test hesabının izinlerini kısıtlayın.
 
-### <a name="simple-username-and-password"></a>Basit kullanıcı adı ve parola
+<a id="simple-username-and-password" class="xliff"></a>
+
+### Basit kullanıcı adı ve parola
 Web testini normal şekilde kaydedin. Önce tanımlama bilgilerini silin.
 
-### <a name="saml-authentication"></a>SAML kimlik doğrulaması
+<a id="saml-authentication" class="xliff"></a>
+
+### SAML kimlik doğrulaması
 Web testlerinde kullanıma uygun SAML eklentisini kullanın.
 
-### <a name="client-secret"></a>Gizli anahtar
+<a id="client-secret" class="xliff"></a>
+
+### Gizli anahtar
 Uygulamanızda gizli anahtar içeren bir oturum açma yolu varsa bu yolu kullanın. Azure Active Directory (AAD), gizli anahtarla oturum açmayı sağlayan bir hizmet örneğidir. AAD’de gizli anahtar, Uygulama Anahtarı’dır.
 
 Aşağıda uygulama anahtarı kullanan bir Azure web uygulaması için web testi örneği verilmiştir:
@@ -226,7 +250,9 @@ Aşağıda uygulama anahtarı kullanan bir Azure web uygulaması için web testi
 
 Web testinin gerçek bir istemci olduğundan, yani AAD’de kendi uygulamasına sahip olduğundan emin olun ve bu istemcinin clientId’si ile appkey’ini kullanın. Test edilen hizmetiniz, AAD içinde kendi uygulamasına sahiptir: bu uygulamanın appID URI’si, web testinin “kaynak” alanında yansıtılır.
 
-### <a name="open-authentication"></a>Açık Kimlik Doğrulaması
+<a id="open-authentication" class="xliff"></a>
+
+### Açık Kimlik Doğrulaması
 Microsoft veya Google hesabınızla oturum açma, bir açık kimlik doğrulaması örneğidir. OAuth kullanan çok sayıda uygulama, alternatif gizli anahtar da sağlar; bu nedenle ilk taktiğiniz bu olasılığın incelenmesi olmalıdır.
 
 Testinizde OAuth kullanılarak oturum açılması gerekiyorsa, genel yaklaşım şöyledir:
@@ -239,14 +265,25 @@ Testinizde OAuth kullanılarak oturum açılması gerekiyorsa, genel yaklaşım 
   (Visual Studio testi parametrelemeyi dener, ancak belirteçleri doğru parametrelemez.)
 
 
-## <a name="performance-tests"></a>Performans testleri
+<a id="performance-tests" class="xliff"></a>
+
+## Performans testleri
 Web sitenizde bir yük testi çalıştırabilirsiniz. Kullanılabilirlik testinde olduğu gibi dünyanın dört bir yanındaki noktalarımızdan basit istekler ya da çok adımlı istekler gönderebilirsiniz. Kullanılabilirlik testinden farklı olarak eşzamanlı birden fazla kullanıcıyı benzeten çok sayıda istek gönderilir.
 
 Genel Bakış dikey penceresinde **Ayarlar**, **Performans Testleri**’ni açın. Bir test oluşturduğunuzda Visual Studio Team Services hesabı oluşturmaya davet edilirsiniz.
 
 Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
-## <a name="automation"></a>Otomasyon
+
+![Performans testi](./media/app-insights-monitor-web-app-availability/perf-test.png)
+
+> [!TIP]
+> Performans testi etkilerini gözlemlemek için [Canlı Akış](app-insights-live-stream.md)'ı ve [Profil Oluşturucu](app-insights-profiler.md)'yu kullanmanız gerekir.
+>
+
+<a id="automation" class="xliff"></a>
+
+## Otomasyon
 * Otomatik olarak [kullanılabilirlik testi ayarlamak için PowerShell betiklerini kullanın](app-insights-powershell.md#add-an-availability-test).
 * Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md) ayarlayın.
 

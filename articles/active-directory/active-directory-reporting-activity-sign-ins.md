@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory portalındaki oturum açma etkinlik raporları | Microsoft Docs"
 description: "Azure Active Directory portalındaki oturum açma etkinlik raporlarına giriş"
 services: active-directory
@@ -13,17 +12,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/05/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
+<a id="sign-in-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a>
+
+# Azure Active Directory portalındaki oturum açma etkinlik raporları
 
 [Azure portalında](https://portal.azure.com) Azure Active Directory (Azure AD) raporlama özelliğiyle ortamınızın nasıl çalıştığını belirlemek için gereken bilgileri alabilirsiniz.
 
@@ -38,7 +39,26 @@ Azure Active Directory'nin raporlama mimarisi aşağıdaki bileşenlerden oluşu
 
 Bu konu başlığı oturum açma etkinliklerine genel bakış sunmaktadır.
 
-## <a name="signs-in-activities"></a>Oturum açma etkinlikleri
+<a id="pre-requisite" class="xliff"></a>
+
+## Önkoşul
+
+<a id="who-can-access-the-data" class="xliff"></a>
+
+### Verilere kimler erişebilir?
+* Güvenlik Yöneticisi veya Güvenlik Okuyucusu rolündeki kullanıcılar
+* Genel Yöneticiler
+* Tüm kullanıcılar (yönetici olmayan) kendi oturum açma etkinliklerine erişebilirler 
+
+<a id="what-azure-ad-license-do-you-need-to-access-sign-in-activity" class="xliff"></a>
+
+### Oturum açma etkinliğine erişebilmek için hangi Azure AD lisansınızın olması gerekir?
+* Oturum açma etkinliği raporunun tamamını görebilmek için kiracınız ile ilişkili bir Azure AD Premium lisansınızın olması gerekir
+
+
+<a id="signs-in-activities" class="xliff"></a>
+
+## Oturum açma etkinlikleri
 
 Kullanıcı oturum açma raporu tarafından sağlanan bilgiler sayesinde aşağıdakiler gibi soruların yanıtlarını bulabilirsiniz:
 
@@ -74,7 +94,9 @@ Liste görünümündeki bir öğeye tıklayarak bu öğe hakkında mevcut olan t
 ![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins/43.png "oturum açma etkinliği")
 
 
-## <a name="filtering-sign-in-activities"></a>Oturum açma etkinliklerini filtreleme
+<a id="filtering-sign-in-activities" class="xliff"></a>
+
+## Oturum açma etkinliklerini filtreleme
 
 Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak için aşağıdaki alanları kullanarak oturum açma verilerini filtreleyebilirsiniz:
 
@@ -110,7 +132,9 @@ Olası değerler şunlardır:
 - Hata
 
 
-## <a name="sign-in-activities-shortcuts"></a>Oturum açma etkinlikleri kısayolları
+<a id="sign-in-activities-shortcuts" class="xliff"></a>
+
+## Oturum açma etkinlikleri kısayolları
 
 Azure portalı, Azure Active Directory’ye ek olarak oturum açma etkinliği verileri için fazladan iki giriş noktası sağlar:
 
@@ -118,7 +142,9 @@ Azure portalı, Azure Active Directory’ye ek olarak oturum açma etkinliği ve
 - Kurumsal uygulamalar
 
 
-### <a name="users-and-groups-sign-ins-activities"></a>Kullanıcı ve grupların oturum açma etkinlikleri
+<a id="users-and-groups-sign-ins-activities" class="xliff"></a>
+
+### Kullanıcı ve grupların oturum açma etkinlikleri
 
 Kullanıcı oturum açma raporu tarafından sağlanan bilgiler sayesinde aşağıdakiler gibi soruların yanıtlarını bulabilirsiniz:
 
@@ -154,7 +180,9 @@ Oturum açma etkinlikleri listesindeki her satır, seçili oturum açma hakkınd
 
 
 
-## <a name="usage-of-managed-applications"></a>Yönetilen uygulamaların kullanımı
+<a id="usage-of-managed-applications" class="xliff"></a>
+
+## Yönetilen uygulamaların kullanımı
 
 Oturum açma bilgilerinizin uygulama odaklı bir görünümüyle aşağıdakiler gibi sorular yanıtlanabilir:
 
@@ -187,7 +215,9 @@ Uygulama kullanımı grafiğinde bir güne tıkladığınızda, oturum açma etk
 
 
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 Bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md).
 
 

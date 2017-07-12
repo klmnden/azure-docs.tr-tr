@@ -13,26 +13,28 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/2017
+ms.date: 05/31/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: f10a6889944b1dde4f579e575389fa7bab28c51a
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 4c828be440ffd278b03be70254ae1fe1c7160bf5
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>PowerShell kullanarak Siteden Siteye VPN bağlantısı ile sanal ağ oluşturma
+<a id="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell" class="xliff"></a>
+
+# PowerShell kullanarak Siteden Siteye VPN bağlantısı ile sanal ağ oluşturma
 
 Bu makalede, PowerShell kullanarak şirket içi ağınızdan VNet’e Siteden Siteye VPN ağ geçidi bağlantısı oluşturma işlemi gösterilir. Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Klasik - Azure portalı](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Klasik - klasik portal](vpn-gateway-site-to-site-create.md)
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Azure portal (klasik)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Klasik portal (klasik)](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -41,17 +43,21 @@ Siteden Siteye VPN ağ geçidi bağlantısı, şirket içi ağınızı bir IPsec
 
 ![Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı diyagramı](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-connection-diagram.png)
 
-## <a name="before-you-begin"></a>Başlamadan önce
+<a id="before-you-begin" class="xliff"></a>
+
+## Başlamadan önce
 
 Yapılandırmanıza başlamadan önce aşağıdaki ölçütleri karşıladığınızı doğrulayın:
 
-* Resource Manager dağıtım modeliyle çalışmak istediğinizi doğrulayın. [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
+* Resource Manager dağıtım modeliyle çalışmak istediğinizi doğrulayın. [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-rm-include.md)]
 * Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek biri. Uyumlu VPN cihazları ve cihaz yapılandırması hakkında daha fazla bilgi için bkz.[VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md).
 * VPN cihazınız için dışarıya yönelik genel bir IPv4 adresi. Bu IP adresi bir NAT’nin arkasında olamaz.
 * Şirket içi ağ yapılandırmanızda bulunan IP adresi aralıklarıyla ilgili fazla bilginiz yoksa size bu ayrıntıları sağlayabilecek biriyle çalışmanız gerekir. Bu yapılandırmayı oluşturduğunuzda, Azure’un şirket içi konumunuza yönlendireceği IP adres aralığı ön eklerini oluşturmanız gerekir. Şirket içi ağınızın alt ağlarından hiçbiri, bağlanmak istediğiniz sanal ağ alt ağlarıyla çakışamaz.
 * Azure Resource Manager PowerShell cmdlet'lerinin son sürümü. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
 
-### <a name="example-values"></a>Örnek değerler
+<a id="example-values" class="xliff"></a>
+
+### Örnek değerler
 
 Bu makaledeki örneklerde aşağıdaki değerler kullanılır. Bu değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bunlara bakabilirsiniz.
 
@@ -74,21 +80,25 @@ Gateway IP Config       = gwipconfig1
 VPNType                 = RouteBased 
 GatewayType             = Vpn 
 ConnectionName          = myGWConnection
+
 ```
+
 
 ## <a name="Login"></a>1. Aboneliğinize bağlanma
 
-[!INCLUDE [vpn-gateway-ps-login](../../includes/vpn-gateway-ps-login-include.md)]
+[!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
 
 ## <a name="VNet"></a>2. Sanal ağ ve ağ geçidi alt ağı oluşturma
 
-Sanal ağınız yoksa bir sanal ağ oluşturun. Sanal ağ oluştururken, belirlediğiniz adres alanlarının şirket içi ağınızdaki adres alanlarından herhangi biriyle çakışmadığından emin olun. Bu yapılandırma için, bir ağ geçidi alt ağına da ihtiyacınız olacaktır. Sanal ağın ağ geçidi, VPN ağ geçidi hizmetleri tarafından kullanılan IP adreslerinin bulunduğu ağ geçidi alt ağını kullanır. Ağ geçidi alt ağını oluşturduğunuzda, bu alt ağ 'GatewaySubnet' olarak adlandırılmalıdır. Başka bir ad kullanırsanız alt ağ oluşturulur ancak Azure bunu bir ağ geçidi alt ağı olarak değerlendirmez.
+Sanal ağınız yoksa bir sanal ağ oluşturun. Sanal ağ oluştururken, belirlediğiniz adres alanlarının şirket içi ağınızdaki adres alanlarından herhangi biriyle çakışmadığından emin olun.
 
-Belirttiğiniz ağ geçidi alt ağının boyutu, oluşturmak istediğiniz VPN ağ geçidi yapılandırmasına bağlıdır. /29 kadar küçük bir ağ geçidi alt ağı oluşturmak mümkün olsa da, /27 veya /28’i seçerek daha fazla adres içeren büyük bir alt ağ oluşturmanızı öneririz. Daha büyük bir ağ geçidi alt ağı kullanmak, olası gelecek yapılandırmaları barındırmak için yeterli IP adresi bulunmasını sağlar.
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
-[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="to-create-a-virtual-network-and-a-gateway-subnet"></a>Sanal ağ ve ağ geçidi alt ağı oluşturmak için
+<a id="to-create-a-virtual-network-and-a-gateway-subnet" class="xliff"></a>
+
+### Sanal ağ ve ağ geçidi alt ağı oluşturmak için
 
 Bu örnekte, sanal ağ ve ağ geçidi alt ağı oluşturulur. Ağ geçidi alt ağı eklemeniz gereken bir sanal ağınız zaten varsa, bkz. [Önceden oluşturduğunuz bir sanal ağa, bir ağ geçidi alt ağı eklemek için](#gatewaysubnet).
 
@@ -98,7 +108,7 @@ Kaynak grubu oluşturun:
 New-AzureRmResourceGroup -Name testrg -Location 'West US'
 ```
 
-Sanal ağınızı oluşturun. 
+Sanal ağınızı oluşturun.
 
 1. Değişkenleri ayarlayın.
 
@@ -140,21 +150,21 @@ Aşağıdaki değerleri kullanın:
 * *GatewayIPAddress* şirket içi VPN cihazınızın IP adresidir. VPN cihazınız bir NAT’nin arkasında olamaz.
 * *AddressPrefix* şirket içi adres alanınızdır.
 
-- Tek bir adres ön ekine sahip bir yerel ağ geçidi eklemek için:
+Tek bir adres ön ekine sahip bir yerel ağ geçidi eklemek için:
 
   ```powershell
   New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
   -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.0.0.0/24'
   ```
 
-- Birden çok adres ön ekine sahip bir yerel ağ geçidi eklemek için:
+Birden çok adres ön ekine sahip bir yerel ağ geçidi eklemek için:
 
   ```powershell
   New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
   -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
   ```
 
-- Yerel ağ geçidinizin IP adresi ön eklerini değiştirmek için:<br>
+Yerel ağ geçidinizin IP adresi ön eklerini değiştirmek için:<br>
 Bazen yerel ağ geçidi ön ekleriniz değişir. IP adresi ön eklerinizi değiştirmek için uygulayacağınız adımlar bir VPN ağ geçidi bağlantısı oluşturup oluşturmadığınıza göre değişir. Bu makalenin [Yerel bir ağ geçidinin IP adresi ön eklerini değiştirme](#modify) bölümüne bakın.
 
 ## <a name="PublicIP"></a>4. Genel IP adresi isteme
@@ -185,12 +195,12 @@ Aşağıdaki değerleri kullanın:
 
 * Siteden Siteye bir yapılandırma için *-GatewayType* değeri *Vpn* olmalıdır. Ağ geçidi türü her zaman, uygulamakta olduğunuz yapılandırmaya özeldir. Örneğin, başka ağ geçidi yapılandırmalarında -GatewayType değerinin ExpressRoute olması gerekebilir.
 * *-VpnType*, *RouteBased* (bazı belgelerde Dinamik Ağ Geçidi olarak adlandırılır) veya *PolicyBased* (bazı belgelerde Statik Ağ Geçidi olarak adlandırılır) olabilir. VPN ağ geçidi türleri hakkında daha fazla bilgi için bkz. [VPN Gateway Hakkında](vpn-gateway-about-vpngateways.md).
-* *-GatewaySku* değeri Basic, Standard veya HighPerformance olabilir. Bazı SKU’larda yapılandırma sınırlamaları vardır. Daha fazla bilgi için bkz. [Ağ geçidi SKU'ları](vpn-gateway-about-vpngateways.md#gateway-skus).
+* Kullanmak istediğiniz Ağ Geçidi SKU'sunu seçin. Bazı SKU’larda yapılandırma sınırlamaları vardır. Daha fazla bilgi için bkz. [Ağ geçidi SKU'ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
--VpnType RouteBased -GatewaySku Standard
+-VpnType RouteBased -GatewaySku VpnGw1
 ```
 
 ## <a name="ConfigureVPNDevice"></a>7. VPN cihazınızı yapılandırma
@@ -234,7 +244,7 @@ VPN bağlantınızı doğrulamanın birkaç farklı yolu vardır.
 
 ## <a name="connectVM"></a>Sanal makineye bağlanma
 
-[!INCLUDE [Connect to VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
 
 ## <a name="modify"></a>Yerel bir ağ geçidinin IP adresi ön eklerini değiştirme
@@ -245,9 +255,12 @@ VPN bağlantınızı doğrulamanın birkaç farklı yolu vardır.
 
 ## <a name="modifygwipaddress"></a>Yerel bir ağ geçidinin ağ geçidi IP adresini değiştirme
 
-[!INCLUDE [Modify gw IP](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
+[!INCLUDE [Modify gateway IP address](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 *  Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * BGP hakkında bilgi edinmek için [BGP’ye Genel Bakış](vpn-gateway-bgp-overview.md) ve [BGP’yi yapılandırma](vpn-gateway-bgp-resource-manager-ps.md) makalelerine bakın.
+

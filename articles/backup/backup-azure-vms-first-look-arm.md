@@ -16,14 +16,17 @@ ms.topic: hero-article
 ms.date: 02/15/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d39678bb7e7d2263b6b2f8d36da1bd86dcfff271
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: fd923fa711aa0af72e8d81d84fd0adb2e003596a
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Azure sanal makinelerini Kurtarma Hizmetleri kasalarına yedekleme
+<a id="back-up-azure-virtual-machines-to-recovery-services-vaults" class="xliff"></a>
+
+# Azure sanal makinelerini Kurtarma Hizmetleri kasalarına yedekleme
 > [!div class="op_single_selector"]
 > * [VM'leri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md)
 > * [VM'leri yedekleme kasasıyla koruma](backup-azure-vms-first-look.md)
@@ -40,7 +43,9 @@ Bu öğretici, bir kurtarma hizmetleri kasası oluşturmaya ve bir Azure sanal m
 * Azure Disk Şifrelemesi kullanılarak BEK ve KEK ile şifrelenmiş VM’ler
 * Windows sanal makinelerinin VSS, Linux sanal makinelerinin özel anlık görüntü öncesi ve anlık görüntü sonrası betikler kullanılarak uygulamada tutarlı yedeklenmesi
 
-Premium depolama VM'lerini koruma hakkında daha fazla bilgi için [Premium Storage VM'lerini Yedekleme ve Geri Yükleme](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) makalesine bakın. Yönetilen disk sanal makinelerine yönelik destek hakkında daha fazla bilgi için bkz. [Yönetilen diskler üzerindeki sanal makineleri yedekleme ve geri yükleme](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Linux sanal makine yedeklemesi için betik öncesi ve betik sonrası çerçeve hakkında daha fazla bilgi almak isterseniz bkz. [Betik öncesi ve betik sonrası ile uygulamada tutarlı Linux sanal makine yedeklemesi] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
+Premium depolama VM'lerini koruma hakkında daha fazla bilgi için [Premium Storage VM'lerini Yedekleme ve Geri Yükleme](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) makalesine bakın. Yönetilen disk sanal makinelerine yönelik destek hakkında daha fazla bilgi için bkz. [Yönetilen diskler üzerindeki sanal makineleri yedekleme ve geri yükleme](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Linux VM yedekleme için ön ve son betik çerçevesi hakkında daha fazla bilgi için bkz. [Ön betik ve son betik kullanarak uygulamayla tutarlı Linux VM yedekleme] (https://docs.microsoft.com/tr-tr/azure/backup/backup-azure-linux-app-consistent).
+
+Neleri yedekleyip neleri yedekleyemeyeceğinizle ilgili daha fazla bilgi edinmek için [buraya](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm) bakın.
 
 > [!NOTE]
 > Bu öğretici, Azure aboneliğinizde zaten bir VM'niz olduğunu ve yedekleme hizmetinin VM'ye erişmesine izin vermek üzere gerekli işlemleri yaptığınızı varsayar.
@@ -51,7 +56,9 @@ Premium depolama VM'lerini koruma hakkında daha fazla bilgi için [Premium Stor
 
 Korumak istediğiniz sanal makine sayısına bağlı olarak farklı başlangıç noktalarından başlayabilirsiniz. Tek bir işlemde birden çok sanal makine yedeklemek istiyorsanız Kurtarma Hizmetleri Kasası'na gidin ve [yedekleme işini kasa panosundan başlatın](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Tek bir sanal makineyi yedeklemek istiyorsanız VM yönetim dikey penceresinden yedekleme işini başlatabilirsiniz.
 
-## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Yedekleme işini VM yönetim dikey penceresinden yapılandırın
+<a id="configure-the-backup-job-from-the-vm-management-blade" class="xliff"></a>
+
+## Yedekleme işini VM yönetim dikey penceresinden yapılandırın
 
 Aşağıdaki adımları, Azure portalında sanal makine yönetimi dikey penceresinden yedekleme işini yapılandırmak için kullanın. Bu adımlar klasik portaldaki sanal makineler için geçerli değildir.
 
@@ -119,14 +126,18 @@ Aşağıdaki adımları, Azure portalında sanal makine yönetimi dikey penceres
 
   Dağıtım bildirimleri, yedekleme işinin tetiklendiğini ve Yedekleme işleri sayfasında işin ilerleme durumunu izleyebileceğinizi bilmenizi sağlar.
 
-## <a name="configure-the-backup-job-from-the-recovery-services-vault"></a>Yedekleme işini Kurtarma Hizmetleri kasasından yapılandırın
+<a id="configure-the-backup-job-from-the-recovery-services-vault" class="xliff"></a>
+
+## Yedekleme işini Kurtarma Hizmetleri kasasından yapılandırın
 Yedekleme işini yapılandırmak için, aşağıdaki adımları tamamlayın.  
 
 1. Bir sanal makine için Kurtarma Hizmetleri kasası oluşturun.
 2. Bir senaryo seçmek, bir Yedekleme ilkesi ayarlamak ve korunacak öğeleri tanımlamak için Azure portalını kullanın.
 3. İlk yedeklemeyi çalıştırın.
 
-## <a name="create-a-recovery-services-vault-for-a-vm"></a>Bir VM için kurtarma hizmetleri kasası oluşturma
+<a id="create-a-recovery-services-vault-for-a-vm" class="xliff"></a>
+
+## Bir VM için kurtarma hizmetleri kasası oluşturma
 Kurtarma Hizmetleri kasası, zaman içinde oluşturulan tüm yedeklemeleri ve kurtarma noktalarını depolayan bir varlıktır. Kurtarma Hizmetleri kasası ayrıca, korumalı VM'lere uygulanan yedekleme ilkesini de içerir.
 
 > [!NOTE]
@@ -180,7 +191,9 @@ Kurtarma Hizmetleri kasası oluşturmak için:
 
 Kasanızı oluşturduğunuza göre, artık depolama çoğaltmayı nasıl ayarlayacağınızı öğrenebilirsiniz.
 
-### <a name="set-storage-replication"></a>Depolama Çoğaltmayı Ayarlama
+<a id="set-storage-replication" class="xliff"></a>
+
+### Depolama Çoğaltmayı Ayarlama
 Depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak yedekli depolama arasında seçim yapmanıza olanak sağlar. Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Kurtarma Hizmetleri kasası, birincil yedeklemeniz ise, depolama çoğaltma seçeneğini coğrafi olarak yedekli depolama şeklinde bırakın. Daha düşük dayanıklılık düzeyinde olan daha uygun maliyetli bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin. [Coğrafi olarak yedekli](../storage/storage-redundancy.md#geo-redundant-storage) ve [yerel olarak yedekli](../storage/storage-redundancy.md#locally-redundant-storage) depolama seçenekleri hakkında daha fazla bilgiyi [Azure Storage çoğaltmaya genel bakış](../storage/storage-redundancy.md) bölümünde edinebilirsiniz.
 
 Depolama çoğaltma ayarını düzenlemek için:
@@ -205,7 +218,9 @@ Depolama çoğaltma ayarını düzenlemek için:
     Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Azure'ı birincil yedek depolama uç noktası olarak kullanıyorsanız, **Coğrafi olarak yedekli** seçeneğini kullanmaya devam edin. Azure’u birincil yedek depolama uç noktası olarak kullanmıyorsanız, Azure depolama maliyetlerini azaltan **Yerel olarak yedekli** seçeneğini belirleyin. [Coğrafi olarak yedekli](../storage/storage-redundancy.md#geo-redundant-storage) ve [yerel olarak yedekli](../storage/storage-redundancy.md#locally-redundant-storage) depolama seçenekleri hakkında daha fazla bilgiyi [Depolama yedekliliğine genel bakış](../storage/storage-redundancy.md) bölümünden edinebilirsiniz.
 
 
-## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Yedekleme hedefi seçme, ilke ayarlama ve korunacak öğeleri tanımlama
+<a id="select-a-backup-goal-set-policy-and-define-items-to-protect" class="xliff"></a>
+
+## Yedekleme hedefi seçme, ilke ayarlama ve korunacak öğeleri tanımlama
 VM'yi bir kasaya kaydetmeden önce, aboneliğe eklenmiş olan yeni sanal makinelerin tanımlandığından emin olmak için bulma işlemini çalıştırın. Bu işlem, bulut hizmeti adı ve bölge gibi ek bilgilerle birlikte abonelikteki sanal makinelerin listesi için Azure'ı sorgular. Azure portalda, senaryo, kurtarma hizmetleri kasasına yerleştireceğiniz içeriğe başvuruda bulunur. İlke, kurtarma noktalarının ne sıklıkta ve ne zaman alınacağına yönelik zamanlamadır. İlke aynı zamanda kurtarma noktaları için bekletme aralığını içerir.
 
 1. Açık bir kurtarma hizmetleri kasanız zaten varsa 2. adıma geçin. Bu seçeneği görmezseniz, Hub menüsünde **Diğer hizmetler**'e tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazıp **Kurtarma Hizmetleri kasaları** seçeneğine tıklayın.
@@ -253,7 +268,9 @@ VM'yi bir kasaya kaydetmeden önce, aboneliğe eklenmiş olan yeni sanal makinel
 
 Yedekleme başarıyla etkinleştirildikten sonra yedekleme ilkeniz ilgili zamanda çalıştırılır. Ancak, ilk yedekleme işini başlatmak için devam edin.
 
-## <a name="initial-backup"></a>İlk yedekleme
+<a id="initial-backup" class="xliff"></a>
+
+## İlk yedekleme
 Sanal makine üzerinde bir yedekleme ilkesinin dağıtılmış olması, verilerin yedeklendiği anlamına gelmez. Varsayılan olarak, zamanlanmış birinci yedekleme (yedekleme ilkesinde tanımlandığı şekilde) ilk yedeklemedir. İlk yedekleme gerçekleştirilene kadar, **Yedekleme İşleri** dikey penceresindeki Son Yedekleme Durumu **Uyarı (ilk yedekleme bekleme)** olarak gösterilir.
 
 ![Yedekleme beklemede](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
@@ -317,7 +334,9 @@ Sanal makine üzerinde bir yedekleme ilkesinin dağıtılmış olması, verileri
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
-## <a name="install-the-vm-agent-on-the-virtual-machine"></a>VM Aracısı'nı sanal makineye yükleme
+<a id="install-the-vm-agent-on-the-virtual-machine" class="xliff"></a>
+
+## VM Aracısı'nı sanal makineye yükleme
 Bu bilgiler, gerekmesi halinde kullanılabilmesi için sağlanmıştır. Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. Ancak VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı, sanal makine üzerinde zaten mevcuttur. Şirket içi veri merkezlerinden geçişi sağlanan VM'lerde VM Aracısı yüklü olmaz. Böyle bir durumda, VM Aracısı'nın yüklenmesi gerekir. Azure VM’yi yedekleme konusunda sorun yaşarsanız Azure VM Aracısı'nın sanal makineye doğru şekilde yüklenip yüklenmediğini kontrol edin (aşağıdaki tabloya bakın). Özel bir VM oluşturuyorsanız sanal makine sağlanmadan önce [**VM Aracısı'nı yükle** onay kutusunun seçili olduğundan emin olun](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 [VM Aracısı](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) ve [nasıl yükleneceği](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) konusunda bilgi edinin.
@@ -330,17 +349,25 @@ Aşağıdaki tabloda, Windows ve Linux VM'ler için VM Aracısı ile ilgili ek b
 | VM Aracısı'nı güncelleştirme |VM Aracısı'nı güncelleştirmek için [VM Aracısı ikili dosyalarının](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) yeniden yüklenmesi yeterlidir. <br>VM aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |[Linux VM Aracısı'nı güncelleştirme](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile ilgili yönergeleri uygulayın. <br>VM Aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |
 | VM Aracısı yüklemesini doğrulama |<li>Azure VM'de *C:\WindowsAzure\Packages* klasörüne gidin. <li>Mevcut WaAppAgent.exe dosyasını bulmanız gerekir.<li> Dosyaya sağ tıklayın, **Özellikler**'e gidin ve ardından **Ayrıntılar** sekmesini seçin. Ürün Sürümü alanı 2.6.1198.718 veya üzeri olmalıdır. |Yok |
 
-### <a name="backup-extension"></a>Backup uzantısı
+<a id="backup-extension" class="xliff"></a>
+
+### Backup uzantısı
 VM Aracısı sanal makineye yüklendikten sonra, Azure Backup hizmeti yedekleme uzantısını VM Aracısı'na yükler. Azure Backup hizmeti, ek kullanıcı müdahalesi olmadan sorunsuz bir şekilde yedekleme uzantısını yükseltir ve uzantıya düzeltme eki uygular.
 
 VM çalışmıyor olsa dahi, Backup hizmeti yedekleme uzantısını yükler. Çalışan bir VM, uygulamayla tutarlı bir kurtarma noktası alınma olasılığını en yükseğe çıkarır. Ancak Azure Backup hizmeti, uzantının yüklenememiş olması ve VM'nin kapalı olması durumunda dahi VM'yi yedeklemeye devam eder. Bu yedekleme türüne Çevrimdışı VM adı verilir ve kurtarma noktası *çökme tutarlıdır*.
 
-## <a name="troubleshooting-information"></a>Sorun giderme bilgileri
+<a id="troubleshooting-information" class="xliff"></a>
+
+## Sorun giderme bilgileri
 Bu makaledeki bazı görevleri yerine getirirken sorun yaşıyorsanız lütfen [Sorun giderme rehberine](backup-azure-vms-troubleshoot.md) başvurun.
 
-## <a name="pricing"></a>Fiyatlandırma
+<a id="pricing" class="xliff"></a>
+
+## Fiyatlandırma
 Azure VM'lerin yedeklenmesi maliyeti, korumalı örneklerinin sayısını temel alır. Korumalı bir örneğin tanımı için, bkz: [Korumalı örnek nedir](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Bir sanal makineyi yedeklemenin maliyetini hesaplamaya ilişkin bir örnek için, bkz: [Korumalı örnekler nasıl hesaplanır](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). [Yedekleme Fiyatlandırması](https://azure.microsoft.com/pricing/details/backup/) hakkında bilgi için Azure Backup Fiyatlandırma sayfasına bakın.
 
-## <a name="questions"></a>Sorularınız mı var?
+<a id="questions" class="xliff"></a>
+
+## Sorularınız mı var?
 Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](http://aka.ms/azurebackup_feedback).
 

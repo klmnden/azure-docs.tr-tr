@@ -14,16 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="biztalk-services-editions-chart"></a>BizTalk Services: Sürümler grafiği
+<a id="biztalk-services-editions-chart" class="xliff"></a>
+
+# BizTalk Services: Sürümler grafiği
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Azure BizTalk Services çeşitli sürümler sunar. Bu makaleyi senaryonuz ve iş gereksinimleriniz için hangi sürümün doğru olduğunu saptamak için kullanın.
 
-## <a name="compare-the-editions"></a>Sürümleri karşılaştırma
+<a id="compare-the-editions" class="xliff"></a>
+
+## Sürümleri karşılaştırma
 **Ücretsiz (Önizleme)**
 
 Karma Bağlantılar oluşturabilir ve yönetebilir. Karma Bağlantı, Azure web sitesini SQL Sunucusu gibi şirket içi bir sisteme bağlamanın kolay yoludur.
@@ -44,7 +53,9 @@ Tüm Temel yetenekleri, Karma Bağlantılar, EAI köprüleri, EDI Sözleşmeleri
 
 Tüm Standart yetenekleri, Karma Bağlantılar, EAI köprüleri, EDI Sözleşmeleri ve BizTalk Bağdaştırıcı Paketi bağlantılarındaki yükselişe ekler. Ayrıca, arşivleme, yüksek kullanılabilirlik ve Hizmet Düzeyi Sözleşmesi (SLA) ile ölçeklendirme seçeneği içerir.
 
-## <a name="editions-chart"></a>Sürümler grafiği
+<a id="editions-chart" class="xliff"></a>
+
+## Sürümler grafiği
 Aşağıdaki tabloda farklar listelenmektedir:
 
 <table border="1">
@@ -70,7 +81,7 @@ Aşağıdaki tabloda farklar listelenmektedir:
 <td>1 Premium Birim</td>
 </tr>
 <tr>
-<td><strong>Ölçek</strong></td>
+<td><strong>Ölçeklendirme</strong></td>
 <td>Ölçek yok</td>
 <td>Ölçek yok</td>
 <td>Evet, 1 Temel birim artışlarıyla</td>
@@ -120,7 +131,7 @@ TPM sözleşmeleri dahil</td>
 <td>500</td>
 </tr>
 <tr>
-<td><strong>Şirket içi LOB sistemlerine BizTalk Bağdaştırıcı Hizmeti bağlantıları</strong></td>
+<td><strong>Şirket içi LOB sistemlerine yönelik BizTalk Bağdaştırıcı Hizmeti bağlantıları</strong></td>
 <td>Dahil değil</td>
 <td>1 bağlantı</td>
 <td>2 bağlantı</td>
@@ -147,7 +158,7 @@ TPM sözleşmeleri dahil</td>
 <td>Dahil</td>
 </tr>
 <tr>
-<td><strong>Yüksek kullanılabilirlik</strong>
+<td><strong>Yüksek düzey kullanılabilirlik</strong>
 <br/><br/>
 Hizmet Düzeyi Sözleşmesi (SLA) için bkz. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Fiyatlandırması</a>.
 </td>
@@ -191,7 +202,7 @@ Hizmet Düzeyi Sözleşmesi (SLA) için bkz. <a HREF="http://go.microsoft.com/fw
 <td>Dahil</td>
 </tr>
 <tr>
-<td><strong>Özel XSLT dahil, dönüşümlerin kullanımı</strong></td>
+<td><strong>Özel XSLT de dahil olmak üzere dönüşüm kullanımı</strong></td>
 <td>Dahil değil</td>
 <td>Dahil</td>
 <td>Dahil</td>
@@ -205,11 +216,17 @@ Hizmet Düzeyi Sözleşmesi (SLA) için bkz. <a HREF="http://go.microsoft.com/fw
 > 
 > 
 
-## <a name="faqs"></a>SSS
-#### <a name="what-is-a-biztalk-unit"></a>BizTalk birimi nedir?
+<a id="faqs" class="xliff"></a>
+
+## SSS
+<a id="what-is-a-biztalk-unit" class="xliff"></a>
+
+#### BizTalk birimi nedir?
 "Birim", Azure BizTalk Services dağıtımının atomik düzeyidir. Her sürüm, farklı işlem kapasitesi ve belleğe sahip bir birimle birlikte verilir. Örneğin, Temel birimde Geliştirici’ye göre daha fazla işlem varken, Standart’ta da Temel’e göre daha fazla işlem vardır vb. BizTalk Hizmetini ölçeklendirdiğinizde birimler cinsinden ölçeklendirirsiniz.
 
-#### <a name="what-is-the-difference-between-biztalk-services-and-azure-biztalk-vm"></a>BizTalk Services ve Azure BizTalk VM arasındaki fark nedir?
+<a id="what-is-the-difference-between-biztalk-services-and-azure-biztalk-vm" class="xliff"></a>
+
+#### BizTalk Services ve Azure BizTalk VM arasındaki fark nedir?
 BizTalk Services, bulutta yapı tümleştirme çözümleri için doğru hizmet olarak platform (PaaS) mimarisini sağlar. PaaS modeliyle, tamamen uygulama mantığına odaklanır ve tüm altyapı yönetimini Microsoft'a bırakırsınız; buna şunlar dahildir:
 
 * Sanal makineleri yönetme ve düzeltme eki gerekmez.
@@ -220,30 +237,46 @@ Azure Virtual Machines’deki BizTalk Server hizmet olarak altyapı (IaaS) mimar
 
 Altyapı yönetimi çabanızı en aza indiren yeni tümleştirme çözümlerini derlemeye bakarsanız, BizTalk Services'ni kullanın. Mevcut BizTalk çözümlerinizi hızlı geçirmeye bakıyorsanız ya da BizTalk Server uygulamalarını geliştirmek ve test etmek için isteğe bağlı ortam arıyorsanız, Azure Sanal Makinede BizTalk Server’ı kullanın.
 
-#### <a name="what-is-the-difference-between-biztalk-adapter-service-and-hybrid-connections"></a>BizTalk Bağdaştırıcı Hizmeti ve Karma Bağlantılar arasındaki fark nedir?
+<a id="what-is-the-difference-between-biztalk-adapter-service-and-hybrid-connections" class="xliff"></a>
+
+#### BizTalk Bağdaştırıcı Hizmeti ve Karma Bağlantılar arasındaki fark nedir?
 BizTalk Bağdaştırıcı Hizmeti bir Azure BizTalk Hizmeti tarafından kullanılır. BizTalk Bağdaştırıcı Hizmeti, BizTalk Bağdaştırıcı Paketini şirket içi iş kolu (LOB) sistemine bağlamak için kullanır. Karma Bağlantı, Azure App Service’de ve Azure Mobile Services’da Web Uygulamaları özelliği gibi Azure uygulamalarını şirket içi kaynağa bağlamak için kolay ve uyumlu bir yol sağlar.
 
-#### <a name="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-the-limit-is-reached"></a>“Birim başına Karma Bağlantı Veri Aktarımı (GB)” ne anlama geliyor? Bu dakika/saat/gün/hafta/ay mı? Sınıra ulaşıldığında ne olur?
+<a id="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-the-limit-is-reached" class="xliff"></a>
+
+#### “Birim başına Karma Bağlantı Veri Aktarımı (GB)” ne anlama geliyor? Bu dakika/saat/gün/hafta/ay mı? Sınıra ulaşıldığında ne olur?
 Birim başına Karma Bağlantı maliyeti BizTalk Services sürümüne bağlıdır. Basitçe, maliyetler ne kadar veri aktarımı yaptığınıza bağlıdır. Örneğin, günde 10 GB veri aktarmanın maliyeti günde 100 GB veri aktarmanın maliyetinden daha düşüktür. Belirli maliyetleri saptamak için BizTalk Services’da [Fiyatlandırma Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/?scenario=full) kullanın. Sınırlar genellikle günlüktür. Sınırı aşarsanız, aşmalar GB başına 1 USD oranında ücretlendirilir.
 
-#### <a name="when-i-create-an-agreement-in-biztalk-services-why-does-the-number-of-bridges-go-up-by-two-instead-of-just-one"></a>BizTalk Services’da sözleşme oluşturduğumda neden köprü sayısı bir yerine ikiye yükseliyor?
+<a id="when-i-create-an-agreement-in-biztalk-services-why-does-the-number-of-bridges-go-up-by-two-instead-of-just-one" class="xliff"></a>
+
+#### BizTalk Services’da sözleşme oluşturduğumda neden köprü sayısı bir yerine ikiye yükseliyor?
 Her sözleşme iki farklı köprüden oluşur: gönderme tarafı iletişim köprüsü ve alma tarafı iletişim köprüsü.
 
-#### <a name="what-happens-when-i-hit-the-quota-limit-on-the-number-of-bridges-or-agreements"></a>Köprü sayısına veya sözleşmeye göre kota sınırına ulaştığımda ne olur?
+<a id="what-happens-when-i-hit-the-quota-limit-on-the-number-of-bridges-or-agreements" class="xliff"></a>
+
+#### Köprü sayısına veya sözleşmeye göre kota sınırına ulaştığımda ne olur?
 Yeni köprüleri dağıtamaz veya yeni sözleşmeler oluşturamazsınız. Daha fazla dağıtmak için, BizTalk hizmetinin ölçeğini daha fazla birime yükseltmelisiniz ya da daha yüksek bir sürüme geçmelisiniz.
 
-#### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>BizTalk Services’ın bir katmanından diğerine nasıl geçerim?
+<a id="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another" class="xliff"></a>
+
+#### BizTalk Services’ın bir katmanından diğerine nasıl geçerim?
 Ücretsiz sürüm başka bir katmana geçemez veya 'yukarı ölçeklendirilemez' ve başka bir katmana yedeklenemez ve geri yüklenemez. Başka bir katman gerekiyorsa, yeni katmanı kullanarak yeni bir BizTalk Hizmeti oluşturun. Karma bağlantılar da dahil, Ücretsiz sürüm kullanılarak oluşturulan yapıtların yeni BizTalk Hizmetinde yeniden oluşturulması gerekir. 
 
 Diğer sürümler için, bir katmandan diğerine yapıtları geçirmek için geçiş için yedeklemeyi ve geri yüklemeyi kullanın. Örneğin, standart katmanındaki yapıtlarınızı yedekleyin, sonra da bunları Premium katmanına geri yükleyin. [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md) desteklenen geçiş yollarını açıklar ve hangi yapıtların yedeklendiğini listeler. Karma Bağlantıların yedeklenmediğini unutmayın. Yeni katmana yedekleyip geri yükledikten sonra karma bağlantıları yeniden oluşturun.  
 
-#### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>BizTalk Bağdaştırıcı Hizmeti hizmette mi? Yazılım nasıl alırım?
+<a id="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software" class="xliff"></a>
+
+#### BizTalk Bağdaştırıcı Hizmeti hizmette mi? Yazılım nasıl alırım?
 Evet, BizTalk Bağdaştırıcı Paketi bulunan BizTalk Bağdaştırıcısı Hizmeti Azure BizTalk Services SDK [indirmede](http://www.microsoft.com/download/details.aspx?id=39087) bulunur.
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 Azure portalında Azure BizTalk hizmetleri oluşturmak için [BizTalk Services: Azure portalını kullanarak hazırlama](biztalk-provision-services.md)’ya gidin. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
-## <a name="additional-resources"></a>Ek kaynaklar
+<a id="additional-resources" class="xliff"></a>
+
+## Ek kaynaklar
 * [BizTalk Services: Azure portalını kullanarak hazırlama](biztalk-provision-services.md)<br/>
 * [BizTalk Services: Durum Grafiğini hazırlama](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)<br/>
@@ -251,10 +284,5 @@ Azure portalında Azure BizTalk hizmetleri oluşturmak için [BizTalk Services: 
 * [BizTalk Services: Azaltma](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Verenin Adı ve Verenin Anahtarı](biztalk-issuer-name-issuer-key.md)<br/>
 * [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

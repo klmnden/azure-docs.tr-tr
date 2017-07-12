@@ -1,26 +1,30 @@
 ---
-title: "Application Gateway’de birden fazla siteyi barındırma | Microsoft Belgeleri"
+title: "Azure Application Gateway&quot;de birden fazla siteyi barındırma | Microsoft Docs"
 description: "Bu sayfada, Application Gateway çoklu site desteği için genel bir bakış sunulmuştur."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
-editor: amsriva
+editor: 
 ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 05/09/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: 68e88483e3dc7c22968d701d9b79364bb55fb896
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 722ab9e8a13ee28342bb30f6810fa503b1aa29f2
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="application-gateway-multiple-site-hosting"></a>Application Gateway birden çok site barındırma
+<a id="application-gateway-multiple-site-hosting" class="xliff"></a>
+
+# Application Gateway birden çok site barındırma
 
 Birden çok site barındırma, aynı uygulama ağ geçidi örneğinde birden fazla web uygulaması yapılandırmanızı sağlar. Bu özellik, bir uygulama ağ geçidine en fazla 20 web sitesi ekleyerek dağıtımlarınız için daha verimli bir topoloji yapılandırmanıza olanak tanır. Her web sitesi, kendi arka uç havuzuna yönlendirilebilir. Aşağıdaki örnekte, uygulama ağ geçidi ContosoServerPool ve FabrikamServerPool adlı iki arka uç sunucu havuzundan contoso.com ve fabrikam.com için trafik sunmaktadır.
 
@@ -30,7 +34,9 @@ http://contoso.com için istekler ContosoServerPool’a, http://fabrikam.com iç
 
 Benzer şekilde aynı üst etki alanının iki alt etki alanı, aynı uygulama ağ geçidi dağıtımında barındırılabilir. Alt etki alanı kullanım örnekleri, tek bir uygulama ağ geçidi dağıtımında barındırılan http://blog.contoso.com ve http://app.contoso.com’u içerebilir.
 
-## <a name="host-headers-and-server-name-indication-sni"></a>Barındırma üstbilgileri ve Sunucu Adı Belirtme (SNI)
+<a id="host-headers-and-server-name-indication-sni" class="xliff"></a>
+
+## Barındırma üstbilgileri ve Sunucu Adı Belirtme (SNI)
 
 Aynı altyapıda birden çok site barındırmayı etkinleştirmek için üç yaygın mekanizma bulunur.
 
@@ -40,7 +46,9 @@ Aynı altyapıda birden çok site barındırmayı etkinleştirmek için üç yay
 
 Şu anda bir uygulama ağ geçidi, üzerinde trafiği dinlediği tek bir genel IP adresi almaktadır. Bu nedenle, her biri kendi IP adresine sahip olan birden çok uygulama şu anda desteklenmemektedir. Application Gateway, her biri farklı bağlantı noktasında dinleme yapan birden çok uygulamanın barındırılmasını destekler, ancak bu senaryo uygulamaların standart olmayan bağlantı noktalarında trafiği kabul etmesini gerekli kılar ve çoğu zaman istenen bir yapılandırma değildir. Application Gateway, aynı genel IP adresinde ve bağlantı noktasında birden çok web sitesini barındırmak için HTTP 1.1 barındırma bilgilerini kullanır. Uygulama ağ geçidinde barındırılan siteler, Sunucu Adı Belirtme (SNI) uzantısına sahip SSL yük boşaltmayı da destekleyebilir. Bu senaryo, istemci tarayıcısının ve arka uç web grubunun RFC 6066’da belirtildiği gibi HTTP/1.1 ve TLS uzantısını desteklemesi gerektiği anlamına gelir.
 
-## <a name="listener-configuration-element"></a>Dinleyici yapılandırma öğesi
+<a id="listener-configuration-element" class="xliff"></a>
+
+## Dinleyici yapılandırma öğesi
 
 Mevcut HTTPListener yapılandırma öğesi, ana bilgisayar adını ve sunucu adı belirtme öğelerini destekleyecek şekilde geliştirilmiştir. Bu öğe, uygulama ağ geçidi tarafından trafiği uygun arka uç havuzuna yönlendirmek için kullanılır. Aşağıdaki kod örneği, şablon dosyasındaki HttpListeners öğesinin kod parçacığıdır.
 
@@ -82,7 +90,9 @@ Mevcut HTTPListener yapılandırma öğesi, ana bilgisayar adını ve sunucu ad�
 
 Uçtan uca şablon tabanlı dağıtım için [birden çok site barındırma kullanan Resource Manager şablonunu](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) ziyaret edebilirsiniz.
 
-## <a name="routing-rule"></a>Yönlendirme kuralı
+<a id="routing-rule" class="xliff"></a>
+
+## Yönlendirme kuralı
 
 Yönlendirme kuralında yapılması gereken bir değişiklik yoktur. Uygun site dinleyicisini ilgili arka uç adres havuzuna bağlamak için 'Temel' yönlendirme kuralını kullanmaya devam etmeniz gerekir.
 
@@ -123,13 +133,10 @@ Yönlendirme kuralında yapılması gereken bir değişiklik yoktur. Uygun site 
 ]
 ```
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 Birden çok site barındırma hakkında bilgi aldıktan sonra birden fazla web uygulamasını destekleyebilen uygulama ağ geçidi oluşturmak için [birden çok site barındırma kullanan uygulama ağ geçidi oluşturma](application-gateway-create-multisite-azureresourcemanager-powershell.md) bölümüne gidin.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

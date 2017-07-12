@@ -15,72 +15,87 @@ ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 6985dff332928d704f30e167c3bddb62bcc6cac1
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: faf17bcac66a70fc78bb171e172886fd2dcadca8
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Öğretici: Azure PowerShell'i kullanarak Azure Data Lake Analytics ile çalışmaya başlama
+<a id="get-started-with-azure-data-lake-analytics-using-azure-powershell" class="xliff"></a>
+
+# Azure PowerShell'i kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Azure PowerShell kullanarak Azure Data Lake Analytics hesapları oluşturma ve sonra U-SQL işleri gönderip çalıştırma hakkında bilgi edinin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
+
 Bu öğreticiye başlamadan önce aşağıdaki bilgilere sahip olmanız gerekir:
 
-* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
+* **Azure Data Lake Analytics hesabı**. Bkz. [Data Lake Analytics ile çalışmaya başlama](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 * **Azure PowerShell içeren bir iş istasyonu**. Bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
 
-## <a name="preparing-for-the-tutorial"></a>Öğreticiye hazırlanma
-Bir Data Lake Analytics hesabı oluşturmak için öncelikle şunları tanımlamanız gerekir:
+<a id="log-in-to-azure" class="xliff"></a>
 
-* **Azure Kaynak Grubu**: Data Lake Analytics hesabı bir Azure Kaynak grubu içinde oluşturulmalıdır.
-* **Data Lake Analytics hesap adı**: Data Lake hesabı adı yalnızca küçük harflerden ve rakamlardan oluşmalıdır.
-* **Konum**: Data Lake Analytics'i destekleyen Azure veri merkezlerinden biri.
-* **Varsayılan Data Lake Store hesabı**: Her Data Lake Analytics hesabı, bir varsayılan Data Lake Store hesabına sahiptir. Bu hesaplar aynı konumda olmalıdır.
+## Azure'da oturum açma
 
-Bu öğreticideki PowerShell kod parçacıkları, bu bilgileri depolamak için bu değişkenleri kullanır
+Bu öğreticide, Azure PowerShell kullanımıyla ilgili bilgi sahibi olduğunuz varsayılır. Özellikle Azure'da oturum açmayı bilmeniz gerekir. Yardıma ihtiyacınız varsa bkz. [Azure PowerShell ile çalışmaya başlama](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps).
+
+Abonelik adı ile oturum açmak için:
+
+```
+Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
+```
+
+Oturum açmak için abonelik adı yerine abonelik kimliğini de kullanabilirsiniz:
+
+```
+Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+
+Başarılı olması halinde bu komutun çıkışı şu metin gibi görünür:
+
+```
+Environment           : AzureCloud
+Account               : joe@contoso.com
+TenantId              : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+SubscriptionId        : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+SubscriptionName      : ContosoSubscription
+CurrentStorageAccount :
+```
+
+<a id="preparing-for-the-tutorial" class="xliff"></a>
+
+## Öğreticiye hazırlanma
+
+Bu öğreticideki PowerShell kod parçacıkları bu bilgileri depolamak için aşağıdaki değişkenleri kullanır:
 
 ```
 $rg = "<ResourceGroupName>"
-$adls = "<DataLakeAccountName>"
+$adls = "<DataLakeStoreAccountName>"
 $adla = "<DataLakeAnalyticsAccountName>"
 $location = "East US 2"
 ```
 
-## <a name="create-a-data-lake-analytics-account"></a>Data Lake Analytics hesabı oluşturma
+<a id="get-information-about-a-data-lake-analytics-account" class="xliff"></a>
 
-Kullanılacak bir Kaynak Grubunuz henüz yoksa bir tane oluşturun. 
-
-```
-New-AzureRmResourceGroup -Name  $rg -Location $location
-```
-
-Her Data Lake Analytics hesabı, günlükleri depolamak için kullandığı varsayılan bir Data Lake Store hesabı gerektirir. Var olan bir hesabı yeniden kullanabilir veya yeni bir hesap oluşturabilirsiniz. 
-
-```
-New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
-```
-
-Bir Kaynak Grubu ve Data Lake Store hesabı oluşturulduktan sonra Data Lake Analytics hesabı oluşturun.
-
-```
-New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
-```
-
-## <a name="get-information-about-a-data-lake-analytics-account"></a>Bir Data Lake Analytics hesabı hakkında bilgi edinme
+## Bir Data Lake Analytics hesabı hakkında bilgi edinme
 
 ```
 Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla  
 ```
 
-## <a name="submit-a-u-sql-job"></a>U-SQL işi gönderme
+<a id="submit-a-u-sql-job" class="xliff"></a>
 
-Aşağıdaki U-SQL betiği ile bir metin dosyası oluşturun.
+## U-SQL işi gönderme
+
+U-SQL betiğini tutmak için bir PowerShell değişkeni oluşturun.
 
 ```
+$script = @"
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -91,26 +106,29 @@ Aşağıdaki U-SQL betiği ile bir metin dosyası oluşturun.
 OUTPUT @a
     TO "/data.csv"
     USING Outputters.Csv();
+
+"@
 ```
 
 Betiği gönderin.
 
 ```
-Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
+$job = Submit-AdlJob -AccountName $adla –Script $script
 ```
 
-## <a name="monitor-u-sql-jobs"></a>U-SQL İşlerini izleme
-
-Hesaptaki tüm işleri listeleyin. Çıktı o anda çalışan işleri ve yakın zamanda tamamlanan işleri içerir.
+Alternatif olarak, betiği dosya olarak kaydedebilir ve şu komutla gönderebilirsiniz:
 
 ```
-Get-AdlJob -Account $adla
+$filename = "d:\test.usql"
+$script | out-File $filename
+$job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
 ```
 
-Belirli bir işin durumunu alın.
+
+Belirli bir işin durumunu alın. İş tamamlanana kadar bu cmdlet'i kullanmaya devam edin.
 
 ```
-Get-AdlJob -AccountName $adla -JobId $job.JobId
+$job = Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
 
 Bir iş tamamlanana kadar Get-AdlAnalyticsJob yöntemini tekrar tekrar çağırmak yerine, Wait-AdlJob cmdlet’ini kullanabilirsiniz.
@@ -119,34 +137,15 @@ Bir iş tamamlanana kadar Get-AdlAnalyticsJob yöntemini tekrar tekrar çağırm
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-İş tamamlandıktan sonra, dosyaları bir klasörde listeleyerek çıktı dosyasının mevcut olup olmadığını denetleyin.
+Çıkış dosyasını indirin.
 
 ```
-Get-AdlStoreChildItem -Account $adls -Path "/"
+Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
-Bir dosyanın varlığını denetleyin.
+<a id="see-also" class="xliff"></a>
 
-```
-Test-AdlStoreItem -Account $adls -Path "/data.csv"
-```
-
-## <a name="uploading-and-downloading-files"></a>Dosyaları karşıya yükleme ve indirme
-
-U-SQL betiğinin çıktısını indirin.
-
-```
-Export-AdlStoreItem -AccountName $adls -Path "/data.csv"  -Destination "D:\data.csv"
-```
-
-
-U-SQL betiğinin girdisi olarak kullanılacak bir dosyayı karşıya yükleyin.
-
-```
-Import-AdlStoreItem -AccountName $adls -Path "D:\data.tsv" -Destination "/data_copy.csv" 
-```
-
-## <a name="see-also"></a>Ayrıca bkz.
+## Ayrıca bkz.
 * Aynı öğreticiyi diğer araçları kullanarak görmek için sayfanın üst kısmındaki sekme seçicilerine tıklayın.
 * U-SQL öğrenmek için bkz. [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md).
 * Yönetim görevleri için bkz. [Azure portalı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).

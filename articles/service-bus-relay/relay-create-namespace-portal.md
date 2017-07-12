@@ -3,7 +3,7 @@ title: "Azure portalını kullanarak Geçiş türünde ad alanı oluşturma | Mi
 description: "Azure portalı kullanılarak Geçiş ad alanı oluşturma."
 services: service-bus-relay
 documentationcenter: .net
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 78ab6753-877a-4426-92ec-a81675d62a57
@@ -12,27 +12,35 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/13/2017
-ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
-ms.openlocfilehash: 927c01ff4cfa7de6e1e9eb2917848a4450e9f597
-ms.lasthandoff: 02/28/2017
+ms.date: 05/17/2017
+ms.author: sethm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: e641de26d47d54e1543157d788aa131fb3bd3cf3
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/05/2017
 
 ---
 
-# <a name="create-a-relay-namespace-using-the-azure-portal"></a>Azure portalı kullanılarak Geçiş ad alanı oluşturma
-Ad alanı, tüm Geçiş bileşenleriniz için ortak bir kapsayıcıdır. Tek bir ad alanında birden fazla Geçiş bulunabilir ve ad alanları genellikle uygulama kapsayıcıları olarak görev yapar. Şu anda bir Geçiş ad alanı oluşturmak için iki farklı yol vardır.
+<a id="create-a-relay-namespace-using-the-azure-portal" class="xliff"></a>
+
+# Azure portalı kullanılarak Geçiş ad alanı oluşturma
+Ad alanı, tüm Azure Geçişi bileşenleriniz için ortak bir kapsayıcıdır. Tek bir ad alanında birden fazla Geçiş bulunabilir ve ad alanları genellikle uygulama kapsayıcıları olarak görev yapar. Şu anda bir geçiş ad alanı oluşturmanın iki farklı yolu vardır.
 
 1. Azure portalı (bu makale)
 2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) şablonları
 
-## <a name="create-a-namespace-in-the-azure-portal"></a>Azure portalında bir ad alanı oluşturma
+<a id="create-a-namespace-in-the-azure-portal" class="xliff"></a>
+
+## Azure portalında bir ad alanı oluşturma
+
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-Tebrikler! Bir Geçiş ad alanı oluşturdunuz.
+Tebrikler! Bir geçiş ad alanı oluşturdunuz.
 
-## <a name="next-steps"></a>Sonraki adımlar:
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar:
 * [Geçiş hakkında SSS](relay-faq.md)
 * [.NET kullanmaya başlama](relay-hybrid-connections-dotnet-get-started.md)
 * [Node kullanmaya başlama](relay-hybrid-connections-node-get-started.md)

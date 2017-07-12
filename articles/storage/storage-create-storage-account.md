@@ -12,27 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+f1_keywords:
+- sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: robinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 16d9fa8a7b7593f222976897bddf615c28109540
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="about-azure-storage-accounts"></a>Azure Storage hesapları hakkında
+<a id="about-azure-storage-accounts" class="xliff"></a>
+
+# Azure Storage hesapları hakkında
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-## <a name="overview"></a>Genel Bakış
+<a id="overview" class="xliff"></a>
+
+## Genel Bakış
 Azure Storage hesabı, Azure Storage veri nesnelerinizi depolamak ve bunlara erişmek için benzersiz ad alanı sağlar. Depolama hesabındaki tüm nesneler bir grup halinde faturalandırılır. Varsayılan olarak, hesabınızdaki veriler yalnızca siz, yani hesap sahibi tarafından kullanılabilir.
 
 [!INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
-## <a name="storage-account-billing"></a>Depolama hesabı faturalama
+<a id="storage-account-billing" class="xliff"></a>
+
+## Depolama hesabı faturalama
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -40,7 +48,9 @@ Azure Storage hesabı, Azure Storage veri nesnelerinizi depolamak ve bunlara eri
 > 
 > 
 
-## <a name="storage-account-endpoints"></a>Depolama hesabı uç noktaları
+<a id="storage-account-endpoints" class="xliff"></a>
+
+## Depolama hesabı uç noktaları
 Azure Storage’da depoladığınız her nesnenin benzersiz bir URL adresi vardır. Depolama hesabı adı o adresin alt etki alanı adını oluşturur. Her hizmete özel alt etki alanı ve etki alanı birleşimi depolama hesabınız için bir *uç nokta* oluşturur.
 
 Örneğin depolama hesabınızın adı *mystorageaccount* ise, depolama hesabınız için varsayılan uç noktalar şunlardır:
@@ -59,7 +69,9 @@ Bir depolama hesabındaki bir nesneye erişmek için gerekli URL, nesnenin depol
 
 Ayrıca depolama hesabınız ile birlikte kullanmak üzere özel bir etki alanı adı yapılandırabilirsiniz. Klasik depolama hesapları için ayrıntıları öğrenmek üzere [Blob Depolama Uç Noktanız için özel bir etki alanı Adı yapılandırma](storage-custom-domain-name.md) sayfasına bakın. Bu özellik, Resource Manager depolama hesapları için henüz [Azure portalına](https://portal.azure.com) eklenmemiştir, ancak bu özelliği PowerShell ile yapılandırabilirsiniz. Daha fazla bilgi için [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet’ine bakın.  
 
-## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
+<a id="create-a-storage-account" class="xliff"></a>
+
+## Depolama hesabı oluşturma
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Hub menüsünde, **Yeni** -> **Depolama** -> **Depolama hesabı**'nı seçin.
 3. Depolama hesabınız için bir ad girin. Depolama hesabınızın adının Azure Storage’da nesnelerinizin ele alınması için nasıl kullanılacağı hakkında ayrıntılar için bkz. [Depolama hesabı uç noktaları](#storage-account-endpoints).
@@ -87,9 +99,13 @@ Ayrıca depolama hesabınız ile birlikte kullanmak üzere özel bir etki alanı
 9. Depolama hesabınız için coğrafi konumu seçin. Hangi bölgede hangi hizmetin sağlandığına dair daha fazla bilgi için bkz.[Azure Bölgeleri](https://azure.microsoft.com/regions/#services).
 10. Depolama hesabını oluşturmak için **Oluştur**’a tıklayın.
 
-## <a name="manage-your-storage-account"></a>Depolama hesabınızı yönetme
-### <a name="change-your-account-configuration"></a>Hesap yapılandırmanızı değiştirme
-Depolama hesabınızı oluşturduktan sonra hesap için kullanılan çoğaltma seçeneğini veya Blob Storage hesabının erişim katmanını değiştirme gibi hesabın yapılandırmasını değiştirebilirsiniz. [Azure portal](https://portal.azure.com)’da depolama hesabınıza gidin, **Tüm ayarlar**’a tıklayın ve ardından hesap yapılandırmasını görüntülemek ve/veya yapılandırmak için **Yapılandırma**’ya tıklayın.
+<a id="manage-your-storage-account" class="xliff"></a>
+
+## Depolama hesabınızı yönetme
+<a id="change-your-account-configuration" class="xliff"></a>
+
+### Hesap yapılandırmanızı değiştirme
+Depolama hesabınızı oluşturduktan sonra hesap için kullanılan çoğaltma seçeneğini veya Blob Storage hesabının erişim katmanını değiştirme gibi hesabın yapılandırmasını değiştirebilirsiniz. Hesap yapılandırmanızı görüntülemek ve/veya değiştirmek için [Azure portalında](https://portal.azure.com) depolama hesabınıza gidin ve **AYARLAR** altında yer alan **Yapılandırma** seçeneğine tıklayın.
 
 > [!NOTE]
 > Depolama hesabı oluştururken seçtiğiniz performans katmanına bağlı olarak bazı çoğaltma seçenekleri kullanılamayabilir.
@@ -100,18 +116,24 @@ Depolama hesabınızı oluşturduktan sonra hesap için kullanılan çoğaltma s
 
 Blob Storage hesapları için erişim katmanını değiştirdiğinizde, fiyatlandırmanızın değiştirilmesinin yanı sıra bu değişim için ücret alınabilir. Daha fazla ayrıntı için lütfen [Blob Storage hesapları - Fiyatlandırma ve Faturalama](storage-blob-storage-tiers.md#pricing-and-billing) sayfasına bakın.
 
-### <a name="manage-your-storage-access-keys"></a>Depolama erişim tuşlarınızı yönetme
+<a id="manage-your-storage-access-keys" class="xliff"></a>
+
+### Depolama erişim tuşlarınızı yönetme
 Bir depolama hesabı oluşturduğunuzda Azure, depolama hesabına erişim sağlandığında kimlik doğrulama için kullanılan iki adet 512 bit depolama erişim tuşu oluşturur. İki depolama erişim tuşu sağlayarak AAzure Storage izmetinizde herhangi bir kesinti olmadan veya ilgili hizmete erişim sağlamaya gerek kalmadan anahtarları yeniden oluşturmanızı sağlar.
 
 > [!NOTE]
 > Depolama erişim tuşlarınızı başkalarıyla paylaşmaktan kaçınmanızı öneririz. Erişim tuşlarınızı vermeden depolama kaynaklarına erişim izni vermek için bir *paylaşılan erişim imzası* kullanabilirsiniz. Paylaşılan erişim imzası, hesabınızdaki bir kaynağa belirlediğiniz zaman diliminde belirlediğiniz izinlerle erişilmesini sağlar. Daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
 > 
 > 
+<a id="view-and-copy-storage-access-keys"/></a>
+<a id="view-and-copy-storage-access-keys" class="xliff"></a>
 
-#### <a name="view-and-copy-storage-access-keys"></a>Depolama erişim tuşlarını görüntüleme ve kopyalama
+#### Depolama erişim tuşlarını görüntüleme ve kopyalama
 [Azure portal](https://portal.azure.com)’da depolama hesabınıza gidin, **Tüm ayarlar**’a tıklayın ve ardından hesap erişim tuşlarınızı görüntülemek, kopyalamak ve yeniden oluşturmak için **Erişim tuşları**’na tıklayın. **Erişim Tuşları** dikey penceresi, uygulamanızda kullanmak üzere kopyalayabileceğiniz birincil ve ikincil anahtarları kullanan önceden yapılandırılmış bağlantı dizeleri içerir.
 
-#### <a name="regenerate-storage-access-keys"></a>Depolama erişim tuşlarını yeniden oluşturma
+<a id="regenerate-storage-access-keys" class="xliff"></a>
+
+#### Depolama erişim tuşlarını yeniden oluşturma
 Depolama bağlantılarınızı güvenli tutmaya yardımcı olmak üzere depolama hesabınıza erişim tuşlarını düzenli aralıklarla değiştirmenizi öneririz. Bir erişim tuşunu kullanarak depolama hesabına bağlantıları sağlamak ve diğer anahtarı yeniden oluşturmak üzere kullanmanız için iki erişim tuşu atanır.
 
 > [!WARNING]
@@ -132,7 +154,9 @@ Depolama erişim tuşlarınızı şu şekilde döndürebilirsiniz:
 3. Yeni birincil erişim tuşunu referans olarak kullanmak için bağlantı dizelerini güncelleştirin.
 4. İkincil erişim tuşunu da aynı şekilde yeniden oluşturun.
 
-## <a name="delete-a-storage-account"></a>Bir depolama hesabını silme
+<a id="delete-a-storage-account" class="xliff"></a>
+
+## Bir depolama hesabını silme
 Artık kullanmadığınız bir depolama hesabını kaldırmak için [Azure portal](https://portal.azure.com)’da depolama hesabına gidin ve **Sil**’e tıklayın. Depolama hesabı silindiğinde, hesaptaki tüm veriler dahil olmak üzere tüm hesap silinir.
 
 > [!WARNING]
@@ -154,7 +178,9 @@ Depolama hesabınızda Klasik dağıtım modeli kullanılıyorsa, [Azure portal]
 
 Daha fazla bilgi edinmek için bkz. [Azure Virtual Machines belgeleri](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 * [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
 * [Azure Blob Depolama: Seyrek Erişimli ve Sık Erişimli katmanlar](storage-blob-storage-tiers.md)
 * [Azure Depolama çoğaltması](storage-redundancy.md)

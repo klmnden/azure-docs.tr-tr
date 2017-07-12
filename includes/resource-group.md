@@ -1,0 +1,1 @@
+[Kaynak grubu](../articles/azure-resource-manager/resource-group-overview.md#terminology) web uygulamaları, veritabanları ve depolama hesapları gibi Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.

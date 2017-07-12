@@ -12,33 +12,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
+ms.date: 06/12/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 306c9c5cb06caa186bc0b7f431a5412dfe810722
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 4eb0e7bcc14722010121c2a5945509d6ed736f4f
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>.NET Framework kullanarak olayları Azure Event Hubs’a gönderme
+<a id="send-events-to-azure-event-hubs-using-the-net-framework" class="xliff"></a>
 
-## <a name="introduction"></a>Giriş
+# .NET Framework kullanarak olayları Azure Event Hubs’a gönderme
+
+<a id="introduction" class="xliff"></a>
+
+## Giriş
+
 Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
 
 Bu öğretici, [Azure portalının](https://portal.azure.com) bir olay hub'ı oluşturmak için nasıl kullanılacağını gösterir. Ayrıca .NET Framework kullanılarak C# dilinde yazılmış bir konsol uygulaması ile bir olay hub’ına olay gönderme işlemini gösterir. .NET Framework kullanarak olayları almak için [.NET Framework kullanarak olay alma](event-hubs-dotnet-framework-getstarted-receive-eph.md) makalesine bakın veya soldaki içindekiler bölümünden uygun alma diline tıklayın.
 
-Bu öğreticiyi tamamlamak için şunlar gerekir:
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
 * [Microsoft Visual Studio 2015 veya üzeri](http://visualstudio.com). Bu öğreticideki ekran görüntülerinde Visual Studio 2017 kullanılır.
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/free/).
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
+<a id="create-an-event-hubs-namespace-and-an-event-hub" class="xliff"></a>
 
-İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı izleyin, ardından aşağıdaki adımlarla devam edin.
+## Event Hubs ad alanı ve bir olay hub’ı oluşturma
 
-## <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı uygulayın, ardından bu öğreticide yer alan aşağıdaki adımlarla devam edin.
+
+<a id="create-a-sender-console-application" class="xliff"></a>
+
+## Gönderen konsol uygulaması oluşturma
+
 Bu bölümde, olay hub'ınıza olayları gönderen Windows konsol uygulamasını yazacaksınız.
 
 1. Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni bir Visual C# Masaüstü Uygulaması projesi oluşturun. Projeyi **Gönderen** için bir ad verin.
@@ -52,56 +62,58 @@ Bu bölümde, olay hub'ınıza olayları gönderen Windows konsol uygulamasını
     Visual Studio, [Azure Service Bus kitaplığı NuGet paketini](https://www.nuget.org/packages/WindowsAzure.ServiceBus) indirir, yükler ve ona bir başvuru ekler.
 4. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
    
-    ```csharp
-    using System.Threading;
-    using Microsoft.ServiceBus.Messaging;
-    ```
+  ```csharp
+  using System.Threading;
+  using Microsoft.ServiceBus.Messaging;
+  ```
 5. Aşağıdaki alanları **Program** sınıfına ekleyin; bu işlemi yaparken yer tutucu değerlerini önceki bölümde oluşturduğunuz olay hub’ı adıyla ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesiyle değiştirin.
    
-    ```csharp
-    static string eventHubName = "{Event Hub name}";
-    static string connectionString = "{send connection string}";
-    ```
+  ```csharp
+  static string eventHubName = "{Event Hub name}";
+  static string connectionString = "{send connection string}";
+  ```
 6. **Program** sınıfına aşağıdaki yöntemi ekleyin:
    
-    ```csharp
-    static void SendingRandomMessages()
-    {
-        var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
-        while (true)
-        {
-            try
-            {
-                var message = Guid.NewGuid().ToString();
-                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
-                eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
-            }
-            catch (Exception exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
-                Console.ResetColor();
-            }
+  ```csharp
+  static void SendingRandomMessages()
+  {
+      var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
+      while (true)
+      {
+          try
+          {
+              var message = Guid.NewGuid().ToString();
+              Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
+              eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
+          }
+          catch (Exception exception)
+          {
+              Console.ForegroundColor = ConsoleColor.Red;
+              Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
+              Console.ResetColor();
+          }
    
-            Thread.Sleep(200);
-        }
-    }
-    ```
+          Thread.Sleep(200);
+      }
+  }
+  ```
    
-    Bu yöntem, olayları 200 ms'lik bir gecikmeyle sürekli olarak olay hub'ınıza gönderir.
+  Bu yöntem, olayları 200 ms'lik bir gecikmeyle sürekli olarak olay hub'ınıza gönderir.
 7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
    
-    ```csharp
-    Console.WriteLine("Press Ctrl-C to stop the sender process");
-    Console.WriteLine("Press Enter to start now");
-    Console.ReadLine();
-    SendingRandomMessages();
-    ```
+  ```csharp
+  Console.WriteLine("Press Ctrl-C to stop the sender process");
+  Console.WriteLine("Press Enter to start now");
+  Console.ReadLine();
+  SendingRandomMessages();
+  ```
 8. Programı çalıştırın ve herhangi bir hata olmadığından emin olun.
   
 Tebrikler! Bir olay hub'ına ileti gönderdiniz.
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 Olay hub'ını oluşturan ve veri gönderen bir çalışan uygulama oluşturduğunuza göre aşağıdaki senaryolara geçebilirsiniz:
 
 * [Olay İşlemcisi Konağı kullanarak olay alma](event-hubs-dotnet-framework-getstarted-receive-eph.md)

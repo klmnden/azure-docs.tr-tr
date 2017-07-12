@@ -14,20 +14,28 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="create-biztalk-services-using-the-azure-portal"></a>Azure portalını kullanarak BizTalk Services oluşturma
+<a id="create-biztalk-services-using-the-azure-portal" class="xliff"></a>
+
+# Azure portalını kullanarak BizTalk Services oluşturma
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 
 > [!TIP]
 > Azure portalında oturum açmak için bir Azure hesabınız ve Azure aboneliğiniz olması gerekir. Hesabınız yoksa birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Bkz. [Azure Ücretsiz Deneme](http://go.microsoft.com/fwlink/p/?LinkID=239738).
-> 
-> 
 
-## <a name="create-a-biztalk-service"></a>BizTalk Hizmeti oluşturma
+
+<a id="create-a-biztalk-service" class="xliff"></a>
+
+## BizTalk Hizmeti oluşturma
 Seçtiğiniz Sürüm’e bağlı olarak, BizTalk Hizmeti ayarlarının tümü kullanılamayabilir.
 
 1. [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
@@ -41,9 +49,9 @@ Seçtiğiniz Sürüm’e bağlı olarak, BizTalk Hizmeti ayarlarının tümü ku
     <tr>
     <td><strong>BizTalk hizmeti adı</strong></td>
     <td>Herhangi bir ad girin, ancak özel olsun. Bazı örnekler:<br/><br/>
-    <em>mycompany</em>.biztalk.windows.net<br/>
-    <em>mycompanymyapplication</em>.biztalk.windows.net<br/>
-    <em>myapplication</em>.biztalk.windows.net<br/><br/>". biztalk.windows.net" otomatik olarak girdiğiniz ada eklenir. Bu, BizTalk hizmetinize erişmek için kullanılan bir URL oluşturur; örneğin, <strong>https://<em>myapplication</em>. biztalk.windows.net</strong>.
+    <em>şirketim</em>.biztalk.windows.net<br/>
+    <em>şirketimuygulamam</em>.biztalk.windows.net<br/>
+    <em>uygulamam</em>.biztalk.windows.net<br/><br/>". biztalk.windows.net" otomatik olarak girdiğiniz ada eklenir. Bu, BizTalk hizmetinize erişmek için kullanılan bir URL oluşturur; örneğin, <strong>https://<em>myapplication</em>. biztalk.windows.net</strong>.
     </td>
     </tr>
     <tr>
@@ -58,17 +66,15 @@ Seçtiğiniz Sürüm’e bağlı olarak, BizTalk Hizmeti ayarlarının tümü ku
     <tr>
     <td><strong>Etki alanı URL'si</strong></td>
     <td><strong>İsteğe bağlı</strong>. Varsayılan olarak, etki alanı URL'si <em>YourBizTalkServiceName</em>. biztalk.windows.net biçimindedir. Özel bir etki alanı da girilebilir. Örneğin, etki alanınız <em>contoso</em> olarak belirtilmişse şunları girebilirsiniz: <br/><br/>
-    <em>MyCompany</em>.contoso.com<br/>
-    <em>MyCompanyMyApplication</em>.contoso.com<br/>
-    <em>MyApplication</em>.contoso.com<br/>
-    <em>YourBizTalkServiceName</em>.contoso.com<br/>
+    <em>Şirketim</em>.contoso.com<br/>
+    <em>ŞirketimUygulamam</em>.contoso.com<br/>
+    <em>Uygulamam</em>.contoso.com<br/>
+    <em>BizTalkHizmetAdınız</em>.contoso.com<br/>
     </td>
     </tr>
     </table>
-   İLERİ okunu seçin.
-5. Storage ve Veritabanı Ayarlarını girin:
-   
-    <table border="1">
+İLERİ okunu seçin.
+5. Storage ve Veritabanı Ayarlarını girin:  <table border="1">
     <tr>
     <td><strong>Depolama hesabını izleme/arşivleme</strong></td>
     <td>Mevcut bir depolama hesabını seçin veya yeni bir depolama hesabı oluşturun. <br/><br/>Yeni bir Storage hesabı oluşturuyorsanız, <strong>Storage Hesabı Adı</strong> girin.</td>
@@ -78,21 +84,19 @@ Seçtiğiniz Sürüm’e bağlı olarak, BizTalk Hizmeti ayarlarının tümü ku
     <td>Mevcut bir Azure SQL veritabanı kullanıyorsanız, başka bir BizTalk hizmeti tarafından kullanılamaz. Azure SQL Veritabanı Sunucusu oluşturulduğunda oturum açma adı ve parola girilmesi gerekir.<br/><br/><strong>İPUCU</strong> BizTalk hizmetiyle aynı bölgede Veritabanı izleme ve depolama hesabı izleme/arşivleme oluşturun.</td>
     </tr>
     </table>
-   İLERİ okunu seçin.
-6. Veritabanı ayarlarını girin:
-   
-    <table border="1">
+İLERİ okunu seçin.
+6. Veritabanı ayarlarını girin:  <table border="1">
     <tr>
     <td><strong>Ad</strong></td>
     <td>Önceki ekranda <strong>Yeni bir SQL veritabanı oluştur</strong> seçili olduğunda kullanılabilir.
     <br/><br/>
-    BizTalk Hizmeti tarafından kullanılacak bir SQL Veritabanı adı girin.</td>
+BizTalk Hizmeti tarafından kullanılacak bir SQL Database adı girin.</td>
     </tr>
     <tr>
     <td><strong>Sunucu</strong></td>
     <td>Önceki ekranda <strong>Yeni bir SQL veritabanı oluştur</strong> seçili olduğunda kullanılabilir.
     <br/><br/>
-    Mevcut bir SQL Veritabanı Sunucusu seçin veya yeni bir SQL Veritabanı sunucusu oluşturun.</td>
+Mevcut bir SQL Database Sunucusu seçin veya yeni bir SQL Database sunucusu oluşturun.</td>
     </tr>
     <tr>
     <td><strong>Sunucu oturum açma adı</strong></td>
@@ -115,12 +119,14 @@ Tamamlandığında, Azure BizTalk Hizmeti oluşturulmuştur ve uygulamalarınız
 
 BizTalk Hizmeti durumunu bağlı olarak, bazı tamamlanamayan işlemler vardır. Bu işlemlerin bir listesi için [BizTalk Services Durumu Grafiği](biztalk-service-state-chart.md)’ne gidin.
 
-## <a name="post-provisioning-steps"></a>Hazırlama sonrası adımlar
+<a id="post-provisioning-steps" class="xliff"></a>
+
+## Hazırlama sonrası adımlar
 * [Sertifikayı yerel bir bilgisayara yükleme](#InstallCert)
 * [Üretime hazır sertifikayı ekleme](#AddCert)
 * [Access Control ad alanını alma](#ACS)
 
-#### <a name="a-nameinstallcertainstall-the-certificate-on-a-local-computer"></a><a name="InstallCert"></a>Sertifikayı yerel bir bilgisayara yükleme
+#### <a name="InstallCert"></a>Sertifikayı yerel bir bilgisayara yükleme
 BizTalk Hizmeti hazırlamanın bir parçası olarak, otomatik olarak imzalanan ve BizTalk hizmeti aboneliğinizle ilişkili bir sertifika oluşturulur. Bu sertifikayı indirip BizTalk Hizmeti uç noktasına iletileri göndereceğiniz veya BizTalk Hizmeti uygulamalarını dağıtacağınız bilgisayarlara bunu yüklemeniz gerekir.
 
 1. [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
@@ -130,13 +136,13 @@ BizTalk Hizmeti hazırlamanın bir parçası olarak, otomatik olarak imzalanan v
    ![SSL Sertifikasını Değiştirme][QuickGlance]
 5. Sertifikaya çift tıklayın ve sertifikayı yüklemek için sihirbazda ilerleyin. **Güvenilen Kök Sertifika Yetkilileri** deposu altına sertifikayı yüklediğinizden emin olun.
 
-#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Üretime hazır sertifikayı ekleme
+#### <a name="AddCert"></a>Üretime hazır sertifikayı ekleme
 BizTalk Services oluşturulduğunda otomatik olarak oluşturulan otomatik imzalı sertifika yalnızca geliştirme ortamlarında kullanılmak üzere tasarlanmıştır. Üretim senaryoları için üretime hazır sertifikayla değiştirin.
 
 1. **Pano** sekmesinde **SSL Sertifikasını Güncelleştir**’i seçin.
 2. BizTalk Hizmet adınızı ekleyen özel SSL sertifikanıza (*CertificateName*.pfx) göz atın, parolayı girin ve ardından onay işaretine tıklayın.
 
-#### <a name="a-nameacsaget-the-access-control-namespace"></a><a name="ACS"></a>Access Control ad alanını alma
+#### <a name="ACS"></a>Access Control ad alanını alma
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
 2. Sol gezinti bölmesinde **BIZTALK HİZMETLERİ**’ni, sonra da BizTalk Hizmetini seçin.
 3. Görev çubuğunda **Bağlantı Bilgileri**’ni seçin.  
@@ -159,19 +165,21 @@ Erişim Denetimi hizmeti kimliği, uygulamaların veya istemcilerin Erişim Dene
 
 [ACS Ad Alanınızı Yönetme](https://msdn.microsoft.com/library/azure/hh674478.aspx) bazı kılavuzları ve önerileri listeler.
 
-## <a name="requirements-explained"></a>Açıklanan gereksinimler
+<a id="requirements-explained" class="xliff"></a>
+
+## Açıklanan gereksinimler
 Bu gereksinimler Ücretsiz Sürüm için geçerli değildir.
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <td><strong>Ne gerekiyor</strong></td>
-        <td><strong>Neden gerekiyor</strong></td>
+        <td><strong>Ne gerekiyor?</strong></td>
+        <td><strong>Neden gerekiyor?</strong></td>
 </tr>
 <tr>
 <td>Azure aboneliği</td>
 <td>Abonelik, Azure portalında kimin oturum açabileceğini saptar. Hesap sahibi aboneliği <a HREF="https://account.windowsazure.com/Subscriptions"> Azure Abonelikleri</a>’nde oluşturur.
 <br/><br/>
-Azure hesabında birden fazla abonelik olabilir ve izni olan herkes tarafından yönetilebilir. Örneğin, Azure hesap sahibi <em>BizTalkServiceSubscription</em> adlı bir abonelik oluşturur ve bu aboneliğe şirket içindeki BizTalk Yöneticilerine (örneğin, ContosoBTSAdmins@live.com) erişim verir. Bu senaryoda, BizTalk Yöneticileri Azure portalında oturum açar ve Azure BizTalk Services de dahil olmak üzere abonelikte barındırılan tüm hizmetler için tam yönetici haklarına sahip olurlar. BizTalk Yöneticileri Azure hesap sahipleri değildir; bu nedenle de herhangi fatura bilgilerine erişimleri yoktur.
+Azure hesabında birden fazla abonelik olabilir ve izni olan herkes tarafından yönetilebilir. Örneğin, Azure hesap sahibiniz <em>BizTalkServiceSubscription</em> adlı bir abonelik oluşturur ve şirketinizdeki BizTalk Yöneticilerine (örneğin, ContosoBTSAdmins@live.com) bu abonelik için erişim hakkı verir. Bu senaryoda, BizTalk Yöneticileri Azure portalında oturum açar ve Azure BizTalk Services de dahil olmak üzere abonelikte barındırılan tüm hizmetler için tam yönetici haklarına sahip olurlar. BizTalk Yöneticileri Azure hesap sahipleri değildir; bu nedenle de herhangi fatura bilgilerine erişimleri yoktur.
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Azure portalında Abonelikleri ve Depolama Hesaplarını Yönetme</a> konusu daha fazla bilgi sağlar.
 </td>
@@ -232,8 +240,8 @@ Azure BizTalk Hizmeti oluşturulduğunda, BizTalk hizmeti adını içeren bir HT
 <br/>
 
 <ul>
-<li><strong>Gelişmiş Anahtar Kullanımı</strong>: En azından, Azure BizTalk Services için Sunucu Kimlik Doğrulaması gerekir.</li>
-<li><strong>Ortak Ad</strong>: Azure BizTalk Hizmeti URL'sinin tam etki alanı adını (FQDN) girin. Bu makaledeki <a HREF="#BizTalk">BizTalk Hizmeti oluşturma</a> bölümüne bakın.</li>
+<li><strong>Gelişmiş Anahtar Kullanımı</strong>: Azure BizTalk Services için en azından Sunucu Kimlik Doğrulaması gerekir.</li>
+<li><strong>Ortak Ad</strong>: Azure BizTalk Hizmeti URL'nizin tam etki alanı adını (FQDN) girin. Bu makaledeki <a HREF="#BizTalk">BizTalk Hizmeti oluşturma</a> bölümüne bakın.</li>
 </ul>
 <br/>
 BizTalk Hizmeti oluşturulduktan sonra yeni veya farklı bir sertifika eklenebilir.
@@ -243,7 +251,9 @@ BizTalk Hizmeti oluşturulduktan sonra yeni veya farklı bir sertifika eklenebil
 
 
 
-## <a name="hybrid-connections"></a>Karma Bağlantılar
+<a id="hybrid-connections" class="xliff"></a>
+
+## Karma Bağlantılar
 Azure BizTalk hizmeti oluşturduğunuzda **Karma Bağlantılar** sekmesi kullanılabilir:
 
 ![Karma Bağlantılar Sekmesi][HybridConnectionTab]
@@ -252,10 +262,14 @@ Karma Bağlantılar Azure web sitesine veya Azure mobil hizmetinden SQL Sunucusu
 
  Karma Bağlantıları oluşturma ve yönetme de dahil, daha fazla bilgi için bkz. [Karma Bağlantılar](integration-hybrid-connection-overview.md).
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 Artık bir BizTalk Hizmeti oluşturuldu, şimdi de kendinizi farklı [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md) ile tanışmaya hazırlayın. BizTalk Hizmeti uygulamalarınız için hazır. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
-## <a name="see-also"></a>Ayrıca bkz.
+<a id="see-also" class="xliff"></a>
+
+## Ayrıca bkz.
 * [BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: Durum Grafiği](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md)<br/>
@@ -271,9 +285,4 @@ Artık bir BizTalk Hizmeti oluşturuldu, şimdi de kendinizi farklı [BizTalk Se
 [QuickGlance]: ./media/biztalk-provision-services/WABS_QuickGlance.png
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

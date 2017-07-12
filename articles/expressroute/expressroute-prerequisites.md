@@ -12,37 +12,48 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 06/30/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: a56749a5ac1098db3970140a76b71c77c1f74c07
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 8629235511e0dda149ceef6a9c834c3042f64f90
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="expressroute-prerequisites--checklist"></a>ExpressRoute önkoşulları ve denetim listesi
+<a id="expressroute-prerequisites--checklist" class="xliff"></a>
+
+# ExpressRoute önkoşulları ve denetim listesi
 ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için, aşağıdaki bölümlerde listelenen gereksinimlerin karşılanmış olduğunu doğrulamanız gerekir.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-## <a name="azure-account"></a>Azure hesabı
-* Geçerli ve etkin bir Microsoft Azure hesabı. ExpressRoute bağlantı hattı kurmak için bu hesap gereklidir. ExpressRoute bağlantı hatları Azure aboneliklerinin içindeki kaynaklardır. Bağlantı,Office 365 hizmetleri ve CRM Online gibi Azure olmayan Microsoft bulut hizmetleriyle sınırlı olsa bile bir Azure aboneliği şarttır.
+<a id="azure-account" class="xliff"></a>
+
+## Azure hesabı
+* Geçerli ve etkin bir Microsoft Azure hesabı. ExpressRoute bağlantı hattı kurmak için bu hesap gereklidir. ExpressRoute bağlantı hatları Azure aboneliklerinin içindeki kaynaklardır. Bağlantı, Office 365 hizmetleri ve Dynamics 365 gibi Azure olmayan Microsoft bulut hizmetleriyle sınırlı olsa da bir Azure aboneliği gereklidir.
 * Etkin bir Office 365 aboneliği (Office 365 hizmetlerini kullanıyorsanız) Daha fazla bilgi için bu makalenin [Office 365'e özel gereksinimler](#office-365-specific-requirements) bölümünü okuyun.
 
-## <a name="connectivity-provider"></a>Bağlantı sağlayıcısı
+<a id="connectivity-provider" class="xliff"></a>
 
-* Microsoft bulut’a bağlanmak için [ExpressRoute bağlantı ortağı](expressroute-locations.md#partners) ile çalışabilirsiniz. Şirket içi ağınız ve Microsoft arasında bağlantıyı [üç şekilde](expressroute-introduction.md) kurabilirsiniz. 
-* Sağlayıcınız ExpressRoute bağlantı ortağı değilse bile [bulut değişim sağlayıcısı](expressroute-locations.md#c1partners) yoluyla Microsoft bulut’a bağlanabilirsiniz.
+## Bağlantı sağlayıcısı
 
-## <a name="network-requirements"></a>Ağ gereksinimleri
+* Microsoft bulut’a bağlanmak için [ExpressRoute bağlantı ortağı](expressroute-locations.md#partners) ile çalışabilirsiniz. Şirket içi ağınız ve Microsoft arasında bağlantıyı [üç şekilde](expressroute-introduction.md) kurabilirsiniz.
+* Sağlayıcınız ExpressRoute bağlantı ortağı değilse bile [bulut değişim sağlayıcısı](expressroute-locations.md#connectivity-through-exchange-providers) yoluyla Microsoft bulut’a bağlanabilirsiniz.
+
+<a id="network-requirements" class="xliff"></a>
+
+## Ağ gereksinimleri
 * **Yedekli bağlantı**: Siz ve sağlayıcınız arasında fiziksel bağlantıda yedekleme gereksinimi yoktur. Microsoft, [bir bulut değişimine yalnızca bir fiziksel bağlantınız](expressroute-faqs.md#onep2plink) olsa bile, yedekli BGP oturumlarının Microsoft yönlendiricileri ve eşleme yönlendiricileri arasında kurulu olmasını gerektirir.
 * **Yönlendirme**: Microsoft Bulut’a nasıl bağlandığınıza bağlı olarak, [yönlendirme etki alanları](expressroute-circuit-peerings.md) için BGP oturumlarının siz veya sağlayıcınız tarafından kurulup yönetilmesi gerekir. Bazı Ethernet bağlantı sunucuları veya bulut değişim sunucuları değer ekleme hizmeti olarak BGP yönetimi sunabilir.
 * **NAT**: Microsoft genel IP adreslerini sadece Microsoft eşleme yoluyla kabul eder. Şirket içi ağınızda özel IP adresleri kullanıyorsanız, özel IP adreslerinin [NAT kullanarak](expressroute-nat.md) genel IP adreslerine siz veya sağlayıcınız tarafından çevrilmesi gerekir.
 * **QoS**: Skype Kurumsal’da farklı QoS davranışları gerektiren çeşitli hizmetler (ör. ses, video, mesaj) vardır. [Qos gereksinimleri](expressroute-qos.md)ne siz ve sağlayıcınız tarafından uyulmalıdır.
 * **Ağ Güvenliği**: ExpressRoute ile Microsoft Bulut'a bağlanırken [ağ güvenliğine](../best-practices-network-security.md) dikkat edin.
 
-## <a name="office-365"></a>Office 365
+<a id="office-365" class="xliff"></a>
+
+## Office 365
 ExpressRoute'ta Office 365'i etkinleştirmeyi planlıyorsanız, Office 365 gereksinimleri hakkında daha fazla bilgi içeren aşağıdaki belgelere göz atın.
 
 * [Office 365 için ExpressRoute’a Genel Bakış](https://support.office.com/en-us/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
@@ -53,12 +64,17 @@ ExpressRoute'ta Office 365'i etkinleştirmeyi planlıyorsanız, Office 365 gerek
 * [Office 365’i şirket içi ortamlarla tümleştirme](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Office 365'te ExpressRoute ileri düzey eğitim videoları](https://channel9.msdn.com/series/aer/)
 
-## <a name="crm-online"></a>CRM Online
-ExpressRoute ile CRM Online’ı etkinleştirmeyi planlıyorsanız, CRM Online hakkında daha fazla bilgi içeren aşağıdaki belgelere göz atın.
+<a id="dynamics-365" class="xliff"></a>
 
-* [CRM Online URL’leri](https://support.microsoft.com/kb/2655102) ve [IP adres aralıkları](https://support.microsoft.com/kb/2728473)
+## Dynamics 365
+ExpressRoute üzerinde Dynamics 365'i etkinleştirmeyi planlıyorsanız Dynamics 365 hakkında daha fazla bilgi için aşağıdaki belgelere göz atın
 
-## <a name="next-steps"></a>Sonraki adımlar
+* [Dynamics 365 ve ExpressRoute teknik incelemesi](http://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
+* [Dynamics 365 URL'leri](https://support.microsoft.com/kb/2655102) ve [IP adresi aralıkları](https://support.microsoft.com/kb/2728473)
+
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 * ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressroute-faqs.md).
 * ExpressRoute bağlantı sağlayıcısı bulun. Bkz. [ExpressRoute ortakları ve eşleme konumları](expressroute-locations.md).
 * [Yönlendirme](expressroute-routing.md), [NAT](expressroute-nat.md) ve [QoS](expressroute-qos.md) için gereksinimlere bakın.

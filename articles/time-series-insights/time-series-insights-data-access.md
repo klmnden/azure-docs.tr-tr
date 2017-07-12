@@ -16,14 +16,16 @@ ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: e975c6d8f217bc73948c0c046204b16b1a742bc7
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/20/2017
 
 ---
 
-# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Azure Portal’ı kullanarak Zaman Serisi Görüşleri ortamına veri erişimi verme
+<a id="grant-data-access-to-a-time-series-insights-environment-using-azure-portal" class="xliff"></a>
+
+# Azure Portal’ı kullanarak Zaman Serisi Görüşleri ortamına veri erişimi verme
 
 Zaman Serisi Görüşleri ortamlarının birbirinden bağımsız türde iki erişim ilkesi vardır:
 
@@ -36,11 +38,13 @@ Yönetim erişimi ilkeleri, ortamı, olay kaynaklarını, başvuru veri kümeler
 *    Silme, veri erişimi ilkelerini yönetme gibi ortamın yapılandırmasıyla ilgili izinler
 *    verir.
 
-Veri erişimi ilkeleri, veri sorguları gönderme, ortamdaki başvuru verilerini işleme, ortamla ilişkilendirilmiş paylaşılan sorguları ve perspektifleri kaydetme izinleri verir.
+Veri erişimi ilkeleri, veri sorguları gönderme, ortamdaki başvuru verilerini işleme, ortamla ilişkilendirilmiş kaydedilen sorguları ve perspektifleri paylaşma izinleri verir.
 
 İki ilke türü de ortamın yönetimine erişim ile ortam içindeki verilere erişim arasında net bir ayrım yapmaya olanak tanır. Örneğin, ortamın sahibinin/oluşturucusunun veri erişiminden kaldırıldığı bir ortam kurmak mümkündür. Bunun yanı sıra, ortamdaki verileri okumasına izin verilen kullanıcılar ve hizmetlere, ortamın yapılandırması üzerinde erişim verilmeyebilir.
 
-## <a name="grant-data-access"></a>Veri erişim izni verme
+<a id="grant-data-access" class="xliff"></a>
+
+## Veri erişim izni verme
 Aşağıdaki adımlar, bir kullanıcı asıl adına veri erişimi verme işlemini gösterir:
 
 1.    [Azure Portal](https://portal.azure.com) oturum açın.
@@ -70,7 +74,9 @@ Aşağıdaki adımlar, bir kullanıcı asıl adına veri erişimi verme işlemin
 
   ![Zaman Serisi Görüşleri kaynağını yönetme - sonuçlar](media/data-access/getstarted-grant-data-access5.png)
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 
 * [Olay kaynağı oluşturma](time-series-insights-add-event-source.md)
 * Olay kaynağına [olayları gönderme](time-series-insights-send-events.md)

@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 19fe97eb41be3222a846f86b2a390bf86157884f
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 168704acc3ef1fadad2ab17abbc3cc0ddd2f389c
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Öğretici: Data Factory REST API kullanarak ilk Azure data factory’nizi derleme
+<a id="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api" class="xliff"></a>
+
+# Öğretici: Data Factory REST API kullanarak ilk Azure data factory’nizi derleme
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-build-your-first-pipeline.md)
 > * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -32,14 +35,20 @@ ms.lasthandoff: 04/27/2017
 >
 >
 
+
 Bu makalede, ilk Azure data factory’nizi oluşturmak için Data Factory REST API’sini kullanırsınız. Diğer araçları/SDK’ları kullanarak öğreticiyi uygulamak için açılır listedeki seçeneklerden birini belirleyin.
 
-> [!NOTE]
-> Bu öğreticideki veri işlem hattı, çıkış verileri üretmek üzere giriş verilerini dönüştürür. Bir kaynak veri deposundan hedef veri deposuna verileri kopyalamaz. Azure Data Factory kullanarak verileri kopyalama öğreticisi için bkz. [Öğretici: Blob Depolama’dan SQL Veritabanı’na veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-> 
-> Bir etkinliğin çıkış veri kümesini diğer etkinliğin giriş veri kümesi olarak ayarlayarak iki etkinliği zincirleyebilir, yani bir etkinliği diğerinden sonra çalıştırılmasını sağlayabilirsiniz. Ayrıntılı bilgi için bkz. [Data Factory’de zamanlama ve yürütme](data-factory-scheduling-and-execution.md). 
+Bu öğreticideki işlem hattı bir etkinlik içerir: **HDInsight Hive etkinliği**. Bu etkinlik, Azure HDInsight kümesi üzerinde çıkış verileri üretmek üzere giriş verilerini dönüştüren bir hive betiği çalıştırır. İşlem hattı, belirtilen başlangıç ve bitiş saatleri arasında ayda bir kez çalışacak şekilde zamanlanmıştır.
 
-## <a name="prerequisites"></a>Ön koşullar
+> [!NOTE]
+> Bu makalede REST API'nin tamamı ele alınmamaktadır. REST API ile ilgili kapsamlı belgeler için bkz. [Data Factory REST API Başvurusu](/rest/api/datafactory/).
+> 
+> Bir işlem hattında birden fazla etkinlik olabilir. Bir etkinliğin çıkış veri kümesini diğer etkinliğin giriş veri kümesi olarak ayarlayarak iki etkinliği zincirleyebilir, yani bir etkinliğin diğerinden sonra çalıştırılmasını sağlayabilirsiniz. Daha fazla bilgi için bkz. [Data Factory'de zamanlama ve yürütme](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
+
+
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
 * [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesinin tamamını okuyun ve **ön koşul** adımlarını tamamlayın.
 * [Curl](https://curl.haxx.se/dlwiz/) aracını makinenize yükleyin. Bir veri fabrikası oluşturmak için CURL aracını REST komutlarıyla kullanırsınız.
 * Aşağıdakileri yapmak için [bu makaledeki](../azure-resource-manager/resource-group-create-service-principal-portal.md) yönergeleri izleyin:
@@ -60,10 +69,14 @@ Bu makalede, ilk Azure data factory’nizi oluşturmak için Data Factory REST A
 
    Bu öğreticideki adımlardan bazıları ADFTutorialResourceGroup adlı kaynak grubunu kullandığınızı varsayar. Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide kullanılan ADFTutorialResourceGroup yerine kaynak grubunuzun adını kullanmanız gerekir.
 
-## <a name="create-json-definitions"></a>JSON tanımları oluşturma
+<a id="create-json-definitions" class="xliff"></a>
+
+## JSON tanımları oluşturma
 Curl.exe’nin bulunduğu klasörde aşağıdaki JSON dosyalarını oluşturun.
 
-### <a name="datafactoryjson"></a>datafactory.json
+<a id="datafactoryjson" class="xliff"></a>
+
+### datafactory.json
 > [!IMPORTANT]
 > Adın genel olarak benzersiz olması gerektiğinden, ADFCopyTutorialDF’yi benzersiz bir ada dönüştürmek için önüne/sonuna bir şeyler eklemek isteyebilirsiniz.
 >
@@ -76,7 +89,9 @@ Curl.exe’nin bulunduğu klasörde aşağıdaki JSON dosyalarını oluşturun.
 }
 ```
 
-### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
+<a id="azurestoragelinkedservicejson" class="xliff"></a>
+
+### azurestoragelinkedservice.json
 > [!IMPORTANT]
 > **accountname** ve **accountkey** sözcüklerini Azure depolama hesabınızın adı ve anahtarıyla değiştirin. Depolama erişim anahtarınızı nasıl alabileceğinizi öğrenmek için [Depolama hesabınızı yönetme](../storage/storage-create-storage-account.md#manage-your-storage-account) sayfasındaki depolama erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma bilgilerine bakın.
 >
@@ -94,7 +109,9 @@ Curl.exe’nin bulunduğu klasörde aşağıdaki JSON dosyalarını oluşturun.
 }
 ```
 
-### <a name="hdinsightondemandlinkedservicejson"></a>hdinsightondemandlinkedservice.JSON
+<a id="hdinsightondemandlinkedservicejson" class="xliff"></a>
+
+### hdinsightondemandlinkedservice.JSON
 
 ```JSON
 {
@@ -102,7 +119,6 @@ Curl.exe’nin bulunduğu klasörde aşağıdaki JSON dosyalarını oluşturun.
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "version": "3.2",
             "clusterSize": 1,
             "timeToLive": "00:30:00",
             "linkedServiceName": "AzureStorageLinkedService"
@@ -115,7 +131,6 @@ Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için a
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Sürüm |Oluşturulan HDInsight sürümünün 3.2 olması gerektiğini belirtir. |
 | ClusterSize |HDInsight kümesinin boyutudur. |
 | TimeToLive |Silinmeden önce HDInsight kümesinin boşta kalma süresini belirtir. |
 | linkedServiceName |HDInsight tarafından oluşturulan günlükleri depolamak için kullanılan depolama hesabını belirtir. |
@@ -130,7 +145,9 @@ Aşağıdaki noktalara dikkat edin:
 
 Ayrıntılar için bkz. [İsteğe Bağlı HDInsight Bağlı Hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-### <a name="inputdatasetjson"></a>inputdataset.json
+<a id="inputdatasetjson" class="xliff"></a>
+
+### inputdataset.json
 
 ```JSON
 {
@@ -170,7 +187,9 @@ Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için a
 | frequency/interval |frequency Ay, interval de 1 olarak ayarlanmıştır; girdi dilimlerinin aylık olarak kullanılabileceğini belirtir. |
 | external |bu özellik, girdi verileri Data Factory hizmetiyle oluşturulmadıysa true olarak ayarlanır. |
 
-### <a name="outputdatasetjson"></a>outputdataset.json
+<a id="outputdatasetjson" class="xliff"></a>
+
+### outputdataset.json
 
 ```JSON
 {
@@ -195,7 +214,9 @@ Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için a
 
 Bu JSON, işlem hattındaki bir etkinliğin çıktı verilerini temsil eden **AzureBlobOutput** adlı veri kümesini tanımlamaktadır. Ek olarak, sonuçların **adfgetstarted** adlı blob kapsayıcısında ve **partitioneddata** adlı klasörde depolandığını belirtir. Burada, **availability** bölümü çıktı veri kümesinin aylık tabanda oluşturulduğunu belirtiyor.
 
-### <a name="pipelinejson"></a>pipeline.json
+<a id="pipelinejson" class="xliff"></a>
+
+### pipeline.json
 > [!IMPORTANT]
 > **storageaccountname**’i Azure depolama hesabınızın adıyla değiştirin.
 >
@@ -255,7 +276,9 @@ JSON etkinliğinde, Hive betiğinin **linkedServiceName** – **HDInsightOnDeman
 >
 >
 
-## <a name="set-global-variables"></a>Genel değişkenleri ayarlama
+<a id="set-global-variables" class="xliff"></a>
+
+## Genel değişkenleri ayarlama
 Azure PowerShell’de değerleri kendi değerlerinizle değiştirdikten sonra aşağıdaki komutları çalıştırın:
 
 > [!IMPORTANT]
@@ -274,7 +297,9 @@ $adf = "FirstDataFactoryREST"
 ```
 
 
-## <a name="authenticate-with-aad"></a>AAD ile kimlik doğrulama
+<a id="authenticate-with-aad" class="xliff"></a>
+
+## AAD ile kimlik doğrulama
 
 ```PowerShell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
@@ -285,8 +310,10 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 ```
 
 
-## <a name="create-data-factory"></a>Veri fabrikası oluşturma
-Bu adımda, **FirstDataFactoryREST** adlı bir Azure Data Factory oluşturursunuz. Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattında bir veya daha fazla etkinlik olabilir. Örneğin, verileri bir kaynaktan bir hedef veri deposuna kopyalamak için Kopyalama Etkinliği, verileri dönüştürecek Hive betiğini çalıştırmak için de HDInsight Hive etkinliği. Veri fabrikasını oluşturmak için aşağıdaki komutu çalıştırın:
+<a id="create-data-factory" class="xliff"></a>
+
+## Veri fabrikası oluşturma
+Bu adımda, **FirstDataFactoryREST** adlı bir Azure Data Factory oluşturursunuz. Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattında bir veya daha fazla etkinlik olabilir. Örneğin, verileri bir kaynaktan hedef veri deposuna kopyalamak için Kopyalama Etkinliği; verileri dönüştürecek bir Hive betiğini çalıştırmak için de HDInsight Hive etkinliği. Veri fabrikasını oluşturmak için aşağıdaki komutu çalıştırın:
 
 1. Komutu **cmd** adlı değişkene atayın.
 
@@ -330,10 +357,14 @@ Aşağıdaki noktalara dikkat edin:
 
 İşlem hattı oluşturmadan önce, öncelikle birkaç Data Factory varlığı oluşturmanız gerekir. Veri depolarını/işlemlerini veri deponuza bağlamak için önce bağlı hizmetleri oluşturun ve bağlı veri depolarında veriyi tanıtmak için girdi ve çıktı veri kümelerini tanımlayın.
 
-## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
-Bu adımda, Azure Depolama hesabınızı ve isteğe bağlı Azure HDInsight kümesini data factory’nize bağlarsınız. Azure Depolama hesabı, bu örnekteki işlem hattı için girdi ve çıktı verilerini tutar. HDInsight bağlı hizmeti, bu örnekte işlem hattının etkinliğinde belirtilen Hive betiğini çalıştırmak için kullanılır.
+<a id="create-linked-services" class="xliff"></a>
 
-### <a name="create-azure-storage-linked-service"></a>Azure Storage bağlı hizmeti oluşturma
+## Bağlı hizmetler oluşturma
+Bu adımda, Azure Depolama hesabınızı ve isteğe bağlı Azure HDInsight kümesini data factory’nize bağlarsınız. Azure Depolama hesabı, bu örnekteki işlem hattı için girdi ve çıktı verilerini tutar. HDInsight bağlı hizmeti, bu örnekteki işlem hattının etkinliğinde belirtilen Hive betiğini çalıştırmak için kullanılır.
+
+<a id="create-azure-storage-linked-service" class="xliff"></a>
+
+### Azure Storage bağlı hizmeti oluşturma
 Bu adımda, Azure Depolama hesabınızı veri fabrikanıza bağlarsınız. Bu öğreticide girdi/çıktı verilerin ve HQL betiğini depolamak için aynı Azure Depolama hesabını kullanırsınız.
 
 1. Komutu **cmd** adlı değişkene atayın.
@@ -352,7 +383,9 @@ Bu adımda, Azure Depolama hesabınızı veri fabrikanıza bağlarsınız. Bu ö
     Write-Host $results
     ```
 
-### <a name="create-azure-hdinsight-linked-service"></a>Azure HDInsight bağlı hizmeti oluşturma
+<a id="create-azure-hdinsight-linked-service" class="xliff"></a>
+
+### Azure HDInsight bağlı hizmeti oluşturma
 Bu adımda, isteğe bağlı HDInsight kümesini data factory’nize bağlarsınız. HDInsight kümesi çalışma zamanında otomatik olarak oluşturulur ve işlenmesi bittiğinde ve belirtilen sürede boşta kalırsa silinir. İsteğe bağlı HDInsight kümesi yerine kendi HDInsight kümenizi kullanabilirsiniz. Ayrıntılar için bkz. [İşlem Bağlı Hizmetleri](data-factory-compute-linked-services.md).
 
 1. Komutu **cmd** adlı değişkene atayın.
@@ -371,10 +404,14 @@ Bu adımda, isteğe bağlı HDInsight kümesini data factory’nize bağlarsın�
     Write-Host $results
     ```
 
-## <a name="create-datasets"></a>Veri kümeleri oluşturma
+<a id="create-datasets" class="xliff"></a>
+
+## Veri kümeleri oluşturma
 Bu adımda, Hive işlenmesi için girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturursunuz. Bu veri kümeleri, bu öğreticide daha önce oluşturduğunuz **StorageLinkedService** öğesine başvurur. Bağlı hizmet Azure Storage hesabını belirtirken, veri kümeleri de girdi ve çıktı verilerini tutan depolama biriminde kapsayıcı, klasör, dosya adı belirtir.
 
-### <a name="create-input-dataset"></a>Girdi veri kümesi oluşturma
+<a id="create-input-dataset" class="xliff"></a>
+
+### Girdi veri kümesi oluşturma
 Bu adımda, Azure Blob depolamada depolanan girdi verilerini göstermek için girdi veri kümesini oluşturursunuz.
 
 1. Komutu **cmd** adlı değişkene atayın.
@@ -393,7 +430,9 @@ Bu adımda, Azure Blob depolamada depolanan girdi verilerini göstermek için gi
     Write-Host $results
     ```
 
-### <a name="create-output-dataset"></a>Çıktı veri kümesi oluşturma
+<a id="create-output-dataset" class="xliff"></a>
+
+### Çıktı veri kümesi oluşturma
 Bu adımda, Azure Blob depolamada depolanan çıktı verilerini göstermek için çıktı veri kümesini oluşturursunuz.
 
 1. Komutu **cmd** adlı değişkene atayın.
@@ -412,7 +451,9 @@ Bu adımda, Azure Blob depolamada depolanan çıktı verilerini göstermek için
     Write-Host $results
     ```
 
-## <a name="create-pipeline"></a>İşlem hattı oluşturma
+<a id="create-pipeline" class="xliff"></a>
+
+## İşlem hattı oluşturma
 Bu adımda, **HDInsightHive** etkinliğiyle ilk işlem hattınızı oluşturursunuz. Girdi diliminin ayda bir (frequency: Month, interval: 1) kullanılabilir, çıktı dilimi ayda bir oluşturulur ve etkinlik zamanlayıcı özelliği de ayda bir olacak şekilde ayarlanır. Çıktı veri kümesi ve etkinlik zamanlayıcı ayarlarının eşleşmesi gerekir. Şu anda, çıktı veri kümesi zamanlamayı yönetendir; bu nedenle etkinlik hiçbir çıktı oluşturmasa bile sizin bir çıktı veri kümesi oluşturmanız gerekir. Etkinlik herhangi bir girdi almazsa, girdi veri kümesi oluşturma işlemini atlayabilirsiniz.
 
 Azure blob depolamada **adfgetstarted/inputdata** klasöründeki **input.log** dosyasını gördüğünüzü doğrulayın ve işlem hattına dağıtmak için aşağıdaki komutu çalıştırın. **start** ve **end** zamanları geçmişe ayarlanmış ve **isPaused** yanlış olarak ayarlanmış olduğundan işlem hattı (işlem hattında etkinlik) dağıtıldıktan hemen sonra çalışır.
@@ -434,7 +475,9 @@ Azure blob depolamada **adfgetstarted/inputdata** klasöründeki **input.log** d
     ```
 4. Tebrikler, Azure PowerShell kullanarak ilk işlem hattınızı başarıyla oluşturdunuz.
 
-## <a name="monitor-pipeline"></a>İşlem hattını izleme
+<a id="monitor-pipeline" class="xliff"></a>
+
+## İşlem hattını izleme
 Bu adımda, Data Factory REST API’sini kullanarak işlem hattı tarafından üretilmekte olan dilimleri izlersiniz.
 
 ```PowerShell
@@ -467,7 +510,9 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 
 Dilimleri izlemek ve sorunları gidermek için Azure Portal’ı da kullanabilirsiniz. Ayrıntılar için bkz. [Azure Portal’ı kullanarak işlem hatlarını izleme](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline).
 
-## <a name="summary"></a>Özet
+<a id="summary" class="xliff"></a>
+
+## Özet
 Bu öğreticide, HDInsight hadoop kümesindeki Hive betiği çalıştırılarak verileri işlemek için bir Azure data factory oluşturdunuz. Aşağıdaki adımları uygulamak için Azure Portal’da Data Factory Düzenleyici’yi kullandınız:
 
 1. Oluşturulan Azure **data factory**.
@@ -477,10 +522,14 @@ Bu öğreticide, HDInsight hadoop kümesindeki Hive betiği çalıştırılarak 
 3. İşlem hattındaki HDInsight Hive etkinliğiyle ilgili girdi ve çıktı verilerini açıklayan oluşturulan iki **veri kümesi**.
 4. **HDInsight Hive** etkinliğine sahip oluşturulan bir **işlem hattı**.
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 Bu makalede, isteğe bağlı Azure HDInsight kümesinde bir Hive betiği çalıştıran dönüştürme etkinliğine (HDInsight Etkinliği) sahip işlem hattı oluşturdunuz. Verileri Azure Blob’tan Azure SQL’e kopyalamak için Kopyalama Etkinliği’nin kullanılması hakkında bilgi için bkz. [Öğretici: Verileri Azure Blob’dan Azure SQL’e kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Ayrıca Bkz.
+<a id="see-also" class="xliff"></a>
+
+## Ayrıca Bkz.
 | Konu | Açıklama |
 |:--- |:--- |
 | [Data Factory REST API Başvurusu](/rest/api/datafactory/) |Data Factory cmdlet'leri hakkında kapsamlı belgelere bakma |

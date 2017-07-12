@@ -15,21 +15,22 @@ ms.workload: big-data
 ms.date: 05/09/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 74ea95349faa7ee3376050c22b4bb2375837b5c0
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: f637b8617c4a9ed3be1eb0932a94b0ffcc7c8f7e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-net-sdk"></a>.NET SDK'yı kullanarak Azure Data Lake Store ile çalışmaya başlama
+<a id="get-started-with-azure-data-lake-store-using-net-sdk" class="xliff"></a>
+
+# .NET SDK'yı kullanarak Azure Data Lake Store ile çalışmaya başlama
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
@@ -38,16 +39,20 @@ ms.lasthandoff: 05/10/2017
 
 Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel işlemler gerçekleştirmek üzere [Azure Data Lake Store .NET SDK’sını](https://msdn.microsoft.com/library/mt581387.aspx) kullanma hakkında bilgi edinin. Data Lake hakkında daha fazla bilgi için bkz. [Azure Data Lake Store](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+<a id="prerequisites" class="xliff"></a>
+
+## Ön koşullar
 * **Visual Studio 2013, 2015 veya 2017**. Aşağıdaki yönergelerde Visual Studio 2015 Güncelleştirme 2 kullanılmıştır.
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Azure Data Lake Store hesabı**. Hesap oluşturmaya ilişkin yönergeler için bkz. [Azure Data Lake Store kullanmaya başlama](data-lake-store-get-started-portal.md)
 
-* **Azure Active Directory Uygulaması oluşturma**. Data Lake Store uygulamasında Azure AD ile kimlik doğrulaması yapmak için Azure AD uygulamasını kullanın. Azure AD kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** gibi farklı yaklaşımlar bulunmaktadır. Kimlik doğrulaması hakkında yönergeler ve daha fazla bilgi için bkz. [Azure Active Directory kullanarak Data Lake Store kimlik doğrulaması yapma](data-lake-store-authenticate-using-active-directory.md).
+* **Azure Active Directory Uygulaması oluşturma**. Data Lake Store uygulamasında Azure AD ile kimlik doğrulaması yapmak için Azure AD uygulamasını kullanın. Azure AD kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** gibi farklı yaklaşımlar bulunmaktadır. Kimlik doğrulaması gerçekleştirmeyle ilgili yönergeler ve daha fazla bilgi için [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md) veya [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md) bölümlerine göz atın.
 
-## <a name="create-a-net-application"></a>.NET uygulaması oluşturma
+<a id="create-a-net-application" class="xliff"></a>
+
+## .NET uygulaması oluşturma
 1. Visual Studio'yu açın ve bir konsol uygulaması oluşturun.
 2. **Dosya** menüsünde **Yeni**'ye ve ardından **Proje**'ye tıklayın.
 3. **Yeni Proje** bölümünden, aşağıdaki değerleri yazın veya seçin:
@@ -112,9 +117,13 @@ Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel 
 
 Makalenin geriye kalan bölümlerinde, kullanılabilir .NET yöntemlerinin, kimlik doğrulama, dosyayı karşıya yükleme vb. işlemleri gerçekleştirmek üzere nasıl kullanılacağını öğrenebilirsiniz.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+<a id="authentication" class="xliff"></a>
 
-### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Son kullanıcı kimlik doğrulaması kullanıyorsanız (bu öğretici için önerilir)
+## Kimlik Doğrulaması
+
+<a id="if-you-are-using-end-user-authentication-recommended-for-this-tutorial" class="xliff"></a>
+
+### Son kullanıcı kimlik doğrulaması kullanıyorsanız (bu öğretici için önerilir)
 
 Uygulamanızın kimliğini **etkileşimli olarak** doğrulamak üzere bunu var olan bir Azure AD yerle uygulamasıyla kullanın, bunun anlamı Azure kimlik bilgilerinizi girmeniz isteneceğidir.
 
@@ -133,7 +142,9 @@ Yukarıdaki bu kod parçacığı hakkında bilmeniz gereken birkaç şey:
 * Öğreticiyi daha hızlı tamamlamanıza yardımcı olmak üzere bu kod parçacığı tüm Azure abonelikleri için varsayılan olarak kullanılabilen bir Azure AD etki alanı ve istemci kimliği kullanır. Böylece **bu kod parçacığını uygulamanızda olduğu gibi kullanabilirsiniz**.
 * Ancak, kendi Azure AD etki alanınızı ve uygulama istemci kimliğinizi kullanmak istemiyorsanız, bir Azure AD yerel uygulaması oluşturmanız ve ardından oluşturduğunuz uygulamaya ait Azure AD kiracı kimliği, istemci kimliği ve yeniden yönlendirme URI’sini kullanmanız gerekir. Yönergeler için, bkz: [Data Lake Store ile son kullanıcı kimlik doğrulaması için Active Directory Uygulama oluşturma](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Gizli anahtar ile hizmetten hizmete kimlik doğrulaması kullanıyorsanız
+<a id="if-you-are-using-service-to-service-authentication-with-client-secret" class="xliff"></a>
+
+### Gizli anahtar ile hizmetten hizmete kimlik doğrulaması kullanıyorsanız
 Gizli anahtar / uygulama anahtarı / hizmet sorumlusu kullanılarak aşağıdaki kod parçacığı uygulamanızın **etkileşimli olmayan** kimlik doğrulaması için kullanılabilir. Bunu var olan Azure AD "Web App" uygulaması ile birlikte kullanın. Azure AD web uygulamasının nasıl oluşturulacağını ve aşağıdaki kod parçacığında gereken istemci kimliği ile istemci parolasının nasıl alınacağıyla ilgili yönergeler için, bkz: [Data Lake Store ile servis-servis kimlik doğrulaması için Active Directory Uygulaması oluşturma](data-lake-store-authenticate-using-active-directory.md).
 
     // Service principal / appplication authentication with client secret / key
@@ -146,7 +157,9 @@ Gizli anahtar / uygulama anahtarı / hizmet sorumlusu kullanılarak aşağıdaki
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = await ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential);
 
-### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Sertifika ile hizmetten hizmete kimlik doğrulaması kullanıyorsanız
+<a id="if-you-are-using-service-to-service-authentication-with-certificate" class="xliff"></a>
+
+### Sertifika ile hizmetten hizmete kimlik doğrulaması kullanıyorsanız
 
 Üçüncü bir seçenek olarak, bir Azure Active Directory uygulama sertifikası / hizmet sorumlusu kullanılarak aşağıdaki kod parçacığı uygulamanızın **etkileşimli olmayan** kimlik doğrulaması için kullanılabilir. Bunu var olan, [Sertifikalı Azure AD Uygulaması](../azure-resource-manager/resource-group-authenticate-service-principal.md) ile birlikte kullanın.
 
@@ -160,14 +173,18 @@ Gizli anahtar / uygulama anahtarı / hizmet sorumlusu kullanılarak aşağıdaki
     var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
     var creds = await ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate);
 
-## <a name="create-client-objects"></a>İstemci nesneleri oluşturma
+<a id="create-client-objects" class="xliff"></a>
+
+## İstemci nesneleri oluşturma
 Aşağıdaki kod parçacığı Data Lake Store hesabını ve hizmete verme isteği göndermek için kullanılan dosya sistemi istemci nesnelerini oluşturur.
 
     // Create client objects and set the subscription ID
     _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
     _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
 
-## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>Bir abonelik içindeki tüm Data Lake Store hesaplarını listeleme
+<a id="list-all-data-lake-store-accounts-within-a-subscription" class="xliff"></a>
+
+## Bir abonelik içindeki tüm Data Lake Store hesaplarını listeleme
 Aşağıdaki kod parçacığı belirli bir Azure aboneliği içindeki tüm Data Lake Store hesaplarını listeler.
 
     // List all ADLS accounts within the subscription
@@ -185,7 +202,9 @@ Aşağıdaki kod parçacığı belirli bir Azure aboneliği içindeki tüm Data 
         return accounts;
     }
 
-## <a name="create-a-directory"></a>Dizin oluşturma
+<a id="create-a-directory" class="xliff"></a>
+
+## Dizin oluşturma
 Aşağıdaki kod parçacığında, bir Data Lake Store hesabında dizin oluşturmak için kullanabileceğiniz bir `CreateDirectory` yöntemi gösterilmiştir.
 
     // Create a directory
@@ -194,7 +213,9 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabında dizin oluştur
         await _adlsFileSystemClient.FileSystem.MkdirsAsync(_adlsAccountName, path);
     }
 
-## <a name="upload-a-file"></a>Dosyayı karşıya yükleme
+<a id="upload-a-file" class="xliff"></a>
+
+## Dosyayı karşıya yükleme
 Aşağıdaki kod parçacığında, bir Data Lake Store hesabına dosya yüklemek için kullanabileceğiniz bir `UploadFile` yöntemi gösterilmiştir.
 
     // Upload a file
@@ -205,7 +226,9 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabına dosya yüklemek
 
 SDK bir yerel dosya ile Data Lake Store dosya yolu arasında yinelemeli karşıya yükleme ve indirmeyi destekler.    
 
-## <a name="get-file-or-directory-info"></a>Dosya veya dizin bilgilerini alma
+<a id="get-file-or-directory-info" class="xliff"></a>
+
+## Dosya veya dizin bilgilerini alma
 Aşağıdaki kod parçacığında, Data Lake Store'da kullanılabilir olan bir dosya veya dizin ile ilgili bilgileri almak için kullanabileceğiniz bir `GetItemInfo` yöntemi gösterilmiştir.
 
     // Get file or directory info
@@ -214,7 +237,9 @@ Aşağıdaki kod parçacığında, Data Lake Store'da kullanılabilir olan bir d
         return await _adlsFileSystemClient.FileSystem.GetFileStatusAsync(_adlsAccountName, path).FileStatus;
     }
 
-## <a name="list-file-or-directories"></a>Dosyayı veya dizinleri listeleme
+<a id="list-file-or-directories" class="xliff"></a>
+
+## Dosyayı veya dizinleri listeleme
 Aşağıdaki kod parçacığında, bir Data Lake Store hesabındaki dosyaları ve dizinleri listelemek için kullanabileceğiniz bir `ListItem` yöntemi gösterilmiştir.
 
     // List files and directories
@@ -223,7 +248,9 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabındaki dosyaları v
         return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
     }
 
-## <a name="concatenate-files"></a>Dosyaları birleştirme
+<a id="concatenate-files" class="xliff"></a>
+
+## Dosyaları birleştirme
 Aşağıdaki kod parçacığında, dosyaları birleştirmek için kullanabileceğiniz bir `ConcatenateFiles` yöntemi gösterilmiştir.
 
     // Concatenate files
@@ -232,7 +259,9 @@ Aşağıdaki kod parçacığında, dosyaları birleştirmek için kullanabilece�
         await _adlsFileSystemClient.FileSystem.ConcatAsync(_adlsAccountName, destFilePath, srcFilePaths);
     }
 
-## <a name="append-to-a-file"></a>Dosyanın sonuna ekleme
+<a id="append-to-a-file" class="xliff"></a>
+
+## Dosyanın sonuna ekleme
 Aşağıdaki kod parçacığında, bir Data Lake Store hesabında zaten depolanmış olan bir dosyanın sonuna veri eklemek için kullanabileceğiniz bir `AppendToFile` yöntemi gösterilmiştir.
 
     // Append to file
@@ -244,16 +273,20 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabında zaten depolanm
         }
     }
 
-## <a name="download-a-file"></a>Dosya indirme
+<a id="download-a-file" class="xliff"></a>
+
+## Dosya indirme
 Aşağıdaki kod parçacığında, bir Data Lake Store hesabındaki bir dosyayı indirmek için kullanabileceğiniz bir `DownloadFile` yöntemi gösterilmiştir.
 
     // Download file
-       public static void DownloadFile(string srcFilePath, string destFilePath)
+    public static void DownloadFile(string srcFilePath, string destFilePath)
     {
          _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath);
     }
 
-## <a name="next-steps"></a>Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
+
+## Sonraki adımlar
 * [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
