@@ -1,11 +1,13 @@
-## <a name="obtain-an-azure-resource-manager-token"></a>Obtain an Azure Resource Manager token
+<a id="obtain-an-azure-resource-manager-token" class="xliff"></a>
+
+## Obtain an Azure Resource Manager token
 Azure Active Directory must authenticate all the tasks that you perform on resources using the Azure Resource Manager. The example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].
 
 1. Add the following code to the **Main** method in Program.cs to retrieve a token from Azure AD using the application id and password.
    
     ```
     var authContext = new AuthenticationContext(string.Format  
-      ("https://login.windows.net/{0}", tenantId));
+      ("https://login.microsoftonline.com/{0}", tenantId));
     var credential = new ClientCredential(applicationId, password);
     AuthenticationResult token = authContext.AcquireTokenAsync
       ("https://management.core.windows.net/", credential).Result;
