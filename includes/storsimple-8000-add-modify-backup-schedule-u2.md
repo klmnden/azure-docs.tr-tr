@@ -1,7 +1,9 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>To add or modify a StorSimple backup schedule
+<a id="to-add-or-modify-a-storsimple-backup-schedule" class="xliff"></a>
+
+#### To add or modify a StorSimple backup schedule
 
 1. Go to your StorSimple device and click **Backup policy**.
 

@@ -1,7 +1,9 @@
 <!--author=alkohli last changed: 01/02/17-->
 
 
-#### <a name="to-add-or-remove-a-volume"></a>To add or remove a volume
+<a id="to-add-or-remove-a-volume" class="xliff"></a>
+
+#### To add or remove a volume
 
 1. Go to your StorSimple device and click **Backup policy**.
 
