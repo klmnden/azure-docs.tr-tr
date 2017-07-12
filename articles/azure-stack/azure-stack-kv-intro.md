@@ -14,16 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/04/2017
 ms.author: sngun
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 6587e1e1b0af7cb57075ed0ceb51addc81eb9ac4
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 78261c9203cf2e6595985fcc1554aad565e17558
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/13/2017
 
 
 ---
-# <a name="introduction-to-key-vault-in-azure-stack"></a>Introduction to Key Vault in Azure Stack
+<a id="introduction-to-key-vault-in-azure-stack" class="xliff"></a>
 
-## <a name="before-you-start"></a>Before you start
+# Introduction to Key Vault in Azure Stack
+
+<a id="before-you-start" class="xliff"></a>
+
+## Before you start
 This article assumes the following:
 
 * Azure Stack administrators must have [created an offer](azure-stack-create-offer.md) that includes the Key Vault service.  
@@ -33,7 +38,9 @@ This article assumes the following:
 > [!NOTE]
 > In Technical Preview 3, you can create and manage a key vault from the [user portal](azure-stack-manage-portals.md#the-user-portal) or user API only. If you are an administrator, sign in to the user portal to access and perform operations on a key vault.
  
-## <a name="key-vault-basics"></a>Key Vault basics
+<a id="key-vault-basics" class="xliff"></a>
+
+## Key Vault basics
 Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .pfx files, and passwords).
 
 Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
@@ -49,25 +56,36 @@ This administrator can then provide developers with URIs to call from their appl
 
 Developers can also manage the keys directly, by using APIs. For more information, see the Key Vault developer's guide.
 
-## <a name="scenarios"></a>Scenarios
+<a id="scenarios" class="xliff"></a>
+
+## Scenarios
 The following table depicts some of the scenarios where Key Vault can help meet the needs of developers and security administrators:
 
-### <a name="developer-for-an-azure-stack-application"></a>Developer for an Azure Stack application
+<a id="developer-for-an-azure-stack-application" class="xliff"></a>
+
+### Developer for an Azure Stack application
 **Problem**: I want to write an application for Azure Stack that uses keys for signing and encryption, but I want these to be external from my application so that the solution is suitable for an application that is geographically distributed.
 
 **Statement**: Keys are stored in a vault and invoked by URI when needed.
 
-### <a name="developer-for-software-as-a-service-saas"></a>Developer for software as a service (SaaS)
+<a id="developer-for-software-as-a-service-saas" class="xliff"></a>
+
+### Developer for software as a service (SaaS)
 **Problem:** I don’t want the responsibility or potential liability for my customers’ tenant keys and secrets.
 
 **Statement:** Customers can import their own keys into Azure Stack, and manage them. I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features.
 
-### <a name="chief-security-officer-cso"></a>Chief Security Officer (CSO)
+<a id="chief-security-officer-cso" class="xliff"></a>
+
+### Chief Security Officer (CSO)
 **Problem:** I want to make sure that my organization is in control of the key life cycle and can monitor key usage.
 
 **Statement** Key Vault is designed so that Microsoft does not see or extract your keys.  When an application needs to perform cryptographic operations by using customers’ keys, Key Vault does this on behalf of the application. The application does not see the customers’ keys.  Although we use multiple Azure Stack services and resources, I want to manage the keys from a single location in Azure Stack. The vault provides a single interface, regardless of how many vaults you have in Azure Stack, which regions they support, and which applications use them.
 
-## <a name="next-steps"></a>Next Steps
-[Manage Key Vault in Azure Stack using the portal](azure-stack-kv-manage-portal.md)
-[Manage Key Vault in Azure Stack using PowerShell](azure-stack-kv-manage-powershell.md)
+<a id="next-steps" class="xliff"></a>
+
+## Next Steps
+
+* [Manage Key Vault in Azure Stack using the portal](azure-stack-kv-manage-portal.md)  
+* [Manage Key Vault in Azure Stack using PowerShell](azure-stack-kv-manage-powershell.md)
 

@@ -1,13 +1,8 @@
-**Standart yönetilmeyen sanal makine diskleri: Disk başına limitler**
+**Standard unmanaged virtual machine disks: per disk limits**
 
-| Sanal Makine Katmanı | Temel Katman Sanal Makine | Standart Katman Sanal Makine |
+| VM Tier | Basic Tier VM | Standard Tier VM |
 | --- | --- | --- |
-| Disk boyutu |1023 GB |1023 GB |
-| Kalıcı disk başına en fazla 8 KB IOPS |300 |500 |
-| En fazla IOPS seviyesinde işlem gerçekleştiren en fazla disk sayısı |66 |40 |
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+| Disk size |4095 GB |4095 GB |
+| Max 8 KB IOPS per persistent disk |300 |500 |
+| Max number of disks performing max IOPS |66 |40 |
 

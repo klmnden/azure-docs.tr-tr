@@ -1,4 +1,5 @@
 ---
+redirect_url: /azure/azure-stack/azure-stack-provision-vm
 title: Azure Stack POC key tasks | Microsoft Docs
 description: Learn how to create a plan and offer and then subscribe to that offer and use the services provided to create a virtual machine.
 services: azure-stack
@@ -14,24 +15,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: erikje
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd8fa20bb1f5e34bd89a22d1ce4e27ff3818fc67
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: b7d0c788d74e595eeb3b420be05b5d82cfc9f3bb
+ms.contentlocale: tr-tr
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="azure-stack-poc-first-tasks"></a>Azure Stack POC first tasks
+<a id="azure-stack-poc-first-tasks" class="xliff"></a>
+
+# Azure Stack POC first tasks
 Now that you've [deployed](azure-stack-deploy.md) and [logged in](azure-stack-connect-azure-stack.md) to Azure Stack POC, you can create some resources.
 
 1. [Provision a virtual machine](azure-stack-provision-vm.md).
 2. [Create a storage account](azure-stack-provision-storage-account.md).
 
-## <a name="next-steps"></a>Next steps
+<a id="next-steps" class="xliff"></a>
+
+## Next steps
 [Provision a virtual machine](azure-stack-subscribe-plan-provision-vm.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

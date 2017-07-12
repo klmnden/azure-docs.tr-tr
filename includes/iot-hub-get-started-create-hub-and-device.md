@@ -1,4 +1,6 @@
-## <a name="create-an-iot-hub"></a>Create an IoT hub
+<a id="create-an-iot-hub" class="xliff"></a>
+
+## Create an IoT hub
 
 1. In the [Azure portal](https://portal.azure.com/), click **New** > **Internet of Things** > **IoT Hub**.
 
@@ -29,13 +31,15 @@
 
    ![Get your IoT hub connection string](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
 
-## <a name="register-a-device-in-the-iot-hub-for-the-your-device"></a>Register a device in the IoT hub for the your device
+<a id="register-a-device-in-the-iot-hub-for-the-your-device" class="xliff"></a>
+
+## Register a device in the IoT hub for the your device
 
 1. In the [Azure portal](https://portal.azure.com/), open your IoT hub.
 1. Click **Device Explorer**.
 1. In the Device Explorer pane, click **Add** to add a device to your IoT hub.
 
-   **Device ID**: The ID of the new device.
+   **Device ID**: The ID of the new device. Device IDs are case sensitive.
 
    **Authentication Type**: Select **Symmetric Key**.
 

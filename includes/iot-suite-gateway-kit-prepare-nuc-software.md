@@ -1,10 +1,14 @@
-## <a name="build-the-gateway"></a>Build the gateway
+<a id="build-iot-edge" class="xliff"></a>
 
-This tutorial uses custom gateway modules to communicate with the remote monitoring preconfigured solution. Therefore, you need to build the modules from custom source code. The following sections describe how to install the gateway and build the custom gateway module.
+## Build IoT Edge
 
-### <a name="install-the-gateway"></a>Install the gateway
+This tutorial uses custom IoT Edge modules to communicate with the remote monitoring preconfigured solution. Therefore, you need to build the IoT Edge modules from custom source code. The following sections describe how to install IoT Edge and build the custom IoT Edge module.
 
-The following steps describe how to install the pre-compiled gateway software on the Intel NUC:
+<a id="install-iot-edge" class="xliff"></a>
+
+### Install IoT Edge
+
+The following steps describe how to install the pre-compiled IoT Edge software on the Intel NUC:
 
 1. Configure the required smart package repositories by running the following commands on the Intel NUC:
 
@@ -43,6 +47,8 @@ The following steps describe how to install the pre-compiled gateway software on
     cat log.txt | more
     ```
 
-### <a name="troubleshooting"></a>Troubleshooting
+<a id="troubleshooting" class="xliff"></a>
+
+### Troubleshooting
 
 If you receive the error "No package provides util-linux-dev", try rebooting the Intel NUC.

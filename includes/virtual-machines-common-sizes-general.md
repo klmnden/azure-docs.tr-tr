@@ -9,11 +9,13 @@ Dv2-series, a follow-on to the original D-series, features a more powerful CPU. 
 
 The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see (Sizes for virtual machines)[virtual-machines-size-specs.md] and for VM pricing information, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## <a name="dsv2-series"></a>DSv2-series*
+<a id="dsv2-series" class="xliff"></a>
+
+## DSv2-series*
 
 ACU: 210-250
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 48 |2 moderate |
 | Standard_DS2_v2 |2 |7 |14 |4 |8,000 / 64 (86) |6,400 / 96 |2 high |
@@ -23,7 +25,9 @@ ACU: 210-250
 
 
 
-## <a name="dv2-series"></a>Dv2-series
+<a id="dv2-series" class="xliff"></a>
+
+## Dv2-series
 
 ACU: 210-250
 
@@ -37,16 +41,20 @@ ACU: 210-250
 
 <br>
 
-## <a name="ds-series"></a>DS-series*
+<a id="ds-series" class="xliff"></a>
+
+## DS-series*
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 32 |2^ / moderate |
+| Standard_DS1 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 32 |2 / moderate |
 | Standard_DS2 |2 |7 |14 |4 |8,000 / 64 (86) |6,400 / 64 |2 / high |
 | Standard_DS3 |4 |14 |28 |8 |16,000 / 128 (172) |12,800 / 128 |4 / high |
 | Standard_DS4 |8 |28 |56 |16 |32,000 / 256 (344) |25,600 / 256 |8 / high |
 
 <br>
-## <a name="d-series"></a>D-series 
+<a id="d-series" class="xliff"></a>
+
+## D-series 
 
 ACU: 160
 
@@ -60,7 +68,9 @@ ACU: 160
 <br>
 
 
-## <a name="av2-series"></a>Av2-series
+<a id="av2-series" class="xliff"></a>
+
+## Av2-series
 
 ACU: 100
 
@@ -76,7 +86,9 @@ ACU: 100
 
 <br>
 
-## <a name="a-series"></a>A-series
+<a id="a-series" class="xliff"></a>
+
+## A-series
 
 ACU: 50-100
 
@@ -94,7 +106,9 @@ ACU: 50-100
 
 *The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
 
-### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0 - A4 using CLI and PowerShell
+<a id="standard-a0---a4-using-cli-and-powershell" class="xliff"></a>
+
+### Standard A0 - A4 using CLI and PowerShell
 In the classic deployment model, some VM size names are slightly different in CLI and PowerShell:
 
 * Standard_A0 is ExtraSmall 
@@ -103,7 +117,9 @@ In the classic deployment model, some VM size names are slightly different in CL
 * Standard_A3 is Large
 * Standard_A4 is ExtraLarge
 
-## <a name="basic-a"></a>Basic A
+<a id="basic-a" class="xliff"></a>
+
+## Basic A
 
 |Size – Size\Name |CPU cores|Memory|NICs (Max)|Max temporary disk size |Max. data disks 1023 GB each)|Max. IOPS (300 per disk)|
 |---|---|---|---|---|---|---|
