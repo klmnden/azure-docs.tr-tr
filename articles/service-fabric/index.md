@@ -19,7 +19,9 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/23/2017
 
 ---
-#<a name="service-fabric-documentation"></a>Service Fabric Belgeleri
+<a id="service-fabric-documentation" class="xliff"></a>
+
+#Service Fabric Belgeleri
 
 Service Fabric’i kullanarak ölçeklenebilir ve güvenilir mikro hizmetler paketleme, dağıtma ve yönetme. Öğreticiler, API başvuruları ve kod örneklerinde, bu ara yazılım platformunu kullanarak bulut ölçeğinde uygulamalar oluşturma ve dağıtma hakkında bilgi sağlanmıştır.
 
