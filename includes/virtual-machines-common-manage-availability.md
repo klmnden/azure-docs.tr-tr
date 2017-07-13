@@ -1,21 +1,25 @@
-<a id="understand-planned-vs-unplanned-maintenance" class="xliff"></a>
+## Understand VM Reboots - maintenance vs. downtime
+<a id="understand-vm-reboots---maintenance-vs-downtime" class="xliff"></a>
+There are three scenarios that can lead to virtual machine in Azure being impacted: unplanned hardware maintenance, unexpected downtime and, planned maintenance.
 
-## Understand planned vs. unplanned maintenance
-There are two types of Microsoft Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
+* **Unplanned Hardware Maintenance Event** occurs when the Azure platform predicts that the hardware or any platform component associated to a physical machine, is about to fail. When the platform predicts a failure, it will issue an unplanned hardware maintenance event to reduce the impact to the virtual machines hosted on that hardware. Azure uses Live Migration technology to migrate the Virtual Machines from the failing hardware to a healthy physical machine. Live Migration is a VM preserving operation that only pauses the Virtual Machine for a short time. Memory, open files, and network connections are maintained, but performance might be reduced before and/or after the event. In cases where Live Migration cannot be used, the the VM will experience Unexpected Downtime, as described below.
 
-* **Planned maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. Most of these updates are performed without any impact upon your virtual machines or cloud services. However, there are instances where these updates require a reboot of your virtual machine to apply the required updates to the platform infrastructure.
-* **Unplanned maintenance events** occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform automatically migrates your virtual machine from the unhealthy physical machine hosting your virtual machine to a healthy physical machine. Such events are rare, but may also cause your virtual machine to reboot.
+
+* **An Unexpected Downtime** rarely occurs when the hardware or the physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform automatically migrates (heals) your virtual machine to a healthy physical machine. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive. The attached OS and data disks are always preserved. 
+
+* **Planned Maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. Most of these updates are performed without any impact upon your Virtual Machines or Cloud Services (see [VM Preserving Maintenance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/preserving-maintenance)). While the Azure platform attempts to use VM Preserving Maintenance in all possible occasions, there are rare instances when these updates require a reboot of your virtual machine to apply the required updates to the underlying infrastructure. In this case, you can perform Azure Planned Maintenance with Maintenance-Redeploy operation by initiating the maintenance for their VMs in the suitable time window. For more information, see [Planned Maintenance for Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/planned-maintenance/).
+
 
 To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
 
 * [Configure multiple virtual machines in an availability set for redundancy]
 * [Use managed disks for VMs in an availability set]
+* [Use Scheduled Events to proactively response to VM impacting events ] (https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configure each application tier into separate availability sets]
 * [Combine a Load Balancer with availability sets]
 
-<a id="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy" class="xliff"></a>
-
 ## Configure multiple virtual machines in an availability set for redundancy
+<a id="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy" class="xliff"></a>
 To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
@@ -28,12 +32,11 @@ Fault domains define the group of virtual machines that share a common power sou
 <!--Image reference-->
    ![Conceptual drawing of the update domain and fault domain configuration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
-<a id="use-managed-disks-for-vms-in-an-availability-set" class="xliff"></a>
-
 ## Use managed disks for VMs in an availability set
+<a id="use-managed-disks-for-vms-in-an-availability-set" class="xliff"></a>
 If you are currently using VMs with unmanaged disks, we highly recommend you [convert VMs in Availability Set to use Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-[Managed disks](../articles/storage/storage-managed-disks-overview.md) provides better reliability for Availability Sets by ensuring that the disks of VMs in an Availability Set are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage clusters. If a storage cluster fails due to hardware or software failure, only the VM instances with disks on those stamps fail.
+[Managed disks](../articles/storage/storage-managed-disks-overview.md) provide better reliability for Availability Sets by ensuring that the disks of VMs in an Availability Set are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage clusters. If a storage cluster fails due to hardware or software failure, only the VM instances with disks on those stamps fail.
 
 ![Managed Disk FDs](./media/virtual-machines-common-manage-availability/md-fd.png)
 
@@ -48,19 +51,17 @@ If you plan to use VMs with [unmanaged disks](../articles/storage/storage-about-
 2. **Review the [limits](../articles/storage/storage-scalability-targets.md) on the number of unmanaged disks in a Storage account** before adding more VHDs to a storage account
 3. **Use separate storage account for each VM in an Availability Set.** Do not share Storage accounts with multiple VMs in the same Availability Set. It is acceptable for VMs across different Availability Sets to share storage accounts if above best practices are followed
 
-<a id="configure-each-application-tier-into-separate-availability-sets" class="xliff"></a>
-
 ## Configure each application tier into separate availability sets
+<a id="configure-each-application-tier-into-separate-availability-sets" class="xliff"></a>
 If your virtual machines are all nearly identical and serve the same purpose for your application, we recommend that you configure an availability set for each tier of your application.  If you place two different tiers in the same availability set, all virtual machines in the same application tier can be rebooted at once. By configuring at least two virtual machines in an availability set for each tier, you guarantee that at least one virtual machine in each tier is available.
 
-For example, you could put all the virtual machines in the front-end of your application running IIS, Apache, Nginx in a single availability set. Make sure that only front-end virtual machines are placed in the same availability set. Similarly, make sure that only data-tier virtual machines are placed in their own availability set, like your replicated SQL Server virtual machines or your MySQL virtual machines.
+For example, you could put all the virtual machines in the front end of your application running IIS, Apache, Nginx in a single availability set. Make sure that only front-end virtual machines are placed in the same availability set. Similarly, make sure that only data-tier virtual machines are placed in their own availability set, like your replicated SQL Server virtual machines, or your MySQL virtual machines.
 
 <!--Image reference-->
    ![Application tiers](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
-<a id="combine-a-load-balancer-with-availability-sets" class="xliff"></a>
-
 ## Combine a load balancer with availability sets
+<a id="combine-a-load-balancer-with-availability-sets" class="xliff"></a>
 Combine the [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) with an availability set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, see [Load Balancing virtual machines](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
 
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event affects the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and availability set enables traffic to be continuously served by at least one instance.
