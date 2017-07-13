@@ -10,9 +10,8 @@ If you are having issues connecting to your VM using RDP or SSH, see one of the 
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
-<a id="quick-start-troubleshooting-steps" class="xliff"></a>
-
 ## Quick-start troubleshooting steps
+<a id="quick-start-troubleshooting-steps" class="xliff"></a>
 If you have problems connecting to an application, try the following general troubleshooting steps. After each step, try connecting to your application again:
 
 * Restart the virtual machine
@@ -27,9 +26,8 @@ If you have problems connecting to an application, try the following general tro
 
 For more information, see [Troubleshooting Endpoint Connectivity (RDP/SSH/HTTP, etc. failures)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
 
-<a id="detailed-troubleshooting-overview" class="xliff"></a>
-
 ## Detailed troubleshooting overview
+<a id="detailed-troubleshooting-overview" class="xliff"></a>
 There are four main areas to troubleshoot the access of an application that is running on an Azure virtual machine.
 
 ![troubleshoot cannot start application](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
@@ -49,9 +47,8 @@ For client computers that are accessing the application over a site-to-site VPN 
 
 To determine the source of the problem and its correction, follow these steps.
 
-<a id="step-1-access-application-from-target-vm" class="xliff"></a>
-
 ## Step 1: Access application from target VM
+<a id="step-1-access-application-from-target-vm" class="xliff"></a>
 Try to access the application with the appropriate client program from the VM on which it is running. Use the local host name, the local IP address, or the loopback address (127.0.0.1).
 
 ![start application directly from the VM](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
@@ -119,9 +116,13 @@ If you can access the application, ensure that your Internet edge device is allo
 * The outbound application request traffic from your client computer to the Azure virtual machine.
 * The inbound application response traffic from the Azure virtual machine.
 
-<a id="additional-resources" class="xliff"></a>
+## Step 4 If you cannot access the application, use IP Verify to check the settings.
+<a id="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings" class="xliff"></a> 
+
+For more information, see [Azure network monitoring overview](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## Additional resources
+<a id="additional-resources" class="xliff"></a>
 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 
 [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
