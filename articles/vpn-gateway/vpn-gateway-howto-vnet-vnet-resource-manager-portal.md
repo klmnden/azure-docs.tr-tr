@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 07/05/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: c614efa25e2e7ddbb9b6c90094cf84fa8b6b4243
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 8fa97a00978b4efdcf5956ee6b92547960b1d57a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Azure portalı kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
+# Azure portalı kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
+<a id="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal" class="xliff"></a>
 
 Bu makalede, sanal ağlar arasında VPN ağ geçidi bağlantısının nasıl oluşturulduğu gösterilir. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Bu makaledeki adımlar Resource Manager dağıtım modeli ve Azure portalı için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
@@ -45,7 +46,8 @@ Hatta Sanal Ağdan Sanal Ağa iletişim çok siteli yapılandırmalarla bile bir
 
 ![Bağlantılar hakkında](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
 
-### <a name="why-connect-virtual-networks"></a>Sanal ağları neden bağlamalıyız?
+### Sanal ağları neden bağlamalıyız?
+<a id="why-connect-virtual-networks" class="xliff"></a>
 
 Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
@@ -111,7 +113,8 @@ Bu adımları bir alıştırma olarak kullanırken, örnek ayar değerlerini kul
 ## <a name="CreatVNet"></a>1. TestVNet1’i oluşturma ve yapılandırma
 Zaten bir VNet'iniz varsa ayarların VPN ağ geçidi tasarımınızla uyumlu olduğunu doğrulayın. Diğer ağlarla çakışabilecek herhangi bir alt ağ olup olmadığına özellikle dikkat edin. Çakışan alt ağlarınız varsa bağlantınız düzgün şekilde gerçekleşmeyebilir. VNet'iniz doğru ayarlarla yapılandırıldıysa [DNS sunucusu belirtme](#dns) bölümündeki adımları uygulamaya başlayabilirsiniz.
 
-### <a name="to-create-a-virtual-network"></a>Sanal ağ oluşturmak için
+### Sanal ağ oluşturmak için
+<a id="to-create-a-virtual-network" class="xliff"></a>
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="subnets"></a>2. Ek adres alanı ekleme ve alt ağ oluşturma
@@ -126,10 +129,11 @@ Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız ağ geçidi alt 
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="to-create-a-gateway-subnet"></a>Bir ağ geçidi alt ağı oluşturmak için
+### Bir ağ geçidi alt ağı oluşturmak için
+<a id="to-create-a-gateway-subnet" class="xliff"></a>
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## <a name="DNSServer"></a>4. DNS sunucusu belirtme (isteğe bağlı)
+## <a name="dns"></a>4. DNS sunucusu belirtme (isteğe bağlı)
 Sanal Ağdan Sanal Ağa bağlantılar için DNS gerekli değildir. Ancak, sanal ağınıza dağıtılmış olan kaynaklarınız için ad çözümleme istiyorsanız bir DNS sunucusu belirtmeniz gerekir. Bu ayar, bu sanal ağ için ad çözümlemede kullanmak istediğiniz DNS sunucusunu belirtmenizi sağlar. Bir DNS sunucusu oluşturmaz.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
@@ -137,7 +141,8 @@ Sanal Ağdan Sanal Ağa bağlantılar için DNS gerekli değildir. Ancak, sanal 
 ## <a name="VNetGateway"></a>5. Sanal ağ geçidi oluşturma
 Bu adımda sanal ağınız için sanal ağ geçidi oluşturacaksınız. Bir ağ geçidinin oluşturulması, seçili ağ geçidi SKU’suna bağlı olarak 45 dakika veya daha uzun sürebilir. Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız [Örnek ayarlara](#values) başvurabilirsiniz.
 
-### <a name="to-create-a-virtual-network-gateway"></a>Bir sanal ağ geçidi oluşturmak için
+### Bir sanal ağ geçidi oluşturmak için
+<a id="to-create-a-virtual-network-gateway" class="xliff"></a>
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 ## <a name="CreateTestVNet4"></a>6. TestVNet4’ü oluşturma ve yapılandırma
@@ -187,6 +192,7 @@ Sanal ağlar arası bağlantılar hakkında ek bilgi için SSS sayfasını gör�
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-## <a name="next-steps"></a>Sonraki adımlar
+## Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
 Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Virtual Machines belgeleri](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
