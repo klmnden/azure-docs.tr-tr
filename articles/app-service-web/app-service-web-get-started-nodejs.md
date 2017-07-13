@@ -16,15 +16,14 @@ ms.date: 05/05/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 665f55f79eb6e09bce1b5130efc01c76ccbc9109
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e41c6f544ace374eb1f059c115e585a70265a571
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/06/2017
 
 ---
-<a id="create-a-nodejs-web-app-in-azure" class="xliff"></a>
-
 # Azure App Service'te Node.js web uygulaması oluşturma
+<a id="create-a-nodejs-web-app-in-azure" class="xliff"></a>
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, Azure Web Apps'te ilk Node.js uygulamasının nasıl dağıtılacağı gösterilmektedir. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'yi kullanarak web uygulamasını oluşturabilir ve örnek Node.js kodunu web uygulamasında dağıtmak için Git'i kullanabilirsiniz.
 
@@ -32,9 +31,8 @@ ms.lasthandoff: 06/21/2017
 
 Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.
 
-<a id="prerequisites" class="xliff"></a>
-
 ## Önkoşullar
+<a id="prerequisites" class="xliff"></a>
 
 Bu hızlı başlangıcı tamamlamak için:
 
@@ -47,9 +45,8 @@ Bu hızlı başlangıcı tamamlamak için:
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
 ## Örneği indirme
+<a id="download-the-sample" class="xliff"></a>
 
 Bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 
@@ -65,9 +62,8 @@ Bu hızlı başlangıç öğreticisindeki tüm komutları çalıştırmak için 
 cd nodejs-docs-hello-world
 ```
 
-<a id="run-the-app-locally" class="xliff"></a>
-
 ## Uygulamayı yerel olarak çalıştırma
+<a id="run-the-app-locally" class="xliff"></a>
 
 Yerleşik Node.js HTTP sunucusunu başlatmak için bir terminal penceresi açıp ve `npm start` betiğini kullanıp uygulamayı yerel olarak çalıştırın.
 
@@ -135,9 +131,8 @@ To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
  * [new branch]      master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
 ## Uygulamaya göz atma
+<a id="browse-to-the-app" class="xliff"></a>
 
 Web tarayıcınızı kullanarak dağıtılan uygulamaya göz atın.
 
@@ -149,11 +144,10 @@ Node.js örnek kodu bir Azure App Service web uygulamasında çalışıyor.
 
 ![Azure'da çalışan örnek uygulama](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-**Tebrikler!** App Service’e ilk PHP uygulamanızı dağıttınız.
-
-<a id="update-and-redeploy-the-code" class="xliff"></a>
+**Tebrikler!** App Service’e ilk Node.js uygulamanızı dağıttınız.
 
 ## Kodu güncelleştirme ve yeniden dağıtma
+<a id="update-and-redeploy-the-code" class="xliff"></a>
 
 Bir metin düzenleyici kullanarak `index.js` dosyasını Node.js uygulaması içinde açın ve `response.end` çağrısındaki metinde küçük bir değişiklik yapın:
 
@@ -172,9 +166,8 @@ Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan ta
 
 ![Azure'da çalışan güncelleştirilmiş örnek uygulama](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
 ## Yeni Azure web uygulamanızı yönetme
+<a id="manage-your-new-azure-web-app" class="xliff"></a>
 
 Oluşturduğunuz web uygulamasını yönetmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
 
@@ -186,13 +179,12 @@ Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma,
 
 ![Azure portalında App Service dikey penceresi](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-Soldaki menü, uygulamanızın yaplandırılmasına yönelik farklı sayfalar sağlar. 
+Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
 ## Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
 
 > [!div class="nextstepaction"]
 > [MongoDB ile Node.js](app-service-web-tutorial-nodejs-mongodb-app.md)

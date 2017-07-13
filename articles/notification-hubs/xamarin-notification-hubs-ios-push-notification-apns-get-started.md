@@ -1,6 +1,6 @@
 ---
 title: "Xamarin uygulamaları için Notification Hubs ile iOS Anında İletme Bildirimleri | Microsoft Belgeleri"
-description: "Bu öğreticide, bir Xamarin iOS uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs&quot;ın nasıl kullanılacağını öğrenirsiniz."
+description: "Bu öğreticide, bir Xamarin iOS uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
 keywords: "ios anında iletme bildirimleri,anında iletme iletileri,anında iletme bildirimleri,anında iletme iletisi"
 documentationcenter: xamarin
@@ -16,34 +16,31 @@ ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 426294e0dc3e877565bd57e899fdc79a1bd31c21
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 72a81fa0deb34ace77b8fb9b1a4e6b24ee164b35
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="ios-push-notifications-with-notification-hubs-for-xamarin-apps" class="xliff"></a>
-
 # Xamarin uygulamaları için Notification Hubs ile iOS Anında İletme Bildirimleri
+<a id="ios-push-notifications-with-notification-hubs-for-xamarin-apps" class="xliff"></a>
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-<a id="overview" class="xliff"></a>
-
 ## Genel Bakış
+<a id="overview" class="xliff"></a>
 > [!IMPORTANT]
 > Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
 > 
 
 Bu öğretici, bir iOS uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını size gösterir.
-[Apple Anında İletilen Bildirim Servisi'ni (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) kullanarak anında iletme bildirimleri alan boş bir Xamarin.iOS uygulaması oluşturacaksınız. İşiniz bittiğinde, uygulamanızı çalıştıran tüm cihazlara anında iletme bildirimleri yayımlamak için bildirim hub'ınızı kullanabileceksiniz. Tamamlanan kodu [NotificationHubs uygulaması][GitHub] örneğinde bulabilirsiniz.
+[Apple Anında İletilen Bildirim Servisi'ni (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) kullanarak anında iletme bildirimleri alan boş bir Xamarin.iOS uygulaması oluşturacaksınız. İşiniz bittiğinde, uygulamanızı çalıştıran tüm cihazlara anında iletme bildirimleri yayımlamak için bildirim hub'ınızı kullanabileceksiniz. Tamamlanan kodu [NotificationHubs uygulaması][GitHub] örneğinde bulabilirsiniz.
 
 Bu öğretici Notification Hubs ile basit anında iletme iletisi yayımlama senaryosunu gösterir.
 
-<a id="prerequisites" class="xliff"></a>
-
 ## Önkoşullar
+<a id="prerequisites" class="xliff"></a>
 Bu öğretici için aşağıdakiler gereklidir:
 
 * [Xcode 6.0][Install Xcode]
@@ -60,9 +57,8 @@ Bu öğreticiyi tamamlamak Xamarin iOS uygulamalarına ilişkin diğer tüm Noti
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-<a id="configure-your-notification-hub" class="xliff"></a>
-
 ## Bildirim hub'ınızı yapılandırma
+<a id="configure-your-notification-hub" class="xliff"></a>
 Bu bölüm, yeni bir bildirim hub'ı oluşturma ve oluşturduğunuz **.p12** anında iletme sertifikasını kullanarak APNS ile kimlik doğrulaması yapılandırma konusunda size yol gösterecektir. Önceden oluşturduğunuz bir bildirim hub'ını kullanmak istiyorsanız 5. adıma geçebilirsiniz.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -82,12 +78,10 @@ Bu bölüm, yeni bir bildirim hub'ı oluşturma ve oluşturduğunuz **.p12** an�
 
 Bildirim hub'ınız şimdi APNS ile birlikte çalışmak üzere yapılandırıldı. Ayrıca uygulamanızı kaydetmenizi ve anlık iletme bildirimleri göndermenizi sağlayan bağlantı dizelerine sahipsiniz.
 
-<a id="connect-your-app-to-the-notification-hub" class="xliff"></a>
-
 ## Uygulamanızı bildirim hub'ına bağlama
-<a id="create-a-new-project" class="xliff"></a>
-
+<a id="connect-your-app-to-the-notification-hub" class="xliff"></a>
 #### Yeni bir proje oluşturma
+<a id="create-a-new-project" class="xliff"></a>
 1. Xamarin Studio'da yeni bir iOS projesi oluşturun ve **Unified API** (Birleşik API)  > **Single View Application** (Tek Görünüm Uygulaması) şablonunu seçin.
    
      ![Xamarin Studio - Uygulama Türünü Seçme][31]
@@ -189,9 +183,8 @@ Bildirim hub'ınız şimdi APNS ile birlikte çalışmak üzere yapılandırıld
    > 
 10. Cihazınızda uygulamayı çalıştırın.
 
-<a id="sending-push-notifications" class="xliff"></a>
-
 ## Anında İletme Bildirimleri Gönderme
+<a id="sending-push-notifications" class="xliff"></a>
 Aşağıdaki ekranda gösterildiği gibi, bildirim hub'ı sayfasında yer alan **Sorun Giderme** araç takımındaki **Test Gönderimi** özelliği ile [Azure Portal]'da bildirim göndererek, uygulamanızda anında iletme bildirimleri almayı test edebilirsiniz.
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-test-send.png)
@@ -208,9 +201,8 @@ Bu öğreticide konuyu basit bir şekilde işleyeceğiz ve yalnızca bir arka u�
 
 * **Java/PHP**: REST API'ler kullanarak nasıl anında iletme bildirimleri gönderildiğinin bir örneği için bkz. "Java/PHP'den Notification Hubs'ı kullanma" ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
-<a id="optional-send-push-notifications-from-a-net-console-app" class="xliff"></a>
-
 #### (İsteğe bağlı) .NET Konsol Uygulamasından Anında İletme Bildirimleri Gönderme
+<a id="optional-send-push-notifications-from-a-net-console-app" class="xliff"></a>
 Bu bölümde, basit bir .NET konsol uygulaması kullanarak anında iletme bildirimleri göndereceğiz. Bu örneğin amaçları doğrultusunda, Visual Studio'nun zaten yüklü olduğu bir Windows geliştirme ortamına geçiş yapacağız.
 
 1. Visual Studio'da yeni bir Visual C# konsol uygulaması oluşturun:
@@ -245,9 +237,8 @@ Bu bölümde, basit bir .NET konsol uygulaması kullanarak anında iletme bildir
 
 Apple [Local and Push Notification Programming Guide] (Yerel ve Anında İletilen Bildirim Programlama Kılavuzu) içinde tüm olası yükleri bulabilirsiniz.
 
-<a id="optional-send-notifications-from-a-mobile-service" class="xliff"></a>
-
 #### (İsteğe bağlı) Mobil Hizmetten Bildirim Gönderme
+<a id="optional-send-notifications-from-a-mobile-service" class="xliff"></a>
 Bu bölümde, bir node betiği aracılığıyla mobil hizmet kullanarak anında iletme bildirimleri göndereceğiz.
 
 Mobil hizmet kullanarak bildirim göndermek için [Mobile Services'i kullanmaya başlama]'yı izleyin ve ardından:
@@ -280,9 +271,8 @@ Mobil hizmet kullanarak bildirim göndermek için [Mobile Services'i kullanmaya 
         );
 6. Alt çubukta **Bir Kez Çalıştır**'a tıklayın. Cihazınızda bir uyarı almanız gerekir.
 
-<a id="next-steps" class="xliff"></a>
-
 ## Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
 Bu basit örnekte, tüm iOS cihazlarınıza anında iletme bildirimleri yayımladınız. Belirli kullanıcıları hedeflemek için, [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma] öğreticisine bakın. Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyorsanız [Son dakika haberleri göndermek için Notification Hubs kullanma]'yı okuyabilirsiniz. [Notification Hubs Kılavuzu] ve [iOS için Notification Hubs'ı Kullanma]'da Notification Hubs'ı kullanma hakkında daha fazla bilgi edinin.
 
 <!-- Images. -->
@@ -314,7 +304,7 @@ Bu basit örnekte, tüm iOS cihazlarınıza anında iletme bildirimleri yayımla
 [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: /manage/services/notification-hubs/notify-users-aspnet
 [Son dakika haberleri göndermek için Notification Hubs kullanma]: /manage/services/notification-hubs/breaking-news-dotnet
 
-[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Local and Push Notification Programming Guide]:https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
