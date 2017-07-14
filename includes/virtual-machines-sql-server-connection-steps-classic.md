@@ -1,23 +1,25 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Determine the DNS name of the virtual machine
-To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
+### Sanal makinenin DNS adını belirleme
+<a id="determine-the-dns-name-of-the-virtual-machine" class="xliff"></a>
+Başka bir bilgisayardan SQL Server Veritabanı Altyapısı’na bağlanmak için, sanal makinenin Etki Alanı Adı Sistemi (DNS) adını biliyor olmalısınız. (İnternet, sanal makineyi tanımlamak için bu adı kullanır. IP adresini kullanabilirsiniz, ancak Azure yedeklilik veya bakım nedeniyle kaynakları taşıdığında IP adresi değişebilir. DNS adı yeni IP adresine yeniden yönlendirilebileceği için değişmez.)  
 
-1. In the Azure Portal (or from the previous step), select **Virtual machines (classic)**.
-2. Select your SQL VM.
-3. On the **Virtual machine** blade, copy the **DNS name** for the virtual machine.
+1. Azure Portal’da (veya önceki adımda), **Sanal makineler (klasik)** öğesini seçin.
+2. SQL VM’nizi seçin.
+3. **Sanal makine** dikey penceresinde, sanal makineye ilişkin **DNS adı** değerini kopyalayın.
    
-    ![DNS name](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
+    ![DNS adı](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a>Connect to the Database Engine from another computer
-1. On a computer connected to the internet, open SQL Server Management Studio.
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **mysqlvm.cloudapp.net,57500**.
+### Başka bir bilgisayardan Veritabanı Altyapısına bağlanma
+<a id="connect-to-the-database-engine-from-another-computer" class="xliff"></a>
+1. İnternet'e bağlı bir bilgisayarda SQL Server Management Studio’yu açın.
+2. **Sunucuya Bağlan** veya **Veritabanı Altyapısına Bağlan** iletişim kutusundaki **Sunucu adı** kutusuna, sanal makinenin DNS adını (önceki görevde belirlenen ad) ve *DNSAdı,bağlantınoktası* biçiminde bir genel uç nokta bağlantı noktası numarası (**mysqlvm.cloudapp.net,57500** gibi) girin.
    
-    ![Connect using SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
+    ![SSMS kullanarak bağlanma](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
    
-    If you don't remember the public endpoint port number you previously created, you can find it in the **Endpoints** area of the **Virtual machine** blade.
+    Daha önce oluşturduğunuz genel uç nokta bağlantı noktası numarasını anımsamıyorsanız, bu numarayı **Sanal makine** dikey penceresinin **Uç noktalar** alanında bulabilirsiniz.
    
-    ![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. In the **Authentication** box, select **SQL Server Authentication**.
-4. In the **Login** box, type the name of a login that you created in an earlier task.
-5. In the **Password** box, type the password of the login that you create in an earlier task.
-6. Click **Connect**.
+    ![Genel Bağlantı Noktası](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
+3. **Kimlik Doğrulaması** kutusunda **SQL Server Kimlik Doğrulaması**’nı seçin.
+4. **Oturum Açma** kutusuna, önceki görevlerden birinde oluşturduğunuz oturum açma kimliğinin adını yazın.
+5. **Parola** kutusuna, önceki görevlerden birinde oluşturduğunuz oturum açma kimliğinin parolasını yazın.
+6. **Bağlan**'a tıklayın.
 
