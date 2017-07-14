@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
@@ -21,10 +21,11 @@ ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/04/2017
 
-
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft Bulut Almanya’da Azure AD Connect - Genel Önizleme
-## <a name="introduction"></a>Giriş
+# Microsoft Bulut Almanya’da Azure AD Connect - Genel Önizleme
+<a id="azure-ad-connect-in-microsoft-cloud-germany---public-preview" class="xliff"></a>
+## Giriş
+<a id="introduction" class="xliff"></a>
 Azure AD Connect, şirket içi Active Directory’niz ile Azure Active Directory arasında eşitleme sağlar.
 Şu anda [Microsoft Bulut Almanya](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx)’daki senaryoların çoğunun operatör tarafından yürütülmesi gerekmektedir. Microsoft Bulut Almanya’yı kullanırken aşağıdakilerin farkında olmanız gerekir:
 
@@ -38,10 +39,12 @@ Azure AD Connect, şirket içi Active Directory’niz ile Azure Active Directory
   * Azure AD Connect Health
   * Otomatik güncelleştirmeler
  
-## <a name="download"></a>İndirme
+## İndirme
+<a id="download" class="xliff"></a>
 Azure AD Connect’i portalın içerisindeki Azure AD Connect dikey penceresinden indirebilirsiniz.  Azure AD Connect dikey penceresini bulmak için aşağıdaki yönergeleri kullanın.
 
-### <a name="the-azure-ad-connect-blade"></a>Azure AD Connect Dikey Penceresi
+### Azure AD Connect Dikey Penceresi
+<a id="the-azure-ad-connect-blade" class="xliff"></a>
 Azure portalda oturum açtıktan sonra şunları yapın:
 
 1. Gözat’a gidin
@@ -60,10 +63,12 @@ Aşağıdaki tabloda, dikey pencerede gösterilen özellikler açıklanmaktadır
 | SON EŞİTLEME |Başarılı bir eşitlemenin tamamlandığı en son zaman. |
 | FEDERASYON ETKİ ALANLARI |Şu anda yapılandırılmış durumda olan federasyon etki alanlarının sayısını gösterir. |
 
-## <a name="installation"></a>Yükleme
+## Yükleme
+<a id="installation" class="xliff"></a>
 Azure AD Connect'i yüklemek için [buradaki](active-directory-aadconnect.md#install-azure-ad-connect) belgeleri kullanabilirsiniz.
 
-## <a name="advanced-features-and-additional-information"></a>Gelişmiş özellikler ve Ek Bilgiler
+## Gelişmiş özellikler ve Ek Bilgiler
+<a id="advanced-features-and-additional-information" class="xliff"></a>
 Özel ayarlar veya gelişmiş yapılandırmalar hakkında ek bilgiler ya da kılavuzluk edinmek için [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) (Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme) makalesinden başlayın.  Bu sayfada, bilgiler ve ek rehberlik sağlayan diğer sayfalara bağlantılar bulabilirsiniz.
 
 
