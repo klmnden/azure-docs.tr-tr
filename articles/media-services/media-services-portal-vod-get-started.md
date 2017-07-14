@@ -12,20 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 07/12/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
 ms.openlocfilehash: 76fd245f91e1bfab3df68120859c69e459283e5b
-
+ms.contentlocale: tr-tr
+ms.lasthandoff: 02/16/2017
 
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-the-azure-portal"></a>Azure portal kullanarak isteğe bağlı içerik göndermeye başlama
+# Azure portal kullanarak isteğe bağlı içerik göndermeye başlama
+<a id="get-started-with-delivering-content-on-demand-using-the-azure-portal" class="xliff"></a>
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 Bu öğretici, Azure portalı kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## Ön koşullar
+<a id="prerequisites" class="xliff"></a>
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
@@ -39,7 +42,8 @@ Bu öğretici aşağıdaki görevleri içerir:
 4. Varlığı yayımlayın, akış ve aşamalı indirme URL’lerini alın.  
 5. İçeriğinizi oynatın.
 
-## <a name="start-streaming-endpoints"></a>Akış uç noktalarını başlatma 
+## Akış uç noktalarını başlatma
+<a id="start-streaming-endpoints" class="xliff"></a> 
 
 Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri bit hızı uyarlamalı akış iletmektir. Media Services, bu akış biçimlerinin her birinin önceden paketlenmiş sürümlerini depolamanıza gerek kalmadan, uyarlamalı bit hızı MP4 ile kodlanmış içeriğinizi Media Services tarafından desteklenen akış biçimlerinde (MPEG DASH, HLS, Kesintisiz Akış) tam vaktinde göndermenize olanak tanıyan dinamik paketleme özelliğine sahiptir.
 
@@ -57,7 +61,8 @@ Akış uç noktasını başlatmak için aşağıdakileri yapın:
 4. Başlat simgesine tıklayın.
 5. Yaptığınız değişiklikleri kaydetmek için Kaydet düğmesine tıklayın.
 
-## <a name="upload-files"></a>Dosyaları karşıya yükleme
+## Dosyaları karşıya yükleme
+<a id="upload-files" class="xliff"></a>
 Azure Media Services kullanarak video akışı sağlamak için kaynak videoları karşıya yüklemeniz, bunları çoklu bit hızlarında kodlamanız ve sonucu yayımlamanız gerekir. İlk adım, bu bölümde ele alınmıştır. 
 
 1. **Ayar** penceresinde **Varlıklar**’a tıklayın.
@@ -77,14 +82,16 @@ Azure Media Services kullanarak video akışı sağlamak için kaynak videoları
 
 Karşıya yükleme işlemi tamamlandıktan sonra, yeni varlık **Varlıklar** penceresinde listelenir. 
 
-## <a name="encode-assets"></a>Varlıkları kodlama
+## Varlıkları kodlama
+<a id="encode-assets" class="xliff"></a>
 Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı uyarlamalı akış iletmektir. Media Services şu bit hızı uyarlamalı akış teknolojilerini destekler: HTTP Canlı Akışı (HLS), Kesintisiz Akış, MPEG DASH. Videolarınızı uyarlamalı bit hızı akışına hazırlamak için, kaynak videonuzu çoklu bit hızı dosyalarına kodlamanız gerekir. Videolarınızı kodlamak için **Medya Kodlayıcısı Standart** kodlayıcıyı kullanmalısınız.  
 
 Media Services, çoklu bit hızlı MP4’leri şu akış biçimlerinde yeniden paketlemenize gerek kalmadan göndermenizi sağlayan dinamik paketleme olanağı da sağlar: MPEG DASH, HLS, Kesintisiz Akış. Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
 
 Dinamik paketlemeden yararlanmak için kaynak dosyanızı çoklu bit hızı MP4 dosyaları (kodlama adımları, bu bölümün devamında gösterilmiştir) grubu olarak kodlamanız gerekir.
 
-### <a name="to-use-the-portal-to-encode"></a>Kodlama için portalı kullanmak üzere
+### Kodlama için portalı kullanmak üzere
+<a id="to-use-the-portal-to-encode" class="xliff"></a>
 Bu bölüm, içeriğinizi Medya Kodlayıcısı Standart ile kodlamak için atabileceğiniz adımları açıklar.
 
 1. **Ayarlar** penceresinde **Varlıklar**’ı seçin.  
@@ -97,12 +104,14 @@ Bu bölüm, içeriğinizi Medya Kodlayıcısı Standart ile kodlamak için atabi
    ![Varlıkları kodlama](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. **Oluştur**’a basın.
 
-### <a name="monitor-encoding-job-progress"></a>Kodlama işi ilerleme durumunu izleme
+### Kodlama işi ilerleme durumunu izleme
+<a id="monitor-encoding-job-progress" class="xliff"></a>
 Kodlama işinin ilerleme durumunu izlemek için, **Ayarlar** (sayfanın üst kısmında) ve ardından **İşler**’e tıklayın.
 
 ![İşler](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-## <a name="publish-content"></a>İçerik yayımlama
+## İçerik yayımlama
+<a id="publish-content" class="xliff"></a>
 Kullanıcınıza içeriğinizin akışını sağlamak veya indirmek için kullanılabilecek bir URL sağlamak üzere, önce bulucu oluşturarak varlığınızı “yayımlamanız” gerekir. Bulucular varlıkta bulunan dosyalara erişim imkanı sağlar. Media Services iki tür bulucuyu destekler: 
 
 * Akış (OnDemandOrigin) bulucuları, uyarlamalı akış için kullanılır (örneğin, MPEG DASH, HLS ya da Kesintisiz Akış için). Akış bulucusu oluşturmak için varlığınız bir .ism dosyası içermelidir. 
@@ -132,7 +141,8 @@ SAS URL'leri aşağıdaki biçimdedir.
 
 Bir bulucunun sona erme tarihini güncelleştirmek için [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ya da [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API’lerini kullanın. SAS bulucunun sona erme tarihini güncelleştirdiğinizde URL değişir.
 
-### <a name="to-use-the-portal-to-publish-an-asset"></a>Bir varlık yayımlamak için portal kullanmak üzere
+### Bir varlık yayımlamak için portal kullanmak üzere
+<a id="to-use-the-portal-to-publish-an-asset" class="xliff"></a>
 Portalı kullanarak bir varlık yayımlamak için aşağıdakileri yapın:
 
 1. **Ayarlar** > **Varlıklar**’ı seçin.
@@ -145,7 +155,8 @@ Portalı kullanarak bir varlık yayımlamak için aşağıdakileri yapın:
 
 URL **Yayımlanan URL’ler** listesine eklenir.
 
-## <a name="play-content-from-the-portal"></a>Portaldan içerik oynatma
+## Portaldan içerik oynatma
+<a id="play-content-from-the-portal" class="xliff"></a>
 Azure portal, videonuzu test etmek için kullanabileceğiniz bir içerik oynatıcı sağlar.
 
 İstediğiniz videoya tıklayın ve ardından **Oynat** düğmesine tıklayın.
@@ -157,17 +168,14 @@ Bazı dikkate alınması gereken noktalar vardır:
 * Videonun yayımlandığından emin olun.
 * **Medya oynatıcı** varsayılan akış uç noktasından oynatılır. Varsayılan olmayan bir akış uç noktasından oynatmak istiyorsanız, URL'yi kopyalamak için tıklayın ve başka bir oynatıcı kullanın. Örneğin, [Azure Media Services Oynatıcı](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-## <a name="next-steps"></a>Sonraki adımlar
+## Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
 Media Services öğrenme yollarını gözden geçirin.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## Geri bildirimde bulunma
+<a id="provide-feedback" class="xliff"></a>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

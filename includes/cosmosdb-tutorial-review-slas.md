@@ -1,5 +1,0 @@
-Uygulamanız çalışmaya başladı. Bundan sonraki göreviniz iş sürekliliğini sağlamak ve kullanıcılarınıza yüksek kullanılabilirlik sunmak için kullanıcı erişimini izlemek olacak. Azure portalını kullanarak koleksiyonunuzla ilgili kullanılabilirlik, gecikme süresi, aktarım hızı ve tutarlılık ölçütlerini görüntüleyebilirsiniz. [Azure Cosmos DB Hizmet Düzeyi Sözleşmeleri (SLA)](https://azure.microsoft.com/support/legal/sla/documentdb/) ile ilişkilendirilmiş olan tüm grafiklerde mevcut kullanımınızın yanı sıra SLA şartlarını karşılamak için gerekli olan kotayı gösteren bir çizgi mevcuttur. Bu sayede veritabanınızın performansını net bir şekilde görebilirsiniz. Portalda depolama alanı kullanımı ve bir dakikada gönderilen istek sayısı gibi ek ölçümleri de bulabilirsiniz
-
-* Azure portalının sol tarafındaki menüde **İzleme**'nin altında **Ölçümler**'e tıklayın.
-
-   ![Yapılacaklar listesi uygulaması ve örnek veriler](./media/cosmosdb-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
