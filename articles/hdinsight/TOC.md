@@ -1,234 +1,475 @@
 # Genel Bakış
+
 ## [HDInsight ve Hadoop hakkında](hdinsight-hadoop-introduction.md)
+
 ## [HDInsight üzerindeki Hadoop bileşenleri](hdinsight-component-versioning.md)
+
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
+
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
+
 ## [HBase](hdinsight-hbase-overview.md)
+
 ## [Apache Storm](hdinsight-storm-overview.md)
+
 ## [Kafka (Önizleme)](hdinsight-apache-kafka-introduction.md)
+
 ## [Etki alanına katılmış HDInsight kümeleri (Önizleme)](hdinsight-domain-joined-introduction.md)
+
 ## Sürüm notları
+
 ### [Son](hdinsight-release-notes.md)
+
 ### [Arşiv](hdinsight-release-notes-archive.md)
 
+
 # Kullanmaya Başlama
+
 ## [Hadoop’u kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
+
 ## [Spark’ı kullanmaya başlama](hdinsight-apache-spark-jupyter-spark-sql.md)
+
 ## [R Server’ı kullanmaya başlama](hdinsight-hadoop-r-server-get-started.md)
+
 ## [HBase ve NoSQL’i kullanmaya başlama](hdinsight-hbase-tutorial-get-started-linux.md)
+
 ## [Storm’u kullanmaya başlama](hdinsight-apache-storm-tutorial-get-started-linux.md)
+
 ## [Interactive Hive’ı (Önizleme) kullanmaya başlama](hdinsight-hadoop-use-interactive-hive.md)
+
 ## [Kafka’yı (Önizleme) kullanmaya başlama](hdinsight-apache-kafka-get-started.md)
+
 ## [Hadoop korumalı alanı](hdinsight-hadoop-emulator-get-started.md)
+
 ## [Hortonworks Korumalı Alanı ile Data Lake Araçları](hdinsight-hadoop-emulator-visual-studio.md)
+
 ## [Visual Studio Araçları](hdinsight-hadoop-visual-studio-tools-get-started.md)
+
 ## [Azure Depolama kullanarak HDInsight](hdinsight-hadoop-use-blob-storage.md)
+
 ## [Azure Data Lake Store kullanarak HDInsight](hdinsight-hadoop-use-data-lake-store.md)
 
+
 # Nasıl yapılır
+
 ## Toplu sorgular için Hadoop kullanma
+
 ### [Hadoop ile Hive](hdinsight-use-hive.md)
+
 #### [Hive Görünümünü kullanma](hdinsight-hadoop-use-hive-ambari-view.md)
+
 #### [Beeline kullanma](hdinsight-hadoop-use-hive-beeline.md)
+
 #### [cURL kullanma](hdinsight-hadoop-use-hive-curl.md)
+
 #### [PowerShell kullanma](hdinsight-hadoop-use-hive-powershell.md)
+
 #### [.NET SDK’yı kullanma](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+
 #### [Visual Studio için HDInsight araçlarını kullanma](hdinsight-hadoop-use-hive-visual-studio.md)
+
 #### [Uzak Masaüstü kullanma](hdinsight-hadoop-use-hive-remote-desktop.md)
+
 #### [Sorgu Konsolu kullanma](hdinsight-hadoop-use-hive-query-console.md)
+
 ### [Hive ile Java UDF kullanma](hdinsight-hadoop-hive-java-udf.md)
+
 ### [Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+
 #### [SSH kullanma](hdinsight-hadoop-use-mapreduce-ssh.md)
+
 #### [cURL kullanma](hdinsight-hadoop-use-mapreduce-curl.md)
+
 #### [PowerShell kullanma](hdinsight-hadoop-use-mapreduce-powershell.md)
+
 #### [Uzak Masaüstü kullanma](hdinsight-hadoop-use-mapreduce-remote-desktop.md)
+
 ### [MapReduce örneklerini çalıştırma](hdinsight-hadoop-run-samples-linux.md)
+
 ### [Hadoop ile Pig kullanma](hdinsight-use-pig.md)
+
 #### [SSH ve Pig kullanma](hdinsight-hadoop-use-pig-ssh.md)
+
 #### [PowerShell kullanma](hdinsight-hadoop-use-pig-powershell.md)
+
 #### [.NET SDK’yı kullanma](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+
 #### [cURL kullanma](hdinsight-hadoop-use-pig-curl.md)
+
 #### [Uzak Masaüstü kullanma](hdinsight-hadoop-use-pig-remote-desktop.md)
+
 ### [Pig ile DataFu kullanma](hdinsight-hadoop-use-pig-datafu-udf.md)
+
 ### [İsteğe bağlı kümeler](hdinsight-hadoop-create-linux-clusters-adf.md)
+
 ### [Hadoop işlerini gönderme](hdinsight-submit-hadoop-jobs-programmatically.md)
+
 ## R Server’ı kullanma
+
 ### [Depolama seçenekleri](hdinsight-hadoop-r-server-storage.md)
+
 ### [RStudio’yu yükleme](hdinsight-hadoop-r-server-install-r-studio.md)
+
 ### [İşlem bağlamları](hdinsight-hadoop-r-server-compute-contexts.md)
+
 ### [ScaleR ve SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
+
 ## Bellek içi işleme için Spark’ı kullanma
+
 ### [Data Lake Store ile](hdinsight-apache-spark-use-with-data-lake-store.md)
+
 ### [BI araçları ile](hdinsight-apache-spark-use-bi-tools.md)
+
 ### [Tek başına uygulama oluşturma](hdinsight-apache-spark-create-standalone-application.md)
+
 ### [Eclipse kullanarak uygulama oluşturma](hdinsight-apache-spark-eclipse-tool-plugin.md)
+
 ### [IntelliJ kullanarak uygulama oluşturma](hdinsight-apache-spark-intellij-tool-plugin.md)
+
 ### [Akış olaylarını işleme](hdinsight-apache-spark-eventhub-streaming.md)
+
 ### [HVAC performansını tahmin etme](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+
 ### [Gıda denetimi sonuçlarını tahmin etme](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+
 ### [Web sitesi günlüklerini çözümleme](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+
 ### [Derin öğrenme için Caffe kullanma](hdinsight-deep-learning-caffe-spark.md)
+
 ### [Microsoft Bilişsel Araç Seti ile kullanma](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
+
 ### [Zeppelin not defterlerini kullanma](hdinsight-apache-spark-zeppelin-notebook.md)
+
 ### [Jupyter not defteri çekirdekleri](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
 ### [Hücre sihri kullanarak Jupyter ile dış paketleri kullanma](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
 ### [Betik eylemi kullanarak Jupyter ile dış paketleri kullanma](hdinsight-apache-spark-python-package-installation.md)
+
 ### [Yerel Jupyter not defterini kullanma](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
 ### [Livy ile uzak işler](hdinsight-apache-spark-livy-rest-interface.md)
+
 ### [VPN aracılığıyla IntelliJ ile işler üzerinde uzaktan hata ayıklama](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 ### [Kaynakları yönetme](hdinsight-apache-spark-resource-manager.md)
+
 ### [İşleri izleme ve hata ayıklama](hdinsight-apache-spark-job-debugging.md)
+
 ### [Bilinen sorunlar](hdinsight-apache-spark-known-issues.md)
+
 ## HBase’i kullanma
+
 ### [Phoenix ve SQLLine kullanma](hdinsight-hbase-phoenix-squirrel-linux.md)
+
 ### [Gerçek zamanlı tweet’leri çözümleme](hdinsight-hbase-analyze-twitter-sentiment.md)
+
 ### [Sanal ağda küme oluşturma](hdinsight-hbase-provision-vnet.md)
+
 ### [HBase çoğaltmasını yapılandırma](hdinsight-hbase-replication.md)
+
 ### [Java ile uygulama geliştirme](hdinsight-hbase-build-java-maven-linux.md)
+
 ## Storm’u kullanma
+
 ### [Topolojileri dağıtma ve yönetme](hdinsight-storm-deploy-monitor-topology-linux.md)
+
 ### [SCP içinde veri işleme uygulamaları geliştirme](hdinsight-storm-scp-programming-guide.md)
+
 ### [Storm örnekleri](hdinsight-storm-example-topology.md)
+
 #### [Data Lake Store’a yazma](hdinsight-storm-write-data-lake-store.md)
+
 #### [Maven ile Java tabanlı topolojiler geliştirme](hdinsight-storm-develop-java-topology.md)
+
 #### [Hadoop araçları ile C# topolojileri geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+
 #### [Twitter popüler konularını belirleme](hdinsight-storm-twitter-trending.md)
+
 #### [C# topolojileri ile olayları işleme](hdinsight-storm-develop-csharp-event-hub-topology.md)
+
 #### [Java topolojileri ile olayları işleme](hdinsight-storm-develop-java-event-hub-topology.md)
+
 #### [Bir topoloji ile Power BI kullanma](hdinsight-storm-power-bi-topology.md)
+
 #### [Gerçek zamanlı sensör verilerini çözümleme](hdinsight-storm-sensor-data-analysis.md)
+
 #### [Araç algılayıcı verilerini işleme](hdinsight-storm-iot-eventhub-documentdb.md)
+
 #### [Olayları zaman içerisinde ilişkilendirme](hdinsight-storm-correlation-topology.md)
+
 #### [Python kullanarak topolojileri geliştirme](hdinsight-storm-develop-python-topology.md)
+
 ## Etki alanına katılmış HDInsight kullanma (Önizleme)
+
 ### [Yapılandırma](hdinsight-domain-joined-configure.md)
+
 ### [Yönetme](hdinsight-domain-joined-manage.md)
+
 ### [Hive ilkelerini yapılandırma](hdinsight-domain-joined-run-hive.md)
+
 ## Kafka kullanma (Önizleme)
+
 ### [Kafka verilerini çoğaltma](hdinsight-apache-kafka-mirroring.md)
+
 ### [Kafka depolama ve ölçeklenebilirlik yapılandırması](hdinsight-apache-kafka-scalability.md)
+
 ### [Verilerin yüksek kullanılabilirliğini yapılandırma](hdinsight-apache-kafka-high-availability.md)
+
 ### [Sanal Ağlar ile kullanma](hdinsight-apache-kafka-connect-vpn-gateway.md)
+
 ### [Spark (Yapılandırılmış Akış) ile kullanma](hdinsight-apache-kafka-spark-structured-streaming.md)
+
 ### [Spark (DStream) ile kullanma](hdinsight-apache-spark-with-kafka.md)
+
 ### [Storm ile kullanma](hdinsight-apache-storm-with-kafka.md)
+
 ## Geliştirme
+
 ### [C# akış MapReduce programları geliştirme](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+
 ### [Java MapReduce programları geliştirme](hdinsight-develop-deploy-java-mapreduce-linux.md)
+
 ### [Scalding MapReduce işlerini geliştirme](hdinsight-hadoop-mapreduce-scalding.md)
+
 ### [Spark uygulamaları geliştirmek için HDInsight Araçlarını kullanma](hdinsight-apache-spark-eclipse-tool-plugin.md)
+
 ### [Spark uygulamalarında SSH üzerinden uzaktan hata ayıklamak için HDInsight Araçlarını kullanma](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+
 ### [Boş kenar düğümlerini kullanma](hdinsight-apps-use-edge-node.md)
+
 ### [Python akış programları geliştirme](hdinsight-hadoop-streaming-python.md)
+
 ### [JSON belgelerini işleme ve çözümleme](hdinsight-using-json-in-hive.md)
+
 ### [Avro Kitaplığı ile verileri seri hale getirme](hdinsight-dotnet-avro-serialization.md)
+
 ### [Kullanıcı tanımlı C# işlevlerini kullanma](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+
 ### [Hive ve Pig ile Python kullanma](hdinsight-python.md)
+
 ## Büyük verileri çözümleme
+
 ### [Power Query kullanarak çözümleme](hdinsight-connect-excel-power-query.md)
+
 ### [Excel'i Hadoop'a bağlama](hdinsight-connect-excel-hive-odbc-driver.md)
+
 ### [Hive JDBC sürücüsü kullanarak bağlanma](hdinsight-connect-hive-jdbc-driver.md)
+
 ### [Depolanan sensör verilerini çözümleme](hdinsight-hive-analyze-sensor-data.md)
+
 ### [Depolanan tweet’leri çözümleme](hdinsight-analyze-twitter-data-linux.md)
+
 ### [Uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md)
+
 ### [Mahout ile öneriler oluşturma](hdinsight-hadoop-mahout-linux-mac.md)
+
 ### [Hive ile web sitesi günlüklerini çözümleme](hdinsight-hive-analyze-website-log.md)
+
 ### [Application Insights telemetri günlüklerini çözümleme](hdinsight-spark-analyze-application-insight-logs.md)
+
 ## Kümeleri genişletme
+
 ### [Bootstrap ile kümeleri özelleştirme](hdinsight-hadoop-customize-cluster-bootstrap.md)
+
 ### [Betik Eylemi kullanarak kümeleri özelleştirme](hdinsight-hadoop-customize-cluster-linux.md)
+
 ### [Betik eylemleri geliştirme](hdinsight-hadoop-script-actions-linux.md)
+
 ### [Presto yükleme ve kullanma](hdinsight-hadoop-install-presto.md)
+
 ### [Mono yükleme veya güncelleştirme](hdinsight-hadoop-install-mono.md)
+
 ### [Hive kitaplıkları ekleme](hdinsight-hadoop-add-hive-libraries.md)
+
 ### [Giraph kullanma](hdinsight-hadoop-giraph-install-linux.md)
+
 ### [Hue kullanma](hdinsight-hadoop-hue-linux.md)
+
 ### [R kullanma](hdinsight-hadoop-r-scripts-linux.md)
+
 ### [Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
+
 ### [Sanal Ağ kullanma](hdinsight-extend-hadoop-virtual-network.md)
+
 ### [Zeppelin kullanma](hdinsight-apache-spark-zeppelin-notebook.md)
+
 ### HDInsight uygulamalarını derleme
+
 #### [HDInsight uygulamaları yükleme](hdinsight-apps-install-applications.md)
+
 #### [Özel uygulamaları yükleme](hdinsight-apps-install-custom-applications.md)
+
 #### [Uygulama yüklemek için REST kullanma](https://msdn.microsoft.com/library/mt706515.aspx)
+
 #### [HDInsight uygulamalarını Azure Market’te yayımlama](hdinsight-apps-publish-applications.md)
+
 ## Güvenlik
+
 ### [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
+
 ### [SSH tüneli kullanma](hdinsight-linux-ambari-ssh-tunnel.md)
+
 ### [Veri erişimini kısıtlama](hdinsight-storage-sharedaccesssignature-permissions.md)
+
 ## Yönet
+
 ### [Linux kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md)
+
 #### [Azure PowerShell’i kullanma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+
 #### [cURL ve Azure REST API’si kullanma](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
+
 #### [.NET SDK’yı kullanma](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+
 #### [Azure CLI kullanma](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+
 #### [Azure portal’ı kullanma](hdinsight-hadoop-create-linux-clusters-portal.md)
+
 #### [Azure Resource Manager şablonlarını kullanma](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+
 ### [Hadoop kümelerini yönetme](hdinsight-administer-use-portal-linux.md)
+
 #### [.NET SDK’yı kullanma](hdinsight-administer-use-dotnet-sdk.md)
+
 #### [Azure PowerShell’i kullanma](hdinsight-administer-use-powershell.md)
+
 #### [Azure CLI kullanma](hdinsight-administer-use-command-line.md)
+
 ### [Ambari web kullanıcı arabirimi kullanarak kümeleri yönetme](hdinsight-hadoop-manage-ambari.md)
+
 #### [Ambari REST API’si kullanma](hdinsight-hadoop-manage-ambari-rest-api.md)
+
 ### [Depolama hesapları ekleme](hdinsight-hadoop-add-storage.md)
+
 ### [Hadoop işleri için veri yükleme](hdinsight-upload-data.md)
+
 ### [Data Lake Store ile birden çok HDInsight kümesi](hdinsight-multiple-clusters-data-lake-store.md)
+
 ### [Sqoop ile verileri içeri ve dışarı aktarma](hdinsight-use-sqoop.md)
+
 #### [SSH ile bağlanma](hdinsight-use-sqoop-mac-linux.md)
+
 #### [cURL kullanarak çalıştırma](hdinsight-hadoop-use-sqoop-curl.md)
+
 #### [.NET SDK’yı kullanarak çalıştırma](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+
 #### [PowerShell kullanarak çalıştırma](hdinsight-hadoop-use-sqoop-powershell.md)
+
 ### [İş akışları için Oozie kullanma](hdinsight-use-oozie-linux-mac.md)
+
 ### [Zamana bağlı Oozie düzenleyicileri kullanma](hdinsight-use-oozie-coordinator-time.md)
+
 ### [Küme ve hizmet bağlantı noktaları ile URI'ler](hdinsight-hadoop-port-settings-for-services.md)
+
 ### [Resource Manager geliştirme araçlarına geçiş](hdinsight-hadoop-development-using-azure-resource-manager.md)
+
 ### [Kullanılabilirlik ve güvenilirlik ](hdinsight-high-availability-linux.md)
+
 ### [HDInsight kümesini yeni sürüme yükseltme](hdinsight-upgrade-cluster.md)
+
 ### [HDInsight kümesi için işletim sistemi düzeltme eki uygulama](hdinsight-os-patching.md)
-## Sorun giderme
-### [Linux için ipuçları](hdinsight-hadoop-linux-information.md)
-### [HDInsight günlüklerini çözümleme](hdinsight-debug-jobs.md)
-### [YARN günlükleri ile uygulama hatalarını ayıklama](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-### [Yığın dökümlerini etkinleştirme](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-### [WebHCat hatalarını düzeltme](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
-### [Tez İşlerinin hatalarını ayıklamak için Ambari Görünümlerini kullanma](hdinsight-debug-ambari-tez-view.md)
-### [Daha fazla sorun giderme](hdinsight-hadoop-stack-trace-error-messages.md)
+
+## [Sorun giderme](hdinsight-troubleshoot-guide.md)
+
+### [HBASE sorunlarını giderme](hdinsight-troubleshoot-hbase.md)
+
+### [HDFS sorunlarını giderme](hdinsight-troubleshoot-hdfs.md)
+
+### [HIVE sorunlarını giderme](hdinsight-troubleshoot-hive.md)
+
+### [Spark sorunlarını giderme](hdinsight-troubleshoot-spark.md)
+
+### [STORM sorunlarını giderme](hdinsight-troubleshoot-storm.md)
+
+### [YARN sorunlarını giderme](hdinsight-troubleshoot-yarn.md)
+
+### Kaynaklar
+
+#### [Linux üzerinde HDInsight’ı kullanma hakkında bilgiler](hdinsight-hadoop-linux-information.md)
+
+#### [Hadoop bellek ve performansı](hdinsight-hadoop-stack-trace-error-messages.md)
+
+#### [Linux üzerinde Hadoop YARN uygulama günlüklerine erişme](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+
+#### [Hadoop hizmetleri için yığın dökümlerini etkinleştirme](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+
+#### [HDInsight günlüklerini çözümleme](hdinsight-debug-jobs.md)
+
+#### [WebHCat hatalarını anlama ve düzeltme](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
+
 #### [Hive ayarları ile Yetersiz Bellek hatalarını düzeltme](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
+
+#### [Tez İşlerinin hatalarını ayıklamak için Ambari Görünümlerini kullanma](hdinsight-debug-ambari-tez-view.md)
+
 #### [Hive sorgularını en iyi duruma getirme](hdinsight-hadoop-optimize-hive-query.md)
-#### [Hive sorgu performansı](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+
 
 # Başvuru
+
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
+
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+
 ## [REST](/rest/api/hdinsight/)
+
 ## [REST (Spark)](/rest/api/hdinsightspark/)
 
+
 # İlgili
+
 ## Windows kümeleri
+
 ### [Linux kümelerine Windows kümelerini geçirme](hdinsight-migrate-from-windows-to-linux.md)
+
 ### [.NET çözümlerini Linux kümelerine geçirme](hdinsight-hadoop-migrate-dotnet-to-linux.md)
+
 ### [Hadoop MapReduce örneklerini çalıştırma](hdinsight-run-samples.md)
+
 ### [Kümeler üzerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
+
 ### [Büyük ölçekli grafikleri işlemek için Giraph kullanma](hdinsight-hadoop-giraph-install.md)
+
 ### [İş akışları için Oozie kullanma](hdinsight-use-oozie.md)
+
 ### [Storm topolojilerini dağıtma ve yönetme](hdinsight-storm-deploy-monitor-topology.md)
+
 ### [Java uygulamaları oluşturmak için Maven kullanma](hdinsight-hbase-build-java-maven.md)
+
 ### [Tez kullanıcı arabirimi kullanarak Tez İşlerinin hatalarını ayıklama](hdinsight-debug-tez-ui.md)
+
 ### [Betik Eylemi kullanarak özelleştirme](hdinsight-hadoop-customize-cluster.md)
+
 ### [YARN uygulama günlüklerine erişim](hdinsight-hadoop-access-yarn-app-logs.md)
+
 ### [Apache Phoenix ve SQuirreL kullanma](hdinsight-hbase-phoenix-squirrel.md)
+
 ### [Mahout kullanarak film önerileri oluşturma](hdinsight-mahout.md)
+
 ### [Uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md)
+
 ### [Betik eylemleri geliştirme](hdinsight-hadoop-script-actions.md)
+
 ### [Twitter verilerini çözümleme](hdinsight-analyze-twitter-data.md)
+
 ### [Azure portal ile kümeleri yönetme](hdinsight-administer-use-management-portal.md)
+
 ### [Ambari API’sini kullanarak kümeleri izleme](hdinsight-monitor-use-ambari-api.md)
 
+
 # Kaynaklar
+
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+
 ## [Forumdan yardım alma](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
+
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+
 ## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
+
 ## [HDInsight için Windows araçları](hdinsight-hadoop-windows-tools.md)
+
