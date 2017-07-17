@@ -199,10 +199,6 @@
 
 ### [Risk olayları](active-directory-reporting-risk-events.md)
 
-### [Bekletme](active-directory-reporting-retention.md)
-
-### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)
-
 ### [SSS](active-directory-reporting-faq.md)
 
 ### Görevler
@@ -212,7 +208,15 @@
 #### [Etkinlik raporlarını bulma](active-directory-reporting-migration.md)
 
 #### [Azure Active Directory Power BI İçerik Paketi’ni kullanma](active-directory-reporting-power-bi-content-pack-how-to.md)
-  
+
+### Başvuru
+
+#### [Bekletme](active-directory-reporting-retention.md)
+
+#### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)
+
+#### [Oturum açma etkinliği hata kodları](active-directory-reporting-activity-sign-ins-errors.md)
+
 ### Sorun giderme
 
 #### [Eksik denetim verileri](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -416,6 +420,8 @@
 ##### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
 
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
+##### [Microsoft Teams](application-proxy-teams.md)
 
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
 
