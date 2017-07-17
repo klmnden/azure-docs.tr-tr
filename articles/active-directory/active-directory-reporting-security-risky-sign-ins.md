@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory portalındaki riskli oturum açma işlemleri raporu | Microsoft Docs"
 description: "Azure Active Directory portalındaki riskli oturum açma işlemleri raporu hakkında bilgi edinin"
 services: active-directory
@@ -11,17 +10,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
 ms.contentlocale: tr-tr
 ms.lasthandoff: 05/08/2017
 
-
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki riskli oturum açma işlemleri raporu
+# Azure Active Directory portalındaki riskli oturum açma işlemleri raporu
+<a id="risky-sign-ins-report-in-the-azure-active-directory-portal" class="xliff"></a>
 
 Azure Active Directory’de (Azure AD) güvenlik raporları ile ortamınızda güvenliği tehlikeye girmiş kullanıcı hesaplarının olasılığı hakkında bilgi sahibi olabilirsiniz. 
 
@@ -38,7 +38,8 @@ Güvenlik raporlarını, [Azure portalının](https://portal.azure.com) **Azure 
 ![Riskli Oturum Açma İşlemleri](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory ücretsiz ve temel sürümleri
+## Azure Active Directory ücretsiz ve temel sürümleri
+<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
 
 Azure Active Directory ücretsiz ve temel sürümleri, kullanıcılarınızla ilgili algılanan riskli oturum açma işlemlerinin listesini sunar. Risk olayları raporu aşağıdakileri sağlar:
 
@@ -63,7 +64,8 @@ Riskli oturum açma işlemi araştırmanıza göre, Azure Active Directory'ye a�
 
 Daha fazla ayrıntı için bkz. [Risk olaylarını elle kapatma](active-directory-identityprotection.md#closing-risk-events-manually).
 
-## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory premium sürümleri
+## Azure Active Directory premium sürümleri
+<a id="azure-active-directory-premium-editions" class="xliff"></a>
 
 Azure Active Directory premium sürümlerindeki riskli oturum açma işlemleri raporu aşağıdakileri içerir:
 
@@ -112,7 +114,8 @@ Bu risk olayına ilişkin **Ayrıntılar** dikey penceresi açılır. **Ayrınt�
 
 
 
-## <a name="next-steps"></a>Sonraki adımlar
+## Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
 
 - Azure Active Directory Kimlik Koruması hakkında daha fazla bilgi için bkz. [Azure Active Directory Kimlik Koruması](active-directory-identityprotection.md).
 

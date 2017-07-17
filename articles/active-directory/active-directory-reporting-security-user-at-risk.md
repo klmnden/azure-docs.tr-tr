@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory portalındaki risk altındaki kullanıcılar güvenlik raporu | Microsoft Docs"
 description: "Azure Active Directory portalındaki risk altındaki kullanıcılar güvenlik raporu hakkında bilgi edinin"
 services: active-directory
@@ -11,17 +10,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
 ms.contentlocale: tr-tr
 ms.lasthandoff: 05/08/2017
 
-
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki risk altındaki kullanıcılar güvenlik raporu
+# Azure Active Directory portalındaki risk altındaki kullanıcılar güvenlik raporu
+<a id="users-at-risk-security-report-in-the-azure-active-directory-portal" class="xliff"></a>
 
 Azure Active Directory’de (Azure AD) güvenlik raporları ile ortamınızda güvenliği tehlikeye girmiş kullanıcı hesaplarının olasılığı hakkında bilgi sahibi olabilirsiniz. 
 
@@ -37,7 +37,8 @@ Güvenlik raporlarını, Azure portalında **Azure Active Directory** dikey penc
 
 ![Riskli Oturum Açma İşlemleri](./media/active-directory-reporting-security-user-at-risk/10.png)
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory ücretsiz ve temel sürümleri
+## Azure Active Directory ücretsiz ve temel sürümleri
+<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
 
 Azure Active Directory ücretsiz ve temel sürümlerindeki risk altındaki kullanıcılar raporu, tehlikeye girmiş olabilecek kullanıcı hesaplarının bir listesini sağlar. 
 
@@ -49,7 +50,8 @@ Risk altındaki kullanıcılarla ilgili olarak kullanıcının oturum açma geç
 
 ![Riskli Oturum Açma İşlemleri](./media/active-directory-reporting-security-user-at-risk/46.png)
 
-## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory premium sürümleri
+## Azure Active Directory premium sürümleri
+<a id="azure-active-directory-premium-editions" class="xliff"></a>
 
 Azure Active Directory premium sürümlerindeki risk altındaki kullanıcılar raporu aşağıdakileri içerir:
 
@@ -86,7 +88,8 @@ Bu risk olayına ilişkin **Ayrıntılar** dikey penceresi açılır. **Ayrınt�
 
 
 
-## <a name="next-steps"></a>Sonraki adımlar
+## Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
 
 - Azure Active Directory Kimlik Koruması hakkında daha fazla bilgi için bkz. [Azure Active Directory Kimlik Koruması](active-directory-identityprotection.md).
 
