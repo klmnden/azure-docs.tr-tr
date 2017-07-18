@@ -1,10 +1,13 @@
 ### <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
-* `sender.js` adlı yeni bir JavaScript dosyası oluşturun.
+
+`sender.js` adlı yeni bir JavaScript dosyası oluşturun.
 
 ### <a name="add-the-relay-npm-package"></a>Geçiş NPM paketini ekleme
-* Proje klasörünüzdeki bir Düğüm komut isteminden `npm install hyco-ws` komutunu çalıştırın.
+
+Proje klasörünüzdeki bir Düğüm komut isteminden `npm install hyco-ws` komutunu çalıştırın.
 
 ### <a name="write-some-code-to-send-messages"></a>İleti göndermek için bazı kodlar yazma
+
 1. Aşağıdaki `constants` öğesini `sender.js` dosyasının başına ekleyin.
    
     ```js
@@ -15,12 +18,13 @@
             output: process.stdout
         });;
     ```
-2. Karma Bağlantının bağlantı ayrıntıları için şu Geçiş `constants` öğesini `sender.js` dosyasına ekleyin. Köşeli ayraçlar içindeki yer tutucuları Karma Bağlantı oluşturulurken edinilen uygun değerlerle değiştirin.
+2. Karma bağlantı ayrıntıları için şu sabitleri `sender.js` dosyasına ekleyin. Köşeli ayraçlar içindeki yer tutucuları, karma bağlantıyı oluştururken aldığınız değerlerle değiştirin.
    
-   1. `const ns` - Geçiş ad alanı (FQDN kullanma - örn. `{namespace}.servicebus.windows.net`)
-   2. `const path` - Karma Bağlantının adı
-   3. `const keyrule` - SAS anahtarının adı
-   4. `const key` - SAS anahtarının değeri
+   1. `const ns` - Geçiş ad alanı. Tam ad alanı adını kullandığınızdan emin olun: örneğin, `{namespace}.servicebus.windows.net`.
+   2. `const path` - Karma bağlantının adı.
+   3. `const keyrule` - SAS anahtarının adı.
+   4. `const key` - SAS anahtarının değeri.
+
 3. `sender.js` dosyasına aşağıdaki kodu ekleyin:
    
     ```js
@@ -40,7 +44,7 @@
         }
     );
     ```
-    listener.js dosyanız şu şekilde görünmelidir:
+    Sender.js dosyanız aşağıdaki gibi görünmelidir:
    
     ```js
     const WebSocket = require('hyco-ws');

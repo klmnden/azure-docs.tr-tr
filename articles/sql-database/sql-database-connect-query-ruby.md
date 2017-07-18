@@ -16,22 +16,18 @@ ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: c5d09cf03c87c8da1d8588be62fea3f0cc3eec4f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b25ef8333a2836f976a974d6ea6e7fdcea2745e3
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
-<a id="azure-sql-database-use-ruby-to-connect-and-query-data" class="xliff"></a>
-
-# Azure SQL Veritabanı: Ruby kullanarak verileri bağlama ve sorgulama
+# <a name="azure-sql-database-use-ruby-to-connect-and-query-data"></a>Azure SQL Veritabanı: Ruby kullanarak verileri bağlama ve sorgulama
 
 Bu hızlı başlangıç kılavuzunda, Azure SQL veritabanına bağlanmak için [Ruby](https://www.ruby-lang.org)’yi kullanma ve ardından Transact-SQL deyimlerini kullanarak Mac OS ve Ubuntu Linux platformlarındaki veritabanı verilerini sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanmıştır.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır:
 
@@ -39,15 +35,11 @@ Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçla
 - [DB oluşturma - CLI](sql-database-get-started-cli.md)
 - [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
 
-<a id="install-ruby-and-database-communication-libraries" class="xliff"></a>
-
-## Ruby ve veritabanı iletişim kitaplıklarını yükleme
+## <a name="install-ruby-and-database-communication-libraries"></a>Ruby ve veritabanı iletişim kitaplıklarını yükleme
 
 Bu bölümdeki adımlarda, Ruby’yi kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve Azure SQL Veritabanı ile çalışmaya yeni başladığınız varsayılır. Ruby ile geliştirmeye yeni başladıysanız, [SQL Server kullanarak uygulama geliştirme](https://www.microsoft.com/en-us/sql-server/developer-get-started/) konusuna gidin, **Ruby** dilini ve sonra da işletim sisteminizi seçin.
 
-<a id="mac-os" class="xliff"></a>
-
-### **Mac OS**
+### <a name="mac-os"></a>**Mac OS**
 Terminalinizi açın ve Ruby betiğinizi oluşturmayı planladığınız dizine gidin. **brew**, **FreeTDS** ve **TinyTDS**’yi yüklemek için aşağıdaki komutları girin.
 
 ```bash
@@ -58,9 +50,7 @@ brew install FreeTDS
 gem install tiny_tds
 ```
 
-<a id="linux-ubuntu" class="xliff"></a>
-
-### **Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Terminalinizi açın ve Ruby betiğinizi oluşturmayı planladığınız dizine gidin. **FreeTDS** ve **TinyTDS**’yi yüklemek için aşağıdaki komutları girin.
 
 ```bash
@@ -73,9 +63,7 @@ make install
 gem install tiny_tds
 ```
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Bağlantı bilgilerini alma
+## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
 
 Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
 
@@ -88,9 +76,7 @@ Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. S
 4. Sunucunuzun oturum açma bilgilerini unuttuysanız SQL Veritabanı sunucusu sayfasına giderek sunucu yöneticisi adını görüntüleyin ve gerekirse parolayı sıfırlayın.
     
 
-<a id="select-data" class="xliff"></a>
-
-## Verileri seçme
+## <a name="select-data"></a>Verileri seçme
 [SELECT](https://github.com/rails-sqlserver/tiny_tds) Transact-SQL deyimi ile [TinyTDS::Client](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) işlevini kullanarak ilk 20 ürünü kategoriye göre sorgulamak için aşağıdaki kodu kullanın. TinyTDS::Client işlevi sorguyu kabul eder ve bir sonuç kümesi döndürür. Sonuç kümesi [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds) kullanılarak yinelenir. Sunucu, veritabanı, kullanıcı adı ve parola parametrelerini, AdventureWorksLT örnek verileriyle veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
 
 ```ruby
@@ -113,9 +99,7 @@ result.each do |row|
 end
 ```
 
-<a id="insert-data" class="xliff"></a>
-
-## Veri ekleme
+## <a name="insert-data"></a>Veri ekleme
 [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) işlevini [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL deyimiyle kullanarak SalesLT.Product tablosuna yeni ürün eklemek için aşağıdaki kodu kullanın. Sunucu, veritabanı, kullanıcı adı ve parola parametrelerini, AdventureWorksLT örnek verileriyle veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
 
 Bu örnekte bir INSERT deyimini güvenli şekilde yürütme, uygulamanızı [SQL ekleme](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) güvenlik açığından koruyan parametreler geçirme ve otomatik olarak oluşturulan [Birincil Anahtar](https://docs.microsoft.com/sql/relational-databases/tables/primary-and-foreign-key-constraints) değerini alma işlemi gösterilmektedir.    
@@ -153,9 +137,7 @@ end
 insert('BrandNewProduct', '200989', 'Blue', 75, 80, '7/1/2016')
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Verileri güncelleştirme
+## <a name="update-data"></a>Verileri güncelleştirme
 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL deyimi ile [TinyTDS:Client](https://github.com/rails-sqlserver/tiny_tds) işlevini kullanarak daha önce eklemiş olduğunuz yeni ürünü güncelleştirmek için aşağıdaki kodu kullanın. Sunucu, veritabanı, kullanıcı adı ve parola parametrelerini, AdventureWorksLT örnek verileriyle veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
 
 ```ruby
@@ -176,9 +158,7 @@ end
 update('BrandNewProduct', 500, client)
 ```
 
-<a id="delete-data" class="xliff"></a>
-
-## Verileri silme
+## <a name="delete-data"></a>Verileri silme
 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL deyimi ile [TinyTDS:Client](https://github.com/rails-sqlserver/tiny_tds) işlevini kullanarak daha önce eklemiş olduğunuz yeni ürünü silmek için aşağıdaki kodu kullanın. Sunucu, veritabanı, kullanıcı adı ve parola parametrelerini, AdventureWorksLT örnek verileriyle veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
 
 ```ruby
@@ -209,9 +189,7 @@ end
 delete('BrandNewProduct', client)
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 - [İlk Azure SQL veritabanınızı tasarlama](sql-database-design-first-database.md)
 - [TinyTDS için GitHub deposu](https://github.com/rails-sqlserver/tiny_tds)
 - [Sorun bildirin/soru sorun](https://github.com/rails-sqlserver/tiny_tds/issues)

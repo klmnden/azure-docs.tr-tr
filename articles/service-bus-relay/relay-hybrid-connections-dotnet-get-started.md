@@ -1,6 +1,6 @@
 ---
 title: ".NET’te Azure Geçiş Karma Bağlantıları ile çalışmaya başlama | Microsoft Docs"
-description: "Karma Bağlantılar için bir C# konsol uygulaması yazma"
+description: "Azure Geçişi Karma Bağlantıları için bir C# konsol uygulaması yazın."
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 07/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: d27016559ede5d810d7efcec2a3abc78334f0f0a
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 1af23bfd46dd7d3781505473f7c1d86e65ea9bc7
 ms.contentlocale: tr-tr
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -26,29 +26,32 @@ ms.lasthandoff: 02/28/2017
 # <a name="get-started-with-relay-hybrid-connections"></a>Geçiş Karma Bağlantıları ile çalışmaya başlama
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Bu öğretici [Azure Geçiş Karma Bağlantıları](relay-what-is-it.md#hybrid-connections)’nı tanıtır ve karşılık gelen dinleyici uygulamasına ileti gönderen bir istemci uygulaması oluşturma işlemini gösterir. 
+Bu öğretici [Azure Geçişi Karma Bağlantıları](relay-what-is-it.md#hybrid-connections)’nı tanıtır ve .NET kullanarak, karşılık gelen dinleyici uygulamasına ileti gönderen bir istemci uygulaması oluşturma işlemini gösterir. 
 
 ## <a name="what-will-be-accomplished"></a>Ne elde edilecek
-Karma Bağlantılar hem istemci hem de sunucu bileşenini gerektirdiğinden bu öğreticide iki konsol uygulaması oluşturulur. Şu adımlar uygulanır:
+Karma Bağlantılar hem istemci hem de sunucu bileşenini gerektirdiğinden bu öğreticide iki konsol uygulaması oluşturulur. Adımlar aşağıdaki gibidir:
 
 1. Azure portalı kullanılarak Geçiş ad alanı oluşturma.
-2. Azure portalı kullanılarak Karma Bağlantı oluşturma.
+2. Azure portalını kullanarak o ad alanında karma bağlantı oluşturun.
 3. İleti almak için bir sunucu (dinleyici) konsol uygulaması yazma.
 4. İleti göndermek için bir istemci (gönderen) konsol uygulaması yazma.
 
 ## <a name="prerequisites"></a>Ön koşullar
-1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2015 kullanılır.
+
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
+
+1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılmaktadır.
 2. Azure aboneliği.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure portalı kullanılarak ad alanı oluşturma
-Daha önce oluşturduğunuz bir Geçiş ad alanı varsa [Azure portalını kullanarak Karma Bağlantı oluşturma](#2-create-a-hybrid-connection-using-the-azure-portal) bölümüne atlayın.
+Daha önce oluşturduğunuz bir Geçiş ad alanı varsa [Azure portalını kullanarak karma bağlantı oluşturma](#2-create-a-hybrid-connection-using-the-azure-portal) bölümüne atlayın.
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Azure portalı kullanılarak Karma Bağlantı oluşturma
-Daha önce bir Karma Bağlantı oluşturduysanız [Sunucu uygulaması oluşturma](#3-create-a-server-application-listener) bölümüne atlayın.
+## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Azure portalını kullanarak karma bağlantı oluşturma
+Daha önce bir karma bağlantı oluşturduysanız [Sunucu uygulaması oluşturma](#3-create-a-server-application-listener) bölümüne atlayın.
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 

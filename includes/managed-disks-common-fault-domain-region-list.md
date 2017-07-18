@@ -1,6 +1,4 @@
-<a id="number-of-fault-domains-per-region" class="xliff"></a>
-
-### Her bölge için Hata Etki Alanı sayısı
+### <a name="number-of-fault-domains-per-region"></a>Her bölge için Hata Etki Alanı sayısı
 
 | Bölge              | Maksimum Hata Etki Alanı sayısı  |
 |---------------------|-------------------------|
@@ -20,12 +18,15 @@
 | Birleşik Krallık Güney            | 2                       |
 | Birleşik Krallık Batı             | 2                       |
 |                     |                         |
-| Doğu Asya           | 3                       |
+| Doğu Asya           | 2                       |
 | Güneydoğu Asya     | 2                       |
 | Japonya Doğu          | 2                       |
 | Japonya Batı          | 2                       |
 | Güney Hindistan         | 2                       |
 | Orta Hindistan       | 2                       |
+| Batı Hindistan          | 2                       |
+| Kore Orta       | 2                       |
+| Kore Güney         | 2                       |
 |                     |                         |
 | Avustralya Doğu      | 2                       |
 | Avustralya Güneydoğu | 2                       |

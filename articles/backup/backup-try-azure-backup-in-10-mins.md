@@ -1,6 +1,6 @@
 ---
-title: "Windows dosyalarını ve klasörlerini Azure&quot;a yedekleme (Resource Manager) | Microsoft Docs"
-description: "Windows dosya ve klasörlerini bir Resource Manager dağıtımında Azure&quot;a yedekleme hakkında bilgi alın."
+title: "Windows dosyalarını ve klasörlerini Azure'a yedekleme (Resource Manager) | Microsoft Docs"
+description: "Windows dosya ve klasörlerini bir Resource Manager dağıtımında Azure'a yedekleme hakkında bilgi alın."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/23/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c989ca38e2463f8365b55c509e8b2bcf4572b409
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -164,6 +165,15 @@ Bir kasa oluşturduğunuza göre dosya ve klasörleri yedeklemek için yapıland
 
 Aracı artık yüklenmiş ve makineniz kasaya kaydedilmiştir. Yedeklemenizi yapılandırıp zamanlamak için hazırsınız.
 
+## <a name="network-and-connectivity-requirements"></a>Ağ ve Bağlantı Gereksinimleri
+
+Makine/proxy’nizin sınırlı İnternet erişimi varsa güvenlik duvarı ayarlarınızın aşağıdaki URL’lere izin verecek şekilde ayarlandığından emin olun: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.ne
+
 ## <a name="back-up-your-files-and-folders"></a>Dosya ve klasörlerinizi yedekleme
 İlk yedekleme iki anahtar görev içerir:
 
@@ -182,7 +192,7 @@ Aracı artık yüklenmiş ve makineniz kasaya kaydedilmiştir. Yedeklemenizi yap
 3. Yedeklemeyi Zamanlama Sihirbazı'nın Başlarken sayfasında **İleri**'ye tıklayın.
 4. Yedeklenecek Öğeleri Seçin sayfasında **Öğe Ekle**'ye tıklayın.
 5. Yedeklemek istediğiniz dosya ve klasörleri seçin ve ardından **Tamam**'a tıklayın.
-6. **Next (İleri)** düğmesine tıklayın.
+6. **İleri**’ye tıklayın.
 7. **Yedekleme Zamanlamasını Belirtin** sayfasında, **yedekleme zamanlamasını** belirtin ve **İleri**'ye tıklayın.
 
     Günlük (en fazla günde üç kez olmak üzere) veya haftalık yedeklemeler zamanlayabilirsiniz.

@@ -15,16 +15,14 @@ ms.topic: hero-article
 ms.date: 05/04/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 3c7bbb1342d381b2940a9e1ceb56d905fbc33a74
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 9a53216e326e63bd4fe36c0e5d5d5e85b2098d8c
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/10/2017
 
 ---
-<a id="create-a-php-web-app-in-azure" class="xliff"></a>
-
-# Azure’da PHP web uygulaması oluşturma
+# <a name="create-a-php-web-app-in-azure"></a>Azure’da PHP web uygulaması oluşturma
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, Azure Web Apps'te bir PHP uygulamasının nasıl dağıtılacağı gösterilmektedir. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'yi kullanarak web uygulamasını oluşturabilir ve örnek PHP kodunu web uygulamasında dağıtmak için Git'i kullanabilirsiniz.
 
@@ -32,9 +30,7 @@ ms.lasthandoff: 06/21/2017
 
 Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
@@ -47,9 +43,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
-## Örneği indirme
+## <a name="download-the-sample"></a>Örneği indirme
 
 Bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 
@@ -65,9 +59,7 @@ Bu hızlı başlangıç öğreticisindeki tüm komutları çalıştırmak için 
 cd php-docs-hello-world
 ```
 
-<a id="run-the-app-locally" class="xliff"></a>
-
-## Uygulamayı yerel olarak çalıştırma
+## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
 Yerleşik PHP web sunucusunu başlatmak için bir terminal penceresi açıp ve `php` komutunu kullanıp uygulamayı yerel olarak çalıştırın.
 
@@ -77,7 +69,7 @@ php -S localhost:8080
 
 Bir web tarayıcısı açın ve http://localhost:8080 konumundaki örnek uygulamaya gidin.
 
-Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
+Sayfada gösterilen örnek uygulamada **Merhaba Dünya!** iletisini görürsünüz.
 
 ![Yerel olarak çalışan örnek uygulama](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 
@@ -126,9 +118,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
-## Uygulamaya göz atma
+## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
 Web tarayıcınızı kullanarak dağıtılan uygulamaya göz atın.
 
@@ -142,9 +132,7 @@ PHP örnek kodu bir Azure App Service web uygulamasında çalışıyor.
 
 **Tebrikler!** App Service’e ilk PHP uygulamanızı dağıttınız.
 
-<a id="update-and-redeploy-the-code" class="xliff"></a>
-
-## Kodu güncelleştirme ve yeniden dağıtma
+## <a name="update-and-redeploy-the-code"></a>Kodu güncelleştirme ve yeniden dağıtma
 
 Bir yerel metin düzenleyicisi kullanarak `index.php` dosyasını PHP uygulaması içinde açın ve `echo` öğesinin yanındaki dizenin içinde bulunan metinde küçük bir değişiklik yapın:
 
@@ -163,9 +151,7 @@ Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan ta
 
 ![Azure'da çalışan güncelleştirilmiş örnek uygulama](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
-## Yeni Azure web uygulamanızı yönetme
+## <a name="manage-your-new-azure-web-app"></a>Yeni Azure web uygulamanızı yönetme
 
 Oluşturduğunuz web uygulamasını yönetmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
 
@@ -177,13 +163,11 @@ Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma,
 
 ![Azure portalında App Service dikey penceresi](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
-Soldaki menü, uygulamanızın yaplandırılmasına yönelik farklı sayfalar sağlar. 
+Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
 > [MySQL ile PHP](app-service-web-tutorial-php-mysql.md)

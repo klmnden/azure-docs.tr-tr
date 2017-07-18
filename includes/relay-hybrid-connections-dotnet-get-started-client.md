@@ -1,12 +1,15 @@
 ### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
-* Visual Studio'yu başlatın ve yeni bir Konsol uygulaması oluşturun.
+
+İlk olarak Visual Studio'yu başlatın ve yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşturun.
 
 ### <a name="add-the-relay-nuget-package"></a>Geçiş NuGet paketini ekleme
-1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
+
+1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’e tıklayın.
 2. **Gözat** sekmesine tıklayın, ardından "Microsoft.Azure.Relay" ifadesini aratın ve **Microsoft Azure Geçiş** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
 
 ### <a name="write-some-code-to-send-messages"></a>İleti göndermek için bazı kodlar yazma
-1. Program.cs dosyasının üst tarafındaki `using` deyimini aşağıdaki deyimlerle değiştirin:
+
+1. Program.cs dosyasının üst tarafındaki `using` deyimlerini aşağıdaki `using` deyimleriyle değiştirin:
    
     ```csharp
     using System;
@@ -15,7 +18,7 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Karma Bağlantı bağlantı ayrıntıları için sabitleri `Program` sınıfına ekleyin. Köşeli ayraçlar içindeki yer tutucuları Karma Bağlantı oluşturulurken edinilen uygun değerlerle değiştirin. Tam ad alanı adını kullandığınızdan emin olun:
+2. Karma bağlantı ayrıntıları için sabitleri `Program` sınıfına ekleyin. Köşeli ayraçlar içindeki yer tutucuları karma bağlantı oluşturulurken aldığınız uygun değerlerle değiştirin. Tam ad alanı adını kullandığınızdan emin olun:
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -23,7 +26,7 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. `Program` sınıfına aşağıdaki yeni yöntemi ekleyin:
+3. `Program` sınıfına aşağıdaki yöntemi ekleyin:
    
     ```csharp
     private static async Task RunAsync()

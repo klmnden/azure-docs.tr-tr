@@ -12,26 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/16/2017
+ms.date: 07/12/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: eb7d58c71f6d0daf072045797e30208ffe966ee0
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 0e80e0a1c334bcca0bb15dd16c54306a60f2486e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-<a id="getting-started-with-azure-automation" class="xliff"></a>
-
-# Azure Otomasyonu’nu Kullanmaya Başlama
+# <a name="getting-started-with-azure-automation"></a>Azure Otomasyonu’nu Kullanmaya Başlama
 
 Bu başlangıç kılavuzunda Azure Otomasyonu’nun dağıtımıyla ilgili temel kavramlar açıklanmaktadır. Azure’da Otomasyon’u kullanmaya yeni başladıysanız veya System Center Orchestrator gibi otomasyon iş akışı yazılımlarıyla ilgili deneyiminiz varsa bu kılavuz, Otomasyon’u nasıl hazırlayacağınızı ve kullanmaya başlayacağınızı anlamanıza yardımcı olur.  Ardından işlem otomasyonu ihtiyaçlarınızı karşılamak amacıyla runbook’lar geliştirmeye başlamak için hazır olacaksınız. 
 
 
-<a id="automation-architecture-overview" class="xliff"></a>
-
-## Otomasyon mimarisine genel bakış
+## <a name="automation-architecture-overview"></a>Otomasyon mimarisine genel bakış
 
 ![Azure Automation’a genel bakış](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
@@ -47,13 +43,9 @@ Bir HRW üzerinde çalışan runbook’lar, bilgisayardaki yerel Sistem hesabı 
 
 Azure Otomasyonu'nda depolanan DSC yapılandırmaları, Azure sanal makinelerine doğrudan uygulanabilir. Diğer fiziksel ve sanal makineler, yapılandırmaları Azure Automation DSC çekme sunucusundan isteyebilir.  Şirket içi fiziksel veya sanal Windows ve Linux sistemlerinizin yapılandırmalarını yönetmek için, Automation DSC çekme sunucusunu destekleyen herhangi bir altyapı dağıtmanız gerekmez; yalnızca TCP bağlantı noktası 443 üzerinden OMS hizmetiyle iletişim kurarak Automation DSC tarafından yönetilecek her sistemden giden İnternet erişimi gereklidir.   
 
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Ön koşullar
 
-## Ön koşullar
-
-<a id="automation-dsc" class="xliff"></a>
-
-### Automation DSC
+### <a name="automation-dsc"></a>Automation DSC
 Azure Automation DSC çeşitli makineleri yönetmek için kullanılabilir:
 
 * Windows veya Linux çalıştıran Azure sanal makineleri (klasik)
@@ -64,9 +56,7 @@ Azure Automation DSC çeşitli makineleri yönetmek için kullanılabilir:
 
 Windows için PowerShell DSC aracısının Azure Otomasyonu ile iletişim kurabilmesi için en son WMF 5 sürümü yüklü olmalıdır. Linux’un Azure Otomasyonu ile iletişim kurabilmesi için [Linux için PowerShell DSC aracısının](https://www.microsoft.com/en-us/download/details.aspx?id=49150) en son sürümü yüklü olmalıdır.
 
-<a id="hybrid-runbook-worker" class="xliff"></a>
-
-### Karma Runbook Çalışanı  
+### <a name="hybrid-runbook-worker"></a>Karma Runbook Çalışanı  
 Karma runbook işleri çalıştırmak üzere bir bilgisayar belirlerken, bu bilgisayarın aşağıdakilere sahip olması gerekir:
 
 * Windows Server 2012 veya üzeri
@@ -74,9 +64,7 @@ Karma runbook işleri çalıştırmak üzere bir bilgisayar belirlerken, bu bilg
 * En az iki çekirdek
 * En az 4 GB RAM
 
-<a id="permissions-required-to-create-automation-account" class="xliff"></a>
-
-### Otomasyon hesabı oluşturmak için gereken izinler
+### <a name="permissions-required-to-create-automation-account"></a>Otomasyon hesabı oluşturmak için gereken izinler
 Otomasyon hesabını oluşturmak veya güncelleştirmek isterseniz bu konuyu tamamlamak için gereken aşağıdaki özel ayrıcalıklara ve izinlere sahip olmanız gerekir.   
  
 * Bir Otomasyon hesabı oluşturmak için AD kullanıcı hesabınızın, [Azure Otomasyonu’nda rol tabanlı erişim denetimi](automation-role-based-access-control.md#contributor-role-permissions) makalesinde açıklandığı gibi Microsoft.Automation kaynaklarındaki Katkıda Bulunan rolüne eşdeğer izinlere sahip bir role eklenmesi gerekir.  
@@ -84,14 +72,10 @@ Otomasyon hesabını oluşturmak veya güncelleştirmek isterseniz bu konuyu tam
 
 Aboneliğin genel yönetici/ortak yönetici rolüne eklenmeden önce aboneliğin Active Directory örneğine üye değilseniz Active Directory’ye konuk olarak eklenirsiniz. Bu durumda, “Oluşturma izniniz yok…” iletisini alırsınız. uyarısını **Otomasyon Hesabı Ekle** dikey penceresinde görürsünüz. İlk olarak genel yönetici/ortak yönetici rolüne eklenen kullanıcılar aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory’de tam bir Kullanıcı haline getirilebilir. Bu durumu doğrulamak için Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı, **Tüm kullanıcılar**’ı seçin ve belirli bir kullanıcıyı seçtikten sonra **Profil**’i seçin. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
 
-<a id="authentication-planning" class="xliff"></a>
-
-## Kimlik doğrulaması planlama
+## <a name="authentication-planning"></a>Kimlik doğrulaması planlama
 Azure Otomasyonu, Azure’daki şirket içindeki kaynaklara karşı ve diğer bulut sağlayıcılarıyla görevleri otomatikleştirmenizi sağlar.  Runbook'un gerekli işlemlerini gerçekleştirebilmesi için, abonelikte gereken en düşük haklara sahip kaynaklara güvenli erişim izinlerinin olması gerekir.  
 
-<a id="what-is-an-automation-account" class="xliff"></a>
-
-### Otomasyon Hesabı nedir? 
+### <a name="what-is-an-automation-account"></a>Otomasyon Hesabı nedir? 
 Azure Otomasyonu’nda Azure cmdlet’lerini kullanarak kaynaklara karşı gerçekleştirdiğiniz tüm otomasyon görevleri, Azure Active Directory kuruluş kimliği kimlik bilgilerine dayalı kimlik doğrulaması kullanılarak Azure’da doğrulanır.  Otomasyon hesabı, Azure kaynaklarını yapılandırmak ve kullanmak üzere portalda oturum açmak için kullandığınız hesaptan farklıdır.  Hesaba dahil olan otomasyon kaynakları şunlardır:
 
 * **Sertifikalar** - Runbook’tan veya DSC yapılandırmasından kimlik doğrulaması için kullanılan bir sertifika içerir. Bunları siz de ekleyebilirsiniz.
@@ -100,6 +84,8 @@ Azure Otomasyonu’nda Azure cmdlet’lerini kullanarak kaynaklara karşı gerç
 * **Tümleştirme modülleri** - Runbook’larda ve DSC yapılandırmalarında cmdlet’lerin kullanılabilmesi için Azure Otomasyonu hesabına dahil edilen PowerShell modülleridir.
 * **Zamanlamalar** - Bir runbook’u yineleme sıklıkları dahil belirtilen zamanda başlatan veya durduran zamanlamaları içerir.
 * **Değişkenler** -Runbook veya DSC yapılandırmasından kullanılabilen değerleri içerir.
+* **DSC Yapılandırmaları** - Windows veya Linux bilgisayarlarda bir işletim sistemi özelliğinin ya da ayarının nasıl yapılandırılacağını veya işletim sistemine bir uygulamanın nasıl yükleneceğini açıklayan PowerShell betikleridir.  
+* **Runbook’lar** - Windows PowerShell’i temel alarak Azure Otomasyonu’nda bazı otomatik işlemleri gerçekleştiren görevler gruplarıdır.    
 
 Her Otomasyon hesabı için Otomasyon kaynakları tek bir Azure bölgesiyle ilişkilendirilir, ancak Otomasyon hesapları aboneliğinizdeki tüm kaynakları yönetebilir. Kaynakların belirli bir bölgede yalıtılmasını gerektiren ilkeleriniz varsa, farklı bölgelerde Otomasyon hesapları oluşturun.
 
@@ -114,9 +100,7 @@ Azure portalında bir Otomasyon hesabı oluşturduğunuzda otomatik olarak iki k
 
 Rol tabanlı erişim denetimi, Azure AD kullanıcı hesabı ve Farklı Çalıştır hesabına izin verilen eylemleri vermek, ve bu hizmet sorumlusunun kimliğini doğrulamak için Azure Resource Manager ile kullanılabilir.  Otomasyon izinlerinin yönetilmesi için modelinizin geliştirilmesine yardımcı olma hakkında daha fazla bilgi için [Azure Otomasyonu’nda rol tabanlı erişim denetimi](automation-role-based-access-control.md) makalesini okuyun.  
 
-<a id="authentication-methods" class="xliff"></a>
-
-#### Kimlik doğrulama yöntemleri
+#### <a name="authentication-methods"></a>Kimlik doğrulama yöntemleri
 Aşağıdaki tabloda, Azure Otomasyonu tarafından desteklenen her ortamla ilgili farklı kimlik doğrulaması yöntemleri özetlenmiştir.
 
 | Yöntem | Ortam 
@@ -128,9 +112,7 @@ Aşağıdaki tabloda, Azure Otomasyonu tarafından desteklenen her ortamla ilgil
 
 **Nasıl yapılır\Kimlik doğrulaması ve güvenlik** bölümü altında, ilgili ortamlar için var olan veya ayırdığınız yeni bir hesapla kimlik doğrulamasını yapılandırmaya yönelik genel bakış ve uygulama adımları verilmektedir.  Azure Farklı Çalıştır ve Klasik Farklı Çalıştır hesabı için, [Otomasyon Farklı Çalıştır hesabını güncelleştirme](automation-create-runas-account.md) konu başlığında, başlangıçta Farklı Çalıştır veya Klasik Farklı Çalıştır hesabıyla yapılandırılmamışsa mevcut Otomasyon hesabınızı portaldan veya PowerShell kullanarak Farklı Çalıştır hesaplarıyla güncelleştirme işlemi açıklanmaktadır. Kuruluş sertifika yetkiliniz (CA) tarafından verilen bir sertifikayla Farklı Çalıştır ve Klasik Farklı Çalıştır hesabı oluşturmak istiyorsanız bu yapılandırmayı kullanarak hesapları oluşturma hakkında bilgi edinmek için bu makaleyi gözden geçirin.     
  
-<a id="network-planning" class="xliff"></a>
-
-## Ağ planlama
+## <a name="network-planning"></a>Ağ planlama
 Karma Runbook Çalışanınızın Microsoft Operations Management Suite’e (OMS) bağlanması ve kaydolması için aşağıda belirtilen bağlantı noktası numarası ve URL’lere erişiminin olması gerekir.  Bunlar dışında, OMS’ye bağlanmak için [Microsoft İzleme Aracısının gerektirdiği bağlantı noktaları ve URL’ler](../log-analytics/log-analytics-windows-agents.md#network) mevcuttur. Aracı ile OMS hizmeti arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olmanız gerekir. İnternet'e erişimi kısıtlamak için güvenlik duvarı kullanıyorsanız erişime izin vermek için güvenlik duvarınızı yapılandırmanız gerekir.
 
 Aşağıdaki bilgiler, Karma Runbook Çalışanının Otomasyon ile iletişim kurması için gereken bağlantı noktası ve URL’leri listeler.
@@ -161,9 +143,7 @@ Adların yerine IP adreslerinin bir listesi için Microsoft Yükleme Merkezi’n
 > Bu dosya, Microsoft Azure Veri Merkezlerinde kullanılan IP adresi aralıklarını (İşlem, SQL ve Depolama aralıkları dahil olmak üzere) içerir. O anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri yansıtan güncelleştirilmiş bir dosya haftalık olarak yayınlanır. Dosyada görünen yeni aralıklar en az bir hafta boyunca veri merkezlerinde kullanılmaz. Lütfen her hafta yeni xml dosyasını indirin ve Azure’da çalışan hizmetleri doğru şekilde tanımlamak üzere sitenizde gerekli değişiklikleri yapın. Express Route kullanıcıları bu dosyanın, her ayın ilk haftasında Azure alanındaki BGP tanıtımını güncelleştirmek için kullanıldığını fark edebilir. 
 > 
 
-<a id="creating-an-automation-account" class="xliff"></a>
-
-## Otomasyon hesabı oluşturma
+## <a name="creating-an-automation-account"></a>Otomasyon hesabı oluşturma
 
 Azure portalında bir Otomasyon hesabı oluşturmak için farklı yöntemler vardır.  Aşağıdaki tabloda her dağıtım deneyiminin türü ve aralarındaki farklılıklar verilmiştir.  
 
@@ -175,9 +155,7 @@ Azure portalında bir Otomasyon hesabı oluşturmak için farklı yöntemler var
 
 Bu konu başlığı, Otomasyon ve Denetim teklifi eklenerek bir Otomasyon hesabı ve OMS çalışma alanı oluşturma işleminde size yol gösterir.  Teste yönelik tek başına Otomasyon hesabı oluşturmak veya hizmetin önizlemesini görmek için, aşağıdaki [Tek başına Otomasyon hesabı oluşturma](automation-create-standalone-account.md) makalesini gözden geçirin.  
 
-<a id="create-automation-account-integrated-with-oms" class="xliff"></a>
-
-### OMS ile tümleştirilmiş Otomasyon hesabı oluşturma
+### <a name="create-automation-account-integrated-with-oms"></a>OMS ile tümleştirilmiş Otomasyon hesabı oluşturma
 Otomasyon eklemek için önerilen yöntem, Market’ten Otomasyon ve Denetim teklifinin seçilmesidir.  Bu işlem hem bir Otomasyon hesabı oluşturur hem de teklifle birlikte sunulan yönetim çözümlerini yükleme seçeneğiyle birlikte OMS çalışma alanı ile tümleştirme sağlar.  
 
 1. Azure portalında Abonelik Yöneticileri rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesapla oturum açın.
@@ -211,9 +189,7 @@ Otomasyon eklemek için önerilen yöntem, Market’ten Otomasyon ve Denetim tek
 
 Teklif eklendikten sonra runbook oluşturmaya başlayabilir, etkinleştirdiğiniz yönetim çözümleriyle çalışabilir, [Karma Runbook çalışanı](automation-hybrid-runbook-worker.md) rolü dağıtabilir veya bulut ya da şirket içi ortamlarınızdaki kaynaklar tarafından oluşturulan verileri toplamak üzere [Log Analytics](https://docs.microsoft.com/azure/log-analytics) ile çalışabilirsiniz.   
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Otomasyonu Farklı Çalıştır hesabı kimlik doğrulama testi](automation-verify-runas-authentication.md) bölümünü gözden geçirerek, yeni Otomasyon hesabınızın Azure kaynaklarıyla kimlik doğrulaması yapıp yapamadığını onaylayabilirsiniz.
 * Runbook'lar oluşturmaya başlamak için yazmaya başlamadan önce desteklenen [Otomasyon runbook türlerini](automation-runbook-types.md) ve ilgili noktaları gözden geçirin.
 

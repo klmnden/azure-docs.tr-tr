@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 06/20/2017
 Microsoft Azure Automation, kullanıcılara bir bulutta ve kurumsal ortamda sık olarak gerçekleştirilen el ile, uzun süreli, hatasız ve sık tekrarlanan görevleri otomatik hale getirmek için bir yol sunar. Bu zamandan tasarruf sağlar ve normal yönetim görevlerinin güvenilirliğini artırır ve hatta bunları düzenli aralıklarla otomatik olarak gerçekleştirilecek şekilde zamanlar. Runbook’ları kullanarak işlemleri otomatik hale getirebilir ya da İstenen Durum Yapılandırması’nı kullanarak yapılandırmayı otomatik hale getirebilirsiniz. Bu makale, Azure Automation’a ilişkin kısa bir genel bakış sağlar ve bazı sık sorulan soruları yanıtlar. Farklı konulara ilişkin daha ayrıntılı bilgiler için bu kitaplıktaki diğer makalelere başvurabilirsiniz.
 
 ## <a name="automating-processes-with-runbooks"></a>Runbook'larla işlemleri otomatik hale getirme
-Bir runbook, Azure Automation’da bazı otomatik işlemleri gerçekleştiren görevler grubudur. Bu, bir sanal makineyi başlatma ve günlük girişi oluşturma gibi basit bir işlem olabilir ya da birden fazla kaynakta ve hatta birden fazla bulutta veya şirket içi ortamda karmaşık bir işlemi gerçekleştirmek için diğer küçük runbook’ları birleştiren karmaşık bir runbook’unuz olabilir.  
+Bir runbook, Azure Automation’da bazı otomatik işlemleri gerçekleştiren görevler grubudur. Bu, sanal makineyi başlatma ve günlük girişi oluşturma gibi basit bir işlem olabilir ya da birden fazla kaynakta ve hatta birden fazla bulutta veya şirket içi ortamda karmaşık bir işlemi gerçekleştirmek için diğer küçük runbook’ları birleştiren karmaşık bir runbook’unuz olabilir.  
 
 Örneğin, sunucuya bağlanma, veritabanına bağlanma, veritabanının mevcut boyutunu alma, eşiğin aşılıp aşılmadığını kontrol etmek ve ardından kesme ve kullanıcıyı bilgilendirme gibi birden fazla adımı içeren maksimum boyuta yaklaşıyorsa, SQL veritabanını kesmek üzere el ile yapılan bir işleminiz olabilir.  Bu adımların her birini el ile gerçekleştirmek yerine, tüm bu adımları tek bir işlem olarak gerçekleştirecek bir runbook oluşturabilirsiniz. Runbook’u çalıştırır, SQL sunucusu adı, veritabanı adı ve alıcı e-posta adresi gibi gerekli bilgileri girer ve işlem tamamlanırken arkanıza yaslanırsınız. 
 

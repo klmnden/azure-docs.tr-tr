@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT Hub&quot;ı (Python) kullanmaya başlama | Microsoft Belgeleri"
-description: "Bu makalede, Python için Azure IoT SDK’larını kullanarak sanal cihazınızdan Azure IoT hub’ınıza nasıl ileti göndereceğiniz gösterilir."
+title: "Azure IoT Hub'ı (Python) kullanmaya başlama | Microsoft Belgeleri"
+description: "Python için IoT SDK’larını kullanarak Azure IoT Hub’a cihazdan buluta ileti göndermeyi öğrenin. IoT hub’a cihazınızı kaydetmek, ileti göndermek ve ileti okumak için sanal cihaz ve hizmet uygulamaları oluşturun."
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -13,17 +13,14 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 572dfc8965957c4667d4124b045ffbb835786a94
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 05268924a182575b3df66fb6dad6bcac2700ec0c
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-<a id="connect-your-simulated-device-to-your-iot-hub-using-python" class="xliff"></a>
-
-# Python kullanarak sanal cihazınızı IoT hub’ınıza bağlama
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Python kullanarak sanal cihazınızı IoT hub’ınıza bağlama
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Bu öğreticinin sonunda iki Python uygulamanız olacaktır:
@@ -55,9 +52,7 @@ IoT Hub’ınızı oluşturdunuz. Bu öğreticinin kalan bölümünde IoT Hub ko
 > Ayrıca, komut satırında Python veya Node.js tabanlı Azure CLI’yi kullanarak kolayca IoT hub’ınızı oluşturabilirsiniz. [Azure CLI 2.0 kullanarak IoT hub’ı oluşturma][lnk-azure-cli-hub] makalesinde bunu yapmanın hızlı adımları gösterilir. 
 > 
 
-<a id="create-a-device-identity" class="xliff"></a>
-
-## Cihaz kimliği oluşturma
+## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
 Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluşturan bir Python konsol uygulaması oluşturma adımları listelenir. Yalnızca kimlik kayıt defterinde girişi olan cihazlar IoT Hub'ına bağlanabilir. Daha fazla bilgi için [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity]'nun **Kimlik Kayıt Defteri** bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.
 
 1. Komut istemini açın ve **Python için Azure IoT Hub Hizmeti SDK’sını** aşağıda gösterildiği gibi yükleyin. SDK’yı yükledikten sonra komut istemini kapatın.
@@ -142,9 +137,7 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluştu
 > 
 
 
-<a id="create-a-simulated-device-app" class="xliff"></a>
-
-## Sanal cihaz uygulaması oluşturma
+## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 Bu bölümde, IoT hub'ınızda cihazdan buluta iletiler gönderen ve cihaz benzetimi yapan bir Python konsol uygulaması oluşturma adımları listelenir.
 
 1. Yeni bir komut istemi açın ve Python için Azure IoT Hub Cihazı SDK’sını aşağıda gösterildiği gibi yükleyin. Yükleme bittikten sonra komut istemini kapatın.
@@ -261,9 +254,7 @@ Bu bölümde, IoT hub'ınızda cihazdan buluta iletiler gönderen ve cihaz benze
 > 
 > 
 
-<a id="receive-messages-from-your-simulated-device" class="xliff"></a>
-
-## Sanal cihazınızdan ileti alma
+## <a name="receive-messages-from-your-simulated-device"></a>Sanal cihazınızdan ileti alma
 Cihazınızdan telemetri iletilerini almak için, cihazdan buluta giden iletileri okuyan IoT Hub tarafından ortaya konan [Event Hubs][lnk-event-hubs-overview] ile uyumlu bir uç nokta kullanmanız gerekir. Event Hubs’tan IoT hub’ınızın Event Hub uyumlu uç noktasına gelen iletilerin nasıl işleneceği hakkında bilgi edinmek için, [Event Hubs ile Çalışmaya Başlama][lnk-eventhubs-tutorial] öğreticisini okuyun. Event Hubs henüz Python’da telemetriyi desteklememektedir, dolayısıyla IoT Hub’dan cihazdan buluta gelen iletileri okumak için [Node.js](iot-hub-node-node-getstarted.md#D2C_node) veya [.NET](iot-hub-csharp-csharp-getstarted.md#D2C_csharp) Event Hubs tabanlı bir konsol uygulaması oluşturabilirsiniz. Bu öğretici, bu cihaz iletilerini okumak için [IoT Hub Gezgini aracını][lnk-iot-hub-explorer] nasıl kullanabileceğinizi gösterir.
 
 1. Komut istemini açın ve IoT Hub Gezgini’ni yükleyin. 
@@ -289,9 +280,7 @@ Cihazınızdan telemetri iletilerini almak için, cihazdan buluta giden iletiler
 
     ![Python cihazdan buluta iletiler][2]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, Azure portalında yeni bir IoT hub'ı yapılandırdınız ve ardından IoT hub'ının kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini, sanal cihaz uygulamasının, IoT hub'ına cihazdan buluta iletileri göndermesini sağlamak için kullandınız. IoT Hub Gezgini aracının yardımıyla IoT hub’ı tarafından alınan iletileri gözlemlediniz. 
 
 Azure IoT Hub için Python SDK’sının kullanımını derinlemesine incelemek için [bu Git Hub deposunu][lnk-python-github] ziyaret edin. Azure IoT Hub Hizmeti SDK’sının ileti özelliklerini gözden geçirmek için, [iothub_messaging_sample.py][lnk-messaging-sample] dosyasını indirebilir ve çalıştırabilirsiniz. Python için Azure IoT Hub Cihazı SDK’sını kullanan cihaz tarafı benzetimi için, [iothub_client_sample.py][lnk-client-sample] dosyasını indirebilir ve çalıştırabilirsiniz.

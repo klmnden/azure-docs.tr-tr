@@ -16,17 +16,14 @@ ms.workload: na
 ms.date: 06/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: f00ca3b8a35c0c49277457bd42fe8a314520d5a5
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 01b23996a9cd3a8368a78085dec905d020612b48
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-<a id="create-your-first-function-in-the-azure-portal" class="xliff"></a>
-
-# Azure portalında ilk işlevinizi oluşturma
+# <a name="create-your-first-function-in-the-azure-portal"></a>Azure portalında ilk işlevinizi oluşturma
 
 Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu sunucusuz bir ortamda yürütmenize olanak tanır. Bu konu başlığında, Azure portalında İşlevler’i kullanarak bir "hello world" işlevi oluşturmayı öğrenebilirsiniz.
 
@@ -34,15 +31,11 @@ Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayım
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Azure'da oturum açma
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
 [Azure Portal](https://portal.azure.com/)’da oturum açın.
 
-<a id="create-a-function-app" class="xliff"></a>
-
-## İşlev uygulaması oluşturma
+## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
 İşlevlerinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, kaynakların daha kolay yönetilmesi, dağıtılması ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır. 
 
@@ -64,37 +57,29 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 HTTP ile tetiklenen işlevin şablonu kullanılarak, seçtiğiniz dilde bir işlev oluşturulur. Bir HTTP isteği göndererek yeni işlevi çalıştırabilirsiniz.
 
-<a id="test-the-function" class="xliff"></a>
-
-## İşlevi test etme
+## <a name="test-the-function"></a>İşlevi test etme
 
 1. Yeni işlevinizde **</> İşlev URL'sini al**'a tıklayın, **varsayılan (İşlev anahtarı)** seçeneğini belirleyin ve ardından **Kopyala**'ya tıklayın. 
 
     ![Azure portalından işlev URL’sini kopyalama](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. HTTP isteğinin URL’sini tarayıcınızın adres çubuğuna yapıştırın. `&name=<yourname>` sorgu dizesini bu URL’ye ekleyip isteği yürütün. İşlevin döndürdüğü GET isteğine tarayıcıda verilen yanıt aşağıda gösterilmiştir:
+2. İşlev URL'sini tarayıcınızın adres çubuğuna yapıştırın. Bu URL’ye `&name=<yourname>` sorgu dizesini ekleyin ve isteği yürütmek için klavyenizdeki `Enter` tuşuna basın. Aşağıda, isteğin Edge tarayıcısında döndürülen bir yanıt örneğini gösterilmiştir:
 
     ![Tarayıcıdaki işlev yanıtı.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     İstek URL’si, işlevinize HTTP üzerinden erişmek için varsayılan olarak gerekli olan bir anahtar içerir.   
 
-<a id="view-the-function-logs" class="xliff"></a>
-
-## İşlev günlüklerini görüntüleme 
+## <a name="view-the-function-logs"></a>İşlev günlüklerini görüntüleme 
 
 İşleviniz çalıştığında, izleme bilgileri günlüklere yazılır. Önceki yürütme işleminden alınan izleme çıktısını görmek için, portalda işlevinize geri dönün ve ekranın altındaki yukarı okuna tıklayarak **Günlükler**’i genişletin. 
 
 ![Azure portalında İşlevler günlük görüntüleyicisi.](./media/functions-create-first-azure-function/function-view-logs.png)
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 HTTP ile tetiklenen basit bir işlevi kullanarak işlev uygulaması oluşturdunuz.  
 

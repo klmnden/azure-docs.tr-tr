@@ -14,35 +14,29 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/08/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 785bd144805a472ae457f9a3323d512b5cbf055d
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 492c916a493bb8d5c5415fc517506e5c1ccffc56
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/10/2017
 
 ---
-<a id="store-unstructured-data-using-azure-functions-and-cosmos-db" class="xliff"></a>
-
-# Azure İşlevleri ve Cosmos DB’yi kullanarak yapılandırılmamış verileri depolama
+# <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Azure İşlevleri ve Cosmos DB’yi kullanarak yapılandırılmamış verileri depolama
 
 Azure Cosmos DB, yapılandırılmamış verileri ve JSON verilerini depolamanın harika bir yoludur. Cosmos DB, Azure İşlevleri ile birlikte kullanıldığında verilerin ilişkisel bir veritabanında depolanmasına göre çok daha az kodla verileri hızlı ve kolay bir şekilde depolar.
 
 Bu öğreticide, Cosmos DB belgesinde yapılandırılmamış verileri depolayan bir Azure İşlevi oluşturmak için Azure Portalı’nın nasıl kullanılacağı gösterilmiştir. 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-<a id="create-a-function" class="xliff"></a>
-
-## İşlev oluşturma
+## <a name="create-a-function"></a>İşlev oluşturma
 
 `MyTaskList` adında yeni bir C# genel Web Kancası oluşturun.
 
@@ -51,9 +45,7 @@ Bu öğreticide, Cosmos DB belgesinde yapılandırılmamış verileri depolayan 
 
 ![Yeni C# Genel Web Kancası İşlev Uygulaması Ekleme](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-new-functionapp.png)
 
-<a id="add-an-output-binding" class="xliff"></a>
-
-## Çıktı bağlaması ekleme
+## <a name="add-an-output-binding"></a>Çıktı bağlaması ekleme
 
 Bir Azure işlevinde, bir tetikleyici ve herhangi bir sayıda girdi veya çıktı bağlaması olabilir. Bu örnekte, bir HTTP isteği tetikleyicisini ve çıktı bağlaması olarak Cosmos DB belgesini kullanacağız.
 
@@ -94,9 +86,7 @@ Cosmos DB veritabanının bağlantısını da yapılandırmanız gerekir.
 1. *Tamam* düğmesine tıklayın. Azure kaynakları oluştururken birkaç dakika beklemeniz gerekebilir.
 1. *Kaydet* düğmesine tıklayın.
 
-<a id="update-the-function-code" class="xliff"></a>
-
-## İşlev kodunu güncelleştirme
+## <a name="update-the-function-code"></a>İşlev kodunu güncelleştirme
 
 İşlevin şablon kodunu şununla değiştirin:
 
@@ -137,9 +127,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
 
 Bu kod örneği, HTTP İsteği sorgu dizelerini okur ve bunları `taskDocument` nesnesinin üyeleri olarak atar. `taskDocument` nesnesi, Cosmos DB veritabanındaki verileri otomatik olarak kaydeder ve hatta ilk kullanımda veritabanını oluşturur.
 
-<a id="test-the-function-and-database" class="xliff"></a>
-
-## İşlevi ve veritabanını test etme
+## <a name="test-the-function-and-database"></a>İşlevi ve veritabanını test etme
 
 1. İşlev sekmesinde, portalın sağ tarafındaki *Test* bağlantısına tıklayın ve aşağıdaki HTTP sorgu dizelerini girin:
 
@@ -165,19 +153,13 @@ Cosmos DB veritabanına bir giriş yapıldığını onaylayın.
 
 Veriler belgedeyse yapılandırılmamış verileri Cosmos DB veritabanında depolayan Azure işlevini başarıyla oluşturmuşsunuzdur.
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
-
-Azure İşlevleri hakkında daha fazla bilgi edinmek için, aşağıdaki konulara bakın:
-
-[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
+## <a name="next-steps"></a>Sonraki adımlar
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
+
+Cosmos DB veritabanına bağlama hakkında daha fazla bilgi için bkz. [Azure İşlevleri Cosmos DB bağlamaları](functions-bindings-documentdb.md).
 

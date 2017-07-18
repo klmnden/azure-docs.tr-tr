@@ -1,6 +1,6 @@
 ---
 title: "Azure Batch için PowerShell kullanmaya başlama | Microsoft Docs"
-description: "Batch kaynaklarını yönetmek için kullanabileceğiniz Azure PowerShell cmdlet&quot;lerine hızlı bir giriş."
+description: "Batch kaynaklarını yönetmek için kullanabileceğiniz Azure PowerShell cmdlet'lerine hızlı bir giriş."
 services: batch
 documentationcenter: 
 author: tamram
@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e1819a9f081284fa03e9355730689629166006f
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -201,7 +202,7 @@ Bir uygulama paketini havuza katıldıklarında havuzun düğümlerine dağıtma
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
-[Azure Batch uygulama paketleri ile uygulama dağıtımı](batch-application-packages.md) içinde uygulama paketlerine ilişkin daha fazla bilgi bulabilirsiniz.
+[Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı](batch-application-packages.md) konusunda, uygulama paketlerine ilişkin daha fazla bilgi bulabilirsiniz.
 
 > [!IMPORTANT]
 > Uygulama paketlerini kullanmak için Batch hesabınıza [bir Azure Depolama hesabı bağlamanız](#linked-storage-account-autostorage) gerekir.
@@ -238,6 +239,6 @@ Batch hizmetinde havuzun özelliklerini güncelleştirmiş oldunuz. Bununla birl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Ayrıntılı cmdlet sözdizimi ve örnekleri için bkz. [Azure Batch cmdlet başvurusu](/powershell/module/azurerm.batch/#batch).
-* Batch’deki uygulamalar ve uygulama paketleri hakkında daha fazla bilgi için bkz. [Azure Batch uygulama paketleriyle uygulama dağıtımı](batch-application-packages.md).
+* Batch’deki uygulamalar ve uygulama paketleri hakkında daha fazla bilgi için bkz. [Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı](batch-application-packages.md).
 
 
