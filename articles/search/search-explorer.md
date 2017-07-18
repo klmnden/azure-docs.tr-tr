@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal&quot;ı kullanarak Azure Search Dizininizi sorgulama | Microsoft Belgeleri"
-description: "Azure Portal&quot;ın Arama Gezgini&quot;ninde arama sorgusu gönderin."
+title: Dizin Sorgulama (portal - Azure Search) | Microsoft Docs
+description: "Azure Portal'ın Arama Gezgini'ninde arama sorgusu gönderin."
 services: search
 manager: jhubbard
 documentationcenter: 
@@ -11,15 +11,16 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 07/10/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: dd68d8ed073bf7b8666ddef35a2f1f84df690b4b
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="query-your-azure-search-index-using-the-azure-portal"></a>Azure Portal'ı kullanarak Azure Search dizininizi sorgulama
+# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Azure Portal’ın Arama Gezgini’ni kullanarak Azure Search dizinini sorgulama
 > [!div class="op_single_selector"]
 > * [Genel Bakış](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -28,34 +29,43 @@ ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
 > 
 > 
 
-Bu kılavuz, Azure Portal'da Azure Search dizininizi nasıl sorgulayacağınızı gösterecektir.
+Bu makalede, Azure Portal’ın **Arama Gezgini**’ni kullanarak bir Azure Search dizininin nasıl sorgulanacağı gösterilir. Hizmetinizde var olan herhangi bir dizine basit veya tam Lucene sorgu dizeleri göndermek için Arama Gezgini’ni kullanabilirsiniz.
 
-Bu kılavuzda başlamadan önce, [Azure Search dizini oluşturmuş](search-what-is-an-index.md) ve [bunu verilerle doldurmuş](search-what-is-data-import.md) olmanız gerekir.
+## <a name="open-the-service-dashboard"></a>Hizmet panosunu açma
+1. [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)'ın sol tarafındaki atlama çubuğunda **Tüm kaynaklar**’a tıklayın.
+2. Azure Search hizmetinizi seçin.
 
-## <a name="i-go-to-your-azure-search-blade"></a>I. Azure Search dikey pencerenize gitme
-1. [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)'ın sol tarafındaki menüde "Tüm kaynaklar"a tıklama
-2. Azure Search hizmetinizi seçme
+## <a name="select-an-index"></a>Dizin seçme
 
-## <a name="ii-select-the-index-you-would-like-to-search"></a>II. Aramak istediğiniz dizini seçme
-1. "Dizinler" kutucuğunda aramak istediğiniz dizini seçin.
+**Dizinler** kutucuğunda aramak istediğiniz dizini seçin.
 
-![](./media/search-explorer/pick-index.png)
+   ![](./media/search-explorer/pick-index.png)
 
-## <a name="iii-click-on-the-search-explorer-tile"></a>III. "Arama Gezgini" kutucuğuna tıklama
-![](./media/search-explorer/search-explorer-tile.png)
+## <a name="open-search-explorer"></a>Arama Gezgini’ni açma
 
-## <a name="iii-start-searching"></a>III. Aramayı başlatma
-1. Azure Search dizininizi aramak için "*Sorgu dizesi*" alanına yazmaya başlayın ve ardından "**Ara**"'ya basın.
+Arama çubuğunu ve sonuçlar bölmesini kaydırarak açmak için Arama Gezgini kutucuğuna tıklayın.
+
+   ![](./media/search-explorer/search-explorer-tile.png)
+
+## <a name="start-searching"></a>Aramayı başlatma
+
+Arama Gezgini'ni kullanırken sorguyu formüle etmek için [sorgu parametreleri](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) belirtebilirsiniz.
+
+1. **Sorgu dizesi**’nde sorguyu yazın ve **Ara**’ya basın. 
+
+   Azure Search REST API'sine HTTP isteği göndermek için, sorgu dizesi uygun istek URL'si içine otomatik olarak ayrıştırılır.   
    
-   * Arama Gezgini'ni kullanırken bir [sorgu parametreleri](https://msdn.microsoft.com/library/dn798927.aspx)'den herhangi birini belirtebilirsiniz
-2. "*Sonuçlar*" bölümünde, sorgunun sonuçları, Azure Search REST API'sine arama istekleri gönderdiğinizde HTTP Yanıt Gövdesi içinde aldığınız ham JSON'da temsil edilir.
-3. Azure Search REST API'sine HTTP isteği göndermek için, sorgu dizesi uygun istek URL'si içine otomatik olarak ayrıştırılır.
+   İsteği oluşturmak için herhangi bir geçerli basit veya tam Lucene sorgu söz dizimini kullanabilirsiniz. `*` karakteri, tüm belgelerin belirli bir sırada olmaksızın döndürüldüğü boş veya belirtilmemiş aramaya eşdeğerdir.
 
-![](./media/search-explorer/search-bar.png)
+2. **Sonuçlar**’da sorgu sonuçları ham JSON olarak verilir; bu, HTTP Yanıt Gövdesinde programlama aracılığıyla istek verdiğinizde döndürülen yükle özdeştir.
 
+   ![](./media/search-explorer/search-bar.png)
 
+## <a name="next-steps"></a>Sonraki adımlar
 
+Aşağıdaki kaynaklar ek sorgu söz dizimi bilgileri ve örnekler içerir.
 
-<!--HONumber=Nov16_HO2-->
-
-
+ + [Basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+ + [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+ + [Lucene sorgu söz dizimi örnekleri](https://docs.microsoft.com/azure/search/search-query-lucene-examples) 
+ + [OData Filtre ifadesinin söz dizimi](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) 

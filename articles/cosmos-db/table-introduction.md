@@ -15,16 +15,14 @@ ms.topic: get-started-article
 ms.date: 06/09/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 07dc5e1520cf60e19a1961ad85d2aea0cc7bd15f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef57753aeeace0086c815d83600f92422996032a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-<a id="introduction-to-azure-cosmos-db-table-api" class="xliff"></a>
-
-# Azure Cosmos DB: Tablo API’sine Giriş
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB: Tablo API’sine Giriş
 
 [Azure Cosmos DB](introduction.md), Microsoft'un görev açısından kritik uygulamalar için genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB tarafından [kullanıma hazır genel dağıtım](distribute-data-globally.md), dünya çapında [aktarım hızı ve depolama için elastik ölçeklendirme](partition-data.md), 99. yüzdebirlik dilimde tek haneli milisaniyelik gecikme süreleri, [beş iyi tanımlanmış tutarlılık düzeyi](consistency-levels.md) ve garantili yüksek kullanılabilirlik olanakları sağlanır ve bunların tamamı [sektör lideri SLA’lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/) ile desteklenir. Azure Cosmos DB, şema ve dizin yönetimiyle ilgilenmenize gerek kalmadan [otomatik olarak verilerin dizinini oluşturur](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Çok modelli olan bu hizmet belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. 
 
@@ -34,9 +32,7 @@ Azure Cosmos DB esnek şemaya, tahmin edilebilir performansa, genel dağıtıma 
 
 Yüksek depolama, düşük aktarım hızı gereksinimleri olan tablolar için Azure Tablo depolamayı kullanmaya devam edebilirsiniz. Azure Cosmos DB, gelecekte yapılacak bir güncelleştirme ile depolama açısından iyileştirilmiş tablolar için destek sunmaya başlayacak ve hem mevcut hem de yeni Azure Tablo depolama hesapları Azure Cosmos DB’ye yükseltilecek.
 
-<a id="premium-and-standard-table-apis" class="xliff"></a>
-
-## Premium ve standart Tablo API’leri
+## <a name="premium-and-standard-table-apis"></a>Premium ve standart Tablo API’leri
 Şu anda Azure Tablo depolamayı kullanıyorsanız, Azure Cosmos DB’nin “premium tablo” önizlemesine geçerek aşağıdaki avantajlara sahip olabilirsiniz:
 
 |  | Azure Table Storage | Azure Cosmos DB: Tablo depolama (önizleme) |
@@ -46,19 +42,15 @@ Yüksek depolama, düşük aktarım hızı gereksinimleri olan tablolar için Az
 | Genel Dağıtım | Yüksek kullanılabilirlik için isteğe bağlı okunabilir bir ikincil okuma bölgesi olan tek bölge. Yük devretme başlatamazsınız | 30’dan fazla bölgenin birinden [kullanıma hazır genel dağıtım](distribute-data-globally.md); her zaman, dünyanın her yerinde [otomatik ve el ile yük devretme](regional-failover.md) desteği |
 | Dizin Oluşturma | Yalnızca PartitionKey ve RowKey’de birincil dizin. İkincil dizin yok | Tüm özelliklerde otomatik ve eksiksiz dizin oluşturma, dizin yönetimi yok |
 | Sorgu | Sorgu yürütme birincil anahtar için dizini kullanır, aksi durumda tarar. | Sorgular, hızlı sorgu süreleri için özelliklerde otomatik dizin oluşturma avantajından yararlanabilir. Azure Cosmos DB’nin veritabanı altyapısı, toplamaları, jeo-uzamsal aramayı ve sıralamayı destekleme özelliğine sahiptir. |
-| Tutarlılık | Birincil bölgede Güçlü, ikincil bölgede Nihai | uygulama gereksinimlerinize bağlı olarak kullanılabilirlik, gecikme süresi, aktarım hızı ve tutarlılık arasında denge sağlamak için [beş iyi tanımlanmış tutarlılık düzeyi](consistency-levels.md) |
+| Tutarlılık | Birincil bölgede Güçlü, ikincil bölgede Nihai | Uygulama gereksinimlerinize bağlı olarak kullanılabilirlik, gecikme süresi, aktarım hızı ve tutarlılık arasında denge sağlamak için [iyi tanımlanmış beş tutarlılık düzeyi](consistency-levels.md) |
 | Fiyatlandırma | Depolama açısından iyileştirilmiş  | Aktarım hızı açısından iyileştirilmiş |
 | SLA’lar | %99,9 kullanılabilirlik | Tek bir bölge içinde %99,99 kullanılabilirlik ve daha yüksek kullanılabilirlik için daha fazla bölge ekleme olanağı. Genel kullanılabilirlik aşamasında [sektör lideri kapsamlı SLA’lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/) |
 
-<a id="how-to-get-started" class="xliff"></a>
-
-## Nasıl kullanmaya başlarım
+## <a name="how-to-get-started"></a>Nasıl kullanmaya başlarım
 
 [Azure portalında](https://portal.azure.com) bir Azure Cosmos DB hesabı oluşturun ve [.NET kullanarak Tablo API’sine hızlı başlangıç](create-table-dotnet.md) kılavuzumuz ile çalışmaya başlayın. 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 İşte başlamanıza yardımcı olacak birkaç ipucu:
 * Mevcut NET Tablo SDK’sını kullanarak [Azure Cosmos DB'nin Tablo API’si](create-table-dotnet.md) ile çalışmaya başlayın.

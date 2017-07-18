@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: b28488ac9037b0f0ff7df892b9c3a61167b1eceb
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/10/2017
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Azure portal kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Azure portalı kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -43,7 +45,7 @@ Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
 * [Azure Media Services kullanarak Canlı Akış’a genel bakış](media-services-manage-channels-overview.md)
 * [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Ortak canlı akış senaryosu
+## <a id="scenario"></a>Ortak canlı akış senaryosu
 Aşağıdaki adımlar, doğrudan teslimat için yapılandırılan kanalları kullanan ortak canlı akış uygulamaları oluşturmaya dahil olan görevleri açıklamaktadır. Bu öğretici, doğrudan geçiş kanalı ve canlı olayları oluşturmayı ve yönetmeyi gösterir.
 
 >[!NOTE]
@@ -69,7 +71,7 @@ Aşağıdaki adımlar, doğrudan teslimat için yapılandırılan kanalları kul
 9. Olayı/programı silin (ve isteğe bağlı olarak varlığı silin).     
 
 > [!IMPORTANT]
-> Lütfen şirket içi kodlayıcılarda ve geçiş kanallarında canlı akışlar ilgili kavramları ve dikkate alınması gereken konuları öğrenmek için [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md) başlığını gözden geçirin.
+> Lütfen şirket içi kodlayıcılarda ve geçiş kanallarında canlı akışlarla ilgili kavramları ve dikkate alınması gereken noktaları öğrenmek için [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md) başlığını gözden geçirin.
 > 
 > 
 
@@ -153,10 +155,5 @@ Media Services öğrenme yollarını gözden geçirin.
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

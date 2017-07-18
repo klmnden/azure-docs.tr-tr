@@ -1,6 +1,6 @@
 ---
-title: .NET SDK kullanarak Azure Search Dizininizi sorgulama | Microsoft Belgeleri
-description: "Azure Search&quot;te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın."
+title: Dizin sorgulama (.NET API - Azure Search) | Microsoft Docs
+description: "Azure Search'te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın."
 services: search
 manager: jhubbard
 documentationcenter: 
@@ -13,17 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: ffc27db4de5bd699dbd8175930a597fb85947140
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 0185d898f5443cc03135cb1692a54194a82b1e50
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-<a id="query-your-azure-search-index-using-the-net-sdk" class="xliff"></a>
-
-# .NET SDK kullanarak Azure Search dizininizi sorgulama
+# <a name="query-your-azure-search-index-using-the-net-sdk"></a>.NET SDK kullanarak Azure Search dizininizi sorgulama
 > [!div class="op_single_selector"]
 > * [Genel Bakış](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -38,9 +35,7 @@ Bu kılavuzda başlamadan önce, [Azure Search dizini oluşturmuş](search-what-
 
 Bu makaledeki örnek kodun tamamının C# dilinde yazıldığını unutmayın. Tam kaynak kodunu [GitHub](http://aka.ms/search-dotnet-howto)'da bulabilirsiniz.
 
-<a id="identify-your-azure-search-services-query-api-key" class="xliff"></a>
-
-## Azure Search hizmet sorgunuzun api anahtarını tanımlama
+## <a name="identify-your-azure-search-services-query-api-key"></a>Azure Search hizmet sorgunuzun api anahtarını tanımlama
 Artık bir Azure Search dizini oluşturduğunuza göre, .NET SDK kullanarak sorgu göndermeye neredeyse hazırsınız. Öncelikle, sağladığınız arama hizmeti için oluşturulan sorgu api anahtarlarından birini edinmeniz gerekir. .NET SDK, hizmetinize yönelik her istek için bu api anahtarını gönderir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
 1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açabilirsiniz
@@ -54,9 +49,7 @@ Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 
 Bir dizini sorgulama amacıyla, sorgu anahtarlarınızdan birini kullanabilirsiniz. Yönetici anahtarlarınız da sorgular için kullanılabilir ancak uygulama kodunuzda bir sorgu anahtarı kullanmanız gerekir. Böylece [En az ayrıcalık prensibi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) daha iyi takip edilmiş olur.
 
-<a id="create-an-instance-of-the-searchindexclient-class" class="xliff"></a>
-
-## SearchIndexClient sınıfının bir örneğini oluşturma
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>SearchIndexClient sınıfının bir örneğini oluşturma
 Azure Search .NET SDK'sıyla sorgu yürütmek için `SearchIndexClient` sınıfının bir örneğini oluşturmanız gerekir. Bu sınıfın birkaç oluşturucusu vardır. İstediğiniz oluşturucu, arama hizmeti adınızı, dizin adınızı ve `SearchCredentials` nesnesini parametre olarak alır. `SearchCredentials`, api anahtarınızı sarmalar.
 
 Aşağıdaki kod, uygulamanın yapılandırma dosyasında ([örnek uygulama](http://aka.ms/search-dotnet-howto) olması durumunda `appsettings.json`) depolanan arama hizmeti adına ve API anahtarına ilişkin değerleri kullanarak "hotels" dizini ([.NET SDK kullanarak Azure Search dizini oluşturma](search-create-index-dotnet.md) bölümünde oluşturuldu) için yeni bir `SearchIndexClient` oluşturur:
@@ -74,21 +67,15 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 
 `SearchIndexClient`, `Documents` özelliğine sahiptir. Bu özellik Azure Search dizinlerini sorgulamanız için gereken tüm yöntemleri sağlar.
 
-<a id="query-your-index" class="xliff"></a>
-
-## Dizininizi sorgulama
+## <a name="query-your-index"></a>Dizininizi sorgulama
 .NET SDK ile arama, `SearchIndexClient` öğenizde `Documents.Search` yöntemini çağırmak kadar kolaydır. Bu yöntem, arama metni dahil olmak üzere sorguyu daha da ayrıntılandırmak için kullanılabilecek bir `SearchParameters` nesnesiyle birlikte birkaç parametre alır.
 
-<a id="types-of-queries" class="xliff"></a>
-
-#### Sorgu Türleri
+#### <a name="types-of-queries"></a>Sorgu Türleri
 Kullanacağınız iki ana [sorgu türü](search-query-overview.md#types-of-queries) `search` ve `filter` sorgularıdır. `search` sorgusu, dizininizdeki tüm *aranabilir* alanlarda bir veya daha çok terimi arar. `filter` sorgusu, bir dizindeki tüm *filtrelenebilir* alanlarda bir boole ifadesini değerlendirir.
 
 Arama ve filtrelerin her ikisi de `Documents.Search` yöntemi kullanılarak gerçekleştirilir. Bir arama sorgusu `searchText` parametresinde geçirilebilirken bir filtre ifadesi `SearchParameters` sınıfının `Filter` özelliğinden geçirilebilir. Arama yapmadan filtrelemek üzere `searchText` parametresi için `"*"` geçirmeniz yeterlidir. Filtrelemeden arama yapmak için `Filter` özelliğini ayarlamadan bırakmanız veya bir `SearchParameters` örneği geçirmemeniz yeterlidir.
 
-<a id="example-queries" class="xliff"></a>
-
-#### Örnek Sorgular
+#### <a name="example-queries"></a>Örnek Sorgular
 Aşağıdaki örnek kod, [.NET SDK kullanarak Azure Search dizini oluşturma](search-create-index-dotnet.md#DefineIndex)'da tanımlanan "hotels" dizinini sorgulamanın birkaç farklı yolunu gösterir. Arama sonuçlarıyla döndürülen belgelerin, [.NET SDK kullanarak Azure Search'te Veri İçeri Aktarma](search-import-data-dotnet.md#HotelClass)'da tanımlanan `Hotel` sınıfının örnekleri olduğuna dikkat edin. Örnek kod, arama sonuçlarını konsola çıkarmak için bir `WriteDocuments` yöntemini kullanır. Bu yöntem bir sonraki bölümde açıklanmaktadır.
 
 ```csharp
@@ -145,9 +132,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-<a id="handle-search-results" class="xliff"></a>
-
-## Arama sonuçlarını işleme
+## <a name="handle-search-results"></a>Arama sonuçlarını işleme
 `Documents.Search` yöntemi, sorgunun sonuçlarını içeren bir `DocumentSearchResult` nesnesini döndürür. Önceki bölümdeki örnek, arama sonuçlarını konsola çıkarmak için `WriteDocuments` adlı bir yöntemi kullanır:
 
 ```csharp

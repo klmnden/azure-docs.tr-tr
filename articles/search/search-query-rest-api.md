@@ -1,6 +1,6 @@
 ---
-title: REST API&quot;yi kullanarak Azure Search Dizinini sorgulama | Microsoft Belgeleri
-description: "Azure Search&quot;te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın."
+title: Dizin sorgulama (REST API - Azure Search) | Microsoft Docs
+description: "Azure Search'te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın."
 services: search
 documentationcenter: 
 manager: jhubbard
@@ -13,17 +13,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1976a514b4469704dcba9381c5fcbe8805a11ecd
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 
-<a id="query-your-azure-search-index-using-the-rest-api" class="xliff"></a>
-
-# REST API kullanarak Azure Search dizininizi sorgulama
+# <a name="query-your-azure-search-index-using-the-rest-api"></a>REST API kullanarak Azure Search dizininizi sorgulama
 > [!div class="op_single_selector"]
 >
 > * [Genel Bakış](search-query-overview.md)
@@ -37,9 +35,7 @@ Bu makale, [Azure Search REST API](https://docs.microsoft.com/rest/api/searchser
 
 Bu kılavuzda başlamadan önce, [Azure Search dizini oluşturmuş](search-what-is-an-index.md) ve [bunu verilerle doldurmuş](search-what-is-data-import.md) olmanız gerekir. Arka plan bilgileri için bkz. [Azure Search'te tam metin araması nasıl çalışır](search-lucene-query-architecture.md)?
 
-<a id="identify-your-azure-search-services-query-api-key" class="xliff"></a>
-
-## Azure Search hizmet sorgunuzun api anahtarını tanımlama
+## <a name="identify-your-azure-search-services-query-api-key"></a>Azure Search hizmet sorgunuzun api anahtarını tanımlama
 Azure Search REST API'sine karşı tüm arama işlemlerinin önemli bir bileşeni, sağladığınız hizmet için oluşturulan *api anahtarıdır*. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
 1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açabilirsiniz
@@ -53,9 +49,7 @@ Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 
 Bir dizini sorgulama amacıyla, sorgu anahtarlarınızdan birini kullanabilirsiniz. Yönetici anahtarlarınız da sorgular için kullanılabilir ancak uygulama kodunuzda bir sorgu anahtarı kullanmanız gerekir. Böylece [En az ayrıcalık prensibi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) daha iyi takip edilmiş olur.
 
-<a id="formulate-your-query" class="xliff"></a>
-
-## Sorgunuzu düzenleme
+## <a name="formulate-your-query"></a>Sorgunuzu düzenleme
 [REST API kullanarak dizininizi aramanın](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) iki yolu bulunur. Bu yollardan biri, sorgu parametrelerinizin istek gövdesindeki bir JSON nesnesinde tanımlanacağı bir HTTP POST isteği göndermektir. Diğer yol ise sorgu parametrelerinizin istek URL'si içinde tanımlanacağı bir HTTP GET isteği göndermektir. POST, sorgu parametrelerinin boyutu açısından GET'ten daha [esnek sınırlara](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) sahiptir. Bu nedenle, GET'i kullanmanın daha kullanışlı olduğu özel durumlar olmadığı sürece POST kullanmanızı öneririz.
 
 POST ve GET için *hizmet adınızı*, *dizin adını* ve uygun *API sürümünü* (bu belgenin yayımlandığı sırada geçerli API sürümü `2016-09-01`) istek URL'sinde sağlamanız gerekir. GET için sorgu parametrelerini URL'nin sonundaki *sorgu dizesine* sağlarsınız. URL biçimi için aşağıya bakın:
@@ -64,9 +58,7 @@ POST ve GET için *hizmet adınızı*, *dizin adını* ve uygun *API sürümün�
 
 POST için biçim aynıdır ancak sorgu dizesi parametrelerinde yalnızca api sürümü olur.
 
-<a id="example-queries" class="xliff"></a>
-
-#### Örnek Sorgular
+#### <a name="example-queries"></a>Örnek Sorgular
 Burada "hotels" adlı bir dizinde birkaç örnek sorgu verilmiştir. Bu sorgular, hem GET hem de POST biçiminde gösterilir.
 
 Tüm dizinde "budget" terimi araması yapın ve yalnızca `hotelName` alanını döndürün:
@@ -108,14 +100,10 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-<a id="submit-your-http-request" class="xliff"></a>
-
-## HTTP isteğinizi gönderme
+## <a name="submit-your-http-request"></a>HTTP isteğinizi gönderme
 Artık HTTP istek URL'nizin (GET için) veya gövdenizin (POST için) parçası olarak sorgunuzu düzenlediğinize göre, istek üst bilgilerinizi tanımlayıp sorgunuzu gönderebilirsiniz.
 
-<a id="request-and-request-headers" class="xliff"></a>
-
-#### İstek ve İstek Üst Bilgileri
+#### <a name="request-and-request-headers"></a>İstek ve İstek Üst Bilgileri
 GET için iki, POST için ise üç istek üst bilgisi tanımlamanız gerekir:
 
 1. `api-key` üst bilgisi, yukarıdaki 1. adımda bulduğunuz sorgu anahtarına ayarlanmalıdır. `api-key` üst bilgisi olarak bir yönetici anahtarı da kullanabilirsiniz ancak dizinlere ve belgelere açık bir şekilde salt okunur erişimi verdiğinden, bir sorgu anahtarı kullanmanızı öneririz.

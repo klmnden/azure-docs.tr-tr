@@ -1,6 +1,6 @@
 ---
-title: "REST API kullanarak Azure Search&quot;te karşıya veri yükleme | Microsoft Belgeleri"
-description: "REST API kullanarak Azure Search&quot;te bir dizine nasıl veri yükleneceğini öğrenin."
+title: "Verileri karşıya yükleme (REST API - Azure Search) | Microsoft Docs"
+description: "REST API kullanarak Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -15,9 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -179,9 +181,4 @@ Belge eylemleri ve başarı/hata yanıtları hakkında daha fazla bilgi için l�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu göndermeye başlamaya hazır olursunuz. Ayrıntılı bilgi için bkz. [Azure Search Dizininizi Sorgulama](search-query-overview.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

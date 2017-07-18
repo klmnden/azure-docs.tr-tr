@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: fbcd35529c5d2360f5b0c9de4d3c9c4a08a0cc8f
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 83a6543a8fd95139fdcb6c031979382b4736a4ad
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Depolama Gezgini (Önizleme) ile çalışmaya başlama
@@ -113,7 +112,7 @@ Azure Stack Kavram Kanıtı (POC) için Azure Stack yetkili kök sertifikasını
     Her bir alanın ayrıntıları aşağıdaki gibidir:
 
     * **Ortam adı**: Bu alan kullanıcı tarafından özelleştirilebilir.
-    * **Yetkili**: Değer https://login.windows.net olmalıdır. Azure Çin için https://login.chinacloudapi.cn kullanılmalıdır.
+    * **Yetkili**: Değer https://login.microsoftonline.com olmalıdır. Azure Çin için https://login.chinacloudapi.cn kullanılmalıdır.
     * **Oturum açma kaynak kimliği**: Aşağıdaki PowerShell komutlarından birini yürüterek değeri alın:
 
         Bulut yöneticisiyseniz:

@@ -1,6 +1,6 @@
 ---
-title: ".NET SDK kullanarak Azure Search&quot;te karşıya veri yükleme | Microsoft Belgeleri"
-description: ".NET SDK kullanarak Azure Search&quot;te bir dizine nasıl veri yükleneceğini öğrenin."
+title: "Verileri karşıya yükleme (.NET - Azure Search) | Microsoft Docs"
+description: ".NET SDK kullanarak Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin."
 services: search
 documentationcenter: 
 author: brjohnstmsft
@@ -15,10 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 7676262b7bca47444aee7b10a131c01e6b697e7b
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>.NET SDK kullanarak Azure Search'e veri yükleme
@@ -236,10 +237,5 @@ Bu nedenle, en iyi uygulama olarak model sınıflarınızda boş değer atanabil
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu göndermeye başlamaya hazır olursunuz. Ayrıntılı bilgi için bkz. [Azure Search Dizininizi Sorgulama](search-query-overview.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

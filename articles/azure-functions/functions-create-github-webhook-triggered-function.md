@@ -16,33 +16,27 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: accd5c55e7adafd5a387bf420660b808335192e6
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/10/2017
 
 ---
-<a id="create-a-function-triggered-by-a-github-webhook" class="xliff"></a>
-
-# GitHub web kancası tarafından tetiklenen bir işlev oluşturma
+# <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub web kancası tarafından tetiklenen bir işlev oluşturma
 
 GitHub’a özel bir yük kullanarak, HTTP web kancası isteğiyle tetiklenmiş bir işlev oluşturma hakkında bilgi edinin.
 
 ![Azure portalında GitHub Web Kancası ile tetiklenen işlev](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 + En az bir proje içeren bir GitHub hesabı.
 + Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-<a id="create-an-azure-function-app" class="xliff"></a>
-
-## Azure İşlev uygulaması oluşturma
+## <a name="create-an-azure-function-app"></a>Azure İşlev uygulaması oluşturma
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -52,9 +46,7 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 <a name="create-function"></a>
 
-<a id="create-a-github-webhook-triggered-function" class="xliff"></a>
-
-## GitHub web kancası ile tetiklenen bir işlev oluşturma
+## <a name="create-a-github-webhook-triggered-function"></a>GitHub web kancası ile tetiklenen bir işlev oluşturma
 
 1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesine tıklayın. Bu, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
 
@@ -70,9 +62,7 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
-<a id="configure-the-webhook" class="xliff"></a>
-
-## Web kancası yapılandırma
+## <a name="configure-the-webhook"></a>Web kancası yapılandırma
 
 1. GitHub’da sahip olduğunuz bir depoya gidin. Varsa çatallandırdığınız depoları da kullanabilirsiniz. Bir depoyu çatallaştırmanız gerekirse, <https://github.com/Azure-Samples/functions-quickstart> sayfasını kullanın.
 
@@ -94,9 +84,7 @@ Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
 Şimdi, web kancası yeni bir sorun açıklaması eklendiğinde işlevinizi tetikleyecek şekilde yapılandırılır.
 
-<a id="test-the-function" class="xliff"></a>
-
-## İşlevi test etme
+## <a name="test-the-function"></a>İşlevi test etme
 
 1. GitHub deposunda **Sorunlar** sekmesini yeni bir tarayıcı penceresinde açın.
 
@@ -110,15 +98,15 @@ Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
      ![Günlüklerde açıklama metnini görüntüleyin.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Sonraki adımlar
 
-## Sonraki adımlar
+GitHub web kancasından istek alındığında çalıştırılan bir işlev oluşturdunuz.
 
-GitHub web kancasından istek alındığında çalıştırılan bir işlev oluşturdunuz. 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Web kancası bağlamaları hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md).
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Web kancası bağlamaları hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md).
+

@@ -1,6 +1,6 @@
 ---
-title: ".NET SDK kullanarak Azure Search dizini oluşturma | Microsoft Belgeleri"
-description: "Azure Search .NET SDK&quot;sını kullanarak kod içinde bir dizin oluşturun."
+title: "Dizin oluşturma (.NET API - Azure Search) | Microsoft Docs"
+description: "Azure Search .NET SDK'sını kullanarak kod içinde bir dizin oluşturun."
 services: search
 documentationcenter: 
 author: brjohnstmsft
@@ -15,17 +15,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 0531b5c3b63a3fa54bb331f3d8d09c8119e789ea
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 2f2160f9b4383f9220c81a7233612a767e296109
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
-<a id="create-an-azure-search-index-using-the-net-sdk" class="xliff"></a>
-
-# .NET SDK'yı kullanarak Azure Search dizini oluşturma
+# <a name="create-an-azure-search-index-using-the-net-sdk"></a>.NET SDK'yı kullanarak Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
 > * [Genel Bakış](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -43,9 +40,7 @@ Bu kılavuzu izlemeden ve dizin oluşturmadan önce, [Azure Search hizmeti oluş
 >
 >
 
-<a id="identify-your-azure-search-services-admin-api-key" class="xliff"></a>
-
-## Azure Search hizmet yöneticinizin api anahtarını tanımlama
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search hizmet yöneticinizin api anahtarını tanımlama
 Şimdi bir Azure Search hizmeti sağlamış olduğunuza göre, .NET SDK'yı kullanarak hizmet uç noktanıza istek göndermeye neredeyse hazırsınız. Öncelikle, sağladığınız arama hizmeti için oluşturulan yönetici api anahtarlarından birini edinmeniz gerekir. .NET SDK, hizmetinize yönelik her istek için bu api anahtarını gönderir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
 1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açın
@@ -61,9 +56,7 @@ Dizin oluşturma amacıyla, birincil ya da ikincil yönetici anahtarınızı kul
 
 <a name="CreateSearchServiceClient"></a>
 
-<a id="create-an-instance-of-the-searchserviceclient-class" class="xliff"></a>
-
-## SearchServiceClient sınıfının örneğini oluşturma
+## <a name="create-an-instance-of-the-searchserviceclient-class"></a>SearchServiceClient sınıfının örneğini oluşturma
 Azure Search .NET SDK'sını kullanmaya başlamak için `SearchServiceClient` sınıfının bir örneğini oluşturmanız gerekir. Bu sınıfın birkaç oluşturucusu vardır. İstediğiniz oluşturucu, arama hizmeti adınızı ve `SearchCredentials` nesnesini parametre olarak alır. `SearchCredentials`, api anahtarınızı sarmalar.
 
 Aşağıdaki kod, uygulamanın yapılandırma dosyasında ([örnek uygulama](http://aka.ms/search-dotnet-howto) olması durumunda `appsettings.json`) depolanan arama hizmeti adına ve API anahtarına ilişkin değerleri kullanarak yeni bir `SearchServiceClient` oluşturur:
@@ -88,9 +81,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 <a name="DefineIndex"></a>
 
-<a id="define-your-azure-search-index" class="xliff"></a>
-
-## Azure Search dizininizi tanımlama
+## <a name="define-your-azure-search-index"></a>Azure Search dizininizi tanımlama
 `Indexes.Create` yöntemine yönelik tek bir çağrı dizininizi oluşturur. Bu yöntem, Azure Search dizininizi tanımlayan bir `Index` nesnesini parametre olarak alır. Bir `Index` nesnesi oluşturmanız ve bunu aşağıdaki gibi başlatmanız gerekir:
 
 1. `Name` nesnesinin `Index` özelliğini dizin adınız olarak ayarlayın.
@@ -180,9 +171,7 @@ var definition = new Index()
 };
 ```
 
-<a id="create-the-index" class="xliff"></a>
-
-## Dizini oluşturma
+## <a name="create-the-index"></a>Dizini oluşturma
 Şimdi, başlatılan bir `Index` nesneniz olduğuna göre `Indexes.Create` nesneniz üzerinden `SearchServiceClient` çağrısı yaparak dizininizi oluşturabilirsiniz:
 
 ```csharp
@@ -202,9 +191,7 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Azure Search dizini oluşturduktan sonra, [içeriğinizi dizine yüklemek](search-what-is-data-import.md) için hazır olursunuz. Böylece, verilerinizi aramaya başlayabilirsiniz.
 
 

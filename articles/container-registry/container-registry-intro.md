@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: bc0c8ccad64166582dcb3f7162280a8772abc6b3
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f9dff5384838521c309a2d2a5ebb5376c90159fb
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Özel Docker kapsayıcısı kayıt defterlerine giriş
@@ -52,6 +52,8 @@ Geliştiriciler bir kapsayıcı geliştirme iş akışı kapsamında bir kapsay�
 * **Kayıt Defteri** - Azure aboneliğinizde bir veya daha fazla kapsayıcı kayıt defteri oluşturun. Her kayıt defteri aynı konumdaki standart bir Azure [depolama hesabı](../storage/storage-introduction.md) tarafından desteklenir. Kapsayıcı görüntülerinizin yerel, kapalı bir ağda depolanmasının avantajlarından yararlanmak için dağıtımlarınızla aynı Azure konumunda bir kayıt defteri oluşturun. Tam kayıt defteri adı `myregistry.azurecr.io` biçimindedir.
 
   Azure Active Directory destekli bir [hizmet sorumlusunu](../active-directory/active-directory-application-objects.md) veya sağlanan bir yönetici hesabını kullanarak kapsayıcı kayıt defterine [erişimi denetlersiniz](container-registry-authentication.md). Bir kayıt defteriyle kimlik doğrulamak için standart `docker login` komutunu çalıştırın.
+
+* **Yönetilen Kayıt Defteri** - Üç SKU’da (Temel, Standart ve Premium) kayıt defterleri için ek özellikler sunan bir katmandır. Bu SKU’lardaki görüntüler, Azure Container Registry hizmeti tarafından yönetilen Depolama Hesaplarında depolanır. Böylece güvenilirlik artar ve yeni özellikler etkinleştirilir. Yeni özellikler; web kancası tümleştirme, Azure Active Directory ile depo kimlik doğrulaması ve silme işlemi için desteği içerir. Kullanıcılar yeni bir kayıt defteri oluştururken, yönetilen kayıt defterleri ve kendi Depolama Hesapları tarafından desteklenen bir kayıt defteri arasında seçim yapabilirler.
 
 * **Depo** -Bir kayıt defteri, kapsayıcı görüntüleri grubu olan bir veya daha çok depo içerir. Azure Container Kayıt Defteri, çok düzeyli depo ad alanlarını destekler. Bu özellik, belirli bir uygulamayla veya uygulama koleksiyonuyla ilişkili görüntü koleksiyonlarını belirli geliştirme veya işlem ekipleri halinde gruplandırmanıza imkan tanır. Örneğin:
 

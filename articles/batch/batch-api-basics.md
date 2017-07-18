@@ -16,16 +16,14 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 0120a63ed398cf3e0e91cd4329c4024ba2fbfdca
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 93f80018d71368c800abd3dceb42b2ab51e60659
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-<a id="develop-large-scale-parallel-compute-solutions-with-batch" class="xliff"></a>
-
-# Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
+# <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
 
 Azure Batch hizmetinin temel bileşenlerine ilişkin bu genel bakışta, Batch geliştiricilerinin büyük ölçekli paralel işlem çözümleri derlemek üzere kullanabileceği birincil hizmetler ve kaynaklar ele alınmaktadır.
 
@@ -36,9 +34,7 @@ Doğrudan [REST API][batch_rest_api] çağrıları yayınlayan dağıtılmış b
 >
 >
 
-<a id="batch-service-workflow" class="xliff"></a>
-
-## Batch hizmeti iş akışı
+## <a name="batch-service-workflow"></a>Batch hizmeti iş akışı
 Aşağıdaki üst düzey iş akışı, paralel iş yüklerini işlemek üzere Batch hizmetini kullanan neredeyse tüm uygulamalar ve hizmetler için tipiktir:
 
 1. İşlemek istediğiniz **veri dosyalarını** bir [Azure Depolama][azure_storage] hesabına yükleyin. Batch, Azure Blob depolama alanına erişim için yerleşik destek içerir ve görevler çalıştırıldığında görevleriniz bu dosyaları [işlem düğümlerine](#compute-node) indirebilir.
@@ -55,9 +51,7 @@ Aşağıdaki bölümlerde, bunları ve dağıtılmış hesaplama senaryonuzu etk
 >
 >
 
-<a id="batch-service-resources" class="xliff"></a>
-
-## Batch hizmet kaynakları
+## <a name="batch-service-resources"></a>Batch hizmet kaynakları
 Aşağıdaki kaynaklardan--hesaplar, işlem düğümleri, havuzlar, işler ve görevler--bazıları Batch hizmetini kullanan tüm çözümler için gereklidir. İş zamanlamaları ve uygulama paketleri gibi diğer özellikler de faydalıdır, ancak isteğe bağlıdır.
 
 * [Hesap](#account)
@@ -75,9 +69,7 @@ Aşağıdaki kaynaklardan--hesaplar, işlem düğümleri, havuzlar, işler ve g�
   * [Görev bağımlılıkları](#task-dependencies)
 * [Uygulama paketleri](#application-packages)
 
-<a id="account" class="xliff"></a>
-
-## Hesap
+## <a name="account"></a>Hesap
 Bir Batch hesabı Batch hizmeti dahilinde benzersiz şekilde tanımlanan bir varlıktır. Tüm işlemler bir Batch hesabıyla ilişkilendirilir.
 
 [Azure portalını](batch-account-create-portal.md) kullanarak ya da [Toplu Yönetim .NET kitaplığı](batch-management-dotnet.md) ile olduğu gibi program aracılığıyla bir Azure Batch hesabı oluşturabilirsiniz. Hesabı oluştururken bir Azure depolama hesabını ilişkilendirebilirsiniz.
@@ -109,9 +101,7 @@ Kullanacağınız hesap yapılandırmasını seçmek için hangisinin senaryonuz
 >
 
 
-<a id="compute-node" class="xliff"></a>
-
-## İşlem düğümü
+## <a name="compute-node"></a>İşlem düğümü
 İşlem düğümü, uygulama iş yükünüzün bir kısmını işlemeye ayrılmış bir Azure sanal makinesi (VM) veya bulut hizmeti sanal makinesidir. Bir düğümün boyutu CPU çekirdeklerinin sayısını, bellek kapasitesini ve düğüme ayrılan yerel dosya sistemi boyutunu belirler. Azure Cloud Services veya Virtual Machines Market görüntülerini kullanarak Windows veya Linux düğümleri içeren havuzlar oluşturabilirsiniz. Bu seçenekler hakkında daha fazla bilgi için aşağıdaki [Havuz](#pool) bölümüne bakın.
 
 Düğümler, düğümün işletim sistemi ortamı tarafından desteklenen herhangi bir yürütülebilir dosyayı ya da komut dosyasını çalıştırabilir. Buna Windows için \*.exe, \*.cmd, \*.bat ve PowerShell komut dosyaları ile Linux için ikili dosyalar, kabuk ve Python komut dosyaları dahildir.
@@ -122,9 +112,7 @@ Batch içindeki tüm işlem düğümleri ayrıca şunları içerir:
 * Erişimi denetlemek için yapılandırılan **Güvenlik Duvarı** ayarları.
 * Hem Windows (Uzak Masaüstü Protokolü (RDP)) hem de Linux (Güvenli Kabuk (SSH)) düğümlerine [uzaktan erişim](#connecting-to-compute-nodes).
 
-<a id="pool" class="xliff"></a>
-
-## Havuz
+## <a name="pool"></a>Havuz
 Havuz, uygulamanızın üzerinde çalıştığı bir düğüm koleksiyonudur. Havuz sizin tarafınızdan elle ya da siz yapılacak işleri belirttiğinizde Batch hizmeti tarafından otomatik olarak oluşturulabilir. Uygulamanızın kaynak gereksinimlerini karşılayan bir havuz oluşturup yönetebilirsiniz. Bir havuz yalnızca içinde oluşturulduğu Batch hesabı tarafından kullanılabilir. Bir Batch hesabı birden fazla havuza sahip olabilir.
 
 Azure Batch havuzları temel Azure işlem platformu üzerinde derlenir. Bu havuzlar büyük ölçekli ayırma, uygulama yüklemesi, veri dağıtımı, durum izleme ve bir havuzdaki işlem düğümü sayısının esnek şekilde ayarlanmasını ([ölçeklendirme](#scaling-compute-resources)) sağlar.
@@ -150,9 +138,7 @@ Bu ayarlar aşağıdaki bölümlerde ayrıntılı şekilde açıklanmıştır.
 >
 >Kullanıcı Aboneliği yapılandırmasıyla oluşturulan Batch hesaplarında Batch hizmeti kotası yoktur. Bunun yerine belirtilen aboneliğe ait çekirdek kotası paylaşılır. Daha fazla bilgi için [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md) sayfasındaki [Sanal Makine limitleri](../azure-subscription-service-limits.md#virtual-machines-limits) bölümüne bakın.
 
-<a id="compute-node-operating-system-and-version" class="xliff"></a>
-
-### İşlem düğümü işletim sistemi ve sürümü
+### <a name="compute-node-operating-system-and-version"></a>İşlem düğümü işletim sistemi ve sürümü
 
 Batch havuzu oluştururken Azure sanal makine yapılandırmasını ve havuzdaki her bir işlem düğümünde çalıştırmak istediğiniz işletim sistemi türünü belirtebilirsiniz. Batch ile birlikte kullanılabilen iki yapılandırma türü şunlardır:
 
@@ -170,9 +156,7 @@ Batch havuzu oluştururken Azure sanal makine yapılandırmasını ve havuzdaki 
 
 Batch hesabı oluştururken havuz ayırma modunu ayarlama hakkında bilgi almak için [Hesap](#account) bölümüne bakın.
 
-<a id="custom-images-for-virtual-machine-pools" class="xliff"></a>
-
-#### Sanal Makine havuzları için özel görüntüler
+#### <a name="custom-images-for-virtual-machine-pools"></a>Sanal Makine havuzları için özel görüntüler
 
 Sanal Makine havuzlarınızda özel görüntüler kullanmak için Batch hesabınızı Kullanıcı Aboneliği hesap yapılandırmasıyla oluşturun. Bu yapılandırmayı kullandığınızda Batch havuzları hesabın bulunduğu aboneliğe ayrılır. Batch hesabı oluştururken havuz ayırma modunu ayarlama hakkında bilgi almak için [Hesap](#account) bölümüne bakın.
 
@@ -199,9 +183,7 @@ Azure portalını kullanarak özel görüntüden havuz oluşturmak için:
 6. Bir havuzun özel görüntü kullanıp kullanmadığını belirlemek için **Havuz** dikey penceresinin kaynak özeti bölümündeki **İşletim Sistemi** özelliğine bakın. Bu özelliğin değeri **Özel VM görüntüsü** olmalıdır.
 7. Bir havuzla ilişkilendirilmiş olan tüm özel VHD'ler havuzun **Özellikler** dikey penceresinde görüntülenir.
 
-<a id="compute-node-type-and-target-number-of-nodes" class="xliff"></a>
-
-### İşlem düğümü türü ve hedef düğüm sayısı
+### <a name="compute-node-type-and-target-number-of-nodes"></a>İşlem düğümü türü ve hedef düğüm sayısı
 
 Bir havuz oluşturduğunuzda, istediğiniz işlem düğümü türlerini ve her biri için hedeflenen sayıyı belirtebilirsiniz. İki tür işlem düğümü vardır:
 
@@ -219,9 +201,7 @@ Bazı durumlarda havuzunuz istenilen düğüm sayısına ulaşmayabileceğinden 
 
 Hem düşük öncelikli hem de adanmış işlem düğümlerinin fiyatlandırma bilgileri için bkz. [Batch Fiyatlandırması](https://azure.microsoft.com/pricing/details/batch/).
 
-<a id="size-of-the-compute-nodes" class="xliff"></a>
-
-### İşlem düğümlerinin boyutu
+### <a name="size-of-the-compute-nodes"></a>İşlem düğümlerinin boyutu
 
 **Cloud Services Yapılandırması** işlem düğümü boyutları [Cloud Services Boyutları](../cloud-services/cloud-services-sizes-specs.md) içinde listelenmiştir. Batch hizmeti `ExtraSmall`, `STANDARD_A1_V2` ve `STANDARD_A2_V2` dışında tüm Cloud Services boyutlarını destekler.
 
@@ -231,15 +211,11 @@ Bir işlem düğümü boyutu seçerken, düğümler üzerinde çalıştıracağ�
 
 Bir havuzdaki tüm düğümler aynı boyuttadır. Farklı sistem gereksinimlerine ve/veya yük düzeylerine sahip uygulamalar çalıştırmayı planlıyorsanız ayrı havuzlar oluşturmanız önerilir.
 
-<a id="scaling-policy" class="xliff"></a>
-
-### Ölçeklendirme ilkesi
+### <a name="scaling-policy"></a>Ölçeklendirme ilkesi
 
 Dinamik iş yükleri için [otomatik ölçeklendirme formülü](#scaling-compute-resources) yazabilir ve bir havuza uygulayabilirsiniz. Batch hizmeti formülünüzü düzenli olarak değerlendirir ve belirtebileceğiniz çeşitli havuz, iş ve görev parametrelerine göre düğüm sayısını ayarlar.
 
-<a id="task-scheduling-policy" class="xliff"></a>
-
-### Görev zamanlama ilkesi
+### <a name="task-scheduling-policy"></a>Görev zamanlama ilkesi
 
 [Düğüm başına en fazla görev](batch-parallel-node-tasks.md) yapılandırma seçeneği havuzdaki her bir işlem düğümünde paralel olarak çalıştırabilecek en fazla görev sayısını belirler.
 
@@ -247,9 +223,7 @@ Varsayılan yapılandırma bir düğümde tek seferde bir görevin çalışacağ
 
 Ayrıca Batch hizmetinin görevleri bir havuzdaki tüm düğümlere eşit olarak dağıtıp dağıtmadığını ya da görevleri başka bir düğüme atamadan önce her bir düğümü en fazla sayıda görev ile paketleyip paketlemediğini belirleyen bir *doldurma türü* belirleyebilirsiniz.
 
-<a id="communication-status-for-compute-nodes" class="xliff"></a>
-
-### İşlem düğümlerinin iletişim durumu
+### <a name="communication-status-for-compute-nodes"></a>İşlem düğümlerinin iletişim durumu
 
 Çoğu senaryoda görevler bağımsız olarak çalışır ve birbirleriyle iletişim kurmaları gerekmez. Ancak, [MPI senaryolarında](batch-mpi.md) olduğu gibi içinde görevlerin iletişim kurması gereken bazı uygulamalar olabilir.
 
@@ -257,28 +231,25 @@ Bir havuzu **düğümler arasında iletişim kurmaya** izin verecek şekilde yap
 
 Düğümler arası iletişimin etkinleştirilmesi kümelerin içindeki düğümlerin yerleşimini de etkiler ve dağıtım kısıtlamaları nedeniyle bir havuzdaki en fazla düğüm sayısını sınırlayabilir. Uygulamanız düğümler arasında iletişim gerektirmiyorsa Batch hizmeti artan paralel işleme gücünü etkinleştirmek amacıyla birçok kümeden ve veri merkezinden çok sayıda düğümü havuza ayırabilir.
 
-<a id="start-tasks-for-compute-nodes" class="xliff"></a>
-
-### İşlem düğümleri için başlangıç görevleri
+### <a name="start-tasks-for-compute-nodes"></a>İşlem düğümleri için başlangıç görevleri
 
 Bir düğüm havuza katıldığında ve bir düğümün yeniden başlatıldığı ya da görüntüsünün yeniden oluşturulduğu her durumda, düğüm üzerinde isteğe bağlı *başlangıç görevi* yürütülür. Başlangıç görevi, görevlerinizin işlem düğümlerinde çalıştıracağı uygulamaları yükleme gibi görevlerin yürütülmesi için özellikle işlem düğümlerinin hazırlanmasında yararlıdır.
 
-<a id="application-packages" class="xliff"></a>
+### <a name="application-packages"></a>Uygulama paketleri
 
-### Uygulama paketleri
+Havuzdaki işlem düğümlerine dağıtım yapacak [uygulama paketlerini](#application-packages) belirtebilirsiniz. Uygulama paketleri, görevlerinizin çalıştırdığı uygulamaların dağıtımını ve sürüm oluşturma işlemlerini basitleştirir. Havuz için belirttiğiniz uygulama paketleri, bir düğüm her yeniden başlatıldığında veya görüntüsü yeniden oluşturduğunda o havuza katılan her düğüme yüklenir.
 
-Havuzdaki işlem düğümlerine dağıtım yapacak [uygulama paketlerini](#application-packages) belirtebilirsiniz. Uygulama paketleri, görevlerinizin çalıştırdığı uygulamaların dağıtımını ve sürüm oluşturma işlemlerini basitleştirir. Havuz için belirttiğiniz uygulama paketleri, bir düğüm her yeniden başlatıldığında veya görüntüsü yeniden oluşturduğunda o havuza katılan her düğüme yüklenir. Uygulama paketleri, Linux işlem düğümlerinde şu anda desteklenmemektedir.
+> [!NOTE]
+> Uygulama paketleri 5 Temmuz 2017’den sonra oluşturulmuş tüm Batch havuzlarında desteklenir. Bunların 10 Mart 2016 ve 5 Haziran 2017 arasında oluşturulmuş Batch havuzlarında desteklenebilmesi için, havuzun Bulut Hizmeti yapılandırması kullanılarak oluşturulmuş olması gerekir. 10 Mart 2016’dan önce oluşturulan Batch havuzları uygulama paketlerini desteklemez. Uygulama paketlerini kullanarak uygulamalarınızı Batch düğümlerine dağıtma hakkında daha fazla bilgi için bkz. [Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı](batch-application-packages.md).
+>
+>
 
-<a id="network-configuration" class="xliff"></a>
-
-### Ağ yapılandırması
+### <a name="network-configuration"></a>Ağ yapılandırması
 
 Havuz işlem düğümlerinin oluşturulması gereken Azure [sanal ağın (VNet)](../virtual-network/virtual-networks-overview.md) alt ağını belirtebilirsiniz. Daha fazla bilgi için [Havuz ağ yapılandırması](#pool-network-configuration) bölümüne bakın.
 
 
-<a id="job" class="xliff"></a>
-
-## İş
+## <a name="job"></a>İş
 İş bir görev koleksiyonudur. Bir havuzdaki işlem düğümleri üzerindeki görevleri tarafından hesaplamanın nasıl gerçekleştirildiğini yönetir.
 
 * İş, çalışmanın gerçekleştirileceği **havuzu** belirtir. Her iş için yeni havuz oluşturabilir veya çok sayıda iş için bir havuz kullanabilirsiniz. Bir iş zamanlaması ile ilişkili her iş için veya bir iş zamanlaması ile ilişkili tüm işler için havuz oluşturabilirsiniz.
@@ -293,23 +264,17 @@ Havuz işlem düğümlerinin oluşturulması gereken Azure [sanal ağın (VNet)]
 
     Batch hizmetinde, *hiç* görevi olmayan işler, tüm görevleri tamamlanmış işler olarak kabul edilir. Bu nedenle, bu seçenek genellikle [iş yöneticisi görevi](#job-manager-task) ile kullanılır. İş yöneticisi olmadan otomatik iş sonlandırmayı kullanmak istiyorsanız başlangıçta yeni işin **onAllTasksComplete** özelliğini *noaction* olarak ayarlamanız ve işe görev eklemeyi bitirdiğinizde bu ayarı *terminatejob* olarak değiştirmeniz gerekir.
 
-<a id="job-priority" class="xliff"></a>
-
-### İş önceliği
+### <a name="job-priority"></a>İş önceliği
 Batch’de oluşturduğunuz işlere öncelik atayabilirsiniz. Batch hizmeti bir hesaptaki iş zamanlama sırasını belirlemek üzere işin öncelik değerini kullanır ([zamanlanmış iş](#scheduled-jobs) ile karıştırılmamalıdır). Öncelik değeri, -1000 en düşük öncelik ve 1000 en yüksek öncelik olmak üzere, -1000 ile 1000 aralığındadır. Bir işin önceliğini güncelleştirmek için [İşin önceliklerini güncelleştirme][rest_update_job] işlemini (Batch REST) ya da [CloudJob.Priority][net_cloudjob_priority] özelliğini (Batch .NET) çağırabilirsiniz.
 
 Aynı hesapta, yüksek öncelikli işlerin düşük öncelikli işlere göre zamanlama üstünlüğü vardır. Bir hesaptaki yüksek öncelik değerine sahip iş farklı bir hesaptaki düşük öncelik değerine sahip başka bir işe karşı zamanlama üstünlüğüne sahip değildir.
 
 Havuzlardaki iş zamanlaması bağımsızdır. Farklı havuzlar arasında, ilişkili havuzunda boşta düğüm eksikliği olması durumunda yüksek öncelikli işin önce zamanlanacağı kesin değildir. Aynı havuzda, aynı öncelik değerine sahip işlerin zamanlanma şansı eşittir.
 
-<a id="scheduled-jobs" class="xliff"></a>
-
-### Zamanlanan işler
+### <a name="scheduled-jobs"></a>Zamanlanan işler
 [İş zamanlamaları][rest_job_schedules] Batch hizmetinde yinelenen işler oluşturmanızı sağlar. Bir iş zamanlaması işlerin ne zaman çalıştırılacağını belirtir ve çalıştırılacak işlerin özelliklerini içerir. Zamanlama süresini (zamanlamanın ne kadar süreyle ve ne zaman etkin olacağını) ve bu zamanlanan sürede işlerin ne sıklıkta oluşturulacağını belirtebilirsiniz.
 
-<a id="task" class="xliff"></a>
-
-## Görev
+## <a name="task"></a>Görev
 Görev bir işle ilişkili hesaplama birimidir. Bir düğüm üzerinde çalışır. Görevler yürütülmek için bir düğüme atanır veya bir düğüm serbest kalana kadar kuyruğa alınır. Kısacası görev, bitmesi gereken çalışmayı gerçekleştirmek üzere bir veya daha fazla program ya da komut dosyasını bir işlem düğümü üzerinde çalıştırır.
 
 Bir görev oluşturduğunuzda aşağıdakileri belirtebilirsiniz:
@@ -336,9 +301,7 @@ Bir düğümde hesaplama yapmak üzere tanımladığınız görevlere ek olarak,
 * [Çok örnekli görevler (MPI)](#multi-instance-tasks)
 * [Görev bağımlılıkları](#task-dependencies)
 
-<a id="start-task" class="xliff"></a>
-
-### Başlangıç görevi
+### <a name="start-task"></a>Başlangıç görevi
 **Başlangıç görevini** bir havuz ile ilişkilendirerek düğümlerinin işletim sistemi ortamını hazırlayabilirsiniz. Örneğin, görevlerinizin çalışacağı uygulamaları yükleme veya arka plan işlemlerini başlatma gibi eylemleri gerçekleştirebilirsiniz. Başlangıç görevi, havuzda kaldığı sürece düğümün havuza ilk eklendiği ve yeniden başlatıldığı ya da görüntüsünün yeniden oluşturulduğu zaman dahil olmak üzere, bir düğüm her başlatıldığında çalışır.
 
 Başlangıç görevinin birincil avantajı, bir işlem düğümünü yapılandırmak ve görev yürütmede gereken uygulamaları yüklemek için gerekli tüm bilgileri içerebilmesidir. Bu nedenle bir havuzdaki düğüm sayısını artırmak, yeni bir hedef düğüm sayısı belirtmek kadar kolaydır. Başlangıç görevi, Batch hizmetine yeni düğümleri yapılandırmak ve onları görev kabul etmeye hazır hale getirmek için gerekli olan bilgileri sunar.
@@ -356,16 +319,14 @@ Mevcut bir havuz için başlangıç görevi ekler veya güncelleştirirseniz, ba
 >[!NOTE]
 > Bir başlangıç görevinin toplam boyutunun kaynak dosyaları ve ortam değişkenleri dahil olmak üzere 32.768 karakter veya daha az olması gerekir. Başlangıç görevinizin bu gereksinime uygun olduğundan emin olmak için aşağıdaki iki yaklaşımdan birini kullanabilirsiniz:
 >
-> 1. Uygulamaları veya verileri Batch havuzunuzdaki tüm düğümlere dağıtmak için uygulama paketlerini kullanabilirsiniz. Uygulama paketleri hakkında daha fazla bilgi için bkz. [Azure Batch uygulama paketleriyle uygulama dağıtımı](batch-application-packages.md).
+> 1. Uygulamaları veya verileri Batch havuzunuzdaki tüm düğümlere dağıtmak için uygulama paketlerini kullanabilirsiniz. Uygulama paketleri hakkında daha fazla bilgi için bkz. [Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı](batch-application-packages.md).
 > 2. El ile uygulama dosyalarınızı içeren bir sıkıştırılmış arşiv oluşturabilirsiniz. Sıkıştırılmış arşivinizi Azure Depolama hesabına blob olarak karşıya yükleyin. Sıkıştırılmış arşivi başlangıç göreviniz için kaynak dosyası olarak belirleyin. Başlangıç göreviniz için komut satırını çalıştırmadan önce sıkıştırılmış arşivi komut satırından açın. 
 >
 >    Sıkıştırılmış arşivi açmak için istediğiniz arşivleme aracını kullanabilirsiniz. Sıkıştırılmış arşivi açmak için kullandığınız aracı, başlangıç görevinin kaynak dosyalarına eklemeniz gerekir.
 >
 >
 
-<a id="job-manager-task" class="xliff"></a>
-
-### İş yöneticisi görevi
+### <a name="job-manager-task"></a>İş yöneticisi görevi
 İş yürütmeyi denetlemek ve/veya izlemek için genellikle bir **iş yöneticisi görevi** kullanırsınız (örneğin, bir işin görevlerini oluşturmak ve göndermek, çalıştırılacak ek görevleri belirlemek ve çalışmanın ne zaman tamamlandığını belirlemek için). Ancak, bir iş yöneticisi görevi bu etkinliklerle sınırlı değildir. İş için gerekli olan tüm eylemleri gerçekleştirebilen tam kapsamlı bir görevdir. Örneğin, bir iş yöneticisi görevi parametre olarak belirtilen bir dosyayı indirebilir, dosyanın içeriğini çözümleyebilir ve bu içeriğe göre ek görevler gönderebilir.
 
 Bir iş yöneticisi görevi diğer tüm görevlerden önce başlatılır. Aşağıdaki özellikleri sağlar:
@@ -377,9 +338,7 @@ Bir iş yöneticisi görevi diğer tüm görevlerden önce başlatılır. Aşağ
 * Yeniden başlatılması gerektiğinde iş yöneticisi görevine en yüksek öncelik verilir. Boş bir düğüm yoksa Batch hizmeti, iş yöneticisi görevinin çalışması için yer açmak amacıyla havuzundaki çalışan diğer görevlerden birini sonlandırabilir.
 * Bir işteki iş yöneticisi görevinin, diğer işlerin görevleri üzerinde önceliği yoktur. İşlerde, yalnızca iş düzeyinde öncelikler gözetilir.
 
-<a id="job-preparation-and-release-tasks" class="xliff"></a>
-
-### İş hazırlama ve bırakma görevleri
+### <a name="job-preparation-and-release-tasks"></a>İş hazırlama ve bırakma görevleri
 Batch, iş öncesi yürütme kurulumu için iş hazırlama görevleri sağlar. İş bırakma görevleri iş sonrası bakım ve temizlemeye yöneliktir.
 
 * **İş hazırlama görevi**: İş hazırlama görevi, diğer iş görevlerinden herhangi biri yürütülmeden önce, görevleri çalıştırmak için zamanlanan tüm işlem düğümlerinde çalışır. Örneğin, tüm görevler tarafından paylaşılan ancak işe özel olan verileri kopyalamak için iş hazırlama görevini kullanabilirsiniz.
@@ -389,16 +348,12 @@ Hem iş hazırlama hem de bırakma görevleri, görev çağrıldığında çalı
 
 İş hazırlama ve bırakma görevleri hakkında daha fazla bilgi için bkz. [Azure Batch işlem düğümlerinde iş hazırlama ve tamamlama görevlerini çalıştırma](batch-job-prep-release.md).
 
-<a id="multi-instance-task" class="xliff"></a>
-
-### Çok örnekli görev
+### <a name="multi-instance-task"></a>Çok örnekli görev
 [Çok örnekli görev](batch-mpi.md) aynı anda birden fazla işlem düğümü üzerinde çalışacak şekilde yapılandırılmış bir görevdir. Çok örnekli görevlerle, bir grup işlem düğümünün tek bir iş yükünü işlemek üzere bir arada ayrılmasını gerektiren yüksek performanslı bilgi işlem senaryolarına olanak sağlayabilirsiniz (İleti Geçirme Arabirimi (MPI) gibi).
 
 Batch .NET kitaplığını kullanarak MPI işlerini Batch’de çalıştırma hakkında ayrıntılı bilgi için bkz. [Azure Batch’de İleti Geçirme Arabirimi (MPI) uygulamalarını çalıştırmak için çok örnekli görevleri kullanma](batch-mpi.md).
 
-<a id="task-dependencies" class="xliff"></a>
-
-### Görev bağımlılıkları
+### <a name="task-dependencies"></a>Görev bağımlılıkları
 Adından da anlaşılacağı gibi [görev bağımlılıkları](batch-task-dependencies.md), bir görevin yürütülmesinin diğer görevlerin tamamlanmasına bağlı olduğunu belirtmenizi sağlar. Bu özellik “yukarı akış” görevinin çıktısını kullanan bir “aşağı akış” görevi durumları ya da bir yukarı akış görevi, aşağı akış görevi tarafından istenen bazı başlatma işlemlerini gerçekleştirdiğinde destek sağlar. Bu özelliği kullanmak için önce Batch işinizde görev bağımlılıklarını etkinleştirmelisiniz. Ardından, bir başka göreve (ya da birçok başka göreve) bağlı her görev için, görevin bağımlı olduğu görevleri belirtirsiniz.
 
 Görev bağımlılıkları ile aşağıdaki gibi senaryoları yapılandırabilirsiniz:
@@ -409,9 +364,7 @@ Görev bağımlılıkları ile aşağıdaki gibi senaryoları yapılandırabilir
 
 Bu özelliğe ilişkin daha kapsamlı bilgi için [azure-batch-samples][github_samples] GitHub deposundaki [Azure Batch'deki görev bağımlılıkları](batch-task-dependencies.md) ve [TaskDependencies][github_sample_taskdeps] kod örneğine bakın.
 
-<a id="environment-settings-for-tasks" class="xliff"></a>
-
-## Görevler için ortam ayarları
+## <a name="environment-settings-for-tasks"></a>Görevler için ortam ayarları
 Batch hizmeti tarafından yürütülen her görevin, işlem düğümleri üzerinde ayarladığı ortam değişkenlerine erişimi vardır. Buna Batch hizmeti tarafından tanımlanan ortam değişkenleri ([service-defined][msdn_env_vars]) ve görevleriniz için tanımlayabileceğiniz özel ortam değişkenleri dahildir. Görevleriniz tarafından yürütülen uygulamalar ve komut dosyaları yürütme sırasında bu ortam değişkenlerine erişebilir.
 
 Bu varlıkların *ortam ayarları* özelliğini doldurarak görev ya da iş düzeyinde özel ortam değişkenleri ayarlayabilirsiniz. Örneğin, Batch .NET içindeki [Bir işe görev ekleme][rest_add_task] işlemine (Batch REST API'si) veya [CloudTask.EnvironmentSettings][net_cloudtask_env] ve [CloudJob.CommonEnvironmentSettings][net_job_env] özelliklerine bakın.
@@ -420,9 +373,7 @@ Bu varlıkların *ortam ayarları* özelliğini doldurarak görev ya da iş düz
 
 [İşlem düğümü ortam değişkenleri][msdn_env_vars] içinde hizmet tarafından tanımlanan tüm ortam değişkenlerinin tam listesini bulabilirsiniz.
 
-<a id="files-and-directories" class="xliff"></a>
-
-## Dosyalar ve dizinler
+## <a name="files-and-directories"></a>Dosyalar ve dizinler
 Her görev, altında sıfır veya daha fazla dosya ve dizin oluşturduğu bir *çalışma dizinine* sahiptir. Bu çalışma dizini, görev tarafından çalıştırılan programı, işlediği verileri ve gerçekleştirdiği işlemin çıktısını depolamak için kullanılabilir. Bir görevin tüm dosyaları ve dizinleri görev kullanıcısına aittir.
 
 Batch hizmeti bir düğümdeki dosya sisteminin bir bölümünü *kök dizin* olarak kullanıma sunar. Görevler `AZ_BATCH_NODE_ROOT_DIR` ortam değişkenine başvurarak kök dizine erişebilir. Ortam değişkenlerini kullanma hakkında daha fazla bilgi için bkz. [Görevler için ortam ayarları](#environment-settings-for-tasks).
@@ -444,25 +395,21 @@ Kök dizin aşağıdaki dizin yapısını içerir:
 >
 >
 
-<a id="application-packages" class="xliff"></a>
-
-## Uygulama paketleri
+## <a name="application-packages"></a>Uygulama paketleri
 [Uygulama paketleri](batch-application-packages.md) özelliği kolay uygulama yönetimi ve havuzlarınızdaki işlem düğümlerine kolay uygulama dağıtımı sağlar. Görevleriniz tarafından çalıştırılan uygulamaların birden fazla sürümünü (ikili dosyalar ve destek dosyalarıyla birlikte) kolayca karşıya yükleyebilir ve yönetebilirsiniz. Sonra bu uygulamalardan bir ya da daha fazlasını havuzunuzdaki işlem düğümlerine otomatik olarak dağıtabilirsiniz.
 
 Uygulama paketlerini havuz ve görev düzeyinde belirtebilirsiniz. Havuz uygulama paketleri belirttiğinizde uygulama, havuzdaki her düğüme dağıtılır. Görev uygulama paketlerini belirttiğinizde uygulama, görevin komut satırı çalıştırılmadan hemen önce işteki görevlerden en az birinde çalışacak şekilde zamanlanan düğümlere dağıtılır.
 
 Batch, uygulama paketlerinizi depolamak ve işlem düğümlerine dağıtmak amacıyla Azure Depolama ile çalışma ayrıntılarını işler, böylece hem kodunuz hem de yönetim ek yükünüz basitleştirilebilir.
 
-Uygulama paketi özelliği hakkında daha fazla bilgi almak için bkz. [Azure Batch uygulama paketleri ile uygulama dağıtımı](batch-application-packages.md).
+Uygulama paketi özelliği hakkında daha fazla bilgi almak için bkz. [Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı](batch-application-packages.md).
 
 > [!NOTE]
 > *Mevcut* bir havuza havuz uygulama paketleri eklerseniz uygulama paketlerinin düğümlere dağıtılması için işlem düğümlerini yeniden başlatmanız gerekir.
 >
 >
 
-<a id="pool-and-compute-node-lifetime" class="xliff"></a>
-
-## Havuz ve işlem düğümü ömrü
+## <a name="pool-and-compute-node-lifetime"></a>Havuz ve işlem düğümü ömrü
 Azure Batch çözümünüzü tasarlarken havuzların nasıl ve ne zaman oluşturulacağı ve bu havuzlardaki işlem düğümlerinin ne kadar süre kullanımda tutulacağına ilişkin bir tasarım kararı vermeniz gerekir.
 
 Spektrumun bir ucunda, gönderdiğiniz her iş için bir havuz oluşturabilir ve görevlerin yürütülmesi biter bitmez havuzu silebilirsiniz. Düğümler yalnızca gerektiğinde ayrıldığından ve boşta kalır kalmaz kapatıldığından bunun yapılması kullanımı en iyi duruma getirir. Bu durum işin, düğümlerin ayrılmasını beklemesi gerektiği anlamına gelmekle birlikte, tek tek kullanılabilir, ayrılmış olmalarının ve başlangıç görevinin tamamlanmasının hemen ardından görevlerin yürütülmek üzere zamanlanacağını bilmek önemlidir. Batch, görevler düğümlere atamadan önce havuzdaki tüm düğümlerin kullanılabilir olmasını *beklemez*. Böylece kullanılabilir tüm düğümlerden en iyi şekilde faydalanılmasını sağlar.
@@ -471,9 +418,7 @@ Spektrumun diğer ucunda, işlerin hemen başlatılması en yüksek önceliğe s
 
 Değişken ancak devam eden bir yükü işlemek için genellikle birleştirilmiş bir yaklaşım kullanılır. Birden fazla işin gönderildiği bir havuzunuz olabilir, ancak düğüm sayısını iş yüküne uygun olarak artırabilir veya azaltabilirsiniz (aşağıdaki bölümde yer alan [İşlem kaynaklarını ölçeklendirme](#scaling-compute-resources) kısmına bakın). Mevcut yüke bağlı olarak reaktif bir şekilde ya da yük öngörülebiliyorsa proaktif olarak bu işlemi yapabilirsiniz.
 
-<a id="pool-network-configuration" class="xliff"></a>
-
-## Havuz ağ yapılandırması
+## <a name="pool-network-configuration"></a>Havuz ağ yapılandırması
 
 Azure Batch hizmetinde işlem düğümü havuzu oluştururken, havuzun işlem düğümlerinin oluşturulması gereken Azure [sanal ağının (VNet)](../virtual-network/virtual-networks-overview.md) alt ağ kimliğini belirtebilirsiniz.
 
@@ -510,9 +455,7 @@ Azure Batch hizmetinde işlem düğümü havuzu oluştururken, havuzun işlem d�
 
 Sanal ağa yönelik ek ayarlar, Batch hesabının havuz ayırma moduna bağlıdır.
 
-<a id="vnets-for-pools-provisioned-in-the-batch-service" class="xliff"></a>
-
-### Batch hizmetinde sağlanan havuzlar için sanal ağlar
+### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Batch hizmetinde sağlanan havuzlar için sanal ağlar
 
 Batch hizmeti ayırma modunda, yalnızca **Cloud Services Yapılandırması** havuzlarına bir sanal ağ atanabilir. Ayrıca, belirtilen sanal ağın **klasik** bir sanal ağ olması gerekir. Azure Resource Manager dağıtım modeliyle oluşturulan sanal ağlar desteklenmez.
 
@@ -527,17 +470,13 @@ Batch hizmeti ayırma modunda, yalnızca **Cloud Services Yapılandırması** ha
 
 
 
-<a id="vnets-for-pools-provisioned-in-a-user-subscription" class="xliff"></a>
-
-### Kullanıcı aboneliğinde sağlanan havuzlar için sanal ağlar
+### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>Kullanıcı aboneliğinde sağlanan havuzlar için sanal ağlar
 
 Kullanıcı aboneliği ayırma modunda, yalnızca **Sanal Makine Yapılandırması** havuzları desteklenir ve bir sanal ağ atanabilir. Ayrıca, belirtilen sanal ağın **Resource Manager** tabanlı bir sanal ağ olması gerekir. Klasik dağıtım modeliyle oluşturulan sanal ağlar desteklenmez.
 
 
 
-<a id="scaling-compute-resources" class="xliff"></a>
-
-## İşlem kaynaklarını ölçeklendirme
+## <a name="scaling-compute-resources"></a>İşlem kaynaklarını ölçeklendirme
 [Otomatik ölçeklendirme](batch-automatic-scaling.md) kullanarak, Batch hizmetinin, bir havuzdaki işlem düğümleri sayısını mevcut iş yüküne ve işlem senaryonuzun kaynak kullanımına göre dinamik olarak ayarlamasını sağlayabilirsiniz. Bu, yalnızca ihtiyacınız olan kaynakları kullanarak ve ihtiyacınız olmayanları bırakarak uygulamanızı çalıştırmaya ilişkin genel maliyeti düşürmenizi sağlar.
 
 Bir [otomatik ölçeklendirme formülü](batch-automatic-scaling.md#automatic-scaling-formulas) yazıp bu formülü bir havuzla ilişkilendirerek otomatik ölçeklendirmeyi etkinleştirebilirsiniz. Batch hizmeti, sonraki ölçeklendirme aralığı (sizin yapılandırabileceğiniz bir aralık) için havuzdaki düğümlerin hedef sayısını belirlemek amacıyla bu formülü kullanır. Bir havuzu oluştururken otomatik ölçeklendirme ayarlarını belirtebilir ya da bir havuz üzerinde ölçeklendirmeyi daha sonra etkinleştirebilirsiniz. Ölçeklendirme özellikli bir havuz üzerinde ölçeklendirme ayarlarını da güncelleştirebilirsiniz.
@@ -559,23 +498,17 @@ Bir uygulamayı otomatik olarak ölçeklendirme hakkında daha fazla bilgi için
 >
 >
 
-<a id="security-with-certificates" class="xliff"></a>
-
-## Sertifikalar ile güvenlik
+## <a name="security-with-certificates"></a>Sertifikalar ile güvenlik
 [Azure Depolama hesabı][azure_storage] anahtarı gibi, görevler için hassas bilgileri şifrelerken ya da bunların şifrelerini çözerken genelde sertifikalar kullanmanız gerekir. Bunu desteklemek için düğümlere sertifikalar yükleyebilirsiniz. Şifrelenmiş parolalar komut satırı parametreleri aracılığıyla düğümlere geçirilir ya da görev kaynaklarından birine eklenir ve yüklü sertifikalar bunların şifrelerini çözmek için kullanılabilir.
 
 Batch hesabına bir sertifika eklemek için [Sertifika ekle][rest_add_cert] işlemini (Batch REST) ya da [CertificateOperations.CreateCertificate][net_create_cert] yöntemini (Batch .NET) kullanırsınız. Sonra sertifikayı yeni ya da mevcut bir havuzla ilişkilendirebilirsiniz. Sertifika bir havuzla ilişkilendirildiğinde, Batch hizmeti havuzdaki her düğüme sertifikayı yükler. Batch hizmeti düğüm başlatıldığında başlangıç görevi ve iş yöneticisi görevi dahil herhangi bir görevi başlatmadan önce, uygun sertifikaları yükler.
 
 *Mevcut* bir havuza sertifika eklerseniz sertifikaların düğümlere uygulanması için işlem düğümlerini yeniden başlatmanız gerekir.
 
-<a id="error-handling" class="xliff"></a>
-
-## Hata işleme
+## <a name="error-handling"></a>Hata işleme
 Batch çözümündeki görev ve uygulama hatalarını işlemeyi gerekli görebilirsiniz.
 
-<a id="task-failure-handling" class="xliff"></a>
-
-### Görev hatası işleme
+### <a name="task-failure-handling"></a>Görev hatası işleme
 Görev hataları kategorileri şunlardır:
 
 * **Ön işleme hataları**
@@ -602,9 +535,7 @@ Görev hataları kategorileri şunlardır:
 
     Maksimum süre aşıldığında görev *tamamlandı* olarak işaretlenir ancak çıkış kodu `0xC000013A` olarak ayarlanır ve *schedulingError* alanı `{ category:"ServerError", code="TaskEnded"}` olarak işaretlenir.
 
-<a id="debugging-application-failures" class="xliff"></a>
-
-### Uygulama hatalarını ayıklama
+### <a name="debugging-application-failures"></a>Uygulama hatalarını ayıklama
 * `stderr` ve `stdout`
 
     Yürütme sırasında bir uygulama, sorunları gidermek için kullanabileceğiniz tanılama çıktıları üretebilir. Önceki [Dosyalar ve dizinler](#files-and-directories) bölümünde belirtildiği gibi, Batch hizmeti işlem düğümündeki görev dizininde yer alan `stdout.txt` ve `stderr.txt` dosyalarına standart çıktı ve standart hata çıktısı yazar. Bu dosyaları indirmek için Azure portalını veya toplu SDK'lardan birini kullanabilirsiniz. Örneğin, Batch .NET kitaplığındaki [ComputeNode.GetNodeFile][net_getfile_node] ve [CloudTask.GetNodeFile][net_getfile_task] öğelerini kullanarak bu dosyaları ve diğer dosyaları sorun giderme amacıyla alabilirsiniz.
@@ -613,16 +544,12 @@ Görev hataları kategorileri şunlardır:
 
     Daha önce belirtildiği gibi, görev tarafından yürütülen işlem sıfır olmayan bir çıkış kodu döndürürse görev Batch hizmeti tarafından başarısız olarak işaretlenir. Bir görev bir işlemi yürüttüğünde Batch, görevin çıkış kodu özelliğini *işlemin dönüş kodu* ile doldurur. Bir görevin çıkış kodunun Batch hizmeti tarafından **belirlenmediğine** dikkat etmeniz önemlidir. Bir görevin çıkış kodu işlemin kendisi ya da işlemin yürütüldüğü işletim sistemi tarafından belirlenir.
 
-<a id="accounting-for-task-failures-or-interruptions" class="xliff"></a>
-
-### Görev hataları veya kesintilerinin sebepleri
+### <a name="accounting-for-task-failures-or-interruptions"></a>Görev hataları veya kesintilerinin sebepleri
 Görevler zaman zaman başarısız olabilir veya kesintiye uğrayabilir. Görevin kendisi başarısız olabilir, görevin üzerinde çalıştığı düğüm yeniden başlatılabilir ya da havuzun ayırmayı kaldırma ilkesi görevin bitmesini beklemeden düğümleri kaldırmak üzere ayarlandıysa, yeniden boyutlandırma işlemi sırasında düğüm havuzdan kaldırılabilir. Her durumda, görev başka bir düğümde yürütülmek üzere Batch tarafından otomatik olarak yeniden kuyruğa alınabilir.
 
 Aralıklı bir sorunun görevin askıda kalmasına ya da yürütülmesinin uzun sürmesine neden olması mümkündür. Bir görev için en fazla yürütme aralığını ayarlayabilirsiniz. Maksimum yürütme aralığı aşılırsa Batch hizmeti görev uygulamasını kesintiye uğratır.
 
-<a id="connecting-to-compute-nodes" class="xliff"></a>
-
-### İşlem düğümlerine bağlanma
+### <a name="connecting-to-compute-nodes"></a>İşlem düğümlerine bağlanma
 Bir işlem düğümünde uzaktan oturum açarak ek hata ayıklama ve sorun giderme işlemlerini gerçekleştirebilirsiniz. Windows düğümleri için bir Uzak Masaüstü Protokolü (RDP) dosyası indirmek ve Linux düğümleri için Güvenli Kabuk (SSH) bağlantı bilgilerini elde etmek üzere Azure portalını kullanabilirsiniz. Bu işlemi Batch API’lerini kullanarak da yapabilirsiniz; örneğin, [Batch .NET][net_rdpfile] veya [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) ile.
 
 > [!IMPORTANT]
@@ -630,9 +557,7 @@ Bir işlem düğümünde uzaktan oturum açarak ek hata ayıklama ve sorun gider
 >
 >
 
-<a id="troubleshooting-problematic-compute-nodes" class="xliff"></a>
-
-### Sorunlu işlem düğümleriyle ilgili sorunları giderme
+### <a name="troubleshooting-problematic-compute-nodes"></a>Sorunlu işlem düğümleriyle ilgili sorunları giderme
 Bazı görevlerinizin başarısız olduğu durumlarda, Batch istemci uygulamanız ya da hizmetiniz, hatalı davranan düğümü tanımlamak üzere başarısız görevlerin meta verilerini inceleyebilir. Bir havuzdaki her düğüme benzersiz bir kimlik verilir ve bir görevin çalıştığı düğüm görev meta verilerine eklenir. Bir sorun düğümünü tanımladıktan sonra bununla birkaç eylem gerçekleştirebilirsiniz:
 
 * **Düğümü yeniden başlatma** ([REST][rest_reboot] | [.NET][net_reboot])
@@ -653,9 +578,7 @@ Bazı görevlerinizin başarısız olduğu durumlarda, Batch istemci uygulamanı
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Batch çözümleri oluşturmak için kullanılabilen [Batch API’leri ve araçları](batch-apis-tools.md) hakkında bilgi alın.
 * [.NET için Azure Batch Kitaplığını kullanmaya başlama](batch-dotnet-get-started.md) bölümünde örnek bir Batch uygulaması hakkında adım adım yönergeler alın. Öğreticinin ayrıca Linux işlem düğümleri üzerinde iş yükü çalıştıran bir [Python sürümü](batch-python-tutorial.md) vardır.
 * Batch çözümlerinizi geliştirirken kullanmak üzere [Batch Gezgini][github_batchexplorer] örnek projesini indirin ve derleyin. Batch Explorer’ı kullanarak, aşağıdakileri ve daha fazlasını gerçekleştirebilirsiniz:
