@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 07/14/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: d1e513933ea647a1afe9a4eb214bb9216d3bb20a
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="expressroute-overview"></a>ExpressRoute'a genel bakış
