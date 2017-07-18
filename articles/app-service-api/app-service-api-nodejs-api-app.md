@@ -20,18 +20,13 @@ ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/28/2017
 
-
 ---
-<a id="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure" class="xliff"></a>
-
-# Node.js RESTful API’si derleme ve Azure’daki bir API uygulamasına dağıtma
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Node.js RESTful API’si derleme ve Azure’daki bir API uygulamasına dağıtma
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 Bu hızlı başlangıçta, [Swagger](http://swagger.io/) tanımından [Express](http://expressjs.com/) çerçevesi Node.js REST API’sinin nasıl oluşturulacağı ve bunun Azure’da [API uygulaması](app-service-api-apps-why-best-platform.md) olarak nasıl dağıtılacağı gösterilmiştir. Komut satırı araçlarını kullanarak uygulamayı oluşturur, [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) ile kaynakları yapılandırır ve Git kullanarak uygulamayı dağıtırsınız.  İşiniz bittiğinde, Azure’da çalışan bir REST API örneğiniz olur.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 * [Git](https://git-scm.com/)
 * [Node.js ve NPM](https://nodejs.org/)
@@ -42,9 +37,7 @@ Bu hızlı başlangıçta, [Swagger](http://swagger.io/) tanımından [Express](
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.0 veya sonraki bir sürümünü kullanmanızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-<a id="prepare-your-environment" class="xliff"></a>
-
-## Ortamınızı hazırlama
+## <a name="prepare-your-environment"></a>Ortamınızı hazırlama
 
 1. Bir terminal penceresinde, aşağıdaki komutu çalıştırarak örneği yerel makinenize kopyalayın.
 
@@ -65,9 +58,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.
     npm install -g generator-swaggerize
     ```
 
-<a id="generate-nodejs-code" class="xliff"></a>
-
-## Node.js kodu oluşturma 
+## <a name="generate-nodejs-code"></a>Node.js kodu oluşturma 
 
 Öğreticinin bu bölümü, içinde ilk olarak Swagger meta verilerini oluşturduğunuz ve bunları API sunucu kodunun iskelesini kurmak (otomatik oluşturmak) için kullandığınız bir API geliştirme iş akışını modeller. 
 
@@ -89,9 +80,7 @@ Dizini *başlat* klasörü olarak değiştirin, ardından `yo swaggerize` öğes
    ? Your email: frank@fabrikam.net
    ```
    
-<a id="customize-the-project-code" class="xliff"></a>
-
-## Proje kodunu özelleştirme
+## <a name="customize-the-project-code"></a>Proje kodunu özelleştirme
 
 1. *lib* klasörünü, `yo swaggerize` tarafından oluşturulan *ContactList* klasörüne kopyalayın, ardından dizini *ContactList* ile değiştirin.
 
@@ -149,6 +138,9 @@ Dizini *başlat* klasörü olarak değiştirin, ardından `yo swaggerize` öğes
     var swaggerize = require('swaggerize-express');
     var swaggerUi = require('swaggerize-ui'); 
     var path = require('path');
+    var fs = require("fs");
+    
+    fs.existsSync = fs.existsSync || require('path').existsSync;
 
     var app = express();
 
@@ -173,9 +165,7 @@ Dizini *başlat* klasörü olarak değiştirin, ardından `yo swaggerize` öğes
 
     Bu kod, Azure App Service ile çalışmasını sağlamak için birkaç küçük değişiklik yapar ve API’niz için etkileşimli bir web arabirimini kullanıma sunar.
 
-<a id="test-the-api-locally" class="xliff"></a>
-
-### API’yi yerel olarak test etme
+### <a name="test-the-api-locally"></a>API’yi yerel olarak test etme
 
 1. Node.js uygulamasını başlatma
     ```bash
@@ -239,9 +229,7 @@ Bu bölümde, API’yi Azure App Service'te barındırmak için gereken kaynakla
 5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 
-<a id="deploy-the-api-with-git" class="xliff"></a>
-
-## API’yi Git ile dağıtma
+## <a name="deploy-the-api-with-git"></a>API’yi Git ile dağıtma
 
 İşlemeleri yerel Git deponuzdan Azure App Service’e ileterek kodunuzu API uygulamasına dağıtırsınız.
 
@@ -268,9 +256,7 @@ Bu bölümde, API’yi Azure App Service'te barındırmak için gereken kaynakla
 
 5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
-<a id="test-the-api--in-azure" class="xliff"></a>
-
-## Azure'da API’yi test etme
+## <a name="test-the-api--in-azure"></a>Azure'da API’yi test etme
 
 1. Tarayıcıda http://app_name.azurewebsites.net/contacts adresini açın. Öğreticide daha önce yerel olarak istek yaptığınızda gördüğünüz JSON’un döndürüldüğünü göreceksiniz.
 
@@ -298,9 +284,7 @@ Bu bölümde, API’yi Azure App Service'te barındırmak için gereken kaynakla
 
     Artık işlemleri Azure Git deposuna ileterek örnek API güncelleştirmelerini Azure’a dağıtabilirsiniz.
 
-<a id="clean-up" class="xliff"></a>
-
-## Temizleme
+## <a name="clean-up"></a>Temizleme
 
 Bu hızlı başlangıçta oluşturulan kaynakları kaldırmak için şu Azure CLI komutunu çalıştırın:
 
@@ -308,9 +292,7 @@ Bu hızlı başlangıçta oluşturulan kaynakları kaldırmak için şu Azure CL
 az group delete --name myResourceGroup
 ```
 
-<a id="next-step" class="xliff"></a>
-
-## Sonraki adım 
+## <a name="next-step"></a>Sonraki adım 
 > [!div class="nextstepaction"]
 > [CORS ile JavaScript istemcilerinden API uygulamalarını kullanma](app-service-api-cors-consume-javascript.md)
 
