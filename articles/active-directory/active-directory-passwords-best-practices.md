@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -22,11 +22,9 @@ ms.openlocfilehash: 5f3900aef2b432527454da72f3ff15e533543758
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/07/2017
 
-
 ---
-<a id="roll-out-password-reset-for-users" class="xliff"></a>
-
 # Kullanıcılar için parola sıfırlamayı kullanıma sunma
+<a id="roll-out-password-reset-for-users" class="xliff"></a>
 
 Çoğu müşteri, SSPR işlevini sorunsuzca kullanıma sunmak için aşağıdaki adımları izlemelidir.
 
@@ -43,9 +41,8 @@ ms.lasthandoff: 06/07/2017
 8. Herhangi bir noktada kayıt yapılmasını zorunlu hale getirebilir ve kullanıcıların belirli bir süre sonra kimlik doğrulama bilgilerini yeniden onaylamasını isteyebilirsiniz. Kullanıcılarınız için kaydolmayı zorunlu tutmak istemiyorsanız, [son kullanıcı kaydı istemeden parola sıfırlamayı dağıtabilirsiniz](active-directory-passwords-data.md).
 9. Zaman geçtikçe, [Azure AD tarafından sağlanan raporları](active-directory-passwords-reporting.md) görüntüleyerek kullanıcılarınızın kayıt işlemlerini ve kullanımını gözden geçirin.
 
-<a id="email-based-rollout" class="xliff"></a>
-
 ## E-posta tabanlı kullanıma sunma
+<a id="email-based-rollout" class="xliff"></a>
 
 Birçok müşteri için kullanıcılarının SSPR kullanmaya başlamasının en kolay yolu, kullanımı kolay yönergeler sağlayan bir e-posta kampanyasıdır. [Kullanıma sunma işleminizde şablon olarak kullanabileceğiniz üç basit e-posta oluşturduk.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
@@ -53,9 +50,8 @@ Birçok müşteri için kullanıcılarının SSPR kullanmaya başlamasının en 
 * **Şimdi Kullanılabilir** e-posta şablonu, kullanıcıları gerektiğinde SSPR kullanabilmek için kaydolmaya ve kimlik doğrulama verilerini onaylamaya yönlendirmek üzere kullanıma sunma gününde kullanılır.
 * **Kaydolma Anımsatıcısı** e-posta şablonu, kullanıcılara kaydolmayı ve kimlik doğrulama verilerini onaylamayı anımsatmak üzere dağıtımdan sonraki birkaç gün veya hafta sonra gönderilir.
 
-<a id="creating-your-own-password-portal" class="xliff"></a>
-
 ## Kendi parola portalınızı oluşturma
+<a id="creating-your-own-password-portal" class="xliff"></a>
 
 Büyük müşterilerimizin birçoğu web sayfası barındırmayı ve https://passwords.contoso.com gibi bir kök DNS girişi oluşturmayı seçer. Bu sayfayı Azure AD parola sıfırlama bağlantıları, parolama sıfırlama kaydı, parola değiştirme portalları ve kuruluşa özel diğer bilgilerle doldurur. Bu sayede, gönderdiğiniz herhangi bir e-posta yazışmasına veya ilanlara kullanıcıların hizmetleri kullanmak gerektiğinde gidebileceği işaretli ve akılda kalıcı bir URL ekleyebilirsiniz.
 
@@ -63,9 +59,8 @@ Büyük müşterilerimizin birçoğu web sayfası barındırmayı ve https://pas
 * Parola sıfırlama kayıt portalı - http://aka.ms/ssprsetup
 * Parola değiştirme portalı - https://account.activedirectory.windowsazure.com/ChangePassword.aspx
 
-<a id="using-enforced-registration" class="xliff"></a>
-
 ## Zorunlu kayıt kullanma
+<a id="using-enforced-registration" class="xliff"></a>
 
 Kullanıcıların parola sıfırlama için kaydolmasını istiyorsanız, kullanıcıları Azure AD kullanarak oturum açtıklarında kaydolmaya zorlayabilirsiniz. Dizininizin **Parola sıfırlama** dikey penceresindeki **Kayıt** sekmesinden **Kullanıcılardan Oturum Açarken Kaydolmalarını İste** seçeneğini belirleyerek bu seçeneği etkinleştirebilirsiniz.
 
@@ -73,21 +68,18 @@ Yöneticiler, **Kullanıcıların kimlik doğrulama bilgilerini yeniden onaylama
 
 Bu seçeneği etkinleştirdikten sonra, oturum açan kullanıcılar, kimlik doğrulama bilgilerini onaylamaları yönünde bir yönetici talebi olduğunu bildiren iletiyi görür.
 
-<a id="populate-authentication-data" class="xliff"></a>
-
 ## Kimlik doğrulama verilerini doldurma
+<a id="populate-authentication-data" class="xliff"></a>
 
 [Kullanıcılarınızın kimlik doğrulama verilerini doldurursanız](active-directory-passwords-data.md), kullanıcıların SSPR kullanabilmek için parola sıfırlamaya kaydolması gerekmez. Kullanıcıların tanımlanmış kimlik doğrulama verileri sizin tanımladığınız parola sıfırlama ilkesini karşılıyorsa, kullanıcılar parolalarını sıfırlayabilir.
 
-<a id="disabling-self-service-password-reset" class="xliff"></a>
-
 ## Self servis parola sıfırlamayı devre dışı bırakma
+<a id="disabling-self-service-password-reset" class="xliff"></a>
 
 Self servis parola sıfırlama özelliğini devre dışı bırakmak için Azure AD kiracınızı açıp **Parola Sıfırlama**, **Özellikler** menüsüne gidin ve **Self Servis Parola Sıfırlama Etkinleştirildi** altından **Hiç Kimse**’yi seçin
 
-<a id="next-steps" class="xliff"></a>
-
 ## Sonraki adımlar
+<a id="next-steps" class="xliff"></a>
 
 Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek bilgiler sağlar
 
