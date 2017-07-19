@@ -10,6 +10,8 @@ Bağlanılacak sanal cihaz uygulamanız için bir IoT Hub oluşturun. Aşağıda
     ![IOT hub'ı dikey penceresi][2]
    
    1. **Ad** kutusunda IoT hub'ınız için bir ad girin. **Ad** geçerli ve kullanılabilirse **Ad** kutusunun yanında yeşil bir onay işareti görünür.
+    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+   
    1. Bir [fiyatlandırma ve ölçek katmanı][lnk-pricing] seçin. Bu öğretici için belirli bir katman gerekmez. Bu öğretici için ücretsiz F1 katmanını kullanın.
    1. **Kaynak grubunda** bir kaynak grubu oluşturun veya var olan bir kaynak grubunu seçin. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma][lnk-resource-groups].
    1. **Konum**'da IoT hub'ınızı barındıracak konumu seçin. Bu öğretici için en yakın konumunuzu seçin.

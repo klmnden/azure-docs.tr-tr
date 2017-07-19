@@ -1,23 +1,23 @@
 ---
-title: "Eşitleme için Azure AD Connect Health&quot;i kullanma| Microsoft Belgeleri"
+title: "Eşitleme için Azure AD Connect Health'i kullanma| Microsoft Belgeleri"
 description: "Bu Azure AD Connect Health sayfasında, Azure AD Connect eşitlemesinin nasıl izleneceği ele alınmıştır."
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: samueld
-editor: curtand
+manager: femila
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
-ms.author: vakarand
+ms.date: 07/18/2017
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
 ms.openlocfilehash: f5d5f238f8f57c8dcf7a3759274f9d565e73ecce
+ms.contentlocale: tr-tr
 ms.lasthandoff: 02/28/2017
 
 ---

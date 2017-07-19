@@ -1,6 +1,4 @@
-<a id="create-a-device-identity" class="xliff"></a>
-
-## Cihaz kimliği oluşturma
+## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
 Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluşturan bir .NET konsol uygulaması oluşturursunuz. Kimlik kayıt defterinde girişi olmayan bir cihaz IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub geliştirici kılavuzunun][lnk-devguide-identity] "Kimlik kayıt defteri" bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur. Cihaz Kimlikleri büyük/küçük harfe duyarlıdır.
 
 1. Visual Studio’da **Konsol Uygulaması (.NET Framework)** proje şablonunu kullanarak yeni bir çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. .NET Framework sürümünün 4.5.1 veya sonraki bir sürüm olduğundan emin olun. Projeyi **CreateDeviceIdentity** ve çözümü **IoTHubGetStarted** olarak adlandırın.
@@ -36,6 +34,8 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluştu
         }
    
     Bu yöntem, **myFirstDevice** kimliği ile bir cihaz kimliği oluşturur. (Bu cihaz kimliği, kimlik kayıt defterinde zaten varsa, kod yalnızca mevcut cihaz bilgilerini alır.) Bu durumda uygulama, bu kimliğin birincil anahtarını görüntüler. IoT hub'ınıza bağlanmak için sanal cihaz uygulamasında bu anahtarı kullanırsınız.
+[!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
+
 7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
