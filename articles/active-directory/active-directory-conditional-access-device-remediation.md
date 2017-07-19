@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 4d7704c03bece51957efa2a56577b8808cc62c79
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/08/2017
 
-
 ---
-# Bir Windows cihazında bu uygulamaya buradan erişemezsiniz
-<a id="you-cant-get-there-from-here-on-a-windows-device" class="xliff"></a>
+# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Bir Windows cihazında bu uygulamaya buradan erişemezsiniz
 
 Örneğin, kuruluşunuzun SharePoint Online intranetine erişim denemesi sırasında, *bu uygulamaya buradan erişemezsiniz* ifadesini içeren bir sayfa ile karşılaşabilirsiniz. Bu sayfayı görmenizin nedeni, yöneticinizin bazı koşullarda kuruluşunuza ait kaynaklara erişimi engelleyen bir koşullu erişim ilkesi yapılandırmış olmasıdır. Bu sorunu çözmek için yardım masası veya yöneticinize başvurmanız gerekli olabilse de, ilk olarak kendi başınıza deneyebileceğiniz birkaç çözüm vardır.
 
@@ -40,8 +39,7 @@ ms.lasthandoff: 07/08/2017
 
 
 
-## Desteklenen tarayıcı
-<a id="supported-browser" class="xliff"></a>
+## <a name="supported-browser"></a>Desteklenen tarayıcı
 
 Yöneticiniz bir koşullu erişim ilkesi yapılandırdıysa, kuruluşunuzun kaynaklarına yalnızca desteklenen bir tarayıcı kullanarak erişebilirsiniz. Bir Windows cihazda yalnızca **Internet Explorer** ve **Edge** desteklenir.
 
@@ -52,8 +50,7 @@ Hata sayfasının ayrıntılar bölümüne bakarak, bir kaynağa erişememe nede
 Tek düzeltme seçeneği, cihaz platformunuz için uygulamanın desteklediği bir tarayıcı kullanılmasıdır. Desteklenen tarayıcıların tam listesi için bkz. [desteklenen tarayıcılar](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies).  
 
 
-## Desteklenen Windows sürümleri
-<a id="supported-versions-of-windows" class="xliff"></a>
+## <a name="supported-versions-of-windows"></a>Desteklenen Windows sürümleri
 
 Cihazınızda Windows işletim sistemi ile ilgili aşağıdakilerin doğru olması gerekir: 
 
@@ -61,8 +58,7 @@ Cihazınızda Windows işletim sistemi ile ilgili aşağıdakilerin doğru olmas
 - Cihazınızda bir Windows sunucu işletim sistemi çalıştırıyorsanız, sürümü Windows Server 2008 R2 veya üzeri olmalıdır. 
 
 
-## Uyumlu cihaz
-<a id="compliant-device" class="xliff"></a>
+## <a name="compliant-device"></a>Uyumlu cihaz
 
 Yöneticiniz, kuruluşunuzun kaynaklarına yalnızca uyumlu cihazlardan erişim izni veren bir koşullu erişim ilkesi yapılandırmış olabilir. Cihazınızın uyumlu olması için şirket içi Active Directory’nize katılmış veya Azure Active Directory’nize katılmış olması gerekir.
 
@@ -71,8 +67,7 @@ Hata sayfasının ayrıntılar bölümüne bakarak, bir kaynağa erişememe nede
 ![Kaydedilmemiş cihazlar için "Oraya buradan ulaşamazsınız" iletileri](./media/active-directory-conditional-access-device-remediation/01.png "Senaryo")
 
 
-### Cihazınız şirket içi Active Directory'ye katılmış mı?
-<a id="is-your-device-joined-to-an-on-premises-active-directory" class="xliff"></a>
+### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>Cihazınız şirket içi Active Directory'ye katılmış mı?
 
 **Cihazınız, şirket içi Active Directory’ye katılmışsa:**
 
@@ -84,8 +79,7 @@ Hata sayfasının ayrıntılar bölümüne bakarak, bir kaynağa erişememe nede
 6. Aynı sayfayı görürseniz **More details** (Diğer ayrıntılar) bağlantısına tıklayın ve ardından, bu ayrıntılarla birlikte yöneticinizle iletişime geçin.
 
 
-### Cihazınız şirket içi Active Directory'ye katılmamış mı?
-<a id="is-your-device-not-joined-to-an-on-premises-active-directory" class="xliff"></a>
+### <a name="is-your-device-not-joined-to-an-on-premises-active-directory"></a>Cihazınız şirket içi Active Directory'ye katılmamış mı?
 
 Cihazınız şirket içi Active Directory'ye katılmamışsa ve Windows 10 çalıştırıyorsa, iki seçeneğiniz vardır:
 
@@ -100,8 +94,7 @@ Cihazınız:
 
 
 
-#### Windows 10’da Azure AD Join
-<a id="azure-ad-join-on-windows-10" class="xliff"></a>
+#### <a name="azure-ad-join-on-windows-10"></a>Windows 10’da Azure AD Join
 
 Cihazınızı Azure AD’ye ekleme adımları, çalıştırdığınız Windows 10 sürümüne bağlıdır. Windows 10 işletim sisteminizin sürümünü belirlemek için **winver** komutunu çalıştırın: 
 
@@ -128,8 +121,7 @@ Cihazınızı Azure AD’ye ekleme adımları, çalıştırdığınız Windows 1
 6. Uygulamaya erişmeyi tekrar deneyin.
 
 
-#### Windows 8.1’de Workplace Join
-<a id="workplace-join-on-windows-81" class="xliff"></a>
+#### <a name="workplace-join-on-windows-81"></a>Windows 8.1’de Workplace Join
 
 Cihazınız etki alanına katılmamışsa ve Windows 8.1 çalıştırıyorsa Workplace Join özelliğini kullanmak ve Microsoft Intune'a kaydolmak için şu adımları uygulayın:
 
@@ -142,8 +134,7 @@ Cihazınız etki alanına katılmamışsa ve Windows 8.1 çalıştırıyorsa Wor
 
 
 
-#### Windows'a iş veya okul hesabınızı eklemek
-<a id="add-your-work-or-school-account-to-windows" class="xliff"></a> 
+#### <a name="add-your-work-or-school-account-to-windows"></a>Windows'a iş veya okul hesabınızı eklemek 
 
 
 **Windows 10 Yıldönümü Güncelleştirmesi (Sürüm 1607):**
@@ -167,8 +158,7 @@ Cihazınız etki alanına katılmamışsa ve Windows 8.1 çalıştırıyorsa Wor
 
 
 
-## Sonraki adımlar
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Sonraki adımlar
 [Azure Active Directory koşullu erişimi](active-directory-conditional-access.md)
 
 

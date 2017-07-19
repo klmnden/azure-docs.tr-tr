@@ -94,6 +94,8 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği olu
       }
     }
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 7. **CreateDeviceIdentity.js** dosyasını kaydedin ve kapatın.
 8. **createdeviceidentity** uygulamasını çalıştırmak için, createdeviceidentity klasöründeki komut isteminde aşağıdaki komutu yürütün:
    
