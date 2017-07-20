@@ -3,7 +3,7 @@ title: "Mobile Services kullanıyorum, App Service bana nasıl yardımcı olur?"
 description: "App Service’in mevcut Mobile Services projelerinize sağladığı avantajları öğrenin."
 services: app-service\mobile
 documentationcenter: ios
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
@@ -19,7 +19,6 @@ ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/10/2017
-
 
 ---
 # <a name="getting-started"> </a>Mobile Services kullanıyorum, App Service bana nasıl yardımcı olur?
@@ -65,5 +64,4 @@ Arka ucunuzu ve veritabanınızı otomatik olarak yedekleyin. Kodunuz ve veriler
 *Azure App Service* ile artık mobil uygulamalarınız için birden fazla özel test ve hazırlık ortamı oluşturabilirsiniz. Dağıtmadan önce, bunları test gerçekleştirmek için kullanın. Kesinti süresi olmaksızın üretime geçin. Web uygulamaları, en iyi müşteri deneyimi sağlayacak şekilde önceden yüklenmiştir.
 
 Bu [öğreticiyi](app-service-mobile-migrating-from-mobile-services.md) izleyerek mevcut Mobil Hizmetiniz için *App Service* avantajından yararlanmaya başlayabilirsiniz.
-
 
