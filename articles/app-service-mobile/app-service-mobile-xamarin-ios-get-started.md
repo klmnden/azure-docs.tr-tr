@@ -3,7 +3,7 @@ title: "Xamarin iOS uygulamaları için Azure Uygulama Hizmeti Mobile Apps’i K
 description: "Xamarin.iOS geliştirme için Mobile Apps kullanmaya başlamak için bu öğreticiyi izleyin."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: ed289d0755bbad08de01b0f311d14f5514ce0631
+ms.contentlocale: tr-tr
 ms.lasthandoff: 02/17/2017
-
 
 ---
 # <a name="create-a-xamarinios-app"></a>Yeni bir Xamarin.iOS uygulaması oluşturma
@@ -38,8 +38,8 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız ger
 
 > [!NOTE]
 > Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/mobile/)’e gidin. App Service’de hemen kısa süreli, başlangıç niteliğinde bir mobil uygulama oluşturabilirsiniz. Kredi kartına veya herhangi bir taahhüt verilmesine gerek yoktur.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Azure Mobil Uygulama arka ucu oluşturma
 Mobil Uygulama arka ucu oluşturmak için bu adımları izleyin.
@@ -56,24 +56,24 @@ Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırma
 ## <a name="download-and-run-the-xamarinios-app"></a>Xamarin iOS uygulamasını indirme ve çalıştırma
 1. Bir tarayıcı penceresine [Azure portal]’ı açın.
 2. Mobil Uygulamanızın dikey penceresinde, **Kullanmaya Başlama** > **Xamarin.iOS**.’a tıklayın. 3. adımın altında, henüz seçili değilse **Yeni uygulama oluştur**’a tıklayın.  Sonra **İndir** düğmesine tıklayın.
-   
+
       Mobil arka ucunuza bağlanan istemci uygulaması indirilir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
 3. İndirdiğiniz projeyi çıkarın ve Xamarin Studio veya Visual Studio'da açın.
-   
+
     ![][9]
-   
+
     ![][8]
 4. F5 tuşuna basarak projeyi oluşturun ve uygulamayı iPhone öykünücüsünde başlatın.
 5. Uygulamada, *Xamarin öğren* gibi anlamlı bir metin yazın ve ardından **+** düğmesine tıklayın.
-   
+
     ![][10]
-   
+
     İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil uygulama arka ucu tarafından döndürülür ve veriler listede görüntülenir.
 
 > [!NOTE]
 > Sorgulamak ve QSTodoService.cs C# dosyasına veri eklemek için, mobil uygulamanızın arka ucuna erişen kodu gözden geçirebilirsiniz.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Uygulamanıza Çevrimdışı Eşitleme ekleme](app-service-mobile-xamarin-ios-get-started-offline-data.md)

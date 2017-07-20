@@ -3,7 +3,7 @@ title: "Xamarin.Android uygulamaları için Azure Mobile Apps kullanmaya başlam
 description: "Xamarin Android geliştirme için Azure Mobile Apps’i kullanmaya başlamak için bu öğreticiden yararlanın"
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
+ms.contentlocale: tr-tr
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinandroid-app"></a>Xamarin.Android Uygulaması oluşturma
@@ -41,8 +41,8 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız ger
 
 > [!NOTE]
 > Azure hesabı için kaydolmadan önce Azure Uygulama Hizmeti’ni kullanmaya başlamak istiyorsanız [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/mobile/)’e gidin.  App Service’de hemen kısa süreli, başlangıç niteliğinde bir Mobil Uygulama oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Azure Mobil Uygulama arka ucu oluşturma
 Mobil Uygulama arka ucu oluşturmak için bu adımları izleyin.
@@ -56,19 +56,19 @@ Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure 
 
 ## <a name="download-and-run-the-xamarinandroid-app"></a>Xamarin Android uygulamasını indirme ve çalıştırma
 1. Altında **Xamarin.Android projenizi indirme ve çalıştırma** altında **İndir**’e tıklayın.
-   
+
       Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
 2. Projeyi oluşturmak ve uygulamayı başlatmak için **F5** tuşuna basın.
 3. Uygulamada, *Öğreticiyi tamamla* gibi anlamlı bir metin yazın ve ardından **Ekle** düğmesine basın.
-   
+
     ![][10]
-   
+
     İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil uygulama arka ucu tarafından döndürülür ve veriler listede görüntülenir.
-   
+
    > [!NOTE]
    > Sorgulamak ve ToDoActivity.cs C# dosyasında bulunan verileri eklemek için, mobil uygulamanızın arka ucuna erişen kodu gözden geçirebilirsiniz.
-   > 
-   > 
+   >
+   >
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Uygulamanıza Çevrimdışı Eşitleme ekleme](app-service-mobile-xamarin-android-get-started-offline-data.md)

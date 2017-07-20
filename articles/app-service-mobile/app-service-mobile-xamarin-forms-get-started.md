@@ -3,7 +3,7 @@ title: "Xamarin.Forms ile Mobile Apps’i kullanmaya başlama"
 description: "Xamarin.Forms geliştirme için Azure Mobile Apps kullanmaya başlamak için bu öğreticiyi izleyin."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 6b8c5c2ac2e721c4d6f73c7c17f34eadc041e0c9
+ms.contentlocale: tr-tr
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinforms-app"></a>Xamarin.Forms uygulaması oluşturma
@@ -33,13 +33,13 @@ Bu öğreticiyi tamamlamak Xamarin.Forms uygulamalarına ilişkin tüm Mobile Ap
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, Azure deneme sürümünü kaydolabilir ve deneme süresi bittikten sonra dahi kullanmaya devam edebileceğiniz 10 ücretsiz Mobil Uygulama edinebilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/).
-* Xamarin ile Visual Studio. Yönergeler için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx). 
+* Xamarin ile Visual Studio. Yönergeler için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx).
 * Xcode v7.0 veya daha sonraki sürümü ve Xamarin Studio Community yüklü bir Mac. Bkz. [Visual Studio ve Xamarin için kurulum ve yükleme](https://msdn.microsoft.com/library/mt613162.aspx) ve [Mac kullanıcıları için kurulum, yükleme ve doğrulamalar](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 > [!NOTE]
 > Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’de hemen kısa süreli bir başlangıç Mobil Uygulama oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/mobile/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
-> 
-> 
+>
+>
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Yeni bir Azure Mobil Uygulama arka ucu oluşturma
 Yeni Mobil Uygulama arka ucu oluşturmak için bu adımları izleyin.
@@ -60,12 +60,12 @@ Burada birkaç seçeneğiniz vardır. Çözümü bir Mac’e indirebilir ve Xama
 
 1. Mac veya Windows bilgisayarınızda, ir tarayıcı penceresinde [Azure Portal]’ı açın.
 2. Mobil uygulamanızın dikey penceresinde, **Kullanmaya Başlama** (Mobil altında) > **Xamarin.Forms**’a tıklayın. 3. Adım altında, henüz seçili değilse, **Yeni uygulama oluştur**’u seçin.  Sonra **İndir** düğmesine tıklayın.
-   
+
    Bu, mobil uygulamanıza bağlı olan istemci uygulaması içeren bir projeyi indirir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
 3. İndirdiğiniz projeyi çıkarın ve Xamarin Studio veya Visual Studio'da açın.
-   
+
    ![][9]
-   
+
    ![][8]
 
 ## <a name="optional-run-the-ios-project"></a>(İsteğe bağlı) iOS projesi çalıştırma
@@ -80,11 +80,11 @@ Bu bölüm iOS cihazları için Xamarin iOS projesi çalıştırmaya yöneliktir
 2. **Yapı** menüsünde, **Yapılandırma Yöneticisi**’ne tıklayın.
 3. **Yapılandırma Yöneticisi** iletişim kutusunda, iOS projesine ait **Yapı** ve **Dağıt** onay kutularını seçin.
 4. **F5** tuşuna basarak projeyi oluşturun ve uygulamayı iPhone öykünücüsünde başlatın.
-   
+
    > [!NOTE]
    > Oluşturma sorunları varsa, NuGet paket yöneticisini çalıştırın ve Xamarin destek paketlerinin en son sürümüne güncelleştirin. Bazen Hızlı Başlangıç projeleri son sürüme güncelleştirilirken geri kalabilir.    
-   > 
-   > 
+   >
+   >
 
 Uygulamada, *Xamarin öğren* gibi anlamlı bir metin yazın ve ardından **+** düğmesine tıklayın.
 
@@ -94,8 +94,8 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
 
 > [!NOTE]
 > Çözümünüzün taşınabilir sınık kitaplık projesinin .TodoItemManager.cs C# dosyasında mobil uygulamanızın arka ucuna erişen kodu bulacaksınız.
-> 
-> 
+>
+>
 
 ## <a name="optional-run-the-android-project"></a>(İsteğe bağlı) Android projesi çalıştırma
 Bu bölüm Android cihazları için Xamarin Android projesi çalıştırmaya yöneliktir. Android cihazlarıyla çalışmıyorsanız, bu bölümü atlayabilirsiniz.
@@ -109,11 +109,11 @@ Bu bölüm Android cihazları için Xamarin Android projesi çalıştırmaya yö
 2. **Yapı** menüsünde, **Yapılandırma Yöneticisi**’ne tıklayın.
 3. **Yapılandırma Yöneticisi** iletişim kutusunda, Android projesine ait **Yapı** ve **Dağıt** onay kutularını seçin.
 4. **F5** tuşuna basarak projeyi oluşturun ve uygulamayı Android öykünücüsünde başlatın.
-   
+
    > [!NOTE]
    > Oluşturma sorunları varsa, NuGet paket yöneticisini çalıştırın ve Xamarin destek paketlerinin en son sürümüne güncelleştirin. Bazen Hızlı Başlangıç projeleri son sürüme güncelleştirilirken geri kalabilir.    
-   > 
-   > 
+   >
+   >
 
 Uygulamada, *Xamarin öğren* gibi anlamlı bir metin yazın ve ardından **+** düğmesine tıklayın.
 
@@ -123,8 +123,8 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
 
 > [!NOTE]
 > Çözümünüzün taşınabilir sınık kitaplık projesinin .TodoItemManager.cs C# dosyasında mobil uygulamanızın arka ucuna erişen kodu bulacaksınız.
-> 
-> 
+>
+>
 
 ## <a name="optional-run-the-windows-project"></a>(İsteğe bağlı) Windows projesi çalıştırma
 Bu bölüm Windows cihazları için Xamarin WinApp projesi çalıştırmaya yöneliktir. Windows cihazlarıyla çalışmıyorsanız, bu bölümü atlayabilirsiniz.
@@ -134,11 +134,11 @@ Bu bölüm Windows cihazları için Xamarin WinApp projesi çalıştırmaya yön
 2. **Yapı** menüsünde, **Yapılandırma Yöneticisi**’ne tıklayın.
 3. **Yapılandırma Yöneticisi** iletişim kutusunda, seçtiğiniz Windows projesine ait **Yapı** ve **Dağıt** onay kutularını seçin.
 4. **F5** tuşuna basarak projeyi oluşturun ve uygulamayı Windows öykünücüsünde başlatın.
-   
+
    > [!NOTE]
    > Oluşturma sorunları varsa, NuGet paket yöneticisini çalıştırın ve Xamarin destek paketlerinin en son sürümüne güncelleştirin. Bazen Hızlı Başlangıç projeleri son sürüme güncelleştirilirken geri kalabilir.    
-   > 
-   > 
+   >
+   >
 
 Uygulamada, *Xamarin öğren* gibi anlamlı bir metin yazın ve ardından **+** düğmesine tıklayın.
 
@@ -148,8 +148,8 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
 
 > [!NOTE]
 > Çözümünüzün taşınabilir sınık kitaplık projesinin .TodoItemManager.cs C# dosyasında mobil uygulamanızın arka ucuna erişen kodu bulacaksınız.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-xamarin-forms-get-started-users.md)  
@@ -159,7 +159,7 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
 * [Uygulamanız için çevrimdışı eşitlemeyi etkinleştirme](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Mobil Uygulama arka ucu kullanarak uygulamanıza çevrimdışı destek eklemeyi öğrenin. Çevrimdışı eşitleme son kullanıcıların, ağ bağlantısı yokken dahi, mobil uygulama ile etkileşim kurmalarına &mdash;veri görüntüleme, ekleme ya da değiştirme&mdash; olanak tanır.
 * [Azure Mobile Apps için yönetilen istemciyi kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)  
-  Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin. 
+  Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin.
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started
@@ -180,5 +180,4 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-
 
