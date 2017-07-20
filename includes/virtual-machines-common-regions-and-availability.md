@@ -1,13 +1,10 @@
-# Regions and availability for virtual machines in Azure
-<a id="regions-and-availability-for-virtual-machines-in-azure" class="xliff"></a>
+# <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regions and availability for virtual machines in Azure
 Azure operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. It is important to understand how and where your virtual machines (VMs) operate in Azure, along with your options to maximize performance, availability, and redundancy. This article provides you with an overview of the availability and redundancy features of Azure.
 
-## What are Azure regions?
-<a id="what-are-azure-regions" class="xliff"></a>
+## <a name="what-are-azure-regions"></a>What are Azure regions?
 You create Azure resources in defined geographic regions like 'West US', 'North Europe', or 'Southeast Asia'. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). Within each region, multiple datacenters exist to provide for redundancy and availability. This approach gives you flexibility as you design applications to create VMs closest to your users and to meet any legal, compliance, or tax purposes.
 
-## Special Azure regions
-<a id="special-azure-regions" class="xliff"></a>
+## <a name="special-azure-regions"></a>Special Azure regions
 Azure has some special regions that you may wish to use when building out your applications for compliance or legal purposes. These special regions include:
 
 * **US Gov Virginia** and **US Gov Iowa**
@@ -17,8 +14,7 @@ Azure has some special regions that you may wish to use when building out your a
 * **Germany Central** and **Germany Northeast**
   * These regions are available via a data trustee model whereby customer data remains in Germany under control of T-Systems, a Deutsche Telekom company, acting as the German data trustee.
 
-## Region pairs
-<a id="region-pairs" class="xliff"></a>
+## <a name="region-pairs"></a>Region pairs
 Each Azure region is paired with another region within the same geography (such as US, Europe, or Asia). This approach allows for the replication of resources, such as VM storage, across a geography that should reduce the likelihood of natural disasters, civil unrest, power outages, or physical network outages affecting both regions at once. Additional advantages of region pairs include:
 
 * In the event of a wider Azure outage, one region is prioritized out of every pair to help reduce the time to restore for applications. 
@@ -35,12 +31,10 @@ Examples of region pairs include:
 
 You can see the full [list of regional pairs here](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-## Feature availability
-<a id="feature-availability" class="xliff"></a>
+## <a name="feature-availability"></a>Feature availability
 Some services or VM features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that do not require you to select a particular region, such as [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md), or [Azure DNS](../articles/dns/dns-overview.md). To assist you in designing your application environment, you can check the [availability of Azure services across each region](https://azure.microsoft.com/regions/#services). 
 
-## Storage availability
-<a id="storage-availability" class="xliff"></a>
+## <a name="storage-availability"></a>Storage availability
 Understanding Azure regions and geographies becomes important when you consider the available storage replication options. Depending on the storage type, you have different replication options.
 
 **Azure Managed Disks**
@@ -67,8 +61,7 @@ The following table provides a quick overview of the differences between the sto
 
 You can read more about [Azure Storage replication options here](../articles/storage/storage-redundancy.md). For more information about managed disks, see [Azure Managed Disks overview](../articles/storage/storage-managed-disks-overview.md).
 
-### Storage costs
-<a id="storage-costs" class="xliff"></a>
+### <a name="storage-costs"></a>Storage costs
 Prices vary depending on the storage type and availability that you select.
 
 **Azure Managed Disks**
@@ -81,8 +74,7 @@ Prices vary depending on the storage type and availability that you select.
 
 See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different storage types and availability options.
 
-## Availability sets
-<a id="availability-sets" class="xliff"></a>
+## <a name="availability-sets"></a>Availability sets
 An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. We recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). When a single VM is using [Azure Premium Storage](../articles/storage/storage-premium-storage.md), the Azure SLA applies for unplanned maintenance events. 
 
 An availability set is compromised of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains (FDs) and update domains (UDs).
@@ -91,16 +83,13 @@ An availability set is compromised of two additional groupings that protect agai
 
 You can read more about how to manage the availability of [Linux VMs](../articles/virtual-machines/linux/manage-availability.md) or [Windows VMs](../articles/virtual-machines/linux/manage-availability.md).
 
-### Fault domains
-<a id="fault-domains" class="xliff"></a>
+### <a name="fault-domains"></a>Fault domains
 A fault domain is a logical group of underlying hardware that share a common power source and network switch, similar to a rack within an on-premises datacenter. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these fault domains. This approach limits the impact of potential physical hardware failures, network outages, or power interruptions.
 
-### Update domains
-<a id="update-domains" class="xliff"></a>
+### <a name="update-domains"></a>Update domains
 An update domain is a logical group of underlying hardware that can undergo maintenance or be rebooted at the same time. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these update domains. This approach ensures that at least one instance of your application always remains running as the Azure platform undergoes periodic maintenance. The order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time.
 
-### Managed Disk fault domains
-<a id="managed-disk-fault-domains" class="xliff"></a>
+### <a name="managed-disk-fault-domains"></a>Managed Disk fault domains
 For VMs using [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), VMs are aligned with managed disk fault domains when using a managed availability set. This alignment ensures that all the managed disks attached to a VM are within the same managed disk fault domain. Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region.
 
 ![Managed Disk FDs](./media/virtual-machines-common-manage-availability/md-fd.png)
@@ -110,7 +99,6 @@ For VMs using [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-## Next steps
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Next steps
 You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](../articles/best-practices-availability-checklist.md).
 
