@@ -13,6 +13,3 @@
 ### [Uygulamayı kullanmaya başlama](microsoft-authenticator-app-how-to.md)
 ### [Telefonunuzla oturum açma](microsoft-authenticator-app-phone-signin-faq.md)
 ### [SSS](microsoft-authenticator-app-faq.md)
-
-# Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
