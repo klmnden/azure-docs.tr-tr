@@ -1,6 +1,6 @@
 ---
-title: "VMM bulutlarındaki Hyper-V sanal makinelerini Azure&quot;a çoğaltma | Microsoft Belgeleri"
-description: "System Center VMM bulutlarında yönetilen Hyper-V sanal makinelerinden Azure&quot;a çoğaltma, yük devretme ve kurtarmayı düzenleme"
+title: "VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma | Microsoft Belgeleri"
+description: "System Center VMM bulutlarında yönetilen Hyper-V sanal makinelerinden Azure'a çoğaltma, yük devretme ve kurtarmayı düzenleme"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,17 +14,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 2fea1a033baaa7fdcdcb63243dd9c528dda0ed49
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: b53e7f5454cd97f013fdce052f0a990a44958dee
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal" class="xliff"></a>
-
-# Azure portalında Site Recovery’yi kullanarak VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
+# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Azure portalında Site Recovery’yi kullanarak VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
 > [!div class="op_single_selector"]
 > * [Azure portal](site-recovery-vmm-to-azure.md)
 > * [Azure klasik](site-recovery-vmm-to-azure-classic.md)
@@ -39,14 +36,12 @@ Bu makaleyi okuduktan sonra yapmak istediğiniz tüm yorumları makalenin alt k�
 Makineleri Azure'a geçirmek istiyorsanız (yeniden çalışma olmadan) [bu makaleden](site-recovery-migrate-to-azure.md) daha fazla bilgiye ulaşabilirsiniz.
 
 
-<a id="deployment-steps" class="xliff"></a>
-
-## Dağıtım adımları
+## <a name="deployment-steps"></a>Dağıtım adımları
 
 Bu dağıtım adımlarını tamamlamak için makaleyi izleyin:
 
 
-1. Bu dağıtım mimarisi hakkında [daha fazla bilgi edinin](site-recovery-components.md#hyper-v-to-azure). Ayrıca Site Recovery'de Hyper-V çoğaltmanın nasıl çalıştığı [hakkında bilgi edinin](site-recovery-hyper-v-azure-architecture.md).
+1. Bu dağıtım mimarisi hakkında [daha fazla bilgi edinin](site-recovery-components.md). Ayrıca Site Recovery'de Hyper-V çoğaltmanın nasıl çalıştığı [hakkında bilgi edinin](site-recovery-hyper-v-azure-architecture.md).
 2. Önkoşulları ve sınırlamaları doğrulayın.
 3. Azure ağ ve depolama hesaplarını kurun.
 4. Şirket içi VMM sunucusunu ve Hyper-V konaklarını hazırlayın.
@@ -58,9 +53,7 @@ Bu dağıtım adımlarını tamamlamak için makaleyi izleyin:
 
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 
 **Destek gereksinimi** | **Ayrıntılar**
@@ -71,9 +64,7 @@ Bu dağıtım adımlarını tamamlamak için makaleyi izleyin:
 **Azure URL'leri** | VMM sunucusunun şu URL'lere erişimi olmalıdır:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> IP adresi tabanlı güvenlik duvarı kurallarına sahipseniz bu kuralların Azure ile iletişim kurmaya izin verdiğinden emin olun.<br/></br> [Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)'na ve HTTPS (443) bağlantı noktasına izin verin.<br/></br> Aboneliğinizin Azure bölgesi ve Batı ABD (Access Control ve Identity Management için kullanılır) için IP adresi aralıklarına izin verin.
 
 
-<a id="prepare-for-deployment" class="xliff"></a>
-
-## Dağıtım için hazırlanma
+## <a name="prepare-for-deployment"></a>Dağıtım için hazırlanma
 Dağıtıma hazırlanmak için şunları yapmanız gerekir:
 
 1. Yük devretmeden sonra Azure VM’lerinin içinde bulunacağı [bir Azure ağı ayarlayın](#set-up-an-azure-network).
@@ -81,9 +72,7 @@ Dağıtıma hazırlanmak için şunları yapmanız gerekir:
 3. Site Recovery dağıtımı için [VMM sunucusunu hazırlama](#prepare-the-vmm-server).
 4. Ağ eşlemesi için hazırlanın. Site Recovery dağıtımı sırasında ağ eşlemesini yapılandırabilmeniz için ağları ayarlayın.
 
-<a id="set-up-an-azure-network" class="xliff"></a>
-
-### Azure ağı ayarlama
+### <a name="set-up-an-azure-network"></a>Azure ağı ayarlama
 Yük devretme işleminden sonra oluşturulan Azure VM'lerinin bağlanacağı bir Azure ağınızın olması gerekir.
 
 * Ağın, Kurtarma Hizmetleri kasasıyla aynı konumda olması gerekir.
@@ -91,23 +80,17 @@ Yük devretme işleminden sonra oluşturulan Azure VM'lerinin bağlanacağı bir
 * Başlamadan önce bir ağ ayarlamanızı öneririz. Aksi takdirde, Site Recovery dağıtımı sırasında yapmanız gerekir.
 Site Recovery tarafından kullanılan Azure ağları, aynı abonelik içinde veya farklı abonelikler arasında [taşınamaz](../azure-resource-manager/resource-group-move-resources.md).
 
-<a id="set-up-an-azure-storage-account" class="xliff"></a>
-
-### Azure depolama hesabı ayarlama
+### <a name="set-up-an-azure-storage-account"></a>Azure depolama hesabı ayarlama
 * Azure'a çoğaltılan verileri tutmak için standart/premium Azure depolama hesabına sahip olmanız gerekir.[Premium depolama](../storage/storage-premium-storage.md) sürekli yüksek G/Ç performansına ve yoğun G/Ç kullanan iş yüklerini barındırmak için düşük gecikme süresine ihtiyaç duyan sanal makineler için kullanılır. Çoğaltılan veriler için bir premium depolama hesabı kullanmak istiyorsanız, şirket içi verilerde gerçekleşen değişiklikleri yakalayan çoğaltma günlüklerini depolamak üzere ek bir standart depolama hesabı da ayarlamanız gerekir. Hesabın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
 * Yük devri yapılan Azure VM'lerinde kullanmak istediğiniz kaynak modeline bağlı olarak [Resource Manager modunda](../storage/storage-create-storage-account.md) veya [klasik modda](../storage/storage-create-storage-account-classic-portal.md) bir hesap ayarlarsınız.
 * Başlamadan önce bir hesap ayarlamanızı öneririz. Aksi takdirde, Site Recovery dağıtımı sırasında yapmanız gerekir.
 - Site Recovery tarafından kullanılan depolama hesaplarının, aynı abonelik içinde veya farklı abonelikler arasında [taşınamadığını](../azure-resource-manager/resource-group-move-resources.md) unutmayın.
 
-<a id="prepare-the-vmm-server" class="xliff"></a>
-
-### VMM sunucusunu hazırlama
+### <a name="prepare-the-vmm-server"></a>VMM sunucusunu hazırlama
 * VMM sunucusunun [önkoşullar](#prerequisites) ile uyum sağladığından emin olun.
 * Site Recovery dağıtımı sırasında, VMM sunucusundaki tüm bulutların Azure portalda kullanılabilir olması gerektiğini belirtebilirsiniz. Portalda yalnızca belirli bulutların görünmesini istiyorsanız VMM yönetici konsolunda ilgili bulut için bu ayarı etkinleştirebilirsiniz.
 
-<a id="prepare-for-network-mapping" class="xliff"></a>
-
-### Ağ eşlemesi için hazırlanma
+### <a name="prepare-for-network-mapping"></a>Ağ eşlemesi için hazırlanma
 Site Recovery dağıtımı sırasında ağ eşlemesini ayarlamanız gerekir. Şunları sağlamak için kaynak VMM VM ağları ile hedef Azure ağları arasında ağ eşlemesi:
 
 * Aynı ağda yük devretme işlemini gerçekleştiren makineler, yük devretmeyi aynı şekilde veya aynı kurtarma planında gerçekleştirmiyor olsalar bile birbirlerine bağlanabilir.
@@ -117,9 +100,7 @@ Site Recovery dağıtımı sırasında ağ eşlemesini ayarlamanız gerekir. Şu
   * Kaynak Hyper-V ana bilgisayar sunucusundaki VM'lerin bir VMM VM ağına bağlı olduğundan emin olun. Bu ağın, bulutla ilişkilendirilen mantıksal bir ağ ile bağlantılı olması gerekir.
   * [Yukarıda](#set-up-an-azure-network) açıklandığı gibi bir Azure ağına sahip olmanız gerekir.
 
-<a id="create-a-recovery-services-vault" class="xliff"></a>
-
-## Kurtarma Hizmetleri kasası oluşturma
+## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. **Yeni** > **İzleme + Yönetim** > **Backup and Site Recovery (OMS)** öğesine tıklayın.
 
@@ -133,9 +114,7 @@ Site Recovery dağıtımı sırasında ağ eşlemesini ayarlamanız gerekir. Şu
 Yeni kasa **Pano** > **Tüm kaynaklar** bölümünde ve ana **Kurtarma Hizmetleri kasaları** dikey penceresinde görünür.
 
 
-<a id="select-the-protection-goal" class="xliff"></a>
-
-## Koruma hedefi seçme
+## <a name="select-the-protection-goal"></a>Koruma hedefi seçme
 
 Neleri çoğaltmak istediğinizi ve bunları nereye çoğaltacağınızı seçin.
 
@@ -145,9 +124,7 @@ Neleri çoğaltmak istediğinizi ve bunları nereye çoğaltacağınızı seçin
     ![Hedefleri seçme](./media/site-recovery-vmm-to-azure/choose-goals.png)
 3. **Koruma hedefi** kısmında **Azure'a** seçeneğini belirleyin ve **Evet, Hyper-V ile**'yi seçin. Hyper-V ana bilgisayarlarını ve kurtarma sitesini yönetmek için VMM kullandığınızı doğrulamak için **Evet** seçeneğini belirleyin. Daha sonra, **Tamam**'a tıklayın.
 
-<a id="set-up-the-source-environment" class="xliff"></a>
-
-## Kaynak ortamı ayarlama
+## <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
 
 Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna yükleyin ve sunucuyu kasaya kaydedin. Azure Kurtarma Hizmetleri aracısını Hyper-V ana bilgisayarlarına yükleyin.
 
@@ -166,9 +143,7 @@ Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna yükleyin ve sunucuyu kas
     ![Kaynağı ayarlama](./media/site-recovery-vmm-to-azure/set-source3.png)
 
 
-<a id="install-the-provider-on-the-vmm-server" class="xliff"></a>
-
-## Sağlayıcıyı VMM sunucusuna yükleme
+## <a name="install-the-provider-on-the-vmm-server"></a>Sağlayıcıyı VMM sunucusuna yükleme
 
 1. Sağlayıcı kurulum dosyasını VMM sunucusunda çalıştırın.
 2. **Microsoft Update** kısmından güncelleştirmeleri seçebilirsiniz. Böylece, Sağlayıcı güncelleştirmeleri Microsoft Update ilkenize uygun şekilde yüklenir.
@@ -196,9 +171,7 @@ Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna yükleyin ve sunucuyu kas
 10. Kayıt başlar. Kayıt tamamlandıktan sonra, sunucu **Site Recovery Altyapısı** > **VMM Sunucuları** içinde gösterilir.
 
 
-<a id="install-the-azure-recovery-services-agent-on-hyper-v-hosts" class="xliff"></a>
-
-## Azure Kurtarma Hizmetleri aracısını Hyper-V ana bilgisayarlarına yükleme
+## <a name="install-the-azure-recovery-services-agent-on-hyper-v-hosts"></a>Azure Kurtarma Hizmetleri aracısını Hyper-V ana bilgisayarlarına yükleme
 
 1. Sağlayıcı'yı ayarladıktan sonra Azure Kurtarma Hizmetleri aracısı için yükleme dosyasını indirmeniz gerekir. VMM bulutundaki tüm Hyper-V sunucularında kurulum çalıştırma
 
@@ -211,16 +184,12 @@ Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna yükleyin ve sunucuyu kas
 
     ![MARS Aracısı'nı Kaydetme](./media/site-recovery-vmm-to-azure/hyperv-agent3.png)
 
-<a id="command-line-installation" class="xliff"></a>
-
-### Komut satırı yüklemesi
+### <a name="command-line-installation"></a>Komut satırı yüklemesi
 Aşağıdaki komutu kullanarak Microsoft Azure Kurtarma Hizmetleri Aracısı'nı komut satırından yükleyebilirsiniz:
 
      marsagentinstaller.exe /q /nu
 
-<a id="set-up-internet-proxy-access-to-site-recovery-from-hyper-v-hosts" class="xliff"></a>
-
-### Hyper-V ana bilgisayarlarından Site Recovery'ye internet ara sunucusu erişimini ayarlama
+### <a name="set-up-internet-proxy-access-to-site-recovery-from-hyper-v-hosts"></a>Hyper-V ana bilgisayarlarından Site Recovery'ye internet ara sunucusu erişimini ayarlama
 
 Hyper-V ana bilgisayarlarında çalışan Kurtarma Hizmetleri aracısının VM çoğaltması için Azure'a yönelik internet erişimi gerekir. İnternet'e bir ara sunucu aracılığıyla erişiyorsanız ara sunucuyu aşağıdaki gibi ayarlayın:
 
@@ -231,9 +200,7 @@ Hyper-V ana bilgisayarlarında çalışan Kurtarma Hizmetleri aracısının VM �
     ![MARS Aracısı'nı Kaydetme](./media/site-recovery-vmm-to-azure/mars-proxy.png)
 4. Aracının [önkoşullar](#on-premises-prerequisites) bölümünde açıklanan URL'lere erişebildiğini denetleyin.
 
-<a id="set-up-the-target-environment" class="xliff"></a>
-
-## Hedef ortamı ayarlama
+## <a name="set-up-the-target-environment"></a>Hedef ortamı ayarlama
 Çoğaltma için kullanılacak Azure depolama hesabını ve yük devretmenin ardından Azure VM'lerinin bağlanacağı Azure ağını belirtin.
 
 1. **Altyapıyı hazırlama** > **Hedef** seçeneklerine tıklayıp, kullanmak istediğiniz aboneliği ve yükü devredilmiş sanal makineleri oluşturmak istediğiniz kaynak grubunu seçin. Yükü devredilen sanal makineler için Azure’da kullanmak istediğiniz dağıtım modelini (klasik veya kaynak yönetimi) seçin.
@@ -257,9 +224,7 @@ Hyper-V ana bilgisayarlarında çalışan Kurtarma Hizmetleri aracısının VM �
 
    Klasik modeli kullanarak bir ağ oluşturmak isterseniz bu işlemi Azure portalından gerçekleştirin. [Daha fazla bilgi edinin](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
-<a id="configure-network-mapping" class="xliff"></a>
-
-### Ağ eşlemesini yapılandırma
+### <a name="configure-network-mapping"></a>Ağ eşlemesini yapılandırma
 
 * Ağ eşlemesi işlevinin genel hatlarını [okuyun](#prepare-for-network-mapping).
 * VMM sunucusu üzerindeki sanal makinelerin VM ağına bağlı olduğunu ve en az bir Azure sanal ağı oluşturduğunuzu doğrulayın. Tek bir Azure ağına birden çok VM ağı eşlenebilir.
@@ -283,9 +248,7 @@ Ağ eşlemesi başladığında gerçekleşecekler şunlardır:
 * Hedef ağın birden çok alt ağı varsa ve bu alt ağlardan biri kaynak sanal makinenin bulunduğu alt ağ ile aynı adı taşıyorsa, çoğaltılan sanal makine yük devretme işleminin ardından hedef alt ağa bağlanır.
 * Eşleşen ada sahip bir hedef alt ağ yoksa sanal makine ağdaki ilk alt ağa bağlanır.
 
-<a id="configure-replication-settings" class="xliff"></a>
-
-## Çoğaltma ayarlarını yapılandırma
+## <a name="configure-replication-settings"></a>Çoğaltma ayarlarını yapılandırma
 1. Yeni bir çoğaltma ilkesi oluşturmak için **Altyapıyı hazırlama** > **Çoğaltma Ayarları** > **+Oluştur ve ilişkilendir** seçeneklerine tıklayın.
 
     ![Ağ](./media/site-recovery-vmm-to-azure/gs-replication.png)
@@ -305,9 +268,7 @@ Ağ eşlemesi başladığında gerçekleşecekler şunlardır:
 
     ![Çoğaltma ilkesi](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
-<a id="capacity-planning" class="xliff"></a>
-
-## Kapasite planlaması
+## <a name="capacity-planning"></a>Kapasite planlaması
 
 Temel altyapınızı ayarladığınıza göre kapasite planlaması yapmayı ve ilave kaynaklara ihtiyacınız olup olmadığını düşünün.
 
@@ -326,9 +287,7 @@ Site Recovery; kaynak ortamınız, Site Recovery bileşenleri, ağ ve depolama i
 
 
 
-<a id="enable-replication" class="xliff"></a>
-
-## Çoğaltmayı etkinleştirme
+## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
 Başlamadan önce Azure kullanıcı hesabınızın yeni bir sanal makinenin Azure'a çoğaltılmasını sağlamak için gerekli [izinlere](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) sahip olduğundan emin olun.
 
@@ -371,9 +330,7 @@ Başlamadan önce Azure kullanıcı hesabınızın yeni bir sanal makinenin Azur
 
 **İşler** > **Site Recovery işleri** üzerinden **Korumayı Etkinleştir** işinin ilerleyişini izleyebilirsiniz. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 
-<a id="view-and-manage-vm-properties" class="xliff"></a>
-
-### VM özelliklerini görüntüleme ve yönetme
+### <a name="view-and-manage-vm-properties"></a>VM özelliklerini görüntüleme ve yönetme
 
 Kaynak makinenin özelliklerini doğrulamanızı öneririz. Azure VM adının [Azure sanal makine gereksinimlerini](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) karşılaması gerektiğini unutmayın.
 
@@ -398,9 +355,7 @@ Kaynak makinenin özelliklerini doğrulamanızı öneririz. Azure VM adının [A
 
 4. **Diskler** kısmında çoğaltılacak VM'deki işletim sistemi ve veri disklerini görebilirsiniz.
 
-<a id="managed-disks" class="xliff"></a>
-
-#### Yönetilen diskler
+#### <a name="managed-disks"></a>Yönetilen diskler
 
 Makinenizi Azure'a geçirirken yönetilen diskleri takmak istiyorsanız **İşlem ve Ağ** > **İşlem özellikleri** sayfasında "Yönetilen diskleri kullan" ayarını "Evet" olarak belirleyebilirsiniz. Yönetilen diskler, VM diskleriyle ilişkilendirilmiş depolama hesaplarını yöneterek Azure IaaS VM'leri için disk yönetimini kolaylaştırır. [Yönetilen diskler hakkında daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview).
 
@@ -417,22 +372,16 @@ Makinenizi Azure'a geçirirken yönetilen diskleri takmak istiyorsanız **İşle
   > [Depolama Hizmeti Şifrelemesi ve yönetilen diskler hakkında daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 
-<a id="test-the-deployment" class="xliff"></a>
-
-## Dağıtımı test etme
+## <a name="test-the-deployment"></a>Dağıtımı test etme
 
 Dağıtımı test etmek için tek bir sanal makine için yük devretme testi veya bir ya da daha fazla sanal makine içeren bir kurtarma planı çalıştırabilirsiniz.
 
-<a id="before-you-start" class="xliff"></a>
-
-### Başlamadan önce
+### <a name="before-you-start"></a>Başlamadan önce
 
  - Yük devretmeden sonra RDP kullanarak Azure VM'lerine bağlanmak isterseniz [bağlanmaya hazırlanma](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) hakkında bilgi edinin.
  - Tam anlamıyla test etmek için Active Directory ve DNS'in bir kopyasını test ortamınızda bulundurmanız gerekir. [Daha fazla bilgi edinin](site-recovery-active-directory.md#test-failover-considerations).
 
-<a id="run-a-test-failover" class="xliff"></a>
-
-### Yük devretme testi çalıştırma
+### <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
 
 1. Tek bir VM’de yük devretme için **Çoğaltılan Öğeler** altında VM > **+Yük Devretme Testi**’ne tıklayın.
 2. Kurtarma planında yük devretme için **Kurtarma Planları** seçeneklerinde plana sağ tıklayıp **Yük Devretme Testi**'ne tıklayın. Kurtarma planı oluşturmak için [aşağıdaki yönergeleri uygulayın](site-recovery-create-recovery-plans.md).
@@ -444,9 +393,7 @@ Dağıtımı test etmek için tek bir sanal makine için yük devretme testi vey
 
 Daha fazla ayrıntı için [Azure'a yük devretme testi](site-recovery-test-failover-to-azure.md) makalesini okuyun.
 
-<a id="monitor-the-deployment" class="xliff"></a>
-
-## Dağıtımı izleme
+## <a name="monitor-the-deployment"></a>Dağıtımı izleme
 
 Site Recovery dağıtımının durumunu, yapılandırma ayarlarını ve sistem durumunu izlemeniz için yapmanız gerekenler:
 
@@ -456,9 +403,7 @@ Site Recovery dağıtımının durumunu, yapılandırma ayarlarını ve sistem d
 2. **Sistem Durumu** bölümünde yerinde sunuculardaki (VMM veya yapılandırma sunucuları) sorunları ve Site Recovery tarafından son 24 saat içinde tetiklenen olayları izleyebilirsiniz.
 3. **Çoğaltılan Öğeler**, **Kurtarma Planları** ve **Site Recovery İşleri** kutucuklarında çoğaltma işlemini yönetebilir ve izleyebilirsiniz. **İşler** > **Site Recovery İşleri** seçeneklerinden işlerin ayrıntılarına ulaşabilirsiniz.
 
-<a id="command-line-installation-for-the-azure-site-recovery-provider" class="xliff"></a>
-
-## Azure Site Recovery Sağlayıcısı'na yönelik komut satırı yüklemesi
+## <a name="command-line-installation-for-the-azure-site-recovery-provider"></a>Azure Site Recovery Sağlayıcısı'na yönelik komut satırı yüklemesi
 
 Azure Site Recovery Sağlayıcısı komut satırından yüklenebilir. Bu yöntem, Sağlayıcı'yı Windows Server 2012 R2 için Sunucu Çekirdeği'nde yüklerken kullanılabilir.
 
@@ -486,17 +431,13 @@ Konumlar:
 * **/proxyPassword**: Ara sunucu ile kimlik doğrulamak için kullanılacak parolayı belirten isteğe bağlı parametre (ara sunucu kimlik doğrulaması gerekiyorsa).
 
 
-<a id="network-bandwidth-considerations" class="xliff"></a>
-
-### Ağ bandı genişliği ile ilgili dikkat edilmesi gerekenler
+### <a name="network-bandwidth-considerations"></a>Ağ bandı genişliği ile ilgili dikkat edilmesi gerekenler
 Çoğaltma (ilk çoğaltma ve ardından değişim) için gereken bant genişliğini hesaplamak üzere Capacity Planner'ı kullanabilirsiniz. Çoğaltmada kullanılan bant genişliği miktarını kontrol etmek için birkaç seçenek sunulur:
 
 * **Bant genişliğini kısıtlama**: İkincil bir siteye çoğaltılan Hyper-V trafiği belirli bir Hyper-V konağı üzerinden geçer. Ana bilgisayar sunucusunda bant genişliğini kısıtlayabilirsiniz.
 * **Bant genişliğine ince ayar uygulama**: Birkaç kayıt defteri anahtarı kullanarak çoğaltma için kullanılan bant genişliği üzerinde etki oluşturabilirsiniz.
 
-<a id="throttle-bandwidth" class="xliff"></a>
-
-#### Bant genişliğini kısıtlama
+#### <a name="throttle-bandwidth"></a>Bant genişliğini kısıtlama
 1. Hyper-V ana bilgisayar sunucusunda Microsoft Azure Backup MMC ek bileşenini açın. Varsayılan olarak Microsoft Azure Backup için masaüstünde veya C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin yolunda bir kısayol bulunur.
 2. Ek bileşende **Özellikleri Değiştir**'e tıklayın.
 3. **Azaltma** sekmesinde **Yedekleme işlemleri için internet bant genişliği kullanımını azaltmayı etkinleştir** seçeneğini belirleyin ve çalışma saatleri ve çalışma dışı saatler için sınırları ayarlayın. Geçerli aralıklar saniye başına 512 Kbps ila 102 Mbps arasındadır.
@@ -511,9 +452,7 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
 
 **Set-OBMachineSetting - NoThrottle** hiçbir azaltmanın gerekli olmadığını gösterir.
 
-<a id="influence-network-bandwidth" class="xliff"></a>
-
-#### Ağ bant genişliği üzerinde etki oluşturma
+#### <a name="influence-network-bandwidth"></a>Ağ bant genişliği üzerinde etki oluşturma
 **UploadThreadsPerVM** kayıt defteri değeri, bir diskin veri aktarımı (başlangıç ve değişim çoğaltması) için kullanılan iş parçacıklarının sayısını denetler. Daha yüksek bir değer, çoğaltma işlemi için kullanılan ağ bant genişliğini artırır. **DownloadThreadsPerVM** kayıt defteri değeri, yeniden çalışma sırasındaki veri aktarımı için kullanılan iş parçacıklarının sayısını belirler.
 
 1. Kayıt defterinde **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication** hedefine gidin.
@@ -522,9 +461,7 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
    * Azure'dan gelen yeniden çalışma trafiği için kullanılan iş parçacıklarını denetlemek için **DownloadThreadsPerVM** değerini değiştirin (veya anahtar yoksa anahtar oluşturun).
 2. Varsayılan değer 4'tür. "Fazla sağlanan" bir ağda, bu kayıt defteri anahtarlarının varsayılan değerlerinin değiştirilmesi gerekir. Maksimum değer 32'dir. Değeri iyileştirmek için trafiği izleyin.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 İlk çoğaltma tamamlandıktan ve dağıtım test edildikten sonra ihtiyaca göre yük devretme gerçekleştirebilirsiniz. Farklı yük devretme türleri ve onları çalıştırma hakkında [daha fazla bilgi edinin](site-recovery-failover.md).
 

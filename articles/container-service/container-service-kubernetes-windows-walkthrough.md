@@ -13,47 +13,32 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 929a4dec638da9488dd0b43fd123ed0cce77bcf3
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 7d8825da888092988bf39c5a5789a957179b2cff
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 
-<a id="deploy-kubernetes-cluster-for-windows-containers" class="xliff"></a>
-
-# Windows kapsayıcıları için Kubernetes kümesi dağıtma
+# <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Windows kapsayıcıları için Kubernetes kümesi dağıtma
 
 Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu kılavuzda, [Azure Container Service](container-service-intro.md)'te [Kubernetes](https://kubernetes.io/docs/home/) kümesi dağıtmak için Azure CLI'yi nasıl kullanacağınız ayrıntılı olarak açıklanmaktadır. Küme dağıtıldıktan sonra, Kubernetes `kubectl` komut satırı aracı ile kümeye bağlanır ve ilk Windows kapsayıcınızı dağıtırsınız.
 
-Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
+CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
 > Azure Container Service'te Kubernetes için Windows kapsayıcıları desteği önizleme aşamasındadır. 
 >
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Azure'da oturum açma 
-
-[az login](/cli/azure/#login) komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
-
-```azurecli-interactive 
-az login
-```
-
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 [az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur. 
 
@@ -63,9 +48,7 @@ Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu 
 az group create --name myResourceGroup --location eastus
 ```
 
-<a id="create-kubernetes-cluster" class="xliff"></a>
-
-## Kubernetes kümesi oluşturma
+## <a name="create-kubernetes-cluster"></a>Kubernetes kümesi oluşturma
 Azure Container Service'te [az acs create](/cli/azure/acs#create) komutuyla Kubernetes kümesi oluşturun. 
 
 Aşağıdaki örnekte, bir Linux ana düğümü ve iki Windows aracı düğümüyle *myK8sCluster* adlı bir küme oluşturulmuştur. Bu örnekte, Linux ana düğümüne bağlanmak için gereken SSH anahtarları oluşturulmuştur. Bu örnekte, yönetici kullanıcı adı olarak *azureuser*, Windows düğümlerindeki parola olarak ise *myPassword12* kullanılmıştır. Bu değerleri ortamınız için uygun olan bir değerle güncelleştirin. 
@@ -84,9 +67,7 @@ az acs create --orchestrator-type=kubernetes \
 
 Birkaç dakika sonra komut tamamlanır ve size dağıtımınız hakkındaki bilgiler gösterilir.
 
-<a id="install-kubectl" class="xliff"></a>
-
-## Kubectl yükleyin
+## <a name="install-kubectl"></a>Kubectl yükleyin
 
 İstemci bilgisayarınızdan Kubernetes kümesine bağlanmak için Kubernetes’in komut satırı istemcisini ([`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)) kullanın. 
 
@@ -99,9 +80,7 @@ az acs kubernetes install-cli
 ```
 
 
-<a id="connect-with-kubectl" class="xliff"></a>
-
-## kubectl ile bağlanma
+## <a name="connect-with-kubectl"></a>kubectl ile bağlanma
 
 `kubectl` öğesini Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) komutunu çalıştırın. Aşağıdaki örnekte, Kubernetes kümeniz için küme yapılandırması indirilmiştir.
 
@@ -125,9 +104,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 ```
 
-<a id="deploy-a-windows-iis-container" class="xliff"></a>
-
-## Windows IIS kapsayıcısı dağıtma
+## <a name="deploy-a-windows-iis-container"></a>Windows IIS kapsayıcısı dağıtma
 
 Bir veya daha fazla kapsayıcı içeren bir Kubernetes *pod*'unun içinde Docker kapsayıcısı çalıştırabilirsiniz. 
 
@@ -183,9 +160,7 @@ NAME     READY        STATUS        RESTARTS    AGE
 iis      1/1          Running       0           32s
 ```
 
-<a id="view-the-iis-welcome-page" class="xliff"></a>
-
-## IIS karşılama sayfasını görüntüleme
+## <a name="view-the-iis-welcome-page"></a>IIS karşılama sayfasını görüntüleme
 
 Pod'u genel bir IP adresiyle herkesin kullanımına sunmak için aşağıdaki komutu yazın:
 
@@ -214,9 +189,7 @@ Dış IP adresinde varsayılan IIS karşılama sayfasını görmek için istedi�
 ![IIS’e göz atma görüntüsü](media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
 
 
-<a id="delete-cluster" class="xliff"></a>
-
-## Kümeyi silme
+## <a name="delete-cluster"></a>Kümeyi silme
 Kümeye artık ihtiyacınız yoksa [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırabilirsiniz.
 
 ```azurecli-interactive 
@@ -224,9 +197,7 @@ az group delete --name myResourceGroup
 ```
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta, `kubectl` bağlantılı bir Kubernetes kümesi ve IIS kapsayıcısı ile birlikte bir pod dağıttınız. Azure Container Service hakkında daha fazla bilgi edinmek için Kubernetes öğreticisine geçin.
 

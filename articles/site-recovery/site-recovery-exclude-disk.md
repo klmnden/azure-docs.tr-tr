@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 6e52a647e817b64e331937c0b0f1d44f9f6c11a0
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/06/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="exclude-disks-from-replication"></a>Diskleri çoğaltmanın dışında tutma
@@ -51,7 +50,7 @@ Benzer şekilde, Microsoft SQL Server tempdb dosyasına ve sistem veritabanı do
 ## <a name="how-to-exclude-disks-from-replication"></a>Diskler nasıl çoğaltmanın dışında tutulur?
 
 ### <a name="vmware-to-azure"></a>Vmware’den Azure’a
-Azure Site Recovery portalından bir sanal makineyi korumak için [Çoğaltmayı etkinleştir](site-recovery-vmware-to-azure.md#enable-replication) iş akışını izleyin. İş akışının dördüncü adımında, diskleri çoğaltmanın dışında tutmak için **DISK TO REPLICATE** sütununu kullanın. Varsayılan olarak, tüm diskler çoğaltma için seçilir. Çoğaltmanın dışında tutmak istediğiniz disklerin onay kutusunu temizleyin ve ardından çoğaltmayı etkinleştirme adımlarını tamamlayın.
+Azure Site Recovery portalından bir sanal makineyi korumak için [Çoğaltmayı etkinleştir](site-recovery-vmware-to-azure.md) iş akışını izleyin. İş akışının dördüncü adımında, diskleri çoğaltmanın dışında tutmak için **DISK TO REPLICATE** sütununu kullanın. Varsayılan olarak, tüm diskler çoğaltma için seçilir. Çoğaltmanın dışında tutmak istediğiniz disklerin onay kutusunu temizleyin ve ardından çoğaltmayı etkinleştirme adımlarını tamamlayın.
 
 ![Diskleri çoğaltmanın dışında tutma ve VMware’den Azure’a yeniden çalışma için çoğaltmayı etkinleştirin](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 
@@ -67,7 +66,7 @@ Azure Site Recovery portalından bir sanal makineyi korumak için [Çoğaltmayı
 >
 
 ### <a name="hyper-v-to-azure"></a>Hyper-V’den Azure’a
-Azure Site Recovery portalından bir sanal makineyi korumak için [Çoğaltmayı etkinleştir](site-recovery-hyper-v-site-to-azure.md#enable-replication) iş akışını izleyin. İş akışının dördüncü adımında, diskleri çoğaltmanın dışında tutmak için **DISK TO REPLICATE** sütununu kullanın. Varsayılan olarak, tüm diskler çoğaltma için seçilir. Çoğaltmanın dışında tutmak istediğiniz disklerin onay kutusunu temizleyin ve ardından çoğaltmayı etkinleştirme adımlarını tamamlayın.
+Azure Site Recovery portalından bir sanal makineyi korumak için [Çoğaltmayı etkinleştir](site-recovery-hyper-v-site-to-azure.md) iş akışını izleyin. İş akışının dördüncü adımında, diskleri çoğaltmanın dışında tutmak için **DISK TO REPLICATE** sütununu kullanın. Varsayılan olarak, tüm diskler çoğaltma için seçilir. Çoğaltmanın dışında tutmak istediğiniz disklerin onay kutusunu temizleyin ve ardından çoğaltmayı etkinleştirme adımlarını tamamlayın.
 
 ![Diskleri çoğaltmanın dışında tutun ve Hyper-V’den Azure’a yeniden çalışma için çoğaltmayı etkinleştirin](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
