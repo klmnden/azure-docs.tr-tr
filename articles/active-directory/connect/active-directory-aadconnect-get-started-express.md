@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: Hızlı ayarlar ile çalışmaya başlama | Microsoft Belgeleri"
-description: "Azure AD Connect&quot;i indirme, yükleme ve kurulum sihirbazını çalıştırma hakkında bilgi edinin."
+description: "Azure AD Connect'i indirme, yükleme ve kurulum sihirbazını çalıştırma hakkında bilgi edinin."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: 240475240be76265c2a2f150a4a6d8f4aa0d3664
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama
@@ -72,10 +73,5 @@ Yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [Oto
 | Özelleştirilmiş ayarları kullanarak yükleme |
 | DirSync'ten yükseltme |
 | Yükleme için kullanılan hesaplar |
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

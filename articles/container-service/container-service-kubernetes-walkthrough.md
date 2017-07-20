@@ -3,7 +3,7 @@ title: "Hızlı Başlangıç - Linux için Azure Kubernetes kümesi | Microsoft 
 description: "Azure CLI ile Azure Container Service'de Linux kapsayıcıları için Kubernetes kümesi oluşturmayı hızlı bir şekilde öğrenin."
 services: container-service
 documentationcenter: 
-author: anhowe
+author: neilpeterson
 manager: timlt
 editor: 
 tags: acs, azure-container-service, kubernetes
@@ -14,44 +14,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
-ms.author: anhowe
+ms.date: 07/18/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 25043f6bf5e5ab3def8563bd2c096b79706bfec1
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 3be2079d205d6bfd4c796e5f6abcd7ac5fe595a2
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 
-<a id="deploy-kubernetes-cluster-for-linux-containers" class="xliff"></a>
-
-# Linux kapsayıcıları için Kubernetes kümesi dağıtma
+# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Linux kapsayıcıları için Kubernetes kümesi dağıtma
 
 Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu kılavuz, [Azure Container Service](container-service-intro.md)’te [Kubernetes](https://kubernetes.io/docs/home/) kümesi dağıtmak için Azure CLI’nın kullanımını ayrıntılı olarak açıklar. Küme dağıtıldıktan sonra, Kubernetes `kubectl` komut satırı aracı ile kümeye bağlanır ve ilk Linux kapsayıcınızı dağıtırsınız.
 
-Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
+CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-<a id="log-in-to-azure" class="xliff"></a>
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-## Azure'da oturum açma 
-
-[az login](/cli/azure/#login) komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
-
-```azurecli-interactive
-az login
-```
-
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Kaynak grubu oluşturma
-
-[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal gruptur. 
+[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur. 
 
 Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
@@ -59,9 +45,7 @@ Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu 
 az group create --name myResourceGroup --location eastus
 ```
 
-<a id="create-kubernetes-cluster" class="xliff"></a>
-
-## Kubernetes kümesi oluşturma
+## <a name="create-kubernetes-cluster"></a>Kubernetes kümesi oluşturma
 Azure Container Service’de [az acs create](/cli/azure/acs#create) komutuyla Kubernetes kümesi oluşturun. 
 
 Aşağıdaki örnekte, bir Linux ana düğümü ve iki Linux aracı düğümüyle *myK8sCluster* adlı bir küme oluşturulmuştur. Bu örnekte, varsayılan konumlarda olmayan SSH anahtarları oluşturulmuştur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın. Küme adını, ortamınız için uygun olan bir adla güncelleştirin. 
@@ -77,13 +61,11 @@ az acs create --orchestrator-type=kubernetes \
 
 Birkaç dakika sonra komut tamamlanır ve size dağıtımınız hakkındaki bilgileri gösterir.
 
-<a id="install-kubectl" class="xliff"></a>
-
-## Kubectl yükleyin
+## <a name="install-kubectl"></a>Kubectl yükleyin
 
 İstemci bilgisayarınızdan Kubernetes kümesine bağlanmak için Kubernetes’in komut satırı istemcisini ([`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)) kullanın. 
 
-Azure CloudShell kullanıyorsanız `kubectl` zaten yüklenmiştir. Yerel olarak yüklemek istiyorsanız [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) komutunu kullanabilirsiniz.
+Azure CloudShell'i kullanıyorsanız `kubectl` zaten yüklüdür. Yerel olarak yüklemek istiyorsanız [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) komutunu kullanabilirsiniz.
 
 Aşağıdaki Azure CLI örneğinde, `kubectl` sisteminize yüklenir. Azure CLI’yı macOS ya da Linux’ta çalıştırıyorsanız komutu `sudo` ile çalıştırmanız gerekebilir.
 
@@ -91,9 +73,7 @@ Aşağıdaki Azure CLI örneğinde, `kubectl` sisteminize yüklenir. Azure CLI�
 az acs kubernetes install-cli 
 ```
 
-<a id="connect-with-kubectl" class="xliff"></a>
-
-## kubectl ile bağlanma
+## <a name="connect-with-kubectl"></a>kubectl ile bağlanma
 
 `kubectl` öğesini Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) komutunu çalıştırın. Aşağıdaki örnekte, Kubernetes kümeniz için küme yapılandırması indirilmiştir.
 
@@ -101,7 +81,7 @@ az acs kubernetes install-cli
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Makinenizden kümenizin bağlantısını doğrulamak için şunu çalıştırmayı deneyin:
+Makinenizden küme bağlantısını doğrulamak için şunu çalıştırmayı deneyin:
 
 ```azurecli-interactive
 kubectl get nodes
@@ -118,9 +98,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 ```
 
 
-<a id="deploy-an-nginx-container" class="xliff"></a>
-
-## NGINX kapsayıcısı dağıtma
+## <a name="deploy-an-nginx-container"></a>NGINX kapsayıcısı dağıtma
 
 Bir veya daha fazla kapsayıcı içeren bir Kubernetes *pod*’unun içinde Docker kapsayıcısı çalıştırabilirsiniz. 
 
@@ -135,9 +113,7 @@ Kapsayıcının çalıştığını görmek için şunu çalıştırın:
 kubectl get pods
 ```
 
-<a id="view-the-nginx-welcome-page" class="xliff"></a>
-
-## NGINX karşılama sayfasını görüntüleme
+## <a name="view-the-nginx-welcome-page"></a>NGINX karşılama sayfasını görüntüleme
 NGINX sunucusunu genel bir IP adresiyle kullanıma sunmak için aşağıdaki komutu yazın:
 
 ```azurecli-interactive
@@ -165,9 +141,7 @@ Dış IP adresinde varsayılan NGINX karşılama sayfasını görmek için isted
 ![Nginx’e göz atma görüntüsü](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
 
 
-<a id="delete-cluster" class="xliff"></a>
-
-## Küme silme
+## <a name="delete-cluster"></a>Küme silme
 Kümeye artık ihtiyacınız yoksa [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırabilirsiniz.
 
 ```azurecli-interactive 
@@ -175,9 +149,7 @@ az group delete --name myResourceGroup
 ```
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta, `kubectl` ile bağlı bir Kubernetes kümesi ve NGINX kapsayıcısı ile birlikte bir pod dağıttınız. Azure Container Service hakkında daha fazla bilgi için Kubernetes kümesi öğreticisiyle devam edin.
 
