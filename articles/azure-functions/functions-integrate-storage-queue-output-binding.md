@@ -23,17 +23,13 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/26/2017
 
 ---
-<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
-
-# İşlevleri kullanarak bir Azure Depolama kuyruğuna ileti ekleme
+# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>İşlevleri kullanarak bir Azure Depolama kuyruğuna ileti ekleme
 
 Azure İşlevleri’nde giriş ve çıkış bağlamaları, işlevinizden dış hizmet verilerine bağlanmanın bildirim temelli bir yöntemini sağlar. Bu konu başlığında, Azure Kuyruk Depolama’ya iletiler gönderen bir çıkış bağlaması ekleyerek mevcut bir işlevi güncelleştirmeyi öğrenebilirsiniz.  
 
 ![Günlüklerde iletiyi görüntüleyin.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar 
+## <a name="prerequisites"></a>Ön koşullar 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -61,9 +57,7 @@ Azure İşlevleri’nde giriş ve çıkış bağlamaları, işlevinizden dış h
 
 Bir çıkış bağlaması tanımladığınıza göre, bir kuyruğa ileti eklemek üzere bağlamayı kullanmak için kodu güncelleştirmeniz gerekir.  
 
-<a id="update-the-function-code" class="xliff"></a>
-
-## İşlev kodunu güncelleştirme
+## <a name="update-the-function-code"></a>İşlev kodunu güncelleştirme
 
 1. İşlev kodunu düzenleyicide görüntülemek için işlevinizi seçin. 
 
@@ -92,9 +86,7 @@ Bir çıkış bağlaması tanımladığınıza göre, bir kuyruğa ileti eklemek
 
 HTTP tetikleyicisine geçirilen değer, kuyruğa alınmış bir iletiye eklenir.
  
-<a id="test-the-function" class="xliff"></a>
-
-## İşlevi test etme 
+## <a name="test-the-function"></a>İşlevi test etme 
 
 1. Kod değişiklikleri kaydedildikten sonra **Çalıştır**'ı seçin. 
 
@@ -104,9 +96,7 @@ HTTP tetikleyicisine geçirilen değer, kuyruğa alınmış bir iletiye eklenir.
 
 Bundan sonra, yeni kuyruğunuzu ve ona eklediğiniz iletiyi doğrulamak için depolama hesabınıza bağlanabilirsiniz. 
 
-<a id="connect-to-the-queue" class="xliff"></a>
-
-## Kuyruğa bağlanma
+## <a name="connect-to-the-queue"></a>Kuyruğa bağlanma
 
 Depolama Gezgini’ni daha önce yükleyip depolama hesabınıza bağladıysanız, ilk üç adımı atlayın.    
 
@@ -118,7 +108,7 @@ Depolama Gezgini’ni daha önce yükleyip depolama hesabınıza bağladıysanı
 
     ![Depolama Hesabı Gezgini aracını çalıştırın.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
     
-3. 1. adımdaki **Hesap adını** ve **Hesap anahtarını** uygun alanlara yapıştırıp **İleri** ve **Bağlan** seçeneklerini belirleyin. 
+3. 1 adımdaki **Hesap adını** ve **Hesap anahtarını** uygun alanlara yapıştırıp **İleri** ve **Bağlan** seçeneklerini belirleyin. 
   
     ![Depolama kimlik bilgilerini yapıştırın ve bağlanın.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
@@ -127,15 +117,11 @@ Depolama Gezgini’ni daha önce yükleyip depolama hesabınıza bağladıysanı
     ![Depolama kuyruğu oluşturun.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Var olan bir işleve çıkış bağlaması eklediniz. 
 

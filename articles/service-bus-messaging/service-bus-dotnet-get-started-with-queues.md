@@ -20,16 +20,11 @@ ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="get-started-with-service-bus-queues" class="xliff"></a>
-
-# Service Bus kuyrukları ile çalışmaya başlama
+# <a name="get-started-with-service-bus-queues"></a>Service Bus kuyrukları ile çalışmaya başlama
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Ne elde edilecek
+## <a name="what-will-be-accomplished"></a>Ne elde edilecek
 Bu öğreticide aşağıdaki adımlar yer almaktadır:
 
 1. Azure portalı ile Service Bus ad alanı oluşturma.
@@ -37,50 +32,36 @@ Bu öğreticide aşağıdaki adımlar yer almaktadır:
 3. İleti göndermek için bir konsol uygulaması yazma.
 4. Önceki adımda gönderilen iletileri almak için bir konsol uygulaması yazma.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılmaktadır.
 2. Azure aboneliği.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Azure portalı kullanılarak ad alanı oluşturma
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure portalı kullanılarak ad alanı oluşturma
 Daha önce bir Service Bus Mesajlaşması ad alanı oluşturduysanız [Azure portalını kullanarak kuyruk oluşturma](#2-create-a-queue-using-the-azure-portal) bölümüne atlayın.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-queue-using-the-azure-portal" class="xliff"></a>
-
-## 2. Azure portalını kullanarak kuyruk oluşturma
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Azure portalını kullanarak kuyruk oluşturma
 Daha önce bir Service Bus kuyruğu oluşturduysanız [Kuyruğa ileti gönderme](#3-send-messages-to-the-queue) bölümüne atlayın.
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-<a id="3-send-messages-to-the-queue" class="xliff"></a>
-
-## 3. Kuyruğa ileti gönderme
+## <a name="3-send-messages-to-the-queue"></a>3. Kuyruğa ileti gönderme
 Kuyruğa ileti göndermek için, Visual Studio'yu kullanarak bir C# konsol uygulaması yazacağız.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Konsol uygulaması oluşturma
+### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
 Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** projesi oluşturun.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Service Bus NuGet paketi ekleme
+### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet paketi ekleme
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
 2. **Gözat** sekmesine tıklayın, **Microsoft Azure Service Bus**'ı bulun ve ardından **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
    
     ![NuGet paketi seçme][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-queue" class="xliff"></a>
-
-### Kuyruğa ileti göndermek için kod yazma
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Kuyruğa ileti göndermek için kod yazma
 1. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
    
     ```csharp
@@ -126,7 +107,6 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
 
-                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
                 client.Send(message);
@@ -141,9 +121,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
    
       ![İleti boyutu][queue-message]
 
-<a id="4-receive-messages-from-the-queue" class="xliff"></a>
-
-## 4. Kuyruktan ileti alma
+## <a name="4-receive-messages-from-the-queue"></a>4. Kuyruktan ileti alma
 
 1. Gönderdiğiniz iletileri almak için yeni bir konsol uygulaması oluşturun ve önceki gönderen uygulamaya benzer şekilde, Service Bus NuGet paketine başvuru ekleyin.
 2. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
@@ -204,9 +182,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
 
 Tebrikler! Bir kuyruk oluşturdunuz, ileti gönderdiniz ve ileti aldınız.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Service Bus mesajlaşmasının daha gelişmiş özelliklerini gösteren [örneklerin bulunduğu GitHub depomuza](https://github.com/Azure/azure-service-bus/tree/master/samples) göz atın.
 
