@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: facdbff229eaf5ee20d98214c62c8b2b46acc0fd
 ms.openlocfilehash: 80617b203bf5efa4cd6bed590ea937b2e68db9e1
-
+ms.contentlocale: tr-tr
+ms.lasthandoff: 01/18/2017
 
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Karma Kimlik dizin tümleştirme araçları karşılaştırması
@@ -91,10 +92,5 @@ GÖ = Genel Önizleme
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

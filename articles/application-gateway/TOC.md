@@ -7,6 +7,7 @@
 ## [URL yönlendirme](application-gateway-url-route-overview.md)
 ## [Çok Siteli](application-gateway-multi-site-overview.md)
 ## [Uçtan Uca SSL’ye genel bakış](application-gateway-backend-ssl.md)
+## [Yönlendirme](application-gateway-redirect-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Hizmet sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Başlarken
@@ -37,6 +38,8 @@
 ## Birden çok site barındırmayı yapılandırma
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+## Yeniden yönlendirmeyi yapılandırma
+### [PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Sistem durumu araştırmalarını yapılandırma
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
