@@ -20,6 +20,7 @@
 ### [Tanılama VM Uzantısı’nın v2.x sürümünü kullanarak VM’leri izleme](diagnostic-extension-v2.md)
 ### [Özel veri ekleme](inject-custom-data.md)
 ### [Linux parola veya anahtarlarını sıfırlama, SSH düzeltme ve diskleri denetleme](reset-access.md)
+### [Bakım](planned-maintenance-schedule.md)
 ### [CLI kullanarak bir Docker konağı oluşturma](cli-use-docker.md)
 ### [Portal kullanarak bir Docker konağı oluşturma](portal-use-docker.md)
 ### [Swarm ile Docker'ı kullanma](../../virtual-machines-linux-docker-swarm.md)

@@ -22,7 +22,7 @@
 ### [Azure portalında uyarıları yapılandırma](insights-alerts-portal.md)
 ### [CLI ile uyarıları yapılandırma](insights-alerts-command-line-interface.md)
 ### [PowerShell ile uyarıları yapılandırma](insights-alerts-powershell.md)
-### [Bir ölçüm uyarısına web kancası çağrısı yaptırma](insights-webhooks-alerts.md)
+### [Bir ölçüm uyarısının bir web kancasını çağırmasını sağlama](insights-webhooks-alerts.md)
 ### [Resource Manager şablonu ile ölçüm uyarısı oluşturma](monitoring-enable-alerts-using-template.md)
 ## Otomatik ölçeklendirmeyi kullanma
 ### [En İyi Uygulamalar](insights-autoscale-best-practices.md)
@@ -50,7 +50,7 @@
 ## Tanılama günlüklerini yönetme
 ### [Arşiv](monitoring-archive-diagnostic-logs.md)
 ### [Event Hubs’a Akış](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-### [Resource Manager şablonlarını kullanarak Tanılama Ayarlarını etkinleştirme](monitoring-enable-diagnostic-logs-using-template.md)
+### [Resource Manager şablonlarını kullanarak tanılama ayarlarını etkinleştirme](monitoring-enable-diagnostic-logs-using-template.md)
 ## REST API kullanma
 ### [REST API kullanımı ile ilgili kılavuz](monitoring-rest-api-walkthrough.md)
 ## Azure Tanılama uzantısı kullanma
@@ -74,3 +74,4 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [PowerShell örnekleri](insights-powershell-samples.md)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=monitor)
+## [Hızlı Başlangıç şablonları](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

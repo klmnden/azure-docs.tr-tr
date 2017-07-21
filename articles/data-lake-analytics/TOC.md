@@ -6,6 +6,7 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
+## [U-SQL Programlama Kılavuzu](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Nasıl yapılır?
 
@@ -28,12 +29,14 @@
 ### [U-SQL R uzantıları](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL Bilişsel uzantıları](data-lake-analytics-u-sql-cognitive.md)
 ### [Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
+### [Visual Studio Code için U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
 
 ## U-SQL programlarında hata ayıklama
 ### [İşleri izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 ### [U-SQL’de C# kodu hatalarını ayıklama](data-lake-analytics-debug-u-sql-jobs.md)
 ### [İş Tarayıcı ve İş Görünümünü kullanma](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Köşe Yürütme Görünümünü Kullanma](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+### [VSCode içinde yerel çalıştırma ve yerel hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md)
 
 # Başvuru
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)

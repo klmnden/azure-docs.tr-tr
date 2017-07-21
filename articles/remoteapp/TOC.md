@@ -25,6 +25,7 @@
 # Nasıl yapılır?
 
 ## [Kullanıcı verilerinin Azure RemoteApp’ten geçişi](remoteapp-migrate.md)
+## [MyCloudIT’ye geçiş](remoteapp-migrate-mycloudit.md)
 ## [Citrix XenApp Essentials’a geçiş](remoteapp-migrate-citrix.md)
 ## RemoteApp koleksiyonu oluşturma
 ### [Hangi koleksiyona ihtiyacınız var?](remoteapp-collections.md)

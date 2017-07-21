@@ -19,6 +19,7 @@
 
 ## Önleme
 ### [Güvenlik ilkeleri ayarlama](security-center-policies.md)
+### [Tam zamanında erişim](security-center-just-in-time.md)
 ### [Güvenlik önerileri uygulama](security-center-recommendations.md)
 
 ### [Uygulama önerileri](security-center-application-recommendations.md)

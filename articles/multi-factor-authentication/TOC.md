@@ -15,6 +15,7 @@
 ### [Ayarları yapılandırma](multi-factor-authentication-whats-next.md)
 ### [MFA’da raporlar](multi-factor-authentication-manage-reports.md)
 ### [Mevcut ağ ilkesi sunucularını kullanma](multi-factor-authentication-nps-extension.md)
+#### [NPS uzantısı için gelişmiş yapılandırma](nps-extension-advanced-configuration.md)
 ### [Kimlik Doğrulama Sağlayıcısı oluşturma](multi-factor-authentication-get-started-auth-provider.md)
 ### Şirket içi Azure MFA
 #### [Kullanıcı portalını yükleme](multi-factor-authentication-get-started-portal.md)

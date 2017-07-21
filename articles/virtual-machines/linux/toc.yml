@@ -371,6 +371,8 @@
               href: classic/hpcpack-cluster-namd.md
         - name: Azure’da SAP
           href: ../workloads/sap/get-started.md
+        - name: Azure’da Oracle
+          href: ../workloads/oracle/oracle-considerations.md
     - name: VM’lerde Docker
       items:
         - name: Azure Docker VM uzantısı ile Docker konakları oluşturma
