@@ -21,8 +21,6 @@
 #### [Kuyruk depolama ve bağlı hizmetler](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [Tablo depolama ve bağlı hizmetler](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Paketleri sürekli derleme için yapılandırma ve dağıtma
-#### [Visual Studio Team Services ve Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS ve Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Bir rol için trafik kuralları yapılandırma](cloud-services-enable-communication-role-instances.md)
 ### [Bulut Hizmeti yaşam döngüsü olaylarını işleme](cloud-services-role-lifecycle-dotnet.md)
