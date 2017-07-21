@@ -13,16 +13,15 @@ ms.topic: landing-page
 ms.date: 07/07/2017
 ms.author: bernardm
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: d95507be7af7eb69cbab4e11a2aa6af1a9775b0c
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 1452c1dd56829d162d464c4a359fa8c86ce74a6b
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Azure Hizmet Durumu Belgeleri
-<a id="azure-service-health-documentation" class="xliff"></a>
+# <a name="azure-service-health-documentation"></a>Azure Hizmet Durumu Belgeleri
 
-Hizmet Durumu, kaynaklarınızı etkileyen bir Azure sorununu tanılamanıza ve bu konuda destek almanıza yardımcı olur. Kaynaklarınızın güncel ve geçmiş durumu hakkında bilgiler sağlar ve sorunları azaltmaya yardımcı olur. Azure hizmetleriyle ilgili sorunlarda yardıma ihtiyacınız olduğunda teknik destek sağlar.
+Azure Hizmet Durumu, Azure hizmetlerindeki sorunların sizi etkilediği durumlar için kişiselleştirilmiş rehberlik ve destek sağlamanın yanı sıra yaklaşan planlı bakımlara hazırlanmanıza yardımcı olur. Azure Hizmet Durumu, hedefli ve esnek bildirimleri kullanarak sizi ve ekibinizi uyarır.
 <ul class="panelContent cardsFTitle">
     <li>
         <a href="/azure/service-health/service-health-overview">

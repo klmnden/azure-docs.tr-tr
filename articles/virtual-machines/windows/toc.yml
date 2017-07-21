@@ -85,8 +85,6 @@
           href: preserving-maintenance.md
         - name: Bakımı yeniden başlatma
           href: impactful-maintenance.md
-        - name: Zamanlama
-          href: planned-maintenance-schedule.md
     - name: VM boyutları
       href: sizes.md
       items:
@@ -405,6 +403,8 @@
               href: troubleshoot-recovery-disks.md
             - name: Azure portalına
               href: troubleshoot-recovery-disks-portal.md
+        - name: Performans sorunlarını gidermek için PerfInsights kullanma
+          href: how-to-use-perfInsights.md
 - name: Başvuru
   items:
     - name: Azure CLI
