@@ -29,6 +29,7 @@
 ### [Data Factory Kopyalama Sihirbazı](data-factory-azure-copy-wizard.md)
 #### [15 dakika içinde 1 TB yükleyin](data-factory-load-sql-data-warehouse.md)
 ### [Performans ve ayar kılavuzu](data-factory-copy-activity-performance.md)
+### [Hataya dayanıklılık](data-factory-copy-activity-fault-tolerance.md)
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](data-factory-data-movement-security-considerations.md)
 ### Bağlayıcılar
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
