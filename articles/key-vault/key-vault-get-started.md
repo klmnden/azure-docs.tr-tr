@@ -1,6 +1,6 @@
 ---
 title: "Azure Anahtar Kasası’nı kullanmaya başlama | Microsoft Belgeleri"
-description: "Bu öğreticiyi, Azure&quot;da sağlamlaştırılmış bir kapsayıcı oluşturmak ve Azure&quot;da şifreleme anahtarlarını ve gizli anahtarları depolayıp yönetmek amacıyla Azure Anahtar Kasası kullanmaya başlamanıza yardımcı olması için kullanın."
+description: "Bu öğreticiyi, Azure'da sağlamlaştırılmış bir kapsayıcı oluşturmak ve Azure'da şifreleme anahtarlarını ve gizli anahtarları depolayıp yönetmek amacıyla Azure Anahtar Kasası kullanmaya başlamanıza yardımcı olması için kullanın."
 services: key-vault
 documentationcenter: 
 author: cabailey
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/24/2016
+ms.date: 07/19/2017
 ms.author: cabailey
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: c45695129c1795b44b933a6d60e2f21a98542f7d
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 73b4ae4b7baca434c6aed99a2e59a9102b0d96ed
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Anahtar Kasası kullanmaya başlama 
@@ -172,7 +171,7 @@ Bir uygulamayı Azure Active Directory'ye kaydetmek için:
 10. Kasanızda izinleri ayarlamak için bir sonraki adımda kullanacağınız istemci kimliği değerini bu sayfadan kopyalayın.
 
 ## <a id="authorize"></a>Anahtar veya gizli anahtarı kullanması için uygulamayı yetkilendirme
-Uygulamayı kasadaki anahtar veya gizli anahtara erişmek üzere yetkilendirmek için  [AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet'ini ayarlayın.
+Uygulamayı kasadaki anahtar veya gizli anahtara erişmek üzere yetkilendirmek için [AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet'ini ayarlayın.
 
 Örneğin, kasa adınız **ContosoKeyVault** ise ve yetkilendirmek istediğiniz uygulama 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed istemci kimliğine sahipse ve uygulamaya kasanızdaki anahtarların şifresini çözme ve bunlarla oturum açma yetkisi vermek istiyorsanız şunu çalıştırın:
 
