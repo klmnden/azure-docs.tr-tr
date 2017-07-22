@@ -13,12 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.reviewer: jesakowi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
 ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
-
+ms.contentlocale: tr-tr
+ms.lasthandoff: 12/06/2016
 
 ---
 
@@ -215,10 +217,5 @@ FabrikamMail örneğinde şu şekilde görünür:
 (**ClientId**, FabrikamMail’in hizmet sorumlusu nesne kimliği (yeni oluşturulan); **PrincipalId**, kullanıcı nesne kimliği (onay veren kullanıcıya ait); **ResourceId**, Exchange’in hizmet sorumlusu nesne kimliği; Scope ise Exchange içinde onay verilen izindir).
 
 Kullanıcıların onaylamasına izin verilmiyorsa kullanıcılar izin gerektiğini belirten bir ekran görür.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
