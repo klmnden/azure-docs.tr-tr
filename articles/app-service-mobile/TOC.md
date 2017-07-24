@@ -195,6 +195,7 @@
 ## Tümleştirme
 ### [Karma bağlantıları kullanarak şirket içi kaynaklara erişme](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure ile SendGrid kullanarak e-posta gönderme](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [PowerApps ve Microsoft Flow’a dışarı aktarma](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Sorun giderme
 ### Mobile Apps için genel sorun giderme adımları

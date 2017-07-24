@@ -290,7 +290,8 @@
 ## İzleme ve tanılama
 ### [İzleme ve tanılama uygulamaları](service-fabric-diagnostics-overview.md)
 ### Olay oluşturma
-#### [Altyapı düzeyinde olaylar oluşturma](service-fabric-diagnostics-event-generation-infra.md)
+#### [Platform düzeyinde etkinlikler oluşturma](service-fabric-diagnostics-event-generation-infra.md)
+##### [İşlevsel kanal](service-fabric-diagnostics-event-generation-operational.md)
 ##### [Reliable Services olayları](service-fabric-reliable-services-diagnostics.md)
 ##### [Reliable Actors olayları](service-fabric-reliable-actors-diagnostics.md)
 ##### [Performans ölçümleri](service-fabric-diagnostics-event-generation-perf.md)
