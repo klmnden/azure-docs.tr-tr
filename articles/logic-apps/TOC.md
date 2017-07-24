@@ -62,14 +62,14 @@
 
 ## Yönetme ve izleme
 ### [Visual Studio ile mantıksal uygulamaları yönetme](logic-apps-manage-from-vs.md)
-### [Mantıksal Uygulamaları izleme](logic-apps-monitor-your-logic-apps.md)
 ### [Tümleştirme hesaplarını yönetme](logic-apps-enterprise-integration-accounts.md)
+### [Mantıksal uygulamaların durumunu izleme](logic-apps-monitor-your-logic-apps.md)
 ### [B2B iletilerini izleme](logic-apps-monitor-b2b-message.md)
+#### [OMS’de B2B iletilerini izleme](logic-apps-track-b2b-messages-omsportal.md)
+#### [B2B iletileri için OMS’yi sorgulama](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 #### [AS2 izleme şeması](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [X12 izleme şeması](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Özel izleme şeması](logic-apps-track-integration-account-custom-tracking-schema.md)
-#### [OMS’de B2B iletilerini izleme](logic-apps-track-b2b-messages-omsportal.md)
-#### [İletiler için OMS’yi sorgulama](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
 ## Örnekler, senaryolar ve kılavuzlar
 ### [Genel Bakış](logic-apps-examples-and-scenarios.md)
@@ -81,7 +81,6 @@
 ## Fiyatlandırma ve faturalandırma
 ### [Fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Kullanım ölçümü](logic-apps-pricing.md)
-
 
 # Sunucusuz
 ## Genel Bakış

@@ -400,6 +400,10 @@
           href: migration-classic-resource-manager-faq.md
     - name: Sorun giderme
       items:
+        - name: >-
+            Azure VM’sini mevcut bir kullanılabilirlik kümesine ekleme
+            desteklenebilirliği
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Linux VM parolasını sıfırlama
           href: virtual-machines-linux-reset-password.md
         - name: Sistemin yeniden başlatılma nedenini anlama

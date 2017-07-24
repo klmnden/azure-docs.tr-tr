@@ -257,6 +257,11 @@
           href: app-service-web-app-azure-resource-manager-powershell.md
         - name: Uygulamaları Azure Otomasyonu ile yönetme
           href: automation-manage-web-app.md
+    - name: Tümleştirme
+      items:
+        - name: PowerApps ve Microsoft Flow’a dışarı aktarma
+          href: >-
+            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: App Service Ortamı
       items:
         - name: App Service Ortamını kullanma
