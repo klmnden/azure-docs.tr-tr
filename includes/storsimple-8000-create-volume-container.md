@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 06/22/17-->
 
-#### Birim kapsayıcısı oluşturmak için
-<a id="to-create-a-volume-container" class="xliff"></a>
+#### <a name="to-create-a-volume-container"></a>Birim kapsayıcısı oluşturmak için
 1. StorSimple Cihaz Yöneticisi hizmetinize gidin ve **Cihazlar**’a tıklayın. Tablosal cihaz listesinden bir cihazı seçin ve tıklayın. 
 
     ![Birim kapsayıcısı dikey penceresi](./media/storsimple-8000-create-volume-container/createvolumecontainer1.png)
@@ -13,7 +12,7 @@
 3. **Birim kapsayıcısı ekle** dikey penceresinde:
    
    1. Cihaz otomatik olarak seçilir.
-   2. Birim kapsayıcınıza bir **Ad** verin. Adı 3 ile 32 karakter arası uzunlukta olmalıdır.
+   2. Birim kapsayıcınıza bir **Ad** verin. Adı 3 ile 32 karakter arası uzunlukta olmalıdır. Birim kapsayıcısını bir kez oluşturduktan sonra yeniden adlandıramazsınız.
    3. Cihazdan buluta gönderilen verilerin şifrelenmesini etkinleştirmek için **Bulut Depolama Şifrelemesini Etkinleştir**’i seçin.
    4. 8 ile 32 karakter uzunlukta olan bir **Bulut Depolama Şifrelemesi Anahtarı** sağlayın ve onaylayın. Bu anahtar cihaz tarafından şifrelenmiş verilere erişmek için kullanılır.
    5. Bu birim kapsayıcısı ile ilişkilendirilecek bir **Depolama Hesabı** seçin. Mevcut bir depolama hesabını veya hizmet oluşturulduğu sırasında oluşturulan varsayılan hesabı seçebilirsiniz. Hizmet aboneliğine bağlanmayan depolama hesabını belirtmek için de **Yeni ekle** seçeneğini kullanabilirsiniz.

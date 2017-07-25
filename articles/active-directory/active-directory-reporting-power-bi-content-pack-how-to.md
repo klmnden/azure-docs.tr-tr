@@ -13,22 +13,20 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: ab95f61e2d88f82bf2b24aea786c7dbadfb9c0fe
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 5c642bb814a279756e8391f12fdc86b6ec0b4a8f
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Azure Active Directory Power BI İçerik Paketi'ni kullanma
-<a id="how-to-use-the-azure-active-directory-power-bi-content-pack" class="xliff"></a>
+# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI İçerik Paketi'ni kullanma
 
 Kullanıcılarınızın Azure Active Directory özelliklerini benimseme ve kullanma şekli BT yöneticileri için çok önemlidir. Kullanımı artırmak ve AAD özelliklerinden en iyi şekilde faydalanmak için BT altyapınızı planlamanızı ve şirket içi iletişimi planlamanızı sağlar. Azure Active Directory için Power BI İçerik Paketi, verilerinizi analiz etmenizi ve Azure Active Directory'nin yoğun kullandığınız özelliklerinin durumu hakkında daha iyi öngörülere sahip olmak amacıyla nasıl kullanabileceğinizi anlamanızı sağlar.  Azure Active Directory API'lerini Power BI ile tümleştirerek önceden oluşturulmuş içerik paketlerini kolayca indirebilir ve Power BI tarafından sunulan zengin görselleştirme deneyiminden faydalanarak Azure Active Directory içindeki tüm işlemler hakkında öngörüye sahip olabilirsiniz. Kendi panonuzu oluşturabilir ve kuruluşunuzdaki herkesle kolayca paylaşabilirsiniz. 
 
 Bu konu içerik paketini ortamınıza yüklemeniz ve kullanmanız için izlemeniz gereken yönergeleri sunmaktadır.
 
-## Yükleme
-<a id="installation" class="xliff"></a>  
+## <a name="installation"></a>Yükleme  
 
 **Power BI İçerik Paketi'ni yüklemek için:**
 
@@ -69,13 +67,11 @@ Bu konu içerik paketini ortamınıza yüklemeniz ve kullanmanız için izlemeni
  
     ![Azure Active Directory Power BI İçerik Paketi](./media/active-directory-reporting-power-bi-content-pack-how-to/08.png) 
 
-## Bu içerik paketiyle ne yapabilirim?
-<a id="what-can-i-do-with-this-content-pack" class="xliff"></a>
+## <a name="what-can-i-do-with-this-content-pack"></a>Bu içerik paketiyle ne yapabilirim?
 
 Bu içerik paketiyle yapabileceklerinizi anlatmadan önce paketteki raporlar hakkında kısa bilgiler vermek istiyoruz. Rapor verileri **son 30 günü** kapsar.
 
-### Bu Azure Active Directory günlükleri İçerik Paketi sürümünde yer alan raporlar
-<a id="reports-included-in-this-version-of-azure-active-directory-logs-content-pack" class="xliff"></a>
+### <a name="reports-included-in-this-version-of-azure-active-directory-logs-content-pack"></a>Bu Azure Active Directory günlükleri İçerik Paketi sürümünde yer alan raporlar
 
 **Uygulama Kullanımı ve Eğilim Raporu**: Kuruluşunuzda kullanılan uygulamalar ve hangisinin en çok ve hangi zamanlarda kullanıldığıyla ilgili öngörülere ulaşın. Bu raporu kullanarak kuruluşunuzda kısa süre önce kullanıma sunduğunuz bir uygulama hakkında öngörüye sahip olabilir veya popüler uygulamaları görebilirsiniz. Bu sayede kullanılmayan uygulamaların kullanılmasını teşvik edebilirsiniz.
 
@@ -100,8 +96,7 @@ Bu rapor türüyle kuruluşunuzda kullanılan cihaz profillerini anlayabilir ve 
 
 **SSPR Hunisi**: Kuruluşunuzda parola sıfırlama işlemlerinin nasıl gerçekleştirildiğini kavrayın. SSPR aracıyla kaç parola sıfırlama girişimi yapıldığını ve kaçının başarılı olduğunu görün. SSPR hunisini kullanarak Parola sıfırlama işlemlerinin ayrıntılarına inin ve başarısız olan işlemlerin nedenini öğrenin. Bu rapor SSPR aracının kuruluşunuzda nasıl kullanıldığını göstererek doğru kararlar almanızı sağlar.
 
-## Azure AD Etkinlik içerik paketini özelleştirme
-<a id="customizing-azure-ad-activity-content-pack" class="xliff"></a>
+## <a name="customizing-azure-ad-activity-content-pack"></a>Azure AD Etkinlik içerik paketini özelleştirme
 
 **Görselleri Değiştirme**: **Raporu Düzenle**'ye tıklayıp istediğiniz görünümü seçerek raporun görsellerini değiştirebilirsiniz.
  
@@ -129,15 +124,13 @@ Bu rapor türüyle kuruluşunuzda kullanılan cihaz profillerini anlayabilir ve 
 
 
 
-## Power BI raporunuzun her gün yenilenmesini planlama
-<a id="scheduling-a-daily-refresh-of-your-power-bi-report" class="xliff"></a>
+## <a name="scheduling-a-daily-refresh-of-your-power-bi-report"></a>Power BI raporunuzun her gün yenilenmesini planlama
 
 Power BI raporunuzun her gün yenilenmesi için **Veri Kümeleri > Ayarlar > Yenilemeyi Zamanla** sayfasına gidin ve aşağıdaki gibi ayarlayın.
  
 ![Azure Active Directory Power BI İçerik Paketi](./media/active-directory-reporting-power-bi-content-pack-how-to/15.png) 
 
-## İçerik paketini yeni sürüme güncelleştirme
-<a id="updating-to-newer-version-of-content-pack" class="xliff"></a>
+## <a name="updating-to-newer-version-of-content-pack"></a>İçerik paketini yeni sürüme güncelleştirme
 
 İçerik paketinizi yeni sürüme güncelleştirmek istiyorsanız:
 
@@ -149,11 +142,12 @@ Power BI raporunuzun her gün yenilenmesi için **Veri Kümeleri > Ayarlar > Yen
 
 İçerik paketinin yeni sürümü çalışmaya başladığında ihtiyaç duymanız halinde eski içerik paketiyle ilişkilendirilmiş raporları ve veri kümelerini silerek onu kaldırabilirsiniz.
 
-## Sorun yaşamaya devam mı ediyorsunuz?
-<a id="still-having-issues" class="xliff"></a> 
+## <a name="still-having-issues"></a>Sorun yaşamaya devam mı ediyorsunuz? 
 
 [Sorun giderme kılavuzumuzu](active-directory-reporting-troubleshoot-content-pack.md) inceleyin. Power BI hakkında genel yardım için bu [yardım makalelerini inceleyin](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
  
 
+## <a name="next-steps"></a>Sonraki adımlar
 
+Raporlamaya genel bir bakış için bkz. [Azure Active Directory raporlama](active-directory-reporting-azure-portal.md).
 

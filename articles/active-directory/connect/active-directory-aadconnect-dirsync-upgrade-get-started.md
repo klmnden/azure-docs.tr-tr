@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Connect: DirSync&quot;ten yükseltme | Microsoft Belgeleri"
-description: "DirSync&quot;ten Azure AD Connect&quot;e nasıl yükseltme yapılacağı konusunda bilgi edinin. Bu makalede DirSync&quot;ten Azure AD Connect&quot;e yükseltmeye yönelik adımlar açıklanmaktadır."
+title: "Azure AD Connect: DirSync'ten yükseltme | Microsoft Belgeleri"
+description: "DirSync'ten Azure AD Connect'e nasıl yükseltme yapılacağı konusunda bilgi edinin. Bu makalede DirSync'ten Azure AD Connect'e yükseltmeye yönelik adımlar açıklanmaktadır."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 08ba157ba783d00069750cdc1c80d13111b6a670
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -147,7 +149,7 @@ Azure AD Connect'i yeni bir sunucuya yüklediğinizde, Azure AD Connect’i temi
 1. Azure AD Connect yükleyicisini (MSI) çalıştırın.
 2. **Azure AD Connect'e Hoş Geldiniz** ekranını gördüğünüzde, pencerenin sağ üst köşesindeki "X" işaretine tıklayarak yükleme sihirbazından çıkın.
 3. Bir komut istemi açın.
-4. Azure AD Connect yükleme konumundan (Varsayılan: C:\Program Files\Microsoft Azure Active Directory Connect) şu komutu yürütün:  `AzureADConnect.exe /migrate`.
+4. Azure AD Connect yükleme konumundan (Varsayılan: C:\Program Files\Microsoft Azure Active Directory Connect) şu komutu yürütün: `AzureADConnect.exe /migrate`.
    Azure AD Connect yükleme sihirbazı başlar ve şu ekranla karşılaşırsınız:  
    ![Azure AD kimlik bilgilerinizi girin](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
 5. DirSync yüklemesinden dışarı aktarılan ayarlar dosyasını seçin.
@@ -157,7 +159,7 @@ Azure AD Connect'i yeni bir sunucuya yüklediğinizde, Azure AD Connect’i temi
    * SQL Server'a bağlanmak için kullanılan hizmet hesabı. (SQL Server veritabanınız uzak ise bu hesabın etki alanı hizmet hesabı olması gerekir.)
      Bu seçenekler şu ekranda görülebilir:  
      ![Azure AD kimlik bilgilerinizi girin](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
-7. **Next (İleri)** düğmesine tıklayın.
+7. **İleri**’ye tıklayın.
 8. **Yapılandırma için hazır** sayfasında, **Start the synchronization process as soon as configuration completes (Yapılandırma tamamlanınca eşitlemeyi başlat)** seçeneğini işaretli olarak bırakın. Sunucu şu an [hazırlama modunda](active-directory-aadconnectsync-operations.md#staging-mode) olduğundan değişiklikler Azure AD’ye dışarı aktarılmaz.
 9. **Yükle**'ye tıklayın.
 10. Yükleme tamamlandıktan sonra Synchronization Service Manager'ı ve Synchronization Rule Editor'ı kullanmadan veya başka bir yapılandırma değişikliği yapmadan önce Windows oturumunuzu kapatıp tekrar açın.
@@ -216,9 +218,4 @@ Yüklemeyle etkinleştirilen şu yeni özellikler hakkında daha fazla bilgi edi
 Şu genel konu başlıkları hakkında daha fazla bilgi edinin: [Zamanlayıcı ve eşitleme tetikleme](active-directory-aadconnectsync-feature-scheduler.md).
 
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

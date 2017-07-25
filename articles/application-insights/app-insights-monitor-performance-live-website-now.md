@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 457ba9c9f74bc9d88800607a2f78a3c3c96cea07
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights ile çalışma zamanında web uygulamalarını izleme
@@ -42,10 +41,10 @@ Burada, her yöntemle kazanacaklarınızın bir özeti verilmiştir:
 | [Daha ayrıntılı özel durumlar](app-insights-asp-net-exceptions.md) | |Yes |
 | [Bağımlılık tanılaması](app-insights-asp-net-dependencies.md) |.NET 4.6+ üzerinde ancak daha az ayrıntılı |Evet, tam ayrıntılı: sonuç kodları, SQL komut metni, HTTP fiili|
 | [Sistem performans sayaçları](app-insights-performance-counters.md) |Evet |Evet |
-| [Özel telemetri için API][api] |Evet | |
-| [İzleme günlüğü tümleştirmesi](app-insights-asp-net-trace-logs.md) |Evet | |
-| [Sayfa görünümü ve kullanıcı verileri](app-insights-javascript.md) |Evet | |
-| Kodu yeniden derlemeniz gerekmez |Hayır | |
+| [Özel telemetri için API][api] |Evet |Hayır |
+| [İzleme günlüğü tümleştirmesi](app-insights-asp-net-trace-logs.md) |Evet |Hayır |
+| [Sayfa görünümü ve kullanıcı verileri](app-insights-javascript.md) |Evet |Hayır |
+| Kodu yeniden derlemeniz gerekir |Evet | Hayır |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Canlı bir Azure web uygulamasını izleme

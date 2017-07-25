@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric ve Azure CLI 2.0’ı kullanmaya başlama"
-description: "Azure CLI sürüm 2.0’da Service Fabric komutları modülünü kullanma adımları, kümeye bağlanma ve uygulamaları yönetme işlemlerini içerir"
+title: "Azure Service Fabric ve Azure CLI 2.0 ile çalışmaya başlama"
+description: "Azure CLI, sürüm 2.0'da Azure Service Fabric komutları modülünü kullanmayı öğrenin. Kümeye bağlanmayı ve uygulamaları yönetmeyi öğrenin."
 services: service-fabric
 author: samedder
 manager: timlt
@@ -8,80 +8,70 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: edwardsa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: c5cc6e54acf27456185eeb48858c4d981aa46b4b
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: ee3302b984ca2f5509755dc17b0a5fd06ace0afe
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="service-fabric-and-azure-cli-20" class="xliff"></a>
+# <a name="azure-service-fabric-and-azure-cli-20"></a>Azure Service Fabric ve Azure CLI 2.0
 
-# Service Fabric ve Azure CLI 2.0
+Azure komut satırı aracı (Azure CLI) sürüm 2.0, Azure Service Fabric kümelerini yönetmenize yardımcı olan komutlar içerir. Azure CLI ve Service Fabric ile çalışmaya başlamayı öğrenin.
 
-Yeni Azure CLI 2.0 artık Service Fabric kümelerini yönetmeye yönelik komutlar içermektedir. Bu belgede Azure CLI ile çalışmaya başlama adımları verilmektedir.
+## <a name="install-azure-cli-20"></a>Azure CLI 2.0’ı yükleme
 
-<a id="install-azure-cli-20" class="xliff"></a>
+Azure CLI 2.0 komutlarını kullanarak Service Fabric kümeleriyle etkileşim kurabilir ve bu kümeleri yönetebilirsiniz. Azure CLI'nin en son sürümünü almak için [Azure CLI 2.0 standart yükleme işlemini](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) izleyin.
 
-## Azure CLI 2.0’ı yükleme
+Daha fazla bilgi için bkz. [Azure CLI 2.0 aracına genel bakış](https://docs.microsoft.com/en-us/cli/azure/overview).
 
-Azure CLI artık Service Fabric kümeleri ile etkileşimde bulunma ve kümeleri yönetmeye yönelik komutlar içermektedir. En yeni Azure CLI sürümünü edinmek için [standart yükleme işlemini](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) izleyebilirsiniz.
+## <a name="azure-cli-syntax"></a>Azure CLI söz dizimi
 
-Daha fazla bilgi için [Azure CLI 2.0 belgelerine](https://docs.microsoft.com/en-us/cli/azure/overview) bakın
+Azure CLI'de, tüm Service Fabric komutlarının `az sf` ön eki vardır. Kullanabileceğiniz komutlarla ilgili genel bilgi için, `az sf -h` kullanın. Tek bir komutla ilgili yardım için, `az sf <command> -h` kullanın.
 
-<a id="cli-syntax" class="xliff"></a>
-
-## CLI söz dizimi
-
-Tüm Azure Service Fabric komutları Azure CLI’da `az sf` ön ekini alır. Kullanılabilir komutlar hakkında daha fazla bilgi için `az sf -h` komutunu çalıştırarak genel bilgi alabilirsiniz. Ya da tek bir komut hakkında ayrıntılı yardım için `az sf <command> -h` komutunu çalıştırabilirsiniz.
-
-CLI’da Azure Service Fabric komutları bir adlandırma desenini izler
+Azure CLI’de Service Fabric komutları şu adlandırma desenini izler:
 
 ```azurecli
 az sf <object> <action>
 ```
 
-Burada `<object>`, `<action>` hedefidir.
+`<object>`, `<action>` hedefidir.
 
-<a id="selecting-a-cluster" class="xliff"></a>
+## <a name="select-a-cluster"></a>Küme seçme
 
-## Küme seçme
-
-Herhangi bir işlem gerçekleştirmeden önce bağlantı kurulacak bir küme seçmeniz gerekir. Örneğin, güvenli olmayan bir kümeye bağlanmak için aşağıdaki kod parçacığına bakın.
+Herhangi bir işlem gerçekleştirmeden önce bağlantı kurulacak bir küme seçmeniz gerekir. Örneğin, aşağıdaki kodu bakın. Kod güvenli olmayan bir kümeye bağlanır.
 
 > [!WARNING]
-> Güvenli olmayan Service Fabric kümelerini üretim ortamları için kullanmayın
+> Üretim ortamında güvenli olmayan Service Fabric kümelerini kullanmayın.
 
 ```azurecli
 az sf cluster select --endpoint http://testcluster.com:19080
 ```
 
-Küme uç noktasına `http` veya `https` ön eki getirilmeli ve HTTP ağ geçidinin bağlantı noktası dahil edilmelidir. Bu bağlantı noktası ve adres, Service Fabric Explorer URL'si ile aynıdır.
+Küme uç noktasının `http` veya `https` ön eki olmalıdır. HTTP ağ geçidi için bağlantı noktasını içermelidir. Bağlantı noktası ve adres, Service Fabric Explorer URL'si ile aynıdır.
 
-Güvenliği sertifika ile sağlanan kümeler için şifrelenmemiş `pem` veya `crt` ile `key` dosyaları desteklenir.
+Sertifikayla güvenliği sağlanan kümelerde, şifrelenmemiş .pem dosyaları veya .crt ve .key dosyaları kullanabilirsiniz. Örneğin:
 
 ```azurecli
 az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Daha fazla bilgi için [güvenli kümelere bağlanma ile ilgili ayrıntılı belgelere](service-fabric-connect-to-secure-cluster.md) bakın.
+Daha fazla bilgi için bkz. [Güvenli Azure Service Fabric kümesine bağlanma](service-fabric-connect-to-secure-cluster.md).
 
 > [!NOTE]
-> Select komutu, döndürmeden önce herhangi bir isteği gerçekleştirmez. Bir kümenin doğru şekilde belirtildiğini doğrulamak için, `az sf cluster health` gibi bir komut çalıştırın ve komutun herhangi bir hata döndürüp döndürmediğini denetleyin.
+> `select` komutu, döndürülmeden önce hiçbir istek üzerinde işlem yapmaz. Kümeyi doğru belirttiğinizden emin olmak için, `az sf cluster health` gibi bir komut kullanın. Komutun herhangi bir hata döndürmediğini doğrulayın.
 
-<a id="performing-basic-operations" class="xliff"></a>
+## <a name="basic-operations"></a>Temel işlemler
 
-## Temel işlemleri gerçekleştirme
+Küme bağlantı bilgileri birden çok Azure CLI oturumu arasında kalıcıdır. Service Fabric kümesini seçtikten sonra, kümede tüm Service Fabric komutlarını çalıştırabilirsiniz.
 
-Küme bağlantı bilgileri farklı Azure CLI oturumları arasında kalıcıdır. Bir Service Fabric kümesi seçildikten sonra herhangi bir Service Fabric komutunu çalıştırabilirsiniz.
-
-Örneğin, Service Fabric kümesinin sistem durumunu almak için aşağıdaki komutu çalıştırın
+Örneğin, Service Fabric kümesinin sistem durumunu almak için aşağıdaki komutu kullanın:
 
 ```azurecli
 az sf cluster health
 ```
 
-Komut, JSON çıktısının Azure CLI yapılandırmasında belirtildiğini varsayarak aşağıdaki çıktıyı oluşturur
+Komut sonuçta şu çıkışı oluşturur (JSON çıkışının Azure CLI yapılandırmasında belirtildiği varsayılarak):
 
 ```json
 {
@@ -106,51 +96,41 @@ Komut, JSON çıktısının Azure CLI yapılandırmasında belirtildiğini varsa
 }
 ```
 
-<a id="tips-and-faq" class="xliff"></a>
+## <a name="tips-and-troubleshooting"></a>İpuçları ve sorun giderme
 
-## İpuçları ve SSS
+Azure CLI'de Service Fabric komutlarını kullanırken sorunlarla karşılaşıyorsanız, aşağıdaki bilgileri yararlı bulabilirsiniz.
 
-Azure CLI’da Service Fabric komutlarını kullanırken sorun yaşadığınızda yararlı olabilecek bazı bilgiler aşağıda verilmiştir
+### <a name="convert-a-certificate-from-pfx-to-pem-format"></a>Sertifikayı PFX’ten PEM biçimine dönüştürme
 
-<a id="converting-a-certificate-from-pfx-to-pem" class="xliff"></a>
-
-### Sertifikayı PFX’ten PEM’ye dönüştürme
-
-Azure CLI, PEM dosyası olarak istemci tarafı sertifikalarını destekler (`.pem` uzantısı). Windows’un PFX dosyalarını kullanıyorsanız, bu sertifikaların PEM biçimine dönüştürülmesi gerekir. Bir PFX dosyasını PEM dosyasına dönüştürmek için aşağıdaki komutu kullanın:
+Azure CLI de PEM (.pem uzantısı) dosyaları gibi istemci tarafı sertifikalarını destekler. Windows'dan PFX dosyalarını kullanıyorsanız, söz konusu sertifikaları PEM biçimine dönüştürmelisiniz. PFX dosyasını PEM dosyasına dönüştürmek için aşağıdaki komutu kullanın:
 
 ```bash
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
-Ayrıntılar için [OpenSSL belgelerine](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) bakın.
+Daha fazla bilgi için bkz. [OpenSSL belgeleri](https://www.openssl.org/docs/).
 
-<a id="connection-issues" class="xliff"></a>
+### <a name="connection-issues"></a>Bağlantı sorunları
 
-### Bağlantı sorunları
+Bazı işlemler aşağıdaki iletiyi oluşturabilir:
 
-İşlemleri yaparken aşağıdaki hatayla karşılaşabilirsiniz:
+`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
 
-> `Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+Belirtilen küme uç noktasının kullanılabilir olduğunu ve dinlediğini doğrulayın. Ayrıca söz konusu konakta ve bağlantı noktasında Service Fabric Explorer Kullanıcı Arabiriminin kullanılabilir olduğunu da doğrulayın. Uç noktayı güncelleştirmek için `az sf cluster select` kullanın.
 
-Bu durumda, belirtilen küme uç noktasının erişilebilir olduğunu ve dinlediğini doğrulayın. Ayrıca ana bilgisayar ve bağlantı noktasında Service Fabric Explorer Kullanıcı Arabiriminin erişilebilir olduğunu doğrulayın. Uç noktayı güncelleştirmek için `az sf cluster select` kullanın.
+### <a name="detailed-logs"></a>Ayrıntılı günlükler
 
-<a id="getting-detailed-logs" class="xliff"></a>
+Hata ayıkladığınız veya sorun bildirdiğiniz sırada ayrıntılı günlükler çoğunlukla yararlı olur. Azure CLI, günlük dosyalarının ayrıntı düzeyini artıran genel bir `--debug` bayrağı sunar.
 
-### Ayrıntılı günlükler alma
+### <a name="command-help-and-syntax"></a>Komut yardımı ve söz dizimi
 
-Hata ayıklama veya sorun bildirme sırasında ayrıntılı günlüklerin eklenmesi yararlıdır. Azure CLI, günlüklerin ayrıntı düzeyini artıran genel bir `--debug` bayrağı içerir.
-
-<a id="command-help-and-syntax" class="xliff"></a>
-
-### Komut yardımı ve söz dizimi
-
-Service Fabric komutları, Azure CLI ile aynı kuralı izler. Belirli bir komut veya komut grubu hakkında yardım almak için `-h` bayrağını belirtin. Örneğin:
+Service Fabric komutları, Azure CLI ile aynı kuralları izler. Belirli bir komut veya komut grubuyla ilgili yardım almak için `-h` bayrağını kullanın:
 
 ```azurecli
 az sf application -h
 ```
 
-or
+Bir örnek daha:
 
 ```azurecli
 az sf application create -h

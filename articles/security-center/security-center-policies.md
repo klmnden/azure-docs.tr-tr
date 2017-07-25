@@ -1,6 +1,6 @@
 ---
-title: "Azure Güvenlik Merkezi&quot;nde güvenlik ilkelerini ayarlama | Microsoft Belgeleri"
-description: "Bu belge, Azure Güvenlik Merkezi&quot;nde güvenlik ilkelerini yapılandırmanıza yardımcı olur."
+title: "Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama | Microsoft Belgeleri"
+description: "Bu belge, Azure Güvenlik Merkezi'nde güvenlik ilkelerini yapılandırmanıza yardımcı olur."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -12,35 +12,28 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: aefec15c72c6cf8389a29b03be70abb4c7f020b9
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="set-security-policies-in-azure-security-center" class="xliff"></a>
-
-# Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama
+# <a name="set-security-policies-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama
 Bu belge, bu görevi gerçekleştirmeye ilişkin gerekli adımlarda size kılavuzluk ederek Güvenlik Merkezi'nde güvenlik ilkelerini yapılandırmanıza yardımcı olur.
 
 >[!NOTE] 
 >Haziran 2017'nin ilk günlerinden itibaren Güvenlik Merkezi, veri toplamak ve depolamak için Microsoft Monitoring Agent'ı kullanacak. Daha fazla bilgi edinmek için [Azure Güvenlik Merkezi Platform Geçişi](security-center-platform-migration.md) makalesine bakın. Bu makaledeki bilgiler, Microsoft Monitoring Agent'a geçiş sonrasındaki Güvenlik Merkezi işlevselliğine yöneliktir.
 >
 
-<a id="what-are-security-policies" class="xliff"></a>
-
-## Güvenlik ilkeleri nedir?
+## <a name="what-are-security-policies"></a>Güvenlik ilkeleri nedir?
 Güvenlik ilkesi, belirtilen abonelikteki kaynaklar için önerilen denetim kümesini tanımlar. Güvenlik Merkezi'nde şirketinizin güvenlik gereksinimlerine ve uygulamaların türüne ya da her abonelikteki verilerin gizliliğine göre Azure abonelikleriniz için ilkeler tanımlarsınız.
 
 Örneğin, geliştirme veya test için kullanılan kaynaklar, üretim uygulamaları için kullanılan kaynaklardan farklı güvenlik gereksinimlerine sahip olabilir. Benzer şekilde, kişisel bilgiler gibi düzenlenen veriler kullanan uygulamalar daha yüksek bir güvenlik düzeyi gerektirebilir. Azure Güvenlik Merkezi'nde etkinleştirilen güvenlik ilkeleri, olası güvenlik açıklarını tanımlamanıza ve tehdit risklerini azaltmanıza yardımcı olmak için güvenlik önerilerini ve izlemeyi yürütür. Hangi seçeneğin size uygun olduğuna karar vermeye yönelik daha fazla bilgi için [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md)’nu okuyun.
 
-<a id="set-security-policies" class="xliff"></a>
-
-## Güvenlik ilkeleri ayarlama
+## <a name="set-security-policies"></a>Güvenlik ilkeleri ayarlama
 Her bir abonelik için güvenlik ilkeleri yapılandırabilirsiniz. Güvenlik ilkesini değiştirmek için o aboneliğin sahibi veya katkıda bulunanı olmanız gerekir. Azure portalında oturum açın ve aşağıdaki adımları izleyerek Güvenlik Merkezi'nde güvenlik ilkeleri yapılandırın:
 
 1. Güvenlik Merkezi panosunda **İlke** kutucuğuna tıklayın.
@@ -49,7 +42,7 @@ Her bir abonelik için güvenlik ilkeleri yapılandırabilirsiniz. Güvenlik ilk
     ![İlke tanımlama](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. Seçili abonelik için açılan **Güvenlik ilkesi** dikey penceresinde bir dizi seçenek bulunur. Bu dikey pencerede kullanılabilen seçenekler şunlardır:
 
-   * **Önleme ilkesi**: İlkeleri abonelik veya kaynak grubuna göre yapılandırmak için bu seçeneği belirleyin.  
+   * **Önleme ilkesi**: İlkeleri aboneliğe göre yapılandırmak için bu seçeneği belirleyin.  
    * **E-posta bildirimi**: Bir uyarının gün içinde ilk kez oluşması durumunda ve yüksek önem düzeyindeki uyarılar için bir e-posta bildirimi yapılandırmak üzere bu seçeneği kullanın. E-posta tercihleri yalnızca abonelik ilkeleri için yapılandırılabilir. E-posta bildirimi yapılandırma hakkında daha fazla bilgi için [Azure Güvenlik Merkezi’nde güvenlik kişi ayrıntılarını sağlama](security-center-provide-security-contact-details.md) konusunu okuyun.
    * **Fiyatlandırma katmanı**: Fiyatlandırma katmanı seçiminden yükseltmek için bu seçeneği kullanın. Fiyatlandırma seçenekleri hakkında daha fazla bilgi almak için [Güvenlik Merkezi fiyatlandırması](security-center-pricing.md) bölümüne bakın.
 4. **Sanal makinelerden veri toplama** seçeneğinin **Açık** olduğundan emin olun. Bu seçenek, Microsoft Monitoring Agent'ı (bu aracı aynı zamanda Operations Management Suite ve Log Analytics hizmeti tarafından da kullanılır) kullanan mevcut ve yeni kaynaklar için otomatik günlük toplamayı etkinleştirir. Bu aracıdan toplanan veriler, sanal makinenin coğrafi konumu göz önünde bulundurularak Azure aboneliğinizle ilişkili mevcut Log Analytics çalışma alanlarında veya yeni çalışma alanlarında depolanır.
@@ -81,9 +74,7 @@ Tüm seçenekleri yapılandırdıktan sonra öneriler içeren **Güvenlik İlkes
 >
 >
 
-<a id="see-also" class="xliff"></a>
-
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandırılacağını öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Azure Güvenlik Merkezi planlama ve işlemler kılavuzu](security-center-planning-and-operations-guide.md). Azure Güvenlik Merkezi'ni benimsemek için tasarım ile ilgili dikkat edilmesi gerekenleri planlama ve anlama hakkında bilgi edinin.

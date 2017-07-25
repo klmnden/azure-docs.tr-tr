@@ -16,17 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: rachelap, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2d539dd51834e935f9c5f7a6be42011ffe9e0870
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: be7a9979ba7e6aa26c60b24bcc892ca35af3c1fc
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="create-your-first-function-using-visual-studio"></a>Visual Studio kullanarak ilk işlevinizi oluşturma 
+# <a name="create-your-first-function-using-visual-studio"></a>Visual Studio kullanarak ilk işlevinizi oluşturma
 
-Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu sunucusuz bir ortamda yürütmenize olanak tanır. 
+Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu sunucusuz bir ortamda yürütmenize olanak tanır.
+
+> [!IMPORTANT]
+> Bu konu başlığı altında, adımları tamamlamak için Visual Studio’nun Önizleme Sürümü kullanılır. Devam etmeden önce lütfen [Visual Studio 2017 Önizleme sürümü 15.3](https://www.visualstudio.com/vs/preview/)’ü yüklediğinizden emin olun.
 
 Bu konuda, yerel olarak bir “merhaba dünya” işlevini oluşturmak ve test etmek amacıyla Visual Studio 2017 için Azure İşlevleri Araçları’nı nasıl kullanacağınızı öğreneceksiniz. Ardından işlev kodunu Azure’da yayımlayacaksınız.
 
@@ -37,7 +39,7 @@ Bu konuda, yerel olarak bir “merhaba dünya” işlevini oluşturmak ve test e
 Bu öğreticiyi tamamlamak için şunları yükleyin:
 
 * **Azure geliştirme** iş yükü dahil [Visual Studio 2017 Önizleme sürümü 15.3](https://www.visualstudio.com/vs/preview/).
-    
+
     ![Azure geliştirme iş yüküyle Visual Studio 2017’yi yükleyin](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

@@ -16,19 +16,19 @@ ms.date: 05/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 103d64ea73c309f387ff90d181f472ad246d3026
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 2734a90284432ee218efb4fea68684de4b069dd6
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-net"></a>.NET kullanarak sanal cihazınızı IoT hub’ınıza bağlama
+# <a name="connect-your-device-to-your-iot-hub-using-net"></a>.NET kullanarak cihazınızı IoT hub’ınıza bağlama
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Bu öğreticinin sonunda üç .NET konsol uygulamanız olacak:
 
-* Bir cihaz kimliği ve sanal cihaz uygulamanızı bağlamak için ilişkili güvenlik anahtarı oluşturan **CreateDeviceIdentity**.
-* Sanal cihaz uygulamanız tarafından gönderilen telemetriyi görüntüleyen **ReadDeviceToCloudMessages**.
+* Bir cihaz kimliği ve cihaz uygulamanızı bağlamak için ilişkili güvenlik anahtarı oluşturan **CreateDeviceIdentity**.
+* Cihaz uygulamanız tarafından gönderilen telemetriyi görüntüleyen **ReadDeviceToCloudMessages**.
 * Daha önce oluşturulan cihaz kimliğiyle IoT hub'ınızı bağlayan ve MQTT protokolünü kullanarak her saniye bir telemetri iletisi gönderen **SimulatedDevice**.
 
 Bu üç GitHub uygulamasını içeren Visual Studio çözümünü indirebilir veya kopyalayabilirsiniz.
@@ -99,7 +99,7 @@ Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir .NET konsol uygulama
     }
    ```
    
-    Bu yöntem, tüm IoT hub'ı cihazdan buluta alma bölümlerinden iletileri almak için bir **EventHubReceiver** örneği kullanır. **EventHubReceiver** nesnesini oluştururken, yalnızca başladıktan sonra gönderilen iletileri alması için bir `DateTime.Now` parametresini nasıl geçirdiğinize dikkat edin. Bu filtre, geçerli ileti kümesini görebilmeniz açısından bir test ortamında kullanışlıdır. Bir üretim ortamında, kodunuzun tüm iletileri işlediğinden emin olmanız gerekir. Daha fazla bilgi için [IoT Hub cihazdan buluta iletiler nasıl işlenir?][lnk-process-d2c-tutorial] öğreticisine bakın.
+    Bu yöntem, tüm IoT hub'ı cihazdan buluta alma bölümlerinden iletileri almak için bir **EventHubReceiver** örneği kullanır. **EventHubReceiver** nesnesini oluştururken, yalnızca başladıktan sonra gönderilen iletileri alması için bir `DateTime.Now` parametresini nasıl geçirdiğinize dikkat edin. Bu filtre, geçerli ileti kümesini görebilmeniz açısından bir test ortamında kullanışlıdır. Bir üretim ortamında, kodunuzun tüm iletileri işlediğinden emin olmanız gerekir. Daha fazla bilgi için [IoT Hub cihazdan buluta iletiler işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
 7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
    
    ```csharp
@@ -125,7 +125,7 @@ Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir .NET konsol uygulama
     Task.WaitAll(tasks.ToArray());
    ```
 
-## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
+## <a name="create-a-device-app"></a>Cihaz uygulaması oluşturma
 Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim yapan bir .NET konsol uygulaması oluşturacaksınız.
 
 1. Visual Studio’da **Konsol Uygulaması (.NET Framework)** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. .NET Framework sürümünün 4.5.1 veya sonraki bir sürüm olduğundan emin olun. Projeye **SimulatedDevice** adını verin.
@@ -193,7 +193,7 @@ Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim y
    
    Varsayılan olarak .NET Framework uygulamasında **Create** yöntemi, IoT Hub ile iletişim kurmak için AMQP protokolünü kullanan bir **DeviceClient** örneği oluşturur. (UWP ve PCL istemcileri varsayılan olarak HTTP'yi kullanır.) MQTT veya HTTP protokolünü kullanmak için **Create** yönteminin protokolü belirtmenize olanak tanıyan geçersiz kılmasını kullanın. HTTP protokolünü kullanıyorsanız **System.Net.Http.Formatting** ad alanını dahil etmek için projenize **Microsoft.AspNet.WebApi.Client** NuGet paketini de eklemeniz gerekir.
 
-Bu öğretici, IoT Hub sanal cihaz uygulaması oluşturma adımlarında size rehberlik eder. Cihaz uygulamanıza gerekli kodu eklemek için [Azure IoT Hub için Bağlı Hizmet][lnk-connected-service] Visual Studio uzantısını da kullanabilirsiniz.
+Bu öğretici, IoT Hub cihaz uygulaması oluşturma adımlarında size rehberlik eder. Cihaz uygulamanıza gerekli kodu eklemek için [Azure IoT Hub için Bağlı Hizmet][lnk-connected-service] Visual Studio uzantısını da kullanabilirsiniz.
 
 > [!NOTE]
 > Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. [Geçici Hata İşleme][lnk-transient-faults] adlı MSDN makalesinde önerildiği üzere, üretim kodunda yeniden deneme ilkelerini (üstel geri alma gibi) uygulamanız gerekir.
@@ -206,7 +206,7 @@ Bu öğretici, IoT Hub sanal cihaz uygulaması oluşturma adımlarında size reh
 1. Visual Studio'daki Çözüm Gezgini'nde çözümünüze sağ tıklayın ve ardından **Başlangıç projelerini ayarla**'ya tıklayın. **Birden fazla başlangıç projesi**'ni seçin ve ardından hem **ReadDeviceToCloudMessages** hem de **SimulatedDevice** projeleri için eylem olarak **Başla**'yı seçin.
    
     ![Başlangıç projesinin özellikleri][41]
-2. Her iki uygulamanın da çalışmasını başlatmak için **F5**'e basın. **SimulatedDevice** uygulamasından konsol çıktısı, sanal cihaz uygulamanızın IoT hub'ınıza gönderdiği iletileri gösterir. **ReadDeviceToCloudMessages** uygulamasından konsol çıktısı, IoT hub'ınızın aldığı iletileri gösterir.
+2. Her iki uygulamanın da çalışmasını başlatmak için **F5**'e basın. **SimulatedDevice** uygulamasının konsol çıkışı, cihaz uygulamanızın IoT hub'ınıza gönderdiği iletileri gösterir. **ReadDeviceToCloudMessages** uygulamasından konsol çıktısı, IoT hub'ınızın aldığı iletileri gösterir.
    
     ![Uygulamalardan konsol çıktısı][42]
 3. [Azure portalındaki][lnk-portal] **Kullanım** kutucuğu, IoT hub'ına gönderilen ileti sayısını gösterir:
@@ -214,7 +214,7 @@ Bu öğretici, IoT Hub sanal cihaz uygulaması oluşturma adımlarında size reh
     ![Azure portalı Kullanım kutucuğu][43]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Azure portalında bir IoT hub'ı yapılandırdınız ve ardından IoT hub'ının kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini, sanal cihaz uygulamasının, IoT hub'ına cihazdan buluta iletileri göndermesini sağlamak için kullandınız. Ayrıca, IoT hub’ı tarafından alınan iletileri görüntüleyen bir uygulama da oluşturdunuz. 
+Bu öğreticide, Azure portalında bir IoT hub'ı yapılandırdınız ve ardından IoT hub'ının kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini, cihaz uygulamasının, IoT hub'ına cihazdan buluta iletileri göndermesini sağlamak için kullandınız. Ayrıca, IoT hub’ı tarafından alınan iletileri görüntüleyen bir uygulama da oluşturdunuz. 
 
 IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için bkz:
 

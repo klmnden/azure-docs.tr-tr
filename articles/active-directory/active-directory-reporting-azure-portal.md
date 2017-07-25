@@ -1,7 +1,6 @@
 ---
-
 title: Azure Active Directory raporlama | Microsoft Docs
-description: "Azure Active Directory’de kullanılabilen çeşitli raporları listeler"
+description: "Azure Active Directory raporlamasına genel bir bakış sağlar."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,190 +12,110 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 738c8f4a56586b87f03973ec258b0a3023affa60
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-active-directory-reporting"></a>Azure Active Directory raporlama
 
+Azure Active Directory raporlamasıyla, ortamınızın nasıl çalıştığıyla ilgili fikir edinebilirsiniz.  
+Sağlanan verilerle:
 
-*Bu belge, [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md)’nun bir parçasıdır.*
+- Uygulama ve hizmetlerinizin kullanıcılarınız tarafından nasıl kullanıldığını saptayabilirsiniz
+- Ortamınızın durumunu etkileyebilecek olası riskleri algılayabilirsiniz
+- Kullanıcılarınızın işlerini yapmalarını engelleyen sorunları giderebilirsiniz  
 
-Azure Active Directory’deki (Azure AD) raporlama özelliğiyle ortamınızın nasıl çalıştığını belirlemek için gereken bilgileri alabilirsiniz.
+Raporlama mimarisinin iki ana dayanağı vardır:
 
-İki temel raporlama alanı vardır:
+- Güvenlik raporları
+- Etkinlik raporları
 
-* **Oturum açma etkinlikleri**: Yönetilen uygulamaların kullanımı ve kullanıcıların oturum açma etkinlikleri hakkında bilgiler
-* **Denetim günlükleri** - Kullanıcılar ve grup yönetimi, yönetilen uygulamalarınız ve dizin etkinlikleriniz hakkında sistem etkinliği bilgileri
+![Raporlama](./media/active-directory-reporting-azure-portal/01.png)
 
-Aradığınız verilerin kapsamını bağlı olarak, bu raporlara erişmek için [Azure portal](https://portal.azure.com) hizmetler listesinde **Kullanıcılar ve gruplar** ya da **Kurumsal uygulamalar** seçeneklerine tıklayabilirsiniz.
 
-## <a name="sign-in-activities"></a>Oturum açma etkinlikleri
-### <a name="user-sign-in-activities"></a>Kullanıcı oturum açma etkinlikleri
-Kullanıcı oturum açma raporu tarafından sağlanan bilgiler sayesinde aşağıdakiler gibi soruların yanıtlarını bulabilirsiniz:
 
-* Belirli bir kullanıcının oturum açma düzeni nedir?
-* Bir hafta içerisinde kaç adet kullanıcı oturum açtı?
-* Bu açılan oturumların durumu nedir?
+## <a name="security-reports"></a>Güvenlik raporları
 
-Bu verilere giriş noktanız, **Kullanıcılar ve gruplar** altındaki **Genel Bakış** bölümünde bulunan kullanıcı oturum açma grafiğidir.
+Azure Active Directory'deki güvenlik raporları kuruluşunuzun kimliklerini korumanıza yardımcı olur.  
+Azure Active Directory'de iki tür güvenlik raporu vardır:
 
- ![Raporlama](./media/active-directory-reporting-azure-portal/05.png "Reporting")
+- **Riskli oldukları belirlenen kullanıcılar** - [Riskli oldukları belirlenen kullanıcılar güvenlik raporundan](active-directory-reporting-security-user-at-risk.md), gizliliği bozulmuş olabilecek kullanıcı hesaplarına genel bir bakış elde edersiniz.
 
-Kullanıcı oturum açma grafiği, belirli bir zaman dönemi içerisinde tüm kullanıcılara ait oturum açma işlemlerinin haftalık olarak toplanmış halini gösterir. Zaman dönemi için varsayılan süre 30 gündür.
+- **Riskli oturum açma işlemleri** - [Riskli oturum açma işlemleri güvenlik raporuyla](active-directory-reporting-security-risky-sign-ins.md), kullanıcı hesabının meşru sahibi olmayan biri tarafından gerçekleştirilmiş olabilecek oturum açma işlemleriyle ilgili göstergeler elde edersiniz. 
 
-![Raporlama](./media/active-directory-reporting-azure-portal/02.png "Reporting")
+**Güvenlik raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?**  
+Azure Active Directory'nin tüm sürümlerinde size riskli oldukları belirlenen kullanıcılar ve riskli oturum açma işlemleri raporları sağlanır.  
+Bununla birlikte, rapordaki ayrıntı düzeyi sürümler arasında değişiklik gösterir: 
 
-Oturum açma grafiğinde bir güne tıkladığınızda, oturum açma etkinliklerinin ayrıntılı bir listesini alırsınız.
+- **Azure Active Directory Ücretsiz ve Temel sürümlerinde**, riskli olduğu belirlenen kullanıcıların ve riskli oturum açma işlemlerinin listesini zaten alırsınız. 
 
-![Raporlama](./media/active-directory-reporting-azure-portal/03.png "Reporting")
+- **Azure Active Directory Premium 1** sürümü bu modeli genişleterek her raporda algılanmış olan temel risk olaylarından bazılarını incelemenize olanak tanır. 
 
-Oturum açma etkinlikleri listesindeki her satır, seçili oturum açma hakkında aşağıdakiler gibi ayrıntılı bilgiler sağlar:
+- **Azure Active Directory Premium 2** sürümü temel risk olayları hakkında en ayrıntılı bilgileri sağlar ve ayrıca, yapılandırılmış risk düzeylerine otomatik olarak yanıt veren güvenlik ilkeleri yapılandırmanıza da olanak tanır.
 
-* Kim oturum açtı?
-* İlgili UPN neydi?
-* Oturum açmanın hedefi hangi uygulamaydı?
-* Oturum açmanın IP adresi nedir?
-* Oturum açmanın durumu neydi?
 
-### <a name="usage-of-managed-applications"></a>Yönetilen uygulamaların kullanımı
-Oturum açma bilgilerinizin uygulama odaklı bir görünümüyle aşağıdakiler gibi sorular yanıtlanabilir:
+## <a name="activity-reports"></a>Etkinlik raporları
 
-* Uygulamalarımı kimler kullanıyor?
-* Kuruluşunuzdaki en çok kullanılan ilk 3 uygulama nelerdir?
-* Kısa bir süre önce bir uygulamayı kullanıma sundum. Uygulamanın durumu nedir?
+Azure Active Directory'de iki tür etkinlik raporu vardır:
 
-Bu verilere giriş noktanız, **Kurumsal uygulamalar** altındaki **Genel Bakış** bölümünde bulunan kuruluşunuzda son 30 gün içinde en çok kullanılan ilk 3 uygulama raporudur.
+- **Denetim günlükleri** - [Denetim günlükleri etkinlik raporu](active-directory-reporting-activity-audit-logs.md), kiracınızda gerçekleştirilen her görevin geçmişine erişmenizi sağlar.
 
- ![Raporlama](./media/active-directory-reporting-azure-portal/06.png "Reporting")
+- **Oturum açma işlemleri** - [Oturum açma işlemleri etkinlik raporuyla](active-directory-reporting-activity-sign-ins.md), denetim günlükleri raporunda bildirilen görevleri kimlerin gerçekleştirdiğini saptayabilirsiniz.
 
-Belirli bir zaman döneminde en çok kullanılan ilk 3 uygulamanızda oturum açma işlemlerine ilişkin haftalık toplanan uygulama kullanımı grafiği. Zaman dönemi için varsayılan süre 30 gündür.
 
-![Raporlama](./media/active-directory-reporting-azure-portal/78.png "Reporting")
 
-İsterseniz belirli bir uygulamaya odaklanabilirsiniz.
+**Denetim günlükleri raporu** uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar.
+Sağlanan verilerin yararları arasında şu yaygın senaryolara çözüm getirmenize olanak tanımaları da sayılabilir:
 
-![Raporlama](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Reporting")
+- Kiracımda birisi yönetici grubuna erişim aldı. Ona kim erişim verdi? 
 
-Uygulama kullanımı grafiğinde bir güne tıkladığınızda, oturum açma etkinliklerinin ayrıntılı bir listesini alırsınız.
+- Belirli bir uygulamayı yeni ekledim ve iyi çalışıp çalışmadığını bilmek istiyorum; bu nedenle uygulamada oturum açan kullanıcıların listesini öğrenmek istiyorum
 
-![Raporlama](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Reporting")
+- Kiracımda kaç parola sıfırlama işlemi yapıldığını bilmek istiyorum
 
-**Oturum açma işlemleri** seçeneği, size tüm uygulamalarınıza ait oturum açma olaylarına genel bir bakış sunar.
 
-![Raporlama](./media/active-directory-reporting-azure-portal/85.png "Reporting")
+**Denetim günlükleri raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?**  
+Denetim günlükleri raporu, lisansınız olan özellikler için sağlanır. Belirli bir özelliğin lisansına sahipseniz, o özelliğin denetim günlüğü bilgilerine de erişebilirsiniz.
 
-Sütun seçiciyi kullanarak, görüntülenmesini istediğiniz veri alanlarını seçebilirsiniz.
+Diğer ayrıntılar için, [Azure Active Directory özellikleri ve becerileri](https://www.microsoft.com/cloud-platform/azure-active-directory-features) altında **Ücretsiz, Temel ve Premium sürümlerinin genel olarak sağlanan özelliklerini karşılaştırma** konusuna bakın.   
 
-![Raporlama](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-sign-ins"></a>Oturum açma işlemlerini filtreleme
-Görüntülenen veri miktarını sınırlamak için, oturum açma işlemlerini aşağıdaki alanları kullanarak filtreleyebilirsiniz:
 
-* Tarih ve saat 
-* Kullanıcı asıl adı
-* Uygulama adı
-* İstemci adı
-* Oturum açma durumu
+**Oturum açma işlemleri etkinlik raporu**, şöyle soruların yanıtlarını bulmanızı sağlar:
 
-![Raporlama](./media/active-directory-reporting-azure-portal/293.png "Reporting")
+- Belirli bir kullanıcının oturum açma düzeni nedir?
+- Bir hafta içerisinde kaç adet kullanıcı oturum açtı?
+- Bu açılan oturumların durumu nedir?
 
-Oturum açma etkinliklerine ait girişleri filtrelemenin başka bir yöntemi de belirli girdiler için arama gerçekleştirmektir.
-Arama yöntemi, oturum açma işlemlerinin kapsamı olarak belirli **kullanıcıları**, **grupları** veya **uygulamaları** seçmenize olanak tanır.
 
-![Raporlama](./media/active-directory-reporting-azure-portal/84.png "Reporting")
+**Oturum açma işlemleri etkinlik raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?**  
+Oturum açma işlemleri etkinlik raporuna erişebilmek için, kiracınızın ilişkili bir Azure AD Premium lisansı olması gerekir.
 
-## <a name="audit-logs"></a>Denetim günlükleri
-Azure Active Directory'deki denetim günlükleri uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar.
 
-Azure portalda ilgili etkinlikleri denetlemeye yönelik üç ana kategori vardır:
+## <a name="programmatic-access"></a>Programlı erişim
 
-* Kullanıcılar ve gruplar   
-* Uygulamalar
-* Dizin   
+Kullanıcı arabirimine ek olarak, Azure Active Directory raporlaması [programlı erişim](active-directory-reporting-api-getting-started-azure-portal.md) yoluyla da raporlama verileri sağlar. Bu raporların verileri SIEM sistemleri, denetim ve iş zekası araçları gibi uygulamalarınız için çok yararlı olabilir. Azure AD raporlama API'leri, bir dizi REST tabanlı API aracılığıyla verilere programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz. 
 
-Denetim rapor etkinliklerinin tam listesi için [denetim raporu olaylarının listesi](active-directory-reporting-audit-events.md#list-of-audit-report-events) bölümüne bakın.
-
-Tüm denetim verilerine giriş noktanız, **Azure Active Directory**’nin **Etkinlik** bölümünde bulunan **Denetim günlükleri** kısmıdır.
-
-![Denetim](./media/active-directory-reporting-azure-portal/61.png "Auditing")
-
-Denetim günlüğünde aktörleri (kim), etkinlikleri (ne) ve hedefleri gösteren bir liste görünümü vardır.
-
-![Denetim](./media/active-directory-reporting-azure-portal/345.png "Auditing")
-
-Liste görünümünde bir öğeye tıklayarak bu öğe hakkında daha fazla bilgi edinebilirsiniz.
-
-![Denetim](./media/active-directory-reporting-azure-portal/873.png "Auditing")
-
-### <a name="users-and-groups-audit-logs"></a>Kullanıcı ve gruplara yönelik denetim günlükleri
-Kullanıcı ve grup tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtlarını alabilirsiniz:
-
-* Kullanıcılara hangi tür güncelleştirmeler uygulanmış?
-* Kaç adet kullanıcı değiştirildi?
-* Kaç adet parola değiştirildi?
-* Bir yönetici bir dizinde neler yaptı?
-* Eklenmiş olan gruplar hangileridir?
-* Üyelik değişiklikleri olan gruplar var mı?
-* Grubun sahipleri değişti mi?
-* Bir grup veya kullanıcıya hangi lisanslar atanmış?
-
-Yalnızca kullanıcı ve gruplarla ilgili denetim verilerini gözden geçirmek istiyorsanız, **Kullanıcılar ve Gruplar**’ın **Etkinlik** bölümündeki **Denetim günlükleri** altında filtrelenmiş bir görünüm bulabilirsiniz.
-
-![Denetim](./media/active-directory-reporting-azure-portal/93.png "Auditing")
-
-### <a name="application-audit-logs"></a>Uygulama denetim günlükleri
-Uygulama tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtlarını alabilirsiniz:
-
-* Eklenmiş veya güncelleştirilmiş olan uygulamalar hangileridir?
-* Kaldırılmış olan uygulamalar hangileridir?
-* Belirli bir uygulamaya ait bir hizmet ilkesi değiştirildi mi?
-* Uygulamaların adları değiştirildi mi?
-* Belirli bir uygulama için kim onay verdi?
-
-Yalnızca uygulamalarla ilgili denetim verilerini gözden geçirmek istiyorsanız, **Kurumsal uygulamalar**’ın **Etkinlik** bölümündeki **Denetim günlükleri** altında filtrelenmiş bir görünüm bulabilirsiniz.
-
-![Denetim](./media/active-directory-reporting-azure-portal/134.png "Auditing")
-
-### <a name="filtering-audit-logs"></a>Denetim günlüklerini filtreleme
-Görüntülenen veri miktarını sınırlamak için, oturum açma işlemlerini aşağıdaki alanları kullanarak filtreleyebilirsiniz:
-
-* Tarih ve saat
-* Aktörün kullanıcı asıl adı
-* Etkinlik türü
-* Etkinlik
-
-![Denetim](./media/active-directory-reporting-azure-portal/356.png "Auditing")
-
-**Etkinlik Türü** listesinin içeriği bu dikey pencerenin giriş noktasına bağlıdır.  
-Giriş noktanız Azure Active Directory ise, bu liste tüm olası etkinlik türlerini içerir:
-
-* Uygulama 
-* Grup 
-* Kullanıcı
-* Cihaz
-* Dizin
-* İlke
-* Diğer
-
-![Denetim](./media/active-directory-reporting-azure-portal/825.png "Auditing")
-
-Listedeki etkinliklerin kapsamı etkinlik türüne göre belirlenir.
-Örneğin, **Etkinlik Türü** olarak **Grup** seçeneğini belirlediyseniz **Etkinlik** listesi yalnızca grupla ilgili etkinlikleri içerir.   
-
-![Denetim](./media/active-directory-reporting-azure-portal/654.png "Auditing")
-
-Denetim raporlarına ait girişleri filtrelemenin başka bir yöntemi de belirli girdiler için arama gerçekleştirmektir.
-
-![Denetim](./media/active-directory-reporting-azure-portal/237.png "Auditing")
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md).
+
+Azure Active Directory'deki çeşitli rapor türleri hakkında daha fazla bilgi edinmek istiyorsanız, bkz.:
+
+- [Riskli olarak işaretlenen kullanıcılar raporu](active-directory-reporting-security-user-at-risk.md)
+- [Riskli oturum açma işlemleri raporu](active-directory-reporting-security-risky-sign-ins.md)
+- [Denetim günlükleri raporu](active-directory-reporting-activity-audit-logs.md)
+- [Oturum açma günlükleri raporu](active-directory-reporting-activity-sign-ins.md)
+
+Raporlama API'sini kullanarak raporlama verilerine erişim hakkında daha fazla bilgi edinmek istiyorsanız, bkz: 
+
+- [Azure Active Directory raporlama API’siyle çalışmaya başlama](active-directory-reporting-api-getting-started-azure-portal.md)
 
 
+<!--Image references-->
+[1]: ./media/active-directory-reporting-azure-portal/ic195031.png

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/10/2017
+ms.date: 07/16/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 124eff2edccb6b4ad56ee39a2b37e892ef8c6cb4
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: a8e69933b977f60d09837f0f0360a274ef1b5dcd
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -81,37 +81,8 @@ Akış uç noktasını başlatmak için aşağıdakileri yapın:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-1. Visual Studio’da yeni bir C# Konsol Uygulaması oluşturun. **Ad**, **Konum** ve **Çözüm adı** değerlerini girip **Tamam**’a tıklayın.
-2. [Windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet paketini kullanarak **Azure Media Services .NET SDK Uzantıları**’nı yükleyin.  Media Services .NET SDK Uzantıları, kodunuzu basitleştirerek Media Services ile geliştirme yapmayı kolaylaştıran bir dizi genişletme yöntemi ve yardımcı işlevdir. Bu paketin yüklenmesiyle **Media Services .NET SDK** da yüklenir ve diğer tüm gerekli bağımlılıklar eklenir.
-
-    NuGet kullanarak başvuru eklemek için şunları yapın: Çözüm Gezgini’nde proje adının üzerine sağ tıklayın ve **NuGet paketlerini yönet**’i seçin. Ardından **windowsazure.mediaservices.extensions** aratın ve **Yükle**’ye tıklayın.
-
-3. System.Configuration bütünleştirilmiş koduna bir başvuru ekleyin. Bu bütünleştirilmiş kod, App.config gibi yapılandırma dosyalarına erişmek için kullanılan **System.Configuration.ConfigurationManager** sınıfını içerir.
-
-    Başvuru eklemek için şunları yapın:Çözüm Gezgini’nde proje adının üzerine sağ tıklayın ve **Başvuru** > **Ekle...** öğesini seçip arama kutusuna configuration yazın.
-
-4. App.config dosyasını açın (varsayılan olarak eklenmemişse dosyayı projenize ekleyin) ve dosyaya bir *appSettings* bölümü ekleyin. Aşağıdaki örnekte gösterildiği gibi Azure Media Services hesap adınız ve hesap anahtarınızın değerlerini ayarlayın. Hesap adını ve anahtar bilgilerini almak için [Azure portalına](https://portal.azure.com/) gidin ve AMS hesabınızı seçin. Ardından, **Ayarlar** > **Anahtarlar**'ı seçin. Anahtarları yönet pencerelerinde hesap adı gösterilir ve birincil anahtar ile ikincil anahtar görüntülenir. Hesap adı ve birincil anahtar değerlerini kopyalayın.
-
-        <configuration>
-        ...
-          <appSettings>
-            <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-            <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-          </appSettings>
-
-        </configuration>
-5. Aşağıdaki kodu, Program.cs dosyasının başındaki mevcut **using** deyimlerinin üzerine yazın.
-
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Text;
-        using System.Threading.Tasks;
-        using System.Configuration;
-        using System.Threading;
-        using System.IO;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-6. Yeni bir klasör oluşturun (yerel sürücünüzün herhangi bir yerinde) ve kodlayıp akışla aktarmak veya aşamalı indirmek istediğiniz bir .mp4 dosyasını buraya kopyalayın. Bu örnekte "C:\VideoFiles" yolu kullanılmaktadır.
+1. Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
+2. Yeni bir klasör oluşturun (yerel sürücünüzün herhangi bir yerinde) ve kodlayıp akışla aktarmak veya aşamalı indirmek istediğiniz bir .mp4 dosyasını buraya kopyalayın. Bu örnekte "C:\VideoFiles" yolu kullanılmaktadır.
 
 ## <a name="connect-to-the-media-services-account"></a>Media Services hesabına bağlanma
 
@@ -129,48 +100,44 @@ Dosya adını ve yolunu medya dosyanıza göre güncelleştirmeyi unutmayın.
     class Program
     {
         // Read values from the App.config file.
-        private static readonly string _mediaServicesAccountName =
-            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-        private static readonly string _mediaServicesAccountKey =
-            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-        // Field for service context.
         private static CloudMediaContext _context = null;
-        private static MediaServicesCredentials _cachedCredentials = null;
 
         static void Main(string[] args)
         {
-            try
-            {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the chached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+        try
+        {
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                // Add calls to methods defined in this section.
-        // Make sure to update the file name and path to where you have your media file.
-                IAsset inputAsset =
-                    UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                IAsset encodedAsset =
-                    EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
+            // Add calls to methods defined in this section.
+            // Make sure to update the file name and path to where you have your media file.
+            IAsset inputAsset =
+            UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
-                PublishAssetGetURLs(encodedAsset);
-            }
-            catch (Exception exception)
-            {
-                // Parse the XML error message in the Media Services response and create a new
-                // exception with its content.
-                exception = MediaServicesExceptionParser.Parse(exception);
+            IAsset encodedAsset =
+            EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
 
-                Console.Error.WriteLine(exception.Message);
-            }
-            finally
-            {
-                Console.ReadLine();
-            }
+            PublishAssetGetURLs(encodedAsset);
+        }
+        catch (Exception exception)
+        {
+            // Parse the XML error message in the Media Services response and create a new
+            // exception with its content.
+            exception = MediaServicesExceptionParser.Parse(exception);
+
+            Console.Error.WriteLine(exception.Message);
+        }
+        finally
+        {
+            Console.ReadLine();
+        }
         }
     }
 
@@ -263,7 +230,7 @@ Bir varlığı akışla aktarmak veya indirmek için söz konusu varlığı önc
 
 ### <a name="some-details-about-url-formats"></a>URL biçimleri hakkında bazı ayrıntılar
 
-Bulucuları oluşturduktan sonra, dosyalarınızı akışla aktarmak veya indirmek için kullanılacak URL'leri oluşturabilirsiniz. Bu öğreticideki örnek, uygun tarayıcılara yapıştırabileceğiniz URL'ler oluşturacaktır. Bu bölümde yalnızca farklı biçimlerin neye benzediğini gösteren kısa örnekler verilmektedir.
+Bulucuları oluşturduktan sonra, dosyalarınızı akışla aktarmak veya indirmek için kullanılacak URL'leri oluşturabilirsiniz. Bu öğreticideki örnek, uygun tarayıcılara yapıştırabileceğiniz URL'ler oluşturacaktır. Bu bölümde yalnızca farklı biçimlerin neye benzediğini gösteren kısa örnekler verilir.
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>MPEG DASH’e ilişkin bir akış URL'si aşağıdaki biçime sahiptir:
 

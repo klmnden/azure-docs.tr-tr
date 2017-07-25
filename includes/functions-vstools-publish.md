@@ -16,10 +16,6 @@ Henüz Visual Studio'yu Azure hesabınıza bağlamadıysanız **Hesap ekle...** 
 | **[App Service Planı](../articles/azure-functions/functions-scale.md)** | Tüketim planı | Yeni bir plan oluşturduğunuzda **Boyut** bölümünde **Tüketim** seçeneğini belirlediğinizden emin olun.  |
 | **[Depolama hesabı](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Genel olarak benzersiz bir ad | Mevcut bir depolama hesabını kullanın veya yeni bir hesap oluşturun.   |
 
-Azure'da bu ayarlara sahip bir işlev uygulaması oluşturmak için **Oluştur**'a tıklayın. 
-
-Hazırlama işlemi tamamlandıktan sonra proje kodunuzu yeni işlev uygulamasına dağıtmak için **Yayımla**'ya tıklayın. 
+Azure'da bu ayarlara sahip bir işlev uygulaması oluşturmak için **Oluştur**'a tıklayın. Hazırlık tamamlandığında, **Site URL'si** değerini (Azure'daki işlev uygulamanızın adresi) not edin. 
 
 ![Azure yerel çalışma zamanı](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
-
-**Site URL'si** değerini (Azure'daki işlev uygulamanızın adresi) not edin. 

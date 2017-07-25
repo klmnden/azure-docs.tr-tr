@@ -1,8 +1,8 @@
 ---
-title: "Azure Cosmos DB öğreticisi: Apache TinkerPop tarafından kullanıma sunulan Gremlin Console&quot;da oluşturma, sorgulama ve çapraz geçiş yapma | Microsoft Docs"
+title: "Azure Cosmos DB öğreticisi: Apache TinkerPop tarafından kullanıma sunulan Gremlin Console'da oluşturma, sorgulama ve çapraz geçiş yapma | Microsoft Docs"
 description: "Azure Cosmos DB Graph API’sini kullanarak köşe, kenar ve sorgu oluşturmaya yönelik Azure Cosmos DB hızlı başlangıcı."
 services: cosmos-db
-author: AndrewHoh
+author: dennyglee
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
@@ -11,30 +11,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 06/10/2017
-ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 44972270a13f5ab5b3aa22557b36e80ae406a4a6
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 82ddc351359318dab82c95d3e3b9b97ba3e3b4a8
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/17/2017
 
 ---
-<a id="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console" class="xliff"></a>
-
-# Azure Cosmos DB: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma
+# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Cosmos DB hesabı, veritabanı ve grafik (kapsayıcı) oluşturma işlemi ve [Apache TinkerPop](http://tinkerpop.apache.org) tarafından kullanıma sunulan [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)'u kullanarak Grafik API'si (önizleme) verileri ile çalışma işlemi anlatılmaktadır. Bu öğreticide köşe ve kenarlar oluşturup sorgulayacak, bir köşe özelliğini güncelleştirecek, köşeleri sorgulayacak, grafiğin çapraz geçişini yapacak ve bir köşeyi bırakacaksınız.
+Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Cosmos DB hesabı, veritabanı ve grafik (kapsayıcı) oluşturma işlemi ve [Apache TinkerPop](http://tinkerpop.apache.org) tarafından kullanıma sunulan [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)'u kullanarak Grafik API'si (önizleme) verileri ile çalışma işlemi anlatılmaktadır. Bu öğreticide köşe ve kenarlar oluşturup sorgular, bir köşe özelliğini güncelleştirir, köşeleri sorgular, grafiğin çapraz geçişini yapar ve bir köşeyi bırakırsınız.
 
 ![Apache Gremlin konsolunda Azure Cosmos DB](./media/create-graph-gremlin-console/gremlin-console.png)
 
 Gremlin konsolu, Groovy/Java tabanlıdır ve Linux, Mac ve Windows üzerinde çalışır. Konsolu [Apache TinkerPop sitesinden](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.4/apache-tinkerpop-gremlin-console-3.2.4-bin.zip) indirebilirsiniz.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıca yönelik bir Azure Cosmos DB hesabı oluşturmak için Azure aboneliğinizin olması gerekir.
 
@@ -42,33 +38,34 @@ Bu hızlı başlangıca yönelik bir Azure Cosmos DB hesabı oluşturmak için A
 
 Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3.2.4 veya daha yüksek bir sürüm kullanın.
 
-<a id="create-a-database-account" class="xliff"></a>
-
-## Veritabanı hesabı oluşturma
+## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-<a id="add-a-graph" class="xliff"></a>
-
-## Grafik ekleme
+## <a name="add-a-graph"></a>Grafik ekleme
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Uygulama hizmetinize bağlanma
-1. Gremlin Konsolu’nu başlatmadan önce *apache-tinkerpop-gremlin-console-3.2.4/conf* dizininde *remote-secure.yaml* yapılandırma dosyasını oluşturun veya değiştirin.
+1. Gremlin Konsolu’nu başlatmadan önce apache-tinkerpop-gremlin-console-3.2.4/conf dizininde remote-secure.yaml yapılandırma dosyasını oluşturun veya değiştirin.
 2. *ana bilgisayar*, *bağlantı noktası*, *kullanıcı adı*, *parola*, *bağlantı havuzu* ve *serileştirici* değerlerini girin:
 
     Ayar|Önerilen değer|Açıklama
     ---|---|---
-    Ana bilgisayarlar|***.graphs.azure.com|Grafik hizmeti URI'si değeriniz, Azure portalından alabilirsiniz
-    Bağlantı noktası|443|443 olarak ayarlayın
-    Kullanıcı adı|*Kullanıcı adınız*|`/dbs/<db>/colls/<coll>` formunun kaynağı.
-    Parola|*Birincil ana anahtarınız*|Azure Cosmos DB için birincil ana anahtarınız
-    Bağlantı havuzu|{enableSsl: true}|SSL için bağlantı havuzu ayarınız
-    Serileştirici|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Bu değere ayarlayın
+    hosts|[***.graphs.azure.com]|Aşağıdaki ekran görüntüsüne bakın. Bu, Azure portalının Genel Bakış sayfasında bulunan, köşeli ayraç içindeki, sonundan :443/ bölümü çıkartılmış Gremlin URI değeridir.<br><br>Bu değer, Anahtarlar sekmesinde bulunan URI değeri kullanılıp https:// bölümü çıkarılarak ve belgeleri grafiklere dönüştürüp sondaki :443/ bölümü çıkarılarak alınabilir.
+    port|443|443 olarak ayarlayın.
+    kullanıcı adı|*Kullanıcı adınız*|`/dbs/<db>/colls/<coll>` formunun kaynağı; burada `<db>` veritabanı adınız ve `<coll>` koleksiyon adınızdır.
+    password|*Birincil anahtarınız*| Aşağıdaki ikinci ekran görüntüsüne bakın. Bu sizin birincil anahtarınızdır, bu anahtarı Azure portalının Anahtarlar sayfasındaki Birincil Anahtar kutusunda bulabilirsiniz. Değeri kopyalamak için kutunun solundaki kopyala düğmesini kullanın.
+    connectionPool|{enableSsl: true}|SSL için bağlantı havuzu ayarınız.
+    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Bu değere ayarlayın ve değeri yapıştırırken tüm `\n` satır sonlarını silin.
 
-3. [Gremlin Konsolu](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/)’nu başlatmak için terminalinizde *bin/gremlin.bat* veya *bin/gremlin.sh* komutunu çalıştırın.
-4. Uygulama hizmetinize bağlanmak için terminalinizde *:remote connect tinkerpop.server conf/remote-secure.yaml* komutunu çalıştırın.
+    Hosts değeri için **Genel Bakış** sayfasından **Gremlin URI** değerini kopyalayın: ![Azure portalındaki Genel Bakış sayfasında bulunan Gremlin URI değerini görüntüleme ve kopyalama](./media/create-graph-gremlin-console/gremlin-uri.png)
+
+    Password değeri için, **Anahtarlar** sayfasından **Birincil Anahtar**’ı kopyalayın: ![Azure portalındaki Anahtarlar sayfasında bulunan birincil anahtarı görüntüleme ve kopyalama](./media/create-graph-gremlin-console/keys.png)
+
+
+3. Terminalinizde [Gremlin Konsolunu](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/) başlatmak için `bin/gremlin.bat` veya `bin/gremlin.sh` çalıştırın.
+4. Terminalinizde uygulama hizmetinize bağlanmak için `:remote connect tinkerpop.server conf/remote-secure.yaml` çalıştırın.
 
 Harika! Kurulumu tamamladığımıza göre, bazı konsol komutlarını çalıştırmaya başlayalım.
 
@@ -78,17 +75,15 @@ Basit bir count() komutunu deneyelim. İstendiğinde konsola aşağıdakileri ya
 ```
 
 > [!TIP]
-> ***:>*** öğesinin g.V().count() text? öğesinden önce yazıldığına dikkat edin 
+> `:>` öğesinin `g.V().count()` metninden önce yazıldığına dikkat edin. 
 >
 > Bu yazmanız gereken komutun bir parçasıdır. Gremlin Console ile Azure Cosmos DB birlikte kullanıldığında bu kısım önemlidir.  
 >
-> Bu :> ön ekini attığınızda konsola, komutu yerel olarak (genellikle bellek içi bir grafikte) yürütmesini söylemiş olursunuz.
-> ***:>*** ön ekini kullandığınızda, bu örnekte Cosmos DB'de (localhost öykünücüsü veya bir > Azure örneği) olmak üzere, konsola uzaktan komut yürütmesini söylemiş olursunuz.
+> Bu `:>` ön ekini attığınızda, konsola komutu yerel olarak (genellikle bellek içi bir grafikte) yürütmesini söylemiş olursunuz.
+> `:>` ön ekini kullandığınızda, bu örnekte Cosmos DB'de (localhost öykünücüsü veya bir > Azure örneği) olmak üzere, konsola uzaktan komut yürütmesini söylemiş olursunuz.
 
 
-<a id="create-vertices-and-edges" class="xliff"></a>
-
-## Köşe ve kenar oluşturma
+## <a name="create-vertices-and-edges"></a>Köşe ve kenar oluşturma
 
 İlk olarak *Thomas*, *Mary Kay*, *Robin*, *Ben* ve *Jack* için beş kişi köşesi ekleyelim.
 
@@ -193,9 +188,7 @@ Giriş (Robin -> Ben):
 ==>[id:889c4d3c-549e-4d35-bc21-a3d1bfa11e00,label:knows,type:edge,inVLabel:person,outVLabel:person,inV:40fd641d-546e-412a-abcc-58fe53891aab,outV:3e324073-ccfc-4ae1-8675-d450858ca116]
 ```
 
-<a id="update-a-vertex" class="xliff"></a>
-
-## Köşe güncelleştirme
+## <a name="update-a-vertex"></a>Köşe güncelleştirme
 
 *Thomas* köşesini yeni yaşı olan *45* ile güncelleştirelim.
 
@@ -209,9 +202,7 @@ Giriş:
 ==>[id:ae36f938-210e-445a-92df-519f2b64c8ec,label:person,type:vertex,properties:[firstName:[[id:872090b6-6a77-456a-9a55-a59141d4ebc2,value:Thomas]],lastName:[[id:7ee7a39a-a414-4127-89b4-870bc4ef99f3,value:Andersen]],age:[[id:a2a75d5a-ae70-4095-806d-a35abcbfe71d,value:45]]]]
 ```
 
-<a id="query-your-graph" class="xliff"></a>
-
-## Grafiğinizi sorgulama
+## <a name="query-your-graph"></a>Grafiğinizi sorgulama
 
 Şimdi de grafiğinize karşı çeşitli sorgular çalıştıralım.
 
@@ -243,9 +234,7 @@ Giriş (filtre + planlama sorgusu):
 ==>Thomas
 ```
 
-<a id="traverse-your-graph" class="xliff"></a>
-
-## Grafiğinizi çapraz geçirme
+## <a name="traverse-your-graph"></a>Grafiğinizi çapraz geçirme
 
 Şimdi grafiği Thomas'ın tüm arkadaşlarını döndürecek şekilde geçirelim.
 
@@ -275,9 +264,7 @@ Giriş (Thomas’ın arkadaşlarının arkadaşları):
 ==>[id:a801a0cb-ee85-44ee-a502-271685ef212e,label:person,type:vertex,properties:[firstName:[[id:b9489902-d29a-4673-8c09-c2b3fe7f8b94,value:Ben]],lastName:[[id:e084f933-9a4b-4dbc-8273-f0171265cf1d,value:Miller]]]]
 ```
 
-<a id="drop-a-vertex" class="xliff"></a>
-
-## Köşe bırakma
+## <a name="drop-a-vertex"></a>Köşe bırakma
 
 Şimdi de grafik veritabanından bir köşeyi silelim.
 
@@ -287,9 +274,7 @@ Giriş (Jack köşesini bırakın):
 :> g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
-<a id="clear-your-graph" class="xliff"></a>
-
-## Grafiğinizi temizleme
+## <a name="clear-your-graph"></a>Grafiğinizi temizleme
 
 Son olarak, veritabanındaki tüm köşe ve kenarları temizleyelim.
 
@@ -302,24 +287,18 @@ Giriş:
 
 Tebrikler! Bu Azure Cosmos DB: Grafik API’si öğreticisini tamamladınız!
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Azure portalında SLA'ları gözden geçirme
+## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin:  
 
 1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
 2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta bir Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini’ni kullanarak grafik oluşturmayı, köşe ve kenar oluşturmayı ve Gremlin konsolunu kullanarak grafiğinizi çapraz geçirmeyi öğrendiniz. Artık daha karmaşık sorgular derleyebilir ve Gremlin kullanarak güçlü grafik geçişi mantığını kullanabilirsiniz. 
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/03/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -38,7 +38,7 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
 1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
 
-2. **İşlem** ve **Windows Server 2016 Datacenter**’ı seçin ve **Resource Manager**’ın seçili dağıtım modeli olduğundan emin olun. **Oluştur** düğmesine tıklayın. 
+2. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
 
 3. Sanal makine bilgilerini girin. Burada girilen kullanıcı adı ve parola, sanal makinede oturum açarken kullanılır. İşlem tamamlandığında **Tamam**’a tıklayın.
 
@@ -48,7 +48,7 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
     ![VM boyutlarını gösteren ekran görüntüsü](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. Ayarlar dikey penceresinde, **Yönetilen diskleri kullan** altında **Evet**’i seçin, kalan ayarları varsayılan değerlerinde bırakın ve **Tamam**’a tıklayın.
+5. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
 6. Özet sayfasında **Tamam**’a tıklayarak sanal makine dağıtımını başlatın.
 
