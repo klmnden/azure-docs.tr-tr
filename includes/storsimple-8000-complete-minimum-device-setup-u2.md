@@ -1,9 +1,10 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>En düşük StorSimple cihaz kurulumunu tamamlamak için
 
-#### En düşük StorSimple cihaz kurulumunu tamamlamak için
-
+   > [!NOTE]
+   > En düşük cihaz kurulumu tamamlandıktan sonra cihaz adını değiştiremezsiniz.
+   
 1. **Cihazlar** dikey penceresindeki tablosal cihaz listesinden cihazınızı seçmek için tıklayın. Cihaz **Kuruluma hazır** durumdadır. **Cihazı yapılandır** dikey penceresi açılır.
 
      ![StorSimple en düşük cihaz kurulumu ağ arabirimleri](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
@@ -27,9 +28,6 @@
 1. **Tamam** düğmesine tıklayın. Cihaz yapılandırması başlar. Cihaz yapılandırması tamamlandığında size bildirilir. **Cihazlar** dikey penceresinde cihazın durumu **Çevrimiçi** olarak değişir.
 
     ![StorSimple en düşük cihaz kurulumu ağ arabirimleri](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
-
-   > [!NOTE]
-   > Dilediğiniz zaman **Cihaz Ayarları** dikey penceresine erişerek diğer tüm cihaz ayarlarını değiştirebilirsiniz.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

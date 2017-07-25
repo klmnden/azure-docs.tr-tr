@@ -15,24 +15,20 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 2b447bcc5930550af3996cb40925ab59d203dc7c
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 36eead97f111025940e7e11902420e18b1b97fce
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="create-an-aspnet-web-app-in-azure" class="xliff"></a>
-
-# Azure’da ASP.NET web uygulaması oluşturma
+# <a name="create-an-aspnet-web-app-in-azure"></a>Azure’da ASP.NET web uygulaması oluşturma
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıçta, Azure Web Apps’e ilk ASP.NET web uygulamanızı dağıtma işlemi gösterilmektedir. İşlemi tamamladığınızda bir App Service planı ve dağıtılmış web uygulaması ile Azure web uygulamasından oluşan kaynak grubunuz olacaktır.
 
 ![Azure App Service’te ASP.NET web uygulaması](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -44,9 +40,7 @@ Bu öğreticiyi tamamlamak için:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-an-aspnet-web-app" class="xliff"></a>
-
-## ASP.NET web uygulaması oluşturma
+## <a name="create-an-aspnet-web-app"></a>ASP.NET web uygulaması oluşturma
 
 Visual Studio'da **Dosya > Yeni > Proje**’yi seçerek bir proje oluşturun. 
 
@@ -66,9 +60,7 @@ Menüden **Hata Ayıkla > Hata Ayıklamadan Başla**’yı seçerek web uygulama
 
 ![Uygulamayı yerel olarak çalıştırma](./media/app-service-web-get-started-dotnet/local-web-app.png)
 
-<a id="publish-to-azure" class="xliff"></a>
-
-## Azure’da Yayımlama
+## <a name="publish-to-azure"></a>Azure’da Yayımlama
 
 **Çözüm Gezgini**’nde **myFirstAzureWebApp** projesine sağ tıklayıp **Yayımla**’yı seçin.
 
@@ -80,11 +72,9 @@ Menüden **Hata Ayıkla > Hata Ayıklamadan Başla**’yı seçerek web uygulama
 
 Bu işlem, ASP.NET web uygulamasını Azure’da çalıştırmak için gereken tüm Azure kaynaklarını oluşturmanıza yardımcı olan **App Service Oluştur** iletişim kutusunu açar.
 
-<a id="sign-in-to-azure" class="xliff"></a>
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-## Azure'da oturum açma
-
-**App Service Oluştur** iletişim kutusunda **Hesap ekle**’yi seçin ve ardından Azure aboneliğinizde oturum açın. Zaten oturum açtıysanız hesabın Azure aboneliğinizi barındırdığından emin olun. Doğru hesabı eklemek için oturum açma hesabını seçebilirsiniz.
+**App Service Oluştur** iletişim kutusunda **Hesap ekle**’yi seçin ve Azure aboneliğinizde oturum açın. Oturumunuz zaten açıksa, açılan menüden istediğiniz aboneliği içeren hesabı seçin.
 
 > [!NOTE]
 > Zaten oturum açtıysanız **Oluştur** öğesini henüz seçmeyin.
@@ -93,11 +83,7 @@ Bu işlem, ASP.NET web uygulamasını Azure’da çalıştırmak için gereken t
    
 ![Azure'da oturum açma](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
 
-Oturum açtıktan sonra bu iletişim kutusunda bir Azure web uygulaması için gereken tüm kaynakları oluşturmaya hazır olursunuz.
-
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
@@ -105,9 +91,7 @@ Oturum açtıktan sonra bu iletişim kutusunda bir Azure web uygulaması için g
 
 Kaynak grubunuzu **myResourceGroup** olarak adlandırıp **Tamam**’ı seçin.
 
-<a id="create-an-app-service-plan" class="xliff"></a>
-
-## App Service planı oluşturma
+## <a name="create-an-app-service-plan"></a>App Service planı oluşturma
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
@@ -125,13 +109,9 @@ Kaynak grubunuzu **myResourceGroup** olarak adlandırıp **Tamam**’ı seçin.
 
 **Tamam**’ı seçin.
 
-<a id="create-and-publish-the-web-app" class="xliff"></a>
+## <a name="create-and-publish-the-web-app"></a>Web uygulaması oluşturma ve yayımlama
 
-## Web uygulaması oluşturma ve yayımlama
-
-**Web Uygulaması Adı** alanına benzersiz bir uygulama adı girin (geçerli karakterler `a-z`, `0-9` ve `-`). Web uygulamasının URL'si `http://<app_name>.azurewebsites.net` şeklindedir; burada `<app_name>`, web uygulamanızın adıdır. 
-
-Otomatik oluşturulmuş benzersiz adı kabul edebilirsiniz.
+**Web Uygulaması Adı**’na benzersiz bir ad girin (geçerli karakterler `a-z`, `0-9` ve `-` karakterleridir) veya otomatik olarak oluşturulan adı kabul edin. Web uygulamasının URL'si `http://<app_name>.azurewebsites.net` şeklindedir; burada `<app_name>`, web uygulamanızın adıdır.
 
 Azure kaynaklarını oluşturmaya başlamak için **Oluştur**’u seçin.
 
@@ -141,13 +121,11 @@ Sihirbaz tamamlandıktan sonra ASP.NET web uygulamasını Azure’da yayımlar v
 
 ![Azure’da yayımlanmış ASP.NET web uygulaması](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
 
-URL daha önce belirttiğiniz web uygulaması adını `http://<app_name>.azurewebsites.net` biçimiyle kullanır. 
+[Oluşturma ve yayımlama adımında](#create-and-publish-the-web-app) belirtilen web uygulaması adı `http://<app_name>.azurewebsites.net` biçiminde URL ön eki olarak kullanılır.
 
 Tebrikler, ASP.NET web uygulamanız Azure App Service’te çalışıyor.
 
-<a id="update-the-app-and-redeploy" class="xliff"></a>
-
-## Uygulamayı güncelleştirme ve yeniden dağıtma
+## <a name="update-the-app-and-redeploy"></a>Uygulamayı güncelleştirme ve yeniden dağıtma
 
 **Çözüm Gezgini** menüsünden _Görünümler\Giriş\Index.cshtml_ dosyasını açın.
 
@@ -168,9 +146,7 @@ Yayımlama tamamlandığında Visual Studio, web uygulamasının URL’si ile bi
 
 ![Azure’da güncelleştirilmiş ASP.NET web uygulaması](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-<a id="manage-the-azure-web-app" class="xliff"></a>
-
-## Azure web uygulamasını yönetme
+## <a name="manage-the-azure-web-app"></a>Azure web uygulamasını yönetme
 
 Web uygulamasını yönetmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
 
@@ -186,9 +162,7 @@ Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
 > [SQL Veritabanı ile ASP.NET](app-service-web-tutorial-dotnet-sqldatabase.md)

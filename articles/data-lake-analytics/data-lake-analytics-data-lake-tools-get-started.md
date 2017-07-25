@@ -4,7 +4,7 @@ description: "Visual Studio için Data Lake Araçları'nı nasıl yükleyeceğin
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
-manager: saveenr
+manager: jhubbard
 editor: cgronlun
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.service: data-lake-analytics
@@ -14,26 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/28/2017
 ms.author: saveenr, yanacai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 401e2d84e5e2eb9f66a16b299fbb93bd1943e04b
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 7bbbb08ff635477a88403a3ae6bd3486d31838ef
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio" class="xliff"></a>
-
-# Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme
+# <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
 Azure Data Lake Analytics hesapları oluşturmak, [U-SQL](data-lake-analytics-u-sql-get-started.md) içinde işler tanımlamak ve Data Lake Analytics hizmetine iş göndermek için Visual Studio’nun nasıl kullanılacağını öğrenin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 * **Visual Studio**: Express dışında tüm sürümler desteklenir.
     * Visual Studio 2017
@@ -42,17 +37,13 @@ Azure Data Lake Analytics hesapları oluşturmak, [U-SQL](data-lake-analytics-u-
 * **.NET için Microsoft Azure SDK** 2.7.1 sürümü veya sonraki sürümleri.  [Web platformu yükleyicisini](http://www.microsoft.com/web/downloads/platform.aspx) kullanarak yükleyin.
 * **Data Lake Analytics** hesabı. Hesap oluşturmak için bkz. [Azure portalı kullanarak Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md).
 
-<a id="install-azure-data-lake-tools-for-visual-studio" class="xliff"></a>
-
-## Visual Studio için Azure Data Lake Araçları’nı yükleme 
+## <a name="install-azure-data-lake-tools-for-visual-studio"></a>Visual Studio için Azure Data Lake Araçları’nı yükleme 
 
 [İndirme Merkezi'nden](http://aka.ms/adltoolsvs) Visual Studio için Azure Data Lake Araçları’nı indirip yükleyin. Yükleme işleminden sonra şunları kontrol edin:
 * **Sunucu Gezgini** > **Azure** düğümü, **Data Lake Analytics** düğümü içerir. 
 * **Araçlar** menüsünde **Data Lake** öğesi vardır.
 
-<a id="connect-to-an-azure-data-lake-analytics-account" class="xliff"></a>
-
-## Azure Data Lake Analytics hesabına bağlanma
+## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Azure Data Lake Analytics hesabına bağlanma
 
 1. Visual Studio'yu açın.
 2. **Görünüm** > **Sunucu Gezgini**’ni seçerek Sunucu Gezgini’ni açın.
@@ -60,9 +51,7 @@ Azure Data Lake Analytics hesapları oluşturmak, [U-SQL](data-lake-analytics-u-
 4. Sunucu Gezgini'nde **Azure** > **Data Lake Analytics**’i seçin. Data Lake Analytics hesaplarınızın listesini görürsünüz.
 
 
-<a id="write-your-first-u-sql-script" class="xliff"></a>
-
-## İlk U-SQL betiğinizi yazma
+## <a name="write-your-first-u-sql-script"></a>İlk U-SQL betiğinizi yazma
 
 Aşağıda basit bir U-SQL betiği gösterilmiştir. Küçük bir veri kümesini tanımlar ve bu veri kümesini `/data.csv` adlı bir dosya olarak varsayılan Data Lake Store’a yazar.
 
@@ -79,9 +68,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-<a id="submit-a-data-lake-analytics-job" class="xliff"></a>
-
-### Data Lake Analytics işi gönderme
+### <a name="submit-a-data-lake-analytics-job"></a>Data Lake Analytics işi gönderme
 
 1. **Dosya** > **Yeni** > **Proje**’yi seçin.
 
@@ -108,28 +95,22 @@ OUTPUT @a
    * **Veri** tüm girdileri ve çıktıları gösterir.
    * **Tanılama**, iş yürütme ve performans iyileştirme için gelişmiş bir analiz sağlar.
 
-<a id="to-check-job-state" class="xliff"></a>
-
-### İş durumu denetlemek için
+### <a name="to-check-job-state"></a>İş durumu denetlemek için
 
 1. Sunucu Gezgini'nde **Azure** > **Data Lake Analytics**’i seçin. 
 2. Data Lake Analytics hesap adını genişletin.
 3. **İşler**’e çift tıklayın.
 4. Daha önce gönderdiğiniz işi seçin.
 
-<a id="to-see-the-output-of-a-job" class="xliff"></a>
-
-### Bir işin çıktısını görmek için
+### <a name="to-see-the-output-of-a-job"></a>Bir işin çıktısını görmek için
 
 1. Sunucu Gezgini’nde gönderdiğiniz işe gidin.
 2. **Veri** sekmesine tıklayın.
 3. **İş Çıktıları** sekmesinde `"/data.csv"` dosyasını seçin.
 
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Sonraki adımlar
 
-## Sonraki adımlar
-
-* [Azure portalı](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md)’i kullanarak Data Lake Analytics ile çalışmaya başlama 
+* [Test etmek ve hata ayıklamak için kendi iş istasyonunuzda U-SQL betiklerini çalıştırma](data-lake-analytics-data-lake-tools-local-run.md)
 * [U-SQL işlerinde C# kodu hatalarını ayıklama](data-lake-analytics-debug-u-sql-jobs.md)
 * [Visual Studio Code için Azure Data Lake Araçları’nı kullanma](data-lake-analytics-data-lake-tools-for-vscode.md)
 

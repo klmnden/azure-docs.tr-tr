@@ -9,10 +9,10 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 06/19/2017
+ms.date: 07/12/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 2b81b9e1ae2abfd332bd6048b7643b4245ca374b
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: c065d692d2a4ac369cb13a70d09b30498e6c9106
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/13/2017
 
@@ -38,12 +38,12 @@ PostgreSQL için Azure veritabanı sunucusu oluşturmak üzere şu adımları uy
  ![PostgreSQL için Azure Veritabanı - Veritabanı oluşturma](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.  Yeni sunucu ayrıntıları formunu, bir önceki resimde gösterildiği gibi aşağıdaki bilgilerle doldurun:
-    - Sunucu adı: **mypgserver-20170401** (bir sunucu DNS adıyla eşleşir ve bu nedenle sunucunun genel olarak benzersiz olması gerekir) 
+    - Sunucu adı: **mypgserver-20170401** (bu ad DNS adına eşlendiğinden, genel olarak benzersiz bir sunucu adı seçin)
     - Abonelik: Birden fazla aboneliğiniz varsa kaynağın mevcut olduğu ve faturalandırıldığı uygun aboneliği seçin.
     - Kaynak grubu: **myresourcegroup**
     - Tercih ettiğiniz sunucu yöneticisi oturum açma adı ve parolası
-    - Konum
-    - PostgreSQL Sürümü
+    - Konum: en yakınınızdaki konumu seçin.
+    - PostgreSQL Sürümü: en son sürümü seçin.
 
   > [!IMPORTANT]
   > Burada belirttiğiniz sunucu yöneticisi kullanıcı adı ve parolası, bu hızlı başlangıcın sonraki bölümlerinde sunucuda ve veritabanlarında oturum açmak için gereklidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.

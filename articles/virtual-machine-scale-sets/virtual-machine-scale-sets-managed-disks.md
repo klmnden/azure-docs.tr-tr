@@ -15,19 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-<a id="azure-vm-scale-sets-and-managed-disks" class="xliff"></a>
+# <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM ölçek kümeleri ve yönetilen diskler
 
-# Azure VM ölçek kümeleri ve yönetilen diskler
-
-Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), artık yönetilen disklere sahip sanal makineleri desteklemektedir. Ölçek kümeleri ile birlikte yönetilen disklerin kullanılması aşağıdakiler gibi birçok avantaj sunar:
+Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), yönetilen disklere sahip sanal makineleri destekler. Ölçek kümeleri ile birlikte yönetilen disklerin kullanılması aşağıdakiler gibi birçok avantaj sunar:
 
 * Ölçek kümesi VM’lerine ait işletim sistemi disklerini depolamak amacıyla önceden depolama hesapları oluşturmanıza ve bunları yönetmenize artık gerek kalmaz.
 
@@ -35,9 +32,7 @@ Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), art�
 
 * Yönetilen diskler sayesinde ölçek kümesinin kapasitesi, platform görüntüsü tabanlıysa 1.000 VM'e veya özel bir görüntü tabanlıysa 100 VM'e kadar çıkabilir.
 
-<a id="get-started" class="xliff"></a>
-
-## Başlarken
+## <a name="get-started"></a>Başlarken
 
 Yönetilen disk ölçek kümelerini kullanmaya başlamanın basit bir yolu bunların birini Azure portalından dağıtmaktır. Daha fazla bilgi için [bu makaleye](./virtual-machine-scale-sets-portal-create.md) bakın. Başlamak için başka bir basit yol da [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) ile bir ölçek kümesi dağıtmaktır. Aşağıdaki örnekte, her biri 50 GB ve 100 GB’lık veri disklerine sahip 10 VM içeren Ubuntu tabanlı bir ölçek kümesinin nasıl oluşturulacağı gösterilmektedir:
 
@@ -48,15 +43,7 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 Alternatif olarak, [Azure Hızlı Başlangıç Şablonları GitHub deposunda](https://github.com/Azure/azure-quickstart-templates) `vmss` içeren klasörlere bakarak ölçek kümesi dağıtan önceden oluşturulmuş şablon örneklerini inceleyebilirsiniz. Hangi şablonların yönetilen diskler kullanmakta olduğunu [bu listede](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) görebilirsiniz.
 
-<a id="api-versions" class="xliff"></a>
-
-## API sürümleri
-
-Yönetilen diskler içeren ölçek kümeleri için Microsoft.Compute API'sinin `2016-04-30-preview` veya sonraki bir sürümü gerekir. Yönetilmeyen diskler içeren ölçek kümeleri, yönetilen disk desteğine sahip yeni API sürümlerinde bile şu andaki gibi çalışmaya devam edecektir. Ancak, yönetilmeyen disk içeren ölçek kümeleri bu yeni API sürümlerinde bile yönetilen disklerin avantajlarından yararlanamayacaktır.
-
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Yönetilen diskler hakkında daha fazla genel bilgi edinmek için [bu makaleye](../storage/storage-managed-disks-overview.md) bakın.
 

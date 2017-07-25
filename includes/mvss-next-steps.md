@@ -1,9 +1,11 @@
-You can deploy the preceding template by following the [Azure Resource Manager documentation](../articles/azure-resource-manager/resource-group-template-deploy.md).
+[Azure Resource Manager belgelerini](../articles/azure-resource-manager/resource-group-template-deploy.md) izleyerek yukarıdaki şablonu dağıtabilirsiniz.
 
-You can start this tutorial series from the [minimum viable scale set template article](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md).
+Bu öğretici serisine [en düşük uygun ölçek kümesi şablonu makalesinden](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) başlayabilirsiniz.
 
-You can see how to modify the [minimum viable scale set template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) to [deploy the scale set into an existing virtual network](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md).
+[Ölçek kümesini mevcut sanal ağa dağıtmak](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md) için [en düşük uygun ölçek kümesi şablonunu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) nasıl değiştireceğinize bakabilirsiniz.
 
-You can see how to modify the [minimum viable scale set template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) to [deploy the scale set with a custom image](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
+[Ölçek kümesini özel bir görüntü ile dağıtmak](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md) için [en düşük uygun ölçek kümesi şablonunu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) nasıl değiştireceğinize bakabilirsiniz.
 
-For more general information about scale sets, refer to the [scale set overview page](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+[Linux ölçek kümesini konuk tabanlı bir otomatik ölçeklendirmeyle dağıtmak](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md) için [en düşük uygun ölçek kümesi şablonunu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) nasıl değiştireceğinize bakabilirsiniz.
+
+Ölçek kümeleri hakkında daha fazla genel bilgi için [ölçek kümesine genel bakış sayfasına](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) bakın.

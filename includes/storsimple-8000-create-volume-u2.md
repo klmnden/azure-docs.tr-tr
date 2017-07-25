@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/2017-->
+<!--author=alkohli last changed: 07/19/2017-->
 
 #### <a name="to-create-a-volume"></a>Birim oluşturmak için
 1. **Cihazlar** dikey penceresindeki tablosal cihaz listesinden cihazınızı seçin. **+ Birim ekle**’ye tıklayın.
@@ -11,7 +11,7 @@
 
    2. Açılan listeden, birim eklemeniz gereken birim kapsayıcısını seçin. 
 
-   3.  Biriminiz için bir **Ad** yazın.
+   3.  Biriminiz için bir **Ad** yazın. Birimi bir kez oluşturduktan sonra yeniden adlandıramazsınız.
 
    4. Açılan listede biriminizin **Tür**’ünü seçin. Yerel garantilerin, düşük gecikme sürelerinin ve yüksek performansın gerektiği iş yükleri için **Yerel olarak sabitlenmiş** bir birim seçin. Diğer tüm veriler için **Katmanlı** bir birim seçin. Bu birimi arşiv verileri için kullanıyorsanız **Bu birimi daha az sıklıkta erişilen arşiv verileri için kullanın**’ı işaretleyin.
       

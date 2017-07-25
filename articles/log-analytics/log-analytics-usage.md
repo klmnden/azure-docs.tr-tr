@@ -1,6 +1,6 @@
 ---
-title: "Log Analytics&quot;te veri kullanımını çözümleme | Microsoft Belgeleri"
-description: "OMS hizmetine gönderilen veri miktarını görüntülemek için Log Analytics&quot;teki Kullanım panosunu inceleyebilirsiniz."
+title: "Log Analytics'te veri kullanımını çözümleme | Microsoft Belgeleri"
+description: "Log Analytics hizmetine ne kadar veri gönderildiğini görmek ve neden büyük miktarda veri gönderildiğiyle ilgili sorunları gidermek için Log Analytics'in Kullanım panosunu kullanın."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -12,26 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 07/14/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
-ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 46766e29287ca130e68aa0f027cbb1ded2526af3
 ms.contentlocale: tr-tr
-ms.lasthandoff: 02/22/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
-Log Analytics, verileri toplar ve düzenli aralıklarla OMS hizmetine gönderir.  OMS hizmetine gönderilen veri miktarını görüntülemek için **Log Analytics'teki Kullanım** panosunu inceleyebilirsiniz. Pano aynı zamanda çözümler tarafından ne kadar veri gönderildiğini ve sunucularınızın ne sıklıkta veri gönderdiğini de gösterir.
+Log Analytics toplanan veri miktarı, verileri hangi bilgisayarların gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Log Analytics hizmetine gönderilen veri miktarını görmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
 
-> [!NOTE]
-> Ücretsiz hesabınız varsa OMS hizmetine günlük olarak en fazla 500 MB veri gönderebilirsiniz. Günlük limite ulaştıysanız veri çözümlemesi durur ve sonraki günün başlangıcında devam eder. Bu durumda OMS tarafından kabul edilmemiş ve işlenmemiş tüm verileri de yeniden göndermeniz gerekir.
-
-Günlük kullanım limitini aştıysanız veya aşmak üzereyseniz, OMS hizmetine gönderdiğiniz veri miktarını azaltmak için isteğe bağlı olarak bir çözümü kaldırabilirsiniz. Çözümleri kaldırma hakkında daha fazla bilgi için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md).
-
-![kullanım panosu](./media/log-analytics-usage/usage-dashboard01.png)
-
+## <a name="understand-the-usage-dashboard"></a>Kullanım panosunu anlama
 **Log Analytics kullanım** panosu aşağıdaki bilgileri gösterir:
 
 - Veri hacmi
@@ -49,13 +42,9 @@ Günlük kullanım limitini aştıysanız veya aşmak üzereyseniz, OMS hizmetin
     - Verileri toplamak ve dizinlemek için harcanan süre
 - Sorgu listesi
 
-## <a name="understanding-nodes-for-oms-offers"></a>OMS teklifleri için düğümleri anlama
+![kullanım panosu](./media/log-analytics-usage/usage-dashboard01.png)
 
-*Düğüm başına (OMS)* fiyatlandırma katmanındaysanız etkinleştirdiğiniz düğüm ve çözüm sayısına göre ücretlendirilirsiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.
-
-![kullanım panosu](./media/log-analytics-usage/log-analytics-usage-offerings.png)
-
-## <a name="to-work-with-usage-data"></a>Kullanım verileriyle çalışma
+### <a name="to-work-with-usage-data"></a>Kullanım verileriyle çalışma
 1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
 2. **Hub** menüsünde **Diğer hizmetler**’e tıklayıp kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i tıklayın.  
     ![Azure hub'ı](./media/log-analytics-usage/hub.png)
@@ -68,7 +57,95 @@ Günlük kullanım limitini aştıysanız veya aşmak üzereyseniz, OMS hizmetin
 7. Günlük Arama panosunda aramanın döndürdüğü sonuçları inceleyin.  
     ![örnek kullanım günlüğü araması](./media/log-analytics-usage/usage-log-search.png)
 
+## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Toplanan veriler beklenenden fazlaysa uyarı oluşturma
+Bu bölümde, aşağıdaki durumlarda nasıl uyarı oluşturulacağı açıklanır:
+- Veri hacmi belirtilen bir miktarı aştığında.
+- Veri hacminin belirtilen bir miktarı aşacağı tahmin edildiğinde.
+
+Log Analytics [uyarılarında](log-analytics-alerts-creating.md) arama sorguları kullanılır. Aşağıdaki sorgu, son 24 saatte 100 GB'den fazla veri toplandığında bir sonuç verir:
+
+`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+
+Aşağıdaki sorgu, ne zaman bir günde 100 GB'den fazla veri toplanacağını tahmin etmek için basit bir formül kullanır: 
+
+`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+
+Farklı bir veri hacminde uyarıda bulunmak için, sorgulardaki 100 değerini uyarılmak istediğiniz GB sayısıyla değiştirin.
+
+Toplanan veri beklenen miktarı aştığında size bildirilmesini sağlamak için, [Uyarı kuralı oluşturma](log-analytics-alerts-creating.md#create-an-alert-rule) başlığı altında açıklanan adımları kullanın.
+
+İlk sorgu için, yani 24 saat içinde 100 GB'den fazla veri toplandığında uyarı oluştururken şu ayarları yapın:
+- **Ad**: *24 saat içinde 100 GB'den büyük veri hacmi*
+- **Önem derecesi**: *Uyarı*
+- **Arama sorgusu**: `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+- **Zaman penceresi**: *24 Saat*.
+- **Uyarı sıklığı**: Kullanım verileri yalnızca bir saat arayla güncelleştirildiğinden bir saat.
+- **Şuna bağlı olarak uyarı oluştur**: *sonuç sayısı*
+- **Sonuç sayısı**: *Şundan büyüktür: 0*
+
+Uyarı kuralı olarak bir e-postayı, web kancasını veya runbook eylemini yapılandırmak için, [Uyarı kurallarına eylemler ekleme](log-analytics-alerts-actions.md) başlığı altında açıklanan adımları kullanın.
+
+İkinci sorgu için, yani 24 saat içinde 100 GB'den fazla veri olacağı tahmin edildiğinde uyarı oluştururken şu ayarları yapın:
+- **Ad**: *24 saat içinde veri hacminin 100 GB'den büyük olacağı tahmin ediliyor*
+- **Önem derecesi**: *Uyarı*
+- **Arama sorgusu**: `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+- **Zaman penceresi**: *3 Saat*.
+- **Uyarı sıklığı**: Kullanım verileri yalnızca bir saat arayla güncelleştirildiğinden bir saat.
+- **Şuna bağlı olarak uyarı oluştur**: *sonuç sayısı*
+- **Sonuç sayısı**: *Şundan büyüktür: 0*
+
+Uyarı aldığınızda, kullanımın neden beklenenden fazla olduğu konusundaki sorunları gidermek için aşağıdaki bölümde yer alan adımları kullanın.
+
+## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Kullanımın neden beklenenden daha yüksek olduğuyla ilgili sorunları giderme
+Kullanım panosu, kullanımın (dolayısıyla da maliyetin) neden beklediğinizden yüksek olduğunu belirlemenize yardımcı olur.
+
+Yüksek kullanımın nedeni aşağıdakilerden biri veya her ikisidir:
+- Log Analytics'da beklenenden daha fazla veri gönderiliyordur
+- Log Analytics'e beklenenden daha fazla düğüm veri gönderiyordur
+
+### <a name="check-if-there-is-more-data-than-expected"></a>Beklenenden daha fazla veri olup olmadığını denetleme 
+Kullanım sayfasında, çok veri toplanmasına neyin neden olduğunu belirlemenize yardımcı olacak iki önemli bölüm vardır.
+
+*Zaman içindeki veri hacmi* grafiği, gönderilen toplam veri hacmini ve en çok veriyi gönderen bilgisayarları gösterir. Üstteki grafik, genel olarak veri kullanımınızın arttığını, sabit kaldığını veya azaldığını görmenizi sağlar. Bilgisayar listesi, en çok veri gönderen 10 bilgisayarı gösterir.
+
+*Çözüme göre veri hacmi* grafiği, her çözüm tarafından gönderilen veri hacmini ve en çok veri gönderen çözümleri gösterir. Üstteki grafik, zaman içinde her çözüm tarafından gönderilen toplam veri hacmini gösterir. Bu bilgiler bir çözümün zaman içinde daha fazla veri gönderdiğini, yaklaşık aynı miktarda veri gönderdiğini veya daha az veri gönderdiğini belirlemenize olanak tanır. Çözüm listesinde, en çok veriyi gönderen 10 çözüm gösterilir. 
+
+![veri hacmi grafikleri](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
+
+*Zaman içinde veri hacmi* grafiğine bakın. Belirli bir bilgisayara en çok veriyi gönderen çözümleri ve veri türlerini görmek için, bilgisayarın adına tıklayın. Listedeki ilk bilgisayarın adına tıklayın.
+
+Aşağıdaki ekran görüntüsünde, bilgisayar için en fazla gönderilen veri *Günlük Yönetimi / Perf* veri türündedir. 
+![bilgisayar için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
+
+
+Ardından, *Kullanım* panosuna dönün ve *Çözüme göre veri hacmi* grafiğine bakın. Bir çözümle ilgili en fazla veriyi gönderen bilgisayarları görmek için, listede çözümün adına tıklayın. Listedeki ilk çözümün adına tıklayın. 
+
+Aşağıdaki ekran görüntüsünde, Günlük Yönetimi çözümü için en çok veriyi *acmetomcat* bilgisayarının gönderdiği doğrulanır.
+
+![çözüm için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
+
+
+Toplanan günlük hacmini azaltmak için aşağıdaki adımları kullanın:
+
+| Yüksek veri hacminin kaynağı | Veri hacmi nasıl azaltılır |
+| -------------------------- | ------------------------- |
+| Güvenlik olayları            | [Yaygın veya en az güvenlik olaylarını](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) seçin <br> Güvenlik denetimi ilkesini değiştirin. Örneğin, [filtre platformunu denetleme](https://technet.microsoft.com/library/dd772749(WS.10).aspx) olaylarını kapatın. |
+| Performans sayaçları       | [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) şöyle değiştirin: <br> - Koleksiyonun sıklığını azaltın <br> - Performans sayaçlarının sayısını azaltın |
+| Olay günlükleri                 | [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) şöyle değiştirin: <br> - Toplanan olay günlüklerinin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneğin, *Bilgi* düzeyindeki olayları toplamayın |
+| Syslog                     | [Syslog yapılandırmasını](log-analytics-data-sources-syslog.md) şu şekilde değiştirin: <br> - Toplanan tesislerin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneği *Bilgi* ve *Hata Ayıklama* düzeyindeki olayları toplamayın |
+| Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın.
+
+### <a name="check-if-there-are-more-nodes-than-expected"></a>Beklenenden çok düğüm olup olmadığını denetleme
+*Düğüm başına (OMS)* fiyatlandırma katmanındaysanız kullandığınız düğüm ve çözüm sayısına göre ücretlendirilirsiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.
+
+![kullanım panosu](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
+Belirli bir teklifle ilgili veri gönderen bilgisayarların tam listesini görüntülemek için **Tümünü göster...** öğesine tıklayın.
+
+Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Toplanan ve OMS’ye gönderilen ayrıntılı bilgileri özelliklere ve çözümlere göre görüntülemek için [Log Analytics’te günlük aramaları](log-analytics-log-searches.md) sayfasına bakın.
+* Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-log-searches.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
+* Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [Uyarı kuralı oluşturma](log-analytics-alerts-creating.md#create-an-alert-rule) başlığı altında açıklanan adımları kullanın
 

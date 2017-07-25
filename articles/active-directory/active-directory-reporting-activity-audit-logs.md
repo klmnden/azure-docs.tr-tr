@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Azure Active Directory portalındaki denetim etkinliği raporları
-<a id="audit-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a> 
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki denetim etkinliği raporları 
 
 Azure Active Directory’deki (Azure AD) raporlama özelliğiyle ortamınızın nasıl çalıştığını belirlemek için gereken bilgileri alabilirsiniz.
 
@@ -38,15 +37,13 @@ Azure AD'nin raporlama mimarisi aşağıdaki bileşenlerden oluşur:
 
 Bu konu başlığı denetim etkinliklerine genel bakış sunmaktadır.
  
-## Verilere kimler erişebilir?
-<a id="who-can-access-the-data" class="xliff"></a>
+## <a name="who-can-access-the-data"></a>Verilere kimler erişebilir?
 * Güvenlik Yöneticisi veya Güvenlik Okuyucusu rolündeki kullanıcılar
 * Genel Yöneticiler
 * Bireysel kullanıcılar (yönetici olmayanlar) kendi etkinliklerini görebilir
 
 
-## Denetim günlükleri
-<a id="audit-logs" class="xliff"></a>
+## <a name="audit-logs"></a>Denetim günlükleri
 
 Azure Active Directory'deki denetim günlükleri uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar.  
 Tüm denetim verilerine ilk giriş noktanız, **Azure Active Directory**’nin **Etkinlik** bölümünde bulunan **Denetim günlükleri** kısmıdır.
@@ -76,8 +73,7 @@ Liste görünümündeki bir öğeye tıklayarak bu öğe hakkında mevcut olan t
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/22.png "Denetim günlükleri")
 
 
-## Denetim günlüklerini filtreleme
-<a id="filtering-audit-logs" class="xliff"></a>
+## <a name="filtering-audit-logs"></a>Denetim günlüklerini filtreleme
 
 Raporlanan verileri istediğiniz düzeye gelecek şekilde daraltmak için, aşağıdaki alanları kullanarak denetim verilerini filtreleyebilirsiniz:
 
@@ -134,19 +130,17 @@ Olası değerler şunlardır:
 
 **Etkinlik** filtresi, yaptığınız kategori ve Etkinlik kaynağı türü seçimine bağlıdır. Görmek istediğiniz belirli bir etkinliği ya da tüm etkinlikleri seçebilirsiniz. 
 
-Grafik API'si ($tenantdomain = etki alanı adınız olacak şekilde https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta) kullanarak tüm Denetim Etkinliklerinin listesini alabilir veya [denetim raporu olayları](active-directory-reporting-audit-events.md#list-of-audit-report-events) makalesine bakabilirsiniz.
+Grafik API'si ($tenantdomain = etki alanı adınız olacak şekilde https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta) kullanarak tüm Denetim Etkinliklerinin listesini alabilir veya [denetim raporu olayları](active-directory-reporting-audit-events.md) makalesine bakabilirsiniz.
 
 
-## Denetim günlükleri kısayolları
-<a id="audit-logs-shortcuts" class="xliff"></a>
+## <a name="audit-logs-shortcuts"></a>Denetim günlükleri kısayolları
 
 Azure portalı, **Azure Active Directory**’ye ek olarak verileri denetlemeniz için fazladan iki giriş noktası sağlar:
 
 - Kullanıcılar ve gruplar
 - Kurumsal uygulamalar
 
-### Kullanıcı ve gruplara yönelik denetim günlükleri
-<a id="users-and-groups-audit-logs" class="xliff"></a>
+### <a name="users-and-groups-audit-logs"></a>Kullanıcı ve gruplara yönelik denetim günlükleri
 
 Kullanıcı ve grup tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtlarını alabilirsiniz:
 
@@ -170,8 +164,7 @@ Yalnızca kullanıcı ve gruplarla ilgili denetim verilerini gözden geçirmek i
 
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/93.png "Denetim günlükleri")
 
-### Kurumsal uygulamaların denetim günlükleri
-<a id="enterprise-applications-audit-logs" class="xliff"></a>
+### <a name="enterprise-applications-audit-logs"></a>Kurumsal uygulamaların denetim günlükleri
 
 Uygulama tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtlarını alabilirsiniz:
 
@@ -190,8 +183,8 @@ Bu görünümü yalnızca **grupları** veya yalnızca **kullanıcıları** içe
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/25.png "Denetim günlükleri")
 
 
-## Sonraki adımlar
-<a id="next-steps" class="xliff"></a>
-Bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md).
+## <a name="next-steps"></a>Sonraki adımlar
+
+Raporlamaya genel bir bakış için bkz. [Azure Active Directory raporlama](active-directory-reporting-azure-portal.md).
 
 

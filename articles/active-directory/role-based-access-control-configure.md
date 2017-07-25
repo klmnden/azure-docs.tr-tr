@@ -1,24 +1,24 @@
 ---
 title: "Azure portalında Rol Tabanlı Access Control | Microsoft Docs"
-description: "Azure Portal&quot;da Rol Tabanlı Erişim Denetimi ile erişim yönetimine başlayın. Kaynaklarınıza izinler atamak için rol atamalarını kullanın."
+description: "Azure Portal'da Rol Tabanlı Erişim Denetimi ile erişim yönetimine başlayın. Kaynaklarınıza izinler atamak için rol atamalarını kullanın."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
-ms.lasthandoff: 04/07/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Azure abonelik kaynaklarınıza erişimi yönetmek için Rol Tabanlı Erişim Denetimi kullanma
@@ -41,7 +41,7 @@ Kimin bir kaynağa, kaynak grubuna veya aboneliğe erişimi olduğunu [Azure por
    
     ![Kullanıcılar dikey penceresi - devralınmış veya atanmış erişim ekran görüntüsü](./media/role-based-access-control-configure/view-access.png)
 
-Bazı kullanıcıların **Atanmış**, diğerlerinin **Devralınmış** erişime sahip olduğuna dikkat edin. Erişim, özellikle kaynak grubuna atanmış veya üst aboneliğe yapılan atamadan devralınmış olabilir.
+Bazı rollerin kapsamı **Bu kaynak** olarak belirlenmişken diğerlerinin başka bir kapsamdan **Devralınmış** olduğuna dikkat edin. Erişim, özellikle kaynak grubuna atanmış veya üst aboneliğe yapılan atamadan devralınmış olabilir.
 
 > [!NOTE]
 > Yeni RBAC modelinde, klasik abonelik yöneticileri ve ortak yöneticileri aboneliğin sahipleri olarak kabul edilir.
@@ -60,9 +60,10 @@ Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden eriş
 Bir rol ataması başarıyla eklendikten sonra **Kullanıcılar** dikey penceresinde görüntülenir.
 
 ## <a name="remove-access"></a>Erişimi Kaldırma
-1. Erişim dikey penceresindeki onay kutularını kullanarak bir veya daha fazla rol ataması seçin.
+1. İmlecinizi kaldırmak istediğiniz atama adının üzerine getirin. Adın yanında bir onay kutusu görüntülenir.
+2. Onay kutularını kullanarak bir veya daha fazla rol ataması seçin.
 2. **Kaldır**’ı seçin.  
-3. Eylemi onaylamanızı isteyen bir açılır pencere görürsünüz. Rol atamalarını kaldırmak için **Evet**’i seçin.
+3. Kaldırma işlemini onaylamak için **Evet**'i seçin.
 
 Devralınmış atamalar kaldırılamaz. Devralınmış bir atamayı kaldırmanız gerekiyorsa bu işlemi rol atamasının oluşturulduğu kapsamda gerçekleştirmeniz gerekir. **Kapsam** sütunundaki **Devralınmış** seçeneğinin yanında, sizi rolün oluşturulduğu kaynaklara götüren bir bağlantı yer alır. Rol atamasını kaldırmak için orada listelenen kaynağa gidin.
 

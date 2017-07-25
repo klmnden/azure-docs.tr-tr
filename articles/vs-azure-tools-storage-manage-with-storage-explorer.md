@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 7/17/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 83a6543a8fd95139fdcb6c031979382b4736a4ad
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Depolama Gezgini (Önizleme) ile çalışmaya başlama
@@ -68,80 +68,7 @@ Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Bir Azure Stack aboneliğine bağlanma
 
-Depolama Gezgini’nin Azure Stack aboneliğine uzaktan erişmesi için VPN bağlantısı gereklidir. Azure Stack ile VPN bağlantısı kurma hakkında bilgi edinmek için bkz. [VPN ile Azure Stack’e Bağlanma](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn).
-
-Azure Stack Kavram Kanıtı (POC) için Azure Stack yetkili kök sertifikasını dışarı aktarmanız gerekir. Bunu yapmak için:
-
-1. MAS-CON01, Azure Stack ana makinesi veya Azure Stack ile VPN bağlantısı olan yerel makinede `mmc.exe` menüsünü açın. 
-
-2. **Dosya** menüsünde **Ek Bileşen Ekle/Kaldır**’ı seçin ve sonra **Yerel Bilgisayar**’ın **Bilgisayar hesabı**’nı yönetmek için **Sertifikalar** ekleyin.
-
-    ![mmc.exe dosyası ile Azure Stack kök sertifikasını yükleme][25]   
-
-3. **Konsol Kökü\Sertifikalı (Yerel Bilgisayar)\Güvenilir Kök Sertifika Yetkilileri\Sertifikalar** altında **AzureStackCertificationAuthority** öğesini bulun. 
-
-4. Öğeye sağ tıklayın, **Tüm Görevler** > **Dışarı Aktar**’ı seçin ve ardından **Base-64 ile kodlanmış X.509 (.CER)** ifadesini içeren sertifikayı dışarı aktarmak için yönergeleri izleyin.  
-
-    Dışarı aktarılan sertifika sonraki adımda kullanılır.   
-
-    ![Kök Azure Stack yetkili kök sertifikasını dışarı aktarma][26]   
-
-5. Depolama Gezgini’ndeki (Önizleme) **Düzenle** menüsünde **SSL Sertifikaları**’nın üzerine gelin ve ardından **Sertifikaları İçeri Aktar**’ı seçin. Dosya seçici iletişim kutusunu kullanarak, önceki adımda dışarı aktardığınız sertifikayı açın.  
-
-    İçeri aktardıktan sonra Depolama Gezgini'ni yeniden başlatmanız istenir.
-
-    ![Depolama Gezgini’ne (Önizleme) sertifika aktarma][27]
-
-6. Depolama Gezgini (Önizleme) yeniden başlatıldıktan sonra **Düzenle** menüsünü seçin ve **Hedef Azure Stack** seçeneğinin işaretli olduğundan emin olun. İşaretli değilse işaretleyin ve değişikliğin etkili olması için Depolama Gezgini’ni yeniden başlatın. Bu yapılandırma, Azure Stack ortamınıza uyum için gereklidir.
-
-    ![Hedef Azure Stack’in seçili olduğundan emin olun][28]
-
-7. Sol bölmede **Hesapları Yönet**’i seçin.  
-    Oturum açtığınız tüm Microsoft hesapları görüntülenir.
-
-8. Azure Stack hesabına bağlanmak için **Hesap ekle**’yi seçin.
-
-    ![Azure Stack hesabı ekleme][29]
-
-9. **Yeni hesap ekle** iletişim kutusundaki **Azure ortamı** altında **Özel Ortam Oluştur** öğesini seçin ve ardından **İleri**’ye tıklayın.
-
-10. Azure Stack özel ortamıyla ilgili tüm gerekli bilgileri girin ve ardından **Oturum Aç**’a tıklayın. 
-
-11. En az bir etkin Azure Stack aboneliğiyle ilişkili Azure Stack hesabıyla oturum açmak için **Özel Bulut ortamında oturum aç** iletişim kutusunu doldurun.  
-
-    Her bir alanın ayrıntıları aşağıdaki gibidir:
-
-    * **Ortam adı**: Bu alan kullanıcı tarafından özelleştirilebilir.
-    * **Yetkili**: Değer https://login.microsoftonline.com olmalıdır. Azure Çin için https://login.chinacloudapi.cn kullanılmalıdır.
-    * **Oturum açma kaynak kimliği**: Aşağıdaki PowerShell komutlarından birini yürüterek değeri alın:
-
-        Bulut yöneticisiyseniz:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-        Kiracıysanız:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-    * **Graph uç noktası**: Değer https://graph.windows.net olmalıdır. Azure Çin için https://graph.chinacloudapi.cn kullanılmalıdır.
-    * **ARM kaynak kimliği**: **Oturum açma kaynak kimliği** ile aynı değeri kullanın.
-    * **ARM kaynak uç noktası**: Azure Resource Manager kaynak uç noktası örnekleri:
-
-        * Bulut yöneticisi için: https://adminmanagement.local.azurestack.external   
-        * Kiracı için: https://management.local.azurestack.external
- 
-    * **Kiracı Kimlikleri**: İsteğe bağlı. Değer yalnızca dizinin belirtilmesi zorunlu olduğunda verilir.
-
-12. Bir Azure Stack hesabı ile başarıyla oturum açtıktan sonra sol bölme ilgili hesapla ilişkili Azure Stack abonelikleriyle doldurulur. Birlikte çalışmak istediğiniz Azure Stack aboneliklerini belirleyin ve ardından **Uygula**’yı seçin. (**Tüm abonelikler** onay kutusunun işaretlenmesi veya temizlenmesi, listelenen Azure Stack aboneliklerinin tamamının seçilmesini veya hiçbirinin seçilmemesini sağlar.)
-
-    ![Özel Bulut Ortamı iletişim kutusunu doldurduktan sonra Azure Stack aboneliklerini seçin][30]  
-    Sol bölmede seçili Azure Stack abonelikleriyle ilişkili depolama hesapları gösterilir.
-
-    ![Azure Stack abonelik hesaplarını içeren depolama hesaplarının listesi][31]
+Azure Stack aboneliğine bağlanma hakkında bilgi için bkz. [Depolama Gezgini’ni Azure Stack aboneliğine bağlama](azure-stack/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Yerel geliştirme deposu ile çalışma
 Depolama Gezgini (Önizleme) ile Azure Depolama Öykünücüsü kullanarak yerel depolamaya karşı çalışabilirsiniz. Bu yaklaşım, (depolama hesabı Azure Depolama Öykünücüsü tarafından öykündüğü için) depolama hesabını Azure’a dağıtmadan hesaba karşı kod yazıp test edebilmenizi sağlar.
