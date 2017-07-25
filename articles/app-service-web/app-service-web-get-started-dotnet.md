@@ -16,10 +16,10 @@ ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 36eead97f111025940e7e11902420e18b1b97fce
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: b5a7f3ebe5e95d3838e71b7b17b91e85da0d51a2
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>Azure’da ASP.NET web uygulaması oluşturma
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/19/2017
 
 Bu öğreticiyi tamamlamak için:
 
-* [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)’yi aşağıdaki iş yükleri ile yükleyin:
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
     - **ASP.NET ve web geliştirme**
     - **Azure geliştirme**
 
