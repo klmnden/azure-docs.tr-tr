@@ -5,7 +5,7 @@
     ![StorSimple bulut gereci oluşturma](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. **Bulut gereci oluşturma** dikey penceresinde aşağıdaki ayrıntıları belirtin.
    
-    ![StorSimple bulut gereci oluşturma](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2.png)
+    ![StorSimple bulut gereci oluşturma](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Ad**: Bulut gereciniz için benzersiz bir ad.
    2. **Model**: Bulut gerecinin modelini seçin. 8010 cihazlar 30 TB Standart Depolama sunarken 8020 cihazlar 64 TB Premium Depolama sunar. Öğe düzeyinde alma senaryolarını yedeklerden dağıtmak için 8010’u belirtin. Yüksek performanslı, düşük gecikme süreli iş yükleri dağıtmak veya olağanüstü durum kurtarmaya yönelik ikincil bir cihaz olarak kullanmak için 8020’yi seçin.
