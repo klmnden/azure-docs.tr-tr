@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory&quot;ye yeni kullanıcı ekleme | Microsoft Belgeleri"
-description: "Azure Active Directory&quot;de yeni kullanıcıların eklenmesini veya kullanıcı bilgilerinin değiştirilmesini açıklar."
+title: "Azure Active Directory'ye yeni kullanıcı ekleme | Microsoft Belgeleri"
+description: "Azure Active Directory'de yeni kullanıcıların eklenmesini veya kullanıcı bilgilerinin değiştirilmesini açıklar."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 07/26/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
+ms.reviewer: asteen
+ms.custom: oldportal
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
 ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
+ms.contentlocale: tr-tr
 ms.lasthandoff: 02/11/2017
-
 
 ---
 # <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>Azure Active Directory'ye yeni kullanıcı veya Microsoft hesabı olan bir kullanıcı ekleme

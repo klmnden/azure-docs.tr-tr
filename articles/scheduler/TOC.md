@@ -25,7 +25,7 @@
 ## [REST](/rest/api/scheduler)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=scheduler)

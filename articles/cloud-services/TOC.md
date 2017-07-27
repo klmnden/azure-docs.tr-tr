@@ -112,7 +112,7 @@
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cloud-services/)

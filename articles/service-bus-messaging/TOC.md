@@ -66,7 +66,7 @@
 ## [SQLRuleAction söz dizimi](service-bus-messaging-sql-rule-action.md)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN forumları](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Fiyatlandırma ayrıntıları](service-bus-pricing-billing.md)

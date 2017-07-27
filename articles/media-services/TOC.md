@@ -222,7 +222,7 @@
 
 # Kaynaklar
 ## [Azure Media Services Topluluğu](media-services-community.md)
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Sürüm notları](media-services-release-notes.md)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=media-services)

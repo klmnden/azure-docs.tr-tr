@@ -56,7 +56,7 @@
 ## [Kotalar](event-hubs-quotas.md)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Kod örnekleri](event-hubs-samples.md)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/event-hubs/)
