@@ -16,7 +16,8 @@
 ### [2 - Docker Compose kullanarak bir .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md)
 
 # Örnekler
-## [PowerShell](service-fabric-powershell-samples.md) 
+## [PowerShell](service-fabric-powershell-samples.md)
+## [Azure CLI](samples-cli.md)
 # Kavramlar
 ## [Mikro hizmetleri anlama](service-fabric-overview-microservices.md)
 ## [Büyük resim](service-fabric-content-roadmap.md)

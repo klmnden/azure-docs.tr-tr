@@ -94,8 +94,7 @@
         - name: Open API 2.0 tanımı oluşturma
           href: functions-api-definition-getting-started.md
         - name: PowerApps ve Microsoft Flow’a dışarı aktarma
-          href: >-
-            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Başvuru
   items:
     - name: Bağlamalar
@@ -131,7 +130,7 @@
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/'
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: Bölgesel kullanılabilirlik
@@ -145,5 +144,4 @@
     - name: Azure İşlevleri GitHub deposu
       href: 'https://github.com/Azure/Azure-Functions/'
     - name: Hizmet güncelleştirmeleri
-      href: >-
-        https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+      href: 'https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform='

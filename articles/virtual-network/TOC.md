@@ -158,7 +158,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Kaynaklar
-## [Azure yol haritası](https://azure.microsoft.com/roadmap/)
+## [Azure yol haritası](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
 ## [Ağ forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-network)

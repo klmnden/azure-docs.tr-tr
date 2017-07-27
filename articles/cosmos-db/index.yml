@@ -4,10 +4,7 @@ title: Azure Cosmos DB Belgeleri
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: 'Azure Cosmos DB Belgeleri - Öğreticiler, API Başvurusu'
-  description: >-
-    Global olarak dağıtılmış çoklu model veritabanları oluşturmak için Azure
-    Cosmos DB kullanmayı öğrenin. Öğreticiler, belgeleri, anahtar/değer ve
-    grafik veritabanlarını oluşturmayı ve sorgulamayı gösterir.
+  description: 'Global olarak dağıtılmış çoklu model veritabanları oluşturmak için Azure Cosmos DB kullanmayı öğrenin. Öğreticiler, belgeleri, anahtar/değer ve grafik veritabanlarını oluşturmayı ve sorgulamayı gösterir.'
   services: cosmos-db
   author: carolz
   manager: carolz
@@ -15,24 +12,15 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/28/2017
+  ms.date: 07/24/2017
   ms.author: carolz
 abstract:
-  description: >-
-    Azure Cosmos DB, esnek ve bağımsız olarak kapsamlı bir SLA ile herhangi bir
-    sayıdaki coğrafi bölgeler arasında aktarım hızı ölçeklendirme ve depolama
-    sağlamak için tasarlanmış, global olarak dağıtılmış bir veritabanı
-    hizmetidir.  Cosmos DB ile bir dizi popüler API ve programlama modeli
-    kullanarak belge, anahtar/değer veya grafik veritabanları
-    geliştirebilirsiniz. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve
-    örneklerimizle, Cosmos DB’yi kullanmayı öğrenin.
+  description: 'Azure Cosmos DB, esnek ve bağımsız olarak kapsamlı bir SLA ile herhangi bir sayıdaki coğrafi bölgeler arasında aktarım hızı ölçeklendirme ve depolama sağlamak için tasarlanmış, global olarak dağıtılmış bir veritabanı hizmetidir.  Cosmos DB ile bir dizi popüler API ve programlama modeli kullanarak belge, anahtar/değer veya grafik veritabanları geliştirebilirsiniz. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Cosmos DB’yi kullanmayı öğrenin.'
 sections:
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
       - type: paragraph
-        text: >-
-          Çok modelli API’lerden birini kullanarak global olarak dağıtılmış
-          veritabanı oluşturmak için Azure Cosmos DB kullanmayı öğrenin:
+        text: 'Çok modelli API’lerden birini kullanarak global olarak dağıtılmış veritabanı oluşturmak için Azure Cosmos DB kullanmayı öğrenin:'
       - type: table
         style: dataMatrix
         columns:
@@ -82,36 +70,11 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: >-
-              Cosmos DB ile uygulama geliştirme&#58; <a
-              href="/azure/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a>
-              | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a>
-              | <a
-              href="/azure/cosmos-db/tutorial-develop-table-dotnet">Tablo</a> |
-              <a
-              href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Grafik</a>
-          - html: >-
-              Verileri Cosmos DB’ye aktarma&#58; <a
-              href="documentdb-import-data">DocumentDB</a> | <a
-              href="documentdb-mongodb-migrate">MongoDB</a>
-          - html: >-
-              Cosmos DB ile verileri sorgulama&#58; <a
-              href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> |
-              <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a
-              href="/azure/cosmos-db/tutorial-query-table">Tablo</a> | <a
-              href="/azure/cosmos-db/tutorial-query-graph">Grafik</a>
-          - html: >-
-              Cosmos DB ile global veritabanı çoğaltma&#58; <a
-              href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a>
-              | <a
-              href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a>
-              | <a
-              href="/azure/cosmos-db/tutorial-global-distribution-table">Tablo</a>
-              | <a
-              href="/azure/cosmos-db/tutorial-global-distribution-graph">Grafik</a>
-          - html: >-
-              <a href="local-emulator">Öykünücüyü kullanarak uygulamanızı yerel
-              ortamda geliştirin</a>
+          - html: 'Cosmos DB ile uygulama geliştirme&#58; <a href="/azure/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Tablo</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Grafik</a>'
+          - html: 'Verileri Cosmos DB’ye aktarma&#58; <a href="import-data">DocumentDB</a> | <a href="mongodb-migrate">MongoDB</a>'
+          - html: 'Cosmos DB ile verileri sorgulama&#58; <a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Tablo</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Grafik</a>'
+          - html: 'Cosmos DB ile global veritabanı çoğaltma&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Tablo</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Grafik</a>'
+          - html: <a href="local-emulator">Öykünücüyü kullanarak uygulamanızı yerel ortamda geliştirin</a>
   - title: Örnekler
     items:
       - type: list
@@ -127,39 +90,10 @@ sections:
         className: cardsD
         items:
           - title: DocumentDB API’leri
-            html: >-
-              <p><a href="/rest/api/documentdb/">REST</a></p><p><a
-              href="https://aka.ms/acdbnetref">.NET</a></p><p><a
-              href="documentdb-sdk-dotnet-changefeed">.NET Change
-              akışı</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET
-              Core</a></p><p><a
-              href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a
-              href="https://aka.ms/acdbjavaref">Java</a></p><p><a
-              href="https://aka.ms/acdbpythonref">Python</a></p><p><a
-              href="/rest/api/documentdbresourceprovider/">REST Kaynak
-              Sağlayıcısı</a></p><p><a
-              href="documentdb-sql-query-reference">SQL</a></p>
+            html: '<p><a href="/rest/api/documentdb/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="documentdb-sdk-dotnet-changefeed">.NET Change akışı</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/documentdbresourceprovider/">REST Kaynak Sağlayıcısı</a></p><p><a href="documentdb-sql-query-reference">SQL</a></p>'
           - title: MongoDB API’leri
-            html: >-
-              <p><a
-              href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Wire
-              Protocol</a></p><p><a
-              href="https://mongodb.github.io/node-mongodb-native/
-              ">Node.js</a></p><p><a
-              href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a
-              href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a
-              href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a
-              href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
+            html: '<p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Wire Protocol</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>'
           - title: Tablo API’leri
-            html: >-
-              <p><a
-              href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a
-              href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p>
+            html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p>
           - title: Gremlin API’leri
-            html: >-
-              <p><a
-              href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a
-              href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a
-              href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a
-              href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a
-              href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>
+            html: '<p><a href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>'

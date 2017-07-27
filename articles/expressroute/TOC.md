@@ -19,12 +19,15 @@
 ## Bağlantı hattı oluşturma ve değiştirme
 ### [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure CLI](howto-circuit-cli.md)
 ## Eşleme yapılandırması oluşturma ve değiştirme
 ### [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure CLI](howto-routing-cli.md)
 ## ExpressRoute bağlantı hattına bir sanal ağı bağlama
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure CLI](howto-linkvnet-cli.md)
 ## ExpressRoute için sanal ağ geçidi yapılandırma
 ### [Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -60,7 +63,7 @@
 ## [Traffic Manager](/azure/traffic-manager/)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Örnek Olay İncelemeleri](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Ağ Blogu](https://azure.microsoft.com/blog/topics/networking/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/)

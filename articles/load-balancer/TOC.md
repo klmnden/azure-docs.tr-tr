@@ -67,6 +67,6 @@
 ## [DNS](/azure/dns/)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=load-balancer)

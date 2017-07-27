@@ -27,4 +27,4 @@
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Rol Tabanlı Access Control](../role-based-access-control-what-is.md)
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)

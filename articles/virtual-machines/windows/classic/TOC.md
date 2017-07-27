@@ -81,7 +81,8 @@
 ### [Bir uygulamaya erişme](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Yeni bir VM oluşturmayla ilgili klasik dağıtım sorunları](troubleshoot-deployment-new-vm.md)
 ### [Mevcut bir VM'yi yeniden başlatma veya yeniden boyutlandırmayla ilgili klasik dağıtım sorunları](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [RDP parolasını sıfırlama](reset-rdp.md)
+### [RDP parolasını sıfırlama](reset-rdp.md)
+### [VM sorunlarını gidermek için sanal sabit disk takma](troubleshoot-recovery-disks-portal.md)
 
 # Başvuru
 ## [PowerShell](/powershell/azure/overview)
@@ -95,7 +96,7 @@
 ## [Depolama REST](/rest/api/storageservices)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Bölgesel kullanılabilirlik](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

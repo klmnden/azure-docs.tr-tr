@@ -33,7 +33,7 @@
 
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [JavaScript örnek ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 ## [JavaScript Git deposu](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Power BI C# Git deposu](https://github.com/Microsoft/PowerBI-CSharp)

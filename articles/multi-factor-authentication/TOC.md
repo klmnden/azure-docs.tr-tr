@@ -50,4 +50,4 @@
 ### [Özel Uygulamalarda (SDK) oluşturma](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [NPS uzantı hataları](multi-factor-authentication-nps-errors.md)
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)

@@ -66,6 +66,7 @@
 ## Sorun giderme
 ### [VM dağıtımları](troubleshoot-deployment-new-vm.md)
 ### [VM’yi yeniden başlatma veya yeniden boyutlandırma](restart-resize-error-troubleshooting.md)
+### [VM sorunlarını gidermek için sanal sabit disk takma](troubleshoot-recovery-disks-portal.md)
 
 # Başvuru
 ## [PowerShell](/powershell/azure/overview)
@@ -79,7 +80,7 @@
 
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Bölgesel kullanılabilirlik](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

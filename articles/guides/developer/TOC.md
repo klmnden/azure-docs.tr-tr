@@ -12,7 +12,7 @@
 ## [Sunucusuz](../../azure-functions/functions-create-first-azure-function.md)
 ## Mikro hizmetler
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
-### [Kapsayıcı Hizmeti](../../container-service/container-service-deployment.md) 
+### [Kapsayıcı Hizmeti](../../container-service/dcos-swarm/container-service-deployment.md) 
 
 # Öğreticiler
 ## Web uygulaması oluşturma ve dağıtma

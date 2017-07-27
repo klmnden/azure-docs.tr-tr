@@ -384,7 +384,7 @@
 
 # Kaynaklar
 ## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory)
