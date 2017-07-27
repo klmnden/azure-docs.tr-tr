@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: ba82a5e25750fc6d9bd047ace3abb087e5dedfb3
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 4eb32dd18c57af8d46e7afb63047c0985458705d
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Özel Docker kapsayıcısı kayıt defterlerine giriş
@@ -72,6 +72,6 @@ Geliştiriciler bir kapsayıcı geliştirme iş akışı kapsamında bir kapsay�
 * [Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma](container-registry-get-started-portal.md)
 * [Azure CLI’yı kullanarak kapsayıcı kayıt defteri oluşturma](container-registry-get-started-azure-cli.md)
 * [Docker CLI’yı kullanarak ilk görüntünüzü itme](container-registry-get-started-docker-cli.md)
-* Visual Studio Team Services, Azure Container Service ve Azure Container Kayıt Defteri’ni kullanarak sürekli tümleştirme ve dağıtım iş akışı oluşturmak için [bu öğreticiye](../container-service/container-service-docker-swarm-setup-ci-cd.md) bakın.
+* Visual Studio Team Services, Azure Container Service ve Azure Container Kayıt Defteri’ni kullanarak sürekli tümleştirme ve dağıtım iş akışı oluşturmak için [bu öğreticiye](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md) bakın.
 * Azure’da kendi Docker özel kayıt defterinizi ayarlamak (genel bir uç noktası olmadan) istiyorsanız bkz. [Azure’da Kendi Özel Docker Kayıt Defterinizi Dağıtma](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 
