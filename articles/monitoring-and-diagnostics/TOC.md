@@ -59,8 +59,9 @@
 ### [Sorun giderme](azure-diagnostics-troubleshooting.md)
 
 # Başvuru
-## [Desteklenen ölçümlerin listesi](monitoring-supported-metrics.md)
 ## [Veri izleme kaynakları](monitoring-data-sources.md)
+## [Desteklenen ölçümlerin listesi](monitoring-supported-metrics.md)
+## [Etkinlik Günlüğü olay şeması](monitoring-activity-log-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
@@ -71,7 +72,7 @@
 
 # Kaynaklar
 ## [Azure CLI 1.0 örnekleri](insights-cli-samples.md)
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [PowerShell örnekleri](insights-powershell-samples.md)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Hızlı Başlangıç şablonları](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Container Instances Belgeleri
+metadata:
+  title: Azure Container Instances Belgeleri - Öğreticileri | Microsoft Docs
+  description: 'Azure Container Instances, herhangi bir sanal makine sağlamak ve daha yüksek düzeyde bir hizmeti benimsemek zorunda kalmadan Azure içinde kapsayıcı çalıştırmanızın en hızlı ve en kolay yoludur.'
+  services: container-instances
+  author: carolz
+  manager: carolz
+  ms.service: container-instances
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Container Instances, herhangi bir sanal makine sağlamak ve daha yüksek düzeyde bir hizmeti benimsemek zorunda kalmadan Azure içinde kapsayıcı çalıştırmanızın en hızlı ve en kolay yoludur. Eksiksiz bir kapsayıcı düzenleme çözümüne ihtiyaç duyuyorsanız bkz. <a href="/azure/container-service/kubernetes/">Azure Container Service belgelerinde Kubernetes kümesi</a>. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle kapsayıcı örneklerini oluşturmayı ve yönetmeyi öğrenin.'
+sections:
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: Azure Container Instances ile kapsayıcı görüntülerini nasıl dağıtacağınızı öğrenin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/container-instances/media/container-instances.png
+            text: Kapsayıcı örneği oluşturma
+            href: /azure/container-instances/container-instances-quickstart
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: Bir kapsayıcı görüntüsüne nasıl kod paketleyeceğinizi ve bu görüntüyü Azure Container Instance üzerinde nasıl çalıştıracağınızı öğrenin.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Kapsayıcı görüntüsüne uygulama paketleme</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Bir Azure Container Registry oluşturma ve kapsayıcı görüntüsünü karşıya yükleme</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Azure Container Instance üzerinde kapsayıcı görüntüsünü dağıtma</a>

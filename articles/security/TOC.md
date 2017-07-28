@@ -1,5 +1,6 @@
 # [Genel Bakış](azure-security.md)
 ## [Ağ güvenliği](security-network-overview.md)
+## [Veritabanı güvenliği](azure-database-security-overview.md)
 ## [Depolama alanı güvenliği](security-storage-overview.md)
 ## [İşlem güvenliği](security-virtual-machines-overview.md)
 ## [Güvenlik yönetimi ve izleme](security-management-and-monitoring-overview.md)
@@ -12,6 +13,7 @@
 ### [Genel bulutta yalıtım](azure-isolation.md)
 ### [Güvenliğe yönelik teknik özellikler](azure-security-technical-capabilities.md)
 ### [Azure’da idare](governance-in-azure.md)
+### [Bekleme sırasında veri şifrelemesi](azure-security-encryption-atrest.md)
 
 # Kullanmaya Başlama
 ## [Azure güvenliğini kullanmaya başlama](azure-security-getting-started.md)
@@ -51,6 +53,7 @@
 ## PaaS hizmetleri
 ### [PaaS dağıtımlarının güvenliğini sağlama](security-paas-deployments.md)
 #### [SQL kullanarak PaaS web ve mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-sql.md)
+#### [SQL Veritabanı en iyi uygulamalar](azure-database-security-best-practices.md)
 #### [Uygulama Hizmetleri’ni kullanarak PaaS web ve mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-app-services.md)
 
 ## Nesnelerin İnterneti
@@ -73,7 +76,7 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure güvenlik MVP programı](azure-security-mvp.md)
 ## [Siber güvenlik danışmanlığı](azure-security-cyber-services.md)
 ## [Güvenlik ve Uyumluluk blogu](http://blogs.msdn.com/b/azuresecurity/)

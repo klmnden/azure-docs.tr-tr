@@ -17,7 +17,7 @@
 ### VM’leri yedekleme
 #### [Azure sanal makinelerini bir Kurtarma Hizmetleri kasasına yedekleme](backup-azure-arm-vms.md)
 #### [Şifrelenmiş sanal makineleri yedekleme](backup-azure-vms-encryption.md)
-#### [Yedekleme kasasına Azure sanal makineleri yedekleme](backup-azure-vms.md)
+#### [Azure sanal makinelerini yedekleme](backup-azure-vms.md)
 ### VM’leri yönetme ve izleme
 #### [Azure portal’da Azure VM yedeklemelerini yönetme](backup-azure-manage-vms.md)
 #### [Azure portal’da Azure VM yedeklemeleri için uyarıları yönetme](backup-azure-monitor-vms.md)
@@ -57,7 +57,7 @@
 ### [Azure portalında DPM iş yükleri hazırlama](backup-azure-dpm-introduction.md)
 ### [Klasik portalda DPM iş yükleri hazırlama](backup-azure-dpm-introduction-classic.md)
 ### [Exchange sunucusunu yedeklemek için System Center DPM'yi kullanma](backup-azure-backup-exchange-server.md)
-### [Backup kasasındaki verileri alternatif bir DPM sunucusuna kurtarma](backup-azure-alternate-dpm-server.md)
+### [Verileri başka bir DPM sunucusuna kurtarma](backup-azure-alternate-dpm-server.md)
 ### [SQL Server iş yüklerini yedeklemek için DPM'yi kullanma](backup-azure-backup-sql.md)
 ### [SharePoint grubunu yedeklemek için DPM'yi kullanma](backup-azure-backup-sharepoint.md)
 
@@ -90,11 +90,12 @@
 # Kavramlar
 ## [Kurtarma Hizmetleri kasalarına genel bakış](backup-azure-recovery-services-vault-overview.md)
 ## [Bir Backup kasasının Kurtarma Hizmetleri kasasına geçişi](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Azure Backup kasasını silme](backup-azure-delete-vault.md)
+## [Kurtarma Hizmetleri kasası silme](backup-azure-delete-vault.md)
 ## [Rol Tabanlı Access Control](backup-rbac-rs-vault.md)
 ## [Karma yedeklemeler için güvenlik](backup-azure-security-feature.md)
 ## [Azure Backup raporlarını yapılandırma](backup-azure-configure-reports.md)
 ## [Azure Backup raporları için veri modeli](backup-azure-reports-data-model.md)
+## [Azure Backup için Log Analytics veri modeli](backup-azure-log-analytics-data-model.md)
 ## [Çevrimdışı yedekleme yapılandırma](backup-azure-backup-import-export.md)
 ## [Bant kitaplığınızı değiştirme](backup-azure-backup-cloud-as-tape.md)
 ## [Uygulama ile tutarlı Linux VM yedekleri](backup-azure-linux-app-consistent.md)

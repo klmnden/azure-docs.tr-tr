@@ -13,7 +13,12 @@
 
 # Kullanmaya Başlama
 ## [Hadoop’u kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Spark’ı kullanmaya başlama](hdinsight-apache-spark-jupyter-spark-sql.md)
+## Spark’ı kullanmaya başlama
+### [Spark kümesi oluşturma](hdinsight-apache-spark-jupyter-spark-sql.md)
+### [Spark kümesinde sorguları çalıştırma](hdinsight-apache-spark-load-data-run-query.md)
+### [BI araçlarını kullanarak verileri analiz etme](hdinsight-apache-spark-use-bi-tools.md)
+### [Küme kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
+### [Spark işlerinde hata ayıklama](hdinsight-apache-spark-job-debugging.md)
 ## [R Server’ı kullanmaya başlama](hdinsight-hadoop-r-server-get-started.md)
 ## [HBase ve NoSQL’i kullanmaya başlama](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm’u kullanmaya başlama](hdinsight-apache-storm-tutorial-get-started-linux.md)
@@ -59,7 +64,6 @@
 ### [ScaleR ve SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Bellek içi işleme için Spark’ı kullanma
 ### [Data Lake Store ile](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [BI araçları ile](hdinsight-apache-spark-use-bi-tools.md)
 ### [Tek başına uygulama oluşturma](hdinsight-apache-spark-create-standalone-application.md)
 ### [Eclipse kullanarak uygulama oluşturma](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [IntelliJ kullanarak uygulama oluşturma](hdinsight-apache-spark-intellij-tool-plugin.md)
@@ -76,8 +80,6 @@
 ### [Yerel Jupyter not defterini kullanma](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Livy ile uzak işler](hdinsight-apache-spark-livy-rest-interface.md)
 ### [VPN aracılığıyla IntelliJ ile işler üzerinde uzaktan hata ayıklama](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-### [Kaynakları yönetme](hdinsight-apache-spark-resource-manager.md)
-### [İşleri izleme ve hata ayıklama](hdinsight-apache-spark-job-debugging.md)
 ### [Bilinen sorunlar](hdinsight-apache-spark-known-issues.md)
 ## HBase’i kullanma
 ### [Phoenix ve SQLLine kullanma](hdinsight-hbase-phoenix-squirrel-linux.md)
@@ -234,7 +236,7 @@
 ### [Ambari API’sini kullanarak kümeleri izleme](hdinsight-monitor-use-ambari-api.md)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Forumdan yardım alma](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)

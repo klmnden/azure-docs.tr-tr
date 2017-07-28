@@ -40,6 +40,7 @@
 ## [DNS bölgeleri ve kayıtlarını koruma](dns-protect-zones-recordsets.md)
 ## [.NET SDK ile DNS işlemlerini otomatikleştirme](dns-sdk.md)
 
+## [Azure DNS'yi Azure kaynakları ile tümleştirme](dns-custom-domain.md)
 ## Sorun giderme
 ### [Sorun giderme kılavuzu](dns-troubleshoot.md)
 
@@ -62,7 +63,7 @@
 ## [Web Apps](/azure/app-service-web/)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Özellik istekleri](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
