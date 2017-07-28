@@ -60,6 +60,7 @@
 ### [GitHub Enterprise ile kaynak denetimi tümleştirmesi](automation-scenario-source-control-integration-with-github-ent.md)
 ### [VSTS ile kaynak denetimi tümleştirmesi](automation-scenario-source-control-integration-with-VSTS.md)
 ### [Log Analytics uyarısından Azure Otomasyonu Runbook’u çağırma](automation-invoke-runbook-from-omsla-alert.md)
+### [Azure Otomasyonu PowerShell runbook’unda Azure Resource Manager şablonu dağıtma](automation-deploy-template-runbook.md)
 ## Çözümler
 ### [Değişiklik İzleme](../log-analytics/log-analytics-change-tracking.md)
 ### [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md)
@@ -82,7 +83,7 @@
 # Kaynaklar
 ## [Otomasyon tanıtım videosu](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 ## [Azure Otomasyonu eğitimi](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/)  

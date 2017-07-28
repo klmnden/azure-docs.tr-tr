@@ -1,14 +1,10 @@
 # Genel Bakış
 ## [Azure Analysis Services nedir?](analysis-services-overview.md)
 ## [Desteklenen veri kaynakları](analysis-services-datasource.md)
-## [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md)
 
 # Hızlı Başlangıçlar
 ## [Sunucu oluşturma - portal](analysis-services-create-server.md)
 ## [Bir model dağıtma - SSDT](analysis-services-deploy.md)
-
-# Örnekler
-## [GitHub’daki Analysis Services örnekleri](https://github.com/Microsoft/Analysis-Services)
 
 # Öğreticiler
 ## Model oluşturma ve dağıtma
@@ -30,16 +26,20 @@
 ### [Ek ders - Dinamik güvenlik](tutorials/aas-supplemental-lesson-dynamic-security.md)
 ### [Ek ders - Düzensiz hiyerarşiler](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
+# Kavramlar
+## [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md)
+## [Yüksek kullanılabilirlik](analysis-services-bcdr.md)
+
 # Nasıl yapılır 
+## [Azure portalında bir model oluşturma (önizleme)](analysis-services-create-model-portal.md)
 ## [Sunucu yönetme](analysis-services-manage.md)
 ## [Veritabanı kullanıcılarını yönetme](analysis-services-database-users.md)
 ## [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)
-## [Şirket içi veri ağ geçidini tümleştirme](analysis-services-gateway.md)
+## [Şirket içi veri ağ geçidi yükleme](analysis-services-gateway.md)
 ## [Excel ile bağlanma](analysis-services-connect-excel.md)
 ## [Power BI ile bağlanma](analysis-services-connect-pbi.md)
 ## [İstemci kitaplıkları alma](analysis-services-data-providers.md)
 ## [Yedekleme ve geri yükleme](analysis-services-backup.md)
-## [Yüksek kullanılabilirlik](analysis-services-bcdr.md)
 ## [.odc dosyası oluşturma](analysis-services-odc.md)
 
 # Başvuru
@@ -50,9 +50,10 @@
 ## [Tablosal Model Betik Dili (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Kaynaklar
+## [GitHub’daki Analysis Services kodu örnekleri](https://github.com/Microsoft/Analysis-Services)
 ## [Analysis Services ekip blogu](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Azure durumu](https://azure.microsoft.com/status/)
 ## [Geri Bildirim](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/analysis-services/)

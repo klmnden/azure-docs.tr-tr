@@ -1,0 +1,89 @@
+- name: Kubernetes ile ACS
+  href: ./index.yml
+- name: Genel Bakış
+  items:
+    - name: Container Service hakkında
+      href: container-service-intro-kubernetes.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Kubernetes Linux
+      href: container-service-kubernetes-walkthrough.md
+- name: Öğreticiler
+  items:
+    - name: 1 - Kapsayıcı görüntüleri oluşturma
+      href: container-service-tutorial-kubernetes-prepare-app.md
+    - name: 2 - Kapsayıcı kayıt defteri oluşturma
+      href: container-service-tutorial-kubernetes-prepare-acr.md
+    - name: 3 - Kubernetes kümesi oluşturma
+      href: container-service-tutorial-kubernetes-deploy-cluster.md
+    - name: 4 - Uygulamayı çalıştırma
+      href: container-service-tutorial-kubernetes-deploy-application.md
+    - name: 5 - Uygulamayı ölçeklendirme
+      href: container-service-tutorial-kubernetes-scale.md
+    - name: 6 - Uygulamayı güncelleştirme
+      href: container-service-tutorial-kubernetes-app-update.md
+    - name: 7 - OMS ile izleme
+      href: container-service-tutorial-kubernetes-monitor.md
+- name: Örnekler
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+- name: Kavramlar
+  items:
+    - name: Güvenli kapsayıcılar
+      href: container-service-security.md
+    - name: Hizmet sorumlusu - Kubernetes
+      href: container-service-kubernetes-service-principal.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Windows Hızlı Başlangıç ile Kubernetes
+      href: container-service-kubernetes-windows-walkthrough.md
+    - name: Kapsayıcı yönetimi - Kubernetes UI
+      href: container-service-kubernetes-ui.md
+    - name: Helm grafiklerini dağıtma
+      href: container-service-kubernetes-helm.md
+    - name: Kubernetes ve Jenkins ile CI/CD
+      href: container-service-kubernetes-jenkins.md
+    - name: ACR ve ACS ile Taslak kullanma
+      href: container-service-draft-up.md
+    - name: ACS kümesine bağlanma
+      href: container-service-connect.md
+    - name: ACS kümesini ölçeklendirme
+      href: container-service-scale.md
+    - name: İzleme
+      items:
+        - name: Datadog ile izleme
+          href: container-service-kubernetes-datadog.md
+        - name: Sysdig ile izleme
+          href: container-service-kubernetes-sysdig.md
+        - name: CoScale ile izleme
+          href: container-service-kubernetes-coscale.md
+    - name: Spring Boot uygulamalarını dağıtma
+      items:
+        - name: Azure Container Service’te Linux üzerinde Spring Boot Uygulaması dağıtma
+          href: container-service-deploy-spring-boot-app-on-linux.md
+        - name: Azure Container Service’te bir Kubernetes Kümesi üzerinde Spring Boot Uygulaması dağıtma
+          href: container-service-deploy-spring-boot-app-on-kubernetes.md
+- name: Başvuru
+  items:
+    - name: Azure CLI 2.0
+      href: /cli/azure/acs
+    - name: REST
+      href: /rest/api/compute/containerservices
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: SSS
+      href: container-service-faq.md
+    - name: Şablonlar - ACS Altyapısı
+      href: 'https://github.com/Azure/acs-engine'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Bölge kullanılabilirliği
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

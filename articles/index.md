@@ -4,10 +4,10 @@ hide_bc: true
 title: Microsoft Azure Belgeleri
 description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 7c1971abc2b71f6f23d8be2950aae8b56b4ceba1
+ms.sourcegitcommit: 3b15d6645b988f69f1f05b27aff6f726f34786fc
+ms.openlocfilehash: 7a642506b97fcf4d3426b9205f4b5e420b0bec59
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 <div id="main" class="v2">
@@ -140,7 +140,8 @@ ms.lasthandoff: 07/19/2017
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Sunucusuz İşlevler</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/">Kubernetes ile kapsayıcılar</a></li>
+                                                        <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Kubernetes ile kapsayıcı düzenleme</a></li>
                                                         <li><a class="barLink" href="/azure/service-fabric/">Service Fabric ile mikro hizmetler</a></li>
                                                     </ul>
                                                 </div>
@@ -352,6 +353,12 @@ ms.lasthandoff: 07/19/2017
                                     </ul>
                                     <h3>Kapsayıcılar</h3>
                                     <ul>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Azure Container Instances</p>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
@@ -1740,18 +1747,18 @@ ms.lasthandoff: 07/19/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-fabric/">
+                                <a href="/azure/container-instances/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                        <img src="media/index/ContainerInstances.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>Windows veya Linux üzerinde mikro hizmet geliştirme ve kapsayıcıları düzenleme</p>
+                                                    <h3>Azure Container Instances</h3>
+                                                    <p>Kapsayıcıları tek bir komutla kolayca çalıştırın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1790,6 +1797,25 @@ ms.lasthandoff: 07/19/2017
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
                                                     <p>Kapsayıcıları kullanarak işlem işlerini çalıştırma</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Fabric</h3>
+                                                    <p>Windows veya Linux üzerinde mikro hizmet geliştirme ve kapsayıcıları düzenleme</p>
                                                 </div>
                                             </div>
                                         </div>

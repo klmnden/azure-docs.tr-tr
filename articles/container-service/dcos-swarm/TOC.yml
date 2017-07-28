@@ -1,0 +1,85 @@
+- name: ACS ile DC/OS ve Swarm
+  href: ./index.yml
+- name: Genel Bakış
+  items:
+    - name: Container Service hakkında
+      href: container-service-intro.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: DC/OS Linux
+      href: container-service-dcos-quickstart.md
+- name: Öğreticiler
+  items:
+    - name: 1 - Küme oluşturma / yönetme
+      href: container-service-dcos-manage-tutorial.md
+    - name: 2 - Uygulamalarda yük dengeleme
+      href: container-service-load-balancing.md
+    - name: 3 - Veri hacimlerini yönetme
+      href: container-service-dcos-fileshare.md
+    - name: 4 - ACR ile tümleştirme
+      href: container-service-dcos-acr.md
+- name: Kavramlar
+  items:
+    - name: Güvenli kapsayıcılar
+      href: container-service-security.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: ACS kümesine bağlanma
+      href: container-service-connect.md
+    - name: ACS kümesini ölçeklendirme
+      href: container-service-scale.md
+    - name: DC/OS ile yönetme
+      items:
+        - name: Kapsayıcı yönetimi - DC/OS UI
+          href: container-service-mesos-marathon-ui.md
+        - name: Kapsayıcı yönetimi - DC/OS REST API
+          href: container-service-mesos-marathon-rest.md
+        - name: DC/OS aracı havuzları
+          href: container-service-dcos-agents.md
+        - name: DC/OS genel erişimini etkinleştirme
+          href: container-service-enable-public-access.md
+        - name: DC/OS üzerinde uygulamaya/kullanıcıya özel düzenleyici
+          href: container-service-application-specific-marathon.md
+        - name: Vamp ile Canary sürümü
+          href: container-service-dcos-vamp-canary-release.md
+        - name: DC/OS izleme
+          items:
+            - name: ELK ile izleme
+              href: container-service-monitoring-elk.md
+            - name: OMS ile izleme
+              href: container-service-monitoring-oms.md
+            - name: Datadog ile izleme
+              href: container-service-monitoring.md
+            - name: Sysdig ile izleme
+              href: container-service-monitoring-sysdig.md
+            - name: Dynatrace ile izleme
+              href: container-service-monitoring-dynatrace.md
+    - name: Docker Swarm ile yönetme
+      items:
+        - name: Docker ve Docker Compose
+          href: container-service-docker-swarm.md
+        - name: Docker Swarm ve VSTS ile CI/CD
+          href: container-service-docker-swarm-setup-ci-cd.md
+- name: Başvuru
+  items:
+    - name: Azure CLI 2.0
+      href: /cli/azure/acs
+    - name: REST
+      href: /rest/api/compute/containerservices
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: SSS
+      href: container-service-faq.md
+    - name: Şablonlar - ACS Altyapısı
+      href: 'https://github.com/Azure/acs-engine'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Bölge kullanılabilirliği
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

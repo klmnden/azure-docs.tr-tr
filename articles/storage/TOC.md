@@ -135,9 +135,7 @@
 #### [Ölçümleri etkinleştirme ve görüntüleme](storage-enable-and-view-metrics.md)
 #### [İzleme, tanılama ve sorun giderme](storage-monitoring-diagnosing-troubleshooting.md)
 #### [Sorun giderme öğreticisi](storage-e2e-troubleshooting.md)
-### Disk silme hatalarıyla ilgili sorunları giderme
-#### [Resource Manager Dağıtımında](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [Klasik dağıtımda](storage-cannot-delete-storage-account-container-vhd.md)
+### [Disk silme hatalarıyla ilgili sorunları giderme](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 ### [Dosya depolama sorunlarını giderme](storage-troubleshoot-file-connection-problems.md)
 ## Veri Aktarma
 ### [Verileri depolamaya ve depolamadan aktarma](storage-moving-data.md)
@@ -208,7 +206,7 @@
 ### [Sorun giderme öğreticisi](storage-e2e-troubleshooting-classic-portal.md)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Azure Depolama İstemci Araçları](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storage/blobs/)
