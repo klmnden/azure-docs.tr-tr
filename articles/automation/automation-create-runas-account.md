@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/29/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
@@ -22,9 +22,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="update-your-automation-account-authentication-with-run-as-accounts" class="xliff"></a>
-
-# Farklı Çalıştır hesaplarıyla Otomasyon hesabı kimlik doğrulamasını güncelleştirme 
+# <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Farklı Çalıştır hesaplarıyla Otomasyon hesabı kimlik doğrulamasını güncelleştirme 
 Mevcut Otomasyon hesabınızı portaldan güncelleştirebilir veya aşağıdaki durumlarda PowerShell kullanabilirsiniz:
 
 * Bir Otomasyon hesabı oluşturdunuz, ancak Farklı Çalıştır hesabı oluşturmayı reddettiniz.
@@ -32,9 +30,7 @@ Mevcut Otomasyon hesabınızı portaldan güncelleştirebilir veya aşağıdaki 
 * Klasik kaynakları yönetmek için bir Otomasyon hesabı zaten kullanıyorsunuz ve yeni bir hesap oluşturup runbook’larınızı ve varlıklarınızı ona geçirmek yerine Klasik Farklı Çalıştır hesabını kullanacak şekilde güncelleştirmek istiyorsunuz.   
 * Kuruluş sertifika yetkiliniz (CA) tarafından verilen bir sertifika kullanarak bir Farklı Çalıştır ve Klasik Farklı Çalıştır hesabı oluşturmak istiyorsunuz.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 * Betik yalnızca Azure Resource Manager 3.0.0 veya sonrasındaki modülleri içeren Windows 10 ve Windows Server 2016 işletim sistemlerinde çalıştırılabilir. Windows'un önceki sürümleri desteklenmez.
 * Azure PowerShell 1.0 ve üzeri. PowerShell 1.0 sürümü hakkında bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
@@ -46,9 +42,7 @@ Betik parametreleri için gerekli olan *SubscriptionID*, *ResourceGroup* ve *Aut
 2. **Tüm ayarlar** dikey penceresindeki **Hesap Ayarları** altında **Özellikler**’i seçin. 
 3. **Özellikler** dikey penceresindeki değerleri not alın.<br><br> ![Otomasyon hesabı "Özellikler" dikey penceresi](media/automation-create-runas-account/automation-account-properties.png)  
 
-<a id="required-permissions-to-update-your-automation-account" class="xliff"></a>
-
-### Otomasyon hesabınızı güncelleştirmek için gereken izinler
+### <a name="required-permissions-to-update-your-automation-account"></a>Otomasyon hesabınızı güncelleştirmek için gereken izinler
 Otomasyon hesabını güncelleştirmek isterseniz bu konuyu tamamlamak için gereken aşağıdaki özel ayrıcalıklara ve izinlere sahip olmanız gerekir.   
  
 * AD kullanıcı hesabınızın, [Azure Otomasyonu’nda rol tabanlı erişim denetimi](automation-role-based-access-control.md#contributor-role-permissions) makalesinde açıklandığı gibi Microsoft.Automation kaynaklarındaki Katkıda Bulunan rolüne eşdeğer izinlere sahip bir role eklenmesi gerekir.  
@@ -56,9 +50,7 @@ Otomasyon hesabını güncelleştirmek isterseniz bu konuyu tamamlamak için ger
 
 Aboneliğin genel yönetici/ortak yönetici rolüne eklenmeden önce aboneliğin Active Directory örneğine üye değilseniz Active Directory’ye konuk olarak eklenirsiniz. Bu durumda, “Oluşturma izniniz yok…” iletisini alırsınız. uyarısını **Otomasyon Hesabı Ekle** dikey penceresinde görürsünüz. İlk olarak genel yönetici/ortak yönetici rolüne eklenen kullanıcılar aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory’de tam bir Kullanıcı haline getirilebilir. Bu durumu doğrulamak için Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı, **Tüm kullanıcılar**’ı seçin ve belirli bir kullanıcıyı seçtikten sonra **Profil**’i seçin. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
 
-<a id="create-run-as-account-from-the-portal" class="xliff"></a>
-
-## Portaldan Farklı Çalıştır hesabı oluşturma
+## <a name="create-run-as-account-from-the-portal"></a>Portaldan Farklı Çalıştır hesabı oluşturma
 Bu bölümde, Azure portalından Azure Otomasyonu hesabınızı güncelleştirmek için aşağıdaki adımları uygulayın.  Farklı Çalıştır ve Klasik Farklı Çalıştır hesaplarını tek tek oluşturursunuz. Klasik Azure portalında kaynakları yönetmeniz gerekmiyorsa yalnızca Azure Farklı Çalıştır hesabını oluşturabilirsiniz.  
 
 İşlem, Otomasyon hesabınızda aşağıdaki öğeleri oluşturur.
@@ -79,9 +71,7 @@ Bu bölümde, Azure portalından Azure Otomasyonu hesabınızı güncelleştirme
 3. Gereken hesaba bağlı olarak **Azure Farklı Çalıştır Hesabı**’nı veya **Azure Klasik Farklı Çalıştır Hesabı**’nı seçin.  Seçim sonrasında **Azure Farklı Çalıştır Ekle** veya **Azure Klasik Farklı Çalıştır Hesabı Ekle** dikey penceresi görüntülenir ve genel bakış bilgilerini gözden geçirdikten sonra Farklı Çalıştır hesabı oluşturma işlemine devam etmek için **Oluştur**’a tıklamanız gerekir.  
 4. Farklı Çalıştır hesabı Azure tarafından oluşturulurken ilerleme durumunu menüdeki **Bildirimler** altında izleyebilirsiniz; hesabın oluşturulmakta olduğunu belirten bir başlık görünür.  Bu işlemin tamamlanması birkaç dakika sürebilir.  
 
-<a id="create-run-as-account-using-powershell-script" class="xliff"></a>
-
-## PowerShell betiği ile Farklı Çalıştır hesabı oluşturma
+## <a name="create-run-as-account-using-powershell-script"></a>PowerShell betiği ile Farklı Çalıştır hesabı oluşturma
 Bu PowerShell betiği aşağıdaki yapılandırmalar için destek içerir:
 
 * Otomatik olarak imzalanan sertifika kullanarak Farklı Çalıştır hesabı oluşturun.
@@ -166,7 +156,7 @@ Seçtiğiniz yapılandırma seçeneğine bağlı olarak, betik aşağıdaki öğ
 
         $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
-        $KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
+        $KeyCredential.EndDate = Get-Date $PfxCert.GetExpirationDateString()
         $KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
         $KeyCredential.KeyId = $KeyId
         $KeyCredential.CertValue  = $keyValue
@@ -307,8 +297,6 @@ Betik başarıyla yürütüldükten sonra aşağıdakilere dikkat edin:
 * Kurumsal ortak sertifika (.cer file) ile bir Klasik Farklı Çalıştır hesabı oluşturduysanız bu sertifikayı kullanın. [Klasik Azure portalında yönetim API sertifikasını yükleme](../azure-api-management-certs.md) yönergelerini izleyin ve ardından [Azure Klasik Dağıtım Kaynakları ile kimlik doğrulamaya yönelik örnek kodunu](automation-verify-runas-authentication.md#classic-run-as-authentication) kullanarak klasik dağıtım kaynakları ile kimlik bilgisi yapılandırmasını doğrulayın. 
 * Klasik Farklı Çalıştır hesabı *oluşturmadıysanız*, Resource Manager kaynakları kimlik doğrulaması yapmak ve kimlik bilgisi yapılandırmasını doğrulamak için [Service Management kaynakları ile kimlik doğrulamaya yönelik örnek kodu](automation-verify-runas-authentication.md#automation-run-as-authentication) kullanın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Hizmet Sorumluları hakkında daha fazla bilgi için bkz. [Uygulama Nesneleri ve Hizmet Sorumlusu Nesneleri](../active-directory/active-directory-application-objects.md).
 * Sertifikalar ve Azure hizmetleri hakkında daha fazla bilgi için bkz. [Azure Cloud Services sertifikalarına genel bakış](../cloud-services/cloud-services-certs-create.md).
