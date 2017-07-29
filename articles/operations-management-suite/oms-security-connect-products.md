@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 07/18/2017
 ms.author: yurid
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.contentlocale: tr-tr
 ms.lasthandoff: 12/06/2016
-
 
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Güvenlik ürünlerinizi Operations Management Suite (OMS) Güvenlik ve Denetim Çözümü’ne bağlama 
@@ -90,11 +90,13 @@ Aracı makinede olayların syslog daemon’dan yerel 25226 numaralı yerel UDP b
     ```
 6. Aşağıdaki komutu yazın ve sonucu gözden geçirerek OMS Aracısı günlüğünde bir hata olmadığını doğrulayın:
 
-    ```    
+    ``` 
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
 ## <a name="reviewing-collected-security-events"></a>Toplanan güvenlik olaylarını gözden geçirme
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Yapılandırma tamamlandıktan sonra güvenlik olayı OMS Security tarafından alınmaya başlanır. Bu olayları görselleştirmek için Günlük Arama’yı açıp arama alanına *Type=CommonSecurityLog* komutunu yazın ve ENTER tuşuna basın. Aşağıdaki örnekte bu komutun sonucu gösterilmiştir; bu durumda OMS Security’nin zaten birden çok satıcıdan güvenlik günlükleri aldığını fark edebilirsiniz:
    

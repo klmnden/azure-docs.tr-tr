@@ -12,7 +12,7 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 7/27/2017
 ms.author: subramar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
@@ -20,11 +20,8 @@ ms.openlocfilehash: 4baf144cc28eeff0ab8f8b60e837f8a2bad903af
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="create-your-first-azure-service-fabric-application" class="xliff"></a>
-
-# İlk Azure Service Fabric uygulamanızı oluşturma
+# <a name="create-your-first-azure-service-fabric-application"></a>İlk Azure Service Fabric uygulamanızı oluşturma
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -34,16 +31,12 @@ ms.lasthandoff: 07/01/2017
 
 Service Fabric, Linux üzerinde hem .NET Core hem de Java dillerinde hizmet oluşturmaya yönelik SDK’lar sağlar. Bu öğreticide, C# (.NET Core) kullanarak Linux için bir uygulama ve hizmet oluşturmayı öğreneceğiz.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce [Linux geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started-linux.md) emin olun. Mac OS X kullanıyorsanız, [Vagrant kullanarak bir sanal makinede Linux one-box ortamı ayarlayabilirsiniz](service-fabric-get-started-mac.md).
 
 Uygulamanızı dağıtmak için [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (önerilir) veya [XPlat CLI](service-fabric-azure-cli.md) aracını da yapılandırmanız gerekir.
 
-<a id="create-the-application" class="xliff"></a>
-
-## Uygulama oluşturma
+## <a name="create-the-application"></a>Uygulama oluşturma
 Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetlerin her biri uygulamanın işlevselliğini aktarma konusunda belirli bir role sahiptir. Linux için Service Fabric SDK’sı ilk hizmetinizi oluşturmayı ve daha sonra daha fazlasını eklemenizi kolaylaştıran bir [Yeoman](http://yeoman.io/) oluşturucu içerir. Tek bir hizmetle uygulama oluşturmak için Yeoman’ı kullanalım.
 
 1. Bir terminalde iskele oluşturmaya başlamak için aşağıdaki komutu yazın:`yo azuresfcsharp`
@@ -57,9 +50,7 @@ Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetler
 >
 >
 
-<a id="build-the-application" class="xliff"></a>
-
-## Uygulama oluşturma
+## <a name="build-the-application"></a>Uygulama oluşturma
 Service Fabric Yeoman şablonları, uygulamayı terminalden oluşturmak (uygulama klasörüne gittikten sonra) için kullanabileceğiniz bir yapı betiği içerir.
 
   ```sh
@@ -67,15 +58,11 @@ Service Fabric Yeoman şablonları, uygulamayı terminalden oluşturmak (uygulam
  ./build.sh
   ```
 
-<a id="deploy-the-application" class="xliff"></a>
-
-## Uygulamayı dağıtma
+## <a name="deploy-the-application"></a>Uygulamayı dağıtma
 
 Uygulama oluşturulduktan sonra uygulamayı yerel kümeye dağıtabilirsiniz.
 
-<a id="using-xplat-cli" class="xliff"></a>
-
-### XPlat CLI aracını kullanma
+### <a name="using-xplat-cli"></a>XPlat CLI aracını kullanma
 
 1. Yerel Service Fabric kümesine bağlanın.
 
@@ -89,9 +76,7 @@ Uygulama oluşturulduktan sonra uygulamayı yerel kümeye dağıtabilirsiniz.
     ./install.sh
     ```
 
-<a id="using-azure-cli-20" class="xliff"></a>
-
-### Azure CLI 2.0 aracını kullanma
+### <a name="using-azure-cli-20"></a>Azure CLI 2.0 aracını kullanma
 
 Oluşturulan uygulamayı dağıtma işlemi, diğer tüm Service Fabric uygulamalarında olduğu gibidir. Ayrıntılı yönergeler için [Service Fabric uygulamasını Azure CLI ile yönetme](service-fabric-application-lifecycle-azure-cli-2-0.md) ile ilgili belgelere bakın.
 
@@ -100,9 +85,7 @@ Bu komutların parametreleri, uygulama paketi içinde oluşturulmuş bildirimler
 Uygulama dağıtıldığında bir tarayıcı açın ve [http://localhost:19080/Explorer](http://localhost:19080/Explorer) konumundaki [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)'a gidin.
 Ardından, **Uygulamalar** düğümünü genişletin ve geçerli olarak uygulamanızın türü için bir giriş ve bu türün ilk örneği için başka bir giriş olduğuna dikkat edin.
 
-<a id="start-the-test-client-and-perform-a-failover" class="xliff"></a>
-
-## Test istemcisini başlatma ve yük devre gerçekleştirme
+## <a name="start-the-test-client-and-perform-a-failover"></a>Test istemcisini başlatma ve yük devre gerçekleştirme
 Actor projeleri kendi başına bir işlem yapamaz. Bunlar başka bir hizmet veya istemcinin kendilerine iletiler göndermesini gerektirir. Actor şablonu, actor hizmetiyle etkileşim kurmak üzere kullanabileceğiniz basit bir test betiği içerir.
 
 1. Actor hizmetinin çıktısını görmek için izleme yardımcı programını kullanarak betiği çalıştırın.
@@ -116,31 +99,23 @@ Actor projeleri kendi başına bir işlem yapamaz. Bunlar başka bir hizmet veya
     ![Service Fabric Explorer’da birincil çoğaltmayı bulma][sfx-primary]
 3. Önceki adımda bulduğunuz düğüme tıklayın, ardından Eylemler menüsünden **Devre dışı bırak (yeniden başlat)** öğesini seçin. Bu eylem, yerel kümenizdeki bir düğümü yeniden başlatır. Böylece başka bir düğümde çalışan ikincil bir çoğaltmaya yük devretmesi için zorlanır. Bu eylemi gerçekleştirirken, test istemcisinden gelen çıkışa dikkat edin ve sayacın yük devretmeye rağmen artmaya devam ettiğini unutmayın.
 
-<a id="adding-more-services-to-an-existing-application" class="xliff"></a>
-
-## Mevcut bir uygulamaya daha fazla hizmet ekleme
+## <a name="adding-more-services-to-an-existing-application"></a>Mevcut bir uygulamaya daha fazla hizmet ekleme
 
 `yo` kullanılarak oluşturulmuş bir uygulamaya başka bir hizmet eklemek için aşağıdaki adımları uygulayın: 
 1. Dizini mevcut uygulamanın kök dizinine değiştirin.  Örneğin Yeoman tarafından oluşturulan uygulama `MyApplication` ise `cd ~/YeomanSamples/MyApplication` olacaktır.
 2. `yo azuresfcsharp:AddService` öğesini çalıştırın
 
-<a id="migrating-from-projectjson-to-csproj" class="xliff"></a>
-
-## project.json biçiminden .csproj biçimine geçiş
+## <a name="migrating-from-projectjson-to-csproj"></a>project.json biçiminden .csproj biçimine geçiş
 1. Proje kök dizininde "dotnet migrate" komutunun çalıştırılmasıyla tüm project.json dosyaları csproj biçimine geçirilir.
 2. Proje dosyalarındaki proje başvurularını uygun şekilde csproj dosyalarına güncelleştirin.
 3. build.sh'deki proje dosya adlarını csproj dosyalarına güncelleştirin.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Reliable Actors hakkında daha fazla bilgi edinin](service-fabric-reliable-actors-introduction.md)
 * [Azure CLI kullanarak Service Fabric kümeleriyle etkileşim kurma](service-fabric-azure-cli.md)
 * [Service Fabric destek seçenekleri](service-fabric-support.md) hakkında bilgi edinin
 
-<a id="related-articles" class="xliff"></a>
-
-## İlgili makaleler
+## <a name="related-articles"></a>İlgili makaleler
 
 * [Service Fabric ve Azure CLI 2.0 ile çalışmaya başlama](service-fabric-azure-cli-2-0.md)
 * [Service Fabric XPlat CLI ile çalışmaya başlama](service-fabric-azure-cli.md)

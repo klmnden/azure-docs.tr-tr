@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 17fc7e6a19b835e08360d1bf638d69aabb14e121
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c9aafa13ebdeeb84a35e55e25650f334ddc71af5
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Application Gateway'e genel bakış
@@ -103,4 +103,6 @@ Application Gateway hakkında sık sorulan sorular için bkz. [Application Gatew
 Application Gateway hakkında bilgi aldıktan sonra [bir uygulama ağ geçidi oluşturabilir](application-gateway-create-gateway-portal.md) veya HTTPS bağlantılarının yük dengelemesini yapmak üzere [bir uygulama ağ geçidi SSL yük boşaltması oluşturabilirsiniz](application-gateway-ssl-arm.md).
 
 URL tabanlı içerik yönlendirmeyi kullanarak bir uygulama ağ geçidi oluşturma hakkında daha fazla bilgi almak için [URL tabanlı yönlendirme kullanarak uygulama ağ geçidi oluşturma](application-gateway-create-url-route-arm-ps.md) bölümüne gidin.
+
+Azure’un diğer önemli ağ özellikleri hakkında daha fazla bilgi edinmek için bkz. [Azure Ağı]((../networking/networking-overview.md).
 

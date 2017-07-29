@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/18/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 8c9d6c65666b5ffedf058e0a83d4fc41fff80235
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 0c0b567d353fd77f72170a4bf807ec0d2585e357
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
@@ -164,43 +164,155 @@ Görüntüyü kapsayıcı kayıt defterinize gönderin:
 docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="create-and-package-the-containerized-service-in-visual-studio"></a>Visual Studio’da kapsayıcı hizmeti oluşturma ve paketleme
-Service Fabric SDK’sı ve araçları, bir kapsayıcıyı Service Fabric kümesine dağıtmanıza yardımcı olan bir hizmet şablonu sağlar.
+## <a name="create-the-containerized-service-in-visual-studio"></a>Visual Studio’da kapsayıcıya alınmış hizmet oluşturma
+Service Fabric SDK’sı ve araçları, kapsayıcıya alınmış uygulamalar oluşturmanıza yardımcı olan bir hizmet şablonu sağlar.
 
 1. Visual Studio’yu çalıştırın.  **Dosya** > **Yeni** > **Proje**’yi seçin.
 2. **Service Fabric uygulaması**’nı seçin, "MyFirstContainer" olarak adlandırın ve **Tamam**’a tıklayın.
 3. **Hizmet şablonları** listesinden **Konuk Kapsayıcı**’yı seçin.
 4. **Görüntü Adı** alanına, kapsayıcı deponuza gönderdiğiniz görüntünün dizini olan "myregistry.azurecr.io/samples/helloworldapp" değerini girin. 
 5. Hizmetinize bir ad verin ve **Tamam**’a tıklayın.
-6. Kapsayıcı hizmetiniz iletişim için bir uç noktaya gereksinim duyuyorsa, ServiceManifest.xml dosyasındaki ```Endpoint``` içine artık protokol, bağlantı noktası ve tür ekleyebilirsiniz. Bu makalede kapsayıcı hizmeti 80 numaralı bağlantı noktasında dinler: 
 
-    ```xml
+## <a name="configure-communication"></a>İletişimi yapılandırma
+Kapsayıcıya alınmış hizmetin iletişim sağlayabilmesi için bir uç nokta gerekir. ServiceManifest.xml dosyasına protokol, bağlantı noktası ve tür bilgileriyle bir `Endpoint` öğesi ekleyin. Bu makalede, kapsayıcıya alınmış hizmet 8081 numaralı bağlantı noktasında dinler.  Bu örnekte, 8081 numaralı sabit bağlantı noktası kullanılır.  Hiçbir bağlantı noktası belirtilmemişse, uygulama bağlantı noktası aralığından rastgele bir bağlantı noktası seçilir.  
+
+```xml
+<Resources>
+  <Endpoints>
     <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
-    ```
-    ```UriScheme``` değerinin sağlanması, kapsayıcı uç noktasını bulunabilirlik için Service Fabric Adlandırma hizmetine otomatik olarak kaydeder. Bu makalenin sonunda tam bir ServiceManifest.xml örnek dosyası verilmiştir. 
-7. ApplicationManifest.xml dosyasının ```ContainerHostPolicies``` kısmında bir ```PortBinding``` ilkesi belirterek kapsayıcı bağlantı noktasından ana bilgisayar bağlantı noktasına eşleme yapılandırın.  Bu makalede ```ContainerPort``` değeri 8081 (Dockerfile içinde belirtildiği gibi kapsayıcı 80 numaralı bağlantı noktasını gösterir) ve ```EndpointRef``` değeri "Guest1TypeEndpoint"’tir (hizmet bildiriminde tanımlanan uç nokta).  8081 numaralı bağlantı noktasında hizmete gelen istekler, kapsayıcı üzerindeki 80 numaralı bağlantı noktasıyla eşlenir.  Kapsayıcınızın özel bir depoda kimlik doğrulaması yapması gerekiyorsa, ```RepositoryCredentials``` öğesini ekleyin.  Bu makale için, myregistry.azurecr.io kapsayıcı kayıt defterine ait hesap adını ve parolayı ekleyin. 
-
-    ```xml
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-            <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-    ```
-
-    Bu makalenin sonunda tam bir ApplicationManifest.xml örnek dosyası verilmiştir.
-8. Uygulamayı kümenize yayımlayabilmeniz için küme bağlantısı uç noktasını yapılandırın.  İstemci bağlantı uç noktasını [Azure portalında](https://portal.azure.com) kümenizin Genel Bakış dikey penceresinde bulabilirsiniz. Çözüm Gezgini'nde **MyFirstContainer**->**PublishProfiles** altındaki *Cloud.xml* dosyasını açın.  Küme adı ve bağlantı noktasını **ClusterConnectionParameters**’a ekleyin.  Örneğin:
-    ```xml
-    <ClusterConnectionParameters ConnectionEndpoint="containercluster.westus2.cloudapp.azure.com:19000" />
-    ```
+  </Endpoints>
+</Resources>
+```
     
-9. Tüm dosyaları kaydedin ve projenizi oluşturun.  
+Uç nokta tanımlandığında, Service Fabric uç noktayı Adlandırma hizmetinde yayımlar.  Kümede çalışan diğer hizmetler bu kapsayıcıyı çözümleyebilir.  Ayrıca, [ters proxy](service-fabric-reverseproxy.md)’yi kullanarak kapsayıcıdan kapsayıcıya iletişim kurabilirsiniz.  İletişim, ters proxy’nin HTTP dinleme bağlantı noktasını ve iletişim kurmak istediğiniz hizmetlerin adlarının ortam değişkenleri olarak sağlanmasıyla gerçekleştirilir. 
 
-10. Uygulamanızı paketlemek için Çözüm Gezgini’nde **MyFirstContainer**’a sağ tıklayın ve **Paketle**’yi seçin. 
+## <a name="configure-and-set-environment-variables"></a>Ortam değişkenlerini yapılandırma ve ayarlama
+Ortam değişkenleri, hizmet bildirimindeki her kod paketi için belirtilebilir. Bu özellik, kapsayıcı olarak mı dağıtıldıklarına yoksa konuk yürütülebilir dosyası olarak mı işlendiklerine bakılmaksızın tüm hizmetlerde sağlanır. Ortam değişkeni değerlerini, uygulama bildiriminde geçersiz kılabilir veya dağıtım sırasında uygulama parametresi olarak belirtebilirsiniz.
+
+Aşağıdaki hizmet bildirimi XML kod parçacığı, kod paketi için ortam değişkenlerinin nasıl belirtileceğini gösteren bir örnektir:
+```xml
+<CodePackage Name="Code" Version="1.0.0">
+  ...
+  <EnvironmentVariables>
+    <EnvironmentVariable Name="HttpGatewayPort" Value=""/>    
+  </EnvironmentVariables>
+</CodePackage>
+```
+
+Bu ortam değişkenleri, uygulama bildiriminde geçersiz kılınabilir:
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+  </EnvironmentOverrides>
+  ...
+</ServiceManifestImport>
+```
+
+## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Kapsayıcı bağlantı noktasından konak bağlantı noktasına eşlemeyi ve kapsayıcıdan kapsayıcıya keşfi yapılandırma
+Kapsayıcıyla iletişim kurmak için kullanılan konak bağlantı noktasını yapılandırın. Bağlantı noktası bağlama, hizmetin kapsayıcı içinde dinlediği bağlantı noktasını konaktaki bağlantı noktasıyla eşler. ApplicationManifest.xml dosyasının `ContainerHostPolicies` öğesine bir `PortBinding` öğesi ekleyin.  Bu makalede `ContainerPort` değeri 80 (Dockerfile içinde belirtildiği gibi kapsayıcı 80 numaralı bağlantı noktasını gösterir) ve `EndpointRef` değeri "Guest1TypeEndpoint" (hizmet bildiriminde daha önce tanımlanmış olan uç nokta) olarak verilir.  8081 numaralı bağlantı noktasında hizmete gelen istekler, kapsayıcı üzerindeki 80 numaralı bağlantı noktasıyla eşlenir. 
+
+```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+  </ContainerHostPolicies>
+</Policies>
+```
+
+## <a name="configure-container-registry-authentication"></a>Kapsayıcı kayıt defteri kimlik doğrulamasını yapılandırma
+ApplicationManifest.xml dosyasının `ContainerHostPolicies` öğesine bir `RepositoryCredentials` öğesi ekleyerek kapsayıcı kayıt defteri kimlik doğrulamasını yapılandırın. Hizmetin depodan kapsayıcı görüntüsünü indirmesini sağlayan myregistry.azurecr.io kapsayıcı kayıt defterine hesap ve parola ekleyin.
+
+```xml
+<Policies>
+    <ContainerHostPolicies CodePackageRef="Code">
+        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+    </ContainerHostPolicies>
+</Policies>
+```
+
+Kümenin tüm düğümlerine dağıtılan bir şifreleme sertifikası kullanarak depo parolasını şifrelemenizi öneririz. Service Fabric hizmet paketi kümeye dağıttığında, şifre metninin şifresini çözmek için şifreleme sertifikası kullanılır.  Parolanın şifre metni Invoke-ServiceFabricEncryptText cmdlet’i kullanılarak oluşturulur ve bu metin ApplicationManifest.xml dosyasına eklenir.
+
+Aşağıdaki betik, otomatik olarak imzalanan yeni bir sertifika oluşturup bunu PFX dosyasına aktarır.  Sertifika, var olan bir anahtar kasasının içine aktarılır ve ardından Service Fabric kümesine dağıtılır.
+
+```powershell
+# Variables.
+$certpwd = ConvertTo-SecureString -String "Pa$$word321!" -Force -AsPlainText
+$filepath = "C:\MyCertificates\dataenciphermentcert.pfx"
+$subjectname = "dataencipherment"
+$vaultname = "mykeyvault"
+$certificateName = "dataenciphermentcert"
+$groupname="myclustergroup"
+$clustername = "mycluster"
+
+$subscriptionId = "subscription ID"
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
+
+# Create a self signed cert, export to PFX file.
+New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
+| Export-PfxCertificate -FilePath $filepath -Password $certpwd
+
+# Import the certificate to an existing key vault.  The key vault must be enabled for deployment.
+$cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
+
+# Add the certificate to all the VMs in the cluster.
+Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
+```
+[Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet’ini kullanarak parolayı şifreleyin.
+
+```powershell
+$text = "=P==/==/=8=/=+u4lyOB=+=nWzEeRfF="
+Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint $cer.Thumbprint -Text $text -StoreLocation Local -StoreName My
+```
+
+Parolayı, [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet’i tarafından döndürülen şifre metniyle değiştirin ve `PasswordEncrypted` öğesini “true” olarak ayarlayın.
+
+```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code">
+    <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
+gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
+gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
+yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
+NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
+    <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+  </ContainerHostPolicies>
+</Policies>
+```
+
+## <a name="configure-isolation-mode"></a>Yalıtım modunu yapılandırma
+Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V. İşlem yalıtım moduyla, aynı konak makinesinde çalışan tüm kapsayıcılar çekirdeği konakla paylaşır. Hyper-V yalıtım moduyla, çekirdekler her Hyper-V kapsayıcısı ile kapsayıcı konağı arasında yalıtılır. Yalıtım modu, uygulama bildirimi dosyasında bulunan `ContainerHostPolicies` öğesinde belirtilir. Belirtilebilen yalıtım modları `process`, `hyperv` ve `default` modlarıdır. Varsayılan yalıtım modu, Windows Server konaklarında `process` ve Windows 10 konaklarında `hyperv` modudur. Aşağıdaki kod parçacığı uygulama bildirimi dosyasında yalıtım modunun nasıl belirtildiğini gösterir.
+
+```xml
+<ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+```
+
+## <a name="configure-resource-governance"></a>Kaynak idaresini yapılandırma
+[Kaynak idaresi](service-fabric-resource-governance.md) kapsayıcının konakta kullanabildiği kaynakları kısıtlar. Uygulama bildiriminde belirtilen `ResourceGovernancePolicy` öğesi, hizmet kod paketinin kaynak sınırlarını tanımlamak için kullanılır. Şu kaynaklar için kaynak sınırları ayarlanabilir: Memory, MemorySwap, CpuShares (CPU göreli ağırlığı), MemoryReservationInMB, BlkioWeight (BlockIO göreli ağırlığı).  Bu örnekte, Guest1Pkg hizmet paketi bulunduğu küme düğümlerinde bir çekirdek alır.  Bellek sınırları mutlaktır; dolayısıyla, kod paketi 1024 MB bellekle (aynı genel garantili ayırmayla) sınırlıdır. Kod paketleri (kapsayıcılar veya işlemler) bu sınırı aşan miktarda bellek ayıramazlar ve bunu denediklerinde yetersiz bellek özel durumu ortaya çıkar. Kaynak sınırı zorlamasının çalışması için, hizmet paketi içindeki tüm kod paketlerinin bellek sınırlarının belirtilmiş olması gerekir.
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+  <Policies>
+    <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+    <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
+  </Policies>
+</ServiceManifestImport>
+```
 
 ## <a name="deploy-the-container-application"></a>Kapsayıcı uygulamasını dağıtma
-Uygulamanızı yayımlamak için Çözüm Gezgini’nde **MyFirstContainer**’a sağ tıklayın ve **Yayımla**’yı seçin.
+Tüm değişikliklerinizi kaydedin ve uygulamayı derleyin. Uygulamanızı yayımlamak için Çözüm Gezgini’nde **MyFirstContainer**’a sağ tıklayın ve **Yayımla**’yı seçin.
+
+**Bağlantı Uç Noktası**’nda kümenin yönetim uç noktasını girin.  Örneğin, "containercluster.westus2.cloudapp.azure.com:19000". İstemci bağlantı uç noktasını [Azure portalında](https://portal.azure.com) kümenizin Genel Bakış dikey penceresinde bulabilirsiniz.
+
+**Yayımla**’ta tıklayın. 
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), bir Service Fabric kümesindeki uygulama ve düğümleri inceleyip yönetmeye yönelik web tabanlı bir araçtır. Bir tarayıcı açıp http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ dizinine gidin ve uygulama geliştirme adımlarını izleyin.  Uygulama dağıtılır, ancak görüntü küme düğümlerine yüklenene kadar hatalı durumdadır (bu işlem, görüntü boyutuna bağlı olarak biraz zaman alabilir): ![Hata][1]
 
@@ -243,12 +355,12 @@ Bu makalede kullanılan tam hizmet ve uygulama bildirimleri aşağıda verilmiş
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
       </ContainerHost>
     </EntryPoint>
-    <!-- Pass environment variables to your container: -->
-    <!--
+    <!-- Pass environment variables to your container: -->    
     <EnvironmentVariables>
-      <EnvironmentVariable Name="VariableName" Value="VariableValue"/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
+      <EnvironmentVariable Name="BackendServiceName" Value=""/>
     </EnvironmentVariables>
-    -->
+    
   </CodePackage>
 
   <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
@@ -281,12 +393,21 @@ Bu makalede kullanılan tam hizmet ve uygulama bildirimleri aşağıda verilmiş
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentOverrides CodePackageRef="FrontendService.Code">
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentOverrides>
     <ConfigOverrides />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+        <RepositoryCredentials AccountName="myregistry" Password="MIIB6QYJKoZIhvcNAQcDoIIB2jCCAdYCAQAxggFRMIIBTQIBADA1MCExHzAdBgNVBAMMFnJ5YW53aWRhdGFlbmNpcGhlcm1lbnQCEFfyjOX/17S6RIoSjA6UZ1QwDQYJKoZIhvcNAQEHMAAEg
+gEAS7oqxvoz8i6+8zULhDzFpBpOTLU+c2mhBdqXpkLwVfcmWUNA82rEWG57Vl1jZXe7J9BkW9ly4xhU8BbARkZHLEuKqg0saTrTHsMBQ6KMQDotSdU8m8Y2BR5Y100wRjvVx3y5+iNYuy/JmM
+gSrNyyMQ/45HfMuVb5B4rwnuP8PAkXNT9VLbPeqAfxsMkYg+vGCDEtd8m+bX/7Xgp/kfwxymOuUCrq/YmSwe9QTG3pBri7Hq1K3zEpX4FH/7W2Zb4o3fBAQ+FuxH4nFjFNoYG29inL0bKEcTX
+yNZNKrvhdM3n1Uk/8W2Hr62FQ33HgeFR1yxQjLsUu800PrYcR5tLfyTB8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBybgM5NUV8BeetUbMR8mJhgFBrVSUsnp9B8RyebmtgU36dZiSObDsI
+NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==" PasswordEncrypted="true"/>
         <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
       </ContainerHostPolicies>
+      <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+      <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>

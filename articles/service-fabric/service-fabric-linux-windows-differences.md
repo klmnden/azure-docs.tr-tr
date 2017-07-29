@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 7/27/2017
 ms.author: subramar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
@@ -20,11 +20,8 @@ ms.openlocfilehash: 68c7e1f3f51ca5bec30a0f71aaccbafa58078e69
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/30/2017
 
-
 ---
-<a id="differences-between-service-fabric-on-linux-preview-and-windows-generally-available" class="xliff"></a>
-
-# Linux (önizleme) ve Windows (genel kullanıma açık) üzerindeki Service Fabric arasındaki farklar
+# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux (önizleme) ve Windows (genel kullanıma açık) üzerindeki Service Fabric arasındaki farklar
 
 Linux üzerinde Service Fabric önizleme aşamasında olduğundan, Windows’ta desteklenip Linux’ta henüz desteklenmeyen bazı özellikler mevcuttur. Linux üzerindeki Service Fabric genel kullanıma sunulduğunda özellik kümeleri de eşit olacaktır. Gelecek sürümlerle birlikte bu özellik farkı azalacaktır. Mevcut son sürümler arasında (diğer bir deyişle Windows üzerindeki 5.6 sürümü ve Linux üzerindeki 5.5 sürümü arasında) aşağıdaki farklar mevcuttur: 
 
@@ -46,9 +43,7 @@ Linux üzerinde Service Fabric önizleme aşamasında olduğundan, Windows’ta 
 
 Geliştirme araçları da Windows ile Linux arasında farklılık gösterir. VisualStudio, Powershell, VSTS ve ETW özellikleri Windows üzerinde kullanılabilirken, Linux üzerinde Yeoman, Eclipse, Jenkins ve LTTng kullanılabilir.
 
-<a id="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster" class="xliff"></a>
-
-## Linux Service Fabric kümesinde çalışmayan PowerShell cmdlet'leri
+## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Linux Service Fabric kümesinde çalışmayan PowerShell cmdlet'leri
 
 * Invoke-ServiceFabricChaosTestScenario
 * Invoke-ServiceFabricFailoverTestScenario
@@ -106,9 +101,7 @@ Geliştirme araçları da Windows ile Linux arasında farklılık gösterir. Vis
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Linux üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started-linux.md)
 * [OSX üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started-mac.md)
 * [Linux üzerinde Yeoman kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-create-your-first-linux-application-with-java.md)
