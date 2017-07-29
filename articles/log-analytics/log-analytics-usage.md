@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/14/2017
+ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 46766e29287ca130e68aa0f027cbb1ded2526af3
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
@@ -110,13 +110,15 @@ Kullanım sayfasında, çok veri toplanmasına neyin neden olduğunu belirlemeni
 
 *Çözüme göre veri hacmi* grafiği, her çözüm tarafından gönderilen veri hacmini ve en çok veri gönderen çözümleri gösterir. Üstteki grafik, zaman içinde her çözüm tarafından gönderilen toplam veri hacmini gösterir. Bu bilgiler bir çözümün zaman içinde daha fazla veri gönderdiğini, yaklaşık aynı miktarda veri gönderdiğini veya daha az veri gönderdiğini belirlemenize olanak tanır. Çözüm listesinde, en çok veriyi gönderen 10 çözüm gösterilir. 
 
+Bu iki grafik, tüm verileri görüntüler. Bazı veriler faturalanabilir, bazıları ise ücretsizdir. Yalnızca faturalanabilir verilere odaklanmak için arama sayfasındaki sorguyu `IsBillable=true` ifadesini içerecek şekilde değiştirin.  
+
 ![veri hacmi grafikleri](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
 
 *Zaman içinde veri hacmi* grafiğine bakın. Belirli bir bilgisayara en çok veriyi gönderen çözümleri ve veri türlerini görmek için, bilgisayarın adına tıklayın. Listedeki ilk bilgisayarın adına tıklayın.
 
 Aşağıdaki ekran görüntüsünde, bilgisayar için en fazla gönderilen veri *Günlük Yönetimi / Perf* veri türündedir. 
-![bilgisayar için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
+![bilgisayar için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
 Ardından, *Kullanım* panosuna dönün ve *Çözüme göre veri hacmi* grafiğine bakın. Bir çözümle ilgili en fazla veriyi gönderen bilgisayarları görmek için, listede çözümün adına tıklayın. Listedeki ilk çözümün adına tıklayın. 
 
@@ -124,16 +126,31 @@ Aşağıdaki ekran görüntüsünde, Günlük Yönetimi çözümü için en çok
 
 ![çözüm için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
 
+Gerekirse, bir çözüm veya veri türü içindeki büyük hacimleri belirlemek için ek çözümlemeler yapın. Örnek sorgular şunları içerir:
+
++ **Güvenlik** çözümü
+  - `Type=SecurityEvent | measure count() by EventID`
++ **Günlük Yönetimi** çözümü
+  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
++ **Perf** veri türü
+  - `Type=Perf | measure count() by CounterPath`
+  - `Type=Perf | measure count() by CounterName`
++ **Event** veri türü
+  - `Type=Event | measure count() by EventID`
+  - `Type=Event | measure count() by EventLog, EventLevelName`
++ **Syslog** veri türü
+  - `Type=Syslog | measure count() by Facility, SeverityLevel`
+  - `Type=Syslog | measure count() by ProcessName`
 
 Toplanan günlük hacmini azaltmak için aşağıdaki adımları kullanın:
 
 | Yüksek veri hacminin kaynağı | Veri hacmi nasıl azaltılır |
 | -------------------------- | ------------------------- |
-| Güvenlik olayları            | [Yaygın veya en az güvenlik olaylarını](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) seçin <br> Güvenlik denetimi ilkesini değiştirin. Örneğin, [filtre platformunu denetleme](https://technet.microsoft.com/library/dd772749(WS.10).aspx) olaylarını kapatın. |
+| Güvenlik olayları            | [Yaygın veya en az güvenlik olaylarını](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) seçin <br> Güvenlik denetimi ilkesini yalnızca gerekli olayları toplayacak şekilde değiştirin. Özellikle, şunlarla ilgili olayları toplamak gerekip gerekmediğini gözden geçirin: <br> - [filtre platformu denetimi](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [kayıt defteri denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [dosya sistemi denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [çekirdek nesnesi denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [tanıtıcı değiştirme denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [çıkarılabilir depolama birimi denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
 | Performans sayaçları       | [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) şöyle değiştirin: <br> - Koleksiyonun sıklığını azaltın <br> - Performans sayaçlarının sayısını azaltın |
 | Olay günlükleri                 | [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) şöyle değiştirin: <br> - Toplanan olay günlüklerinin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneğin, *Bilgi* düzeyindeki olayları toplamayın |
 | Syslog                     | [Syslog yapılandırmasını](log-analytics-data-sources-syslog.md) şu şekilde değiştirin: <br> - Toplanan tesislerin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneği *Bilgi* ve *Hata Ayıklama* düzeyindeki olayları toplamayın |
-| Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın.
+| Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Beklenenden çok düğüm olup olmadığını denetleme
 *Düğüm başına (OMS)* fiyatlandırma katmanındaysanız kullandığınız düğüm ve çözüm sayısına göre ücretlendirilirsiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.
@@ -148,4 +165,9 @@ Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefle
 ## <a name="next-steps"></a>Sonraki adımlar
 * Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-log-searches.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
 * Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [Uyarı kuralı oluşturma](log-analytics-alerts-creating.md#create-an-alert-rule) başlığı altında açıklanan adımları kullanın
+* Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın
+* [Yaygın veya en az güvenlik olaylarını](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) seçin
+* [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) değiştirin
+* [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) değiştirin
+* [Syslog yapılandırmasını](log-analytics-data-sources-syslog.md) değiştirin
 
