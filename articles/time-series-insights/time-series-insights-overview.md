@@ -2,52 +2,53 @@
 title: "Azure Zaman Serisi Görüşleri’ne Genel Bakış | Microsoft Docs"
 description: "Zaman serisi verilerinin analizi ve IoT çözümleri için yeni bir hizmet olan Azure Zaman Serisi Görüşleri’ne giriş"
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: op-ravi
-manager: santoshb
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
 ms.service: time-series-insights
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/20/2017
+ms.date: 07/20/2017
 ms.author: omravi
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: cc35c00bec18ee1d9ed52b29b68ddacc1136dc70
-ms.lasthandoff: 04/25/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: abd66208ab7ac30831f3f1eddb2891ed7bcd3995
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="overview-of-azure-time-series-insights"></a>Azure Zaman Serisi Görüşleri’ne Genel Bakış
+# <a name="what-is-azure-time-series-insights"></a>Azure Zaman Serisi Görüşleri nedir?
 
-Azure Zaman Serisi Görüşleri depolama, analiz ve görselleştirme bileşenleri olan, milyarlarca olayı eşzamanlı olarak girmeyi, depolamayı, incelemeyi ve analiz etmeyi inanılmaz kolaylaştıran ve tümüyle yönetilen bir bulut hizmetidir. Zaman Serisi Görüşleri verilerinize ilişkin genel bir görünüm sunar, gizli eğilimleri ve anormallikleri keşfetmenize ve neredeyse gerçek zamanlı olarak kök neden analizleri gerçekleştirmenize yardımcı olarak IoT Çözümlerinizi hızla doğrulamanıza ve görev açısından kritik cihazlarda, kapalı kalma süresinden kaynaklanan maliyetleri önlemenize olanak sağlar. Zaman Serisi Görüşleri olay aracılarından (örn. IoT Hubs veya Event Hubs) zaman serisi verilerini alır, verilerin dizinini oluşturur ve yapılandırılabilir bir saklama ilkesine göre kullanım dışı bırakır. Kullanıcılar kendi iş senaryoları için sezgisel bir UX veya REST Sorgu API’leri aracılığıyla verileri kullanır.
+Azure Zaman Serisi Görüşleri depolama, analiz ve görselleştirme bileşenleri olan, milyarlarca olayı eşzamanlı olarak girmeyi, depolamayı, incelemeyi ve analiz etmeyi kolaylaştıran ve yönetilen bir bulut hizmetidir. Zaman Serisi Görüşleri verilerinize ilişkin genel bir görünüm sunar, gizli eğilimleri ve anormallikleri keşfetmenize ve neredeyse gerçek zamanlı olarak kök neden analizleri gerçekleştirmenize yardımcı olarak IoT Çözümlerinizi hızla doğrulamanıza ve cihazların kapalı kalma süresinden kaynaklanan maliyetleri önlemenize olanak sağlar. Zaman Serisi Görüşleri olay aracılarından (örn. IoT Hubs veya Event Hubs) zaman serisi verilerini alır, verilerin dizinini oluşturur ve yapılandırılabilir bir saklama ilkesine göre kullanım dışı bırakır. Kullanıcılar sezgisel bir UX veya REST Sorgu API’leri aracılığıyla verileri kullanır.
 
 ![Zaman Serisi Görüşleri’ne Genel Bakış](media/overview/time-series-insights-overview-flow.png)
 
 ## <a name="primary-scenarios"></a>Birincil senaryolar
 
-* IoT çözümlerini dakikalar içinde doğrulama ve izleme
-* Her ölçekte IoT verilerini sezgisel olarak görselleştirme ve analiz etme
-* Kök neden analizini ve anormallik algılamayı hızlandırma
-* Çok sayıda cihazın, tesisin ve verinin genel görünümünü oluşturma
+* IoT çözümlerini dakikalar içinde izleyin ve doğrulayın.
+* IoT verilerini ölçekleyerek görselleştirin ve analiz edin.
+* Kök neden analizini ve anormallik algılamayı hızlandırın.
+* Çok sayıda cihazın, tesisin ve verinin genel görünümünü oluşturun.
 
-## <a name="key-capabilities-and-benefits"></a>Temel işlevler ve avantajlar
+## <a name="capabilities-and-benefits"></a>İşlevler ve avantajlar
 
-* **Başlangıç yapması kolay**: Azure Zaman Serisi Görüşleri önceden veri hazırlığı gerektirmez ve inanılmaz hızlı çalışır; dolayısıyla Azure IoT Hub’ınızda veya Olay Hub’ınızda dakikalar içinde milyarlarca olaya bağlanabilirsiniz. Bağlandıktan sonra, IoT çözümünüzü hızla doğrulamak için sensör verilerinizi saniyeler içinde görselleştirebilir ve bunlarla etkileşimli çalışabilirsiniz. Zaman Serisi Görüşleri inanılmaz sezgiseldir ve kolay kullanılır; tek bir kod satırı bile yazmak zorunda kalmadan verilerinizle etkileşimli çalışabilirsiniz.  Bunlara ek olarak, yeni dil öğrenmek gerekmez çünkü Zaman Serisi Görüşleri ileri düzey kullanıcılara ayrıntılı, serbest metin kullanılan bir sorgu yüzeyi sağladığı gibi, yeni başlayanlara da üzerine gelip tıklamayla ulaşılan açıklamalar sağlar.
+* **Başlamak çok kolay**: Azure Zaman Serisi Görüşleri verilerin önceden hazırlanmasını gerektirmez ve inanılmaz hızlı çalışır. Azure IoT Hub'ınızdaki veya Event Hub'ındaki milyarlarca olaya dakikalar içinde bağlanın. Bağlandıktan sonra, IoT çözümlerinizi hızla doğrulamak için sensör verilerini saniyeler içinde görselleştirin ve verilerinizle etkileşim kurmaya hemen başlayın. Zaman Serisi Görüşleri kolay kullanılır; tek bir kod satırı bile yazmadan verilerinizle etkileşimli çalışabilirsiniz.  Yeni dil öğrenmek gerekmez; Zaman Serisi Görüşleri ileri düzey kullanıcılara ayrıntılı, serbest metin kullanılan bir sorgu yüzeyi ve herkese üzerine gelip tıklamayla ulaşılan açıklamalar sağlar.
 
-* **Saniyeler içinde neredeyse Gerçek zamanlı görüşler**: Hepsine aynı yerden ulaşabildiğiniz Zaman Serisi Görüşleri depolama, analiz ve görselleştirme bileşenleriyle, zaman serisi verilerinizden daha fazla değer elde edin. Zaman Serisi Görüşleri her gün, bir dakikalık bir gecikmeyle yüz milyonlarca sensör olayını alabildiğinden, değişikliklere hızla yanıt verebilirsiniz. Zaman Serisi Görüşleri, eğilimleri ve anormallikleri hızla saptamanıza yardımcı olarak sensör verileriniz üzerinde daha derin görüşler sağlar, karmaşık kök-neden analizlerini kolayca yürütmenize olanak tanır ve masraflı sistem kapatma sürelerini önler. Gerçek zamanlı verilerle geçmiş verileri arasında çapraz bağıntıya olanak tanıdığından, Zaman Serisi Görüşleri kullanıcıların verilerindeki gizli eğilimleri ortaya çıkarmasını sağlar.
+* **Neredeyse Gerçek zamanlı görüşler**: Zaman Serisi Görüşleri her gün, bir dakikalık bir gecikme süresiyle yüz milyonlarca sensör olayını alabildiğinden, değişikliklere hızla yanıt verebilirsiniz. Zaman Serisi Görüşleri, eğilimleri ve anormallikleri hızla saptamanıza, karmaşık kök-neden analizleri yürütmenize ve masraflı sistem kapatma sürelerini önlemenize yardımcı olarak sensör verileriniz üzerinde derin görüşler kazanmanıza katkıda bulunur. Gerçek zamanlı verilerle geçmiş verileri arasında çapraz bağıntıya olanak tanıdığından, Zaman Serisi Görüşleri verilerindeki gizli eğilimleri ortaya çıkarmanıza yardımcı olur.
 
-* **Özel çözümler oluşturma**: Azure Zaman Serisi Öngörüleri verilerini mevcut uygulamalarınıza ekleyin ya da Zaman Serisi Öngörüleri REST API’leriyle yeni özel çözümler oluşturun.  Artı olarak, kişiselleştirilmiş görünümleri oluşturmak ve paylaşmak çok kolay olduğundan diğer kişiler sizin yaptığınız keşifleri basit bir yöntemle inceleyebilir.
+* **Özel çözümler oluşturma**: Azure Zaman Serisi Öngörüleri verilerini mevcut uygulamalarınıza ekleyin ya da Zaman Serisi Öngörüleri REST API’leriyle yeni özel çözümler oluşturun. Diğer kişilerin de keşiflerinizi incelemesini sağlamak için paylaşabileceğiniz kişiselleştirilmiş görünümler oluşturun ve bunları paylaşın.
 
-* **Ölçeklenebilirlik**: Zaman Serisi Görüşleri, IoT ölçeğini destekleyecek şekilde tasarlanmıştır. Önizlemede, günde 1 milyon ile 100 milyon arası olay alabilir ve varsayılan saklama süresi 31 gündür. Zaman Serisi Görüşleri kullanıcıların muazzam miktarlardaki geçmiş verilerine ek olarak canlı veri akışlarını da neredeyse gerçek zamanlı olarak görselleştirmesine ve analiz etmesine olanak tanır. Sürekli artan kurumsal ölçekle başa çıkmak için ilerletme, giriş ve saklama hızları artırılacaktır.
+* **Ölçeklenebilirlik**: Zaman Serisi Görüşleri, ölçekli olarak IoT'yi destekleyecek şekilde tasarlanmıştır. Önizlemede, günde 1 milyon ile 100 milyon arası olay alabilir ve varsayılan saklama süresi 31 gündür. Muazzam miktarlardaki geçmiş verilerine ek olarak canlı veri akışlarını da neredeyse gerçek zamanlı olarak görselleştirebilir ve analiz edebilirsiniz. Sürekli artan kurumsal ölçekle başa çıkmak için ilerletme, giriş ve saklama hızları artırılacaktır.
 
-## <a name="taxonomy-of-time-series-insights"></a>Zaman Serisi Görüşleri’nin Taksonomisi
+## <a name="time-series-insights-glossary"></a>Zaman Serisi Öngörüleri sözlüğü
 
 * **Ortam**: Ortam, giriş ve depolama kapasitesi olan bir Azure kaynağıdır.  Müşteriler, Azure Portal aracılığıyla ortamları kendilerine gereken kapasiteyle hazırlar.
-* **Olay Kaynağı**: Olay Kaynağı, Azure Event Hubs gibi bir olay aracısından türetilir.  Zaman Serisi Görüşleri doğrudan Olay Kaynaklarına bağlanarak, kullanıcının tek bir kod satırı bile yazmasına gerek kalmadan veri akışını alır. Şu anda, Zaman Serisi Görüşleri Azure Event Hubs ve Azure IoT Hubs desteği sağlamaktadır ve gelecekte daha fazla Olay Kaynağı eklenecektir.
+* **Olay Kaynağı**: Olay Kaynağı, Azure Event Hubs gibi bir olay aracısından türetilir.  Zaman Serisi Görüşleri doğrudan Olay Kaynaklarına bağlanarak, hiç kod yazmadan veri akışını alır. Şu anda Zaman Serisi Görüşleri, Azure Event Hubs'ı ve Azure IoT Hub'larını destekler.
 * **Başvuru verileri**: Zaman Serisi Görüşleri kullanıcılara zaman serisi verilerini başvuru verileriyle birleştirme olanağı sağlar.  Başvuru verileri cihazlar hakkındaki meta verileri veya görece seyrek değişen diğer statik verileri içerebilir. Zaman Serisi Görüşleri başvuru verilerini veri akışlarıyla birleştirerek, kullanıcıların bu verileri neredeyse gerçek zamanlı olarak görselleştirmesine ve analiz etmesine olanak tanır.
 

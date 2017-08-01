@@ -15,25 +15,21 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 233db1cb74a6c81cf044953ecdf6e9de6cc50ee8
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 754c381cb242e0bdf7c56bd2a763d46acc80fbda
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="create-a-python-web-app-in-azure" class="xliff"></a>
-
-# Azure’da Python web uygulaması oluşturma
+# <a name="create-a-python-web-app-in-azure"></a>Azure’da Python web uygulaması oluşturma
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisi, Azure Web Apps'te bir Python uygulaması geliştirip dağıtma konusunda yol göstermektedir. Web uygulamasını [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'yi kullanarak oluşturabilir ve web uygulamasında örnek Python kodu dağıtmak için Git'i kullanabilirsiniz.
 
 ![Azure'da çalışan örnek uygulama](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.
-<a id="prerequisites" class="xliff"></a>
-
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -46,9 +42,7 @@ Bu öğreticiyi tamamlamak için:
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
-## Örneği indirme
+## <a name="download-the-sample"></a>Örneği indirme
 
 Bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 
@@ -64,9 +58,13 @@ Bu hızlı başlangıç öğreticisindeki tüm komutları çalıştırmak için 
 cd Python-docs-hello-world
 ```
 
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
-## Uygulamayı yerel olarak çalıştırma
+Gereken paketleri `pip` kullanarak yükleyin.
+
+```bash
+pip install -r requirements.txt
+```
 
 Yerleşik Python web sunucusunu başlatmak için bir terminal penceresi açıp ve `Python` komutunu kullanıp uygulamayı yerel olarak çalıştırın.
 
@@ -96,9 +94,7 @@ Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 Azure'da yeni bir boş uygulama oluşturdunuz.
 
-<a id="configure-to-use-python" class="xliff"></a>
-
-## Python kullanacak şekilde yapılandırma
+## <a name="configure-to-use-python"></a>Python kullanacak şekilde yapılandırma
 
 Web uygulamasını Python `3.4` sürümünü kullanacak şekilde yapılandırmak için [az webapp config set](/cli/azure/webapp/config#set) komutunu kullanın.
 
@@ -155,9 +151,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
-## Uygulamaya göz atma
+## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
 Web tarayıcınızı kullanarak dağıtılan uygulamaya göz atın.
 
@@ -171,9 +165,7 @@ Python örnek kodu bir Azure App Service web uygulamasında çalışıyor.
 
 **Tebrikler!** App Service’e ilk Python uygulamanızı dağıttınız.
 
-<a id="update-and-redeploy-the-code" class="xliff"></a>
-
-## Kodu güncelleştirme ve yeniden dağıtma
+## <a name="update-and-redeploy-the-code"></a>Kodu güncelleştirme ve yeniden dağıtma
 
 Yerel bir metin düzenleyici kullanarak `main.py` dosyasını Python uygulamasında açın ve `return` deyiminin yanındaki metinde küçük bir değişiklik yapın:
 
@@ -192,9 +184,7 @@ Dağıtım tamamlandıktan sonra [Uygulamaya göz atma](#browse-to-the-app) adı
 
 ![Azure'da çalışan güncelleştirilmiş örnek uygulama](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
-## Yeni Azure web uygulamanızı yönetme
+## <a name="manage-your-new-azure-web-app"></a>Yeni Azure web uygulamanızı yönetme
 
 Oluşturduğunuz web uygulamasını yönetmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
 
@@ -206,13 +196,11 @@ Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma,
 
 ![Azure portalında App Service dikey penceresi](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-Soldaki menü, uygulamanızın yaplandırılmasına yönelik farklı sayfalar sağlar. 
+Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
 > [PostgreSQL ile Python](app-service-web-tutorial-docker-python-postgresql-app.md)

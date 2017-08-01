@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 5876a22651a5ebee2d60992cf08aeae54256fb7d
-ms.lasthandoff: 03/28/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 7f88aa9c50e669d1be7248346c7b1176bce61249
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -36,7 +37,7 @@ Bu öğreti, Azure kuyruk depolama kullanarak bazı genel senaryolar için .NET 
 
 **Önkoşullar:**
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [.NET için Azure Depolama İstemcisi](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [.NET için Azure Yapılandırma Yöneticisi](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * Bir [Azure Storage hesabı](storage-create-storage-account.md#create-a-storage-account)

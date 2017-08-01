@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 4393a9a71dcbdc709845eb4cd3078b4497b8b9a3
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 16fdd3aafef1a50554932a0e7843d347182c9b6a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 
 # <a name="introduction-to-azure-file-storage"></a>Azure Dosya depolamaya giriş
-Azure Dosya depolama, endüstri standardı [Sunucu İleti Blogu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)’nü ve [Samba/Ortak İnternet Dosya Sistemi (CIFS)](https://technet.microsoft.com/library/cc939973.aspx) protokolünü kullanarak bulutta ağ dosya paylaşımları sağlar. Azure Dosya paylaşımları, Windows, macOS, Linux’ın şirket içi dağıtımları gibi istemciler veya Azure Sanal Makineleri tarafından eşzamanlı olarak bağlanabilir. 
+Azure Dosya depolama, endüstri standardı [Sunucu İleti Blogu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)’nü ve [Samba/Ortak İnternet Dosya Sistemi (CIFS)](https://technet.microsoft.com/library/cc939973.aspx) protokolünü kullanarak bulutta ağ dosya paylaşımları sağlar. Azure Dosya paylaşımları, Windows, macOS, Linux’ın şirket içi dağıtımları gibi istemciler veya Azure Sanal Makineleri tarafından eşzamanlı olarak bağlanabilir. Genel amaçlı depolama hesabı, tek bir hesap altında Azure Dosya Depolama'ya ve Bloblar, Azure sanal makinesi diskleri ve Sorgular gibi diğer hizmetlere erişim sağlar.
 
 
 

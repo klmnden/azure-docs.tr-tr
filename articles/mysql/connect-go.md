@@ -1,0 +1,355 @@
+---
+title: "Go'yu kullanarak MySQL için Azure Veritabanı'na bağlanma | Microsoft Docs"
+description: "Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz birkaç Go kod örneği sağlanmıştır."
+services: mysql
+author: jasonwhowell
+ms.author: jasonh
+manager: jhubbard
+editor: jasonwhowell
+ms.service: mysql-database
+ms.custom: mvc
+ms.devlang: go
+ms.topic: hero-article
+ms.date: 07/18/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ffe09758d0bf5dd4a6e599b1a606d9ae5fce4bf9
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/21/2017
+
+---
+
+# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Go dilini kullanma
+Bu hızlı başlangıçta, Windows, Ubuntu Linux ve Apple macOS platformlarından [Go](https://golang.org/) dilinde yazılmış kod kullanarak MySQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Ayrıca veritabanında veri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini nasıl kullanacağınız da gösterilmiştir. Bu makalede, Go kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+
+## <a name="prerequisites"></a>Ön koşullar
+Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
+- [Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Azure CLI kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-cli.md)
+
+## <a name="install-go-and-mysql-connector"></a>Go ve MySQL bağlayıcısını yükleme
+Makinenize [Go](https://golang.org/doc/install) ve [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation)'i yükleyin. Platformunuza bağlı olarak, şu adımları izleyin:
+
+### <a name="windows"></a>Windows
+1. [Yükleme yönergelerine](https://golang.org/doc/install) uygun olarak Microsoft Windows için Go’yu [indirin](https://golang.org/dl/) ve yükleyin.
+2. Başlat menüsünden komut istemini başlatın.
+3. Projeniz için şöyle bir klasör oluşturun. `mkdir  %USERPROFILE%\go\src\mysqlgo`.
+4. Dizini değiştirerek proje klasörünüze geçin; örneğin, `cd %USERPROFILE%\go\src\mysqlgo`.
+5. GOPATH için ortam değişkenini kaynak kod dizinine işaret edecek şekilde ayarlayın. `set GOPATH=%USERPROFILE%\go`.
+6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
+
+   ```cmd
+   mkdir  %USERPROFILE%\go\src\mysqlgo
+   cd %USERPROFILE%\go\src\mysqlgo
+   set GOPATH=%USERPROFILE%\go
+   go get github.com/go-sql-driver/mysql
+   ```
+
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
+1. Bash kabuğunu başlatın. 
+2. `sudo apt-get install golang-go` komutunu çalıştırarak Go'yu yükleyin.
+3. Giriş dizininizde projeniz için `mkdir -p ~/go/src/mysqlgo/` gibi bir klasör oluşturun.
+4. Dizini değiştirerek klasöre geçin; örneğin, `cd ~/go/src/mysqlgo/`.
+5. GOPATH ortam değişkenini geçerli bir kaynak dizine, örneğin geçerli giriş dizininizin go klasörüne işaret edecek şekilde ayarlayın. Bash kabuğunda `export GOPATH=~/go` komutunu çalıştırarak geçerli kabuk oturumu için GOPATH olarak go dizinini ayarlayın.
+6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
+
+   ```bash
+   sudo apt-get install golang-go
+   mkdir -p ~/go/src/mysqlgo/
+   cd ~/go/src/mysqlgo/
+   export GOPATH=~/go/
+   go get github.com/go-sql-driver/mysql
+   ```
+
+### <a name="apple-macos"></a>Apple macOS
+1. Platformunuza uygun [yükleme yönergelerine](https://golang.org/doc/install) göre Go’yu indirip yükleyin. 
+2. Bash kabuğunu başlatın. 
+3. Giriş dizininizde projeniz için `mkdir -p ~/go/src/mysqlgo/` gibi bir klasör oluşturun.
+4. Dizini değiştirerek klasöre geçin; örneğin, `cd ~/go/src/mysqlgo/`.
+5. GOPATH ortam değişkenini geçerli bir kaynak dizine, örneğin geçerli giriş dizininizin go klasörüne işaret edecek şekilde ayarlayın. Bash kabuğunda `export GOPATH=~/go` komutunu çalıştırarak geçerli kabuk oturumu için GOPATH olarak go dizinini ayarlayın.
+6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
+
+   ```bash
+   mkdir -p ~/go/src/mysqlgo/
+   cd ~/go/src/mysqlgo/
+   export GOPATH=~/go/
+   go get github.com/go-sql-driver/mysql
+   ```
+
+
+## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
+MySQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
+
+1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **myserver4demo**) arayın.
+3. **myserver4demo** sunucu adına tıklayın.
+4. Sunucunun **Özellikler** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
+ ![MySQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma](./media/connect-go/1_server-properties-name-login.png)
+5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+   
+
+## <a name="build-and-run-go-code"></a>Go kodunu derleme ve çalıştırma 
+1. Aşağıdaki bölümde bulunan Go kodunu metin dosyalarına yapıştırın ve *.go dosya uzantısıyla proje klasörünüze kaydedin; örneğin, Windows'da `%USERPROFILE%\go\src\mysqlgo\createtable.go` yolu veya Linux'ta `~/go/src/mysqlgo/createtable.go` yolu.
+2. Komut istemini veya bash kabuğunu başlatın. Dizini değiştirerek proje klasörünüze geçin. Örneğin; Windows’da `cd %USERPROFILE%\go\src\mysqlgo\`. Linux'ta `cd ~/go/src/mysqlgo/`.
+3. Uygulamayı derlemek ve çalıştırmak için `go run createtable.go` komutunu yazarak kodu çalıştırın.
+4. Alternatif olarak, kodu yerel bir uygulamada derlemek için `go build createtable.go` komutunu kullanın, ardından uygulamayı çalıştırmak için `createtable.exe`’yi başlatın.
+
+## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
+Sunucuya bağlanmak, tablo oluşturmak ve **INSERT** SQL deyimini kullanarak verileri yüklemek için aşağıdaki kodu kullanın. 
+
+Kod üç paketi içeri aktarır: [sql paketi](https://golang.org/pkg/database/sql/), MySQL için Azure Veritabanı'yla iletişim kuran sürücü olarak [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) ve komut satırında yazdırılan girdi ve çıktı için [fmt paketi](https://golang.org/pkg/fmt/).
+
+Kod, [sql.Open()](http://go-database-sql.org/accessing.html) yöntemini çağırarak MySQL için Azure Veritabanı’na bağlanır ve [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) yöntemini kullanarak bağlantıyı kontrol eder. İşlem boyunca, veritabanı sunucusu için bağlantı havuzunu tutan bir [veritabanı tanıtıcı](https://golang.org/pkg/database/sql/#DB) kullanılır. Kod, birkaç DDL komutunu çalıştırmak için birkaç kez [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) yöntemini çağırır. Kod ayrıca, hazırlanmış deyimleri farklı parametrelerle çalıştırıp üç satır eklemek için [Prepare()](http://go-database-sql.org/prepared.html) ve Exec() kullanır. Her seferinde hata oluşup olmadığını denetlemek ve acil çıkış yapmak için özel bir checkError() yöntemi kullanılır.
+
+`host`, `database`, `user` ve `password` sabitlerini kendi değerlerinizle değiştirin. 
+
+```Go
+package main
+
+import (
+    "database/sql"
+    "fmt"
+
+    _ "github.com/go-sql-driver/mysql"
+)
+
+const (
+    host     = "myserver4demo.mysql.database.azure.com"
+    database = "quickstartdb"
+    user     = "myadmin@myserver4demo"
+    password = "yourpassword"
+)
+
+func checkError(err error) {
+    if err != nil {
+        panic(err)
+    }
+}
+
+func main() {
+
+    // Initialize connection string.
+    var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
+
+    // Initialize connection object.
+    db, err := sql.Open("mysql", connectionString)
+    checkError(err)
+    defer db.Close()
+
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database.")
+
+    // Drop previous table of same name if one exists.
+    _, err = db.Exec("DROP TABLE IF EXISTS inventory;")
+    checkError(err)
+    fmt.Println("Finished dropping table (if existed).")
+
+    // Create table.
+    _, err = db.Exec("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);")
+    checkError(err)
+    fmt.Println("Finished creating table.")
+
+    // Insert some data into table.
+    sqlStatement, err := db.Prepare("INSERT INTO inventory (name, quantity) VALUES (?, ?);")
+    res, err := sqlStatement.Exec("banana", 150)
+    checkError(err)
+    rowCount, err := res.RowsAffected()
+    fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
+
+    res, err = sqlStatement.Exec("orange", 154)
+    checkError(err)
+    rowCount, err = res.RowsAffected()
+    fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
+
+    res, err = sqlStatement.Exec("apple", 100)
+    checkError(err)
+    rowCount, err = res.RowsAffected()
+    fmt.Printf("Inserted %d row(s) of data.\n", rowCount)
+    fmt.Println("Done.")
+}
+
+```
+
+## <a name="read-data"></a>Verileri okuma
+Bağlanmak ve **SELECT** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. 
+
+Kod üç paketi içeri aktarır: [sql paketi](https://golang.org/pkg/database/sql/), MySQL için Azure Veritabanı'yla iletişim kuran sürücü olarak [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) ve komut satırında yazdırılan girdi ve çıktı için [fmt paketi](https://golang.org/pkg/fmt/).
+
+Kod, [sql.Open()](http://go-database-sql.org/accessing.html) yöntemini çağırarak MySQL için Azure Veritabanı’na bağlanır ve [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) yöntemini kullanarak bağlantıyı kontrol eder. İşlem boyunca, veritabanı sunucusu için bağlantı havuzunu tutan bir [veritabanı tanıtıcı](https://golang.org/pkg/database/sql/#DB) kullanılır. Kod, seçme komutunu çalıştırmak için [Query()](https://golang.org/pkg/database/sql/#DB.Query) yöntemini çağırır. Ardından, sonuç kümesi üzerinden yineleme yapmak için [Next()](https://golang.org/pkg/database/sql/#Rows.Next) ve sütun değerlerini ayrıştırıp değeri değişkenlere kaydetmek için [Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) çalıştırır. Her seferinde hata oluşup olmadığını denetlemek ve acil çıkış yapmak için özel bir checkError() yöntemi kullanılır.
+
+`host`, `database`, `user` ve `password` sabitlerini kendi değerlerinizle değiştirin. 
+
+```Go
+package main
+
+import (
+    "database/sql"
+    "fmt"
+
+    _ "github.com/go-sql-driver/mysql"
+)
+
+const (
+    host     = "myserver4demo.mysql.database.azure.com"
+    database = "quickstartdb"
+    user     = "myadmin@myserver4demo"
+    password = "yourpassword"
+)
+
+func checkError(err error) {
+    if err != nil {
+        panic(err)
+    }
+}
+
+func main() {
+
+    // Initialize connection string.
+    var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
+
+    // Initialize connection object.
+    db, err := sql.Open("mysql", connectionString)
+    checkError(err)
+    defer db.Close()
+
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database.")
+
+    // Variables for printing column data when scanned.
+    var (
+        id       int
+        name     string
+        quantity int
+    )
+
+    // Read some data from the table.
+    rows, err := db.Query("SELECT id, name, quantity from inventory;")
+    checkError(err)
+    defer rows.Close()
+    fmt.Println("Reading data:")
+    for rows.Next() {
+        err := rows.Scan(&id, &name, &quantity)
+        checkError(err)
+        fmt.Printf("Data row = (%d, %s, %d)\n", id, name, quantity)
+    }
+    err = rows.Err()
+    checkError(err)
+    fmt.Println("Done.")
+}
+```
+
+## <a name="update-data"></a>Verileri güncelleştirme
+Bağlanmak ve **UPDATE** SQL deyimi kullanarak verileri güncelleştirmek için aşağıdaki kodu kullanın. 
+
+Kod üç paketi içeri aktarır: [sql paketi](https://golang.org/pkg/database/sql/), MySQL için Azure Veritabanı'yla iletişim kuran sürücü olarak [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) ve komut satırında yazdırılan girdi ve çıktı için [fmt paketi](https://golang.org/pkg/fmt/).
+
+Kod, [sql.Open()](http://go-database-sql.org/accessing.html) yöntemini çağırarak MySQL için Azure Veritabanı’na bağlanır ve [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) yöntemini kullanarak bağlantıyı kontrol eder. İşlem boyunca, veritabanı sunucusu için bağlantı havuzunu tutan bir [veritabanı tanıtıcı](https://golang.org/pkg/database/sql/#DB) kullanılır. Kod, güncelleştirme komutunu çalıştırmak için [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) yöntemini çağırır. Her seferinde hata oluşup olmadığını denetlemek ve acil çıkış yapmak için özel bir checkError() yöntemi kullanılır.
+
+`host`, `database`, `user` ve `password` sabitlerini kendi değerlerinizle değiştirin. 
+
+```Go
+package main
+
+import (
+    "database/sql"
+    "fmt"
+
+    _ "github.com/go-sql-driver/mysql"
+)
+
+const (
+    host     = "myserver4demo.mysql.database.azure.com"
+    database = "quickstartdb"
+    user     = "myadmin@myserver4demo"
+    password = "yourpassword"
+)
+
+func checkError(err error) {
+    if err != nil {
+        panic(err)
+    }
+}
+
+func main() {
+
+    // Initialize connection string.
+    var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
+
+    // Initialize connection object.
+    db, err := sql.Open("mysql", connectionString)
+    checkError(err)
+    defer db.Close()
+
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database.")
+
+    // Modify some data in table.
+    rows, err := db.Exec("UPDATE inventory SET quantity = ? WHERE name = ?", 200, "banana")
+    checkError(err)
+    rowCount, err := rows.RowsAffected()
+    fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
+    fmt.Println("Done.")
+}
+```
+
+## <a name="delete-data"></a>Verileri silme
+Bağlanmak ve **DELETE** SQL deyimini kullanarak verileri kaldırmak için aşağıdaki kodu kullanın. 
+
+Kod üç paketi içeri aktarır: [sql paketi](https://golang.org/pkg/database/sql/), MySQL için Azure Veritabanı'yla iletişim kuran sürücü olarak [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) ve komut satırında yazdırılan girdi ve çıktı için [fmt paketi](https://golang.org/pkg/fmt/).
+
+Kod, [sql.Open()](http://go-database-sql.org/accessing.html) yöntemini çağırarak MySQL için Azure Veritabanı’na bağlanır ve [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping) yöntemini kullanarak bağlantıyı kontrol eder. İşlem boyunca, veritabanı sunucusu için bağlantı havuzunu tutan bir [veritabanı tanıtıcı](https://golang.org/pkg/database/sql/#DB) kullanılır. Kod, silme komutunu çalıştırmak için [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) yöntemini çağırır. Her seferinde hata oluşup olmadığını denetlemek ve acil çıkış yapmak için özel bir checkError() yöntemi kullanılır.
+
+`host`, `database`, `user` ve `password` sabitlerini kendi değerlerinizle değiştirin. 
+
+```Go
+package main
+
+import (
+    "database/sql"
+    "fmt"
+    _ "github.com/go-sql-driver/mysql"
+)
+
+const (
+    host     = "myserver4demo.mysql.database.azure.com"
+    database = "quickstartdb"
+    user     = "myadmin@myserver4demo"
+    password = "yourpassword"
+)
+
+func checkError(err error) {
+    if err != nil {
+        panic(err)
+    }
+}
+
+func main() {
+
+    // Initialize connection string.
+    var connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true", user, password, host, database)
+
+    // Initialize connection object.
+    db, err := sql.Open("mysql", connectionString)
+    checkError(err)
+    defer db.Close()
+
+    err = db.Ping()
+    checkError(err)
+    fmt.Println("Successfully created connection to database.")
+
+    // Modify some data in table.
+    rows, err := db.Exec("DELETE FROM inventory WHERE name = ?", "orange")
+    checkError(err)
+    rowCount, err := rows.RowsAffected()
+    fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
+    fmt.Println("Done.")
+}
+```
+
+## <a name="next-steps"></a>Sonraki adımlar
+> [!div class="nextstepaction"]
+> [Dışarı Aktarma ve İçeri Aktarma seçeneğini kullanarak veritabanınızı geçirme](./concepts-migrate-import-export.md)
+

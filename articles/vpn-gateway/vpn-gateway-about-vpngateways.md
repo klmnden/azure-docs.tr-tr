@@ -15,25 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: c24f7770e4d0721f9c584b80df9eb857442dfa0b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6ab2b4c905d2095e8eec09ccebcb8ebdfa91bb3a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="about-vpn-gateway" class="xliff"></a>
-
-# VPN Gateway hakkında
+# <a name="about-vpn-gateway"></a>VPN Gateway hakkında
 
 VPN ağ geçidi, ortak bağlantı üzerinden şirket içi konuma şifrelenmiş trafik gönderen sanal ağ geçidi türüdür. Ayrıca VPN ağ geçitlerini, Microsoft ağı üzerinden Azure sanal ağları arasında şifrelenmiş trafik göndermek için de kullanabilirsiniz. Azure sanal ağınız ile şirket içi siteniz arasında şifrelenmiş ağ trafiği göndermek için sanal ağınıza ilişkin bir VPN ağ geçidi oluşturmanız gerekir.
 
 Her bir sanal ağ yalnızca bir VPN ağ geçidi içerebilir ancak aynı VPN ağ geçidi için birden çok bağlantı oluşturabilirsiniz. Çok Siteli bağlantı yapılandırması bunun bir örneğidir. Aynı VPN ağ geçidi ile birden fazla bağlantı oluşturduğunuzda, Noktadan Siteye VPN’ler dahil tüm VPN tünelleri, ağ geçidinin bant genişliğini paylaşır.
 
-<a id="what-is-a-virtual-network-gateway" class="xliff"></a>
-
-### Sanal ağ geçidi nedir?
+### <a name="what-is-a-virtual-network-gateway"></a>Sanal ağ geçidi nedir?
 
 Sanal ağ geçidi GatewaySubnet adı verilen belirli bir alt ağa dağıtılan iki veya daha fazla sanal makineden oluşur. GatewaySubnet'te bulunan VM'ler, sanal ağ geçidini ayarladığınızda oluşturulur. Sanal ağ geçidi VM'leri, ağ geçidine özgü yönlendirme tablolarını ve ağ geçidi hizmetlerini içerecek şekilde yapılandırılır. Sanal ağ geçidinin parçası olan VM'leri doğrudan yapılandıramazsınız ve GatewaySubnet'e hiçbir koşulda ek kaynak dağıtmamanız gerekir.
 
@@ -43,27 +38,19 @@ Sanal ağ geçidi GatewaySubnet adı verilen belirli bir alt ağa dağıtılan i
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-<a id="configuring-a-vpn-gateway" class="xliff"></a>
-
-## VPN Gateway yapılandırma
+## <a name="configuring-a-vpn-gateway"></a>VPN Gateway yapılandırma
 
 VPN ağ geçidi bağlantısı belirli ayarlarla yapılandırılmış birden fazla kaynağı kullanır. Kaynakların birçoğu ayrı ayrı yapılandırılabilir, ancak bazı durumlarda belirli bir sırayla yapılandırılması gerekir.
 
-<a id="settings" class="xliff"></a>
-
-### Ayarlar
+### <a name="settings"></a>Ayarlar
 
 Her kaynak için seçtiğiniz ayarlar başarılı bir bağlantı oluşturmak için önemlidir. VPN Gateway’e ilişkin kaynaklar ve ayarlar hakkında bilgi için bkz. [VPN Gateway ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md). Ağ geçidi türleri, VPN türleri, bağlantı türleri, ağ geçidi alt ağları, yerel ağ geçitleri ve kullanmayı düşünebileceğiniz diğer çeşitli ayarlar hakkında bilgi bulacaksınız.
 
-<a id="deployment-tools" class="xliff"></a>
-
-### Dağıtım araçları
+### <a name="deployment-tools"></a>Dağıtım araçları
 
 Azure portalı gibi bir yapılandırma aracını kullanarak kaynakları oluşturmaya ve yapılandırmaya başlayabilirsiniz. Daha sonra ek kaynaklar yapılandırmak ya da uygun olduğunda var olan kaynakları değiştirmek için PowerShell gibi başka bir araca geçmeye karar verebilirsiniz. Şu anda Azure portalında her kaynağı ve kaynak ayarını yapılandıramazsınız. Her bağlantı topolojisine ilişkin makalelerdeki yönergelerde, belirli bir aracının ne zaman gerekli olduğu belirtilmektedir. 
 
-<a id="deployment-model" class="xliff"></a>
-
-### Dağıtım modeli
+### <a name="deployment-model"></a>Dağıtım modeli
 
 VPN Gateway'i yapılandırırken uygulayacağınız adımlar, sanal ağınızı oluşturmak için kullandığınız dağıtım modeline bağlıdır. Örneğin,VNet'inizi klasik dağıtım modeli kullanarak oluşturduysanız VPN ağ geçidi ayarlarınızı oluşturmak ve yapılandırmak için klasik dağıtım modeline ilişkin yönergeleri kullanırsınız. Dağıtım modelleri hakkında daha fazla bilgi için bkz. [Resource Manager’ı ve klasik dağıtım modellerini anlama](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -77,9 +64,7 @@ VPN ağ geçidi bağlantıları için kullanılabilecek farklı yapılandırmala
 
 Gereksinimlerinize uygun bağlantı topolojisini seçmenize yardımcı olması için diyagramları ve açıklamaları kullanabilirsiniz. Diyagramlarda temel topolojilerin başlıca olanları gösterilmektedir ancak diyagramları bir kılavuz olarak kullanıp daha karmaşık yapılandırmalar da oluşturabilirsiniz.
 
-<a id="site-to-site-and-multi-site-ipsecike-vpn-tunnel" class="xliff"></a>
-
-## Siteden Siteye ve Çok Siteli (IPsec/IKE VPN tüneli)
+## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Siteden Siteye ve Çok Siteli (IPsec/IKE VPN tüneli)
 
 ### <a name="S2S"></a>Siteden Siteye
 
@@ -93,9 +78,7 @@ Bu türden bir bağlantı, Siteden Siteye bağlantının bir çeşididir. Sanal 
 
 ![Azure VPN Gateway Çok Siteli bağlantı örneği](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
-<a id="deployment-models-and-methods-for-site-to-site-and-multi-site" class="xliff"></a>
-
-### Siteden Siteye ve Çok Siteli için dağıtım modelleri ve yöntemleri
+### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Siteden Siteye ve Çok Siteli için dağıtım modelleri ve yöntemleri
 
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
@@ -105,9 +88,7 @@ Noktadan Siteye (P2S) VPN ağ geçidi bağlantısı, ayrı bir istemci bilgisaya
 
 ![Azure VPN Gateway Noktadan Siteye bağlantı örneği](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
 
-<a id="deployment-models-and-methods-for-point-to-site" class="xliff"></a>
-
-### Noktadan Siteye dağıtım modelleri ve yöntemleri
+### <a name="deployment-models-and-methods-for-point-to-site"></a>Noktadan Siteye dağıtım modelleri ve yöntemleri
 
 [!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
@@ -123,21 +104,15 @@ Bağladığınız VNet'ler,
 
 ![Azure VPN Gateway Sanal Ağdan Sanal Ağa bağlantı örneği](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
-<a id="connections-between-deployment-models" class="xliff"></a>
-
-### Dağıtım modelleri arasındaki bağlantılar
+### <a name="connections-between-deployment-models"></a>Dağıtım modelleri arasındaki bağlantılar
 
 Azure'ın şu anda iki dağıtım modeli vardır: Klasik ve Resource Manager. Azure'ı bir süredir kullanıyorsanız klasik VNet'te çalışan Azure VM'leriniz ve örnek rollerinizin olması olasıdır. Daha yeni VM'leriniz ve rol örnekleriniz Resource Manager'da oluşturulan bir VNet'te çalışıyor olabilir. Bir VNet'teki kaynakların bir diğerindeki kaynaklarla doğrudan iletişim kurabilmesini sağlamak üzere VNet'ler arasında bir bağlantı oluşturabilirsiniz.
 
-<a id="vnet-peering" class="xliff"></a>
-
-### VNet eşlemesi
+### <a name="vnet-peering"></a>VNet eşlemesi
 
 Sanal ağınız belirli gereksinimleri karşılıyorsa bağlantınızı oluşturmak için VNet eşlemesini kullanabilirsiniz. VNet eşlemesi sanal ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
 
-<a id="deployment-models-and-methods-for-vnet-to-vnet" class="xliff"></a>
-
-### Sanal Ağdan Sanal Ağa dağıtım modelleri ve yöntemleri
+### <a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Sanal Ağdan Sanal Ağa dağıtım modelleri ve yöntemleri
 
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -157,30 +132,23 @@ ExpressRoute için güvenli bir yük devretme yolu olarak Siteden Siteye VPN yap
 
 ![ExpressRoute ve VPN Gateway eşzamanlı bağlantı örneği](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-<a id="deployment-models-and-methods-for-s2s-and-expressroute" class="xliff"></a>
-
-### S2S ve ExpressRoute dağıtım modelleri ve yöntemleri
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>S2S ve ExpressRoute dağıtım modelleri ve yöntemleri
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
-<a id="pricing" class="xliff"></a>
-
-## Fiyatlandırma
+## <a name="pricing"></a>Fiyatlandırma
 
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
 
 VPN Gateway’e yönelik ağ geçidi SKU’ları hakkında bilgi için bkz. [Ağ geçidi SKU’ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-<a id="faq" class="xliff"></a>
-
-## SSS
+## <a name="faq"></a>SSS
 
 VPN Gateway hakkında sık sorulan sorular için bkz. [VPN Gateway hakkında SSS](vpn-gateway-vpn-faq.md).
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 - VPN ağ geçidi yapılandırmanızı planlayın. Bkz. [VPN Gateway için Planlama ve Tasarım](vpn-gateway-plan-design.md).
 - Daha fazla bilgi edinmek için [VPN Gateway ile ilgili SSS](vpn-gateway-vpn-faq.md) makalesini görüntüleyin.
 - [Abonelik ve hizmet sınırlamaları](../azure-subscription-service-limits.md#networking-limits) makalesini görüntüleyin.
+- Azure'un diğer önemli [ağ özelliklerinden](../networking/networking-overview.md) bazıları hakkında bilgi edinin.

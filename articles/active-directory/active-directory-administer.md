@@ -1,10 +1,9 @@
 ---
 title: "Azure AD dizininizi yönetme | Microsoft Belgeleri"
-description: "Azure AD kiracısının ne olduğu ve Azure&quot;ın, Azure Active Directory üzerinden nasıl yönetileceği açıklanmaktadır."
+description: "Azure AD kiracısının ne olduğu ve Azure'ın, Azure Active Directory üzerinden nasıl yönetileceği açıklanmaktadır."
 services: active-directory
 documentationcenter: 
 author: curtand
-writer: markvi
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -12,13 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 07/20/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
-ms.lasthandoff: 12/07/2016
-
+ms.reviewer: jeffsta
+ms.custom: it-pro;oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 07b9f4626e9129c7eeb94d43883417f324da5292
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Azure AD dizinini yönetme
@@ -55,7 +56,7 @@ Ek hizmetler, kuruluşunuzun şirket içi kimlik altyapısı ve Azure AD arasın
 Şirket içi dizininizi Azure AD ile tümleştirme hakkında daha fazla bilgi için bkz. [Dizin tümleştirme](active-directory-aadconnect.md).
 
 ### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>Azure AD dizinini yeni bir Azure aboneliğiyle ilişkilendirme
-Yeni bir Azure aboneliği ile mevcut bir Office 365 veya Microsoft Intune aboneliği için oturum açma kimlik doğrulaması bir dizini ilişkilendirebilirsiniz. İş veya okul hesabınızı kullanarak Azure Yönetim Portalı'nda oturum açın. Yönetim Portalı, bu hesaba ilişkin herhangi bir aboneliğin bulunamadığını belirten bir ileti döndürür. **Azure'a Kaydol** seçeneğini belirlediğinizde dizininiz portalda yönetim için kullanılabilir. Daha fazla bilgi için bkz. [Azure'da Office 365 aboneliğinize ilişkin dizini yönetme](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
+Yeni bir Azure aboneliği ile mevcut bir Office 365 veya Microsoft Intune aboneliği için oturum açma kimlik doğrulaması bir dizini ilişkilendirebilirsiniz. İş veya okul hesabınızı kullanarak Azure portalında oturum açın. Portal, bu hesaba ilişkin herhangi bir aboneliğin bulunamadığını belirten bir ileti döndürür. **Azure'a Kaydol** seçeneğini belirlediğinizde dizininiz portalda yönetim için kullanılabilir. Daha fazla bilgi için bkz. [Azure'da Office 365 aboneliğinize ilişkin dizini yönetme](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 Azure AD'ye ilişkin ortak kullanımla ilgili sorular hakkındaki video için bkz. [Azure Active Directory - Kaydolma, oturum açma ve kullanım ile ilgili ortak sorular](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
 
@@ -76,7 +77,7 @@ Azure AD kullanımının herhangi bir maliyeti yoktur. Dizin ücretsiz bir kayna
 Dizininizin görünen adını değiştirmek için portalda dizine ve **Yapılandır**'a tıklayın. Bu konu başlığının ilerleyen kısımlarında açıklandığı üzere yeni bir dizin ekleyebilir veya artık ihtiyaç duymadığınız bir dizini silebilirsiniz. Aboneliğinizi farklı bir dizin ile ilişkilendirmek için sol gezinti bölmesinde **Ayarlar** uzantısına tıklayın ve ardından **Abonelikler** sayfasının alt kısmında yer alan **Dizini Düzenle**'ye tıklayın. Varsayılan *.onmicrosoft.com etki alanı yerine, kaydettiğiniz bir DNS adını kullanarak özel bir etki alanı da oluşturabilirsiniz. SharePoint Online gibi bir hizmette bu seçenek tercih edilebilir.
 
 ## <a name="how-can-i-manage-directory-data"></a>Dizin verilerini nasıl yönetebilirim?
-Bir veya daha fazla Microsoft bulut hizmeti aboneliğinin yöneticisi olarak, kuruluşlarınızın dizin verilerini yönetmek için Azure Yönetim Portalı'nı, Microsoft Intune hesap portalını veya Office 365 Yönetim Merkezi'ni kullanabilirsiniz. Ayrıca Azure AD'de depolanan verileri yönetmenize yardımcı olması için [Windows PowerShell için Microsoft Azure Active Directory Modülü](https://msdn.microsoft.com/library/azure/jj151815.aspx) cmdlet'lerini de indirip çalıştırabilirsiniz.
+Bir veya daha fazla Microsoft bulut hizmeti aboneliğinin yöneticisi olarak, kuruluşlarınızın dizin verilerini yönetmek için [Azure AD yönetim merkezini](https://aad.portal.azure.com), Microsoft Intune hesap portalını veya Office 365 Yönetim Merkezi'ni kullanabilirsiniz. Ayrıca Azure AD'de depolanan verileri yönetmenize yardımcı olması için [Windows PowerShell için Microsoft Azure Active Directory Modülü](https://msdn.microsoft.com/library/azure/jj151815.aspx) cmdlet'lerini de indirip çalıştırabilirsiniz.
 
 Bu portalları (veya cmdlet'leri) kullanarak şunlar yapabilirsiniz:
 
@@ -84,7 +85,7 @@ Bu portalları (veya cmdlet'leri) kullanarak şunlar yapabilirsiniz:
 * Kuruluşunuzun abonesi olduğu bulut hizmetlerini yönetme
 * Dizin hizmetinizle şirket içi tümleştirmeyi ayarlama
 
-Azure Yönetim Portalı, Office 365 Yönetici Merkezi, Microsoft Intune hesap portalı ve Azure AD cmdlet'lerinin tümü, aşağıdaki çizimde gösterildiği gibi okuma ve yazma işlemlerini kuruluş dizininizle ilişkilendirilen tek bir paylaşılan Azure AD örneğinde gerçekleştirir. Böylece portallar (veya cmdlet'ler) dizin verilerinizi çeken ve/veya değiştiren bir ön uç arabirimi işlevi görür.
+[Azure AD yönetim merkezi](https://aad.portal.azure.com), Office 365 Yönetici Merkezi, Microsoft Intune hesap portalı ve Azure AD cmdlet'lerinin tümü, aşağıdaki çizimde gösterildiği gibi okuma ve yazma işlemlerini kuruluş dizininizle ilişkilendirilen tek bir paylaşılan Azure AD örneğinde gerçekleştirir. Böylece portallar (veya cmdlet'ler) dizin verilerinizi çeken veya değiştiren bir ön uç arabirimi işlevi görür.
 
 ![][2]
 
@@ -94,7 +95,7 @@ Bu hizmetlerden biri için oturumunuz açıkken, o sırada portallardan (veya cm
 Örneğin, Office 365 Yönetim Merkezi'ni kullanarak bir kullanıcının oturum açmasını engellerseniz aynı kullanıcının kuruluşunuzun şu anda abone olduğu diğer hizmetlerde de oturum açması engellenir. Aynı kullanıcının hesabını Microsoft Intune hesap portalında görüntülediğinizde kullanıcının engellendiğini görürsünüz.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>Birden fazla dizini nasıl ekleyip yönetebilirim?
-Azure Yönetim Portalı'nda Azure AD dizini ekleyebilirsiniz. Soldaki **Active Directory** uzantısını seçin ve **Ekle**'ye tıklayın.
+[Klasik Azure AD portalında](https://manage.windowsazure.com) Azure AD dizini ekleyebilirsiniz. **Genel Bakış** bölmesinde, sol taraftaki **Active Directory** uzantısını seçin ve **Yeni**'ye tıklayın.
 
 Her dizini tamamen bağımsız bir kaynak olarak yönetebilirsiniz: Her dizin eşdüzeyde, tam özellikli ve yönettiğiniz diğer dizinlerden mantıksal olarak bağımsızdır ve dizinler arasında üst-alt ilişkisi yoktur. Dizinler arasındaki bu bağımsızlığa kaynak bağımsızlığı, yönetim bağımsızlığı ve eşitleme bağımsızlığı dahildir.
 
@@ -116,7 +117,7 @@ Ayrıca, diğer Azure kaynaklarının aksine dizinlerinizin bir Azure aboneliği
 Azure AD dizinini portaldan genel yönetici silebilir. Bir dizin silindiğinde dizinde bulunan tüm kaynaklar da silinir. Bu nedenle dizini silmeden önce o dizine artık ihtiyacınız olmadığından emin olun.
 
 > [!NOTE]
-> Kullanıcı, bir iş veya okul hesabıyla oturum açtıysa kendi giriş dizinini silmeye çalışmamalıdır. Örneğin, kullanıcı joe@contoso.onmicrosoft.com, olarak oturum açtıysa, varsayılan etki alanı contoso.onmicrosoft.com olan dizini silemez.
+> Kullanıcı, bir iş veya okul hesabıyla oturum açtıysa kendi giriş dizinini silmeye çalışmamalıdır. Örneğin, kullanıcı joe@contoso.onmicrosoft.com olarak oturum açtıysa, varsayılan etki alanı contoso.onmicrosoft.com olan dizini silemez.
 > 
 > 
 
@@ -130,7 +131,7 @@ Azure AD, bir dizinin silinmesi için belirli koşulların sağlanmasını gerek
 * Microsoft Çevrimiçi Hizmetlerine (dizinle ilişkili Azure AD Premium, Microsoft Azure veya Office 365 gibi) ilişkin hiçbir aboneliğin bulunmaması gerekir. Örneğin, sizin için Azure'da varsayılan bir dizin oluşturulduysa ve Azure aboneliğinizin kimlik doğrulaması için hâlâ bu dizini kullanıyor olması halinde bu dizini silemezsiniz. Benzer şekilde, başka bir kullanıcı dizinle bir aboneliği ilişkilendirdiyse o dizini silemezsiniz. Aboneliğinizi farklı bir dizin ile ilişkilendirmek için Azure Yönetim Portalı'nda oturum açın ve sol gezinti bölmesindeki **Ayarlar** seçeneğine tıklayın. Ardından **Abonelikler** sayfasının altındaki **Dizinleri Düzenle** seçeneğine tıklayın. Azure abonelikleri hakkında daha fazla bilgi için bkz.[Azure aboneliklerinin Azure AD ile ilişkisi](active-directory-how-subscriptions-associated-directory.md).
 
 > [!NOTE]
-> Kullanıcı, bir iş veya okul hesabıyla oturum açtıysa kendi giriş dizinini silmeye çalışmamalıdır. Örneğin, kullanıcı joe@contoso.onmicrosoft.com, olarak oturum açtıysa, varsayılan etki alanı contoso.onmicrosoft.com olan dizini silemez.
+> Kullanıcı, bir iş veya okul hesabıyla oturum açtıysa kendi giriş dizinini silmeye çalışmamalıdır. Örneğin, kullanıcı joe@contoso.onmicrosoft.com olarak oturum açtıysa, varsayılan etki alanı contoso.onmicrosoft.com olan dizini silemez.
 > 
 > 
 

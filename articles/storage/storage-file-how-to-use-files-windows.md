@@ -15,33 +15,31 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: a6d3a6f6e3457c84c5a7dc7d3601ef9495c060fe
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e911e787cd1e29b2bbeaa648869c50245f2dd9ba
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure Dosya paylaşımını bağlama ve Windows’da paylaşıma erişme
 [Azure Dosya depolama](storage-dotnet-how-to-use-files.md), Windows’un kolay kullanılan bulut dosya sistemidir. Azure Dosya paylaşımları, Windows ve Windows Server’a bağlanabilir. Bu makale Windows’da Azure Dosya paylaşımının üç farklı yolla bağlanmasını gösterir: Dosya Gezgini kullanıcı arabirimi ile, Powershell ve Komut İstemi aracılığıyla. 
 
-Bir Azure Dosya paylaşımını, barındırıldığı Azure bölgesinin dışında bağlamak için (örneğin, şirket içinde veya farklı bir Azure bölgesinde) işletim sisteminin SMB 3.x’i desteklemesi gerekir. Aşağıdaki tablo en son Windows sürümlerinin SMB sürümlerini gösterir:
+Bir Azure Dosya paylaşımını, barındırıldığı Azure bölgesinin dışında bağlamak için (örneğin, şirket içinde veya farklı bir Azure bölgesinde) işletim sisteminin SMB 3.0'ı desteklemesi gerekir. 
 
-| Windows sürümü | SMB sürümü | Azure VM’den bağlamayı destekler | Şirket içinden bağlamayı destekler | Önerilen En Az KB |
-|----|----|----|----|----|
-| Windows 10 sürüm 1703 | SMB 3.1.1 | Evet | Evet | |
-| Windows Server 2016 | SMB 3.1.1 | Evet | Evet | [KB4015438](https://support.microsoft.com/help/4015438) |
-| Windows 10 sürüm 1607 | SMB 3.1.1 | Evet | Evet | [KB4015438](https://support.microsoft.com/help/4015438) | 
-| Windows 10 sürüm 1511 | SMB 3.1.1 | Evet | Evet | [KB4013198](https://support.microsoft.com/help/4013198) |
-| Windows 10 sürüm 1507 | SMB 3.1.1 | Evet | Evet | [KB4012606](https://support.microsoft.com/help/4012606) | 
-| Windows 8.1 | SMB 3.0.2 | Evet | Evet | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 R2 | SMB 3.0.2 | Evet | Evet | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 | SMB 3.0 | Evet | Evet | [KB4012214](https://support.microsoft.com/help/4012214) |
-| Windows 7 | SMB 2.1 | Evet | Hayır | [KB4012215](https://support.microsoft.com/help/4012215) |
-| Windows Server 2008 R2 | SMB 2.1 | Evet | Hayır | [KB4012215](https://support.microsoft.com/help/4012215) |
+Azure Dosya paylaşımı, işletim sistemi sürümüne bağlı olarak şirket içindeki Windows makinesine veya Azure sanal makinesine bağlanabilir. Aşağıdaki tabloda şunlar gösterilir: 
+
+| Windows Sürümü        | SMB Sürümü |Azure VM'ye Bağlanabilir|Şirket İçine Bağlanabilir|
+|------------------------|-------------|---------------------|---------------------|
+| Windows 7              | SMB 2.1     | Evet                 | Hayır                  |
+| Windows Server 2008 R2 | SMB 2.1     | Evet                 | Hayır                  |
+| Windows 8              | SMB 3.0     | Evet                 | Evet                 |
+| Windows Server 2012    | SMB 3.0     | Evet                 | Evet                 |
+| Windows Server 2012 R2 | SMB 3.0     | Evet                 | Evet                 |
+| Windows 10             | SMB 3.0     | Evet                 | Evet                 |
 
 > [!Note]  
-> Her zaman Windows sürümünüz için en yeni KB’yi almanızı öneririz. Önerilen en az KB, güncelleştirme karşıtı BT yöneticileri için SMB düzeltmelerini içeren en son paketi sağlamaya yöneliktir.
+> Her zaman Windows sürümünüz için en yeni KB’yi almanızı öneririz.
 
 ## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Windows ile Azure Dosya Paylaşımını bağlama önkoşulları 
 * **Depolama Hesabı Adı**: Azure Dosya paylaşımını bağlayabilmeniz için depolama hesabınızın adı gerekir.
@@ -144,3 +142,4 @@ Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara g
 ### <a name="reference"></a>Başvuru
 * [.NET başvurusu için Depolama İstemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Dosya Hizmeti REST API başvurusu](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+
