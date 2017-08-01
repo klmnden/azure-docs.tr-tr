@@ -22,17 +22,11 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="create-or-select-a-virtual-network-for-azure-active-directory-domain-services" class="xliff"></a>
-
-# Azure Active Directory Domain Services için sanal ağ oluşturma veya seçme
-<a id="before-you-begin" class="xliff"></a>
-
-## Başlamadan önce
+# <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services için sanal ağ oluşturma veya seçme
+## <a name="before-you-begin"></a>Başlamadan önce
 [Azure Active Directory Domain Services için ağ ile ilgili dikkat edilmesi gerekenler](active-directory-ds-networking.md) bölümüne bakın.
 
-<a id="task-2-create-an-azure-virtual-network" class="xliff"></a>
-
-## Görev 2: Azure sanal ağı oluşturma
+## <a name="task-2-create-an-azure-virtual-network"></a>Görev 2: Azure sanal ağı oluşturma
 Sonraki yapılandırma görevi bir Azure sanal ağı ve onun içinde bir alt ağ oluşturulmasını içerir. Sanal ağınızdaki bu alt ağda Azure Active Directory Domain Services’ı etkinleştirin. Kullanmayı tercih ettiğiniz bir sanal ağınız varsa bu adımı atlayabilirsiniz.
 
 > [!NOTE]
@@ -74,8 +68,6 @@ Azure Active Directory Domain Services’ı etkinleştirmek istediğiniz bir Azu
 11. Alt ağı oluşturmak için **Kaydet**’e tıklayın.
 
 
-<a id="next-step" class="xliff"></a>
-
-## Sonraki adım
+## <a name="next-step"></a>Sonraki adım
 [Görev 3: Azure Active Directory Domain Services'i etkinleştirme](active-directory-ds-getting-started-enableaadds.md)
 

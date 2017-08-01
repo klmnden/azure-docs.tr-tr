@@ -1,6 +1,4 @@
-<a id="typical-output" class="xliff"></a>
-
-## Typical output
+## <a name="typical-output"></a>Typical output
 
 The following example shows the output written to the log file by the Hello World sample. The output is formatted for legibility:
 
@@ -32,15 +30,11 @@ The following example shows the output written to the log file by the Hello Worl
 }]
 ```
 
-<a id="code-snippets" class="xliff"></a>
-
-## Code snippets
+## <a name="code-snippets"></a>Code snippets
 
 This section discusses some key sections of the code in the hello\_world sample.
 
-<a id="iot-edge-gateway-creation" class="xliff"></a>
-
-### IoT Edge gateway creation
+### <a name="iot-edge-gateway-creation"></a>IoT Edge gateway creation
 
 You must implement a *gateway process*. This program creates the internal infrastructure (the broker), loads the IoT Edge modules, and configures the gateway process. IoT Edge provides the **Gateway\_Create\_From\_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway\_Create\_From\_JSON** function, pass it the path to a JSON file that specifies the IoT Edge modules to load.
 
@@ -121,9 +115,7 @@ The following code shows the JSON used to configure links between the modules us
 ]
 ```
 
-<a id="helloworld-module-message-publishing" class="xliff"></a>
-
-### Hello\_world module message publishing
+### <a name="helloworld-module-message-publishing"></a>Hello\_world module message publishing
 
 You can find the code used by the hello\_world module to publish messages in the ['hello_world.c'][lnk-helloworld-c] file. The following snippet shows an amended version of the code with comments added and some error handling code removed for legibility:
 
@@ -173,9 +165,7 @@ int helloWorldThread(void *param)
 }
 ```
 
-<a id="helloworld-module-message-processing" class="xliff"></a>
-
-### Hello\_world module message processing
+### <a name="helloworld-module-message-processing"></a>Hello\_world module message processing
 
 The hello\_world module never processes messages that other IoT Edge modules publish to the broker. Therefore, the implementation of the message callback in the hello\_world module is a no-op function.
 
@@ -186,9 +176,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 }
 ```
 
-<a id="logger-module-message-publishing-and-processing" class="xliff"></a>
-
-### Logger module message publishing and processing
+### <a name="logger-module-message-publishing-and-processing"></a>Logger module message publishing and processing
 
 The logger module receives messages from the broker and writes them to a file. It never publishes any messages. Therefore, the code of the logger module never calls the **Broker_Publish** function.
 
@@ -233,9 +221,7 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Next steps
+## <a name="next-steps"></a>Next steps
 
 In this article, you ran a simple IoT Edge gateway that writes messages to a log file. To run a sample that sends messages to IoT Hub, see [IoT Edge – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated-linux] or [IoT Edge – send device-to-cloud messages with a simulated device using Windows][lnk-gateway-simulated-windows].
 

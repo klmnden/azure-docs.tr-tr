@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal" class="xliff"></a>
-
-# Azure portalı kullanarak bir sanal ağa Noktadan Siteye bir bağlantı yapılandırma
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal"></a>Azure portalı kullanarak bir sanal ağa Noktadan Siteye bir bağlantı yapılandırma
 
 Bu makalede, Azure portalı kullanılarak Resource Manager dağıtım modelinde Noktadan Siteye bağlantı ile sanal ağ oluşturma işlemi gösterilmektedir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
@@ -87,9 +85,7 @@ Sanal ağınızı bir ağ geçidine bağlamadan önce, bağlamak istediğiniz sa
 
 Bu bölümdeki ekran görüntüleri örnek amaçlıdır. Ağ Geçidi Alt Ağı adres aralığına yapılandırmanız için gerekli olan değerleri girdiğinizden emin olun.
 
-<a id="to-create-a-gateway-subnet" class="xliff"></a>
-
-### Bir ağ geçidi alt ağı oluşturmak için
+### <a name="to-create-a-gateway-subnet"></a>Bir ağ geçidi alt ağı oluşturmak için
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
@@ -106,9 +102,7 @@ Noktadan siteye bağlantılar için şu ayarların yapılması gerekir:
 * Ağ geçidi türü: VPN
 * VPN türü: Rota tabanlı
 
-<a id="to-create-a-virtual-network-gateway" class="xliff"></a>
-
-### Bir sanal ağ geçidi oluşturmak için
+### <a name="to-create-a-virtual-network-gateway"></a>Bir sanal ağ geçidi oluşturmak için
 
 [!INCLUDE [create a vnet gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -156,9 +150,7 @@ Noktadan Siteye VPN kullanarak bir sanal ağa bağlanmak için her istemcinin ye
 
 Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayarda aynı VPN istemcisi yapılandırma paketini kullanabilirsiniz. Desteklenen istemci işletim sistemlerinin listesi için bu makalenin sonundaki [Noktadan Siteye bağlantılar hakkında SSS](#faq) bölümüne bakın.
 
-<a id="step-1---download-the-client-configuration-package" class="xliff"></a>
-
-### 1 Adım - İstemci yapılandırma paketini indirme
+### <a name="step-1---download-the-client-configuration-package"></a>1 Adım - İstemci yapılandırma paketini indirme
 
 1. **Noktadan siteye yapılandırma** dikey penceresinde **VPN istemcisini indir**’e tıklayarak **VPN istemcisini indir** dikey penceresini açın. Paketin oluşturulması birkaç dakika sürer.
 
@@ -167,9 +159,7 @@ Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayar
 
   ![VPN istemcisi indirme 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-<a id="step-2---install-the-client-configuration-package" class="xliff"></a>
-
-### 2. Adım: İstemci yapılandırma paketini yükleme
+### <a name="step-2---install-the-client-configuration-package"></a>2. Adım: İstemci yapılandırma paketini yükleme
 
 1. Yapılandırma dosyasını, sanal ağınıza bağlamak istediğiniz bilgisayara yerel olarak kopyalayın. 
 2. Paketi istemci bilgisayara yüklemek için .exe dosyasına çift tıklayın. Yapılandırma paketini siz oluşturduğunuz için paket imzalanmamıştır ve bir uyarı görebilirsiniz. Bir Windows SmartScreen açılır penceresi görürseniz **Daha fazla bilgi**’ye (solda) ve ardından **Yine de çalıştır**’a tıklayarak paketi yükleyin.
@@ -225,15 +215,11 @@ Bir sanal makineye P2S üzerinden bağlanırken sorun yaşıyorsanız, 'ipconfig
 
 Azure’da güvenilen kök sertifikayı ekleyebilir veya kaldırabilirsiniz. Bir kök sertifikayı kaldırdığınızda, o kökten oluşturulmuş bir sertifikaya sahip istemciler kimlik doğrulaması yapamaz ve bu nedenle bağlantı kuramaz. Bir istemcinin kimlik doğrulaması yapmasını ve bağlanmasını istiyorsanız, Azure’da güvenilen (karşıya yüklenmiş) bir kök sertifikadan oluşturulmuş yeni bir istemci sertifikası yüklemeniz gerekir.
 
-<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
-
-### Güvenilen kök sertifika ekleme
+### <a name="to-add-a-trusted-root-certificate"></a>Güvenilen kök sertifika ekleme
 
 Azure'a en fazla 20 güvenilen kök sertifika .cer dosyası ekleyebilirsiniz. Yönergeler için, bu makaledeki [Güvenilen bir kök sertifikayı karşıya yükleme](#uploadfile) bölümüne bakın.
 
-<a id="to-remove-a-trusted-root-certificate" class="xliff"></a>
-
-### Güvenilen kök sertifikayı kaldırmak için
+### <a name="to-remove-a-trusted-root-certificate"></a>Güvenilen kök sertifikayı kaldırmak için
 
 1. Güvenilen kök sertifikayı kaldırmak için, sanal ağ geçidinizin **Noktadan siteye yapılandırma** dikey penceresine gidin.
 2. Dikey pencerenin **Kök sertifika** bölümünde, kaldırmak istediğiniz sertifikayı bulun.
@@ -245,9 +231,7 @@ Azure'a en fazla 20 güvenilen kök sertifika .cer dosyası ekleyebilirsiniz. Y�
 
 Genellikle ekip ve kuruluş düzeylerinde erişimi yönetmek için kök sertifika kullanılırken ayrı kullanıcılar üzerinde ayrıntılı erişim denetimi için iptal edilen istemci sertifikaları kullanılır.
 
-<a id="to-revoke-a-client-certificate" class="xliff"></a>
-
-### İstemci sertifikasını iptal etme
+### <a name="to-revoke-a-client-certificate"></a>İstemci sertifikasını iptal etme
 
 Parmak izini iptal listesine ekleyerek bir istemci sertifikasını iptal edebilirsiniz.
 
@@ -263,8 +247,6 @@ Parmak izini iptal listesine ekleyerek bir istemci sertifikasını iptal edebili
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Ağ ve sanal makineler hakkında daha fazla bilgi edinmek için, bkz. [Azure ve Linux VM ağına genel bakış](../virtual-machines/linux/azure-vm-network-overview.md).
 

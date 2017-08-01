@@ -21,9 +21,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/21/2017
 
 ---
-<a id="azure-active-directory-for-developers" class="xliff"></a>
-
-# Geliştiriciler için Azure Active Directory
+# <a name="azure-active-directory-for-developers"></a>Geliştiriciler için Azure Active Directory
 Azure Active Directory, geliştiricilerin Microsoft tarafından desteklenen bir iş veya okul hesabına sahip herhangi bir kullanıcıya güvenli bir şekilde oturum açtırmasını sağlayan bir bulut kimlik hizmetidir.  Buradaki belgeler Azure AD’nin, sektör standardı kimlik doğrulama protokolleri olan OAuth ve OpenID Connect’i kullanarak uygulamanızı nasıl desteklediğini göstermektedir.
 
 | | |
@@ -31,9 +29,7 @@ Azure Active Directory, geliştiricilerin Microsoft tarafından desteklenen bir 
 |[Auth temel bilgileri](active-directory-authentication-scenarios.md) | Azure AD ile kimlik doğrulamaya giriş |
 |[Uygulama türleri](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Azure AD tarafından desteklenen kimlik doğrulama senaryolarına genel bakış |                                
                                                                               
-<a id="get-started" class="xliff"></a>
-
-## başlarken
+## <a name="get-started"></a>başlarken
 Bu kılavuzlu ayarlar, Azure Active Directory kullanıcılarının oturumunu açmak için kimlik doğrulama kitaplıklarımızı kullanma işleminde size yol gösterir.
 
 |  |  |  |  |
@@ -44,9 +40,7 @@ Bu kılavuzlu ayarlar, Azure Active Directory kullanıcılarının oturumunu aç
 | <center>![Web API'leri](./media/active-directory-developers-guide/Web_API.png)<br />Web API'leri</center> | [Genel Bakış](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[NodeJS](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
 | <center>![Hizmetten hizmete](./media/active-directory-developers-guide/Service_App.png)<br />Hizmetten hizmete</center> | [Genel Bakış](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[OAuth 2.0 İstemci Kimlik Bilgileri](active-directory-protocols-oauth-service-to-service.md) |  |
 
-<a id="guides" class="xliff"></a>
-
-## Kılavuzlar
+## <a name="guides"></a>Kılavuzlar
 Bu makaleler Azure Active Directory ile genel görevlerin nasıl gerçekleştirileceği konusunda bilgi verir.
 
 |                                                                           |  |
@@ -56,9 +50,7 @@ Bu makaleler Azure Active Directory ile genel görevlerin nasıl gerçekleştiri
 |[OAuth ve OpenID Connect](active-directory-protocols-openid-connect-code.md)| Modern kimlik doğrulama protokollerimizi kullanarak kullanıcıların oturumunu açma ve web API’lerini çağırma |
 |[Diğer kılavuzlar...](active-directory-developers-guide-index.md#guides)        |     |
 
-<a id="reference" class="xliff"></a>
-
-## Başvuru
+## <a name="reference"></a>Başvuru
 Bu makaleler, Azure Active Directory’de kullanılan API'ler, protokol iletileri ve terimler hakkında ayrıntılı bilgi sağlar.
 
 |                                                                                   | |
@@ -68,9 +60,7 @@ Bu makaleler, Azure Active Directory’de kullanılan API'ler, protokol iletiler
 | [Sözlük](active-directory-dev-glossary.md)                                      | Bu belgede kullanılan terminoloji ve sözcük tanımları |
 | [Diğer başvuru kaynakları...](active-directory-developers-guide-index.md#reference)|     |
 
-<a id="help--support" class="xliff"></a>
-
-## Yardım ve Destek
+## <a name="help--support"></a>Yardım ve Destek
 Azure Active Directory’de geliştirme konusunda yardım almak için en iyi yerler bunlardır.
 
 |  |  

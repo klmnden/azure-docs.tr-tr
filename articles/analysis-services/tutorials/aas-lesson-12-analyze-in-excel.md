@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-12-analyze-in-excel" class="xliff"></a>
-
-# 12. Ders: Excel’de çözümleme
+# <a name="lesson-12-analyze-in-excel"></a>12. Ders: Excel’de çözümleme
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -34,19 +32,13 @@ Bu dersi tamamlamak için Excel’in SSDT ile aynı bilgisayarda yüklü olması
   
 Bu dersi tamamlamak için tahmini süre: **Beş dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [11. Ders: Rol oluşturma](../tutorials/aas-lesson-11-create-roles.md).  
   
-<a id="browse-using-the-default-and-internet-sales-perspectives" class="xliff"></a>
-
-## Varsayılan ve İnternet Satışları perspektiflerini kullanarak göz atma  
+## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Varsayılan ve İnternet Satışları perspektiflerini kullanarak göz atma  
 Bu ilk görevlerde, tüm model nesnelerinizi içeren varsayılan perspektifi ve daha önceki İnternet Satışları perspektifini kullanarak modelinize göz atacaksınız. İnternet Satışları perspektifi, Müşteri tablo nesnesini içermez.  
   
-<a id="to-browse-by-using-the-default-perspective" class="xliff"></a>
-
-#### Varsayılan perspektifi kullanarak göz atmak için  
+#### <a name="to-browse-by-using-the-default-perspective"></a>Varsayılan perspektifi kullanarak göz atmak için  
   
 1.  **Model** menüsü > **Excel'de çözümleme** öğesine tıklayın.  
   
@@ -58,9 +50,7 @@ Bu ilk görevlerde, tüm model nesnelerinizi içeren varsayılan perspektifi ve 
   
 4.  Çalışma kitabını kaydetmeden Excel’i kapatın.  
   
-<a id="to-browse-by-using-the-internet-sales-perspective" class="xliff"></a>
-
-#### İnternet Satışları perspektifini kullanarak göz atmak için  
+#### <a name="to-browse-by-using-the-internet-sales-perspective"></a>İnternet Satışları perspektifini kullanarak göz atmak için  
   
 1.  **Model** menüsüne ve ardından **Excel'de çözümleme** öğesine tıklayın.  
   
@@ -74,14 +64,10 @@ Bu ilk görevlerde, tüm model nesnelerinizi içeren varsayılan perspektifi ve 
     
 4.  Çalışma kitabını kaydetmeden Excel’i kapatın.  
   
-<a id="browse-by-using-roles" class="xliff"></a>
-
-## Rolleri kullanarak göz atma  
+## <a name="browse-by-using-roles"></a>Rolleri kullanarak göz atma  
 Roller herhangi bir tablo modelinin önemli bir parçasıdır. Kullanıcıların üye olarak eklendiği en az bir rol olmadan kullanıcılar, modelinizi kullanarak verilere erişemez ve verileri çözümleyemez. Excel’de çözümleme özelliği, tanımladığınız rolleri test etmenizin bir yolunu sağlar.  
   
-<a id="to-browse-by-using-the-sales-manager-user-role" class="xliff"></a>
-
-#### Satış Yöneticisi kullanıcı rolünü kullanarak göz atmak için  
+#### <a name="to-browse-by-using-the-sales-manager-user-role"></a>Satış Yöneticisi kullanıcı rolünü kullanarak göz atmak için  
   
 1.  SSDT’de **Model** menüsüne ve ardından **Excel'de çözümleme** öğesine tıklayın.  
   
@@ -91,9 +77,7 @@ Roller herhangi bir tablo modelinin önemli bir parçasıdır. Kullanıcıların
       
 3.  Çalışma kitabını kaydetmeden Excel’i kapatın.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Sırada ne var?
+## <a name="whats-next"></a>Sırada ne var?
 Sonraki derse gidin: [13. Ders: Dağıtma](../tutorials/aas-lesson-13-deploy.md).
 
   

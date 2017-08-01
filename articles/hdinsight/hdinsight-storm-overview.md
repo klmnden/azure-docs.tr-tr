@@ -25,9 +25,7 @@ ms.lasthandoff: 06/09/2017
 
 
 ---
-<a id="what-is-apache-storm-on-azure-hdinsight" class="xliff"></a>
-
-# Azure HDInsight’ta Apache Storm nedir?
+# <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight’ta Apache Storm nedir?
 
 [Apache Storm](http://storm.apache.org/); dağıtılmış, hataya dayanıklı, açık kaynaklı bir hesaplama sistemidir. Bir Storm kümesini kullanarak veri akışlarını Hadoop ile gerçek zamanlı olarak işleyebilirsiniz. Storm çözümleri ayrıca ilk seferde başarılı bir şekilde işlenmemiş verileri yeniden yürütme özelliğiyle birlikte verilerin garantili işlenmesini sağlayabilir.
 
@@ -63,9 +61,7 @@ Gerçek zamanlı analiz çözümleri için Apache Storm kullanan şirketlerin li
 
 Storm kullanmaya başlamak için bkz. [HDInsight Üzerinde Storm ile çalışmaya başlama][gettingstarted].
 
-<a id="how-does-storm-work" class="xliff"></a>
-
-## Storm nasıl çalışır?
+## <a name="how-does-storm-work"></a>Storm nasıl çalışır?
 
 Storm, alışkın olabileceğiniz MapReduce işlerinin yerine topolojiler çalıştırır. Storm topolojileri döngüsel olmayan yönlü grafikte (DAG) düzenlenmiş birden fazla bileşenden oluşur. Veriler grafikteki bileşenler arasında akar. Her bileşen bir veya daha fazla veri akışı kullanır ve isteğe bağlı olarak bir veya daha fazla akış yayar. Aşağıdaki diyagram, temel bir sözcük sayısı topolojisindeki bileşenler arasında verilerin nasıl aktığını gösterir:
 
@@ -75,15 +71,11 @@ Storm, alışkın olabileceğiniz MapReduce işlerinin yerine topolojiler çalı
 
 * Bolt bileşenleri, spout veya diğer boltlardan yayılan akışları kullanır. Boltlar topolojiye isteğe bağlı olarak akışlar yayabilir. Boltlar ayrıca HDFS, Kafka veya HBase gibi dış hizmetlere veya depolama alanlarına veri yazmaktan sorumludur.
 
-<a id="ease-of-creation" class="xliff"></a>
-
-## Oluşturma kolaylığı
+## <a name="ease-of-creation"></a>Oluşturma kolaylığı
 
 HDInsight üzerinde dakikalar için yeni bir Storm kümesi sağlayabilirsiniz. Storm kümesi oluşturma hakkında daha fazla bilgi için bkz. [HDInsight’ta Storm kullanmaya başlama](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
-<a id="ease-of-use" class="xliff"></a>
-
-## Kullanım kolaylığı
+## <a name="ease-of-use"></a>Kullanım kolaylığı
 
 * __Secure Shell (SSH) bağlantısı__: Storm kümenizin baş düğümlerine İnternet üzerinden SSH kullanarak erişebilirsiniz. SSH kullanarak komutları doğrudan kümeniz üzerinde çalıştırabilirsiniz.
 
@@ -99,9 +91,7 @@ HDInsight üzerinde dakikalar için yeni bir Storm kümesi sağlayabilirsiniz. S
 
   Daha fazla bilgi için bkz. [Visual Studio için HDInsight Araçlarıyla C# Storm topolojileri geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-<a id="integration-with-other-azure-services" class="xliff"></a>
-
-## Diğer Azure hizmetleriyle tümleştirme
+## <a name="integration-with-other-azure-services"></a>Diğer Azure hizmetleriyle tümleştirme
 
 * __Azure Data Lake Store__: Data Lake Store’u bir Storm kümesi ile kullanmaya ilişkin örnek için bkz. [HDInsight’ta Azure Data Lake Store ile Apache Storm kullanma](hdinsight-storm-write-data-lake-store.md).
 
@@ -113,9 +103,7 @@ HDInsight üzerinde dakikalar için yeni bir Storm kümesi sağlayabilirsiniz. S
 
 * __SQL Veritabanı__, __Cosmos DB__, __Event Hubs__ ve __HBase__: Visual Studio için Data Lake Araçlarına şablon örnekleri eklenmiştir. Daha fazla bilgi için bkz. [HDInsight'ta Storm için C# topolojisi geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-<a id="reliability" class="xliff"></a>
-
-## Güvenilirlik
+## <a name="reliability"></a>Güvenilirlik
 
 Apache Storm, veri analizi yüzlerce düğüme dağıldığında bile tüm gelen iletilerin her zaman tamamen işleneceğini garanti eder.
 
@@ -125,26 +113,20 @@ Apache Storm kümeleri için varsayılan yapılandırma yalnızca bir Nimbus dü
 
 ![Nimbus, zookeeper ve supervisor diyagramı](./media/hdinsight-storm-overview/nimbus.png)
 
-<a id="scale" class="xliff"></a>
-
-## Ölçek
+## <a name="scale"></a>Ölçek
 
 Çalışan düğümleri ekleyerek veya kaldırarak HDInsight kümeleri ölçeklendirilebilir. Bu işlem, veriler işlenirken gerçekleştirilebilir.
 
 > [!IMPORTANT]
 > Ölçeklendirme aracılığıyla eklenen yeni düğümlerden yararlanmak için küme boyutu artırılmadan önce Storm topolojilerini yeniden dengelemeniz gerekir.
 
-<a id="support" class="xliff"></a>
-
-## Destek
+## <a name="support"></a>Destek
 
 HDInsight üzerinde Storm kurumsal düzeyde kesintisiz tam destek ile birlikte gelir. HDInsight üzerinde Storm ayrıca yüzde 99,9 SLA’ya sahiptir. Diğer bir deyişle Storm kümesinin, sürenin en az yüzde 99,9’unda dış bağlantıya sahip olacağı garanti edilir.
 
 Daha fazla bilgi için bkz. [Azure desteği](https://azure.microsoft.com/support/options/).
 
-<a id="apache-storm-use-cases" class="xliff"></a>
-
-## Apache Storm kullanım örnekleri
+## <a name="apache-storm-use-cases"></a>Apache Storm kullanım örnekleri
 
 HDInsight üzerinde Storm kullanabileceğiniz bazı yaygın senaryolar aşağıda verilmiştir:
 
@@ -158,9 +140,7 @@ HDInsight üzerinde Storm kullanabileceğiniz bazı yaygın senaryolar aşağıd
 
 Gerçek senaryolar hakkında daha fazla bilgi için [Şirketler Storm’u nasıl kullanıyor?](https://storm.apache.org/documentation/Powered-By.html) belgesine bakın.
 
-<a id="development" class="xliff"></a>
-
-## Geliştirme
+## <a name="development"></a>Geliştirme
 
 .NET geliştiricileri, Visual Studio için Data Lake Araçları kullanarak C# dilinde topolojiler tasarlayıp uygulayabilir. Ayrıca Java ve C# bileşenlerini kullanan karma topolojiler de oluşturabilirsiniz.
 
@@ -170,27 +150,19 @@ Ayrıca seçtiğiniz IDE’yi kullanarak Java çözümleri geliştirebilirsiniz.
 
 Storm bileşenleri geliştirmek için Python da kullanılabilir. Daha fazla bilgi için bkz. [HDInsight’ta Python kullanarak Storm topolojileri geliştirme](hdinsight-storm-develop-python-topology.md).
 
-<a id="common-development-patterns" class="xliff"></a>
+## <a name="common-development-patterns"></a>Yaygın geliştirme desenleri
 
-## Yaygın geliştirme desenleri
-
-<a id="guaranteed-message-processing" class="xliff"></a>
-
-### Garantili ileti işleme
+### <a name="guaranteed-message-processing"></a>Garantili ileti işleme
 
 Apache Storm farklı düzeylerde garantili ileti işleme sağlayabilir. Örneğin, temel bir Storm uygulaması en az bir kez işlemeyi, Trident ise tam bir kez işlemeyi garanti edebilir.
 
 Daha fazla bilgi için apache.org sayfasındaki [Veri işleme garantileri](https://storm.apache.org/about/guarantees-data-processing.html) bölümüne bakın.
 
-<a id="ibasicbolt" class="xliff"></a>
-
-### IBasicBolt
+### <a name="ibasicbolt"></a>IBasicBolt
 
 Bir girdi tanımlama grubunu okuma, sıfır veya daha fazla tanımlama grubu yayma ve yürütme yönteminin hemen sonrasında girdi tanımlama grubunu onaylama deseni yaygındır. Storm bu deseni otomatik hale getirmek için [IBasicBolt](https://storm.apache.org/releases/1.0.3/javadocs/org/apache/storm/topology/IBasicBolt.html) arabirimini kullanır.
 
-<a id="joins" class="xliff"></a>
-
-### Birleştirme
+### <a name="joins"></a>Birleştirme
 
 Uygulamalar arasına veri akışları nasıl katılır? Örneğin, yeni birden fazla akıştaki her bir tanımlama grubunu yeni bir akışta birleştirebilir veya yalnızca toplu tanımlama gruplarını belirli bir pencere için birleştirebilirsiniz. Her iki durumda da katılım, [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) kullanılarak gerçekleştirilebilir. Alan gruplandırma, tanımlama gruplarının boltlara nasıl yönlendirileceğini tanımlamanın bir yoludur.
 
@@ -198,39 +170,29 @@ Aşağıdaki Java örneğinde fieldsGrouping, "1", "2" ve "3" bileşenlerinden k
 
     builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
 
-<a id="batches" class="xliff"></a>
-
-### Toplu işler
+### <a name="batches"></a>Toplu işler
 
 Apache Storm "değer çizgisi tanımlama grubu" olarak bilinen bir iç zamanlama mekanizmasını sağlar. Değer çizgisi tanımlama grubunun topolojiniz içinde ne sıklıkta yayıldığını ayarlayabilirsiniz.
 
 Bir C# bileşeninden değer çizgisi tanımlama grubu kullanımı örneği için bkz. [PartialBoltCount.cs](https://github.com/hdinsight/hdinsight-storm-examples/blob/3b2c960549cac122e8874931df4801f0934fffa7/EventCountExample/EventCountTopology/src/main/java/com/microsoft/hdinsight/storm/examples/PartialCountBolt.java).
 
-<a id="caches" class="xliff"></a>
-
-### Caches
+### <a name="caches"></a>Caches
 
 Bellek içi önbelleğe alma, sık kullanılan varlıkları bellekte tuttuğu için çoğunlukla işlemeyi hızlandırmaya yönelik bir mekanizma olarak kullanılır. Bir topoloji birden fazla düğüme ve her bir düğüm içindeki birden fazla işleme dağıtıldığı için, [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) kullanmayı düşünmeniz gerekir. Önbellek araması için kullanılan alanları içeren tanımlama gruplarının her zaman aynı işleme yönlendirildiğinden emin olmak için `fieldsGrouping` kullanın. Bu gruplandırma işlevi, süreçler arasında önbellek girişlerinin yinelenmesini önler.
 
-<a id="stream-top-n" class="xliff"></a>
-
-### "İlk N" akış
+### <a name="stream-top-n"></a>"İlk N" akış
 
 Topolojiniz bir "ilk N" değeri hesaplamaya bağlıysa, ilk N değeri paralel olarak hesaplayın. Ardından bu hesaplamaların çıktısını genel bir değerde birleştirmeniz gerekir. Bu işlem, alanı paralel işleme için yönlendirmek üzere [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) kullanılarak yapılabilir. Ardından, ilk n değerini genel olarak belirleyen bir bolta yönlendirebilirsiniz.
 
 İlk N değeri hesaplama örneği için [RollingTopWords](https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/RollingTopWords.java) örneğine bakın.
 
-<a id="logging" class="xliff"></a>
-
-## Günlüğe kaydetme
+## <a name="logging"></a>Günlüğe kaydetme
 
 Storm bilgileri günlüğe kaydetmek için Apache Log4j kullanır. Varsayılan olarak, büyük miktarlarda veriler günlüğe kaydedilir ve bilgilerin sıralanması zor olabilir. Günlüğe kaydetme davranışını denetlemek üzere Storm topolojinizin bir parçası olarak günlük yapılandırma dosyası ekleyebilirsiniz.
 
 Günlüğün nasıl yapılandırılacağını gösteren örnek bir topoloji için HDInsight üzerinde Storm için [Java tabanlı WordCount](hdinsight-storm-develop-java-topology.md) örneğine bakın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 HDInsight üzerinde Storm ile gerçek zamanlı analiz çözümleri hakkında daha fazla bilgi edinin:
 

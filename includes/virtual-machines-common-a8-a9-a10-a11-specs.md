@@ -1,7 +1,6 @@
 
 
-## Deployment considerations
-<a id="deployment-considerations" class="xliff"></a>
+## <a name="deployment-considerations"></a>Deployment considerations
 * **Azure subscription** – To deploy more than a few compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 
 * **Pricing and availability** - These VM sizes are offered only in the Standard pricing tier. Check [Products available by region] (https://azure.microsoft.com/regions/services/) for availability in Azure regions. 

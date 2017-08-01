@@ -23,8 +23,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 07/08/2017
 
 ---
-#Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm ile çalışmaya başlama
-<a id="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples" class="xliff"></a>
+#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm ile çalışmaya başlama
 
 Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm'u kullanmayı öğrenin.
 
@@ -33,8 +32,7 @@ Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya da
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## Ön koşullar
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Ön koşullar
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -42,8 +40,7 @@ Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya da
 
 * **SSH ve SCP hakkında bilgi**. Bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## Storm kümesi oluşturma
-<a id="create-a-storm-cluster" class="xliff"></a>
+## <a name="create-a-storm-cluster"></a>Storm kümesi oluşturma
 
 HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
@@ -89,8 +86,7 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
     > [!NOTE]
     > Kümenin oluşturulması 20 dakika sürebilir.
 
-## HDInsight'ta bir storm-starter örneği çalıştırma
-<a id="run-a-storm-starter-sample-on-hdinsight" class="xliff"></a>
+## <a name="run-a-storm-starter-sample-on-hdinsight"></a>HDInsight'ta bir storm-starter örneği çalıştırma
 
 1. SSH kullanarak HDInsight kümesine bağlanma:
 
@@ -116,8 +112,7 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
 Storm-starter örneklerinin kaynağını görüntülemek isterseniz kodu [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter) adresinde bulabilirsiniz. Bu bağlantı, HDInsight 3.5 ile birlikte sağlanan Storm 1.0.x içindir. Diğer Storm sürümleri için sayfanın üstündeki __Dal__ düğmesini kullanarak farklı bir Storm sürümü seçin.
 
-## Topolojiyi izleme
-<a id="monitor-the-topology" class="xliff"></a>
+## <a name="monitor-the-topology"></a>Topolojiyi izleme
 
 Storm Kullanıcı Arabirimi çalışan topolojilerle çalışmaya yönelik bir web arabirimi sağlar ve HDInsight kümenize dahil edilir.
 
@@ -187,13 +182,11 @@ Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki a
 
     Bu örnekte **seven** kelimesi 1493957 kez geçmiştir. Bu sayı, bu topoloji başlatıldığından beri kelimeyle kaç kez karşılaşıldığını gösterir.
 
-## Topolojiyi durdurma
-<a id="stop-the-topology" class="xliff"></a>
+## <a name="stop-the-topology"></a>Topolojiyi durdurma
 
 Word-count topolojisi için **Topoloji özeti** sayfasına geri dönün ve ardından **Topoloji eylemleri** bölümünden **Sonlandır** düğmesini seçin. İstendiğinde, topolojiyi durdurmadan önce beklenecek saniye sayısı için 10 girin. Zaman aşımı süresinden sonra panonun **Storm Kullanıcı Arabirimi** bölümünü ziyaret ettiğinizde topoloji bir daha görünmez.
 
-## Küme silme
-<a id="delete-the-cluster" class="xliff"></a>
+## <a name="delete-the-cluster"></a>Küme silme
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

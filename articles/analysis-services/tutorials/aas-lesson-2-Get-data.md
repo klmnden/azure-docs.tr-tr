@@ -23,9 +23,7 @@ ms.lasthandoff: 06/03/2017
 
 ---
 
-<a id="lesson-2-get-data" class="xliff"></a>
-
-# 2. Ders: Verileri alma
+# <a name="lesson-2-get-data"></a>2. Ders: Verileri alma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -35,18 +33,12 @@ Verileri Al’ı kullanarak birçok farklı kaynaktaki verileri içeri aktarabil
   
 Bu dersin tahmini tamamlanma süresi: **10 dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [1. Ders: Yeni tablosal model projesi oluşturma](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
-<a id="create-a-connection" class="xliff"></a>
-
-## Bağlantı oluşturma  
+## <a name="create-a-connection"></a>Bağlantı oluşturma  
   
-<a id="to-create-a-connection-to-the-adventureworksdw2014-database" class="xliff"></a>
-
-#### AdventureWorksDW2014 veritabanına bir bağlantı oluşturmak için  
+#### <a name="to-create-a-connection-to-the-adventureworksdw2014-database"></a>AdventureWorksDW2014 veritabanına bir bağlantı oluşturmak için  
   
 1.  Tablosal Model Gezgini'nde **Veri Kaynakları** > **Veri Kaynağından İçeri Aktar**’a sağ tıklayın.  
   
@@ -74,14 +66,10 @@ Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin b
 Tamam'a tıkladığınızda Sorgu Düzenleyicisi açılır. Sonraki bölümde yalnızca içeri aktarmak istediğiniz verileri seçersiniz.
 
   
-<a id="filter-the-table-data" class="xliff"></a>
-
-## Tablo verilerini filtreleme  
+## <a name="filter-the-table-data"></a>Tablo verilerini filtreleme  
 AdventureWorksDW2014 örnek veritabanındaki tablolar, modelinize eklenmesi gerekmeyen veriler içeriyor. Modelin kullandığı bellek içi alandan tasarruf etmek için gereksiz verileri mümkün olduğunca filtrelemek istersiniz. Tablolardaki bazı sütunların çalışma alanı veritabanında ya da oluşturulduktan sonra model veritabanında içeri aktarılmaması için bu sütunları filtrelersiniz. 
   
-<a id="to-filter-the-table-data-before-importing" class="xliff"></a>
-
-#### İçeri aktarmadan önce tablo verilerini filtrelemek için  
+#### <a name="to-filter-the-table-data-before-importing"></a>İçeri aktarmadan önce tablo verilerini filtrelemek için  
   
 1.  Sorgu Düzenleyicisi’nde **DimCustomer** tablosunu seçin. Veri kaynağında (AdventureWorksDWQ2014 örnek veritabanınız) DimCustomer tablosunun bir görünümü açılır. 
   
@@ -151,9 +139,7 @@ AdventureWorksDW2014 örnek veritabanındaki tablolar, modelinize eklenmesi gere
 ## <a name="Import"></a>Seçilen tabloları ve sütun verilerini içeri aktarma  
 Gereksiz verilerin önizlemesini yapıp bunları filtrelediğinize göre, artık geriye kalan ve istediğiniz verileri içeri aktarabilirsiniz. Sihirbaz, tablo verilerinin yanı sıra varsa tablolar arasındaki ilişkileri içeri aktarır. Modelde yeni tablolar ile sütunlar oluşturulur ve filtrelediğiniz veriler içeri aktarılmaz.  
   
-<a id="to-import-the-selected-tables-and-column-data" class="xliff"></a>
-
-#### Seçilen tabloları ve sütun verilerini içeri aktarmak için  
+#### <a name="to-import-the-selected-tables-and-column-data"></a>Seçilen tabloları ve sütun verilerini içeri aktarmak için  
   
 1.  Seçimlerinizi gözden geçirin. Her şey yolundaysa **İçeri Aktar**’a tıklayın. Veri İşleme iletişim kutusu, veri kaynağınızdan çalışma alanı veritabanınıza aktarılmakta olan verilerin durumunu gösterir.
   
@@ -162,20 +148,14 @@ Gereksiz verilerin önizlemesini yapıp bunları filtrelediğinize göre, artık
 2.  **Kapat**’a tıklayın.  
 
   
-<a id="save-your-model-project" class="xliff"></a>
-
-## Model projenizi kaydetme  
+## <a name="save-your-model-project"></a>Model projenizi kaydetme  
 Model projenizi sık sık kaydetmeniz önemlidir.  
   
-<a id="to-save-the-model-project" class="xliff"></a>
-
-#### Model projesini kaydetmek için  
+#### <a name="to-save-the-model-project"></a>Model projesini kaydetmek için  
   
 -   **Dosya** > **Tümünü Kaydet**’e tıklayın.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Sırada ne var?
+## <a name="whats-next"></a>Sırada ne var?
 [3. Ders: Tarih Tablosu Olarak İşaretleme](../tutorials/aas-lesson-3-mark-as-date-table.md).
 
   

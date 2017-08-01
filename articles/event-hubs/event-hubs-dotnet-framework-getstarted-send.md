@@ -22,13 +22,9 @@ ms.lasthandoff: 06/14/2017
 
 
 ---
-<a id="send-events-to-azure-event-hubs-using-the-net-framework" class="xliff"></a>
+# <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>.NET Framework kullanarak olayları Azure Event Hubs’a gönderme
 
-# .NET Framework kullanarak olayları Azure Event Hubs’a gönderme
-
-<a id="introduction" class="xliff"></a>
-
-## Giriş
+## <a name="introduction"></a>Giriş
 
 Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
 
@@ -39,15 +35,11 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız ger
 * [Microsoft Visual Studio 2015 veya üzeri](http://visualstudio.com). Bu öğreticideki ekran görüntülerinde Visual Studio 2017 kullanılır.
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/free/).
 
-<a id="create-an-event-hubs-namespace-and-an-event-hub" class="xliff"></a>
-
-## Event Hubs ad alanı ve bir olay hub’ı oluşturma
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
 
 İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı uygulayın, ardından bu öğreticide yer alan aşağıdaki adımlarla devam edin.
 
-<a id="create-a-sender-console-application" class="xliff"></a>
-
-## Gönderen konsol uygulaması oluşturma
+## <a name="create-a-sender-console-application"></a>Gönderen konsol uygulaması oluşturma
 
 Bu bölümde, olay hub'ınıza olayları gönderen Windows konsol uygulamasını yazacaksınız.
 
@@ -111,9 +103,7 @@ Bu bölümde, olay hub'ınıza olayları gönderen Windows konsol uygulamasını
   
 Tebrikler! Bir olay hub'ına ileti gönderdiniz.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Olay hub'ını oluşturan ve veri gönderen bir çalışan uygulama oluşturduğunuza göre aşağıdaki senaryolara geçebilirsiniz:
 
 * [Olay İşlemcisi Konağı kullanarak olay alma](event-hubs-dotnet-framework-getstarted-receive-eph.md)

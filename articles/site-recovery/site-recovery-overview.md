@@ -22,15 +22,11 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="what-is-site-recovery" class="xliff"></a>
-
-# Site Recovery nedir?
+# <a name="what-is-site-recovery"></a>Site Recovery nedir?
 
 Azure Site Recovery hizmetine hoş geldiniz! Bu makalede hizmet, genel hatlarıyla kısaca ele alınmaktadır.
 
-<a id="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services" class="xliff"></a>
-
-## Azure Kurtarma Hizmetleri ile iş sürekliliği ve olağanüstü durum kurtarma (BDCR)
+## <a name="business-continuity-and-disaster-recovery-bdcr-with-azure-recovery-services"></a>Azure Kurtarma Hizmetleri ile iş sürekliliği ve olağanüstü durum kurtarma (BDCR)
 
 Bir kuruluş olarak, planlı veya plansız kesintiler sırasında verilerinizi güvenli, uygulamaları/iş yüklerini ise çalışır halde tutmak için bir yol bulmanız gerekir.
 
@@ -45,9 +41,7 @@ Site Recovery, şunlar için çoğaltmayı yönetebilir:
 - Azure’a veya ikincil bir siteye çoğaltılan şirket içi sanal makineler ve fiziksel sunucular.
 
 
-<a id="what-does-site-recovery-provide" class="xliff"></a>
-
-## Site Recovery ne sağlar?
+## <a name="what-does-site-recovery-provide"></a>Site Recovery ne sağlar?
 
 **Özellik** | **Ayrıntılar**
 --- | ---
@@ -66,9 +60,7 @@ Site Recovery, şunlar için çoğaltmayı yönetebilir:
 **Ağ ayarlarını yönetin** | Site Recovery, Azure ile tümleşerek IP adresleri ayırma, yük dengeleyicileri yapılandırma ve etkili ağ değişimleri için Azure Traffic Manager ile tümleştirme dahil olmak üzere uygulama ağ gereksinimlerini basitleştirir.
 
 
-<a id="what-can-i-replicate" class="xliff"></a>
-
-## Neleri çoğaltabilirim?
+## <a name="what-can-i-replicate"></a>Neleri çoğaltabilirim?
 
 **Destekleniyor** | **Ayrıntılar**
 --- | ---
@@ -79,17 +71,13 @@ Site Recovery, şunlar için çoğaltmayı yönetebilir:
 **Hangi iş yüklerini çoğaltabilirim?** | Desteklenen bir çoğaltma makinesinde çalışan tüm iş yüklerini çoğaltabilirsiniz. Ayrıca, Site Recovery ekibi [çeşitli uygulamalar](site-recovery-workload.md#workload-summary) için uygulamaya özgü testler gerçekleştirdi.
 
 
-<a id="azure-portal-considerations" class="xliff"></a>
-
-## Azure portalı hakkında dikkat edilmesi gerekenler
+## <a name="azure-portal-considerations"></a>Azure portalı hakkında dikkat edilmesi gerekenler
 
 * Site Recovery [Azure portalında](https://portal.azure.com) dağıtılabilir.
 * Klasik Azure portalında, klasik hizmet yönetim modeliyle Site Recovery’yi yönetebilirsiniz.
 - Klasik portal yalnızca var olan Site Recovery dağıtımlarının bakımını yapmak için kullanılmalıdır. Klasik portalda yeni kasalar oluşturamazsınız.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [İş yükü desteği](site-recovery-workload.md) hakkında daha fazla bilgi edinin
 * [Bölgeler arasında Azure VM çoğaltma](site-recovery-azure-to-azure.md), [Azure’a VMware çoğaltma](vmware-walkthrough-overview.md) veya [Azure’a Hyper-V çoğaltma](hyper-v-site-walkthrough-overview.md) işlemlerini gerçekleştirmeye başlayın.
 

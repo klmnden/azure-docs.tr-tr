@@ -23,17 +23,13 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal" class="xliff"></a>
-
-# Azure Cosmos DB: Java ve Azure portalı ile bir DocumentDB API uygulaması derleme
+# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalı ile bir DocumentDB API uygulaması derleme
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
 Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından [DocumentDB Java API'si](documentdb-sdk-java.md) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 * Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
    * JDK 1.7+ (JDK yoksa `apt-get install default-jdk` komutunu çalıştırın)
@@ -41,21 +37,15 @@ Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-a-database-account" class="xliff"></a>
-
-## Veritabanı hesabı oluşturma
+## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="add-a-collection" class="xliff"></a>
-
-## Koleksiyon ekleme
+## <a name="add-a-collection"></a>Koleksiyon ekleme
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## Örnek uygulamayı kopyalama
+## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
 Şimdi GitHub'dan bir DocumentDB API uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu görüyorsunuz. 
 
@@ -67,9 +57,7 @@ Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
-<a id="review-the-code" class="xliff"></a>
-
-## Kodu gözden geçirin
+## <a name="review-the-code"></a>Kodu gözden geçirin
 
 Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `Program.java` dosyasını açın ve Azure Cosmos DB kaynaklarını oluşturan bu kod satırlarını bulun. 
 
@@ -138,9 +126,7 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `Program.java`
     }
     ```    
 
-<a id="update-your-connection-string" class="xliff"></a>
-
-## Bağlantı dizenizi güncelleştirme
+## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
 
@@ -156,9 +142,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 4. Ardından, portaldan BİRİNCİL ANAHTAR değerinizi kopyalayın ve "FILL ME" ikinci parametresini "Program.java" içindeki DocumentClient oluşturucusunda yer alan anahtarla değiştirin. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
     
-<a id="run-the-app" class="xliff"></a>
-
-## Uygulamayı çalıştırma
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
 1. Gerekli Java paketlerini yüklemek için bir terminalde `mvn package` çalıştırın.
 
@@ -166,24 +150,18 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 Şimdi Veri Gezgini'ne dönüp bu yeni verileri görebilir, sorgulayabilir, değiştirebilir ve onlarla çalışabilirsiniz. 
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Azure portalında SLA'ları gözden geçirme
+## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin:
 
 1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
 2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak koleksiyon oluşturmayı ve bir uygulamayı çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
 

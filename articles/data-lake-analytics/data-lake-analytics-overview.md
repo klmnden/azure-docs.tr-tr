@@ -22,17 +22,11 @@ ms.lasthandoff: 06/26/2017
 
 
 ---
-<a id="overview-of-microsoft-azure-data-lake-analytics" class="xliff"></a>
-
-# Microsoft Azure Data Lake Analytics'e genel bakış
-<a id="what-is-azure-data-lake-analytics" class="xliff"></a>
-
-## Azure Data Lake Analytics nedir?
+# <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Microsoft Azure Data Lake Analytics'e genel bakış
+## <a name="what-is-azure-data-lake-analytics"></a>Azure Data Lake Analytics nedir?
 Azure Data Lake Analytics, büyük veri analizini kolaylaştırmaya yönelik, isteğe bağlı bir analiz işi hizmetidir. Dağıtılan altyapıyı işletmek yerine iş yazma, çalıştırma ve yönetme işlemlerine odaklanabilirsiniz. Donanım dağıtma, yapılandırma ve ayarlama işlemleri yerine, verilerinizi dönüştürmek ve değerli öngörüleri ayıklamak için sorgular yazarsınız. Analiz hizmeti sadece ne kadar güce ihtiyacınız olduğunu ayarlayarak her ölçekteki işin üstesinden gelmenizi sağlar. Yalnızca işiniz çalıştırıldığında ücret ödersiniz; bu da hizmeti uygun maliyetli kılar. Analiz hizmeti Azure Active Directory desteği sunarak şirket içi kimlik sisteminizde tümleşik olan erişimi ve rolleri kolayca yönetmenize olanak tanır. Ayrıca, SQL'in avantajlarını kullanıcı kodunun ifade gücüyle birleştiren bir dil olan U-SQL'yi de içerir. U-SQL’in ölçeklenebilir dağıtılmış çalışma zamanı depodaki ve Azure, Azure SQL Veritabanı ve Azure SQL Veri Ambarı kapsamındaki verileri verimli bir şekilde analiz etmenizi sağlar.
 
-<a id="key-capabilities" class="xliff"></a>
-
-## Temel işlevler
+## <a name="key-capabilities"></a>Temel işlevler
 * **Dinamik ölçeklendirme**
   
     Data Lake Analytics, bulut ölçeği ve performans için geliştirilmiştir.  Kaynakları dinamik olarak sağlar ve terabayt ve hatta eksabayt boyutlarındaki veriler üzerinde analiz gerçekleştirmenize olanak tanır. İş tamamlandığında, kaynakları otomatik olarak kapatır ve yalnızca kullanılan işlemci gücü için ücret ödersiniz. Depolanan verilerin veya kullanılan işlem kaynaklarının boyutunu artırdıkça veya azalttıkça yeniden kod yazmanız gerekmez. Yalnızca iş mantığınıza odaklanabilir ve odağınızı büyük veri kümelerini nasıl işleyeceğinize ve depolayacağınıza çevirebilirsiniz.
@@ -52,9 +46,7 @@ Azure Data Lake Analytics, büyük veri analizini kolaylaştırmaya yönelik, is
   
     Azure Data Lake ile çalışmak üzere en iyi hale getirilmiş Data Lake Analytics, büyük veri iş yükleriniz için en yüksek performans, çıktı ve paralelleştirme düzeyi sunar.  Data Lake Analytics ayrıca Azure Blob Depolama ve Azure SQL Veritabanı ile de çalışabilir.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
  
   * [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md) kullanarak Data Lake Analytics ile çalışmaya başlama
   * [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md) kullanarak Azure Data Lake Analytics'i yönetme

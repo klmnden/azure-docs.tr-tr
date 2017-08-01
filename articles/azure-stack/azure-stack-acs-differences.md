@@ -22,14 +22,12 @@ ms.lasthandoff: 07/08/2017
 
 
 ---
-# Azure Stack Storage: Differences and considerations
-<a id="azure-stack-storage-differences-and-considerations" class="xliff"></a>
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Differences and considerations
 Azure Stack Storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
 
 This article summarizes the known Azure Stack Storage differences from Azure Storage. It also summarizes other considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
 
-## Cheat sheet: Storage differences
-<a id="cheat-sheet-storage-differences" class="xliff"></a>
+## <a name="cheat-sheet-storage-differences"></a>Cheat sheet: Storage differences
 
 | Feature | Azure (global) | Azure Stack |
 | --- | --- | --- |
@@ -45,21 +43,18 @@ This article summarizes the known Azure Stack Storage differences from Azure Sto
 |Page blob page size|512 bytes|4 KB
 |Table partition key and row key size|1,024 characters (2,048 bytes)|400 characters (800 bytes)
 
-### Metrics
-<a id="metrics" class="xliff"></a>
+### <a name="metrics"></a>Metrics
 There are also some differences with storage metrics:
 * The transaction data in storage metrics does not differentiate internal or external network bandwidth.
 * The transaction data in storage metrics does not include virtual machine access to the mounted disks.
 
-## API version
-<a id="api-version" class="xliff"></a>
+## <a name="api-version"></a>API version
 The following versions are supported with Azure Stack Storage:
 
 * Azure Storage data services: [2015-04-05 REST API version](https://docs.microsoft.com/en-us/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
 * Azure Storage management services: [2015-05-01-preview, 2015-06-15, and 2016-01-01](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN) 
 
-## Next steps
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Next steps
 
 * [Get started with Azure Stack Storage development tools](azure-stack-storage-dev.md)
 * [Introduction to Azure Stack Storage](azure-stack-storage-overview.md)

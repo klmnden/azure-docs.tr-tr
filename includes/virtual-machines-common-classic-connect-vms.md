@@ -8,9 +8,7 @@ If you place your virtual machines in a virtual network, you can decide how many
 
 Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../articles/azure-subscription-service-limits.md).
 
-<a id="connect-vms-in-a-virtual-network" class="xliff"></a>
-
-## Connect VMs in a virtual network
+## <a name="connect-vms-in-a-virtual-network"></a>Connect VMs in a virtual network
 To connect virtual machines in a virtual network:
 
 1. Create the virtual network in the [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) and specify 'classic deployment'.
@@ -31,9 +29,7 @@ To connect virtual machines in a virtual network:
   ![VM Settings blade when using a VNet](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
 
 
-<a id="connect-vms-in-a-standalone-cloud-service" class="xliff"></a>
-
-## Connect VMs in a standalone cloud service
+## <a name="connect-vms-in-a-standalone-cloud-service"></a>Connect VMs in a standalone cloud service
 To connect virtual machines in a standalone cloud service:
 
 1. Create the cloud service in the [Azure portal](http://portal.azure.com). Click **New > Compute > Cloud service**. Or, you can create the cloud service for your deployment when you create your first virtual machine.

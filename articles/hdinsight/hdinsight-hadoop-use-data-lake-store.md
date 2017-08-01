@@ -24,9 +24,7 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-<a id="use-data-lake-store-with-azure-hdinsight-clusters" class="xliff"></a>
-
-# Data Lake Store’u Azure HDInsight kümeleriyle kullanma
+# <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Data Lake Store’u Azure HDInsight kümeleriyle kullanma
 
 HDInsight kümesinde çözümlemek istediğiniz verileri [Azure Depolama](../storage/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) veya her ikisinde birden depolayabilirsiniz. İki depolama seçeneği de işlem için kullanılan HDInsight kümelerini kullanıcı verilerini kaybetmeden güvenle silmenizi sağlar.
 
@@ -37,9 +35,7 @@ Bu makalede Data Lake Store’un HDInsight kümeleri ile nasıl çalıştığı 
 > 
 > 
 
-<a id="availabilities-for-hdinsight-clusters" class="xliff"></a>
-
-## HDInsight kümeleri için kullanılabilirlik durumları
+## <a name="availabilities-for-hdinsight-clusters"></a>HDInsight kümeleri için kullanılabilirlik durumları
 
 Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında Azure Depolama'da bir blob kapsayıcısını varsayılan dosya sistemi olarak belirtebilir veya HDInsight 3.5 veya daha yeni sürümlerde, birkaç özel durum dışında Azure Depolama'yı ya da Azure Data Lake Store'u varsayılan dosya sistemi olarak seçebilirsiniz. 
 
@@ -63,9 +59,7 @@ HDInsight kümeleri Data Lake Store’u iki şekilde kullanabilir:
 Data Lake Store’un ek depolama hesabı olarak kullanılması, kümeden Azure depolamaya yazma veya buradan okuma performansını ya da bu özelliğin kullanılabilirliğini etkilemez.
 
 
-<a id="use-data-lake-store-as-default-storage" class="xliff"></a>
-
-## Azure Data Lake Store’u varsayılan depolama alanı olarak kullanma
+## <a name="use-data-lake-store-as-default-storage"></a>Azure Data Lake Store’u varsayılan depolama alanı olarak kullanma
 
 HDInsight ile varsayılan depolama alanı olarak Data Lake Store dağıtıldığında, kümeyle ilişkili dosyalar Data Lake Store içindeki şu konumda depolanır:
 
@@ -87,9 +81,7 @@ Bir Data Lake Store’u varsayılan depolama alanı olarak kullanabilmeniz için
 Hizmet sorumlusu oluşturma ve erişim verme hakkında daha fazla bilgi edinmek için bkz. [Data Lake Store erişimini yapılandırma](#configure-data-lake-store-access).
 
 
-<a id="use-data-lake-store-as-additional-storage" class="xliff"></a>
-
-## Azure Data Lake Store’u ek depolama alanı olarak kullanma
+## <a name="use-data-lake-store-as-additional-storage"></a>Azure Data Lake Store’u ek depolama alanı olarak kullanma
 
 Data Lake Store'u da küme için ek depolama alanı olarak kullanabilirsiniz. Böyle durumlarda, kümenin varsayılan depolama alanı Azure Depolama Blobu veya Data Lake Store hesabı olabilir. HDInsight işlerini ek depolama alanı olarak kullanılan Data Lake Store'da depolanan verilere göre çalıştırıyorsanız, dosyaların tam yolunu kullanmanız gerekir. Örneğin:
 
@@ -104,15 +96,11 @@ Data Lake Store’u ek depolama alanı olarak kullanabilmeniz için yalnızca do
 Hizmet sorumlusu oluşturma ve erişim verme hakkında daha fazla bilgi edinmek için bkz. [Data Lake Store erişimini yapılandırma](#configure-data-lake-store-access).
 
 
-<a id="use-more-than-one-data-lake-store-accounts" class="xliff"></a>
-
-## Birden çok Data Lake Store hesabı kullanma
+## <a name="use-more-than-one-data-lake-store-accounts"></a>Birden çok Data Lake Store hesabı kullanma
 
 Bir Data Lake Store hesabını ek depolama olarak ekleme ve birden fazla Data Lake Store hesabı ekleme işlemi, bir veya daha çok Data Lake Store hesabındaki veriler için HDInsight kümesine izin verilerek gerçekleştirilir. Bkz. [Data Lake Store erişimini yapılandırma](#configure-data-lake-store-access).
 
-<a id="configure-data-lake-store-access" class="xliff"></a>
-
-## Data Lake Store erişimini yapılandırma
+## <a name="configure-data-lake-store-access"></a>Data Lake Store erişimini yapılandırma
 
 HDInsight kümenizden Data Lake store erişimini yapılandırabilmeniz için bir Azure Active Directory (Azure AD) hizmet sorumlunuz olmalıdır. Hizmet sorumlusu yalnızca bir Azure AD yöneticisi tarafından oluşturulabilir. Hizmet sorumlusunun bir sertifika ile oluşturulması gerekir. Daha fazla bilgi edinmek için bkz. [Data Lake Store erişimini yapılandırma](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access) ve [Otomatik olarak imzalanan sertifika ile hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
@@ -120,9 +108,7 @@ HDInsight kümenizden Data Lake store erişimini yapılandırabilmeniz için bir
 > Azure Data Lake Store’u HDInsight kümesi için ek depolama alanı olarak kullanacaksanız, bunu bu makalede açıklandığı gibi kümeyi oluştururken yapmanız önemle önerilir. Azure Data Lake Store’u mevcut bir HDInsight kümesine ek depolama alanı olarak ekleme, karmaşık ve hatalara yol açabilecek bir işlemdir.
 >
 
-<a id="access-files-from-the-cluster" class="xliff"></a>
-
-## Kümeden dosyalara erişme
+## <a name="access-files-from-the-cluster"></a>Kümeden dosyalara erişme
 
 Data Lake Store dosyalarına bir HDInsight kümesinden erişmenin çeşitli yolları vardır.
 
@@ -142,9 +128,7 @@ Data Lake Store dosyalarına bir HDInsight kümesinden erişmenin çeşitli yoll
 
         /example/data/sample.log
 
-<a id="create-hdinsight-clusters-with-access-to-data-lake-store" class="xliff"></a>
-
-## Data Lake Store erişimi olan HDInsight kümeleri oluşturma
+## <a name="create-hdinsight-clusters-with-access-to-data-lake-store"></a>Data Lake Store erişimi olan HDInsight kümeleri oluşturma
 
 Data Lake Store erişimi olan HDInsight kümeleri oluşturma hakkındaki ayrıntılı yönergeler için aşağıdaki bağlantıları kullanın.
 
@@ -154,9 +138,7 @@ Data Lake Store erişimi olan HDInsight kümeleri oluşturma hakkındaki ayrınt
 * [Azure şablonlarını kullanma](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, HDInsight ile HDFS uyumlu Azure Data Lake Store’u kullanmayı öğrendiniz. Bu, ölçeklenebilir, uzun vadeli, arşivlemeli veri edinme çözümleri oluşturmanıza ve depolanan yapılandırılmış ve yapılandırılmamış verilerdeki bilgilerin kilidini açmak için HDInsight kullanmanıza olanak sağlar.
 
 Daha fazla bilgi için bkz.

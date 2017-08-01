@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/21/2017
 
 ---
-<a id="create-a-static-html-web-app-in-azure" class="xliff"></a>
-
-# Azure'da statik bir HTML web uygulaması oluşturma
+# <a name="create-a-static-html-web-app-in-azure"></a>Azure'da statik bir HTML web uygulaması oluşturma
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, temel bir HTML+CSS sitesinin Azure'a nasıl dağıtılacağı gösterilmektedir. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'yi kullanarak web uygulamasını oluşturabilir ve örnek HTML içeriğini web uygulamasına dağıtmak için Git'i kullanabilirsiniz.
 
@@ -32,9 +30,7 @@ ms.lasthandoff: 06/21/2017
 
 Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
@@ -45,9 +41,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-<a id="download-the-sample" class="xliff"></a>
-
-## Örneği indirme
+## <a name="download-the-sample"></a>Örneği indirme
 
 Bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 
@@ -57,9 +51,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 Bu hızlı başlangıç öğreticisindeki tüm komutları çalıştırmak için bu terminal penceresini kullanırsınız.
 
-<a id="view-the-html" class="xliff"></a>
-
-## HTML’yi görüntüleme
+## <a name="view-the-html"></a>HTML’yi görüntüleme
 
 Örnek HTML’yi içeren dizine gidin. *index.html* dosyasını tarayıcınızda açın.
 
@@ -109,9 +101,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-<a id="browse-to-the-app" class="xliff"></a>
-
-## Uygulamaya göz atma
+## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
 Bir tarayıcıda Azure web uygulaması URL'sine gidin:
 
@@ -125,9 +115,7 @@ Sayfa bir Azure App Service web uygulaması çalıştırıyor.
 
 **Tebrikler!** App Service'e ilk HTML uygulamanızı dağıttınız.
 
-<a id="update-and-redeploy-the-app" class="xliff"></a>
-
-## Uygulamayı güncelleştirme ve yeniden dağıtma
+## <a name="update-and-redeploy-the-app"></a>Uygulamayı güncelleştirme ve yeniden dağıtma
 
 *index.html* dosyasını bir metin düzenleyicide açın ve işaretlemede değişiklik yapın. Örneğin, "Azure App Service - Örnek Statik HTML Sitesi" H1 başlığını yalnızca "Azure App Service" olarak değiştirin.
 
@@ -142,9 +130,7 @@ Dağıtım tamamlandıktan sonra değişiklikleri görmek için tarayıcınızı
 
 ![Güncelleştirilen örnek uygulama giriş sayfası](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
-
-## Yeni Azure web uygulamanızı yönetme
+## <a name="manage-your-new-azure-web-app"></a>Yeni Azure web uygulamanızı yönetme
 
 Oluşturduğunuz web uygulamasını yönetmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
 
@@ -160,9 +146,7 @@ Soldaki menü, uygulamanızın yaplandırılmasına yönelik farklı sayfalar sa
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
 > [Özel etki alanı eşleme](app-service-web-tutorial-custom-domain.md)

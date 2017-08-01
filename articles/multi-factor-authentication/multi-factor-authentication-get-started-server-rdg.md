@@ -22,25 +22,19 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/30/2017
 
 ---
-<a id="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius" class="xliff"></a>
-
-# RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu
+# <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu
 Uzak Masaüstü (RD) Ağ Geçidi genellikle kullanıcıların kimliğini doğrulamak için yerel Ağ İlkesi Hizmetleri’ni (NPS) kullanır. Bu makale, Uzak Masaüstü Ağ Geçidi’ndeki RADIUS isteklerini (yerel NPS üzerinden) Multi-Factor Authentication Sunucusu’na yönlendirmeyi açıklar. Azure MFA ve RD Ağ Geçidi bileşimi, kullanıcılarınızın güçlü kimlik doğrulaması ile diledikleri yerden çalışma ortamlarına erişebileceği anlamına gelir. 
 
 Server 2012 R2’de terminal hizmetleri için Windows Kimlik Doğrulaması desteklenmediğinden, MFA Sunucusu ile tümleştirmek için RD Ağ Geçidi ve RADIUS kullanın. 
 
 Multi-Factor Authentication Sunucusu'nu, RADIUS isteğini Uzak Masaüstü Ağ Geçidi Sunucusu'ndaki NPS'ye sunan ayrı bir sunucuya yükleyin. NPS, kullanıcı adını ve parolayı doğruladıktan sonra Multi-Factor Authentication Sunucusu'na bir yanıt gönderir. Ardından MFA Sunucusu, ikinci kimlik doğrulama faktörünü uygular ve ağ geçidine bir sonuç gönderir.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 - Etki alanına katılmış bir Azure MFA Sunucusu. Henüz yüklü değilse, [Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama](multi-factor-authentication-get-started-server.md) bölümündeki adımları izleyin.
 - Ağ İlkesi Hizmetleri’nde kimlik doğrulaması yapan bir Uzak Masaüstü Ağ Geçidi.
 
-<a id="configure-the-remote-desktop-gateway" class="xliff"></a>
-
-## Uzak Masaüstü Ağ Geçidini yapılandırma
+## <a name="configure-the-remote-desktop-gateway"></a>Uzak Masaüstü Ağ Geçidini yapılandırma
 RD Ağ Geçidini, bir Azure Multi-Factor Authentication Sunucusu’na RADIUS kimlik doğrulaması gönderecek şekilde yapılandırın. 
 
 1. RD Ağ Geçidi Yöneticisi’nde sunucu adına sağ tıklayıp **Özellikler**’i seçin.
@@ -48,14 +42,10 @@ RD Ağ Geçidini, bir Azure Multi-Factor Authentication Sunucusu’na RADIUS kim
 3. Her bir sunucunun adını veya IP adresini girerek, RADIUS sunucuları olarak bir ya da daha fazla Azure Multi-Factor Authentication Sunucusu ekleyin. 
 4. Her sunucu için paylaşılan gizlilik oluşturun.
 
-<a id="configure-nps" class="xliff"></a>
-
-## NPS yapılandırma
+## <a name="configure-nps"></a>NPS yapılandırma
 RD Ağ Geçidi, Azure Multi-Factor Authentication’a RADIUS isteği göndermek için NPS kullanır. NPS’yi yapılandırmak için, RD Ağ Geçidinin iki adımlı doğrulama tamamlanmadan zaman aşımına uğramasını önlemek üzere ilk olarak zaman aşımı ayarlarını değiştirin. Ardından, MFA sunucunuzdan RADIUS kimlik doğrulamalarını almak için NPS’yi güncelleştirin. NPS’yi yapılandırmak için aşağıdaki yordamı kullanın:
 
-<a id="modify-the-timeout-policy" class="xliff"></a>
-
-### Zaman aşımı ilkesini değiştirme
+### <a name="modify-the-timeout-policy"></a>Zaman aşımı ilkesini değiştirme
 
 1. NPS’de, sol sütundaki **RADIUS İstemcileri ve Sunucu** menüsünü açın ve **Uzak RADIUS Sunucu Grupları**’nı seçin. 
 2. **TS AĞ GEÇİDİ SUNUCU GRUBU**’nu seçin. 
@@ -63,9 +53,7 @@ RD Ağ Geçidi, Azure Multi-Factor Authentication’a RADIUS isteği göndermek 
 4. **İsteğin bırakılmış kabul edilmesine kadar yanıtsız geçen saniye sayısı** ve **Sunucu kullanılamaz olarak tanımlandığında istekler arasındaki saniye sayısı** değerlerini 30 ile 60 saniye arasında olacak şekilde ayarlayın. (Kimlik doğrulaması sırasında sunucu yine de zaman aşımına uğrarsa, buraya geri dönerek saniye sayısını artırabilirsiniz.)
 5. **Kimlik Doğrulama/Hesap** sekmesine gidin ve belirtilen RADIUS bağlantı noktalarının, Multi-Factor Authentication Sunucusu’nun dinlediği bağlantı noktalarıyla eşleştiğinden emin olun.
 
-<a id="prepare-nps-to-receive-authentications-from-the-mfa-server" class="xliff"></a>
-
-### NPS’yi MFA Sunucusundan kimlik doğrulamaları almaya hazırlama
+### <a name="prepare-nps-to-receive-authentications-from-the-mfa-server"></a>NPS’yi MFA Sunucusundan kimlik doğrulamaları almaya hazırlama
 
 1. Sol sütundaki RADIUS İstemcileri ve Sunucuları altında bulunan **RADIUS İstemcileri**’ne sağ tıklayıp **Yeni**’yi seçin.
 2. RADIUS istemcisi olarak Azure Multi-Factor Authentication Sunucusu ekleme Kolay bir ad seçin ve paylaşılan gizlilik belirtin.
@@ -77,9 +65,7 @@ RD Ağ Geçidi, Azure Multi-Factor Authentication’a RADIUS isteği göndermek 
 8. Kimlik Doğrulama Sağlayıcısı’nı **Bu sunucu üzerindeki isteklerin kimliğini doğrula** olarak değiştirin. Bu ilke, NPS Azure MFA Sunucusu’ndan bir RADIUS isteği aldığında, döngü koşuluna neden olacak şekilde RADIUS isteğini Azure Multi-Factor Authentication Sunucusu’na geri göndermek yerine, kimlik doğrulamasının yerel olarak gerçekleştirilmesini sağlar. 
 9. Döngü koşulunu önlemek için yeni ilkenin **Bağlantı İsteği İlkeleri** bölmesindeki özgün ilkenin ÜZERİNDE bulunduğundan emin olun.
 
-<a id="configure-azure-multi-factor-authentication" class="xliff"></a>
-
-## Azure Multi-Factor Authentication’ı yapılandırma
+## <a name="configure-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication’ı yapılandırma
 
 Azure Multi-Factor Authentication Sunucusu, RD Ağ Geçidi ile NPS arasında bir RADIUS proxy olarak yapılandırılmıştır.  RD AĞ Geçidi sunucusundan ayrı bir etki alanına katılmış sunucuya yüklenmelidir. Azure Multi-Factor Authentication Sunucusu’nu yapılandırmak için aşağıdaki yordamı uygulayın.
 
@@ -92,9 +78,7 @@ Azure Multi-Factor Authentication Sunucusu, RD Ağ Geçidi ile NPS arasında bir
 
 ![Radius Kimlik Doğrulaması](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 - Azure MFA ve [IIS web uygulamalarını](multi-factor-authentication-get-started-server-iis.md) tümleştirme
 

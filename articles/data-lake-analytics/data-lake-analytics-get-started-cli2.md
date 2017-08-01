@@ -21,24 +21,18 @@ ms.lasthandoff: 06/20/2017
 
 
 ---
-<a id="get-started-with-azure-data-lake-analytics-using-azure-cli-20" class="xliff"></a>
-
-# Azure CLI 2.0 aracını kullanarak Azure Data Lake Analytics ile çalışmaya başlama
+# <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Azure CLI 2.0 aracını kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Bu öğreticide, sekmeyle ayrılmış değerler (TSV) dosyasını okuyan ve bu dosyayı virgülle ayrılmış değerler (CSV) dosyasına dönüştüren bir iş geliştireceksiniz. Öğreticiyi desteklenen diğer araçları kullanarak tamamlamak için bu bölümün üst kısmındaki açılan listeyi kullanın.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. Bkz. [Azure CLI'yı yükleme ve yapılandırma](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Azure'da oturum açma
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
 Azure aboneliğinizde oturum açmak için:
 
@@ -57,9 +51,7 @@ Belirli bir aboneliği kullanmak için:
 az account set --subscription <subscription id>
 ```
 
-<a id="create-data-lake-analytics-account" class="xliff"></a>
-
-## Data Lake Analytics hesabı oluşturma
+## <a name="create-data-lake-analytics-account"></a>Data Lake Analytics hesabı oluşturma
 Herhangi bir işi çalıştırmadan önce bir Data Lake Analytics hesabına sahip olmanız gerekir. Bir Data Lake Analytics hesabı oluşturmak için aşağıdaki öğeleri belirtmeniz gerekir:
 
 * **Azure Kaynak Grubu**. Azure Kaynak Grubu'nda bir Data Lake Analytics hesabı oluşturulmalıdır. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), uygulamanızdaki kaynaklarla bir grup olarak çalışmanıza olanak sağlar. Uygulamanıza ilişkin tüm kaynakları tek ve eşgüdümlü bir işlem ile dağıtabilir, güncelleştirebilir veya silebilirsiniz.  
@@ -105,9 +97,7 @@ az dla account list
 az dla account show --account "<Data Lake Analytics Account Name>"            
 ```
 
-<a id="upload-data-to-data-lake-store" class="xliff"></a>
-
-## Data Lake Store'a veri yükleme
+## <a name="upload-data-to-data-lake-store"></a>Data Lake Store'a veri yükleme
 Bu eğiticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü, Data Lake Store veya Azure Blob depolama alanında depolanabilir.
 
 Azure portalı, bir arama günlüğü dosyası içeren bazı örnek veri dosyalarını varsayılan Data Lake Store hesabına kopyalamak için bir kullanıcı arabirimi sağlar. Verileri varsayılan Data Lake Store hesabına yüklemek için bkz. [Kaynak verileri hazırlama](data-lake-analytics-get-started-portal.md).
@@ -121,9 +111,7 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 
 Data Lake Analytics ayrıca Azure Blob depolama alanına da erişebilir.  Verileri Azure Blob depolama alanına yüklemek için bkz. [Azure CLI'yı Azure Storage ile kullanma](../storage/storage-azure-cli.md).
 
-<a id="submit-data-lake-analytics-jobs" class="xliff"></a>
-
-## Data Lake Analytics işlerini gönderme
+## <a name="submit-data-lake-analytics-jobs"></a>Data Lake Analytics işlerini gönderme
 Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla bilgi edinmek için [U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md) ve [U-SQL dil başvurusu](http://go.microsoft.com/fwlink/?LinkId=691348) bölümlerine göz atın.
 
 **Data Lake Analytics iş betiği oluşturmak için**
@@ -192,9 +180,7 @@ az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
-<a id="retrieve-job-results" class="xliff"></a>
-
-##İş sonuçlarını alma
+##<a name="retrieve-job-results"></a>İş sonuçlarını alma
 
 Bir iş tamamlandıktan sonra, aşağıdaki cmdlet'leri kullanarak çıkış dosyalarını listeleyebilir ve dosyaları indirebilirsiniz:
 
@@ -211,9 +197,7 @@ az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Out
 az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 * Data Lake Analytics CLI 2.0 başvuru belgesini görmek için bkz. [Data Lake Analytics](https://docs.microsoft.com/cli/azure/dla).
 * Data Lake Store CLI 2.0 başvuru belgesini görmek için bkz. [Data Lake Store](https://docs.microsoft.com/cli/azure/dls).

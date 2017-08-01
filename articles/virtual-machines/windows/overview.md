@@ -23,8 +23,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 05/31/2017
 
 ---
-# Azure’da Windows sanal makinelere genel bakış
-<a id="overview-of-windows-virtual-machines-in-azure" class="xliff"></a>
+# <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure’da Windows sanal makinelere genel bakış
 
 Azure Virtual Machines (VM) Azure’un sunduğu [isteğe bağlı ve ölçeklenebilir işlem kaynağı türlerinden](../../app-service-web/choose-web-site-cloud-service-vm.md) biridir. Genellikle, sunulan diğer seçimlere göre bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız varsa, bir VM seçersiniz. Bu makalede VM oluşturmadan önce dikkat etmeniz gereken bilgilere, oluşturma yöntemine ve yönetim seçeneklerine yer verilmiştir.
 
@@ -38,8 +37,7 @@ Azure sanal makineleri farklı amaçlarla kullanılabilir. Bazı örnekler şunl
 
 Uygulamanız tarafından kullanılan VM sayısı, ihtiyaçlarınıza göre ölçeklendirilebilir.
 
-## VM oluşturmadan önce dikkat etmem gereken noktalar nelerdir?
-<a id="what-do-i-need-to-think-about-before-creating-a-vm" class="xliff"></a>
+## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM oluşturmadan önce dikkat etmem gereken noktalar nelerdir?
 Azure’da uygulama altyapısı oluştururken [dikkate almanız gereken tasarım ölçütleri](infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) vardır. Başlamadan önce dikkat etmeniz gereken VM özellikleri şunlardır:
 
 * Uygulama kaynaklarınızın adları
@@ -50,14 +48,12 @@ Azure’da uygulama altyapısı oluştururken [dikkate almanız gereken tasarım
 * VM’nin başlatıldıktan sonraki yapılandırması
 * VM’nin ihtiyaç duyduğu kaynaklar
 
-### Adlandırma
-<a id="naming" class="xliff"></a>
+### <a name="naming"></a>Adlandırma
 Bir sanal makine, kendisine verilen [ada](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ek olarak işletim sisteminin bir parçası olarak atanan bilgisayar adına sahiptir. VM adı en fazla 15 karakter uzunluğunda olabilir.
 
 Azure’u işletim sistemi diski oluşturmak için kullanıyorsanız, bilgisayar adı ve sanal makine adı aynı olur. Önceden yapılandırılmış bir işletim sistemini içeren [görüntüyü yükleyip kullanarak](upload-generalized-managed.md) bir sanal makine oluşturmanız halinde adlar farklı olabilir. Kendi görüntü dosyanızı yüklediğinizde, işletim sistemindeki bilgisayar adıyla sanal makine adını aynı yapmanız önerilir.
 
-### Konumlar
-<a id="locations" class="xliff"></a>
+### <a name="locations"></a>Konumlar
 Azure’da oluşturulan tüm kaynaklar, dünyanın farklı yerindeki çeşitli [coğrafi bölgelere](https://azure.microsoft.com/regions/) dağıtılır. VM oluştururken bu bölgeler genelde **konum** olarak adlandırılır. Bir VM için konum, sanal sabit disklerin depolandığı yeri belirtir.
 
 Bu tabloda, kullanılabilen konumların listesini edinme yöntemlerinden bazıları gösterilmektedir.
@@ -68,18 +64,15 @@ Bu tabloda, kullanılabilen konumların listesini edinme yöntemlerinden bazıla
 | Azure PowerShell |[Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) komutunu kullanın. |
 | REST API |[List locations](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) işlemini kullanın. |
 
-### VM boyutu
-<a id="vm-size" class="xliff"></a>
+### <a name="vm-size"></a>VM boyutu
 Kullandığınız VM’nin [boyutu](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), çalıştırmak istediğiniz iş yüküne göre belirlenir. Seçtiğiniz boyut işlemci gücü, bellek ve depolama kapasitesi gibi ölçütleri belirler. Azure çok sayıda kullanım türünü desteklemek için büyük çeşitlilikteki boyutları sunar.
 
 Azure’un ücretlendirdiği, VM’nin boyutu ve işletim sistemi temelinde [saatlik fiyat](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Kısmi saatler için, Azure yalnızca kullanılan dakikaları ücretlendirir. Depolama ayrı olarak fiyatlandırılır ve ücretlendirilir.
 
-### VM Sınırları
-<a id="vm-limits" class="xliff"></a>
+### <a name="vm-limits"></a>VM Sınırları
 Aboneliğinizde, projeniz için birden fazla VM dağıtımını etkileyebilecek varsayılan [kota sınırları](../../azure-subscription-service-limits.md) vardır. Geçerli sınırlar abonelik başına her bölge için 20 VM olarak belirlenmiştir. Sınırların yükseltilmesini talep etmek için destek bileti oluşturabilirsiniz.
 
-### İşletim sistemi diskleri ve görüntüleri
-<a id="operating-system-disks-and-images" class="xliff"></a>
+### <a name="operating-system-disks-and-images"></a>İşletim sistemi diskleri ve görüntüleri
 Sanal makineler, kendi işletim sistemlerini (OS) ve verilerini depolamak için [sanal sabit diskleri (VHD)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kullanır. VHD bir işletim sistemi yüklemek için seçebileceğiniz görüntüler için de kullanılır. 
 
 Azure’da Windows Server işletim sistemlerinin farklı sürümleri ve türleri ile birlikte kullanılabilecek birçok [market görüntüsü](https://azure.microsoft.com/marketplace/virtual-machines/) bulunmaktadır. Market görüntüleri; görüntü yayımcısı, teklif, sku ve sürüm (genelde sürüm en son belirtilir) bilgileriyle tanımlanır. 
@@ -94,8 +87,7 @@ Bu tabloda bir görüntünün bilgilerine nasıl erişebileceğiniz gösterilmi�
 
 [Kendi görüntünüzü yükleyip kullanmanız halinde](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) yayımcı adı, teklif ve sku kullanılmaz.
 
-### Uzantılar
-<a id="extensions" class="xliff"></a>
+### <a name="extensions"></a>Uzantılar
 VM [uzantıları](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), dağıtım sonrası yapılandırma ve otomatik görevlerle VM’nize yeni özellikler ekler.
 
 Uzantıları kullanarak şu genel görevleri gerçekleştirebilirsiniz:
@@ -104,8 +96,7 @@ Uzantıları kullanarak şu genel görevleri gerçekleştirebilirsiniz:
 * **Yapılandırma dağıtma ve yönetme** – [PowerShell İstenen Durum Yapılandırması (DSC) Uzantısı](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), yapılandırma ve ortam yönetimi amacıyla bir VM üzerinde DSC kurulumu yapmanıza yardımcı olur.
 * **Tanılama verilerini toplama** – [Azure Tanılama Uzantısı](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), VM’i uygulama durumunu izlemek için kullanılabilecek tanılama verilerini toplayacak şekilde yapılandırmanıza yardımcı olur.
 
-### İlgili kaynaklar
-<a id="related-resources" class="xliff"></a>
+### <a name="related-resources"></a>İlgili kaynaklar
 Bu tablodaki kaynaklar VM tarafından kullanılır ve VM oluşturulduğunda mevcut olmaları ya da oluşturulmaları gerekir.
 
 | Kaynak | Gerekli | Açıklama |
@@ -117,8 +108,7 @@ Bu tablodaki kaynaklar VM tarafından kullanılır ve VM oluşturulduğunda mevc
 | [Ağ arabirimi](../../virtual-network/virtual-network-network-interface.md) |Evet |VM’in ağda iletişim kurabilmek için ağ arabirimine ihtiyacı vardır. |
 | [Veri diskleri](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Hayır |VM, depolama olanaklarını genişletmek için veri disklerine sahip olabilir. |
 
-## İlk VM’mi nasıl oluşturabilirim?
-<a id="how-do-i-create-my-first-vm" class="xliff"></a>
+## <a name="how-do-i-create-my-first-vm"></a>İlk VM’mi nasıl oluşturabilirim?
 İlk VM’nizi oluşturmak için kullanabileceğiniz birden fazla yöntem vardır. Seçeceğiniz yöntem, bulunduğunuz ortama bağlıdır. 
 
 Bu tabloda VM’nizi oluşturmak için ihtiyaç duyacağınız giriş bilgileri yer almaktadır.
@@ -133,12 +123,10 @@ Bu tabloda VM’nizi oluşturmak için ihtiyaç duyacağınız giriş bilgileri 
 
 Hiç istemeyiz ama bazen ters giden bir şeyler olabilir. Bu gibi durumlarda [Azure’da Windows sanal makine oluşturmayla ilgili Resource Manager dağıtım sorunlarını giderme](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasına bakın.
 
-## Oluşturduğum VM’yi nasıl yönetebilirim?
-<a id="how-do-i-manage-the-vm-that-i-created" class="xliff"></a>
+## <a name="how-do-i-manage-the-vm-that-i-created"></a>Oluşturduğum VM’yi nasıl yönetebilirim?
 VM’ler tarayıcı tabanlı bir portal, betik oluşturma desteğine sahip komut satırı araçları kullanılarak veya doğrudan API’ler aracılığıyla yönetilebilir. Gerçekleştirmek isteyebileceğiniz genel yönetim görevlerinden bazıları VM hakkında bilgi alma, VM’de oturum açma, kullanılabilirlik durumunu yönetme ve yedekleme yapmadır.
 
-### VM hakkında bilgi alma
-<a id="get-information-about-a-vm" class="xliff"></a>
+### <a name="get-information-about-a-vm"></a>VM hakkında bilgi alma
 Bu tabloda VM hakkında bilgi almak için kullanabileceğiniz yöntemlerden bazıları gösterilmektedir.
 
 | Yöntem | Açıklama |
@@ -148,22 +136,18 @@ Bu tabloda VM hakkında bilgi almak için kullanabileceğiniz yöntemlerden baz�
 | REST API |Bir VM hakkında bilgi almak için [VM bilgilerini alma](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) işlemini kullanın. |
 | İstemci SDK'ları |VM yönetimi için C# kullanımı hakkında bilgi almak için bkz. [Azure Sanal Makinelerini Azure Resource Manager ve C# ile yönetme](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
-### VM’de oturum açma
-<a id="log-on-to-the-vm" class="xliff"></a>
+### <a name="log-on-to-the-vm"></a>VM’de oturum açma
 Azure portalındaki Bağlan düğmesini kullanarak [Uzak Masaüstü (RDP) oturumu başlatabilirsiniz](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Uzak bağlantı özelliğini kullanmaya çalışırken hatalarla karşılaşabilirsiniz. Bu durumda [Windows çalıştıran bir Azure sanal makinesine yapılan Uzak Masaüstü bağlantılarında sorun giderme](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasındaki yardım bilgilerini inceleyin.
 
-### Kullanılabilirliği yönetme
-<a id="manage-availability" class="xliff"></a>
+### <a name="manage-availability"></a>Kullanılabilirliği yönetme
 Uygulamanız için [yüksek kullanılabilirlik düzeyini](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nasıl sağlayacağınızı kavramanız önemlidir. Bu yapılandırma, en az birinin çalıştığından emin olmak için birden fazla VM oluşturmayı kapsamaktadır.
 
 Dağıtımınızın 99,95 VM Hizmet Düzeyi Sözleşmesi kapsamına girebilmesi için iş yükünüzü çalıştıran iki veya daha fazla VM’yi bir [kullanılabilirlik kümesi](infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) içinde dağıtmanız gerekir. Bu yapılandırma, VM’lerinizin birden fazla hata etki alanına dağıtılmasını ve dağıtımlarının farklı bakım aralıklarına sahip ana bilgisayarlara yapılmasını sağlar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
 
-### VM’yi yedekleme
-<a id="back-up-the-vm" class="xliff"></a>
+### <a name="back-up-the-vm"></a>VM’yi yedekleme
 Verileri ve varlıkları hem Azure Backup hem de Azure Site Recovery hizmetlerinde korumak için [Kurtarma Hizmetleri kasası](../../backup/backup-introduction-to-azure-backup.md) kullanılır. Kurtarma Hizmetleri kasası sayesinde [PowerShell kullanılarak Resource Manager ile dağıtılmış VM’ler için yedekleme dağıtımı ve yönetimi gerçekleştirebilirsiniz](../../backup/backup-azure-vms-automation.md). 
 
-## Sonraki adımlar
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Sonraki adımlar
 * Linux VM’leri ile çalışmayı düşünüyorsanız bkz. [Azure ve Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Altyapınızı kurma hakkında daha fazla bilgi almak için [Örnek Azure altyapısı gözden geçirme](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasını inceleyin.
 * [Azure’da Windows VM çalıştırmaya yönelik En İyi Uygulamalar](guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasını incelemeyi unutmayın.

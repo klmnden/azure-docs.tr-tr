@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="connectors-list" class="xliff"></a>
-
-# Bağlayıcıların listesi
+# <a name="connectors-list"></a>Bağlayıcıların listesi
 > [!TIP]
 > [A’dan Z’ye tam liste](#az) (bu konuda), Logic Apps ile kullanabileceğiniz tüm bağlayıcıları listeler. [Bağlayıcı ayrıntıları](/connectors/)'nda Swagger'da tanımlanan tetikleyiciler ve eylemlerin yanı sıra her bir bağlayıcıya yönelik sınırlar listelenir.
 
@@ -41,9 +39,7 @@ Bağlayıcılar, mantıksal uygulama oluşturma işleminin ayrılmaz bir parças
 
 [Logic Apps Fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/) ve [Fiyatlandırma modeli](../logic-apps/logic-apps-pricing.md) bölümlerinde maliyetlerle ilgili daha fazla bilgi verilmektedir. 
 
-<a id="popular-connectors" class="xliff"></a>
-
-## Popüler bağlayıcılar
+## <a name="popular-connectors"></a>Popüler bağlayıcılar
 Bu bağlayıcıları kullanarak veri ve bilgileri başarılı bir şekilde işleyen binlerce uygulama ve milyonlarca yürütme vardır. Aşağıdaki tabloda en popüler olanları ve kullanıcılarımızın en sık kullandığı bazı örnekler listelenmektedir:
 
 | |  |  |  |
@@ -56,9 +52,7 @@ Bu bağlayıcıları kullanarak veri ve bilgileri başarılı bir şekilde işle
 |  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | SharePoint ile bir işlem yapıyor ve otomasyondan yararlanabiliyorsanız, bu bağlayıcıya bakmanız önerilir. Şirket içi SharePoint ve SharePoint Online ile birlikte kullanılabilir. | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | En çok kullanılan bağlayıcılardan biri olmasının yanı sıra, şirket içi SQL Server ve bir Azure SQL Veritabanına bağlanabilir. | 
 | [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Bir Twitter hesabıyla kolayca oturum açın ve yeni tweet gönderildiğinde bir iş akışı başlatın. Daha sonra bu tweetleri bir SQL veritabanı veya SharePoint listesine kaydedin. | | | 
 
-<a id="integration-account-connectors" class="xliff"></a>
-
-## Tümleştirme hesabı bağlayıcıları 
+## <a name="integration-account-connectors"></a>Tümleştirme hesabı bağlayıcıları 
 
 Enterprise Integration Pack (EIP), BizTalk Server topluluğu tarafından iyi bilinen bağlayıcılar içerir. Bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) satın aldığınızda aşağıdaki bağlayıcıları da elde edersiniz: 
 
@@ -68,9 +62,7 @@ Enterprise Integration Pack (EIP), BizTalk Server topluluğu tarafından iyi bil
 [![API Icon][flatfileicon]<br/>**Düz dosya</br> kodlama**][flatfiledoc] | [![API Icon][flatfiledecodeicon]<br/>**Düz dosya</br> kod çözme**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Tümleştirme<br/>hesabı**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**XML<br/>Dönüştürme**][xmltransformdoc] |
 | [![API Icon][x12icon]<br/>**X12</br> kod çözme**][x12decode] | [![API Icon][x12icon]<br/>**X12</br> kodlama**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] | |
 
-<a id="enterprise-connectors" class="xliff"></a>
-
-## Kurumsal bağlayıcılar
+## <a name="enterprise-connectors"></a>Kurumsal bağlayıcılar
 
 Mantıksal uygulamalarınızın içinden kurumsal uygulamalarınıza bağlanın.
 
@@ -95,9 +87,7 @@ Mantıksal uygulamalarınızın içinden kurumsal uygulamalarınıza bağlanın.
 > [!TIP]
 > Azure hesabına kaydolmadan Azure Logic Apps’i kullanmaya başlamak için [Logic Apps’i Deneyin](https://tryappservice.azure.com/?appservice=logic) sayfasına gidin. Başlangıç düzeyinde kısa süreli mantıksal uygulamayı hemen oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
 
-<a id="connectors-as-triggers-and-actions" class="xliff"></a>
-
-## Tetikleyici ve eylem olarak bağlayıcılar
+## <a name="connectors-as-triggers-and-actions"></a>Tetikleyici ve eylem olarak bağlayıcılar
 
 **Tetikleyici**, mantıksal uygulamanızın bir örneğini başlatır veya çalıştırır. Bazı bağlayıcılar, belirli olaylar meydana geldiğinde uygulamanızı bilgilendiren tetikleyiciler sağlar. Örneğin, FTP bağlayıcısı bir dosya güncelleştirildiğinde mantıksal uygulamanızı başlatan `OnUpdatedFile` tetikleyicisine sahiptir. 
 
@@ -117,9 +107,7 @@ Bağlayıcılar ayrıca iş akışınızda kullanabileceğiniz **eylemler** sağ
 > [Bağlayıcılara genel bakış](connectors-overview.md) bölümünde tetikleyici ve eylemler hakkında daha fazla bilgi verilmektedir. 
 
 
-<a id="message-manipulation-actions" class="xliff"></a>
-
-## İleti işleme eylemleri
+## <a name="message-manipulation-actions"></a>İleti işleme eylemleri
 
 Mantıksal uygulamalar, yük verilerinizi değiştirebilen veya işleyebilen yerleşik eylemler içerir. Yerleşik **Veri İşlemleri** bağlayıcısı aşağıdaki eylemleri içerir: 
 
@@ -132,17 +120,13 @@ Mantıksal uygulamalar, yük verilerinizi değiştirebilen veya işleyebilen yer
 | **JSON Ayrıştırma** | Tasarımcıda bir JSON nesnesinden değerleri ayrıştırabilir ve değerlere erişebilirsiniz. Örneğin, Azure İşleviniz bir JSON yükü döndürürse, bu yükü başka bir adımda JSON özelliklerine erişmek için ayrıştırabilirsiniz. Eylem ayrıca JSON yükünün çalışma zamanında belirtilen şema ile eşleştiğini doğrular. | 
 | **Seç** | Daha fazla işleme için bir dizinin belirli özelliklerini seçin. SQL'de "Kayıtları listeleme" seçeneğini belirlerseniz ve 15 sütun döndürülürse daha fazla işleme için bu sütunların yalnızca birkaçını seçin. Çıkış, yalnızca seçtiğiniz özellikleri içeren bir dizidir. |
 
-<a id="custom-connectors-and-azure-certification" class="xliff"></a>
-
-## Özel bağlayıcılar ve Azure sertifikaları 
+## <a name="custom-connectors-and-azure-certification"></a>Özel bağlayıcılar ve Azure sertifikaları 
 
 Özel kod çalıştıran veya bağlayıcı olarak kullanılamayan API’leri çağırmak için, özel bağlayıcı olarak REST tabanlı API Apps oluşturarak [Logic Apps platformunu genişletebilirsiniz](../logic-apps/logic-apps-create-api-app.md). 
 
 Özel API Apps’i genel kullanıma sunmak ve Azure’da kullanılabilir hale getirmek isterseniz, adaylarınızı [Microsoft Azure Sertifika programına](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/) gönderin.
 
-<a id="get-help" class="xliff"></a>
-
-## Yardım alın
+## <a name="get-help"></a>Yardım alın
 
 Sorular sormak, soruları yanıtlamak ve diğer Azure Logic Apps kullanıcılarının neler yaptığını görmek için [Azure Logic Apps forumuna](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) gidin.
 
@@ -150,9 +134,7 @@ Azure Logic Apps ve bağlayıcıları geliştirmeye yardımcı olmak için, [Log
 
 Bağlayıcılarla ilgili olarak değinmediğimiz bir konu başlığı veya önemli olduğunu düşündüğünüz herhangi bir ayrıntı var mı? Yanıtınız evet ise mevcut konu başlıklarımıza ekleme yaparak veya kendi konu başlığınızı oluşturarak bize yardımcı olabilirsiniz. Belgelerimiz açık kaynak olup GitHub'da barındırılır. Başlamak için [GitHub depomuza](https://github.com/Microsoft/azure-docs) gidin. 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [İlk mantıksal uygulamanızı oluşturma](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Mantıksal uygulamalar için özel API’ler oluşturma](../logic-apps/logic-apps-create-api-app.md)
 * [Mantıksal uygulamalarınızı izleyin](../logic-apps/logic-apps-monitor-your-logic-apps.md)

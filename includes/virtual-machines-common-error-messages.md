@@ -1,9 +1,7 @@
 >[!NOTE]
 > You can leave comments on this page for feedback or through [Azure feedback](https://feedback.azure.com/forums/216843-virtual-machines) with #azerrormessage tag.
 
-<a id="error-response-format" class="xliff"></a>
-
-## Error Response Format 
+## <a name="error-response-format"></a>Error Response Format 
 Azure VMs use the following JSON format for error response:
 
 ```json
@@ -25,9 +23,7 @@ Azure VMs use the following JSON format for error response:
 An error response always includes a status code and an error object. Each error object always contains an error code and a message. If the VM is created with a template, the error object also contains a details section that contains an inner level of error codes and message. Normally, the most inner level of error message is the root failure.
 
 
-<a id="common-virtual-machine-management-errors" class="xliff"></a>
-
-## Common virtual machine management errors
+## <a name="common-virtual-machine-management-errors"></a>Common virtual machine management errors
 
 This section lists the common error messages you may encounter when managing VMs:
 
@@ -194,7 +190,5 @@ This section lists the common error messages you may encounter when managing VMs
 |  VMStartTimedOut  |  VM '{0}' did not start in the allotted time. The VM may still start successfully. Please check the power state later.  |
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Next steps
+## <a name="next-steps"></a>Next steps
 If you need more help, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

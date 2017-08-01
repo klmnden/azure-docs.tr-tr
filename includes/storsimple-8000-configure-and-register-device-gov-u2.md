@@ -1,7 +1,6 @@
 <!--author=SharS last changed: 06/22/2016-->
 
-### To configure and register the device
-<a id="to-configure-and-register-the-device" class="xliff"></a>
+### <a name="to-configure-and-register-the-device"></a>To configure and register the device
 1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
 2. In the session that opens up, press **Enter** one time to get a command prompt.
 3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press **Enter**.

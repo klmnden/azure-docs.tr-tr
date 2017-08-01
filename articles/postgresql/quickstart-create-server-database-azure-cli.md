@@ -17,9 +17,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="create-an-azure-database-for-postgresql-using-the-azure-cli" class="xliff"></a>
-
-# Azure CLI aracını kullanarak PostgreSQL için Azure Veritabanı oluşturma
+# <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Azure CLI aracını kullanarak PostgreSQL için Azure Veritabanı oluşturma
 PostgreSQL için Azure Veritabanı, bulutta yüksek düzeyde kullanılabilir olan PostgreSQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan, yönetilen bir hizmettir. Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıçta, Azure CLI aracını kullanarak bir [Azure kaynak grubunda](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) nasıl PostgreSQL için Azure Veritabanı sunucusu oluşturabileceğiniz gösterilir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
@@ -33,18 +31,14 @@ Birden fazla aboneliğiniz varsa kaynağın faturalanacağı uygun aboneliği se
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 [az group create](/cli/azure/group#create) komutunu kullanarak bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek `westus` konumunda `myresourcegroup` adlı bir kaynak grubu oluşturur.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
 
-<a id="create-an-azure-database-for-postgresql-server" class="xliff"></a>
-
-## PostgreSQL için Azure Veritabanı sunucusu oluşturma
+## <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı sunucusu oluşturma
 
 [az postgres server create](/cli/azure/postgres/server#create) komutunu kullanarak [PostgreSQL sunucusu için Azure SQL Veritabanı ](overview.md) oluşturun. Sunucu, grup olarak yönetilen bir veritabanı grubu içerir. 
 
@@ -59,9 +53,7 @@ az postgres server create --resource-group myresourcegroup --name mypgserver-201
 Varsayılan olarak, **postgres** veritabanı sunucunuz altında oluşturulur. [Postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) veritabanı; kullanıcılar, yardımcı programlar ve üçüncü taraf uygulamalar tarafından kullanılmak üzere geliştirilmiş varsayılan bir veritabanıdır. 
 
 
-<a id="configure-a-server-level-firewall-rule" class="xliff"></a>
-
-## Sunucu düzeyinde güvenlik duvarı kuralı yapılandırma
+## <a name="configure-a-server-level-firewall-rule"></a>Sunucu düzeyinde güvenlik duvarı kuralı yapılandırma
 
 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) komutunu kullanarak Azure PostgreSQL sunucusu düzeyinde bir güvenlik duvarı kuralı oluşturun. Sunucu düzeyindeki bir güvenlik duvarı kuralı, [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) veya [PgAdmin](https://www.pgadmin.org/) gibi bir dış uygulamanın Azure PostgreSQL hizmetinin güvenlik duvarı üzerinden sunucunuza bağlanmasına imkan tanır. 
 
@@ -73,9 +65,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 > [!NOTE]
 > Azure PostgreSQL sunucusu, 5432 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanıyorsanız ağınızın güvenlik duvarı tarafından 5432 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. BT departmanınızdan Azure SQL Veritabanı sunucunuzla bağlantı için 5432 numaralı bağlantı noktasını açmasını isteyin.
 
-<a id="get-the-connection-information" class="xliff"></a>
-
-## Bağlantı bilgilerini alma
+## <a name="get-the-connection-information"></a>Bağlantı bilgilerini alma
 
 Sunucunuza bağlanmak için ana bilgisayar bilgilerini ve erişim kimlik bilgilerini sağlamanız gerekir.
 ```azurecli-interactive
@@ -107,9 +97,7 @@ Sonuç JSON biçimindedir. **administratorLogin** ve **fullyQualifiedDomainName*
 }
 ```
 
-<a id="connect-to-postgresql-database-using-psql" class="xliff"></a>
-
-## psql’yi kullanarak PostgreSQL veritabanına bağlanma
+## <a name="connect-to-postgresql-database-using-psql"></a>psql’yi kullanarak PostgreSQL veritabanına bağlanma
 
 İstemci bilgisayarınızda PostgreSQL yüklüyse, [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)’nin yerel bir örneğini kullanarak Azure PostgreSQL sunucusuna bağlanabilirsiniz. Şimdi psql komut satırı yardımcı programını kullanarak Azure PostgreSQL sunucusuna bağlanalım.
 
@@ -134,9 +122,7 @@ CREATE DATABASE mypgsqldb;
 \c mypgsqldb
 ```
 
-<a id="connect-to-postgresql-database-using-pgadmin" class="xliff"></a>
-
-## pgAdmin’i kullanarak PostgreSQL veritabanına bağlanma
+## <a name="connect-to-postgresql-database-using-pgadmin"></a>pgAdmin’i kullanarak PostgreSQL veritabanına bağlanma
 
 _pgAdmin_ GUI aracını kullanarak Azure PostgreSQL sunucusuna bağlanmak için
 1.  İstemci bilgisayarınızda _pgAdmin_ uygulamasını başlatın. _pgAdmin_’i http://www.pgadmin.org/ adresinden yükleyebilirsiniz.
@@ -160,9 +146,7 @@ _pgAdmin_ GUI aracını kullanarak Azure PostgreSQL sunucusuna bağlanmak için
  ![pgAdmin - Oluştur - Veritabanı](./media/quickstart-create-server-database-azure-cli/3-pgadmin-database.png)
 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [Azure kaynak grubunu](../azure-resource-manager/resource-group-overview.md) silerek hızlı başlangıçta oluşturduğunuz tüm kaynakları temizleyin.
 
@@ -178,9 +162,7 @@ Yeni oluşturulan tek bir sunucuyu silmek istiyorsanız [az postgres server dele
 az postgres server delete --resource-group myresourcegroup --name mypgserver-20170401
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [Dışarı Aktarma ve İçeri Aktarma seçeneğini kullanarak veritabanınızı geçirme](./howto-migrate-using-export-and-import.md)
 

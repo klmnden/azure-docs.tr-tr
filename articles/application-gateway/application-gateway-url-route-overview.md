@@ -22,9 +22,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="url-path-based-routing-overview" class="xliff"></a>
-
-# URL Yolu Tabanlı Yönlendirmeye genel bakış
+# <a name="url-path-based-routing-overview"></a>URL Yolu Tabanlı Yönlendirmeye genel bakış
 
 URL Yolu Tabanlı Yönlendirme, trafiği isteğin URL Yollarına göre arka uç sunucu havuzlarına yönlendirmenizi sağlar. 
 
@@ -36,9 +34,7 @@ Aşağıdaki örnekte, Application Gateway contoso.com için VideoServerPool, Im
 
 http://contoso.com/video* istekleri VideoServerPool'a ve http://contoso.com/images* istekleri ImageServerPool'a yönlendirilir. Yol desenlerinden hiçbiri eşleşmiyorsa DefaultServerPool seçilir.
     
-<a id="urlpathmap-configuration-element" class="xliff"></a>
-
-## UrlPathMap yapılandırma öğesi
+## <a name="urlpathmap-configuration-element"></a>UrlPathMap yapılandırma öğesi
 
 UrlPathMap öğesi, arka uç sunucu havuzu eşlemeleri için Yol desenleri belirtmek üzere kullanılır. Aşağıdaki kod örneği, şablon dosyasındaki urlPathMap öğesinin kod parçacığıdır.
 
@@ -76,9 +72,7 @@ UrlPathMap öğesi, arka uç sunucu havuzu eşlemeleri için Yol desenleri belir
 
 Daha fazla bilgi için [URL tabanlı yönlendirme kullanan bir Resource Manager şablonunu](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) inceleyebilirsiniz.
 
-<a id="pathbasedrouting-rule" class="xliff"></a>
-
-## PathBasedRouting kuralı
+## <a name="pathbasedrouting-rule"></a>PathBasedRouting kuralı
 
 PathBasedRouting türündeki RequestRoutingRule, bir dinleyiciyi urlPathMap’e bağlamak için kullanılır. Bu dinleyici için alınan tüm istekler, urlPathMap’te belirtilen ilkeye göre yönlendirilir.
 PathBasedRouting kuralının kod parçacığı:
@@ -103,9 +97,7 @@ PathBasedRouting kuralının kod parçacığı:
 ]
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 URL tabanlı içerik yönlendirme hakkında bilgi edindikten sonra, URL yönlendirme kurallarıyla bir uygulama ağ geçidi oluşturmak için [URL tabanlı yönlendirme kullanan uygulama ağ geçidi oluşturma](application-gateway-create-url-route-portal.md) bölümüne gidin.
 

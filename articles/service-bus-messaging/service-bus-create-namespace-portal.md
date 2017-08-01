@@ -21,23 +21,20 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/28/2017
 
 ---
-# Azure portalı ile Service Bus ad alanı oluşturma
-<a id="create-a-service-bus-namespace-using-the-azure-portal" class="xliff"></a>
+# <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Azure portalı ile Service Bus ad alanı oluşturma
 
 Ad alanı, tüm mesajlaşma bileşenlerini kapsayan bir kapsayıcıdır. Tek bir ad alanında birden fazla kuyruk ve konu bulunabilir ve ad alanları genellikle uygulama kapsayıcıları olarak görev yapar. Bir Service Bus ad alanı oluşturmak için iki farklı yol vardır:
 
 1. Azure portalı (bu makale)
 2. [Resource Manager şablonları][create-namespace-using-arm]
 
-## Azure portalında bir ad alanı oluşturma
-<a id="create-a-namespace-in-the-azure-portal" class="xliff"></a>
+## <a name="create-a-namespace-in-the-azure-portal"></a>Azure portalında bir ad alanı oluşturma
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 Tebrikler! Bir Service Bus Mesajlaşması ad alanı oluşturdunuz.
 
-## Sonraki adımlar
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Sonraki adımlar
 
 Azure Service Bus Mesajlaşmasının daha gelişmiş özelliklerinden bazılarını gösteren [GitHub örneklerimize][github-samples] göz atın.
 

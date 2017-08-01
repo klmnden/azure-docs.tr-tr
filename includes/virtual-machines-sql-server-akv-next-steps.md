@@ -1,6 +1,4 @@
-<a id="next-steps" class="xliff"></a>
-
-## Next steps
+## <a name="next-steps"></a>Next steps
 
 After enabling Azure Key Vault Integration, you can enable SQL Server encryption on your SQL VM. First, you will need to create an asymmetric key inside your key vault and a symmetric key within SQL Server on your VM. Then, you will be able to execute T-SQL statements to enable encryption for your databases and backups.
 
@@ -12,9 +10,7 @@ There are several forms of encryption you can take advantage of:
 
 The following Transact-SQL scripts provide examples for each of these areas.
 
-<a id="prerequisites-for-examples" class="xliff"></a>
-
-### Prerequisites for examples
+### <a name="prerequisites-for-examples"></a>Prerequisites for examples
 
 Each example is based on the two prerequisites: an asymmetric key from your key vault called **CONTOSO_KEY** and a credential created by the AKV Integration feature called **Azure_EKM_TDE_cred**. The following Transact-SQL commands setup these prerequisites for running the examples.
 
@@ -55,9 +51,7 @@ WITH PROVIDER_KEY_NAME = 'keytestvault',  --key name
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-<a id="transparent-data-encryption-tde" class="xliff"></a>
-
-### Transparent Data Encryption (TDE)
+### <a name="transparent-data-encryption-tde"></a>Transparent Data Encryption (TDE)
 
 1. Create a SQL Server login to be used by the Database Engine for TDE, then add the credential to it.
 
@@ -94,9 +88,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-<a id="encrypted-backups" class="xliff"></a>
-
-### Encrypted backups
+### <a name="encrypted-backups"></a>Encrypted backups
 
 1. Create a SQL Server login to be used by the Database Engine for encrypting backups, and add the credential to it.
 
@@ -126,9 +118,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-<a id="column-level-encryption-cle" class="xliff"></a>
-
-### Column Level Encryption (CLE)
+### <a name="column-level-encryption-cle"></a>Column Level Encryption (CLE)
 
 This script creates a symmetric key protected by the asymmetric key in the key vault, and then uses the symmetric key to encrypt data in the database.
 
@@ -153,9 +143,7 @@ SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
 CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 ```
 
-<a id="additional-resources" class="xliff"></a>
-
-## Additional resources
+## <a name="additional-resources"></a>Additional resources
 
 For more information on how to use these encryption features, see [Using EKM with SQL Server Encryption Features](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 

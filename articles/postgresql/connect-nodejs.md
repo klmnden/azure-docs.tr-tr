@@ -19,14 +19,10 @@ ms.lasthandoff: 06/26/2017
 
 ---
 
-<a id="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data" class="xliff"></a>
-
-# PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Node.js’yi kullanma
+# <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Node.js’yi kullanma
 Bu hızlı başlangıçta, Windows, Ubuntu Linux ve Mac platformlarından [Node.js](https://nodejs.org/) kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makaledeki adımlarda, Node.js kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıç, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynakları kullanır:
 - [DB Oluşturma - Portal](quickstart-create-server-database-portal.md)
 - [DB oluşturma - CLI](quickstart-create-server-database-azure-cli.md)
@@ -35,14 +31,10 @@ Bu hızlı başlangıç, başlangıç noktası olarak şu kılavuzlardan birinde
 - [Node.js](https://nodejs.org)’yi yükleme
 - [pg](https://www.npmjs.com/package/pg) paketini yükleme. 
 
-<a id="install-nodejs" class="xliff"></a>
-
-## Node.js’yi yükleme 
+## <a name="install-nodejs"></a>Node.js’yi yükleme 
 Platformunuza bağlı olarak Node.js’yi yüklemek için:
 
-<a id="mac-os" class="xliff"></a>
-
-### **Mac OS**
+### <a name="mac-os"></a>**Mac OS**
 Mac OS X ve **Node.js**’ye yönelik kullanımı kolay bir paket yöneticisi olan **brew** programını yüklemek için aşağıdaki komutları girin.
 
 ```bash
@@ -50,23 +42,17 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install node
 ```
 
-<a id="linux-ubuntu" class="xliff"></a>
-
-### **Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 **Node.js**’yi ve Node.js’nin paket yöneticisi olan **npm**’yi yüklemek için aşağıdaki komutları girin.
 
 ```bash
 sudo apt-get install -y nodejs npm
 ```
 
-<a id="windows" class="xliff"></a>
-
-### **Windows**
+### <a name="windows"></a>**Windows**
 [Node.js indirme sayfasını](https://nodejs.org/en/download/) ziyaret edin ve istediğiniz Windows yükleyici seçeneğini belirleyin.
 
-<a id="install-pg-client" class="xliff"></a>
-
-## pg istemcisini yükleme
+## <a name="install-pg-client"></a>pg istemcisini yükleme
 node.js için eksiksiz bir engellemeye yol açmayan JavaScript istemcisi olan [pg](https://www.npmjs.com/package/pg)’yi yükleyin. Bu, PostgreSQL’e bağlanmak ve PostgreSQL’i sorgulamak için kullanışlı bir istemcidir.
 
 Bunu yapmak için komut satırından JavaScript’e yönelik düğüm paketi yöneticisini (npm) çalıştırarak pg istemcisini yükleyin.
@@ -86,9 +72,7 @@ Liste komut çıktısı, her bileşenin sürümünü onaylar.
 etc...
 ```
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Bağlantı bilgilerini alma
+## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 PostgreSQL için Azure Veritabanı’na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
@@ -98,14 +82,10 @@ PostgreSQL için Azure Veritabanı’na bağlanmak üzere gereken bağlantı bil
  ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma](./media/connect-nodejs/1-connection-string.png)
 5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
 
-<a id="running-the-javascript-code-in-nodejs" class="xliff"></a>
-
-## Node.js’de JavaScript kodunu çalıştırma
+## <a name="running-the-javascript-code-in-nodejs"></a>Node.js’de JavaScript kodunu çalıştırma
 `node` yazarak Node.js’yi bash kabuğundan veya windows komut isteminden başlatabilir, ardından isteme kopyalayıp yapıştırarak örnek JavaScript kodunu etkili bir şekilde çalıştırabilirsiniz. Alternatif olarak, JavaScript kodunu bir metin dosyasına kaydedebilir ve `node filename.js` öğesini, bunu çalıştıracak bir parametre olarak dosya adıyla başlatabilirsiniz.
 
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
-
-## Bağlanma, tablo oluşturma ve veri ekleme
+## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
 Aşağıdaki kodu kullanarak bağlanın ve **CREATE TABLE** ve **INSERT INTO** SQL deyimlerini kullanarak verileri yükleyin.
 [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) nesnesi, PostgreSQL sunucusuyla arabirim oluşturmak için kullanılır. [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) işlevi, sunucuyla bağlantı kurmak için kullanılır. [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) işlevi, PostgreSQL veritabanına karşı SQL sorgusunu yürütmek için kullanılır. 
 
@@ -170,9 +150,7 @@ function queryDatabase()
 }
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Verileri okuma
+## <a name="read-data"></a>Verileri okuma
 **SELECT** SQL deyimini kullanarak bağlanmak ve verileri okumak için aşağıdaki kodu kullanın. [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) nesnesi, PostgreSQL sunucusuyla arabirim oluşturmak için kullanılır. [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) işlevi, sunucuyla bağlantı kurmak için kullanılır. [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) işlevi, PostgreSQL veritabanına karşı SQL sorgusunu yürütmek için kullanılır. 
 
 Ana bilgisayar, veritabanı adı, kullanıcı ve parola parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
@@ -230,9 +208,7 @@ function queryDatabase()
 }
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Verileri güncelleştirme
+## <a name="update-data"></a>Verileri güncelleştirme
 **UPDATE** SQL deyimini kullanarak bağlanmak ve verileri okumak için aşağıdaki kodu kullanın. [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) nesnesi, PostgreSQL sunucusuyla arabirim oluşturmak için kullanılır. [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) işlevi, sunucuyla bağlantı kurmak için kullanılır. [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) işlevi, PostgreSQL veritabanına karşı SQL sorgusunu yürütmek için kullanılır. 
 
 Ana bilgisayar, veritabanı adı, kullanıcı ve parola parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
@@ -288,9 +264,7 @@ function queryDatabase()
 }
 ```
 
-<a id="delete-data" class="xliff"></a>
-
-## Verileri silme
+## <a name="delete-data"></a>Verileri silme
 **DELETE** SQL deyimini kullanarak bağlanmak ve verileri okumak için aşağıdaki kodu kullanın. [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) nesnesi, PostgreSQL sunucusuyla arabirim oluşturmak için kullanılır. [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) işlevi, sunucuyla bağlantı kurmak için kullanılır. [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) işlevi, PostgreSQL veritabanına karşı SQL sorgusunu yürütmek için kullanılır. 
 
 Ana bilgisayar, veritabanı adı, kullanıcı ve parola parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
@@ -346,9 +320,7 @@ function queryDatabase()
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [Dışarı aktarma ve İçeri aktarmayı kullanarak veritabanınızı geçirme](./howto-migrate-using-export-and-import.md)
 

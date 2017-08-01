@@ -22,17 +22,13 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="create-your-first-java-web-app-in-azure" class="xliff"></a>
-
-# Azure’da ilk Java web uygulamanızı oluşturma
+# <a name="create-your-first-java-web-app-in-azure"></a>Azure’da ilk Java web uygulamanızı oluşturma
 
 [Azure Uygulama Hizmeti](../app-service/app-service-value-prop-what-is.md)’nin [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) özelliği, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu hızlı başlangıçta, [Java EE Geliştiricileri için Eclipse IDE](http://www.eclipse.org/) kullanarak App Service’e nasıl Java web uygulaması dağıtılacağı gösterilmektedir.
 
 !["Merhaba Azure!" örnek web uygulaması](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıcı tamamlamak için şunları yükleyin:
 
@@ -41,9 +37,7 @@ Bu hızlı başlangıcı tamamlamak için şunları yükleyin:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-a-dynamic-web-project-in-eclipse" class="xliff"></a>
-
-## Eclipse’te dinamik web projesi oluşturma
+## <a name="create-a-dynamic-web-project-in-eclipse"></a>Eclipse’te dinamik web projesi oluşturma
 
 Eclipse’te **Dosya** > **Yeni** > **Dinamik Web Projesi**’ni seçin.
 
@@ -51,9 +45,7 @@ Eclipse’te **Dosya** > **Yeni** > **Dinamik Web Projesi**’ni seçin.
    
 ![Yeni Dinamik Web Projesi iletişim kutusu](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
-<a id="add-a-jsp-page" class="xliff"></a>
-
-### JSP sayfası ekleme
+### <a name="add-a-jsp-page"></a>JSP sayfası ekleme
 
 Proje Gezgini görüntülenmiyorsa, gezgini geri yükleyin.
 
@@ -81,9 +73,7 @@ index.jsp dosyasında, `<body></body>` öğesini aşağıdaki işaretlemeyle de�
 
 Değişiklikleri kaydedin.
 
-<a id="publish-the-web-app-to-azure" class="xliff"></a>
-
-## Web uygulamasını Azure’da yayımlama
+## <a name="publish-the-web-app-to-azure"></a>Web uygulamasını Azure’da yayımlama
 
 Proje Gezgini’nde projeye sağ tıklayın ve **Azure** > **Azure Web App olarak yayımla**’yı seçin.
 
@@ -93,9 +83,7 @@ Proje Gezgini’nde projeye sağ tıklayın ve **Azure** > **Azure Web App olara
 
 Oturum açma yönergelerini izleyin.
 
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
-
-### Web Uygulaması Dağıtma iletişim kutusu
+### <a name="deploy-web-app-dialog-box"></a>Web Uygulaması Dağıtma iletişim kutusu
 
 Azure hesabınızda oturum açtıktan sonra, **Web Uygulaması Dağıtma** iletişim kutusu açılır.
 
@@ -103,9 +91,7 @@ Azure hesabınızda oturum açtıktan sonra, **Web Uygulaması Dağıtma** ileti
 
 ![Web Uygulaması Dağıtma iletişim kutusu](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
-<a id="create-app-service-dialog-box" class="xliff"></a>
-
-### App Service Oluşturma iletişim kutusu
+### <a name="create-app-service-dialog-box"></a>App Service Oluşturma iletişim kutusu
 
 **App Service Oluşturma** iletişim kutusu varsayılan değerlerle açılır. Aşağıdaki görüntüde gösterilen **170602185241** sayısı, sizin iletişim kutunuzda farklıdır.
 
@@ -126,9 +112,7 @@ Azure hesabınızda oturum açtıktan sonra, **Web Uygulaması Dağıtma** ileti
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-<a id="resource-group-tab" class="xliff"></a>
-
-### Kaynak grubu sekmesi
+### <a name="resource-group-tab"></a>Kaynak grubu sekmesi
 
 **Kaynak grubu** sekmesini seçin. Kaynak grubu için oluşturulmuş varsayılan değeri değiştirmeyin.
 
@@ -150,9 +134,7 @@ Azure Araç Takımı web uygulamasını oluşturur ve bir ilerleme durumu ileti�
 
 ![App Service Oluşturma İlerleme Durumu iletişim kutusu](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
-<a id="deploy-web-app-dialog-box" class="xliff"></a>
-
-### Web Uygulaması Dağıtma iletişim kutusu
+### <a name="deploy-web-app-dialog-box"></a>Web Uygulaması Dağıtma iletişim kutusu
 
 **Web Uygulaması Dağıtma** iletişim kutusunda **Köke dağıt**’ı seçin. *wingtiptoys.azurewebsites.net* adresinde bir uygulama hizmetiniz varsa ve köke dağıtmazsanız, **MyFirstJavaOnAzureWebApp** adlı web uygulaması *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp* adresine dağıtılır.
 
@@ -170,9 +152,7 @@ Tebrikler! Web uygulamanızı başarılı bir şekilde Azure’da dağıttınız
 
 !["Merhaba Azure!" örnek web uygulaması](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-<a id="update-the-web-app" class="xliff"></a>
-
-## Web uygulamasını güncelleştirme
+## <a name="update-the-web-app"></a>Web uygulamasını güncelleştirme
 
 Örnek JSP kodunu farklı bir ileti olarak değiştirin.
 
@@ -196,9 +176,7 @@ Web uygulamasını seçip **Dağıt**’ı seçin. Bunu yaptığınızda değiş
 
 **Yayımlanıyor** bağlantısı göründüğünde, web uygulamasına gitmek ve değişiklikleri görmek için bu bağlantıyı seçin.
 
-<a id="manage-the-web-app" class="xliff"></a>
-
-## Web uygulamasını yönetme
+## <a name="manage-the-web-app"></a>Web uygulamasını yönetme
 
 Oluşturduğunuz web uygulamasını görmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
 
@@ -218,9 +196,7 @@ Web uygulamasını (önceki resimde **webapp-170602193915**) seçin.
 
 [!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
 > [Özel etki alanı eşleme](app-service-web-tutorial-custom-domain.md)

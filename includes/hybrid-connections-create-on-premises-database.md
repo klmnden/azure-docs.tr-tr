@@ -1,8 +1,7 @@
 
 This section shows you how to install a SQL Server Express, enable TCP/IP, set a static port, and create a database that can be used with Hybrid Connections.  
 
-### Install SQL Server Express
-<a id="install-sql-server-express" class="xliff"></a>
+### <a name="install-sql-server-express"></a>Install SQL Server Express
 To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port. Default instances on SQL Server use static port 1433, whereas named instances do not. Because of this, we will install the default instance. If you already have the default instance of SQL Server Express installed, you can skip this section.
 
 1. To install SQL Server Express, run the **SQLEXPRWT_x64_ENU.exe** or **SQLEXPR_x86_ENU.exe** file that you downloaded. The SQL Server Installation Center wizard appears.
@@ -18,16 +17,14 @@ To use an on-premises SQL Server or SQL Server Express database with a hybrid co
     In this tutorial, you will be using SQL Server authentication. Be sure to remember the password that you provide, because you will need it later.
 5. Finish the wizard to complete the installation.
 
-### Enable TCP/IP and setting a static port
-<a id="enable-tcpip-and-setting-a-static-port" class="xliff"></a>
+### <a name="enable-tcpip-and-setting-a-static-port"></a>Enable TCP/IP and setting a static port
 This section uses SQL Server Configuration Manager, which was installed when you installed SQL Server Express, to enable TCP/IP and set a static IP address. 
 
 1. Follow the steps in [Enable TCP/IP Network Protocol for SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx) to enable TCP/IP access to the instance.
 2. (Optional) If you are not able to use the default instance, you must follow the steps in [Configure a Server to Listen on a Specific TCP Port ](https://msdn.microsoft.com/library/ms177440.aspx) to set a static port for the instance. If you complete this step, you will connect using the new port that you define, instead of port 1433.
 3. (Optional) If needed, add exceptions in the firewall to allow remote access to the SQL Server process (sqlservr.exe).
 
-### Create a new database in the on-premises SQL Server instance
-<a id="create-a-new-database-in-the-on-premises-sql-server-instance" class="xliff"></a>
+### <a name="create-a-new-database-in-the-on-premises-sql-server-instance"></a>Create a new database in the on-premises SQL Server instance
 1. In SQL Server Management Studio, connect to the SQL Server you just installed. (If the **Connect to Server** dialog does not appear automatically, navigate to **Object Explorer** in the left pane, click **Connect**, and then click **Database Engine**.)     
    
     ![Connect to Server](./media/hybrid-connections-create-on-premises-database/A04SSMSConnectToServer.png)
@@ -37,8 +34,7 @@ This section uses SQL Server Configuration Manager, which was installed when you
 3. In the **New Database** dialog, type `OnPremisesDB`, and then click **OK**. 
 4. In Object Explorer, if you expand **Databases**, you will see that the new database is created.
 
-### Create a new SQL Server login and set permissions
-<a id="create-a-new-sql-server-login-and-set-permissions" class="xliff"></a>
+### <a name="create-a-new-sql-server-login-and-set-permissions"></a>Create a new SQL Server login and set permissions
 Finally, you will create a new SQL Server login with restricted permissions. Your Azure service will connect to the on-premises SQL Server using this login instead of the built-in sa login, which has full permissions on the server.
 
 1. In SQL Server Management Studio Object Explorer, right-click the **OnPremisesDB** database and click **New Query**.

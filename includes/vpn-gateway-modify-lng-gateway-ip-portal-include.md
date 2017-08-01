@@ -10,26 +10,20 @@ Use the example to modify a local network gateway that does not have a gateway c
 
 To modify a local network gateway that has a connection, you need to first remove the connection. After the connection is removed, you can modify the gateway IP address and recreate a new connection. You can also modify the address prefixes at the same time. This results in some downtime for your VPN connection. When modifying the gateway IP address, you don't need to delete the VPN gateway. You only need to remove the connection.
  
-<a id="1-remove-the-connection" class="xliff"></a>
-
-#### 1. Remove the connection.
+#### <a name="1-remove-the-connection"></a>1. Remove the connection.
 
 1. On the Local Network Gateway resource, in the **Settings** section, click **Connections**.
 2. Click the **...** on the line for the connection, then click **Delete**.
 3. Click **Save** to save your settings.
 
-<a id="2-modify-the-ip-address" class="xliff"></a>
-
-#### 2. Modify the IP address.
+#### <a name="2-modify-the-ip-address"></a>2. Modify the IP address.
 
 You can also modify the address prefixes at the same time.
 
 1. In the **IP address** box, modify the IP address.
 2. Click **Save** to save the settings.
 
-<a id="3-recreate-the-connection" class="xliff"></a>
-
-#### 3. Recreate the connection.
+#### <a name="3-recreate-the-connection"></a>3. Recreate the connection.
 
 1. Navigate to the Virtual Network Gateway for your VNet. (Not the Local Network Gateway.)
 2. On the Virtual Network Gateway, in the **Settings** section, click **Connections**.

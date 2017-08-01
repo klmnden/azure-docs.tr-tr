@@ -1,6 +1,4 @@
-<a id="view-the-solution-dashboard" class="xliff"></a>
-
-## View the solution dashboard
+## <a name="view-the-solution-dashboard"></a>View the solution dashboard
 
 The solution dashboard enables you to manage the deployed solution. For example, you can view telemetry, add devices, and invoke methods.
 
@@ -12,9 +10,7 @@ The solution dashboard enables you to manage the deployed solution. For example,
 
     ![Remote monitoring preconfigured solution dashboard][img-menu]
 
-<a id="add-a-device" class="xliff"></a>
-
-## Add a device
+## <a name="add-a-device"></a>Add a device
 
 For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial.
 

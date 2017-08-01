@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="supplemental-lesson---detail-rows" class="xliff"></a>
-
-# Ek ders - Ayrıntı Satırları
+# <a name="supplemental-lesson---detail-rows"></a>Ek ders - Ayrıntı Satırları
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,14 +30,10 @@ Bu ek derste DAX Düzenleyicisi'ni kullanarak özel bir Ayrıntı Satırları İ
   
 Bu dersin tahmini tamamlanma süresi: **10 dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu ek ders konusu bir tablo modelleme öğreticisinin parçasıdır. Bu ek dersteki görevleri gerçekleştirmeden önce tüm önceki dersleri tamamlamış veya bir Adventure Works İnternet Satışları örnek model projesini tamamlamış olmanız gerekir.  
   
-<a id="what-do-we-need-to-solve" class="xliff"></a>
-
-## Neyi çözmemiz gerekiyor?
+## <a name="what-do-we-need-to-solve"></a>Neyi çözmemiz gerekiyor?
 Bir Ayrıntı Satırları İfadesi eklemeden önce InternetTotalSales ölçümüzün ayrıntılarına bakalım.
 
 1.  SSDT’de **Model** menüsü > **Excel'de çözümleme**’ye tıklayarak Excel'i açın ve boş bir PivotTable oluşturun.
@@ -54,13 +48,9 @@ Bir Ayrıntı Satırları İfadesi eklemeden önce InternetTotalSales ölçümü
   
 Burada görmek istediğimiz, InternetTotalSales ölçümüzün toplu sonucuna katkıda bulunan veri sütunlarını ve satırlarını içeren bir tablodur. Bunu yapmak için, ölçünün bir özelliği olarak Ayrıntı Satırları İfadesini ekleyebiliriz.
 
-<a id="add-a-detail-rows-expression" class="xliff"></a>
+## <a name="add-a-detail-rows-expression"></a>Ayrıntı Satırları İfadesi ekleme
 
-## Ayrıntı Satırları İfadesi ekleme
-
-<a id="to-create-a-detail-rows-expression" class="xliff"></a>
-
-#### Ayrıntı Satırları İfadesi oluşturmak için 
+#### <a name="to-create-a-detail-rows-expression"></a>Ayrıntı Satırları İfadesi oluşturmak için 
   
 1. SSDT’deki FactInternetSales tablosunun ölçü kılavuzunda **InternetTotalSales** ölçüsüne tıklayın. 
 
@@ -92,9 +82,7 @@ Burada görmek istediğimiz, InternetTotalSales ölçümüzün toplu sonucuna ka
 5. Modelinizi yeniden dağıtın.
 
   
-<a id="see-also" class="xliff"></a>
-
-## Ayrıca Bkz.  
+## <a name="see-also"></a>Ayrıca Bkz.  
 [SELECTCOLUMNS İşlevi (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
 [Ek Ders - Dinamik güvenlik](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Ek Ders - Düzensiz hiyerarşiler](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

@@ -9,9 +9,7 @@
 | Tag value length |256 |256 |
 
 
-<a id="template-limits" class="xliff"></a>
-
-#### Template limits
+#### <a name="template-limits"></a>Template limits
 
 | Value | Default Limit | Maximum Limit |
 | --- | --- | --- |

@@ -22,18 +22,14 @@ ms.lasthandoff: 06/03/2017
 
 
 ---
-<a id="hybrid-connections-overview" class="xliff"></a>
-
-# Karma Bağlantılara genel bakış
+# <a name="hybrid-connections-overview"></a>Karma Bağlantılara genel bakış
 
 > [!IMPORTANT]
 > BizTalk Karma Bağlantılar kullanımdan kalktı ve yerine App Service Karma Bağlantılar kullanıma sunuldu. Var olan BizTalk Karma Bağlantılarınızı nasıl yöneteceğiniz de dahil olmak üzere daha fazla bilgi için bkz. [Azure App Service Karma Bağlantılar](../app-service/app-service-hybrid-connections.md).
 
 Karma Bağlantılar’a giriş, desteklenen yapılandırmaları listeler ve gerekli TCP bağlantı noktalarını listeler.
 
-<a id="what-is-a-hybrid-connection" class="xliff"></a>
-
-## Karma bağlantı nedir
+## <a name="what-is-a-hybrid-connection"></a>Karma bağlantı nedir
 Karma Bağlantılar, Azure BizTalk Services’ın bir özelliğidir. Karma Bağlantılar, Azure App Service’deki Web Uygulamaları özelliğine (önceden Web Siteleri) ve Azure App Service’deki Mobile Apps özelliğine (önceden Mobile Services), güvenlik duvarının ardındaki şirket içi kaynaklara bağlanmanın kolay ve uygun bir yolunu sağlar.
 
 ![Karma Bağlantılar][HCImage]
@@ -58,9 +54,7 @@ Karma Bağlantılar, karma uygulamaların eriştiği kurum kaynaklarını kurum 
 * Grup İlkesi ayarlarını kullanarak, yöneticiler Karma Bağlantılar’a ağda izin verebilir ve karma uygulamaların erişebildiği kaynakları atayabilir.
 * Şirket ağındaki etkinlik ve denetim günlükleri Karma Bağlantılar’ın eriştiği kaynaklara görünürlük sağlar.
 
-<a id="example-scenarios" class="xliff"></a>
-
-## Örnek senaryolar
+## <a name="example-scenarios"></a>Örnek senaryolar
 Karma Bağlantılar aşağıdaki altyapı ve uygulama bileşimlerini destekler:
 
 * SQL Server için .NET altyapı erişimi
@@ -77,9 +71,7 @@ Karma Bağlantılar aşağıdaki altyapı ve uygulama bileşimlerini destekler:
 * `ApplicationIntent=ReadOnly` şu anda desteklenmiyor.
 * SQL Kimlik Doğrulaması, Azure uygulamasının ve şirket içi SQL sunucusunun desteklediği uçtan uca yetkilendirme yöntemi olarak gerekebilir.
 
-<a id="security-and-ports" class="xliff"></a>
-
-## Güvenlik ve bağlantı noktaları
+## <a name="security-and-ports"></a>Güvenlik ve bağlantı noktaları
 Karma Bağlantılar, Azure uygulamalarından ve şirket içi Karma Bağlantı Yöneticisi’nden Karma Bağlantılar’a gelen bağlantıların güvenliğini sağlamak için Paylaşılan Erişim İmzası (SAS) yetkilendirmesini kullanır. Uygulama ve şirket içi Karma Bağlantı Yöneticisi için ayrı bağlantı anahtarları oluşturulur. Bu bağlantı anahtarları uzatılabilir ve bağımsız olarak iptal edilebilir.
 
 Karma Bağlantılar, uygulamalara ve şirket içi Karma Bağlantı Yöneticisi’ne anahtarların sorunsuz ve güvenli dağıtılmasını sağlar.
@@ -88,9 +80,7 @@ Bkz. [Karma Bağlantıları Oluşturma ve Yönetme](integration-hybrid-connectio
 
 *Uygulama yetkilendirmesi Karma Bağlantı’dan ayrıdır*. Uygun herhangi bir yetkilendirme yöntemi kullanılabilir. Yetkilendirme yöntemi, Azure bulutu ve şirket içi bileşenler arasında desteklenen uçtan uca yetkilendirme yöntemlerine bağlıdır. Örneğin, Azure uygulamanız bir şirket içi SQL Server’a erişir. Bu senaryoda, SQL etkilendirme uçtan uca destekleyen yetkilendirme yöntemi olabilir.
 
-<a id="tcp-ports" class="xliff"></a>
-
-#### TCP bağlantı noktaları
+#### <a name="tcp-ports"></a>TCP bağlantı noktaları
 Karma Bağlantılar için, yalnızca özel ağınızdan giden TCP veya HTTP bağlantısı gerekir. Herhangi bir güvenlik duvarı bağlantı noktasını açmanız veya gelen bağlantılara ağınızda izin vermek için ağ çevre yapılandırmasını değiştirmeniz gerekmez.
 
 Aşağıdaki TCP bağlantı noktaları Karma Bağlantılar tarafından kullanılır:
@@ -101,16 +91,12 @@ Aşağıdaki TCP bağlantı noktaları Karma Bağlantılar tarafından kullanıl
 | 5671 |9352 adlı bağlantı noktası veri trafiği için kullanıldığında, 5671 bağlantı noktası denetim kanalını kullanılır. <br/><br/>Bu bağlantı noktasına giden bağlantılara izin verin. |
 | 80, 443 |Bu bağlantı noktaları Azure’e bazı veri isteklerini iletmek için kullanılır. Ayrıca, 9352 ve 5671 bağlantı noktaları kullanıma hazır değilse, *bu nedenle* 80 ve 443 bağlantı noktaları, veri iletimi ve denetim kanalı için kullanılan temel bağlantı noktalarıdır.<br/><br/>Bu bağlantı noktalarına giden bağlantılara izin verin. <br/><br/>**Not** Diğer TCP bağlantı noktaları yerine bunların temel bağlantı noktası olarak kullanılması önerilmez. HTTP/WebSocket, veri kanallarına yönelik yerel TCP yerine protokol olarak kullanılır. Düşük performansa neden olabilir. |
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 [Karma Bağlantıları oluşturma ve yönetme](integration-hybrid-connection-create-manage.md)<br/>
 [Azure Web Apps’i bir Şirket İçi Kaynağa Bağlama](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
 [Azure web uygulamasından şirket içi SQL Server’a bağlanma](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
 
-<a id="see-also" class="xliff"></a>
-
-## Ayrıca Bkz.
+## <a name="see-also"></a>Ayrıca Bkz.
 [Microsoft Azure’de BizTalk hizmetlerinin yönetilmesi için REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)
 [BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)<br/>
 [Azure portalını kullanarak BizTalk Hizmeti oluşturma](biztalk-provision-services.md)<br/>

@@ -23,18 +23,14 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support" class="xliff"></a>
-
-# Azure Machine Learning ile ilgili sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve destek
+# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning ile ilgili sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve destek
 Aşağıda, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığıyla çözümleri faaliyete geçirmeye yönelik bir bulut hizmeti olan Azure Machine Learning hakkında sık sorulan bazı sorular (SSS) ve yanıtları verilmiştir. Bu SSS bölümlerinde faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin nasıl kullanılacağına ilişkin sorular sağlanır.
 
 **Burada olmayan bir sorunuz mu var?**
 
 Azure Machine Learning'in MSDN üzerinde veri bilimi topluluğu üyelerinin Azure Machine Learning hakkında sorular sorabileceği bir forumu da bulunur. Forum, Azure Machine Learning ekibi tarafından izlenir. Yanıt aramak veya yeni bir soru sormak için [Azure Machine Learning Forumuna](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) gidin.
 
-<a id="general-questions" class="xliff"></a>
-
-## Genel sorular
+## <a name="general-questions"></a>Genel sorular
 **Azure Machine Learning nedir?**
 
 Azure Machine Learning, tahmine dayalı analitik çözümleri bulutta oluşturmak, test etmek, işletmek ve yönetmek için kullanabileceğiniz tam olarak yönetilen bir hizmettir. Yalnızca bir tarayıcıyla oturum açabilir, verileri yükleyebilir ve anında makine öğrenimi denemelerine başlayabilirsiniz. Tahmine dayalı sürükle ve bırak modelleme, büyük bir modül paleti ve başlangıç şablonları kitaplığı, ortak makine öğrenimi görevlerini basit ve hızlı hale getirir. Daha fazla bilgi için bkz. [Azure Machine Learning hizmetine genel bakış](https://azure.microsoft.com/services/machine-learning/). Makine öğrenimiyle ilgili önemli terimleri ve kavramları açıklayan bir giriş için bkz. [Azure Machine Learning'e giriş](machine-learning-what-is-machine-learning.md).
@@ -59,9 +55,7 @@ Klasik dağıtım modeli kullanılarak oluşturulan web hizmetleri ve Yeni Azure
 
 Klasik web hizmetleri, [Machine Learning Studio](http://studio.azureml.net)'daki **Web hizmetleri** sekmesinde de listelenir.
 
-<a id="azure-machine-learning-questions" class="xliff"></a>
-
-## Azure Machine Learning soruları
+## <a name="azure-machine-learning-questions"></a>Azure Machine Learning soruları
 **Microsoft Azure Machine Learning web hizmetleri nelerdir?**
 
 Machine Learning web hizmetleri, bir uygulama ile Machine Learning iş akışı puanlama modeli arasında bir arabirim sağlar. Bir dış uygulama, Azure Machine Learning’i kullanarak bir Machine Learning iş akışı puanlama modeli ile gerçek zamanlı olarak iletişim kurabilir. Machine Learning web hizmetine bir çağrı yapılırsa tahmin sonuçları bir dış uygulamaya döndürülür. Bir web hizmetine çağrı yapmak için web hizmeti dağıtılırken oluşturulan bir API anahtarını geçirirsiniz. Machine Learning web hizmetleri, web programlama projeleri için popüler bir mimari seçimi olan REST’i temel alır.
@@ -83,12 +77,8 @@ Ayrıca, sizin için oluşturulan ve Machine Learning Studio’daki web hizmeti 
 
 En son güncelleştirmeler için bkz. [Azure Machine Learning’deki yenilikler](machine-learning-whats-new.md).
 
-<a id="machine-learning-studio-questions" class="xliff"></a>
-
-## Machine Learning Studio soruları
-<a id="import-and-export-data-for-machine-learning" class="xliff"></a>
-
-### Machine Learning için verileri içeri ve dışarı aktarma
+## <a name="machine-learning-studio-questions"></a>Machine Learning Studio soruları
+### <a name="import-and-export-data-for-machine-learning"></a>Machine Learning için verileri içeri ve dışarı aktarma
 **Machine Learning hangi veri kaynaklarını destekliyor?**
 
 Bir Machine Learning Studio denemesine üç yöntemle veri indirebilirsiniz:
@@ -132,9 +122,7 @@ Az miktarda veriniz varsa ve bunu bir HTTP URL'si aracılığıyla kullanıma su
 
 Görüntü girişi özelliği hakkında [Görüntüleri İçeri Aktarma][image-reader] başvurusundan bilgi edinebilirsiniz.
 
-<a id="modules" class="xliff"></a>
-
-### Modüller
+### <a name="modules"></a>Modüller
 **Aradığım algoritma, veri kaynağı, veri biçimi veya veri dönüştürme işlemi Azure Machine Learning Studio'da yok. Seçeneklerim neler?**
 
 Takip ettiğimiz özellik isteklerini görmek için [kullanıcı geri bildirim forumuna](http://go.microsoft.com/fwlink/?LinkId=404231) gidebilirsiniz. Aradığınız bir özellik zaten istenmişse isteğe oyunuzu ekleyin. Aradığınız özellik mevcut değilse yeni bir istek oluşturun. Bu forumda isteğinizin durumunu da görüntüleyebilirsiniz. Bu listeyi yakından takip edip özellik kullanılabilirliği durumunu sık sık güncelleştiriyoruz. Buna ek olarak, R ve Python için yerleşik desteği kullanarak gerektiğinde özel dönüştürmeler oluşturabilirsiniz.
@@ -151,9 +139,7 @@ Hayır, Predictive Model Markup Language (PMML) desteklenmez. Bir modülü tanı
 
 Bir denemede paralel şekilde en fazla dört modül yürütebilirsiniz.
 
-<a id="data-processing" class="xliff"></a>
-
-### Veri işleme
+### <a name="data-processing"></a>Veri işleme
 **Denemede, verileri etkileşimli bir şekilde görselleştirme (R görselleştirmesinin ötesinde) özelliği var mı?**
 
 Verileri görselleştirmek ve istatistikleri elde etmek için bir modülün çıkışına tıklayın.
@@ -162,9 +148,7 @@ Verileri görselleştirmek ve istatistikleri elde etmek için bir modülün çı
 
 Bir tarayıcıya büyük miktarda veri gönderilebileceğinden, Machine Learning Studio’nun yavaşlamaması için veri boyutu sınırlanır. Tüm verilerin/sonuçların görselleştirilmesi için verileri indirip Excel veya başka bir araç kullanmak daha iyidir.
 
-<a id="algorithms" class="xliff"></a>
-
-### Algoritmalar
+### <a name="algorithms"></a>Algoritmalar
 **Machine Learning Studio'da hangi mevcut algoritmalar destekleniyor?**
 
 Machine Learning Studio, Microsoft Research'te geliştirilen Ölçeklenebilir Artırılmış Karar ağaçları, Bayes Önerisi sistemleri, Derin Sinir Ağları ve Karar Ormanları gibi teknoloji harikası algoritmaları sağlar. Vowpal Wabbit gibi ölçeklenebilir açık kaynaklı makine öğrenimi paketleri de dahildir. Machine Learning Studio, çok sınıflı ve ikili sınıflandırma, regresyon ve kümeleme için makine öğrenimi algoritmalarını destekler. [Machine Learning Modüllerinin][machine-learning-modules] tam listesine bakın.
@@ -197,9 +181,7 @@ Hayır.
 
 Şu anda yeni özel modüller oluşturmak için yalnızca R kullanabilirsiniz.
 
-<a id="r-module" class="xliff"></a>
-
-### R modülü
+### <a name="r-module"></a>R modülü
 **Machine Learning Studio'da hangi R paketleri kullanılabilir?**
 
 Machine Learning Studio, şu an 400’ün üzerinde CRAN R paketini desteklemektedir ve buna dahil olan tüm paketlerin [güncel listesi](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) buradadır. Ayrıca, bu listeyi nasıl alacağınızı öğrenmek için bkz. [Denemenizi R ile genişletme](machine-learning-extend-your-experiment-with-r.md). İstediğiniz paket bu listede değilse [kullanıcı geri bildirim forumunda](http://go.microsoft.com/fwlink/?LinkId=404231) paketin adını sağlayın.
@@ -212,9 +194,7 @@ Evet, daha fazla bilgi için bkz. [Azure Machine Learning'de özel R modülleri 
 
 Hayır, Studio'da R için Read-Eval-Print-Loop (REPL) ortamı yoktur.
 
-<a id="python-module" class="xliff"></a>
-
-### Python modülü
+### <a name="python-module"></a>Python modülü
 **Özel bir Python modülü oluşturulabilir mi?**
 
 Şu anda değil ancak aynı sonucu elde etmek için bir veya daha fazla [Python Betiği Yürütme][python] modülünü kullanabilirsiniz.
@@ -223,19 +203,13 @@ Hayır, Studio'da R için Read-Eval-Print-Loop (REPL) ortamı yoktur.
 
 Machine Learning Studio'daki Jupyter Not Defterlerini kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure Machine Learning Studio'da Jupyter Not Defterlerine Giriş](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
 
-<a id="web-service" class="xliff"></a>
-
-## Web hizmeti
-<a id="retrain" class="xliff"></a>
-
-### Yeniden eğitme
+## <a name="web-service"></a>Web hizmeti
+### <a name="retrain"></a>Yeniden eğitme
 **Azure Machine Learning modellerini program aracılığıyla nasıl yeniden eğitebilirim?**
 
 Yeniden eğitme API'lerini kullanın. Daha fazla bilgi için bkz. [Machine Learning modellerini programlama aracılığıyla yeniden eğitme](machine-learning-retrain-models-programmatically.md). Örnek kod [Microsoft Azure Machine Learning Yeniden Eğitme Demosu](https://azuremlretrain.codeplex.com/)'nda da kullanılabilir.
 
-<a id="create" class="xliff"></a>
-
-### Oluştur
+### <a name="create"></a>Oluştur
 **Modeli yerel olarak veya İnternet bağlantısı olmayan bir uygulamada dağıtabilir miyim?**
 
 Hayır.
@@ -244,9 +218,7 @@ Hayır.
 
 Bkz. [Azure abonelik limitleri](../azure-subscription-service-limits.md).
 
-<a id="use" class="xliff"></a>
-
-### Kullanım
+### <a name="use"></a>Kullanım
 **Tahmine dayalı modelimi, Toplu İş Yürütme hizmeti veya İstek Yanıtı hizmeti olarak çalıştırmayı ne zaman isterim?**
 
 İstek Yanıtı hizmeti (RRS), deneme ortamından oluşturulan ve dağıtılan durum bilgisi olmayan modellere bir arabirim sağlamak için kullanılan düşük gecikme süreli ve yüksek ölçekli bir web hizmetidir. Toplu Yürütme Hizmeti (BES), toplu veri kayıtlarını zaman uyumsuz olarak puanlayan bir hizmettir. BES girişi, RRS’nin kullandığı veri girişi gibidir. Aralarındaki temel fark, BES'nin Azure Blob depolama, Azure Tablo depolama, Azure SQL Veritabanı, HDInsight (hive sorgusu) ve HTTP kaynakları gibi çeşitli kaynaklardan bir kayıt bloğunu okumasıdır. Daha fazla bilgi için bkz. [Azure Machine Learning web hizmetini kullanma](machine-learning-consume-web-services.md).
@@ -274,9 +246,7 @@ Hayır, doğrudan Jupyter Not Defterlerinden ve RStudio'dan da web hizmetleri ol
 
 Hata kodları ve açıklamaları listesi için bkz: [Machine Learning Hata Kodları](https://msdn.microsoft.com/library/azure/dn905910.aspx).
 
-<a id="scalability" class="xliff"></a>
-
-## Ölçeklenebilirlik
+## <a name="scalability"></a>Ölçeklenebilirlik
 **Web hizmetinin ölçeklenebilirliği nedir?**
 
 Şu anda varsayılan uç nokta, uç nokta başına 20 eş zamanlı RRS isteği ile sağlanır. Bunu, uç nokta başına 200 eş zamanlı istek olacak şekilde ölçeklendirebilirsiniz ve [Web Hizmetini Ölçeklendirme](machine-learning-scaling-webservice.md)'de açıklandığı gibi her bir web hizmetini, web hizmeti başına 10.000 uç nokta olacak şekilde ölçeklendirebilirsiniz. BES için her bir uç nokta tek seferde 40 istek işleyebilir ve 40'ı aşan ek istekler kuyruğa alınır. Bu kuyruğa alınan istekler, sıra azaldıkça otomatik olarak çalıştırılır.
@@ -314,9 +284,7 @@ Satırların ve sütunların her biri 2.147.483.647 Maks. Tamsayısı .NET sın�
 
 Hayır.  
 
-<a id="security-and-availability" class="xliff"></a>
-
-## Güvenlik ve kullanılabilirlik
+## <a name="security-and-availability"></a>Güvenlik ve kullanılabilirlik
 **Web hizmetinin HTTP uç noktasına varsayılan olarak kimler erişebilir? Uç noktasına yönelik erişimi nasıl kısıtlarım?**
 
 Bir web hizmeti dağıtıldıktan sonra, bu hizmet için varsayılan bir uç noktası oluşturulur. Varsayılan uç noktası, API anahtarı kullanılarak çağrılabilir. Klasik Azure portalından veya programlama aracılığıyla Web Hizmet Yönetimi API'lerini kullanarak, kendi anahtarlarına sahip ek uç noktalar ekleyebilirsiniz. Erişim tuşları, web hizmetine çağrı yapmak için gereklidir. Daha fazla bilgi için bkz. [Azure Machine Learning web hizmetini kullanma](machine-learning-consume-web-services.md).
@@ -333,9 +301,7 @@ Machine Learning Studio, iş akışını yürütürken ara verileri saklamak iç
 
 Depolama hesabının erişim anahtarlarını değiştirdiyseniz klasik Azure portalını kullanarak çalışma alanındaki erişim anahtarlarını yeniden eşitleyin.  
 
-<a id="support-and-training" class="xliff"></a>
-
-## Destek ve eğitim
+## <a name="support-and-training"></a>Destek ve eğitim
 **Azure Machine Learning için nereden eğitim alabilirim?**
 
 [Azure Machine Learning Belge Merkezi](https://azure.microsoft.com/services/machine-learning/), video öğreticilerinin yanı sıra nasıl yapılır kılavuzlarını da barındırır. Bu adım adım kılavuzlar hizmetleri tanıtır ve Azure Machine Learning kullanarak verileri içeri aktarmanın, temizlemenin, tahmine dayalı modeller oluşturmanın ve bunları üretimde dağıtmanın veri bilimi yaşam döngüsünü açıklar.
@@ -350,9 +316,7 @@ Azure Machine Learning için teknik destek almak istiyorsanız [Azure Desteği](
 
 Azure Machine Learning'in hizmet hakkında sorular sorabileceğiniz bir MSDN topluluk forumu da bulunur. Forum, Azure Machine Learning ekibi tarafından izlenir. [Azure Forumu](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)'na gidin.
 
-<a id="billing-questions" class="xliff"></a>
-
-## Faturalama soruları
+## <a name="billing-questions"></a>Faturalama soruları
 **Machine Learning için faturalama nasıl gerçekleşir?**
 
 Azure Machine Learning iki bileşenden oluşur: Machine Learning Studio ve Machine Learning web hizmetleri.
@@ -416,9 +380,7 @@ Evet. Ayrıntılı bilgi edinmek ve hizmet düzeyi sözleşmesinin (SLA) açıkl
 
 Machine Learning hizmeti çok kiracılı bir hizmettir. Arka uçta kullanılan gerçek işlem kaynakları farklılık gösterir ve performans ve öngörülebilirlik sağlayacak şekilde iyileştirilir.
 
-<a id="management-of-new-resource-manager-based-web-services" class="xliff"></a>
-
-### Yeni (Resource Manager tabanlı) web hizmetlerinin yönetimi
+### <a name="management-of-new-resource-manager-based-web-services"></a>Yeni (Resource Manager tabanlı) web hizmetlerinin yönetimi
 **Planımı silersem ne olur?**
 
 Plan aboneliğinizden kaldırılır ve eşit olarak bölünmüş kullanım için faturalandırılırsınız.
@@ -454,9 +416,7 @@ Miktarlar eşit olarak bölünmüş temelde dahil edilir ve etkili olması 24 sa
 
 Örnek aboneliğinizden kaldırılır ve eşit olarak bölünmüş kullanım için faturalandırılırsınız.
 
-<a id="sign-up-for-new-resource-manager-based-web-services-plans" class="xliff"></a>
-
-### Yeni (Resource Manager tabanlı) web hizmetleri için kaydolun
+### <a name="sign-up-for-new-resource-manager-based-web-services-plans"></a>Yeni (Resource Manager tabanlı) web hizmetleri için kaydolun
 **Bir plana nasıl kaydolabilirim?**
 
 Faturalandırma planları oluşturmanın iki yolu vardır.
@@ -485,9 +445,7 @@ Yeni faturalandırma planları yeni web hizmetlerini desteklediğimiz üç üret
 
 Evet. Plan fiyatlandırması bölgeye göre değişir. Bir web hizmetini başka bir bölgeye dağıttığınızda, web hizmetine ilgili bölgeye özgü bir plan atamanız gerekir. Daha fazla bilgi için bkz. [Bölgelere göre kullanılabilir ürünler]( https://azure.microsoft.com/regions/services/).
 
-<a id="new-web-services-overages" class="xliff"></a>
-
-### Yeni web hizmetleri: Fazla kullanım
+### <a name="new-web-services-overages"></a>Yeni web hizmetleri: Fazla kullanım
 **Web hizmeti kullanım sınırımı aşıp aşmadığımı nasıl kontrol edebilirim?**
 
 Tüm planlarınızdaki kullanımı Azure Machine Learning Web Hizmetleri portalındaki Planlar sayfasından inceleyebilirsiniz. Portalda oturum açın ve **Planlar** menü seçeneğine tıklayın.
@@ -508,16 +466,12 @@ BES iş yükleri için de aynı şekilde ücretlendirilirsiniz. Bununla birlikte
 
 Örneğin, Standart S1 fazla kullanımı gerçekleştiğini ve günlük her biri 0,72 saniye süren 500’er satırdan oluşan 100 iş gönderdiğinizi varsayalım. Aylık fazla kullanım maliyetleriniz üretim API’si işlem maliyetlerinden (günde 100 iş = 3.100 iş/ay  0,50 $/1000 API işlemi) 1,55 $ ve üretim API’si işlem saatlerinden (500 satır  0,72 saniye  3.100 İş  2 $/sa) 620 $ olmak üzere toplam 621,55 $ olur.
 
-<a id="azure-machine-learning-classic-web-services" class="xliff"></a>
-
-### Azure Machine Learning Klasik web hizmetleri
+### <a name="azure-machine-learning-classic-web-services"></a>Azure Machine Learning Klasik web hizmetleri
 **Kullandıkça Öde seçeneği hâlâ mevcut mu?**
 
 Evet, Azure Machine Learning’de Klasik web hizmetleri hala kullanılabilmektedir.  
 
-<a id="azure-machine-learning-free-and-standard-tier" class="xliff"></a>
-
-### Azure Machine Learning Ücretsiz ve Standart katmanı
+### <a name="azure-machine-learning-free-and-standard-tier"></a>Azure Machine Learning Ücretsiz ve Standart katmanı
 **Azure Machine Learning Ücretsiz katmanına neler dahildir?**
 
 Azure Machine Learning Ücretsiz katmanı, Azure Machine Learning Studio’ya kapsamlı bir giriş sağlamaya yöneliktir. Kaydolmak için tek ihtiyacınız olan bir Microsoft hesabıdır. Ücretsiz katmanı her [Microsoft hesabı](https://www.microsoft.com/account/default.aspx) için bir Azure Machine Learning Studio çalışma alanına ücretsiz erişim içerir. Bu katmanda en fazla 10 GB depolama alanı kullanabilir ve modelleri hazırlama API'leri olarak operasyona dahil edebilirsiniz. Ücretsiz katmanı iş yükleri bir SLA kapsamında değildir ve yalnızca geliştirme ve kişisel kullanım amaçlıdır. 
@@ -585,9 +539,7 @@ Denemelerinizi Ücretsiz katmanından Standart katmanına kopyalamak için:
    Tüm ilişkili veri kümeleri, eğitilen model vb. denemeyle birlikte Standart çalışma alanına kopyalanır.
 5. Denemeyi yeniden çalıştırmanız ve web hizmetinizi Standart çalışma alanınıza yeniden yayımlamanız gerekir.
 
-<a id="studio-workspace" class="xliff"></a>
-
-### Studio çalışma alanı
+### <a name="studio-workspace"></a>Studio çalışma alanı
 **Farklı çalışma alanları için farklı faturalar görür müyüm?**
 
 Çalışma alanı ücretleri tek bir fatura üzerinde, geçerli olan her bir ölçüm için ayrıca listelenir.
@@ -596,9 +548,7 @@ Denemelerinizi Ücretsiz katmanından Standart katmanına kopyalamak için:
 
 Machine Learning hizmeti çok kiracılı bir hizmettir. Arka uçta kullanılan gerçek işlem kaynakları farklılık gösterir ve performans ve öngörülebilirlik sağlayacak şekilde iyileştirilir.
 
-<a id="guest-access" class="xliff"></a>
-
-### Konuk Erişimi
+### <a name="guest-access"></a>Konuk Erişimi
 **Azure Machine Learning Studio'ya Konuk Erişimi nedir?**
 
 Konuk Erişimi kısıtlı bir deneme deneyimidir. Azure Machine Learning Studio’da herhangi bir maliyet olmadan ve kimlik doğrulaması gerçekleştirmeden denemeler oluşturup çalıştırabilirsiniz. Konuk oturumları kalıcı değildir (kaydedilemez) ve sekiz saatle sınırlıdır. Diğer sınırlamalar ise R ve Python desteğinin olmaması, hazırlık API’lerinin olmaması, kısıtlı veri kümesi boyutu ve kısıtlı depolama kapasitesidir. Buna karşılık olarak bir Microsoft hesabıyla oturum açan kullanıcılar Machine Learning Studio’nun daha önce açıklanan ve kalıcı bir çalışma alanı ile daha kapsamlı özellikler içeren Ücretsiz katmanına tam erişime sahip olur. Ücretsiz Machine Learning deneyiminizi seçmek için [https://studio.azureml.net](https://studio.azureml.net) sayfasındaki **Kullanmaya başlayın**’a tıklayıp **Konuk Erişimi**’ni seçin ya da bir Microsoft hesabı ile oturum açın.

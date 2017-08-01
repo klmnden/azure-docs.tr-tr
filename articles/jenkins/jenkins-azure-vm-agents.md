@@ -22,32 +22,24 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/21/2017
 
 ---
-<a id="use-azure-vm-agents-for-continuous-integration-with-jenkins" class="xliff"></a>
-
-# Jenkins ile sürekli tümleştirme için Azure VM aracılarını kullanın.
+# <a name="use-azure-vm-agents-for-continuous-integration-with-jenkins"></a>Jenkins ile sürekli tümleştirme için Azure VM aracılarını kullanın.
 
 Bu hızlı başlangıç, Azure’da isteğe bağlı bir Linux (Ubuntu) aracısı oluşturmak üzere Jenkins Azure VM Aracıları eklentisinin nasıl kullanılacağını gösterir.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
 * Henüz bir Jenkins ana sunucunuz yoksa, [Çözüm Şablonu](install-jenkins-solution-template.md) ile başlayabilirsiniz 
 * Henüz bir Azure hizmet sorumlunuz yoksa, [Azure CLI 2.0 ile Azure Hizmet sorumlusu oluşturma](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) bölümüne bakın.
 
-<a id="install-azure-vm-agents-plugin" class="xliff"></a>
-
-## Azure VM Aracıları eklentisini yükleme
+## <a name="install-azure-vm-agents-plugin"></a>Azure VM Aracıları eklentisini yükleme
 
 İşleme [Çözüm Şablonu](install-jenkins-solution-template.md) ile başlarsanız, Azure VM Aracısı eklentisi Jenkins ana sunucusuna yüklenir.
 
 Aksi takdirde, **Azure VM Aracısı** eklentisini Jenkins panosundan yükleyin.
 
-<a id="configure-the-plugin" class="xliff"></a>
-
-## Eklentiyi yapılandırma
+## <a name="configure-the-plugin"></a>Eklentiyi yapılandırma
 
 * Jenkins panosunda **Jenkins’i Yönet -> Sistem Yapılandırma ->** öğesine tıklayın. Sayfanın en altına kadar kaydırın ve **Yeni bulut ekle** açılır listesini içeren bölümü bulun. Menüden **Microsoft Azure VM Aracıları**’nı seçin
 * Azure Kimlik Bilgiler açılır listesinden mevcut bir hesabı seçin.  Yeni bir **Microsoft Azure Hizmet Sorumlusu** eklemek için şu değerleri girin: Abonelik Kimliği, İstemci Kimliği, İstemci Gizli Anahtarı ve OAuth 2.0 Belirteç Uç Noktası.
@@ -57,13 +49,9 @@ Aksi takdirde, **Azure VM Aracısı** eklentisini Jenkins panosundan yükleyin.
 * Profil yapılandırmasının doğru olduğundan emin olmak için **Yapılandırmayı doğrula** öğesine tıklayın.
 * Yapılandırmayı kaydedip sonraki adıma geçin.
 
-<a id="template-configuration" class="xliff"></a>
+## <a name="template-configuration"></a>Şablon yapılandırması
 
-## Şablon yapılandırması
-
-<a id="general-configuration" class="xliff"></a>
-
-### Genel yapılandırma
+### <a name="general-configuration"></a>Genel yapılandırma
 Bundan sonra, bir Azure VM aracısı tanımlamak için kullanılacak şablonu yapılandırın. 
 
 * Şablon eklemek için **Ekle**’ye tıklayın. 
@@ -76,9 +64,7 @@ Bundan sonra, bir Azure VM aracısı tanımlamak için kullanılacak şablonu ya
 
 ![Genel yapılandırma](./media/jenkins-azure-vm-agents/general-config.png)
 
-<a id="image-configuration" class="xliff"></a>
-
-### Görüntü yapılandırma
+### <a name="image-configuration"></a>Görüntü yapılandırma
 
 Bir Linux (Ubuntu) aracısı oluşturmak için **Görüntü başvurusu**’nu seçin ve örnek olarak aşağıdaki yapılandırmayı kullanın. Azure tarafından desteklenen en son görüntüler için [Azure Market](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1)’e bakın.
 
@@ -102,9 +88,7 @@ sudo apt-get install -y openjdk-7-jdk
 * Yapılandırmayı doğrulamak için **Şablonu Doğrula**’ya tıklayın.
 * **Kaydet** düğmesine tıklayın.
 
-<a id="create-a-job-in-jenkins" class="xliff"></a>
-
-## Jenkins içinde iş oluşturma
+## <a name="create-a-job-in-jenkins"></a>Jenkins içinde iş oluşturma
 
 * Jenkins panosunda **Yeni Öğe**’ye tıklayın. 
 * Bir ad girip **Serbest tarzda proje**’yi seçin ve **Tamam**’a tıklayın.
@@ -113,9 +97,7 @@ sudo apt-get install -y openjdk-7-jdk
 
 ![İşi ayarlama](./media/jenkins-azure-vm-agents/job-config.png)
 
-<a id="build-your-new-project" class="xliff"></a>
-
-## Yeni projenizi derleme
+## <a name="build-your-new-project"></a>Yeni projenizi derleme
 
 * Jenkins panosuna geri dönün.
 * Yeni oluşturduğunuz işe sağ tıkladıktan sonra **Şimdi derle**’ye tıklayın. Derleme başlatılır. 
@@ -123,9 +105,7 @@ sudo apt-get install -y openjdk-7-jdk
 
 ![Konsol çıktısı](./media/jenkins-azure-vm-agents/console-output.png)
 
-<a id="reference" class="xliff"></a>
-
-## Başvuru
+## <a name="reference"></a>Başvuru
 
 * Azure Cuma videosu: [Azure VM aracılarını kullanarak Jenkins ile Sürekli Tümleştirme](https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents)
 * Destek bilgileri ve yapılandırma seçenekleri: [Azure VM Aracısı Jenkins Eklentisi Wiki](https://wiki.jenkins-ci.org/display/JENKINS/Azure+VM+Agents+Plugin) 

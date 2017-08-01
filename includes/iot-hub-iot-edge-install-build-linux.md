@@ -1,6 +1,4 @@
-<a id="install-the-prerequisites" class="xliff"></a>
-
-## Install the prerequisites
+## <a name="install-the-prerequisites"></a>Install the prerequisites
 
 The steps in this tutorial assume you are running Ubuntu Linux.
 
@@ -17,9 +15,7 @@ In the shell, run the following command to clone the Azure IoT Edge GitHub repos
 git clone https://github.com/Azure/iot-edge.git
 ```
 
-<a id="how-to-build-the-sample" class="xliff"></a>
-
-## How to build the sample
+## <a name="how-to-build-the-sample"></a>How to build the sample
 
 You can now build the IoT Edge runtime and samples on your local machine:
 

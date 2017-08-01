@@ -22,9 +22,7 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="first-look-backing-up-azure-virtual-machines" class="xliff"></a>
-
-# İlk bakış: Azure sanal makinelerini yedekleme
+# <a name="first-look-backing-up-azure-virtual-machines"></a>İlk bakış: Azure sanal makinelerini yedekleme
 > [!div class="op_single_selector"]
 > * [VM'leri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md)
 > * [Azure VM'lerini yedekleme kasasıyla koruma](backup-azure-vms-first-look.md)
@@ -46,9 +44,7 @@ Aşağıdaki öğreticiyi başarıyla tamamlamak için şu önkoşulların mevcu
 >
 >
 
-<a id="create-a-backup-vault" class="xliff"></a>
-
-## Yedekleme kasası oluşturma
+## <a name="create-a-backup-vault"></a>Yedekleme kasası oluşturma
 Yedekleme kasası, zaman içinde oluşturulan tüm yedeklemeleri ve kurtarma noktalarını depolayan bir varlıktır. Yedekleme kasası, yedeklenmekte olan sanal makinelere uygulanan yedekleme ilkelerini de içerir.
 
 > [!IMPORTANT]
@@ -58,9 +54,7 @@ Yedekleme kasası, zaman içinde oluşturulan tüm yedeklemeleri ve kurtarma nok
 >- Klasik portalda yedekleme verilerinize erişemeyeceksiniz. Bunun yerine, Kurtarma Hizmetleri kasalarındaki yedekleme verilerinize erişmek için Azure portalını kullanabilirsiniz.
 >
 
-<a id="discover-and-register-azure-virtual-machines" class="xliff"></a>
-
-## Azure sanal makinelerini bulma ve kaydetme
+## <a name="discover-and-register-azure-virtual-machines"></a>Azure sanal makinelerini bulma ve kaydetme
 VM'yi bir kasaya kaydetmeden önce yeni VM'leri tanımlamak için bulma işlemini çalıştırın. Bu, bulut hizmeti adı ve bölge gibi ek bilgilerle birlikte, abonelikteki sanal makinelerin listesini döndürür.
 
 1. [Klasik Azure portalında](http://manage.windowsazure.com/) oturum açın
@@ -107,16 +101,12 @@ VM'yi bir kasaya kaydetmeden önce yeni VM'leri tanımlamak için bulma işlemin
 
     ![Kayıt durumu 2](./media/backup-azure-vms/register-status02.png)
 
-<a id="install-the-vm-agent-on-the-virtual-machine" class="xliff"></a>
-
-## VM Aracısı'nı sanal makineye yükleme
+## <a name="install-the-vm-agent-on-the-virtual-machine"></a>VM Aracısı'nı sanal makineye yükleme
 Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı VM üzerinde zaten mevcuttur; [VM’lerinizi koruma](backup-azure-vms-first-look.md#create-the-backup-policy) bölümüne geçebilirsiniz.
 
 VM'nizin bir şirket içi veri merkezinden geçişi sağlandıysa VM için VM Aracısı büyük olasılıkla yüklü değildir. VM'yi koruma aşamasına geçmeden önce sanal makine üzerinde VM Aracısı'nı yüklemeniz gerekir. VM Aracısı'nı yükleme konusunda ayrıntılı adımlar için bkz. [VM'leri Yedekleme makalesinin VM Aracısı bölümü](backup-azure-vms-prepare.md#vm-agent).
 
-<a id="create-the-backup-policy" class="xliff"></a>
-
-## Yedekleme ilkesi oluşturma
+## <a name="create-the-backup-policy"></a>Yedekleme ilkesi oluşturma
 İlk yedekleme işini tetiklemeden önce, yedekleme anlık görüntülerinin alınma zamanlamasını ayarlayın. Yedekleme anlık görüntülerinin alınma zamanlaması ve bu anlık görüntülerin tutulma süresinin uzunluğu, yedekleme ilkesini oluşturur. Bekletme bilgileri, Üst öğe-orta öğe-alt öğe rotasyon düzenini temel alır.
 
 1. Klasik Azure portalında **Kurtarma Hizmetleri**'nin altındaki yedekleme kasasına gidin ve **Kayıtlı Öğeler**'e tıklayın.
@@ -153,9 +143,7 @@ VM'nizin bir şirket içi veri merkezinden geçişi sağlandıysa VM için VM Ar
 
     İlkeyi belirlediğinize göre, artık sonraki adıma geçebilir ve ilk yedeklemeyi çalıştırabilirsiniz.
 
-<a id="initial-backup" class="xliff"></a>
-
-## İlk yedekleme
+## <a name="initial-backup"></a>İlk yedekleme
 Bir sanal makine bir ilke ile koruma altına alındıktan sonra, bu ilişkiyi **Korumalı Öğeler** sekmesinde görüntüleyebilirsiniz. İlk yedekleme gerçekleşene kadar, **Koruma Durumu** **Korumalı - (ilk yedekleme bekleniyor)** olarak gösterilir. Varsayılan olarak, ilk zamanlanmış yedekleme *ilk yedekleme* olacaktır.
 
 ![Yedekleme beklemede](./media/backup-azure-vms-first-look/protection-pending-border.png)
@@ -179,17 +167,13 @@ Bir sanal makine bir ilke ile koruma altına alındıktan sonra, bu ilişkiyi **
    >
    >
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bir VM'yi başarıyla yedeklediğinize göre, sonraki birkaç adım ilginizi çekebilir. En mantıklı adım, bir VM'ye veri geri yükleme konusunda bilgi edinmektir. Bununla birlikte, verilerinizin güvenliğini nasıl koruyacağınızı ve maliyetleri nasıl en aza indireceğinizi anlamanıza yardımcı olacak yönetim görevleri mevcuttur.
 
 * [Sanal makinelerinizi yönetme ve izleme](backup-azure-manage-vms.md)
 * [Sanal makineleri geri yükleme](backup-azure-restore-vms.md)
 * [Sorun giderme rehberi](backup-azure-vms-troubleshoot.md)
 
-<a id="questions" class="xliff"></a>
-
-## Sorularınız mı var?
+## <a name="questions"></a>Sorularınız mı var?
 Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](http://aka.ms/azurebackup_feedback).
 

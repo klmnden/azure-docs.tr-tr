@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-11-create-roles" class="xliff"></a>
-
-# 11. Ders: Rol oluşturma
+# <a name="lesson-11-create-roles"></a>11. Ders: Rol oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -45,18 +43,12 @@ Kuruluşunuzdaki Windows kullanıcı ve grup hesapları benzersiz olduğu için,
   
 Bu dersin tahmini tamamlanma süresi: **15 dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [10. Ders: Bölümleme oluşturma](../tutorials/aas-lesson-10-create-partitions.md).  
   
-<a id="create-roles" class="xliff"></a>
-
-## Rol oluşturma  
+## <a name="create-roles"></a>Rol oluşturma  
   
-<a id="to-create-a-sales-manager-user-role" class="xliff"></a>
-
-#### Satış yöneticisi kullanıcı rolü oluşturmak için  
+#### <a name="to-create-a-sales-manager-user-role"></a>Satış yöneticisi kullanıcı rolü oluşturmak için  
   
 1.  Tablo Model Gezgini'nde **Roller** > **Roller**’e sağ tıklayın.  
   
@@ -70,9 +62,7 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
   
 5.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**’ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin.  
   
-<a id="to-create-a-sales-analyst-us-user-role" class="xliff"></a>
-
-#### Satış Analisti ABD kullanıcı rolü oluşturmak için  
+#### <a name="to-create-a-sales-analyst-us-user-role"></a>Satış Analisti ABD kullanıcı rolü oluşturmak için  
   
 1.  Rol Yöneticisi'nde **Yeni**’ye tıklayın.    
   
@@ -91,9 +81,7 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
   
 6.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**’ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin.  
   
-<a id="to-create-an-administrator-user-role" class="xliff"></a>
-
-#### Yönetici kullanıcı rolü oluşturmak için  
+#### <a name="to-create-an-administrator-user-role"></a>Yönetici kullanıcı rolü oluşturmak için  
   
 1.  **Yeni**’ye tıklayın.  
   
@@ -104,9 +92,7 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
 4.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**’ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin. 
   
   
-<a id="whats-next" class="xliff"></a>
-
-## Sırada ne var?
+## <a name="whats-next"></a>Sırada ne var?
 [12. Ders: Excel’de çözümleme](../tutorials/aas-lesson-12-analyze-in-excel.md).
 
   

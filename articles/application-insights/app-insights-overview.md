@@ -20,18 +20,14 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 05/19/2017
 
 ---
-<a id="what-is-application-insights" class="xliff"></a>
-
-# Application Insights nedir?
+# <a name="what-is-application-insights"></a>Application Insights nedir?
 Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. devOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır.
 
 ![Kullanıcı etkinliği istatistiklerinin grafiğini oluşturun veya belirli olayları ayrıntısına gidin.](./media/app-insights-overview/00-sample.png)
 
 [Giriş animasyonuna göz atın](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
-<a id="how-does-application-insights-work" class="xliff"></a>
-
-## Application Insights nasıl çalışır?
+## <a name="how-does-application-insights-work"></a>Application Insights nasıl çalışır?
 Uygulamanıza küçük bir izleme paketi yüklersiniz ve Microsoft Azure portalında bir Application Insights kaynağı ayarlarsınız. İzleme aracı uygulamanızı izler ve telemetri verilerini portala gönderir. (Uygulamanın nerede çalıştığı önemli değildir ve Azure’da barındırılması gerekmez.)
 
 Yalnızca web hizmeti uygulamasını değil, tüm arka plan bileşenlerini ve web sayfalarının kendisindeki JavaScript’i de izleyebilirsiniz. 
@@ -44,14 +40,10 @@ Buna ek olarak performans sayaçları, Azure tanılama veya Docker günlükleri 
 Bu telemetri akışlarının tamamı Azure portalında tümleştirilir ve burada ham verilere güçlü analiz ve arama araçları uygulayabilirsiniz.
 
 
-<a id="whats-the-overhead" class="xliff"></a>
-
-### Ne kadar ek yük getirir?
+### <a name="whats-the-overhead"></a>Ne kadar ek yük getirir?
 Uygulamanızın performansı üzerindeki etkisi çok küçüktür. İzleme çağrıları engelleyici değildir ve toplanarak ayrı bir iş parçacığında gönderilir.
 
-<a id="what-does-application-insights-monitor" class="xliff"></a>
-
-## Application Insights neleri izler?
+## <a name="what-does-application-insights-monitor"></a>Application Insights neleri izler?
 
 Geliştirme takımına yönelik olan Application Insights, uygulamanızın performansını ve nasıl kullanıldığını anlamanıza yardımcı olur. Şunları izler:
 
@@ -66,9 +58,7 @@ Geliştirme takımına yönelik olan Application Insights, uygulamanızın perfo
 * Uygulamanızdan **tanılama izleme günlükleri**: İzleme olayları ile istekler arasında bağıntı kurmanıza imkan tanır.
 * Satılan öğeler ya da kazanılan maçlar gibi iş olaylarını izlemek için istemcide ya da sunucu kodunda kendi yazdığınız **özel olaylar ve ölçümler**.
 
-<a id="where-do-i-see-my-telemetry" class="xliff"></a>
-
-## Telemetrimi nerede görebilirim?
+## <a name="where-do-i-see-my-telemetry"></a>Telemetrimi nerede görebilirim?
 
 Verilerinizi keşfetmenin birçok yolu vardır. Aşağıdaki makaleleri inceleyin:
 
@@ -89,40 +79,30 @@ Verilerinizi keşfetmenin birçok yolu vardır. Aşağıdaki makaleleri inceleyi
 | [**REST API**](https://dev.applicationinsights.io/)<br/>Ölçümleriniz ve ham verileriniz üzerinde sorgu çalıştırmak için kod yazın.| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**Sürekli dışarı aktarma**](app-insights-export-telemetry.md)<br/>Ham verilerin ulaşır ulaşmaz toplu olarak depolamaya aktarılması. |![Dışarı Aktarma](./media/app-insights-overview/export-tn.png) |
 
-<a id="how-do-i-use-application-insights" class="xliff"></a>
+## <a name="how-do-i-use-application-insights"></a>Application Insights’ı nasıl kullanabilirim?
 
-## Application Insights’ı nasıl kullanabilirim?
-
-<a id="monitor" class="xliff"></a>
-
-### İzleme
+### <a name="monitor"></a>İzleme
 Application Insights’ı uygulamanıza yükleyin, [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) ayarlayın ve:
 
 * Yük ve yanıt verme hızının yanı sıra bağımlılıklarınızın, sayfa yüklemelerinizin ve AJAX çağrılarınızın performansını izlemek amacıyla takım odanız için bir [pano](app-insights-dashboards.md) ayarlayın.
 * En yavaş ve en çok başarısız olan isteklerin hangileri olduğunu keşfedin.
 * Yeni bir sürüm dağıttığınızda [Canlı Akış](app-insights-live-stream.md)’ı izleyerek herhangi bir performans düşüşünü anında görün.
 
-<a id="detect-diagnose" class="xliff"></a>
-
-### Algılama, Tanılama
+### <a name="detect-diagnose"></a>Algılama, Tanılama
 Bir uyarı aldığınızda veya bir sorun bulduğunuzda:
 
 * Bu durumdan kaç kullanıcının etkilendiğini değerlendirin.
 * Hatalar ile özel durumlar, bağımlılık çağrıları ve izlemeler arasında bağıntı kurun.
 * Profil oluşturucuyu, anlık görüntüleri, yığın dökümlerini ve izleme günlüklerini inceleyin.
 
-<a id="build-measure-learn" class="xliff"></a>
-
-### Oluşturma, Ölçme, Öğrenme
+### <a name="build-measure-learn"></a>Oluşturma, Ölçme, Öğrenme
 Dağıttığınız her yeni özelliğin [ne kadar etkili olduğunu ölçün](app-insights-usage-overview.md).
 
 * Müşterilerin yeni kullanıcı arabirimini veya iş özelliklerini nasıl kullandığını ölçmeyi planlayın.
 * Kodunuza özel telemetri yazın.
 * Bir sonraki geliştirme döngüsünü telemetrinizden edindiğiniz somut kanıtlara dayandırın.
 
-<a id="get-started" class="xliff"></a>
-
-## Başlarken
+## <a name="get-started"></a>Başlarken
 Application Insights, Microsoft Azure’da barındırılan birçok hizmetten biridir ve telemetri verileri analiz edilip sunulmak üzere buraya gönderilir. Bu nedenle, başka bir işlem yapmadan önce bir [Microsoft Azure](http://azure.com) aboneliğinizin olması gerekir. Kaydolmak ücretsizdir ve Application Insights’ın temel [fiyatlandırma planını](https://azure.microsoft.com/pricing/details/application-insights/) seçerseniz, uygulamanız önemli bir kullanım oranına ulaşana kadar ücret ödemezsiniz. Kuruluşunuzun zaten aboneliği varsa, Microsoft hesabınızı bu aboneliğe eklettirebilirsiniz.
 
 Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yöntemi kullanarak başlayın. Diğerlerini daha sonra ekleyebilirsiniz.
@@ -140,9 +120,7 @@ Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yönt
 * **[Kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md)**: Sunucularımızdan web sitenize düzenli aralıklarla ping gönderin.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Çalışma zamanında şunlarla kullanmaya başlayın:
 
 * [IIS sunucusu](app-insights-monitor-performance-live-website-now.md)
@@ -154,9 +132,7 @@ Geliştirme zamanında şunlarla kullanmaya başlayın:
 * [Java](app-insights-java-get-started.md)
 * [Node.js](app-insights-nodejs.md)
 
-<a id="support-and-feedback" class="xliff"></a>
-
-## Destek ve geri bildirim
+## <a name="support-and-feedback"></a>Destek ve geri bildirim
 * Sorular ve Sorunlar:
   * [Sorun giderme][qna]
   * [MSDN Forumu](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
@@ -166,9 +142,7 @@ Geliştirme zamanında şunlarla kullanmaya başlayın:
 * Blog:
   * [Application Insights blogu](https://azure.microsoft.com/blog/tag/application-insights)
 
-<a id="videos" class="xliff"></a>
-
-## Videolar
+## <a name="videos"></a>Videolar
 
 [![Animasyonlu giriş](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 

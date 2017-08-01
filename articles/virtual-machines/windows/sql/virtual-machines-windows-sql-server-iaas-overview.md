@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="overview-of-sql-server-on-azure-virtual-machines" class="xliff"></a>
-
-# Azure Virtual Machines’de SQL Server’a Genel Bakış
+# <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines’de SQL Server’a Genel Bakış
 Bu konu başlığı, Azure sanal makinelerinde (VM’ler) SQL Server çalıştırmaya yönelik seçeneklerle birlikte [portal görüntülerinin bağlantılarını](#option-1-create-a-sql-vm-with-per-minute-licensing) ve [sık gerçekleştirilen görevlerin](#manage-your-sql-vm) genel açıklamasını içermektedir.
 
 > [!NOTE]
@@ -33,9 +31,7 @@ Bu konu başlığı, Azure sanal makinelerinde (VM’ler) SQL Server çalıştı
 > 
 > 
 
-<a id="overview" class="xliff"></a>
-
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 Veritabanı yöneticisi veya geliştiriciyseniz Azure VM’leri, şirket içi SQL Server iş yüklerinizi ve uygulamalarınızı Buluta taşımanız için bir yöntem sağlar. Aşağıdaki videoda, SQL Server Azure VM’leri için teknik bir genel bakış sağlanmıştır.
 
 > [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
@@ -61,9 +57,7 @@ Video, aşağıdaki alanları kapsar:
 > 
 > 
 
-<a id="scenarios" class="xliff"></a>
-
-## Senaryolar
+## <a name="scenarios"></a>Senaryolar
 Verilerinizi Azure’da barındırmayı seçmeniz için birçok neden vardır. Uygulamanız Azure’a taşınıyorsa verilerin taşınma performansı da artırır. Bununla birlikte, başka avantajları da vardır. Küresel bir erişim ağı ve olağanüstü durum kurtarma için birden fazla veri merkezine otomatik olarak erişebilirsiniz. Ayrıca veriler son derece güvenilir ve dayanıklı olur.
 
 Azure VM’lerinde çalışan SQL Server, ilişkisel verilerinizi Azure’da depolamak için yararlanabileceğiniz bir seçenektir. Birkaç senaryo için iyi bir seçimdir. Örneğin, bir Azure VM’sini şirket içi SQL Server makinesinde mümkün olduğunca benzer şekilde yapılandırmak isteyebilirsiniz. Alternatif olarak, aynı veritabanı sunucusunda ek uygulamalar ve hizmetler çalıştırmak isteyebilirsiniz. Daha fazla senaryoyu ve dikkat edilmesi gereken noktayı göz önünde bulundurmanıza yardım edebilecek iki ana kaynak vardır:
@@ -71,16 +65,12 @@ Azure VM’lerinde çalışan SQL Server, ilişkisel verilerinizi Azure’da dep
 * [Azure sanal makinelerinde SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/), Azure VM’lerinde SQL Server’ın kullanılmasına ilişkin en iyi senaryolara genel bakış sağlar. 
 * [Bir bulut SQL Server seçeneği belirleyin: Azure SQL (PaaS) Veritabanı ya da Azure VM’lerde SQL Server (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md), SQL Veritabanı ve VM’de çalışan SQL Server arasında ayrıntılı bir karşılaştırma sağlar.
 
-<a id="create-a-new-sql-vm" class="xliff"></a>
-
-## Yeni bir SQL sanal makinesi oluşturma
+## <a name="create-a-new-sql-vm"></a>Yeni bir SQL sanal makinesi oluşturma
 Aşağıdaki bölümlerde SQL Server sanal makine galeri görüntüleri için Azure portalının doğrudan bağlantıları verilmektedir. Seçtiğiniz görüntüye bağlı olarak, SQL Server lisans maliyetlerini dakika başına temelde ödeyebilir veya kendi lisansınızı getirebilirsiniz (KLG).
 
 Yeni SQL VM oluşturmaya yönelik adım adım yönergeleri, [Azure Portal'da SQL Server sanal makine hazırlama](virtual-machines-windows-portal-sql-server-provision.md) öğreticisinde bulabilirsiniz. Ayrıca,uygun makine boyutunu seçmeyi ve sağlama işlemi sırasında kullanılabilir diğer seçenekleri açıklayan [ SQL Server VM’ler için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md)’nı gözden geçirin.
 
-<a id="option-1-create-a-sql-vm-with-per-minute-licensing" class="xliff"></a>
-
-## Seçenek 1: Dakika başına lisanslama ile SQL sanal makinesi oluşturma
+## <a name="option-1-create-a-sql-vm-with-per-minute-licensing"></a>Seçenek 1: Dakika başına lisanslama ile SQL sanal makinesi oluşturma
 Aşağıdaki tabloda sanal makine galerisindeki en son SQL Server görüntülerinin bir matrisi verilmektedir. Belirtilen sürüm, yayın ve işletim sisteminizle yeni bir SQL VM oluşturmaya başlamak için bağlantılardan birine tıklayın. 
 
 > [!TIP]
@@ -114,48 +104,32 @@ Bu listeye ek olarak kullanılabilen başka SQL Server sürümü ve işletim sis
 > [!NOTE]
 > Dakika başına ödemeli SQL Server VM'nin lisanslama modelini kendi lisansınızı kullanacak şekilde değiştirmezsiniz. Bu durumda yeni bir KLG VM oluşturmanız ve veritabanlarınızı yeni VM'ye geçirmeniz gerekir. 
 
-<a id="manage-your-sql-vm" class="xliff"></a>
-
-## SQL VM’nizi yönetme
+## <a name="manage-your-sql-vm"></a>SQL VM’nizi yönetme
 SQL Server sanal makinenizi sağladıktan sonra isteğe bağlı birkaç yönetim görevi vardır. Birçok yönden, SQL Server’ı tam olarak şirket içi SQL Server örneğindeki gibi yapılandırır ve yönetirsiniz. Ancak bazı görevler Azure’a özgüdür. Aşağıdaki bölümlerde daha fazla bilgi için bağlantılar ile birlikte bu alanlardan bazıları vurgulanmaktır.
 
-<a id="connect-to-the-vm" class="xliff"></a>
-
-### VM’ye bağlanma
+### <a name="connect-to-the-vm"></a>VM’ye bağlanma
 SQL Server VM’nize SQL Server Management Studio (SSMS) gibi araçlar üzerinden bağlanmak başlıca yönetim adımlarından biridir. Yeni SQL Server VM’ye bağlanma hakkındaki yönergeler için bkz. [Azure’da SQL Server Sanal Makinesine bağlanma](virtual-machines-windows-sql-connect.md).
 
-<a id="migrate-your-data" class="xliff"></a>
-
-### Verilerinizi geçirme
+### <a name="migrate-your-data"></a>Verilerinizi geçirme
 Varolan bir veritabanınız varsa, bunu yeni sağlanan SQL VM'ye taşımak istersiniz. Geçiş seçenekleri ve kılavuzların listesi için bkz. [Azure VM’de bir Veritabanını SQL Server’a Geçirme](virtual-machines-windows-migrate-sql.md).
 
-<a id="configure-high-availability" class="xliff"></a>
-
-### Yüksek kullanılabilirliği yapılandırma
+### <a name="configure-high-availability"></a>Yüksek kullanılabilirliği yapılandırma
 Size yüksek kullanılabilirlik gerekiyorsa, SQL Server Kullanılabilirlik gruplarını yapılandırmayı dikkate alın. Bu, bir sanal ağda birden fazla Azure VM’yi içerir. Azure portal bu yapılandırmayı sizin için ayarlayan bir şablona sahiptir. Daha fazla bilgi için bkz. [Azure Resource Manager sanal makinelerde AlwaysOn Kullanılabilirlik grubu yapılandırma](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Kullanılabilirlik Grubunuzu ve ilgili dinleyiciyi el ile yapılandırmak istiyorsanız, bkz. [Azure VM’de AlwaysOn Kullanılabilirlik Grupları yapılandırma](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 Diğer yüksek kullanılabilirlik dikkate alınacak noktaları için bkz. [Azure Virtual Machines’de SQL Server için Yüksek Kullanılabilirlik ve Olağanüstü Durum Kurtarma](virtual-machines-windows-sql-high-availability-dr.md).
 
-<a id="back-up-your-data" class="xliff"></a>
-
-### Verilerinizi yedekleme
+### <a name="back-up-your-data"></a>Verilerinizi yedekleme
 Azure sanal makineleri, blob depolama biriminde düzenli olarak veritabanınızın yedeklerini oluşturan [Otomatik Yedekleme](virtual-machines-windows-sql-automated-backup.md) özelliğinden yararlanabilir. Bu tekniği el ile de kullanabilirsiniz. Daha fazla bilgi için. bkz. [SQL Server Yedekleme ve Geri Yükleme için Azure Storage’ı Kullanma](virtual-machines-windows-use-storage-sql-server-backup-restore.md). Tüm yedekleme ve geri yükleme seçeneklerine genel bakış için bkz. [Azure Virtual Machines’de SQL Server için Yedekleme ve geri Yükleme](virtual-machines-windows-sql-backup-recovery.md).
 
-<a id="automate-updates" class="xliff"></a>
-
-### Otomatik güncelleştirmeler
+### <a name="automate-updates"></a>Otomatik güncelleştirmeler
 Azure sanal makineleri önemli Windows ve SQL Server güncelleştirmelerini otomatik olarak yüklemek için bir bakım penceresi zamanlamak üzere [Otomatik Düzeltme Eki Uygulama](virtual-machines-windows-sql-automated-patching.md) özelliğini kullanabilir.
 
-<a id="customer-experience-improvement-program-ceip" class="xliff"></a>
-
-### Müşteri deneyimini geliştirme programı (CEIP)
+### <a name="customer-experience-improvement-program-ceip"></a>Müşteri deneyimini geliştirme programı (CEIP)
 Müşteri Deneyimini Geliştirme Programı (CEIP) varsayılan olarak etkindir. Bu, SQL Server’ın geliştirilmesine yardımcı olmak için Microsoft’a düzenli olarak raporlar gönderir. CEIP’i hazırladıktan sonra devre dışı bırakmak istemiyorsanız CEIP için herhangi bir yönetim görevi gerekmez. VM’ye uzak masaüstüyle bağlanarak CEIP özelleştirebilir ya da devre dışı bırakabilirsiniz. Ardından **SQL Server Hata ve Kullanım Raporlama** yardımcı programını çalıştırın. Raporlamayı devre dışı bırakmak için yönergeleri izleyin. 
 
 Daha fazla bilgi için [Lisans Koşullarını kabul etme](https://msdn.microsoft.com/library/ms143343.aspx) konu başlığının CEIP bölümüne bakın. 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Fiyatlandırmayla ilgili sorular için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md) ve [Azure fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Hedef SQL Server sürümünüzü **İşletim Sistemi/Yazılım** listesinden seçin. Ardından farklı boyutlardaki sanal makinelerin fiyatlarını görüntüleyebilirsiniz.
 

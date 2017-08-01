@@ -18,21 +18,15 @@ ms.lasthandoff: 06/28/2017
 
 ---
 
-<a id="create-an-azure-database-for-mysql-server-using-azure-portal" class="xliff"></a>
-
-# Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
+# <a name="create-an-azure-database-for-mysql-server-using-azure-portal"></a>Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
 Bu makalede, Azure portalını kullanarak bir MySQL için Azure Veritabanı sunucusunu yaklaşık beş dakika içinde oluşturma adımları gösterilmektedir. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-<a id="log-in-to-azure" class="xliff"></a>
-
-## Azure'da oturum açma
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
 Web tarayıcınızı açıp [Microsoft Azure portalı](https://portal.azure.com/)’na gidin. Portalda oturum açmak için kimlik bilgilerinizi girin. Varsayılan görünüm hizmet panonuzu içerir.
 
-<a id="create-azure-database-for-mysql-server" class="xliff"></a>
-
-## MySQL için Azure Veritabanı sunucusu oluşturma
+## <a name="create-azure-database-for-mysql-server"></a>MySQL için Azure Veritabanı sunucusu oluşturma
 1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
 
 2. **Yeni** sayfasından **Veritabanları**’nı seçin ve **Veritabanları** sayfasından **MySQL için Azure Veritabanı**’nı seçin. Yeni sayfa arama kutusuna **MySQL** yazarak da hizmeti bulabilirsiniz.
@@ -59,9 +53,7 @@ Web tarayıcınızı açıp [Microsoft Azure portalı](https://portal.azure.com/
 
    Sonra, **Oluştur**’a tıklayın. Bir veya iki dakika içinde, bulutta MySQL sunucusu için yeni bir Azure Veritabanı çalışmaya başlayacaktır. Dağıtım işlemini izlemek için araç çubuğunda **Bildirimler** (zil simgesi) düğmesine tıklayın.
 
-<a id="configure-the-firewall" class="xliff"></a>
-
-## Güvenlik duvarını yapılandırma
+## <a name="configure-the-firewall"></a>Güvenlik duvarını yapılandırma
 MySQL için Azure Veritabanı’na ilk kez bağlanmadan önce, güvenlik duvarını yapılandırın ve istemcinin genel ağ IP adresini (veya aralığını) güvenilir listeye ekleyin.
 
 1. Dağıtım tamamlandıktan sonra, sol taraftaki menüden **Tüm Kaynaklar**’a tıklayın ve yeni oluşturduğunuz sunucuyu aramak için **myserver4demo** adını yazın. Arama sonucunda listelenen sunucu adına tıklayın. Sunucunuzun Genel bakış sayfası açılır ve daha fazla yapılandırma seçeneği sunulur.
@@ -71,9 +63,7 @@ MySQL için Azure Veritabanı’na ilk kez bağlanmadan önce, güvenlik duvarı
 3. **IP'mi Ekle**’ye tıklayarak yerel bilgisayarınızın IP adresini ekleyin veya bir IP aralığı yapılandırın. Kuralları oluşturduktan sonra **Kaydet**’e tıklamayı unutmayın.
   ![Azure portalı - güvenlik duvarı kuralı ekleme ve kaydetme](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Bağlantı bilgilerini alma
+## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 Azure portalında Azure MySQL sunucunuzun tam etki alanı adını alın. **mysql.exe** komut satırı aracını kullanarak sunucunuza bağlanmak için tam etki alanı adını kullanırsınız.
 
 1.  [Azure portalı](https://portal.azure.com/)’nda soldaki menüden **Tüm kaynaklar**’a ve MySQL için Azure Veritabanı sunucusuna tıklayın.
@@ -81,9 +71,7 @@ Azure portalında Azure MySQL sunucunuzun tam etki alanı adını alın. **mysql
 2.  **Özellikler**'e tıklayın. **SUNUCU ADI** ve **SUNUCU YÖNETİCİSİ OTURUM AÇMA BİLGİLERİ** değerlerini not edin.
 Bu örnekte sunucu adı *myserver4demo.mysql.database.azure.com*, sunucu yöneticisi oturum açma bilgileri ise *myadmin@myserver4demo* şeklindedir.
 
-<a id="connect-to-the-server-using-mysqlexe-command-line-tool" class="xliff"></a>
-
-## mysqlexe komut satırı aracını kullanarak sunucuya bağlanma
+## <a name="connect-to-the-server-using-mysqlexe-command-line-tool"></a>mysqlexe komut satırı aracını kullanarak sunucuya bağlanma
 MySQL sunucusu için Azure Veritabanınız ile bağlantı kurmak üzere [mysql komut satırı aracını](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) kullanın. Azure Cloud Shell’i kullanarak mysql komut satırı aracını tarayıcıdan çalıştırabilir veya yerel olarak yüklenmiş mysql araçlarını kullanarak kendi makinenizden başlatabilirsiniz. Azure Cloud Shell’i başlatmak için bu makaledeki bir kod bloğu üzerinde `Try It` düğmesine tıklayın veya [Azure portalını](https://portal.azure.com) ziyaret ederek sağ üstteki araç çubuğunda `>_` simgesine tıklayın. 
 
 1. Bağlanma komutunu yazın:
@@ -115,9 +103,7 @@ status
    SHOW DATABASES;
    ```
 
-<a id="connect-to-the-server-using-the-mysql-workbench-gui-tool" class="xliff"></a>
-
-## MySQL Workbench GUI aracını kullanarak sunucuya bağlanma
+## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>MySQL Workbench GUI aracını kullanarak sunucuya bağlanma
 1.  İstemci bilgisayarınızda MySQL Workbench uygulamasını başlatın. MySQL Workbench uygulamasını [buradan](https://dev.mysql.com/downloads/workbench/) indirip yükleyebilirsiniz.
 
 2.  **Setup New Connection** (Yeni Bağlantı Oluştur) iletişim kutusundaki **Parameters** (Parametreler) sekmesine aşağıdaki bilgileri girin:
@@ -138,9 +124,7 @@ Tüm parametrelerin doğru yapılandırılıp yapılandırılmadığını test e
 > [!NOTE]
 > SSL, sunucunuzda varsayılan olarak zorunlu kılınmıştır ve başarıyla bağlanması için ek yapılandırma gerektirir. Bkz. [MySQL için Azure Veritabanına güvenli bir şekilde bağlanmak üzere uygulamanızda SSL bağlantısı yapılandırma](./howto-configure-ssl.md).  Bu hızlı başlangıç için SSL’yi devre dışı bırakmak isterseniz, Azure portalına gidin ve Bağlantı güvenliği sayfasına tıklayarak SSL bağlantısını zorunlu kıl iki durumlu düğmesini devre dışı bırakın.
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 [Azure kaynak grubunu](../azure-resource-manager/resource-group-overview.md) silerek hızlı başlangıçta oluşturduğunuz tüm kaynakları temizleyin.
 
 > [!TIP]
@@ -155,9 +139,7 @@ Yeni oluşturulan sunucuyu silmek isterseniz:
 3.  Silmek istediğiniz sunucu adını onaylayın ve altındaki etkilenen veritabanlarını gösterin. Metin kutusuna **myserver4demo** yazıp Sil’e tıklayın.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
 > [İlk MySQL için Azure Veritabanınızı tasarlama](./tutorial-design-database-using-portal.md)

@@ -19,9 +19,7 @@ ms.lasthandoff: 06/20/2017
 
 ---
 
-<a id="create-an-azure-database-for-mysql-server-using-azure-cli" class="xliff"></a>
-
-# Azure CLI aracını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
+# <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI aracını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
 Bu hızlı başlangıçta, Azure CLI aracını kullanarak bir Azure kaynak grubunda yaklaşık beş dakikada nasıl MySQL için Azure Veritabanı sunucusu oluşturabileceğiniz açıklanır. Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
@@ -35,9 +33,7 @@ Birden fazla aboneliğiniz varsa kaynağın mevcut olduğu ve faturalandırıld�
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 [az group create](https://docs.microsoft.com/cli/azure/group#create) komutunu kullanarak bir [Azure kaynak grubu](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) oluşturun. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
 Aşağıdaki örnek `westus` konumunda `myresourcegroup` adlı bir kaynak grubu oluşturur.
@@ -46,9 +42,7 @@ Aşağıdaki örnek `westus` konumunda `myresourcegroup` adlı bir kaynak grubu 
 az group create --name myresourcegroup --location westus
 ```
 
-<a id="create-an-azure-database-for-mysql-server" class="xliff"></a>
-
-## MySQL için Azure Veritabanı sunucusu oluşturma
+## <a name="create-an-azure-database-for-mysql-server"></a>MySQL için Azure Veritabanı sunucusu oluşturma
 **az mysql server create** komutunu kullanarak MySQL için Azure Veritabanı sunucusu oluşturun. Bir sunucu birden çok veritabanını yönetebilir. Genellikle her proje veya kullanıcı için farklı bir veritabanı kullanılır.
 
 Aşağıdaki örnekte, `westus` bölgesinde bulunan `myresourcegroup` kaynak grubundaki `myserver4demo` adlı MySQL sunucusu için bir Azure Veritabanı oluşturulur. Sunucunun `myadmin` şeklinde bir oturum adı ve `Password01!` şeklinde bir parolası vardır. Sunucu **Temel** performans katmanıyla oluşturulmuştur ve sunucudaki tüm veritabanları **50** işlem birimini ortak olarak kullanır. Uygulama gereksinimlerine bağlı olarak işlem ve depolama ölçeğini büyütebilir veya küçültebilirsiniz.
@@ -57,9 +51,7 @@ Aşağıdaki örnekte, `westus` bölgesinde bulunan `myresourcegroup` kaynak gru
 az mysql server create --resource-group myresourcegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
-<a id="configure-firewall-rule" class="xliff"></a>
-
-## Güvenlik duvarı kuralını yapılandırma
+## <a name="configure-firewall-rule"></a>Güvenlik duvarı kuralını yapılandırma
 **az mysql server firewall-rule create** komutunu kullanarak MySQL için Azure Veritabanı sunucusu düzeyinde bir güvenlik duvarı kuralı oluşturun. Sunucu düzeyindeki bir güvenlik duvarı kuralı, **mysql.exe** komut satırı aracı veya MySQL Workbench gibi bir dış uygulamanın Azure MySQL hizmetinin güvenlik duvarı üzerinden sunucunuza bağlanmasına imkan tanır. 
 
 Aşağıdaki örnekte önceden tanımlanmış bir adres aralığı için bir güvenlik duvarı kuralı oluşturulmaktadır. Bu örnek için aralık, olası tüm IP adresleri aralığıdır.
@@ -67,9 +59,7 @@ Aşağıdaki örnekte önceden tanımlanmış bir adres aralığı için bir gü
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myresourcegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
-<a id="configure-ssl-settings" class="xliff"></a>
-
-## SSL ayarlarını yapılandırma
+## <a name="configure-ssl-settings"></a>SSL ayarlarını yapılandırma
 Varsayılan olarak sunucunuz ile istemci uygulamaları arasında SSL bağlantıları zorunlu tutulur.  Bu, İnternet üzerinden veri akışını şifreleyerek “hareket halindeki” verilerinizin güvenli olmasını sağlar.  Bu hızlı başlangıcı daha da kolaylaştırmak üzere sunucunuz için SSL bağlantılarını devre dışı bırakıyoruz.  Üretim sunucuları için bunu yapmanız önerilmez.  Daha ayrıntılı bilgi için bkz. [MySQL için Azure Veritabanı'na güvenli bir şekilde bağlanmak üzere uygulamanızda SSL bağlantısını yapılandırma](./howto-configure-ssl.md).
 
 Aşağıdaki örnekte, MySQL sunucunuzda SSL’yi zorunlu tutma ayarı devre dışı bırakılır.
@@ -78,9 +68,7 @@ Aşağıdaki örnekte, MySQL sunucunuzda SSL’yi zorunlu tutma ayarı devre dı
  az mysql server update --resource-group myresourcegroup --name myserver4demo -g -n --ssl-enforcement Disabled
  ```
 
-<a id="get-the-connection-information" class="xliff"></a>
-
-## Bağlantı bilgilerini alma
+## <a name="get-the-connection-information"></a>Bağlantı bilgilerini alma
 
 Sunucunuza bağlanmak için ana bilgisayar bilgilerini ve erişim kimlik bilgilerini sağlamanız gerekir.
 
@@ -113,9 +101,7 @@ Sonuç JSON biçimindedir. **fullyQualifiedDomainName** ve **administratorLogin*
 }
 ```
 
-<a id="connect-to-the-server-using-the-mysqlexe-command-line-tool" class="xliff"></a>
-
-## mysql.exe komut satırı aracını kullanarak sunucuya bağlanma
+## <a name="connect-to-the-server-using-the-mysqlexe-command-line-tool"></a>mysql.exe komut satırı aracını kullanarak sunucuya bağlanma
 **mysql.exe** komut satırı aracını kullanarak sunucunuza bağlanın. MySQL'i [buradan](https://dev.mysql.com/downloads/) indirerek bilgisayarınıza yükleyebilirsiniz. Bunun yerine kod örneklerindeki **Deneyin** düğmesine veya Azure portalında sağ üstte bulunan `>_` düğmesine tıklayabilir ve **Azure Cloud Shell**'i başlatabilirsiniz.
 
 Aşağıdaki komutları yazın: 
@@ -174,9 +160,7 @@ mysql>
 > [!TIP]
 > Ek komutlar için bkz. [MySQL 5.7 Başvuru Kılavuzu - Bölüm 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-<a id="connect-to-the-server-using-the-mysql-workbench-gui-tool" class="xliff"></a>
-
-## MySQL Workbench GUI aracını kullanarak sunucuya bağlanma
+## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>MySQL Workbench GUI aracını kullanarak sunucuya bağlanma
 1.  İstemci bilgisayarınızda MySQL Workbench uygulamasını başlatın. MySQL Workbench uygulamasını [buradan](https://dev.mysql.com/downloads/workbench/) indirip yükleyebilirsiniz.
 
 2.  **Setup New Connection** (Yeni Bağlantı Oluştur) iletişim kutusundaki **Parameters** (Parametreler) sekmesine aşağıdaki bilgileri girin:
@@ -195,18 +179,14 @@ mysql>
 Tüm parametrelerin doğru yapılandırılıp yapılandırılmadığını test etmek için **Bağlantıyı Sına**’ya tıklayın.
 Şimdi bağlantıya tıklayarak sunucuya başarıyla bağlanabilirsiniz.
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 Bu kaynaklara başka bir hızlı başlangıç/öğretici için gereksinim duymuyorsanız aşağıdaki komutu çalıştırarak kaynakları silebilirsiniz: 
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
 > [Azure CLI ile bir MySQL Veritabanı tasarlama](./tutorial-design-database-using-cli.md)

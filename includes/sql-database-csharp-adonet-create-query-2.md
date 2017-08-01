@@ -1,9 +1,7 @@
 
 <a name="cs_0_csharpprogramexample_h2"/>
 
-<a id="c-program-example" class="xliff"></a>
-
-## C# program example
+## <a name="c-program-example"></a>C# program example
 
 The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL statements to the SQL database. The C# program performs the following actions:
 
@@ -21,9 +19,7 @@ The C# program contains:
 - Methods that return the T-SQL source code.
 - Two methods that submit the T-SQL to the database.
 
-<a id="to-compile-and-run" class="xliff"></a>
-
-#### To compile and run
+#### <a name="to-compile-and-run"></a>To compile and run
 
 This C# program is logically one .cs file. But here the program is physically divided into several code blocks, to make each block easier to see and understand. To compile and run this program, do the following:
 
@@ -47,9 +43,7 @@ This C# program is logically one .cs file. But here the program is physically di
 >
 
 <a name="cs_1_connect"/>
-<a id="c-block-1-connect-by-using-adonet" class="xliff"></a>
-
-### C# block 1: Connect by using ADO.NET
+### <a name="c-block-1-connect-by-using-adonet"></a>C# block 1: Connect by using ADO.NET
 
 - [Next](#cs_2_createtables)
 
@@ -105,9 +99,7 @@ namespace csharp_db_test
 
 
 <a name="cs_2_createtables"/>
-<a id="c-block-2-t-sql-to-create-tables" class="xliff"></a>
-
-### C# block 2: T-SQL to create tables
+### <a name="c-block-2-t-sql-to-create-tables"></a>C# block 2: T-SQL to create tables
 
 - [Previous](#cs_1_connect) &nbsp; / &nbsp; [Next](#cs_3_insert)
 
@@ -139,9 +131,7 @@ CREATE TABLE tabEmployee
       }
 ```
 
-<a id="entity-relationship-diagram-erd" class="xliff"></a>
-
-#### Entity Relationship Diagram (ERD)
+#### <a name="entity-relationship-diagram-erd"></a>Entity Relationship Diagram (ERD)
 
 The preceding CREATE TABLE statements involve the **REFERENCES** keyword to create a *foreign key* (FK) relationship between two tables.  If you are using tempdb, comment out the `--REFERENCES` keyword using a pair of leading dashes.
 
@@ -151,9 +141,7 @@ Next is an ERD that displays the relationship between the two tables. The values
 
 
 <a name="cs_3_insert"/>
-<a id="c-block-3-t-sql-to-insert-data" class="xliff"></a>
-
-### C# block 3: T-SQL to insert data
+### <a name="c-block-3-t-sql-to-insert-data"></a>C# block 3: T-SQL to insert data
 
 - [Previous](#cs_2_createtables) &nbsp; / &nbsp; [Next](#cs_4_updatejoin)
 
@@ -185,9 +173,7 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
-<a id="c-block-4-t-sql-to-update-join" class="xliff"></a>
-
-### C# block 4: T-SQL to update-join
+### <a name="c-block-4-t-sql-to-update-join"></a>C# block 4: T-SQL to update-join
 
 - [Previous](#cs_3_insert) &nbsp; / &nbsp; [Next](#cs_5_deletejoin)
 
@@ -215,9 +201,7 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
-<a id="c-block-5-t-sql-to-delete-join" class="xliff"></a>
-
-### C# block 5: T-SQL to delete-join
+### <a name="c-block-5-t-sql-to-delete-join"></a>C# block 5: T-SQL to delete-join
 
 - [Previous](#cs_4_updatejoin) &nbsp; / &nbsp; [Next](#cs_6_selectrows)
 
@@ -249,9 +233,7 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
-<a id="c-block-6-t-sql-to-select-rows" class="xliff"></a>
-
-### C# block 6: T-SQL to select rows
+### <a name="c-block-6-t-sql-to-select-rows"></a>C# block 6: T-SQL to select rows
 
 - [Previous](#cs_5_deletejoin) &nbsp; / &nbsp; [Next](#cs_6b_datareader)
 
@@ -279,9 +261,7 @@ SELECT
 
 
 <a name="cs_6b_datareader"/>
-<a id="c-block-6b-executereader" class="xliff"></a>
-
-### C# block 6b: ExecuteReader
+### <a name="c-block-6b-executereader"></a>C# block 6b: ExecuteReader
 
 - [Previous](#cs_6_selectrows) &nbsp; / &nbsp; [Next](#cs_7_executenonquery)
 
@@ -317,9 +297,7 @@ This method is designed to run the T-SQL SELECT statement that is built by the *
 
 
 <a name="cs_7_executenonquery"/>
-<a id="c-block-7-executenonquery" class="xliff"></a>
-
-### C# block 7: ExecuteNonQuery
+### <a name="c-block-7-executenonquery"></a>C# block 7: ExecuteNonQuery
 
 - [Previous](#cs_6b_datareader) &nbsp; / &nbsp; [Next](#cs_8_output)
 
@@ -357,9 +335,7 @@ This method is called for operations that modify the data content of tables with
 
 
 <a name="cs_8_output"/>
-<a id="c-block-8-actual-test-output-to-the-console" class="xliff"></a>
-
-### C# block 8: Actual test output to the console
+### <a name="c-block-8-actual-test-output-to-the-console"></a>C# block 8: Actual test output to the console
 
 - [Previous](#cs_7_executenonquery)
 

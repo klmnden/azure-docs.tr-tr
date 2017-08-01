@@ -23,14 +23,10 @@ ms.lasthandoff: 06/03/2017
 
 
 ---
-<a id="deploy-a-model-from-ssdt" class="xliff"></a>
-
-# SSDT’den model dağıtma
+# <a name="deploy-a-model-from-ssdt"></a>SSDT’den model dağıtma
 Azure aboneliğinizde bir sunucu oluşturduktan sonra, aboneliğinize bir tablo modeli dağıtmaya hazır olursunuz. Üzerinde çalışmakta olduğunuz bir tablo modeli projesini derleyip dağıtmak için SQL Server Veri Araçları’nı (SSDT) kullanabilirsiniz. 
 
-<a id="before-you-begin" class="xliff"></a>
-
-## Başlamadan önce
+## <a name="before-you-begin"></a>Başlamadan önce
 Başlamak için gerekli olanlar:
 
 * Azure’da **Analysis Services sunucusu**. Daha fazla bilgi için bkz. [Azure Analysis Services sunucusu oluşturma](analysis-services-create-server.md).
@@ -42,9 +38,7 @@ Başlamak için gerekli olanlar:
 > 
 > 
 
-<a id="to-deploy-a-tabular-model-from-ssdt" class="xliff"></a>
-
-## SSDT’den tablo modeli dağıtmak için
+## <a name="to-deploy-a-tabular-model-from-ssdt"></a>SSDT’den tablo modeli dağıtmak için
 
 1. Dağıtmadan önce sunucu adını almanız gerekir. **Azure portalı** > sunucu > **Genel Bakış** > **Sunucu adı** menüsünde sunucu adını kopyalayın.
    
@@ -63,16 +57,12 @@ Başlamak için gerekli olanlar:
 İşte bu kadar!
 
 
-<a id="but-something-went-wrong" class="xliff"></a>
-
-## Ancak, bir sorun oluştu
+## <a name="but-something-went-wrong"></a>Ancak, bir sorun oluştu
 Meta verileri dağıtırken dağıtım başarısız olursa, bunun nedeni SSDT’nin sunucunuza bağlanamaması olabilir. SSMS kullanarak sunucunuza bağlanabildiğinizden emin olun. Ardından projenin Deployment Server özelliğinin doğru olduğundan emin olun.
 
 Bir tabloda dağıtım başarısız olursa, bunun nedeni sunucunuzun bir veri kaynağına bağlanamaması olabilir. Veri kaynağınız kuruluşunuzun ağında şirket içi olarak bulunuyorsa bir [Şirket içi veri ağ geçidi](analysis-services-gateway.md) yüklediğinizden emin olun.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Tablo modelinizi sunucunuza dağıttığınıza göre bağlanmak için hazırsınız. [SSMS ile sunucunuza bağlanarak](analysis-services-manage.md) sunucuyu yönetebilirsiniz. Ayrıca, Power BI, Power BI Desktop veya Excel gibi [bir istemci araç kullanarak bağlanabilir](analysis-services-connect.md) ve rapor oluşturmaya başlayabilirsiniz.
 
 

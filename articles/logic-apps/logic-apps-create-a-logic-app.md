@@ -23,9 +23,7 @@ ms.lasthandoff: 05/17/2017
 
 ---
 
-<a id="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services" class="xliff"></a>
-
-# Bulut uygulamaları ile bulut hizmetleri arasında süreçleri otomatik hale getirmek için ilk mantıksal uygulama iş akışınızı oluşturma
+# <a name="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services"></a>Bulut uygulamaları ile bulut hizmetleri arasında süreçleri otomatik hale getirmek için ilk mantıksal uygulama iş akışınızı oluşturma
 
 [Azure Logic Apps](logic-apps-what-are-logic-apps.md) ile iş akışları oluşturup çalıştırdığınızda, herhangi bir kod yazmadan iş süreçlerini daha kolay ve hızlı bir şekilde otomatik hale getirebilirsiniz. Bu ilk örnekte, bir web sitesindeki yeni içerikleri belirlemek için RSS akışını denetleyen temel bir mantıksal uygulama iş akışı oluşturma işlemi gösterilmektedir. Web sitesinin akışında yeni öğeler göründüğünde, mantıksal uygulama bir Outlook veya Gmail hesabından e-posta gönderir.
 
@@ -44,9 +42,7 @@ Ayrıca, bu örnek şu öğeleri gerektirir:
 
 * Web sitesinin RSS akışının bağlantısı. Bu örnekte [CNN.com web sitesindeki en önemli haberler için RSS akışı](http://rss.cnn.com/rss/cnn_topstories.rss) kullanılmıştır: `http://rss.cnn.com/rss/cnn_topstories.rss`
 
-<a id="add-a-trigger-that-starts-your-workflow" class="xliff"></a>
-
-## İş akışınızı başlatan bir tetikleyici ekleme
+## <a name="add-a-trigger-that-starts-your-workflow"></a>İş akışınızı başlatan bir tetikleyici ekleme
 
 [*Tetikleyici*](./logic-apps-what-are-logic-apps.md#logic-app-concepts), mantıksal uygulama iş akışınızı başlatan bir olaydır ve mantıksal uygulamanız için gereken ilk öğedir.
 
@@ -90,9 +86,7 @@ Ayrıca, bu örnek şu öğeleri gerektirir:
    Mantıksal uygulamanızı kaydettiğinizde etkin hale gelir, ancak şu anda mantıksal uygulamanız yalnızca belirtilen RSS akışındaki yeni öğeleri denetler. 
    Bu örneği daha kullanışlı hale getirmek için tetikleyici başlatıldıktan sonra mantıksal uygulamanızın gerçekleştireceği bir eylem ekliyoruz.
 
-<a id="add-an-action-that-responds-to-your-trigger" class="xliff"></a>
-
-## Tetikleyicinize yanıt veren bir eylem ekleme
+## <a name="add-an-action-that-responds-to-your-trigger"></a>Tetikleyicinize yanıt veren bir eylem ekleme
 
 [*Eylem*](./logic-apps-what-are-logic-apps.md#logic-app-concepts), mantıksal uygulama iş akışınız tarafından gerçekleştirilen bir görevdir. Mantıksal uygulamanıza bir tetikleyici ekledikten sonra, bu tetikleyici tarafından oluşturulan işlemleri gerçekleştirmek için bir eylem ekleyebilirsiniz. Bu örnekte, web sitesinin RSS akışında yeni öğeler göründüğünde e-posta gönderen bir eylem ekleyeceğiz.
 
@@ -145,9 +139,7 @@ Ayrıca, bu örnek şu öğeleri gerektirir:
 
 Tebrikler, ilk temel mantıksal uygulamanızı oluşturup çalıştırdınız. Ayrıca, herhangi bir kod kullanmadan, süreçleri otomatik hale getiren iş akışlarını ne kadar kolay oluşturabileceğinizi ve bulut uygulamaları ile bulut hizmetlerini tümleştirmeyi öğrendiniz.
 
-<a id="manage-your-logic-app" class="xliff"></a>
-
-## Mantıksal uygulamanızı yönetme
+## <a name="manage-your-logic-app"></a>Mantıksal uygulamanızı yönetme
 
 Uygulamanızı yönetmek için durumu denetleme, düzenleme, geçmişi görüntüleme, kapatma ya da mantıksal uygulamanızı silme gibi görevler gerçekleştirebilirsiniz.
 
@@ -167,17 +159,13 @@ Uygulamanızı yönetmek için durumu denetleme, düzenleme, geçmişi görünt�
    | Uygulamanızı geçici olarak kapatma | **Genel Bakış**’ı seçin, ardından komut çubuğunda **Devre Dışı Bırak**’ı seçin. | 
    | Uygulamanızı silme | **Genel Bakış**’ı seçin, ardından komut çubuğunda **Sil**’i seçin. Mantıksal uygulamanızın adını girip **Sil**’i seçin. | 
 
-<a id="get-help" class="xliff"></a>
-
-## Yardım alın
+## <a name="get-help"></a>Yardım alın
 
 Sorular sormak, soruları yanıtlamak ve diğer Azure Logic Apps kullanıcılarının neler yaptığını öğrenmek için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
 
 Azure Logic Apps ve bağlayıcıları geliştirmeye yardımcı olmak için, [Azure Logic Apps kullanıcı geri bildirim sitesinde](http://aka.ms/logicapps-wish) oy kullanın veya fikirlerinizi paylaşın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 *  [Koşul ekleme ve iş akışları çalıştırma](../logic-apps/logic-apps-use-logic-app-features.md)
 *     [Mantıksal uygulama şablonları](../logic-apps/logic-apps-use-logic-app-templates.md)

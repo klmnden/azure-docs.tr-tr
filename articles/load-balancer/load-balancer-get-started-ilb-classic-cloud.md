@@ -22,9 +22,7 @@ ms.lasthandoff: 06/28/2017
 
 ---
 
-<a id="get-started-creating-an-internal-load-balancer-classic-for-cloud-services" class="xliff"></a>
-
-# Bulut hizmetleri için iç yük dengeleyici (klasik) oluşturmaya başlama
+# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Bulut hizmetleri için iç yük dengeleyici (klasik) oluşturmaya başlama
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -34,9 +32,7 @@ ms.lasthandoff: 06/28/2017
 > [!IMPORTANT]
 > Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. [Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](load-balancer-get-started-ilb-arm-ps.md) öğrenin.
 
-<a id="configure-internal-load-balancer-for-cloud-services" class="xliff"></a>
-
-## Bulut hizmetleri için iç yük dengeleyiciyi yapılandırma
+## <a name="configure-internal-load-balancer-for-cloud-services"></a>Bulut hizmetleri için iç yük dengeleyiciyi yapılandırma
 
 İç yük dengeleyici hem sanal makineler hem de bulut hizmetleri için desteklenmektedir. Bölgesel bir sanal ağın dışındaki bulut hizmetinde oluşturulmuş olan iç yük dengeleyici uç noktasına yalnızca bulut hizmetinden erişilebilir.
 
@@ -45,9 +41,7 @@ ms.lasthandoff: 06/28/2017
 > [!IMPORTANT]
 > Aşağıdaki adımları çalıştırmanın ön koşulu, bulut dağıtımı için sanal ağ oluşturmuş olmaktır. İç Yük Dengeleme oluşturmak için sanal ağ adına ve alt ağ adına ihtiyacınız olacaktır.
 
-<a id="step-1" class="xliff"></a>
-
-### 1. Adım
+### <a name="step-1"></a>1. Adım
 
 Bulut dağıtımınıza ait hizmet yapılandırma dosyasını (.cscfg) Visual Studio’da açın ve İç Yük Dengeleme oluşturmak için ağ yapılandırmasının son "`</Role>`" öğesinin altına aşağıdaki bölümü ekleyin.
 
@@ -75,9 +69,7 @@ Bulut dağıtımınıza ait hizmet yapılandırma dosyasını (.cscfg) Visual St
 
 Yük dengeleyici şeması hakkında daha fazla bilgi için bkz. [Yük dengeleyici ekleme](https://msdn.microsoft.com/library/azure/dn722411.aspx).
 
-<a id="step-2" class="xliff"></a>
-
-### 2. Adım
+### <a name="step-2"></a>2. Adım
 
 İç Yük Dengeleme uç noktalarını eklemek için hizmet tanımı (.csdef) dosyasını değiştirin. Rol örneği oluşturulduğunda hizmet tanım dosyası rol örneklerini İç Yük Dengeleyiciye ekleyecektir.
 
@@ -101,9 +93,7 @@ Yukarıdaki örnekteki değerleri kullanarak bu değerleri hizmet tanımı dosya
 
 Ağ trafiği gelen isteklere için 80 numaralı bağlantı noktasını kullana e çalışan rolü örneklerini de 80 numaralı bağlantı noktasına gönderen testLB adlı yük dengeleyiciyi kullanarak yük dengeleme yapılacaktır.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 [Kaynak IP benzeşimi kullanarak yük dengeleyici dağıtım modunu yapılandırma](load-balancer-distribution-mode.md)
 

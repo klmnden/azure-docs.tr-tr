@@ -24,20 +24,14 @@ ms.lasthandoff: 06/09/2017
 
 ---
 
-<a id="deploy-an-autoscaling-app-using-a-template" class="xliff"></a>
-
-# Şablon kullanarak bir otomatik ölçeklendirme uygulaması dağıtma
+# <a name="deploy-an-autoscaling-app-using-a-template"></a>Şablon kullanarak bir otomatik ölçeklendirme uygulaması dağıtma
 
 [Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment), ilgili kaynak gruplarını dağıtmanın harika bir yoludur. Bu öğretici, [Basit bir ölçek kümesi dağıtma](virtual-machine-scale-sets-mvss-start.md) öğreticisini temel alır ve Azure Resource Manager şablonu kullanılarak bir ölçek kümesinde basit bir otomatik ölçeklendirme uygulamasının nasıl dağıtılacağını açıklar.  PowerShell, CLI veya portalı kullanarak da otomatik ölçeklendirme ayarlayabilirsiniz. Daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeye genel bakış](virtual-machine-scale-sets-autoscale-overview.md).
 
-<a id="two-quickstart-templates" class="xliff"></a>
-
-## İki hızlı başlangıç şablonu
+## <a name="two-quickstart-templates"></a>İki hızlı başlangıç şablonu
 Ölçek kümesi dağıtırken bir [VM Uzantısını](../virtual-machines/virtual-machines-windows-extensions-features.md) kullanarak bir platform görüntüsü üzerine yeni yazılım yükleyebilirsiniz. VM uzantısı, dağıtım sonrası yapılandırma ve Azure sanal makinelerinde uygulama dağıtımı gibi otomasyon görevleri sunan küçük bir uygulamadır. [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) bölümünde, VM uzantıları kullanılarak bir ölçek kümesine nasıl otomatik ölçeklendirme uygulaması dağıtılacağını gösteren iki farklı örnek sağlanmıştır.
 
-<a id="python-http-server-on-linux" class="xliff"></a>
-
-### Linux’ta Python HTTP sunucusu
+### <a name="python-http-server-on-linux"></a>Linux’ta Python HTTP sunucusu
 [Linux’ta Python HTTP sunucusu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) örnek şablonu, bir Linux ölçek kümesinde çalışan basit bir otomatik ölçeklendirme uygulaması dağıtır.  Özel betik VM uzantısı kullanılarak ölçek kümesindeki her VM’de bir Python web çerçevesi olan [Bottle](http://bottlepy.org/docs/dev/) ve basit bir HTTP sunucusu dağıtılır. Tüm VM’lerdeki ortalama CPU kullanımı %60’ı aştığında ölçek kümesinin ölçeği otomatik olarak artırılırken, ortalama CPU kullanımı %30’un altında düştüğünde ölçek azaltılır.
 
 Ölçek kümesi kaynağına ek olarak *azuredeploy.json* örnek şablonu da sanal ağ, genel IP adresi, yük dengeleyici ve otomatik ölçeklendirme ayarları kaynakları bildirir.  Bir şablonda bu kaynakları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeli Linux ölçek kümesi](virtual-machine-scale-sets-linux-autoscale.md).
@@ -67,9 +61,7 @@ ms.lasthandoff: 06/09/2017
           }
 ```
 
-<a id="aspnet-mvc-application-on-windows" class="xliff"></a>
-
-### Windows’da ASP.NET MVC uygulaması
+### <a name="aspnet-mvc-application-on-windows"></a>Windows’da ASP.NET MVC uygulaması
 [Windows’da ASP.NET MVC uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) örnek şablonu, Windows ölçek kümesinde IIS’de çalışan basit bir ASP.NET MVC uygulaması dağıtır.  IIS ve MVC uygulaması, [PowerShell istenen durum yapılandırması (DSC)](virtual-machine-scale-sets-dsc.md) VM uzantısı kullanılarak dağıtılır.  VM örneğindeki CPU kullanımı 5 dakika boyunca aralıksız olarak %50’nin üzerinde kalırsa ölçek kümesinin ölçeği artar. 
 
 Ölçek kümesi kaynağına ek olarak *azuredeploy.json* örnek şablonu da sanal ağ, genel IP adresi, yük dengeleyici ve otomatik ölçeklendirme ayarları kaynakları bildirir. Bu şablon, uygulama yükseltme işlemini de gösterir.  Bir şablonda bu kaynakları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeli Windows ölçek kümesi](virtual-machine-scale-sets-windows-autoscale.md).
@@ -104,14 +96,10 @@ ms.lasthandoff: 06/09/2017
           }
 ```
 
-<a id="deploy-the-template" class="xliff"></a>
-
-## Şablonu dağıtma
+## <a name="deploy-the-template"></a>Şablonu dağıtma
 [Linux’ta Python HTTP sunucusu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) veya [Windows’da ASP.NET MVC uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) şablonunu dağıtmanın en basit yolu, GitHub’daki benioku dosyalarında bulunan **Azure’a Dağıt** düğmesini kullanmaktır.  Örnek şablonları dağıtmak için PowerShell veya Azure CLI aracını da kullanabilirsiniz.
 
-<a id="powershell" class="xliff"></a>
-
-### PowerShell
+### <a name="powershell"></a>PowerShell
 [Linux’ta Python HTTP sunucusu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) veya [Windows’da ASP.NET MVC uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) dosyalarını GitHub deposundan yerel bilgisayarınızdaki bir klasöre kopyalayın.  *azuredeploy.parameters.json* dosyasını açıp `vmssName`, `adminUsername` ve `adminPassword` parametrelerini güncelleştirin. Aşağıdaki PowerShell betiğini örnek klasördeki *deploy.ps1* öğesine *azuredeploy.json* şablonu olarak kaydedin. Örnek şablonu dağıtmak için bir PowerShell komut penceresinden *deploy.ps1* betiğini çalıştırın.
 
 ```powershell
@@ -198,9 +186,7 @@ if(Test-Path $parametersFilePath) {
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 

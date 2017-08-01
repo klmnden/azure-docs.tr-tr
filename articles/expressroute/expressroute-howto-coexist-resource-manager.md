@@ -23,9 +23,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="configure-expressroute-and-site-to-site-coexisting-connections" class="xliff"></a>
-
-# Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - Klasik](expressroute-howto-coexist-classic.md)
@@ -39,21 +37,15 @@ Siteden Siteye VPN ve ExpressRoute eşzamanlı bağlantılarını yapılandırma
 > 
 > 
 
-<a id="limits-and-limitations" class="xliff"></a>
-
-## Sınırlar ve sınırlamalar
+## <a name="limits-and-limitations"></a>Sınırlar ve sınırlamalar
 * **Geçiş yönlendirmesi desteklenmez.** Siteden Siteye VPN aracılığıyla bağlanan yerel ağınız ve ExpressRoute aracılığıyla bağlanan yerel ağınız arasında (Azure aracılığıyla) yönlendirme yapamazsınız.
 * **Temel SKU ağ geçidi desteklenmez.** Hem [ExpressRoute ağ geçidi](expressroute-about-virtual-network-gateways.md) hem de [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md) için Temel SKU olmayan bir ağ geçidi kullanmanız gerekir.
 * **Yalnızca rota tabanlı VPN ağ geçidi desteklenir.** Rota tabanlı [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) kullanmanız gerekir.
 * **VPN ağ geçidiniz için statik rota yapılandırılmalıdır.** Yerel ağınız hem ExpressRoute hem de Siteden Siteye VPN’e bağlıysa Siteden Siteye VPN bağlantısını genel İnternet’e yönlendirebilmeniz için yerel ağınızda statik bir rotanın yapılandırılmış olması gerekir.
 * **Öncelikle ExpressRoute ağ geçidinin yapılandırılıp bir devreye bağlanması gerekir.** Siteden Siteye VPN ağ geçidini ekleyebilmek için önce ExpressRoute ağ geçidini oluşturup bir devreye bağlamanız gerekir.
 
-<a id="configuration-designs" class="xliff"></a>
-
-## Yapılandırma tasarımları
-<a id="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute" class="xliff"></a>
-
-### Siteden siteye VPN’i ExpressRoute için bir yük devretme yolu olarak yapılandırma
+## <a name="configuration-designs"></a>Yapılandırma tasarımları
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Siteden siteye VPN’i ExpressRoute için bir yük devretme yolu olarak yapılandırma
 Siteden siteye bir VPN bağlantısını ExpressRoute için yedek olarak yapılandırabilirsiniz. Bu yalnızca Azure özel eşleme yoluna bağlı sanal ağlar için geçerlidir. Azure ortak ve Microsoft eşlemeleri aracılığıyla erişilebilen hizmetler için VPN tabanlı yük devretme çözümü yoktur. ExpressRoute bağlantı hattı her zaman birincil bağlantıdır. Veriler yalnızca ExpressRoute bağlantı hattı başarısız olursa, Siteden Siteye VPN üzerinden akar.
 
 > [!NOTE]
@@ -63,9 +55,7 @@ Siteden siteye bir VPN bağlantısını ExpressRoute için yedek olarak yapılan
 
 ![Bir arada var olma](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
-<a id="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute" class="xliff"></a>
-
-### ExpressRoute aracılığıyla bağlanılmayan sitelere bağlanmak için Siteden Siteye VPN yapılandırma
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>ExpressRoute aracılığıyla bağlanılmayan sitelere bağlanmak için Siteden Siteye VPN yapılandırma
 Ağınızı bazı sitelerin Azure’a Siteden Siteye VPN üzerinden doğrudan ve bazı sitelerin ExpressRoute üzerinden bağlanması için yapılandırabilirsiniz. 
 
 ![Bir arada var olma](media/expressroute-howto-coexist-resource-manager/scenario2.jpg)
@@ -75,9 +65,7 @@ Ağınızı bazı sitelerin Azure’a Siteden Siteye VPN üzerinden doğrudan ve
 > 
 > 
 
-<a id="selecting-the-steps-to-use" class="xliff"></a>
-
-## Kullanılacak adımları seçme
+## <a name="selecting-the-steps-to-use"></a>Kullanılacak adımları seçme
 Aralarından seçim yapabileceğiniz iki farklı yordam kümesi vardır. Seçtiğiniz yapılandırma yordamı, bağlanmak istediğiniz mevcut bir sanal ağ olup olmadığına veya yeni bir sanal ağ oluşturmak isteyip istememenize bağlıdır.
 
 * Bir VNet’im yok ve bir tane oluşturmam gerekiyor.
@@ -223,9 +211,7 @@ Ağ geçidi alt ağı /27 veya daha büyükse ve sanal ağ ExpressRoute üzerind
   ```
 5. Bu noktada, hiçbir ağ geçidi olmayan bir VNet’e sahip olursunuz. Yeni ağ geçitleri oluşturmak ve bağlantılarınızı tamamlamak için, önceki adım kümesinde bulabileceğiniz [4. Adım - Bir ExpressRoute ağ geçidi oluşturma](#gw) bölümüyle devam edebilirsiniz.
 
-<a id="to-add-point-to-site-configuration-to-the-vpn-gateway" class="xliff"></a>
-
-## VPN ağ geçidine noktadan siteye yapılandırması eklemek için
+## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>VPN ağ geçidine noktadan siteye yapılandırması eklemek için
 Bir arada var olan kurulumda VPN ağ geçidinize Noktadan Siteye yapılandırması eklemek için aşağıdaki adımları izleyebilirsiniz.
 
 1. VPN İstemcisi adres havuzunu ekleyin.
@@ -246,8 +232,6 @@ Bir arada var olan kurulumda VPN ağ geçidinize Noktadan Siteye yapılandırmas
 
 Noktadan Siteye VPN hakkında daha fazla bilgi içini bkz. [Noktadan Siteye bağlantı yapılandırma](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressroute-faqs.md).
 

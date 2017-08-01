@@ -22,9 +22,7 @@ ms.lasthandoff: 06/01/2017
 
 
 ---
-<a id="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs" class="xliff"></a>
-
-# Azure Data Lake Analytics'i Node.js için Azure SDK'yı kullanarak yönetme
+# <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Azure Data Lake Analytics'i Node.js için Azure SDK'yı kullanarak yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Node.js için Azure SDK, Azure Data Lake Analytics hesaplarını, işlerini ve kataloglarını yönetmek için kullanılabilir. Diğer araçları kullanarak yönetme konu başlığını görmek için yukarıdaki sekme seçimine tıklayın.
@@ -36,23 +34,17 @@ Node.js için Azure SDK, Azure Data Lake Analytics hesaplarını, işlerini ve k
 * **Katalog için REST API sürümü: 2015-10-01-önizleme**
 * **İş için REST API sürümü: 2016-03-20-önizleme**
 
-<a id="features" class="xliff"></a>
-
-## Özellikler
+## <a name="features"></a>Özellikler
 * Hesap yönetimi: oluşturma, alma, listeleme, güncelleştirme ve silme.
 * İş yönetimi: gönderme, alma, listeleme ve iptal etme.
 * Katalog yönetimi: alma ve listeleme.
 
-<a id="how-to-install" class="xliff"></a>
-
-## Yükleme
+## <a name="how-to-install"></a>Yükleme
 ```bash
 npm install azure-arm-datalake-analytics
 ```
 
-<a id="authenticate-using-azure-active-directory" class="xliff"></a>
-
-## Azure Active Directory'yi kullanarak kimlik doğrulama
+## <a name="authenticate-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak kimlik doğrulama
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -61,9 +53,7 @@ npm install azure-arm-datalake-analytics
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-<a id="create-the-data-lake-analytics-client" class="xliff"></a>
-
-## Data Lake Analytics istemcisi oluşturma
+## <a name="create-the-data-lake-analytics-client"></a>Data Lake Analytics istemcisi oluşturma
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
 var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
@@ -71,9 +61,7 @@ var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azur
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```
 
-<a id="create-a-data-lake-analytics-account" class="xliff"></a>
-
-## Data Lake Analytics hesabı oluşturma
+## <a name="create-a-data-lake-analytics-account"></a>Data Lake Analytics hesabı oluşturma
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -122,9 +110,7 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-<a id="get-a-list-of-jobs" class="xliff"></a>
-
-## İşlerin listesini alma
+## <a name="get-a-list-of-jobs"></a>İşlerin listesini alma
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -137,9 +123,7 @@ jobClient.job.list(accountName, function (err, result, request, response) {
 });
 ```
 
-<a id="get-a-list-of-databases-in-the-data-lake-analytics-catalog" class="xliff"></a>
-
-## Data Lake Analytics Kataloğu'ndaki veritabanlarının listesini alma
+## <a name="get-a-list-of-databases-in-the-data-lake-analytics-catalog"></a>Data Lake Analytics Kataloğu'ndaki veritabanlarının listesini alma
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -152,9 +136,7 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-<a id="see-also" class="xliff"></a>
-
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 * [Node.js için Microsoft Azure SDK](https://github.com/azure/azure-sdk-for-node)
 * [Node.js için Microsoft Azure SDK - Data Lake Store Yönetimi](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 

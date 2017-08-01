@@ -13,9 +13,7 @@ After you create an endpoint, you can use an access control list (ACL) to define
 >
 >
 
-<a id="create-an-endpoint" class="xliff"></a>
-
-## Create an endpoint
+## <a name="create-an-endpoint"></a>Create an endpoint
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
 2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
 3. Click **Endpoints** in the **Settings** group. The **Endpoints** page lists all the current endpoints for the virtual machine. (This example is a Windows VM. A Linux VM will by default show an endpoint for SSH.)
@@ -33,9 +31,7 @@ The new endpoint will be listed on the **Endpoints** page.
 
 ![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointcreated.png)
 
-<a id="manage-the-acl-on-an-endpoint" class="xliff"></a>
-
-## Manage the ACL on an endpoint
+## <a name="manage-the-acl-on-an-endpoint"></a>Manage the ACL on an endpoint
 To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
 
 > [!NOTE]

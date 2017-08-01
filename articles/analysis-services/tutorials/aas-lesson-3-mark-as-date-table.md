@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-3-mark-as-date-table" class="xliff"></a>
-
-# 3. Ders: Tarih Tablosu olarak işaretleme
+# <a name="lesson-3-mark-as-date-table"></a>3. Ders: Tarih Tablosu olarak işaretleme
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -38,23 +36,17 @@ Tarih tablosu ve tarih sütununu işaretlemeden önce, modelinizi daha kolay anl
   
 Bu dersi tamamlamak için tahmini süre: **Üç dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [2. Ders: Veri alma](../tutorials/aas-lesson-2-get-data.md). 
 
-<a id="to-rename-the-fulldatealternatekey-column" class="xliff"></a>
-
-### FullDateAlternateKey sütununu yeniden adlandırmak için
+### <a name="to-rename-the-fulldatealternatekey-column"></a>FullDateAlternateKey sütununu yeniden adlandırmak için
 
 1.  Model tasarımcısında **DimDate** tablosuna tıklayın.
 
 2.  **FullDateAlternateKey** sütununun üst bilgisine çift tıklayın ve sonra **Date** olarak yeniden adlandırın.
 
   
-<a id="to-set-mark-as-date-table" class="xliff"></a>
-
-### Tarih Tablosu olarak işaretleme özelliğini ayarlamak için  
+### <a name="to-set-mark-as-date-table"></a>Tarih Tablosu olarak işaretleme özelliğini ayarlamak için  
   
 1.  **Tarih** sütununu seçin ve ardından **Özellikler** penceresindeki **Veri Türü** altında **Tarih** öğesinin seçildiğinden emin olun.  
   
@@ -65,9 +57,7 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
     ![aas-lesson3-date-table](../tutorials/media/aas-lesson3-date-table.png)
   
 
-<a id="whats-next" class="xliff"></a>
-
-## Sırada ne var?
+## <a name="whats-next"></a>Sırada ne var?
 [4. Ders: İlişki oluşturma](../tutorials/aas-lesson-4-create-relationships.md).
   
 

@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal" class="xliff"></a>
-
-# Azure Cosmos DB: .NET ve Azure portalı ile bir DocumentDB API web uygulaması derleme
+# <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: .NET ve Azure portalı ile bir DocumentDB API web uygulaması derleme
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
@@ -33,32 +31,24 @@ Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB
 
 ![Yapılacaklar listesi uygulaması ve örnek veriler](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 <a id="create-account"></a>
-<a id="create-a-database-account" class="xliff"></a>
-
-## Veritabanı hesabı oluşturma
+## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-collection"></a>
-<a id="add-a-collection" class="xliff"></a>
-
-## Koleksiyon ekleme
+## <a name="add-a-collection"></a>Koleksiyon ekleme
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 <a id="add-sample-data"></a>
-<a id="add-sample-data" class="xliff"></a>
-
-## Örnek verileri ekleme
+## <a name="add-sample-data"></a>Örnek verileri ekleme
 
 Şimdi Veri Gezgini'ni kullanarak yeni koleksiyonunuza veri ekleyebilirsiniz.
 
@@ -86,9 +76,7 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
  
      Veri Gezgini'ni kullanarak ayrıca saklı yordamlar, UDF'ler ve tetikleyiciler oluşturabilir, bu sayede sunucu tarafı iş mantığını gerçekleştirebilir ve aktarım hızını ölçeklendirebilirsiniz. Veri Gezgini, API'lerdeki tüm yerleşik programlı veri erişimini açığa çıkarır ancak Azure portalındaki verilerinize kolayca erişmenizi sağlar.
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## Örnek uygulamayı kopyalama
+## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
 Şimdi GitHub'dan bir DocumentDB API uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
@@ -102,9 +90,7 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
 3. Ardından Visual Studio'daki TODO çözüm dosyasını açın. 
 
-<a id="review-the-code" class="xliff"></a>
-
-## Kodu gözden geçirin
+## <a name="review-the-code"></a>Kodu gözden geçirin
 
 Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. DocumentDBRepository.cs dosyasını açtığınızda Azure Cosmos DB kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
 
@@ -129,9 +115,7 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. DocumentDBRepo
         new RequestOptions { OfferThroughput = 1000 });
     ```
 
-<a id="update-your-connection-string" class="xliff"></a>
-
-## Bağlantı dizenizi güncelleştirme
+## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
 
@@ -149,9 +133,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
     `<add key="authKey" value="FILLME" />`
     
-<a id="run-the-web-app" class="xliff"></a>
-
-## Web uygulamasını çalıştırma
+## <a name="run-the-web-app"></a>Web uygulamasını çalıştırma
 1. Visual Studio'nun **Çözüm Gezgini** bölümünde projeye sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın. 
 
 2. NuGet **Gözat** kutusuna *DocumentDB* yazın.
@@ -166,24 +148,18 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 Şimdi Veri Gezgini'ne dönüp bu yeni verileri görebilir, sorgulayabilir, değiştirebilir ve onlarla çalışabilirsiniz. 
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Azure portalında SLA'ları gözden geçirme
+## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin:
 
 1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
 2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak koleksiyon oluşturmayı ve bir web uygulamasını çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
 

@@ -22,12 +22,8 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-<a id="overview-of-device-management-with-iot-hub" class="xliff"></a>
-
-# IoT Hub ile cihaz yönetimine genel bakış
-<a id="introduction" class="xliff"></a>
-
-## Giriş
+# <a name="overview-of-device-management-with-iot-hub"></a>IoT Hub ile cihaz yönetimine genel bakış
+## <a name="introduction"></a>Giriş
 Azure IoT Hub, cihaz ve arka uç geliştiricilerinin güçlü cihaz yönetimi çözümleri oluşturmasını sağlayan özellikler ve bir genişletilebilirlik modeli sunar. Cihazlar, kısıtlı algılayıcılardan tek amaçlı mikro denetleyicilere ve cihaz grupları için iletişimi yönlendiren güçlü ağ geçitlerine varan çeşitler barındırır.  Ayrıca, kullanım örnekleri ve IoT operatörlerinin gereksinimleri sektörler arasında farklılık gösterir.  Bu farklılığa rağmen, IoT Hub ile cihaz yönetimi çok çeşitli cihaz ve son kullanıcılara uygun özellikler, desenler ve kod kitaplıkları sağlar.
 
 Başarılı bir kurumsal IoT çözümü oluşturmanın önemli bir kısmı, operatörlerin cihaz koleksiyonu için devam eden yönetimi nasıl gerçekleştirdiğine ilişkin bir strateji sağlanmasıdır. IoT operatörleri, işlerinin daha stratejik yönlerine odaklanmalarını sağlayan basit ve güvenilir araç ve uygulamalar gerektirir. Bu makalede aşağıdakiler sunulmaktadır:
@@ -37,9 +33,7 @@ Başarılı bir kurumsal IoT çözümü oluşturmanın önemli bir kısmı, oper
 * Cihaz yaşam döngüsü açıklaması.
 * Genel cihaz yönetimi desenlerine genel bakış.
 
-<a id="device-management-principles" class="xliff"></a>
-
-## Cihaz yönetimi ilkeleri
+## <a name="device-management-principles"></a>Cihaz yönetimi ilkeleri
 IoT bir dizi benzersiz cihaz yönetimi zorluğunu beraberinde getirir ve kurumsal sınıftaki her çözüm aşağıdaki ilkeleri hesaba katmalıdır:
 
 ![Cihaz yönetimi ilkeleri grafiği][img-dm_principles]
@@ -53,9 +47,7 @@ IoT bir dizi benzersiz cihaz yönetimi zorluğunu beraberinde getirir ve kurumsa
     * Cihaz coğrafi konumu
 * **Çok sayıda servis rolü**: Benzersiz iş akışları ve IoT işlemleri için destek çok önemlidir. Operasyon personeli, şirket içi BT bölümlerinin belirtilen kısıtlamalarıyla uyumlu bir şekilde çalışmalıdır.  Ayrıca, denetçilere ve diğer iş yönetimi rollerine gerçek zamanlı cihaz çalışma bilgilerini sunmanın uygun yollarını bulmalıdır.
 
-<a id="device-lifecycle" class="xliff"></a>
-
-## Cihaz yaşam döngüsü
+## <a name="device-lifecycle"></a>Cihaz yaşam döngüsü
 Tüm kurumsal IoT projelerinde ortak olan genel cihaz yönetimi aşamaları vardır. Azure IoT içinde, cihaz yaşam döngüsünün beş aşaması vardır:
 
 ![Beş Azure IoT cihaz yaşam döngüsü aşaması şunlardır: planlama, sağlama, yapılandırma, izleme, devre dışı bırakma][img-device_lifecycle]
@@ -78,9 +70,7 @@ Bu beş aşamanın her birinde, tam bir çözüm sağlamak için yerine getirilm
   
     *Daha fazla makale*: [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [Cihaz kimliklerini yönetme][lnk-identity-registry].
 
-<a id="device-management-patterns" class="xliff"></a>
-
-## Cihaz yönetimi modelleri
+## <a name="device-management-patterns"></a>Cihaz yönetimi modelleri
 IoT Hub aşağıdaki cihaz yönetim modellerini sağlar.  [Cihaz yönetimi öğreticileri][lnk-get-started], bu desenleri gerçek senaryonuza uygun hale getirme ve bu çekirdek şablonları temel alan yeni desenler tasarlama konularını daha ayrıntılı olarak gösterir.
 
 * **Yeniden başlatma** - Arka uç uygulaması, yeniden başlatma işleminin başlatıldığını bir doğrudan yöntem aracılığıyla cihaza bildirir.  Cihaz, bildirilen özellikleri kullanarak cihazın yeniden başlatma durumunu güncelleştirir.
@@ -99,9 +89,7 @@ IoT Hub aşağıdaki cihaz yönetim modellerini sağlar.  [Cihaz yönetimi öğr
   
     ![Cihaz yönetimi raporlama ilerleme ve durum deseninin grafiği][img-report_progress_pattern]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 IoT Hub’ın cihaz yönetimi için sağladığı özellik, desen ve kod kitaplıkları, her cihaz yaşam döngüsü aşamasında kurumsal IoT operatörünün gereksinimlerini yerine getiren IoT uygulamaları oluşturmanıza olanak sağlar.
 
 IoT Hub’ında cihaz yönetimi özellikleri hakkında daha fazla bilgi almak için [Cihaz yönetimini kullanmaya başlama][lnk-get-started] eğitmenine bakın.

@@ -22,12 +22,8 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
-
-# Azure sanal ağı için DNS ayarlarını güncelleştirme
-<a id="task-4-update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
-
-## Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme
+# <a name="update-dns-settings-for-the-azure-virtual-network"></a>Azure sanal ağı için DNS ayarlarını güncelleştirme
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme
 Önceki yapılandırma görevlerinde dizininiz için Azure Active Directory Domain Services başarıyla etkinleştirdiniz. Sonraki göreviniz sanal ağınızdaki bilgisayarların bu hizmetlere bağlanabilmesini ve bu hizmetleri kullanabilmesini sağlamaktır. Bu makalede, sanal ağınızdaki DNS sunucusu ayarlarını, sanal ağda Azure Active Directory Domain Services’in kullanılabilir olduğu iki IP adresini işaret edecek şekilde güncelleştirin.
 
 > [!NOTE]
@@ -56,8 +52,6 @@ Azure Active Directory Domain Services'i etkinleştirdiğiniz sanal ağın DNS s
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Görev 5: [Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
 

@@ -23,9 +23,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="getting-started-with-an-azure-multi-factor-auth-provider" class="xliff"></a>
-
-# Azure Multi-Factor Auth Sağlayıcısını kullanmaya başlama
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Azure Multi-Factor Auth Sağlayıcısını kullanmaya başlama
 İki adımlı doğrulama, Azure Active Directory’ye sahip genel yöneticiler ve Office 365 kullanıcıları için varsayılan olarak kullanılabilir durumdadır. Ancak, [gelişmiş özelliklerden](multi-factor-authentication-whats-next.md) yararlanmak isterseniz Azure Multi-Factor Authentication’ın (MFA) tam sürümünü satın almanız gerekir.
 
 Azure Multi-Factor Auth Sağlayıcısı Azure MFA tam sürümünün sağladığı özelliklerden yararlanmak için kullanılır. **Azure MFA, Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı olmayan** kullanıcılara yöneliktir.  Azure MFA, Azure AD Premium ve EMS varsayılan olarak Azure MFA’nın tam sürümünü içerir. Lisanslarınız varsa bir Azure Multi-Factor Auth Sağlayıcısına ihtiyacınız yoktur.
@@ -35,17 +33,13 @@ SDK’yı indirmek için Azure Multi-Factor Auth sağlayıcısı gerekir.
 > [!IMPORTANT]
 > SDK’yı indirmek için Azure MFA, AAD Premium veya EMS lisanslarınız olsa bile bir Azure Multi-Factor Auth Sağlayıcısı oluşturun.  Bu amaçla Azure Multi-Factor Auth Sağlayıcısı oluşturursanız ve zaten lisanslarınız varsa Sağlayıcıyı **Etkin Kullanıcı Başına** modeliyle oluşturduğunuzdan emin olun. Ardından, Sağlayıcıyı Azure MFA, Azure AD Premium veya EMS lisansları içeren dizine bağlayın. Bu yapılandırma, sizden yalnızca iki aşamalı doğrulama kullanan benzersiz kullanıcılarınızın sayısı sahip olduğunuz lisanslardan daha fazlaysa ücret alınmasını sağlar.
 
-<a id="what-is-an-azure-multi-factor-auth-provider" class="xliff"></a>
-
-## Azure Multi-Factor Auth Sağlayıcısı nedir?
+## <a name="what-is-an-azure-multi-factor-auth-provider"></a>Azure Multi-Factor Auth Sağlayıcısı nedir?
 
 Azure Multi-Factor Authentication lisansınız yoksa kullanıcılarınız için iki aşamalı doğrulamayı gerekli kılmak üzere kimlik doğrulama sağlayıcısı oluşturabilirsiniz. Özel bir uygulama geliştiriyorsanız ve Azure MFA'yı etkinleştirmek istiyorsanız bir kimlik doğrulama sağlayıcısı oluşturun ve [SDK'yı indirin](multi-factor-authentication-sdk.md).
 
 Azure aboneliğinizin ücretlendirilme biçimi konusunda farklılık gösteren iki tür kimlik doğrulama sağlayıcısı vardır. Kimlik doğrulaması başına seçeneğinde, kiracınızda bir ay içinde gerçekleştirilen kimlik doğrulaması sayısı hesaplanır. Bu, yalnızca gereken durumlarda (örneğin, özel bir uygulama için MFA'yı gerekli kıldıysanız) kimlik doğrulamasını kullanan belirli sayıda kullanıcınızın olması halinde en iyi seçenektir. Kullanıcı başına seçeneğinde, kiracınızda bir ayda iki aşamalı doğrulama gerçekleştiren kişi sayısı hesaplanır. Bu, lisansı bulunan bazı kullanıcılarınızın olması ancak MFA'yı, lisanslama sınırlarınızı aşacak sayıda kullanıcıya genişletmeniz gereken durumlarda en iyi seçenektir.
 
-<a id="create-a-multi-factor-auth-provider" class="xliff"></a>
-
-## Multi-Factor Auth Sağlayıcısı oluşturma
+## <a name="create-a-multi-factor-auth-provider"></a>Multi-Factor Auth Sağlayıcısı oluşturma
 Azure Multi-Factor Auth Sağlayıcısı oluşturmak için aşağıdaki adımları kullanın.
 
 1. [Klasik Azure portalında](https://manage.windowsazure.com) yönetici olarak oturum açın.

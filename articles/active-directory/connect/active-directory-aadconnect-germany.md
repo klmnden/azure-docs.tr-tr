@@ -22,10 +22,8 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 07/04/2017
 
 ---
-# Microsoft Bulut Almanya’da Azure AD Connect - Genel Önizleme
-<a id="azure-ad-connect-in-microsoft-cloud-germany---public-preview" class="xliff"></a>
-## Giriş
-<a id="introduction" class="xliff"></a>
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft Bulut Almanya’da Azure AD Connect - Genel Önizleme
+## <a name="introduction"></a>Giriş
 Azure AD Connect, şirket içi Active Directory’niz ile Azure Active Directory arasında eşitleme sağlar.
 Şu anda [Microsoft Bulut Almanya](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx)’daki senaryoların çoğunun operatör tarafından yürütülmesi gerekmektedir. Microsoft Bulut Almanya’yı kullanırken aşağıdakilerin farkında olmanız gerekir:
 
@@ -39,12 +37,10 @@ Azure AD Connect, şirket içi Active Directory’niz ile Azure Active Directory
   * Azure AD Connect Health
   * Otomatik güncelleştirmeler
  
-## İndirme
-<a id="download" class="xliff"></a>
+## <a name="download"></a>İndirme
 Azure AD Connect’i portalın içerisindeki Azure AD Connect dikey penceresinden indirebilirsiniz.  Azure AD Connect dikey penceresini bulmak için aşağıdaki yönergeleri kullanın.
 
-### Azure AD Connect Dikey Penceresi
-<a id="the-azure-ad-connect-blade" class="xliff"></a>
+### <a name="the-azure-ad-connect-blade"></a>Azure AD Connect Dikey Penceresi
 Azure portalda oturum açtıktan sonra şunları yapın:
 
 1. Gözat’a gidin
@@ -63,12 +59,10 @@ Aşağıdaki tabloda, dikey pencerede gösterilen özellikler açıklanmaktadır
 | SON EŞİTLEME |Başarılı bir eşitlemenin tamamlandığı en son zaman. |
 | FEDERASYON ETKİ ALANLARI |Şu anda yapılandırılmış durumda olan federasyon etki alanlarının sayısını gösterir. |
 
-## Yükleme
-<a id="installation" class="xliff"></a>
+## <a name="installation"></a>Yükleme
 Azure AD Connect'i yüklemek için [buradaki](active-directory-aadconnect.md#install-azure-ad-connect) belgeleri kullanabilirsiniz.
 
-## Gelişmiş özellikler ve Ek Bilgiler
-<a id="advanced-features-and-additional-information" class="xliff"></a>
+## <a name="advanced-features-and-additional-information"></a>Gelişmiş özellikler ve Ek Bilgiler
 Özel ayarlar veya gelişmiş yapılandırmalar hakkında ek bilgiler ya da kılavuzluk edinmek için [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) (Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme) makalesinden başlayın.  Bu sayfada, bilgiler ve ek rehberlik sağlayan diğer sayfalara bağlantılar bulabilirsiniz.
 
 

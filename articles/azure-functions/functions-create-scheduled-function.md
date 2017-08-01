@@ -23,17 +23,13 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/07/2017
 
 ---
-<a id="create-a-function-in-azure-that-is-triggered-by-a-timer" class="xliff"></a>
-
-# Azure’da bir zamanlayıcı tarafından tetiklenen bir işlev oluşturma
+# <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure’da bir zamanlayıcı tarafından tetiklenen bir işlev oluşturma
 
 Azure İşlevleri’ni kullanarak nasıl tanımladığınız bir zamanlamaya göre çalışan bir işlev oluşturabileceğinizi öğrenin.
 
 ![Azure portalında işlev uygulaması oluşturma](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -41,9 +37,7 @@ Bu öğreticiyi tamamlamak için:
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-<a id="create-an-azure-function-app" class="xliff"></a>
-
-## Azure İşlev uygulaması oluşturma
+## <a name="create-an-azure-function-app"></a>Azure İşlev uygulaması oluşturma
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -53,9 +47,7 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 <a name="create-function"></a>
 
-<a id="create-a-timer-triggered-function" class="xliff"></a>
-
-## Zamanlayıcı ile tetiklenen işlev oluşturma
+## <a name="create-a-timer-triggered-function"></a>Zamanlayıcı ile tetiklenen işlev oluşturma
 
 1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesine tıklayın. Bu, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
 
@@ -78,9 +70,7 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 Şimdi, işlevin zamanlamasını saatte bir gibi daha az sıklıkta çalışacak şekilde değiştirebilirsiniz. 
 
-<a id="update-the-timer-schedule" class="xliff"></a>
-
-## Zamanlayıcı zamanlamasını güncelleştirme
+## <a name="update-the-timer-schedule"></a>Zamanlayıcı zamanlamasını güncelleştirme
 
 1. İşlevinizi genişletin ve **Tümleştir**’e tıklayın. Burada, işlevinizin giriş ve çıkış bağlamalarını tanımlamanın yanı sıra zamanlamayı da ayarlarsınız. 
 
@@ -90,15 +80,11 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 Saatte bir çalışan bir işleviniz oldu. 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bir zamanlamaya göre çalışan bir işlev oluşturdunuz.
 

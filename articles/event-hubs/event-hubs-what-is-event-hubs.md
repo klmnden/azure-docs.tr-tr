@@ -22,15 +22,11 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="what-is-event-hubs" class="xliff"></a>
-
-# Event Hubs nedir?
+# <a name="what-is-event-hubs"></a>Event Hubs nedir?
 
 Azure Event Hubs saniyede milyonlarca olay alıp işleyebilen, ölçeklenebilirlik yüzeyi yüksek bir veri akışı platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Düşük gecikme ile yoğun ölçekte [yayımlama-abonelik özellikleri](https://msdn.microsoft.com/library/aa560414.aspx) sağlayabilen Event Hubs, Büyük Veri için "kestirme yol" işlevi görür.
 
-<a id="why-use-event-hubs" class="xliff"></a>
-
-## Event Hubs’ı neden kullanmalıyım?
+## <a name="why-use-event-hubs"></a>Event Hubs’ı neden kullanmalıyım?
 
 Event Hubs olay ve telemetri işleme özellikler onu özellikle aşağıdaki durumlar için yararlı hale getirir:
 
@@ -40,9 +36,7 @@ Event Hubs olay ve telemetri işleme özellikler onu özellikle aşağıdaki dur
 
 Örneğin, Event Hubs mobil uygulamalarda davranış izleme, web gruplarından trafik bilgileri alma, konsol oyunlarında oyun içi olay yakalama veya sanayi makinelerinden ya da bağlı taşıtlardan telemetri verileri toplama olanağı sağlar.
 
-<a id="azure-event-hubs-overview" class="xliff"></a>
-
-## Azure Event Hubs’a genel bakış
+## <a name="azure-event-hubs-overview"></a>Azure Event Hubs’a genel bakış
 
 Event Hubs’ın çözüm mimarilerinde oynadığı genel rol, bir olay ardışık düzeni için "ön kapı" olarak görev yapmalarıdır ve çoğunlukla *olay alıcı* olarak adlandırılırlar. Olay yutucu, bir olay akışının üretimini ilgili olayların kullanılmasına ayıran, olay yayımcıları ile olay tüketicileri arasında duran bir bileşen veya hizmettir. Aşağıdaki şekilde bu mimari gösterilir:
 
@@ -50,9 +44,7 @@ Event Hubs’ın çözüm mimarilerinde oynadığı genel rol, bir olay ardış�
 
 Event Hubs, ileti akışı işleme olanağı sağlar ancak geleneksel kurumsal mesajlaşmadan farklı özelliklere sahiptir. Event Hubs özellikleri, yüksek işleme ve olay işleme senaryoları üzerine inşa edilmiştir. Bu nedenle Event Hubs, [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) mesajlaşmadan da farklıdır ve konu başlıkları gibi [Service Bus mesajlaşma](/azure/service-bus-messaging/) varlıkları için sunulan bazı özellikleri uygulamaz.
 
-<a id="event-hubs-features" class="xliff"></a>
-
-## Event Hubs özellikleri
+## <a name="event-hubs-features"></a>Event Hubs özellikleri
 
 Event Hubs şu temel öğeleri içerir:
 
@@ -66,9 +58,7 @@ Event Hubs şu temel öğeleri içerir:
 
 Bu ve diğer Event Hubs özellikleriyle ilgili teknik bilgiler için bkz. [Event Hubs özelliklerine genel bakış](event-hubs-features.md). 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Event Hubs ayrıntılı fiyatlandırma bilgileri için bkz. [Event Hubs Fiyatlandırması](https://azure.microsoft.com/pricing/details/event-hubs/).
 

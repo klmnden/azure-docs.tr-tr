@@ -22,18 +22,14 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-<a id="understanding-security-alerts-in-azure-security-center" class="xliff"></a>
-
-# Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama
+# <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama
 Bu makale Azure Güvenlik Merkezi'nde bulunan farklı güvenlik uyarısı türlerini ve ilgili öngörüleri anlamanıza yardımcı olur. Uyarıların ve olayların nasıl yönetileceği hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md).
 
 > [!NOTE]
 > Gelişmiş algılamaları ayarlamak için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. 60 günlük ücretsiz deneme sürümü mevcuttur. Yükseltmek için [güvenlik ilkesinde](security-center-policies.md) **Fiyatlandırma Katmanı**’nı seçin. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 >
 
-<a id="what-type-of-alerts-are-available" class="xliff"></a>
-
-## Hangi tür uyarılar mevcuttur?
+## <a name="what-type-of-alerts-are-available"></a>Hangi tür uyarılar mevcuttur?
 Azure Güvenlik Merkezi, ortamlarını hedefleyen potansiyel saldırılar konusunda müşterileri uyarmak için çeşitli [algılama özelliklerini](security-center-detection-capabilities.md) kullanır. Bu uyarılar uyarıyı neyin tetiklediği, hedeflenen kaynaklar ve saldırının kaynağı hakkındaki değerli bilgileri içerir. Uyarılarda bulunan bilgiler, tehdidi algılamak için kullanılan analiz türüne göre çeşitlilik gösterir. Tehdit inceleme sırasında yararlı olabilecek ek bağlamsal bilgiler olaylarda da bulunabilir.  Bu makalede aşağıdaki uyarı türleri hakkında bilgi sağlanmıştır:
 
 * Sanal Makine Davranış Analizi (VMBA)
@@ -41,18 +37,14 @@ Azure Güvenlik Merkezi, ortamlarını hedefleyen potansiyel saldırılar konusu
 * Kaynak Analizi
 * Bağlamsal Bilgiler
 
-<a id="virtual-machine-behavioral-analysis" class="xliff"></a>
-
-## Sanal makine davranış analizi
+## <a name="virtual-machine-behavioral-analysis"></a>Sanal makine davranış analizi
 Azure Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlike giren kaynakları belirlemek amacıyla davranış analizini kullanabilir. Örneğin, İşlem Oluşturma Olayları ve Oturum Açma Olayları. Ayrıca, yaygın bir kampanyanın kanıtını desteklemek üzere denetlenmesi gereken diğer sinyallerle bir bağlantı vardır.
 
 > [!NOTE]
 > Güvenlik Merkezi algılama özelliklerinin nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi algılama özellikleri](security-center-detection-capabilities.md).
 >
 
-<a id="crash-analysis" class="xliff"></a>
-
-### Kilitlenme analizi
+### <a name="crash-analysis"></a>Kilitlenme analizi
 Kilitlenme bellek dökümü analizi, geleneksel güvenlik çözümlerini atlatabilen karmaşık kötü amaçlı yazılımları algılamak için kullanılan bir yöntemdir. Kötü amaçlı yazılımların çeşitli türleri, diske hiçbir zaman yazmayarak veya diske yazılmış yazılım bileşenlerini şifreleyerek virüsten koruma ürünleri tarafından algılanma olasılığını azaltmaya çalışır. Bu durum, kötü amaçlı yazılımların geleneksel kötü amaçlı yazılımdan koruma yaklaşımlarıyla algılanmasını zor hale getirir. Ancak, bu tür kötü amaçlı yazılımlar çalışmak için bellekte iz bırakmak zorunda olduğundan bellek analizi kullanılarak algılanabilir.
 
 Yazılım kilitlendiğinde bir kilitlenme dökümü kilitlenme sırasında belleğin bir kısmını yakalar. Kilitlenme durumu kötü amaçlı yazılımlardan, genel uygulama veya sistem sorunlarından kaynaklanabilir. Kilitlenme dökümündeki belleği analiz eden Güvenlik Merkezi, yazılımdaki açıklardan yararlanmak, gizli verilere erişmek ve tehlikeye giren bir makineye gizlice sızmak için kullanılan teknikleri algılayabilir. Analiz Güvenlik Merkezi arka ucu tarafından gerçekleştirildiği için bu özellik, ana bilgisayarların performansına en az etki ile sağlanır.
@@ -63,9 +55,7 @@ Aşağıdaki alanlar, bu makalenin sonraki bölümlerinde görüntülenen kilitl
 * PROCESSNAME: Kilitlenen işlemin adı.
 * PROCESSVERSION: Kilitlenen işlemin sürümü.
 
-<a id="shellcode-discovered" class="xliff"></a>
-
-### Kabuk kodu bulundu
+### <a name="shellcode-discovered"></a>Kabuk kodu bulundu
 Kabuk Kodu, kötü amaçlı yazılım bir yazılım güvenlik açığından yararlandıktan sonra çalıştırılan yüktür. Bu uyarı, kilitlenme dökümü analizinin kötü amaçlı yükler tarafından yaygın olarak gerçekleştirilen davranışları sergileyen yürütülebilir kodlar algıladığını belirtir. Bu davranış kötü amaçlı olmayan yazılımlar tarafından gerçekleştiriliyor olabilir, ancak normal yazılım geliştirme uygulamaları için alışıldık bir davranış değildir.
 
 Kabuk Kodu uyarısı aşağıdaki ek alanı sağlar:
@@ -76,9 +66,7 @@ Kabuk Kodu uyarısı aşağıdaki ek alanı sağlar:
 
 ![Kabuk kodu uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
-<a id="module-hijacking-discovered" class="xliff"></a>
-
-### Modül ele geçirme bulundu
+### <a name="module-hijacking-discovered"></a>Modül ele geçirme bulundu
 Windows, yazılımların ortak Windows sistem işlevselliğinden yararlanmasına izin vermek için dinamik bağlantı kitaplıklarını (DLL) kullanır. DLL Ele Geçirme, kötü amaçlı iş yüklerinin rastgele kodların yürütülebileceği belleğe yüklenmesi için kötü amaçlı yazılım tarafından DLL yükleme sırası değiştirildiğinde gerçekleşir. Bu uyarı, kilitlenme döküm analizinde iki farklı yoldan yüklenip benzer ada sahip bir modülün algılandığını gösterir. Yüklenen yollardan biri, ortak bir Windows sistem ikili dosyası konumundan gelir.
 
 Yasal yazılım geliştiricileri, Windows işletim sistemini veya bir Windows uygulamasını izleme, genişletme gibi kötü amaçlı olmayan gerekçelerden dolayı nadiren DLL yükleme sırasını değiştirir. Azure Güvenlik Merkezi, DLL yükleme sırasında yapılan kötü amaçlı değişikliklerle zararsız olabilecek değişikliklerin birbirinden ayırt edilmesine yardımcı olmak için yüklenen bir modülün şüpheli bir profile uygun olup olmadığını denetler. Bu denetimin sonucu, uyarının “SIGNATURE” alanı tarafından gösterilir ve uyarının önem derecesi, uyarı açıklaması ve uyarı düzeltme adımlarında yansıtılır. Modülün yasal veya kötü amaçlı olup olmadığını araştırmak için, ele geçire modülünün disk üzerindeki kopyasını analiz edin. Örneğin, dosyanın dijital imzasını doğrulayabilir veya bir virüsten koruma taraması çalıştırabilirsiniz.
@@ -94,9 +82,7 @@ Bu uyarı, daha önceki “Kabuk Kodu Bulundu” bölümünde açıklanan ortak 
 
 ![Modül ele geçirme uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
-<a id="masquerading-windows-module-detected" class="xliff"></a>
-
-### Kendini gizleyen Windows modulü algılandı
+### <a name="masquerading-windows-module-detected"></a>Kendini gizleyen Windows modulü algılandı
 Kötü amaçlı yazılım, *araya karışmak* ve kötü amaçlı yazılımın gerçek yapısını sistem yöneticilerinden saklamak amacıyla Windows sistem ikili dosyaları (örn. SVCHOST.EXE) veya modülleri (örn. NTDLL.DLL) için yaygın olarak kullanılan adları kullanabilir. Bu uyarı, kilitlenme dökümü analizinde kilitlenme dökümü dosyalarının Windows sistem modülü adlarını kullanan, ancak normal Windows modüllerine yönelik diğer kriterleri karşılamayan modüller içerdiğinin algılandığını gösterir. Kendini gizleyen modülün diskteki kopyasının çözümlenmesi, bu modülün yasal mı yoksa kötü amaçlı mı olduğu konusunda daha fazla bilgi sağlayabilir. Analiz şunları içerebilir:
 
 * İlgili dosyanın yasal bir yazılım paketinin bir parçası olarak gönderildiğini doğrulayın.
@@ -115,9 +101,7 @@ Bu uyarı, modülün PE üst bilgisinden “CHECKSUM” ve “TIMESTAMP” gibi 
 
 ![Kendini gizleyen Windows uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
-<a id="modified-system-binary-discovered" class="xliff"></a>
-
-### Değiştirilen sistem ikili dosyası bulundu
+### <a name="modified-system-binary-discovered"></a>Değiştirilen sistem ikili dosyası bulundu
 Kötü amaçlı yazılım, verilere gizlice erişmek veya güvenliği ihlal edilmiş bir sistemde kendini gizleyerek kalıcı olmak için çekirdek sistem ikili dosyalarını değiştirebilir. Bu uyarı, kilitlenme dökümü analizi tarafından bellekte veya diskte çekirdek Windows OS ikili dosyalarının değiştirildiğinin algılandığını gösterir.
 
 Yasal uygulama geliştiricileri, Sapmalar veya uygulama uyumluluğu gibi kötü amaçlı olmayan nedenlerle bellekte sistem modüllerini nadiren değiştirir. Azure Güvenlik Merkezi, kötü amaçlı modüllerle yasal olabilecek modüllerin birbirinden ayırt edilmesine yardımcı olmak için değiştirilen modülün bir şüpheli profile uygun olup olmadığını denetler. Bu denetimin sonucu, uyarının önem derecesi, uyarı açıklaması ve uyarı düzeltme adımları tarafından gösterilir.
@@ -131,27 +115,21 @@ Bu uyarı, daha önceki “Kabuk Kodu Bulundu” bölümünde açıklanan ortak 
 
 ![Sistem ikili dosyası uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
-<a id="suspicious-process-executed" class="xliff"></a>
-
-### Şüpheli işlem yürütüldü
+### <a name="suspicious-process-executed"></a>Şüpheli işlem yürütüldü
 Güvenlik Merkezi, hedef sanal makinede yürütülen bir şüpheli işlemi tanımlar ve bir uyarı tetikler. Algılama belirli bir adı aramaz, ancak yürütülebilir dosyanın parametresini arar. Bu nedenle, saldırgan yürütülebilir dosyayı yeniden adlandırsa bile, Güvenlik Merkezi şüpheli işlemi algılayabilir.
 
 İşte bu tür bir uyarı örneği:
 
 ![Şüpheli işlem uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-<a id="multiple-domain-accounts-queried" class="xliff"></a>
-
-### Birden fazla etki alanı hesabı sorgulandı
+### <a name="multiple-domain-accounts-queried"></a>Birden fazla etki alanı hesabı sorgulandı
 Güvenlik Merkezi, saldırganların ağ keşfi sırasında genellikle gerçekleştirdiği bir işlem olan Active Directory etki alanı hesaplarını sorgulamaya yönelik birden fazla girişimi algılayabilir. Saldırganlar kullanıcıları, etki alanı yönetici hesaplarını, hangi bilgisayarların etki alanı denetleyicileri olduğunu ve diğer etki alanlarıyla olası etki alanı güven ilişkisini belirlemek üzere etki alanını sorgulamak için bu teknikten yararlanabilir.
 
 İşte bu tür bir uyarı örneği:
 
 ![Birden fazla etki alanı hesabı uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
-<a id="local-administrators-group-members-were-enumerated" class="xliff"></a>
-
-### Yerel Yöneticiler grubunun üyeleri numaralandırılmıştır
+### <a name="local-administrators-group-members-were-enumerated"></a>Yerel Yöneticiler grubunun üyeleri numaralandırılmıştır
 
 Güvenlik Merkezi, Windows Server 2016 ve Windows 10’da 4798 numaralı güvenlik olayı tetiklendiğinde bir uyarı tetikler. Bu durum, yerel yönetici grupları numaralandırıldığında gerçekleşir ve genellikle ağ keşfi sırasında saldırganlar tarafından gerçekleştirilir. Saldırganlar, yönetici ayrıcalıklarına sahip kullanıcıların kimliklerini sorgulamak için bu teknikten yararlanabilir.
 
@@ -159,9 +137,7 @@ Güvenlik Merkezi, Windows Server 2016 ve Windows 10’da 4798 numaralı güvenl
 
 ![Yerel yönetici](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
 
-<a id="anomalous-mix-of-upper-and-lower-case-characters" class="xliff"></a>
-
-### Büyük ve küçük harflerin anormal karışımı
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Büyük ve küçük harflerin anormal karışımı
 
 Güvenlik Merkezi, komut satırında büyük ve küçük harf karışımının kullanıldığını algıladığında bir uyarı tetikler. Bazı saldırganlar büyük küçük harfe duyarlı veya karma tabanlı makine kuralından gizlenmek için bu tekniği kullanabilir.
 
@@ -169,9 +145,7 @@ Güvenlik Merkezi, komut satırında büyük ve küçük harf karışımının k
 
 ![Anormal karışım](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
 
-<a id="suspected-kerberos-golden-ticket-attack" class="xliff"></a>
-
-### Şüpheli Kerberos Altın Bilet saldırısı
+### <a name="suspected-kerberos-golden-ticket-attack"></a>Şüpheli Kerberos Altın Bilet saldırısı
 
 Bir saldırgan, istediği kullanıcının kimliğine bürünmesine olanak tanıyan Kerberos "Altın Biletleri" oluşturmak üzere güvenliği aşılmış bir [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) anahtarı kullanabilir. Güvenlik Merkezi bu tür bir etkinlik algıladığında bir uyarı tetikler.
 
@@ -182,9 +156,7 @@ Bir saldırgan, istediği kullanıcının kimliğine bürünmesine olanak tanıy
 
 ![Altın bilet](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
 
-<a id="suspicious-account-created" class="xliff"></a>
-
-### Şüpheli hesap oluşturuldu
+### <a name="suspicious-account-created"></a>Şüpheli hesap oluşturuldu
 
 Yerleşik yönetici ayrıcalıklarına sahip olan mevcut bir hesaba çok benzeyen bir hesap oluşturulduğunda, Güvenlik Merkezi bir uyarı tetikler. Bu teknik, insan doğrulaması ile fark edilemeyecek bir dolandırıcı hesabı oluşturmak üzere saldırganlar tarafından kullanılabilir.
  
@@ -192,9 +164,7 @@ Yerleşik yönetici ayrıcalıklarına sahip olan mevcut bir hesaba çok benzeye
 
 ![Şüpheli hesap](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
 
-<a id="suspicious-firewall-rule-created" class="xliff"></a>
-
-### Şüpheli Güvenlik Duvarı kuralı oluşturuldu
+### <a name="suspicious-firewall-rule-created"></a>Şüpheli Güvenlik Duvarı kuralı oluşturuldu
 
 Saldırganlar, kötü amaçlı uygulamaların komut ve denetimle iletişim kurmasına izin veren ya da güvenliği aşılmış ana bilgisayar aracılığıyla ağ üzerinden saldırı başlatan özel güvenlik duvarı kuralları oluşturarak ana bilgisayar güvenliğini aşmayı deneyebilir. Güvenlik Merkezi, şüpheli bir konumda yürütülebilir bir dosyadan yeni bir güvenlik duvarı kuralı oluşturulduğunu algılandığında bir uyarı tetikler.
  
@@ -202,9 +172,7 @@ Saldırganlar, kötü amaçlı uygulamaların komut ve denetimle iletişim kurma
 
 ![Güvenlik duvarı kuralı](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
 
-<a id="suspicious-combination-of-hta-and-powershell" class="xliff"></a>
-
-### HTA ve PowerShell şüpheli birleşimi
+### <a name="suspicious-combination-of-hta-and-powershell"></a>HTA ve PowerShell şüpheli birleşimi
 
 Güvenlik Merkezi, bir Microsoft HTML Uygulama Ana Bilgisayarının (HTA) PowerShell komutları başlattığını algıladığında bir uyarı tetikler. Bu teknik, saldırganlar tarafından kötü amaçlı PowerShell betikleri başlatmak için kullanılır.
  
@@ -213,23 +181,17 @@ Güvenlik Merkezi, bir Microsoft HTML Uygulama Ana Bilgisayarının (HTA) PowerS
 ![HTA ve PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
 
 
-<a id="network-analysis" class="xliff"></a>
-
-## Ağ analizi
+## <a name="network-analysis"></a>Ağ analizi
 Güvenlik Merkezi ağ tehdidi algılaması, Azure IPFIX (İnternet Protokolü Akış Bilgileri Verme) trafiğinizden güvenlik verilerini otomatik olarak toplayarak çalışır. Tehditleri belirlemek amacıyla bu bilgileri genellikle birden fazla kaynaktan bilgileri ilişkilendirerek analiz eder.
 
-<a id="suspicious-outgoing-traffic-detected" class="xliff"></a>
-
-### Şüpheli giden trafik algılandı
+### <a name="suspicious-outgoing-traffic-detected"></a>Şüpheli giden trafik algılandı
 Ağ cihazları diğer sistem türlerine büyük ölçüde benzer şekilde bulunabilir ve profili oluşturulabilir. Saldırganlar genellikle bağlantı noktası tarama veya bağlantı noktası süpürme ile işe başlarlar. Sonraki örnekte, bir VM’den şüpheli Güvenli Kabuk (SSH) trafiği alacaksınız. Bu senaryoda, bir dış kaynağa karşı SSH deneme yanılma saldırısı veya bağlantı noktası süpürme saldırısı yapılabilir.
 
 ![Şüpheli giden trafik uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
 Bu uyarı, bu saldırıyı başlatmak için kullanılan kaynağı tanımlamak için kullanabileceğiniz bilgiler verir. Bu uyarı ayrıca tehlikeye giren makineyi, algılama süresini ve kullanılan protokol ile bağlantı noktasını tanımlayan bilgiler sağlar. Bu dikey pencere ayrıca bu sorunu gidermek için kullanılabilecek bir düzeltme adımları listesi verir.
 
-<a id="network-communication-with-a-malicious-machine" class="xliff"></a>
-
-### Kötü amaçlı bir makine ile ağ iletişimi
+### <a name="network-communication-with-a-malicious-machine"></a>Kötü amaçlı bir makine ile ağ iletişimi
 Microsoft tehdit bilgileri akışlarından yararlanan Azure Güvenlik Merkezi, kötü amaçlı IP adresleriyle iletişim kuran riskli makineleri algılayabilir. Kötü amaçlı adres çoğu durumda kötü amaçlı bir komut ve denetim merkezidir. Bu örnekte Güvenlik Merkezi iletişimin Pony Loader kötü amaçlı yazılımı ([Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF) olarak da bilinir) kullanılarak yapıldığını algılamıştır.
 
 ![ağ iletişimi uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig9.png)
@@ -241,23 +203,17 @@ Bu uyarı bu saldırıyı başlatmak için kullanılan kaynağı, saldırıya u�
 >
 >
 
-<a id="possible-outgoing-denial-of-service-attack-detected" class="xliff"></a>
-
-### Olası giden hizmet reddi saldırısı algılandı
+### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Olası giden hizmet reddi saldırısı algılandı
 Bir sanal makineden kaynaklanan anormal ağ trafiği, Güvenlik Merkezi’nin olası bir hizmet reddi saldırı türü tetiklemesine yol açabilir.
 
 İşte bu tür bir uyarı örneği:
 
 ![Giden DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
-<a id="resource-analysis" class="xliff"></a>
-
-## Kaynak analizi
+## <a name="resource-analysis"></a>Kaynak analizi
 Güvenlik Merkezi kaynak analizi, [Azure SQL Veritabanı tehdidi algılama](../sql-database/sql-database-threat-detection.md) özelliği ile tümleştirme gibi hizmet olarak platform (PaaS) hizmetlerine odaklanır. Bu alanlardan elde edilen analiz sonuçlarına bağlı olarak, Güvenlik Merkezi kaynakla ilgili bir uyarı tetikler.
 
-<a id="potential-sql-injection" class="xliff"></a>
-
-### Olası SQL ekleme
+### <a name="potential-sql-injection"></a>Olası SQL ekleme
 SQL ekleme, kötü amaçlı bir kodun daha sonra ayrıştırma ve yürütme amacıyla SQL Server örneğine geçirildiği dizelere eklendiği bir saldırıdır. SQL Server sözdizimsel açıdan geçerli olan aldığı tüm sorguları yürüttüğü için SQL deyimleri oluşturan her türlü yordam, ekleme güvenlik açıklarına karşı gözden geçirilmelidir. SQL Tehdit Algılama özelliği, Azure SQL veritabanlarınızda gerçekleşebilecek şüpheli olayları belirlemek üzere machine learning, davranış analizi ve anormallik algılaması kullanır. Örneğin:
 
 * Eski bir çalışan tarafından veritabanı erişimi denendi
@@ -268,23 +224,17 @@ SQL ekleme, kötü amaçlı bir kodun daha sonra ayrıştırma ve yürütme amac
 
 Bu uyarıdaki bilgiler, saldırıya uğrayan kaynağı, algılama süresini ve saldırının durumunu tanımlamak için kullanılabilir. Ayrıca, daha fazla araştırma adımı için bağlantı sağlar.
 
-<a id="vulnerability-to-sql-injection" class="xliff"></a>
-
-### SQL Ekleme Güvenlik Açığı
+### <a name="vulnerability-to-sql-injection"></a>SQL Ekleme Güvenlik Açığı
 Bu uyarı, veritabanında bir uygulama hatası algılandığında tetiklenir. Bu uyarı, SQL ekleme saldırılarına karşı olası bir güvenlik açığını gösterebilir.
 
 ![Olası SQL Ekleme uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig12-new.png)
 
-<a id="unusual-access-from-unfamiliar-location" class="xliff"></a>
-
-### Tanınmayan konumdan olağan dışı erişim
+### <a name="unusual-access-from-unfamiliar-location"></a>Tanınmayan konumdan olağan dışı erişim
 Sunucuda son dönemde görülmemiş, tanınmayan bir IP adresinden erişim olayı algılandığında bu uyarı tetiklenir.
 
 ![Olağan dışı erişim uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
 
-<a id="contextual-information" class="xliff"></a>
-
-## Bağlamsal bilgiler
+## <a name="contextual-information"></a>Bağlamsal bilgiler
 Araştırma sırasında analistlerin, tehdidin doğası ve nasıl azaltılacağı hakkında bir sonuca ulaşabilmesi için ek bağlam gerekir.  Bir ağ anomalisinin algılandığını varsayalım. Böyle bir durumda, ağ genelinde veya hedeflenen kaynakla ilgili olarak ortaya çıkan diğer sorunları hesaba katmadan, gerçekleştirilecek bir sonraki eylemin ne olacağını anlamak çok zordur. Güvenlik Olayında araştırmacıya bu konuda yardımcı olabilecek yapıtlar, ilgili olaylar ve bilgiler bulunabilir. Ek bilgilerin kullanılabilirliği, algılanan tehdit türüne ve ortamınızın yapılandırmasına göre değişiklik gösterir ve tüm Güvenlik Olayları için geçerli değildir.
 
 Sağlanan ek bilgiler (varsa) uyarı listesinin altındaki Güvenlik Olayında gösterilir. Burada aşağıdaki gibi bilgiler bulunabilir:
@@ -296,9 +246,7 @@ Sağlanan ek bilgiler (varsa) uyarı listesinin altındaki Güvenlik Olayında g
 ![Olağan dışı erişim uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
 
 
-<a id="see-also" class="xliff"></a>
-
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 Bu makalede Güvenlik Merkezi’ndeki farklı güvenlik uyarısı türleri hakkında bilgi edindiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Azure Güvenlik Merkezi'nde güvenlik olayı işleme](security-center-incident.md)

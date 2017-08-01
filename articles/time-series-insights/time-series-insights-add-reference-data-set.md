@@ -23,15 +23,11 @@ ms.lasthandoff: 07/04/2017
 
 ---
 
-<a id="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
-
-# Ibiza portalını kullanarak Zaman Serisi Görüşleri ortamınız için bir başvuru veri kümesi oluşturma
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Ibiza portalını kullanarak Zaman Serisi Görüşleri ortamınız için bir başvuru veri kümesi oluşturma
 
 Başvuru Veri Kümesi, olay kaynağınızdan alınan olaylarla genişletilen bir öğe koleksiyonudur. Zaman Serisi Görüşleri giriş altyapısı, olay kaynağınızdaki bir olay ile başvuru veri kümenizdeki bir öğeyi birleştirir. Bu genişletilmiş olay daha sonra sorgu için kullanılabilir. Bu birleştirme işlemi için başvuru veri kümenizde tanımlı anahtarlar temel alınır.
 
-<a id="steps-to-add-a-reference-data-set-to-your-environment" class="xliff"></a>
-
-## Ortamınıza başvuru veri kümesi ekleme adımları
+## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Ortamınıza başvuru veri kümesi ekleme adımları
 
 1. [Ibiza portalında](https://portal.azure.com) oturum açın.
 2. Ibiza portalının sol tarafındaki menüde bulunan "Tüm kaynaklar" seçeneğine tıklayın.
@@ -50,9 +46,7 @@ Başvuru Veri Kümesi, olay kaynağınızdan alınan olaylarla genişletilen bir
 
 7. “Oluştur” düğmesine tıklayın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [Başvuru verilerini programlamayla yönetin](time-series-insights-manage-reference-data-csharp.md).
 * Tam API başvurusu için [Başvuru Verileri API'si](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) belgesine bakın.

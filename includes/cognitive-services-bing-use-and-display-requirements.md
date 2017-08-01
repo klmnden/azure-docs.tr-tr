@@ -2,8 +2,7 @@
 
 These use and display requirements apply to your implementation of the content and associated information (for example, relationships, metadata and other signals) available through calls to the Bing Web Search, Image Search, Video Search, News Search, and Entity Search APIs, Bing Spell Check and Bing Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.
 
-## 1. BING SPELL CHECK API and BING AUTOSUGGEST API.
-<a id="1-bing-spell-check-api-and-bing-autosuggest-api" class="xliff"></a>
+## <a name="1-bing-spell-check-api-and-bing-autosuggest-api"></a>1. BING SPELL CHECK API and BING AUTOSUGGEST API.
 
 You must not:
 
@@ -11,8 +10,7 @@ You must not:
   
 •   use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
 
-## 2. SEARCH APIs
-<a id="2-search-apis" class="xliff"></a>
+## <a name="2-search-apis"></a>2. SEARCH APIs
 
 The requirements in Sections 3 through 7 apply to the Bing Web Search, Image Search, Video Search, News Search APIs, and Bing Entity Search API (the “**Search APIs**”). The following definitions apply to Sections 3 through 7:
 
@@ -22,8 +20,7 @@ The requirements in Sections 3 through 7 apply to the Bing Web Search, Image Sea
   
 •   "result" refers to an item of information in an answer. For example, the set of data connected with a single news article is a result in a news answer.
 
-## 3. BING ENTITY SEARCH API
-<a id="3-bing-entity-search-api" class="xliff"></a>
+## <a name="3-bing-entity-search-api"></a>3. BING ENTITY SEARCH API
 
 Data returned from the Bing Entity Search API must be:
 
@@ -45,8 +42,7 @@ You must not:
   
 •   use data you receive from the Bing Entity Search API as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
 
-## 4. BING WEB SEARCH, IMAGE SEARCH, NEWS SEARCH and VIDEO SEARCH APIs:
-<a id="4-bing-web-search-image-search-news-search-and-video-search-apis" class="xliff"></a>
+## <a name="4-bing-web-search-image-search-news-search-and-video-search-apis"></a>4. BING WEB SEARCH, IMAGE SEARCH, NEWS SEARCH and VIDEO SEARCH APIs:
 
 **Internet search experience.** All data returned in responses from the Web, Image, News and Video Search APIs may only be used in Internet search experiences. An Internet search experience means the content displayed, as applicable:
 
@@ -84,8 +80,7 @@ The only exception to the internet search experience requirement is for URL disc
 
 **Branding.** You may attribute each response (or portion of a response) displayed to Microsoft as described in https://go.microsoft.com/fwlink/?linkid=833278, unless Microsoft specifies otherwise for your particular use.
 
-## 5. Transferring responses.
-<a id="5-transferring-responses" class="xliff"></a>
+## <a name="5-transferring-responses"></a>5. Transferring responses.
 
 If you enable a user to transfer a response from a Search API to another user, such as through a messaging app or social media posting, the following apply:
 
@@ -105,8 +100,7 @@ If you enable a user to transfer a response from a Search API to another user, s
   
 •   You may only enable a user to transfer responses obtained as a result of the transferring user's query.
 
-## 6. Continuity of service.
-<a id="6-continuity-of-service" class="xliff"></a>
+## <a name="6-continuity-of-service"></a>6. Continuity of service.
 
 You must not copy, store or cache any data from Search API responses. However, to enable continuity of service access and data rendering, you may retain results solely under the following conditions:
 
@@ -134,8 +128,7 @@ Whenever retained, results for a specific user cannot be commingled with results
   
 •   delete (and refresh with a new query if needed) the stored results within the timeframes specified.
 
-## 7. Non-display URL discovery.
-<a id="7-non-display-url-discovery" class="xliff"></a>
+## <a name="7-non-display-url-discovery"></a>7. Non-display URL discovery.
 
 You may only use search responses in a non-internet search experience for the sole purpose of discovering URLs of sources of information responsive to a query from your user or customer. You may copy such URLs in a report or similar response you provide (i) only to that user or customer, in response to the particular query and (ii) which includes significant additional valuable content relevant to the query. The requirements in sections 2 through 6 of these use and display requirements do not apply to this non-display use, except: 
 

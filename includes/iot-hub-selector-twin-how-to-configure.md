@@ -5,8 +5,7 @@
 > 
 > 
 
-## Introduction
-<a id="introduction" class="xliff"></a>
+## <a name="introduction"></a>Introduction
 
 In [Get started with IoT Hub device twins][lnk-twin-tutorial], you learned how to set device metadata from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
 

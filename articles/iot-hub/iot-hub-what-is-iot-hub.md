@@ -23,9 +23,7 @@ ms.lasthandoff: 06/20/2017
 
 
 ---
-<a id="overview-of-the-azure-iot-hub-service" class="xliff"></a>
-
-# Azure IoT Hub hizmetine genel bakış
+# <a name="overview-of-the-azure-iot-hub-service"></a>Azure IoT Hub hizmetine genel bakış
 
 Azure IoT Hub'a hoş geldiniz. Bu makale Azure IoT Hub'a genel bir bakış sağlar ve bir Nesnelerin İnterneti (IoT) çözümü uygularken bu hizmeti neden kullanmanız gerektiğini açıklar. Azure IoT Hub, milyonlarca IoT cihazları ile bir çözüm arka ucu arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir hizmettir. Azure IoT Hub:
 
@@ -45,9 +43,7 @@ Azure ve IoT Hub'ın, IoT çözümünüzün güvenliğini sağlamanıza nasıl y
 > [!NOTE]
 > IoT mimarisinin ayrıntılı incelemesi için bkz. [Microsoft Azure IoT Başvuru Mimarisi][lnk-refarch].
 
-<a id="iot-device-connectivity-challenges" class="xliff"></a>
-
-## IoT cihaz bağlantısı zorlukları
+## <a name="iot-device-connectivity-challenges"></a>IoT cihaz bağlantısı zorlukları
 
 IoT Hub ve cihaz kitaplıkları, cihazların düzgün ve güvenli bir şekilde çözüm arka ucuna bağlanmasındaki zorlukları aşabilmenize yardımcı olur. IoT cihazları:
 
@@ -61,9 +57,7 @@ IoT Hub ve cihaz kitaplıkları, cihazların düzgün ve güvenli bir şekilde �
 
 Yukarıdaki gereksinimlere ek olarak, tüm IoT çözümlerinin ölçek, güvenlik ve güvenilirlik de sunması gerekir. Elde edilen bağlantı gereksinimleri kümesi, web kapsayıcıları ve mesajlaşma aracıları gibi geleneksel teknolojiler kullandığınızda uygulaması zor ve zaman alıcı olabilir.
 
-<a id="why-use-azure-iot-hub" class="xliff"></a>
-
-## Azure IoT Hub neden kullanılır?
+## <a name="why-use-azure-iot-hub"></a>Azure IoT Hub neden kullanılır?
 
 Azure IoT Hub, cihaz bağlantısı sorunlarını mesajlaşma, dosya aktarımı ve request-reply metotları gibi çok sayıda [cihazdan buluta][lnk-d2c-guidance] ve [buluttan cihaza][lnk-c2d-guidance] iletişim seçeneğine ek olarak, aşağıdaki yollarla ele alır:
 
@@ -84,9 +78,7 @@ Azure IoT Hub, cihaz bağlantısı sorunlarını mesajlaşma, dosya aktarımı v
 
 * **Ölçek**. Azure IoT Hub, saniye başına milyonlarca eş zamanlı cihazı ve milyonlarca etkinliği ölçeklendirir.
 
-<a id="gateways" class="xliff"></a>
-
-## Ağ geçitleri
+## <a name="gateways"></a>Ağ geçitleri
 
 Bir IoT çözümündeki ağ geçidi genellikle buluta dağıtılan bir [protokol ağ geçidi][lnk-iotedge] veya cihazlarınızla yerel olarak dağıtılan bir [alan ağ geçidi][lnk-field-gateway] olur. Bir protokol ağ geçidi, MQTT veya AMQP gibi protokol çevirisi gerçekleştirir. Bir alan ağ geçidi kenarda analiz çalıştırabilir, gecikme süresini düşüren, cihaz yönetimi hizmetleri sağlayan, güvenlik ve gizlilik kısıtlamaları getiren zamana duyarlı kararlar verebilir ve protokol çevirileri gerçekleştirebilir. Her iki ağ geçidi de cihazlarınız ve IoT hub'ınız arasında aracı görevi yapar.
 
@@ -94,9 +86,7 @@ Bir alan ağ geçidi, çözümünüzde erişim ve bilgi akışını yönetmede g
 
 Bir çözümde hem protokol hem de alan geçitleri olabilir.
 
-<a id="how-does-iot-hub-work" class="xliff"></a>
-
-## IoT Hub nasıl çalışır?
+## <a name="how-does-iot-hub-work"></a>IoT Hub nasıl çalışır?
 
 Azure IoT Hub, cihazlarınız ve çözüm arka ucunuz arasındaki etkileşimlere aracılık etmek için [hizmet destekli iletişim][lnk-service-assisted-pattern] deseni uygular. Hizmet destekli iletişimin amacı, IoT Hub gibi bir denetim sistemi ile güvenilmeyen fiziksel alanlarda dağıtılan özel amaçlı cihazlar arasında güvenilir ve çift yönlü iletişim yolları oluşturmaktır. Desen aşağıdaki ilkeleri oluşturur:
 
@@ -118,9 +108,7 @@ Mobil sektörü, [Windows Anında Bildirim Servisi][lnk-wns], [Google Cloud Mess
 
 IoT Hub, ExpressRoute'un ortak eşleme yolundan desteklenmez.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bir cihazdan ileti göndermenin ve bu iletileri IoT Hub'dan almanın yanı sıra ileti yollarını nasıl yapılandıracağınızı öğrenmek için bkz. [IoT Hub ile ileti gönderme ve alma][lnk-send-messages].
 
