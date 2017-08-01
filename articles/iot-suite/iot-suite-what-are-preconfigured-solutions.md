@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT önceden yapılandırılmış çözümleri | Microsoft Belgeleri"
+title: "Azure IoT önceden yapılandırılmış çözümleri | Microsoft Docs"
 description: "Azure IoT önceden yapılandırılmış çözümlerin ve ek kaynaklara bağlantısı olan mimarisinin bir açıklaması."
 services: 
 suite: iot-suite
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 29e8639a6f1f0c2733d24dda78975ea7cfb6107a
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: d66dece63d2ba944c8f3828ba68c6202485d47e0
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?
+
 Azure IoT Paketi önceden yapılandırılmış çözümleri, aboneliği kullanarak Azure’e dağıtabildiğiniz yaygın IoT çözüm modellerinin uygulamalarıdır. Önceden yapılandırılmış çözümleri kullanabilirsiniz:
 
 * Kendi IoT çözümleriniz için bir başlangıç noktası olarak.
@@ -31,12 +31,10 @@ Azure IoT Paketi önceden yapılandırılmış çözümleri, aboneliği kullanar
 
 Önceden yapılandırılmış her çözüm, telemetri oluşturmak için tam, uçtan uca sanal cihazları kullanan bir uygulamadır.
 
-Azure’de çözümleri dağıtmanın ve çalıştırmanın yanı sıra, tam kaynak kodunu indirebilir, sonra da size özel IoT gereksinimlerini karşılaması için bunu özelleştirebilir ve uzatabilirsiniz.
+Kendi özel IoT gereksinimlerinizi karşılayacak şekilde çözümü özelleştirmek ve genişletmek için tam kaynak kodunu indirebilirsiniz.
 
 > [!NOTE]
 > Önceden yapılandırılmış çözümlerden birini dağıtmak için [Microsoft Azure IoT Paketi][lnk-azureiotsuite] sayfasını ziyaret edin. [IoT önceden yapılandırılmış çözümlerine giriş][lnk-getstarted-preconfigured] makalesi çözümlerden birinin dağıtılması ve çalıştırılması hakkında daha fazla bilgi sağlamaktadır.
-> 
-> 
 
 Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşıladığı gösterilmektedir:
 
@@ -49,11 +47,12 @@ Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşılad
 * *Veri alımı*: Bulut ölçeğinde veri girişi.
 * *Cihaz kimliği*: Benzersiz cihaz kimliklerini yönetin ve çözüme cihaz erişimini denetleyin.
 * *Cihaz yönetimi*: Cihaz meta verilerini yönetin ve cihazı yeniden başlatma ile üretici yazılımını yükseltme gibi işlemleri gerçekleştirin.
-* *Komut ve denetim*: Cihazın bir işlem yapması için buluttan cihaza ileti gönderme.
-* *Kurallar ve eylemler*: Belirli cihazdan buluta verilerde işlem yapmak için çözüm arka ucu kuralları kullanır.
+* *Komuta ve denetim*: Cihazın bir işlem yapmasını sağlamak için buluttan cihaza ileti gönderme.
+* *Kurallar ve eylemler*: Çözüm, belirli bir cihazdan buluta verilerde işlem yapmak için arka uç kuralları kullanır.
 * *Tahmine dayalı analiz*: Çözüm arka ucu, belirli işlemlerin ne zaman gerçekleştirileceğini tahmin etmek için cihazdan buluta verileri analiz eder. Örneğin, motor bakımının ne zaman olacağını saptamak için uçak motoru telemetrisinin analiz edilmesi.
 
 ## <a name="remote-monitoring-preconfigured-solution-overview"></a>Önceden yapılandırılmış Uzaktan İzleme çözümüne genel bakış
+
 Diğer çözümlerin de paylaştığı çok sayıda ortak tasarım öğesi gösterdiğinden, bu makalede önceden yapılandırılmış uzaktan izleme çözümünü seçtik.
 
 Aşağıdaki diyagram uzaktan izleme çözümünün önemli öğelerin göstermektedir. Aşağıdaki bölümlerde bu öğeler hakkında daha fazla bilgi verilmektedir.
@@ -61,7 +60,9 @@ Aşağıdaki diyagram uzaktan izleme çözümünün önemli öğelerin gösterme
 ![Önceden yapılandırılmış Uzaktan İzleme çözümü mimarisi][img-remote-monitoring-arch]
 
 ## <a name="devices"></a>Cihazlar
+
 Önceden yapılandırılmış uzaktan izleme çözümünü dağıttığınızda, dört sanal cihaz bir soğutma cihazının benzetimini yapan çözümde önceden hazırlanır. Bu sanal cihazlarda telemetri yayan yerleşik bir sıcaklık ve nem modeline bulunur. Bu sanal cihazlar aşağıdaki amaçlar için dahil edilir:
+
 - Verilerin çözümde uçtan uca akışını göstermek.
 - Kullanışlı bir telemetri kaynağı sağlamak.
 - Çözümü özel bir uygulama için başlangıç noktası olarak kullanan bir arka uç geliştiriciyseniz, yöntemler veya komutlar için bir hedef sağlayın.
@@ -73,13 +74,13 @@ Aşağıdaki diyagram uzaktan izleme çözümünün önemli öğelerin gösterme
 
 Bu farklı yaklaşımların bir karşılaştırması için bkz. [Buluttan cihaza iletişim kılavuzu][lnk-c2d-guidance].
 
-Cihaz önceden yapılandırılmış çözümde IoT Hub’ına ilk kez bağlandığında, cihazın yanıt verebildiği yöntemlerin listesini numaralandıran bir cihaz bilgi iletisini hub’a gönderir. Önceden yapılandırılmış uzaktan izleme çözümünde, sanal cihazlar şu yöntemleri destekler:
+Cihaz önceden yapılandırılmış çözümde IoT Hub’a ilk kez bağlandığında hub’a bir cihaz bilgi iletisi gönderir. Bu ileti, cihazın karşılık verebildiği metotların listesini oluşturur. Önceden yapılandırılmış uzaktan izleme çözümünde, sanal cihazlar şu yöntemleri destekler:
 
 * *Üretici Yazılımı Güncelleştirmelerini Başlatma*: bu yöntem cihaz üzerinde bir üretici yazılımı güncelleştirmesi gerçekleştirmek üzere zaman uyumsuz bir görev başlatır. Zaman uyumsuz görev, çözüm panosuna durum güncelleştirmelerini iletmek üzere bildirilen özellikleri kullanır.
 * *Yeniden başlatma*: bu yöntem sanal cihazın yeniden başlatılmasına neden olur.
 * *FactoryReset*: bu yöntem sanal cihaz üzerinde bir fabrika sıfırlaması tetikler.
 
-Cihaz önceden yapılandırılmış çözümde IoT Hub’ına ilk kez bağlandığında, cihazın yanıt verebildiği komutların listesini numaralandıran bir cihaz bilgi iletisini hub’a gönderir. Önceden yapılandırılmış uzaktan izleme çözümünde, sanal cihazlar şu komutları destekler:
+Cihaz önceden yapılandırılmış çözümde IoT Hub’a ilk kez bağlandığında hub’a bir cihaz bilgi iletisi gönderir. Bu ileti cihazın karşılık verebildiği komutların listesini oluşturur. Önceden yapılandırılmış uzaktan izleme çözümünde, sanal cihazlar şu komutları destekler:
 
 * *Cihaza Ping Yap*: Cihaz bu komutu bir bildirimle yanıtlar. Bu komut, cihazın halen etkin ve dinleniyor olduğunu denetlemek için yararlıdır.
 * *Telemetriyi Başlat*: Cihaza telemetri göndermeye başlaması talimatı verir.
@@ -93,6 +94,7 @@ Aynı telemetriyi yayan ve aynı yöntem ile komutu yanıtlayan çözüme daha f
 Çözüm, komut ve yöntemleri yanıtlamaya ek olarak [cihaz ikizlerini][lnk-device-twin] kullanır. Cihazlar çözüm arka ucuna özellik değerlerini bildirmek için cihaz ikizlerini kullanır. Çözüm panosu, cihazlar üzerinde istenen yeni özellik değerlerini ayarlamak için cihaz ikizlerini kullanır. Örneğin, üretici yazılımı güncelleştirme işlemi sırasında sanal cihaz, bildirilen özellikleri kullanarak güncelleştirmenin durumunu bildirir.
 
 ## <a name="iot-hub"></a>IoT Hub’ı
+
 Önceden yapılandırılmış bu çözümde, IoT Hub'ı örneği tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] *Bulut Ağ Geçidi*'ne karşılık gelir.
 
 IoT hub’ı telemetriyi tek uç noktada yer alan cihazlardan alır. IoT hub'ı, her cihazın kendisine gönderilen komutları alabildiği cihaza özel uç noktaları da korur.
@@ -106,15 +108,17 @@ IoT Hub’ının cihaz yönetimi özelliği, cihaz özelliklerini çözüm porta
 - Üretici yazılımı güncelleştirmeleri
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+
 Önceden yapılandırılmış çözüm, cihazlara ait telemetri akışına filtre uygulamak için üç [Azure Akış Analizi][lnk-asa] (ASA) işini kullanır:
 
-* *DeviceInfo işi* - cihaz kaydına özel iletileri çözüm cihaz kayıt defterine (Azure Cosmos DB veritabanı) yönlendiren Olay hub’ına verileri çıkarır. Bir cihaz ilk kez bağlandığında veya **Cihaz durumunu değiştir** komutuna yanıt olarak bu ileti gönderilir.
+* *DeviceInfo işi* - cihaz kaydına özel iletileri çözüm cihaz kayıt defterine yönlendiren Olay hub’ına verileri çıkarır. Bu cihaz kayıt defteri bir Azure Cosmos DB veritabanıdır. Bir cihaz ilk kez bağlandığında veya **Cihaz durumunu değiştir** komutuna yanıt olarak bu iletiler gönderilir.
 * *Telemetry işi* - ham telemetrenin tümünü soğuk depolama için Azure blob depolamaya gönderir ve çözüm panosunda görüntülenen telemetri toplamalarını hesaplar.
 * *Rules işi* - kural eşiklerini aşan değerlerle ilgili telemetri akışına filtre uygular ve verilerin çıktısını bir Olay hub’ına alır. Bir kural başlatıldığında, çözüm portalı pano görünümünde bu olay, alarm geçmişi tablosundaki yeni bir satır olarak gösterilir. Bu kurallar ayrıca çözüm portalındaki **Kurallar** ve **Eylemler** görünümlerinde tanımlanan ayarları temel alarak bir eylemi tetikleyebilir.
 
 Önceden yapılandırılmış bu çözümde, ASA işleri tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını oluşturur.
 
 ## <a name="event-processor"></a>Olay işlemcisi
+
 Önceden yapılandırılmış bu çözümde, olay işlemcisi tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını oluşturur.
 
 **DeviceInfo** ve **Rules** ASA işleri, diğer arka iç hizmetlerine dağıtılması amacıyla kendi çıktılarını Olay hub’larına gönderir. Çözüm, bu Olay Hub’larından iletileri okumak için [WebJob][lnk-web-job]'da çalışan bir [EventProcessorHost][lnk-event-processor] örneğini kullanır. **EventProcessorHost** şunları kullanır:
@@ -122,6 +126,7 @@ IoT Hub’ının cihaz yönetimi özelliği, cihaz özelliklerini çözüm porta
 - Mantıksal uygulamayı çağırmak ve çözüm portalındaki uyarı görüntüsünü güncelleştirmek için **Kural** verileri.
 
 ## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Cihaz kimliği kayıt defteri, cihaz ikizi ve Cosmos DB
+
 Her IoT hub'ında cihaz anahtarlarını depolayan bir [cihaz kimliği kayıt defteri][lnk-identity-registry] vardır. IoT hub'ı bu bilgileri cihazların kimliğini doğrulamak için kullanır - hub’a bağlanmadan önce cihazların kayıtlı ve geçerli bir anahtara sahip olması gerekir.
 
 [Cihaz ikizi][lnk-device-twin], IoT Hub tarafından yönetilen bir JSON belgesidir. Bir cihazın cihaz ikizi şunları içerir:
@@ -135,6 +140,7 @@ Bu çözümde cihaz meta verilerini yönetmek için cihaz ikizleri kullanılır.
 Çözüm bu bilgileri, Cosmos DB veritabanı içeriğiyle eşitlenmiş cihaz kimliği kayıt defterinde tutmalıdır. **EventProcessorHost**, eşitlemeyi yönetmek için **DeviceInfo** akış analizi işine ait verileri kullanır.
 
 ## <a name="solution-portal"></a>Çözüm portalı
+
 ![çözüm portalı][img-dashboard]
 
 Çözüm portalı, önceden yapılandırılmış çözümün bir parçası olarak buluta dağıtılan web tabanlı bir UI’dir. Şunları yapmanızı sağlar:
@@ -150,6 +156,7 @@ Bu çözümde cihaz meta verilerini yönetmek için cihaz ikizleri kullanılır.
 Önceden yapılandırılmış bu çözümde, çözüm portalı tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını ve **İşleme ve iş bağlantısının** bir parçasını oluşturur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure IoT hizmetleri: Başvuru Mimarisi][lnk-refarch].
 
 Önceden yapılandırılmış bir çözümün ne olduğunu öğrendiğinize göre önceden yapılandırılmış *uzaktan izleme* çözümünü dağıtarak başlayabilirsiniz: [Önceden yapılandırılmış çözümleri kullanmaya başlama][lnk-getstarted-preconfigured].

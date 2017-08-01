@@ -1,6 +1,6 @@
 ---
-title: "Azure aboneliklerinin Azure Active Directory ile ilişkisi | Microsoft Belgeleri"
-description: "Microsoft Azure&quot;da oturum açma ve Azure aboneliğinin Azure Active Directory ile ilişkisi gibi ilgili konular."
+title: "Azure aboneliklerinin Azure Active Directory ile ilişkisi | Microsoft Docs"
+description: "Microsoft Azure'da oturum açma ve Azure aboneliğinin Azure Active Directory ile ilişkisi gibi ilgili konular."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,18 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 7a82dcddcd051c88c2a6a515ed2353961307182a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 02/08/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Azure aboneliklerinin Azure Active Directory ile ilişkisi
 Bu makalede, Microsoft Azure'da oturum açma ve Azure aboneliğinin Azure Active Directory (Azure AD) ile ilişkisi gibi ilgili konulara yönelik bilgiler ele alınmaktadır.
+
+> [!IMPORTANT]
+> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor.
 
 ## <a name="accounts-that-you-can-use-to-sign-in"></a>Oturum açmak için kullanabileceğiniz hesaplar
 Oturum açmak için kullanabileceğiniz hesaplarla başlayabiliriz. İki tür mevcuttur: bir Microsoft hesabı (eski adıyla Microsoft Live ID) ve Azure AD'de depolanan bir hesap olarak bir iş veya okul hesabı.
@@ -120,8 +124,7 @@ Her iki dizini de klasik Azure portalında yönetmek için bu adımları tamamla
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Bir Azure aboneliğine yönelik olarak yöneticileri değiştirme hakkında daha fazla bilgi için bkz. [Azure yönetici rollerini ekleme veya değiştirme](../billing/billing-add-change-azure-subscription-administrator.md)
 * Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](active-directory-understanding-resource-access.md)
-* Azure AD'de rol atama hakkında daha fazla bilgi için bkz. [Azure Active Directory'de yönetici rolü atama](active-directory-assign-admin-roles.md)
-* [Azure’a kuruluş olarak kaydolma](sign-up-organization.md)
+* Azure AD'de rol atama hakkında daha fazla bilgi için bkz. [Azure Active Directory'de yönetici rolü atama](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png

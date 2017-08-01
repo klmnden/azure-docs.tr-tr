@@ -1,5 +1,5 @@
 ---
-title: "ExpressRoute için QoS gereksinimleri | Microsoft Belgeleri"
+title: "ExpressRoute için QoS gereksinimleri | Microsoft Docs"
 description: "Bu sayfada, ExpressRoute bağlantı hatları için hizmet kalitesini (QoS) yapılandırma ve yönetmeye yönelik ayrıntılı gereksinimler sağlanmıştır."
 documentationcenter: na
 services: expressroute
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 07/25/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
-
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="expressroute-qos-requirements"></a>ExpressRoute QoS gereksinimleri
@@ -35,7 +36,7 @@ Aşağıdaki tabloda Skype Kurumsal tarafından kullanılan DSCP işaretlerinin 
 | **Trafik Sınıfı** | **İşleme (DSCP İşaretleme)** | **Skype Kurumsal İş Yükleri** |
 | --- | --- | --- |
 | **Ses** |EF (46) |Skype / Lync ses |
-| **Etkileşimli** |AF41 (34) |Video |
+| **Etkileşimli** |AF41 (34) |Video, VBSS |
 | AF21 (18) |Uygulama paylaşımı | |
 | **Varsayılan** |AF11 (10) |Dosya aktarımı |
 | CS0 (0) |Diğer | |
@@ -51,10 +52,5 @@ Aşağıdaki tabloda Skype Kurumsal tarafından kullanılan DSCP işaretlerinin 
   * [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-classic.md)
   * [Yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md)
   * [ExpressRoute bağlantı hattına bir Sanal Ağ bağlama](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

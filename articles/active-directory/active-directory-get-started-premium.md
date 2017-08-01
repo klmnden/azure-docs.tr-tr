@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Premium ile çalışmaya başlama"
-description: "Azure Active Directory Premium sürümü için, Toplu Lisanslama web sitesi üzerinden kayıt işleminin nasıl yapıldığını açıklayan bir konu başlığı."
+description: "Azure Active Directory Premium sürümü için kayıt işleminin Toplu Lisanslama web sitesi üzerinden nasıl yapıldığını açıklar."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,17 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73cbbce9ae3d727632b8cac2a29c2b1b92332ae7
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 12/07/2016
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="getting-started-with-azure-active-directory-premium"></a>Azure Active Directory Premium ile çalışmaya başlama
+Bu makalede, Toplu Lisanslama programı aracılığıyla satın aldığınız Azure Active Directory Premium ile çalışmaya nasıl başlayacağınız gösterilmektedir. Azure Active Directory'nin farklı sürümleri hakkında henüz bilgi sahibi değilseniz bkz. [Azure Active Directory sürümleri](active-directory-editions.md).  
+
+> [!IMPORTANT]
+> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor. 
+
 Active Directory Premium'a kaydolmanız için birkaç seçenek sunulmaktadır: 
 
 **Azure veya Office 365** Azure veya Office 365 abonesi olarak, Active Directory Premium'u çevrimiçi satın alabilirsiniz. Ayrıntılı adımlar için bkz. [Azure Active Directory Premium'u satın alma - Mevcut Müşteriler](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) veya [Azure Active Directory Premium'u satın alma - Yeni Müşteriler](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
@@ -29,8 +34,6 @@ Active Directory Premium'a kaydolmanız için birkaç seçenek sunulmaktadır:
 **Enterprise Mobility + Security** - Enterprise Mobility + Security, (eski adıyla Enterprise Mobility Suite), kuruluşların şu hizmetleri tek lisans planı kapsamında birlikte kullanmasını sağlayan uygun maliyetli bir yöntemdir: Active Directory Premium, Azure Rights Management, Microsoft Intune. Daha fazla bilgi için [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web sitesine göz atın. Ücretsiz 30 günlük deneme sürümünü edinmek için [buraya](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0) tıklayın.
 
 **Microsoft Toplu Lisanslama** - Azure Active Directory Premium bir [Microsoft Enterprise Sözleşmesi](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 veya daha fazla lisans) veya [Açık Toplu Lisans](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5 - 250 lisans) programı ile sunulmaktadır.
-
-Bu konu başlığında, Toplu Lisanslama programı aracılığıyla satın aldığınız Azure Active Directory Premium ile çalışmaya nasıl başlayacağınız gösterilmektedir. Azure Active Directory'nin farklı sürümleri hakkında henüz bilgi sahibi değilseniz bkz. [Azure Active Directory sürümleri](active-directory-editions.md).  
 
 > [!NOTE]
 > Azure Active Directory Premium ve Basic sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure Active Directory Premium ve Basic sürümleri, şu anda Çin'de 21Vianet tarafından işletilen Microsoft Azure hizmeti kapsamında desteklenmemektedir. Daha fazla bilgi için [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/)'nda bizimle iletişime geçin.

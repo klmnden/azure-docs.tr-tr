@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d49f7986e09a90c5c4c49c0d3963d0cd8514713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-<a id="azure-security-center-platform-migration" class="xliff"></a>
-
-# Azure Güvenlik Merkezi platform geçişi
+# <a name="azure-security-center-platform-migration"></a>Azure Güvenlik Merkezi platform geçişi
 
 Haziran 2017’nin başlarından itibaren Azure Güvenlik Merkezi tarafından verilerin toplanma ve depolanma biçiminde önemli değişiklikler yapılmaktadır.  Bu değişiklikler, güvenlik verilerini kolayca arama ve diğer Azure yönetim ve izleme hizmetleriyle daha uyumlu olma gibi yeni özellikleri kullanıma açıyor.
 
@@ -32,17 +29,13 @@ Haziran 2017’nin başlarından itibaren Azure Güvenlik Merkezi tarafından ve
 > Platform geçişinin üretim kaynaklarınızı etkilememesi bekleniyor ve sizin herhangi bir işlem yapmanız gerekmiyor.
 
 
-<a id="whats-happening-during-this-platform-migration" class="xliff"></a>
-
-## Bu platform geçişi sırasında ne oluyor?
+## <a name="whats-happening-during-this-platform-migration"></a>Bu platform geçişi sırasında ne oluyor?
 
 Güvenlik Merkezi, VM’lerinizden güvenlik verilerini toplamak için eskiden Azure İzleme Aracısı’nı kullanıyordu. Buna güvenlik açıklarını tanımlamak için kullanılan güvenlik yapılandırmalarıyla ilgili bilgiler ve tehditleri algılamak için kullanılan güvenlik olayları dahildir. Bu veriler, Azure’daki Depolama hesabınızda veya hesaplarınızda saklanıyordu.
 
 Bundan sonra, Güvenlik Merkezi Microsoft Monitoring Agent’ı (Operations Management Suite ve Log Analytics hizmeti tarafından kullanılan aracının aynısı) kullanacak. Bu aracıdan toplanan veriler, sanal makinenin coğrafi konumu göz önünde bulundurularak Azure aboneliğinizle ilişkili bir *Log Analytics* [çalışma alanında](../log-analytics/log-analytics-manage-access.md) veya yeni çalışma alanlarında depolanır.
 
-<a id="agent" class="xliff"></a>
-
-## Aracı
+## <a name="agent"></a>Aracı
 
 Geçiş kapsamında, şu anda veri toplanmakta olan tüm Azure VM’lerine Microsoft Monitoring Agent ([Windows](../log-analytics/log-analytics-windows-agents.md) veya [Linux](../log-analytics/log-analytics-linux-agents.md) için) yüklenir.  VM’de zaten Microsoft Monitoring Agent yüklüyse, Güvenlik Merkezi yüklü olan aracıyı kullanır.
 
@@ -56,9 +49,7 @@ Windows için Microsoft Monitoring Agent, 443 numaralı TCP bağlantı noktasın
 > [!NOTE] 
 > Microsoft Monitoring Agent diğer Azure yönetim ve izleme hizmetleri tarafından kullanılıyor olabileceğinden, Güvenlik Merkezi’nde veri toplamayı kapattığınızda aracı otomatik olarak kaldırılmayabilir. Bununla birlikte, gerekirse aracıyı el ile kaldırabilirsiniz.
 
-<a id="workspace" class="xliff"></a>
-
-## Çalışma alanı
+## <a name="workspace"></a>Çalışma alanı
 
 Daha önce açıklandığı gibi, Microsoft Monitoring Agent’tan Güvenlik Merkezi adına toplanan veriler, sanal makinenin coğrafi konumu göz önünde bulundurularak Azure aboneliğinizle ilişkili Log Analytics çalışma alanlarında veya yeni çalışma alanlarında depolanır.
 
@@ -72,16 +63,12 @@ Güvenlik Merkezi tarafından oluşturulan çalışma alanları için veriler 30
 > [!NOTE]
 > Güvenlik Merkezi tarafından daha önce toplanan veriler Depolama hesaplarınızda kalır. Geçiş tamamlandıktan sonra bu Depolama hesaplarını silebilirsiniz.
 
-<a id="oms-security-solution" class="xliff"></a>
-
-### OMS Güvenlik Çözümü 
+### <a name="oms-security-solution"></a>OMS Güvenlik Çözümü 
 
 OMS Güvenlik Çözümü, çözümü yüklememiş olan mevcut müşterilerin çalışma alanına Microsoft tarafından yalnızca Azure VM’lerini hedefleyecek şekilde yükleniyor. OMS yönetim konsolundan bu çözümün kaldırılması otomatik olarak düzeltilemeyen bir işlem olduğundan, bunun yapılması önerilmez.
 
 
-<a id="other-updates" class="xliff"></a>
-
-## Diğer güncelleştirmeler
+## <a name="other-updates"></a>Diğer güncelleştirmeler
 
 Platform geçişinin yanı sıra bazı ek, küçük güncelleştirmeleri de kullanıma sunuyoruz:
 
@@ -90,5 +77,6 @@ Platform geçişinin yanı sıra bazı ek, küçük güncelleştirmeleri de kull
 - [Fiyatlandırma](https://azure.microsoft.com/pricing/details/security-center/) saatlere eşit olarak bölünecek (önceden günlere bölünüyordu) ve bu sayede bazı müşteriler tasarruf edebilecek.
 - Standart fiyatlandırma katmanındaki müşteriler için Veri Toplama gerekli olacak ve otomatik olarak etkinleştirilecek.
 - Azure Güvenlik Merkezi, Azure uzantıları aracılığıyla dağıtılmamış kötü amaçlı yazılım çözümlerini bulmaya başlayacak. İlk olarak Symantec Endpoint Protection ve Windows 2016 için Defender’ı bulma özelliği kullanılabilecek.
+- Önleme ilkelerini ve bildirimleri yalnızca *Abonelik* düzeyinde yapılandırabilirsiniz, ancak fiyatlandırma *Kaynak Grubu* düzeyinde ayarlanabilir.
 
 

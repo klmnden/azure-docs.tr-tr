@@ -15,16 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: cd74b0cb0d58036cc7b1198a58649ba38e386322
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 4e97a558ae1a2601b5275a73164b483351f03857
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/26/2017
 
 ---
-<a id="supplemental-lesson---dynamic-security" class="xliff"></a>
-
-# Ek ders - Dinamik güvenlik
+# <a name="supplemental-lesson---dynamic-security"></a>Ek ders - Dinamik güvenlik
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -38,19 +36,13 @@ Bu görevler bu Adventure Works tablosal model senaryosuna özgü ancak gerçek 
   
 Bu dersin tahmini tamamlanma süresi: **30 dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu ek ders konusu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu ek dersteki görevleri gerçekleştirmeden önce önceki tüm dersleri tamamlamış olmanız gerekir.  
   
-<a id="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project" class="xliff"></a>
-
-## DimSalesTerritory tablosunu AW İnternet Satışları Tablosal Model Projesi içine ekleme  
+## <a name="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project"></a>DimSalesTerritory tablosunu AW İnternet Satışları Tablosal Model Projesi içine ekleme  
 Bu Adventure Works senaryosuna dinamik güvenliği uygulamak için modelinize iki tablo eklemeniz gerekir. Ekleyeceğiniz ilk tablo, aynı AdventureWorksDW veritabanından DimSalesTerritory (Satış Bölgesi olarak) tablosudur. Ardından SalesTerritory tablosuna oturum açmış olan kullanıcının göz atabileceği verileri tanımlayan bir satır filtresi uygularsınız.  
   
-<a id="to-add-the-dimsalesterritory-table" class="xliff"></a>
-
-#### DimSalesTerritory tablosunu eklemek için  
+#### <a name="to-add-the-dimsalesterritory-table"></a>DimSalesTerritory tablosunu eklemek için  
   
 1.  Tablosal Model Gezgini'nde > **Veri Kaynakları**, bağlantınıza sağ tıklayın ve ardından **Yeni Tabloları İçeri Aktar**'a tıklayın.  
 
@@ -66,14 +58,10 @@ Bu Adventure Works senaryosuna dinamik güvenliği uygulamak için modelinize ik
   
 9. Tablo başarıyla içeri aktarıldıktan sonra **Kapat**'a tıklayın.  
 
-<a id="add-a-table-with-user-name-data" class="xliff"></a>
-
-## Kullanıcı adı verilerinin bulunduğu bir tablo ekleme  
+## <a name="add-a-table-with-user-name-data"></a>Kullanıcı adı verilerinin bulunduğu bir tablo ekleme  
 AdventureWorksDW örnek veritabanındaki DimEmployee tablosunda AdventureWorks etki alanından kullanıcılar yer almaktadır. Bu kullanıcı adları kendi ortamınızda mevcut değildir. Modelinizde kuruluşunuzdan birkaç kişiyi (en az üç) içeren bir tablo oluşturmanız gerekir. Ardından bu kullanıcıları yeni role üye olarak ekleyebilirsiniz. Örnek kullanıcı adlarının parolalarına ihtiyaç yoktur ancak kendi etki alanınızdan gerçek Windows kullanıcı adları kullanmanız gerekir.  
   
-<a id="to-add-an-employeesecurity-table" class="xliff"></a>
-
-#### Bir EmployeeSecurity tablosu eklemek için  
+#### <a name="to-add-an-employeesecurity-table"></a>Bir EmployeeSecurity tablosu eklemek için  
   
 1.  Microsoft Excel'i açıp bir çalışma sayfası oluşturun.  
   
@@ -106,14 +94,10 @@ AdventureWorksDW örnek veritabanındaki DimEmployee tablosunda AdventureWorks e
   
     SampleEmployee çalışma sayfasından kopyalanan çalışan verileriyle EmployeeSecurity adlı yeni bir tablo oluşturulur.  
   
-<a id="create-relationships-between-factinternetsales-dimgeography-and-dimsalesterritory-table" class="xliff"></a>
-
-## FactInternetSales, DimGeography ve DimSalesTerritory tabloları arasında ilişki oluşturma  
+## <a name="create-relationships-between-factinternetsales-dimgeography-and-dimsalesterritory-table"></a>FactInternetSales, DimGeography ve DimSalesTerritory tabloları arasında ilişki oluşturma  
 FactInternetSales, DimGeography ve DimSalesTerritory tablolarında SalesTerritoryId adlı ortak bir sütun vardır. DimSalesTerritory tablosundaki SalesTerritoryId sütunu her satış bölgesi için farklı kimliğe sahip değerler içerir.  
   
-<a id="to-create-relationships-between-the-factinternetsales-dimgeography-and-the-dimsalesterritory-table" class="xliff"></a>
-
-#### FactInternetSales, DimGeography ve DimSalesTerritory tabloları arasında ilişki oluşturmak için  
+#### <a name="to-create-relationships-between-the-factinternetsales-dimgeography-and-the-dimsalesterritory-table"></a>FactInternetSales, DimGeography ve DimSalesTerritory tabloları arasında ilişki oluşturmak için  
   
 1.  Diyagram Görünümünde **DimGeography** tablosunda **SalesTerritoryId** sütununa tıklayıp basılı tutun ve imleci **DimSalesTerritory** tablosundaki **SalesTerritoryId** sütununa sürükleyip bırakın.  
   
@@ -121,28 +105,20 @@ FactInternetSales, DimGeography ve DimSalesTerritory tablolarında SalesTerritor
   
     Bu ilişki için Active özelliğinin False değerine sahip olduğuna, yani devre dışı olduğuna dikkat edin. FactInternetSales tablosu zaten başka bir etkin ilişkiye sahiptir.  
   
-<a id="hide-the-employeesecurity-table-from-client-applications" class="xliff"></a>
-
-## EmployeeSecurity tablosunu istemci uygulamalarından gizleme  
-Bu görevde EmployeeSecurity tablosunu gizleyerek istemci uygulamasının alan listesinde görünmesini engelleyeceksiniz. Bir tabloyu gizlemenin onu güvenli hale getirmediğini unutmayın. Nasıl yapacağını bilen kullanıcılar EmployeeSecurity tablosundaki verileri sorgulayabilir. EmployeeSecurity tablosundaki verilerin güvenliğini sağlamak ve kullanıcıların verileri sorgulamasını engellemek için sonraki görevde bir filtre uygulayacaksınız.  
+## <a name="hide-the-employeesecurity-table-from-client-applications"></a>EmployeeSecurity tablosunu istemci uygulamalarından gizleme  
+Bu görevde EmployeeSecurity tablosunu gizleyerek istemci uygulamasının alan listesinde görünmesini engelleyeceksiniz. Gizleme işleminin, tabloyu güvenli hale getirmeyeceğini unutmayın. Nasıl yapacağını bilen kullanıcılar EmployeeSecurity tablosundaki verileri sorgulayabilir. EmployeeSecurity tablosundaki verilerin güvenliğini sağlamak ve kullanıcıların verileri sorgulamasını engellemek için sonraki görevde bir filtre uygulayacaksınız.  
   
-<a id="to-hide-the-employeesecurity-table-from-client-applications" class="xliff"></a>
-
-#### EmployeeSecurity tablosunu istemci uygulamalarından gizlemek için  
+#### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>EmployeeSecurity tablosunu istemci uygulamalarından gizlemek için  
   
 -   Model tasarımcısında, Diyagram Görünümünde, **Employee** tablo üst bilgisine sağ tıklayın ve **İstemci Araçlarından Gizle**'ye tıklayın.  
   
-<a id="create-a-sales-employees-by-territory-user-role" class="xliff"></a>
-
-## Sales Employees by Territory kullanıcı rolü oluşturma  
+## <a name="create-a-sales-employees-by-territory-user-role"></a>Sales Employees by Territory kullanıcı rolü oluşturma  
 Bu görevde bir kullanıcı rolü oluşturacaksınız. Bu rol, DimSalesTerritory tablosunun hangi satırlarının kullanıcılar tarafından görüneceğini belirleyen bir satır filtresi içerir. Ardından bu filtre bir-çok ilişki yönünde DimSalesTerritory ile ilişkili diğer tüm tablolara uygulanır. Ayrıca EmployeeSecurity tablosunun tamamının role üye olan kullanıcılar tarafından sorgulanabilir olmasını engelleyen bir filtre uygulayacaksınız.  
   
 > [!NOTE]  
 > Bu derste oluşturacağınız Sales Employees by Territory rolü, üyelerin yalnızca ait oldukları satış bölgesindeki satış verilerine göz atmasını (veya sorgulamasını) sağlayacak. Sales Employees by Territory rolüne aynı zamanda [Ders 11: Rol Oluşturma](../tutorials/aas-lesson-11-create-roles.md) sırasında oluşturduğunuz bir role üye olan bir kullanıcı eklerseniz izinler birleştirilir. Birden fazla rolün üyesi olan kullanıcılar her bir rol için tanımlanan izinlerin ve satır filtrelerinin birleşimine sahip olur. Başka bir deyişle kullanıcı rol birleşimi ile verilen en geniş izinlere sahip olur.  
   
-<a id="to-create-a-sales-employees-by-territory-user-role" class="xliff"></a>
-
-#### Sales Employees by Territory kullanıcı rolü oluşturmak için  
+#### <a name="to-create-a-sales-employees-by-territory-user-role"></a>Sales Employees by Territory kullanıcı rolü oluşturmak için  
   
 1.  SSDT'de **Model** menüsüne ve ardından **Roller**'e tıklayın.  
   
@@ -185,14 +161,10 @@ Bu görevde bir kullanıcı rolü oluşturacaksınız. Bu rol, DimSalesTerritory
   
 10. Rol Yöneticisi'nde **Tamam**'a tıklayın.  
   
-<a id="test-the-sales-employees-by-territory-user-role" class="xliff"></a>
-
-## Sales Employees by Territory kullanıcı rolünü test etme  
+## <a name="test-the-sales-employees-by-territory-user-role"></a>Sales Employees by Territory kullanıcı rolünü test etme  
 Bu görevde SSDT'nin Excel'de Çözümleme özelliğini kullanarak Sales Employees by Territory kullanıcı rolünün çalışıp çalışmadığını test edeceksiniz. EmployeeSecurity tablosuna ve bu role eklediğiniz kullanıcı adlarından birini belirteceksiniz. Ardından bu kullanıcı adı Excel ile model arasında oluşturulan bağlantıda geçerli kullanıcı olarak kullanılacak.  
   
-<a id="to-test-the-sales-employees-by-territory-user-role" class="xliff"></a>
-
-#### Sales Employees by Territory kullanıcı rolünü test etmek için  
+#### <a name="to-test-the-sales-employees-by-territory-user-role"></a>Sales Employees by Territory kullanıcı rolünü test etmek için  
   
 1.  SSDT'de **Model** menüsüne ve ardından **Excel'de Çözümleme**'ye tıklayın.  
   
@@ -214,9 +186,7 @@ Bu görevde SSDT'nin Excel'de Çözümleme özelliğini kullanarak Sales Employe
   
     Bu kullanıcı ait olduğunun haricindeki İnternet satış verilerine göz atamaz veya bu verileri sorgulayamaz. Bu kısıtlamanın nedeni DimSalesTerritory tablosu için Sales Employees by Territory kullanıcı rolünde tanımlanmış olan satır filtresinin diğer satış bölgeleriyle ilgili verileri korumasıdır.  
   
-<a id="see-also" class="xliff"></a>
-
-## Ayrıca Bkz.  
+## <a name="see-also"></a>Ayrıca Bkz.  
 [USERNAME İşlevi (DAX)](https://msdn.microsoft.com/library/hh230954.aspx)  
 [LOOKUPVALUE İşlevi (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [CUSTOMDATA İşlevi (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)  

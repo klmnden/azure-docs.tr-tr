@@ -1,44 +1,42 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-add-a-storsimple-backup-policy"></a>Bir StorSimple yedekleme ilkesi eklemek için
 
-#### To add a StorSimple backup policy
+1. StorSimple cihazınıza gidin ve **Yedekleme ilkesi**’ne tıklayın.
 
-1. Go to your StorSimple device and click **Backup policy**.
-
-2. In the **Backup policy** blade, click **+ Add policy** from the command bar.
+2. **Yedekleme ilkesi** dikey penceresinde komut çubuğundan **+ İlke ekle**’ye tıklayın.
    
-    ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
+    ![Yedekleme ilkesi ekleme](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
 
-3. In the **Create backup policy** blade, do the following steps:
+3. **Yedekleme ilkesi oluştur** dikey penceresinde, aşağıdaki adımları uygulayın:
    
-   1. **Select device** is automatically populated based on the device you selected.
+   1. **Cihazı seçin** alanı, seçtiğiniz cihaza göre otomatik olarak doldurulur.
    
-   2. Specify a backup **Policy name** that contains between 3 and 150 characters.
+   2. 3 ila 150 karakter içeren bir yedekleme **İlke adı** belirtin. İlke oluşturulduktan sonra ilkeyi yeniden adlandıramazsınız.
        
-   3. To assign volumes to this backup policy, select **Add volumes** and then from the tabular listing of volumes, click the check box(es) to assign one or more volumes to this backup policy.
+   3. Bu yedekleme ilkesine birim atamak için **Birim ekle**’yi seçin ve ardından birimlerin tablosal listesinde, bu yedekleme ilkesine bir veya daha fazla birim atamak için onay kutularına tıklayın.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
+       ![Yedekleme ilkesi ekleme](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
 
-   4. To define a schedule for this backup policy, click **First schedule** and then modify the following parameters:
+   4. Bu yedekleme ilkesi için bir zamanlama tanımlamak için **İlk zamanlama**’ya tıklayın ve aşağıdaki parametreleri değiştirin:
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
+       ![Yedekleme ilkesi ekleme](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
 
-       1. For **Snapshot type**, select **Cloud** or **Local**.
+       1. **Anlık görüntü türü** için **Bulut** veya **Yerel**’i seçin.
 
-       2. Indicate the frequency of backups (specify a number and then choose **Days** or **Weeks** from the drop-down list.
+       2. Yedekleme sıklığını belirtin (bir sayı belirtip açılan listeden **Gün** veya **Hafta** öğesini seçin).
 
-       3. Enter a retention schedule.
+       3. Bir elde tutma zamanlaması girin.
 
-       4. Enter a time and date for the backup policy to begin.
+       4. Yedekleme ilkesinin başlayacağı saat ve tarihi girin.
 
-       5. Click **OK** to define the schedule.
+       5. Zamanlamayı tanımlamak için **Tamam**’a tıklayın.
 
-   5. Click **Create** to create a backup policy.
+   5. Yedekleme ilkesi oluşturmak için **Oluştur**’a tıklayın.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
+       ![Yedekleme ilkesi ekleme](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
    
-   6. You are notified when the backup policy is created. The newly added policy is displayed in the tabular view on the **Backup Policy** blade.
+   6. Yedekleme ilkesi oluşturulduğunda size bildirilir. Yeni eklenen ilke, **Yedekleme İlkeleri** dikey penceresinin tablosal görünümünde gösterilir.
 
-       ![Add a backup policy](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
+       ![Yedekleme ilkesi ekleme](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
 
