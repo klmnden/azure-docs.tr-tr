@@ -16,4 +16,4 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 `<username>`, önceki adımlardan birinde oluşturduğunuz [dağıtım kullanıcısıdır](#configure-a-deployment-user).
 
-Gösterilen URI'yi kaydedin, bir sonraki adımda kullanacaksınız. 
+Bir sonraki adımda kullanmanız gerekeceğinden, gösterilen URI'yi kopyalayın.

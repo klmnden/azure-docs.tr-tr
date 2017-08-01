@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory’de grupları yönetme | Microsoft Belgeleri"
+title: "Azure Active Directory’de grupları yönetme | Microsoft Docs"
 description: "Azure Active Directory kullanarak Azure kullanıcılarını yönetmek üzere gruplar oluşturma ve yönetme."
 services: active-directory
 documentationcenter: 
@@ -12,13 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 07/24/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
-ms.lasthandoff: 02/11/2017
-
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 2cc2b63312b331a19c61cd7b59a4cac78edf32e6
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="managing-groups-in-azure-active-directory"></a>Azure Active Directory içinde grupları yönetme
@@ -35,6 +38,9 @@ Azure Active Directory'nin (Azure AD) kullanıcı yönetimi özelliklerinden bir
 * SaaS uygulamaları, Azure hizmetleri, SharePoint siteleri veya şirket içi kaynaklar gibi dizin dışı olan kaynaklar
 
 Kaynak sahibi başka birisine ait Azure AD grubundaki bir kaynağa da erişim atayabilir. Bu atama ilgili grubun üyelerinin kaynağa erişmelerine izin verir. Ardından grubun sahibi, grup içerisindeki üyeliği yönetir. Etkili bir biçimde, kaynak sahibi tarafından grubun sahibine kullanıcıları kaynaklarına atama izni verilir.
+
+> [!IMPORTANT]
+> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor. Azure AD yönetim merkezinde grupların nasıl yönetildiğini öğrenmek için bkz. [Azure Active Directory'de grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md).
 
 ## <a name="how-do-i-create-a-group"></a>Nasıl grup oluşturulur?
 Kuruluşunuzun abone olduğu hizmetlere bağlı olarak aşağıdakilerden birini kullanarak bir grup oluşturabilirsiniz:

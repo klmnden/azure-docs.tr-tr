@@ -1,6 +1,6 @@
 ---
 title: "C# uygulamasından PostgreSQL için Azure Veritabanı'na bağlanma | Microsoft Docs"
-description: "Bu hızlı başlangıçta, PostgreSQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz bir C# (.Net) kod örneği sağlanmıştır."
+description: "Bu hızlı başlangıçta, PostgreSQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz bir C# (.NET) kod örneği sağlanmıştır."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,22 +11,18 @@ ms.custom: mvc
 ms.devlang: csharp
 ms.topic: hero-article
 ms.date: 06/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 87854637471fa15a76ae216cb57c549962810b7b
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 9f393e9ab1b3b6ab7f1ff085d625362d50adc97c
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
-<a id="azure-database-for-postgresql-use-net-c-to-connect-and-query-data" class="xliff"></a>
-
-# PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için .NET'i (C#) kullanma
+# <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için .NET'i (C#) kullanma
 Bu hızlı başlangıçta, C# uygulaması kullanılarak PostgreSQL için Azure Veritabanı'na nasıl bağlanılacağı gösterilmiştir. Ayrıca veritabanında veri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini nasıl kullanacağınız da gösterilmiştir. Bu makaledeki adımlarda, C# kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
 - [DB Oluşturma - Portal](quickstart-create-server-database-portal.md)
 - [DB oluşturma - CLI](quickstart-create-server-database-azure-cli.md)
@@ -36,22 +32,16 @@ Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birin
 - [Visual Studio](https://www.visualstudio.com/downloads/)'yu yükleme
 - [Npgsql](http://www.npgsql.org/doc/index.html)'i yükleme 
 
-<a id="install-visual-studio-and-net" class="xliff"></a>
-
-## Visual Studio'yu ve .NET'i yükleme
+## <a name="install-visual-studio-and-net"></a>Visual Studio'yu ve .NET'i yükleme
 Bu bölümdeki adımlarda .NET kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz varsayılır.
 
-<a id="windows-net-framework-and-net-core" class="xliff"></a>
-
-### **Windows .NET çerçevesi ve .NET çekirdeği**
-Visual Studio 2017 Community; Android, iOS ve Windows’un yanı sıra web ve veritabanı uygulamaları ile bulut hizmetleri için modern uygulamalar oluşturmaya yönelik tam özellikli, genişletilebilir, ücretsiz bir IDE’dir. Tam .NET çerçevesini ya da yalnızca .NET çekirdeğini yükleyebilirsiniz. Hızlı başlangıçtaki kod parçacıkları her ikisiyle de çalışır. Makinenizde Visual Studio zaten yüklüyse, sonraki birkaç adımı atlayın.
+### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework ve .NET Core**
+Visual Studio 2017 Community; Android, iOS ve Windows’un yanı sıra web ve veritabanı uygulamaları ile bulut hizmetleri için modern uygulamalar oluşturmaya yönelik tam özellikli, genişletilebilir, ücretsiz bir IDE’dir. .NET Framework’ün tamamını ya da yalnızca .NET Core’u yükleyebilirsiniz. Hızlı başlangıçtaki kod parçacıkları her ikisiyle de çalışır. Makinenizde Visual Studio zaten yüklüyse, sonraki birkaç adımı atlayın.
 
 1. [Visual Studio 2017 yükleyicisi](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)ni indirin. 
 2. Yükleyiciyi çalıştırın ve yükleme istemlerini izleyerek yüklemeyi tamamlayın.
 
-<a id="mac-os" class="xliff"></a>
-
-### **Mac OS**
+### <a name="mac-os"></a>**Mac OS**
 Terminalinizi açın ve .NET Core projenizi oluşturmayı planladığınız bir dizine gidin. **brew**, **OpenSSL** ve **.NET Core** yüklemek için aşağıdaki komutları girin. 
 
 ```bash
@@ -65,9 +55,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 macOS işletim sisteminde .NET Core yükleyin. [Resmi yükleyiciyi](https://go.microsoft.com/fwlink/?linkid=843444) indirin. Bu yükleyici, araçları yükler ve Konsoldan dotnet çalıştırabilmeniz için PATH değişkeninize yerleştirir
 
-<a id="linux-ubuntu" class="xliff"></a>
-
-### **Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Terminalinizi açın ve .NET Core projenizi oluşturmayı planladığınız bir dizine gidin. **.NET Core** yüklemek için aşağıdaki komutları girin.
 
 ```bash
@@ -77,10 +65,8 @@ sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
 
-<a id="install-npgsql-references-into-your-visual-studio-solution" class="xliff"></a>
-
-## Visual Studio çözümünüze Npgsql başvuruları yükleme
-C# uygulamasından PostgreSQL'e bağlanmak için Npgsql adlı açık kaynak ADO.Net kitaplığını kullanın. NuGet bu başvuruları kolayca indirmenize ve yönetmenize yardımcı olur.
+## <a name="install-npgsql-references-into-your-visual-studio-solution"></a>Visual Studio çözümünüze Npgsql başvuruları yükleme
+C# uygulamasından PostgreSQL'e bağlanmak için Npgsql adlı açık kaynak ADO.NET kitaplığını kullanın. NuGet bu başvuruları kolayca indirmenize ve yönetmenize yardımcı olur.
 
 1. Yeni bir C# çözümü oluşturun veya var olan bir çözümü açın: 
    - Visual Studio'da Dosya menüsü **Yeni** > **Proje**'ye tıklayarak çözüm oluşturun.
@@ -92,9 +78,7 @@ C# uygulamasından PostgreSQL'e bağlanmak için Npgsql adlı açık kaynak ADO.
    - **Paket Yöneticisi Konsolu**'nda şu komutu yazın: `Install-Package Npgsql`
    - install komutu Npgsql.dll'yi ve ilgili derlemeleri indirir ve bunları bağımlılık olarak çözüme ekler.
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Bağlantı bilgilerini alma
+## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
@@ -104,9 +88,7 @@ PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgi
  ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma Bilgileri](./media/connect-csharp/1-connection-string.png)
 5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
 
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
-
-## Bağlanma, tablo oluşturma ve veri ekleme
+## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
 Bağlanıp **CREATE TABLE** ve **INSERT INTO** SQL deyimlerini kullanarak verileri yüklemek için aşağıdaki kodu kullanın. Kod, [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) yöntemiyle birlikte NpgsqlCommand sınıfını kullanarak PostgreSQL ile bağlantı kurar. Ardından kod [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) yöntemini kullanarak CommandText özelliğini ayarlar ve [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) yöntemini çağırarak veritabanı komutlarını çalıştırır. 
 
 Host, DBName, User ve Password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
@@ -137,7 +119,7 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}; SSL Mode=Prefer; Trust Server Certificate=true",
                     Host,
                     User,
                     DBname,
@@ -183,9 +165,7 @@ namespace Driver
 }
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Verileri okuma
+## <a name="read-data"></a>Verileri okuma
 Bağlanmak ve **SELECT** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. Kod, [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) yöntemiyle birlikte NpgsqlCommand sınıfını kullanarak PostgreSQL ile bağlantı kurar. Ardından kod [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) ve [ExecuteReader()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) yöntemini kullanarak veritabanı komutlarını çalıştırır. Daha sonra kod [Read()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) yöntemini kullanarak sonuçlardaki kayıtlara gider. Ardından kod [GetInt32()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) ve [GetString()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) yöntemini kullanarak kayıttaki değerleri ayrıştırır.
 
 Host, DBName, User ve Password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
@@ -255,9 +235,7 @@ namespace Driver
 ```
 
 
-<a id="update-data" class="xliff"></a>
-
-## Verileri güncelleştirme
+## <a name="update-data"></a>Verileri güncelleştirme
 Bağlanmak ve **UPDATE** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. Kod, [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) yöntemiyle birlikte NpgsqlCommand sınıfını kullanarak PostgreSQL ile bağlantı kurar. Ardından kod [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) yöntemini kullanarak CommandText özelliğini ayarlar ve [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) yöntemini çağırarak veritabanı komutlarını çalıştırır.
 
 Host, DBName, User ve Password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
@@ -321,9 +299,7 @@ namespace Driver
 ```
 
 
-<a id="delete-data" class="xliff"></a>
-
-## Verileri silme
+## <a name="delete-data"></a>Verileri silme
 Bağlanmak ve **DELETE** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. 
 
  Kod, [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) yöntemiyle birlikte NpgsqlCommand sınıfını kullanarak PostgreSQL ile bağlantı kurar. Ardından kod [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) yöntemini kullanarak CommandText özelliğini ayarlar ve [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) yöntemini çağırarak veritabanı komutlarını çalıştırır.
@@ -385,9 +361,7 @@ namespace Driver
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [Dışarı Aktarma ve İçeri Aktarma seçeneğini kullanarak veritabanınızı geçirme](./howto-migrate-using-export-and-import.md)
 

@@ -1,5 +1,5 @@
 ---
-title: "Önceden yapılandırılmış tahmine dayalı bakım çözümüne genel bakış | Microsoft Belgeleri"
+title: "Önceden yapılandırılmış tahmine dayalı bakım çözümüne genel bakış | Microsoft Docs"
 description: "Azure IoT Paketi önceden yapılandırılmış tahmine dayalı bakım çözüm açıklaması."
 services: 
 suite: iot-suite
@@ -13,36 +13,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: e0e658fc392bf6a53f777f22a2e0b6e7bd742f97
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 8bad198488c4940a83eb32ec02122a91d47ca86c
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Önceden yapılandırılmış tahmine dayalı bakım çözümüne genel bakış
 
 Önceden yapılandırılmış *tahmine dayalı bakım* [önceden yapılandırılmış çözümü][lnk_preconfigured_solutions], önceden yapılandırılmış [Microsoft Azure IoT Paketi][lnk_iot_suite] çözümlerinden biridir. Bu çözüm, gerçek zamanlı cihaz telemetri koleksiyonunu [Azure Machine Learning][lnk-machine-learning] kullanılarak oluşturulan tahmine dayalı modelle tümleştirir.
 
-Azure IoT Paketi’yle bir kurum varlıklara hızlı ve kolay bağlanıp bunları izleyebilir ve verileri gerçek zamanlı analiz edebilir. Önceden yapılandırılmış tahmine dayalı bakım çözümü bu verileri alır, verimlilikleri yönetebilen ve gelir akışlarını geliştiren yeni bilgiler sağlamak için panolar ve görselleştirmeleri kullanır.
+Azure IoT Paketi’yle varlıklara hızlı ve kolay bağlanıp bunları izleyebilir ve telemetri verilerini panolar ve görselleştirmelerle gerçek zamanlı analiz edebilirsiniz. Tahmine dayalı bakım çözümünde, panolar ve görselleştirmeler size verimliliği yönetmenizi ve gelir akışlarını geliştirmenizi sağlayacak yeni bilgiler sunar.
 
 ## <a name="the-scenario"></a>Senaryo
-Fabrikam, rekabetçi fiyatlarıyla büyük müşteri deneyimine odaklanan bölgesel bir havayoludur. Uçuş rötarlarının bir nedeni bakım sorunlarıdır ve uçak motorunun bakımı özellikle zordur. Maliyeti ne olursa olsun, uçuş sırasında motor arızasından kaçınılmalıdır; bu nedenle, Fabrikam düzenli olarak motorları muayene eder ve zamanlanmış bakım programına uygun davranır. Ancak, uçak motorları her zaman aynı şekilde yıpranmaz. Motorlardı bazı gereksiz bakımlar gerçekleştirilir. Daha da önemlisi, bakım yapılana kadar çıkan sorunlar nedeniyle uçağın yerde kalmasıdır. Bu sorunlar, özellikle de uçak doğru teknisyenlerin ve yedek parçaların olmadığı bir yerdeyse maliyetli gecikmelere neden olur.
 
-Fabrikam uçağının motorları, uçuş sırasında motor koşullarını izleyen algılayıcılarla donatılmıştır. Fabrikam, uçuş sırasında toplanan algılayıcı verilerini toplamak için tahmine dayalı bakım için önceden yapılandırılmış çözümü kullanır. Motor çalışması ve arızaları verilerini yıllarca biriktirdikten sonra, Fabrikam’ın veri bilim insanları uçak motorunun Kalan Kullanım Ömrü’nü (RUL) tahmin etmek için bir yol modeli oluşturmuştur. Bunların tanımladıkları, er geç ortaya çıkacak arızalara neden olan motor yıpranmasıyla ilişkili motor algılayıcılarından dördüne ait veriler arasındaki bağıntıdır. Fabrikam güvenliği sağlamak için normal muayeneleri yapmaya devam ederken, her uçuştan sonra her motor için RUL hesaplayacak modelleri kullanmaktadır. Bu model, uçuş sırasında motorlardan toplanan telemetriyi kullanır. Fabrikam artık arızanın ve bakım planının ileri tarihli noktalarını tahmin edebiliyor ve önceden onarıyor.
+Fabrikam, rekabetçi fiyatlarıyla büyük müşteri deneyimine odaklanan bölgesel bir havayoludur. Uçuş rötarlarının bir nedeni bakım sorunlarıdır ve uçak motorunun bakımı özellikle zordur. Fabrikam’ın ne olursa olsun uçuş sırasında motor arızasını önlemesi gerekmektedir; bu nedenle düzenli olarak motorları muayene eder ve bakım işlemlerini bir plana göre zamanlar. Ancak, uçak motorları her zaman aynı şekilde yıpranmaz. Motorlardı bazı gereksiz bakımlar gerçekleştirilir. Daha da önemlisi, bakım yapılana kadar çıkan sorunlar nedeniyle uçağın yerde kalmasıdır. Uçak, doğru teknisyenlerin ve yedek parçaların olmadığı bir yerdeyse bu sorunlar maliyetli gecikmelere neden olabilir.
+
+Fabrikam uçağının motorları, uçuş sırasında motor koşullarını izleyen algılayıcılarla donatılmıştır. Fabrikam, uçuş sırasında toplanan algılayıcı verilerini toplamak için tahmine dayalı bakım çözümünü kullanır. Motor çalışması ve arızaları verilerini yıllarca biriktirdikten sonra, Fabrikam’ın veri bilim insanları uçak motorunun Kalan Kullanım Ömrü’nü (RUL) tahmin etmek için bir yol modeli oluşturmuştur. Bu model, dört motor algılayıcısından alınan veriler ve arızalara neden olan motor yıpranmaları arasındaki bağıntıyı kullanmaktadır. Fabrikam güvenliği sağlamak için normal muayeneleri yapmaya devam ederken, her uçuştan sonra her motor için RUL hesaplayacak modelleri kullanmaktadır. Bu model, uçuş sırasında motorlardan toplanan telemetriyi kullanır. Fabrikam artık arızanın ve bakım planının ileri tarihli noktalarını tahmin edebiliyor ve önceden onarıyor.
 
 > [!NOTE]
 > Çözüm modeli asıl motor yıpranması verilerini kullanır.
 
-Fabrikam, maliyet düşürmek amacıyla bakımın gerektiği noktayı tahmin ederek çalışmasını en iyi hale getirebilir. Bakım düzenleyicileri aşağıdaki amaçlarla zamanlayıcılar ile çalışır:
+Fabrikam, maliyet düşürmek amacıyla bakımın gerektiği noktayı tahmin ederek çalışmasını en iyi hale getirebilir.
 
-- Bakımı uçak belirli bir konumda durduğunda başlayacak şekilde planlamak için.
-- Uçağın zamanlamayı bozmadan yeterli süreyle hizmet dışı kaldığından emin olmak için.
+Bakım düzenleyicileri, zamanlayıcılar ile çalışarak:
+
+- Bakımı uçak belirli bir konumda durduğunda başlayacak şekilde planlar.
+- Uçağın, zamanlamayı bozmadan yeterli hizmet dışı kalma süresine sahip olmasını sağlar.
 - Teknisyenleri, uçağı bekleme süresi olmadan verimli bir şekilde servise sokmayı sağlayacak şekilde zamanlamak için.
 
-Stok denetimi yöneticileri bakım planlarını alır; bu nedenle, sipariş sürecini ve yedek parça stoğunu en iyi hale getirebilirler. Bu faktörlerin tümü, bir yandan da yolcuların ve personelin güvenliğini sağlayarak Fabrikam’ın uçağın yerdeki süresini en aza indirmesini ve çalıştırma maliyetini düşürmesini sağlar.
+Stok denetimi yöneticileri bakım planlarını alır; bu nedenle, sipariş sürecini ve yedek parça stoğunu en iyi hale getirebilirler.
+
+Bu etkinlikler, bir yandan da yolcuların ve personelin güvenliğini sağlayarak Fabrikam’ın uçağın yerdeki süresini en aza indirmesini ve çalıştırma maliyetini düşürmesini sağlar.
 
 [Azure IoT Paketi][lnk_iot_suite]'nin, müşterilerin gerçekleştirmeleri gereken tahmine dayalı bakım potansiyeli becerilerini nasıl sağladığını anlamak için bu [bilgi görselini][lnk_infographic] gözden geçirin.
 
@@ -50,7 +55,7 @@ Stok denetimi yöneticileri bakım planlarını alır; bu nedenle, sipariş sür
 
 Çözüm, IoT Paketi hizmetleriyle toplanan cihaz telemetrisinden bu becerileri göstermek için şablon olarak kullanılabilen mevcut Azure Machine Learning modelini geliştirir. Microsoft, genel kullanıma sunulan verileri<sup>\[1\]</sup> temel alarak uçak motorunun bir [gerileme modelini][lnk_regression_model] oluşturmuştur ve modelin nasıl kullanılacağını gösteren adım adım yönergeleri yayımlamıştır.
 
-Azure IoT tahmine dayalı bakım için önceden yapılandırılmış çözümü, bu şablondan oluşturulan gerileme modelini kullanır. Bu model, Azure aboneliğinize dağıtılır ve otomatik olarak oluşturulan bir API ile kullanıma sunulur. Çözümde, 4 (toplamda 100) motoru temsil eden test verilerinin bir alt kümesi ve 4 (toplamda 21) algılayıcı veri akışı bulunur. Bu veriler, eğitilmiş modelden doğru bir sonuç elde etmek için yeterlidir.
+Azure IoT tahmine dayalı bakım çözümü, bu şablondan oluşturulan regresyon modelini kullanır. Bu model, Azure aboneliğinize dağıtılır ve otomatik olarak oluşturulan bir API ile kullanıma sunulur. Çözümde, 4 (toplamda 100) motoru temsil eden test verilerinin bir alt kümesi ve 4 (toplamda 21) algılayıcı veri akışı bulunur. Bu veriler, eğitilmiş modelden doğru bir sonuç elde etmek için yeterlidir.
 
 *\[1\] A. Saxena ve K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set" (Turbofan Motor Bozulması Benzetimi Veri Kümesi), NASA Ames Prognostics Veri Deposu (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
@@ -86,17 +91,19 @@ Görmeyi beklediğiniz ancak çözümünüz için listelenmemiş ayrıntılar m�
 Bu bölüm çözüm kullanıcı arabiriminde size yol gösterir.
 
 ### <a name="predictive-maintenance-dashboard"></a>Tahmine Dayalı Bakım Panosu
+
 Web uygulamasındaki bu sayfa PowerBI JavaScript denetimlerini (bkz. [PowerBI-visuals repository][lnk-powerbi]) kullanarak şunları görselleştirir:
 
 * Blob depolamada Stream Analytics işlerine ait çıktı verileri.
 * Uçak motoru başına RUL ve döngüsü sayısı.
 
 ### <a name="observing-the-behavior-of-the-cloud-solution"></a>Bulut çözümünün davranışını gözlemleme
+
 Azure portalda sağlanan kaynaklarınızı görüntülemek için seçtiğiniz çözüm adına sahip kaynak grubuna gidin.
 
 ![][img-resource-group]
 
-Önceden yapılandırılmış çözümü hazırlarken, Machine Learning çalışma alanına bağlantısı da olan bir e-posta alırsınız. Sağladığınız çözüm **Hazır** durumunda olduğunda çözümün [azureiotsuite.com][lnk-azureiotsuite] sayfasındaki kutucuktan da Machine Learning çalışma alanına gidebilirsiniz.
+Önceden yapılandırılmış çözümü hazırlarken, Machine Learning çalışma alanına bağlantısı da olan bir e-posta alırsınız. Sağladığınız çözümün [azureiotsuite.com][lnk-azureiotsuite] sayfasındaki kutucuktan da Machine Learning çalışma alanına gidebilirsiniz. Çözüm **Hazır** durumda olduğunda bu sayfada bir kutucuk kullanılabilir.
 
 ![][img-machine-learning]
 
@@ -104,11 +111,11 @@ Azure portalda sağlanan kaynaklarınızı görüntülemek için seçtiğiniz ç
 
 ![][img-simulation-stopped]
 
-Algılayıcı geçmişi, RUL, Döngüler ve RUL geçmişinin panoyu doldurduğunu görebileceğiniz benzetimi başlatmak için **Benzetimi başlat**’a tıklayın.
+Benzetimi başlatmak için **Benzetimi başlat**’a tıklayın. Algılayıcı geçmişi, RUL, Döngüler ve RUL geçmişi panoda yer alır.
 
 ![][img-simulation-running]
 
-RUL değeri 160’tan (gösterim amaçlı seçilen rastgele bir eşik) azsa, çözüm portalı RUL görüntüsünün yanında bir uyarı simgesi görüntüler ve uçak motorunu sarı renkle vurgular. RUL değerlerinde topluca genel bir düşüş eğilimi olsa da aşağı ve yukarı sıçramalar da olduğunu fark edebilirsiniz. Bu davranış, değişen döngü uzunlukları ve model doğruluğundan sonuçlanır.
+RUL değeri 160’tan (gösterim amaçlı seçilen rastgele bir eşik) azsa, çözüm portalında RUL görüntüsünün yanında bir uyarı simgesi görüntülenir. Çözüm portalı da uçak motorunu sarı renkle vurgular. RUL değerlerinde topluca genel bir düşüş eğilimi olsa da aşağı ve yukarı sıçramalar da olduğunu fark edebilirsiniz. Bu davranış, değişen döngü uzunlukları ve model doğruluğundan sonuçlanır.
 
 ![][img-simulation-warning]
 
@@ -122,7 +129,7 @@ Benzetimi istediğiniz an durdurabilirsiniz; ancak, **Benzetimi Başlat**’a t�
 
 Azure IoT’nin tahmine dayalı bakım senaryolarını etkinleştirmesi hakkında daha fazla bilgi için [Nesnelerin İnterneti’nden değer yakalama][lnk_capture_value] makalesini okuyun.
 
-Tahmine dayalı önceden yapılandırılmış çözümün [adım adım kılavuzunu][lnk-predictive-walkthrough] inceleyin.
+Tahmine dayalı bakım çözümünün [adım adım kılavuzunu][lnk-predictive-walkthrough] inceleyin.
 
 Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile Hyper-V'den Azure'a çoğaltma işleminin (System Center VMM olmadan) yapısını inceleme | Microsoft Docs"
-description: "Bu makalede, Azure Site Recovery hizmeti ile şirket içi Hyper-V VM'leri Azure'a çoğaltma işleminde kullanılan bileşenlere ve mimariye ilişkin genel bir bakış sunulmaktadır."
+title: "Azure Site Recovery ile Hyper-V'den Azure'a çoğaltma işleminin (System Center VMM ile) yapısını inceleme | Microsoft Docs"
+description: "Bu makalede, Azure Site Recovery hizmeti ile şirket içi VMM bulutlarındaki Hyper-V VM'lerini Azure'a çoğaltma işleminde kullanılan bileşenlere ve mimariye ilişkin genel bir bakış sunulmaktadır."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,21 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
 ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
+ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/26/2017
 
 ---
 
 
-# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>1. Adım: Hyper-V'den Azure'a çoğaltma işleminin yapısını inceleme
+# <a name="step-1-review-the-architecture"></a>1. Adım: Mimariyi gözden geçirme
 
 
-Bu makalede, Hyper-V sanal makinelerini (System Center VMM tarafından yönetilmeyen) [Azure Site Recovery](site-recovery-overview.md) hizmeti aracılığıyla Azure'a çoğaltma işleminde kullanılan bileşenler ve işlemler açıklanmaktadır.
+Bu makalede, System Center Virtual Machine Manager (VMM) bulutlarındaki şirket içi Hyper-V sanal makinelerini [Azure Site Recovery](site-recovery-overview.md) hizmeti aracılığıyla Azure'a çoğaltma işleminde kullanılan bileşenler ve işlemler açıklanmaktadır.
 
 Tüm yorumlarınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
@@ -34,26 +34,29 @@ Tüm yorumlarınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetler
 
 ## <a name="architectural-components"></a>Mimari bileşenler
 
-Hyper-V VM'leri VMM olmadan Azure'a çoğaltırken kullanılan çeşitli bileşenler vardır.
+VMM bulutlarındaki Hyper-V VM'leri Azure'a çoğaltırken kullanılan çeşitli bileşenler vardır.
 
-**Bileşen** | **Konum** | **Ayrıntılar**
+**Bileşen** | **Gereksinim** | **Ayrıntılar**
 --- | --- | ---
 **Azure** | Azure’da bir Microsoft Azure hesabına, bir Azure depolama hesabına ve bir Azure ağına ihtiyacınız vardır. | Çoğaltılan veriler depolama hesabında depolanır ve şirket içi sitenizden yük devretme gerçekleştiğinde çoğaltılan verilerle Azure VM’leri oluşturulur.<br/><br/> Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
-**Hyper-V** | Hyper-V konakları ve kümeleri Hyper-V sitelerinde bir araya getirilir. Azure Site Recovery Sağlayıcısı ve Kurtarma Hizmetleri aracısı, her Hyper-V konağına yüklenir. | Sağlayıcı, İnternet üzerinden Site Recovery hizmetiyle gerçekleştirilen çoğaltma işlemini düzenler ve yönetir. Kurtarma Hizmetleri aracısı, veri çoğaltma işlemini gerçekleştirir.<br/><br/> Sağlayıcı ve aracı arasındaki iletişimler şifrelenir ve güvence altına alınır. Azure depolama alanında çoğaltılan veriler de şifrelenir.
-**Hyper-V VM’leri** | Hyper-V konak sunucusunda çalışan bir veya daha fazla VM'nizin olması gerekir. | VM'lere açıkça bir şey yüklenmesi gerekmez.
+**VMM sunucusu** | VMM sunucusu, Hyper-V konakları içeren bir veya daha fazla bulut içerir. | VMM sunucusunda Site Recovery ile çoğaltmayı düzenlemek için Site Recovery Sağlayıcısı'nı yükleyin ve sunucuyu Kurtarma Hizmetleri kasasına kaydedin.
+**Hyper-V konağı** | VMM tarafından yönetilen bir veya daha fazla Hyper-V konağı/kümesi. |  Her konak veya küme üyesinde Kurtarma Hizmetleri aracısını yükleyin.
+**Hyper-V VM’leri** | Hyper-V konağı sunucusunda çalışan bir veya daha fazla VM. | VM'lere açıkça bir şey yüklenmesi gerekmez.
+**Ağ** |VMM sunucusunda ayarlanmış mantıksal ağlar ve VM ağları. VM ağının da bulutla ilişkilendirilen bir mantıksal ağ ile bağlantılı olması gerekir. | VM ağları, yük devretme sonrasında oluşturulan Azure sanal makinelerinin bir ağda olması için Azure sanal ağlarına eşlenir.
 
 [Destek matrisinde](site-recovery-support-matrix-to-azure.md), bu bileşenlerden her birine ilişkin dağıtım önkoşulları ve gereksinimler hakkında bilgi edinin.
 
-**Şekil 1: Hyper-V sitesinden Azure'a çoğaltma**
 
-![Bileşenler](./media/hyper-v-site-walkthrough-architecture/arch-onprem-azure-hypervsite.png)
+**Şekil 1: VMM bulutlarındaki Hyper-V konaklarında bulunan VM’leri-Azure’a çoğaltma**
+
+![Bileşenler](./media/vmm-to-azure-walkthrough-architecture/arch-onprem-onprem-azure-vmm.png)
 
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
 
 **Şekil 2: Hyper-V'den Azure'a çoğaltma için çoğaltma ve kurtarma işlemi**
 
-![iş akışı](./media/hyper-v-site-walkthrough-architecture/arch-hyperv-azure-workflow.png)
+![iş akışı](./media/vmm-to-azure-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
 ### <a name="enable-protection"></a>Korumayı etkinleştir
 
@@ -61,7 +64,8 @@ Hyper-V VM'leri VMM olmadan Azure'a çoğaltırken kullanılan çeşitli bileşe
 2. İş, makinenin önkoşullarla uyumlu olup olmadığını denetler, ardından, çoğaltmayı daha önce yapılandırdığınız ayarları uygulamak üzere [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) çağırır.
 3. İş, tam bir VM çoğaltması başlatmak için [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) yöntemini çağırarak ilk çoğaltmayı başlatır ve VM’lerin sanal disklerini Azure’a gönderir.
 4. **İşler** sekmesinde işi izleyebilirsiniz.
- 
+        ![İşler listesi](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Korumayı etkinleştir ayrıntıları](media/vmm-to-azure-walkthrough-architecture/image2.png)
+
 ### <a name="replicate-the-initial-data"></a>İlk verileri çoğaltma
 
 1. İlk çoğaltma tetiklendiğinde bir [Hyper-V VM anlık görüntüsü](https://technet.microsoft.com/library/dd560637.aspx) alınır.
@@ -74,6 +78,7 @@ Hyper-V VM'leri VMM olmadan Azure'a çoğaltırken kullanılan çeşitli bileşe
 ### <a name="finalize-protection"></a>Korumayı sonlandırma
 
 1. İlk çoğaltma sona erdikten sonra, **Sanal makinede korumayı sonlandır** işi, sanal makinenin korunabilmesi adına ağı ve diğer çoğaltma sonrası ayarlarını yapılandırır.
+    ![Korumayı sonlandır işi](media/vmm-to-azure-walkthrough-architecture/image3.png)
 2. Azure'da çoğaltma yapıyorsanız sanal makinede ince ayar yapmanız gerekebilir. Böylece sanal makine yük devretme için hazır hale gelir. Bu noktada, her şeyin istendiği şekilde çalıştığını denetlemek için yük devretme testi çalıştırabilirsiniz.
 
 ### <a name="replicate-the-delta"></a>Değişimi çoğaltma
@@ -88,7 +93,7 @@ Hyper-V VM'leri VMM olmadan Azure'a çoğaltırken kullanılan çeşitli bileşe
 2.  Yeniden eşitleme, kaynak ve hedef sanal makinelerin sağlama toplamlarını hesaplayarak ve yalnızca değişim verilerini göndererek, gönderilen veri miktarını en aza indirir. Yeniden eşitleme, kaynak ve hedef dosyaların sabit öbeklere bölündüğü bir sabit blok kümeleme algoritması kullanır. Her öbek için sağlama toplamları oluşturulur ve ardından, kaynaktan hangi blokların hedefe uygulanması gerektiğini belirlemek üzere karşılaştırılır.
 3. Yeniden eşitleme sona erdikten sonra, normal değişim çoğaltması devam edecektir. Varsayılan olarak, yeniden eşitleme ofis saatleri dışında otomatik olarak çalışacak şekilde planlanmıştır ancak sanal makineyi elle yeniden eşitleyebilirsiniz. Örneğin, bir ağ kesintisi veya başka bir kesinti oluşursa, yeniden eşitlemeyi devam ettirebilirsiniz. Bunu yapmak için, portalda VM’yi > **Yeniden eşitle**’yi seçin.
 
-    ![El ile yeniden eşitleme](./media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![El ile yeniden eşitleme](media/vmm-to-azure-walkthrough-architecture/image4.png)
 
 
 ### <a name="retry-logic"></a>Yeniden deneme mantığı
@@ -115,5 +120,5 @@ Bir çoğaltma hatası meydana gelirse, yerleşik yeniden deneme işlevi vardır
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[2. Adım: Dağıtım önkoşullarını inceleme](hyper-v-site-walkthrough-prerequisites.md)
+[2. Adım: Dağıtım önkoşullarını inceleme](vmm-to-azure-walkthrough-prerequisites.md)
 

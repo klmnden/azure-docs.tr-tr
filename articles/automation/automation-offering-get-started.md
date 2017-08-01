@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 0e80e0a1c334bcca0bb15dd16c54306a60f2486e
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 7ef31d7d72844c0ed3be0701549e49e26aac9abf
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -35,9 +35,9 @@ Azure Otomasyonu, runbook’lar ile işlemleri otomatik hale getirmek ve Azure, 
 
 Azure'da çalıştırdığınız runbook'lar, Azure hizmet olarak platform (PaaS) sanal makinelerinde barındırılan Otomasyon korumalı alanı üzerinde yürütülür.  Otomasyon korumalı alanları, runbook yürütme işleminin tüm yönleri için (modüller, depolama, bellek, ağ iletişimi, iş akışları vb.) kiracı yalıtımı sağlar. Bu rol, hizmet tarafından yönetilir ve denetlemek için Azure veya Azure Otomasyonu hesabınızdan bu role erişilemez.         
 
-Yerel veri merkezinizde veya diğer bulut hizmetlerinde bulunan kaynakların dağıtım ve yönetimini otomatikleştirmek için, Otomasyon hesabı oluşturduktan sonra [Karma Runbook Çalışanı (HRW)](automation-hybrid-runbook-worker.md) rolünde çalışacak bir veya daha fazla makine belirleyebilirsiniz.  Her HRW, Log Analytics çalışma alanıyla bağlantısı olan bir Microsoft Yönetim Aracısı (MMA) ve bir Otomasyon hesabı gerektirir.  Log Analytics, yüklemeyi önyüklemek, MMA aracısını korumak ve HRW işlevselliğini izlemek için kullanılır.  Runbook’ların teslim edilmesi ve çalıştırma yönergeleri, Azure Otomasyonu tarafından gerçekleştirilir.
+Yerel veri merkezinizde veya diğer bulut hizmetlerinde bulunan kaynakların dağıtım ve yönetimini otomatikleştirmek için, Otomasyon hesabı oluşturduktan sonra [Karma Runbook Çalışanı (HRW)](automation-hybrid-runbook-worker.md) rolünü çalıştıracak bir veya daha fazla makine belirleyebilirsiniz.  Her HRW, Log Analytics çalışma alanıyla bağlantısı olan bir Microsoft Yönetim Aracısı ve bir Otomasyon hesabı gerektirir.  Log Analytics, yüklemenin önyüklemesini yapmak, Microsoft Yönetim Aracısını korumak ve HRW işlevselliğini izlemek için kullanılır.  Runbook’ların teslim edilmesi ve çalıştırma yönergeleri, Azure Otomasyonu tarafından gerçekleştirilir.
 
-Runbook’larını için yüksek kullanılabilirlik sağlamak, runbook işlerinin yük dengelemesini yapmak ve bazı durumlarda runbook’ları belirli iş yükleri veya ortamlar için ayırmak üzere birden fazla HRW dağıtabilirsiniz.  HRW, Otomasyon hizmeti ile TCP giden bağlantı noktası 443 üzerinden iletişim kurar.  Veri merkezinizdeki bir HRW üzerinde çalışan runbook’unuz olduğunda veri merkezindeki diğer makineler veya hizmetler üzerinde yönetim görevleri gerçekleştirmesini istediğinizde, runbook’un erişmesi gereken başka bağlantı noktaları olabilir.  BT güvenlik ilkeleriniz ağınızdaki bilgisayarların İnternet’e bağlanmasına izin vermiyorsa, HRW’nin Otomasyon hesabınızdaki iş durumu bilgilerini toplayan ve yapılandırma bilgilerini alan proxy’si olarak davranan [OMS Ağ Geçidi](../log-analytics/log-analytics-oms-gateway.md) makalesini gözden geçirin.
+Runbook’larını için yüksek kullanılabilirlik sağlamak, runbook işlerinin yük dengelemesini yapmak ve bazı durumlarda runbook’ları belirli iş yükleri veya ortamlar için ayırmak üzere birden fazla HRW dağıtabilirsiniz.  HRW üzerindeki Microsoft Monitoring Agent, TCP bağlantı noktası 443 üzerinden Otomasyon hizmeti ile iletişim başlatır. Gelen veriler için güvenlik duvarı gereksinimi yoktur.  Ortamdaki bir HRW üzerinde çalışan runbook’unuzun ortamdaki diğer makineler veya hizmetler üzerinde yönetim görevleri gerçekleştirmesini istiyorsanız, bunun için runbook’un başka bağlantı noktalarına erişmesi gerekebilir.  BT güvenlik ilkeleriniz ağınızdaki bilgisayarların İnternet’e bağlanmasına izin vermiyorsa, HRW’nin Otomasyon hesabınızdaki iş durumu bilgilerini toplayan ve yapılandırma bilgilerini alan proxy’si olarak davranan [OMS Ağ Geçidi](../log-analytics/log-analytics-oms-gateway.md) makalesini gözden geçirin.
 
 Bir HRW üzerinde çalışan runbook’lar, bilgisayardaki yerel Sistem hesabı bağlamında çalışır; bu bağlam, yerel Windows makinesinde yönetim eylemleri gerçekleştirirken önerilen güvenlik bağlamıdır. Runbook’un yerel makine dışındaki kaynaklarda görevler çalıştırmasını istiyorsanız, Otomasyon hesabında runbook’tan erişebileceğiniz ve dış kaynakla kimlik doğrulaması yapmak için kullanabileceğiniz güvenli kimlik bilgisi varlıkları tanımlamanız gerekebilir. Runbook’unuzda [Kimlik Bilgisi](automation-credentials.md), [Sertifika](automation-certificates.md) ve [Bağlantı](automation-connections.md) varlıklarını, kimlik doğrulaması yapabilmek için kimlik bilgilerini belirtmenize olanak tanıyan cmdlet’lerle birlikte kullanabilirsiniz.
 
@@ -118,7 +118,7 @@ Karma Runbook Çalışanınızın Microsoft Operations Management Suite’e (OMS
 Aşağıdaki bilgiler, Karma Runbook Çalışanının Otomasyon ile iletişim kurması için gereken bağlantı noktası ve URL’leri listeler.
 
 * Bağlantı noktası: Giden İnternet erişimi için yalnızca TCP 443 gereklidir
-* Genel URL:  *.azure-automation.net
+* Genel URL: *.azure-automation.net
 
 Belirli bir bölge için tanımlanmış bir Otomasyon hesabınız varsa ve bu bölgesel veri merkezi ile iletişimi kısıtlamak istiyorsanız, aşağıdaki tabloda her bölgeye yönelik DNS kaydı verilmiştir.
 

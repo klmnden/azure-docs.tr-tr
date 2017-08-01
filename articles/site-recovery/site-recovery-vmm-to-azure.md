@@ -1,5 +1,5 @@
 ---
-title: "VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma | Microsoft Belgeleri"
+title: "VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma | Microsoft Docs"
 description: "System Center VMM bulutlarında yönetilen Hyper-V sanal makinelerinden Azure'a çoğaltma, yük devretme ve kurtarmayı düzenleme"
 services: site-recovery
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Azure portalında Site Recovery’yi kullanarak VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
@@ -164,6 +164,11 @@ Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna yükleyin ve sunucuyu kas
 
      ![internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Veri şifreleme için otomatik olarak oluşturulan SSL sertifikasının konumunu kabul edin veya değiştirin. Bu sertifika, Azure Site Recovery portalında Azure tarafından korunan bir bulut için veri şifrelemeyi etkinleştirdiğinizde kullanılır. Bu sertifikayı güvenli bir yerde saklayın. Azure'a yük devretme işlemi çalıştırdığınızda veri şifreleme etkinse şifrenin çözülmesi gerekir.
+
+    > [!NOTE]
+    > Azure Site Recovery tarafından sağlanan veri şifreleme seçeneğini kullanmak yerine, Azure tarafından bekleyen verileri şifrelemek için sağlanan şifreleme özelliğini kullanmanız önerilir. Depolama hesapları için Azure tarafından sağlanan şifreleme özelliği açılabilir ve şifreleme/şifre çözme işlemleri Azure Depolama tarafından işlendiğinden daha iyi performans elde etmenize yardımcı olur.
+    > [Azure Depolama hizmeti şifrelemesi hakkında daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 8. **Sunucu adı** alanında, kasadaki VMM sunucusunu tanımlamak için bir kolay ad belirtin. Bir küme yapılandırmasında VMM küme rolünün adını belirtin.
 9. VMM sunucusundaki tüm bulutlara yönelik meta verileri kasayla eşitlemek isterseniz **Bulut meta verilerini eşitle** seçeneğini etkinleştirin. Bu eylemin her sunucuda yalnızca bir kez gerçekleştirilmesi gerekir. Tüm bulutları eşitlemek istemezseniz bu ayarı işaretlemeden bırakıp her bulutu VMM konsolundaki bulut özelliklerinde bağımsız olarak eşitleyebilirsiniz. İşlemi tamamlamak için **Kaydet**'e tıklayın.
 
@@ -425,6 +430,12 @@ Konumlar:
 * **/Credentials**: Kayıt anahtarı dosyasının bulunduğu konumu belirten zorunlu parametre.  
 * **/FriendlyName**: Azure Site Recovery portalında görünen Hyper-V konak sunucusunun adı için zorunlu parametre.
 * * **/EncryptionEnabled**: VMM bulutlarındaki Hyper-V VM'lerini Azure'a çoğaltırken kullanılan isteğe bağlı parametre. Sanal makineleri Azure'da şifrelemek isterseniz bunu kullanın (bekleyen şifreleme). Dosya adının **.pfx** uzantısını içerdiğinden emin olun. Varsayılan olarak şifreleme kapalıdır.
+
+    > [!NOTE]
+    > Azure Site Recovery tarafından sağlanan şifreleme özelliğini (EncryptionEnabled seçeneği) kullanmak yerine, Azure tarafından bekleyen verileri şifrelemek için sağlanan şifreleme özelliğini kullanmanız önerilir. Depolama hesapları için Azure tarafından sağlanan şifreleme özelliği açılabilir ve şifreleme/şifre çözme işlemleri Azure tarafından işlendiğinden daha iyi performans elde etmenize yardımcı  
+    > olur.
+    > [Azure Depolama hizmeti şifrelemesi hakkında daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 * **/proxyAddress**: Ara sunucunun adresini belirten isteğe bağlı parametre.
 * **/proxyport**: Ara sunucunun bağlantı noktasını belirten isteğe bağlı parametre.
 * **/proxyUsername**Ara sunucu kullanıcı adını belirten isteğe bağlı parametre (ara sunucu kimlik doğrulaması gerekiyorsa).

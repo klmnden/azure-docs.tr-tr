@@ -15,17 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 79156c0b511dafcb43ed91800f01338dbb7ee5f3
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: dba483c21afc46b1b9f0a74ebfb24ed644080e09
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
-<a id="introduction-to-azure-cosmos-db-documentdb-api" class="xliff"></a>
-
-# Azure Cosmos DB: DocumentDB API’sine Giriş
+# <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB: DocumentDB API’sine Giriş
 
 [Azure Cosmos DB](introduction.md), Microsoft'un görev açısından kritik uygulamalar için genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB tarafından [kullanıma hazır genel dağıtım](distribute-data-globally.md), dünya çapında [aktarım hızı ve depolama için elastik ölçeklendirme](partition-data.md), 99. yüzdebirlik dilimde tek haneli milisaniyelik gecikme süreleri, [beş iyi tanımlanmış tutarlılık düzeyi](consistency-levels.md) ve garantili yüksek kullanılabilirlik olanakları sağlanır ve bunların tamamı [sektör lideri SLA’lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/) ile desteklenir. Azure Cosmos DB, şema ve dizin yönetimiyle ilgilenmenize gerek kalmadan [otomatik olarak verilerin dizinini oluşturur](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Çok modelli olan bu hizmet belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. 
 
@@ -33,9 +30,7 @@ ms.lasthandoff: 06/20/2017
 
 DocumentDB API’si ile Azure Cosmos DB, şemasız JSON verileri üzerinde tutarlı düşük gecikme süreleriyle zengin ve kullanımı kolay [SQL sorgu işlevleri](documentdb-sql-query.md) sağlar. Bu makalede Azure Cosmos DB DocumentDB API’sine genel bakış ve çok büyük hacimlerdeki JSON verilerini depolamak, milisaniyelik gecikme süresi içinde sorgulamak ve şemayı kolayca geliştirmek için nasıl kullanılabileceği hakkında bilgiler verilmektedir. 
 
-<a id="what-capabilities-and-key-features-does-azure-cosmos-db-offer" class="xliff"></a>
-
-## Azure Cosmos DB’nin sunduğu yetenekler ve önemli özellikler nelerdir?
+## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Azure Cosmos DB’nin sunduğu yetenekler ve önemli özellikler nelerdir?
 Azure Cosmos DB, DocumentDB API’si üzerinden aşağıdaki temel işlevleri ve avantajları sunar:
 
 * **Esnek bir şekilde ölçeklenebilir aktarım hızı ve depolama:** Uygulama gereksinimlerinizi karşılamak için JSON veritabanınızın ölçeğini kolayca artırın veya azaltın. Verileriniz düşük tahmin edilebilirliğe sahip gecikme süreleri sağlamak için katı hal disklerinde (SSD) depolanır. Azure Cosmos DB, JSON verilerini depolamak için koleksiyon adı verilen kapsayıcıları destekler; bu kapsayıcılar neredeyse sınırsız depolama boyutlarına ve sağlanan aktarım hızına ölçeklenebilir. Uygulamanız büyüdükçe, Azure Cosmos DB'yi tahmin edilebilir performansla sorunsuz ve esnek bir şekilde ölçeklendirebilirsiniz. 
@@ -55,7 +50,7 @@ Azure Cosmos DB, DocumentDB API’si üzerinden aşağıdaki temel işlevleri ve
 * **Otomatik dizin oluşturma:** Azure Cosmos DB, varsayılan olarak veritabanındaki tüm belgelerin otomatik olarak dizinini oluşturur ve herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını beklemez veya gerektirmez. Her şeyi dizine eklemek istemiyor musunuz? Merak etmeyin, [JSON dosyalarınızda yolları iptal de edebilirsiniz](indexing-policies.md).
 
 ## <a name="data-management"></a>DocumentDB API’si ile verileri nasıl yönetebilirsiniz?
-DocumentDB API’si, JSON verilerini iyi tanımlanmış veritabanı kaynakları aracılığıyla yönetir. Bu kaynaklar yüksek kullanılabilirlik için çoğaltılır ve mantıksal URI'leri ile benzersiz olarak adreslenebilir. DocumentDB tüm kaynaklar için basit bir HTTP tabanlı RESTful programlama modeli sunar. 
+DocumentDB API’si, JSON verilerini iyi tanımlanmış veritabanı kaynakları aracılığıyla yönetir. Bu kaynaklar yüksek kullanılabilirlik için çoğaltılır ve mantıksal URI'leri ile benzersiz olarak adreslenebilir. DocumentDB API’si tüm kaynaklar için basit bir HTTP tabanlı RESTful programlama modeli sunar. 
 
 
 Azure Cosmos DB veritabanı hesabı, size Azure Cosmos DB erişimi sağlayan benzersiz bir ad alanıdır. Bir veritabanı hesabı oluşturabilmeniz için, öncelikle çeşitli Azure hizmetlerine erişim sağlayan bir Azure aboneliğinizin olması gerekir. 
@@ -90,25 +85,19 @@ Azure Cosmos DB, HTTP/HTTPS istekleri yapabilen herhangi bir dil tarafından ça
 
 DocumentDB API’si temel oluşturma, okuma, güncelleştirme ve silme işlemlerinin ötesinde JSON belgelerini almak için zengin bir SQL sorgusu arabirimi ve JavaScript uygulama mantığının işlem tabanlı olarak yürütülmesi için sunucu tarafı desteği sağlar. Sorgu ve betik yürütme arabirimleri, REST API'lerinin yanı sıra tüm platform kitaplıkları aracılığıyla kullanılabilir. 
 
-<a id="sql-query" class="xliff"></a>
-
-### SQL sorgusu
-DocumentDB API’si kökü JavaScript türü sistemde bulunan bir SQL dilini kullanarak belgelerin sorgulanmasını ve ilişkisel, hiyerarşik ve uzamsal sorguları destekleyen ifadeleri destekler. DocumentDB sorgu dili, JSON belgelerini sorgulamak için basit ancak güçlü bir arabirimdir. Dil, ANSI SQL dil bilgisinin bir alt kümesini destekler ve JavaScript nesnesi, dizileri, nesne oluşturması ve işlev çağrısı için derin tümleştirme sağlar. DocumentDB geliştiriciden herhangi bir açık şema veya dizin oluşturma ipuçları almadan kendi sorgu modelini sağlar.
+### <a name="sql-query"></a>SQL sorgusu
+DocumentDB API’si kökü JavaScript türü sistemde bulunan bir SQL dilini kullanarak belgelerin sorgulanmasını ve ilişkisel, hiyerarşik ve uzamsal sorguları destekleyen ifadeleri destekler. DocumentDB sorgu dili, JSON belgelerini sorgulamak için basit ancak güçlü bir arabirimdir. Dil, ANSI SQL dil bilgisinin bir alt kümesini destekler ve JavaScript nesnesi, dizileri, nesne oluşturması ve işlev çağrısı için derin tümleştirme sağlar. DocumentDB API’si geliştiriciden herhangi bir açık şema veya dizin oluşturma ipuçları almadan kendi sorgu modelini sağlar.
 
 Kullanıcı Tanımlı İşlevler (UDF'ler) DocumentDB API'sine kaydedilebilir ve bunlara bir SQL sorgusunun parçası olarak başvurulabilir, böylece dil bilgisi özel uygulama mantığını destekleyecek şekilde genişletilmiş olur. Bu UDF'ler JavaScript programları olarak yazılır ve veritabanı içinde yürütülür. 
 
-.NET geliştiricileri için DocumentDB [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx)'sı bir LINQ sorgu sağlayıcısı da sunar. 
+.NET geliştiricileri için DocumentDB API [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx)'sı bir LINQ sorgu sağlayıcısı da sunar. 
 
-<a id="transactions-and-javascript-execution" class="xliff"></a>
-
-### İşlemler ve JavaScript yürütme
+### <a name="transactions-and-javascript-execution"></a>İşlemler ve JavaScript yürütme
 DocumentDB API’si, uygulama mantığını tamamen JavaScript'te yazılmış adlandırılmış programlar olarak yazmanızı sağlar. Bu programlar bir koleksiyon için kaydedilir ve belirli bir koleksiyon içindeki belgelerde veritabanı işlemlerini yürütebilir. JavaScript bir tetikleyici, saklı yordam veya kullanıcı tanımlı işlev olarak yürütme için kaydedilebilir. Tetikleyiciler ve saklı yordamlar belgeleri oluşturabilir, okuyabilir, güncelleştirebilir ve silebilir ancak kullanıcı tanımlı işlevler, koleksiyona yazma erişimi olmaksızın sorgu yürütme mantığının parçası olarak yürütülür.
 
-DocumentDB API’si içinde JavaScript yürütme, ilişkisel veritabanı sistemleri tarafından desteklenen kavramlara göre modellenmiştir ve JavaScript Transact-SQL'in modern bir ardılı olarak kullanılır. Tüm JavaScript mantığı, anlık görüntü yalıtımıyla çevresel ACID işlemi içinde yürütülür. Yürütme sürecinde JavaScript bir özel durum oluşturursa tüm işlem iptal edilir.
+Cosmos DB içinde JavaScript yürütme, ilişkisel veritabanı sistemleri tarafından desteklenen kavramlara göre modellenmiştir ve JavaScript Transact-SQL'in modern bir ardılı olarak kullanılır. Tüm JavaScript mantığı, anlık görüntü yalıtımıyla çevresel ACID işlemi içinde yürütülür. Yürütme sürecinde JavaScript bir özel durum oluşturursa tüm işlem iptal edilir.
 
-<a id="are-there-any-online-courses-on-azure-cosmos-db" class="xliff"></a>
-
-## Azure Cosmos DB ile ilgili çevrimiçi kurslar var mı?
+## <a name="are-there-any-online-courses-on-azure-cosmos-db"></a>Azure Cosmos DB ile ilgili çevrimiçi kurslar var mı?
 
 Evet, Azure DocumentDB’de [Microsoft Sanal Akademi](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) kursu mevcuttur. 
 
@@ -116,9 +105,7 @@ Evet, Azure DocumentDB’de [Microsoft Sanal Akademi](https://mva.microsoft.com/
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Zaten bir Azure hesabınız var mı? Bundan sonra, hesap oluşturma ve Cosmos DB ile çalışmaya başlama konusunda size kılavuzluk edecek [hızlı başlangıçlarımızı](../cosmos-db/create-documentdb-dotnet.md) takip ederek Azure Cosmos DB’yi kullanmaya başlayabilirsiniz.
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png

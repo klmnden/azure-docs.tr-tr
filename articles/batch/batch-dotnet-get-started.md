@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1dc728cf6497d8ba0d35a7e41e51a52c5ca6d7df
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>.NET için Batch istemci kitaplığıyla çözüm derlemeye başlama
@@ -45,7 +44,7 @@ Bu makalede, C# ve Visual Studio deneyimine sahip olduğunuz varsayılmaktadır.
 * **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) bölümü.
 
 > [!IMPORTANT]
-> Batch şu anda, [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md) bölümünde 5. adım olan [Depolama hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account)da açıklandığı gibi, *sadece* **Genel amaçlı** depolama hesabı türünü destekler.
+> Batch şu anda *yalnızca*, [Azure Depolama hesapları hakkında](../storage/storage-create-storage-account.md) belgesinin [Depolama hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) adlı 5. adımında açıklanan **genel amaçlı** depolama hesabı türünü desteklemektedir.
 >
 >
 
@@ -105,7 +104,7 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Yukarıda da belirtildiği gibi, Azure Storage’daki kimlik bilgilerini **Genel amaçlı** depolama hesabı için belirtmelisiniz. Toplu Batch uygulamalarınız, **Genel amaçlı** depolama hesabında blob depolama kullanır. *Blob depolama* hesap türünü seçerek oluşturulmuş Storage hesabı için kimlik bilgilerini belirtmeyin.
+> Yukarıda da belirtildiği gibi, şu an için Azure Depolama’da **genel amaçlı** bir depolama hesabının kimlik bilgilerini belirtmeniz gerekmektedir. Batch uygulamalarınız, **genel amaçlı** depolama hesabı içinde blob depolama kullanır. *Blob depolama* hesap türünü seçerek oluşturulmuş Storage hesabı için kimlik bilgilerini belirtmeyin.
 >
 >
 
@@ -363,7 +362,12 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-[CreatePool][net_pool_create] ile havuz oluşturduğunuzda, işlem düğümlerinin sayısı, [düğümlerin boyutu](../cloud-services/cloud-services-sizes-specs.md) ve düğümlerin işletim sistemi gibi parametreleri belirtirsiniz. *DotNetTutorial* ’da, [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md)’dan Windows Server 2012 R2'yi belirtmek için [CloudServiceConfiguration][net_cloudserviceconfiguration] kullanırız. Ancak bunun yerine [VirtualMachineConfiguration][net_virtualmachineconfiguration] belirterek, hem Windows hem de Linux görsellerinin yer aldığı Market görsellerinden havuz oluşturabilirsiniz; daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
+[CreatePool][net_pool_create] ile havuz oluşturduğunuzda, işlem düğümlerinin sayısı, [düğümlerin boyutu](../cloud-services/cloud-services-sizes-specs.md) ve düğümlerin işletim sistemi gibi parametreleri belirtirsiniz. *DotNetTutorial* ’da, [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md)’dan Windows Server 2012 R2'yi belirtmek için [CloudServiceConfiguration][net_cloudserviceconfiguration] kullanırız. 
+
+Ayrıca, havuzunuz için [VirtualMachineConfiguration][net_virtualmachineconfiguration] değerini belirterek Azure Sanal Makineleri (VM) olan işlem düğümü havuzları oluşturabilirsiniz. VM işlem düğümü havuzlarını Windows veya [Linux görüntülerinden](batch-linux-nodes.md) oluşturabilirsiniz. VM görüntüleriniz için kaynaklar şunlar olabilir:
+
+- Hem Windows hem de Linux için kullanıma hazır görüntüler bulabileceğiniz [Microsoft Azure Sanal Makineler Market görüntüleri][vm_marketplace]. 
+- Hazırlayıp sağlayacağınız bir özel görüntü. Özel görüntüler hakkında daha fazla ayrıntı için bkz. [Batch ile büyük ölçekli paralel işlem çözümleri geliştirme](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
 > Batch’teki işlem kaynakları ücretlidir. Maliyetleri en aza indirmek için, örneği çalıştırmadan önce `targetDedicatedComputeNodes` değerini 1 olarak düşürün.
@@ -788,6 +792,7 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/vs/
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Azure Depolama’da kapsayıcı oluşturma"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Görev uygulamasını ve girdi (veriler) dosyalarını kapsayıcılara yükleme"

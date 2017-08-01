@@ -1,5 +1,5 @@
 ---
-title: "Tahmine dayalı bakım kılavuzu | Microsoft Belgeleri"
+title: "Tahmine dayalı bakım kılavuzu | Microsoft Docs"
 description: "Azure IoT önceden yapılandırılmış tahmine dayalı bakım çözümü gezintisi."
 services: 
 suite: iot-suite
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış tahmine dayalı bakım çözümünde gezinme
 
-## <a name="introduction"></a>Giriş
-
-IoT Paketi önceden yapılandırılmış tahmine dayalı bakım çözümü, arıza oluştuğu sırada noktayı tahmin eden iş senaryosu için uçtan uca bir çözümüdür. Bu önceden yapılandırılmış çözümü, bakım iyileştirmesi gibi etkinlikler için proaktif olarak kullanabilirsiniz. Çözüm IoT Hub, Stream Analytics ve [Azure Machine Learning][lnk-machine-learning] çalışma alanı gibi önemli Azure IoT Paketi hizmetlerini birleştirir. Bu çalışma alanı, bir uçak motorunun Kalan Kullanım Ömrü’nü (RUL) öngörmek için genel bir örnek veri kümesini temel alan bir model içerir. Bu çözüm, kendinize özel iş gereksinimlerinizi karşılayacak bir çözümü planlamanız ve uygulamanız amacıyla sizin için bir başlangıç noktası olarak IoT iş senaryosunu tam olarak uygular.
+Önceden yapılandırılmış tahmine dayalı bakım çözümü, arıza oluştuğu sırada noktayı tahmin eden iş senaryosu için uçtan uca bir çözümüdür. Bu önceden yapılandırılmış çözümü, bakım iyileştirmesi gibi etkinlikler için proaktif olarak kullanabilirsiniz. Çözüm IoT Hub, Stream Analytics ve [Azure Machine Learning][lnk-machine-learning] çalışma alanı gibi önemli Azure IoT Paketi hizmetlerini birleştirir. Bu çalışma alanı, bir uçak motorunun Kalan Kullanım Ömrü’nü (RUL) öngörmek için genel bir örnek veri kümesini temel alan bir model içerir. Bu çözüm, kendinize özel iş gereksinimlerinizi karşılayacak bir çözümü planlamanız ve uygulamanız amacıyla sizin için bir başlangıç noktası olarak IoT iş senaryosunu tam olarak uygular.
 
 ## <a name="logical-architecture"></a>Mantıksal mimari
 
@@ -34,7 +32,7 @@ Aşağıdaki diyagram önceden yapılandırılmış çözümün mantıksal bile�
 
 ![][img-architecture]
 
-Önceden yapılandırılmış çözümü hazırladığınızda seçtiğiniz bölgede hazırlanan Azure hizmetleri mavi olan öğelerdir. Önceden yapılandırılmış çözümü dağıtabileceğiniz bölgelerin listesi [sağlama sayfasında][lnk-azureiotsuite] gösterilir.
+Mavi öğele, önceden yapılandırılmış çözümü dağıtırken seçtiğiniz bölgede sağlanan Azure hizmetleridir. Önceden yapılandırılmış çözümü dağıtabileceğiniz bölgelerin listesi [sağlama sayfasında][lnk-azureiotsuite] gösterilir.
 
 Yeşil öğe uçak motorunu temsil eden sanal cihazdır. Aşağıdaki bölümde bu sanal cihazlarla ilgili daha fazla bilgiye ulaşabilirsiniz.
 
@@ -58,13 +56,17 @@ Sanal cihazlar, çözümde IoT hub'ı tarafından gönderilen aşağıdaki komut
 IoT hub'ı cihaz komut bildirim sağlar.
 
 ## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics işi
-**İş: Telemetri**, gelen cihaz telemetrisi akışını iki durumu kullanarak çalıştırır. Önce, cihazlardan tüm telemetriyi seçer ve bu verileri web uygulamasında görselleştirildiği yerden blob depolamaya gönderir. İkinci durum, iki dakikalık kayan pencere üzerinde ortalama algılayıcı değerlerini ölçer ve bu verileri Olay hub'ı aracılığıyla **olay işlemcisi**’ne gönderir.
+
+**İş: Telemetri**, gelen cihaz telemetrisi akışını iki durumu kullanarak çalıştırır:
+
+* İlki, cihazlardan tüm telemetriyi seçer ve bu verileri blob depolamaya gönderir. Ardından veriler web uygulamasında görselleştirilir.
+* İkinciyse iki dakikalık kayan pencere üzerinde ortalama algılayıcı değerlerini ölçer ve bu verileri Olay hub'ı aracılığıyla **olay işlemcisi**’ne gönderir.
 
 ## <a name="event-processor"></a>Olay işlemcisi
 **Olay işleyicisi konağı** bir Azure Web İşi’nde çalıştırır. **Olay işlemcisi**, tamamlanan bir döngü için ortalama algılayıcı değerlerini alır. Daha sonra bu değerleri bir motorun RUL değerini hesaplaması için eğitilmiş modelin kullanımına sunan bir API’ye geçirir. API, çözümün bir parçası olarak sağlanan Machine Learning çalışma alanı tarafından kullanıma sunulur.
 
 ## <a name="machine-learning"></a>Machine Learning
-Machine Learning bileşeni gerçek uçak motorlarından toplanan verilerden türetilmiş bir model kullanır. Sağladığınız çözüm **Hazır** durumunda olduğunda çözümün [azureiotsuite.com][lnk-azureiotsuite] sayfasındaki kutucuktan Machine Learning çalışma alanına gidebilirsiniz.
+Machine Learning bileşeni gerçek uçak motorlarından toplanan verilerden türetilmiş bir model kullanır. Sağladığınız çözümün [azureiotsuite.com][lnk-azureiotsuite] sayfasındaki kutucuktan Machine Learning çalışma alanına gidebilirsiniz. Çözüm **Hazır** durumda olduğunda kutucuk kullanılabilir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

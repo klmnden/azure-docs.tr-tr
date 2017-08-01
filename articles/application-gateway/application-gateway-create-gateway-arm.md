@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Azure Resource Manager kullanarak bir uygulama ağ geçidi oluşturma, başlatma veya silme
@@ -171,10 +170,10 @@ Bu örnekte, URL yolu temel alınarak ağ trafiğini yönlendirmek üzere iki ar
 
 ### <a name="step-3"></a>3. Adım
 
-**poolsetting01** uygulama ağ geçidi ayarlarını arka uç havuzundaki yük dengeli ağ trafiği için yapılandırın. Her bir arka uç havuzu kendi arka uç havuzu ayarlarına sahip olabilir.  Arka uç HTTP ayarları, trafiği doğru arka uç havuzu üyelerine yönlendirmek üzere kurallar tarafından kullanılır. Arka uç HTTP ayarları, arka uç havuz üyelerine trafik gönderirken kullanılan protokolü ve bağlantı noktasını belirler. Tanımlama bilgisine dayalı oturumlar da arka uç HTTP ayarları tarafından belirlenir.  Etkinleştirilirse, tanımlama bilgisine dayalı oturum benzeşimi, her paket için önceki isteklerle aynı arka uca trafik gönderir.
+Arka uç havuzundaki yük dengeli ağ trafiği için **poolsetting** uygulama ağ geçidi ayarını yapılandırın. Her bir arka uç havuzu kendi arka uç havuzu ayarlarına sahip olabilir.  Arka uç HTTP ayarları, trafiği doğru arka uç havuzu üyelerine yönlendirmek üzere kurallar tarafından kullanılır. Arka uç HTTP ayarları, arka uç havuz üyelerine trafik gönderirken kullanılan protokolü ve bağlantı noktasını belirler. Tanımlama bilgisine dayalı oturumlar da arka uç HTTP ayarları tarafından belirlenir.  Etkinleştirilirse, tanımlama bilgisine dayalı oturum benzeşimi, her paket için önceki isteklerle aynı arka uca trafik gönderir.
 
 ```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 ```
 
 ### <a name="step-4"></a>4. Adım
@@ -206,7 +205,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 Yük dengeleyici davranışını yapılandıran **rule01** adlı yük dengeleyiciyi yönlendirme kuralını oluşturun. Arka uç havuzu ayarları, dinleyici ve önceki adımlarda oluşturulan arka uç havuzu kuralı oluşturur. Tanımlanan ölçütler temel alınarak, trafik uygun arka uca yönlendirilir.
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 ### <a name="step-8"></a>8. Adım

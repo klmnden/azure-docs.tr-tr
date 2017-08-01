@@ -1,6 +1,6 @@
 Dağıtım sırasında bir kaynağı etiketlemek için `tags` öğesini dağıtmakta olduğunuz kaynağa ekleyin. Etiket adını ve değerini belirtin.
 
-### <a name="apply-literal-value-to-tag-name"></a>Etiket adına değişmez değer uygulama
+### <a name="apply-a-literal-value-to-the-tag-name"></a>Etiket adına değişmez değer uygulama
 Aşağıdaki örnekte değişmez değerlere ayarlanmış iki etiketi (`Dept` ve `Environment`) olan bir depolama hesabı gösterilmektedir:
 
 ```json
@@ -27,7 +27,7 @@ Aşağıdaki örnekte değişmez değerlere ayarlanmış iki etiketi (`Dept` ve 
 }
 ```
 
-### <a name="apply-object-to-tag-element"></a>Etiket öğesine nesne uygulama
+### <a name="apply-an-object-to-the-tag-element"></a>Nesne etiketine öğe uygulama
 Birkaç etiketi depolayan bir nesne parametresi tanımlayabilir ve bu nesneyi etiket öğesine uygulayabilirsiniz. Nesnedeki her özellik, kaynak için ayrı bir etiket haline gelir. Aşağıdaki örnekte etiket parametresine uygulanan `tagValues` adlı bir parametre kullanılmaktadır.
 
 ```json
@@ -60,7 +60,7 @@ Birkaç etiketi depolayan bir nesne parametresi tanımlayabilir ve bu nesneyi et
 }
 ```
 
-### <a name="apply-json-string-to-tag-name"></a>Etiket adına JSON dizesi uygulama
+### <a name="apply-a-json-string-to-the-tag-name"></a>Etiket adına JSON dizesi uygulama
 
 Çok sayıda değeri tek bir etikete depolamak için, değerleri temsil eden bir JSON dizesi uygulayın. Tüm JSON dizesi, 256 karakterden uzun olmayan bir etiket olarak depolanır. Aşağıdaki örnekte bir JSON dizesindeki çok sayıda değeri içeren `CostCenter` adlı tek bir etiket kullanılmaktadır:  
 
@@ -86,7 +86,3 @@ Birkaç etiketi depolayan bir nesne parametresi tanımlayabilir ve bu nesneyi et
     ]
 }
 ```
-
-<!--HONumber=Feb17_HO1-->
-
-

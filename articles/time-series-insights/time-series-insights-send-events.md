@@ -1,36 +1,32 @@
 ---
 title: "Azure Zaman Serisi Görüşleri ortamına olayları gönderme | Microsoft Docs"
-description: "Bu öğretici, olayların Zaman Serisi Görüşleri ortamına nasıl gönderildiği konusunu kapsar"
+description: "Bu öğretici, olayları Zaman Serisi Görüşleri ortamınıza gönderme adımlarını içerir."
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: venkatgct
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/21/2017
 ms.author: venkatja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9f2d3b57a42efb7b04566278d3267b3cdbed713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/24/2017
 
 ---
-<a id="send-events-to-a-time-series-insights-environment-via-event-hub" class="xliff"></a>
-
-# Olay hub’ı üzerinden olayları Zaman Serisi Görüşleri ortamına gönderme
+# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Olay hub’ı kullanarak olayları Zaman Serisi Görüşleri ortamına gönderme
 
 Bu öğreticide, olay hub’ının nasıl oluşturulduğu ve yapılandırıldığı, ayrıca olayları göndermek için örnek bir uygulamanın nasıl çalıştırıldığı açıklanır. JSON biçiminde olaylar içeren bir olay hub’ınız mevcutsa bu öğreticiyi atlayabilir ve [zaman serisi görüşlerinde](https://insights.timeseries.azure.com) ortamınızı görüntüleyebilirsiniz.
 
-<a id="configure-an-event-hub" class="xliff"></a>
-
-## Olay hub’ını yapılandırma
+## <a name="configure-an-event-hub"></a>Olay hub’ını yapılandırma
 1. Olay hub’ı oluşturmak için, Olay Hub’ı [belgelerindeki](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) yönergeleri izleyin.
 
 2. Özel olarak yalnızca Zaman Serisi Görüşleri olay kaynağınız tarafından kullanılan bir tüketici grubu oluşturduğunuzdan emin olun.
@@ -46,18 +42,14 @@ Bu öğreticide, olay hub’ının nasıl oluşturulduğu ve yapılandırıldı�
 
   ![Yeni paylaşılan erişim ilkesi ekleme](media/send-events/shared-access-policy-2.png)  
 
-<a id="create-time-series-insights-event-source" class="xliff"></a>
-
-## Zaman Serisi Görüşleri olay kaynağı oluşturma
-1. Olay kaynağı oluşturmadıysanız, olay kaynağını oluşturmak için [burada](time-series-insights-add-event-source.md) belirtilen yönergeleri izleyin.
+## <a name="create-time-series-insights-event-source"></a>Zaman Serisi Görüşleri olay kaynağı oluşturma
+1. Bir olay kaynağı oluşturmadıysanız, olay kaynağını oluşturmak için [bu yönergeleri](time-series-insights-add-event-source.md) izleyin.
 
 2. Zaman damgası özellik adı olarak “deviceTimestamp” değerini belirtin; bu özellik, csharp örneğinde gerçek zaman damgası olarak kullanılmıştır. Zaman damgası özellik adı büyük/küçük harfe duyarlıdır ve olay hub’ına JSON olarak gönderildiğinde değerleri __yyyy-AA-ggTSS:dd:ss.FFFFFFFK__ biçiminde olmalıdır. Özellik olayda mevcut değilse olay hub'ı sıraya alınan zamanı kullanılır.
 
   ![Olay kaynağı oluşturma](media/send-events/event-source-1.png)
 
-<a id="sample-code-to-push-events" class="xliff"></a>
-
-## Olayları göndermek için kullanılacak örnek kod
+## <a name="sample-code-to-push-events"></a>Olayları göndermek için kullanılacak örnek kod
 1. “MySendPolicy” olay hub’ı ilkesine gidin ve ilke anahtarıyla bağlantı dizesini kopyalayın.
 
   ![MySendPolicy bağlantı dizesini kopyalama](media/send-events/sample-code-connection-string.png)
@@ -131,16 +123,10 @@ namespace Microsoft.Rdx.DataGenerator
 }
 
 ```
-<a id="supported-json-shapes" class="xliff"></a>
+## <a name="supported-json-shapes"></a>Desteklenen JSON şekilleri
+### <a name="sample-1"></a>Örnek 1
 
-## Desteklenen JSON şekilleri
-<a id="sample-1" class="xliff"></a>
-
-### Örnek 1
-
-<a id="input" class="xliff"></a>
-
-#### Girdi
+#### <a name="input"></a>Girdi
 
 Basit bir JSON nesnesi.
 
@@ -150,21 +136,15 @@ Basit bir JSON nesnesi.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-<a id="output---1-event" class="xliff"></a>
-
-#### Çıkış - 1 olay
+#### <a name="output---1-event"></a>Çıkış - 1 olay
 
 |id|timestamp|
 |--------|---------------|
 |cihaz1|2016-01-08T01:08:00Z|
 
-<a id="sample-2" class="xliff"></a>
+### <a name="sample-2"></a>Örnek 2
 
-### Örnek 2
-
-<a id="input" class="xliff"></a>
-
-#### Girdi
+#### <a name="input"></a>Girdi
 İki JSON nesnesi içeren JSON dizisi. Her JSON nesnesi bir olaya dönüştürülür.
 ```json
 [
@@ -178,21 +158,15 @@ Basit bir JSON nesnesi.
     }
 ]
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Çıkış - 2 Olay
+#### <a name="output---2-events"></a>Çıkış - 2 Olay
 
 |id|timestamp|
 |--------|---------------|
 |cihaz1|2016-01-08T01:08:00Z|
 |cihaz2|2016-01-08T01:17:00Z|
-<a id="sample-3" class="xliff"></a>
+### <a name="sample-3"></a>Örnek 3
 
-### Örnek 3
-
-<a id="input" class="xliff"></a>
-
-#### Girdi
+#### <a name="input"></a>Girdi
 
 İki JSON nesnesi içeren iç içe bir JSON dizisi ile JSON nesnesi.
 ```json
@@ -211,9 +185,7 @@ Basit bir JSON nesnesi.
 }
 
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Çıkış - 2 Olay
+#### <a name="output---2-events"></a>Çıkış - 2 Olay
 "location" özelliğinin her olaya kopyalandığına dikkat edin.
 
 |location|events.id|events.timestamp|
@@ -221,13 +193,9 @@ Basit bir JSON nesnesi.
 |WestUs|cihaz1|2016-01-08T01:08:00Z|
 |WestUs|cihaz2|2016-01-08T01:17:00Z|
 
-<a id="sample-4" class="xliff"></a>
+### <a name="sample-4"></a>Örnek 4
 
-### Örnek 4
-
-<a id="input" class="xliff"></a>
-
-#### Girdi
+#### <a name="input"></a>Girdi
 
 İki JSON nesnesi içeren iç içe bir JSON dizisi ile JSON nesnesi. Girilen bu değer, genel özelliklerin karmaşık JSON nesnesiyle ifade edilebileceğini gösterir.
 
@@ -260,18 +228,14 @@ Basit bir JSON nesnesi.
     ]
 }
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Çıkış - 2 Olay
+#### <a name="output---2-events"></a>Çıkış - 2 Olay
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|üretici1|EastUs|cihaz1|2016-01-08T01:08:00Z|basınç|psi|108.09|
 |WestUs|üretici1|EastUs|cihaz2|2016-01-08T01:17:00Z|titreşim|abs G|217.09|
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [Zaman Serisi Görüşleri Portalı](https://insights.timeseries.azure.com)’nda ortamınızı görüntüleme
 
