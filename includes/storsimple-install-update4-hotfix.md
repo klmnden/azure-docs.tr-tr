@@ -1,8 +1,6 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-<a id="to-download-hotfixes" class="xliff"></a>
-
-#### To download hotfixes
+#### <a name="to-download-hotfixes"></a>To download hotfixes
 
 Perform the following steps to download the software update from the Microsoft Update Catalog.
 
@@ -25,9 +23,7 @@ Perform the following steps to download the software update from the Microsoft U
 >
 > The hotfixes must be copied in 3 separate folders. For example, the device software/Cis/MDS agent update can be copied in _FirstOrderUpdate_ folder, all the other non-disruptive updates could be copied in the _SecondOrderUpdate_ folder, and maintenance mode updates copied in _ThirdOrderUpdate_ folder.
 
-<a id="to-install-and-verify-regular-mode-hotfixes" class="xliff"></a>
-
-#### To install and verify regular mode hotfixes
+#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>To install and verify regular mode hotfixes
 
 Perform the following steps to install and verify regular-mode hotfixes. If you already installed them using the Azure classic portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
 
@@ -109,9 +105,7 @@ After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versio
    * `Lsisas2Version: 2.0.78.00`
 
 
-<a id="to-install-and-verify-maintenance-mode-hotfixes" class="xliff"></a>
-
-#### To install and verify maintenance mode hotfixes
+#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>To install and verify maintenance mode hotfixes
 Use KB4011837 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
 
 Note that if your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.

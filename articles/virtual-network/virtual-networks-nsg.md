@@ -22,18 +22,14 @@ ms.lasthandoff: 06/01/2017
 
 
 ---
-<a id="filter-network-traffic-with-network-security-groups" class="xliff"></a>
-
-# Ağ güvenlik grupları ile ağ trafiğini filtreleme
+# <a name="filter-network-traffic-with-network-security-groups"></a>Ağ güvenlik grupları ile ağ trafiğini filtreleme
 
 Ağ güvenlik grubu (NSG), Azure Sanal Ağlara (VNet) bağlı kaynaklara ağ trafiğine izin veren veya reddeden güvenlik kurallarının listesini içerir. Ağ güvenlik grupları (NSG’ler), alt ağlarla, ayrı ayrı VM’lerle (klasik) veya VM’lere bağlı ağ arabirimleri ile ilişkilendirilebilir (Resource Manager). Bir NSG bir alt ağ ile ilişkilendirildiğinde kurallar alt ağa bağlı tüm kaynaklar için geçerli olur. Bir NSG’nin bir VM veya ağ arabirimi ile ilişkilendirilmesi yoluyla da trafik kısıtlanabilir.
 
 > [!NOTE]
 > Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makale her iki modelin de nasıl kullanıldığını kapsıyor olsa da, Microsoft en yeni dağıtımların Resource Manager modelini kullanmasını önermektedir.
 
-<a id="nsg-resource" class="xliff"></a>
-
-## NSG kaynağı
+## <a name="nsg-resource"></a>NSG kaynağı
 NSG'ler aşağıdaki özellikleri içerir:
 
 | Özellik | Açıklama | Kısıtlamalar | Dikkat edilmesi gerekenler |
@@ -47,9 +43,7 @@ NSG'ler aşağıdaki özellikleri içerir:
 > Uç nokta tabanlı ACL'ler ve ağ güvenlik grupları, aynı VM örneğinde desteklenmez. Bir NSG'yi kullanmak istiyorsanız ve bir uç nokta ACL'si zaten kullanılıyorsa öncelikle uç nokta ACL'sini kaldırın. ACL’yi kaldırma hakkında bilgi için bkz. [PowerShell kullanarak Uç Noktalar için Erişim Denetim Listelerini (ACL’ler) yönetme](virtual-networks-acl-powershell.md).
 > 
 
-<a id="nsg-rules" class="xliff"></a>
-
-### NSG kuralları
+### <a name="nsg-rules"></a>NSG kuralları
 NSG kuralları aşağıdaki özellikleri içerir:
 
 | Özellik | Açıklama | Kısıtlamalar | Dikkat edilmesi gerekenler |
@@ -70,18 +64,14 @@ NSG'ler iki kural kümesi içerir: Gelen ve giden. Bir kurala ait öncelik her k
 
 Önceki resimde NSG kurallarının nasıl işlendiği gösterilmektedir.
 
-<a id="default-tags" class="xliff"></a>
-
-### Varsayılan Etiketler
+### <a name="default-tags"></a>Varsayılan Etiketler
 Varsayılan etiketler, bir IP adresi kategorisini belirtmek için sistem tarafından sağlanan tanımlayıcılardır. Herhangi bir kuralın **kaynak adres ön eki** ve **hedef adres ön eki** özelliklerinde varsayılan etiketleri kullanabilirsiniz. Kullanabileceğiniz üç varsayılan etiket vardır:
 
 * **VirtualNetwork** (Resource Manager) (klasik için **VIRTUAL_NETWORK**): Bu etiket, sanal ağ adresi alanını (Azure'da tanımlanan CIDR aralıkları), bağlı olan tüm şirket içi adres alanlarını ve bağlı Azure sanal ağlarını (yerel ağlar) içerir.
 * **AzureLoadBalancer** (Resource Manager) (Klasik için **AZURE_LOADBALANCER**): Bu etiket Azure altyapı infrastructure yük dengeleyicisini belirtir. Bu etiket, Azure'ın sistem durumu araştırmalarının kaynağı olan bir Azure veri merkezi IP'sine çevrilir.
 * **Internet** (Resource Manager) (klasik için **INTERNET**): Bu etiket, sanal ağın dışında olan ve genel İnternet ile ulaşılabilen IP adresi alanını belirtir. Bu aralık [Azure'a ait genel IP alanını](https://www.microsoft.com/download/details.aspx?id=41653) içerir.
 
-<a id="default-rules" class="xliff"></a>
-
-### Varsayılan kurallar
+### <a name="default-rules"></a>Varsayılan kurallar
 Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Varsayılan kurallar silinemez ancak en düşük önceliğe atanmış oldukları için sizin oluşturduğunuz kurallar tarafından geçersiz kılınabilirler. 
 
 Varsayılan kurallar, trafiğe aşağıdaki gibi izin verir ve reddeder:
@@ -105,9 +95,7 @@ Varsayılan kurallar, trafiğe aşağıdaki gibi izin verir ve reddeder:
 | AllowInternetOutBound | 65001 | * | * | Internet | * | * | İzin Ver |
 | DenyAllOutBound | 65500 | * | * | * | * | * | Reddet |
 
-<a id="associating-nsgs" class="xliff"></a>
-
-## NSG'leri ilişkilendirme
+## <a name="associating-nsgs"></a>NSG'leri ilişkilendirme
 Kullandığınız dağıtım modeline bağlı olarak, bir NSG'yi VM'lerle, ağ arabirimleriyle ve alt ağlarla aşağıdaki gibi ilişkilendirebilirsiniz:
 
 * **VM (yalnızca klasik):** Güvenlik kuralları VM’ye/VM’den tüm trafiğe uygulanır. 
@@ -132,9 +120,7 @@ Bir VM (veya dağıtım modeline bağlı olarak, ağ arabirimi) ve bu VM'nin (ve
 > Tek bir NSG'yi, yalnızca bir alt ağ, VM veya ağ arabirimi ile ilişkilendirebilirsiniz. Ancak aynı NSG'yi istediğiniz sayıda kaynak ile ilişkilendirebilirsiniz.
 >
 
-<a id="implementation" class="xliff"></a>
-
-## Uygulama
+## <a name="implementation"></a>Uygulama
 Aşağıdaki araçları kullanarak NSG’leri Resource Manager veya klasik dağıtım modellerine uygulayabilirsiniz:
 
 | Dağıtım aracı | Klasik | Resource Manager |
@@ -145,9 +131,7 @@ Aşağıdaki araçları kullanarak NSG’leri Resource Manager veya klasik dağ�
 | Azure CLI **V2**   | Hayır | [Evet](virtual-networks-create-nsg-arm-cli.md) |
 | Azure Resource Manager şablonu   | Hayır  | [Evet](virtual-networks-create-nsg-arm-template.md) |
 
-<a id="planning" class="xliff"></a>
-
-## Planlama
+## <a name="planning"></a>Planlama
 NSG'leri uygulamadan önce aşağıdaki soruları yanıtlamanız gerekir:
 
 1. Hangi tür kaynakların gelen veya giden trafiğini filtrelemek istersiniz? Ağ arabirimleri (Resource Manager), VM’ler (klasik), Cloud Services, Uygulama Hizmeti Ortamları ve VM Ölçek Kümeleri gibi kaynakları bağlayabilirsiniz. 
@@ -155,59 +139,41 @@ NSG'leri uygulamadan önce aşağıdaki soruları yanıtlamanız gerekir:
 
 Azure'da ağ güvenliği planlaması konusunda daha fazla bilgi için [Bulut hizmetleri ve ağ güvenliği](../best-practices-network-security.md) makalesini okuyun. 
 
-<a id="design-considerations" class="xliff"></a>
-
-## Tasarım konusunda dikkat edilmesi gerekenler
+## <a name="design-considerations"></a>Tasarım konusunda dikkat edilmesi gerekenler
 [Planlama](#Planning) bölümündeki soruların yanıtlarını öğrendiğiniz zaman, NSG'lerinizi tanımlamadan önce aşağıdaki bölümleri gözden geçirin:
 
-<a id="limits" class="xliff"></a>
-
-### Sınırlar
+### <a name="limits"></a>Sınırlar
 Bir abonelikte sahip olabileceğiniz NSG sayısı ve NSG başına kural sayısı sınırlıdır. Sınırlar hakkında daha fazla bilgi için [Azure limitleri](../azure-subscription-service-limits.md#networking-limits) makalesini okuyun.
 
-<a id="vnet-and-subnet-design" class="xliff"></a>
-
-### Sanal ağ ve alt ağ tasarımı
+### <a name="vnet-and-subnet-design"></a>Sanal ağ ve alt ağ tasarımı
 NSG'ler alt ağlara uygulanabildiğinden kaynaklarınızı alt ağa göre gruplayıp NSG'leri alt ağlara uygulayarak NSG sayısını en aza indirebilirsiniz.  NSG'leri alt ağlara uygulamaya karar verirseniz var olan sanal ağlarınızın ve alt ağlarınızın NSG'ler göz önüne alınmadan tanımlanmış olduğunu fark edebilirsiniz. NSG tasarımınızı destekleyen yeni sanal ağlar ile alt ağlar tanımlamanız ve yeni kaynaklarınızı yeni alt ağlarınıza dağıtmanız gerekebilir. Bu işlemlerden sonra var olan kaynaklarınızı yeni alt ağlara taşımak için bir geçiş stratejisi tanımlayabilirsiniz. 
 
-<a id="special-rules" class="xliff"></a>
-
-### Özel kurallar
+### <a name="special-rules"></a>Özel kurallar
 Aşağıdaki kuralların izin verdiği trafiği engellerseniz, altyapınız temel Azure hizmetleriyle iletişim kuramaz:
 
 * **Ana bilgisayar düğümünün sanal IP'si:** DHCP, DNS ve sistem durumunu izleme gibi temel altyapı hizmetleri, 168.63.129.16 numaralı sanallaştırılmış ana bilgisayar IP adresi yoluyla sağlanır. Bu genel IP adresi Microsoft'a aittir ve tüm bölgelerde bu amaç için kullanılan tek sanallaştırılmış IP adresi olarak kullanılır. Bu IP adresi, VM’yi barındıran sunucu makinesinin (ana bilgisayar düğümü) fiziksel IP adresiyle eşleşir. Ana bilgisayar düğümü, yük dengeleyici durum araştırması ve makine durumu araştırması için araştırma kaynağı, DNS özyinelemeli çözümleyici ve DHCP geçişi olarak görev yapar. Bu IP adresi ile iletişim bir saldırı değildir.
 * **Lisanslama (Anahtar Yönetimi Hizmeti):** VM’lerde çalışan Windows görüntülerinin lisanslanması gerekir. Lisanslama için, lisans isteği sorgularını işleyen Anahtar Yönetimi Hizmeti ana bilgisayar sunucularına bir lisans isteği gönderilir. İstek, bağlantı noktası 1688 üzerinden gönderilir.
 
-<a id="icmp-traffic" class="xliff"></a>
-
-### ICMP trafiği
+### <a name="icmp-traffic"></a>ICMP trafiği
 Geçerli NSG kuralları yalnızca *TCP* veya *UDP* protokollerine izin verir. *ICMP* için belirli bir etiket bulunmaz. Ancak, sanal ağ içindeki herhangi bir bağlantı noktası ve protokolün gelen ve giden trafiğine izin veren AllowVNetInBound varsayılan kuralı tarafından bir sanal ağ içinde ICMP trafiğine izin verilir.
 
-<a id="subnets" class="xliff"></a>
-
-### Alt ağlar
+### <a name="subnets"></a>Alt ağlar
 * İş yükünüzün gerektirdiği katmanların sayısını göz önünde bulundurun. Her katman bir alt ağ kullanılarak yalıtılabilir, bunun için alt ağa bir NSG uygulanır. 
 * Bir VPN ağ geçidi veya ExpressRoute bağlantı hattı için bir alt ağ uygulamanız gerekiyorsa bu alt ağa bir NSG **uygulamayın**. Aksi halde sanal ağlar arası veya şirket içi ve dışı karma bağlantılar çalışmayabilir. 
 * Bir ağ sanal gereci (NVA) uygulamanız gerekirse, NVA’yı kendi alt ağına bağlayın ve NVA’ya/NVA’dan kullanıcı tanımlı yollar (UDR) oluşturun. Bu alt ağa gelen ve giden trafiği filtrelemek için alt ağ düzeyinde bir NSG uygulayabilirsiniz. UDR’ler hakkında daha fazla bilgi için [Kullanıcı tanımlı yollar](virtual-networks-udr-overview.md) makalesini okuyun.
 
-<a id="load-balancers" class="xliff"></a>
-
-### Yük dengeleyiciler
+### <a name="load-balancers"></a>Yük dengeleyiciler
 * İş yükleriniz tarafından kullanılan her bir yük dengeleyicisi için yük dengeleme ve ağ adresi çevirisi (NAT) kurallarını göz önünde bulundurun. NAT kuralları, ağ arabirimini (Resource Manager) veya VM/Cloud Services rol örneklerini (klasik) içeren bir arka uç havuzuna bağlanır. Yalnızca yük dengeleyicilerde uygulanan kurallar yoluyla eşlenen trafiğe izin vermek üzere, her arka uç havuzu için bir NSG oluşturmayı düşünün. Her bir arka uç havuzu için bir NSG oluşturulması, arka uç havuzuna doğrudan (yük dengeleyici üzerinden değil) gelen trafiğin de filtrelenmesini garanti eder.
 * Klasik dağıtımlarda, bir yük dengeleyicideki bağlantı noktalarını VM'lerinizdeki veya rol örneklerinizdeki bağlantı noktalarına eşleyen uç noktalar oluşturursunuz. Resource Manager ile genel kullanıma yönelik bireysel yük dengeleyicinizi de oluşturabilirsiniz. Gelen trafik için hedef bağlantı noktası, yük dengeleyici tarafından kullanıma sunulan bağlantı noktası değil, VM veya rol örneğindeki gerçek bağlantı noktasıdır. VM'ye gelen bağlantıya ait kaynak bağlantı noktası ve adresi yük dengeleyici tarafından kullanıma sunulan bağlantı noktası ve adresi değil, İnternet'teki uzak bilgisayar üzerindeki bir bağlantı noktası ve adresidir.
 * Bir iç yük dengeleyici (ILB) üzerinden gelen trafiği filtrelemek üzere NSG’ler oluşturduğunuzda, uygulanan kaynak bağlantı noktası ve adres aralığı yük dengeleyiciden değil, kaynak bilgisayardan gelir. Hedef bağlantı noktası ve adres aralığı, yük dengeleyiciye değil, hedef bilgisayara aittir.
 
-<a id="other" class="xliff"></a>
-
-### Diğer
+### <a name="other"></a>Diğer
 * Uç nokta tabanlı access control listeleri (ACL) ve NSG'ler, aynı VM örneğinde desteklenmez. Bir NSG'yi kullanmak istiyorsanız ve bir uç nokta ACL'si zaten kullanılıyorsa öncelikle uç nokta ACL'sini kaldırın. Bir uç nokta ACL’yi kaldırma hakkında bilgi için [Uç nokta ACL’leri yönetme](virtual-networks-acl-powershell.md) makalesine bakın.
 * Resource Manager’da birden çok ağ arabirimi içeren VM'ler için, bir ağ arabirimi ile ilişkilendirilmiş NSG kullanarak ağ arabirimi temelinde yönetimi (uzaktan erişim) etkinleştirebilirsiniz. Her bir ağ arabirimi ile benzersiz NSG’lerin ilişkilendirilmesi, ağ arabirimleri arasında trafik türlerinin ayılmasını sağlar.
 * Yük dengeleyicilerin kullanımına benzer şekilde, diğer sanal ağlardan gelen trafiği filtrelerken sanal ağları bağlayan ağ geçidini değil, uzak bilgisayarın kaynak adres aralığını kullanmanız gerekir.
 * Çoğu Azure hizmeti sanal ağlara bağlanamaz. Bir Azure kaynağı bir sanal ağa bağlı değilse, kaynağa giden trafiği filtrelemek için bir NSG kullanabilirsiniz.  Kullandığınız hizmetlerin sanal ağa bağlanıp bağlanamayacaklarını belirlemek için bu hizmetlerin belgelerini okuyun.
 
-<a id="sample-deployment" class="xliff"></a>
-
-## Örnek dağıtımı
+## <a name="sample-deployment"></a>Örnek dağıtımı
 Bu makaledeki bilgilerin uygulanmasına ilişkin bir örnek görmek üzere, aşağıdaki resimde gösterilen iki katmanlı uygulamayla yaygın bir senaryo düşünün:
 
 ![NSG'ler](./media/virtual-network-nsg-overview/figure1.png)
@@ -226,9 +192,7 @@ Diyagramda gösterildiği gibi, *Web1* ile *Web2* VM'leri *FrontEnd* alt ağına
 
 1-6 gereksinimlerinin tümü (3 ve 4 gereksinimleri hariç) alt ağ alanlarıyla sınırlandırılmıştır. Aşağıdaki NSG'ler önceki gereksinimleri karşılarken, gerekli NSG sayısını en aza indirir:
 
-<a id="frontend" class="xliff"></a>
-
-### FrontEnd
+### <a name="frontend"></a>FrontEnd
 **Gelen kuralları**
 
 | Kural | Access | Öncelik | Kaynak adres aralığı | Kaynak bağlantı noktası | Hedef adres aralığı | Hedef bağlantı noktası | Protokol |
@@ -243,9 +207,7 @@ Diyagramda gösterildiği gibi, *Web1* ile *Web2* VM'leri *FrontEnd* alt ağına
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Internet-All |Reddet |100 | * | * | Internet | * | * |
 
-<a id="backend" class="xliff"></a>
-
-### BackEnd
+### <a name="backend"></a>BackEnd
 **Gelen kuralları**
 
 | Kural | Access | Öncelik | Kaynak adres aralığı | Kaynak bağlantı noktası | Hedef adres aralığı | Hedef bağlantı noktası | Protokol |
@@ -260,9 +222,7 @@ Diyagramda gösterildiği gibi, *Web1* ile *Web2* VM'leri *FrontEnd* alt ağına
 
 Aşağıdaki NSG'ler oluşturulur ve aşağıdaki VM'ler içinde ağ arabirimleri ile ilişkilendirilir:
 
-<a id="web1" class="xliff"></a>
-
-### WEB1
+### <a name="web1"></a>WEB1
 **Gelen kuralları**
 
 | Kural | Access | Öncelik | Kaynak adres aralığı | Kaynak bağlantı noktası | Hedef adres aralığı | Hedef bağlantı noktası | Protokol |
@@ -275,9 +235,7 @@ Aşağıdaki NSG'ler oluşturulur ve aşağıdaki VM'ler içinde ağ arabirimler
 > 
 > 
 
-<a id="web2" class="xliff"></a>
-
-### WEB2
+### <a name="web2"></a>WEB2
 **Gelen kuralları**
 
 | Kural | Access | Öncelik | Kaynak adres aralığı | Kaynak bağlantı noktası | Hedef adres aralığı | Hedef bağlantı noktası | Protokol |
@@ -285,18 +243,14 @@ Aşağıdaki NSG'ler oluşturulur ve aşağıdaki VM'ler içinde ağ arabirimler
 | Deny-Inbound-RDP-Internet | Reddet | 100 | Internet | * | * | 3389 | TCP |
 | Allow-Inbound-HTTP-Internet | İzin Ver | 200 | Internet | * | * | 80 | TCP |
 
-<a id="db-servers-management-nic" class="xliff"></a>
-
-### DB sunucuları (Yönetim ağ arabirimi)
+### <a name="db-servers-management-nic"></a>DB sunucuları (Yönetim ağ arabirimi)
 **Gelen kuralları**
 
 | Kural | Access | Öncelik | Kaynak adres aralığı | Kaynak bağlantı noktası | Hedef adres aralığı | Hedef bağlantı noktası | Protokol |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-RDP-Front-end | İzin Ver | 100 | 192.168.1.0/24 | * | * | 3389 | TCP |
 
-<a id="db-servers-database-traffic-nic" class="xliff"></a>
-
-### DB sunucuları (Veritabanı trafiği ağ arabirimi)
+### <a name="db-servers-database-traffic-nic"></a>DB sunucuları (Veritabanı trafiği ağ arabirimi)
 **Gelen kuralları**
 
 | Kural | Access | Öncelik | Kaynak adres aralığı | Kaynak bağlantı noktası | Hedef adres aralığı | Hedef bağlantı noktası | Protokol |
@@ -305,9 +259,7 @@ Aşağıdaki NSG'ler oluşturulur ve aşağıdaki VM'ler içinde ağ arabirimler
 
 Bazı NSG’ler ayrı ayrı ağ arabirimleri ile ilişkili olduğundan, kurallar Resource Manager aracılığıyla dağıtılan kaynaklar için geçerlidir. Nasıl ilişkilendirildiklerine bağlı olarak, kurallar alt ağ ve ağ arabirimi için birleştirilir. 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [NSG Dağıtma (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md).
 * [NSG Dağıtma (klasik)](virtual-networks-create-nsg-classic-ps.md).
 * [NSG günlüklerini yönetin](virtual-network-nsg-manage-log.md).

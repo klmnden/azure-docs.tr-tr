@@ -1,5 +1,4 @@
-## Add a consumer group to your IoT hub
-<a id="add-a-consumer-group-to-your-iot-hub" class="xliff"></a>
+## <a name="add-a-consumer-group-to-your-iot-hub"></a>Add a consumer group to your IoT hub
 
 Consumer groups are used by applications to pull data from Azure IoT Hub. In this tutorial, you create a consumer group to be used by a coming Azure service to read data from your IoT hub.
 

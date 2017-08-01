@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 07/04/2017
 
 ---
-<a id="start-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
-
-# HDInsight üzerinde Apache Kafka'yı (önizleme) kullanmaya başlama
+# <a name="start-with-apache-kafka-preview-on-hdinsight"></a>HDInsight üzerinde Apache Kafka'yı (önizleme) kullanmaya başlama
 
 Azure HDInsight üzerinde [Apache Kafka](https://kafka.apache.org) kümesi oluşturmayı ve kullanmayı öğrenin. Kafka, HDInsight ile birlikte kullanılabilen, açık kaynaklı bir dağıtılmış akış platformudur. Yayımla-abone ol ileti kuyruğuna benzer işlevler sağladığı için genellikle ileti aracısı olarak kullanılır.
 
@@ -33,17 +31,13 @@ Azure HDInsight üzerinde [Apache Kafka](https://kafka.apache.org) kümesi oluş
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) veya OpenJDK gibi eşdeğeri.
 
 * [Apache Maven](http://maven.apache.org/) 
 
-<a id="create-a-kafka-cluster" class="xliff"></a>
-
-## Kafka kümesi oluşturma
+## <a name="create-a-kafka-cluster"></a>Kafka kümesi oluşturma
 
 HDInsight kümesinde Kafka oluşturmak için aşağıdaki adımları kullanın:
 
@@ -101,9 +95,7 @@ HDInsight kümesinde Kafka oluşturmak için aşağıdaki adımları kullanın:
     > [!NOTE]
     > Kümenin oluşturulması 20 dakika sürebilir.
 
-<a id="connect-to-the-cluster" class="xliff"></a>
-
-## Kümeye bağlanma
+## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 
 Kümeye bağlanmak için istemcinizde SSH kullanın:
 
@@ -151,9 +143,7 @@ Konak bilgilerini içeren ortam değişkenlerini oluşturmak için aşağıdaki 
     >
     > Geçerli bilgilere sahip olduğunuzdan emin olmak için, kullanmadan hemen önce Zookeeper ve aracı konakların bilgilerini almanız gerekir.
 
-<a id="create-a-topic" class="xliff"></a>
-
-## Konu başlığı oluşturma
+## <a name="create-a-topic"></a>Konu başlığı oluşturma
 
 Kafka, veri akışlarını *topics* (konu başlıkları) adlı kategorilerde depolar. Kafka ile birlikte verilen betiği kullanarak, bir küme baş düğümüne yönelik SSH bağlantısından konu başlığı oluşturun:
 
@@ -169,9 +159,7 @@ Bu komut, `$KAFKAZKHOSTS` içinde depolanan konak bilgilerini kullanarak Zookeep
 
 Bu komut, **test** konu başlıklarını içeren Kafka konu başlıklarını listeler.
 
-<a id="produce-and-consume-records" class="xliff"></a>
-
-## Kayıt oluşturma ve kullanma
+## <a name="produce-and-consume-records"></a>Kayıt oluşturma ve kullanma
 
 Kafka, konu başlıklarında *records* (kayıtlar) depolar. Kayıtlar, *Üreticiler* tarafından oluşturulur ve *tüketiciler* tarafından kullanılır. Üreticiler, kayıtları Kafka *aracılarından* alır. HDInsight kümenizdeki her çalışan düğümü bir Kafka aracısıdır.
 
@@ -195,9 +183,7 @@ Daha önce oluşturduğunuz test konu başlığında kayıt depolamak ve ardınd
 
 3. Tüketiciyi durdurmak için __Ctrl + C__ tuşlarını kullanın.
 
-<a id="producer-and-consumer-api" class="xliff"></a>
-
-## Üretici ve tüketici API’si
+## <a name="producer-and-consumer-api"></a>Üretici ve tüketici API’si
 
 [Kafka API’lerin,](http://kafka.apache.org/documentation#api) kullanarak, kayıtları programlama yoluyla da üretebilir ve kullanabilirsiniz. Java tabanlı üretici ve tüketici indirip derlemek için aşağıdaki adımları kullanın:
 
@@ -246,9 +232,7 @@ Daha önce oluşturduğunuz test konu başlığında kayıt depolamak ve ardınd
 
 6. Tüketiciden çıkış yapmak için __Ctrl + C__ tuşlarını kullanın.
 
-<a id="multiple-consumers" class="xliff"></a>
-
-### Birden çok tüketici
+### <a name="multiple-consumers"></a>Birden çok tüketici
 
 Kafka ile ilgili önemli bir kavram, tüketicilerin kayıtları okurken bir tüketici grubu (grup kimliği ile tanımlanır) kullanmasıdır. Birden çok tüketiciyle aynı grubun kullanılması, konu başlığından yük dengeli okuma yapılmasına neden olur. Gruptaki her bir tüketici, kayıtların bir kısmını alır. Bu işlemi uygulamada görmek için aşağıdaki adımları kullanın:
 
@@ -270,9 +254,7 @@ Aynı gruptaki istemcilerin tüketimi, konu başlığının bölümleri aracıl�
 
 Kafka’ya depolanan kayıtlar bir bölümde alındıkları sırayla depolanır. *Bir bölüm* içindeki kayıtlar için sıralı teslim sağlamak üzere, tüketici örneklerinin bölüm sayısıyla eşleştiği bir tüketici grubu oluşturun. *Konu başlığı içindeki* kayıtların sıralı teslim edilmesini sağlayabilmek için, yalnızca bir tüketici örneği içeren bir tüketici grubu oluşturun.
 
-<a id="streaming-api" class="xliff"></a>
-
-## Akış API’si
+## <a name="streaming-api"></a>Akış API’si
 
 Akış API’si Kafka’ya sürüm 0.10.0’da eklenmiştir; önceki sürümler, akış işleme için Apache Spark veya Storm kullanır.
 
@@ -347,21 +329,15 @@ Akış API’si Kafka’ya sürüm 0.10.0’da eklenmiştir; önceki sürümler,
 
 7. Tüketiciden çıkmak için __Ctrl + C__ tuşlarını kullanın, ardından `fg` komutunu kullanarak akış arka plan görevini ön plana geri getirin. Çıkış yapmak için de __Ctrl + C__ tuşlarını kullanın.
 
-<a id="delete-the-cluster" class="xliff"></a>
-
-## Küme silme
+## <a name="delete-the-cluster"></a>Küme silme
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<a id="troubleshoot" class="xliff"></a>
-
-## Sorun giderme
+## <a name="troubleshoot"></a>Sorun giderme
 
 HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu belgede, HDInsight üzerinde Apache Kafka ile çalışmanın temel bilgilerini öğrendiniz. Kafka ile çalışma hakkında daha fazla bilgi için aşağıdakileri kullanın:
 

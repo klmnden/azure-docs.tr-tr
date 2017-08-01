@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-6-create-measures" class="xliff"></a>
-
-# 6. Ders: Ölçü oluşturma
+# <a name="lesson-6-create-measures"></a>6. Ders: Ölçü oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -38,18 +36,12 @@ Bu derste, hem formül çubuğuna bir DAX formülü girerek hem de Otomatik Topl
   
 Bu dersin tahmini tamamlanma süresi: **30 dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [5. Ders: Hesaplanan sütunlar oluşturma](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
-<a id="create-measures" class="xliff"></a>
-
-## Ölçü oluşturma  
+## <a name="create-measures"></a>Ölçü oluşturma  
   
-<a id="to-create-a-dayscurrentquartertodate-measure-in-the-dimdate-table" class="xliff"></a>
-
-#### DimDate tablosunda DaysCurrentQuarterToDate ölçüsü oluşturmak için  
+#### <a name="to-create-a-dayscurrentquartertodate-measure-in-the-dimdate-table"></a>DimDate tablosunda DaysCurrentQuarterToDate ölçüsü oluşturmak için  
   
 1.  Model tasarımcısında **DimDate** tablosuna tıklayın.  
   
@@ -68,9 +60,7 @@ Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin b
     Hesaplanan sütunlardan farklı olarak, ölçü formülleriyle ölçü adını yazabilir ve adın sonuna bir virgül koyup formül ifadesini yazabilirsiniz.
 
   
-<a id="to-create-a-daysincurrentquarter-measure-in-the-dimdate-table" class="xliff"></a>
-
-#### DimDate tablosunda DaysInCurrentQuarter ölçüsü oluşturmak için  
+#### <a name="to-create-a-daysincurrentquarter-measure-in-the-dimdate-table"></a>DimDate tablosunda DaysInCurrentQuarter ölçüsü oluşturmak için  
   
 1.  Model tasarımcısında **DimDate** tablosu hala etkinken, ölçü kılavuzunda oluşturduğunuz ölçünün altında bulunan boş hücreye tıklayın.  
   
@@ -82,9 +72,7 @@ Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin b
   
     Tamamlanmamış bir dönemle önceki dönem arasında karşılaştırma oranı oluştururken. Formül tarafından geçen dönemin oranı hesaplanmalı ve bulunan değer bir önceki döneme ait aynı oranla karşılaştırılmalıdır. Bu durumda, [DaysCurrentQuarterToDate]/[DaysInCurrentQuarter] sonucu, geçerli dönemde geride bırakılan orandır.  
   
-<a id="to-create-an-internetdistinctcountsalesorder-measure-in-the-factinternetsales-table" class="xliff"></a>
-
-#### FactInternetSales tablosunda InternetDistinctCountSalesOrder ölçüsü oluşturmak için  
+#### <a name="to-create-an-internetdistinctcountsalesorder-measure-in-the-factinternetsales-table"></a>FactInternetSales tablosunda InternetDistinctCountSalesOrder ölçüsü oluşturmak için  
   
 1.  **FactInternetSales** tablosuna tıklayın.   
   
@@ -99,9 +87,7 @@ Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin b
 4.  Ölçü kılavuzunda yeni ölçüye tıklayın ve **Özellikler** penceresindeki **Ölçü Adı**, bölümünde, ölçüyü **InternetDistinctCountSalesOrder** olarak yeniden adlandırın. 
  
   
-<a id="to-create-additional-measures-in-the-factinternetsales-table" class="xliff"></a>
-
-#### FactInternetSales tablosunda ek ölçüler oluşturmak için  
+#### <a name="to-create-additional-measures-in-the-factinternetsales-table"></a>FactInternetSales tablosunda ek ölçüler oluşturmak için  
   
 1.  Otomatik Toplam özelliğini kullanarak aşağıdaki ölçüleri oluşturun ve adlandırın:  
 
@@ -144,9 +130,7 @@ Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin b
   
 FactInternetSales tablosu için oluşturulan ölçüler, kullanıcının seçtiği filtre tarafından tanımlanan öğeler için satış, maliyet ve kar marjı gibi kritik finansal verileri analiz etmek için kullanılabilir.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Sırada ne var?
+## <a name="whats-next"></a>Sırada ne var?
 [7. Ders: Önemli Performans Göstergeleri oluşturma](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   

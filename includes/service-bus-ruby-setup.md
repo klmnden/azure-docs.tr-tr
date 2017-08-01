@@ -1,31 +1,21 @@
-<a id="create-a-ruby-application" class="xliff"></a>
-
-## Create a Ruby application
+## <a name="create-a-ruby-application"></a>Create a Ruby application
 For instructions, see [Create a Ruby Application on Azure](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
-<a id="configure-your-application-to-use-service-bus" class="xliff"></a>
-
-## Configure Your application to Use Service Bus
+## <a name="configure-your-application-to-use-service-bus"></a>Configure Your application to Use Service Bus
 To use Service Bus, download and use the Azure Ruby package, which includes a set of convenience libraries that communicate with the storage REST services.
 
-<a id="use-rubygems-to-obtain-the-package" class="xliff"></a>
-
-### Use RubyGems to obtain the package
+### <a name="use-rubygems-to-obtain-the-package"></a>Use RubyGems to obtain the package
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
 2. Type "gem install azure" in the command window to install the gem and dependencies.
 
-<a id="import-the-package" class="xliff"></a>
-
-### Import the package
+### <a name="import-the-package"></a>Import the package
 Using your favorite text editor, add the following to the top of the Ruby file in which you intend to use storage:
 
 ```ruby
 require "azure"
 ```
 
-<a id="set-up-a-service-bus-connection" class="xliff"></a>
-
-## Set up a Service Bus connection
+## <a name="set-up-a-service-bus-connection"></a>Set up a Service Bus connection
 Use the following code to set the values of namespace, name of the key, key, signer and host:
 
 ```ruby

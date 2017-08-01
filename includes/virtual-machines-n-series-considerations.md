@@ -1,5 +1,4 @@
-## Deployment considerations
-<a id="deployment-considerations" class="xliff"></a>
+## <a name="deployment-considerations"></a>Deployment considerations
 
 * For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/).
 

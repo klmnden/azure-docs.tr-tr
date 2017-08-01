@@ -23,8 +23,7 @@ ms.lasthandoff: 07/10/2017
 
 
 ---
-# Azure Stack Development Kit deployment quickstart
-<a id="azure-stack-development-kit-deployment-quickstart" class="xliff"></a>
+# <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack Development Kit deployment quickstart
 
 The [Azure Stack Development Kit](azure-stack-poc.md) is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you’ll need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and tenant portals to manage Azure Stack and test offers. 
 

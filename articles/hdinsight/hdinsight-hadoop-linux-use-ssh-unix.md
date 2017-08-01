@@ -25,9 +25,7 @@ ms.lasthandoff: 05/16/2017
 
 
 ---
-<a id="connect-to-hdinsight-hadoop-using-ssh" class="xliff"></a>
-
-# SSH kullanarak HDInsight’a (Hadoop) bağlanma
+# <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH kullanarak HDInsight’a (Hadoop) bağlanma
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) kullanarak Azure HDInsight’ta Hadoop’a güvenli bir şekilde bağlanma hakkında bilgi edinin. 
 
@@ -49,9 +47,7 @@ HDInsight, Hadoop kümesi içindeki düğümler için işletim sistemi olarak Li
 >
 > Kenar düğümlerini kullanma hakkında daha fazla bilgi için bkz. [HDInsight’ta kenar düğümlerini kullanma](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
-<a id="ssh-clients" class="xliff"></a>
-
-## SSH istemcileri
+## <a name="ssh-clients"></a>SSH istemcileri
 
 Linux, Unix ve macOS sistemleri `ssh` ve `scp` komutlarını sağlar. `ssh` istemcisi, yaygın olarak Linux veya Unix tabanlı bir sistemle uzak komut satırı oturumu oluşturmak için kullanılır. `scp` istemcisi, dosyaları istemciniz ve uzak sistem arasında güvenli bir şekilde kopyalamak için kullanılır.
 
@@ -88,9 +84,7 @@ SSH hesabınızın güvenliği bir anahtar yardımıyla sağlanıyorsa, bağlant
 >
 > Özel anahtarınızın güvenliğini şifre ile sağlıyorsanız, anahtarı kullanmak için şifreyi girmeniz gerekir. `ssh-agent` gibi yardımcı programlar, size kolaylık sağlamak için parolayı önbelleğe alabilir.
 
-<a id="create-an-ssh-key-pair" class="xliff"></a>
-
-### SSH anahtar çifti oluşturma
+### <a name="create-an-ssh-key-pair"></a>SSH anahtar çifti oluşturma
 
 Ortak ve özel anahtar dosyaları oluşturmak için `ssh-keygen` komutunu kullanın. Aşağıdaki komut, HDInsight ile kullanılabilecek bir 2048-bit RSA anahtar çifti oluşturur:
 
@@ -105,9 +99,7 @@ Anahtar oluşturma işlemi sırasında sizden bilgiler istenir. Örneğin, anaht
 > [!IMPORTANT]
 > Anahtarlarınızın güvenliğini şifre ile sağlayabilirsiniz. Parola, aslında özel anahtarınız üzerindeki bir şifredir. Özel anahtarınız başkası tarafından ele geçirilirse, anahtarın kullanılması için şifrenin girilmesi gerekir.
 
-<a id="create-hdinsight-using-the-public-key" class="xliff"></a>
-
-### Ortak anahtar kullanarak HDInsight oluşturma
+### <a name="create-hdinsight-using-the-public-key"></a>Ortak anahtar kullanarak HDInsight oluşturma
 
 | Oluşturma yöntemi | Ortak anahtarı kullanma |
 | ------- | ------- |
@@ -123,9 +115,7 @@ SSH hesaplarının güvenliği bir parola kullanılarak sağlanabilir. SSH kulla
 > [!WARNING]
 > SSH için parola kimlik doğrulamasının kullanılması önerilmez. Parolalar tahmin edilebilir ve deneme yanılma saldırılarına karşı savunmasızdır. Bunun yerine, [kimlik doğrulaması için SSH anahtarları](#sshkey) kullanmanız önerilir.
 
-<a id="create-hdinsight-using-a-password" class="xliff"></a>
-
-### Parola kullanarak HDInsight oluşturma
+### <a name="create-hdinsight-using-a-password"></a>Parola kullanarak HDInsight oluşturma
 
 | Oluşturma yöntemi | Parola belirtme |
 | --------------- | ---------------- |
@@ -134,9 +124,7 @@ SSH hesaplarının güvenliği bir parola kullanılarak sağlanabilir. SSH kulla
 | **Azure CLI 1.0** | `azure hdinsight cluster create` komutunun `--sshPassword` parametresini kullanarak parola değerini belirtin. |
 | **Resource Manager Şablonu** | Parolayı şablonla kullanma örneği için bkz. [HDInsight’ı SSH parolası ile Linux’a dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) dosyasındaki `linuxOperatingSystemProfile` öğesi, kümeyi oluştururken SSH hesabı adı ile parolasını Azure’a geçirmek için kullanılır.|
 
-<a id="change-the-ssh-password" class="xliff"></a>
-
-### SSH parolasını değiştirme
+### <a name="change-the-ssh-password"></a>SSH parolasını değiştirme
 
 SSH kullanıcı hesabı parolasını değiştirme hakkında bilgi için, [HDInsight’ı Yönetme](hdinsight-administer-use-portal-linux.md#change-passwords) belgesinin __Parolaları değiştirme__ bölümüne bakın.
 
@@ -146,9 +134,7 @@ __Etki alanına katılmış HDInsight kümesi__ kullanıyorsanız, SSH ile bağl
 
 Daha fazla bilgi için bkz. [Etki alanına katılmış HDInsight yapılandırma](hdinsight-domain-joined-configure.md).
 
-<a id="connect-to-worker-and-zookeeper-nodes" class="xliff"></a>
-
-## Çalışan ve Zookeeper düğümlerine bağlanma
+## <a name="connect-to-worker-and-zookeeper-nodes"></a>Çalışan ve Zookeeper düğümlerine bağlanma
 
 Çalışan düğümlerine ve Zookeeper düğümlerine doğrudan internetten erişilemez. Bunlara, küme baş düğümleri veya kenar düğümlerinden erişilebilir. Diğer düğümlere bağlanmak için uygulamanız gereken genel adımlar şunlardır:
 
@@ -171,9 +157,7 @@ SSH hesabının güvenliği __SSH anahtarları__ kullanılarak sağlanıyorsa is
 >
 > Daha fazla bilgi için bkz. [HDInsight ile sanal ağ kullanma](hdinsight-extend-hadoop-virtual-network.md).
 
-<a id="configure-ssh-agent-forwarding" class="xliff"></a>
-
-### SSH aracı iletmeyi yapılandırma
+### <a name="configure-ssh-agent-forwarding"></a>SSH aracı iletmeyi yapılandırma
 
 > [!IMPORTANT]
 > Aşağıdaki adımlar, Linux veya UNIX tabanlı bir sistem için geçerlidir ve Windows 10 üzerinde Bash ile birlikte çalışır. Bu adımlar sisteminizde çalışmazsa SSH istemcinizin belgelerine bakmanız gerekebilir.
@@ -205,9 +189,7 @@ SSH hesabının güvenliği __SSH anahtarları__ kullanılarak sağlanıyorsa is
 
 5. SSH kullanarak küme kenar düğümüne veya baş düğümlerine bağlanın. Ardından, SSH komutunu kullanarak bir çalışan veya zookeeper düğümüne bağlanın. İletilen anahtar kullanılarak bağlantı kurulur.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [HDInsight ile SSH tüneli kullanma](hdinsight-linux-ambari-ssh-tunnel.md)
 * [HDInsight ile sanal ağ kullanma](hdinsight-extend-hadoop-virtual-network.md)

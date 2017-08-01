@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-4-create-relationships" class="xliff"></a>
-
-# 4. Ders: İlişki oluşturma
+# <a name="lesson-4-create-relationships"></a>4. Ders: İlişki oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,19 +30,13 @@ Bu derste, verileri içeri aktarıp farklı tablolar arasında yeni ilişkiler o
   
 Bu dersin tahmini tamamlanma süresi: **10 dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [3. Ders: Tarih Tablosu olarak işaretleme](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
-<a id="review-existing-relationships-and-add-new-relationships" class="xliff"></a>
-
-## Mevcut ilişkileri gözden geçirme ve yeni ilişki ekleme  
+## <a name="review-existing-relationships-and-add-new-relationships"></a>Mevcut ilişkileri gözden geçirme ve yeni ilişki ekleme  
 Veri Al seçeneğini kullanarak verileri içeri aktardığınızda, AdventureWorksDW2014 veritabanından yedi tablo aldınız. İlişkisel bir veritabanındaki verileri içeri aktardığınızda, verilerle birlikte genellikle mevcut ilişkiler de otomatik olarak içeri aktarılır. Bununla birlikte, kendi modelinizi yazmaya başlamadan önce tablolar arasındaki bu ilişkilerin düzgün oluşturulduğunu doğrulamanız gerekir. Bu öğretici için üç yeni ilişki eklersiniz.  
   
-<a id="to-review-existing-relationships" class="xliff"></a>
-
-#### Mevcut ilişkileri gözden geçirmek için  
+#### <a name="to-review-existing-relationships"></a>Mevcut ilişkileri gözden geçirmek için  
   
 1.  **Model** menüsü > **Model Görünümü** > **Diyagram Görünümü**’ne tıklayın.  
 
@@ -73,9 +65,7 @@ Veri Al seçeneğini kullanarak verileri içeri aktardığınızda, AdventureWor
   
     İlişkilerden herhangi biri eksikse modelinizin şu tabloları içerdiğini doğrulayın: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory ve FactInternetSales. Aynı veri kaynağı bağlantısından alınan tablolar farklı zamanlarda içeri aktarılmışsa, varsa bu tablolar arasındaki ilişkiler oluşturulmaz ve ilişkilerin el ile oluşturulması gerekir.  
 
-<a id="take-a-closer-look" class="xliff"></a>
-
-### Daha yakından bakın
+### <a name="take-a-closer-look"></a>Daha yakından bakın
 Diyagram Görünümü’nde tablolar arasındaki ilişkiyi gösteren çizgilerde bir ok, bir yıldız ve bir rakam olduğuna dikkat edin.
 
 ![aas-lesson4-line](../tutorials/media/aas-lesson4-line.png)
@@ -88,9 +78,7 @@ Bu özellikler gelişmiş veri modellemesine yöneliktir ve bu öğreticinin kap
 
 Bazı durumlarda, zincir iş mantığını desteklemek için modelinizdeki tablolar arasında ek ilişkiler oluşturmanız gerekebilir. Bu öğretici için FactInternetSales tablosu ile DimDate tablosu arasında üç ek ilişki oluşturmanız gerekir.  
   
-<a id="to-add-new-relationships-between-tables" class="xliff"></a>
-
-#### Tablolar arasında yeni ilişkiler eklemek için  
+#### <a name="to-add-new-relationships-between-tables"></a>Tablolar arasında yeni ilişkiler eklemek için  
   
 1.  Model tasarımcısında, **FactInternetSales** tablosundan **OrderDate** sütununa tıklayıp basılı tutun, sonra imleci **DimDate** tablosundaki **Tarih** sütununa sürükleyin ve bırakın.  
 
@@ -109,9 +97,7 @@ Bazı durumlarda, zincir iş mantığını desteklemek için modelinizdeki tablo
     
      ![aas-lesson4-newinactive](../tutorials/media/aas-lesson4-newinactive.png)
   
-<a id="whats-next" class="xliff"></a>
-
-## Sırada ne var?
+## <a name="whats-next"></a>Sırada ne var?
 [5. Ders: Hesaplanan sütun oluşturma](../tutorials/aas-lesson-5-create-calculated-columns.md).
   
   

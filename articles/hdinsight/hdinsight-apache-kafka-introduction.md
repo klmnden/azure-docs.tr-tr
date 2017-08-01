@@ -22,15 +22,11 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/17/2017
 
 ---
-<a id="introducing-apache-kafka-on-hdinsight-preview" class="xliff"></a>
-
-# HDInsight üzerinde Apache Kafka’ya giriş (önizleme)
+# <a name="introducing-apache-kafka-on-hdinsight-preview"></a>HDInsight üzerinde Apache Kafka’ya giriş (önizleme)
 
 [Apache Kafka](https://kafka.apache.org), gerçek zamanlı akış verisi işlem hatları ve uygulamaları oluşturmak için kullanılabilen, açık kaynak dağıtılmış akış platformudur. Kafka ayrıca, adlandırılmış veri akışları yayımlayıp abone olabileceğiniz bir ileti kuyruğuna benzer aracı işlevselliği sağlar. HDInsight üzerinde Kafka, Microsoft Azure bulutunda yönetilen, yüksek oranda ölçeklenebilir ve yüksek oranda kullanılabilir bir hizmet sağlar.
 
-<a id="why-use-kafka-on-hdinsight" class="xliff"></a>
-
-## HDInsight üzerinde Kafka neden kullanılmalıdır?
+## <a name="why-use-kafka-on-hdinsight"></a>HDInsight üzerinde Kafka neden kullanılmalıdır?
 
 Kafka aşağıdaki özellikleri sağlar:
 
@@ -50,9 +46,7 @@ Kafka aşağıdaki özellikleri sağlar:
 
     Yönetilen disklerin HDInsight üzerinde Kafka ile yapılandırılması hakkında bilgi edinmek için bkz. [HDInsight üzerinde Kafka'nın ölçeklenebilirliğini artırma](hdinsight-apache-kafka-scalability.md).
 
-<a id="use-cases" class="xliff"></a>
-
-## Uygulama alanları
+## <a name="use-cases"></a>Uygulama alanları
 
 * **Mesajlaşma**: Yayımla-abone ol ileti modelini desteklediğinden, Kafka genellikle bir ileti aracısı olarak kullanılır.
 
@@ -62,9 +56,7 @@ Kafka aşağıdaki özellikleri sağlar:
 
 * **Dönüştürme**: Akış işlemeyi kullanarak, birden fazla girdi konu başlığındaki verileri bir veya daha fazla çıktı konu başlığında birleştirerek verileri zenginleştirebilirsiniz.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 HDInsight’ta Apache Kafka kullanma hakkında bilgi almak için aşağıdaki bağlantıları kullanın:
 

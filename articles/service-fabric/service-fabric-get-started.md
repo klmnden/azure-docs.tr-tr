@@ -22,9 +22,7 @@ ms.lasthandoff: 06/21/2017
 
 
 ---
-<a id="prepare-your-development-environment" class="xliff"></a>
-
-# Geliştirme ortamınızı hazırlama
+# <a name="prepare-your-development-environment"></a>Geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -34,12 +32,8 @@ ms.lasthandoff: 06/21/2017
 
  Geliştirme makinenizde [Azure Service Fabric uygulamaları][1] derlemek ve çalıştırmak için çalışma zamanını, SDK'yı ve araçları yükleyin. Ayrıca, SDK'da bulunan Windows PowerShell betiklerinin çalıştırılmasını da etkinleştirmeniz gerekir.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Önkoşullar
-<a id="supported-operating-system-versions" class="xliff"></a>
-
-### Desteklenen işletim sistemi sürümleri
+## <a name="prerequisites"></a>Önkoşullar
+### <a name="supported-operating-system-versions"></a>Desteklenen işletim sistemi sürümleri
 Geliştirme için şu işletim sistemi sürümleri desteklenir:
 
 * Windows 7
@@ -53,27 +47,19 @@ Geliştirme için şu işletim sistemi sürümleri desteklenir:
 > 
 > 
 
-<a id="install-the-sdk-and-tools" class="xliff"></a>
-
-## SDK'yı ve araçları yükleme
-<a id="to-use-visual-studio-2017" class="xliff"></a>
-
-### Visual Studio 2017’yi kullanmak için
+## <a name="install-the-sdk-and-tools"></a>SDK'yı ve araçları yükleme
+### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017’yi kullanmak için
 Service Fabric Araçları, Visual Studio 2017’de Azure Geliştirme ve Yönetim iş yükünün parçasıdır. Bu iş yükünü Visual Studio yüklemenizin bir parçası olarak etkinleştirin.
 Ayrıca Web Platformu Yükleyicisini kullanarak Microsoft Azure Service Fabric SDK'sını da yüklemeniz gerekir.
 
 * [Microsoft Azure Service Fabric SDK'sını yükleyin][core-sdk]
 
-<a id="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later" class="xliff"></a>
-
-### Visual Studio 2015'i kullanmak için (Visual Studio 2015 Güncelleştirme 2 veya üzeri gerekir)
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Visual Studio 2015'i kullanmak için (Visual Studio 2015 Güncelleştirme 2 veya üzeri gerekir)
 Visual Studio 2015 için Service Fabric araçları Web Platformu Yükleyicisi kullanılarak SDK ile birlikte yüklenir:
 
 * [Microsoft Azure Service Fabric SDK’sını ve Araçları yükleyin][full-bundle-vs2015]
 
-<a id="sdk-installation-only" class="xliff"></a>
-
-### Yalnızca SDK'yı yükleme
+### <a name="sdk-installation-only"></a>Yalnızca SDK'yı yükleme
 Yalnızca SDK'yı yüklemeniz gerekiyorsa bu paketi yükleyebilirsiniz:
 * [Microsoft Azure Service Fabric SDK'sını yükleyin][core-sdk]
 
@@ -91,18 +77,14 @@ Geçerli önizleme sürümleri şunlardır:
 
 Desteklenen sürümlerin listesi için bkz. [Service Fabric desteği](service-fabric-support.md)
 
-<a id="enable-powershell-script-execution" class="xliff"></a>
-
-## PowerShell betik yürütmesini etkinleştirme
+## <a name="enable-powershell-script-execution"></a>PowerShell betik yürütmesini etkinleştirme
 Service Fabric, yerel geliştirme merkezi oluşturmak ve Visual Studio'dan uygulamaları dağıtmak için Windows PowerShell betiklerini kullanır. Varsayılan olarak, Windows bu betiklerin çalışmasını engeller. Betikleri etkinleştirmek için PowerShell yürütme ilkenizi değiştirmeniz gerekir. PowerShell'i yönetici olarak açın ve şu komutu girin:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Artık geliştirme ortamınızı ayarlamayı tamamladığınıza göre, uygulama derlemeye ve çalıştırmaya başlayın.
 
 * [Visual Studio'da ilk Service Fabric uygulamanızı oluşturma](service-fabric-create-your-first-application-in-visual-studio.md)

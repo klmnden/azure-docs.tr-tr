@@ -22,9 +22,7 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-<a id="how-to-use-azure-redis-cache" class="xliff"></a>
-
-# Azure Redis Önbelleğini kullanma
+# <a name="how-to-use-azure-redis-cache"></a>Azure Redis Önbelleğini kullanma
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -48,9 +46,7 @@ Bu kılavuz C\# kodu kullanarak [StackExchange.Redis][StackExchange.Redis] istem
 
 <a name="getting-started-cache-service"></a>
 
-<a id="get-started-with-azure-redis-cache" class="xliff"></a>
-
-## Azure Redis Önbelleğini kullanmaya başlama
+## <a name="get-started-with-azure-redis-cache"></a>Azure Redis Önbelleğini kullanmaya başlama
 Azure Redis Önbelleğini kullanmaya başlamak kolaydır. Başlamak için, bir önbellek hazırlayın ve yapılandırın. Ardından, önbelleğe erişebilmeleri için önbellek istemcilerini yapılandırın. Önbellek istemcileri yapılandırıldıktan sonra, bunlarla çalışmaya başlayabilirsiniz.
 
 * [Önbelleği oluşturma][Create the cache]
@@ -58,32 +54,24 @@ Azure Redis Önbelleğini kullanmaya başlamak kolaydır. Başlamak için, bir �
 
 <a name="create-cache"></a>
 
-<a id="create-a-cache" class="xliff"></a>
-
-## Bir önbellek oluşturma
+## <a name="create-a-cache"></a>Bir önbellek oluşturma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-<a id="to-access-your-cache-after-its-created" class="xliff"></a>
-
-### Oluşturulduktan sonra önbelleğinize erişmek için
+### <a name="to-access-your-cache-after-its-created"></a>Oluşturulduktan sonra önbelleğinize erişmek için
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
 Önbelleğinizi yapılandırma hakkında daha fazla bilgi için, bkz. [Azure Redis Önbelleğini yapılandırma](cache-configure.md).
 
 <a name="NuGet"></a>
 
-<a id="configure-the-cache-clients" class="xliff"></a>
-
-## Önbellek istemcilerini yapılandırma
+## <a name="configure-the-cache-clients"></a>Önbellek istemcilerini yapılandırma
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 İstemci projeniz önbelleğe almak üzere yapılandırıldığında, önbelleğinizle çalışmak için aşağıdaki bölümlerde açıklanan teknikleri kullanabilirsiniz.
 
 <a name="working-with-caches"></a>
 
-<a id="working-with-caches" class="xliff"></a>
-
-## Önbelleklerle Çalışma
+## <a name="working-with-caches"></a>Önbelleklerle Çalışma
 Bu bölümdeki adımlar Önbellek ile ortak görevler gerçekleştirmeyi açıklar.
 
 * [Önbelleğe bağlanma][Connect to the cache]
@@ -92,9 +80,7 @@ Bu bölümdeki adımlar Önbellek ile ortak görevler gerçekleştirmeyi açıkl
 
 <a name="connect-to-cache"></a>
 
-<a id="connect-to-the-cache" class="xliff"></a>
-
-## Önbelleğe bağlanma
+## <a name="connect-to-the-cache"></a>Önbelleğe bağlanma
 Program aracılığıyla bir önbellekle çalışmak için önbelleğe başvuru gerekir. Azure Redis Önbelleğine erişmek üzere StackExchange.Redis istemcisini kullanmak istediğiniz bir dosyanın en üstüne aşağıdakileri ekleyin.
 
     using StackExchange.Redis;
@@ -162,9 +148,7 @@ Artık Azure Redis Önbelleği örneğine bağlanmayı ve önbellek veritabanın
 
 <a name="add-object"></a>
 
-<a id="add-and-retrieve-objects-from-the-cache" class="xliff"></a>
-
-## Önbelleğe nesneler ekleme ve nesneleri önbellekten alma
+## <a name="add-and-retrieve-objects-from-the-cache"></a>Önbelleğe nesneler ekleme ve nesneleri önbellekten alma
 `StringSet` ve `StringGet` yöntemleri.kullanılarak öğeleri bir önbellekte depolanabilir ve önbellekten alınabilir.
 
     // If key1 exists, it is overwritten.
@@ -190,9 +174,7 @@ Bir öğenin önbellekte sona erme tarihini belirtmek için, `StringSet` dizesin
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-<a id="work-with-net-objects-in-the-cache" class="xliff"></a>
-
-## Önbellekte .NET nesneleriyle çalışma
+## <a name="work-with-net-objects-in-the-cache"></a>Önbellekte .NET nesneleriyle çalışma
 Azure Redis Önbelleği temel veri türlerinin yanı sıra .NET nesnelerini de önbelleğe alabilir, ancak bir .NET nesnesini önbelleğe alabilmek için seri hale getirilmesi gerekir. Bu .NET nesne serileştirmesi uygulama geliştiricisinin sorumluluğundadır ve geliştiriciye seri hale getirici tercihinde esneklik sağlar.
 
 Nesneleri seri hale getirmenin basit bir yolu [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1)’te `JsonConvert` seri hale getirme yöntemleri kullanmak ve JSON’a ve JSON’dan seri hale getirmektir. Aşağıdaki örnekte bir `Employee` nesnesi örneği kullanılarak al ve ayarla seçeneği gösterilmiştir.
@@ -217,9 +199,7 @@ Nesneleri seri hale getirmenin basit bir yolu [Newtonsoft.Json.NET](https://www.
 
 <a name="next-steps"></a>
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
 
 * Azure Redis Önbelleği için ASP.NET sağlayıcılarına göz atın.

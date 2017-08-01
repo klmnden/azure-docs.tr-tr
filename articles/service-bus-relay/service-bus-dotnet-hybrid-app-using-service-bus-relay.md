@@ -22,12 +22,8 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="net-on-premisescloud-hybrid-application-using-azure-wcf-relay" class="xliff"></a>
-
-# Azure WCF Geçişini kullanan karma .NET şirket içi uygulama/bulut uygulaması
-<a id="introduction" class="xliff"></a>
-
-## Giriş
+# <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Azure WCF Geçişini kullanan karma .NET şirket içi uygulama/bulut uygulaması
+## <a name="introduction"></a>Giriş
 
 Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması derleyeceğinizi gösterir. Öğretici Azure kullanımına ilişkin deneyim sahibi olmadığınızı varsayar. 30 dakikadan kısa sürede, birden çok Azure kaynağını kullanan ve bulutta çalışan bir uygulamaya sahip olacaksınız.
 
@@ -38,9 +34,7 @@ Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması d
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="how-azure-relay-helps-with-hybrid-solutions" class="xliff"></a>
-
-## Azure Relay geçişinin karma çözümlere yönelik yardımları
+## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Azure Relay geçişinin karma çözümlere yönelik yardımları
 
 İşletme çözümleri, genel olarak yeni ve benzersiz işletme gereksinimlerini karşılamak için yazılan özel bir kodun ve kullanılan çözüm ve sistemler tarafından sağlanan var olan işlevselliğin bir birleşiminden oluşur.
 
@@ -48,18 +42,14 @@ Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması d
 
 [Azure Geçişi](https://azure.microsoft.com/services/service-bus/) ise mevcut Windows Communication Foundation (WCF) web hizmetlerinin alınarak kurumsal ağ altyapısını bozan değişikliklere gerek kalmadan kurumsal çevre dışında bulunan çözümlere güvenli bir şekilde erişmesini sağlamaya yönelik kullanım senaryosu için tasarlanmıştır. Bu tür geçişi hizmetleri, var olan ortamlarında barındırılmaya devam eder ancak bu hizmetler gelen oturumları ve istekleri bulutta barındırılan geçiş hizmetine devreder. Ayrıca, Azure Geçişi [Paylaşılan Erişim İmzası (SAS)](../service-bus-messaging/service-bus-sas.md) kimlik doğrulaması kullanarak bu hizmetleri yetkilendirilmemiş erişime karşı korur.
 
-<a id="solution-scenario" class="xliff"></a>
-
-## Çözüm senaryosu
+## <a name="solution-scenario"></a>Çözüm senaryosu
 Bu öğreticide, ürün stoğu sayfasındaki ürünlerin listesini görmenize olanak sağlayan bir ASP.NET web sitesi oluşturacaksınız.
 
 ![][0]
 
 Öğretici, var olan şirket içi sistemde ürün bilgilerine sahip olduğunuzu varsayar ve bu sisteme erişmek için Azure Geçişini kullanır. Bu çözüm, basit bir konsol uygulamasında çalışan web hizmeti ile benzetilir ve bir bellek içi ürün kümesi ile desteklenir. Bu konsol uygulamasını kendi bilgisayarınızda çalıştırabilirsiniz ve web rolünü Azure'a dağıtabilirsiniz. Bu özellik sayesinde, bilgisayarınız en az bir güvenlik duvarının arkasında ve bir ağ adresi çevirisi (NAT) katmanında yer alsa bile Azure veri merkezinde çalışan web rolünün gerçekten bilgisayarınıza çağrı gönderebildiğini göreceksiniz.
 
-<a id="set-up-the-development-environment" class="xliff"></a>
-
-## Geliştirme ortamını ayarlama
+## <a name="set-up-the-development-environment"></a>Geliştirme ortamını ayarlama
 
 Azure uygulamalarını geliştirmeye başlamadan önce, araçları indirip geliştirme ortamınızı ayarlayın:
 
@@ -69,23 +59,17 @@ Azure uygulamalarını geliştirmeye başlamadan önce, araçları indirip geli�
 4. **Web Platformu Yükleyicisi**'nde **Yükle**'ye tıklayın ve kuruluma devam edin.
 5. Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir.
 
-<a id="create-a-namespace" class="xliff"></a>
-
-## Ad alanı oluşturma
+## <a name="create-a-namespace"></a>Ad alanı oluşturma
 
 Azure'da geçiş özelliklerini kullanmaya başlamak için öncelikle bir hizmet ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Azure kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar. [Buradaki yönergeleri](relay-create-namespace-portal.md) izleyerek bir Geçiş ad alanı oluşturun.
 
-<a id="create-an-on-premises-server" class="xliff"></a>
-
-## Şirket içi sunucu oluşturma
+## <a name="create-an-on-premises-server"></a>Şirket içi sunucu oluşturma
 
 Öncelikle, bir (sahte) şirket içi ürün kataloğu sistemi derleyeceksiniz. Bu oldukça kolay bir işlemdir. Bu çalışmanın, entegre etmeye çalıştığımız tüm hizmet yüzeyini içeren gerçek bir şirket içi ürün kataloğu sistemini temsil ettiğini düşünebilirsiniz.
 
 Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları ile yapılandırma ayarlarını dahil etmek için [Azure Service Bus NuGet paketini](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) kullanır.
 
-<a id="create-the-project" class="xliff"></a>
-
-### Proje oluşturma
+### <a name="create-the-project"></a>Proje oluşturma
 
 1. Yönetici ayrıcalıklarını kullanarak Microsoft Visual Studio'yu başlatın. Bunu yapmak için Visual Studio program simgesine sağ tıklayıp **Yönetici olarak çalıştır**’a tıklayın.
 2. Visual Studio'da, **Dosya** menüsündeki **Yeni** seçeneğine ve ardından **Proje**'ye tıklayın.
@@ -227,15 +211,11 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
     ```
 14. Uygulamayı derlemek ve o ana kadarki doğruluğunu onaylamak üzere **Derle** menüsünde **Çözümü Derle** seçeneğine tıklayın veya **Ctrl+Shift+B**'ye basın.
 
-<a id="create-an-aspnet-application" class="xliff"></a>
-
-## ASP.NET uygulaması oluşturma
+## <a name="create-an-aspnet-application"></a>ASP.NET uygulaması oluşturma
 
 Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir ASP.NET uygulaması oluşturacaksınız.
 
-<a id="create-the-project" class="xliff"></a>
-
-### Proje oluşturma
+### <a name="create-the-project"></a>Proje oluşturma
 
 1. Visual Studio'nun yönetici ayrıcalıklarıyla çalıştığından emin olun.
 2. Visual Studio'da, **Dosya** menüsündeki **Yeni** seçeneğine ve ardından **Proje**'ye tıklayın.
@@ -257,9 +237,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 
     ![][17]
 
-<a id="modify-the-web-application" class="xliff"></a>
-
-### Web uygulamasını değiştirme
+### <a name="modify-the-web-application"></a>Web uygulamasını değiştirme
 
 1. Visual Studio'da Product.cs dosyasındaki var olan ad alanı tanımını şu kod ile değiştirin:
 
@@ -340,9 +318,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
    ```
 8. Çalışmanızın o ana kadarki doğruluğunu onaylamak üzere projeyi derlemek için **Ctrl+Shift+B**'ye basabilirsiniz.
 
-<a id="run-the-app-locally" class="xliff"></a>
-
-### Uygulamayı yerel olarak çalıştırma
+### <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
 Çalışır durumda olduğunu doğrulamak için uygulamayı çalıştırın.
 
@@ -352,9 +328,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 
    ![][21]
 
-<a id="put-the-pieces-together" class="xliff"></a>
-
-## Parçaları bir araya getirme
+## <a name="put-the-pieces-together"></a>Parçaları bir araya getirme
 
 Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birleştirmektir.
 
@@ -422,9 +396,7 @@ Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birl
 
 14. **Özellik Sayfaları** iletişim kutusunda **Tamam**'a tıklayın.
 
-<a id="run-the-project-locally" class="xliff"></a>
-
-## Projeyi yerel olarak çalıştırma
+## <a name="run-the-project-locally"></a>Projeyi yerel olarak çalıştırma
 
 Uygulamayı yerel olarak test etmek için Visual Studio'da **F5**'e basın. İlk olarak şirket içi sunucunun (**ProductsServer**) başlaması gerekir, ardından **ProductsPortal** uygulaması bir tarayıcı penceresinde başlamalıdır. Bu kez ürün stoğunun ürün hizmeti şirket içi sisteminden aldığı verileri listelediğini görürsünüz.
 
@@ -434,9 +406,7 @@ Uygulamayı yerel olarak test etmek için Visual Studio'da **F5**'e basın. İlk
 
 Sonraki adıma geçmeden önce her iki uygulamayı da kapatın.
 
-<a id="deploy-the-productsportal-project-to-an-azure-web-app" class="xliff"></a>
-
-## ProductsPortal projesini bir Azure web uygulamasına dağıtma
+## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>ProductsPortal projesini bir Azure web uygulamasına dağıtma
 
 Sonraki adımda, Azure Web uygulaması **ProductsPortal** ön ucunu yeniden yayımlayacaksınız. Şunları yapın:
 
@@ -453,9 +423,7 @@ Sonraki adımda, Azure Web uygulaması **ProductsPortal** ön ucunu yeniden yay�
 
 3. Çalışan uygulamayı durdurmak için tarayıcı penceresini kapatın.
 
-<a id="set-productsportal-as-web-app" class="xliff"></a>
-
-### ProductsPortal'ı web uygulaması olarak ayarlama
+### <a name="set-productsportal-as-web-app"></a>ProductsPortal'ı web uygulaması olarak ayarlama
 
 Uygulamayı bulutta çalıştırmadan önce **ProductsPortal** öğesinin Visual Studio'da bir web uygulaması olarak başlatıldığından emin olmanız gerekir.
 
@@ -468,9 +436,7 @@ Uygulamayı bulutta çalıştırmadan önce **ProductsPortal** öğesinin Visual
 4. Visual Studio'daki **Dosya** menüsünde **Tümünü Kaydet**'e tıklayın.
 5. Visual Studio'da Derle menüsünde **Çözümü Yeniden Derle**'ye tıklayın.
 
-<a id="run-the-application" class="xliff"></a>
-
-## Uygulamayı çalıştırma
+## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
 1. Uygulamayı derleyip çalıştırmak için F5'e basın. Öncelikle şirket içi sunucu (**ProductsServer** konsol uygulaması) başlamalıdır, ardından aşağıdaki ekran görüntüsünde gösterildiği gibi **ProductsPortal** uygulaması bir tarayıcı penceresinde başlamalıdır. Ürün stoğunun ürün hizmeti şirket içi sisteminden aldığı verileri listelediğini ve bu verileri web uygulamasında gösterdiğini göz önünde bulundurun. **ProductsPortal**'ın bir Azure web uygulaması olarak bulutta çalıştığından emin olmak için URL'yi kontrol edin.
 
@@ -486,9 +452,7 @@ Uygulamayı bulutta çalıştırmadan önce **ProductsPortal** öğesinin Visual
 
     ![][38]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Azure Geçiş hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:  
 

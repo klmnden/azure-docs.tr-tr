@@ -22,14 +22,10 @@ ms.lasthandoff: 06/08/2017
 
 
 ---
-<a id="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server" class="xliff"></a>
-
-# PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltme
+# <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltme
 PhoneFactor Aracısı v5.x veya önceki bir sürümünü Azure Multi-Factor Authentication Sunucusuna yükseltmek için ilk olarak PhoneFactor Aracısını ve bağlı bileşenleri kaldırın. Bundan sonra Multi-Factor Authentication Sunucusu ve bağlı bileşenleri yüklenebilir.
 
-<a id="uninstall-the-phonefactor-agent" class="xliff"></a>
-
-## PhoneFactor Aracısını kaldırma
+## <a name="uninstall-the-phonefactor-agent"></a>PhoneFactor Aracısını kaldırma
 
 1. İlk olarak, PhoneFactor veri dosyasını yedekleyin. Varsayılan yükleme konumu C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata şeklindedir.
 
@@ -50,9 +46,7 @@ PhoneFactor Aracısı v5.x veya önceki bir sürümünü Azure Multi-Factor Auth
 
 5. PhoneFactor Aracısı’nı Windows Programlar ve Özellikler aracılığıyla kaldırın.
 
-<a id="install-the-multi-factor-authentication-server" class="xliff"></a>
-
-## Multi-Factor Authentication Sunucusu’nu yükleme
+## <a name="install-the-multi-factor-authentication-server"></a>Multi-Factor Authentication Sunucusu’nu yükleme
 
 Yükleme yolu önceki PhoneFactor Aracısı yüklemesinin kayıt defterinden alınır, bu nedenle aynı konuma (örneğin, C:\Program Files\PhoneFactor) yükleme yapılmalıdır. Yeni yüklemeler farklı bir varsayılan yükleme yoluna (örneğin, C:\Program Files\Multi-Factor Authentication Server) sahip olacaktır. Önceki PhoneFactor Aracısı’ndan kalan veri dosyası yükleme sırasında yükseltilmelidir, bu nedenle kullanıcılarınız ve ayarlarınız yeni Multi-Factor Authentication Sunucusu yüklemesi sonrasında da burada kalmalıdır.
 
@@ -82,9 +76,7 @@ Yükleme yolu önceki PhoneFactor Aracısı yüklemesinin kayıt defterinden al�
 
   5. Mobil Uygulama Web Hizmeti yükleme konumuna (örneğin, C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) gidin ve web.config dosyasını düzenleyin. Yükseltme öncesi yedeklenen özgün web.config dosyasındaki appSettings ve applicationSettings bölümlerindeki değerleri yeni web.config dosyasına kopyalayın. Web Hizmeti SDK’sını yüklerken yeni varsayılan sanal dizin adını sakladıysanız, doğru konuma yönlendirmek için applicationSettings bölümünde URL’yi değiştirin. Önceki web.config dosyasında diğer varsayılan değerler değiştirildiyse, aynı değişiklikleri yeni web.config dosyasına uygulayın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 - Azure Multi-Factor Authentication Sunucusu için [kullanıcı portalını yükleyin](multi-factor-authentication-get-started-portal.md).
 

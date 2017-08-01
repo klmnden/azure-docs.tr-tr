@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="configure-a-point-to-site-connection-to-a-vnet-using-powershell" class="xliff"></a>
-
-# PowerShell'i kullanarak sanal ağa yönelik bir Noktadan Siteye bağlantısı yapılandırma
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-powershell"></a>PowerShell'i kullanarak sanal ağa yönelik bir Noktadan Siteye bağlantısı yapılandırma
 
 
 Bu makalede PowerShell kullanılarak Resource Manager dağıtım modelinde Noktadan Siteye bağlantı ile sanal ağ oluşturma işlemi gösterilmektedir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
@@ -51,9 +49,7 @@ P2S bağlantıları aşağıdakileri gerektirir:
 * Bir VPN istemcisi yapılandırma paketi oluşturulmalı ve bağlanan her istemci bilgisayara yüklenmelidir. İstemci yapılandırma paketi, işletim sistemi üzerinde zaten bulunan yerel VPN istemcisini sanal ağa bağlanmak için gereken bilgilerle yapılandırır.
 
 
-<a id="before-beginning" class="xliff"></a>
-
-## Başlamadan önce
+## <a name="before-beginning"></a>Başlamadan önce
 
 * Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
 * Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
@@ -264,9 +260,7 @@ Bağlanmayla ilgili sorun yaşıyorsanız aşağıdakileri denetleyin:
 
 Azure’da güvenilen kök sertifikayı ekleyebilir veya kaldırabilirsiniz. Bir kök sertifikayı kaldırdığınızda, o kökten oluşturulmuş bir sertifikaya sahip istemciler kimlik doğrulaması yapamaz ve bu nedenle bağlantı kuramaz. Bir istemcinin kimlik doğrulaması yapmasını ve bağlanmasını istiyorsanız, Azure’da güvenilen (karşıya yüklenmiş) bir kök sertifikadan oluşturulmuş yeni bir istemci sertifikası yüklemeniz gerekir.
 
-<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
-
-### Güvenilen kök sertifika ekleme
+### <a name="to-add-a-trusted-root-certificate"></a>Güvenilen kök sertifika ekleme
 
 Azure'a en fazla 20 kök sertifika .cer dosyası ekleyebilirsiniz. Aşağıdaki adımlar bir kök sertifika eklemenize yardımcı olur:
 
@@ -297,9 +291,7 @@ Azure'a en fazla 20 kök sertifika .cer dosyası ekleyebilirsiniz. Aşağıdaki 
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
-<a id="to-remove-a-root-certificate" class="xliff"></a>
-
-### Kök sertifikayı kaldırmak için
+### <a name="to-remove-a-root-certificate"></a>Kök sertifikayı kaldırmak için
 
 1. Değişkenleri bildirin.
 
@@ -327,9 +319,7 @@ Azure'a en fazla 20 kök sertifika .cer dosyası ekleyebilirsiniz. Aşağıdaki 
 
 Genellikle ekip ve kuruluş düzeylerinde erişimi yönetmek için kök sertifika kullanılırken ayrı kullanıcılar üzerinde ayrıntılı erişim denetimi için iptal edilen istemci sertifikaları kullanılır.
 
-<a id="to-revoke-a-client-certificate" class="xliff"></a>
-
-### İstemci sertifikasını iptal etme
+### <a name="to-revoke-a-client-certificate"></a>İstemci sertifikasını iptal etme
 
 1. İstemci sertifikasının parmak izini alın. Daha fazla bilgi için bkz. [Bir Sertifikanın Parmak İzini alma](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Bilgileri bir metin düzenleyicisine kopyalayın ve sürekli bir dize haline getirmek için tüm boşlukları kaldırın. Bu değer sonraki adımda bir değişken olarak bildirilir.
@@ -355,9 +345,7 @@ Genellikle ekip ve kuruluş düzeylerinde erişimi yönetmek için kök sertifik
   ```
 6. Parmak izi eklendikten sonra sertifika artık bağlanmak için kullanılamaz. Bu sertifikayı kullanarak bağlanmaya çalışan istemciler sertifikanın artık geçerli olmadığını belirten bir ileti alır.
 
-<a id="to-reinstate-a-client-certificate" class="xliff"></a>
-
-### İstemci sertifikasını yeniden devreye sokma
+### <a name="to-reinstate-a-client-certificate"></a>İstemci sertifikasını yeniden devreye sokma
 
 Parmak izini, iptal edilen istemci sertifikaları listesinden kaldırarak bir istemci sertifikasını yeniden devreye sokabilirsiniz.
 
@@ -385,8 +373,6 @@ Parmak izini, iptal edilen istemci sertifikaları listesinden kaldırarak bir is
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Ağ ve sanal makineler hakkında daha fazla bilgi edinmek için, bkz. [Azure ve Linux VM ağına genel bakış](../virtual-machines/linux/azure-vm-network-overview.md).
 

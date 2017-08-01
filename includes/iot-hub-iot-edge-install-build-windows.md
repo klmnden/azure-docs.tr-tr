@@ -1,6 +1,4 @@
-<a id="install-the-prerequisites" class="xliff"></a>
-
-## Install the prerequisites
+## <a name="install-the-prerequisites"></a>Install the prerequisites
 
 1. Install [Visual Studio 2015 or 2017](https://www.visualstudio.com). You can use the free Community Edition if you meet the licensing requirements. Be sure to include Visual C++ and NuGet Package Manager.
 
@@ -16,9 +14,7 @@
     git clone https://github.com/Azure/iot-edge.git
     ```
 
-<a id="how-to-build-the-sample" class="xliff"></a>
-
-## How to build the sample
+## <a name="how-to-build-the-sample"></a>How to build the sample
 
 You can now build the IoT Edge runtime and samples on your local machine:
 

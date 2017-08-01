@@ -6,8 +6,7 @@ F-series VMs are an excellent choice for workloads that demand faster CPUs but d
 
 The Fs-series provides all the advantages of the F-series, in addition to Premium storage.
 
-## Fs-series*
-<a id="fs-series" class="xliff"></a>
+## <a name="fs-series"></a>Fs-series*
 
 ACU: 210 - 250
 
@@ -25,8 +24,7 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 
 <br>
-## F-series
-<a id="f-series" class="xliff"></a>
+## <a name="f-series"></a>F-series
 
 ACU: 210 - 250
 

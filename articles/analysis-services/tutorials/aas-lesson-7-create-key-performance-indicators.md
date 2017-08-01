@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-7-create-key-performance-indicators" class="xliff"></a>
-
-# 7. Ders: Ana Performans Göstergeleri oluşturma
+# <a name="lesson-7-create-key-performance-indicators"></a>7. Ders: Ana Performans Göstergeleri oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,18 +30,12 @@ Bu derste Ana Performans Göstergeleri (KPI) oluşturursunuz. KPI’lar bir *Tem
   
 Bu dersin tahmini tamamlanma süresi: **15 dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [6. Ders: Ölçü oluşturma](../tutorials/aas-lesson-6-create-measures.md).   
   
-<a id="create-key-performance-indicators" class="xliff"></a>
-
-## Ana Performans Göstergeleri oluşturma  
+## <a name="create-key-performance-indicators"></a>Ana Performans Göstergeleri oluşturma  
   
-<a id="to-create-an-internetcurrentquartersalesperformance-kpi" class="xliff"></a>
-
-#### InternetCurrentQuarterSalesPerformance KPI’si oluşturmak için  
+#### <a name="to-create-an-internetcurrentquartersalesperformance-kpi"></a>InternetCurrentQuarterSalesPerformance KPI’si oluşturmak için  
   
 1.  Model tasarımcısında **FactInternetSales** tablosuna tıklayın.  
   
@@ -74,9 +66,7 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
   
     Ölçü kılavuzunda **InternetCurrentQuarterSalesPerformance** ölçüsünün yanındaki simgeye dikkat edin. Bu simge, bu ölçünün bir KPI’ya ait Temel değer olarak görev yaptığını gösterir.  
   
-<a id="to-create-an-internetcurrentquartermarginperformance-kpi" class="xliff"></a>
-
-#### InternetCurrentQuarterMarginPerformance KPI’si oluşturmak için  
+#### <a name="to-create-an-internetcurrentquartermarginperformance-kpi"></a>InternetCurrentQuarterMarginPerformance KPI’si oluşturmak için  
   
 1.  **FactInternetSales** tablosunun ölçü kılavuzunda boş bir hücreye tıklayın.  
   
@@ -94,9 +84,7 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
   
 6.  **Simge Stili Seçin** bölümünde baklava (kırmızı), üçgen (sarı), yuvarlak (yeşil) simge türünü seçip **Tamam**’a tıklayın.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Sırada ne var?
+## <a name="whats-next"></a>Sırada ne var?
 [8. Ders: Perspektif oluşturma](../tutorials/aas-lesson-8-create-perspectives.md).
   
   

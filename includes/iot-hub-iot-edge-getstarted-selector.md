@@ -15,9 +15,7 @@ This walkthrough covers:
 * **Code snippets**: A collection of code snippets to show how the Hello World sample implements key IoT Edge gateway components.
 
 
-<a id="hello-world-sample-architecture" class="xliff"></a>
-
-## Hello World sample architecture
+## <a name="hello-world-sample-architecture"></a>Hello World sample architecture
 The Hello World sample illustrates the concepts described in the previous section. The Hello World sample implements a IoT Edge gateway that has a pipeline made up of two IoT Edge modules:
 
 * The *hello world* module creates a message every five seconds and passes it to the logger module.

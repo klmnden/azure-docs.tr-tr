@@ -21,9 +21,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/14/2017
 
 ---
-<a id="tutorial-create-a-pipeline-with-copy-activity-using-net-api" class="xliff"></a>
-
-# Öğretici: .NET API kullanarak Kopyalama Etkinlikli bir işlem hattı oluşturma
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Öğretici: .NET API kullanarak Kopyalama Etkinlikli bir işlem hattı oluşturma
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
@@ -45,17 +43,13 @@ Bir işlem hattının birden fazla etkinliği olabilir. Bir etkinliğin çıktı
 > 
 > Bu öğreticideki veri işlem hattı, bir kaynak veri deposundaki verileri hedef veri deposuna kopyalar. Azure Data Factory kullanarak verileri dönüştürme hakkında bir öğretici için bkz. [Öğretici: Hadoop kümesi kullanarak verileri dönüştürmek için işlem hattı oluşturma](data-factory-build-your-first-pipeline.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 * Öğreticiye genel bir bakış atmak ve **ön koşul** adımlarını tamamlamak için [Öğreticiye Genel Bakış ve Ön Koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümündeki adımları tamamlayın.
 * Visual Studio 2012 veya 2013 veya 2015
 * [Azure .NET SDK](http://azure.microsoft.com/downloads/)’yı indirip yükleyin
 * Azure PowerShell. Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin. Azure PowerShell’i kullanarak bir Azure Active Directory uygulaması oluşturursunuz.
 
-<a id="create-an-application-in-azure-active-directory" class="xliff"></a>
-
-### Azure Active Directory’de uygulama oluşturma
+### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
 Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sorumlusu oluşturun ve bunu **Data Factory Katılımcısı** rolüne atayın.
 
 1. **PowerShell**’i başlatın.
@@ -122,9 +116,7 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
 * Uygulama Kimliği
 * Parola (ik komutta belirtilir)
 
-<a id="walkthrough" class="xliff"></a>
-
-## Kılavuz
+## <a name="walkthrough"></a>Kılavuz
 1. Visual Studio 2012/2013/2015'i kullanarak bir C# .NET konsol uygulaması oluşturun.
    1. **Visual Studio** 2012/2013/2015’i başlatın.
    2. **Dosya**’ya tıklayın, **Yeni**’nin üzerine gelin ve **Proje**’ye tıklayın.
@@ -523,9 +515,7 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
    * İşlem hattı: **PipelineBlobSample**
 20. Belirtilen Azure SQL veritabanındaki **emp** tablosunda, iki çalışan kaydının oluşturulduğunu doğrulayın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 .NET API’deki Data Factory ile ilgili tüm belgeleri görmek için bkz. [Data Factory .NET API Başvurusu](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
 
 Bu öğreticide, bir kopyalama işleminde kaynak veri deposu olarak Azure blob depolama alanını ve hedef veri deposu olarak Azure SQL veritabanını kullandınız. Aşağıdaki tabloda, kopyalama etkinliği tarafından kaynaklar ve hedefler olarak desteklenen veri depolarının listesi sağlanmıştır: 

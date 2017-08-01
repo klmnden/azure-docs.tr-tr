@@ -23,15 +23,11 @@ ms.lasthandoff: 07/01/2017
 
 ---
 
-<a id="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
-
-# Ibiza portalını kullanarak Zaman Serisi Görüşleri ortamınız için olay kaynağı oluşturma
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Ibiza portalını kullanarak Zaman Serisi Görüşleri ortamınız için olay kaynağı oluşturma
 
 Zaman Serisi Görüşleri Olay Kaynağı, Azure Event Hubs gibi bir olay aracısından türetilir. Zaman Serisi Görüşleri doğrudan Olay Kaynaklarına bağlanarak, kullanıcının tek bir kod satırı bile yazmasına gerek kalmadan veri akışını alır. Şu anda Zaman Serisi Görüşleri, Azure Event Hubs'ı ve Azure IoT Hub'larını destekler. İleride daha fazla Olay Kaynağı eklenecektir.
 
-<a id="steps-to-add-an-event-source-to-your-environment" class="xliff"></a>
-
-## Ortamınıza olay kaynağı ekleme adımları
+## <a name="steps-to-add-an-event-source-to-your-environment"></a>Ortamınıza olay kaynağı ekleme adımları
 
 1.  [Ibiza portalında](https://portal.azure.com) oturum açın.
 2.  Ibiza portalının sol tarafındaki menüde bulunan "Tüm kaynaklar" seçeneğine tıklayın.
@@ -55,9 +51,7 @@ Zaman Serisi Görüşleri Olay Kaynağı, Azure Event Hubs gibi bir olay aracıs
 
 Olay kaynağının oluşturulmasından sonra, Zaman Serisi Görüşleri ortamınıza veri akışını otomatik olarak başlatır.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 * Olay kaynağına [olayları gönderme](time-series-insights-send-events.md)
 * [Zaman Serisi Görüşleri Portalı](https://insights.timeseries.azure.com)’nda ortamınızı görüntüleme

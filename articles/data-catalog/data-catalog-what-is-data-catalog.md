@@ -23,16 +23,12 @@ ms.lasthandoff: 06/05/2017
 
 
 ---
-<a id="what-is-azure-data-catalog" class="xliff"></a>
-
-# Azure Veri Kataloğu nedir?
+# <a name="what-is-azure-data-catalog"></a>Azure Veri Kataloğu nedir?
 Azure Veri Kataloğu, kullanıcılarının ihtiyaç duyduğu veri kaynaklarını bulabildiği ve bulduğu veri kaynaklarını anlayabildiği, tam olarak yönetilen bir bulut hizmetidir. Bunun yanı sıra, Veri Kataloğu kuruluşların mevcut yatırımlarından daha fazla değer elde etmesine yardımcı olur. 
 
 Veri Kataloğu sayesinde, tüm kullanıcılar (analist, veri bilim insanı veya geliştirici) veri kaynaklarını bulabilir, anlayabilir ve tüketebilir. Veri Kataloğu, meta veriler ve ek açıklamalar için bir kitle kaynağı modelini içerir. Bir kuruluştaki tüm kullanıcıların bilgileriyle katkıda bulunması ve veri odaklı bir topluluk ve kültür oluşturması için tek, merkezi bir yerdir.
 
-<a id="discovery-challenges-for-data-consumers" class="xliff"></a>
-
-## Veri tüketicileri için bulma zorlukları
+## <a name="discovery-challenges-for-data-consumers"></a>Veri tüketicileri için bulma zorlukları
 Geleneksel olarak, kurumsal veri kaynaklarının bulunması grupsal bilgilere dayanan organik bir süreç olmuştur. Bu yaklaşım, bilgi varlıklarından en yüksek değeri elde etmek isteyen şirketler için çeşitli zorluklar teşkil etmektedir:
 
 * Kullanıcılar, başka bir işlem kapsamında denk gelinmediği sürece bir veri kaynağının mevcut olduğundan haberdar olmayabilir. Veri kaynaklarının kayıtlı olduğu merkezi bir konum yoktur.
@@ -41,9 +37,7 @@ Geleneksel olarak, kurumsal veri kaynaklarının bulunması grupsal bilgilere da
 * Kullanıcıların bir bilgi varlığıyla ilgili soruları varsa, verilerden sorumlu olan uzmanı veya ekibi bulması ve bunlarla çevrimdışı etkileşim kurması gerekir. Veriler ile bunların nasıl kullanacağına ilişkin uzman görüşleri arasında açık bir bağlantı yoktur.
 * Kullanıcılar veri kaynağına erişim isteme işlemini anlamadığı sürece, veri kaynağının ve belgelerin bulunması bile verilere erişime yardımcı olmaz.
 
-<a id="discovery-challenges-for-data-producers" class="xliff"></a>
-
-## Veri üreticileri için bulma zorlukları
+## <a name="discovery-challenges-for-data-producers"></a>Veri üreticileri için bulma zorlukları
 Veri tüketicileri daha önce sözü geçen sorunlarla karşılaşırken, bilgi varlıkları oluşturmaktan ve bunların bakımını yapmaktan sorumlu kullanıcılar da kendilerine özgü zorluklarla yüz yüze gelmektedir:
 
 * Veri kaynaklarına açıklayıcı meta verilerle ek açıklama ekleme, genellikle sonuç vermeyen bir işlemdir. İstemci uygulamaları genellikle veri kaynağında depolanan açıklamaları yok sayar.
@@ -53,9 +47,7 @@ Veri tüketicileri daha önce sözü geçen sorunlarla karşılaşırken, bilgi 
 
 Bu zorluklar bir araya geldiğinde, kurumsal verilerin kullanımını ve anlaşılmasını teşvik etmek ve desteklemek isteyen şirketler için ciddi bir engel oluşturmaktadır.
 
-<a id="azure-data-catalog-can-help" class="xliff"></a>
-
-## Azure Veri Kataloğu bu konuda yardımcı olabilir
+## <a name="azure-data-catalog-can-help"></a>Azure Veri Kataloğu bu konuda yardımcı olabilir
 Veri Kataloğu, bu sorunları gidermek ve kuruluşların mevcut bilgi varlıklarından en yüksek değeri elde etmesine yardımcı olmak üzere tasarlanmıştır. Veri Kataloğu, veri kaynaklarının verileri yöneten kullanıcılar tarafından kolayca bulunabilmesini ve anlaşılır olmasını sağlar.
 
 Veri Kataloğu, veri kaynağının kaydedilebileceği bulut tabanlı bir hizmet sağlar. Veriler mevcut konumunda kalırken, bunların meta verileri ve veri kaynağı konumuna yönelik bir başvuru Veri Kataloğu'na eklenir. Bu meta veriler ayrıca her bir veri kaynağının arama ile kolayca bulunabilmesini ve bunları bulan kullanıcılar tarafından anlaşılabilmesini sağlamak üzere dizine alınır.
@@ -68,9 +60,7 @@ Diğer yandan, kullanıcılar zaten kaydettikleri veri kaynakları için etiketl
 
 ![Veri Kataloğu özellikleri](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-<a id="learn-more-about-data-catalog" class="xliff"></a>
-
-## Veri Kataloğu hakkında daha fazla bilgi edinin
+## <a name="learn-more-about-data-catalog"></a>Veri Kataloğu hakkında daha fazla bilgi edinin
 Veri Kataloğu'nun özellikleri hakkında daha fazla bilgi edinmek için bkz.
 
 * [Veri kaynaklarını kaydetme](data-catalog-how-to-register.md)
@@ -83,9 +73,7 @@ Veri Kataloğu'nun özellikleri hakkında daha fazla bilgi edinmek için bkz.
 * [İş Sözlüğünü ayarlama](data-catalog-how-to-business-glossary.md)
 * [Sık sorulan sorular](data-catalog-frequently-asked-questions.md)
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Veri Kataloğu ile çalışmaya başlamak için şu sayfaya gidin:
 * [Microsoft Azure Veri Kataloğu](https://www.azuredatacatalog.com)
 * [Azure Veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md)

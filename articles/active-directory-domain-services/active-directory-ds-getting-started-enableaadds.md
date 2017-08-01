@@ -22,13 +22,9 @@ ms.lasthandoff: 06/30/2017
 
 
 ---
-<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Klasik Azure portalını kullanarak Azure Active Directory Domain Services'i etkinleştirme
 
-# Klasik Azure portalını kullanarak Azure Active Directory Domain Services'i etkinleştirme
-
-<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
-
-## Görev 3: Azure Active Directory Domain Services'i etkinleştirme
+## <a name="task-3-enable-azure-active-directory-domain-services"></a>Görev 3: Azure Active Directory Domain Services'i etkinleştirme
 Bu görevde, aşağıdaki adımları uygulayarak dizininiz için Azure Active Directory Domain Services'i (Azure AD DS) etkinleştireceksiniz:
 
 1. [Klasik Azure portalı](https://manage.windowsazure.com)'na gidin.
@@ -99,8 +95,6 @@ Bu görevde, aşağıdaki adımları uygulayarak dizininiz için Azure Active Di
 >
 >
 
-<a id="next-step" class="xliff"></a>
-
-## Sonraki adım
+## <a name="next-step"></a>Sonraki adım
 [Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-update-dns.md)
 

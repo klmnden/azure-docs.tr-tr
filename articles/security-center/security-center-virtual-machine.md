@@ -21,14 +21,12 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 07/12/2017
 
 ---
-# Azure Güvenlik Merkezi ve Azure Sanal Makineler
-<a id="azure-security-center-and-azure-virtual-machines" class="xliff"></a>
+# <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Güvenlik Merkezi ve Azure Sanal Makineler
 [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), tehditleri önlemenize, algılamanıza ve yanıtlamanıza yardımcı olur. Aboneliklerinizde, tümleşik güvenlik izleme ve ilke yönetimi sağlar; normal koşullarda gözden kaçabilecek tehditleri algılamaya yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
 
 Bu makalede Güvenlik Merkezi’nin Azure Sanal Makinelerinizi (VM) güvenli hale getirmeye nasıl yardımcı olduğu gösterilmektedir.
 
-## Güvenlik Merkezi neden kullanılır?
-<a id="why-use-security-center" class="xliff"></a>
+## <a name="why-use-security-center"></a>Güvenlik Merkezi neden kullanılır?
 Güvenlik Merkezi, sanal makinenizin güvenlik ayarlarını görüntüleme olanağı sağlayarak Azure’da sanal makine verilerini korumanıza yardımcı olur. Güvenlik Merkezi VM’lerinizi koruduğunda aşağıdaki özellikler kullanılabilir:
 
 * Önerilen yapılandırma kuralları ile birlikte İşletim Sistemi (OS) güvenlik ayarları
@@ -45,16 +43,14 @@ Güvenlik Merkezi, Azure VM’lerinizi korumaya yardımcı olmasına ek olarak C
 > 
 > 
 
-## Ön koşullar
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Ön koşullar
 Azure Güvenlik Merkezi’ni kullanmaya başlamak için aşağıdakileri bilmeniz ve göz önünde bulundurmanız gerekir:
 
 * Bir Microsoft Azure aboneliğiniz olmalıdır. Güvenlik Merkezi’nin ücretsiz ve standart katmanları hakkında daha fazla bilgi için bkz. [Güvenlik Merkezi Fiyatlandırması](https://azure.microsoft.com/pricing/details/security-center/).
 * Güvenlik Merkezi için benimsediğiniz seçeneği planlayın ve planlama ile çalışma konuları hakkında daha fazla bilgi için [Azure Güvenlik Merkezi planlama ve işlemler kılavuzuna](security-center-planning-and-operations-guide.md) bakın.
 * İşletim sistemi desteklenebilirliği ile ilgili daha fazla bilgi için bkz. [Azure Güvenlik Merkezi hakkında sık sorulan sorular (SSS)](security-center-faq.md). 
 
-## Güvenlik ilkesi ayarlama
-<a id="set-security-policy" class="xliff"></a>
+## <a name="set-security-policy"></a>Güvenlik ilkesi ayarlama
 Azure Güvenlik Merkezi’nin yapılandırdığınız güvenlik ilkesini temel alarak oluşturulan öneriler ve uyarılar sağlamak üzere gereken bilgileri toplayabilmesi için veri toplama özelliği etkinleştirilmelidir. Aşağıdaki çizimde **Veri toplama** özelliği **Açık** olarak görülmektedir.
 
 Güvenlik ilkesi, belirtilen abonelik veya kaynak grubundaki kaynaklar için önerilen denetimler kümesini tanımlar. Güvenlik ilkesini etkinleştirmeden önce veri toplamayı etkinleştirmeniz gerekir; Güvenlik Merkezi, verilerinizin güvenlik durumunu değerlendirmek, güvenlik önerileri sağlamak ve sizi tehditlere karşı uyarmak için sanal makinelerinizden veri toplar. Güvenlik Merkezi'nde şirketinizin güvenlik gereksinimlerine veya uygulamaların türüne ya da her abonelikteki verilerin duyarlılığına göre Azure abonelikleriniz veya kaynak grupları için ilkeler tanımlarsınız. 
@@ -66,8 +62,7 @@ Güvenlik ilkesi, belirtilen abonelik veya kaynak grubundaki kaynaklar için ön
 > 
 > 
 
-## Güvenlik önerilerini yönetme
-<a id="manage-security-recommendations" class="xliff"></a>
+## <a name="manage-security-recommendations"></a>Güvenlik önerilerini yönetme
 Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde öneriler oluşturur. Gerekli denetimlerin yapılandırılması işlemi boyunca öneriler size rehberlik eder.
 
 Bir güvenlik ilkesi tanımladıktan sonra, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak için kaynaklarınızın güvenlik durumunu analiz eder. Öneriler her satırın belirli bir öneriyi temsil ettiği bir tablo biçiminde gösterilir. Aşağıdaki tabloda Azure VM’lerinize yönelik önerilerin bazı örnekleri ve uygulamanız durumunda her birinin neler yapabileceği gösterilmektedir. Bir öneriyi seçtiğinizde, öneriyi Güvenlik Merkezi’nde nasıl uygulayacağınızı gösteren bilgiler sunulur.
@@ -90,22 +85,19 @@ Bir güvenlik ilkesi tanımladıktan sonra, Güvenlik Merkezi olası güvenlik a
 > 
 > 
 
-## Güvenlik durumunu izleme
-<a id="monitor-security-health" class="xliff"></a>
+## <a name="monitor-security-health"></a>Güvenlik durumunu izleme
 Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policies.md) etkinleştirmenizin ardından, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder.  **Kaynak güvenlik durumu** dikey penceresinde herhangi bir sorunun yanı sıra kaynaklarınızın güvenlik durumunu da görüntüleyebilirsiniz. **Kaynak güvenliği** sistem durumu kutucuğundaki **Sanal makineler**’e tıkladığınızda **Sanal makineler** dikey penceresi VM’nize yönelik önerilerle birlikte açılır. 
 
 ![Güvenlik durumu](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
-## Güvenlik uyarılarını yönetme ve yanıtlama
-<a id="manage-and-respond-to-security-alerts" class="xliff"></a>
+## <a name="manage-and-respond-to-security-alerts"></a>Güvenlik uyarılarını yönetme ve yanıtlama
 Güvenlik Merkezi, gerçek tehditleri algılamak ve hatalı pozitif sonuçları azaltmak için Azure kaynaklarınızdan, ağınızdan ve güvenlik duvarı ve uç nokta koruma çözümleri gibi bağlı iş ortağı çözümlerinden günlük verilerini otomatik olarak toplar, çözümler ve tümleştirir. Güvenlik Merkezi, sorunu hızlıca araştırıp olası saldırıları düzeltmeye yönelik öneriler sağlamanıza yardımcı olmak amacıyla, çeşitli [algılama özelliklerinden](security-center-detection-capabilities.md) yararlanarak öncelik sırasına koyulmuş güvenlik uyarıları oluşturabilir.
 
 ![Güvenlik uyarıları](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
 Uyarıyı tetikleyen olay(lar) ve saldırıyı düzeltmek için (varsa) hangi adımları atmanız gerektiği hakkında daha fazla bilgi edinmek için bir güvenlik uyarısı seçin. Güvenlik uyarıları, [türe](security-center-alerts-type.md) ve tarihe göre gruplandırılır.
 
-## Ayrıca bkz.
-<a id="see-also" class="xliff"></a>
+## <a name="see-also"></a>Ayrıca bkz.
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.

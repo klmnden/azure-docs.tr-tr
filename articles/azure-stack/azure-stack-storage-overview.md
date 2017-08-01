@@ -22,18 +22,12 @@ ms.lasthandoff: 06/20/2017
 
 
 ---
-<a id="introduction-to-azure-stack-storage" class="xliff"></a>
+# <a name="introduction-to-azure-stack-storage"></a>Introduction to Azure Stack storage
 
-# Introduction to Azure Stack storage
-
-<a id="overview" class="xliff"></a>
-
-## Overview
+## <a name="overview"></a>Overview
 Azure Stack Storage is a set of cloud storage services including Blobs, Tables and Queues which are consistent with Azure Storage services.
 
-<a id="azure-stack-storage-services" class="xliff"></a>
-
-## Azure Stack Storage services
+## <a name="azure-stack-storage-services"></a>Azure Stack Storage services
 Azure Stack storage provides the following three services:
 
 * **Blob Storage** 
@@ -51,9 +45,7 @@ An Azure Stack storage account is a secure account that gives you access to serv
 ![Azure Stack Storage overview](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 
-<a id="blob-storage" class="xliff"></a>
-
-### Blob storage
+### <a name="blob-storage"></a>Blob storage
 
 For users with a large amount of unstructured object data to store in the cloud, Blob storage offers an effective and scalable solution. You can use Blob storage to store content such as:
 
@@ -78,9 +70,7 @@ Blob storage offers three types of blobs:
     Page blobs are optimized for representing IaaS disks and supporting random writes which is up to 1 TB in size. An Azure Stack virtual machine attached IaaS disk is a VHD stored as a page blob.
 
 
-<a id="table-storage" class="xliff"></a>
-
-### Table storage
+### <a name="table-storage"></a>Table storage
 Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required. Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft's NoSQL key/attribute store – it has a schemaless design, making it different from traditional relational databases. With a schemaless data store, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly.
 
 Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name. The property name can be used for filtering and specifying selection criteria. A collection of properties and their values comprise an entity. Since Table storage is schemaless, two entities in the same table can contain different collections of properties, and those properties can be of different types.
@@ -89,16 +79,12 @@ You can use Table storage to store flexible datasets, such as user data for web 
 
 A storage account can contain any number of tables, and a table can contain any number of entities, up to the capacity limit of the storage account.
 
-<a id="queue-storage" class="xliff"></a>
-
-### Queue storage
+### <a name="queue-storage"></a>Queue storage
 In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
 
 A storage account can contain any number of queues, and a queue can contain any number of messages, up to the capacity limit of the storage account. Individual messages may be up to 64 KB in size.
 
-<a id="next-steps" class="xliff"></a>
-
-## Next steps
+## <a name="next-steps"></a>Next steps
 * [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
 
 * To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](..\storage\storage-introduction.md)

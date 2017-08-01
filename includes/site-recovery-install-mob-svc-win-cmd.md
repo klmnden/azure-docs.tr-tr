@@ -18,9 +18,7 @@
   UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
   ```
 
-<a id="mobility-service-installer-command-line-arguments" class="xliff"></a>
-
-#### Mobility Service installer command-line arguments
+#### <a name="mobility-service-installer-command-line-arguments"></a>Mobility Service installer command-line arguments
 
 ```
 Usage :
@@ -37,9 +35,7 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 >[!TIP]
 > The setup logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
 
-<a id="mobility-service-registration-command-line-arguments" class="xliff"></a>
-
-#### Mobility Service registration command-line arguments
+#### <a name="mobility-service-registration-command-line-arguments"></a>Mobility Service registration command-line arguments
 
 ```
 Usage :

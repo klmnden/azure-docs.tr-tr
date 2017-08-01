@@ -21,30 +21,22 @@ ms.lasthandoff: 05/23/2017
 
 
 ---
-<a id="developer-analytics-languages-platforms-and-integrations" class="xliff"></a>
-
-# Geliştirici analizleri: diller, platformlar ve tümleştirmeler
+# <a name="developer-analytics-languages-platforms-and-integrations"></a>Geliştirici analizleri: diller, platformlar ve tümleştirmeler
 Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygulamalardır. Bunlardan bazıları üçüncü taraflar aracılığıyla sunulur.
 
-<a id="languages---officially-supported-by-application-insights-team" class="xliff"></a>
-
-## Application Insights ekibi tarafından resmi olarak desteklenen diller
+## <a name="languages---officially-supported-by-application-insights-team"></a>Application Insights ekibi tarafından resmi olarak desteklenen diller
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [JavaScript web sayfaları](app-insights-javascript.md)
 
-<a id="languages---community-supported" class="xliff"></a>
-
-## Topluluk tarafından desteklenen diller
+## <a name="languages---community-supported"></a>Topluluk tarafından desteklenen diller
 * [Node.JS](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
 * [Diğer her şey](#projects)
 
-<a id="platforms-and-frameworks" class="xliff"></a>
-
-## Platformlar ve altyapıları
+## <a name="platforms-and-frameworks"></a>Platformlar ve altyapıları
 * [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET - zaten canlı olan uygulamalar için](app-insights-monitor-performance-live-website-now.md)
@@ -69,9 +61,7 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [Windows masaüstü uygulamaları, hizmetleri ve çalışan rolleri](app-insights-windows-desktop.md)
 * [Diğer her şey](#projects)
 
-<a id="logging-frameworks" class="xliff"></a>
-
-## Günlük altyapıları
+## <a name="logging-frameworks"></a>Günlük altyapıları
 * [Log4Net, NLog veya System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 * [Java, Log4J veya Logback](app-insights-java-trace-logs.md)
 * [Semantik Günlük (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - [Semantik Günlük Uygulama Bloğu](https://msdn.microsoft.com/library/dn440729.aspx) ile tümleşir
@@ -80,9 +70,7 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 
-<a id="content-management-systems" class="xliff"></a>
-
-## İçerik Yönetim Sistemleri
+## <a name="content-management-systems"></a>İçerik Yönetim Sistemleri
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
@@ -90,9 +78,7 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [SharePoint](app-insights-sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
-<a id="export-and-data-analysis" class="xliff"></a>
-
-## Dışarı Aktarma ve Veri Analizi
+## <a name="export-and-data-analysis"></a>Dışarı Aktarma ve Veri Analizi
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Akış Analizi](app-insights-export-power-bi.md)

@@ -23,9 +23,7 @@ ms.lasthandoff: 05/20/2017
 
 ---
 
-<a id="grant-data-access-to-a-time-series-insights-environment-using-azure-portal" class="xliff"></a>
-
-# Azure Portal’ı kullanarak Zaman Serisi Görüşleri ortamına veri erişimi verme
+# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Azure Portal’ı kullanarak Zaman Serisi Görüşleri ortamına veri erişimi verme
 
 Zaman Serisi Görüşleri ortamlarının birbirinden bağımsız türde iki erişim ilkesi vardır:
 
@@ -42,9 +40,7 @@ Veri erişimi ilkeleri, veri sorguları gönderme, ortamdaki başvuru verilerini
 
 İki ilke türü de ortamın yönetimine erişim ile ortam içindeki verilere erişim arasında net bir ayrım yapmaya olanak tanır. Örneğin, ortamın sahibinin/oluşturucusunun veri erişiminden kaldırıldığı bir ortam kurmak mümkündür. Bunun yanı sıra, ortamdaki verileri okumasına izin verilen kullanıcılar ve hizmetlere, ortamın yapılandırması üzerinde erişim verilmeyebilir.
 
-<a id="grant-data-access" class="xliff"></a>
-
-## Veri erişim izni verme
+## <a name="grant-data-access"></a>Veri erişim izni verme
 Aşağıdaki adımlar, bir kullanıcı asıl adına veri erişimi verme işlemini gösterir:
 
 1.    [Azure Portal](https://portal.azure.com) oturum açın.
@@ -74,9 +70,7 @@ Aşağıdaki adımlar, bir kullanıcı asıl adına veri erişimi verme işlemin
 
   ![Zaman Serisi Görüşleri kaynağını yönetme - sonuçlar](media/data-access/getstarted-grant-data-access5.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [Olay kaynağı oluşturma](time-series-insights-add-event-source.md)
 * Olay kaynağına [olayları gönderme](time-series-insights-send-events.md)

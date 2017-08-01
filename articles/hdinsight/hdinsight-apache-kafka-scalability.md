@@ -22,8 +22,7 @@ ms.lasthandoff: 07/13/2017
 
 ---
 
-# HDInsight üzerinde Apache Kafka için depolamayı ve ölçeklenebilirliği yapılandırma
-<a id="configure-storage-and-scalability-for-apache-kafka-on-hdinsight" class="xliff"></a>
+# <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka için depolamayı ve ölçeklenebilirliği yapılandırma
 
 HDInsight üzerinde Apache Kafka tarafından kullanılan yönetilen disk sayısını yapılandırmayı öğrenin.
 
@@ -33,8 +32,7 @@ Aşağıdaki diyagramda, yönetilen diskli HDInsight üzerinde Kafka ile yöneti
 
 ![HDInsight üzerinde Kafka'da VM başına tek bir VHD kullanımı ile VM başına birden fazla yönetilen disk kullanımının karşılaştırmasını gösteren diyagram](./media/hdinsight-apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-## Yönetilen diskleri yapılandırma: Azure portalı
-<a id="configure-managed-disks-azure-portal" class="xliff"></a>
+## <a name="configure-managed-disks-azure-portal"></a>Yönetilen diskleri yapılandırma: Azure portalı
 
 1. Portalı kullanarak küme oluşturmaya yönelik genel adımları öğrenmek için [HDInsight kümesi oluşturma](hdinsight-hadoop-create-linux-clusters-portal.md) bölümündeki adımları uygulayın. Portal oluşturma işlemini tamamlamayın.
 
@@ -45,8 +43,7 @@ Aşağıdaki diyagramda, yönetilen diskli HDInsight üzerinde Kafka ile yöneti
 
     ![Çalışan düğümü başına disk sayısı vurgulanmış şekilde küme boyutu dikey penceresinin görüntüsü](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
-## Yönetilen diskleri yapılandırma: Resource Manager şablonu
-<a id="configure-managed-disks-resource-manager-template" class="xliff"></a>
+## <a name="configure-managed-disks-resource-manager-template"></a>Yönetilen diskleri yapılandırma: Resource Manager şablonu
 
 Kafka kümesindeki çalışan düğümleri tarafından kullanılan disk sayısını denetlemek için şablonun şu bölümünü kullanın:
 
@@ -60,8 +57,7 @@ Kafka kümesindeki çalışan düğümleri tarafından kullanılan disk sayısı
 
 Yönetilen disklerin nasıl yapılandırıldığını gösteren eksiksiz bir şablon için [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json) adresine gidin.
 
-## Sonraki adımlar
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Sonraki adımlar
 
 HDInsight üzerinde Kafka ile çalışma hakkında daha fazla bilgi için şu belgelere göz atın:
 

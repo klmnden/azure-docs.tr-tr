@@ -2,23 +2,17 @@ The Azure CLI 2.0 allows you to create and manage your Azure resources on macOS,
 
 This article requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
 
-<a id="basic-azure-resource-manager-commands-in-azure-cli" class="xliff"></a>
-
-## Basic Azure Resource Manager commands in Azure CLI
+## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Basic Azure Resource Manager commands in Azure CLI
 For more detailed help with specific command line switches and options, you can use the online command help and options by typing `az <command> <subcommand> --help`.
 
-<a id="create-vms" class="xliff"></a>
-
-### Create VMs
+### <a name="create-vms"></a>Create VMs
 | Task | Azure CLI commands |
 | --- | --- |
 | Create a resource group | `az group create --name myResourceGroup --location eastus` |
 | Create a Linux VM | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
 | Create a Windows VM | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
-<a id="manage-vm-state" class="xliff"></a>
-
-### Manage VM state
+### <a name="manage-vm-state"></a>Manage VM state
 | Task | Azure CLI commands |
 | --- | --- |
 | Start a VM | `az vm start --resource-group myResourceGroup --name myVM` |
@@ -28,9 +22,7 @@ For more detailed help with specific command line switches and options, you can 
 | Redeploy a VM | `az vm redeploy --resource-group myResourceGroup --name myVM` |
 | Delete a VM | `az vm delete --resource-group myResourceGroup --name myVM` |
 
-<a id="get-vm-info" class="xliff"></a>
-
-### Get VM info
+### <a name="get-vm-info"></a>Get VM info
 | Task | Azure CLI commands |
 | --- | --- |
 | List VMs | `az vm list` |
@@ -38,9 +30,7 @@ For more detailed help with specific command line switches and options, you can 
 | Get usage of VM resources | `az vm list-usage --location eastus` |
 | Get all available VM sizes | `az vm list-sizes --location eastus` |
 
-<a id="disks-and-images" class="xliff"></a>
-
-## Disks and images
+## <a name="disks-and-images"></a>Disks and images
 | Task | Azure CLI commands |
 | --- | --- |
 | Add a data disk to a VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
@@ -51,8 +41,6 @@ For more detailed help with specific command line switches and options, you can 
 | Create VM from image | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Next steps
+## <a name="next-steps"></a>Next steps
 For additional examples of the CLI commands, see the [Create and Manage Linux VMs with the Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md) tutorial.
 

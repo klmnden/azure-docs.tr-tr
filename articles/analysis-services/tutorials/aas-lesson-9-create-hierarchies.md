@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-9-create-hierarchies" class="xliff"></a>
-
-# 9. Ders: Hiyerarşi oluşturma
+# <a name="lesson-9-create-hierarchies"></a>9. Ders: Hiyerarşi oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -34,18 +32,12 @@ Hiyerarşi oluşturmak için *Diyagram Görünümündeki* model tasarımcısın�
   
 Bu dersin tahmini tamamlanma süresi: **20 dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Önkoşullar  
+## <a name="prerequisites"></a>Önkoşullar  
 Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirebilmek için bir önceki dersi tamamlamış olmanız gerekir: [Ders 8: Perspektif oluşturma](../tutorials/aas-lesson-8-create-perspectives.md).  
   
-<a id="create-hierarchies" class="xliff"></a>
-
-## Hiyerarşi oluşturma  
+## <a name="create-hierarchies"></a>Hiyerarşi oluşturma  
   
-<a id="to-create-a-category-hierarchy-in-the-dimproduct-table" class="xliff"></a>
-
-#### DimProduct tablosunda bir Category hiyerarşisi oluşturmak için  
+#### <a name="to-create-a-category-hierarchy-in-the-dimproduct-table"></a>DimProduct tablosunda bir Category hiyerarşisi oluşturmak için  
   
 1.  Model tasarımcısında (diyagram görünümü), **DimProduct** tablosu > **Hiyerarşi Oluştur**'a sağ tıklayın. Tablo penceresinin alt kısmında yeni bir hiyerarşi görünür. Hiyerarşiyi **Category** olarak yeniden adlandırın.  
   
@@ -64,9 +56,7 @@ Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğr
 
     ![aas-lesson9-category](../tutorials/media/aas-lesson9-category.png)
   
-<a id="to-create-hierarchies-in-the-dimdate-table" class="xliff"></a>
-
-#### DimDate tablosunda hiyerarşi oluşturmak için  
+#### <a name="to-create-hierarchies-in-the-dimdate-table"></a>DimDate tablosunda hiyerarşi oluşturmak için  
   
 1.  **DimDate** tablosunda **Calendar** adlı bir hiyerarşi oluşturun.  
   
@@ -91,9 +81,7 @@ Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğr
     *  WeekNumberOfYear
     *  DayNumberOfWeek
   
-<a id="whats-next" class="xliff"></a>
-
- ## Sırada ne var?
+ ## <a name="whats-next"></a>Sırada ne var?
 [10. Ders: Bölüm oluşturma](../tutorials/aas-lesson-10-create-partitions.md). 
   
   

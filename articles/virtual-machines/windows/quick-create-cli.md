@@ -24,9 +24,7 @@ ms.lasthandoff: 06/20/2017
 
 ---
 
-<a id="create-a-windows-virtual-machine-with-the-azure-cli" class="xliff"></a>
-
-# Azure CLI ile Windows sanal makinesi oluşturma
+# <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Azure CLI ile Windows sanal makinesi oluşturma
 
 Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu kılavuzda Windows Server 2016 çalıştıran bir sanal makineyi Azure CLI kullanarak dağıtma işleminin ayrıntıları verilmektedir. Dağıtım tamamlandıktan sonra sunucuya bağlanılır ve IIS yüklenir.
 
@@ -38,9 +36,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 [az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
@@ -50,9 +46,7 @@ Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu 
 az group create --name myResourceGroup --location eastus
 ```
 
-<a id="create-virtual-machine" class="xliff"></a>
-
-## Sanal makine oluşturma
+## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
 [az vm create](/cli/azure/vm#create) ile bir VM oluşturun. 
 
@@ -81,9 +75,7 @@ VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir
 }
 ```
 
-<a id="open-port-80-for-web-traffic" class="xliff"></a>
-
-## Web trafiği için 80 numaralı bağlantı noktasını açın 
+## <a name="open-port-80-for-web-traffic"></a>Web trafiği için 80 numaralı bağlantı noktasını açın 
 
 Varsayılan olarak, Azure’a dağıtılmış Windows sanal makinelerinde yalnızca RDP bağlantılarına izin verilir. Bu VM bir web sunucusu olacaksa, İnternet’ten 80 numaralı bağlantı noktasını açmanız gerekir. İstediğiniz bağlantı noktasını açmak için [az vm open-port](/cli/azure/vm#open-port) komutunu kullanın.  
  
@@ -92,9 +84,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
 
-<a id="connect-to-virtual-machine" class="xliff"></a>
-
-## Sanal makineye bağlanma
+## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
 
 Sanal makine bir uzak masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın. IP adresini, sanal makinenizin genel IP adresi ile değiştirin. İstendiğinde, sanal makine oluşturulurken kullanılan kimlik bilgilerini girin.
 
@@ -102,9 +92,7 @@ Sanal makine bir uzak masaüstü oturumu oluşturmak için aşağıdaki komutu k
 mstsc /v:<Public IP Address>
 ```
 
-<a id="install-iis-using-powershell" class="xliff"></a>
-
-## PowerShell kullanarak IIS yükleme
+## <a name="install-iis-using-powershell"></a>PowerShell kullanarak IIS yükleme
 
 Azure VM’de oturum açtıktan sonra tek bir PowerShell satırı kullanarak IIS yükleyebilir ve web trafiğine izin vermek üzere yerel güvenlik duvarı kuralını etkinleştirebilirsiniz. Bir PowerShell istemi açın ve şu komutu çalıştırın:
 
@@ -112,17 +100,13 @@ Azure VM’de oturum açtıktan sonra tek bir PowerShell satırı kullanarak IIS
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-<a id="view-the-iis-welcome-page" class="xliff"></a>
-
-## IIS karşılama sayfasını görüntüleme
+## <a name="view-the-iis-welcome-page"></a>IIS karşılama sayfasını görüntüleme
 
 Sanal makinenizde İnternet’ten IIS yüklenmiş ve bağlantı noktası 80 açık olduğunda, varsayılan IIS karşılama sayfasını görüntülemek için seçtiğiniz bir web tarayıcısını kullanabilirsiniz. Varsayılan sayfayı ziyaret etmek için yukarıda belgelediğiniz genel IP adresini kullandığınızdan emin olun. 
 
 ![Varsayılan IIS sitesi](./media/quick-create-powershell/default-iis-website.png) 
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Artık gerekli değilse, [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, VM’yi ve tüm ilgili kaynakları kaldırabilirsiniz.
 
@@ -130,9 +114,7 @@ Artık gerekli değilse, [az group delete](/cli/azure/group#delete) komutunu kul
 az group delete --name myResourceGroup
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta basit bir sanal makine ve bir ağ güvenlik grubu kuralı dağıtıp, bir web sunucusu yüklediniz. Azure sanal makineleri hakkında daha fazla bilgi için Windows VM’lerine yönelik öğreticiye geçin.
 

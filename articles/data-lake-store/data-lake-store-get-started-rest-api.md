@@ -22,9 +22,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="get-started-with-azure-data-lake-store-using-rest-apis" class="xliff"></a>
-
-# REST API'lerini kullanarak Azure Data Lake Store ile çalışmaya başlama
+# <a name="get-started-with-azure-data-lake-store-using-rest-apis"></a>REST API'lerini kullanarak Azure Data Lake Store ile çalışmaya başlama
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -44,21 +42,15 @@ Bu makalede, Azure Data Lake Store üzerinde hesap yönetimi ve dosya sistemi i�
 > 
 > 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Active Directory Uygulaması oluşturma**. Data Lake Store uygulamasında Azure AD ile kimlik doğrulaması yapmak için Azure AD uygulamasını kullanın. Azure AD kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** gibi farklı yaklaşımlar bulunmaktadır. Kimlik doğrulaması gerçekleştirmeyle ilgili yönergeler ve daha fazla bilgi için [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md) veya [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md) bölümlerine göz atın.
 * [cURL](http://curl.haxx.se/). Bu makalede, bir Data Lake Store hesabına yönelik olarak REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
 
-<a id="how-do-i-authenticate-using-azure-active-directory" class="xliff"></a>
-
-## Azure Active Directory'yi kullanarak nasıl kimlik doğrulaması gerçekleştiririm?
+## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak nasıl kimlik doğrulaması gerçekleştiririm?
 Azure Active Directory'yi kullanarak kimlik doğrulaması gerçekleştirmek üzere iki yaklaşımdan faydalanabilirsiniz:
 
-<a id="end-user-authentication-interactive" class="xliff"></a>
-
-### Son kullanıcı kimlik doğrulaması (etkileşimli)
+### <a name="end-user-authentication-interactive"></a>Son kullanıcı kimlik doğrulaması (etkileşimli)
 Bu senaryoda, uygulama kullanıcıdan oturum açmasını ister ve tüm işlemler, kullanıcı bağlamında gerçekleştirilir. Etkileşimli kimlik doğrulaması için aşağıdaki adımları gerçekleştirin.
 
 1. Uygulamanızı kullanarak kullanıcıyı şu URL'ye yönlendirin:
@@ -99,9 +91,7 @@ Bu senaryoda, uygulama kullanıcıdan oturum açmasını ister ve tüm işlemler
 
 Etkileşimli kullanıcı kimlik doğrulaması hakkında daha fazla bilgi için bkz. [Yetki kodu izin akışı](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-<a id="service-to-service-authentication-non-interactive" class="xliff"></a>
-
-### Hizmetten hizmete kimlik doğrulaması (etkileşimli olmayan)
+### <a name="service-to-service-authentication-non-interactive"></a>Hizmetten hizmete kimlik doğrulaması (etkileşimli olmayan)
 Bu senaryoda uygulama, işlemleri gerçekleştirmek için kendi kimlik bilgilerini sağlar. Bunun için aşağıda gösterilene benzer bir POST isteği yayımlamanız gerekir. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -116,9 +106,7 @@ Bu isteğin çıktısı, sonrasında REST API çağrılarınızla geçireceğini
 
 Bu makalede, **etkileşimli olmayan** yaklaşım kullanılmıştır. Etkileşimli olmayan seçeneği (hizmet-hizmet çağrıları) hakkında daha fazla bilgi için bkz. [Kimlik bilgilerini kullanarak gerçekleştirilen hizmet-hizmet çağrıları](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
-<a id="create-a-data-lake-store-account" class="xliff"></a>
-
-## Data Lake Store hesabı oluşturma
+## <a name="create-a-data-lake-store-account"></a>Data Lake Store hesabı oluşturma
 Bu işlem, [burada](https://msdn.microsoft.com/library/mt694078.aspx) tanımlanan REST API çağrısını temel alır.
 
 Aşağıdaki cURL komutunu kullanın. **\<yourstorename>** ifadesini, Data Lake Store adınızla değiştirin.
@@ -135,9 +123,7 @@ Yukarıdaki komutta; \<`REDACTED`\> öğesini daha önce aldığınız yetkilend
     "properties": {}
     }    
 
-<a id="create-folders-in-a-data-lake-store-account" class="xliff"></a>
-
-## Data Lake Store hesabında klasör oluşturma
+## <a name="create-folders-in-a-data-lake-store-account"></a>Data Lake Store hesabında klasör oluşturma
 Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Aşağıdaki cURL komutunu kullanın. **\<yourstorename>** ifadesini, Data Lake Store adınızla değiştirin.
@@ -150,9 +136,7 @@ Yukarıdaki komutta; \<`REDACTED`\> öğesini daha önce aldığınız yetkilend
 
     {"boolean":true}
 
-<a id="list-folders-in-a-data-lake-store-account" class="xliff"></a>
-
-## Data Lake Store hesabındaki klasörleri listeleme
+## <a name="list-folders-in-a-data-lake-store-account"></a>Data Lake Store hesabındaki klasörleri listeleme
 Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Aşağıdaki cURL komutunu kullanın. **\<yourstorename>** ifadesini, Data Lake Store adınızla değiştirin.
@@ -180,9 +164,7 @@ Yukarıdaki komutta; \<`REDACTED`\> öğesini daha önce aldığınız yetkilend
     }
     }
 
-<a id="upload-data-into-a-data-lake-store-account" class="xliff"></a>
-
-## Data Lake Store hesabına veri yükleme
+## <a name="upload-data-into-a-data-lake-store-account"></a>Data Lake Store hesabına veri yükleme
 Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Aşağıdaki cURL komutunu kullanın. **\<yourstorename>** ifadesini, Data Lake Store adınızla değiştirin.
@@ -204,9 +186,7 @@ Yukarıdaki söz diziminde **-T** parametresi karşıya yüklediğiniz dosyanın
     HTTP/1.1 201 Created
     ...
 
-<a id="read-data-from-a-data-lake-store-account" class="xliff"></a>
-
-## Data Lake Store hesabından veri okuma
+## <a name="read-data-from-a-data-lake-store-account"></a>Data Lake Store hesabından veri okuma
 Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Data Lake Store hesabından veri okuma, iki adımlı bir işlemdir.
@@ -230,9 +210,7 @@ Aşağıdakine benzer bir çıktı görmeniz gerekir:
 
     Hello, Data Lake Store user!
 
-<a id="rename-a-file-in-a-data-lake-store-account" class="xliff"></a>
-
-## Data Lake Store hesabındaki bir dosyayı yeniden adlandırma
+## <a name="rename-a-file-in-a-data-lake-store-account"></a>Data Lake Store hesabındaki bir dosyayı yeniden adlandırma
 Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Bir dosyayı yeniden adlandırmak için aşağıdaki cURL komutunu kullanın. **\<yourstorename>** ifadesini, Data Lake Store adınızla değiştirin.
@@ -246,9 +224,7 @@ Aşağıdakine benzer bir çıktı görmeniz gerekir:
 
     {"boolean":true}
 
-<a id="delete-a-file-from-a-data-lake-store-account" class="xliff"></a>
-
-## Data Lake Store hesabından dosya silme
+## <a name="delete-a-file-from-a-data-lake-store-account"></a>Data Lake Store hesabından dosya silme
 Bu işlem, [burada](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory) tanımlanan WebHDFS REST API çağrısını temel alır.
 
 Bir dosyayı silmek için aşağıdaki cURL komutunu kullanın. **\<yourstorename>** ifadesini, Data Lake Store adınızla değiştirin.
@@ -262,9 +238,7 @@ Aşağıdaki gibi bir çıktı görmeniz gerekir:
 
     {"boolean":true}
 
-<a id="delete-a-data-lake-store-account" class="xliff"></a>
-
-## Data Lake Store hesabını silme
+## <a name="delete-a-data-lake-store-account"></a>Data Lake Store hesabını silme
 Bu işlem, [burada](https://msdn.microsoft.com/library/mt694075.aspx) tanımlanan REST API çağrısını temel alır.
 
 Bir Data Lake Store hesabını silmek için aşağıdaki cURL komutunu kullanın. **\<yourstorename>** ifadesini, Data Lake Store adınızla değiştirin.
@@ -277,9 +251,7 @@ Aşağıdaki gibi bir çıktı görmeniz gerekir:
     ...
     ...
 
-<a id="see-also" class="xliff"></a>
-
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 * [Azure Data Lake Store ile uyumlu Açık Kaynak Büyük Veri uygulamaları](data-lake-store-compatible-oss-other-applications.md)
 
 

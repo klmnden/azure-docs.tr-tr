@@ -1,8 +1,6 @@
 
 
-<a id="applications" class="xliff"></a>
-
-## Applications
+## <a name="applications"></a>Applications
 The following table lists some of the most popular application framework templates. Choose a template to see more information, view the template in GitHub, or deploy directly through the Azure portal.
 
 | Application | Learn more | View the template | Deploy it now |
@@ -28,9 +26,7 @@ The following table lists some of the most popular application framework templat
 In addition to these templates, you can search through the [gallery templates](https://azure.microsoft.com/documentation/templates/).
 
 
-<a id="azure-cli-20" class="xliff"></a>
-
-## Azure CLI 2.0
+## <a name="azure-cli-20"></a>Azure CLI 2.0
 These steps require the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 First, create a resource group with [az group create](/cli/azure/group#create). Then create your deployment from a template with [az group deployment create](/cli/azure/group/deployment#create). Provide the full URI to your template with the `--template-uri` parameter and any required template parameters in `--parameters` as follows:
@@ -45,9 +41,7 @@ az group deployment create --resource-group myResourceGroup \
 Depending on the template, it can take some time for Azure to deploy the resources.
 
 
-<a id="azure-powershell" class="xliff"></a>
-
-## Azure PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
 These steps require the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 First, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Then create your deployment from a template with [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Provide the full URI to your template with the `-TemplateURI` parameter as follows:
@@ -61,9 +55,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" `
 When you run the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) command, you may be prompted to enter values for the parameters in the template. Depending on the template, it can take some time for Azure to deploy the resources.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Next steps
+## <a name="next-steps"></a>Next steps
 Discover all the templates at your disposal on [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 Learn more about [Azure Resource Manager](../articles/resource-group-template-deploy.md).

@@ -22,34 +22,24 @@ ms.lasthandoff: 05/18/2017
 
 
 ---
-<a id="get-started-with-azure-cloud-services-and-aspnet" class="xliff"></a>
+# <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
-# Azure Cloud Services ve ASP.NET kullanmaya başlama
-
-<a id="overview" class="xliff"></a>
-
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 Bu öğreticide ASP.NET MVC ön ucuyla çok katmanlı bir .NET uygulaması oluşturma ve bir [Azure bulut hizmetine](cloud-services-choose-me.md) dağıtma işlemi gösterilmektedir. Uygulama [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob hizmeti](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) ve [Azure Queue hizmeti](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır. MSDN Kod Galerisi’nden [Visual Studio projesini](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirebilirsiniz.
 
 Öğreticide, uygulamayı yerel olarak oluşturup çalıştırma, Azure’a dağıtma ve bulutta çalıştırmanın yanı sıra sıfırdan oluşturma işlemleri de gösterilmektedir. Tercih ederseniz sıfırdan oluşturmaya başlayabilir ve ardından test ve dağıtım adımlarını gerçekleştirebilirsiniz.
 
-<a id="contoso-ads-application" class="xliff"></a>
-
-## Contoso Ads uygulaması
+## <a name="contoso-ads-application"></a>Contoso Ads uygulaması
 Uygulama bir reklam bülteni panosudur. Kullanıcılar metin girerek ve görüntüyü karşıya yükleyerek bir reklam oluşturur. Küçük resim görüntüleriyle birlikte bir reklam listesi görebilir ve ayrıntılarını görmek üzere bir reklam seçtiklerinde tam boyutlu görüntüyü görebilirler.
 
 ![Reklam listesi](./media/cloud-services-dotnet-get-started/list.png)
 
 Uygulama bir arka uç işleminde küçük resim oluşturmaya yönelik CPU yoğunluklu iş yükünü azaltmak üzere [kuyruk merkezli çalışma deseni](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır.
 
-<a id="alternative-architecture-websites-and-webjobs" class="xliff"></a>
-
-## Alternatif mimari: Websites ve WebJobs
+## <a name="alternative-architecture-websites-and-webjobs"></a>Alternatif mimari: Websites ve WebJobs
 Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl çalıştırılacağı gösterilmektedir. Alternatif yöntem bir [Azure web sitesinde](/services/web-sites/) ön uç çalıştırılması ve arka uç için [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) özelliğinin (şu anda önizlemede) kullanılmasıdır. WebJobs kullanan bir öğretici için bkz. [Azure WebJobs SDK ile Çalışmaya Başlama](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Senaryonuza en uygun hizmetlerin nasıl seçileceği hakkında bilgi için bkz. [Azure Web Siteleri, Cloud Services ve sanal makineler karşılaştırması](../app-service-web/choose-web-site-cloud-service-vm.md).
 
-<a id="what-youll-learn" class="xliff"></a>
-
-## Öğrenecekleriniz
+## <a name="what-youll-learn"></a>Öğrenecekleriniz
 * Azure SDK’sını yükleyerek Azure dağıtımı için makinenizi etkinleştirme.
 * Bir ASP.NET MVC web rolü ve çalışan rolü ile Visual Studio bulut hizmeti projesi oluşturma.
 * Azure Storage öykünücüsü kullanarak bulut hizmeti projesini yerel olarak test etme.
@@ -57,9 +47,7 @@ Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl 
 * Dosyaları karşıya yükleme ve Azure Blob hizmetine depolama.
 * Katmanlar arasında iletişim için Azure Queue hizmetini kullanma.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Öğretici *web rolü* ve *çalışan rolü* terminolojisi gibi [Azure bulut hizmetleri hakkında temel kavramları](cloud-services-choose-me.md) anladığınızı varsayar.  Ayrıca Visual Studio’da [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) veya [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projeleri ile nasıl çalışılacağını bildiğinizi varsayar. Örnek uygulama MVC kullanır, ancak öğreticinin büyük bölümü Web Forms için de geçerlidir.
 
 Uygulamayı bir Azure aboneliği olmadan yerel olarak çalıştırabilirsiniz, ancak uygulamayı buluta dağıtmak için bir abonelik gerekecektir. Bir hesabınız yoksa, [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) veya [ücretsiz deneme için kaydolabilirsiniz.](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)
@@ -72,9 +60,7 @@ Uygulamayı bir Azure aboneliği olmadan yerel olarak çalıştırabilirsiniz, a
 
 Bunlardan birine sahip değilseniz Azure SDK'yı yüklediğinizde Visual Studio otomatik olarak yüklenebilir.
 
-<a id="application-architecture" class="xliff"></a>
-
-## Uygulama mimarisi
+## <a name="application-architecture"></a>Uygulama mimarisi
 Uygulama, tablolar oluşturmak ve verilere erişmek için Entity Framework Code First kullanarak reklamları bir SQL veritabanına depolar. Her reklam için veritabanı, biri tam boyutlu görüntü ve diğeri küçük resim olmak üzere iki URL depolar.
 
 ![Reklam tablosu](./media/cloud-services-dotnet-get-started/adtable.png)
@@ -85,9 +71,7 @@ Bir kullanıcı görüntü yüklediğinde bir web rolünde çalışan ön uç g�
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
-<a id="download-and-run-the-completed-solution" class="xliff"></a>
-
-## Tamamlanan çözümü indirme ve çalıştırma
+## <a name="download-and-run-the-completed-solution"></a>Tamamlanan çözümü indirme ve çalıştırma
 1. [Tamamlanan çözümü](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirip sıkıştırmasını açın.
 2. Visual Studio’yu çalıştırın.
 3. **Dosya** menüsünden **Proje Aç**’ı seçin, çözümü indirdiğiniz yere gidin ve ardından çözüm dosyasını açın.
@@ -120,9 +104,7 @@ Uygulamayı herhangi bir bulut bağlantısı olmadan tamamen yerel bilgisayarın
 
 Aşağıdaki bölümde çözümü bulutta çalışan kuyruklar, blob’lar ve uygulama veritabanı için Azure bulut kaynakları kullanacak şekilde yapılandıracaksınız. Yerel olarak çalıştırmaya devam ederken bulut depolama alanını ve veritabanı kaynaklarını da kullanmak istiyorsanız bunu yapabilirsiniz. Bunun için yalnızca bağlantı dizesi ayarlarını yapmanız gerekir. Bu ayarları nasıl yapacağınızı ileride öğreneceksiniz.
 
-<a id="deploy-the-application-to-azure" class="xliff"></a>
-
-## Uygulamayı Azure’a dağıtma
+## <a name="deploy-the-application-to-azure"></a>Uygulamayı Azure’a dağıtma
 Uygulamayı bulutta çalıştırmak için aşağıdaki adımları gerçekleştirin:
 
 * Bir Azure bulut hizmeti oluşturun.
@@ -132,9 +114,7 @@ Uygulamayı bulutta çalıştırmak için aşağıdaki adımları gerçekleştir
 * Çözümünüzü Azure’da çalıştığında Azure Storage hesabınızı kullanacak şekilde yapılandırın.
 * Projeyi Azure bulut hizmetinize dağıtın.
 
-<a id="create-an-azure-cloud-service" class="xliff"></a>
-
-### Bir Azure bulut hizmeti oluşturma
+### <a name="create-an-azure-cloud-service"></a>Bir Azure bulut hizmeti oluşturma
 Azure bulut hizmeti, uygulamanın çalıştırılacağı ortamıdır.
 
 1. Tarayıcınızda [Azure portalı](https://portal.azure.com)’nı açın.
@@ -154,9 +134,7 @@ Azure bulut hizmeti, uygulamanın çalıştırılacağı ortamıdır.
 
     ![Yeni Bulut Hizmeti](./media/cloud-services-dotnet-get-started/newcs.png)
 
-<a id="create-an-azure-sql-database" class="xliff"></a>
-
-### Bir Azure SQL veritabanı oluşturma
+### <a name="create-an-azure-sql-database"></a>Bir Azure SQL veritabanı oluşturma
 Uygulama bulutta çalıştırıldığında bulut tabanlı bir veritabanı kullanır.
 
 1. [Azure portalı](https://portal.azure.com)’nda **Yeni > Veritabanları > SQL Veritabanı**’na tıklayın.
@@ -181,9 +159,7 @@ Uygulama bulutta çalıştırıldığında bulut tabanlı bir veritabanı kullan
     ![Yeni SQL Veritabanı sunucusu](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. **Oluştur**'a tıklayın.
 
-<a id="create-an-azure-storage-account" class="xliff"></a>
-
-### Azure Storage hesabı oluşturma
+### <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
 Azure Storage hesabı kuyruk ve blob verilerini buluta depolamaya yönelik kaynaklar sağlar.
 
 Gerçek bir uygulamada genellikle uygulama verilerine karşı günlük verileri için ve test verilerine karşı üretim verileri için ayrı hesaplar oluşturursunuz. Bu öğreticide yalnızca tek bir hesap kullanacaksınız.
@@ -210,9 +186,7 @@ Gerçek bir uygulamada genellikle uygulama verilerine karşı günlük verileri 
 
     Görüntüde `csvccontosoads.core.windows.net` URL’si ile bir depolama hesabı oluşturulmuştur.
 
-<a id="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure" class="xliff"></a>
-
-### Çözümünüzü Azure’da çalıştığında Azure SQL veritabanınızı kullanacak şekilde yapılandırma
+### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Çözümünüzü Azure’da çalıştığında Azure SQL veritabanınızı kullanacak şekilde yapılandırma
 Web projesi ve çalışan rolü projelerinin her biri kendi veritabanı bağlantı dizesine sahiptir ve uygulama Azure'da çalıştırıldığında her birinin Azure SQL veritabanına işaret etmesi gerekir.
 
 Web rolü için bir [Web.config dönüşümü](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) ve çalışan rolü için bir bulut hizmet ortamı ayarı kullanacaksınız.
@@ -253,9 +227,7 @@ Web rolü için bir [Web.config dönüşümü](http://www.asp.net/mvc/tutorials/
      ![Çalışan rolü için veritabanı bağlantı dizesi](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 11. Yaptığınız değişiklikleri kaydedin.  
 
-<a id="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure" class="xliff"></a>
-
-### Çözümünüzü Azure’da çalıştığında Azure Storage hesabınızı kullanacak şekilde yapılandırma
+### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>Çözümünüzü Azure’da çalıştığında Azure Storage hesabınızı kullanacak şekilde yapılandırma
 Hem web rolü projesinin hem de çalışan rolü projesinin Azure Storage hesabı bağlantı dizeleri, bulut hizmeti projesindeki ortam ayarlarına depolanır. Her proje için uygulama yerel olarak çalıştığında ve bulutta çalıştığında kullanılacak ayrı ayarlar vardır. Hem web hem de çalışan rolü projeleri için bulut ortamı ayarlarını güncelleştirin.
 
 1. **Çözüm Gezgini**’nde **ContosoAdsCloudService** projesindeki **Roller** altında **ContosoAdsWeb**’e sağ tıklayın ve ardından **Özellikler**’e tıklayın.
@@ -309,9 +281,7 @@ Visual Studio kullanıcı arabirimini kullanılarak yapılandırdığınız rol 
 
 `<Instances>` ayarı Azure’un çalışan rolü kodunu çalıştıracağı sanal makine sayısını belirtir. [Sonraki adımlar](#next-steps) bölümünde bir bulut hizmetinin ölçeğini artırma hakkında daha fazla bilgi içeren bağlantılar bulunur.
 
-<a id="deploy-the-project-to-azure" class="xliff"></a>
-
-### Projeyi Azure’a dağıtma
+### <a name="deploy-the-project-to-azure"></a>Projeyi Azure’a dağıtma
 1. **Çözüm Gezgini**’nde **ContosoAdsCloudService** bulut projesine sağ tıklayın ve ardından **Yayımla** öğesini seçin.
 
    ![Yayımla menüsü](./media/cloud-services-dotnet-get-started/pubmenu.png)
@@ -341,9 +311,7 @@ Visual Studio kullanıcı arabirimini kullanılarak yapılandırdığınız rol 
 >
 >
 
-<a id="create-the-application-from-scratch" class="xliff"></a>
-
-## Uygulamayı sıfırdan oluşturma
+## <a name="create-the-application-from-scratch"></a>Uygulamayı sıfırdan oluşturma
 [Tamamlanmış uygulamayı](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) daha önce yüklemediyseniz şimdi yapın. İndirilen projedeki dosyaları yeni projeye kopyalayın.
 
 Contoso Ads uygulamasının oluşturulması aşağıdaki adımları içerir:
@@ -356,9 +324,7 @@ Contoso Ads uygulamasının oluşturulması aşağıdaki adımları içerir:
 
 Çözüm oluşturulduktan sonra bulut hizmeti projelerinde ve Azure blob'ları ile kuyruklarda benzersiz olan kodu gözden geçirin.
 
-<a id="create-a-cloud-service-visual-studio-solution" class="xliff"></a>
-
-### Bir bulut hizmeti Visual Studio çözümü oluşturma
+### <a name="create-a-cloud-service-visual-studio-solution"></a>Bir bulut hizmeti Visual Studio çözümü oluşturma
 1. Visual Studio'da **Dosya** menüsünden **Yeni Proje**’yi seçin.
 2. **Yeni Proje** iletişim kutusunun sol bölmesinde **Visual C#** öğesini genişletin ve **Bulut** şablonlarını, ardından **Azure Cloud Service** şablonunu seçin.
 3. Projeyi ve çözümü ContosoAdsCloudService olarak adlandırın ve ardından **Tamam**’a tıklayın.
@@ -380,9 +346,7 @@ Contoso Ads uygulamasının oluşturulması aşağıdaki adımları içerir:
 
     Entity Framework bağlamına ve hem web hem de çalışan rolü projelerindeki veri modeline başvurmanız gerekir. Alternatif olarak, web rolü projesinde EF ile ilgili sınıfları tanımlayabilir ve çalışan rolü projesinde bu projeye başvurabilirsiniz. Ancak, alternatif yaklaşımda çalışan rolü projeniz gerekli olmayan web bütünleştirme kodlarına başvuruda bulunur.
 
-<a id="update-and-add-nuget-packages" class="xliff"></a>
-
-### NuGet paketlerini güncelleştirme ve ekleme
+### <a name="update-and-add-nuget-packages"></a>NuGet paketlerini güncelleştirme ve ekleme
 1. Çözüm için **NuGet Paketlerini Yönet** iletişim kutusunu açın.
 2. Pencerenin en üstündeki **Güncelleştirmeler**’i seçin.
 3. *WindowsAzure.Storage* paketini arayın ve listede varsa onu ve içinde güncelleştirileceği web ve çalışan projelerini seçin, ardından **Güncelleştir**’e tıklayın.
@@ -392,9 +356,7 @@ Contoso Ads uygulamasının oluşturulması aşağıdaki adımları içerir:
 5. *EntityFramework* NuGet paketini bulun ve üç projenin tamamına yükleyin.
 6. *Microsoft.WindowsAzure.ConfigurationManager* NuGet paketini bulun ve çalışan rolü projesine yükleyin.
 
-<a id="set-project-references" class="xliff"></a>
-
-### Proje başvurularını ayarlama
+### <a name="set-project-references"></a>Proje başvurularını ayarlama
 1. ContosoAdsWeb projesinde ContosoAdsCommon projesine bir başvuru ayarlayın. ContosoAdsWeb projesine sağ tıklayın ve ardından **Başvurular** - **Başvuru Ekle** öğesine tıklayın. **Başvuru Yöneticisi** iletişim kutusunda sol bölmedeki **Çözüm – Projeler** öğesini seçin, **ContosoAdsCommon**’ı seçin ve ardından **Tamam**’a tıklayın.
 2. ContosoAdsWorker projesinde ContosoAdsCommon projesine bir başvuru ayarlayın.
 
@@ -403,9 +365,7 @@ Contoso Ads uygulamasının oluşturulması aşağıdaki adımları içerir:
 
     Bu bütünleştirilmiş kod, görüntüleri küçük resimlere dönüştürmek için arka uç tarafından kullanılır.
 
-<a id="configure-connection-strings" class="xliff"></a>
-
-### Bağlantı dizelerini yapılandırma
+### <a name="configure-connection-strings"></a>Bağlantı dizelerini yapılandırma
 Bu bölümde, yerel olarak test etmek amacıyla Azure Storage ve SQL bağlantı dizelerini yapılandırırsınız. Öğreticinin önceki bölümlerinde verilen dağıtım yönergeleri, uygulamanın bulutta çalıştığı durumlar için bağlantı dizelerinin nasıl ayarlandığını açıklamaktadır.
 
 1. ContosoAdsWeb projesinde uygulamanın Web.config dosyasını açın ve aşağıdaki `connectionStrings` öğesini `configSections` öğesinden sonra ekleyin.
@@ -439,9 +399,7 @@ Bu bölümde, yerel olarak test etmek amacıyla Azure Storage ve SQL bağlantı 
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
        ```
 
-<a id="add-code-files" class="xliff"></a>
-
-### Kod dosyaları ekleme
+### <a name="add-code-files"></a>Kod dosyaları ekleme
 Bu bölümde, indirilen çözümden yeni çözüme kod dosyaları kopyalarsınız. Aşağıdaki bölümlerde bu kodun temel kısımları gösterilmiş ve açıklanmıştır.
 
 Bir proje veya klasöre dosya eklemek için proje veya klasöre sağ tıklayıp **Ekle** - **Mevcut Öğe** seçeneğine tıklayın. İstediğiniz dosyaları seçin ve ardından **Ekle**’ye tıklayın. Mevcut dosyaları değiştirmek isteyip istemediğiniz sorulursa **Evet**’e tıklayın.
@@ -464,9 +422,7 @@ Aşağıdaki bölümlerde Azure ortamı, blob'ları ve kuyrukları ile çalışm
 * [EF 6 ve MVC 5 kullanmaya başlama](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [.NET 4.5’te zaman uyumsuz programlamaya giriş](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
-<a id="contosoadscommon---adcs" class="xliff"></a>
-
-### ContosoAdsCommon - Ad.cs
+### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
 Ad.cs dosyası reklam kategorileri için bir numaralandırma ve reklam bilgileri için bir POCO varlık sınıfı tanımlar.
 
 ```csharp
@@ -510,9 +466,7 @@ public class Ad
 }
 ```
 
-<a id="contosoadscommon---contosoadscontextcs" class="xliff"></a>
-
-### ContosoAdsCommon - ContosoAdsContext.cs
+### <a name="contosoadscommon---contosoadscontextcs"></a>ContosoAdsCommon - ContosoAdsContext.cs
 ContosoAdsContext sınıfı Reklam sınıfının Entity Framework tarafından bir SQL veritabanına depolanacak olan Db koleksiyonunda kullanıldığını belirtir.
 
 ```csharp
@@ -531,9 +485,7 @@ public class ContosoAdsContext : DbContext
 
 Sınıfın iki oluşturucusu vardır. Birincisi web projesi tarafından kullanılır ve Web.config dosyasına depolanan bir bağlantı dizesinin adını belirtir. İkinci oluşturucu, Web.config dosyasına sahip olmadığı için çalışan rolü projesi tarafından kullanılan gerçek bağlantı dizesini geçirmenizi sağlar. Bu bağlantı dizesinin nereye depolandığını daha önce gördünüz ve kodun DbContext sınıfını başlattığında bağlantı dizesini nasıl aldığını daha sonra göreceksiniz.
 
-<a id="contosoadsweb---globalasaxcs" class="xliff"></a>
-
-### ContosoAdsWeb - Global.asax.cs
+### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
 `Application_Start` yönteminden çağrılan kod, henüz yoksa bir *görüntüler* blob kapsayıcısı ve bir *görüntüler* kuyruğu oluşturur. Bunun yapılması yeni bir depolama hesabını başlattığınız veya depolama öykünücüsünü yeni bir bilgisayarda kullanmaya başladığınız her durumda gerekli blob kapsayıcısının ve kuyruğun otomatik olarak oluşturulmasını sağlar.
 
 Kod *.cscfg* dosyasından depolama bağlantı dizesini kullanarak depolama hesabına erişim elde eder.
@@ -566,14 +518,10 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-<a id="contosoadsweb---layoutcshtml" class="xliff"></a>
-
-### ContosoAdsWeb - \_Layout.cshtml
+### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
 *_Layout.cshtml* dosyası üst bilgi ve alt bilgide uygulama adını ayarlar ve bir "Reklamlar" menü girişi oluşturur.
 
-<a id="contosoadsweb---viewshomeindexcshtml" class="xliff"></a>
-
-### ContosoAdsWeb - Görünümler\Giriş\Dizin.cshtml
+### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb - Görünümler\Giriş\Dizin.cshtml
 *Görünümler\Giriş\Dizin.cshtml* dosyası, giriş sayfasında kategori bağlantılarını gösterir. Bağlantılar `Category` numaralandırmasının bir sorgu dizesi değişkeni içindeki tamsayı değerini Reklam Dizini sayfasına geçirir.
 
 ```razor
@@ -583,9 +531,7 @@ imagesQueue.CreateIfNotExists();
 <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 ```
 
-<a id="contosoadsweb---adcontrollercs" class="xliff"></a>
-
-### ContosoAdsWeb - AdController.cs
+### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 Oluşturucu, *AdController.cs* dosyasında blob’larla ve kuyruklarla çalışmaya yönelik bir API sağlayan Azure Storage İstemci Kitaplığı nesneleri oluşturmak için `InitializeStorage` yöntemini çağırır.
 
 Ardından kod daha önce gördüğünüz gibi *görüntüler* blob kapsayıcısı için *Global.asax.cs* içinde bir başvuru edinir. Bunu yaparken bir web uygulaması için uygun bir varsayılan [yeniden deneme ilkesi](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) ayarlar. Varsayılan üstel geri alma yeniden deneme ilkesi, web uygulamasını geçici bir hata için tekrarlanan yeniden denemelerde bir dakikadan uzun süre askıya alabilir. Burada belirtilen yeniden deneme ilkesi üç denemeye kadar her denemeden sonra en fazla üç saniye bekler.
@@ -682,9 +628,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 }
 ```
 
-<a id="contosoadsweb---viewsadindexcshtml-and-detailscshtml" class="xliff"></a>
-
-### ContosoAdsWeb - Views\Ad\Index.cshtml ve Details.cshtml
+### <a name="contosoadsweb---viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb - Views\Ad\Index.cshtml ve Details.cshtml
 *Index.cshtml* dosyası küçük resimleri diğer reklam verileriyle birlikte gösterir.
 
 ```razor
@@ -697,9 +641,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 <img src="@Html.Raw(Model.ImageURL)" />
 ```
 
-<a id="contosoadsweb---viewsadcreatecshtml-and-editcshtml" class="xliff"></a>
-
-### ContosoAdsWeb - Views\Ad\Create.cshtml ve Edit.cshtml
+### <a name="contosoadsweb---viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb - Views\Ad\Create.cshtml ve Edit.cshtml
 *Create.cshtml* ve *Edit.cshtml* dosyaları denetleyicinin `HttpPostedFileBase` nesnesi almasını sağlayan form kodlamasını belirtir.
 
 ```razor
@@ -712,9 +654,7 @@ Bir `<input>` öğesi tarayıcıya bir dosya seçme iletişim kutusu açmasını
 <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 ```
 
-<a id="contosoadsworker---workerrolecs---onstart-method" class="xliff"></a>
-
-### ContosoAdsWorker - WorkerRole.cs - OnStart yöntemi
+### <a name="contosoadsworker---workerrolecs---onstart-method"></a>ContosoAdsWorker - WorkerRole.cs - OnStart yöntemi
 Azure çalışan rolü ortamı, çalışan rolü başlatılırken `WorkerRole` sınıfındaki `OnStart` yöntemini, `OnStart` yöntemi tamamlandığında ise `Run` yöntemini çağırır.
 
 `OnStart` yöntemi *.cscfg* dosyasından veritabanı bağlantı dizesini alır ve Entity Framework DbContext sınıfına geçirir. Varsayılan olarak SQLClient sağlayıcısı kullanılır, bu nedenle sağlayıcının belirtilmesi gerekli değildir.
@@ -726,9 +666,7 @@ db = new ContosoAdsContext(dbConnString);
 
 Bundan sonra yöntem, depolama hesabı için bir başvuru alır ve yoksa blob kapsayıcısı ve kuyruk oluşturur. Bunun kodu, web rolü `Application_Start` yönteminde daha önce gördüğünüzle aynıdır.
 
-<a id="contosoadsworker---workerrolecs---run-method" class="xliff"></a>
-
-### ContosoAdsWorker - WorkerRole.cs - Run yöntemi
+### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker - WorkerRole.cs - Run yöntemi
 `OnStart` yöntemi başlatma işini tamamladığında `Run` yöntemi çağrılır. Yöntem yeni bir kuyruk iletisi bekleyen ve ulaşan iletileri işleyen sonsuz bir döngü yürütür.
 
 ```csharp
@@ -804,37 +742,27 @@ Bu kod, görüntü URL’sini almak için veritabanını okur, görüntüyü bir
 >
 >
 
-<a id="troubleshooting" class="xliff"></a>
-
-## Sorun giderme
+## <a name="troubleshooting"></a>Sorun giderme
 Bu öğreticideki yönergeleri izlerken bir sorun oluşması durumunda bazı yaygın hatalar ve çözümleri aşağıda verilmiştir.
 
-<a id="serviceruntimeroleenvironmentexception" class="xliff"></a>
-
-### ServiceRuntime.RoleEnvironmentException
+### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
 Uygulamayı Azure’da çalıştırdığınızda ya da Azure işlem öykünücüsü kullanarak yerel olarak çalıştırdığınızda Azure tarafından `RoleEnvironment` nesnesi sağlanır.  Yerel olarak çalıştırırken bu hatayı alırsanız ContosoAdsCloudService projesini başlangıç projesi olarak ayarladığınızdan emin olun. Bunun yapılması projeyi Azure işlem öykünücüsü kullanarak çalışacak şekilde ayarlar.
 
 Uygulamanın Azure RoleEnvironment’ı kullanmasının bir nedeni *.cscfg* dosyalarına depolanmış bağlantı dizelerinin alınmasıdır; dolayısıyla bu özel durumun başka bir nedeni de eksik bir bağlantı dizesidir. ContosoAdsWeb projesinde hem Bulut hem de Yerel yapılandırmaları için StorageConnectionString ayarını oluşturduğunuzdan ve ContosoAdsWorker projesinde her iki yapılandırma için iki bağlantı dizesini de oluşturduğunuzdan emin olun. StorageConnectionString için çözümün tamamında **Tümünü Bul** araması yaparsanız 6 dosyada 9 kez görmeniz gerekir.
 
-<a id="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http" class="xliff"></a>
-
-### xxx bağlantı noktası için geçersiz kılınamıyor. Yeni bağlantı noktası http protokolü için izin verilen en düşük 8080 değerinin altında
+### <a name="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http"></a>xxx bağlantı noktası için geçersiz kılınamıyor. Yeni bağlantı noktası http protokolü için izin verilen en düşük 8080 değerinin altında
 Web projesi tarafından kullanılan bağlantı noktası numarasını değiştirmeyi deneyin. ContosoAdsWeb projesine sağ tıklayın ve ardından **Özellikler** öğesine tıklayın. **Web** sekmesine tıklayın ve ardından **Proje Url’si** ayarında bağlantı noktası numarasını değiştirin.
 
 Sorunu çözebilecek başka bir alternatif için sonraki bölüme bakın.
 
-<a id="other-errors-when-running-locally" class="xliff"></a>
-
-### Yerel olarak çalışırken oluşan diğer hatalar
+### <a name="other-errors-when-running-locally"></a>Yerel olarak çalışırken oluşan diğer hatalar
 Varsayılan olarak yeni bulut hizmeti projeleri, Azure ortamının benzetimini yapmak için Azure işlem öykünücüsü kullanır. Bu, tam işlem öykünücüsünün hafif sürümüdür ve hızlı sürümün çalışmadığı bazı koşullarda tam öykünücü çalışır.  
 
 Projeyi tam öykünücü kullanacak şekilde değiştirmek için ContosoAdsCloudService projesine sağ tıklayın ve ardından **Özellikler**’e tıklayın. **Özellikler** penceresinde **Web** sekmesine ve ardından **Tam Öykünücü Kullan** radyo düğmesine tıklayın.
 
 Uygulamayı tam öykünücü ile çalıştırmak için Visual Studio’yu yönetici ayrıcalıklarıyla açmanız gerekir.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Contoso Ads uygulaması bir başlangıç öğreticisi için kasıtlı olarak basit tutulmuştur. Örneğin, [bağımlılık ekleme](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) veya [depo ve iş birimi düzenleri](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo) uygulamaz, [günlüğe kaydetme arabirimi yoktur](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), veri modeli değişikliklerini yönetmek için [EF Code First Geçişleri](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) veya geçici ağ hatalarını yönetmek için [EF Bağlantı Dayanıklılığı](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) kullanmaz, vb.
 
 Daha gerçek kodlama uygulamalarını gösteren bazı bulut hizmeti örnek uygulamaları en az karmaşık olandan en karmaşığa doğru aşağıda listelenmiştir:

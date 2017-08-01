@@ -23,9 +23,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure" class="xliff"></a>
-
-# Azure’daki bir Linux (Ubuntu) sanal makinesinde ilk Jenkins Ana Şablonunuzu oluşturma
+# <a name="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure"></a>Azure’daki bir Linux (Ubuntu) sanal makinesinde ilk Jenkins Ana Şablonunuzu oluşturma
 
 Bu hızlı başlangıçta, bir Linux (Ubuntu 14.04 LTS) sanal makinesinde en son kararlı Jenkins sürümünün yanı sıra Azure ile çalışacak şekilde yapılandırılmış araç ve eklentilerin nasıl yükleneceği açıklanmaktadır. Araçlar şunları içerir:
 <ul>
@@ -46,9 +44,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-<a id="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins" class="xliff"></a>
-
-## Jenkins için çözüm şablonunu dağıtarak Azure’da sanal makineyi oluşturma
+## <a name="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins"></a>Jenkins için çözüm şablonunu dağıtarak Azure’da sanal makineyi oluşturma
 
 Azure hızlı başlangıç şablonları, Azure’da karmaşık teknolojileri hızlı ve güvenilir bir şekilde dağıtmanıza olanak sağlar.  Azure Resource Manager, uygulamalarınızı [bildirim temelli bir şablon](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins) aracılığıyla sağlamanıza olanak tanır. Tek bir şablonda birden çok hizmeti bağımlılıklarıyla birlikte dağıtabilirsiniz. Uygulama yaşam döngüsünün her aşamasında uygulamanızı tekrar tekrar dağıtmak için aynı şablonu kullanırsınız.
 
@@ -85,17 +81,13 @@ Doğrulama başarılı olduğunda, şablonu ve parametreleri indirmek için **Ta
 
 Daha sonra, tüm kaynakları sağlamak için **Satın al**’a tıklayın.
 
-<a id="setup-ssh-port-forwarding" class="xliff"></a>
-
-## SSH bağlantı noktası iletme kurulumu
+## <a name="setup-ssh-port-forwarding"></a>SSH bağlantı noktası iletme kurulumu
 
 Jenkins örneği varsayılan olarak http protokolünü kullanır ve 8080 bağlantı noktası üzerinde dinleme yapar. Kullanıcıların korumasız protokoller üzerinden kimlik doğrulaması yapmaması gerekir.
     
 Yerel makinenizde Jenkins kullanıcı arabirimini görüntülemek için bağlantı noktası iletmeyi ayarlayın.
 
-<a id="if-you-are-using-windows" class="xliff"></a>
-
-### Windows kullanıyorsanız:
+### <a name="if-you-are-using-windows"></a>Windows kullanıyorsanız:
 
 PuTTY aracını yükleyin ve Jenkins’i korumak için parola kullanıyorsanız şu komutu çalıştırın:
 ```
@@ -110,9 +102,7 @@ SSH kullanıyorsanız şu komutu çalıştırın:
 putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="if-you-are-using-linux-or-mac" class="xliff"></a>
-
-### Linux veya Mac kullanıyorsanız:
+### <a name="if-you-are-using-linux-or-mac"></a>Linux veya Mac kullanıyorsanız:
 
 Jenkins ana şablonunuzu korumak için bir parola kullanıyorsanız şu komutu çalıştırın:
 ```
@@ -125,9 +115,7 @@ SSH kullanıyorsanız şu komutu çalıştırın:
 ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="connect-to-jenkins" class="xliff"></a>
-
-## Jenkins’e bağlanma
+## <a name="connect-to-jenkins"></a>Jenkins’e bağlanma
 Tünelinizi başlattıktan sonra, yerel makinenizde http://localhost:8080/ adresine gidin.
 
 İlk admin parolasıyla Jenkins panosunun kilidini ilk kez açın.
@@ -146,9 +134,7 @@ Jenkins örneğiniz kullanıma hazır! http://\<Oluşturduğunuz örneğin genel
 
 ![Jenkins hazır!](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 
 Bu öğreticide şunları yaptınız:
 

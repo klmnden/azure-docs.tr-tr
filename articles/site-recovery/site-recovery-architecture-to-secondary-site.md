@@ -22,9 +22,7 @@ ms.lasthandoff: 06/15/2017
 
 
 ---
-<a id="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery" class="xliff"></a>
-
-# Site Recovery'de ikincil bir konuma yönelik şirket içi makine çoğaltma işlemi nasıl gerçekleştirilir?
+# <a name="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery"></a>Site Recovery'de ikincil bir konuma yönelik şirket içi makine çoğaltma işlemi nasıl gerçekleştirilir?
 
 Bu makalede [Azure Site Recovery](site-recovery-overview.md) hizmeti aracılığıyla şirket içi sanal makineleri ve fiziksel sunucuları Azure'a çoğaltırken kullanılan bileşenler ve işlemler açıklanmıştır.
 
@@ -34,14 +32,10 @@ Aşağıdakileri ikincil bir şirket içi konuma çoğaltabilirsiniz:
 
 Tüm yorumlarınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
-<a id="replicate-hyper-v-vms-to-a-secondary-on-premises-site" class="xliff"></a>
-
-## Hyper-V VM'lerini ikincil bir şirket içi konuma çoğaltma
+## <a name="replicate-hyper-v-vms-to-a-secondary-on-premises-site"></a>Hyper-V VM'lerini ikincil bir şirket içi konuma çoğaltma
 
 
-<a id="architectural-components" class="xliff"></a>
-
-### Mimari bileşenler
+### <a name="architectural-components"></a>Mimari bileşenler
 
 Hyper-V VM’lerini ikincil bir siteye çoğaltmak için aşağıdakiler gerekir.
 
@@ -52,9 +46,7 @@ Hyper-V VM’lerini ikincil bir siteye çoğaltmak için aşağıdakiler gerekir
 **Hyper-V sunucusu** |  Birincil ve ikincil VMM bulutlarında bir veya daha fazla Hyper-V konak sunucusu.<br/><br/> Sunucular İnternet’e bağlı olmalıdır.<br/><br/> Verilerin, Kerberos veya sertifika kimlik doğrulaması kullanılarak, LAN ya da VPN üzerinden birincil ve ikincil Hyper-V ana bilgisayar sunucuları arasında çoğaltılması gerekir.  
 **Hyper-V VM’leri** | Kaynak Hyper-V ana bilgisayar sunucusunda bulunur. | Kaynak ana bilgisayar sunucusunda çoğaltmak istediğiniz en az bir VM olması gerekir.
 
-<a id="replication-process" class="xliff"></a>
-
-### Çoğaltma işlemi
+### <a name="replication-process"></a>Çoğaltma işlemi
 
 1. Azure hesabını ayarlarsınız.
 2. Site Recovery kurtarma için bir Kurtarma Hizmetleri kasası ayarlarsınız ve aşağıdakileri de içeren kasa ayarlarını yapılandırırsınız:
@@ -70,9 +62,7 @@ Hyper-V VM’lerini ikincil bir siteye çoğaltmak için aşağıdakiler gerekir
 
 ![Şirket içinden şirket içine](./media/site-recovery-components/arch-onprem-onprem.png)
 
-<a id="failover-and-failback-process" class="xliff"></a>
-
-### Yük devretme ve yeniden çalışma işlemi
+### <a name="failover-and-failback-process"></a>Yük devretme ve yeniden çalışma işlemi
 
 1. Şirket içi siteler arasında planlanmış veya planlanmamış bir [yük devretme](site-recovery-failover.md) gerçekleştirebilirsiniz. Planlı bir yük devretme çalıştırırsanız, veri kaybı olmaması için kaynak VM’ler kapatılır.
 2. Tek bir makine üzerinden yük devredebilir veya [kurtarma planları](site-recovery-create-recovery-plans.md) oluşturarak birden çok makinenin devredilmesini düzenleyebilirsiniz.
@@ -84,16 +74,12 @@ Hyper-V VM’lerini ikincil bir siteye çoğaltmak için aşağıdakiler gerekir
 
 
 
-<a id="replicate-vmware-vmsphysical-servers-to-a-secondary-site" class="xliff"></a>
-
-## VMware VM’lerini/Fiziksel sunucuları ikincil bir siteye çoğaltma
+## <a name="replicate-vmware-vmsphysical-servers-to-a-secondary-site"></a>VMware VM’lerini/Fiziksel sunucuları ikincil bir siteye çoğaltma
 
 Aşağıdaki mimari bileşenler ile InMage Scout'u kullanarak VMware VM'lerini veya fiziksel sunucuları ikincil bir konuma çoğaltabilirsiniz:
 
 
-<a id="architectural-components" class="xliff"></a>
-
-### Mimari bileşenler
+### <a name="architectural-components"></a>Mimari bileşenler
 
 **Bileşen** | **Konum** | **Ayrıntılar**
 --- | --- | ---
@@ -106,9 +92,7 @@ Aşağıdaki mimari bileşenler ile InMage Scout'u kullanarak VMware VM'lerini v
 **VM’ler/fiziksel sunucular** |  Çoğaltmak istediğiniz VMware VM’leri veya fiziksel sunucularda yüklü Birleşik Aracı. | Aracı,tüm bileşenler arasındaki bir iletişim sağlayıcısı gibi davranır.
 
 
-<a id="replication-process" class="xliff"></a>
-
-### Çoğaltma işlemi
+### <a name="replication-process"></a>Çoğaltma işlemi
 
 1. Her sitede bileşen sunucularını (yapılandırma, işlem, ana hedef) ayarlayıp çoğaltmak istediğiniz makinelere Birleşik Aracı'yı yükleyin.
 2. İlk çoğaltmanın ardından makinelerdeki aracılar çoğaltma değişimleri işlem sunucusuna gönderir.
@@ -119,9 +103,7 @@ Aşağıdaki mimari bileşenler ile InMage Scout'u kullanarak VMware VM'lerini v
 ![VMware'den VMware'e](./media/site-recovery-components/vmware-to-vmware.png)
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 [Destek matrisini](site-recovery-support-matrix-to-sec-site.md) inceleyin
 

@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-8-create-perspectives" class="xliff"></a>
-
-# 8. Ders: Perspektif oluşturma
+# <a name="lesson-8-create-perspectives"></a>8. Ders: Perspektif oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -36,18 +34,12 @@ Bu dersin amacı perspektiflerin nasıl oluşturulacağını açıklamak ve tabl
   
 Bu dersin tahmini tamamlanma süresi: **Beş dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Önkoşullar  
+## <a name="prerequisites"></a>Önkoşullar  
 Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirebilmek için bir önceki dersi tamamlamış olmanız gerekir: [7. Ders: Ana Performans Göstergeleri Oluşturma](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
-<a id="create-perspectives" class="xliff"></a>
-
-## Perspektif oluşturma  
+## <a name="create-perspectives"></a>Perspektif oluşturma  
   
-<a id="to-create-an-internet-sales-perspective" class="xliff"></a>
-
-#### Internet Sales adlı bir perspektif oluşturmak için  
+#### <a name="to-create-an-internet-sales-perspective"></a>Internet Sales adlı bir perspektif oluşturmak için  
   
 1.  **Model** menüsü > **Perspektifler** > **Oluştur ve Yönet**'e tıklayın.  
   
@@ -61,9 +53,7 @@ Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğr
   
     Sonraki bir derste bu perspektifi test etmek için Excel'de Çözümle özelliğini kullanacaksınız. Excel PivotTable Alan Listesinde DimCustomer tablosu hariç tüm tablolar bulunmaktadır.  
 
-<a id="whats-next" class="xliff"></a>
-
-## Sırada ne var?
+## <a name="whats-next"></a>Sırada ne var?
 [9. Ders: Hiyerarşi oluşturma](../tutorials/aas-lesson-9-create-hierarchies.md).
   
   

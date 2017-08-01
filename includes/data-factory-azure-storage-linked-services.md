@@ -1,6 +1,4 @@
-<a id="azure-storage-linked-service" class="xliff"></a>
-
-### Azure Storage Linked Service
+### <a name="azure-storage-linked-service"></a>Azure Storage Linked Service
 The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**, which provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.
 
 | Property | Description | Required |
@@ -24,9 +22,7 @@ See the following article for steps to view/copy the account key for an Azure St
 }  
 ```
 
-<a id="azure-storage-sas-linked-service" class="xliff"></a>
-
-### Azure Storage Sas Linked Service
+### <a name="azure-storage-sas-linked-service"></a>Azure Storage Sas Linked Service
 A shared access signature (SAS) provides delegated access to resources in your storage account. It allows you to grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method. For detailed information about SAS, see [Shared Access Signatures: Understanding the SAS Model](../articles/storage/storage-dotnet-shared-access-signature-part-1.md)
 
 > [!IMPORTANT]

@@ -1,6 +1,5 @@
 
-## About VHDs
-<a id="about-vhds" class="xliff"></a>
+## <a name="about-vhds"></a>About VHDs
 
 The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/storage-premium-storage.md).
 
@@ -16,33 +15,28 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 > If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
 > 
 
-## Types of disks
-<a id="types-of-disks" class="xliff"></a> 
+## <a name="types-of-disks"></a>Types of disks 
 
 Azure Disks are designed for 99.999% availability. Azure Disks have consistently delivered enterprise-grade durability, with an industry-leading ZERO% Annualized Failure Rate.
 
 There are two performance tiers for storage that you can choose from when creating your disks -- Standard Storage and Premium Storage. Also, there are two types of disks -- unmanaged and managed -- and they can reside in either performance tier.
 
 
-### Standard storage
-<a id="standard-storage" class="xliff"></a> 
+### <a name="standard-storage"></a>Standard storage 
 
 Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/storage-redundancy.md). 
 
 For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/storage/storage-standard-storage.md).
 
-### Premium storage
-<a id="premium-storage" class="xliff"></a> 
+### <a name="premium-storage"></a>Premium storage 
 
 Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, Ls, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/storage-premium-storage.md).
 
-### Unmanaged disks
-<a id="unmanaged-disks" class="xliff"></a>
+### <a name="unmanaged-disks"></a>Unmanaged disks
 
 Unmanaged disks are the traditional type of disks that have been used by VMs. With these, you create your own storage account and specify that storage account when you create the disk. You have to make sure you don't put too many disks in the same storage account, because you could exceed the [scalability targets](../articles/storage/storage-scalability-targets.md) of the storage account (20,000 IOPS, for example), resulting in the VMs being throttled. With unmanaged disks, you have to figure out how to maximize the use of one or more storage accounts to get the best performance out of your VMs.
 
-### Managed disks
-<a id="managed-disks" class="xliff"></a> 
+### <a name="managed-disks"></a>Managed disks 
 
 Managed Disks handles the storage account creation/management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard/Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. 
 
@@ -50,8 +44,7 @@ You can also manage your custom images in one storage account per Azure region, 
 
 We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks, to take advantage of the many features available in Managed Disks.
 
-### Disk comparison
-<a id="disk-comparison" class="xliff"></a>
+### <a name="disk-comparison"></a>Disk comparison
 
 The following table provides a comparison of Premium vs Standard for both unmanaged and managed disks to help you decide what to use.
 

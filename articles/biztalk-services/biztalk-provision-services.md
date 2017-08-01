@@ -22,9 +22,7 @@ ms.lasthandoff: 05/31/2017
 
 
 ---
-<a id="create-biztalk-services-using-the-azure-portal" class="xliff"></a>
-
-# Azure portalını kullanarak BizTalk Services oluşturma
+# <a name="create-biztalk-services-using-the-azure-portal"></a>Azure portalını kullanarak BizTalk Services oluşturma
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -33,9 +31,7 @@ ms.lasthandoff: 05/31/2017
 > Azure portalında oturum açmak için bir Azure hesabınız ve Azure aboneliğiniz olması gerekir. Hesabınız yoksa birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Bkz. [Azure Ücretsiz Deneme](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
-<a id="create-a-biztalk-service" class="xliff"></a>
-
-## BizTalk Hizmeti oluşturma
+## <a name="create-a-biztalk-service"></a>BizTalk Hizmeti oluşturma
 Seçtiğiniz Sürüm’e bağlı olarak, BizTalk Hizmeti ayarlarının tümü kullanılamayabilir.
 
 1. [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
@@ -119,9 +115,7 @@ Tamamlandığında, Azure BizTalk Hizmeti oluşturulmuştur ve uygulamalarınız
 
 BizTalk Hizmeti durumunu bağlı olarak, bazı tamamlanamayan işlemler vardır. Bu işlemlerin bir listesi için [BizTalk Services Durumu Grafiği](biztalk-service-state-chart.md)’ne gidin.
 
-<a id="post-provisioning-steps" class="xliff"></a>
-
-## Hazırlama sonrası adımlar
+## <a name="post-provisioning-steps"></a>Hazırlama sonrası adımlar
 * [Sertifikayı yerel bir bilgisayara yükleme](#InstallCert)
 * [Üretime hazır sertifikayı ekleme](#AddCert)
 * [Access Control ad alanını alma](#ACS)
@@ -165,9 +159,7 @@ Erişim Denetimi hizmeti kimliği, uygulamaların veya istemcilerin Erişim Dene
 
 [ACS Ad Alanınızı Yönetme](https://msdn.microsoft.com/library/azure/hh674478.aspx) bazı kılavuzları ve önerileri listeler.
 
-<a id="requirements-explained" class="xliff"></a>
-
-## Açıklanan gereksinimler
+## <a name="requirements-explained"></a>Açıklanan gereksinimler
 Bu gereksinimler Ücretsiz Sürüm için geçerli değildir.
 
 <table border="1">
@@ -251,9 +243,7 @@ BizTalk Hizmeti oluşturulduktan sonra yeni veya farklı bir sertifika eklenebil
 
 
 
-<a id="hybrid-connections" class="xliff"></a>
-
-## Karma Bağlantılar
+## <a name="hybrid-connections"></a>Karma Bağlantılar
 Azure BizTalk hizmeti oluşturduğunuzda **Karma Bağlantılar** sekmesi kullanılabilir:
 
 ![Karma Bağlantılar Sekmesi][HybridConnectionTab]
@@ -262,14 +252,10 @@ Karma Bağlantılar Azure web sitesine veya Azure mobil hizmetinden SQL Sunucusu
 
  Karma Bağlantıları oluşturma ve yönetme de dahil, daha fazla bilgi için bkz. [Karma Bağlantılar](integration-hybrid-connection-overview.md).
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Artık bir BizTalk Hizmeti oluşturuldu, şimdi de kendinizi farklı [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md) ile tanışmaya hazırlayın. BizTalk Hizmeti uygulamalarınız için hazır. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
-<a id="see-also" class="xliff"></a>
-
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 * [BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: Durum Grafiği](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md)<br/>

@@ -5,9 +5,7 @@ The NV instances are powered by NVIDIA’s Tesla M60 GPU card and NVIDIA GRID fo
 
 The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch through data much faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance.
 
-<a id="nv-instances" class="xliff"></a>
-
-## NV instances
+## <a name="nv-instances"></a>NV instances
 
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
@@ -17,9 +15,7 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can now crunch 
 
 1 GPU = one-half M60 card.
 
-<a id="nc-instances" class="xliff"></a>
-
-## NC instances
+## <a name="nc-instances"></a>NC instances
 
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |

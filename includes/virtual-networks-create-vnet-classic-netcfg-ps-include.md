@@ -1,6 +1,4 @@
-<a id="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell" class="xliff"></a>
-
-## How to create a virtual network using a network config file from PowerShell
+## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>How to create a virtual network using a network config file from PowerShell
 Azure uses an xml file to define all virtual networks available to a subscription. You can download this file, edit it to modify or delete existing virtual networks, and create new virtual networks. In this tutorial, you learn how to download this file, referred to as network configuration (or netcfg) file, and edit it to create a new virtual network. To learn more about the network configuration file, see the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 To create a virtual network with a netcfg file using PowerShell, complete the following steps:

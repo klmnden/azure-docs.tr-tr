@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-5-create-calculated-columns" class="xliff"></a>
-
-# 5. Ders: Hesaplanan sütunlar oluşturma
+# <a name="lesson-5-create-calculated-columns"></a>5. Ders: Hesaplanan sütunlar oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -36,18 +34,12 @@ Veri Çözümleme İfadeleri’ni (DAX) de ilk olarak bu derste kullanırsınız
   
 Bu dersin tahmini tamamlanma süresi: **15 dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [4. Ders: İlişki oluşturma](../tutorials/aas-lesson-4-create-relationships.md). 
   
-<a id="create-calculated-columns" class="xliff"></a>
-
-## Hesaplanan sütunlar oluşturma  
+## <a name="create-calculated-columns"></a>Hesaplanan sütunlar oluşturma  
   
-<a id="create-a-monthcalendar-calculated-column-in-the-dimdate-table" class="xliff"></a>
-
-#### DimDate tablosunda bir MonthCalendar hesaplanan sütunu oluşturma  
+#### <a name="create-a-monthcalendar-calculated-column-in-the-dimdate-table"></a>DimDate tablosunda bir MonthCalendar hesaplanan sütunu oluşturma  
   
 1.  **Model** menüsü > **Model Görünümü** > **Veri Görünümü**’ne tıklayın.  
   
@@ -73,9 +65,7 @@ Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin b
   
 MonthCalendar hesaplanan sütunu, Ay için sıralanabilen bir ad sağlar.  
   
-<a id="create-a-dayofweek-calculated-column-in-the-dimdate-table" class="xliff"></a>
-
-#### DimDate tablosunda DayOfWeek hesaplanan sütunu oluşturma  
+#### <a name="create-a-dayofweek-calculated-column-in-the-dimdate-table"></a>DimDate tablosunda DayOfWeek hesaplanan sütunu oluşturma  
   
 1.  **DimDate** tablosu hala etkinken **Sütun** menüsüne ve sonra **Sütun Ekle**’ye tıklayın.  
   
@@ -96,9 +86,7 @@ MonthCalendar hesaplanan sütunu, Ay için sıralanabilen bir ad sağlar.
   
 DayOfWeek hesaplanan sütunu, haftanın günü için sıralanabilen bir ad sağlar.  
   
-<a id="create-a-productsubcategoryname-calculated-column-in-the-dimproduct-table" class="xliff"></a>
-
-#### DimProduct tablosunda ProductSubcategoryName hesaplanan sütunu oluşturma  
+#### <a name="create-a-productsubcategoryname-calculated-column-in-the-dimproduct-table"></a>DimProduct tablosunda ProductSubcategoryName hesaplanan sütunu oluşturma  
   
   
 1.  **DimProduct** tablosunda, tablonun en sağına gidin. En sağdaki sütunun **Sütun Ekle** (italik) olarak adlandırıldığına dikkat edin ve sütun başlığına tıklayın.  
@@ -113,9 +101,7 @@ DayOfWeek hesaplanan sütunu, haftanın günü için sıralanabilen bir ad sağl
   
 ProductSubcategoryName hesaplanan sütunu, DimProductSubcategory tablosundaki EnglishProductSubcategoryName sütunundan veriler içeren DimProduct tablosunda bir hiyerarşi oluşturmak için kullanılır. Hiyerarşiler birden fazla tabloya yayılamaz. Hiyerarşileri 9. Derste oluşturacaksınız.  
   
-<a id="create-a-productcategoryname-calculated-column-in-the-dimproduct-table" class="xliff"></a>
-
-#### DimProduct tablosunda ProductCategoryName hesaplanan sütunu oluşturma  
+#### <a name="create-a-productcategoryname-calculated-column-in-the-dimproduct-table"></a>DimProduct tablosunda ProductCategoryName hesaplanan sütunu oluşturma  
   
 1.  **DimProduct** tablosu hala etkinken **Sütun** menüsüne ve sonra **Sütun Ekle**’ye tıklayın.  
   
@@ -129,9 +115,7 @@ ProductSubcategoryName hesaplanan sütunu, DimProductSubcategory tablosundaki En
   
 ProductCategoryName hesaplanan sütunu, DimProductCategory tablosundaki EnglishProductCategoryName sütunundan veriler içeren DimProduct tablosunda bir hiyerarşi oluşturmak için kullanılır. Hiyerarşiler birden fazla tabloya yayılamaz.  
   
-<a id="create-a-margin-calculated-column-in-the-factinternetsales-table" class="xliff"></a>
-
-#### FactInternetSales tablosunda Margin hesaplanan sütunu oluşturma  
+#### <a name="create-a-margin-calculated-column-in-the-factinternetsales-table"></a>FactInternetSales tablosunda Margin hesaplanan sütunu oluşturma  
   
 1.  Model tasarımcısında **FactInternetSales** tablosunu seçin.  
   
@@ -149,9 +133,7 @@ ProductCategoryName hesaplanan sütunu, DimProductCategory tablosundaki EnglishP
       
     Margin hesaplanan sütunu, her satış için kar marjını analiz etmek için kullanılır.  
   
-<a id="whats-next" class="xliff"></a>
-
-## Sırada ne var?
+## <a name="whats-next"></a>Sırada ne var?
 [6. Ders: Ölçü oluşturma](../tutorials/aas-lesson-6-create-measures.md).
   
   

@@ -3,8 +3,7 @@
 > [!NOTE] 
 > You cannot modify the encryption settings and the storage account credentials associated with a volume container after it is created.
 
-#### To modify a volume container
-<a id="to-modify-a-volume-container" class="xliff"></a>
+#### <a name="to-modify-a-volume-container"></a>To modify a volume container
 
 1. Go to your StorSimple Device Manager service and then navigate to **Management > Volume containers**.
 

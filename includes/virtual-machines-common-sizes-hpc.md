@@ -8,8 +8,7 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 
 
 
-## H-series
-<a id="h-series" class="xliff"></a>
+## <a name="h-series"></a>H-series
 
 ACU: 290-300
 
@@ -28,8 +27,7 @@ ACU: 290-300
 
 
 
-## A-series - compute-intensive instances
-<a id="a-series---compute-intensive-instances" class="xliff"></a>
+## <a name="a-series---compute-intensive-instances"></a>A-series - compute-intensive instances
 
 ACU: 225
 

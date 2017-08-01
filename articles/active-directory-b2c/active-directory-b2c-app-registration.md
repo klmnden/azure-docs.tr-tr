@@ -23,25 +23,19 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-<a id="azure-active-directory-b2c-register-your-application" class="xliff"></a>
-
-# Azure Active Directory B2C: Uygulamanızı kaydetme
+# <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Uygulamanızı kaydetme
 
 > [!IMPORTANT]
 > Azure portalında Azure AD B2C dikey penceresinden oluşturulan uygulamaların aynı konumdan yönetilmesi gerekir. B2C uygulamalarını PowerShell veya başka bir portal kullanarak düzenlerseniz bu uygulamalar desteklenmez duruma gelir ve Azure AD B2C ile çalışmaz. [Aşağıda](#faulted-apps) daha fazla bilgi bulabilirsiniz.
 >
 
-<a id="prerequisite" class="xliff"></a>
-
-## Önkoşul
+## <a name="prerequisite"></a>Önkoşul
 
 Tüketicinin kaydolmasını ve oturum açmasını kabul eden bir uygulama oluşturmak için öncelikle uygulamayı Azure Active Directory B2C kiracısına kaydetmeniz gerekir. [Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md) makalesinde ana hatlarıyla belirtilen adımları izleyerek kendi kiracınızı edinin. Söz konusu makaledeki tüm adımları izledikten sonra B2C özellikleri dikey penceresi Başlangıç panonuza sabitlenir.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-<a id="navigate-to-the-b2c-features-blade" class="xliff"></a>
-
-## B2C özellikleri dikey penceresine gitme
+## <a name="navigate-to-the-b2c-features-blade"></a>B2C özellikleri dikey penceresine gitme
 
 B2C özellikleri dikey penceresini Başlangıç panonuza sabitlediyseniz dikey pencereyi, B2C kiracısının Genel Yöneticisi olarak [Azure portalında](https://portal.azure.com/) oturum açar açmaz görürsünüz.
 
@@ -52,9 +46,7 @@ Ayrıca dikey pencereye, [Azure portalındaki](https://portal.azure.com/) **Diğ
 >
 >
 
-<a id="register-a-web-application" class="xliff"></a>
-
-## Web uygulaması kaydetme
+## <a name="register-a-web-application"></a>Web uygulaması kaydetme
 
 1. Azure portalındaki B2C özellikleri dikey penceresinde **Applications (Uygulamalar)** seçeneğine tıklayın.
 1. Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
@@ -71,9 +63,7 @@ Ayrıca dikey pencereye, [Azure portalındaki](https://portal.azure.com/) **Diğ
 > **Uygulama Gizli Anahtarı** önemli bir güvenlik kimlik bilgisidir ve güvenliği uygun şekilde sağlanmalıdır.
 >
 
-<a id="register-a-web-api" class="xliff"></a>
-
-## Web API’si kaydetme
+## <a name="register-a-web-api"></a>Web API’si kaydetme
 
 1. Azure portalındaki B2C özellikleri dikey penceresinde **Applications (Uygulamalar)** seçeneğine tıklayın.
 1. Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
@@ -87,9 +77,7 @@ Ayrıca dikey pencereye, [Azure portalındaki](https://portal.azure.com/) **Diğ
 1. Gerektiğinde daha fazla kapsam ekleyin. Varsayılan olarak, "user_impersonation" kapsamı tanımlanır. Bunun yapılması, diğer uygulamaların oturum açmış kullanıcı adına bu api’de oturum açmasına olanak tanır. İsterseniz bu seçeneği kaldırabilirsiniz.
 1. **Kaydet** düğmesine tıklayın.
 
-<a id="register-a-mobilenative-application" class="xliff"></a>
-
-## Mobil/yerel bir uygulamayı kaydetme
+## <a name="register-a-mobilenative-application"></a>Mobil/yerel bir uygulamayı kaydetme
 
 1. Azure portalındaki B2C özellikleri dikey penceresinde **Applications (Uygulamalar)** seçeneğine tıklayın.
 1. Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
@@ -106,13 +94,9 @@ Ayrıca dikey pencereye, [Azure portalındaki](https://portal.azure.com/) **Diğ
 > **Uygulama Gizli Anahtarı** önemli bir güvenlik kimlik bilgisidir ve güvenliği uygun şekilde sağlanmalıdır.
 >
 
-<a id="limitations" class="xliff"></a>
+## <a name="limitations"></a>Sınırlamalar
 
-## Sınırlamalar
-
-<a id="choosing-a-web-appapi-reply-url" class="xliff"></a>
-
-### Bir web uygulaması/api yanıt URL'si seçme
+### <a name="choosing-a-web-appapi-reply-url"></a>Bir web uygulaması/api yanıt URL'si seçme
 
 Şu anda Azure AD B2C’ye kayıtlı uygulamalar sınırlı sayıda yanıt URL'si değeri ile kısıtlıdır. Web uygulamaları ve hizmetlerine yönelik yanıt URL’si, `https` şemasıyla başlamalı ve tüm yanıt URL’si değerleri tek bir DNS etki alanını paylaşmalıdır. Örneğin, şu yanıt URL'lerinden birine sahip bir web uygulamasını kaydedemezsiniz:
 
@@ -147,9 +131,7 @@ Bu durumda, login.contoso.com DNS alt etki alanına başvurursunuz. Yanıt URL�
 
 Sonraki iki yanıt URL’si, ilk yanıt URL'si olan contoso.com’un alt etki alanları olduğu için bunları ekleyebilirsiniz.
 
-<a id="choosing-a-native-application-redirect-uri" class="xliff"></a>
-
-### Yerel uygulama yeniden yönlendirme URI'si seçme
+### <a name="choosing-a-native-application-redirect-uri"></a>Yerel uygulama yeniden yönlendirme URI'si seçme
 
 Mobil/yerel uygulamalar için bir yeniden yönlendirme URI’si seçerken dikkat edilmesi gereken iki önemli nokta şunlardır:
 
@@ -158,9 +140,7 @@ Mobil/yerel uygulamalar için bir yeniden yönlendirme URI’si seçerken dikkat
 
 Yeniden yönlendirme URI'sinde alt çizgi gibi özel karakterler olmadığından emin olun.
 
-<a id="faulted-apps" class="xliff"></a>
-
-### Hatalı uygulamalar
+### <a name="faulted-apps"></a>Hatalı uygulamalar
 
 B2C uygulamaları şu durumlarda DÜZENLENMEMELİDİR:
 
@@ -171,9 +151,7 @@ B2C uygulamasını yukarıda açıklanan şekilde düzenleyip Azure portalının
 
 Uygulamayı silmek için [Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/)’na gidin ve uygulamayı silin. Uygulamanın görünür olması için uygulamanın sahibi olmanız (ve yalnızca kiracının yöneticisi olmamanız) gerekir.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Azure AD B2C'ye kayıtlı bir uygulamaya sahip olduğunuza göre başlamak için [hızlı başlangıç öğreticilerimizden](active-directory-b2c-overview.md#get-started) birini tamamlayabilirsiniz.
 

@@ -20,17 +20,13 @@ ms.lasthandoff: 06/20/2017
 
 ---
 
-<a id="create-your-first-function-using-the-azure-cli" class="xliff"></a>
-
-# Azure CLI kullanarak ilk işlevinizi oluşturma
+# <a name="create-your-first-function-using-the-azure-cli"></a>Azure CLI kullanarak ilk işlevinizi oluşturma
 
 Bu hızlı başlangıç öğreticisi, Azure İşlevleri’ni kullanarak ilk işlevinizi oluşturma hakkında bilgi vermektedir. İşlev uygulaması oluşturmak için , işlevinizi barındıran sunucusuz bir altyapı olan Azure CLI’yi kullanın. İşlev kodu bir GitHub örnek deposundan dağıtılır.    
 
 Mac, Windows veya Linux bilgisayar kullanarak aşağıdaki adımları izleyebilirsiniz. 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar 
+## <a name="prerequisites"></a>Ön koşullar 
 
 Bu örneği çalıştırmadan önce aşağıdakilere sahip olmanız gerekir:
 
@@ -44,9 +40,7 @@ Bu örneği çalıştırmadan önce aşağıdakilere sahip olmanız gerekir:
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 [az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Azure kaynak grubu; işlev uygulamaları, veritabanları ve depolama hesapları gibi Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -55,9 +49,7 @@ Aşağıdaki örnek `myResourceGroup` adlı bir kaynak grubu oluşturur:
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
-<a id="create-an-azure-storage-account" class="xliff"></a>
-
-## Azure Depolama hesabı oluşturma
+## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma
 
 İşlevler, işlevlerinizin durumunu ve diğer bilgilerini korumak için bir Azure Depolama hesabı kullanır. Oluşturduğunuz kaynak grubunda [az storage account create](/cli/azure/storage/account#create) komutunu kullanarak bir depolama hesabı oluşturun.
 
@@ -87,9 +79,7 @@ Depolama hesabı oluşturulduktan sonra Azure CLI, aşağıdaki örneğe benzer 
 }
 ```
 
-<a id="create-a-function-app" class="xliff"></a>
-
-## İşlev uygulaması oluşturma
+## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
 İşlevlerinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, işlev kodunuzun sunucusuz yürütülmesine yönelik bir ortam sağlar. Kaynakların daha kolay yönetilmesi, dağıtılması ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır. [az functionapp create](/cli/azure/functionapp#create) komutunu kullanarak bir işlev uygulaması oluşturun. 
 
@@ -122,9 +112,7 @@ Varsayılan olarak, Tüketim barındırma planı ile bir işlev uygulaması olu�
 
 Artık bir işlev uygulamasına sahip olduğunuza göre, gerçek işlev kodunu GitHub örnek deposundan dağıtabilirsiniz.
 
-<a id="deploy-your-function-code" class="xliff"></a>
-
-## İşlev kodunuzu dağıtma  
+## <a name="deploy-your-function-code"></a>İşlev kodunuzu dağıtma  
 
 Yeni işlev uygulamanızda işlevi kodunuzu oluşturmanın birkaç yolu vardır. Bu konu başlığında, GitHub’daki bir örnek depoya bağlanılır. Daha önce olduğu gibi, aşağıdaki kodda `<app_name>` yer tutucusunu oluşturduğunuz işlev uygulamasının adıyla değiştirin. 
 
@@ -148,9 +136,7 @@ Dağıtım kaynağı ayarlandıktan sonra, Azure CLI aşağıdaki örneğe benze
 }
 ```
 
-<a id="test-the-function" class="xliff"></a>
-
-## İşlevi test etme
+## <a name="test-the-function"></a>İşlevi test etme
 
 Dağıtılan işlevi bir Mac veya Linux bilgisayarda ya da Windows üzerinde Bash kullanarak test etmek için cURL kullanın. `<app_name>` yer tutucusunu işlev uygulamanızın adıyla değiştirerek aşağıdaki cURL komutunu yürütün. `&name=<yourname>` sorgu dizesini URL’ye ekleyin.
 
@@ -166,9 +152,7 @@ Komut satırınızda cURL yoksa, web tarayıcınızın adres çubuğuna aynı UR
    
 ![Tarayıcıda gösterilen işlev yanıtı.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)  
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu koleksiyondaki diğer hızlı başlangıçlar, bu hızlı başlangıcı temel alır. Sonraki hızlı başlangıçlar veya öğreticilerle devam etmeyi planlıyorsanız, bu hızlı başlangıçta oluşturulan kaynakları temizlemeyin. Devam etmeyi planlamıyorsanız, bu hızlı başlangıç ile oluşturulan tüm kaynakları silmek için aşağıdaki komutu kullanın:
 
@@ -177,9 +161,7 @@ az group delete --name myResourceGroup
 ```
 İstendiğinde `y` yazın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

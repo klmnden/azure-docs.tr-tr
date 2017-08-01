@@ -14,9 +14,7 @@
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-<a id="mobility-service-installer-command-line" class="xliff"></a>
-
-#### Mobility Service installer command-line
+#### <a name="mobility-service-installer-command-line"></a>Mobility Service installer command-line
 
 ```
 Usage:
@@ -31,9 +29,7 @@ Usage:
 |-q|Optional|Specifies to run installer in silent mode| N/A|
 
 
-<a id="mobility-service-configuration-command-line" class="xliff"></a>
-
-#### Mobility Service configuration command-line
+#### <a name="mobility-service-configuration-command-line"></a>Mobility Service configuration command-line
 
 ```
 Usage:

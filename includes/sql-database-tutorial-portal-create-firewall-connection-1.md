@@ -1,12 +1,8 @@
-<a id="log-in-to-the-azure-portal" class="xliff"></a>
-
-## Log in to the Azure portal
+## <a name="log-in-to-the-azure-portal"></a>Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-<a id="create-a-blank-sql-database-using-the-azure-portal" class="xliff"></a>
-
-## Create a blank SQL database using the Azure portal
+## <a name="create-a-blank-sql-database-using-the-azure-portal"></a>Create a blank SQL database using the Azure portal
 
 An Azure SQL database is created with a defined set of [compute and storage resources](../articles/sql-database/sql-database-service-tiers.md). The database is created within an [Azure resource group](../articles/azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](../articles/sql-database/sql-database-features.md). 
 
@@ -56,9 +52,7 @@ Follow these steps to create a blank SQL database.
 
    ![notification](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
 
-<a id="create-a-server-level-firewall-rule-using-the-azure-portal" class="xliff"></a>
-
-## Create a server-level firewall rule using the Azure portal
+## <a name="create-a-server-level-firewall-rule-using-the-azure-portal"></a>Create a server-level firewall rule using the Azure portal
 
 The SQL Database service creates a firewall at the server-level. Initially the firewall prevents external tools and applications from connecting to the server, or to any databases on the server. Connections are allowed after a firewall rule is created to open specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](../articles/sql-database/sql-database-firewall-configure.md) for your client's IP address, and to enable external connectivity through the SQL Database firewall for your IP address only. 
 
@@ -95,9 +89,7 @@ You can now connect to the Azure SQL Database server and its databases by using 
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
 
 
-<a id="get-connection-string-values-using-the-azure-portal" class="xliff"></a>
-
-## Get connection string values using the Azure portal
+## <a name="get-connection-string-values-using-the-azure-portal"></a>Get connection string values using the Azure portal
 
 Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 

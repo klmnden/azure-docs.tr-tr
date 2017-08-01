@@ -23,37 +23,27 @@ ms.lasthandoff: 06/23/2017
 
 
 ---
-<a id="azure-cosmos-db-build-a-net-application-using-the-table-api" class="xliff"></a>
-
-# Azure Cosmos DB: Tablo API'sini kullanarak bir .NET uygulaması derleme
+# <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: Tablo API'sini kullanarak bir .NET uygulaması derleme
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
 Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını oluşturma ve bu hesap içinde tablo oluşturma işlemi anlatılmıştır. Varlıkları eklemek, güncelleştirmek ve silmek için kod yazabilecek ve NuGet'in yeni [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (önizleme) paketini kullanarak bazı sorguları çalıştırabileceksiniz. Bu kitaplık genel [Windows Azure Depolama SDK'sı](https://www.nuget.org/packages/WindowsAzure.Storage) ile aynı sınıf ve yöntem imzalarına sahip olmasının yanı sıra [Tablo API'sini](table-introduction.md) (önizleme) kullanarak Azure Cosmos DB hesaplarına da bağlanabilir. 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="create-a-database-account" class="xliff"></a>
-
-## Veritabanı hesabı oluşturma
+## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
-<a id="add-a-table" class="xliff"></a>
-
-## Tablo ekleme
+## <a name="add-a-table"></a>Tablo ekleme
 
 [!INCLUDE [cosmos-db-create-table](../../includes/cosmos-db-create-table.md)]
 
-<a id="add-sample-data" class="xliff"></a>
-
-## Örnek verileri ekleme
+## <a name="add-sample-data"></a>Örnek verileri ekleme
 
 Artık Veri Gezgini'ni (Önizleme) kullanarak yeni tablonuza veri ekleyebilirsiniz.
 
@@ -66,9 +56,7 @@ Artık Veri Gezgini'ni (Önizleme) kullanarak yeni tablonuza veri ekleyebilirsin
   
     Artık tablonuza daha fazla varlık ekleyebilir, varlıklarınızı düzenleyebilir veya Veri Gezgini’nde verilerinizi sorgulayabilirsiniz. Veri Gezgini ayrıca aktarım hızınızı ölçeklendirebileceğiniz ve tablonuza depolanmış yordamlar, kullanıcı tarafından tanımlanmış işlevler ve tetikleyiciler ekleyebileceğiniz yerdir.
 
-<a id="clone-the-sample-application" class="xliff"></a>
-
-## Örnek uygulamayı kopyalama
+## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
 Şimdi GitHub'dan bir Tablo uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
@@ -82,9 +70,7 @@ Artık Veri Gezgini'ni (Önizleme) kullanarak yeni tablonuza veri ekleyebilirsin
 
 3. Ardından çözüm dosyasını Visual Studio'da açın. 
 
-<a id="review-the-code" class="xliff"></a>
-
-## Kodu gözden geçirin
+## <a name="review-the-code"></a>Kodu gözden geçirin
 
 Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Program.cs dosyasını açtığınızda Azure Cosmos DB kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
 
@@ -115,9 +101,7 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Program.cs dos
                 };
     ```
 
-<a id="update-your-connection-string" class="xliff"></a>
-
-## Bağlantı dizenizi güncelleştirme
+## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
 Şimdi bağlantı dizesi bilgilerini güncelleştireceğiz. Böylece uygulamanız Azure Cosmos DB ile iletişim kurabilecek. 
 
@@ -136,9 +120,7 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Program.cs dos
 
 Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
 
-<a id="run-the-web-app" class="xliff"></a>
-
-## Web uygulamasını çalıştırma
+## <a name="run-the-web-app"></a>Web uygulamasını çalıştırma
 
 1. Visual Studio'da **Çözüm Gezgini**'ndeki **PremiumTableGetStarted** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın. 
 
@@ -160,24 +142,18 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 
     ![Veri Gezgini'ndeki yeni varlıklar](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-data-explorer.png)
 
-<a id="review-slas-in-the-azure-portal" class="xliff"></a>
-
-## Azure portalında SLA'ları gözden geçirme
+## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin: 
 
 1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
 2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak tablo oluşturmayı ve bir uygulamayı çalıştırmayı öğrendiniz.  Şimdi Tablo API'sini kullanarak verilerinizi sorgulayabilirsiniz.  
 

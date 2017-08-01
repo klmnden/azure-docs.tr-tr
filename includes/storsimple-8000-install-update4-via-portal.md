@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 07/07/17-->
 
-#### To install an update from the Azure portal
-<a id="to-install-an-update-from-the-azure-portal" class="xliff"></a>
+#### <a name="to-install-an-update-from-the-azure-portal"></a>To install an update from the Azure portal
 
 1. On the StorSimple service page, select your device.
 

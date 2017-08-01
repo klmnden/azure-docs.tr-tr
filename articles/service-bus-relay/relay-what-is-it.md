@@ -22,9 +22,7 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="what-is-azure-relay" class="xliff"></a>
-
-# Azure Geçiş nedir?
+# <a name="what-is-azure-relay"></a>Azure Geçiş nedir?
 
 Azure Geçiş hizmeti, güvenlik duvarı bağlantısını açmanıza veya kurumsal ağ altyapısına müdahale eden değişiklikler yapmanıza gerek kalmadan kurumsal işletme ağında bulunan hizmetleri genel bulutta kullanıma sunmanıza olanak sağlayarak karma uygulamaları kolaylaştırır. Geçiş, birçok çeşitli aktarım protokolünü ve web hizmeti standartlarını destekler.
 
@@ -50,27 +48,19 @@ Hem Karma Bağlantılar hem de WCF Geçişleri bir kurumsal kuruluş ağı için
 | **Standart Tabanlı Açık Protokol** | |x |
 | **Birden Çok RPC Programlama Modeli** | |x |
 
-<a id="hybrid-connections" class="xliff"></a>
-
-## Karma Bağlantılar
+## <a name="hybrid-connections"></a>Karma Bağlantılar
 
 [Azure Geçiş Karma Bağlantılar](relay-hybrid-connections-protocol.md) özelliği, yaygın olarak kullanılan web tarayıcılarındaki WebSocket API’yi açıkça içeren temel bir WebSocket özelliğine sahip tüm platform ve dillerde uygulanabilen mevcut Geçiş özelliklerinin güvenli, açık yordam kullanılarak evrim geçirmiş bir halidir. Karma Bağlantılar HTTP ve WebSocket’ları temel alır.
 
-<a id="wcf-relays" class="xliff"></a>
-
-## WCF Geçişleri
+## <a name="wcf-relays"></a>WCF Geçişleri
 
 WCF Geçişi tam .NET Framework (NETFX) ve WCF için çalışır. Geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı bir WCF "geçiş" bağlamaları paketi kullanarak başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenlerini oluşturmak üzere tasarlanan yeni aktarım bağlama öğeleriyle eşleşir.
 
-<a id="service-history" class="xliff"></a>
-
-## Hizmet geçmişi
+## <a name="service-history"></a>Hizmet geçmişi
 
 Karma Bağlantılar, Azure Service Bus WCF Geçişi üzerinde oluşturulan eski ve benzer ada sahip "BizTalk Services" özelliğini tamamlar. Yeni Karma Bağlantılar özelliği mevcut WCF Geçişi özelliğini tamamlar ve bu iki hizmet özelliği şimdilik Azure Geçişi hizmetinde birlikte yer alır. Ortak bir ağ geçidine sahip bu iki özellik, diğer açılardan farklı olan uygulamalardır.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar:
+## <a name="next-steps"></a>Sonraki adımlar:
 
 * [Geçiş hakkında SSS](relay-faq.md)
 * [Ad alanı oluşturma](relay-create-namespace-portal.md)

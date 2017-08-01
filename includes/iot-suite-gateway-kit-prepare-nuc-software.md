@@ -1,12 +1,8 @@
-<a id="build-iot-edge" class="xliff"></a>
-
-## Build IoT Edge
+## <a name="build-iot-edge"></a>Build IoT Edge
 
 This tutorial uses custom IoT Edge modules to communicate with the remote monitoring preconfigured solution. Therefore, you need to build the IoT Edge modules from custom source code. The following sections describe how to install IoT Edge and build the custom IoT Edge module.
 
-<a id="install-iot-edge" class="xliff"></a>
-
-### Install IoT Edge
+### <a name="install-iot-edge"></a>Install IoT Edge
 
 The following steps describe how to install the pre-compiled IoT Edge software on the Intel NUC:
 
@@ -47,8 +43,6 @@ The following steps describe how to install the pre-compiled IoT Edge software o
     cat log.txt | more
     ```
 
-<a id="troubleshooting" class="xliff"></a>
-
-### Troubleshooting
+### <a name="troubleshooting"></a>Troubleshooting
 
 If you receive the error "No package provides util-linux-dev", try rebooting the Intel NUC.

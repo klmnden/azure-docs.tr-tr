@@ -1,8 +1,7 @@
 
 The Ls-series is optimized for workloads that require low latency local storage, like NoSQL databases (for example, Cassandra, MongoDB, Cloudera, and Redis). The Ls-series offers up to 32 CPU cores, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). This is the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per CPU core.  
 
-## Ls-series
-<a id="ls-series" class="xliff"></a>
+## <a name="ls-series"></a>Ls-series
 
 ACU: 180-240
  

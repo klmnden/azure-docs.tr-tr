@@ -23,17 +23,13 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/01/2017
 
 ---
-<a id="create-a-function-triggered-by-azure-queue-storage" class="xliff"></a>
-
-# Azure Kuyruk Depolama tarafından tetiklenen bir işlev oluşturma
+# <a name="create-a-function-triggered-by-azure-queue-storage"></a>Azure Kuyruk Depolama tarafından tetiklenen bir işlev oluşturma
 
 Bir Azure Depolama kuyruğuna ileti gönderildiğinde tetiklenen bir işlev oluşturmayı öğrenin.
 
 ![Günlüklerde iletiyi görüntüleyin.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 - [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/)'ni indirip yükleme.
 
@@ -41,9 +37,7 @@ Bir Azure Depolama kuyruğuna ileti gönderildiğinde tetiklenen bir işlev olu�
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-<a id="create-an-azure-function-app" class="xliff"></a>
-
-## Azure İşlev uygulaması oluşturma
+## <a name="create-an-azure-function-app"></a>Azure İşlev uygulaması oluşturma
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -53,9 +47,7 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 <a name="create-function"></a>
 
-<a id="create-a-queue-triggered-function" class="xliff"></a>
-
-## Kuyruk ile tetiklenen bir işlev oluşturma
+## <a name="create-a-queue-triggered-function"></a>Kuyruk ile tetiklenen bir işlev oluşturma
 
 1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesine tıklayın. Bu, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
 
@@ -75,9 +67,7 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 Ardından Azure Depolama hesabınıza bağlanıp **myqueue-items** depolama kuyruğunu oluşturun.
 
-<a id="create-the-queue" class="xliff"></a>
-
-## Kuyruk oluşturma
+## <a name="create-the-queue"></a>Kuyruk oluşturma
 
 1. İşlevinizde **Tümleştir**'e tıklayın, **Belgeler**'i genişletin ve hem **Hesap adı** hem de **Hesap anahtarı** değerlerini kopyalayın. Depolama hesabına bağlanmak için bu kimlik bilgilerini kullanacaksınız. Depolama hesabınıza önceden bağlandıysanız 4. adıma geçin.
 
@@ -97,9 +87,7 @@ Ardından Azure Depolama hesabınıza bağlanıp **myqueue-items** depolama kuyr
 
 Artık bir depolama kuyruğunuz var ve kuyruğa ileti ekleyerek işlevi test edebilirsiniz.
 
-<a id="test-the-function" class="xliff"></a>
-
-## İşlevi test etme
+## <a name="test-the-function"></a>İşlevi test etme
 
 1. Azure portalına dönün, işlevinizi bulun, sayfanın en altındaki **Günlükler** bölümünü genişletin ve günlük akışının duraklatılmış olmadığından emin olun.
 
@@ -115,15 +103,11 @@ Artık bir depolama kuyruğunuz var ve kuyruğa ileti ekleyerek işlevi test ede
 
 1. Depolama Gezgini'ne dönüp **Yenile**'ye tıklayın ve iletinin işlenip kuyruktan kaldırılmış olduğunu doğrulayın.
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Depolama kuyruğuna bir ileti eklendiğinde çalışacak bir işlev oluşturdunuz.
 

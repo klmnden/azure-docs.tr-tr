@@ -22,16 +22,12 @@ ms.lasthandoff: 06/01/2017
 
 ---
 
-<a id="create-your-first-azure-resource-manager-template" class="xliff"></a>
-
-# İlk Azure Resource Manager şablonunuzu oluşturma
+# <a name="create-your-first-azure-resource-manager-template"></a>İlk Azure Resource Manager şablonunuzu oluşturma
 Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adımları gösterilmektedir. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md). Kaynaklarınız varsa ve bu kaynaklara yönelik bir şablon almak istiyorsanız bkz. [Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
 
 Şablonları oluşturup düzeltmek için bir JSON düzenleyicisi gerekir. [Visual Studio Code](https://code.visualstudio.com/) basit, açık kaynaklı ve platformlar arası bir kod düzenleyicisidir. Resource Manager şablonlarını bir uzantı ile oluşturup düzenlemeyi destekler. Bu konu başlığı, VS Code kullandığınızı varsayar; ancak başka bir JSON düzenleyiciniz (Visual Studio gibi) varsa kullanabilirsiniz.
 
-<a id="get-vs-code-and-extension" class="xliff"></a>
-
-## VS Code ve uzantıyı alma
+## <a name="get-vs-code-and-extension"></a>VS Code ve uzantıyı alma
 1. Gerekirse, VS kodu [https://code.visualstudio.com/](https://code.visualstudio.com/) adresinden yükleyin.
 
 2. [Azure Resource Manager Araçları](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) uzantısını yüklemek için Hızlı Aç (Ctrl+P) menüsüne erişip şu komutu çalıştırın: 
@@ -42,9 +38,7 @@ Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adım
 
 3. Uzantının etkinleştirilmesi istendiğinde VS Code’u yeniden başlatın.
 
-<a id="create-blank-template" class="xliff"></a>
-
-## Boş şablon oluşturma
+## <a name="create-blank-template"></a>Boş şablon oluşturma
 
 İlk olarak, bir şablonun yalnızca temel bölümlerini içeren boş bir şablon oluşturalım.
 
@@ -65,9 +59,7 @@ Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adım
 
 3. Bu dosyayı **azuredeploy.json** olarak kaydedin. 
 
-<a id="add-storage-account" class="xliff"></a>
-
-## Depolama hesabı ekleme
+## <a name="add-storage-account"></a>Depolama hesabı ekleme
 1. Dağıtıma yönelik bir depolama hesabı tanımlamak için, ilgili depolama hesabını şablonunuzun **kaynaklar** bölümüne ekleyin. Depolama hesabı için kullanılabilen değerleri bulmak için [depolama hesapları şablon başvurusuna](/azure/templates/microsoft.storage/storageaccounts) bakın. Depolama hesabı için gösterilen JSON dosyasını kopyalayın. 
 
 3. Aşağıdaki örnekte gösterildiği gibi, bu JSON dosyasını şablonunuzun **kaynaklar** bölümüne yapıştırın: 
@@ -114,9 +106,7 @@ Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adım
   
   Önceki örnek çok sayıda yer tutucu değeri ve depolama hesabınızda gerekli olmayabilecek bazı özellikler içermektedir.
 
-<a id="set-values-for-storage-account" class="xliff"></a>
-
-## Depolama hesabı değerlerini ayarlama
+## <a name="set-values-for-storage-account"></a>Depolama hesabı değerlerini ayarlama
 
 Artık depolama hesabınızın değerlerini ayarlamaya hazırsınız. 
 
@@ -183,9 +173,7 @@ Artık depolama hesabınızın değerlerini ayarlamaya hazırsınız.
 }
 ```
 
-<a id="add-template-function" class="xliff"></a>
-
-## Şablon işlevi ekleme
+## <a name="add-template-function"></a>Şablon işlevi ekleme
 
 Şablonun söz dizimini basitleştirmek ve yalnızca şablon dağıtılırken kullanılabilen değerleri almak için, şablonunuzun içindeki işlevleri kullanırsınız. Tüm şablon işlevleri hakkında bilgi edinmek için bkz. [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
 
@@ -228,9 +216,7 @@ VS Code yine kullanılabilir işlevler önererek size yardımcı olur.
 }
 ```
 
-<a id="add-parameters-and-variables" class="xliff"></a>
-
-## Parametre ve değişken ekleme
+## <a name="add-parameters-and-variables"></a>Parametre ve değişken ekleme
 Şablonunuzda ayarlanması gereken yalnızca iki değer kalmıştır: **name** ve **sku.name**. Bu özellikler için, dağıtım sırasında bu değerleri özelleştirmenize olanak tanıyan parametreleri ekleyin. 
 
 Depolama hesabı adlarını ayarlamayı zorlaştıran birkaç kısıtlama vardır. Ad 3 ila 24 karakter uzunluğunda olmalı, yalnızca sayı ile küçük harf içermeli ve benzersiz olmalıdır. Kısıtlamalara uyan benzersiz bir değer tahmin etmeye çalışmak yerine, [uniqueString](resource-group-template-functions-string.md#uniquestring) işlevini kullanarak bir karma değer oluşturabilirsiniz. Bu karma değere daha fazla anlam katmak için, dağıtımdan sonra değeri depolama hesabı olarak tanımlamanıza yardımcı olacak bir ön ek ekleyin. 
@@ -305,9 +291,7 @@ Depolama hesabı adlarını ayarlamayı zorlaştıran birkaç kısıtlama vardı
 
 4. Dosyanızı kaydedin.
 
-<a id="final-template" class="xliff"></a>
-
-## Son şablon
+## <a name="final-template"></a>Son şablon
 
 Bu makaledeki adımları tamamladıktan sonra, artık şablonunuz şöyle görünür:
 
@@ -361,9 +345,7 @@ Bu makaledeki adımları tamamladıktan sonra, artık şablonunuz şöyle görü
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Şablonunuz tamamlanır ve şablonu aboneliğinize dağıtmaya hazır olursunuz. Dağıtmak için bkz. [Kaynakları Azure’a dağıtma](resource-manager-quickstart-deploy.md).
 * Bir şablonun yapısı hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 * Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).

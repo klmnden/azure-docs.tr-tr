@@ -22,18 +22,14 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-<a id="azure-security-center-planning-and-operations-guide" class="xliff"></a>
-
-# Azure Güvenlik Merkezi planlama ve işlemler kılavuzu
+# <a name="azure-security-center-planning-and-operations-guide"></a>Azure Güvenlik Merkezi planlama ve işlemler kılavuzu
 Bu kılavuz, kurumları Azure Güvenlik Merkezi'ni kullanmayı planlayan bilgi teknolojisi (BT) uzmanları, BT mimarları, bilgi güvenlik çözümleyicileri ve bulut yöneticilerine yöneliktir.
 
 >[!NOTE] 
 >Haziran 2017'nin ilk günlerinden itibaren Güvenlik Merkezi, veri toplamak ve depolamak için Microsoft Monitoring Agent'ı kullanacak. Daha fazla bilgi edinmek için [Azure Güvenlik Merkezi Platform Geçişi](security-center-platform-migration.md) makalesine bakın. Bu makaledeki bilgiler, Microsoft Monitoring Agent'a geçiş sonrasındaki Güvenlik Merkezi işlevselliğine yöneliktir.
 >
 
-<a id="planning-guide" class="xliff"></a>
-
-## Planlama Kılavuzu
+## <a name="planning-guide"></a>Planlama Kılavuzu
 Bu kılavuzda, kuruluşunuzun güvenlik gereksinimlerine ve bulut yönetimi modeline dayanarak Güvenlik Merkezi kullanımınızı iyileştirmek için izleyeceğiniz adımlar ve görevlerin kümesi sağlanmıştır. Güvenlik Merkezi'nin tüm avantajlarından yararlanabilmek için kurumunuzdaki farklı kişilerin veya ekiplerin güvenli geliştirmenin yanı sıra işlem, izleme, yönetim ve olay yanıtı gereksinimlerini karşılamak amacıyla hizmeti nasıl kullandığının anlaşılması oldukça önemlidir. Güvenlik Merkezi'ni kullanmayı planlarken dikkate alınması gereken temel alanlar şunlardır:
 
 * Güvenlik Rolleri ve Erişim Denetimleri
@@ -48,9 +44,7 @@ Sonraki bölümde, gereksinimlerinize bağlı olarak bu alanların her birini na
 > Tasarlama ve planlama aşamasında da faydalı olabilecek sık sorulan soruların bir listesi için bkz. [Azure Güvenlik Merkezi ile ilgili sık sorulan sorular (SSS)](security-center-faq.md).
 > 
 
-<a id="security-roles-and-access-controls" class="xliff"></a>
-
-## Güvenlik rolleri ve erişim denetimleri
+## <a name="security-roles-and-access-controls"></a>Güvenlik rolleri ve erişim denetimleri
 Kuruluşunuzun büyüklüğüne ve yapısına bağlı olarak birçok kişi ve ekip, güvenlikle ilgili farklı görevleri gerçekleştirmek için Güvenlik Merkezi'ni kullanabilir. Aşağıdaki diyagramda, hayali kişiler ile bunların rollerinin ve güvenlik sorumluluklarının bir örneğini bulabilirsiniz:
 
 ![Roller](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
@@ -129,9 +123,7 @@ Güvenlik Merkezi için RBAC kullanarak erişim denetimini planlarken Güvenlik 
 > 
 > 
 
-<a id="security-policies-and-recommendations" class="xliff"></a>
-
-## Güvenlik ilkeleri ve öneriler
+## <a name="security-policies-and-recommendations"></a>Güvenlik ilkeleri ve öneriler
 Güvenlik ilkesi, belirtilen abonelikteki kaynaklar için önerilen denetim kümesini tanımlar. Güvenlik Merkezi'nde, şirketinizin güvenlik gereksinimleri ve uygulamaların türü veya verilerin duyarlılığına göre ilkeleri tanımlarsınız.
 
 Abonelik düzeyinde etkinleştirilen ilkeler, aşağıdaki diyagramda gösterildiği gibi abonelikteki tüm kaynak gruplarına otomatik olarak yayılır:
@@ -143,21 +135,15 @@ Abonelik düzeyinde etkinleştirilen ilkeler, aşağıdaki diyagramda gösterild
 > 
 > 
 
-<a id="security-recommendations" class="xliff"></a>
-
-### Güvenlik önerileri
+### <a name="security-recommendations"></a>Güvenlik önerileri
 Güvenlik ilkelerini yapılandırmadan önce her bir [güvenlik önerisini](security-center-recommendations.md) gözden geçirip bu ilkelerin sahip olduğunuz çeşitli abonelikler ve kaynak grupları için uygun olup olmadığını belirleyin. [Güvenlik Önerilerini](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations) ele almak için hangi eylemlerde bulunulacağını ve kuruluşunuzda yeni önerileri izlemekten ve gerekli adımların atılmasından kimin sorumlu olacağını anlamak da önemlidir.
 
 Güvenlik Merkezi, Azure aboneliğiniz için güvenlik kişi ayrıntılarını sağlamanızı önerir. Bu bilgiler, Microsoft Güvenlik Yanıt Merkezi (MSRC) müşteri verilerinize yasadışı veya yetkisiz bir tarafın eriştiğini belirlerse Microsoft tarafından sizinle iletişim kurmak için kullanılır. Bu öneriyi etkinleştirme hakkında daha fazla bilgi için [Azure Güvenlik Merkezi’nde güvenlik kişi ayrıntılarını sağlama](security-center-provide-security-contact-details.md) konusunu okuyun.
 
-<a id="data-collection-and-storage" class="xliff"></a>
-
-## Veri koleksiyonu ve depolama
+## <a name="data-collection-and-storage"></a>Veri koleksiyonu ve depolama
 Azure Güvenlik Merkezi, sanal makinelerinizden güvenlik verilerini toplamak için Microsoft Monitoring Agent’ı (Operations Management Suite ve Log Analytics hizmeti tarafından kullanılan aracının aynısı) kullanır. Bu aracıdan toplanan veriler, Log Analytics çalışma alanlarınızda depolanır.
 
-<a id="agent" class="xliff"></a>
-
-### Aracı
+### <a name="agent"></a>Aracı
 
 Güvenlik ilkenizde veri toplama etkinleştirildikten sonra, desteklenen tüm Azure VM’lere ve oluşturulan tüm yeni VM’lere Microsoft Monitoring Agent ([Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) veya [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) için) yüklenir.  VM’de zaten Microsoft Monitoring Agent yüklüyse, Azure Güvenlik Merkezi yüklü olan aracıyı kullanır. Aracının işlemi müdahaleci olmayacak şekilde tasarlanmıştır ve VM performansı üzerinde çok az etki yapar.
 
@@ -169,9 +155,7 @@ Belirli bir noktada Veri Koleksiyonu'nu devre dışı bırakmak isterseniz kolek
 > Desteklenen VM'lerin listesini bulmak için bkz. [Azure Güvenlik Merkezi ile ilgili sık sorulan sorular (SSS)](security-center-faq.md).
 > 
 
-<a id="workspace" class="xliff"></a>
-
-### Çalışma alanı
+### <a name="workspace"></a>Çalışma alanı
 
 Microsoft Monitoring Agent’tan Azure Güvenlik Merkezi adına toplanan veriler, sanal makinenin Coğrafi konumu göz önünde bulundurularak Azure aboneliğinizle ilişkili Log Analytics çalışma alanlarında veya yeni çalışma alanlarında depolanır. 
 
@@ -186,9 +170,7 @@ Azure Güvenlik Merkezi tarafından oluşturulan çalışma alanları için veri
 > Microsoft, bu verilerin gizlilik ve güvenliğini korumak için önemli taahhütlerde bulunur. Microsoft kodlamadan hizmet çalıştırma konularına kadar her alanda uyumluluk ve güvenlik yönergelerine kesin olarak bağlı kalmaktadır. Veri işleme ve gizlilik hakkında daha fazla bilgi için [Azure Güvenlik Merkezi Veri Güvenliği](security-center-data-security.md) makalesini okuyun.
 > 
 
-<a id="ongoing-security-monitoring" class="xliff"></a>
-
-## Devam eden güvenlik izleme
+## <a name="ongoing-security-monitoring"></a>Devam eden güvenlik izleme
 Güvenlik Merkezi önerilerinin ilk yapılandırması ve uygulamasından sonraki adım, Güvenlik Merkezi işlem süreçlerini dikkate almaktır.
 
 Azure portaldan Güvenlik Merkezi'ne erişmek için **Gözat**'a tıklayıp **Filtre** alanına **Güvenlik Merkezi** yazabilirsiniz. Kullanıcının aldığı görünümler, uygulanan bu filtrelere göre belirlenir; aşağıdaki örnekte, ele alınması gereken çok sayıda soruna sahip bir ortam gösterilmektedir:
@@ -209,9 +191,7 @@ Tüm önerilere değindikten sonra değinilen tüm kaynaklar için **Önleme** b
 > 
 > 
 
-<a id="monitoring-for-new-or-changed-resources" class="xliff"></a>
-
-### Yeni veya değiştirilmiş kaynakları izleme
+### <a name="monitoring-for-new-or-changed-resources"></a>Yeni veya değiştirilmiş kaynakları izleme
 Çoğu Azure ortamı, düzenli olarak çalışmaya başlatılan ve yavaşlatılan yeni kaynaklarla dinamiktir (örneğin, yapılandırmalar veya değişiklikler vb.) Güvenlik Merkezi, bu yeni kaynakların güvenlik durumuyla ilgili görünürlüğe sahip olduğunuzdan emin olmanıza yardımcı olur.
 
 Azure ortamınıza yeni kaynaklar (VM'ler, SQL DB'leri) eklediğinizde Güvenlik Merkezi otomatik olarak bu kaynakları keşfeder ve güvenliklerini izlemeye başlar. Buna PaaS web rolleri ve çalışan rolleri de dahildir. Veri Koleksiyonu [Güvenlik İlkesi](security-center-policies.md)'nde etkinleştirilirse sanal makineleriniz için ek izleme işlevleri otomatik olarak etkinleştirilir.
@@ -231,9 +211,7 @@ Ayrıca güvenlik riskleri, önerilen temel yapılandırmalardan sapma durumlar�
 2. **Öneriler** paneli Güvenlik Merkezi önerilerini gözden geçirmenizi sağlar. İzleme devam ederken, günlük olarak önerileri almadığınızı fark edebilirsiniz; ilk Güvenlik Merkezi kurulumunda tüm önerileri ele aldığınız için bu durum normaldir. Bundan dolayı bu bölümde her gün yeni bilgilere sahip olmayabilirsiniz ve bilgilere sadece gerekli olduğunda erişmeniz gerekebilir.
 3. **Algılama** bölümü, çok sık veya çok nadir değişebilir. Güvenlik uyarılarınızı her zaman gözden geçirin ve Güvenlik Merkezi önerilerine göre eyleme geçin.
 
-<a id="incident-response" class="xliff"></a>
-
-## Olay yanıtı
+## <a name="incident-response"></a>Olay yanıtı
 Güvenlik Merkezi, tehditler oluşunca algılar ve sizi tehditlere karşı uyarır. Kuruluşlar, yeni güvenlik uyarılarını izlemeli ve gerekirse daha fazla araştırmak veya saldırıyı düzeltmek için eyleme geçmelidir. Güvenlik Merkezi tehdit algılama özelliğinin nasıl çalıştığı hakkında daha fazla bilgi için [Azure Güvenlik Merkezi algılama özellikleri](security-center-detection-capabilities.md) konusunu okuyun.
 
 Bu makale kendi Olay Yanıtı planınızı oluşturmanıza yardımcı olmaya yönelik değildir, ancak olay yanıtı aşamalarının temeli olarak Bulut yaşam döngüsünde Microsoft Azure Güvenlik Yanıtı kullanılacaktır. Aşamalar aşağıdaki diyagramda gösterilmiştir:
@@ -265,9 +243,7 @@ Gördüğünüz gibi bu dikey pencere, saldırının gerçekleştiği zaman, kay
 > 
 > 
 
-<a id="see-also" class="xliff"></a>
-
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 Bu belgede, Güvenlik Merkezi benimsemeyi nasıl planlayacağınızı öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md)

@@ -22,25 +22,19 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-<a id="build-and-deploy-a-java-api-app-in-azure-app-service" class="xliff"></a>
-
-# Azure App Service içinde Java API uygulaması derleme ve dağıtma
+# <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Azure App Service içinde Java API uygulaması derleme ve dağıtma
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 Bu öğretici bir Java uygulamasının nasıl oluşturulacağını ve [Git] kullanılarak Azure App Service API Apps’e nasıl dağıtılacağını göstermektedir. Bu öğreticideki yönergeler Java çalıştırabilen tüm işletim sistemlerinde izlenebilir. Bu öğreticideki kod [Maven] kullanılarak derlenmiştir. [Jax-RS], RESTful Hizmetini oluşturmak için kullanılır ve [Swagger] meta veri belirtimine göre [Swagger Editor] kullanılarak oluşturulur.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 1. [Java Geliştirme Seti 8] \(veya üzeri)
 2. Dağıtım makinenize yüklü [Maven]
 3. Dağıtım makinenize yüklü [Git]
 4. [Microsoft Azure] için ücretli veya [ücretsiz deneme] aboneliği
 5. [Postman] gibi bir HTTP test uygulaması
 
-<a id="scaffold-the-api-using-swaggerio" class="xliff"></a>
-
-## Swagger.IO kullanarak API iskelesi kurma
+## <a name="scaffold-the-api-using-swaggerio"></a>Swagger.IO kullanarak API iskelesi kurma
 Swagger.io çevrimiçi düzenleyicisini kullanarak API’nizin yapısını temsil eden Swagger JSON veya YAML koduna giriş yapabilirsiniz. API yüzey alanı tasarlandıktan sonra kodu çeşitli platformlar ve çerçeveler için dışarı aktarabilirsiniz. Sonraki bölümde iskele kurulmuş kod, sahte işlevleri içerecek şekilde değiştirilecektir. 
 
 Bu gösterim swagger.io düzenleyicisine yapıştıracağınız ve ardından bir REST API’si uç noktasına erişmek üzere JAX-RS kullanan kodu oluşturmak için kullanılacak bir Swagger JSON gövdesi ile başlar. Ardından, bir veri kalıcılığı mekanizmasının üzerinde oluşturulan REST API’sine benzeyen sahte veriler döndürmek için iskele kurulmuş kodu düzenlersiniz.  
@@ -154,9 +148,7 @@ Bu gösterim swagger.io düzenleyicisine yapıştıracağınız ve ardından bir
    
     Kod oluşturulduktan sonra indirmeniz için ZIP dosyası sağlanır. Bu dosya Swagger kod oluşturucu tarafından iskelesi oluşturulmuş kodu ve tüm ilişkili derleme betiklerini içerir. Tüm kitaplığı, geliştirme iş istasyonunuzdaki bir dizine ayıklayın. 
 
-<a id="edit-the-code-to-add-api-implementation" class="xliff"></a>
-
-## API uygulaması eklemek için kodu düzenleme
+## <a name="edit-the-code-to-add-api-implementation"></a>API uygulaması eklemek için kodu düzenleme
 Bu bölümde Swagger ile oluşturulan kodun sunucu-tarafı uygulamasını özel kodunuzla değiştirirsiniz. Yeni kod, çağıran istemciye Kişi varlıkları için bir ArrayList döndürür. 
 
 1. *src/gen/java/io/swagger/model* klasöründe bulunan *Contact.java* model dosyasını [Visual Studio Code] veya sık kullandığınız metin düzenleyiciyi kullanarak açın. 
@@ -247,9 +239,7 @@ Bu bölümde Swagger ile oluşturulan kodun sunucu-tarafı uygulamasını özel 
           copy target\ROOT.war deploy\webapps
           cd deploy
 
-<a id="publish-the-output-to-azure-app-service" class="xliff"></a>
-
-## Çıktıyı Azure App Service’de yayımlama
+## <a name="publish-the-output-to-azure-app-service"></a>Çıktıyı Azure App Service’de yayımlama
 Bu bölümde Azure Portal’ı kullanarak yeni bir API oluşturma, bu API uygulamasını Java uygulamalarını barındıracak şekilde hazırlama ve yeni oluşturulan WAR dosyasını yeni API uygulamasını çalıştırmak üzere Azure App Service’e dağıtma hakkında bilgi edineceksiniz. 
 
 1. [Azure portal] yeni bir API uygulaması oluşturmak için **Yeni -> Web + Mobil -> API uygulaması** menü öğesine tıklayın, uygulama bilgilerinizi girin ve ardından **Oluştur**’a tıklayın.
@@ -280,18 +270,14 @@ Bu bölümde Azure Portal’ı kullanarak yeni bir API oluşturma, bu API uygula
    
     ![Azure içinde Java Kişiler REST API'sini canlı kullanma][postman-calling-azure-contacts]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, bir Swagger JSON dosyasını ve Swagger.io düzenleyicisinden elde edilen iskelesi kurulmuş bazı Java kodlarını kullanmaya başladınız. Burada, basit değişiklikleriniz ve Git dağıtım işlemi Java’da yazılmış işlevsel bir API uygulaması elde etmeyle sonuçlanmıştır. Sonraki öğreticide [CORS kullanarak JavaScript istemcilerinden API uygulamalarını kullanma][App Service API CORS] işlemi gösterilmektedir. Serinin sonraki öğreticileri, kimlik doğrulama ve yetkilendirmenin nasıl uygulandığını göstermektedir.
 
 Bu örneği geliştirmek için JSON blob’larını devam ettirmek üzere [Java için Depolama SDK’sı] hakkında daha fazla bilgi alabilirsiniz. Veya kişi verilerinizi Azure Belge DB’sine kaydetmek için [Belge DB Java SDK’sı] kullanabilirsiniz. 
 
 <a name="see-also"></a>
 
-<a id="see-also" class="xliff"></a>
-
-## Ayrıca Bkz.
+## <a name="see-also"></a>Ayrıca Bkz.
 Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Azure Java Geliştirici Merkezi].
 
 <!-- URL List -->

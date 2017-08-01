@@ -21,17 +21,13 @@ ms.lasthandoff: 05/19/2017
 
 
 ---
-<a id="manually-configure-application-insights-for-net-applications" class="xliff"></a>
-
-# .NET uygulamaları için Application Insights’ı el ile yapılandırma
+# <a name="manually-configure-application-insights-for-net-applications"></a>.NET uygulamaları için Application Insights’ı el ile yapılandırma
 
 [Application Insights](app-insights-overview.md)’ı, çok çeşitli uygulamaları veya uygulama rolleri, bileşenler veya mikro hizmetleri izlemek üzere yapılandırabilirsiniz. Web uygulamaları ve hizmetleri için, Visual Studio [tek adımlı yapılandırma](app-insights-asp-net.md) sunar. Arka uç sunucu rolleri veya masaüstü uygulamaları gibi diğer .NET uygulaması türleri için Application Insights’ı el ile yapılandırabilirsiniz.
 
 ![Örnek performans izleme grafikleri](./media/app-insights-windows-services/10-perf.png)
 
-<a id="before-you-start" class="xliff"></a>
-
-#### Başlamadan önce
+#### <a name="before-you-start"></a>Başlamadan önce
 
 Gerekenler:
 
@@ -42,9 +38,7 @@ Gerekenler:
 
 'Kaynak', verilerinizin toplandığı ve Azure portalında gösterildiği yerdir. Yeni bir tane oluşturmaya veya mevcut olanı paylaşmaya karar vermeniz gerekir.
 
-<a id="part-of-a-larger-app-use-existing-resource" class="xliff"></a>
-
-### Daha büyük bir uygulamanın parçası: Var olan kaynağı kullanma
+### <a name="part-of-a-larger-app-use-existing-resource"></a>Daha büyük bir uygulamanın parçası: Var olan kaynağı kullanma
 
 Web uygulamanızın ön uç web uygulaması ve bir ya da daha fazla arka uç hizmeti gibi birkaç bileşeni varsa, tüm bileşenlerden aynı kaynağa telemetri verileri göndermeniz gerekir. Bunun yapılması, verilerin tek bir Uygulama Eşlemesinde gösterilmesini sağlar ve bir bileşenden diğerine gönderilen isteğin izlenmesini mümkün hale getirir.
 
@@ -52,9 +46,7 @@ Bu nedenle, bu uygulamanın diğer bileşenlerini izliyorsanız aynı kaynağı 
 
 Kaynağı [Azure portalında](https://portal.azure.com/) açın. 
 
-<a id="self-contained-app-create-a-new-resource" class="xliff"></a>
-
-### Kendi içinde uygulama: Yeni bir kaynak oluşturma
+### <a name="self-contained-app-create-a-new-resource"></a>Kendi içinde uygulama: Yeni bir kaynak oluşturma
 
 Yeni uygulama başka uygulamalarla ilgisiz ise, kendi kaynağına sahip olmalıdır.
 
@@ -64,9 +56,7 @@ Yeni uygulama başka uygulamalarla ilgisiz ise, kendi kaynağına sahip olmalıd
 
 Uygulama türü seçimi, kaynak dikey pencerelerinin varsayılan içeriğini belirler.
 
-<a id="2-copy-the-instrumentation-key" class="xliff"></a>
-
-## 2. İzleme Anahtarını Kopyalama
+## <a name="2-copy-the-instrumentation-key"></a>2. İzleme Anahtarını Kopyalama
 Anahtar, kaynağı tanımlar. Bu anahtarı kısa bir süre sonra verileri kaynağa yönlendirmek için SDK’ya yükleyeceksiniz.
 
 ![Özellikler'e tıklayın, anahtarı seçin ve ctrl + C tuşlarına basın](./media/app-insights-windows-services/02-props-asp.png)
@@ -89,18 +79,14 @@ Application Insights paketinin yüklenmesi ve yapılandırılması, üzerinde ç
    
     Evet. API’yi yalnızca kendi telemetrinizi göndermek için kullanmak istiyorsanız “Microsoft.ApplicationInsights” öğesini seçin. Windows Server paketi API’nin yanı sıra performans sayacı koleksiyonu ve bağımlılık izlemesi gibi birkaç paketi daha içerir. 
 
-<a id="to-upgrade-to-future-package-versions" class="xliff"></a>
-
-### Gelecekteki paket sürümlerine yükseltmek için
+### <a name="to-upgrade-to-future-package-versions"></a>Gelecekteki paket sürümlerine yükseltmek için
 SDK’nın yeni sürümü zaman zaman yayınlanmaktadır.
 
 [Paketin yeni sürümüne](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/) yükseltme yapmak için NuGet paket yöneticisini yeniden açın ve yüklü paketleri filtreleyin. **Microsoft.ApplicationInsights.WindowsServer** ve **Yükselt**’i seçin.
 
 ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız yükseltmeden önce bir kopyasını kaydedin ve daha sonra değişikliklerinizi yeni sürümle birleştirin.
 
-<a id="4-send-telemetry" class="xliff"></a>
-
-## 4. Telemetri gönderme
+## <a name="4-send-telemetry"></a>4. Telemetri gönderme
 **Yalnızca API paketini yüklediyseniz:**
 
 * Koddaki izleme anahtarını ayarlayın, örneğin `main()` içinde: 
@@ -133,31 +119,23 @@ Genel Bakış grafiklerinde veri arayın. İlk olarak yalnızca bir veya iki nok
 
 Daha ayrıntılı ölçümler görmek için herhangi bir grafiğe tıklayın. [Ölçümler hakkında daha fazla bilgi edinin.](app-insights-web-monitor-performance.md)
 
-<a id="no-data" class="xliff"></a>
-
-### Veri yok mu?
+### <a name="no-data"></a>Veri yok mu?
 * Birkaç telemetri oluşturması için farklı sayfaları açarak uygulamayı kullanın.
 * Olayları tek tek görmek için [Ara](app-insights-diagnostic-search.md) kutucuğunu açın. Bazı durumlarda olayların ölçüm ardışık düzenine ulaşması biraz daha uzun sürer.
 * Birkaç saniye bekleyin ve **Yenile**’ye tıklayın. Grafikler kendilerini düzenli olarak yeniler, ancak bazı verilerin görüntülenmesini bekliyorsanız el ile yenileyebilirsiniz.
 * Bkz. [Sorun giderme](app-insights-troubleshoot-faq.md).
 
-<a id="publish-your-app" class="xliff"></a>
-
-## Uygulamanızı yayımlama
+## <a name="publish-your-app"></a>Uygulamanızı yayımlama
 Şimdi uygulamanızı sunucunuza veya Azure’a dağıtın ve verilerin birikmesini izleyin.
 
 ![Visual Studio kullanarak uygulamanızı yayımlama](./media/app-insights-windows-services/15-publish.png)
 
 Hata ayıklama modunda çalıştırdığınızda telemetri ardışık düzen üzerinden gönderilir, böylece görüntülenen verileri saniyeler içinde görebilirsiniz. Uygulamanızı Sürüm yapılandırmasında dağıttığınızda veriler daha yavaş birikir.
 
-<a id="no-data-after-you-publish-to-your-server" class="xliff"></a>
-
-### Sunucunuza yayımladıktan sonra veri yok mu?
+### <a name="no-data-after-you-publish-to-your-server"></a>Sunucunuza yayımladıktan sonra veri yok mu?
 Sunucunuzun güvenlik duvarında giden trafik için bağlantı noktalarını açın. Gerekli adreslerin listesi için [bu sayfaya](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) bakın 
 
-<a id="trouble-on-your-build-server" class="xliff"></a>
-
-### Derleme sunucunuzda sorun mu yaşıyorsunuz?
+### <a name="trouble-on-your-build-server"></a>Derleme sunucunuzda sorun mu yaşıyorsunuz?
 Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild) bakın.
 
 > [!NOTE]
@@ -166,15 +144,11 @@ Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.m
 > 
 > 
 
-<a id="video" class="xliff"></a>
-
-## Video
+## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Uygulamanızın 360 derecelik tam görünümünü elde etmek üzere [daha fazla telemetri ekleyin](app-insights-asp-net-more.md).
 
 

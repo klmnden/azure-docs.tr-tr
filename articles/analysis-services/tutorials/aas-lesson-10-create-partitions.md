@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="lesson-10-create-partitions" class="xliff"></a>
-
-# 10. Ders: Bölüm oluşturma
+# <a name="lesson-10-create-partitions"></a>10. Ders: Bölüm oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -32,18 +30,12 @@ Bu derste, FactInternetSales tablosunu diğer bölümlerden bağımsız olarak i
   
 Bu dersin tahmini tamamlanma süresi: **15 dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [9. Ders: Hiyerarşi Oluşturma](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
-<a id="create-partitions" class="xliff"></a>
-
-## Bölüm oluşturma  
+## <a name="create-partitions"></a>Bölüm oluşturma  
   
-<a id="to-create-partitions-in-the-factinternetsales-table" class="xliff"></a>
-
-#### FactInternetSales tablosunda bölümler oluşturmak için  
+#### <a name="to-create-partitions-in-the-factinternetsales-table"></a>FactInternetSales tablosunda bölümler oluşturmak için  
   
 1.  Tablosal Model Gezgini’nde **Tablolar**’ı genişletin ve **FactInternetSales** > **Bölümler**’e sağ tıklayın.  
   
@@ -72,9 +64,7 @@ Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin b
     Bu deyim, filtrelenen satırlar yan tümcesinde belirtildiği gibi bu bölümün yalnızca OrderDate değerinin 2010 takvim yılında olduğu satırlardaki verileri içermesi gerektiğini belirtir.  
   
   
-<a id="to-create-a-partition-for-the-2011-year" class="xliff"></a>
-
-#### 2011 yılına ait bir bölüm oluşturmak için  
+#### <a name="to-create-a-partition-for-the-2011-year"></a>2011 yılına ait bir bölüm oluşturmak için  
   
 1.  Bölüm listesinde, oluşturduğunuz **FactInternetSales2010** bölümüne ve ardından **Kopyala**’ya tıklayın.  Bölüm adını **FactInternetSales2011** olarak değiştirin. 
 
@@ -93,33 +83,23 @@ Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin b
    
     ```  
   
-<a id="to-create-partitions-for-2012-2013-and-2014" class="xliff"></a>
-
-#### 2012, 2013 ve 2014 yılına ait bölümler oluşturmak için.  
+#### <a name="to-create-partitions-for-2012-2013-and-2014"></a>2012, 2013 ve 2014 yılına ait bölümler oluşturmak için.  
   
 - Önceki adımları izleyerek 2012, 2013 ve 2014 için bölümler oluşturun ve Filtrelenen Satırlar yan tümcesindeki yılları yalnızca ilgili yıla ait satırları içerecek şekilde değiştirin. 
   
 
-<a id="delete-the-factinternetsales-partition" class="xliff"></a>
-
-## FactInternetSales bölümünü silin
+## <a name="delete-the-factinternetsales-partition"></a>FactInternetSales bölümünü silin
 Artık her yıl için birer bölümünüz olduğuna göre FactInternetSales bölümünü silebilir ve bölümleri işlerken Tümünü işle’yi seçtiğinizde çakışmalardan kaçınabilirsiniz.
 
-<a id="to-delete-the-factinternetsales-partition" class="xliff"></a>
-
-#### FactInternetSales bölümünü silmek için
+#### <a name="to-delete-the-factinternetsales-partition"></a>FactInternetSales bölümünü silmek için
 -  FactInternetSales bölümüne ve ardından **Sil**’e tıklayın.
 
 
 
-<a id="process-partitions" class="xliff"></a>
-
-## İşlem bölümleri  
+## <a name="process-partitions"></a>İşlem bölümleri  
 Bölüm Yöneticisi’nde, oluşturduğunuz her yeni bölüme ait **Son İşlenme** sütununda bu bölümlerin hiç işlenmemiş olarak gösterildiğine dikkat edin. Bölüm oluştururken bu bölümlerdeki verileri yenilemek için bir Bölümleri İşle veya Tabloyu İşle işlemi çalıştırmalısınız.  
   
-<a id="to-process-the-factinternetsales-partitions" class="xliff"></a>
-
-#### FactInternetSales bölümlerini işlemek için  
+#### <a name="to-process-the-factinternetsales-partitions"></a>FactInternetSales bölümlerini işlemek için  
   
 1.  Bölüm Yöneticisi’ni kapatmak için **Tamam**’a tıklayın.  
   
@@ -137,8 +117,6 @@ Bölüm Yöneticisi’nde, oluşturduğunuz her yeni bölüme ait **Son İşlenm
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
-<a id="whats-next" class="xliff"></a>
-
- ## Sırada ne var?
+ ## <a name="whats-next"></a>Sırada ne var?
 Sonraki derse gidin: [11. Ders: Rol Oluşturma](../tutorials/aas-lesson-11-create-roles.md). 
 

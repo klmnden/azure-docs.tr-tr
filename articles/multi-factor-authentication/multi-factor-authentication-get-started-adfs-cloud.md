@@ -22,14 +22,10 @@ ms.lasthandoff: 06/08/2017
 
 ---
 
-<a id="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs" class="xliff"></a>
-
-# Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
 Kuruluşunuz Azure Active Directory ile birleştiriliyorsa, Azure AD’nin erişebildiği kaynakları güvenli hale getirmek için Azure Multi-Factor Authentication ya da Active Directory Federation Services (AD FS) kullanın. Azure Active Directory kaynaklarını Azure Multi-Factor Authentication ya da Active Directory Federasyon Hizmetleri ile güvenli hale getirmek için aşağıdaki yordamları kullanın.
 
-<a id="secure-azure-ad-resources-using-ad-fs" class="xliff"></a>
-
-## AD FS kullanarak Azure AD kaynaklarını güvenli hale getirme
+## <a name="secure-azure-ad-resources-using-ad-fs"></a>AD FS kullanarak Azure AD kaynaklarını güvenli hale getirme
 Bulut kaynağınızın güvenliğini sağlamak için, kullanıcı iki adımlı doğrulamayı başarıyla gerçekleştirdiğinde Active Directory Federation Services tarafından multipleauthn talebinin yayılması için bir talep kuralı oluşturun. Bu talep Azure AD'ye aktarılır. İlerlemek için bu yordamı izleyin:
 
 
@@ -53,16 +49,12 @@ Bulut kaynağınızın güvenliğini sağlamak için, kullanıcı iki adımlı d
     ![Dönüşüm Talep Kuralı Ekleme Sihirbazı](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
 9. **Son**'a tıklayın. AD FS Yönetim Konsolu'nu kapatın.
 
-<a id="trusted-ips-for-federated-users" class="xliff"></a>
-
-## Federasyon kullanıcıları için Güvenilen IP'ler
+## <a name="trusted-ips-for-federated-users"></a>Federasyon kullanıcıları için Güvenilen IP'ler
 Güvenilen IP'ler yöneticilerin, belirli IP adresleri ya da kendi intranetlerinden kaynaklanan taleplere sahip federasyon kullanıcıları için iki aşamalı doğrulamayı atlamasına izin verir. Aşağıdaki bölümlerde, federasyon kullanıcıları intranetinden gelen talepler için Azure Multi-Factor Authentication Güvenilen IP’lerinin federasyon kullanıcılarıyla yapılandırılması ve iki aşamalı doğrulamanın atlanması açıklanmıştır. Bu, AD FS’nin bir geçiş kullanacak ya da Kurumsal Ağ İçinde talep türü ile gelen bir talep şablonunu filtreleyecek şekilde yapılandırılmasıyla gerçekleştirilir.
 
 Bu örnekte Güvenilen Taraf Güvenlerimiz için Office 365 kullanılmıştır.
 
-<a id="configure-the-ad-fs-claims-rules" class="xliff"></a>
-
-### AD FS talep kurallarını yapılandırma
+### <a name="configure-the-ad-fs-claims-rules"></a>AD FS talep kurallarını yapılandırma
 Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal Ağ İçinde talep türü için, diğeriyse kullanıcıların oturumunu açık şekilde tutmak için olmak üzere iki talep kuralı oluşturun.
 
 1. AD FS Yönetimi'ni açın.
@@ -90,9 +82,7 @@ Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal
 15. **Tamam**’a tıklayın.
 16. AD FS Yönetimi'ni kapatın.
 
-<a id="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users" class="xliff"></a>
-
-### Azure Multi-Factor Authentication Güvenilen IP’leri Federasyon Kullanıcıları ile Yapılandırma
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Azure Multi-Factor Authentication Güvenilen IP’leri Federasyon Kullanıcıları ile Yapılandırma
 Talepler yapıldığına göre, artık güvenilen IP’leri yapılandırabiliriz.
 
 1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.

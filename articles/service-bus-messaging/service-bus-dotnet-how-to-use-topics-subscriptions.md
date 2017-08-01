@@ -22,15 +22,11 @@ ms.lasthandoff: 07/01/2017
 
 
 ---
-<a id="get-started-with-service-bus-topics" class="xliff"></a>
-
-# Service Bus konuları ile çalışmaya başlama
+# <a name="get-started-with-service-bus-topics"></a>Service Bus konuları ile çalışmaya başlama
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Ne elde edilecek
+## <a name="what-will-be-accomplished"></a>Ne elde edilecek
 
 Bu öğretici aşağıdaki adımları kapsamaktadır:
 
@@ -40,26 +36,20 @@ Bu öğretici aşağıdaki adımları kapsamaktadır:
 4. Konuya ileti göndermek için bir konsol uygulaması yazma.
 5. Abonelikten bu iletiyi almak için bir konsol uygulaması yazma.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılır.
 2. Azure aboneliği.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Azure portalı kullanılarak ad alanı oluşturma
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure portalı kullanılarak ad alanı oluşturma
 
 Daha önce bir Service Bus Mesajlaşma ad alanı oluşturduysanız [Azure portalını kullanarak konu oluşturma](#2-create-a-topic-using-the-azure-portal) bölümüne atlayın.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-topic-using-the-azure-portal" class="xliff"></a>
-
-## 2. Azure portalını kullanarak konu oluşturma
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Azure portalını kullanarak konu oluşturma
 
 1. [Azure portalında][azure-portal] oturum açın.
 2. Portalın sol tarafındaki gezinme bölmesinde **Service Bus**'a tıklayın (**Service Bus** yoksa **Diğer hizmetler**'e tıklayın).
@@ -74,9 +64,7 @@ Daha önce bir Service Bus Mesajlaşma ad alanı oluşturduysanız [Azure portal
     ![Yeni Seçme][createtopic3]
 6. Dikey pencerenin altında yer alan **Oluştur** düğmesine tıklayın.
 
-<a id="3-create-a-subscription-to-the-topic" class="xliff"></a>
-
-## 3. Konuya abonelik oluşturma
+## <a name="3-create-a-subscription-to-the-topic"></a>3. Konuya abonelik oluşturma
 
 1. Portal kaynakları bölmesinde, 1. adımda oluşturduğunuz ad alanına tıklayın ve ardından 2. adımda oluşturduğunuz konu adına tıklayın.
 2. Genel bakış bölmesinin üst kısmında **Abonelik** seçeneğinin yanındaki artı işaretine tıklayarak bu konuya bir abonelik ekleyin.
@@ -85,30 +73,22 @@ Daha önce bir Service Bus Mesajlaşma ad alanı oluşturduysanız [Azure portal
 
 3. Abonelik için bir ad girin. Diğer seçenekleri varsayılan değerlerinde bırakın.
 
-<a id="4-send-messages-to-the-topic" class="xliff"></a>
-
-## 4. Konuya ileti gönderme
+## <a name="4-send-messages-to-the-topic"></a>4. Konuya ileti gönderme
 
 Konuya ileti göndermek için Visual Studio kullanılarak bir C# konsol uygulaması yazılır.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Konsol uygulaması oluşturma
+### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
 Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** projesi oluşturun.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Service Bus NuGet paketi ekleme
+### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet paketi ekleme
 
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
 2. **Gözat** sekmesine tıklayın, **Microsoft Azure Service Bus** araması yapın ve **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
    
     ![NuGet paketi seçme][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-topic" class="xliff"></a>
-
-### Konuya ileti göndermek için kod yazma
+### <a name="write-some-code-to-send-a-message-to-the-topic"></a>Konuya ileti göndermek için kod yazma
 
 1. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
    
@@ -170,9 +150,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
    
       ![İleti boyutu][topic-message]
 
-<a id="5-receive-messages-from-the-subscription" class="xliff"></a>
-
-## 5. Abonelikten ileti alma
+## <a name="5-receive-messages-from-the-subscription"></a>5. Abonelikten ileti alma
 
 1. Yeni gönderdiğiniz iletiyi veya iletileri almak için yeni bir konsol uygulaması oluşturun ve Service Bus NuGet paketine daha önceki gönderen uygulamasına benzer bir başvuru ekleyin.
 2. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
@@ -233,9 +211,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
 
 Tebrikler! Bir konu ve abonelik oluşturdunuz, ileti gönderdiniz ve bu iletiyi aldınız.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazılarını gösteren [örneklerle GitHub depomuza](https://github.com/Azure/azure-service-bus/tree/master/samples) göz atın.
 

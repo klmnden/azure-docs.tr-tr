@@ -24,23 +24,17 @@ ms.lasthandoff: 06/15/2017
 
 
 ---
-<a id="create-an-azure-sql-database-in-the-azure-portal" class="xliff"></a>
-
-# Azure portalında Azure SQL veritabanı oluşturma
+# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure portalında Azure SQL veritabanı oluşturma
 
 Bu hızlı başlangıç öğreticisinde, Azure’da SQL veritabanı oluşturma adımlar gösterilmektedir. Azure SQL Veritabanı, bulutta yüksek oranda kullanılabilir SQL Server veritabanlarını çalıştırıp ölçeklendirmenize olanak tanıyan bir “Hizmet Olarak Veritabanı” teklifidir. Bu hızlı başlangıç, Azure portalını kullanarak bir SQL veritabanı oluşturma işlemini göstermektedir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-<a id="log-in-to-the-azure-portal" class="xliff"></a>
-
-## Azure portalında oturum açma
+## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
 [Azure Portal](https://portal.azure.com/)’da oturum açın.
 
-<a id="create-a-sql-database" class="xliff"></a>
-
-## SQL veritabanı oluşturma
+## <a name="create-a-sql-database"></a>SQL veritabanı oluşturma
 
 Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](sql-database-service-tiers.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL Veritabanı mantıksal sunucusu](sql-database-features.md) içinde oluşturulur. 
 
@@ -96,9 +90,7 @@ Adventure Works LT örnek verilerini içeren bir SQL veritabanı oluşturmak iç
 
    ![bildirim](./media/sql-database-get-started-portal/notification.png)
 
-<a id="create-a-server-level-firewall-rule" class="xliff"></a>
-
-## Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
+## <a name="create-a-server-level-firewall-rule"></a>Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
 
 SQL Veritabanı hizmeti, güvenlik duvarını belirli IP adreslerine açmaya yönelik bir güvenlik duvarı kuralı oluşturulmadıkça, dış uygulama ve araçların sunucuya ya da sunucu üzerindeki herhangi bir veritabanına bağlanmasını engelleyen sunucu düzeyinde bir güvenlik duvarı kuralı oluşturur. SQL Veritabanı güvenlik duvarı üzerinden yalnızca IP adresinize yönelik dış bağlantıları etkinleştirmek üzere istemcinizin IP adresi için bir [SQL Veritabanı sunucu düzeyi güvenlik duvarı kuralı](sql-database-firewall-configure.md) oluşturmak için bu adımları izleyin. 
 
@@ -132,9 +124,7 @@ Artık SQL Server Management Studio’yu veya seçtiğiniz başka bir aracı kul
 > Varsayılan olarak, SQL Veritabanı güvenlik duvarı üzerinden erişim tüm Azure hizmetleri için etkindir. Tüm Azure hizmetleri için devre dışı bırakmak isterseniz bu sayfadaki **KAPALI** öğesine tıklayın.
 >
 
-<a id="query-the-sql-database" class="xliff"></a>
-
-## SQL veritabanını sorgulama
+## <a name="query-the-sql-database"></a>SQL veritabanını sorgulama
 
 Azure’da bir örnek veritabanı oluşturduktan sonra, veritabanına bağlanabildiğinizi ve verileri sorgulayabildiğinizi onaylamak üzere Azure portalındaki yerleşik sorgu aracını kullanın. 
 
@@ -165,9 +155,7 @@ Azure’da bir örnek veritabanı oluşturduktan sonra, veritabanına bağlanabi
 
 7. **Sorgu düzenleyicisi** sayfasını ve **Araçlar** sayfasını kapatın.
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu kaynaklara başka bir hızlı başlangıç kılavuzu/öğretici (bkz. [Sonraki adımlar](#next-steps)) için gereksinim duymuyorsanız, aşağıdaki yaparak bu kaynakları silebilirsiniz:
 
@@ -175,9 +163,7 @@ Bu kaynaklara başka bir hızlı başlangıç kılavuzu/öğretici (bkz. [Sonrak
 1. Azure portalında sol taraftaki menüden, **Kaynak grupları**’na tıklayın ve ardından **myResourceGroup**’a tıklayın. 
 2. Kaynak grubu sayfanızda, **Sil**’e tıklayın, metin kutusuna **myResourceGroup** yazın ve ardından **Sil**’e tıklayın.
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Artık bir veritabanınız olduğuna göre, sık kullandığınız araçlarla bağlanabilir ve sorgulayabilirsiniz. Aşağıdan aracınızı seçerek daha fazla bilgi edinin:
 

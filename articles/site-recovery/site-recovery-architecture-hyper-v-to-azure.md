@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 ---
 
 
-<a id="how-does-hyper-v-replication-to-azure-work-in-site-recovery" class="xliff"></a>
-
-# Site Recovery’de Azure’a Hyper-V çoğaltması nasıl işliyor?
+# <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Site Recovery’de Azure’a Hyper-V çoğaltması nasıl işliyor?
 
 
 Bu makalede [Azure Site Recovery](site-recovery-overview.md) hizmeti aracılığıyla şirket içi Hyper-V sanal makinelerini Azure'a çoğaltma işleminde kullanılan bileşenler ve işlemler açıklanmıştır.
@@ -36,9 +34,7 @@ Tüm yorumlarınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetler
 
 
 
-<a id="architectural-components" class="xliff"></a>
-
-## Mimari bileşenler
+## <a name="architectural-components"></a>Mimari bileşenler
 
 Hyper-V VM'lerini Azure'a çoğaltırken kullanılan çeşitli bileşenler vardır.
 
@@ -60,17 +56,13 @@ Hyper-V VM'lerini Azure'a çoğaltırken kullanılan çeşitli bileşenler vard�
 ![Bileşenler](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-<a id="replication-process" class="xliff"></a>
-
-## Çoğaltma işlemi
+## <a name="replication-process"></a>Çoğaltma işlemi
 
 **Şekil 3: Hyper-V'den Azure'a çoğaltma için çoğaltma ve kurtarma işlemi**
 
 ![iş akışı](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
 
-<a id="enable-protection" class="xliff"></a>
-
-### Korumayı etkinleştir
+### <a name="enable-protection"></a>Korumayı etkinleştir
 
 1. Azure portalında veya şirket içinde bir Hyper-V VM’si için koruma etkinleştirdikten sonra, **Korumayı etkinleştir** başlatılır.
 2. İş, makinenin önkoşullarla uyumlu olup olmadığını denetler, ardından, çoğaltmayı daha önce yapılandırdığınız ayarları uygulamak üzere [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) çağırır.
@@ -79,9 +71,7 @@ Hyper-V VM'lerini Azure'a çoğaltırken kullanılan çeşitli bileşenler vard�
         ![İşler listesi](media/site-recovery-hyper-v-azure-architecture/image1.png)
         ![Koruma etkinleştir detayına git](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
-<a id="replicate-the-initial-data" class="xliff"></a>
-
-### İlk verileri çoğaltma
+### <a name="replicate-the-initial-data"></a>İlk verileri çoğaltma
 
 1. İlk çoğaltma tetiklendiğinde bir [Hyper-V VM anlık görüntüsü](https://technet.microsoft.com/library/dd560637.aspx) alınır.
 2. Sanal diskler, hepsi Azure'a kopyalanana kadar birer birer çoğaltılır. VM boyutuna ve ağ bant genişliğine bağlı olarak biraz uzun sürebilir. Ağ kullanımınızı iyileştirmek için, bkz: [Şirket içinden Azure'a koruma ağ bant genişliği kullanımını yönetme](https://support.microsoft.com/kb/3056159).
@@ -90,25 +80,19 @@ Hyper-V VM'lerini Azure'a çoğaltırken kullanılan çeşitli bileşenler vard�
 5. İlk çoğaltma tamamlandığında, VM anlık görüntüsü silinir. Günlükteki değişim disk değişiklikleri eşitlenir ve üst diske birleştirilir.
 
 
-<a id="finalize-protection" class="xliff"></a>
-
-### Korumayı sonlandırma
+### <a name="finalize-protection"></a>Korumayı sonlandırma
 
 1. İlk çoğaltma sona erdikten sonra, **Sanal makinede korumayı sonlandır** işi, sanal makinenin korunabilmesi adına ağı ve diğer çoğaltma sonrası ayarlarını yapılandırır.
     ![Korumayı sonlandır işi](media/site-recovery-hyper-v-azure-architecture/image3.png)
 2. Azure'da çoğaltma yapıyorsanız sanal makinede ince ayar yapmanız gerekebilir. Böylece sanal makine yük devretme için hazır hale gelir. Bu noktada, her şeyin istendiği şekilde çalıştığını denetlemek için yük devretme testi çalıştırabilirsiniz.
 
-<a id="replicate-the-delta" class="xliff"></a>
-
-### Değişimi çoğaltma
+### <a name="replicate-the-delta"></a>Değişimi çoğaltma
 
 1. İlk çoğaltma sonrasında, çoğaltma ayarlarına uygun olarak değişim eşitlemesi başlar.
 2. Bir Çoğaltma İzleyicisi olan Hyper-V Çoğaltma, bir sanal sabit diskteki değişiklikleri .hrl dosyası olarak izler. Çoğaltma için yapılandırılmış her diskin ilişkili bir .hrl dosyası vardır. İlk çoğaltma tamamlandıktan sonra bu günlük müşterinin depolama hesabına gönderilir. Bir günlük Azure’a iletilmekteyken, birincil diskteki değişiklikler aynı dizindeki başka bir günlük dosyasında izlenir.
 3. İlk çoğaltma ve değişim çoğaltması esnasında, VM görünümünde VM’yi izleyebilirsiniz. [Daha fazla bilgi edinin](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
-<a id="synchronize-replication" class="xliff"></a>
-
-### Çoğaltmayı senkronize etme
+### <a name="synchronize-replication"></a>Çoğaltmayı senkronize etme
 
 1. Değişim çoğaltması başarısız olursa ve bant genişliği ile zaman açısından tam çoğaltma maliyetli olacaksa, bir VM yeniden eşitleme için işaretlenir. Örneğin, .hrl dosyası disk boyutunun %50'sine ulaşırsa VM, yeniden eşitleme için işaretlenir.
 2.  Yeniden eşitleme, kaynak ve hedef sanal makinelerin sağlama toplamlarını hesaplayarak ve yalnızca değişim verilerini göndererek, gönderilen veri miktarını en aza indirir. Yeniden eşitleme, kaynak ve hedef dosyaların sabit öbeklere bölündüğü bir sabit blok kümeleme algoritması kullanır. Her öbek için sağlama toplamları oluşturulur ve ardından, kaynaktan hangi blokların hedefe uygulanması gerektiğini belirlemek üzere karşılaştırılır.
@@ -117,9 +101,7 @@ Hyper-V VM'lerini Azure'a çoğaltırken kullanılan çeşitli bileşenler vard�
     ![El ile yeniden eşitleme](media/site-recovery-hyper-v-azure-architecture/image4.png)
 
 
-<a id="retry-logic" class="xliff"></a>
-
-### Yeniden deneme mantığı
+### <a name="retry-logic"></a>Yeniden deneme mantığı
 
 Bir çoğaltma hatası meydana gelirse, yerleşik yeniden deneme işlevi vardır. Bu mantık iki kategoride sınıflandırılabilir:
 
@@ -130,9 +112,7 @@ Bir çoğaltma hatası meydana gelirse, yerleşik yeniden deneme işlevi vardır
 
 
 
-<a id="failover-and-failback-process" class="xliff"></a>
-
-## Yük devretme ve yeniden çalışma işlemi
+## <a name="failover-and-failback-process"></a>Yük devretme ve yeniden çalışma işlemi
 
 1. Şirket içi Hyper-V VM’lerinden Azure’a planlanmış veya planlanmamış bir [yük devretme](site-recovery-failover.md) gerçekleştirebilirsiniz. Planlı bir yük devretme çalıştırırsanız, veri kaybı olmaması için kaynak VM’ler kapatılır.
 2. Tek bir makine üzerinden yük devredebilir veya [kurtarma planları](site-recovery-create-recovery-plans.md) oluşturarak birden çok makinenin devredilmesini düzenleyebilirsiniz.
@@ -143,9 +123,7 @@ Bir çoğaltma hatası meydana gelirse, yerleşik yeniden deneme işlevi vardır
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 [Destek matrisini](site-recovery-support-matrix-to-azure.md) inceleyin
 

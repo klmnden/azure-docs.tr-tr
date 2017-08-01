@@ -2,17 +2,13 @@ Before you can use the Azure CLI with Resource Manager commands and templates to
 
 If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](../articles/cli-install-nodejs.md) set the mode to `arm` with `azure config mode arm`, and connect to Azure with the `azure login` command.
 
-<a id="cli-versions-to-complete-the-task" class="xliff"></a>
-
-## CLI versions to complete the task
+## <a name="cli-versions-to-complete-the-task"></a>CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
 - Azure CLI 10 – our CLI for the classic and resource management deployment models (this article)
 - [Azure CLI 2.0](../articles/virtual-machines/linux/cli-manage.md) - our next generation CLI for the resource management deployment model
 
-<a id="basic-azure-resource-manager-commands-in-azure-cli" class="xliff"></a>
-
-## Basic Azure Resource Manager commands in Azure CLI
+## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Basic Azure Resource Manager commands in Azure CLI
 This article covers basic commands you will want to use with Azure CLI to manage and interact with your resources (primarily VMs) in your Azure subscription.  For more detailed help with specific command line switches and options, you can use the online command help and options by typing `azure <command> <subcommand> --help` or `azure help <command> <subcommand>`.
 
 > [!NOTE]
@@ -44,7 +40,5 @@ This article covers basic commands you will want to use with Azure CLI to manage
 | Get usage of VM resources |`azure vm list-usage [options] <location>` |
 | Get all available VM sizes |`azure vm sizes [options]` |
 
-<a id="next-steps" class="xliff"></a>
-
-## Next steps
+## <a name="next-steps"></a>Next steps
 * For additional examples of the CLI commands going beyond basic VM management, see [Using the Azure CLI with Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).

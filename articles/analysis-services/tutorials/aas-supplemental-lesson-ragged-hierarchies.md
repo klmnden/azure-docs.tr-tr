@@ -22,9 +22,7 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 06/03/2017
 
 ---
-<a id="supplemental-lesson---ragged-hierarchies" class="xliff"></a>
-
-# Ek ders - Düzensiz hiyerarşiler
+# <a name="supplemental-lesson---ragged-hierarchies"></a>Ek ders - Düzensiz hiyerarşiler
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -36,20 +34,14 @@ Bu ek derste, farklı düzeylerde boş değerler (üyeler) içeren hiyerarşiler
   
 Bu dersi tamamlamak için tahmini süre: **20 dakika**  
   
-<a id="prerequisites" class="xliff"></a>
-
-## Ön koşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu ek ders konusu bir tablo modelleme öğreticisinin parçasıdır. Bu ek dersteki görevleri gerçekleştirmeden önce tüm önceki dersleri tamamlamış veya bir Adventure Works İnternet Satışları örnek model projesini tamamlamış olmanız gerekir. 
 
 Öğreticinin bir parçası olarak AW İnternet Satışları projesini oluşturduysanız, modeliniz henüz düzensiz veriler veya hiyerarşiler içermemektedir. Bu ek dersi tamamlamak için bazı ek tablolar ilave ederek sorunu oluşturmanız, ilişki, hesaplanmış sütunlar, bir ölçü ve yeni bir Kuruluş hiyerarşisi oluşturmanız gerekir. Bu kısım yaklaşık 15 dakika sürer. Ardından, sorunu yalnızca birkaç dakika içinde çözersiniz.  
 
-<a id="add-tables-and-objects" class="xliff"></a>
-
-## Tablo ve nesne ekleme
+## <a name="add-tables-and-objects"></a>Tablo ve nesne ekleme
   
-<a id="to-add-new-tables-to-your-model" class="xliff"></a>
-
-### Modelinize yeni tablolar eklemek için
+### <a name="to-add-new-tables-to-your-model"></a>Modelinize yeni tablolar eklemek için
   
 1.  Tablo Modeli Gezgini’nde **Veri Kaynakları**’nı genişletin, ardından bağlantınıza sağ tıklayın > **Yeni Tabloları İçeri Aktar**’a tıklayın.
   
@@ -120,9 +112,7 @@ Bu ek ders konusu bir tablo modelleme öğreticisinin parçasıdır. Bu ek derst
 
     PivotTable'da görebileceğiniz gibi hiyerarşi, düzensiz olan satırları gösterir. Boş üyelerin gösterildiği çok sayıda satır vardır.
 
-<a id="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property" class="xliff"></a>
-
-## Hide members özelliğini ayarlayarak düzensiz hiyerarşiyi düzeltmek için
+## <a name="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property"></a>Hide members özelliğini ayarlayarak düzensiz hiyerarşiyi düzeltmek için
 
 1.  **Tablo Modeli Gezgini**’nde **Tablolar** > **DimEmployee** > **Hiyerarşiler** > **Kuruluş**’u genişletin.
 
@@ -136,9 +126,7 @@ Bu ek ders konusu bir tablo modelleme öğreticisinin parçasıdır. Bu ek derst
 
     Şimdi çok daha iyi görünüyor!
 
-<a id="see-also" class="xliff"></a>
-
-## Ayrıca Bkz.   
+## <a name="see-also"></a>Ayrıca Bkz.   
 [9. Ders: Hiyerarşi oluşturma](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Ek Ders - Dinamik güvenlik](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Ek Ders - Ayrıntı satırları](../tutorials/aas-supplemental-lesson-detail-rows.md)  
