@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 0625984bf10588fe50a2632285f565eb79b66ab7
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Azure HDInsight’ta Apache Spark kümesi oluşturma
 
-Bu makalede, Azure HDInsight'ta Apache Spark kümesi oluşturmayı öğreneceksiniz.
+Bu makalede, Azure HDInsight'ta Apache Spark kümesi oluşturmayı öğreneceksiniz. HDInsight’ta Spark hakkında daha fazla bilgi için bkz. [Genel Bakış: Azure HDInsight’ta Apache Spark](hdinsight-apache-spark-overview.md).
 
    ![Azure HDInsight’ta Apache Spark kümesi oluşturma adımlarını açıklayan hızlı başlangıç diyagramı](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark hızlı başlangıcı - HDInsight’ta Apache Spark kullanma. Gösterilen adımlar: küme oluşturma; etkileşimli Spark sorgusu çalıştırma")
 
@@ -115,10 +115,17 @@ HDInsight Spark kümeniz için yapılandırılmış bir Jupyter not defteri kull
 
 7. Uygulamayı çalıştırmayı tamamladıktan sonra not defterini kapatarak küme kaynaklarını serbest bırakabilirsiniz. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın.
 
-## <a name="next-step"></a>Sonraki adım
+8. İzleyen adımları daha sonra tamamlamayı planlıyorsanız, bu makalede oluşturduğunuz HDInsight kümesini sildiğinizden emin olun. 
 
-Bu makalede HDInsight Spark kümesi oluşturmayı ve temel Spark SQL sorgusunu çalıştırmayı öğrendiniz. Şimdi de [HDInsight Spark'a verileri yüklemeyi ve etkileşimli bir sorgu çalıştırmayı](hdinsight-apache-spark-load-data-run-query.md) öğrenin.
+    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-İzleyen adımları daha sonra tamamlamayı planlıyorsanız, HDInsight kümesini sildiğinizden emin olun. 
+## <a name="next-step"></a>Sonraki adım 
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+Bu makalede HDInsight Spark kümesi oluşturmayı ve temel Spark SQL sorgusunu çalıştırmayı öğrendiniz. Örnek veriler üzerinde etkileşimli sorguları çalıştırmak için HDInsight Spark kümesini kullanma hakkında daha fazla bilgiyi bir sonraki makalede bulabilirsiniz.
+
+> [!div class="nextstepaction"]
+>[Bir HDInsight Spark kümesinde etkileşimli sorguları çalıştırma](hdinsight-apache-spark-load-data-run-query.md)
+
+
+
+
