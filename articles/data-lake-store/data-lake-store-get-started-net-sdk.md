@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Lake Store’da uygulama geliştirmek için .NET SDK&quot;sını kullanma | Microsoft Docs"
-description: "Bir Data Lake Store hesabı oluşturmak ve Data Lake Store&quot;da temel işlemleri gerçekleştirmek için Azure Data Lake Store .NET SDK’sını kullanma"
+title: "Azure Data Lake Store’da uygulama geliştirmek için .NET SDK'sını kullanma | Microsoft Docs"
+description: "Bir Data Lake Store hesabı oluşturmak ve Data Lake Store'da temel işlemleri gerçekleştirmek için Azure Data Lake Store .NET SDK’sını kullanma"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/09/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: f637b8617c4a9ed3be1eb0932a94b0ffcc7c8f7e
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 70f94a07b0102e3135eaf85e5877e3502762d7e3
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-store-using-net-sdk"></a>.NET SDK'yı kullanarak Azure Data Lake Store ile çalışmaya başlama
@@ -35,7 +34,7 @@ ms.lasthandoff: 06/07/2017
 >
 >
 
-Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel işlemler gerçekleştirmek üzere [Azure Data Lake Store .NET SDK’sını](https://msdn.microsoft.com/library/mt581387.aspx) kullanma hakkında bilgi edinin. Data Lake hakkında daha fazla bilgi için bkz. [Azure Data Lake Store](data-lake-store-overview.md).
+Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel işlemler gerçekleştirmek üzere [Azure Data Lake Store .NET SDK’sını](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet) kullanma hakkında bilgi edinin. Data Lake hakkında daha fazla bilgi için bkz. [Azure Data Lake Store](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 * **Visual Studio 2013, 2015 veya 2017**. Aşağıdaki yönergelerde Visual Studio 2015 Güncelleştirme 2 kullanılmıştır.

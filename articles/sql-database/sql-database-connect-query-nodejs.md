@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 56696c6c85f117449e7fb80b0daca707267d41c1
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 1907a95df9132c059d7985b6d5cd913536bf3403
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Node.js kullanarak Azure SQL veritabanı sorgulama
@@ -141,7 +141,7 @@ Komut istemini açın ve *sqltest* adlı bir klasör oluşturun. Oluşturduğunu
 
 - [SQL Server için Microsoft Node.js Sürücüsü](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/) hakkında bilgi edinin
 - Windows/Linus/macOS’ta [.NET Core kullanarak Azure SQL veritabanını bağlamayı ve sorgulamayı](sql-database-connect-query-dotnet-core.md) öğrenin.  
-- [Komut satırını kullanarak Windows/Linus/macOS’ta .NET Core ile çalışmaya başlama](/dotnet/core/tutorials/using-with-xplat-cli.md) hakkında bilgi edinin.
+- [Komut satırını kullanarak Windows/Linus/macOS’ta .NET Core ile çalışmaya başlama](/dotnet/core/tutorials/using-with-xplat-cli) hakkında bilgi edinin.
 - [SSMS kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database.md) veya [.NET kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database-csharp.md) öğrenin.
 - [SSMS ile bağlanma ve sorgulamayı](sql-database-connect-query-ssms.md) öğrenin
 - [Visual Studio Code ile bağlanma ve sorgulamayı](sql-database-connect-query-vscode.md) öğrenin.
