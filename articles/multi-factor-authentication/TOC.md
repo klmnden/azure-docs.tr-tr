@@ -51,3 +51,4 @@
 ### [NPS uzantı hataları](multi-factor-authentication-nps-errors.md)
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

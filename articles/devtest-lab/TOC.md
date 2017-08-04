@@ -71,3 +71,4 @@
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

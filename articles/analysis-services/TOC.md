@@ -57,6 +57,7 @@
 ## [Azure durumu](https://azure.microsoft.com/status/)
 ## [Geri Bildirim](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

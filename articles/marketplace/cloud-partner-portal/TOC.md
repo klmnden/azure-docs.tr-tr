@@ -34,3 +34,4 @@
 ## [Destek alın](./cloud-partner-portal-support-for-cloud-partner-portal.md)
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

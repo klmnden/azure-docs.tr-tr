@@ -27,6 +27,7 @@
 ### [Azure Traffic Manager’da düşürülmüş durum için sorun giderme](traffic-manager-troubleshooting-degraded.md)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
 ## [PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
@@ -45,6 +46,7 @@
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet Sınırlamaları](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=traffic-manager)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)

@@ -101,3 +101,4 @@
 ## [Sonraki adımlar](azure-operations-guide.md#next-steps)
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

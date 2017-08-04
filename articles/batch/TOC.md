@@ -8,13 +8,15 @@
 ## [Batch .NET öğreticisi](batch-dotnet-get-started.md)
 ## [Batch Python öğreticisi](batch-python-tutorial.md)
 ## [Batch Node.js öğreticisi](batch-nodejs-get-started.md)
-# Nasıl yapılır?
+## [Toplu İşleme hizmeti](batch-rendering-service.md)
+# Nasıl yapılır
 ## Geliştirme
 ### [Uygulama paketleri](batch-application-packages.md)
 ### [İşlem düğümlerini otomatik ölçeklendirme](batch-automatic-scaling.md)
 ### Azure AD kimlik doğrulaması
 #### [Batch hizmeti ile Azure AD](batch-aad-auth.md)
 #### [Batch Yönetimi ile Azure AD](batch-aad-auth-management.md)
+### [Yoğun işlem gücü kullanımlı VM’ler](batch-pool-compute-intensive-sizes.md)
 ### [Eşzamanlı düğüm görevleri](batch-parallel-node-tasks.md)
 ### [Etkili liste sorguları](batch-efficient-list-queries.md)
 ### [İş hazırlığı ve tamamlama görevleri](batch-job-prep-release.md)
@@ -36,8 +38,8 @@
 #### [Uygulama ekleme](./scripts/batch-cli-sample-add-application.md)
 #### [Havuzları yönetme](./scripts/batch-cli-sample-manage-pool.md)
 #### [Bir işi ve görevleri çalıştırma](./scripts/batch-cli-sample-run-job.md)
-
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
 ## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
@@ -69,6 +71,7 @@
 ## [C# kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/batch/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Python kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)

@@ -47,6 +47,9 @@
 ### [Önizleme aşamasındaki Azure portalı deneyimini etkinleştirme](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Eşleşmeyen kiracı hatalarını düzeltme](active-directory-ds-mismatched-tenant-error.md)
 
+# Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # İlgili
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -57,4 +60,5 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Bizimle iletişim kurun](active-directory-ds-contact-us.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory-ds)

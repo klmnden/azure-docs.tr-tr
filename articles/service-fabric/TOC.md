@@ -16,6 +16,7 @@
 ### [2 - Docker Compose kullanarak bir .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md)
 
 # Örnekler
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Azure CLI](samples-cli.md)
 # Kavramlar
@@ -131,7 +132,6 @@
 ### Kapsayıcı hizmeti oluşturma
 #### [Bir Windows kapsayıcı uygulaması oluşturma](service-fabric-get-started-containers.md)
 #### [Bir Linux kapsayıcı uygulaması oluşturma](service-fabric-get-started-containers-linux.md)
-#### [Windows kapsayıcısı dağıtma](service-fabric-deploy-container.md)
 #### [Linux kapsayıcısı dağıtma](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (önizleme)](service-fabric-docker-compose.md)
 #### [Kapsayıcılar ve hizmetler için kaynak idaresi](service-fabric-resource-governance.md)
@@ -328,6 +328,7 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Örnek kod](http://aka.ms/servicefabricsamples)
 ## [Destek seçenekleri](service-fabric-support.md)
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=service-fabric)

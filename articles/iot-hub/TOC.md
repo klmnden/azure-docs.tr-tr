@@ -17,6 +17,7 @@
 ### [Fiziksel cihaz kullanma](iot-hub-get-started-physical.md)
 #### [Node.js ile Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [C ile Raspberry Pi](iot-hub-raspberry-pi-kit-c-get-started.md)
+#### [Python ile Raspberry Pi](iot-hub-raspberry-pi-kit-python-get-started.md)
 
 #### [Node.js ile Intel Edison](iot-hub-intel-edison-kit-node-get-started.md)
 #### [C ile Intel Edison](iot-hub-intel-edison-kit-c-get-started.md)
@@ -84,6 +85,7 @@
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-twin-getstarted.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java arka ucu/Java cihazı](iot-hub-java-java-twin-getstarted.md)
 ### Doğrudan yöntemler kullanma
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-direct-methods.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-direct-methods.md)
@@ -103,6 +105,7 @@
 ### İşleri zamanlama ve yayınlama
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-schedule-jobs.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Yönet
 ### IoT hub oluşturma 
 #### [Portalı kullanma](iot-hub-create-through-portal.md)
@@ -150,6 +153,7 @@
 #### [Yerel modül konağı](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (Hizmet)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Cihazlar)](/dotnet/api/microsoft.azure.devices.client)
@@ -180,6 +184,7 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Teknik örnek olay incelemeleri](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

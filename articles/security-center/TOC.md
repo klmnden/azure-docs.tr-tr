@@ -75,6 +75,7 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Azure Güvenlik, Gizlilik ve Uyumluluk blogu](http://blogs.msdn.com/b/azuresecurity/)
 ## [Fiyatlandırma](security-center-pricing.md)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmete genel bakış](https://azure.microsoft.com/services/security-center/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=security-center)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=security-center)

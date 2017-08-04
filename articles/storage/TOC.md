@@ -179,6 +179,7 @@
 #### [Sürücü bildirimlerini yedekleme](storage-import-export-backing-up-drive-manifests.md)
 #### [İçeri/Dışarı Aktarma işleri için tanılama ve hata kurtarma](storage-import-export-diagnostics-and-error-recovery.md)
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
@@ -210,6 +211,7 @@
 ## [Azure Depolama İstemci Araçları](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=storage)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -218,6 +220,7 @@
 ### [Depolama Gezgini (Önizleme)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Depolama Gezgini (Önizleme) ile blob’ları yönetme](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Depolama Gezgini’ni (Önizleme) Azure dosya depolama ile kullanma](../vs-azure-tools-storage-explorer-files.md)
+### [Depolama Gezgini (Önizleme) sürüm notları](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## NuGet paketleri
 ### [.NET için Azure Depolama İstemcisi](https://www.nuget.org/packages/WindowsAzure.Storage/)

@@ -112,5 +112,6 @@
 # Kaynaklar
 ## [Azure bölgeleri](https://azure.microsoft.com/regions/)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Örnekler](https://azure.microsoft.com/resources/samples/)
 ## [Videolar](https://azure.microsoft.com/resources/videos/home/)

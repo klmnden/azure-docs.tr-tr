@@ -31,12 +31,22 @@
 #### [IIS günlükleri](log-analytics-data-sources-iis-logs.md)
 #### [Özel günlükler](log-analytics-data-sources-custom-logs.md)
 #### [Özel alanlar](log-analytics-custom-fields.md)
+
 ## Verileri sorgulama
 ### [Günlük aramalarına genel bakış](log-analytics-log-searches.md)
 ### [Arama başvurusu](log-analytics-search-reference.md)
 #### [Normal ifadeler](log-analytics-log-searches-regex.md)
 ### [Arama sonuçlarına göre işlem yapma](log-analytics-log-search-takeaction.md)
 ### [Bilgisayar grupları](log-analytics-computer-groups.md)
+
+## Yeni günlük araması
+### [Çalışma alanınızı yükseltme](log-analytics-log-search-upgrade.md)
+### [SSS](log-analytics-log-search-faq.md)
+### [Günlük aramalarına genel bakış](log-analytics-log-search-new.md)
+### [Günlük araması portalları](log-analytics-log-search-portals.md)
+#### [Günlük araması portalını kullanma](log-analytics-log-search-log-search-portal.md)
+### [Eski dilden geçiş](log-analytics-log-search-transition.md)
+
 ## Verileri çözümleme
 ### [Panolar](log-analytics-dashboards.md)
 ### [Görünüm Tasarımcısı](log-analytics-view-designer.md)
@@ -101,5 +111,6 @@
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Windows Analizi](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

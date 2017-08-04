@@ -59,6 +59,7 @@
 ### [Sorun giderme](azure-diagnostics-troubleshooting.md)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 ## [Veri izleme kaynakları](monitoring-data-sources.md)
 ## [Desteklenen ölçümlerin listesi](monitoring-supported-metrics.md)
 ## [Etkinlik Günlüğü olay şeması](monitoring-activity-log-schema.md)
@@ -74,5 +75,6 @@
 ## [Azure CLI 1.0 örnekleri](insights-cli-samples.md)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [PowerShell örnekleri](insights-powershell-samples.md)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Hızlı Başlangıç şablonları](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

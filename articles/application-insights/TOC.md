@@ -42,6 +42,7 @@
 ## Yapılandırma
 ### Azure
 #### [Profil Oluşturucu](app-insights-profiler.md)
+#### [Profil Oluşturucuyu etkinleştirme](enable-profiler-cloud-services.md)
 #### [Tanılama](app-insights-azure-diagnostics.md)
 #### [Önizlemeler](app-insights-previews.md)
 
@@ -140,7 +141,7 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Başvuru
-## [Analizler](app-insights-analytics-reference.md)
+## [Analizler](https://docs.loganalytics.io/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -154,6 +155,7 @@
 ### [Ölçüm](application-insights-data-model-metric-telemetry.md)
 ### [Bağlam](application-insights-data-model-context.md)
 ## [Telemetri bağıntısı](application-insights-correlation.md)
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
@@ -161,6 +163,7 @@
 ## [Diller ve platformlar](app-insights-platforms.md)
 
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 
 ## Haberler
 

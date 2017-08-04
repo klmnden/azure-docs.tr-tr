@@ -74,6 +74,7 @@
 ### [Sürüm notları](active-directory-b2c-developer-notes-custom.md)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Sözlük
 ### [Uygulama türleri](active-directory-b2c-apps.md)
 ### [Kimlik doğrulama protokolleri](active-directory-b2c-reference-protocols.md)
@@ -92,6 +93,7 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Sık sorulan sorular](active-directory-b2c-faqs.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Destek](active-directory-b2c-support.md)

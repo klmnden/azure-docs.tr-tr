@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Şablon](virtual-networks-create-vnet-arm-template-click.md)
-#### Klasik
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Ağ güvenlik grupları
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -99,6 +95,12 @@
 ##### [Güvenlik duvarı, UDR ve NSG’ler ile DMZ](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Örnek uygulama](virtual-networks-sample-app.md)
 
+### Klasik
+#### [Sanal ağ](create-virtual-network-classic.md)
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+
 ## Yapılandırma
 ### Sanal makineler
 #### [Ağ arabirimi ekleme veya kaldırma](virtual-network-network-interface-vm.md)
@@ -140,6 +142,7 @@
 ### [Sanal ağlar silinemiyor](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [PowerShell (Klasik)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
@@ -162,4 +165,5 @@
 ## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
 ## [Ağ forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

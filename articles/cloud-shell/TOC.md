@@ -16,3 +16,4 @@
 ## [Azure CLI 2.0](/cli/azure) 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

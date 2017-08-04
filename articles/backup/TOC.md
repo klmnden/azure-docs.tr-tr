@@ -3,8 +3,8 @@
 ## [Azure Backup nedir?](backup-introduction-to-azure-backup.md)
 
 # Başlarken
-## [Azure VM’lerini yedekleme](backup-azure-vms-first-look-arm.md)
-## [Dosya ve klasörleri yedekleme](backup-try-azure-backup-in-10-mins.md)
+## [Azure VM'lerini yedekleme](backup-azure-vms-first-look-arm.md)
+## [Windows Server veya Windows bilgisayarlarını yedekleme](backup-try-azure-backup-in-10-mins.md)
 ## [VMware sunucularını yedekleme](backup-azure-backup-server-vmware.md)
 
 # Nasıl yapılır?
@@ -27,16 +27,19 @@
 #### [Azure portalında Resource Manager tarafından dağıtılan VM'leri geri yükleme](backup-azure-arm-restore-vms.md)
 #### [Şifrelenmiş sanal makineleri geri yükleme](backup-azure-vms-encryption.md)
 #### [Azure’da sanal makineleri geri yükleme](backup-azure-restore-vms.md)
-#### [Azure Backup kullanarak şifreli VM’ler için Key Vault anahtarını ve parolasını geri yükleme](backup-azure-restore-key-secret.md)
+#### [Şifreli VM’ler için Key Vault anahtarını ve gizli dizisini geri yükleme](backup-azure-restore-key-secret.md)
 
 
-## Windows dosya ve klasörleri
-### [Resource Manager dağıtım modelini kullanan Windows Server](backup-configure-vault.md)
-### [Klasik dağıtım modelini kullanan Windows Server](backup-configure-vault-classic.md)
+## Windows Server
+### [Windows Server dosyalarını ve klasörlerini yedekleme](backup-configure-vault.md)
+### [Windows Server Sistem Durumunu yedekleme](backup-azure-system-state.md)
+### [Azure’dan Windows Server’a dosya kurtarma](backup-azure-restore-windows-server.md)
+### [Windows Server Sistem Durumunu geri yükleme](backup-azure-restore-system-state.md)
 ### [Kurtarma Hizmetleri kasalarını izleme ve yönetme](backup-azure-manage-windows-server.md)
-### [Klasik dağıtım modelini kullanarak Backup kasalarını yönetme](backup-azure-manage-windows-server-classic.md)
-### [Dosyaları Resource Manager dağıtım modelini kullanarak Windows Server’a kurtarma](backup-azure-restore-windows-server.md)
-### [Klasik dağıtım modelini kullanarak dosyaları Windows Server'a kurtarma](backup-azure-restore-windows-server-classic.md)
+### Klasik portalı kullanarak yedekleme ve geri yükleme
+#### [Klasik dağıtım modelini kullanan Windows Server](backup-configure-vault-classic.md)
+#### [Klasik dağıtım modelini kullanarak Backup kasalarını yönetme](backup-azure-manage-windows-server-classic.md)
+#### [Klasik dağıtım modelini kullanarak dosyaları Windows Server'a kurtarma](backup-azure-restore-windows-server-classic.md)
 
 ## Azure Backup Sunucusu
 ### [Azure Backup Sunucusu koruma matrisi](backup-mabs-protection-matrix.md)
@@ -108,5 +111,6 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=backup)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=backup)

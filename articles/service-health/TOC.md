@@ -5,5 +5,6 @@
 ## [Hizmet Durumu için uyarıları yapılandırma](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 # Kaynaklar
 ## [Sık Sorulan Sorular](resource-health-faq.md)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Azure Kaynak Durumu aracılığıyla kullanılabilen kaynak türleri ve durum denetimleri](resource-health-checks-resource-types.md)
 

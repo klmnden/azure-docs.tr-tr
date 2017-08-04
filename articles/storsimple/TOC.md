@@ -359,6 +359,7 @@
 ## [Pazarlama blogu](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Destek blogu](http://blogs.msdn.com/b/storsimple/)
 ## [Üçüncü taraf bildirimleri](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)

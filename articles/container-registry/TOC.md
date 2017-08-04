@@ -30,6 +30,7 @@
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=containers)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/container-registry/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Bölge kullanılabilirliği](https://azure.microsoft.com/regions/services/)
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)

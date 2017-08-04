@@ -215,6 +215,7 @@
 ### [Yeniden deneme mantığı](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (Hizmet Yönetimi)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
@@ -224,5 +225,6 @@
 ## [Azure Media Services Topluluğu](media-services-community.md)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Sürüm notları](media-services-release-notes.md)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=media-services)

@@ -53,7 +53,8 @@
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=compute)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 ## Fiyatlandırma 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
