@@ -82,18 +82,22 @@
 
 ## Yükleme
 
-### [Genel Bakış](sql-data-warehouse-overview-load.md)
-### [Örnek veriler](sql-data-warehouse-load-sample-databases.md)
-### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
-### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [PolyBase kılavuzu](sql-data-warehouse-load-polybase-guide.md)
-### [Blob depolamadan PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [SQL Server’dan PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [RedGate](sql-data-warehouse-load-with-redgate.md)
-### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### Kavramlar
+#### [Genel Bakış](sql-data-warehouse-overview-load.md)
+#### [PolyBase kılavuzu](sql-data-warehouse-load-polybase-guide.md)
+
+### Öğreticiler
+#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+
+### Nasıl yapılır kılavuzları
+#### [Örnek veriler](sql-data-warehouse-load-sample-databases.md)
+#### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+#### [BCP](sql-data-warehouse-load-with-bcp.md)
+#### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+#### [Blob depolamadan PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+#### [SQL Server’dan PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+#### [RedGate](sql-data-warehouse-load-with-redgate.md)
+#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
 ## Geçiş
 
@@ -144,6 +148,7 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)

@@ -24,10 +24,6 @@
 # Nasıl yapılır?
 ## Planlama ve tasarım
 ### [Azure AD mimarisini anlama](active-directory-architecture.md)
-### [Önerilen güvenlik ilkeleri ve yapılandırmaları](secure-email-introduction.md)
-#### [Güvenli e-posta için önerilen ilkeler](secure-email-recommended-policies.md)
-##### [Önerilen güvenli e-posta ilkelerini dağıtma](secure-email-deploy-recommended-policies.md)
-#### [EMS ve Office 365 hizmetlerine genel bakış](secure-email-ems-office365-service-descriptions.md)
 ### [Karma kimlik çözümü dağıtma](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Azure Active Directory’de talep eşlemesi](active-directory-claims-mapping.md)
 #### Gereksinimlerini belirleme
@@ -167,7 +163,6 @@
 ## Uygulamaları yönetme
 ### [Genel Bakış](active-directory-enable-sso-scenario.md)
 ### [Başlarken](active-directory-integrating-applications-getting-started.md)
-
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Kayıt defteri ayarlarını güncelleştirme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Güvenlik ve gizliliği anlama](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -178,7 +173,7 @@
 ##### [Uygulama Ara Sunucusu](active-directory-application-proxy-enable.md)
 ##### [Uygulamaları yayımlama](application-proxy-publish-azure-portal.md)
 ##### [Özel etki alanları](active-directory-application-proxy-custom-domains.md)
-#### [SSO erişimi](active-directory-appssoaccess-whatis.md)
+#### [Çoklu oturum açma](application-proxy-sso-overview.md)
 ##### [KCD ile SSO](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Üst bilgi içeren SSO](application-proxy-ping-access.md)
 ##### [Parola kasası oluşturma ile SSO](application-proxy-sso-azure-portal.md)
@@ -219,6 +214,7 @@
 
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
 #### [Self servis erişimi](active-directory-self-service-application-access.md)
+#### [SSO erişimi](active-directory-appssoaccess-whatis.md)
 #### [SSO için sertifikalar](active-directory-sso-certs.md)
 #### [Kiracı kısıtlamaları](active-directory-tenant-restrictions.md)
 #### [SCIM kullanıcı sağlama hizmetinden yararlanma](active-directory-scim-provisioning.md)
@@ -370,6 +366,7 @@
 
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [PowerShell cmdlet'leri](/powershell/azure/overview)
 ## [Java API Başvurusu](/java/api)
 ## [.NET API’si](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
@@ -387,6 +384,7 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

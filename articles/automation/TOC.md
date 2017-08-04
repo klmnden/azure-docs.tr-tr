@@ -28,7 +28,6 @@
 ## Otomatikleştirme
 ### [Runbook başlatma](automation-starting-a-runbook.md)
 ### [Web kancasından runbook başlatma](automation-webhooks.md)
-### [Karma Runbook Çalışanı üzerinde runbook çalıştırma](automation-hybrid-runbook-worker.md)
 ### [Runbook giriş parametrelerini yapılandırma](automation-runbook-input-parameters.md)
 ### [Grafik runbook'larında hata işleme](automation-runbook-graphical-error-handling.md)
 ### [Runbook işini izleme](automation-runbook-execution.md)
@@ -36,6 +35,9 @@
 ### [Azure Otomasyonu verilerini yönetme](automation-managing-data.md)
 ### [Log Analytics uyarısından Azure Otomasyonu Runbook’u çağırma](automation-invoke-runbook-from-omsla-alert.md)
 ### [Azure Otomasyonu runbook’una bir JSON nesnesi geçirme](automation-pass-json-string.md)
+## Karma Runbook Çalışanı
+### [Karma Runbook Çalışanı dağıtma](automation-hybrid-runbook-worker.md)
+### [Çalışan üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md)
 ## Yapılandırma yönetimi (DSC) dağıtma
 ### [İstenen Durum Yapılandırması’na (DSC) genel bakış](automation-dsc-overview.md)
 ### [Başlarken](automation-dsc-getting-started.md)
@@ -87,6 +89,7 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/)  
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Sürüm notları](https://azure.microsoft.com/updates/?product=automation)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)

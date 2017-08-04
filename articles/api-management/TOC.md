@@ -85,6 +85,7 @@
 ## [HTTP üzerinden SOAP WCF hizmetleri kullanma](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/api-management/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [REST API kullanarak RBAC benzeri erişim sağlama](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=api-management)
 ## [API Management API’leri çağırmak için PostMan’ı ayarlama](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)

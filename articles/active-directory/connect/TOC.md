@@ -38,6 +38,7 @@
 ##### [Hızlı başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Geçerli sınırlamalar](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Nasıl çalışır?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Önizleme aracılarını yükseltme](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
 ##### [Akıllı Kilitleme](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Sık sorulan sorular](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Sorun giderme](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
@@ -82,6 +83,7 @@
 ### [LocalDB 10 GB sınırından kurtarma](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Karma Kimlik için Gereken Bağlantı Noktaları ve Protokoller](active-directory-aadconnect-ports.md)
 ## [Önizlemedeki özellikler](active-directory-aadconnect-feature-preview.md)
@@ -109,3 +111,5 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect ile ilgili SSS](active-directory-aadconnect-faq.md)
 ##[DirSync’i Kullanımdan Kaldırma](active-directory-aadconnect-dirsync-deprecated.md)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
+

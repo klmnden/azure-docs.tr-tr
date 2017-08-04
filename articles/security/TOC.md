@@ -3,6 +3,7 @@
 ## [Veritabanı güvenliği](azure-database-security-overview.md)
 ## [Depolama alanı güvenliği](security-storage-overview.md)
 ## [İşlem güvenliği](security-virtual-machines-overview.md)
+## [İşletimsel güvenlik](azure-operational-security-overview.md)
 ## [Güvenlik yönetimi ve izleme](security-management-and-monitoring-overview.md)
 ## [Kimlik yönetimi](security-identity-management-overview.md)
 ## [IoT güvenliği](../iot-suite/iot-security-architecture.md#security-in-iot)
@@ -35,6 +36,8 @@
 ### [IaaS iş yükleri için en iyi uygulamalar](azure-security-iaas.md)
 ### [Microsoft Kötü Amaçlı Yazılımdan Koruma](azure-security-antimalware.md)
 ### [IaaS VM’leri için disk şifreleme](azure-security-disk-encryption.md)
+#### [Disk şifrelemesi hakkında SSS](azure-security-disk-encryption-faq.md)
+#### [Disk şifrelemesi sorunlarını giderme](azure-security-disk-encryption-tsg.md)
 ### [Azure VM’lerini şifreleme](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Güvenlik yönetimi ve izleme
@@ -53,8 +56,10 @@
 ## PaaS hizmetleri
 ### [PaaS dağıtımlarının güvenliğini sağlama](security-paas-deployments.md)
 #### [SQL kullanarak PaaS web ve mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-sql.md)
-#### [SQL Veritabanı en iyi uygulamalar](azure-database-security-best-practices.md)
+#### [SQL Veritabanı güvenliği için en iyi uygulamalar](azure-database-security-best-practices.md)
+#### [SQL Veritabanı güvenlik denetim listesi](azure-database-security-checklist.md)
 #### [Uygulama Hizmetleri’ni kullanarak PaaS web ve mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-app-services.md)
+####[İşletimsel güvenlik denetim listesi](azure-operational-security-checklist.md)
 
 ## Nesnelerin İnterneti
 ### [IoT dağıtımınızın güvenliğini sağlama](../iot-suite/iot-suite-security-deployment.md)
@@ -79,6 +84,7 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure güvenlik MVP programı](azure-security-mvp.md)
 ## [Siber güvenlik danışmanlığı](azure-security-cyber-services.md)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Güvenlik ve Uyumluluk blogu](http://blogs.msdn.com/b/azuresecurity/)
 ## [Sanal Akademi’den güvenlik kursları](security-microsoft-virtual-academy.md)
 ## [Channel 9’da güvenlik videoları](security-channel-nine.md)

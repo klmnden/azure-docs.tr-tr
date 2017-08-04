@@ -30,3 +30,4 @@
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/time-series-insights/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

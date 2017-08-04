@@ -40,11 +40,12 @@
 ## [DNS bölgeleri ve kayıtlarını koruma](dns-protect-zones-recordsets.md)
 ## [.NET SDK ile DNS işlemlerini otomatikleştirme](dns-sdk.md)
 
-## [Azure DNS'yi Azure kaynakları ile tümleştirme](dns-custom-domain.md)
+## [Azure kaynakları için özel etki alanları](dns-custom-domain.md)
 ## Sorun giderme
 ### [Sorun giderme kılavuzu](dns-troubleshoot.md)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
 ## [PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
@@ -68,4 +69,5 @@
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/dns/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=dns)

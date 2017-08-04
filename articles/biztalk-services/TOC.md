@@ -26,6 +26,7 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/biztalk-services/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Sürüm notları](biztalk-release-notes.md)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)

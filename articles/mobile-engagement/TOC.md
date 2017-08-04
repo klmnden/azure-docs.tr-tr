@@ -130,6 +130,7 @@
 ## [.NET API Örneği](mobile-engagement-dotnet-sdk-service-api.md)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Örnek Tanıtım uygulamaları](mobile-engagement-demo-apps.md)
 ## [Hizmet Düzeyi Sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 ## [Videolar ve Güncelleştirmeler](https://azure.microsoft.com/documentation/services/mobile-engagement/)

@@ -64,6 +64,7 @@
 ## [Topluluk şablonları](https://azure.microsoft.com/resources/templates/)
 ## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Bölgesel kullanılabilirlik](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)

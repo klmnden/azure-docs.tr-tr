@@ -22,3 +22,5 @@
 # Kaynaklar
 ## [Azure Danışmanı videoları](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
+

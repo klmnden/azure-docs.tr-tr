@@ -15,3 +15,4 @@
 ### [SSS](microsoft-authenticator-app-faq.md)
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

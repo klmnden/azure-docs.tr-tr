@@ -17,7 +17,6 @@
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure portal (klasik)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [Klasik portal (klasik)](vpn-gateway-site-to-site-create.md)
 ## Noktadan Siteye bağlantı yapılandırma
 ### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -59,7 +58,6 @@
 ### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (klasik)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [VPN ağ geçidi yapılandırma (klasik)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## [Ağ geçidi SKU’ları (eski)](vpn-gateway-about-skus-legacy.md)
 ## Üçüncü taraf VPN cihazlarını yapılandırma
 ### [Genel bakış ve Azure yapılandırması](vpn-gateway-3rdparty-device-config-overview.md)
@@ -91,5 +89,6 @@
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

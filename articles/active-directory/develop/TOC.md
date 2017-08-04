@@ -61,8 +61,9 @@
 ### [Web API projeme ne oldu?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Kimlik doğrulama kitaplıkları (ADAL)](active-directory-authentication-libraries.md)
-## [Kod örnekleri](active-directory-code-samples.md)
+## [Kod örnekleri makalesi](active-directory-code-samples.md)
 ## [Sözlük](active-directory-dev-glossary.md)
 ## [Kimlik doğrulama protokolleri](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -107,3 +108,4 @@
 ### [Kapsamlar](active-directory-v2-scopes.md)
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

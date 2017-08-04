@@ -45,8 +45,11 @@
 ## Ölçek
 ###[Özel durumlar için uyarılar ayarlama](cache-how-to-scale.md)
 ###[Ölçek daraltma veya genişletme için Redis kümesini kullanma](cache-how-to-premium-clustering.md)
+## Spring Boot ile tümleştirme
+###[Bir Spring Boot Başlatıcı uygulamasını Redis Cache ile kullanma](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Azure CLI 2.0 Önizleme](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)

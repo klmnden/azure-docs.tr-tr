@@ -44,3 +44,4 @@
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Desteğe başvurun](../azure-supportability/how-to-create-azure-support-request.md)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

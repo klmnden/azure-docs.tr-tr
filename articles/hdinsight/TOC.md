@@ -99,7 +99,6 @@
 #### [Java topolojileri ile olayları işleme](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Bir topoloji ile Power BI kullanma](hdinsight-storm-power-bi-topology.md)
 #### [Gerçek zamanlı sensör verilerini çözümleme](hdinsight-storm-sensor-data-analysis.md)
-#### [Araç algılayıcı verilerini işleme](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Olayları zaman içerisinde ilişkilendirme](hdinsight-storm-correlation-topology.md)
 #### [Python kullanarak topolojileri geliştirme](hdinsight-storm-develop-python-topology.md)
 ## Etki alanına katılmış HDInsight kullanma (Önizleme)
@@ -137,6 +136,7 @@
 ### [Hive ile web sitesi günlüklerini çözümleme](hdinsight-hive-analyze-website-log.md)
 ### [Application Insights telemetri günlüklerini çözümleme](hdinsight-spark-analyze-application-insight-logs.md)
 ## Kümeleri genişletme
+### [Etkin güvenlikli depolama hesabı kullanma](hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)
 ### [Bootstrap ile kümeleri özelleştirme](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Betik Eylemi kullanarak kümeleri özelleştirme](hdinsight-hadoop-customize-cluster-linux.md)
 ### [HDInsight’ı şirket içi ağınıza bağlama](connect-on-premises-network.md)
@@ -207,6 +207,7 @@
 #### [Hive sorgularını en iyi duruma getirme](hdinsight-hadoop-optimize-hive-query.md)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight)
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
@@ -240,4 +241,5 @@
 ## [Forumdan yardım alma](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [HDInsight için Windows araçları](hdinsight-hadoop-windows-tools.md)

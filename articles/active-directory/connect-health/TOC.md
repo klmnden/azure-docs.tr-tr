@@ -12,6 +12,7 @@
 ## [Eşitleme sırasında karşılaşılan hatalar](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Azure AD Connect Health Sürüm Geçmişi](active-directory-aadconnect-health-version-history.md)
 
 # İlgili
@@ -22,4 +23,4 @@
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect Health ile ilgili SSS](active-directory-aadconnect-health-faq.md)
-
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

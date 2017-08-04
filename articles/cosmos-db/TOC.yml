@@ -5,8 +5,7 @@
     - name: Azure Cosmos DB hakkında
       href: introduction.md
     - name: DocumentDB müşterilerini karşılama
-      href: >-
-        https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
+      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -138,6 +137,8 @@
               href: documentdb-resources.md
             - name: SQL sorguları
               href: documentdb-sql-query.md
+            - name: SQL sorgu performansı
+              href: documentdb-sql-query-metrics.md
             - name: SQL oyun alanı
               href: 'https://www.documentdb.com/sql/demo'
             - name: Bölümleme
@@ -195,8 +196,7 @@
                 - name: Stack Overflow
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Videolar
-                  href: >-
-                    https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
+                  href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Hizmet güncelleştirmeleri
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
                 - name: Topluluk portalı
@@ -224,8 +224,7 @@
         - name: Tablo API’si
           items:
             - name: Table Storage
-              href: >-
-                https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+              href: 'https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts'
         - name: Akışı değiştirme
           href: change-feed.md
         - name: Jeo-uzamsal
@@ -284,8 +283,12 @@
           href: powerbi-visualize.md
         - name: Veri görselleştirme için ODBC sürücüsünden yararlanma
           href: odbc-driver.md
+        - name: Spring Boot Başlatıcı’yı DocumentDB API’leriyle kullanma
+          href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Başvuru
   items:
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
     - name: DocumentDB API’leri
       items:
         - name: Java

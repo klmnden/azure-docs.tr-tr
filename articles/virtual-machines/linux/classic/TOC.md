@@ -82,6 +82,7 @@
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Bölgesel kullanılabilirlik](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

@@ -7,10 +7,11 @@
 
 # başlarken
 ## [Şablonu dışarı aktarma](resource-manager-export-template.md)
-## [İlk şablonunuzu oluşturma](resource-manager-create-first-template.md)
+## [Şablon oluşturma ve dağıtma](resource-manager-create-first-template.md)
 ## [Resource Manager ile Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Örnekler
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Şablon dağıtma](resource-manager-samples-powershell-deploy.md)
 
@@ -102,6 +103,7 @@
 ### [Dizi ve nesne işlevleri](resource-group-template-functions-array.md)
 ### [Karşılaştırma işlevleri](resource-group-template-functions-comparison.md)
 ### [Dağıtım işlevleri](resource-group-template-functions-deployment.md)
+### [Mantıksal işlevler](resource-group-template-functions-logical.md)
 ### [Sayısal işlevler](resource-group-template-functions-numeric.md)
 ### [Kaynak işlevleri](resource-group-template-functions-resource.md)
 ### [Dize işlevleri](resource-group-template-functions-string.md)
@@ -129,6 +131,7 @@
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [İstekleri azaltma](resource-manager-request-limits.md)

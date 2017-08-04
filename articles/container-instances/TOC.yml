@@ -29,9 +29,15 @@
       href: container-instances-multi-container-group.md
     - name: Azure dosya paylaşımlarıyla durumu yönetme
       href: container-instances-mounting-azure-files-volume.md
+- name: Başvuru
+  items:
+    - name: Azure CLI 2.0
+      href: /cli/azure/container
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Bölge kullanılabilirliği
       href: 'https://azure.microsoft.com/regions/services/'

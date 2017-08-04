@@ -8,6 +8,7 @@
 ## [Çok Siteli](application-gateway-multi-site-overview.md)
 ## [Uçtan Uca SSL’ye genel bakış](application-gateway-backend-ssl.md)
 ## [Yönlendirme](application-gateway-redirect-overview.md)
+## [Birden çok kiracı desteği](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Hizmet sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Başlarken
@@ -16,7 +17,8 @@
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager Şablonu](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
+#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
+#### [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 #### [PowerShell (klasik)](application-gateway-create-gateway.md)
 ### İç yönlü
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -40,6 +42,8 @@
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Yeniden yönlendirmeyi yapılandırma
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## Web uygulamalarını arka uç havuzu üyeleri olarak yapılandırma
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## Sistem durumu araştırmalarını yapılandırma
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
@@ -70,6 +74,7 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=networking)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

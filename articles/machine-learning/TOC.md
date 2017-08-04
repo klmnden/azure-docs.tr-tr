@@ -173,6 +173,7 @@
 
 # Başvuru
 
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [PowerShell modülü (Yeni)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell modülü (Klasik)](machine-learning-powershell-module.md)
 ## [Algoritmalar ve Modül başvurusu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
@@ -215,6 +216,7 @@
 
 ## [Net# Sinir Ağları Dili](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)

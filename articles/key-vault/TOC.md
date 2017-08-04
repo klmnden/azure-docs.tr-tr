@@ -33,6 +33,7 @@
 ### [CLI 2.0 aracılığıyla oluşturma ve yönetme](key-vault-manage-with-cli2.md)
 
 # Başvuru
+## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI 2.0](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -55,3 +56,4 @@
 ## [Kod örnekleri](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Forumlar](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

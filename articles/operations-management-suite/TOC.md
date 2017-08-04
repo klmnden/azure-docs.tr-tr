@@ -29,6 +29,7 @@
 ### [Kötü amaçlı yazılım değerlendirmesi](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Sistem güncelleştirme değerlendirmesi](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Güvenlik ürünlerini bağlama](oms-security-connect-products.md)
+### [Web temel değerlendirmesi](oms-security-web-baseline-assessment.md)
 
 ## Çözümleri kullanma
 ### [Yönetim çözümleri](operations-management-suite-solutions.md)
@@ -77,3 +78,4 @@
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

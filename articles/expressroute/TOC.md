@@ -32,6 +32,7 @@
 ### [Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma](expressroute-howto-coexist-resource-manager.md)
+## [Microsoft eşlemesi için rota filtreleri yapılandırma](how-to-routefilter-powershell.md)
 ## [Bir devreyi klasikten Resource Manager’a taşıma](expressroute-howto-move-arm.md)
 ## [İlişkili sanal ağları klasikten Resource Manager’a geçirme](expressroute-migration-classic-resource-manager.md)
 ## ExpressRoute için yönlendirici yapılandırma
@@ -67,6 +68,7 @@
 ## [Örnek Olay İncelemeleri](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Ağ Blogu](https://azure.microsoft.com/blog/topics/networking/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Abonelik ve Hizmet Sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)

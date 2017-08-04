@@ -222,6 +222,7 @@
 ## [Web İşi kaynaklarının listesi](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [MSDN forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 ## [Fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
