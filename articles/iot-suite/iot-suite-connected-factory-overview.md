@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: d9d4dcf16954b0cd831e017ecb305d30e3b36dc7
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: a7d31be48ef06064b01cdb2dfd0331b34adbec4d
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Önceden yapılandırılmış bağlı fabrika çözümlerini kullanmaya başlama
-
-## <a name="introduction"></a>Giriş
 
 Azure IoT Paketi [önceden yapılandırılmış çözümleri][lnk-preconfigured-solutions], ortak IoT iş senaryolarını uygulayan uçtan uca çözümler sunmak için birden çok Azure IoT hizmetini birleştirir. Önceden yapılandırılmış *bağlı fabrika* çözümü endüstriyel cihazlarınıza bağlanır ve cihazları izler. Çözümü kullanarak cihazlarınızdan yapılan veri akışını analiz edebilir, operasyonel verimliliği ve karlılığı artırabilirsiniz.
 

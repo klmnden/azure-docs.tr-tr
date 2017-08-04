@@ -32,7 +32,7 @@ Aracı düğüm sayısını değiştirmek için `az acs scale` komutunu çalış
 Örneğin, önceki kümede aracı sayısını 10 yapmak için aşağıdaki komutu yazın:
 
 ```azurecli
-azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
 Azure CLI 2.0, yeni aracı sayısı da dahil olmak üzere kapsayıcı hizmetinin yeni yapılandırmasını temsil eden bir JSON dizesi döndürür.

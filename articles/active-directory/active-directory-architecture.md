@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory mimarisini anlama | Microsoft Docs
-description: "Azure AD kiracısının ne olduğu ve Azure&quot;ın, Azure Active Directory üzerinden nasıl yönetileceği açıklanmaktadır."
+description: "Azure AD kiracısının ne olduğu ve Azure'ın, Azure Active Directory üzerinden nasıl yönetileceği açıklanmaktadır."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,14 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
 ms.contentlocale: tr-tr
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Azure Active Directory mimarisini anlama
@@ -31,10 +30,10 @@ Azure AD ile kullanıcı ve gruplar oluşturup bunları yönetebilir, ayrıca ku
 Azure AD’nin coğrafi olarak dağıtılmış mimarisi, müşterilerimize kurumsal düzeyde kullanılabilirlik ve performans sunmamızı sağlayan kapsamlı izleme, otomatik yeniden yönlendirme, yük devretme ve kurtarma özelliklerini bir araya getirir.
 
 Bu makalede aşağıdaki mimari öğeleri ele alınmaktadır:
- *    Hizmet mimarisi tasarımı
- *    Ölçeklenebilirlik 
- *    Sürekli kullanılabilirlik
- *    Veri merkezleri
+ *  Hizmet mimarisi tasarımı
+ *  Ölçeklenebilirlik 
+ *  Sürekli kullanılabilirlik
+ *  Veri merkezleri
 
 ### <a name="service-architecture-design"></a>Hizmet mimarisi tasarımı
 Ölçeklenebilir, yüksek oranda kullanılabilir ve veri bakımından zengin bir sistem oluşturmanın en yaygın yolu, Azure AD veri katmanı için bağımsız yapı taşları veya *bölüm* adı verilen ölçek birimleri kullanılmasıdır. 
@@ -87,7 +86,7 @@ Azure AD aşağıdaki özelliklere sahip veri merkezlerinde çalışır:
 
  * Kimlik Doğrulama, Grafik ve diğer AD hizmetleri, Gateway hizmetinin arkasında bulunur. Gateway bu hizmetlerin yük dengelemesini yönetir. İşlemsel sistem durumu araştırmaları kullanılarak sistem durumu iyi olmayan sunucuların algılanması durumunda, otomatik olarak yük devretmesi yapar. Bu sistem durumu araştırmalarına göre Gateway, trafiği sağlıklı veri merkezlerine dinamik olarak yönlendirir.
  * *Okumalar* için, dizin etkin-etkin bir yapılandırmada birden fazla veri merkezinde çalışan ikincil çoğaltmalara ve bunlara karşılık gelen ön uç hizmetlerine sahiptir. Tüm veri merkezinde hata oluşması durumunda, trafik otomatik olarak farklı bir veri merkezine yönlendirilir.
- *    *Yazma* işlemleri için fizin, birincil (ana) çoğaltmayı planlı (yeni birincil, eski birincil ile eşitlenir) veya acil durum yük devretme yordamları ile veri merkezlerine devreder. Veri dayanıklılığı, herhangi bir işlemenin en az iki veri merkezine çoğaltılması yoluyla elde edilir.
+ *  *Yazma* işlemleri için fizin, birincil (ana) çoğaltmayı planlı (yeni birincil, eski birincil ile eşitlenir) veya acil durum yük devretme yordamları ile veri merkezlerine devreder. Veri dayanıklılığı, herhangi bir işlemenin en az iki veri merkezine çoğaltılması yoluyla elde edilir.
 
 **Veri tutarlılığı**
 

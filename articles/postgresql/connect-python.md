@@ -12,10 +12,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/07/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 3cd090b02887857a68271f021e3580e05660d1dc
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Python'ı kullanma
@@ -50,7 +50,7 @@ PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgi
 
 ## <a name="how-to-run-python-code"></a>Python kodu çalıştırma
 - En sevdiğiniz metin düzenleyiciyi kullanarak postgres.py adlı yeni bir dosya oluşturun ve dosyayı proje klasörüne kaydedin. Aşağıda gösterilen bir kod örneğini kopyalayıp metin dosyasına yapıştırın ve dosyayı kaydedin. Dosyayı Windows işletim sisteminde kaydediyorsanız UTF-8 kodlamasını seçtiğinizden emin olun. 
-- Kodu çalıştırmak için komut istemi veya bash kabuğu başlatın. Dizini, proje klasörünüzle değiştirin; örneğin, `cd postgresql`. Sonra python komutunu ve ardından dosya adını yazın; örneğin, `python postgresql.py`.
+- Kodu çalıştırmak için komut istemi veya bash kabuğu başlatın. Dizini, proje klasörünüzle değiştirin; örneğin, `cd postgresql`. Sonra python komutunu ve ardından dosya adını yazın; örneğin, `python postgres.py`.
 
 > [!NOTE]
 > Python sürüm 3’ten başlayarak, aşağıdaki kod bloklarını çalıştırırken `SyntaxError: Missing parentheses in call to 'print'` hatasıyla karşılaşabilirsiniz. Bu hatayla karşılaşırsanız, her `print "string"` komutu çağrısını parantez kullanan bir işlev çağrısıyla değiştirin; örneğin, `print("string")`.
