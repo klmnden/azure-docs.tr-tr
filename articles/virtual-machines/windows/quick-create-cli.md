@@ -53,11 +53,7 @@ az group create --name myResourceGroup --location eastus
 Aşağıdaki örnekte *myVM* adlı bir VM oluşturulur. Bu örnekte yönetici kullanıcı için *azureuser* kullanıcı adı ve *myPassword12* parolası kullanılır. Bu değerleri ortamınız için uygun olan bir değerle güncelleştirin. Bu değerler, sanal makine ile bağlantı oluştururken gereklidir.
 
 ```azurecli-interactive 
-az vm create `
-  --resource-group myResourceGroup `
-  --name myVM --image win2016datacenter `
-  --admin-username azureuser `
-  --admin-password myPassword12
+az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
 ```
 
 VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir. `publicIpAaddress` değerini not edin. Bu adres, VM’ye erişmek için kullanılır.
