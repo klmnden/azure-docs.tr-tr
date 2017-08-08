@@ -2,9 +2,11 @@
 layout: LandingPage
 title: "Service Bus Geçişi Belgeleri"
 description: "Azure Geçiş hizmetinin bulut ve şirket içi karma ortamda nasıl çalıştığı hakkında bilgi alın ve nasıl yapılır, Öğreticiler, videolar, API başvuruları ve diğer kaynaklarla eğitimi tamamlayın."
-translationtype: Human Translation
-ms.sourcegitcommit: ef8188d6790dac8b420348887c480cd4fdab07c4
-ms.openlocfilehash: 911ad28e0e93b9b46b368de2cfbbbbc9f1183b7b
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="service-bus-relay-documentation"></a>Service Bus Geçişi Belgeleri
@@ -30,7 +32,7 @@ Azure Geçiş hizmetinin, bir güvenlik duvarı bağlantısı açmak ya da kurum
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-relay">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -112,8 +114,8 @@ Azure Geçiş hizmetinin, bir güvenlik duvarı bağlantısı açmak ya da kurum
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Örnekler</h3>
-                        <p><a href="/azure/service-bus-relay/service-bus-relay-samples">Service Bus Geçişi Örnekleri</a></p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -124,9 +126,8 @@ Azure Geçiş hizmetinin, bir güvenlik duvarı bağlantısı açmak ya da kurum
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
+                        <h3>Diller</h3>
+                        <p><a href="/dotnet/api/overview/azure/service-bus-relay">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -137,17 +138,12 @@ Azure Geçiş hizmetinin, bir güvenlik duvarı bağlantısı açmak ya da kurum
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Diğer</h3>
-                        <p><a href="service-bus-relay-port-settings.md">Bağlantı noktası ayarları</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicebus/">REST API başvurusu</a></p>
                    </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

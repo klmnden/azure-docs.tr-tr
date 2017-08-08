@@ -197,8 +197,8 @@ Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiy
   - Kubernetes giriş dış IP adresi (burada `squillace.io` kullanılmıştır) ile eşlenecek şekilde yapılandırdığınız kök dağıtım etki alanı
 
   `draft init` çağrısı yaptığınızda, yapılandırma işlemi sizden yukarıdaki değerleri girmenizi ister. İşlem ilk çalıştırıldığında aşağıdaki gibi görünür.
-    ```
-    draft init
+ ```bash
+    $ draft init
     Creating pack ruby...
     Creating pack node...
     Creating pack gradle...
