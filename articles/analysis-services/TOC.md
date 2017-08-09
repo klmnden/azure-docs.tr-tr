@@ -1,10 +1,10 @@
 # Genel Bakış
 ## [Azure Analysis Services nedir?](analysis-services-overview.md)
-## [Desteklenen veri kaynakları](analysis-services-datasource.md)
 
 # Hızlı Başlangıçlar
 ## [Sunucu oluşturma - portal](analysis-services-create-server.md)
-## [Bir model dağıtma - SSDT](analysis-services-deploy.md)
+## [Sunucu oluşturma - PowerShell](analysis-services-create-powershell.md)
+## [Model dağıtma - Visual Studio](analysis-services-deploy.md)
 
 # Öğreticiler
 ## Model oluşturma ve dağıtma
@@ -27,6 +27,7 @@
 ### [Ek ders - Düzensiz hiyerarşiler](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
 # Kavramlar
+## [Desteklenen veri kaynakları](analysis-services-datasource.md)
 ## [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md)
 ## [Yüksek kullanılabilirlik](analysis-services-bcdr.md)
 

@@ -92,6 +92,7 @@
 
 ### Kullanım
 #### [Genel Bakış](app-insights-usage-overview.md)
+#### [Kullanıcı Bağlamı Gönderme](app-insights-usage-send-user-context.md)
 #### [Kullanıcılar, Oturumlar, Etkinlikler](app-insights-usage-segmentation.md)
 #### [Huniler](usage-funnels.md)
 #### [Bekletme](app-insights-usage-retention.md)
@@ -131,7 +132,7 @@
 ### [Power BI’a aktarma](app-insights-export-power-bi.md)
 
 ## Güvenlik
-### [Veri koleksiyonu, bekletme ve depolama](app-insights-data-retention-privacy.md)
+### [Veri toplama, bekletme ve depolama](app-insights-data-retention-privacy.md)
 ### [Kaynaklar, roller ve erişim denetimi](app-insights-resources-roles-access-control.md)
 ### [IP adresleri](app-insights-ip-addresses.md)
 

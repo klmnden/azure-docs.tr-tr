@@ -11,7 +11,9 @@
 ## Planlama ve tasarım
 ### [Sanal ağlar](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Trafik filtreleme](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Şirket içi bağlantı](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Şirket içi ve dışı bağlantısı - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Şirket içi ve dışı bağlantısı - adanmış özel](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ##  Kavramlar
 ### [Sanal ağlar](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Ağ yük dengeleme](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -35,21 +37,24 @@
 ### [Uygulama yük dengelemesi özel sunucuları](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Sanal ağları bağlama (aynı konumlar)](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Sanal ağları bağlama (farklı konumlar)](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-## Şirket içi bağlantı
-### [Bir şirket içi ağa bağlanma (adanmış)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Bir şirket içi ağa bağlanma (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## Şirket içi ve dışı bağlantısı
+### [S2S VPN bağlantısı oluşturma (IPsec/IKE)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [P2S VPN bağlantısı oluşturma (sertifikalara sahip SSTP)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Adanmış özel bağlantı oluşturma (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ## Yönetim
 ### [Ağ topolojisini görüntüleme](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Paket yakalamayı yönetme](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Yönlendirmede sonraki atlamayı belirleme](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Bir VM için IP akışlarını doğrulama](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+
 ## Örnek komut dosyaları
 ### [Azure CLI](cli-samples.md)
 ### [PowerShell](powershell-samples.md)
+
 ## Öğreticiler
 ### [VM'ler için yük dengeleme](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Bilgisayarı sanal ağa bağlama](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-
 
 # Başvuru
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
