@@ -94,19 +94,19 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
 Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. DocumentDBRepository.cs dosyasını açtığınızda Azure Cosmos DB kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
 
-* 73. satırda DocumentClient başlatılır.
+* 73 satırda DocumentClient başlatılır.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
     ```
 
-* 88. satırda yeni bir veritabanı oluşturulur.
+* 88 satırda yeni bir veritabanı oluşturulur.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* 107. satırda yeni bir koleksiyon oluşturulur.
+* 107 satırda yeni bir koleksiyon oluşturulur.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
