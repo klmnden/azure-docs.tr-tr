@@ -6,19 +6,18 @@ services: application-gateway
 author: georgewallace
 manager: timlt
 editor: tysonn
-ms.assetid: 866e9b5f-0222-4b6a-a95f-77bc3d31d17b
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 07/31/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 5f1713365406764998de505ff62309bab9fa2567
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Azure Resource Manager kullanarak bir uygulama ağ geçidi oluşturma, başlatma veya silme
@@ -30,10 +29,7 @@ ms.lasthandoff: 07/25/2017
 > * [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar.
-Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok Application Delivery Controller (ADC) özelliği sunar.
-
-Desteklenen özelliklerin tam listesi için bkz. [Application Gateway’e Genel Bakış](application-gateway-introduction.md)
+Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ve performans yönlendirmeli HTTP istekleri sağlar. Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok uygulama teslim denetleyicisi (ADC) özelliği sunar. Desteklenen özelliklerin tam listesi için bkz. [Application Gateway’e genel bakış](application-gateway-introduction.md).
 
 Bu makale, uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme adımlarında size eşlik eder.
 
@@ -54,209 +50,106 @@ Bu makale, uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme a
 * **Dinleyici:** Dinleyicide bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu değerler büyük/küçük harfe duyarlıdır) ve SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa) vardır.
 * **Kural:** Kural dinleyiciyi arka uç sunucusu havuzunu bağlar ve belli bir dinleyicide trafik olduğunda trafiğin hangi arka uç sunucu havuzuna yönlendirileceğini belirler.
 
-## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
-
-Azure Klasik ve Azure Resource Manager’ın kullanımı arasındaki fark, uygulama ağ geçidi oluştururken takip ettiğiniz sıra ve yapılandırılması gereken öğelerdir.
-
-Resource Manager’da uygulama ağ geçidini oluşturan öğeler ayrı ayrı yapılandırılır ve sonra uygulama ağ geçidi kaynağı oluşturmak için bir araya getirilir.
-
-Uygulama ağ geçidi oluşturmak için gereken adımlar aşağıda verilmiştir.
-
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager için kaynak grubu oluşturun
 
 Azure PowerShell’in en yeni sürümünü kullandığınızdan emin olun. Daha fazla bilgi için bkz.[Resource Manager ile Windows PowerShell Kullanma](../powershell-azure-resource-manager.md)
 
-### <a name="step-1"></a>1. Adım
+1. Azure'da oturum açıp kimlik bilgilerinizi girin.
 
-Azure'da oturum açma
+  ```powershell
+  Login-AzureRmAccount
+  ```
 
-```powershell
-Login-AzureRmAccount
-```
+2. Hesapla ilişkili abonelikleri kontrol edin.
 
-Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 
-### <a name="step-2"></a>2. Adım
+3. Hangi Azure aboneliğinizin kullanılacağını seçin.
 
-Hesapla ilişkili abonelikleri kontrol edin.
+  ```powershell
+  Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+  ```
 
-```powershell
-Get-AzureRmSubscription
-```
+4. Bir kaynak grubu oluşturun (mevcut bir kaynak grubu kullanıyorsanız bu adımı atlayın).
 
-### <a name="step-3"></a>3. Adım
-
-Hangi Azure aboneliğinizin kullanılacağını seçin.
-
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
-
-### <a name="step-4"></a>4. Adım
-
-Bir kaynak grubu oluşturun (mevcut bir kaynak grubu kullanıyorsanız bu adımı atlayın).
-
-```powershell
-New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
-```
+  ```powershell
+  New-AzureRmResourceGroup -Name ContosoRG -Location "West US"
+  ```
 
 Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu konum, kaynak grubundaki kaynaklar için varsayılan konum olarak kullanılır. Uygulama ağ geçidi oluşturmak için verilen komutların aynı kaynak grubunu kullandığından emin olun.
 
-Yukarıdaki örnekte, **appgw-RG** adlı, **Batı ABD** konumlu bir kaynak grubu oluşturduk.
+Yukarıdaki örnekte, **ContosoRG** adlı, **Doğu ABD** konumlu bir kaynak grubu oluşturduk.
 
 > [!NOTE]
 > Uygulama ağ geçidiniz için özel bir araştırma yapılandırmanız gerekiyorsa, [PowerShell kullanarak özel araştırmalara sahip bir uygulama ağ geçidi oluşturma](application-gateway-create-probe-ps.md) sayfasını ziyaret edin. Daha fazla bilgi için [özel araştırmalar ve sistem durumu izleme](application-gateway-probe-overview.md) konusunu inceleyin.
 
-## <a name="create-a-virtual-network-and-a-subnet"></a>Sanal ağ ve alt ağ oluşturma
-
-Aşağıdaki örnek Resource Manager kullanarak nasıl sanal ağ oluşturulacağını gösterir. Bu örnek, Application Gateway için bir sanal ağ oluşturur. Application Gateway kendi alt ağını gerektirdiğinden, Application Gateway için oluşturulan alt ağ, sanal ağ adres alanından küçüktür. Daha küçük bir alt ağ kullanılması, web sunucularını da kapsayan ancak bunlarla sınırlı olmayan diğer kaynakların aynı sanal ağda yapılandırılmasına olanak tanır.
-
-### <a name="step-1"></a>1. Adım
-
-10.0.0.0/24 adres aralığını, sanal ağ oluşturmak için kullanılacak bir alt ağ değişkenine atayın. Bu adım, Application Gateway için sonraki örnekte kullanılan alt ağ yapılandırma nesnesini oluşturur.
-
-```powershell
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-```
-
-### <a name="step-2"></a>2. Adım
-
-Batı ABD bölgesi için 10.0.0.0/24 alt ağıyla 10.0.0.0/16 ön ekini kullanarak **appgw-rg** kaynak grubunda **appgwvnet** adlı bir sanal ağ oluşturun. Bu adım, Application Gateway’in bulunacağı tek bir alt ağ ile sanal ağın yapılandırmasını tamamlar.
-
-```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-```
-
-### <a name="step-3"></a>3. Adım
-
-Sonraki adımlar için alt ağ değişkenini atayın; bu değişken sonraki bir adımda `New-AzureRMApplicationGateway` cmdlet’ine geçirilir.
-
-```powershell
-$subnet=$vnet.Subnets[0]
-```
-
-## <a name="create-a-public-ip-address"></a>Genel IP adresi oluşturma
-
-Batı ABD bölgesi için **appgw-rg** kaynak grubunda **publicIP01** genel bir IP kaynağı oluşturun. Application Gateway, yük dengeleme isteklerini almak için genel IP adresi, iç IP adresi veya her ikisini birden kullanabilir.  Bu örnekte yalnızca genel IP adresi kullanılmaktadır. Aşağıdaki örnekte, genel IP adresi oluşturmak için bir DNS adı yapılandırılmaz.  Application Gateway, genel IP adreslerinde özel DNS adlarını desteklemez.  Genel bir uç nokta için özel bir ad gerekirse, genel IP adresi için otomatik oluşturulan DNS adını işaret eden bir CNAME kaydı oluşturulmalıdır.
-
-```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
-```
-
-> [!NOTE]
-> Hizmet başlatıldığında uygulama ağ geçidine bir IP adresi atanır.
 
 ## <a name="create-the-application-gateway-configuration-objects"></a>Uygulama ağ geçidi yapılandırma nesnelerini oluşturun
 
 Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturulmadan önce ayarlanmalıdır. Aşağıdaki adımlar uygulama ağ geçidi kaynağı için gerekli yapılandırma öğelerini oluşturur.
 
-### <a name="step-1"></a>1. Adım
-
-**gatewayIP01** adlı bir uygulama ağ geçidi IP yapılandırması oluşturun. Application Gateway başladığında, yapılandırılan alt ağdan bir IP adresi alır ve ağ trafiğini arka uç IP havuzundaki IP adreslerine yönlendirir. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
-
 ```powershell
+# Create a subnet and assign the address space of 10.0.0.0/24
+$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+
+# Create a virtual network with the address space of 10.0.0.0/16 and add the subnet
+$vnet = New-AzureRmVirtualNetwork -Name ContosoVNET -ResourceGroupName ContosoRG -Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+
+# Retrieve the newly created subnet
+$subnet=$vnet.Subnets[0]
+
+# Create a public IP address that is used to connect to the application gateway. Application Gateway does not support custom DNS names on public IP addresses.  If a custom name is required for the public endpoint, a CNAME record should be created to point to the automatically generated DNS name for the public IP address.
+$publicip = New-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -name publicIP01 -location "East US" -AllocationMethod Dynamic
+
+# Create a gateway IP configuration. The gateway picks up an IP addressfrom the configured subnet and routes network traffic to the IP addresses in the backend IP pool. Keep in mind that each instance takes one IP address.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
-```
 
-### <a name="step-2"></a>2. Adım
-
-**pool01** adlı arka uç IP adresi havuzunu **pool1** için IP adresleri ile yapılandırın. Bu IP adresleri, uygulama ağ geçidi tarafından korunacak web uygulamasını barındıran kaynakların IP adresleridir. Bu arka uç havuzunun tüm üyelerinin sistem durumu, temel araştırma veya özel araştırma olmasına bakılmaksızın araştırmalarla doğrulanmıştır.  Uygulama ağ geçidine istekler geldiğinde trafik bunlara yönlendirilir. Arka uç havuzları, uygulama ağ geçidinde birden fazla kural tarafından kullanılabilir; diğer bir deyişle, bir arka uç havuzu aynı ana bilgisayarda bulunan birden fazla web uygulaması için kullanılabilir.
-
-```powershell
+# Configure a backend pool with the addresses of your web servers. These backend pool members are all validated to be healthy by probes, whether they are basic probes or custom probes.  Traffic is then routed to them when requests come into the application gateway. Backend pools can be used by multiple rules within the application gateway, which means one backend pool could be used for multiple web applications that reside on the same host.
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
-```
 
-Bu örnekte, URL yolu temel alınarak ağ trafiğini yönlendirmek üzere iki arka uç havuzu bulunur. Bir havuz "/video" URL yolundan trafiği alırken, diğer havuz "/image" yolundan trafiği alır. Kendi uygulamanızın IP adresi uç noktalarını eklemek için önceki IP adreslerini değiştirin.
-
-### <a name="step-3"></a>3. Adım
-
-Arka uç havuzundaki yük dengeli ağ trafiği için **poolsetting** uygulama ağ geçidi ayarını yapılandırın. Her bir arka uç havuzu kendi arka uç havuzu ayarlarına sahip olabilir.  Arka uç HTTP ayarları, trafiği doğru arka uç havuzu üyelerine yönlendirmek üzere kurallar tarafından kullanılır. Arka uç HTTP ayarları, arka uç havuz üyelerine trafik gönderirken kullanılan protokolü ve bağlantı noktasını belirler. Tanımlama bilgisine dayalı oturumlar da arka uç HTTP ayarları tarafından belirlenir.  Etkinleştirilirse, tanımlama bilgisine dayalı oturum benzeşimi, her paket için önceki isteklerle aynı arka uca trafik gönderir.
-
-```powershell
+# Configure backend http settings to determine the protocol and port that is used when sending traffic to the backend servers. Cookie-based sessions are also determined by the backend HTTP settings.  If enabled, cookie-based session affinity sends traffic to the same backend as previous requests for each packet.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
-```
 
-### <a name="step-4"></a>4. Adım
-
-Bir uygulama ağ geçidi için ön uç bağlantı noktasını yapılandırın. Ön uç bağlantı noktası yapılandırma nesnesi, Application Gateway’in dinleyici üzerindeki trafik için hangi bağlantı noktasını dinlediğini tanımlamak üzere dinleyici tarafından kullanılır.
-
-```powershell
+# Configure a frontend port that is used to connect to the application gateway through the public IP address
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
-```
 
-### <a name="step-5"></a>5. Adım
-
-Ön uç IP’sini genel IP uç noktası ile yapılandırın. Ön uç IP yapılandırma nesnesi, dışa doğru IP adresini dinleyici ile ilişkilendirmek üzere dinleyici tarafından kullanılır.
-
-```powershell
+# Configure the frontend IP configuration with the public IP address created earlier.
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
-```
 
-### <a name="step-6"></a>6. Adım
-
-Dinleyiciyi yapılandırın. Bu adım, gelen ağ trafiğini almak için kullanılan genel IP adresi ve bağlantı noktası için dinleyiciyi yapılandırır. Aşağıdaki örnek daha önce yapılandırılmış ön uç IP yapılandırmasını, ön uç bağlantı noktası yapılandırmasını ve bir protokolü (http veya https) alıp dinleyiciyi yapılandırır. Bu örnekte, dinleyici daha önce oluşturulan genel IP adresi üzerinde bağlantı noktası 80 üzerindeki HTTP trafiğini dinler.
-
-```powershell
+# Configure the listener.  The listener is a combination of the front end IP configuration, protocol, and port and is used to receive incoming network traffic. 
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
-```
 
-### <a name="step-7"></a>7. Adım
-
-Yük dengeleyici davranışını yapılandıran **rule01** adlı yük dengeleyiciyi yönlendirme kuralını oluşturun. Arka uç havuzu ayarları, dinleyici ve önceki adımlarda oluşturulan arka uç havuzu kuralı oluşturur. Tanımlanan ölçütler temel alınarak, trafik uygun arka uca yönlendirilir.
-
-```powershell
+# Configure a basic rule that is used to route traffic to the backend servers. The backend pool settings, listener, and backend pool created in the previous steps make up the rule. Based on the criteria defined traffic is routed to the appropriate backend.
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-```
 
-### <a name="step-8"></a>8. Adım
-
-Uygulama ağ geçidi için örnek sayısını ve boyutu yapılandırın.
-
-```powershell
+# Configure the SKU for the application gateway, this determines the size and whether or not WAF is used.
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+
+# Create the application gateway
+$appgw = New-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-> [!NOTE]
-> **InstanceCount** için varsayılan değer 2 ile 10 arasıdır. **GatewaySize** için varsayılan değer Medium’dur. Aynı zamanda **Standard_Small**, **Standard_Medium**, ve **Standard_Large** seçenekleri de bulunmaktadır.
-
-## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
-
-Önceki adımlarda geçen tüm yapılandırma öğeleri ile bir uygulama ağ geçidi oluşturun. Bu örnekte uygulama ağ geçidi **appgwtest** olarak adlandırılmıştır.
+İşlem tamamlandığında, uygulama ağ geçidine eklenen ortak IP kaynağından uygulama ağ geçidinin DNS ve VIP bilgilerini alın.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
-```
-
-Uygulama ağ geçidine eklenen ortak IP kaynağından uygulama ağ geçidinin DNS ve VIP bilgilerini alın.
-
-```powershell
-Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
+Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName ContosoRG
 ```
 
 ## <a name="delete-the-application-gateway"></a>Uygulama ağ geçidini silme
 
-Uygulama ağ geçidini silmek için aşağıdaki adımları izleyin:
-
-### <a name="step-1"></a>1. Adım
-
-Uygulama ağ geçidi nesnesini alın ve `$getgw` değişkenine ilişkilendirin.
+Aşağıdaki örnekte uygulama ağ geçidi silinir.
 
 ```powershell
-$getgw = Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-```
+# Retrieve the application gateway
+$gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG
 
-### <a name="step-2"></a>2. Adım
+# Stops the application gateway
+Stop-AzureRmApplicationGateway -ApplicationGateway $gw
 
-Uygulama ağ geçidini sonlandırmak için `Stop-AzureRmApplicationGateway` hizmetini kullanın.
-
-```powershell
-Stop-AzureRmApplicationGateway -ApplicationGateway $getgw
-```
-
-Uygulama ağ geçidi durdurulmuş konumda olduğunda, hizmeti kaldırmak için `Remove-AzureRmApplicationGateway` cmdlet’ini kullanın.
-
-```powershell
-Remove-AzureRmApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
+# Once the application gateway is in a stopped state, use the `Remove-AzureRmApplicationGateway` cmdlet to remove the service.
+Remove-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG -Force
 ```
 
 > [!NOTE]
@@ -265,22 +158,25 @@ Remove-AzureRmApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -F
 Hizmetin kaldırıldığını doğrulamak için `Get-AzureRmApplicationGateway` cmdlet’ini kullanabilirsiniz. Bu adım gerekli değildir.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG
 ```
 
 ## <a name="get-application-gateway-dns-name"></a>Uygulama ağ geçidi DNS adını alma
 
-Ağ geçidi oluşturulduktan sonraki adım, iletişim için ön uç yapılandırması yapmaktır. Genel IP kullanırken uygulama ağ geçidi için dinamik olarak atanan DNS adı gerekir ve bu durum çok kullanışlı değildir. Son kullanıcıların uygulama ağ geçidine ulaşmasını sağlamak için uygulama ağ geçidinin genel uç noktasını işaret edecek bir CNAME kaydı kullanılabilir. [Azure’da özel etki alanı adı yapılandırma](../cloud-services/cloud-services-custom-domain-name-portal.md). Dinamik olarak oluşturulan DNS adını bulmak için, uygulama ağ geçidinin ayrıntılarını ve onunla ilişkilendirilmiş olan IP/DNS adını uygulama ağ geçidine eklenmiş PublicIPAddress öğesini kullanarak alın. Uygulama ağ geçidinin DNS adı, iki web uygulamasını bu DNS adına götüren bir CNAME kaydı oluşturmak için kullanılmalıdır. Uygulama ağ geçidi yeniden başlatıldığında VIP değişebileceğinden A kaydı kullanımı önerilmez.
+Ağ geçidi oluşturulduktan sonraki adım, iletişim için ön uç yapılandırması yapmaktır. Genel IP kullanırken uygulama ağ geçidi için dinamik olarak atanan DNS adı gerekir ve bu durum çok kullanışlı değildir. Son kullanıcıların uygulama ağ geçidine ulaşmasını sağlamak için uygulama ağ geçidinin genel uç noktasını işaret edecek bir CNAME kaydı kullanılabilir. Bunu yapmak için uygulama ağ geçidinin ayrıntılarını ve onunla ilişkilendirilmiş olan IP/DNS adını uygulama ağ geçidine eklenmiş PublicIPAddress öğesini kullanarak alın. Bu işlem Azure DNS veya diğer DNS sağlayıcıları ile [genel IP adresini](../dns/dns-custom-domain.md#public-ip-address) işaret eden bir CNAME kaydı oluşturularak yapılabilir. Uygulama ağ geçidi yeniden başlatıldığında VIP değişebileceğinden A kaydı kullanımı önerilmez.
+
+> [!NOTE]
+> Hizmet başlatıldığında uygulama ağ geçidine bir IP adresi atanır.
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+Get-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -Name publicIP01
 ```
 
 ```
 Name                     : publicIP01
-ResourceGroupName        : appgw-RG
+ResourceGroupName        : ContosoRG
 Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
+Id                       : /subscriptions/<subscription_id>/resourceGroups/ContosoRG/providers/Microsoft.Network/publicIPAddresses/publicIP01
 Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
 ResourceGuid             : 00000000-0000-0000-0000-000000000000
 ProvisioningState        : Succeeded
@@ -290,7 +186,7 @@ IpAddress                : xx.xx.xxx.xx
 PublicIpAddressVersion   : IPv4
 IdleTimeoutInMinutes     : 4
 IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
+                                "Id": "/subscriptions/<subscription_id>/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/ContosoAppGateway/frontendIP
                             Configurations/frontend1"
                             }
 DnsSettings              : {
@@ -300,10 +196,10 @@ DnsSettings              : {
 
 ## <a name="delete-all-resources"></a>Tüm kaynakları silme
 
-Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları tamamlayın:
+Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımı tamamlayın:
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgw-RG
+Remove-AzureRmResourceGroup -Name ContosoRG
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -316,5 +212,4 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
 

@@ -6,43 +6,38 @@ documentationcenter:
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/18/2017
+ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 80fd9d79652e4f0d9c4c524e3a762bcc3462bb53
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 
-# <a name="create-your-first-azure-resource-manager-template"></a>İlk Azure Resource Manager şablonunuzu oluşturma
+# <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>İlk Azure Resource Manager şablonunuzu oluşturma ve dağıtma
 Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adımları gösterilmektedir. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md). Kaynaklarınız varsa ve bu kaynaklara yönelik bir şablon almak istiyorsanız bkz. [Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
 
-Şablonları oluşturup düzeltmek için bir JSON düzenleyicisi gerekir. [Visual Studio Code](https://code.visualstudio.com/) basit, açık kaynaklı ve platformlar arası bir kod düzenleyicisidir. Resource Manager şablonlarını bir uzantı ile oluşturup düzenlemeyi destekler. Bu konu başlığı, VS Code kullandığınızı varsayar; ancak başka bir JSON düzenleyiciniz (Visual Studio gibi) varsa kullanabilirsiniz.
+Şablonları oluşturup düzeltmek için bir JSON düzenleyicisi gerekir. [Visual Studio Code](https://code.visualstudio.com/) basit, açık kaynaklı ve platformlar arası bir kod düzenleyicisidir. Resource Manager şablonları oluşturmak için Visual Studio Code kullanılması önerilir. Bu konu başlığı, VS Code kullandığınızı varsayar; ancak başka bir JSON düzenleyiciniz (Visual Studio gibi) varsa kullanabilirsiniz.
 
-## <a name="get-vs-code-and-extension"></a>VS Code ve uzantıyı alma
-1. Gerekirse, VS kodu [https://code.visualstudio.com/](https://code.visualstudio.com/) adresinden yükleyin.
+## <a name="prerequisites"></a>Ön koşullar
 
-2. [Azure Resource Manager Araçları](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) uzantısını yüklemek için Hızlı Aç (Ctrl+P) menüsüne erişip şu komutu çalıştırın: 
+* Visual Studio Code. Gerekirse, [https://code.visualstudio.com/](https://code.visualstudio.com/) adresinden yükleyin.
+* Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-   ```
-   ext install msazurermtools.azurerm-vscode-tools
-   ```
+## <a name="create-template"></a>Şablon oluşturma
 
-3. Uzantının etkinleştirilmesi istendiğinde VS Code’u yeniden başlatın.
+Aboneliğinize bir depolama hesabı dağıtan basit bir şablonla başlayalım.
 
-## <a name="create-blank-template"></a>Boş şablon oluşturma
+1. **Dosya** > **Yeni Dosya**’yı seçin. 
 
-İlk olarak, bir şablonun yalnızca temel bölümlerini içeren boş bir şablon oluşturalım.
-
-1. Bir dosya oluşturun. 
+   ![Yeni dosya](./media/resource-manager-create-first-template/new-file.png)
 
 2. Aşağıdaki JSON söz dizimini kopyalayıp dosyanıza yapıştırın:
 
@@ -50,248 +45,176 @@ Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adım
    {
      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
      "contentVersion": "1.0.0.0",
-     "parameters": {  },
-     "variables": {  },
-     "resources": [  ],
-     "outputs": {  }
-   }
-   ```
-
-3. Bu dosyayı **azuredeploy.json** olarak kaydedin. 
-
-## <a name="add-storage-account"></a>Depolama hesabı ekleme
-1. Dağıtıma yönelik bir depolama hesabı tanımlamak için, ilgili depolama hesabını şablonunuzun **kaynaklar** bölümüne ekleyin. Depolama hesabı için kullanılabilen değerleri bulmak için [depolama hesapları şablon başvurusuna](/azure/templates/microsoft.storage/storageaccounts) bakın. Depolama hesabı için gösterilen JSON dosyasını kopyalayın. 
-
-3. Aşağıdaki örnekte gösterildiği gibi, bu JSON dosyasını şablonunuzun **kaynaklar** bölümüne yapıştırın: 
-
-   ```json
-   {
-     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {  },
-     "variables": {  },
+     "parameters": {
+     },
+     "variables": {
+     },
      "resources": [
        {
-         "name": "string",
+         "name": "[concat('storage', uniqueString(resourceGroup().id))]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-12-01",
+         "apiVersion": "2016-01-01",
          "sku": {
-           "name": "string"
+           "name": "Standard_LRS"
          },
-         "kind": "string",
-         "location": "string",
+         "kind": "Storage",
+         "location": "South Central US",
          "tags": {},
-         "properties": {
-           "customDomain": {
-             "name": "string",
-             "useSubDomain": boolean
-           },
-           "encryption": {
-             "services": {
-               "blob": {
-                 "enabled": boolean
-               }
-             },
-             "keySource": "Microsoft.Storage"
-           },
-           "accessTier": "string"
-         }
+         "properties": {}
        }
      ],
      "outputs": {  }
    }
    ```
 
-  VS Code, 2016-12-01'in geçerli bir API sürümü olmadığını bildirebilir. Şablon başvuru belgelerindeki bir sürüm numarasını kullanıyorsanız bu uyarıyı yoksayabilirsiniz. Şema, kaynak sağlayıcısındaki en güncel sürüm numarası ile güncelleştirilmediğinde bu uyarıyı alırsınız. 
-  
-  Önceki örnek çok sayıda yer tutucu değeri ve depolama hesabınızda gerekli olmayabilecek bazı özellikler içermektedir.
+   Depolama hesabı adlarını ayarlamayı zorlaştıran birkaç kısıtlama vardır. Ad 3 ila 24 karakter uzunluğunda olmalı, yalnızca sayı ile küçük harf içermeli ve benzersiz olmalıdır. Önceki şablonda bir karma değer oluşturmak için [uniqueString](resource-group-template-functions-string.md#uniquestring) kullanılmıştır. Bu karma değere daha fazla anlam katmak için *storage* ön eki getirilmiştir. 
 
-## <a name="set-values-for-storage-account"></a>Depolama hesabı değerlerini ayarlama
+3. Bu dosyayı yerel bir klasöre **azuredeploy.json** olarak kaydedin.
 
-Artık depolama hesabınızın değerlerini ayarlamaya hazırsınız. 
+   ![Şablonu kaydetme](./media/resource-manager-create-first-template/save-template.png)
 
-1. JSON dosyasını kopyaladığınız [depolama hesapları şablon başvurusuna](/azure/templates/microsoft.storage/storageaccounts) tekrar bakın. Özellikleri açıklayan ve kullanılabilir değerleri sağlayan çok sayıda tablo mevcuttur. 
+## <a name="deploy-template"></a>Şablon dağıtma
 
-2. **Properties** öğesinde **customDomain**, **encryption** ve **accessTier** seçeneklerinin gerekli değil olarak listelendiğine dikkat edin. Bu değerler senaryolarınız için önemli olabilir, ancak bu örneği basit tutmak için kaldıralım.
+Bu şablonu dağıtmaya hazırsınız. Bir kaynak grubu oluşturmak için PowerShell veya Azure CLI kullanın. Ardından, bu kaynak grubuna bir depolama hesabı dağıtın.
 
-   ```json
-   "resources": [
-     {
-       "name": "string",
-       "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-12-01",
-       "sku": {
-         "name": "string"
-       },
-       "kind": "string",
-       "location": "string",
-       "tags": {},
-       "properties": {
-       }
-     }
-   ],
+* PowerShell için, şablonu içeren klasörden aşağıdaki komutları kullanın:
+
+   ```powershell
+   Login-AzureRmAccount
+   
+   New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+   New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
    ```
 
-3. Şu anda, **kind** öğesi bir yer tutucu değerine ("dize") ayarlanmıştır. VS Code, şablonunuzda kullanılacak değerleri anlamanıza yardımcı olan çok sayıda özellik içerir. VS Code’un, bu değerin geçerli olmadığını gösterdiğine dikkat edin. Fare ile "dize" üzerine gelirseniz, VS Code **kind** için geçerli değerleri `Storage` veya `BlobStorage` olarak önerir. 
+* Yerel bir Azure CLI yüklemesi için, şablonu içeren klasörden aşağıdaki komutları kullanın:
 
-   ![VS Code tarafından önerilen değerleri göster](./media/resource-manager-create-first-template/vs-code-show-values.png)
+   ```azurecli
+   az login
 
-   Kullanılabilir değerleri görmek için çift tırnak içindeki karakterleri silin ve **Ctrl+Ara Çubuğu** tuşlarını seçin. Kullanılabilir seçeneklerden **Depolama** öğesini seçin.
-  
-   ![IntelliSense’i göster](./media/resource-manager-create-first-template/intellisense.png)
-
-   VS Code kullanmıyorsanız, depolama hesapları şablon başvurusu sayfasına bakın. Açıklamada aynı geçerli değerlerin listelendiğine dikkat edin. Öğeyi **Depolama**’ya ayarlayın.
-
-   ```json
-   "kind": "Storage",
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
 
-Şablonunuz şimdi şuna benzer görünmelidir:
+Dağıtım tamamlandığında, depolama hesabınız kaynak grubunda mevcut olur.
+
+## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell'den şablon dağıtma
+
+[Cloud Shell](../cloud-shell/overview.md)’i kullanarak, şablonunuzu dağıtmak için Azure CLI komutlarını çalıştırabilirsiniz. Ancak, ilk olarak şablonunuzu Cloud Shell dosya paylaşımına yüklemeniz gerekir. Daha önce Cloud Shell kullanmadıysanız, kurulumu hakkında bilgi için bkz. [Azure Cloud Shell’e Genel Bakış](../cloud-shell/overview.md).
+
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.   
+
+2. Cloud Shell kaynak grubunuzu seçin. Ad deseni `cloud-shell-storage-<region>` şeklindedir.
+
+   ![Kaynak grubu seçin](./media/resource-manager-create-first-template/select-cs-resource-group.png)
+
+3. Cloud Shell için depolama hesabınızı seçin.
+
+   ![Depolama hesabı seçme](./media/resource-manager-create-first-template/select-storage.png)
+
+4. **Dosyalar**’ı seçin.
+
+   ![Dosya seçme](./media/resource-manager-create-first-template/select-files.png)
+
+5. Cloud Shell için dosya paylaşımı seçin. Ad deseni `cs-<user>-<domain>-com-<uniqueGuid>` şeklindedir.
+
+   ![Dosya paylaşımı seçme](./media/resource-manager-create-first-template/select-file-share.png)
+
+6. **Dizin ekle**’yi seçin.
+
+   ![Dizin ekleme](./media/resource-manager-create-first-template/select-add-directory.png)
+
+7. **Şablonlar** olarak adlandırıp **Tamam**’ı seçin.
+
+   ![Ad dizini](./media/resource-manager-create-first-template/name-templates.png)
+
+8. Yeni dizininizi seçin.
+
+   ![Dizin seçme](./media/resource-manager-create-first-template/select-templates.png)
+
+9. **Karşıya Yükle**’yi seçin.
+
+   ![Karşıya yükleme seçme](./media/resource-manager-create-first-template/select-upload.png)
+
+10. Şablonunuzu bulup karşıya yükleyin.
+
+   ![Dosya yükleme](./media/resource-manager-create-first-template/upload-files.png)
+
+11. İstemi açın.
+
+   ![Cloud Shell’i açma](./media/resource-manager-create-first-template/start-cloud-shell.png)
+
+12. Cloud Shell’e aşağıdaki komutları girin:
+
+   ```azurecli
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+   ```
+
+Dağıtım tamamlandığında, depolama hesabınız kaynak grubunda mevcut olur.
+
+## <a name="customize-the-template"></a>Şablonu özelleştirme
+
+Şablon düzgün çalışır, ancak esnek değildir. Şablon ABD Orta Güney bölgesine her zaman yerel olarak yedekli depolama dağıtır. Ad her zaman *storage* ve ardından bir karma değer içerir. Şablonu farklı senaryolar için kullanmak üzere şablona parametreler ekleyin.
+
+Aşağıdaki örnekte iki parametre ile birlikte parametreler bölümü gösterilmektedir. İlk `storageSKU` parametresi, yedeklilik türünü belirtmenize olanak sağlar. Bir depolama hesabı için geçerli olan değerlere geçirebileceğiniz değerleri sınırlar. Ayrıca, varsayılan bir değer belirtir. İkinci `storageNamePrefix` parametresi en çok 11 karaktere izin verecek şekilde ayarlanır. Varsayılan bir değer belirtir.
 
 ```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {  },
-  "variables": {  },
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "Storage",
-      "location": "string",
-      "tags": {},
-      "properties": {
-      }
+"parameters": {
+  "storageSKU": {
+    "type": "string",
+    "allowedValues": [
+      "Standard_LRS",
+      "Standard_ZRS",
+      "Standard_GRS",
+      "Standard_RAGRS",
+      "Premium_LRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+      "description": "The type of replication to use for the storage account."
     }
-  ],
-  "outputs": {  }
-}
-```
-
-## <a name="add-template-function"></a>Şablon işlevi ekleme
-
-Şablonun söz dizimini basitleştirmek ve yalnızca şablon dağıtılırken kullanılabilen değerleri almak için, şablonunuzun içindeki işlevleri kullanırsınız. Tüm şablon işlevleri hakkında bilgi edinmek için bkz. [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
-
-Depolama hesabının kaynak grubuyla aynı konuma dağıtıldığını belirtmek için **location** özelliğini şu şekilde ayarlayın:
-
-```json
-"location": "[resourceGroup().location]",
-```
-
-VS Code yine kullanılabilir işlevler önererek size yardımcı olur. 
-
-![işlevleri göster](./media/resource-manager-create-first-template/show-functions.png)
-
-İşlevin köşeli ayraç içine alındığına dikkat edin. [ResourceGroup](resource-group-template-functions-resource.md#resourcegroup) işlevi, `location` adlı bir özellikle nesne döndürür. Kaynak grubu, çözümünüzle ilgili tüm kaynakları tutar. Location özelliğini "Orta ABD" gibi bir değere kodlayabilirsiniz, ancak farklı bir konuma yeniden dağıtmak için şablonu el ile değiştirmeniz gerekecektir. `resourceGroup` işlevinin kullanılması, bu şablonun farklı bir konumdaki farklı bir kaynak grubuna dağıtılmasını kolaylaştırır.
-
-Şablonunuz şimdi şuna benzer görünmelidir:
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {  },
-  "variables": {  },
-  "resources": [
-    {
-      "name": "string",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "string"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
+  },
+  "storageNamePrefix": {
+    "type": "string",
+    "maxLength": 11,
+    "defaultValue": "storage",
+    "metadata": {
+      "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
     }
-  ],
-  "outputs": {  }
-}
+  }
+},
 ```
 
-## <a name="add-parameters-and-variables"></a>Parametre ve değişken ekleme
-Şablonunuzda ayarlanması gereken yalnızca iki değer kalmıştır: **name** ve **sku.name**. Bu özellikler için, dağıtım sırasında bu değerleri özelleştirmenize olanak tanıyan parametreleri ekleyin. 
+Değişkenler bölümünde `storageName` adlı bir değişken ekleyin. Bu değişken, parametrelerden bir ön ek değerini [uniqueString](resource-group-template-functions-string.md#uniquestring) işlevindeki bir karma değer ile birleştirir. Tüm karakterleri küçük harfe dönüştürmek için [toLower](resource-group-template-functions-string.md#tolower) işlevini kullanır.
 
-Depolama hesabı adlarını ayarlamayı zorlaştıran birkaç kısıtlama vardır. Ad 3 ila 24 karakter uzunluğunda olmalı, yalnızca sayı ile küçük harf içermeli ve benzersiz olmalıdır. Kısıtlamalara uyan benzersiz bir değer tahmin etmeye çalışmak yerine, [uniqueString](resource-group-template-functions-string.md#uniquestring) işlevini kullanarak bir karma değer oluşturabilirsiniz. Bu karma değere daha fazla anlam katmak için, dağıtımdan sonra değeri depolama hesabı olarak tanımlamanıza yardımcı olacak bir ön ek ekleyin. 
+```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
+```
 
-1. Adlandırma kurallarınıza uyan bir ad ön eki geçirmek için şablonunuzun **parametreler** bölümüne gidin. Şablona, depolama hesabı adı için ön ek kabul eden bir parametre ekleyin:
+Depolama hesabınız için bu yeni değerleri kullanmak üzere kaynak tanımını değiştirin:
 
-   ```json
-   "parameters": {
-     "storageNamePrefix": {
-       "type": "string",
-       "maxLength": 11,
-       "defaultValue": "storage",
-       "metadata": {
-         "description": "The value to use for starting the storage account name."
-       }
-     }
-   },
-   ```
+```json
+"resources": [
+  {
+    "name": "[variables('storageName')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "[parameters('storageSKU')]"
+    },
+    "kind": "Storage",
+    "location": "[resourceGroup().location]",
+    "tags": {},
+    "properties": {}
+  }
+],
+```
 
-  `uniqueString` 13 karakter döndürdüğünden ve ad 24 karakterden uzun olamayacağından, ön ek en fazla 11 karakter ile sınırlıdır. Dağıtım sırasında parametre için bir değer geçirmezseniz varsayılan değer kullanılır.
+Depolama hesabı adının eklediğiniz değişkene ayarlandığına dikkat edin. SKU adı, parametre değerine ayarlanır. Konum, kaynak grubu ile aynı konuma ayarlanır.
 
-2. Şablonun **değişkenler** bölümüne gidin. Ön ek ve benzersiz dizeden adı oluşturmak için aşağıdaki değişkeni ekleyin:
-
-   ```json
-   "variables": {
-     "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
-   },
-   ```
-
-3. **Kaynaklar** bölümünde depolama hesabı adını bu değişkene ayarlayın.
-
-   ```json
-   "name": "[variables('storageName')]",
-   ```
-
-3. Depolama hesabı için farklı SKU'ları geçirmeyi etkinleştirmek için **parametreler** bölümüne gidin. Depolama adı ön ekine ait parametreden sonra, izin verilen SKU değerlerini ve varsayılan değeri belirten bir parametre ekleyin. İzin verilen değerleri şablon başvurusu sayfasından veya VS Code’dan bulabilirsiniz. Aşağıdaki örnekte, SKU için tüm geçerli değerleri eklersiniz. Ancak, izin verilen değerleri yalnızca bu şablon aracılığıyla dağıtmak istediğiniz SKU'lar ile sınırlayabilirsiniz.
-
-   ```json
-   "parameters": {
-     "storageNamePrefix": {
-       "type": "string",
-       "maxLength": 11,
-       "defaultValue": "storage",
-       "metadata": {
-         "description": "The value to use for starting the storage account name."
-       }
-     },
-     "storageSKU": {
-       "type": "string",
-       "allowedValues": [
-         "Standard_LRS",
-         "Standard_ZRS",
-         "Standard_GRS",
-         "Standard_RAGRS",
-         "Premium_LRS"
-       ],
-       "defaultValue": "Standard_LRS",
-       "metadata": {
-         "description": "The type of replication to use for the storage account."
-       }
-     }
-   },
-   ```
-
-3. Parametrenin değerini kullanmak için SKU özelliğini değiştirin:
-
-   ```json
-   "sku": {
-     "name": "[parameters('storageSKU')]"
-   },
-   ```    
-
-4. Dosyanızı kaydedin.
-
-## <a name="final-template"></a>Son şablon
+Dosyanızı kaydedin. 
 
 Bu makaledeki adımları tamamladıktan sonra, artık şablonunuz şöyle görünür:
 
@@ -300,14 +223,6 @@ Bu makaledeki adımları tamamladıktan sonra, artık şablonunuz şöyle görü
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name."
-      }
-    },
     "storageSKU": {
       "type": "string",
       "allowedValues": [
@@ -321,32 +236,77 @@ Bu makaledeki adımları tamamladıktan sonra, artık şablonunuz şöyle görü
       "metadata": {
         "description": "The type of replication to use for the storage account."
       }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
     }
   },
   "variables": {
-    "storageName": "[concat(parameters('storageNamePrefix'), uniqueString(resourceGroup().id))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
+      "apiVersion": "2016-01-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },
       "kind": "Storage",
       "location": "[resourceGroup().location]",
       "tags": {},
-      "properties": {
-      }
+      "properties": {}
     }
   ],
   "outputs": {  }
 }
 ```
 
+## <a name="redeploy-template"></a>Şablonu yeniden dağıtma
+
+Şablonu farklı değerlerle yeniden dağıtın.
+
+PowerShell için şunu kullanın:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix newstore -storageSKU Standard_RAGRS
+```
+
+Azure CLI için şunu kullanın:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
+```
+
+Cloud Shell için, değiştirdiğiniz şablonu dosya paylaşımına yükleyin. Var olan dosyanın üzerine yazın. Ardından, aşağıdaki komutu kullanın:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
+```
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli değilse, kaynak grubunu silerek dağıttığınız kaynakları temizleyin.
+
+PowerShell için şunu kullanın:
+
+```powershell
+Remove-AzureRmResourceGroup -Name examplegroup
+```
+
+Azure CLI için şunu kullanın:
+
+```azurecli
+az group delete --name examplegroup
+```
+
 ## <a name="next-steps"></a>Sonraki adımlar
-* Şablonunuz tamamlanır ve şablonu aboneliğinize dağıtmaya hazır olursunuz. Dağıtmak için bkz. [Kaynakları Azure’a dağıtma](resource-manager-quickstart-deploy.md).
 * Bir şablonun yapısı hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
+* Bir depolama hesabının özellikleri hakkında bilgi edinmek için bkz. [depolama hesapları şablon başvurusu](/azure/templates/microsoft.storage/storageaccounts).
 * Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).
 

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 9353ad6df121ebd2e92a5d34214c32e852ed60a3
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 9b50f1cca81348b69f7ff2d702c6c72871afe0a0
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="getting-started-with-notification-hubs-for-windows-universal-platform-apps"></a>Windows Evrensel Platform Uygulamaları için Notification Hubs'ı kullanmaya başlama
@@ -49,33 +48,30 @@ Bu öğreticinin tamamlanması Windows Evrensel Platform uygulamalarına ilişki
 UWP uygulamalarına anında iletme bildirimleri göndermek için uygulamanızı Windows Mağazası ile ilişkilendirmeniz gerekir. Daha sonra, WNS ile tümleştirmek için bildirim hub'ınızı yapılandırmanız gerekir.
 
 1. Uygulamanızı henüz kaydetmediyseniz [Windows Geliştirme Merkezi](https://dev.windows.com/overview)'ne gidin, Microsoft hesabınızla oturum açın ve ardından **Yeni uygulama oluştur**'a tıklayın.
-2. Uygulamanız için bir ad yazın ve **Uygulama adını ayır**'a tıklayın.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
-   
-   Bu, uygulamanız için yeni bir Windows Mağazası kaydı oluşturur.
-3. Visual Studio'da, **Boş Uygulama** şablonunu kullanarak yeni bir Visual C# Mağaza Uygulamaları projesi oluşturun ve **Tamam**’a tıklayın.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png)
+
+2. Uygulamanız için bir ad yazın ve **Uygulama adını ayır**'a tıklayın. Bu, uygulamanız için yeni bir Windows Mağazası kaydı oluşturur.
+
+3. Visual Studio'da, Windows Evrensel **Boş Uygulama** şablonunu kullanarak yeni bir Visual C# Mağaza Uygulamaları projesi oluşturun ve **Tamam**’a tıklayın.
+
 4. Hedef ve en düşük platform sürümleri için varsayılan değerleri kabul edin.
-5. Çözüm Gezgini'nde, Windows Mağazası uygulama projesine sağ tıklayın, **Mağaza**'ya ve ardından **Uygulamayı Mağaza ile ilişkilendir...** seçeneğine tıklayın.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png)
 
-   **Uygulamanızı Windows Mağazası ile ilişkilendirin** sihirbazı görüntülenir.
+5. Çözüm Gezgini'nde, Windows Mağazası uygulama projesine sağ tıklayın, **Mağaza**'ya ve ardından **Uygulamayı Mağaza ile ilişkilendir...** seçeneğine tıklayın. **Uygulamanızı Windows Mağazası ile ilişkilendirin** sihirbazı görüntülenir.
 
-1. Sihirbazda **Oturum aç**'a tıklayın ve ardından Microsoft hesabınızla oturum açın.
-2. 2 adımda kaydettiğiniz uygulamaya tıklayın, **İleri**'ye ve ardından **İlişkilendir**'e tıklayın.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
-   
-   Bu, uygulama bildirimine gerekli Windows Mağazası kayıt bilgilerini ekler.
-3. Yeni uygulamanız için [Windows Geliştirme Merkezi](http://go.microsoft.com/fwlink/p/?LinkID=266582) sayfasına geri dönün, **Hizmetler**'e ve **Anında iletme bildirimleri**'ne tıklayın. Ardından, **Windows Anında Bildirim Hizmetleri (WNS) ve Microsoft Azure Mobile Apps** altındaki **Live Services** sitesine tıklayın.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-live-services.png)
-4. Uygulamanızın kayıt sayfasında **Uygulama Gizli Anahtarı** parolasını ve **Windows Mağazası** platform ayarları altındaki **Paket güvenliği tanımlayıcısı (SID)** değerini not edin.
-   
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-uwp-app-push-auth.png)
+6. Sihirbazda Microsoft hesabınızla oturum açın.
+
+7. 2 adımda kaydettiğiniz uygulamaya tıklayın, **İleri**'ye ve ardından **İlişkilendir**'e tıklayın. Bu, uygulama bildirimine gerekli Windows Mağazası kayıt bilgilerini ekler.
+
+8. Yeni uygulamanızın [Windows Geliştirme Merkezi](http://dev.windows.com/overview) sayfasına geri dönerek **Hizmetler**, **Anında iletme bildirimleri** ve sonra **WNS/MPNS** öğesine tıklayın.
+
+9. **Yeni Bildirim**’e tıklayın.
+
+10. **Boş (Bildirim)** şablonuna ve sonra **Tamam**’a tıklayın.
+
+11. Bildirim için bir **Ad** ve Görsel **Bağlam** iletisi girin. Ardından **Taslak olarak kaydet**'e tıklayın.
+
+12. [Uygulama Kayıt Portalı](http://apps.dev.microsoft.com)'na gidip oturum açın.
+
+13. Uygulamanızın adına tıklayın. **Uygulama Gizli Anahtarı** parolasını ve **Windows Mağazası** platform ayarları altındaki **Paket güvenliği tanımlayıcısı (SID)** değerini not edin.
 
      > [AZURE.WARNING]
     Uygulama gizli anahtarı ve paket SID'si önemli güvenlik kimlik bilgileridir. Bu değerleri kimseyle paylaşmayın veya uygulamanızla birlikte dağıtmayın.
@@ -137,8 +133,6 @@ Bildirim hub'ınız şimdi WNS ile birlikte çalışmak üzere yapılandırıld�
    
     Bu, uygulama her başlatıldığında kanal URI'sinin bildirim hub'ınıza kaydedilmesini garanti eder.
 6. Uygulamayı çalıştırmak için **F5** tuşuna basın. Kayıt anahtarını içeren bir açılır iletişim kutusu görüntülenir.
-   
-     ![][19]
 
 Uygulamanız şimdi bildirim almaya hazırdır.
 
@@ -162,9 +156,8 @@ Bu öğreticide konuyu basit bir şekilde işleyeceğiz ve yalnızca bir arka u�
 
 1. Çözüme sağ tıklayın, **Ekle**'yi ve **Yeni Proje...** seçeneğini belirleyin. Sonra **Visual C#** altında **Windows**'a ve **Konsol Uygulaması**'na tıklayın ve ardından **Tamam**'a tıklayın.
    
-     ![][13]
-   
     Bu, çözüme yeni bir Visual C# konsol uygulaması ekler. Bunu ayrı bir çözümde de yapabilirsiniz.
+
 2. Visual Studio'da **Araçlar**'a, **NuGet Paket Yöneticisi**'ne ve ardından **Paket Yöneticisi Konsolu**'na tıklayın.
    
     Bu, Visual Studio'da Paket Yöneticisi Konsolu'nu görüntüler.
@@ -199,8 +192,6 @@ Bu öğreticide konuyu basit bir şekilde işleyeceğiz ve yalnızca bir arka u�
          SendNotificationAsync();
          Console.ReadLine();
 7. Visual Studio'da konsol uygulaması projesine sağ tıklayın ve bunu başlangıç projesi olarak ayarlamak için **Başlangıç Projesi Olarak Ayarla**'ya tıklayın. Ardından uygulamayı çalıştırmak için **F5** tuşuna basın.
-   
-     ![][14]
    
     Tüm kayıtlı cihazlarda bildirim alırsınız. Bildirim başlığına tıklamak veya dokunmak uygulamayı yükler.
 

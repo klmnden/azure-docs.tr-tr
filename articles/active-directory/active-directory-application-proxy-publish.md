@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -63,9 +63,9 @@ Azure AD Uygulama Proxy’si internet üzerinden erişilecek şirket içi uygula
 6. Sihirbazı tamamlamak için ekranın altındaki onay işaretine tıklayın. Uygulama artık Azure AD içinde tanımlıdır.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>Uygulamaya kullanıcı ve grup atama
-Kullanıcılarınızın yayımlanan uygulamanıza erişmeleri için onları ayrı ayrı veya gruplar halinde atamanız gerekir. (Kendinize de erişim atamayı unutmayın.) Bunun için her kullanıcının Azure Temel veya daha yüksek bir lisansının olması gerekir. Lisansları ayrı ayrı veya gruplara atayabilirsiniz. Daha fazla ayrıntı için bkz. [Uygulamaya kullanıcı atama](active-directory-applications-guiding-developers-assigning-users.md). 
+Kullanıcılarınızın yayımlanan uygulamanıza erişmeleri için onları ayrı ayrı veya gruplar halinde atamanız gerekir. (Kendinize de erişim atamayı unutmayın.) Atadığınız her kullanıcının Azure Basic veya sonraki sürüm için lisansı olmalıdır. Lisansları ayrı ayrı veya gruplara atayabilirsiniz. Daha fazla bilgi için bkz. [Uygulamaya kullanıcı atama](active-directory-applications-guiding-developers-assigning-users.md). 
 
-Bu, ön kimlik doğrulaması gerektiren uygulamalar için uygulamayı kullanma izni verir. Ön kimlik doğrulaması gerektirmeyen uygulamalar için kullanıcılar MyApps gibi uygulama listelerinde görünmesi için uygulamaya yine de atanabilir.
+Ön kimlik doğrulama gerektiren uygulamalar için kullanıcı atama işlemi, uygulamayı kullanma izni verir. Ön kimlik doğrulama gerektirmeyen uygulamalar için kullanıcı atama, kullanıcının uygulamaya erişim panelinden erişebileceği anlamına gelir.
 
 1. Uygulama Ekleme sihirbazını tamamladıktan sonra uygulamanıza ilişkin Hızlı Başlangıç sayfasını görürsünüz. Uygulamaya kimlerin erişebildiğini yönetmek için **Kullanıcılar ve gruplar**'ı seçin.
    
@@ -90,7 +90,7 @@ Yapılandırma sayfasında, yayımlanan uygulamaları değiştirebilir veya geli
 
 Uygulamalar, Azure Active Directory Uygulama Ara Sunucusu kullanılarak yayımladıktan sonra Azure AD'de Uygulamalar listesinde görünür ve onları burada yönetebilirsiniz.
 
-Uygulamaları yayımladıktan sonra Uygulama Proxy hizmetlerini devre dışı bırakırsanız uygulamalara özel ağınızın dışından erişemezsiniz. Bunun yapılması uygulamaları silmez.
+Uygulamaları yayımladıktan sonra Uygulama Proxy hizmetlerini devre dışı bırakırsanız uygulamalara artık özel ağınızın dışından erişemezsiniz. Kullanıcılarınız uygulamalara normalde olduğu gibi şirket içinden erişmeye devam edebilir.
 
 Bir uygulamayı görüntülemek ve erişilebilir durumda olduğundan emin olmak için uygulamanın adına çift tıklayın. Uygulama Ara Sunucusu hizmeti devre dışı bırakılır ve uygulama kullanılamazsa ekranın üstünde bir uyarı iletisi görünür.
 

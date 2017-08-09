@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>İşlevleri kullanarak bir Azure Depolama kuyruğuna ileti ekleme
@@ -35,8 +35,6 @@ Azure İşlevleri’nde giriş ve çıkış bağlamaları, işlevinizden dış h
 
 * [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/)'ni yükleyin.
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
-
 ## <a name="add-binding"></a>Çıkış bağlaması ekleme
  
 1. İşlev uygulamanızı ve işlevinizi genişletin.
@@ -45,7 +43,7 @@ Azure İşlevleri’nde giriş ve çıkış bağlamaları, işlevinizden dış h
     
     ![Azure portalındaki bir işleve Kuyruk depolama çıkış bağlaması ekleyin.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Tabloda belirtilen ayarları kullanın ve ardından **Kaydet**'i seçin: 
+3. Tabloda belirtilen ayarları kullanın: 
 
     ![Azure portalındaki bir işleve Kuyruk depolama çıkış bağlaması ekleyin.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -55,6 +53,8 @@ Azure İşlevleri’nde giriş ve çıkış bağlamaları, işlevinizden dış h
     | **Depolama hesabı bağlantısı** | AzureWebJobStorage | İşlev uygulamanız tarafından kullanılmakta olan depolama hesabı bağlantısını kullanabilir veya yeni bir bağlantı oluşturabilirsiniz.  |
     | **İleti parametre adı** | outQueueItem | Çıkış bağlama parametresinin adı. | 
 
+4. Bağlamayı kaydetmek için **Kaydet**’e tıklayın.
+ 
 Bir çıkış bağlaması tanımladığınıza göre, bir kuyruğa ileti eklemek üzere bağlamayı kullanmak için kodu güncelleştirmeniz gerekir.  
 
 ## <a name="update-the-function-code"></a>İşlev kodunu güncelleştirme

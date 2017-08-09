@@ -1,15 +1,14 @@
-The old VPN gateway SKUs are:
+Eski VPN ağ geçidi SKU'ları şunlardır:
 
-* Basic
-* Standard
+* Temel
+* Standart
 * HighPerformance
 
-VPN Gateway does not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+VPN Gateway, UltraPerformance ağ geçidi SKU’sunu kullanmaz. UltraPerformance SKU’su hakkında bilgi edinmek için [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) belgelerine bakın.
 
-When working with the old SKUs, consider the following:
+Eski SKU'lar ile çalışırken aşağıdakileri göz önünde bulundurun:
 
-* If you want to use a PolicyBased VPN type, you must use the Basic SKU. PolicyBased VPNs (previously called Static Routing) are not supported on any other SKU.
-* BGP is not supported on the Basic SKU.
-* ExpressRoute-VPN Gateway coexist configurations are not supported on the Basic SKU.
-* Active-active S2S VPN Gateway connections can be configured on the HighPerformance SKU only.
-
+* PolicyBased VPN türünü kullanmak istiyorsanız Temel SKU'yu kullanmanız gerekir. PolicyBased VPN'ler (daha önce Statik Yönlendirme olarak biliniyordu), diğer SKU’larda desteklenmez.
+* BGP, Temel SKU’da desteklenmez.
+* ExpressRoute-VPN Gateway ağ geçidi bir arada var olabilen yapılandırmaları, temel SKU'da desteklenmez.
+* Etkin-etkin S2S VPN Gateway bağlantıları, yalnızca HighPerformance değerine sahip SKU'larda yapılandırılabilir.

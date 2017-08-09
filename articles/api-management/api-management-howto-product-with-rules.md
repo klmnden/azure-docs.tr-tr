@@ -3,7 +3,7 @@ title: "API’nizi Azure API Management ile koruma | Microsoft Belgeleri"
 description: "API’nizi kotalar ve azaltma (hız sınırlama) ilkeleriyle korumayı öğrenin."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9dba928b78c11213d4b0098986561b09678444eb
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>API’nizi, Azure API Management kullanarak hız sınırlarıyla koruma | Microsoft Azure
@@ -53,7 +54,7 @@ Kullanmaya başlamak için API Management hizmetiniz için Azure Portal'da **Yay
 
 **Başlık** kutusuna **Ücretsiz Deneme** yazın.
 
-**Açıklama** kutusuna aşağıdaki metni yazın:  **Aboneler erişim reddedildikten sonra haftada en fazla 200 çağrı olmak üzere dakikada 10 çağrı yürütebilir.**
+**Açıklama** kutusuna aşağıdaki metni yazın: **Aboneler erişim reddedildikten sonra haftada en fazla 200 çağrı olmak üzere dakikada 10 çağrı yürütebilir.**
 
 API Management ürünleri açık ya da korumalı olabilir. Korumalı ürünlerin kullanılabilmesi için bunlara abone olunmalıdır. Açık ürünler abonelik olmadan kullanılabilir. Bir abonelik gerektiren korumalı ürün oluşturmak için **Abonelik iste**’nin seçili olduğundan emin olun. Bu varsayılan ayardır.
 
@@ -95,7 +96,9 @@ Soldaki **API Management** menüsünde **Ürünler**’e tıklayın ve ardından
 ![Echo API’si ekleme][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Çağrı hızı sınırını ve kota ilkelerini yapılandırmak için
-Hız sınırları ve kotalar ilke düzenleyicisinde yapılandırılır. Soldaki **API Management** menüsü altında **İlkeler**’e tıklayın. **Ürün** listesinde **Ücretsiz Deneme**’ye tıklayın.
+Hız sınırları ve kotalar ilke düzenleyicisinde yapılandırılır. Bu öğreticide ekleyeceğimiz iki ilke [Abonelik başına çağrı hızını sınırlama](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) ve [Abonelik başına kullanım kotası ayarlama](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota)’dır. Bu ilkeler ürün kapsamında uygulanmalıdır.
+
+Soldaki **API Management** menüsü altında **İlkeler**’e tıklayın. **Ürün** listesinde **Ücretsiz Deneme**’ye tıklayın.
 
 ![Ürün ilkesi][api-management-product-policy]
 
@@ -103,11 +106,11 @@ Hız sınırları ve kotalar ilke düzenleyicisinde yapılandırılır. Soldaki 
 
 ![İlke ekleme][api-management-add-policy]
 
-İlke eklemek için, imleci ilke şablonunun **gelen** veya **giden** ilke şablonu bölümünde konumlandırın. Hız sınırı ve kota ilkeleri gelen ilkeleridir, bu nedenle imleci gelen öğede konumlandırın.
+Hız sınırı ve kota ilkeleri gelen ilkeleridir, bu nedenle imleci gelen öğede konumlandırın.
 
 ![İlke düzenleyicisi][api-management-policy-editor-inbound]
 
-Bu öğreticide eklediğimiz iki ilke [Abonelik başına çağrı hızını sınırla](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) ve [Abonelik başına kullanım kotası ayarla](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota)’dır.
+İlke listesini kaydırın ve **Abonelik başına çağrı hızını sınırla** ilke girişini bulun.
 
 ![İlke deyimleri][api-management-limit-policies]
 
@@ -121,7 +124,7 @@ Bu öğreticide eklediğimiz iki ilke [Abonelik başına çağrı hızını sın
 </rate-limit>
 ```
 
-**Abonelik başına çağrı hızını sınırla**, ürün düzeyinde kullanılabileceği gibi API ve tek işlem adı düzeylerinde de kullanılabilir. Bu öğreticide, yalnızca ürün düzeyinde ilkeler kullanılır, dolayısıyla aşağıdaki örnekte gösterildiği gibi yalnızca dış **rate-limit** öğesi kalacak şekilde **rate-limit** öğesinin **api** ve **operation** öğelerini silin.
+Kod parçacığından görebileceğiniz gibi ilke, ürünün API ve işlemleri için sınırlar belirlemeye olanak tanır. Bu öğreticide söz konusu özellik kullanılmayacaktır; bu nedenle aşağıdaki örnekte gösterildiği gibi yalnızca dış **rate-limit** öğesi kalacak şekilde **rate-limit** öğesinin **api** ve **operation** öğelerini silin.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
@@ -135,7 +138,7 @@ Bu öğreticide eklediğimiz iki ilke [Abonelik başına çağrı hızını sın
 </rate-limit>
 ```
 
-**Abonelik başına kullanım kotasını ayarla** ilkesini yapılandırmak için, imlecinizi **gelen** öğesinde yeni eklenen **rate-limit** öğesinin hemen altına getirin ve ardından **Abonelik başına kullanım kotası ayarla**’nın solundaki oka tıklayın.
+**Abonelik başına kullanım kotasını ayarla** ilkesini yapılandırmak için, imlecinizi **gelen** öğesinde yeni eklenen **rate-limit** öğesinin hemen altına getirin ve ardından **Abonelik başına kullanım kotası ayarla**’nı bulun ve solundaki oka tıklayın.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -145,7 +148,7 @@ Bu öğreticide eklediğimiz iki ilke [Abonelik başına çağrı hızını sın
 </quota>
 ```
 
-Bu ilkenin ürün düzeyinde olması da amaçlandığından, aşağıdaki örnekte gösterildiği şekilde **api** ve **operation** öğelerini silin.
+**Abonelik başına kullanım kotası ayarla** ilkesine benzer şekilde, **Abonelik başına kullanım kotası belirle** ilkesi ürünün API ve işlemleri için uç ayarlamaya olanak tanır. Bu öğreticide söz konusu özellik kullanılmayacaktır; bu nedenle aşağıdaki örnekte gösterildiği gibi **quota** öğesinden **api** ve **operation** öğelerini silin.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -323,9 +326,4 @@ Dakikada 10 çağrılık hız sınırı ilkesi etkinken, hız sınırı aşılma
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

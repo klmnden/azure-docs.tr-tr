@@ -15,36 +15,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: yushwang;cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 8a7419c7a759060dc91f11ec94085ff0afd4a457
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: c8e1db0a5488b1296206a4d557e47599edc59a88
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Siteden Siteye VPN Gateway bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında
 
-Bir VPN ağ geçidi kullanılarak Siteden Siteye (S2S) şirketler arası VPN bağlantısı yapılandırmak için bir VPN cihazı gereklidir. Siteden siteye bağlantılar karma çözüm oluşturmak amacıyla ya da şirket içi ağlarınız ile sanal ağlarınız arasında güvenli bağlantılar istediğinizde kullanılabilir. Bu makalede Azure VPN ağ geçitleri için IPsec/IKE parametrelerinin listesi ve Azure VPN ağ geçitlerine bağlanmak için doğrulanmış VPN cihazlarının bir listesi sağlanmıştır.
-
+Bir VPN ağ geçidi kullanılarak Siteden Siteye (S2S) şirketler arası VPN bağlantısı yapılandırmak için bir VPN cihazı gereklidir. Siteden siteye bağlantılar karma çözüm oluşturmak amacıyla ya da şirket içi ağlarınız ile sanal ağlarınız arasında güvenli bağlantılar istediğinizde kullanılabilir. Bu makalede, doğrulanmış VPN cihazlarının listesi ve VPN ağ geçitleri için IPsec/IKE parametrelerinin listesi verilmektedir.
 
 > [!IMPORTANT]
-> Yerinde VPN cihazlarınızla Azure VPN ağ geçitleri arasında bağlantı sorunları yaşıyorsanız lütfen [Bilinen cihaz uyumluluk sorunları](#known) konusuna başvurun. 
+> Şirket içi VPN cihazlarınızla VPN ağ geçitleri arasında bağlantı sorunları yaşıyorsanız lütfen [Bilinen cihaz uyumluluk sorunları](#known) konusuna başvurun.
+>
+>
 
+### <a name="items-to-note-when-viewing-the-tables"></a>Tabloları görüntülerken dikkate alınacaklar:
 
-###<a name="items-to-note-when-viewing-the-tables"></a>Tabloları görüntülerken dikkate alınacaklar:
-
-* Azure VPN ağ geçitleri terimlerinde bir değişiklik meydana gelmiştir. İşlevsellik değişmez. Yalnızca adlar değişir.
+* Azure VPN ağ geçitleri terimlerinde bir değişiklik meydana gelmiştir. Yalnızca adlar değişmiştir. İşlevsellik değişmez.
   * Statik Yönlendirme = PolicyBased
   * Dinamik Yönlendirme = RouteBased
-* Yüksek Performanslı VPN ağ geçidi ve RouteBased VPN ağ geçidi özellikleri aksi belirtilmedikçe aynıdır. Örneğin, RouteBased VPN ağ geçitleri ile uyumlu doğrulanmış VPN cihazları, Azure Yüksek Performanslı VPN ağ geçidi ile de uyumludur.
+* Yüksek Performanslı VPN ağ geçidi ve RouteBased VPN ağ geçidi özellikleri, aksi belirtilmedikçe aynıdır. Örneğin, RouteBased VPN ağ geçitleri ile uyumlu doğrulanmış VPN cihazları, Yüksek Performanslı VPN ağ geçidi ile de uyumludur.
+
+## <a name="devicetable"></a>Doğrulanmış VPN cihazları ve cihaz yapılandırma kılavuzları
 
 > [!NOTE]
 > Siteden Siteye bağlantı yapılandırırken, VPN cihazınız için genel kullanıma yönelik bir IPv4 IP adresi gereklidir.
->                
+>
 
-## <a name="devicetable"></a>Doğrulanmış VPN cihazları ve cihaz yapılandırma kılavuzları
-Cihaz satıcılarıyla işbirliğiyle bir grup standart VPN cihazının doğruladık. Aşağıdaki listede bulunan cihaz ailelerinde yer alan tüm cihazlar, Azure VPN ağ geçitleriyle birlikte kullanılabilir. Yapılandırmak istediğiniz çözüm için oluşturmanız gereken ağ geçidinin türünü doğrulamak için bkz. [VPN Gateway Hakkında](vpn-gateway-about-vpngateways.md).
+Cihaz satıcılarıyla işbirliği yaparak bir grup standart VPN cihazını doğruladık. Aşağıdaki listede bulunan cihaz ailelerinde yer alan tüm cihazlar, VPN ağ geçitleriyle birlikte kullanılabilir. Yapılandırmak istediğiniz VPN Gateway çözümüne yönelik VPN türü kullanımını (PolicyBased veya RouteBased) anlamak için bkz. [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 
 VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz ailesine karşılık gelen bağlantılara başvurun. Mümkün olan en iyi yapılandırma yönergeleri verilmiştir. VPN cihazı desteği için lütfen cihaz üreticinize başvurun.
 
@@ -77,9 +77,11 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 (*) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN'leri destekler.
 
 ## <a name="additionaldevices"></a>Doğrulanmayan VPN cihazları
+
 Cihazınızı Doğrulanan VPN cihazları tablosunda görmüyor olsanız bile cihazınız yine de Siteden Siteye bir bağlantı ile çalışabilir. Ek destek ve yapılandırma yönergeleri için cihaz üreticinize başvurun.
 
 ## <a name="editing"></a>Cihaz yapılandırma örneklerini düzenleme
+
 Sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra, ortamınıza ilişkin ayarları yansıtacak şekilde bazı değerleri değiştirmeniz gerekir.
 
 ### <a name="to-edit-a-sample"></a>Bir örneği düzenlemek için:
@@ -102,8 +104,9 @@ Sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra, ortamınıza 
 | &lt;SP_PresharedKey&gt; |Bu bilgiler sanal ağınıza özeldir ve Yönetme Anahtarı olarak Yönetim Portalı’nda yer almaktadır. |
 
 ## <a name="ipsec"></a>IPsec/IKE parametreleri
+
 > [!NOTE]
-> Aşağıdaki tabloda listelenen değerler Azure VPN Gateway tarafından desteklense de şu anda Azure VPN Gateway’den belirli bir algoritma veya parametre birleşimi belirtme mekanizması yoktur. Tüm kısıtlamaları şirket içi VPN cihazında belirtmeniz gerekir. Ayrıca, **MSS**’i **1350**’de sıkıştırmanız gerekir.
+> Aşağıdaki tabloda listelenen değerler VPN Gateway tarafından desteklense de şu anda VPN Gateway’den belirli bir algoritma veya parametre birleşimi belirtme mekanizması yoktur. Tüm kısıtlamaları şirket içi VPN cihazında belirtmeniz gerekir. Ayrıca, **MSS**’i **1350**’de sıkıştırmanız gerekir.
 > 
 >
 
@@ -114,6 +117,7 @@ Aşağıdaki tablolarda:
 * IKE Aşama 2 "Hızlı Mod" olarak da adlandırılır
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE Aşama 1 (Ana Mod) parametreleri
+
 | **Özellik**          |**PolicyBased**    | **RouteBased**    |
 | ---                   | ---               | ---               |
 | IKE Sürümü           |IKEv1              |IKEv2              |
@@ -123,6 +127,7 @@ Aşağıdaki tablolarda:
 | SA Yaşam Süresi           |28.800 saniye     |28.800 saniye     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE Aşama 2 (Hızlı Mod) parametreleri
+
 | **Özellik**                  |**PolicyBased**| **RouteBased**                              |
 | ---                           | ---           | ---                                         |
 | IKE Sürümü                   |IKEv1          |IKEv2                                        |
@@ -134,9 +139,11 @@ Aşağıdaki tablolarda:
 
 
 ### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec Güvenlik İlişkisi (IKE Hızlı Mod SA) Teklifleri
+
 Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler, teklifin sunulduğu ya da kabul edildiği tercih sırasına göre listelenmiştir.
 
 #### <a name="azure-gateway-as-initiator"></a>Başlatıcı olarak Azure Gateway
+
 |-  |**Şifreleme**|**Kimlik doğrulaması**|**PFS Grubu**|
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |None         |
@@ -147,6 +154,7 @@ Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler
 | 6 |3DES          |SHA256            |None         |
 
 #### <a name="azure-gateway-as-responder"></a>Yanıtlayıcı olarak Azure Gateway
+
 |-  |**Şifreleme**|**Kimlik doğrulaması**|**PFS Grubu**|
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM (AES256)      |None         |
@@ -176,7 +184,7 @@ Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler
 | 25|AES128        |SHA256            |14           |
 | 26|3DES          |SHA1              |14           |
 
-* RouteBased ve Yüksek Performanslı VPN ağ geçitleri ile IPsec ESP NULL şifrelemesini belirtebilirsiniz. Null tabanlı şifreleme aktarımdaki verilere koruma sağlamaz ve yalnızca maksimum performans ve minimum gecikme gerekli olduğunda kullanılmalıdır.  İstemciler, bunu Sanal Ağ-Sanal Ağ iletişim senaryolarında ya da çözümdeki başka bir yere şifreleme uygulandığında kullanmayı seçebilir.
+* RouteBased ve Yüksek Performanslı VPN ağ geçitleri ile IPsec ESP NULL şifrelemesini belirtebilirsiniz. Null tabanlı şifreleme aktarımdaki verilere koruma sağlamaz ve yalnızca maksimum performans ve minimum gecikme gerekli olduğunda kullanılmalıdır. İstemciler, bunu Sanal Ağ-Sanal Ağ iletişim senaryolarında ya da çözümdeki başka bir yere şifreleme uygulandığında kullanmayı seçebilir.
 * İnternet üzerinden şirket içi ve dışı bağlantı için, kritik iletişiminizin güvenliğini sağlamak üzere yukarıdaki tablolarda listelenen şifreleme ve karma algoritmalarla birlikte varsayılan Azure VPN ağ geçidi ayarlarını kullanın.
 
 ## <a name="known"></a>Bilinen cihaz uyumluluk sorunları
@@ -193,4 +201,3 @@ Azure rota tabanlı VPN için **7.1.4’ten eski bir sürüme sahip Palo Alto Ne
 1. Palo Alto Networks cihazınızın üretici yazılımı sürümünü denetleyin. PAN-OS sürümünüz 7.1.4’ten eskiyse 7.1.4 sürümüne yükseltin
 2. Palo Alto Networks cihazında, Azure VPN Gateway’e bağlanırken kullanılan Phase 2 SA (veya Quick Mode SA) ömrünü 28.800 saniye (8 saat) olarak değiştirin.
 3. Hala bir bağlantı sorunu yaşıyorsanız Azure portalından bir destek isteği oluşturun.
-

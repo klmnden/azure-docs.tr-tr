@@ -14,7 +14,7 @@ SLA'lardaki ve özellik kümelerindeki farklılıklar nedeniyle üretim ve geli�
 | **Geliştirme-test veya kavram kanıtı**   | Temel                  |
 |                                    |                        |
 
-Eski SKU'ları kullanıyorsanız üretim için Standart ve Yüksek Performanslı SKU'lar önerilir. Eski SKU'lar hakkında bilgi için bkz. [Ağ geçidi SKU'ları (eski)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+Eski SKU'ları kullanıyorsanız üretim için Standart ve Yüksek Performanslı SKU'lar önerilir. Eski SKU'lar hakkında bilgi için bkz. [Ağ geçidi SKU'ları (eski SKU’lar)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
 
 ###  <a name="feature"></a>Ağ geçidi SKU'su özellik kümeleri
 

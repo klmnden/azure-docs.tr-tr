@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning Studio nedir? | Microsoft Belgeleri
-description: "Kullanıma hazır bir algoritmalar ve modüller kitaplığından hızla model oluşturmaya yönelik bir sürükle ve bırak aracı olan Azure ML Studio&quot;ya genel bakış."
+description: "Kullanıma hazır bir algoritmalar ve modüller kitaplığından hızla model oluşturmaya yönelik bir sürükle ve bırak aracı olan Azure ML Studio'ya genel bakış."
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
-ms.lasthandoff: 12/14/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 70a1d0acb8ec9bbb591f696281ea5e975b443a15
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
@@ -78,7 +78,7 @@ Bir deneme, tahmine dayalı bir modeli oluşturmak için birlikte bağladığın
 * Modüllerin tüm giriş bağlantı noktalarının veri akışına bir tür bağlantısı olması gerekir
 * Her bir modül için gereken tüm parametreler ayarlanmalıdır
 
-Bir denemeyi sıfırdan oluşturabilir veya var olan bir örnek denemeyi şablon olarak kullanabilirsiniz. Daha fazla bilgi için bkz. [Yeni denemeler oluşturmak için örnek denemeleri kullanma](machine-learning-sample-experiments.md).
+Bir denemeyi sıfırdan oluşturabilir veya var olan bir örnek denemeyi şablon olarak kullanabilirsiniz. Daha fazla bilgi için bkz. [Örnek denemeleri kopyalayarak yeni makine öğrenimi denemeleri oluşturma](machine-learning-sample-experiments.md).
 
 Basit bir deneme oluşturma örneği için bkz. [Azure Machine Learning Studio'da basit bir deneme oluşturma](machine-learning-create-experiment.md).
 

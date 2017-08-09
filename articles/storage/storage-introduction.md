@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 07/26/2017
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1cab34785d6e4f7751245ebf77b29fa8dc3c685b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 98670b60daca7091e09ce2ab03cf2eaff015070e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage’a Giriş
@@ -110,13 +109,19 @@ Bugünün İnternet tabanlı uygulamaları için Table Storage gibi NoSQL veri t
 Bir depolama hesabı herhangi sayıda kuyruk içerebilir. Bir kuyruk, depolama hesabının kapasite sınırını dolduracak kadar ileti içerebilir. Tek bir ileti boyut olarak en fazla 64 KB olabilir.
 
 ## <a name="file-storage"></a>Dosya depolama
-Azure File Storage, dosya paylaşımlarına bağlı olan eski uygulamaları maliyetli yeniden yazdırmaya gerek kalmadan Azure’a taşıyabilmeniz için bulut tabanlı SMB dosya paylaşımları sunar. Azure File Storage sayesinde, Azure Virtual Machines veya Cloud Services’da çalışan uygulamalar, bir masaüstü uygulamasının tipik bir SMB paylaşımına bağlandığı şekilde buluta bir dosya paylaşımı bağlayabilir. Ardından herhangi sayıda uygulama bileşeni eş zamanlı olarak File Storage paylaşımını bağlayıp buna erişim sağlayabilir.
+Azure Dosyaları hizmeti, standart Sunucu İleti Bloğu (SMB) protokolü kullanılarak erişilebilen yüksek oranda kullanılabilir ağ dosya paylaşımları oluşturmanıza olanak tanır. Bu durum, birden fazla VM’nin hem okuma hem de yazma erişimi ile aynı dosyaları paylaşabildiği anlamına gelir. Dosyaları REST arabirimi veya depolama istemci kitaplıkları kullanarak da okuyabilirsiniz.
 
-Dosya depolama paylaşımı, standart SMB dosya paylaşımı olduğundan Azure'da çalışan uygulamalar, dosya sisteminin G/Ç API'leri üzerinden paylaşımdaki verilere erişebilir. Böylece geliştiriciler mevcut uygulamalarını taşımak üzere kullandıkları kodlar ve yeteneklerden yararlanabilir. BT Uzmanları Azure uygulamalarını yönetmenin bir parçası olarak File Storage paylaşımlarını oluşturmak, bunları bağlamak ve yönetmek için PowerShell.cmdlet’leri kullanabilir.
+Azure Dosya depolama alanını kurumsal bir dosya paylaşımındaki dosyalardan ayırt edici bir özellik, dosyalara dünyanın herhangi bir yerinden dosyayı işaret eden ve paylaşılan erişim imzası (SAS) belirteci içeren bir URL kullanarak erişebilmenizdir. SAS belirteçleri oluşturabilirsiniz; bunlar, belirli bir süre için özel bir varlığa belirli bir erişim izni verir.
 
-File Storage diğer Azure Storage hizmetlerinde olduğu gibi paylaşımdaki verilere erişmek için bir REST API gösterir. Şirket içi uygulamalar dosya paylaşımındaki verilere erişmek için Dosya Depolama REST API’sini arayabilir. Bu şekilde bir kuruluş bazı eski uygulamalarını Azure’a taşımayı, diğerleriniyse kendi kurumlarından çalıştırmayı seçebilir. Dosya paylaşımının yalnızca Azure’da çalıştırılan uygulamalar için geçerli olduğunu unutmayın; şirket içi uygulamalar yalnızca REST API üzerinden dosya paylaşımına erişebilir.
+Dosya paylaşımları için birçok yaygın senaryoda kullanılabilir:
 
-Dağıtılan uygulamalar ayrıca kullanışlı uygulama verilerini depolamak ve paylaşmak, araç geliştirmek ve test etmek için File Storage kullanabilir. Örneğin bir uygulama File Storage paylaşımındaki günlükler, ölçümler ve kilitlenme bilgi dökümleri gibi yapılandırma dosyaları ve tanılama verilerini depolayabilir. Böylece söz konusu veriler birden çok sanal makine veya rol tarafından erişilebilir. Geliştiriciler ve yöneticiler, her sanal makine veya rol örneğine yükleme yapmak yerine tüm bileşenler tarafından kullanılabilen ve bir uygulamanın oluşturulması veya yönetilmesi için gerekli yardımcı programları File Storage’a depolayabilir.
+* Birçok şirket içi uygulama, dosya paylaşımlarını kullanır. Bu özellik, veri paylaşan uygulamaları Azure’a geçirmeyi kolaylaştırır. Dosya paylaşımını şirket içi uygulamanın kullandığı sürücü harfine bağlarsanız, uygulamanızın dosya paylaşımına erişen kısmı, varsa minimum değişikliklerle çalışır.
+
+* Yapılandırma dosyaları bir dosya paylaşımında depolanabilir ve birden çok VM tarafından bu dosyalara erişilebilir. Bir gruptaki birden fazla geliştirici tarafından kullanılan araç ve yardımcı programlar, herkesin bulabilmesi ve aynı sürümü kullandıklarından emin olunması için bir dosya paylaşımında depolanabilir.
+
+* Tanılama günlükleri, ölçümler ve kilitlenme bilgi dökümleri, bir dosya paylaşımına yazılıp daha sonra işlenebilen veya çözümlenebilen verilerin yalnızca üç örneğidir.
+
+Şu anda Active Directory tabanlı kimlik doğrulaması ve erişim denetimi listeleri (ACL) desteklenmemektedir, ancak gelecekte desteklenecektir. Depolama hesabı kimlik bilgileri, dosya paylaşımına erişim için kimlik doğrulaması sağlamak üzere kullanılır. Bu durum, paylaşımın bağlı olduğu herkesin paylaşıma okuma/yazma erişimi elde edeceği anlamına gelir.
 
 ## <a name="access-to-blob-table-queue-and-file-resources"></a>Blob, Tablo, Kuyruk ve Dosya kaynaklarına erişim
 Varsayılan olarak, yalnızca depolama hesabı sahibi depolama hesabındaki kaynaklara erişebilir. Verilerinizin güvenliği için hesabınızdaki kaynaklara yönelik her isteğin kimliğinin doğrulanması gerekir. Kimlik doğrulama bir Paylaşılan Anahtar modelini kullanır. Bloblar anonim kimlik doğrulamayı destekleyecek şekilde de yapılandırılabilir.
