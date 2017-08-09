@@ -25,10 +25,14 @@
       href: container-instances-orchestrator-relationship.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Birden çok kapsayıcılı gruplar
+    - name: Birden çok kapsayıcılı grupları dağıtma
       href: container-instances-multi-container-group.md
     - name: Azure dosya paylaşımlarıyla durumu yönetme
       href: container-instances-mounting-azure-files-volume.md
+    - name: Azure Container Registry üzerinden dağıtma
+      href: container-instances-using-azure-container-registry.md
+    - name: Azure Container Instances’taki dağıtım sorunlarını giderme
+      href: container-instances-troubleshooting.md
 - name: Başvuru
   items:
     - name: Azure CLI 2.0

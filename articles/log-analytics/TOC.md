@@ -84,6 +84,7 @@
 ### [Kötü Amaçlı Yazılım Değerlendirmesi](log-analytics-malware.md)
 ### [Ağ Analizi](log-analytics-azure-networking-analytics.md)
 ### [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md)
+### [Office 365](../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [SCOM Değerlendirmesi](log-analytics-scom-assessment.md)
 ### [Güvenlik Denetimi](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Service Fabric](log-analytics-service-fabric.md)

@@ -15,22 +15,24 @@
 ### [HSM ile korunan anahtarlar](key-vault-hsm-protected-keys.md)
 ### [.NET 2.0’a geçiş](key-vault-dotnet2api-release-notes.md)
 ### Genel bakış
-#### [Güvenlik dünyalarına genel bakış](key-vault-ovw-security-worlds.md)
-#### [Geçici silmeye genel bakış](key-vault-ovw-soft-delete.md)
-#### [Depolama hesabı anahtarlarına genel bakış](key-vault-ovw-storage-keys.md)
-#### [Azaltmaya genel bakış](key-vault-ovw-throttling.md)
+#### [Güvenlik dünyaları](key-vault-ovw-security-worlds.md)
+#### [Geçici silme](key-vault-ovw-soft-delete.md)
+#### [Depolama hesabı anahtarları](key-vault-ovw-storage-keys.md)
+#### [Azaltma](key-vault-ovw-throttling.md)
 
 ## Yönet
 ### [Azure Key Vault günlüğü](key-vault-logging.md)
 ### [Güvenlik duvarı arkasına erişme](key-vault-access-behind-firewall.md)
-### [İstemci kimliğini değiştirme](key-vault-subscription-move-fix.md)
-### [Erişim vermek için grupları kullanma](key-vault-group-permissions-for-apps.md)
 ### [Kullanılabilirlik ve yedekleme](key-vault-disaster-recovery-guidance.md)
+### [İstemci kimliğini değiştirme](key-vault-subscription-move-fix.md)
+### [CLI 2.0 aracılığıyla oluşturma ve yönetme](key-vault-manage-with-cli2.md)
+### [Key Vault geçici silmeyi CLI ile kullanma](key-vault-soft-delete-cli.md)
+### [Key Vault geçici silmeyi PowerShell ile kullanma](key-vault-soft-delete-powershell.md)
+### [Erişim vermek için grupları kullanma](key-vault-group-permissions-for-apps.md)
 ### [Anahtar kasanızın güvenliğini sağlama](key-vault-secure-your-key-vault.md)
 
 ## Otomatikleştirme
 ### [Azure otomasyonu](automation-manage-key-vault.md)
-### [CLI 2.0 aracılığıyla oluşturma ve yönetme](key-vault-manage-with-cli2.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
