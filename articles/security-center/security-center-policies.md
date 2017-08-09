@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2017
+ms.date: 07/27/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: aefec15c72c6cf8389a29b03be70abb4c7f020b9
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f4e3f74ce3f342eecf633cd748e2b7b21b2ccdd2
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama
 Bu belge, bu görevi gerçekleştirmeye ilişkin gerekli adımlarda size kılavuzluk ederek Güvenlik Merkezi'nde güvenlik ilkelerini yapılandırmanıza yardımcı olur.
 
 >[!NOTE] 
->Haziran 2017'nin ilk günlerinden itibaren Güvenlik Merkezi, veri toplamak ve depolamak için Microsoft Monitoring Agent'ı kullanacak. Daha fazla bilgi edinmek için [Azure Güvenlik Merkezi Platform Geçişi](security-center-platform-migration.md) makalesine bakın. Bu makaledeki bilgiler, Microsoft Monitoring Agent'a geçiş sonrasındaki Güvenlik Merkezi işlevselliğine yöneliktir.
+>Haziran 2017'nin ilk günlerinden itibaren Güvenlik Merkezi, veri toplamak ve depolamak için Microsoft Monitoring Agent'ı kullanmaktadır. Daha fazla bilgi edinmek için [Azure Güvenlik Merkezi Platform Geçişi](security-center-platform-migration.md) makalesine bakın. Bu makaledeki bilgiler, Microsoft Monitoring Agent'a geçiş sonrasındaki Güvenlik Merkezi işlevselliğine yöneliktir.
 >
 
 ## <a name="what-are-security-policies"></a>Güvenlik ilkeleri nedir?
@@ -49,7 +49,7 @@ Her bir abonelik için güvenlik ilkeleri yapılandırabilirsiniz. Güvenlik ilk
 
 5. **Güvenlik İlkesi** dikey penceresinde, kullanılabilen seçenekleri görmek için **Önleme ilkesi** seçeneğine tıklayın. Bu abonelikle ilgili güvenlik önerilerini etkinleştirmek için **Açık** seçeneğine tıklayın.
 
-    ![Güvenlik ilkelerini seçme](./media/security-center-policies/security-center-policies-fig4-newUI.png)
+    ![Güvenlik ilkelerini seçme](./media/security-center-policies/security-center-policies-fig7.png)
 
 Her bir seçeneği anlamak için aşağıdaki tabloyu kullanın:
 
@@ -65,7 +65,8 @@ Her bir seçeneği anlamak için aşağıdaki tabloyu kullanın:
 | SQL denetimi ve Tehdit algılama |Azure Veritabanı'na erişim denetiminin, araştırma amacıyla uyumluluk ve gelişmiş algılama için etkinleştirilmesini önerir. |
 | SQL Şifrelemesi |Azure SQL Veritabanınız, ilişkili yedeklemeler ve işlem günlük dosyaları için bekleyen şifrelemenin etkinleştirilmesini önerir. Verilerinizi ihlal edilse bile okunabilir olmayacaktır. |
 | Güvenlik açığı değerlendirmesi |Sanal makinenize bir güvenlik açığı değerlendirme çözümü yüklemenizi önerir. |
-| Depolama Şifrelemesi |Şu anda bu özellik Azure Blob'ları ve Dosyaları için kullanılabilir. Depolama Hizmeti Şifrelemesi’ni etkinleştirdikten sonra yalnızca yeni verilerin şifreleneceğini ve bu depolama hesabında var olan dosyaların şifrelenmemiş olarak kalacağını unutmayın. |
+| Depolama Şifrelemesi |Şu anda bu özellik Azure Blob'ları ve Dosyaları için kullanılabilir. Depolama Hizmeti Şifrelemesi’ni etkinleştirdikten sonra yalnızca yeni veriler şifrelenir ve bu depolama hesabında var olan dosyalar şifrelenmemiş olarak kalır. |
+| JIT Ağ Erişimi |Tam zamanında etkinleştirildiğinde, Güvenlik Merkezi bir NSG kuralı oluşturarak Azure VM’lere gelen trafiği kilitler. Gelen trafiğin kilitlenmesi gereken VM bağlantı noktalarını seçersiniz. Daha fazla bilgi için bkz. [Tam zamanında özelliğini kullanarak sanal makine erişimini yönetme](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
 
 Tüm seçenekleri yapılandırdıktan sonra öneriler içeren **Güvenlik İlkesi** dikey penceresinde **Tamam**'a tıklayın ve ilk ayarları içeren **Güvenlik İlkesi** dikey penceresinde **Kaydet**'e tıklayın.
 

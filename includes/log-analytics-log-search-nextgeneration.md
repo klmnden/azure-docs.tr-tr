@@ -1,0 +1,2 @@
+>[!NOTE]
+> Çalışma alanınız [yeni Log Analytics sorgu diline](../articles/log-analytics/log-analytics-log-search-upgrade.md) yükseltilmişse, aşağıdaki sorguların dönüştürülmesi gerekir. Bu dönüşümü gerçekleştirmek için [dil dönüştürücüyü](../articles/log-analytics/log-analytics-log-search-transition.md#language-converter) kullanabilirsiniz.

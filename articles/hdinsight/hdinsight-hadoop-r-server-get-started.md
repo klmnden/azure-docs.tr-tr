@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 07/13/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: ee4298b91f4e2b215b5faabaad96323f4ef234b8
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f0ee0d23f28df2824ea41f7c9f7490e1ec62d041
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>HDInsight üzerinde R Server kullanmaya başlayın
@@ -367,7 +367,7 @@ Ayrıca yeni eklenen kullanıcıların Linux sisteminde kök ayrıcalıklarına 
 
 4. WASB stil adreslemesini de kullanabilirsiniz.
 
-    rxHadoopListFiles("wasbs:///")
+    rxHadoopListFiles("wasb:///")
 
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Microsoft R Server veya Microsoft R Client uzak örneğinden HDI üzerinde R Server kullanma

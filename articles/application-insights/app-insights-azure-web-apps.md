@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Azure web uygulaması performansını izleme
@@ -31,7 +30,7 @@ Uygulamanız için şu iki yoldan biriyle izleme yapılandırabilirsiniz:
 * **Derleme zamanı**: Geliştirme sırasında uygulamanıza bir paket yükleyebilirsiniz. Bu seçenek daha kullanışlıdır. Aynı standart paketlere ek olarak telemetriyi özelleştirmek için kod yazabilir ya da kendi telemetrinizi gönderebilirsiniz. Uygulama etki alanınızın semantiğine göre belirli etkinlikleri günlüğe kaydedebilir veya olayların kaydını tutabilirsiniz. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Application Insights ile çalışma zamanında izleme
-Azure’da çalışmakta olan bir web uygulamanız varsa zaten bazı izleme verileri alırsınız: İstek ve hata oranları. Yanıt süreleri, bağımlılıklara yapılan çağrılar, akıllı algılama ve güçlü Analytics sorgu dili gibi ek özelliklere sahip olmak için Application Insights’ı ekleyin. 
+Azure’da çalışmakta olan bir web uygulamanız varsa zaten bazı izleme verileri alırsınız: İstek ve hata oranları. Yanıt süreleri, bağımlılıklara yapılan çağrılar, akıllı algılama ve güçlü Log Analytics sorgu dili gibi ek özelliklere sahip olmak için Application Insights’ı ekleyin. 
 
 1. Web uygulamanızın Azure denetim masasında **Application Insights’ı seçin**.
    
@@ -102,7 +101,7 @@ Application Insights, uygulamanıza bir SDK yükleyerek daha ayrıntılı teleme
    
     [Aramaları özelleştirme](app-insights-diagnostic-search.md) olanağınız vardır.
 
-Telemetriniz üzerinde daha güçlü aramalar gerçekleştirmek için [Analytics sorgu dilini](app-insights-analytics-tour.md) kullanın.
+Telemetriniz üzerinde daha güçlü aramalar gerçekleştirmek için [Log Analytics sorgu dilini](app-insights-analytics-tour.md) kullanın.
 
 ## <a name="more-telemetry"></a>Daha fazla telemetri
 

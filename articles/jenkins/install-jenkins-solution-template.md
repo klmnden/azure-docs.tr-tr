@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 6/7/2017
 ms.author: mlearned
-ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 748f1994d0ee5b6c6a988bca8e5b694b29c0b8c5
+ms.custom: Jenkins
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: f892ec7bd61124f7958a50ebdfb49c7310d4ee18
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -66,7 +66,7 @@ Azure portalında **Oluştur**’a tıklayın.  Bu şablon Resource Manager kull
 * Kimlik doğrulaması türü: Bir parolayla veya [SSH ortak anahtarı](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows) ile korunan bir örnek oluşturun. Parola kullanırsanız, parolanın şu gereksinimlerden 3’ünü karşılaması gerekir: Bir küçük harf, bir büyük harf, bir rakam ve bir özel karakter.
 * **LTS** olan Jenkins yayın türünü değiştirmeyin
 * Bir abonelik seçin.
-* Bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu kullanın.
+* Bir kaynak grubu oluşturun veya var olan boş bir kaynak grubunu kullanın. 
 * Bir konum seçin.
 
 **Ek seçenekleri yapılandırma** sekmesinde:

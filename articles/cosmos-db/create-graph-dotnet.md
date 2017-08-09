@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 07/28/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 1794341ed0d4519eef7f065d04ccf86a7e48a4a4
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a973b81ea5b06c5826cc31c399aae9dec43f5b72
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB: Grafik API'sini kullanarak bir .NET uygulaması derleme
@@ -54,7 +54,7 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
     ```
 
-3. Ardından çözüm dosyasını Visual Studio'da açın. 
+3. Ardından Visual Studio’yu ve çözüm dosyasını açın. 
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
@@ -103,23 +103,19 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Program.cs dos
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
 
-1. Azure portalında, Azure Cosmos DB hesabınızın sol gezinti menüsünden **Genel Bakış**'a tıklayın. Sonraki adımda, **Gremlin URI** değerini App.config dosyasına kopyalayacaksınız. 
+1. Visual Studio 2017'de App.config dosyasını açın. 
 
-    ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-graph-dotnet/gremlin-uri.png)
-
-    **Gremlin URI** değeri boşsa, portaldaki **Anahtarlar** sayfasında bulunan **URI** değerini kullanıp https:// bölümünü çıkararak ve belgeleri grafiklere dönüştürerek bir değer oluşturabilirsiniz. 
-
-2. Visual Studio 2017'de App.config dosyasını açın. 
-
-3. Portaldaki **Gremlin URI** değerinizi kopyalayın ve bunu App.config dosyasındaki Endpoint anahtarının değeri yapın. 
-
-    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
-
-4. Azure portalına geri dönüp sol gezinti menüsünde **Anahtarlar**’a tıklayın, **BİRİNCİL ANAHTAR** değerinizi portaldan kopyalayın ve bunu App.config dosyasındaki AuthKey anahtarının değeri yapın. Sonra değişikliklerinizi kaydedin. 
-
-    `<add key="AuthKey" value="FILLME" />`
+2. Azure portalında, Azure Cosmos DB hesabınızın sol gezinti menüsünden **Anahtarlar**'a tıklayın. 
 
     ![Azure portalının Anahtarlar sayfasında birincil anahtarı görüntüleme ve kopyalama](./media/create-graph-dotnet/keys.png)
+
+3. Portaldaki **URI** değerinizi kopyalayın ve bunu App.config dosyasındaki Endpoint anahtarının değeri yapın. Değeri kopyalamak için önceki ekran görüntüsünde gösterilen şekilde kopyala düğmesini kullanabilirsiniz.
+
+    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+
+4. Portaldaki **BİRİNCİL ANAHTAR** değerinizi kopyalayın ve App.config dosyasındaki AuthKey anahtarının değeri yaptıktan sonra değişikliklerinizi kaydedin. 
+
+    `<add key="AuthKey" value="FILLME" />`
 
 Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
 
@@ -131,6 +127,8 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 
 3. Sonuçlardan **Microsoft.Azure.Graphs** kitaplığını yükleyin. Bu işlem Azure Cosmos DB grafik uzantısı kitaplık paketini ve tüm bağımlılıklarını yükler.
 
+    Çözümdeki değişiklikleri gözden geçirme hakkında iletiler alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
+
 4. Uygulamayı çalıştırmak için CTRL+F5 tuşlarına basın.
 
    Konsol penceresinde grafiğe eklenmekte olan kenarlar ve köşeler gösterilir. Betik tamamlandığında, ENTER tuşuna iki kez basarak konsol penceresini kapatın. 
@@ -139,9 +137,13 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 
 Şimdi Azure portalındaki Veri Gezgini'ne dönerek yeni grafik verilerinize göz atıp sorgu gönderebilirsiniz.
 
-* Yeni veritabanı, Veri Gezgini'nin Koleksiyonlar bölmesinde görüntülenir. **graphdb**, **graphcoll** öğelerini genişletip **Grafik** öğesine tıklayın.
+1. Yeni veritabanı, Veri Gezgini'nin Grafikler bölmesinde görüntülenir. **graphdb**, **graphcollz** öğelerini genişletip **Grafik** öğesine tıklayın.
 
-    Örnek uygulama tarafından oluşturulan veriler Grafikler bölmesinde görüntülenir.
+2. Grafikteki tüm köşeleri görüntülemek üzere varsayılan sorguyu kullanmak için **Filtre Uygula** düğmesine tıklayın. Örnek uygulama tarafından oluşturulan veriler Grafikler bölmesinde görüntülenir.
+
+    Grafiği yakınlaştırıp uzaklaştırabilir, grafik görüntüleme alanını genişletebilir, başka köşeler ekleyebilir ve görüntüleme alanında köşeleri taşıyabilirsiniz.
+
+    ![Azure portalındaki Veri Gezgini'nde grafiği görüntüleme](./media/create-graph-dotnet/graph-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 

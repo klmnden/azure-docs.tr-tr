@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/14/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 153b4cc668fdebd28cec5f3d95093a595064202a
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Grafik API'sini kullanarak bir Node.js uygulaması oluşturma
@@ -141,9 +141,11 @@ module.exports = config;
 
 Artık Azure portalındaki Veri Gezgini'ne dönerek yeni grafik verilerinizi görüntüleyebilir, sorgulayabilir, değiştirebilir ve bu verilerle çalışabilirsiniz.
 
-Yeni veritabanı, Veri Gezgini'nin **Koleksiyonlar** bölmesinde görünür. **graphdb**, **graphcoll** öğelerini genişletip **Grafik** öğesine tıklayın.
+Yeni veritabanı, Veri Gezgini'nin **Grafikler** bölmesinde görüntülenir. Veritabanını ve ardından koleksiyonu genişletip **Grafik**’e tıklayın.
 
-Örnek uygulama tarafından oluşturulan veriler **Grafikler** bölmesinde görüntülenir.
+Örnek uygulama tarafından oluşturulan veriler, **Filtre Uygula**’ya tıkladığınızda **Grafik** sekmesinin sonraki bölmesinde gösterilir.
+
+Filtreyi test etmek için `g.V()` işlemini `.has('firstName', 'Thomas')` ile tamamlamayı deneyin. Değerin büyük küçük harfe duyarlı olduğunu unutmayın.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 

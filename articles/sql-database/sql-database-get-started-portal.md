@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/30/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 1571d30890a428fb73d31861c4f1ae395f9de374
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: a863cf3ad08040906850f64db6505f30bcfa72eb
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure portalında Azure SQL veritabanı oluşturma
@@ -59,7 +58,7 @@ Adventure Works LT örnek verilerini içeren bir SQL veritabanı oluşturmak iç
    > Bu hızlı başlangıcın geri kalanında kullanılacağı için bu formdaki örnek veritabanını seçmeniz gerekir.
    > 
 
-4. SQL sunucusu (mantıksal sunucu) formunu, önceki görüntüde gösterildiği gibi aşağıdaki bilgilerle doldurun:   
+4. **Sunucu** altında **Gerekli ayarları yapılandır**’a tıklayıp, aşağıdaki görüntüde gösterildiği gibi SQL sunucusu (mantıksal sunucu) formunu aşağıdaki bilgilerle doldurun:   
 
    | Ayar       | Önerilen değer | Açıklama | 
    | ------------ | ------------------ | ------------------------------------------------- | 

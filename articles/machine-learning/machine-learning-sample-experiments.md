@@ -1,6 +1,7 @@
 ---
-title: "Örnek makine öğrenimi denemelerini kopyalama | Microsoft Belgeleri"
+title: "Örnek makine öğrenimi denemelerini kopyalama - Azure | Microsoft Docs"
 description: "Cortana Intelligence Gallery ve Microsoft Azure Machine Learning ile yeni denemeler oluşturmak için örnek makine öğrenimi denemelerini nasıl kullanacağınızı öğrenin."
+keywords: "machine learning örnekleri, örnek deneme, machine learning örneği"
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -12,15 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 07/28/2017
 ms.author: cgronlun;olgali
-translationtype: Human Translation
-ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
-ms.openlocfilehash: 7b2bca108770a79a693a408a628ccc6370c36b7c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a6c8ca83e3a4020cb1ea0f1c14299f1aee3bdca5
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="copy-sample-experiments-to-create-new-machine-learning-experiments"></a>Örnek denemeleri kopyalayarak yeni makine öğrenimi denemeleri oluşturma
+# <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Örnek denemeleri kopyalayarak yeni makine öğrenimi denemeleri oluşturma
 Sıfırdan makine öğrenimi denemeleri oluşturmayı öğrenmek yerine [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/)’deki örnek denemelerle nasıl çalışmaya başlayacağınızı öğrenin. Örnekleri kullanarak kendi makine öğrenimi çözümünüzü oluşturabilirsiniz.
 
 Galeride Microsoft Azure Machine Learning ekibi tarafından sağlanan örnek denemelerin yanı sıra Machine Learning topluluğu tarafından paylaşılan örnek denemeler yer almaktadır. Ayrıca, denemeler hakkında soru sorabilir veya yorum yazabilirsiniz.
@@ -39,9 +41,9 @@ Bu sayfada **Son eklenen** denemeleri görüntüleyebilir, aşağı kaydırarak 
 Tüm denemelere gözatmak için:
 
 1. Sayfanın üstündeki **Tümüne gözat**'a tıklayın.
-2. Galeri'deki tüm denemeleri görmek için **Kategoriler** bölümündeki **Daraltma ölçütü** seçeneğinin altından **Denemeler**'i seçin.
+2. Galeri'deki tüm denemeleri görmek için sol tarafta bulunan **Kategoriler** bölümündeki **Daraltma ölçütü** seçeneğinin altından **Denemeler**'i seçin.
 3. Gereksinimlerinize uyan denemeleri birkaç farklı yolla bulabilirsiniz:
-   * **Soldaki filtreleri seçin.** Örneğin, PCA tabanlı bir anomali algılama algoritması kullanan denemelere göz atmak için, **Kategoriler**'in altında **Denemler**'i ve **Kullanılan Algoritmalar**'ın altında **PCA Tabanlı Anomali Algılama**'yı seçin. (Bu algoritmayı görmüyorsanız listenin en altında **Tümünü göster**'e tıklayın.)<br></br>
+   * **Soldaki filtreleri seçin.** Örneğin, PCA tabanlı bir anomali algılama algoritması kullanan denemelere göz atmak için: **Kategoriler**'in altında **Denemeler** seçiliyken **Tümünü göster**'e tıklayın. Ardından, **Kullanılan Algoritmalar** altında **PCA Tabanlı Anomali Algılama**’yı seçin. <br></br>
      ![Filtreleri seçin](./media/machine-learning-sample-experiments/refine-the-view.png)
    * **Arama kutusunu kullanın.** Örneğin, Microsoft tarafından paylaşılan iki sınıflı destekli vektör makinesi algoritması kullanan rakam tanıma ile ilgili denemeleri bulmak için arama kutusuna "rakam tanıma" yazın. Daha sonra, **Deneme**, **Yalnızca Microsoft içeriği** ve **İki Sınıflı Destekli Vektör Makinesi**'ni seçin:<br></br>
      ![Arama kutusunu kullanma](./media/machine-learning-sample-experiments/search-for-experiments.png)
@@ -55,21 +57,16 @@ Tüm denemelere gözatmak için:
     >
     >
 
-## <a name="use-a-template-in-machine-learning-studio"></a>Machine Learning Studio'da bir şablon kullanma
+## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>Şablon olarak bir örnek kullanarak yeni deneme oluşturma
 Ayrıca, bir Galeri örneğini bir şablon olarak kullanıp Machine Learning Studio'da yeni bir deneme oluşturabilirsiniz.
 
 1. Microsoft hesabı kimlik bilgilerinizle [Studio](https://studio.azureml.net)'da oturum açın ve ardından bir deneme oluşturmak için **Yeni** seçeneğine tıklayın.
 2. Örnek içeriğine gözatın ve birine tıklayın.
 
-Örnek deneme bir şablon olarak kullanılarak çalışma alanınızda yeni bir deneme oluşturulur.
+Örnek deneme bir şablon olarak kullanılarak Machine Learning Studio çalışma alanınızda yeni bir deneme oluşturulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Çeşitli kaynaklardan veri alma](machine-learning-data-science-import-data.md)
 * [Machine Learning için R programlama diline yönelik hızlı başlangıç öğreticisi](machine-learning-r-quickstart.md)
 * [Machine Learning web hizmeti dağıtma](machine-learning-publish-a-machine-learning-web-service.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

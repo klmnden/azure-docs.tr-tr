@@ -1,8 +1,9 @@
 > [!NOTE]
-> Eski bir SKU'dan yeni bir SKU'ya geçiş yapılırken VPN Gateway Genel IP adresi değişir.
+> * Eski bir SKU'dan yeni bir SKU'ya geçiş yapılırken VPN ağ geçidi Genel IP adresi değişir.
+> * Klasik VPN ağ geçitlerini yeni SKU’lara geçiremezsiniz. Klasik VPN ağ geçitleri yalnızca eski SKU'ları kullanabilir.
 > 
 
-Azure VPN ağ geçitlerinizi eski SKU'lar ve yeni SKU aileleri arasında doğrudan yeniden boyutlandıramazsınız. Resource Manager dağıtım modelinde SKU'ların daha eski bir sürümünü kullanan VPN ağ geçitleriniz varsa yeni SKU'lara geçiş yapabilirsiniz. Geçiş yapmak için sanal ağınıza ilişkin mevcut VPN ağ geçidini silip yeni bir ağ geçidi oluşturursunuz.
+Azure VPN ağ geçitlerinizi eski SKU'lar ve yeni SKU aileleri arasında yeniden boyutlandıramazsınız. Resource Manager dağıtım modelinde SKU'ların daha eski bir sürümünü kullanan VPN ağ geçitleriniz varsa yeni SKU'lara geçiş yapabilirsiniz. Geçiş yapmak için sanal ağınıza ilişkin mevcut VPN ağ geçidini silip yeni bir ağ geçidi oluşturursunuz.
 
 Geçiş iş akışı:
 

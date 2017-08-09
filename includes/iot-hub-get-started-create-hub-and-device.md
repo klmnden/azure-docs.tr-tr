@@ -1,57 +1,60 @@
-## <a name="create-an-iot-hub"></a>Create an IoT hub
+## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-1. In the [Azure portal](https://portal.azure.com/), click **New** > **Internet of Things** > **IoT Hub**.
+1. [Azure portalında](https://portal.azure.com/) **Yeni** > **Nesnelerin İnterneti** > **IoT Hub** öğesine tıklayın.
 
-   ![Create an IoT hub in the Azure portal](../articles/iot-hub/media/iot-hub-create-hub-and-device/1_create-azure-iot-hub-portal.png)
-2. In the **IoT hub** pane, enter the following information for your IoT hub:
+   ![Azure portalında IoT hub' oluşturma](../articles/iot-hub/media/iot-hub-create-hub-and-device/1_create-azure-iot-hub-portal.png)
+2. **IoT hub** bölmesine IoT hub’ınızla ilgili aşağıdaki bilgileri girin:
 
-     **Name**: Enter the name of your IoT hub. If the name you enter is valid, a green check mark appears.
+     **Ad**: IoT hub'ınızın adını girin. Girdiğiniz ad geçerli ise yeşil bir onay işareti görünür.
 
-     **Pricing and scale tier**: Select the **F1 - Free** tier. This option is sufficient for this demo. For more information, see the [Pricing and scale tier](https://azure.microsoft.com/pricing/details/iot-hub/).
+     **Fiyatlandırma ve ölçek katmanı**: **F1 - Ücretsiz** katmanını seçin. Bu seçenek bu tanıtım için yeterlidir. Daha fazla bilgi için bkz. [Fiyatlandırma ve ölçek katmanı](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-     **Resource group**: Create a resource group to host the IoT hub or use an existing one. For more information, see [Use resource groups to manage your Azure resources](../articles/azure-resource-manager/resource-group-portal.md).
+     **Kaynak grubu**: IoT hub’ını barındıracak bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu kullanın. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../articles/azure-resource-manager/resource-group-portal.md).
 
-     **Location**: Select the closest location to you where the IoT hub is created.
+     **Konum**: IoT hub'ının oluşturulduğu, size en yakın konumu seçin.
 
-     **Pin to dashboard**: Select this option for easy access to your IoT hub from the dashboard.
+     **Panoya sabitle**: Panodan IoT hub'ınıza kolay erişim için bu seçeneği belirleyin.
 
-   ![Enter information to create your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
+   ![IoT hub'ınızı oluşturmak için bilgileri girin](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-3. Click **Create**. Your IoT hub might take a few minutes to create. You can see progress in the **Notifications** pane.
+3. **Oluştur**’a tıklayın. IoT hub’ınızın oluşturulması birkaç dakika sürebilir. İlerleme durumunu **Bildirimler** bölmesinden görebilirsiniz.
 
-   ![See progress notifications for your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/3_notification-azure-iot-hub-creation-progress-portal.png)
+   ![IoT hub’ınıza ilişkin ilerleme durumu bildirimlerine bakın](../articles/iot-hub/media/iot-hub-create-hub-and-device/3_notification-azure-iot-hub-creation-progress-portal.png)
 
-4. After your IoT hub is created, click it on the dashboard. Make a note of the **Hostname**, and then click **Shared access policies**.
+4. IoT hub'ınız oluşturulduktan sonra panoda IoT hub’ınıza tıklayın. **Ana bilgisayar adını** not edin ve **Paylaşılan erişim ilkeleri**'ne tıklayın.
 
-   ![Get the hostname of your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/4_get-azure-iot-hub-hostname-portal.png)
+   ![IoT hub’ınızın ana bilgisayar adını alma](../articles/iot-hub/media/iot-hub-create-hub-and-device/4_get-azure-iot-hub-hostname-portal.png)
 
-5. In the **Shared access policies** pane, click the **iothubowner** policy, and then copy and make a note of the **Connection string** of your IoT hub. For more information, see [Control access to IoT Hub](../articles/iot-hub/iot-hub-devguide-security.md).
+5. **Paylaşılan erişim ilkeleri** bölmesinde **iothubowner** ilkesine tıklayın, ardından IoT hub’ınızın **Bağlantı dizesi** değerini kopyalayıp not edin. Daha fazla bilgi için bkz. [IoT Hub'a erişimi denetleme](../articles/iot-hub/iot-hub-devguide-security.md).
 
-   ![Get your IoT hub connection string](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
+> [!NOTE] 
+Bu kurulum öğreticisinde bu iothubowner bağlantı dizesi gerekli değildir. Ancak, bu kurulum tamamlandıktan sonra farklı IoT senaryolarında bazı öğreticiler için gerekli olabilir.
 
-## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>Register a device in the IoT hub for your device
+   ![IoT hub bağlantı dizenizi alma](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
 
-1. In the [Azure portal](https://portal.azure.com/), open your IoT hub.
+## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>Cihazınız için IoT hub’a cihaz kaydetme
 
-2. Click **Device Explorer**.
-3. In the Device Explorer pane, click **Add** to add a device to your IoT hub. Then do the following:
+1. [Azure portalında](https://portal.azure.com/) IoT hub'ınızı açın.
 
-   **Device ID**: Enter the ID of the new device. Device IDs are case sensitive.
+2. **Device Explorer**’a tıklayın.
+3. Device Explorer bölmesinde **Ekle**’ye tıklayarak IoT hub’ınıza bir cihaz ekleyin. Ardından şunları yapın:
 
-   **Authentication Type**: Select **Symmetric Key**.
+   **Cihaz Kimliği**: Yeni cihazın kimliğini girin. Cihaz Kimlikleri büyük/küçük harfe duyarlıdır.
 
-   **Auto Generate Keys**: Select this check box.
+   **Kimlik Doğrulama Türü**: **Simetrik Anahtar**’ı seçin.
 
-   **Connect device to IoT Hub**: Click **Enable**.
+   **Anahtarları Otomatik Onayla**: Bu onay kutusunu işaretleyin.
 
-   ![Add a device in the Device Explorer of your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   **Cihazı IoT Hub'a bağla**: **Etkinleştir**’e tıklayın.
+
+   ![IoT hub’ınızın Device Explorer menüsünde cihaz ekleme](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. Click **Save**.
-5. After the device is created, open the device in the **Device Explorer** pane.
-6. Make a note of the primary key of the connection string.
+4. **Kaydet** düğmesine tıklayın.
+5. Cihaz oluşturulduktan sonra cihazı **Device Explorer** bölmesinde açın.
+6. Bağlantı dizesinin birincil anahtarını not edin.
 
-   ![Get the device connection string](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![Cihaz bağlantı dizesini alma](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)

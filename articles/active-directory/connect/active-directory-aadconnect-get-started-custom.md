@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
@@ -317,6 +317,15 @@ Daha fazla bilgi için bkz. [Hazırlama modu](active-directory-aadconnectsync-op
 
 ### <a name="verify-your-federation-configuration"></a>Federasyon yapılandırmanızı doğrulama
 Doğrula düğmesine tıkladığınızda Azure AD Connect sizin için DNS ayarlarını doğrular.
+
+**İntranet bağlantısı denetimleri**
+
+* Federasyon FQDN'sini çözümleme: Azure AD, bağlantıdan emin olmak için Federasyon FQDN’sinin DNS ile çözümlenip çözümlenemeyeceğini denetler. Azure AD Connect’in FQDN'yi çözümleyememesi durumunda doğrulama başarısız olur. Doğrulamayı başarıyla tamamlamak için federasyon hizmeti FQDN’si için bir DNS kaydının mevcut olduğundan emin olun.
+* DNS A kaydı: Azure AD Connect, federasyon hizmetiniz için bir A kaydı olup olmadığını denetler. Bir A kaydı olmaması durumunda doğrulama başarısız olur. Doğrulamayı başarıyla tamamlamak için federasyon FQDN’nize ait CNAME kaydı değil, bir A kaydı oluşturun.
+
+**Extranet bağlantısı denetimleri**
+
+* Federasyon FQDN'sini çözümleme: Azure AD, bağlantıdan emin olmak için Federasyon FQDN’sinin DNS ile çözümlenip çözümlenemeyeceğini denetler.
 
 ![Tamamlama](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

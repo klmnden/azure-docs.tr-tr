@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/09/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 8f83f5d13cb61709653f255c756dc78453073626
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="update-management-solution-in-oms"></a>OMS’de Güncelleştirme Yönetimi çözümü
@@ -65,10 +64,10 @@ Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar
     > [!NOTE]
     > Windows aracısı System Center Configuration Manager tarafından eşzamanlı olarak yönetilemez.  
     >
-* CentOS 6 (x86/x64) ve 7 (x64)
-* Red Hat Enterprise 6 (x86/x64) ve 7 (x64)
-* SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)
-* Ubuntu 12.04 LTS ve daha yeni x86/x64  
+* CentOS 6 (x86/x64) ve 7 (x64)  
+* Red Hat Enterprise 6 (x86/x64) ve 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)  
+* Ubuntu 12.04 LTS ve daha yeni x86/x64   
     > [!NOTE]  
     > Güncelleştirmelerin Ubuntu'daki bakım penceresinin dışında uygulanmasının önüne geçmek için Katılımsız Yükseltme paketini otomatik güncelleştirmeler devre dışı bırakılacak şekilden yeniden yapılandırın. Bahsedilen yapılandırma işlemiyle ilgili bilgi için bkz. [Ubuntu Server Kılavuzu'ndaki Otomatik Güncelleştirmeler konu başlığı](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
@@ -79,6 +78,9 @@ Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar
     >
 
 Linux için OMS Aracısı’nı yükleme ve en son sürümü indirme hakkında ek bilgi için, [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux) konusuna bakın.  Windows için OMS Aracısı’nı yükleme hakkında bilgi için, [Windows için Operations Management Suite Aracısı](../log-analytics/log-analytics-windows-agents.md) konusunu gözden geçirin.  
+
+### <a name="permissions"></a>İzinler
+Güncelleştirme dağıtımları oluşturmak için hem Otomasyon hesabınızda hem de Log Analytics çalışma alanınızda size katkıda bulunan rolü verilmiş olmalıdır.  
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
 Bu çözüm, Otomasyon hesabınıza eklenen aşağıdaki kaynaklardan ve doğrudan bağlanılan aracılardan veya Operations Manager bağlantılı yönetim grubundan oluşur.
@@ -156,7 +158,7 @@ Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklediğiniz
 ## <a name="viewing-update-assessments"></a>Güncelleştirme değerlendirmelerini görüntüleme
 **Güncelleştirme Yönetimi** kutucuğuna tıklayarak **Güncelleştirme Yönetimi** panosunu açın.<br><br> ![Güncelleştirme Yönetimi Özet Panosu](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
-Bu pano, güncelleştirme durumunun işletim sistemi türüne ve güncelleştirme sınıflandırmasına (kritik, güvenlik ve diğer, örneğin tanım güncelleştirmesi) göre kategorilere ayrılmış, ayrıntılı bir dökümünü sağlar. **Güncelleştirme Dağıtımları** kutucu seçildiğinde, sizi zamanlamaları, çalışmakta olan dağıtımları ve tamamlanmış dağıtımları görüntüleyebileceğiniz veya yeni dağıtım zamanlayabileceğiniz Güncelleştirme Dağıtımları sayfasını yönlendirir.  
+Bu pano, güncelleştirme durumunun işletim sistemi türüne ve güncelleştirme sınıflandırmasına (kritik, güvenlik ve diğer, örneğin tanım güncelleştirmesi) göre kategorilere ayrılmış, ayrıntılı bir dökümünü sağlar. Bu panonun her bir kutucuğundaki sonuçlar yalnızca bilgisayarların eşitleme kaynağını temel alan dağıtım için onaylanmış güncelleştirmeleri yansıtır.   **Güncelleştirme Dağıtımları** kutucu seçildiğinde, sizi zamanlamaları, çalışmakta olan dağıtımları ve tamamlanmış dağıtımları görüntüleyebileceğiniz veya yeni dağıtım zamanlayabileceğiniz Güncelleştirme Dağıtımları sayfasını yönlendirir.  
 
 Belirli bir kutucuğa tıklayarak tüm kayıtları döndüren bir günlük araması çalıştırabilirsiniz. Öte yandan belirli bir kategorinin veya önceden tanımlanmış ölçütün sorgusunu çalıştırmak için, **Sık Kullanılan Güncelleştirme Sorguları** sütununun altında sağlanan listeden bir seçim yapın.    
 
@@ -310,6 +312,17 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 ## <a name="troubleshooting"></a>Sorun giderme
 
 Bu bölümde, Güncelleştirme Yönetimi çözümüyle ilgili sorunları gidermeye yardımcı olacak bilgiler sağlanır.  
+
+### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Ekleme sorunlarını nasıl giderebilirim?
+Çözümü veya bir sanal makineyi eklemeye çalışırken sorun yaşarsanız, olay kimliği 4502 olan olaylar ve **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** içeren olay iletisi için **Uygulama ve Hizmet Günlükleri\Operations Manager** olay günlüğünü denetleyin.  Aşağıdaki tabloda belirli hata iletileri ve her birinin olası çözümü vurgulanmıştır.  
+
+| İleti | Neden | Çözüm |   
+|----------|----------|----------|  
+| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>System.InvalidOperationException: {"Message":"Makine zaten<br>farklı bir hesaba kaydedildi. "} | Makine, Güncelleştirme Yönetimi için zaten başka bir çalışma alanına eklendi | Karma runbook grubunu silerek [eski yapıtları temizleyin](../automation/automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
+| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>System.Net.Http.HttpRequestException: İstek gönderilirken bir hata oluştu. ---><br>System.Net.WebException: Temel alınan bağlantı<br>kapatıldı: Alma işlemi sırasında<br>beklenmeyen bir hata oluştu. ---> System.ComponentModel.Win32Exception:<br>İstemci ve sunucu iletişim kuramıyor,<br>çünkü ortak bir algoritmaya sahip değiller | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](../automation/automation-offering-get-started.md#network-planning)|  
+| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>Newtonsoft.Json.JsonReaderException: Pozitif sonsuz değer ayrıştırılırken hata oluştu. | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](../automation/automation-offering-get-started.md#network-planning)| 
+| <wsid>.oms.opinsights.azure.com hizmeti tarafından sunulan sertifika<br>Microsoft hizmetleri için kullanılan bir sertifika yetkilisi<br>tarafından verilmemiş. Lütfen<br>ağ yöneticinize başvurarak<br>TLS/SSL iletişimini engelleyen bir proxy çalıştırıp çalıştırmadıklarına bakın. |Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](../automation/automation-offering-get-started.md#network-planning)|  
+| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Otomatik olarak imzalanan sertifika oluşturulamadı. ---><br>System.UnauthorizedAccessException: Erişim reddedildi. | Otomatik olarak imzalanan sertifika oluşturma hatası | Sistem hesabının<br>klasöre okuma erişiminin olduğunu doğrulayın:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>Güncelleştirme dağıtımlarının sorunlarını nasıl giderebilirim?
 Bu çözümü destekleyen OMS çalışma alanıyla bağlantı Otomasyon hesabınızın İşler dikey penceresindeki zamanlanmış güncelleştirme dağıtımına dahil olan güncelleştirmeleri dağıtmaktan sorumlu runbook’un sonuçlarını görüntüleyebilirsiniz.  **Patch-MicrosoftOMSComputer** runbook’u, belirli bir yönetilen bilgisayarı hedefleyen bir alt runbook’tur; ayrıntılı Akışın gözden geçirilmesi bu dağıtımla ilgili ayrıntılı bilgileri sağlar.  Çıkışta, hangi gerekli güncelleştirmelerin uygulanabilir olduğu, indirme durumu, yükleme durumu ve ek ayrıntılar gösterilir.<br><br> ![Güncelleştirme Dağıtımı iş durumu](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>

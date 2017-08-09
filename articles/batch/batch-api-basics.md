@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 346e7abf862330afe64dc5685737a9301d7d861a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
@@ -177,10 +177,14 @@ Batch hesabı oluştururken havuz ayırma modunu ayarlama hakkında bilgi almak 
 
 Sanal Makine havuzlarınızda özel görüntüler kullanmak için, Batch hesabınızı Kullanıcı Aboneliği havuz ayırma moduyla oluşturun. Bu modu kullandığınızda Batch havuzları, hesabın bulunduğu aboneliğe ayrılır. Batch hesabı oluştururken havuz ayırma modunu ayarlama hakkında bilgi almak için [Hesap](#account) bölümüne bakın.
 
-Özel görüntü kullanmak için, görüntüyü genelleştirerek hazırlamanız gerekir. Azure sanal makinelerinden özel Linux görüntüleri hazırlama hakkında daha fazla bilgi için bkz. [Şablon olarak kullanmak için bir Azure Linux sanal makinesi yakalama](../virtual-machines/linux/capture-image-nodejs.md). Azure sanal makinelerinden özel Windows görüntüleri hazırlama hakkında daha fazla bilgi için bkz. [Azure PowerShell ile özel VM görüntüleri oluşturma](../virtual-machines/windows/tutorial-custom-images.md). Görüntünüzü hazırlarken aşağıdakileri unutmayın:
+Özel görüntü kullanmak için, görüntüyü genelleştirerek hazırlamanız gerekir. Azure sanal makinelerinden özel Linux görüntüleri hazırlama hakkında daha fazla bilgi için bkz. [Şablon olarak kullanmak için bir Azure Linux sanal makinesi yakalama](../virtual-machines/linux/capture-image-nodejs.md). Azure sanal makinelerinden özel Windows görüntüleri hazırlama hakkında daha fazla bilgi için bkz. [Azure PowerShell ile özel VM görüntüleri oluşturma](../virtual-machines/windows/tutorial-custom-images.md). 
 
-- Batch havuzlarını sağlamak için kullandığınız temel işletim sistemi görüntüsünün, özel betik uzantıları gibi önceden yüklenmiş Azure uzantılarına sahip olmadığından emin olun. Görüntü önceden yüklenmiş bir uzantı içeriyorsa Azure, VM dağıtımı sırasında sorunla karşılaşabilir.
-- Batch düğüm aracısı varsayılan geçici sürücüyü beklediğinden, sağladığınız temel işletim sistemi görüntüsünün varsayılan geçici sürücüyü kullandığından emin olun.
+> [!IMPORTANT]
+> Özel görüntünüzü hazırlarken aşağıdakileri unutmayın:
+> - Batch havuzlarını sağlamak için kullandığınız temel işletim sistemi görüntüsünün, özel betik uzantıları gibi önceden yüklenmiş Azure uzantılarına sahip olmadığından emin olun. Görüntü önceden yüklenmiş bir uzantı içeriyorsa Azure, VM dağıtımı sırasında sorunla karşılaşabilir.
+> - Batch düğüm aracısı varsayılan geçici sürücüyü beklediğinden, sağladığınız temel işletim sistemi görüntüsünün varsayılan geçici sürücüyü kullandığından emin olun.
+>
+>
 
 Özel bir görüntü kullanarak Sanal Makine Yapılandırması havuzu oluşturmak için özel VHD görüntülerinizi depolama amacıyla bir veya daha fazla standart Azure Depolama hesabına sahip olmanız gerekir. Özel görüntüler blob olarak depolanır. Bir havuz oluşturduğunuzda özel görüntülerinize başvurmak için [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) özelliğinin [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) özelliğinde özel görüntü VHD bloblarının URI'lerini belirtin.
 
