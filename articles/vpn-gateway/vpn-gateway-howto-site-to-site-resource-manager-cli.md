@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
 ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
@@ -35,7 +35,7 @@ Bu makalede, Azure CLI kullanarak şirket içi ağınızdan VNet’e Siteden Sit
 >
 
 
-![Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı diyagramı](./media/vpn-gateway-howto-site-to-site-resource-manager-cli/site-to-site-connection-diagram.png)
+![Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı diyagramı](./media/vpn-gateway-howto-site-to-site-resource-manager-cli/site-to-site-diagram.png)
 
 Siteden Siteye VPN ağ geçidi bağlantısı, şirket içi ağınızı bir IPsec/IKE (IKEv1 veya IKEv2) tüneli üzerinden Azure sanal ağına bağlamak için kullanılır. Bu bağlantı türü için, şirket içinde yer alan ve kendisine atanmış dışarıya yönelik bir genel IP adresi atanmış olan bir VPN cihazı gerekir. VPN ağ geçitleri hakkında daha fazla bilgi için bkz. [VPN ağ geçidi hakkında](vpn-gateway-about-vpngateways.md).
 
@@ -58,10 +58,10 @@ Aşağıdaki değerleri kullanarak bir test ortamı oluşturabilir veya bu makal
 VnetName                = TestVNet1 
 ResourceGroup           = TestRG1 
 Location                = eastus 
-AddressSpace            = 10.12.0.0/16 
+AddressSpace            = 10.11.0.0/16 
 SubnetName              = Subnet1 
-Subnet                  = 10.12.0.0/24 
-GatewaySubnet           = 10.12.255.0/27 
+Subnet                  = 10.11.0.0/24 
+GatewaySubnet           = 10.11.255.0/27 
 LocalNetworkGatewayName = Site2 
 LNG Public IP           = <VPN device IP address>
 LocalAddrPrefix1        = 10.0.0.0/24
@@ -92,7 +92,7 @@ Henüz bir sanal ağınız yoksa, [az network vnet create](/cli/azure/network/vn
 Aşağıdaki örnekte, 'TestVNet1' adlı bir sanal ağ ve 'Subnet1' adlı alt ağ oluşturulur.
 
 ```azurecli
-az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.12.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
+az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.11.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.11.0.0/24
 ```
 
 ## 4. <a name="gwsub"></a>Ağ geçidi alt ağını oluşturma
@@ -106,7 +106,7 @@ Belirttiğiniz ağ geçidi alt ağının boyutu, oluşturmak istediğiniz VPN a�
 Ağ geçidi alt ağını oluşturmak için [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) komutunu kullanın.
 
 ```azurecli
-az network vnet subnet create --address-prefix 10.12.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
+az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
 ```
 
 ## <a name="localnet"></a>5. Yerel ağ geçidini oluşturma
