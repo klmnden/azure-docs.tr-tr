@@ -1,13 +1,27 @@
 # Genel Bakış
 ## [Azure Analysis Services nedir?](analysis-services-overview.md)
+## [Desteklenen veri kaynakları](analysis-services-datasource.md)
+## [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md)
+## [Uyumluluk düzeyi](analysis-services-compat-level.md)
+## [Yüksek kullanılabilirlik](analysis-services-bcdr.md)
 
-# Hızlı Başlangıçlar
-## [Sunucu oluşturma - portal](analysis-services-create-server.md)
-## [Sunucu oluşturma - PowerShell](analysis-services-create-powershell.md)
-## [Model dağıtma - Visual Studio](analysis-services-deploy.md)
+# başlarken
+## [Azure portalında bir sunucu oluşturma](analysis-services-create-server.md)
+## [PowerShell ile bir sunucu oluşturma](analysis-services-create-powershell.md)
+## [Visual Studio üzerinden model dağıtma](analysis-services-deploy.md)
+## [Azure portalında bir model oluşturma (önizleme)](analysis-services-create-model-portal.md)
 
-# Öğreticiler
-## Model oluşturma ve dağıtma
+# Nasıl yapılır 
+## [Sunucu yönetme](analysis-services-manage.md)
+## [Veritabanı kullanıcılarını yönetme](analysis-services-database-users.md)
+## [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)
+## [Şirket içi veri ağ geçidi yükleme](analysis-services-gateway.md)
+## [İstemci kitaplıkları alma](analysis-services-data-providers.md)
+## [Yedekleme ve geri yükleme](analysis-services-backup.md)
+## [Excel ile bağlanma](analysis-services-connect-excel.md)
+## [Power BI ile bağlanma](analysis-services-connect-pbi.md)
+## [.odc dosyası oluşturma](analysis-services-odc.md)
+## Öğreticiler
 ### [Adventure Works öğreticisi](tutorials/aas-adventure-works-tutorial.md)
 ### [1. Ders: Yeni bir tablosal model projesi oluşturma](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 ### [2. Ders: Verileri alma](tutorials/aas-lesson-2-get-data.md)
@@ -24,24 +38,7 @@
 ### [13. Ders: Dağıtma](tutorials/aas-lesson-13-deploy.md)
 ### [Ek ders - Ayrıntı Satırları](tutorials/aas-supplemental-lesson-detail-rows.md)
 ### [Ek ders - Dinamik güvenlik](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [Ek ders - Düzensiz hiyerarşiler](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
-
-# Kavramlar
-## [Desteklenen veri kaynakları](analysis-services-datasource.md)
-## [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md)
-## [Yüksek kullanılabilirlik](analysis-services-bcdr.md)
-
-# Nasıl yapılır 
-## [Azure portalında bir model oluşturma (önizleme)](analysis-services-create-model-portal.md)
-## [Sunucu yönetme](analysis-services-manage.md)
-## [Veritabanı kullanıcılarını yönetme](analysis-services-database-users.md)
-## [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)
-## [Şirket içi veri ağ geçidi yükleme](analysis-services-gateway.md)
-## [Excel ile bağlanma](analysis-services-connect-excel.md)
-## [Power BI ile bağlanma](analysis-services-connect-pbi.md)
-## [İstemci kitaplıkları alma](analysis-services-data-providers.md)
-## [Yedekleme ve geri yükleme](analysis-services-backup.md)
-## [.odc dosyası oluşturma](analysis-services-odc.md)
+### [Ek ders - Düzensiz hiyerarşiler](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Başvuru
 ## [PowerShell](analysis-services-powershell.md)
