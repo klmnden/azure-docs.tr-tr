@@ -28,10 +28,12 @@
 ### [Çoklu müşteri mimarisi için tasarım desenleri](search-modeling-multitenant-saas-applications.md)
 
 ## Geliştirme
+### [API sürümleri](search-api-versions.md)
 ### [SDK’yı yükseltme](search-dotnet-sdk-migration.md)
 ### [REST API’yi yükseltme](search-api-migration.md)
 ### [Karmaşık veri türlerini modelleme](search-howto-complex-data-types.md)
 ### [Eş zamanlı güncelleştirmelerini tanımlama](search-howto-concurrency.md)
+### [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=search)
 
 ## Yönet
 ### Azure Search Yönetimi
@@ -68,31 +70,33 @@
 
 # Başvuru
 
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=search)
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (Yönetim)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (Yönetim)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (Yönetim)](/rest/api/searchmanagement)
+## [Hizmet REST (Önizleme)](search-api-2015-02-28-preview.md)
 
 # Kaynaklar
-## [API sürümleri](search-api-versions.md)
+
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [SSS - Sık Sorulan Sorular](search-faq-frequently-asked-questions.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/search/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
-## [Hizmet REST (Önizleme)](search-api-2015-02-28-preview.md)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=search)
 ## Eğitim yazılımı ve öğreticiler
-## Tanıtım siteleri
-## İş ortağı ve topluluk
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
-### [İş listeleri uygulaması](http://aka.ms/azjobsdemo)
-### [Canlı tanıtım uygulamaları](https://searchsamples.azurewebsites.net/)
-### [İlişkisel verileri modelleme](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [Çok düzeyli model oluşturma](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Arama Çözümleyicisi Tanıtımı](http://alice.unearth.ai/)
-### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Videolar ve öğreticiler](search-video-demo-tutorial-list.md)
 ### [Sanal akademi](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
+## Tanıtım siteleri
+### [Arama Çözümleyicisi Tanıtımı](http://alice.unearth.ai/)
+### [Canlı tanıtım uygulamaları](https://searchsamples.azurewebsites.net/)
+### [İş listeleri uygulaması](http://aka.ms/azjobsdemo)
+## İş ortağı ve topluluk
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [MSDN Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
+### [blog: İlişkisel verileri modelleme](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
+### [[blog: Çok düzeyli model oluşturma](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+
+
+

@@ -19,6 +19,7 @@
 ### [Yoğun işlem gücü kullanımlı VM’ler](batch-pool-compute-intensive-sizes.md)
 ### [Eşzamanlı düğüm görevleri](batch-parallel-node-tasks.md)
 ### [Görevleri duruma göre sayma](batch-get-task-counts.md)
+### [Özel bir görüntü ile havuz oluşturma](batch-custom-images.md)
 ### [Etkili liste sorguları](batch-efficient-list-queries.md)
 ### [İş hazırlığı ve tamamlama görevleri](batch-job-prep-release.md)
 ### [Linux işlem düğümleri](batch-linux-nodes.md)

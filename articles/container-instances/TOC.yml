@@ -23,6 +23,8 @@
   items:
     - name: Düzenleyicilerle ilişki
       href: container-instances-orchestrator-relationship.md
+    - name: Kapsayıcı grupları
+      href: container-instances-container-groups.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Birden çok kapsayıcılı grupları dağıtma

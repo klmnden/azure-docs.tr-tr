@@ -9,6 +9,7 @@
 ## [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
 ## [Azure aboneliklerini ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
+## [Hızlı Başlangıç: Self servis parolasını sıfırlama](active-directory-passwords-getting-started.md)
 ## Azure AD lisanslamayı yönetme
 ### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Klasik portal](active-directory-licensing-what-is.md)
@@ -78,6 +79,7 @@
 #### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
 #### [Grup tabanlı lisanslama için PowerShell örnekleri](active-directory-licensing-ps-examples.md)
+### [Office 365 gruplarının süre sonlarını ayarlama](active-directory-groups-lifecycle-azure-portal.md)
 ### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
 ### [Adanmış grupları etkinleştirme](active-directory-accessmanagement-dedicated-groups.md)
 ### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
@@ -124,7 +126,6 @@
 #### [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
 #### [Parolalarla ilgili en iyi yöntemler](active-directory-secure-passwords.md)
 #### [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
-### [Hızlı başlangıç: Self servis parola sıfırlama](active-directory-passwords-getting-started.md)
 ### [SSPR lisanslama](active-directory-passwords-licensing.md)
 ### [SSPR dağıtma](active-directory-passwords-best-practices.md)
 ### BT Yöneticileri: Parolaları sıfırlama
