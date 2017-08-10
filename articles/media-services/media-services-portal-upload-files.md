@@ -1,5 +1,5 @@
 ---
-title: " Azure portalını kullanarak Media Services hesabına dosya yükleme | Microsoft Belgeleris"
+title: " Azure portalını kullanarak Media Services hesabına dosya yükleme | Microsoft Belgeleri"
 description: "Bu öğretici, Azure portalını kullanarak bir Azure Media Services hesabına dosya yükleme adımlarında size kılavuzluk eder"
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: ed8ea30b87c8086d41cab879acce82062f08b31c
-ms.openlocfilehash: f27ab42ab3c7c704804b9a5493c8b3acd954decb
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8b9a7a266259077d49a38d51d7f801f420cc6315
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Azure portalını kullanarak Media Services hesabına dosya yükleme
@@ -61,17 +62,12 @@ Karşıya yükleme işlemi tamamlandıktan sonra, yeni varlık **Varlıklar** pe
 ## <a name="next-steps"></a>Sonraki adımlar
 Karşıya yüklenen varlıklarınızı artık kodlayabilirsiniz. Daha fazla bilgi için bkz. [Varlıkları kodlama](media-services-portal-encode.md).
 
-Yapılandırılmış kapsayıcıya gelen bir dosyaya göre kodlanma işi tetiklemek için Azure İşlevleri’ni de kullanabilirsiniz. Daha fazla bilgi için [bu örneğe](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ) bakın.
+Yapılandırılmış kapsayıcıya gelen dosyaya göre bir kodlama işi tetiklemek için Azure İşlevleri’ni de kullanabilirsiniz. Daha fazla bilgi için [bu örneğe](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ) bakın.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

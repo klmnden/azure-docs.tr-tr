@@ -71,6 +71,9 @@ ACU: 210-250
 <br>
 
 ## <a name="ds-series"></a>DS serisi
+
+ACU: 160
+
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / Beklenen ağ performansı (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3,5 |7 |2 |4000/32 (43) |3200/32 |2 / 500 |
@@ -79,6 +82,7 @@ ACU: 210-250
 | Standard_DS4 |8 |28 |56 |16 |32.000/256 (344) |25.600/256 |8 / 4000 |
 
 <br>
+
 ## <a name="d-series"></a>D Serisi 
 
 ACU: 160
