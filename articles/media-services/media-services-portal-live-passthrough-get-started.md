@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 08/09/2017
 ms.author: juliako
 ms.translationtype: HT
 ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: b28488ac9037b0f0ff7df892b9c3a61167b1eceb
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/10/2017
-
 
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Azure portalı kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme

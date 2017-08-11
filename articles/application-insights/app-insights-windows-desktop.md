@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
-ms.author: cfreeman
+ms.author: sewhee
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: 35ca040ed123f6330f09f7fb1bc6be9ddaf61808
 ms.contentlocale: tr-tr
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Windows Masaüstü uygulamalarında kullanımı ve performansı izleme
