@@ -4,13 +4,13 @@
 ## [Kullanılabilirlik](configure-availability.md)
 ## [SSS](faq.md)
 
-# [Başlarken](../opensource-links.md)
+# Kullanmaya Başlama
 ## [Portal ile Linux VM oluşturma](createportal.md)
 ## [Azure CLI'yı yükleme](../../../cli-install-nodejs.md)
 ## [SSH anahtarları oluşturma](../mac-create-ssh-keys.md)
 
 # Nasıl yapılır?
-## [İşlem](../intro-on-azure.md)
+## İşlem
 ### [Özel VM oluşturma](create-custom.md)
 ### [VM yakalama](capture-image.md)
 ### [Bir Linux VM ile Uzak Masaüstü kullanma](remote-desktop.md)

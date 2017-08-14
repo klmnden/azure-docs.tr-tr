@@ -105,9 +105,6 @@
       href: consistency-levels.md
     - name: Aktarım hızı
       href: request-units.md
-      items:
-        - name: Dakika başına istek birimi
-          href: request-units-per-minute.md
     - name: Çoklu model API’ler
       items:
         - name: DocumentDB

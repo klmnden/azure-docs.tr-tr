@@ -81,8 +81,6 @@
 ### [Depolama hesabı oluşturma](../../storage/storage-create-storage-account.md#create-a-storage-account)
 ### [Azure Depolama ile Azure PowerShell’i kullanma](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Depolama ile Azure CLI kullanma.](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Windows için depolama altyapısı yönergeleri](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Linux için depolama altyapısı yönergeleri](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Depolama İstemci Araçları](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Depolama hizmeti REST API başvurusu](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
 ### [Paylaşılan erişim imzalarını kullanma](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

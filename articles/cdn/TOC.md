@@ -10,6 +10,8 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Depolama](cdn-create-a-storage-account-with-cdn.md)
 ### [Çıkış noktaları arası kaynak paylaşımı](cdn-cors.md)
+### [Özel bir etki alanını CDN ile eşleştirme](cdn-map-content-to-custom-domain.md)
+### [Özel bir etki alanı üzerinde HTTPS'yi etkinleştirme](cdn-custom-ssl.md)
 ## İçeriği iyileştirme
 ### [İyileştirmeye genel bakış](cdn-optimization-overview.md)
 ####[Büyük dosyaları iyileştirme](cdn-large-file-optimization.md)
@@ -17,12 +19,10 @@
 ####[Dinamik site hızlandırma](cdn-dynamic-site-acceleration.md)
  
 ## Yönet
-### [Özel bir etki alanı üzerinde HTTPS'yi etkinleştirme](cdn-custom-ssl.md)
 ### [PowerShell ile Yönetme](cdn-manage-powershell.md)
 ### Yaşam süresi yapılandırma
 #### [Web Apps/Cloud Services, ASP.NET veya IIS içeriği](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Depolama blob hizmeti içeriği](cdn-manage-expiration-of-blob-content.md)
-### [Özel bir etki alanını CDN ile eşleştirme](cdn-map-content-to-custom-domain.md)
 ### [Ülkeye göre erişimi kısıtlama](cdn-restrict-access-by-country.md)
 ### [Dosyaları sıkıştırarak performansı geliştirme](cdn-improve-performance.md)
 ### Sorgu dizesine göre içeriği önbelleğe alma
