@@ -1,6 +1,6 @@
 ---
 title: "Python'dan PostgreSQL için Azure Veritabanı'na bağlanma | Microsoft Docs"
-description: "Burada, PostgreSQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz Python kod örneği sağlanmıştır."
+description: "Bu hızlı başlangıçta, PostgreSQL için Azure Veritabanı’na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz Python kod örneği sağlanmıştır."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -10,12 +10,12 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/07/2017
+ms.date: 08/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Python'ı kullanma
@@ -49,7 +49,7 @@ PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgi
 5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
 
 ## <a name="how-to-run-python-code"></a>Python kodu çalıştırma
-- En sevdiğiniz metin düzenleyiciyi kullanarak postgres.py adlı yeni bir dosya oluşturun ve dosyayı proje klasörüne kaydedin. Aşağıda gösterilen bir kod örneğini kopyalayıp metin dosyasına yapıştırın ve dosyayı kaydedin. Dosyayı Windows işletim sisteminde kaydediyorsanız UTF-8 kodlamasını seçtiğinizden emin olun. 
+- En sevdiğiniz metin düzenleyiciyi kullanarak postgres.py adlı yeni bir dosya oluşturun ve dosyayı proje klasörüne kaydedin. Aşağıda gösterilen bir kod örneğini kopyalayıp metin dosyasına yapıştırın. host, dbname, user ve password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. Ardından dosyayı kaydedin. Dosyayı Windows işletim sisteminde kaydediyorsanız UTF-8 kodlamasını seçtiğinizden emin olun. 
 - Kodu çalıştırmak için komut istemi veya bash kabuğu başlatın. Dizini, proje klasörünüzle değiştirin; örneğin, `cd postgresql`. Sonra python komutunu ve ardından dosya adını yazın; örneğin, `python postgres.py`.
 
 > [!NOTE]

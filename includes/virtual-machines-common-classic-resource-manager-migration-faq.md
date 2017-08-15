@@ -1,61 +1,66 @@
-# <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Frequently asked questions about classic to Azure Resource Manager migration
+# <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Klasik modelden Azure Resource Manager’a geçişle ilgili sık sorulan sorular
 
-## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
+## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Bu geçiş planı Azure sanal makinelerde çalışan mevcut hizmetlerimi ya da uygulamaların herhangi birini etkiliyor mu? 
 
-No. The VMs (classic) are fully supported services in general availability. You can continue to use these resources to expand your footprint on Microsoft Azure.
+Hayır. VM’ler (Klasik), genel kullanılabilirlikte tam olarak desteklenen hizmetlerdir. Microsoft Azure’da, ayak izinizi genişletmek için bu kaynakları kullanmaya devam edebilirsiniz.
 
-## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>What happens to my VMs if I don’t plan on migrating in the near future? 
+## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>Yakın gelecekte geçirmeyi planlamadığım VM'lerime ne olur? 
 
-We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](../articles/azure-resource-manager/resource-manager-deployment-model.md) that are part of IaaS under Resource Manager.
+Mevcut klasik API'leri ve kaynak modelini kullanımdan kaldırmıyoruz. Resource Manager dağıtım modelinde kullanılabilen gelişmiş özellikleri dikkate alarak geçiş kolaylaştırmak istiyoruz. Resource Manager altında IaaS’ın parçası olan [geliştirmelerden bazılarını](../articles/azure-resource-manager/resource-manager-deployment-model.md) incelemenizi öneririz.
 
-## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>What does this migration plan mean for my existing tooling? 
+## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>Bu geçiş planı, mevcut araçlarım için ne anlama geliyor? 
 
-Updating your tooling to the Resource Manager deployment model is one of the most important changes that you have to account for in your migration plans.
+Resource Manager dağıtım modeli için araçlarınızı güncelleştirmek, geçiş planlarınızda hesaba katmanız gereken en önemli değişikliklerden biridir.
 
-## <a name="how-long-will-the-management-plane-downtime-be"></a>How long will the management-plane downtime be? 
+## <a name="how-long-will-the-management-plane-downtime-be"></a>Yönetim düzeyi kapalı kalma süresi ne kadar olacak? 
 
-It depends on the number of resources that are being migrated. For smaller deployments (a few tens of VMs), the whole migration should take less than an hour. For large-scale deployments (hundreds of VMs), the migration can take a few hours.
+Bu, geçirilmekte olan kaynakların sayısına bağlıdır. Küçük dağıtımlar için (birkaç düzine VM) tüm geçişin bir saatten az sürmesi gerekir. Büyük ölçekli dağıtımlar (yüzlerce VM) için geçiş birkaç saat sürebilir.
 
-## <a name="can-i-roll-back-after-my-migrating-resources-are-committed-in-resource-manager"></a>Can I roll back after my migrating resources are committed in Resource Manager? 
+## <a name="can-i-roll-back-after-my-migrating-resources-are-committed-in-resource-manager"></a>Geçiş kaynaklarım Kaynak Yöneticisi'ne işlendikten sonra işlemi geri alabilir miyim? 
 
-You can abort your migration as long as the resources are in the prepared state. Rollback is not supported after the resources have been successfully migrated through the commit operation.
+Kaynaklar hazır durumda olduğu sürece geçişinizi iptal edebilirsiniz. Kaynakların işleme süreci başarıyla tamamlandıktan sonra geri alma desteklenmez.
 
-## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>Can I roll back my migration if the commit operation fails? 
+## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>İşleme süreci başarısız olursa geçişi geri alabilir miyim? 
 
-You cannot abort migration if the commit operation fails. All migration operations, including the commit operation, are idempotent. So we recommend that you retry the operation after a short time. If you still face an error, create a support ticket or create a forum post with the ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+İşleme süreci başarısız olursa geçişi geri alamazsınız. Kaydetme işlemi de dahil olmak üzere tüm geçiş işlemleri birden fazla kez denenebilir. Bu nedenle kısa bir süre sonra işlemi yeniden denemenizi öneririz. Hatayla karşılaşmaya devam ederseniz bir destek bileti oluşturun veya [VM Forumumuzda](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows) ClassicIaaSMigration etiketiyle bir forum gönderisi oluşturun.
 
-## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Do I have to buy another express route circuit if I have to use IaaS under Resource Manager? 
+## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Kaynak Yöneticisi altında IaaS kullanmam gerekiyorsa başka bir hızlı yol devresi satın almam gerekir mi? 
 
-No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-move.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
+Hayır. Yakın zamanda [ExpressRoute devrelerini klasikten Resource Manager dağıtım modeline taşıma](../articles/expressroute/expressroute-move.md) özelliğini etkinleştirdik. Bir ExpressRoute devreniz varsa yeni bir tane satın almak zorunda değilsiniz.
 
-## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>What if I had configured Role-Based Access Control policies for my classic IaaS resources? 
+## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>Klasik Iaas Kaynaklarım için Rol Tabanlı Erişim Denetimi yapılandırdıysam ne olur? 
 
-During migration, the resources transform from classic to Resource Manager. So we recommend that you plan the RBAC policy updates that need to happen after migration.
+Geçiş sırasında kaynaklar klasikten Resource Manager’a dönüşür. Bu nedenle geçişten sonra gerçekleşmesi gereken RBAC İlkesi güncelleştirmelerini planlamanızı öneririz.
 
-## <a name="what-if-im-using-azure-site-recovery-or-azure-backup-today"></a>What if I’m using Azure Site Recovery or Azure Backup today? 
+## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Klasik VM’lerimi bir Backup kasasına yedekledim. VM’lerimi klasik moddan Resource Manager moduna geçirip bunları bir Kurtarma Hizmetleri kasasında koruyabilir miyim? 
 
-To migrate your Virtual Machine that are enabled for backup, see [I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode. How Can I backup them in recovery services vault?](../articles/backup/backup-azure-backup-ibiza-faq.md)i have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
+Bir VM’yi klasikten Resource Manager moduna taşıdığınızda yedekleme kasasındaki klasik VM kurtarma noktaları, Kurtarma Hizmetleri kasasına otomatik olarak geçirilmez. VM yedeklerinizi aktarmak için bu adımları izleyin:
 
-## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Can I validate my subscription or resources to see if they're capable of migration? 
+1. Backup kasasında **Korunan Öğeler** sekmesine gidin ve VM’yi seçin. [Korumayı Durdur](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın.
+2. Yedekleme/anlık görüntü uzantısını VM'den silin.
+3. Sanal makineyi, klasik moddan Resource Manager moduna geçirin. Sanal makineye karşılık gelen depolama ve ağ bilgilerinin de Resource Manager moduna geçirildiğinden emin olun.
+4. Bir Kurtarma Hizmetleri kasası oluşturun ve kasa panosunun üstündeki **Yedekle** eylemini kullanarak, geçirilen sanal makinede yedeklemeyi yapılandırın. Bir VM’yi Kurtarma Hizmetleri kasasına yedekleme hakkında ayrıntılı bilgi için [Azure VM’leri bir Kurtarma Hizmetleri kasasıyla koruma](../articles/backup/backup-azure-vms-first-look-arm.md) başlıklı makaleye bakın.
 
-Yes. In the platform-supported migration option, the first step in preparing for migration is to validate that the resources are capable of migration. In case the validate operation fails, you receive messages for all the reasons the migration cannot be completed.
+## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Geçişe uygun olup olmadıklarını görmek için aboneliğimi ya da kaynaklarımı doğrulayabilir miyim? 
 
-## <a name="what-happens-if-i-run-into-a-quota-error-while-preparing-the-iaas-resources-for-migration"></a>What happens if I run into a quota error while preparing the IaaS resources for migration? 
+Evet. Platform destekli geçiş seçeneğinde, geçiş için hazırlanmanın ilk adımı kaynakları geçişe uygun olup olmadığını doğrulamaktır. Doğrulama işlemi başarısız olursa, geçiş işleminin neden tamamlanamadığına dair tüm nedenlerle ilgili iletiler alırsınız.
 
-We recommend that you abort your migration and then log a support request to increase the quotas in the region where you are migrating the VMs. After the quota request is approved, you can start executing the migration steps again.
+## <a name="what-happens-if-i-run-into-a-quota-error-while-preparing-the-iaas-resources-for-migration"></a>Geçiş için IaaS kaynaklarını hazırlarken bir kota hatasıyla karşılaşırsam ne olur? 
 
-## <a name="how-do-i-report-an-issue"></a>How do I report an issue? 
+Geçiş işlemini durdurmanızı ve VM’leri geçirdiğiniz bölgede kotaları artırmak için bir destek isteği göndermenizi öneririz. Kota isteği onaylandıktan sonra geçiş adımlarını yeniden başlatabilirsiniz.
 
-Post your issues and questions about migration to our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+## <a name="how-do-i-report-an-issue"></a>Bir sorunu nasıl bildirebilirim? 
 
-## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>What if I don't like the names of the resources that the platform chose during migration? 
+Geçiş hakkında sorularınızı ve sorunlarınızı ClassicIaaSMigration anahtar sözcüğü ile [VM forumumuza](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows) gönderin. Tüm sorularınızı bu foruma göndermenizi öneririz. Destek anlaşmanız varsa, destek bileti de açabilirsiniz.
 
-All the resources that you explicitly provide names for in the classic deployment model are retained during migration. In some cases, new resources are created. For example: a network interface is created for every VM. We currently don't support the ability to control the names of these new resources created during migration. Log your votes for this feature on the [Azure feedback forum](http://feedback.azure.com).
+## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>Geçiş sırasında platformun seçtiği kaynak adlarını beğenmezsem ne yapabilirim? 
 
-## <a name="can-i-migrate-expressroute-circuits-used-across-subscriptions-with-authorization-links"></a>Can I migrate ExpressRoute circuits used across subscriptions with authorization links? 
+Klasik dağıtım modelinde adlarını özellikle belirttiğiniz tüm kaynaklar geçiş sırasında korunur. Bazı durumlarda yeni kaynaklar oluşturulur. Örneğin tüm VM’ler için ağ arabirimleri oluşturulur. Geçiş sırasında oluşturulan bu yeni kaynakların adlarını denetleme olanağını şu anda desteklemiyoruz. Bu özellik için oylarınızı [Azure geri bildirim forumuna](http://feedback.azure.com) girebilirsiniz.
 
-ExpressRoute circuits which use cross-subscription authorization links cannot be migrated automatically without downtime. We have guidance on how these can be migrated using manual steps. See [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-migration-classic-resource-manager.md) for steps and more information.
+## <a name="can-i-migrate-expressroute-circuits-used-across-subscriptions-with-authorization-links"></a>Yetkilendirme bağlantıları olan aboneliklerde kullanılan ExpressRoute devrelerini geçirebilir miyim? 
 
-## <a name="i-got-a-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated-"></a>I got a message *"VM is reporting the overall agent status as Not Ready. Hence, the VM cannot be migrated. Ensure that the VM Agent is reporting overall agent status as Ready"* or *"VM contains Extension whose Status is not being reported from the VM. Hence, this VM cannot be migrated." *
+Çapraz abonelik yetkilendirme bağlantılar kullanan ExpressRoute devreleri kapalı kalma süresi olmadan otomatik olarak geçirilemez. Bunları elle nasıl geçirebileceğiniz hakkında yönergelerimiz vardır. Adımlar ve daha fazla bilgi için bkz. [ExpressRoute devrelerini ve ilgili sanal ağları klasikten Resource Manager dağıtım modeline geçirme](../articles/expressroute/expressroute-migration-classic-resource-manager.md).
 
-This message is received when the VM does not have outbound connectivity to the internet. The VM agent uses outbound connectivity to reach the Azure storage account for updating the agent status every five minutes.
+## <a name="i-got-a-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated-"></a>Şöyle bir ileti alıyorum: *"VM, genel aracı durumunun hazır olmadığını bildiriyor. Bu nedenle VM geçirilemiyor. VM Aracısının genel aracı durumunu Hazır olarak bildirdiğinden emin olun"* veya *"VM, sanal makineden Durumu bildirilmeyen bir Uzantı içeriyor. Bu nedenle bu VM geçirilemez.” *
+
+Bu ileti, VM’nin giden İnternet bağlantısı olmadığında alınır. VM aracısı, aracı durumunu güncelleştirmek için, giden bağlantı üzerinden her beş dakikada bir Azure depolama hesabına erişir.

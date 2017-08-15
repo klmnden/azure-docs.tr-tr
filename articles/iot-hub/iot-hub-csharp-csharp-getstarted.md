@@ -12,17 +12,18 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 2734a90284432ee218efb4fea68684de4b069dd6
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 69296eb9ac2a74a97b632d27733a6a06500b4abd
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>.NET kullanarak cihazınızı IoT hub’ınıza bağlama
+
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Bu öğreticinin sonunda üç .NET konsol uygulamanız olacak:
@@ -39,8 +40,6 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
 > [!NOTE]
 > Hem cihazlarınızda hem de çözüm arka ucunuzda çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz Azure IoT SDK'ları hakkında bilgi için bkz. [Azure IoT SDK'ları][lnk-hub-sdks].
-> 
-> 
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -60,30 +59,33 @@ Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir .NET konsol uygulama
 
 > [!NOTE]
 > Cihazdan buluta iletileri okumak için Event Hub ile uyumlu uç nokta her zaman AMQP protokolünü kullanır.
-> 
-> 
 
 1. Visual Studio’da **Konsol Uygulaması (.NET Framework)** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. .NET Framework sürümünün 4.5.1 veya sonraki bir sürüm olduğundan emin olun. Projeye **ReadDeviceToCloudMessages** adını verin.
-   
+
     ![Yeni Visual C# Windows Klasik Masaüstü projesi][10a]
+
 2. Çözüm Gezgini'nde **ReadDeviceToCloudMessages** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
+
 3. **NuGet Paket Yöneticisi** penceresinde **WindowsAzure.ServiceBus**'ı aratın, **Yükle**'yi seçin ve kullanım koşullarını kabul edin. Bu yordam ile [Azure Service Bus][lnk-servicebus-nuget] ile tüm bağımlılıkları indirilir, yüklenir ve bu pakete bir başvuru eklenir. Bu paket, uygulamanın IoT hub'ınızdaki Event Hub ile uyumlu uç noktaya bağlanmasını sağlar.
+
 4. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
-   
-   ```csharp
-   using Microsoft.ServiceBus.Messaging;
-   using System.Threading;
-   ```
+
+    ```csharp
+    using Microsoft.ServiceBus.Messaging;
+    using System.Threading;
+    ```
+
 5. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini, "IoT hub oluşturma" bölümünde hub için oluşturduğunuz IoT Hub bağlantı dizesiyle değiştirin.
-   
-   ```csharp
-   static string connectionString = "{iothub connection string}";
-   static string iotHubD2cEndpoint = "messages/events";
-   static EventHubClient eventHubClient;
-   ```
+
+    ```csharp
+    static string connectionString = "{iothub connection string}";
+    static string iotHubD2cEndpoint = "messages/events";
+    static EventHubClient eventHubClient;
+    ```
+
 6. **Program** sınıfına aşağıdaki yöntemi ekleyin:
-   
-   ```csharp
+
+    ```csharp
     private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
     {
         var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
@@ -97,12 +99,13 @@ Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir .NET konsol uygulama
             Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
         }
     }
-   ```
-   
+    ```
+
     Bu yöntem, tüm IoT hub'ı cihazdan buluta alma bölümlerinden iletileri almak için bir **EventHubReceiver** örneği kullanır. **EventHubReceiver** nesnesini oluştururken, yalnızca başladıktan sonra gönderilen iletileri alması için bir `DateTime.Now` parametresini nasıl geçirdiğinize dikkat edin. Bu filtre, geçerli ileti kümesini görebilmeniz açısından bir test ortamında kullanışlıdır. Bir üretim ortamında, kodunuzun tüm iletileri işlediğinden emin olmanız gerekir. Daha fazla bilgi için [IoT Hub cihazdan buluta iletiler işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
+
 7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
-   
-   ```csharp
+
+    ```csharp
     Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
     eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, iotHubD2cEndpoint);
 
@@ -123,33 +126,38 @@ Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir .NET konsol uygulama
         tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
     }  
     Task.WaitAll(tasks.ToArray());
-   ```
+    ```
 
 ## <a name="create-a-device-app"></a>Cihaz uygulaması oluşturma
+
 Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim yapan bir .NET konsol uygulaması oluşturacaksınız.
 
 1. Visual Studio’da **Konsol Uygulaması (.NET Framework)** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. .NET Framework sürümünün 4.5.1 veya sonraki bir sürüm olduğundan emin olun. Projeye **SimulatedDevice** adını verin.
-   
+
     ![Yeni Visual C# Windows Klasik Masaüstü projesi][10b]
+
 2. Çözüm Gezgini'nde **SimulatedDevice** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
+
 3. **NuGet Paket Yöneticisi** penceresinde **Gözat**'ı seçin, **Microsoft.Azure.Devices.Client**'ı aratın, **Microsoft.Azure.Devices.Client** paketini yüklemek için **Yükle**'yi seçin ve kullanım koşullarını kabul edin. Bu yordam ile [Azure IoT cihaz SDK'sı NuGet paketi][lnk-device-nuget] ve bağımlılıkları indirilir, yüklenir ve bu pakete bir başvuru eklenir.
+
 4. Aşağıdaki `using` deyimini **Program.cs** dosyasının üst kısmına ekleyin:
-   
-   ```csharp
-   using Microsoft.Azure.Devices.Client;
-   using Newtonsoft.Json;
-   ```
-5. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucuyu, "IoT hub'ı oluşturma" bölümünde aldığınız IoT hub'ı ana bilgisayar adı ve "Bir cihaz kimliği oluşturma" bölümünde aldığınız cihaz anahtarı ile değiştirin.
-   
-   ```csharp
-   static DeviceClient deviceClient;
-   static string iotHubUri = "{iot hub hostname}";
-   static string deviceKey = "{device key}";
-   ```
+
+    ```csharp
+    using Microsoft.Azure.Devices.Client;
+    using Newtonsoft.Json;
+    ```
+
+5. **Program** sınıfına aşağıdaki alanları ekleyin. `{iot hub hostname}` değerini "Bir IoT hub’ı oluşturma" bölümünde aldığınız IoT hub ana bilgisayar adı ile değiştirin. `{device key}` değerini "Bir cihaz kimliği oluşturma" bölümünde aldığınız cihaz anahtarıyla değiştirin.
+
+    ```csharp
+    static DeviceClient deviceClient;
+    static string iotHubUri = "{iot hub hostname}";
+    static string deviceKey = "{device key}";
+    ```
 
 6. **Program** sınıfına aşağıdaki yöntemi ekleyin:
-   
-   ```csharp
+
+    ```csharp
     private static async void SendDeviceToCloudMessagesAsync()
     {
         double minTemperature = 20;
@@ -179,42 +187,46 @@ Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim y
             await Task.Delay(1000);
         }
     }
-   ```
-    Bu yöntem, her saniye yeni bir cihazdan buluta iletisi gönderir. İleti, cihaz kimliğine ve bir sıcaklık sensörüyle nem sensörünün benzetimini gerçekleştirmeye yönelik rastgele oluşturulmuş sayılara sahip bir JSON ile seri hale getirilmiş bir nesneyi içerir.
-7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
-   
-   ```csharp
-   Console.WriteLine("Simulated device\n");
-   deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey("myFirstDevice", deviceKey), TransportType.Mqtt);
+    ```
 
-   SendDeviceToCloudMessagesAsync();
-   Console.ReadLine();
-   ```
-   
-   Varsayılan olarak .NET Framework uygulamasında **Create** yöntemi, IoT Hub ile iletişim kurmak için AMQP protokolünü kullanan bir **DeviceClient** örneği oluşturur. (UWP ve PCL istemcileri varsayılan olarak HTTP'yi kullanır.) MQTT veya HTTP protokolünü kullanmak için **Create** yönteminin protokolü belirtmenize olanak tanıyan geçersiz kılmasını kullanın. HTTP protokolünü kullanıyorsanız **System.Net.Http.Formatting** ad alanını dahil etmek için projenize **Microsoft.AspNet.WebApi.Client** NuGet paketini de eklemeniz gerekir.
+    Bu yöntem, her saniye yeni bir cihazdan buluta iletisi gönderir. İleti, cihaz kimliğine ve bir sıcaklık sensörüyle nem sensörünün benzetimini gerçekleştirmeye yönelik rastgele oluşturulmuş sayılara sahip bir JSON ile seri hale getirilmiş bir nesneyi içerir.
+
+7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
+
+    ```csharp
+    Console.WriteLine("Simulated device\n");
+    deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegistrySymmetricKey ("myFirstDevice", deviceKey), TransportType.Mqtt);
+
+    SendDeviceToCloudMessagesAsync();
+    Console.ReadLine();
+    ```
+
+    Varsayılan olarak, .NET Framework uygulamalarında **Create** yöntemiyle IoT hub'ıyla iletişim kurmak için AMQP protokolünü kullanan bir **DeviceClient** örneği oluşturulur. MQTT veya HTTP protokolünü kullanmak için **Create** yönteminin protokolü belirtmenize olanak tanıyan geçersiz kılmasını kullanın. UWP ve PCL istemcileri varsayılan olarak HTTP protokolünü kullanır. HTTP protokolünü kullanıyorsanız **System.Net.Http.Formatting** ad alanını dahil etmek için projenize **Microsoft.AspNet.WebApi.Client** NuGet paketini de eklemeniz gerekir.
 
 Bu öğretici, IoT Hub cihaz uygulaması oluşturma adımlarında size rehberlik eder. Cihaz uygulamanıza gerekli kodu eklemek için [Azure IoT Hub için Bağlı Hizmet][lnk-connected-service] Visual Studio uzantısını da kullanabilirsiniz.
 
 > [!NOTE]
 > Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. [Geçici Hata İşleme][lnk-transient-faults] adlı MSDN makalesinde önerildiği üzere, üretim kodunda yeniden deneme ilkelerini (üstel geri alma gibi) uygulamanız gerekir.
-> 
-> 
 
 ## <a name="run-the-apps"></a>Uygulamaları çalıştırma
+
 Şimdi uygulamaları çalıştırmaya hazırsınız.
 
 1. Visual Studio'daki Çözüm Gezgini'nde çözümünüze sağ tıklayın ve ardından **Başlangıç projelerini ayarla**'ya tıklayın. **Birden fazla başlangıç projesi**'ni seçin ve ardından hem **ReadDeviceToCloudMessages** hem de **SimulatedDevice** projeleri için eylem olarak **Başla**'yı seçin.
-   
+
     ![Başlangıç projesinin özellikleri][41]
+
 2. Her iki uygulamanın da çalışmasını başlatmak için **F5**'e basın. **SimulatedDevice** uygulamasının konsol çıkışı, cihaz uygulamanızın IoT hub'ınıza gönderdiği iletileri gösterir. **ReadDeviceToCloudMessages** uygulamasından konsol çıktısı, IoT hub'ınızın aldığı iletileri gösterir.
-   
+
     ![Uygulamalardan konsol çıktısı][42]
+
 3. [Azure portalındaki][lnk-portal] **Kullanım** kutucuğu, IoT hub'ına gönderilen ileti sayısını gösterir:
-   
+
     ![Azure portalı Kullanım kutucuğu][43]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Azure portalında bir IoT hub'ı yapılandırdınız ve ardından IoT hub'ının kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini, cihaz uygulamasının, IoT hub'ına cihazdan buluta iletileri göndermesini sağlamak için kullandınız. Ayrıca, IoT hub’ı tarafından alınan iletileri görüntüleyen bir uygulama da oluşturdunuz. 
+
+Bu öğreticide, Azure portalında bir IoT hub'ı yapılandırdınız ve ardından IoT hub'ının kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini, cihaz uygulamasının, IoT hub'ına cihazdan buluta iletileri göndermesini sağlamak için kullandınız. Ayrıca, IoT hub’ı tarafından alınan iletileri görüntüleyen bir uygulama da oluşturdunuz.
 
 IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için bkz:
 

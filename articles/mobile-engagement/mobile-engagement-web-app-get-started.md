@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Web Apps için Azure Mobile Engagement kullanmaya başlama
@@ -25,10 +26,13 @@ ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 Bu konuda Web Uygulaması kullanımınızı anlamak için Azure Mobile Engagement’ın nasıl kullanılacağı gösterilmektedir.
 
+> [!NOTE]
+> Azure Mobile Engagement hizmeti, Mart 2018’de devre dışı bırakılacaktır. Şu anda yalnızca mevcut müşteriler tarafından kullanılabilmektedir. Daha fazla bilgi için bkz. [Mobile Engagement nedir?](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+
 Bu öğretici için aşağıdakiler gereklidir:
 
 * Visual Studio 2015 veya tercih ettiğiniz başka bir düzenleyici
-* [Web SDK](http://aka.ms/P7b453) 
+* [Web SDK](http://aka.ms/P7b453)
 
 Bu Web SDK Önizleme modundadır ve şu anda yalnızca Analizi destekleyip, tarayıcı ya da herhangi bir uygulama içi bildirim göndermeyi henüz desteklememektedir. 
 
@@ -40,7 +44,7 @@ Bu Web SDK Önizleme modundadır ve şu anda yalnızca Analizi destekleyip, tara
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Web uygulamanız için Mobile Engagement ayarlama
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 Bu öğreticide, veri toplamak için gereken en küçük grup olan bir "temel tümleştirme" gösterilmektedir.
 
 Tümleştirmeyi göstermek üzere Visual Studio ile temel bir web uygulaması oluşturulacaktır; ancak Visual Studio’nun dışında oluşturulmuş herhangi bir web uygulamasının adımlarını da izleyebilirsiniz. 
@@ -114,10 +118,5 @@ Analiz için şu anda Web SDK ile birlikte kullanabileceğiniz tüm yöntemler a
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d17f90d5ed5440dc336d1e3ae890a13077e33c4d
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 9bb863261da64c97f99757d4a0cb3474a7755591
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: .NET ve Azure portalı ile bir DocumentDB API web uygulaması derleme
@@ -56,7 +55,7 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
    ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Şimdi aşağıdaki yapıyı kullanarak koleksiyona birkaç belge ekleyin. Burada her belge için benzersiz bir kimlik girin ve diğer özellikleri dilediğiniz şekilde değiştirin. Azure Cosmos DB, verilerinizin bir şemaya uygun olmasını şart koşmadığı için yeni belgelerinizin yapısını istediğiniz şekilde oluşturabilirsiniz.
+2. Şimdi koleksiyona aşağıdaki yapıya sahip bir belge ekleyin.
 
      ```json
      {
@@ -72,13 +71,15 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
     ![Azure portalında JSON verilerini kopyalayın ve Veri Gezgini'ne kaydedin](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
-     Şimdi verilerinizi almak için Veri Gezgini'ndeki sorguları kullanabilirsiniz. Veri Gezgini koleksiyondaki tüm belgeleri almak için varsayılan olarak `SELECT * FROM c` komutunu kullanır ancak bunu `SELECT * FROM c ORDER BY c.name ASC` komutuyla değiştirerek tüm belgelerin ad özelliğine göre alfabetik sırada döndürülmesini sağlayabilirsiniz. 
+4.  `id` özelliği için benzersiz bir değer eklediğiniz yerde bir veya daha fazla belge oluşturun ve kaydedin ve diğer özellikleri uygun şekilde değiştirin. Azure Cosmos DB, verilerinizin bir şemaya uygun olmasını şart koşmadığı için yeni belgelerinizin yapısını istediğiniz şekilde oluşturabilirsiniz.
+
+     Şimdi verilerinizi almak için Veri Gezgini'ndeki sorguları kullanabilirsiniz. Veri Gezgini koleksiyondaki tüm belgeleri almak için varsayılan olarak `SELECT * FROM c` komutunu kullanır ancak bunu `SELECT * FROM c ORDER BY c._ts DESC` gibi farklı bir [SQL sorgusuyla](documentdb-sql-query.md) değiştirerek tüm belgelerin zaman damgasına göre azalan sırada döndürülmesini sağlayabilirsiniz.
  
      Veri Gezgini'ni kullanarak ayrıca saklı yordamlar, UDF'ler ve tetikleyiciler oluşturabilir, bu sayede sunucu tarafı iş mantığını gerçekleştirebilir ve aktarım hızını ölçeklendirebilirsiniz. Veri Gezgini, API'lerdeki tüm yerleşik programlı veri erişimini açığa çıkarır ancak Azure portalındaki verilerinize kolayca erişmenizi sağlar.
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi GitHub'dan bir DocumentDB API uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Şimdi kod ile çalışmaya geçelim. GitHub'dan bir DocumentDB API uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
 1. Git bash gibi bir git terminal penceresi açın ve `CD` ile çalışma dizinine gidin.  
 

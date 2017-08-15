@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c05a3a24ea8cc663edb8232dc31d664be77a9597
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d2334a59d83c90bdd02c4fa29261d36aad292892
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Windows Phone Silverlight uygulamaları için Azure Mobile Engagement kullanmaya başlama
@@ -26,6 +26,9 @@ ms.lasthandoff: 07/25/2017
 
 Bu konuda, uygulama kullanımınızı anlamak ve bir Windows Phone Silverlight uygulamasının segmentli kullanıcılarına anında iletme bildirimleri göndermek için nasıl Azure Mobile Engagement kullanılacağı gösterilmektedir.
 Bu öğretici, Mobile Engagement kullanarak basit bir yayın senaryosunu gösterir. Temel verileri toplayan ve Microsoft Anında İletme Bildirimi Hizmeti’ni (MPNS) kullanarak anında iletme bildirimleri alan boş bir Windows Phone Silverlight uygulaması oluşturursunuz.
+
+> [!NOTE]
+> Azure Mobile Engagement hizmeti, Mart 2018’de devre dışı bırakılacaktır. Şu anda yalnızca mevcut müşteriler tarafından kullanılabilmektedir. Daha fazla bilgi için bkz. [Mobile Engagement nedir?](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 > [!NOTE]
 > Windows Phone 8.1 ve önceki sürümlerde oluşturulmuş projeler Visual Studio 2017’de desteklenmez.  Daha fazla bilgi için bkz. [Visual Studio 2017 Platform Desteği ve Uyumluluk](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).

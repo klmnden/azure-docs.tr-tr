@@ -100,13 +100,13 @@ Sanal makine gruplarını bütünlüklü olarak dağıtabilen ve bunlara otomati
 
 Docker kendi sanal makine oluşturma araçları ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) kümesine ve yük dengeleyen bir docker kapsayıcı kümesi yönetim aracına ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) sahiptir. Ayrıca, [Azure Docker Sanal Makine Uzantısı](https://github.com/Azure/azure-docker-extension/blob/master/README.md), birden çok kapsayıcıya yapılandırılmış uygulama kapsayıcıları dağıtabilen [`docker-compose`](https://docs.docker.com/compose/) için varsayılan olarak destek sağlar.
 
-Ayrıca, [Mesosphere tarafından sunulan Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/) ürününü deneyebilirsiniz. DCOS, veri merkezinizi tek bir hizmet olarak görmenize imkan tanıyan açık kaynaklı [mesos](http://mesos.apache.org/) "dağıtılmış sistemler çekirdeği"ni temel alır. DCOS’de [Spark](http://spark.apache.org/) ve [Kafka](http://kafka.apache.org/) (ve diğerleri) gibi çeşitli önemli sistemler ve [Marathon](https://mesosphere.github.io/marathon/) (kapsayıcı denetleme sistemi) ve [Chronos](https://mesos.github.io/chronos/) (dağıtılmış zamanlayıcı) gibi yerleşik hizmetlere yönelik yerleşik paketler vardır. Mesos sistemi Twitter, AirBnb ve diğer web ölçeğindeki işletmelerden alınan derslerden türetilmiştir. Düzenleme altyapısı olarak **swarm**’ı da kullanabilirsiniz.
+Ayrıca, [Mesosphere tarafından sunulan Data Center Operating System (DCOS)](http://docs.mesosphere.com) ürününü deneyebilirsiniz. DCOS, veri merkezinizi tek bir hizmet olarak görmenize imkan tanıyan açık kaynaklı [mesos](http://mesos.apache.org/) "dağıtılmış sistemler çekirdeği"ni temel alır. DCOS’de [Spark](http://spark.apache.org/) ve [Kafka](http://kafka.apache.org/) (ve diğerleri) gibi çeşitli önemli sistemler ve [Marathon](https://mesosphere.github.io/marathon/) (kapsayıcı denetleme sistemi) ve [Chronos](https://mesos.github.io/chronos/) (dağıtılmış zamanlayıcı) gibi yerleşik hizmetlere yönelik yerleşik paketler vardır. Mesos sistemi Twitter, AirBnb ve diğer web ölçeğindeki işletmelerden alınan derslerden türetilmiştir. Düzenleme altyapısı olarak **swarm**’ı da kullanabilirsiniz.
 
 Ayrıca, Google’dan alınan derslerden türetilen, sanal makine ve kapsayıcı grubu yönetimi için açık kaynaklı bir sistem olan [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) de kullanılabilir. [Ağ desteği sağlamak için kubernetes’i weave ile kullanma](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave) olanağınız bile vardır.
 
-[Deis](http://deis.io/overview/), uygulamalarınızı kendi sunucularınızda dağıtmayı ve yönetmeyi kolaylaştıran açık kaynaklı bir "Hizmet Olarak Platform" (PaaS) çözümüdür. Docker ve CoreOS’u temel alan Deis, Heroku’dan ilham alan bir iş akışıyla hafif bir PaaS sunar. Azure’da kolayca [3 Düğümlü bir Azure sanal makine grubu oluşturup Deis’i yükleyebilir](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ardından [bir Hello World Go uygulaması yükleyebilirsiniz](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.com/), uygulamalarınızı kendi sunucularınızda dağıtmayı ve yönetmeyi kolaylaştıran açık kaynaklı bir "Hizmet Olarak Platform" (PaaS) çözümüdür. Docker ve CoreOS’u temel alan Deis, Heroku’dan ilham alan bir iş akışıyla hafif bir PaaS sunar. Azure’da kolayca [3 Düğümlü bir Azure sanal makine grubu oluşturup Deis’i yükleyebilir](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ardından [bir Hello World Go uygulaması yükleyebilirsiniz](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
-Kapladığı alan, Docker desteği ve kendine ait [rkt](https://github.com/coreos/rkt) adlı kapsayıcı sistemiyle iyileştirilmiş bir Linux dağıtımı olan [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), [fleet](https://coreos.com/using-coreos/clustering/) adlı bir kapsayıcı grubu yönetim aracına da sahiptir.
+Kapladığı alan, Docker desteği ve kendine ait [rkt](https://github.com/coreos/rkt) adlı kapsayıcı sistemiyle iyileştirilmiş bir Linux dağıtımı olan [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), [fleet](https://coreos.com/fleet/docs/latest/) adlı bir kapsayıcı grubu yönetim aracına da sahiptir.
 
 Bir başka popüler Linux dağıtımı olan Ubuntu Docker’ı çok iyi desteklemekle birlikte [Linux (LXC stili) kümelerini](https://help.ubuntu.com/lts/serverguide/lxc.html) de destekler.
 
@@ -133,7 +133,7 @@ Windows Kapsayıcısı bağlantıları:
 
 Visual Studio Docker bağlantıları:
 
-* [Docker için Visual Studio 2015 RC Araçları - Önizleme](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0)
+* [Docker için Visual Studio Araçları](https://docs.microsoft.com/en-us/dotnet/core/docker/visual-studio-tools-for-docker)
 
 Docker araçları:
 
@@ -161,7 +161,7 @@ Linux dağıtımları ve Azure örnekleri:
 
 Yapılandırma, küme yönetimi ve kapsayıcı düzenleme:
 
-* [CoreOS üzerinde Fleet](https://coreos.com/using-coreos/clustering/)
+* [CoreOS üzerinde Fleet](https://coreos.com/fleet/docs/latest/)
 * Deis
 
   * [3 Düğümlü bir Azure sanal makine grubu oluşturma, Deis’i yükleme ve bir Hello World Go uygulaması başlatma](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -171,10 +171,10 @@ Yapılandırma, küme yönetimi ve kapsayıcı düzenleme:
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 * [Mesos](http://mesos.apache.org/)
 
-  * [Mesosphere tarafından sunulan Data Center Operating System (DCOS)](http://beta-docs.mesosphere.com/install/azurecluster/)
-* [Jenkins](https://jenkins-ci.org/) ve [Hudson](http://hudson-ci.org/)
+  * [Mesosphere tarafından sunulan Data Center Operating System (DCOS)](https://docs.mesosphere.com/1.7/overview/design/azure-container-service/)
+* [Jenkins](https://jenkins.io/) ve [Hudson](http://hudson-ci.org/)
 
-  * [Blog: Azure için Jenkins Bağımlı Eklentisi](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
+  * [Azure için Jenkins VM Aracısı eklentisi](https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin)
   * [GitHub deposu: Azure için Jenkins Depolama Eklentisi](https://github.com/jenkinsci/windows-azure-storage-plugin)
   * [Üçüncü Taraf: Azure için Hudson Bağımlı Eklentisi](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
   * [Üçüncü Taraf: Azure için Hudson Depolama Eklentisi](https://github.com/hudson3-plugins/windows-azure-storage-plugin)

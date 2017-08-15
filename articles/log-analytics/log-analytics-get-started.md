@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>Log Analytics çalışma alanını kullanmaya başlama
@@ -59,7 +58,12 @@ Sonraki adım bir çalışma alanı oluşturmayı içerir.
 4. Azure portalında ayrıntılarını görmek için bir çalışma alanı seçin.       
     ![çalışma alanı ayrıntıları](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-add-solutions-and-solution-offerings"></a>3 Çözüm ve çözüm teklifleri ekleme
+## <a name="3-upgrade-workspace-to-new-log-search"></a>3 Yeni günlük araması için çalışma alanını yükseltme
+Yeni bir Log Analytics sorgu dili piyasaya sürüldü ve yararlanmak için çalışma alanınızı dönüştürmeniz gerekiyor.  Çalışma alanınızın barındırdığı bölge yükseltildiyse, çalışma alanınızın üstünde sizi dönüştürmeye davet eden mor bir başlık görmeniz gerekir. Bu yükseltme tamamen isteğe bağlıdır ve Log Analytics ve eklediğiniz diğer çözümlerle çalışma deneyiminizi etkilemez.  
+
+Avantajları, ilgili önemli noktaları ve yükseltme işlemi anlamanızı sağlayacak daha fazla bilgi için bkz. [Azure Log Analytics'i yeni günlük aramasına yükseltme](log-analytics-log-search-upgrade.md).  
+
+## <a name="4-add-solutions-and-solution-offerings"></a>4 Çözüm ve çözüm teklifleri ekleme
 
 Ardından, yönetim çözümleri ve çözüm teklifleri ekleyin. Yönetim çözümleri belirli bir sorun alanına odaklanan ölçümler sağlayan mantık, görselleştirme ve veri alımı kural koleksiyonudur. Çözüm teklifi ise bir yönetim çözümleri paketidir.
 
@@ -95,11 +99,11 @@ Ardından, Azure’da basit bir sanal makine oluşturun. Bir VM oluşturduktan s
 
 - Azure portalını kullanarak VM’yi Log Analytics’e bağlamak için [Azure sanal makinelerini Log Analytics’e bağlama](log-analytics-azure-vm-extension.md) bölümündeki yönergeleri izleyin.
 
-## <a name="5-view-and-act-on-data"></a>5 Verileri görüntüleme ve üzerinde işlem yapma
+## <a name="6-view-and-act-on-data"></a>6 Verileri görüntüleme ve üzerinde işlem yapma
 
 Daha önce Activity Log Analytics çözümünü ve Güvenlik ve Uyumluluk ile Otomasyon ve Denetim tekliflerini etkinleştirdiniz. Bundan sonra, çözümler tarafından toplanan verilere ve günlük aramalarındaki sonuçlara bakmaya başlayacağız.
 
-Başlamak için çözümlerin içinde gösterilen verilere bakın. Ardından, günlük aramalarından erişilen bazı günlük aramalarına bakın. Günlük aramaları, ortamınızdaki birden fazla kaynaktan makine verilerini birleştirmenize ve ilişkilendirmenize olanak tanır. Daha fazla bilgi için bkz. [Log Analytics’te günlük aramaları](log-analytics-log-searches.md). Son olarak, Azure portalının dışında yer alan OMS portalını kullanarak bulduğumuz veriler üzerinde işlem yapın.
+Başlamak için çözümlerin içinde gösterilen verilere bakın. Ardından, günlük aramalarından erişilen bazı günlük aramalarına bakın. Günlük aramaları, ortamınızdaki birden fazla kaynaktan makine verilerini birleştirmenize ve ilişkilendirmenize olanak tanır. Daha fazla bilgi için bkz. [Log Analytics’te günlük aramaları](log-analytics-log-searches.md) veya çalışma alanınızı yeni sorgu diline dönüştürdüyseniz bkz. [Log Analytics’te günlük aramalarını anlama](log-analytics-log-search-new.md). 
 
 ### <a name="to-view-antimalware-data"></a>Kötü Amaçlı Yazılımdan Koruma verilerini görüntülemek için
 

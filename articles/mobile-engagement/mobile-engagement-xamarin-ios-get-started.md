@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 300403fb483818e5eb1851968ef7f36ff0507fb8
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 9938c3e994acf31244825b1afb347f8c9f90ebe3
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinios-apps"></a>Xamarin.iOS Uygulamaları için Azure Mobile Engagement kullanmaya başlama
@@ -25,6 +26,9 @@ ms.openlocfilehash: 300403fb483818e5eb1851968ef7f36ff0507fb8
 
 Bu konu size uygulama kullanımınızı anlamak ve Xamarin.iOS uygulamasının kesimli kullanıcılarına anında iletme bildirimleri göndermek için Azure Mobile Engagement kullanmayı gösterir.
 Bu öğreticide, temel verileri toplayan ve Apple Anında İletme Bildirimi Sistemi’ni (APNS) kullanarak anında iletme bildirimleri alan boş bir Xamarin.iOS uygulaması oluşturursunuz.
+
+> [!NOTE]
+> Azure Mobile Engagement hizmeti, Mart 2018’de devre dışı bırakılacaktır. Şu anda yalnızca mevcut müşteriler tarafından kullanılabilmektedir. Daha fazla bilgi için bkz. [Mobile Engagement nedir?](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 Bu öğretici için aşağıdakiler gereklidir:
 
@@ -36,10 +40,10 @@ Bu öğretici için aşağıdakiler gereklidir:
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>iOS uygulamanız için Mobile Engagement kurma
+## <a id="setup-azme"></a>iOS uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir.
 
 Tümleştirmeyi göstermek için Xamarin ile temel bir uygulama oluşturacağız.
@@ -83,7 +87,7 @@ Xamarin Studio, Mobile Engagement’ı tümleştireceğimiz demo uygulamayı olu
                     };
         EngagementAgent.Init (config);
 
-## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
+## <a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
 Verileri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir ekran göndermelisiniz.
 
 1. **ViewController.cs**’yi açın ve şu deyimleri kullanarak aşağıdakileri ekleyin:
@@ -91,10 +95,10 @@ Verileri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak
         using Microsoft.Azure.Engagement.Xamarin;
 2. `ViewController` öğesinin `UIViewController` öğesinden devraldığı sınıfı `EngagementViewController` olarak değiştirin. 
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
+## <a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
+## <a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
 Mobile Engagement, kullanıcılarınız ile etkileşim kurmanızı ve onlara kampanyalar bağlamında anında iletme bildirimleri ve uygulama içi mesajlaşma aracılığıyla erişmenizi sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
 Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
@@ -158,9 +162,4 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 [6]: ./media/mobile-engagement-xamarin-ios-get-started/add-nuget-azme.png
 [7]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-confirm-bundle.png
 [8]: ./media/mobile-engagement-xamarin-ios-get-started/info-plist-configure-push.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

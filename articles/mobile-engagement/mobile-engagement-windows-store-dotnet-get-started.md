@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: 939d6adc548d5d6ef66909bcf52f11a4106c3be9
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Windows Evrensel Uygulamaları için Azure Mobile Engagement kullanmaya başlama
@@ -27,13 +27,16 @@ ms.lasthandoff: 02/28/2017
 Bu konuda, uygulama kullanımınızı anlamak ve bir Windows Evrensel uygulamasının segmentli kullanıcılarına anında iletme bildirimleri göndermek için nasıl Azure Mobile Engagement kullanılacağı gösterilmektedir.
 Bu öğretici, Mobile Engagement kullanarak basit bir yayın senaryosunu gösterir. Temel uygulama kullanımı verilerini toplayan ve Windows Bildirim Hizmeti’ni (WNS) kullanarak anında iletme bildirimleri alan boş bir Windows Evrensel Uygulaması oluşturursunuz.
 
+> [!NOTE]
+> Azure Mobile Engagement hizmeti, Mart 2018’de devre dışı bırakılacaktır. Şu anda yalnızca mevcut müşteriler tarafından kullanılabilmektedir. Daha fazla bilgi için bkz. [Mobile Engagement nedir?](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+
 ## <a name="prerequisites"></a>Ön koşullar
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>Windows Evrensel uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir. Tümleştirme belgelerinin tamamı [Mobile Engagement Windows Evrensel SDK tümleştirmesi](mobile-engagement-windows-store-sdk-overview.md) makalesinde bulunabilir.
 
 Tümleştirmeyi göstermek için Visual Studio ile temel bir uygulama oluşturursunuz.
@@ -98,7 +101,7 @@ Bir sonraki adımda Azure Mobile Engagement SDK’sını tümleştireceğiniz bi
               //... rest of the code
             }
 
-## <a name="a-idmonitoraenable-real-time-monitoring"></a><a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
+## <a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
 Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir ekran (Etkinlik) göndermelisiniz.
 
 1. **MainPage.xaml.cs** dosyasında, `using` deyimini ekleyin:
@@ -120,10 +123,10 @@ Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak iç
 >
 > **Windows 10 Evrensel uygulamaları** için yukarıda belirtilen yöntemin yerine [Windows Universal Apps Engagement SDK ile Gelişmiş Doğrulama](mobile-engagement-windows-store-advanced-reporting.md) sayfasının “Önerilen yöntem: Page sınıflarınızı aşırı yükleme” bölümünde önerilen yöntemi kullanın.
 
-## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
+## <a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegrate-pushaenable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
+## <a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
 Mobile Engagement, kampanyalar bağlamında anında iletme bildirimleri ve uygulama içi mesajlaşma aracılığıyla kullanıcılarınız ile etkileşim kurmanızı ve onlara erişmenizi sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
 Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
@@ -167,7 +170,7 @@ Bir bildirim göndermeye hazırsınız. Şimdi bu temel tümleştirmeyi doğru b
 
     ![][7]
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Uygulamanıza bildirim gönderme
+## <a id="send"></a>Uygulamanıza bildirim gönderme
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
 Uygulama çalışıyorsa uygulama içi bir bildirim görürsünüz. Uygulama kapalıysa bir bildirim görürsünüz.

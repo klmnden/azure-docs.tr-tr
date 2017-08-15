@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/06/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4c937fe06d88c6189d39cf799a5d349d0e280a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
@@ -108,7 +107,60 @@ Eski Log Analytics kullanıcı rolleri yalnızca [Log Analytics portalında](htt
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Azure izinlerini kullanarak Log Analytics’e erişimi yönetme
 Azure izinlerini kullanarak Log Analytics çalışma alanına izin vermek için, [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](../active-directory/role-based-access-control-configure.md) bölümündeki adımları izleyin.
 
-Log Analytics çalışma alanında en az Azure okuma izniniz varsa, Log Analytics çalışma alanını görüntülerken **OMS Portal** görevine tıklayarak OMS portalını açabilirsiniz.
+Azure Log Analytics için iki yerleşik kullanıcı rolüne sahiptir:
+- Log Analytics Okuyucusu
+- Log Analytics Katkıda Bulunan
+
+*Log Analytics Okuyucusu* rolünün üyeleri aşağıdakileri yapabilir:
+- Tüm izleme verilerini görüntüleme ve arama 
+- Tüm Azure kaynakları üzerinde Azure tanılama yapılandırmasını görüntüleme dahil olmak üzere, izleme ayarlarını görüntüleyin.
+
+| Tür    | İzin | Açıklama |
+| ------- | ---------- | ----------- |
+| Eylem | `*/read`   | Tüm kaynakların ve kaynak yapılandırmalarının görüntülenmesine imkan sağlar. Aşağıdakileri görüntülemeyi içerir: <br> Sanal makine uzantısı durumu <br> Kaynaklarda Azure tanılamalarının yapılandırması <br> Tüm kaynakların tüm özellikleri ve ayarları |
+| Eylem | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Günlük araması v2 sorguları gerçekleştirme becerisi |
+| Eylem | `Microsoft.OperationalInsights/workspaces/search/action` | Günlük araması v1 sorguları gerçekleştirme becerisi |
+| Eylem | `Microsoft.Support/*` | Destek olayları açma özelliği |
+|Eylem Dışı | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Veri koleksiyonu API’sini kullanmak ve aracıları yüklemek için gereken çalışma alanının okunmasını engeller |
+
+
+*Log Analytics Katkıda Bulunan* rolünün üyeleri aşağıdakileri yapabilir:
+- Tüm izleme verilerini okuma 
+- Otomasyon hesaplarını oluşturma ve yapılandırma
+- Yönetim çözümlerini ekleme ve kaldırma
+- Depolama hesabı anahtarlarını okuma 
+- Azure Depolama’dan günlüklerin toplanmasını yapılandırma
+- Azure kaynaklarına ilişkin izleme ayarlarını düzenleme:
+  - VM'lere VM uzantısı ekleme
+  - Tüm Azure kaynaklarında Azure tanılamayı yapılandırma
+
+> [!NOTE] 
+> Özelliği, bir sanal makine üzerinde tam denetim kazanmak için bir sanal makineye sanal makine uzantısı eklemek için kullanabilirsiniz.
+
+| İzin | Açıklama |
+| ---------- | ----------- |
+| `*/read`     | Tüm kaynakların ve kaynak yapılandırmalarının görüntülenmesine imkan sağlar. Aşağıdakileri görüntülemeyi içerir: <br> Sanal makine uzantısı durumu <br> Kaynaklarda Azure tanılamalarının yapılandırması <br> Tüm kaynakların tüm özellikleri ve ayarları |
+| `Microsoft.Automation/automationAccounts/*` | Runbook'ları ekleme ve düzenleme dahil olmak üzere Azure Otomasyonu hesapları oluşturma ve yapılandırma olanağı |
+| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Linux uzantısı için OMS aracısı ve Microsoft Monitoring Agent gibi sanal makine uzantılarını ekleme, güncelleştirme ve kaldırma |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Depolama hesabı anahtarını görüntüleyin. Log Analytics’i Azure depolama hesaplarındaki günlükleri okuyacak şekilde yapılandırmak için gereklidir |
+| `Microsoft.Insights/alertRules/*` | Uyarı kurallarını ekleme, güncelleştirme ve kaldırma |
+| `Microsoft.Insights/diagnosticSettings/*` | Azure kaynaklarında tanılama ayarlarını ekleme, güncelleştirme ve kaldırma |
+| `Microsoft.OperationalInsights/*` | Log Analytics çalışma alanları için yapılandırmaları ekleme, güncelleştirme ve kaldırma |
+| `Microsoft.OperationsManagement/*` | Yönetim çözümlerini ekleme ve kaldırma |
+| `Microsoft.Resources/deployments/*` | Dağıtımları oluşturma ve silme. Çözümleri, çalışma alanlarını ve otomasyon hesaplarını eklemek ve kaldırmak için gereklidir |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Dağıtımları oluşturma ve silme. Çözümleri, çalışma alanlarını ve otomasyon hesaplarını eklemek ve kaldırmak için gereklidir |
+
+Kullanıcıları bir kullanıcı rolüne eklemek ve bu rolden kaldırmak için `Microsoft.Authorization/*/Delete` ve `Microsoft.Authorization/*/Write` izinleri gereklidir.
+
+Bu rolleri, kullanıcılara farklı kapsamlarda erişim vermek için kullanın:
+- Abonelik - Abonelikteki tüm çalışma alanlarına erişim
+- Kaynak grubu - Kaynak grubundaki tüm çalışma alanına erişim
+- Kaynak - Yalnızca belirtilen çalışma alanına erişim
+
+Gereken özel izinlere sahip rolleri oluşturmak için [özel rolleri](../active-directory/role-based-access-control-custom-roles.md) kullanın.
+
+### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure kullanıcı rolleri ve Log Analytics portalı kullanıcı rolleri
+Log Analytics çalışma alanında en az Azure okuma izniniz varsa, Log Analytics çalışma alanını görüntülerken **OMS Portal** görevine tıklayarak Log Analytics portalını açabilirsiniz.
 
 Log Analytics portalını açarken, eski Log Analytics kullanıcı rollerine geçiş yaparsınız. Log Analytics portalında bir rol atamanız yoksa, hizmet [çalışma alanında sahip olduğunuz Azure izinlerini denetler](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 Log Analytics portalındaki rol atamanız aşağıdaki şekilde belirlenir:
@@ -195,7 +247,7 @@ OMS hesabınızla ilişkili bir kullanıcı için hesap rolünü değiştirebili
 4. Liste sonuçlarından grubu seçin ve ardından **Ekle**'ye tıklayın.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Mevcut bir çalışma alanını Azure aboneliğine bağlama
-26 Eylül 2016'dan sonra oluşturulan tüm çalışma alanları, oluşturma zamanında bir Azure aboneliğine bağlanmalıdır. Bu tarihten önce oluşturulan çalışma alanları, bir sonraki oturum açışınızda bir çalışma alanına bağlanmalıdır. Çalışma alanını Azure portalından oluşturduğunuzda veya çalışma alanınızı bir Azure aboneliğine bağladığınızda, Azure Active Directory'niz kuruluş hesabınız olarak bağlanır.
+26 Eylül 2016'dan sonra oluşturulan tüm çalışma alanları, oluşturma zamanında bir Azure aboneliğine bağlanmalıdır. Bu tarihten önce oluşturulan çalışma alanları, oturum açtığınızda bir çalışma alanına bağlanmalıdır. Çalışma alanını Azure portalından oluşturduğunuzda veya çalışma alanınızı bir Azure aboneliğine bağladığınızda, Azure Active Directory'niz kuruluş hesabınız olarak bağlanır.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Çalışma alanını OMS portalında bir Azure aboneliğine bağlama
 

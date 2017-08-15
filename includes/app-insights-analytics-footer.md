@@ -1,17 +1,17 @@
 
-## <a name="analytics"></a>Analytics
-* [Overview](../articles/application-insights/app-insights-analytics.md)
-* [Tour of Analytics](../articles/application-insights/app-insights-analytics-tour.md)
-  * Start here. A tutorial covering the main features.
-* [Queries](../articles/application-insights/app-insights-analytics-reference.md#queries-and-operators)
-  * Use operators such as `where` and `count` to build queries.
-* [Aggregation](../articles/application-insights/app-insights-analytics-reference.md#aggregations)
-  * Used to compute statistics over groups of records
-* [Scalars](../articles/application-insights/app-insights-analytics-reference.md#scalars)
-  * Numbers, strings, and other expressions used to form query parameters.
-* [Using Analytics](../articles/application-insights/app-insights-analytics-using.md)
-  * Using Analytics.
-* [Language Reference](../articles/application-insights/app-insights-analytics-reference.md)
-  * One-page reference.
-* [Troubleshooting](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+## <a name="analytics"></a>Analiz
+* [Genel Bakış](../articles/application-insights/app-insights-analytics.md)
+* [Analytics turu](../articles/application-insights/app-insights-analytics-tour.md)
+  * Buradan başlayın. Önemli özellikleri kapsayan bir öğretici.
+* [Sorgular](../articles/application-insights/app-insights-analytics-reference.md)
+  * Sorgu oluşturmak için `where` ve `count` gibi işleçler kullanın.
+* [Toplama](../articles/application-insights/app-insights-analytics-reference.md)
+  * Kayıt grupları istatistiklerini hesaplamak için kullanılır
+* [Skalerler](../articles/application-insights/app-insights-analytics-reference.md)
+  * Sayılar, dizeler ve sorgu parametreleri oluşturmak için kullanılan diğer ifadeler.
+* [Analizler kullanımı](../articles/application-insights/app-insights-analytics-using.md)
+  * Analytics kullanımı
+* [Dil Başvurusu](../articles/application-insights/app-insights-analytics-reference.md)
+  * Tek sayfalı başvuru.
+* [Sorun giderme](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 

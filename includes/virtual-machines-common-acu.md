@@ -11,7 +11,7 @@ Azure SKU'larının işlem (CPU) performansını karşılaştırabilmek için Az
 
 <br>
 
-| SKU Ailesi | ACU |
+| SKU Ailesi | ACU \ vCPU |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |

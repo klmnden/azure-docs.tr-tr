@@ -17,10 +17,10 @@ ms.topic: get-started-article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 6f204f2f0dca33e68b9853af3c94934af65ca1f9
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
@@ -53,8 +53,9 @@ Ne yazık ki hayır, bir Backup kasasının içeriğini Kurtarma Hizmetleri kasa
 Bir VM’yi klasikten Resource Manager moduna taşıdığınızda yedekleme kasasındaki klasik VM kurtarma noktaları, Kurtarma Hizmetleri kasasına otomatik olarak geçirilmez. VM yedeklerinizi aktarmak için bu adımları izleyin:
 
 1. Backup kasasında **Korunan Öğeler** sekmesine gidin ve VM’yi seçin. [Korumayı Durdur](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın.
-2. Sanal makineyi, klasik moddan Resource Manager moduna geçirin. Sanal makineye karşılık gelen depolama ve ağ bilgilerinin de Resource Manager moduna geçirildiğinden emin olun.
-3. Bir Kurtarma Hizmetleri kasası oluşturun ve kasa panosunun üstündeki **Yedekle** eylemini kullanarak, geçirilen sanal makinede yedeklemeyi yapılandırın. Bir VM’yi Kurtarma Hizmetleri kasasına yedekleme hakkında ayrıntılı bilgi için [Azure VM’leri bir Kurtarma Hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md) başlıklı makaleye bakın.
+2. Yedekleme/anlık görüntü uzantısını VM'den silin.
+3. Sanal makineyi, klasik moddan Resource Manager moduna geçirin. Sanal makineye karşılık gelen depolama ve ağ bilgilerinin de Resource Manager moduna geçirildiğinden emin olun.
+4. Bir Kurtarma Hizmetleri kasası oluşturun ve kasa panosunun üstündeki **Yedekle** eylemini kullanarak, geçirilen sanal makinede yedeklemeyi yapılandırın. Bir VM’yi Kurtarma Hizmetleri kasasına yedekleme hakkında ayrıntılı bilgi için [Azure VM’leri bir Kurtarma Hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md) başlıklı makaleye bakın.
 
 ## <a name="azure-backup-agent"></a>Azure Backup aracısı
 Soruların ayrıntılı listesini [Azure dosya-klasör yedekleme hakkında SSS](backup-azure-file-folder-backup-faq.md) altında bulabilirsiniz.

@@ -15,20 +15,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/09/2017
+ms.date: 08/09/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 4a46c7d9a030adb9c0407fda622ccd787212b030
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: e01d12338ae7d80f734d855f9901339390ca0830
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/10/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile Azure Depolama'yı kullanma
 
 HDInsight kümesindeki verileri çözümlemek için Azure Depolama, Azure Data Lake Store veya her ikisinde birden verileri depolayabilirsiniz. İki depolama seçeneği de işlem için kullanılan HDInsight kümelerini kullanıcı verilerini kaybetmeden güvenle silmenizi sağlar.
 
-Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında Azure Depolama'da bir blob kapsayıcısını varsayılan dosya sistemi olarak belirtebilir veya birkaç özel durum dışında HDInsight 3.5 ile Azure Depolama'yı ya da Azure Data Lake Store'u varsayılan dosya sistemi olarak seçebilirsiniz. Data Lake Store'u hem varsayılan hem de bağlı depolama alanı olarak kullanmanın desteklenip desteklenmediği hakkında bilgi için bkz. [HDInsight kümesi için kullanılabilirlik](#availabilities-for-hdinsight-clusters]).
+Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında Azure Depolama'da bir blob kapsayıcısını varsayılan dosya sistemi olarak belirtebilir veya birkaç özel durum dışında HDInsight 3.5 ile Azure Depolama'yı ya da Azure Data Lake Store'u varsayılan dosya sistemi olarak seçebilirsiniz. Data Lake Store'u hem varsayılan hem de bağlı depolama alanı olarak kullanmanın desteklenip desteklenmediği hakkında bilgi için bkz. [HDInsight kümesi için kullanılabilirlik](./hdinsight-hadoop-use-data-lake-store.md#availabilities-for-hdinsight-clusters).
 
 Bu makalede Azure Depolama'nın HDInsight kümeleri ile nasıl çalıştığı hakkında bilgi edinebilirsiniz. Data Lake Store'un HDInsight kümeleriyle nasıl çalıştığı hakkında bilgi için bkz. [Azure Data Lake Store'u Azure HDInsight kümeleri ile kullanma](hdinsight-hadoop-use-data-lake-store.md). HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz. [HDInsight'ta Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -73,14 +73,14 @@ HDInsight kümeleriyle Azure Depolama hesabını kullanırken dikkat etmeniz ger
   > 
 * **Bir kümeye bağlı OLMAYAN depolama hesaplarındaki özel kapsayıcılar:** WebHCat işleri gönderdiğinizde, depolama hesabını tanımlamadığınız sürece kapsayıcılardaki blob’lara erişemezsiniz. Bu, bu makalenin sonraki bölümlerinde açıklanmıştır.
 
-Oluşturma işleminde tanımlanan depolama hesapları ve bunların anahtarların %HADOOP_HOME%/conf/core-site.xml küme düğümlerinde depolanır. HDInsight’ın varsayılan davranışı core-site.xml dosyasında tanımlanan depolama hesaplarını kullanmaktır. Küme baş düğümünün (ana) görüntüsü yeniden oluşturulabildiği veya taşınabildiği için ve bu dosyalardaki değişiklikler kaybolacağından core-site.xml dosyasının doğrudan düzenlenmesi önerilmez.
+Oluşturma işleminde tanımlanan depolama hesapları ve bunların anahtarların %HADOOP_HOME%/conf/core-site.xml küme düğümlerinde depolanır. HDInsight’ın varsayılan davranışı core-site.xml dosyasında tanımlanan depolama hesaplarını kullanmaktır. [Ambari](./hdinsight-hadoop-manage-ambari.md) kullanarak bu ayarı değiştirebilirsiniz.
 
-Hive, MapReduce, Hadoop akış ve Pig dahil olmak üzere birden çok WebHCat işleri kendileriyle birlikte depolama hesapları açıklaması ve meta veriler taşıyabilir. (Bu şu anda yalnızca Pig depolama hesapları ile çalışmakta, ancak meta verilerle çalışmamaktadır.) Bu makalenin [Azure PowerShell kullanarak blob’lara erişme](#powershell) bölümünde bu makalede, bu özelliğin bir örneği yer almaktadır. Daha fazla bilgi için bkz. [Alternatif Depolama Hesapları ve Meta Depolarla HDInsight Kümesi kullanma](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+Hive, MapReduce, Hadoop akış ve Pig dahil olmak üzere birden çok WebHCat işleri kendileriyle birlikte depolama hesapları açıklaması ve meta veriler taşıyabilir. (Bu şu anda yalnızca Pig depolama hesapları ile çalışmakta, ancak meta verilerle çalışmamaktadır.) Daha fazla bilgi için bkz. [Alternatif Depolama Hesapları ve Meta Depolarla HDInsight Kümesi kullanma](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 Bloblar yapılandırılmış ve yapılandırılmamış veriler için kullanılabilir. Blob kapsayıcıları, verileri anahtar/değer çiftleri olarak depolar ve dizin hiyerarşisi bulunmaz. Ancak, bir dosyayı dizin yapısında depolanmış gibi göstermek için anahtar adında eğik çizgi karakteri (/) kullanılabilir. Örneğin, bir blob'un anahtarı *input/log1.txt* şeklinde olabilir. Gerçek *giriş* dizini yoktur, ancak anahtar adında eğik çizgi karakteri bulunması nedeniyle, bir dosya yolu görünümüne sahiptir.
 
 ## <a id="benefits"></a>Azure Depolamanın yararları
-İşlem kümelerini ve depolama kaynaklarını yeniden bulmamanın örtülü performans maliyeti, yüksek hızlı ağın işlem düğümlerinin Azure Depolama’daki verilere erişimini çok verimli hale getirdiği, Azure bölgesindeki depolama hesabı kaynaklarına yakın şekilde oluşturulmasıyla azaltılabilir.
+İşlem kümelerini ve depolama kaynaklarını yeniden bulmamanın örtülü performans maliyeti, yüksek hızlı ağın işlem düğümlerinin Azure Depolama’daki verilere erişimini verimli hale getirdiği, Azure bölgesindeki depolama hesabı kaynaklarına yakın şekilde oluşturulmasıyla azaltılabilir.
 
 Verileri HDFS yerine Azure Depolama’da depolamanın çeşitli avantajları vardır:
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure portalı kullanarak Data Lake Store ile çalışmaya başlama| Microsoft Docs"
-description: "Bir Data Lake Store hesabı oluşturmak ve Data Lake Store&quot;da temel işlemleri gerçekleştirmek için Azure portalı kullanma"
+description: "Bir Data Lake Store hesabı oluşturmak ve Data Lake Store'da temel işlemleri gerçekleştirmek için Azure portalı kullanma"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/06/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: f03181c727650eb0cfc8648cbe3d3838295cf6ad
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: fa13266993017374ba49709f8e22fbe6b03a28c7
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama
+# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Azure portalı kullanarak Azure Data Lake Store ile çalışmaya başlama
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -35,20 +34,20 @@ ms.lasthandoff: 06/07/2017
 >
 > 
 
-Azure Data Lake Store hesabı oluşturmak ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure Portal'ın nasıl kullanılacağını öğrenin. Data Lake Store hakkında daha fazla bilgi için bkz. [Azure Data Lake Store'a Genel Bakış](data-lake-store-overview.md).
+Azure Data Lake Store hesabı oluşturmak ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure Portal'ın nasıl kullanılacağını öğrenin. Daha fazla bilgi için bkz. [Azure Data Lake Store’a Genel Bakış](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Önkoşullar
-Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
-
-* **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-
-## <a name="do-you-learn-faster-with-videos"></a>Videolarla daha hızlı mı öğreniyorsunuz?
-Data Lake Store ile çalışmaya başlamak için aşağıdaki videoları izleyin.
+Aşağıdaki iki video, bu makalede anlatılan bilgileri içerir:
 
 * [Data Lake Store hesabı oluşturma](https://mix.office.com/watch/1k1cycy4l4gen)
 * [Veri Gezgini'ni kullanarak Data Lake Store'da verileri yönetme](https://mix.office.com/watch/icletrxrh6pc)
 
+## <a name="prerequisites"></a>Ön koşullar
+Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
+
+* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
+
 ## <a name="create-an-azure-data-lake-store-account"></a>Azure Data Lake Store hesabı oluşturma
+
 1. Yeni [Azure Portal](https://portal.azure.com)'da oturum açın.
 2. **YENİ**'ye, **Veri + Depolama**'ya ve ardından **Azure Data Lake Store**'a tıklayın. **Azure Data Lake Store** dikey penceresindeki bilgileri okuyun ve ardından dikey pencerenin sol alt köşesindeki **Oluştur** seçeneğine tıklayın.
 3. **Yeni Data Lake Store** dikey penceresinde, aşağıdaki ekran görüntüsünde gösterilen değerleri sağlayın:
@@ -59,25 +58,27 @@ Data Lake Store ile çalışmaya başlamak için aşağıdaki videoları izleyin
    * **Abonelik**. Altında yeni bir Data Lake Store hesabı oluşturmak istediğiniz aboneliği seçin.
    * **Kaynak Grubu**. Mevcut bir kaynak grubunu seçin veya yeni grup oluşturmak için **Yeni oluştur** seçeneğini belirleyin. Kaynak grubu, bir uygulama için ilgili kaynakları bir arada tutan bir kapsayıcıdır. Daha fazla bilgi için bkz. [Azure'da Kaynak Grupları](../azure-resource-manager/resource-group-overview.md#resource-groups).
    * **Konum**: Data Lake Store hesabını oluşturmak istediğiniz konumu seçin.
-   * **Şifreleme Ayarları**. Data Lake Store hesabınızı şifrelemek isteyip istemediğinizi seçebilirsiniz. Şifrelemeyi seçerseniz hesabınızdaki verilerin şifrelenmesi için kullanmak istediğiniz ana şifreleme anahtarını nasıl yönetmek istediğinizi de belirtebilirsiniz.
+   * **Şifreleme Ayarları**. Üç seçenek vardır:
      
-     * (İsteğe bağlı) Şifreleme kullanmamak için açılır menüden **Şifrelemeyi etkinleştirme**’yi seçin.
-     * (Varsayılan) Şifreleme anahtarlarınızın Azure Data Lake Store tarafından yönetilmesini istiyorsanız **Azure Data Lake tarafından yönetilen anahtarlar kullan**’ı seçin.
+     * **Şifrelemeyi etkinleştirme**.
+     * **Azure Data Lake tarafından yönetilen anahtarları kullanma**.  Şifreleme anahtarlarınızı yönetmek için Azure Data Lake Store kullanmak istiyorsanız.
+     * **Azure Key Vault'tan anahtarları seçin**. Mevcut bir Azure Key Vault’u seçin veya yeni bir Key Vault oluşturun. Azure Key Vault’taki anahtarları kullanmak için Azure Data Lake Store hesabının Azure Key Vault’a erişmesini sağlayacak izinleri atamanız gerekir. Yönergeler için bkz. [Azure Key Vault'a izinleri atama](#assign-permissions-to-azure-key-vault).
        
-         ![Data Lake Store şifrelemesi](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
-     * (İsteğe bağlı) Azure Anahtar Kasası’nda bulunan kendi anahtarlarınızı kullanmak istiyorsanız **Azure Anahtar Kasası’ndan anahtar seç**’i belirleyin. Anahtar Kasası hesabınız yoksa, bu seçeneği kullanarak Anahtar Kasası hesabı ve anahtarları da oluşturabilirsiniz.
+        ![Data Lake Store şifrelemesi](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store encryption")
        
-         ![Data Lake Store şifrelemesi](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store encryption")
-       
-       **Şifreleme Ayarları** dikey penceresinde **Tamam**’a tıklayın.
-       
-       > [!NOTE]
-       > Data Lake Store hesabına yönelik şifreleme yapılandırmak için bir Azure Anahtar Kasası’ndaki anahtarları kullanıyorsanız Azure Data Lake Store hesabının Azure Anahtar Kasası’na erişebilmesi için gerekli izinleri atamanız gerekir. Bunu nasıl yapacağınızı gösteren yönergeler için bkz. [Azure Anahtar Kasası’na izin atama](#assign-permissions-to-the-azure-key-vault)
-       > 
-       > 
+        **Şifreleme Ayarları** dikey penceresinde **Tamam**’a tıklayın.
+
+        Daha fazla bilgi için bkz. [Azure Data Lake Store'da verileri şifreleme](./data-lake-store-encryption.md).
+
 4. **Oluştur**’a tıklayın. Hesabı panoya sabitlemeyi tercih ediyorsanız tekrar panoya yönlendirilirsiniz ve Data Lake Store hesap hazırlama işleminizin ilerleme durumunu görebilirsiniz. Data Lake Store hesabı sağlandıktan sonra, hesap dikey penceresi görünür.
 
-## <a name="assign-permissions-to-the-azure-key-vault"></a>Azure Anahtar Kasası’na izin atama
+İsterseniz Azure Resource Manager şablonlarını kullanarak bir Data Lake Store hesabı da oluşturabilirsiniz. Bu şablonlara [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/resources/templates/?term=data+lake+store)’ndan erişebilirsiniz:
+
+- Veri şifreleme olmadan: [Azure Data Lake Store hesabını veri şifrelemesi olmadan dağıtma](https://azure.microsoft.com/en-us/resources/templates/101-data-lake-store-no-encryption/).
+- Data Lake Store kullanarak veri şifrelemesi ile: [Şifreleme (Data Lake) ile Data Lake Store hesabı dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+- Azure Key Vault kullanarak veri şifrelemesi ile: [Şifreleme (Key Vault) ile Data Lake Store hesabı dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+
+### <a name="assign-permissions-to-azure-key-vault"></a>Azure Key Vault’a izin atama
 Data Lake Store hesabında şifreleme yapılandırmak için bir Azure Anahtar Kasası’ndaki anahtarları kullandıysanız Data Lake Store hesabı ile Azure Anahtar Kasası hesabı arasında erişim yapılandırmalısınız. Bunu yapmak için aşağıdaki adımları gerçekleştirin.
 
 1. Azure Anahtar Kasası’ndaki anahtarları kullandıysanız Data Lake Store hesabına ait dikey pencerenin üstünde bir uyarı görüntülenir. Uyarıya tıklayarak **Anahtar Kasası İzinlerini Yapılandır** dikey penceresini açın.
@@ -91,7 +92,7 @@ Data Lake Store hesabında şifreleme yapılandırmak için bir Azure Anahtar Ka
 ## <a name="createfolder"></a>Azure Data Lake Store hesabında klasör oluşturma
 Veri depolamak ve yönetmek için Data Lake Store hesabınızın altında klasör oluşturabilirsiniz.
 
-1. Yeni oluşturduğunuz Data Lake Store hesabını açın. Sol bölmeden **Gözat**'a tıklayın, **Data Lake Store**'a tıklayın ve Data Lake Store dikey penceresinden, altında klasör oluşturmak istediğiniz hesabın adına tıklayın. Hesabı başlangıç panosuna sabitlediyseniz bu hesap kutucuğuna tıklayın.
+1. Oluşturduğunuz Data Lake Store hesabını açın. Sol bölmeden **Gözat**'a tıklayın, **Data Lake Store**'a tıklayın ve Data Lake Store dikey penceresinden, altında klasör oluşturmak istediğiniz hesabın adına tıklayın. Hesabı başlangıç panosuna sabitlediyseniz bu hesap kutucuğuna tıklayın.
 2. Data Lake Store hesabı dikey pencerenizde, **Veri Gezgini**'ne tıklayın.
    
     ![Data Lake Store hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
@@ -104,7 +105,7 @@ Veri depolamak ve yönetmek için Data Lake Store hesabınızın altında klasö
     ![Data Lake hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
 
 ## <a name="uploaddata"></a>Azure Data Lake Store hesabına veri yükleme
-Verilerinizi Azure Data Lake Store hesabınıza doğrudan kök düzeyinde veya hesap içinde oluşturduğunuz bir klasöre yüklenecek şekilde yükleyebilirsiniz. Aşağıdaki ekran görüntüsünü kullanarak, **Veri Gezgini** dikey penceresinden bir dosyayı bir alt klasöre yüklemek için aşağıdaki adımları izleyin. Bu ekran yakalama görüntüsünde, dosya içerik haritalarında gösterilen bir alt klasöre yüklenmektedir (kırmızı kutu içinde işaretlenmiştir).
+Verilerinizi Azure Data Lake Store hesabınıza doğrudan kök düzeyinde veya hesap içinde oluşturduğunuz bir klasöre yüklenecek şekilde yükleyebilirsiniz. Aşağıdaki ekran görüntüsünü kullanarak, **Veri Gezgini** dikey penceresinden bir dosyayı bir alt klasöre yüklemek için aşağıdaki adımları izleyin. Bu ekran görüntüsünde, dosya içerik haritalarında gösterilen bir alt klasöre yüklenmektedir (kırmızı kutu içinde işaretlenmiştir).
 
 Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz.
 

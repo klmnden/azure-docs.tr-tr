@@ -1,6 +1,6 @@
 ---
 title: "Azure’da ağ güvenlik grupları | Microsoft Docs"
-description: "Azure&quot;daki dağıtılmış güvenlik duvarını kullanan sanal ağlarınızdaki trafik akışını yalıtmak ve denetlemek için Ağ Güvenlik Gruplarının nasıl kullanılacağı konusunda bilgi edinin."
+description: "Azure'daki dağıtılmış güvenlik duvarını kullanan sanal ağlarınızdaki trafik akışını yalıtmak ve denetlemek için Ağ Güvenlik Gruplarının nasıl kullanılacağı konusunda bilgi edinin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Ağ güvenlik grupları ile ağ trafiğini filtreleme
@@ -50,7 +49,7 @@ NSG kuralları aşağıdaki özellikleri içerir:
 | --- | --- | --- | --- |
 | **Ad** |Kuralın adı. |Bölge içinde benzersiz olmalıdır.<br/>Harf, sayı, alt çizgi, nokta ve kısa çizgi içerebilir.<br/>Bir harf veya sayı ile başlamalıdır.<br/>Bir harf, sayı veya alt çizgi ile bitmelidir.<br/>80 karakterden uzun olamaz. |Bir NSG içinde çeşitli kurallara sahip olabilirsiniz, bu nedenle kuralınızın işlevini tanımlayan bir adlandırma kuralını uyguladığınızdan emin olun. |
 | **Protokol** |Kural ile eşleştirilecek protokol. |TCP, UDP veya * |Protokol olarak * kullanmak ICMP'yi (yalnızca Doğu-Batı trafiği), aynı zamanda UDP'yi ve TCP'yi içerir ve ihtiyacınız olan kuralların sayısını azaltabilir.<br/>Bununla birlikte, * kullanmak çok geniş bir yaklaşım olabilir, bu nedenle yalnızca gerçekten gerekli olduğu zaman * kullandığınızdan emin olun. |
-| **Kaynak bağlantı noktası aralığı** |Kural ile eşleştirilecek kaynak bağlantı noktası aralığı. |1'den 65535'e kadar olan tek bağlantı noktası, bağlantı noktası aralığı (yani 1-65635) veya * (tüm bağlantı noktaları için). |Kaynak bağlantı noktaları kısa ömürlü olabilir. İstemci programınız belirli bir bağlantı noktasını kullanmadığı sürece, çoğu durum için * kullanın.<br/>Birden çok kurala ihtiyaç duyulmasını önlemek için mümkün olduğunca bağlantı noktası aralıklarını kullanmaya çalışın.<br/>Birden çok bağlantı noktası veya bağlantı noktası aralığı virgülle birleştirilemez. |
+| **Kaynak bağlantı noktası aralığı** |Kural ile eşleştirilecek kaynak bağlantı noktası aralığı. |1 - 65535 aralığındaki tek bağlantı noktası numarası, bağlantı noktası aralığı (yani 1 - 65535) veya * (tüm bağlantı noktaları için). |Kaynak bağlantı noktaları kısa ömürlü olabilir. İstemci programınız belirli bir bağlantı noktasını kullanmadığı sürece, çoğu durum için * kullanın.<br/>Birden çok kurala ihtiyaç duyulmasını önlemek için mümkün olduğunca bağlantı noktası aralıklarını kullanmaya çalışın.<br/>Birden çok bağlantı noktası veya bağlantı noktası aralığı virgülle birleştirilemez. |
 | **Hedef bağlantı noktası aralığı** |Kural ile eşleştirilecek hedef bağlantı noktası aralığı. |1'den 65535'e kadar olan tek bağlantı noktası, bağlantı noktası aralığı (yani 1-65535) veya \* (tüm bağlantı noktaları için). |Birden çok kurala ihtiyaç duyulmasını önlemek için mümkün olduğunca bağlantı noktası aralıklarını kullanmaya çalışın.<br/>Birden çok bağlantı noktası veya bağlantı noktası aralığı virgülle birleştirilemez. |
 | **Kaynak adres ön eki** |Kural ile eşleştirilecek kaynak adres ön eki veya etiketi. |tek IP adresi (örnek: 10.10.10.10), IP alt ağı (örnek: 192.168.1.0/24), [varsayılan etiket](#default-tags) veya * (tüm adresler için). |Kuralların sayısını azaltmak için aralıklar, varsayılan etiketler ve * kullanmayı düşünün. |
 | **Hedef adres ön eki** |Kural ile eşleştirilecek hedef adres ön eki veya etiketi. | tek IP adresi (örnek: 10.10.10.10), IP alt ağı (örnek: 192.168.1.0/24), [varsayılan etiket](#default-tags) veya * (tüm adresler için). |Kuralların sayısını azaltmak için aralıklar, varsayılan etiketler ve * kullanmayı düşünün. |

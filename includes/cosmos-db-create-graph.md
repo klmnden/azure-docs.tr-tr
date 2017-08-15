@@ -1,7 +1,7 @@
-Şimdi Veri Gezgini'ni kullanarak bir grafik kapsayıcısı oluşturabilir ve veritabanınıza veri ekleyebilirsiniz. 
+Şimdi bir grafik veritabanı oluşturmak için Azure portalında Veri Gezgini aracını kullanabilirsiniz. 
 
-1. Azure portalındaki gezinme menüsünde **Veri Gezgini**'ne tıklayın. 
-2. Veri Gezgini dikey penceresinde **Yeni Grafik**'e tıklayın ve aşağıdaki bilgileri kullanarak sayfayı doldurun.
+1. Azure portalının solundaki gezinti menüsünde **Veri Gezgini (Önizleme)** seçeneğine tıklayın. 
+2. **Veri Gezgini (Önizleme)** dikey penceresinde **Yeni Grafik**'e tıklayın ve aşağıdaki bilgileri kullanarak sayfayı doldurun.
 
     ![Azure portalında Veri Gezgini](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 

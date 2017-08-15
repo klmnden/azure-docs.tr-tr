@@ -16,18 +16,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: a278f76fc0ac2aa42633ed0ce2ad4fbc4e7290da
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 7c96a5b9bc2cb6cea60b200c22e4e4e1d49d8d08
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Linux kapsayıcıları için Kubernetes kümesi dağıtma
 
-Bu hızlı başlangıçta, Azure CLI kullanılarak Kubernetes kümesi dağıtılır. Ardından web ön ucu ve bir Redis örneğinden oluşan çok kapsayıcılı bir uygulama dağıtılıp küme üzerinde çalıştırılır. Tamamlandığında, uygulamaya İnternet üzerinden erişilebilir.
+Bu hızlı başlangıçta, Azure CLI kullanılarak Kubernetes kümesi dağıtılır. Ardından web ön ucu ve bir Redis örneğinden oluşan çok kapsayıcılı bir uygulama dağıtılıp küme üzerinde çalıştırılır. Tamamlandığında, uygulamaya İnternet üzerinden erişilebilir. 
+
+Bu belgede kullanılan örnek uygulama Python’da yazılmıştır. Kavramlar ve burada ayrıntıları verilen adımlar herhangi bir kapsayıcı görüntüsünü Kubernetes kümesine dağıtmak için kullanılabilir. Kod, Dockerfile ve bu projeyle ilgili önceden oluşturulmuş Kubernetes bildirim dosyaları [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git)’da vardır.
 
 ![Azure Vote’a göz atma görüntüsü](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -69,7 +71,7 @@ az group create --name myResourceGroup --location eastus
 Azure Container Service'te [az acs create](/cli/azure/acs#create) komutuyla Kubernetes kümesi oluşturun. Aşağıdaki örnekte, bir Linux ana düğümü ve üç Linux aracı düğümüyle *myK8sCluster* adlı bir küme oluşturulmuştur.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8sCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
 ```
 
 Birkaç dakika sonra komut tamamlanır ve küme hakkında json tarafından biçimlendirilmiş bilgiler gösterilir. 
@@ -80,7 +82,7 @@ Bir Kubernetes kümesini yönetmek için Kubernetes komut satırı istemcisi [ku
 
 Azure CloudShell kullanıyorsanız kubectl zaten yüklüdür. Yerel olarak yüklemek istiyorsanız [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) komutunu kullanabilirsiniz.
 
-kubectl’i Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) komutunu çalıştırın. Bu adımlar kimlik bilgilerini indirir ve Kubernetes CLI’yi bunları kullanacak şekilde yapılandırır.
+kubectl’i Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) komutunu çalıştırın. Bu adım kimlik bilgilerini indirir ve Kubernetes CLI’yi bunları kullanacak şekilde yapılandırır.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
@@ -104,9 +106,9 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Kubernetes bildirim dosyası, hangi kapsayıcı görüntülerinin çalıştırılması gerektiği gibi şeyler de dahil olmak üzere, küme için istenen durumu tanımlar. Bu örnekte, Azure Vote uygulamasını çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır. 
+Kubernetes bildirim dosyası, hangi kapsayıcı görüntülerinin çalıştırılması gerektiği de dahil olmak üzere, küme için istenen durumu tanımlar. Bu örnekte, Azure Vote uygulamasını çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır. 
 
-`azure-vote.yaml` adlı bir dosya oluşturun ve dosyayı aşağıdaki YAML’ye kopyalayın.
+`azure-vote.yaml` adlı bir dosya oluşturun ve dosyayı aşağıdaki YAML’ye kopyalayın. Azure Cloud Shell'de çalışıyorsanız, bu dosya bir sanal veya fiziksel sistemde olduğu gibi vi veya Nano kullanılarak oluşturulabilir.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -226,3 +228,4 @@ Azure Container Service hakkında daha fazla bilgi ve dağıtım örneği için 
 
 > [!div class="nextstepaction"]
 > [ACS Kubernetes kümesini yönetme](./container-service-tutorial-kubernetes-prepare-app.md)
+
