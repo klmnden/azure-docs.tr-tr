@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
@@ -98,17 +98,18 @@ Kullanacağınız havuz ayırma modunu seçmek için hangisinin senaryonuza daha
 
 Aşağıdaki tabloda, Batch Hizmeti ve Kullanıcı Aboneliği havuz ayırma modları karşılaştırılmıştır.
 
-| **Havuz ayırma modu:**                 | **Batch Hizmeti**                                                                                       | **Kullanıcı Aboneliği**                                                              |
+| **Havuz ayırma modu**                 | **Batch Hizmeti**                                                                                       | **Kullanıcı Aboneliği**                                                              |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Havuzların ayrıldığı yer:**               | Azure tarafından yönetilen bir abonelik                                                                           | Batch hesabının oluşturulduğu kullanıcı aboneliği                        |
-| **Desteklenen yapılandırmalar:**             | <ul><li>Bulut Hizmeti Yapılandırması</li><li>Sanal Makine Yapılandırması (Linux ve Windows)</li></ul> | <ul><li>Sanal Makine Yapılandırması (Linux ve Windows)</li></ul>                |
-| **Desteklenen VM görüntüleri:**                  | <ul><li>Microsoft Azure Market görüntüleri</li></ul>                                                              | <ul><li>Microsoft Azure Market görüntüleri</li><li>Özel görüntüler</li></ul>                   |
-| **Desteklenen işlem düğümü türleri:**         | <ul><li>Ayrılmış düğümler</li><li>Düşük öncelikli düğümler</li></ul>                                            | <ul><li>Ayrılmış düğümler</li></ul>                                                  |
-| **Desteklenen kimlik doğrulaması:**             | <ul><li>Paylaşılan Anahtar</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault gereksinimi:**             | Hayır                                                                                                      | Evet                                                                                |
-| **Çekirdek kota:**                           | Batch çekirdek kotasına göre belirlenir                                                                          | Abonelik çekirdek kotasına göre belirlenir                                              |
-| **Azure Sanal Ağ desteği:** | Bulut Hizmeti Yapılandırmasıyla oluşturulan havuzlar                                                      | Sanal Makine Yapılandırmasıyla oluşturulan havuzlar                               |
-| **Desteklenen sanal ağ dağıtım modeli:**      | Klasik dağıtım modeli kullanılarak oluşturulmuş sanal ağlar                                                             | Klasik dağıtım modeli veya Azure Resource Manager ile oluşturulan sanal ağlar |
+| **Havuzların ayrıldığı yer**               | Azure tarafından yönetilen bir abonelik                                                                           | Batch hesabının oluşturulduğu kullanıcı aboneliği                        |
+| **Desteklenen yapılandırmalar**             | <ul><li>Bulut Hizmeti Yapılandırması</li><li>Sanal Makine Yapılandırması (Linux ve Windows)</li></ul> | <ul><li>Sanal Makine Yapılandırması (Linux ve Windows)</li></ul>                |
+| **Desteklenen VM görüntüleri**                  | <ul><li>Microsoft Azure Market görüntüleri</li></ul>                                                              | <ul><li>Microsoft Azure Market görüntüleri</li><li>Özel görüntüler</li></ul>                   |
+| **Desteklenen işlem düğümü türleri**         | <ul><li>Ayrılmış düğümler</li><li>Düşük öncelikli düğümler</li></ul>                                            | <ul><li>Ayrılmış düğümler</li></ul>                                                  |
+| **Desteklenen kimlik doğrulaması**             | <ul><li>Paylaşılan Anahtar</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Azure Key Vault gereksinimi**             | Hayır                                                                                                      | Evet                                                                                |
+| **Çekirdek kota**                           | Batch çekirdek kotasına göre belirlenir                                                                          | Abonelik çekirdek kotasına göre belirlenir                                              |
+| **Azure Sanal Ağ desteği** | Bulut Hizmeti Yapılandırmasıyla oluşturulan havuzlar                                                      | Sanal Makine Yapılandırmasıyla oluşturulan havuzlar                               |
+| **Desteklenen sanal ağ dağıtım modeli**      | Klasik dağıtım modeli kullanılarak oluşturulmuş sanal ağlar                                                             | Klasik dağıtım modeli veya Azure Resource Manager ile oluşturulan sanal ağlar |
+
 ## <a name="azure-storage-account"></a>Azure Storage hesabı
 
 Batch çözümlerinin çoğu, kaynak dosyalarını ve çıkış dosyalarını depolamak için Azure Depolama kullanır.  
@@ -171,6 +172,8 @@ Batch havuzu oluştururken Azure sanal makine yapılandırmasını ve havuzdaki 
     * Cloud Services dahilindeki çalışan rollerinde olduğu gibi bir *İşletim Sistemi Sürümü* belirtebilirsiniz (çalışan rolleri hakkında daha fazla bilgi için [Cloud Services’e genel bakış](../cloud-services/cloud-services-choose-me.md) içindeki [Bana cloud services hakkında bilgi ver](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) bölümüne bakın).
     * Çalışan rollerinde olduğu gibi düğümlerin otomatik olarak yükseltilmesi için *İşletim Sistemi Sürümü* ’ne yönelik `*` belirtilmesi önerilir ve yeni yayımlanmış sürümlerin gereksinimini karşılamak için çalışma yapılması gerekmez. Belirli bir işletim sistemi sürümünün seçildiği birincil kullanım durumu, sürümün güncelleştirilmesine izin vermeden önce geriye dönük uyumluluk testinin gerçekleştirilmesine izin vererek uygulama uyumluluğunun sağlandığından emin olmaktır. Doğrulama sonrasında havuzun *İşletim Sistemi Sürümü* güncelleştirilebilir ve yeni işletim sistemi görüntüsü yüklenebilir; çalışan tüm görevler kesilir ve yeniden kuyruğa alınır.
 
+Havuz oluştururken VHD'nizin temel görüntüsünün işletim sistemine bağlı olarak uygun **nodeAgentSkuId** değerini seçmeniz gerekir. [Desteklenen Düğüm Aracısı SKU'larını Listele](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) işlemini çağırarak İşletim Sistemi Görüntüsü başvuruları için kullanılabilen düğüm aracısı SKU kimliklerinin eşlemesine ulaşabilirsiniz.
+
 Batch hesabı oluştururken havuz ayırma modunu ayarlama hakkında bilgi almak için [Hesap](#account) bölümüne bakın.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Sanal Makine havuzları için özel görüntüler
@@ -195,8 +198,6 @@ Depolama hesaplarınızın aşağıdaki ölçütlere uygun olduğundan emin olun
 - Şu anda yalnızca genel amaçlı standart depolama hesapları desteklenmektedir. İleride Azure Premium depolama hesapları için de destek sunulacaktır.
 - Birden fazla özel VHD blobuna sahip tek bir depolama hesabı veya her birinde tek blob bulunan birden fazla depolama hesabı belirtebilirsiniz. Daha iyi bir performans elde etmek için birden fazla depolama hesabı kullanmanızı öneririz.
 - Tek bir benzersiz özel görüntü VHD blobu en fazla 40 Linux VM örneği veya 20 Windows VM örneği için destek sunabilir. Daha fazla VM içeren ek havuzlar oluşturmak için VHD blobunun kopyalarını oluşturmanız gerekir. Örneğin 200 Windows VM içeren bir havuz için **osDisk** özelliğinde 10 benzersiz VHD blobu belirtilmesi gerekir.
-
-Havuz oluştururken VHD'nizin temel görüntüsünün işletim sistemine bağlı olarak uygun **nodeAgentSkuId** değerini seçmeniz gerekir. [Desteklenen Düğüm Aracısı SKU'larını Listele](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) işlemini çağırarak İşletim Sistemi Görüntüsü başvuruları için kullanılabilen düğüm aracısı SKU kimliklerinin eşlemesine ulaşabilirsiniz.
 
 Azure portalını kullanarak özel görüntüden havuz oluşturmak için:
 

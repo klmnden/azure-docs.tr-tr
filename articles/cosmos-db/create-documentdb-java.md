@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Java ve DocumentDB API''si ile bir uygulama derleme | Microsoft Docs'
+title: "Java ile Azure Cosmos DB belge veritabanı oluşturma | Microsoft Docs | Microsoft Docs'"
 description: "Azure Cosmos DB DocumentDB API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Java kodu örneği sunar"
 services: cosmos-db
 documentationcenter: 
@@ -13,31 +13,36 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 06/27/2017
+ms.date: 08/02/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c178646f0ec10cb08e90c1eda544a2488782187f
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: f22e886ab3e59e69607e572d05a9f01d3d57f181
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalı ile bir DocumentDB API uygulaması derleme
+# <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir belge veritabanı oluşturma
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından [DocumentDB Java API'si](documentdb-sdk-java.md) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz.
+Bu hızlı başlangıç Azure Cosmos DB için Azure portal araçlarını kullanarak bir belge veritabanı oluşturur. Bu hızlı başlangıçta ayrıca bir Java konsol uygulamasını [DocumentDB Java API](documentdb-sdk-java.md) kullanarak nasıl hızlı bir şekilde oluşturabileceğiniz gösterilmektedir. Bu hızlı başlangıçtaki yönergeler Java çalıştırabilen tüm işletim sistemlerinde izlenebilir. Bu hızlı başlangıcı tamamladığınızda tercihinize bağlı olarak Kullanıcı Arabiriminde veya programlama arabiriminde belge veritabanı kaynaklarını oluşturma ve değiştirme hakkında bilgi sahibi olacaksınız.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
-   * JDK 1.7+ (JDK yoksa `apt-get install default-jdk` komutunu çalıştırın)
-   * Maven (Maven yoksa `apt-get install maven` komutunu çalıştırın)
+* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+    * Ubuntu’da JDK’yi yüklemek için `apt-get install default-jdk` komutunu çalıştırın.
+    * JAVA_HOME ortam değişkenini JDK’nin yüklü olduğu klasöre işaret edecek şekilde ayarladığınızdan emin olun.
+* Bir [Maven](http://maven.apache.org/) ikili arşivi [indirin](http://maven.apache.org/download.cgi) ve [yükleyin](http://maven.apache.org/install.html)
+    * Ubuntu’da Maven’i yüklemek için `apt-get install maven` komutunu çalıştırabilirsiniz.
+* [Git](https://www.git-scm.com/)
+    * Ubuntu’da Git’i yüklemek için `sudo apt-get install git` komutunu çalıştırabilirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
+
+Bir grafik veritabanı oluşturmadan önce Azure Cosmos DB ile bir SQL (DocumentDB) veritabanı hesabı oluşturmanız gerekir.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -45,9 +50,40 @@ Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+<a id="add-sample-data"></a>
+## <a name="add-sample-data"></a>Örnek verileri ekleme
+
+Şimdi Veri Gezgini'ni kullanarak yeni koleksiyonunuza veri ekleyebilirsiniz.
+
+1. Yeni veritabanı, Veri Gezgini'nin Koleksiyonlar bölmesinde görüntülenir. **Görevler** veritabanını genişletin, **Öğeler** koleksiyonunu genişletin, **Belgeler**'e ve ardından **Yeni Belge**'ye tıklayın. 
+
+   ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+  
+2. Şimdi koleksiyona aşağıdaki yapıya sahip bir belge ekleyin.
+
+     ```json
+     {
+         "id": "1",
+         "category": "personal",
+         "name": "groceries",
+         "description": "Pick up apples and strawberries.",
+         "isComplete": false
+     }
+     ```
+
+3. JSON öğesini **Belgeler** sekmesine ekledikten sonra **Kaydet**'e tıklayın.
+
+    ![Azure portalında JSON verilerini kopyalayın ve Veri Gezgini'ne kaydedin](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
+
+4.  `id` özelliği için benzersiz bir değer eklediğiniz yerde bir veya daha fazla belge oluşturun ve kaydedin ve diğer özellikleri uygun şekilde değiştirin. Azure Cosmos DB, verilerinizin bir şemaya uygun olmasını şart koşmadığı için yeni belgelerinizin yapısını istediğiniz şekilde oluşturabilirsiniz.
+
+     Artık verilerinizi almak için Veri Gezgini'nde **Filtre Düzenle** ve **Filtre Uygula** düğmelerini kullanabilirsiniz. Veri Gezgini koleksiyondaki tüm belgeleri almak için varsayılan olarak `SELECT * FROM c` komutunu kullanır ancak bunu `SELECT * FROM c ORDER BY c._ts DESC` gibi farklı bir [SQL sorgusuyla](documentdb-sql-query.md) değiştirerek tüm belgelerin zaman damgasına göre azalan sırada döndürülmesini sağlayabilirsiniz. 
+ 
+     Veri Gezgini'ni kullanarak ayrıca saklı yordamlar, UDF'ler ve tetikleyiciler oluşturabilir, bu sayede sunucu tarafı iş mantığını gerçekleştirebilir ve aktarım hızını ölçeklendirebilirsiniz. Veri Gezgini, API'lerdeki tüm yerleşik programlı veri erişimini açığa çıkarır ancak Azure portalındaki verilerinize kolayca erişmenizi sağlar.
+
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi GitHub'dan bir DocumentDB API uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu görüyorsunuz. 
+Şimdi kod ile çalışmaya geçelim. GitHub'dan bir DocumentDB API uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu görüyorsunuz. 
 
 1. Git bash gibi bir git terminal penceresi açın ve `CD` ile çalışma dizinine gidin.  
 
@@ -59,7 +95,7 @@ Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `Program.java` dosyasını açın ve Azure Cosmos DB kaynaklarını oluşturan bu kod satırlarını bulun. 
+Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. \src\GetStarted klasöründen `Program.java` dosyasını açın ve Azure Cosmos DB kaynaklarını oluşturan bu kod satırlarını bulun. 
 
 * `DocumentClient` başlatılır.
 
@@ -85,12 +121,7 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `Program.java`
     DocumentCollection collectionInfo = new DocumentCollection();
     collectionInfo.setId(collectionName);
 
-    // DocumentDB collections can be reserved with throughput
-    // specified in request units/second. 1 RU is a normalized
-    // request equivalent to the read of a 1KB document. Here we
-    // create a collection with 400 RU/s.
-    RequestOptions requestOptions = new RequestOptions();
-    requestOptions.setOfferThroughput(400);
+    ...
 
     this.client.createCollection(databaseLink, collectionInfo, requestOptions);
     ```
@@ -128,27 +159,30 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `Program.java`
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
-Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
+Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır.
 
-1. [Azure portalında](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünden **Anahtarlar**'a ve ardından **Okuma/Yazma Anahtarları**'na tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak URI ve Birincil Anahtar değerlerini kopyalayarak sonraki adımda `Program.java` dosyasına yapıştırın.
+1. [Azure portalında](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünden **Anahtarlar**'a ve ardından **Okuma/Yazma Anahtarları**'na tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak URI ve PRIMARY KEY değerlerini kopyalayarak sonraki adımda `Program.java` dosyasına yapıştırın.
 
     ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-documentdb-dotnet/keys.png)
 
-2. `Program.java` dosyasını açın. 
-
-3. Portaldaki URI değerinizi kopyalayın (kopyalama düğmesini kullanarak) ve `Program.java` içindeki DocumentClient oluşturucusuna uç nokta değeri olarak yapıştırın. 
+2. Açılan `Program.java` dosyasında, portaldaki URI değerinizi kopyalayın (kopyalama düğmesini kullanarak) ve `Program.java` içindeki DocumentClient oluşturucusuna uç nokta değeri olarak yapıştırın. 
 
     `"https://FILLME.documents.azure.com"`
 
-4. Ardından, portaldan BİRİNCİL ANAHTAR değerinizi kopyalayın ve "FILL ME" ikinci parametresini "Program.java" içindeki DocumentClient oluşturucusunda yer alan anahtarla değiştirin. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
+4. Ardından, portaldan PRIMARY KEY değerinizi kopyalayın ve "FILL ME" ikinci parametresinin üzerine yapıştırarak DocumentClient oluşturucusundaki ikinci parametreyle değiştirin. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
     
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-1. Gerekli Java paketlerini yüklemek için bir terminalde `mvn package` çalıştırın.
+1. Git terminal penceresinde `cd` komutuyla azure-cosmos-db-documentdb-java-getting-started klasörüne ulaşın.
 
-2. Java uygulamanızı başlatmak için bir terminalde `mvn exec:java -D exec.mainClass=GetStarted.Program` komutunu çalıştırın.
+2. Git terminal penceresinde `mvn package` yazarak gerekli Java paketlerini yükleyin.
 
-Şimdi Veri Gezgini'ne dönüp bu yeni verileri görebilir, sorgulayabilir, değiştirebilir ve onlarla çalışabilirsiniz. 
+3. Git terminal penceresinde Java uygulamanızı başlatmak için terminal penceresinde `mvn exec:java -D exec.mainClass=GetStarted.Program` komutunu çalıştırın.
+
+    Terminal penceresinde FamilyDB veritabanı oluşturulduğu hakkında bir bildirim alırsınız ve devam etmek için bir tuşa basın. Veritabanını oluşturmak için bir tuşa basın, ardından Veri Gezginine geçin. FamilyDB veritabanını içerdiği görürsünüz. Koleksiyon ve belgeleri oluşturmak ve ardından sorguyu gerçekleştirmek için tuşlara basmaya devam edin. Proje tamamlandığında, kaynaklar hesabınızdan silinir. 
+
+    ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-documentdb-java/console-output.png)
+
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 
@@ -163,7 +197,7 @@ Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanara
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak koleksiyon oluşturmayı ve bir uygulamayı çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
+Bu hızlı başlangıçta Azure Cosmos DB hesabını ve belge veritabanını oluşturmayı, Veri Gezgini'ni kullanarak koleksiyon oluşturmayı ve bu işlemleri programlı bir şekilde yapacak bir uygulamayı çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB hesabınıza veri aktarma](import-data.md)

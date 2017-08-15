@@ -1,6 +1,6 @@
 ---
 title: "Azure portalını kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Microsoft Docs"
-description: "Bir Data Lake Analytics hesabı oluşturmak, U-SQL&quot;yi kullanarak Data Lake Analytics işi oluşturmak ve bu işi göndermek için Azure portalının nasıl kullanılacağını öğrenin. "
+description: "Bir Data Lake Analytics hesabı oluşturmak, U-SQL'yi kullanarak Data Lake Analytics işi oluşturmak ve bu işi göndermek için Azure portalının nasıl kullanılacağını öğrenin. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: b004310a3b2667134c9ad890bd907dc8ae439dd9
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Azure portalı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
@@ -36,7 +35,7 @@ Bu öğreticiye başlamadan önce bir **Azure aboneliğinizin** olması gerekir.
 Şimdi aynı anda bir Data Lake Analytics ve Data Lake Store hesabı oluşturun.  Bu basit bir adımdır ve tamamlanması yaklaşık olarak 60 saniye sürer.
 
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
-2. **Yeni** >  **Zeka + analiz** > **Data Lake Analytics**'e tıklayın.
+2. **Yeni** >  **Veri + Analiz** > **Data Lake Analytics**’e tıklayın.
 3. Aşağıdaki öğeler için değerleri seçin:
    * **Ad**: Data Lake Analytics hesabınızı adlandırın (Yalnızca küçük harf ve sayı kullanılabilir).
    * **Abonelik**: Analytics hesabı için kullanılan Azure aboneliğini seçin.
@@ -71,7 +70,7 @@ OUTPUT @a
 3. **İşi Gönder**'e tıklayın.   
 4. İş durumu **Başarılı** olarak değiştirilene kadar bekleyin.
 5. İş başarısız olduysa bkz. [Data Lake Analytics işlerini izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-6. **Çıkış** sekmesine ve ardından `SearchLog-from-Data-Lake.csv` öğesine tıklayın. 
+6. **Çıkış** sekmesine ve ardından `data.csv` öğesine tıklayın. 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

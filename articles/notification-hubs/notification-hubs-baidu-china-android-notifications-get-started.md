@@ -1,6 +1,6 @@
 ---
 title: "Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama | Microsoft Belgeleri"
-description: "Bu öğreticide, Baidu kullanarak Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs&quot;ın nasıl kullanılacağını öğrenirsiniz."
+description: "Bu öğreticide, Baidu kullanarak Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
 documentationcenter: android
 author: ysxu
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ec2a69ff5a7f1f3a954eae70f1cd776242b0b7f4
-ms.lasthandoff: 12/07/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: df3bbda15e1245b6068c2b8290d0c96856051f1f
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/07/2016
 ## <a name="overview"></a>Genel Bakış
 Baidu bulut anında iletme, mobil cihazlara anında iletme bildirimleri göndermede kullanabileceğiniz bir Çin bulut hizmetidir. Farklı uygulama mağazalarının ve anında iletme hizmetlerinin varlığı ve de genellikle GCM'ye (Google Cloud Messaging) bağlı olmayan Android cihazlarının kullanılabilirliği nedeniyle, bu hizmet özellikle Android'e anında iletme bildirimleri göndermenin karmaşık olduğu Çin'de kullanışlıdır.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğretici için aşağıdakiler gereklidir:
 
 * <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden</a> indirebileceğiniz Android SDK'sı (Eclipse kullanacağınız varsayılır)
@@ -70,7 +70,7 @@ Baidu hesabınızı etkinleştirdikten sonra, [Baidu portalında] oturum açın.
 4. Sonraki sayfada sağ üst köşedeki menüden **注册开发者** (**Kayıtlı Geliştiriciler**) öğesine tıklayın.
    
       ![][8]
-5. Bir doğrulama kısa mesajı almak için adınızı, açıklamayı ve cep telefonu numarasını girin ve ardından **送验证码** (**Doğrulama Kodu Gönder**) öğesine tıklayın. Uluslararası telefon numaraları için ülke kodunu parantez içine almanız gerektiğini unutmayın. Örneğin, bir Amerika Birleşik Devletleri numarası için bu **(1) 1234567890** şeklinde olacaktır.
+5. Bir doğrulama kısa mesajı almak için adınızı, açıklamayı ve cep telefonu numarasını girin ve ardından **送验证码** (**Doğrulama Kodu Gönder**) öğesine tıklayın. Uluslararası telefon numaraları için ülke kodunu parantez içine almanız gerekir. Örneğin, bir Amerika Birleşik Devletleri numarası için bu **(1) 1234567890** şeklinde olacaktır.
    
       ![][9]
 6. Ardından, aşağıdaki örnekte gösterildiği gibi bir doğrulama numarasına sahip bir kısa mesaj almanız gerekir:
@@ -105,7 +105,7 @@ Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi
 7. Bir uygulama adı girin ve **创建** (**Oluştur**) öğesine tıklayın.
    
       ![][15]
-8. Bir Baidu bulut anında iletme projesinin başarılı bir şekilde oluşturulmasından sonra, **Uygulama Kimliği**, **API Anahtarı** ve **Gizli Anahtar** içeren bir sayfa görürsünüz. Daha sonra kullanacağımız API anahtarı ve gizli anahtarı not edin.
+8. Bir Baidu bulut anında iletme projesi başarılı bir şekilde oluşturulduktan sonra, **Uygulama Kimliği**, **API Anahtarı** ve **Gizli Anahtar** değerlerini içeren bir sayfa görürsünüz. Daha sonra kullanacağımız API anahtarı ve gizli anahtarı not edin.
    
       ![][16]
 9. Sol bölmedeki **云推送** (**Bulut Anında İletme**) öğesine tıklayarak projeyi anında iletme bildirimleri için yapılandırın.
@@ -118,7 +118,7 @@ Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi
     
     ![][33]
 
-**保存成功！** (**Başarıyla kaydedildi!**) iletisini görürsünüz.
+Şunu görürsünüz: **保存成功！** (**Başarıyla kaydedildi!**) iletisini görürsünüz.
 
 ## <a name="configure-your-notification-hub"></a>Bildirim hub'ınızı yapılandırma
 1. [Klasik Azure Portalı]'nda oturum açın ve ardından ekranın alt kısmındaki **+YENİ**'ye tıklayın.
@@ -355,11 +355,11 @@ Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi
             import com.baidu.android.pushservice.PushManager;
 
 ## <a name="send-notifications-to-your-app"></a>Uygulamanıza bildirimler gönderme
-Aşağıdaki ekranda gösterildiği [Azure Portal](https://portal.azure.com/)'da bildirim hub’ındaki **Test Gönderimi** düğmesini kullanarak uygulamanızda bildirim almayı hızlıca test edebilirsiniz.
+Aşağıdaki ekranda gösterildiği [Azure Portal](https://portal.azure.com/)'da bildirim hub’ındaki **Gönder** düğmesini kullanarak uygulamanızda bildirim almayı hızlıca test edebilirsiniz.
 
-![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
+![](./media/notification-hubs-baidu-get-started/notification-hub-test-send-baidu.png)
 
-Anında iletme bildirimleri normalde, uyumlu bir kitaplık kullanılarak Mobile Services veya ASP.NET gibi bir arka uç hizmetinde gönderilir. Arka ucunuz için uygun bir kitaplık yoksa bildirim iletilerini göndermek için doğrudan REST API de kullanabilirsiniz.
+Anında iletme bildirimleri normalde, uyumlu bir kitaplık kullanılarak Mobile Services veya ASP.NET gibi bir arka uç hizmetinde gönderilir. Arka ucunuz için uygun bir kitaplık yoksa bildirim iletilerini göndermek için doğrudan REST API’sini kullanabilirsiniz.
 
 Bu öğreticide konuyu basit bir şekilde işleyeceğiz ve yalnızca bir arka uç hizmeti yerine bir konsol uygulamasındaki bildirim hub'ları için .NET SDK ile bildirim göndererek istemci uygulamanızı test etmeyi göstereceğiz. Bir ASP.NET arka ucundan bildirim göndermek için sonraki adım olarak [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) öğreticisini öneririz. Bununla birlikte, bildirim göndermek için aşağıdaki yaklaşımlar kullanılabilir:
 
@@ -379,7 +379,7 @@ Bu bölümde, bir .NET konsol uygulaması kullanarak bildirim göndermeyi göste
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-    Bu, <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet paketini</a> kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
+    Bu yönerge, <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet paketini</a> kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
    
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 3. **Program.cs**'yi açın ve aşağıdaki kullanım deyimini ekleyin:
@@ -399,9 +399,9 @@ Bu bölümde, bir .NET konsol uygulaması kullanarak bildirim göndermeyi göste
          Console.ReadLine();
 
 ## <a name="test-your-app"></a>Uygulamanızı test etme
-Bu uygulamayı gerçek bir telefonla test etmek için telefonu bir USB kablosu kullanarak bilgisayarınıza bağlamanız yeterlidir. Böylece uygulamanız iliştirilmiş telefona yüklenir.
+Bu uygulamayı gerçek bir telefonla test etmek için telefonu bir USB kablosu kullanarak bilgisayarınıza bağlamanız yeterlidir. Bu işlem uygulamanızı iliştirilmiş telefona yükler.
 
-Bu uygulamayı öykünücüyle test etmek için, Eclipse üst araç çubuğunda **Çalıştır**'a tıklayın ve ardından uygulamanızı seçin. Bu, öykünücüyü başlatır ve ardından uygulamayı yükleyip çalıştırır.
+Bu uygulamayı öykünücüyle test etmek için, Eclipse üst araç çubuğunda **Çalıştır**'a tıklayın ve ardından uygulamanızı seçin: öykünücü başlatılır, uygulama yüklenir ve çalıştırılır.
 
 Uygulama, Baidu Anında iletme bildirimi hizmetinden 'userId' ve 'channelId' alır ve bildirim hub'ı ile kaydeder.
 

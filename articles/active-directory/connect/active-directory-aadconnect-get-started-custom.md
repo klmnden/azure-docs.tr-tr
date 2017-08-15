@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
@@ -278,6 +278,9 @@ AD FS hizmetinin kullanıcıların kimliklerini doğrulayabilmesi ve Active Dire
 * **Etki Alanı Kullanıcı Hesabı** - Bu hesap türü için bir parola sağlamanız ve parola değiştiğinde veya süresi dolduğunda parolayı düzenli olarak güncelleştirmeniz gerekir. AD FS sunucularınızın ait olduğu etki alanında Windows Server 2012 etki alanı denetleyicileriniz yoksa bu seçeneği kullanın.
 
 Grup Tarafından Yönetilen Hizmet Hesabı'nı seçtiyseniz ve bu özellik Active Directory'de hiç kullanılmadıysa Kuruluş Yöneticisi kimlik bilgilerini girmeniz istenir. Bu kimlik bilgileri, anahtar deposunu başlatmak ve Active Directory'de ilgili özelliği etkinleştirmek için kullanılır.
+
+> [!NOTE]
+> Azure AD Connect, AD FS hizmetinin etki alanındaki zaten bir SPN olarak kayıtlı olup olmadığını algılamak için bir denetim gerçekleştirir.  AD DS, yinelenen SPN’lerin aynı anda kaydedilmesine izin vermez.  Yinelenen SPN bulunursa, SPN kaldırılana kadar devam etmek mümkün olmaz.
 
 ![AD FS Hizmet Hesabı](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 
