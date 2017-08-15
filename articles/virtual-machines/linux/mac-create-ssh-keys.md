@@ -13,16 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/07/2017
+ms.date: 08/14/2017
 ms.author: iainfou
-experimental: true
-experiment_id: rasquill-ssh-20170308
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 49541306c66e066a9d9f75d90bed2f4dfd21ce9d
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/23/2017
-
 
 ---
 
