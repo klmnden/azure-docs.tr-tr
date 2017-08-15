@@ -17,44 +17,46 @@ metadata:
 abstract:
   description: 'PostgreSQL için Azure Veritabanı, açık kaynak Postgres veritabanı altyapısını temel alan ilişkisel bir veritabanı hizmetidir.  Bu; kritik iş yüklerini işleyebilen, tahmin edilebilir performans, güvenlik, yüksek kullanılabilirlik ve dinamik ölçeklenebilirlik sunan, tam olarak yönetilen bir hizmet olarak veritabanıdır.  PostgreSQL için Azure Veritabanı ile açık kaynak araçları ve seçtiğiniz platformu kullanarak uygulamalar geliştirin.  Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, PostgreSQL için Azure Veritabanı’nı kullanmayı öğrenin.'
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Şunları kullanarak PostgreSQL veritabanı oluşturmayı öğrenin:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
-      text: Azure Portal
-      href: /azure/postgresql/quickstart-create-server-database-portal
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/postgresql/quickstart-create-server-database-azure-cli
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Şunları nasıl yapacağınızı öğrenin:'
-  - type: list
-    style: ordered
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - html: 'Veritabanı Tasarlama&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portalı</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Python ve CLI kullanarak bir Web Uygulaması oluşturma</a>
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: Genel görevleri yönetmeye yönelik betikleri bulun.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Şunları kullanarak PostgreSQL veritabanı oluşturmayı öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
+            text: Azure Portal
+            href: /azure/postgresql/quickstart-create-server-database-portal
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg'
+            text: Azure CLI
+            href: /azure/postgresql/quickstart-create-server-database-azure-cli
+  - title: Adım Adım Öğreticiler
     items:
-    - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Azure CLI</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Şunları nasıl yapacağınızı öğrenin:'
+      - type: list
+        style: ordered
+        items:
+          - html: 'Veritabanı Tasarlama&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portalı</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
+          - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Python ve CLI kullanarak bir Web Uygulaması oluşturma</a>
+  - title: Örnekler
     items:
-    - title: Komut Satırı
-      html: <p><a href="/cli/azure">Azure CLI</a></p>
+      - type: paragraph
+        text: Genel görevleri yönetmeye yönelik betikleri bulun.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Azure CLI</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/cli/azure">Azure CLI</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/postgresql">REST API</a></p>
