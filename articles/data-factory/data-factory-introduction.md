@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/21/2017
+ms.date: 08/14/2017
 ms.author: shlo
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 537bdee67ed9648c3cba2099553d847399609705
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/30/2017
-
 
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory'ye giriş 
