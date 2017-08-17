@@ -96,7 +96,7 @@
 #### [Kullanıcılar, Oturumlar, Etkinlikler](app-insights-usage-segmentation.md)
 #### [Huniler](usage-funnels.md)
 #### [Bekletme](app-insights-usage-retention.md)
-#### [Akışlar](app-insights-usage-flows.md)
+#### [Kullanıcı Akışları](app-insights-usage-flows.md)
 #### [Çalışma kitapları](app-insights-usage-workbooks.md)
 
 ### Analiz

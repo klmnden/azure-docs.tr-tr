@@ -9,6 +9,7 @@
 # başlarken
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
 ## [Özel bir etki alanı adı ekleme](add-custom-domain.md)
+## [Şirket markası yapılandırma](customize-branding.md)
 ## [Self servis parola sıfırlamasını yapılandırma](active-directory-passwords-getting-started.md)
 ## Azure AD lisanslamayı yönetme
 ### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
@@ -142,6 +143,7 @@
 
 
 ## Cihazları yönetme
+### [Giriş](device-management-introduction.md)
 ### [Cihaz kaydetme](active-directory-device-registration-overview.md)
 #### [Kurulum](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Şirket içi dağıtma](active-directory-device-registration-on-premises-setup.md)
@@ -241,10 +243,6 @@
 #### Etki alanı adlarını yönetme
 ##### [Azure Portal](active-directory-domains-manage-azure-portal.md)
 ##### [Klasik portal](active-directory-add-manage-domain-names.md)
-### Oturum açma sayfasını özelleştirme
-#### [Azure Portal](active-directory-branding-custom-signon-azure-portal.md)
-#### [Dile özgü](active-directory-branding-localize-azure-portal.md)
-#### [Klasik portal](active-directory-add-company-branding.md)
 ### [Dizininizi yönetme](active-directory-administer.md)
 ### [Birden fazla dizin](active-directory-licensing-directory-independence.md)
 ### [0365 dizinleri](active-directory-manage-o365-subscription.md)

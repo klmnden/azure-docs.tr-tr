@@ -7,6 +7,7 @@
 ## [URL yönlendirme](application-gateway-url-route-overview.md)
 ## [Çok Siteli](application-gateway-multi-site-overview.md)
 ## [Uçtan Uca SSL’ye genel bakış](application-gateway-backend-ssl.md)
+## [SSL ilkesi](application-gateway-ssl-policy-overview.md)
 ## [Yönlendirme](application-gateway-redirect-overview.md)
 ## [Birden çok kiracı desteği](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
@@ -31,12 +32,13 @@
 ## Web uygulaması güvenlik duvarı kurallarını özelleştirme
 ### [Portal](application-gateway-customize-waf-rules-portal.md)
 ### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
-## SSL yük boşaltmasını yapılandırma
+## SSL yapılandırma
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (Klasik)](application-gateway-ssl.md)
 ### [Azure CLI 2.0](application-gateway-ssl.md)
-### [İlke ve uçtan uca](application-gateway-end-to-end-ssl-powershell.md)
+### [Uçtan uca](application-gateway-end-to-end-ssl-powershell.md)
+### [SSL ilkesi](application-gateway-configure-ssl-policy-powershell.md)
 ## URL yol tabanlı yönlendirmeyi yapılandırma
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)

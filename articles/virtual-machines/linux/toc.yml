@@ -59,8 +59,6 @@
       href: azure-vm-network-overview.md
     - name: VM Ölçek Kümeleri
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-    - name: Örnek Meta Veri Hizmeti
-      href: ../virtual-machines-instancemetadataservice-overview.md
     - name: Kapsayıcılar
       href: containers.md
     - name: Resource Manager
@@ -167,6 +165,10 @@
               href: agent-user-guide.md
             - name: Aracı güncelleştirmesi
               href: update-agent.md
+        - name: Zamanlanmış olaylar
+          href: scheduled-events.md
+        - name: Meta verileri izleme
+          href: instance-metadata-service.md
     - name: Görüntüleri Kullanma
       items:
         - name: Görüntüleri bulma ve kullanma
