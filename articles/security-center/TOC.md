@@ -57,9 +57,10 @@
 ## Algılama ve Yanıtlama
 ### [Tanılama özellikleri](security-center-detection-capabilities.md)
 ### [Güvenlik uyarılarını yönetme](security-center-managing-and-responding-alerts.md)
+### [Güvenlik uyarısı türleri](security-center-alerts-type.md)
+### [Uyarı doğrulaması](security-center-alert-validation.md)
 ### [Güvenlik olaylarını yönetme](security-center-incident.md)
 ### [Azure günlük tümleştirmesi](security-center-integrating-alerts-with-log-integration.md)
-### [Güvenlik uyarısı türleri](security-center-alerts-type.md)
 ### [Tehdit zekası raporu](security-center-threat-report.md)
 
 ## Sorun giderme

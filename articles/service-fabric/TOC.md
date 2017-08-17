@@ -69,6 +69,7 @@
 ##### [DNS hizmeti](service-fabric-dnsservice.md)
 ##### [Ters proxy](service-fabric-reverseproxy.md)
 ##### [Güvenli iletişim için ters proxy ayarlarını yapılandırma](service-fabric-reverseproxy-configure-secure-communication.md)
+##### [Ters proxy tanılama](service-fabric-reverse-proxy-diagnostics.md)
 ### [Uygulamaların ölçeklenebilirliği](service-fabric-concepts-scalability.md)
 ### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
@@ -136,6 +137,7 @@
 #### [Docker Compose (önizleme)](service-fabric-docker-compose.md)
 #### [Kapsayıcılar ve hizmetler için kaynak idaresi](service-fabric-resource-governance.md)
 #### [Hacim ve günlüğe kaydetme sürücüleri](service-fabric-containers-volume-logging-drivers.md)
+#### [Kapsayıcılara dahil hizmetler](service-fabric-services-inside-containers.md)
 
 ### Reliable Services hizmeti oluşturma
 #### [Genel Bakış](service-fabric-reliable-services-introduction.md)
@@ -173,10 +175,10 @@
 #### başlarken
 ##### [Windows üzerinde C#](service-fabric-reliable-actors-get-started.md)
 ##### [Linux üzerinde Java](service-fabric-reliable-actors-get-started-java.md)
-#### [Bildirim gönderme](service-fabric-reliable-actors-events.md) 
+#### [Bildirim gönderme](service-fabric-reliable-actors-events.md)
 #### [Zamanlayıcı ve anımsatıcı ayarlama](service-fabric-reliable-actors-timers-reminders.md)
 #### [KvsActorStateProvider’ı yapılandırma](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [İletişim ayarlarını yapılandırma](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [İletişim ayarlarını yapılandırma](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [ReliableDictionaryActorStateProvider’ı yapılandırma](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ### [Güvenli iletişim için ters proxy ayarlarını yapılandırma](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -240,17 +242,17 @@
 
 ## Küme oluşturma ve yönetme
 ### Azure’da kümeler
-#### Oluştur 
+#### Oluştur
 ##### [Azure’da ilk kümenizi oluşturma](service-fabric-get-started-azure-cluster.md)
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-#### Ölçek 
+#### Ölçek
 ##### [El ile](service-fabric-cluster-scale-up-down.md)
 ##### [Programlama yoluyla](service-fabric-cluster-programmatic-scaling.md)
 #### [Yükseltme](service-fabric-cluster-upgrade.md)
 #### [Erişim denetimini ayarlama](service-fabric-cluster-security-roles.md)
 #### [Yapılandırma](service-fabric-cluster-fabric-settings.md)
-#### [Küme sertifikalarını yönetme](service-fabric-cluster-security-update-certs-azure.md) 
+#### [Küme sertifikalarını yönetme](service-fabric-cluster-security-update-certs-azure.md)
 #### [Silme](service-fabric-cluster-delete.md)
 
 ### Tek başına kümeler
@@ -264,7 +266,7 @@
 #### [Ölçeklendirme](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Erişim denetimini ayarlama](service-fabric-cluster-security-roles.md)
 #### [Yapılandırma](service-fabric-cluster-manifest.md)
-#### [Yükseltme](service-fabric-cluster-upgrade-windows-server.md) 
+#### [Yükseltme](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [Küme görselleştirme](service-fabric-visualizing-your-cluster.md)
 ### [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md)
@@ -333,4 +335,3 @@
 ## [Destek seçenekleri](service-fabric-support.md)
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-

@@ -59,7 +59,7 @@
       href: sql-database-powershell-samples.md
 - name: Kavramlar
   items:
-    - name: Veritabanları ve sunucular
+    - name: Hizmet özellikleri
       items:
         - name: Genel Bakış
           href: sql-database-servers-databases.md
@@ -69,6 +69,8 @@
           href: sql-database-elastic-pool.md
         - name: Bağlantı mimarisi
           href: sql-database-connectivity-architecture.md
+        - name: Güvenlik duvarı kuralları
+          href: sql-database-firewall-configure.md
         - name: DTU ve eDTU
           href: sql-database-what-is-a-dtu.md
         - name: DTU kıyaslama
@@ -77,7 +79,25 @@
           href: sql-database-resource-limits.md
         - name: PaaS veya IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Özellikler
+        - name: Denetim
+          href: sql-database-auditing.md
+        - name: Tehdit algılama
+          href: sql-database-threat-detection.md
+        - name: Veritabanı yedeklemeleri
+          href: sql-database-automated-backups.md
+        - name: Yedekleri bekletme
+          href: sql-database-long-term-retention.md
+        - name: Yük devretme grupları
+          href: sql-database-geo-replication-overview.md
+        - name: Elastik istemci kitaplığı
+          href: sql-database-elastic-database-client-library.md
+        - name: Esnek sorgular
+          href: sql-database-elastic-query-overview.md
+        - name: Elastik işlemler
+          href: sql-database-elastic-transactions-overview.md
+        - name: Esnek işler
+          href: sql-database-elastic-jobs-overview.md
+        - name: SQL Server genel özellikleri
           href: sql-database-features.md
     - name: Güvenlik
       items:
@@ -85,34 +105,22 @@
           href: sql-database-security-overview.md
         - name: Erişim denetimi
           href: sql-database-control-access.md
-        - name: Güvenlik duvarı kuralları
-          href: sql-database-firewall-configure.md
         - name: Azure AD
           href: sql-database-aad-authentication.md
         - name: Oturum açma bilgileri ve kullanıcılar
           href: sql-database-manage-logins.md
         - name: Multi-Factor Authentication
           href: sql-database-ssms-mfa-authentication.md
-        - name: Denetim
-          href: sql-database-auditing.md
         - name: Tablo denetimi ve TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Tehdit algılama
-          href: sql-database-threat-detection.md
         - name: Veri maskeleme
           href: sql-database-dynamic-data-masking-get-started.md
     - name: İş sürekliliği
       items:
         - name: Genel Bakış
           href: sql-database-business-continuity.md
-        - name: Veritabanı yedeklemeleri
-          href: sql-database-automated-backups.md
-        - name: Yedekleri bekletme
-          href: sql-database-long-term-retention.md
         - name: Veritabanı kurtarma
           href: sql-database-recovery-using-backups.md
-        - name: Yük devretme grupları
-          href: sql-database-geo-replication-overview.md
         - name: Güvenliği yapılandırma
           href: sql-database-geo-replication-security-config.md
         - name: Uygulama tasarımı ve kurtarma
@@ -159,16 +167,10 @@
           href: sql-database-compatibility-level-query-performance-130.md
         - name: Bellek içi izleme
           href: sql-database-in-memory-oltp-monitoring.md
-    - name: Uygulamaların ölçeğini genişletme
+    - name: Ölçeği genişletme
       items:
         - name: Genel Bakış
           href: sql-database-elastic-scale-introduction.md
-        - name: SaaS tasarım desenleri
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-        - name: SaaS uygulama güvenliği
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-        - name: Elastik istemci kitaplığı
-          href: sql-database-elastic-database-client-library.md
         - name: Parça eşlemeleri
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Sorgu yönlendirme
@@ -185,16 +187,12 @@
           href: sql-database-elastic-scale-working-with-dapper.md
         - name: Elastik araçlar hakkında SSS
           href: sql-database-elastic-scale-faq.md
-        - name: Esnek sorgular
-          href: sql-database-elastic-query-overview.md
-        - name: Yatay veriler
-          href: sql-database-elastic-query-horizontal-partitioning.md
-        - name: Dikey veriler
-          href: sql-database-elastic-query-vertical-partitioning.md
-        - name: İşlemler
-          href: sql-database-elastic-transactions-overview.md
-        - name: Esnek işler
-          href: sql-database-elastic-jobs-overview.md
+    - name: Çok kiracılı SaaS
+      items:
+        - name: SaaS tasarım desenleri
+          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+        - name: SaaS uygulama güvenliği
+          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: Veritabanlarını geliştirme
       items:
         - name: JSON verileri
@@ -225,6 +223,26 @@
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: Hizmet özellikleri
+      items:
+        - name: Elastik veritabanı istemci kitaplığını yükseltme
+          href: sql-database-elastic-scale-upgrade-client-library.md
+        - name: Elastik işleri yükleme
+          href: sql-database-elastic-jobs-service-installation.md
+        - name: İş oluşturma - Portal
+          href: sql-database-elastic-jobs-create-and-manage.md
+        - name: İş oluşturma - PowerShell
+          href: sql-database-elastic-jobs-powershell.md
+        - name: İş oluşturma - Örnek uygulama
+          href: sql-database-elastic-jobs-getting-started.md
+        - name: Elastik işin yüklemesini kaldırma
+          href: sql-database-elastic-jobs-uninstall.md
+        - name: Dikey olarak bölümlenmiş verileri sorgulama
+          href: sql-database-elastic-query-getting-started-vertical.md
+        - name: Ölçeklendirilmiş veri katmanı üzerinden raporlama
+          href: sql-database-elastic-query-horizontal-partitioning.md
+        - name: Farklı şemalarla tablolar üzerinden sorgulama
+          href: sql-database-elastic-query-vertical-partitioning.md
     - name: Güvenlik
       items:
         - name: Azure AD kimlik doğrulamasını yapılandırma
@@ -285,10 +303,12 @@
           href: sql-database-manage-automation.md
         - name: Azure RemoteApp
           href: sql-database-ssms-remoteapp.md
-    - name: Uygulamaların ölçeğini genişletme
+    - name: Ölçeği genişletme
       items:
         - name: Parçalı uygulama oluşturma
           href: sql-database-elastic-scale-get-started.md
+        - name: Yatay olarak parçalı verileri sorgulama
+          href: sql-database-elastic-query-getting-started.md
         - name: Parçalı verileri taşıma
           href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
         - name: Güvenlik yapılandırması
@@ -303,24 +323,26 @@
           href: sql-database-elastic-database-perf-counters.md
         - name: Entity framework kullanma
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-        - name: İstemcileri yükseltme
-          href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Elastik işleri yükleme
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: İş oluşturma - Portal
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: İş oluşturma - PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: İş oluşturma - Örnek uygulama
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Elastik işin yüklemesini kaldırma
-          href: sql-database-elastic-jobs-uninstall.md
-        - name: Yatay verileri sorgulama
-          href: sql-database-elastic-query-getting-started.md
-        - name: Dikey verileri sorgulama
-          href: sql-database-elastic-query-getting-started-vertical.md
-        - name: SaaS uygulama öğreticisi
+    - name: Çok kiracılı SaaS
+      items:
+        - name: Öğreticiye giriş
           href: sql-database-wtp-overview.md
+        - name: Örnek uygulamayı dağıtma
+          href: sql-database-saas-tutorial.md
+        - name: Kiracı sağlama
+          href: sql-database-saas-tutorial-provision-and-catalog.md
+        - name: Veritabanı performansını izleme
+          href: sql-database-saas-tutorial-performance-monitoring.md
+        - name: Log analytics ile izleme
+          href: sql-database-saas-tutorial-log-analytics.md
+        - name: Tek kiracıyı geri yükleme
+          href: sql-database-saas-tutorial-restore-single-tenant.md
+        - name: Kiracı şemasını yönetme
+          href: sql-database-saas-tutorial-schema-management.md
+        - name: Geçici sorgular çalıştırma
+          href: sql-database-saas-tutorial-adhoc-analytics.md
+        - name: Analiz için ETL
+          href: sql-database-saas-tutorial-tenant-analytics.md
     - name: Uygulamaları geliştirme
       items:
         - name: C ve C++

@@ -61,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Web tablosu](data-factory-web-table-connector.md)
-### [Veri Yönetimi Ağ Geçidi](data-factory-data-management-gateway.md)
+### Veri Yönetimi Ağ Geçidi
+#### [Genel Bakış](data-factory-data-management-gateway.md)
+#### [Yüksek kullanılabilirlik ve ölçeklenebilirlik (Önizleme)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [Adım adım kılavuz: Verileri şirket içi SQL Server'dan Azure Blob Depolama’ya taşıma](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Verileri Dönüştürme](data-factory-data-transformation-activities.md)

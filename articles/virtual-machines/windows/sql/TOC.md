@@ -4,7 +4,7 @@
 ## [SSS](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Kullanmaya Başlama
-## [Azure Portal’da bir VM sağlama](virtual-machines-windows-portal-sql-server-provision.md)
+## [Azure portalında bir VM sağlama](virtual-machines-windows-portal-sql-server-provision.md)
 ## [Azure PowerShell kullanarak bir VM sağlama](virtual-machines-windows-ps-sql-create.md)
 ## [Bir VM’ye bağlanma](virtual-machines-windows-sql-connect.md)
 ## [SQL Server veritabanını geçirme](virtual-machines-windows-migrate-sql.md)

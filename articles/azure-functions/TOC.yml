@@ -109,6 +109,8 @@
           href: functions-bindings-event-hubs.md
         - name: Dış dosya
           href: functions-bindings-external-file.md
+        - name: Dış tablo
+          href: functions-bindings-external-table.md
         - name: HTTP ve web kancaları
           href: functions-bindings-http-webhook.md
         - name: Mobile Apps

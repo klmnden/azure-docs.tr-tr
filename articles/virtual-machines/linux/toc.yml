@@ -39,7 +39,7 @@
       href: tutorial-azure-security.md
     - name: 12 - Jenkins dağıtma
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 13 - Team Services ile CI/CD kurma
+    - name: 13 - Team Services ile CI/CD
       href: tutorial-build-deploy-jenkins.md
 - name: Örnekler
   items:
@@ -109,135 +109,161 @@
           href: compute-benchmark-scores.md
     - name: Dağıtma konuları
       items:
-        - name: Altyapı yönergeleri
-          href: infrastructure-virtual-machine-guidelines.md
-        - name: Abonelik ve hesaplar
-          href: infrastructure-subscription-accounts-guidelines.md
-        - name: Adlandırma
-          href: infrastructure-naming-guidelines.md
-        - name: Kaynak grupları
-          href: infrastructure-resource-groups-guidelines.md
-        - name: Depolama
-          href: infrastructure-storage-solutions-guidelines.md
-        - name: Ağ
-          href: infrastructure-networking-guidelines.md
-        - name: Kullanılabilirlik kümeleri
-          href: infrastructure-availability-sets-guidelines.md
-        - name: Altyapı örneği
+        - name: Örnek temel dağıtım
           href: infrastructure-example.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: VM oluşturma
       items:
-        - name: VM oluşturmaya genel bakış
-          href: creation-choices.md
-        - name: Tam VM oluşturma
+        - name: CLI kullanma
           href: create-cli-complete.md
-        - name: Şablonla VM oluşturma
+        - name: Şablon kullanma
           href: create-ssh-secured-vm-from-template.md
-        - name: VM kopyalama
+        - name: Bir VM’yi kopyalama
           href: copy-vm.md
-        - name: VM’yi abonelikler arasında taşıma
-          href: move-vm.md
-        - name: Terraform
-          items:
-            - name: Yükleme ve yapılandırma
-              href: ../terraform-install-configure.md
-            - name: Temel altyapıyı oluşturma
-              href: ../terraform-create-complete-vm.md
-        - name: Ansible
-          items:
-            - name: Yükleme ve yapılandırma
-              href: ansible-install-configure.md
-            - name: Temel VM oluşturma
-              href: ansible-create-vm.md
-            - name: Tam VM oluşturma
-              href: ansible-create-complete-vm.md
-        - name: VM şablonuyla uygulama dağıtma
-          items:
-            - name: Öğreticiye genel bakış
-              href: dotnet-core-1-landing.md
-            - name: Uygulama mimarisi
-              href: dotnet-core-2-architecture.md
-            - name: Erişim ve güvenlik
-              href: dotnet-core-3-access-security.md
-            - name: Kullanılabilirlik ve ölçek
-              href: dotnet-core-4-availability-scale.md
-            - name: Uygulama dağıtımı
-              href: dotnet-core-5-app-deployment.md
-    - name: VM’leri yapılandırma
+    - name: VM’leri koruma
       items:
-        - name: Cloud-init kullanma
-          href: using-cloud-init.md
-        - name: VM’ye kullanıcı ekleme
-          href: add-user.md
-        - name: VM’yi yeniden boyutlandırma
-          href: change-vm-size.md
-        - name: Etiketleri kullanma
-          href: ../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Şifreleme
+          href: encrypt-disks.md
+        - name: Erişim denetimleri kullanma
+          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: İlkeleri kullanma
+          href: policy.md
+        - name: Anahtar kasası oluşturma
+          href: key-vault-setup.md
+        - name: SSH anahtarlarını oluşturma ve kullanma
           items:
-            - name: Bir VM’yi etiketleme
-              href: tag.md
-        - name: Linux VM’nizi iyileştirme
-          href: optimization.md
-        - name: Azure Linux aracısını güncelleştirme
-          href: update-agent.md
-        - name: Kurtarma Hizmetleri’ni kullanarak yedekleme
-          href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Bir RedHat VM’sini Azure Active Directory Etki Alanı Hizmetine ekleme
-          href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
-    - name: SSH ile bağlanma
-      items:
-        - name: Linux ve Mac’te SSH anahtarları oluşturma
-          href: mac-create-ssh-keys.md
-          items:
+            - name: Linux veya macOS üzerinde
+              href: mac-create-ssh-keys.md
+            - name: Windows üzerinde
+              href: ssh-from-windows.md
             - name: Ayrıntılı adımlar
               href: create-ssh-keys-detailed.md
-        - name: Linux VM’leri için Windows ile SSH anahtarlarını kullanma
-          href: ssh-from-windows.md
-        - name: Uzak Masaüstü kullanarak bir Linux VM’ye bağlanma
-          href: use-remote-desktop.md
-    - name: VM görüntülerini yönetme
+    - name: VM’leri yönetme
       items:
-        - name: Market VM görüntülerini bulma
-          href: cli-ps-findimage.md
-        - name: Özel VM görüntüleri oluşturma
-          href: create-upload-generic.md
-        - name: VHD indirme
-          href: download-vhd.md
-        - name: Özel VM görüntülerini karşıya yükleme
-          href: upload-vhd.md
-        - name: Mevcut VM’yi yakalayarak görüntüye kaydetme
-          href: capture-image.md
-        - name: Packer ile görüntü oluşturma
-          href: build-image-with-packer.md
-        - name: Azure görüntüleri oluşturma
+        - name: Ortak CLI görevleri
+          href: cli-manage.md
+        - name: Bir VM'yi taşıma
+          href: move-vm.md
+        - name: VM boyutunu değiştirme
+          href: change-vm-size.md
+        - name: Bir VM’yi etiketleme
+          href: tag.md
+        - name: Cloud-init kullanma
+          href: using-cloud-init.md
+        - name: Bir VM üzerinde betikleri çalıştırma
+          href: extensions-customscript.md
+        - name: Uzak Masaüstü kullanma
+          href: use-remote-desktop.md
+        - name: VM’yi Azure Active Directory’e ekleme
+          href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+        - name: Güncelleştirmeler ve düzeltme ekleri
           items:
+            - name: Red Hat Güncelleştirme Altyapısı
+              href: update-infrastructure-redhat.md
+        - name: Azure VM aracısı
+          items:
+            - name: Genel Bakış
+              href: agent-user-guide.md
+            - name: Aracı güncelleştirmesi
+              href: update-agent.md
+    - name: Görüntüleri Kullanma
+      items:
+        - name: Görüntüleri bulma ve kullanma
+          href: cli-ps-findimage.md
+        - name: Özel görüntü oluşturma
+          items:
+            - name: Genel adımlar
+              href: create-upload-generic.md
             - name: Ubuntu
               href: create-upload-ubuntu.md
-            - name: Debian
-              href: debian-create-upload-vhd.md
-            - name: Red Hat
-              href: redhat-create-upload-vhd.md
             - name: CentOS
               href: create-upload-centos.md
+            - name: Red Hat
+              href: redhat-create-upload-vhd.md
+            - name: Debian
+              href: debian-create-upload-vhd.md
+            - name: SUSE
+              href: suse-create-upload-vhd.md
             - name: Oracle Linux
               href: oracle-create-upload-vhd.md
             - name: OpenBSD
               href: create-upload-openbsd.md
-    - name: VM depolamayı yönetme
+            - name: FreeBSD
+              href: freebsd-intro-on-azure.md
+        - name: VM görüntüsü yakalama
+          href: capture-image.md
+        - name: Packer ile görüntü derleme
+          href: build-image-with-packer.md
+        - name: Mevcut bir diski indirme
+          href: download-vhd.md
+    - name: Kullanılabilirlik ve ölçek
       items:
-        - name: Azure Yönetilen Diskleri
-          href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Otomatik Ölçeklendirme
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Yüksek kullanılabilirlik
+          href: manage-availability.md
+        - name: Dikey olarak ölçeklendirme
+          href: vertical-scaling-automation.md
+    - name: Otomasyon araçları kullanma
+      items:
+        - name: Ansible
           items:
-            - name: SSS
-              href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Dosyaları bir Linux VM’ye kopyalama
-          href: copy-files-to-linux-vm-using-scp.md
-        - name: VM’yi Yönetilen Disklere dönüştürme
-          href: convert-unmanaged-to-managed-disks.md
-        - name: Yönetilen Diskin anlık görüntüsünü alma
-          href: snapshot-copy-managed-disk.md
+            - name: Yükleme ve yapılandırma
+              href: ansible-install-configure.md
+            - name: Bir temel VM oluşturma
+              href: ansible-create-vm.md
+            - name: Tam VM oluşturma
+              href: ansible-create-complete-vm.md
+        - name: Terraform
+          items:
+            - name: Yükleme ve yapılandırma
+              href: terraform-install-configure.md
+            - name: Tam VM oluşturma
+              href: terraform-create-complete-vm.md
+    - name: Kapsayıcıları çalıştırma
+      items:
+        - name: Docker konağı oluşturma
+          href: dockerextension.md
+        - name: Docker Makinesi kullanma
+          href: docker-machine.md
+        - name: Docker Compose kullanma
+          href: docker-compose-quickstart.md
+    - name: Uygulamaları çalıştırma
+      items:
+        - name: Cloud Foundry
+          items:
+            - name: Genel Bakış
+              href: cloudfoundry-get-started.md
+            - name: İlk uygulamanızı dağıtma
+              href: cloudfoundry-deploy-your-first-app.md
+        - name: OpenShift
+          href: openshift-get-started.md
+        - name: Azure’da SAP
+          href: ../workloads/sap/get-started.md
+        - name: Oracle
+          href: ../workloads/oracle/oracle-database-quick-create.md
+        - name: FreeBSD Paket Filtresi
+          href: freebsd-pf-nat.md
+        - name: Veritabanları
+          items:
+            - name: MySQL
+              href: mysql-install.md
+            - name: MongoDB
+              href: install-mongodb.md
+            - name: PostgreSQL
+              href: postgresql-install.md
+            - name: Linux üzerinde MS SQL
+              href: /sql/linux/sql-server-linux-azure-virtual-machine
+        - name: Yüksek Performanslı Bilgi İşlem (HPC)
+          href: hpcpack-cluster-options.md
+          items:
+            - name: NAMD çalıştırma
+              href: classic/hpcpack-cluster-namd.md
+            - name: NVIDIA GPU sürücüleri yükleme
+              href: n-series-driver-setup.md
+    - name: Depolamayı yönetme
+      items:
         - name: Disk ekleme
           items:
             - name: Azure CLI
@@ -246,68 +272,44 @@
               href: attach-disk-portal.md
         - name: Disk ayırma
           href: detach-disk.md
-        - name: İşletim sistemi sürücüsünü genişletme
+        - name: Bir diski yeniden boyutlandırma
           href: expand-disks.md
-        - name: Yazılım RAID yapılandırma
-          href: configure-raid.md
-        - name: LVM'yi yapılandırma
-          href: configure-lvm.md
-        - name: SMB kullanarak Azure Dosya Depolama bağlama
+        - name: Bir diskin anlık görüntüsünü alma
+          href: snapshot-copy-managed-disk.md
+        - name: Yönetilen Disklere dönüştürme
+          href: convert-unmanaged-to-managed-disks.md
+        - name: Disklerle ilgili SSS
+          href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Standart ve Premium arasında disk dönüştürme
+          href: convert-disk-storage.md
+        - name: Dosyaları bir VM’ye kopyalama
+          href: copy-files-to-linux-vm-using-scp.md
+        - name: Dosya depolamayı kullanma
           href: mount-azure-file-storage-on-linux-using-smb.md
-    - name: VM ağı
-      items:
-        - name: Sanal ağlar oluşturma
-          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: VM’yi mevcut bir sanal ağa dağıtma
+        - name: Performansı iyileştirme
+          href: optimization.md
           items:
-            - name: Azure CLI
-              href: deploy-linux-vm-into-existing-vnet-using-cli.md
-            - name: Azure portalına
-              href: deploy-linux-vm-into-existing-vnet-using-portal.md
-        - name: Birden çok NIC ile VM oluşturma
-          href: multiple-nics.md
-        - name: Statik genel IP oluşturma
-          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 'Bağlantı noktalarını, uç noktaları ve güvenliği yapılandırma'
-          href: endpoints-in-resource-manager.md
-        - name: VM’ye erişime izin verme
+            - name: Yazılım RAID yapılandırma
+              href: configure-raid.md
+            - name: LVM'yi yapılandırma
+              href: configure-lvm.md
+    - name: Ağı yönetme
+      items:
+        - name: Sanal ağ oluşturma
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Bağlantı noktalarını VM’ye açma
           href: nsg-quickstart.md
-        - name: FreeBSD’nin Paket Filtresini kullanma
-          href: freebsd-pf-nat.md
-        - name: DNS ad çözümleme seçenekleri
-          href: azure-dns.md
-        - name: VM ad çözümlemesi için dahili DNS kullanma
-          href: static-dns-name-resolution-for-linux-on-azure.md
-        - name: FQDN oluşturma
+        - name: Genel IP adresi atama
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Birden çok NIC kullanma
+          href: multiple-nics.md
+        - name: Genel DNS adı atama
           href: portal-create-fqdn.md
-        - name: Kullanıcı tanımlı yollar oluşturma
-          href: ../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Ölçek ve kullanılabilirlik
-      items:
-        - name: Sanal Makine kullanılabilirliği
-          href: manage-availability.md
-        - name: Yük dengeleyici oluşturma
-          href: ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Ölçek Kümeleri ile birden çok VM oluşturma
-          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Azure Otomasyonu ile sanal makineleri dikey yönde ölçeklendirme
-          href: vertical-scaling-automation.md
-        - name: VM İzleme
-          href: vm-monitoring.md
-    - name: VM güvenliğini yönetme
-      items:
-        - name: SSHD’yi yapılandırarak SSH parolalarını devre dışı bırakma
-          href: mac-disable-ssh-password-usage.md
-        - name: 'SSH erişimini sıfırlama, kullanıcıları yönetme ve diskleri denetleme'
-          href: using-vmaccess-extension.md
-        - name: Kök ayrıcalıklarını kullanma
-          href: use-root-privileges.md
-        - name: VM diskini şifreleme
-          href: encrypt-disks.md
-        - name: VM’lere ilke uygulama
-          href: policy.md
-        - name: Anahtar Kasası ayarlama
-          href: key-vault-setup.md
+        - name: DNS çözümleme
+          href: azure-dns.md
+          items:
+            - name: Dahili DNS kullanma
+              href: static-dns-name-resolution-for-linux-on-azure.md
     - name: VM uzantılarını kullanma
       items:
         - name: VM Uzantısına genel bakış
@@ -318,82 +320,47 @@
           href: extensions-oms.md
         - name: Linux Tanılama Uzantısı
           href: diagnostic-extension.md
-    - name: Uygulama çalıştırma
-      items:
-        - name: Cloud Foundry
-          items:
-            - name: Genel Bakış
-              href: cloudfoundry-get-started.md
-            - name: İlk uygulamanızı dağıtma
-              href: cloudfoundry-deploy-your-first-app.md
-        - name: Veri Bilimi VM’sine genel bakış
-          href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: MongoDB
-          href: install-mongodb.md
-        - name: MySQL
-          href: mysql-install.md
-        - name: OpenShift
-          href: openshift-get-started.md
-        - name: PostgreSQL
-          href: postgresql-install.md
-        - name: LAMP yığını dağıtma
-          href: create-lamp-stack.md
-        - name: 3 düğümlü bir Deis kümesi dağıtma
-          href: deis-cluster.md
-        - name: Node.js uygulaması dağıtma
-          href: ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Django web uygulaması
-          href: python-django-web-app.md
-        - name: Jupyter Notebook
-          href: jupyter-notebook.md
-        - name: Bir şablondan uygulama çerçeveleri dağıtma
-          href: app-frameworks.md
-        - name: Yüksek Performanslı Bilgi İşlem (HPC)
-          href: hpcpack-cluster-options.md
-          items:
-            - name: Microsoft HPC Paketi ile NAMD çalıştırma
-              href: classic/hpcpack-cluster-namd.md
-        - name: Azure’da SAP
-          href: ../workloads/sap/get-started.md
-        - name: Azure’da Oracle
-          href: ../workloads/oracle/oracle-considerations.md
-    - name: VM’lerde Docker
-      items:
-        - name: Azure Docker VM uzantısı ile Docker konakları oluşturma
-          href: dockerextension.md
-        - name: Azure ile Docker Makinesi kullanma
-          href: docker-machine.md
-        - name: Azure ile Docker Compose’u kullanma
-          href: docker-compose-quickstart.md
+        - name: Ağ İzleyicisi Aracısı
+          href: extensions-nwa.md
+        - name: VMAccess Uzantısı
+          href: using-vmaccess-extension.md
     - name: VM’leri geçirme
       items:
-        - name: Geçişe genel bakış
+        - name: AWS’Den ve şirket içi VM’lerden geçiş
+          href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          items:
+            - name: Amazon Web Services’den (AWS) Azure’a geçiş
+              href: ../windows/aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: Şirket içi VM’yi karşıya yükleme
+              href: upload-vhd.md
+            - name: Azure Site Recovery’yi kullanma
+              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Klasik’ten Azure Resource Manager’a geçiş
           href: migration-classic-resource-manager-overview.md
-        - name: Geçişe derinlemesine bakış
-          href: migration-classic-resource-manager-deep-dive.md
-        - name: Geçiş planlaması
-          href: migration-classic-resource-manager-plan.md
-        - name: CLI kullanarak geçirme
-          href: migration-classic-resource-manager-cli.md
-        - name: Sık karşılaşılan geçiş hataları
-          href: migration-classic-resource-manager-errors.md
-        - name: Geçiş için topluluk araçları
-          href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: SSS
-          href: migration-classic-resource-manager-faq.md
+          items:
+            - name: Geçişe derinlemesine bakış
+              href: migration-classic-resource-manager-deep-dive.md
+            - name: Geçiş planlaması
+              href: migration-classic-resource-manager-plan.md
+            - name: CLI kullanarak geçirme
+              href: migration-classic-resource-manager-cli.md
+            - name: Sık karşılaşılan geçiş hataları
+              href: migration-classic-resource-manager-errors.md
+            - name: Geçiş için topluluk araçları
+              href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: SSS
+              href: migration-classic-resource-manager-faq.md
     - name: Sorun giderme
       items:
-        - name: Azure VM’sini mevcut bir kullanılabilirlik kümesine ekleme desteklenebilirliği
-          href: ../virtual-machines-availability-set-supportability.md
-        - name: Linux VM parolasını sıfırlama
-          href: virtual-machines-linux-reset-password.md
-        - name: Sistemin yeniden başlatılma nedenini anlama
-          href: understand-vm-reboot.md
         - name: SSH bağlantıları
           href: troubleshoot-ssh-connection.md
           items:
             - name: Ayrıntılı sorun giderme adımları
               href: detailed-troubleshoot-ssh-connection.md
+        - name: Linux VM parolasını sıfırlama
+          href: reset-password.md
+        - name: Sistemin yeniden başlatılma nedenini anlama
+          href: understand-vm-reboot.md
         - name: Önyükleme tanılamaları
           href: boot-diagnostics.md
         - name: Uygulamalara erişim
@@ -410,7 +377,7 @@
           href: redeploy-to-new-node.md
         - name: Genel hata iletileri
           href: error-messages.md
-        - name: Sorun giderme için sanal sabit disk ekleme
+        - name: VM kurtarma erişimi
           items:
             - name: Azure CLI
               href: troubleshoot-recovery-disks.md
