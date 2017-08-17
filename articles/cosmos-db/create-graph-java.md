@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 08/07/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: afa4fe6cdef298e4504ddcf3e344ee6a5c181653
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f29e9dcc2bed968937627d48f1a98e3b084853b9
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir grafik veritabanı oluşturma
@@ -61,7 +61,7 @@ Bir grafik veritabanı oluşturmadan önce Azure Cosmos DB ile bir Gremlin (Graf
     Grafik Kimliği|sample-graph|Yeni grafiğinizin kimliği. Grafik adı karakter gereksinimleri, veritabanı kimliklerine ilişkin karakter gereksinimleri ile aynıdır.
     Depolama Kapasitesi| 10 GB|Varsayılan değeri değiştirmeyin. Bu, veritabanının depolama kapasitesidir.
     Aktarım hızı|400 RU|Varsayılan değeri değiştirmeyin. Daha sonra gecikme süresini azaltmak isterseniz, aktarım hızının ölçeğini artırabilirsiniz.
-    RU/dk|Kapalı|Varsayılan değeri değiştirmeyin. Öngörülemeyen iş yükleri ile başa çıkmanız gerekirse daha sonra [RU/dk](request-units-per-minute.md) özelliğini etkinleştirebilirsiniz.
+    RU/dk|Kapalı|Varsayılan değeri değiştirmeyin.
     Bölüm anahtarı|Boş bırakın|Bu hızlı başlangıç için bölüm anahtarını boş bırakın.
 
 3. Formu doldurduktan sonra **Tamam**'a tıklayın.

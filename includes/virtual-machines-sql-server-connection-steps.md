@@ -1,5 +1,4 @@
-### Veritabanı Altyapısı’nın varsayılan örneği için Windows güvenlik duvarında TCP bağlantı noktalarını açma
-<a id="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine" class="xliff"></a>
+### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Veritabanı Altyapısı’nın varsayılan örneği için Windows güvenlik duvarında TCP bağlantı noktalarını açma
 1. Uzak Masaüstü kullanarak sanal makineye bağlanın. Sanal makineye bağlanma işleminin ayrıntılı yönergeleri için bkz. [Uzak Masaüstü ile SQL VM’yi Açma](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
 2. Oturum açtıktan sonra, Başlangıç ekranında **WF.msc** yazın ve ENTER tuşuna basın.
    
@@ -28,24 +27,11 @@
 
 Gerekirse diğer bileşenler için ek bağlantı noktaları açın. Daha fazla bilgi için bkz. [Windows Güvenlik Duvarı’nı SQL Server Erişimine İzin Verecek Şekilde Yapılandırma](http://msdn.microsoft.com/library/cc646023.aspx).
 
-### SQL Server’ı TCP protokolünde dinleyecek şekilde yapılandırma
-<a id="configure-sql-server-to-listen-on-the-tcp-protocol" class="xliff"></a>
-1. Sanal makineye bağlı durumdayken, Başlangıç sayfasında **SQL Server Yapılandırma Yöneticisi** yazın ve ENTER tuşuna basın.
-   
-    ![SSCM’yi Açma](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. SQL Server Yapılandırma Yöneticisi’ndeki konsol bölmesinde **SQL Server Ağ Yapılandırması**’nı genişletin.
-3. Konsol bölmesinde **MSSQLSERVER Protokolleri**’ne tıklayın (varsayılan örnek adı). Ayrıntılar bölmesinde **TCP**’ye sağ tıklayın ve henüz etkinleştirilmemişse **Etkinleştir**’e tıklayın.
-   
-    ![TCP’yi Etkinleştirme](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. Konsol bölmesinde **SQL Server Hizmetleri**’ne tıklayın. Ayrıntılar bölmesinde **SQL Server’a (*örnek adı*)** (varsayılan örnek adı: **SQL Server (MSSQLSERVER)**) sağ tıklayın ve sonra da SQL Server örneğini durdurmak ve yeniden başlatmak için **Yeniden Başlat**’a tıklayın.
-   
-    ![Veritabanı Altyapısını Yeniden Başlatma](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. SQL Server Yapılandırma Yöneticisi’ni kapatın.
+### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>SQL Server’ı TCP protokolünde dinleyecek şekilde yapılandırma
 
-SQL Server Veritabanı Altyapısı’nda protokolleri etkinleştirme hakkında daha fazla bilgi için bkz. [Sunucu Ağ Protokolünü Etkinleştirme veya Devre Dışı Bırakma](http://msdn.microsoft.com/library/ms191294.aspx).
+[!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-### SQL Server’ı karma mod kimlik doğrulaması için yapılandırma
-<a id="configure-sql-server-for-mixed-mode-authentication" class="xliff"></a>
+### <a name="configure-sql-server-for-mixed-mode-authentication"></a>SQL Server’ı karma mod kimlik doğrulaması için yapılandırma
 SQL Server Veritabanı Altyapısı, etki alanı ortamı olmadan Windows Kimlik Doğrulaması’nı kullanamaz. Başka bir bilgisayardan Veritabanı Altyapısı’na bağlanmak için, SQL Server’ı karma mod kimlik doğrulamasıyla yapılandırın. Karma mod kimlik doğrulaması hem SQL Server Kimlik Doğrulaması’na hem de Windows Kimlik Doğrulaması’na izin verir.
 
 > [!NOTE]
@@ -71,8 +57,7 @@ SQL Server Veritabanı Altyapısı, etki alanı ortamı olmadan Windows Kimlik D
     ![Yeniden Başlatma](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. SQL Server’ı yeniden başlatmak istediğinizi kabul etmek için SQL Server Management Studio iletişim kutusunda **Evet**’e tıklayın.
 
-### SQL Server kimlik doğrulaması için oturum açma kimliği oluşturma
-<a id="create-sql-server-authentication-logins" class="xliff"></a>
+### <a name="create-sql-server-authentication-logins"></a>SQL Server kimlik doğrulaması için oturum açma kimliği oluşturma
 Başka bir bilgisayardan Veritabanı Altyapısı’na bağlanmak için, en az bir SQL Server kimlik doğrulaması oturum açma kimliği oluşturmalısınız.
 
 1. SQL Server Management Studio Nesne Gezgini’nde, yeni oturum açma kimliğini oluşturmak istediğiniz sunucu örneğinin klasörünü genişletin.

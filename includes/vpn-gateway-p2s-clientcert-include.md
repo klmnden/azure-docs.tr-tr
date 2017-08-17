@@ -7,7 +7,7 @@ Aşağıdaki yöntemleri kullanarak istemci sertifikaları oluşturabilirsiniz:
 - **Kurumsal sertifika:**
 
   - Kurumsal bir sertifika çözümü kullanıyorsanız, 'etkialaniadi\kullaniciadi' biçimini kullanmak yerine, yaygın olarak kullanılan 'name@yourdomain.com' ad değer biçimiyle bir istemci sertifikası oluşturun.
-  - İstemci sertifikasının, kullanım listesindeki ilk öğe olarak Akıllı Kart Oturumu, vb. yerine ‘İstemci Kimlik Doğrulaması’na sahip ‘Kullanıcı’ sertifikası şablonunu temel alarak hazırlandığından emin olun. İstemci sertifikasına sağ tıklayıp *Ayrıntılar > Gelişmiş Anahtar Kullanımı*’nı görüntüleyerek sertifikayı denetleyebilirsiniz.
+  - İstemci sertifikasının, kullanım listesindeki ilk öğe olarak Akıllı Kart Oturumu, vb. yerine ‘İstemci Kimlik Doğrulaması’na sahip ‘Kullanıcı’ sertifikası şablonunu temel alarak hazırlandığından emin olun. İstemci sertifikasına sağ tıklayıp **Ayrıntılar > Gelişmiş Anahtar Kullanımı**’nı görüntüleyerek sertifikayı denetleyebilirsiniz.
 
 - **Otomatik olarak imzalanan sertifika:** Aşağıda bulunan P2S sertifika makalelerindeki adımları izlemeniz önemlidir. Aksi halde, oluşturduğunuz istemci sertifikaları P2S bağlantılarıyla uyumlu olmaz ve istemcileriniz bağlantı kurmaya çalıştığında bir hata alır. Aşağıdaki makalelerdeki adımlarla uyumlu bir istemci sertifikası oluşturabilirsiniz: 
 

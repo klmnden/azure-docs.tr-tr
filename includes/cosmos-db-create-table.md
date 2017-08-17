@@ -10,6 +10,6 @@ Artık Veri Gezgini'ni kullanarak bir tablo oluşturabilir ve veritabanınıza v
     Tablo kimliği|sample-table|Yeni tablonuzun kimliği. Tablo adı karakter gereksinimleri, veritabanı kimliklerine ilişkin karakter gereksinimleri ile aynıdır. Veritabanı adı 1 ile 255 karakter arasında olmalı, `/ \ # ?` içermemeli ve boşlukla bitmemelidir.
     Depolama kapasitesi| 10 GB|Varsayılan değeri değiştirmeyin. Bu, veritabanının depolama kapasitesidir.
     Aktarım hızı|400 RU|Varsayılan değeri değiştirmeyin. Daha sonra gecikme süresini azaltmak isterseniz [aktarım hızının](../articles/cosmos-db/request-units.md) ölçeğini artırabilirsiniz.
-    RU/dk|Kapalı|Varsayılan değeri kullanın. Daha sonra öngörülemeyen iş yükleri ile başa çıkmanız gerekirse [RU/dk](../articles/cosmos-db/request-units-per-minute.md) özelliğini etkinleştirebilirsiniz.
+    RU/dk|Kapalı|Varsayılan değeri kullanın.
 
 3. Formu doldurduktan sonra **Tamam**'a tıklayın.

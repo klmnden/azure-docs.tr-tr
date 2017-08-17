@@ -92,8 +92,7 @@ Daha sonra, bu özellikler genellikle uygun ölçekte sanal makine oluşturma i�
 Daha yakın bir tarihte Azure tarafından [Azure kaynak yönetimi](../articles/resource-manager-deployment-model.md) REST API’si ve bunu daha kolay kullanabilmenizi sağlayan güncelleştirilmiş PowerShell ve Azure CLI araçları yayınlandı. Azure kaynak yönetimi API’sini içeren [Azure Resource Manager şablonlarını](../articles/resource-group-authoring-templates.md) aşağıdakilerle kullanarak bütün bir uygulama topolojisini dağıtabilir, değiştirebilir ve yeniden dağıtabilirsiniz:
 
 * [şablonları kullanan Azure portalı](https://github.com/Azure/azure-quickstart-templates)&mdash;ipucu: "DeployToAzure" düğmesini kullanın
-* [Azure CLI](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure PowerShell modülleri](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Azure sanal makine ve kapsayıcı gruplarının bütünlüklü olarak dağıtımı ve yönetimi
 Sanal makine gruplarını bütünlüklü olarak dağıtabilen ve bunlara otomatikleştirilebilen bir grup olarak Docker’ı (veya diğer Linux kapsayıcı konak sistemleri) yükleyebilen çeşitli popüler sistemler mevcuttur. Doğrudan bağlantılar için aşağıdaki [kapsayıcılar ve araçlar](#containers-and-vm-technologies) bölümüne bakın. Bu işlemleri daha geniş veya daha dar kapsamlı olarak gerçekleştirebilen çeşitli sistemler mevcuttur ve bu listede hepsine yer verilmemiştir. Bunlar, becerilerinize ve senaryolarınıza bağlı olarak sizin için kullanışlı olabilir veya olmayabilir.
@@ -104,7 +103,7 @@ Ayrıca, [Mesosphere tarafından sunulan Data Center Operating System (DCOS)](ht
 
 Ayrıca, Google’dan alınan derslerden türetilen, sanal makine ve kapsayıcı grubu yönetimi için açık kaynaklı bir sistem olan [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) de kullanılabilir. [Ağ desteği sağlamak için kubernetes’i weave ile kullanma](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave) olanağınız bile vardır.
 
-[Deis](http://deis.com/), uygulamalarınızı kendi sunucularınızda dağıtmayı ve yönetmeyi kolaylaştıran açık kaynaklı bir "Hizmet Olarak Platform" (PaaS) çözümüdür. Docker ve CoreOS’u temel alan Deis, Heroku’dan ilham alan bir iş akışıyla hafif bir PaaS sunar. Azure’da kolayca [3 Düğümlü bir Azure sanal makine grubu oluşturup Deis’i yükleyebilir](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ardından [bir Hello World Go uygulaması yükleyebilirsiniz](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/), uygulamalarınızı kendi sunucularınızda dağıtmayı ve yönetmeyi kolaylaştıran açık kaynaklı bir "Hizmet Olarak Platform" (PaaS) çözümüdür. Docker ve CoreOS’u temel alan Deis, Heroku’dan ilham alan bir iş akışıyla hafif bir PaaS sunar.
 
 Kapladığı alan, Docker desteği ve kendine ait [rkt](https://github.com/coreos/rkt) adlı kapsayıcı sistemiyle iyileştirilmiş bir Linux dağıtımı olan [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), [fleet](https://coreos.com/fleet/docs/latest/) adlı bir kapsayıcı grubu yönetim aracına da sahiptir.
 
@@ -163,9 +162,6 @@ Yapılandırma, küme yönetimi ve kapsayıcı düzenleme:
 
 * [CoreOS üzerinde Fleet](https://coreos.com/fleet/docs/latest/)
 * Deis
-
-  * [3 Düğümlü bir Azure sanal makine grubu oluşturma, Deis’i yükleme ve bir Hello World Go uygulaması başlatma](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Kubernetes
 
   * [CoreOS ve Weave ile otomatikleştirilmiş Kubernetes küme dağıtımı konusunda bilmeniz gereken her şey](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)

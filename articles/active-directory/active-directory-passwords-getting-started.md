@@ -17,10 +17,10 @@ ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="quickstart-azure-ad-self-service-password-reset"></a>Hızlı Başlangıç: Azure AD self servis parola sıfırlama
@@ -79,13 +79,7 @@ Azure AD ile şirket içi kimlik eşitlemesini etkinleştirmek için [Azure AD C
 
 Self servis parola sıfırlama özelliğini devre dışı bırakmak için, Azure AD kiracınızı açıp **Parola Sıfırlama > Özellikler** > menüsüne gidin ve **Self Servis Parola Sıfırlama Etkinleştirildi** altından **Hiç Kimse**’yi seçin.
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-Bu hızlı başlangıçta kullanıcılarınız için self servis parola sıfırlamasını nasıl yapılandıracağınızı öğrendiniz. Azure portalına devam ederek bu adımları tamamlamak için aşağıdaki portal bağlantısını izleyin.
-
-> [!div class="nextstepaction"]
-> [Self servis parola sıfırlamayı etkinleştirme](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
-
+### <a name="learn-more"></a>Daha fazla bilgi edinin
 Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek bilgiler sağlar
 
 * [**Lisanslama**](active-directory-passwords-licensing.md) - Azure AD Lisanslarınızı yapılandırın
@@ -97,4 +91,12 @@ Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek
 * [**Teknik Ayrıntı**](active-directory-passwords-how-it-works.md) - Nasıl çalıştığını anlamak için perde arkasına gidin
 * [**Sık Sorulan Sorular**](active-directory-passwords-faq.md) - Nasıl? Neden? Ne? Nerede? Kim? Ne zaman? - Her zaman sormak istediğiniz soruların yanıtları
 * [**Sorun giderme**](active-directory-passwords-troubleshoot.md) - SSPR ile yaygın olarak karşılaştığımız sorunların çözümü hakkında bilgi alın
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu hızlı başlangıçta kullanıcılarınız için self servis parola sıfırlamasını nasıl yapılandıracağınızı öğrendiniz. Azure portalına devam ederek bu adımları tamamlamak için aşağıdaki portal bağlantısını izleyin.
+
+> [!div class="nextstepaction"]
+> [Self servis parola sıfırlamayı etkinleştirme](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 
