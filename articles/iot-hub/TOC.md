@@ -5,7 +5,7 @@
 
 # [Kullanmaya Başlama](iot-hub-get-started.md)
 
-## Cihazınızı ayarlama
+## Cihazınızı kurma
 ### [Bilgisayarınızda bir cihazı benzetme](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)

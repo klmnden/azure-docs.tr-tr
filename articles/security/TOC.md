@@ -5,10 +5,11 @@
 ## [İşlem güvenliği](security-virtual-machines-overview.md)
 ## [İşletimsel güvenlik](azure-operational-security-overview.md)
 ## [Güvenlik yönetimi ve izleme](security-management-and-monitoring-overview.md)
+## [Service Fabric güvenliği](azure-service-fabric-security-overview.md)
 ## [Kimlik yönetimi](security-identity-management-overview.md)
 ## [IoT güvenliği](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Güvenlik mimarisi](azure-security-architecture-overview.md)
-### [İşletimsel güvenlik](azure-operational-security.md)
+### [İşletimsel güvenliği etkinleştirme](azure-operational-security.md)
 ### [Gelişmiş tehdit algılama](azure-threat-detection.md)
 ### [Günlük kaydı ve denetim](azure-log-audit.md)
 ### [Genel bulutta yalıtım](azure-isolation.md)
@@ -40,6 +41,9 @@
 #### [Disk şifrelemesi sorunlarını giderme](azure-security-disk-encryption-tsg.md)
 ### [Azure VM’lerini şifreleme](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
+## İşletimsel güvenlik
+### [İşletimsel güvenlik için en iyi yöntemler](azure-operational-security-best-practices.md)
+
 ## Güvenlik yönetimi ve izleme
 ### [Güvenlik yönetimi](azure-security-management.md)
 ### [Azure Güvenlik Merkezi](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -49,6 +53,10 @@
 #### [Güvenlik Merkezi uyarılarını tümleştirme](security-azure-log-integration-security-center.md)
 #### [Event Hubs kullanarak Key Vault’tan günlükleri tümleştirme](security-azure-log-integration-keyvault-eventhub.md)
 #### [SSS](security-azure-log-integration-faq.md)
+
+## Service Fabric
+### [Service Fabric için en iyi yöntemler](azure-service-fabric-security-best-practices.md)
+### [Service Fabric denetim listesi](azure-service-fabric-security-checklist.md)
 
 ## Kimlik yönetimi
 ### [Kimlik yönetimi güvenliği için en iyi uygulamalar](azure-security-identity-management-best-practices.md)

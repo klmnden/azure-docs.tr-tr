@@ -3,13 +3,13 @@
 ## [Azure kimlik yönetimi hakkında](identity-fundamentals.md)
 ## [Azure kimlik çözümlerini anlama](understand-azure-identity-solutions.md)
 ## [Karma kimlik çözümü seçin](choose-hybrid-identity-solution.md)
+## [Azure aboneliklerini ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
 ## [SSS](active-directory-faq.md)
 
 # başlarken
-## [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
-## [Azure aboneliklerini ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
-## [Hızlı Başlangıç: Self servis parolasını sıfırlama](active-directory-passwords-getting-started.md)
+## [Özel bir etki alanı adı ekleme](add-custom-domain.md)
+## [Self servis parola sıfırlamasını yapılandırma](active-directory-passwords-getting-started.md)
 ## Azure AD lisanslamayı yönetme
 ### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Klasik portal](active-directory-licensing-what-is.md)
@@ -19,8 +19,7 @@
 #### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
 #### [Grup tabanlı lisanslama için PowerShell örnekleri](active-directory-licensing-ps-examples.md)
-## [Azure Active Directory için destek alma](active-directory-troubleshooting-support-howto.md)
-## [SaaS uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md)
+
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
@@ -55,7 +54,6 @@
 #### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
 #### [Grup tabanlı lisanslama için PowerShell örnekleri](active-directory-licensing-ps-examples.md)
-
 ### [Diğer dizinlerden kullanıcıları ekleme (klasik portal)](active-directory-create-users-external.md)
 ### [Kullanıcıları silme](active-directory-users-delete-user-azure-portal.md)
 ### [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
@@ -164,6 +162,7 @@
 ## Uygulamaları yönetme
 ### [Genel Bakış](active-directory-enable-sso-scenario.md)
 ### [Başlarken](active-directory-integrating-applications-getting-started.md)
+### [SaaS uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [Kayıt defteri ayarlarını güncelleştirme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Güvenlik ve gizliliği anlama](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -239,11 +238,6 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Özel etki alanı adları
 #### [Genel Bakış](active-directory-add-domain-concepts.md)
-#### Etki alanı adınızı ekleme
-##### [Azure Portal](active-directory-domains-add-azure-portal.md)
-##### [Klasik portal](active-directory-add-domain.md)
-##### [AD FS ile](active-directory-add-domain-federated.md)
-#### [Kullanıcıları atama](active-directory-add-domain-add-users.md)
 #### Etki alanı adlarını yönetme
 ##### [Azure Portal](active-directory-domains-manage-azure-portal.md)
 ##### [Klasik portal](active-directory-add-manage-domain-names.md)
@@ -270,6 +264,7 @@
 #### [Self servis kaydolma portal örneği](active-directory-b2b-self-service-portal.md)
 #### [Davet e-postası](active-directory-b2b-invitation-email.md)
 #### [Davet kullanma](active-directory-b2b-redemption-experience.md)
+#### [Davetiye olmadan B2B kullanıcıları ekleme](active-directory-b2b-add-user-without-invite.md)
 #### [B2B için koşullu erişim](active-directory-b2b-mfa-instructions.md)
 #### [B2B paylaşım ilkeleri](active-directory-b2b-delegate-invitations.md)
 #### [Bir role B2B kullanıcısı ekleme](active-directory-b2b-add-guest-to-role.md)
@@ -357,7 +352,8 @@
 ### [Yüksek kullanılabilirlik](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Değişiklik imzası karma algoritması](active-directory-federation-sha256-guidance.md)
 
-## [Sorun giderme](active-directory-troubleshooting.md)
+## [Sorun giderme](active-directory-troubleshooting-support-howto.md)
+### [Active Directory sorun giderme öğesi eksik ya da mevcut değil](active-directory-troubleshooting.md)
 
 ## Azure AD Kavram Kanıtı (PoC) Dağıtma
 ### [PoC El Kitabı: Giriş](active-directory-playbook-intro.md)

@@ -46,6 +46,7 @@
 ### [Günlük araması portalları](log-analytics-log-search-portals.md)
 #### [Günlük araması portalını kullanma](log-analytics-log-search-log-search-portal.md)
 ### [Eski dilden geçiş](log-analytics-log-search-transition.md)
+### [Akış bağlayıcısı](log-analytics-flow-tutorial.md)
 
 ## Verileri çözümleme
 ### [Panolar](log-analytics-dashboards.md)

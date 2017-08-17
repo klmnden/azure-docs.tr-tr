@@ -39,6 +39,7 @@
 ### [Etkinlik günlüğünün Event Hubs’a akışını sağlama](monitoring-stream-activity-logs-event-hubs.md)
 ### [Resource Manager ile işlemleri denetleme](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Kaynak Yöneticisi ile etkinlik günlüğü uyarıları oluşturma](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+### [Etkinlik Günlüğü uyarılarına geçirme](monitoring-migrate-management-alerts.md)
 ## Hizmet bildirimlerini kullanma
 ### [Hizmet bildirimlerini görüntüleme](monitoring-service-notifications.md)
 ### [Hizmet bildirimlerinde uyarı yapılandırma](monitoring-activity-log-alerts-on-service-notifications.md)
