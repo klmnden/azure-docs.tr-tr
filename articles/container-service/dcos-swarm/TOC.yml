@@ -7,6 +7,8 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
+    - name: Docker Swarm Linux
+      href: container-service-swarm-walkthrough.md
     - name: DC/OS Linux
       href: container-service-dcos-quickstart.md
 - name: Öğreticiler
@@ -29,7 +31,7 @@
       href: container-service-connect.md
     - name: ACS kümesini ölçeklendirme
       href: container-service-scale.md
-    - name: DC/OS ile yönetme
+    - name: DC/OS
       items:
         - name: Kapsayıcı yönetimi - DC/OS UI
           href: container-service-mesos-marathon-ui.md
@@ -55,8 +57,10 @@
               href: container-service-monitoring-sysdig.md
             - name: Dynatrace ile izleme
               href: container-service-monitoring-dynatrace.md
-    - name: Docker Swarm ile yönetme
+    - name: Docker Swarm
       items:
+        - name: Swarm Mode hızlı başlangıç
+          href: container-service-swarm-mode-walkthrough.md
         - name: Docker ve Docker Compose
           href: container-service-docker-swarm.md
         - name: Docker Swarm ve VSTS ile CI/CD

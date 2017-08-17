@@ -133,11 +133,12 @@
 ### Kapsayıcı hizmeti oluşturma
 #### [Bir Windows kapsayıcı uygulaması oluşturma](service-fabric-get-started-containers.md)
 #### [Bir Linux kapsayıcı uygulaması oluşturma](service-fabric-get-started-containers-linux.md)
-#### [Linux kapsayıcısı dağıtma](service-fabric-deploy-container-linux.md)
+#### [Kapsayıcı güvenliği](service-fabric-securing-containers.md)
 #### [Docker Compose (önizleme)](service-fabric-docker-compose.md)
 #### [Kapsayıcılar ve hizmetler için kaynak idaresi](service-fabric-resource-governance.md)
 #### [Hacim ve günlüğe kaydetme sürücüleri](service-fabric-containers-volume-logging-drivers.md)
 #### [Kapsayıcılara dahil hizmetler](service-fabric-services-inside-containers.md)
+#### [Kapsayıcı ağ modları](service-fabric-networking-modes.md)
 
 ### Reliable Services hizmeti oluşturma
 #### [Genel Bakış](service-fabric-reliable-services-introduction.md)
