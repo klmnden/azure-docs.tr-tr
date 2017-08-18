@@ -73,7 +73,7 @@ $rg = New-AzureRmResourceGroup -Name ContosoRG -Location Eastus
 New-AzureRmAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName $rg.ResourceGroupName -Tier Free
 
 # Creates a web app
-$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs
+$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs -AppServicePlan $webappname
 
 # Configure GitHub deployment from your GitHub repo and deploy once to web app.
 $PropertiesObject = @{
@@ -162,3 +162,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Yeniden yönlendirmeyi yapılandırma hakkında bilgi almak için bkz. [PowerShell ile Application Gateway için yeniden yönlendirmeyi yapılandırma](application-gateway-configure-redirect-powershell.md).
+
