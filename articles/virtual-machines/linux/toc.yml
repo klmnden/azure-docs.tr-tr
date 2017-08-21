@@ -76,11 +76,6 @@
       href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Planlı bakım
       href: planned-maintenance.md
-      items:
-        - name: Bakımı koruma
-          href: maintenance-in-place.md
-        - name: Bakımı yeniden başlatma
-          href: impactful-maintenance.md
     - name: VM boyutları
       items:
         - name: VM boyutlarına genel bakış

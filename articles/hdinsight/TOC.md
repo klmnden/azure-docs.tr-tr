@@ -199,7 +199,6 @@
 #### [Hadoop bellek ve performansı](hdinsight-hadoop-stack-trace-error-messages.md)
 #### [Linux üzerinde Hadoop YARN uygulama günlüklerine erişme](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 #### [Hadoop hizmetleri için yığın dökümlerini etkinleştirme](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-#### [HDInsight günlüklerini çözümleme](hdinsight-debug-jobs.md)
 #### [WebHCat hatalarını anlama ve düzeltme](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [Hive ayarları ile Yetersiz Bellek hatalarını düzeltme](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Tez İşlerinin hatalarını ayıklamak için Ambari Görünümlerini kullanma](hdinsight-debug-ambari-tez-view.md)

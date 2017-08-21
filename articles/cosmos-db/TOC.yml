@@ -4,8 +4,6 @@
   items:
     - name: Azure Cosmos DB hakkında
       href: introduction.md
-    - name: DocumentDB müşterilerini karşılama
-      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
