@@ -28,7 +28,6 @@
 ## [REST](/rest/api/datacatalog/)
 ## [Arama söz dizimi başvurusu](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Geliştirici kavramları](data-catalog-developer-concepts.md)
-## [Geliştirici örnekleri](data-catalog-samples.md)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
