@@ -76,8 +76,9 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği olu
 6. IoT hub'ınızın kimlik kayıt defterinde bir cihaz tanımı oluşturmak için aşağıdaki kodu ekleyin. Bu kod, cihaz kimliği kayıt defterinde yoksa bir cihaz oluşturur, aksi halde var olan cihazın anahtarını döndürür:
    
     ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);
