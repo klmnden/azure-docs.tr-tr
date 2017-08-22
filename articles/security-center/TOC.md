@@ -6,8 +6,9 @@
 ### [Olay yanıtı](security-center-incident-response.md)
 ### [Güvenliği artırmak için önerileri kullanın](security-center-using-recommendations.md)
 ## [Platform geçişi](security-center-platform-migration.md)
+### [Platform geçişi ile ilgili SSS](security-center-platform-migration-faq.md)
 
-# başlarken
+# Başlarken
 ## [Hızlı başlangıç](security-center-get-started.md)
 ## [Planlama ve işlemler](security-center-planning-and-operations-guide.md)
 ## [İzinler](security-center-permissions.md)
