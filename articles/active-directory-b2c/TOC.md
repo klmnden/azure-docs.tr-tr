@@ -83,6 +83,7 @@
 ## [Faturalamayı etkinleştirme](active-directory-b2c-how-to-enable-billing.md)
 ## [Tehdit yönetimi](active-directory-b2c-reference-threat-management.md)
 ## [Dizin oluştururken yaşanan sorunlar](active-directory-b2c-support-create-directory.md)
+## [Uzantılar uygulaması](active-directory-b2c-reference-extensions-app.md)
 
 # İlgili
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

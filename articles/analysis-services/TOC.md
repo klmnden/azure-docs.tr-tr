@@ -2,6 +2,7 @@
 ## [Azure Analysis Services nedir?](analysis-services-overview.md)
 ## [Desteklenen veri kaynakları](analysis-services-datasource.md)
 ## [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md)
+## [Şirket içi veri kaynaklarına bağlanma](analysis-services-gateway.md)
 ## [Uyumluluk düzeyi](analysis-services-compat-level.md)
 ## [Yüksek kullanılabilirlik](analysis-services-bcdr.md)
 
@@ -15,7 +16,7 @@
 ## [Sunucu yönetme](analysis-services-manage.md)
 ## [Veritabanı kullanıcılarını yönetme](analysis-services-database-users.md)
 ## [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)
-## [Şirket içi veri ağ geçidi yükleme](analysis-services-gateway.md)
+## [Şirket içi veri ağ geçidini yükleme ve yapılandırma](analysis-services-gateway-install.md)
 ## [İstemci kitaplıkları alma](analysis-services-data-providers.md)
 ## [Yedekleme ve geri yükleme](analysis-services-backup.md)
 ## [Excel ile bağlanma](analysis-services-connect-excel.md)

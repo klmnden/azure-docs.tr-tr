@@ -54,14 +54,12 @@
 ### [Visual Studio ile web uygulaması](web-app-visual-studio.md)
 ### [MPI uygulamalarını çalıştırmak için RDMA kümesi](rdma-cluster.md)
 ### [Hudson CI ile Azure bağımlı eklentisini kullanma](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC Pack
-### [Windows RDMA cluster to run MPI uygulamalarını çalıştırmaya yönelik Windows RDMA kümesi](hpcpack-cluster.md)
-### [HPC Pack IaaS dağıtım betiğini içeren Windows HPC kümesi](hpcpack-cluster-starccm.md)
-### [İşlem düğümlerinin sayısını ve kullanılabilirliğini yönetme](hpcpack-cluster-powershell-script.md)
-### [İsteğe bağlı düğümleri ekleme](hpcpack-cluster-openfoam.md)
-### [Kaynakları otomatik olarak ölçeklendirme](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [Linux iş yükleri için küme oluşturma](hpcpack-cluster-powershell-script.md)
+#### [Linux düğümleri ile küme yönetme](hpcpack-cluster.md)
+#### [STAR-CCM+ çalıştırma](hpcpack-cluster-starccm.md)
+#### [OpenFOAM çalıştırma](hpcpack-cluster-openfoam.md)
+#### [NAMD çalıştırma](hpcpack-cluster-namd.md)
 
 ## Sorun giderme
 ### [VM dağıtımları](troubleshoot-deployment-new-vm.md)
