@@ -19,6 +19,8 @@
       items:
         - name: Zamanlayıcı
           href: functions-create-scheduled-function.md
+        - name: Genel web kancası
+          href: functions-create-generic-webhook-triggered-function.md
         - name: GitHub web kancası
           href: functions-create-github-webhook-triggered-function.md
         - name: Blob depolama

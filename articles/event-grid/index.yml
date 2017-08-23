@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Event Grid Belgeleri
+metadata:
+  title: 'Azure Event Grid Belgeleri - Öğreticiler, API Başvurusu'
+  description: Hem Azure hizmetlerinde hem de Azure dışı hizmetlerde gerçekleşen ilgili olaylara neredeyse gerçek zamanlı yanıt vermek için Azure Event Grid’i kullanın.
+  services: event-grid
+  author: banisadr
+  manager: timlt
+  ms.service: event-grid
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/10/2017
+  ms.author: banisadr
+abstract:
+  description: 'Azure Event Grid; yayımla-abone ol modelini kullanan, tek düzen olay tüketimine izin veren, tam yönetimli ve akıllı bir olay yönlendirme hizmetidir. Hem Azure hizmetlerinde hem de Azure dışı hizmetlerde gerçekleşen ilgili olaylara neredeyse gerçek zamanlı yanıt vermek için Azure Event Grid’i kullanın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Event Grid’i kullanmayı öğrenin.'
+sections:
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: Özel olay oluşturmayı ve özel olaylara abone olmayı öğrenin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/app-service-api/media/index/cli.svg
+            text: Azure CLI
+            href: /azure/event-grid/custom-event-quickstart
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: Olaylara yanıt veren uygulamaları geliştirmeyi öğrenin.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Logic Apps ile sanal makinelerde yapılan değişiklikleri izleme</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST API'leri
+            html: <p><a href="/rest/api/eventgrid">REST</a></p>
+          - title: Şemalar
+            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Abonelik Şeması</a></p><p><a href="/azure/event-grid/event-schema">Olay Şeması</a></p>

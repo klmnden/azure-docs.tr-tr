@@ -3,9 +3,10 @@
 ## [Machine Learning nedir?](machine-learning-what-is-machine-learning.md)
 
 ## Team Data Science Process
-### [Genel Bakış](http://aka.ms/datascienceprocess)
-### [Yaşam döngüsü](data-science-process-overview.md)
+### [Genel Bakış](data-science-process-overview.md)
+### [Yaşam döngüsü](data-science-process-lifecycle.md)
 ### [Kılavuz](data-science-process-walkthroughs.md)
+### [Azure ML ile](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [Studio nedir?](machine-learning-what-is-ml-studio.md)

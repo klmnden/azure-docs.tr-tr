@@ -1,0 +1,40 @@
+- name: Event Grid
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Event Grid Hakkında
+      href: overview.md
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Özel olayları oluşturma ve yönlendirme
+      href: custom-event-quickstart.md
+- name: Öğreticiler
+  items:
+    - name: Logic Apps ile sanal makine değişikliklerini izleme
+      href: monitor-virtual-machine-changes-event-grid-logic-app.md
+- name: Kavramlar
+  items:
+    - name: Event Grid kavramları
+      href: concepts.md
+    - name: Güvenlik ve kimlik doğrulaması
+      href: security-authentication.md
+    - name: Teslim ve yeniden deneme
+      href: delivery-and-retry.md
+- name: Başvuru
+  items:
+    - name: REST
+      href: /rest/api/eventgrid
+    - name: Abonelik şeması
+      href: subscription-creation-schema.md
+    - name: Olay şeması
+      href: event-schema.md
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/event-grid/'
+    - name: Fiyatlandırma Hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-event-grid'

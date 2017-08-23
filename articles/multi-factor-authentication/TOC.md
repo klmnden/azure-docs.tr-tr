@@ -17,7 +17,7 @@
 ### [Mevcut ağ ilkesi sunucularını kullanma](multi-factor-authentication-nps-extension.md)
 #### [NPS uzantısı için gelişmiş yapılandırma](nps-extension-advanced-configuration.md)
 ### [Kimlik Doğrulama Sağlayıcısı oluşturma](multi-factor-authentication-get-started-auth-provider.md)
-### Şirket içi Azure MFA
+### Şirket içi MFA dağıtma
 #### [Kullanıcı portalını yükleme](multi-factor-authentication-get-started-portal.md)
 #### [Gelişmiş VPN Yapılandırmaları](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Mobil Uygulama Web Hizmeti](multi-factor-authentication-get-started-server-webservice.md)
@@ -31,24 +31,28 @@
 ### [MFA kullanıcı kılavuzu](./end-user/multi-factor-authentication-end-user.md)
 
 ## Tümleştirme
-### [Federasyon Hizmetleri](multi-factor-authentication-get-started-adfs.md)
-#### [AD FS kullanma](multi-factor-authentication-get-started-adfs-cloud.md)
-#### [AD FS 2.0 kullanma](multi-factor-authentication-get-started-adfs-adfs2.md)
-#### [Windows Server 2012 R2 AD FS kullanma](multi-factor-authentication-get-started-adfs-w2k12.md)
-### Dizinler
-#### [LDAP Kimlik Doğrulaması](multi-factor-authentication-get-started-server-ldap.md)
-#### [Radius Kimlik Doğrulaması](multi-factor-authentication-get-started-server-radius.md)
-#### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
-### [IIS web uygulamaları](multi-factor-authentication-get-started-server-iis.md)
-### [Uzak Masaüstü Ağ Geçidi](multi-factor-authentication-get-started-server-rdg.md)
+### [Uzak Masaüstü Ağ Geçidi](nps-extension-remote-desktop-gateway.md)
+### [VPN](nps-extension-vpn.md)
+### Şirket içi MFA tümleştirmesi
+#### [Federasyon Hizmetleri](multi-factor-authentication-get-started-adfs.md)
+##### [AD FS kullanma](multi-factor-authentication-get-started-adfs-cloud.md)
+##### [AD FS 2.0 kullanma](multi-factor-authentication-get-started-adfs-adfs2.md)
+##### [Windows Server 2012 R2 AD FS kullanma](multi-factor-authentication-get-started-adfs-w2k12.md)
+#### Dizinler
+##### [LDAP Kimlik Doğrulaması](multi-factor-authentication-get-started-server-ldap.md)
+##### [Radius Kimlik Doğrulaması](multi-factor-authentication-get-started-server-radius.md)
+##### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
+#### [IIS web uygulamaları](multi-factor-authentication-get-started-server-iis.md)
+#### [Uzak Masaüstü Ağ Geçidi](multi-factor-authentication-get-started-server-rdg.md)
 
 ## Geliştirme
-### [Özel Uygulamalarda (SDK) oluşturma](multi-factor-authentication-sdk.md)
+### [Özel uygulamalarda (SDK) oluşturma](multi-factor-authentication-sdk.md)
 
 ## Sorun giderme
 ### [SSS](multi-factor-authentication-faq.md)
 ### [Özel Uygulamalarda (SDK) oluşturma](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [NPS uzantı hataları](multi-factor-authentication-nps-errors.md)
+
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

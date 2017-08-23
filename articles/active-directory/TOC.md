@@ -144,8 +144,14 @@
 
 ## Cihazları yönetme
 ### [Giriş](device-management-introduction.md)
-### [Cihaz kaydetme](active-directory-device-registration-overview.md)
-#### [Kurulum](active-directory-conditional-access-automatic-device-registration-setup.md)
+### [SSS](device-management-faq.md)
+### Görevler
+#### [Karma Azure AD alanına katılmış cihazları yapılandırma](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### Sorun giderme
+##### [Karma Azure AD alanına katılmış Windows 10 ve Windows Server 2016 cihazları](device-management-troubleshoot-hybrid-join-windows-current.md)
+##### [Karma Azure AD alanına katılmış eski Windows cihazları](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+
+### Cihaz kaydetme
 #### [Şirket içi dağıtma](active-directory-device-registration-on-premises-setup.md)
 #### [SSS](active-directory-device-registration-faq.md)
 #### Sorun giderme
