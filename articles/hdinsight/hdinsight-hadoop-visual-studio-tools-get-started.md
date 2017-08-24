@@ -1,6 +1,6 @@
 ---
-title: "Visual Studio için Data Lake Araçları&quot;nı kullanarak Azure HDInsight&quot;a bağlanma | Microsoft Docs"
-description: "Azure HDInsight&quot;ta Hadoop kümelerine bağlanmak ve Hive sorguları çalıştırmak üzere Visual Studio için Data Lake Araçları&quot;nı yüklemeyi ve kullanmayı öğrenin."
+title: "Visual Studio için Data Lake Araçları'nı kullanarak Azure HDInsight'a bağlanma | Microsoft Docs"
+description: "Azure HDInsight'ta Hadoop kümelerine bağlanmak ve Hive sorguları çalıştırmak üzere Visual Studio için Data Lake Araçları'nı yüklemeyi ve kullanmayı öğrenin."
 keywords: "hadoop araçları, hive sorgusu, visual studio, visual studio hadoop"
 services: HDInsight
 documentationcenter: 
@@ -15,14 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/23/2017
 ms.author: jgao
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: d24c92b90d7d8e43554fcd77278bf7d23a963c02
 ms.contentlocale: tr-tr
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake Araçları'nı kullanarak Azure HDInsight'a bağlanma ve Hive sorguları çalıştırma| Microsoft Docs
