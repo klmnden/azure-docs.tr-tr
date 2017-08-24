@@ -17,9 +17,9 @@
 ### [Node.js uygulaması derleme ve dağıtma](cloud-services-nodejs-develop-deploy-app.md)
 ### [Express kullanarak bir Node.js web uygulaması oluşturma](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Depolama ve Visual Studio
-#### [Blob depolama ve bağlı hizmetler](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Kuyruk depolama ve bağlı hizmetler](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Tablo depolama ve bağlı hizmetler](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Blob depolama ve bağlı hizmetler](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Kuyruk depolama ve bağlı hizmetler](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Tablo depolama ve bağlı hizmetler](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Paketleri sürekli derleme için yapılandırma ve dağıtma
 #### [TFS ve Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Bir rol için trafik kuralları yapılandırma](cloud-services-enable-communication-role-instances.md)

@@ -64,12 +64,12 @@
 ### [Şablondan Linux VM](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Şablondan Windows VM](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Verileri depolama
-### [Bloblar](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [Dosya paylaşımları](../../storage/storage-dotnet-how-to-use-files.md)
-### [Anahtar-değer çiftleri](../../storage/storage-dotnet-how-to-use-tables.md)
+### [Bloblar](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [Dosya paylaşımları](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [Anahtar-değer çiftleri](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [JSON belgeleri](../../documentdb/documentdb-get-started.md)
 ### [İlişkisel tablolar](../../sql-database/sql-database-get-started.md)
-### [İleti kuyrukları](../../storage/storage-dotnet-how-to-use-queues.md)
+### [İleti kuyrukları](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Ölçek
 ### [Web ve mobil uygulamaları](../../app-service-web/web-sites-scale.md)
