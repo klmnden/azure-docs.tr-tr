@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
@@ -46,7 +46,7 @@ Aşağıdaki üst düzey iş akışı, paralel iş yüklerini işlemek üzere Ba
 Aşağıdaki bölümlerde, bunları ve dağıtılmış hesaplama senaryonuzu etkinleştirecek Batch’in diğer kaynakları ele alınmıştır.
 
 > [!NOTE]
-> Batch hizmetini kullanmak için bir [Batch hesabı](#account) gereklidir. Ayrıca, Batch çözümlerinin çoğunda dosya depolama ve alma işlemleri için bir [Azure Depolama][azure_storage] hesabı kullanılır. Batch şu anda yalnızca, [Azure Depolama hesapları hakkında](../storage/storage-create-storage-account.md) belgesinin [Depolama hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) adlı 5. adımında açıklanan **genel amaçlı** depolama hesabı türünü desteklemektedir.
+> Batch hizmetini kullanmak için bir [Batch hesabı](#account) gereklidir. Ayrıca, Batch çözümlerinin çoğunda dosya depolama ve alma işlemleri için bir [Azure Depolama][azure_storage] hesabı kullanılır. Batch şu anda yalnızca, [Azure Depolama hesapları hakkında](../storage/common/storage-create-storage-account.md) belgesinin [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) adlı 5. adımında açıklanan **genel amaçlı** depolama hesabı türünü desteklemektedir.
 >
 >
 
@@ -114,7 +114,7 @@ Aşağıdaki tabloda, Batch Hizmeti ve Kullanıcı Aboneliği havuz ayırma modl
 
 Batch çözümlerinin çoğu, kaynak dosyalarını ve çıkış dosyalarını depolamak için Azure Depolama kullanır.  
 
-Batch şu anda [Azure Depolama hesapları hakkında](../storage/storage-create-storage-account.md) bölümündeki [Depolama hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) adlı 5. adımda açıklandığı gibi sadece genel amaçlı depolama hesabı türünü destekler. Batch görevleriniz (standart görevler, başlangıç görevleri, iş hazırlama görevleri ve iş sürüm görevleri dahil), yalnızca genel amaçlı depolama hesaplarında yer alan kaynak dosyalarını belirtmelidir.
+Batch şu anda [Azure Depolama hesapları hakkında](../storage/common/storage-create-storage-account.md) bölümündeki [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) adlı 5. adımda açıklandığı gibi sadece genel amaçlı depolama hesabı türünü destekler. Batch görevleriniz (standart görevler, başlangıç görevleri, iş hazırlama görevleri ve iş sürüm görevleri dahil), yalnızca genel amaçlı depolama hesaplarında yer alan kaynak dosyalarını belirtmelidir.
 
 
 ## <a name="compute-node"></a>İşlem düğümü

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3c7f97b72f3813abe2357ae3202eaba285583bb8
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
@@ -172,7 +171,7 @@ Gerçek bir uygulamada genellikle uygulama verilerine karşı günlük verileri 
 
 4. **Çoğaltma** açılır listesini **Yerel olarak yedekli depolama** olarak ayarlayın.
 
-    Bir depolama hesabı için coğrafi çoğaltma etkinleştirildiğinde, birincil konumda önemli bir olağanüstü durum oluşursa yük devretmeyi etkinleştirmek için depolanan içerik ikincil bir veri merkezine çoğaltılır. Coğrafi çoğaltma ek ücretlere neden olabilir. Test ve geliştirme hesaplarında genellikle coğrafi çoğaltma için ödeme yapmak istemezsiniz. Daha fazla bilgi için bkz. [Depolama hesabı oluşturma, yönetme veya silme](../storage/storage-create-storage-account.md).
+    Bir depolama hesabı için coğrafi çoğaltma etkinleştirildiğinde, birincil konumda önemli bir olağanüstü durum oluşursa yük devretmeyi etkinleştirmek için depolanan içerik ikincil bir veri merkezine çoğaltılır. Coğrafi çoğaltma ek ücretlere neden olabilir. Test ve geliştirme hesaplarında genellikle coğrafi çoğaltma için ödeme yapmak istemezsiniz. Daha fazla bilgi için bkz. [Depolama hesabı oluşturma, yönetme veya silme](../storage/common/storage-create-storage-account.md).
 
 5. **Kaynak grubu**’nda **Var olanı kullan**’a tıklayın ve bulut hizmeti için kullanılan kaynak grubunu seçin.
 6. **Konum** açılır listesini bulut hizmeti için seçtiğiniz aynı bölgeye ayarlayın.

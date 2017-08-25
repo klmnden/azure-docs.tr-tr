@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 4eb32dd18c57af8d46e7afb63047c0985458705d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fd0356286be46f99fd9ab8eabc53256103038407
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Özel Docker kapsayıcısı kayıt defterlerine giriş
@@ -49,7 +49,7 @@ Geliştiriciler bir kapsayıcı geliştirme iş akışı kapsamında bir kapsay�
 
 
 ## <a name="key-concepts"></a>Önemli kavramlar
-* **Kayıt Defteri** - Azure aboneliğinizde bir veya daha fazla kapsayıcı kayıt defteri oluşturun. Her kayıt defteri aynı konumdaki standart bir Azure [depolama hesabı](../storage/storage-introduction.md) tarafından desteklenir. Kapsayıcı görüntülerinizin yerel, kapalı bir ağda depolanmasının avantajlarından yararlanmak için dağıtımlarınızla aynı Azure konumunda bir kayıt defteri oluşturun. Tam kayıt defteri adı `myregistry.azurecr.io` biçimindedir.
+* **Kayıt Defteri** - Azure aboneliğinizde bir veya daha fazla kapsayıcı kayıt defteri oluşturun. Her kayıt defteri aynı konumdaki standart bir Azure [depolama hesabı](../storage/common/storage-introduction.md) tarafından desteklenir. Kapsayıcı görüntülerinizin yerel, kapalı bir ağda depolanmasının avantajlarından yararlanmak için dağıtımlarınızla aynı Azure konumunda bir kayıt defteri oluşturun. Tam kayıt defteri adı `myregistry.azurecr.io` biçimindedir.
 
   Azure Active Directory destekli bir [hizmet sorumlusunu](../active-directory/active-directory-application-objects.md) veya sağlanan bir yönetici hesabını kullanarak kapsayıcı kayıt defterine [erişimi denetlersiniz](container-registry-authentication.md). Bir kayıt defteriyle kimlik doğrulamak için standart `docker login` komutunu çalıştırın.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/17/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Depolama Gezgini (Önizleme) ile çalışmaya başlama
@@ -156,7 +156,7 @@ Bir dış depolama hesabına bağlanmak için hesabın adı ve anahtarı gerekli
 2. Onay iletisinde, dış depolama hesabından ayırmayı onaylamak üzere **Evet**’i seçin.
 
 ## <a name="attach-a-storage-account-by-using-an-sas"></a>SAS kullanarak depolama hesabı ekleme
-[SAS](storage/storage-dotnet-shared-access-signature-part-1.md) bir Azure aboneliği yöneticisinin Azure aboneliği kimlik bilgilerini vermek zorunda kalmadan bir depolama hesabına geçici erişim izni vermesini sağlar.
+[SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) bir Azure aboneliği yöneticisinin Azure aboneliği kimlik bilgilerini vermek zorunda kalmadan bir depolama hesabına geçici erişim izni vermesini sağlar.
 
 Bu senaryoyu göstermek üzere; KullanıcıA’nın bir Azure aboneliği yöneticisi olduğunu düşünelim ve KullanıcıA KullanıcıB’nin belirli bir süre çeşitli izinlerle bir depolama hesabına erişmesine izin vermek istediğini varsayalım:
 

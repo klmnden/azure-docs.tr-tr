@@ -14,27 +14,24 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/07/2017
+ms.date: 08/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 5e9cae224e5a36e1529c962ad8cbab77176dda8c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 370b2f081930fe88527436a1a127309aed6681f0
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight’ta güvenli aktarım depolama hesapları ile Hadoop kümesi oluşturma
 
-[Güvenli aktarım gereklidir](../storage/storage-require-secure-transfer.md) özelliği, güvenli bir bağlantı üzerinden tüm istekleri hesabınıza uygulayarak Azure Depolama hesabınızın güvenliğini artırır. Bu özellik ve wasbs şeması yalnızca HDInsight kümesi 3.6 veya sonraki sürümlerde desteklenir. 
-
->[!NOTE] 
-> .NET SDK kullanarak güvenli aktarım özellikli depolama hesabı ile küme oluşturulması şu anda desteklenmemektedir. Bu sorunun geçici çözümü, çekirdek-site yapılandırmasında "fs.defaultFS" özelliğindeki "wasbs" değerinin ClusterCreateParametersExtended parametresinin bir parçası olarak ayarlanmasıdır.
+[Güvenli aktarım gereklidir](../storage/common/storage-require-secure-transfer.md) özelliği, güvenli bir bağlantı üzerinden tüm istekleri hesabınıza uygulayarak Azure Depolama hesabınızın güvenliğini artırır. Bu özellik ve wasbs şeması yalnızca HDInsight kümesi 3.6 veya sonraki sürümlerde desteklenir. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce
 
 * **Azure aboneliği** gereklidir. Bir aylık ücretsiz deneme hesabı oluşturmak için [azure.microsoft.com/free](https://azure.microsoft.com/free) adresine gidin.
-* **Güvenli aktarım özellikli bir Azure depolama hesabı**. Yönergeler için bkz. [Depolama hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) ve [Güvenli aktarım isteme](../storage/storage-require-secure-transfer.md).
+* **Güvenli aktarım özellikli bir Azure depolama hesabı**. Yönergeler için bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) ve [Güvenli aktarım isteme](../storage/common/storage-require-secure-transfer.md).
 * **Depolama hesabındaki bir Blob kapsayıcı**. 
 ## <a name="create-cluster"></a>Küme oluşturma
 

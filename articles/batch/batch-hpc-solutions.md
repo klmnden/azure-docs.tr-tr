@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d30c09d23a84200ba81df133c9de5b11910ffb61
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Büyük ölçekli bilgi işlem iş yükleri için Batch ve HPC çözümleri
@@ -106,7 +106,7 @@ Azure işlem hizmetleri Big Compute çözümünün çekirdeğidir ve farklı iş
 ### <a name="storage-services"></a>Storage hizmetleri
 Big Compute çözümü tipik olarak bir dizi girdi verisi üzerinde çalışır ve sonuçları için veri üretir. Big Compute çözümlerinde kullanılan bazı Azure depolama hizmetleri:
 
-* [Blob, tablo ve kuyruk depolama](https://azure.microsoft.com/documentation/services/storage/) - Büyük miktarda yapılandırılmamış verileri, SQL dışı verileri, iş akışı ve iletişim iletilerini bu sırayla yönetin. Örneğin, büyük teknik veri kümelerinde blob depolamayı veya uygulamanızın işlediği girdi görüntülerini ya da medya dosyalarını kullanabilirsiniz. Çözümdeki uyumsuz iletişim için kuyrukları kullanabilirsiniz. Bkz. [Microsoft Azure Storage’a Giriş](../storage/storage-introduction.md).
+* [Blob, tablo ve kuyruk depolama](https://azure.microsoft.com/documentation/services/storage/) - Büyük miktarda yapılandırılmamış verileri, SQL dışı verileri, iş akışı ve iletişim iletilerini bu sırayla yönetin. Örneğin, büyük teknik veri kümelerinde blob depolamayı veya uygulamanızın işlediği girdi görüntülerini ya da medya dosyalarını kullanabilirsiniz. Çözümdeki uyumsuz iletişim için kuyrukları kullanabilirsiniz. Bkz. [Microsoft Azure Storage’a Giriş](../storage/common/storage-introduction.md).
 * [Azure File storage](https://azure.microsoft.com/services/storage/files/) - Bazı HPC küme çözümleri için gerekli olan standart SMB protokolü kullanarak Azure’de ortak dosyaları ve verileri paylaşır.
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) - Bulut için üst ölçekte bir Apache Hadoop Dağıtılmış Dosya Sistemi sağlar; toplu işlem, gerçek zamanlı ve etkileşimli analizler için yararlıdır.
 

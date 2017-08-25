@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 8de3df11a59178b782d50b7662aa5d8cab11a260
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Python için Batch SDK'sını kullanmaya başlama
@@ -32,7 +31,7 @@ ms.lasthandoff: 07/06/2017
 >
 >
 
-Python’da yazılmış küçük bir Batch uygulamasından söz ettiğimizden, [Azure Batch][azure_batch] ve [Batch Python][py_azure_sdk] istemcisi hakkında temel bilgileri alın. İki örnek betiğin buluttaki Linux sanal makinelerde paralel bir iş yükünü işlemek için Batch hizmetini nasıl kullandıklarına; dosya hazırlığı ve alımı için [Azure Depolama](../storage/storage-introduction.md) ile nasıl etkileşime girdiklerine bakacağız. Ortak Batch uygulama iş akışını öğrenmenin yanı sıra işler, görevler, havuzlar ve işlem düğümü gibi başlıca Batch bileşenleri hakkında da temel bir anlayış kazanacaksınız.
+Python’da yazılmış küçük bir Batch uygulamasından söz ettiğimizden, [Azure Batch][azure_batch] ve [Batch Python][py_azure_sdk] istemcisi hakkında temel bilgileri alın. İki örnek betiğin buluttaki Linux sanal makinelerde paralel bir iş yükünü işlemek için Batch hizmetini nasıl kullandıklarına; dosya hazırlığı ve alımı için [Azure Depolama](../storage/common/storage-introduction.md) ile nasıl etkileşime girdiklerine bakacağız. Ortak Batch uygulama iş akışını öğrenmenin yanı sıra işler, görevler, havuzlar ve işlem düğümü gibi başlıca Batch bileşenleri hakkında da temel bir anlayış kazanacaksınız.
 
 ![Batch çözümü iş akışı (temel)][11]<br/>
 
@@ -42,7 +41,7 @@ Bu makalede, Python ve Linux alışkanlığına sahip olduğunuz varsayılmaktad
 ### <a name="accounts"></a>Hesaplar
 * **Azure hesabı**: Henüz bir Azure aboneliğiniz yoksa, [ücretsiz Azure hesabı oluşturun][azure_free_account].
 * **Batch hesabı**: Azure aboneliğiniz olduktan sonra, [Azure Batch hesabı oluşturun](batch-account-create-portal.md).
-* **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) bölümü.
+* **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](../storage/common/storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) bölümü.
 
 ### <a name="code-sample"></a>Kod örneği
 Python eğitmen [kod örneği][github_article_samples] GitHub’daki [azure-batch-samples][github_samples] deposunda bulunan çok sayıda Batch kod örneğinden biridir. Örneklerin tümünü, depo giriş sayfasındaki **Kopyala veya indir > ZIP’i İndir**’e veya [azure-batch-samples-master.zip][github_samples_zip] doğrudan indirme bağlantısına tıklayarak indirebilirsiniz. ZIP dosyasının içeriğini ayıkladıktan sonra Bu eğitmene yönelik iki betik `article_samples` dizininde yer alır:
@@ -153,7 +152,7 @@ if __name__ == '__main__':
 ![Azure Depolama'da kapsayıcı oluşturma][1]
 <br/>
 
-Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan görevler için gerekli dosyaları sağlar. Kapsayıcılar ayrıca görevlerin oluşturduğu çıktı verilerini depolamak için bir yer sağlar. *python_tutorial_client.py* betiğinin yapacağı ilk şey [Azure Blob Storage](../storage/storage-introduction.md#blob-storage)’da üç kapsayıcı oluşturmaktır:
+Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan görevler için gerekli dosyaları sağlar. Kapsayıcılar ayrıca görevlerin oluşturduğu çıktı verilerini depolamak için bir yer sağlar. *python_tutorial_client.py* betiğinin yapacağı ilk şey [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage)’da üç kapsayıcı oluşturmaktır:
 
 * **uygulama**: Bu kapsayıcı, *python_tutorial_task.py* görevlerinin çalıştırdığı Python betiğini depolayacaktır.
 * **girdi**: Görevler, işlemek için veri dosyalarını *girdi* kapsayıcısından yükleyecektir.
@@ -183,7 +182,7 @@ blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 Kapsayıcılar oluşturulduktan sonra uygulama artık görevler tarafından kullanılacak dosyaları karşıya yükleyebilir.
 
 > [!TIP]
-> [Python’dan Azure Blob depolama kullanma](../storage/storage-python-how-to-use-blob-storage.md), Azure Storage kapsayıcıları ve blob'larla çalışma hakkında kapsamlı bilgi sağlar. Batch’le çalışmaya başladığınızda okuma listenizin en üstüne yakın olması gerekir.
+> [Python’dan Azure Blob depolama kullanma](../storage/blobs/storage-python-how-to-use-blob-storage.md), Azure Storage kapsayıcıları ve blob'larla çalışma hakkında kapsamlı bilgi sağlar. Batch’le çalışmaya başladığınızda okuma listenizin en üstüne yakın olması gerekir.
 >
 >
 
@@ -277,7 +276,7 @@ Paylaşılan erişim imzalar, Azure Storage'da kapsayıcılara ve blob’lara g�
 * **Kapsayıcı paylaşılan erişim imzası**: Hesaplama düğümünde her görev işini bitirdiğinde, kendi çıktı dosyasını Azure Storage’daki *çıktı* kapsayıcısına yükler. Bunu yapmak için, *python_tutorial_task.py*, kapsayıcıya yazma erişimi sağlayan kapsayıcı paylaşılan erişim imzasını kullanır. *python_tutorial_client.py* öğesindeki `get_container_sas_token` işlevi, daha sonra görevlere komut satırı bağımsız değişkeni olarak geçecek kapsayıcının paylaşılan erişim imzasını alır. 5. Adım, [İşe görev ekleme](#step-5-add-tasks-to-job), kapsayıcı SAS kullanımını tartışıyor.
 
 > [!TIP]
-> Storage hesabınızdaki verilere güvenli erişim sağlama hakkında daha fazla bilgi için paylaşılan erişim imzalarındaki iki parçalı seriyi kullanıma alın, [1. Parça: SAS modelini anlama](../storage/storage-dotnet-shared-access-signature-part-1.md) ve [2. Parça: Blob hizmetiyle SAS oluşturma ve kullanma](../storage/storage-dotnet-shared-access-signature-part-2.md).
+> Storage hesabınızdaki verilere güvenli erişim sağlama hakkında daha fazla bilgi için paylaşılan erişim imzalarındaki iki parçalı seriyi kullanıma alın, [1. Parça: SAS modelini anlama](../storage/common/storage-dotnet-shared-access-signature-part-1.md) ve [2. Parça: Blob hizmetiyle SAS oluşturma ve kullanma](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md).
 >
 >
 

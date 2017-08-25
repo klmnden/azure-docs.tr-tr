@@ -13,15 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 6/14/2017
+ms.date: 8/11/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 629b3c54a35f939845349e6f2ed7743885e41f3b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5a6aad672ddaa43f993daf4cf48975e91d2657da
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup özelliklerine genel bakış
@@ -36,7 +35,7 @@ Geleneksel yedekleme çözümleri, bulutu disk veya bantlara benzer bir uç nokt
 
 **Sınırsız ölçekleme** - Azure Backup, yüksek kullanılabilirlik sunmak için Azure bulutunun gücünü ve sınırsız ölçekleme özelliğini kullanır. Üstelik bakım ve izleme maliyetleri yoktur. Olaylar hakkında bilgi almak için uyarılar oluşturabilirsiniz ancak buluttaki verilerinizin yüksek kullanılabilirliği konusunda endişelenmeniz gerekmez.
 
-**Birden çok depolama seçeneği** - Yüksek kullanılabilirliğin bir özelliği de depolama çoğaltmadır. Azure Backup iki tür çoğaltma sunar: [Yerel olarak yedekli depolama](../storage/storage-redundancy.md#locally-redundant-storage) ve [coğrafi olarak yedekli depolama](../storage/storage-redundancy.md#geo-redundant-storage). İhtiyacınız olan yedek depolama seçeneğini belirleyin:
+**Birden çok depolama seçeneği** - Yüksek kullanılabilirliğin bir özelliği de depolama çoğaltmadır. Azure Backup iki tür çoğaltma sunar: [Yerel olarak yedekli depolama](../storage/common/storage-redundancy.md#locally-redundant-storage) ve [coğrafi olarak yedekli depolama](../storage/common/storage-redundancy.md#geo-redundant-storage). İhtiyacınız olan yedek depolama seçeneğini belirleyin:
 
 * Yerel olarak yedekli depolama (LRS), verilerinizi aynı bölgedeki bir eşlenmiş veri merkezine üç kez kopyalar (verilerinizin üç kopyasını oluşturur). LRS, verilerinizi yerel donanım hatalarına karşı korumak için düşük maliyetli bir seçenektir.
 
@@ -96,10 +95,10 @@ Aşağıdaki tabloda Linux destekli Azure Backup bileşenleri gösterilmektedir.
 | Azure IaaS VM Backup |[betik öncesi ve betik sonrası çerçeve](backup-azure-linux-app-consistent.md) kullanılarak uygulamada tutarlı yedekleme<br/> [Ayrıntılı dosya kurtarma](backup-azure-restore-files-from-vm.md)<br/> [Tüm VM disklerini geri yükleme](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM geri yükleme](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup ile Premium Depolama VM’leri
-Azure Backup, Premium Depolama VM'leri koruma altına alır. Azure Premium Depolama, G/Ç açısından yoğun iş yüklerini desteklemek için tasarlanan katı hal sürücüsü (SSD) tabanlı bir depolama hizmetidir. Premium Depolama, sanal makine (VM) iş yükleri için idealdir. Premium Depolama hakkında daha fazla bilgi almak için bkz. [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../storage/storage-premium-storage.md).
+Azure Backup, Premium Depolama VM'leri koruma altına alır. Azure Premium Depolama, G/Ç açısından yoğun iş yüklerini desteklemek için tasarlanan katı hal sürücüsü (SSD) tabanlı bir depolama hizmetidir. Premium Depolama, sanal makine (VM) iş yükleri için idealdir. Premium Depolama hakkında daha fazla bilgi almak için bkz. [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../storage/common/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Premium Storage VM'lerini yedekleme
-Premium Depolama VM'lerini yedeklerken, Backup hizmeti, Premium Depolama hesabında “AzureBackup-” adlı geçici bir hazırlama konumu oluşturur. Hazırlama konumunun boyutu, kurtarma noktası anlık görüntüsünü boyutuna eşittir. Premium Depolama hesabında, geçici hazırlama konumu barındırmak için yeterli boş alan olduğundan emin olun. Daha fazla bilgi için [premium depolama sınırlamaları](../storage/storage-premium-storage.md#scalability-and-performance-targets) makalesine bakın. Yedekleme işi tamamlandıktan sonra, hazırlama konumu silinir. Hazırlama konumu için kullanılan depolama alanının fiyatı tüm [Premium depolama fiyatlandırması](../storage/storage-premium-storage.md#pricing-and-billing) ile tutarlıdır.
+Premium Depolama VM'lerini yedeklerken, Backup hizmeti, Premium Depolama hesabında “AzureBackup-” adlı geçici bir hazırlama konumu oluşturur. Hazırlama konumunun boyutu, kurtarma noktası anlık görüntüsünü boyutuna eşittir. Premium Depolama hesabında, geçici hazırlama konumu barındırmak için yeterli boş alan olduğundan emin olun. Daha fazla bilgi için [premium depolama sınırlamaları](../storage/common/storage-premium-storage.md#scalability-and-performance-targets) makalesine bakın. Yedekleme işi tamamlandıktan sonra, hazırlama konumu silinir. Hazırlama konumu için kullanılan depolama alanının fiyatı tüm [Premium depolama fiyatlandırması](../storage/common/storage-premium-storage.md#pricing-and-billing) ile tutarlıdır.
 
 > [!NOTE]
 > Hazırlama konumunu değiştirmeyin veya düzenlemeyin.
@@ -224,10 +223,10 @@ Korumalı örneklere sanal makineler, uygulama sunucuları, veritabanları ve Wi
 ## <a name="what-is-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası nedir?
 Kurtarma Hizmetleri kasası Azure'da yedek kopyalar, kurtarma noktaları ve yedekleme ilkeleri gibi verilerin tutulması için kullanılan bir çevrimiçi depolama varlığıdır. Azure hizmetleri, şirket içi sunucular ve iş istasyonları için yedekleme verilerini tutmak üzere Kurtarma Hizmetleri kasalarını kullanabilirsiniz. Kurtarma Hizmetleri kasaları, yedekleme verilerinizi düzenlemeyi kolaylaştırırken yönetim zorluklarını da en aza indirir. Bir abonelik dahilinde dilediğiniz sayıda Kurtarma Hizmetleri kasası oluşturabilirsiniz.
 
-Azure Service Manager'a dayalı Backup kasaları kasanın ilk sürümüdür. Azure Resource Manager modeli özelliklerinin eklendiği Kurtarma Hizmetleri kasaları kasanın ikinci sürümüdür. Özellikler arasındaki farkların kapsamlı açıklamaları için [Kurtarma Hizmetleri kasasına genel bakış makalesine](backup-azure-recovery-services-vault-overview.md) göz atın. Azure portalında artık Backup kasaları oluşturamayacaksınız ancak Backup kasaları desteklenmeye devam edecektir.
+Azure Service Manager'a dayalı Backup kasaları kasanın ilk sürümüdür. Azure Resource Manager modeli özelliklerinin eklendiği Kurtarma Hizmetleri kasaları kasanın ikinci sürümüdür. Özellikler arasındaki farkların kapsamlı açıklamaları için [Kurtarma Hizmetleri kasasına genel bakış makalesine](backup-azure-recovery-services-vault-overview.md) göz atın. Artık Azure portalını kullanarak Backup kasaları oluşturamazsınız ancak Backup kasaları desteklenmeye devam eder.
 
 > [!IMPORTANT]
-> Artık Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltebilirsiniz. Ayrıntılı bilgi için [Backup kasasını Kurtarma Hizmetleri kasasına yükseltme](backup-azure-upgrade-backup-to-recovery-services.md) makalesine bakın. Microsoft, Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltmenizi önerir.<br/> **1 Kasım 2017'den itibaren**:
+> Artık Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltebilirsiniz. Ayrıntılı bilgi için [Backup kasasını Kurtarma Hizmetleri kasasına yükseltme](backup-azure-upgrade-backup-to-recovery-services.md) makalesine bakın. Microsoft, Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltmenizi önerir.<br/> **15 Ekim 2017**’den itibaren, artık PowerShell kullanarak Backup kasaları oluşturamayacaksınız. <br/> **1 Kasım 2017’ye kadar**:
 >- Yükseltilmemiş olan tüm Backup kasaları Kurtarma Hizmetleri kasalarına otomatik olarak yükseltilecektir.
 >- Klasik portalda yedekleme verilerinize erişemeyeceksiniz. Bunun yerine, Kurtarma Hizmetleri kasalarındaki yedekleme verilerinize erişmek için Azure portalını kullanabilirsiniz.
 >

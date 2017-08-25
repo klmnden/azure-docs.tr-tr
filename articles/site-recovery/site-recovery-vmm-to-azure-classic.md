@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
@@ -52,7 +51,7 @@ Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure
 | **Önkoşul** | **Ayrıntılar** |
 | --- | --- |
 | **Azure hesabı** |Bir [Microsoft Azure](https://azure.microsoft.com/) hesabınızın olması gerekir. [Ücretsiz deneme sürümüyle](https://azure.microsoft.com/pricing/free-trial/) başlayabilirsiniz. Site Recovery fiyatlandırması hakkında [daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/site-recovery/). |
-| **Azure depolama alanı** |Çoğaltılan verileri depolamak için bir Azure depolama hesabınızın olması gerekir. Çoğaltılan veriler Azure depolama alanında depolanır ve yük devretme durumunda Azure VM'leri çalışmaya başlar. <br/><br/>[Standart coğrafi olarak yedekli depolama hesabınızın](../storage/storage-redundancy.md#geo-redundant-storage) olması gerekir. Bu hesabın Site Recovery ile aynı bölgede ve aynı abonelikle ilişkilendirilmiş olması gerekir. Premium depolama hesaplarında çoğaltmanın şu anda desteklenmediğini ve bu hesapların kullanılmaması gerektiğini unutmayın.<br/><br/>Azure depolama alanı [hakkında bilgi edinin](../storage/storage-introduction.md). |
+| **Azure depolama alanı** |Çoğaltılan verileri depolamak için bir Azure depolama hesabınızın olması gerekir. Çoğaltılan veriler Azure depolama alanında depolanır ve yük devretme durumunda Azure VM'leri çalışmaya başlar. <br/><br/>[Standart coğrafi olarak yedekli depolama hesabınızın](../storage/common/storage-redundancy.md#geo-redundant-storage) olması gerekir. Bu hesabın Site Recovery ile aynı bölgede ve aynı abonelikle ilişkilendirilmiş olması gerekir. Premium depolama hesaplarında çoğaltmanın şu anda desteklenmediğini ve bu hesapların kullanılmaması gerektiğini unutmayın.<br/><br/>Azure depolama alanı [hakkında bilgi edinin](../storage/common/storage-introduction.md). |
 | **Azure ağı** |Yük devretme gerçekleştiğinde Azure VM'lerinin bağlanabileceği bir Azure sanal ağı gerekir. Azure sanal ağının Site Recovery kasasıyla aynı bölgede olması gerekir. |
 
 ## <a name="on-premises-prerequisites"></a>Şirket içi önkoşullar

@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>.NET için Batch istemci kitaplığıyla çözüm derlemeye başlama
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/04/2017
 >
 >
 
-Adım adım C# örnek uygulamasında tartıştığımız gibi, bu makalede [Azure Batch][azure_batch] ve [Batch .NET][net_api] kitaplığı hakkında temel bilgileri öğrenin. Bu örnek uygulamanın dosya hazırlığı ve alımı için [Azure Depolama](../storage/storage-introduction.md) ile nasıl etkileşime girdiğinin yanı sıra bulutta paralel bir iş yükünü işlemek için Batch hizmetinden nasıl yararlandığını da göreceğiz. Ortak Batch uygulama iş akışını öğrenmenin yanı sıra işler, görevler, havuzlar ve işlem düğümü gibi başlıca Batch bileşenleri hakkında da temel bir anlayış kazanacaksınız.
+Adım adım C# örnek uygulamasında tartıştığımız gibi, bu makalede [Azure Batch][azure_batch] ve [Batch .NET][net_api] kitaplığı hakkında temel bilgileri öğrenin. Bu örnek uygulamanın dosya hazırlığı ve alımı için [Azure Depolama](../storage/common/storage-introduction.md) ile nasıl etkileşime girdiğinin yanı sıra bulutta paralel bir iş yükünü işlemek için Batch hizmetinden nasıl yararlandığını da göreceğiz. Ortak Batch uygulama iş akışını öğrenmenin yanı sıra işler, görevler, havuzlar ve işlem düğümü gibi başlıca Batch bileşenleri hakkında da temel bir anlayış kazanacaksınız.
 
 ![Batch çözümü iş akışı (temel)][11]<br/>
 
@@ -41,10 +41,10 @@ Bu makalede, C# ve Visual Studio deneyimine sahip olduğunuz varsayılmaktadır.
 ### <a name="accounts"></a>Hesaplar
 * **Azure hesabı**: Henüz bir Azure aboneliğiniz yoksa, [ücretsiz Azure hesabı oluşturun][azure_free_account].
 * **Batch hesabı**: Azure aboneliğiniz olduktan sonra, [Azure Batch hesabı oluşturun](batch-account-create-portal.md).
-* **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) bölümü.
+* **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](../storage/common/storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) bölümü.
 
 > [!IMPORTANT]
-> Batch şu anda *yalnızca*, [Azure Depolama hesapları hakkında](../storage/storage-create-storage-account.md) belgesinin [Depolama hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) adlı 5. adımında açıklanan **genel amaçlı** depolama hesabı türünü desteklemektedir.
+> Batch şu anda *yalnızca*, [Azure Depolama hesapları hakkında](../storage/common/storage-create-storage-account.md) belgesinin [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) adlı 5. adımında açıklanan **genel amaçlı** depolama hesabı türünü desteklemektedir.
 >
 >
 
@@ -128,7 +128,7 @@ Aşağıdaki bölümlerde, Batch hizmetinde iş yükünü işlemeyi gerçekleşt
 ![Azure Depolama'da kapsayıcı oluşturma][1]
 <br/>
 
-Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan görevler için gerekli dosyaları sağlar. Kapsayıcılar ayrıca görevlerin oluşturduğu çıktı verilerini depolamak için bir yer sağlar. *DotNetTutorial* istemci uygulamasının yapacağı ilk şey [Azure Blob Storage](../storage/storage-introduction.md)’da üç kapsayıcı oluşturmaktır:
+Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan görevler için gerekli dosyaları sağlar. Kapsayıcılar ayrıca görevlerin oluşturduğu çıktı verilerini depolamak için bir yer sağlar. *DotNetTutorial* istemci uygulamasının yapacağı ilk şey [Azure Blob Storage](../storage/common/storage-introduction.md)’da üç kapsayıcı oluşturmaktır:
 
 * **uygulama**: Bu kapsayıcı, DLL’ler gibi birçok bağlantının yanı sıra görevlerin yürüttüğü uygulamayı da depolar.
 * **girdi**: Görevler, işlemek için veri dosyalarını *girdi* kapsayıcısından yükleyecektir.
@@ -188,7 +188,7 @@ private static async Task CreateContainerIfNotExistAsync(
 Kapsayıcılar oluşturulduktan sonra uygulama artık görevler tarafından kullanılacak dosyaları karşıya yükleyebilir.
 
 > [!TIP]
-> [Net'ten Blob Storage kullanma](../storage/storage-dotnet-how-to-use-blobs.md), Azure depolama kapsayıcıları ve blob'larla çalışma hakkında kapsamlı bilgi sağlar. Batch’le çalışmaya başladığınızda okuma listenizin en üstüne yakın olması gerekir.
+> [Net'ten Blob Storage kullanma](../storage/blobs/storage-dotnet-how-to-use-blobs.md), Azure depolama kapsayıcıları ve blob'larla çalışma hakkında kapsamlı bilgi sağlar. Batch’le çalışmaya başladığınızda okuma listenizin en üstüne yakın olması gerekir.
 >
 >
 
@@ -286,7 +286,7 @@ Paylaşılan erişim imzalar, URL parçası olarak eklendiğinde Azure Storage'd
 * **Kapsayıcı paylaşılan erişim imzaları**: Hesaplama düğümünde her görev işini bitirdiğinde, kendi çıktı dosyasını Azure Storage’daki *çıktı* kapsayıcısına yükler. Bunu yapmak için, TaskApplication dosyayı karşıya yüklediğinde yolun parçası olarak kapsayıcıya yazma izni sağlayan kapsayıcı paylaşılan erişim imzasını kullanır. Kapsayıcı paylaşılan erişim imzası blob paylaşılan erişim imzası alındığında yapılan işleme benzer. DotNetTutorial’de, bunu yapmak için `GetContainerSasUrl` yardımcı yönteminin [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] çağırdığını görürsünüz. TaskApplication’ın kapsayıcı paylaşılan erişim imzasını kullanması hakkında daha fazla bilgi için "6. Adım: İzleme Görevleri" başlığı altındakileri okuyacaksınız.
 
 > [!TIP]
-> Storage hesabınızdaki verilere güvenli erişim sağlama hakkında daha fazla bilgi için paylaşılan erişim imzalarındaki iki parçalı seriyi kullanıma alın, [1. Bölüm: Paylaşılan erişim imzası (SAS) modelini anlama](../storage/storage-dotnet-shared-access-signature-part-1.md) ve [2. Bölüm: Blob depolama ile paylaşılan erişim imzasını (SAS) oluşturma ve kullanma](../storage/storage-dotnet-shared-access-signature-part-2.md).
+> Storage hesabınızdaki verilere güvenli erişim sağlama hakkında daha fazla bilgi için paylaşılan erişim imzalarındaki iki parçalı seriyi kullanıma alın, [1. Bölüm: Paylaşılan erişim imzası (SAS) modelini anlama](../storage/common/storage-dotnet-shared-access-signature-part-1.md) ve [2. Bölüm: Blob depolama ile paylaşılan erişim imzasını (SAS) oluşturma ve kullanma](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md).
 >
 >
 

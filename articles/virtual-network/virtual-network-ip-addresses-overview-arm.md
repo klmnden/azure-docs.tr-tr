@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1156135200e05f8a2585467f37805a72d67279ba
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 144f4ea213b8ed0a3530495e185f489155c474c9
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
@@ -36,7 +35,7 @@ Diğer Azure kaynaklarıyla, şirket içi ağınızla ve İnternet’le iletişi
 Klasik dağıtım modeliyle ilgili bilginiz varsa [klasik ve Resource Manager IP adreslemesi arasındaki farkları](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) inceleyin.
 
 ## <a name="public-ip-addresses"></a>Genel IP adresleri
-Genel IP adresleri, Azure kaynaklarının İnternet ile ve [Azure Redis Önbelleği](https://azure.microsoft.com/services/cache/), [Azure Olay Hub’ları](https://azure.microsoft.com/services/event-hubs/), [SQL veritabanları](../sql-database/sql-database-technical-overview.md) ve [Azure depolama alanı](../storage/storage-introduction.md) gibi genel kullanıma yönelik Azure hizmetleriyle iletişim kurmasını sağlar.
+Genel IP adresleri, Azure kaynaklarının İnternet ile ve [Azure Redis Önbelleği](https://azure.microsoft.com/services/cache/), [Azure Olay Hub’ları](https://azure.microsoft.com/services/event-hubs/), [SQL veritabanları](../sql-database/sql-database-technical-overview.md) ve [Azure depolama alanı](../storage/common/storage-introduction.md) gibi genel kullanıma yönelik Azure hizmetleriyle iletişim kurmasını sağlar.
 
 Azure Resource Manager’daki bir [genel IP](resource-groups-networking.md#public-ip-address) adresi, kendi özelliklerine sahip olan bir kaynaktır. Genel bir IP adresini aşağıdaki kaynakların herhangi biriyle ilişkilendirebilirsiniz:
 

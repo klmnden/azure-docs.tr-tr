@@ -1,6 +1,6 @@
 ---
-title: "SQL Server&quot;dan Azure SQL Veri Ambarı&quot;na (PolyBase) veri yükleme | Microsoft Belgeleri"
-description: "SQL Server&quot;dan düz dosyalara veri aktarmak için bcp&quot;yi, Azure blob depolama alanına veri aktarmak için AZCopy&quot;yi ve verileri Azure SQL Data Warehouse&quot;a almak için PolyBase&quot;i kullanın."
+title: "SQL Server'dan Azure SQL Veri Ambarı'na (PolyBase) veri yükleme | Microsoft Belgeleri"
+description: "SQL Server'dan düz dosyalara veri aktarmak için bcp'yi, Azure blob depolama alanına veri aktarmak için AZCopy'yi ve verileri Azure SQL Data Warehouse'a almak için PolyBase'i kullanın."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 4f6feb844774fba00e3c46438f686e61b52d03d3
-ms.lasthandoff: 01/30/2017
-
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 966100094f98bae41bf90df500d005fa78b31ec3
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>SQL Data Warehouse'da PolyBase ile veri yükleme
@@ -41,7 +40,7 @@ Bu öğreticide, AzCopy ve PolyBase kullanarak SQL Data Warehouse'a nasıl veri 
 > 
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticide ilerleyebilmeniz için, şunlar gereklidir:
 
 * SQL Data Warehouse veritabanı.
@@ -253,7 +252,7 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
-[latest version of AzCopy]: ../storage/storage-use-azcopy.md
+[latest version of AzCopy]:../storage/common/storage-use-azcopy.md
 
 <!--External references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx

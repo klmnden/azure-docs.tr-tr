@@ -1,104 +1,48 @@
+Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
+
+- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
+
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll also be given a time window where you can start the maintenance yourself, at a time that works for you.
+
+This page describes how Microsoft Azure performs both types of maintenance. For more information about unplanned events (outages), see Manage the availability of virtual machines for [Windows] (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+
+Applications running in a virtual machine can gather information about upcoming updates by using the Azure Metadata Service for [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) or [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
+
+## <a name="in-place-vm-migration"></a>In-place VM migration
+
+When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.
+
+For VMs in availability sets, update domains are updated one at a time. All VMs in one update domain (UD) are paused, updated and then resumed before planned maintenance moves on to the next UD.
+
+Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> 
 
 
-## <a name="memory-preserving-updates"></a>Bellek koruma güncelleştirmeleri
-Microsoft Azure’daki bir güncelleştirmeler grubu için, müşteriler çalışan sanal makinelerine herhangi bir etki görmez. Bu güncelleştirmelerin çoğu, çalışan örneği engellemeden güncelleştirilebilecek bileşenlere veya hizmetler içindir. Bu güncelleştirmelerin bazıları, sanal makinelerin tam olarak yeniden başlatılması gerekmeden ana bilgisayar işletim sisteminde uygulanabilecek platform altyapısı güncelleştirmeleridir.
+## <a name="maintenance-requiring-a-reboot"></a>Maintenance requiring a reboot
 
-Bu güncelleştirmeler, "bellek koruma" güncelleştirmesi olarak da adlandırılan, yerinde dinamik geçiş olanağı sağlayan teknolojiyle gerçekleştirilir. Güncelleştirirken, RAM belleği korunarak sanal makine “duraklatılmış” duruma getirilir, bu arada alttaki konak işletim sistemi gerekli güncelleştirmeleri ve düzeltme eklerini alır. Sanal makine duraklatıldıktan sonra 30 saniye içinde devam ettirilir. Devam ettirildikten sonra, sanal makinenin saati otomatik olarak eşitlenir.
+When VMs need to be rebooted for planned maintenance, you are notified in advance. Planned maintenance has two phases: the self-service window and a scheduled maintenance window.
 
-Tüm güncelleştirmeler bu mekanizma kullanılarak dağıtılamaz, ancak kısa duraklatma süresi düşünüldüğünde, güncelleştirmelerin bu şekilde dağıtılmasıyla sanal makinelere etki büyük ölçüde azaltılır.
+The **self-service window** lets you initiate the maintenance on your VMs. During this time, you can query each VM to see their status and check the result of your last maintenance request.
 
-Çok örnekli güncelleştirmeler (bir kullanılabilirlik kümesindeki sanal makineler için), bir seferde bir güncelleme etki alanı şeklinde uygulanır.  
+When you start self-service maintenance, your VM is moved to a node that has already been updated and then powers it back on. Because the VM reboots, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated.
 
-## <a name="virtual-machine-configurations"></a>Sanal makine yapılandırmaları
-İki tür sanal makine yapılandırması vardır: çok örnekli ve tek örnekli. Çok örnekli yapılandırmada, benzer sanal makineler bir kullanılabilirlik kümesine yerleştirilir.
+If you start self-service maintenance and there is an error during the process, the operation is stopped, the VM is not updated and it is also removed from the planned maintenance iteration. You will be contacted in a later time with a new schedule and offered a new opportunity to do self-service maintenance. 
 
-Çok örnekli yapılandırma, fiziksel makineler arasında yedeklilik, güç ile ağ sağlar ve uygulamanızın kullanılabilirliğini sağlamak için önerilir. Kullanılabilirlik kümesindeki tüm sanal makineler, uygulamanız için aynı amaca hizmet etmelidir.
+When the self-service window has passed, the **scheduled maintenance window** begins. During this time window, you can still query for the maintenance window, but no longer be able to start the maintenance yourself.
 
-Sanal makinelerinizi yüksek kullanılabilirlik için yapılandırma hakkında daha fazla bilgi için, bkz: [Windows sanal makinelerinizin kullanılabilirliğini yönetme](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) veya [Linux sanal makinelerinizin kullanılabilirliğini yönetme](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="availability-considerations-during-planned-maintenance"></a>Availability Considerations during Planned Maintenance 
 
-Bunun aksine, tek örnekli yapılandırma, bir kullanılabilirlik kümesine yerleştirilmemiş bağımsız sanal makineler için kullanılır. Bu sanal makineler, iki veya daha fazla sanal makinenin aynı kullanılabilirlik kümesine dağıtılmasını gerektiren hizmet düzeyi sözleşmesi (SLA) için uygun değildir.
+If you decide to wait until the planned maintenance window, there are a few things to consider for maintaining the highest availabilty of your VMs. 
 
-SLA’lar hakkında daha fazla bilgi için, [Hizmet Düzeyi Sözleşmeleri](https://azure.microsoft.com/support/legal/sla/)’ndeki "Bulut Hizmetleri ve Sanal Makineler" bölümlerine bakın.
+### <a name="paired-regions"></a>Paired Regions
 
-## <a name="multi-instance-configuration-updates"></a>Çok örnekli yapılandırma güncelleştirmeleri
-Planlı bakım esnasında, Azure platformu önce bir çok örnekli yapılandırmada barındırılan sanal makineler kümesini güncelleştirir. Güncelleştirme bu sanal makinelerin yeniden başlatılmasına neden olur ve yaklaşık 15 dakika kapalı kalma süresi meydana gelir.
+Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-Bir çok örnekli yapılandırma güncelleştirmesi, her bir sanal makinenin kullanılabilirlik kümesindeki diğerleriyle benzer bir işlev gördüğünü varsayar. Bu ayarda, sanal makineler işlem boyunca kullanılabilirliği koruyan bir şekilde güncelleştirilir.
+### <a name="availability-sets-and-scale-sets"></a>Availability sets and scale sets
 
-Bir kullanılabilirlik kümesindeki her sanal makineye, temel alınan Azure platformu tarafından bir güncelleme etki alanı ve bir hata etki alanı atanır. Her güncelleme etki alanı, aynı süre içinde yeniden başlatılacak olan bir sanal makineler grubudur. Her hata etki alanı, ortak bir güç kaynağı ve ağ anahtarını paylaşan bir sanal makine grubudur.
+When deploying a workload on Azure VMs, you can create the VMs within an availability set to provide high availability to your application. This ensures that during either an outage or maintenance events, at least one virtual machine is available.
 
+Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During planned maintenance, only a single update domain is impacted at any given time. Be aware that the order of update domains being impacted does not necessarily happen sequentially. 
 
-Güncelleştirme etki alanları ve hata etki alanları hakkında daha fazla bilgi için, bkz: [Bir kullanılabilirlik kümesindeki birden çok sanal makineyi yedeklilik için yapılandırma](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. Just like with availability sets, with scale sets only a single update domain is impacted at any given time.
 
-Azure, bir güncelleştirme boyunca kullanılabilirliğini sağlamak için, bir seferde bir etki alanını güncelleştirerek, bakımı güncelleme etki alanına göre gerçekleştirir. Bir güncelleme etki alanında bakım, etki alanındaki her bir sanal makinenin kapatılmasından, güncelleştirmenin ana makinelere uygulanmasından ve ardından sanal makinelerin yeniden başlatılmasından oluşur. Etki alanındaki bakım tamamlandığında, Azure işlemi sonraki güncelleme etki alanıyla tekrarlar ve tümü güncelleştirilene kadar her bir etki alanı ile devam eder.
-
-Yeniden başlatılmakta olan güncelleme etki alanlarının sırası, planlanan bakım esnasında sıralı olarak ilerlemeyebilir, ancak aynı anda yalnızca bir güncelleme etki alanı yeniden başlatılır. Şu anda Azure, çok örnekli yapılandırmadaki sanal makinelerin planlanan bakımı için 1 hafta önceden bildirim sunmaktadır.
-
-Bir sanal makine geri yüklendikten sonra Windows Olay Görüntüleyicisi'nde görüntülenebileceklere dair bir örnek aşağıda verilmiştir:
-
-<!--Image reference-->
-![][image2]
-
-
-Azure portalı, Azure PowerShell veya Azure CLI kullanılarak çok örnekli bir yapılandırmada yapılandırılmış sanal makineleri bildirmek için görüntüleyiciyi kullanın. Örneğin, Azure portalını kullanarak, _Kullanılabilirlik Kümesi_’ni **sanal makineler (klasik)** gezinme iletişimine ekleyebilirsiniz. Aynı kullanılabilirlik kümesini bildiren sanal makineler, çok örnekli bir yapılandırmanın parçasıdır. Aşağıdaki örnekte, çok örnekli yapılandırma SQLContoso01 ve SQLContoso02 sanal makinelerinden oluşur.
-
-<!--Image reference-->
-  ![Azure portalından sanal makineler (klasik) görünümü][image4]
-
-## <a name="single-instance-configuration-updates"></a>Tek örnekli yapılandırma güncelleştirmeleri
-Çok örnekli yapılandırma güncelleştirmeleri tamamlandıktan sonra Azure tek örnek yapılandırma güncelleştirmelerini gerçekleştirir. Bu güncelleştirmeler, kullanılabilirlik kümelerinde çalışmayan sanal makineleriniz için de yeniden başlatmalara neden olur.
-
-> [!NOTE]
-> Bir kullanılabilirlik kümesinde çalışan yalnızca bir sanal makine örneği varsa, Azure platformu bunu çok örnekli bir yapılandırmasını güncelleştirmesi olarak işler.
->
-
-Tek örnekli yapılandırmada bakım, bir ana makinede çalışan her bir sanal makinenin kapatılmasından, ana makinenin güncelleştirilmesinden ve ardından sanal makinelerin yeniden başlatılmasından oluşur. Bakım için yaklaşık 15 dakika kapalı kalma süresi gerekir. Planlanan bakım olayı, bir bölgedeki tüm sanal makinelerde tek bir bakım penceresinde çalışır.
-
-
-Planlı bakım olayları, tek örnekli yapılandırmalar için uygulamanızın kullanılabilirliğini etkiler. Şu anda Azure, tek örnekli yapılandırmalardaki sanal makinelerin planlanan bakımı için bir hafta önceden bildirim sunmaktadır.
-
-## <a name="email-notification"></a>E-posta ile bildirim
-Yalnızca tek örnekli ve çok örnekli sanal makine yapılandırmaları için, Azure yaklaşan planlı bakımın e-posta uyarısını gönderir (bir hafta önceden). Bu e-posta, abonelik yöneticisine ve ortak yönetici e-posta hesaplarına gönderilir. Bu türden bir e-postanın bir örneği aşağıda verilmiştir:
-
-<!--Image reference-->
-![][image1]
-
-## <a name="region-pairs"></a>Bölge çiftleri
-
-Azure bakım yürütürken yalnızca, çiftinin tek bir bölgesindeki Sanal Makine örneklerini güncelleştirir. Örneğin, Orta Kuzey ABD’de Sanal Makineler güncelleştirilirken Azure aynı anda Orta Güney ABD’deki bir Sanal Makineyi güncelleştirmez. Bu, ayrı bir şekilde zamanlanır, böylelikle bölgeler arasında yük devretme veya yük dengeleme sağlanır. Ancak, Kuzey Avrupa gibi diğer bölgelerde, Doğu ABD ile aynı zamanda bakım yapılabilir.
-
-Geçerli bölge çiftleri için aşağıdaki tabloya bakın:
-
-| Bölge 1 | Bölge 2 |
-|:--- | ---:|
-| Doğu ABD |Batı ABD |
-| Doğu ABD 2 |Orta ABD |
-| Orta Kuzey ABD |Orta Güney ABD |
-| Batı Orta ABD |Batı ABD 2 |
-| Doğu Kanada |Orta Kanada |
-| Güney Brezilya |Orta Güney ABD |
-| ABD Devleti Iowa |ABD Devleti Virginia |
-| US DoD Doğu |US DoD Orta |
-| Kuzey Avrupa |Batı Avrupa |
-| Birleşik Krallık Batı |Birleşik Krallık Güney |
-| Almanya Orta |Almanya Kuzeydoğu |
-| Güneydoğu Asya |Doğu Asya |
-| Avustralya Güneydoğu |Avustralya Doğu |
-| Hindistan Orta |Hindistan Güney |
-| Hindistan Batı |Hindistan Güney |
-| Japonya Doğu |Japonya Batı |
-| Kore Orta |Kore Güney |
-| Doğu Çin |Kuzey Çin |
-
-
-<!--Anchors-->
-[image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
-[image2]: ./media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
-[image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
-[image4]: ./media/virtual-machines-common-planned-maintenance/availabilitysetexample.png
-
-
-<!--Link references-->
-[Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
-
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+For more information about configuring your virtual machines for high availability, see Manage the availability of your virtual machines for Windows (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).

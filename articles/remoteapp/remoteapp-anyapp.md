@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 348e154f8398b5e60ad5a698cd319fa381de2fa5
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Azure RemoteApp ile herhangi bir cihazda tüm Windows uygulamalarını çalıştırma
@@ -88,7 +88,7 @@ Bazı uygulamaların, RemoteApp aracılığıyla dağıtıldıktan sonra ek yap�
 1. İlk olarak komut satırı arabirimini (cmd.exe) yayımlayın. **Yayımlama** sekmesinde **cmd**’yi seçip **Publish > Publish program using path** (Yayımla > Yol kullanarak programı yayımla) seçeneğine tıklayın.
 2. Uygulamanın adını ve yolunu girin. Bu konu için, ad olarak "Dosya Gezgini" ve yol olarak "%SYSTEMDRIVE%\windows\explorer.exe" kullanın.
    ![Cmd.exe dosyasını yayımlayın.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Şimdi bir Azure [depolama hesabı](../storage/storage-create-storage-account.md) oluşturmanız gerekiyor. Hesabımıza "accessdepolama" adını verdik, yani sizin için anlamlı bir ad seçin. (İskoçyalı filminde söyleneni uyarlarsak sadece bir tane "accessdepolama" olabilir.) ![Azure depolama hesabımız](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Şimdi bir Azure [depolama hesabı](../storage/common/storage-create-storage-account.md) oluşturmanız gerekiyor. Hesabımıza "accessdepolama" adını verdik, yani sizin için anlamlı bir ad seçin. (İskoçyalı filminde söyleneni uyarlarsak sadece bir tane "accessdepolama" olabilir.) ![Azure depolama hesabımız](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Depolama alanınızın yolunu (uç nokta konumu) alabilmek için şimdi panonuza geri dönün. Buna kısa bir süre sonra ihtiyacınız olacak, bu nedenle, bir yere kopyaladığınızdan emin olun.
    ![Depolama hesabı yolu](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Depolama hesabı oluşturulduktan sonra birincil erişim anahtarı gerekir. **Erişim anahtarlarını yönet**’e tıklayın ve birincil erişim anahtarını kopyalayın.

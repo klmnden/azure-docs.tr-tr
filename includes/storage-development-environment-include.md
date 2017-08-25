@@ -39,9 +39,9 @@ Her iki paketi de almak için NuGet kullanabilirsiniz. Şu adımları uygulayın
 Bu kılavuzdaki örnekleri çalıştırmak için iki ortam seçeneğiniz vardır:
 
 * Kodunuzu buluttaki bir Azure Storage hesabına karşı çalıştırabilirsiniz. 
-* Kodunuzu Azure Storage öykünücüsüne karşı çalıştırabilirsiniz. Depolama öykünücüsü, buluttaki Azure Storage hesabına öykünen bir yerel ortamdır. Öykünücü, uygulamanız geliştirildiği sırada kodunuzu test etmek ve hatalarını ayıklamak için bağımsız bir seçenektir. Öykünücü iyi bilinen hesabı ve anahtarı kullanır. Daha fazla bilgi için bkz. [Geliştirme ve Sınama için Azure Depolama Öykünücüsünü Kullanma](../articles/storage/storage-use-emulator.md)
+* Kodunuzu Azure Storage öykünücüsüne karşı çalıştırabilirsiniz. Depolama öykünücüsü, buluttaki Azure Storage hesabına öykünen bir yerel ortamdır. Öykünücü, uygulamanız geliştirildiği sırada kodunuzu test etmek ve hatalarını ayıklamak için bağımsız bir seçenektir. Öykünücü iyi bilinen hesabı ve anahtarı kullanır. Daha fazla bilgi için bkz. [Geliştirme ve Sınama için Azure Depolama Öykünücüsünü Kullanma](../articles/storage/common/storage-use-emulator.md)
 
-Buluttaki bir depolama hesabını hedefliyorsanız, depolama hesabınız için birincil erişim anahtarını Azure portalından kopyalayın. Daha fazla bilgi için bkz. [Depolama erişim anahtarlarını görüntüleme ve kopyalama](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Buluttaki bir depolama hesabını hedefliyorsanız, depolama hesabınız için birincil erişim anahtarını Azure portalından kopyalayın. Daha fazla bilgi için bkz. [Depolama erişim anahtarlarını görüntüleme ve kopyalama](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 > [!NOTE]
 > Azure Storage ile ilişkili maliyetlerin oluşmasını önlemek için depolama öykünücüsünü hedefleyebilirsiniz. Ancak, buluttaki bir Azure Storage hesabını hedeflemeyi seçerseniz, bu öğreticiyi gerçekleştirme maliyetleri göz ardı edilecektir.
@@ -51,7 +51,7 @@ Buluttaki bir depolama hesabını hedefliyorsanız, depolama hesabınız için b
 ### <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
 .NET için Azure Storage İstemcisi Kitaplığı,depolama hizmetlerine erişilmesi amacıyla uç noktaları ve kimlik bilgilerini yapılandıracak depolama bağlantı dizesinin kullanılmasını destekler. Depolama bağlantı dizenizi korumanın en iyi yolu bir yapılandırma dosyasında tutmaktır. 
 
-Bağlantı dizeleri hakkında daha fazla bilgi için bkz. [Azure Storage Bağlantı Dizesi Yapılandırma](../articles/storage/storage-configure-connection-string.md).
+Bağlantı dizeleri hakkında daha fazla bilgi için bkz. [Azure Storage Bağlantı Dizesi Yapılandırma](../articles/storage/common/storage-configure-connection-string.md).
 
 > [!NOTE]
 > Depolama hesabı anahtarınız depolama hesabınızın kök parolasına benzer. Depolama hesabı anahtarınızı korumak için her zaman özen gösterin. Diğer kullanıcılara dağıtmaktan, sabit kodlamaktan ve başkalarının erişebileceği düz metin dosyasına kaydetmekten kaçının. Anahtarınızın tehlikede olduğunu düşünüyorsanız, Azure portalını kullanarak hesap anahtarınızı yeniden oluşturun.

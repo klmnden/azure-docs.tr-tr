@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4d568fb2eca418ca939f7a76ac24197a0457fe47
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 1)
@@ -213,7 +214,7 @@ Zamanlanmış yedekleme oluşturmak için Azure klasik portalında aşağıdaki 
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Hizmet için yeni bir depolama hesabı yapılandırın
 Bu yalnızca hizmetinizle bir depolama hesabının otomatik olarak oluşturulmasını etkinleştirmediyseniz gerçekleştirmeniz gereken isteğe bağlı bir adımdır. StorSimple birim kapsayıcısı oluşturmak için bir Microsoft Azure Storage hesabı gereklidir.
 
-Farklı bir bölgede bir Azure Storage hesabı oluşturmanız gerekiyorsa, adım adım yönergeler için bkz. [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md).
+Farklı bir bölgede bir Azure Storage hesabı oluşturmanız gerekiyorsa, adım adım yönergeler için bkz. [Azure Storage hesapları hakkında](../storage/common/storage-create-storage-account.md).
 
 Azure klasik portalında **StorSimple Yöneticisi hizmeti** sayfasında aşağıdaki adımları gerçekleştirin.
 
@@ -266,10 +267,5 @@ Bir Linux konağına bağlı bir StorSimple cihazına yönelik MPIO yükleme yö
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Sanal cihaz](storsimple-virtual-device-u2.md) yapılandırın.
 * StorSimple cihazınızı yönetmek için [StorSimple Yöneticisi hizmetini](storsimple-manager-service-administration.md) kullanın.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

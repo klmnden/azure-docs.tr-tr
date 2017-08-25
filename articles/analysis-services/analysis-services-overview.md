@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 94d228f38a760b40f1acb4685702e6244f03bb5d
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
@@ -34,7 +34,7 @@ Analysis Services ile birden fazla kaynaktan veri birleştirebilir, ölçümleri
 Azure Analysis Services’ın Microsoft'un genel BT özellikleriyle nasıl uyumlu olduğunu ve veri modellerinizi buluta taşıyarak nasıl bir avantaj sağlayabileceğinizi öğrenmek için [bu videoyu](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) izleyin.
 
 ## <a name="built-on-sql-server-analysis-services"></a>SQL Server Analysis Services’ı temel alır
-Azure Analysis Services, SQL Server Analysis Services Enterprise Edition’da bulunan harika özelliklerin çoğu ile uyumludur. Azure Analysis Services, 1200 ve 1400 [uyumluluk düzeylerinde](https://docs.microsoft.com/sql/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services) tablosal modelleri destekler. Bölümler, satır düzeyinde güvenlik, çift yönlü ilişkiler ve çeviriler gibi özelliklerin tümü desteklenir. Bellek içi ve DirectQuery modları, çok büyük ve karmaşık veri kümeleri üzerinde ışık hızında sorgular anlamına gelir.
+Azure Analysis Services, SQL Server Analysis Services Enterprise Edition’da bulunan harika özelliklerin çoğu ile uyumludur. Azure Analysis Services, 1200 ve 1400 [uyumluluk düzeylerinde](analysis-services-compat-level.md) tablosal modelleri destekler. Bölümler, satır düzeyinde güvenlik, çift yönlü ilişkiler ve çeviriler gibi özelliklerin tümü desteklenir. Bellek içi ve DirectQuery modları, çok büyük ve karmaşık veri kümeleri üzerinde ışık hızında sorgular anlamına gelir.
 
 Tablosal modeller hızlı geliştirme sunar ve bunlar üst düzeyde özelleştirilebilir. Geliştiriciler için, tablosal modeller model nesnelerini açıklamaya yönelik Tablosal Nesne Modeli'ni (TOM) de içerir. TOM, [Tablosal Model Betik Dili (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) aracılığıyla JSON’da ve [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) ad alanı aracılığıyla AMO veri tanımlama dilinde kullanıma sunulur.
 

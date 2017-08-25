@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 905a70bfd37ccdb9f2944b4a9348c3b60dedda44
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure’da StorSimple Cloud Appliance dağıtma ve yönetme (StorSimple Güncelleştirme 3 ve üstü)
@@ -45,7 +45,7 @@ StorSimple Cloud Appliance, standart 8010 (önceden 1100 olarak biliniyordu) ve 
 | **Maksimum kapasite** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 çekirdek, 7 GB bellek)| Standard_DS3 (4 çekirdek, 14 GB bellek)|
 | **Bölge kullanılabilirliği** |Tüm Azure bölgeleri |Premium Depolama ve DS3 Azure VM’lerini destekleyen Azure bölgeleri<br></br>Bölgenizde hem **Sanal Makineler > DS serisi** hem de **Depolama > Disk depolamanın** mevcut olup olmadığını görmek için [bu listeyi](https://azure.microsoft.com/regions/services/) kullanın. |
-| **Depolama türü** |Yerel diskler için Azure Standard Storage kullanır.<br></br> [Standart Depolama hesabı oluşturmayı](../storage/storage-create-storage-account.md) öğrenin. |Yerel diskler için Azure Premium Depolama kullanır<sup>2</sup> <br></br>[Premium Storage hesabı oluşturmayı](../storage/storage-premium-storage.md) öğrenin. |
+| **Depolama türü** |Yerel diskler için Azure Standard Storage kullanır.<br></br> [Standart Depolama hesabı oluşturmayı](../storage/common/storage-create-storage-account.md) öğrenin. |Yerel diskler için Azure Premium Depolama kullanır<sup>2</sup> <br></br>[Premium Storage hesabı oluşturmayı](../storage/common/storage-premium-storage.md) öğrenin. |
 | **İş yükü kılavuzu** |Yedeklerden dosya alma öğe düzeyi |Bulut geliştirme ve test senaryoları <br></br>Düşük gecikme süreli ve daha yüksek performanslı iş yükleri<br></br>Olağanüstü durum kurtarma için ikincil cihaz |
 
 <sup>1</sup> *Önceden 1100 olarak biliniyordu*.
@@ -94,7 +94,7 @@ Bulut gereci sağlamadan önce, Azure ortamınızda aşağıdaki hazırlıkları
 Bulut gereci oluşturmadan önce, StorSimple Cihaz Yöneticisi hizmetinize aşağıdaki güncelleştirmeleri uygulayın:
 
 * Bulut gerecinizin barındırma sunucuları olacak sanal makineler için [erişim denetimi kayıtları](storsimple-8000-manage-acrs.md) ekleyin.
-* Bulut gereciyle aynı bölgedeki bir [depolama hesabını](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) kullanın. Farklı bölgelerdeki Depolama hesapları performansın düşmesine neden olabilir. Bulut gereciyle Standart veya Premium Depolama hesabı kullanabilirsiniz. [Standard Storage hesabı](../storage/storage-create-storage-account.md) ya da [Premium Storage hesabı](../storage/storage-premium-storage.md) oluşturma hakkında daha fazla bilgi
+* Bulut gereciyle aynı bölgedeki bir [depolama hesabını](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) kullanın. Farklı bölgelerdeki Depolama hesapları performansın düşmesine neden olabilir. Bulut gereciyle Standart veya Premium Depolama hesabı kullanabilirsiniz. [Standard Storage hesabı](../storage/common/storage-create-storage-account.md) ya da [Premium Storage hesabı](../storage/common/storage-premium-storage.md) oluşturma hakkında daha fazla bilgi
 * Bulut gereci oluşturma işlemi için, verileriniz için kullanılandan farklı bir depolama hesabı kullanın. Aynı depolama hesabı kullanmak performansın düşmesine neden olabilir.
 
 Başlamadan önce aşağıdaki bilgilere sahip olduğunuzdan emin olun:

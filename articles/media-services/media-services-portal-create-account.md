@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: f6bcb18a04be9a802e14b960a1e2d04a71a691cc
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b190ad54147a4d548806047b2257069cac4475cd
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Azure portal ile Azure Media Services hesabı oluşturma
@@ -63,7 +63,7 @@ Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösteri
    4. **Konum**’da, Media Services hesabınız için medya ve meta veri kayıtlarını depolamak üzere kullanılacak coğrafi bölgeyi seçin. Bu bölge medyanızı işlemek ve akışını sağlamak için kullanılır. Yalnızca Media Services kullanılabilen bölgeler açılır listede görüntülenir. 
    5. **Depolama Hesabı** alanında, Media Services hesabınızdan gelen medya içeriğine blob depolama sağlamak üzere bir depolama hesabı seçin. Media Services hesabınızla aynı coğrafi bölgede bulunan mevcut bir depolama hesabını seçebilir ya da bir depolama hesabı oluşturabilirsiniz. Aynı bölgede yeni bir depolama hesabı oluşturulur. Depolama hesabı adları için kurallar Media Services hesapları ile aynıdır.
       
-       Depolama hakkında daha fazla bilgi [burada](../storage/storage-introduction.md).
+       Depolama hakkında daha fazla bilgi [burada](../storage/common/storage-introduction.md).
    6. Hesap dağıtımını ilerleme durumunu görmek için **Panoya sabitle**’yi seçin.
 4. Formun alt kısmındaki **Oluştur**’a tıklayın.
    

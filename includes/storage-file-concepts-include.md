@@ -1,37 +1,32 @@
-## <a name="what-is-azure-file-storage"></a>Azure File Storage nedir?
-File Storage standart SMB 2.1 veya SMB 3.0 protokolünü kullanan uygulamalar için paylaşılan depolama alanı sağlar. Microsoft Azure Virtual Machines ve Cloud Services bağlı paylaşımlar üzerinden uygulama bileşenleri arasında dosya verileri paylaşabilir ve şirket içi uygulamalar, File Storage API’si üzerinden dosya verilerine erişebilir.
+## <a name="what-is-azure-file-storage"></a>What is Azure File storage?
+File storage offers shared storage for applications using the standard SMB 2.1 or SMB 3.0 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.
 
-Azure Virtual Machines veya Cloud Services’ta çalışan uygulamalar, bir masaüstü uygulamasının tipik bir SMB paylaşımına bağlandığı şekilde buluta, dosya verilerine erişmek amacıyla File Storage paylaşımı bağlayabilir. Ardından herhangi bir sayıda Azure sanal makinesi veya rolü eş zamanlı olarak File Storage paylaşımını bağlayıp buna erişim sağlayabilir.
+Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.
 
-SMB protokolünü kullanan Azure’da File Storage paylaşımı standart dosya paylaşımı olduğu için Azure’da çalışan uygulamalar dosyanın G/Ç API’leri üzerinden paylaşımdaki veriye erişebilir. Böylece geliştiriciler mevcut uygulamalarını taşımak üzere kullandıkları kodlar ve yeteneklerden yararlanabilir. BT Uzmanları Azure uygulamalarını yönetmenin bir parçası olarak File Storage paylaşımlarını oluşturmak, bunları bağlamak ve yönetmek için PowerShell.cmdlet’leri kullanabilir. Bu kılavuzda her ikisinin de örnekleri gösterilmektedir.
+Since a File storage share is a standard file share in Azure using the SMB protocol, applications running in Azure can access data in the share via file I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications. This guide will show examples of both.
 
-File Storage’ın yaygın kullanımları şunlardır:
+Common uses of File storage include:
 
-* Pahalı yeniden yazmalar olmadan Azure Virtual Machines veya Cloud Services’ta çalıştırılacak dosya paylaşımlarına bağlı şirket içi uygulamaların geçirilmesi
-* Yapılandırma dosyalarında olduğu gibi paylaşılan uygulama ayarlarının depolanması
-* Paylaşılan konumda günlükler, ölçümler ve kilitlenme dökümleri gibi tanılama verilerinin depolanması 
-* Azure Virtual Machines veya Cloud Services’ın geliştirilmesi ya da yönetilmesi için gereken araçların ve yardımcı programların depolanması
+* Migrating on-premises applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
+* Storing shared application settings, for example in configuration files
+* Storing diagnostic data such as logs, metrics, and crash dumps in a shared location 
+* Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services
 
-## <a name="file-storage-concepts"></a>File Storage kavramları
-File Storage’da şu bileşenler bulunur:
+## <a name="file-storage-concepts"></a>File storage concepts
+File storage contains the following components:
 
 ![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
-* **Depolama Hesabı:** Tüm Azure Storage erişimi bir depolama hesabıyla yapılır. Depolama hesabı kapasitesi hakkında ayrıntılı bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../articles/storage/storage-scalability-targets.md).
-* **Paylaşım:** File Storage paylaşımı Azure’da SMB dosyası paylaşımıdır. 
-  Tüm dizinler ve dosyalar üst paylaşımda oluşturulmalıdır. Bir hesapta sınırsız sayıda paylaşım olabilir; paylaşım da 5 TB toplam kapasiteye kadar dosya paylaşımıyla sınırsız sayıda dosya depolayabilir.
-* **Dizin:** Dizinlerin isteğe bağlı hiyerarşisi. 
-* **Dosya:** Paylaşımda bir dosya. Bir dosyanın boyutu 1 TB'ye kadar olabilir.
-* **URL biçimi:** Dosyalar şu URL biçimi kullanılarak adreslenebilir:   
+* **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) for details about storage account capacity.
+* **Share:** A File storage share is an SMB file share in Azure. 
+  All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
+* **Directory:** An optional hierarchy of directories. 
+* **File:** A file in the share. A file may be up to 1 TB in size.
+* **URL format:** Files are addressable using the following URL format:   
   https://`<storage
   account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
   
-  Aşağıdaki örnek URL yukarıdaki diyagramda yer alan dosyalardan birini belirtmek için kullanılabilir:  
+  The following example URL could be used to address one of the files in the diagram above:  
   `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
-Dosya paylaşımlarının, dizinlerin ve dosyaların adlandırılması hakkında ayrıntılara ulaşmak için bkz. [Paylaşımları, Dizinleri, Dosyaları ve Meta Verileri Adlandırma ve Bunlara Başvuruda Bulunma](http://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).

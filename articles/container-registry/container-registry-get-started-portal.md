@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 2cd5a08cc74473be594fc3c7a4fb934d65ffe0ab
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7fbbb56d775ee96c9a44363a4e41d4fc3c630582
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -52,7 +52,7 @@ Arka plan ve kavramlar için, bkz: [genel bakış](container-registry-intro.md).
       > Kapsayıcı kayıt defterleri, bir yönetici kullanıcı hesabı aracılığıyla erişim sağlamaya ek olarak Azure Active Directory hizmet sorumluları tarafından desteklenen kimlik doğrulamasını destekler. Daha fazla bilgi ve göz önünde bulundurulması gereken diğer noktalar için bkz. [Kapsayıcı kayıt defteri ile kimlik doğrulama](container-registry-authentication.md).
       >
 
-    e. **Depolama hesabı**: Varsayılan ayarı kullanarak bir [depolama hesabı](../storage/storage-introduction.md) oluşturun veya aynı konumdaki mevcut bir depolama hesabını seçin. Premium Depolama şu anda desteklenmemektedir.
+    e. **Depolama hesabı**: Varsayılan ayarı kullanarak bir [depolama hesabı](../storage/common/storage-introduction.md) oluşturun veya aynı konumdaki mevcut bir depolama hesabını seçin. Premium Depolama şu anda desteklenmemektedir.
 
 ## <a name="manage-registry-settings"></a>Kayıt defteri ayarlarını yönetme
 Kayıt defterini oluşturduktan sonra portaldaki **Container Kayıt Defterleri** dikey penceresinden başlayarak kayıt defteri ayarlarını bulun. Örneğin, kayıt defterinizde oturum açmak için ayarlara ihtiyacınız olabilir ya da yönetici kullanıcıyı etkinleştirmek veya devre dışı bırakmak isteyebilirsiniz.

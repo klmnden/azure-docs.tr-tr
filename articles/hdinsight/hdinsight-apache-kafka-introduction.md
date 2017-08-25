@@ -1,5 +1,5 @@
 ---
-title: "HDInsight üzerinde Apache Kafka&quot;ya giriş | Microsoft Docs"
+title: "HDInsight üzerinde Apache Kafka'ya giriş | Microsoft Docs"
 description: "HDInsight üzerinde Apache Kafka hakkında bilgi edinin: Nedir, ne işe yarar, örneklere ve başlangıç bilgilerine nereden ulaşılabilir?"
 services: hdinsight
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>HDInsight üzerinde Apache Kafka’ya giriş (önizleme)
@@ -42,7 +42,7 @@ Kafka aşağıdaki özellikleri sağlar:
 
 * Azure Yönetilen Diskler ile tümleştirme: Yönetilen diskler, HDInsight kümesinde sanal makineler tarafından kullanılan diskler için daha yüksek ölçek ve aktarım hızı sağlar.
 
-    Yönetilen diskler, HDInsight üzerinde Kafka için varsayılan olarak etkindir ve düğüm başına kullanılan disk sayısı HDInsight oluşturma işlemi sırasında yapılandırılabilir. Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Diskler](../storage/storage-managed-disks-overview.md).
+    Yönetilen diskler, HDInsight üzerinde Kafka için varsayılan olarak etkindir ve düğüm başına kullanılan disk sayısı HDInsight oluşturma işlemi sırasında yapılandırılabilir. Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Diskler](../virtual-machines/windows/managed-disks-overview.md).
 
     Yönetilen disklerin HDInsight üzerinde Kafka ile yapılandırılması hakkında bilgi edinmek için bkz. [HDInsight üzerinde Kafka'nın ölçeklenebilirliğini artırma](hdinsight-apache-kafka-scalability.md).
 

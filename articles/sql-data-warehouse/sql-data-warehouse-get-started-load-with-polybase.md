@@ -1,6 +1,6 @@
 ---
-title: "SQL Veri Ambarı&quot;nda PolyBase Eğitmeni | Microsoft Belgeleri"
-description: "PolyBase&quot;in ne olduğunu ve veri depolama senaryolarında nasıl kullanılacağını öğrenin."
+title: "SQL Veri Ambarı'nda PolyBase Eğitmeni | Microsoft Belgeleri"
+description: "PolyBase'in ne olduğunu ve veri depolama senaryolarında nasıl kullanılacağını öğrenin."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 03/01/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 03d4c2a75ff99a55aaa58ca76d6145fd0eec9fac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1a26fe127448f794bbad11043aa3c8770bc2ac8c
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/18/2017
-
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>SQL Data Warehouse'da PolyBase ile veri yükleme
@@ -43,7 +41,7 @@ Bu öğreticide, AzCopy ve PolyBase kullanarak SQL Veri Ambarı’na nasıl veri
 > 
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticide ilerleyebilmeniz için, şunlar gereklidir:
 
 * SQL Data Warehouse veritabanı.
@@ -255,8 +253,8 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
-[Getting Started with the AzCopy Command-Line Utility]: ../storage/storage-use-azcopy.md
-[latest version of AzCopy]: ../storage/storage-use-azcopy.md
+[Getting Started with the AzCopy Command-Line Utility]:../storage/common/storage-use-azcopy.md
+[latest version of AzCopy]:../storage/common/storage-use-azcopy.md
 
 <!--External references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx

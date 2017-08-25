@@ -1,23 +1,23 @@
 
-Diskler hakkında daha fazla bilgi için bkz. [Sanal Makineler için Diskler ve VHD’ler hakkında](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
-## <a name="attach-an-empty-disk"></a>Boş disk ekleme
-1. Azure CLI 1.0’ı açın ve [Azure aboneliğinize bağlanın](../articles/xplat-cli-connect.md). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
-2. `azure vm disk attach-new` yazarak aşağıdaki örnekte gösterildiği gibi yeni bir disk oluşturup ekleyin. *myVM* değerini Linux Sanal Makinenizin adıyla değiştirin ve diskin GB cinsinden boyutunu belirtin (bu örnekte *100GB*):
+## <a name="attach-an-empty-disk"></a>Attach an empty disk
+1. Open Azure CLI 1.0 and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
+2. Enter `azure vm disk attach-new` to create and attach a new disk as shown in the following example. Replace *myVM* with the name of your Linux Virtual Machine and specify the size of the disk in GB, which is *100GB* in this example:
 
     ```azurecli
     azure vm disk attach-new myVM 100
     ```
 
-3. Veri diski oluşturulup eklendikten sonra aşağıdaki örnekte gösterildiği gibi `azure vm disk list <virtual-machine-name>` çıktısında listelenir:
+3. After the data disk is created and attached, it's listed in the output of `azure vm disk list <virtual-machine-name>` as shown in the following example:
    
     ```azurecli
     azure vm disk list TestVM
     ```
 
-    Çıktı aşağıdaki örneğe benzer:
+    The output is similar to the following example:
 
     ```bash
     info:    Executing command vm disk list
@@ -34,17 +34,17 @@ Diskler hakkında daha fazla bilgi için bkz. [Sanal Makineler için Diskler ve 
 
 <a id="attachexisting"></a>
 
-## <a name="attach-an-existing-disk"></a>Var olan bir diski ekleme
-Var olan bir diskin eklenmesi için depolama hesabında bir .vhd olmalıdır.
+## <a name="attach-an-existing-disk"></a>Attach an existing disk
+Attaching an existing disk requires that you have a .vhd available in a storage account.
 
-1. Azure CLI 1.0’ı açın ve [Azure aboneliğinize bağlanın](../articles/xplat-cli-connect.md). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
-2. Eklemek istediğiniz VHD’nin Azure aboneliğinize daha önce yüklenip yüklenmediğini denetleyin:
+1. Open Azure CLI 1.0 and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
+2. Check if the VHD you want to attach is already uploaded to your Azure subscription:
    
     ```azurecli
     azure vm disk list
     ```
 
-    Çıktı aşağıdaki örneğe benzer:
+    The output is similar to the following example:
 
     ```azurecli
      info:    Executing command vm disk list
@@ -58,13 +58,13 @@ Var olan bir diskin eklenmesi için depolama hesabında bir .vhd olmalıdır.
      info:    vm disk list command OK
     ```
 
-3. Kullanmak istediğiniz diski bulamazsanız `azure vm disk create` veya `azure vm disk upload` kullanarak aboneliğinize yerel bir VHD yükleyebilirsiniz. `disk create` örneği aşağıdaki gibi olacaktır:
+3. If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using `azure vm disk create` or `azure vm disk upload`. An example of `disk create` would be as in the following example:
    
     ```azurecli
     azure vm disk create myVhd .\TempDisk\test.VHD -l "East US" -o Linux
     ```
 
-    Çıktı aşağıdaki örneğe benzer:
+    The output is similar to the following example:
 
     ```azurecli
     info:    Executing command vm disk create
@@ -78,23 +78,23 @@ Var olan bir diskin eklenmesi için depolama hesabında bir .vhd olmalıdır.
     info:    vm disk create command OK
     ```
    
-   Ayrıca `azure vm disk upload` kullanarak belirli bir depolama hesabına VHD yükleyebilirsiniz. Azure sanal makine veri disklerinizi yönetme komutları hakkında daha fazla bilgi için [buraya bakın](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+   You may also use `azure vm disk upload` to upload a VHD to a specific storage account. Read more about the commands to manage your Azure virtual machine data disks [over here](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-4. Şimdi istediğiniz VHD’yi sanal makinenize ekleyin:
+4. Now you attach the desired VHD to your virtual machine:
    
     ```azurecli
     azure vm disk attach myVM myVhd
     ```
    
-   *myVM* değerini sanal makinenizin adıyla, *myVHD* değerini istediğiniz VHD ile değiştirdiğinizden emin olun.
+   Make sure to replace *myVM* with the name of your virtual machine, and *myVHD* with your desired VHD.
 
-5. `azure vm disk list <virtual-machine-name>` ile diskin sanal makineye eklendiğini doğrulayabilirsiniz:
+5. You can verify the disk is attached to the virtual machine with `azure vm disk list <virtual-machine-name>`:
    
     ```azurecli
     azure vm disk list myVM
     ```
 
-    Çıktı aşağıdaki örneğe benzer:
+    The output is similar to the following example:
 
     ```azurecli
      info:    Executing command vm disk list
@@ -111,12 +111,7 @@ Var olan bir diskin eklenmesi için depolama hesabında bir .vhd olmalıdır.
     ```
 
 > [!NOTE]
-> Bir veri diski ekledikten sonra sanal makinenin diski depolama için kullanabilmesi için sanal makinede oturum açmanız ve diski başlatmanız gerekir (diski başlatma hakkında daha fazla bilgi için aşağıdaki adımlara bakın).
+> After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage (see the following steps for more information on how to do initialize the disk).
 > 
 > 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

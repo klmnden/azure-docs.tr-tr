@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>Şirket içi StorSimple cihazınızı dağıtma
@@ -134,7 +135,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 | Bu parametre için... | Geçerliliğini denetlemek için... | Bu komutları/cmdlet'leri çalıştırın. |
 | --- | --- | --- |
-| **IP**</br>**Alt ağ**</br>**Ağ geçidi** |Bu geçerli bir IPv4 veya IPv6 adresi mi?</br>Bu geçerli bir alt ağ mı?</br>Bu geçerli bir ağ geçidi mi?</br>Bu ağ üzerinde yinelenen bir IP mi? |`ping ip`</br>`arp -a`</br> `ping` ve `arp` komutları, veri merkezinde bu IP’yi kullanan bir cihaz olmadığını belirtmek için başarısız olmalıdır. |
+| **IP**</br>**Alt ağ**</br>**Ağ geçidi** |Bu geçerli bir IPv4 veya IPv6 adresi mi?</br>Bu geçerli bir alt ağ mı?</br>Bu geçerli bir ağ geçidi mi?</br>Bu ağ üzerinde yinelenen bir IP mi? |`ping ip`</br>`arp -a`</br>`ping` ve `arp` komutları, veri merkezinde bu IP’yi kullanan bir cihaz olmadığını belirtmek için başarısız olmalıdır. |
 |  | | |
 | **DNS** |Bu Azure URL’lerini çözebilen geçerli bir DNS mi? |`Resolve-DnsName -Name www.bing.com -Server <DNS server IP address>` </br>Kullanılabilir alternatif bir komut şöyledir:</br>`nslookup --dns-ip=<DNS server IP address> www.bing.com` |
 | &nbsp; |Bağlantı noktası 53’ün açık olup olmadığını denetleyin. Bu, yalnızca cihazınız için bir dış DNS kullanıyorsanız geçerlidir. İç DNS, dış URL'leri otomatik olarak çözmelidir. |`Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000`  </br>[Bu cmdlet hakkında daha fazla bilgi](http://learn-powershell.net/2011/02/21/querying-udp-ports-with-powershell/) |
@@ -239,7 +240,7 @@ Zamanlanmış yedekleme oluşturmak için Azure klasik portalında aşağıdaki 
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Hizmet için yeni bir depolama hesabı yapılandırın
 Bu yalnızca hizmetinizle bir depolama hesabının otomatik olarak oluşturulmasını etkinleştirmediyseniz gerçekleştirmeniz gereken isteğe bağlı bir adımdır. StorSimple birim kapsayıcısı oluşturmak için bir Microsoft Azure Storage hesabı gereklidir.
 
-Farklı bir bölgede bir Azure Storage hesabı oluşturmanız gerekiyorsa, adım adım yönergeler için bkz. [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md).
+Farklı bir bölgede bir Azure Storage hesabı oluşturmanız gerekiyorsa, adım adım yönergeler için bkz. [Azure Storage hesapları hakkında](../storage/common/storage-create-storage-account.md).
 
 Azure klasik portalında **StorSimple Yöneticisi hizmeti** sayfasında aşağıdaki adımları gerçekleştirin.
 
@@ -282,10 +283,5 @@ StorSimple cihazınızda tek bir birim için bir isteğe bağlı el ile yedeklem
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Sanal cihaz](storsimple-virtual-device-u2.md) yapılandırın.
 * StorSimple cihazınızı yönetmek için [StorSimple Yöneticisi hizmetini](https://msdn.microsoft.com/library/azure/dn772396.aspx) kullanın.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

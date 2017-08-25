@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="secure-your-key-vault"></a>Anahtar kasanızın güvenliğini sağlama
@@ -197,7 +197,7 @@ Tanımlanan özel rol yalnızca ContosoAppRG kaynak grubunun oluşturulduğu abo
 
 Geliştiriciler/operatörler için "dağıtma/işlem" iznine yönelik özel rol ataması, kaynak grubu kapsamında yapılır. Bu şekilde yalnızca 'ContosoAppRG' kaynak grubunda oluşturulan VM’ler parolaları (SSL sertifikası ve önyükleme sertifikası) alır. Dev/ops ekibinin bir üyesi tarafından diğer kaynak grubunda oluşturulan VM’ler, parola URI’lerini bilseler bile bu parolaları alamaz.
 
-Bu örnekte basit bir senaryo gösterilmektedir. Gerçek yaşam senaryoları daha karmaşık olabilir ve gereksinimlerinize göre izinleri anahtar kasanıza uyarlamanız gerekebilir. Örneğin, bu örnekte güvenlik ekibinin uygulamalarında başvurmaları gereken anahtar ve parola başvurularını (URI’ler ve parmak izleri) sağladığı varsayılmaktadır. Bu nedenle, geliştiricilere/operatörlere herhangi bir veri düzlemi erişimi vermez. Ayrıca, bu örnekte anahtar kasanızın güvenliğini sağlama konusuna odaklanılmıştır. [VM’leriniz](https://azure.microsoft.com/services/virtual-machines/security/), [depolama hesaplarınız](../storage/storage-security-guide.md) ve diğer Azure kaynaklarının güvenliğini sağlamak için de benzer önem verilmelidir.
+Bu örnekte basit bir senaryo gösterilmektedir. Gerçek yaşam senaryoları daha karmaşık olabilir ve gereksinimlerinize göre izinleri anahtar kasanıza uyarlamanız gerekebilir. Örneğin, bu örnekte güvenlik ekibinin uygulamalarında başvurmaları gereken anahtar ve parola başvurularını (URI’ler ve parmak izleri) sağladığı varsayılmaktadır. Bu nedenle, geliştiricilere/operatörlere herhangi bir veri düzlemi erişimi vermez. Ayrıca, bu örnekte anahtar kasanızın güvenliğini sağlama konusuna odaklanılmıştır. [VM’leriniz](https://azure.microsoft.com/services/virtual-machines/security/), [depolama hesaplarınız](../storage/common/storage-security-guide.md) ve diğer Azure kaynaklarının güvenliğini sağlamak için de benzer önem verilmelidir.
 
 > [!NOTE]
 > Not: Bu örnekte, üretim sırasında anahtar kasası erişiminin nasıl kilitleneceği gösterilmektedir. Geliştiriciler uygulamayı geliştirdikleri kasalar, VM’ler ve depolama hesabını yönetmek için tam izinlerinin olduğu aboneliklere veya kaynak grubuna sahip olmalıdır.

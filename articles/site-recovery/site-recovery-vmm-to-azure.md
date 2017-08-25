@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Azure portalında Site Recovery’yi kullanarak VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
@@ -81,8 +81,8 @@ Yük devretme işleminden sonra oluşturulan Azure VM'lerinin bağlanacağı bir
 Site Recovery tarafından kullanılan Azure ağları, aynı abonelik içinde veya farklı abonelikler arasında [taşınamaz](../azure-resource-manager/resource-group-move-resources.md).
 
 ### <a name="set-up-an-azure-storage-account"></a>Azure depolama hesabı ayarlama
-* Azure'a çoğaltılan verileri tutmak için standart/premium Azure depolama hesabına sahip olmanız gerekir.[Premium depolama](../storage/storage-premium-storage.md) sürekli yüksek G/Ç performansına ve yoğun G/Ç kullanan iş yüklerini barındırmak için düşük gecikme süresine ihtiyaç duyan sanal makineler için kullanılır. Çoğaltılan veriler için bir premium depolama hesabı kullanmak istiyorsanız, şirket içi verilerde gerçekleşen değişiklikleri yakalayan çoğaltma günlüklerini depolamak üzere ek bir standart depolama hesabı da ayarlamanız gerekir. Hesabın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
-* Yük devri yapılan Azure VM'lerinde kullanmak istediğiniz kaynak modeline bağlı olarak [Resource Manager modunda](../storage/storage-create-storage-account.md) veya [klasik modda](../storage/storage-create-storage-account-classic-portal.md) bir hesap ayarlarsınız.
+* Azure'a çoğaltılan verileri tutmak için standart/premium Azure depolama hesabına sahip olmanız gerekir.[Premium depolama](../storage/common/storage-premium-storage.md) sürekli yüksek G/Ç performansına ve yoğun G/Ç kullanan iş yüklerini barındırmak için düşük gecikme süresine ihtiyaç duyan sanal makineler için kullanılır. Çoğaltılan veriler için bir premium depolama hesabı kullanmak istiyorsanız, şirket içi verilerde gerçekleşen değişiklikleri yakalayan çoğaltma günlüklerini depolamak üzere ek bir standart depolama hesabı da ayarlamanız gerekir. Hesabın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
+* Yük devri yapılan Azure VM'lerinde kullanmak istediğiniz kaynak modeline bağlı olarak [Resource Manager modunda](../storage/common/storage-create-storage-account.md) veya [klasik modda](../storage/common/storage-create-storage-account.md) bir hesap ayarlarsınız.
 * Başlamadan önce bir hesap ayarlamanızı öneririz. Aksi takdirde, Site Recovery dağıtımı sırasında yapmanız gerekir.
 - Site Recovery tarafından kullanılan depolama hesaplarının, aynı abonelik içinde veya farklı abonelikler arasında [taşınamadığını](../azure-resource-manager/resource-group-move-resources.md) unutmayın.
 
@@ -221,7 +221,7 @@ Hyper-V ana bilgisayarlarında çalışan Kurtarma Hizmetleri aracısının VM �
    ![Depolama](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
 
-   * Klasik modeli kullanarak bir depolama hesabı oluşturmak istiyorsanız bu işlemi Azure portalından gerçekleştirin. [Daha fazla bilgi](../storage/storage-create-storage-account-classic-portal.md)
+   * Klasik modeli kullanarak bir depolama hesabı oluşturmak istiyorsanız bu işlemi Azure portalından gerçekleştirin. [Daha fazla bilgi](../storage/common/storage-create-storage-account.md)
    * Çoğaltılan veriler için bir premium depolama hesabı kullanıyorsanız, şirket içi verilerde gerçekleşen değişiklikleri yakalayan çoğaltma günlüklerini depolamak üzere ek bir standart depolama hesabı ayarlayın.
 5. Henüz bir Azure ağı oluşturmadıysanız ve Resource Manager’ı kullanarak bir ağ oluşturmak istiyorsanız bu işlemi satır içinde yapmak için **+Ağ** seçeneğine tıklayın. **Sanal ağ oluştur** dikey penceresinde ağ adı, adres aralığı, alt ağ ayrıntıları, abonelik ve konum belirtin. Ağın, Kurtarma Hizmetleri kasasıyla aynı konumda olması gerekir.
 
@@ -261,7 +261,7 @@ Ağ eşlemesi başladığında gerçekleşecekler şunlardır:
 3. **Kopyalama sıklığı** kısmında, ilk çoğaltmadan sonra değişim verilerini ne sıklıkta çoğaltacağınızı belirleyin (30 saniyede, 5 veya 15 dakikada bir).
 
     > [!NOTE]
-    >  Premium depolama hesabına çoğaltırken 30 saniyelik aralık desteklenmez. Sınırlama premium depolama tarafından desteklenen blob başına anlık görüntü sayısıyla (100) belirlenir. [Daha fazla bilgi](../storage/storage-premium-storage.md#snapshots-and-copy-blob)
+    >  Premium depolama hesabına çoğaltırken 30 saniyelik aralık desteklenmez. Sınırlama premium depolama tarafından desteklenen blob başına anlık görüntü sayısıyla (100) belirlenir. [Daha fazla bilgi](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
 
 4. **Kurtarma noktası bekletme** bölümünde, her kurtarma noktası için bekletme süresinin ne kadar olacağını saat cinsinden belirtin. Korumalı makineler, bu süre içindeki herhangi bir noktaya kurtarılabilir.
 5. **Uygulamayla tutarlı anlık görüntü sıklığı** kısmında, uygulamayla tutarlı anlık görüntüleri içeren kurtarma noktasının hangi sıklıkta oluşturulacağını (1-12 saat) belirtin. Hyper-V iki çeşit anlık görüntü kullanır: tüm sanal makinenin artımlı anlık görüntüsünü sunan standart anlık görüntü ve sanal makine içinde uygulama verilerinin belirli bir noktadaki anlık görüntüsünü alan uygulamayla tutarlı anlık görüntü. Uygulamayla tutarlı anlık görüntüler, anlık görüntü alınırken uygulamaların tutarlı bir durumda olmasını sağlamak için Birim Gölge Kopyası Hizmeti'ni (VSS) kullanır. Uygulamayla tutarlı anlık görüntüleri etkinleştirirseniz kaynak sanal makinelerde çalışan uygulamaların performansının etkileneceğini unutmayın. Ayarladığınız değerin, yapılandırdığınız ilave kurtarma noktası sayısından daha az olduğundan emin olun.
@@ -307,7 +307,7 @@ Başlamadan önce Azure kullanıcı hesabınızın yeni bir sanal makinenin Azur
 3. **Hedef** kısmında aboneliği, yük devretme sonrası dağıtım modelini ve çoğaltılan veriler için kullandığınız depolama hesabını seçin.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
-4. Kullanmak istediğiniz depolama hesabını seçin. Sahip olduğunuz hesaplardan farklı bir depolama hesabı kullanmak isterseniz [yeni bir hesap](#set-up-an-azure-storage-account) oluşturabilirsiniz. Çoğaltılan veriler için bir premium depolama hesabı kullanıyorsanız şirket içi verilerde gerçekleşen değişiklikleri yakalayan çoğaltma günlüklerini depolamak üzere ek bir standart depolama hesabı seçmeniz gerekir. Resource Manager kullanarak depolama hesabı oluşturmak için **Yeni oluştur**'a tıklayın. Klasik modeli kullanarak bir depolama hesabı oluşturmak istiyorsanız bu işlemi [Azure portalından](../storage/storage-create-storage-account-classic-portal.md) gerçekleştirin. Daha sonra, **Tamam**'a tıklayın.
+4. Kullanmak istediğiniz depolama hesabını seçin. Sahip olduğunuz hesaplardan farklı bir depolama hesabı kullanmak isterseniz [yeni bir hesap](#set-up-an-azure-storage-account) oluşturabilirsiniz. Çoğaltılan veriler için bir premium depolama hesabı kullanıyorsanız şirket içi verilerde gerçekleşen değişiklikleri yakalayan çoğaltma günlüklerini depolamak üzere ek bir standart depolama hesabı seçmeniz gerekir. Resource Manager kullanarak depolama hesabı oluşturmak için **Yeni oluştur**'a tıklayın. Klasik modeli kullanarak bir depolama hesabı oluşturmak istiyorsanız bu işlemi [Azure portalından](../storage/common/storage-create-storage-account.md) gerçekleştirin. Daha sonra, **Tamam**'a tıklayın.
 5. Yük devretme sonrasında oluşturulan Azure VM'lerinin bağlanacağı Azure ağını ve alt ağını seçin. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Her makine için Azure ağını ayrı ayrı seçmek üzere **Daha sonra yapılandır**'ı seçin. Sahip olduğunuz ağlardan farklı bir ağ kullanmak isterseniz [yeni bir ağ](#set-up-an-azure-network) oluşturabilirsiniz. Resource Manager modelini kullanarak bir ağ oluşturmak için **Yeni oluştur**'a tıklayın. Klasik modeli kullanarak bir ağ oluşturmak isterseniz bu işlemi [Azure portalından](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) gerçekleştirin. Bir alt ağ (varsa) seçin. Daha sonra, **Tamam**'a tıklayın.
 6. **Sanal Makineler** > **Sanal makine seçin** seçeneklerine tıklayın ve çoğaltmak istediğiniz makineleri seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
 

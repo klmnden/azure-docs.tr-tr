@@ -1,11 +1,6 @@
-## <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
-İlk Azure Storage hesabınızı oluşturmanın en kolay yolu [Azure Portal](https://portal.azure.com)’ı kullanmaktır. Daha fazla bilgi için bkz. [Depolama hesabı oluşturma](../articles/storage/storage-create-storage-account.md#create-a-storage-account).
+## <a name="create-an-azure-storage-account"></a>Create an Azure storage account
+The easiest way to create your first Azure storage account is by using the [Azure Portal](https://portal.azure.com). To learn more, see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-[Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/storage-azure-cli.md) veya [.NET için Depolama Kaynak Sağlayıcısı İstemci Kitaplığı](https://msdn.microsoft.com/library/azure/mt131037.aspx)’nı da kullanarak Azure Storage esabı oluşturabilirsiniz.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+You can also create an Azure storage account by using [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
 
 
