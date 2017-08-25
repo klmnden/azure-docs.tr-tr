@@ -1,10 +1,10 @@
 ---
-title: "Kullanıcılarınız için Azure AD&quot;ye Katılımı ayarlama | Microsoft Belgeleri"
+title: "Kullanıcılarınız için Azure AD'ye Katılımı ayarlama | Microsoft Belgeleri"
 description: "Yöneticilerin, şirket içi dizin ve cihaz kaydı için Azure AD Katılımını nasıl ayarlayacakları açıklanmaktadır."
 services: active-directory
 documentationcenter: 
-author: femila
-manager: swadhwa
+author: MarkusVi
+manager: femila
 editor: 
 tags: azure-classic-portal
 ms.assetid: bfc5d415-c918-4d8b-afee-b3f41cc28469
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 0480c4f89b6036897bc8d7eff81b56262ea8806c
 ms.openlocfilehash: e4e0fa77552c4df2ea5bb9ddae916e7c661824d1
 ms.contentlocale: tr-tr
 ms.lasthandoff: 02/23/2017
-
 
 ---
 # <a name="setting-up-azure-ad-join-in-your-organization"></a>Kuruluşunuzda Azure AD'ye Katılımı ayarlama
