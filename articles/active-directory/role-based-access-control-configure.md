@@ -3,7 +3,7 @@ title: "Azure portalında Rol Tabanlı Access Control | Microsoft Docs"
 description: "Azure Portal'da Rol Tabanlı Erişim Denetimi ile erişim yönetimine başlayın. Kaynaklarınıza izinler atamak için rol atamalarını kullanın."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/17/2017
-ms.author: kgremban
+ms.author: andredm
 ms.reviewer: rqureshi
 ms.translationtype: HT
 ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148

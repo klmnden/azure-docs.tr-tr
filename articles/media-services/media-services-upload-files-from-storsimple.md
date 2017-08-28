@@ -1,10 +1,10 @@
 ---
 title: "Azure StorSimple’dan Azure Media Services hesabına dosya yükleme | Microsoft Docs"
-description: "Bu makalede Azure StorSimple Veri Yöneticisi&quot;ne ilişkin kısa bir genel bakış sunulmaktadır. Bu makale ayrıca StorSimple’dan verileri ayıklama ve bir Azure Media Services hesabına varlık olarak yükleme işlemini gösteren öğreticilerin bağlantılarını içerir."
+description: "Bu makalede Azure StorSimple Veri Yöneticisi'ne ilişkin kısa bir genel bakış sunulmaktadır. Bu makale ayrıca StorSimple’dan verileri ayıklama ve bir Azure Media Services hesabına varlık olarak yükleme işlemini gösteren öğreticilerin bağlantılarını içerir."
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 1dd09328-262b-43ef-8099-73241b49a925
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/27/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 866bc2c05acafa5ce6bf535bfce2de577cf98c0b
+ms.contentlocale: tr-tr
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple’dan Azure Media Services hesabına dosya yükleme

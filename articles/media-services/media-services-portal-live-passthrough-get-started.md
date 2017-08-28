@@ -4,7 +4,7 @@ description: "Bu öğretici, doğrudan teslimat için yapılandırılmış bir K
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services

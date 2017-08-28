@@ -4,7 +4,7 @@ description: "Bu konu başlığı altında, Microsoft Azure Media Services senar
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.service: media-services
 ms.workload: media
