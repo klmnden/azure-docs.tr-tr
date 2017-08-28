@@ -1,1 +1,0 @@
-![desenler ve uygulamalar](media/guidance-pnp-include/pnp-logo.png)
