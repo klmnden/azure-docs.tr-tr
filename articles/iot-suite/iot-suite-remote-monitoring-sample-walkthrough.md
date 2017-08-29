@@ -78,7 +78,7 @@ Sanal cihazlar IoT hub içindeki [ikize][lnk-device-twins] aşağıdaki cihaz ö
 | System.Processor |Cihazı çalıştıran işlemci |
 | System.InstalledRAM |Cihazda yüklü RAM miktarı |
 
-Benzetici, örnek değerlerle sanal cihazlarda bu özelliklerin çekirdeğini oluşturur. Simülatör sanal cihazı her başlattığında, cihaz IoT Hub'ına önceden tanımlanmış meta verileri bildirilen özellik olarak gönderir. Bildirilen özellikler yalnızca cihaz tarafından güncelleştirilebilir. Bildirilen bir özelliği değiştirmek için çözüm portalında istenen bir özelliği ayarlayın. Aşağıdaki işlemler cihazın sorumluluğundadır:
+Simülatör, örnek değerlerle sanal cihazlarda bu özelliklerin çekirdeğini oluşturur. Simülatör sanal cihazı her başlattığında, cihaz IoT Hub'ına önceden tanımlanmış meta verileri bildirilen özellik olarak gönderir. Bildirilen özellikler yalnızca cihaz tarafından güncelleştirilebilir. Bildirilen bir özelliği değiştirmek için çözüm portalında istenen bir özelliği ayarlayın. Aşağıdaki işlemler cihazın sorumluluğundadır:
 
 1. İstenen özellikleri IoT hub'ından düzenli olarak alma.
 2. Yapılandırmasını istenen özellik değeriyle güncelleştirme.
@@ -111,7 +111,7 @@ Sanal cihazlar IoT hub aracılığıyla çözüm portalından gönderilen aşağ
 | StartTelemetry |Cihazın telemetri göndermesini başlatır |
 | StopTelemetry |Cihazın telemetri göndermesini durdurur |
 | ChangeSetPointTemp |Çevresinde rastgele verilerin oluşturulduğu ayar noktası değerini değiştirir |
-| DiagnosticTelemetry |Ek bir telemetri değeri (externalTemp) göndermek için cihaz benzeticisini tetikler |
+| DiagnosticTelemetry |Ek bir telemetri değeri (externalTemp) göndermek için cihaz simülatörünü tetikler |
 | ChangeDeviceState |Cihazla ilgili genişletilmiş durum özelliğini değiştirir ve cihazdan cihaz bilgi iletisi gönderir |
 
 > [!NOTE]
@@ -237,7 +237,7 @@ ASA işleri **cihaz bilgisi** ve **kurallar** verilerini, WebJob’da çalışan
 
 ## <a name="webjobs"></a>WebJobs
 
-WebJobs cihaz benzeticilerini barındırmaya ek olarak çözüm içinde komut yanıtlarını işleyen bir Azure WebJob içinde çalışan **Olay İşleyicisi**’ni de barındırır. Cihaz komut geçmişini (Cosmos DB veritabanında depolanır) güncelleştirmek için komut yanıtı iletilerini kullanır.
+WebJobs cihaz simülatörlerini barındırmaya ek olarak çözüm içinde komut yanıtlarını işleyen bir Azure WebJob içinde çalışan **Olay İşleyicisi**’ni de barındırır. Cihaz komut geçmişini (Cosmos DB veritabanında depolanır) güncelleştirmek için komut yanıtı iletilerini kullanır.
 
 ## <a name="cosmos-db"></a>Cosmos DB
 
