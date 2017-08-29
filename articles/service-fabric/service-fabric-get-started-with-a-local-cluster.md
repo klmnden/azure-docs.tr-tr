@@ -32,7 +32,7 @@ Azure Service Fabric SDK, yerel bir kümede hızlıca dağıtma ve uygulamaları
 ## <a name="create-a-local-cluster"></a>Yerel bir küme oluşturma
 Service Fabric kümesi, uygulamaları dağıtabileceğiniz bir dizi donanım kaynağını ifade eder. Genel olarak, bir küme herhangi bir yerden oluşturulabilir ve en az beş olmak üzere yüzlerce makine içerebilir. Ancak Service Fabric SDK yalnızca tek bir makinede çalışabilen küme yapılandırması içerir.
 
-Service Fabric yerel kümesinin bir öykünücü veya benzetici olmadığını anlamak oldukça önemlidir. Çok makineli kümelerde bulunan aynı platform kodunu çalıştırır. Tek fark, normalde beş makineye yayılan platform işlemlerini tek bir makinede çalıştırmasıdır.
+Service Fabric yerel kümesinin bir öykünücü veya simülatör olmadığını anlamak oldukça önemlidir. Çok makineli kümelerde bulunan aynı platform kodunu çalıştırır. Tek fark, normalde beş makineye yayılan platform işlemlerini tek bir makinede çalıştırmasıdır.
 
 SDK, yerel küme ayarlamak için iki yöntem sunar: Windows PowerShell betiği ve Yerel Küme Yöneticisi sistemi tepsisi uygulaması. Bu öğreticide PowerShell betiğini kullanıyoruz.
 
@@ -193,7 +193,7 @@ Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. 
 ## <a name="one-node-and-five-node-cluster-mode"></a>Tek düğümlü ve beş düğümlü küme modu
 Uygulama geliştirirken çoğunlukla kendinizi kod yazma, hata ayıklama, kod değiştirme ve hata ayıklama işlemlerini yinelerken bulursunuz. Bu işlemi en iyi duruma getirmek için yerel küme iki modda çalışabilir: tek düğümlü veya beş düğümlü. Her iki küme modunun da faydaları vardır. Beş düğümlü küme modu gerçek bir küme ile çalışmanıza olanak tanır. Yük devretme senaryolarını test edebilir, hizmetlerinizin daha fazla örneği ve yinelemeleri ile çalışabilirsiniz. Tek düğümlü küme modu Service Fabric çalışma zamanı kullanılarak kodu hızlıca doğrulamanıza yardımcı olmak amacıyla hizmetlerin hızlı dağıtımını ve kaydını yapmak üzere en iyi hale getirilmiştir.
 
-Tek düğümlü küme de beş düğümlü küme de öykünücü veya benzetici değildir. Yerel geliştirme kümesi çok makineli kümelerde bulunan aynı platform kodunu çalıştırır.
+Tek düğümlü küme de beş düğümlü küme de öykünücü veya simülatör değildir. Yerel geliştirme kümesi çok makineli kümelerde bulunan aynı platform kodunu çalıştırır.
 
 > [!WARNING]
 > Küme modunu değiştirdiğinizde geçerli küme sisteminizden kaldırılır ve yeni bir küme oluşturulur. Küme modunu değiştirdiğinizde kümede depolanan veriler silinir.
