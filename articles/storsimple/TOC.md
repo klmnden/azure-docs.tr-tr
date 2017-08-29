@@ -166,11 +166,13 @@
 #### [Diğer depolama cihazlarından](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Güncelleştirme
-#### [Güncelleştirme 4'ü yükleme - geçerli](storsimple-8000-install-update-4.md)
+#### [Güncelleştirme 5'i yükleme - geçerli](storsimple-8000-install-update-5.md)
+#### [Güncelleştirme 4'ü yükleme](storsimple-8000-install-update-4.md)
 
 
 ## Sürüm notları
-### [Güncelleştirme 4 - geçerli](storsimple-update4-release-notes.md)
+### [Güncelleştirme 5 - geçerli](storsimple-update5-release-notes.md)
+### [Güncelleştirme 4](storsimple-update4-release-notes.md)
 ### [Güncelleştirme 3](storsimple-update3-release-notes.md)
 ### [Güncelleştirme 2.2](storsimple-update21-release-notes.md)
 

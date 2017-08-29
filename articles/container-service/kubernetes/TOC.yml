@@ -33,17 +33,15 @@
   items:
     - name: Güvenli kapsayıcılar
       href: container-service-security.md
-    - name: Hizmet sorumlusu - Kubernetes
-      href: container-service-kubernetes-service-principal.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Windows Hızlı Başlangıç ile Kubernetes
+    - name: Windows ile Kubernetes
       href: container-service-kubernetes-windows-walkthrough.md
-    - name: Kapsayıcı yönetimi - Kubernetes UI
+    - name: Kubernetes web arabirimi
       href: container-service-kubernetes-ui.md
     - name: Helm grafiklerini dağıtma
       href: container-service-kubernetes-helm.md
-    - name: Kubernetes ve Jenkins ile CI/CD
+    - name: Jenkins ve ACS Kubernetes
       href: container-service-kubernetes-jenkins.md
     - name: ACR ve ACS ile Taslak kullanma
       href: container-service-draft-up.md

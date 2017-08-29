@@ -298,6 +298,16 @@
     - name: Depolama
       tocHref: /azure/storage/
       topicHref: /azure/storage/
+      items:
+        - name: Bloblar
+          tocHref: /azure/storage/blobs/
+          topicHref: /azure/storage/blobs/storage-blobs-introduction
+        - name: Dosyalar
+          tocHref: /azure/storage/files/
+          topicHref: /azure/storage/files/storage-files-introduction
+        - name: Kuyruklar
+          tocHref: /azure/storage/queues/
+          topicHref: /azure/storage/queues/storage-queues-introduction
     - name: StorSimple
       tocHref: /azure/storsimple/
       topicHref: /azure/storsimple/

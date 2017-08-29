@@ -32,6 +32,7 @@
 ### [Kaydolma sorunları](billing-troubleshoot-azure-sign-up-issues.md)
 ### [Reddedilen kart](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Oturum açma sorunları](billing-cannot-login-subscription.md)
+### [Abonelik bulunamadı](billing-no-subscriptions-found.md)
 
 # Başvuru
 ## [API’ye Genel Bakış](billing-usage-rate-card-overview.md)
