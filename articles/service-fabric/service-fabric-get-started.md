@@ -12,14 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/20/2017
+ms.date: 08/10/2017
 ms.author: ryanwi, mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 926dfe3de0715f855e6d5b57f10c2366cda8583b
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f0c6957217c21bdfd76498944e248fc808f2d271
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="prepare-your-development-environment"></a>Geliştirme ortamınızı hazırlama
@@ -64,16 +63,11 @@ Yalnızca SDK'yı yüklemeniz gerekiyorsa bu paketi yükleyebilirsiniz:
 * [Microsoft Azure Service Fabric SDK'sını yükleyin][core-sdk]
 
 Geçerli sürümler şunlardır:
-* Service Fabric SDK'sı 2.6.220
-* Service Fabric çalışma zamanı 5.6.220
-* Visual Studio 2015 araçları 1.6.50508.2
-* Visual Studio 2017 Güncelleştirme 2
-
-Geçerli önizleme sürümleri şunlardır:
-* Service Fabric SDK'sı 255.255.2718.255
-* Service Fabric çalışma zamanı 255.255.5718.255
-* Visual Studio 2015 araçları 1.6.50509.5
-* Visual Studio 2017 Güncelleştirme 3 Önizleme 1
+* Service Fabric SDK 2.7.198
+* Service Fabric çalışma zamanı 5.7.198
+* Visual Studio 2015 1.7.50721 için Service Fabric Araçları
+* Visual Studio 2017 Güncelleştirme 2, Visual Studio 1.6.20170504 için Service Fabric Araçlarını içerir
+* Visual Studio 2017 Güncelleştirme 3 Önizleme 7, (15.3.0 Önizleme 7.0) Visual Studio 1.7.20170721 için Service Fabric Araçlarını içerir
 
 Desteklenen sürümlerin listesi için bkz. [Service Fabric desteği](service-fabric-support.md)
 

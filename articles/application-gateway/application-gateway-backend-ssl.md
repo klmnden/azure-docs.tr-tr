@@ -1,5 +1,5 @@
 ---
-title: "Application Gateway’de SSL İlkesi ve uçtan uca SSL’yı etkinleştirme | Microsoft Belgeleri"
+title: "Azure Application Gateway’de uçtan uca SSL’yi etkinleştirme | Microsoft Docs"
 description: "Bu sayfada, Application Gateway uçtan uca SSL desteği için genel bir bakış sunulmuştur."
 documentationcenter: na
 services: application-gateway
@@ -13,16 +13,16 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 07/19/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 40368e31790a7ffa2d34a51a13e78d028cd0a1eb
-ms.lasthandoff: 04/05/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 689ee54dc1db2ea371b08270718278fd98c65bb5
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Uçtan uca SSL ve Application Gateway üzerinde SSL İlkesine genel bakış
+# <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Application Gateway ile uçtan uca SSL’ye genel bakış
 
 Application Gateway, ağ geçidinde SSL sonlandırmasını destekler. Bu sonlandırmanın ardından, trafik genelde arka uç sunucularına şifrelenmemiş olarak akar. Bu özellik, web sunucularının maliyetli şifreleme ve şifre çözme ek yükünden kurtulmasını sağlar. Ancak arka uç sunucularıyla şifrelenmemiş iletişim, bazı müşteriler için kabul edilebilir bir seçenek değildir. Bunun şifrelenmemiş iletişimin nedeni, güvenlik gereksinimleri, uyumluluk gereksinimleri veya uygulamanın yalnızca güvenli bağlantı kabul etmesi olabilir. Application Gateway, böyle uygulamalar için uçtan uca SSL şifrelemesini desteklemektedir.
 
@@ -40,17 +40,9 @@ Bu örnekte, TLS1.2 kullanan istekler, uçtan uca SSL kullanılarak Pool1'deki s
 
 Uygulama ağ geçidi, yalnızca sertifikalarını uygulama ağ geçidiyle güvenilir listeye aldırmış, bilinen arka uç örnekleriyle iletişim kurar. Sertifikaların güvenilir listeye alınmasını etkinleştirmek için, arka uç sunucusu sertifikalarının ortak anahtarlarını uygulama ağ geçidine (kök sertifika değil) yüklemeniz gerekir. Bunun ardından, yalnızca bilinen ve güvenilir listeye alınmış arka uçlara yönelik bağlantılara izin verilir. Geriye kalan arka uçlar, ağ geçidi hatasına neden olur. Otomatik olarak imzalanan sertifikalar, yalnızca test amaçlarına yöneliktir ve üretim iş yükleri için önerilmez. Bunun gibi sertifikaların kullanılabilmesi için, önceki adımlarda açıklandığı şekilde uygulama ağ geçidiyle güvenilir listeye alınmaları gerekir.
 
-## <a name="application-gateway-ssl-policy"></a>Application Gateway SSL İlkesi
-
-Application Gateway, kullanıcı tarafından yapılandırılabilen SSL anlaşma ilkelerini destekler. Bu ilkeler, müşterilere uygulama ağ geçidindeki SSL bağlantıları üzerinde daha büyük denetim sağlar.
-
-1. SSL 2.0 ve 3.0, tüm Application Gateway'ler için varsayılan olarak devre dışı bırakılır. Bu ilkeler yapılandırılamaz.
-2. SSL ilkesi tanımı, şu üç protokolden herhangi birini devre dışı bırakma seçeneği sunar: **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2**.
-3. Hiçbir SSL ilkesi tanımlanmazsa üçü de (TLSv1\_0, TLSv1\_1, TLSv1_2) etkinleştirilir.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uçtan uca SSL ve SSL ilkesi hakkında bilgi edindikten sonra uçtan uca SSL kullanan uygulama ağ geçidi oluşturmak için [Uygulama ağ geçidinde uçtan uca SSL'yi etkinleştirme](application-gateway-end-to-end-ssl-powershell.md) bölümüne gidin.
+Uçtan uca SSL hakkında bilgi edindikten sonra uçtan uca SSL kullanan uygulama ağ geçidi oluşturmak için [Uygulama ağ geçidinde uçtan uca SSL'yi etkinleştirme](application-gateway-end-to-end-ssl-powershell.md) bölümüne gidin.
 
 <!--Image references-->
 

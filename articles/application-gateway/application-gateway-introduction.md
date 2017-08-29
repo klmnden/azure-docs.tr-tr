@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 396d8b9532eb55341670ad61bd4c2a16882b35e4
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Application Gateway'e genel bakış
@@ -42,6 +42,7 @@ Application Gateway şu anda aşağıdaki özellikleri sunmaktadır:
 * **[Çok siteli yönlendirme](application-gateway-multi-site-overview.md)** - Application Gateway, tek bir uygulama ağ geçidi üzerinde 20’ye kadar web sitesini birleştirmenize olanak tanır.
 * **[Websocket desteği](application-gateway-websocket.md)** - Application Gateway’in bir diğer harika özelliği ise Websocket’e yönelik yerel desteğidir.
 * **[Sistem durumu izleme](application-gateway-probe-overview.md)** - Application Gateway, daha ayrıntılı senaryoları izlemek üzere arka uç kaynaklarına ve özel araştırmalara yönelik varsayılan sistem durumu izleme özelliğini sağlar.
+* **[SSL İlkesi ve Şifreler](application-gateway-ssl-policy-overview.md)** - Bu özellik, SSL protokolü sürümlerini sınırlama imkanı sağlar ve desteklenen şifre paketleri ile bunların işlenme sırasını şifreler.
 * **[İstek yönlendirme](application-gateway-redirect-overview.md)** - Bu özellik HTTP isteklerini HTTPS dinleyicisine yönlendirebilmeyi sağlar.
 * **[Çok kiracılı arka uç desteği](application-gateway-web-app-overview.md)**  - Application gateway, Azure Web Apps ve API Ağ Geçidi gibi çok kiracılı arka uç hizmetlerini arka uç havuz üyeleri olarak yapılandırmayı destekler. 
 * **[Gelişmiş tanılama](application-gateway-diagnostics.md)** - Application gateway tam tanılama ve erişim günlükleri sağlar. Güvenlik duvarı günlükleri, WAF’nin etkin olduğu application gateway kaynakları için kullanılabilir.
@@ -105,5 +106,5 @@ Application Gateway hakkında bilgi aldıktan sonra [bir uygulama ağ geçidi ol
 
 URL tabanlı içerik yönlendirmeyi kullanarak bir uygulama ağ geçidi oluşturma hakkında daha fazla bilgi almak için [URL tabanlı yönlendirme kullanarak uygulama ağ geçidi oluşturma](application-gateway-create-url-route-arm-ps.md) bölümüne gidin.
 
-Azure’un diğer önemli ağ özellikleri hakkında daha fazla bilgi edinmek için bkz. [Azure Ağı]((../networking/networking-overview.md).
+Azure'un diğer önemli ağ özelliklerinden bazıları hakkında bilgi edinmek için bkz. [Azure Ağı](../networking/networking-overview.md).
 

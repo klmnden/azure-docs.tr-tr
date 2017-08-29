@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/26/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus kuyrukları ile çalışmaya başlama
@@ -57,7 +57,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
 
 ### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet paketi ekleme
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
-2. **Gözat** sekmesine tıklayın, **Microsoft Azure Service Bus**'ı bulun ve ardından **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
+2. **Gözat** sekmesine tıklayın, **Microsoft Azure Service Bus** araması yapın ve **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
    
     ![NuGet paketi seçme][nuget-pkg]
 

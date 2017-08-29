@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 85d89568f5022dafd44ae7f8578e0bebb22d472d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
@@ -44,7 +44,7 @@ Hatta Sanal Ağdan Sanal Ağa iletişim çok siteli yapılandırmalarla bile bir
 
 ![Bağlantılar hakkında](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>Sanal ağları neden bağlamalıyız?
+### <a name="why"></a>Sanal ağları neden bağlamalıyız?
 
 Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
@@ -185,11 +185,11 @@ Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-4---create-the-connections"></a>4. Adım - Bağlantıları oluşturma
+### <a name="createconnect"></a>4. Adım - Bağlantıları oluşturma
 
 Artık VPN ağ geçitleri olan iki sanal ağınız var. Bir sonraki adım, sanal ağın ağ geçitleri arasındaki VPN ağ geçidi bağlantılarını oluşturmaya yöneliktir. Yukarıdaki örnekleri kullandıysanız, VNet ağ geçitleriniz farklı kaynak gruplarındadır. Ağ geçitleri farklı kaynak gruplarında olduğunda, bir bağlantı oluşturduğunuz sırada her ağ geçidinin kaynak kimliklerini tanımlamanız ve belirtmeniz gerekir. VNet’leriniz aynı kaynak grubundaysa, kaynak kimliklerini belirtmeniz gerekmeyeceğinden [ikinci yönerge kümesini](#samerg) kullanabilirsiniz.
 
-### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a>Farklı kaynak gruplarında bulunan VNet’leri bağlamak için
+### <a name="diffrg"></a>Farklı kaynak gruplarında bulunan VNet’leri bağlamak için
 
 1. Aşağıdaki komutun çıktısından VNet1GW öğesinin Kaynak Kimliğini alın:
 
@@ -322,7 +322,7 @@ Bu adım, yeni abonelik (5. Abonelik) bağlamında tamamlanmalıdır. Bu kısım
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-8---create-the-connections"></a>8. Adım - Bağlantıları oluşturma
+### <a name="connections5"></a>8. Adım - Bağlantıları oluşturma
 
 Bu örnekteki ağ geçitleri farklı aboneliklerde olduğundan, bu adımı **[1. Abonelik]** ve **[5. Abonelik]** olarak işaretlenen iki CLI oturumuna ayırdık. Abonelikler arasında geçiş yapmak için 'az account list --all' komutunu kullanarak hesabınızda kullanılabilen tüm abonelikleri listeleyin ve ardından 'az account set --subscription <subscriptionID>' komutuyla kullanmak istediğiniz aboneliğe geçin.
 

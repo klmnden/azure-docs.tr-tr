@@ -1,131 +1,131 @@
 
 
 
-This article addresses some common questions users ask about Azure virtual machines created with the classic deployment model.
+Bu makale, kullanıcıların klasik dağıtım modeliyle oluşturulmuş Azure sanal makineleri hakkında sorduğu bazı yaygın sorular ele alınmıştır.
 
-## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>Can I migrate my VM created in the classic deployment model to the new Resource Manager model?
-Yes. For instructions on how to migrate, see:
+## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>Klasik dağıtım modelinde oluşturulmuş sanal makinemi Resource Manager modeline geçirebilir miyim?
+Evet. Nasıl geçiş yapıldığı ile ilgili yönergeler için bkz.
 
-* [Migrate from classic to Azure Resource Manager using Azure PowerShell](../articles/virtual-machines/windows/migration-classic-resource-manager-ps.md).
-* [Migrate from classic to Azure Resource Manager using Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
+* [Azure PowerShell kullanarak klasikten Azure Resource Manager’a geçiş](../articles/virtual-machines/windows/migration-classic-resource-manager-ps.md).
+* [Azure CLI kullanarak klasikten Azure Resource Manager’a geçiş](../articles/virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md).
 
-## <a name="what-can-i-run-on-an-azure-vm"></a>What can I run on an Azure VM?
-All subscribers can run server software on an Azure virtual machine. You can run recent versions of Windows Server, as well as a variety of Linux distributions. For support details, see:
+## <a name="what-can-i-run-on-an-azure-vm"></a>Azure sanal makinesinde ne çalıştırabilirim?
+Tüm aboneler bir Azure sanal makinesinde sunucu yazılımı çalıştırabilir. Windows Server’ın yeni sürümlerinin yanı sıra çeşitli Linux dağıtımlarını çalıştırabilirsiniz. Destek ayrıntıları için bkz.
 
-• For Windows VMs -- [Microsoft server software support for Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Windows VM’leri için -- [Azure Sanal Makineleri için Microsoft sunucu yazılımı desteği](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• For Linux VMs -- [Linux on Azure-Endorsed Distributions](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• Linux VM’leri için -- [Azure Destekli Dağıtımlarda Linux](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks. For details, including instructions and limitations, see [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
+Windows istemci görüntüleri için MSDN Azure avantajı aboneleri ve MSDN Geliştirme ve Test Kullandıkça Öde aboneleri geliştirme ve test görevlerinde Windows 7 ve Windows 8.1’in belirli sürümlerini kullanabilir. Yönerge ve kısıtlamalar dahil olmak üzere ayrıntılı bilgi edinmek için bkz. [MSDN aboneleri için Windows İstemci görüntüleri](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
-## <a name="why-are-affinity-groups-being-deprecated"></a>Why are affinity groups being deprecated?
-Affinity groups are a legacy concept for a geographical grouping of a customer’s cloud service deployments and storage accounts within Azure. They were originally provided to improve VM-to-VM network performance in the early Azure network designs. They also supported the initial release of virtual networks (VNets), which were limited to a small set of hardware in a region.
+## <a name="why-are-affinity-groups-being-deprecated"></a>Benzeşim grupları neden kullanımdan kaldırılıyor?
+Benzeşim grupları, bir müşterinin Azure içindeki bulut hizmeti dağıtımlarının ve depolama hesaplarının coğrafi olarak gruplandırılmasıyla ilgili eski bir kavramdır. Başlangıçta, ilk Azure ağ tasarımlarında VM’ler arası ağ performansını geliştirmek için sağlanıyordu. Bunlar, sanal ağların (VNet) bir bölgedeki az sayıda donanımla sınırlı olacak şekilde ilk kez yayınlanmasını da destekliyordu.
 
-The current Azure network within a region is designed so that affinity groups are no longer required. Virtual networks are also at a regional scope, so an affinity group is no longer required when you use a virtual network. Due to these improvements, we no longer recommend that customers use affinity groups because they can be limiting in some scenarios. Using affinity groups will unnecessarily associate your VMs to specific hardware that limits the choice of VM sizes that are available to you. It might also lead to capacity-related errors when you attempt to add new VMs if the specific hardware associated with the affinity group is near capacity.
+Şu anki bölge içi Azure ağı, benzeşim gruplarını gereksinimini ortadan kaldıracak şekilde tasarlanmıştır. Sanal ağlar da bölgesel bir kapsamda olduğundan, artık sanal ağ kullanılırken benzeşim grubu gerekmez. Bu geliştirmeler nedeniyle, müşterilerin bazı senaryolarda kısıtlayıcı olabilecek benzeşim gruplarını kullanması artık önerilmez. Benzeşim gruplarının kullanılması VM’lerinizi gereksiz yere belirli donanımlarla ilişkilendirir ve bu da VM boyutu seçeneklerinizi azaltır. Ayrıca, benzeşim grubuyla ilişkili donanımın kapasitesi dolmak üzere olduğunda yeni VM ekleme girişimleriniz kapasiteyle ilgili hatalara yol açabilir.
 
-Affinity group features are already deprecated in the Azure Resource Manager deployment model and in the Azure portal. For the classic Azure portal, we're deprecating support for creating affinity groups and creating storage resources that are pinned to an affinity group. You don't need to modify existing cloud services that are using an affinity group. However, you should not use affinity groups for new cloud services unless an Azure support professional recommends them.
+Benzeşim grubu özellikleri Azure Resource Manager dağıtım modelinde ve Azure portalında zaten kullanımdan kaldırılmıştır. Klasik Azure portalı için benzeşim grupları oluşturma ve bir benzeşim grubuna sabitlenen depolama kaynakları oluşturma için sunduğumuz desteği sonlandırıyoruz. Benzeşim grubu kullanmakta olan mevcut bulut hizmetlerini değiştirmenize gerek yoktur. Bununla birlikte, bir Azure destek uzmanı tarafından önerilmediği sürece yeni bulut hizmetleri için benzeşim gruplarını kullanmamalısınız.
 
-## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>How much storage can I use with a virtual machine?
-Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Bir sanal makineyle birlikte ne kadar depolama alanı kullanabilirim?
+Her veri diskinin kapasitesi 1 TB'a kadar olabilir. Kullanabileceğiniz veri diski sayısı, sanal makinenin boyutuna bağlıdır. Ayrıntılar için bkz. [Virtual Machines boyutları](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+İşletim sistemi diski ve varsa veri diskleri için bir Azure depolama hesabı tarafından depolama alanı sağlanır. Her disk bir sayfa blobu olarak depolanan bir .vhd dosyasıdır. Fiyatlandırma ayrıntıları için bkz. [Depolama Fiyatlandırma Ayrıntıları](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
-## <a name="which-virtual-hard-disk-types-can-i-use"></a>Which virtual hard disk types can I use?
-Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDX that you want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
+## <a name="which-virtual-hard-disk-types-can-i-use"></a>Hangi sanal sabit disk türlerini kullanabilirim?
+Azure yalnızca değişmeyen, VHD biçimli sanal sabit diskleri destekler. Azure’da kullanmak istediğiniz bir VHDX varsa, önce Hyper-V Manager’ı ya da [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet’ini kullanarak bunu dönüştürmeniz gerekir. Bu işlemi yaptıktan sonra, VHD’yi sanal makinelerle kullanabilmek için [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet’ini (Hizmet Yönetimi modunda) kullanarak Azure’daki bir depolama hesabına yükleyin.
 
-* For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-* For Windows instructions, see [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Linux yönergeleri için bkz. [Linux İşletim Sistemi İçeren Bir Sanal Sabit Disk Oluşturma ve Karşıya Yükleme](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Windows yönergeleri için bkz. [Windows Server VHD’si oluşturup Azure’a yükleme](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Are these virtual machines the same as Hyper-V virtual machines?
-In many ways they’re similar to “Generation 1” Hyper-V VMs, but they’re not exactly the same. Both types provide virtualized hardware, and the VHD-format virtual hard disks are compatible. This means you can move them between Hyper-V and Azure. Three key differences that sometimes surprise Hyper-V users are:
+## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Bu sanal makineler Hyper-V sanal makineleri ile aynı mıdır?
+Birçok yönden “1. Nesil” Hyper-V VM’lerine benzer, ancak tam olarak aynı değildir. Her iki tür de sanallaştırılmış donanım sağlar ve VHD biçimli sanal sabit diskler uyumludur. Bu, Hyper-V ile Azure arasında geçiş yapabileceğiniz anlamına gelir. Bazen Hyper-V kullanıcılarını şaşırtan üç temel fark şunlardır:
 
-* Azure doesn’t provide console access to a virtual machine. There is no way to access a VM until it is done booting.
-* Azure VMs in most [sizes](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) have only 1 virtual network adapter, which means that they also can have only 1 external IP address. (The A8 and A9 sizes use a second network adapter for application communication between instances in limited scenarios.)
-* Azure VMs don't support Generation 2 Hyper-V VM features. For details about these features, see [Virtual Machine Specifications for Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) and [Generation 2 Virtual Machine Overview](https://technet.microsoft.com/library/dn282285.aspx).
+* Azure bir sanal makineye konsol erişimi sağlamaz. Önyüklemesi tamamlanana kadar bir VM’ye erişmenin hiçbir yolu yoktur.
+* Çoğu [boyuttaki](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Azure VM’ler yalnızca 1 sanal ağ bağdaştırıcısına sahiptir ve bu, yalnızca 1 dış IP adresine sahip olabilecekleri anlamına gelir. (A8 ve A9 boyutları, sınırlı sayıda senaryoda örnekler arası iletişim için ikinci bir ağ bağdaştırıcısı kullanır.)
+* Azure VM’leri 2. Nesil Hyper-V VM özelliklerini desteklemez. Bu özellikler hakkında ayrıntılı bilgi edinmek için bkz. [Hyper-V için Sanal Makine Belirtimleri](http://technet.microsoft.com/library/dn592184.aspx) ve [2. Nesil Sanal Makineye Genel Bakış](https://technet.microsoft.com/library/dn282285.aspx).
 
-## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>Can these virtual machines use my existing, on-premises networking infrastructure?
-For virtual machines created in the classic deployment model, you can use Azure Virtual Network to extend your existing infrastructure. The approach is like setting up a branch office. You can provision and manage virtual private networks (VPNs) in Azure as well as securely connect them to on-premises IT infrastructure. For details, see [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>Bu sanal makineler mevcut, şirket içi ağ altyapımı kullanabilir mi?
+Klasik dağıtım modelinde oluşturulan sanal makineler için Azure Sanal Ağ’ı kullanarak mevcut altyapınızı genişletebilirsiniz. Bu yaklaşım, şube ayarlamak gibidir. Azure’da Sanal özel ağlar (VPN) sağlayıp bunları yönetebilir ve şirket içi BT altyapısına güvenli bir biçimde bağlayabilirsiniz. Ayrıntılar için bkz. [Sanal Ağa Genel Bakış](../articles/virtual-network/virtual-networks-overview.md).
 
-You’ll need to specify the network that you want the virtual machine to belong to when you create the virtual machine. You can’t join an existing virtual machine to a virtual network. However, you can work around this by detaching the virtual hard disk (VHD) from the existing virtual machine, and then use it to create a new virtual machine with the networking configuration you want.
+Sanal makineyi oluştururken sanal makinenin ait olmasını istediğiniz ağı belirtmeniz gerekir. Mevcut bir sanal makineyi sanal ağa bağlayamazsınız. Bununla birlikte, önce mevcut sanal makineden sanal sabit diski (VHD) ayırıp sonra bu diskle istediğiniz ağ yapılandırmasına sahip yeni bir sanal makine oluşturarak bu soruna geçici bir çözüm bulabilirsiniz.
 
-## <a name="how-can-i-access--my-virtual-machine"></a>How can I access  my virtual machine?
-You need to establish a remote connection to log on to the virtual machine by using Remote Desktop Connection for a Windows VM or a Secure Shell (SSH) for a Linux VM. For instructions, see:
+## <a name="how-can-i-access--my-virtual-machine"></a>Sanal makinelerime nasıl erişebilirim?
+Windows VM için Uzak Masaüstü Bağlantısı ya da Linux VM için Secure Shell (SSH) kullanarak sanal makinede oturum açmak için bir uzak bağlantı oluşturmanız gerekir. Yönergeler için bkz.
 
-* [How to Log on to a Virtual Machine Running Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). A maximum of 2 concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
-* [How to Log on to a Virtual Machine Running Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
+* [Windows Server çalıştıran bir sanal makinede oturum açma](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Sunucu bir Uzak Masaüstü Hizmetleri oturum konağı olarak yapılandırılmadığı sürece en fazla 2 eş zamanlı bağlantı desteklenir.  
+* [Linux Çalıştıran Bir Sanal Makinede Oturum Açma](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Varsayılan olarak, SSH en fazla 10 eş zamanlı bağlantıya izin verir. Yapılandırma dosyasını düzenleyerek bu sayıyı artırabilirsiniz.
 
-If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) extension to help fix the problem.
+Uzak Masaüstü veya SSH ile ilgili sorun yaşıyorsanız, sorunun giderilmesine yardımcı olacak [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uzantısını yükleyip kullanın.
 
-For Windows VMs, additional options include:
+Windows VM’ler için ek seçenekler şunlardır:
 
-* In the Azure classic portal, find the VM, then click **Reset Remote Access** from the Command bar.
-* Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Klasik Azure portalında VM’yi bulun ve Komut çubuğundan **Uzaktan Erişimi Sıfırla**’ya tıklayın.
+* [Windows tabanlı Azure Sanal Makinesine Uzak Masaüstü bağlantıları ile ilgili sorunları giderme](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) konusunu gözden geçirin.
+* Windows PowerShell Uzaktan İletişimini kullanarak VM’ye bağlanın veya diğer kaynakların VM’ye bağlanması için ek uç noktalar oluşturun. Ayrıntılar için bkz. [Sanal Makineye Uç Noktaları Ayarlama](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-If you’re familiar with Hyper-V, you might be looking for a tool similar to VMConnect. Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.
+Hyper-V deneyiminiz varsa VMConnect’e benzer bir araç arıyor olabilirsiniz. Sanal makineye konsol erişimi desteklenmediğinden, Azure benzer bir araç sunmaz.
 
-## <a name="can-i-use-the-temporary-disk-the-d-drive-for-windows-or-devsdb1-for-linux-to-store-data"></a>Can I use the temporary disk (the D: drive for Windows or /dev/sdb1 for Linux) to store data?
-You shouldn’t use the temporary disk (the D: drive by default for Windows or /dev/sdb1 for Linux) to store data. They are only temporary storage, so you would risk losing data that can’t be recovered. This can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
+## <a name="can-i-use-the-temporary-disk-the-d-drive-for-windows-or-devsdb1-for-linux-to-store-data"></a>Verileri depolamak için geçici diski (Windows için D: sürücüsü veya Linux için /dev/sdb1) kullanabilir miyim?
+Verileri depolamak için geçici diski (Windows için varsayılan olarak D: sürücüsü veya Linux için /dev/sdb1) kullanmamalısınız. Bunlar yalnızca geçici depolama alanı olduğundan, verileri kurtarılamaz biçimde kaybetme riskiyle karşılaşırsınız. Sanal makine başka bir konağa taşındığında bu durum gerçekleşebilir. Sanal makinenin yeniden boyutlandırılması, konağın güncelleştirilmesi veya konaktaki bir donanım hatası, sanal makinenin taşınmasını gerektirecek olası nedenler arasındadır.
 
-## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>How can I change the drive letter of the temporary disk?
-On a Windows virtual machine, you can change the drive letter by moving the page file and reassigning drive letters, but you’ll need to make sure you do the steps in a specific order. For instructions, see [Change the drive letter of the Windows temporary disk](../articles/virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>Geçici diskin sürücü harfini nasıl değiştirebilirim?
+Windows sanal makinesinde disk belleği dosyasını taşıyıp sürücü harflerini yeniden atayarak sürücü harfini değiştirebilirsiniz, ancak adımları belirli bir sırada gerçekleştirdiğinizden emin olmanız gerekir. Yönergeler için bkz. [Windows geçici diskinin sürücü harfini değiştirme](../articles/virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="how-can-i-upgrade-the-guest-operating-system"></a>How can I upgrade the guest operating system?
-The term upgrade generally means moving to a more recent release of your operating system, while staying on the same hardware. For Azure VMs, the process for moving to a more recent release differs for Linux and Windows:
+## <a name="how-can-i-upgrade-the-guest-operating-system"></a>Konuk işletim sistemini nasıl yükseltebilirim?
+Yükseltme terimi genellikle donanımı değiştirmeksizin işletim sisteminin daha yeni bir sürümüne geçmeyi ifade eder. Azure VM’leri için daha yeni bir sürüme geçme süreci Linux ve Windows için farklıdır:
 
-* For Linux VMs, use the package management tools and procedures appropriate for the distribution.
-* For a Windows virtual machine, you need to migrate the server using something like the Windows Server Migration Tools. Don’t attempt to upgrade the guest OS while it resides on Azure. It isn’t supported because of the risk of losing access to the virtual machine. If problems occur during the upgrade, you could lose the ability to start a Remote Desktop session and wouldn’t be able to troubleshoot the problems.
+* Linux VM'leri için dağıtıma yönelik paket yönetimi araçlarını ve yordamlarını kullanın.
+* Windows sanal makinesi için Windows Server Geçiş Araçları gibi bir araçla sunucuyu geçirmeniz gerekir. Konuk işletim sistemi Azure’dayken işletim sistemini yükseltmeye çalışmayın. Bu işlem, sanal makine erişimini kaybetme riski nedeniyle desteklenmez. Yükseltme sırasında sorun oluşursa, Uzak Masaüstü oturumu başlatma özelliğini kullanamaz hale gelir ve sorunları gideremezsiniz.
 
-For general details about the tools and processes for migrating a Windows Server, see [Migrate Roles and Features to Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
+Windows Server geçişine yönelik araçlar ve işlemler hakkındaki genel ayrıntılar için bkz. [Rolleri ve Özellikleri Windows Server’a Geçirme](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
-## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>What's the default user name and password on the virtual machine?
-The images provided by Azure don’t have a pre-configured user name and password. When you create virtual machine using one of those images, you’ll need to provide a user name and password, which you’ll use to log on to the virtual machine.
+## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Sanal makinede varsayılan kullanıcı adı ve parola nedir?
+Azure tarafından sağlanan görüntülerin önceden yapılandırılmış bir kullanıcı adı ve parolası yoktur. Bu görüntülerden birini kullanarak sanal makine oluştururken, sanal makinede oturum açmak için kullanacağınız bir kullanıcı adı ve parola sağlamanız gerekir.
 
-If you’ve forgotten the user name or password and you’ve installed the VM Agent, you can install and use the [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) extension to fix the problem.
+Kullanıcı adını veya parolayı unuttuysanız ve VM Aracısını yüklediyseniz sorunu çözmek için [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uzantısını yükleyip kullanabilirsiniz.
 
-Additional details:
+Ek ayrıntılar:
 
-* For the Linux images, if you use the Azure classic portal, ‘azureuser’ is given as a default user name, but you can change this by using ‘From Gallery’ instead of ‘Quick Create’ as the way to create the virtual machine. Using ‘From Gallery’ also lets you decide whether to use a password, an SSH key, or both to log you in. The user account is a non-privileged user that has ‘sudo’ access to run privileged commands. The ‘root’ account is disabled.
-* For Windows images, you’ll need to provide a user name and password when you create the VM. The account is added to the Administrators group.
+* Klasik Azure portalını kullanıyorsanız Linux görüntüleri için varsayılan kullanıcı adı olarak ‘azureuser’ adı verilir, ancak sanal makine oluşturma yöntemi olarak ‘Hızlı Oluştur’ yerine ‘Galeri’den’ seçeneğini kullanarak bunu değiştirebilirsiniz. ‘Galeri’den’ seçeneğini kullanmanız, oturumunuzu açmak için bir parola mı, SSH anahtarı mı yoksa ikisini birden mi kullanmak istediğinize karar vermenize de imkan tanır. Kullanıcı hesabı, ayrıcalıklı komutları çalıştırmak için ‘sudo’ erişimi olan ayrıcalıksız bir kullanıcıdır. ‘Root’ hesabı devre dışıdır.
+* Windows görüntüleri için VM’yi oluştururken bir kullanıcı adı ve parola sağlamanız gerekir. Hesap Administrators grubuna eklenir.
 
-## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Can Azure run anti-virus on my virtual machines?
-Azure offers several options for anti-virus solutions, but it’s up to you to manage it. For example, you might need a separate subscription for antimalware software, and you’ll need to decide when to run scans and install updates. You can add anti-virus support with a VM extension for Microsoft Antimalware, Symantec Endpoint Protection, or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point. The Symantec and TrendMicro extensions let you use a free limited-time trial subscription or an existing enterprise subscription. Microsoft Antimalware is free of charge. For details, see:
+## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Azure sanal makinelerimde virüsten koruma yazılımı çalıştırabilir mi?
+Azure, virüsten koruma çözümleri için çeşitli seçenek sunar ancak bunların yönetimi size bırakılır. Örneğin, kötü amaçlı yazılımdan koruma yazılımı için ayrı bir aboneliğe ihtiyacınız olabilir; ne zaman tarama çalıştırılacağına ve güncelleştirmelerin yükleneceğine karar vermeniz gerekir. Windows sanal makinesi oluştururken veya daha sonra Microsoft Kötü Amaçlı Yazılımdan Koruma, Symantec Endpoint Protection veya TrendMicro Deep Security Agent için bir VM uzantısıyla virüsten koruma desteği ekleyebilirsiniz. Symantec ve TrendMicro uzantıları, ücretsiz sınırlı süreli deneme aboneliği veya mevcut bir kurumsal abonelik kullanmanıza olanak tanır. Microsoft Kötü Amaçlı Yazılımdan Koruma ücretsizdir. Ayrıntılar için bkz.
 
-* [How to install and configure Symantec Endpoint Protection on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404207)
-* [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-* [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+* [Azure Sanal Makinesinde Symantec Uç Nokta Koruması yükleme ve yapılandırma](http://go.microsoft.com/fwlink/p/?LinkId=404207)
+* [Azure Sanal Makinesinde Hizmet Olarak Trend Micro Deep Security yükleme ve yapılandırma](http://go.microsoft.com/fwlink/p/?LinkId=404206)
+* [Azure Sanal Makinelerinde Kötü Amaçlı Yazılıma Karşı Koruma Çözümleri Dağıtma](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
-## <a name="what-are-my-options-for-backup-and-recovery"></a>What are my options for backup and recovery?
-Azure Backup is available as a preview in certain regions. For details, see [Back up Azure virtual machines](../articles/backup/backup-azure-vms.md). Other solutions are available from certified partners. To find out what’s currently available, search the Azure Marketplace.
+## <a name="what-are-my-options-for-backup-and-recovery"></a>Yedekleme ve kurtarma seçeneklerim nelerdir?
+Azure Backup belirli bölgelerde önizleme olarak sunulmaktadır. Ayrıntılar için bkz. [Azure sanal makinelerini yedekleme](../articles/backup/backup-azure-vms.md). Sertifikalı iş ortaklarının sunduğu başka çözümler vardır. Şu anda hangi çözümlerin kullanılabilir olduğunu öğrenmek için Azure Market’te arama yapın.
 
-An additional option is to use the snapshot capabilities of blob storage. To do this, you’ll need to shut down the VM before any operation that relies on a blob snapshot. This saves pending data writes and puts the file system in a consistent state.
+Bir başka seçenek de blob depolamanın anlık görüntü özelliklerini kullanmaktır. Bunu yapmak için, blob anlık görüntüsüne bağlı herhangi bir işlem gerçekleştirmeden önce VM’yi kapatmanız gerekir. Bunu yaptığınızda bekleyen veri yazma işlemleri kaydedilir ve dosya sistemi kararlı bir hale getirilir.
 
-## <a name="how-does-azure-charge-for-my-vm"></a>How does Azure charge for my VM?
-Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. If you create the VM with a VM image containing certain pre-installed software, additional hourly software charges may apply. Azure charges separately for storage for the VM’s operating system and data disks. Temporary disk storage is free.
+## <a name="how-does-azure-charge-for-my-vm"></a>Azure, sanal makinem için nasıl bir ücretlendirme uygular?
+Azure, sanal makinenin boyutuna ve işletim sistemine bağlı olarak saatlik fiyat uygular. Kısmi saatler için, Azure yalnızca kullanılan dakika sayısını ücretlendirir. Sanal makineyi önceden yüklenmiş belirli yazılımlar içeren bir VM görüntüsüyle oluşturursanız ek saatlik yazılım ücretleri uygulanabilir. Azure, sanal makinenin işletim sistemi ve veri diskleri için ayrı ayrı depolama ücretleri uygular. Geçici disk depolama ücretsizdir.
 
-You are charged when the VM status is Running or Stopped, but you are not charged when the VM status is Stopped (De-allocated). To put a VM in the Stopped (De-allocated) state, do one of the following:
+VM durumu Çalışıyor veya Durduruldu olduğunda ücretlendirilirsiniz, ancak VM durumu Durduruldu (Serbest bırakıldı) olduğunda ücret ödemezsiniz. Bir sanal makinenin durumunu Durduruldu (Serbest bırakıldı) yapmak için aşağıdakilerden birini yapın:
 
-* Shut down or delete the VM from the Azure classic portal.
-* Use the Stop-AzureVM cmdlet, available in the Azure PowerShell module.
-* Use the Shutdown Role operation in the Service Management REST API and specify StoppedDeallocated for the PostShutdownAction element.
+* VM’yi kapatın veya klasik Azure portalından silin.
+* Azure PowerShell modülünden erişebileceğiniz Stop-AzureVM cmdlet’ini kullanın.
+* Hizmet Yönetimi REST API’sindeki Kapatma Rolü işlemini kullanarak PostShutdownAction öğesi için StoppedDeallocated değerini belirtin.
 
-For more details, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+Daha ayrıntılı bilgi edinmek için bkz. [Sanal Makine Fiyatlandırması](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## <a name="will-azure-reboot-my-vm-for-maintenance"></a>Will Azure reboot my VM for maintenance?
-Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters.
+## <a name="will-azure-reboot-my-vm-for-maintenance"></a>Azure, bakım için sanal makinemi yeniden başlatır mı?
+Azure bazen Azure veri merkezlerindeki düzenli, planlanmış bakım güncelleştirmeleri için sanal makinenizi yeniden başlatır.
 
-Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM. For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.
+Azure tarafından sanal makinenizi etkileyen ciddi bir donanım sorunu algılandığında planlanmamış bakım olayları gerçekleşebilir. Planlanmamış olaylar için Azure otomatik olarak VM’yi sağlıklı bir konağa geçirir ve yeniden başlatır.
 
-For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update. Applications running on the VMs could experience downtime.
+Herhangi bir tek başına VM (yani bir kullanılabilirlik kümesine ait olmayan bir VM) için Azure, planlı bakımdan en az bir hafta önce sanal makinelerin güncelleştirme sırasında yeniden başlatılabileceği konusunda aboneliğin Hizmet Yöneticisi’ne e-posta ile bildirim gönderir. VM’lerde çalışan uygulamalar kapalı kalma süresiyle karşılaşabilir.
 
-You also can use the Azure classic portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance. For details, see [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Ayrıca, yeniden başlatma işleminin planlı bir bakım kapsamında gerçekleştiği durumlarda klasik Azure portalını veya Azure PowerShell’i kullanarak yeniden başlatma günlüklerini görüntüleyebilirsiniz. Ayrıntılar için bkz. [VM Yeniden Başlatma Günlüklerini Görüntüleme](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
-To provide redundancy, put two or more similarly configured VMs in the same availability set. This helps ensure at least one VM is available during planned or unplanned maintenance. Azure guarantees certain levels of VM availability for this configuration. For details, see [Manage the availability of virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Yedeklilik sağlamak için benzer şekilde yapılandırılmış iki veya daha fazla sanal makineyi aynı kullanılabilirlik kümesine koyun. Bu, planlı veya planlanmamış bakım sırasında en az bir sanal makinenin kullanılabilir kalmasına yardımcı olur. Azure, bu yapılandırma için belirli düzeylerde VM kullanılabilirliği garantisi verir. Ayrıntılar için bkz. [Sanal makinelerin kullanılabilirliğini yönetme](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="additional-resources"></a>Additional resources
-[About Azure Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about.md)
+## <a name="additional-resources"></a>Ek kaynaklar
+[Azure Sanal Makineleri hakkında](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Different Ways to Create a Linux Virtual Machine](../articles/virtual-machines/linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Azure CLI ile Linux VM’leri Oluşturma ve Yönetme](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Different Ways to Create a Windows Virtual Machine](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Azure PowerShell ile Windows VM’leri Oluşturma ve Yönetme](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

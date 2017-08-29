@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0092496ea13c862a1717f4fdcb882139cbd8a177
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Azure klasik dağıtımı ve Resource Manager ile Runbook'ların kimliklerini doğrulama
@@ -68,7 +68,7 @@ Bu bölümde, Azure Resource Manager modunda kaynakları yöneten runbook’lar�
 3. Automation Hesapları dikey penceresinde **Ekle**’ye tıklayın.<br><br>![Otomasyon Hesabı ekleme](media/automation-create-aduser-account/add-automation-acct-properties.png)
 4. **Automation Hesabı Ekle** dikey penceresinde, **Ad** kutusuna, yeni Automation hesabınız için bir ad yazın.
 5. Birden fazla aboneliğiniz varsa, yeni hesap için, mevcut veya yeni **Kaynak grubu** ve Azure veri merkezi **konumu** ile birlikte bir tane belirtin.
-6. **Azure Farklı Çalıştır hesabı oluştur** seçeneği için **Hayır** değerini seçin ve **Oluştur** düğmesine tıklayın.  
+6. **Azure Farklı Çalıştır hesabı oluştur** seçeneği için **Evet** değerini seçin ve **Oluştur** düğmesine tıklayın.  
    
     > [!NOTE]
     > **Hayır** seçeneğini belirleyerek Farklı Çalıştır hesabı oluşturmamayı seçerseniz, **Automation Hesabı Ekle** dikey penceresinde bir uyarı iletisi görürsünüz.  Hesap oluşturulup abonelikteki **Katılımcı** rolüne atandığı sırada, abonelikler dizini hizmetinizde karşılık gelen bir kimlik doğrulaması kimliği olmaz, bu nedenle de aboneliğinizde kaynaklara erişim de olmaz.  Azure Resource Manager kaynaklarına karşı kimlik doğrulama ve görev gerçekleştirme becerisinden bu hesaba başvuran runbook’ları koruyacaktır.

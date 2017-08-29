@@ -7,8 +7,8 @@ Aşağıdaki bölümlerde yeni bir ASP.NET WebAPI arka ucu oluşturulur ve bu i�
 
 Aşağıdaki adımlar yeni ASP.NET WebAPI arka ucunun nasıl oluşturulacağını gösterir: 
 
-> [!NOTE]
-> **Önemli**: Visual Studio 2015 veya önceki bir sürümü kullanıyorsanız, bu öğreticiye başlamadan önce lütfen NuGet Paket Yöneticisi’nin en son sürümünü yüklediğinizden emin olun. Denetlemek için Visual Studio’yu başlatın. **Araçlar** menüsünde **Uzantılar ve Güncelleştirmeler**’e tıklayın. Visual Studio sürümünüz için **NuGet Paket Yöneticisi** araması yapın ve en son sürümü kullandığınızdan emin olun. En son sürümü kullanmıyorsanız, NuGet Paket Yöneticisi'ni yeniden yükleyin.
+> [!IMPORTANT]
+> Visual Studio 2015 veya önceki bir sürümü kullanıyorsanız, bu öğreticiye başlamadan önce lütfen NuGet Paket Yöneticisi’nin en son sürümünü yüklediğinizden emin olun. Denetlemek için Visual Studio’yu başlatın. **Araçlar** menüsünde **Uzantılar ve Güncelleştirmeler**’e tıklayın. Visual Studio sürümünüz için **NuGet Paket Yöneticisi** araması yapın ve en son sürümü kullandığınızdan emin olun. En son sürümü kullanmıyorsanız, NuGet Paket Yöneticisi'ni yeniden yükleyin.
 > 
 > ![][B4]
 > 

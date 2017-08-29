@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
+ms.date: 06/24/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 1cce449a87571fdabd0dbf76f764f442b2990ffe
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Bulutta Azure Multi-Factor Authentication kullanmaya başlama
@@ -41,66 +41,8 @@ Kullanıcıların Azure Multi-Factor Authentication içeren lisansları olduğu 
 Bu üç lisanstan birine sahip değilseniz veya tüm kullanıcılarınızı kapsamaya yetecek sayıda lisansınız yoksa, bu da sorun değildir. Yalnızca ek bir adım uygulamanız ve dizininizde [Multi-Factor Auth Sağlayıcısı oluşturmanız](multi-factor-authentication-get-started-auth-provider.md) gerekir.
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Kullanıcılar için iki aşamalı doğrulamayı açma
-Bir kullanıcıdan iki aşamalı doğrulama istemeye başlamak için kullanıcının devre dışı olan durumunu etkin olarak değiştirin.  Kullanıcı durumları hakkında daha fazla bilgi için bkz. [ Azure Multi-Factor Authentication’da kullanıcı durumları](multi-factor-authentication-get-started-user-states.md)
 
-Kullanıcılarınız için MFA'yı etkinleştirmek üzere aşağıdaki yordamı kullanın.
-
-### <a name="to-turn-on-multi-factor-authentication"></a>Multi-factor authentication’ı açmak için
-1. [Klasik Azure portalında](https://manage.windowsazure.com) yönetici olarak oturum açın.
-2. Solda, **Active Directory**'ye tıklayın.
-3. Dizin altında etkinleştirmek istediğiniz kullanıcının dizinini seçin.
-   ![Dizin’e tıklayın](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4. Üst kısımda, **Kullanıcılar**’a tıklayın.
-5. Sayfanın altında, **Multi-Factor Auth’ı Yönet**’e tıklayın. Yeni bir tarayıcı sekmesi açılır.
-   ![Dizin’e tıklayın](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6. İki aşamalı doğrulamayı etkinleştirmek istediğiniz kullanıcıyı bulun. Üst kısımdaki görünümü değiştirmeniz gerekebilir. Durumun **devre dışı** olduğundan emin olun.
-   ![Kullanıcıyı etkinleştirme](./media/multi-factor-authentication-get-started-cloud/enable1.png)
-7. Kutuda, adının yanına bir **onay işareti** koyun.
-8. Sağda, **Etkinleştir**’e tıklayın.
-   ![Kullanıcıyı etkinleştirme](./media/multi-factor-authentication-get-started-cloud/user1.png)
-9. **Multi-Factor Auth'u etkinleştir** seçeneğine tıklayın.
-   ![Kullanıcıyı etkinleştirme](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-10. Kullanıcı durumunun **devre dışı** yerine **etkin** olduğuna dikkat edin.
-    ![Kullanıcıları Etkinleştirme](./media/multi-factor-authentication-get-started-cloud/user.png)
-
-Kullanıcılarınızı etkinleştirdikten sonra, e-posta ile bildirimde bulunmanız gerekir. Kullanıcılardan sonraki oturum açma girişimleri sırasında iki aşamalı doğrulamaya kaydolmaları istenecektir. İki aşamalı doğrulamayı kullanmaya başlayan kullanıcıların tarayıcı harici uygulamaların devre dışı kalmaması için uygulama parolaları oluşturmaları da gerekecektir.
-
-## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>İki aşamalı doğrulamayı açmak için PowerShell kullanma
-[Azure AD PowerShell](/powershell/azure/overview) kullanarak [durumu](multi-factor-authentication-whats-next.md) değiştirmek için aşağıdakileri kullanabilirsiniz.  Aşağıdaki durumlardan birine eşit olacak şekilde `$st.State` öğesini değiştirebilirsiniz:
-
-* Etkin
-* Uygulandı
-* Devre dışı  
-
-> [!IMPORTANT]
-> Kullanıcıların Devre dışı durumunun doğrudan Zorlanmış olarak değiştirilmesini önermiyoruz. Kullanıcı MFA kaydı gerçekleştirmediğinden ve [uygulama parolası](multi-factor-authentication-whats-next.md#app-passwords) edinmediğinden, tarayıcı tabanlı olmayan uygulamalar devre dışı kalacaktır. Tarayıcı tabanlı olmayan uygulamalarını varsa ve uygulama parolaları istiyorlarsa, Devre dışı durumundan Etkin duruma geçmeniz önerilir. Bu, kullanıcıların kaydolmalarına ve uygulama parolalarını almalarına izin verir. Kullanıcıları bu adımdan sonra Zorlanmış duruma geçirebilirsiniz.
-
-PowerShell kullanmak toplu etkinleştirme kullanıcıları için bir seçenek olabilir. Şu anda Azure portalda toplu etkinleştirme özelliği yoktur ve her kullanıcıyı ayrı ayrı seçmeniz gerekir. Çok sayıda kullanıcınız varsa bu yorucu bir görev olabilir. Aşağıdakilerle bir PowerShell betiği oluşturarak, bir kullanıcı listesinde sayım yaparak bunları etkinleştirebilirsiniz.
-
-```PowerShell
-
-$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-$st.RelyingParty = "*"
-$st.State = "Enabled"
-$sta = @($st)
-Set-MsolUser -UserPrincipalName "bsimon@contoso.com" -StrongAuthenticationRequirements $sta
-```
-
-Örnek aşağıda verilmiştir:
-
-```Powershell
-$users = @("bsimon@contoso.com", "jsmith@contoso.com", "ljacobson@contoso.com")
-foreach ($user in $users)
-{
-   $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-   $st.RelyingParty = "*"
-   $st.State = "Enabled"
-   $sta = @($st)
-   Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-}
-```
-
-Daha fazla bilgi için bkz. [Azure Multi-Factor Authentication’da kullanıcı durumları](multi-factor-authentication-get-started-user-states.md)
+Azure MFA’yı kullanmaya başlamak için [Bir kullanıcı veya grup için iki aşamalı doğrulama gerektirme](multi-factor-authentication-get-started-user-states.md) bölümünde listelenen yordamlardan birini kullanın. Tüm oturum açma işlemleri için iki aşamalı doğrulama uygulamayı seçebilir ya da yalnızca önem verdiğiniz durumlarda iki aşamalı kimlik doğrulaması uygulamak için koşullu erişim ilkeleri oluşturabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Bulutta Azure Multi-Factor Authentication özelliğini ayarladığınıza göre, şimdi dağıtımınızı yapılandırıp ayarlayabilirsiniz. Daha fazla bilgi için bkz. [Azure Multi-Factor Authentication’ı yapılandırma](multi-factor-authentication-whats-next.md).

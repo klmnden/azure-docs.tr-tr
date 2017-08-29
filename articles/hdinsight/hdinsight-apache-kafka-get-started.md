@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/23/2017
+ms.date: 08/14/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 80d4aced5e4f4b053b3b5f30a6fc383f1c4d6d27
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>HDInsight üzerinde Apache Kafka'yı (önizleme) kullanmaya başlama
@@ -27,15 +27,9 @@ ms.lasthandoff: 07/04/2017
 Azure HDInsight üzerinde [Apache Kafka](https://kafka.apache.org) kümesi oluşturmayı ve kullanmayı öğrenin. Kafka, HDInsight ile birlikte kullanılabilen, açık kaynaklı bir dağıtılmış akış platformudur. Yayımla-abone ol ileti kuyruğuna benzer işlevler sağladığı için genellikle ileti aracısı olarak kullanılır.
 
 > [!NOTE]
-> Kafka’nın şu anda HDInsight ile kullanılabilen iki sürümü vardır: 0.9.0 (HDInsight 3.4) ve 0.10.0 (HDInsight 3.5). Bu belgedeki adımlarda HDInsight 3.5 üzerinde Kafka kullandığınız kabul edilmiştir.
+> Kafka’nın şu anda HDInsight ile kullanılabilen iki sürümü vardır: 0.9.0 (HDInsight 3.4) ve 0.10.0 (HDInsight 3.5 ve 3.6). Bu belgedeki adımlarda HDInsight 3.6 üzerinde Kafka kullandığınız kabul edilmiştir.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
-## <a name="prerequisites"></a>Ön koşullar
-
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) veya OpenJDK gibi eşdeğeri.
-
-* [Apache Maven](http://maven.apache.org/) 
 
 ## <a name="create-a-kafka-cluster"></a>Kafka kümesi oluşturma
 
@@ -45,7 +39,7 @@ HDInsight kümesinde Kafka oluşturmak için aşağıdaki adımları kullanın:
    
     ![HDInsight kümesi oluşturma](./media/hdinsight-apache-kafka-get-started/create-hdinsight.png)
 
-2. **Temel bilgiler** dikey penceresinde aşağıdaki bilgileri girin:
+2. **Temel Bilgiler** bölümünden aşağıdaki bilgileri girin:
 
     * **Küme Adı**: HDInsight kümesinin adı.
     * **Abonelik**: Kullanılacak abonelik.
@@ -54,29 +48,29 @@ HDInsight kümesinde Kafka oluşturmak için aşağıdaki adımları kullanın:
     * **Kaynak Grubu**: Kümenin oluşturulduğu kaynak grubu.
     * **Konum**: Kümenin oluşturulacağı Azure bölgesi.
    
-    ![Abonelik seçme](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
+ ![Abonelik seçme](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. **Küme türü**’nü seçin, ardından **Küme yapılandırması** dikey penceresinde aşağıdaki değerleri ayarlayın:
+3. **Küme türü**’nü seçin, sonra **Küme yapılandırması**’ndan aşağıdaki değerleri ayarlayın:
    
     * **Küme Türü**: Kafka
 
-    * **Sürüm**: Kafka 0.10.0 (HDI 3.5)
+    * **Sürüm**: Kafka 0.10.0 (HDI 3.6)
 
     * **Küme Katmanı**: Standart
      
-    Son olarak, **Seç** düğmesini kullanarak ayarları kaydedin.
+ Son olarak, **Seç** düğmesini kullanarak ayarları kaydedin.
      
-    ![Küme türü seçme](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
+ ![Küme türü seçme](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
 4. Küme türünü seçtikten sonra __Seç__ düğmesini kullanarak küme türünü ayarlayın. Ardından, __İleri__ düğmesini kullanarak temel yapılandırmayı tamamlayın.
 
-5. **Depolama** dikey penceresinden bir depolama hesabı seçin veya oluşturun. Bu belgedeki adımlar için bu dikey penceredeki diğer alanları varsayılan değerlerinde bırakın. __İleri__ düğmesini kullanarak depolama yapılandırmasını kaydedin.
+5. **Depolama**’dan bir depolama hesabı seçin veya oluşturun. Bu belgedeki adımlar için diğer alanları varsayılan değerlerinde bırakın. __İleri__ düğmesini kullanarak depolama yapılandırmasını kaydedin.
 
     ![HDInsight depolama hesabı ayarlarını belirleme](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. __Uygulamalar (isteğe bağlı)__ dikey penceresinde, devam etmek için __İleri__'yi seçin. Bu örnek için uygulama gerekmez.
+6. Devam etmek için __Uygulamalar (isteğe bağlı)__ bölümünden __İleri__'yi seçin. Bu örnek için uygulama gerekmez.
 
-7. __Küme boyutu__ dikey penceresinde, devam etmek için __İleri__'yi seçin.
+7. Devam etmek için __Küme boyutu__’ndan __İleri__'yi seçin.
 
     > [!WARNING]
     > HDInsight üzerinde Kafka'yı kullanabilmeniz için kümenizin en az üç çalışan düğümü içermesi gerekir.
@@ -84,11 +78,11 @@ HDInsight kümesinde Kafka oluşturmak için aşağıdaki adımları kullanın:
     ![Kafka kümesi boyutunu ayarlama](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
     > [!NOTE]
-    > Her çalışan düğümü girdisi başına bir disk, HDInsight üzerinde Kafka'nın ölçeklenebilirliğini denetler. Daha fazla bilgi için bkz. [HDInsight üzerinde Kafka'nın depolama alanını ve ölçeklenebilirliğini yapılandırma](hdinsight-apache-kafka-scalability.md).
+    > **Çalışan düğümü başına disk sayısı** girdisi, HDInsight üzerinde Kafka'nın ölçeklenebilirliğini denetler. Daha fazla bilgi için bkz. [HDInsight üzerinde Kafka'nın depolama alanını ve ölçeklenebilirliğini yapılandırma](hdinsight-apache-kafka-scalability.md).
 
-8. __Gelişmiş ayarlar__ dikey penceresinde, devam etmek için __İleri__'yi seçin.
+8. Devam etmek için __Gelişmiş ayarlar__’dan __İleri__'yi seçin.
 
-9. **Özet** dikey penceresinden kümenin yapılandırmasını gözden geçirin. Yanlış olan ayarları değiştirmek için __Düzenle__ bağlantılarını kullanın. Son olarak, __Oluştur__ düğmesini kullanarak kümeyi oluşturun.
+9. **Özet**’ten kümenin yapılandırmasını gözden geçirin. Yanlış olan ayarları değiştirmek için __Düzenle__ bağlantılarını kullanın. Son olarak, __Oluştur__ düğmesini kullanarak kümeyi oluşturun.
    
     ![Küme yapılandırma özeti](./media/hdinsight-apache-kafka-get-started/hdinsight-configuration-summary.png)
    
@@ -96,6 +90,9 @@ HDInsight kümesinde Kafka oluşturmak için aşağıdaki adımları kullanın:
     > Kümenin oluşturulması 20 dakika sürebilir.
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
+
+> [!IMPORTANT]
+> Aşağıdaki adımları gerçekleştirirken bir SSH istemcisi kullanmanız gerekir. Daha fazla bilgi için [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
 
 Kümeye bağlanmak için istemcinizde SSH kullanın:
 
@@ -119,24 +116,32 @@ Konak bilgilerini içeren ortam değişkenlerini oluşturmak için aşağıdaki 
     sudo apt -y install jq
     ```
 
-2. Ambari’den alınan bilgilerle ortam değişkenlerini ayarlamak için aşağıdaki komutları kullanın. __CLUSTERNAME__ değerini Kafka kümesinin adıyla değiştirin. __PASSWORD__ değerini kümeyi oluştururken kullandığınız oturum açma (yönetici) parolası ile değiştirin.
+2. Ambari’den alınan bilgilerle ortam değişkenlerini ayarlamak için aşağıdaki komutları kullanın:
 
     ```bash
-    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+    CLUSTERNAME='your cluster name'
+    PASSWORD='your cluster password'
+    export KAFKAZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
 
-    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
+    export KAFKABROKERS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
+    > [!IMPORTANT]
+    > `CLUSTERNAME=` değerini Kafka kümesinin adı olarak ayarlayın. `PASSWORD=` değerini kümeyi oluştururken kullandığınız oturum açma (yönetici) parolası olarak ayarlayın.
+
     Aşağıdaki metin `$KAFKAZKHOSTS` içeriğinin bir örneğidir:
    
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
    
     Aşağıdaki metin `$KAFKABROKERS` içeriğinin bir örneğidir:
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
+
+    > [!NOTE]
+    > `cut` komutu, konak listesini iki konak girdisine düşürmek için kullanılır. Kafka tüketicisi veya üreticisi oluştururken konakların tam listesini sağlamanız gerekmez.
    
     > [!WARNING]
     > Bu oturumdan döndürülen bilgileri her zaman doğru olarak kabul etmeyin. Kümeyi ölçeklendirirseniz yeni aracılar eklenir veya kaldırılır. Bir hata oluşur ve bir düğüm değiştirilirse, düğümün konak adı değişebilir.
@@ -185,7 +190,16 @@ Daha önce oluşturduğunuz test konu başlığında kayıt depolamak ve ardınd
 
 ## <a name="producer-and-consumer-api"></a>Üretici ve tüketici API’si
 
-[Kafka API’lerin,](http://kafka.apache.org/documentation#api) kullanarak, kayıtları programlama yoluyla da üretebilir ve kullanabilirsiniz. Java tabanlı üretici ve tüketici indirip derlemek için aşağıdaki adımları kullanın:
+[Kafka API’lerin,](http://kafka.apache.org/documentation#api) kullanarak, kayıtları programlama yoluyla da üretebilir ve kullanabilirsiniz. Java üreticisi ve tüketicisi oluşturmak için geliştirme ortamınızdan aşağıdaki adımları kullanın.
+
+> [!IMPORTANT]
+> Aşağıdaki bileşenlerin geliştirme ortamınızda yüklü olması gerekir:
+>
+> * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) veya OpenJDK gibi eşdeğeri.
+>
+> * [Apache Maven](http://maven.apache.org/)
+>
+> * Bir SSH istemcisi ve `scp` komutu. Daha fazla bilgi için [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
 
 1. Örnekleri [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) sayfasından indirebilirsiniz. Üretici/tüketici örneği için `Producer-Consumer` dizinindeki projeyi kullanın. Bu örnek aşağıdaki sınıfları içerir:
    
@@ -195,7 +209,7 @@ Daha önce oluşturduğunuz test konu başlığında kayıt depolamak ve ardınd
 
     * **Consumer** (Tüketici) - konu başlığındaki kayıtları okur.
 
-2. Dizinleri örnekteki `Producer-Consumer` dizininin konumuna geçirin ve ardından şu komutu kullanarak bir .jar paketi oluşturun:
+2. Bir jar paketi oluşturmak için dizinleri `Producer-Consumer` dizininin konumuna geçirin ve aşağıdaki komutu kullanın:
 
     ```
     mvn clean package
@@ -214,18 +228,13 @@ Daha önce oluşturduğunuz test konu başlığında kayıt depolamak ve ardınd
 4. `scp` komutuyla dosyayı kopyalama işlemi tamamlandığında SSH kullanarak kümeye bağlanın. Test konu başlığına kayıt yazmak için şu komutu kullanın:
 
     ```bash
-    ./kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
     ```
-
-    Kaç tane kaydın yazıldığını görebilmeniz için bir sayaç görüntülenir.
-
-    > [!NOTE]
-    > İzin reddedildi hatası alırsanız, dosyayı yürütülebilir hale getirmek için şu komutu kullanın: ```chmod +x kafka-producer-consumer.jar```
 
 5. İşlem tamamlandıktan sonra, konu başlığından okumak için aşağıdaki komutu kullanın:
    
     ```bash
-    ./kafka-producer-consumer.jar consumer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS
     ```
    
     Okunan kayıtlar, kayıt sayısıyla birlikte gösterilir. Daha önceki bir adımda, betik kullanarak konu başlığına çok sayıda kayıt gönderdiğiniz için 1.000.000’dan fazla kaydın günlüğe kaydedildiğini görebilirsiniz.
@@ -234,13 +243,15 @@ Daha önce oluşturduğunuz test konu başlığında kayıt depolamak ve ardınd
 
 ### <a name="multiple-consumers"></a>Birden çok tüketici
 
-Kafka ile ilgili önemli bir kavram, tüketicilerin kayıtları okurken bir tüketici grubu (grup kimliği ile tanımlanır) kullanmasıdır. Birden çok tüketiciyle aynı grubun kullanılması, konu başlığından yük dengeli okuma yapılmasına neden olur. Gruptaki her bir tüketici, kayıtların bir kısmını alır. Bu işlemi uygulamada görmek için aşağıdaki adımları kullanın:
+Kafka tüketicileri kayıtları okurken bir tüketici grubu kullanır. Birden çok tüketiciyle aynı grubun kullanılması, konu başlığından yük dengeli okuma yapılmasına neden olur. Gruptaki her bir tüketici, kayıtların bir kısmını alır. Bu işlemi uygulamada görmek için aşağıdaki adımları kullanın:
 
 1. Kümede yeni bir SSH oturumu açın, böylece ikisine birden sahip olursunuz. Her oturumda aynı tüketici grubu kimliğine sahip bir tüketici başlatmak için aşağıdakileri kullanın:
    
     ```bash
-    ./kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
+    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
     ```
+
+    Bu komut, `mygroup` grup kimliğini kullanarak bir tüketici başlatır.
 
     > [!NOTE]
     > Bu SSH oturumuna yönelik `$KAFKABROKERS` ayarını yapmak için [Zookeeper ve Aracı konak bilgilerini alma](#getkafkainfo) bölümündeki komutları kullanın.
@@ -250,7 +261,7 @@ Kafka ile ilgili önemli bir kavram, tüketicilerin kayıtları okurken bir tük
 Aynı gruptaki istemcilerin tüketimi, konu başlığının bölümleri aracılığıyla işlenir. Daha önce oluşturulan `test` konu başlığında sekiz bölüm vardır. Sekiz SSH oturumu açıp tüm oturumlarda bir tüketici başlatırsanız her tüketici, konu başlığının tek bir bölümündeki kayıtları okur.
 
 > [!IMPORTANT]
-> Bir tüketici grubunda bölümden daha fazla tüketici örneği olamaz. Bu örnekte, konu başlığındaki bölüm sayısı 8 olduğu için bir tüketici grubu en fazla bu sayıda tüketiciyi içerebilir. Ya da her biri en fazla 8 tüketici içeren birden fazla tüketici grubunuz olabilir.
+> Bir tüketici grubunda bölümden daha fazla tüketici örneği olamaz. Bu örnekte, konu başlığındaki bölüm sayısı sekiz olduğu için bir tüketici grubu en fazla bu sayıda tüketici içerebilir. Ya da her biri en fazla sekiz tüketici içeren birden fazla tüketici grubunuz olabilir.
 
 Kafka’ya depolanan kayıtlar bir bölümde alındıkları sırayla depolanır. *Bir bölüm* içindeki kayıtlar için sıralı teslim sağlamak üzere, tüketici örneklerinin bölüm sayısıyla eşleştiği bir tüketici grubu oluşturun. *Konu başlığı içindeki* kayıtların sıralı teslim edilmesini sağlayabilmek için, yalnızca bir tüketici örneği içeren bir tüketici grubu oluşturun.
 
@@ -287,7 +298,7 @@ Akış API’si Kafka’ya sürüm 0.10.0’da eklenmiştir; önceki sürümler,
 5. Ardından, aşağıdaki komutu kullanarak akış işlemini başlatın:
    
     ```bash
-    ./kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
+    java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
     ```
    
     Bu komut, arka planda akış işlemini başlatır.
@@ -295,13 +306,13 @@ Akış API’si Kafka’ya sürüm 0.10.0’da eklenmiştir; önceki sürümler,
 6. `test` konu başlığına ileti göndermek için aşağıdaki komutu kullanın. Bu iletiler akış örneği tarafından işlenir:
    
     ```bash
-    ./kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
     ```
 
 7. Akış işlemi tarafından `wordcounts` konu başlığına yazılan çıktıyı görüntülemek için aşağıdaki komutu kullanın:
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic wordcounts --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
     ```
    
     > [!NOTE]

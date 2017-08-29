@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 600894bffe367ee1412df6a82f668143829688cc
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -50,7 +50,7 @@ Genel olarak dağıtılan bir veritabanı hizmeti olarak Azure Cosmos DB, ölçe
         * Çok yakında başka veri modelleri de sağlanacaktır 
 
 * **Aktarım hızı ve depolamayı dünyanın dört bir yanında, talep üzerine esnek bir şekilde ölçeklendirin**
-    * Veritabanı aktarım hızını [saniye](request-units.md) ve [dakika](request-units-per-minute.md) ayrıntı düzeylerinde kolayca ölçeklendirin ve dilediğiniz zaman değiştirin. 
+    * Veritabanı aktarım hızını [saniye başına](request-units.md) ayrıntı düzeyinde kolayca ölçeklendirin ve dilediğiniz zaman değiştirin. 
     * Boyut gereksinimlerinizi şimdi ve sonsuza dek karşılamak için depolama boyutunuzu [şeffaf ve otomatik bir şekilde](partition-data.md) ölçeklendirin.
 
 * **Yüksek hızda yanıt veren ve görev açısından kritik uygulamalar oluşturun**

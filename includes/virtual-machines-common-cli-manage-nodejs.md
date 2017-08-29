@@ -1,44 +1,44 @@
-Before you can use the Azure CLI with Resource Manager commands and templates to deploy Azure resources and workloads using resource groups, you will need an account with Azure. If you do not have an account, you can get a [free Azure trial here](https://azure.microsoft.com/pricing/free-trial/).
+Kaynak gruplarını kullanarak Azure kaynakları ve iş yükleri dağıtmak amacıyla Azure CLI’yı Resource Manager komutları ve şablonlarıyla kullanabilmeniz için önce Azure’lu bir hesaba sahip olmanız gerekir. Hesabınız yoksa [buradan ücretsiz Azure denemesi](https://azure.microsoft.com/pricing/free-trial/) edinebilirsiniz.
 
-If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](../articles/cli-install-nodejs.md) set the mode to `arm` with `azure config mode arm`, and connect to Azure with the `azure login` command.
+Zaten Azure CLI’yı yükleyip aboneliğinizi bağlamadıysanız [Azure CLI Yükleme](../articles/cli-install-nodejs.md) konusunu inceleyin, `azure config mode arm` ile modu `arm` olarak ayarlayın ve `azure login` komutuyla Azure’a bağlanın.
 
-## <a name="cli-versions-to-complete-the-task"></a>CLI versions to complete the task
-You can complete the task using one of the following CLI versions:
+## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri
+Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 
-- Azure CLI 10 – our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](../articles/virtual-machines/linux/cli-manage.md) - our next generation CLI for the resource management deployment model
+- Azure CLI 10: Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI’mız (bu makale)
+- [Azure CLI 2.0](../articles/virtual-machines/linux/cli-manage.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Basic Azure Resource Manager commands in Azure CLI
-This article covers basic commands you will want to use with Azure CLI to manage and interact with your resources (primarily VMs) in your Azure subscription.  For more detailed help with specific command line switches and options, you can use the online command help and options by typing `azure <command> <subcommand> --help` or `azure help <command> <subcommand>`.
+## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Azure CLI’daki Temel Azure Resource Manager komutları
+Bu makalede, Azure aboneliğinizdeki kaynakları (ağırlıklı olarak VM’ler) yönetmek ve bunlarla etkileşim kurmak için Azure CLI ile kullanmak isteyebileceğiniz temel komutlar ele alınmıştır.  Belirli komut satırı anahtarları ve seçenekleri hakkında daha ayrıntılı yardım almak için `azure <command> <subcommand> --help` veya `azure help <command> <subcommand>` yazarak çevrimiçi komut yardımını ve seçeneklerini kullanabilirsiniz.
 
 > [!NOTE]
-> These examples don't include template-based operations which are generally recommended for VM deployments in Resource Manager. For information, see [Use the Azure CLI with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) and [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Bu örnekler, genel olarak Resource Manager’da VM dağıtımları için önerilmeyen şablon tabanlı işlemleri içermez. Bilgi edinmek için bkz. [Azure CLI’yı Azure Resource Manager ile kullanma](../articles/xplat-cli-azure-resource-manager.md) ve [Azure Resource Manager şablonlarını ve Azure CLI’yı kullanarak sanal makine dağıtma ve yönetme](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
-| Task | Resource Manager |
+| Görev | Resource Manager |
 | --- | --- | --- |
-| Create the most basic VM |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtain the `image-urn` from the `azure vm image list` command. See [this article](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for examples.) |
-| Create a Linux VM |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
-| Create a Windows VM |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
-| List VMs |`azure  vm list [options]` |
-| Get information about a VM |`azure  vm show [options] <resource_group> <name>` |
-| Start a VM |`azure vm start [options] <resource_group> <name>` |
-| Stop a VM |`azure vm stop [options] <resource_group> <name>` |
-| Deallocate a VM |`azure vm deallocate [options] <resource-group> <name>` |
-| Restart a VM |`azure vm restart [options] <resource_group> <name>` |
-| Delete a VM |`azure vm delete [options] <resource_group> <name>` |
-| Capture a VM |`azure vm capture [options] <resource_group> <name>` |
-| Create a VM from a user image |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Create a VM from a specialized disk |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
-| Add a data disk to a VM |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
-| Remove a data disk from a VM |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
-| Add a generic extension to a VM |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |
-| Add VM Access extension to a VM |`azure vm reset-access [options] <resource-group> <name>` |
-| Add Docker extension to a VM |`azure  vm docker create [options] <resource-group> <name> <location> <os-type>` |
-| Remove a VM extension |`azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>` |
-| Get usage of VM resources |`azure vm list-usage [options] <location>` |
-| Get all available VM sizes |`azure vm sizes [options]` |
+| En temel VM’yi oluşturma |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(`azure vm image list` komutundan `image-urn` öğesini edinin. Örnekler için [bu makaleye](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) bakın.) |
+| Linux VM oluşturma |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
+| Windows VM oluşturma |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
+| VM'leri listeleme |`azure  vm list [options]` |
+| VM hakkında bilgi alma |`azure  vm show [options] <resource_group> <name>` |
+| VM başlatma |`azure vm start [options] <resource_group> <name>` |
+| VM durdurma |`azure vm stop [options] <resource_group> <name>` |
+| Bir VM’yi serbest bırakma |`azure vm deallocate [options] <resource-group> <name>` |
+| Bir VM’yi yeniden başlatma |`azure vm restart [options] <resource_group> <name>` |
+| VM silme |`azure vm delete [options] <resource_group> <name>` |
+| VM yakalama |`azure vm capture [options] <resource_group> <name>` |
+| Kullanıcı görüntüsünden VM oluşturma |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
+| Özelleştirilmiş diskten VM oluşturma |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| Bir VM’ye veri diski ekleme |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
+| Bir VM’den veri diski kaldırma |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
+| Bir VM’ye genel bir uzantı ekleme |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |
+| Bir VM’ye VM Erişimi uzantısı ekleme |`azure vm reset-access [options] <resource-group> <name>` |
+| Bir VM’ye Docker uzantısı ekleme |`azure  vm docker create [options] <resource-group> <name> <location> <os-type>` |
+| VM uzantısı kaldırma |`azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>` |
+| VM kaynaklarının kullanımını alma |`azure vm list-usage [options] <location>` |
+| Tüm kullanılabilir VM boyutlarını alma |`azure vm sizes [options]` |
 
-## <a name="next-steps"></a>Next steps
-* For additional examples of the CLI commands going beyond basic VM management, see [Using the Azure CLI with Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
+## <a name="next-steps"></a>Sonraki adımlar
+* Temel VM yönetiminin ötesindeki CLI komutlarına ilişkin ek örnekler istiyorsanız bkz. [Azure CLI’yı Azure Resource Manager ile kullanma](../articles/virtual-machines/azure-cli-arm-commands.md).

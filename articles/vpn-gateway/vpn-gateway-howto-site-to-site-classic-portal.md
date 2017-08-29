@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 08/010/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: e3fa1705e1f4e0805409eee83d5797bee7f6603d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0be8dd6d90edb7b32b6777c76c9778cda0dcd5ea
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure portalını (klasik) kullanarak Siteden Siteye bağlantı oluşturma
@@ -64,9 +64,9 @@ Bu makaledeki örneklerde aşağıdaki değerler kullanılır. Bu değerleri kul
 * **GatewaySubnet:** 10.11.255.0/27
 * **Kaynak Grubu:** TestRG1
 * **Konum:** Doğu ABD
-* **DNS Sunucusu:** 8.8.8.8 (bu alıştırma için isteğe bağlı)
+* **DNS Sunucusu:** 10.11.0.3 (bu alıştırma için isteğe bağlı)
 * **Yerel site adı:** Site2
-* **İstemci adres alanı:** Şirket içi sitenizde yer alan adres alanıdır.
+* **İstemci adres alanı:** Şirket içi sitenizde yer alan adres alanı.
 
 ## <a name="CreatVNet"></a>1. Sanal ağ oluşturma
 
@@ -79,19 +79,19 @@ S2S bağlantısı için kullanılacak bir sanal ağ oluşturduğunuzda, belirtti
 ### <a name="to-create-a-virtual-network"></a>Sanal ağ oluşturmak için
 
 1. Tarayıcıdan [Azure portalına](http://portal.azure.com) gidin ve gerekiyorsa Azure hesabınızda oturum açın.
-2. **+** öğesine tıklayın. **Markette ara** alanına 'Sanal Ağ' yazın. Döndürülen listeden **Sanal Ağ**’ı bulun ve tıklayarak **Sanal Ağ** dikey penceresini açın.
+2. **+** öğesine tıklayın. **Markette ara** alanına 'Sanal Ağ' yazın. Döndürülen listeden **Sanal Ağ**’ı bulun ve tıklayarak **Sanal Ağ** sayfasını açın.
 
-  ![Sanal ağ ara dikey penceresi](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
-3. Sanal Ağ dikey penceresinin altı yakınlarında, **Bir dağıtım modeli seçin** açılır listesinden **Klasik**’i seçip **Oluştur**’a tıklayın.
+  ![Sanal ağ ara sayfası](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
+3. Sanal Ağ sayfasının en altına doğru **Bir dağıtım modeli seçin** açılır listesinden **Klasik**’i seçip **Oluştur**’a tıklayın.
 
   ![Dağıtım modeli seçme](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. **Sanal ağ oluştur (klasik)** dikey penceresinde sanal ağ ayarlarını yapılandırın. Bu dikey pencerede, ilk adres alanınızı ve tek alt ağ adres aralığınızı eklersiniz. Sanal ağ oluşturma işlemini tamamladıktan sonra geri dönüp ek alt ağları ve adres alanlarını ekleyin.
+4. **Sanal ağ oluştur (klasik)** sayfasında sanal ağ ayarlarını yapılandırın. Bu sayfada, ilk adres alanınızı ve tek alt ağ adres aralığınızı eklersiniz. Sanal ağ oluşturma işlemini tamamladıktan sonra geri dönüp ek alt ağları ve adres alanlarını ekleyin.
 
-  ![Sanal ağ oluşturma dikey penceresi](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Create virtual network blade")
+  ![Sanal ağ oluşturma sayfası](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Sanal ağ oluşturma sayfası")
 5. **Abonelik** alanında doğru bir giriş olduğunu doğrulayın. Açılan listeyi kullanarak abonelikleri değiştirebilirsiniz.
-6. **Kaynak grubu**’na tıklayın, ya varolan bir kaynak grubunu seçin ya da yeni kaynak grubunuz için bir ad yazarak yeni bir tane oluşturun. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../azure-resource-manager/resource-group-overview.md#resource-groups)’ı ziyaret edin.
+6. **Kaynak grubu**’na tıklayın, mevcut bir kaynak grubunu seçin ya da bir ad yazarak yeni bir tane oluşturun. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../azure-resource-manager/resource-group-overview.md#resource-groups)’ı ziyaret edin.
 7. Ardından, sanal ağınız için **Konum** ayarlarını seçin. Konum bu sanal ağa dağıttığınız kaynakların nerede olacağını belirler.
-8. Sanal ağınızı panoda kolay bulmak istiyorsanız **Panoya sabitle**’yi seçin ve ardından **Oluştur**’a tıklayın.
+8. VNet’inizi panoda kolayca bulmak istiyorsanız **Panoya sabitle**’yi seçin. VNet’inizi oluşturmak için **Oluştur**'a tıklayın.
 
   ![Panoya sabitle](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Pin to dashboard")
 9. “Oluştur”a tıkladıktan sonra, panoda sanal ağınızın ilerleme durumunu yansıtan bir kutucuk görünür. Sanal ağ oluşturulurken kutucuk değişir.
@@ -105,17 +105,17 @@ Sanal ağınız oluşturulduğunda, klasik Azure portalının ağlar sayfasında
 Sanal ağınızı oluşturduktan sonra başka adres alanı ekleyebilirsiniz. Başka adres alanı eklenmesi S2S yapılandırmasının gerekli bir kısmı değildir, ancak birden fazla adres alanı gerekliyse aşağıdaki adımları kullanın:
 
 1. Portalda sanal ağları bulun.
-2. Sanal ağınızın dikey penceresindeki **Ayarlar** bölümünde **Adres alanı**’na tıklayın.
-3. Adres alanı dikey penceresinde **+Ekle**’ye tıklayın ve diğer adres alanını girin.
+2. Sanal ağınızın sayfasındaki **Ayarlar** bölümünde **Adres alanı**’na tıklayın.
+3. Adres alanı sayfasında **+Ekle**’ye tıklayın ve diğer adres alanını girin.
 
 ## <a name="dns"></a>3. DNS sunucusu belirleme
 
-DNS ayarları, S2S yapılandırmasının gerekli bir kısmı değildir, ancak ad çözünürlüğü istiyorsanız DNS gereklidir.
+DNS ayarları, S2S yapılandırmasının gerekli bir kısmı değildir, ancak ad çözünürlüğü istiyorsanız DNS gereklidir. Bir değer belirtildiğinde yeni bir DNS sunucusu oluşturulmaz. Belirttiğiniz DNS sunucusu IP adresi, bağlandığınız kaynakların adlarını çözümleyebilen bir DNS sunucusu olmalıdır. Örnek ayarlar için özel bir IP adresi kullandık. Bizim kullandığımız IP adresi muhtemelen DNS sunucunuzun IP adresi değildir. Kendi değerlerinizi kullandığınızdan emin olun.
 
-Sanal ağınızı oluşturduktan sonra ad çözünürlüğünü işlemek için bir DNS sunucusunun IP adresini ekleyebilirsiniz. Sanal ağınızın ayarlarını açın, DNS sunucularına tıklayın ve ad çözünürlüğü kullanmak istediğiniz DNS sunucusunun IP adresini ekleyin. Bu ayarla bir DNS sunucusu oluşturulmaz. Örnek ayarlarda bir ortak DNS sunucusu kullanılmıştır. Genellikle özel bir DNS sunucusu kullanmak istemezsiniz. Kaynaklarınızın iletişim kurabileceği bir DNS sunucusu eklediğinizden emin olun.
+Sanal ağınızı oluşturduktan sonra ad çözünürlüğünü işlemek için bir DNS sunucusunun IP adresini ekleyebilirsiniz. Sanal ağınızın ayarlarını açın, DNS sunucularına tıklayın ve ad çözünürlüğü kullanmak istediğiniz DNS sunucusunun IP adresini ekleyin.
 
 1. Portalda sanal ağları bulun.
-2. Sanal ağınızın dikey penceresindeki **Ayarlar** bölümünde **DNS sunucuları**’na tıklayın.
+2. Sanal ağınızın sayfasındaki **Ayarlar** bölümünde **DNS sunucuları**’na tıklayın.
 3. Bir DNS sunucusu ekleyin.
 4. Ayarlarınızı kaydetmek için sayfanın en üstünde yer alan **Kaydet**’e tıklayın.
 
@@ -124,11 +124,11 @@ Sanal ağınızı oluşturduktan sonra ad çözünürlüğünü işlemek için b
 Yerel site genellikle şirket içi konumunuzu ifade eder. Bağlantı oluşturacağınız VPN cihazının IP adresini ve VPN ağ geçidi üzerinden VPN cihazına yönlendirilecek IP aralıklarını içerir.
 
 1. Portalda, ağ geçidi oluşturmak istediğiniz sanal ağa gidin.
-2. Sanal ağınızın dikey penceresindeki **Genel Bakış** dikey penceresinin VPN bağlantıları bölümünde **Ağ Geçidi**’ne tıklayarak **Yeni VPN Bağlantısı** dikey penceresini açın.
+2. Sanal ağınızın sayfasındaki **Genel Bakış** sayfasının VPN bağlantıları bölümünde **Ağ Geçidi**’ne tıklayarak **Yeni VPN Bağlantısı** sayfasını açın.
 
   ![Ağ geçidi ayarlarını yapılandırmak için tıklayın](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Click to configure gateway settings")
-3. **Yeni VPN Bağlantısı** dikey penceresinde **Siteden siteye** öğesini seçin.
-4. **Yerel site - Gerekli ayarları yapılandırın**’a tıklayarak **Yerel site** dikey penceresini açın. Ayarları yapılandırın ve ardından **Tamam**’a tıklayarak ayarları kaydedin.
+3. **Yeni VPN Bağlantısı** sayfasında **Siteden siteye** öğesini seçin.
+4. **Yerel site - Gerekli ayarları yapılandırın**’a tıklayarak **Yerel site** sayfasını açın. Ayarları yapılandırın ve ardından **Tamam**’a tıklayarak ayarları kaydedin.
   - **Ad:** Tanımlamanızı kolaylaştırmak için yerel sitenize ait bir ad oluşturun.
   - **VPN ağ geçidi IP adresi:** Şirket içi ağınızdaki VPN cihazının genel IP adresidir. VPN cihazı, IPv4 genel IP adresi gerektirir. Bağlanmak istediğiniz VPN cihazı için geçerli bir genel IP adresi belirtin. NAT’nin ardında olamaz ve Azure tarafından erişilebilir olması gerekir. VPN cihazınızın IP adresini bilmiyorsanız her zaman bir yer tutucu değeri girebilir (geçerli bir genel IP adresi biçiminde olduğu sürece) ve daha sonra değiştirebilirsiniz.
   - **İstemci Adres alanı:** Bu ağ geçidi aracılığıyla yerel şirket içi ağınıza yönlendirilmesini istediğiniz IP adres aralıklarını listeleyin. Birden fazla adres alanı aralığı ekleyebilirsiniz. Burada belirttiğiniz aralıkların, sanal ağınızın bağlandığı diğer ağlarla ve sanal ağın kendi adres aralıklarıyla çakışmadığından emin olun.
@@ -139,14 +139,14 @@ Yerel site genellikle şirket içi konumunuzu ifade eder. Bağlantı oluşturaca
 
 VPN ağ geçidiniz için bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ geçidi alt ağı, VPN ağ geçidi hizmetlerinin kullandığı IP adreslerini içerir.
 
-1. **Yeni VPN Bağlantısı** dikey penceresinde, **Ağ geçidini hemen oluştur** onay kutusunu işaretleyin. 'İsteğe bağlı ağ geçidi yapılandırması' dikey penceresi görüntülenir. Onay kutusunu seçmezseniz, ağ geçidi alt ağını yapılandırmak için dikey pencereyi görmezsiniz.
+1. **Yeni VPN Bağlantısı** sayfasında, **Ağ geçidini hemen oluştur** onay kutusunu işaretleyin. 'İsteğe bağlı ağ geçidi yapılandırması' sayfası görüntülenir. Onay kutusunu seçmezseniz, ağ geçidi alt ağını yapılandırmaya yönelik sayfayı görmezsiniz.
 
   ![Ağ geçidi yapılandırması - Alt ağ, boyut, yönlendirme türü](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Gateway configuration - Subnet, size, routing type")
-2. **İsteğe bağlı ağ geçidi yapılandırması - Alt ağ, boyut ve yönlendirme türü**’ne tıklayarak **Ağ geçidi yapılandırması** dikey penceresini açın.
-3. **Ağ Geçidi Yapılandırması** dikey penceresinde **Alt Ağ - Gerekli ayarları yapılandırın** öğesine tıklayarak **Alt ağ ekle** dikey penceresini açın.
+2. **Ağ geçidi yapılandırması** sayfasını açmak için **İsteğe bağlı ağ geçidi yapılandırması - Alt ağ, boyut ve yönlendirme türü**’ne tıklayın.
+3. **Ağ Geçidi Yapılandırması** sayfasında **Alt Ağ - Gerekli ayarları yapılandırın** öğesine tıklayarak **Alt ağ ekle** sayfasını açın.
 
   ![Ağ geçidi yapılandırması - ağ geçidi alt ağı](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "Gateway configuration - gateway subnet")
-4. **Alt ağ ekle** dikey penceresinde ağ geçidi alt ağını ekleyin. Belirttiğiniz ağ geçidi alt ağının boyutu, oluşturmak istediğiniz VPN ağ geçidi yapılandırmasına bağlıdır. /29 kadar küçük bir ağ geçidi alt ağı oluşturmak mümkün olsa da, /27 veya /28’i seçerek daha fazla adres içeren büyük bir alt ağ oluşturmanızı öneririz. Daha büyük bir ağ geçidi alt ağı kullanmak, olası gelecek yapılandırmaları barındırmak için yeterli IP adresi bulunmasını sağlar.
+4. **Alt ağ ekle** sayfasında ağ geçidi alt ağını ekleyin. Belirttiğiniz ağ geçidi alt ağının boyutu, oluşturmak istediğiniz VPN ağ geçidi yapılandırmasına bağlıdır. /29 kadar küçük bir ağ geçidi alt ağı oluşturmak mümkün olsa da /27 veya /28 değerini kullanmanız önerilir. Bu değer, daha fazla adres içeren daha büyük bir alt ağ oluşturur. Daha büyük bir ağ geçidi alt ağı kullanmak, olası gelecek yapılandırmaları barındırmak için yeterli IP adresi bulunmasını sağlar.
 
   ![Ağ geçidi alt ağı ekleme](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Add gateway subnet")
 
@@ -157,7 +157,7 @@ VPN ağ geçidiniz için bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ g
   ![SKUL ve VPN türü seçme](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "Select SKU and VPN type")
 2. Ağ geçidiniz için **Yönlendirme Türü** seçin. Bu seçenek VPN türü olarak da bilinir. Ağ geçidini bir türden diğerine geçiremeyeceğiniz için doğru ağ geçidi türünün seçilmesi önemlidir. VPN cihazınız seçtiğiniz yönlendirme türü ile uyumlu olmalıdır. VPN türü hakkında daha fazla bilgi için bkz. [VPN Gateway Ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md#vpntype). 'RouteBased' ve 'PolicyBased' VPN türlerine başvuran makaleler görebilirsiniz. 'Dinamik' seçeneği 'RouteBased', 'Statik' seçeneği ise 'PolicyBased' değerine karşılık gelir.
 3. Ayarları kaydetmek için **Tamam**’a tıklayın.
-4. **Yeni VPN Bağlantısı** dikey penceresinde, sanal ağ geçidinizi oluşturmaya başlamak için dikey pencerenin en altındaki **Tamam**’a tıklayın. Bu işlemin tamamlanması 45 dakika sürebilir.
+4. **Yeni VPN Bağlantısı** sayfasında, sanal ağ geçidinizi oluşturmaya başlamak için sayfanın en altından **Tamam**’a tıklayın. Seçtiğiniz SKU’ya bağlı olarak, sanal ağ geçidi oluşturma 45 dakikaya kadar sürebilir.
 
 ## <a name="vpndevice"></a>7. VPN cihazınızı yapılandırma
 
@@ -202,7 +202,7 @@ PowerShell ve klasik dağıtım modeli ile çalışırken, portaldaki kaynaklar�
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-2. Ağ yapılandırma dosyasını bir xml düzenleyicisi ile açın ve 'LocalNetworkSite name' ile 'VirtualNetworkSite name' değerlerini denetleyin. Örneği, değerleri yansıtacak şekilde değiştirin. Boşluk içeren bir ad belirtirken, değeri tek tırnak işaretleri içine alın.
+2. Ağ yapılandırma dosyasını bir xml düzenleyicisi ile açın ve 'LocalNetworkSite name' ile 'VirtualNetworkSite name' değerlerini denetleyin. Örneği, ihtiyacınız olan değerleri yansıtacak şekilde değiştirin. Boşluk içeren bir ad belirtirken, değeri tek tırnak işaretleri içine alın.
 
 3. Paylaşılan anahtarı ayarlayıp bağlantıyı oluşturun. '-SharedKey' sizin oluşturup belirttiğiniz bir değerdir. Örnekte 'abc123' değeri kullanılmıştır, ancak siz daha karmaşık bir değer oluşturabilirsiniz (ve oluşturmalısınız). Önemli olan, burada belirttiğiniz değerin VPN cihazınızı yapılandırırken belirttiğiniz değerle aynı olmasıdır.
 
@@ -218,11 +218,11 @@ Bağlantı oluşturulduğunda, sonuç şu şekildedir: **Durum: Başarılı**.
 
 Bağlantı sorunları yaşıyorsanız, sol bölmedeki içindekiler tablosunun **Sorun Giderme** bölümüne bakın.
 
-## <a name="how-to-reset-a-vpn-gateway"></a>VPN ağ geçidini sıfırlama
+## <a name="reset"></a>VPN ağ geçidini sıfırlama
 
 Bir veya daha fazla Siteden Siteye VPN tünelinde şirketler arası VPN bağlantısını kaybederseniz bir Azure VPN ağ geçidinin sıfırlanması yararlıdır. Bu durumda şirket içi VPN cihazlarınızın tümü düzgün çalışır, ancak Azure VPN ağ geçitleriyle IPsec tünelleri kuramaz. Adımlar için bkz. [VPN ağ geçidini sıfırlama](vpn-gateway-resetgw-classic.md).
 
-## <a name="how-to-change-a-gateway-sku"></a>Ağ geçidi SKU'sunu değiştirme
+## <a name="changesku"></a>Ağ geçidi SKU'sunu değiştirme
 
 Bir ağ geçidi SKU'sunu değiştirme adımları için bkz. [Ağ geçidi SKU'sunu yeniden boyutlandırma](vpn-gateway-about-SKUS-legacy.md).
 
