@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: dba483c21afc46b1b9f0a74ebfb24ed644080e09
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB: DocumentDB API’sine Giriş
@@ -49,8 +49,10 @@ Azure Cosmos DB, DocumentDB API’si üzerinden aşağıdaki temel işlevleri ve
 
 * **Otomatik dizin oluşturma:** Azure Cosmos DB, varsayılan olarak veritabanındaki tüm belgelerin otomatik olarak dizinini oluşturur ve herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını beklemez veya gerektirmez. Her şeyi dizine eklemek istemiyor musunuz? Merak etmeyin, [JSON dosyalarınızda yolları iptal de edebilirsiniz](indexing-policies.md).
 
+* **Değişiklik akışı desteği:** Değişiklik akışı, bir Azure Cosmos DB koleksiyonunda düzenlenme sırasına göre sıralanmış bir belge listesi sağlar. Bu akış, verileri çoğaltmak, API çağrıları tetiklemek veya güncelleştirmelerde akış işleme gerçekleştirmek için veri değişikliklerini dinlemek amacıyla kullanılabilir. Değişiklik akışı otomatik olarak etkinleştirilir ve kullanımı kolaydır: [Değişiklik akışı hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
+
 ## <a name="data-management"></a>DocumentDB API’si ile verileri nasıl yönetebilirsiniz?
-DocumentDB API’si, JSON verilerini iyi tanımlanmış veritabanı kaynakları aracılığıyla yönetir. Bu kaynaklar yüksek kullanılabilirlik için çoğaltılır ve mantıksal URI'leri ile benzersiz olarak adreslenebilir. DocumentDB API’si tüm kaynaklar için basit bir HTTP tabanlı RESTful programlama modeli sunar. 
+DocumentDB API’si, JSON verilerinin iyi tanımlanmış veritabanı kaynakları aracılığıyla yönetilmesine yardımcı olur. Bu kaynaklar yüksek kullanılabilirlik için çoğaltılır ve mantıksal URI'leri ile benzersiz olarak adreslenebilir. DocumentDB API’si tüm kaynaklar için basit bir HTTP tabanlı RESTful programlama modeli sunar. 
 
 
 Azure Cosmos DB veritabanı hesabı, size Azure Cosmos DB erişimi sağlayan benzersiz bir ad alanıdır. Bir veritabanı hesabı oluşturabilmeniz için, öncelikle çeşitli Azure hizmetlerine erişim sağlayan bir Azure aboneliğinizin olması gerekir. 

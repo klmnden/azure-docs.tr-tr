@@ -6,17 +6,17 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 05/02/2017
+ms.date: 08/22/2017
 ms.topic: hero-article
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
-manager: erikre
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 2292b35819c5a98b690041e10f6e6d1a93fa7837
+manager: cfowler
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -44,11 +44,14 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı i
 
 [az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Azure kaynak grubu; işlev uygulamaları, veritabanları ve depolama hesapları gibi Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-Aşağıdaki örnek `myResourceGroup` adlı bir kaynak grubu oluşturur:
+Aşağıdaki örnek `myResourceGroup` adlı bir kaynak grubu oluşturur.  
+Cloud Shell kullanmıyorsanız önce `az login` kullanarak oturum açmanız gerekir.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
+
+
 ## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma
 
 İşlevler, işlevlerinizin durumunu ve diğer bilgilerini korumak için bir Azure Depolama hesabı kullanır. Oluşturduğunuz kaynak grubunda [az storage account create](/cli/azure/storage/account#create) komutunu kullanarak bir depolama hesabı oluşturun.
@@ -86,7 +89,8 @@ Depolama hesabı oluşturulduktan sonra Azure CLI, aşağıdaki örneğe benzer 
 Aşağıdaki komutta kendi benzersiz işlev uygulamanızın adını `<app_name>` yer tutucusunun ve `<storage_name>` depolama hesabı adının yerine ekleyin. `<app_name>`, işlev uygulamasının varsayılan DNS etki alanı olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. 
 
 ```azurecli-interactive
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
+az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
+--consumption-plan-location westeurope
 ```
 Varsayılan olarak, Tüketim barındırma planı ile bir işlev uygulaması oluşturulur; bu durum, kaynakların işlevleriniz gerektirdikçe dinamik olarak eklendiği ve yalnızca kaynaklar çalışırken ücret ödediğiniz anlamına gelir. Daha fazla bilgi için bkz. [Doğru barındırma planını seçme](functions-scale.md). 
 
@@ -117,7 +121,9 @@ Artık bir işlev uygulamasına sahip olduğunuza göre, gerçek işlev kodunu G
 Yeni işlev uygulamanızda işlevi kodunuzu oluşturmanın birkaç yolu vardır. Bu konu başlığında, GitHub’daki bir örnek depoya bağlanılır. Daha önce olduğu gibi, aşağıdaki kodda `<app_name>` yer tutucusunu oluşturduğunuz işlev uygulamasının adıyla değiştirin. 
 
 ```azurecli-interactive
-az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
+az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --branch master \
+--repo-url https://github.com/Azure-Samples/functions-quickstart \
+--manual-integration 
 ```
 Dağıtım kaynağı ayarlandıktan sonra, Azure CLI aşağıdaki örneğe benzer bilgiler gösterir (okunaklılığı artırmak için null değerler kaldırılmıştır):
 
@@ -146,7 +152,7 @@ curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 
 ![Tarayıcıda gösterilen işlev yanıtı.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-curl.png)  
 
-Komut satırınızda cURL yoksa, web tarayıcınızın adres çubuğuna aynı URL'yi girmeniz yeterlidir. Burada da `<app_name>` yer tutucusunu işlev uygulamanızın adıyla değiştirin ve `&name=<yourname>` sorgu dizesini URL’ye ekleyip isteği yürütün. 
+Komut satırınızda cURL yoksa, web tarayıcınızın adres çubuğuna aynı URL'yi girin. Burada da `<app_name>` yer tutucusunu işlev uygulamanızın adıyla değiştirin ve `&name=<yourname>` sorgu dizesini URL’ye ekleyip isteği yürütün. 
 
     http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
    

@@ -1,6 +1,6 @@
 ---
-title: "Mac OS X’te geliştirme ortamınızı ayarlama | Microsoft Belgeleri"
-description: "Çalışma zamanını, SDK&quot;yı ve araçları yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra Mac OS X üzerinde uygulama derlemek için hazır hale gelirsiniz."
+title: "Azure Service Fabric ile çalışmak için Mac OS X’te geliştirme ortamınızı ayarlama | Microsoft Docs"
+description: "Çalışma zamanını, SDK'yı ve araçları yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra Mac OS X üzerinde uygulama derlemek için hazır hale gelirsiniz."
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 08/21/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
-ms.lasthandoff: 03/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X’te geliştirme ortamınızı ayarlama
@@ -51,7 +51,6 @@ Service Fabric, OS X üzerinde yerel olarak çalışmaz. Yerel bir Service Fabri
     ```
     Bu adımlar VM yapılandırması ile birlikte VM’nin indirildiği konumu içeren `Vagrantfile` dosyasını getirir.
 
-
 2. Deponun yerel kopyasına gidin
 
     ```bash
@@ -75,24 +74,46 @@ Service Fabric, OS X üzerinde yerel olarak çalışmaz. Yerel bir Service Fabri
 
     ![Sanal makine hazırlama sonrasında başlayan küme ayarı][cluster-setup-script]
 
->[!TIP]
-> VM’yi indirmek uzun sürüyorsa, wget veya curl kullanarak ya da bir tarayıcı üzerinden `Vagrantfile` dosyasındaki **config.vm.box_url** tarafından belirtilen bağlantıya giderek indirebilirsiniz. Yerel olarak indirdikten sonra, `Vagrantfile` öğesini, görüntüyü indirdiğiniz yerel yolu işaret edecek şekilde düzenleyin. Örneğin, görüntüyü /home/users/test/azureservicefabric.tp8.box dizinine indirdiyseniz, **config.vm.box_url** öğesini bu yola ayarlayın.
->
+    >[!TIP]
+    > VM’yi indirmek uzun sürüyorsa, wget veya curl kullanarak ya da bir tarayıcı üzerinden `Vagrantfile` dosyasındaki **config.vm.box_url** tarafından belirtilen bağlantıya giderek indirebilirsiniz. Yerel olarak indirdikten sonra, `Vagrantfile` öğesini, görüntüyü indirdiğiniz yerel yolu işaret edecek şekilde düzenleyin. Örneğin, görüntüyü /home/users/test/azureservicefabric.tp8.box dizinine indirdiyseniz, **config.vm.box_url** öğesini bu yola ayarlayın.
+    >
 
 5. http://192.168.50.50:19080/Explorer adresinde (varsayılan özel ağ IP’sini tuttuğunuzu varsayarak) Service Fabric Explorer’a giderek kümenin doğru ayarlanıp ayarlanmadığını sınayın.
 
     ![Ana Mac bilgisayarından görüntülenen Service Fabric Explorer][sfx-mac]
 
+
+## <a name="create-application-on-mac-using-yeoman"></a>Yeoman kullanarak Mac uygulaması oluşturma
+Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric uygulaması oluşturmanıza yardımcı olacak yapı iskelesi araçları sağlar. Lütfen makinenizde çalışan bir Service Fabric yeoman şablon oluşturucu olduğundan emin olmak için aşağıdaki adımları izleyin.
+
+1. Mac’inizde Node.js ve NPM yüklü olması gerekir. Yüklü değilse, Node.js ve NPM’yi Homebrew kullanarak aşağıdaki gibi yükleyebilirsiniz. Mac'inizde yüklü Node.js ve NPM sürümlerini denetlemek için ``-v`` seçeneğini kullanabilirsiniz.
+
+  ```bash
+  brew install node
+  node -v
+  npm -v
+  ```
+2. NPM’den makinenize [Yeoman](http://yeoman.io/) şablon oluşturucuyu yükleme
+
+  ```bash
+  npm install -g yo
+  ```
+3. Başlarken [belgelerinde](service-fabric-get-started-linux.md) bulunan adımları izleyerek kullanmak istediğiniz Yeoman oluşturucuyu yükleyin. Yeoman kullanarak Service Fabric uygulamaları oluşturmak için adımları takip edin.
+
+  ```bash
+  npm install -g generator-azuresfjava       # for Service Fabric Java Applications
+  npm install -g generator-azuresfguest      # for Service Fabric Guest executables
+  npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
+  ```
+4. Mac üzerinde bir Service Fabric Java uygulaması oluşturmak için makinenizde JDK 1.8 ve Gradle yüklü olmalıdır.
+
+
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Eclipse Neon için Service Fabric eklentisini yükleme
 
 Service Fabric, **Java IDE için Eclipse Neon** için Java hizmetlerini oluşturma, derleme ve dağıtmayı kolaylaştırabilen bir eklenti sağlar. Service Fabric Eclipse eklentisini yükleme veya güncelleştirme hakkındaki bu genel [belgede](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) bahsedilen yükleme adımlarını izleyebilirsiniz.
 
-## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>Mac bilgisayarda Service Fabric Eclipse eklentisini kullanma
-
-[Service Fabric Eclipse eklentisi belgelerindeki](service-fabric-get-started-eclipse.md) adımları uyguladığınızdan emin olun. Bir Mac ana bilgisayarda vagrant-guest kapsayıcısını kullanarak Service Fabric Java uygulaması oluşturma, derleme ve dağıtma adımları, aşağıdaki öğeler dışında genel belgelerdekiyle aynıdır:
-
-* Service Fabric Java uygulamanız için Service Fabric kitaplıkları gerekli olacağından, Eclipse projesinin paylaşılan bir yolda oluşturulması gerekir. Varsayılan olarak, ana bilgisayarınızda ``Vagrantfile`` öğesinin bulunduğu yoldaki içerikler, konuktaki ``/vagrant`` yolu ile paylaşılır.
-* Bir yolda (örneğin ``~/home/john/allprojects/``) ``Vagrantfile`` varsa, ``MyActor`` Service Fabric projenizi ``~/home/john/allprojects/MyActor`` konumunda oluşturmanız gerekir ve Eclipse çalışma alanınızın yolu ``~/home/john/allprojects`` olur.
+>[!TIP]
+> Varsayılan olarak, oluşturulan uygulamada ``Local.json`` dosyasındaki ``Vagrantfile`` değerinde belirtilen varsayılan IP’yi destekliyoruz. Bunu değiştirir ve Vagrant’ı farklı bir IP ile dağıtırsanız lütfen uygulamanızdaki ``Local.json`` dosyasında da IP’yi güncelleştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 <!-- Links -->

@@ -14,10 +14,10 @@ ms.topic: hero-article
 ms.date: 07/27/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 1749c4233e2b90f0a207033276b31093f7bf667f
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma
@@ -28,7 +28,7 @@ Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Cosmos DB hesab
 
 ![Apache Gremlin konsolunda Azure Cosmos DB](./media/create-graph-gremlin-console/gremlin-console.png)
 
-Gremlin konsolu, Groovy/Java tabanlıdır ve Linux, Mac ve Windows üzerinde çalışır. Konsolu [Apache TinkerPop sitesinden](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.4/apache-tinkerpop-gremlin-console-3.2.4-bin.zip) indirebilirsiniz.
+Gremlin konsolu, Groovy/Java tabanlıdır ve Linux, Mac ve Windows üzerinde çalışır. Konsolu [Apache TinkerPop sitesinden](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip) indirebilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -36,7 +36,7 @@ Bu hızlı başlangıca yönelik bir Azure Cosmos DB hesabı oluşturmak için A
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3.2.4 veya daha yüksek bir sürüm kullanın.
+Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3.2.5 veya daha yüksek bir sürüm kullanın.
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
@@ -47,7 +47,7 @@ Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Uygulama hizmetinize bağlanma
-1. Gremlin Konsolu’nu başlatmadan önce apache-tinkerpop-gremlin-console-3.2.4/conf dizininde remote-secure.yaml yapılandırma dosyasını oluşturun veya değiştirin.
+1. Gremlin Konsolu’nu başlatmadan önce apache-tinkerpop-gremlin-console-3.2.5/conf dizininde remote-secure.yaml yapılandırma dosyasını oluşturun veya değiştirin.
 2. *ana bilgisayar*, *bağlantı noktası*, *kullanıcı adı*, *parola*, *bağlantı havuzu* ve *serileştirici* değerlerini girin:
 
     Ayar|Önerilen değer|Açıklama
@@ -64,7 +64,7 @@ Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3
     Password değeri için, **Anahtarlar** sayfasından **Birincil Anahtar**’ı kopyalayın: ![Azure portalındaki Anahtarlar sayfasında bulunan birincil anahtarı görüntüleme ve kopyalama](./media/create-graph-gremlin-console/keys.png)
 
 
-3. Terminalinizde [Gremlin Konsolunu](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/) başlatmak için `bin/gremlin.bat` veya `bin/gremlin.sh` çalıştırın.
+3. Terminalinizde [Gremlin Konsolunu](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/) başlatmak için `bin/gremlin.bat` veya `bin/gremlin.sh` çalıştırın.
 4. Terminalinizde uygulama hizmetinize bağlanmak için `:remote connect tinkerpop.server conf/remote-secure.yaml` çalıştırın.
 
     > [!TIP]

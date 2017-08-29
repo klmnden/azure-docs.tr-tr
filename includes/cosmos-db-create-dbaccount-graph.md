@@ -1,5 +1,5 @@
 1. Yeni bir pencerede [Azure portalında](https://portal.azure.com/) oturum açın.
-2. Sol bölmede **Yeni**, **Veritabanları** ve ardından **Azure Cosmos DB** seçeneğine tıklayın.
+2. Sol taraftaki bölmede **Yeni**'ye, **Veritabanları**'na ve ardından **Azure Cosmos DB**' altında **Oluştur**’a tıklayın.
    
    ![Azure portalındaki Veritabanları bölmesi](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
 

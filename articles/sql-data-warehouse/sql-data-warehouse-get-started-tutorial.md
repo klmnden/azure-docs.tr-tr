@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Veri Ambarı - başlangıç öğreticisi | Microsoft Docs"
-description: "Bu öğreticide verilerin sağlanması ve Azure SQL Veri Ambarı&quot;na yüklenmesi gösterilir. Ayrıca, ölçekleme, duraklatma ve ayarlama ile ilgili temel bilgileri öğrenirsiniz."
+description: "Bu öğreticide verilerin sağlanması ve Azure SQL Veri Ambarı'na yüklenmesi gösterilir. Ayrıca, ölçekleme, duraklatma ve ayarlama ile ilgili temel bilgileri öğrenirsiniz."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>SQL Veri Ambarı'nı kullanmaya başlayın
@@ -60,11 +59,10 @@ SQL Veri Ambarı, yüksek düzeyde paralel işleme için tasarlanmış özel bir
 
 ### <a name="create-a-data-warehouse"></a>Veri ambarı oluşturma
 
-1. [Azure portal](https://portal.azure.com) oturum açın.
+1. [Azure portalında](https://portal.azure.com) oturum açın.
 2. **Yeni** > **Veritabanları** > **SQL Veri Ambarı** öğelerine tıklayın.
 
-    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
-    ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Dağıtım ayrıntılarını doldurun
 
@@ -84,8 +82,7 @@ SQL Veri Ambarı, yüksek düzeyde paralel işleme için tasarlanmış özel bir
 
     **Performans seçin**: Standart 400DWU ile başlamanız önerilir.
 
-4. **Panoya sabitle**
-    ![Panoya Sabitle](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png) öğesini seçin
+4. **Panoya sabitle** ![Panoya Sabitle](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png) öğesini seçin
 
 5. Arkanıza yaslanın ve veri ambarınızın dağıtılmasını bekleyin! Bu işlemin birkaç dakika sürmesi normal bir durumdur. Veri ambarınız kullanıma hazır olduğunda portal size bildirir. 
 
@@ -657,7 +654,7 @@ Keşfetmeyi bitirdiğinizde, örneğinizi duraklatmayı unutmayın! Üretimde, i
 
 [Azure SQL Veri Ambarı’na Veri Geçirme][]
 
-[Eşzamanlılık ve İş Yükü Yönetimi]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Eşzamanlılık ve İş Yükü Yönetimi]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Azure SQL Veri Ambarı için en iyi yöntemler]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Sorgu İzleme]: sql-data-warehouse-manage-monitor.md
 [Büyük Ölçekli İlişkisel Veri Ambarı Oluşturmaya Yönelik En İyi 10 Yöntem]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/

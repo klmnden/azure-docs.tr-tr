@@ -1,5 +1,5 @@
 ---
-title: Azure'da Machine Learning nedir? | Microsoft Belgeleri
+title: Azure'da Machine Learning nedir? | Microsoft Docs
 description: "Bulutta makine öğrenimine ilişkin temel kavramları açıklar, bunu ne için kullanabileceğinizi anlatır ve makine öğrenimi terimlerini tanımlar."
 keywords: "makine öğrenimi nedir, makine öğrenimi terimleri,tahmine dayalı,tahmine dayalı analiz nedir,makine öğrenimi terimleri"
 services: machine-learning
@@ -16,27 +16,28 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 179a0d3696c6044ffb5b9e377effa30dda54ba7f
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Azure bulutta Machine Learning’e giriş
 
 ## <a name="what-is-machine-learning"></a>Machine learning nedir?
-Makine öğrenimi; bilgisayarların var olan verileri kullanarak gelecekteki davranışları, sonuçları ve eğilimleri öngörmelerini sağlayan bir veri bilimi tekniğidir. Bilgisayarlar, makine öğrenimini kullanarak açıkça programlamaya gerek kalmadan öğrenir.
+Makine öğrenimi; bilgisayarların var olan verileri kullanarak gelecekteki davranışları, sonuçları ve eğilimleri öngörmelerini sağlayan bir veri bilimi tekniğidir. Bilgisayarlar, makine öğrenimini kullanarak açıkça programlamaya gerek kalmadan öğrenir. 
 
-Makine öğreniminin öngörüleri veya tahminleri, uygulama ve cihazları daha akıllı hale getirir. Çevrimiçi alışveriş yaparken makine öğrenimi önceden satın aldıklarınızı temel alarak beğenebileceğiniz diğer ürünleri önermede yardımcı olur. Kredi kartınız makineden geçirildiğinde, makine öğrenimi işlemi bir işlem veritabanıyla karşılaştırır ve sahtekarlıkların saptanmasına yardımcı olur. Elektrikli süpürge robotunuz bir odayı temizlediğinde, makine öğrenimi robotunuzun işin tamamlanıp tamamlanmadığına karar vermesine yardımcı olur.
+Makine öğrenimi, yapay zekanın (AI) bir alt kategorisi olarak kabul edilir. Makine öğreniminin öngörüleri veya tahminleri, uygulama ve cihazları daha akıllı hale getirir. Çevrimiçi alışveriş yaparken makine öğrenimi önceden satın aldıklarınızı temel alarak beğenebileceğiniz diğer ürünleri önermede yardımcı olur. Kredi kartınız makineden geçirildiğinde, makine öğrenimi işlemi bir işlem veritabanıyla karşılaştırır ve sahtekarlıkların saptanmasına yardımcı olur. Elektrikli süpürge robotunuz bir odayı temizlediğinde, makine öğrenimi robotunuzun işin tamamlanıp tamamlanmadığına karar vermesine yardımcı olur.
 
 Kısa bir genel bakış için [Yeni Başlayanlar için Veri Bilimi](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) video serisini deneyin. Yeni Başlayanlar için Veri Bilimi, jargon veya matematik kullanmadan makine öğrenimini tanır ve basit bir tahmin modelini adım adım gösterir.
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Microsoft Azure bulutta Machine Learning nedir?
+
+![Machine learning nedir? Azure Machine Learning'de tahmine dayalı analizleri faaliyete geçirmenin temel iş akışı.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
+
 Azure Machine Learning, tahmine dayalı modelleri analiz çözümleri olarak hızlı bir şekilde oluşturmayı ve dağıtmayı mümkün kılan bulut tabanlı ve tahmine dayalı analiz hizmetidir.
 
 Kullanıma hazır algoritma kitaplığıyla çalışabilir, bunları kullanarak internete bağlı bir bilgisayarda model oluşturabilir ve tahmine dayalı çözümünüzü hızlıca dağıtabilirsiniz. [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/)’deki kullanıma hazır örnekler ve çözümlerle çalışmaya başlayın.
-
-![Machine learning nedir? Azure Machine Learning'de tahmine dayalı analizleri faaliyete geçirmenin temel iş akışı.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Azure Machine Learning tahmine dayalı analiz modellemeye yönelik araçlar sağlamanın yanı sıra, tahmine dayalı modellerinizi kullanıma hazır web hizmetleri olarak dağıtmada kullanabileceğiniz tam olarak yönetilen bir hizmet de sunar.
 

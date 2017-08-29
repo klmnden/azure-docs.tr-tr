@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0f26a9b62a376daf2b1314ff5972293a2bc7f379
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: ecfe6dab6e4deaa75d073badcb88d536396fe678
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway hakkında
@@ -28,7 +28,7 @@ VPN ağ geçidi, ortak bağlantı üzerinden şirket içi konuma şifrelenmiş t
 
 Her bir sanal ağ yalnızca bir VPN ağ geçidi içerebilir ancak aynı VPN ağ geçidi için birden çok bağlantı oluşturabilirsiniz. Çok Siteli bağlantı yapılandırması bunun bir örneğidir. Aynı VPN ağ geçidi ile birden fazla bağlantı oluşturduğunuzda, Noktadan Siteye VPN’ler dahil tüm VPN tünelleri, ağ geçidinin bant genişliğini paylaşır.
 
-### <a name="what-is-a-virtual-network-gateway"></a>Sanal ağ geçidi nedir?
+### <a name="whatis"></a>Sanal ağ geçidi nedir?
 
 Sanal ağ geçidi GatewaySubnet adı verilen belirli bir alt ağa dağıtılan iki veya daha fazla sanal makineden oluşur. GatewaySubnet'te bulunan VM'ler, sanal ağ geçidini ayarladığınızda oluşturulur. Sanal ağ geçidi VM'leri, ağ geçidine özgü yönlendirme tablolarını ve ağ geçidi hizmetlerini içerecek şekilde yapılandırılır. Sanal ağ geçidinin parçası olan VM'leri doğrudan yapılandıramazsınız ve GatewaySubnet'e hiçbir koşulda ek kaynak dağıtmamanız gerekir.
 
@@ -38,7 +38,7 @@ Sanal ağ geçidi GatewaySubnet adı verilen belirli bir alt ağa dağıtılan i
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## <a name="configuring-a-vpn-gateway"></a>VPN Gateway yapılandırma
+## <a name="configuring"></a>VPN Gateway yapılandırma
 
 VPN ağ geçidi bağlantısı belirli ayarlarla yapılandırılmış birden fazla kaynağı kullanır. Kaynakların birçoğu ayrı ayrı yapılandırılabilir, ancak bazı durumlarda belirli bir sırayla yapılandırılması gerekir.
 
@@ -46,11 +46,11 @@ VPN ağ geçidi bağlantısı belirli ayarlarla yapılandırılmış birden fazl
 
 Her kaynak için seçtiğiniz ayarlar başarılı bir bağlantı oluşturmak için önemlidir. VPN Gateway’e ilişkin kaynaklar ve ayarlar hakkında bilgi için bkz. [VPN Gateway ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md). Makale; ağ geçidi türleri, VPN türleri, bağlantı türleri, ağ geçidi alt ağları, yerel ağ geçitleri ve kullanmayı düşünebileceğiniz diğer çeşitli ayarlar hakkında bilgi içerir.
 
-### <a name="deployment-tools"></a>Dağıtım araçları
+### <a name="tools"></a>Dağıtım araçları
 
 Azure portalı gibi bir yapılandırma aracını kullanarak kaynakları oluşturmaya ve yapılandırmaya başlayabilirsiniz. Daha sonra ek kaynaklar yapılandırmak ya da uygun olduğunda var olan kaynakları değiştirmek için PowerShell gibi başka bir araca geçmeye karar verebilirsiniz. Şu anda Azure portalında her kaynağı ve kaynak ayarını yapılandıramazsınız. Her bağlantı topolojisine ilişkin makalelerdeki yönergelerde, belirli bir aracının ne zaman gerekli olduğu belirtilmektedir. 
 
-### <a name="deployment-model"></a>Dağıtım modeli
+### <a name="models"></a>Dağıtım modeli
 
 VPN Gateway'i yapılandırırken uygulayacağınız adımlar, sanal ağınızı oluşturmak için kullandığınız dağıtım modeline bağlıdır. Örneğin,VNet'inizi klasik dağıtım modeli kullanarak oluşturduysanız VPN ağ geçidi ayarlarınızı oluşturmak ve yapılandırmak için klasik dağıtım modeline ilişkin yönergeleri kullanırsınız. Dağıtım modelleri hakkında daha fazla bilgi için bkz. [Resource Manager’ı ve klasik dağıtım modellerini anlama](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -64,7 +64,7 @@ VPN ağ geçidi bağlantıları için kullanılabilecek farklı yapılandırmala
 
 Gereksinimlerinize uygun bağlantı topolojisini seçmenize yardımcı olması için diyagramları ve açıklamaları kullanabilirsiniz. Diyagramlarda temel topolojilerin başlıca olanları gösterilmektedir ancak diyagramları bir kılavuz olarak kullanıp daha karmaşık yapılandırmalar da oluşturabilirsiniz.
 
-## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Siteden Siteye ve Çok Siteli (IPsec/IKE VPN tüneli)
+## <a name="s2smulti"></a>Siteden Siteye ve Çok Siteli (IPsec/IKE VPN tüneli)
 
 ### <a name="S2S"></a>Siteden Siteye
 
@@ -84,7 +84,11 @@ Bu türden bir bağlantı, Siteden Siteye bağlantının bir çeşididir. Sanal 
 
 ## <a name="P2S"></a>Noktadan Siteye (SSTP üzerinden VPN)
 
-Noktadan Siteye (P2S) VPN ağ geçidi bağlantısı, ayrı bir istemci bilgisayardan sanal ağınıza güvenli bir bağlantı oluşturmanıza olanak sağlar. P2S, SSTP (Güvenli Yuva Tünel Protokolü) aracılığıyla gerçekleşen bir VPN bağlantısıdır. S2S bağlantılarının aksine, P2S bağlantıları için şirket içi genel kullanıma yönelik IP adresi veya VPN cihazı gerekmez. İstemci bilgisayardan başlatarak VPN bağlantısını kurarsınız. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da bir VNet'e bağlanması gereken yalnızca birkaç istemciniz bulunduğunda bu ideal bir çözümdür. Her iki bağlantı için tüm yapılandırma gereksinimlerinin uyumlu olması şartıyla P2S bağlantıları aynı VPN ağ geçidi üzerinden S2S bağlantılarıyla birlikte kullanılabilir.
+Noktadan Siteye (P2S) VPN ağ geçidi, ayrı bir istemci bilgisayardan sanal ağınıza güvenli bir bağlantı oluşturmanıza olanak sağlar. Noktadan Siteye VPN bağlantıları, ev veya bir konferans gibi uzak bir noktadan Vnet'inize bağlanmak istediğinizde faydalıdır. P2S VPN ayrıca, bir sanal ağa bağlanması gereken yalnızca birkaç istemciniz olduğunda Siteden Siteye VPN yerine kullanabileceğiniz yararlı bir çözümüdür. 
+
+S2S bağlantılarının aksine, P2S bağlantıları için şirket içi genel kullanıma yönelik IP adresi veya VPN cihazı gerekmez. Her iki bağlantı için tüm yapılandırma gereksinimlerinin uyumlu olması şartıyla P2S bağlantıları aynı VPN ağ geçidi üzerinden S2S bağlantılarıyla birlikte kullanılabilir.
+
+P2S, SSL tabanlı bir VPN protokolü olan Güvenli Yuva Tünel Protokolünü (SSTP) kullanır. P2S VPN bağlantısı, istemci bilgisayardan başlatılmasıyla oluşturulur.
 
 ![Azure VPN Gateway Noktadan Siteye bağlantı örneği](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
 

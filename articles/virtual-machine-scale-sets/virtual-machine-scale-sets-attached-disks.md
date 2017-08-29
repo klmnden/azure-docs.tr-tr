@@ -1,5 +1,5 @@
 ---
-title: "Azure Sanal Makine Ölçek Kümeleri Bağlı Veri Diskleri | Microsoft Belgeleri"
+title: "Azure Sanal Makine Ölçek Kümeleri Bağlı Veri Diskleri | Microsoft Docs"
 description: "Sanal makine ölçek kümelerinde bağlı veri disklerinin nasıl kullanılacağını öğrenin"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Azure VM ölçek kümeleri ve bağlı veri diskleri
@@ -99,10 +99,21 @@ Ayrıca bir ölçek kümesi tanımının _storageProfile_ kısmındaki _dataDisk
     }          
 ]
 ```
+
 Ardından _PUT_ öğesini seçerek değişiklikleri ölçek kümenize uygulayın. Bu örnek, ikiden fazla bağlı veri diskini destekleyen bir VM boyutu kullandığınız sürece işe yarar.
 
 > [!NOTE]
 > Ölçek kümesi tanımında, veri diski ekleme veya kaldırma gibi bir değişiklik yaptığınızda değişiklik yeni oluşturulan tüm sanal makineler için geçerli olur. Ancak _upgradePolicy_ özelliği "Otomatik" olarak ayarlanırsa, değişiklik yalnızca mevcut sanal makinelere uygulanır. Bu özellik "El ile" olarak ayarlanırsa, yeni modeli mevcut sanal makinelere el ile uygulamanız gerekir. Bu işlemi portalda _Update-AzureRmVmssInstance_ PowerShell komutunu veya _az vmss update-instances_ CLI komutunu kullanarak yapabilirsiniz.
+
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Önceden doldurulmuş veri disklerini mevcut bir ölçek kümesine ekleme 
+> Tasarım gereği, mevcut ölçek kümesi modeline disk eklediğinizde, disk her zaman boş oluşturulur. Bu senaryo ayrıca ölçek kümesi tarafından oluşturulan yeni örnekleri içerir. Bu davranışın nedeni ölçek kümesinin boş veri diski tanımına sahip olmasıdır. Mevcut bir ölçek kümesi modeli için önceden doldurulmuş veri sürücüleri oluşturmak için iki seçenekten birini seçebilirsiniz:
+
+* Örnek 0 VM’sinden verileri özel bir betik çalıştırarak diğer VM’lerdeki veri disklerine kopyalayabilirsiniz.
+* İşletim sistemi diskine ve veri diskine (gerekli verilerle) sahip yönetilen bir görüntü oluşturup görüntüde yeni bir ölçek kümesi oluşturabilirsiniz. Bu şekilde oluşturulan her yeni VM, ölçek kümesi tanımında sağlanan bir veri diskine sahip olur. Bu tanım, özelleştirilmiş verilere sahip bir veri disk görüntüsüne başvuracağından, ölçek kümesindeki her sanal makine otomatik olarak bu değişikliklerle açılır.
+
+> Özel bir görüntü oluşturmak için izlenecek yol şurada bulunabilir: [Azure’da genelleştirilmiş bir VM’nin yönetilen görüntüsü oluşturma](/azure/virtual-machines/windows/capture-image-resource/) 
+
+> Kullanıcının gerekli verileri içeren örnek 0 VM’yi yakalaması, ardından da görüntü tanımı için bu VHD’yi kullanması gerekir.
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>Bir ölçek kümesinden veri diski kaldırma
 Azure CLI _az vmss disk detach_ komutunu kullanarak bir VM ölçek kümesinden veri diski kaldırabilirsiniz. Örneğin, aşağıdaki komut mantıksal birim numarası 2’de tanımlanmış diski kaldırır:

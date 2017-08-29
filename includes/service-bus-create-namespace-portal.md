@@ -1,4 +1,4 @@
-Azure'da Service Bus kuyruklarını kullanmaya başlamak için öncelikle bir ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar. 
+Azure'da Service Bus kuyruklarını kullanmaya başlamak için öncelikle Azure’da benzersiz olan bir ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
 
 Ad alanı oluşturmak için:
 

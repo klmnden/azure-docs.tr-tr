@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory ile ilgili SSS | Microsoft Belgeleri
+title: Azure Active Directory ile ilgili SSS | Microsoft Docs
 description: "Azure Active Directory SSS bölümünde, Azure ve Azure Active Directory, parola yönetimi ve uygulama erişimi konusunda sorular yanıtlanmaktadır."
 services: active-directory
 documentationcenter: 
@@ -12,25 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.translationtype: HT
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/18/2017
 
 ---
-# Azure Active Directory ile ilgili SSS
-<a id="azure-active-directory-faq" class="xliff"></a>
+# <a name="azure-active-directory-faq"></a>Azure Active Directory ile ilgili SSS
 Azure Active Directory (Azure AD), kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir hizmet olarak kimlik (IDaaS) çözümüdür.
 
 Daha fazla bilgi için bkz. [Azure Active Directory nedir?](active-directory-whatis.md).
 
 
-## Azure ve Azure Active Directory erişimi
-<a id="access-azure-and-azure-active-directory" class="xliff"></a>
-**S: Klasik Azure portalında \(https://manage.windowsazure.com\) Azure AD'ye erişmeye çalıştığımda neden "Abonelik bulunamadı" yanıtını alıyorum?**
+## <a name="access-azure-and-azure-active-directory"></a>Azure ve Azure Active Directory erişimi
+**S: Klasik Azure portalında Azure AD'ye erişmeye çalıştığımda neden "Abonelik bulunamadı" yanıtını alıyorum?**
 
 **Y:** Klasik Azure portalına erişmek için her kullanıcının bir Azure aboneliğiyle birlikte izinleri olmalıdır. Ücretli bir Office 365 veya Azure AD aboneliğiniz varsa tek seferlik etkinleştirme adımı için [http://aka.ms/accessAAD](http://aka.ms/accessAAD) sayfasına gidin. Aksi takdirde, ücretsiz bir [Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) veya ücretli aboneliği etkinleştirmeniz gerekir.
 
@@ -70,8 +68,7 @@ Ayrıca, Enterprise Mobility + Security gibi ücretli Azure AD hizmetleri, kurum
 
 - - -
 
-## Karma Azure AD ile çalışmaya başlama
-<a id="get-started-with-hybrid-azure-ad" class="xliff"></a>
+## <a name="get-started-with-hybrid-azure-ad"></a>Karma Azure AD ile çalışmaya başlama
 
 
 **S: Ortak çalışan olarak eklendiğimde kiracıdan nasıl ayrılabilirim?**
@@ -108,8 +105,7 @@ Daha fazla bilgi için bkz. [Erişim Paneli'ne Giriş](active-directory-saas-acc
 Daha fazla bilgi için bkz. [Bulutta şirket içi kimlik altyapınızı ve eşitleme hizmetlerinizi izleme](active-directory-aadconnect-health.md).  
 
 - - -
-## Parola yönetimi
-<a id="password-management" class="xliff"></a>
+## <a name="password-management"></a>Parola yönetimi
 **S: Azure AD parola geri yazma özelliğini parola eşitleme olmadan kullanabilir miyim? (Bu senaryoda Azure AD self servis parola sıfırlama (SSPR) özelliğinin parola geri yazma ile birlikte kullanılması ve parolaların buluta depolanmaması mümkün mü?)**
 
 **Y:** Geri yazmayı etkinleştirmek için Active Directory parolalarınızı Azure AD ile eşitlemeniz gerekmez. Birleştirilmiş bir ortamda Azure AD çoklu oturum açma (SSO), kullanıcının kimliğini doğrulamak için şirket içi dizini kullanır. Bu senaryoda, şirket içi parolanın Azure AD'de izlenmesi gerekmez.
@@ -142,8 +138,7 @@ Azure AD hesapları için yöneticiler aşağıdakilerden birini kullanarak paro
 
 
 - - -
-## Güvenlik
-<a id="security" class="xliff"></a>
+## <a name="security"></a>Güvenlik
 **S: Hesaplar belirli sayıda girişim başarısız olduktan sonra kilitleniyor mu, yoksa kullanılan daha karmaşık bir strateji mi var?**</br>
 Hesapları kilitlemek için daha karmaşık bir strateji kullanırız.  Bu strateji, isteğin IP adresini ve girilen parolaları temel alır. Kilitleme süresi ayrıca girişimin bir saldırı olma olasılığına göre artar.  
 
@@ -153,8 +148,7 @@ Bu durum, parolaların “Parola” ve “123456” değerlerinin çeşitlemeler
 **S: Güvenilmez kaynaklardan (botnet, tor uç noktası) gelen oturum açma istekleri bir B2C kiracısında engellenir mi veya bir Temel ya da Premium sürüm kiracı gerekir mi?**</br>
 İstekleri filtreleyen ve botnetlere karşı koruma sağlayıp tüm B2C kiracılarına uygulanan bir ağ geçidine sahibiz.
 
-## Uygulama erişimi
-<a id="application-access" class="xliff"></a>
+## <a name="application-access"></a>Uygulama erişimi
 **S: Azure AD ile önceden tümleştirilmiş olan uygulamaların ve özelliklerinin listesini nereden bulabilirim?**
 
 **Y:** Azure AD, Microsoft'a, uygulama hizmeti sağlayıcılarına ve iş ortaklarına ait 2.600'ü aşkın önceden tümleştirilmiş uygulama içerir. Önceden tümleştirilmiş tüm uygulamalar çoklu oturum açmayı (SSO) destekler. SSO, uygulamalarınıza erişmek için kurumsal kimlik bilgilerinizi kullanmanıza olanak tanır. Uygulamalardan bazıları aynı zamanda otomatik hazırlama ve sağlamayı kaldırma özelliklerini destekler.
@@ -218,5 +212,5 @@ Daha fazla bilgi için bkz. [Azure Active Directory ile SaaS uygulamalarına kul
 - - -
 **S:  Azure AD ile güvenli bir LDAP bağlantısı oluşturabilir miyim?**
 
-**Y:** Hayır.  Azure AD, LDAP protokolünü desteklemez.
+**Y:** Hayır. Azure AD, LDAP protokolünü desteklemez.
 

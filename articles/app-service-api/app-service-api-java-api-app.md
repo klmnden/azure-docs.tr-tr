@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e38c540071cb49b0177e79178566d72ecb5f8886
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Azure App Service içinde Java API uygulaması derleme ve dağıtma
@@ -278,7 +277,7 @@ Bu örneği geliştirmek için JSON blob’larını devam ettirmek üzere [Java 
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Azure Java Geliştirici Merkezi].
+Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Java geliştiricileri için Azure](/java/azure).
 
 <!-- URL List -->
 
@@ -287,14 +286,14 @@ Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Azure
 [Belge DB Java SDK’sı]: ../documentdb/documentdb-java-application.md
 [ücretsiz deneme]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Azure Java Geliştirici Merkezi]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Java Geliştirme Seti 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
 [Online Swagger Editor]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
-[Java için Depolama SDK’sı]: ../storage/storage-java-how-to-use-blob-storage.md
+[Java için Depolama SDK’sı]:../storage/blobs/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [Swagger Editor]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com

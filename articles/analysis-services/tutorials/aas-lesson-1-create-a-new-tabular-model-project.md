@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 40aac182af22d03c4cff535fd8c87b29ecae376a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ebd160372fc75c6d0fc323be9e948fa2475b71cf
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="lesson-1-create-a-new-tabular-model-project"></a>1. Ders: Yeni bir tablosal model projesi oluşturma
+# <a name="lesson-1-create-a-tabular-model-project"></a>1. Ders: Tablosal model projesi oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 

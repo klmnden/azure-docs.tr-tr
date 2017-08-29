@@ -1,5 +1,5 @@
 ---
-title: "Azure portalında Azure BizTalk Services oluşturma | Microsoft Belgeleri"
+title: "Azure portalında Azure BizTalk Services oluşturma | Microsoft Docs"
 description: "Azure portalında Azure BizTalk Services hazırlamayı veya oluşturmayı öğrenin; MABS, WABS"
 services: biztalk-services
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure portalını kullanarak BizTalk Services oluşturma
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/31/2017
 > Azure portalında oturum açmak için bir Azure hesabınız ve Azure aboneliğiniz olması gerekir. Hesabınız yoksa birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Bkz. [Azure Ücretsiz Deneme](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
-## <a name="create-a-biztalk-service"></a>BizTalk Hizmeti oluşturma
+## <a name="CreateService"></a>BizTalk Hizmeti oluşturma
 Seçtiğiniz Sürüm’e bağlı olarak, BizTalk Hizmeti ayarlarının tümü kullanılamayabilir.
 
 1. [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
@@ -137,7 +136,7 @@ BizTalk Services oluşturulduğunda otomatik olarak oluşturulan otomatik imzal�
 2. BizTalk Hizmet adınızı ekleyen özel SSL sertifikanıza (*CertificateName*.pfx) göz atın, parolayı girin ve ardından onay işaretine tıklayın.
 
 #### <a name="ACS"></a>Access Control ad alanını alma
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
+1. [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
 2. Sol gezinti bölmesinde **BIZTALK HİZMETLERİ**’ni, sonra da BizTalk Hizmetini seçin.
 3. Görev çubuğunda **Bağlantı Bilgileri**’ni seçin.  
    ![Bağlantı Bilgilerini seçme][ACSConnectInfo]
@@ -233,13 +232,14 @@ Azure BizTalk Hizmeti oluşturulduğunda, BizTalk hizmeti adını içeren bir HT
 
 <ul>
 <li><strong>Gelişmiş Anahtar Kullanımı</strong>: Azure BizTalk Services için en azından Sunucu Kimlik Doğrulaması gerekir.</li>
-<li><strong>Ortak Ad</strong>: Azure BizTalk Hizmeti URL'nizin tam etki alanı adını (FQDN) girin. Bu makaledeki <a HREF="#BizTalk">BizTalk Hizmeti oluşturma</a> bölümüne bakın.</li>
+<li><strong>Ortak Ad</strong>: Azure BizTalk Hizmeti URL'nizin tam etki alanı adını (FQDN) girin. Bu makaledeki <a HREF="#CreateService">BizTalk Hizmeti oluşturma</a> bölümüne bakın.</li>
 </ul>
 <br/>
 BizTalk Hizmeti oluşturulduktan sonra yeni veya farklı bir sertifika eklenebilir.
 </td>
 </tr>
 </table>
+<!---Loc Comment: Please, check link [Create a BizTalk Service] since it is not redirecting to any location.--->
 
 
 

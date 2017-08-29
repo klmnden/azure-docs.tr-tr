@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 70dbf5786262f75199270aa8009e03b9b48b8559
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="lesson-13-deploy"></a>13. Ders: Dağıtma
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/19/2017
 
 Bu derste, Azure Analysis Services sunucusunun model için bir ad belirtmesini sağlayarak dağıtım özelliklerini yapılandırırsınız. Daha sonra modeli bu örneğe dağıtırsınız. Modeliniz dağıtıldıktan sonra kullanıcılar bir raporlama istemci uygulaması kullanarak modele bağlanabilir. Daha fazla bilgi için bkz. [Azure Analysis Services’a Dağıtma](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
-Bu dersi tamamlamak için tahmini süre: **Beş dakika**  
+Bu dersin tahmini tamamlanma süresi: **5 dakika**  
   
 ## <a name="prerequisites"></a>Ön koşullar  
 Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [12. Ders: Excel’de çözümleme](../tutorials/aas-lesson-12-analyze-in-excel.md).  

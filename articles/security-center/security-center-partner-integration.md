@@ -1,5 +1,5 @@
 ---
-title: "Azure Güvenlik Merkezi'nde İş Ortağı tümleştirmesi | Microsoft Belgeleri"
+title: "Azure Güvenlik Merkezi'nde İş Ortağı tümleştirmesi | Microsoft Docs"
 description: "Azure Güvenlik Merkezi’nin, Azure kaynaklarınızın genel güvenliğini geliştirmek amacıyla iş ortaklarıyla nasıl tümleştirildiğini öğrenin."
 services: security-center
 documentationcenter: na
@@ -12,14 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 4d0909e926de14a0cbe9799b969ac7a1946d69d1
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="partner-integration-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde İş Ortağı tümleştirmesi
@@ -62,9 +61,9 @@ Azure ortamınızın kurulumuna ve tanımladığınız güvenlik ilkesine bağl�
 
 ## <a name="manage-partner-solutions"></a>İş ortağı çözümlerini yönetme
 
-Dağıtımdan sonra çözümün durumunu görüntülemek ve temel yönetim görevlerini gerçekleştirmek için **Güvenlik Merkezi** dikey penceresinde **İş ortağı çözümleri** kutucuğunu seçin. Güvenlik Merkezi'nde iş ortağı çözümlerini yönetme hakkında daha fazla bilgi edinmek, bkz. [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md).
+Dağıtımdan sonra çözümün durumunu görüntülemek ve temel yönetim görevlerini gerçekleştirmek için **Güvenlik Merkezi** dikey penceresinde **İş ortağı çözümleri** seçeneğini seçin. Güvenlik Merkezi'nde iş ortağı çözümlerini yönetme hakkında daha fazla bilgi edinmek, bkz. [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md).
 
-![İş ortağı tümleştirmesi](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
+![İş ortağı tümleştirmesi](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
 
 > [!NOTE]
 > Symantec uç nokta koruması desteği yalnızca bulma ile sınırlıdır. Sistem durumu uyarıları sağlanmaz.

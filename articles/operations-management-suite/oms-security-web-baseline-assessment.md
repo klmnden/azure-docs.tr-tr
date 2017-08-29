@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 8be49b182df675fe3235d148b87379e1dff3a384
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite Güvenlik ve Denetim Çözümünde Web Temeli Değerlendirmesi
@@ -29,6 +29,9 @@ Bu belge, izlenen kaynaklarınızın güvenli durumunu değerlendirmek üzere OM
 OMS Güvenliği şu anda işletim sistemleri için güvenlik temeli değerlendirmesi sağlamaktadır. Sunucularınızın işletim sistemi ayarlarını 24 saatte bir taramakta ve savunmasız olabilecek ayarları görüntülemeyi sağlamaktadır. Bu seçenek hakkında daha fazla bilgi için [Operations Management Suite Güvenlik ve Denetim Çözümünde Temel Değerlendirmesi](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline) makalesini okuyun.
 
 Web Temeli değerlendirmesinin amacı, savunmasız olabilecek web sunucusu ayarlarını bulmaktır. Web temeli yapılandırmaları için üç birincil kaynak şunlardır: .NET, ASP.NET ve IIS yapılandırması.  İşletim sistemi temel değerlendirmesinde olduğu gibi, OMS Güvenliği web sunucularınızı 24 saatte bir tarar ve güvenlik durumlarını görüntüler.  Internet Information Service (IIS) hizmetinde yapılandırmalar yüksek oranda özelleştirilebilir durumdadır, sonuç olarak çeşitli site ve uygulama düzeyleri geçersiz kılınabilir. Tarayıcı varsayılan kök düzeye ek olarak her bir uygulama/site düzeyindeki ayarları denetler. Bunun yapılması, savunmasız olabilecek ayarları tanımlayıp, bu ayarlara ilişkin önerilerimizle birlikte hızlıca düzeltmenize yardımcı olur.
+
+>[!NOTE] 
+>OMS güvenliği tarafından kullanılan Ortak Yapılandırma Tanımlayıcılarını ve Temel Kuralları [bu sayfadan](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0) indirebilirsiniz.
 
 
 ## <a name="web-security-baseline-assessment"></a>Web güvenlik temeli değerlendirmesi

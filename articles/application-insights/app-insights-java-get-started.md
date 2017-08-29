@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 29e13b51e094047be07843ad3d865290be32446b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 25d9d914ab27edb548cf6e6139d0d0395208ed24
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
@@ -387,7 +387,7 @@ Yanıt süreleri grafiklerine ek olarak, siteniz devre dışı kalırsa e-posta 
 * Tarayıcıda veya sunucuda kullanımı izlemek için [özel telemetri](app-insights-api-custom-events-metrics.md) yazın.
 * Sisteminizi izlemek üzere anahtar grafikleri bir araya getirmek için [panolar](app-insights-dashboards.md) oluşturun.
 * Uygulamanızdan telemetri üzerinde güçlü sorgular yapmak için [Analytics](app-insights-analytics.md)'i kullanın
-* Daha fazla bilgi için bkz. [Java Geliştirici Merkezi](/develop/java/).
+* Daha fazla bilgi için bkz. [Java geliştiricileri için Azure](/java/azure).
 
 <!--Link references-->
 
