@@ -65,6 +65,10 @@
           href: sql-database-servers-databases.md
         - name: Hizmet katmanları
           href: sql-database-service-tiers.md
+        - name: Kaynak sınırları
+          href: sql-database-resource-limits.md
+        - name: Tek veritabanları
+          href: sql-database-single-database-resources.md
         - name: Esnek havuzlar
           href: sql-database-elastic-pool.md
         - name: Bağlantı mimarisi
@@ -75,8 +79,6 @@
           href: sql-database-what-is-a-dtu.md
         - name: DTU kıyaslama
           href: sql-database-benchmark-overview.md
-        - name: Sınırlar
-          href: sql-database-resource-limits.md
         - name: PaaS veya IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
         - name: Denetim
@@ -416,7 +418,7 @@
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
     - name: Hizmet güncelleştirmeleri
       href: 'https://azure.microsoft.com/updates/?service=sql-database'
-    - name: Mimari kılavuzu
-      href: /azure/architecture/guide/
+    - name: Mimari merkezi
+      href: /azure/architecture/
     - name: Müşteri hikayeleri
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
