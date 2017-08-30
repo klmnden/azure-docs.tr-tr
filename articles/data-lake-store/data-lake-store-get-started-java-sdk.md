@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Lake Store’da uygulama geliştirmek için Java SDK&quot;sını kullanma | Microsoft Docs"
-description: "Bir Data Lake Store hesabı oluşturmak ve Data Lake Store&quot;da temel işlemleri gerçekleştirmek için Azure Data Lake Store Java SDK’sını kullanma"
+title: "Azure Data Lake Store’da uygulama geliştirmek için Java SDK'sını kullanma | Microsoft Docs"
+description: "Bir Data Lake Store hesabı oluşturmak ve Data Lake Store'da temel işlemleri gerçekleştirmek için Azure Data Lake Store Java SDK’sını kullanma"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/28/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 91128b53a2f1cd3ddcbee5b07da0d67668944fb4
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/07/2017
-
 
 ---
 # <a name="get-started-with-azure-data-lake-store-using-java"></a>Java'yı kullanarak Azure Data Lake Store ile çalışmaya başlama
