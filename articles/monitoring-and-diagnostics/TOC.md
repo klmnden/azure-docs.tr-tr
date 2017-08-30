@@ -64,6 +64,7 @@
 ## [Veri izleme kaynakları](monitoring-data-sources.md)
 ## [Desteklenen ölçümlerin listesi](monitoring-supported-metrics.md)
 ## [Etkinlik Günlüğü olay şeması](monitoring-activity-log-schema.md)
+## [Tanılama günlüklerine yönelik desteklenen hizmetler, kategoriler ve şemalar](monitoring-diagnostic-logs-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)

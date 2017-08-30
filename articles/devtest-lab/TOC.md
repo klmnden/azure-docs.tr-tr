@@ -42,8 +42,11 @@
 ## Yeniden kullanılabilir şablonları yönetme
 ### [Yapıtlar ve şablonlar için Git deposu ekleme](devtest-lab-add-artifact-repo.md)
 ### [Kaynak yöneticisi şablonu kullanma](devtest-lab-use-resource-manager-template.md)
-### [Özel yapıtlar oluşturma](devtest-lab-artifact-author.md)
 ### [Formülleri yönetme](devtest-lab-manage-formulas.md)
+
+## Yapıtları yönetme
+### [Özel yapıtlar oluşturma](devtest-lab-artifact-author.md)
+### [Yapıt hatalarını tanılama](devtest-lab-troubleshoot-artifact-failure.md)
 
 ## Sanal ağları yönetme
 ### [Sanal ağları yapılandırma](devtest-lab-configure-vnet.md)

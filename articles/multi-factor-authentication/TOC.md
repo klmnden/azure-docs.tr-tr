@@ -21,6 +21,7 @@
 #### [Kullanıcı portalını yükleme](multi-factor-authentication-get-started-portal.md)
 #### [Gelişmiş VPN Yapılandırmaları](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Mobil Uygulama Web Hizmeti](multi-factor-authentication-get-started-server-webservice.md)
+#### [Yüksek kullanılabilirliği yapılandırma](mfa-server-high-availability.md)
 #### [Windows Kimlik Doğrulaması](multi-factor-authentication-get-started-server-windows.md)
 #### [MFA Sunucusu’nu yükseltme](multi-factor-authentication-server-upgrade.md)
 #### [PhoneFactor'den yükseltme](multi-factor-authentication-get-started-server-upgrade.md)

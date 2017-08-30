@@ -18,7 +18,9 @@
 # Örnekler
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Azure CLI](samples-cli.md)
+## [Service Fabric CLI](samples-cli.md)
+### [Örnek dağıtma](scripts/cli-deploy-application.md)
+### [Örnek kaldırma](scripts/cli-remove-application.md)
 # Kavramlar
 ## [Mikro hizmetleri anlama](service-fabric-overview-microservices.md)
 ## [Büyük resim](service-fabric-content-roadmap.md)
@@ -176,11 +178,14 @@
 #### başlarken
 ##### [Windows üzerinde C#](service-fabric-reliable-actors-get-started.md)
 ##### [Linux üzerinde Java](service-fabric-reliable-actors-get-started-java.md)
+##### [Linux üzerinde Java Actor](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Bildirim gönderme](service-fabric-reliable-actors-events.md)
 #### [Zamanlayıcı ve anımsatıcı ayarlama](service-fabric-reliable-actors-timers-reminders.md)
 #### [KvsActorStateProvider’ı yapılandırma](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [İletişim ayarlarını yapılandırma](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [ReliableDictionaryActorStateProvider’ı yapılandırma](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Maven’i desteklemek için eski Java Uygulamasını geçirme](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Güvenli iletişim için ters proxy ayarlarını yapılandırma](service-fabric-reverseproxy-configure-secure-communication.md)
 
@@ -218,7 +223,7 @@
 ### Uygulama dağıtma veya kaldırma
 #### [Yerel bir kümede uygulamaları dağıtma](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API’leri](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -253,6 +258,7 @@
 #### [Yükseltme](service-fabric-cluster-upgrade.md)
 #### [Erişim denetimini ayarlama](service-fabric-cluster-security-roles.md)
 #### [Yapılandırma](service-fabric-cluster-fabric-settings.md)
+#### [Yük dengeleyicide bağlantı noktası açma](create-load-balancer-rule.md)
 #### [Küme sertifikalarını yönetme](service-fabric-cluster-security-update-certs-azure.md)
 #### [Silme](service-fabric-cluster-delete.md)
 
@@ -272,8 +278,7 @@
 ### [Küme görselleştirme](service-fabric-visualizing-your-cluster.md)
 ### [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md)
 
-### [XPlat CLI kullanarak bir kümeyi yönetme](service-fabric-azure-cli.md)
-### [Azure CLI 2.0 komutlarını kullanarak bir kümeyi yönetme](service-fabric-azure-cli-2-0.md)
+### [Service Fabric CLI kullanarak bir kümeyi yönetme](service-fabric-cli.md)
 ### [Küme düğümleri yamalama](service-fabric-patch-orchestration-application.md)
 
 ### Küme kaynaklarını yönetme ve düzenleme

@@ -56,9 +56,12 @@
 ## [Özel ilkeler](active-directory-b2c-overview-custom.md)
 ## Kılavuzlar
 ### [Kullanmaya başlama](active-directory-b2c-get-started-custom.md)
-### OIDC sağlayıcılarını yapılandırma
+### OIDC/OAUTH2 sağlayıcılarını yapılandırma
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Microsoft Hesabı](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### SAML sağlayıcılarını yapılandırma
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### RESTful API’lerini tümleştirme
 #### [Kullanıcı girişini doğrulama](active-directory-b2c-rest-api-validation-custom.md)
@@ -72,7 +75,7 @@
 #### [Application Insights’ı kullanarak günlük toplama](active-directory-b2c-troubleshoot-custom.md)
 ## Başvuru
 ### [Sürüm notları](active-directory-b2c-developer-notes-custom.md)
-
+### [Güven Altyapısı tanımı](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Sözlük

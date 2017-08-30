@@ -32,7 +32,9 @@
 ### [Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma](expressroute-howto-coexist-resource-manager.md)
-## [Microsoft eşlemesi için rota filtreleri yapılandırma](how-to-routefilter-powershell.md)
+## Microsoft eşlemesi için rota filtreleri yapılandırma
+### [Azure portal](how-to-routefilter-portal.md)
+### [PowerShell](how-to-routefilter-powershell.md)
 ## [Bir devreyi klasikten Resource Manager’a taşıma](expressroute-howto-move-arm.md)
 ## [İlişkili sanal ağları klasikten Resource Manager’a geçirme](expressroute-migration-classic-resource-manager.md)
 ## ExpressRoute için yönlendirici yapılandırma

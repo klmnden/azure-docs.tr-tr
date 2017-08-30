@@ -29,6 +29,8 @@
           href: connect-cpp.md
         - name: Başlayın
           href: connect-go.md
+        - name: MySQL Workbench
+          href: connect-workbench.md
 - name: Öğreticiler
   items:
     - name: 1 - Veritabanı Tasarlama

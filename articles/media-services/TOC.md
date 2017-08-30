@@ -190,6 +190,7 @@
 #### [Adobe Open Source Media Framework yürütücüleri](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [İstemci tarafına reklam ekleme](media-services-inserting-ads-on-client-side.md)
 ### [Microsoft† Kesintisiz Akış İstemci Taşıma Kitini Lisanslama](media-services-sspk.md)
+### [Safari’de AES şifreli HLS yürütme](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## Tümleştirme
 ### [Azure İşlevleri’ni Media Services ile kullanma](media-services-dotnet-how-to-use-azure-functions.md)

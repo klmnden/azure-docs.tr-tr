@@ -1,0 +1,16 @@
+- name: Genel Bakış
+  items:
+    - name: Giriş
+      href: ./common/storage-introduction.md
+    - name: 'Blob, Dosya veya Veri Diski seçme'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: Bloblar
+  href: ./blobs/storage-blobs-introduction.md
+- name: Dosyalar
+  href: ./files/storage-files-introduction.md
+- name: Kuyruklar
+  href: ./queues/storage-queues-introduction.md
+- name: Tablolar
+  href: ../cosmos-db/table-storage-overview.md
+- name: Diskler
+  href: ../virtual-machines/windows/managed-disks-overview.md

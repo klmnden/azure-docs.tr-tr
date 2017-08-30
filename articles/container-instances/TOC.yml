@@ -43,6 +43,8 @@
   items:
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Şablonlar - Container Instances
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
     - name: Fiyatlandırma hesaplayıcı
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Bölge kullanılabilirliği

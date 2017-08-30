@@ -8,6 +8,7 @@
 ## [Service Fabric güvenliği](azure-service-fabric-security-overview.md)
 ## [Kimlik yönetimi](security-identity-management-overview.md)
 ## [IoT güvenliği](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Azure şifrelemeye genel bakış](security-azure-encryption-overview.md)
 ## [Güvenlik mimarisi](azure-security-architecture-overview.md)
 ### [İşletimsel güvenliği etkinleştirme](azure-operational-security.md)
 ### [Gelişmiş tehdit algılama](azure-threat-detection.md)
@@ -30,7 +31,7 @@
 
 ## Depolama alanı güvenliği
 ### [Veri güvenliği ve şifreleme için en iyi uygulamalar](azure-security-data-encryption-best-practices.md)
-### [Depolama alanı güvenliği kılavuzu](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Depolama alanı güvenliği kılavuzu](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## İşlem güvenliği
 ### [Azure VM’leri için en iyi uygulamalar](azure-security-best-practices-vms.md)
@@ -63,11 +64,12 @@
 
 ## PaaS hizmetleri
 ### [PaaS dağıtımlarının güvenliğini sağlama](security-paas-deployments.md)
-#### [SQL kullanarak PaaS web ve mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-sql.md)
-#### [SQL Veritabanı güvenliği için en iyi uygulamalar](azure-database-security-best-practices.md)
-#### [SQL Veritabanı güvenlik denetim listesi](azure-database-security-checklist.md)
 #### [Uygulama Hizmetleri’ni kullanarak PaaS web ve mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-app-services.md)
+#### [SQL kullanarak PaaS web ve mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-sql.md)
+##### [SQL Veritabanı güvenliği için en iyi uygulamalar](azure-database-security-best-practices.md)
+##### [SQL Veritabanı güvenlik denetim listesi](azure-database-security-checklist.md)
 ####[İşletimsel güvenlik denetim listesi](azure-operational-security-checklist.md)
+#### [Azure Depolama’yı kullanarak PaaS web ve mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-storage.md)
 
 ## Nesnelerin İnterneti
 ### [IoT dağıtımınızın güvenliğini sağlama](../iot-suite/iot-suite-security-deployment.md)
@@ -96,14 +98,18 @@
 ## [Güvenlik ve Uyumluluk blogu](http://blogs.msdn.com/b/azuresecurity/)
 ## [Sanal Akademi’den güvenlik kursları](security-microsoft-virtual-academy.md)
 ## [Channel 9’da güvenlik videoları](security-channel-nine.md)
-## [Tehdit modelleme aracı](azure-security-threat-modeling-tool.md)
-###[Denetme ve günlüğe kaydetme](azure-security-threat-modeling-tool-auditing-and-logging.md)
-###[Kimlik doğrulaması](azure-security-threat-modeling-tool-authentication.md)
-###[Yetkilendirme](azure-security-threat-modeling-tool-authorization.md)
-###[İletişim güvenliği](azure-security-threat-modeling-tool-communication-security.md)
-###[Yapılandırma yönetimi](azure-security-threat-modeling-tool-configuration-management.md)
-###[Şifreleme](azure-security-threat-modeling-tool-cryptography.md)
-###[Özel durum yönetimi](azure-security-threat-modeling-tool-exception-management.md)
-###[Giriş doğrulaması](azure-security-threat-modeling-tool-input-validation.md)
-###[Hassas veriler](azure-security-threat-modeling-tool-sensitive-data.md)
-###[Oturum yönetimi](azure-security-threat-modeling-tool-session-management.md)
+## [Tehdit Modelleme Aracı](azure-security-threat-modeling-tool.md)
+### [Başlarken](azure-security-threat-modeling-tool-getting-started.md)
+### [Özelliklere genel bakış](azure-security-threat-modeling-tool-feature-overview.md)
+### [Tehditler](azure-security-threat-modeling-tool-threats.md)
+### [Risk Azaltıcı Etkenler](azure-security-threat-modeling-tool-mitigations.md)
+#### [Denetme ve günlüğe kaydetme](azure-security-threat-modeling-tool-auditing-and-logging.md)
+#### [Kimlik doğrulaması](azure-security-threat-modeling-tool-authentication.md)
+#### [Yetkilendirme](azure-security-threat-modeling-tool-authorization.md)
+#### [İletişim güvenliği](azure-security-threat-modeling-tool-communication-security.md)
+#### [Yapılandırma yönetimi](azure-security-threat-modeling-tool-configuration-management.md)
+#### [Şifreleme](azure-security-threat-modeling-tool-cryptography.md)
+#### [Özel durum yönetimi](azure-security-threat-modeling-tool-exception-management.md)
+#### [Giriş doğrulaması](azure-security-threat-modeling-tool-input-validation.md)
+#### [Hassas veriler](azure-security-threat-modeling-tool-sensitive-data.md)
+#### [Oturum yönetimi](azure-security-threat-modeling-tool-session-management.md)

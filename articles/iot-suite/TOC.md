@@ -53,6 +53,7 @@
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [SSS](iot-suite-faq.md)
+## [Bağlı fabrika hakkında SSS](iot-suite-faq-cf.md)
 ## [IoT Paketi öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 

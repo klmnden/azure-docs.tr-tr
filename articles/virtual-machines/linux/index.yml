@@ -18,89 +18,92 @@ abstract:
   description: 'Azure Linux Sanal Makineleri, Red Hat, Ubuntu veya Linux dağıtımından istediğinizi kullanarak isteğe bağlı, büyük ölçekli, güvenli, sanallaştırılmış bir altyapı sağlar. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle Linux VM’leri oluşturmayı, yapılandırmayı, yönetmeyi ve ölçeklendirmeyi öğrenin.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/create-linux-virtual-machine.png
-      width: 250  
+      src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/create-linux-virtual-machine.png'
+      width: 250
     title: 'Linux Sanal Makinesi oluşturun. (4:11)'
-    href: https://azure.microsoft.com/en-us/resources/videos/create-linux-virtual-machine/
+    href: 'https://azure.microsoft.com/en-us/resources/videos/create-linux-virtual-machine/'
     width: 250
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
-  items:
-  - type: paragraph
-    text: 'Ubuntu çalıştıran bir Sanal Makine içinde NGINX web sunucusu dağıtmayı öğrenin:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Azure’da Linux VM’lerini dağıtma, yönetme ve ölçeklendirme hakkında bilgi edinin'
-  - type: list
-    style: ordered
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
-    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Linux VM’lerini oluşturma ve yönetme</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">VM diskleri oluşturma ve yönetme</a></li>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">VM yapılandırmasını otomatikleştirme</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Özel VM görüntüleri oluşturma</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Yüksek oranda kullanılabilir VM’ler oluşturma</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">VM ölçek kümesi oluşturma</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">VM'ler için yük dengeleme</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">VM’leri ve sanal ağları yönetme</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">VM’leri yedekleme</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">VM’leri izleme</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">VM’lerde güvenliği yönetme</a>
-    - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Jenkins, Docker ve GitHub ile CI/CD altyapısı oluşturma</a>'
-- title: Ücretsiz PluralSight Video Eğitimi
-  items:
-  - type: list
-    style: cards
-    className: cardsW
+      - type: paragraph
+        text: 'Ubuntu çalıştıran bir Sanal Makine içinde NGINX web sunucusu dağıtmayı öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: Azure CLI
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
+            text: Azure Portal
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
+  - title: Adım Adım Öğreticiler
     items:
-    - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Altyapıyı Yönetme</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-infrastructure.png
-        href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Sanal Makineleri Kullanmaya Başlama</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-vms.png
-        href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">IaaS İzleme ile Çalışmaya Başlama</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png
-        href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: İlk uygulamanızı Azure’da dağıtın.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Azure’da Linux VM’lerini dağıtma, yönetme ve ölçeklendirme hakkında bilgi edinin'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Linux VM’lerini oluşturma ve yönetme</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">VM diskleri oluşturma ve yönetme</a></li>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">VM yapılandırmasını otomatikleştirme</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Özel VM görüntüleri oluşturma</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Yüksek oranda kullanılabilir VM’ler oluşturma</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">VM ölçek kümesi oluşturma</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">VM'ler için yük dengeleme</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">VM’leri ve sanal ağları yönetme</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">VM’leri yedekleme</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">VM’leri izleme</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">VM’lerde güvenliği yönetme</a>
+          - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Jenkins, Docker ve GitHub ile CI/CD altyapısı oluşturma</a>'
+          - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">Team Services ile CI/CD</a>
+          - html: '<a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> veya <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a> ile bir web sunucusu yığını oluşturma'
+          - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">SSL ile bir web sunucusunun güvenliğini sağlama</a>
+  - title: Ücretsiz PluralSight Video Eğitimi
     items:
-    - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a>
-    - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsW
+        items:
+          - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Altyapıyı Yönetme</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-infrastructure.png'
+              href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+          - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Sanal Makineleri Kullanmaya Başlama</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-vms.png'
+              href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+          - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">IaaS İzleme ile Çalışmaya Başlama</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png'
+              href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+  - title: Örnekler
     items:
-    - title: Komut Satırı
-      html: <p><a href="/cli/azure/vm">Azure CLI</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
-    - title: Diller
-      html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
-    - title: REST
-      html: <p><a href="/rest/api/compute">REST API başvurusu</a></p>
+      - type: paragraph
+        text: İlk uygulamanızı Azure’da dağıtın.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a>
+          - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/cli/azure/vm">Azure CLI</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
+          - title: Diller
+            html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/compute">REST API başvurusu</a></p>
