@@ -187,7 +187,7 @@ Her bir bağlantıya çift tıklayarak daha fazla bilgi görüntüleyebilirsiniz
 ## <a name="faq"></a>Sanal ağlar arası bağlantılar hakkında SSS
 Sanal ağlar arası bağlantılar hakkında ek bilgi için SSS sayfasını görüntüleyin.
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Virtual Machines belgeleri](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).

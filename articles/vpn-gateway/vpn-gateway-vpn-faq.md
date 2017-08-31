@@ -161,11 +161,11 @@ Endüstri standardı IPsec uygulamalarıyla uyumlu olana kadar diğer yazılım 
 
 ## <a name="P2S"></a>Noktadan Siteye bağlantıları
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## <a name="V2VMulti"></a>Sanal Ağdan Sanal Ağa ve Çok Siteli bağlantılar
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Şirket içi sitelerim arasında veya başka bir sanal ağa trafiği geçirmek için Azure VPN ağ geçidini kullanabilir miyim?
 
@@ -197,12 +197,12 @@ Evet, bu desteklenir. Daha fazla bilgi için bkz. [Bir arada var olan ExpressRou
 
 ## <a name="ipsecike"></a>IPsec/IKE ilkesi
 
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
 ## <a name="bgp"></a>BGP
 
-[!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
+[!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
 ## <a name="vms"></a>Şirket içi ve dışı bağlantısı ve VM'ler
 

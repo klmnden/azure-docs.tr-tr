@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 08/18/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 97b863748dd726e19217e360645b8e6189c010b3
-ms.lasthandoff: 04/15/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 6eadfb0c3f91c1f2c7783d70604b45d5dc9912a3
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -31,15 +32,16 @@ Azure portalında bir Otomasyon hesabı oluşturduğunuzda otomatik olarak şunl
 
 İşlemi sizin için basitleştirir ve otomasyon gerekliliklerini desteklemek için runbook’ları oluşturmaya ve dağıtmaya hemen başlamanıza yardımcı olur.  
 
+## <a name="permissions-required-to-create-automation-account"></a>Otomasyon hesabı oluşturmak için gereken izinler
+Otomasyon hesabını oluşturmak veya güncelleştirmek isterseniz bu konuyu tamamlamak için gereken aşağıdaki özel ayrıcalıklara ve izinlere sahip olmanız gerekir.   
+ 
+* Bir Otomasyon hesabı oluşturmak için AD kullanıcı hesabınızın, [Azure Otomasyonu’nda rol tabanlı erişim denetimi](automation-role-based-access-control.md) makalesinde açıklandığı gibi Microsoft.Automation kaynaklarındaki Sahip rolüne eşdeğer izinlere sahip bir role eklenmesi gerekir.  
+* Azure AD kiracınızdaki yönetici olmayan kullanıcılar, Uygulama kayıtları ayarı [Evet](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) olarak ayarlıysa **AD uygulamalarını kaydedebilir**.  Uygulama kayıtları ayarı **Hayır** olarak ayarlanırsa bu işlemi gerçekleştiren kullanıcının, Azure AD’de genel yönetici olması gerekir. 
+
+Aboneliğin genel yönetici/ortak yönetici rolüne eklenmeden önce aboneliğin Active Directory örneğine üye değilseniz Active Directory’ye konuk olarak eklenirsiniz. Bu durumda, “Oluşturma izniniz yok…” iletisini alırsınız. uyarısını **Otomasyon Hesabı Ekle** dikey penceresinde görürsünüz. İlk olarak genel yönetici/ortak yönetici rolüne eklenen kullanıcılar aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory’de tam bir Kullanıcı haline getirilebilir. Bu durumu doğrulamak için Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı, **Tüm kullanıcılar**’ı seçin ve belirli bir kullanıcıyı seçtikten sonra **Profil**’i seçin. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
+
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Azure portalından yeni Otomasyon Hesabı oluşturma
 Bu bölümde, bir Azure Otomasyonu hesabını Azure portalından oluşturmak için aşağıdaki adımları gerçekleştirin.    
-
->[!NOTE]
->Bir Otomasyon hesabı oluşturmak için, Hizmet Yöneticileri rolünün bir üyesi veya aboneliğe erişim veren aboneliğin ortak yöneticisi olmanız gerekir. Ayrıca, bu aboneliğin varsayılan Active Directory örneğine kullanıcı olarak eklenmeniz gerekir. Hesabın ayrıcalıklı bir role atanması gerekmez.
->
->Aboneliğin ortak yönetici rolüne eklenmeden önce aboneliğin Active Directory örneğine üye değilseniz, Active Directory’ye konuk olarak eklenirsiniz. Bu örnekte, “Oluşturma izniniz yok…” iletisini alırsınız uyarısını **Otomasyon Hesabı Ekle** dikey penceresinde görürsünüz.
->
->İlk olarak ortak yönetici rolüne eklenen kullanıcılar aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory’de tam bir Kullanıcı haline getirilebilir. Bu durumu Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı ve **Tüm kullanıcılar**’ı seçtikten sonra gerekli kullanıcıyı belirleyip **Profil**’i seçerek doğrulayabilirsiniz. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
 
 1. Azure portalında Abonelik Yöneticileri rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesapla oturum açın.
 2. **Yeni**’ye tıklayın.<br><br> ![Azure portalında Yeni seçeneğini belirleyin](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
@@ -86,4 +88,4 @@ Aşağıdaki tabloda Klasik Farklı Çalıştır hesabının kaynakları özetle
 ## <a name="next-steps"></a>Sonraki adımlar
 * Grafik Yazma hakkında daha fazla bilgi için bkz. [Azure Otomasyonu’nda grafik yazma](automation-graphical-authoring-intro.md).
 * PowerShell runbook'ları kullanmaya başlamak için bkz. [İlk PowerShell runbook’um](automation-first-runbook-textual-powershell.md).
-* PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. İlk PowerShell iş akışı runbook’um (automation-first-runbook-textual.md).
+* PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md).

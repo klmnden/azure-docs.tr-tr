@@ -1,5 +1,5 @@
 ---
-title: "Python ve Azure Cloud Services kullanmaya başlama | Microsoft Belgeleri"
+title: "Python ve Azure Cloud Services kullanmaya başlama | Microsoft Docs"
 description: "Web rolleri ve çalışan rolleri dahil olmak üzere Azure Cloud Services oluşturmak üzere Visual Studio için Python Araçları’nı kullanma hakkında genel bilgi edinin."
 services: cloud-services
 documentationcenter: python
@@ -14,16 +14,16 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6b21f38ddd64278db26d7042349470805b799203
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7d2bc89943087323e92cf06981bbacaf4b8ff060
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Visual Studio için Python web ve çalışan rolleri içeren Python Araçları
 
-Bu makalede, [Visual Studio için Python Araçları][Python Tools for Visual Studio] ile Python web ve çalışan rollerini kullanmaya genel bir bakış sunulmuştur. Visual Studio’yu kullanarak Python kullanan temel bir Bulut Hizmetinin nasıl oluşturulup dağıtılacağını öğreneceksiniz.
+Bu makalede, [Visual Studio için Python Araçları][Python Tools for Visual Studio] ile Python web ve çalışan rollerini kullanmaya genel bir bakış sunulmuştur. Visual Studio’yu kullanarak Python kullanan temel bir Bulut Hizmetinin nasıl oluşturulup dağıtılacağını öğrenin.
 
 ## <a name="prerequisites"></a>Ön koşullar
 * [Visual Studio 2013, 2015 veya 2017](https://www.visualstudio.com/)
@@ -42,7 +42,7 @@ Daha fazla bilgi için bkz. [Bulut Hizmeti nedir?].
 
 > [!NOTE]
 > *Basit bir web sitesi mi oluşturmak istiyorsunuz?*
-> Senaryonuz yalnızca basit bir web sitesi ön ucu içeriyorsa, Azure App Service’teki basit Web Apps özelliğini kullanmayı düşünün. Web siteniz büyüdükçe ve gereksinimleriniz değiştikçe kolayca Bulut Hizmetleri’ne yükseltebilirsiniz. Azure App Service’teki Web Apps özelliğini geliştirme hakkındaki makaleler için <a href="/develop/python/">Python Geliştirici Merkezi</a>’ne bakın.
+> Senaryonuz yalnızca basit bir web sitesi ön ucu içeriyorsa, Azure Uygulama Hizmeti’ndeki basit Web Apps özelliğini kullanmayı düşünün. Web siteniz büyüdükçe ve gereksinimleriniz değiştikçe kolayca Bulut Hizmetleri’ne yükseltebilirsiniz. Azure App Service’teki Web Apps özelliğini geliştirme hakkındaki makaleler için <a href="/develop/python/">Python Geliştirici Merkezi</a>’ne bakın.
 > <br />
 > 
 > 
@@ -56,7 +56,7 @@ Azure Bulut Hizmeti sihirbazında, yeni web ve çalışan rolleri oluşturabilir
 
 ![Azure Bulut Hizmeti İletişim Kutusu](./media/cloud-services-python-ptvs/new-service-wizard.png)
 
-Çalışan rolü şablonu, Azure Storage hesabına veya Azure Service Bus’a bağlamak üzere demirbaş kod ile birlikte gelir.
+Çalışan rolü şablonu, Azure depolama hesabına veya Azure Service Bus’a bağlamak üzere demirbaş kod ile birlikte gelir.
 
 ![Bulut Hizmeti Çözümü](./media/cloud-services-python-ptvs/worker.png)
 
@@ -303,7 +303,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 ## <a name="run-locally"></a>Yerel olarak çalıştırma
-Bulut hizmeti projenizi başlangıç projesi olarak ayarlar ve F5 tuşuna basarsanız, bulut hizmeti yerel Azure öykünücüsünde çalışacaktır.
+Bulut hizmeti projenizi başlangıç projesi olarak ayarlar ve F5 tuşuna basarsanız, bulut hizmeti yerel Azure öykünücüsünde çalışır.
 
 PTVS öykünücüde başlatmayı desteklese de, hata ayıklama (örneğin, kesme noktaları) çalışmaz.
 
@@ -334,7 +334,7 @@ Visual Studio için Python Araçları’ndaki web ve çalışan rolleri ile çal
 
 * [Bulut Hizmeti Projeleri][Cloud Service Projects]
 
-Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmetlerini kullanma hakkında daha ayrıntılı bilgi için aşağıdaki makalelere göz atın.
+Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmetlerini kullanma hakkında daha ayrıntılı bilgi için aşağıdaki makalelere göz atın:
 
 * [Blob Hizmeti][Blob Service]
 * [Tablo Hizmeti][Table Service]
@@ -350,9 +350,9 @@ Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmet
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
-[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
-[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Blob Service]:../storage/blobs/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/queues/storage-python-how-to-use-queue-storage.md
+[Table Service]:../cosmos-db/table-storage-how-to-use-python.md
 [Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 

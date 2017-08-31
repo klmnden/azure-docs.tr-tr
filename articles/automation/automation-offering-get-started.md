@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/18/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 7ef31d7d72844c0ed3be0701549e49e26aac9abf
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -67,8 +67,8 @@ Karma runbook işleri çalıştırmak üzere bir bilgisayar belirlerken, bu bilg
 ### <a name="permissions-required-to-create-automation-account"></a>Otomasyon hesabı oluşturmak için gereken izinler
 Otomasyon hesabını oluşturmak veya güncelleştirmek isterseniz bu konuyu tamamlamak için gereken aşağıdaki özel ayrıcalıklara ve izinlere sahip olmanız gerekir.   
  
-* Bir Otomasyon hesabı oluşturmak için AD kullanıcı hesabınızın, [Azure Otomasyonu’nda rol tabanlı erişim denetimi](automation-role-based-access-control.md#contributor-role-permissions) makalesinde açıklandığı gibi Microsoft.Automation kaynaklarındaki Katkıda Bulunan rolüne eşdeğer izinlere sahip bir role eklenmesi gerekir.  
-* Azure AD kiracınızdaki yönetici olmayan kullanıcılar, Uygulama kayıtları ayarı **Evet** olarak ayarlanırsa [AD uygulamalarını kaydedebilir](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Uygulama kayıtları ayarı **Hayır** olarak ayarlanırsa bu işlemi gerçekleştiren kullanıcının, Azure AD’de genel yönetici olması gerekir. 
+* Bir Otomasyon hesabı oluşturmak için AD kullanıcı hesabınızın, [Azure Otomasyonu’nda rol tabanlı erişim denetimi](automation-role-based-access-control.md) makalesinde açıklandığı gibi Microsoft.Automation kaynaklarındaki Sahip rolüne eşdeğer izinlere sahip bir role eklenmesi gerekir.  
+* Azure AD kiracınızdaki yönetici olmayan kullanıcılar, Uygulama kayıtları ayarı [Evet](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) olarak ayarlıysa **AD uygulamalarını kaydedebilir**.  Uygulama kayıtları ayarı **Hayır** olarak ayarlanırsa bu işlemi gerçekleştiren kullanıcının, Azure AD’de genel yönetici olması gerekir. 
 
 Aboneliğin genel yönetici/ortak yönetici rolüne eklenmeden önce aboneliğin Active Directory örneğine üye değilseniz Active Directory’ye konuk olarak eklenirsiniz. Bu durumda, “Oluşturma izniniz yok…” iletisini alırsınız. uyarısını **Otomasyon Hesabı Ekle** dikey penceresinde görürsünüz. İlk olarak genel yönetici/ortak yönetici rolüne eklenen kullanıcılar aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory’de tam bir Kullanıcı haline getirilebilir. Bu durumu doğrulamak için Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı, **Tüm kullanıcılar**’ı seçin ve belirli bir kullanıcıyı seçtikten sonra **Profil**’i seçin. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
 
