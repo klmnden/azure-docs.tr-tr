@@ -115,8 +115,8 @@
           items:
             - name: Genel Bakış
               href: app-service-linux-intro.md
-            - name: Linux üzerinde Web Uygulaması Oluşturma
-              href: app-service-linux-how-to-create-web-app.md
+            - name: CLI kullanarak yönetme
+              href: app-service-linux-cli.md
             - name: Linux üzerinde Ruby Web Uygulaması
               href: app-service-linux-ruby-get-started.md
             - name: Linux üzerinde Node.js Web Uygulaması

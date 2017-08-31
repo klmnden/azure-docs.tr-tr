@@ -6,6 +6,14 @@
 ### [Genel Bakış](data-science-process-overview.md)
 ### [Yaşam döngüsü](data-science-process-lifecycle.md)
 ### [Kılavuz](data-science-process-walkthroughs.md)
+####[PySpark ve Scala ile Spark](data-science-process-walkthroughs-spark.md)
+##### [Verileri inceleme](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [Puan modelleri](machine-learning-data-science-spark-model-consumption.md)
+##### [Gelişmiş veri araştırması](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+####[HDInsight Hadoop ile Hive](data-science-process-walkthroughs-hdinsight-hadoop.md)
+####[Azure Data Lake ile U-SQL](data-science-process-walkthroughs-azure-data-lake.md)
+####[R, Python ve T-SQL ile SQL Server](data-science-process-walkthroughs-sql-server.md)
+####[T-SQL ve Python ile SQL DW](data-science-process-walkthroughs-sql-data-warehouse.md)
 ### [Azure ML ile](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
@@ -100,12 +108,6 @@
 ##### [Azure Data Lake kullanma](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [SQL VM kullanma](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [Veri işlem hattı kullanma](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Verileri Spark ile işleme
-##### [Genel Bakış](machine-learning-data-science-spark-overview.md)
-##### [Verileri inceleme](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [Puan modelleri](machine-learning-data-science-spark-model-consumption.md)
-##### [Gelişmiş veri araştırması](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Scala ve Spark kullanma](machine-learning-data-science-process-scala-walkthrough.md)
 
 ## Model geliştirme
 ### Mühendislik ve belirli özellikler
@@ -166,11 +168,7 @@
 ### [Örnek deneyler](machine-learning-sample-experiments.md)
 ### [Örnek veri kümeleri](machine-learning-use-sample-datasets.md)
 ### [Müşteri karmaşası örneği](machine-learning-azure-ml-customer-churn-scenario.md)
-### Uçtan uca senaryolar
-#### [Hadoop kümelerini kullanma](machine-learning-data-science-process-hive-walkthrough.md)
-#### [1 TB ile Hadoop kullanma](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-#### [SQL Server kullanma](machine-learning-data-science-process-sql-walkthrough.md)
-#### [Azure SQL Veri Ambarı kullanma](machine-learning-data-science-process-sqldw-walkthrough.md)
+
 
 # Başvuru
 
