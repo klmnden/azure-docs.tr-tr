@@ -1,6 +1,6 @@
 ---
 title: "Noktadan Siteye bağlantısı ve istemci kimlik doğrulaması kullanarak bir bilgisayarı Azure sanal ağına bağlama: PowerShell | Microsoft Docs"
-description: "Sertifika kimlik doğrulaması ile Noktadan Siteye VPN ağ geçidi bağlantısı oluşturarak, bir bilgisayarı Azure Sanal Ağınıza güvenli bir şekilde bağlayın. Bu makale Resource Manager dağıtım modelleri için geçerlidir ve PowerShell kullanır."
+description: "Sertifika kimlik doğrulaması ile Noktadan Siteye VPN ağ geçidi bağlantısı oluşturarak, bir bilgisayarı sanal ağınıza güvenli bir şekilde bağlayın. Bu makale Resource Manager dağıtım modelleri için geçerlidir ve PowerShell kullanır."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/03/2017
+ms.date: 08/10/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 6d9e43640c4f9c9c37e7ce721213755fa3a8c388
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 2e072ada13b8c742fe7f2e14737c9376f7677906
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-powershell"></a>Sertifika kimlik doğrulaması kullanarak Noktadan Siteye VNet bağlantısını yapılandırma: PowerShell
@@ -33,16 +33,18 @@ Bu makalede PowerShell kullanılarak Resource Manager dağıtım modelinde Nokta
 >
 >
 
-Noktadan Siteye (P2S) yapılandırması, ayrı bir istemci bilgisayardan bir sanal ağa yönelik güvenli bağlantı oluşturmanıza olanak sağlar. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda Noktadan Siteye bağlantıları kullanışlıdır. P2S VPN bağlantısı, yerel Windows VPN istemcisi kullanılarak istemci bilgisayardan başlatılır. Bağlanan istemciler kimlik doğrulamak için sertifika kullanır. 
+Noktadan Siteye (P2S) VPN ağ geçidi, ayrı bir istemci bilgisayardan sanal ağınıza güvenli bir bağlantı oluşturmanıza olanak sağlar. Noktadan Siteye VPN bağlantıları, ev veya bir konferans gibi uzak bir noktadan Vnet'inize bağlanmak istediğinizde faydalıdır. P2S VPN ayrıca, bir sanal ağa bağlanması gereken yalnızca birkaç istemciniz olduğunda Siteden Siteye VPN yerine kullanabileceğiniz yararlı bir çözümüdür.
+
+P2S, SSL tabanlı bir VPN protokolü olan Güvenli Yuva Tünel Protokolünü (SSTP) kullanır. P2S VPN bağlantısı, istemci bilgisayardan başlatılmasıyla oluşturulur.
 
 ![Bir bilgisayarı Azure sanal ağına bağlama - Noktadan Siteye bağlantı diyagramı](./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png)
 
 Noktadan Siteye sertifika kimlik doğrulaması bağlantıları aşağıdakileri gerektirir:
 
 * RouteBased VPN ağ geçidi.
-* Azure’a yüklenmiş bir kök sertifikanın ortak anahtarı (.cer dosyası). Bu dosya, güvenilen bir sertifika olarak kabul edilir ve kimlik doğrulaması için kullanılır.
-* Kök sertifikadan oluşturulmuş ve bağlanacak her bir istemci bilgisayara yüklenmiş istemci sertifikası. Bu sertifika, istemci kimlik doğrulaması için kullanılır.
-* Bir VPN istemcisi yapılandırma paketi oluşturulmalı ve bağlanan her istemci bilgisayara yüklenmelidir. İstemci yapılandırma paketi, işletim sistemi üzerinde zaten bulunan yerel VPN istemcisini sanal ağa bağlanmak için gereken bilgilerle yapılandırır.
+* Azure’a yüklenmiş bir kök sertifikanın ortak anahtarı (.cer dosyası). Sertifika karşıya yüklendikten sonra güvenilen bir sertifika olarak kabul edilir ve kimlik doğrulaması için kullanılır.
+* Kök sertifikadan oluşturulmuş ve VNet’e bağlanacak her bir istemci bilgisayara yüklenmiş bir istemci sertifikası. Bu sertifika, istemci kimlik doğrulaması için kullanılır.
+* VPN istemcisi yapılandırma paketi. VPN istemci yapılandırması paketi, istemcinin VNet’e bağlanması için gerekli bilgileri içerir. Bu paket, Windows işletim sisteminde yerel olan mevcut VPN istemcisini yapılandırır. Bağlanan her istemcinin yapılandırma paketi kullanılarak yapılandırılması gerekir.
 
 Noktadan Siteye bağlantılar için bir VPN cihazına veya şirket içi genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısı SSTP (Güvenli Yuva Tünel Protokolü) üzerinden oluşturulur. Sunucu tarafında 1.0, 1.1 ve 1.2 SSTP sürümlerini destekliyoruz. Kullanılacak sürüm, istemci tarafından belirlenir. Windows 8.1 ve sonraki sürümlerinde, SSTP'de varsayılan olarak 1.2 kullanılır. 
 
@@ -74,7 +76,7 @@ Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için bu makale
 * **Ortak IP adı: VNet1GWPIP**
 * **VpnType: RouteBased** 
 
-## <a name="declare"></a>1 - Oturum açma ve değişkenleri ayarlama
+## <a name="declare"></a>1. Oturum açma ve değişkenleri ayarlama
 
 Bu bölümde oturum açıp bu yapılandırma için kullanılan değerleri bildirirsiniz. Belirtilen değerler örnek betiklerde kullanılır. Değerleri, ortamınızı yansıtacak şekilde değiştirin. Veya, bildirilen değerleri kullanın ve bir alıştırma olarak adımları uygulayın.
 
@@ -108,13 +110,13 @@ Bu bölümde oturum açıp bu yapılandırma için kullanılan değerleri bildir
   $VPNClientAddressPool = "172.16.201.0/24"
   $RG = "TestRG"
   $Location = "East US"
-  $DNS = "8.8.8.8"
+  $DNS = "10.1.1.3"
   $GWName = "VNet1GW"
   $GWIPName = "VNet1GWPIP"
   $GWIPconfName = "gwipconf"
   ```
 
-## <a name="ConfigureVNet"></a>2 - Sanal ağ yapılandırma
+## <a name="ConfigureVNet"></a>2. Sanal ağ yapılandırma
 
 1. Bir kaynak grubu oluşturun.
 
@@ -128,7 +130,9 @@ Bu bölümde oturum açıp bu yapılandırma için kullanılan değerleri bildir
   $besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
   $gwsub = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName -AddressPrefix $GWSubPrefix
   ```
-3. Sanal ağı oluşturun. <br>DNS sunucusu isteğe bağlıdır. Bu ayar belirtildiğinde yeni bir DNS sunucusu oluşturulmaz. Daha sonraki bir adımda oluşturacağınız istemci yapılandırma paketi, bu ayarda belirttiğiniz DNS sunucusunun IP adresini içerecektir. Gelecekte DNS sunucularının listesini güncelleştirmeniz gerekirse, yeni listeyi yansıtan yeni VPN istemci yapılandırma paketlerini oluşturup yükleyebilirsiniz. Belirtilen DNS sunucusu, bağlandığınız kaynakların adlarını çözümleyebilen bir DNS sunucusu olmalıdır. Bu örnekte genel IP adresi kullandık. Kendi değerlerinizi kullandığınızdan emin olun.
+3. Sanal ağı oluşturun.
+
+  Bu örnekte, DNS sunucusu isteğe bağlıdır. Bir değer belirtildiğinde yeni bir DNS sunucusu oluşturulmaz. Belirttiğiniz DNS sunucusu IP adresi, bağlandığınız kaynakların adlarını çözümleyebilen bir DNS sunucusu olmalıdır. Bu örnek için özel bir IP adresi kullandık, ancak DNS sunucunuzun IP adresi muhtemelen bu değildir. Kendi değerlerinizi kullandığınızdan emin olun.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer $DNS
@@ -148,24 +152,46 @@ Bu bölümde oturum açıp bu yapılandırma için kullanılan değerleri bildir
   $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
   ```
 
-## <a name="Certificates"></a>3 - Sertifikaları oluşturma
+## <a name="creategateway"></a>3. VPN ağ geçidini oluşturma
+
+Sanal ağınız için sanal ağ geçidini yapılandırın ve oluşturun.
+
+* *-GatewayType* değeri **Vpn** ve *-VpnType* değeri **RouteBased** olmalıdır.
+* Bir VPN ağ geçidi işleminin tamamlanması, seçtiğiniz [ağ geçidi sku'suna](vpn-gateway-about-vpn-gateway-settings.md) bağlı olarak 45 dakikaya kadar sürebilir.
+
+```powershell
+New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+-Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 `
+```
+
+## <a name="addresspool"></a>4. VPN istemcisi adres havuzunu ekleme
+
+VPN ağ geçidi oluşturduktan sonra VPN istemcisi adres havuzunu ekleyebilirsiniz. VPN istemcisi adres havuzu, VPN istemcilerinin bağlanırken bir IP adresi aldığı aralıktır. Bağlandığınız şirket içi konum veya bağlanmak istediğiniz sanal ağ ile çakışmayan özel bir IP adresi aralığı kullanın. Bu örnekte, VPN istemcisi adres havuzu 1. Adımda bir [değişken](#declare) olarak bildirilir.
+
+```powershell
+$Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPool $VPNClientAddressPool
+```
+
+## <a name="Certificates"></a>5. İstemci sertifikaları oluşturma
 
 Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak için Azure tarafından sertifikalar kullanılır. Kök sertifikanın ortak anahtar bilgilerini Azure'a yükleyin. Bundan sonra ortak anahtar, 'güvenilir' olarak kabul edilir. Güvenilir kök sertifikadan istemci sertifikaları oluşturulmalı ve sonra Sertifikalar-Geçerli Kullanıcı/Kişisel sertifika deposundaki her bir istemci bilgisayara yüklenmelidir. Sertifika, sanal ağ ile bağlantı başlattığında istemcinin kimliğini doğrulamak için kullanılır. 
 
 Otomatik olarak imzalanan sertifikalar kullanıyorsanız bu sertifikaların belirli parametreler kullanılarak oluşturulması gerekir. [PowerShell ve Windows 10](vpn-gateway-certificates-point-to-site.md)'a yönelik yönergeler yardımıyla, otomatik olarak imzalanan sertifika oluşturabilir veya Windows 10'a sahip değilseniz [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) kullanabilirsiniz. Otomatik olarak imzalanan kök sertifika ve istemci sertifikası oluştururken yönergelerdeki adımları uygulamanız önemlidir. Aksi halde, oluşturduğunuz sertifikalar P2S bağlantılarıyla uyumlu olmaz ve bağlantı hatası alırsınız.
 
-### <a name="cer"></a>1. Adım: Kök sertifikaya ilişkin .cer dosyasını alma
+### <a name="cer"></a>1. Kök sertifikaya ilişkin .cer dosyasını alma
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
 
-### <a name="generate"></a>2. Adım - İstemci sertifikası oluşturma
+### <a name="generate"></a>2. İstemci sertifikası oluşturma
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="upload"></a>4 - Kök sertifika .cer dosyasını karşıya yüklemeye hazırlama
+## <a name="upload"></a>6. Kök sertifikanın ortak anahtar bilgilerini karşıya yükleme
 
-Güvenilen kök sertifikanın .cer dosyasını (ortak anahtar bilgilerini içerir) Azure’a yüklemek üzere hazırlayın. Kök sertifikanın özel anahtarını Azure'a yüklemezsiniz. Bir .cer dosyası karşıya yüklendikten sonra Azure, güvenilir kök sertifikadan oluşturulmuş bir istemci sertifikasının yüklü olduğu istemcilerin kimliklerini doğrulamak için bu dosyayı kullanabilir. Daha sonra gerekirse, toplam 20 adede kadar güvenilir kök sertifika dosyasını karşıya yükleyebilirsiniz. Bu bölümde, sonraki bölümde oluşturacağınız VPN ağ geçidinizle ilişkilendirilecek kök sertifika .cer dosyasını bildirirsiniz.
+VPN ağ geçidini oluşturma işleminin tamamlandığını doğrulayın. İşlem tamamlandıktan sonra, güvenilen kök sertifikanın .cer dosyasını (ortak anahtar bilgilerini içerir) Azure’a yükleyebilirsiniz. Bir .cer dosyası karşıya yüklendikten sonra Azure, güvenilir kök sertifikadan oluşturulmuş bir istemci sertifikasının yüklü olduğu istemcilerin kimliklerini doğrulamak için bu dosyayı kullanabilir. Daha sonra gerekirse, toplam 20 adede kadar güvenilir kök sertifika dosyasını karşıya yükleyebilirsiniz.
 
 1. Sertifika adınızın değişkenini tanımlamak için değeri kendi değerinizle değiştirin.
 
@@ -180,26 +206,15 @@ Güvenilen kök sertifikanın .cer dosyasını (ortak anahtar bilgilerini içeri
   $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
   $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
   ```
+3. Ortak anahtar bilgilerini Azure'a yükleyin. Sertifika bilgileri karşıya yüklendikten sonra, Azure bunu bir güvenilen kök sertifika olarak dikkate alır.
 
-## <a name="creategateway"></a>5 - VPN ağ geçidini oluşturma
+   ```powershell
+  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64
+  ```
 
-Sanal ağınız için sanal ağ geçidini yapılandırın ve oluşturun.
+## <a name="clientconfig"></a>7. VPN istemcisi yapılandırma paketini indirme
 
-* *-GatewayType* değeri **Vpn** ve *-VpnType* değeri **RouteBased** olmalıdır.
-* Bu örnekte, kök sertifikanın ortak anahtarı, önceki bölümde belirtilen '$p2srootcert' değişkeni kullanılarak VPN ağ geçidi ile ilişkilendirilir.
-* Bu örnekte, VPN istemcisi adres havuzu 1. Adımda bir [değişken](#declare) olarak bildirilir. VPN istemcisi adres havuzu, VPN istemcilerinin bağlanırken bir IP adresi aldığı aralıktır. Bağlantıyı kuracağınız şirket içi konum veya bağlanmak istediğiniz sanal ağ ile çakışmayan özel bir IP adresi aralığı kullanın.
-* Bir VPN ağ geçidi işleminin tamamlanması, seçtiğiniz [ağ geçidi sku'suna](vpn-gateway-about-vpn-gateway-settings.md) bağlı olarak 45 dakikaya kadar sürebilir.
-
-```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
--Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 `
--VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
-```
-
-## <a name="clientconfig"></a>6 - VPN istemci yapılandırma paketini indirme
-
-Noktadan Siteye VPN kullanarak bir sanal ağa bağlanmak için her istemcinin yerel Windows VPN istemcisini yapılandırmaya yönelik bir paket yüklemesi gerekir. Yapılandırma paketi, sanal ağa bağlanmak için gereken ayarlarla yerel Windows VPN istemcisini yapılandırır.
+Noktadan Siteye VPN kullanarak VNet’e bağlanmak için her istemcinin yerel VPN istemcisini sanal ağa bağlanmak için gerekli ayarlar ve dosyalarla yapılandıran bir istemci yapılandırma paketini yüklemesi gerekir. VPN istemcisi yapılandırma paketi yerel Windows VPN istemcisini yapılandırır; yeni veya farklı bir VPN istemcisi yüklemez. 
 
 Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayarda aynı VPN istemcisi yapılandırma paketini kullanabilirsiniz. Desteklenen istemci işletim sistemlerinin listesi için bu makalenin sonundaki [Noktadan Siteye bağlantılar hakkında SSS](#faq) bölümüne bakın.
 
@@ -213,11 +228,14 @@ Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayar
 3. Paketi indirip istemci bilgisayara yükleyin. Bir SmartScreen açılır penceresi görürseniz **Daha fazla bilgi**’ye ve ardından **Yine de çalıştır**’a tıklayın. Paketi ayrıca diğer istemci bilgisayarlara yüklemek üzere kaydedebilirsiniz.
 4. İstemci bilgisayarda **Ağ Ayarları**’na gidin ve **VPN** öğesine tıklayın. VPN bağlantısı, bağlandığı sanal ağın adını gösterir.
 
-## <a name="clientcertificate"></a>7 - Dışarı aktarılan bir istemci sertifikasını yükleme
+## <a name="clientcertificate"></a>8. Dışarı aktarılan bir istemci sertifikasını yükleme
 
-İstemci sertifikalarını oluşturmak için kullandığınız bilgisayardan farklı bir istemci bilgisayarda bir P2S bağlantı oluşturmak istiyorsanız, bir istemci sertifikası yüklemeniz gerekir. Bir istemci sertifikası yüklenirken, istemci sertifikası dışarı aktarılırken oluşturulan parola gerekir. Bu işlem genellikle sertifikaya çift tıklayıp sertifikayı yükleme adımlarından oluşur. Daha fazla bilgi için bkz. [Dışarı aktarılan istemci sertifikasını yükleme](vpn-gateway-certificates-point-to-site.md#install).
+İstemci sertifikalarını oluşturmak için kullandığınız bilgisayardan farklı bir istemci bilgisayarda bir P2S bağlantı oluşturmak istiyorsanız, bir istemci sertifikası yüklemeniz gerekir. Bir istemci sertifikası yüklenirken, istemci sertifikası dışarı aktarılırken oluşturulan parola gerekir. Bu işlem genellikle sertifikaya çift tıklayarak sertifikayı yükleme adımlarından oluşur.
 
-## <a name="connect"></a>8 - Azure'a bağlanma
+İstemci sertifikasının tüm sertifika zinciriyle birlikte .pfx dosyası olarak (varsayılan seçenek) dışarı aktarılmadığından emin olun. Aksi takdirde kök sertifika bilgileri istemci bilgisayarda bulunmaz ve istemci, kimliğini düzgün bir biçimde doğrulayamaz. Daha fazla bilgi için bkz. [Dışarı aktarılan istemci sertifikasını yükleme](vpn-gateway-certificates-point-to-site.md#install). 
+
+## <a name="connect"></a>9. Azure'a Bağlanma
+
 1. İstemci bilgisayarda sanal ağınıza bağlanmak için VPN bağlantılarında gezinin ve oluşturduğunuz VPN bağlantısını bulun. Bu VPN bağlantısı sanal ağınızla aynı ada sahiptir. **Bağlan**'a tıklayın. Sertifika kullanımına ilişkin bir açılır ileti görüntülenebilir. Yükseltilmiş ayrıcalıklar kullanmak için **Devam**’a tıklayın. 
 2. **Bağlantı** durum sayfasında **Bağlan**'a tıklayarak bağlantıyı başlatın. Bir **Sertifika Seç** ekranı çıkarsa, gösterilen istemci sertifikasının bağlanmak için kullanmak istediğiniz sertifika olduğunu doğrulayın. Başka bir sertifika gösteriliyorsa, açılan liste okunu kullanarak doğru sertifikayı seçin ve **Tamam**’a tıklayın.
 
@@ -226,9 +244,11 @@ Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayar
 
   ![Bağlantı kuruldu](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
-[!INCLUDE [verify client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
+#### <a name="troubleshooting-p2s-connections"></a>P2S bağlantılarının sorunlarını giderme
 
-## <a name="verify"></a>9 - Bağlantınızı doğrulama
+[!INCLUDE [client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
+
+## <a name="verify"></a>10. Bağlantınızı doğrulama
 
 1. VPN bağlantınızın etkin olduğunu doğrulamak için, yükseltilmiş bir komut istemi açın ve *ipconfig/all* komutunu çalıştırın.
 2. Sonuçlara bakın. Aldığınız IP adresinin, yapılandırmanızda belirttiğiniz Noktadan Siteye VPN İstemcisi Adres Havuzu'ndaki adreslerden biri olduğuna dikkat edin. Sonuçları şu örneğe benzer:
@@ -252,11 +272,40 @@ Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayar
 
 ## <a name="addremovecert"></a>Kök sertifika ekleme veya kaldırma
 
-Azure’da güvenilen kök sertifikayı ekleyebilir veya kaldırabilirsiniz. Bir kök sertifikayı kaldırdığınızda, o kökten oluşturulmuş bir sertifikaya sahip istemciler kimlik doğrulaması yapamaz ve bu nedenle bağlantı kuramaz. Bir istemcinin kimlik doğrulaması yapmasını ve bağlanmasını istiyorsanız, Azure’da güvenilen (karşıya yüklenmiş) bir kök sertifikadan oluşturulmuş yeni bir istemci sertifikası yüklemeniz gerekir.
+Azure’da güvenilen kök sertifikayı ekleyebilir veya kaldırabilirsiniz. Bir kök sertifikayı kaldırdığınızda, o kökten oluşturulmuş bir sertifikaya sahip istemciler kimlik doğrulaması yapamaz ve bağlantı kuramaz. Bir istemcinin kimlik doğrulaması yapmasını ve bağlanmasını istiyorsanız, Azure’da güvenilen (karşıya yüklenmiş) bir kök sertifikadan oluşturulmuş yeni bir istemci sertifikası yüklemeniz gerekir.
 
-### <a name="to-add-a-trusted-root-certificate"></a>Güvenilen kök sertifika ekleme
+### <a name="addtrustedroot"></a>Güvenilen kök sertifika ekleme
 
 Azure'a en fazla 20 kök sertifika .cer dosyası ekleyebilirsiniz. Aşağıdaki adımlar bir kök sertifika eklemenize yardımcı olur:
+
+#### <a name="certmethod1"></a>1. Yöntem
+
+Bu, bir kök sertifikayı karşıya yüklemenin en verimli yöntemdir.
+
+1. Karşıya yüklenecek .cer dosyasını hazırlayın:
+
+  ```powershell
+  $filePathForCert = "C:\cert\P2SRootCert3.cer"
+  $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($filePathForCert)
+  $CertBase64_3 = [system.convert]::ToBase64String($cert.RawData)
+  $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64_3
+  ```
+2. Dosyayı karşıya yükleyin. Aynı anda yalnızca bir dosya yükleyebilirsiniz.
+
+  ```powershell
+  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64_3
+  ```
+
+3. Sertifika dosyasının karşıya yüklendiğini doğrulamak için:
+
+  ```powershell
+  Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
+  -VirtualNetworkGatewayName "VNet1GW"
+  ```
+
+#### <a name="certmethod2"></a>2. Yöntem
+
+Bu yöntemde 1. Yöntem'den daha fazla adım vardır, ancak aynı sonucu verir. Sertifika verilerini görüntülemenizi gerektirebilecek durumlar için dahil edilmiştir.
 
 1. Azure'a eklenecek yeni kök sertifikayı oluşturup hazırlayın. Ortak anahtarı Base-64 kodlanmış X.509 (.CER) olarak dışarı aktarın ve bir metin düzenleyicisi ile açın. Aşağıdaki örnekte gösterildiği gibi değerleri kopyalayın:
 
@@ -285,7 +334,7 @@ Azure'a en fazla 20 kök sertifika .cer dosyası ekleyebilirsiniz. Aşağıdaki 
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
-### <a name="to-remove-a-root-certificate"></a>Kök sertifikayı kaldırmak için
+### <a name="removerootcert"></a>Kök sertifika kaldırmak için
 
 1. Değişkenleri bildirin.
 
@@ -309,14 +358,14 @@ Azure'a en fazla 20 kök sertifika .cer dosyası ekleyebilirsiniz. Aşağıdaki 
 
 ## <a name="revoke"></a>İstemci sertifikasını iptal etme
 
-İstemci sertifikalarını iptal edebilirsiniz. Sertifika iptal listesi sayesinde, ayrı istemci sertifikalarına göre Noktadan Siteye bağlantıyı seçmeli olarak reddedebilirsiniz. Bu, güvenilen kök sertifikayı kaldırma işleminden farklıdır. Azure’dan güvenilen kök sertifika .cer dosyasını kaldırırsanız iptal edilen kök sertifika tarafından oluşturulan/imzalanan tüm istemci sertifikaları reddedilir. Kök sertifika yerine istemci sertifikasını iptal etmek, kök sertifikadan oluşturulan diğer sertifikaların kimlik doğrulaması amacıyla kullanılmaya devam edilmesine olanak sağlar.
+İstemci sertifikalarını iptal edebilirsiniz. Sertifika iptal listesi sayesinde, ayrı istemci sertifikalarına göre Noktadan Siteye bağlantıyı seçmeli olarak reddedebilirsiniz. Bu, güvenilen kök sertifika kaldırma işleminden farklıdır. Azure’dan güvenilen kök sertifika .cer dosyasını kaldırırsanız iptal edilen kök sertifika tarafından oluşturulan/imzalanan tüm istemci sertifikaları reddedilir. Kök sertifika yerine istemci sertifikasını iptal etmek, kök sertifikadan oluşturulan diğer sertifikaların kimlik doğrulaması amacıyla kullanılmaya devam edilmesine olanak sağlar.
 
 Genellikle ekip ve kuruluş düzeylerinde erişimi yönetmek için kök sertifika kullanılırken ayrı kullanıcılar üzerinde ayrıntılı erişim denetimi için iptal edilen istemci sertifikaları kullanılır.
 
-### <a name="to-revoke-a-client-certificate"></a>İstemci sertifikasını iptal etme
+### <a name="revokeclientcert"></a>İstemci sertifikasını iptal etmek için
 
 1. İstemci sertifikasının parmak izini alın. Daha fazla bilgi için bkz. [Bir Sertifikanın Parmak İzini alma](https://msdn.microsoft.com/library/ms734695.aspx).
-2. Bilgileri bir metin düzenleyicisine kopyalayın ve sürekli bir dize haline getirmek için tüm boşlukları kaldırın. Bu değer sonraki adımda bir değişken olarak bildirilir.
+2. Bilgileri bir metin düzenleyicisine kopyalayın ve sürekli bir dize haline getirmek için tüm boşlukları kaldırın. Bu dize sonraki adımda bir değişken olarak bildirilir.
 3. Değişkenleri bildirin. Önceki adımda alınan parmak izini bildirdiğinizden emin olun.
 
   ```powershell
@@ -339,7 +388,7 @@ Genellikle ekip ve kuruluş düzeylerinde erişimi yönetmek için kök sertifik
   ```
 6. Parmak izi eklendikten sonra sertifika artık bağlanmak için kullanılamaz. Bu sertifikayı kullanarak bağlanmaya çalışan istemciler sertifikanın artık geçerli olmadığını belirten bir ileti alır.
 
-### <a name="to-reinstate-a-client-certificate"></a>İstemci sertifikasını yeniden devreye sokma
+### <a name="reinstateclientcert"></a>İstemci sertifikasını yeniden devreye sokma
 
 Parmak izini, iptal edilen istemci sertifikaları listesinden kaldırarak bir istemci sertifikasını yeniden devreye sokabilirsiniz.
 

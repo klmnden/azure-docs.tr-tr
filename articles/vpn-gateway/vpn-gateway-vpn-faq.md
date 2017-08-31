@@ -14,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3627b3dfa5067883625b9a714645164ec99c8a51
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway SSS
 
-## <a name="connecting-to-virtual-networks"></a>Sanal ağlara bağlanma
+## <a name="connecting"></a>Sanal ağlara bağlanma
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>Farklı Azure bölgelerinde sanal ağlara bağlanabilir miyim?
 
@@ -58,7 +57,7 @@ VPN ağ geçidi bağlantıları hakkında daha fazla bilgi için bkz. [VPN Gatew
 
 Siteden Siteye bağlantınızı ağ geçidinizi için rota tabanlı VPN türü kullanarak oluşturmanız kaydıyla, sanal ağınızı aynı anda hem Siteden Siteye, hem de Noktadan Siteye bağlanacak şekilde yapılandırabilirsiniz. Rota tabanlı VPN türlerine klasik dağıtım modelinde dinamik ağ geçitleri adı verilir.
 
-## <a name="virtual-network-gateways"></a>Sanal ağ geçitleri
+## <a name="gateways"></a>Sanal ağ geçitleri
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>VPN ağ geçidi bir sanal ağ geçidi midir?
 
@@ -132,7 +131,7 @@ VPN ağ geçidi temel olarak, müşterinin özel ağında dokunulan tek NIC, ort
 
 Daha fazla bilgi için bkz. [VPN Gateway yapılandırma ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md).
 
-## <a name="site-to-site-connections-and-vpn-devices"></a>Siteden Siteye bağlantılar ve VPN cihazları
+## <a name="s2s"></a>Siteden Siteye bağlantılar ve VPN cihazları
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>VPN cihazını seçerken nelere dikkat etmeliyim?
 
@@ -196,7 +195,7 @@ Evet, Noktadan Siteye (P2S) VPN’ler şirket içi sitelere ve başka sanal ağl
 
 Evet, bu desteklenir. Daha fazla bilgi için bkz. [Bir arada var olan ExpressRoute ve Siteden Siteye VPN bağlantıları yapılandırma](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="ipsecike-policy"></a>IPsec/IKE ilkesi
+## <a name="ipsecike"></a>IPsec/IKE ilkesi
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
 
@@ -205,7 +204,7 @@ Evet, bu desteklenir. Daha fazla bilgi için bkz. [Bir arada var olan ExpressRou
 
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
-## <a name="cross-premises-connectivity-and-vms"></a>Şirket içi ve dışı bağlantısı ve VM'ler
+## <a name="vms"></a>Şirket içi ve dışı bağlantısı ve VM'ler
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>Sanal makinem sanal bir ağdaysa, şirket içi ve dışı bağlantım varsa VM’ye nasıl bağlanmalıyım?
 
@@ -222,7 +221,7 @@ Hayır. Bir tek, belirttiğiniz sanal ağ Yerel Ağ Ip adresi aralıklarında bu
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a>Virtual Network SSS
+## <a name="faq"></a>Sanal Ağ SSS
 
 Ek sanal ağ ek bilgilerini [Virtual Network SSS](../virtual-network/virtual-networks-faq.md) bölümünde görürsünüz.
 
@@ -230,3 +229,4 @@ Ek sanal ağ ek bilgilerini [Virtual Network SSS](../virtual-network/virtual-net
 
 * VPN Gateway hakkında daha fazla bilgi için bkz. [VPN Gateway Hakkında](vpn-gateway-about-vpngateways.md).
 * VPN Gateway yapılandırma ayarları hakkında daha fazla bilgi için bkz. [VPN Gateway yapılandırma ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md).
+
