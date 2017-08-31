@@ -2,7 +2,7 @@
 title: "Azure Backup Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Buluta nasıl yedekleyeceğinizi öğrenmek için Backup belgelerini kullanın. Uygulama, Windows Server ve Azure sanal makinesi yedekleme için öğretici ve videolara bakın."
 services: backup
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

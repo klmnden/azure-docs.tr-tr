@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi - 9. Ders: Hiyerarşi oluşturma | 
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

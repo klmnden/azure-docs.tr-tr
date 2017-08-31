@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi 2. Ders: Verileri alma| Microsoft D
 description: "Azure Analysis Services öğretici projesinde verilerin nasıl alınacağını ve içeri aktarılacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

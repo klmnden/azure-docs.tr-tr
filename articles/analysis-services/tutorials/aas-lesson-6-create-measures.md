@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi - 6. Ders: Ölçü oluşturma | Mic
 description: "Azure Analysis Services öğretici projesinde ölçülerin nasıl oluşturulacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

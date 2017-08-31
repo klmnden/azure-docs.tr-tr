@@ -2,7 +2,7 @@
 title: "Azure API Management Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "API Management’ı kullanarak API’lerinizi güvenli bir biçimde ve yüksek ölçekte yayımlama hakkında bilgi edinin. Belgelerde, mevcut arka uç hizmetleri için modern API ağ geçitleri oluşturmaya ilişkin bilgiler sunulmuştur."
 services: api-management
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
 ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
+ms.contentlocale: tr-tr
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="api-management-documentation"></a>API Management Belgeleri
@@ -143,10 +145,5 @@ API Management’ı kullanarak dış geliştiricilere, geliştirici iş ortaklar
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure AD B2C | Microsoft Belgeleri
-description: "Kimlik doğrulaması için OAuth 2.0 erişim belirteçleri ile güvenliği sağlanan Azure Active Directory B2C kullanarak .NET Web API&quot;si oluşturma."
+description: "Kimlik doğrulaması için OAuth 2.0 erişim belirteçleri ile güvenliği sağlanan Azure Active Directory B2C kullanarak .NET Web API'si oluşturma."
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
+ms.contentlocale: tr-tr
 ms.lasthandoff: 05/03/2017
-
 
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: .NET web API'si oluşturma

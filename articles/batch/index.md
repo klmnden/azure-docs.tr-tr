@@ -2,7 +2,7 @@
 title: "Azure Batch Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Batch’i kullanarak büyük ölçekli paralel ve yüksek performanslı bilgi işlem uygulamalarını verimli bir şekilde nasıl çalıştırabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgeler."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

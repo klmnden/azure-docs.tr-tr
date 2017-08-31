@@ -2,7 +2,7 @@
 title: "Azure Resource Manager Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Resource Manager’ı kullanarak çözüm kaynaklarını bir grup olarak dağıtma ve yönetme; tutarlı ve tekrarlanabilir kaynak dağıtımı için şablonlar oluşturma hakkında bilgi edinin."
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

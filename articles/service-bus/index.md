@@ -2,7 +2,7 @@
 title: "Azure Service Bus Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Şirket içi ortam ve bulut ortamındaki uygulama ve hizmetleri bağlayan bir mesajlaşma hizmeti ayarlama hakkında bilgi edinin.  Öğreticiler, videolar, API başvuruları ve daha fazlası."
 services: service-bus
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/14/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 3401257f406c71ff26d0eb2f7ca5f7e830d91882
+ms.contentlocale: tr-tr
 ms.lasthandoff: 03/27/2017
 
 ---

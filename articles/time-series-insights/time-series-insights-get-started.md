@@ -8,16 +8,17 @@ author: op-ravi
 manager: santoshb
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: eb710795916a2d7beea75a6408a0982fb4dc8750
+ms.contentlocale: tr-tr
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -30,23 +31,23 @@ Zaman Serisi Görüşleri ortamı, giriş ve depolama kapasitesi olan bir Azure 
 
 Ortamınızı oluşturmak için şu adımları izleyin:
 
-1.    [Azure Portal](https://portal.azure.com) oturum açın.
-2.    Sol üst köşedeki artı işaretine (“+”) tıklayın.
-3.    Arama kutusunda “Zaman Serisi Görüşleri” için arama yapın.
+1.  [Azure Portal](https://portal.azure.com) oturum açın.
+2.  Sol üst köşedeki artı işaretine (“+”) tıklayın.
+3.  Arama kutusunda “Zaman Serisi Görüşleri” için arama yapın.
 
   ![Zaman Serisi Görüşleri oluşturma ortam](media/get-started/getstarted-create-environment1.png)
 
-4.    “Zaman Serisi Görüşleri” öğesini seçin, “Oluştur” düğmesine tıklayın.
+4.  “Zaman Serisi Görüşleri” öğesini seçin, “Oluştur” düğmesine tıklayın.
 
   ![Zaman Serisi Görüşleri oluşturma kaynak grubu](media/get-started/getstarted-create-environment2.png)
 
-5.    Ortam adını belirtin. Bu ad, [zaman serisi gezgininde](https://insights.timeseries.azure.com) ortamı temsil edecektir.
-6.    Bir abonelik seçin. Olay kaynağınızı içeren aboneliği seçin. Zaman Serisi Görüşleri aynı abonelikteki mevcut Azure IoT Hub ve Event Hub kaynaklarını otomatik olarak algılayabilir.
-7.    Kaynak grubunu seçin veya oluşturun. Kaynak grubu, birlikte kullanılan Azure kaynakları koleksiyonudur.
-8.    Barındırma konumunu seçin. Verileri veri merkezleri arasında taşımaktan kaçınmak için, olay kaynağınızı içeren konumu seçin.
-9.    Fiyatlandırma katmanını seçin.
-10.    Kapasite seçin. Oluşturduktan sonra ortam kapasitesini değiştirebilirsiniz.
-11.    Ortamınızı oluşturun. Ayrıca, her oturum açtığınızda kolayca erişmek için ortamınızı panoya sabitleyebilirsiniz.
+5.  Ortam adını belirtin. Bu ad, [zaman serisi gezgininde](https://insights.timeseries.azure.com) ortamı temsil edecektir.
+6.  Bir abonelik seçin. Olay kaynağınızı içeren aboneliği seçin. Zaman Serisi Görüşleri aynı abonelikteki mevcut Azure IoT Hub ve Event Hub kaynaklarını otomatik olarak algılayabilir.
+7.  Kaynak grubunu seçin veya oluşturun. Kaynak grubu, birlikte kullanılan Azure kaynakları koleksiyonudur.
+8.  Barındırma konumunu seçin. Verileri veri merkezleri arasında taşımaktan kaçınmak için, olay kaynağınızı içeren konumu seçin.
+9.  Fiyatlandırma katmanını seçin.
+10. Kapasite seçin. Oluşturduktan sonra ortam kapasitesini değiştirebilirsiniz.
+11. Ortamınızı oluşturun. Ayrıca, her oturum açtığınızda kolayca erişmek için ortamınızı panoya sabitleyebilirsiniz.
 
   ![Zaman Serisi Görüşleri oluşturma panoya sabitleme](media/get-started/getstarted-create-environment3.png)
 

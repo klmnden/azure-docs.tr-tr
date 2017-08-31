@@ -5,14 +5,14 @@ metadata:
   title: 'Azure Event Grid Belgeleri - Öğreticiler, API Başvurusu'
   description: Hem Azure hizmetlerinde hem de Azure dışı hizmetlerde gerçekleşen ilgili olaylara neredeyse gerçek zamanlı yanıt vermek için Azure Event Grid’i kullanın.
   services: event-grid
-  author: banisadr
-  manager: timlt
+  author: czeumault
+  manager: carolz
   ms.service: event-grid
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/10/2017
-  ms.author: banisadr
+  ms.author: carolz
 abstract:
   description: 'Azure Event Grid; yayımla-abone ol modelini kullanan, tek düzen olay tüketimine izin veren, tam yönetimli ve akıllı bir olay yönlendirme hizmetidir. Hem Azure hizmetlerinde hem de Azure dışı hizmetlerde gerçekleşen ilgili olaylara neredeyse gerçek zamanlı yanıt vermek için Azure Event Grid’i kullanın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Event Grid’i kullanmayı öğrenin.'
 sections:

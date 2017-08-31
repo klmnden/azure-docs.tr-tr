@@ -2,7 +2,7 @@
 title: "Azure ExpressRoute Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Şirket içi altyapınızdan veya ortak yerleşim tesisinizden Microsoft bulut hizmetlerine özel bir ExpressRoute bağlantısı yapılandırma ve bu bağlantıyı yönetme hakkında bilgi edinin."
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

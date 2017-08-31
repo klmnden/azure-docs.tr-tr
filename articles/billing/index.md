@@ -2,7 +2,7 @@
 title: "Azure Faturalama Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Azure faturalandırmanızı anlamanın yanı sıra kullanımı ve maliyetleri nasıl yönetebileceğinizi ve izleyebileceğinizi öğrenin. Öğreticiler, SSS sayfaları, API başvuruları ve diğer belgeler."
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

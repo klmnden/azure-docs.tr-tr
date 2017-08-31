@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi ek ders: Dinamik güvenlik | Micros
 description: "Azure Analysis Services öğreticisinde satır filtrelerini kullanarak dinamik güvenliğin nasıl kullanılacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

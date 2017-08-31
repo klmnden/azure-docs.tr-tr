@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi 3. ders: Tarih Tablosu olarak işar
 description: "Azure Analysis Services öğretici projesinde bir tarih tablosunun nasıl işaretleneceğini açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

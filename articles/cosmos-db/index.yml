@@ -6,7 +6,7 @@ metadata:
   title: 'Azure Cosmos DB Belgeleri - Öğreticiler, API Başvurusu'
   description: 'Global olarak dağıtılmış çoklu model veritabanları oluşturmak için Azure Cosmos DB kullanmayı öğrenin. Öğreticiler, belgeleri, anahtar/değer ve grafik veritabanlarını oluşturmayı ve sorgulamayı gösterir.'
   services: cosmos-db
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: cosmos-db
   ms.tgt_pltfrm: na

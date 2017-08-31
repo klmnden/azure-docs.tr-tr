@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi 11. ders: Rol oluşturma | Microsof
 description: "Azure Analysis Services öğretici projesinde rollerin nasıl oluşturulacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Azure Devtest Labs Belgeleri - Öğreticileri | Microsoft Docs"
 description: "Yeniden kullanılabilir yapıtlar kullanarak hızlı bir şekilde uygulama test ortamları oluşturmayı öğrenin. Öğreticiler, videolar ve diğer kaynaklarda laboratuvarları oluşturma, yönetme ve güvenli hale getirme hakkında bilgi sağlanmıştır."
 services: devtest-lab
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

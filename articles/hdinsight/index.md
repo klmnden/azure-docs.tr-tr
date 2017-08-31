@@ -2,7 +2,7 @@
 title: "Azure HDInsight Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "HDInsight'ta Hadoop’u öğrenin. Belgelerde Hadoop, Spark, HBase, R-Server ve daha fazlasını kullanarak büyük verileri işleme, çözümleme ve verilerden öngörü edinme konularında bilgi sağlanmıştır."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

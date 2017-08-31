@@ -2,7 +2,7 @@
 title: "Azure Key Vault Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Anahtar Kasası hesabınızı kullanarak bulut kaynaklarınıza, uygulamalarınıza ve çözümlerinize erişen ve bunları şifreleyen anahtarlar oluşturma ve bunları koruma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
 services: key-vault
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -2,7 +2,7 @@
 title: "Azure Depolama Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Azure Depolama: Bulutta Blob, Tablo, Kuyruk, Dosya ve Sanal Makine Disk depolama hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -2,7 +2,7 @@
 title: "Azure IoT Hub Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma, bunları izleme ve denetleme hakkında bilgi edinin. Öğreticiler, API başvuruları, videolar ve diğer belgeler."
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

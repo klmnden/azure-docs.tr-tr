@@ -2,7 +2,7 @@
 title: "Azure Data Lake Store Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir veri gölü deposu ayarlama, yönetme ve depoya erişme hakkında bilgi edinin."
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

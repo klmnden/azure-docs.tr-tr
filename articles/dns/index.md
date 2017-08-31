@@ -2,7 +2,7 @@
 title: "Azure DNS Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Azure Etki Alanı Adı Sistemi’ni kullanarak DNS kayıtlarınızı nasıl yönetebileceğinizi öğrenin. Belgelerde etki alanı adları için DNS bölgeleri ve kayıtları ayarlama ve bunları yönetme hakkında bilgi sağlanmıştır."
 services: dns
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 659e0989e3a1f7114796c2211606e5d629cf68fd
+ms.contentlocale: tr-tr
 ms.lasthandoff: 03/22/2017
 
 ---

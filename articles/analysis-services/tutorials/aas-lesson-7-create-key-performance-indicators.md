@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi 7. ders: Ana Performans Göstergele
 description: "Azure Analysis Services öğretici projesinde Ana Performans Göstergelerinin nasıl oluşturulacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

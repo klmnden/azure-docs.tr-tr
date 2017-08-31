@@ -2,7 +2,7 @@
 title: "Azure Traffic Manager Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "En iyi uygulama performansı için gelen trafiği nasıl yönetebileceğinizi öğrenin. Belgelerde trafiğin Azure’a veya dış hizmet uç noktalarına nasıl dağıtılacağı açıklanmıştır."
 services: traffic-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: 17727bace2ffbe77123e8d027b4a49b6ca92669e
+ms.contentlocale: tr-tr
 ms.lasthandoff: 03/17/2017
 
 ---

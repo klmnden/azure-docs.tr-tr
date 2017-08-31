@@ -2,7 +2,7 @@
 title: "Azure Güvenlik Belgeleri - Öğreticileri | Microsoft Docs"
 description: "Buluttaki hizmet ve veri dağıtımlarınıza ilişkin gereksinimleri karşılamak için Azure hizmetlerindeki güvenlik özelliklerini nasıl özelleştirebileceğinizi öğrenin."
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

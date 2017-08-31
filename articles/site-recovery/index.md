@@ -2,7 +2,7 @@
 title: "Azure Site Recovery Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Çoğaltma özelliğini dağıtıp yöneterek fiziksel sunucular ve sanal makineler için bulut olağanüstü durum kurtarma ve iş sürekliliği ayarlama hakkında bilgi edinin."
 services: site-recovery
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

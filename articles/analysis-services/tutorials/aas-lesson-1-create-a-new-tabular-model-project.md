@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi 1. ders: Yeni tablosal model projes
 description: "Yeni bir Azure Analysis Services öğretici projesinin nasıl oluşturulacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

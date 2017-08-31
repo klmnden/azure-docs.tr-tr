@@ -2,8 +2,8 @@
 title: "Azure Data Lake Analytics Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Data Lake Analytics ile büyük veri analizi yapmayı öğrenin. Öğreticilerde toplu, gerçek zamanlı ve etkileşimli analiz çalıştırma ve U-SQL sorguları yazma hakkında bilgi sağlanmıştır."
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

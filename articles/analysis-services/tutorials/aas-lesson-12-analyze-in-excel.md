@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi - 12. ders: Excel’de çözümleme
 description: "Azure Analysis Services öğretici projesinde, Excel’de çözümleme özelliğinin nasıl kullanılacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

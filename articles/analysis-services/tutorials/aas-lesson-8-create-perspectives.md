@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi - 8. Ders: Perspektif oluşturma | 
 description: "Azure Analysis Services öğretici projesinde nasıl perspektif oluşturulacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

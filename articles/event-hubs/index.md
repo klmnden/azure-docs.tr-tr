@@ -2,7 +2,7 @@
 title: "Azure Event Hubs Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Event Hubs’ı kullanarak birçok farklı platformdaki bağlı IoT cihazlarından ve uygulamalarından saniyede milyonlarca olay alma işlemini nasıl yapabileceğinizi öğrenin."
 services: event-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

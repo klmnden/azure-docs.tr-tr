@@ -2,7 +2,7 @@
 title: "Azure Multi-Factor Authentication Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Basit bir oturum açma işlemi sağlayan çeşitli doğrulama yöntemleriyle çok faktörlü kimlik doğrulaması dağıtmayı öğrenin. Öğreticiler, bir SDK ve daha fazlası."
 services: multi-factor-authentication
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: acd9ead9012043bc6db8c32add86bb7797fcf8c9
 ms.openlocfilehash: c4aaa14007bf441f99ef6599bda411bcaed92a92
+ms.contentlocale: tr-tr
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -117,10 +119,5 @@ ms.openlocfilehash: c4aaa14007bf441f99ef6599bda411bcaed92a92
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

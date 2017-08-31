@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi ek ders: Düzensiz hiyerarşiler | 
 description: "Azure Analysis Services öğreticisinde düzensiz hiyerarşilerin nasıl düzeltileceğini açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

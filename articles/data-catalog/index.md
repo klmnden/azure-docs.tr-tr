@@ -2,7 +2,7 @@
 title: "Azure Veri Kataloğu Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Kurumunuzun veri kaynaklarını bulabileceği, anlayabileceği ve tüketebileceği bir veri kataloğu oluşturma hakkında bilgi edinin. Öğreticiler, API başvurusu ve diğer belgeler."
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

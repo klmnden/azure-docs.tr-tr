@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi 4. Ders: İlişki oluşturma | Micr
 description: "Azure Analysis Services öğretici projesinde ilişkilerin nasıl oluşturulacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

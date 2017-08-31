@@ -1,8 +1,8 @@
 ---
 title: "Azure Operations Management Suite (OMS) Belgeleri - Öğreticileri | Microsoft Docs"
-description: "Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft&quot;un bulut tabanlı BT yönetim çözümüdür. Bu makalede, OMS&quot;de yer alan farklı hizmetler tanımlanmakta ve bunların ayrıntılı içeriklerinin bağlantıları sağlanmaktadır."
+description: "Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft'un bulut tabanlı BT yönetim çözümüdür. Bu makalede, OMS'de yer alan farklı hizmetler tanımlanmakta ve bunların ayrıntılı içeriklerinin bağlantıları sağlanmaktadır."
 services: operations-management-suite
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ccfbd45def1ecf036a2464f560aa89817c37b419
 ms.openlocfilehash: 54b3ce2c8c3966ee36350fed71bdc48aa5bffa63
+ms.contentlocale: tr-tr
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Operations Management Suite (OMS) nedir?
@@ -51,10 +53,5 @@ Güvenlik ve Uyumluluk, altyapınıza ilişkin güvenlik risklerini belirlemeniz
 * [Azure Otomasyonu](../automation/automation-intro.md) hakkında bilgi edinme.
 * [Azure Backup](http://azure.microsoft.com/documentation/services/backup) hakkında bilgi edinme.
 * [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) hakkında bilgi edinme.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

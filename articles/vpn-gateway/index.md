@@ -2,7 +2,7 @@
 title: "Azure VPN Gateway Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Bulut sanal ağları ile şirket içi ağlar arasındaki ya da farklı bulut sanal ağları arasındaki trafiği yönetmek üzere sanal özel ağ (VPN) geçitleri yapılandırmayı öğrenin."
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

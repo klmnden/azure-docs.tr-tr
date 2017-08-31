@@ -3,7 +3,7 @@ title: "Azure Analysis Services Adventure Works Öğreticisi | Microsoft Docs"
 description: "Azure Analysis Services için Adventure Works öğreticisini sunar"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

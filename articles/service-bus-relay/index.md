@@ -1,13 +1,24 @@
 ---
-layout: LandingPage
 title: "Service Bus Geçişi Belgeleri"
 description: "Azure Geçiş hizmetinin bulut ve şirket içi karma ortamda nasıl çalıştığı hakkında bilgi alın ve nasıl yapılır, Öğreticiler, videolar, API başvuruları ve diğer kaynaklarla eğitimi tamamlayın."
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
 ms.contentlocale: tr-tr
 ms.lasthandoff: 08/04/2017
 
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Service Bus Geçişi Belgeleri
 Azure Geçiş hizmetinin, bir güvenlik duvarı bağlantısı açmak ya da kurumsal ağ altyapısına müdahale eden değişiklikler yapmak zorunda kalmadan kurumsal işletme ağı ile genel buluttaki şirket içi ile bulut ortamları arasında karma uygulamaları nasıl kolaylaştırdığı hakkında bilgi alın.

@@ -2,7 +2,7 @@
 title: "Azure Application Insights Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Web uygulamaları ve hizmetlerindeki sorunları belirleme, önceliklendirme ve tanılamaya yönelik genişletilebilir bir uygulama performansı yönetim hizmeti olan Application Insights’ı nasıl kullanacağınızı öğrenin."
 services: application-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
 ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
+ms.contentlocale: tr-tr
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="application-insights-documentation"></a>Application Insights Belgeleri
@@ -163,10 +165,5 @@ Web geliştiricilerine yönelik genişletilebilir bir uygulama performansı yön
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

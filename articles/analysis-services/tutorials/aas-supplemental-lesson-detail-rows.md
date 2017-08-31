@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi ek ders: Ayrıntı Satırları | Mi
 description: "Azure Analysis Services öğreticisinde bir Ayrıntı Satırları İfadesinin nasıl oluşturulacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

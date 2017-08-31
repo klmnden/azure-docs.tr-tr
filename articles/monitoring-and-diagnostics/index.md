@@ -2,7 +2,7 @@
 title: "Azure İzleyici Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "İzleme ve tanılama hizmetlerini kullanarak performansı izleme, güvenliği koruma ve eğilimleri belirleme konusunda bilgi edinin. API başvuruları, en iyi yöntemler ve daha fazlası."
 services: monitoring-and-diagnostics
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

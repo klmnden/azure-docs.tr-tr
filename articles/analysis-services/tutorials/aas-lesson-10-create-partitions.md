@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi 10. Ders: Bölüm oluşturma | Micr
 description: "Azure Analysis Services öğretici projesinde bölümlerin nasıl oluşturulacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

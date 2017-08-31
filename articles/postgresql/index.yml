@@ -6,14 +6,14 @@ metadata:
   title: 'Azure PostgreSQL Belgeleri - Öğreticiler, API Başvurusu'
   description: 'PostgreSQL için Azure Veritabanı, açık kaynak PostgreSQL veritabanı altyapısını temel alan, Microsoft bulutunda geliştiriciler için oluşturulmuş ilişkisel bir veritabanı hizmetidir.'
   services: postgresql
-  author: jasonwhowell
-  manager: jhubbard
+  author: czeumault
+  manager: carolz
   ms.service: postgresql
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: jasonh
+  ms.author: carolz
 abstract:
   description: 'PostgreSQL için Azure Veritabanı, açık kaynak Postgres veritabanı altyapısını temel alan ilişkisel bir veritabanı hizmetidir.  Bu; kritik iş yüklerini işleyebilen, tahmin edilebilir performans, güvenlik, yüksek kullanılabilirlik ve dinamik ölçeklenebilirlik sunan, tam olarak yönetilen bir hizmet olarak veritabanıdır.  PostgreSQL için Azure Veritabanı ile açık kaynak araçları ve seçtiğiniz platformu kullanarak uygulamalar geliştirin.  Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, PostgreSQL için Azure Veritabanı’nı kullanmayı öğrenin.'
 sections:

@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi 5. Ders: Hesaplanan sütunlar oluş
 description: "Azure Analysis Services öğretici projesinde hesaplanan sütunların nasıl oluşturulacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Azure Logic Apps Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Şirket içinde ve bulutta iş akışlarını otomatikleştiren ve basitleştiren mantıksal uygulamalar geliştirme hakkında bilgi edinin. Öğreticiler, şablonlar ve API başvuruları."
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

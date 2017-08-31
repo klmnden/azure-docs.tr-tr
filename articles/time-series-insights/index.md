@@ -2,7 +2,7 @@
 title: "Azure Time Series Insights Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Tam olarak yönetilen olay işlemeyle bulutta nasıl IoT analizi çalıştıracağınızı öğrenin. Uygulamalardan, algılayıcılardan, cihazlardan ve diğer kaynaklardan gelen verileri gerçek zamanlı olarak analiz edin."
 services: time-series-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

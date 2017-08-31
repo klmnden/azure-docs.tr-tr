@@ -2,7 +2,7 @@
 title: "Azure CDN Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "İçerik Teslim Ağı’nı (CDN) kullanarak küresel veri merkezlerinden herhangi bir cihaza nasıl içerik sağlayabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgeler."
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

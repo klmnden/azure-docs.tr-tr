@@ -2,7 +2,7 @@
 title: "Azure Sanal Makine Ölçek Kümeleri Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Büyük işlem, büyük veri ve kapsayıcı çözümleri için otomatik olarak ölçeklendirilen Windows veya Linux VM’leri oluşturmak amacıyla Sanal Makine Ölçek Kümelerini nasıl kullanabileceğinizi öğrenin."
 services: virtual-machine-scale-sets
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
+ms.contentlocale: tr-tr
 ms.lasthandoff: 04/12/2017
 
 ---

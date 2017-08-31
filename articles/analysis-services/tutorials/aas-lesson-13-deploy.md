@@ -3,7 +3,7 @@ title: "Azure Analysis Services öğreticisi 13. ders: Dağıtma | Microsoft Doc
 description: "Azure Analysis Services’a öğretici projesinin nasıl dağıtılacağını açıklar."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 
