@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 14e2a14c74e00709e18a80325fbdd3cbcd71da37
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 89fa80b3e3409b7cd2f600776fffdeb3a5271b5d
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>HDInsight üzerinde R Server kullanmaya başlayın
@@ -342,32 +342,37 @@ Ayrıca yeni eklenen kullanıcıların Linux sisteminde kök ayrıcalıklarına 
 
 2. Aşağıdakine benzer bir çıktı görmeniz gerekir:
     
-    R sürüm 3.2.2 (2015-08-14) -- "Fire Safety" Telif Hakkı (C) 2015 The R Foundation for Statistical Computing Platform: x86_64-pc-linux-gnu (64 bit)
+        R version 3.2.2 (2015-08-14) -- "Fire Safety"
+        Copyright (C) 2015 The R Foundation for Statistical Computing
+        Platform: x86_64-pc-linux-gnu (64-bit)
 
-    R ücretsiz bir yazılımdır ve HİÇBİR GARANTİ verilmemektedir.
-    Yazılımı belirli koşullar altında dağıtabilirsiniz.
-    Dağıtım ayrıntıları için "license()" veya "licence()" yazın.
+        R is free software and comes with ABSOLUTELY NO WARRANTY.
+        You are welcome to redistribute it under certain conditions.
+        Type 'license()' or 'licence()' for distribution details.
 
     Doğal dil desteği yalnızca İngilizce için mevcuttur
 
-    R birçok katılımcının rol aldığı ortak bir projedir.
-    Daha fazla bilgi için "contributors()", R veya R paketlerine atıfta bulunmak için ise "citation()" yazın.
+        R is a collaborative project with many contributors.
+        Type 'contributors()' for more information and
+        'citation()' on how to cite R or R packages in publications.
 
-    Demolar için "demo()", çevrimiçi yardım için "help()" veya yardım bilgilerini içeren HTML tarayıcı arayüzü açmak için "help.start()" yazın.
-    R'den çıkmak için "q()" yazın.
+        Type 'demo()' for some demos, 'help()' for on-line help, or
+        'help.start()' for an HTML browser interface to help.
+        Type 'q()' to quit R.
 
-    Microsoft R Server sürüm 8.0: R Microsoft paketlerinin gelişmiş dağıtımı Telif Hakkı (C) 2016 Microsoft Corporation
+        Microsoft R Server version 8.0: an enhanced distribution of R
+        Microsoft packages Copyright (C) 2016 Microsoft Corporation
 
     Sürüm notları için "readme()" yazın.
     >
 
 3. `>` isteminde R kodunu girebilirsiniz. R server, Hadoop ile kolayca etkileşim kurup dağıtılmış hesaplamaları çalıştırmanıza olanak tanıyan paketler içerir. Örneğin, HDInsight kümesinin varsayılan dosya sisteminin kökünü görüntülemek için aşağıdaki komutu kullanın:
 
-    rxHadoopListFiles("/")
+        rxHadoopListFiles("/")
 
 4. WASB stil adreslemesini de kullanabilirsiniz.
 
-    rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasb:///")
 
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Microsoft R Server veya Microsoft R Client uzak örneğinden HDI üzerinde R Server kullanma
