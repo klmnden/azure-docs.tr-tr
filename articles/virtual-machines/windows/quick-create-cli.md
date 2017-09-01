@@ -85,7 +85,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 Sanal makine bir uzak masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın. IP adresini, sanal makinenizin genel IP adresi ile değiştirin. İstendiğinde, sanal makine oluşturulurken kullanılan kimlik bilgilerini girin.
 
 ```bash 
-mstsc /v:<Public IP Address>
+mstsc /v:Public IP Address
 ```
 
 ## <a name="install-iis-using-powershell"></a>PowerShell kullanarak IIS yükleme

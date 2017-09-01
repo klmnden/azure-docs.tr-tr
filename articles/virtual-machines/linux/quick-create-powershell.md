@@ -44,7 +44,7 @@ Login-AzureRmAccount
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) ile yeni bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) ile yeni bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
@@ -105,7 +105,7 @@ $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $secu
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName myVM -Credential $cred -DisablePasswordAuthentication | `
-Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 14.04.2-LTS -Version latest | `
+Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 16.04-LTS -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Configure SSH Keys
