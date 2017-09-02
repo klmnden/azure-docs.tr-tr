@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 8c3cc27f1fa708371d415d00cdff59f77712cd41
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 6f8ee3449244b12d2c8b5714e6ad893e2f0b10ee
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Size uygun Azure Multi-Factor Authentication çözümünü seçin
@@ -39,7 +39,7 @@ Doğru iki aşamalı doğrulama çözümünü belirlemek için, önce ikinci bir
 | Uygulama galerisinde SaaS uygulamaları |● |  |
 | Azure AD Uygulaması Proxy üzerinden yayımlanan web uygulamaları |● |  |
 | Azure AD Uygulaması Proxy üzerinden yayımlanmayan IIS uygulamaları | |● |
-| VPN, RDG gibi uzaktan erişim | |● |
+| VPN, RDG gibi uzaktan erişim | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>Kullanıcılar nerede bulunuyor?
 Kullanıcılarımızın nerede bulunduğuna bakmak, ister bulutta ister MFA Sunucusu kullanan şirket içinde olan doğru çözümün belirlenmesine yardımcı olur.
@@ -76,13 +76,14 @@ Aşağıdaki tabloda, bulutta Multi-Factor Authentication ile kullanılabilen ö
 | Koşullu erişim | ● | ● |
 | Önbellek |  | ● |
 
-Artık bulutta multi-factor authentication mı yoksa şirket içi MFA Sunucusu mu kullanacağımızı belirlediğimize göre, Azure Multi-Factor Authentication’ı ayarlamaya ve kullanmaya başlayabiliriz. **Senaryonuzu temsil eden simgeyi seçin!**
+## <a name="next-steps"></a>Sonraki adımlar
+
+Artık bulutta multi-factor authentication mı yoksa şirket içi MFA Sunucusu mu kullanacağımızı belirlediğimize göre, Azure Multi-Factor Authentication’ı ayarlamaya ve kullanmaya başlayabiliriz. **Senaryonuzu temsil eden simgeyi seçin**
 
 <center>
 
 
 
 
-[![Bulut](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</center>
+[![Bulut](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Sunucu](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
 
