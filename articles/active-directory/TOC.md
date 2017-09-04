@@ -10,16 +10,9 @@
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
 ## [Özel bir etki alanı adı ekleme](add-custom-domain.md)
 ## [Şirket markası yapılandırma](customize-branding.md)
+## [Kullanıcıları Azure AD’ye ekleme](add-users-azure-active-directory.md)
+## [Kullanıcılara lisans atama](license-users-groups.md)
 ## [Self servis parola sıfırlamasını yapılandırma](active-directory-passwords-getting-started.md)
-## Azure AD lisanslamayı yönetme
-### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
-### [Klasik portal](active-directory-licensing-what-is.md)
-### [Grupları kullanarak lisansları atama](active-directory-licensing-whatis-azure-portal.md)
-#### [Bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Bir gruptaki lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
-#### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
-#### [Grup tabanlı lisanslama için PowerShell örnekleri](active-directory-licensing-ps-examples.md)
 
 
 # Nasıl yapılır?
@@ -44,11 +37,6 @@
 #### [Araç karşılaştırması](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Kullanıcıları yönetme
-### Kullanıcı ekle
-#### [Azure Portal](active-directory-users-create-azure-portal.md)
-#### [Klasik portal](active-directory-create-users.md)
-
-
 ### [Grupları kullanarak lisansları atama](active-directory-licensing-whatis-azure-portal.md)
 #### [Bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Bir gruptaki lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -56,7 +44,6 @@
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
 #### [Grup tabanlı lisanslama için PowerShell örnekleri](active-directory-licensing-ps-examples.md)
 ### [Diğer dizinlerden kullanıcıları ekleme (klasik portal)](active-directory-create-users-external.md)
-### [Kullanıcıları silme](active-directory-users-delete-user-azure-portal.md)
 ### [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
 ### [Parola sıfırlama](active-directory-users-reset-password-azure-portal.md)
 ### [Kullanıcı iş bilgilerini yönetme](active-directory-users-work-info-azure-portal.md)
@@ -144,19 +131,14 @@
 
 ## Cihazları yönetme
 ### [Giriş](device-management-introduction.md)
+### [Azure portalını kullanma](device-management-azure-portal.md)
 ### [SSS](device-management-faq.md)
 ### Görevler
 #### [Karma Azure AD alanına katılmış cihazları yapılandırma](device-management-hybrid-azuread-joined-devices-setup.md) 
-#### Sorun giderme
-##### [Karma Azure AD alanına katılmış Windows 10 ve Windows Server 2016 cihazları](device-management-troubleshoot-hybrid-join-windows-current.md)
-##### [Karma Azure AD alanına katılmış eski Windows cihazları](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
-### Cihaz kaydetme
 #### [Şirket içi dağıtma](active-directory-device-registration-on-premises-setup.md)
-#### [SSS](active-directory-device-registration-faq.md)
-#### Sorun giderme
-##### [Windows 10 ve Windows Server 2016 için sorun giderme](active-directory-device-registration-troubleshoot-windows.md)
-##### [Windows alt düzey istemciler için sorun giderme](active-directory-device-registration-troubleshoot-windows-legacy.md)
+### Sorun giderme
+#### [Karma Azure AD alanına katılmış Windows 10 ve Windows Server 2016 cihazları](device-management-troubleshoot-hybrid-join-windows-current.md)
+#### [Karma Azure AD alanına katılmış eski Windows cihazları](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Cihaz kaydı oluşturma](active-directory-azureadjoin-setup.md)
