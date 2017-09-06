@@ -1,5 +1,5 @@
 ---
-title: "Azure App Service’teki Azure Redis önbelleği ile oturum durumu"
+title: "Azure App Service’teki Azure Redis Cache ile oturum durumu"
 description: "ASP.NET oturum durumu önbelleğe alma işlemini desteklemek için Azure Önbellek Hizmeti’ni nasıl kullanacağınızı öğrenin."
 services: app-service\web
 documentationcenter: .net
@@ -14,24 +14,25 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: riande
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: a682e51bfaed9056b170c3e9473180ca210557b9
+ms.contentlocale: tr-tr
 ms.lasthandoff: 01/20/2017
 
 
 ---
-# <a name="session-state-with-azure-redis-cache-in-azure-app-service"></a>Azure App Service’teki Azure Redis önbelleği ile oturum durumu
-Bu konuda, oturum durumu için Azure Redis Önbelleği Hizmeti’ni nasıl kullanacağınız açıklanmaktadır.
+# <a name="session-state-with-azure-redis-cache-in-azure-app-service"></a>Azure App Service’teki Azure Redis Cache ile oturum durumu
+Bu konuda, oturum durumu için Azure Redis Cache Hizmetini nasıl kullanacağınız açıklanmaktadır.
 
-ASP.NET web uygulamanız oturum durumu kullanıyorsa, bir dış oturum durumu sağlayıcısı (Redis Önbelleği Hizmeti veya SQL Server oturum durumu sağlayıcısı) yapılandırmanız gerekir. Oturum durumu kullanıyor, ancak dış sağlayıcı kullanmıyorsanız; web uygulamanızın tek bir örneği ile sınırlı kalırsınız. Redis Önbelleği Hizmeti etkinleştirmesi en hızlı ve en kolay hizmettir.
+ASP.NET web uygulamanız oturum durumu kullanıyorsa, bir dış oturum durumu sağlayıcısı (Redis Cache Hizmeti veya SQL Server oturum durumu sağlayıcısı) yapılandırmanız gerekir. Oturum durumu kullanıyor, ancak dış sağlayıcı kullanmıyorsanız; web uygulamanızın tek bir örneği ile sınırlı kalırsınız. Redis Cache Hizmeti etkinleştirmesi en hızlı ve en kolay hizmettir.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-idcreatecacheacreate-the-cache"></a><a id="createcache"></a>Önbelleği oluşturma
+## <a id="createcache"></a>Önbelleği oluşturma
 Önbelleği oluşturmak için [şu yönergeleri](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) uygulayın.
 
-## <a name="a-idconfigureprojectaadd-the-redissessionstateprovider-nuget-package-to-your-web-app"></a><a id="configureproject"></a>Web uygulamanıza RedisSessionStateProvider NuGet paketi ekleme
+## <a id="configureproject"></a>Web uygulamanıza RedisSessionStateProvider NuGet paketi ekleme
 NuGet `RedisSessionStateProvider` paketini yükleyin.  Paket yöneticisi konsolundan (**Araçlar** > **NuGet Paketi Yöneticisi** > **Paket Yöneticisi Konsolu**) yüklemek için aşağıdaki komutu kullanın:
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -40,11 +41,11 @@ NuGet `RedisSessionStateProvider` paketini yükleyin.  Paket yöneticisi konsolu
 
 Daha fazla bilgi için bkz. [NuGet RedisSessionStateProvider sayfası](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) ve [Önbellek istemcisini yapılandırma](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-## <a name="a-idconfigurewebconfigamodify-the-webconfig-file"></a><a id="configurewebconfig"></a>Web.Config Dosyasını Değiştirme
+## <a id="configurewebconfig"></a>Web.Config Dosyasını Değiştirme
 NuGet paketi derleme başvuruları için yapmanın yanı sıra, *web.config* dosyasında saplama girdileri ekler. 
 
 1. *web.config* dosyasını açın ve **sessionState** öğesini bulun.
-2. `host`, `accessKey`, `port` için değerleri girin (SSL bağlantı noktası 6380 olmalıdır) `SSL` değerini `true` olarak ayarlayın. Bu değerleri, önbellek örneğinizin [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) dikey penceresinden alabilirsiniz. Daha fazla bilgi için bkz. [Önbelleğe bağlanma](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). SSL olmayan bağlantı noktasının yeni önbellekler için varsayılan olarak devre dışı bırakıldığını unutmayın. SSL olmayan bağlantı noktasını etkinleştirme hakkında daha fazla bilgi için [Azure Redis Önbelleği’nde bir önbellek yapılandırma](https://msdn.microsoft.com/library/azure/dn793612.aspx) konusundaki [Erişim Bağlantı Noktaları](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) bölümüne bakın. Aşağıdaki biçimlendirmede *web.config* dosyası, özellikle *bağlantı noktası*, *ana bilgisayar*, accessKey* ve *ssl* ile ilgili yapılan değişiklikler gösterilir.
+2. `host`, `accessKey`, `port` için değerleri girin (SSL bağlantı noktası 6380 olmalıdır) `SSL` değerini `true` olarak ayarlayın. Bu değerleri, önbellek örneğinizin [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) dikey penceresinden alabilirsiniz. Daha fazla bilgi için bkz. [Önbelleğe bağlanma](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). SSL olmayan bağlantı noktasının yeni önbellekler için varsayılan olarak devre dışı bırakıldığını unutmayın. SSL olmayan bağlantı noktasını etkinleştirme hakkında daha fazla bilgi için [Azure Redis Cache’te bir önbellek yapılandırma](https://msdn.microsoft.com/library/azure/dn793612.aspx) konusundaki [Erişim Bağlantı Noktaları](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) bölümüne bakın. Aşağıdaki biçimlendirmede *web.config* dosyası, özellikle *bağlantı noktası*, *ana bilgisayar*, accessKey *ve* ssl* ile ilgili yapılan değişiklikler gösterilir.
    
           <system.web>;
             <customErrors mode="Off" />;
@@ -74,7 +75,7 @@ NuGet paketi derleme başvuruları için yapmanın yanı sıra, *web.config* dos
             </sessionState>;
           </system.web>;
 
-## <a name="a-idusesessionobjecta-use-the-session-object-in-code"></a><a id="usesessionobject"></a>Kodlarda Oturum Nesnesi Kullanma
+## <a id="usesessionobject"></a>Kodlarda Oturum Nesnesi Kullanma
 Son adım, ASP.NET kodunuzda Oturum nesnesi kullanmaya başlamaktır. **Session.Add** yöntemini kullanarak nesneleri oturum durumuna ekleyin. Bu yöntem, öğeleri oturum durumu önbelleğine depolamak için anahtar-değer çiftlerini kullanır.
 
     string strValue = "yourvalue";
@@ -86,7 +87,7 @@ Aşağıdaki kod, oturum durumundan bu değeri alır.
     if (objValue != null)
        strValue = (string)objValue;    
 
-Web uygulamanızdaki nesneleri önbelleğe almak için Redis Önbelleği’ni de kullanabilirsiniz. Daha fazla bilgi için bkz. [15 dakikada Azure Redis Önbelleği ile MVC film uygulaması](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
+Web uygulamanızdaki nesneleri önbelleğe almak için Redis Cache’i de kullanabilirsiniz. Daha fazla bilgi için bkz. [15 dakikada Azure Redis Cache ile MVC film uygulaması](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
 ASP.NET oturum durumu kullanma hakkında daha fazla ayrıntı için bkz. [ASP.NET Oturum Durumuna Genel Bakış][ASP.NET Session State Overview].
 
 > [!NOTE]
