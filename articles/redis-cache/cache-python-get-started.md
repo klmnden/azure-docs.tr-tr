@@ -1,6 +1,6 @@
 ---
-title: "Python ile Azure Redis Önbelleği kullanma | Microsoft Belgeleri"
-description: "Python kullanarak Azure Redis Önbelleği kullanmaya başlama"
+title: Python ile Azure Redis Cache kullanma | Microsoft Belgeleri
+description: "Python kullanarak Azure Redis Cache kullanmaya başlama"
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
 ms.openlocfilehash: cdbee52574d0ffbe82ef3dc98f2848f4d00ba2ff
+ms.contentlocale: tr-tr
+ms.lasthandoff: 02/11/2017
 
 
 ---
-# <a name="how-to-use-azure-redis-cache-with-python"></a>Python ile Azure Redis Önbelleği kullanma
+# <a name="how-to-use-azure-redis-cache-with-python"></a>Python ile Azure Redis Cache kullanma
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,19 +32,19 @@ ms.openlocfilehash: cdbee52574d0ffbe82ef3dc98f2848f4d00ba2ff
 > 
 > 
 
-Bu konu Python kullanarak Azure Redis Önbelleği kullanmayı gösterir.
+Bu konu Python kullanarak Azure Redis Cache kullanmayı gösterir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 [redis-py](https://github.com/andymccurdy/redis-py) yükleyin.
 
-## <a name="create-a-redis-cache-on-azure"></a>Azure’da Redis önbelleği oluşturma
+## <a name="create-a-redis-cache-on-azure"></a>Azure’da Redis Cache oluşturma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 ## <a name="retrieve-the-host-name-and-access-keys"></a>Ana bilgisayar adını ve erişim anahtarlarını alma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 ## <a name="enable-the-non-ssl-endpoint"></a>SSL olmayan uç noktayı etkinleştirme
-Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan bağlantı noktası yeni Azure Redis Önbelleği örnekleri için devre dışıdır](cache-configure.md#access-ports). Bu yazma sırasında, [redis-py](https://github.com/andymccurdy/redis-py) istemcisi SSL’yi desteklemez. 
+Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan bağlantı noktası yeni Azure Redis Cache örnekleri için devre dışıdır](cache-configure.md#access-ports). Bu yazma sırasında, [redis-py](https://github.com/andymccurdy/redis-py) istemcisi SSL’yi desteklemez. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
@@ -61,9 +63,4 @@ Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan 
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

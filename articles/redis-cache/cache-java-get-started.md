@@ -1,6 +1,6 @@
 ---
-title: "Java ile Azure Redis Önbelleği kullanma | Microsoft Belgeleri"
-description: "Java kullanarak Azure Redis Önbelleği kullanmaya başlama"
+title: Java ile Azure Redis Cache kullanma | Microsoft Belgeleri
+description: "Java kullanarak Azure Redis Cache kullanmaya başlama"
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 04/13/2017
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
 ms.openlocfilehash: b95f37db90b105962c01545e25c8e14c53257ebc
+ms.contentlocale: tr-tr
 ms.lasthandoff: 02/11/2017
 
 
 ---
-# <a name="how-to-use-azure-redis-cache-with-java"></a>Java ile Azure Redis Önbelleği kullanma
+# <a name="how-to-use-azure-redis-cache-with-java"></a>Java ile Azure Redis Cache kullanma
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -31,23 +32,23 @@ ms.lasthandoff: 02/11/2017
 > 
 > 
 
-Azure Redis Önbelleği, Microsoft tarafından yönetilen ayrılmış bir Redis önbelleğine erişmenizi sağlar. Önbelleğinize Microsoft Azure’daki her uygulamadan erişilebilir.
+Azure Redis Cache, Microsoft tarafından yönetilen ayrılmış bir Redis önbelleğine erişmenizi sağlar. Önbelleğinize Microsoft Azure’daki her uygulamadan erişilebilir.
 
-Bu konu Java kullanarak Azure Redis Önbelleği kullanmayı gösterir.
+Bu konu Java kullanarak Azure Redis Cache kullanmayı gösterir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 [Jedis](https://github.com/xetorthio/jedis) - Redis için Java istemcisi
 
 Bu öğreticide Jedis kullanılmıştır, ancak [http://redis.io/clients](http://redis.io/clients) adresinde listelenmiş herhangi bir Java istemcisini kullanabilirsiniz.
 
-## <a name="create-a-redis-cache-on-azure"></a>Azure’da Redis önbelleği oluşturma
+## <a name="create-a-redis-cache-on-azure"></a>Azure’da Redis Cache oluşturma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 ## <a name="retrieve-the-host-name-and-access-keys"></a>Ana bilgisayar adını ve erişim anahtarlarını alma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 ## <a name="connect-to-the-cache-securely-using-ssl"></a>SSL kullanarak güvenli bir şekilde önbelleğe bağlanma
-[jedis](https://github.com/xetorthio/jedis)’in en son derlemeleri, Azure Redis Önbelleği’ne SSL kullanarak bağlanma konusunda destek sağlar. Aşağıdaki örnekte, 6380 SSL bitiş noktasını kullanarak Azure Redis Önbelleği’ne nasıl bağlanılacağı gösterilmektedir. Önceki [Ana bilgisayar adını ve erişim anahtarlarını alma](#retrieve-the-host-name-and-access-keys) bölümünde açıklanan şekilde `<name>` öğesini önbelleğinizin adı ile, `<key>` öğesini ise birincil veya ikincil anahtarınızla değiştirin.
+[jedis](https://github.com/xetorthio/jedis)’in en son derlemeleri, Azure Redis Cache’e SSL kullanarak bağlanma konusunda destek sağlar. Aşağıdaki örnekte, 6380 SSL bitiş noktasını kullanarak Azure Redis Cache’e nasıl bağlanılacağı gösterilmektedir. Önceki [Ana bilgisayar adını ve erişim anahtarlarını alma](#retrieve-the-host-name-and-access-keys) bölümünde açıklanan şekilde `<name>` öğesini önbelleğinizin adı ile, `<key>` öğesini ise birincil veya ikincil anahtarınızla değiştirin.
 
     boolean useSsl = true;
     /* In this line, replace <name> with your cache name: */
@@ -55,7 +56,7 @@ Bu öğreticide Jedis kullanılmıştır, ancak [http://redis.io/clients](http:/
     shardInfo.setPassword("<key>"); /* Use your access key. */
 
 > [!NOTE]
-> SSL olmayan bağlantı noktası, yeni Azure Redis Önbelleği örnekleri için devre dışıdır. SSL desteği olmayan farklı bir istemci kullanıyorsanız bkz. [SSL olmayan bağlantı noktasını etkinleştirme](cache-configure.md#access-ports).
+> SSL olmayan bağlantı noktası, yeni Azure Redis Cache örnekleri için devre dışıdır. SSL desteği olmayan farklı bir istemci kullanıyorsanız bkz. [SSL olmayan bağlantı noktasını etkinleştirme](cache-configure.md#access-ports).
 > 
 > 
 
