@@ -220,7 +220,7 @@
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: Redis Cache oluşturma
           href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: Azure Redis önbelleği ile oturum durumunu yönetme
+        - name: Azure Redis Cache ile oturum durumunu yönetme
           href: web-sites-dotnet-session-state-caching.md
     - name: İzleme
       items:
