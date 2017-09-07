@@ -1,6 +1,6 @@
 ---
-title: "Redis Önbelleği ile Web Uygulamaları oluşturma | Microsoft Docs"
-description: "Redis Önbelleği ile Web Uygulaması oluşturmayı öğrenin"
+title: "Redis Cache ile Web Uygulamaları oluşturma | Microsoft Docs"
+description: "Redis Cache ile Web Uygulaması oluşturmayı öğrenin"
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -22,7 +22,7 @@ ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="how-to-create-a-web-app-with-redis-cache"></a>Redis Önbelleği ile Web Uygulaması oluşturma
+# <a name="how-to-create-a-web-app-with-redis-cache"></a>Redis Cache ile Web Uygulaması oluşturma
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -32,13 +32,13 @@ ms.lasthandoff: 05/10/2017
 > 
 > 
 
-Bu öğreticide, ASP.NET web uygulamasının nasıl oluşturulacağını ve Visual Studio 2017 kullanılarak Azure Uygulama Hizmeti’ndeki bir web uygulamasına nasıl dağıtılacağı gösterilmektedir. Örnek uygulama bir veritabanındaki ekip istatistiklerinin listesini görüntüler ve önbellekten veri depolama ve almaya yönelik Azure Redis Önbelleği’ni kullanmak için farklı yollar gösterir. Öğreticiyi tamamladığınızda, Azure Redis Önbelleği ile en iyi hale getirilmiş ve Azure’da barındırılan, bir veritabanını okuyan ve yazan çalışan bir web uygulamasına sahip olacaksınız.
+Bu öğreticide, ASP.NET web uygulamasının nasıl oluşturulacağını ve Visual Studio 2017 kullanılarak Azure Uygulama Hizmeti’ndeki bir web uygulamasına nasıl dağıtılacağı gösterilmektedir. Örnek uygulama bir veritabanındaki ekip istatistiklerinin listesini görüntüler ve önbellekten veri depolama ve almaya yönelik Azure Redis Cache’i kullanmak için farklı yollar gösterir. Öğreticiyi tamamladığınızda, Azure Redis Cache ile en iyi hale getirilmiş ve Azure’da barındırılan, bir veritabanını okuyan ve yazan çalışan bir web uygulamasına sahip olacaksınız.
 
 Şunları öğreneceksiniz:
 
 * Visual Studio’da ASP.NET MVC 5 web uygulaması oluşturma.
 * Entity Framework’ü kullanarak bir veritabanındaki verilere erişme.
-* Azure Redis Önbelleği’ni kullanarak veri depolayarak ve alarak veri işlemeyi iyileştirme ve veritabanı yükünü azaltma.
+* Azure Redis Cache’i kullanarak veri depolayarak ve alarak veri işlemeyi iyileştirme ve veritabanı yükünü azaltma.
 * En iyi 5 ekibi almak için bir Redis sıralanmış kümesi kullanma.
 * Resource Manager şablonunu kullanarak uygulama için Azure kaynakları sağlama.
 * Visual Studio kullanarak uygulamayı yayımlama.
@@ -272,12 +272,12 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
    * Sonra: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
      
      ![Kod değişiklikleri][cache-layout-cshtml-code]
-2. Uygulamayı derleyip çalıştırmak için **Ctrl+F5**'e basın. Uygulamasının bu sürümü, sonuçları doğrudan veritabanından okur. **Yeni Oluştur**, **Düzenle**, **Ayrıntılar** ve **Sil** eylemlerinin **Görünümlere sahip MVC 5 Denetleyici, Entity Framework kullanarak** iskelesi tarafından otomatik olarak uygulamaya eklendiğini unutmayın. Öğreticinin sonraki bölümünde, veri erişimini iyileştirmek ve uygulamaya ek özellikler sağlamak için Redis Önbelleği ekleyeceksiniz.
+2. Uygulamayı derleyip çalıştırmak için **Ctrl+F5**'e basın. Uygulamasının bu sürümü, sonuçları doğrudan veritabanından okur. **Yeni Oluştur**, **Düzenle**, **Ayrıntılar** ve **Sil** eylemlerinin **Görünümlere sahip MVC 5 Denetleyici, Entity Framework kullanarak** iskelesi tarafından otomatik olarak uygulamaya eklendiğini unutmayın. Öğreticinin sonraki bölümünde, veri erişimini iyileştirmek ve uygulamaya ek özellikler sağlamak için Redis Cache ekleyeceksiniz.
 
 ![Başlangıç uygulaması][cache-starter-application]
 
-## <a name="configure-the-application-to-use-redis-cache"></a>Redis Önbelleğini kullanmak için uygulamayı yapılandırma
-Öğreticinin bu bölümünde, [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) önbellek istemcisini kullanarak bir Azure Redis Önbelleği’nden Contoso ekip istatistiklerini depolamak ve almak için örnek uygulamayı yapılandıracaksınız.
+## <a name="configure-the-application-to-use-redis-cache"></a>Redis Cache’i kullanmak için uygulamayı yapılandırma
+Öğreticinin bu bölümünde, [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) önbellek istemcisini kullanarak bir Azure Redis Cache’ten Contoso ekip istatistiklerini depolamak ve almak için örnek uygulamayı yapılandıracaksınız.
 
 * [StackExchange.Redis kullanmak için uygulamayı yapılandırma](#configure-the-application-to-use-stackexchangeredis)
 * [Önbellek veya veritabanından sonuçları döndürmek için TeamsController sınıfını güncelleştirme](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
@@ -292,7 +292,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
     Install-Package StackExchange.Redis
     ```
    
-    NuGet paketi, StackExchange.Redis önbellek istemcisiyle Azure Redis Önbelleğine erişmek üzere istemci uygulamanız için gerekli derleme başvurularını ekler. `StackExchange.Redis` istemci kitaplığının tanımlayıcı adlı bir sürümünü kullanmak istiyorsanız `StackExchange.Redis.StrongName` paketini yükleyin.
+    NuGet paketi, StackExchange.Redis Cache istemcisiyle Azure Redis Cache’e erişmek üzere istemci uygulamanız için gerekli derleme başvurularını ekler. `StackExchange.Redis` istemci kitaplığının tanımlayıcı adlı bir sürümünü kullanmak istiyorsanız `StackExchange.Redis.StrongName` paketini yükleyin.
 3. **Çözüm Gezgini**’nde, **Denetleyiciler** klasörünü genişletin ve **TeamsController.cs** öğesini açmak için çift tıklayın.
    
     ![Ekip denetleyicisi][cache-teamscontroller]
@@ -324,7 +324,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 
 6. Bilgisayarınızda `WebAppPlusCacheAppSecrets.config` adlı bir dosya oluşturun ve örnek karar içinde uygulamanızın kaynak kodu ile denetlenmeyecek bir konuma yerleştirin, başka bir yerde denetlemeyi seçmelisiniz. Bu örnekte, `AppSettingsSecrets.config` dosyası `C:\AppSecrets\WebAppPlusCacheAppSecrets.config` konumunda bulunur.
    
-    `WebAppPlusCacheAppSecrets.config` dosyasını düzenleyin ve aşağıdaki içerikleri ekleyin. Uygulamayı yerel olarak çalıştırırsanız, Azure Redis Önbelleği örneğinize bağlanmak için bu bilgiler kullanılır. Öğreticide daha sonra bir Azure Redis Önbelleği örneği hazırlayacak ve önbellek adı ve parolasını güncelleştireceksiniz. Örnek uygulamayı yerel olarak çalıştırmayı düşünmüyorsanız, Azure’a dağıtırken uygulama Web Uygulaması için önbellek bağlantı bilgilerini bu dosya yerine uygulama ayarlarından aldığı için bu dosyayı oluşturma ve sonraki adımları atlayabilirsiniz. `WebAppPlusCacheAppSecrets.config` öğesi uygulamanızla birlikte Azure’a dağıtılmadığı için, uygulamayı yerel olarak çalıştırmayacağınız sürece ihtiyacınız olmayacaktır.
+    `WebAppPlusCacheAppSecrets.config` dosyasını düzenleyin ve aşağıdaki içerikleri ekleyin. Uygulamayı yerel olarak çalıştırırsanız, Azure Redis Cache örneğinize bağlanmak için bu bilgiler kullanılır. Öğreticide daha sonra bir Azure Redis Cache örneği hazırlayacak ve önbellek adı ve parolasını güncelleştireceksiniz. Örnek uygulamayı yerel olarak çalıştırmayı düşünmüyorsanız, Azure’a dağıtırken uygulama Web Uygulaması için önbellek bağlantı bilgilerini bu dosya yerine uygulama ayarlarından aldığı için bu dosyayı oluşturma ve sonraki adımları atlayabilirsiniz. `WebAppPlusCacheAppSecrets.config` öğesi uygulamanızla birlikte Azure’a dağıtılmadığı için, uygulamayı yerel olarak çalıştırmayacağınız sürece ihtiyacınız olmayacaktır.
 
     ```xml
     <appSettings>
@@ -347,7 +347,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip istatistikleri seri hale getirilmiş bir `List<Team>` ve ayrıca, Redis veri türleri kullanılarak sıralanmış bir küme olarak veritabanında depolanır. Bir sıralanmış kümeden öğeleri alırken, belirli öğeler için bazı, tümü veya sorgu alabilirsiniz. Bu örnekte, kazanma sayısına göre sıralanan en iyi 5 ekip için sıralanmış kümeyi sorgulayacaksınız.
 
 > [!NOTE]
-> Azure Redis Önbelleği’ni kullanabilmek için ekip istatistiklerini önbellekte çoklu biçimlerde depolamak gerekli değildir. Bu öğretici, verileri önbelleğe almak için kullanabileceğiniz farklı yol ve farklı veri türlerinin bazılarını göstermek için birden çok biçim kullanır.
+> Azure Redis Cache’i kullanabilmek için ekip istatistiklerini önbellekte çoklu biçimlerde depolamak gerekli değildir. Bu öğretici, verileri önbelleğe almak için kullanabileceğiniz farklı yol ve farklı veri türlerinin bazılarını göstermek için birden çok biçim kullanır.
 > 
 > 
 
@@ -480,7 +480,7 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
     }
     ```
 
-    `GetFromList` yöntemi önbellekteki ekip istatistiklerini seri hale getirilmiş bir `List<Team>` olarak okur. Önbellek isabetsizliği varsa, ekip istatistikleri veritabanından okunur ve ardından gelecek sefer için önbellekte depolanır. Bu örnekte, önbelleğe veya önbellekten .NET nesnelerini seri hale getirmek için JSON.NEY serileştirmeyi kullanıyoruz. Daha fazla bilgi için, bkz. [Azure Redis Önbelleği’nde .NET nesneleri ile çalışma](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
+    `GetFromList` yöntemi önbellekteki ekip istatistiklerini seri hale getirilmiş bir `List<Team>` olarak okur. Önbellek isabetsizliği varsa, ekip istatistikleri veritabanından okunur ve ardından gelecek sefer için önbellekte depolanır. Bu örnekte, önbelleğe veya önbellekten .NET nesnelerini seri hale getirmek için JSON.NEY serileştirmeyi kullanıyoruz. Daha fazla bilgi için, bkz. [Azure Redis Cache’te .NET nesneleri ile çalışma](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
     ```c#
     List<Team> GetFromList()
@@ -702,7 +702,7 @@ Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, d�
 ## <a name="provision-the-azure-resources"></a>Azure kaynaklarını hazırlama
 Uygulamanızı Azure’da barındırmak için önce uygulamanızın gerektirdiği Azure hizmetlerini hazırlamanız gerekir. Bu öğreticideki örnek uygulama aşağıdaki Azure hizmetlerini kullanır.
 
-* Azure Redis Önbelleği
+* Azure Redis Cache
 * App Service Web Uygulaması
 * SQL Database
 
@@ -710,7 +710,7 @@ Bu hizmetleri yeni veya seçtiğiniz mevcut bir kaynak grubuna dağıtmak için,
 
 [![Azure’a Dağıt][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
-Bu **Azure’a Dağıt** düğmesi, bu hizmetleri hazırlamak ve SQL Database için bağlantı dizesini ve Azure Redis Önbelleği bağlantı dizesi için uygulama ayarlarını belirlemek için [Web Uygulaması oluşturma artı Redis Önbelleği artı SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) [Azure Hızlı Başlangıç](https://github.com/Azure/azure-quickstart-templates) şablonunu kullanır.
+Bu **Azure’a Dağıt** düğmesi, bu hizmetleri hazırlamak ve SQL Database için bağlantı dizesini ve Azure Redis Cache bağlantı dizesi için uygulama ayarlarını belirlemek için [Web Uygulaması oluşturma artı Redis Cache artı SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) [Azure Hızlı Başlangıç](https://github.com/Azure/azure-quickstart-templates) şablonunu kullanır.
 
 > [!NOTE]
 > Bir Azure hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir Azure hesabı oluşturabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
@@ -722,7 +722,7 @@ Bu **Azure’a Dağıt** düğmesi, bu hizmetleri hazırlamak ve SQL Database i�
 ![Azure’a Dağıt][cache-deploy-to-azure-step-1]
 
 1. **Temel Bilgiler** bölümünde, kullanılacak Azure aboneliğini ve mevcut bir kaynak grubu seçin veya yeni bir tane oluşturun ve kaynak grubu konumunu belirtin.
-2. **Ayarlar** bölümünde bir **Yönetici Kullanıcı Adı** (**admin** adını kullanmayın), **Yönetici Parolaları** ve **Veritabanı Adı** belirtin. Diğer parametreler, ücretsiz bir App Service barındırma planı ve ücretsiz katmanı ile birlikte sunulmayan SQL Veritabanı ve Azure Redis Önbelleği için daha düşük maliyetli seçenekler sunmak için yapılandırılır.
+2. **Ayarlar** bölümünde bir **Yönetici Kullanıcı Adı** (**admin** adını kullanmayın), **Yönetici Parolaları** ve **Veritabanı Adı** belirtin. Diğer parametreler, ücretsiz bir App Service barındırma planı ve ücretsiz katmanı ile birlikte sunulmayan SQL Veritabanı ve Azure Redis Cache için daha düşük maliyetli seçenekler sunmak için yapılandırılır.
 
     ![Azure’a Dağıt][cache-deploy-to-azure-step-2]
 
@@ -797,15 +797,15 @@ Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.
 > 
 
 ## <a name="run-the-sample-application-on-your-local-machine"></a>Örnek uygulamayı yerel makinenizde çalıştırma
-Uygulamayı makinenizde yerel olarak çalıştırmak için, verilerinizi önbelleğe almak üzere bir Azure Redis Önbelleği örneğine ihtiyacınız olacaktır. 
+Uygulamayı makinenizde yerel olarak çalıştırmak için, verilerinizi önbelleğe almak üzere bir Azure Redis Cache örneğine ihtiyacınız olacaktır. 
 
-* Önceki bölümde açıklandığı gibi Azure uygulamanızı yayımladıysanız, bu adım sırasında sağlanan Azure Redis Önbelleği örneğini kullanabilirsiniz.
-* Mevcut başka bir Azure Redis Önbelleği örneğiniz varsa, bu örneği yerel olarak çalıştırmak için kullanabilirsiniz.
-* Bir Azure Redis Önbelleği örneği oluşturmanız gerekiyorsa, [Önbellek oluşturma](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache) makalesindeki adımları uygulayabilirsiniz.
+* Önceki bölümde açıklandığı gibi Azure uygulamanızı yayımladıysanız, bu adım sırasında sağlanan Azure Redis Cache örneğini kullanabilirsiniz.
+* Mevcut başka bir Azure Redis Cache örneğiniz varsa, bu örneği yerel olarak çalıştırmak için kullanabilirsiniz.
+* Bir Azure Redis Cache örneği oluşturmanız gerekiyorsa, [Önbellek oluşturma](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache) makalesindeki adımları uygulayabilirsiniz.
 
 Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalında önbelleğe göz atın ve önbelleğiniz için [konak adı](cache-configure.md#properties) ve [erişim anahtarlarını](cache-configure.md#access-keys) alın. Yönergeler için bkz. [Redis önbelleği ayarlarını yapılandırma](cache-configure.md#configure-redis-cache-settings).
 
-1. İstediğiniz düzenleyiciyi kullanarak bu öğreticinin [Redis Önbelleği’ni kullanmak için uygulamayı yapılandırma](#configure-the-application-to-use-redis-cache) adımında oluşturduğunuz `WebAppPlusCacheAppSecrets.config` dosyasını açın.
+1. İstediğiniz düzenleyiciyi kullanarak bu öğreticinin [Redis Cache’i kullanmak için uygulamayı yapılandırma](#configure-the-application-to-use-redis-cache) adımında oluşturduğunuz `WebAppPlusCacheAppSecrets.config` dosyasını açın.
 2. `value` özniteliğini düzenleyin ve `MyCache.redis.cache.windows.net` öğesini önbelleğinizin [konak adı](cache-configure.md#properties) ile değiştirin ve parola olarak önbelleğinizin [birincil veya ikincil anahtarını](cache-configure.md#access-keys) belirtin.
 
     ```xml
@@ -818,7 +818,7 @@ Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalınd
 1. Uygulamayı çalıştırmak için **Ctrl+F5**'e basın.
 
 > [!NOTE]
-> Veritabanı da dahil olmak üzere uygulama yerel olarak çalıştığı ve Redis Önbelleği’nin Azure’da barındırıldığı için, önbellek veritabanı altında gerçekleştirmek için görünebileceğini unutmayın. En iyi performans için, istemci uygulaması ve Azure Redis Önbelleği örneği aynı konumda olmalıdır. 
+> Veritabanı da dahil olmak üzere uygulama yerel olarak çalıştığı ve Redis Cache’in Azure’da barındırıldığı için, önbellek veritabanı altında gerçekleştirmek için görünebileceğini unutmayın. En iyi performans için, istemci uygulaması ve Azure Redis Cache örneği aynı konumda olmalıdır. 
 > 
 > 
 
@@ -829,12 +829,12 @@ Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalınd
 * Bu öğreticide kullanılan Entity Framework için [Yeni bir veritabanına ilk kod](https://msdn.microsoft.com/data/jj193542) yaklaşımı hakkında daha fazla bilgi edinin.
 * [Azure App Service’deki web uygulamaları](../app-service-web/app-service-web-overview.md) hakkında daha fazla bilgi edinin.
 * Azure portalındaki önbelleğinizi nasıl [izleyeceğinizi](cache-how-to-monitor.md) öğrenin.
-* Azure Redis Önbelleği premium özelliklerini keşfedin
+* Azure Redis Cache premium özelliklerini keşfedin
   
-  * [Premium Azure Redis Önbelleği için kalıcılığı yapılandırma](cache-how-to-premium-persistence.md)
-  * [Premium Azure Redis Önbelleği için kümeleri yapılandırma](cache-how-to-premium-clustering.md)
-  * [Premium Azure Redis Önbelleği için Sanal Ağ desteğini yapılandırma](cache-how-to-premium-vnet.md)
-  * Boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla bilgi için, bkz. [Azure Redis Önbelleği SSS](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+  * [Premium Azure Redis Cache için kalıcılığı yapılandırma](cache-how-to-premium-persistence.md)
+  * [Premium Azure Redis Cache için kümeleri yapılandırma](cache-how-to-premium-clustering.md)
+  * [Premium Azure Redis Cache için Sanal Ağ desteğini yapılandırma](cache-how-to-premium-vnet.md)
+  * Boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla bilgi için, bkz. [Azure Redis Cache SSS](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 <!-- IMAGES -->
 [cache-starter-application]: ./media/cache-web-app-howto/cache-starter-application.png
