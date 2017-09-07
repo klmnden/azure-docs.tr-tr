@@ -106,7 +106,7 @@ Veri merkezlerinde kullanılabilirlik hakkında bilgi için [Kullanılabilirlik]
 1. Çeşitli canlı akış protokollerini (RTMP veya Kesintisiz Akış gibi) kullanarak canlı içerik alın.
 2. (isteğe bağlı) Akışınızı, bit hızı uyarlamalı akışa kodlayın.
 3. Canlı akışınızın önizlemesini görüntüleyin.
-4. İçeriği yaygın akış protokolleri (örneğin MPEG DASH, Kesintisiz, HLS) aracılığıyla doğrudan müşterilerinize veya başkalarına dağıtım için bir İçerik Teslim Ağına (CDN) teslim edin.
+4. İçeriği yaygın akış protokolleri (örneğin MPEG DASH, Kesintisiz, HLS) aracılığıyla doğrudan müşterilerinize veya başkalarına dağıtım için bir Content Delivery Network’e (CDN) teslim edin.
 
     -veya-
 
