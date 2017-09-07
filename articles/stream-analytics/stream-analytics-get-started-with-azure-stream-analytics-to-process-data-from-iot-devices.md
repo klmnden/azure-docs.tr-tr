@@ -4,7 +4,7 @@ description: "Akış analizi ve gerçek zamanlı veri işleme ile birlikte IoT a
 keywords: "iot çözümü, iot ile çalışmaya başlama"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
-ms.lasthandoff: 01/24/2017
-
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
+ms.contentlocale: tr-tr
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT cihazlarından veri işlemek için Azure Stream Analytics'i kullanmaya başlama
@@ -65,7 +65,7 @@ Kullanım kolaylığı için, bu başlangıç kılavuzunda gerçek algılayıcı
 4. Kutuyu işaretleyerek işinizi panonuza yerleştirin ve ardından **OLUŞTUR**’a tıklayın.
    
     ![iş oluşturma sürüyor](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
-5. Tarayıcı pencerenizin sağ üst köşesinde 'Dağıtım başlatıldı...' ifadesini göreceksiniz. Bu pencere, kısa bir süre sonra aşağıda gösterildiği gibi tamamlandı penceresi olarak değişecektir.
+5. Tarayıcı pencerenizin sağ üst köşesinde 'Dağıtım başladı...' yazısını görürsünüz. Bu pencere, kısa bir süre sonra aşağıda gösterildiği gibi tamamlandı penceresi olarak değişecektir.
    
     ![iş oluşturma sürüyor](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
@@ -111,7 +111,7 @@ Büyük/küçük harfe duyarlı sorgular bir dize değerini karşılaştırır. 
 Şimdi sonuçların yalnızca 245 satır içerdiğini ve ortalama sıcaklığın 100 dereceden fazla olduğu algılayıcı adlarını listelediğini göreceksiniz. Bu sorguda olay akışı, 30 saniyelik bir **Atlayan Pencere** üzerinden algılayıcı adı olan **dspl**'ye göre gruplanır. Zamana bağlı sorgular, zamanın nasıl ilerleyeceğini belirtmelidir. **TIMESTAMP BY** yan tümcesini kullanarak, zamanları zamana bağlı tüm hesaplamalarla ilişkilendirmek için **OUTPUTTIME** sütununu belirttik. Ayrıntılı bilgi için [Zaman Yönetimi](https://msdn.microsoft.com/library/azure/mt582045.aspx) ve [Pencereleme işlevleri](https://msdn.microsoft.com/library/azure/dn835019.aspx) hakkındaki MSDN makalelerini okuyun.
 
 ### <a name="query-detect-absence-of-events"></a>Sorgu: Var olmayan olayları algılama
-Eksik giriş olaylarını bulmak için nasıl sorgu yazabiliriz? Bir algılayıcının veri gönderip sonraki bir dakika boyunca hiç olay göndermediği son zamanı bulalım. Sorgu AbsenseOfEvent.txt dosyasındadır.
+Eksik giriş olaylarını bulmak için nasıl sorgu yazabiliriz? Bir algılayıcının veri gönderip sonraki beş saniye boyunca hiç olay göndermediği son zamanı bulalım. Sorgu AbsenseOfEvent.txt dosyasındadır.
 
 ![Var olmayan olayları algılama](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

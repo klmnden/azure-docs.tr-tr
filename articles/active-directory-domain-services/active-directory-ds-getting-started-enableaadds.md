@@ -12,17 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e3f8dd4b820da8a14437aa313e4296dc17111674
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Klasik Azure portalını kullanarak Azure Active Directory Domain Services'i etkinleştirme
+
+> [!IMPORTANT]
+> Bu makaledeki Klasik Azure portalından Azure AD Domain Services'ı etkinleştirme adımları yakında geçersiz olacak. Yeni dağıtımlar için [**Yeni Azure portal deneyimini (önizleme) kullanın**](active-directory-ds-getting-started.md).
+>
 
 ## <a name="task-3-enable-azure-active-directory-domain-services"></a>Görev 3: Azure Active Directory Domain Services'i etkinleştirme
 Bu görevde, aşağıdaki adımları uygulayarak dizininiz için Azure Active Directory Domain Services'i (Azure AD DS) etkinleştireceksiniz:

@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Bus ileti işleme mimarisine genel bakış | Microsoft Docs"
-description: "Azure Service Bus hizmetinin ileti ve geçiş işleme mimarisini açıklar."
+description: "Azure Service Bus hizmetinin ileti işleme mimarisini açıklar."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: ced46c64c1c105aa987759e05ab3680bc399f9a0
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 83456d775c5ff2a2476ba46e9c78a8dc1bb482e8
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="service-bus-architecture"></a>Service Bus mimarisi
@@ -28,9 +27,9 @@ Bu makale, Azure Service Bus hizmetinin ileti işleme mimarisini açıklar.
 ## <a name="service-bus-scale-units"></a>Service Bus ölçek birimleri
 Service Bus, *ölçek birimleri* tarafından düzenlenir. Ölçek birimi, bir dağıtım birimidir ve hizmeti çalıştırmak için gerekli tüm bileşenleri içerir. Her bölge, bir veya daha fazla Service Bus ölçek birimi dağıtır.
 
-Service Bus ad alanı, bir ölçek birimi ile eşleştirilir. Ölçek birimi, Service Bus varlıklarının her türünü işler: Geçişler ve aracılı mesajlaşma varlıkları (kuyruklar, konu başlıkları, abonelikler). Service Bus ölçek birimi, şu bileşenlerden oluşur:
+Service Bus ad alanı, bir ölçek birimi ile eşleştirilir. Ölçek birimi, Service Bus varlıklarının her türünü işler (kuyruklar, konular, abonelikler). Service Bus ölçek birimi, şu bileşenlerden oluşur:
 
-* **Ağ geçidi düğümleri kümesi.** Ağ geçidi düğümleri, gelen isteklerin kimliklerini doğrular ve geçiş isteklerini işler. Her ağ geçidi düğümünün genel bir IP adresi vardır.
+* **Ağ geçidi düğümleri kümesi.** Ağ geçidi düğümleri, gelen isteklerin kimliklerini doğrular. Her ağ geçidi düğümünün genel bir IP adresi vardır.
 * **Mesajlaşma aracısı düğümleri kümesi.** Mesajlaşma aracısı düğümleri, mesajlaşma varlıkları ile ilgili istekleri işler.
 * **Bir ağ geçidi deposu.** Ağ geçidi deposu, bu ölçek biriminde tanımlanan her varlık için veriler tutar. Ağ geçidi deposu, SQL Azure veritabanının üst kısmında uygulanır.
 * **Birden çok mesajlaşma deposu.** Mesajlaşma depoları, bu ölçek biriminde tanımlanan tüm kuyrukların, konu başlıklarının ve aboneliklerin iletilerini içerir. Ayrıca, tüm abonelik verilerini de içerir. [Bölümleme mesajlaşma varlıkları](service-bus-partitioning.md) etkinleştirilmediği sürece kuyruk veya konu başlığı bir mesajlaşma deposuna eşlenir. Abonelikler, üst konu başlıklarıyla aynı mesajlaşma deposunda depolanır. Service Bus [Premium Mesajlaşma](service-bus-premium-messaging.md) dışındaki mesajlaşma depoları, SQL Azure veritabanının üst kısmında uygulanır.
@@ -43,18 +42,10 @@ Bir istemci, Service Bus hizmetine istek gönderdiğinde Azure yük dengeleyici 
 
 ![Gelen Mesajlaşma İsteklerinin İşlenmesi](./media/service-bus-architecture/ic690644.png)
 
-## <a name="processing-of-incoming-relay-requests"></a>Gelen geçiş isteklerinin işlenmesi
-Bir istemci [Azure Geçişi](/azure/service-bus-relay/) hizmetine istek gönderdiğinde Azure yük dengeleyici bu isteği ağ geçidi düğümlerinden herhangi birine yönlendirir. İstek, bir dinleme isteğiyse ağ geçidi düğümü yeni bir geçiş oluşturur. İstek, belirli bir geçiş için bağlantı isteğiyse ağ geçidi düğümü, geçişe sahip olan ağ geçidi düğümüne bağlantı isteğini iletir. Geçişe sahip ağ geçidi dinleyen istemciye bir randevu isteği göndererek dinleyiciden bağlantı isteğini alan ağ geçidi düğümüne geçici bir kanal kurmasını ister.
-
-Geçiş bağlantısı kurulduğunda istemciler, randevu için kullanılan ağ geçidi düğümü aracılığıyla iletileri değiştirebilir.
-
-![Gelen WCF Geçiş İsteklerinin işlenmesi](./media/service-bus-architecture/ic690645.png)
-
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Bus mimarisine ilişkin genel bir bakış edindiğinize göre, daha fazla bilgi için aşağıdaki bağlantıları ziyaret edebilirsiniz:
 
 * [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
-* [Azure Geçiş’e genel bakış](../service-bus-relay/relay-what-is-it.md)
 * [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyruklarını kullanan kuyruğa alınan mesajlaşma çözümü](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 

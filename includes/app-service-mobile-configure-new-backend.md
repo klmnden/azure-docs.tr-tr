@@ -1,25 +1,31 @@
 
-1. **Uygulama Hizmetleri**'ne tıklayın > Mobil Uygulama arka ucunuzu seçin > **Hızlı Başlangıç** > istemci platformunuza (iOS, Android, Xamarin, Cordova) tıklayın.
+1. **Uygulama Hizmetleri** düğmesine tıklayın, Mobile Apps arka ucunuzu seçin, **Hızlı Başlangıç**’ı seçin ve ardından, istemci platformunuzu (iOS, Android, Xamarin, Cordova) seçin.
 
-![Mobile Apps Hızlı Başlangıcın vurgulandığı Azure Portal][quickstart]
+    ![Mobile Apps Hızlı Başlangıcın vurgulandığı Azure Portal][quickstart]
 
-2. Veritabanı bağlantısı yapılandırılmamışsa bir Veri Bağlantısı oluşturmanız gerekir.
+2. Veritabanı bağlantısı yapılandırılmamışsa aşağıdakileri yaparak bir bağlantı oluşturun:
 
-![BD'ye Mobile Apps Connect ile Azure Portal][connect]
+    ![Mobile Apps ile Azure Portal, veritabanına bağlanma][connect]
 
-  * Yeni SQL Veritabanı'nı ve sunucusunu oluşturun.
+    a. Yeni bir SQL veritabanı ve sunucusu oluşturun.
 
-  ![Mobile Apps ile Azure Portal yeni BD ve sunucu oluşturma][server]
+    ![Mobile Apps ile Azure Portal, yeni veritabanı ve sunucu oluşturma][server]
 
-  * Veri bağlantısı başarıyla oluşturulana kadar bekleyin.
+    b. Veri bağlantısı başarıyla oluşturulana kadar bekleyin.
 
-  ![Mobile Apps ile Azure Portal veri bağlantısı oluşturma bildirimi][notification]
+    ![Veri bağlantısının başarıyla oluşturulduğunu gösteren Azure Portal bildirimi][notification]
 
-  * Veri bağlantısının başarılı olması gerekir.
+    c. Veri bağlantısının başarılı olması gerekir.
 
-  ![Mobile Apps ile Azure Portal veri bağlantısı oluşturma bildirimi][already-connection]
+    ![Azure Portal bildirimi, "Bir veri bağlantınız zaten var"][already-connection]
 
-3. **2. Tablo API'si oluştur**'un altında **Arka uç dili** olarak Node.js seçeneğini belirleyin. Bildirimi kabul edin ve **TodoItem tablosu oluştur**’a tıklayın. Böylece veritabanınızda yeni bir *TodoItem* tablosu oluşturulur. Var olan bir arka ucun Node.js’ye geçirilmesinin tüm içeriğin üzerine yazacağını unutmayın! Bunun yerine bir .NET arka ucu oluşturmak için [bu yönergeleri izleyin][instructions].
+3. **2. Tablo API'si oluştur**'un altında **Arka uç dili** olarak Node.js seçeneğini belirleyin. 
+ 
+4. Bildirimi kabul edin ve **TodoItem tablosu oluştur**’u seçin.  
+    Böylece veritabanınızda yeni bir yapılacaklar tablosu oluşturulur. 
+
+    >[!IMPORTANT]
+    > Mevcut bir arka uç Node.js'ye geçirildiğinde tüm içeriğin üzerine yazılır. Bunun yerine bir .NET arka ucu oluşturmak için bkz. [Mobile Apps için .NET arka uç sunucu SDK’siyle çalışma][instructions].
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

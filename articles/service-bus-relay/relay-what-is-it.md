@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 06/14/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 74a0837b7149236faa45ef2cda0a0aee7c46a31b
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-is-azure-relay"></a>Azure Geçiş nedir?
@@ -52,15 +51,22 @@ Hem Karma Bağlantılar hem de WCF Geçişleri bir kurumsal kuruluş ağı için
 
 [Azure Geçiş Karma Bağlantılar](relay-hybrid-connections-protocol.md) özelliği, yaygın olarak kullanılan web tarayıcılarındaki WebSocket API’yi açıkça içeren temel bir WebSocket özelliğine sahip tüm platform ve dillerde uygulanabilen mevcut Geçiş özelliklerinin güvenli, açık yordam kullanılarak evrim geçirmiş bir halidir. Karma Bağlantılar HTTP ve WebSocket’ları temel alır.
 
+### <a name="service-history"></a>Hizmet geçmişi
+
+Karma Bağlantılar, Azure Service Bus WCF Geçişi üzerinde oluşturulan eski ve benzer ada sahip "BizTalk Services" özelliğini tamamlar. Yeni Karma Bağlantılar özelliği mevcut WCF Geçişi özelliğini tamamlar ve bu iki hizmet özelliği Azure Geçişi hizmetinde birlikte yer alır. Ortak bir ağ geçidine sahip bu iki özellik, diğer açılardan farklı olan uygulamalardır.
+
 ## <a name="wcf-relays"></a>WCF Geçişleri
 
 WCF Geçişi tam .NET Framework (NETFX) ve WCF için çalışır. Geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı bir WCF "geçiş" bağlamaları paketi kullanarak başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenlerini oluşturmak üzere tasarlanan yeni aktarım bağlama öğeleriyle eşleşir.
 
-## <a name="service-history"></a>Hizmet geçmişi
+## <a name="architecture-processing-of-incoming-relay-requests"></a>Mimari: Gelen geçiş isteklerinin işlenmesi
+Bir istemci [Azure Geçişi](/azure/service-bus-relay/) hizmetine istek gönderdiğinde Azure yük dengeleyici bu isteği ağ geçidi düğümlerinden herhangi birine yönlendirir. İstek, bir dinleme isteğiyse ağ geçidi düğümü yeni bir geçiş oluşturur. İstek, belirli bir geçiş için bağlantı isteğiyse ağ geçidi düğümü, geçişe sahip olan ağ geçidi düğümüne bağlantı isteğini iletir. Geçişe sahip ağ geçidi dinleyen istemciye bir randevu isteği göndererek dinleyiciden bağlantı isteğini alan ağ geçidi düğümüne geçici bir kanal kurmasını ister.
 
-Karma Bağlantılar, Azure Service Bus WCF Geçişi üzerinde oluşturulan eski ve benzer ada sahip "BizTalk Services" özelliğini tamamlar. Yeni Karma Bağlantılar özelliği mevcut WCF Geçişi özelliğini tamamlar ve bu iki hizmet özelliği şimdilik Azure Geçişi hizmetinde birlikte yer alır. Ortak bir ağ geçidine sahip bu iki özellik, diğer açılardan farklı olan uygulamalardır.
+Geçiş bağlantısı kurulduğunda istemciler, randevu için kullanılan ağ geçidi düğümü aracılığıyla iletileri değiştirebilir.
 
-## <a name="next-steps"></a>Sonraki adımlar:
+![Gelen WCF Geçiş İsteklerinin işlenmesi](./media/relay-what-is-it/ic690645.png)
+
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [Geçiş hakkında SSS](relay-faq.md)
 * [Ad alanı oluşturma](relay-create-namespace-portal.md)

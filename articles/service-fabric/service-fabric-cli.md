@@ -9,10 +9,10 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5ce9adf6c82e3a5521883c5de1e0689d5bf0d94e
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 2faca2887f25b45d833dea7b2259277466290670
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-service-fabric-command-line"></a>Azure Service Fabric komut satırı
@@ -23,17 +23,75 @@ Azure Service Fabric CLI’sı (sfctl) Azure Service Fabric varlıklarıyla etki
 
 Yüklemeden önce ortamınızda python ve PIP’in yüklü olduğundan emin olun. Daha fazla bilgi için [PIP hızlı başlangıç belgelerine](https://pip.pypa.io/en/latest/quickstart/) ve resmi [python yükleme belgelerine](https://wiki.python.org/moin/BeginnersGuide/Download) göz atın.
 
-Hem python 2.7 hem de 3.6 desteklenir, ancak python 3.6 kullanmanız önerilir.
+Hem python 2.7 hem de 3.6 desteklenir, ancak python 3.6 kullanmanız önerilir. Aşağıdaki bölümde, tüm önkoşulların ve CLI’nin nasıl yükleneceği gösterilir.
 
-## <a name="install"></a>Yükleme
+## <a name="install-pip-python-and-sfctl"></a>pip, python ve sfctl yükleme
 
-Azure Service Fabric CLI (sfctl) bir python paketi olarak bulunmaktadır. En son sürümünü yüklemek için şunu çalıştırın:
+pip ve python’u platformunuza yüklemek için birçok yöntem olsa da, ana işletim sistemleri için python 3.6 ve pip’i hızlıca ayarlamak için bazı adımlar şunlardır:
 
-```bash
-pip install sfctl
+### <a name="windows"></a>Windows
+
+Windows 10, Server 2016 ve Server 2012R2 için standart resmi yükleme yönergelerini kullanabilirsiniz. Python yükleyici pip’i de varsayılan olarak yükler.
+
+- Resmi [python indirmeler sayfasına](https://www.python.org/downloads/) gidin ve python 3.6’nın en son sürümünü indirin
+- Yükleyiciyi başlatın
+- `Add Python 3.6 to PATH` için komut isteminin alt kısmındaki seçeneğini belirleyin
+- `Install Now` seçeneğini belirleyin
+- Yüklemeyi tamamlayın
+
+Artık yeni bir komut penceresi açabiliyor, python ve PIP sürümlerini alabiliyor olmanız gerekir:
+
+```bat
+python --version
+pip --version
 ```
 
-Yükledikten sonra kullanılabilir komutlar hakkında bilgi almak için `sfctl -h` komutunu çalıştırın.
+Ardından Service Fabric CLI’yı yüklemek için aşağıdakini çalıştırın
+
+```
+pip install sfctl
+sfctl -h
+```
+
+### <a name="ubuntu"></a>Ubuntu
+
+Ubuntu 16.04 Desktop için üçüncü taraf bir PPA kullanarak python 3.6’yı yükleyebilirsiniz:
+
+Terminalden aşağıdaki komutları çalıştırın:
+
+```bash
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+sudo apt-get install python3-pip
+```
+
+Ardından aşağıdaki komutu çalıştırarak yalnızca sizin python 3.6 yüklemeniz için sfctl’yi yükleyin:
+
+```bash
+python3.6 -m pip install sfctl
+sfctl -h
+```
+
+Bu adımlar, sistem tarafından yüklenen python 3.5 ve 2.7 sürümlerini etkilemez. Ubuntu kullanmaya alışık değilseniz bu yüklemeleri değiştirmeyi denemeyin.
+
+### <a name="macos"></a>macOS
+
+MacOS için [HomeBrew paket yöneticisini](https://brew.sh) kullanmanız önerilir. HomeBrew yüklü değilse aşağıdaki komutu çalıştırarak yükleyin:
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Ardından terminalden python 3.6, pip ve sfctl’yi yükleyin
+
+```bash
+brew install python3
+pip3 install sfctl
+sfctl -h
+```
+
+Bu adımlar sistem tarafından yüklenen python 2.7 sürümünü değiştirmez.
 
 ## <a name="cli-syntax"></a>CLI söz dizimi
 

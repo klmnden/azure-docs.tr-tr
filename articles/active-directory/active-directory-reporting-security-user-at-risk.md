@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory portalındaki risk altındaki kullanıcılar güvenlik raporu | Microsoft Docs"
-description: "Azure Active Directory portalındaki risk altındaki kullanıcılar güvenlik raporu hakkında bilgi edinin"
+title: "Azure Active Directory portalında risk güvenliği raporu için işaretlenmiş kullanıcılar | Microsoft Docs"
+description: "Azure Active Directory portalında risk güvenliği için işaretlenmiş kullanıcılar hakkında bilgi edinin"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,27 +10,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/01/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: bfcaee441c54453677e7747b0bca55a8afc59391
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 04f15384a7cd0fa03300acdf159d371569ecf9fc
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki risk altındaki kullanıcılar güvenlik raporu
+# <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında risk güvenliği için işaretlenmiş kullanıcılar
 
 Azure Active Directory’de (Azure AD) güvenlik raporları ile ortamınızda güvenliği tehlikeye girmiş kullanıcı hesaplarının olasılığı hakkında bilgi sahibi olabilirsiniz. 
 
-Azure Active Directory, kullanıcı hesaplarınızla ilgili kuşkulu eylemleri algılar. Algılanan her eylem için *risk olayı* adlı bir kayıt oluşturulur. Daha ayrıntılı bilgi için bkz. [Azure Active Directory risk olayları](active-directory-identity-protection-risk-events.md). 
+Azure Active Directory, kullanıcı hesaplarınızla ilgili kuşkulu eylemleri algılar. Algılanan her eylem için *risk olayı* adlı bir kayıt oluşturulur. Daha fazla bilgi için bkz. [Azure Active Directory risk olayları](active-directory-identity-protection-risk-events.md). 
 
 Algılanan risk olayları aşağıdakileri hesaplamak için kullanılır:
 
 - **Riskli oturum açma işlemleri** - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. Daha fazla bilgi için bkz. [Riskli oturum açma işlemleri](active-directory-identityprotection.md#risky-sign-ins). 
 
-- **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. Daha fazla bilgi için bkz. [Riskli oldukları belirlenen kullanıcılar](active-directory-identityprotection.md#users-flagged-for-risk).  
+- **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. Daha fazla bilgi için bkz. [Risk için işaretlenen kullanıcılar](active-directory-identityprotection.md#users-flagged-for-risk).  
 
 Güvenlik raporlarını, Azure portalında **Azure Active Directory** dikey penceresindeki **Güvenlik** bölümünde bulabilirsiniz.  
 
@@ -47,13 +47,13 @@ Bununla birlikte, rapordaki ayrıntı düzeyi sürümler arasında değişiklik 
 
 - **Azure Active Directory Premium 1** sürümü bu modeli genişleterek her raporda algılanmış olan temel risk olaylarından bazılarını incelemenize olanak tanır. 
 
-- **Azure Active Directory Premium 2** sürümü temel risk olayları hakkında en ayrıntılı bilgileri sağlar ve ayrıca, yapılandırılmış risk düzeylerine otomatik olarak yanıt veren güvenlik ilkeleri yapılandırmanıza da olanak tanır.
+- **Azure Active Directory Premium 2** sürümü, tüm temel risk olayları hakkında en ayrıntılı bilgileri sağlar ve yapılandırılmış risk düzeylerine otomatik olarak yanıt veren güvenlik ilkeleri yapılandırmanıza da olanak tanır.
 
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory ücretsiz ve temel sürümleri
 
-Azure Active Directory ücretsiz ve temel sürümlerindeki risk altındaki kullanıcılar raporu, tehlikeye girmiş olabilecek kullanıcı hesaplarının bir listesini sağlar. 
+Azure Active Directory ücretsiz ve temel sürümlerinde risk için işaretlenmiş kullanıcılar raporu, tehlikeye girmiş olabilecek kullanıcı hesaplarının bir listesini sağlar. 
 
 
 ![Riskli Oturum Açma İşlemleri](./media/active-directory-reporting-security-user-at-risk/03.png)
@@ -63,9 +63,19 @@ Risk altındaki kullanıcılarla ilgili olarak kullanıcının oturum açma geç
 
 ![Riskli Oturum Açma İşlemleri](./media/active-directory-reporting-security-user-at-risk/46.png)
 
+
+Bu iletişim kutusu size şu seçeneği sunar:
+
+- Raporu indirme
+
+- Kullanıcılarda arama
+
+![Riskli Oturum Açma İşlemleri](./media/active-directory-reporting-security-user-at-risk/16.png)
+
+
 ## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory premium sürümleri
 
-Azure Active Directory premium sürümlerindeki risk altındaki kullanıcılar raporu aşağıdakileri içerir:
+Azure Active Directory premium sürümlerinde risk için işaretlenmiş kullanıcılar raporu aşağıdakileri içerir:
 
 - Tehlikeye girmiş olabilecek [kullanıcı hesaplarının listesi](active-directory-identityprotection.md#users-flagged-for-risk) 
 
@@ -92,8 +102,7 @@ Bir kullanıcıyı seçtiğinizde bu kullanıcıya ilişkin, aşağıdakileri ge
 ![Riskli Oturum Açma İşlemleri](./media/active-directory-reporting-security-user-at-risk/324.png)
 
 
-Bir risk olayını araştırmak için, söz konusu olayı listeden seçin.  
-Bu risk olayına ilişkin **Ayrıntılar** dikey penceresi açılır. **Ayrıntılar** dikey penceresinde, [risk olayını elle kapatma](active-directory-identityprotection.md#closing-risk-events-manually) ve elle kapatılmış risk olayını yeniden etkinleştirme seçenekleri sunulur. 
+Bir risk olayını araştırmak için listeden bir olay seçerek bu olayın **Ayrıntılar** dikey penceresini açın. **Ayrıntılar** dikey penceresinde, [risk olayını elle kapatma](active-directory-identityprotection.md#closing-risk-events-manually) ve elle kapatılmış risk olayını yeniden etkinleştirme seçenekleri sunulur. 
 
 
 ![Riskli Oturum Açma İşlemleri](./media/active-directory-reporting-security-user-at-risk/325.png)
