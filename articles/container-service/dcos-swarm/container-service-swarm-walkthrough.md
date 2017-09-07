@@ -76,7 +76,7 @@ Bu hızlı başlangıç boyunca hem Docker Swarm ana şablonunun hem de Docker a
 
 
 ```bash
-az network public-ip list --resource-group myResourceGroup --query '[*].{Name:name,IPAddress:ipAddress}' -o table
+az network public-ip list --resource-group myResourceGroup --query "[*].{Name:name,IPAddress:ipAddress}" -o table
 ```
 
 Çıktı:
