@@ -57,14 +57,11 @@
 ### [Pig ile DataFu kullanma](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [İsteğe bağlı kümeler](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Hadoop işlerini gönderme](hdinsight-submit-hadoop-jobs-programmatically.md)
-## R Server’ı kullanma
-### [Depolama seçenekleri](hdinsight-hadoop-r-server-storage.md)
-### [RStudio’yu yükleme](hdinsight-hadoop-r-server-install-r-studio.md)
-### [İşlem bağlamları](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR ve SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Bellek içi işleme için Spark’ı kullanma
+### Kullanmaya başlama - Spark geliştiricisi
+#### [Tek başına uygulama oluşturma](hdinsight-apache-spark-create-standalone-application.md)
+#### [Livy ile uzak işler](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [Data Lake Store ile](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Tek başına uygulama oluşturma](hdinsight-apache-spark-create-standalone-application.md)
 ### [Eclipse kullanarak uygulama oluşturma](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [IntelliJ kullanarak uygulama oluşturma](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Akış olaylarını işleme](hdinsight-apache-spark-eventhub-streaming.md)
@@ -78,9 +75,13 @@
 ### [Hücre sihri kullanarak Jupyter ile dış paketleri kullanma](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Betik eylemi kullanarak Jupyter ile dış paketleri kullanma](hdinsight-apache-spark-python-package-installation.md)
 ### [Yerel Jupyter not defterini kullanma](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [Livy ile uzak işler](hdinsight-apache-spark-livy-rest-interface.md)
 ### [VPN aracılığıyla IntelliJ ile işler üzerinde uzaktan hata ayıklama](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Bilinen sorunlar](hdinsight-apache-spark-known-issues.md)
+## R Server’ı kullanma
+### [Depolama seçenekleri](hdinsight-hadoop-r-server-storage.md)
+### [RStudio’yu yükleme](hdinsight-hadoop-r-server-install-r-studio.md)
+### [İşlem bağlamları](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR ve SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## HBase’i kullanma
 ### [Phoenix ve SQLLine kullanma](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Gerçek zamanlı tweet’leri çözümleme](hdinsight-hbase-analyze-twitter-sentiment.md)

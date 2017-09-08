@@ -19,8 +19,6 @@
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
-### [Örnek dağıtma](scripts/cli-deploy-application.md)
-### [Örnek kaldırma](scripts/cli-remove-application.md)
 # Kavramlar
 ## [Mikro hizmetleri anlama](service-fabric-overview-microservices.md)
 ## [Büyük resim](service-fabric-content-roadmap.md)
@@ -115,11 +113,14 @@
 #### [Azaltma](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Hizmet taşıma](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [API Management ile tümleştirme](service-fabric-api-management-overview.md)
+
 ## İzleme ve tanılama
 ### [Genel Bakış](service-fabric-diagnostics-overview.md)
 ### [Sistem durumu modeli](service-fabric-health-introduction.md)
 ### [Durum bilgisi olan Reliable Services özelliğinde tanılama](service-fabric-reliable-services-diagnostics.md)
 ### [Reliable Actors hizmetinde tanılama](service-fabric-reliable-actors-diagnostics.md)
+### [Güvenilir Hizmet ile Uzaktan İletişim için performans sayaçları](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # Nasıl Yapılır Kılavuzları
 ## Geliştirme ortamınızı kurma
@@ -128,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## Uygulama oluşturma
+### [Visual Studio’da ilk C# uygulamanızı oluşturma](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Konuk yürütülebilir hizmet oluşturma
 #### [Windows’ta Node.js uygulaması barındırma](quickstart-guest-app.md)
 #### [Konuk tarafından yürütülebilir bir uygulama dağıtma](service-fabric-deploy-existing-app.md)
@@ -208,9 +210,7 @@
 ### [Eclipse’te Java hizmeti hata ayıklaması](service-fabric-debugging-your-application-java.md)
 ### [Yerel olarak izleme ve tanılama](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## API Yönetimi ile tümleştirme
-### [Genel Bakış](service-fabric-api-management-overview.md)
-### [Hızlı başlangıç](service-fabric-api-management-quick-start.md)
+## [Azure’a API Management ve Service Fabric dağıtma](service-fabric-api-management-quick-start.md)
 
 ## Cloud Services’tan geçiş
 ### [Cloud Services ile Service Fabric karşılaştırması](service-fabric-cloud-services-migration-differences.md)

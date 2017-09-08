@@ -13,6 +13,7 @@
 ### [Sosyal medya](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Machine Learning ile gerçek zamanlı puanlama](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Gerçek zamanlı olay işleme](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Azure kullanım kılavuzunda (önizleme) anomali algılama](stream-analytics-machine-learning-anomaly-detection.md)
 
 ## İş oluşturma
 ### [Girdileri oluştur](stream-analytics-define-inputs.md)

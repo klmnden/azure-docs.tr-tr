@@ -6,18 +6,18 @@
 ## [Eşitleme nasıl çalışır?](active-directory-ds-synchronization.md)
 ## [Uyumlu üçüncü taraf yazılımı](active-directory-ds-compatible-software.md)
 
-# Başlarken
-## Klasik Azure portalı
-### [1. Görev: Yönetici grubu oluşturma](active-directory-ds-getting-started-create-group.md)
-### [2. Görev: Sanal ağ oluşturma veya seçme](active-directory-ds-getting-started-vnet.md)
-### [3. Görev: Azure AD Domain Services'ı etkinleştirme](active-directory-ds-getting-started-enableaadds.md)
-### [4. Görev: Sanal ağa yönelik DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-update-dns.md)
-### [5. Görev: Parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
+# başlarken
 ## Azure portalı (Önizleme)
 ### [1. Görev: Temel ayarları yapılandırma](active-directory-ds-getting-started.md)
 ### [2. Görev: Ağ ayarlarını yapılandırma](active-directory-ds-getting-started-network.md)
 ### [3. Görev: Yönetici grubunu yapılandırma ve Azure AD Domain Services’ı etkinleştirme](active-directory-ds-getting-started-admingroup.md)
 ### [4. Görev: Sanal ağa yönelik DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
+### [5. Görev: Parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
+## HDInsight ile
+### [1. Görev: Yönetici grubu oluşturma](active-directory-ds-getting-started-create-group.md)
+### [2. Görev: Sanal ağ oluşturma veya seçme](active-directory-ds-getting-started-vnet.md)
+### [3. Görev: Azure AD Domain Services'ı etkinleştirme](active-directory-ds-getting-started-enableaadds.md)
+### [4. Görev: Sanal ağa yönelik DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-update-dns.md)
 ### [5. Görev: Parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
 
 # Nasıl yapılır

@@ -46,6 +46,7 @@
 ## [Belirteçleri yapılandırma](active-directory-b2c-token-session-sso.md)
 ## [MFA’yı etkinleştirme](active-directory-b2c-reference-mfa.md)
 ## [Özel öznitelikler kullanma](active-directory-b2c-reference-custom-attr.md)
+## [Parola özelleştirme](active-directory-b2c-reference-password-complexity.md)
 ## [Kullanıcı arabirimini özelleştirme](active-directory-b2c-reference-ui-customization.md)
 ### [Özelleştirme için yardımcı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Dil özelleştirmesi](active-directory-b2c-reference-language-customization.md)
@@ -71,6 +72,7 @@
 #### [Özel öznitelikler](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Kullanıcı Arabirimini Özelleştirme](active-directory-b2c-ui-customization-custom.md)
 #### [Belirteçleri özelleştirme](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Parola özelleştirme](active-directory-b2c-reference-password-complexity-custom.md)
 ### Sorun giderme
 #### [Application Insights’ı kullanarak günlük toplama](active-directory-b2c-troubleshoot-custom.md)
 ## Başvuru

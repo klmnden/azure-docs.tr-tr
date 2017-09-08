@@ -140,6 +140,7 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Aktarım hızı testi](virtual-network-bandwidth-testing.md)
 ### [Sanal ağlar silinemiyor](virtual-network-troubleshoot-cannot-delete-vnet.md)
+### [VM’den VM’ye bağlantı sorunları](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
