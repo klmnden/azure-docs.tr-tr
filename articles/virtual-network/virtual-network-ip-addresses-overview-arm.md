@@ -35,7 +35,7 @@ Diğer Azure kaynaklarıyla, şirket içi ağınızla ve İnternet’le iletişi
 Klasik dağıtım modeliyle ilgili bilginiz varsa [klasik ve Resource Manager IP adreslemesi arasındaki farkları](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) inceleyin.
 
 ## <a name="public-ip-addresses"></a>Genel IP adresleri
-Genel IP adresleri, Azure kaynaklarının İnternet ile ve [Azure Redis Önbelleği](https://azure.microsoft.com/services/cache/), [Azure Olay Hub’ları](https://azure.microsoft.com/services/event-hubs/), [SQL veritabanları](../sql-database/sql-database-technical-overview.md) ve [Azure depolama alanı](../storage/common/storage-introduction.md) gibi genel kullanıma yönelik Azure hizmetleriyle iletişim kurmasını sağlar.
+Genel IP adresleri, Azure kaynaklarının İnternet ile ve [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Olay Hub’ları](https://azure.microsoft.com/services/event-hubs/), [SQL veritabanları](../sql-database/sql-database-technical-overview.md) ve [Azure depolama alanı](../storage/common/storage-introduction.md) gibi genel kullanıma yönelik Azure hizmetleriyle iletişim kurmasını sağlar.
 
 Azure Resource Manager’daki bir [genel IP](resource-groups-networking.md#public-ip-address) adresi, kendi özelliklerine sahip olan bir kaynaktır. Genel bir IP adresini aşağıdaki kaynakların herhangi biriyle ilişkilendirebilirsiniz:
 
