@@ -5,7 +5,7 @@ Web uygulaması, kodunuz için bir barındırma alanı ve dağıtılan uygulamay
 Aşağıdaki komutta *\<uygulama_adı>* kısmını benzersiz bir adla değiştirin (geçerli karakterler `a-z`, `0-9` ve `-` şeklindedir). `<app_name>` benzersiz değilse "Belirtilen <app_name> adına sahip web sitesi zaten var" hata iletisiyle karşılaşırsınız. Web uygulamasının varsayılan URL'si `https://<app_name>.azurewebsites.net` şeklindedir. 
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
 ```
 
 Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan örnekteki gibi bilgiler gösterir:
