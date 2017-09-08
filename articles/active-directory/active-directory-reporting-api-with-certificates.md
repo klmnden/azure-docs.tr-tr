@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
+ms.contentlocale: tr-tr
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Sertifikalarla Azure AD Raporlama API’sini kullanarak veri alma
@@ -26,10 +26,10 @@ Bu makalede, kullanıcı müdahalesi olmadan dizinlerden veri almak üzere serti
 
 ## <a name="use-the-azure-ad-reporting-api"></a>Azure AD Raporlama API’sini kullanma 
 Azure AD Raporlama API'si aşağıdaki adımları tamamlamanızı gerektirir:
- *    Ön koşulları yükleme
- *    Uygulamanızdaki sertifikayı ayarlama
- *    Bir erişim belirteci alma
- *    Grafik API'sini çağırmak için erişim belirteci kullanma
+ *  Ön koşulları yükleme
+ *  Uygulamanızdaki sertifikayı ayarlama
+ *  Bir erişim belirteci alma
+ *  Grafik API'sini çağırmak için erişim belirteci kullanma
 
 Kaynak kodu hakkında bilgi için bkz. [Rapor API Modülünden Yararlanma](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils). 
 
