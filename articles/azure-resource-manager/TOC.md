@@ -6,8 +6,8 @@
 ## [Yönetilen Uygulamalar](managed-application-overview.md)
 
 # başlarken
-## [Şablonu dışarı aktarma](resource-manager-export-template.md)
 ## [Şablon oluşturma ve dağıtma](resource-manager-create-first-template.md)
+## [Şablonlar için VS Code uzantısı](resource-manager-vscode-extension.md)
 ## [Resource Manager ile Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Örnekler
@@ -20,8 +20,8 @@
 
 # Nasıl yapılır?
 ## Şablon oluşturma
-### [Şablonlar için en iyi uygulamalar](resource-manager-template-best-practices.md)
 ### [Şablon bölümleri](resource-group-authoring-templates.md)
+### [Şablonlar için en iyi uygulamalar](resource-manager-template-best-practices.md)
 ### [Diğer şablonlara bağlantı](resource-group-linked-templates.md)
 ### [Kaynaklar arasında bağımlılık tanımlama](resource-group-define-dependencies.md)
 ### [Birden çok örnek oluşturma](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [Bağlı şablonlar arasında durum paylaşma](best-practices-resource-manager-state.md)
 ### [Şablon tasarlamaya yönelik desenler](best-practices-resource-manager-design-templates.md)
 
+
 ## Dağıtma
 ### PowerShell
 #### [Şablon dağıtma](resource-group-template-deploy.md)
@@ -42,7 +43,9 @@
 #### [Şablon dağıtma](resource-group-template-deploy-cli.md)
 #### [SAS belirteci ile özel şablon dağıtma](resource-manager-cli-sas-token.md)
 #### [Şablonu dışarı aktarma ve yeniden dağıtma](resource-manager-export-template-cli.md)
-### [Portal](resource-group-template-deploy-portal.md)
+### Portal
+#### [Kaynakları dağıtma](resource-group-template-deploy-portal.md)
+#### [Şablonu dışarı aktarma](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Çapraz kaynak grubu dağıtımı](resource-manager-cross-resource-group-deployment.md)
 ### [Visual Studio Team Services ile sürekli tümleştirme](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

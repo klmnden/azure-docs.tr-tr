@@ -59,7 +59,8 @@
 #### [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Lucene sözdizimi sorgu örnekleri](search-query-lucene-examples.md)
 #### [Filtre ifadesi söz dizimi](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Özel Arama
+### Azure Search'te çözümleyiciler
+#### [Genel Bakış](search-analyzers.md)
 #### [Dil çözümleyicileri](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Özel çözümleyiciler](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Disk belleği sonuçları](search-pagination-page-layout.md)

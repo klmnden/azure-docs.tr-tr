@@ -43,11 +43,7 @@
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - SQL veritabanınızı güvenli hale getirme
       href: sql-database-security-tutorial.md
-    - name: 4 - SQL DB performansını iyileştirme
-      href: sql-database-performance-tutorial.md
-    - name: 5 - Çok kiracılı uygulamayı yerleştirme
-      href: sql-database-multi-tenant-application.md
-    - name: 6 - Coğrafi olarak dağıtılmış bir veritabanı uygulama
+    - name: 4 - Coğrafi olarak dağıtılmış bir veritabanı uygulama
       href: sql-database-implement-geo-distributed-database.md
 - name: Örnekler
   items:
