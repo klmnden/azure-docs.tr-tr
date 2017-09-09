@@ -1,8 +1,6 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-take-a-backup" class="xliff"></a>
-
-### Yedek almak için
+### <a name="to-take-a-backup"></a>Yedek almak için
 
 1. StorSimple Cihaz Yöneticisi hizmetinize gidin. Tablosal cihaz listesinden cihazınızı seçmek için tıklayın ve **Tüm ayarlar**’a tıklayın. **Ayarlar** dikey penceresinde **Ayarlar > Yönet > Yedekleme ilkesi**’ne gidin.
 

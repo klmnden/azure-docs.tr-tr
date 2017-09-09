@@ -1,9 +1,7 @@
 <!--author=alkohli last changed: 01/20/17-->
 
 
-<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
-
-#### StorSimple Cihaz Yöneticisi hizmetiyle aynı Azure aboneliğinde depolama hesabı kimlik bilgisi eklemek için
+#### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>StorSimple Cihaz Yöneticisi hizmetiyle aynı Azure aboneliğinde depolama hesabı kimlik bilgisi eklemek için
 
 1. StorSimple Cihaz Yöneticisi hizmetinize gidin. **Yapılandırma** bölümünde **Depolama hesabı kimlik bilgileri**’ne tıklayın.
 

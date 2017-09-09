@@ -7,8 +7,3 @@
     ![iSCSI başlatıcısı özellikleri](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
 3. Bu dizeyi kaydedin.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

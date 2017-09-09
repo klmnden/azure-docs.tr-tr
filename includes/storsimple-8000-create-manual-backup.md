@@ -1,9 +1,7 @@
 
 <!--author=alkohli last changed: 01/20/2017-->
 
-<a id="to-create-a-manual-backup" class="xliff"></a>
-
-#### El ile yedekleme oluşturmak için
+#### <a name="to-create-a-manual-backup"></a>El ile yedekleme oluşturmak için
 
 1. StorSimple Cihaz Yöneticisi hizmetinize gidin ve **Cihazlar**’a tıklayın. Tablosal cihaz listesinden cihazınızı seçin. **Ayarlar > Yönet > Yedekleme ilkeleri** seçeneğine gidin.
 

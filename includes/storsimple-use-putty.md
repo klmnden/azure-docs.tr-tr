@@ -26,8 +26,3 @@
      > 
 7. Seri oturum başlatmak için **Aç**’a tıklayın.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

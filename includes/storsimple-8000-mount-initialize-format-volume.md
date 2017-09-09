@@ -1,7 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Birimi bağlamak, başlatmak ve biçimlendirmek için
-<a id="to-mount-initialize-and-format-a-volume" class="xliff"></a>
+#### <a name="to-mount-initialize-and-format-a-volume"></a>Birimi bağlamak, başlatmak ve biçimlendirmek için
 1. Microsoft iSCSI başlatıcısını başlatın.
 2. **iSCSI Başlatıcısı Özellikleri** penceresinin **Keşif** sekmesinde, **Portal Bul**’a tıklayın.
 3. **Hedef Portal Bul** iletişim kutusuna iSCSI etkin ağ arabiriminin IP adresini girin ve ardından **Tamam**’a tıklayın. 
