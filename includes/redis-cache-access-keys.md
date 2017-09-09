@@ -1,9 +1,9 @@
-Azure Redis Önbelleği örneğine bağlanmak için önbellek istemcileri için ana bilgisayar adı, bağlantı noktaları ve önbellek anahtarları gereklidir. Bazı istemciler bu öğelere biraz daha farklı adlarla başvurabilir. Bu bilgileri Azure portalından veya Azure CLI gibi komut satırı araçlarını kullanarak alabilirsiniz.
+Azure Redis Cache örneğine bağlanmak için önbellek istemcileri için ana bilgisayar adı, bağlantı noktaları ve önbellek anahtarları gereklidir. Bazı istemciler bu öğelere biraz daha farklı adlarla başvurabilir. Bu bilgileri Azure portalından veya Azure CLI gibi komut satırı araçlarını kullanarak alabilirsiniz.
 
 ### <a name="retrieve-host-name-ports-and-access-keys-using-the-azure-portal"></a>Azure Portalı kullanarak ana bilgisayar adı, bağlantı noktaları ve erişim anahtarlarını alma
 Azure Portalı kullanarak ana bilgisayar adı, bağlantı noktaları ve erişim anahtarlarını almak için [Azure portalındaki](https://portal.azure.com) önbelleğinize [göz atın](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) ve **Kaynak menüsünde** **Erişim anahtarları** ile **Özellikler**’e tıklayın. 
 
-![Redis önbelleği ayarları](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
+![Redis Cache ayarları](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Azure CLI kullanarak ana bilgisayar adı, bağlantı noktaları ve erişim anahtarlarını alma
 Azure CLI 2.0’ı kullanarak ana bilgisayar adı ve bağlantı noktalarını almak için [az redis show](https://docs.microsoft.com/cli/azure/redis#show) yöntemini, anahtarları almak için [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys) yöntemini çağırabilirsiniz. Aşağıdaki betik bu iki komutu çağırır ve ana bilgisayar, bağlantı noktaları ve anahtarları konsola yansıtır.
