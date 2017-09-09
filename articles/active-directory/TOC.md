@@ -132,22 +132,17 @@
 ## Cihazları yönetme
 ### [Giriş](device-management-introduction.md)
 ### [Azure portalını kullanma](device-management-azure-portal.md)
+### [Azure AD'ye Katılım’ı Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [SSS](device-management-faq.md)
 ### Görevler
+#### [Azure AD alanında kayıtlı Windows 10 cihazlarını yapılandırma](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Azure AD alanına katılmış cihazları yapılandırma](device-management-azuread-joined-devices-setup.md)
 #### [Karma Azure AD alanına katılmış cihazları yapılandırma](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Şirket içi dağıtma](active-directory-device-registration-on-premises-setup.md)
+#### [Azure AD katılımı sırasında Windows 10’u ilk kez çalıştırma deneyimi](device-management-azuread-joined-devices-frx.md)
 ### Sorun giderme
 #### [Karma Azure AD alanına katılmış Windows 10 ve Windows Server 2016 cihazları](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Karma Azure AD alanına katılmış eski Windows cihazları](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-### [Azure AD Join](active-directory-azureadjoin-overview.md)
-#### [Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Cihaz kaydı oluşturma](active-directory-azureadjoin-setup.md)
-#### [Yeni cihazları kaydetme](active-directory-azureadjoin-user-frx.md)
-#### [Dağıtma](active-directory-azureadjoin-devices-group-policy.md)
-#### [Windows 10 ile tümleştirmeyi anlama](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [Windows 10 cihazları kullanma](active-directory-azureadjoin-windows10-devices.md)
-#### [Cihazınızı ekleme](active-directory-azureadjoin-personal-device.md)
-#### [Bir Windows 10 cihazını ekleme](active-directory-azureadjoin-user-upgrade.md)
 
 ## Uygulamaları yönetme
 ### [Genel Bakış](active-directory-enable-sso-scenario.md)
@@ -296,15 +291,15 @@
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
 #### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
+#### [VPN bağlantısı](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [Mobil uygulama yönetimi](active-directory-conditional-access-mam.md)
 #### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)
-#### [Desteklenen uygulamalar](active-directory-conditional-access-supported-apps.md)
 #### [Cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### [Bağlı uygulamalara erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
 #### [Düzeltme](active-directory-conditional-access-device-remediation.md)
 #### [SSS](active-directory-conditional-faqs.md)
 #### [Klasik portal](active-directory-conditional-access.md)
 ##### [Kullanmaya başlama](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [Parolasız kimlik doğrulama](active-directory-azureadjoin-passport.md)

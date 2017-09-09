@@ -53,6 +53,12 @@
 ## Yönet
 ### [Service Bus yönetim kitaplıkları](service-bus-management-libraries.md)
 ### [Azure Resource Manager şablonlarını kullanma](service-bus-resource-manager-overview.md)
+#### [Ad alanı oluşturma](service-bus-resource-manager-namespace.md)
+#### [Bir ad alanı ve kuyruk oluşturma](service-bus-resource-manager-namespace-queue.md)
+#### [Konusu ve aboneliği olan bir ad alanı oluşturma](service-bus-resource-manager-namespace-topic.md)
+#### [Ad alanı ve kuyruğa yönelik bir yetkilendirme kuralı oluşturma](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Konusu, aboneliği ve kuralı olan bir ad alanı oluşturma](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [Varlıkları sağlamak için PowerShell kullanma](service-bus-manage-with-ps.md)
 
 # Başvuru
