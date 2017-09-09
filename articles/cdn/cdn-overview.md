@@ -1,6 +1,6 @@
 ---
 title: "Azure CDN’ye Genel Bakış | Microsoft Docs"
-description: "Azure İçerik Teslim Ağı'nın (CDN) ne olduğunu, blobları ve statik içeriği önbelleğe alarak yüksek bant genişliği içeriği teslimi gerçekleştirmek üzere nasıl kullanılacağını öğrenin."
+description: "Azure Content Delivery Network’ün (CDN) ne olduğunu, blobları ve statik içeriği önbelleğe alarak yüksek bant genişliği içeriği teslimi gerçekleştirmek üzere nasıl kullanılacağını öğrenin."
 services: cdn
 documentationcenter: 
 author: smcevoy
@@ -21,13 +21,13 @@ ms.contentlocale: tr-tr
 ms.lasthandoff: 08/23/2017
 
 ---
-# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Azure İçerik Teslim Ağı'na (CDN) genel bakış
+# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Azure Content Delivery Network’e (CDN) genel bakış
 > [!NOTE]
-> Bu belgede, Azure İçerik Teslim Ağı'nın (CDN) ne olduğu, nasıl çalıştığı ve her bir Azure CDN ürününün özellikleri açıklanmaktadır.  Bu bilgileri atlayıp doğrudan CDN uç noktası oluşturmaya yönelik öğreticiye gitmek istiyorsanız bkz. [Azure CDN'yi kullanma](cdn-create-new-endpoint.md).  Geçerli CDN düğümü konumlarının listesini görmek istiyorsanız bkz. [Azure CDN POP Konumları](cdn-pop-locations.md).
+> Bu belgede, Azure Content Delivery Network’ün (CDN) ne olduğu, nasıl çalıştığı ve her bir Azure CDN ürününün özellikleri açıklanmaktadır.  Bu bilgileri atlayıp doğrudan CDN uç noktası oluşturmaya yönelik öğreticiye gitmek istiyorsanız bkz. [Azure CDN'yi kullanma](cdn-create-new-endpoint.md).  Geçerli CDN düğümü konumlarının listesini görmek istiyorsanız bkz. [Azure CDN POP Konumları](cdn-pop-locations.md).
 > 
 > 
 
-Azure İçerik Teslim Ağı (CDN), kullanıcılara içerik teslim etmek için en yüksek verimliliği sağlamak üzere stratejik olarak yerleştirilmiş konumlardaki statik web içeriğini önbelleğe alır.  CDN, dünya genelindeki fiziksel düğümlerde bulunan içeriği önbelleğe alarak, yüksek bant genişliği içeriğinin teslimi konusunda geliştiricilere genel bir çözüm sunar. 
+Azure Content Delivery Network (CDN), kullanıcılara içerik teslim etmek için en yüksek verimliliği sağlamak üzere stratejik olarak yerleştirilmiş konumlardaki statik web içeriğini önbelleğe alır.  CDN, dünya genelindeki fiziksel düğümlerde bulunan içeriği önbelleğe alarak, yüksek bant genişliği içeriğinin teslimi konusunda geliştiricilere genel bir çözüm sunar. 
 
 Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları şunlardır:
 
