@@ -13,7 +13,7 @@
 ## [Tanıtımı izleyin](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Kullanmaya Başlama
-## [Azure VM’lerini çoğaltma (önizleme)](site-recovery-azure-to-azure.md)
+## [Azure VM’lerini Azure’a çoğaltma (önizleme)](site-recovery-azure-to-azure.md)
 ## [VMware VM'lerini Azure'a çoğaltma](vmware-walkthrough-overview.md)
 ### [1. Adım: Mimariyi gözden geçirme](vmware-walkthrough-architecture.md)
 ### [2. Adım: Önkoşulları ve sınırlamaları gözden geçirme](vmware-walkthrough-prerequisites.md)
@@ -140,6 +140,8 @@
 ## İzleme ve sorun giderme
 ### [Azure-Azure arası çoğaltma sorunları](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [Şirket içinden Azure’a çoğaltma sorunları](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Mobility hizmeti yükleme sorunları](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Azure'a yük devretme sorunları](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Günlükleri toplama ve şirket içi ortam sorunlarını giderme](site-recovery-monitoring-and-troubleshooting.md)
 
 # Başvuru

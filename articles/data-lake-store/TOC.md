@@ -39,12 +39,14 @@
 ### [Azure Data Lake Store ve HDInsight’ta Storm için performans ayarlama kılavuzu](data-lake-store-performance-tuning-storm.md)
 
 ## Azure Hizmetleri ile tümleştirme
+### Klasik Azure portalı (kullanım dışı)
+#### [Portalı kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [PowerShell'i kullanma (varsayılan depolama)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [PowerShell'i kullanma (ek depolama)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Azure şablonu kullanma](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Azure Sanal Ağı’ndaki VM’lerden erişim](data-lake-store-connectivity-from-vnets.md)
 ### [Data Lake Analytics ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Data Lake Store ile HDInsight - Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Varsayılan depolama olarak Data Lake Store ile HDInsight - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-### [Ek depolama olarak Data Lake Store ile HDInsight - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Data Lake Store ile HDInsight - Azure şablonu](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Azure Event Hubs ile kullanma](data-lake-store-archive-eventhub-capture.md)
 ### [Data Factory ile kullanma](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Akış Analizi ile kullanma](data-lake-store-stream-analytics.md)
 ### [Power BI ile kullanma](data-lake-store-power-bi.md)
@@ -55,7 +57,7 @@
 
 ## Yönet
 ### [Tanılama günlüklerine erişim](data-lake-store-diagnostic-logs.md)
-### [Yüksek kullanılabilirlik planı](data-lake-store-troubleshooting-guidance.md)
+### [Yüksek kullanılabilirlik planı](data-lake-store-disaster-recovery-guidance.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)

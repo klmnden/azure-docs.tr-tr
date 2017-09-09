@@ -120,6 +120,8 @@
           href: connect-logon.md
         - name: AHUB lisansı kullanma
           href: hybrid-use-benefit-licensing.md
+        - name: Windows 10 için Çok Kiracılı Barındırma Kuralları’nı kullanma
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: VM’leri koruma
       items:
         - name: Şifreleme

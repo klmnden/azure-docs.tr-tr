@@ -2,7 +2,7 @@
   items:
     - name: Giriş
       href: ./common/storage-introduction.md
-    - name: 'Blob, Dosya veya Veri Diski seçme'
+    - name: 'Blobları, Dosyaları veya Diskleri seçme'
       href: ./common/storage-decide-blobs-files-disks.md
 - name: Bloblar
   href: ./blobs/storage-blobs-introduction.md

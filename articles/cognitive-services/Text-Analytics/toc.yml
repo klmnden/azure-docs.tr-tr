@@ -1,20 +1,41 @@
-- name: Text Analytics Documentation
+- name: Metin Analizleri Belgeleri
   href: ../index.md
-- name: Overview
+- name: Genel Bakış
   href: overview.md
-- name: Quick Start Guide
-  href: quick-start.md
-- name: Reference
+  items: null
+- name: Hızlı Başlangıçlar
   items:
-    - name: API Reference content
+    - name: 'C#'
+      href: quick-start.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Kaydolma
+      href: text-analytics-howto-signup.md
+    - name: Bir erişim anahtarı alma
+      href: text-analytics-howto-accesskey.md
+    - name: Metin Analizi API’sini çağırma
+      href: text-analytics-howto-call-api.md
+    - name: Dili algılama
+      href: text-analytics-howto-language-detection.md
+    - name: Yaklaşımı analiz etme
+      href: text-analytics-howto-sentiment-analysis.md
+    - name: Anahtar sözcükleri ayıklama
+      href: text-analytics-howto-keyword-extraction.md
+- name: Başvuru
+  items:
+    - name: API Başvurusu
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
-    - name: Windows SDK
-      href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-Windows'
-    - name: Android SDK
-      href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-Android'
-    - name: .Net Standard SDK
-      href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet'
-- name: Resources
+    - name: .Net Standart SDK
+      href: 'https://aka.ms/tasdkdotnet'
+- name: Kaynaklar
   items:
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Dış içerik ve topluluk içeriği
+      href: text-analytics-resource-external-community.md
+    - name: SSS
+      href: text-analytics-resource-faq.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: User Voice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

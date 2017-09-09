@@ -16,7 +16,7 @@
 ### [Özel ayarlar](active-directory-aadconnect-get-started-custom.md)
 ### [DirSync’ten yükseltme](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Önceki sürümden yükseltme](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [Mevcut bir AD Eşitleme veritabanını kullanarak yükleme](active-directory-aadconnect-existing-database.md)
 
 # Nasıl yapılır?
 ## Planlama ve tasarım

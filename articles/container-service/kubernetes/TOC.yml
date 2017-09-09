@@ -33,6 +33,8 @@
   items:
     - name: Güvenli kapsayıcılar
       href: container-service-security.md
+    - name: Hizmet sorumlusu - Kubernetes
+      href: container-service-kubernetes-service-principal.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Windows ile Kubernetes
@@ -49,8 +51,12 @@
       href: container-service-connect.md
     - name: ACS kümesini ölçeklendirme
       href: container-service-scale.md
+    - name: Bir Kubernetes ACS kümesinin yükünü dengeleme
+      href: container-service-kubernetes-load-balancing.md
     - name: İzleme
       items:
+        - name: OMS ile izleme
+          href: container-service-kubernetes-oms.md
         - name: Datadog ile izleme
           href: container-service-kubernetes-datadog.md
         - name: Sysdig ile izleme
@@ -68,7 +74,7 @@
     - name: Azure CLI 2.0
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası
