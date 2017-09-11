@@ -5,10 +5,10 @@
 ## [SDK’lar ve araçlar](../../index.md#pivot=sdkstools)
 
 # Hızlı Başlangıç
-## [Web Apps](../../app-service-web/web-sites-dotnet-get-started.md)
+## [Web Apps](../../app-service-web/app-service-web-get-started-html.md)
 ## Sanal makineler
-### [Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md)
-### [Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+### [Linux](../../virtual-machines/linux/quick-create-portal.md)
+### [Windows](../../virtual-machines/windows/quick-create-portal.md)
 ## [Sunucusuz](../../azure-functions/functions-create-first-azure-function.md)
 ## Mikro hizmetler
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
@@ -16,16 +16,16 @@
 
 # Öğreticiler
 ## Web uygulaması oluşturma ve dağıtma
-### [ASP.NET](../../app-service-web/web-sites-dotnet-get-started.md)
-### [Java](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
-### [Node.js](../../app-service-web/app-service-web-nodejs-get-started.md)
-### [PHP](../../app-service-web/app-service-web-php-get-started.md)
-### [Python](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
+### [ASP.NET](../../app-service-web/app-service-web-get-started-dotnet.md)
+### [Java](../../app-service-web/app-service-web-get-started-java.md)
+### [Node.js](../../app-service-web/app-service-web-get-started-nodejs.md)
+### [PHP](../../app-service-web/app-service-web-get-started-php.md)
+### [Python](../../app-service-web/app-service-web-get-started-python.md)
 ## Karmaşık VM şablonlarını dağıtma
 ### [Linux](../../virtual-machines/virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows](../../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Azure bağlantılı işlev oluşturma](../../azure-functions/functions-create-an-azure-connected-function.md)
-## [Docker ile Linux üzerinde web uygulaması dağıtma](../../app-service-web/app-service-linux-using-custom-docker-image.md) 
+## [Docker ile Linux üzerinde web uygulaması dağıtma](../../app-service/containers/quickstart-custom-docker-image.md) 
 
 # Örnekler
 ## Azure CLI
@@ -48,12 +48,11 @@
 
 # Nasıl yapılır kılavuzları
 ## Planlama
-### [Web uygulaması mimarileri](../../guidance/guidance-ra-app-service.md)
-### [VM mimarileri](../../guidance/guidance-ra-compute.md)
-### [Şirket içi ağlara bağlanma](../../guidance/guidance-ra-hybrid-networking.md)
+### [Web uygulaması mimarileri](/azure/architecture/reference-architectures/managed-web-app/)
+### [VM mimarileri](/azure/architecture/reference-architectures/virtual-machines-windows/)
+### [Şirket içi ağlara bağlanma](/azure/architecture/reference-architectures/hybrid-networking/)
 ### [Mikro hizmet desenleri/senaryoları](../../service-fabric/service-fabric-patterns-and-scenarios.md)
 ## Geliştirme
-### [WordPress uygulamaları](../../app-service-web/web-sites-php-web-site-gallery.md)
 ### [Linux VM](../../virtual-machines/virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VM](../../virtual-machines/virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Sunucusuz uygulamalar](../../azure-functions/functions-reference.md)
@@ -67,8 +66,8 @@
 ### [Bloblar](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 ### [Dosya paylaşımları](../../storage/files/storage-dotnet-how-to-use-files.md)
 ### [Anahtar-değer çiftleri](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-### [JSON belgeleri](../../documentdb/documentdb-get-started.md)
-### [İlişkisel tablolar](../../sql-database/sql-database-get-started.md)
+### [JSON belgeleri](../../cosmos-db/documentdb-get-started.md)
+### [İlişkisel tablolar](../../sql-database/sql-database-get-started-portal.md)
 ### [İleti kuyrukları](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Ölçek
@@ -77,7 +76,7 @@
 ### [Mikro hizmet uygulamaları](../../service-fabric/service-fabric-concepts-scalability.md)
 
 ## Güvenlik
-### [Web ve mobil uygulamaları](../../app-service-web/web-sites-security.md)
+### [Web ve mobil uygulamaları](../../app-service-web/app-service-web-tutorial-custom-ssl.md)
 
 ## Backup
 ### [Web ve mobil uygulamaları](../../app-service-web/web-sites-backup.md)
@@ -85,7 +84,7 @@
 
 ## İzleme
 ### [Web ve mobil uygulamaları](../../app-service-web/web-sites-enable-diagnostic-log.md)
-### [Linux VM](../../virtual-machines/virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json.md)
+### [Linux VM](../../virtual-machines/linux/tutorial-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VM](../../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Mikro hizmetler](../../service-fabric/service-fabric-diagnostics-overview.md)
 ### [Fatura uyarıları](../../billing/billing-set-up-alerts.md)

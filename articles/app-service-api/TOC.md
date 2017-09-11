@@ -34,8 +34,7 @@
 ### [Yapılan değişiklikler](app-service-api-whats-changed.md)
 ### [API Apps için kimlik doğrulaması ve yetkilendirme](app-service-api-authentication.md)
 
-### [Azure App Service için En İyi Uygulamalar](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Azure Uygulama Hizmeti ve mevcut Azure hizmetleri](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Azure Uygulama Hizmeti için En İyi Uygulamalar](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [App Service planlarının ayrıntıları](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Yüksek yoğunluklu barındırma](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Azure Uygulama Hizmeti’nde Web İşleri kullanımı](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -83,7 +82,6 @@
 #### [Traffic Manager ile özel etki alanları](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ### [Mevcut bir uygulamayı kopyalama](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Şirket içi bağlantılar](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Azure Sanal Ağ](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Gelişmiş yapılandırma](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Kaynak grupları](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -98,7 +96,6 @@
 #### [ExpressRoute ile ağ yapılandırma ayrıntıları](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [Güvenlik](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Azure Uygulama Hizmeti’nde bir uygulamanın güvenliğini sağlama](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Kimlik doğrulama ve yetkilendirme](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Hizmet sorumlusu kimlik doğrulaması](app-service-api-dotnet-service-principal-auth.md)
 ### [Kullanıcı kimlik doğrulaması](app-service-api-dotnet-user-principal-auth.md)
@@ -123,7 +120,6 @@
 ## Backup
 ### [Uygulamanızı Azure’a yedekleme](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Uygulamanızı Azure’a geri yükleme](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [App Service uygulamalarını yedeklemek ve geri yüklemek için REST kullanma](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [İzleme](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Tanılama günlüğünü etkinleştirme ](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -132,18 +128,12 @@
 ## Otomatikleştirme
 ### [Çevik geliştirme](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Azure Resource Manager dağıtımı](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Web + GitHub ](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Web + SQL ](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Özel ana bilgisayar adı ve SSL sertifikası kullanan MSDeploy](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### PowerShell
 #### [Otomatik yedekleme ve geri yükleme](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Uygulama kopyalama](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [SSL Sertifikası Bağlama](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Azure Resource Manager’ı PowerShell ile kullanma](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Uygulamaları Azure Otomasyonu ile yönetme](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## Tümleştirme
-### [Karma bağlantıları kullanarak şirket içi kaynaklara erişme](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Azure ile SendGrid kullanarak e-posta gönderme](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [PowerApps ve Microsoft Flow’a dışarı aktarma](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
@@ -154,8 +144,6 @@
 
 # Kaynaklar
 ## [App Service En İyi Yöntemler](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-## [App Service başvurusu](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Web İşi kaynaklarının listesi](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
