@@ -152,7 +152,7 @@ Erişim Denetimi değerleri herhangi bir uygulamayla birlikte kullanılabilir. A
 Erişim Denetimi hizmeti kimliği, uygulamaların veya istemcilerin Erişim Denetimi’yle doğrudan kimlik doğrulaması yapmasını ve belirteç almasını sağlayan bir dizi kimlik bilgisidir.
 
 > [!IMPORTANT]
-> BizTalk Hizmeti varsayılan hizmet kimliği ve **Parola** değeri için **Sahip**’i kullanır. Parola değeri yerine Simetrik Anahtar değeri kullanırsanız aşağıdaki hata oluşabilir.<br/><br/>*Belirtilen kimlik bilgileriyle Access Control Yönetim Hizmeti hesabına bağlanılamadı*
+> BizTalk Hizmeti varsayılan hizmet kimliği ve **Parola** değeri için **Sahip**’i kullanır. Parola değeri yerine Simetrik Anahtar değeri kullanırsanız aşağıdaki hata oluşabilir.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
 > 
 > 
 
