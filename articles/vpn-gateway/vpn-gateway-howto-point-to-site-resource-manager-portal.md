@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5c8e99f3ba52ef5d6f9f99ac24891c38e8970fff
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: cc9018d95ffce3b5b4a5ee20d5c78a2122e0223e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>Sertifika kimlik doğrulaması kullanarak Noktadan Siteye VNet bağlantısını yapılandırma: Azure portalı
@@ -134,7 +134,7 @@ Noktadan Siteye VPN kullanarak VNet’e bağlanmak için her istemcinin yerel VP
 
 Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayarda aynı VPN istemcisi yapılandırma paketini kullanabilirsiniz. Desteklenen istemci işletim sistemlerinin listesi için bu makalenin sonundaki [Noktadan Siteye bağlantılar hakkında SSS](#faq) bölümüne bakın.
 
-### <a name="step-1---generate-and-download-the-client-configuration-package"></a>1. Adım - İstemci yapılandırma paketi oluşturma ve indirme
+### <a name="1-generate-and-download-the-client-configuration-package"></a>1. İstemci yapılandırma paketi oluşturma ve indirme
 
 1. **Noktadan siteye yapılandırma** sayfasında **VPN istemcisini indir**’e tıklayarak **VPN istemcisini indir** sayfasını açın. Paketin oluşturulması birkaç dakika sürer.
 
@@ -143,7 +143,7 @@ Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayar
 
   ![VPN istemcisi indirme 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-### <a name="step-2---install-the-client-configuration-package"></a>2. Adım: İstemci yapılandırma paketini yükleme
+### <a name="2-install-the-client-configuration-package"></a>2. İstemci yapılandırma paketini yükleme
 
 1. Yapılandırma dosyasını, sanal ağınıza bağlamak istediğiniz bilgisayara yerel olarak kopyalayın. 
 2. Paketi istemci bilgisayara yüklemek için .exe dosyasına çift tıklayın. Yapılandırma paketini siz oluşturduğunuz için paket imzalanmamıştır ve bir uyarı görebilirsiniz. Bir Windows SmartScreen açılır penceresi görürseniz **Daha fazla bilgi**’ye (solda) ve ardından **Yine de çalıştır**’a tıklayarak paketi yükleyin.
@@ -227,7 +227,7 @@ Parmak izini iptal listesine ekleyerek bir istemci sertifikasını iptal edebili
 
 ## <a name="faq"></a>Noktadan Siteye hakkında SSS
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Ağ ve sanal makineler hakkında daha fazla bilgi edinmek için, bkz. [Azure ve Linux VM ağına genel bakış](../virtual-machines/linux/azure-vm-network-overview.md).
