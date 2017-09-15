@@ -1,7 +1,7 @@
-Uygulamanız hazır ve çalışmaya başladı. Artık iş sürekliliğini sağlamak ve yüksek kullanılabilirlik sunmak için kullanıcı erişimini izlemeniz gerekir. Azure portalını kullanarak koleksiyonunuzla ilgili kullanılabilirlik, gecikme süresi, aktarım hızı ve tutarlılık ölçütlerini görüntüleyebilirsiniz. 
+Now that your app is up and running, you'll want to ensure business continuity and watch user access to ensure high availability. You can use the Azure portal to review the availability, latency, throughput, and consistency of your collection. 
 
-[Azure Cosmos DB Hizmet Düzeyi Sözleşmeleri (SLA'lar)](https://azure.microsoft.com/support/legal/sla/documentdb/) ile ilişkili tüm trafiklerde mevcut kullanımınızın yanı sıra SLA şartlarını karşılamak için gerekli olan kotayı gösteren bir çizgi mevcuttur. Bu sayede veritabanı performansınızı net bir şekilde görebilirsiniz. Portalda depolama alanı kullanımı ve bir dakikada gönderilen istek sayısı gibi ek ölçümleri de bulabilirsiniz.
+Each graph that's associated with the [Azure Cosmos DB Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) provides a line that shows the quota required to meet the SLA and your actual usage. This information gives you a clear view into your database performance. Additional metrics, such as storage usage and number of requests per minute, are also included in the portal.
 
-* Azure portalının sol tarafındaki bölmede **İzleme**'nin altındaki **Ölçümler**'e tıklayın.
+* In the Azure portal, in the pane on the left, under **Monitoring**, select **Metrics**.
 
-   ![Yapılacaklar listesi uygulaması ve örnek veriler](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
+   ![Todo app with sample data](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
