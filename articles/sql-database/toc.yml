@@ -261,10 +261,6 @@
           href: sql-database-long-term-backup-retention-configure.md
         - name: Coğrafi çoğaltma - Portal
           href: sql-database-geo-replication-portal.md
-        - name: Coğrafi çoğaltma - T-SQL - Yapılandırma
-          href: sql-database-geo-replication-transact-sql.md
-        - name: Coğrafi çoğaltma - T-SQL - Yük devretme
-          href: sql-database-geo-replication-failover-transact-sql.md
         - name: Tek bir tabloyu kurtarma
           href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
     - name: Verileri yükleme ve taşıma
@@ -299,8 +295,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Otomasyonu
           href: sql-database-manage-automation.md
-        - name: Azure RemoteApp
-          href: sql-database-ssms-remoteapp.md
     - name: Ölçeği genişletme
       items:
         - name: Parçalı uygulama oluşturma

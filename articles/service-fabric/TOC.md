@@ -4,6 +4,8 @@
 
 # Hızlı Başlangıçlar
 ## [.NET uygulaması oluşturma](service-fabric-quickstart-dotnet.md)
+## [Bir Windows kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers.md)
+## [Bir Linux kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers-linux.md)
 
 # Öğreticiler
 ## .NET uygulaması dağıtma
@@ -122,7 +124,7 @@
 ### [Reliable Actors hizmetinde tanılama](service-fabric-reliable-actors-diagnostics.md)
 ### [Güvenilir Hizmet ile Uzaktan İletişim için performans sayaçları](service-fabric-reliable-serviceremoting-diagnostics.md)
 
-# Nasıl Yapılır Kılavuzları
+# Nasıl yapılır kılavuzları
 ## Geliştirme ortamınızı kurma
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
@@ -278,7 +280,7 @@
 ### [Küme görselleştirme](service-fabric-visualizing-your-cluster.md)
 ### [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md)
 
-### [Service Fabric CLI kullanarak bir kümeyi yönetme](service-fabric-cli.md)
+### [Service Fabric CLI ile çalışmaya başlama](service-fabric-cli.md)
 ### [Küme düğümleri yamalama](service-fabric-patch-orchestration-application.md)
 
 ### Küme kaynaklarını yönetme ve düzenleme
