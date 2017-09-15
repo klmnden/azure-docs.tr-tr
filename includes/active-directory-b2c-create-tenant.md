@@ -1,21 +1,21 @@
-**Yeni** düğmesine tıklayın. **Markette ara** alanına `Azure Active Directory B2C` yazın.
+Click the **New** button. In the **Search the marketplace** field, enter `Azure Active Directory B2C`.
 
-![Ekle düğmesi vurgulanıyor, markette ara alanında Azure Active Directory B2C yazıyor.](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Add button highlighted and the text Azure Active Directory B2C in the search the marketplace field](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
-Sonuç listesinde **Azure Active Directory B2C**’yi seçin.
+In the results list, select **Azure Active Directory B2C**.
 
-![Sonuç listesinde Azure Active Directory B2C seçili](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
+![Azure Active Directory B2C selected in the results list](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
-Azure Active Directory B2C ile ilgili ayrıntılar gösterilir. Yeni Azure Active Directory B2C kiracınızı yapılandırmaya başlamak için **Oluştur** düğmesine tıklayın.
+Details about Azure Active Directory B2C are shown. To begin configuring your new Azure Active Directory B2C tenant, click the **Create** button.
 
-**Yeni Azure AD B2C Kiracısı oluştur**’u seçin. Ardından, tabloda belirtilen ayarları kullanın.
+Select **Create a new Azure AD B2C Tenant**. The settings specified in the following table use the company name Contoso as an example. You will need to provide your own organization name and a unique tenant name when creating your tenant.  
 
-![Azure AD B2C kiracı oluşturma aşaması, kullanılabilir alanlarda örnek metinler](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
+![Azure AD B2C create tenant with sample text in the available fields](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
 
-| Ayar      | Örnek değer  | Açıklama                                        |
+| Setting      | Sample value  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Kuruluş adı** | Contoso | Kuruluşun adı. | 
-| **İlk etki alanı adı** |  ContosoB2CTenant | B2C Kiracısı için etki alanı adı. Varsayılan olarak, ilk etki alanı adı .microsoft.com içerir. Daha sonra kuruluşunuzun kullandığı etki alanı adını ekleyebilirsiniz. Daha önce silinmiş bir kiracıyla aynı ada sahip bir kiracı oluşturulamaz. Bir kiracı yoksa ContosoB2CTesting gibi üretim dışı bir ad seçin. |
-| **Ülke veya bölge** | Amerika Birleşik Devletleri | Dizin için ülke veya bölge seçin. Dizin, bu konumda oluşturulur ve daha sonra değiştirilemez.  |
+| **Organization name** | Contoso | Name of the organization. | 
+| **Initial domain name** |  ContosoB2CTenant | Domain name for the B2C tenant. By default, the initial domain name includes .onmicrosoft.com. If you are creating a test tenant, choose a non-production name such as ContosoB2CTesting. |
+| **Country or region** | United States | Choose the country or region for the directory. The directory will be created in this location and cannot be changed later.  |
 
-Kiracınızı oluşturmak için **Oluştur** düğmesine tıklayın. Kiracı oluşturma işlemi birkaç dakika sürebilir. Bu tamamlandığında, bir bildirim ile bilgi verilir.
+Click the **Create** button to create your tenant. Creating the tenant may take a few minutes. You are alerted in your notifications when it is complete.

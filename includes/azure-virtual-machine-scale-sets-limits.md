@@ -1,5 +1,6 @@
-| Kaynak | Üst Sınır |
+| Resource | Maximum Limit |
 | --- | --- |
-| Bir ölçek kümesindeki en fazla sanal makine sayısı |1000 |
-| Bir bölgedeki en fazla ölçek kümesi sayısı |2000 |
+| Maximum number of VMs in a scale set |1000 |
+| Maximum number of VMs based on a custom VM image in a scale set|300 |
+| Maximum number of scale sets in a region |2000 |
 

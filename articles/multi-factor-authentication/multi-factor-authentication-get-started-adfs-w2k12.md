@@ -3,7 +3,7 @@ title: "Windows Server’da AD FS ile MFA Sunucusu | Microsoft Docs"
 description: "Bu makale Windows Server 2012 R2 ve 2016’da Azure Multi-Factor Authentication ve AD FS’yi kullanmaya başlama işlemini açıklamaktadır."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 57208068-1e55-45b6-840f-fdcd13723074
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
