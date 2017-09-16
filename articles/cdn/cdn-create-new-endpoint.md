@@ -1,6 +1,6 @@
 ---
 title: "Azure CDN kullanmaya başlama | Microsoft Docs"
-description: "Bu konu başlığında, Azure İçerik Teslim Ağı&quot;nın (CDN) nasıl etkinleştirileceği gösterilmektedir. Öğretici, yeni bir CDN profili ve uç noktası oluşturma işlemi boyunca size yol gösterecektir."
+description: "Bu konu başlığında, Azure Content Delivery Network’ün (CDN) nasıl etkinleştirileceği gösterilmektedir. Öğretici, yeni bir CDN profili ve uç noktası oluşturma işlemi boyunca size yol gösterecektir."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
 ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
+ms.contentlocale: tr-tr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -103,9 +105,4 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
