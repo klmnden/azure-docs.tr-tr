@@ -37,6 +37,7 @@
 ### [Kuyrukları kullanan uygulamalar](service-bus-create-queues.md)
 ### [Konular/abonelikler kullanan uygulamalar](service-bus-create-topics-subscriptions.md)
 ### [Kimlik doğrulama ve yetkilendirme](service-bus-authentication-and-authorization.md)
+#### [ACS’den SAS’ye geçiş](service-bus-migrate-acs-sas.md)
 #### [Paylaşılan Erişim İmzaları ile kimlik doğrulaması](service-bus-sas.md)
 ### [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md)
 ### [Teslim edilemeyen iletiler sırası](service-bus-dead-letter-queues.md)

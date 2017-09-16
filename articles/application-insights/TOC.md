@@ -92,7 +92,7 @@
 
 ### Kullanım
 #### [Genel Bakış](app-insights-usage-overview.md)
-#### [Kullanıcı Bağlamı Gönderme](app-insights-usage-send-user-context.md)
+#### [Kullanıcı bağlamı gönderme](app-insights-usage-send-user-context.md)
 #### [Kullanıcılar, Oturumlar, Etkinlikler](app-insights-usage-segmentation.md)
 #### [Huniler](usage-funnels.md)
 #### [Bekletme](app-insights-usage-retention.md)

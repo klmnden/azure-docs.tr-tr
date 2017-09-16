@@ -13,6 +13,7 @@
 # Nasıl yapılır
 ## Planlama ve tasarım
 ### [Kimlik doğrulama ve güvenlik](relay-authentication-and-authorization.md)
+#### [ACS’den SAS’ye geçiş](relay-migrate-acs-sas.md)
 ### [Karma Bağlantılar protokolü](relay-hybrid-connections-protocol.md)
 ## Geliştirme
 ### [Kullanılabilir API’ler](relay-api-overview.md)

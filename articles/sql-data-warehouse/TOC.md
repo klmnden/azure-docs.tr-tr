@@ -10,7 +10,7 @@
 ## [Başlangıç öğreticisi](sql-data-warehouse-get-started-tutorial.md)
 ## [En iyi uygulamalar](sql-data-warehouse-best-practices.md)
 ## [Yönetme](sql-data-warehouse-overview-manage.md)
-## [Destek alın](sql-data-warehouse-get-started-create-support-ticket.md)
+
 
 
 # Nasıl yapılır?
@@ -139,18 +139,22 @@
 # Başvuru
 
 ## [Kapasite sınırları](sql-data-warehouse-service-capacity-limits.md)
-## [T-SQL dil öğeleri](sql-data-warehouse-reference-tsql-language-elements.md)
-## [T-SQL bildirimleri](sql-data-warehouse-reference-tsql-statements.md)
-## [T-SQL sistem görünümleri](sql-data-warehouse-reference-tsql-system-views.md)
+## T-SQL
+### [Tam başvuru](https://docs.microsoft.com/sql/t-sql/language-reference/)
+### [SQL DW dil öğeleri](sql-data-warehouse-reference-tsql-language-elements.md)
+### [SQL DW deyimleri](sql-data-warehouse-reference-tsql-statements.md)
+## [Sistem görünümleri](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell cmdlet'leri](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=databases)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
+## [Özellik istekleri](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Destek](sql-data-warehouse-get-started-create-support-ticket.md)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## İş Ortakları
