@@ -24,6 +24,8 @@ Azure Container Service; Azure portalı, Azure komut satırı araçları ve Azur
 
 [ACS Altyapısı](http://github.com/Azure/acs-engine), yetkili kullanıcıların her düzeyde küme yapılandırmasını özelleştirmesine olanak tanıya bir açık kaynak projesidir. Hem altyapı hem de yazılım yapılandırmasını değiştirmeye yönelik bu özellik, ACS Altyapısı için SLA sunulmadığı anlamına gelir. Destek, resmi Microsoft kanalları yerine GitHub üzerinde açık kaynak projesi üzerinden gerçekleştirilir. 
 
+Ek ayrıntılar için lütfen [kapsayıcılar için destek ilkemize](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers) bakın.
+
 ## <a name="cluster-management"></a>Küme yönetimi
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Kümem için nasıl SSH anahtarları oluşturabilirim?

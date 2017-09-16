@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/27/2017
+ms.date: 09/03/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>İlk Azure Resource Manager şablonunuzu oluşturma ve dağıtma
 Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adımları gösterilmektedir. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md). Kaynaklarınız varsa ve bu kaynaklara yönelik bir şablon almak istiyorsanız bkz. [Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
 
-Şablonları oluşturup düzeltmek için bir JSON düzenleyicisi gerekir. [Visual Studio Code](https://code.visualstudio.com/) basit, açık kaynaklı ve platformlar arası bir kod düzenleyicisidir. Resource Manager şablonları oluşturmak için Visual Studio Code kullanılması önerilir. Bu konu başlığı, VS Code kullandığınızı varsayar; ancak başka bir JSON düzenleyiciniz (Visual Studio gibi) varsa kullanabilirsiniz.
+Şablonları oluşturup düzeltmek için bir JSON düzenleyicisi gerekir. [Visual Studio Code](https://code.visualstudio.com/) basit, açık kaynaklı ve platformlar arası bir kod düzenleyicisidir. Resource Manager şablonları oluşturmak için Visual Studio Code kullanılması önerilir. Bu makalede, VS Code kullandığınız varsayılmıştır. Başka bir JSON düzenleyiciniz (Visual Studio gibi) varsa kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -216,7 +216,7 @@ Depolama hesabı adının eklediğiniz değişkene ayarlandığına dikkat edin.
 
 Dosyanızı kaydedin. 
 
-Bu makaledeki adımları tamamladıktan sonra, artık şablonunuz şöyle görünür:
+Şablonunuz şimdi şuna benzer görünmelidir:
 
 ```json
 {
@@ -289,6 +289,141 @@ Cloud Shell için, değiştirdiğiniz şablonu dosya paylaşımına yükleyin. V
 az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
+## <a name="use-autocomplete"></a>Otomatik Tamamlama kullanma
+
+Şablondaki şimdiye kadarki çalışmalarınız bu makaleden JSON kodlarını kopyalamak ve yapıştırmaktan ibaretti. Ancak, kendi şablonlarınızı geliştirirken, kaynak türü için kullanılabilir olan değerleri ve özellikleri bulmanız ve belirtmeniz gerekir. VS Code, şemayı okuyup kaynak türünü bulur ve özellikler ve değerler önerir. Otomatik Tamamlama özelliğini görmek için şablonunuzun özellikler öğesine gidip ve yeni bir satır ekleyin. Tırnak işareti girdiğinizde VS Code hemen özellikler öğesi altında kullanılabilir adları önerir.
+
+![Kullanılabilir özellikler göster](./media/resource-manager-create-first-template/show-properties.png)
+
+**Şifreleme**’yi seçin. İki nokta üst üste (:) girdiğinizde VS Code yeni bir nesne eklemeyi önerir.
+
+![Nesne ekle](./media/resource-manager-create-first-template/add-object.png)
+
+Nesneyi eklemek için sekme veya enter tuşuna basın.
+
+Tekrar bir tırnak işareti girdiğinizde VS Code, şifreleme için kullanılabilir olan özellikleri önerir.
+
+![Şifreleme özelliklerini göster](./media/resource-manager-create-first-template/show-encryption-properties.png)
+
+**Hizmetler**’i seçip VS Code uzantılarını temel alan değerleri eklemeye devam edin:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        }
+    }
+}
+```
+
+Depolama hesabı için blob şifrelemeyi etkinleştirdiniz. Ancak, VS Code bir sorun belirledi. Bu şifrelemede bir uyarı olduğuna dikkat edin.
+
+![Şifreleme uyarısı](./media/resource-manager-create-first-template/encryption-warning.png)
+
+Uyarıyı görmek için imlecinizi yeşil çizginin üzerine getirin.
+
+![Eksik özellik](./media/resource-manager-create-first-template/missing-property.png)
+
+Şifreleme öğesinin bir keySource özelliği gerektirdiğini görürsünüz. Hizmetler nesnesinden sonra bir virgül ekleyin ve keySource özelliğini ekleyin. VS Code, geçerli bir değer olarak **"Microsoft.Storage"** önerisinde bulunur. Tamamlandığında, özellikler öğesi şöyle olur:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        },
+        "keySource":"Microsoft.Storage"
+    }
+}
+```
+
+Son şablon şöyledir:
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ],
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "The type of replication to use for the storage account."
+      }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
+    }
+  },
+  "variables": {
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('storageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "Storage",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "encryption":{
+          "services":{
+            "blob":{
+              "enabled":true
+            }
+          },
+          "keySource":"Microsoft.Storage"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+## <a name="deploy-encrypted-storage"></a>Şifrelenmiş depolama dağıtma
+
+Bir kez daha şablonu dağıtın ve yeni bir depolama hesabı adı girin.
+
+PowerShell için şunu kullanın:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix storesecure
+```
+
+Azure CLI için şunu kullanın:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
+Cloud Shell için, değiştirdiğiniz şablonu dosya paylaşımına yükleyin. Var olan dosyanın üzerine yazın. Ardından, aşağıdaki komutu kullanın:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Artık gerekli değilse, kaynak grubunu silerek dağıttığınız kaynakları temizleyin.
@@ -306,6 +441,7 @@ az group delete --name examplegroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+* Şablon geliştirme ile ilgili daha fazla yardım için bir VS Code uzantısı yükleyebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager şablonu oluşturmak için Visual Studio Code uzantısı kullanma](resource-manager-vscode-extension.md)
 * Bir şablonun yapısı hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 * Bir depolama hesabının özellikleri hakkında bilgi edinmek için bkz. [depolama hesapları şablon başvurusu](/azure/templates/microsoft.storage/storageaccounts).
 * Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).

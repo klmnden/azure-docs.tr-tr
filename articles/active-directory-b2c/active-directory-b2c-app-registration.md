@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 3d4fe2fa10d848c8b29e4d22d284c0d378f07ae0
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Uygulamanızı kaydetme
@@ -31,6 +31,8 @@ Tüketicinin kaydolmasını ve oturum açmasını kabul eden bir uygulama oluşt
 
 Azure portalında Azure AD B2C dikey penceresinden oluşturulan uygulamaların aynı konumdan yönetilmesi gerekir. B2C uygulamalarını PowerShell veya başka bir portal kullanarak düzenlerseniz bu uygulamalar desteklenmez duruma gelir ve Azure AD B2C ile çalışmaz. [Hatalı uygulamalar](#faulted-apps) bölümünden ayrıntılara bakabilirsiniz. 
 
+Bu makalede örneklerimizle çalışmaya başlamanıza yardımcı olacak örnekler kullanır. Bu örnekler hakkında sonraki makalelerinde daha fazla bilgi edinebilirsiniz.
+
 ## <a name="navigate-to-b2c-settings"></a>B2C ayarlarına gidin
 
 [Azure portalında](https://portal.azure.com/) B2C kiracısının Genel Yöneticisi olarak oturum açın. 
@@ -39,13 +41,13 @@ Azure portalında Azure AD B2C dikey penceresinden oluşturulan uygulamaların a
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Sonraki adımları kaydettirmekte olduğunuz uygulama türüne göre seçin:
+## <a name="choose-next-steps-based-on-your-application-type"></a>Uygulama türüne göre sonraki adımları seçin
 
 * [Web uygulaması kaydetme](#register-a-web-app)
 * [Web API’si kaydetme](#register-a-web-api)
 * [Mobil veya yerel bir uygulamayı kaydetme](#register-a-mobile-or-native-app)
  
-## <a name="register-a-web-app"></a>Web uygulaması kaydetme
+### <a name="register-a-web-app"></a>Web uygulaması kaydetme
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
@@ -59,7 +61,7 @@ Web uygulamanız Azure AD B2C tarafından güvence altına alınmış bir web AP
 
 [Sonraki **adımlara geçin**](#next-steps)
 
-## <a name="register-a-web-api"></a>Web API’si kaydetme
+### <a name="register-a-web-api"></a>Web API’si kaydetme
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -67,7 +69,7 @@ Gereken diğer kapsamları eklemek için **Yayımlanan kapsamlar**’a tıklayı
 
 [Sonraki **adımlara geçin**](#next-steps)
 
-## <a name="register-a-mobile-or-native-app"></a>Mobil veya yerel bir uygulamayı kaydetme
+### <a name="register-a-mobile-or-native-app"></a>Mobil veya yerel bir uygulamayı kaydetme
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 

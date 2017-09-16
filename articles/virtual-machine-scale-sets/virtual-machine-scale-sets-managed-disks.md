@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM ölçek kümeleri ve yönetilen diskler
@@ -30,9 +30,9 @@ Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), yön
 
 * Yönetilen veri disklerini ölçek kümesine ekleyebilirsiniz.
 
-* Yönetilen diskler sayesinde ölçek kümesinin kapasitesi, platform görüntüsü tabanlıysa 1.000 VM'e veya özel bir görüntü tabanlıysa 100 VM'e kadar çıkabilir.
+* Yönetilen diskler sayesinde ölçek kümesinin kapasitesi, platform görüntüsü tabanlıysa 1.000 VM'e veya özel bir görüntü tabanlıysa 300 VM'e kadar çıkabilir.
 
-## <a name="get-started"></a>Başlarken
+## <a name="get-started"></a>başlarken
 
 Yönetilen disk ölçek kümelerini kullanmaya başlamanın basit bir yolu bunların birini Azure portalından dağıtmaktır. Daha fazla bilgi için [bu makaleye](./virtual-machine-scale-sets-portal-create.md) bakın. Başlamak için başka bir basit yol da [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) ile bir ölçek kümesi dağıtmaktır. Aşağıdaki örnekte, her biri 50 GB ve 100 GB’lık veri disklerine sahip 10 VM içeren Ubuntu tabanlı bir ölçek kümesinin nasıl oluşturulacağı gösterilmektedir:
 

@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -170,8 +170,7 @@ Otomasyon eklemek için önerilen yöntem, Market’ten Otomasyon ve Denetim tek
    - Yeni **OMS Çalışma Alanı** için bir ad belirtin.
    - Varsayılan seçili abonelik uygun değilse açılan listeden bağlanacak bir **Abonelik** seçin.
    - **Kaynak Grubu** için bir kaynak grubu oluşturabilir veya mevcut bir kaynak grubunu seçebilirsiniz.  
-   - Bir **Konum** seçin.  Şu anda yalnızca **Avustralya Güneydoğu**, **Doğu ABD**, **Güneydoğu Asya**, **Batı Orta ABD** ve **Batı Avrupa** konumları kullanılabilir.
-   - Bir **Fiyatlandırma katmanı** seçin.  Çözüm iki katmanda sunulur: ücretsiz ve Düğüm Başına (OMS) katmanı.  Ücretsiz katmanında günlük toplanan veri miktarı, elde tutma süresi ve runbook işi çalışma zamanı dakika sayısına ilişkin sınırlar vardır.  Düğüm Başına (OMS) katmanında günlük toplanan veri miktarı için bir sınır yoktur.  
+   - Bir **Konum** seçin.  Ek bilgi için bkz. [Azure Otomasyonunun sunulduğu bölgeler](https://azure.microsoft.com/regions/services/).  Çözümler iki katmanda sunulur: ücretsiz ve Düğüm Başına (OMS) katmanı.  Ücretsiz katmanında günlük toplanan veri miktarı, elde tutma süresi ve runbook işi çalışma zamanı dakika sayısına ilişkin sınırlar vardır.  Düğüm Başına (OMS) katmanında günlük toplanan veri miktarı için bir sınır yoktur.  
    - **Otomasyonu Hesabı**’nı seçin.  Yeni bir OMS çalışma alanı oluşturuyorsanız Azure aboneliğiniz, kaynak grubunuz ve bölgeniz dahil olmak üzere belirtilen yeni OMS çalışma alanı ile ilişkilendirilen bir Otomasyon hesabı da oluşturmanız gerekir.  **Otomasyon hesabı oluştur**’u seçin ve **Otomasyon Hesabı** dikey penceresinde aşağıdaki bilgileri girin: 
   - **Ad** alanına Otomasyon hesabının adını girin.
 

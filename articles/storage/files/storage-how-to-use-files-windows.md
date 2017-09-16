@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67b8e2e0039c8bc63f50f177e3c0d18b07df45e6
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -27,16 +27,19 @@ ms.lasthandoff: 08/21/2017
 
 Bir Azure Dosya paylaşımını, barındırıldığı Azure bölgesinin dışında bağlamak için (örneğin, şirket içinde veya farklı bir Azure bölgesinde) işletim sisteminin SMB 3.0'ı desteklemesi gerekir. 
 
-Azure Dosya paylaşımı, işletim sistemi sürümüne bağlı olarak şirket içindeki Windows makinesine veya Azure sanal makinesine bağlanabilir. Aşağıdaki tabloda şunlar gösterilir: 
+Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azure dosya paylaşımlarını bağlayabilirsiniz. Hangi işletim sistemi sürümlerinin hangi ortamlarda dosya paylaşımlarını bağlamayı desteklediği aşağıdaki tabloda gösterilmiştir:
 
-| Windows Sürümü        | SMB Sürümü |Azure VM'ye Bağlanabilir|Şirket İçine Bağlanabilir|
-|------------------------|-------------|---------------------|---------------------|
-| Windows 7              | SMB 2.1     | Evet                 | Hayır                  |
-| Windows Server 2008 R2 | SMB 2.1     | Evet                 | Hayır                  |
-| Windows 8              | SMB 3.0     | Evet                 | Evet                 |
-| Windows Server 2012    | SMB 3.0     | Evet                 | Evet                 |
-| Windows Server 2012 R2 | SMB 3.0     | Evet                 | Evet                 |
-| Windows 10             | SMB 3.0     | Evet                 | Evet                 |
+| Windows Sürümü        | SMB Sürümü | Azure VM'de Bağlanabilir | Şirket İçinde Bağlanabilir |
+|------------------------|-------------|-----------------------|----------------------|
+| Windows 10<sup>1</sup>  | SMB 3.0 | Evet | Evet |
+| Windows Server 2016    | SMB 3.0     | Evet                   | Evet                  |
+| Windows 8.1            | SMB 3.0     | Evet                   | Evet                  |
+| Windows Server 2012 R2 | SMB 3.0     | Evet                   | Evet                  |
+| Windows Server 2012    | SMB 3.0     | Evet                   | Evet                  |
+| Windows 7              | SMB 2.1     | Evet                   | Hayır                   |
+| Windows Server 2008 R2 | SMB 2.1     | Evet                   | Hayır                   |
+
+<sup>1</sup>Windows 10, 1507, 1511, 1607 ve 1703 sürümleri
 
 > [!Note]  
 > Her zaman Windows sürümünüz için en yeni KB’yi almanızı öneririz.

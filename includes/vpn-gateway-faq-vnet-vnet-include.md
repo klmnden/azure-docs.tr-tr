@@ -24,6 +24,10 @@ Hayır. Sanal ağlar aynı ya da farklı Azure bölgelerinde (konumlarında) bul
 
 Hayır.
 
+### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Farklı Azure örneklerinde sanal ağları bağlamak için Sanal Ağdan Sanal Ağa bağlantı kullanabilir miyim? 
+
+Hayır. Sanal Ağdan Sanal Ağa, aynı Azure örneğindeki sanal ağları bağlamayı destekler. Örneğin, genel bir Azure örneği ve Çin / Almanya/ ABD Azure örnekleri arasında bağlantı oluşturamazsınız. Bu senaryolar için Siteden Siteye VPN bağlantısı kullanmak isteyebilirsiniz.
+
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Sanal Ağdan Sanal Ağa bağlantıyı çoklu site bağlantılarıyla birlikte kullanabilir miyim?
 
 Evet. Sanal ağ bağlantısı, çoklu site VPN’leri ile eşzamanlı olarak kullanılabilir.

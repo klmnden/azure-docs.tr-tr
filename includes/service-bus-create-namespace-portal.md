@@ -2,7 +2,7 @@ Azure'da Service Bus kuyruklarını kullanmaya başlamak için öncelikle Azure�
 
 Ad alanı oluşturmak için:
 
-1. [Azure portalında][Azure portal] oturum açın.
+1. [Azure Portal][Azure portal]’da oturum açın.
 2. Portalın sol gezinti bölmesinde **Yeni**'ye tıklayın, ardından **Enterprise Integration**'a ve **Service Bus**'a tıklayın.
 3. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
 4. Ad alanı adının kullanılabilir durumda olduğundan emin olduktan sonra fiyatlandırma katmanını (Temel, Standart veya Premium) seçin.
@@ -14,6 +14,7 @@ Ad alanı oluşturmak için:
 8. **Oluştur**’a tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
 
 ### <a name="obtain-the-management-credentials"></a>Yönetim kimlik bilgilerini alma
+Yeni bir ad alanı oluşturulduğunda, ad alanının tüm yönleri üzerinde tam denetim veren ilişkili bir çift birincil ve ikincil anahtara sahip bir ilk Paylaşılan Erişim İmzası (SAS) kuralı otomatik olarak oluşturulur. Sıradan göndericiler ve alıcılar için daha kısıtlı haklar içeren başka kurallar oluşturma hakkında [Service Bus kimlik doğrulama ve yetkilendirme](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) konusuna bakın. İlk kuralı kopyalamak için aşağıdaki adımları takip edin: 
 
 1. Ad alanları listesinde, yeni oluşturulan ad alanı adına tıklayın.
 2. Ad alanı dikey penceresinde, **Paylaşılan erişim ilkeleri**'ne tıklayın.

@@ -1,4 +1,4 @@
-Azure Media Services öğrenme yollarını buradan görüntüleyebilirsiniz:
+Azure Media Services'i öğrenme yolları hakkında bilgi için:
 
-* [Media Services Canlı Akış İş Akışı](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Media Services İsteğe Bağlı Akış İş Akışı](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+* [Media Services canlı akış iş akışı](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [Media Services isteğe bağlı akış iş akışı](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
