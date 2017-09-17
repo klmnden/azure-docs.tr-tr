@@ -1,0 +1,71 @@
+- name: Azure IoT Hub Cihaz Sağlama Hizmeti Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: IoT Cihaz Sağlama Hakkında
+      href: about-iot-dps.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Otomatik sağlamayı ayarlama
+      href: quick-setup-auto-provision.md
+    - name: Sanal cihaz oluşturma
+      href: quick-create-simulated-device.md
+- name: Öğreticiler
+  items:
+    - name: 1 - Bulut kaynaklarını ayarlama
+      href: tutorial-set-up-cloud.md
+    - name: 2 - Cihaz ayarlama
+      href: tutorial-set-up-device.md
+    - name: 3 - Bir IoT hub’ına cihaz sağlama
+      href: tutorial-provision-device-to-hub.md
+    - name: 4 - Birden çok hub’a cihaz sağlama
+      href: tutorial-provision-multiple-hubs.md
+- name: Kavramlar
+  items:
+    - name: Cihaz kavramları
+      href: concepts-device.md
+    - name: Hizmet kavramları
+      href: concepts-service.md
+    - name: Güvenlik kavramları
+      href: concepts-security.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Cihaz kayıtlarını yönetme
+      href: how-to-manage-enrollments.md
+- name: Başvuru
+  items:
+    - name: REST
+      href: /rest/api/iot-dps
+- name: Kaynaklar
+  items:
+    - name: Azure IoT Hub'ı
+      href: 'https://azure.microsoft.com/services/iot-hub/'
+    - name: IoT için Azure Sertifikalı cihaz kataloğu
+      href: 'https://catalog.azureiotsuite.com/'
+    - name: Azure IoT Geliştirici Merkezi
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Device Explorer aracı
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: iothub-diagnostics tool
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: iothub-explorer tool
+      href: 'https://github.com/Azure/iothub-explorer'
+    - name: Öğrenme yolu
+      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Teknik örnek olay incelemeleri
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'
