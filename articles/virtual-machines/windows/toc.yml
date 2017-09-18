@@ -49,56 +49,33 @@
       href: cli-samples.md
 - name: Kavramlar
   items:
+    - name: Azure Resource Manager
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Bölgeler ve kullanılabilirlik
       href: regions-and-availability.md
+    - name: VM türleri ve boyutları
+      href: sizes.md
+    - name: Bakım ve güncelleştirmeler
+      href: maintenance-and-updates.md
     - name: Depolama
       href: about-disks-and-vhds.md
     - name: Ağ
       href: network-overview.md
-    - name: VM Ölçek Kümeleri
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Kapsayıcılar
-      href: containers.md
-    - name: Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-        - name: Dağıtım modelleri
-          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: VM’ler için şablonlar
-          href: template-description.md
-    - name: Azure Windows aracısı
-      href: agent-user-guide.md
-    - name: Azure Güvenlik Merkezi
-      href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Olağanüstü durum kurtarma
-      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Planlı bakım
-      href: planned-maintenance.md
-    - name: VM boyutları
-      href: sizes.md
-      items:
-        - name: Genel amaçlı
-          href: sizes-general.md
-        - name: İşlem için iyileştirilmiş
-          href: sizes-compute.md
-        - name: Bellek için iyileştirilmiş
-          href: sizes-memory.md
-        - name: Depolama için iyileştirilmiş
-          href: sizes-storage.md
-        - name: GPU için iyileştirilmiş
-          href: sizes-gpu.md
-          items:
-            - name: GPU sürücüleri
-              href: n-series-driver-setup.md
-        - name: Yüksek performanslı işlem
-          href: sizes-hpc.md
-        - name: Azure işlem birimleri (ACU)
-          href: acu.md
-        - name: Kıyaslama puanlarını hesaplama
-          href: compute-benchmark-scores.md
+    - name: Uygulamaları otomatik ölçeklendirme
+      href: autoscale.md
+    - name: Altyapı otomasyonu
+      href: infrastructure-automation.md
+    - name: Güvenlik ve ilke
+      href: security-policy.md
+    - name: İzleme
+      href: monitor.md
+    - name: Yedekleme ve kurtarma
+      href: backup-recovery.md
+    - name: Yüksek performanslı bilgi işlem
+      href: high-performance-computing.md
     - name: Dağıtma konuları
       items:
-        - name: Örnek temel dağıtım
+        - name: Altyapı yönergeleri
           href: infrastructure-example.md
 - name: Nasıl yapılır kılavuzları
   items:

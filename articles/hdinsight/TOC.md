@@ -61,10 +61,12 @@
 ## Bellek içi işleme için Spark’ı kullanma
 ### Kullanmaya başlama - Spark geliştiricisi
 #### [Tek başına uygulama oluşturma](hdinsight-apache-spark-create-standalone-application.md)
-#### [Livy ile uzak işler](hdinsight-apache-spark-livy-rest-interface.md) 
+#### [Etkileşimli bir Spark Shell kullanma](hdinsight-spark-shell.md)
+#### [Livy ile uzak işler](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Data Lake Store ile](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Eclipse kullanarak uygulama oluşturma](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [IntelliJ kullanarak uygulama oluşturma](hdinsight-apache-spark-intellij-tool-plugin.md)
+### [Spark Streaming nedir?](hdinsight-spark-streaming-overview.md)
 ### [Akış olaylarını işleme](hdinsight-apache-spark-eventhub-streaming.md)
 ### [HVAC performansını tahmin etme](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Gıda denetimi sonuçlarını tahmin etme](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -109,6 +111,7 @@
 ### [Kafka verilerini çoğaltma](hdinsight-apache-kafka-mirroring.md)
 ### [Kafka depolama ve ölçeklenebilirlik yapılandırması](hdinsight-apache-kafka-scalability.md)
 ### [Verilerin yüksek kullanılabilirliğini yapılandırma](hdinsight-apache-kafka-high-availability.md)
+### [Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)
 ### [Sanal Ağlar ile kullanma](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Spark (Yapılandırılmış Akış) ile kullanma](hdinsight-apache-kafka-spark-structured-streaming.md)
 ### [Spark (DStream) ile kullanma](hdinsight-apache-spark-with-kafka.md)

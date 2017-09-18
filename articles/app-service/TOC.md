@@ -130,6 +130,7 @@
 ## Tümleştirme
 ### [Azure ile SendGrid kullanarak e-posta gönderme](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [PowerApps ve Microsoft Flow’a dışarı aktarma](app-service-export-api-to-powerapps-and-flow.md)
+### [Yönetilen Hizmet Kimliğini Kullanma](app-service-managed-service-identity.md)
 
 ## Sorun giderme
 ### [Tanılama günlüğünü etkinleştirme](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)

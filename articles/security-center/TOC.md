@@ -13,35 +13,27 @@
 ## [Planlama ve işlemler](security-center-planning-and-operations-guide.md)
 ## [İzinler](security-center-permissions.md)
 ## [Desteklenen platformlar](security-center-os-coverage.md)
-## [İş ortağı tümleştirmesi](security-center-partner-integration.md)
 ## [SSS](security-center-faq.md)
 
 # Nasıl yapılır?
 
-## Önleme
+## Güvenlik ilkesi
+### [Veri toplama](security-center-enable-data-collection.md)
 ### [Güvenlik ilkeleri ayarlama](security-center-policies.md)
-### [Tam zamanında erişim](security-center-just-in-time.md)
-### [Güvenlik önerileri uygulama](security-center-recommendations.md)
 
-### [Uygulama önerileri](security-center-application-recommendations.md)
-#### [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md)
-#### [Uygulama korumasını sonlandırma](security-center-add-web-application-firewall.md#finalize-application-protection)
+## [Hazırlama](security-center-onboarding.md)
+## [Olaylar](security-center-events-dashboard.md)
+## [Search](security-center-search.md)
 
-### [Ağ önerileri](security-center-network-recommendations.md)
-#### [Yeni nesil güvenlik duvarı ekleme](security-center-add-next-generation-firewall.md)
-#### [Ağ Güvenlik Gruplarını Etkinleştirme](security-center-enable-network-security-groups.md)
-#### [İnternet’e yönelik uç noktalarla erişimi sınırlama](security-center-restrict-access-through-internet-facing-endpoints.md)
-#### [Trafiği yalnızca NGFW aracılığıyla yönlendirme](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
+## Önleme
+### [Güvenlik durumunu izleme](security-center-monitoring.md)
+### [Önerileri yönetme](security-center-recommendations.md)
+### [İş ortağı çözümlerini tümleştirme](security-center-partner-integration.md)
+### [İş ortağı çözümlerini izleme](security-center-partner-solutions.md)
 
-### [SQL hizmet önerileri](security-center-sql-service-recommendations.md)
-#### [SQL veritabanlarında denetim ve tehdit algılamayı etkinleştirme](security-center-enable-auditing-on-sql-databases.md)
-#### [SQL sunucularında denetim ve tehdit algılamayı etkinleştirme](security-center-enable-auditing-on-sql-servers.md)
-#### [Saydam Veri Şifrelemesini Etkinleştirme](security-center-enable-transparent-data-encryption.md)
-
-### [Sanal makine önerileri](security-center-virtual-machine-recommendations.md)
+### [İşlem](security-center-virtual-machine-recommendations.md)
 #### [Disk şifrelemesi uygulayın](security-center-apply-disk-encryption.md)
 #### [Sistem güncelleştirmelerini uygulayın](security-center-apply-system-updates.md)
-#### [Veri toplamayı etkinleştirme](security-center-enable-data-collection.md)
 #### [Depolama hesabı için şifrelemeyi etkinleştirme](security-center-enable-encryption-for-storage-account.md)
 #### [VM Aracısını etkinleştirin](security-center-enable-vm-agent.md)
 #### [Endpoint Protection’ı yükleyin](security-center-install-endpoint-protection.md)
@@ -52,8 +44,22 @@
 #### [İşletim sistemi sürümünü güncelleştirme](security-center-update-os-version.md)
 #### [Güvenlik açığı değerlendirmesi yüklü değil](security-center-vulnerability-assessment-recommendations.md)
 
-### [Güvenlik durumunu izleme](security-center-monitoring.md)
-### [İş ortağı çözümlerini izleme](security-center-partner-solutions.md)
+### [Ağ](security-center-network-recommendations.md)
+#### [Yeni nesil güvenlik duvarı ekleme](security-center-add-next-generation-firewall.md)
+#### [Ağ Güvenlik Gruplarını Etkinleştirme](security-center-enable-network-security-groups.md)
+#### [İnternet’e yönelik uç noktalarla erişimi sınırlama](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Trafiği yalnızca NGFW aracılığıyla yönlendirme](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
+
+### [Depolama ve veriler](security-center-sql-service-recommendations.md)
+#### [SQL veritabanlarında denetim ve tehdit algılamayı etkinleştirme](security-center-enable-auditing-on-sql-databases.md)
+#### [SQL sunucularında denetim ve tehdit algılamayı etkinleştirme](security-center-enable-auditing-on-sql-servers.md)
+#### [Saydam Veri Şifrelemesini Etkinleştirme](security-center-enable-transparent-data-encryption.md)
+
+### [Uygulamalar](security-center-application-recommendations.md)
+#### [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md)
+#### [Uygulama korumasını sonlandırma](security-center-add-web-application-firewall.md#finalize-application-protection)
+
+### [Kimlik ve Erişim](security-center-identity-access.md)
 
 ## Algılama ve Yanıtlama
 ### [Tanılama özellikleri](security-center-detection-capabilities.md)
@@ -62,7 +68,12 @@
 ### [Uyarı doğrulaması](security-center-alert-validation.md)
 ### [Güvenlik olaylarını yönetme](security-center-incident.md)
 ### [Azure günlük tümleştirmesi](security-center-integrating-alerts-with-log-integration.md)
+### [Tehdit bilgileri haritası](security-center-threat-intel.md)
 ### [Tehdit zekası raporu](security-center-threat-report.md)
+
+## Bulut savunma
+### [Tam zamanında erişim](security-center-just-in-time.md)
+### [Uyarlamalı uygulama denetimleri](security-center-adaptive-application.md)
 
 ## Sorun giderme
 ### [Sorun giderme kılavuzu](security-center-troubleshooting-guide.md)

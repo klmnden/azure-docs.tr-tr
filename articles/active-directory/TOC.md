@@ -135,9 +135,9 @@
 ### [Azure AD'ye Katılım’ı Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [SSS](device-management-faq.md)
 ### Görevler
-#### [Azure AD alanında kayıtlı Windows 10 cihazlarını yapılandırma](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Azure AD alanına katılmış cihazları yapılandırma](device-management-azuread-joined-devices-setup.md)
-#### [Karma Azure AD alanına katılmış cihazları yapılandırma](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Azure AD alanında kayıtlı Windows 10 cihazlarını ayarlama](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Azure AD alanına katılmış cihazları ayarlama](device-management-azuread-joined-devices-setup.md)
+#### [Karma Azure AD alanına katılmış cihazları ayarlama](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Şirket içi dağıtma](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD katılımı sırasında Windows 10’u ilk kez çalıştırma deneyimi](device-management-azuread-joined-devices-frx.md)
 ### Sorun giderme
@@ -266,34 +266,21 @@
 
 ### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](./connect/active-directory-aadconnect.md)
 
+## [Azure’a erişimi yönetme](toc.yml)
+
 ## Kaynaklara temsilci erişimi
 ### [Yönetici rolleri](active-directory-assign-admin-roles.md)
 #### [Yönetici rolleri atama](active-directory-users-assign-role-azure-portal.md)
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
-### [Azure’da kaynak erişimi](active-directory-understanding-resource-access.md)
-### [Rol Tabanlı Access Control](role-based-access-control-what-is.md)
-#### Erişim atamalarını yönetme
-##### [Kullanıcıya göre](role-based-access-control-manage-assignments.md)
-##### [Kaynağa göre](role-based-access-control-configure.md)
-#### [Yerleşik roller](role-based-access-built-in-roles.md)
-#### [Özel roller](role-based-access-control-custom-roles.md)
-#### [İç ve dış kullanıcılar için özel roller atama](role-based-access-control-create-custom-roles-for-internal-external-users.md)
-#### [Raporlama](role-based-access-control-access-change-history-report.md)
-#### Daha fazla rol yönetme yolu
-##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
-#### [Kiracı yönetici erişimini yükseltme](role-based-access-control-tenant-admin-access.md)
-#### [Sorun giderme](role-based-access-control-troubleshooting.md)
-#### [Kaynak Sağlayıcısı işlemleri](role-based-access-control-resource-provider-operations.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
+#### [Denetimler](active-directory-conditional-access-controls.md)
 #### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
 #### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
-#### [Görevler]
+#### Görevler
 ##### [Cihaz tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Uygulama tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-mam.md)
 ##### [VPN bağlantısı ayarlama](active-directory-conditional-access-vpn-connectivity-windows10.md)

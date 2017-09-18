@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Stack belgeleri
+metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: 'Azure Stack Belgeleri - Öğreticiler, API Başvurusu'
+  description: Azure Stack önizleme sürümünü kullanarak veri merkezinizden Azure hizmetleri sunmayı öğrenin. Bir kavram kanıtı ortamından özellikleri öğrenin ve tanıtın.
+  services: azure-stack
+  author: czeumault
+  manager: carolz
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/28/2017
+  ms.author: carolz
+abstract:
+  description: 'Microsoft Azure Stack, veri merkezinden Azure hizmetleri sağlama olanağı sunan bir karma bulut platformudur. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizle Azure Stack dağıtmayı ve hizmetler sunmayı öğrenin.'
+sections:
+  - title: Hızlı Başlangıç
+    items:
+      - type: paragraph
+        text: 'Donanımınızı ayarlama ve Azure Stack dağıtma:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
+            text: Azure Stack dağıtma
+            href: azure-stack-deploy-overview.md
+  - title: Adım adım öğreticiler
+    items:
+      - type: paragraph
+        text: 'Azure Stack dağıtımınıza hizmet eklemeyi öğrenin:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Azure Stack üzerinde Sanal Makineleri etkinleştirme</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Azure Stack üzerinde SQL Veritabanlarını etkinleştirme</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Azure Stack üzerinde Web Apps etkinleştirme</a>
+          - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Azure ve Azure Stack arasında uygulamalar dağıtma</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>

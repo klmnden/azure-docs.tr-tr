@@ -28,6 +28,7 @@
 ### [İlke ve zamanlamalar ayarlama](devtest-lab-set-lab-policy.md)
 ### [Maliyet yönetimini yapılandırma](devtest-lab-configure-cost-management.md)
 ### [Market görüntülerini yapılandırma](devtest-lab-configure-marketplace-images.md)
+### [Laboratuvara etiket ekleme](devtest-lab-add-tag.md)
 
 ## [Özel görüntü veya formül seçme](devtest-lab-comparing-vm-base-image-types.md)
 

@@ -103,6 +103,8 @@
           href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: PowerApps’ten bir işlev çağırma
           href: functions-powerapps-scenario.md
+        - name: Yönetilen Hizmet Kimliğini Kullanma
+          href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Başvuru
   items:
     - name: Bağlamalar
@@ -147,6 +149,8 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Bölgesel kullanılabilirlik
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Videolar
+      href: 'https://www.youtube.com/c/AzureFunctions'
     - name: MSDN forumu
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
     - name: Stack Overflow

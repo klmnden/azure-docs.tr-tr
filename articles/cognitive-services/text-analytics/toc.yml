@@ -1,0 +1,56 @@
+- name: Metin Analizleri Belgeleri
+  href: index.md
+- name: Genel Bakış
+  items:
+    - name: Metin Analizi hakkında
+      href: overview.md
+- name: Hızlı Başlangıçlar
+  items:
+    - name: 'C#'
+      href: Quickstarts/CSharp.md
+    - name: Java
+      href: Quickstarts/Java.md
+    - name: Node.js
+      href: Quickstarts/NodeJS.md
+    - name: Python
+      href: Quickstarts/Python.md
+    - name: Ruby
+      href: Quickstarts/Ruby.md
+    - name: PHP
+      href: Quickstarts/PHP.md
+- name: Öğreticiler
+  items:
+    - name: Power BI ile Metin Analizi
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Kaydolma
+      href: How-tos/text-analytics-how-to-signup.md
+    - name: Bir erişim anahtarı alma
+      href: How-tos/text-analytics-how-to-access-key.md
+    - name: Metin Analizi API’sini çağırma
+      href: How-tos/text-analytics-how-to-call-api.md
+    - name: Dili algılama
+      href: How-tos/text-analytics-how-to-language-detection.md
+    - name: Yaklaşımı analiz etme
+      href: How-tos/text-analytics-how-to-sentiment-analysis.md
+    - name: Anahtar ifadeleri ayıklama
+      href: How-tos/text-analytics-how-to-keyword-extraction.md
+- name: Başvuru
+  items:
+    - name: API Başvurusu
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
+    - name: .Net Standart SDK
+      href: 'https://aka.ms/tasdkdotnet'
+- name: Kaynaklar
+  items:
+    - name: Dış içerik ve topluluk içeriği
+      href: text-analytics-resource-external-community.md
+    - name: SSS
+      href: text-analytics-resource-faq.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: User Voice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

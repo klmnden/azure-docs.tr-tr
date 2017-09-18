@@ -183,9 +183,9 @@
 ### [İndirme ile teslim etme](media-services-deliver-asset-download.md)
 ### [Akış yük devretme senaryosu](media-services-implement-failover.md)
 
-## Tüketme
-### [Mevcut yürütücüler ile medya kayıttan yürütme](media-services-playback-content-with-existing-players.md)
-### [Media Player ile medya kayıttan yürütme](media-services-develop-video-players.md)
+## Kayıttan yürütme
+### [Mevcut yürütücüler ile kayıttan medya yürütme](media-services-playback-content-with-existing-players.md)
+### [Media Player ile kayıttan medya yürütme](media-services-develop-video-players.md)
 ### Diğer kayıttan yürütme seçenekleri
 #### [Kesintisiz akış Windows Mağazası uygulaması](media-services-build-smooth-streaming-apps.md)
 #### [DASH.js ile HTML5 Uygulaması](media-services-embed-mpeg-dash-in-html5.md)

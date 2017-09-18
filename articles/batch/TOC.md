@@ -64,11 +64,10 @@
 # İlgili
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Batch ve Data Factory kullanarak veri işleme](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Azure bulutta Batch ve HPC çözümleri](batch-hpc-solutions.md)
+## [Azure’da Batch, HPC ve Big Compute çözümleri](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
-## [Big Compute kaynakları](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [C# kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)

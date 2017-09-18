@@ -11,6 +11,8 @@
 ### [İşlem ekleme](api-management-howto-add-operations.md)
 ### [API oluşturma](api-management-howto-create-apis.md)
 ### [Bir API tanımını içeri aktarma](api-management-howto-import-api.md)
+### [Düzeltmeleri kullanmaya başlama](api-management-get-started-revise-api.md)
+### [Sürümleri kullanmaya başlama](api-management-get-started-publish-versions.md)
 ## Arka uç güvenliğini sağlama
 ### [AAD ile Web API arka ucunu koruma](api-management-howto-protect-backend-with-aad.md)
 ### [Sanal ağa bağlanma](api-management-using-with-vnet.md)

@@ -5,6 +5,7 @@
 ## Runbook öğreticisi
 ### [Grafik runbook oluşturma](automation-first-runbook-graphical.md)
 ### [PowerShell runbook’u oluşturma](automation-first-runbook-textual-powershell.md)
+### [İlk Python runbook’um](automation-first-runbook-textual-python2.md)
 ### [PowerShell İş Akışı runbook’u oluşturma](automation-first-runbook-textual.md)
 # Nasıl yapılır?
 ## Kimlik doğrulama ve güvenlik
@@ -37,7 +38,10 @@
 ### [Azure Otomasyonu runbook’una bir JSON nesnesi geçirme](automation-pass-json-string.md)
 ## Karma Runbook Çalışanı
 ### [Karma Runbook Çalışanı dağıtma](automation-hybrid-runbook-worker.md)
+### [Azure Otomasyonu Windows Karma Runbook Çalışanı](automation-windows-hrw-install.md)
+### [Azure Otomasyonu Linux Karma Runbook Çalışanı](automation-linux-hrw-install.md)
 ### [Çalışan üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md)
+### [Azure Otomasyon Karma Runbook Çalışanlarını kaldırma](automation-remove-hrw.md)
 ## Yapılandırma yönetimi (DSC) dağıtma
 ### [İstenen Durum Yapılandırması’na (DSC) genel bakış](automation-dsc-overview.md)
 ### [Başlarken](automation-dsc-getting-started.md)

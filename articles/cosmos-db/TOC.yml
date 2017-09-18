@@ -358,6 +358,8 @@
   items:
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Azure Cosmos DB’yi ücretsiz deneyin
+      href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: SSS
