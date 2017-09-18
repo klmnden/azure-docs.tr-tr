@@ -1,5 +1,5 @@
 ---
-title: "Azure portalında Azure BizTalk Services oluşturma | Microsoft Docs"
+title: "Azure portalında Azure BizTalk Services oluşturma | Microsoft Belgeleri"
 description: "Azure portalında Azure BizTalk Services hazırlamayı veya oluşturmayı öğrenin; MABS, WABS"
 services: biztalk-services
 documentationcenter: 
@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/18/2017
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure portalını kullanarak BizTalk Services oluşturma
@@ -136,7 +136,7 @@ BizTalk Services oluşturulduğunda otomatik olarak oluşturulan otomatik imzal�
 2. BizTalk Hizmet adınızı ekleyen özel SSL sertifikanıza (*CertificateName*.pfx) göz atın, parolayı girin ve ardından onay işaretine tıklayın.
 
 #### <a name="ACS"></a>Access Control ad alanını alma
-1. [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
+1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
 2. Sol gezinti bölmesinde **BIZTALK HİZMETLERİ**’ni, sonra da BizTalk Hizmetini seçin.
 3. Görev çubuğunda **Bağlantı Bilgileri**’ni seçin.  
    ![Bağlantı Bilgilerini seçme][ACSConnectInfo]
@@ -152,7 +152,7 @@ Erişim Denetimi değerleri herhangi bir uygulamayla birlikte kullanılabilir. A
 Erişim Denetimi hizmeti kimliği, uygulamaların veya istemcilerin Erişim Denetimi’yle doğrudan kimlik doğrulaması yapmasını ve belirteç almasını sağlayan bir dizi kimlik bilgisidir.
 
 > [!IMPORTANT]
-> BizTalk Hizmeti varsayılan hizmet kimliği ve **Parola** değeri için **Sahip**’i kullanır. Parola değeri yerine Simetrik Anahtar değeri kullanırsanız aşağıdaki hata oluşabilir.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
+> BizTalk Hizmeti varsayılan hizmet kimliği ve **Parola** değeri için **Sahip**’i kullanır. Parola değeri yerine Simetrik Anahtar değeri kullanırsanız aşağıdaki hata oluşabilir.<br/><br/>*Belirtilen kimlik bilgileriyle Access Control Yönetim Hizmeti hesabına bağlanılamadı*
 > 
 > 
 
