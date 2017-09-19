@@ -1,6 +1,6 @@
 ---
 title: "Azure CDN kullanmaya başlama | Microsoft Docs"
-description: "Bu konu başlığında, Azure Content Delivery Network’ün (CDN) nasıl etkinleştirileceği gösterilmektedir. Öğretici, yeni bir CDN profili ve uç noktası oluşturma işlemi boyunca size yol gösterecektir."
+description: "Bu konu başlığında, Azure İçerik Teslim Ağı'nın (CDN) nasıl etkinleştirileceği gösterilmektedir. Öğretici, yeni bir CDN profili ve uç noktası oluşturma işlemi boyunca size yol gösterecektir."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
-ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
 ms.contentlocale: tr-tr
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="getting-started-with-azure-cdn"></a>Azure CDN kullanmaya başlama
@@ -34,8 +33,13 @@ Bu konu başlığında, yeni bir CDN profili ve uç noktası oluşturarak Azure 
 CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha fazla CDN uç noktası içerir.  CDN uç noktalarınızı İnternet etki alanı, web uygulaması veya başka ölçütlere göre düzenlemek için birden çok profil kullanmak isteyebilirsiniz.
 
 > [!NOTE]
-> Varsayılan olarak, tek bir Azure aboneliği sekiz CDN profili ile sınırlıdır. Her CDN profili, on CDN uç noktası ile sınırlıdır.
-> 
+> Azure aboneliği aşağıdaki kaynaklar için varsayılan sınırlara sahiptir:
+> - Oluşturulabilecek CDN profili sayısı
+> - Bir CDN profilinde oluşturulabilecek uç nokta sayısı 
+> - Bir uç noktasına eşlenebilecek özel etki alanı sayısı
+>
+> CDN aboneliği sınırları hakkında daha fazla bilgi için bkz. [CDN sınırları](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
+>
 > CDN fiyatlandırması, CDN profili düzeyinde uygulanır. Azure CDN fiyatlandırma katmanlarının bir karışımını kullanmak istiyorsanız birden çok CDN profili kullanmanız gerekir.
 > 
 > 
@@ -79,7 +83,9 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
    > CDN içeriğine HTTPS kullanarak erişilmesi şu kısıtlamalara tabidir:
    > 
    > * CDN tarafından sağlanan SSL sertifikasını kullanmanız gerekir. Üçüncü taraf sertifikalar desteklenmez.
-   > * HTTPS içeriğine erişmek için CDN tarafından sağlanan etki alanını (`<endpointname>.azureedge.net`) kullanmanız gerekir. CDN şu an için özel sertifikaları desteklemediğinden özel etki alanı adları (CNAME'ler) için HTTPS desteği mevcut değildir.
+   > * Azure CDN özel etki alanları için HTTPS desteği yalnızca **Azure CDN from Verizon** ürünleri (Standard ve Premium) için mevcuttur. **Azure CDN from Akamai**'de desteklenmez. Daha fazla bilgi için bkz. [Azure CDN özel etki alanı üzerinde HTTPS'yi etkinleştirme](cdn-custom-ssl.md).
+
+HTTPS içeriğine erişmek için CDN tarafından sağlanan etki alanını (`<endpointname>.azureedge.net`) kullanın. CDN şu an için özel sertifikaları desteklemediğinden özel etki alanı adları (CNAME'ler) için HTTPS desteği mevcut değildir.
    > 
    > 
 9. Yeni uç noktayı oluşturmak için **Ekle** düğmesine tıklayın.

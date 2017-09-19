@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 8a850f8b1cccda631786f89f2c88647604fba9ed
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
 ms.contentlocale: tr-tr
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="run-intrinsically-parallel-workloads-with-batch"></a>Batch ile doğası gereği paralel iş yüklerini çalıştırın
@@ -48,7 +47,7 @@ Bu teknik kullanılarak yaygın olarak işlenen iş yüklerinin bazı örnekleri
 
 Batch, sonda bir azaltma adımı uygulayarak paralel hesaplamalar gerçekleştirebilir ve [İleti Geçirme Arabirimi (MPI)](batch-mpi.md) uygulamaları gibi daha karmaşık HPC iş yüklerini yürütebilir.
 
-Azure’deki Batch ve diğer HPC çözüm seçenekleri arasında bir karşılaştırma için bkz. [ Batch ve HPC çözümleri](batch-hpc-solutions.md).
+Azure'daki Batch ve diğer HPC çözüm seçenekleri arasında bir karşılaştırma için bkz. [HPC, Batch ve Big Compute çözümleri](../virtual-machines/linux/high-performance-computing.md).
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 

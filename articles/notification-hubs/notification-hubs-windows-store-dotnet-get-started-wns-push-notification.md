@@ -1,5 +1,5 @@
 ---
-title: "Windows Evrensel Platform Uygulamaları için Azure Notification Hubs ile çalışmaya başlama | Microsoft Belgeleri"
+title: "Evrensel Windows Platformu uygulamaları için Azure Notification Hubs ile çalışmaya başlama | Microsoft Docs"
 description: "Bu öğreticide, bir Windows Evrensel Platform uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
 documentationcenter: windows
@@ -15,100 +15,105 @@ ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 9b50f1cca81348b69f7ff2d702c6c72871afe0a0
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: e18a810bcdbd97c79418f53c647df8723ecb6076
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/08/2017
 
 ---
-# <a name="getting-started-with-notification-hubs-for-windows-universal-platform-apps"></a>Windows Evrensel Platform Uygulamaları için Notification Hubs'ı kullanmaya başlama
+# <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Evrensel Windows Platformu uygulamaları için Notification Hubs'ı kullanmaya başlama
+
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici, bir Windows Evrensel Platform (UWP) uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını size gösterir.
+Bu makale, bir Evrensel Windows Platformu (UWP) uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını size gösterir.
 
-Bu öğreticide, Microsoft Anında İletme Bildirimi Hizmeti'ni (WNS) kullanarak anında iletme bildirimleri alan boş bir Windows Mağazası uygulaması oluşturursunuz. İşiniz bittiğinde, uygulamanızı çalıştıran tüm cihazlara anında iletme bildirimleri yayımlamak için bildirim hub'ınızı kullanabileceksiniz.
+Bu makalede, Microsoft Anında İletme Bildirimi Hizmeti'ni (WNS) kullanarak anında iletme bildirimleri alan boş bir Windows Mağazası uygulaması oluşturursunuz. İşiniz bittiğinde, uygulamanızı çalıştıran tüm cihazlara anında iletme bildirimleri yayımlamak için bildirim hub'ınızı kullanabileceksiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal) bulunabilir.
+Bu öğreticinin tamamlanan kodunu [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal)'da bulabilirsiniz.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğretici için aşağıdakiler gereklidir:
 
 * [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) veya üstü
-* [Evrensel Windows Uygulama Geliştirme Araçları'nın yüklü olması](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
-* Etkin bir Azure hesabı <br/>Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
+* [UWP uygulama geliştirme araçlarının yüklü olması](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
+* Etkin bir Azure hesabı  
+    Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Daha fazla bilgi için bkz. [Azure Ücretsiz Denemesi](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
 * Etkin bir Windows Mağazası hesabı
 
-Bu öğreticinin tamamlanması Windows Evrensel Platform uygulamalarına ilişkin diğer tüm Notification Hubs öğreticileri için önkoşuldur.
+Bu öğreticiyi tamamlamak UWP uygulamalarına ilişkin diğer tüm Notification Hubs öğreticileri için önkoşuldur.
 
 ## <a name="register-your-app-for-the-windows-store"></a>Uygulamanızı Windows Mağazası'na kaydetme
-UWP uygulamalarına anında iletme bildirimleri göndermek için uygulamanızı Windows Mağazası ile ilişkilendirmeniz gerekir. Daha sonra, WNS ile tümleştirmek için bildirim hub'ınızı yapılandırmanız gerekir.
+UWP uygulamalarına anında iletme bildirimleri göndermek için uygulamanızı Windows Mağazası ile ilişkilendirin. Daha sonra, WNS ile tümleştirmek için bildirim hub'ınızı yapılandırın.
 
-1. Uygulamanızı henüz kaydetmediyseniz [Windows Geliştirme Merkezi](https://dev.windows.com/overview)'ne gidin, Microsoft hesabınızla oturum açın ve ardından **Yeni uygulama oluştur**'a tıklayın.
+1. Uygulamanızı henüz kaydetmediyseniz [Windows Geliştirme Merkezi](https://dev.windows.com/overview)'ne gidin, Microsoft hesabınızla oturum açın ve ardından **Yeni uygulama oluştur**'u seçin.
 
-2. Uygulamanız için bir ad yazın ve **Uygulama adını ayır**'a tıklayın. Bu, uygulamanız için yeni bir Windows Mağazası kaydı oluşturur.
+2. Uygulamanız için bir ad yazın ve ardından **Uygulama adını ayır**'ı seçin. Bunu yaptığınızda uygulamanız için yeni bir Windows Mağazası kaydı oluşturulur.
 
-3. Visual Studio'da, Windows Evrensel **Boş Uygulama** şablonunu kullanarak yeni bir Visual C# Mağaza Uygulamaları projesi oluşturun ve **Tamam**’a tıklayın.
+3. Visual Studio'da, UWP **Boş Uygulama** şablonunu kullanarak yeni bir Visual C# Mağaza uygulamaları projesi oluşturun ve **Tamam**'ı seçin.
 
 4. Hedef ve en düşük platform sürümleri için varsayılan değerleri kabul edin.
 
-5. Çözüm Gezgini'nde, Windows Mağazası uygulama projesine sağ tıklayın, **Mağaza**'ya ve ardından **Uygulamayı Mağaza ile ilişkilendir...** seçeneğine tıklayın. **Uygulamanızı Windows Mağazası ile ilişkilendirin** sihirbazı görüntülenir.
+5. Çözüm Gezgini'nde, Windows Mağazası uygulama projesine sağ tıklayın, **Mağaza**'yı ve ardından **Uygulamayı Mağaza ile ilişkilendir**'i seçin.  
+    **Uygulamanızı Windows Mağazası ile ilişkilendirin** sihirbazı görüntülenir.
 
 6. Sihirbazda Microsoft hesabınızla oturum açın.
 
-7. 2 adımda kaydettiğiniz uygulamaya tıklayın, **İleri**'ye ve ardından **İlişkilendir**'e tıklayın. Bu, uygulama bildirimine gerekli Windows Mağazası kayıt bilgilerini ekler.
+7. 2. adımda kaydettiğiniz uygulamayı seçin, **İleri**'yi ve ardından **İlişkilendir**'i seçin. Bunu yaptığınızda uygulama bildirimine gerekli Windows Mağazası kayıt bilgileri eklenir.
 
-8. Yeni uygulamanızın [Windows Geliştirme Merkezi](http://dev.windows.com/overview) sayfasına geri dönerek **Hizmetler**, **Anında iletme bildirimleri** ve sonra **WNS/MPNS** öğesine tıklayın.
+8. Yeni uygulamanızın [Windows Geliştirme Merkezi](http://dev.windows.com/overview) sayfasına geri dönerek **Hizmetler**, **Anında iletme bildirimleri** ve ardından **WNS/MPNS**'i seçin.
 
-9. **Yeni Bildirim**’e tıklayın.
+9. **Yeni Bildirim**'i seçin.
 
-10. **Boş (Bildirim)** şablonuna ve sonra **Tamam**’a tıklayın.
+10. **Boş (Bildirim)** şablonunu ve ardından **Tamam**'ı seçin.
 
-11. Bildirim için bir **Ad** ve Görsel **Bağlam** iletisi girin. Ardından **Taslak olarak kaydet**'e tıklayın.
+11. Bildirim için bir **Ad** ve Görsel **Bağlam** iletisi girin, ardından **Taslak olarak kaydet**'i seçin.
 
-12. [Uygulama Kayıt Portalı](http://apps.dev.microsoft.com)'na gidip oturum açın.
+12. [Uygulama Kayıt Portalı](http://apps.dev.microsoft.com)'na gidin ve oturum açın.
 
-13. Uygulamanızın adına tıklayın. **Uygulama Gizli Anahtarı** parolasını ve **Windows Mağazası** platform ayarları altındaki **Paket güvenliği tanımlayıcısı (SID)** değerini not edin.
+13. Uygulamanızın adını seçin. **Windows Mağazası** platformu ayarlarında **Uygulama Gizli Anahtarı** parolasını ve **Paket güvenlik tanımlayıcısı (SID)** değerini not edin.
 
-     > [AZURE.WARNING]
-    Uygulama gizli anahtarı ve paket SID'si önemli güvenlik kimlik bilgileridir. Bu değerleri kimseyle paylaşmayın veya uygulamanızla birlikte dağıtmayın.
+    >[!WARNING]
+    >Uygulama gizli anahtarı ve paket SID'si önemli güvenlik kimlik bilgileridir. Bu değerleri kimseyle paylaşmayın veya uygulamanızla birlikte dağıtmayın.
 
 ## <a name="configure-your-notification-hub"></a>Bildirim hub'ınızı yapılandırma
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="6">
-<li><p><b>Bildirim Hizmetleri</b> seçeneğini <b>Windows (WNS)</b> seçeneğini belirleyin. Ardından <b>Güvenlik Anahtarı</b> alanına <b>Uygulama gizli anahtarı</b> parolasını girin. Önceki bölümde WNS’den edindiğiniz <b>Paket SID’si</b> değerini girin ve ardından <b>Kaydet</b>’e tıklayın.</p>
+<ol start="5">
+<li><p><b>Bildirim Hizmetleri</b> > <b>Windows (WNS)</b> seçeneğini belirleyin ve <b>Güvenlik Anahtarı</b> kutusuna uygulama gizli parolasını girin. Önceki bölümde WNS'den edindiğiniz değeri <b>Paket SID'si</b> kutusuna girin ve ardından <b>Kaydet</b>'i seçin.</p>
 </li>
 </ol>
 
-&emsp;&emsp;![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
+![Paket SID'si ve Güvenlik Anahtarı kutuları](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
-Bildirim hub'ınız şimdi WNS ile birlikte çalışmak üzere yapılandırıldı. Ayrıca, uygulamanızı kaydetmenizi ve bildirim göndermenizi sağlayan bağlantı dizelerine sahipsiniz.
+Bildirim hub'ınız WNS ile birlikte çalışacak şekilde yapılandırıldı. Uygulamanızı kaydetmek ve bildirim göndermek için gerekli bağlantı dizelerine sahipsiniz.
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Uygulamanızı bildirim hub'ına bağlama
-1. Visual Studio'da çözüme sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
+1. Visual Studio'da çözüme sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'i seçin.  
+    **NuGet Paketlerini Yönet** penceresi açılır.
+
+2. Arama kutusuna **WindowsAzure.Messaging.Managed** yazın, **Yükle**'yi seçin ve kullanım koşullarını kabul edin.
    
-    Bu, **NuGet Paketlerini Yönet** iletişim kutusunu görüntüler.
-2. `WindowsAzure.Messaging.Managed` için arama yapın ve **Yükle**'ye tıklayın, ardından kullanım koşullarını kabul edin.
+    ![NuGet Paketlerini Yönet penceresi][20]
    
-    ![][20]
-   
-    Bu işlem <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet paketini</a> kullanarak Windows için Azure Mesajlaşma kitaplığına bir başvuruyu indirir, ekler ve yükler.
-3. App.xaml.cs dosyasını açın ve aşağıdaki `using` deyimleri ekleyin. 
+    Bu eylem [WindowsAzure.Messaging.Managed NuGet paketini](http://nuget.org/packages/WindowsAzure.Messaging) kullanarak Windows için Azure Mesajlaşma kitaplığına bir başvuruyu indirir, ekler ve yükler.
+
+3. App.xaml.cs proje dosyasını açın ve aşağıdaki `using` deyimleri ekleyin: 
    
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
         using Windows.UI.Popups;
-4. Ayrıca App.xaml.cs dosyasında, **Uygulama** sınıfına aşağıdaki **InitNotificationsAsync** yöntem tanımını ekleyin:
+
+4. App.xaml.cs dosyasında ayrıca, **App** sınıfına aşağıdaki **InitNotificationsAsync** yöntem tanımını ekleyin:
    
         private async void InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
    
-            var hub = new NotificationHub("< your hub name>", "<Your DefaultListenSharedAccessSignature connection string>");
+            var hub = new NotificationHub("<your hub name>", "<Your DefaultListenSharedAccessSignature connection string>");
             var result = await hub.RegisterNativeAsync(channel.Uri);
    
             // Displays the registration ID so you know it was successful
@@ -123,54 +128,64 @@ Bildirim hub'ınız şimdi WNS ile birlikte çalışmak üzere yapılandırıld�
    
     Bu kod, WNS'den uygulamanın kanal URI'sini alır ve ardından bu kanal URI'sini bildirim hub'ınıza kaydeder.
    
-   > [!NOTE]
-   > “Hub adınız” yer tutucusunu Azure Portal’da görünen anında bildirim hub'ının adı ile değiştirdiğinizden emin olun. Ayrıca, bağlantı dizesi yer tutucusunu önceki bölümde yer alan Notification Hub **Erişim İlkeleri** sayfasında edindiğiniz **DefaultListenSharedAccessSignature** bağlantı dizesi ile değiştirin.
+    >[!NOTE]
+    >* **hub name** yer tutucusunu Azure portalında görünen bildirim hub'ının adıyla değiştirin. 
+    >* Ayrıca, bağlantı dizesi yer tutucusunu önceki bölümde yer alan bildirim hub'ı **Erişim İlkeleri** sayfasında edindiğiniz **DefaultListenSharedAccessSignature** bağlantı dizesi ile değiştirin.
    > 
    > 
 5. App.xaml.cs dosyasındaki **OnLaunched** olay işleyicisinin üst kısmında, yeni **InitNotificationsAsync** yöntemine aşağıdaki çağrıyı ekleyin:
    
         InitNotificationsAsync();
    
-    Bu, uygulama her başlatıldığında kanal URI'sinin bildirim hub'ınıza kaydedilmesini garanti eder.
-6. Uygulamayı çalıştırmak için **F5** tuşuna basın. Kayıt anahtarını içeren bir açılır iletişim kutusu görüntülenir.
+    Bu eylem uygulama her başlatıldığında kanal URI'sinin bildirim hub'ınıza kaydedilmesini garanti eder.
+
+6. Uygulamayı çalıştırmak için **F5** tuşuna basın. Kayıt anahtarını içeren bir iletişim kutusu görüntülenir.
 
 Uygulamanız şimdi bildirim almaya hazırdır.
 
 ## <a name="send-notifications"></a>Bildirim gönderme
-Aşağıdaki ekranda gösterildiği [Azure Portal](https://portal.azure.com/)'da bildirim hub’ındaki **Test Gönderimi** düğmesini kullanarak uygulamanızda bildirim almayı hızlıca test edebilirsiniz.
+[Azure portalından](https://portal.azure.com/) bildirim göndererek uygulamanızda bildirim alma testi gerçekleştirebilirsiniz. Bildirim hub'ındaki **Test Gönderimi** düğmesini aşağıdaki resimde gösterilen şekilde kullanın:
 
-![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
+![Test Gönderimi bölmesi](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 
 Anında iletme bildirimleri normalde, uyumlu bir kitaplık kullanılarak Mobile Services veya ASP.NET gibi bir arka uç hizmetinde gönderilir. Arka ucunuz için uygun bir kitaplık yoksa bildirim iletilerini göndermek için doğrudan REST API de kullanabilirsiniz. 
 
-Bu öğreticide konuyu basit bir şekilde işleyeceğiz ve yalnızca bir arka uç hizmeti yerine bir konsol uygulamasındaki bildirim hub'ları için .NET SDK ile bildirim göndererek istemci uygulamanızı test etmeyi göstereceğiz. Bir ASP.NET arka ucundan bildirim göndermek için sonraki adım olarak [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma] öğreticisini öneririz. Bununla birlikte, bildirim göndermek için aşağıdaki yaklaşımlar kullanılabilir:
+Bu öğreticide yalnızca bir arka uç hizmeti yerine bir konsol uygulamasındaki bildirim hub'ları için .NET SDK ile bildirim göndererek istemci uygulamanızı test etmeyi göstereceğiz. Bir ASP.NET arka ucundan bildirim göndermek için sonraki adım olarak [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs'ı kullanma] öğreticisini öneririz. Ancak, aşağıdaki yaklaşımlardan kullanarak bildirim gönderebilirsiniz:
 
-* **REST Arabirimi**: [REST arabirimini](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) kullanarak herhangi bir arka uç platformunda bildirimi destekleyebilirsiniz.
-* **Microsoft Azure Notification Hubs .NET SDK'sı**: Visual Studio için Nuget Paket Yöneticisi'nde [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) komutunu çalıştırın.
-* **Node.js**: [Node.js'den Notification Hubs'ı kullanma](notification-hubs-nodejs-push-notification-tutorial.md).
-* [Azure Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md): Notification Hubs ile tümleştirilmiş Azure Mobile Apps arka ucundan nasıl bildirim gönderildiğinin bir örneği için bkz. **Mobile Apps için anında iletme bildirimleri ekleme**.
-* **Java/PHP**: REST API'ler kullanarak nasıl bildirim gönderildiğinin bir örneği için bkz. "Java/PHP'den Notification Hubs'ı kullanma"([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
+* **REST arabirimi**: [REST arabirimini](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) kullanarak herhangi bir arka uç platformunda bildirimleri destekleyebilirsiniz.
+
+* **Microsoft Azure Notification Hubs .NET SDK'sı**: Visual Studio için NuGet Paket Yöneticisi'nde [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) komutunu çalıştırın.
+
+* **Node.js**: Bkz. [Node.js'den Notification Hubs'ı kullanma](notification-hubs-nodejs-push-notification-tutorial.md).
+* **Azure Mobile Apps**: Notification Hubs ile tümleştirilmiş bir Azure mobil uygulaması arka ucundan nasıl bildirim gönderildiğinin bir örneği için bkz. [Mobile Apps için anında iletme bildirimleri ekleme](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+
+* **Java veya PHP**: REST API'lerini kullanarak bildirim gönderme örnekleri için bkz:
+    * [Java](notification-hubs-java-push-notification-tutorial.md)
+    * [PHP](notification-hubs-php-push-notification-tutorial.md)
 
 ## <a name="optional-send-notifications-from-a-console-app"></a>(İsteğe bağlı) Konsol uygulamasından bildirim gönderme
-.NET konsol uygulaması kullanarak bildirim göndermek için aşağıdaki adımları izleyin. 
+.NET konsol uygulaması kullanarak bildirim göndermek için aşağıdakileri gerçekleştirin: 
 
-1. Çözüme sağ tıklayın, **Ekle**'yi ve **Yeni Proje...** seçeneğini belirleyin. Sonra **Visual C#** altında **Windows**'a ve **Konsol Uygulaması**'na tıklayın ve ardından **Tamam**'a tıklayın.
+1. Çözüme sağ tıklayın, **Visual C#** altında **Ekle** > **Yeni Proje**'ye tıklayın, **Windows** ve **Konsol Uygulaması**'nı seçin, ardından **Tamam**'ı seçin.
    
-    Bu, çözüme yeni bir Visual C# konsol uygulaması ekler. Bunu ayrı bir çözümde de yapabilirsiniz.
+    Çözüme yeni bir Visual C# konsol uygulaması eklenir. Projeyi ayrı bir çözümde de ekleyebilirsiniz.
 
-2. Visual Studio'da **Araçlar**'a, **NuGet Paket Yöneticisi**'ne ve ardından **Paket Yöneticisi Konsolu**'na tıklayın.
+2. Visual Studio'da **Araçlar**'ı, **NuGet Paket Yöneticisi**'ni ve ardından **Paket Yöneticisi Konsolu**'nu seçin.
    
-    Bu, Visual Studio'da Paket Yöneticisi Konsolu'nu görüntüler.
-3. Paket Yöneticisi Konsolu penceresinde, **Varsayılan projeyi** yeni konsol uygulaması projeniz olarak ayarlayın ve ardından konsol penceresinde aşağıdaki komutu yürütün:
+    Visual Studio'da Paket Yöneticisi Konsolu açılır.
+
+3. Paket Yöneticisi Konsolu penceresinde, **Varsayılan projeyi** yeni konsol uygulaması projeniz olarak ayarlayın ve ardından konsol penceresinde aşağıdaki komutu çalıştırın:
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-    Bu, <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet paketini</a> kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
+    Bu eylem [Microsoft.Azure.Notification Hubs NuGet paketini](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
    
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-4. Program.cs dosyasını açın ve aşağıdaki `using` deyimini ekleyin:
+    !["Varsayılan proje" adı](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+4. Program.cs dosyasını açın ve ardından aşağıdaki `using` deyimini ekleyin:
    
         using Microsoft.Azure.NotificationHubs;
+
 5. **Program** sınıfına şu yöntemi ekleyin:
    
         private static async void SendNotificationAsync()
@@ -181,28 +196,29 @@ Bu öğreticide konuyu basit bir şekilde işleyeceğiz ve yalnızca bir arka u�
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
    
-       Make sure to replace the "hub name" placeholder with the name of the notification hub that as it appears in the Azure Portal. Also, replace the connection string placeholder with the **DefaultFullSharedAccessSignature** connection string that you obtained from the **Access Policies** page of your Notification Hub in the section called "Configure your notification hub."
-   
-   > [!NOTE]
-   > **Dinleme** erişimi olan değil, **Tam** erişimi olan bağlantı dizesini kullandığınızdan emin olun. Dinleme erişimi dizesinin bildirim gönderme izinleri yoktur.
+    >[!NOTE]
+    >* **hub name** yer tutucusunu Azure portalında görünen bildirim hub'ının adıyla değiştirin. 
+    >* Bağlantı dizesi yer tutucusunu "Bildirim hub'ınızı yapılandırma" bölümünde yer alan Notification Hub **Erişim İlkeleri** sayfasında edindiğiniz **DefaultFullSharedAccessSignature** bağlantı dizesiyle değiştirin.
+    >* *Dinleme* erişimi olan değil, *Tam* erişimi olan bağlantı dizesini kullanın. Dinleme erişimi dizesinin bildirim gönderme izinleri yoktur.
    > 
    > 
-6. Aşağıdaki satırları **Main** yöntemine ekleyin:
+6. **Ana** yöntemine aşağıdaki satırları ekleyin:
    
          SendNotificationAsync();
          Console.ReadLine();
-7. Visual Studio'da konsol uygulaması projesine sağ tıklayın ve bunu başlangıç projesi olarak ayarlamak için **Başlangıç Projesi Olarak Ayarla**'ya tıklayın. Ardından uygulamayı çalıştırmak için **F5** tuşuna basın.
+
+7. Visual Studio'da konsol uygulaması projesine sağ tıklayın ve bunu başlangıç projesi olarak ayarlamak için **Başlangıç Projesi Olarak Ayarla**'yı seçin. Ardından uygulamayı çalıştırmak için **F5** tuşunu seçin.
    
-    Tüm kayıtlı cihazlarda bildirim alırsınız. Bildirim başlığına tıklamak veya dokunmak uygulamayı yükler.
+    Tüm kayıtlı cihazlarda bildirim alırsınız. Bildirim başlığını seçmek veya dokunmak uygulamayı yükler.
 
 MSDN'deki [bildirim kataloğu], [kutucuk kataloğu] ve [göstergeye genel bakış] konu başlıklarında tüm desteklenen yükleri bulabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu basit örnekte, portalı veya konsol uygulamasını kullanarak tüm Windows cihazlarınıza yayın bildirimleri gönderdiniz. Sonraki adım olarak [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma] öğreticisini öneririz. Bu, belirli kullanıcıları hedeflemek için etiketler kullanarak ASP.NET arka ucundan nasıl bildirim göndereceğinizi gösterir.
+Bu basit örnekte, portalı veya konsol uygulamasını kullanarak tüm Windows cihazlarınıza yayın bildirimleri gönderdiniz. Sonraki adım için [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs'ı kullanma] öğreticisini öneririz. Bu, belirli kullanıcıları hedeflemek için etiketler kullanarak ASP.NET arka ucundan nasıl bildirim göndereceğinizi gösterir.
 
 Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyorsanız bkz. [Son dakika haberleri göndermek için Notification Hubs kullanma]. 
 
-Notification Hubs hakkında daha fazla genel bilgi için bkz. [Notification Hubs Kılavuzu](notification-hubs-push-notification-overview.md).
+Notification Hubs hakkında daha fazla genel bilgi için bkz. [Notification Hubs kılavuzu](notification-hubs-push-notification-overview.md).
 
 <!-- Images. -->
 [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
@@ -212,10 +228,11 @@ Notification Hubs hakkında daha fazla genel bilgi için bkz. [Notification Hubs
 
 <!-- URLs. -->
 
-[Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs'ı kullanma]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [bildirim kataloğu]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [kutucuk kataloğu]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [göstergeye genel bakış]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+ 
 

@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/07/2017
+ms.date: 09/12/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
 ms.contentlocale: tr-tr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines’de SQL Server’a Genel Bakış
@@ -27,34 +26,8 @@ Bu konu başlığı, Azure sanal makinelerinde (VM’ler) SQL Server çalıştı
 
 > [!NOTE]
 > SQL Server’ı zaten biliyor ve yalnızca bir SQL Server sanal makinesinin nasıl dağıtılacağını görmek istiyorsanız bkz. [Azure portal’da bir SQL Server VM’si sağlama](virtual-machines-windows-portal-sql-server-provision.md).
-> 
-> 
 
-## <a name="overview"></a>Genel Bakış
-Veritabanı yöneticisi veya geliştiriciyseniz Azure VM’leri, şirket içi SQL Server iş yüklerinizi ve uygulamalarınızı Buluta taşımanız için bir yöntem sağlar. Aşağıdaki videoda, SQL Server Azure VM’leri için teknik bir genel bakış sağlanmıştır.
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-Video, aşağıdaki alanları kapsar:
-
-| Zaman | Alan |
-| --- | --- |
-| 00:21 |Azure VM’leri nedir? |
-| 01:45 |Güvenlik |
-| 02:50 |Bağlantı |
-| 03:30 |Depolama güvenilirliği ve performansı |
-| 05:20 |VM boyutları |
-| 05:54 |Yüksek kullanılabilirlik ve SLA |
-| 07:30 |Yapılandırma desteği |
-| 08:00 |İzleme |
-| 08:32 |Demo: SQL Server 2016 VM’si oluşturma |
-
-> [!NOTE]
-> Bu videoda SQL Server 2016'ya odaklanılmıştır; ancak Azure, SQL Server'ın 2012, 2014 ve 2016 dahil birçok sürümü için VM görüntüleri sağlamaktadır. 
-> 
-> 
+Veritabanı yöneticisi veya geliştiriciyseniz Azure VM’leri, şirket içi SQL Server iş yüklerinizi ve uygulamalarınızı Buluta taşımanız için bir yöntem sağlar.
 
 ## <a name="scenarios"></a>Senaryolar
 Verilerinizi Azure’da barındırmayı seçmeniz için birçok neden vardır. Uygulamanız Azure’a taşınıyorsa verilerin taşınma performansı da artırır. Bununla birlikte, başka avantajları da vardır. Küresel bir erişim ağı ve olağanüstü durum kurtarma için birden fazla veri merkezine otomatik olarak erişebilirsiniz. Ayrıca veriler son derece güvenilir ve dayanıklı olur.
@@ -126,7 +99,7 @@ Azure sanal makineleri önemli Windows ve SQL Server güncelleştirmelerini otom
 ### <a name="customer-experience-improvement-program-ceip"></a>Müşteri deneyimini geliştirme programı (CEIP)
 Müşteri Deneyimini Geliştirme Programı (CEIP) varsayılan olarak etkindir. Bu, SQL Server’ın geliştirilmesine yardımcı olmak için Microsoft’a düzenli olarak raporlar gönderir. CEIP’i hazırladıktan sonra devre dışı bırakmak istemiyorsanız CEIP için herhangi bir yönetim görevi gerekmez. VM’ye uzak masaüstüyle bağlanarak CEIP özelleştirebilir ya da devre dışı bırakabilirsiniz. Ardından **SQL Server Hata ve Kullanım Raporlama** yardımcı programını çalıştırın. Raporlamayı devre dışı bırakmak için yönergeleri izleyin. 
 
-Daha fazla bilgi için [Lisans Koşullarını kabul etme](https://msdn.microsoft.com/library/ms143343.aspx) konu başlığının CEIP bölümüne bakın. 
+Veri toplama hakkında daha fazla bilgi için bkz. [SQL Server Gizlilik Bildirimi](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

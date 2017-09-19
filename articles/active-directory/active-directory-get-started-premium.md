@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Premium'a kaydolma
-description: "Azure Active Directory Premium sürümü için kayıt işleminin nasıl yapıldığını açıklar."
+title: Azure Active Directory Premium'a kaydolma | Microsoft Docs
+description: "Azure Active Directory Premium sürümü için kayıt işleminin nasıl yapıldığını açıklar"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 09/07/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4b86ececefd3724b9e7791d2609b146de052f605
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Hızlı Başlangıç: Azure Active Directory Premium'a kaydolma
-Azure Active Directory (Azure AD) Premium ile çalışmaya başlamak için lisans satın almanız ve aldığınız lisansları Azure aboneliğinizle ilişkilendirmeniz gerekir. Yeni bir Azure aboneliği oluşturursanız, lisans planınızı ve aşağıdaki bölümlerde açıklandığı gibi Azure AD hizmeti erişimini etkinleştirmeniz gerekir. 
+Azure Active Directory (Azure AD) Premium ile çalışmaya başlamak için lisans satın alabilir ve aldığınız lisansları Azure aboneliğinizle ilişkilendirebilirsiniz. Yeni bir Azure aboneliği oluşturursanız, lisans planınızı ve aşağıdaki bölümlerde açıklandığı gibi Azure AD hizmeti erişimini etkinleştirmeniz gerekir. 
 
 ## <a name="sign-up-for-active-directory-premium"></a>Active Directory Premium'a kaydolma
 Active Directory Premium'a kaydolmanız için birkaç seçenek sunulmaktadır: 
+* Azure veya Office 365 aboneliğinizi kullanın
+* Enterprise Mobility + Security lisans planı kullanın
+* Microsoft Toplu Lisanslama planı kullanın
 
 ### <a name="azure-or-office-365"></a>Azure veya Office 365 
 Azure veya Office 365 abonesi olarak, Azure Active Directory Premium'u çevrimiçi satın alabilirsiniz. 
@@ -41,17 +45,15 @@ Aşağıdaki lisans seçeneklerinden birini kullanarak EMS lisanslarını aracı
 - [Enterprise Mobility + Security E5 lisansı](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1) satın alma
 - [Enterprise Mobility + Security E3 lisansı](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1) satın alma
 
-### <a name="microsoft-volume-licensing"></a>Microsoft Toplu Lisanslama
+### <a name="microsoft-volume-licensing"></a>Microsoft toplu lisanslama
 Azure Active Directory Premium, bir [Microsoft Kurumsal Anlaşma](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 veya daha fazla lisans) aracılığıyla veya [Açık Toplu Lisans](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5 - 250 lisans) programı ile sunulmaktadır.
 
 Toplu lisans satın alma seçenekleri hakkında daha fazla bilgiyi [Toplu Lisanslama ile satın alma](https://www.microsoft.com/licensing/how-to-buy/how-to-buy.aspx) sayfasında bulabilirsiniz.
 
 > [!NOTE]
 > Azure Active Directory Premium ve Basic sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure Active Directory Premium ve Basic sürümleri, şu anda Çin'de 21Vianet tarafından işletilen Microsoft Azure hizmeti kapsamında desteklenmemektedir. Daha fazla bilgi için [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/)'nda bizimle iletişime geçin.
-> 
-> 
 
-Önceki adımlarda kullandığınız Azure aboneliği için daha önce Azure AD lisansı alıp etkinleştirdiyseniz lisanslar otomatik olarak aynı dizinde etkinleştirilir. Bu makalenin geri kalanında açıklanan adımları takip etmeniz gerekmez.
+Önceki adımlarda kullandığınız Azure aboneliği için daha önce Azure AD lisansı alıp etkinleştirdiyseniz lisanslar otomatik olarak aynı dizinde etkinleştirilir. Bunu yapmadıysanız bu makalenin geri kalanında açıklanan adımları takip etmeniz gerekmez.
 
 ## <a name="activate-your-license-plan"></a>Lisans planınızı etkinleştirme
 Bu Microsoft'tan satın aldığınız ilk Azure AD lisans planınız mı? Öyleyse, satın alma işleminiz tamamlandığında bir onay e-postası oluşturulur ve size gönderilir. İlk lisans planınızı etkinleştirmek için bu e-postaya ihtiyacınız vardır.
@@ -62,7 +64,7 @@ Bu Microsoft'tan satın aldığınız ilk Azure AD lisans planınız mı? Öyley
    
     ![Oturum aç][1]
 
-    - Mevcut bir kiracınız varsa mevcut yönetici hesabınızla oturum açmak için **Oturum Aç** seçeneğine tıklayın. Lisansların etkinleştirilmesi için kullanılması gereken dizinden genel yönetici kimlik bilgileriyle oturum açın.
+    - Mevcut bir kiracınız varsa mevcut yönetici hesabınızla oturum açmak için **Oturum Aç** seçeneğine tıklayın. Lisansların etkinleştirilmesi için kullanılması gereken kiracıdan genel yönetici kimlik bilgileriyle oturum açın.
 
     - Lisans planınızla kullanmak üzere yeni bir Azure AD kiracısı oluşturmak istiyorsanız **Hesap Profili Oluştur** iletişim kutusunu açmak için **Kaydol** seçeneğine tıklayın.
 

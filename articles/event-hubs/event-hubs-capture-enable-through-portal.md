@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 5420c1cdefa99ff30320dd757e04aa0cafc792bc
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,24 +44,8 @@ Azure Data Lake Store'a veri almak için bir Data Lake Store hesabı ve bir olay
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Azure Data Lake Store hesabı ve klasörleri oluşturma
 
-1. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayarak bir Data Lake Store hesabı oluşturun. 
-2. [Azure Data Lake Store hesabında klasör oluşturma](../data-lake-store/data-lake-store-get-started-portal.md#createfolder) bölümündeki yönergeleri izleyerek bu hesap altında bir klasör oluşturun.
-3. Data Lake Store hesabı sayfanızda, **Veri Gezgini**'ne tıklayın.
-4. **Erişim**’e tıklayın.
-5. **Ekle**'ye tıklayın.
-6. **Ada veya e-postaya göre ara** kutusuna **Microsoft.EventHubs** yazıp bu seçeneği belirleyin. 
-7. **İzinler** sekmesi görünür. İzinleri aşağıdaki resimde gösterildiği gibi ayarlayın:
-
-    ![][6]
-
-8. **Tamam** düğmesine tıklayın.
-9. Şimdi, hedef klasöre gidip ve klasör adını tıklatarak kök klasörde bir klasör oluşturun.
-10. **Erişim**’e tıklayın.
-11. **Ekle**'ye tıklayın.
-12. **Ada veya e-postaya göre ara** kutusuna **Microsoft.EventHubs** yazıp bu seçeneği belirleyin.
-13. **İzinler** sekmesi tekrar görünür. İzinleri aşağıdaki resimde gösterildiği gibi ayarlayın:
-
-    ![][5]
+1. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayarak bir Data Lake Store hesabı oluşturun.
+2. Event Hubs verilerini almak ve Data Lake Store hesabınıza veri yazabilmesi için Event Hubs'a izin atamak istediğiniz Data Lake Stora hesabı içinde bir klasör oluşturmak için [Event Hubs'a izin atama](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) bölümündeki yönergeleri uygulayın.  
 
 ### <a name="create-an-event-hub"></a>Olay hub’ı oluşturma
 
@@ -87,12 +71,11 @@ Event Hubs ad alanlarında mevcut olan olay hub'ları üzerinde Yakalama özelli
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
-[5]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture5.png
-[6]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture6.png
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Olay hub’larını yakalama hakkında daha fazla bilgi için bkz. [Event Hubs Yakalama özelliğine genel bakış][capture-overview].
 - Dilerseniz Azure Resource Manager şablonlarını kullanarak da Event Hubs Yakalama özelliğini yapılandırabilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager şablonu kullanarak Yakalama özelliğini etkinleştirme](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+- [Azure portalı kullanarak Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

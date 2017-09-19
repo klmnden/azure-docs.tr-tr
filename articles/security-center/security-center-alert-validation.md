@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 09/07/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 121b5d8f023a9b663d0e7af26dce8f81db27672c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d7aa8544f50b42bacfa1e1f16fdce468d8fc81ef
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde Uyarıları Doğrulama
@@ -35,12 +35,15 @@ Güvenlik Merkezi aracısı bilgisayarınıza yüklendikten sonra uyarının sal
 3. Komut istemini açın ve bu dosyayı şunun gibi bir bağımsız değişkenle (sahte bir bağımsız değişken adı yeterlidir) yürütün: *ASC_AlertTest_662jfi039N.exe -foo*
 4. 5-10 dakika bekleyin ve Güvenlik Merkezi Uyarılarını açın. Burada şuna benzer bir uyarı görmeniz gerekir:
 
-    ![Uyarı Doğrulaması](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
+    ![Uyarı Doğrulaması](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
 
 Bu uyarıyı gözden geçirirken, Bağımsız Değişken Denetimi Etkinleştirildi alanının doğru olarak göründüğünden emin olun. Yanlış olarak görünüyorsa, komut satırı bağımsız değişkenleri denetimini etkinleştirmeniz gerekir. Bu seçeneği şu komut satırını kullanarak etkinleştirebilirsiniz:
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
+
+> [!NOTE]
+> Bu özelliği görmek için [Azure Güvenlik Merkezi'nde Uyarı Doğrulaması](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) videosunu izleyin. 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Bu makalede uyarıları doğrulama işlemine giriş yaptınız. Artık bu doğrulama hakkında bilgi sahibi olduğunuza göre, aşağıdaki makaleleri deneyebilirsiniz:

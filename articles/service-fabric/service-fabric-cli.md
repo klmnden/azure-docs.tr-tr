@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Fabric CLI’sı (sfctl) ile çalışmaya başlama"
+title: "Azure Service Fabric CLI'sı ile çalışmaya başlama"
 description: "Azure Service Fabric CLI’sını kullanmayı öğrenin. Kümeye bağlanmayı ve uygulamaları yönetmeyi öğrenin."
 services: service-fabric
 author: samedder
@@ -9,44 +9,46 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 2faca2887f25b45d833dea7b2259277466290670
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="azure-service-fabric-command-line"></a>Azure Service Fabric komut satırı
+# <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI'sı
 
-Azure Service Fabric CLI’sı (sfctl) Azure Service Fabric varlıklarıyla etkileşimde bulunmak ve bunları yönetmek için kullanılan bir komut satırı yardımcı programıdır. Sfctl, Windows veya Linux kümeleriyle kullanılabilir. Sfctl python’ın desteklendiği tüm platformlarda çalışır.
+Azure Service Fabric komut satırı arabirimi (CLI) Service Fabric varlıklarıyla etkileşimde bulunmak ve bunları yönetmek için kullanılan bir komut satırı yardımcı programıdır. Service Fabric CLI'sı, Windows veya Linux kümeleriyle kullanılabilir. Service Fabric CLI'sı Python'ın desteklendiği tüm platformlarda çalışır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Yüklemeden önce ortamınızda python ve PIP’in yüklü olduğundan emin olun. Daha fazla bilgi için [PIP hızlı başlangıç belgelerine](https://pip.pypa.io/en/latest/quickstart/) ve resmi [python yükleme belgelerine](https://wiki.python.org/moin/BeginnersGuide/Download) göz atın.
+Yüklemeden önce ortamınızda Python ve pip uygulamalarının yüklü olduğundan emin olun. Daha fazla bilgi için [pip hızlı başlangıç belgelerine](https://pip.pypa.io/en/latest/quickstart/) ve resmi [Python yükleme belgelerine](https://wiki.python.org/moin/BeginnersGuide/Download) bakın.
 
-Hem python 2.7 hem de 3.6 desteklenir, ancak python 3.6 kullanmanız önerilir. Aşağıdaki bölümde, tüm önkoşulların ve CLI’nin nasıl yükleneceği gösterilir.
+Python uygulamasının hem 2.7 hem de 3.6 sürümü desteklenir ancak Python 3.6 sürümünü kullanmanızı öneririz. Aşağıdaki bölümde, tüm önkoşulların ve CLI'nin nasıl yükleneceği gösterilmektedir.
 
-## <a name="install-pip-python-and-sfctl"></a>pip, python ve sfctl yükleme
+## <a name="install-pip-python-and-the-service-fabric-cli"></a>pip, Python ve Service Fabric CLI'sını yükleme
 
-pip ve python’u platformunuza yüklemek için birçok yöntem olsa da, ana işletim sistemleri için python 3.6 ve pip’i hızlıca ayarlamak için bazı adımlar şunlardır:
+ pip ve Python'u platformunuza yüklemek için kullanabileceğiniz birçok yol vardır. Çok kullanılan işletim sistemlerinde Python 3.6 ve pip uygulamalarını hızlıca kurmak için aşağıdaki adımlardan faydalanabilirsiniz.
 
 ### <a name="windows"></a>Windows
 
-Windows 10, Server 2016 ve Server 2012R2 için standart resmi yükleme yönergelerini kullanabilirsiniz. Python yükleyici pip’i de varsayılan olarak yükler.
+Windows 10, Windows Server 2016 ve Windows Server 2012 R2 için standart resmi yükleme talimatlarını kullanın. Python yükleyici pip'i de varsayılan olarak yükler.
 
-- Resmi [python indirmeler sayfasına](https://www.python.org/downloads/) gidin ve python 3.6’nın en son sürümünü indirin
-- Yükleyiciyi başlatın
-- `Add Python 3.6 to PATH` için komut isteminin alt kısmındaki seçeneğini belirleyin
-- `Install Now` seçeneğini belirleyin
-- Yüklemeyi tamamlayın
+1. Resmi [Python indirmeler sayfasına](https://www.python.org/downloads/) gidin ve Python 3.6'nın en son sürümünü indirin.
 
-Artık yeni bir komut penceresi açabiliyor, python ve PIP sürümlerini alabiliyor olmanız gerekir:
+2. Yükleyiciyi başlatın.
+
+3. İstemin en altında bulunan **Python 3.6'yı PATH'e ekle**'yi seçin.
+
+4. **Şimdi Yükle**'yi seçin ve yüklemeyi tamamlayın.
+
+Şimdi yeni bir komut penceresi açıp hem Python hem de pip sürümünü öğrenebilirsiniz.
 
 ```bat
 python --version
 pip --version
 ```
 
-Ardından Service Fabric CLI’yı yüklemek için aşağıdakini çalıştırın
+Ardından aşağıdaki komutu çalıştırarak Service Fabric CLI'sını yükleyin:
 
 ```
 pip install sfctl
@@ -55,7 +57,7 @@ sfctl -h
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Ubuntu 16.04 Desktop için üçüncü taraf bir PPA kullanarak python 3.6’yı yükleyebilirsiniz:
+Ubuntu 16.04 Desktop için üçüncü taraf bir kişisel paket arşivini (PPA) kullanarak Python 3.6'yı yükleyebilirsiniz.
 
 Terminalden aşağıdaki komutları çalıştırın:
 
@@ -66,24 +68,24 @@ sudo apt-get install python3.6
 sudo apt-get install python3-pip
 ```
 
-Ardından aşağıdaki komutu çalıştırarak yalnızca sizin python 3.6 yüklemeniz için sfctl’yi yükleyin:
+Ardından aşağıdaki komutu çalıştırarak yalnızca sizin Python 3.6 yüklemeniz için Service Fabric CLI'sını yükleyin:
 
 ```bash
 python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-Bu adımlar, sistem tarafından yüklenen python 3.5 ve 2.7 sürümlerini etkilemez. Ubuntu kullanmaya alışık değilseniz bu yüklemeleri değiştirmeyi denemeyin.
+Bu adımlar, sistem tarafından yüklenen Python 3.5 ve 2.7 sürümlerini etkilemez. Ubuntu kullanmaya alışık değilseniz bu yüklemeleri değiştirmeyi denemeyin.
 
 ### <a name="macos"></a>macOS
 
-MacOS için [HomeBrew paket yöneticisini](https://brew.sh) kullanmanız önerilir. HomeBrew yüklü değilse aşağıdaki komutu çalıştırarak yükleyin:
+MacOS için [HomeBrew paket yöneticisini](https://brew.sh) kullanmanızı öneririz. HomeBrew yüklü değilse aşağıdaki komutu çalıştırarak yükleyin:
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Ardından terminalden python 3.6, pip ve sfctl’yi yükleyin
+Ardından aşağıdaki komutları çalıştırarak terminalden Python 3.6, pip ve Service Fabric CLI'sını yükleyin:
 
 ```bash
 brew install python3
@@ -91,13 +93,13 @@ pip3 install sfctl
 sfctl -h
 ```
 
-Bu adımlar sistem tarafından yüklenen python 2.7 sürümünü değiştirmez.
+Bu adımlar sistem tarafından yüklenen Python 2.7 sürümünü değiştirmez.
 
 ## <a name="cli-syntax"></a>CLI söz dizimi
 
-Komutlarda her zaman `sfctl` ön eki bulunur. Kullanabileceğiniz tüm komutlarla ilgili genel bilgi için, `sfctl -h` kullanın. Tek bir komutla ilgili yardım için, `sfctl <command> -h` kullanın.
+Komutlarda her zaman `sfctl` ön eki bulunur. Kullanabileceğiniz tüm komutlarla ilgili genel bilgi için `sfctl -h` kullanın. Tek bir komutla ilgili yardım için, `sfctl <command> -h` kullanın.
 
-Komutlar, komut hedefinin fiilin veya eylemin öncesinde olduğu yinelenebilir bir yapıya sahiptir:
+Komutlar, komut hedefinin fiilin veya eylemin öncesinde olduğu yinelenebilir bir yapıya sahiptir.
 
 ```azurecli
 sfctl <object> <action>
@@ -128,7 +130,7 @@ Daha fazla bilgi için bkz. [Güvenli Azure Service Fabric kümesine bağlanma](
 
 ## <a name="basic-operations"></a>Temel işlemler
 
-Küme bağlantı bilgileri birden çok sfctl oturumu arasında kalıcıdır. Service Fabric kümesini seçtikten sonra, kümede tüm Service Fabric komutlarını çalıştırabilirsiniz.
+Küme bağlantı bilgileri birden çok Service Fabric CLI'sı oturumu arasında kalıcıdır. Service Fabric kümesini seçtikten sonra, kümede tüm Service Fabric komutlarını çalıştırabilirsiniz.
 
 Örneğin, Service Fabric kümesinin sistem durumunu almak için aşağıdaki komutu kullanın:
 
@@ -163,7 +165,7 @@ Komut şu çıktıyı verir:
 
 ## <a name="tips-and-troubleshooting"></a>İpuçları ve sorun giderme
 
-Bazı öneriler ve sık karşılaşılan sorunları çözmek için ipuçları.
+Aşağıda bazı öneriler ve sık karşılaşılan sorunları çözmek için ipuçları verilmiştir.
 
 ### <a name="convert-a-certificate-from-pfx-to-pem-format"></a>Sertifikayı PFX’ten PEM biçimine dönüştürme
 
@@ -175,7 +177,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Daha fazla bilgi için bkz. [OpenSSL belgeleri](https://www.openssl.org/docs/).
 
-### <a name="connection-issues"></a>Bağlantı sorunları
+### <a name="connection-problems"></a>Bağlantı sorunları
 
 Bazı işlemler aşağıdaki iletiyi oluşturabilir:
 
@@ -185,11 +187,11 @@ Belirtilen küme uç noktasının kullanılabilir olduğunu ve dinlediğini doğ
 
 ### <a name="detailed-logs"></a>Ayrıntılı günlükler
 
-Hata ayıkladığınız veya sorun bildirdiğiniz sırada ayrıntılı günlükler çoğunlukla yararlı olur. Günlük dosyalarının ayrıntı düzeyini artıran genel bir `--debug` bayrağı vardır.
+Hata ayıkladığınız veya sorun bildirdiğiniz sırada ayrıntılı günlükler çoğunlukla yararlı olur. Genel bir `--debug` bayrağı, günlük dosyalarının ayrıntı düzeyini artırır.
 
 ### <a name="command-help-and-syntax"></a>Komut yardımı ve söz dizimi
 
-Belirli bir komut veya komut grubuyla ilgili yardım almak için `-h` bayrağını kullanın:
+Belirli bir komut veya komut grubuyla ilgili yardım almak için `-h` bayrağını kullanın.
 
 ```azurecli
 sfctl application -h

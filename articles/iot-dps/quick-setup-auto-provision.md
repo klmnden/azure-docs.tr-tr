@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 519ea43bfaa9d61de6ff962d838c197eb9e4edc0
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
 ms.contentlocale: tr-tr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -63,7 +63,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 2. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Bağlantılı IOT hub'ları**’nı seçin. Üstte görünen **+ Ekle** düğmesine tıklayın. 
 
-3. **IoT hub'ı veya havuzuna bağlantı ekle** portal dikey penceresinde, geçerli aboneliği seçin veya başka bir abonelik için adı ve bağlantı dizesini girin. **Kaynak türü** olarak *IoT hub'ı*’nı seçin ve aşağı açılan listeden hub adını seçin. İşlem tamamlandığında **Kaydet**’e tıklayın. 
+3. **IoT hub'ına bağlantı ekle** portal dikey penceresinde, geçerli aboneliği seçin veya başka bir abonelik için adı ve bağlantı dizesini girin. Açılan listeden hub adını seçin. İşlem tamamlandığında **Kaydet**’e tıklayın. 
 
     ![Portal dikey penceresinde DPS örneğine bağlanmak için hub adını bağlayın](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 

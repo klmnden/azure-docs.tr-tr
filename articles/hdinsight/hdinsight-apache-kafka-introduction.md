@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/15/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 39234ca792983178cfd4304e001271ea30e28ae6
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>HDInsight üzerinde Apache Kafka’ya giriş (önizleme)
@@ -42,7 +42,7 @@ Kafka aşağıdaki özellikleri sağlar:
 
 * Azure Yönetilen Diskler ile tümleştirme: Yönetilen diskler, HDInsight kümesinde sanal makineler tarafından kullanılan diskler için daha yüksek ölçek ve aktarım hızı sağlar.
 
-    Yönetilen diskler, HDInsight üzerinde Kafka için varsayılan olarak etkindir ve düğüm başına kullanılan disk sayısı HDInsight oluşturma işlemi sırasında yapılandırılabilir. Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Diskler](../virtual-machines/windows/managed-disks-overview.md).
+    Yönetilen diskler HDInsight üzerinde Kafka için varsayılan olarak etkindir. Düğüm başına kullanılan disk sayısı HDInsight oluşturma işlemi sırasında yapılandırılabilir. Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Diskler](../virtual-machines/windows/managed-disks-overview.md).
 
     Yönetilen disklerin HDInsight üzerinde Kafka ile yapılandırılması hakkında bilgi edinmek için bkz. [HDInsight üzerinde Kafka'nın ölçeklenebilirliğini artırma](hdinsight-apache-kafka-scalability.md).
 
@@ -55,6 +55,15 @@ Kafka aşağıdaki özellikleri sağlar:
 * **Toplama**: Akış işlemeyi kullanarak, bilgileri işlem verileriyle birleştirmek ve merkezi hale getirmek üzere farklı akışlardan gelen bilgileri toplayabilirsiniz.
 
 * **Dönüştürme**: Akış işlemeyi kullanarak, birden fazla girdi konu başlığındaki verileri bir veya daha fazla çıktı konu başlığında birleştirerek verileri zenginleştirebilirsiniz.
+
+## <a name="architecture"></a>Mimari
+
+![Kafka kümesi yapılandırması](./media/hdinsight-apache-kafka-introduction/kafka-cluster.png)
+
+Bu şemada olayların hata dayanıklılığı ile paralel olarak okunması için tüketici gruplarını, bölümlemeyi ve çoğaltmayı kullanan tipik Kafka yapılandırması gösterilmektedir. Kafka kümesinin durumunu yöneten Apache ZooKeeper eş zamanlı, esnek ve düşük gecikmeli işlemler için derlenmiştir. Kafka, kayıtları *başlıklar* halinde depolar. Kayıtlar, *Üreticiler* tarafından oluşturulur ve *tüketiciler* tarafından kullanılır. Üreticiler, kayıtları Kafka *aracılarından* alır. HDInsight kümenizdeki her çalışan düğümü bir Kafka aracısıdır. Her tüketici için bir bölüm oluşturulduğundan akış verileri paralel olarak işlenebilir. Çoğaltma, bölmeleri düğümlere yaymak ve düğüm (aracı) kesintilerine karşı koruma sağlamak için kullanılır. *(L)* harfi bulunan bölüm, verilen bölümün lideridir. Üretici trafiği ZooKeeper tarafından yönetilen durum kullanılarak her düğümün liderine yönlendirilir.
+
+> [!IMPORTANT]
+> Kafka, Azure veri merkezindeki temel donanımın (raf) farkında değildir. Bölümlerin temel donanım üzerinde doğru şekilde dengelendiğinden emin olmak için bkz. [yüksek kullanılabilirliği yapılandırma (Kafka)](hdinsight-apache-kafka-high-availability.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,7 +1,7 @@
 
-Bu konu başlığının hedefi Notification Hubs’ı olabildiğince hızlı kullanmaya başlamanıza yardımcı olmaktır. Bu konu başlığında, Notification Hubs’la ilgili temel kavramlara yoğunlaşmak için basit bir yayın senaryosu örneği bulunmaktadır.
+Bu makalenin hedefi Azure Notification Hubs'ı olabildiğince hızlı kullanmaya başlamanıza yardımcı olmaktır. Bu makale Notification Hubs'ın temel kavramlarına odaklanan çok basit bir yayın senaryosu sunmaktadır.
 
-Notification Hubs’a zaten aşinaysanız, sol gezinti bölmesinden başka bir konu seçmek veya [Sonraki adımlar](#next-steps) bölmesindeki ilgili bağlantıları görmek isteyebilirsiniz.
+Notification Hubs'a zaten aşinaysanız, sol gezinti bölmesinden başka bir konu seçmek veya "Sonraki adımlar" bölmesindeki ilgili makaleleri görmek isteyebilirsiniz.
 
-Geri bildiriminizi ciddiye alacağız. Bu konu başlığını tamamlamakta veya bu içeriğin geliştirilmesi için önerilerde bir güçlükle karşılaşırsanız, sayfanın sonundaki geri bildiriminize değer vermekteyiz.
+Geri bildiriminizi ciddiye alıyoruz. Bu konu başlığını tamamlamakta güçlükle karşılaşır veya bu içeriğin geliştirilmesi için öneri sunmak isterseniz makalenin sonunda geri bildirimlerinizi paylaşabilirsiniz.
 
