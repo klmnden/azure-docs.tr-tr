@@ -142,7 +142,6 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. *SQL Veri Ambarı veritabanını* sorgularken, veritabanına erişmek ve üzerinde işlem gerçekleştirmek üzere oluşturduğunuz oturum bilgilerine göre bir veritabanı kullanıcısı oluşturun.

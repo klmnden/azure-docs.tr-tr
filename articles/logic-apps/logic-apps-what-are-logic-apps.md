@@ -20,7 +20,6 @@ ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="what-are-logic-apps"></a>Logic Apps nedir?
 Logic Apps ölçeklenebilir tümleştirmeleri ve iş akışlarını basitleştirmenin ve buluta uygulamanın bir yolunu sağlar. İşleminizi iş akışı olarak bilinen bir dizi adım olarak modelleyen ve otomatikleştiren bir görsel tasarımcı sağlar.  Bulutta ve şirket içinde hizmet ve protokolleri hızlıca tümleştirmeye yönelik [çok sayıda bağlayıcı](../connectors/apis-list.md) vardır.  Mantıksal uygulama bir tetikleyici ile başlar ve başlatma sonrasında çok sayıda eylem, dönüştürme ve koşul mantığı birleşimi başlayabilir.
@@ -73,7 +72,7 @@ Logic Apps deneyimini oluşturan bazı temel parçalar aşağıda verilmiştir.
 * [Sistemlerinizi Logic Apps ile nasıl tümleştireceğinizi öğrenin](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: logic-apps-enterprise-integration-accounts.md
-[appservice]: ../app-service/app-service-value-prop-what-is.md
+[appservice]: ../app-service/app-service-web-overview.md
 [create]: logic-apps-create-a-logic-app.md
 [managedapis]: ../connectors/apis-list.md
 [tpm]: logic-apps-enterprise-integration-accounts.md

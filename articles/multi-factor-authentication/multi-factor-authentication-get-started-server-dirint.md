@@ -3,7 +3,7 @@ title: "Azure Multi-Factor Authentication ile Active Directory arasında dizin t
 description: "Bu, dizinleri eşitleyebilmeniz için Azure Multi-Factor Authentication Server ile Active Directory’yi nasıl tümleştireceğinizi açıklayan Azure Multi-factor authentication sayfasıdır."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/16/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT

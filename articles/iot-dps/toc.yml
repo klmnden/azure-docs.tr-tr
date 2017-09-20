@@ -33,8 +33,6 @@
   items:
     - name: Cihaz kayıtlarını yönetme
       href: how-to-manage-enrollments.md
-    - name: SDK ile HSM kullanma
-      href: use-hsm-with-sdk.md
 - name: Başvuru
   items:
     - name: REST

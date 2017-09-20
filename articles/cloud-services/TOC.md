@@ -60,7 +60,6 @@
 ### Otomatik ölçeklendirmeyi yapılandırma
 #### [Portal](cloud-services-how-to-scale-portal.md)
 #### [Klasik portal](cloud-services-how-to-scale.md)
-#### [PowerShell](cloud-services-how-to-scale-powershell.md)
 ### [Python ile Azure Kaynaklarını yönetme](cloud-services-python-how-to-use-service-management.md)
 
 ### [Konuk işletim sistemi düzeltme ekleri](cloud-services-guestos-msrc-releases.md)

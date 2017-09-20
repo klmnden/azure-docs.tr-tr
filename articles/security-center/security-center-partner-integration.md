@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 ms.translationtype: HT
 ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
@@ -71,7 +71,7 @@ Güvenlik Çözümleri sayfasını açtığınızda görüntülenen içerik, alt
 
 **Bağlantılı çözümler** bölümünde Güvenlik Merkezi ile bağlı olan tüm güvenlik çözümleri gösterilir. 
 
-![Bağlantılı çözümler](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
+![Bağlantılı çözümler](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 Her bağlantıda gördüğünüz bilgiler çözüme göre değişiklik gösterebilir. Her kutucukta yer alan bilgilerin arasında şunlar bulunabilir:
 
@@ -106,7 +106,7 @@ Azure AD Kimlik Koruması uyarıları Güvenlik Merkezi'nin algılama kanalında
 
 Azure ve Azure harici bilgisayarları Güvenlik Merkezi ile tümleştirmek üzere ekleyebilirsiniz.  Azure harici bilgisayarları ekleme imkanı şirket içi bir bilgisayarı veya CEF destekli bir gereci eklemenizi sağlar. 
 
-![Veri kaynakları](./media/security-center-partner-integration/security-center-partner-integration-fig11.png)
+![Veri kaynakları](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
