@@ -257,14 +257,6 @@
           href: sql-database-ssms-mfa-authentication-configure.md
     - name: İş sürekliliği
       items:
-        - name: Kasayı yapılandırma - yedekler
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: Coğrafi çoğaltma - Portal
-          href: sql-database-geo-replication-portal.md
-        - name: Tek bir tabloyu kurtarma
-          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: Verileri yükleme ve taşıma
-      items:
         - name: BCP ile veri yükleme
           href: sql-database-load-from-csv-with-bcp.md
         - name: ADF ile veri yükleme

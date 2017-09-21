@@ -1,7 +1,5 @@
 # Genel Bakış
 ## [Mobile Apps nedir?](app-service-mobile-value-prop.md)
-## [App Service nedir?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [Nasıl çalışır?](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [App Service planları](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Başlarken
@@ -14,31 +12,15 @@
 ### [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
 ### [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
 
-## API uygulaması oluşturma
-### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
-### [Java](../app-service-api/app-service-api-java-api-app.md)
-### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
-### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
-
-## Web uygulaması oluşturma
-### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
-### [PHP](../app-service-web/app-service-web-get-started-php.md)
-### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
-### [Java](../app-service-web/app-service-web-get-started-java.md)
-### [Python](../app-service-web/app-service-web-get-started-python.md)
-### [HTML](../app-service-web/app-service-web-get-started-html.md)
-
-# Nasıl yapılır
+# Nasıl yapılır?
 
 ## Planlama ve tasarım
 ### [Azure Mobile Apps’te Kimlik Doğrulama ve Yetkilendirme](app-service-mobile-auth.md)
 ### [Azure Mobile Apps’te Çevrimdışı Veri Eşitleme](app-service-mobile-offline-data-sync.md)
-### [Azure Uygulama Hizmeti için En İyi Uygulamalar](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Azure Uygulama Hizmeti için En İyi Uygulamalar](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [App Service planlarının ayrıntıları](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Yüksek yoğunluklu barındırma](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure Uygulama Hizmeti’nde Web İşleri kullanımı](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [App Service Ortamı](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [App Service Ortamı belgeleri](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Yüksek yoğunluklu barındırma](../app-service/environment/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [App Service Ortamı](../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Geliştirme
 ### Android
@@ -90,54 +72,42 @@
 #### [Node.js arka ucu](app-service-mobile-node-backend-how-to-use-server-sdk.md)
 #### [İstemci ve sunucu sürümü oluşturma](app-service-mobile-client-and-server-versioning.md)
 
-### Web Jobs
-#### [Azure Web İşleri SDK’sı nedir?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Azure Uygulama Hizmeti’nde .NET Web İşi oluşturma](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Web İşleri SDK’sı ile Azure blob depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Web İşleri SDK’sı ile Azure kuyruk depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Web İşleri SDK’sı ile Azure Service Bus kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Web İşleri SDK’sı ile Azure tablo depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-
 ### App Service Ortamı
-#### [App Service Ortamında bir web uygulaması oluşturma](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Azure Resource Manager Şablonlarını Kullanarak ILB ASE Oluşturma](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [İç Yük Dengeleyici kullanma](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [App Service Ortamında bir web uygulaması oluşturma](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Azure Resource Manager Şablonlarını Kullanarak ILB ASE Oluşturma](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [İç Yük Dengeleyici kullanma](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## [Dağıtma](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [App Service’e dağıtma](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Bulut eşitleme dağıtımı](../app-service-web/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Sürekli dağıtım](../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Hazırlık ortamları](../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Yerel Git dağıtımı](../app-service-web/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Visual Studio kullanarak Web İşleri’ni dağıtma](../app-service-web/websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## Dağıtma
+### [Bulut eşitleme dağıtımı](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Sürekli dağıtım](../app-service/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Hazırlık ortamları](../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Yerel Git dağıtımı](../app-service/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Azure Resource Manager dağıtımı](../app-service/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## [Ölçeklendirme](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Bir uygulamanın ölçeğini artırma](../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [App Service Ortamı](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [App Service Ortamları ile Coğrafi Olarak Dağıtılmış Ölçek](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [App Service Ortamında uygulamaları ölçeklendirme](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
-#### [App Service Ortamında otomatik ölçeklendirme](../app-service/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## Ölçek
+### [Bir uygulamanın ölçeğini artırma](../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [App Service Ortamı](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [App Service Ortamları ile Coğrafi Olarak Dağıtılmış Ölçek](../app-service/environment/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [App Service Ortamında uygulamaları ölçeklendirme](../app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+#### [App Service Ortamında otomatik ölçeklendirme](../app-service/environment/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Yönet
-### [Yapılandırma](../app-service-web/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Yapılandırma](../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Özel etki alanları
-#### [Özel etki alanı satın alma ve yapılandırma](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Kendi özel etki alanınızı eşleme](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Traffic Manager ile özel etki alanları](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Özel etki alanı satın alma ve yapılandırma](../app-service/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Kendi özel etki alanınızı eşleme](../app-service/app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Traffic Manager ile özel etki alanları](../app-service/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-### [Mevcut bir uygulamayı kopyalama](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure Sanal Ağ](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Gelişmiş yapılandırma](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Kaynak grupları](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Web İşleri](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Web İşleri ile arka plan görevleri çalıştırma](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Mevcut bir uygulamayı kopyalama](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Azure Sanal Ağ](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Kaynak grupları](../app-service/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Web İşleri ile arka plan görevleri çalıştırma](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-### [App Service Ortamı](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Yapılandırma](../app-service-web/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Özel yapılandırma ayarları](../app-service-web/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Gelen trafiği denetleme](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Ağ mimarisine genel bakış](../app-service-web/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [ExpressRoute ile ağ yapılandırma ayrıntıları](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Yapılandırma](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Özel yapılandırma ayarları](../app-service/environment/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Gelen trafiği denetleme](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Ağ mimarisine genel bakış](../app-service/environment/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [ExpressRoute ile ağ yapılandırma ayrıntıları](../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Geçiş
 ### [App Service ile Mobile Services arasındaki farklar nelerdir?](app-service-mobile-value-prop-migration-from-mobile-services.md)
@@ -146,54 +116,44 @@
 #### [.NET arka ucu](app-service-mobile-net-upgrading-from-mobile-services.md)
 #### [Node.js arka ucu](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
-## [Güvenlik](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## Güvenlik
 ### [Kimlik doğrulama ve yetkilendirme](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Kimlik sağlayıcıları ile kimlik doğrulama
-#### [Azure Active Directory kimlik doğrulaması](app-service-mobile-how-to-configure-active-directory-authentication.md)
-#### [Facebook kimlik doğrulaması](app-service-mobile-how-to-configure-facebook-authentication.md)
-#### [Google kimlik doğrulaması](app-service-mobile-how-to-configure-google-authentication.md)
-#### [Microsoft Hesabı kimlik doğrulaması](app-service-mobile-how-to-configure-microsoft-authentication.md)
-#### [Twitter kimlik doğrulaması](app-service-mobile-how-to-configure-twitter-authentication.md)
-### [Şirket içi Active Directory ile kimlik doğrulama](../app-service-web/web-sites-authentication-authorization.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Azure Active Directory kimlik doğrulaması](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Facebook kimlik doğrulaması](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Google kimlik doğrulaması](../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Microsoft Hesabı kimlik doğrulaması](../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Twitter kimlik doğrulaması](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### HTTPS
-#### [TLS Karşılıklı Kimlik Doğrulamayı yapılandırma](../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Azure’da SSL sertifikası satın alma](../app-service-web/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Başka bir yerden alınan SSL sertifikasını kullanma](../app-service-web/web-sites-configure-ssl-certificate.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [TLS Karşılıklı Kimlik Doğrulamayı yapılandırma](../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Azure’da SSL sertifikası satın alma](../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Başka bir yerden alınan SSL sertifikasını kullanma](../app-service/app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### App Service Ortamının güvenliğini sağlama
-#### [Web uygulaması güvenlik duvarı yapılandırma](../app-service-web/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Katmanlı güvenlik mimarisi uygulama](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Arka Uç Kaynaklarına Güvenli Bağlanma](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Web uygulaması güvenlik duvarı yapılandırma](../app-service/environment/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Katmanlı güvenlik mimarisi uygulama](../app-service/environment/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Arka Uç Kaynaklarına Güvenli Bağlanma](../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Backup
-### [Uygulamanızı Azure’a yedekleme](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Uygulamanızı Azure’a geri yükleme](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Uygulamanızı Azure’a yedekleme](../app-service/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Uygulamanızı Azure’a geri yükleme](../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## [İzleme](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Tanılama günlüğünü etkinleştirme ](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Visual Studio kullanarak sorun giderme](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-
-## Otomatikleştirme
-### [Çevik geliştirme](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure Resource Manager dağıtımı](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### PowerShell
-#### [Otomatik yedekleme ve geri yükleme](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Uygulama kopyalama](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [SSL Sertifikası Bağlama](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [İzleme](../app-service/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Tanılama günlüğünü etkinleştirme ](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Visual Studio kullanarak sorun giderme](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Tümleştirme
-### [Azure ile SendGrid kullanarak e-posta gönderme](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [PowerApps ve Microsoft Flow’a dışarı aktarma](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Azure ile SendGrid kullanarak e-posta gönderme](../sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [PowerApps ve Microsoft Flow’a dışarı aktarma](../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Yönetilen Hizmet Kimliğini Kullanma](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Sorun giderme
 ### Mobile Apps için genel sorun giderme adımları
 #### [.NET arka ucu](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk)
 #### [Node.js arka ucu](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging)
-### [Tanılama günlüğünü etkinleştirme](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Akış günlükleri ve konsol](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Visual Studio kullanarak sorun giderme](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Tanılama günlüğünü etkinleştirme](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Visual Studio kullanarak sorun giderme](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Başvuru
 ## [.NET arka uç SDK’sı](https://msdn.microsoft.com/library/azure/dn961176.aspx)
@@ -207,9 +167,8 @@
 ## [GitHub depoları](https://github.com/Azure/azure-mobile-apps)
 
 # Kaynaklar
-## [App Service En İyi Yöntemler](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [App Service En İyi Yöntemler](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
-## [Web İşi kaynaklarının listesi](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [MSDN forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 ## [Fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/app-service/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

@@ -143,6 +143,8 @@
               href: agent-user-guide.md
             - name: Aracı güncelleştirmesi
               href: update-agent.md
+        - name: Planlı bakım
+          href: maintenance-notifications.md
         - name: Zamanlanmış olaylar
           href: scheduled-events.md
         - name: Meta verileri izleme

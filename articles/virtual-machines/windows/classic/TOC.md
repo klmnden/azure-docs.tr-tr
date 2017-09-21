@@ -3,7 +3,7 @@
 ## [Diskler ve VHD’ler](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Sanal Ağlar](../../../virtual-network/virtual-networks-overview.md)
 ## [SSS](faq.md)
-## [VM'leri, web sitelerini ve bulut hizmetlerini karşılaştırma](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [VM'leri, web sitelerini ve bulut hizmetlerini karşılaştırma](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [Kapsayıcılar](../../virtual-machines-windows-containers.md)
 
 # Başlarken

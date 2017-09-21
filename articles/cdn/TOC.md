@@ -6,7 +6,7 @@
 
 # Nasıl yapılır?
 ## Tümleştirme
-### [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Depolama](cdn-create-a-storage-account-with-cdn.md)
 ### [Çıkış noktaları arası kaynak paylaşımı](cdn-cors.md)

@@ -7,16 +7,15 @@
 ## [Uyumlu üçüncü taraf yazılımı](active-directory-ds-compatible-software.md)
 
 # başlarken
-## Azure portalı (Önizleme)
-### [1. Görev: Temel ayarları yapılandırma](active-directory-ds-getting-started.md)
-### [2. Görev: Ağ ayarlarını yapılandırma](active-directory-ds-getting-started-network.md)
-### [3. Görev: Yönetici grubunu yapılandırma ve Azure AD Domain Services’ı etkinleştirme](active-directory-ds-getting-started-admingroup.md)
-### [4. Görev: Sanal ağa yönelik DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
-### [5. Görev: Parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
+## [1. Görev: Temel ayarları yapılandırma](active-directory-ds-getting-started.md)
+## [2. Görev: Ağ ayarlarını yapılandırma](active-directory-ds-getting-started-network.md)
+## [3. Görev: Yönetici grubunu yapılandırma ve Azure AD Domain Services’ı etkinleştirme](active-directory-ds-getting-started-admingroup.md)
+## [4. Görev: Sanal ağa yönelik DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
+## [5. Görev: Parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
 
 # Nasıl yapılır
 ## Yönetilen bir etki alanına katılma
-### [Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [PowerShell kullanarak Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Linux VM’sine katılma](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Yönetilen etki alanını yönetme
