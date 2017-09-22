@@ -12,8 +12,9 @@
 ### [1- .NET uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md)
 ### [2- Uygulamayı dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3 - CI/CD yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+### [4- İzleme ve Tanılama](service-fabric-tutorial-monitoring-aspnet.md)
 
-## Bir uygulamayı lift-and-shift ile taşıma
+## Mevcut bir .NET uygulamasını kapsayıcılı hale getirme
 ### [1- Azure’da güvenli bir küme oluşturma](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2 - Docker Compose kullanarak bir .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md)
 

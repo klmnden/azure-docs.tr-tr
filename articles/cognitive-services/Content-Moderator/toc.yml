@@ -4,6 +4,30 @@
   items:
     - name: Content Moderator hakkında
       href: overview.md
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Gözden geçirme aracı
+      href: quick-start.md
+    - name: Yönetim API’leri
+      items:
+        - name: Görüntü API’si
+          href: try-image-api.md
+        - name: Görüntü listesi API’si
+          href: try-image-list-api.md
+        - name: Metin API’si
+          href: try-text-api.md
+        - name: Terim listesi API’si
+          href: try-terms-list-api.md
+    - name: API’leri inceleme
+      items:
+        - name: İşler
+          href: try-review-api-job.md
+        - name: İncelemeler
+          href: try-review-api-review.md
+        - name: İş akışları
+          href: try-review-api-workflow.md
+- name: Kavramlar
+  items:
     - name: Görüntü denetimi
       href: image-moderation-api.md
     - name: Metin denetimi
@@ -14,31 +38,9 @@
       href: video-moderation-api.md
     - name: API’leri inceleme
       href: review-api.md
-- name: başlarken
+- name: Nasıl yapılır kılavuzları
   items:
-    - name: İnceleme aracı
-      href: quick-start.md
-    - name: Yönetim API’lerini deneyin
-      items:
-        - name: Görüntüler
-          href: try-image-api.md
-        - name: Görüntü listeleri
-          href: try-image-list-api.md
-        - name: Metin
-          href: try-text-api.md
-        - name: Terim listeleri
-          href: try-terms-list-api.md
-    - name: İnceleme API’lerini deneyin
-      items:
-        - name: İşler
-          href: try-review-api-job.md
-        - name: İncelemeler
-          href: try-review-api-review.md
-        - name: İş akışları
-          href: try-review-api-workflow.md
-- name: Nasıl yapılır?
-  items:
-    - name: İnceleme aracını kullanma
+    - name: Gözden geçirme aracı
       items:
         - name: İnsan destekli döngü
           href: Review-Tool-User-Guide/human-in-the-loop.md

@@ -27,7 +27,7 @@
 ### [Çıktıları oluştur](stream-analytics-define-outputs.md)
 ### [Azure İşlevleri’ne çıktı sağlama](stream-analytics-functions-redis.md)
 ### [Data Lake Store’a çıktı sağlama](stream-analytics-data-lake-output.md)
-### [DocumentDB’ye çıktı sağlama](stream-analytics-documentdb-output.md)
+### [Cosmos DB çıkışı](stream-analytics-documentdb-output.md)
 
 ## İzleme ve iyileştirme
 ### [Uyarı ekleme](stream-analytics-set-up-alerts.md)

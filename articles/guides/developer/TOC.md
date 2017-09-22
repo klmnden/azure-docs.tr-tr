@@ -1,12 +1,17 @@
 # Genel Bakış
 ## [Geliştirici kılavuzu](azure-developer-guide.md) 
+### [Azure nedir?](azure-developer-guide.md#what-is-azure)
+### [Nereden başlamalıyım?](azure-developer-guide.md#where-do-i-start)
+### [Azure bölgeleri](azure-developer-guide.md#azure-regions)
+### [Uygulamalarımı ve projelerimi nasıl yönetebilirim?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
+### [Hesapları, abonelikleri ve faturalamayı anlama](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
 
-## [Azure hizmetlerine genel bakış](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-## [Portala genel bakış](https://docs.microsoft.com/azure/azure-portal-overview)
+## [Azure hizmetlerine genel bakış](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Portala genel bakış](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDK’lar ve araçlar](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Hızlı Başlangıç
-## [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-html)
+## [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## Sanal makineler
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -17,10 +22,10 @@
 
 # Öğreticiler
 ## Web uygulaması oluşturma ve dağıtma
-### [SQL DB ile .NET](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase)
-### [Mongo DB ile Node.js](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
-### [MySQL ile PHP](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-php-mysql)
-### [MySQL ile Java](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-java-mysql)
+### [SQL DB ile .NET](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+### [Mongo DB ile Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+### [MySQL ile PHP](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql)
+### [MySQL ile Java](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql)
 ## Karmaşık VM şablonlarını dağıtma
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -29,25 +34,25 @@
 
 # Örnekler
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Kavramlar
 ## [Faturalama ve abonelikler](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Barındırma karşılaştırmaları](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm)
-## [App Service nedir?](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
+## [Barındırma karşılaştırmaları](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [App Service nedir?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 ## Sanal makineler
 ### [Linux VM'leri](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Windows VM’leri](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
 ## [Service Fabric’e genel bakış](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # Nasıl yapılır kılavuzları
-## [Planlama](https://docs.microsoft.com/azure/architecture/guide/)
+## Planlama
 ### [Web uygulaması mimarileri](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [VM mimarileri](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [Şirket içi ağlara bağlanma](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
@@ -58,7 +63,7 @@
 ### [Sunucusuz uygulamalar](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Mikro hizmetler kümesi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Dağıtma
-### [Kaynak denetiminden web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)
+### [Kaynak denetiminden web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
 ### [Yerel mikro hizmetler](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -71,26 +76,25 @@
 ### [İleti kuyrukları](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
 ## Ölçek
-### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service-web/web-sites-scale)
+### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/web-sites-scale)
 ### [Sanal makineler](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
 ### [Mikro hizmet uygulamaları](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## Güvenlik
-### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-custom-ssl)
+### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Backup
-### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service-web/web-sites-backup)
+### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Sanal makineler](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## İzleme
-### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)
+### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Mikro hizmetler](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
 ### [Fatura uyarıları](https://docs.microsoft.com/azure/billing/billing-set-up-alerts)
 
 ## Otomatikleştirme
-### [Çevik web uygulaması geliştirme](https://docs.microsoft.com/azure/app-service-web/app-service-agile-software-development)
 ### [Linux VM ölçeklendirme](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
 ### [Windows VM ölçeklendirme](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 

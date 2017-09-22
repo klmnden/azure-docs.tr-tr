@@ -27,6 +27,7 @@
 ### [Azure AD zaten olduğunda](active-directory-aadconnect-existing-tenant.md)
 ## [Azure AD Connect'i yönetme](active-directory-aadconnect-whats-next.md)
 ### [O365 ve Azure AD için sertifikaları yenileme](active-directory-aadconnect-o365-certs.md)
+### [Active Directory Federasyon Hizmetleri (AD FS) grubu için SSL sertifikasını güncelleştirme](active-directory-aadconnectfed-ssl-update.md)
 ### [Cihaz geri yazmayı etkinleştirme](active-directory-aadconnect-feature-device-writeback.md)
 ### [Kullanıcı oturum açma seçenekleri](active-directory-aadconnect-user-signin.md)
 #### [Sorunsuz Çoklu Oturum Açma](active-directory-aadconnect-sso.md)
