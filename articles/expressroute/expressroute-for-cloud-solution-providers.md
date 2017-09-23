@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
-
+ms.contentlocale: tr-tr
+ms.lasthandoff: 12/07/2016
 
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Bulut Çözüm Sağlayıcıları (CSP) için ExpressRoute
@@ -137,10 +138,5 @@ Aşağıdaki bağlantılarda ek bilgiler bulunabilir:
 [Microsoft Bulut Çözümü Sağlayıcısı programı](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview).  
 [Bir Bulut Çözümü Sağlayıcısı olmaya hazırlanma](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Microsoft Bulut Çözümü Sağlayıcısı kaynakları](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

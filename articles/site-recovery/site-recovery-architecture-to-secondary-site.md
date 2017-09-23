@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery&quot;de ikincil bir şirket içi konuma yönelik şirket içi makine çoğaltma işlemi nasıl gerçekleştirilir? | Microsoft Docs"
-description: "Bu makale, Azure Site Recovery hizmeti aracılığıyla şirket içi VM&quot;leri ve fiziksel sunucuları ikincil bir konuma çoğaltırken kullanılan bileşenlere ve mimariye yönelik genel bir bakış sağlamaktadır."
+title: "Azure Site Recovery'de ikincil bir şirket içi konuma yönelik şirket içi makine çoğaltma işlemi nasıl gerçekleştirilir? | Microsoft Docs"
+description: "Bu makale, Azure Site Recovery hizmeti aracılığıyla şirket içi VM'leri ve fiziksel sunucuları ikincil bir konuma çoğaltırken kullanılan bileşenlere ve mimariye yönelik genel bir bakış sağlamaktadır."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -19,7 +19,6 @@ ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: fca95c63964b955db7ddfbe53250702cc8af122e
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/15/2017
-
 
 ---
 # <a name="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery"></a>Site Recovery'de ikincil bir konuma yönelik şirket içi makine çoğaltma işlemi nasıl gerçekleştirilir?

@@ -20,7 +20,6 @@ ms.openlocfilehash: 8629235511e0dda149ceef6a9c834c3042f64f90
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute önkoşulları ve denetim listesi
 ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için, aşağıdaki bölümlerde listelenen gereksinimlerin karşılanmış olduğunu doğrulamanız gerekir.

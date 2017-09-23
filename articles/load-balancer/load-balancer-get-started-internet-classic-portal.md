@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: a022154f5eca6de2d2dbfc1b9aa30d2ea0a7d650
+ms.contentlocale: tr-tr
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -67,9 +69,4 @@ Yük dengeli kümedeki diğer sanal makineler için 8-10 arası adımları tekra
 [Yük dengeleyici dağıtım modu yapılandırma](load-balancer-distribution-mode.md)
 
 [Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

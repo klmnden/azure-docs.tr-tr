@@ -1,6 +1,6 @@
 ---
-title: "Azure Traffic Manager&quot;da uç noktaları yönetme | Microsoft Belgeleri"
-description: "Bu makale, Azure Traffic Manager&quot;da uç noktalar ekleme, kaldırma, etkinleştirme ve devre dışı bırakma konularında size yardımcı olacaktır."
+title: "Azure Traffic Manager'da uç noktaları yönetme | Microsoft Belgeleri"
+description: "Bu makale, Azure Traffic Manager'da uç noktalar ekleme, kaldırma, etkinleştirme ve devre dışı bırakma konularında size yardımcı olacaktır."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -45,8 +45,8 @@ Aynı zamanda bir Traffic Manager profilinin parçası olan tekil uç noktaları
     5. **Öncelik** için **1** seçin. Bu durum, sağlıksız olması durumunda tüm trafiğin bu uç noktaya gitmesiyle sonuçlanır.
     6. **Devre dışı olarak ekle** seçeneğini işaretsiz bırakın.
     7. **Tamam**’a tıklayın.
-6.    Sonraki Azure uç noktasını eklemek için 4. ve 5. adımları tekrarlayın. Uç noktayı eklerken **Öncelik** değerinin **2** olarak ayarlandığından emin olun.
-7.    Her iki uç noktanın eklenmesi tamamlandığında, **Çevrimiçi** izleme durumuyla birlikte **Traffic Manager profili** dikey penceresinde gösterilir.
+6.  Sonraki Azure uç noktasını eklemek için 4. ve 5. adımları tekrarlayın. Uç noktayı eklerken **Öncelik** değerinin **2** olarak ayarlandığından emin olun.
+7.  Her iki uç noktanın eklenmesi tamamlandığında, **Çevrimiçi** izleme durumuyla birlikte **Traffic Manager profili** dikey penceresinde gösterilir.
 
 > [!NOTE]
 > *Yük devretme* trafik yönlendirme yöntemini kullanarak bir uç noktayı profile eklediğinizde veya profilden kaldırdığınızda, yük devretme öncelik listesi istediğiniz şekilde sıralanmayabilir. Yapılandırma sayfasında, Yük Devretme Önceliği Listesinin sırasını ayarlayabilirsiniz. Daha fazla bilgi için bkz. [Yük devretme trafik yönlendirmesini yapılandırma](traffic-manager-configure-failover-routing-method.md).

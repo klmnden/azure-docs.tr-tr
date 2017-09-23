@@ -6,11 +6,11 @@ If you receive the following error message, the Microsoft.insights resource prov
 
 To register the resource provider, perform the following steps in the Azure portal:
 
-1.    In the navigation pane on the left, click *Subscriptions*
-2.    Select the subscription identified in the error message
-3.    Click *Resource Providers*
-4.    Find the *Microsoft.insights* provider
-5.    Click the *Register* link
+1.  In the navigation pane on the left, click *Subscriptions*
+2.  Select the subscription identified in the error message
+3.  Click *Resource Providers*
+4.  Find the *Microsoft.insights* provider
+5.  Click the *Register* link
 
 ![Register microsoft.insights resource provider](./media/log-analytics-troubleshoot-azure-diagnostics/log-analytics-register-microsoft-diagnostics-resource-provider.png)
 

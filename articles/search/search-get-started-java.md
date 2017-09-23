@@ -1,6 +1,6 @@
 ---
 title: "Java’da Azure Search kullanmaya başlama | Microsoft Belgeleri"
-description: "Azure&quot;da programlama diliniz olarak Java&quot;yı kullanarak barındırılan bulut arama hizmeti uygulaması derleme."
+description: "Azure'da programlama diliniz olarak Java'yı kullanarak barındırılan bulut arama hizmeti uygulaması derleme."
 services: search
 documentationcenter: 
 author: EvanBoyle
@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
+ms.contentlocale: tr-tr
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java'da Azure Search kullanmaya başlama

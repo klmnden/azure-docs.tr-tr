@@ -12,8 +12,3 @@ Ayarlarını görüntülemek ve yapılandırmak için istediğiniz önbelleği s
 
 ![Redis Önbelleği Tüm Ayarları](media/redis-cache-browse/redis-cache-blade.png)
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

@@ -5,8 +5,3 @@
 
 ## <a name="get-security-updates-for-our-products"></a>Ürünlerimiz için güvenlik güncelleştirmelerini alma
 [Microsoft teknik güvenlik bildirimleri için TechCenter sayfasını](https://technet.microsoft.com/security/dd252948) ziyaret ederek ve güvenlik önerisi uyarılarına abone olarak güvenlik olaylarının ne zaman ortaya çıkacağı hakkında bildirimleri almanız önerilir.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

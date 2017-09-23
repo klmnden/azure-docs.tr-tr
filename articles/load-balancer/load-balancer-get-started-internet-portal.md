@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: annahar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
+ms.contentlocale: tr-tr
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -112,9 +114,4 @@ Bir yük dengeleyici silmek için kaldırmak istediğiniz yük dengeleyiciyi se�
 [Yük dengeleyici dağıtım modu yapılandırma](load-balancer-distribution-mode.md)
 
 [Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

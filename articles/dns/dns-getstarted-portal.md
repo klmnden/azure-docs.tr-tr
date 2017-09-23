@@ -1,6 +1,6 @@
 ---
 title: "Azure Portal ile Azure DNS’i kullanmaya başlama | Microsoft Docs"
-description: "Azure DNS&quot;te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, Azure portalı kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
+description: "Azure DNS'te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, Azure portalı kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
 services: dns
 documentationcenter: na
 author: jtuliani

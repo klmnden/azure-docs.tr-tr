@@ -20,7 +20,6 @@ ms.openlocfilehash: 8072a863fab0b304ccbbba639aa56b403e8f37c7
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Öğretici: Verileri kopyalamak amacıyla Data Factory işlem hattı oluşturmak için Azure portalını kullanma | Microsoft Docs 
 > [!div class="op_single_selector"]

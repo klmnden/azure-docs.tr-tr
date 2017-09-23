@@ -20,7 +20,6 @@ ms.openlocfilehash: 4baa1b675d2930cd111b5b8368ac081dc2b77841
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Download marketplace items from Azure to Azure Stack
 

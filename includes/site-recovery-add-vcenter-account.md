@@ -8,8 +8,3 @@
 
     > [!Note]
   > Hesap adının portalda görünmesi 15 dakika veya daha fazla sürebilir. Hemen güncelleştirmek için **Yapılandırma Sunucuları** > ***sunucu adı*** > **Sunucuyu Yenile**’ye tıklayın.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

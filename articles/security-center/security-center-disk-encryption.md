@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure Sanal Makinesi&quot;ni şifreleme | Microsoft Docs"
-description: "Bu belge, Azure Güvenlik Merkezi&quot;nden uyarı aldıktan sonra Azure Sanal Makine&quot;yi şifrelemenize yardımcı olur."
+title: "Bir Azure Sanal Makinesi'ni şifreleme | Microsoft Docs"
+description: "Bu belge, Azure Güvenlik Merkezi'nden uyarı aldıktan sonra Azure Sanal Makine'yi şifrelemenize yardımcı olur."
 services: security, security-center
 documentationcenter: na
 author: TomShinder
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
 ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
 ms.contentlocale: tr-tr
 ms.lasthandoff: 05/17/2017
-
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Azure Sanal Makine'yi şifreleme

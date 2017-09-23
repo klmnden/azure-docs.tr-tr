@@ -20,7 +20,6 @@ ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Create a site-to-site VPN connection between two virtual networks in different Azure Stack Development Kit environments
 ## <a name="overview"></a>Overview

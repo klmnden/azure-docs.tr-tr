@@ -20,7 +20,6 @@ ms.openlocfilehash: cdbee52574d0ffbe82ef3dc98f2848f4d00ba2ff
 ms.contentlocale: tr-tr
 ms.lasthandoff: 02/11/2017
 
-
 ---
 # <a name="how-to-use-azure-redis-cache-with-python"></a>Python ile Azure Redis Cache kullanma
 > [!div class="op_single_selector"]

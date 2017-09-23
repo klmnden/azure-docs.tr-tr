@@ -4,8 +4,3 @@
 
    > [!NOTE]
    > vCenter veya konak sunucusu üzerinde yönetici ayrıcalıklarına sahip olmayan bir hesapla VMware vCenter sunucusunu veya VMware vSphere konağını ekliyorsanız, hesabın şu ayrıcalıklarının etkin olduğundan emin olun: Veri Merkezi, Veri Deposu, Klasör, Konak, Ağ, Kaynak, Sanal makine ve vSphere Dağıtılmış Anahtarı. Ayrıca, VMware vCenter sunucusunda Depolama görünümleri ayrıcalığının etkin olması gerekir.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

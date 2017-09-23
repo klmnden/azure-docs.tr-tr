@@ -7,8 +7,3 @@ Bu makalede aşağıdaki durumlar varsayılır
 
 > [!TIP]
 > Sanal makinelerin yük devrettiği Azure Sanal Ağından Configuration Server (şirket içinde çalışan) 443 bağlantı noktasını bağlayabildiğinizden emin olun.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -20,7 +20,6 @@ ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure Güvenlik Merkezi Veri Güvenliği | Microsoft Belgeleri"
-description: "Bu belgede Azure Güvenlik Merkezi&quot;nde verilerin yönetilmesi ve korunması açıklanmaktadır."
+description: "Bu belgede Azure Güvenlik Merkezi'nde verilerin yönetilmesi ve korunması açıklanmaktadır."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -19,7 +19,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 6f95cf7631664f4630edbbcdadfd1d98105fdb98
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="azure-security-center-data-security"></a>Azure Güvenlik Merkezi Veri Güvenliği

@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Lake Analytics&quot;i Node.js için Azure SDK&quot;yı kullanarak yönetme | Microsoft Belgeleri"
-description: "Data Lake Analytics hesaplarını, veri kaynaklarını, işlerini ve kullanıcılarını Node.js için Azure SDK&quot;yı kullanarak yönetmeyi öğrenin"
+title: "Azure Data Lake Analytics'i Node.js için Azure SDK'yı kullanarak yönetme | Microsoft Belgeleri"
+description: "Data Lake Analytics hesaplarını, veri kaynaklarını, işlerini ve kullanıcılarını Node.js için Azure SDK'yı kullanarak yönetmeyi öğrenin"
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 769cf9b09eecd204c8b5b944065dad57a6d73231
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Azure Data Lake Analytics'i Node.js için Azure SDK'yı kullanarak yönetme

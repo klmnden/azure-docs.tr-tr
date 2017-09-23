@@ -1,6 +1,6 @@
 ---
-title: "Azure Search REST API&quot;lerini değerlendirmek ve test etmek için Fiddler&quot;ı kullanma | Microsoft Belgeleri"
-description: "Kod içermeyen bir yaklaşımla Azure Search hizmetinin kullanılabilirliğini doğrulamak ve REST API&quot;leri denemek için Fiddler&quot;ı kullanın."
+title: "Azure Search REST API'lerini değerlendirmek ve test etmek için Fiddler'ı kullanma | Microsoft Belgeleri"
+description: "Kod içermeyen bir yaklaşımla Azure Search hizmetinin kullanılabilirliğini doğrulamak ve REST API'leri denemek için Fiddler'ı kullanın."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -14,9 +14,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: heidist
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
+ms.contentlocale: tr-tr
+ms.lasthandoff: 12/07/2016
 
 ---
 
@@ -223,9 +225,4 @@ Azure Search hizmetini kod içermeyen bir yaklaşımla yönetmek ve kullanmak i�
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

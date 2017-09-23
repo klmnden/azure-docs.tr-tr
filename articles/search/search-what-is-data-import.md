@@ -1,6 +1,6 @@
 ---
-title: "Azure Search&quot;e veri yükleme | Microsoft Belgeleri"
-description: "Azure Search&quot;te bir dizine nasıl veri yükleneceğini öğrenin."
+title: "Azure Search'e veri yükleme | Microsoft Belgeleri"
+description: "Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 5a601b75ec67824e72d8736bc3c45f8e1231ca86
 ms.contentlocale: tr-tr
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="upload-data-to-azure-search"></a>Azure Search'e veri yükleme

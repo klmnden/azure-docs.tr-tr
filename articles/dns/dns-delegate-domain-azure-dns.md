@@ -1,5 +1,5 @@
 ---
-title: "Etki alanınızı Azure DNS&quot;ye devretme | Microsoft Belgeleri"
+title: "Etki alanınızı Azure DNS'ye devretme | Microsoft Belgeleri"
 description: "Etki alanı temsilcisi seçiminin nasıl değiştirileceğini ve etki alanı barındırma sağlamak üzere Azure DNS ad sunucularının nasıl kullanılacağını anlayın."
 services: dns
 documentationcenter: na

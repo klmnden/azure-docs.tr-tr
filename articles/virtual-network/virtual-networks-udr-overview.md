@@ -1,6 +1,6 @@
 ---
-title: "Azure&quot;da kullanıcı tanımlı rotalar ve IP İletimi | Microsoft Docs"
-description: "Azure&quot;da trafiği ağ sanal gereçlerine iletmek için kullanıcı tanımlı yolları (UDR) ve IP İletimini nasıl yapılandıracağınızı öğrenin."
+title: "Azure'da kullanıcı tanımlı rotalar ve IP İletimi | Microsoft Docs"
+description: "Azure'da trafiği ağ sanal gereçlerine iletmek için kullanıcı tanımlı yolları (UDR) ve IP İletimini nasıl yapılandıracağınızı öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -20,7 +20,6 @@ ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 6274e0101f6fb0864c8d1efaef7fcde78b8760c3
 ms.contentlocale: tr-tr
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="user-defined-routes-and-ip-forwarding"></a>Kullanıcı tanımlı yollar ve IP iletme

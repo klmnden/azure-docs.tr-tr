@@ -1,6 +1,6 @@
 ---
 title: "Azure Machine Learning hakkında sık sorulan sorular (SSS) | Microsoft Belgeleri"
-description: "Azure Machine Learning&quot;e giriş: Kolaylaştırılmış tahmine dayalı modelleme için bir bulut hizmetinin faturalamasını, özelliklerini ve sınırlamalarını kapsayan SSS."
+description: "Azure Machine Learning'e giriş: Kolaylaştırılmış tahmine dayalı modelleme için bir bulut hizmetinin faturalamasını, özelliklerini ve sınırlamalarını kapsayan SSS."
 keywords: "machine learning giriş,tahmini modelleme,machine learning nedir"
 services: machine-learning
 documentationcenter: 
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 0a1e23cd52ab5c10791a11d93753b54eb1c1b71a
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/07/2017
-
 
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning ile ilgili sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve destek

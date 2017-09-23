@@ -1,6 +1,6 @@
 ---
 title: "Güvenlik Merkezi Planlama ve İşlemler Kılavuzu | Microsoft Belgeleri"
-description: "Bu belge, Azure Güvenlik Merkezi&quot;ni benimsemeden önce planlama ve günlük işlemlere ilişkin dikkat edilmesi gerekenler konusunda yardımcı olur."
+description: "Bu belge, Azure Güvenlik Merkezi'ni benimsemeden önce planlama ve günlük işlemlere ilişkin dikkat edilmesi gerekenler konusunda yardımcı olur."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -19,7 +19,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: c502e4363dbaa37455d1aad90d1e9fa855fd09b0
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Güvenlik Merkezi planlama ve işlemler kılavuzu

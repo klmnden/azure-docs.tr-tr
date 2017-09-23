@@ -21,7 +21,6 @@ ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="azure-automation-overview"></a>Azure Automation’a genel bakış
 Microsoft Azure Automation, kullanıcılara bir bulutta ve kurumsal ortamda sık olarak gerçekleştirilen el ile, uzun süreli, hatasız ve sık tekrarlanan görevleri otomatik hale getirmek için bir yol sunar. Bu zamandan tasarruf sağlar ve normal yönetim görevlerinin güvenilirliğini artırır ve hatta bunları düzenli aralıklarla otomatik olarak gerçekleştirilecek şekilde zamanlar. Runbook’ları kullanarak işlemleri otomatik hale getirebilir ya da İstenen Durum Yapılandırması’nı kullanarak yapılandırmayı otomatik hale getirebilirsiniz. Bu makale, Azure Automation’a ilişkin kısa bir genel bakış sağlar ve bazı sık sorulan soruları yanıtlar. Farklı konulara ilişkin daha ayrıntılı bilgiler için bu kitaplıktaki diğer makalelere başvurabilirsiniz.

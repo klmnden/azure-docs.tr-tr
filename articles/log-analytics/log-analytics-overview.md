@@ -20,7 +20,6 @@ ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="what-is-log-analytics"></a>Log Analytics nedir?
 Log Analytics, [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md) içindeki bulut ve şirket içi ortamlarını, kullanılabilirlik ve performansı sürdürmek amacıyla izleyen bir hizmettir.  Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.  Bu makale, Log Analytics’in sağladığı değere ilişkin kısa bir açıklama, nasıl çalıştığına genel bakış ve daya ayrıntılı içeriklerin bağlantılarını içerir.

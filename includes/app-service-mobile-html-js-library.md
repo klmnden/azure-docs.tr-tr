@@ -1,11 +1,11 @@
-## <a name="a-namecreate-clientacreate-a-client-connection"></a><a name="create-client"></a>İstemci bağlantısı oluşturma
+## <a name="create-client"></a>İstemci bağlantısı oluşturma
 Bir `WindowsAzure.MobileServiceClient` nesnesi oluşturarak istemci bağlantısı oluşturun.  `appUrl` ifadesini Mobile Uygulamanızın URL’si ile değiştirin.
 
 ```
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <a name="a-nametable-referenceawork-with-tables"></a><a name="table-reference"></a>Tablolarla çalışma
+## <a name="table-reference"></a>Tablolarla çalışma
 Verilere erişmek veya verileri güncelleştirmek için arka uç tablosuna başvuru oluşturun. `tableName` ifadesini tablonuzun adıyla değiştirin
 
 ```
@@ -22,7 +22,7 @@ Bir tablo başvurusu oluşturduktan sonra tablonuzla başka işlemler yapabilirs
 * [Verileri değiştirme](#modifying)
 * [Veri silme](#deleting)
 
-### <a name="a-namequeryingahow-to-query-a-table-reference"></a><a name="querying"></a>Nasıl yapılır: Tablo başvurusu sorgulama
+### <a name="querying"></a>Nasıl yapılır: Tablo başvurusu sorgulama
 Bir tablo başvurusu oluşturduktan sonra sunucudaki verileri sorgulamak için kullanabilirsiniz.  Sorgular "LINQ benzeri" bir dilde yapılır.
 Tablodan tüm verileri döndürmek için aşağıdaki kodu kullanın:
 
@@ -56,7 +56,7 @@ Sonuçlarla birlikte başarı işlevi çağrılır.  Başarı işlevinde `for (v
 
 Sorgu söz dizimi hakkında daha fazla bilgi için [Query nesnesi belgelerine] bakın.
 
-#### <a name="a-nametable-filterafiltering-data-on-the-server"></a><a name="table-filter"></a>Sunucu üzerindeki verileri filtreleme
+#### <a name="table-filter"></a>Sunucu üzerindeki verileri filtreleme
 Tablo başvurusunda bir `where` yan tümcesi kullanabilirsiniz:
 
 ```
@@ -79,7 +79,7 @@ table
     .then(success, failure);
 ```
 
-#### <a name="a-nametable-pagingapaging-through-data"></a><a name="table-paging"></a>Verileri sayfalama
+#### <a name="table-paging"></a>Verileri sayfalama
 `take()` ve `skip()` yöntemlerini kullanın.  Örneğin, tabloyu 100 satırlı kayıtlara bölmek istiyorsanız:
 
 ```
@@ -107,7 +107,7 @@ Sonuç nesnesine bir totalCount alanı eklemek için `.includeTotalCount()` yön
 
 Bir sayfa listesi sağlamak için pages değişkenini ve bazı kullanıcı arabirimi düğmelerini kullanabilirsiniz; her sayfanın yeni kayıtlarını yüklemek için `loadPage()` seçeneğini kullanın.  Daha önce yüklenmiş kayıtlara hızlı erişim için önbelleğe almayı uygulayın.
 
-#### <a name="a-namesorting-dataahow-to-return-sorted-data"></a><a name="sorting-data"></a>Nasıl yapılır: Sıralanmış veriler döndürme
+#### <a name="sorting-data"></a>Nasıl yapılır: Sıralanmış veriler döndürme
 `.orderBy()` veya `.orderByDescending()` sorgu yöntemlerini kullanın:
 
 ```
@@ -119,7 +119,7 @@ table
 
 Query nesnesi hakkında daha fazla bilgi için [Query nesnesi belgelerine] bakın.
 
-### <a name="a-nameinsertingahow-to-insert-data"></a><a name="inserting"></a>Nasıl yapılır: Veri ekleme
+### <a name="inserting"></a>Nasıl yapılır: Veri ekleme
 Uygun tarihle bir JavaScript nesnesi oluşturun ve `table.insert()` öğesini zaman uyumsuz olarak çağırın:
 
 ```javascript
@@ -139,7 +139,7 @@ Ekleme başarılı olduğunda, eklenen öğe eşitleme işlemleri için gereken 
 
 Azure Mobile Apps Node.js Sunucu SDK’sı, geliştirme için dinamik şemayı destekler.  Dinamik Şema, bir insert veya update işleminde sütun belirterek tabloya sütun eklemenize olanak tanır.  Uygulamanızı üretime taşımadan önce dinamik şemanın kapatılması önerilir.
 
-### <a name="a-namemodifyingahow-to-modify-data"></a><a name="modifying"></a>Nasıl yapılır: Verileri değiştirme
+### <a name="modifying"></a>Nasıl yapılır: Verileri değiştirme
 `.insert()` yöntemine benzer şekilde, bir Update nesnesi oluşturup `.update()` öğesini çağırmanız gerekir.  Update nesnesi, güncelleştirilecek kaydın kimliğini içermelidir; bu kimlik, kayıt okunurken veya `.insert()` çağrılırken elde edilir.
 
 ```javascript
@@ -155,7 +155,7 @@ table
     }, failure);
 ```
 
-### <a name="a-namedeletingahow-to-delete-data"></a><a name="deleting"></a>Nasıl yapılır: Veri silme
+### <a name="deleting"></a>Nasıl yapılır: Veri silme
 Bir kaydı silmek için `.del()` yöntemini çağırın.  Kimliği bir nesne başvurusuna geçirin:
 
 ```
@@ -165,8 +165,3 @@ table
         // Record is now deleted - update your cache
     }, failure);
 ```
-
-
-<!--HONumber=Feb17_HO1-->
-
-

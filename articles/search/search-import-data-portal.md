@@ -21,7 +21,6 @@ ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
 ms.contentlocale: tr-tr
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Portalı kullanarak Azure Search'e veri aktarma
 Azure portalı, Azure Search panosunda verileri bir dizine yüklemeye yönelik **Verileri içeri aktarma** sihirbazını içerir. 

@@ -1,9 +1,7 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-<a id="to-delete-a-storsimple-backup-policy" class="xliff"></a>
-
-#### To delete a StorSimple backup policy
+#### <a name="to-delete-a-storsimple-backup-policy"></a>To delete a StorSimple backup policy
 
 1. Go to your StorSimple device and click **Backup policy**.
 

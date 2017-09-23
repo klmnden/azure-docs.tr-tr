@@ -12,8 +12,3 @@
 * [MFA gerektirme](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
 * [Denetim günlüğünü kullanma](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-
-
-<!--HONumber=Dec16_HO4-->
-
-

@@ -1,5 +1,4 @@
-### Sanal makine için TCP uç noktası oluşturma
-<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
+### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Sanal makine için TCP uç noktası oluşturma
 SQL Server’a İnternet’ten erişmek için, sanal makinenin gelen TCP iletişimi dinleyeceği bir uç nokta olmalıdır. Bu Azure yapılandırma adımı, gelen TCP bağlantı noktası trafiğini sanal makinenin erişebildiği bir TCP bağlantı noktasına yönlendirir.
 
 > [!NOTE]

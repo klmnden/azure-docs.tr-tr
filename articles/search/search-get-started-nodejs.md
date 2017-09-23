@@ -1,6 +1,6 @@
 ---
 title: "Node.js’de Azure Search kullanmaya başlama | Microsoft Docs"
-description: "Programlama diliniz olarak Node.js kullanarak, Azure&quot;da barındırılan bir bulut arama hizmeti üzerinde arama uygulaması derleme konusunu inceleyin."
+description: "Programlama diliniz olarak Node.js kullanarak, Azure'da barındırılan bir bulut arama hizmeti üzerinde arama uygulaması derleme konusunu inceleyin."
 services: search
 documentationcenter: 
 author: EvanBoyle
@@ -19,7 +19,6 @@ ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
 ms.contentlocale: tr-tr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Node.js'de Azure Search kullanmaya başlama

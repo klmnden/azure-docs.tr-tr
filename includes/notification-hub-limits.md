@@ -7,8 +7,3 @@
 
 Bu sınırlar ve fiyatlandırma hakkında ek bilgi için bkz. [Notification Hubs Fiyatlandırması](https://azure.microsoft.com/pricing/details/notification-hubs/). 
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

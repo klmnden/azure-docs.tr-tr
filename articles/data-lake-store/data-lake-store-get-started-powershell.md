@@ -20,7 +20,6 @@ ms.openlocfilehash: f78385e8ce96567f5a1e669ecf4a6c2efce3aaeb
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Azure PowerShell'i kullanarak Azure Data Lake Store ile çalışmaya başlama
 > [!div class="op_single_selector"]

@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Lake Store&quot;da şifreleme | Microsoft Belgeleri"
-description: "Şifreleme ve anahtar döndürmenin Azure Data Lake Store&quot;da nasıl çalıştığını anlama"
+title: "Azure Data Lake Store'da şifreleme | Microsoft Belgeleri"
+description: "Şifreleme ve anahtar döndürmenin Azure Data Lake Store'da nasıl çalıştığını anlama"
 services: data-lake-store
 documentationcenter: 
 author: yagupta
@@ -52,8 +52,8 @@ Data Lake Store, ana şifreleme anahtarlarının (MEK’ler) yönetimi için iki
 
 Ana şifreleme anahtarını yönetmek için kullanılan iki mod şunlardır:
 
-*    Hizmet tarafından yönetilen anahtarlar
-*    Müşteri tarafından yönetilen anahtarlar
+*   Hizmet tarafından yönetilen anahtarlar
+*   Müşteri tarafından yönetilen anahtarlar
 
 Her iki modda da ana şifreleme anahtarı Azure Key Vault’ta depolanarak güvenlik altına alınır. Azure üzerinde tam olarak yönetilen, yüksek güvenlikli bir hizmet olan Key Vault, şifreleme anahtarlarını korumak için kullanılabilir. Daha fazla bilgi için bkz. [Key Vault](https://azure.microsoft.com/services/key-vault).
 
@@ -74,8 +74,8 @@ MEK ve MEK’in içinde bulunduğu Key Vault’un kim tarafından yönetildiği 
 
 Ana şifreleme anahtarları için modu seçtiğinizde aşağıdakileri unutmamanız gerekir:
 
-*    Bir Data Lake Store hesabı sağladığınızda müşteri tarafından veya hizmet tarafından yönetilen anahtarları kullanacağınızı seçebilirsiniz.
-*    Data Lake Store hesabı oluşturulduktan sonra mod değiştirilemez.
+*   Bir Data Lake Store hesabı sağladığınızda müşteri tarafından veya hizmet tarafından yönetilen anahtarları kullanacağınızı seçebilirsiniz.
+*   Data Lake Store hesabı oluşturulduktan sonra mod değiştirilemez.
 
 ### <a name="encryption-and-decryption-of-data"></a>Verilerin şifrelenmesi ve şifresinin çözülmesi
 
@@ -92,20 +92,20 @@ Aşağıdaki diyagram bu kavramları göstermektedir:
 ![Veri şifrelemesindeki anahtarlar](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Bir dosyanın şifresinin çözülmesi için kullanılan genel algoritma:
-1.    Data Lake Store hesabının DEK’inin önbelleğe alınmış ve kullanıma hazır olup olmadığını denetleyin.
+1.  Data Lake Store hesabının DEK’inin önbelleğe alınmış ve kullanıma hazır olup olmadığını denetleyin.
     - Bu koşulları karşılamıyorsa, kalıcı depolamadan şifrelenmiş DEK’i okuyun ve şifresinin çözülmesi için Key Vault’a gönderin. Şifresi çözülmüş DEK’i bellekte önbelleğe alın. Artık kullanıma hazırdır.
-2.    Dosyadaki her veri bloğu için:
+2.  Dosyadaki her veri bloğu için:
     - Kalıcı depolama alanından şifrelenmiş veri bloğu okunur.
     - DEK’ten ve şifrelenmiş veri bloğundan BEK oluşturulur.
     - Verilerin şifresini çözmek için BEK kullanılır.
 
 
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Bir veri bloğu şifrelenecek olduğunda genel algoritma:
-1.    Data Lake Store hesabının DEK’inin önbelleğe alınmış ve kullanıma hazır olup olmadığını denetleyin.
+1.  Data Lake Store hesabının DEK’inin önbelleğe alınmış ve kullanıma hazır olup olmadığını denetleyin.
     - Bu koşulları karşılamıyorsa, kalıcı depolamadan şifrelenmiş DEK’i okuyun ve şifresinin çözülmesi için Key Vault’a gönderin. Şifresi çözülmüş DEK’i bellekte önbelleğe alın. Artık kullanıma hazırdır.
-2.    DEK’ten veri bloğu için benzersiz bir BEK oluşturulur.
-3.    Veri bloğu, BEK ile AES-256 şifreleme kullanılarak şifrelenir.
-4.    Şifrelenmiş veri bloğu kalıcı depolama alanında depolanır.
+2.  DEK’ten veri bloğu için benzersiz bir BEK oluşturulur.
+3.  Veri bloğu, BEK ile AES-256 şifreleme kullanılarak şifrelenir.
+4.  Şifrelenmiş veri bloğu kalıcı depolama alanında depolanır.
 
 > [!NOTE] 
 > Performans nedeniyle, DEK kısa bir süre için önbelleğe alınır ve sonrasında hemen silinir. Kalıcı ortamda her zaman MEK tarafından şifrelenmiş olarak depolanır.
@@ -127,15 +127,15 @@ Data Lake Store hesabınızı ayarlarken kendi anahtarlarınızı kullanmayı se
 
     ![Key Vault ekran görüntüsü](./media/data-lake-store-encryption/keyvault.png)
 
-3.    Data Lake Store hesabınızla ilişkili anahtarı seçin ve bu anahtarın yeni bir sürümünü oluşturun. Data Lake Store şu anda yalnızca bir anahtarın yeni bir sürümüne anahtar döndürmeyi desteklemektedir. Farklı bir anahtara döndürmeyi desteklemez.
+3.  Data Lake Store hesabınızla ilişkili anahtarı seçin ve bu anahtarın yeni bir sürümünü oluşturun. Data Lake Store şu anda yalnızca bir anahtarın yeni bir sürümüne anahtar döndürmeyi desteklemektedir. Farklı bir anahtara döndürmeyi desteklemez.
 
    ![Yeni Sürümün vurgulandığı Anahtarlar penceresi ekran görüntüsü](./media/data-lake-store-encryption/keynewversion.png)
 
-4.    Data Lake Store depolama hesabına gidip **Şifreleme**’yi seçin.
+4.  Data Lake Store depolama hesabına gidip **Şifreleme**’yi seçin.
 
     ![Şifreleme’nin vurgulandığı Data Lake Store depolama hesabı penceresinin ekran görüntüsü](./media/data-lake-store-encryption/select-encryption.png)
 
-5.    Yeni bir anahtar sürümünün mevcut olduğu bir ileti ile bildirilir. Anahtarı yeni sürüme güncelleştirmek için **Anahtarı Döndür** seçeneğine tıklayın.
+5.  Yeni bir anahtar sürümünün mevcut olduğu bir ileti ile bildirilir. Anahtarı yeni sürüme güncelleştirmek için **Anahtarı Döndür** seçeneğine tıklayın.
 
     ![İleti ve Anahtarı Döndür seçenekleri vurgulanmış Data Lake Store penceresinin ekran görüntüsü](./media/data-lake-store-encryption/rotatekey.png)
 

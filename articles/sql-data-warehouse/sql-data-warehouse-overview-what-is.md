@@ -21,7 +21,6 @@ ms.openlocfilehash: 575c49f83c8845edcea984459f3907490c62d269
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse Nedir?
 Azure SQL Veri Ambarı, çok geniş hacimlerdeki verileri işleyebilen, bulut tabanlı, ölçeklenebilen, ilişkisel bir yüksek düzeyde paralel işleme (MPP) veritabanıdır. 

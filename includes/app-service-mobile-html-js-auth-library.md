@@ -1,4 +1,4 @@
-### <a name="a-nameserver-authahow-to-authenticate-with-a-provider-server-flow"></a><a name="server-auth"></a>Nasıl yapılır: Bir sağlayıcı ile (Sunucu Akışı) kimlik doğrulaması
+### <a name="server-auth"></a>Nasıl yapılır: Bir sağlayıcı ile (Sunucu Akışı) kimlik doğrulaması
 Mobile Apps hizmetinin uygulamanızdaki kimlik doğrulama işlemini yönetmesi için kimlik sağlayıcınıza uygulamanızı kaydetmeniz gerekir. Ardından, Azure App Service'te sağlayıcınız tarafından verilen uygulama kimliği ile parolasını yapılandırmanız gerekir.
 Daha fazla bilgi için [Uygulamanıza kimlik doğrulaması ekleme](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md) öğreticisine bakın.
 
@@ -19,7 +19,7 @@ client.login("facebook").done(function (results) {
 
 Bu durumda, OAuth 2.0 kimlik doğrulama akışını Azure App Service yönetir.  Seçili sağlayıcının oturum açma sayfasını gösterir ve kimlik sağlayıcı ile oturum başarıyla açıldıktan sonra bir App Service kimlik doğrulama belirteci oluşturur. Oturum açma işlevi tamamlandığında, hem kullanıcı kimliğini hem de App Service kimlik doğrulama belirtecini sırasıyla userId ve authenticationToken alanlarında ortaya çıkaran bir JSON nesnesi döndürür. Bu belirteç önbelleğe alınabilir süresi sona erene kadar yeniden kullanılabilir.
 
-###<a name="a-nameclient-authahow-to-authenticate-with-a-provider-client-flow"></a><a name="client-auth"></a>Nasıl yapılır: Bir sağlayıcı ile (İstemci Akışı) kimlik doğrulaması
+###<a name="client-auth"></a>Nasıl yapılır: Bir sağlayıcı ile (İstemci Akışı) kimlik doğrulaması
 
 Uygulamanız kimlik sağlayıcısı ile bağımsız olarak da iletişim kurabilir ve sonra döndürülen belirteci kimlik doğrulaması için App Service’e döndürebilir. Bu istemci akışı, kullanıcılar için çoklu oturum açma deneyimi sağlamanıza veya kimlik sağlayıcısından ek kullanıcı verileri almanıza olanak tanır.
 
@@ -61,7 +61,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 Bu örnek, Live Connect’ten, oturum açma işlevi çağrılarak App Service hizmetinize sunulan bir belirteç alır.
 
-###<a name="a-nameauth-getinfoahow-to-obtain-information-about-the-authenticated-user"></a><a name="auth-getinfo"></a>Nasıl yapılır: Kimliği doğrulanmış kullanıcı hakkında bilgi edinme
+###<a name="auth-getinfo"></a>Nasıl yapılır: Kimliği doğrulanmış kullanıcı hakkında bilgi edinme
 
 Kimlik doğrulama bilgileri, herhangi bir AJAX kitaplığı ile HTTP çağrısı kullanılarak `/.auth/me` uç noktasından alınabilir.  `X-ZUMO-AUTH` üst bilgisini kimlik doğrulama belirtecinize ayarlandığınızdan emin olun.  Kimlik doğrulama belirteci `client.currentUser.mobileServiceAuthenticationToken` içine depolanır.  Örneğin, fetch API’sini kullanmak için:
 
@@ -78,8 +78,3 @@ fetch(url, { headers: headers })
 ```
 
 Fetch, [bir npm paketi](https://www.npmjs.com/package/whatwg-fetch) olarak mevcuttur veya [CDNJS](https://cdnjs.com/libraries/fetch)’den tarayıcı ile indirilebilir. Bilgileri getirmek için jQuery veya başka bir AJAX API’si de kullanabilirsiniz.  Veriler bir JSON nesnesi olarak alınır.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

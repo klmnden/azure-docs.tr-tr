@@ -20,7 +20,6 @@ ms.openlocfilehash: cb7a9f01e43d41eb7315cb37a41e69f044ce5566
 ms.contentlocale: tr-tr
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkeleri kullanarak tüketicilerinizin uygulamanıza kaydolmalarını ve oturum açmalarını sağlama
 Özel ilkeler, Azure AD B2C kiracınızın davranışlarını tanımlayan yapılandırma dosyalarıdır. Kimlik geliştiriciler bu dosyaları tamamen düzenleyerek neredeyse sayısız görev için uygun hale getirebilirler.

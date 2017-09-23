@@ -5,8 +5,3 @@
 * [Uygulamaları Azure Active Directory ile tümleştirme](../articles/active-directory/active-directory-integrating-applications.md)
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../articles/active-directory/active-directory-apps-index.md)
 
-
-
-<!--HONumber=Dec16_HO4-->
-
-

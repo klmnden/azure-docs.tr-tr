@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell&quot;i kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Microsoft Belgeleri"
-description: "Azure PowerShell kullanarak bir Data Lake Analytics hesabı oluşturun, U-SQL&quot;yi kullanarak Data Lake Analytics işi oluşturun ve bu işi gönderin. "
+title: "Azure PowerShell'i kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Microsoft Belgeleri"
+description: "Azure PowerShell kullanarak bir Data Lake Analytics hesabı oluşturun, U-SQL'yi kullanarak Data Lake Analytics işi oluşturun ve bu işi gönderin. "
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -19,7 +19,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: faf17bcac66a70fc78bb171e172886fd2dcadca8
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell'i kullanarak Azure Data Lake Analytics ile çalışmaya başlama

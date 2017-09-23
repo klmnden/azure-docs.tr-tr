@@ -1,6 +1,4 @@
-<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
-
-#### Bulut gerecini yapılandırmak ve kaydetmek için
+#### <a name="to-configure-and-register-the-cloud-appliance"></a>Bulut gerecini yapılandırmak ve kaydetmek için
 
 1. **Cihazlar** dikey penceresinde oluşturduğunuz StorSimple Cloud Appliance’ı seçmek için tıklayın.
 

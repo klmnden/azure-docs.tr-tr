@@ -21,7 +21,6 @@ ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Azure Veri Kataloğu'nu benimseme yaklaşımı ve işlemi
 Bu makale, kuruluşunuzda **Azure Veri Kataloğu**'nu benimsemeye başlamanıza yardımcı olacaktır. **Azure Veri Kataloğu**'nu başarıyla benimseyebilmek için üç temel öğeye odaklanırsınız: vizyonunuzu tanımlama, kuruluşunuz dahilindeki önemli iş kullanımı durumlarını belirleme ve pilot proje seçme.

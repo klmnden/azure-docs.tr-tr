@@ -20,7 +20,6 @@ ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Operations Management Suite (OMS) nedir?
 Operations Management Suite (OMS) için bir giriş niteliğindeki bu makalede hizmetin sağladığı iş değerine, içerdiği hizmet ve yönetim çözümlerine ve farklı hizmet ve çözümleri bir paket altında toplayan tekliflere kısa bir genel bakış sunulmaktadır.  Her bir hizmet ve çözümün dağıtımı ve kullanımına yönelik ayrıntılı belgelerin bağlantıları da sağlanmıştır.

@@ -1,7 +1,5 @@
 
-<a id="to-configure-remote-management-on-cloud-appliance" class="xliff"></a>
-
-#### Bulut gerecinde uzaktan yönetimi yapılandırmak için
+#### <a name="to-configure-remote-management-on-cloud-appliance"></a>Bulut gerecinde uzaktan yönetimi yapılandırmak için
 
 1. StorSimple Cihaz Yöneticisi hizmetinizde **Cihazlar**’a tıklayın. Hizmete bağlı cihazlar listesinden bulut gerecinizi seçin ve tıklayın.
     ![StorSimple bulut gereci seçme](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage1.png)

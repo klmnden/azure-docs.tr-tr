@@ -24,8 +24,3 @@ Parametreler:
 * SkipSpaceCheck. İsteğe bağlı. Önbellek için alan denetimini atlama.
 * AcceptThirdpartyEULA. Zorunlu. Üçüncü taraf EULA belgesini kabul eder.
 * ShowThirdpartyEULA. Zorunlu. Üçüncü taraf EULA belgesini görüntüler. Giriş olarak sağlanırsa, diğer tüm parametreler göz ardı edilir.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

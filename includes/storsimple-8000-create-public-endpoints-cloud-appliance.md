@@ -1,6 +1,4 @@
-<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
-
-#### Bulut gerecinde ortak uç noktalar oluşturmak için
+#### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Bulut gerecinde ortak uç noktalar oluşturmak için
 
 1. Azure Portal’da oturum açın.
 2. **Sanal Makineler**’e gidin ve bulut gereciniz olarak kullanılan sanal makineyi seçip tıklayın.

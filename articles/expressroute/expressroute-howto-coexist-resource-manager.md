@@ -21,7 +21,6 @@ ms.openlocfilehash: ffa791cf4c4be15645a67fef4e94bf6ebdc42a6a
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma
 > [!div class="op_single_selector"]

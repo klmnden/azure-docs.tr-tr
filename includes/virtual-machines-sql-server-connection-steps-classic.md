@@ -1,5 +1,4 @@
-### Sanal makinenin DNS adını belirleme
-<a id="determine-the-dns-name-of-the-virtual-machine" class="xliff"></a>
+### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Sanal makinenin DNS adını belirleme
 Başka bir bilgisayardan SQL Server Veritabanı Altyapısı’na bağlanmak için, sanal makinenin Etki Alanı Adı Sistemi (DNS) adını biliyor olmalısınız. (İnternet, sanal makineyi tanımlamak için bu adı kullanır. IP adresini kullanabilirsiniz, ancak Azure yedeklilik veya bakım nedeniyle kaynakları taşıdığında IP adresi değişebilir. DNS adı yeni IP adresine yeniden yönlendirilebileceği için değişmez.)  
 
 1. Azure Portal’da (veya önceki adımda), **Sanal makineler (klasik)** öğesini seçin.
@@ -8,8 +7,7 @@ Başka bir bilgisayardan SQL Server Veritabanı Altyapısı’na bağlanmak içi
    
     ![DNS adı](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### Başka bir bilgisayardan Veritabanı Altyapısına bağlanma
-<a id="connect-to-the-database-engine-from-another-computer" class="xliff"></a>
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Başka bir bilgisayardan Veritabanı Altyapısına bağlanma
 1. İnternet'e bağlı bir bilgisayarda SQL Server Management Studio’yu açın.
 2. **Sunucuya Bağlan** veya **Veritabanı Altyapısına Bağlan** iletişim kutusundaki **Sunucu adı** kutusuna, sanal makinenin DNS adını (önceki görevde belirlenen ad) ve *DNSAdı,bağlantınoktası* biçiminde bir genel uç nokta bağlantı noktası numarası (**mysqlvm.cloudapp.net,57500** gibi) girin.
    

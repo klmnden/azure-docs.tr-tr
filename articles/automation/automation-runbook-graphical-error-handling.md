@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/26/2016
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 08cba012cca61eeb03187d2b4165e2a79b15bc3d
 ms.openlocfilehash: 12313f7f245d32c33882f1036f7d4b48bfb3ddc5
+ms.contentlocale: tr-tr
+ms.lasthandoff: 02/03/2017
 
 ---
 
@@ -73,9 +75,4 @@ Hata bağlantıları bu etkinliklerden tek bir **hata yönetimi** etkinliğine (
 * Bağlantılar ve grafik runbook’larındaki bağlantı türleri hakkında daha fazla bilgi edinmek için bkz. [Azure Otomasyonu’nda grafik yazma](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Runbook yürütme, runbook işlerini izleme ve diğer teknik ayrıntılar hakkında daha fazla bilgi edinmek için bkz. [Runbook işi izleme](automation-runbook-execution.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

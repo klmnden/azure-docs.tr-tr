@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2017
 ms.author: cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6401a2a29c5fd8dfa40bebd331621784da5958be
 ms.openlocfilehash: 00f97da2189491103c461b49ac82feb92d8f4b9b
-
+ms.contentlocale: tr-tr
+ms.lasthandoff: 02/10/2017
 
 ---
 # <a name="expressroute-connectivity-models"></a>ExpressRoute bağlantı modelleri
@@ -26,13 +27,13 @@ ms.openlocfilehash: 00f97da2189491103c461b49ac82feb92d8f4b9b
 
 ![ExpressRoute bağlantı modeli diyagramı](./media/expressroute-connectivity-models/expressroute-connectivity-models-diagram.png)
 
-## <a name="a-namecloudexchangeaco-located-at-a-cloud-exchange"></a><a name="CloudExchange"></a>Bulut değişiminde ortak yerleşim
+## <a name="CloudExchange"></a>Bulut değişiminde ortak yerleşim
 Bulut değişimine sahip bir tesiste ortak yerleşime sahipseniz ortak yerleşim sağlayıcının Ethernet değişimi üzerinden sanal çapraz bağlantıları Microsoft ağına sıralayabilirsiniz. Ortak yerleşim sağlayıcıları, ortak yerleşim tesisi ve Microsoft bulutu altyapısı arasında Katman 2 çapraz bağlantıları veya yönetilen Katman 3 çapraz bağlantılarını sağlayabilir. 
 
-## <a name="a-nameethernetapoint-to-point-ethernet-connections"></a><a name="Ethernet"></a>Noktadan noktaya Ethernet bağlantıları
+## <a name="Ethernet"></a>Noktadan noktaya Ethernet bağlantıları
 Noktadan noktaya Ethernet bağlantıları üzerinden şirket içi veri merkezleri/ofislerinizi Microsoft bulutuna bağlayabilirsiniz. Noktadan noktaya Ethernet sağlayıcıları, siteniz ve Microsoft bulutu arasında Katman 2 bağlantıları veya yönetilen Katman 3 bağlantılarını sağlayabilir.
 
-## <a name="a-nameipvpnaany-to-any-ipvpn-networks"></a><a name="IPVPN"></a>Herhangi bir ağdan herhangi bir (IPVPN) ağa
+## <a name="IPVPN"></a>Herhangi bir ağdan herhangi bir (IPVPN) ağa
 WAN’ınızı Microsoft bulutu ile tümleştirebilirsiniz. IPVPN sağlayıcıları (genellikle MPLS VPN) şubeleriniz ve veri merkezleriniz arasında herhangi bir yerden herhangi bir yere bağlantı sunabilir. Herhangi diğer bir şube gibi görünmesi sağlamak için Microsoft bulutu ile WAN’ınız birbirine bağlanabilir.  WAN sağlayıcıları genel olarak yönetilen Katman 3 bağlantısı sağlar. ExpressRoute yetenekleri ve özellikleri yukarıdaki tüm bağlantı modelleri arasında aynıdır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -45,8 +46,3 @@ WAN’ınızı Microsoft bulutu ile tümleştirebilirsiniz. IPVPN sağlayıcıla
   * [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-portal-resource-manager.md)
   * [Yönlendirmeyi yapılandırma](expressroute-howto-routing-portal-resource-manager.md)
   * [ExpressRoute bağlantı hattına bir Sanal Ağ bağlama](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

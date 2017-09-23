@@ -14,10 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-
+ms.contentlocale: tr-tr
+ms.lasthandoff: 12/07/2016
 
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - En İyi Uygulamalarla Başlangıç Kılavuzu
@@ -323,9 +324,4 @@ Biraz deneyim kazandıktan sonra, katılım programlarınıza aşağıdakileri e
 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

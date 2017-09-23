@@ -14,8 +14,3 @@
 |/SkipSpaceCheck|İsteğe bağlı|Önbellek diski için alan denetimini atlama| |
 |/AcceptThirdpartyEULA|Zorunlu|Bayrak, üçüncü taraf EULA'nın kabul edildiğini gösterir| |
 |/ShowThirdpartyEULA|İsteğe bağlı|Üçüncü taraf EULA belgesini görüntüler. Giriş olarak sağlanırsa, diğer tüm parametreler yoksayılır| |
-
-
-<!--HONumber=Feb17_HO4-->
-
-

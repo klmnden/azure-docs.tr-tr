@@ -12,8 +12,3 @@ Service Bus kuyrukları çok sayıda çeşitli senaryolar için kullanılabilen 
 Kuyrukların kullanılması uygulamalarınızı daha kolay ölçeklendirmenizi ve mimarinizi daha dayanıklı hale getirmenizi sağlar.
 
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -1,5 +1,5 @@
 ---
-title: "Azure Güvenlik Merkezi&quot;nde türe göre güvenlik uyarıları | Microsoft Docs"
+title: "Azure Güvenlik Merkezi'nde türe göre güvenlik uyarıları | Microsoft Docs"
 description: "Bu makalede, Azure Güvenlik Merkezi’nde bulunan farklı güvenlik uyarısı türleri ele alınmaktadır."
 services: security-center
 documentationcenter: na
@@ -19,7 +19,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama

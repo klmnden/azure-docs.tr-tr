@@ -1,6 +1,4 @@
-<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
-
-#### Bulut gerecini başlatmak ve durdurmak için
+#### <a name="to-stop-and-start-a-cloud-appliance"></a>Bulut gerecini başlatmak ve durdurmak için
 
 1. Bulut gerecini durdurmak için gerecinizin sanal makinesine gidin.
     ![StorSimple Cloud Appliance Sanal Makinesi](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart1.png)
@@ -27,9 +25,7 @@ Bulut gerecini durdurmak ve başlatmak için aşağıdaki cmdlet'leri kullanın.
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-<a id="to-restart-a-cloud-appliance" class="xliff"></a>
-
-#### Bulut gerecini yeniden başlatmak için
+#### <a name="to-restart-a-cloud-appliance"></a>Bulut gerecini yeniden başlatmak için
 
 Bulut gerecini yeniden başlatmak için gerecinizin sanal makinesine gidin. Komut çubuğundan **Yeniden Başlat**'a tıklayın. Sorulduğunda yeniden başlatma işlemini onaylayın. Bulut gereci kullanıma hazır olduğunda gerecin durumu **Çalışıyor** olur.
 

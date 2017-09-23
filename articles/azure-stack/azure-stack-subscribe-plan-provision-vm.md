@@ -20,7 +20,6 @@ ms.openlocfilehash: 3cd87ebe9827249d32f15b5de0ad8521d0282c47
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="subscribe-to-an-offer"></a>Subscribe to an offer
 Now that you've [created an offer](azure-stack-create-offer.md), test that your tenants can create a subscription.

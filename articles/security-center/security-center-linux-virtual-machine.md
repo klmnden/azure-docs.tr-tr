@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
 ms.openlocfilehash: 0df4fca59575bd8e18e91fea2066a9e694ed320d
-
+ms.contentlocale: tr-tr
+ms.lasthandoff: 01/05/2017
 
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Azure Güvenlik Merkezi ve Linux çalıştıran Azure Sanal Makineleri
@@ -106,10 +107,5 @@ Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 * [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

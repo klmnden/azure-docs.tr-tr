@@ -1,6 +1,6 @@
 ---
 title: Azure Search dizininizi sorgulama | Microsoft Belgeleri
-description: "Azure Search&quot;te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın."
+description: "Azure Search'te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın."
 services: search
 manager: jhubbard
 documentationcenter: 
@@ -18,7 +18,6 @@ ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/08/2017
-
 
 ---
 # <a name="query-your-azure-search-index"></a>Azure Search dizininizi sorgulama

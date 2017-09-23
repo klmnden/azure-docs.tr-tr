@@ -21,7 +21,6 @@ ms.openlocfilehash: 81b6282addd1e88e4146367c4dd9a2ee7b8c84bf
 ms.contentlocale: tr-tr
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack Development Kit deployment quickstart
 

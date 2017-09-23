@@ -9,8 +9,3 @@
 | Art arda **X** MFA reddi sonrasında kullanıcı hesabını kilitle |Ayarlanmadı |99 |
 | **X** dakika sonra hesap kilitleme sayacını sıfırla |Ayarlanmadı |9999 |
 | **X** dakika sonra hesabın kilidini aç |Ayarlanmadı |9999 |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

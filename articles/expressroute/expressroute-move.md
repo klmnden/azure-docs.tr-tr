@@ -20,7 +20,6 @@ ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
 ms.contentlocale: tr-tr
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>ExpressRoute bağlantı hatlarını klasikten Resource Manager dağıtım modeline taşıma
 Bu makale, bir Azure ExpressRoute bağlantı hattını klasikten Azure Resource Manager dağıtım modeline taşmanın ne anlama geldiği hakkında genel bir bakış sağlar.

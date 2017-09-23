@@ -1,6 +1,6 @@
 ---
 title: ".NET Framework kullanarak olayları Azure Event Hubs’a gönderme | Microsoft Belgeleri"
-description: ".NET Framework kullanarak Event Hubs&quot;a olay göndermeye başlama"
+description: ".NET Framework kullanarak Event Hubs'a olay göndermeye başlama"
 services: event-hubs
 documentationcenter: 
 author: sethmanheim
@@ -19,7 +19,6 @@ ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 4eb0e7bcc14722010121c2a5945509d6ed736f4f
 ms.contentlocale: tr-tr
 ms.lasthandoff: 06/14/2017
-
 
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>.NET Framework kullanarak olayları Azure Event Hubs’a gönderme

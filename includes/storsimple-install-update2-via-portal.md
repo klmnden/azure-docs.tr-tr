@@ -34,8 +34,3 @@
 9. Güncelleştirmenin tamamlanması birkaç saat sürer. Güncelleştirme işini seçin ve **Ayrıntılar**’a tıklayarak dilediğiniz zaman işin ayrıntılarını görüntüleyin.
 10. İş tamamlandıktan sonra **Bakım** sayfasına gidin ve **Yazılım Güncelleştirmeleri**’ne inin.
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-
