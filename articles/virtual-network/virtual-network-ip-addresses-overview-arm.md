@@ -147,4 +147,3 @@ Genel IP adreslerinin nominal bir ücreti olabilir. Azure'da IP adresi fiyatland
 * [Azure portalını kullanarak statik genel IP’li VM dağıtma](virtual-network-deploy-static-pip-arm-portal.md)
 * [Şablon kullanarak statik genel IP’li VM dağıtma](virtual-network-deploy-static-pip-arm-template.md)
 * [Azure portalını kullanarak statik özel IP adresli VM dağıtma](virtual-networks-static-private-ip-arm-pportal.md)
-

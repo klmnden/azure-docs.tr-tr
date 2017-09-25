@@ -3,7 +3,7 @@ title: "Azure İç yük dengeleyicisi oluşturma - PowerShell klasik | Microsoft
 description: "Klasik dağıtım modelinde PowerShell kullanarak iç yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management

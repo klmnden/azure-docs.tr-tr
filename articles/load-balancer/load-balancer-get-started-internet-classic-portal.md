@@ -3,7 +3,7 @@ title: "İnternet’e yönelik yük dengeleyicisi oluşturma - Klasik Azure port
 description: "Klasik Azure portalını kullanarak klasik dağıtımda İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
