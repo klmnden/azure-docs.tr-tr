@@ -21,7 +21,7 @@
       > 
    7. Sanal cihazda depolanan verilerin Microsoft veri merkezinde barındırılacağını anladığınızı belirtmek için onay işaretine tıklayın. Yalnızca bir fiziksel cihaz kullandığınızda, şifreleme anahtarınızın cihazınızla tutulur; Bu nedenle, Microsoft şifresini çözemez. 
       
-       Sanal cihaz kullandığınızda, hem şifreleme anahtarı, hem de şifre çözme anahtarı Microsoft Azure’da depolanır. Daha fazla bilgi için bkz. [sanal cihaz kullanımıyla ilgili güvenlik konuları](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       Sanal cihaz kullandığınızda, hem şifreleme anahtarı, hem de şifre çözme anahtarı Microsoft Azure’da depolanır. Daha fazla bilgi için bkz. [sanal cihaz kullanımıyla ilgili güvenlik konuları](../articles/storsimple/storsimple-security.md).
    8. Sanal cihaz oluşturmak için onay simgesine tıklayın. Cihazın hazır olması yaklaşık 30 dakika sürebilir.
       
       ![StorSimple sanal cihaz oluşturma aşaması](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)

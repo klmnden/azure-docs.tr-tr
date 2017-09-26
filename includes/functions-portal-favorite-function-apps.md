@@ -1,16 +1,16 @@
-## <a name="add-function-apps-to-your-portal-favorites"></a>İşlev Uygulamalarını portaldaki sık kullanılanlar listesine ekleme 
+## <a name="favorite-functions-in-the-portal"></a>Favorite Functions in the portal 
 
-Şimdiye kadar yapmadıysanız İşlev Uygulamalarını Azure portalındaki sık kullanılanlar listenize ekleyin. Bu sayede işlev uygulamalarınızı daha kolay bulabilirsiniz. Bunu önceden yaptıysanız sonraki bölüme geçin. 
+If you haven't already done so, add Function Apps to your favorites in the Azure portal. This makes it easier to find your function apps. If you have already done this, skip to the next section. 
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+1. Log in to the [Azure portal](https://portal.azure.com/).
 
-2. Sol altta bulunan oka tıklayarak tüm hizmetleri genişletin, **Filtre** alanına `Functions` yazın ve **İşlev Uygulamaları**'nın yanındaki yıldıza tıklayın.  
+2. Click the arrow at the bottom left to expand all services, type `Functions` in the **Filter** field, and then click the star next to **Function Apps**.  
  
-    ![Azure portalında işlev uygulaması oluşturma](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
+    ![Create function app in the Azure portal](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
 
-    Bunu yaptığınızda portalın sol tarafındaki menüye İşlevler simgesi eklenir.
+    This adds the Functions icon to the menu on the left of the portal.
 
-3. Menüyü kapatın ve İşlevler simgesini görmek için sayfayı aşağı kaydırın. Tüm işlev uygulamalarınızın bir listesini görmek için bu simgeye tıklayın. Bu uygulamadaki işlevlerle çalışmak için işlev uygulamanıza tıklayın. 
+3. Close the menu, then scroll down to the bottom to see the Functions icon. Click this icon to see a list of all your function apps. Click your function app to work with functions in this app. 
  
     ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  

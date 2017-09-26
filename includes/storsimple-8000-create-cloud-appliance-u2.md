@@ -20,7 +20,7 @@
    7. Bulut gerecinde depolanan verilerin bir Microsoft veri merkezinde barındırıldığını anladığınızı belirtmek için onay kutusunu seçin.
        * Yalnızca bir fiziksel cihaz kullandığınızda, şifreleme anahtarınızın cihazınızla tutulur; Bu nedenle, Microsoft şifresini çözemez.
 
-       * Bulut gereci kullandığınızda, hem şifreleme anahtarı, hem de şifre çözme anahtarı Microsoft Azure’da depolanır. Daha fazla bilgi edinmek için bkz. [bulut gereci kullanımıyla ilgili güvenlik konuları](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       * Bulut gereci kullandığınızda, hem şifreleme anahtarı, hem de şifre çözme anahtarı Microsoft Azure’da depolanır. Daha fazla bilgi edinmek için bkz. [bulut gereci kullanımıyla ilgili güvenlik konuları](../articles/storsimple/storsimple-security.md).
    8. Bulut gerecini sağlamak için **Oluştur**’a tıklayın. Cihazın hazır olması yaklaşık 30 dakika sürebilir. Bulut gereci başarıyla oluşturulduğunda size bildirilir. Cihazlar dikey penceresine gittiğinizde, cihaz listesi bulut gerecini görüntüleyecek şekilde güncelleştirilir. Gerecin durumu **Kuruluma hazır** olur.
       
       ![StorSimple Cloud Appliance kuruluma hazır](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)

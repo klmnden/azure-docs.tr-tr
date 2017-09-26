@@ -74,6 +74,7 @@
 
 ## Bulut savunma
 ### [Tam zamanında erişim](security-center-just-in-time.md)
+### [Uyarlamalı uygulama denetimleri](security-center-adaptive-application.md)
 
 ## Otomasyon ve Düzenleme
 ### [Playbook’lar](security-center-playbooks.md)

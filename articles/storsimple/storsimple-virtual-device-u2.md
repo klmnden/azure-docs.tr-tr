@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Azure’da StorSimple sanal cihazını dağıtma ve yönetme
@@ -64,7 +64,7 @@ Aşağıdaki tabloda StorSimple sanal cihazı ve StorSimple fiziksel cihazı ara
 | **Hizmeti verileri şifreleme anahtarı** |Fiziksel cihazda yeniden oluşturun ve ardından yeni anahtarla sanal cihazı güncelleştirin. |Sanal cihazdan yeniden oluşturamazsınız. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Sanal cihaz için önkoşullar
-Aşağıdaki bölümlerde, StorSimple sanal cihazınız için yapılandırma önkoşulları açıklanmaktadır. Sanal cihazı dağıtmadan önce, [sanal cihaz kullanımıyla ilgili güvenlik konularını](storsimple-security.md#storsimple-virtual-device-security) gözden geçirin.
+Aşağıdaki bölümlerde, StorSimple sanal cihazınız için yapılandırma önkoşulları açıklanmaktadır. Sanal cihazı dağıtmadan önce, [sanal cihaz kullanımıyla ilgili güvenlik konularını](storsimple-security.md) gözden geçirin.
 
 #### <a name="azure-requirements"></a>Azure gereksinimleri
 Sanal cihaz sağlamadan önce, Azure ortamınızda aşağıdaki hazırlıkları yapmanız gerekir:

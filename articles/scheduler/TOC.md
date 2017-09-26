@@ -21,7 +21,7 @@
 ### [Giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
 
 # Başvuru
-## [PowerShell](/powershell/module/azurerm.scheduler)
+## [Azure PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
 # Kaynaklar

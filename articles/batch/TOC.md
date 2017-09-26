@@ -42,7 +42,7 @@
 #### [Bir işi ve görevleri çalıştırma](./scripts/batch-cli-sample-run-job.md)
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
-## [PowerShell](/powershell/module/azurerm.batch)
+## [Azure PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
@@ -63,8 +63,8 @@
 
 # İlgili
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
-## [Batch ve Data Factory kullanarak veri işleme](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Azure’da Batch, HPC ve Big Compute çözümleri](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Batch ve Data Factory kullanarak veri işleme](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Azure bulutta Batch ve HPC çözümleri](batch-hpc-solutions.md)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
