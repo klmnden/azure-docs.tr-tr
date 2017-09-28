@@ -17,15 +17,15 @@ ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 52113e1240b81299ae3338f35b2934891017adbf
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 2944021cbaf777137512f4bfe0eb4cf5e6f996dc
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure’da Windows sanal makinelere genel bakış
 
-Azure Virtual Machines (VM) Azure’un sunduğu [isteğe bağlı ve ölçeklenebilir işlem kaynağı türlerinden](../../app-service-web/choose-web-site-cloud-service-vm.md) biridir. Genellikle, sunulan diğer seçimlere göre bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız varsa, bir VM seçersiniz. Bu makalede VM oluşturmadan önce dikkat etmeniz gereken bilgilere, oluşturma yöntemine ve yönetim seçeneklerine yer verilmiştir.
+Azure Virtual Machines (VM) Azure’un sunduğu [isteğe bağlı ve ölçeklenebilir işlem kaynağı türlerinden](../../app-service/choose-web-site-cloud-service-vm.md) biridir. Genellikle, sunulan diğer seçimlere göre bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız varsa, bir VM seçersiniz. Bu makalede VM oluşturmadan önce dikkat etmeniz gereken bilgilere, oluşturma yöntemine ve yönetim seçeneklerine yer verilmiştir.
 
 Bir Azure VM, onu çalıştıran fiziksel donanımı satın almanıza ve muhafaza etmenize gerek kalmadan size sanallaştırma esnekliği sunar. Ancak yine de yapılandırma, düzeltme eki uygulama ve yazılım yükleme gibi görevleri gerçekleştirerek VM’nin bakımını yapmanız gerekir.
 
@@ -38,7 +38,7 @@ Azure sanal makineleri farklı amaçlarla kullanılabilir. Bazı örnekler şunl
 Uygulamanız tarafından kullanılan VM sayısı, ihtiyaçlarınıza göre ölçeklendirilebilir.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM oluşturmadan önce dikkat etmem gereken noktalar nelerdir?
-Azure’da uygulama altyapısı oluştururken [dikkate almanız gereken tasarım ölçütleri](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) vardır. Başlamadan önce dikkat etmeniz gereken VM özellikleri şunlardır:
+Azure’da uygulama altyapısı oluştururken [dikkate almanız gereken tasarım ölçütleri](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) vardır. Başlamadan önce dikkat etmeniz gereken VM özellikleri şunlardır:
 
 * Uygulama kaynaklarınızın adları
 * Kaynakların depolanacağı konum
@@ -49,7 +49,7 @@ Azure’da uygulama altyapısı oluştururken [dikkate almanız gereken tasarım
 * VM’nin ihtiyaç duyduğu kaynaklar
 
 ### <a name="naming"></a>Adlandırma
-Bir sanal makine, kendisine verilen [ada](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ek olarak işletim sisteminin bir parçası olarak atanan bilgisayar adına sahiptir. VM adı en fazla 15 karakter uzunluğunda olabilir.
+Bir sanal makine, kendisine verilen [ada](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ek olarak işletim sisteminin bir parçası olarak atanan bilgisayar adına sahiptir. VM adı en fazla 15 karakter uzunluğunda olabilir.
 
 Azure’u işletim sistemi diski oluşturmak için kullanıyorsanız, bilgisayar adı ve sanal makine adı aynı olur. Önceden yapılandırılmış bir işletim sistemini içeren [görüntüyü yükleyip kullanarak](upload-generalized-managed.md) bir sanal makine oluşturmanız halinde adlar farklı olabilir. Kendi görüntü dosyanızı yüklediğinizde, işletim sistemindeki bilgisayar adıyla sanal makine adını aynı yapmanız önerilir.
 
