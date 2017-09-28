@@ -34,13 +34,13 @@
 #### [Bir Bulut Hizmeti rolünde görev kullanarak .NET Yükleme](cloud-services-dotnet-install-dotnet.md)
 
 ### Uzak Masaüstü’nü Yapılandırma
-#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [Klasik portal](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Dağıtma
 ### Portalda bulut hizmeti oluşturma ve dağıtma
-#### [Portal](cloud-services-how-to-create-deploy-portal.md)
+#### [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 #### [Klasik portal](cloud-services-how-to-create-deploy.md)
 ### [PowerShell’de boş bir bulut hizmeti kapsayıcısı oluşturma](cloud-services-powershell-create-cloud-container.md)
 ### Özel bir etki alanı adı yapılandırma
@@ -51,14 +51,14 @@
 
 ## Hizmeti yönetme
 ### Genel yönetim görevleri
-#### [Portal](cloud-services-how-to-manage-portal.md)
+#### [Azure portal](cloud-services-how-to-manage-portal.md)
 #### [Klasik portal](cloud-services-how-to-manage.md)
 ### Bulut Hizmetini Yapılandırma
-#### [Portal](cloud-services-how-to-configure-portal.md)
+#### [Azure portal](cloud-services-how-to-configure-portal.md)
 #### [Klasik portal](cloud-services-how-to-configure.md)
 ### [Azure Otomasyonu’nu kullanarak bir Bulut Hizmetini yönetme](automation-manage-cloud-services.md)
 ### Otomatik ölçeklendirmeyi yapılandırma
-#### [Portal](cloud-services-how-to-scale-portal.md)
+#### [Azure portal](cloud-services-how-to-scale-portal.md)
 #### [Klasik portal](cloud-services-how-to-scale.md)
 ### [Python ile Azure Kaynaklarını yönetme](cloud-services-python-how-to-use-service-management.md)
 
@@ -80,7 +80,7 @@
 ### [Performansı test etme](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Visual Studio Profil Oluşturma Testi](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Tanılamayı etkinleştirme
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Azure Tanılama'daki performans sayaçlarını kullanma](cloud-services-dotnet-diagnostics-performance-counters.md)
@@ -108,8 +108,14 @@
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
-## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [.csdef XML Şeması](schema-csdef-file.md)
+### [LoadBalancerProbe Şeması](schema-csdef-loadbalancerprobe.md)
+### [WebRole Şeması](schema-csdef-webrole.md)
+### [WorkerRole Şeması](schema-csdef-workerrole.md)
+### [NetworkTrafficRules Şeması](schema-csdef-networktrafficrules.md)
+## [.cscfg XML Şeması](schema-cscfg-file.md)
+### [Rol Şeması](schema-cscfg-role.md)
+### [NetworkConfiguration Şeması](schema-cscfg-networkconfiguration.md)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Kaynaklar

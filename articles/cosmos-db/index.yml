@@ -75,6 +75,7 @@ sections:
           - html: 'Cosmos DB ile verileri sorgulama&#58; <a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Tablo</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Grafik</a>'
           - html: 'Cosmos DB ile global veritabanı çoğaltma&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Tablo</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Grafik</a>'
           - html: <a href="local-emulator">Öykünücüyü kullanarak uygulamanızı yerel ortamda geliştirin</a>
+          - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Azure Cosmos DB giriş bağlama işlemiyle HTTP Tetikleyicisi oluşturma</a>
   - title: Örnekler
     items:
       - type: list

@@ -19,8 +19,19 @@
 ### [Toplu işlem iletileri](logic-apps-batch-process-send-receive-messages.md)
 ### [Mantıksal uygulama tanımları yazma](logic-apps-author-definitions.md)
 ### [Çağrı, tetikleyici veya iç içe mantıksal uygulamalar](logic-apps-http-endpoint.md)
-### [Mantıksal uygulamalar için özel API’ler oluşturma](logic-apps-create-api-app.md)
-### [Mantıksal uygulamalar için özel API’ler çağırma](logic-apps-custom-hosted-api.md)
+### Özel bağlayıcılar geliştirme
+#### [Özel bağlayıcılara genel bakış](custom-connector-overview.md)
+#### [Web API'lerinden bağlayıcı oluşturma](custom-connector-build-web-api-app-tutorial.md)
+#### [Azure AD ile bağlayıcıların güvenliğini sağlama](custom-connector-azure-active-directory-authentication.md)
+#### [Postman ile API'leri açıklama](custom-connector-api-postman-collection.md)
+#### [Özel bağlayıcılar için OpenAPI’yi genişletme](custom-connector-openapi-extensions.md)
+#### [Bağlayıcınızı kaydetme](logic-apps-custom-connector-register.md)
+#### [Bağlayıcınızı onaylama](custom-connector-submit-certification.md)
+#### [Özel bağlayıcılarla ilgili SSS](custom-connector-faq.md)
+### Özel API'ler geliştirme
+#### [Mantıksal uygulamalar için özel API’ler oluşturma](logic-apps-create-api-app.md)
+#### [Özel API'lere giden çağrıların güvenliğini sağlama](logic-apps-custom-api-authentication.md)
+#### [Özel API'leri dağıtma ve çağırma](logic-apps-custom-api-host-deploy-call.md)
 ### [Hataları ve özel durumları işleme](logic-apps-exception-handling.md)
 ### [İçerik türlerini işleme](logic-apps-content-type.md)
 ### [Mantıksal uygulamanızı güvenli hale getirme](logic-apps-securing-a-logic-app.md)
@@ -73,8 +84,7 @@
 #### [X12 izleme şeması](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Özel izleme şeması](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## Örnekler, senaryolar ve kılavuzlar
-### [Genel Bakış](logic-apps-examples-and-scenarios.md)
+## [Örnekler, senaryolar ve kılavuzlar](logic-apps-examples-and-scenarios.md)
 ### [Sunucusuz bir sosyal pano oluşturma](logic-apps-scenario-social-serverless.md)
 ### [Azure İşlevleri ile mantıksal uygulamaları çağırma](logic-apps-scenario-function-sb-trigger.md)
 ### [Hata ve özel durum işleme ekleme](logic-apps-scenario-error-and-exception-handling.md)
@@ -98,7 +108,7 @@
 ## [İş akışı tanımı dili](logic-apps-workflow-definition-language.md)
 ## [İş akışı eylemleri ve tetikleyicileri](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Bağlayıcılar: Ayrıntılı konular
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Depolama](../connectors/connectors-create-api-azureblobstorage.md)

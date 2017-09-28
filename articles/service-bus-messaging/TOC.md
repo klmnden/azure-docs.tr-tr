@@ -60,13 +60,14 @@
 #### [Ad alanı ve kuyruğa yönelik bir yetkilendirme kuralı oluşturma](service-bus-resource-manager-namespace-auth-rule.md)
 #### [Konusu, aboneliği ve kuralı olan bir ad alanı oluşturma](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [Varlıkları sağlamak için PowerShell kullanma](service-bus-manage-with-ps.md)
+### [Varlıkları sağlamak için Azure PowerShell kullanma](service-bus-manage-with-ps.md)
 
 # Başvuru
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Özel Durumlar](service-bus-messaging-exceptions.md)
 ## [Kotalar](service-bus-quotas.md)

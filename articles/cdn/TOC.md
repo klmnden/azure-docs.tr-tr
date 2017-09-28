@@ -19,7 +19,7 @@
 ####[Dinamik site hızlandırma](cdn-dynamic-site-acceleration.md)
  
 ## Yönet
-### [PowerShell ile Yönetme](cdn-manage-powershell.md)
+### [Azure PowerShell ile Yönetme](cdn-manage-powershell.md)
 ### Yaşam süresi yapılandırma
 #### [Web Apps/Cloud Services, ASP.NET veya IIS içeriği](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Depolama blob hizmeti içeriği](cdn-manage-expiration-of-blob-content.md)
@@ -53,7 +53,7 @@
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

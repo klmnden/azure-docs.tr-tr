@@ -4,6 +4,8 @@
   items:
     - name: Metin Analizi hakkında
       href: overview.md
+    - name: Desteklenen diller
+      href: text-analytics-supported-languages.md
 - name: Hızlı Başlangıçlar
   items:
     - name: 'C#'

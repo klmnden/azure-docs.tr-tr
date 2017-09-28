@@ -1,8 +1,10 @@
 # Genel Bakış
 ## [Yük Dengeleyici nedir?](load-balancer-overview.md)
+## [Load Balancer Standard nedir?](load-balancer-standard-overview.md)
 ## [İnternet Yük Dengeleyici](load-balancer-internet-overview.md)
 ## [İç yük dengeleyici](load-balancer-internal-overview.md)
 ## [Yük dengeleyici araştırmalarını anlama](load-balancer-custom-probe-overview.md)
+## [Yüksek Kullanılabilirliğe Sahip Bağlantı Noktalarını anlama](load-balancer-ha-ports-overview.md)
 ## [Azure Resource Manager desteği](load-balancer-arm.md)
 ## [IPv6 desteği](load-balancer-ipv6-overview.md)
 ## [Birden çok VIP](load-balancer-multivip-overview.md)
@@ -33,6 +35,10 @@
 ### [IPv6 ile İnternet’e yönelik yük dengeleyici oluşturma (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [IPv6 ile İnternet’e yönelik yük dengeleyici oluşturma (Şablon)](load-balancer-ipv6-internet-template.md)
 
+## [Bölgesel olarak yedekli Genel Load Balancer Standard oluşturma](load-balancer-get-started-internet-az-portal.md)
+### [Bölgesel olarak yedekli Genel Load Balancer Standard oluşturma (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Bölgesel olarak yedekli Genel Load Balancer Standard oluşturma (CLI)](load-balancer-get-started-internet-az-cli.md)
+
 # Nasıl yapılır?
 ## [Yük Dengeleyici için TCP boşta kalma zaman aşımı yapılandırma](load-balancer-tcp-idle-timeout.md)
 ## [Yük Dengeleyici için Dağıtım modunu yapılandırma](load-balancer-distribution-mode.md)
@@ -44,13 +50,17 @@
 ### [Birden fazla IP yapılandırması kullanma (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Azure Load Balancer için Log Analytics](load-balancer-monitor-log.md)
 ## [Linux VM’leri için DHCPv6’yı yapılandırma](load-balancer-ipv6-for-linux.md)
+## [İç Load Balancer için Yüksek Kullanılabilirliğe Sahip Bağlantı Noktalarını Yapılandırma](load-balancer-configure-ha-ports.md)
+## [Kullanılabilirlik alanında genel IP adresi oluşturma](../virtual-network/create-public-ip-availability-zone-portal.md)
+## [Kullanılabilirlik alanında genel IP adresi oluşturma (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
+## [Kullanılabilirlik alanında genel IP adresi oluşturma (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
 ## Sorun giderme
 ### [Azure Load Balancer sorunlarını giderme](load-balancer-troubleshoot.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
-## [PowerShell](/powershell/module/azurerm.network)
-## [Azure CLI 2.0](/cli/azure/network/lb)
+## [Azure PowerShell](/powershell/module/azurerm.network)
+## [Azure Azure CLI](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)

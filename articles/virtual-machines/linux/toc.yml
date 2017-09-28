@@ -11,7 +11,7 @@
       href: quick-create-cli.md
     - name: VM Oluşturma - Portal
       href: quick-create-portal.md
-    - name: VM Oluşturma - PowerShell
+    - name: VM Oluşturma - Azure PowerShell
       href: quick-create-powershell.md
 - name: Öğreticiler
   items:
@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 - Sanal makineleri yedekleme
       href: tutorial-backup-vms.md
-    - name: 10 - Sanal makineleri izleme
+    - name: 10 - VM'leri izleme ve güncelleştirme
       href: tutorial-monitoring.md
     - name: 11 - VM güvenliğini yönetme
       href: tutorial-azure-security.md
@@ -53,7 +53,7 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: Kavramlar
   items:
@@ -187,6 +187,8 @@
           href: manage-availability.md
         - name: Dikey olarak ölçeklendirme
           href: vertical-scaling-automation.md
+        - name: Kullanılabilirlik alanında VM oluşturma
+          href: create-cli-availability-zone.md
     - name: Otomasyon araçları kullanma
       items:
         - name: Ansible

@@ -1,6 +1,6 @@
 - name: Azure’da kaynak erişimi
   href: active-directory-understanding-resource-access.md
-- name: Rol Tabanlı Access Control
+- name: Rol Tabanlı Erişim Denetimi (RBAC)
   href: role-based-access-control-what-is.md
   items:
     - name: Erişim atamalarını yönetme
@@ -31,10 +31,14 @@
       href: role-based-access-control-troubleshooting.md
     - name: Kaynak Sağlayıcısı işlemleri
       href: role-based-access-control-resource-provider-operations.md
+- name: RBAC için Privileged Identity Management (PIM)
+  href: pim-azure-resource.md
+- name: Azure yönetimi için koşullu erişim
+  href: conditional-access-azure-management.md
 - name: Yönetilen Hizmet Kimliği
   href: msi-overview.md
   items:
-    - name: Windows VM için MSI yapılandırma
+    - name: Azure VM için MSI yapılandırma
       items:
         - name: Azure Portal ile
           href: msi-qs-configure-portal-windows-vm.md

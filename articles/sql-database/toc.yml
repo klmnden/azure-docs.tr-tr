@@ -11,7 +11,7 @@
       href: sql-database-get-started-portal.md
     - name: DB Oluşturma - Azure CLI
       href: sql-database-get-started-cli.md
-    - name: DB Oluşturma - PowerShell
+    - name: DB Oluşturma - Azure PowerShell
       href: sql-database-get-started-powershell.md
     - name: Bağlanma ve sorgulama
       items:
@@ -51,7 +51,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
     - name: Azure CLI
       href: sql-database-cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: sql-database-powershell-samples.md
 - name: Kavramlar
   items:
@@ -71,6 +71,8 @@
           href: sql-database-connectivity-architecture.md
         - name: Güvenlik duvarı kuralları
           href: sql-database-firewall-configure.md
+        - name: Güvenlik duvarı sanal ağ kuralları
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTU ve eDTU
           href: sql-database-what-is-a-dtu.md
         - name: DTU kıyaslama
@@ -95,6 +97,8 @@
           href: sql-database-elastic-transactions-overview.md
         - name: Esnek işler
           href: sql-database-elastic-jobs-overview.md
+        - name: SQL Güvenlik Açığı Değerlendirmesi
+          href: sql-vulnerability-assessment.md
         - name: SQL Server genel özellikleri
           href: sql-database-features.md
     - name: Güvenlik
@@ -155,6 +159,10 @@
           href: sql-database-advisor.md
         - name: Otomatik ayarlama
           href: sql-database-automatic-tuning.md
+        - name: Intelligent Insights
+          href: sql-database-intelligent-insights.md
+        - name: Intelligence Insights tanılama günlüğü
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: El ile ayarlama
           href: sql-database-performance-guidance.md
         - name: Sorgu deposunu çalıştırma
@@ -229,7 +237,7 @@
           href: sql-database-elastic-jobs-service-installation.md
         - name: İş oluşturma - Portal
           href: sql-database-elastic-jobs-create-and-manage.md
-        - name: İş oluşturma - PowerShell
+        - name: İş oluşturma - Azure PowerShell
           href: sql-database-elastic-jobs-powershell.md
         - name: İş oluşturma - Örnek uygulama
           href: sql-database-elastic-jobs-getting-started.md
@@ -255,12 +263,14 @@
           href: sql-database-dynamic-data-masking-get-started-portal.md
         - name: Çok faktörlü kimlik doğrulamasını yapılandırma
           href: sql-database-ssms-mfa-authentication-configure.md
+        - name: PowerShell’in sanal ağ kuralları
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: İş sürekliliği
       items:
         - name: BCP ile veri yükleme
           href: sql-database-load-from-csv-with-bcp.md
         - name: ADF ile veri yükleme
-          href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
         - name: Veri eşitleme
           href: sql-database-get-started-sql-data-sync.md
     - name: İzleme ve ayarlama
@@ -273,6 +283,8 @@
           href: sql-database-advisor-portal.md
         - name: Otomatik ayarlamayı etkinleştirme
           href: sql-database-automatic-tuning-enable.md
+        - name: Intelligent Insights performansıyla ilgili sorunları giderme
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: Performansı izlemek için DMV’leri kullanma
           href: sql-database-monitoring-with-dmvs.md
         - name: Uyarı oluşturma
@@ -335,7 +347,7 @@
           href: sql-database-connect-excel.md
 - name: Başvuru
   items:
-    - name: PowerShell
+    - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
     - name: PowerShell (Elastik Veritabanı)
       href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'

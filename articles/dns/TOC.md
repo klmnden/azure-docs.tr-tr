@@ -4,31 +4,34 @@
 ## [DNS bölgeleri ve kayıtları](dns-zones-records.md)
 ## [Azure DNS ile DNS temsilcisi atama](dns-domain-delegation.md)
 ## [DNS SSS](dns-faq.md)
+## [Özel DNS bölgelerini kullanma](private-dns-overview.md)
 
 # Kullanmaya Başlama
 
 ## DNS bölgesi ve kaydı oluşturma
-### [Portal](dns-getstarted-portal.md)
-### [PowerShell](dns-getstarted-powershell.md)
+### [Azure portal](dns-getstarted-portal.md)
+### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
-### [Azure CLI 2.0](dns-getstarted-cli.md)
+### [Azure CLI](dns-getstarted-cli.md)
 
+## Özel DNS bölgesi ve kaydı oluşturma
+### [PowerShell](private-dns-getstarted-powershell.md)
 ## [Etki alanınızı Azure DNS'e atama](dns-delegate-domain-azure-dns.md)
 ## [Bir web uygulaması için özel DNS kayıtları oluşturma](dns-web-sites-custom-domain.md)
 
 # Nasıl yapılır
 
 ## DNS bölgelerini yönetme
-### [Portal](dns-operations-dnszones-portal.md)
-### [PowerShell](dns-operations-dnszones.md)
+### [Azure portal](dns-operations-dnszones-portal.md)
+### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
-### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## DNS kayıtlarını yönetme
-### [Portal](dns-operations-recordsets-portal.md)
-### [PowerShell](dns-operations-recordsets.md)
+### [Azure portal](dns-operations-recordsets-portal.md)
+### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
-### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## Ters DNS’yi yönetme
 ### [Genel Bakış](dns-reverse-dns-overview.md)
@@ -46,7 +49,7 @@
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
-## [PowerShell](/powershell/module/azurerm.dns)
+## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)

@@ -5,7 +5,7 @@
 ## [SSS](faq.md)
 
 # Kullanmaya Başlama
-## [Portal ile Linux VM oluşturma](createportal.md)
+## [Azure portalı ile Linux VM oluşturma](createportal.md)
 ## [Azure CLI'yı yükleme](../../../cli-install-nodejs.md)
 ## [SSH anahtarları oluşturma](../mac-create-ssh-keys.md)
 
@@ -22,7 +22,7 @@
 ### [Linux parola veya anahtarlarını sıfırlama, SSH düzeltme ve diskleri denetleme](reset-access.md)
 ### [Bakım](planned-maintenance-schedule.md)
 ### [CLI kullanarak bir Docker konağı oluşturma](cli-use-docker.md)
-### [Portal kullanarak bir Docker konağı oluşturma](portal-use-docker.md)
+### [Azure portalını kullanarak Docker ana bilgisayarı oluşturma](portal-use-docker.md)
 ### [Swarm ile Docker'ı kullanma](../../virtual-machines-linux-docker-swarm.md)
 
 ## Depolama'yı kullanma
@@ -67,7 +67,7 @@
 ### [VM sorunlarını gidermek için sanal sabit disk takma](troubleshoot-recovery-disks-portal.md)
 
 # Başvuru
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Resource Manager şablonları yazma](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

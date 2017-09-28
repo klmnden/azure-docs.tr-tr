@@ -1,0 +1,315 @@
+- name: Application Insights Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Application Insights nedir?
+      href: app-insights-overview.md
+    - name: Performans izlemeye genel bakış
+      href: app-insights-detect-triage-diagnose.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: .NET
+      href: quick-monitor-portal.md
+    - name: .NET Core
+      href: app-insights-dotnetcore-quick-start.md
+    - name: Node.js
+      href: app-insights-nodejs-quick-start.md
+    - name: Java
+      href: app-insights-java-quick-start.md
+- name: Öğreticiler
+  items:
+    - name: Çalışma zamanı özel durumlarını belirleme
+      href: app-insights-tutorial-runtime-exceptions.md
+    - name: Performans sorunlarını belirleme
+      href: app-insights-tutorial-performance.md
+    - name: Uygulama durumuyla ilgili uyarılar gönderme
+      href: app-insights-tutorial-alert.md
+    - name: Kullanıcıları anlama
+      href: app-insights-tutorial-users.md
+    - name: Özel panolar oluşturma
+      href: app-insights-tutorial-dashboards.md
+- name: Kavramlar
+  items:
+    - name: Azure izleme
+      items:
+        - name: Azure web uygulamaları
+          href: app-insights-azure-web-apps.md
+        - name: Azure Cloud Services
+          href: app-insights-cloudservices.md
+    - name: ASP.NET uygulamalarını izleme
+      items:
+        - name: Web uygulamaları
+          href: app-insights-asp-net.md
+        - name: Yayındaki web uygulamaları
+          href: app-insights-monitor-performance-live-website-now.md
+        - name: Windows hizmetleri
+          href: app-insights-windows-services.md
+        - name: Windows masaüstü
+          href: app-insights-windows-desktop.md
+        - name: ASP.NET Çekirdeği
+          href: app-insights-asp-net-core.md
+    - name: Java uygulamalarını izleme
+      items:
+        - name: Web uygulamaları
+          href: app-insights-java-get-started.md
+        - name: Web uygulamaları - çalışma zamanı
+          href: app-insights-java-live.md
+        - name: Docker uygulamaları
+          href: app-insights-docker.md
+    - name: Node.js uygulamalarını izleme
+      items:
+        - name: Node.js
+          href: app-insights-nodejs.md
+    - name: Web sayfalarını izleme
+      items:
+        - name: JavaScript
+          href: app-insights-javascript.md
+    - name: Diğer platformları izleme
+      items:
+        - name: SharePoint siteleri
+          href: app-insights-sharepoint.md
+        - name: Diğer platformlar
+          href: app-insights-platforms.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Planlama ve tasarım
+      items:
+        - name: Web uygulamalarını ve hizmetleri ayrıntılı tanılama
+          href: app-insights-devops.md
+        - name: Web uygulamalarının performansını izleme
+          href: app-insights-web-monitor-performance.md
+        - name: 'Geliştirme, test ve üretimi ayırma'
+          href: app-insights-separate-resources.md
+        - name: Birden çok bileşene sahip olan uygulamaları izleme
+          href: app-insights-monitor-multi-role-apps.md
+        - name: Application Insights’ta nasıl ... yapabilirim?
+          href: app-insights-how-do-i.md
+    - name: Yapılandırma
+      items:
+        - name: Azure
+          items:
+            - name: Profil Oluşturucu
+              href: app-insights-profiler.md
+            - name: Profiler’ı etkinleştirme
+              href: enable-profiler-cloud-services.md
+            - name: Tanılama
+              href: app-insights-azure-diagnostics.md
+            - name: Önizlemeler
+              href: app-insights-previews.md
+        - name: ASP.NET
+          items:
+            - name: Daha fazla telemetri toplama
+              href: app-insights-asp-net-more.md
+            - name: Özel durumlar
+              href: app-insights-asp-net-exceptions.md
+            - name: Günlük izlemeleri
+              href: app-insights-asp-net-trace-logs.md
+            - name: Performans sayaçları
+              href: app-insights-performance-counters.md
+            - name: Bağımlılıklar
+              href: app-insights-asp-net-dependencies.md
+            - name: Sürüm ek açıklamaları
+              href: app-insights-annotations.md
+            - name: ApplicationInsights.config
+              href: app-insights-configuration-with-applicationinsights-config.md
+            - name: Anlık Görüntü Hata Ayıklayıcı
+              href: app-insights-snapshot-debugger.md
+        - name: J2EE
+          items:
+            - name: Günlük izlemeleri
+              href: app-insights-java-trace-logs.md
+            - name: UNIX ölçümleri
+              href: app-insights-java-collectd.md
+            - name: Bağımlılıklar
+              href: app-insights-java-agent.md
+            - name: Telemetri filtreleme
+              href: app-insights-java-filter-telemetry.md
+        - name: Uyarılar
+          items:
+            - name: Kullanılabilirlik
+              href: app-insights-monitor-web-app-availability.md
+            - name: Ölçüm Uyarıları
+              href: app-insights-alerts.md
+        - name: Akıllı Algılama
+          href: app-insights-proactive-diagnostics.md
+          items:
+            - name: Hata anomalileri
+              href: app-insights-proactive-failure-diagnostics.md
+            - name: Performans anomalileri
+              href: app-insights-proactive-performance-diagnostics.md
+        - name: Kaynak oluşturma
+          href: app-insights-create-new-resource.md
+    - name: Çözümleme
+      items:
+        - name: Application Insights portalı
+          items:
+            - name: Panolar
+              href: app-insights-dashboards.md
+            - name: Arama
+              href: app-insights-diagnostic-search.md
+            - name: Ölçümler
+              href: app-insights-metrics-explorer.md
+            - name: Canlı akış
+              href: app-insights-live-stream.md
+            - name: Uygulama Eşlemesi
+              href: app-insights-app-map.md
+            - name: HockeyApp verileri
+              href: app-insights-hockeyapp-bridge-app.md
+        - name: Visual Studio
+          items:
+            - name: F5 öngörüleri
+              href: app-insights-visual-studio.md
+            - name: Eğilimler
+              href: app-insights-visual-studio-trends.md
+            - name: CodeLens
+              href: app-insights-visual-studio-codelens.md
+        - name: Kullanım
+          items:
+            - name: Genel Bakış
+              href: app-insights-usage-overview.md
+            - name: Kullanıcı bağlamı gönderme
+              href: app-insights-usage-send-user-context.md
+            - name: 'Kullanıcılar, Oturumlar, Etkinlikler'
+              href: app-insights-usage-segmentation.md
+            - name: Huniler
+              href: usage-funnels.md
+            - name: Bekletme
+              href: app-insights-usage-retention.md
+            - name: Kullanıcı Akışları
+              href: app-insights-usage-flows.md
+            - name: Çalışma Kitapları
+              href: app-insights-usage-workbooks.md
+        - name: Analiz
+          items:
+            - name: Genel Bakış
+              href: app-insights-analytics.md
+            - name: Tur
+              href: app-insights-analytics-tour.md
+            - name: Kullanma
+              href: app-insights-analytics-using.md
+            - name: İçeri Aktarma
+              href: app-insights-analytics-import.md
+            - name: Tanılama
+              href: app-insights-analytics-diagnostics.md
+    - name: Otomatikleştirme
+      items:
+        - name: Azure PowerShell yapılandırması
+          href: app-insights-powershell.md
+        - name: Kaynak oluşturma
+          href: app-insights-powershell-script-create-resource.md
+        - name: Uyarı ayarlama
+          href: app-insights-powershell-alerts.md
+        - name: Azure tanılama verilerini alma
+          href: app-insights-powershell-azure-diagnostics.md
+        - name: Microsoft Flow ile otomatikleştirme
+          href: app-insights-automate-with-flow.md
+        - name: Azure Logic App ile otomatikleştirme
+          href: automate-with-logic-apps.md
+    - name: Geliştirme
+      items:
+        - name: Özel olaylar ve ölçümler API'si
+          href: app-insights-api-custom-events-metrics.md
+        - name: .NET SDK’da özel işlemleri izleme
+          href: application-insights-custom-operations-tracking.md
+        - name: Filtreleme ve telemetri ön işleme
+          href: app-insights-api-filtering-sampling.md
+        - name: Örnekleme
+          href: app-insights-sampling.md
+    - name: Yönet
+      items:
+        - name: Fiyatlandırmayı ve veri hacmini yönetme
+          href: app-insights-pricing.md
+        - name: SCOM için Application Insights kullanarak uygulama performansı izleme
+          href: app-insights-scom.md
+    - name: Dışarı Aktarma
+      items:
+        - name: Sürekli dışarı aktarma
+          href: app-insights-export-telemetry.md
+        - name: Veri modelini dışarı aktarma
+          href: app-insights-export-data-model.md
+        - name: Power BI’a aktarma
+          href: app-insights-export-power-bi.md
+    - name: Güvenlik
+      items:
+        - name: 'Veri toplama, bekletme ve depolama'
+          href: app-insights-data-retention-privacy.md
+        - name: 'Kaynaklar, roller ve erişim denetimi'
+          href: app-insights-resources-roles-access-control.md
+        - name: IP adresleri
+          href: app-insights-ip-addresses.md
+    - name: Sorun giderme
+      items:
+        - name: .NET için veri yok
+          href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: Analiz
+          href: app-insights-analytics-troubleshooting.md
+        - name: Java
+          href: app-insights-java-troubleshoot.md
+- name: Başvuru
+  items:
+    - name: Analiz
+      href: 'https://docs.loganalytics.io/'
+    - name: .NET
+      href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'
+    - name: Java
+      href: /java/api/com.microsoft.applicationinsights
+    - name: JavaScript
+      href: 'https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md'
+    - name: Veri erişimi API’si
+      href: 'https://dev.applicationinsights.io/'
+    - name: Veri modeli
+      href: application-insights-data-model.md
+      items:
+        - name: İstek
+          href: application-insights-data-model-request-telemetry.md
+        - name: Bağımlılık
+          href: application-insights-data-model-dependency-telemetry.md
+        - name: Özel durum
+          href: application-insights-data-model-exception-telemetry.md
+        - name: İzleme
+          href: application-insights-data-model-trace-telemetry.md
+        - name: Olay
+          href: application-insights-data-model-event-telemetry.md
+        - name: Ölçüm
+          href: application-insights-data-model-metric-telemetry.md
+        - name: Bağlam
+          href: application-insights-data-model-context.md
+    - name: Telemetri bağıntısı
+      href: application-insights-correlation.md
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=application-insights'
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Diller ve platformlar
+      href: app-insights-platforms.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/application-insights/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Haberler
+      items:
+        - name: Blog
+          href: 'https://azure.microsoft.com/blog/tag/application-insights/'
+        - name: Hizmet güncelleştirmeleri
+          href: 'https://azure.microsoft.com/updates/?product=application-insights'
+        - name: SDK sürüm notları
+          href: app-insights-release-notes.md
+        - name: Developer Analytics Tools için sürüm notları
+          href: app-insights-release-notes-vsix.md
+    - name: SSS
+      href: app-insights-troubleshoot-faq.md
+    - name: Yardım
+      items:
+        - name: MSDN forumu
+          href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights'
+        - name: Stack Overflow
+          href: 'http://stackoverflow.com/questions/tagged/az-application-insights'
+        - name: User Voice
+          href: 'https://visualstudio.uservoice.com/forums/357324-application-insights'
+        - name: Destek
+          href: 'https://azure.microsoft.com/support/'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=application-insights'

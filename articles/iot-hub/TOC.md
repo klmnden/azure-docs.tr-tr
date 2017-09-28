@@ -109,23 +109,24 @@
 ### Cihaz üretici yazılımını güncelleştirmek için cihaz işlerini kullanma
 #### [Node arka ucu/Node cihazı](iot-hub-node-node-firmware-update.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-firmware-update.md)
+#### [Java arka ucu/Java cihazı](iot-hub-java-java-firmware-update.md)
 ### İşleri zamanlama ve yayınlama
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-schedule-jobs.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Yönet
 ### IoT hub oluşturma 
-#### [Portalı kullanma](iot-hub-create-through-portal.md)
-#### [PowerShell kullanma](iot-hub-create-using-powershell.md)
-#### [CLI 2.0’ı kullanma](iot-hub-create-using-cli.md)
+#### [Azure portalını kullanma](iot-hub-create-through-portal.md)
+#### [Azure PowerShell’i kullanma](iot-hub-create-using-powershell.md)
+#### [Azure CLI kullanma](iot-hub-create-using-cli.md)
 #### [CLI’yi kullanma](iot-hub-create-using-cli-nodejs.md)
 #### [REST API kullanma](iot-hub-rm-rest.md)
-#### [PowerShell’den şablon kullanma](iot-hub-rm-template-powershell.md)
+#### [Azure PowerShell’den şablon kullanma](iot-hub-rm-template-powershell.md)
 #### [.NET’ten şablon kullanma](iot-hub-rm-template.md)
 ### Karşıya dosya yüklemeyi yapılandırma
-#### [Portalı kullanma](iot-hub-configure-file-upload.md)
-#### [PowerShell kullanma](iot-hub-configure-file-upload-powershell.md)
-#### [CLI 2.0’ı kullanma](iot-hub-configure-file-upload-cli.md)
+#### [Azure portalını kullanma](iot-hub-configure-file-upload.md)
+#### [Azure PowerShell’i kullanma](iot-hub-configure-file-upload-powershell.md)
+#### [Azure CLI kullanma](iot-hub-configure-file-upload-cli.md)
 ### [IoT cihazlarını toplu yönetme](iot-hub-bulk-identity-mgmt.md)
 ### [Ölçümleri kullanma](iot-hub-metrics.md)
 ### [İşlemleri izleme](iot-hub-operations-monitoring.md)

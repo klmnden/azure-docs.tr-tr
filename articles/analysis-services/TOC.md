@@ -8,7 +8,7 @@
 
 # başlarken
 ## [Azure portalında bir sunucu oluşturma](analysis-services-create-server.md)
-## [PowerShell ile bir sunucu oluşturma](analysis-services-create-powershell.md)
+## [Azure PowerShell ile bir sunucu oluşturma](analysis-services-create-powershell.md)
 ## [Visual Studio üzerinden model dağıtma](analysis-services-deploy.md)
 ## [Azure portalında bir model oluşturma (önizleme)](analysis-services-create-model-portal.md)
 
@@ -43,7 +43,7 @@
 ### [Ek ders - Düzensiz hiyerarşiler](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Başvuru
-## [PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)

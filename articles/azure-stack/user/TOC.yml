@@ -1,0 +1,129 @@
+- name: Azure Stack Kullanıcı Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Dikkat edilmesi gereken temel konular
+      href: azure-stack-considerations.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Windows VM oluşturma - Portal
+      href: azure-stack-quick-windows-portal.md
+    - name: Windows VM oluşturma - PowerShell
+      href: azure-stack-quick-create-vm-windows-powershell.md
+    - name: Windows VM oluşturma - CLI
+      href: azure-stack-quick-create-vm-windows-cli.md
+    - name: Linux VM oluşturma - Portal
+      href: azure-stack-quick-linux-portal.md
+    - name: Linux VM oluşturma - PowerShell
+      href: azure-stack-quick-create-vm-linux-powershell.md
+    - name: Linux VM oluşturma - CLI
+      href: azure-stack-quick-create-vm-linux-cli.md
+- name: Öğreticiler
+  items:
+    - name: Uygulamaları Azure ve Azure Stack’e dağıtma
+      href: azure-stack-solution-pipeline.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Azure Stack Portal’ı kullanma
+      href: azure-stack-use-portal.md
+    - name: Güvenlik ve uyumluluk
+      items:
+        - name: RBAC’yi yönetme
+          href: azure-stack-manage-permissions.md
+        - name: Hizmet sorumlusu oluşturma
+          href: Azure-stack-create-service-principals.md
+    - name: Hizmetleri kullanma
+      items:
+        - name: Dikkat edilmesi gereken temel konular
+          href: azure-stack-considerations.md
+        - name: İşlem
+          items:
+            - name: Genel Bakış
+              href: azure-stack-compute-overview.md
+            - name: VM ile ilgili dikkat edilmesi gereken konular
+              href: azure-stack-vm-considerations.md
+        - name: Depolama
+          items:
+            - name: Genel Bakış
+              href: azure-stack-storage-overview.md
+            - name: Depolama hakkında dikkat edilmesi gerekenler
+              href: azure-stack-acs-differences.md
+            - name: Depolama geliştirme araçları
+              href: azure-stack-storage-dev.md
+            - name: Veri aktarım araçları
+              href: azure-stack-storage-transfer.md
+            - name: Depolama Gezgini’ne bağlanma
+              href: azure-stack-storage-connect-se.md
+        - name: Ağ
+          items:
+            - name: Genel Bakış
+              href: azure-stack-network-overview.md
+            - name: Ağ konusunda dikkat edilmesi gerekenler
+              href: azure-stack-network-differences.md
+            - name: Azure Stack için iDNS
+              href: azure-stack-understanding-dns.md
+            - name: Azure Stack’te DNS
+              href: azure-stack-dns.md
+        - name: Anahtar Kasası
+          items:
+            - name: Genel Bakış
+              href: azure-stack-kv-intro.md
+            - name: Portal ile yönetme
+              href: azure-stack-kv-manage-portal.md
+            - name: PowerShell ile Yönetme
+              href: azure-stack-kv-manage-powershell.md
+            - name: Gizli dizi ile VM oluşturma
+              href: azure-stack-kv-deploy-vm-with-secret.md
+            - name: Sertifika ile VM oluşturma
+              href: azure-stack-kv-push-secret-into-vm.md
+            - name: KeyVault örnek uygulaması
+              href: azure-stack-kv-sample-app.md
+    - name: Uygulama oluşturma
+      items:
+        - name: Azure Stack için geliştirme
+          href: azure-stack-developer.md
+        - name: Geliştirme ortamı ayarlama
+          items:
+            - name: Azure Stack PowerShell’i yükleme
+              href: azure-stack-powershell-install.md
+            - name: Araçları indirme
+              href: azure-stack-powershell-download.md
+            - name: PowerShell yapılandırma - Kullanıcı
+              href: azure-stack-powershell-configure-user.md
+            - name: Azure Stack CLI hizmetini yükleme ve yapılandırma
+              href: azure-stack-connect-cli.md
+            - name: Visual Studio yükleme
+              href: azure-stack-install-visual-studio.md
+            - name: API sürümü profillerini yönetme
+              href: azure-stack-version-profiles.md
+        - name: İlke modülü kullanma
+          href: azure-stack-policy-module.md
+        - name: Şablon kullanma
+          items:
+            - name: Şablona genel bakış
+              href: azure-stack-arm-templates.md
+            - name: Şablon geliştirme
+              href: azure-stack-develop-templates.md
+            - name: Şablonları denetleme
+              href: azure-stack-validate-templates.md
+            - name: Portal ile dağıtma
+              href: azure-stack-deploy-template-portal.md
+            - name: PowerShell ile dağıtma
+              href: azure-stack-deploy-template-powershell.md
+            - name: Visual Studio ile dağıtma
+              href: azure-stack-deploy-template-visual-studio.md
+- name: Başvuru
+  items:
+    - name: Azure Stack PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Fiyatlandırma bilgileri
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'

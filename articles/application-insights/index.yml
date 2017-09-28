@@ -1,0 +1,83 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Application Insights Belgeleri
+metadata:
+  title: 'Application Insights Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+  description: 'Application Insights, çeşitli platformlarda uygulama derleyen ve yöneten web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Hızlı başlangıç yönergelerimiz, öğreticilerimiz ve referans belgelerimizden yararlanarak web uygulamalarınızla hizmetlerinizi kullanımınızı anlayın ve sorunları nasıl algılayıp tanılayabileceğinizi öğrenin.'
+  services: application-insights
+  author: czeumault
+  manager: carolz
+  ms.service: application-insights
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/15/2017
+  ms.author: carolz
+abstract:
+  description: 'Application Insights, çeşitli platformlarda uygulama derleyen ve yöneten web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Hızlı başlangıç yönergelerimiz, öğreticilerimiz ve referans belgelerimizden yararlanarak web uygulamalarınızla hizmetlerinizi kullanımınızı anlayın ve sorunları nasıl algılayıp tanılayabileceğinizi öğrenin.'
+sections:
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: Azure Application Insights ile uygulamanızı izlemeye nasıl başlayabileceğinizi öğrenin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/dotnet.svg'
+            text: .NET
+            href: quick-monitor-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_NETcore.svg'
+            text: .NET Core
+            href: app-insights-dotnetcore-quick-start
+          - image:
+              src: 'https://docs.microsoft.com/media/common/nodejs.svg'
+            text: Node.js
+            href: app-insights-nodejs-quick-start
+          - image:
+              src: 'https://docs.microsoft.com/media/common/java.svg'
+            text: Java
+            href: app-insights-java-quick-start
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: Web uygulamalarınızın performansını ve kullanımını sürekli olarak nasıl artırabileceğinizi öğrenin.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="app-insights-tutorial-runtime-exceptions">Çalışma zamanı özel durumlarını bulma ve tanılama</a>
+          - html: <a href="app-insights-tutorial-performance">Performans sorunlarını bulma ve tanılama</a>
+          - html: <a href="app-insights-tutorial-alert">Uygulama durumunu izleme ve uyarılar gönderme</a>
+          - html: <a href="app-insights-tutorial-users">Müşteri kullanımını ve bilgilerini çözümleme</a>
+          - html: <a href="app-insights-tutorial-dashboards">Özel KPI panoları oluşturma</a>
+  - title: Ücretsiz Pluralsight Video Eğitimi
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure’da .NET ile geliştirme
+            href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
+          - title: Azure’da Node.js ile geliştirme
+            href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Diller
+            html: '<p><a href="https://docs.loganalytics.io/">Analizler</a></p><p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p><p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p><p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p><p><a href="https://dev.applicationinsights.io/">Veri erişimi API’si</a></p>'
+          - title: Veri modeli
+            html: <p><a href="application-insights-data-model-request-telemetry">İstek</a></p><p><a href="application-insights-data-model-dependency-telemetry">Bağımlılık</a></p><p><a href="application-insights-data-model-exception-telemetry">Özel durum</a></p><p><a href="application-insights-data-model-trace-telemetry">İzleme</a></p><p><a href="application-insights-data-model-event-telemetry">Olay</a></p><p><a href="application-insights-data-model-metric-telemetry">Ölçüm</a></p><p><a href="application-insights-data-model-context">Bağlam</a></p>
+          - title: Telemetri bağıntısı
+            html: <p><a href="application-insights-correlation">Telemetri bağıntısı</a></p>
+          - title: Kod örnekleri
+            html: '<p><a href="https://azure.microsoft.com/en-us/resources/samples/?service=application-insights">Kod örnekleri</a></p>'

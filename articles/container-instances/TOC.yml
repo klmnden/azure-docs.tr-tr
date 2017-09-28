@@ -7,8 +7,12 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Kapsayıcı örneği oluşturma
+    - name: Kapsayıcı oluşturma - CLI
       href: container-instances-quickstart.md
+    - name: Kapsayıcı oluşturma - Portal
+      href: container-instances-quickstart-portal.md
+    - name: Kapsayıcı oluşturma - PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: Öğreticiler
   items:
     - name: Kapsayıcı derleme ve dağıtma
@@ -39,7 +43,7 @@
       href: container-instances-troubleshooting.md
 - name: Başvuru
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances

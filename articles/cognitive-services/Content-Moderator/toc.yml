@@ -62,6 +62,10 @@
           href: Review-Tool-User-Guide/Workflows.md
         - name: Panoyu görüntüleme
           href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Öğreticiler
+  items:
+    - name: Facebook gönderilerini denetleme
+      href: facebook-post-moderation.md
 - name: API Başvuruları
   items:
     - name: Tüm API’ler
@@ -73,6 +77,6 @@
     - name: Windows SDK’sı
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
     - name: Örnekler
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
+      href: 'https://github.com/MicrosoftContentModerator'
     - name: SSS
       href: FAQs.md

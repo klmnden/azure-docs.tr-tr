@@ -1,0 +1,239 @@
+- name: Machine Learning Studio Belgeleri
+  href: index.md
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: Machine Learning nedir?
+      href: what-is-machine-learning.md
+    - name: Machine Learning Studio
+      href: what-is-ml-studio.md
+    - name: ML Studio özellikleri
+      href: studio-overview-diagram.md
+    - name: ML Studio ile ilgili temel bilgiler (bilgi görseli)
+      href: basics-infographic-with-algorithm-examples.md
+    - name: Sık sorulan sorular
+      href: faq.md
+    - name: Yenilikler
+      href: whats-new.md
+- name: Kullanmaya Başlama
+  items:
+    - name: İlk denemenizi oluşturma
+      href: create-experiment.md
+    - name: Örnek kılavuz
+      items:
+        - name: Tahmine dayalı çözüm oluşturma
+          href: walkthrough-develop-predictive-solution.md
+        - name: 1 - Çalışma Alanı oluşturma
+          href: walkthrough-1-create-ml-workspace.md
+        - name: 2 - Karşıya veri yükleme
+          href: walkthrough-2-upload-data.md
+        - name: 3 - Deneme oluşturma
+          href: walkthrough-3-create-new-experiment.md
+        - name: 4 - Eğitim ve değerlendirme
+          href: walkthrough-4-train-and-evaluate-models.md
+        - name: 5 - Web hizmetini dağıtma
+          href: walkthrough-5-publish-web-service.md
+        - name: 6 - Web hizmetine erişme
+          href: walkthrough-6-access-web-service.md
+    - name: Yeni Başlayanlar için Veri Bilimleri
+      items:
+        - name: 1 - Beş soru
+          href: data-science-for-beginners-the-5-questions-data-science-answers.md
+        - name: 2 - Verileriniz hazır mı?
+          href: data-science-for-beginners-is-your-data-ready-for-data-science.md
+        - name: 3 - Doğru soruyu sorma
+          href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
+        - name: 4 - Yanıtı tahmin etme
+          href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
+        - name: 5 - Başkalarının işlerini kopyalama
+          href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
+    - name: R hızlı başlangıç
+      href: r-quickstart.md
+- name: Nasıl yapılır?
+  items:
+    - name: Araçları ve yardımcı programları ayarlama
+      items:
+        - name: Çalışma Alanını Yönetme
+          items:
+            - name: Oluştur
+              href: create-workspace.md
+            - name: Yönet
+              href: manage-workspace.md
+            - name: Sorun giderme
+              href: troubleshooting-creating-ml-workspace.md
+            - name: ARM kullanarak dağıtma
+              href: deploy-with-resource-manager-template.md
+            - name: Başka bir bölgede oluşturma
+              href: multi-geo.md
+    - name: Veri edinme ve bu verileri anlama
+      items:
+        - name: Eğitim verilerini içeri aktarma
+          items:
+            - name: Genel Bakış
+              href: import-data.md
+            - name: Yerel bir dosyadan
+              href: import-data-from-local-file.md
+            - name: Çevrimiçi kaynaklardan
+              href: import-data-from-online-sources.md
+            - name: Denemeden
+              href: import-data-from-an-experiment.md
+            - name: Şirket içi SQL kullanma
+              href: use-data-from-an-on-premises-sql-server.md
+    - name: Model geliştirme
+      items:
+        - name: Oluşturma ve eğitme modelleri
+          items:
+            - name: Deneme yaşam döngüsü yönetimi
+              href: version-control.md
+            - name: Deneme yinelemelerini yönetme
+              href: manage-experiment-iterations.md
+            - name: PowerShell kullanarak model oluşturma
+              href: create-models-and-endpoints-with-powershell.md
+            - name: Algoritma seçme
+              items:
+                - name: Algoritma seçme
+                  href: algorithm-choice.md
+                - name: Algoritma bilgi sayfası
+                  href: algorithm-cheat-sheet.md
+                - name: Doğrusal regresyon kullanma
+                  href: linear-regression-in-azure.md
+                - name: Metin analizi kullanma
+                  href: text-analytics-module-tutorial.md
+            - name: Sonuçları değerlendirme ve yorumlama
+              items:
+                - name: Performansı değerlendirme
+                  href: evaluate-model-performance.md
+                - name: Parametreleri en iyi duruma getirme
+                  href: algorithm-parameters-optimize.md
+                - name: Sonuçları yorumlama
+                  href: interpret-model-results.md
+                - name: Hata ayıklama
+                  href: debug-models.md
+            - name: R ve Python’u kullanma
+              items:
+                - name: R betiklerini yürütme
+                  href: extend-your-experiment-with-r.md
+                - name: Özel R modülleri yazma
+                  href: custom-r-modules.md
+                - name: Python betiklerini yürütme
+                  href: execute-python-scripts.md
+    - name: Modelleri kullanıma hazır hale getirin
+      items:
+        - name: Genel Bakış
+          href: deploy-consume-web-service-guide.md
+        - name: Modelleri dağıtma
+          items:
+            - name: Bir web hizmetini dağıtma
+              href: publish-a-machine-learning-web-service.md
+            - name: Nasıl çalışır?
+              href: model-progression-experiment-to-web-service.md
+            - name: Dağıtım için hazırlanma
+              href: convert-training-experiment-to-scoring-experiment.md
+            - name: Dış veri kullanma
+              href: web-services-that-use-import-export-modules.md
+            - name: Birden çok bölgede dağıtma
+              href: how-to-deploy-to-multiple-regions.md
+            - name: Web hizmeti parametrelerini kullanma
+              href: web-service-parameters.md
+            - name: Günlü kaydını etkinleştir
+              href: web-services-logging.md
+        - name: Web hizmetlerini yönetme
+          items:
+            - name: Web Hizmetleri portalını kullanma
+              href: manage-new-webservice.md
+            - name: API’ler ile yönetme
+              href: manage-web-service-endpoints-using-api-management.md
+            - name: Uç noktalar oluşturma
+              href: create-endpoint.md
+            - name: Ölçeklendirme
+              href: scaling-webservice.md
+        - name: Modelleri yeniden eğitme
+          items:
+            - name: Genel Bakış
+              href: retrain-machine-learning-model.md
+            - name: Programlama yoluyla yeniden eğitme
+              href: retrain-models-programmatically.md
+            - name: Klasik web hizmetini yeniden eğitme
+              href: retrain-a-classic-web-service.md
+            - name: PowerShell ile yeniden eğitme
+              href: retrain-new-web-service-using-powershell.md
+            - name: Mevcut bir web hizmetini yeniden eğitme
+              href: retrain-existing-resource-manager-based-web-service.md
+            - name: Sorun giderme
+              href: troubleshooting-retraining-models.md
+        - name: Tüketim modelleri
+          items:
+            - name: Genel Bakış
+              href: consume-web-services.md
+            - name: Excel kullanma
+              href: consuming-from-excel.md
+            - name: Excel eklentisi kullanma
+              href: excel-add-in-for-web-services.md
+            - name: Web uygulaması şablonu kullanma
+              href: consume-web-service-with-web-app-template.md
+            - name: Batch Havuzu kullanma
+              href: dedicated-capacity-for-bes-jobs.md
+    - name: Örnekler
+      items:
+        - name: Örnek deneyler
+          href: sample-experiments.md
+        - name: Örnek veri kümeleri
+          href: use-sample-datasets.md
+        - name: Müşteri karmaşası örneği
+          href: azure-ml-customer-churn-scenario.md
+- name: Başvuru
+  items:
+    - name: PowerShell modülü (Yeni)
+      href: /powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning
+    - name: PowerShell modülü (Klasik)
+      href: powershell-module.md
+    - name: Algoritma ve Modül başvurusu
+      href: 'https://msdn.microsoft.com/library/azure/dn905974.aspx'
+    - name: REST yönetim API'leri
+      href: /rest/api/machinelearning
+    - name: Web hizmeti hata kodları
+      href: web-service-error-codes.md
+- name: İlgili
+  items:
+    - name: Cortana Intelligence Galerisi
+      items:
+        - name: Genel Bakış
+          href: gallery-how-to-use-contribute-publish.md
+        - name: Sektörler
+          href: gallery-industries.md
+        - name: Çözümler
+          href: gallery-solutions.md
+        - name: Denemeler
+          href: gallery-experiments.md
+        - name: Jupyter Notebooks
+          href: gallery-jupyter-notebooks.md
+        - name: Yarışmalar
+          href: gallery-competitions.md
+        - name: Yarışmalar hakkında SSS
+          href: competition-faq.md
+        - name: Öğreticiler
+          href: gallery-tutorials.md
+        - name: Koleksiyonlar
+          href: gallery-collections.md
+        - name: Özel Modüller
+          href: gallery-custom-modules.md
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 'Net# Sinir Ağları Dili'
+      href: azure-ml-netsharp-reference-guide.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=machine-learning'
+    - name: Blog
+      href: 'http://blogs.technet.com/b/machinelearning/'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
+    - name: Canlı sohbetten yardım alma
+      href: live-chat.md

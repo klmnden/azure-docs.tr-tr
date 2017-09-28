@@ -38,7 +38,7 @@
 ## Yönet
 ### Azure Search Yönetimi
 #### [Azure portal](search-manage.md)
-#### [PowerShell](search-manage-powershell.md)
+#### Azure [Azure PowerShell](search-manage-powershell.md)
 ### [Kullanımı ve istatistikleri izleme](search-monitor-usage.md)
 ### [Arama trafiği analizi](search-traffic-analytics.md)
 ### [Performans ve iyileştirme](search-performance-optimization.md)

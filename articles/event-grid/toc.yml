@@ -12,6 +12,8 @@
   items:
     - name: Logic Apps ile sanal makine değişikliklerini izleme
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - name: Karşıya yüklenen görüntüleri yeniden boyutlandırma
+      href: resize-images-on-storage-blob-upload-event.md
 - name: Kavramlar
   items:
     - name: Event Grid kavramları

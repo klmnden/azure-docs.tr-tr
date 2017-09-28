@@ -6,6 +6,10 @@
 ## [Performansı iyileştirmek için önbelleğe alma özelliği ekleme](api-management-howto-cache.md)
 ## [Sık sorulan sorular](api-management-faq.md)
 # Nasıl yapılır?
+## APIM hizmeti ayarlama
+### [APIM örneği oluşturma](get-started-create-service-instance.md)
+### [Yükseltme ve ölçeklendirme](upgrade-and-scale.md)
+### [Özel etki alanı yapılandırma](configure-custom-domain.md)
 ## API geliştirme
 ### [API Ürünü ekleme ve yayımlama](api-management-howto-add-products.md)
 ### [İşlem ekleme](api-management-howto-add-operations.md)
@@ -51,7 +55,7 @@
 #### [Hızlı başlangıç](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Başvuru
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (özgün)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [İlkeler](api-management-policies.md)

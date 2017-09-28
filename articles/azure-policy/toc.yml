@@ -1,0 +1,31 @@
+- name: Genel Bakış
+  items:
+    - name: Azure İlkesine Genel Bakış
+      href: azure-policy-introduction.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: İlke atama - Portal
+      href: assign-policy-definition.md
+    - name: İlke atama - PowerShell
+      href: assign-policy-definition-ps.md
+    - name: İlke atama - Azure CLI
+      href: assign-policy-definition-cli.md
+- name: Öğreticiler
+  items:
+    - name: Azure İlkesi oluşturma ve yönetme
+      href: create-manage-policy.md
+- name: Başvuru
+  items:
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/policy?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.3.1'
+- name: Kaynaklar
+  items:
+    - name: Azure yol haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/azure-policy/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -4,8 +4,8 @@
 
 # Hızlı Başlangıçlar
 ## [.NET uygulaması oluşturma](service-fabric-quickstart-dotnet.md)
-## [Bir Windows kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers.md)
 ## [Bir Linux kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers-linux.md)
+## [Bir Windows kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers.md)
 
 # Öğreticiler
 ## .NET uygulaması dağıtma
@@ -17,11 +17,24 @@
 ## Mevcut bir .NET uygulamasını kapsayıcılı hale getirme
 ### [1- Azure’da güvenli bir küme oluşturma](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2 - Docker Compose kullanarak bir .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md)
+### [3 - Kapsayıcınızı izleme](service-fabric-tutorial-monitoring-wincontainers.md)
+
+## Linux kapsayıcı uygulaması oluşturma
+### [1 - Kapsayıcı görüntüleri oluşturma](service-fabric-tutorial-create-container-images.md)
+### [2 - Kapsayıcıları paketleme ve dağıtma](service-fabric-tutorial-package-containers.md)
+### [3 - Yük devretme ve ölçeklendirme](service-fabric-tutorial-containers-failover.md)
+
+## Kümeleri oluşturma ve yönetme
+### 1 - Azure’da küme oluşturma
+#### [1a- Azure’da güvenli bir Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Azure’da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2- Service Fabric ile API Management dağıtma](service-fabric-tutorial-deploy-api-management.md)
 
 # Örnekler
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
-## [PowerShell](service-fabric-powershell-samples.md)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=service-fabric)
+## [Azure PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
+
 # Kavramlar
 ## [Mikro hizmetleri anlama](service-fabric-overview-microservices.md)
 ## [Büyük resim](service-fabric-content-roadmap.md)
@@ -67,6 +80,8 @@
 #### [Hizmet durumu](service-fabric-concepts-state.md)
 #### [Hizmet bölümleme](service-fabric-concepts-partitioning.md)
 #### [Hizmetlerin kullanılabilirliği](service-fabric-availability-services.md)
+#### [Çoğaltmalar ve örnekler](service-fabric-concepts-replica-lifecycle.md)
+#### [Yeniden yapılandırma](service-fabric-concepts-reconfiguration.md)
 #### Hizmet iletişimleri
 ##### [Genel Bakış](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS hizmeti](service-fabric-dnsservice.md)
@@ -91,7 +106,6 @@
 
 ## Küme oluşturma ve yönetme
 ### [Genel Bakış](service-fabric-deploy-anywhere.md)
-### [Linux’da Service Fabric](service-fabric-linux-overview.md)
 ### Planlama ve hazırlama
 #### [Kapasite planlaması](service-fabric-cluster-capacity.md)
 #### [Olağanüstü durum kurtarma](service-fabric-disaster-recovery.md)
@@ -130,6 +144,8 @@
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
+
+## [Service Fabric CLI’sını ayarlama](service-fabric-cli.md)
 
 ## Uygulama oluşturma
 ### [Visual Studio’da ilk C# uygulamanızı oluşturma](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -225,13 +241,13 @@
 
 ### Uygulama dağıtma veya kaldırma
 #### [Yerel bir kümede uygulamaları dağıtma](service-fabric-get-started-with-a-local-cluster.md)
-#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API’leri](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Uygulamaları yükseltme
-#### [PowerShell’i kullanarak yükseltme](service-fabric-application-upgrade-tutorial-powershell.md)
+#### [Azure PowerShell kullanarak yükseltme](service-fabric-application-upgrade-tutorial-powershell.md)
 #### [Visual Studio kullanarak yükseltme](service-fabric-application-upgrade-tutorial.md)
 #### [Uygulama yükseltme ile ilgili sorunları giderme](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -280,8 +296,6 @@
 
 ### [Küme görselleştirme](service-fabric-visualizing-your-cluster.md)
 ### [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md)
-
-### [Service Fabric CLI ile çalışmaya başlama](service-fabric-cli.md)
 ### [Küme düğümleri yamalama](service-fabric-patch-orchestration-application.md)
 
 ### Küme kaynaklarını yönetme ve düzenleme
@@ -326,7 +340,7 @@
 ### [Yerel kümenizde sorun giderme](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Başvuru
-## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
+## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Java API’si](/java/api/overview/azure/servicefabric)

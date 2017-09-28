@@ -12,7 +12,7 @@
 
 # Örnekler
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [Şablon dağıtma](resource-manager-samples-powershell-deploy.md)
 
 ## Azure CLI
@@ -35,7 +35,7 @@
 
 
 ## Dağıtma
-### PowerShell
+### Azure PowerShell
 #### [Şablon dağıtma](resource-group-template-deploy.md)
 #### [SAS belirteci ile özel şablon dağıtma](resource-manager-powershell-sas-token.md)
 #### [Şablonu dışarı aktarma ve yeniden dağıtma](resource-manager-export-template-powershell.md)
@@ -43,7 +43,7 @@
 #### [Şablon dağıtma](resource-group-template-deploy-cli.md)
 #### [SAS belirteci ile özel şablon dağıtma](resource-manager-cli-sas-token.md)
 #### [Şablonu dışarı aktarma ve yeniden dağıtma](resource-manager-export-template-cli.md)
-### Portal
+### Azure portalına
 #### [Kaynakları dağıtma](resource-group-template-deploy-portal.md)
 #### [Şablonu dışarı aktarma](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
@@ -52,9 +52,9 @@
 ### [Dağıtım sırasında güvenlik değerlerini geçirme](resource-manager-keyvault-parameter.md)
 
 ## Yönet
-### [PowerShell](powershell-azure-resource-manager.md)
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Portal](resource-group-portal.md)
+### [Azure portal](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [Kaynakları düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
@@ -62,16 +62,16 @@
 
 ## Erişim Denetleme
 ### Hizmet sorumlusu oluşturma
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
-#### [Portal](resource-group-create-service-principal-portal.md)
+#### [Azure portal](resource-group-create-service-principal-portal.md)
 ### [Aboneliklere erişmek için kimlik doğrulama API’si](resource-manager-api-authentication.md)
 ### [Kaynakları kilitleme](resource-group-lock-resources.md)
 
 ## Kaynak ilkeleri ayarlama
 ### [Kaynak ilkeleri nelerdir?](resource-manager-policy.md)
-### [İlke atamak için portalı kullanma](resource-manager-policy-portal.md)
+### [İlke atamak için Azure portalını kullanma](resource-manager-policy-portal.md)
 ### [İlke atamak için betikleri kullanma](resource-manager-policy-create-assign.md)
 ### Örnekler
 #### [Etiketler](resource-manager-policy-tags.md)

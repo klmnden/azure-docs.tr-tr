@@ -1,0 +1,8 @@
+- name: Machine Learning önizleme özellikleri
+  href: preview/index.yml
+- name: Machine Learning Studio
+  href: studio/index.md
+- name: Veri Bilimi Sanal Makinesi
+  href: data-science-virtual-machine/overview.md
+- name: Team Data Science Process
+  href: team-data-science-process/overview.md

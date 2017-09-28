@@ -36,6 +36,7 @@
 #### [İşleri yönetme](storsimple-virtual-array-manage-jobs.md)
 #### [Cihaz parolasını değiştirme](storsimple-virtual-array-change-device-admin-password.md)
 #### [Windows Server ana bilgisayarında MPIO yapılandırma](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Uyarıları kullanarak izleme](storsimple-virtual-array-manage-alerts.md)
 #### [Tanılama ve sorun giderme](storsimple-virtual-array-diagnose-problems.md)
 #### [Günlük Desteği isteği](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,8 +57,9 @@
 ### [Çözüm nedir?](storsimple-overview.md)
 ### [StorSimple öğrenme haritası](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](storsimple-8000-security.md)
+### [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md)
 
-## Başlarken
+## başlarken
 
 ### Planlama
 #### [Gereksinimleri inceleme](storsimple-8000-system-requirements.md)

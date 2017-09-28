@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Stack Kullanıcı Belgeleri
+metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: 'Azure Stack Belgeleri - Öğreticiler, API Başvurusu'
+  description: Azure Stack önizleme sürümünü kullanarak veri merkezinizden Azure hizmetleri sunmayı öğrenin. Bir kavram kanıtı ortamından özellikleri öğrenin ve tanıtın.
+  services: azure-stack
+  author: carolz
+  manager: carolz
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/23/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Stack, şirketinizin veya hizmet sağlayıcınızın veri merkezinden Azure hizmetleri sağlama olanağı sunan bir hibrit bulut platformudur. Bir geliştirici olarak Azure Stack’te uygulama derleyebilirsiniz. Daha sonra bu uygulamaları Azure Stack’te dağıtabilir veya Azure Stack bulut ve Azure arasındaki bağlantıdan yararlanan tamamen karma uygulamalar derleyebilirsiniz.  Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kaynak oluşturma ve uygulamaları dağıtma hakkında bilgi edinin.'
+sections:
+  - title: Hızlı Başlangıç
+    items:
+      - type: paragraph
+        text: 'Windows sanal makinesini Azure Stack’te dağıtma hakkında bilgi edinin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portal
+            href: azure-stack-quick-windows-portal.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: PowerShell
+            href: azure-stack-quick-create-vm-windows-powershell.md
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: CLI
+            href: azure-stack-quick-create-vm-windows-cli.md
+      - type: paragraph
+        text: 'Linux sanal makinesini Azure Stack’te dağıtma hakkında bilgi edinin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portal
+            href: azure-stack-quick-linux-portal.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: PowerShell
+            href: azure-stack-quick-create-vm-linux-powershell.md
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: CLI
+            href: azure-stack-quick-create-vm-linux-cli.md
+  - title: Adım adım öğreticiler
+    items:
+      - type: paragraph
+        text: 'Azure ve Azure Stack arasında uygulama dağıtma:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Uygulamaları Azure Stack ve Azure’a dağıtma</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>

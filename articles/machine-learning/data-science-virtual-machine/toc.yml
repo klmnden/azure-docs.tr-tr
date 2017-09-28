@@ -1,0 +1,52 @@
+- name: Veri Bilimi Sanal Makineleriyle ilgili belgeler
+  items: null
+- name: Genel Bakış
+  items:
+    - name: Veri Bilimi VM nedir?
+      href: overview.md
+    - name: Derin Öğrenme VM nedir?
+      href: deep-learning-dsvm-overview.md
+- name: başlarken
+  items:
+    - name: Windows Veri Bilimi VM’si oluşturma
+      href: provision-vm.md
+    - name: Ubuntu Veri Bilimi VM’si oluşturma
+      href: dsvm-ubuntu-intro.md
+    - name: CentOS Veri Bilimi VM’si oluşturma
+      href: linux-dsvm-intro.md
+    - name: Derin Öğrenme VM’si oluşturma
+      href: provision-deep-learning-dsvm.md
+- name: Nasıl yapılır?
+  items:
+    - name: Windows Veri Bilimi VM’si kullanma
+      href: vm-do-ten-things.md
+    - name: Linux Veri Bilimi VM’si kullanma
+      href: linux-dsvm-walkthrough.md
+    - name: Derin Öğrenme VM’si kullanma
+      href: use-deep-learning-dsvm.md
+- name: Başvuru
+  items:
+    - name: Derin Öğrenme ve AI çerçeveleri
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: ML ve veri bilimi araçları
+      href: dsvm-ml-data-science-tools.md
+    - name: Diller
+      href: dsvm-languages.md
+    - name: Geliştirme araçları
+      href: dsvm-tools-development.md
+    - name: Veri alma araçları
+      href: dsvm-tools-ingestion.md
+    - name: Veri keşfi ve görselleştirme araçları
+      href: dsvm-tools-explore-and-visualize.md
+    - name: Veri platformları
+      href: dsvm-data-platforms.md
+    - name: Örnekler ve yönergeler
+      href: dsvm-samples-and-walkthroughs.md
+- name: Kaynaklar
+  items:
+    - name: Blog
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: MSDN forumu
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=dsvm'

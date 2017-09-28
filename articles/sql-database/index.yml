@@ -35,7 +35,7 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
-            text: Azure Portal
+            text: Azure portalına
             href: 'https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal'
           - image:
               src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg'
@@ -52,22 +52,21 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: '<a href="/azure/sql-database/sql-database-design-first-database">SSMS kullanarak yeni bir SQL Veritabanı için şema oluşturma ve tasarlama</a> ya da <a href="/azure/sql-database/sql-database-design-first-database-csharp">C# kullanarak yeni bir SQL Veritabanı için şema oluşturma ve tasarlama</a>'
+          - html: <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> veya <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a> kullanarak yeni SQL Veritabanı için şema oluşturma ve tasarlama
           - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Mevcut SQL Server Veritabanını Azure SQL Veritabanı kullanmak üzere geçirme</a>
           - html: <a href="/azure/sql-database/sql-database-security-tutorial">SQL Veritabanınızın güvenliğini sağlama</a>
-          - html: <a href="/azure/sql-database/sql-database-performance-tutorial">SQL Veritabanı performansını iyileştirme</a>
-          - html: <a href="/azure/sql-database/sql-database-multi-tenant-application">SQL DB kullanarak çok kiracılı SaaS uygulaması yerleştirme</a>
           - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Coğrafi olarak dağıtılmış bir veritabanı uygulama</a>
-  - title: Ücretsiz PluralSight Video Eğitimi
+  - title: Ücretsiz Pluralsight Video Eğitimi
     items:
       - type: list
         style: cards
-        className: cardsW
+        className: cardsFTitle
         items:
-          - html: '<p><a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">.NET ile geliştirme</a></p>'
+          - title: Azure’da .NET ile geliştirme
+            href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/video-training-dotnet.png'
-              href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
   - title: Örnekler
     items:
       - type: paragraph
@@ -85,7 +84,7 @@ sections:
         className: cardsD
         items:
           - title: Komut Satırı
-            html: '<p><a href="/powershell/module/azurerm.sql/#sql">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (Elastik DB)</a></p><p><a href="/cli/azure/sql">Azure CLI 2.0</a></p>'
+            html: '<p><a href="/powershell/module/azurerm.sql/#sql">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (Elastik DB)</a></p><p><a href="/cli/azure/sql">Azure CLI</a></p>'
           - title: Diller
             html: '<p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>'
           - title: REST

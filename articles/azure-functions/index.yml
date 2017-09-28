@@ -46,6 +46,10 @@ sections:
             text: GitHub web kancası
             href: /azure/azure-functions/functions-create-github-webhook-triggered-function
           - image:
+              src: media/index/cosmosdb.svg
+            text: Azure Cosmos DB
+            href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
+          - image:
               src: media/index/blob.svg
             text: Blob
             href: /azure/azure-functions/functions-create-storage-blob-triggered-function
@@ -59,7 +63,7 @@ sections:
         style: icon48
         items:
           - image:
-              src: /media/logos/logo_visual-studio.svg
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
             text: Visual Studio
             href: /azure/azure-functions/functions-create-your-first-function-visual-studio
   - title: Adım Adım Öğreticiler
@@ -71,6 +75,8 @@ sections:
         items:
           - html: <a href="/azure/azure-functions/functions-twitter-email">Azure Logic Apps ile tümleşen bir işlev oluşturma</a>
           - html: <a href="/azure/azure-functions/functions-create-serverless-api">Azure İşlevlerini kullanarak sunucusuz bir API oluşturma</a>
+          - html: <a href="/azure/azure-functions/functions-openapi-definition">Bir işlev için OpenAPI tanımı oluşturma</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme</a>
   - title: Örnekler
     items:
       - type: list
@@ -89,4 +95,4 @@ sections:
           - title: REST
             html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
           - title: Bağlamalar
-            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Olay Hub’ı</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Dış dosya</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP ve web kancaları</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Kuyruk depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Tablo depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Zamanlayıcı</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio çıktı bağlaması</a></p>
+            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Olay Hub’ı</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Dış dosya</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP ve web kancaları</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Kuyruk depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Tablo depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Zamanlayıcı</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio çıktı bağlaması</a></p>

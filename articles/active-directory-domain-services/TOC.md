@@ -16,7 +16,7 @@
 # Nasıl yapılır
 ## Yönetilen bir etki alanına katılma
 ### [Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [PowerShell kullanarak Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Azure PowerShell’i kullanarak Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Linux VM’sine katılma](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Yönetilen etki alanını yönetme
 ### [Yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)

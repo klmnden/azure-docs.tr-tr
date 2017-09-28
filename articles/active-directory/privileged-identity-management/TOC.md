@@ -2,11 +2,12 @@
 ## [Güvenli ayrıcalıklı erişim](active-directory-securing-privileged-access.md)
 ## [Azure AD PIM nedir?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Roller](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Azure için Privileged Identity Management](azure-pim-resource-rbac.md)
 ## [Privileged Identity Management Onay iş akışları](azure-ad-pim-approval-workflow.md)
 
 # başlarken
 ## [Abonelik gereksinimleri](subscription-requirements.md)
-## [Portalı kullanmaya başlama](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Azure portalını kullanmaya başlama](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Güvenlik sihirbazı](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [PIM erişimi verme](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 

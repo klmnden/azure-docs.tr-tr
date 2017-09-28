@@ -67,12 +67,17 @@
 ### RESTful API’lerini tümleştirme
 #### [Kullanıcı girişini doğrulama](active-directory-b2c-rest-api-validation-custom.md)
 #### [Ek talep alma](active-directory-b2c-rest-api-step-custom.md)
-### Oturum açmayı özelleştirme
+### Kullanıcı akışları
 #### [Kullanıcı erişimini yapılandırma](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Özel öznitelikler](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Kullanıcı Arabirimini Özelleştirme](active-directory-b2c-ui-customization-custom.md)
 #### [Belirteçleri özelleştirme](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-#### [Parola özelleştirme](active-directory-b2c-reference-password-complexity-custom.md)
+#### [Parola karmaşıklığı](active-directory-b2c-reference-password-complexity-custom.md)
+
+#### [Parola değiştirme](active-directory-b2c-reference-password-change-custom.md)
+
+#### [Oturumumu açık bırak seçeneğini etkinleştirme](active-directory-b2c-reference-kmsi-custom.md)
+
 ### Sorun giderme
 #### [Application Insights’ı kullanarak günlük toplama](active-directory-b2c-troubleshoot-custom.md)
 ## Başvuru

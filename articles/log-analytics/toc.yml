@@ -1,0 +1,244 @@
+- name: Azure Log Analytics Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Log Analytics nedir?
+      href: log-analytics-overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Toplama - Azure VM’leri
+      href: log-analytics-quick-collect-azurevm.md
+- name: Öğreticiler
+  items:
+    - name: 1 - Verileri çözümleme
+      href: log-analytics-tutorial-viewdata.md
+    - name: 2 - Verileri görselleştirme
+      href: log-analytics-tutorial-dashboards.md
+    - name: 3 - Veriler hakkında uyarı gönderme
+      href: log-analytics-tutorial-response.md
+- name: Örnekler
+  items:
+    - name: Azure PowerShell
+      href: powershell-samples.md
+- name: Kavramlar
+  items:
+    - name: SSS
+      href: log-analytics-faq.md
+    - name: Veri Tüketimi
+      href: log-analytics-usage.md
+    - name: Erişimi yönetme
+      href: log-analytics-manage-access.md
+    - name: Hizmet sağlayıcılarına yönelik özellikler
+      href: log-analytics-service-providers.md
+- name: Nasıl yapılır?
+  items:
+    - name: Veri toplama
+      items:
+        - name: Bağlı kaynaklar
+          items:
+            - name: Windows aracıları
+              href: log-analytics-windows-agents.md
+            - name: Linux aracıları
+              href: log-analytics-agent-linux.md
+            - name: Azure sanal makineleri
+              href: log-analytics-azure-vm-extension.md
+            - name: Azure kaynakları
+              href: log-analytics-azure-storage.md
+            - name: Operations Manager
+              href: log-analytics-om-agents.md
+            - name: Configuration Manager
+              href: log-analytics-sccm.md
+            - name: OMS Ağ Geçidi
+              href: log-analytics-oms-gateway.md
+        - name: Veri kaynakları
+          items:
+            - name: Veri kaynaklarına genel bakış
+              href: log-analytics-data-sources.md
+            - name: Windows olayları
+              href: log-analytics-data-sources-windows-events.md
+            - name: Özel JSON verileri
+              href: log-analytics-data-sources-json.md
+            - name: Toplanan performans verileri
+              href: log-analytics-data-sources-collectd.md
+            - name: Nagios ve Zabbix uyarıları
+              href: log-analytics-data-sources-alerts-nagios-zabbix.md
+            - name: Syslog
+              href: log-analytics-data-sources-syslog.md
+            - name: Performans sayaçları
+              href: log-analytics-data-sources-performance-counters.md
+            - name: Linux uygulama performansı
+              href: log-analytics-data-sources-linux-applications.md
+            - name: IIS günlükleri
+              href: log-analytics-data-sources-iis-logs.md
+            - name: Özel günlükler
+              href: log-analytics-data-sources-custom-logs.md
+            - name: Özel alanlar
+              href: log-analytics-custom-fields.md
+    - name: Verileri sorgulama
+      items:
+        - name: Günlük aramalarına genel bakış
+          href: log-analytics-log-searches.md
+        - name: Arama başvurusu
+          href: log-analytics-search-reference.md
+          items:
+            - name: Normal ifadeler
+              href: log-analytics-log-searches-regex.md
+        - name: Arama sonuçlarına göre işlem yapma
+          href: log-analytics-log-search-takeaction.md
+        - name: Bilgisayar grupları
+          href: log-analytics-computer-groups.md
+    - name: Yeni günlük araması
+      items:
+        - name: Çalışma alanınızı yükseltme
+          href: log-analytics-log-search-upgrade.md
+        - name: SSS
+          href: log-analytics-log-search-faq.md
+        - name: Günlük aramalarına genel bakış
+          href: log-analytics-log-search-new.md
+        - name: Günlük araması portalları
+          href: log-analytics-log-search-portals.md
+          items:
+            - name: Günlük araması portalını kullanma
+              href: log-analytics-log-search-log-search-portal.md
+        - name: Eski dilden geçiş
+          href: log-analytics-log-search-transition.md
+        - name: Akış bağlayıcısı
+          href: log-analytics-flow-tutorial.md
+    - name: Verileri çözümleme
+      items:
+        - name: Panolar
+          href: log-analytics-dashboards.md
+        - name: Görünüm Tasarımcısı
+          href: log-analytics-view-designer.md
+        - name: Power BI
+          href: log-analytics-powerbi.md
+    - name: Uyarı oluşturma
+      items:
+        - name: Uyarıları anlama
+          href: log-analytics-alerts.md
+        - name: Uyarı eylemleri
+          href: log-analytics-alerts-actions.md
+        - name: Uyarı kuralları oluşturma
+          items:
+            - name: OMS portalı
+              href: log-analytics-alerts-creating.md
+            - name: REST API
+              href: log-analytics-api-alerts.md
+            - name: Resource Manager şablonu
+              href: ../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md
+        - name: Web kancası eylem örneği
+          href: log-analytics-alerts-webhooks.md
+        - name: Uyarı Yönetimi çözümü
+          href: log-analytics-solution-alert-management.md
+    - name: Çözümleri kullanma
+      items:
+        - name: Çözümlere genel bakış
+          href: log-analytics-add-solutions.md
+        - name: Hedef çözümler
+          href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Etkinlik Günlüğü Analizi
+          href: log-analytics-activity.md
+        - name: AD Değerlendirmesi
+          href: log-analytics-ad-assessment.md
+        - name: AD Çoğaltma Durumu
+          href: log-analytics-ad-replication-status.md
+        - name: Aracı Durumu
+          href: ../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Uyarı yönetimi
+          href: log-analytics-solution-alert-management.md
+        - name: Application Insights Bağlayıcısı
+          href: log-analytics-app-insights-connector.md
+        - name: Azure SQL Analytics
+          href: log-analytics-azure-sql.md
+        - name: Azure Web Apps Analytics
+          href: log-analytics-azure-web-apps-analytics.md
+        - name: Kapasite ve performans
+          href: log-analytics-capacity.md
+        - name: Değişiklik İzleme
+          href: log-analytics-change-tracking.md
+        - name: Kapsayıcılar
+          href: log-analytics-containers.md
+        - name: DNS Analizi
+          href: log-analytics-dns.md
+        - name: BT Hizmet Yönetimi Bağlayıcısı
+          href: log-analytics-itsmc-overview.md
+          items:
+            - name: BT Hizmet Yönetimi bağlantıları
+              href: log-analytics-itsmc-connections.md
+        - name: Anahtar Kasası
+          href: log-analytics-azure-key-vault.md
+        - name: Logic Apps B2B İletileri
+          items:
+            - name: Logic Apps B2B İletileri çözümü
+              href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Logic Apps B2B özel izleme şeması
+              href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Kötü Amaçlı Yazılım Değerlendirmesi
+          href: log-analytics-malware.md
+        - name: Ağ Analizi
+          href: log-analytics-azure-networking-analytics.md
+        - name: Ağ Performansı İzleyicisi
+          href: log-analytics-network-performance-monitor.md
+        - name: Office 365
+          href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: SCOM Değerlendirmesi
+          href: log-analytics-scom-assessment.md
+        - name: Güvenlik Denetimi
+          href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Azure PowerShell ile Service Fabric
+          href: log-analytics-service-fabric.md
+          items:
+            - name: Azure Resource Manager ile Service Fabric
+              href: log-analytics-service-fabric-azure-resource-manager.md
+        - name: Hizmet Eşlemesi
+          href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: SQL Değerlendirmesi
+          href: log-analytics-sql-assessment.md
+        - name: Surface Hub
+          href: log-analytics-surface-hubs.md
+        - name: Güncelleştirme Yönetimi
+          href: ../operations-management-suite/oms-solution-update-management.md
+        - name: VMware
+          href: log-analytics-vmware.md
+        - name: Windows Analizi
+          items:
+            - name: Güncelleştirme Uyumluluğu
+              href: 'https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started'
+            - name: Yükseltme Hazırlığı
+              href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
+        - name: Kablo Verileri
+          href: log-analytics-wire-data.md
+    - name: Geliştirme
+      items:
+        - name: Veri toplayıcı API'si
+          href: log-analytics-data-collector-api.md
+        - name: PowerShell cmdlet'leri
+          href: log-analytics-powershell-workspace-configuration.md
+        - name: Resource Manager şablonları
+          href: log-analytics-template-workspace-configuration.md
+        - name: Log Arama API’si
+          href: log-analytics-log-search-api.md
+          items:
+            - name: Python
+              href: log-analytics-log-search-api-python.md
+        - name: Uyarı API’si
+          href: log-analytics-api-alerts.md
+- name: Başvuru
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.operationalinsights
+    - name: REST
+      href: /rest/api/loganalytics
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/log-analytics/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=log-analytics'
+    - name: Windows Analizi
+      href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'

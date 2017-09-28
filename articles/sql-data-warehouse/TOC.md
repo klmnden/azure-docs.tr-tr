@@ -8,6 +8,7 @@
 # Kullanmaya Başlama
 
 ## [Başlangıç öğreticisi](sql-data-warehouse-get-started-tutorial.md)
+## [Esnek Sorgu öğreticisi](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [En iyi uygulamalar](sql-data-warehouse-best-practices.md)
 ## [Yönetme](sql-data-warehouse-overview-manage.md)
 
@@ -19,8 +20,8 @@
 
 ### [Backup’a Genel Bakış](sql-data-warehouse-backups.md)
 ### [Geri Yüklemeye Genel Bakış](sql-data-warehouse-restore-database-overview.md)
-#### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure portal](sql-data-warehouse-restore-database-portal.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Bağlan
@@ -34,7 +35,7 @@
 
 ## Oluştur
 ### [Azure portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Geliştirme
@@ -79,6 +80,8 @@
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Power BI görselleştirme](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Akış Analizi](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [SQL Database ve SQL Veri Ambarı ile Esnek Sorgu](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## Yükleme
 

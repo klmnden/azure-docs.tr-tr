@@ -24,6 +24,14 @@
   items:
     - name: Planlama ve tasarım
       items:
+        - name: Azure Dosyaları dağıtımı planlama
+          href: storage-files-planning.md
+        - name: Azure Dosyaları’nı dağıtma
+          href: storage-files-deployment-guide.md
+        - name: Azure Dosya Eşitleme dağıtımı planlama
+          href: storage-sync-files-planning.md
+        - name: Azure Dosya Eşitleme işlemi dağıtma
+          href: storage-sync-files-deployment-guide.md
         - name: Çoğaltma
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Ölçeklenebilirlik ve performans hedefleri
@@ -60,6 +68,10 @@
           href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Azure CLI 1.0
           href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Azure Dosya Eşitleme ile bir sunucuyu kaydetme
+          href: storage-sync-files-server-registration.md
+        - name: Azure Dosya Eşitleme Sunucusu uç noktası ekleme
+          href: storage-sync-files-server-endpoint.md
         - name: Depolama Gezgini’ni Azure Dosya depolama ile kullanma
           href: ../../vs-azure-tools-storage-explorer-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Azure Otomasyonu
@@ -68,6 +80,8 @@
       items:
         - name: Güvenlik kılavuzu
           href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Güvenlik duvarlarını ve sanal ağları yapılandırma
+          href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Bekleyen verilerin şifrelenmesi
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Güvenli aktarım gerektir
@@ -82,12 +96,16 @@
           href: storage-troubleshoot-windows-file-connection-problems.md
         - name: Azure Dosyaları Bağlantı Sorunlarını Giderme - Linux
           href: storage-troubleshoot-linux-file-connection-problems.md
+        - name: Azure Dosya Eşitleme ile ilgili sorunları giderme
+          href: storage-sync-files-troubleshoot.md
         - name: Sorun giderme öğreticisi
           href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 'İzleme, tanılama ve sorun giderme'
           href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Ölçümler ve günlüğe kaydetme
           items:
+            - name: Azure İzleyici’de Azure Depolama ölçümleri
+              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Depolama Analizi
               href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Ölçümleri etkinleştirme ve görüntüleme

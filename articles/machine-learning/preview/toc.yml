@@ -1,0 +1,177 @@
+- name: Azure Machine Learning Belgeleri (Önizleme)
+  href: index.yml
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: Azure Machine Learning nedir?
+      href: overview-what-is-azure-ml.md
+    - name: Model Yönetimi’ne genel bakış
+      href: model-management-overview.md
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Yükleme ve oluşturma
+      href: quickstart-installation.md
+- name: Öğreticiler
+  items:
+    - name: 1 - Verileri hazırlama
+      href: tutorial-classifying-iris-part-1.md
+    - name: 2 - Model oluşturma
+      href: tutorial-classifying-iris-part-2.md
+    - name: 3 - Model dağıtma
+      href: tutorial-classifying-iris-part-3.md
+    - name: 4 - Gelişmiş veri hazırlama
+      href: tutorial-bikeshare-dataprep.md
+- name: Kavramlar
+  items:
+    - name: Önemli kavramlar
+      href: overview-general-concepts.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Machine Learning Workbench’i kullanma
+      items:
+        - name: Python IDE’leri ile çalışma
+          href: how-to-configure-your-IDE.md
+        - name: Jupyter not defterlerini kullanma
+          href: how-to-use-jupyter-notebooks.md
+        - name: Git deposu ile tümleştirme
+          href: using-git-ml-project.md
+        - name: TDSP ile proje yapılandırma
+          href: how-to-use-tdsp-in-azure-ml.md
+        - name: Dolaşım ve işbirliği işlemlerini geçekleştirme
+          href: roaming-and-collaboration.md
+    - name: Visual Studio araçlarını kullanma
+      href: quickstart-visual-studio-tools.md
+    - name: İşlem ortamını yapılandırma
+      items:
+        - name: Yürütme hedeflerini yapılandırma
+          href: experiment-execution-configuration.md
+        - name: GPU’lar ile eğitme
+          href: how-to-use-gpu.md
+    - name: Veri edinme ve bu verileri anlama
+      items:
+        - name: Veri Kaynağı Sihirbazı ile verilere erişme
+          href: data-source-wizard.md
+        - name: Veri hazırlama ile çalışmaya başlama
+          href: data-prep-getting-started.md
+        - name: Veri hazırlama kılavuzu
+          href: data-prep-user-guide.md
+        - name: Veri hazırlama dönüşümleri
+          items:
+            - name: Sütunları örneğe göre birleştirme
+              href: data-prep-combine-columns-by-example.md
+            - name: Sütunu örneğe göre türetme
+              href: data-prep-derive-column-by-example.md
+            - name: Sütunu örneğe göre bölme
+              href: data-prep-split-column-by-example.md
+            - name: JSON’ı genişletme
+              href: data-prep-expand-json.md
+    - name: Model geliştirme
+      items:
+        - name: CLI kullanarak Iris’i sınıflandırma
+          href: tutorial-iris-azure-cli.md
+        - name: Çalıştırma geçmişini ve model ölçümlerini izleme
+          href: how-to-use-run-history-model-metrics.md
+        - name: Dosyaları okuma ve yazma
+          href: how-to-read-write-files.md
+        - name: MMLSpark kitaplığı
+          href: how-to-use-mmlspark.md
+    - name: Modelleri dağıtma
+      items:
+        - name: Model Yönetimi’ni ayarlama
+          href: deployment-setup-configuration.md
+        - name: Bir web hizmetini dağıtma
+          href: model-management-service-deploy.md
+        - name: Bir web hizmetini kullanma
+          href: model-management-consumption.md
+        - name: Model verileri toplamayı kullanma
+          href: how-to-use-model-data-collection.md
+    - name: Gerçek kullanım örnekleri
+      items:
+        - name: Belge koleksiyonu çözümleme
+          href: scenario-document-collection-analysis.md
+        - name: Soru-cevap eşleştirme
+          href: scenario-qna-matching.md
+        - name: Tahmine dayalı bakım
+          href: scenario-predictive-maintenance.md
+        - name: Havadan görüntü sınıflandırma
+          href: scenario-aerial-image-classification.md
+        - name: Birkaç terabayt veri üzerinde sunucu iş yükü tahmini
+          href: scenario-big-data.md
+        - name: Enerji talebi zaman serileri tahmini
+          href: scenario-time-series-forecasting.md
+        - name: Hiperparametreleri dağıtılmış bir şekilde ayarlama
+          href: scenario-distributed-tuning-of-hyperparameters.md
+        - name: Müşteri karmaşası tahmini
+          href: scenario-churn-prediction.md
+        - name: Derin öğrenme ile yaklaşım analizi
+          href: scenario-sentiment-analysis-deep-learning.md
+        - name: Biyomedikal varlık tanıma - TDSP projesi
+          href: scenario-tdsp-biomedical-recognition.md
+        - name: ABD içi gelirleri sınıflandırma - TDSP projesi
+          href: scenario-tdsp-classifying-us-incomes.md
+- name: Başvuru
+  items:
+    - name: Veri hazırlama
+      items:
+        - name: Veri hazırlama için Python uzantıları
+          href: data-prep-python-extensibility-overview.md
+        - name: Desteklenen veri kaynakları
+          href: data-prep-appendix2-supported-data-sources.md
+        - name: Desteklenen dönüşümler
+          href: data-prep-appendix3-supported-transforms.md
+        - name: Desteklenen denetçiler
+          href: data-prep-appendix4-supported-inspectors.md
+        - name: Desteklenen veri hedefleri
+          href: data-prep-appendix5-supported-destinations.md
+        - name: Desteklenen yürütme ve veri ortamı birleşimleri
+          href: data-prep-supported-runtime-data-environments.md
+        - name: Python’da filtre ifadeleri örneği
+          href: data-prep-appendix6-sample-filter-expressions-python.md
+        - name: Python’da özel DataFlow dönüşümleri örneği
+          href: data-prep-appendix7-sample-transform-data-flow-python.md
+        - name: Python’da kaynak bağlantıları örneği
+          href: data-prep-appendix8-sample-source-connections-python.md
+        - name: Python’da hedef bağlantıları örneği
+          href: data-prep-appendix9-sample-destination-connections-python.md
+        - name: Python’da sütun dönüşümleri örneği
+          href: data-prep-appendix10-sample-custom-column-transforms-python.md
+        - name: Veri hazırlama işlemini yürütme API’si
+          href: data-prep-python-execution-api.md
+    - name: Deneme
+      items:
+        - name: Yürütme yapılandırma
+          href: experiment-execution-configuration-reference.md
+    - name: Model Yönetimi
+      items:
+        - name: Model Yönetimi API’si
+          href: model-management-api-reference.md
+        - name: Model Yönetimi CLI
+          href: model-management-cli-reference.md
+        - name: Model veri toplama API’si
+          href: model-data-collection-api-reference.md
+- name: Kaynaklar
+  items:
+    - name: SSS
+      href: frequently-asked-questions.md
+    - name: Bilinen sorunlar ve sorun giderme kılavuzu
+      href: known-issues-and-troubleshooting-guide.md
+    - name: Team Data Science Process belgeleri
+      href: ../team-data-science-process/overview.md
+    - name: Veri Bilimi VM belgeleri
+      href: ../data-science-virtual-machine/overview.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
+    - name: Geri Bildirim forumu
+      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+    - name: Bölge kullanılabilirliği
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Destek seçenekleri
+      href: 'https://azure.microsoft.com/support/options/'

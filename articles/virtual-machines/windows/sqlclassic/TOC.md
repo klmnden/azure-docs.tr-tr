@@ -30,12 +30,12 @@
 ## İş Zekası
 ### [Azure Sanal Makineler’de SQL Server İş Zekası](virtual-machines-windows-classic-ps-sql-bi.md)
 ### [Azure'da barındırılan bir web sitesinde ReportViewer kullanma](virtual-machines-windows-classic-sql-server-reportviewer.md)
-### [Rapor Sunucusu ile Azure VM oluşturmak için PowerShell kullanma](virtual-machines-windows-classic-ps-sql-report.md)
+### [Rapor Sunucusu ile Azure VM oluşturmak için Azure PowerShell kullanma](virtual-machines-windows-classic-ps-sql-report.md)
 ## [Performans için en iyi uygulamalar](../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [Uygulama desenleri](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # Başvuru
-## [PowerShell klasik](/powershell/azure/overview?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server Sürücüleri](https://docs.microsoft.com/sql/connect/sql-server-drivers)

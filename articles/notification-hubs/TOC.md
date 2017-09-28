@@ -53,7 +53,7 @@
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## Otomatikleştirme
-### [PowerShell kullanarak Notification Hubs’ı Dağıtma ve Yönetme](notification-hubs-deploy-and-manage-powershell.md)
+### [Azure PowerShell’i kullanarak Bildirim Hub’larını Dağıtma ve Yönetme](notification-hubs-deploy-and-manage-powershell.md)
 ### [Planlanmış bildirimler gönderme](notification-hubs-send-push-notifications-scheduled.md)
 
 ## Sorun giderme
@@ -61,7 +61,7 @@
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
-## [PowerShell](/powershell/module/azurerm.notificationhubs)
+## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 

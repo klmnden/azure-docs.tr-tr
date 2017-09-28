@@ -16,8 +16,8 @@
 #### [Otomatik - şablon ile](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [El ile - önkoşullar](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [El ile - öğretici](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Yük dengeleyici - portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Yük dengeleyici - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Yük dengeleyici - Azure portalı](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Yük dengeleyici - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Birden çok bölge](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Yük Devretme Kümesi Örneği
 #### [Yapılandırma](virtual-machines-windows-portal-sql-create-failover-cluster.md)
@@ -36,7 +36,7 @@
 ## [Uygulama desenleri](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Başvuru
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [SQL Server Sürücüleri](https://msdn.microsoft.com/library/mt654049.aspx)

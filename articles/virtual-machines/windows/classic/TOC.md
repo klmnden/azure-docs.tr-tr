@@ -6,8 +6,8 @@
 ## [VM'leri, web sitelerini ve bulut hizmetlerini karşılaştırma](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [Kapsayıcılar](../../virtual-machines-windows-containers.md)
 
-# Başlarken
-## [Portalı kullanarak VM oluşturma](tutorial.md)
+# başlarken
+## [Azure portalını kullanarak VM oluşturma](tutorial.md)
 ## [VM’de oturum açma](connect-logon.md)
 ## [Azure PowerShell’i yükleme](/powershell/azure/overview)
 ## [Azure CLI'yı yükleme](../../../cli-install-nodejs.md)
@@ -85,7 +85,7 @@
 ### [VM sorunlarını gidermek için sanal sabit disk takma](troubleshoot-recovery-disks-portal.md)
 
 # Başvuru
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

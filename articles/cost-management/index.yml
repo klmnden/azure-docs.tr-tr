@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Maliyet Yönetimi Belgeleri
+metadata:
+  title: 'Maliyet Yönetimi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+  description: 'Cloudyn’in sunduğu Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını kullanmanıza yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin.'
+  services: cost-management
+  author: czeumault
+  manager: carolz
+  ms.service: cost-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/18/2017
+  ms.author: carolz
+abstract:
+  description: 'Cloudyn’in sunduğu Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını en iyi şekilde kullanıp yönetmenize yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin.'
+sections:
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: Maliyet Yönetimi ile Azure sözleşmenizi veya aboneliğinizi kaydetme ve maliyet verilerini görüntüleme hakkında bilgi edinin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Maliyet Verilerini Görüntüleme
+            href: quick-register-azure-sub
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: 'Maliyet Yönetimi ile kullanım ve maliyeti gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-review-usage">Anomalileri ve verimlilikleri belirlemek için kullanım ve maliyetleri gözden geçirme</a>
+          - html: <a href="tutorial-user-access">Maliyet Yönetimi verilerine erişim atama</a>
