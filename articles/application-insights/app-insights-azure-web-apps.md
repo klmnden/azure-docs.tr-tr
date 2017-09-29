@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 110a4d26e90f46e823a3e1c9ebece3360fbdf0c9
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Azure web uygulaması performansını izleme
-[Azure Portal](https://portal.azure.com)’da [Azure web uygulamalarınız](../app-service-web/app-service-web-overview.md) için uygulama performansını izleme özelliğini ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
+[Azure Portal](https://portal.azure.com)’da [Azure web uygulamalarınız](../app-service/app-service-web-overview.md) için uygulama performansını izleme özelliğini ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
 
 ## <a name="run-time-or-build-time"></a>Çalışma zamanı veya derleme zamanı
 Uygulamanız için şu iki yoldan biriyle izleme yapılandırabilirsiniz:

@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bb5897a392e500de685421769c414441ddfeb6a3
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
@@ -36,7 +36,7 @@ Uygulama bir reklam bülteni panosudur. Kullanıcılar metin girerek ve görünt
 Uygulama bir arka uç işleminde küçük resim oluşturmaya yönelik CPU yoğunluklu iş yükünü azaltmak üzere [kuyruk merkezli çalışma deseni](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır.
 
 ## <a name="alternative-architecture-websites-and-webjobs"></a>Alternatif mimari: Websites ve WebJobs
-Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl çalıştırılacağı gösterilmektedir. Alternatif yöntem bir [Azure web sitesinde](/services/web-sites/) ön uç çalıştırılması ve arka uç için [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) özelliğinin (şu anda önizlemede) kullanılmasıdır. WebJobs kullanan bir öğretici için bkz. [Azure WebJobs SDK ile Çalışmaya Başlama](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Senaryonuza en uygun hizmetlerin nasıl seçileceği hakkında bilgi için bkz. [Azure Web Siteleri, Cloud Services ve sanal makineler karşılaştırması](../app-service-web/choose-web-site-cloud-service-vm.md).
+Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl çalıştırılacağı gösterilmektedir. Alternatif yöntem bir [Azure web sitesinde](/services/web-sites/) ön uç çalıştırılması ve arka uç için [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) özelliğinin (şu anda önizlemede) kullanılmasıdır. WebJobs kullanan bir öğretici için bkz. [Azure WebJobs SDK ile Çalışmaya Başlama](https://github.com/Azure/azure-webjobs-sdk/wiki). Senaryonuza en uygun hizmetlerin nasıl seçileceği hakkında bilgi için bkz. [Azure Web Siteleri, Cloud Services ve sanal makineler karşılaştırması](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Öğrenecekleriniz
 * Azure SDK’sını yükleyerek Azure dağıtımı için makinenizi etkinleştirme.

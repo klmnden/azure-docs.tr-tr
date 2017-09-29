@@ -64,7 +64,7 @@
 ## [Sanal Makine](/azure/virtual-machines/)
 ## [Yük Dengeleyici](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [Web Apps](/azure/app-service-web/)
+## [Web Apps](/azure/app-service/)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=networking)

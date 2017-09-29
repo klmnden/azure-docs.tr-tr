@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: e54861dbc851bc3d5629e84ddb61f26a06782ad4
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b1e08e79c7fe2acbdb9c17607641612ffa2934ee
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Bir Node.js uygulaması derleme ve Azure Cloud Service’e dağıtma
@@ -164,8 +164,8 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
 
 <!-- URL List -->
 
-[Azure Websites, Cloud Services ve Virtual Machines karşılaştırması]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[basit bir web uygulaması kullanmayı]: ../app-service-web/app-service-web-get-started-nodejs.md
+[Azure Websites, Cloud Services ve Virtual Machines karşılaştırması]: ../app-service/choose-web-site-cloud-service-vm.md
+[basit bir web uygulaması kullanmayı]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [.NET 2.7 için Azure SDK’sını]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [PowerShell’i bağlayın]: /powershell/azureps-cmdlets-docs#step-3-connect

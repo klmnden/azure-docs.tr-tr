@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 09/20/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 18ae6a970455646b7a25170f5abefa52a98b0ba2
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
 ms.contentlocale: tr-tr
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Uyarlamalı Uygulama Denetimleri (Önizleme)
@@ -33,6 +33,9 @@ Uyarlamalı uygulama denetimleri, Azure'da yer alan VM'lerinizde çalışabilece
 - Eski ve desteklenmeyen uygulamaların çalışmasını önleme.
 - Kuruluşunuzda kullanılmasına izin verilmeyen belirli yazılım araçlarını engelleme.
 - BT ekibinin uygulama üzerinden gizli verilere erişimi denetlemesini mümkün kılma.
+
+> [!NOTE]
+> Uyarlamalı uygulama denetimleri Azure Güvenlik Merkezi Standart müşterilerine sınırlı genel önizleme olarak sunulmuştur. Önizlemeye katılmak için lütfen abonelik kimliklerinizi [bize](mailto:ASC_appcontrol@microsoft.com) e-posta ile gönderin.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Uyarlamalı uygulama denetimleri nasıl etkinleştirilir?
 Uyarlamalı uygulama denetimleri, yapılandırılmış kaynak gruplarında çalıştırılmasına izin verilen bir uygulama kümesi tanımlamanıza yardımcı olur. Bu özellik yalnızca Windows makinelerde kullanılabilir (tüm sürümler, klasik veya Azure Resource Manager). Güvenlik Merkezi'nde uygulama beyaz listesini yapılandırmak için aşağıdaki adımları izleyin:
@@ -144,10 +147,6 @@ Güvenlik Merkezi uygulama beyaz listeye ekleme özelliğini yalnızca kararlı 
 Liste aşağıdakileri içerir:
 - **AD**: Aboneliğin ve kaynak grubunun adı.
 - **VM'ler**: Kaynak grubu içindeki sanal makine sayısı.
-
-## <a name="preview-registration"></a>Önizleme kaydı
-
-Uyarlamalı uygulama denetimleri Azure Güvenlik Merkezi Standart müşterilerine sınırlı genel önizleme olarak sunulmuştur. Önizlemeye katılmak için lütfen abonelik kimliklerinizi [bize](mailto:ASC_appcontrol@microsoft.com) e-posta ile gönderin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Bu belgede, Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimlerini kullanarak Azure VM'lerinde çalışan uygulamaları beyaz listeye eklemeyi öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:

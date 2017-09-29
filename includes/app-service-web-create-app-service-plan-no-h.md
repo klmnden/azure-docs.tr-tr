@@ -1,4 +1,4 @@
-[az appservice plan create](/cli/azure/appservice/plan#create) komutu ile bir App Service planı oluşturun.
+Cloud Shell içinde [az appservice plan create](/cli/azure/appservice/plan#create) komutu ile bir App Service planı oluşturun.
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 

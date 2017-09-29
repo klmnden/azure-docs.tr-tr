@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f23f71cc01eccf17d36885f786de9a7517606803
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
 ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Redis Cache ile Web Uygulaması oluşturma
@@ -71,7 +70,7 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
 
     **Kimlik Doğrulama** ayarları için **Kimlik Doğrulaması Yok** seçeneğinin belirtildiğinden emin olun. Visual Studio sürümünüze bağlı olarak, varsayılan değer başka bir şeye ayarlanmış olabilir. Değiştirmek için **Kimlik Doğrulamasını Değiştir**’e tıklayıp **Kimlik Doğrulaması Yok**’u seçin.
 
-    Visual Studio 2015 ile takip ediyorsanız, **Bulutta barındır** onay kutusunun işaretini kaldırın. Öğreticinin sonraki adımlarında [Azure kaynaklarını hazırlayacak](#provision-the-azure-resources) ve [uygulamayı Azure’a yayımlayacaksınız](#publish-the-application-to-azure). **Buluttaki konak** öğesini işaretli bırakarak Visual Studio’dan bir App Service web uygulaması hazırlama örneği için, bkz. [ASP.NET ve Visual Studio kullanarak Azure App Service’deki Web Uygulamalarını kullanmaya başlama](../app-service-web/app-service-web-get-started-dotnet.md).
+    Visual Studio 2015 ile takip ediyorsanız, **Bulutta barındır** onay kutusunun işaretini kaldırın. Öğreticinin sonraki adımlarında [Azure kaynaklarını hazırlayacak](#provision-the-azure-resources) ve [uygulamayı Azure’a yayımlayacaksınız](#publish-the-application-to-azure). **Buluttaki konak** öğesini işaretli bırakarak Visual Studio’dan bir App Service web uygulaması hazırlama örneği için, bkz. [ASP.NET ve Visual Studio kullanarak Azure App Service’deki Web Uygulamalarını kullanmaya başlama](../app-service/app-service-web-get-started-dotnet.md).
    
     ![Proje şablonu seçme][cache-select-template]
 4. Projeyi oluşturmak için **Tamam**'a tıklayın.
@@ -827,7 +826,7 @@ Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalınd
 * App Service’te ASP.NET Web Uygulaması oluşturmaya yönelik daha fazla örnek için [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [tanıtımı](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) içindeki [Azure Uygulama Hizmeti’nde ASP.NET web uygulaması oluşturma ve dağıtma](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) bölümüne bakın.
   * HealthClinic.biz tanıtımından daha fazla hızlı başlangıç ipuçları için bkz. [Azure Geliştirici Araçları Hızlı Başlangıç İpuçları](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Bu öğreticide kullanılan Entity Framework için [Yeni bir veritabanına ilk kod](https://msdn.microsoft.com/data/jj193542) yaklaşımı hakkında daha fazla bilgi edinin.
-* [Azure App Service’deki web uygulamaları](../app-service-web/app-service-web-overview.md) hakkında daha fazla bilgi edinin.
+* [Azure App Service’deki web uygulamaları](../app-service/app-service-web-overview.md) hakkında daha fazla bilgi edinin.
 * Azure portalındaki önbelleğinizi nasıl [izleyeceğinizi](cache-how-to-monitor.md) öğrenin.
 * Azure Redis Cache premium özelliklerini keşfedin
   
