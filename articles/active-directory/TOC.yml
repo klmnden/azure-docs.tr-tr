@@ -1,3 +1,5 @@
+- name: Erişimi yönetmeye genel bakış
+  href: manage-access-to-azure-resources.md
 - name: Azure’da kaynak erişimi
   href: active-directory-understanding-resource-access.md
 - name: Rol Tabanlı Erişim Denetimi (RBAC)

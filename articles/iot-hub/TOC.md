@@ -83,7 +83,7 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Cihazlardan karşıya dosya yükleme]
+### Cihazlardan karşıya dosya yükleme
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 ### Cihaz ikizlerini kullanmaya başlama

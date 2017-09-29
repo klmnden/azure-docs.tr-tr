@@ -42,7 +42,6 @@
 #### [Bir gruptaki lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
-#### [Kullanıcılar ve uygulamalar için kullanım koşullarını sağlayın](active-directory-tou.md)
 #### [Grup tabanlı lisanslama için Azure PowerShell örnekleri](active-directory-licensing-ps-examples.md)
 ### [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
 ### [Parola sıfırlama](active-directory-users-reset-password-azure-portal.md)
@@ -153,7 +152,7 @@
 #### [Adımları ayarlama](cloudappdiscovery-get-started.md)
 #### [Anlık görüntü raporları oluşturma](cloudappdiscovery-set-up-snapshots.md)
 #### [Sürekli raporlamayı yapılandırma](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Özel günlük ayrıştırıcı kullanma](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
+#### [Özel günlük ayrıştırıcı kullanma](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 #### [Kayıt defteri ayarlarını güncelleştirme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Güvenlik ve gizliliği anlama](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
@@ -300,6 +299,7 @@
 #### Görevler
 ##### [Cihaz tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Uygulama tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-mam.md)
+##### [Kullanıcılar ve uygulamalar için kullanım koşullarını sağlayın](active-directory-tou.md)
 ##### [VPN bağlantısı ayarlama](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [SharePoint ve Exchange Online ayarlama](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Düzeltme](active-directory-conditional-access-device-remediation.md)

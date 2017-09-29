@@ -9,8 +9,10 @@
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)
 ## [WCF Geçişi](relay-wcf-dotnet-get-started.md)
+## [WCF Geçişi öğreticisi](service-bus-relay-tutorial.md)
+## [WCF Geçişi REST öğreticisi](service-bus-relay-rest-tutorial.md)
 
-# Nasıl yapılır
+# Nasıl yapılır?
 ## Planlama ve tasarım
 ### [Kimlik doğrulama ve güvenlik](relay-authentication-and-authorization.md)
 #### [ACS’den SAS’ye geçiş](relay-migrate-acs-sas.md)

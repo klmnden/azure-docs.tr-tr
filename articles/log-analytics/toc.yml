@@ -23,7 +23,7 @@
       href: powershell-samples.md
 - name: Kavramlar
   items:
-    - name: SSS
+    - name: Log Analytics SSS
       href: log-analytics-faq.md
     - name: Veri Tüketimi
       href: log-analytics-usage.md
@@ -31,6 +31,14 @@
       href: log-analytics-manage-access.md
     - name: Hizmet sağlayıcılarına yönelik özellikler
       href: log-analytics-service-providers.md
+    - name: Günlük araması
+      items:
+        - name: Günlük Arama Hakkında SSS
+          href: log-analytics-log-search-faq.md
+        - name: Günlük aramalarına genel bakış
+          href: log-analytics-log-search-new.md
+        - name: Günlük araması portalları
+          href: log-analytics-log-search-portals.md
 - name: Nasıl yapılır?
   items:
     - name: Veri toplama
@@ -92,15 +100,6 @@
       items:
         - name: Çalışma alanınızı yükseltme
           href: log-analytics-log-search-upgrade.md
-        - name: SSS
-          href: log-analytics-log-search-faq.md
-        - name: Günlük aramalarına genel bakış
-          href: log-analytics-log-search-new.md
-        - name: Günlük araması portalları
-          href: log-analytics-log-search-portals.md
-          items:
-            - name: Günlük araması portalını kullanma
-              href: log-analytics-log-search-log-search-portal.md
         - name: Eski dilden geçiş
           href: log-analytics-log-search-transition.md
         - name: Akış bağlayıcısı

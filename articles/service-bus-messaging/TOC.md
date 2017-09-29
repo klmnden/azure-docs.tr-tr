@@ -43,6 +43,7 @@
 ### [Teslim edilemeyen iletiler sırası](service-bus-dead-letter-queues.md)
 ### [İşlem gerçekleştirme](service-bus-transactions.md)
 ### [Tanılama günlükleri](service-bus-diagnostic-logs.md)
+### [Eşleştirilmiş ad alanı uygulama](service-bus-paired-namespaces.md)
 ### AMQP
 #### [AMQP’ye genel bakış](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)

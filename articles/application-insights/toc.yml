@@ -226,6 +226,13 @@
       items:
         - name: Sürekli dışarı aktarma
           href: app-insights-export-telemetry.md
+          items:
+            - name: Kod Örnekleri
+              items:
+                - name: Stream Analytics kullanarak SQL’ye aktarma
+                  href: app-insights-code-sample-export-sql-stream-analytics.md
+                - name: Stream Analytics'e giriş
+                  href: app-insights-export-stream-analytics.md
         - name: Veri modelini dışarı aktarma
           href: app-insights-export-data-model.md
         - name: Power BI’a aktarma

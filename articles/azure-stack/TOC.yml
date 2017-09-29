@@ -19,6 +19,8 @@
       href: azure-stack-tutorial-app-service.md
 - name: Kavramlar
   items:
+    - name: Planlama konusunda dikkat edilmesi gerekenler
+      href: azure-stack-planning-considerations.md
     - name: Hizmet ilkesi
       href: azure-stack-servicing-policy.md
     - name: Sürüm notları

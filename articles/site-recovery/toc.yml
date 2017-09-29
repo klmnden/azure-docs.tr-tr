@@ -82,6 +82,8 @@
   items:
     - name: Olağanüstü durum kurtarma
       items:
+        - name: Çok kiracı desteği bulunan VMware VM'leri için Azure’a
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Hyper-V sanal makineleri için Azure'a
           href: tutorial-hyper-v-to-azure.md
         - name: Fiziksel sunucular için Azure'a

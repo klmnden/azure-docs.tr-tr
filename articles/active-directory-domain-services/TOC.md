@@ -24,8 +24,7 @@
 ### Yönetilen bir etki alanı için güvenli LDAP yapılandırma
 #### [1. Görev: Güvenli LDAP için sertifika alma](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [2. Görev: Güvenli LDAP sertifikasını dışarı aktarma](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [3. Görev: Klasik Azure portalını kullanarak yönetilen etki alanı için güvenli LDAP’yi etkinleştirme](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [3. Görev: Azure portalını (önizleme) kullanarak yönetilen etki alanı için güvenli LDAP’yi etkinleştirme](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [3. Görev: Azure portalını kullanarak yönetilen etki alanı için güvenli LDAP’yi etkinleştirme](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Yönetilen bir etki alanında OU oluşturma](active-directory-ds-admin-guide-create-ou.md)
 ### [Yönetilen etki alanında grup ilkesi yönetme](active-directory-ds-admin-guide-administer-group-policy.md)

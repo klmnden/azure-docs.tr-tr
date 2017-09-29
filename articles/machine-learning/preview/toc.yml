@@ -141,6 +141,8 @@
       items:
         - name: Yürütme yapılandırma
           href: experiment-execution-configuration-reference.md
+        - name: Günlüğe kaydetme API’si
+          href: reference-logging-api.md
     - name: Model Yönetimi
       items:
         - name: Model Yönetimi API’si

@@ -43,6 +43,7 @@
 ### [İş ortakları](logic-apps-enterprise-integration-partners.md)
 ### [Sözleşmeler](logic-apps-enterprise-integration-agreements.md)
 ### [B2B işleme](logic-apps-enterprise-integration-b2b.md)
+### [EDI iletilerini toplu iş olarak gönderme](logic-apps-scenario-edi-send-batch-messages.md)
 ### [XML işleme](logic-apps-enterprise-integration-xml.md)
 ### [Düz dosya işleme](logic-apps-enterprise-integration-flatfile.md)
 ### [XML doğrulama](logic-apps-enterprise-integration-xml-validation.md)
@@ -88,7 +89,7 @@
 ### [Sunucusuz bir sosyal pano oluşturma](logic-apps-scenario-social-serverless.md)
 ### [Azure İşlevleri ile mantıksal uygulamaları çağırma](logic-apps-scenario-function-sb-trigger.md)
 ### [Hata ve özel durum işleme ekleme](logic-apps-scenario-error-and-exception-handling.md)
-### [B2B işleme](logic-apps-enterprise-integration-b2b.md)
+### [B2B işleme](logic-apps-enterprise-integration-b2b.md) 
 
 ## Fiyatlandırma ve faturalandırma
 ### [Fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/)
