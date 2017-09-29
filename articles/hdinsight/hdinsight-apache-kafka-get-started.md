@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 1e51f546d6c256e1d8f1a1be50c6a2102fe26529
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>HDInsight üzerinde Apache Kafka'yı (önizleme) kullanmaya başlama
@@ -47,6 +47,9 @@ HDInsight kümesinde Kafka oluşturmak için aşağıdaki adımları kullanın:
     * **Güvenli Kabuk (SSH) kullanıcı adı**: SSH üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Varsayılan olarak parola, küme oturum açma parolası ile aynıdır.
     * **Kaynak Grubu**: Kümenin oluşturulduğu kaynak grubu.
     * **Konum**: Kümenin oluşturulacağı Azure bölgesi.
+
+        > [!IMPORTANT]
+        > Verilerin yüksek kullanılabilirliği için, __üç hata etki alanı__ içeren bir konum (bölge) seçmenizi öneririz. Daha fazla bilgi için [Verilerin yüksek kullanılabilirliği](#data-high-availability) bölümüne bakın.
    
  ![Abonelik seçme](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
@@ -73,12 +76,12 @@ HDInsight kümesinde Kafka oluşturmak için aşağıdaki adımları kullanın:
 7. Devam etmek için __Küme boyutu__’ndan __İleri__'yi seçin.
 
     > [!WARNING]
-    > HDInsight üzerinde Kafka'yı kullanabilmeniz için kümenizin en az üç çalışan düğümü içermesi gerekir.
+    > HDInsight üzerinde Kafka'yı kullanabilmeniz için kümenizin en az üç çalışan düğümü içermesi gerekir. Daha fazla bilgi için [Verilerin yüksek kullanılabilirliği](#data-high-availability) bölümüne bakın.
 
     ![Kafka kümesi boyutunu ayarlama](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!NOTE]
-    > **Çalışan düğümü başına disk sayısı** girdisi, HDInsight üzerinde Kafka'nın ölçeklenebilirliğini denetler. Daha fazla bilgi için bkz. [HDInsight üzerinde Kafka'nın depolama alanını ve ölçeklenebilirliğini yapılandırma](hdinsight-apache-kafka-scalability.md).
+    > [!IMPORTANT]
+    > **Çalışan düğümü başına disk sayısı** girdisi, HDInsight üzerinde Kafka'nın ölçeklenebilirliğini denetler. HDInsight üzerinde Kafka, kümedeki sanal makinelerin yerel diskini kullanır. Kafka G/Ç açısından yoğun olduğundan, yüksek aktarım hızı ve düğüm başına daha fazla depolama alanı sağlamak için [Azure Yönetilen Diskler](../virtual-machines/windows/managed-disks-overview.md) kullanılır. Yönetilen diskin türü __Standart__ (HDD) veya __Premium__ (SSD) olabilir. Premium diskler, DS ve GS serisi VM'lerle kullanılır. Diğer tüm VM türleri standart disk kullanır.
 
 8. Devam etmek için __Gelişmiş ayarlar__’dan __İleri__'yi seçin.
 
@@ -340,6 +343,27 @@ Akış API’si Kafka’ya sürüm 0.10.0’da eklenmiştir; önceki sürümler,
 
 7. Tüketiciden çıkmak için __Ctrl + C__ tuşlarını kullanın, ardından `fg` komutunu kullanarak akış arka plan görevini ön plana geri getirin. Çıkış yapmak için de __Ctrl + C__ tuşlarını kullanın.
 
+## <a name="data-high-availability"></a>Verilerin yüksek kullanılabilirliği
+
+Her Azure bölgesi (konum) _hata etki alanları_ sağlar. Hata etki alanı, bir Azure veri merkezinde temel donanımlardan oluşan mantıksal bir gruplandırmadır. Her hata etki alanı ortak bir güç kaynağı ve ağ anahtarına sahiptir. Bir HDInsight kümesi içindeki düğümleri uygulayan sanal makineler ve yönetilen diskler, bu hata etki alanlarına dağıtılır. Bu mimari, fiziksel donanım hatalarının olası etkisini sınırlar.
+
+Bir bölgedeki hata etki alanlarının sayısı hakkında bilgi almak için [Linux sanal makinelerinin kullanılabilirliği](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) belgesine bakın.
+
+> [!IMPORTANT]
+> Üç hata etki alanı içeren ve çoğaltma faktörü 3 olan bir Azure bölgesi kullanmanız önerilir.
+
+Yalnızca iki hata etki alanı içeren bir bölge kullanmanız gerekiyorsa, çoğaltmaları iki hata etki alanına eşit oranda yaymak için çoğaltma faktörü olarak 4 kullanın.
+
+### <a name="kafka-and-fault-domains"></a>Kafka ve hata etki alanları
+
+Kafka, hata etki alanları ile uyumlu değildir. Konular için bölüm çoğaltmaları oluşturulurken, çoğaltmalar yüksek kullanılabilirlik için düzgün şekilde dağıtılmayabilir. Yüksek kullanılabilirlik sağlamak için [Kafka bölüm yeniden dengeleme aracını](https://github.com/hdinsight/hdinsight-kafka-tools) kullanın. Bu araç bir SSH oturumundan Kafka kümenizin baş düğümüne doğru çalıştırılmalıdır.
+
+Kafka verilerinizin en yüksek kullanılabilirliğe sahip olmasını istiyorsanız, konu başlığınız için bölüm çoğaltmalarını aşağıdaki durumlarda yeniden dengelemeniz gerekir:
+
+* Yeni bir konu veya bölüm oluşturulduğunda
+
+* Bir kümenin ölçeğini artırdığınızda
+
 ## <a name="delete-the-cluster"></a>Küme silme
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -352,11 +376,10 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 
 Bu belgede, HDInsight üzerinde Apache Kafka ile çalışmanın temel bilgilerini öğrendiniz. Kafka ile çalışma hakkında daha fazla bilgi için aşağıdakileri kullanın:
 
-* [HDInsight üzerinde Kafka ile verilerinizin yüksek kullanılabilirliğini sağlama](hdinsight-apache-kafka-high-availability.md)
-* [HDInsight üzerinde Kafka ile yönetilen diskleri yapılandırarak ölçeklenebilirliği artırma](hdinsight-apache-kafka-scalability.md)
-* kafka.apache.org adresindeki [Apache Kafka belgeleri](http://kafka.apache.org/documentation.html).
-* [MirrorMaker kullanarak HDInsight üzerinde Kafka kopyası oluşturma](hdinsight-apache-kafka-mirroring.md)
+* [Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)
+* [Kafka kümeleri arasında verileri çoğaltma](hdinsight-apache-kafka-mirroring.md)
+* [Apache Spark akışını (DStream) HDInsight üzerinde Kafka ile kullanma](hdinsight-apache-spark-with-kafka.md)
+* [Apache Spark Yapılandırılmış Akışını HDInsight üzerinde Kafka ile kullanma](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [Apache Storm’u HDInsight üzerinde Kafka ile kullanma](hdinsight-apache-storm-with-kafka.md)
-* [Apache Spark’ı HDInsight üzerinde Kafka ile kullanma](hdinsight-apache-spark-with-kafka.md)
 * [Azure Sanal Ağ üzerinden Kafka’ya bağlanma](hdinsight-apache-kafka-connect-vpn-gateway.md)
 

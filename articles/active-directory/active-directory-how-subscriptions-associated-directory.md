@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 283c9903501a1e497e4dde81146d21edb869e9e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Azure aboneliklerinin Azure Active Directory ile ilişkisi
@@ -48,13 +48,14 @@ Bu Microsoft bulut hizmetlerinden herhangi birine kaydolduğunuzda, Azure AD hiz
 ## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Azure AD dizininize mevcut bir abonelik eklemek için
 Hem aboneliğin ilişkili olduğu geçerli dizinde hem de eklemek istediğiniz dizinde olan bir hesapla oturum açmanız gerekir. 
 
-1. Sahipliğini devretmek istediğiniz aboneliğin Hesap Yöneticisi olan bir hesapla [Azure Hesap Merkezi](https://account.windowsazure.com/Home/Index)’nde oturum açın.
+1. Sahipliğini devretmek istediğiniz aboneliğin Hesap Yöneticisi olan bir hesapla [Azure Hesap Merkezi](https://account.azure.com/Subscriptions)’nde oturum açın.
 2. Aboneliğin sahibi olmasını istediğiniz kullanıcının hedeflenen dizininde olduğundan emin olun.
 3. **Aboneliği devret**'e tıklayın.
 4. Alıcıyı belirtin. Alıcı otomatik olarak, kabul bağlantısı içeren bir e-posta alır.
 5. Alıcı bağlantıya tıklar ve yönergeleri izler; bu arada ödeme bilgilerini de girer. Alıcı başarılı olduğunda, abonelik devredilir. 
 6. Aboneliğin varsayılan dizini ilgili kullanıcının bulunduğu dizin olarak değiştirilir.
 
+Daha fazla bilgi için bkz. [Azure aboneliği sahipliğini başka bir hesaba aktarma](../billing/billing-subscription-transfer.md)
 
 ## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>Bir aboneliği ve dizini yönetmek için öneriler
 Bir Azure aboneliğine yönelik yönetim rolleri, Azure aboneliği ile bağlantılı kaynakları yönetir. Bu bölümde Azure aboneliği yöneticilerinin ve Azure AD dizini yöneticilerinin arasındaki farklar açıklanmaktadır. Yönetici rolleri ve bunları aboneliğinizi yönetmek için kullanma konusunda diğer öneriler [Azure Active Directory’de yönetici rolü atama](active-directory-assign-admin-roles.md) konusunda ele alınmıştır.

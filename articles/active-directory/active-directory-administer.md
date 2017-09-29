@@ -16,10 +16,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="manage-your-azure-ad-directory"></a>Azure AD dizininizi yönetme
@@ -59,12 +59,14 @@ Henüz bir Microsoft bulut hizmeti aboneliğiniz yoksa kaydolmak için aşağıd
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>Aboneliğin varsayılan dizinini değiştirme
 
-1. Aboneliğin sahipliğini devretmek için, aboneliğin Hesap Yöneticisi olan bir hesapla [Azure Hesap Merkezi](https://account.windowsazure.com/Home/Index)’nde oturum açın.
+1. Aboneliğin sahipliğini devretmek için, aboneliğin Hesap Yöneticisi olan bir hesapla [Azure Hesap Merkezi](https://account.azure.com/Subscriptions)’nde oturum açın.
 2. Aboneliğin sahibi olmasını istediğiniz kullanıcının hedeflenen dizininde olduğundan emin olun.
 3. **Aboneliği devret**'e tıklayın.
 4. Alıcıyı belirtin. Alıcı otomatik olarak, kabul bağlantısı içeren bir e-posta alır.
 5. Alıcı bağlantıya tıklar ve yönergeleri izler; bu arada ödeme bilgilerini de girer. Alıcı başarılı olduğunda, abonelik devredilir. 
 6. Abonelik sahipliğini aktarma işlemi başarılı olursa, aboneliğin varsayılan dizini ilgili kullanıcının bulunduğu dizin olarak değiştirilir.
+
+Daha fazla bilgi için bkz. [Azure aboneliği sahipliğini başka bir hesaba aktarma](../billing/billing-subscription-transfer.md)
 
 ### <a name="manage-the-default-directory-in-azure"></a>Azure’da varsayılan dizininizi yönetme
 Azure için kaydolduğunuzda, aboneliğiniz ile bir varsayılan Azure AD dizini ilişkilendirilir. Azure AD kullanmanın maliyeti yoktur ve dizinleriniz ücretsiz kaynaklardır. Ayrı olarak lisanslanan ve şirkete özel oturum açma, self servis parola sıfırlama gibi ek işlevler sunan ücretli Azure AD hizmetleri vardır. Varsayılan *.onmicrosoft.com etki alanı yerine sahip olduğunuz bir DNS adını kullanarak özel bir etki alanı da oluşturabilirsiniz.
