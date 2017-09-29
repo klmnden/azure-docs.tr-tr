@@ -29,6 +29,11 @@
 ### [Data Lake Store’a çıktı sağlama](stream-analytics-data-lake-output.md)
 ### [Cosmos DB çıkışı](stream-analytics-documentdb-output.md)
 
+## Visual Studio araçlarını kullanma
+### [Yükleme](stream-analytics-tools-for-visual-studio-install.md)
+### [Kullanmaya başlama](stream-analytics-tools-for-visual-studio.md)
+### [CI/CD işlem hatlarını ayarlama](stream-analytics-tools-for-visual-studio-cicd.md)
+
 ## İzleme ve iyileştirme
 ### [Uyarı ekleme](stream-analytics-set-up-alerts.md)
 ### [İşleri izleme](stream-analytics-monitoring.md)
@@ -52,7 +57,6 @@
 ### [Tanılama günlükleri](stream-analytics-job-diagnostic-logs.md)
 
 ## Otomatikleştirme
-### [Visual Studio Araçları](stream-analytics-tools-for-visual-studio.md)
 ### [Yönetim .NET SDK’sini kullanma](stream-analytics-dotnet-management-sdk.md)
 ### [Tek tıklamayla Azure PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 

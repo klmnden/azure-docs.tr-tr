@@ -148,13 +148,14 @@
 ### [Başlarken](active-directory-integrating-applications-getting-started.md)
 ### [SaaS uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Cloud App Discovery nedir?](active-directory-cloudappdiscovery-whatis.md)
-#### [Adımları ayarlama](cloudappdiscovery-get-started.md)
+#### [Aracısız bulmayı ayarlama](cloudappdiscovery-get-started.md)
 #### [Anlık görüntü raporları oluşturma](cloudappdiscovery-set-up-snapshots.md)
 #### [Sürekli raporlamayı yapılandırma](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Özel günlük ayrıştırıcı kullanma](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### [Kayıt defteri ayarlarını güncelleştirme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Güvenlik ve gizliliği anlama](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### Aracı tabanlı bulma
+##### [Cloud App Discovery nedir?](active-directory-cloudappdiscovery-whatis.md)
+##### [Kayıt defteri ayarlarını güncelleştirme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [Güvenlik ve gizliliği anlama](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Uygulama Proxy’si ile uygulamalara uzaktan erişme](active-directory-application-proxy-get-started.md)

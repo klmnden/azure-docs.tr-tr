@@ -24,6 +24,8 @@
   items:
     - name: Power BI ile Metin Analizi
       href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Power Apps’te Metin Analizi
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Kaydolma

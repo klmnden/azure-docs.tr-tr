@@ -33,6 +33,7 @@
 
 ## U-SQL programlarında hata ayıklama
 ### [İşleri izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [Olağan dışı bir şekilde yinelenen iş sorunlarını giderme](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [U-SQL’de C# kodu hatalarını ayıklama](data-lake-analytics-debug-u-sql-jobs.md)
 ### [İş Tarayıcı ve İş Görünümünü kullanma](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Köşe Yürütme Görünümünü Kullanma](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

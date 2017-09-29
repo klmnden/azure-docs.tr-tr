@@ -45,6 +45,8 @@
       items:
         - name: Yürütme hedeflerini yapılandırma
           href: experiment-execution-configuration.md
+        - name: DSVM ve HDI Spark kümesi oluşturma
+          href: how-to-create-dsvm-hdi.md
         - name: GPU’lar ile eğitme
           href: how-to-use-gpu.md
     - name: Veri edinme ve bu verileri anlama

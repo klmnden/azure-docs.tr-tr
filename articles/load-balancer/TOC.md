@@ -26,9 +26,8 @@
 ### [İnternet’e yönelik Yük Dengeleyiciyi yapılandırma (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [İnternet’e yönelik Yük Dengeleyiciyi yapılandırma (Şablon)](load-balancer-get-started-internet-arm-template.md)
 
-## [İnternet’e yönelik Yük Dengeleyiciyi yapılandırma (Klasik Portal)](load-balancer-get-started-internet-classic-portal.md)
+## [İnternet’e yönelik Yük Dengeleyiciyi yapılandırma - (Klasik PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [İnternet’e yönelik Yük Dengeleyiciyi yapılandırma (Klasik Bulut)](load-balancer-get-started-internet-classic-cloud.md)
-### [İnternet’e yönelik Yük Dengeleyiciyi yapılandırma (Klasik PS)](load-balancer-get-started-internet-classic-ps.md)
 ### [İnternet’e yönelik Yük Dengeleyiciyi yapılandırma (Klasik CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [IPv6 ile İnternet’e yönelik yük dengeleyici oluşturma](load-balancer-ipv6-internet-ps.md)
