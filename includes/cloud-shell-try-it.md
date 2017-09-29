@@ -5,7 +5,7 @@ Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
-Düğme bu konu başlığındaki adımların tümünü uygulamak için kullanabileceğiniz etkileşimli bir kabuk başlatır:
+Düğme bu konu başlığındaki adımları uygulamak için kullanabileceğiniz etkileşimli bir kabuk başlatır:
 
 [![Portaldaki Cloud Shell penceresini gösteren ekran görüntüsü](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 

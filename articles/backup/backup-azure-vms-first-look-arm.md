@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 696f8025d0d7a65f59be650fac0a6e0e68f1a2ca
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 639f008eea61b973b9d32dc734d42d5c4e93e924
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Azure sanal makinelerini Kurtarma Hizmetleri kasalarına yedekleme
@@ -37,7 +37,7 @@ Bu öğretici, bir kurtarma hizmetleri kasası oluşturmaya ve bir Azure sanal m
 * Standart depolama VM'leri
 * Premium depolama VM'leri
 * Yönetilen Diskler üzerinde çalışan sanal makineler
-* Azure Disk Şifrelemesi kullanılarak BEK ve KEK ile şifrelenmiş VM’ler
+* Azure Disk Şifrelemesi kullanılarak şifrelenmiş VM’ler
 * Windows sanal makinelerinin VSS, Linux sanal makinelerinin özel anlık görüntü öncesi ve anlık görüntü sonrası betikler kullanılarak uygulamada tutarlı yedeklenmesi
 
 Premium depolama VM'lerini koruma hakkında daha fazla bilgi için [Premium Storage VM'lerini Yedekleme ve Geri Yükleme](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) makalesine bakın. Yönetilen disk sanal makinelerine yönelik destek hakkında daha fazla bilgi için bkz. [Yönetilen diskler üzerindeki sanal makineleri yedekleme ve geri yükleme](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Linux VM yedekleme için ön ve son betik çerçevesi hakkında daha fazla bilgi için bkz. [Ön betik ve son betik kullanarak uygulamayla tutarlı Linux VM yedekleme] (https://docs.microsoft.com/tr-tr/azure/backup/backup-azure-linux-app-consistent).

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/21/2016
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 98c1b99972b9ad7a396d72b98e727286f6822e42
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 4fa77da8665908553072792d7f2ede47bf5567dd
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -46,6 +46,10 @@ Service Fabric eklentisi zaten yüklüyse, en yeni sürümü kullandığınızda
 > [!NOTE]
 > Service Fabric eklentisi yavaş yükleniyor veya güncelleştiriliyorsa, bunun nedeni bir Eclipse ayarı olabilir. Eclipse, Eclipse örneğinize kaydedilmiş siteleri güncelleştirmek üzere tüm değişikliklere ait meta verileri toplar. Bir Service Fabric eklenti güncelleştirmesini denetleme ve yükleme işlemini hızlandırmak için **Kullanılabilir Yazılım Siteleri** bölümüne gidin. Service Fabric eklenti konumunu (http://dl.microsoft.com/eclipse/azure/servicefabric) işaret eden site dışındaki tüm sitelerin onay kutularını temizleyin.
 
+> [!NOTE]
+>Eclipse Mac bilgisayarınızda beklendiği gibi çalışmıyorsa (veya süper kullanıcı olarak çalışmanızı gerektiriyorsa), **ECLIPSE_INSTALLATION_PATH** klasörüne ve ardından **Eclipse.app/Contents/MacOS** alt klasörüne gidin. `./eclipse` öğesini çalıştırarak Eclipse’i başlatın.
+
+
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Eclipse’te Service Fabric uygulaması oluşturma
 
 1.  Eclipse Neon’da **Dosya** > **Yeni** > **Diğer** öğesine gidin. **Service Fabric Projesi**’ni seçip **İleri**’ye tıklayın.
@@ -72,7 +76,7 @@ Service Fabric eklentisi zaten yüklüyse, en yeni sürümü kullandığınızda
 
     ![Service Fabric Yeni Proje sayfa 6][create-application/p6]
 
-## <a name="build-and-deploy-a-service-fabric-application-in-eclipse"></a>Eclipse’te Service Fabric uygulaması derleme ve dağıtma
+## <a name="build-and-deploy-a-service-fabric-application-in-eclipse"></a>Eclips’te Service Fabric uygulaması derleme ve dağıtma
 
 1.  Yeni Service Fabric uygulamanıza sağ tıklayın ve ardından **Service Fabric**’i seçin.
 
@@ -133,7 +137,7 @@ Bildirim sürümlerini düzenlemek için projeye sağ tıklayın, **Service Fabr
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Service Fabric Java uygulamanızı yükseltme
 
-Bir yükseltme senaryosu için, Eclipse’te Service Fabric eklentisini kullanarak **App1** projesini oluşturduğunuzu varsayalım. **fabric:/App1Application** adlı bir uygulama oluşturmak için eklentiyi kullanarak projeyi dağıttınız. Uygulama türü **App1AppicationType**, uygulama sürümü ise 1.0’dır. Şimdi de uygulamanızı kesinti olmadan yükseltmek istiyorsunuz.
+Bir yükseltme senaryosu için, Eclips’te Service Fabric eklentisini kullanarak **App1** projesini oluşturduğunuzu varsayalım. **fabric:/App1Application** adlı bir uygulama oluşturmak için eklentiyi kullanarak projeyi dağıttınız. Uygulama türü **App1AppicationType**, uygulama sürümü ise 1.0’dır. Şimdi de uygulamanızı kesinti olmadan yükseltmek istiyorsunuz.
 
 İlk olarak, uygulamanızda değişiklikleri yapın ve değiştirilen hizmeti yeniden derleyin. Değiştirilen hizmetin bildirim dosyasını (ServiceManifest.xml) hizmetin güncel sürümleriyle (ve uygun olan Kod, Yapılandırma ya da Veriler ile) güncelleştirin. Uygulamanın bildirim dosyasını (ApplicationManifest.xml), uygulamanın ve değiştirilen hizmetin güncel sürüm numarasıyla da değiştirin.  
 

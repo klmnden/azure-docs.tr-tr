@@ -1,5 +1,5 @@
 
-[az webapp create](/cli/azure/appservice/web#create) komutuyla `myAppServicePlan` App Service planında bir [API uygulaması](../articles/app-service-api/app-service-api-apps-why-best-platform.md) oluşturun. 
+[az webapp create](/cli/azure/appservice/web#create) komutuyla `myAppServicePlan` App Service planında bir uygulama oluşturun. 
 
 Web uygulaması, API'niz için bir barındırma alanı sağlar ve dağıtılan uygulamanın görüntülenebileceği bir URL sunar.
 

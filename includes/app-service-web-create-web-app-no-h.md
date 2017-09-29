@@ -1,4 +1,4 @@
-[az webapp create](/cli/azure/webapp#create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../articles/app-service-web/app-service-web-overview.md) oluşturun. 
+Cloud Shell’de, [az webapp create](/cli/azure/webapp#create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../articles/app-service/app-service-web-overview.md) oluşturun. 
 
 Web uygulaması, kodunuz için bir barındırma alanı ve dağıtılan uygulamayı görüntülemek için bir URL sağlar.
 

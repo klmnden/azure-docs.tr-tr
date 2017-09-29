@@ -2,7 +2,7 @@ Cloud Shell içinde [az webapp deployment user set](/cli/azure/webapp/deployment
 
 Bir web uygulamasına FTP ve yerel Git dağıtımı için dağıtım kullanıcısı gereklidir. Kullanıcı adı ve parola, hesap düzeyindedir. _Bunlar Azure aboneliği kimlik bilgilerinizden farklıdır._
 
-Aşağıdaki komutta *\<user-name>* ve *\<password>* kısımlarını yeni bir kullanıcı adı ve parola ile değiştirin. Kullanıcı adı benzersiz olmalıdır. Parola, en az sekiz karakter uzunluğunda olma ve şu üç öğeyi de içermelidir: harf, rakam, sembol. 
+Aşağıdaki komutta *\<username>* ve *\<password>* kısımlarını yeni bir kullanıcı adı ve parola ile değiştirin. Kullanıcı adı benzersiz olmalıdır. Parola, en az sekiz karakter uzunluğunda olma ve şu üç öğeyi de içermelidir: harf, rakam, sembol. 
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>

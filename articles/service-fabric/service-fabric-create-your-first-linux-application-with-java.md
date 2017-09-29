@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 09/20/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: baf948587ede31fe3d5b4f6f0981269b4cfe4d3d
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 68f9492231d367b1ede6ab032ec1c66c75150957
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux üzerinde ilk Java Service Fabric Reliable Actors uygulamanızı oluşturma
@@ -127,7 +127,7 @@ Uygulama örneğini silmek, uygulama paketinin kaydını silmek ve uygulama pake
 Service Fabric Explorer’da uygulamanın ve uygulama türünün artık **Uygulamalar** düğümünde olmadığını görürsünüz.
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Maven'da Service Fabric Java kitaplıkları
-Maven’da barındırılan Service Fabric Java kitaplıkları. Projelerinizin **mavenCentral**’daki Service Fabric Java kitaplıklarını kullanması için ``pom.xml`` veya ``build.gradle`` altına bağımlılıklar ekleyebilirsiniz.
+Maven’da barındırılan Service Fabric Java kitaplıkları. Projelerinizin **mavenCentral**’daki Service Fabric Java kitaplıklarını kullanması için ``pom.xml`` veya ``build.gradle`` altına bağımlılıklar ekleyebilirsiniz. 
 
 ### <a name="actors"></a>Aktörler
 
@@ -137,7 +137,7 @@ Uygulamanız için Service Fabric Güvenilir Aktör desteği.
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-actors-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -146,19 +146,19 @@ Uygulamanız için Service Fabric Güvenilir Aktör desteği.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-actors-preview:0.12.0'
   }
   ```
 
 ### <a name="services"></a>Hizmetler
 
-Uygulamanız için Service Fabric Durum Bilgisi Olmayan Hizmet desteği.
+Uygulamanız için Service Fabric Reliable Services desteği.
 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-services-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -167,7 +167,7 @@ Uygulamanız için Service Fabric Durum Bilgisi Olmayan Hizmet desteği.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-services-preview:0.12.0'
   }
   ```
 
@@ -180,7 +180,7 @@ Service Fabric Java uygulaması için Aktarım katmanı desteği. Aktarım katma
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-transport-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -189,7 +189,7 @@ Service Fabric Java uygulaması için Aktarım katmanı desteği. Aktarım katma
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-transport-preview:0.12.0'
   }
   ```
 
@@ -201,7 +201,7 @@ Yerel Service Fabric çalışma zamanıyla iletişim kuran Service Fabric için 
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -210,7 +210,7 @@ Yerel Service Fabric çalışma zamanıyla iletişim kuran Service Fabric için 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
   }
   ```
 

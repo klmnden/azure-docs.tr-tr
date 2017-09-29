@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: yushwang;cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: c8e1db0a5488b1296206a4d557e47599edc59a88
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 7b7e5f0f089cc87c9e63eee1fd3d29b7a2c0d49f
 ms.contentlocale: tr-tr
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Siteden Siteye VPN Gateway bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında
@@ -28,7 +28,6 @@ Bir VPN ağ geçidi kullanılarak Siteden Siteye (S2S) şirketler arası VPN ba�
 
 > [!IMPORTANT]
 > Şirket içi VPN cihazlarınızla VPN ağ geçitleri arasında bağlantı sorunları yaşıyorsanız lütfen [Bilinen cihaz uyumluluk sorunları](#known) konusuna başvurun.
->
 >
 
 ### <a name="items-to-note-when-viewing-the-tables"></a>Tabloları görüntülerken dikkate alınacaklar:
@@ -56,9 +55,9 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-serisi |Barracuda Güvenlik Duvarı 6.5  |[Yapılandırma kılavuzu](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Uyumlu değil |
 | Brocade            |Vyatta 5400 vRouter   |Sanal Yönlendirici 6.6R3 GA|[Yapılandırma kılavuzu](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Uyumlu değil |
 | Denetim Noktası |Güvenlik Ağ Geçidi |R77.30 |[Yapılandırma kılavuzu](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Yapılandırma kılavuzu](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco              |ASA       |8.3 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |Uyumlu değil |
+| Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Yapılandırma kılavuzu*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Yapılandırma örnekleri*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Yapılandırma örnekleri**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 ve sonraki sürümleri |[Yapılandırma kılavuzu](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Uyumlu değil |
 | F5 |BIG-IP serisi |12.0 |[Yapılandırma kılavuzu](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Yapılandırma kılavuzu](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.4.2 |  |[Yapılandırma kılavuzu](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
@@ -69,12 +68,15 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 | Juniper |SSG |ScreenOS 6.2 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |Yönlendirme ve Uzaktan Erişim Hizmeti |Windows Server 2012 |Uyumlu değil |[Yapılandırma örnekleri](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Open Systems AG |Mission Control Security Ağ Geçidi |Yok |[Yapılandırma kılavuzu](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Uyumlu değil |
-| Openswan |Openswan |2.6.32 |(Çok yakında) |Uyumlu değil |
 | Palo Alto Networks |PAN-OS çalıştıran tüm cihazlar |PAN-OS<br>PolicyBased: 6.1.5 veya üzeri<br>RouteBased: 7.1.4 |[Yapılandırma kılavuzu](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Yapılandırma kılavuzu](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| SonicWall |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[SonicOS 6.2 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[SonicOS 6.2 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
+| SonicWall |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Desteklenmiyor|[Yapılandırma kılavuzu](https://www.sonicwall.com/en-us/support/knowledge-base/170505320011694) |
 | WatchGuard |Tümü |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Yapılandırma kılavuzu](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Yapılandırma kılavuzu](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
-(*) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN'leri destekler.
+> [!NOTE]
+>
+> (*) Cisco ASA 8.4 ve üzeri sürümleri IKEv2 desteği ekler, "UsePolicyBasedTrafficSelectors" seçeneğiyle özel IPsec/IKE ilkesini kullanarak Azure VPN ağ geçidine bağlanabilir. Bu [nasıl yapılır makalesine](vpn-gateway-connect-multiple-policybased-rm-ps.md) başvurun.
+>
+> (**) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN’leri destekler.
 
 ## <a name="additionaldevices"></a>Doğrulanmayan VPN cihazları
 
@@ -105,9 +107,10 @@ Sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra, ortamınıza 
 
 ## <a name="ipsec"></a>IPsec/IKE parametreleri
 
-> [!NOTE]
-> Aşağıdaki tabloda listelenen değerler VPN Gateway tarafından desteklense de şu anda VPN Gateway’den belirli bir algoritma veya parametre birleşimi belirtme mekanizması yoktur. Tüm kısıtlamaları şirket içi VPN cihazında belirtmeniz gerekir. Ayrıca, **MSS**’i **1350**’de sıkıştırmanız gerekir.
-> 
+> [!IMPORTANT]
+> 1. Aşağıdaki tablolar Azure VPN ağ geçitlerinin varsayılan yapılandırmada kullandığı algoritma ve parametre birleşimlerini içerir. Azure Kaynak Yönetimi dağıtım modeli kullanılarak oluşturulan rota tabanlı VPN ağ geçitleri için, her ayrı bağlantı üzerinde özel bir ilke belirleyebilirsiniz. Ayrıntılı yönergeler için lütfen [IPsec/IKE ilkesini yapılandırma](vpn-gateway-ipsecikepolicy-rm-powershell.md) bölümüne başvurun.
+>
+> 2. Ayrıca, TCP **MSS**’yi **1350**’de sıkıştırmanız gerekir. VPN cihazlarınız MSS sıkıştırmayı desteklemiyorsa, alternatif olarak tünel arabiriminde **MTU**’yu **1400** bayt olarak ayarlayabilirsiniz.
 >
 
 Aşağıdaki tablolarda:
