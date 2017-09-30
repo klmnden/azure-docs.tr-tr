@@ -1,6 +1,6 @@
 ---
-title: "Linux üzerinde Azure Service Fabric kapsayıcı uygulaması oluşturma | Microsoft Docs"
-description: "Azure Service Fabric üzerinde ilk Linux kapsayıcı uygulamanızı oluşturun.  Uygulamanızla bir Docker görüntüsü oluşturun, görüntüyü bir kapsayıcı kayıt defterine iletin, bir Service Fabric kapsayıcı uygulaması oluşturup dağıtın."
+title: Create an Azure Service Fabric container application on Linux | Microsoft Docs
+description: Create your first Linux container application on Azure Service Fabric.  Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,34 +15,34 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: c0fb0f45d64fe542d40d66ebfe37199583751891
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
-# <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
+# <a name="create-your-first-service-fabric-container-application-on-linux"></a>Create your first Service Fabric container application on Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Bir Service Fabric kümesindeki Linux kapsayıcısında mevcut olan bir uygulamayı çalıştırmak için uygulamanızda herhangi bir değişiklik yapılması gerekmez. Bu makalede, Python [Flask](http://flask.pocoo.org/) web uygulaması içeren bir Docker görüntüsü oluşturma ve bunu Service Fabric kümesine dağıtma işlemlerinde size yol gösterilir.  Ayrıca, kapsayıcıya alınmış uygulamanızı [Azure Container Registry](/azure/container-registry/) aracılığıyla paylaşırsınız.  Bu makale Docker hakkında temel bir anlayışınızın olduğunu varsayar. [Docker’a Genel Bakış](https://docs.docker.com/engine/understanding-docker/) makalesini okuyarak Docker hakkında bilgi edinebilirsiniz.
+Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster.  You will also share your containerized application through [Azure Container Registry](/azure/container-registry/).  This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
-## <a name="prerequisites"></a>Ön koşullar
-* Şunları çalıştıran bir geliştirme bilgisayarı:
-  * [Service Fabric SDK’sı ve araçları](service-fabric-get-started-linux.md).
-  * [Linux için Docker CE](https://docs.docker.com/engine/installation/#prior-releases). 
+## <a name="prerequisites"></a>Prerequisites
+* A development computer running:
+  * [Service Fabric SDK and tools](service-fabric-get-started-linux.md).
+  * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Service Fabric CLI](service-fabric-cli.md)
 
-* Azure Container Registry’deki bir kayıt defteri - Azure aboneliğinizde [Kapsayıcı kayıt defteri oluşturun](../container-registry/container-registry-get-started-portal.md). 
+* A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
 
-## <a name="define-the-docker-container"></a>Docker kapsayıcısını tanımlama
-Docker Hub’ında bulunan [Python görüntüsünü](https://hub.docker.com/_/python/) temel alan bir görüntü oluşturun. 
+## <a name="define-the-docker-container"></a>Define the Docker container
+Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub. 
 
-Docker kapsayıcınızı bir Dockerfile içinde tanımlayın. Dockerfile, kapsayıcınızın içindeki ortamı ayarlama, çalıştırmak istediğiniz uygulamayı yükleme ve bağlantı noktalarını eşleme yönergelerini içerir. Dockerfile, görüntüyü oluşturan `docker build` komutunun girdisidir. 
+Define your Docker container in a Dockerfile. The Dockerfile contains instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports. The Dockerfile is the input to the `docker build` command, which creates the image. 
 
-Boş bir dizin oluşturun ve *Dockerfile* dosyasını oluşturun (dosya uzantısı kullanmayın). Aşağıdakini *Dockerfile* dosyasına ekleyin ve değişikliklerinizi kaydedin:
+Create an empty directory and create the file *Dockerfile* (with no file extension). Add the following to *Dockerfile* and save your changes:
 
 ```
 # Use an official Python runtime as a base image
@@ -67,15 +67,15 @@ ENV NAME World
 CMD ["python", "app.py"]
 ```
 
-Daha fazla bilgi için [Dockerfile başvurusunu](https://docs.docker.com/engine/reference/builder/) okuyun.
+Read the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) for more information.
 
-## <a name="create-a-simple-web-application"></a>Basit web uygulaması oluşturma
-Bağlantı noktası 80 üzerinden dinleyen ve "Merhaba Dünya!" başlığını döndüren bir Flask web uygulaması oluşturun.  Aynı dizinde, *requirements.txt* dosyasını oluşturun.  Aşağıdakini dosyaya ekleyin ve değişikliklerinizi kaydedin:
+## <a name="create-a-simple-web-application"></a>Create a simple web application
+Create a Flask web application listening on port 80 that returns "Hello World!".  In the same directory, create the file *requirements.txt*.  Add the following and save your changes:
 ```
 Flask
 ```
 
-Ayrıca, *app.py* dosyasını da oluşturun ve aşağıdakini ekleyin:
+Also create the *app.py* file and add the following:
 
 ```python
 from flask import Flask
@@ -91,16 +91,16 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>Görüntü oluşturma
-Web uygulamanızı çalıştıran görüntüyü oluşturmak için `docker build` komutunu çalıştırın. Bir PowerShell penceresi açıp *c:\temp\helloworldapp* dizinine gidin. Şu komutu çalıştırın:
+## <a name="build-the-image"></a>Build the image
+Run the `docker build` command to create the image that runs your web application. Open a PowerShell window and navigate to *c:\temp\helloworldapp*. Run the following command:
 
 ```bash
 docker build -t helloworldapp .
 ```
 
-Bu komut Dockerfile içindeki yönergeleri kullanarak yeni görüntüyü oluşturur ve "helloworldapp" olarak adlandırır (-t etiketi). Görüntü oluşturulduğunda, temel görüntü Docker Hub’ından alınır ve uygulamanızı temel görüntünün üstüne ekleyen yeni bir görüntü oluşturulur.  
+This command builds the new image using the instructions in your Dockerfile, naming (-t tagging) the image "helloworldapp". Building an image pulls the base image down from Docker Hub and creates a new image that adds your application on top of the base image.  
 
-Oluşturma komutu tamamlandıktan sonra, yeni görüntü üzerindeki bilgileri görmek için `docker images` komutunu çalıştırın:
+Once the build command completes, run the `docker images` command to see information on the new image:
 
 ```bash
 $ docker images
@@ -109,135 +109,146 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              86838648aab6        2 minutes ago       194 MB
 ```
 
-## <a name="run-the-application-locally"></a>Uygulamayı yerel olarak çalıştırma
-Kapsayıcıya alınmış uygulamanızı kapsayıcı kayıt defterine göndermeden önce uygulamanın yerel olarak çalıştığını doğrulayın.  
+## <a name="run-the-application-locally"></a>Run the application locally
+Verify that your containerized application runs locally before pushing it the container registry.  
 
-Bilgisayarınızın 4000 numaralı bağlantı noktasını kapsayıcının ortaya konan 80 numaralı bağlantı noktasına eşleyerek uygulamayı çalıştırın:
+Run the application, mapping your computer's port 4000 to the container's exposed port 80:
 
 ```bash
 docker run -d -p 4000:80 --name my-web-site helloworldapp
 ```
 
-*name*, çalışan kapsayıcıya bir ad verir (kapsayıcı kimliği yerine).
+*name* gives a name to the running container (instead of the container ID).
 
-Çalışan kapsayıcıya bağlanın.  4000 numaralı bağlantı noktasında döndürülen IP adresine işaret eden bir web tarayıcısı açın (örneğin, "http://localhost:4000"). "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
+Connect to the running container.  Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000". You should see the heading "Hello World!" display in the browser.
 
-![Merhaba Dünya!][hello-world]
+![Hello World!][hello-world]
 
-Kapsayıcınızı durdurmak için şu komutu çalıştırın:
+To stop your container, run:
 
 ```bash
 docker stop my-web-site
 ```
 
-Kapsayıcıyı geliştirme makinenizden silin:
+Delete the container from your development machine:
 
 ```bash
 docker rm my-web-site
 ```
 
-## <a name="push-the-image-to-the-container-registry"></a>Görüntüyü kapsayıcı kayıt defterine gönderme
-Uygulamanın Docker'da çalıştığını doğruladıktan sonra, görüntüyü Azure Container Registry'de kayıt defterine gönderin.
+## <a name="push-the-image-to-the-container-registry"></a>Push the image to the container registry
+After you verify that the application runs in Docker, push the image to your registry in Azure Container Registry.
 
-Kapsayıcı kayıt defterinizde [kayıt defteri kimlik bilgileriniz](../container-registry/container-registry-authentication.md) ile oturum açmak için `docker login` komutunu çalıştırın.
+Run `docker login` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
-Aşağıdaki örnekte, bir Azure Active Directory [hizmet sorumlusunun](../active-directory/active-directory-application-objects.md) kimliği ve parolası geçirilmiştir. Örneğin, bir otomasyon senaryosu için kayıt defterinize bir hizmet sorumlusu atamış olabilirsiniz.  İsterseniz, kayıt defteri kullanıcı kimliğiniz ve parolanızı kullanarak oturum açabilirsiniz.
+The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenario.  Or, you could login using your registry username and password.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-Aşağıdaki komut, görüntünün kayıt defterinize ait tam yolu içeren bir etiketini veya diğer adını oluşturur. Bu örnek, kayıt defterinin kökünde dağınıklığı önlemek için `samples` ad alanına görüntüyü yerleştirir.
+The following command creates a tag, or alias, of the image, with a fully qualified path to your registry. This example places the image in the `samples` namespace to avoid clutter in the root of the registry.
 
 ```bash
 docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
 ```
 
-Görüntüyü kapsayıcı kayıt defterinize gönderin:
+Push the image to your container registry:
 
 ```bash
 docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="package-the-docker-image-with-yeoman"></a>Docker görüntüsünü Yeoman ile paketleme
-Linux için Service Fabric SDK’sı uygulamanızı oluşturmayı ve kapsayıcı görüntüsü eklemeyi kolaylaştıran bir [Yeoman](http://yeoman.io/) oluşturucu içerir. Şimdi Yeoman kullanarak *SimpleContainerApp* adlı tek bir Docker kapsayıcısı olan bir uygulama oluşturalım.
+## <a name="package-the-docker-image-with-yeoman"></a>Package the Docker image with Yeoman
+The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*.
 
-Service Fabric kapsayıcı uygulaması oluşturmak için, terminal penceresini açın ve `yo azuresfcontainer` komutunu çalıştırın.  
+To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`.  
 
-Uygulamanızı adlandırın (örneğin, "mycontainer"). 
+Name your application (for example, "mycontainer"). 
 
-Kapsayıcı kayıt defterindeki kapsayıcı görüntüsünün URL'sini sağlayın (örneğin, ""). 
+Provide the URL for the container image in a container registry (for example, ""). 
 
-Bu görüntüde iş yükü giriş noktası tanımlanmış olduğundan, giriş komutlarının açıkça belirtilmesi gerekir (komutlar kapsayıcının içinde çalıştırılır ve bu da başlatma sonrasında kapsayıcıyı çalışır durumda tutar). 
+This image has a workload entry-point defined, so need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
 
-"1" örnek sayısı belirtin.
+Specify an instance count of "1".
 
-![Kapsayıcılar için Service Fabric Yeoman oluşturucusu][sf-yeoman]
+![Service Fabric Yeoman generator for containers][sf-yeoman]
 
-## <a name="configure-port-mapping-and-container-repository-authentication"></a>Bağlantı noktası eşlemesini ve kapsayıcı deposu kimlik doğrulamasını yapılandırma
-Kapsayıcı içinde alınmış hizmetinize iletişim için bir uç nokta gerekir.  Şimdi ServiceManifest.xml dosyasındaki `Endpoint` öğesine protokol, bağlantı noktası ve tür ekleyin. Bu makalede kapsayıcı hizmeti 4000 numaralı bağlantı noktasında dinler: 
-
-```xml
-<Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-```
-`UriScheme` değerinin sağlanması, kapsayıcı uç noktasını bulunabilirlik için Service Fabric Adlandırma hizmetine otomatik olarak kaydeder. Bu makalenin sonunda tam bir ServiceManifest.xml örnek dosyası verilmiştir. 
-
-ApplicationManifest.xml dosyasının `ContainerHostPolicies` kısmında bir `PortBinding` ilkesi belirterek kapsayıcı bağlantı noktasından ana bilgisayar bağlantı noktasına eşleme yapılandırın.  Bu makalede `ContainerPort` değeri 80 (Dockerfile içinde belirtildiği gibi kapsayıcı 80 numaralı bağlantı noktasını gösterir) ve `EndpointRef` değeri "myserviceTypeEndpoint"’tir (hizmet bildiriminde tanımlanan uç nokta).  4000 numaralı bağlantı noktasında hizmete gelen istekler, kapsayıcı üzerindeki 80 numaralı bağlantı noktasıyla eşlenir.  Kapsayıcınızın özel bir depoda kimlik doğrulaması yapması gerekiyorsa, `RepositoryCredentials` öğesini ekleyin.  Bu makale için, myregistry.azurecr.io kapsayıcı kayıt defterine ait hesap adını ve parolayı ekleyin. 
+## <a name="configure-port-mapping-and-container-repository-authentication"></a>Configure port mapping and container repository authentication
+Your containerized service needs an endpoint for communication.  Now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file under the 'Resources' tag. For this article, the containerized service listens on port 4000: 
 
 ```xml
-<Policies>
-    <ContainerHostPolicies CodePackageRef="Code">
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+ ```
+ 
+Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
+
+Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myserviceTypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 4000 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add `RepositoryCredentials`.  For this article, add the account name and password for the myregistry.azurecr.io container registry. Ensure the policy is added under the 'ServiceManifestImport' tag corresponding to the right service package.
+
+```xml
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
         <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-    </ContainerHostPolicies>
-</Policies>
-```
+        </ContainerHostPolicies>
+    </Policies>
+   </ServiceManifestImport>
+``` 
 
-## <a name="build-and-package-the-service-fabric-application"></a>Service Fabric uygulamasını oluşturma ve paketleme
-Service Fabric Yeoman şablonları, uygulamayı terminalden oluşturmak için kullanabileceğiniz bir [Gradle](https://gradle.org/) derleme betiği içerir. Uygulamayı derlemek ve paketlemek için şu komutu çalıştırın:
+## <a name="build-and-package-the-service-fabric-application"></a>Build and package the Service Fabric application
+The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal. To build and package the application, run the following:
 
 ```bash
 cd mycontainer
 gradle
 ```
 
-## <a name="deploy-the-application"></a>Uygulamayı dağıtma
-Uygulama oluşturulduktan sonra Service Fabric CLI kullanarak yerel kümeye dağıtabilirsiniz.
+## <a name="deploy-the-application"></a>Deploy the application
+Once the application is built, you can deploy it to the local cluster using the Service Fabric CLI.
 
-Yerel Service Fabric kümesine bağlanın.
+Connect to the local Service Fabric cluster.
 
 ```bash
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Uygulama paketini kümenin görüntü deposuna kopyalamak, uygulama türünü kaydetmek ve uygulamanın bir örneğini oluşturmak için şablonda verilen yükleme betiğini kullanın.
+Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
 
 ```bash
 ./install.sh
 ```
 
-Bir tarayıcı açın ve http://localhost:19080/Explorer adresindeki Service Fabric Explorer’a gidin (Vagrant’ı Mac OS X üzerinde kullanıyorsanız localhost ifadesini sanal makinenin özel IP’si ile değiştirin). Uygulamalar düğümünü genişletin ve şu anda uygulamanızın türü için bir giriş ve bu türün ilk örneği için başka bir giriş olduğuna dikkat edin.
+Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X). Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
 
-Çalışan kapsayıcıya bağlanın.  4000 numaralı bağlantı noktasında döndürülen IP adresine işaret eden bir web tarayıcısı açın (örneğin, "http://localhost:4000"). "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
+Connect to the running container.  Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000". You should see the heading "Hello World!" display in the browser.
 
-![Merhaba Dünya!][hello-world]
+![Hello World!][hello-world]
 
-## <a name="clean-up"></a>Temizleme
-Yerel dağıtım kümesinden uygulama örneğini silmek ve uygulama türünün kaydını silmek için şablonda sağlanan kaldırma betiğini kullanın.
+## <a name="clean-up"></a>Clean up
+Use the uninstall script provided in the template to delete the application instance from the local development cluster and unregister the application type.
 
 ```bash
 ./uninstall.sh
 ```
 
-Görüntüyü kapsayıcı kayıt defterine gönderdikten sonra yerel görüntüyü geliştirme bilgisayarınızdan silebilirsiniz:
+After you push the image to the container registry you can delete the local image from your development computer:
 
 ```
 docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Tam Service Fabric uygulaması ve hizmet bildirimleri örneği
-Bu makalede kullanılan tam hizmet ve uygulama bildirimleri aşağıda verilmiştir.
+## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Complete example Service Fabric application and service manifests
+Here are the complete service and application manifests used in this article.
 
 ### <a name="servicemanifestxml"></a>ServiceManifest.xml
 ```xml
@@ -322,19 +333,19 @@ Bu makalede kullanılan tam hizmet ve uygulama bildirimleri aşağıda verilmiş
   </DefaultServices>
 </ApplicationManifest>
 ```
-## <a name="adding-more-services-to-an-existing-application"></a>Mevcut bir uygulamaya daha fazla hizmet ekleme
+## <a name="adding-more-services-to-an-existing-application"></a>Adding more services to an existing application
 
-Yeoman kullanılarak zaten oluşturulmuş bir uygulamaya başka bir kapsayıcı hizmeti eklemek için aşağıdaki adımları uygulayın:
+To add another container service to an application already created using yeoman, perform the following steps:
 
-1. Dizini mevcut uygulamanın kök dizinine değiştirin.  Örneğin Yeoman tarafından oluşturulan uygulama `MyApplication` ise `cd ~/YeomanSamples/MyApplication` olacaktır.
-2. `yo azuresfcontainer:AddService` öğesini çalıştırın
+1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
+2. Run `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 
 
-## <a name="configure-time-interval-before-container-is-force-terminated"></a>Kapsayıcı zorla sonlandırılmadan önceki zaman aralığını yapılandırın
+## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configure time interval before container is force terminated
 
-Hizmet silme (veya başka bir düğüme taşıma) başladıktan sonra, çalışma zamanının kapsayıcı kaldırılmadan önce ne kadar bekleyeceğine ilişkin bir zaman aralığı yapılandırabilirsiniz. Zaman aralığını yapılandırma, kapsayıcıya `docker stop <time in seconds>` komutunu gönderir.   Daha ayrıntılı bilgi için bkz. [docker durdurma](https://docs.docker.com/engine/reference/commandline/stop/). Beklenecek zaman aralığı, `Hosting` bölümünde belirtilir. Aşağıdaki küme bildirimi kod parçacığı, bekleme aralığının nasıl ayarlandığını gösterir:
+You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.   For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
 
 ```xml
 {
@@ -347,12 +358,12 @@ Hizmet silme (veya başka bir düğüme taşıma) başladıktan sonra, çalışm
         ]
 }
 ```
-Varsayılan zaman aralığı 10 saniye olarak ayarlanır. Bu yapılandırma dinamik olduğundan, kümedeki yalnızca yapılandırmaya yönelik bir güncelleştirme zaman aşımını güncelleştirir. 
+The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
 
 
-## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Kullanılmayan kapsayıcı görüntülerini kaldırmak için çalışma zamanını yapılandırma
+## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configure the runtime to remove unused container images
 
-Service Fabric kümesini kullanılmayan kapsayıcı görüntülerini düğümden kaldıracak şekilde yapılandırabilirsiniz. Bu yapılandırma, düğümde çok fazla kapsayıcı görüntüsü varsa yeniden disk alanı elde edilmesine imkan tanır.  Bu özelliği etkinleştirmek için küme bildirimindeki `Hosting` bölümünü aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin: 
+You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node.  To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
 
 
 ```xml
@@ -368,14 +379,14 @@ Service Fabric kümesini kullanılmayan kapsayıcı görüntülerini düğümden
 } 
 ```
 
-Silinmemesi gereken görüntüleri `ContainerImagesToSkip` parametresi altında belirtebilirsiniz. 
+For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
 
 
-## <a name="next-steps"></a>Sonraki adımlar
-* [Service Fabric’te kapsayıcı](service-fabric-containers-overview.md) çalıştırma hakkında daha fazla bilgi edinin.
-* [Kapsayıcı içinde .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md) öğreticisini okuyun.
-* Service Fabric [uygulama yaşam döngüsü](service-fabric-application-lifecycle.md) hakkında bilgi edinin.
-* GitHub’da [Service Fabric kapsayıcı kod örneklerine](https://github.com/Azure-Samples/service-fabric-dotnet-containers) bakın.
+## <a name="next-steps"></a>Next steps
+* Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
+* Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
+* Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
+* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
