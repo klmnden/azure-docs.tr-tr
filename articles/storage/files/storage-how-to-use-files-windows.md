@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
 ms.contentlocale: tr-tr
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure Dosya paylaşımını bağlama ve Windows’da paylaşıma erişme
-[Azure Dosya depolama](../storage-dotnet-how-to-use-files.md), Windows’un kolay kullanılan bulut dosya sistemidir. Azure Dosya paylaşımları, Windows ve Windows Server’a bağlanabilir. Bu makale Windows’da Azure Dosya paylaşımının üç farklı yolla bağlanmasını gösterir: Dosya Gezgini kullanıcı arabirimi ile, Powershell ve Komut İstemi aracılığıyla. 
+[Azure Dosyaları](storage-files-introduction.md), Windows'un kolay kullanılan bulut dosya sistemidir. Azure Dosya paylaşımları, Windows ve Windows Server’a bağlanabilir. Bu makale Windows’da Azure Dosya paylaşımının üç farklı yolla bağlanmasını gösterir: Dosya Gezgini kullanıcı arabirimi ile, Powershell ve Komut İstemi aracılığıyla. 
 
 Bir Azure Dosya paylaşımını, barındırıldığı Azure bölgesinin dışında bağlamak için (örneğin, şirket içinde veya farklı bir Azure bölgesinde) işletim sisteminin SMB 3.0'ı desteklemesi gerekir. 
 
@@ -39,7 +39,7 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 | Windows 7              | SMB 2.1     | Evet                   | Hayır                   |
 | Windows Server 2008 R2 | SMB 2.1     | Evet                   | Hayır                   |
 
-<sup>1</sup>Windows 10, 1507, 1511, 1607 ve 1703 sürümleri
+<sup>1</sup>Windows 10 1507, 1511, 1607, 1703 ve 1709 sürümleri.
 
 > [!Note]  
 > Her zaman Windows sürümünüz için en yeni KB’yi almanızı öneririz.
@@ -49,7 +49,7 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 
 * **Depolama Hesabı Anahtarı**: Azure Dosya paylaşımını bağlayabilmeniz için birincil (veya ikincil) depolama anahtarı gerekir. SAS anahtarları şu an bağlama için desteklenmemektedir.
 
-* **Bağlantı noktası 445’in açık olduğundan emin olun**: Azure Dosya depolama SMB protokolünü kullanır. SMB, TCP bağlantı noktası 445 üstünden iletişim kurar. İstemci makinenizde güvenlik duvarının TCP bağlantı noktaları 445’i engellemediğinden emin olun.
+* **Bağlantı noktası 445'in açık olduğundan emin olun**: Azure Dosyaları SMB protokolünü kullanır. SMB, TCP bağlantı noktası 445 üstünden iletişim kurar. İstemci makinenizde güvenlik duvarının TCP bağlantı noktaları 445’i engellemediğinden emin olun.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Azure Dosya paylaşımını Dosya Gezgini ile bağlama
 > [!Note]  
@@ -63,7 +63,7 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 
 3. **Azure portalının “Bağlan” bölmesindeki UNC adını kopyalayın**: Bu bilgiyi nasıl bulacağınıza ilişkin ayrıntılı açıklamayı [burada](storage-how-to-use-files-portal.md#connect-to-file-share) bulabilirsiniz.
 
-    ![Azure Dosya depolamanın Bağlan bölmesinden UNC adı](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![Azure Dosyaları Bağlan bölmesinden UNC adı](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **Sürücü harfini seçin ve UNC adını girin.** 
     
@@ -121,24 +121,24 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 >   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
+Azure Dosyaları hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
 
 * [SSS](../storage-files-faq.md)
 * [Windows’da sorun giderme](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>Kavramsal makaleler ve videolar
-* [Azure Dosya depolama: Windows ve Linux için uyumlu bulut SMB dosya sistemi](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Azure Dosya depolamayı Linux ile kullanma](../storage-how-to-use-files-linux.md)
+* [Azure Dosyaları: Windows ve Linux için uyumlu bulut SMB dosya sistemi](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure Dosyaları'nı Linux ile kullanma](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Azure Dosya depolama için araç desteği
+### <a name="tooling-support-for-azure-files"></a>Azure Dosyaları için araç desteği
 * [Microsoft Azure Depolama ile AzCopy kullanma](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Azure Depolama ile Azure CLI kullanma](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Azure Dosya depolama sorunlarını giderme - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Azure Dosya depolama sorunlarını giderme - Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Azure Dosyaları sorunlarını giderme - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Azure Dosyaları sorunlarını giderme - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>Blog yazıları
-* [Azure Dosya Depolama genel kullanıma sunulmuştur](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Azure Dosya depolama incelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Dosyaları genel kullanıma sunulmuştur](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Azure Dosyaları İncelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure Dosya Hizmeti’ne Giriş](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Azure Dosya Hizmeti’ne verileri geçirme ](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 

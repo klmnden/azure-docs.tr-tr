@@ -3,7 +3,7 @@ title: "İç yük dengeleyicisi oluşturma - Azure portalı | Microsoft Docs"
 description: "Azure portalını kullanarak Resource Manager’da iç yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,23 +13,26 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
 ms.contentlocale: tr-tr
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Azure portalını kullanarak iç yük dengeleyici oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Şablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -40,7 +43,7 @@ ms.lasthandoff: 01/24/2017
 
 ## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Azure portalını kullanarak iç yük dengeleyici oluşturmaya başlama
 
-Azure Portalından iç yük dengeleyici oluşturmak için aşağıdaki adımları uygulayın.
+Azure portalından iç yük dengeleyici oluşturmak için aşağıdaki adımları uygulayın.
 
 1. Tarayıcı penceresi açın, [Azure portalına](http://portal.azure.com) gidin ve Azure hesabınızla oturum açın.
 2. Ekranın sol üst kenarından **Yeni** > **Ağ** > **Yük dengeleyici**’yi seçin.
@@ -63,22 +66,22 @@ Azure Portalından iç yük dengeleyici oluşturmak için aşağıdaki adımlar�
 ## <a name="configure-load-balancing-rules"></a>Yük dengeleme kurallarını yapılandırma
 
 Yük dengeleyiciyi oluşturduktan sonra yük dengeleyici kaynağına giderek yapılandırın.
-Yük dengeleme kuralını yapılandırmadan önce arka uç adres havuzu ve araştırma yapılandırmanız gerekir.
+Yük dengeleme kuralını yapılandırmadan önce arka uç adres havuzu ve araştırma yapılandırın.
 
-### <a name="step-1-configure-a-back-end-pool"></a>1. Adım: Arka uç havuzu yapılandırma
+### <a name="step-1-configure-a-backend-pool"></a>1. Adım: Arka uç havuzu yapılandırma
 
-1. Azure portalında **Gözat** > **Yük dengeleyiciler**’e ve ardından yukarıda oluşturduğunuz yük dengeleyiciye tıklayın.
+1. Azure portalında **Gözat** > **Yük dengeleyiciler**'e ve ardından daha önce oluşturduğunuz yük dengeleyiciye tıklayın.
 2. **Ayarlar** dikey penceresinde **Arka uç havuzları**’na tıklayın.
 3. **Arka uç adres havuzları** dikey penceresinde **Ekle**’ye tıklayın.
 4. **Arka uç havuzu ekle** dikey penceresinde arka uç havuzu için bir **Ad** girin ve ardından **Tamam**’a tıklayın.
 
 ### <a name="step-2-configure-a-probe"></a>2. Adım: Araştırma yapılandırma
 
-1. Azure portalında **Gözat** > **Yük dengeleyiciler**’e ve ardından yukarıda oluşturduğunuz yük dengeleyiciye tıklayın.
+1. Azure portalında **Gözat** > **Yük dengeleyiciler**'e ve ardından daha önce oluşturduğunuz yük dengeleyiciye tıklayın.
 2. **Ayarlar** dikey penceresinde **Araştırmalar**’a tıklayın.
 3. **Araştırmalar** dikey penceresinde **Ekle**’ye tıklayın.
 4. **Araştırma ekle** dikey penceresinde araştırma için bir **Ad** girin.
-5. **Protokol**’ün altında **HTTP** (web siteleri için) veya **TCP** (diğer TCP tabanlı uygulamalar için) seçin.
+5. **Protokol**'ün altında **HTTP** (web siteleri için) veya **TCP** (diğer TCP tabanlı uygulamalar için) seçin.
 6. **Bağlantı noktası** bölümünde araştırmaya erişirken kullanılacak bağlantı noktasını belirtin.
 7. **Yol**’un altında (yalnızca HTTP araştırmaları için) araştırma olarak kullanılacak yolu belirtin.
 8. **Aralık** bölümünde uygulama araştırma sıklığını belirtin.
@@ -87,14 +90,14 @@ Yük dengeleme kuralını yapılandırmadan önce arka uç adres havuzu ve araş
 
 ### <a name="step-3-configure-load-balancing-rules"></a>3. Adım: Yük dengeleme kurallarını yapılandırma
 
-1. Azure portalında **Gözat** > **Yük dengeleyiciler**’e ve ardından yukarıda oluşturduğunuz yük dengeleyiciye tıklayın.
+1. Azure portalında **Gözat** > **Yük dengeleyiciler**'e ve ardından daha önce oluşturduğunuz yük dengeleyiciye tıklayın.
 2. **Ayarlar** dikey penceresinde **Yük dengeleme kuralları**’na tıklayın.
 3. **Yük dengeleme kuralları** dikey penceresinde **Ekle**’ye tıklayın.
 4. **Yük dengeleme kuralı ekle** dikey penceresinde kural için bir **Ad** girin.
-5. **Protokol**’ün altında **HTTP** (web siteleri için) veya **TCP** (diğer TCP tabanlı uygulamalar için) seçin.
+5. **Protokol**'ün altında **HTTP** (web siteleri için) veya **TCP** (diğer TCP tabanlı uygulamalar için) seçin.
 6. **Bağlantı noktası** bölümünde istemcilerin yük dengeleyiciye bağlanmak için kullanacağı bağlantı noktasını belirtin.
 7. **Arka uç bağlantı noktası** bölümünde arka uç havuzunda kullanılacak bağlantı noktasını belirtin (genelde yük dengeleyici bağlantı noktası ve arka uç bağlantı noktası aynıdır).
-8. **Arka uç havuzu** altında yukarıda oluşturduğunuz arka uç havuzunu seçin.
+8. **Arka uç havuzu** altında daha önce oluşturduğunuz arka uç havuzunu seçin.
 9. **Oturum kalıcılığı** bölümünde oturumların ne kadar sürmesini istediğinizi belirtin.
 10. **Boşta kalma zaman aşımı (dakika)** bölümünde boşta kalma zaman aşımını belirtin.
 11. **Kayan IP (doğrudan sunucu dönüşü)** bölümünde **Devre dışı** veya **Etkin**’e tıklayın.

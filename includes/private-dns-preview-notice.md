@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Azure Özel DNS Bölgesi özelliği şu anda yönetilen önizleme sürümündedir, hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için kullanılmamalıdır. Belirli özellikler desteklenmiyor olabilir, kısıtlı yeteneklere sahip olabilir veya tüm Azure konumlarında mevcut olmayabilir.  Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).  Önizleme programına katılmak için abonelik bilgilerinizi AzureDNS-PrivateZone@microsoft.com adresine gönderin.

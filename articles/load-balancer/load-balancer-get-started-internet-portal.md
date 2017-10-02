@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
 ms.contentlocale: tr-tr
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -31,11 +31,13 @@ ms.lasthandoff: 01/24/2017
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Şablon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Bu makalede Resource Manager dağıtım modeli anlatılmaktadır. [Klasik dağıtım kullanarak İnternet’e yönelik yük dengeleyici oluşturma](load-balancer-get-started-internet-classic-portal.md) sayfasını da inceleyebilirsiniz
+Bu makalede Resource Manager dağıtım modeli anlatılmaktadır.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -63,7 +65,7 @@ Azure Resource Manager içindeki yük dengeleyici bileşenleri hakkında daha fa
 3. **Yük dengeleyici oluştur** dikey penceresinde yük dengeleyiciniz için bir ad girin. Burada **myLoadBalancer** kullanılmıştır.
 4. **Tür** bölümünde **Genel**’i seçin.
 5. **Genel IP adresi** bölümünde **myPublicIP** adında yeni bir genel IP oluşturun.
-6. Kaynak Grubu altında **myRG**’yi seçin. Ardından uygun bir **Konum** seçin ve **Tamam**’a tıklayın. Yük dengeleyici dağıtımı başlayacak ve birkaç dakika içinde başarıyla tamamlanacaktır.
+6. Kaynak Grubu altında **myRG**’yi seçin. Ardından uygun bir **Konum** seçin ve **Tamam**’a tıklayın. Yük dengeleyici dağıtımı başlar ve birkaç dakika içinde başarıyla tamamlanır.
 
     ![Yük dengeleyicinin kaynak grubunu güncelleştirme](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 

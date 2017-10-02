@@ -3,7 +3,7 @@ title: "İnternet’e yönelik yük dengeleyicisi oluşturma - Azure PowerShell 
 description: "Klasik modda PowerShell kullanarak İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0a0b4cd516033ffe74d6992a98711be7a8150842
 ms.contentlocale: tr-tr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -39,12 +39,12 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="set-up-load-balancer-using-powershell"></a>PowerShell kullanarak iç yük dengeleyici kurma
 
-PowerShell kullanarak yük dengeleyici oluşturmak için aşağıdaki adımları uygulayın:
+PowerShell kullanarak bir yük dengeleyici kurmak için aşağıdaki adımları tamamlayın:
 
 1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](/powershell/azure/overview) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
 2. Sanal makine oluşturduktan sonra PowerShell cmdlet’lerini kullanarak aynı bulut hizmeti içindeki bir sanal makineye yük dengeleyici ekleyebilirsiniz.
 
-Aşağıdaki örnekte "web1" ve "web2" adlı sanal makinelere yük dengeleyici uç noktaları ekleyerek "mytestcloud" (veya myctestcloud.cloudapp.net) bulut hizmetine "webfarm" adlı bir yük dengeleyici kümesi ekleyeceksiniz. Yük dengeleyici 80 numaralı bağlantı noktasından ağ trafiğini alır ve TCP kullanarak yerel uç noktası (bu durumda 80 numaralı bağlantı noktası) tarafından tanımlanan sanal makineler arasında yük dengeleme gerçekleştirir.
+Aşağıdaki örnekte "web1" ve "web2" adlı sanal makinelere yük dengeleyici uç noktaları ekleyerek "mytestcloud" (veya myctestcloud.cloudapp.net) bulut hizmetine "webfarm" adlı bir yük dengeleyici kümesi eklersiniz. Yük dengeleyici 80 numaralı bağlantı noktasından ağ trafiğini alır ve TCP kullanarak yerel uç noktası (bu durumda 80 numaralı bağlantı noktası) tarafından tanımlanan sanal makineler arasında yük dengeleme gerçekleştirir.
 
 ### <a name="step-1"></a>1. Adım
 
@@ -74,5 +74,5 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 
 [İç yük dengeleyici oluşturmaya başlayabilir](load-balancer-get-started-ilb-classic-ps.md) ve belirli bir yük dengeleyici ağ trafiği davranışı için [dağıtım modu](load-balancer-distribution-mode.md) türünü yapılandırabilirsiniz.
 
-Uygulamanızın yük dengeleyici arkasındaki sunucular için bağlantıları canlı tutması gerekiyorsa [yük dengeleyici için boşta kalma TCP zaman aşımı ayarları](load-balancer-tcp-idle-timeout.md) hakkında daha fazla bilgi edinebilirsiniz. Bu, Azure Load Balancer kullanırken boşta kalan bağlantı davranışları hakkında bilgi edinmenizi sağlayacaktır.
+Uygulamanızın yük dengeleyici arkasındaki sunucular için bağlantıları canlı tutması gerekiyorsa [yük dengeleyici için boşta kalma TCP zaman aşımı ayarları](load-balancer-tcp-idle-timeout.md) hakkında daha fazla bilgi edinebilirsiniz. Bu, Azure Load Balancer kullanırken boşta kalan bağlantı davranışları hakkında bilgi edinmenizi sağlar.
 

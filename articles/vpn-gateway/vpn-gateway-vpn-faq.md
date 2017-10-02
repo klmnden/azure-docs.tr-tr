@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway SSS
@@ -113,7 +113,7 @@ Evet, Önceden Paylaşılan Anahtar API’sini ve PowerShell cmdlet’ini Ayarla
 * Azure portalı: Klasik sanal ağ > VPN bağlantıları > Siteden siteye VPN bağlantıları > Yerel site adı > Yerel site > İstemci adres alanı yolunu izleyin. 
 * Klasik portal: Ağlar sayfasında Yerel Ağlar altında sanal ağınız için ağ geçidinden göndermek istediğiniz aralıkları ekleyin. 
 
-### <a name="can-i-configure-forced-tunneling"></a>Zorlamalı Tüneli yapılandırabilir miyim?
+### <a name="can-i-configure-force-tunneling"></a>Zorlamalı Tüneli yapılandırabilir miyim?
 
 Evet. Bkz. [Zorlamalı tüneli yapılandırma](vpn-gateway-about-forced-tunneling.md).
 
@@ -159,9 +159,13 @@ Siteden Siteyi şirket içi ve dışı yapılandırması için Windows Server 20
 
 Endüstri standardı IPsec uygulamalarıyla uyumlu olana kadar diğer yazılım VPN çözümleri bizim ağ geçidimizle çalışmalıdır. Yapılandırma ve destek hakkında yönergeler için yazılım satıcısına başvurun.
 
-## <a name="P2S"></a>Noktadan Siteye bağlantıları
+## <a name="P2S"></a>Noktadan Siteye - Yerel Azure sertifika doğrulaması
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>Noktadan Siteye - RADIUS kimlik doğrulaması
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>Sanal Ağdan Sanal Ağa ve Çok Siteli bağlantılar
 

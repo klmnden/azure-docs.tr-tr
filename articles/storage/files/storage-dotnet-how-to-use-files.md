@@ -1,6 +1,6 @@
 ---
-title: ".NET ile Azure Dosya depolama için geliştirme | Microsoft Docs"
-description: "Dosya verilerini depolamak için Azure Dosya depolama kullanan .NET uygulamaları ve hizmetlerini geliştirmeyi öğrenin."
+title: ".NET ile Azure Dosyaları için geliştirme | Microsoft Docs"
+description: "Dosya verilerini depolamak için Azure Dosyaları'nı kullanan .NET uygulamaları ve hizmetlerini geliştirmeyi öğrenin."
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7b94e70619324bb8dc8e7f8306f00f06e7476c1f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-net"></a>.NET ile Azure Dosya depolama için geliştirme 
+# <a name="develop-for-azure-files-with-net"></a>.NET ile Azure Dosyaları için geliştirme 
 > [!NOTE]
-> Bu makalede Azure Dosya depolamanın .NET koduyla nasıl yönetileceği gösterilir. Azure Dosya depolama hakkında daha fazla bilgi için lütfen [Azure Dosya depolamaya giriş](storage-files-introduction.md) konusuna bakın.
+> Bu makalede Azure Dosyaları'nın .NET koduyla nasıl yönetileceği gösterilir. Azure Dosyaları hakkında daha fazla bilgi için lütfen [Azure Dosyaları'na giriş](storage-files-introduction.md) konusuna bakın.
 >
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>Bu öğretici hakkında
-Bu öğretici, dosya verilerini depolamak için Azure Dosya depolama kullanan .NET uygulamaları ve hizmetleri geliştirmenin temellerini gösterir. Bu öğreticide basit bir konsol uygulaması oluşturacağız ve .NET ve Azure Dosya depolama ile nasıl temel eylemler gerçekleştirileceğini göstereceğiz:
+Bu öğretici, dosya verilerini depolamak için Azure Dosyaları'nı kullanan .NET uygulamaları ve hizmetleri geliştirmenin temellerini gösterir. Bu öğreticide basit bir konsol uygulaması oluşturacağız ve .NET ve Azure Dosyaları ile nasıl temel eylemler gerçekleştirileceğini göstereceğiz:
 
 * Dosyanın içeriğini alma
 * Dosya paylaşımı için kota (en fazla boyut) ayarlama.
@@ -42,7 +42,7 @@ Bu öğretici, dosya verilerini depolamak için Azure Dosya depolama kullanan .N
 * Sorun giderme için Azure Storage Ölçümleri’ni kullanacağız.
 
 > [!Note]  
-> Azure Dosya depolamaya SMB üzerinden erişilebildiğinden, Dosya G/Ç için standart System.IO sınıflarını kullanarak Azure Dosya paylaşımına erişen basit uygulamalar yazmak mümkündür. Bu makalede, [Azure Dosya depolama REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) kullanarak Azure Dosya depolamayla iletişim kuran Azure Depolama .NET SDK’sının kullanıldığı uygulamaların nasıl yazılacağı anlatılır. 
+> Azure Dosyaları'na SMB üzerinden erişilebildiğinden, Dosya G/Ç için standart System.IO sınıflarını kullanarak Azure Dosya paylaşımına erişen basit uygulamalar yazmak mümkündür. Bu makalede, [Dosya REST API'sını](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) kullanarak Azure Dosyaları ile iletişim kuran Azure Depolama .NET SDK'sının kullanıldığı uygulamaların nasıl yazılacağı anlatılır. 
 
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Konsol uygulaması oluşturma ve derleme alma
@@ -86,7 +86,7 @@ Sonraki adımda, kimlik bilgilerinizi projenizin app.config dosyasına kaydedin.
 ```
 
 > [!NOTE]
-> Azure depolama öykünücüsünün en son sürümü Azure Dosya depolamayı desteklemez. Bağlantı dizeniz, Azure Dosya depolama ile çalışmak için buluttaki bir Azure Depolama hesabını hedeflemelidir.
+> Azure depolama öykünücüsünün en son sürümü Azure Dosyaları'nı desteklemez. Bağlantı dizeniz, Azure Dosyaları ile çalışmak için buluttaki bir Azure Depolama hesabını hedeflemelidir.
 
 ## <a name="add-using-directives"></a>Using yönergeleri ekleme
 Çözüm Gezgini’nde `Program.cs` dosyasını açın ve aşağıdaki using yönergelerini dosyanın üst tarafına ekleyin.
@@ -95,7 +95,7 @@ Sonraki adımda, kimlik bilgilerinizi projenizin app.config dosyasına kaydedin.
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
-using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -104,7 +104,7 @@ using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
 Şimdi, bağlantı dizesini almak için aşağıdaki kodu `Main()` yöntemine (yukarıda gösterilen koddan sonra) ekleyin. Bu kod, daha önce oluşturduğumuz dosyaya başvuru alır ve bu dosyanın içeriğini konsol penceresine çıkarır.
 
 ```csharp
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -149,7 +149,7 @@ Aşağıdaki örnekte, paylaşımdaki mevcut kullanımını nasıl kontrol edile
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -184,7 +184,7 @@ Aşağıdaki örnekte, paylaşım için bir paylaşılan erişim ilkesi oluştur
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -242,7 +242,7 @@ Bir dosyayı diğer bir dosyaya veya bir blobu bir dosyaya ya da tam tersini yap
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -286,7 +286,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Create a new file share, if it does not already exist.
@@ -327,14 +327,12 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Aynı şekilde, bir blobu bir dosyaya kopyalayabilirsiniz. Kaynak dosya bir blob ise, kopyalama sırasında bu bloba erişimin kimlik doğrulamasını yapması için bir SAS oluşturun.
 
-## <a name="troubleshooting-azure-file-storage-using-metrics"></a>Ölçümleri kullanarak Azure Dosya depolama sorunlarını giderme
-Artık Azure Depolama Analizi, Azure Dosya depolama için ölçümleri destekliyor. Ölçüm verilerini kullanarak istekleri ve tanılama sorunlarını izleyebilirsiniz.
+## <a name="troubleshooting-azure-files-using-metrics"></a>Ölçümleri kullanarak Azure Dosyaları sorunlarını giderme
+Artık Azure Depolama Analizi, Azure Dosyaları için ölçümleri destekliyor. Ölçüm verilerini kullanarak istekleri ve tanılama sorunlarını izleyebilirsiniz.
 
+Azure Dosyaları ölçümlerini [Azure portalından](https://portal.azure.com) etkinleştirebilirsiniz. Ayrıca, REST API veya Depolama İstemci Kitaplığı’ndaki analoglarından biri aracılığıyla Dosya Hizmeti Özelliklerini Ayarla işlemine çağrı yaparak ölçümleri programlamayla etkinleştirebilirsiniz.
 
-Azure Dosya depolama ölçümlerini [Azure Portal](https://portal.azure.com)’dan etkinleştirebilirsiniz. Ayrıca, REST API veya Depolama İstemci Kitaplığı’ndaki analoglarından biri aracılığıyla Dosya Hizmeti Özelliklerini Ayarla işlemine çağrı yaparak ölçümleri programlamayla etkinleştirebilirsiniz.
-
-
-Aşağıdaki kodda, Azure Dosya depolama için ölçümleri etkinleştirmek üzere .NET için Depolama İstemcisi Kitaplığı’nı nasıl kullanacağınız gösterilmiştir.
+Aşağıdaki kodda, Azure Dosyaları için ölçümleri etkinleştirmek üzere .NET için Depolama İstemcisi Kitaplığı'nı nasıl kullanacağınız gösterilmiştir.
 
 İlk olarak, yukarıda eklediğiniz yönergelere ek olarak aşağıdaki `using` yönergelerini `Program.cs` dosyanıza ekleyin:
 
@@ -343,7 +341,7 @@ using Microsoft.WindowsAzure.Storage.File.Protocol;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
-Azure Blobları, Azure Tablosu ve Azure Kuyruklarının `Microsoft.WindowsAzure.Storage.Shared.Protocol` ad alanındaki paylaşılan `ServiceProperties` türünü kullanmasına rağmen, Azure Dosya depolamanın `Microsoft.WindowsAzure.Storage.File.Protocol` ad alanında bulunan kendi `FileServiceProperties` türünü kullandığına dikkat edin. Aşağıdaki kodların derlenebilmesi için her iki ad alanına da kodunuzdan başvurulmuş olması gerekir.
+Azure Blobları, Azure Tablosu ve Azure Kuyruklarının `Microsoft.WindowsAzure.Storage.Shared.Protocol` ad alanındaki paylaşılan `ServiceProperties` türünü kullanmasına rağmen, Azure Dosyaları'nın `Microsoft.WindowsAzure.Storage.File.Protocol` ad alanında bulunan kendi `FileServiceProperties` türünü kullandığına dikkat edin. Aşağıdaki kodların derlenebilmesi için her iki ad alanına da kodunuzdan başvurulmuş olması gerekir.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -386,26 +384,26 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-Uçtan uca sorun giderme rehberi için [Azure Dosya depolama Sorun Giderme Makalesine](storage-troubleshoot-windows-file-connection-problems.md) de başvurabilirsiniz.
+Uçtan uca sorun giderme kılavuzu için [Azure Dosyaları Sorun Giderme Makalesine](storage-troubleshoot-windows-file-connection-problems.md) de bakabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
+Azure Dosyaları hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
 
 ### <a name="conceptual-articles-and-videos"></a>Kavramsal makaleler ve videolar
-* [Azure Dosya depolama: Windows ve Linux için uyumlu bulut SMB dosya sistemi](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Azure Dosya depolamayı Linux ile kullanma](storage-how-to-use-files-linux.md)
+* [Azure Dosyaları: Windows ve Linux için uyumlu bulut SMB dosya sistemi](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure Dosyaları'nı Linux ile kullanma](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>File Storage için araç desteği
 * [Microsoft Azure Depolama ile AzCopy kullanma](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Azure Depolama ile Azure CLI kullanma](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Azure Dosya depolama sorunlarını giderme](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Azure Dosyaları sorunlarını giderme](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Başvuru
 * [.NET başvurusu için Depolama İstemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Dosya Hizmeti REST API başvurusu](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>Blog yazıları
-* [Azure Dosya Depolama genel kullanıma sunulmuştur](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Azure Dosya depolama incelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Dosyaları genel kullanıma sunulmuştur](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Azure Dosyaları İncelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure Dosya Hizmeti’ne Giriş](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Microsoft Azure Dosya depolamaya kalıcı bağlantılar](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Microsoft Azure Dosyaları ile kalıcı bağlantılar](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

@@ -12,32 +12,33 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/21/2017
+ms.date: 9/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>İlk Azure Service Fabric uygulamanızı oluşturma
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [Java - Linux (Önizleme)](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# - Linux (Önizleme)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
-Service Fabric, Linux üzerinde hem .NET Core hem de Java dillerinde hizmet oluşturmaya yönelik SDK’lar sağlar. Bu öğreticide, C# (.NET Core) kullanarak Linux için bir uygulama ve hizmet oluşturmayı öğreneceğiz.
+Service Fabric, Linux üzerinde hem .NET Core hem de Java dillerinde hizmet oluşturmaya yönelik SDK’lar sağlar. Bu öğreticide, .NET Core 2.0 üzerinde C# kullanarak Linux için bir uygulama ve hizmet oluşturmayı öğreneceğiz.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Başlamadan önce [Linux geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started-linux.md) emin olun. Mac OS X kullanıyorsanız, [Vagrant kullanarak bir sanal makinede Linux one-box ortamı ayarlayabilirsiniz](service-fabric-get-started-mac.md).
 
 [Service Fabric CLI](service-fabric-cli.md)’yı de yüklemeniz gerekir.
 
-### <a name="install-and-set-up-the-generators-for-csharp"></a>CSharp için oluşturucuları yükleme ve ayarlama
-Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric CSharp uygulaması oluşturmanıza yardımcı olacak yapı iskelesi araçları sağlar. Lütfen makinenizde çalışan bir CSharp için Service Fabric yeoman şablon oluşturucu olduğundan emin olmak için aşağıdaki adımları izleyin.
+### <a name="install-and-set-up-the-generators-for-c"></a>C# için oluşturucuları yükleme ve ayarlama
+Service Fabric, Yeoman şablon oluşturucuları kullanarak terminalden Service Fabric uygulamaları oluşturmanıza yardımcı olan yapı iskelesi araçları sağlar. C# için Service Fabric Yeoman şablon oluşturucularını ayarlama amacıyla bu adımları izleyin:
+
 1. Makinenize nodejs ve NPM yükleme
 
   ```bash
@@ -56,7 +57,7 @@ Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric
   ```
 
 ## <a name="create-the-application"></a>Uygulama oluşturma
-Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetlerin her biri uygulamanın işlevselliğini aktarma konusunda belirli bir role sahiptir. Son adımda yüklediğiniz CSharp için Service Fabric [Yeoman](http://yeoman.io/) oluşturucu, ilk hizmetinizi oluşturmanızı ve daha sonra yeni hizmetler eklemenizi kolaylaştırır. Tek bir hizmetle uygulama oluşturmak için Yeoman’ı kullanalım.
+Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetlerin her biri uygulamanın işlevselliğini aktarma konusunda belirli bir role sahiptir. Son adımda yüklediğiniz C# için Service Fabric [Yeoman](http://yeoman.io/) oluşturucu, ilk hizmetinizi oluşturmanızı ve daha sonra yeni hizmetler eklemenizi kolaylaştırır. Tek bir hizmetle uygulama oluşturmak için Yeoman’ı kullanalım.
 
 1. Bir terminalde iskele oluşturmaya başlamak için aşağıdaki komutu yazın:`yo azuresfcsharp`
 2. Uygulamanızı adlandırın.
@@ -126,7 +127,6 @@ Actor projeleri kendi başına bir işlem yapamaz. Bunlar başka bir hizmet veya
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Reliable Actors hakkında daha fazla bilgi edinin](service-fabric-reliable-actors-introduction.md)
 * [Service Fabric CLI’sını kullanarak Service Fabric kümeleriyle etkileşim kurma](service-fabric-cli.md)
 * [Service Fabric destek seçenekleri](service-fabric-support.md) hakkında bilgi edinin
 * [Service Fabric CLI ile çalışmaya başlama](service-fabric-cli.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure portalından Azure Dosya depolamayı yönetme | Microsoft Docs"
-description: "Azure portalından Azure Dosya depolamayı yönetmeyi öğrenin."
+title: "Azure portalından Azure Dosyaları'nı yönetme | Microsoft Docs"
+description: "Azure portalından Azure Dosyaları'nı yönetmeyi öğrenin."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d5ffa7cff0a31e36f5a96aaa4b2d477fa39333fb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="how-to-use-azure-file-storage-from-the-azure-portal"></a>Azure portalından Azure Dosya depolamayı yönetme
-[Azure portalı](https://portal.azure.com), Azure Dosya paylaşımlarını yönetmek için bir kullanıcı arabirimi sunar. Web tarayıcınızdan aşağıdaki eylemleri gerçekleştirebilirsiniz:
+# <a name="how-to-use-azure-files-from-the-azure-portal"></a>Azure portalından Azure Dosyaları'nı yönetme
+[Azure portalı](https://portal.azure.com), Azure Dosyaları'nı yönetmek için bir kullanıcı arabirimi sunar. Web tarayıcınızdan aşağıdaki eylemleri gerçekleştirebilirsiniz:
 
 * Dosya Paylaşımı oluşturma
 * Dosya paylaşımınızda dosyaları karşıya yükleme ve indirme.
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/21/2017
 * Windows veya Linux istemcisinden dosya paylaşımınızı bağlamak için bağlama komutlarını kopyalayın.
 
 ## <a name="create-file-share"></a>Dosya paylaşımı oluşturma
-1. Azure portalında oturum açın.
+1. Azure Portal’da oturum açın.
 2. Gezinti menüsünde, **Depolama hesapları** veya **Depolama hesapları (klasik)** seçeneğine tıklayın.
     
     ![Portalda dosya paylaşımı oluşturmayı gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share1.png)
@@ -49,7 +49,7 @@ ms.lasthandoff: 08/21/2017
 
     ![Portalda dosya paylaşımı oluşturmayı gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
 
-6. İlk dosya paylaşımınızı oluşturmak üzere dosya paylaşımının adını ve boyutunu (en fazla 5120 GB) girin. Dosya paylaşımı oluşturulduktan sonra, SMB 2.1 veya SMB 3.0 destekleyen herhangi bir dosya sisteminden bağlayabilirsiniz. Dosya paylaşımında bulunan **Kota**’ya tıklayarak dosyanızın boyutunu en fazla 5120 GB’a kadar değiştirebilirsiniz. Azure Dosya depolama kullanıldığında depolamanın tahmini maliyetini hesaplamak lütfen [Azure Fiyatlandırma Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/)’na bakın.
+6. İlk dosya paylaşımınızı oluşturmak üzere dosya paylaşımının adını ve boyutunu (en fazla 5120 GB) girin. Dosya paylaşımı oluşturulduktan sonra, SMB 2.1 veya SMB 3.0 destekleyen herhangi bir dosya sisteminden bağlayabilirsiniz. Dosya paylaşımında bulunan **Kota**’ya tıklayarak dosyanızın boyutunu en fazla 5120 GB’a kadar değiştirebilirsiniz. Azure Dosyaları kullanıldığında depolamanın tahmini maliyetini hesaplamak lütfen [Azure Fiyatlandırma Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/)'na bakın.
 
     ![Portalda dosya paylaşımı oluşturmayı gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/21/2017
     ![Portaldan dosya yüklemeyi gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
 
 ## <a name="connect-to-file-share"></a>Dosya paylaşımına bağlanma
--  Dosya paylaşımını bağlamak üzere Windows ve Linux’tan komut satırı almak için **Bağlan**’a tıklayın. Linux kullanıcıları için, diğer Linux dağıtımlarına yönelik daha fazla bağlama yönergesini [Azure Dosya depolamayı Linux ile kullanma](../storage-how-to-use-files-linux.md) bölümünde bulabilirsiniz.
+-  Dosya paylaşımını bağlamak üzere Windows ve Linux’tan komut satırı almak için **Bağlan**’a tıklayın. Linux kullanıcıları için, diğer Linux dağıtımlarına yönelik daha fazla bağlama yönergesini [Azure Dosyaları'nı Linux ile kullanma](../storage-how-to-use-files-linux.md) bölümünde bulabilirsiniz.
 
     ![Dosya paylaşımını bağlamayı gösteren ekran görüntüsü](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
 -  Windows veya Linux’ta dosya paylaşımı bağlama ve Azure VM veya şirket içi makinenizde çalıştırma için komutları kopyalayabilirsiniz.
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/21/2017
 Bağlama için depolama hesabı erişim anahtarını, bağlan sayfasının en altındaki **Bu depolama hesabı için erişim anahtarlarını görüntüleyin** alanına tıklayarak bulabilirsiniz.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
+Azure Dosyaları hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
 
 * [SSS](../storage-files-faq.md)
 * [Windows’da sorun giderme](storage-troubleshoot-windows-file-connection-problems.md)      

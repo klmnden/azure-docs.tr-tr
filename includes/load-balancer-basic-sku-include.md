@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+Azure Load Balancer iki farklı türü destekler: Temel ve Standart. Bu makalede Temel Yük Dengeleyici anlatılmaktadır. Temel Yük Dengeleyici genel kullanıma sunulmuştur ancak Standart Yük Dengeleyici henüz Genel Önizleme sürümündedir. Standart Yük Dengeleyici hakkında daha fazla bilgi için bkz. [Standart Yük Dengeleyiciye Genel Bakış](https://aka.ms/AzureLoadBalancerStandard).

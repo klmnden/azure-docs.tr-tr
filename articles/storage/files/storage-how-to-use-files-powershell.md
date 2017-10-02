@@ -1,6 +1,6 @@
 ---
-title: "PowerShell kullanarak Azure Dosya depolamayı yönetme | Microsoft Docs"
-description: "PowerShell kullanarak Azure Dosya depolamayı yönetmeyi öğrenin."
+title: "PowerShell kullanarak Azure Dosyaları'nı yönetme | Microsoft Docs"
+description: "PowerShell kullanarak Azure Dosyaları'nı yönetmeyi öğrenin."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ce62d4423ce711a6902aed7b8174ff4e827f6083
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f919e1880f709b416867a29de14f1dcc63a165fe
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a>PowerShell kullanarak Azure Dosya depolamayı yönetme
+# <a name="how-to-use-powershell-to-manage-azure-files"></a>PowerShell kullanarak Azure Dosyaları'nı yönetme
 Dosya paylaşımları oluşturmak ve yönetmek için Azure PowerShell’i kullanabilirsiniz.
 
 ## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Azure Storage için PowerShell cmdlet’leri yükleme
@@ -96,7 +96,7 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
+Azure Dosyaları hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
 
 * [SSS](../storage-files-faq.md)
 * [Windows’da sorun giderme](storage-troubleshoot-windows-file-connection-problems.md)      

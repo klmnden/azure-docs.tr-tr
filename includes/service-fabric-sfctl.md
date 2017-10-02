@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Service Fabric ile etkileşim tutmak için kullanılan iki CLI yardımcı programı vardır. [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), Azure'da barındırılan Service Fabric kümesi gibi Azure kaynaklarını yönetmek için kullanılır. Service Fabric CLI, Service Fabric kümesine (barındırıldığı yerden bağımsız olarak) doğrudan bağlanarak kümeyi, uygulamaları ve hizmetleri yönetmek için kullanılır. 

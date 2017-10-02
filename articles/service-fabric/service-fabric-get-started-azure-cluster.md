@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
 ms.contentlocale: tr-tr
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -46,7 +46,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
     Düğüm türleri VM boyutunu, VM sayısını, özel uç noktaları ve aynı türdeki VM’lerin diğer ayarlarını tanımlar. Tanımlanan her düğüm türü, sanal makineleri küme olarak dağıtıp yönetmek için kullanılan ayrı bir sanal makine ölçek kümesi olarak ayarlanır. Her düğüm türünün ölçeği birbirinden bağımsız olarak artırılabilir veya azaltılabilir, her düğüm türünde farklı bağlantı noktası kümeleri açık olabilir ve farklı kapasite ölçümleri yapılabilir.  Birinci veya birincil düğüm türü, Service Fabric sistem hizmetlerinin barındırıldığı yerdir ve beş ya da daha fazla VM içermelidir.
 
-    Herhangi bir üretim dağıtımı için [kapasite planlaması](service-fabric-cluster-capacity.md) önemli bir adımdır.  Ancak, bu hızlı başlangıçta uygulama çalıştırmadığınız için bir *DS1_v2 Standart* VM boyutu seçin.  [Güvenilirlik katmanı](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) için "Gümüş" seçeneğini belirleyin ve sanal makine ölçek kümesinin başlangıç kapasitesini 5 olarak ayarlayın.  
+    Herhangi bir üretim dağıtımı için [kapsite planlaması](service-fabric-cluster-capacity.md) önemli bir adımdır.  Ancak, bu hızlı başlangıçta uygulama çalıştırmadığınız için bir *DS1_v2 Standart* VM boyutu seçin.  [Güvenilirlik katmanı](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) için "Gümüş" seçeneğini belirleyin ve sanal makine ölçek kümesinin başlangıç kapasitesini 5 olarak ayarlayın.  
 
     Özel uç noktalar Azure Load Balancer’da bağlantı noktaları açtığı için, küme üzerinde çalışan uygulamalarla bağlantı kurabilirsiniz.  80 ve 8172 bağlantı noktalarını açmak için "80, 8172" girin.
 
@@ -69,18 +69,6 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 8. Özeti gözden geçirin.  Girdiğiniz ayarlarla oluşturulmuş bir Resource Manager şablonu indirmek isterseniz, **Şablon ve parametreleri indir**’i seçin.  **Oluştur**’u seçerek kümeyi oluşturun.
 
     Oluşturma işleminin ilerleme durumunu bildirimler bölümünden görebilirsiniz. (Ekranınızın sağ üst köşesindeki durum çubuğunun yanında bulunan "Zil" simgesine tıklayın.) Kümeyi oluştururken **Başlangıç Panosuna Sabitle**’ye tıkladıysanız, **Service Fabric Kümesi Dağıtılıyor** öğesinin **Başlangıç** panosuna sabitlendiğini görürsünüz.
-
-### <a name="view-cluster-status"></a>Küme durumunu görüntüleme
-Kümeniz oluşturulduktan sonra, portaldaki **Genel Bakış** dikey penceresinden kümenizi inceleyebilirsiniz. Kümenin genel uç noktası ve bir Service Fabric Explorer bağlantısıyla birlikte kümenizin ayrıntılarını panoda görebilirsiniz.
-
-![Küme durumu][cluster-status]
-
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer’ı kullanarak kümeyi görselleştirme
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), kümenizi görselleştirmek ve uygulamaları yönetmek için iyi bir araçtır.  Service Fabric Explorer, kümede çalışan bir hizmettir.  Bir web tarayıcısı ile portaldaki kümeye **Genel Bakış** sayfasının **Service Fabric Explorer** bağlantısına tıklayarak bu hizmete erişin.  Ayrıca adresi doğrudan tarayıcıya girebilirsiniz: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
-
-Küme panosu, kümenize uygulama ve düğüm durumunun özetini de içeren bir genel bakış sağlar. Düğüm görünümü, kümenin fiziksel düzenini gösterir. Belirli bir düğümde, hangi uygulamalara kod dağıtıldığını denetleyebilirsiniz.
-
-![Service Fabric Explorer][service-fabric-explorer]
 
 ### <a name="connect-to-the-cluster-using-powershell"></a>PowerShell kullanarak kümeye bağlanma
 PowerShell ile bağlanarak kümenin çalıştığını doğrulayın.  ServiceFabric PowerShell modülü, [Service Fabric SDK’sı](service-fabric-get-started.md) ile birlikte yüklenir.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet’i, kümeyle bir bağlantı kurar.   
@@ -112,7 +100,7 @@ Azure portalında bir kaynak grubunu silin:
     ![Kaynak grubunu silme][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Azure PowerShell'i kullanarak güvenli küme dağıtma
+## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>Azure PowerShell'i kullanarak güvenli bir Windows kümesi dağıtma
 1. [Azure Powershell modülü sürüm 4.0 veya üzerini](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) makinenize indirin.
 
 2. Bir PowerShell penceresi açıp aşağıdaki komutu çalıştırın. 
@@ -205,10 +193,6 @@ Bağlı olup olmadığınızı ve kümenin sağlıklı olup olmadığını denet
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Uygulamalarınızı Visual Studio’dan kümenize yayımlama
-
-Bir Azure kümesi oluşturduktan sonra, [Kümede yayımlama](service-fabric-publish-app-remote-cluster.md) belgesini izleyerek bu uygulamayı Visual Studio’dan kümeye yayımlayabilirsiniz. 
-
 ### <a name="remove-the-cluster"></a>Kümeyi kaldırma
 Küme, küme kaynağının yanı sıra diğer Azure kaynaklarından oluşur. Kümeyi ve kullandığı tüm kaynakları silmenin en basit yolu, kaynak grubunun silinmesidir. 
 
@@ -217,12 +201,62 @@ Küme, küme kaynağının yanı sıra diğer Azure kaynaklarından oluşur. Kü
 Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
+## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>Azure CLI'yı kullanarak güvenli bir Linux kümesi dağıtma
+
+1. Bilgisayarınıza [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest)'ı yükleyin.
+2. Azure'da oturum açıp kümeyi oluşturmak istediğiniz aboneliği seçin.
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. Güvenli bir küme oluşturmak için [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) komutunu çalıştırın.
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+    
+### <a name="connect-to-the-cluster"></a>Kümeye bağlanma
+Sertifikayı kullanarak kümeye bağlanmak için aşağıdaki CLI komutunu kullanın.  Kimlik doğrulaması için bir istemci sertifikası kullanıyorsanız sertifika bilgilerinin küme düğümlerine dağıtılmış olan bir sertifikayla eşleşmesi gerekir.  Otomatik olarak imzalanan sertifika için `--no-verify` seçeneğini kullanın.
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+Bağlı olup olmadığınızı ve kümenin sağlıklı olup olmadığını denetlemek için aşağıdaki komutu çalıştırın.
+
+```azurecli
+az sf cluster health
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık bir geliştirme kümesi ayarladığınıza göre aşağıdakileri deneyebilirsiniz:
-* [Portalda güvenli küme oluşturma](service-fabric-cluster-creation-via-portal.md)
-* [Şablondan küme oluşturma](service-fabric-cluster-creation-via-arm.md) 
+* [Service Fabric Explorer ile kümenizi görselleştirme](service-fabric-visualizing-your-cluster.md)
+* [Küme kaldırma](service-fabric-cluster-delete.md) 
 * [PowerShell kullanarak uygulama dağıtma](service-fabric-deploy-remove-applications.md)
+* [CLI kullanarak uygulama dağıtma](service-fabric-application-lifecycle-sfctl.md)
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png

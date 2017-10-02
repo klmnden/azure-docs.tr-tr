@@ -3,7 +3,7 @@ title: "İç yük dengeleyicisi oluşturma - Azure CLI klasik | Microsoft Docs"
 description: "Klasik dağıtım modelinde Azure CLI kullanarak iç yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
 ms.contentlocale: tr-tr
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -39,11 +39,11 @@ ms.lasthandoff: 03/21/2017
 
 ## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Sanal makineler için iç yük dengeleyici oluşturma
 
-İç yük dengeleyici kümesi ve trafiğini bu kümeye gönderecek sunucuları oluşturmak için aşağıdaki adımları uygulamanız gerekir:
+İç yük dengeleyici kümesi ve trafiğini bu kümeye gönderen sunucuları oluşturmak için aşağıdaki adımları uygulamanız gerekir:
 
-1. Gelen trafiğin uç noktası olacak ve bu trafiğe yük dengeli bir kümenin sunucularında yük dengelemesi yapacak bir İç Yük Dengeleme örneği oluşturun.
-2. Gelen trafiği alacak sanal makinelere karşılık gelen uç noktalar ekleyin.
-3. Yük dengelemesi yapılacak trafiği gönderecek sunucuları trafiklerini İç Yük Dengeleme örneğinin sanal IP (VIP) adresine gönderecek şekilde yapılandırın.
+1. Gelen trafiğin uç noktası olacak ve bu trafiğe yük dengeli bir kümenin sunucularında yük dengelemesi yapan bir İç Yük Dengeleme örneği oluşturun.
+2. Gelen trafiği alan sanal makinelere karşılık gelen uç noktalar ekleyin.
+3. Sunucuları trafiklerini İç Yük Dengeleme örneğinin sanal IP (VIP) adresine gönderecek şekilde yapılandırın.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>CLI kullanarak iç yük dengeleyici oluşturma adımları
 
@@ -93,7 +93,7 @@ Daha fazla bilgi için bkz. `azure service internal-load-balancer --help`.
 
 ### <a name="step-2"></a>2. Adım
 
-İlk uç noktayı eklediğinizde iç yük dengeleyici kümesini yapılandırırsınız. Bu adımda uç noktası, sanal makine ve araştırma bağlantı noktasını iç yük dengeleyici kümesiyle ilişkilendireceksiniz.
+İlk uç noktayı eklediğinizde iç yük dengeleyici kümesini yapılandırırsınız. Bu adımda uç noktası, sanal makine ve araştırma bağlantı noktasını iç yük dengeleyici kümesiyle ilişkilendirebilirsiniz.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -107,7 +107,7 @@ azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 
 azure vm show DB1
 ```
 
-Çıktı şu şekilde olacaktır:
+Çıktı aşağıdaki şekilde olacaktır:
 
     azure vm show DB1
     info:    Executing command vm show
