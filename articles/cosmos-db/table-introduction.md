@@ -27,7 +27,7 @@ ms.lasthandoff: 09/08/2017
 
 * [Anahtar teslimi genel dağıtım](distribute-data-globally.md).
 * Dünya genelinde [adanmış aktarım hızı](partition-data.md).
-* 99. yüzdebirlikte tek basamaklı milisaniyelik gecikme süresi.
+* 99 yüzdebirlikte tek basamaklı milisaniyelik gecikme süresi.
 * Garantili yüksek kullanılabilirlik.
 * [Otomatik ikincil dizin oluşturma](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
