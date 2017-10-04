@@ -1,11 +1,5 @@
 # Genel Bakış
 ## [Geliştirici kılavuzu](azure-developer-guide.md) 
-### [Azure nedir?](azure-developer-guide.md#what-is-azure)
-### [Nereden başlamalıyım?](azure-developer-guide.md#where-do-i-start)
-### [Azure bölgeleri](azure-developer-guide.md#azure-regions)
-### [Uygulamalarımı ve projelerimi nasıl yönetebilirim?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Hesapları, abonelikleri ve faturalamayı anlama](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
 ## [Azure hizmetlerine genel bakış](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Portala genel bakış](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDK’lar ve araçlar](https://docs.microsoft.com/azure/index#pivot=sdkstools)

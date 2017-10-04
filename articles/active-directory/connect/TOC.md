@@ -43,7 +43,7 @@
 ##### [Akıllı Kilitleme](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Sık sorulan sorular](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Sorun giderme](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
-##### [Güvenliğe derinlemesine bakış](active-directory-aadconnect-pta-security-deep-dive.md)
+##### [Güvenliğe derinlemesine bakış](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
 ### [Federasyon için çoklu etki alanı desteği](active-directory-aadconnect-multiple-domains.md)
 ### [Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Çoklu Oturum Açma için SAML 2.0 Kimlik Sağlayıcısı (IdP) Kullanma](active-directory-aadconnect-federation-saml-idp.md)

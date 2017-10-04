@@ -9,7 +9,7 @@
 
 # Nasıl yapılır?
 
-## Data Lake Analytics hesaplarını yönetme
+## Data Lake Analytics'i yönetme
 ### [Azure portal](data-lake-analytics-manage-use-portal.md)
 ### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)

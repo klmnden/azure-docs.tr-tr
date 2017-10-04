@@ -135,3 +135,5 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Destek seçenekleri
       href: 'https://azure.microsoft.com/support/options/'
+    - name: Müşteri hikayeleri
+      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
