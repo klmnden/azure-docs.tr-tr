@@ -66,6 +66,8 @@
   items:
     - name: Facebook gönderilerini denetleme
       href: facebook-post-moderation.md
+    - name: eTicaret katalog denetimi
+      href: ecommerce-retail-catalog-moderation.md
 - name: API Başvuruları
   items:
     - name: Tüm API’ler

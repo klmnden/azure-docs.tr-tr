@@ -40,6 +40,8 @@
 - name: Yönetilen Hizmet Kimliği
   href: msi-overview.md
   items:
+    - name: Oturum açma veya belirteç edinme
+      href: msi-how-to-get-access-token-using-msi.md
     - name: Azure VM için MSI yapılandırma
       items:
         - name: Azure Portal ile
@@ -50,6 +52,8 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: Azure Resource Manager şablonu ile
           href: msi-qs-configure-template-windows-vm.md
+        - name: Azure SDK’sı ile
+          href: msi-qs-configure-sdk-windows-vm.md
     - name: Azure kaynağına MSI erişimi atama
       items:
         - name: Azure portal ile

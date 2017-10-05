@@ -26,8 +26,8 @@
 
 ## Kümeleri oluşturma ve yönetme
 ### 1 - Azure’da küme oluşturma
-#### [1a- Azure’da güvenli bir Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b- Azure’da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a- Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Service Fabric ile API Management dağıtma](service-fabric-tutorial-deploy-api-management.md)
 
 # Örnekler
@@ -198,7 +198,6 @@
 ### Reliable Actors hizmeti oluşturma
 #### başlarken
 ##### [Windows üzerinde C#](service-fabric-reliable-actors-get-started.md)
-##### [Linux üzerinde Java](service-fabric-reliable-actors-get-started-java.md)
 ##### [Linux üzerinde Java Actor](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Bildirim gönderme](service-fabric-reliable-actors-events.md)
 #### [Zamanlayıcı ve anımsatıcı ayarlama](service-fabric-reliable-actors-timers-reminders.md)

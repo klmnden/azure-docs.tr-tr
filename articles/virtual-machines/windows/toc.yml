@@ -344,6 +344,8 @@
               href: troubleshoot-recovery-disks-portal.md
         - name: PerfInsights kullanma
           href: how-to-use-perfInsights.md
+        - name: Performans Tanılama VM Uzantısı
+          href: performance-diagnostics-vm-extension.md
 - name: Başvuru
   items:
     - name: Azure CLI

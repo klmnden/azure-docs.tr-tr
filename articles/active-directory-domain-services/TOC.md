@@ -16,8 +16,9 @@
 # Nasıl yapılır
 ## Yönetilen bir etki alanına katılma
 ### [Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Azure PowerShell’i kullanarak Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Linux VM’sine katılma](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [PowerShell kullanarak Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Red Hat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Yönetilen etki alanını yönetme
 ### [Yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
 ### [Yönetilen etki alanında DNS’yi yönetme](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## Sorun giderme
 ### [SSS’ler](active-directory-ds-faqs.md)
 ### [Sorun giderme kılavuzu](active-directory-ds-troubleshooting.md)
-### [Önizleme aşamasındaki Azure portalı deneyimini etkinleştirme](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Eşleşmeyen kiracı hatalarını düzeltme](active-directory-ds-mismatched-tenant-error.md)
 
 # Başvuru

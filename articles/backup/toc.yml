@@ -39,6 +39,8 @@
           href: backup-azure-vm-backup-faq.md
         - name: Azure Backup aracısı kullanarak dosya-klasör yedekleme hakkında SSS
           href: backup-azure-file-folder-backup-faq.md
+        - name: Yedekleme kasasının otomatik güncelleştirilmesi hakkında SSS
+          href: backup-upgrade-backup-vault.md
     - name: Rol Tabanlı Access Control
       href: backup-rbac-rs-vault.md
     - name: Karma yedeklemeler için güvenlik

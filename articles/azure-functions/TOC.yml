@@ -145,7 +145,11 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
-    - name: OpenAPI Başvurusu
+    - name: host.json başvurusu
+      href: functions-host-json.md
+    - name: Uygulama ayarları başvurusu
+      href: functions-app-settings.md
+    - name: OpenAPI başvurusu
       href: functions-api-definition.md
 - name: Kaynaklar
   items:

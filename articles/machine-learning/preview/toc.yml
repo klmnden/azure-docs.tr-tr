@@ -73,6 +73,8 @@
           href: tutorial-iris-azure-cli.md
         - name: Çalıştırma geçmişini ve model ölçümlerini izleme
           href: how-to-use-run-history-model-metrics.md
+        - name: En yüksek doğruluğa ve en düşün süreye sahip çalıştırmaları bulma
+          href: how-to-find-best-accuracy-cli.md
         - name: Dosyaları okuma ve yazma
           href: how-to-read-write-files.md
         - name: MMLSpark kitaplığı

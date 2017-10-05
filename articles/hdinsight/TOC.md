@@ -12,6 +12,7 @@
 ### [Arşiv](hdinsight-release-notes-archive.md)
 
 # Kullanmaya Başlama
+## [HDInsight küme kapasitesi için plan yapma](hdinsight-capacity-planning.md)
 ## [Hadoop’u kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## Spark’ı kullanmaya başlama
 ### [Spark kümesi oluşturma](hdinsight-apache-spark-jupyter-spark-sql.md)
@@ -167,6 +168,8 @@
 ### [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [SSH tüneli kullanma](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [Veri erişimini kısıtlama](hdinsight-storage-sharedaccesssignature-permissions.md)
+### [Kullanıcıları Ambari Views için yetkilendirme](hdinsight-authorize-users-to-ambari.md)
+### [Dosya ve klasör düzeyinde kullanıcı izinlerini yönetme](hdinsight-add-acls-at-file-folder-levels.md)
 ## Yönet
 ### [Linux kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md)
 #### [Azure PowerShell’i kullanma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -200,6 +203,7 @@
 ### [Azure Log Analytics kullanma](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 ### [Kümeye özgü panolar](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
 ### [Log Analytics ile sorguları kullanma](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+### [Küme performansını izleme](hdinsight-key-scenarios-to-monitor.md)
 ## [Sorun giderme](hdinsight-troubleshoot-guide.md)
 ### [HBASE sorunlarını giderme](hdinsight-troubleshoot-hbase.md)
 ### [HDFS sorunlarını giderme](hdinsight-troubleshoot-hdfs.md)

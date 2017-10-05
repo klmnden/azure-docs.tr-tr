@@ -1,38 +1,57 @@
 # Genel Bakış
 ## [Azure Data Lake Store'a Genel Bakış](data-lake-store-overview.md)
 ## [Azure Data Lake Store ile Azure Depolama karşılaştırması](data-lake-store-comparison-with-blob-storage.md)
-## [Azure Data Lake Store’u büyük veri işleme için kullanma](data-lake-store-data-scenarios.md)
+## [Büyük veri işleme için Azure Data Lake Store](data-lake-store-data-scenarios.md)
 ## [Azure Data Lake Store ile çalışan açık kaynak uygulamalar](data-lake-store-compatible-oss-other-applications.md)
 
 # başlarken
-## [Azure Portalını kullanma](data-lake-store-get-started-portal.md)
-## [Azure PowerShell’i kullanma](data-lake-store-get-started-powershell.md)
-## [.NET SDK’yı kullanma](data-lake-store-get-started-net-sdk.md)
-## [Java SDK’yı kullanma](data-lake-store-get-started-java-sdk.md)
-## [REST API’sini kullanma](data-lake-store-get-started-rest-api.md)
-## [Azure CLI’yi kullanma](data-lake-store-get-started-cli-2.0.md)
-## [Node.js'yi kullanma](data-lake-store-manage-use-nodejs.md)
-## [Python’u kullanma](data-lake-store-get-started-python.md)
+## [Portalı kullanma](data-lake-store-get-started-portal.md)
+## [PowerShell’i kullanma](data-lake-store-get-started-powershell.md)
+## [Azure CLI 2.0 kullanma](data-lake-store-get-started-cli-2.0.md)
 
-# Nasıl yapılır
-## Veri Kopyalama
-### [Azure Data Factory'yi kullanma](../data-factory/connector-azure-data-lake-store.md)
+
+# Nasıl yapılır?
+## Verileri yükleme ve taşıma
+### [Azure Data Factory'yi kullanma](../data-factory/data-factory-azure-datalake-connector.md)
 ### [AdlCopy’yi kullanma](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp’yi kullanma](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop’u kullanma](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Çevrimdışı kaynaklardan veri yükleme](data-lake-store-offline-bulk-data-upload.md)
 ### [Azure Data Lake Store’u bölgeler arasında geçirme](data-lake-store-migration-cross-region.md)
 
-## Verileri Güvenli Hale Getirme
+## Verilerin güvenliğini sağlama
 ### [Güvenliğe genel bakış](data-lake-store-security-overview.md)
 ### [Data Lake Store’da erişim denetimi](data-lake-store-access-control.md)
 ### [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
-### [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md)
-### [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md)
 ### [Şifreleme](data-lake-store-encryption.md)
+
+## Data Lake Store ile kimlik doğrulaması
+### [Kimlik doğrulaması seçenekleri](data-lakes-store-authentication-using-azure-active-directory.md)
+### [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md)
+#### [Java kullanma](data-lake-store-end-user-authenticate-java-sdk.md)
+#### [.NET SDK’yı kullanma](data-lake-store-end-user-authenticate-net-sdk.md)
+#### [REST API’sini kullanma](data-lake-store-end-user-authenticate-rest-api.md)
+#### [Python’u kullanma](data-lake-store-end-user-authenticate-python.md)
+### [Hizmetten hizmete kimlik doğrulaması](data-lake-store-service-to-service-authenticate-using-active-directory.md)
+#### [Java kullanma](data-lake-store-service-to-service-authenticate-java.md)
+#### [.NET SDK’yı kullanma](data-lake-store-service-to-service-authenticate-net-sdk.md)
+#### [REST API’sini kullanma](data-lake-store-service-to-service-authenticate-rest-api.md)
+#### [Python’u kullanma](data-lake-store-service-to-service-authenticate-python.md)
+
+## Data Lake Store ile çalışma
+### Atanmış yönetimi işlemleri
+#### [.NET SDK’yı kullanma](data-lake-store-get-started-net-sdk.md)
+#### [REST API’sini kullanma](data-lake-store-get-started-rest-api.md)
+#### [Python’u kullanma](data-lake-store-get-started-python.md)
+### Dosya sistemi işlemleri
+#### [.NET SDK’yı kullanma](data-lake-store-data-operations-net-sdk.md)
+#### [Java SDK’yı kullanma](data-lake-store-get-started-java-sdk.md)
+#### [REST API’sini kullanma](data-lake-store-data-operations-rest-api.md)
+#### [Python’u kullanma](data-lake-store-data-operations-python.md)
 
 ## Performans
 ### [Azure Data Lake Store için performans ayarlama kılavuzu](data-lake-store-performance-tuning-guidance.md)
+### [Azure Data Lake Store ile PowerShell’i kullanmaya yönelik performans ayarlama kılavuzu](data-lake-store-performance-tuning-powershell.md)
 ### [Azure Data Lake Store ve HDInsight’ta Spark için performans ayarlama kılavuzu](data-lake-store-performance-tuning-spark.md)
 ### [Azure Data Lake Store ve HDInsight’ta Hive için performans ayarlama kılavuzu](data-lake-store-performance-tuning-hive.md)
 ### [Azure Data Lake Store ve HDInsight’ta MapReduce için performans ayarlama kılavuzu](data-lake-store-performance-tuning-mapreduce.md)

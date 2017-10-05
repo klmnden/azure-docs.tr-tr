@@ -19,6 +19,8 @@
       href: tutorial-review-usage.md
     - name: 2 - Belgelere erişimi denetleme
       href: tutorial-user-access.md
+    - name: 3 - Harcamaları tahmin etme
+      href: tutorial-forecast-spending.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

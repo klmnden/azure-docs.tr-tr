@@ -25,7 +25,6 @@
 ### [JavaScript UDF’lerini tümleştirme](stream-analytics-javascript-user-defined-functions.md)
 ### [REST API ve Machine Learning tümleştirme](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Çıktıları oluştur](stream-analytics-define-outputs.md)
-### [Azure İşlevleri’ne çıktı sağlama](stream-analytics-functions-redis.md)
 ### [Data Lake Store’a çıktı sağlama](stream-analytics-data-lake-output.md)
 ### [Cosmos DB çıkışı](stream-analytics-documentdb-output.md)
 
@@ -39,7 +38,8 @@
 ### [İşleri izleme](stream-analytics-monitoring.md)
 ### [Programlama yoluyla işleri izleme](stream-analytics-monitor-jobs.md)
 ### [PowerShell ile işleri izleme](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Akış Birimlerini İyileştirme](stream-analytics-streaming-unit-consumption.md)
+### [Akış Birimlerini anlama ve ayarlama](stream-analytics-streaming-unit-consumption.md)
+### [Sorgu paralelleştirmesinden yararlanma](stream-analytics-parallelization.md)
 ### [İşlemeyi artırmak için ölçeklendirme](stream-analytics-scale-jobs.md)
 ### [Machine Learning işlevleri ölçeği](stream-analytics-scale-with-machine-learning-functions.md)
 

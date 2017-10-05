@@ -1,13 +1,13 @@
-- name: Kubernetes ile ACS
+- name: Azure’da Kubernetes
   href: ./index.yml
 - name: Genel Bakış
   items:
-    - name: Container Service hakkında
+    - name: Azure’da Kubernetes
       href: container-service-intro-kubernetes.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Kubernetes Linux
+    - name: Azure’da Kubernetes
       href: container-service-kubernetes-walkthrough.md
 - name: Öğreticiler
   items:
@@ -25,14 +25,8 @@
       href: container-service-tutorial-kubernetes-app-update.md
     - name: 7 - OMS ile izleme
       href: container-service-tutorial-kubernetes-monitor.md
-- name: Örnekler
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
 - name: Kavramlar
   items:
-    - name: Güvenli kapsayıcılar
-      href: container-service-security.md
     - name: Hizmet sorumlusu - Kubernetes
       href: container-service-kubernetes-service-principal.md
 - name: Nasıl yapılır kılavuzları
@@ -41,18 +35,14 @@
       href: container-service-kubernetes-windows-walkthrough.md
     - name: Kubernetes web arabirimi
       href: container-service-kubernetes-ui.md
-    - name: Helm grafiklerini dağıtma
+    - name: Helm grafiklerini kullanma
       href: container-service-kubernetes-helm.md
-    - name: Jenkins ve ACS Kubernetes
+    - name: ACS ile Jenkins kullanma
       href: container-service-kubernetes-jenkins.md
-    - name: ACR ve ACS ile Taslak kullanma
+    - name: ACS ile Draft kullanma
       href: container-service-draft-up.md
-    - name: ACS kümesine bağlanma
-      href: container-service-connect.md
-    - name: ACS kümesini ölçeklendirme
+    - name: Küme ölçeklendirme
       href: container-service-scale.md
-    - name: Bir Kubernetes ACS kümesinin yükünü dengeleme
-      href: container-service-kubernetes-load-balancing.md
     - name: İzleme
       items:
         - name: OMS ile izleme
@@ -73,10 +63,10 @@
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Başvuru
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

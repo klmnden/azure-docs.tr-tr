@@ -37,11 +37,13 @@
 ### [HTTP/2 desteği](cdn-http2.md)
 
 ## Çözümleme
-### [Kullanım biçimlerini çözümleme](cdn-analyze-usage-patterns.md)
-### [Gelişmiş HTTP raporları oluşturma](cdn-advanced-http-reports.md)
-### [Gerçek zamanlı istatistikleri görüntüleme](cdn-real-time-stats.md)
-### [Kenar düğümü performansını çözümleme](cdn-edge-performance.md)
-### [Tanılama Günlükleriyle ölçümleri dışarı aktarma](cdn-log-analysis.md)
+### [Azure DN kullanım biçimlerini çözümleme](cdn-log-analysis.md)
+#### [Verizon'dan alınan çekirdek raporlar](cdn-analyze-usage-patterns.md)
+#### [Azure tanılama günlükleri](cdn-azure-diagnostic-logs.md)
+### Verizon'dan alınan Azure CDN için Analytics araçları
+#### [Gelişmiş HTTP raporları oluşturma](cdn-advanced-http-reports.md)
+#### [Gerçek zamanlı istatistikleri görüntüleme](cdn-real-time-stats.md)
+#### [Kenar düğümü performansını çözümleme](cdn-edge-performance.md)
 
 ## Geliştirme
 ### [.NET](cdn-app-dev-net.md)
