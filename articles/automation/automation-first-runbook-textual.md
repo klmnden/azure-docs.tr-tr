@@ -3,7 +3,7 @@ title: "Azure Automation’da ilk PowerShell İş Akışı runbook uygulamam | M
 description: "PowerShell İş Akışı kullanarak basit bir runbook oluşturma, test etme ve yayımlama adımlarını anlatan öğretici."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "powershell iş akışı, powershell iş akışı örnekleri, iş akışı powershell"
