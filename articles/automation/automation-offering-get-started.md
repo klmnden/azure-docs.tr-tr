@@ -3,7 +3,7 @@ title: "Azure Otomasyonu Kullanmaya Başlama | Microsoft Docs"
 description: "Bu makale, Azure Market tekliflerini eklemeyle ilgili tasarım ve uygulama ayrıntılarını gözden geçirerek Azure Otomasyonu hizmetine genel bakış sağlar."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

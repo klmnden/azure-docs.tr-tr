@@ -3,7 +3,7 @@ title: "Azure AD Kullanıcı Hesabı oluşturma | Microsoft Docs"
 description: "Bu makale, Azure ve klasik Azure’da kimlik doğrulamak için Azure Otomasyonu’nda runbook’lara yönelik Azure AD Kullanıcı hesabı kimlik bilgilerini oluşturma işlemini açıklamaktadır."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "azure active directory kullanıcısı, azure hizmet yönetimi, azure ad kullanıcı hesabı"
