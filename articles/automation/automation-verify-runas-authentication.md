@@ -3,7 +3,7 @@ title: "Azure Otomasyonu hesap yapılandırmasını doğrulama | Microsoft Docs"
 description: "Bu makalede Otomasyon hesabınızın doğru şekilde ayarlandığını onaylama işlemi açıklanmaktadır."
 services: automation
 documentationcenter: 
-author: eslesar
+author: mgoedtel
 manager: carmonm
 editor: 
 ms.assetid: 

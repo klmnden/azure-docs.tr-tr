@@ -3,7 +3,7 @@ title: "Azure Automation’da ilk grafik runbook uygulamam | Microsoft Belgeleri
 description: "Basit bir grafik runbook uygulaması oluşturma, test etme ve yayımlama adımlarını anlatan öğretici."
 services: automation
 documentationcenter: 
-author: eslesar
+author: mgoedtel
 manager: jwhit
 editor: 
 keywords: "runbook, runbook şablonu, runbook otomasyonu, azure runbook"

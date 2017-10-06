@@ -3,7 +3,7 @@ title: "PowerShell ile Azure Otomasyonu Farklı Çalıştır hesabı oluşturma 
 description: "Bu makalede, portaldaki ilk oluşturma sırasında bu adımı uygulamadıysanız Farklı Çalıştır hesapları oluşturmak üzere PowerShell ile Otomasyon hesabınızı yükseltme işlemi açıklanmaktadır."
 services: automation
 documentationcenter: 
-author: eslesar
+author: mgoedtel
 manager: carmonm
 editor: 
 ms.assetid: 

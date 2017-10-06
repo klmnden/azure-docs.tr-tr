@@ -3,7 +3,7 @@ title: "Azure Otomasyonu grafik runbook’larında hata işleme | Microsoft Belg
 description: "Bu makalede, Azure Otomasyonu grafik runbook’larında hata işleme mantığının nasıl uygulanacağı açıklanmıştır."
 services: automation
 documentationcenter: 
-author: eslesar
+author: mgoedtel
 manager: jwhit
 editor: tysonn
 ms.assetid: 

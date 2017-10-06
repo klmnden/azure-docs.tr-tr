@@ -3,7 +3,7 @@ title: Azure Automation Nedir? | Microsoft Belgeleri
 description: "Azure Automation’ın sağladığı değerleri öğrenin ve runbook’lar oluşturmaya, kullanmaya ve Azure Automation DSC kullanmaya başlayabilmeniz için sık sorulan soruların yanıtlarını alın."
 services: automation
 documentationcenter: 
-author: eslesar
+author: mgoedtel
 manager: jwhit
 editor: 
 keywords: "otomasyon nedir, azure otomasyonu, azure otomasyonu örnekleri"

@@ -3,7 +3,7 @@ title: "Azure Automation’da ilk PowerShell runbook’um | Microsoft Belgeleri"
 description: "Basit bir PowerShell runbook oluşturma, test etme ve yayımlama adımlarını anlatan öğretici."
 services: automation
 documentationcenter: 
-author: eslesar
+author: mgoedtel
 manager: jwhit
 editor: 
 keywords: "azure powershell, powershell betik öğreticisi, powershell otomasyonu"
