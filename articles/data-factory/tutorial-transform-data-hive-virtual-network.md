@@ -1,0 +1,402 @@
+---
+title: "Azure Sanal Ağ’da Hive kullanarak verileri dönüştürme | Microsoft Docs"
+description: "Bu öğretici, Azure Data Factory'de Hive etkinliğini kullanarak verileri dönüştürmeye ilişkin adım adım yönergeler sağlar."
+services: data-factory
+documentationcenter: 
+author: shengcmsft
+manager: jhubbard
+editor: spelluru
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/10/2017
+ms.author: shengc
+ms.translationtype: HT
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: ec472ea9f45a4c8bc18d065001eae381a275d185
+ms.contentlocale: tr-tr
+ms.lasthandoff: 09/26/2017
+
+---
+
+# <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory’de Hive etkinliğini kullanarak Azure Sanal Ağ’daki verileri dönüştürme
+Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz. 
+
+Bu öğreticide, Azure PowerShell kullanarak Azure Sanal Ağ üzerindeki bir HDInsight kümesinde Hive Etkinliği ile verileri dönüştüren bir Data Factory işlem hattı oluşturacaksınız. Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
+
+> [!div class="checklist"]
+> * Veri fabrikası oluşturma. 
+> * Şirket içinde barındırılan tümleştirme çalışma zamanı yazma ve kurma
+> * Bağlantılı hizmetler yazma ve dağıtma.
+> * Hive etkinliği içeren bir işlem hattı yazma ve dağıtma.
+> * Bir işlem hattı çalıştırması başlatma.
+> * İşlem hattı çalıştırmasını izleme 
+> * çıktıyı doğrulama. 
+
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
+
+## <a name="prerequisites"></a>Ön koşullar
+- **Azure Depolama hesabı**. Bir hive betiği oluşturun ve Azure depolama alanına yükleyin. Hive betiğinin çıktısı bu depolama hesabında depolanır. Bu örnekte, HDInsight kümesi bu Azure Depolama hesabını birincil depolama alanı olarak kullanır. 
+- **Azure Sanal Ağ.** Bir Azure sanal ağınız yoksa [bu yönergeleri](../virtual-network/virtual-network-get-started-vnet-subnet.md) izleyerek bir tane oluşturun. Bu örnekte HDInsight bir Azure Sanal Ağ içindedir. Azure Sanal Ağ’ın örnek yapılandırması aşağıda verilmiştir. 
+
+    ![Sanal ağ oluşturma](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
+- **HDInsight kümesi.** Bir HDInsight kümesi oluşturun ve önceki adımda oluşturduğunuz sanal ağa katmak için şu makaleyi izleyin: [Bir Azure Sanal Ağ kullanarak Azure HDInsight’ı genişletme](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Bir sanal ağda HDInsight’ın örnek yapılandırması aşağıda verilmiştir. 
+
+    ![Sanal ağda HDInsight](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
+- **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin.
+
+### <a name="upload-hive-script-to-your-blob-storage-account"></a>Hive betiğini Blob Depolama hesabınıza yükleme
+
+1. Aşağıdaki içeriğe sahip **hivescript.hql** adlı bir Hive SQL dosyası oluşturun:
+
+   ```sql
+   DROP TABLE IF EXISTS HiveSampleOut; 
+   CREATE EXTERNAL TABLE HiveSampleOut (clientid string, market string, devicemodel string, state string)
+   ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' 
+   STORED AS TEXTFILE LOCATION '${hiveconf:Output}';
+
+   INSERT OVERWRITE TABLE HiveSampleOut
+   Select 
+       clientid,
+       market,
+       devicemodel,
+       state
+   FROM hivesampletable
+   ```
+2. Azure Blob depolama alanınızda henüz yoksa **adftutorial** adlı bir kapsayıcı oluşturun.
+3. `hivescripts` adlı bir klasör oluşturun.
+4. `hivescript.hql` dosyasını `hivescripts` alt klasörüne yükleyin.
+
+ 
+
+## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
+
+
+1. Değişkenleri tek tek ayarlayın.
+
+    ```powershell
+    $subscriptionID = "<subscription ID>" # Your Azure subscription ID
+    $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
+    $dataFactoryName = "MyDataFactory09142017" # Globally unique name of the data factory
+    $pipelineName = "MyHivePipeline" # Name of the pipeline
+    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" # make it a unique name. 
+    ```
+2. **PowerShell**’i başlatın. Bu hızlı başlangıcın sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız komutları yeniden çalıştırmanız gerekir.
+
+    Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin:
+        
+    ```powershell
+    Login-AzureRmAccount
+    ```        
+    Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın:
+
+    ```powershell
+    Get-AzureRmSubscription
+    ```
+    Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **SubscriptionId**’yi Azure aboneliğinizin kimliği ile değiştirin:
+
+    ```powershell
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
+    ```  
+3. Aboneliğinizde henüz yoksa ADFTutorialResourceGroup adlı kaynak grubunu oluşturun. 
+
+    ```powershell
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
+    ```
+4. Veri fabrikasını oluşturun. 
+
+    ```powershell
+     $df = Set-AzureRmDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+    ```
+
+    Çıktıyı görmek için aşağıdaki komutu yürütün: 
+
+    ```powershell
+    $df
+    ```
+
+## <a name="create-self-hosted-ir"></a>Şirket içinde barındırılan IR oluşturma
+Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturacak ve HDInsight kümenizin bulunduğu Azure Sanal Ağdaki bir Azure VM ile ilişkilendireceksiniz.
+
+1. Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturun. Aynı ada sahip başka bir tümleştirme çalışma zamanı varsa benzersiz bir ad kullanın.
+
+   ```powershell
+   Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted
+   ```
+    Bu komut, şirket içinde barındırılan tümleştirme çalışma zamanının mantıksal bir kaydını oluşturur. 
+2. Şirket içinde barındırılan tümleştirme çalışma zamanını kaydetmek üzere kimlik doğrulama anahtarlarını almak için PowerShell’i kullanın. Şirket içinde barındırılan tümleştirme çalışma zamanını kaydetmek için anahtarlardan birini kopyalayın.
+
+   ```powershell
+   Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName | ConvertTo-Json
+   ```
+
+   Örnek çıktı aşağıdaki gibidir: 
+
+   ```powershell
+   {
+       "AuthKey1":  "IR@0000000000000000000000000000000000000=",
+       "AuthKey2":  "IR@0000000000000000000000000000000000000="
+   }
+   ```
+    **AuthKey1** değerini tırnak işareti olmadan not edin. 
+3. Bir Azure VM oluşturun ve HDInsight kümenizi içeren aynı sanal ağa ekleyin. Ayrıntılar için bkz. [Sanal makine oluşturma](../virtual-network/virtual-network-get-started-vnet-subnet.md#create-vms). Sanal makineleri bir Azure Sanal Ağa ekleyin. 
+4. Azure VM’ye [şirket içinde barındırılan tümleştirme çalışma zamanını](https://www.microsoft.com/download/details.aspx?id=39717) indirin. Şirket içinde barındırılan tümleştirme çalışma zamanını el ile kaydetmek için önceki adımda elde edilen Kimlik Doğrulama Anahtarını kullanın. 
+
+   ![Tümleştirme çalışma zamanını kaydetme](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)
+
+   Şirket içinde barındırılan tümleştirme çalışma zamanı başarıyla kaydedildiğinde aşağıdaki iletiyi görürsünüz: ![Başarıyla kaydedildi](media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png)
+
+   Düğüm bulut hizmetine bağlandığında şu sayfayı görürsünüz: ![Düğüm bağlı](media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png)
+
+## <a name="author-linked-services"></a>Bağlı hizmetler oluşturma
+
+Bu bölümde iki Bağlı Hizmet oluşturup dağıtacaksınız:
+- Bir Azure Depolama hesabını veri fabrikasına bağlayan Azure Depolama Bağlı Hizmeti. Bu depolama, HDInsight kümeniz tarafından kullanılan birincil depolamadır. Bu örnekte, bu Azure Depolama hesabını Hive betiğini ve komut dosyası çıktısını tutmak için de kullanırız.
+- Bir HDInsight Bağlı Hizmeti. Azure Data Factory, Hive betiğini yürütmek üzere bu HDInsight kümesine gönderir.
+
+### <a name="azure-storage-linked-service"></a>Azure Storage bağlı hizmeti
+
+Tercih ettiğiniz düzenleyiciyi kullanarak bir JSON dosyası oluşturun, Azure Depolama bağlı hizmetinin aşağıdaki JSON tanımını kopyalayın ve ardından dosyayı **MyStorageLinkedService.json** olarak kaydedin.
+
+```json
+{
+    "name": "MyStorageLinkedService",
+    "properties": {
+      "type": "AzureStorage",
+      "typeProperties": {
+        "connectionString": {
+          "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
+          "type": "SecureString"
+        }
+      },
+      "connectVia": {
+        "referenceName": "MySelfhostedIR",
+        "type": "IntegrationRuntimeReference"
+      }  
+    }
+}
+```
+
+**accountname&lt;&gt; ve &lt;accountkey&gt;** sözcüklerini Azure Depolama hesabınızın adı ve anahtarıyla değiştirin.
+
+### <a name="hdinsight-linked-service"></a>HDInsight bağlı hizmeti
+
+Tercih ettiğiniz düzenleyiciyi kullanarak bir JSON dosyası oluşturun, Azure HDInsight bağlı hizmetinin aşağıdaki JSON tanımını kopyalayın ve dosyayı **MyHDInsightLinkedService.json** olarak kaydedin.
+
+```
+{
+  "name": "MyHDInsightLinkedService",
+  "properties": {     
+      "type": "HDInsight",
+      "typeProperties": {
+          "clusterUri": "https://<clustername>.azurehdinsight.net",
+          "userName": "<username>",
+          "password": {
+            "value": "<password>",
+            "type": "SecureString"
+          },
+          "linkedServiceName": {
+            "referenceName": "MyStorageLinkedService",
+            "type": "LinkedServiceReference"
+          }
+      },
+      "connectVia": {
+        "referenceName": "MySelfhostedIR",
+        "type": "IntegrationRuntimeReference"
+      }
+  }
+}
+```
+
+Bağlı hizmet tanımında aşağıdaki özelliklerin değerlerini güncelleştirin:
+
+- **userName**. Kümeyi oluştururken belirttiğiniz küme oturum açma kullanıcı adı. 
+- **password**. Kullanıcının parolası.
+- **clusterUri**. HDInsight kümenizin URL’sini https://<clustername>.azurehdinsight.net biçiminde belirtin.  Bu makalede, kümeye internet üzerinden erişebildiğiniz varsayılır. Örneğin, `https://clustername.azurehdinsight.net` konumundaki kümeye bağlanabildiğiniz kabul edilir. Bu adres, İnternet'ten erişimi kısıtlamak için ağ güvenlik grupları (NSG) veya kullanıcı tanımlı yollar (UDR) kullandıysanız kullanılabilir olmayan ortak ağ geçidi kullanır. Data Factory’nin işleri Azure Sanal Ağdaki HDInsight kümesine gönderebilmesi için Azure Sanal Ağınızı URL’nin HDInsight tarafından kullanılan ağ geçidine ait özel IP adresine çözümlenebileceği şekilde yapılandırmanız gerekir.
+
+  1. Azure portalından, HDInsight’ın içinde bulunduğu Sanal Ağı açın. Adı `nic-gateway-0` ile başlayan ağ arabirimini açın. Özel IP adresini not edin. Örneğin, 10.6.0.15. 
+  2. Azure sanal ağınızda DNS sunucusu varsa, HDInsight kümesi `https://<clustername>.azurehdinsight.net` URL’sinin `10.6.0.15` hedefine çözümlenebilmesi için DNS kaydını güncelleştirin. Bu, önerilen yaklaşımdır. Azure Sanal Ağınızda bir DNS sunucusu yoksa, aşağıdaki gibi bir giriş ekleyerek kendi kendine barındırılan tümleştirme çalışma zamanı düğümleri olarak kaydedilmiş tüm VM’lerin ana bilgisayar dosyalarını (C:\Windows\System32\drivers\etc) düzenleyerek bu sorunu geçici olarak çözebilirsiniz: 
+  
+        `10.6.0.15 myHDIClusterName.azurehdinsight.net`
+
+JSON dosyalarını oluşturduğunuz klasöre geçin ve bağlı hizmetleri dağıtmak için aşağıdaki komutu çalıştırın: 
+
+
+```powershell
+Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+
+Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDILinkedService" -File "MyHDILinkedService.json"
+```
+
+## <a name="author-a-pipeline"></a>İşlem hattı oluşturma
+Bu adımda, Hive etkinliği ile bir işlem hattı oluşturacaksınız. Etkinlik, bir örnek tablodan veri döndürmek ve tanımladığınız bir yola kaydetmek üzere Hive betiğini yürütür. Tercih ettiğiniz düzenleyicide bir JSON dosyası oluşturun, aşağıdaki işlem hattı JSON tanımını kopyalayın ve **MyHiveOnDemandPipeline.json** olarak kaydedin.
+
+
+```json
+{
+  "name": "MyHivePipeline",
+  "properties": {
+    "activities": [
+      {
+        "name": "MyHiveActivity",
+        "type": "HDInsightHive",
+        "linkedServiceName": {
+            "referenceName": "MyHDILinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+          "scriptPath": "adftutorial\\hivescripts\\hivescript.hql",
+          "getDebugInfo": "Failure",
+          "defines": {           
+            "Output": "wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/"
+          },
+          "scriptLinkedService": {
+            "referenceName": "MyStorageLinkedService",
+            "type": "LinkedServiceReference"
+          }
+        }
+      }
+    ]
+  }
+}
+
+```
+
+Aşağıdaki noktalara dikkat edin:
+
+- **scriptPath**, MyStorageLinkedService için kullandığınız Azure Depolama Hesabında Hive betiğinin yoluna işaret eder. Bu yol büyük/küçük harfe duyarlıdır.
+- **Çıktı**, Hive betiğinde kullanılan bir değişkendir. Azure Depolama hesabınızda var olan bir klasörü işaret etmek için `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` biçimini kullanın. Bu yol büyük/küçük harfe duyarlıdır. 
+
+JSON dosyalarını oluşturduğunuz klasöre geçin ve işlem hattını dağıtmak için aşağıdaki komutu çalıştırın: 
+
+
+```powershell
+Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MyHivePipeline.json"
+```
+
+## <a name="start-the-pipeline"></a>İşlem hattı başlatma 
+
+1. Bir işlem hattı çalıştırması başlatma. Ayrıca, gelecekte izlemek üzere işlem hattı çalıştırma kimliğini yakalar.
+
+    ```powershell
+    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+   ```
+2. İşlem hattı çalıştırma durumunu tamamlanıncaya kadar sürekli olarak denetlemek için aşağıdaki betiği çalıştırın.
+
+    ```powershell
+    while ($True) {
+        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+
+        if(!$result) {
+            Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
+        }
+        elseif (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
+            Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
+        }
+        else {
+            Write-Host "Pipeline '"$pipelineName"' run finished. Result:" -foregroundcolor "Yellow"
+            $result
+            break
+        }
+        ($result | Format-List | Out-String)
+        Start-Sleep -Seconds 15
+    }
+    
+    Write-Host "Activity `Output` section:" -foregroundcolor "Yellow"
+    $result.Output -join "`r`n"
+
+    Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
+    $result.Error -join "`r`n"
+    ```
+
+   Örnek çalıştırmanın çıktısı aşağıdaki gibidir:
+
+    ```json
+    Pipeline run status: In Progress
+    
+    ResourceGroupName : ADFV2SampleRG2
+    DataFactoryName   : SampleV2DataFactory2
+    ActivityName      : MyHiveActivity
+    PipelineRunId     : 000000000-0000-0000-000000000000000000
+    PipelineName      : MyHivePipeline
+    Input             : {getDebugInfo, scriptPath, scriptLinkedService, defines}
+    Output            :
+    LinkedServiceName :
+    ActivityRunStart  : 9/18/2017 6:58:13 AM
+    ActivityRunEnd    :
+    DurationInMs      :
+    Status            : InProgress
+    Error             :
+    
+    Pipeline ' MyHivePipeline' run finished. Result:
+    
+    ResourceGroupName : ADFV2SampleRG2
+    DataFactoryName   : SampleV2DataFactory2
+    ActivityName      : MyHiveActivity
+    PipelineRunId     : 0000000-0000-0000-0000-000000000000
+    PipelineName      : MyHivePipeline
+    Input             : {getDebugInfo, scriptPath, scriptLinkedService, defines}
+    Output            : {logLocation, clusterInUse, jobId, ExecutionProgress...}
+    LinkedServiceName :
+    ActivityRunStart  : 9/18/2017 6:58:13 AM
+    ActivityRunEnd    : 9/18/2017 6:59:16 AM
+    DurationInMs      : 63636
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
+    
+    Activity Output section:
+    "logLocation": "wasbs://adfjobs@adfv2samplestor.blob.core.windows.net/HiveQueryJobs/000000000-0000-47c3-9b28-1cdc7f3f2ba2/18_09_2017_06_58_18_023/Status"
+    "clusterInUse": "https://adfv2HivePrivate.azurehdinsight.net"
+    "jobId": "job_1505387997356_0024"
+    "ExecutionProgress": "Succeeded"
+    "effectiveIntegrationRuntime": "MySelfhostedIR"
+    Activity Error section:
+    "errorCode": ""
+    "message": ""
+    "failureType": ""
+    "target": "MyHiveActivity"
+    ```
+4. Hive sorgu sonucu olarak oluşturulan yeni dosya için `outputfolder` klasörünü denetleyin; aşağıdaki örnek çıktı gibi görünmelidir: 
+
+   ```
+   8 en-US SCH-i500 California
+   23 en-US Incredible Pennsylvania
+   212 en-US SCH-i500 New York
+   212 en-US SCH-i500 New York
+   212 en-US SCH-i500 New York
+   212 en-US SCH-i500 New York
+   212 en-US SCH-i500 New York
+   212 en-US SCH-i500 New York
+   212 en-US SCH-i500 New York
+   212 en-US SCH-i500 New York
+   212 en-US SCH-i500 New York
+   212 en-US SCH-i500 New York
+   212 en-US SCH-i500 New York
+   212 en-US SCH-i500 New York
+   246 en-US SCH-i500 District Of Columbia
+   246 en-US SCH-i500 District Of Columbia
+   ```
+
+## <a name="next-steps"></a>Sonraki adımlar
+Bu öğreticide aşağıdaki adımları gerçekleştirdiniz: 
+
+> [!div class="checklist"]
+> * Veri fabrikası oluşturma. 
+> * Şirket içinde barındırılan tümleştirme çalışma zamanı yazma ve kurma
+> * Bağlantılı hizmetler yazma ve dağıtma.
+> * Hive etkinliği içeren bir işlem hattı yazma ve dağıtma.
+> * Bir işlem hattı çalıştırması başlatma.
+> * İşlem hattı çalıştırmasını izleme 
+> * çıktıyı doğrulama. 
+
+Azure üzerinde bir Spark kümesi kullanarak veri dönüştürme hakkında bilgi edinmek için aşağıdaki öğreticiye geçin:
+
+> [!div class="nextstepaction"]
+>[Data Factory denetim akışında dal oluşturma ve zincirleme](tutorial-control-flow.md)
+
+
+
+

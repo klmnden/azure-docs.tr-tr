@@ -15,197 +15,135 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 78306672e812745fd1902ae264c2adea196ab721
+ms.sourcegitcommit: d07d5d59632791a52bcb3a2f54bebe194cc76a54
+ms.openlocfilehash: 44eaaae123490934bc62b4ea30968656900d48fc
 ms.contentlocale: tr-tr
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 10/04/2017
 
 ---
 
-# <a name="deploy-a-service-fabric-linux-container-application-on-azure"></a>Azure’da bir Service Fabric Linux kapsayıcı uygulaması dağıtma
+# <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure'da bir Azure Service Fabric Linux kapsayıcı uygulaması dağıtma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
 
-Bir Service Fabric kümesindeki Linux kapsayıcısında mevcut olan bir uygulamayı çalıştırmak için uygulamanızda herhangi bir değişiklik yapılması gerekmez. Bu hızlı başlangıç, Service Fabric uygulamasında önceden oluşturulmuş bir Docker kapsayıcısı görüntüsünü dağıtmayı gösterir. Hızlı başlangıcı tamamladığınızda, çalışan bir nginx kapsayıcısına sahip olacaksınız.  Bu hızlı başlangıç, Linux kapsayıcısı dağıtmayı açıklar. Windows kapsayıcısı dağıtmak için [bu Hızlı Başlangıca](service-fabric-quickstart-containers.md) bakın.
+Bu hızlı başlangıçta Linux kapsayıcıları bir Service Fabric kümesine nasıl dağıtacağınız gösterilmektedir. Tamamladığınızda Service Fabric kümesinde çalışan Python web ön ucu ve Redis arka ucundan oluşan bir oy verme uygulamasına sahip olursunuz. 
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
 
 Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 > [!div class="checklist"]
-> * Docker görüntü kapsayıcısını paketleme
-> * İletişimi yapılandırma
-> * Service Fabric uygulamasını oluşturma ve paketleme
-> * Kapsayıcı uygulamasını Azure’a dağıtma
+> * Linux kapsayıcıları Service Fabric'e dağıtma
+> * Service Fabric'teki kapsayıcıları ölçekleme ve yük devretme
 
-## <a name="prerequisites"></a>Ön koşullar
-[Service Fabric SDK, Service Fabric CLI ve Service Fabric yeoman şablonu oluşturucularını](service-fabric-get-started-linux.md) yükleme.
+## <a name="prerequisite"></a>Önkoşul
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/en-us/free/) oluşturun.
   
-## <a name="package-a-docker-image-container-with-yeoman"></a>Yeoman ile Docker görüntü kapsayıcısını paketleme
-Linux için Service Fabric SDK’sı uygulamanızı oluşturmayı ve kapsayıcı görüntüsü eklemeyi kolaylaştıran bir [Yeoman](http://yeoman.io/) oluşturucu içerir. 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Service Fabric kapsayıcı uygulaması oluşturmak için, terminal penceresini açın ve `yo azuresfcontainer` komutunu çalıştırın.  
+Komut satırı arabirimini (CLI) yerel olarak yükleyip kullanmayı seçerseniz Azure CLI 2.0.4 veya sonraki bir sürümünü çalıştırdığınızdan emin olun. Sürümü bulmak için az --version komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-Uygulamanıza "MyFirstContainer" adını verin ve uygulama hizmetini "MyContainerService" olarak adlandırın.
+## <a name="get-application-package"></a>Uygulama paketini alma
+Kapsayıcıları Service Fabric üzerinde dağıtmak için ayrı kapsayıcıları ve uygulamayı açıklayan bildirim dosyası (uygulama tanımı) kümesine ihtiyacınız vardır.
 
-Kapsayıcı görüntüsü adı olarak "nginx:latest" (Docker hub'daki [nginx kapsayıcısı görüntüsü](https://hub.docker.com/r/_/nginx/)) değerini kullanın. 
+Bulut kabuğunda git kullanarak uygulama tanımının bir kopyasını oluşturun.
 
-Bu görüntüde tanımlanmış bir iş yükü giriş noktası vardır, bu nedenle giriş komutlarını açıkça belirtmeniz gerekir. 
+```azurecli-interactive
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
-"1" örnek sayısı belirtin.
-
-![Kapsayıcılar için Service Fabric Yeoman oluşturucusu][sf-yeoman]
-
-## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>İletişim ve kapsayıcı bağlantı noktalarıyla konak bağlantı noktalarını eşlemeyi yapılandırın
-İstemcilerin hizmetinizle iletişim kurabilmesi için bir HTTP uç noktası yapılandırın.  *./MyFirstContainer/MyContainerServicePkg/ServiceManifest.xml* dosyasını açın ve **ServiceManifest** öğesinde bir uç nokta kaynağını belirtin.  Protokolü, bağlantı noktasını ve adını ekleyin. Bu hızlı başlangıçta hizmet, bağlantı noktası 80’i dinler: 
-
-```xml
-<Resources>
-  <Endpoints>
-    <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-  </Endpoints>
-</Resources>
-
-```
-`UriScheme` değerinin sağlanması, kapsayıcı uç noktasını bulunabilirlik için Service Fabric Adlandırma hizmetine otomatik olarak kaydeder. Bu makalenin sonunda tam bir ServiceManifest.xml örnek dosyası verilmiştir. 
-
-ApplicationManifest.xml dosyasının `ContainerHostPolicies` bölümündeki `PortBinding` ilkesini kullanarak bir kapsayıcı bağlantı noktasını Hizmet `Endpoint` hedefine eşleyin.  Bu hızlı başlangıçta `ContainerPort` değeri 80 (kapsayıcı 80 numaralı bağlantı noktasını açar) ve `EndpointRef` değeri "myserviceTypeEndpoint"’tir (hizmet bildiriminde tanımlanan uç nokta).  80 numaralı bağlantı noktasında hizmete gelen istekler, kapsayıcı üzerindeki 80 numaralı bağlantı noktasıyla eşlenir.  
-
-```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
-    <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
+cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 ```
 
-## <a name="build-and-package-the-service-fabric-application"></a>Service Fabric uygulamasını oluşturma ve paketleme
-Service Fabric Yeoman şablonları, uygulamayı terminalden oluşturmak için kullanabileceğiniz bir [Gradle](https://gradle.org/) derleme betiği içerir. Yaptığınız tüm değişiklikleri kaydedin.  Uygulamayı derlemek ve paketlemek için şu komutu çalıştırın:
+## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Kapsayıcıları Azure'daki bir Service Fabric kümesine dağıtma
+Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi veya bir Grup kümesi kullanın.
 
-```bash
-cd MyFirstContainer
-gradle
-```
-## <a name="create-a-cluster"></a>Küme oluşturma
-Uygulamayı Azure’daki bir kümeye dağıtmak için kendi kümenizi oluşturabilir veya bir grup kümesi kullanabilirsiniz.
-
-Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. Bir grup kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric).  
+Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Bakımı Service Fabric ekibi tarafından yapılan bu kümelere herkes uygulama dağıtarak platform hakkında bilgi alabilir. Bir Grup kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
 
 Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da ilk Service Fabric kümenizi oluşturma](service-fabric-get-started-azure-cluster.md).
 
-Aşağıdaki adımda kullandığınız bağlantı uç noktasını not edin.
+> [!Note]
+> Web ön uç hizmeti 80 numaralı bağlantı noktasında gelen trafiği dinleyecek şekilde yapılandırılmıştır. Kümenizde bu bağlantı noktasının açık olduğundan emin olun. Grup kümesi kullanıyorsanız bu bağlantı noktası açık durumdadır.
+>
 
-## <a name="deploy-the-application-to-azure"></a>Uygulamayı Azure’a dağıtma
-Uygulama oluşturulduktan sonra Service Fabric CLI kullanarak Azure kümesine dağıtabilirsiniz.
+### <a name="deploy-the-application-manifests"></a>Uygulama bildirimlerini dağıtma 
+[Service Fabric CLI (sfctl)](service-fabric-cli.md) öğesini CLI ortamınıza yükleyin
 
-Azure’daki Service Fabric kümesine bağlanın.
+```azurecli-interactive
+pip3 install --user sfctl 
+export PATH=$PATH:~/.local/bin
+```
+Azure CLI kullanarak Azure'daki Service Fabric kümesine bağlanın. Uç noktası, kümenizin yönetim uç noktasıdır. Örneğin: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-```bash
-sfctl cluster select --endpoint http://lnxt10vkfz6.westus.cloudapp.azure.com:19080
+```azurecli-interactive
+sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
-Uygulama paketini kümenin görüntü deposuna kopyalamak, uygulama türünü kaydetmek ve uygulamanın bir örneğini oluşturmak için şablonda verilen yükleme betiğini kullanın.
+Verilen yükleme betiğini kullanarak oy verme uygulaması tanımını kümeye kopyalayın, uygulama türünü kaydedin ve uygulamanın bir örneğini oluşturun.
 
-```bash
+```azurecli-interactive
 ./install.sh
 ```
 
-Bir tarayıcı penceresi açın ve http://lnxt10vkfz6.westus.cloudapp.azure.com:19080/Explorer adresinden Service Fabric Explorer’a gidin. Uygulamalar düğümünü genişletin ve şu anda uygulamanızın türü için bir giriş ve bu türün ilk örneği için başka bir giriş olduğuna dikkat edin.
+Bir tarayıcı penceresi açın ve http://\<my-azure-service-fabric-cluster-url>:19080/Explorer - örneğin, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer` adresini izleyerek Service Fabric Explorer'a gidin. Uygulamalar düğümünü genişlettiğinizde oluşturduğunuz Oy verme uygulama türü ve örneği için bir giriş oluşturulduğunu göreceksiniz.
 
 ![Service Fabric Explorer][sfx]
 
-Çalışan kapsayıcıya bağlanın.  80 numaralı bağlantı noktasında döndürülen IP adresine işaret eden bir web tarayıcısı açın (örneğin "lnxt10vkfz6.westus.cloudapp.azure.com:80"). Tarayıcıda nginx hoş geldiniz sayfasını görmeniz gerekir.
+Çalışan kapsayıcıya bağlanın.  Bir web tarayıcısı penceresi açarak kümenizin URL'sine gidin, örneğin: `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Oy verme uygulamasını tarayıcıda görmeniz gerekir.
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
+
+## <a name="fail-over-a-container-in-a-cluster"></a>Kümedeki bir kapsayıcıya yük devretme
+Service Fabric, kapsayıcı örneklerinizin bir arıza durumunda kümedeki diğer düğümlere otomatik olarak taşınmasını sağlar. Bir düğümü kapsayıcılar için el ile boşaltabilir ve kümedeki diğer düğümlere taşıyabilirsiniz. Hizmetlerinizi ölçeklendirmek için kullanabileceğiniz birden fazla yöntem vardır. Bu örnekte Service Fabric Explorer'ı kullanacağız.
+
+Ön uç kapsayıcısında yük devretmek için aşağıdaki adımları uygulayın:
+
+1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
+2. Ağaç görünümünde **fabric:/Voting/azurevotefront** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin. Ağaç görünümünde kapsayıcının üzerinde çalıştığı düğümleri gösteren düğüm adına dikkat edin. Örneğin: `_nodetype_4`
+3. Ağaç görünümünde **Düğümler** düğümünü genişletin. Kapsayıcıyı çalıştıran düğümün yanındaki üç noktaya tıklayın.
+4. İlgili düğümü yeniden başlatmak için **Yeniden Başlat**'ı seçin ve yeniden başlatma eylemini onaylayın. Yeniden başlatma durumunda kapsayıcıdan kümedeki başka bir düğüme yük devretme gerçekleştirilir.
+
+![sfxquickstartshownodetype][sfxquickstartshownodetype]
+
+## <a name="scale-applications-and-services-in-a-cluster"></a>Bir kümedeki uygulamaları ve hizmetleri ölçeklendirme
+Hizmet yükünü karşılamak için bir kümedeki Service Fabric hizmetleri kolayca ölçeklendirilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir hizmeti ölçeklendirebilirsiniz.
+
+Web ön uç hizmetini ölçeklendirmek için aşağıdaki adımları gerçekleştirin:
+
+1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+2. Ağaç görünümünde **fabric:/Voting/azurevotefront** düğümünün yanındaki üç noktaya tıklayın ve **Hizmeti Ölçeklendir**'i seçin.
+
+    ![containersquickstartscale][containersquickstartscale]
+
+  Şimdi web ön uç hizmetindeki örnek sayısını ölçeklendirebilirsiniz.
+
+3. Rakamı **2** olarak değiştirin ve **Hizmeti Ölçeklendir**'e tıklayın.
+4. Ağaç görünümünde **fabric:/Voting/azurevotefront** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin.
+
+    ![containersquickstartscaledone][containersquickstartscaledone]
+
+    Hizmetin artık iki örneği olduğunu görebilirsiniz. Ağaç görünümünde örneklerin üzerinde çalıştığı düğümleri görebilirsiniz.
+
+Bu basit yönetim görevi sayesinde ön uç hizmetinizde kullanıcı yükünü işleyecek kaynak sayısını iki katına çıkarmış olduk. Bir hizmetin güvenilir bir şekilde çalışması için birden fazla örneğe ihtiyaç duymadığını anlamanız önemlidir. Bir hizmet başarısız olursa Service Fabric kümede yeni bir hizmet örneği çalışmasını sağlar.
 
 ## <a name="clean-up"></a>Temizleme
-Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek için şablonda sağlanan kaldırma betiğini kullanın.
+Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek için şablonda sağlanan kaldırma betiğini kullanın. Bu komutun örneği temizlemesi zaman alacağından 'install'sh' komutu bu betiğin hemen ardından çalıştırılmamalıdır. 
 
 ```bash
 ./uninstall.sh
 ```
 
-## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Tam Service Fabric uygulaması ve hizmet bildirimleri örneği
-Bu hızlı başlangıçta kullanılan tam hizmet ve uygulama bildirimleri aşağıda verilmiştir.
-
-### <a name="servicemanifestxml"></a>ServiceManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="MyContainerServicePkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
-
-   <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="MyContainerServiceType" UseImplicitHost="true">
-   </StatelessServiceType>
-   </ServiceTypes>
-   
-   <CodePackage Name="code" Version="1.0.0">
-      <EntryPoint>
-         <ContainerHost>
-            <ImageName>nginx:latest</ImageName>
-            <Commands></Commands>
-         </ContainerHost>
-      </EntryPoint>
-      <EnvironmentVariables> 
-      </EnvironmentVariables> 
-   </CodePackage>
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- </ServiceManifest>
-
-```
-### <a name="applicationmanifestxml"></a>ApplicationManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest  ApplicationTypeName="MyFirstContainerType" ApplicationTypeVersion="1.0.0"
-                      xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyContainerServicePkg" ServiceManifestVersion="1.0.0" />
-   <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-      </ContainerHostPolicies>
-    </Policies>
-</ServiceManifestImport>
-   
-   <DefaultServices>
-      <Service Name="MyContainerService">
-        <!-- On a local development cluster, set InstanceCount to 1.  On a multi-node production 
-        cluster, set InstanceCount to -1 for the container service to run on every node in 
-        the cluster.
-        -->
-        <StatelessService ServiceTypeName="MyContainerServiceType" InstanceCount="1">
-            <SingletonPartition />
-        </StatelessService>
-      </Service>
-   </DefaultServices>
-   
-</ApplicationManifest>
-
-```
-
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
+Bu hızlı başlangıçta şunları öğrendiniz:
 > [!div class="checklist"]
-> * Docker görüntü kapsayıcısını paketleme
-> * İletişimi yapılandırma
-> * Service Fabric uygulamasını oluşturma ve paketleme
-> * Kapsayıcı uygulamasını Azure’a dağıtma
+> * Azure'a bir Linux kapsayıcı uygulaması dağıtma
+> * Service Fabric kümesindeki bir kapsayıcıda yük devretme
+> * Service Fabric kümesindeki bir kapsayıcıyı ölçeklendirme
 
 * [Service Fabric’te kapsayıcı](service-fabric-containers-overview.md) çalıştırma hakkında daha fazla bilgi edinin.
-* [Kapsayıcı içinde .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md) öğreticisini okuyun.
 * Service Fabric [uygulama yaşam döngüsü](service-fabric-application-lifecycle.md) hakkında bilgi edinin.
-* GitHub’da [Service Fabric kapsayıcı kod örneklerine](https://github.com/Azure-Samples/service-fabric-dotnet-containers) bakın.
+* GitHub'da [Service Fabric kapsayıcı kod örneklerine](https://github.com/Azure-Samples/service-fabric-dotnet-containers) bakın.
 
-[sfx]: ./media/service-fabric-quickstart-containers-linux/SFX.png
-[nginx]: ./media/service-fabric-quickstart-containers-linux/nginx.png
-[sf-yeoman]: ./media/service-fabric-quickstart-containers-linux/YoSF.png
+[sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
+[quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png
+[sfxquickstartshownodetype]:  ./media/service-fabric-quickstart-containers-linux/containersquickstartrestart.png
+[containersquickstartscale]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscale.png
+[containersquickstartscaledone]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscaledone.png
 
