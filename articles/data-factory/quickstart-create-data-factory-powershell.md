@@ -1,0 +1,351 @@
+---
+title: "PowerShell kullanarak Azure veri fabrikası oluşturma | Microsoft Docs"
+description: "Aynı Azure Blob Depolama alanındaki bir konumdan başka bir konuma veri kopyalamak için bir Azure veri fabrikası oluşturun."
+services: data-factory
+documentationcenter: 
+author: linda33wj
+manager: jhubbard
+editor: spelluru
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: 
+ms.devlang: powershell
+ms.topic: hero-article
+ms.date: 09/19/2017
+ms.author: jingwang
+ms.translationtype: HT
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: 92f798244db1f69d01f46d0c0bcce9fe139bef05
+ms.contentlocale: tr-tr
+ms.lasthandoff: 09/25/2017
+
+---
+# <a name="create-a-data-factory-and-pipeline-using-powershell"></a>PowerShell kullanarak veri fabrikası ve işlem hattı oluşturma
+Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz. 
+
+Bu hızlı başlangıç, PowerShell kullanarak bir Azure veri fabrikası oluşturma işlemini açıklar. Bu veri fabrikasındaki işlem hattı, verileri Azure blob depolama alanındaki bir konumdan başka bir konuma kopyalar.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
+
+## <a name="prerequisites"></a>Ön koşullar
+
+* **Azure Depolama hesabı**. Blob depolama alanını hem **kaynak** hem de **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa oluşturma bilgileri için bkz. [Depolama hesabı oluşturma]. bir tane oluşturmak için (../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın.
+* Blob Depolama içinde bir **blob kapsayıcısı** oluşturun, kapsayıcıda bir giriş **klasörü** oluşturun ve bazı dosyaları klasöre yükleyin. 
+* **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin.
+* [Azure Depolama gezgini](https://azure.microsoft.com/features/storage-explorer/). Bu aracı kullanarak Azure Blob depolama hesabına bağlanabilir, bir blob kapsayıcısı oluşturabilir, giriş dosyasını karşıya yükleyebilir ve çıktı dosyasını doğrulayabilirsiniz. 
+
+## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
+
+1. **PowerShell**’i başlatın. Bu hızlı başlangıcın sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız komutları yeniden çalıştırmanız gerekir.
+
+    Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin:
+        
+    ```powershell
+    Login-AzureRmAccount
+    ```        
+    Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın:
+
+    ```powershell
+    Get-AzureRmSubscription
+    ```
+    Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **SubscriptionId**’yi Azure aboneliğinizin kimliği ile değiştirin:
+
+    ```powershell
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
+    ```
+2. Bir veri fabrikası oluşturmak için **Set-AzureRmDataFactoryV2** cmdlet’ini çalıştırın. Komutu yürütmeden önce yer tutucuları kendi değerlerinizle değiştirin. **Yer tutucuları** kendi değerlerinizle değiştirin. 
+
+    ```powershell
+    $resourceGroupName = "<your resource group to create the factory>";
+    $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
+    Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
+    ```
+
+    Aşağıdaki noktalara dikkat edin:
+
+    * Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Aşağıdaki hata iletisini alırsanız adı değiştirip yeniden deneyin.
+
+        ```
+        The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
+        ```
+
+    * Data Factory örnekleri oluşturmak için Azure aboneliğinde katkıda bulunan veya yönetici rolünüz olmalıdır.
+    * Şu anda, Data Factory V2 yalnızca Doğu ABD bölgesinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
+
+## <a name="create-a-linked-service"></a>Bağlı hizmet oluşturma
+
+Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için veri fabrikasında bağlı hizmetler oluşturun. Bu hızlı başlangıçta yalnızca bir Azure Depolama bağlı hizmetini örnekte "AzureStorageLinkedService" olarak adlandırılmış bir kaynak ve havuz deposu olarak kullanılmak üzere oluşturmanız gerekir.
+
+1. **C:\ADFv2QuickStartPSH** klasöründe aşağıdaki içeriğe sahip **AzureStorageLinkedService.json** adlı bir JSON dosyası oluşturun: (Henüz yoksa ADFv2QuickStartPSH adlı bir klasör oluşturun.). Dosyayı kaydetmeden önce &lt;accountName&gt; ve &lt;accountKey&gt; değerlerini Azure depolama hesabınızın adı ve anahtarıyla değiştirin.
+
+    ```json
+    {
+        "name": "AzureStorageLinkedService",
+        "properties": {
+            "type": "AzureStorage",
+            "typeProperties": {
+                "connectionString": {
+                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
+                    "type": "SecureString"
+                }
+            }
+        }
+    }
+    ```
+
+2. **Azure PowerShell**’de **ADFv2QuickStartPSH** klasörüne geçin.
+
+3. **AzureStorageLinkedService** bağlı hizmetini oluşturmak için **Set-AzureRmDataFactoryV2LinkedService** cmdlet’ini çalıştırın. 
+
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
+    ```
+
+    Örnek çıktı aşağıdaki gibidir:
+
+    ```
+    LinkedServiceName : AzureStorageLinkedService
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
+    ```
+
+## <a name="create-a-dataset"></a>Veri kümesi oluşturma
+
+Bir kaynaktan havuza kopyalanacak verileri temsil eden bir veri kümesi tanımlayın. Bu örnekte, bu Blob veri kümesi önceki adımda oluşturduğunuz Azure Depolama bağlı hizmetini ifade eder. Veri kümesi, değeri veri kümesini kullanan bir etkinlikte tanımlanmış bir parametre alır. Parametre, verilerin bulunduğu/depolandığı yeri işaret eden "folderPath" öğesini oluşturmak için kullanılır.
+
+1. **C:\ADFv2QuickStartPSH** klasöründe aşağıdaki içeriğe sahip **BlobDataset.json** adlı bir JSON dosyası oluşturun:
+
+    ```json
+    {
+        "name": "BlobDataset",
+        "properties": {
+            "type": "AzureBlob",
+            "typeProperties": {
+                "folderPath": {
+                    "value": "@{dataset().path}",
+                    "type": "Expression"
+                }
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureStorageLinkedService",
+                "type": "LinkedServiceReference"
+            },
+            "parameters": {
+                "path": {
+                    "type": "String"
+                }
+            }
+        }
+    }
+    ```
+
+2. **BlobDataset** veri kümesini oluşturmak için **Set-AzureRmDataFactoryV2Dataset** cmdlet’ini çalıştırın.
+
+    ```powershell
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
+    ```
+
+    Örnek çıktı aşağıdaki gibidir:
+
+    ```
+    DatasetName       : BlobDataset
+    ResourceGroupName : <resourceGroupname>
+    DataFactoryName   : <dataFactoryName>
+    Structure         :
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset
+    ```
+
+## <a name="create-a-pipeline"></a>İşlem hattı oluşturma
+
+Bu örnekte, işlem hattı bir etkinlik içerir ve giriş blob yolu ve çıkış blob yolu şeklinde iki parametre alır. Bu parametrelerin değerleri, işlem hattı tetiklendiğinde/çalıştırıldığında ayarlanır. Kopyalama etkinliği, önceki adımda girdi ve çıktı olarak oluşturulmuş blob veri kümesini ifade eder. Veri kümesi bir girdi veri kümesi olarak kullanıldığında girdi yolu belirtilir. Ayrıca, veri kümesi bir çıktı veri kümesi olarak kullanıldığında çıktı yolu belirtilir. 
+
+1. **C:\ADFv2QuickStartPSH** klasöründe aşağıdaki içeriğe sahip **Adfv2QuickStartPipeline.json** adlı bir JSON dosyası oluşturun:
+
+    ```json
+    {
+        "name": "Adfv2QuickStartPipeline",
+        "properties": {
+            "activities": [
+                {
+                    "name": "CopyFromBlobToBlob",
+                    "type": "Copy",
+                    "inputs": [
+                        {
+                            "referenceName": "BlobDataset",
+                            "parameters": {
+                                "path": "@pipeline().parameters.inputPath"
+                            },
+                        "type": "DatasetReference"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "referenceName": "BlobDataset",
+                            "parameters": {
+                                "path": "@pipeline().parameters.outputPath"
+                            },
+                            "type": "DatasetReference"
+                        }
+                    ],
+                    "typeProperties": {
+                        "source": {
+                            "type": "BlobSource"
+                        },
+                        "sink": {
+                            "type": "BlobSink"
+                        }
+                    }
+                }
+            ],
+            "parameters": {
+                "inputPath": {
+                    "type": "String"
+                },
+                "outputPath": {
+                    "type": "String"
+                }
+            }
+        }
+    }
+    ```
+
+2. **Adfv2QuickStartPipeline** işlem hattını oluşturmak için **Set-AzureRmDataFactoryV2Pipeline** cmdlet’ini çalıştırın.
+
+    ```powershell
+    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
+    ```
+
+    Örnek çıktı aşağıdaki gibidir:
+
+    ```
+    PipelineName      : Adfv2QuickStartPipeline
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
+    Activities        : {CopyFromBlobToBlob}
+    Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
+    ```
+
+## <a name="create-a-pipeline-run"></a>İşlem hattı çalıştırması oluşturma
+
+Bu adımda, **inputPath** ve **outputPath** işlem hattı parametrelerinin değerlerini kaynak ve havuz blob yollarının gerçek değerleriyle ayarlarsınız. Ardından, bu bağımsız değişkenleri kullanarak bir işlem hattı çalıştırması oluşturursunuz. 
+
+1. **C:\ADFv2QuickStartPSH** klasöründe aşağıdaki içeriğe sahip **PipelineParameters.json** adlı bir JSON dosyası oluşturun:
+
+    Dosyayı kaydetmeden önce inputPath ve outputPath değerini, verilerin kopyalanacağı kaynak ve havuz blob yolunuzla değiştirin.
+
+    ```json
+    {
+        "inputPath": "<the path to existing blob(s) to copy data from, e.g. containername/foldername>",
+        "outputPath": "<the blob path to copy data to, e.g. containername/foldername>"
+    }
+    ```
+
+2. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet’ini çalıştırarak bir işlem hattı çalıştırması oluşturun ve parametre değerlerini geçirin. Ayrıca, gelecekte izlemek üzere işlem hattı çalıştırma kimliğini yakalar.
+
+    ```powershell
+    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+    ```
+
+## <a name="monitor-a-pipeline-run"></a>İşlem hattı çalıştırmasını izleme
+
+1. İşlem hattı çalıştırma durumunu, verileri kopyalama işlemi tamamlanıncaya kadar sürekli olarak denetlemek için aşağıdaki betiği çalıştırın.
+
+    ```powershell
+    while ($True) {
+        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+
+        if ($run) {
+            if ($run.Status -ne 'InProgress') {
+                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
+                $run
+                break
+            }
+        }
+
+        Write-Host  "Pipeline is running...status: " $run.Status -foregroundcolor "Yellow"
+        Start-Sleep -Seconds 30
+    }
+    ```
+
+    İşlem hattı çalıştırmasının örnek çıktısı aşağıdaki gibidir:
+
+    ```
+    Key                  : 00000000-0000-0000-0000-000000000000
+    Timestamp            : 9/7/2017 8:31:26 AM
+    RunId                : 000000000-0000-0000-0000-000000000000
+    DataFactoryName      : <dataFactoryname>
+    PipelineName         : Adfv2QuickStartPipeline
+    Parameters           : {inputPath: <inputBlobPath>, outputPath: <outputBlobPath>}
+    ParametersCount      : 2
+    ParameterNames       : {inputPath, outputPath}
+    ParameterNamesCount  : 2
+    ParameterValues      : {<inputBlobPath>, <outputBlobPath>}
+    ParameterValuesCount : 2
+    RunStart             : 9/7/2017 8:30:45 AM
+    RunEnd               : 9/7/2017 8:31:26 AM
+    DurationInMs         : 41291
+    Status               : Succeeded
+    Message              :
+    ```
+
+2. Kopyalama etkinliği çalıştırma ayrıntılarını (örneğin, okunan/yazılan verilerin boyutu) almak için aşağıdaki betiği çalıştırın.
+
+    ```powershell
+    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    Write-Host "Activity run details:" -foregroundcolor "Yellow"
+    $result
+    
+    Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
+    $result.Output -join "`r`n"
+    
+    Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
+    $result.Error -join "`r`n"
+    ```
+3. Etkinlik çalıştırma sonucunun aşağıdaki örnek çıktısına benzer çıktıyı gördüğünüzü onaylayın:
+
+    ```json
+    Activity run details:
+    ResourceGroupName : adf
+    DataFactoryName   : <dataFactoryname>
+    ActivityName      : CopyFromBlobToBlob
+    Timestamp         : 9/7/2017 8:24:06 AM
+    PipelineRunId     : 9b362a1d-37b5-449f-918c-53a8d819d83f
+    PipelineName      : Adfv2QuickStartPipeline
+    Input             : {source, sink}
+    Output            : {dataRead, dataWritten, copyDuration, throughput...}
+    LinkedServiceName :
+    ActivityStart     : 9/7/2017 8:23:30 AM
+    ActivityEnd       : 9/7/2017 8:24:06 AM
+    Duration          : 36331
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
+    
+    Activity 'Output' section:
+    "dataRead": 331452208
+    "dataWritten": 331452208
+    "copyDuration": 23
+    "throughput": 14073.209
+    "errors": []
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)"
+    ```
+
+## <a name="verify-the-output"></a>Çıktıyı doğrulama
+inputBlobPath içindeki blobların outputBlobPath yoluna kopyalandığından emin olmak için [Azure Depolama gezgini](https://azure.microsoft.com/features/storage-explorer/) gibi araçları kullanın.
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+Hızlı başlangıç bölümünde oluşturduğunuz kaynakları iki şekilde temizleyebilirsiniz. Kaynak grubundaki tüm kaynakları içeren [Azure kaynak grubunu](../azure-resource-manager/resource-group-overview.md) silebilirsiniz. Diğer kaynakları korumak istiyorsanız yalnızca bu öğreticide oluşturduğunuz veri kaynağını silin.
+
+Kaynak grubunun tamamını silmek için şu komutu çalıştırın: 
+```powershell
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+```
+
+Yalnızca veri fabrikası tablosunu silmek için aşağıdaki komutu çalıştırın: 
+
+```powershell
+Remove-AzureRmDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
+```
+
+## <a name="next-steps"></a>Sonraki adımlar
+Bu örnekteki işlem hattı, verileri bir konumdan Azure blob depolama alanındaki başka bir konuma kopyalar. Daha fazla senaryoda Data Factory’yi kullanma hakkında bilgi almak için [öğreticileri](tutorial-copy-data-dot-net.md) okuyun. 
