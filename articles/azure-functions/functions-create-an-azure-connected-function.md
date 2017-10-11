@@ -11,17 +11,17 @@ keywords: "azure işlevleri, işlevler, olay işleme, web kancaları, dinamik i�
 ms.assetid: ab86065d-6050-46c9-a336-1bfc1fa4b5a1
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/01/2017
-ms.author: rachelap; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
-ms.lasthandoff: 04/18/2017
-
-
+ms.author: glenga
+ms.custom: mvc
+ms.openlocfilehash: 65964a322f0adab4f648fb350bedb77b46bf9054
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Diğer Azure hizmetlerine bağlanan bir işlev oluşturmak için Azure İşlevleri’ni kullanma
 
@@ -191,5 +191,4 @@ Azure İşlevleri hakkında daha fazla bilgi edinmek için, aşağıdaki konular
   Tüketim barındırma planı dahil olmak üzere, Azure İşlevlerinde kullanılabilen hizmet planlarını ve doğru planın nasıl seçileceğini açıklar. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
 

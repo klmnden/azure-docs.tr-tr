@@ -1,30 +1,30 @@
-| Resource | Default Limit | Maximum Limit |
+| Kaynak | Varsayılan Sınır | Üst Sınır |
 | --- | --- | --- |
-| VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |10,000 <sup>1</sup> per Region |10,000 per Region |
-| VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
-| VM per series (Dv2, F, etc.) cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
-| [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited |Unlimited |
-| [Storage accounts](../articles/storage/common/storage-create-storage-account.md) per subscription |200 |200<sup>2</sup> |
-| [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |800 |800 |
-| [Availability Sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,000 per Region |2,000 per Region |
-| Resource Manager API Reads |15,000 per hour |15,000 per hour |
-| Resource Manager API Writes |1,200 per hour |1,200 per hour |
-| Resource Manager API request size |4,194,304 bytes |4,194,304 bytes |
-| Tags per subscription<sup>3</sup> |unlimited |unlimited |
-| Unique tag calculations per subscription<sup>3</sup> | 10,000 | 10,000 |
-| [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |Not Applicable<sup>4</sup> |Not Applicable<sup>4</sup> |
-| [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |Not Applicable<sup>4</sup> |Not Applicable<sup>4</sup> |
+| [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına VM |Bölge başına 10.000 <sup>1</sup> |Bölge başına 10.000 |
+| [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına toplam VM çekirdeği sayısı |Bölge başına 20<sup>1</sup> | Desteğe başvurun |
+| Bir [abonelikteki](../articles/billing-buy-sign-up-azure-subscription.md) seri (Dv2, F vb.) çekirdeği başına VM |Bölge başına 20<sup>1</sup> | Desteğe başvurun |
+| Abonelik başına [ortak yönetici](../articles/billing-add-change-azure-subscription-administrator.md) sayısı |Sınırsız |Sınırsız |
+| Abonelik başına [depolama hesabı](../articles/storage/common/storage-create-storage-account.md) sayısı |200 |200<sup>2</sup> |
+| Abonelik başına [Kaynak Grubu](../articles/azure-resource-manager/resource-group-overview.md) |800 |800 |
+| Abonelik başına [Kullanılabilirlik Kümesi](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |Bölge başına 2.000 |Bölge başına 2.000 |
+| Resource Manager API'si Okuma İşlemleri |Saatte 15.000 |Saatte 15.000 |
+| Resource Manager API'si Yazma İşlemleri |Saatte 1.200 |Saatte 1.200 |
+| Resource Manager API'si istek boyutu |4.194.304 bayt |4.194.304 bayt |
+| Abonelik başına etiket<sup>3</sup> |sınırsız |sınırsız |
+| Abonelik başına benzersiz etiket hesaplaması<sup>3</sup> | 10,000 | 10,000 |
+| Abonelik başına [bulut hizmeti](../articles/cloud-services/cloud-services-choose-me.md) sayısı |Uygulanamaz<sup>4</sup> |Uygulanamaz<sup>4</sup> |
+| Abonelik başına [benzeşim grubu](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) sayısı |Uygulanamaz<sup>4</sup> |Uygulanamaz<sup>4</sup> |
 
-<sup>1</sup>Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and series, such as Dv2, F, G, etc.
+<sup>1</sup>Varsayıla limitler Ücretsiz Deneme, Kullandıkça Öde gibi teklif Kategori Türüne ve Dv2, F, G vb. serilere göre farklılık gösterir.
 
-<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts.
+<sup>2</sup>Buna hem Standart hem de Premium depolama hesapları dahildir. 200'den fazla depolama hesabı gerekiyorsa, [Azure Destek](https://azure.microsoft.com/support/faq/) üzerinden bir istek oluşturun. Azure Depolama ekibi, işinizin durumunu inceler ve 250’ye kadar depolama hesabı için onay verebilir.
 
-<sup>3</sup>You can apply an unlimited number of tags per subscription. The number of tags per resource or resource group is limited to 15. Resource Manager only returns a [list of unique tag name and values](/rest/api/resources/tags#Tags_List) in the subscription when the number of tags is 10,000 or less. However, you can still find a resource by tag when the number exceeds 10,000.  
+<sup>3</sup>Abonelik başına sınırsız sayıda etiket uygulayabilirsiniz. Kaynak ya da kaynak grubu başına etiket sayısı 15 ile sınırlıdır. Etiket sayısı 10.000 veya daha az olduğunda Resource Manager yalnızca abonelikteki [benzersiz etiket adı ve değerlerinin listesini](/rest/api/resources/tags#Tags_List) döndürür. Ancak, sayı 10.000’i aştığında bile etikete göre bir kaynak bulabilirsiniz.  
 
-<sup>4</sup>These features are no longer required with Azure Resource Groups and the Azure Resource Manager.
+<sup>4</sup>Bu özellikler artık Azure Kaynak Grupları ve Azure Resource Manager ile gerekli değildir.
 
 > [!NOTE]
-> It is important to emphasize that virtual machine cores have a regional total limit as well as a regional per size series (Dv2, F, etc.) limit that are separately enforced.  For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30.  This subscription would be allowed to deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two not to exceed a total of 30 cores (for example, 10 A1 VMs and 20 D1 VMs).  
+> Sanal makine çekirdeklerinin ayrı ayrı uygulanan bölgesel bir toplam limiti ve boyut başına bölgesel seri (Dv2, F vb.) limitinin olduğu bilinmelidir.  Örneğin, Doğu ABD toplam VM çekirdek limiti 30, A serisi çekirdek limiti 30 ve D serisi çekirdek limiti 30 olan bir abonelik düşünün.  Bu aboneliğin 30 adet A1 sanal makinesi veya 30 adet D1 sanal makinesi ya da ikisinin toplamda 30 çekirdeği geçmeyecek bir birleşimini (örneğin, 10 adet A1 sanal makinesi ve 20 adet D1 sanal makinesi) dağıtmasına izin verilir.  
 > <!-- -->
 > 
 > 

@@ -1,28 +1,28 @@
-**Premium unmanaged virtual machine disks: per account limits**
+**Premium yönetilmeyen sanal makine diskleri: Hesap başına limitler**
 
-| Resource | Default Limit |
+| Kaynak | Varsayılan Sınır |
 | --- | --- |
-| Total disk capacity per account |35 TB |
-| Total snapshot capacity per account |10 TB |
-| Max bandwidth per account (ingress + egress<sup>1</sup>) |<=50 Gbps |
+| Hesap başına toplam disk kapasitesi |35 TB |
+| Hesap başına toplam anlık görüntü kapasitesi |10 TB |
+| Hesap başına en fazla bant genişliği (giriş ve çıkış <sup>1</sup>) |En fazla 50 Gbps |
 
-<sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.
+<sup>1</sup>*Giriş*, bir depolama hesabına gönderilen tüm verileri (istekler) ifade eder. *Çıkış*, bir depolama hesabından alınan tüm verileri (yanıtlar) ifade eder.
 
-**Premium unmanaged virtual machine disks: per disk limits**
+**Premium yönetilmeyen sanal makine diskleri: Disk başına limitler**
 
-| Premium Storage Disk Type | P10 | P20 | P30 | P40 | P50 |
+| Premium Depolama Diski Türü | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
-| Disk size |128 GiB |512 GiB |1024 GiB (1 TB) |2048 GiB (2 TB)|4095 GiB (4 TB)|
-| Max IOPS per disk |500 |2300 |5000 |7500 |7500 |
-| Max throughput per disk |100 MB/s | 150 MB/s |200 MB/s |250 MB/s |250 MB/s |
-| Max number of disks per storage account |280 |70 |35 | 17 | 8 |
+| Disk boyutu |128 GiB |512 GiB |1024 GiB (1 TB) |2048 Gib'den (2 TB)|4095 Gib'den (4 TB)|
+| Disk başına en fazla IOPS |500 |2300 |5000 |7500 |7500 |
+| Disk başına en fazla aktarım hızı |100 MB/s | 150 MB/s |200 MB/sn |250 MB/sn |250 MB/sn |
+| Depolama hesabı başına en fazla disk sayısı |280 |70 |35 | 17 | 8 |
 
-**Premium unmanaged virtual machine disks: per VM limits**
+**Premium yönetilmeyen sanal makine diskleri: Sanal makine başına limitler**
 
-| Resource | Default Limit |
+| Kaynak | Varsayılan Sınır |
 | --- | --- |
-| Max IOPS Per VM |80,000 IOPS with GS5 VM<sup>1</sup> |
-| Max throughput per VM |2,000 MB/s with GS5 VM<sup>1</sup> |
+| VM başına en fazla IOPS |GS5 VM ile 80.000 IOPS<sup>1</sup> |
+| Sanal makine başına en fazla aktarım hızı |GS5 VM ile 2.000 MB/sn<sup>1</sup> |
 
-<sup>1</sup>Refer to [VM Size](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for limits on other VM sizes. 
+<sup>1</sup>Diğer VM boyutlarına yönelik limitlerle ilgili bilgi edinmek için [Sanal Makine Boyutu](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)’na başvurun. 
 

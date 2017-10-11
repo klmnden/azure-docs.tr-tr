@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [MicrosoftTranslator](https://www.microsoft.com/translator) account  
+### <a name="prerequisites"></a>Ön koşullar
+* A [MicrosoftTranslator](https://www.microsoft.com/translator) hesabı  
 
-Before you can use your MicrosoftTranslator account in a Logic app, you must authorize the Logic app to connect to your MicrosoftTranslator account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Bir mantıksal uygulama MicrosoftTranslator hesabınızı kullanabilmeniz için önce MicrosoftTranslator hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
 
-Here are the steps to authorize your Logic app to connect to your MicrosoftTranslator account:  
+Mantıksal uygulamanızı MicrosoftTranslator hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:  
 
-1. To create a connection to MicrosoftTranslator, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *MicrosoftTranslator* in the search box. Select the trigger or action you'll like to use:  
-   ![MicrosoftTranslator connection creation step](./media/connectors-create-api-microsofttranslator/microsofttranslator-1.png)  
-2. If you haven't created any connections to MicrosoftTranslator before, you'll get prompted to provide your MicrosoftTranslator credentials. These credentials will be used to authorize your Logic app to connect to, and access your MicrosoftTranslator account's data:  
-   ![MicrosoftTranslator connection creation step](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![MicrosoftTranslator connection creation step](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
+1. Mantıksal Uygulama Tasarımcısı'nda MicrosoftTranslator, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *MicrosoftTranslator* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+   ![MicrosoftTranslator bağlantı oluşturma adım](./media/connectors-create-api-microsofttranslator/microsofttranslator-1.png)  
+2. Önce MicrosoftTranslator bağlantılarına oluşturmadıysanız, MicrosoftTranslator kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve MicrosoftTranslator hesabınızın veri erişim:  
+   ![MicrosoftTranslator bağlantı oluşturma adım](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
+3. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+   ![MicrosoftTranslator bağlantı oluşturma adım](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
 

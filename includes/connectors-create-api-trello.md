@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [Trello](http://trello.com) account 
+### <a name="prerequisites"></a>Ön koşullar
+* A [Trello](http://trello.com) hesabı 
 
-Before you can use your Trello account in a Logic app, you must authorize the Logic app to connect to your Trello account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Bir mantıksal uygulama Trello hesabınızı kullanabilmeniz için önce Trello hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
 
-Here are the steps to authorize your Logic app to connect to your Trello account:
+Mantıksal uygulamanızı Trello hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
 
-1. To create a connection to Trello, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Trello* in the search box. Select the trigger or action you'll like to use:  
+1. Mantıksal Uygulama Tasarımcısı'nda Trello, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Trello* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
    ![](./media/connectors-create-api-trello/trello-1.png)
-2. If you haven't created any connections to Trello before, you'll get prompted to provide your Trello credentials. These credentials will be used to authorize your Logic app to connect to, and access your Trello account's data:  
+2. Önce Trello bağlantılarına oluşturmadıysanız, Trello kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Trello hesabınızın veri erişim:  
    ![](./media/connectors-create-api-trello/trello-2.png) 
-3. Allow us to connect to Trello:  
+3. Bize Trello için bağlanmasına izin ver:  
    ![](./media/connectors-create-api-trello/trello-3.png)   
-4. Provide your Trello user name and password to authorize your Logic app:  
+4. Mantıksal uygulamanızı yetkilendirmek için parola ve Trello kullanıcı adı girin:  
    ![](./media/connectors-create-api-trello/trello-4.png)  
-5. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
+5. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
    ![](./media/connectors-create-api-trello/trello-5.png)
 

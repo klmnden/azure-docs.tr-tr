@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Azure Güvenlik Merkezi platform geçişi
 
@@ -78,5 +77,4 @@ Platform geçişinin yanı sıra bazı ek, küçük güncelleştirmeleri de kull
 - Standart fiyatlandırma katmanındaki müşteriler için Veri Toplama gerekli olacak ve otomatik olarak etkinleştirilecek.
 - Azure Güvenlik Merkezi, Azure uzantıları aracılığıyla dağıtılmamış kötü amaçlı yazılım çözümlerini bulmaya başlayacak. İlk olarak Symantec Endpoint Protection ve Windows 2016 için Defender’ı bulma özelliği kullanılabilecek.
 - Önleme ilkelerini ve bildirimleri yalnızca *Abonelik* düzeyinde yapılandırabilirsiniz, ancak fiyatlandırma *Kaynak Grubu* düzeyinde ayarlanabilir.
-
 

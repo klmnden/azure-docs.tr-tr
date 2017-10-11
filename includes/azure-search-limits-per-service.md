@@ -1,18 +1,18 @@
-Storage is constrained by disk space or by a hard limit on the *maximum number* of indexes or documents, whichever comes first.
+Depolama, disk alanı ya da dizin veya belge sayısı *üst sınırı* ile kısıtlanır (hangisi önce gelirse).
 
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
+| Kaynak | Ücretsiz | Temel | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Service Level Agreement (SLA) |No <sup>1</sup> |Yes |Yes |Yes |Yes |Yes |
-| Storage per partition |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Partitions per service |N/A |1 |12 |12 |12 |3 <sup>2</sup> |
-| Partition size |N/A |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Replicas |N/A |3 |12 |12 |12 |12 |
-| Maximum indexes |3 |5 |50 |200 |200 |1000 per partition or 3000 per service |
-| Maximum indexers |3 |5 |50 |200 |200 |No indexer support |
-| Maximum datasources |3 |5 |50 |200 |200 |No indexer support |
-| Maximum documents |10,000 |1 million |15 million per partition or 180 million per service |60 million per partition or 720 million per service |120 million per partition or 1.4 billion per service |1 million per index or 200 million per partition |
-| Estimated queries per second (QPS) |N/A |~3 per replica |~15 per replica |~60 per replica |~60 per replica |>60 per replica |
+| Hizmet Düzeyi Sözleşmesi (SLA) |Hayır <sup>1</sup> |Evet |Evet |Evet |Evet |Evet |
+| Bölüm başına depolama |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |
+| Hizmet başına bölüm |Yok |1 |12 |12 |12 |3 <sup>2</sup> |
+| Bölüm boyutu |Yok |2 GB |25 GB |100 GB |200 GB |200 GB |
+| Çoğaltmalar |Yok |3 |12 |12 |12 |12 |
+| En fazla dizin |3 |5 |50 |200 |200 |Bölüm başına 1000 veya hizmet başına 3000 |
+| En fazla dizin oluşturucu |3 |5 |50 |200 |200 |Dizin oluşturucu desteği yok |
+| En fazla veri kaynağı |3 |5 |50 |200 |200 |Dizin oluşturucu desteği yok |
+| En fazla belge |10,000 |1 milyon |Bölüm başına 15 milyon veya hizmet başına 180 milyon |Bölüm başına 60 milyon veya hizmet başına 720 milyon |Bölüm başına 120 milyon veya hizmet başına 1.4 milyar |Dizin başına 1 milyon veya bölüm başına 200 milyon |
+| Tahmini sorgular/saniye (QPS) |Yok |Çoğaltma başına yaklaşık 3 |Çoğaltma başına yaklaşık 15 |Çoğaltma başına yaklaşık 60 |Çoğaltma başına yaklaşık 60 |Çoğaltma başına yaklaşık >60 |
 
-<sup>1</sup> Free tier and preview features do not come with service level agreements (SLAs). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. Two or more replicas are required for query (read) SLA. Three or more replicas are required for query and indexing (read-write) SLA. The number of partitions is not an SLA consideration. 
+<sup>1</sup> ücretsiz katmanı ve önizleme özellikleri hizmet düzeyi sözleşmelerine (SLA) ile gelen değil. Hizmetiniz için yeterli artıklık sağladığınızda tüm Faturalanabilir katmanları için SLA etkili olur. İki veya daha fazla çoğaltmaları için (okuma) sorgu SLA gereklidir. Üç veya daha fazla çoğaltmalar, sorgu ve dizin oluşturma (okuma-yazma) SLA için gereklidir. Bölüm sayısı bir SLA önem verilmez. 
 
-<sup>2</sup> S3 HD has a hard limit of 3 partitions, which is lower than the partition limit for S3. The lower partition limit is imposed because the index count for S3 HD is substantially higher. Given that service limits exist for both computing resources (storage and processing) and content (indexes and documents), the content limit is reached first.
+<sup>2</sup> S3 HD’nin sabit sınırı 3 bölümdür ve S3’ün bölüm sınırından düşüktür. S3 HD dizin sınırı çok daha yüksek olduğu için daha düşük bir bölüm sınırı uygulanmaktadır. Hem işlem kaynakları (depolama ve işleme) hem de içerik (dizinler ve belgeler) için hizmet sınırları mevcut olduğu için içerik sınırına ilk önce ulaşılır.

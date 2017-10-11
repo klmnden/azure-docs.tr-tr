@@ -1,25 +1,25 @@
 <!--author=alkohli last changed: 9/16/15-->
 
-#### <a name="to-cable-for-power"></a>To cable for power
-1. Make sure that the power switches on each of the Power and Cooling Modules (PCMs) are in the OFF position.
-2. Connect the power cords to each of the PCMs in the primary enclosure.
-3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following image. Make sure that the two PCMs use separate power sources.
+#### <a name="to-cable-for-power"></a>Güç kablosu için
+1. Güç her güç geçer ve soğutma modülleri (PCMs) OFF konumunda olduğundan emin olun.
+2. Güç kablosu her birincil muhafazada PCMs bağlayın.
+3. Güç kablosu raf güç dağıtım birimleri (Pdu'lar) aşağıdaki görüntüde gösterildiği gibi ekleyin. İki PCMs kullanımı güç kaynakları ayrı emin olun.
    
    > [!IMPORTANT]
-   > To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram. 
+   > Sisteminiz için yüksek kullanılabilirlik sağlamak için kesinlikle Aşağıdaki diyagramda gösterildiği düzeni kablo güç izliyor olduğunuz olmasını öneririz. 
    > 
    > 
    
-    ![Cable your 2U device for power](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    ![Kabloyla 2U cihazınızın güç bağlantısını yapma](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
    
-    **Power cabling on an 8100 device**
+    **8100 cihazda kablo güç**
    
-   | Label | Description |
+   | Etiket | Açıklama |
    |:--- |:--- |
    | 1 |PCM 0 |
-   | 2 |Controller 1 |
-   | 3 |Controller 0 |
+   | 2 |Denetleyici 1 |
+   | 3 |Denetleyici 0 |
    | 4 |PCM 1 |
-   | 5 |PDUs |
-4. To turn on the system, flip the power switches on both PCMs to the ON position.
+   | 5 |PDU |
+4. Sistemde açmak için güç anahtarları ON konuma hem PCMs ters çevirin.
 

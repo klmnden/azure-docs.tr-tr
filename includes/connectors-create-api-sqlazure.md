@@ -1,42 +1,42 @@
-### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An [Azure SQL Database](../articles/sql-database/sql-database-get-started.md) with its connection information, including the server name, database name, and username/password. This information is included in the SQL Database connection string:
+### <a name="prerequisites"></a>Ön koşullar
+* Bir Azure hesabı; oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free)
+* Bir [Azure SQL veritabanı](../articles/sql-database/sql-database-get-started.md) ile bağlantı bilgilerini, sunucu adını, veritabanı adı ve kullanıcı adı/parola dahil olmak üzere. Bu bilgiler, SQL veritabanı bağlantı dizesine dahil edilir:
   
-    Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    Sunucu = tcp:*yoursqlservername*. database.windows.net,1433;Initial katalog =*yourqldbname*; Kalıcı güvenlik bilgisi = False; Kullanıcı Kimliği {your_username} =; Parola {your_password} =; MultipleActiveResultSets = False; Şifreleme = True; TrustServerCertificate = False; Bağlantı zaman aşımı = 30;
   
-    Read more about [Azure SQL Databases](https://azure.microsoft.com/services/sql-database).
+    Daha fazla bilgi edinin [Azure SQL veritabanlarını](https://azure.microsoft.com/services/sql-database).
 
 > [!NOTE]
-> When you create an Azure SQL Database, you can also create the sample databases included with SQL. 
+> Bir Azure SQL veritabanı oluşturduğunuzda, aynı zamanda SQL ile bulunan örnek veritabanları oluşturabilirsiniz. 
 > 
 > 
 
-Before using your Azure SQL Database in a logic app, connect to your SQL Database. You can do this easily within your logic app on the Azure portal.  
+Azure SQL veritabanınıza bir mantıksal uygulama kullanmadan önce SQL veritabanına bağlayın. Kolayca Azure portalındaki mantıksal uygulama içinde bunu yapabilirsiniz.  
 
-Connect to your Azure SQL Database using the following steps:  
+Aşağıdaki adımları kullanarak, Azure SQL veritabanına bağlan:  
 
-1. Create a logic app. In the Logic Apps designer, add a trigger, and then add an action. Select **Show Microsoft managed APIs** in the drop down list, and then enter "sql" in the search box. Select one of the actions:  
+1. Bir mantıksal uygulama oluşturun. Logic Apps Tasarımcısı'nda bir tetikleyici ekleyin ve ardından bir eylem ekleyin. Seçin **Göster Microsoft yönetilen API'ler** açılır listesinde ve ardından arama kutusuna "sql" girin. Eylemlerden birini seçin:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. If you haven't previously created any connections to SQL Database, you are prompted for the connection details:  
+    ![SQL Azure bağlantısı oluşturma adım](./media/connectors-create-api-sqlazure/sql-actions.png)
+2. Daha önce SQL veritabanı için herhangi bir bağlantısı oluşturmadıysanız, bağlantı ayrıntılarını istenir:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. Enter the SQL Database details. Properties with an asterisk are required.
+    ![SQL Azure bağlantısı oluşturma adım](./media/connectors-create-api-sqlazure/connection-details.png) 
+3. SQL veritabanı ayrıntılarını girin. Bir yıldız işareti özelliklerle gereklidir.
    
-   | Property | Details |
+   | Özellik | Ayrıntılar |
    | --- | --- |
-   | Connect via Gateway |Leave this unchecked. This is used when connecting to an on-premises SQL Server. |
-   | Connection Name * |Enter any name for your connection. |
-   | SQL Server Name * |Enter the server name; which is something like *servername.database.windows.net*. The server name is displayed in the SQL Database properties in the Azure portal, and also displayed in the connection string. |
-   | SQL Database Name * |Enter the name you gave your SQL Database. This is listed in the SQL Database properties in the connection string: Initial Catalog=*yoursqldbname*. |
-   | Username * |Enter the username you created when the SQL Database was created. This is listed in the SQL Database properties in the Azure portal. |
-   | Password * |Enter the password you created when the SQL Database was created. |
+   | Ağ geçidi bağlanma |İşaretlemeden bırakın. Bu, bir şirket içi SQL Server'a bağlanırken kullanılır. |
+   | Bağlantı adı * |Bağlantınız için herhangi bir ad girin. |
+   | SQL Server adı * |Sunucu adı girin; aşağıdakine benzer olduğu *servername.database.windows.net*. Sunucu adı, SQL veritabanı özellikleri Azure portalında görüntülenen ve ayrıca bağlantı dizesinde görüntülenir. |
+   | SQL veritabanı adı * |SQL veritabanınız verdiğiniz adı girin. Bu bağlantı dizesini SQL veritabanı özelliklerinde listelenir: Initial Catalog =*yoursqldbname*. |
+   | Kullanıcı adı * |SQL Database oluşturduğunuzda oluşturulan kullanıcı adı girin. Bu, Azure portalında SQL veritabanı özelliklerinde listelenir. |
+   | Parola * |SQL veritabanı oluşturulduğunda, oluşturduğunuz parolayı girin. |
    
-    These credentials are used to authorize your logic app to connect, and access your SQL data. Once complete, your connection details look similar to the following:  
+    Bu kimlik bilgileri, mantıksal uygulamanızı bağlanmak ve SQL verilerinize erişmek üzere yetkilendirmek için kullanılır. Tamamlandıktan sonra bağlantı ayrıntılarınızı şuna benzer:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Select **Create**. 
-5. Notice the connection has been created. Now, proceed with the other steps in your logic app: 
+    ![SQL Azure bağlantısı oluşturma adım](./media/connectors-create-api-sqlazure/sample-connection.png) 
+4. **Oluştur**’u seçin. 
+5. Bağlantıyı oluşturan dikkat edin. Şimdi, mantıksal uygulamanızı diğer adımlarla devam edin: 
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/table.png)
+    ![SQL Azure bağlantısı oluşturma adım](./media/connectors-create-api-sqlazure/table.png)
 

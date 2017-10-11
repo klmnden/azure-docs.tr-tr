@@ -1,6 +1,6 @@
 ---
 title: "Birden çok Azure SQL veritabanına göre analiz sorguları çalıştırma | Microsoft Docs"
-description: "Birden fazla Azure SQL veritabanında dağıtılmış sorgular çalıştırma"
+description: "Analytics veritabanına çevrimdışı analiz için Kiracı veritabanlarından veri ayıklamak"
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
 documentationcenter: 
@@ -9,27 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 06/16/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
-ms.contentlocale: tr-tr
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Birden fazla Azure SQL veritabanında dağıtılmış sorgular çalıştırma
+# <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Analytics veritabanına çevrimdışı analiz için Kiracı veritabanlarından veri ayıklamak
 
-Bu öğreticide, katalogdaki her kiracıya yönelik analiz sorguları çalıştıracaksınız. Sorguları çalıştıran esnek bir iş oluşturulur. İş, verileri alır ve katalog sunucusunda oluşturulan ayrı bir analiz veritabanına yükler. Bu veritabanı, tüm kiracıların günlük çalışma verilerinde gömülü olan bilgileri ayıklamak için sorgulanabilir. İşin sonucu olarak, kiracı analiz veritabanının içindeki sonuç döndüren sorgulardan bir tablo oluşturulur.
+Bu öğreticide, her Kiracı veritabanına karşı sorguları çalıştırmak için esnek bir işi kullanın. İş bilet satış verileri ayıklar ve çözümleme için bir analytics veritabanı (veya veri ambarı) yükler. Analytics veritabanı sonra tüm kiracılar bu günlük işletimsel verilerden öngörüleri ayıklamak için sorgulanır.
 
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Kiracı analiz veritabanını oluşturma
@@ -37,7 +35,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
-* WTP uygulamasının dağıtıldığından. Beş dakikadan daha kısa sürede dağıtmak için [WTP SaaS uygulamasını dağıtma ve keşfetme](sql-database-saas-tutorial.md) bölümünü inceleyin
+* Wingtip SaaS uygulaması dağıtılır. Beş dakikadan daha kısa bir süre içinde dağıtmak için bkz: [dağıtma ve Wingtip SaaS uygulamasına keşfedin.](sql-database-saas-tutorial.md)
 * Azure PowerShell’in yüklendiğinden. Ayrıntılar için bkz. [Azure PowerShell’i kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * SQL Server Management Studio’nun (SSMS) en son sürümünün yüklendiğinden. [SSMS’yi İndirin ve Yükleyin](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
@@ -47,7 +45,7 @@ SaaS uygulamalarının sunduğu harika fırsatlardan biri de bulutta depolanan z
 
 ## <a name="get-the-wingtip-application-scripts"></a>Wingtip uygulama betiklerini alma
 
-Wingtip Bilet betikleri ve uygulama kaynağı kodu, [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github deposunda bulunabilir. Betik dosyaları, [Öğrenme Modülleri klasöründe](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules) yer alır. **Öğrenme Modülleri** klasörünü, klasör yapısını koruyarak yerel bilgisayarınıza indirin.
+Wingtip SaaS komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github depo. [Wingtip SaaS komut dosyalarını karşıdan yüklemek için adımları](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Kiracı analiz sonuçları için bir veritabanı dağıtma
 
@@ -68,14 +66,14 @@ Bu öğreticide, sonuç döndüren sorgular içeren betiklerin iş yürütme son
 
 Bu betik, tüm kiracılardan bilet satın alma bilgilerini almak için bir iş oluşturur. Tek bir tabloda toplandıklarında, kiracıların bilet satın alma düzenleri hakkında zengin bilgiler içeren ölçümler elde edebilirsiniz.
 
-1. SSMS’yi açın ve catalog-\<user\>.database.windows.net sunucusuna bağlanın
+1. SSMS’yi açın ve catalog-&lt;user&gt;.database.windows.net sunucusuna bağlanın
 1. ...\\Öğrenme Modülleri\\İşlem Analizi\\Kiracı Analizleri\\*TicketPurchasesfromAllTenants.sql*’i açın
-1. \<WtpUser\>’ı değiştirin ve **sp\_add\_target\_group\_member** ve **sp\_add\_jobstep** betiğinin üst kısmında WTP uygulamasını dağıtırken kullandığınız kullanıcı adını kullanın
-1. Sağ tıklayıp **Bağlantı**’yı seçin ve henüz bağlı değilseniz catalog-\<WtpUser\>.database.windows.net sunucusuna bağlanın
+1. Değiştirme &lt;kullanıcı&gt;, betik üstündeki Wingtip SaaS uygulama dağıtıldığında kullanılan kullanıcı adı kullan **sp\_ekleme\_hedef\_grup\_üye** ve **sp\_ekleme\_iş**
+1. Sağ tıklayın, seçin **bağlantı**ve Katalog için bağlantı&lt;kullanıcı&gt;. database.windows.net sunucusu zaten bağlıysa,
 1. **jobaccount** veritabanına bağlandığınızdan emin olun ve betiği çalıştırmak için **F5**’e basın
 
 * **sp\_add\_target\_group**, *TenantGroup* hedef grubu adını oluşturur, artık hedef üyeleri eklememiz gerekiyor.
-* **sp\_add\_target\_group\_member**, *server* hedef üye türünü ekler. Bu tür, iş yürütülürken söz konusu sunucudaki (bunun kiracı veritabanlarını içeren customer1-&lt;WtpUser&gt; sunucusu olduğunu unutmayın) tüm veritabanlarının işe dahil edilmesi gerektiğini varsayar.
+* **SP\_ekleme\_hedef\_grup\_üye** ekler bir *server* hedef sunucu (Bu customer1Notiçindekitümveritabanlarıuymakaçısındangerekliolduğunuüyetürü&lt; Kullanıcı&gt; server Kiracı veritabanları içeren) işi aynı anda işi yürütme eklenmelidir.
 * **sp\_add\_job**, “Tüm Kiracıların Bilet Satın Alma İşlemleri” adında yeni bir haftalık olarak zamanlanmış iş oluşturur
 * **sp\_add\_jobstep**, tüm kiracıların bilet satın almayla ilgili tüm bilgilerini almak ve dönen sonuç kümesini *AllTicketsPurchasesfromAllTenants* adlı bir tabloya kopyalamak için T-SQL komut metnini içeren iş adımını oluşturur
 * Betikteki kalan görünümler, nesnelerin varlığını gösterir ve işin yürütülüşünü izler. Durumu izlemek için **yaşam döngüsü** sütunundaki durum değerini gözden geçirin. İşin başarılı olması, tüm kiracı veritabanlarında ve başvuru tablosunu içeren iki ek veritabanında başarıyla tamamlandığı anlamına gelir.
@@ -90,8 +88,8 @@ Bu betik, tüm kiracılardan bilet satın alma işlemlerinin özetini almak içi
 
 1. SSMS’yi açın ve *catalog-&lt;User&gt;.database.windows.net* sunucusuna bağlanın
 1. …\\Öğrenme Modülleri\\Sağlama ve Katalog Oluşturma\\İşlem Analizi\\Kiracı Analizleri\\*Results-TicketPurchasesfromAllTenants.sql* dosyasını açın
-1. &lt;WtpUser&gt;’ı değiştirin, **sp\_add\_jobstep** saklı yordamında, betikte WTP uygulamasını dağıtırken kullandığınız kullanıcı adını kullanın
-1. Sağ tıklayıp **Bağlantı**’yı seçin ve henüz bağlı değilseniz catalog-\<WtpUser\>.database.windows.net sunucusuna bağlanın
+1. Değiştirme &lt;kullanıcı&gt;, içinde betik Wingtip SaaS uygulama dağıtıldığında kullanılan kullanıcı adı kullan **sp\_ekleme\_iş** saklı yordamı
+1. Sağ tıklayın, seçin **bağlantı**ve Katalog için bağlantı&lt;kullanıcı&gt;. database.windows.net sunucusu zaten bağlıysa,
 1. **tenantanalytics** veritabanına bağlandığınızdan emin olun ve betiği çalıştırmak için **F5**’e basın
 
 Betiğin başarıyla çalıştırılması, şuna benzer sonuçlar sağlamalıdır:
@@ -119,5 +117,5 @@ Tebrikler!
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Wingtip Bilet Platformu (WTP) uygulamasının ilk dağıtımına dayalı ek öğreticiler](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Ek [Wingtip SaaS uygulamasına yapı öğreticileri](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Esnek İşler](sql-database-elastic-jobs-overview.md)

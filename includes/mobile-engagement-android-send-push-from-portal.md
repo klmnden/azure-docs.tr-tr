@@ -14,7 +14,7 @@ Mobile Engagement’ın sizin adınıza anında iletme bildirimleri göndermesin
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Uygulamanıza bildirim gönderme
+## <a id="send"></a>Uygulamanıza bildirim gönderme
 Şimdi de, uygulamamıza anında iletme bildirimi gönderen basit bir anında iletme bildirimi kampanyası oluşturacağız.
 
 1. Mobile Engagement portalınızın **REACH** sekmesine gidin.
@@ -41,9 +41,4 @@ Mobile Engagement’ın sizin adınıza anında iletme bildirimleri göndermesin
 6. Son adım: anında iletme bildirimlerini gönderecek kampanyanızı etkinleştirmek için **Etkinleştir**’e tıklayın.
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

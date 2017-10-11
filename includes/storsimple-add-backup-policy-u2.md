@@ -22,8 +22,3 @@
 
 Yeni eklenen ilke, **Yedekleme İlkeleri** sayfasının tablosal görünümünde gösterilir.
 
-
-
-<!--HONumber=Jan17_HO4-->
-
-

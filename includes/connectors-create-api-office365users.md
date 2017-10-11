@@ -1,16 +1,16 @@
-### <a name="prerequisites"></a>Prerequisites
-* An [Office 365 Users](https://office365.com) account  
+### <a name="prerequisites"></a>Ön koşullar
+* Bir [Office 365 kullanıcıları](https://office365.com) hesabı  
 
-Before you can use your Office 365 Users account in a Logic app, you must authorize the Logic app to connect to your Office 365 Users account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Bir mantıksal uygulama Office 365 kullanıcıları hesabınızı kullanmadan önce Office 365 kullanıcıları hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
 
-Here are the steps to authorize your Logic app to connect to your Office 365 Users account:  
+Office 365 kullanıcı hesabınıza bağlamak için mantıksal uygulamanızı yetkilendirmek için adımlar şunlardır:  
 
-1. To create a connection to Office 365 Users, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Office 365 Users* in the search box. Select the trigger or action you'll like to use:  
-   ![Office 365 Users connection creation step](./media/connectors-create-api-office365users/office365users-1.png)  
-2. If you haven't created any connections to Office 365 Users before, you'll get prompted to provide your Office 365 Users credentials. These credentials will be used to authorize your Logic app to connect to, and access your Office 365 Users account's data:  
-   ![Office 365 Users connection creation step](./media/connectors-create-api-office365users/office365users-2.png)  
-3. Provide your Office 365 Users user name and password to authorize your Logic app:  
-   ![Office 365 Users connection creation step](./media/connectors-create-api-office365users/office365users-3.png)  
-4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![Office 365 Users connection creation step](./media/connectors-create-api-office365users/office365users-4.png)  
+1. Mantıksal Uygulama Tasarımcısı'nda Office 365 kullanıcıları, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Office 365 kullanıcıları* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+   ![Office 365 kullanıcıları bağlantı oluşturma adım](./media/connectors-create-api-office365users/office365users-1.png)  
+2. Office 365 kullanıcılarına önce herhangi bir bağlantısı oluşturmadıysanız, Office 365 kullanıcıları kimlik bilgilerinizi sağlamanız istenir. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Office 365 kullanıcıları hesabınızın veri erişim:  
+   ![Office 365 kullanıcıları bağlantı oluşturma adım](./media/connectors-create-api-office365users/office365users-2.png)  
+3. Office 365 kullanıcıları kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
+   ![Office 365 kullanıcıları bağlantı oluşturma adım](./media/connectors-create-api-office365users/office365users-3.png)  
+4. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+   ![Office 365 kullanıcıları bağlantı oluşturma adım](./media/connectors-create-api-office365users/office365users-4.png)  
 

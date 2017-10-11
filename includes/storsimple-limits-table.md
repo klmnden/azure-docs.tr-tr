@@ -1,29 +1,29 @@
 <!--author=alkohli last changed: 12/15/15-->
 
-| Limit identifier | Limit | Comments |
+| Sınır tanımlayıcı | Sınır | Yorumlar |
 | --- | --- | --- |
-| Maximum number of storage account credentials |64 | |
-| Maximum number of volume containers |64 | |
-| Maximum number of volumes |255 | |
-| Maximum number of schedules per bandwidth template |168 |A schedule for every hour, every day of the week (24*7). |
-| Maximum size of a tiered volume on physical devices |64 TB for 8100 and 8600 |8100 and 8600 are physical devices. |
-| Maximum size of a tiered volume on virtual devices in Azure |30 TB for 8010 <br></br> 64 TB for 8020 |8010 and 8020 are virtual devices in Azure that use Standard Storage and Premium Storage respectively. |
-| Maximum size of a locally pinned volume on physical devices |9 TB for 8100 <br></br> 24 TB for 8600 |8100 and 8600 are physical devices. |
-| Maximum number of iSCSI connections |512 | |
-| Maximum number of iSCSI connections from initiators |512 | |
-| Maximum number of access control records per device |64 | |
-| Maximum number of volumes per backup policy |24 | |
-| Maximum number of backups retained per backup policy |64 | |
-| Maximum number of schedules per backup policy |10 | |
-| Maximum number of snapshots of any type that can be retained per volume |256 |This includes local snapshots and cloud snapshots. |
-| Maximum number of snapshots that can be present in any device |10,000 | |
-| Maximum number of volumes that can be processed in parallel for backup, restore, or clone |16 |<ul><li>If there are more than 16 volumes, they will be processed sequentially as processing slots become available.</li><li>New backups of a cloned or a restored tiered volume cannot occur until the operation is finished. However, for a local volume, backups are allowed after the volume is online.</li></ul> |
-| Restore and clone recover time for tiered volumes |< 2 minutes |<ul><li>The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>The restore or clone operation is complete when all the metadata is on the device.</li><li>Backup operations cannot be performed until the restore or clone operation is fully complete. |
-| Restore recover time for locally pinned volumes |< 2 minutes |<ul><li>The volume is made available within 2 minutes of the restore operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>Unlike tiered volumes, in the case of locally pinned volumes, the volume data is also downloaded locally on the device. The restore operation is complete when all the volume data has been brought to the device.</li><li>The restore operations may be long and the total time to complete the restore will depend on the size of the provisioned local volume, your Internet bandwidth and the existing data on the device. Backup operations on the locally pinned volume are allowed while the restore operation is in progress. |
-| Thin-restore availability |Last failover | |
-| Maximum client read/write throughput (when served from the SSD tier)* |920/720 MB/s with a single 10GbE network interface |Up to 2x with MPIO and two network interfaces. |
-| Maximum client read/write throughput (when served from the HDD tier)* |120/250 MB/s | |
-| Maximum client read/write throughput (when served from the cloud tier)* |11/41 MB/s |Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
+| Depolama hesabının kimlik bilgilerini maksimum sayısı |64 | |
+| Birim kapsayıcıları maksimum sayısı |64 | |
+| En fazla sayıda birime |255 | |
+| Zamanlamalar bant genişliği şablonu başına maksimum sayısı |168 |Her gün (24 * 7) haftanın her saat için bir zamanlama. |
+| Katmanlı birim fiziksel aygıtlarda en büyük boyutu |8100 ve 8600 64 TB |8100 ve 8600 fiziksel aygıtlardır. |
+| Azure'da sanal cihazlarda katmanlı birim en büyük boyutu |8010 30 TB <br></br> 8020 için 64 TB |8010 hem de 8020 sırasıyla standart depolama ve Premium depolama kullanan sanal Azure aygıtlardır. |
+| Fiziksel cihazları yerel olarak sabitlenmiş bir birimde en büyük boyutu |8100 9 TB <br></br> 8600 24 TB |8100 ve 8600 fiziksel aygıtlardır. |
+| İSCSI bağlantısı sayısı |512 | |
+| İSCSI başlatıcıları bağlantılarından maksimum sayısı |512 | |
+| Erişim denetimi kayıtları aygıt başına maksimum sayısı |64 | |
+| En fazla sayıda birime yedekleme İlkesi başına |24 | |
+| Yedekleme İlkesi korunur yedeklemeleri sayısı |64 | |
+| Zamanlamalar yedekleme İlkesi başına maksimum sayısı |10 | |
+| Maksimum sayıda anlık görüntü birim başına korunabilir herhangi bir türde |256 |Bu yerel anlık görüntülerini içerir ve bulut anlık görüntüleri. |
+| Maksimum sayıda içinde herhangi bir cihazda mevcut olabilecek anlık görüntü |10,000 | |
+| En fazla sayıda paralel yedekleme, geri yükleme için işlenen ya da kopyalama birime |16 |<ul><li>16'dan fazla birim varsa, bunlar işleme yuvaları kullanılabilir duruma geldiğinde sıralı olarak işlenir.</li><li>İşlemi tamamlanana kadar bir kopyalanan yeni yedeklerini veya geri yüklenen bir katmanlı birim oluşamaz. Ancak, yerel bir birim için birim çevrimiçi olduktan sonra yedeklemeler izin verilir.</li></ul> |
+| Geri yükleme ve kurtarma zamanı katmanlı birimler için kopyalama |< 2 dakika |<ul><li>Birim boyutu bağımsız olarak, geri yükleme veya kopyalama işleminin 2 dakika içinde birim kullanılabilir hale getirilir.</li><li>Birim performans başlangıçta veri ve meta veriler çoğunu hala yer aldığı bulutta normalden daha yavaş olabilir. StorSimple cihazı için buluttan veri akışları olarak performansı artırabilir.</li><li>Meta veri indirmek için toplam süreyi ayrılmış birimin boyutuna bağlıdır. Meta verileri otomatik olarak ayrılmış birim verilerini TB başına 5 dakika hızında arka planda bir aygıt halinde duruma getirilir. Internet bant genişliği bulut için bu oran etkilenebilir.</li><li>Tüm meta verilerin cihazda olduğunda geri yükleme veya kopyalama işlemi tamamlanır.</li><li>Kopya işlemi tam olarak tamamlandıktan veya yedekleme işlemleri kadar geri yükleme gerçekleştirilemez. |
+| Yerel olarak sabitlenmiş birimler için kurtarma süresi geri yükleme |< 2 dakika |<ul><li>Geri yükleme işleminin bağımsız olarak birim boyutu 2 dakika içinde birim kullanılabilir hale getirilir.</li><li>Birim performans başlangıçta veri ve meta veriler çoğunu hala yer aldığı bulutta normalden daha yavaş olabilir. StorSimple cihazı için buluttan veri akışları olarak performansı artırabilir.</li><li>Meta veri indirmek için toplam süreyi ayrılmış birimin boyutuna bağlıdır. Meta verileri otomatik olarak ayrılmış birim verilerini TB başına 5 dakika hızında arka planda bir aygıt halinde duruma getirilir. Internet bant genişliği bulut için bu oran etkilenebilir.</li><li>Yerel olarak sabitlenmiş birimler, söz konusu olduğunda, katmanlı birimleri aksine birim verilerini de yerel olarak cihazda indirilir. Tüm birim verilerini duruma zaman cihaza geri yükleme işlemi tamamlanır.</li><li>Geri yükleme işlemlerini uzun olabilir ve geri yüklemeyi tamamlamak için gereken toplam süre, sağlanan yerel birim, Internet bant genişliği ve cihazda mevcut veri boyutuna bağlıdır. Geri yükleme işlemi devam ederken yerel olarak sabitlenmiş birim yedekleme işlemlerine izin verilir. |
+| Kullanılabilirlik ince-geri yükle |Son yük devretme | |
+| (SSD Katmanı'ndan sunulduğunda) en fazla istemci okuma/yazma verimlilik * |920/720 MB/s ile tek bir 10GbE ağ arabirimi |En çok 2 x MPIO ile ve iki ağ arabirimi. |
+| (HDD Katmanı'ndan sunulduğunda) en fazla istemci okuma/yazma verimlilik * |120/250 MB/s | |
+| (Bulut Katmanı'ndan sunulduğunda) en fazla istemci okuma/yazma verimlilik * |11/41 MB/s |Okuma üretilen işi oluşturmak ve yeterli g/ç sıra derinliğini koruyarak istemcilerde bağlıdır. |
 
-&#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
+&#42; G/ç türü başına en fazla üretilen iş yüzde 100 okuma ve yüzde 100 yazma senaryoları ile ölçülen. Gerçek verimlilik daha düşük olabilir ve g/ç üzerinde bağlı karışımı ve ağ koşulları.
 

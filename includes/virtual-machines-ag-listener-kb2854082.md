@@ -1,13 +1,13 @@
-Next, if any servers on the cluster are running Windows Server 2008 R2 or Windows Server 2012, you must verify that the hotfix [KB2854082](http://support.microsoft.com/kb/2854082) is installed on each of the on-premises servers or Azure VMs that are part of the cluster. Any server or VM that is in the cluster, but not in the availability group, should also have this hotfix installed.
+Herhangi bir küme sunucusunda, Windows Server 2008 R2 veya Windows Server 2012 çalıştırıyorsanız, ardından, doğrulamanız gerekir düzeltme [KB2854082](http://support.microsoft.com/kb/2854082) her bir şirket içi sunucular veya kümenin parçası olan Azure VM'ler üzerinde yüklü. Ayrıca herhangi bir sunucu veya kümedeki ancak değil kullanılabilirlik grubundaki VM bu düzeltmenin yüklü olması gerekir.
 
-In the remote desktop session for each of the cluster nodes, download [KB2854082](http://support.microsoft.com/kb/2854082) to a local directory. Then, install the hotfix on each cluster node sequentially. If the cluster service is currently running on the cluster node, the server is restarted at the end of the hotfix installation.
+Uzak Masaüstü oturumunda küme düğümlerinin her biri için indirme [KB2854082](http://support.microsoft.com/kb/2854082) yerel bir dizine. Ardından, düzeltmeyi her küme düğümünde sırayla yükleyin. Küme düğümünde Küme hizmeti şu anda çalışıyorsa, sunucu düzeltme yükleme sonunda yeniden başlatılır.
 
 > [!WARNING]
-> Stopping the cluster service or restarting the server affects the quorum health of your cluster and the availability group, and it might cause your cluster to go offline. To maintain the high availability of your cluster during installation, make sure that:
+> Küme hizmetini durdurma veya sunucunun yeniden başlatılması kümenizi ve kullanılabilirlik grubu çekirdek sistem durumu etkiler ve kümenizi çevrimdışı duruma neden olabilir. Yükleme sırasında kümenin yüksek kullanılabilirliği sürdürmek için emin olun:
 > 
-> * The cluster is in optimal quorum health. 
-> * Before you install the hotfix on any node, all cluster nodes are online.
-> * Before you install the hotfix on any other node in the cluster, allow the hotfix installation to run to completion on one node, including fully restarting the server.
+> * En uygun çekirdek sistem kümedir. 
+> * Herhangi bir düğümde düzeltmeyi yüklemeden önce tüm küme düğümleri çevrimiçi değil.
+> * Kümedeki herhangi bir düğümde düzeltmeyi yüklemeden önce tam olarak sunucunun yeniden başlatılması gibi bir düğümde tamamlanıncaya kadar çalışabilmesi düzeltme yükleme izin verin.
 > 
 > 
 

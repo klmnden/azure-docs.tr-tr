@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: f992ec4ff2b36208f740320a133b5eece47919bb
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/12/2017
-
+ms.openlocfilehash: 9144407ed530921904458a7249473eaea26c66b3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Media Services geliştirme ortamınızı ayarlama
 
@@ -47,5 +46,4 @@ Azure Media Services API’sine bağlanmak için bkz. [Azure AD kimlik doğrulam
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

@@ -1,5 +1,5 @@
 
-* In Xcode, press **Run** and start the app on an iOS device (note that push will not work on simulators). Click **OK** to accept push notifications; this request occurs the first time the app runs.
-* In the app, add a new item and click **+**.
-* Verify that a notification is received, then click **OK** to dismiss the notification. You have now successfully completed this tutorial.
+* Xcode'da, basın **çalıştırmak** ve uygulamayı bir iOS cihazında (anında iletme benzeticileri üzerinde çalışmaz unutmayın) başlatın. Tıklatın **Tamam** anında iletme bildirimleri; kabul etmek için bu isteği uygulama ilk kez çalıştığında gerçekleşir.
+* Uygulamasındaki yeni öğe eklemek ve  **+** .
+* Bir bildirim alındı ve ardından doğrulamak **Tamam** bildirim kapatılamadı. Bu öğretici artık başarıyla tamamladınız.
 

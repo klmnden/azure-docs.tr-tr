@@ -1,15 +1,15 @@
 > [!WARNING]
-> When you enable diagnostics on an existing role, any extensions you have enabled will be disabled when the package is deployed. These include:
+> Mevcut bir rolü üzerinde tanılamayı etkinleştirdiğinizde, paket dağıtıldığında etkinleştirdiğiniz tüm uzantıları devre dışı bırakılır. Bunlar:
 >
-> * Microsoft Monitoring Agent Diagnostics
-> * Microsoft Azure Security Monitoring
-> * Microsoft Antimalware                 
+> * Microsoft İzleme Aracısı tanılama
+> * Microsoft Azure güvenlik izleme
+> * Microsoft Kötü Amaçlı Yazılımdan Korunma                 
 > * Microsoft Monitoring Agent
-> * Microsoft Service Profiler Agent      
-> * Windows Azure Domain Extension        
-> * Windows Azure Diagnostics Extension   
-> * Windows Azure Remote Desktop Extension
-> * Windows Azure Log Collector
+> * Microsoft hizmeti Profil Oluşturucu aracı      
+> * Windows Azure etki alanı uzantısı        
+> * Windows Azure tanılama uzantısını   
+> * Windows Azure Uzak Masaüstü uzantısı
+> * Windows Azure günlük Toplayıcı
 >
-> You may re-enable your extensions via the Azure Portal or PowerShell after you have deployed the updated role.
+> Güncelleştirilmiş rol dağıttıktan sonra uzantılarınızın Azure Portal veya PowerShell aracılığıyla yeniden etkinleştirebilir.
 >

@@ -1,18 +1,18 @@
-## <a name="sample-scenario"></a>Sample Scenario
-To better illustrate how to manage NSGs, this article uses the scenario below.
+## <a name="sample-scenario"></a>Örnek senaryo
+Nsg'ler yönetmek nasıl daha iyi anlamak için bu makalede aşağıdaki senaryoyu kullanır.
 
-![VNet scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
+![VNet senaryosu](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-In this scenario you will create an NSG for each subnet in the **TestVNet** virtual network, as described below: 
+Bu senaryoda, her alt ağ için bir NSG oluşturacak **TestVNet** aşağıda açıklandığı sanal ağ: 
 
-* **NSG-FrontEnd**. The front end NSG will be applied to the *FrontEnd* subnet, and contain two rules:    
-  * **rdp-rule**. This rule will allow RDP traffic to the *FrontEnd* subnet.
-  * **web-rule**. This rule will allow HTTP traffic to the *FrontEnd* subnet.
-* **NSG-BackEnd**. The back end NSG will be applied to the *BackEnd* subnet, and contain two rules:    
-  * **sql-rule**. This rule allows SQL traffic only from the *FrontEnd* subnet.
-  * **web-rule**. This rule denies all internet bound traffic from the *BackEnd* subnet.
+* **NSG ön uç**. NSG uygulanacak ön uç *ön uç* alt ağı ve iki kural içerir:    
+  * **RDP kural**. Bu kural için RDP trafiğine izin verir *ön uç* alt ağ.
+  * **Web kuralı**. Bu kural için HTTP trafiğine olanak tanıyacak *ön uç* alt ağ.
+* **NSG arka uç**. NSG uygulanacak arka uç *arka uç* alt ağı ve iki kural içerir:    
+  * **SQL kural**. Bu kural yalnızca SQL trafiğe izin veren *ön uç* alt ağ.
+  * **Web kuralı**. Bu kural, tüm Internet trafiği bağlı engellediği *arka uç* alt ağ.
 
-The combination of these rules create a DMZ-like scenario, where the back end subnet can only receive incoming traffic for SQL traffic from the front end subnet, and has no access to the Internet, while the front end subnet can communicate with the Internet, and receive incoming HTTP requests only.
+Bu kurallar birleşimi burada arka uç alt ağ ön uç alt ağından gelen trafiği SQL trafik için yalnızca alabilir ve ön uç alt Internet ile iletişim kurmak ve alma hiçbir Internet erişimi DMZ benzeri senaryosu, oluşturma yalnızca gelen HTTP isteklerini için.
 
-To deploy the scenario described above, follow [this link](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal. In the sample instructions below, the template was used to deploy a resource group names **RG-NSG**. 
+Yukarıda açıklanan senaryoyu dağıtmak için izlemeniz [bu bağlantıyı](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), tıklatın **Azure'a Dağıt**, gerekirse varsayılan parametre değerlerini değiştirin ve Portalı'ndaki yönergeleri izleyin. Aşağıdaki örnek yönergelerinde şablonu bir kaynak grubu adları dağıtmak için kullanılan **RG NSG**. 
 

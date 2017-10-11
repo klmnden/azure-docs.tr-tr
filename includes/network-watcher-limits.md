@@ -1,6 +1,6 @@
-| Resource | Default limit | Note |
+| Kaynak | Varsayılan limit | Not |
 | --- | --- | --- |
-| Network Watcher | 1 per region  | |
-| Packet Capture sessions |10 per region |# of sessions only, not saved captures |
+| Ağ İzleyicisi | Bölge başına 1  | |
+| Paket yakalama oturumları |Bölge başına 10 |yakalar kayıtlı değil yalnızca oturum sayısı |
 
 

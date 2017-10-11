@@ -1,28 +1,28 @@
-## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>How to create a classic VNet in the Azure portal
-To create a classic VNet based on the scenario above, follow the steps below.
+## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Azure portalında klasik bir VNet oluşturma
+Yukarıdaki senaryoya dayanan bir Klasik VNet oluşturmak için aşağıdaki adımları izleyin.
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. Click **NEW** > **Networking** > **Virtual network**, notice that the **Select a deployment model** list already shows **Classic**, and then click **Create**, as seen in the figure below.
+1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınıza giriş yapın.
+2. Tıklatın **yeni** > **ağ** > **sanal ağ**, dikkat **dağıtım modeli seçin** Liste zaten gösterir **Klasik**ve ardından **oluşturma**, aşağıdaki şekilde görüldüğü gibi.
    
-    ![Create VNet in Azure portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
-3. On the **Virtual network** blade, type the **Name** of the VNet, and then click **Address space**. Configure your address space settings for the VNet and its first subnet, then click **OK**. The figure below shows the CIDR block settings for our scenario.
+    ![Azure portalında VNet oluşturma](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
+3. Üzerinde **sanal ağ** dikey penceresinde, türü **adı** VNet ve ardından **adres alanı**. VNet ve kendi ilk alt ağ, adres alanı ayarlarını yapılandırın ve ardından **Tamam**. Aşağıdaki şekilde senaryomuz için CIDR bloğu ayarları gösterilmektedir.
    
-    ![Address space blade](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
-4. Click **Resource Group** and select a resource group to add the VNet to, or click **Create new resource group** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+    ![Adres alanı dikey penceresini](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
+4. Tıklatın **kaynak grubu** ve tıklayın veya Vnet'e eklenecek kaynak grubunu seçin **yeni kaynak grubu oluştur** VNet yeni bir kaynak grubuna eklemek için. Aşağıdaki şekil, **TestRG** adlı yeni bir kaynak grubunun kaynak grubu ayarlarını göstermektedir. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)’ı ziyaret edin.
    
-    ![Create resource group blade](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
-5. If necessary, change the **Subscription** and **Location** settings for your VNet. 
-6. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**. 
-7. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
+    ![Kaynak grubu dikey penceresi oluşturma](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
+5. Gerekiyorsa, VNet’inizle ilgili **Abonelik** ve **Konum** ayarlarını değiştirin. 
+6. VNet’i bir kutucuk olarak görmek istemiyorsanız **Başlangıç panosu**’nda **Başlangıç panosuna sabitlemek** öğesini devre dışı bırakın. 
+7. **Oluştur**’a tıklayın ve aşağıdaki şekilde gösterilen **Sanal ağ oluşturuluyor** adlı kutucuğa dikkat edin.
    
-    ![Create VNet in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure4.png)
-8. Wait for the VNet to be created, and when you see the tile below, click it to add more subnets.
+    ![Portalında VNet oluşturma](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure4.png)
+8. Oluşturulacak VNet için bekleyin ve döşeme gördüğünüzde, daha fazla alt ağlar eklemek için tıklatın.
    
-    ![Create VNet in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure5.png)
-9. You should see the **Configuration** for your VNet as shown below. 
+    ![Portalında VNet oluşturma](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure5.png)
+9. Görmeniz gerekir **yapılandırma** aşağıda gösterildiği gibi VNet için. 
    
-    ![Create VNet in portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
-10. Click **Subnets** > **Add**, then type a **Name** and specify an **Address range (CIDR block)** for your subnet, and then click **OK**. The figure below shows the settings for our current scenario.
+    ![Portalında VNet oluşturma](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
+10. Tıklatın **alt ağlar** > **Ekle**, yazın bir **adı** ve belirtin bir **adres aralığı (CIDR bloğu)** , alt ağ için ve ardından tıklatın **Tamam**. Aşağıdaki şekilde, geçerli senaryomuz için ayarları gösterilmektedir.
     
-    ![Create VNet in Azure portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
+    ![Azure portalında VNet oluşturma](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 

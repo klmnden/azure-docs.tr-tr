@@ -1,57 +1,57 @@
 
-Each endpoint has a *public port* and a *private port*:
+Her bitiş noktasının bir *genel bağlantı noktası* ve *özel bağlantı noktası*:
 
-* The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
-* The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
+* Genel bağlantı noktası, Internet'ten gelen trafiği sanal makineye dinlenecek Azure yük dengeleyici tarafından kullanılır.
+* Özel bağlantı noktası, genellikle bir uygulama veya sanal makinede çalışan hizmet giden gelen trafiği dinlemek için sanal makine tarafından kullanılır.
 
-Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
+TCP veya UDP bağlantı noktaları için iyi bilinen ağ uç noktalarını Azure portalıyla oluşturduğunuzda protokolleri sağlanır ve IP protokolü için varsayılan değerleri. Özel uç noktaları için doğru IP Protokolü (TCP veya UDP) ve ortak ve özel bağlantı noktaları belirtmeniz gerekir. Gelen trafiği rastgele birden fazla sanal makine arasında dağıtmak için birden çok uç noktaları oluşan bir yük dengeli kümesi oluşturmanız gerekir.
 
-After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+Bir uç nokta oluşturduktan sonra izin veya kaynak IP adresine göre uç noktasının ortak bağlantı noktasına gelen trafiği reddeden kuralları tanımlamak için bir erişim denetimi listesi (ACL) kullanabilirsiniz. Ancak, sanal makine bir Azure sanal ağında ise, ağ güvenlik grupları yerine kullanmanız gerekir. Ayrıntılar için bkz [ağ güvenlik grupları hakkında](../articles/virtual-network/virtual-networks-nsg.md).
 
 > [!NOTE]
-> Firewall configuration for Azure virtual machines is done automatically for ports associated with remote connectivity endpoints that Azure sets up automatically. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration. To configure the firewall, see the documentation or on-line help for the operating system running on the virtual machine.
+> Azure sanal makineleri için güvenlik duvarı yapılandırması, Azure otomatik olarak ayarlayan uzak bağlantı uç ile ilişkili bağlantı noktaları için otomatik olarak yapılır. Diğer uç için belirtilen bağlantı noktaları için yapılandırma güvenlik duvarı sanal makinenin otomatik olarak yapılır. Sanal makine için bir uç nokta oluşturduğunuzda, Güvenlik Duvarı'nı sanal makinenin uç nokta yapılandırması karşılık gelen özel bağlantı noktası ve protokol trafiği verdiğinden emin olmak gerekir. Güvenlik Duvarı'nı yapılandırmak için belgelere veya sanal makinede çalışan işletim sistemi için çevrimiçi yardıma bakın.
 >
 >
 
-## <a name="create-an-endpoint"></a>Create an endpoint
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3. Click **Endpoints** in the **Settings** group. The **Endpoints** page lists all the current endpoints for the virtual machine. (This example is a Windows VM. A Linux VM will by default show an endpoint for SSH.)
+## <a name="create-an-endpoint"></a>Uç nokta oluşturma
+1. Önceden yapmadıysanız, [Azure portal](https://portal.azure.com)da oturum açın
+2. Tıklatın **sanal makineleri**ve ardından yapılandırmak istediğiniz sanal makinenin adına tıklayın.
+3. Tıklatın **uç noktaları** içinde **ayarları** grubu. **Uç noktaları** sayfası, tüm geçerli uç noktaları sanal makine için listeler. (Bu örnek bir Windows VM'dir. Bir Linux VM varsayılan bir uç nokta için SSH gösterir.)
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
-   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
+   ![Uç Noktalar](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
-4. In the command bar above the endpoint entries, click **Add**.
-5. On the **Add endpoint** page, type a name for the endpoint in **Name**.
-6. In **Protocol**, choose either **TCP** or **UDP**.
-7. In **Public Port**, type the port number for the incoming traffic from the Internet. In **Private Port**, type the port number on which the virtual machine is listening. These port numbers can be different. Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 6) and private port.
-10. Click **Ok**.
+4. Uç noktası girişleri yukarıdaki komut çubuğunda tıklayın **Ekle**.
+5. Üzerinde **uç nokta ekleme** sayfasında, uç için bir ad yazın **adı**.
+6. İçinde **Protokolü**, ya da seçin **TCP** veya **UDP**.
+7. İçinde **genel bağlantı noktası**, Internet'ten gelen trafik için bağlantı noktası numarasını yazın. İçinde **özel bağlantı noktası**, sanal makine dinleme bağlantı noktası numarasını yazın. Bu bağlantı noktası numaralarını farklı olabilir. Sanal makinede Güvenlik Duvarı'nı protokolünde (6. adım) ve özel bağlantı noktası için karşılık gelen trafiğe izin verecek şekilde yapılandırıldığından emin olun.
+10. **Tamam**’a tıklayın.
 
-The new endpoint will be listed on the **Endpoints** page.
+Yeni uç nokta listelenir **uç noktaları** sayfası.
 
-![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointcreated.png)
+![Uç nokta oluşturma başarılı](./media/virtual-machines-common-classic-setup-endpoints/endpointcreated.png)
 
-## <a name="manage-the-acl-on-an-endpoint"></a>Manage the ACL on an endpoint
-To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
+## <a name="manage-the-acl-on-an-endpoint"></a>Bir uç nokta ACL'sini Yönet
+Trafik gönderebilen bir bilgisayarlar kümesi tanımlamak için kaynak IP adresine göre trafiği bir uç noktasındaki ACL kısıtlayabilirsiniz. Ekleme, değiştirme ve bir uç noktada bir ACL kaldırmak için aşağıdaki adımları izleyin.
 
 > [!NOTE]
-> If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
+> Uç nokta yük dengeli kümesinin bir parçası ise, kümedeki tüm uç noktaları bir uç noktasındaki ACL yaptığınız tüm değişiklikler uygulanır.
 >
 >
 
-If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+Sanal makine bir Azure sanal ağında ise, ağ güvenlik grupları, ACL yerine öneririz. Ayrıntılar için bkz [ağ güvenlik grupları hakkında](../articles/virtual-network/virtual-networks-nsg.md).
 
-1. If you haven't already done so, sign in to the Azure portal.
-2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3. Click **Endpoints**. From the list, select the appropriate endpoint. The ACL list is at the bottom of the page.
+1. Zaten, Azure portalında oturum açma yapmadıysanız.
+2. Tıklatın **sanal makineleri**ve ardından yapılandırmak istediğiniz sanal makinenin adına tıklayın.
+3. **Uç Noktalar**’a tıklayın. Listeden uygun uç nokta seçin. Sayfanın alt kısmında ACL listesidir.
 
-   ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
+   ![ACL ayrıntılarını belirtin](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
 
-4. Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is `10.1.0.0/8`.
+4. Satır listede eklemek, silmek veya için bir ACL kuralları düzenlemek ve sıralamalarını değiştirmek için kullanın. **Uzak alt** izin vermek veya kaynak IP adresine göre trafiği engellemek için Azure yük dengeleyici kullanır Internet'ten gelen trafiği için bir IP adresi aralığı bir değerdir. CIDR biçiminde adres öneki biçimi olarak da bilinen IP adresi aralığı belirttiğinizden emin olun. Örnek `10.1.0.0/8`.
 
- ![New ACL entry](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+ ![Yeni ACL giriş](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
-You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
+Internet üzerindeki bilgisayarlara karşılık gelen belirli bilgisayarlardan yalnızca trafiğine izin vermek için veya belirli, bilinen adres aralıklarının trafiği reddetmek için kuralları kullanabilirsiniz.
 
-The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List](../articles/virtual-network/virtual-networks-acl.md).
+Kuralları ile ilk kural başlangıç ve son kuralla bitiş sırayla değerlendirilir. Bu, kuralları en az kısıtlayıcı en kısıtlayıcı sıralanmalıdır olduğunu anlamına gelir. Örnekler ve daha fazla bilgi için bkz: [bir ağ erişim denetimi listesi nedir](../articles/virtual-network/virtual-networks-acl.md).

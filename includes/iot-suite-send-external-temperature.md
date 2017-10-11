@@ -1,44 +1,44 @@
-## <a name="configure-the-nodejs-simulated-device"></a>Configure the Node.js simulated device
-1. On the remote monitoring dashboard, click **+ Add a device** and then add a *custom device*. Make a note of the IoT Hub hostname, device id, and device key. You need them later in this tutorial when you prepare the remote_monitoring.js device client application.
-2. Ensure that Node.js version 0.12.x or later is installed on your development machine. Run `node --version` at a command prompt or in a shell to check the version. For information about using a package manager to install Node.js on Linux, see [Installing Node.js via package manager][node-linux].
-3. When you have installed Node.js, clone the latest version of the [azure-iot-sdk-node][lnk-github-repo] repository to your development machine. Always use the **master** branch for the latest version of the libraries and samples.
-4. From your local copy of the [azure-iot-sdk-node][lnk-github-repo] repository, copy the following two files from the node/device/samples folder to an empty folder on your development machine:
+## <a name="configure-the-nodejs-simulated-device"></a>Node.js sanal cihaz yapılandırma
+1. Uzaktan izleme Panosu üzerinde tıklatın **+ bir cihaz ekleme** ve ardından ekleyin bir *özel cihaz*. IOT Hub ana bilgisayar adı, cihaz kimliği ve cihaz anahtarını Not. Remote_monitoring.js aygıt istemci uygulaması hazırlarken, bunları daha sonra Bu öğreticide gerekir.
+2. Bu Node.js sürümünü olun 0.12.x sürümü veya daha sonra dağıtım makinenize yüklü. Çalıştırma `node --version` bir komut isteminde veya bir kabuk sürümünü denetleyin. Node.js Linux'ta yüklemek için bir paket Yöneticisi'ni kullanma hakkında daha fazla bilgi için bkz: [yükleme Node.js Paket Yöneticisi aracılığıyla][node-linux].
+3. Node.js yüklendiğinde en son sürümünü kopyalama [azure IOT sdk düğüm] [ lnk-github-repo] geliştirme makinenizde depoya. Her zaman kullanmak **ana** en son sürümünü kitaplıklar ve örnekler için dal.
+4. Yerel kopyasından [azure IOT sdk düğüm] [ lnk-github-repo] deposu, aşağıdaki iki dosyaların kopyalanacağı düğümü/aygıt/samples klasör boş bir klasörün geliştirme makinenizde:
    
-   * packages.json
+   * Packages.JSON
    * remote_monitoring.js
-5. Open the remote_monitoring.js file and look for the following variable definition:
+5. Remote_monitoring.js dosyasını açın ve aşağıdaki değişken tanımı bakın:
    
     ```
     var connectionString = "[IoT Hub device connection string]";
     ```
-6. Replace **[IoT Hub device connection string]** with your device connection string. Use the values for your IoT Hub hostname, device id, and device key that you made a note of in step 1. A device connection string has the following format:
+6. Değiştir **[IOT Hub cihaz bağlantı dizesi]** cihaz bağlantı dizesine sahip. IOT Hub ana bilgisayar adı, cihaz kimliği ve 1. adımda not yapılan aygıt anahtarı için değerleri kullanın. Bir aygıt bağlantı dizesi, aşağıdaki biçime sahiptir:
    
     ```
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
    
-    If your IoT Hub hostname is **contoso** and your device id is **mydevice**, your connection string looks like the following snippet:
+    IOT Hub ana bilgisayar adına ise **contoso** ve cihaz kimliğinizi **mydevice**, bağlantı dizenizi aşağıdaki kod parçacığını gibi görünür:
    
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
     ```
-7. Save the file. Run the following commands in a shell or command prompt in the folder that contains these files to install the necessary packages and then run the sample application:
+7. Dosyayı kaydedin. Bir kabuk ya da gerekli paketleri yüklemek ve örnek uygulamayı çalıştırmak için bu dosyaları içeren klasör komut isteminde aşağıdaki komutları çalıştırın:
    
     ```
     npm install
     node remote_monitoring.js
     ```
 
-## <a name="observe-dynamic-telemetry-in-action"></a>Observe dynamic telemetry in action
-The dashboard shows the temperature and humidity telemetry from the existing simulated devices:
+## <a name="observe-dynamic-telemetry-in-action"></a>Eylem dinamik telemetri inceleyin
+Pano varolan sanal aygıtlardan sıcaklık ve nem telemetrisi gösterir:
 
-![The default dashboard][image1]
+![Varsayılan Pano][image1]
 
-If you select the Node.js simulated device you ran in the previous section, you see temperature, humidity, and external temperature telemetry:
+Önceki bölümde çalıştırdığınız Node.js sanal cihaz seçerseniz, sıcaklık ve nem dış sıcaklığı telemetri bakın:
 
-![Add external temperature to the dashboard][image2]
+![Dış sıcaklığı için Pano ekleyin][image2]
 
-The remote monitoring solution automatically detects the additional external temperature telemetry type and adds it to the chart on the dashboard.
+Uzaktan izleme çözümü otomatik olarak ek dış sıcaklığı telemetri türünü algılar ve Pano grafiği ekler.
 
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdk-node

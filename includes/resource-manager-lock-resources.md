@@ -1,13 +1,13 @@
-1. In the Settings blade for the resource, resource group, or subscription that you wish to lock, select **Locks**.
+1. Kaynak, kaynak grubu veya, kilitlemek istediğiniz abonelik için ayarlar dikey penceresinde seçin **kilitler**.
    
-      ![select lock](./media/resource-manager-lock-resources/select-lock.png)
-2. To add a lock, select **Add**. If you want to create a lock at a parent level, select the parent. The currently selected resource inherits the lock from the parent. For example, you could lock the resource group to apply a lock to all its resources.
+      ![Kilit seçin](./media/resource-manager-lock-resources/select-lock.png)
+2. Kilit eklemek için seçin **Ekle**. Bir üst düzeyde bir kilit oluşturmak istiyorsanız, üst öğe seçin. Şu anda seçilen kaynak kilidi üstten devralmaz. Örneğin, kaynak grubu için tüm kaynaklarını kilitlemek için kilitlenemedi.
    
-      ![add lock](./media/resource-manager-lock-resources/add-lock.png) 
-3. Give the lock a name and lock level. Optionally, you can add notes that describe the lock.
+      ![Kilit Ekle](./media/resource-manager-lock-resources/add-lock.png) 
+3. Kilit adı ve kilit düzeyi verin. İsteğe bağlı olarak, kilit açıklayan notlar ekleyebilirsiniz.
    
-      ![set lock](./media/resource-manager-lock-resources/set-lock.png) 
-4. To delete the lock, select the ellipsis and **Delete** from the available options.
+      ![set Kilitle](./media/resource-manager-lock-resources/set-lock.png) 
+4. Kilidi silmek için üç nokta seçin ve **silmek** kullanılabilir seçenekler.
    
-      ![delete lock](./media/resource-manager-lock-resources/delete-lock.png) 
+      ![Kilit Sil](./media/resource-manager-lock-resources/delete-lock.png) 
 

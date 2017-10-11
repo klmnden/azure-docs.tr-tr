@@ -1,8 +1,8 @@
-The following limits apply when using the Azure Resource Manager and Azure Resource Groups only.
+Aşağıdaki sınırlar Azure Resource Manager ve Azure kaynak grupları yalnızca kullanılırken uygulanır.
 
-| Resource | Default Limit |
+| Kaynak | Varsayılan Sınır |
 | --- | --- |
-| Storage account management operations (read) |800 per 5 minutes |
-| Storage account management operations (write) |200 per hour |
-| Storage account management operations (list) |100 per 5 minutes |
+| Depolama hesap yönetimi işlemleri (okuma) |800 5 dakika başına |
+| Depolama hesap yönetimi işlemleri (yazma) |saat başına 200 |
+| Depolama hesap yönetimi işlemleri (listesi) |5 dakika başına 100 |
 

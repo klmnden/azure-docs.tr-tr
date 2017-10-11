@@ -1,6 +1,6 @@
 ---
 title: "Azure Site Recovery için çoğaltma ayarları oluşturma | Microsoft Docs"
-description: "Site Recovery&quot;nin, VMM bulutlarındaki Hyper-V sanal makinelerinden Azure&quot;a yönelik çoğaltma, yük devretme ve kurtarma işlemlerini gerçekleştirmek üzere nasıl dağıtılacağını açıklar."
+description: "Site Recovery'nin, VMM bulutlarındaki Hyper-V sanal makinelerinden Azure'a yönelik çoğaltma, yük devretme ve kurtarma işlemlerini gerçekleştirmek üzere nasıl dağıtılacağını açıklar."
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: sutalasi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 28e905a20d878eab1428a4b88113544aa742124a
-ms.openlocfilehash: 9c34ea792aa561b8155a915845ffb857dfef7a90
-ms.contentlocale: tr-tr
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 73a1f19177f23441f5f7165cf2bc92ba85e62aa5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>VMware’den Azure’a çoğaltma ilkesini yönetme
 
@@ -88,4 +86,3 @@ ms.lasthandoff: 02/21/2017
 
     > [!NOTE]
     > Kendisiyle ilişkili en az bir yapılandırma sunucusu varsa çoğaltma ilkesini silemezsiniz. İlkeyi silmeden önce, ilkeyi kullanan çoğaltılmış öğe bulunmadığından emin olun ve tüm ilişkili yapılandırma sunucularını silin.
-

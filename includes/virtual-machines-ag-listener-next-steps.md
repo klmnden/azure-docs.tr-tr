@@ -1,9 +1,9 @@
-In addition to automatically connecting clients to the primary replica, a listener can be used to redirect read-only workloads to the secondaries. This use can improve the performance and scalability of your overall solution. For more information, see [Use ReadIntent Routing with Azure Always On availability group listener](http://go.microsoft.com/fwlink/?LinkId=522515).
+Otomatik olarak birincil çoğaltmadan bağlanan istemciler ek olarak, bir dinleyici salt okunur iş yükleri için ikincil yönlendirmek için kullanılabilir. Bu, performans ve ölçeklenebilirlik genel çözümünüzün artırabilir. Daha fazla bilgi için bkz: [ReadIntent kullanım yönlendirme Azure Always On kullanılabilirlik grubu dinleyicisiyle](http://go.microsoft.com/fwlink/?LinkId=522515).
 
 > [!NOTE]
-> For troubleshooting tips on Azure listeners, see [Troubleshooting availability group listener in Azure](https://blogs.msdn.microsoft.com/alwaysonpro/2017/02/22/troubleshooting-internal-load-balancer-listener-connectivity-in-azure) in the AlwaysOn Support Team [blog](http://blogs.msdn.com/b/alwaysonpro/).
+> Azure dinleyicileri ipuçları sorun giderme için bkz: [sorun giderme kullanılabilirlik grubu dinleyicisi azure'da](https://blogs.msdn.microsoft.com/alwaysonpro/2017/02/22/troubleshooting-internal-load-balancer-listener-connectivity-in-azure) AlwaysOn desteği ekipteki [blog](http://blogs.msdn.com/b/alwaysonpro/).
 > 
 > 
 
-For more information about using SQL Server in Azure, see [SQL Server on Azure virtual machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Azure'da SQL Server kullanma hakkında daha fazla bilgi için bkz: [Azure virtual machines'de SQL Server](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

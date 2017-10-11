@@ -1,10 +1,10 @@
-| Resource | Maximum Limit |
+| Kaynak | Üst Sınır |
 | --- | --- |
-| Max number of new jobs that can be submitted every 30 seconds per Automation Account (non Scheduled jobs) |100 |
-| Max number of concurrent running jobs at the same instance of time per Automation Account (non Scheduled jobs) |200 |
-| Max number of modules that can be imported every 30 seconds per Automation Account |5 |
-| Max size of a Module |100 MB |
-| Job Run Time - Free tier |500 minutes per subscription per calendar month |
-| Max amount of memory given to a job |400 MB |
-| Max number of network sockets allowed per job |1000 |
+| Otomasyon hesabı (harici zamanlanmış iş) her 30 saniyede gönderilen yeni iş maksimum sayısı |100 |
+| En fazla eşzamanlı çalışan işleri Otomasyon hesabı (harici zamanlanmış iş) her zaman aynı örneği sayısı |200 |
+| Otomasyon hesabı başına her 30 saniyede aktarılan modülleri sayısı üst sınırı |5 |
+| Bir modül en büyük boyutu |100 MB |
+| İş çalışma zamanı - ücretsiz katmanı |Aylık takvim abonelik başına 500 dakika |
+| En çok işe verilen bellek miktarı |400 MB |
+| Ağ yuva iş başına izin verilen en fazla sayısı |1000 |
 

@@ -1,4 +1,4 @@
-1. Copy the installer to a local folder (for example, C:\Temp) on the server that you want to protect. Run the following commands as an administrator at a command prompt:
+1. Yükleyici, korumak istediğiniz sunucuda yerel bir klasöre (örneğin, C:\Temp) kopyalayın. Bir yönetici komut isteminde aşağıdaki komutları çalıştırın:
 
   ```
   cd C:\Temp
@@ -6,47 +6,47 @@
   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted.
   ```
-2. To install Mobility Service, run the following command:
+2. Mobilite hizmetinin yüklenmesi için aşağıdaki komutu çalıştırın:
 
   ```
   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
   ```
-3. Now the agent needs to be registered with the Configuration Server.
+3. Şimdi aracı yapılandırma sunucusuna kayıtlı olması gerekir.
 
   ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
   UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
   ```
 
-#### <a name="mobility-service-installer-command-line-arguments"></a>Mobility Service installer command-line arguments
+#### <a name="mobility-service-installer-command-line-arguments"></a>Mobility Hizmeti Yükleyici komut satırı bağımsız değişkenleri
 
 ```
 Usage :
 UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 ```
 
-| Parameter|Type|Description|Possible values|
+| Parametre|Tür|Açıklama|Olası değerler|
 |-|-|-|-|
-|/Role|Mandatory|Specifies whether Mobility Service (MS) should be installed or MasterTarget(MT) should be installed|MS </br> MT|
-|/InstallLocation|Optional|Location where Mobility Service is installed|Any folder on the computer|
-|/Platform|Mandatory|Specifies the platform on which the Mobility Service is getting installed </br> </br>- **VMware** : use this value if you are installing mobility service on a VM running on *VMware vSphere ESXi Hosts*, *Hyper-V Hosts* and *Phsyical Servers* </br> - **Azure** : use this value if you are installing agent on a Azure IaaS VM| VMware </br> Azure|
-|/Silent|Optional|Specifies to run the installer in silent mode| NA|
+|/ Rol|Zorunlu|Mobility hizmetinin (MS) yüklü olmalıdır veya MasterTarget(MT) yüklenmesi gerektiğini belirtir|MS </br> MT|
+|/InstallLocation|İsteğe bağlı|Mobility Hizmeti'nin yüklendiği konumu|Bilgisayardaki herhangi bir klasör|
+|/ Platform|Zorunlu|Mobility hizmetinin yüklendiği platformu belirtir </br> </br>- **VMware** : mobility hizmeti üzerinde çalışan bir VM yüklüyorsanız bu değeri kullanın *VMware vSphere ESXi konakları*, *Hyper-V konakları* ve *Phsyical sunucuları* </br> - **Azure** : bir Azure Iaas VM aracısı yüklüyorsanız, bu değeri kullanın| VMware </br> Azure|
+|/ Sessiz|İsteğe bağlı|Yükleyici sessiz modda çalıştırmak için belirtir| NA|
 
 >[!TIP]
-> The setup logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
+> Kurulum günlüklerini %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log altında bulunabilir.
 
-#### <a name="mobility-service-registration-command-line-arguments"></a>Mobility Service registration command-line arguments
+#### <a name="mobility-service-registration-command-line-arguments"></a>Mobility hizmeti kayıt komut satırı bağımsız değişkenleri
 
 ```
 Usage :
 UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
-  | Parameter|Type|Description|Possible values|
+  | Parametre|Tür|Açıklama|Olası değerler|
   |-|-|-|-|
-  |/CSEndPoint |Mandatory|IP address of the configuration server| Any valid IP address|
-  |/PassphraseFilePath|Mandatory|Location of the passphrase |Any valid UNC or local file path|
+  |/ CSEndPoint |Zorunlu|Yapılandırma sunucusu IP adresi| Geçerli bir IP adresi|
+  |/PassphraseFilePath|Zorunlu|Parola konumu |Herhangi bir geçerli UNC veya yerel dosya yolu|
 
 
 >[!TIP]
-> The AgentConfiguration logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log
+> AgentConfiguration günlükleri %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log altında bulunabilir.

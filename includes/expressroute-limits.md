@@ -1,20 +1,20 @@
-#### <a name="expressroute-limits"></a>ExpressRoute Limits
-The following limits apply to ExpressRoute resources per subscription.
+#### <a name="expressroute-limits"></a>ExpressRoute sınırları
+Abonelik başına ExpressRoute kaynaklarına aşağıdaki sınırları uygulayın.
 
-| Resource | Default Limit |
+| Kaynak | Varsayılan Sınır |
 | --- | --- |
-| ExpressRoute circuits per subscription |10 |
-| ExpressRoute circuits per region per subscription for ARM |10 |
-| Maximum number of routes for Azure private peering with ExpressRoute standard |4,000 |
-| Maximum number of routes for Azure private peering with ExpressRoute premium add-on |10,000 |
-| Maximum number of routes for Azure public peering with ExpressRoute standard |200 |
-| Maximum number of routes for Azure public peering with ExpressRoute premium add-on |200 |
-| Maximum number of routes for Azure Microsoft peering with ExpressRoute standard |200 |
-| Maximum number of routes for Azure Microsoft peering with ExpressRoute premium add-on |200 |
-| Number of virtual network links allowed per ExpressRoute circuit |see table below |
+| Abonelik başına ExpressRoute bağlantı hatları |10 |
+| ExpressRoute bağlantı hatları her ARM Abonelikteki bölge başına |10 |
+| ExpressRoute standart Azure özel eşleme için yollar maksimum sayısı |4,000 |
+| ExpressRoute premium eklentisi ile Azure özel eşleme için yollar maksimum sayısı |10,000 |
+| ExpressRoute standart Azure genel eşliği yolları sayısı |200 |
+| ExpressRoute premium eklentisi ile Azure genel eşliği yolları sayısı |200 |
+| ExpressRoute standart Azure Microsoft eşlemesi için yollar maksimum sayısı |200 |
+| Yollar için Azure ExpressRoute premium eklentisi ile eşliği Microsoft maksimum sayısı |200 |
+| Expressroute bağlantı hattı izin verilen sanal ağ bağlantılarının sayısı |Aşağıdaki tabloya bakın |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Number of Virtual Networks per ExpressRoute circuit
-| **Circuit Size** | **Number of VNet links for standard** | **Number of VNet Links with Premium add-on** |
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Expressroute bağlantı hattı her sanal ağ numarası
+| **Bağlantı hattı boyutu** | **Standart VNet bağlantı sayısı** | **Premium eklentisi ile VNet bağlantı sayısı** |
 | --- | --- | --- |
 | 50 Mbps |10 |20 |
 | 100 Mbps |10 |25 |

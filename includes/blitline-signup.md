@@ -1,30 +1,30 @@
 
-### <a name="to-sign-up-for-a-blitline-account"></a>To sign up for a Blitline account
-1. Log in to the [Azure Management Portal](https://manage.windowsazure.com/).
-2. In the lower pane of the management portal, click **New**.
+### <a name="to-sign-up-for-a-blitline-account"></a>Blitline hesap için kaydolmanız için
+1. Oturum [Azure Yönetim Portalı](https://manage.windowsazure.com/).
+2. Yönetim Portalı'nın alt bölmesinde tıklatarak **yeni**.
    
-    ![command-bar-new][command-bar-new]
-3. Click **Store**.
+    ![komut-çubuğu-yeni][command-bar-new]
+3. Tıklatın **deposu**.
    
-    ![blitline-store][blitline-store]
-4. In the **Choose an Add-on** dialog, select **Blitline** and click the right arrow.
-5. In the **Personalize Add-on** dialog select the **Blitline** plan you want to sign up for.
-6. Enter a name to identify your **Blitline** service in your Azure settings, or use the default value of **Blitline**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+    ![blitline deposu][blitline-store]
+4. İçinde **bir eklenti seçin** iletişim kutusunda **Blitline** ve sağ oka tıklayın.
+5. İçinde **kişiselleştirme eklenti** iletişim kutusunda **Blitline** kaydolun planı.
+6. Tanımlamak için bir ad girin, **Blitline** hizmeti Azure ayarlarınızda veya varsayılan değeri kullanın **Blitline**. Adın 1-100 karakter arasında olması ve yalnızca alfasayısal karakterler, çizgi, nokta ve alt çizgi içermesi gerekir. Adın abone olunan Azure Mağazası Öğeleri arasında benzersiz olması gerekir.
    
-    ![store-screen-1][store-screen-1]
-7. Choose a value for the region; for example, West US. 
-8. Click the right arrow.
-9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your Blitline account will begin the provisioning process. 
+    ![Depolama ekran 1][store-screen-1]
+7. Bölge için bir değer seçin; Örneğin, Batı ABD. 
+8. Sağ oka tıklayın.
+9. Üzerinde **gözden satın alma** sekmesinde planı ve fiyatlandırma bilgileri gözden geçirin ve yasal koşulları gözden geçirin. Koşulları kabul ediyorsanız, onay işaretine tıklayın. Onay işaretine tıkladığınızda Blitline hesabınızı sağlama işlemi başlar. 
 
-To use Blitline you need to have your Application ID.
+Blitline kullanmak için uygulama kimliğinizi olması gerekir
 
-### <a name="to-find-your-blitline-application-id"></a>To find your Blitline Application ID
-1. Click **Connection Info**.
+### <a name="to-find-your-blitline-application-id"></a>Blitline uygulama Kimliğini bulmak için
+1. Tıklatın **bağlantı bilgisi**.
    
-    ![blitline-connection-info-button][blitline-connection-info-button]
-2. In the *Connection info* dialog, you can see your Application ID
+    ![bağlantı bilgileri düğme blitline][blitline-connection-info-button]
+2. İçinde *bağlantı bilgisi* iletişim kutusunda, uygulama Kimliğiniz görebilirsiniz
    
-    ![blitline-connection-info][blitline-connection-info]
+    ![blitline bağlantı bilgisi][blitline-connection-info]
 
 <!--images-->
 

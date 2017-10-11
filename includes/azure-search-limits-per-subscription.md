@@ -1,17 +1,17 @@
-You can create multiple services within a subscription, each one provisioned at a specific tier, limited only by the number of services allowed at each tier. For example, you could create up to 12 services at the Basic tier and another 12 services at the S1 tier within the same subscription. For more information about tiers, see [Choose a SKU or tier for Azure Search](../articles/search/search-sku-tier.md).
+Yalnızca her katmanını izin verilen hizmetler sayısı sınırlı belirli bir katman, sağlanan her biri bir abonelik içindeki birden fazla hizmet oluşturabilirsiniz. Örneğin, 12 temel katmana adresindeki ve başka bir 12 Hizmetleri aynı abonelik içindeki S1 katmanı adresindeki kadar oluşturabilirsiniz. Katmanları hakkında daha fazla bilgi için bkz: [bir SKU katmanı için Azure Search seçin veya](../articles/search/search-sku-tier.md).
 
-Maximum service limits can be raised upon request. Contact Azure Support if you need more services within the same subscription.
+Maksimum hizmet sınırları, istek üzerine yükseltilebilir. Daha fazla hizmet aynı abonelik içindeki ihtiyacınız varsa Azure desteğine başvurun.
 
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD <sup>1</sup> |
+| Kaynak | Ücretsiz | Temel | S1 | S2 | S3 | S3 HD <sup>1</sup> |
 | --- | --- | --- | --- | --- | --- | --- |
-| Maximum services |1 |12 |12 |6 |6 |6 |
-| Maximum scale in SU <sup>2</sup> |N/A <sup>3</sup> |3 SU <sup>4</sup> |36 SU |36 SU |36 SU |36 SU |
+| En fazla Hizmetleri |1 |12 |12 |6 |6 |6 |
+| SU en fazla ölçek <sup>2</sup> |YOK <sup>3</sup> |3 SU <sup>4</sup> |36 SU |36 SU |36 SU |36 SU |
 
-<sup>1</sup> S3 HD does not support [indexers](../articles/search/search-indexer-overview.md) at this time. 
+<sup>1</sup> S3 HD desteklemiyor [dizin oluşturucular](../articles/search/search-indexer-overview.md) şu anda. 
 
-<sup>2</sup> Search units (SU) are billing units, allocated as either a *replica* or a *partition*. You need both resources for storage, indexing, and query operations. To learn more about how search units are computed, plus a chart of valid combinations that stay under the maximum limits, see [Scale resource levels for query and index workloads](../articles/search/search-capacity-planning.md). 
+<sup>2</sup> arama birimi (SU) ya da ayrılan birimler, faturalama bir *çoğaltma* veya *bölüm*. Depolama, dizin oluşturma ve sorgu işlemleri için her iki kaynağın gerekir. Arama birimi nasıl hesaplanır plus grafikte maksimum sınırları altında kalmak geçerli kombinasyon hakkında daha fazla bilgi için bkz: [ölçeklendirme sorgu ve dizin iş yükleri için kaynak düzeylerinin](../articles/search/search-capacity-planning.md). 
 
-<sup>3</sup> Free is based on shared resources used by multiple subscribers. At this tier, there are no dedicated resources for an individual subscriber. For this reason, maximum scale is marked as not applicable.
+<sup>3</sup> serbest birden çok abone tarafından kullanılan paylaşılan kaynakları dayanır. Bu katman tek bir abone için ayrılmış kaynak yok. Bu nedenle, en fazla ölçek uygulanamaz olarak işaretlenir.
 
-<sup>4</sup> Basic has one fixed partition. At this tier, additional SUs are used for allocating more replicas for increased query workloads.
+<sup>4</sup> basic bir sabit disk bölümü vardır. Bu katman ek SUs artırılmış sorgu iş yükleri için daha fazla çoğaltmaları tahsis etmek için kullanılır.
 

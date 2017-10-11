@@ -63,8 +63,3 @@
        
         Bu hizmet veri yolu tarafından StorSimple Yöneticisi Hizmet - Cihaz iletişimi için hizmet veri yolu tarafından kullanıldığından, 9354 bağlantı noktasının giden iletişim için açık olduğunu doğrulayın.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

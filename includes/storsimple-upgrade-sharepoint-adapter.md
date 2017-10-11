@@ -1,33 +1,33 @@
 <!--author=SharS last changed: 9/17/15-->
 
-### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Upgrade SharePoint 2010 to SharePoint 2013 and then install the StorSomple Adapter for SharePoint
+### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>SharePoint 2010 SharePoint 2013'e yükseltin ve sonra SharePoint için StorSomple bağdaştırıcısı yükleyin
 > [!IMPORTANT]
-> Any files that were previously moved to external storage via RBS will not be available until the upgrade is finished and the RBS feature is enabled again. To limit user impact, perform any upgrade or reinstallation during a planned maintenance window.
+> Yükseltme tamamlandıktan ve KKY özelliği yeniden etkinleştirilene kadar KKY dış depolama birimine önceden taşındı herhangi bir dosya kullanılamaz. Kullanıcı etkilerine sınırlamak için herhangi bir yükseltme veya planlı bakım penceresi sırasında yeniden gerçekleştirin.
 > 
 > 
 
-#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>To upgrade SharePoint 2010 to SharePoint 2013 and then install the adapter
-1. In the SharePoint 2010 farm, note the BLOB store path for the externalized BLOBs and the content databases for which RBS is enabled. 
-2. Install and configure the new SharePoint 2013 farm. 
-3. Move databases, applications, and site collections from the SharePoint 2010 farm to the new SharePoint 2013 farm. For instructions, go to [Overview of the upgrade process to SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
-4. Install the StorSimple Adapter for SharePoint on the new farm. Go to [Install the StorSimple Adapter for SharePoint](#install-the-storsimple-adapter-for-sharepoint) for procedures.
-5. Using the information that you noted in step 1, enable RBS for the same set of content databases and provide the same BLOB store path that was used in the SharePoint 2010 installation. Go to [Configure RBS](#configure-rbs) for procedures. After you complete this step, previously externalized files should be accessible from the new farm. 
+#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>SharePoint 2010 SharePoint 2013'e yükselttikten sonra bağdaştırıcısı ve yüklemek için
+1. SharePoint 2010 grupta externalized BLOB'ları ve KKY etkin olduğu içerik veritabanları için BLOB Depolama yolu unutmayın. 
+2. Yükleyin ve yeni SharePoint 2013 grubuna yapılandırın. 
+3. Veritabanları, uygulamaları ve site koleksiyonları SharePoint 2010 grubundan yeni SharePoint 2013 grubuna taşıyın. Yönergeler için Git [SharePoint 2013 için yükseltme işlemine genel bakış](https://technet.microsoft.com/library/cc262483.aspx).
+4. Yeni gruptaki SharePoint için StorSimple bağdaştırıcısı yükleyin. Git [SharePoint için StorSimple bağdaştırıcısı](#install-the-storsimple-adapter-for-sharepoint) yordamlar.
+5. 1. adımda not ettiğiniz bilgileri kullanarak, aynı içerik veritabanları kümesi için KKY etkinleştirmek ve SharePoint 2010 yüklemesinde kullanılan BLOB deposu yolunu girin. Git [yapılandırma KKY](#configure-rbs) yordamlar. Bu adımı tamamladıktan sonra daha önce externalized dosyaları yeni grubundan erişilebilir olması gerekir. 
 
-### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>Upgrade the StorSimple Adapter for SharePoint
+### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>SharePoint için StorSimple bağdaştırıcısı yükseltme
 > [!IMPORTANT]
-> You should schedule this upgrade to occur during a planned maintenance window for the following reasons:
+> Bu yükseltme şu nedenlerden dolayı bir planlı bakım penceresi sırasında gerçekleşecek şekilde zamanlamanız gerekir:
 > 
-> * Previously externalized content will not be available until the adapter is reinstalled.
-> * Any content uploaded to the site after you uninstall the previous version of the StorSimple Adapter for SharePoint, but before you install the new version, will be stored in the content database. You will need to move that content to the StorSimple device after you install the new adapter. You can use the Microsoft` RBS Migrate()` PowerShell cmdlet included with SharePoint to migrate the content. For more information, see [Migrate content into or out of RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Daha önce externalized içerik bağdaştırıcı yeniden kadar kullanılamaz.
+> * SharePoint için StorSimple bağdaştırıcısı önceki sürümünü kaldırdıktan sonra ancak yeni sürümü yüklemeden önce siteye yüklenen herhangi bir içerik içerik veritabanında depolanır. Yeni bağdaştırıcısı yükledikten sonra bu içeriği için StorSimple cihazı taşımanız gerekir. Microsoft kullanabilirsiniz` RBS Migrate()` PowerShell cmdlet'ini içeriği geçirmeyi SharePoint ile dahil. Daha fazla bilgi için bkz: [içine veya dışına KKY İçerik Geçişi](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 
-#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>To upgrade the StorSimple Adapter for SharePoint
-1. Uninstall the previous version of StorSimple Adapter for SharePoint.
+#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>SharePoint için StorSimple bağdaştırıcısı yükseltmek için
+1. SharePoint için StorSimple Bağdaştırıcısı'nın önceki sürümünü kaldırın.
    
    > [!NOTE]
-   > This will automatically disable RBS on the content databases. However, existing BLOBs will remain on the StorSimple device. Because RBS is disabled and the BLOBs have not been migrated back to the content databases, any requests for those BLOBs will fail. 
+   > Bu otomatik olarak KKY içerik veritabanlarına devre dışı bırakır. Ancak, mevcut BLOB'ları StorSimple aygıtta kalır. KKY devre dışı bırakılır ve içerik veritabanları BLOB taşınmamış, bu BLOB'lar için tüm istekler başarısız olur. 
    > 
    > 
-2. Install the new StorSimple Adapter for SharePoint. The new adapter will automatically recognize the content databases that were previously enabled or disabled for RBS and will use the previous settings.
+2. SharePoint için yeni StorSimple bağdaştırıcısı yükleyin. Yeni bağdaştırıcısı önceden etkinleştirilmiş veya devre dışı KKY için içerik veritabanları otomatik olarak algılar ve önceki ayarları kullanır.
 

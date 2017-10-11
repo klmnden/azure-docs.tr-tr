@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* An [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol) account  
+### <a name="prerequisites"></a>Ön koşullar
+* Bir [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol) hesabı  
 
-Before you can use your FTP account in a logic app, you must authorize the logic app to connect to your FTP account.Fortunately, you can do this easily from within your logic app on the Azure Portal.  
+Bir mantıksal uygulama FTP hesabınızın kullanmadan önce FTP hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
 
-Here are the steps to authorize your logic app to connect to your FTP account:  
+Mantıksal uygulamanızı FTP hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:  
 
-1. To create a connection to FTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *FTP* in the search box. Select the trigger or action you'll like to use:  
-   ![FTP connection creation step](./media/connectors-create-api-ftp/ftp-1.png)  
-2. If you haven't created any connections to FTP before, you'll get prompted to provide your FTP credentials. These credentials will be used to authorize your logic app to connect to, and access your FTP account's data:  
-   ![FTP connection creation step](./media/connectors-create-api-ftp/ftp-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
-   ![FTP connection creation step](./media/connectors-create-api-ftp/ftp-3.png)  
+1. Mantıksal Uygulama Tasarımcısı'nda FTP bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *FTP* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+   ![FTP bağlantısı oluşturma adım](./media/connectors-create-api-ftp/ftp-1.png)  
+2. FTP önce herhangi bir bağlantısı oluşturmadıysanız, FTP kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve FTP hesabınızın veri erişim:  
+   ![FTP bağlantısı oluşturma adım](./media/connectors-create-api-ftp/ftp-2.png)  
+3. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+   ![FTP bağlantısı oluşturma adım](./media/connectors-create-api-ftp/ftp-3.png)  
 

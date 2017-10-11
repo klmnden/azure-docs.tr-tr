@@ -5,18 +5,18 @@ Bu bölümde, bu sorunu düzeltmenin yollarını inceleyeceğiz.
 ### <a name="request-wheels"></a>Tekerlek isteği
 Paket yüklemesine bir derleyici gerekiyorsa, paket sahibinden pakete tekerleri de katmasını istemek için görüşmeye çalışmalısınız.
 
-[Python 2.7 için Microsoft Visual C++ Derleyicisi][Python 2.7 için Microsoft Visual C++ Derleyicisi] uygulamasının yakın zamanda piyasaya çıkmasıyla, Python 2.7 için yerel koda sahip paketleri oluşturmak artık daha kolay.
+Son kullanılabilirliği ile [Python 2.7 için Microsoft Visual C++ derleyicisi][Microsoft Visual C++ Compiler for Python 2.7], Python 2.7 için yerel koda sahip paketleri oluşturmak artık kolaydır.
 
 ### <a name="build-wheels-requires-windows"></a>Tekerlek derleme (Windows gerekir)
 Not: Bu seçenek kullanıldığında, Azure App Service’in web uygulamasında kullanılan platform/mimari/sürümle eşleşen Python ortamı kullanılarak paketin derlendiğinden emin olun (Windows/32-bit/2.7 veya 3.4).
 
 Tekerlek gerektiğinden paket yüklenmediyse, derleyiciyi yerel makinenize yükleyip paket için bir tekerlek derleyebilirsiniz; bundan sonra depoda yerini alacaktır.
 
-Mac/Linux Kullanıcıları: Windows makinesine erişiminiz yoksa Azure’da VM oluşturmak için bkz. [Windows Çalıştıran Bir Sanal Makine Oluşturma][Windows Çalıştıran Bir Sanal Makine Oluşturma].  Tekerlekleri derlemek için bunu kullanabilir, bunları depoya ekleyebilir ve isterseniz VM’yi atabilirsiniz. 
+Mac/Linux kullanıcıları: Windows makinesine erişiminiz yoksa bkz [çalıştıran sanal makine Windows oluşturma] [ Create a Virtual Machine Running Windows] Azure üzerinde bir VM oluşturmak için.  Tekerlekleri derlemek için bunu kullanabilir, bunları depoya ekleyebilir ve isterseniz VM’yi atabilirsiniz. 
 
-Python 2.7 için [Python 2.7 için Microsoft Visual C++ Derleyicisi][Python 2.7 için Microsoft Visual C++ Derleyicisi] uygulamasını yükleyebilirsiniz.
+Python 2.7 için yüklediğiniz [Python 2.7 için Microsoft Visual C++ derleyicisi][Microsoft Visual C++ Compiler for Python 2.7].
 
-Python 3.4 için [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express] uygulamasını yükleyebilirsiniz.
+Python 3.4 için yüklediğiniz [Microsoft Visual C++ 2010 Express'in][Microsoft Visual C++ 2010 Express].
 
 Tekerlekleri derlemek için tekerlek paketi gerekir:
 
@@ -59,11 +59,6 @@ Sanal ortamı depoya eklerseniz, dağıtım betiğinin boş bir dosya oluşturar
 
 Sanal ortam otomatik olarak yönetildiği sırada kalan dosyaları engellemek için uygulamada var olan sanal ortamı silmenizi öneririz.
 
-[Windows Çalıştıran Bir Sanal Makine Oluşturma]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
-[Python 2.7 için Microsoft Visual C++ Derleyicisi]: http://aka.ms/vcpython27
+[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
-
-<!--HONumber=Nov16_HO2-->
-
-

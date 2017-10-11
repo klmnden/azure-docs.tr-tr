@@ -1,6 +1,6 @@
 ---
 title: "Aspera kullanarak Azure Media Services hesabına dosya yükleme | Microsoft Docs"
-description: "Bu öğreticide, Azure üzerinde **Aspera Server On Demand** hizmetini kullanarak bir Media Services hesabıyla ilişkili depolama hesabına dosya yükleme adımları gösterilmektedir."
+description: "Bu öğreticide, bir Media Services hesabı kullanarak ilişkili bir depolama hesabı içine dosya karşıya yükleme adımları açıklanmaktadır ** Aspera sunucu üzerinde isteğe bağlı ** Azure hizmeti."
 services: media-services
 documentationcenter: 
 author: johndeu
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 86cb6a979d3aa429c0f501a5ebf37db4bff8ba99
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Azure üzerinde Aspera Server On Demand hizmetini kullanan bir Media Services hesabına dosya yükleme
 
@@ -137,5 +136,4 @@ Artık, [bir depolama hesabından AMS hesabına blob kopyalayabilirsiniz](media-
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

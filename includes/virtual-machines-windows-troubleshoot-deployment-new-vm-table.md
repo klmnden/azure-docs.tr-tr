@@ -1,7 +1,7 @@
-The following table lists the possible upload and capture combinations of Windows generalized (gen.) and specialized (spec.) OS images. The combinations that will process without any errors are indicated by a Y, and those that will throw errors are indicated by an N. The causes and resolutions for the different errors you will run into are given below the table.
+Aşağıdaki tabloda olası karşıya yükleme listeler ve Windows yakalama birleşimlerini (Genel) genelleştirilmiş ve (belirtimi) özelleştirilmiş İşletim sistemi görüntüsü. Herhangi bir hata olmadan işleyecek birleşimleri Y tarafından belirtilir ve hataları atar o n ile gösterilir Aşağıdaki tabloda, nedenleri ve çözümlemeleri içine çalışacak farklı hatalar için verilir.
 
-| OS | Upload spec. | Upload gen. | Capture spec. | Capture gen. |
+| İşletim Sistemi | Spec karşıya yükleyin. | Gen karşıya yükleyin. | Spec yakalayın. | Gen yakalayın. |
 | --- | --- | --- | --- | --- |
-| Windows gen. |N<sup>1</sup> |Y |N<sup>3</sup> |Y |
-| Windows spec. |Y |N<sup>2</sup> |Y |N<sup>4</sup> |
+| Windows gen. |N<sup>1</sup> |E |N<sup>3</sup> |E |
+| Windows özellikleri. |E |N<sup>2</sup> |E |N<sup>4</sup> |
 

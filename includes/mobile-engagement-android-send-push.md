@@ -92,8 +92,3 @@ Gerçek uygulamalar için, her[Android tasarım yönergesi](http://developer.and
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
         <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

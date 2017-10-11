@@ -1,38 +1,38 @@
-## <a name="view-the-solution-dashboard"></a>View the solution dashboard
+## <a name="view-the-solution-dashboard"></a>Çözüm panosunu görüntüleme
 
-The solution dashboard enables you to manage the deployed solution. For example, you can view telemetry, add devices, and invoke methods.
+Çözüm panosu, dağıtılan çözümü yönetmenizi sağlar. Örneğin, telemetriyi görüntüleyebilir, cihazları eklemek ve yöntemleri çağırma.
 
-1. When the provisioning is complete and the tile for your preconfigured solution indicates **Ready**, choose **Launch** to open your remote monitoring solution portal in a new tab.
+1. Sağlama tamamlandığında ve önceden yapılandırılmış çözümünüzün kutucuğu **Hazır**’ı gösterdiğinde, uzaktan izleme çözümü portalınızı yeni bir sekmede açmak için **Başlat**’ı seçin.
 
-    ![Launch the preconfigured solution][img-launch-solution]
+    ![Önceden yapılandırılmış çözümü başlatma][img-launch-solution]
 
-1. By default, the solution portal shows the *dashboard*. You can navigate to other areas of the solution portal using the menu on the left-hand side of the page.
+1. Varsayılan olarak, çözüm portalı *panoyu* gösterir. Sayfanın sol tarafındaki menüyü kullanarak çözüm portalının diğer alanlarına gidebilirsiniz.
 
-    ![Remote monitoring preconfigured solution dashboard][img-menu]
+    ![Önceden yapılandırılmış uzaktan izleme panosu][img-menu]
 
-## <a name="add-a-device"></a>Add a device
+## <a name="add-a-device"></a>Cihaz ekleme
 
-For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial.
+Bir cihazın önceden yapılandırılmış çözüme bağlanabilmesi için geçerli kimlik bilgileriyle kendini IoT Hub üzerinde tanıtması gerekir. Cihaz kimlik bilgilerini çözüm panosundan alabilirsiniz. Cihaz kimlik bilgilerini bu öğreticinin sonraki adımlarında istemci uygulamanıza ekleyebilirsiniz.
 
-If you haven't already done so, add a custom device to your remote monitoring solution. Complete the following steps in the solution dashboard:
+Zaten yapmadıysanız, özel bir aygıt, Uzaktan izleme çözümüne ekleyin. Çözüm Panosu, aşağıdaki adımları tamamlayın:
 
-1. In the lower left-hand corner of the dashboard, click **Add a device**.
+1. Panonun sol alt köşesinde **Cihaz ekle**'ye tıklayın.
 
-   ![Add a device][1]
+   ![Cihaz ekleme][1]
 
-1. In the **Custom Device** panel, click **Add new**.
+1. **Özel Cihaz** panelinde **Yeni ekle**'ye tıklayın.
 
-   ![Add a custom device][2]
+   ![Özel cihaz ekleme][2]
 
-1. Choose **Let me define my own Device ID**. Enter a Device ID such as **rasppi**, click **Check ID** to verify you haven't already used the name in your solution, and then click **Create** to provision the device.
+1. **Kendi Cihaz Kimliğimi tanımlamama izin ver**'i seçin. Bir cihaz kimliği girin **rasppi**, tıklatın **denetleyin kimliği** adı çözümünüzde zaten kullanmadıysanız ve ardından doğrulamak için **oluşturma** cihaz sağlamak için.
 
-   ![Add device ID][3]
+   ![Cihaz kimliği ekleme][3]
 
-1. Make a note the device credentials (**Device ID**, **IoT Hub Hostname**, and **Device Key**). Your client application on the Raspberry Pi needs these values to connect to the remote monitoring solution. Then click **Done**.
+1. Cihaz kimlik bilgilerini not edin (**cihaz kimliği**, **IOT Hub ana bilgisayar adına**, ve **aygıt anahtarı**). İstemci uygulamanızı Raspberry Pi'yi üzerinde Uzaktan izleme çözümüne bağlanmak için bu değerleri gerekir. Sonra da **Bitti**’ye tıklayın.
 
-    ![View device credentials][4]
+    ![Cihaz kimlik bilgilerini görüntüleme][4]
 
-1. Select your device in the device list in the solution dashboard. Then, in the **Device Details** panel, click **Enable Device**. The status of your device is now **Running**. The remote monitoring solution can now receive telemetry from your device and invoke methods on the device.
+1. Çözüm panosundaki cihaz listesinden cihazınızı seçin. Ardından **Cihaz Ayrıntıları** panelinde **Cihazı Etkinleştir**'e tıklayın. Cihazınızın durumu **Çalışıyor** olarak değişir. Uzaktan izleme çözümü artık cihazınızdan telemetri verileri alabilir ve cihazınızda yöntemler çağırabilir.
 
 [img-launch-solution]: media/iot-suite-raspberry-pi-kit-view-solution/launch.png
 [img-menu]: media/iot-suite-raspberry-pi-kit-view-solution/menu.png

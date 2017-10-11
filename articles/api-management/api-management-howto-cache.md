@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
-
-
+ms.openlocfilehash: 59c595f0d5ce849f44c46fdb6cab0b44d35fffa0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Azure API Management performansını artırmak için önbelleğe alma ekleme
 API Management işlemleri yanıt önbelleğe alma için yapılandırılabilir. Yanıt önbelleğe alma, çok sık değişmeyen veriler için API gecikmesi, bant genişliği kullanımı ve web hizmeti yükünü önemli ölçüde azaltabilir.
@@ -115,7 +115,7 @@ Bu işlem için ilke tanımı, önceki adımda **Önbelleğe alma** sekmesi kull
 > 
 > 
 
-**GET Kaynağı (önbelleğe alınmış) ** işlemini seçin ve ardından **Konsolu Aç**’a tıklayın.
+**GET Kaynağı (önbelleğe alınmış)** işlemini seçin ve ardından **Konsolu Aç**’a tıklayın.
 
 ![Konsolu açma][api-management-open-console]
 
@@ -171,9 +171,3 @@ Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. 
 [Review the caching policies]: #caching-policies
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

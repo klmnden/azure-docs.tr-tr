@@ -1,5 +1,5 @@
 ---
-title: "Hizmet Eşlemesi çözümü adımlı tanıtımı | Microsoft Docs"
+title: "Hizmet Eşlemesi çözümünün adım adım tanıtımı | Microsoft Docs"
 description: "Hizmet Eşlemesi, Operations Management Suite’te (OMS) Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulan ve hizmetler arasındaki iletişimi eşleyen bir çözümdür.  Bu adımlı tanıtımda bir web uygulamasındaki sanal bir sorunu belirleyip tanılamak üzere Hizmet Eşlemesi kullanma işlemi gösterilmektedir."
 services: operations-management-suite
 documentationcenter: 
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.lasthandoff: 04/13/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Operations Management Suite (OMS) adımlı tanıtımı - Hizmet Eşlemesi
 Bu adımlı tanıtımda bir web uygulamasındaki sanal bir sorunu belirleyip tanılamak üzere Operations Management Suite’te (OMS) [Hizmet Eşlemesi çözümünü](operations-management-suite-service-map.md) kullanma işlemi gösterilmektedir.  Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler.  Ayrıca, performansı çözümlemenize ve sorunları belirlemenize yardımcı olmak üzere diğer OMS hizmetleri tarafından toplanan verileri birleştirir.  Ayrıca, kök sorunu belirlemek üzere toplanan verilerin ayrıntısına inmek için [Log Analytics’teki günlük aramalarını](../log-analytics/log-analytics-log-searches.md) kullanacaksınız.
 
@@ -55,7 +53,7 @@ Web sunucularının adının AcmeWFE001 ve AcmeWFE002 olduğunu biliyoruz; dolay
 
 ![Web sunucusu](media/operations-management-suite-walkthrough-servicemap/web-server.png)
 
-Bizi ilgilendiren konu web uygulamamızın performansı olduğu için **AcmeAppPool (IIS App Pool)** işlemine tıklayın.  Bu işlemin ayrıntıları gösterilir ve bağımlılıkları vurgulanır.  
+Bizi ilgilendiren konu web uygulamamızın performansı olduğu için **AcmeAppPool (IIS App Pool)** işlemine tıklayın.  Burada, bu işlemin ayrıntıları gösterilir ve bağımlılıkları vurgulanır.  
 
 ![Uygulama Havuzu](media/operations-management-suite-walkthrough-servicemap/app-pool.png)
 
@@ -76,7 +74,7 @@ Sorunun sabah 4:00’da başladığını duyduk; öyleyse, o sırada neler oldu�
 
 ### <a name="6-view-performance"></a>6. Performansı görüntüleme
 
-Şimdi **acmetomcat**’e daha yakından bakalım.  **Acmetomcat** öğesinin sağ üst kısmına tıklayın ve **Sunucu Eşlemesini Yükle**’ye tıklayarak bu makineye ait ayrıntıları ve bağımlılıkları görüntüleyin. Şüphemizi doğrulamak için bu performans sayaçlarına biraz daha yakından bakabilirsiniz.  **Performans** sekmesini seçerek saat aralığında [Log Analytics tarafından toplanan performans sayaçlarını](../log-analytics/log-analytics-data-sources-performance-counters.md) görüntüleyin.  İşlemci ve bellekte düzenli ani artışlar olduğunu görebiliriz.
+Şimdi **acmetomcat**’e daha yakından bakalım.  **Acmetomcat** öğesinin sağ üst kısmına tıklayın ve **Sunucu Eşlemesini Yükle**’ye tıklayarak bu makineye ait ayrıntıları ve bağımlılıkları görüntüleyin. Şüphemizi doğrulamak için bu performans sayaçlarına biraz daha yakından bakabilirsiniz.  **Performans** sekmesini seçerek zaman aralığında [Log Analytics tarafından toplanan performans sayaçlarını](../log-analytics/log-analytics-data-sources-performance-counters.md) görüntüleyin.  İşlemci ve bellekte düzenli ani artışlar olduğunu görebiliriz.
 
 ![Performans](./media/operations-management-suite-walkthrough-servicemap/performance.png)
 
@@ -92,7 +90,7 @@ Bu yüksek kullanıma neyin neden olabileceğini bulabilecek miyiz, görelim.  *
 
 
 ### <a name="8-view-details-in-log-search"></a>8. Günlük Araması’nda ayrıntıları görüntüleme
-Log Analytics deposunda toplanan ayrıntılı performans bilgilerine bakarak bunu daha fazla doğrulayabiliriz.  **Uyarılar** sekmesine ve ardından **Yüksek CPU** uyarılarından birine tıklayın.  **Günlük Aramasında Göster**’e tıklayın.  Bu işlem, depoya kaydedilmiş verilere karşı [günlük aramaları](../log-analytics/log-analytics-log-searches.md) yapabileceğiniz Günlük Araması penceresini açar.  Hizmet Eşlemesi, ilgilendiğimiz uyarıyı almak için bir sorguya zaten girilmiştir.  
+Log Analytics deposunda toplanan ayrıntılı performans bilgilerine bakarak sorunun bu olduğunu doğrulayabiliriz.  **Uyarılar** sekmesine ve ardından **Yüksek CPU** uyarılarından birine tıklayın.  **Günlük Aramasında Göster**’e tıklayın.  Bu işlem, depoya kaydedilmiş verilere karşı [günlük aramaları](../log-analytics/log-analytics-log-searches.md) yapabileceğiniz Günlük Araması penceresini açar.  Hizmet Eşlemesi, ilgilendiğimiz uyarıyı almak için bir sorguya zaten girilmiştir.  
 
 ![Günlük araması](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
@@ -103,14 +101,14 @@ Bu uyarıyı oluşturan performans bilgileri toplama işlemiyle ilgili daha fazl
 ![Kayıtlı arama](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
 
-Bu sorgu, **acmetomcat** üzerinde en fazla işlemci harcayan 5 işlemin bir listesini döndürür.  Günlük aramaları için kullanılan sorgu diline yönelik giriş bilgilerini almak için sorguyu inceleyebilirsiniz.  Diğer bilgisayarlardaki işlemlerle ilgileniyorsanız, bu bilgileri almak için sorguyu değiştirebilirsiniz.
+Bu sorgu, **acmetomcat** üzerinde en fazla işlemci kullanan 5 işlemin bir listesini döndürür.  Günlük aramaları için kullanılan sorgu diline yönelik giriş bilgilerini almak için sorguyu inceleyebilirsiniz.  Diğer bilgisayarlardaki işlemlerle ilgileniyorsanız, bu bilgileri almak için sorguyu değiştirebilirsiniz.
 
-Bu örnekte, yedekleme işleminin sürekli olarak uygulama sunucusu CPU’sunun yaklaşık %60’ını kullandığını görebiliyoruz.  Performans sorunumuzdan bu yeni işlemin sorumlu olduğu son derece açıktır.  Çözümümüz bu yeni yedekleme yazılımını uygulama sunucusundan kaldırmak olacaktır.  Aslında bu işlemin bu kritik sistemlerde hiçbir zaman çalışmadığından emin olmaya yönelik ilkeler tanımlamak üzere Azure Otomasyonu tarafından yönetilen İstenen Durum Yapılandırması’ndan (DSC) yararlanabiliriz.
+Bu örnekte, yedekleme işleminin sürekli olarak uygulama sunucusu CPU’sunun yaklaşık %60’ını kullandığını görebiliyoruz.  Performans sorunumuzdan bu yeni işlemin sorumlu olduğu son derece açıktır.  Çözümümüz bu yeni yedekleme yazılımını uygulama sunucusundan kaldırmak olacaktır.  Aslında bu işlemin bu kritik sistemlerde hiçbir zaman çalışmadığından emin olmaya yönelik ilkeler tanımlamak üzere Azure Otomasyonu tarafından yönetilen Desired State Configuration’dan (DSC) yararlanabiliriz.
 
 
 ## <a name="summary-points"></a>Özet maddeleri
 - [Hizmet Eşlemesi](operations-management-suite-service-map.md), tüm sunucu ve bağımlılıklarını bilmeseniz bile tüm uygulamanızın görünümünü sağlar.
-- Hizmet Eşlemesi, uygulamanızla ilgili sorunları ve temel alınan altyapıyı belirlemenize yardımcı olmak üzere diğer OMS çözümleri tarafından toplanan verileri ortaya çıkarır.
+- Hizmet Eşlemesi, uygulamanızla ve temel alınan altyapıyla ilgili sorunları belirlemenize yardımcı olmak üzere diğer OMS çözümleri tarafından toplanan verileri ortaya çıkarır.
 - [Günlük aramaları](../log-analytics/log-analytics-log-searches.md), Log Analytics deposunda toplanan belirli verilere inmenizi sağlar.    
 
 ## <a name="next-steps"></a>Sonraki adımlar

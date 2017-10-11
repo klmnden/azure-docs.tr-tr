@@ -14,8 +14,3 @@
       ![Depolama hesabı ekleme](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. Yeni oluşturulan depolama hesabı **Depolama hesapları** altında, **Yapılandır** sayfasında görüntülenir. Yeni oluşturulan depolama hesabını kaydetmek için **Kaydet**’e tıklayın. Onayınız istendiğinde **Tamam**’a tıklayın.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -1,16 +1,16 @@
 
-1. In Visual Studio Solution Explorer, right-click the Windows Store app project, and click **Store** > **Associate App with the Store**.
+1. Visual Studio Çözüm Gezgini'nde, Windows mağazası uygulama projesine sağ tıklayın ve **deposu** > **uygulamayı mağaza ile ilişkilendir**.
 
-    ![Associate app with Windows Store](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)
-2. In the wizard, click **Next**, and sign in with your Microsoft account. Type a name for your app in **Reserve a new app name**, and then click **Reserve**.
-3. After the app registration is successfully created, select the new app name, click **Next**, and then click **Associate**. This adds the required Windows Store registration information to the application manifest.
-4. Repeat steps 1 and 3 for the Windows Phone Store app project by using the same registration you previously created for the Windows Store app.  
-5. Browse to the [Windows Dev Center](https://dev.windows.com/en-us/overview), and sign in with your Microsoft account. Click the new app registration in **My apps**, and then expand **Services** > **Push notifications**.
-6. On the **Push notifications** page, click **Live Services site** under **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Apps**. Make a note of the values of the **Package SID** and the *current*  value in **Application Secret**. 
+    ![Uygulamayı Windows mağazası ile ilişkilendirme](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)
+2. Sihirbazı'nda tıklatın **sonraki**ve Microsoft hesabınızla oturum açın. Uygulamanız için bir ad yazın **yeni bir uygulama adı yedek**ve ardından **ayırma**.
+3. Uygulama kaydı başarıyla oluşturulduktan sonra yeni uygulama adı seçin, **sonraki**ve ardından **ilişkilendirmek**. Bu, uygulama bildirimine gerekli Windows Mağazası kayıt bilgilerini ekler.
+4. Adım 1 ve 3, daha önce oluşturduğunuz aynı kayıt için Windows mağazası uygulaması kullanarak Windows Phone mağazası uygulama projesi için tekrarlayın.  
+5. Gözat [Windows Geliştirme Merkezi](https://dev.windows.com/en-us/overview)ve Microsoft hesabınızla oturum açın. Yeni uygulama kaydında tıklatın **uygulamalarım**, genişletin ve ardından **Hizmetleri** > **anında iletme bildirimleri**.
+6. Üzerinde **anında iletme bildirimleri** sayfasında, **Live Services sitesi** altında **Windows anında bildirim Hizmetleri (WNS) ve Microsoft Azure Mobile Apps**. Değerlerini Not **paket SID'si** ve *geçerli* değeri **uygulama gizli anahtarı**. 
 
-    ![App setting in the developer center](./media/app-service-mobile-register-wns/mobile-services-win8-app-push-auth.png)
+    ![Geliştirici Merkezi'nde uygulama ayarı](./media/app-service-mobile-register-wns/mobile-services-win8-app-push-auth.png)
 
    > [!IMPORTANT]
-   > The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+   > Uygulama gizli anahtarı ve paket SID'si önemli güvenlik kimlik bilgileridir. Bu değerleri kimseyle paylaşmayın veya uygulamanızla birlikte dağıtmayın.
    >
    >

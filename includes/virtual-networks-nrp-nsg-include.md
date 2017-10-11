@@ -1,30 +1,30 @@
-## <a name="network-security-group"></a>Network Security Group
-An NSG resource enables the creation of security boundary for workloads, by implementing allow and deny rules. Such rules can be applied to a VM, a NIC, or a subnet.
+## <a name="network-security-group"></a>Ağ güvenlik grubu
+Bir NSG kaynağı iş yükleri için güvenlik sınırı oluşturmanıza olanak tanıyan, uygulama tarafından izin ver ve Reddet kurallarının. Bu kurallar, bir VM, bir NIC veya bir alt ağ için uygulanabilir.
 
-| Property | Description | Sample values |
+| Özellik | Açıklama | Örnek değerler |
 | --- | --- | --- |
-| **subnets** |List of subnet ids the NSG is applied to. |/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd |
-| **securityRules** |List of security rules that make up the NSG |See [Security rule](#Security-rule) below |
-| **defaultSecurityRules** |List of default security rules present in every NSG |See [Default security rules](#Default-security-rules) below |
+| **alt ağlar** |NSG uygulanan alt ağ kimlikleri listesi. |/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/Subnets/FrontEnd |
+| **securityRules** |NSG güvenlik kuralları listesi |Bkz: [güvenlik kuralı](#Security-rule) aşağıda |
+| **defaultSecurityRules** |Varsayılan güvenlik kuralları her NSG'de mevcut listesi |Bkz: [varsayılan güvenlik kuralları](#Default-security-rules) aşağıda |
 
-* **Security rule** - An NSG can have multiple security rules defined. Each rule can allow or deny different types of traffic.
+* **Güvenlik kuralı** -bir NSG tanımlanan birden çok güvenlik kuralları sahip olabilir. Her bir kural izin verebilir veya trafiği farklı türlerde reddet.
 
-### <a name="security-rule"></a>Security rule
-A security rule is a child resource of an NSG containing the properties below.
+### <a name="security-rule"></a>Güvenlik kuralı
+Güvenlik kuralı özelliklerini içeren bir NSG bir alt kaynaktır.
 
-| Property | Description | Sample values |
+| Özellik | Açıklama | Örnek değerler |
 | --- | --- | --- |
-| **description** |Description for the rule |Allow inbound traffic for all VMs in subnet X |
-| **protocol** |Protocol to match for the rule |TCP, UDP, or * |
-| **sourcePortRange** |Source port range to match for the rule |80, 100-200, * |
-| **destinationPortRange** |Destination port range to match for the rule |80, 100-200, * |
-| **sourceAddressPrefix** |Source address prefix to match for the rule |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
-| **destinationAddressPrefix** |Destination address prefix to match for the rule |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
-| **direction** |Direction of traffic to match for the rule |inbound or outbound |
-| **priority** |Priority for the rule. Rules are checked int he order of priority, once a rule applies, no more rules are tested for matching. |10, 100, 65000 |
-| **access** |Type of access to apply if the rule matches |allow or deny |
+| **Açıklama** |Kural için açıklama |Alt ağda X tüm VM'ler için gelen trafiğe izin ver |
+| **Protokolü** |Kural ile eşleştirilecek protokol |TCP, UDP veya * |
+| **sourcePortRange** |Kural ile eşleştirilecek kaynak bağlantı noktası |80, 100-200, * |
+| **destinationPortRange** |Kural ile eşleştirilecek hedef bağlantı noktası aralığı |80, 100-200, * |
+| **sourceAddressPrefix** |Kural ile eşleştirilecek kaynak adres ön eki |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
+| **destinationAddressPrefix** |Kural ile eşleştirilecek hedef adres ön eki |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
+| **yönü** |Kural için eşleştirilecek trafik yönü |gelen veya giden |
+| **öncelik** |Kural için öncelik. Kurallar öncelik sırasına göre denetlenir, bir kural uygulandığı zaman başka hiçbir kural eşleştirme için test edilmez. |10, 100, 65000 |
+| **erişim** |Kuralın eşleşmesi durumunda uygulanacak erişim türü |izin ver veya reddet |
 
-Sample NSG in JSON format:
+JSON biçiminde NSG örneği:
 
     {
         "name": "NSG-BackEnd",
@@ -67,11 +67,11 @@ Sample NSG in JSON format:
         }
     }
 
-### <a name="default-security-rules"></a>Default security rules
+### <a name="default-security-rules"></a>Varsayılan güvenlik kuralları
 
-Default security rules have the same properties available in security rules. They exist to provide basic connectivity between resources that have NSGs applied to them. Make sure you know which [default security rules](../articles/virtual-network/virtual-networks-nsg.md#default-rules) exist.
+Varsayılan güvenlik kuralları güvenlik kurallarında kullanılabilir aynı özelliklere sahip. Nsg'ler uygulanmış olan kaynaklar arasındaki temel bağlantı sağlamak için mevcut. Hangi bildiğinizden emin olun [güvenlik kuralları varsayılan](../articles/virtual-network/virtual-networks-nsg.md#default-rules) yok.
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [NSGs](../articles/virtual-network/virtual-networks-nsg.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163615.aspx) for NSGs.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163580.aspx) for security rules.
+### <a name="additional-resources"></a>Ek kaynaklar
+* Hakkında daha fazla bilgi almak [Nsg'ler](../articles/virtual-network/virtual-networks-nsg.md).
+* Okuma [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt163615.aspx) Nsg'ler için.
+* Okuma [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt163580.aspx) güvenlik kuralları için.

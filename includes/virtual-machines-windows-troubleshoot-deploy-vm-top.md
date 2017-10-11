@@ -1,4 +1,4 @@
-The following top issues may help resolve your issue. To start troubleshooting, review these steps:
+Aşağıdaki üst sorunları, sorunu gidermenize yardımcı olabilir. Sorun giderme başlatmak için bu adımları gözden geçirin:
 
-- [The cluster cannot support the requested VM size](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
-- [The cluster does not have free resources](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)
+- [Küme istenen VM boyutu desteklemiyor](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
+- [Küme kaynakları serbest bırakmak yok](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)

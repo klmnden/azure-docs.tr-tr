@@ -1,22 +1,22 @@
 
-1. In the **Hybrid connections** blade, click the hybrid connection you just created, then click **Listener Setup**.
+1. İçinde **karma bağlantılar** dikey penceresinde, oluşturulan, ardından yeni karma bağlantıyı tıklatarak **dinleyicisi Kur**.
    
-    ![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
-2. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **download and configure manually**, save the downloaded HybridConnectionManager.msi package, and copy the gateway connection string.
+    ![Dinleyici Kur'a tıklayın](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
+2. **Karma bağlantı özelliklerini** dikey pencere açılır. Altında **şirket içi karma Bağlantı Yöneticisi**, seçin **indirme ve el ile yapılandırma**indirilen HybridConnectionManager.msi paketi kaydedin ve ağ geçidi bağlantı dizesini kopyalayın.
    
-    ![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
-3. From an administrator command prompt, type the following command to start the installer:
+    ![Yüklemek için burayı tıklatın](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
+3. Bir yönetici komut isteminden yükleyiciyi başlatmak için aşağıdaki komutu yazın:
    
         start HybridConnectionManager.msi
-4. After the installer runs, click **Not now**, then browse to the %ProgramFiles%\Microsoft\HybridConnectionManager folder, run HCMConfigWizard.exe and click **Yes** in the **User Account Control** dialog.
-5. Paste the hybrid connection string that you copied earlier and click **OK**. 
+4. Yükleyici çalıştıktan sonra tıklatın **şimdi değil**, %ProgramFiles%\Microsoft\HybridConnectionManager klasöre göz atın, HCMConfigWizard.exe çalıştırın ve tıklatın **Evet** içinde **kullanıcı hesabı Denetim** iletişim.
+5. Daha önce kopyaladığınız karma bağlantı dizesini yapıştırın ve tıklayın **Tamam**. 
    
-    ![Installing](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
-6. When the install completes, click **Close**.
+    ![Yükleme](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
+6. Yükleme tamamlandığında tıklayın **Kapat**.
    
-    ![Click Close](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
+    ![Kapat'ı tıklatın](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
    
-    On the **Hybrid connections** blade, the **Status** column now shows **Connected**. 
+    Üzerinde **karma bağlantılar** dikey penceresinde **durum** sütun şimdi gösterir **bağlı**. 
    
-    ![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
+    ![Bağlı durumu](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 
