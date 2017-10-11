@@ -1,36 +1,36 @@
-## <a name="incremental-and-complete-deployments"></a>Incremental and complete deployments
-When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The primary difference between these two modes is how Resource Manager handles existing resources in the resource group that are not in the template:
+## <a name="incremental-and-complete-deployments"></a>Artımlı ve tam dağıtımları
+Kaynaklarınızın dağıtırken dağıtım Artımlı güncelleştirme ya da tam güncelleştirme olduğunu belirtin. Bu iki mod arasındaki birincil fark, Resource Manager şablonunda olmayan mevcut kaynakları kaynak grubunda nasıl işlediğini şöyledir:
 
-* In complete mode, Resource Manager **deletes** resources that exist in the resource group but are not specified in the template. 
-* In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but are not specified in the template.
+* Tam modunda Resource Manager **siler** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları. 
+* Artımlı modunda Resource Manager **değişmeden bırakır** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları.
 
-For both modes, Resource Manager attempts to provision all resources specified in the template. If the resource already exists in the resource group and its settings are unchanged, the operation results in no change. If you change the settings for a resource, the resource is provisioned with those new settings. If you attempt to update the location or type of an existing resource, the deployment fails with an error. Instead, deploy a new resource with the location or type that you need.
+Her iki mod için Resource Manager şablonunda belirtilen tüm kaynakları sağlamak üzere çalışır. Kaynak kaynak grubunda zaten mevcut ve ayarlarını aynıdır, işlemi hiçbir değişikliğe neden olur. Kaynak bir kaynağın ayarlarını değiştirirseniz, bu yeni ayarlarla sağlanır. Konum veya varolan bir kaynak türü güncelleştirme denemesi dağıtımı bir hatayla başarısız olur. Bunun yerine, yeni bir kaynak konumu ile dağıtabilir veya gerektiğini bildiren yazın.
 
-By default, Resource Manager uses the incremental mode.
+Varsayılan olarak, artımlı modu Kaynak Yöneticisi'ni kullanır.
 
-To illustrate the difference between incremental and complete modes, consider the following scenario.
+Artımlı ve tam modları arasındaki farkı anlamak için aşağıdaki senaryoyu göz önünde bulundurun.
 
-**Existing Resource Group** contains:
+**Varolan bir kaynak grubu** içerir:
 
-* Resource A
-* Resource B
-* Resource C
+* Kaynak
+* Kaynak B
+* Kaynak C
 
-**Template** defines:
+**Şablon** tanımlar:
 
-* Resource A
-* Resource B
-* Resource D
+* Kaynak
+* Kaynak B
+* Kaynak D
 
-When deployed in **incremental** mode, the resource group contains:
+İçinde dağıtıldığında **artımlı** modu, kaynak grubu içerir:
 
-* Resource A
-* Resource B
-* Resource C
-* Resource D
+* Kaynak
+* Kaynak B
+* Kaynak C
+* Kaynak D
 
-When deployed in **complete** mode, Resource C is deleted. The resource group contains:
+İçinde dağıtıldığında **tam** modu, kaynak C silinir. Kaynak grubu içerir:
 
-* Resource A
-* Resource B
-* Resource D
+* Kaynak
+* Kaynak B
+* Kaynak D

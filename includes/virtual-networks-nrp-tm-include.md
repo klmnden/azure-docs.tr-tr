@@ -1,26 +1,26 @@
-## <a name="traffic-manager-profile"></a>Traffic Manager Profile
-Traffic manager and its child endpoint resource enable DNS routing to endpoints in Azure and outside of Azure. Such traffic distribution is governed by routing  policy methods. Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint. 
+## <a name="traffic-manager-profile"></a>Trafik Yöneticisi profili
+Trafik Yöneticisi ve onun alt uç nokta kaynağının Azure ve Azure dışında uç noktaları için DNS yönlendirme etkinleştirin. Bu tür trafik dağıtım yönlendirme ilkesi yöntemler tarafından yönetilir. Trafik Yöneticisi uç noktası durumu izlenmesi de sağlar ve uygun şekilde yolu saptırabilir trafiği bir uç nokta durumunu bağlı. 
 
-| Property | Description |
+| Özellik | Açıklama |
 | --- | --- |
-| **trafficRoutingMethod** |possible values are *Performance*, *Weighted*, and *Priority* |
-| **dnsConfig** |FQDN for the profile |
-| **Protocol** |monitoring protocol, possible values are *HTTP* and *HTTPS* |
-| **Port** |monitoring port |
-| **Path** |monitoring path |
-| **Endpoints** |container for endpoint resources |
+| **trafficRoutingMethod** |Olası değerler şunlardır: *performans*, *Weighted*, ve *önceliği* |
+| **dnsConfig** |Profil için FQDN |
+| **Protokol** |Olası değerler şunlardır: İzleme Protokolü, *HTTP* ve *HTTPS* |
+| **Bağlantı Noktası** |bağlantı noktası izlemesi |
+| **Path** |izleme yolu |
+| **Uç noktaları** |uç nokta kaynaklar için kapsayıcı |
 
-### <a name="endpoint"></a>Endpoint
-An endpoint is a child resource of a Traffic Manager Profile. It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource. 
+### <a name="endpoint"></a>Uç nokta
+Bir uç nokta Traffic Manager profilinin bir alt kaynaktır. Kullanıcı trafiğinin dağıtılmış web uç noktası trafik Yöneticisi profili kaynak yapılandırılmış ilkesini temel alarak veya bir hizmet temsil eder. 
 
-| Property | Description |
+| Özellik | Açıklama |
 | --- | --- |
-| **Type** |the type of the endpoint, possible values are *Azure End point*, *External Endpoint*, and  *Nested Endpoint* |
-| **targetResourceId** |public IP address of a service or web endpoint. This can be an Azure or external endpoint. |
-| **Weight** |endpoint weight used in traffic management. |
-| **Priority** |priority of the endpoint, used to define a failover action |
+| **Tür** |uç nokta türü, olası değerler *Azure uç noktası*, *dış uç noktası*, ve *iç içe geçmiş uç noktası* |
+| **uç noktası Targetresourceıd** |bir hizmeti veya web uç noktası genel IP adresi. Bu, bir Azure ya da dış uç noktası olabilir. |
+| **Ağırlık** |uç nokta ağırlığı trafiği yönetiminde kullanılan. |
+| **Öncelik** |bir yük devretme işlemi tanımlamak için kullanılan uç nokta önceliği |
 
-Sample of Traffic Manager in Json format: 
+Trafik Yöneticisi'nin örnek Json biçiminde: 
 
         {
             "apiVersion": "[variables('tmApiVersion')]",
@@ -77,6 +77,6 @@ Sample of Traffic Manager in Json format:
         }
 
 
-## <a name="additional-resources"></a>Additional resources
-Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) for more information.
+## <a name="additional-resources"></a>Ek kaynaklar
+Okuma [REST API belgeleri trafik Yöneticisi için](https://msdn.microsoft.com/library/azure/mt163664.aspx) daha fazla bilgi için.
 

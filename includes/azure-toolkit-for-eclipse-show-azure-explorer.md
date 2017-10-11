@@ -1,12 +1,12 @@
-## <a name="display-the-azure-explorer-view"></a>Display the Azure Explorer view
+## <a name="display-the-azure-explorer-view"></a>Azure Gezgini Görünüm
 
-If the **Azure Explorer** view is not visible in Eclipse, display it by doing the following:
+Varsa **Azure Gezgini** görünümü Eclipse'te görünür değil, aşağıdakileri yaparak görüntüleyebilirsiniz:
 
-1. Click **Window**, click **Show View**, and then click **Other**.
+1. Tıklatın **penceresi**, tıklatın **görünümü göster**ve ardından **diğer**.
 
-   ![Show View command](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-01.png)
+   ![View komutunu Göster](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-01.png)
 
-2. In the **Show View** dialog box, select **Azure Explorer**, and then click **OK**.
+2. İçinde **görünümü göster** iletişim kutusunda **Azure Gezgini**ve ardından **Tamam**.
 
-   ![Show View dialog box](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-02.png)
+   ![Görünüm iletişim kutusunu göster](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-02.png)
 

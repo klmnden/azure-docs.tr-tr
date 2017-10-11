@@ -1,6 +1,6 @@
 
 ### <a name="cacheskuname"></a>cacheSKUName
-The pricing tier of the new Azure Redis Cache.
+Yeni Azure Redis önbelleği fiyatlandırma katmanı.
 
     "cacheSKUName": {
       "type": "string",
@@ -14,11 +14,11 @@ The pricing tier of the new Azure Redis Cache.
       }
     },
 
-The template defines the values that are permitted for this parameter (Basic or Standard), and assigns a default value (Basic) if no value is specified. Basic provides a single node with multiple sizes available up to 53 GB.
-Standard provides two-node Primary/Replica with multiple sizes available up to 53 GB and 99.9% SLA.
+Şablon (temel veya standart) Bu parametre için izin verilen değerleri tanımlar ve herhangi bir değer belirtilmezse varsayılan değer (Temel) atar. Basic yukarı kullanılabilir birden çok boyutu ile tek bir düğüm 53 GB'a sağlar.
+Standart iki düğümlü birincil/çoğaltma yukarı kullanılabilir birden çok boyutu, 53 GB'a ve % 99,9 SLA sağlar.
 
 ### <a name="cacheskufamily"></a>cacheSKUFamily
-The family for the sku.
+SKU ailesi.
 
     "cacheSKUFamily": {
       "type": "string",
@@ -33,7 +33,7 @@ The family for the sku.
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-The size of the new Azure Redis Cache instance. 
+Yeni Azure Redis önbelleği örneği boyutu. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -53,5 +53,5 @@ The size of the new Azure Redis Cache instance.
     }
 
 
-The template defines the values that are permitted for this parameter (0, 1, 2, 3, 4, 5 or 6), and assigns a default value (1) if no value is specified. Those numbers correspond to following cache sizes: 0 = 250 MB, 1 = 1 GB, 2 = 2.5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+Şablon bu parametre (0, 1, 2, 3, 4, 5 veya 6) için izin verilen değerleri tanımlar ve herhangi bir değer belirtilmezse varsayılan değer (1) atar. Bu sayı aşağıdaki önbellek boyutlarına karşılık gelen: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB'a
 

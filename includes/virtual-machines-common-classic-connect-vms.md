@@ -1,42 +1,42 @@
 
 
-![Virtual machines in a standalone cloud service](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
+![Sanal makinelerde tek başına bulut hizmeti](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-If you place your virtual machines in a virtual network, you can decide how many cloud services you want to use for load balancing and availability sets. Additionally, you can organize the virtual machines on subnets in the same way as your on-premises network and connect the virtual network to your on-premises network. Here's an example:
+Bir sanal ağ, sanal makineleriniz yerleştirirseniz kaç bulut Hizmetleri için kullanmak istediğiniz yük dengeleme ve kullanılabilirlik kümeleri karar verebilirsiniz. Ayrıca, şirket içi ağ ve sanal ağı şirket içi ağınıza bağlanmak ağlardaki sanal makineler aynı şekilde düzenleyebilirsiniz. Örnek aşağıda verilmiştir:
 
-![Virtual machines in a virtual network](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
+![Bir sanal ağdaki sanal makineler](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../articles/azure-subscription-service-limits.md).
+Sanal ağlar, Azure sanal makinelere bağlanmak için önerilen yoldur. En iyi uygulama olarak, her katman, uygulamanızın ayrı bulut hizmetinde yapılandırmaktır. Ancak, en fazla abonelik başına 200 bulut Hizmetleri içinde kalması için aynı bulut hizmetine bazı sanal makinelerden farklı bir uygulama katmanları birleştirebilirsiniz gerekebilir. Bu ve diğer sınırları gözden geçirmek için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../articles/azure-subscription-service-limits.md).
 
-## <a name="connect-vms-in-a-virtual-network"></a>Connect VMs in a virtual network
-To connect virtual machines in a virtual network:
+## <a name="connect-vms-in-a-virtual-network"></a>Sanal makineleri sanal bir ağa bağlan
+Bir sanal ağdaki sanal makinelere bağlanmak için:
 
-1. Create the virtual network in the [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) and specify 'classic deployment'.
-2. Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure portal, click **New > Compute > Cloud service** for each cloud service.
+1. Sanal ağ oluşturma [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) ve 'Klasik dağıtım' belirtin.
+2. Bulut Hizmetleri ve Yük Dengeleme tasarımınız kullanılabilirlik kümeleri için yansıtmak üzere dağıtımınız için kümesi oluşturun. Azure portalında tıklatın **yeni > işlem > bulut hizmeti** her bir bulut hizmeti için.
 
-  As you fill out the cloud service details, choose the same _resource group_ used with the virtual network.
+  Bulut hizmetinin ayrıntılarını dolgu olarak aynı seçin _kaynak grubu_ sanal ağ ile kullanılır.
 
-3. To create each new virtual machine, click **New > Compute**, then select the appropriate VM image from the **Featured apps**.
+3. Her yeni bir sanal makine oluşturmak için tıklatın **yeni > işlem**, ardından uygun VM görüntüsünü seçin **öne çıkan uygulamalar**.
 
-  In the VM **Basics** blade, choose the same _resource group_ used with the virtual network.
+  VM'deki **Temelleri** dikey penceresinde, aynı seçin _kaynak grubu_ sanal ağ ile kullanılır.
 
-  ![VM Basics blade when using a VNet](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
+  ![Bir sanal ağ kullanırken VM temel bilgileri dikey penceresi](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
 
-4. As you fill out the VM **Settings**, choose the correct _Cloud service_ or _virtual network_ for the VM.
+4. VM'i dolgu olarak **ayarları**, doğru seçin _bulut hizmeti_ veya _sanal ağ_ VM için.
 
-  Azure will select the other item based on your selection.
+  Azure seçiminize bağlı diğer öğesini seçer.
 
-  ![VM Settings blade when using a VNet](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
+  ![Bir sanal ağ kullanırken VM ayarlar dikey penceresi](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
 
 
-## <a name="connect-vms-in-a-standalone-cloud-service"></a>Connect VMs in a standalone cloud service
-To connect virtual machines in a standalone cloud service:
+## <a name="connect-vms-in-a-standalone-cloud-service"></a>Sanal makineleri bir tek başına bulut hizmetine bağlanmak
+Bir tek başına bulut hizmeti sanal makinelere bağlanmak için:
 
-1. Create the cloud service in the [Azure portal](http://portal.azure.com). Click **New > Compute > Cloud service**. Or, you can create the cloud service for your deployment when you create your first virtual machine.
-2. When you create the virtual machines, choose the same resource group used with the cloud service.
+1. Bulut hizmeti oluşturma [Azure portal](http://portal.azure.com). Tıklatın **yeni > işlem > bulut hizmeti**. Veya, ilk sanal makine oluşturduğunuzda, dağıtımınız için bulut hizmeti oluşturabilir.
+2. Sanal makine oluşturduğunuzda, bulut hizmeti ile kullanılan aynı kaynak grubunu seçin.
 
-  ![Add a virtual machine to an existing cloud service](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
+  ![Bir sanal makine var olan bir bulut hizmetine Ekle](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
 
-3.  As you fill out the VM details, choose the name of cloud service created in the first step.
+3.  VM ayrıntılarını doldurun gibi ilk adımda oluşturduğunuz bulut hizmeti adını seçin.
 
-  ![Selecting a cloud service for a virtual machine](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)
+  ![Bir sanal makine için bir bulut hizmeti seçme](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)

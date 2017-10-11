@@ -1,52 +1,52 @@
-1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).  
-2. On the command bar at the bottom of the window, click **New**.
-3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
+1. [Klasik Azure portalında](http://manage.windowsazure.com) oturum açın.  
+2. Pencerenin altındaki komut çubuğunda **yeni**.
+3. Altında **işlem**, tıklatın **sanal makine**ve ardından **Galeri'den**.
    
-    ![Create a New Virtual Machine][Image1]
-4. Under the **SUSE** group, select an OpenSUSE virtual machine image, and then click the arrow to continue.
-5. On the first **Virtual machine configuration** page:
+    ![Yeni bir sanal makine oluşturma][Image1]
+4. Altında **SUSE** grup, bir OpenSUSE sanal makine görüntüsü seçin ve ardından devam etmek için oka tıklayın.
+5. İlk **sanal makine yapılandırması** sayfa:
    
-   * Type a **Virtual Machine Name**, such as "testlinuxvm". The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number.
-   * Verify the **Tier** and pick a **Size**. The tier determines the sizes you can choose from. The size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-   * Type a **New User Name**, or accept the default, **azureuser**. This name is added to the Sudoers list file.
-   * Decide which type of **Authentication** to use. For general password guidelines, see [Strong passwords](http://msdn.microsoft.com/library/ms161962.aspx).
-6. On the next **Virtual machine configuration** page:
+   * Tür a **sanal makine adı**, "testlinuxvm" gibi. Adı gerekir 3 ile 15 karakter arasında içeren, yalnızca harf, rakam ve tire içerebilir ve gerekir bir harfle başlamalı ve harf veya sayı ile bitmelidir.
+   * Doğrulama **katmanı** ve çekme bir **boyutu**. Katman aralarından seçim yapabileceğiniz boyutları belirler. Boyutu, yanı sıra gibi kaç tane veri diskleri, yapılandırma seçenekleri ekleyebilirsiniz kullanma maliyetini etkiler. Ayrıntılar için bkz [sanal makineler için Boyutlar](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   * Tür a **yeni bir kullanıcı adı**, veya varsayılanı kabul **azureuser**. Bu ad Sudoers listesi dosyasına eklenir.
+   * Hangi tür karar **kimlik doğrulaması** kullanmak için. Genel parola yönergeler için bkz: [güçlü parolalar](http://msdn.microsoft.com/library/ms161962.aspx).
+6. Sonraki **sanal makine yapılandırması** sayfa:
    
-   * Use the default **Create a new cloud service**.
-   * In the **DNS Name** box, type a unique DNS name to use as part of the address, such as "testlinuxvm".
-   * In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
-   * Under **Endpoints**, keep the SSH endpoint. You can add others now, or add, change, or delete them after the virtual machine is created.
+   * Varsayılan kullanmak **yeni bir bulut hizmeti oluşturma**.
+   * İçinde **DNS adı** "testlinuxvm" gibi adresi bir parçası olarak kullanmak için benzersiz bir DNS adı yazın.
+   * İçinde **bölge/benzeşim grubu/sanal ağ** kutusunda, bu sanal görüntü nerede barındırılacağı bir bölge seçin.
+   * Altında **uç noktaları**, SSH bitiş noktasını saklayın. Başkalarının şimdi, ekleyin veya eklemek, değiştirmek veya sanal makine oluşturulduktan sonra silebilirsiniz.
      
      > [!NOTE]
-     > If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't add a virtual machine to a virtual network after you create the virtual machine. For more information, see [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+     > Bir sanal makinenin bir sanal ağ kullanmasını istiyorsanız, **gerekir** sanal makine oluşturduğunuzda, sanal ağ belirtin. Sanal makineyi oluşturduktan sonra bir sanal makine bir sanal ağa ekleyemezsiniz. Daha fazla bilgi için bkz: [Virtual Network'e genel bakış](../articles/virtual-network/virtual-networks-overview.md).
      > 
      > 
-7. On the last **Virtual machine configuration** page, keep the default settings and then click the check mark to finish.
+7. Son üzerinde **sanal makine yapılandırması** sayfasında, varsayılan ayarları koruyun ve ardından tamamlamak için onay işaretine tıklayın.
 
-The portal lists the new virtual machine under **Virtual Machines**. While the status is reported as **(Provisioning)**, the virtual machine is being set up. When the status is reported as **Running**, you can move on to the next step.
+Portal altında yeni bir sanal makine listeler **sanal makineleri**. Durum olarak bildirilen sırada **(hazırlama)**, sanal makine ayarlanıyor. Ne zaman durum bildirilir olarak **çalıştıran**, sonraki adıma geçin.
 
-## <a name="connect-to-the-virtual-machine"></a>Connect to the Virtual Machine
-You'll use SSH or PuTTY to connect to the virtual machine, depending on the operating system on the computer you'll connect from:
+## <a name="connect-to-the-virtual-machine"></a>Sanal makineye bağlanma
+SSH veya PuTTY bağlanması bilgisayardaki işletim sistemine bağlı olarak sanal makineye bağlanmak için kullanacağınız:
 
-* From a computer running Linux, use SSH. At the command prompt, type:
+* Linux çalıştıran bir bilgisayardan SSH kullanın. Komut istemine yazın:
   
     `$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
   
-    Type the user's password.
-* From a computer running Windows, use PuTTY. If you don't have it installed, download it from the [PuTTY Download Page][PuTTYDownload].
+    Kullanıcının parolasını yazın.
+* Windows çalıştıran bir bilgisayardan PuTTY kullanın. Yüklü yoksa, indirin [PuTTY indirme sayfası][PuTTYDownload].
   
-    Save **putty.exe** to a directory on your computer. Open a command prompt, navigate to that folder, and run **putty.exe**.
+    Kaydet **putty.exe** bilgisayarınızdaki bir dizine. Bir komut istemi açın, o klasöre gidin ve Çalıştır **putty.exe**.
   
-    Type the host name, such as "testlinuxvm.cloudapp.net", and type "22" for the **Port**.
+    "Testlinuxvm.cloudapp.net" gibi ana bilgisayar adını yazıp "22" için **bağlantı noktası**.
   
-    ![PuTTY Screen][Image6]  
+    ![PuTTY ekran][Image6]  
 
-## <a name="update-the-virtual-machine-optional"></a>Update the Virtual Machine (optional)
-1. After you're connected to the virtual machine, you can optionally install system updates and patches. To run the update, type:
+## <a name="update-the-virtual-machine-optional"></a>Sanal makineyi (isteğe bağlı) güncelleştirin
+1. Sanal makineye bağlandıktan sonra sistem güncelleştirmelerini ve düzeltme eklerini isteğe bağlı olarak yükleyebilirsiniz. Güncelleştirmeyi çalıştırmak için şunu yazın:
    
     `$ sudo zypper update`
-2. Select **Software**, then **Online Update** to list available updates. Select **Accept** to start the installation and apply all new available patches (except the optional ones).
-3. After installation is done, select **Finish**.  Your system is now up to date.
+2. Seçin **yazılım**, ardından **çevrimiçi güncelleştirme** kullanılabilir güncelleştirmeleri listesi. Seçin **kabul** yüklemeyi başlatmak ve tüm yeni kullanılabilir düzeltme eklerinin (dışında isteğe bağlı olanlar için) uygulamak için.
+3. Yükleme tamamlandıktan sonra seçin **son**.  Sisteminizi güncel sunulmuştur.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
 

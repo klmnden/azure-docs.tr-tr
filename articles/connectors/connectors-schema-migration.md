@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: deonhe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
 ms.openlocfilehash: a5a73a9f124e5339b61dbc49021444a208a471f0
-ms.contentlocale: tr-tr
-ms.lasthandoff: 01/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Mantıksal uygulamaları şema sürümü 2015-08-01-önizlemeye geçirme
 Mevcut mantıksal uygulamalarınızı yeni şemaya taşımak için aşağıdakileri yapın:  
@@ -47,7 +46,6 @@ Mevcut mantıksal uygulamalarınızı yeni şemaya taşımak için aşağıdakil
 <!--Icon references-->
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
-
 
 
 

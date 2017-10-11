@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-10"></a>Azure CLI 1.0 kullanarak Azure DNS ile çalışmaya başlama
 
 > [!div class="op_single_selector"]
@@ -121,5 +119,4 @@ Azure DNS hakkında daha fazla bilgi için bkz. [Azure DNS'e genel bakış](dns-
 Azure DNS’te DNS bölgelerini yönetme hakkında daha fazla bilgi için bkz. [Azure CLI 1.0 ile Azure DNS’te DNS bölgelerini yönetme](dns-operations-dnszones-cli-nodejs.md).
 
 Azure DNS’te DNS kayıtlarını yönetme hakkında daha fazla bilgi için bkz. [Azure CLI 1.0 ile Azure DNS’te DNS kayıtlarını yönetme](dns-operations-recordsets-cli-nodejs.md).
-
 

@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="what-is-azure-relay"></a>Azure Geçiş nedir?
 
@@ -72,5 +71,4 @@ Geçiş bağlantısı kurulduğunda istemciler, randevu için kullanılan ağ ge
 * [Ad alanı oluşturma](relay-create-namespace-portal.md)
 * [.NET kullanmaya başlama](relay-hybrid-connections-dotnet-get-started.md)
 * [Node kullanmaya başlama](relay-hybrid-connections-node-get-started.md)
-
 

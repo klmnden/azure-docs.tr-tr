@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: 22397b6b448b418d5b54a457c3bafaf5c68ecc7b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="getting-started"> </a>Mobile Services kullanıyorum, App Service bana nasıl yardımcı olur?
 ## <a name="overview"></a>Genel Bakış
@@ -64,4 +63,3 @@ Arka ucunuzu ve veritabanınızı otomatik olarak yedekleyin. Kodunuz ve veriler
 *Azure App Service* ile artık mobil uygulamalarınız için birden fazla özel test ve hazırlık ortamı oluşturabilirsiniz. Dağıtmadan önce, bunları test gerçekleştirmek için kullanın. Kesinti süresi olmaksızın üretime geçin. Web uygulamaları, en iyi müşteri deneyimi sağlayacak şekilde önceden yüklenmiştir.
 
 Bu [öğreticiyi](app-service-mobile-migrating-from-mobile-services.md) izleyerek mevcut Mobil Hizmetiniz için *App Service* avantajından yararlanmaya başlayabilirsiniz.
-

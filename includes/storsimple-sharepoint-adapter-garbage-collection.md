@@ -1,47 +1,47 @@
 <!--author=SharS last changed: 9/17/15-->
 
-In this procedure, you will:
+Bu yordamda şunları yapacaksınız:
 
-1. [Prepare to run the Maintainer executable](#to-prepare-to-run-the-maintainer) .
-2. [Prepare the content database and Recycle Bin for immediate deletion of orphaned BLOBs](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
-3. [Run Maintainer.exe](#to-run-the-maintainer).
-4. [Revert the content database and Recycle Bin settings](#to-revert-the-content-database-and-recycle-bin-settings).
+1. [Bakımcı yürütülebilir dosyayı çalıştırmak için hazırlık](#to-prepare-to-run-the-maintainer) .
+2. [Geri Dönüşüm Kutusu ve içerik veritabanını yalnız bırakılmış BLOB'lar anında silme işlemi için hazırlama](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
+3. [Maintainer.exe Çalıştır](#to-run-the-maintainer).
+4. [Geri Dönüşüm Kutusu ayarlarını ve içerik veritabanını geri](#to-revert-the-content-database-and-recycle-bin-settings).
 
-#### <a name="to-prepare-to-run-the-maintainer"></a>To prepare to run the Maintainer
-1. On the Web front-end server, open the SharePoint 2013 Management Shell as an administrator.
-2. Navigate to the folder *boot drive*:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\.
-3. Rename **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** to **web.config**.
-4. Use `aspnet_regiis -pdf connectionStrings` to decrypt the web.config file.
-5. In the decrypted web.config file, under the `connectionStrings` node, add the connection string for your SQL server instance and the content database name. See the following example.
+#### <a name="to-prepare-to-run-the-maintainer"></a>Bakımcı çalıştırmak hazırlamak için
+1. Web ön uç sunucusunda, SharePoint 2013 Yönetim Kabuğu'nu bir yönetici olarak açın.
+2. Klasöre gidin *önyükleme sürücüsü*: \Program SQL Uzak Blob Depolama 10.50\Maintainer\.
+3. Yeniden Adlandır **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** için **web.config**.
+4. Kullanım `aspnet_regiis -pdf connectionStrings` web.config dosyasının şifresini çözmek için.
+5. Şifresi çözülmüş web.config dosyasında altında `connectionStrings` düğümü, SQL server örneğinizi ve içerik veritabanı adı için bağlantı dizesini ekleyin. Aşağıdaki örneğe bakın.
    
     `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
-6. Use `aspnet_regiis –pef connectionStrings` to re-encrypt the web.config file. 
-7. Rename web.config to Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config. 
+6. Kullanım `aspnet_regiis –pef connectionStrings` web.config dosyasını yeniden şifrelemek için. 
+7. Web.config Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config için yeniden adlandırın. 
 
-#### <a name="to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs"></a>To prepare the content database and Recycle Bin to immediately delete orphaned BLOBs
-1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database: 
+#### <a name="to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs"></a>İçerik Hazırlama için veritabanı ve hemen silmek için Geri Dönüşüm Kutusu'nu BLOB'lar yalnız bırakılmış
+1. SQL Server'da aşağıdaki güncelleştirme sorguları hedef içerik veritabanı için SQL Management Studio'da çalıştırın: 
    
        `use WSS_Content`
    
        `exec mssqlrbs.rbs_sp_set_config_value ‘garbage_collection_time_window’ , ’time 00:00:00’`
    
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
-2. On the web front-end server, under **Central Administration**, edit the **Web Application General Settings** for the desired content database to temporarily disable the Recycle Bin. This action will also empty the Recycle Bin for any related site collections. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the **Recycle Bin Status** to **OFF**.
+2. Web ön uç sunucusunda altında **Merkezi Yönetim**, düzenleme **Web uygulaması genel ayarları** istenen içerik veritabanı geçici olarak geri dönüşüm kutusu devre dışı bırakmak için. Tüm ilgili site koleksiyonları için bu eylem ayrıca geri dönüşüm kutusu boş. Bunu yapmak için tıklatın **Merkezi Yönetim** -> **Uygulama Yönetimi** -> **Web uygulamaları (web uygulamalarını yönet)**  ->  **SharePoint - 80** -> **genel uygulama ayarları**. Ayarlama **Geri Dönüşüm Kutusu'nu durumu** için **OFF**.
    
-    ![Web Application General Settings](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
+    ![Web uygulaması genel ayarları](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
-#### <a name="to-run-the-maintainer"></a>To run the Maintainer
-* On the web front-end server, in the SharePoint 2013 Management Shell, run the Maintainer as follows:
+#### <a name="to-run-the-maintainer"></a>Bakımcı çalıştırmak için
+* Web ön uç sunucusunda, SharePoint 2013 Yönetim Kabuğu'nda aşağıdaki gibi Bakımcı çalıştırın:
   
       `Microsoft.Data.SqlRemoteBlobs.Maintainer.exe -ConnectionStringName RBSMaintainerConnectionWSSContent -Operation GarbageCollection -GarbageCollectionPhases rdo`
   
   > [!NOTE]
-  > Only the `GarbageCollection` operation is supported for StorSimple at this time. Also note that the parameters issued for Microsoft.Data.SqlRemoteBlobs.Maintainer.exe are case sensitive. 
+  > Yalnızca `GarbageCollection` işlemi şu anda StorSimple için desteklenir. Ayrıca Microsoft.Data.SqlRemoteBlobs.Maintainer.exe için verilen parametreleri büyük küçük harfe duyarlı olduğunu unutmayın. 
   > 
   > 
 
-#### <a name="to-revert-the-content-database-and-recycle-bin-settings"></a>To revert the content database and Recycle Bin settings
-1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database:
+#### <a name="to-revert-the-content-database-and-recycle-bin-settings"></a>Geri Dönüşüm Kutusu ayarlarını ve içerik veritabanını geri almak için
+1. SQL Server'da aşağıdaki güncelleştirme sorguları hedef içerik veritabanı için SQL Management Studio'da çalıştırın:
    
       `use WSS_Content`
    
@@ -50,5 +50,5 @@ In this procedure, you will:
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. On the web front-end server, in **Central Administration**, edit the **Web Application General Settings** for the desired content database to re-enable the Recycle Bin. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the Recycle Bin Status to **ON**.
+2. Web ön uç sunucusunda, **Merkezi Yönetim**, düzenleme **Web uygulaması genel ayarları** Geri Dönüşüm Kutusu'nu yeniden etkinleştirmek istediğiniz içerik veritabanı için. Bunu yapmak için tıklatın **Merkezi Yönetim** -> **Uygulama Yönetimi** -> **Web uygulamaları (web uygulamalarını yönet)**  ->  **SharePoint - 80** -> **genel uygulama ayarları**. Geri Dönüşüm Kutusu'nu durum kümesine **ON**.
 

@@ -24,8 +24,3 @@
    
    * **Anında İletme Bildirimleri**’ni Hedefler > Hedef Adınız > Özellikler’de etkinleştirin.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

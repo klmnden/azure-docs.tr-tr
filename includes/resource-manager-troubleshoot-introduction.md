@@ -1,2 +1,2 @@
-You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This topic shows both methods. For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).
+Denetim günlüklerini ya da dağıtım işlemlerini bakarak dağıtımınızı giderebilirsiniz. Bu konuda, her iki yöntem gösterilmektedir. Belirli dağıtım hatalarını çözme konusunda daha fazla yardım için bkz: [kaynakları Azure Azure Resource Manager ile dağıtırken sık karşılaşılan hataları gidermek](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).
 

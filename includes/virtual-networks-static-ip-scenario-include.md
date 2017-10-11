@@ -1,7 +1,7 @@
-## <a name="scenario"></a>Scenario
-To better illustrate how to configure a static IP address for a VM, this document will use the scenario below.
+## <a name="scenario"></a>Senaryo
+Statik bir IP adresi için bir VM yapılandırma konusunda daha iyi anlamak için bu belge aşağıdaki senaryoyu kullanır.
 
-![VNet scenario](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
+![VNet senaryosu](./media/virtual-networks-static-ip-scenario-include/static-ip-scenario.png)
 
-In this scenario you will create a VM named **DNS01** in the **FrontEnd** subnet, and set it to use a static IP address of **192.168.1.101**.
+Bu senaryoda adlı bir VM oluşturacak **DNS01** içinde **ön uç** alt ağ, bir statik IP adresini kullanacak şekilde ayarlayın **192.168.1.101**.
 

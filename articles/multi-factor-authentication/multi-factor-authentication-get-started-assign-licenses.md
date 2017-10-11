@@ -16,12 +16,11 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
-ms.openlocfilehash: 536968a803e14019c42e7beed4c948ab760cf020
-ms.contentlocale: tr-tr
-ms.lasthandoff: 02/15/2017
-
+ms.openlocfilehash: 45522bf526c4aeab1d6ccc8891a55a0436ff9320
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>Kullanıcılara Azure MFA, Azure AD Premium veya Enterprise Mobility lisansı atama
 Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansları satın aldıysanız Multi-Factor Auth sağlayıcısı oluşturmanız gerekmez. Kullanıcılarınıza lisansları atadıktan sonra, kullanıcılarınızı MFA için etkinleştirmeye başlayabilirsiniz.
@@ -44,4 +43,3 @@ Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansları satın al
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Daha fazla bilgi için bkz. [Microsoft Azure Active Directory lisansı nedir?](../active-directory/active-directory-licensing-what-is.md)
-

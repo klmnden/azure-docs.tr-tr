@@ -1,7 +1,7 @@
-Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics. There is no limit to the amount of data you can store in a Data Lake Store account.
+Azure Data Lake Store, büyük veri analitik iş yükleri için kuruluş çapında hiper ölçekli bir depodur. Data Lake Store, operasyonel ve keşif amaçlı analiz için herhangi bir boyuta, türe ve alma hızına sahip olan verilerin tümünü tek bir konumda yakalamanıza olanak sağlar. Bir Data Lake Store hesabında depolayabileceğiniz veri miktarının sınırı yoktur.
 
-| **Resource** | **Default Limit** | **Comments** |
+| **Kaynak** | **Varsayılan Sınır** | **Açıklamalar** |
 | --- | --- | --- |
-| Max number of Data Lake Store accounts, per subscription, per region |10 | Contact Support to request an increase for this limit |
-| Max number of access ACLs, per file or folder |32 | This is a hard limit. Use groups to manage access with fewer entries |
-| Max number of default ACLs, per file or folder |32 | This is a hard limit. Use groups to manage access with fewer entries |
+| Bölge ve abonelik başına en fazla Data Lake Store hesabı sayısı |10 | Bu sınırı artırma isteğinde bulunmak için Destek birimine başvurun |
+| Erişim ACL'leri, dosya veya klasör başına maksimum sayısı |32 | Bir sabit sınır budur. Daha az girişlerle erişimi yönetmek için grupları kullanma |
+| Dosya veya klasör başına varsayılan ACL'leri sayısı üst sınırı |32 | Bir sabit sınır budur. Daha az girişlerle erişimi yönetmek için grupları kullanma |

@@ -1,34 +1,34 @@
-## <a name="virtual-network"></a>Virtual Network
-Virtual Networks (VNET) and subnets resources help define a security boundary for workloads running in Azure. A VNet is characterized by a collection of address spaces, defined as CIDR blocks. 
+## <a name="virtual-network"></a>Sanal Ağ
+Sanal ağ (VNET) ve alt kaynakları Azure'da çalışan iş yükleri için güvenlik sınırı tanımlamaya yardımcı olacak. Bir sanal ağ adres alanları, CIDR bloğu tanımlı bir koleksiyon tarafından belirlenir. 
 
 > [!NOTE]
-> Network administrators are familiar with CIDR notation. If you are not familiar with CIDR, [learn more about it](http://whatismyipaddress.com/cidr).
+> Ağ yöneticileri ile CIDR gösteriminde biliyorsunuzdur. CIDR ile bilmiyorsanız [hakkında daha fazla bilgi](http://whatismyipaddress.com/cidr).
 > 
 > 
 
-![VNet with multiple subnets](./media/resource-groups-networking/Figure4.png)
+![Birden çok alt ağa sahip VNet](./media/resource-groups-networking/Figure4.png)
 
-VNets contain the following properties.
+Sanal ağlar aşağıdaki özellikleri içerir.
 
-| Property | Description | Sample values |
+| Özellik | Açıklama | Örnek değerler |
 | --- | --- | --- |
-| **addressSpace** |Collection of address prefixes that make up the VNet in CIDR notation |192.168.0.0/16 |
-| **subnets** |Collection of subnets that make up the VNet |see [subnets](#Subnets) below. |
-| **ipAddress** |IP address assigned to object. This is a read-only property. |104.42.233.77 |
+| **addressSpace** |CIDR gösteriminde VNet oluşturan adres öneklerini koleksiyonu |192.168.0.0/16 |
+| **alt ağlar** |VNet yapmak alt koleksiyonu |bkz: [alt ağlar](#Subnets) aşağıda. |
+| **IP adresi** |Nesne için atanan IP adresi. Bu salt okunur bir özelliktir. |104.42.233.77 |
 
-### <a name="subnets"></a>Subnets
-A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
+### <a name="subnets"></a>Alt ağlar
+Bir alt ağ alt bir vnet'in kaynaktır ve adres alanları IP adresi öneklerini kullanarak bir CIDR bloğu içinde kesimleri yardımcı tanımlayın. NIC alt ağlara eklendi ve çeşitli iş yükleri için bağlantı sağlama VM'ler bağlı.
 
-Subnets contain the following properties. 
+Alt ağları aşağıdaki özellikleri içerir. 
 
-| Property | Description | Sample values |
+| Özellik | Açıklama | Örnek değerler |
 | --- | --- | --- |
-| **addressPrefix** |Single address prefix that make up the subnet in CIDR notation |192.168.1.0/24 |
-| **networkSecurityGroup** |NSG applied to the subnet |see [NSGs](#Network-Security-Group) |
-| **routeTable** |Route table applied to the subnet |see [UDR](#Route-table) |
-| **ipConfigurations** |Collection of IP configruation objects used by NICs connected to the subnet |see [UDR](#Route-table) |
+| **addressPrefix** |Alt ağ CIDR gösteriminde oluşturan tek adresi öneki |192.168.1.0/24 |
+| **networkSecurityGroup** |NSG alt ağına uygulanır |bkz: [Nsg'ler](#Network-Security-Group) |
+| **routeTable** |Alt ağa uygulanan yol tablosu |bkz: [UDR](#Route-table) |
+| **Ipconfigurations** |Alt ağına bağlı NIC tarafından kullanılan IP yapılandırma nesnelerinin koleksiyonunu |bkz: [UDR](#Route-table) |
 
-Sample VNet in JSON format:
+JSON biçiminde örnek VNet:
 
     {
         "name": "TestVNet",
@@ -72,8 +72,8 @@ Sample VNet in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [VNet](../articles/virtual-network/virtual-networks-overview.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163650.aspx) for VNets.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163618.aspx) for Subnets.
+### <a name="additional-resources"></a>Ek kaynaklar
+* Hakkında daha fazla bilgi almak [VNet](../articles/virtual-network/virtual-networks-overview.md).
+* Okuma [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt163650.aspx) sanal ağlar için.
+* Okuma [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt163618.aspx) alt ağlar için.
 

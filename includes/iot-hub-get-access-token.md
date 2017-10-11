@@ -1,9 +1,7 @@
-<a id="obtain-an-azure-resource-manager-token" class="xliff"></a>
+## <a name="obtain-an-azure-resource-manager-token"></a>Bir Azure Resource Manager belirteç edinme
+Azure Active Directory kaynakları Azure Kaynak Yöneticisi'ni kullanarak gerçekleştirdiğiniz tüm görevler kimliğini doğrulaması gerekir. Burada gösterilen örnekte, parola kimlik doğrulaması kullanır, diğer yaklaşım için bkz [Azure Resource Manager kimlik doğrulama istekleri][lnk-authenticate-arm].
 
-## Obtain an Azure Resource Manager token
-Azure Active Directory must authenticate all the tasks that you perform on resources using the Azure Resource Manager. The example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].
-
-1. Add the following code to the **Main** method in Program.cs to retrieve a token from Azure AD using the application id and password.
+1. Aşağıdaki kodu ekleyin **ana** uygulama kimliği ve parola kullanarak Azure AD'den bir belirteç almak için Program.cs yöntemi.
    
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -18,14 +16,14 @@ Azure Active Directory must authenticate all the tasks that you perform on resou
       return;
     }
     ```
-2. Create a **ResourceManagementClient** object that uses the token by adding the following code to the end of the **Main** method:
+2. Oluşturma bir **ResourceManagementClient** sonuna aşağıdaki kodu ekleyerek belirteç kullanan nesne **ana** yöntemi:
    
     ```
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. Create, or obtain a reference to, the resource group you are using:
+3. Oluşturma veya bir başvuru için kullanmakta olduğunuz kaynak grubu elde:
    
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,

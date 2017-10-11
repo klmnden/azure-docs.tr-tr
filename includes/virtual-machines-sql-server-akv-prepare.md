@@ -1,34 +1,34 @@
-## <a name="prepare-for-akv-integration"></a>Prepare for AKV Integration
-To use Azure Key Vault Integration to configure your SQL Server VM, there are several prerequisites: 
+## <a name="prepare-for-akv-integration"></a>AKV tümleştirme için hazırlama
+SQL Server VM'nize yapılandırmak için Azure anahtar kasası tümleştirmeyi kullanmak için birkaç önkoşul vardır: 
 
-1. [Install Azure Powershell](#install-azure-powershell)
-2. [Create an Azure Active Directory](#create-an-azure-active-directory)
-3. [Create a key vault](#create-a-key-vault)
+1. [Azure PowerShell'i yükleme](#install-azure-powershell)
+2. [Bir Azure Active Directory oluşturun](#create-an-azure-active-directory)
+3. [Bir anahtar kasası oluşturma](#create-a-key-vault)
 
-The following sections describe these prerequisites and the information you need to collect to later run the PowerShell cmdlets.
+Aşağıdaki bölümlerde bu önkoşulları ve daha sonra PowerShell cmdlet'lerini çalıştırmak için toplamanız gereken bilgiler açıklanmaktadır.
 
-### <a name="install-azure-powershell"></a>Install Azure PowerShell
-Make sure you have installed the latest Azure PowerShell SDK. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+### <a name="install-azure-powershell"></a>Azure PowerShell'i yükleme
+En son Azure PowerShell SDK'sı yüklediğinizden emin olun. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
-### <a name="create-an-azure-active-directory"></a>Create an Azure Active Directory
-First, you need to have an [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) in your subscription. Among many benefits, this allows you to grant permission to your key vault for certain users and applications.
+### <a name="create-an-azure-active-directory"></a>Bir Azure Active Directory oluşturun
+İlk olarak, şunlara sahip olmanız gerekir bir [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) aboneliğinizde. Birçok avantaj arasında anahtar kasanızı belirli kullanıcılar ve uygulamalar için izni olanak sağlar.
 
-Next, register an application with AAD. This will give you a Service Principal account that has access to your key vault which your VM will need. In the Azure Key Vault article, you can find these steps in the [Register an application with Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) section, or you can see the steps with screen shots in the **Get an identity for the application section** of [this blog post](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Before completing these steps, note that you need to collect the following information during this registration that is needed later when you enable Azure Key Vault Integration on your SQL VM.
+Ardından, bir uygulamanın AAD ile kaydedin. Bu, VM ihtiyaç duyacağı anahtar kasanızı erişimi olan bir hizmet sorumlusu hesabı verir. Azure anahtar kasası makalede, bu adımları bulabilirsiniz [bir uygulamayı Azure Active Directory ile kaydetme](../articles/key-vault/key-vault-get-started.md#register) bölüm veya ekran görüntüleri ile adımları görebilirsiniz **uygulama bölümü için bir kimlik alma**  , [bu blog gönderisine](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Bu adımları gerçekleştirmeden önce SQL VM üzerinde Azure anahtar kasası tümleştirmeyi etkinleştirdiğinizde, daha sonra gerekli bu kaydı sırasında aşağıdaki bilgileri toplamak gerektiğini unutmayın.
 
-* After the application is added, find the **CLIENT ID**  on the **CONFIGURE** tab. 
-    ![Azure Active Directory Client ID](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* Uygulama eklendikten sonra bulma **istemci kimliği** üzerinde **yapılandırma** sekmesi. 
+    ![Azure Active Directory istemci kimliği](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
-    The client ID is assigned later to the **$spName** (Service Principal name) parameter in the PowerShell script to enable Azure Key Vault Integration. 
-* Also, during these steps when you create your key, copy the secret for your key as is shown in the following screenshot. This key secret is assigned later to the **$spSecret** (Service Principal secret) parameter in the PowerShell script.  
-    ![Azure Active Directory Secret](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
-* You must authorize this new client ID to have the following access permissions: **encrypt**, **decrypt**, **wrapKey**, **unwrapKey**, **sign**, and **verify**. This is done with the [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) cmdlet. For more information see [Authorize the application to use the key or secret](../articles/key-vault/key-vault-get-started.md#authorize).
+    İstemci Kimliğini daha sonra atanan **$spName** Azure anahtar kasası tümleştirmeyi etkinleştirmek için PowerShell betiğini parametresinde (hizmet asıl adı). 
+* Ayrıca, anahtarınızı oluşturduğunuzda, bu adımları sırasında gizli anahtarınız için aşağıdaki ekran görüntüsünde gösterildiği gibi kopyalayın. Bu anahtar sırrı daha sonra atanan **$spSecret** PowerShell Betiği parametresinde (hizmet sorumlusu gizli).  
+    ![Azure Active Directory parolası](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
+* Bu yeni istemci kimliği aşağıdaki erişim izinlerine sahip yetkilendirmeniz gerekir: **şifrelemek**, **şifresini**, **wrapKey**, **unwrapKey**, **oturum**, ve **doğrulayın**. Bu gerçekleştirilir [kümesi AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) cmdlet'i. Daha fazla bilgi için bkz: [anahtar veya gizli kullanmak için uygulamayı yetkilendirmeniz](../articles/key-vault/key-vault-get-started.md#authorize).
 
-### <a name="create-a-key-vault"></a>Create a key vault
-In order to use Azure Key Vault to store the keys you will use for encryption in your VM, you need access to a key vault. If you have not already set up your key vault, create one by following the steps in the [Getting Started with Azure Key Vault](../articles/key-vault/key-vault-get-started.md) topic. Before completing these steps, note that there is some information you need to collect during this set up that is needed later when you enable Azure Key Vault Integration on your SQL VM.
+### <a name="create-a-key-vault"></a>Bir anahtar kasası oluşturma
+Azure anahtar kasası, VM şifreleme için kullanacağınız anahtarları depolamak için kullanmak için bir anahtar kasası erişim gerekir. Anahtar kasanız zaten ayarlamadıysanız içindeki adımları izleyerek oluşturun [Azure anahtar kasası ile çalışmaya başlama](../articles/key-vault/key-vault-get-started.md) konu. Bu adımları gerçekleştirmeden önce SQL VM üzerinde Azure anahtar kasası tümleştirmeyi etkinleştirdiğinizde, bu kurulum sırasında toplamanız gereken bazı bilgiler daha sonra gerekli olduğuna dikkat edin.
 
-When you get to the Create a key vault step, note the returned **vaultUri** property, which is the key vault URL. In the example provided in that step, shown below, the key vault name is ContosoKeyVault, therefore the key vault URL would be https://contosokeyvault.vault.azure.net/.
+Bir anahtar kasası adımı Oluştur aldığınızda, döndürülen Not **vaultUri** anahtar kasası URL'si özelliği. Aşağıda, ContosoKeyVault, anahtar kasası addır Bu adımda sağlanan örnekte bu nedenle anahtar kasası URL'si https://contosokeyvault.vault.azure.net/ olacaktır.
 
     New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
-The key vault URL is assigned later to the **$akvURL** parameter in the PowerShell script to enable Azure Key Vault Integration.
+Anahtar kasası URL'si daha sonra atanan **$akvURL** Azure anahtar kasası tümleştirmeyi etkinleştirmek için PowerShell komut parametresi.
 

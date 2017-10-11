@@ -26,8 +26,3 @@ Yedekleme ilkesi veri anlık görüntülerinin ne zaman alınacağının ve bu a
    
     Yeni ilke hemen kasaya uygulanır.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

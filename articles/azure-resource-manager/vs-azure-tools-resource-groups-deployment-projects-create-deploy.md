@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
-ms.contentlocale: tr-tr
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/03/2017
 ---
-<a id="creating-and-deploying-azure-resource-groups-through-visual-studio" class="xliff"></a>
-
-# Visual Studio aracılığıyla Azure kaynak grupları oluşturma ve dağıtma
+# <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio aracılığıyla Azure kaynak grupları oluşturma ve dağıtma
 Visual Studio ve [Azure SDK](https://azure.microsoft.com/downloads/) ile altyapınızı ve kodlarınızı Azure’a dağıtan bir proje oluşturabilirsiniz. Örneğin, uygulamanızın web ana bilgisayarını, web sitesini ve veritabanını tanımlayabilir ve kodlarını ve altyapısını dağıtabilirsiniz. Ayrıca, bir Sanal Makine, Sanal Ağ ve Depolama Hesabı tanımlayabilir ve bu altyapıyı ve Sanal Makinede yürütülen betiği dağıtabilirsiniz. **Azure Kaynak Grubu** dağıtım projesi gerekli tüm kaynakları tek, tekrarlanabilir bir işlemde dağıtmanıza olanak tanır. Kaynakların dağıtılması ve yönetilmesi hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md).
 
 Azure Kaynak Grubu projeleri, Azure’da dağıttığınız kaynakları tanımlayan Azure Resource Manager JSON şablonlarını içerir. Resource Manager şablonu bileşenleri hakkında daha fazla bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md). Visual Studio bu şablonları düzenlemenize olanak tanır ve şablonlarla çalışmayı basitleştiren araçlar sunar.
@@ -32,9 +29,7 @@ Bu makalede bir web uygulaması ve SQL Veritabanı dağıtacaksınız. Ancak, ad
 
 Bu makalede Visual Studio 2017 gösterilmektedir. Visual Studio 2015 Güncelleştirme 2 ve .NET 2.9 için Microsoft Azure SDK veya Azure SDK 2.9 ile Visual Studio 2013 kullanıyorsanız, deneyiminiz büyük ölçüde aynıdır. Azure SDK 2.6 veya sonraki sürümlerini kullanabilirsiniz. Ancak, kullanıcı arabirimindeki deneyiminiz bu makalede gösterilenden farklı olabilir. Adımları uygulamaya başlamadan önce [Azure SDK](https://azure.microsoft.com/downloads/)’nın en son sürümünü yüklemenizi kesinlikle öneririz. 
 
-<a id="create-azure-resource-group-project" class="xliff"></a>
-
-## Azure Kaynak Grubu projesi oluşturma
+## <a name="create-azure-resource-group-project"></a>Azure Kaynak Grubu projesi oluşturma
 Bu yordamda, bir **Web uygulaması + SQL** şablonu ile Azure Kaynak Grubu projesi oluşturacaksınız.
 
 1. Visual Studio’da, **Dosya**, **Yeni Proje**’yi ve ardından **C#** veya **Visual Basic** seçeneğini belirleyin. Daha sonra **Bulut** ve **Azure Kaynak Grubu** projesini seçin.
@@ -66,9 +61,7 @@ Bu yordamda, bir **Web uygulaması + SQL** şablonu ile Azure Kaynak Grubu proje
    
     Tüm kaynak grubu dağıtım projeleri bu temel dosyaları içerir. Diğer projeler diğer işlevleri desteklemek için ek dosyalar içerebilir.
 
-<a id="customize-the-resource-manager-template" class="xliff"></a>
-
-## Resource Manager şablonunu özelleştirme
+## <a name="customize-the-resource-manager-template"></a>Resource Manager şablonunu özelleştirme
 Dağıtmak istediğiniz kaynakları tanımlayan JSON şablonlarını değiştirerek dağıtım projesini özelleştirebilirsiniz. JSON, JavaScript Nesne Gösterimi anlamına gelir ve birlikte çalışması kolay bir sıralanmış veri biçimidir. JSON dosyaları dosyaların üst kısmında başvurduğunuz şemayı kullanır. Şemayı anlamak istiyorsanız indirip analiz edebilirsiniz. Şema, hangi öğelerin geçerli olduğunu, alan türlerini ve biçimlerini, numaralandırılmış değerlerin olası değerlerini ve benzer konuları tanımlar. Resource Manager şablonu bileşenleri hakkında daha fazla bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 
 Şablonunuzda çalışmak için **WebSiteSQLDatabase.json** dosyasını açın.
@@ -121,9 +114,7 @@ Visual Studio, şablonu düzenlerken hangi özellikleri kullanabileceğinizi anl
 }
 ```
 
-<a id="deploy-the-resource-group-project-to-azure" class="xliff"></a>
-
-## Azure’da Kaynak Grubu projesi dağıtma
+## <a name="deploy-the-resource-group-project-to-azure"></a>Azure’da Kaynak Grubu projesi dağıtma
 Artık, projenizi dağıtmaya hazırsınız. Bir Azure Kaynak Grubu projesi dağıttığınızda, bunu bir Azure kaynak grubuna dağıtırsınız. Kaynak grubu, ortak bir yaşam döngüsünü paylaşan kaynakların mantıksal bir gruplandırmasıdır.
 
 1. Dağıtım proje düğümünün kısayol menüsünde **Dağıt** > **Yeni** seçeneklerini belirleyin.
@@ -174,9 +165,7 @@ Artık, projenizi dağıtmaya hazırsınız. Bir Azure Kaynak Grubu projesi dağ
    
     ![Dağıtılan Azure kaynak grubu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
-<a id="deploy-code-with-your-infrastructure" class="xliff"></a>
-
-## Altyapınızla kodları dağıtma
+## <a name="deploy-code-with-your-infrastructure"></a>Altyapınızla kodları dağıtma
 Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıtılan gerçek bir kod yoktur. Bu makalede bir web uygulaması ve SQL Database tablolarını dağıtım sırasında nasıl dağıtacağınız gösterilir. Bir web uygulaması yerine bir Sanal Makine dağıtıyorsanız, dağıtımının bir parçası olarak bazı kodlar çalıştırmak isteyebilirsiniz. Bir web uygulaması için kod dağıtma veya Sanal Makine kurma işlemi neredeyse aynıdır.
 
 1. Visual Studio çözümünüze bir proje ekleyin. Çözüme sağ tıklayın ve **Ekle** > **Yeni Proje** öğesini seçin.
@@ -227,10 +216,7 @@ Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıt�
     
      ![dağıtılmış uygulamayı gösterme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Portalı kullanarak kaynaklarınızı yönetme hakkında daha fazla bilgi için bkz. [Azure portalı kullanarak Azure kaynaklarınızı yönetme](resource-group-portal.md).
 * Şablonlar hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
-
 

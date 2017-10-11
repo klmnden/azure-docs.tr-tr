@@ -1,18 +1,18 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### <a name="to-delete-a-storsimple-backup-policy"></a>To delete a StorSimple backup policy
+#### <a name="to-delete-a-storsimple-backup-policy"></a>StorSimple yedekleme ilkesini silmek için
 
-1. Go to your StorSimple device and click **Backup policy**.
+1. StorSimple cihazınıza gidin ve **Yedekleme ilkesi**’ne tıklayın.
 
-2. In the tabular listing of backup policies, select the policy you want to delete. Right-click and from the context menu, select **Delete**.
+2. Yedekleme ilkeleri Tablo listesinde silmek istediğiniz ilkeyi seçin. Sağ tıklayın ve bağlam menüsünden seçin **silmek**.
 
-    ![Select a backup policy to delete](./media/storsimple-8000-delete-backup-policy/deletebupol1.png)
+    ![Silmek için bir yedekleme ilkesi seçin](./media/storsimple-8000-delete-backup-policy/deletebupol1.png)
 
-3. You will be prompted for confirmation. Keep in mind that deleting a backup policy will delete all the associated backups. Click **Yes** to delete.
+3. Onayınız istenir. Bir yedekleme İlkesi silinmesi ilişkili tüm yedeklemeler silecek unutmayın. Tıklatın **Evet** silmek için.
 
-    ![Confirm delete](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
+    ![Silmeyi onayla](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
 
-The backup policies list will be updated to display the new list of policies.
+Yedekleme ilkeleri listesi ilkeleri yeni listesini görüntülemek için güncelleştirilir.
 
-![Updated backup policy list](./media/storsimple-8000-delete-backup-policy/deletebupol5.png)
+![Yedekleme ilkesi listesi güncelleştirildi](./media/storsimple-8000-delete-backup-policy/deletebupol5.png)

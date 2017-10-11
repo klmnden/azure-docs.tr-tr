@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Veri Ambarı&quot;na Bağlanma sqlcmd | Microsoft Belgeleri"
+title: "Azure SQL Veri Ambarı'na Bağlanma sqlcmd | Microsoft Belgeleri"
 description: "Bir Azure SQL Veri Ambarı’na bağlanmak ve sorgu göndermek için [sqlcmd][sqlcmd] komut satırı yardımcı programını kullanın."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3508cdf6dcfa3d7122e1e3b635f3cd37863dbf62
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 5a3fe1046c3417070ba8ff5bd18a0485e2152eff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>sqlcmd ile SQL Data Warehouse'a bağlanma
 > [!div class="op_single_selector"]
@@ -100,4 +98,3 @@ Sqlcmd’de kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [s
 [Azure portal]: https://portal.azure.com
 
 <!--Other Web references-->
-

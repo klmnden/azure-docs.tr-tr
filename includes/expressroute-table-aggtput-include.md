@@ -1,7 +1,7 @@
-|  | **ExpressRoute Gateway throughput (up to)** | **VPN Gateway and ExpressRoute coexist** |
+|  | **ExpressRoute ağ geçidi işlemesi (kadar)** | **VPN Gateway ve ExpressRoute bir arada** |
 | --- | --- | --- |
-| **Basic SKU (deprecated)** |500 Mbps |No |
-| **Standard SKU** |1000 Mbps |Yes |
-| **High Performance SKU** |2000 Mbps |Yes |
-| **Ultra Performance SKU** |9000 Mbps |Yes |
+| **Temel SKU (kullanım dışı)** |500 Mbps |Hayır |
+| **Standart SKU** |1000 Mb/sn |Evet |
+| **Yüksek performanslı SKU** |2000 Mb/sn |Evet |
+| **Üstün performans SKU** |9000 MB/sn |Evet |
 

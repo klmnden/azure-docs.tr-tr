@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Operations Management Suite (OMS) nedir?
 Operations Management Suite (OMS) için bir giriş niteliğindeki bu makalede hizmetin sağladığı iş değerine, içerdiği hizmet ve yönetim çözümlerine ve farklı hizmet ve çözümleri bir paket altında toplayan tekliflere kısa bir genel bakış sunulmaktadır.  Her bir hizmet ve çözümün dağıtımı ve kullanımına yönelik ayrıntılı belgelerin bağlantıları da sağlanmıştır.
@@ -172,5 +171,4 @@ OMS’ye Microsoft iş ortakları tarafından düzenli olarak yeni çözümler e
 * [Azure Backup](http://azure.microsoft.com/documentation/services/backup) hakkında bilgi edinme.
 * [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) hakkında bilgi edinme.
 * Farklı OMS tekliflerinde [sağlanan çözümleri](../log-analytics/log-analytics-add-solutions.md) keşfedin. 
-
 

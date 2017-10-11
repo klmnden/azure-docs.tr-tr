@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2017
 ms.author: charwen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute Yönlendirmeyi En iyi Duruma Getirme
 Birden çok ExpressRoute bağlantı hattına sahip olduğunuzda, Microsoft'a bağlanmak için birden fazla yolunuz vardır. Sonuç olarak, yetersiz yönlendirme olabilir, diğer bir deyişle, trafiğinizin Microsoft’a ulaşması ve Microsoft’un ağınıza ulaşması daha uzun bir yol alabilir. Ne kadar uzun ağ yolu, o kadar yüksek gecikme. Gecikmenin uygulama performansı ve kullanıcı deneyimi üzerinde doğrudan etkisi vardır. Bu makale, bu sorunu gösterir ve standart yönlendirme teknolojilerini kullanarak yönlendirmenin nasıl iyileştirileceğini açıklar.
@@ -75,4 +74,3 @@ ExpressRoute ile Sanal Ağdan Sanal Ağa (aynı zamanda "VNet" olarak bilinir) i
 > Ayrıca, birden fazla ExpressRoute devreniz varsa, yukarıdaki örnekte açıklanan AS YOLU eklenme tekniğini uygulamak yerine ağırlığı yapılandırarak sanal ağınızdan şirket içi ağınıza yönlendirmeyi etkileyebilirsiniz. Her ön ek için, trafiğin nasıl gönderileceğine karar verirken AS Yolu uzunluğundan önce mutlaka bağlantı ağırlığına bakmanız gerekir.
 >
 >
-

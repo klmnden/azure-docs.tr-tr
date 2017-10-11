@@ -1,65 +1,65 @@
-Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse and more). For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
+Azure müşterileri her ay 25.000 ücretsiz e-postanın kilidini açabilir. Bu aylık 25.000 ücretsiz e-posta sayesinde gelişmiş raporlama ve analitiklerin yanı sıra [tüm API'lere][all APIs] (Web, SMTP, Olay, Ayrıştırma ve diğerleri) erişebilirsiniz. SendGrid tarafından sağlanan ek hizmetler hakkında bilgi için [SendGrid Solutions][SendGrid Solutions] sayfasını ziyaret edin.
 
-### <a name="to-sign-up-for-a-sendgrid-account"></a>To sign up for a SendGrid account
-1. Log in to the [Azure Management Portal][Azure Management Portal].
-2. In the menu on the left, click **New**.
+### <a name="to-sign-up-for-a-sendgrid-account"></a>SendGrid hesabı açmak için
+1. [Azure Yönetim Portalı][Azure Management Portal]'nda oturum açın.
+2. Sol taraftaki menüden **Yeni**'ye tıklayın.
 
-    ![command-bar-new][command-bar-new]
-3. Click **Add-ons** and then **SendGrid Email Delivery**.
+    ![komut-çubuğu-yeni][command-bar-new]
+3. **Eklentiler**'e ve ardından **SendGrid E-posta Teslimi**'ne tıklayın.
 
-    ![sendgrid-store][sendgrid-store]
-4. Complete the signup form and select **Create**.
+    ![sendgrid-mağazası][sendgrid-store]
+4. Kayıt formunu doldurun ve **Oluştur**'u seçin.
 
-    ![sendgrid-create][sendgrid-create]
-5. Enter a **Name** to identify your SendGrid service in your Azure settings. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
-6. Enter and confirm your **Password**.
-7. Choose your **Subscription**.
-8. Create a new **Resource group** or use an existing one.
-9. In the **Pricing tier** section select the SendGrid plan you want to sign up for.
+    ![sendgrid-oluştur][sendgrid-create]
+5. SendGrid hizmetinizi Azure ayarlarınızda tanımlamak için bir **Ad** girin. Adın 1-100 karakter arasında olması ve yalnızca alfasayısal karakterler, çizgi, nokta ve alt çizgi içermesi gerekir. Adın abone olunan Azure Mağazası Öğeleri arasında benzersiz olması gerekir.
+6. **Parolanızı** girin ve onaylayın.
+7. **Aboneliğinizi** seçin.
+8. Yeni bir **Kaynak grubu** oluşturun veya var olanlardan birini kullanın.
+9. **Fiyatlandırma katmanı** bölümünde kaydolmak istediğiniz SendGrid planını seçin.
 
-    ![sendgrid-pricing][sendgrid-pricing]
-10. Enter a **Promotion Code** if you have one.
-11. Enter your **Contact Information**.
-12. Review and accept the **Legal terms**.
-13. After confirming your purchase you will see a **Deployment Succeeded** pop-up and you will see your account listed in the **All resources** section.
+    ![sendgrid-fiyatlandırması][sendgrid-pricing]
+10. Varsa **Promosyon Kodu** girin.
+11. **İletişim Bilgilerinizi** girin.
+12. **Yasal koşulları** gözden geçirin ve kabul edin.
+13. Satın alma işlemini onayladıktan sonra **Dağıtım Başarılı** açılır penceresini ve **Tüm kaynaklar** bölümündeki listede hesabınızı göreceksiniz.
 
-    ![all-resources][all-resources]
+    ![tüm-kaynaklar][all-resources]
 
-    After you have completed your purchase and clicked the **Manage** button to initiate the email verification process, you will receive an email from SendGrid asking you to verify your account. If you do not receive this email, or have problems verifying your account, please see this FAQ.
+    Satın alma işlemini tamamladıktan ve e-posta doğrulama işlemini başlatmak için **Yönet** düğmesine tıkladıktan sonra SendGrid'den hesabınızı doğrulamanızı isteyen bir e-posta alacaksınız. Bu e-postayı almadıysanız veya hesabınızı doğrulamayla ilgili sorunlar yaşıyorsanız lütfen bu SSS sayfasını inceleyin.
 
-    ![manage][manage]
+    ![yönet][manage]
 
-    **You can only send up to 100 emails/day until you have verified your account.**
+    **Hesabınızı doğrulayana kadar günde en fazla 100 e-posta gönderebilirsiniz.**
 
-    To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.
+    Abonelik planınızı değiştirmek veya SendGrid iletişim ayarlarını görüntülemek için SendGrid hizmetinizin adına tıklayarak SendGrid Marketplace panosunu açın.
 
-    ![settings][settings]
+    ![ayarlar][settings]
 
-    To send an email using SendGrid, you must supply your API Key.
+    SendGrid kullanarak bir e-posta göndermek için API Anahtarınızı girmeniz gerekir.
 
-### <a name="to-find-your-sendgrid-api-key"></a>To find your SendGrid API Key
-1. Click **Manage**.
+### <a name="to-find-your-sendgrid-api-key"></a>SendGrid API Anahtarınızı bulmak için
+1. **Yönet**'e tıklayın.
 
-    ![manage][manage]
-2. In your SendGrid dashboard, select **Settings** and then **API Keys** in the menu on the left.
+    ![yönet][manage]
+2. SendGrid panonuzda **Ayarlar**'ı ve ardından sol taraftaki menüden **API Anahtarları**'nı seçin.
 
-    ![api-keys][api-keys]
+    ![api-anahtarları][api-keys]
 
-3. Click the **Create API Key** dropdown and select **General API Key**.
+3. **API Anahtarı Oluştur** açılır menüsüne tıklayın ve **Genel API Anahtarı**'nı seçin.
 
-    ![general-api-key][general-api-key]
-4. At a minimum, provide the **Name of this key** and provide full access to **Mail Send** and select **Save**.
+    ![genel-api-anahtarı][general-api-key]
+4. En azından **Bu anahtarın adı** alanını doldurun, **Posta Gönderimi** için tam erişim verin ve **Kaydet**'i seçin.
 
-    ![access][access]
-5. Your API will be displayed at this point one time. Please be sure to store it safely.
+    ![erişim][access]
+5. API anahtarınız bu adımda bir kez görüntülenir. Güvenli bir yerde saklamayı unutmayın.
 
-### <a name="to-find-your-sendgrid-credentials"></a>To find your SendGrid credentials
-1. Click the key icon to find your **Username**.
+### <a name="to-find-your-sendgrid-credentials"></a>SendGrid kimlik bilgilerinizi bulmak için
+1. **Kullanıcı adınızı** bulmak için anahtar simgesine tıklayın.
 
-    ![key][key]
-2. The password is the one you chose at setup. You can select **Change password** or **Reset password** to make any changes.
+    ![anahtar][key]
+2. Parola, kurulum sırasında seçtiğiniz paroladır. **Parolayı değiştir** veya **Parolayı sıfırla**'yı seçerek değişiklik yapabilirsiniz.
 
-To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
+E-posta teslim ayarlarınızı yönetmek için **Yönet** düğmesine tıklayın. Bu SendGrid panonuz yönlendirir.
 
     ![manage][manage]
 

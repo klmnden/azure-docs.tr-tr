@@ -1,9 +1,9 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>To install regular hotfixes via Windows PowerShell for StorSimple
-1. Connect to the device serial console. For more information, see [Step 1: Connect to the serial console](../articles/storsimple/storsimple-update-device.md#step1).
-2. In the serial console menu, select option 1, **Log in with full access**. Type the password. The default password is **Password1**.
-3. At the command prompt, type:
+#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla normal düzeltmeler yüklemek için
+1. Cihaz seri konsoluna bağlanmak. Daha fazla bilgi için bkz: [1. adım: seri konsoluna bağlanmak](../articles/storsimple/storsimple-update-device.md#step1).
+2. Seri konsol menüsünde seçeneğini 1, **oturum oturum tam erişim**. Parolayı yazın. Varsayılan parola **Parola1**.
+3. Komut istemine yazın:
    
     ```
     Start-HcsHotfix
@@ -11,9 +11,9 @@
    
     > [!IMPORTANT]
     >
-    > This command applies only to regular hotfixes. You run this command on only one controller, but both controllers will be updated.
-    > You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+    > Bu komut, yalnızca normal düzeltmeleri uygular. Bu komut yalnızca bir denetleyicisinde çalıştırın, ancak her iki denetleyicileri güncelleştirilir.
+    > Denetleyici yük devretmesi güncelleştirme işlemi sırasında fark edebilirsiniz; Ancak, yük devretme sistem kullanılabilirliğini veya işlem etkilemez.
 
-4. When prompted, supply the path to the network shared folder that contains the hotfix files.
-5. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
+4. İstendiğinde, düzeltme dosyalarını içeren ağ paylaşılan klasörün yolunu sağlayın.
+5. Onayınız istenir. Tür **Y** düzeltme yüklemeye devam etmek için.
 

@@ -1,17 +1,17 @@
-## <a name="connect-to-outlookcom"></a>Connect to Outlook.com
-### <a name="prerequisites"></a>Prerequisites
-* An Outlook.com account
+## <a name="connect-to-outlookcom"></a>Outlook.com'da Bağlan
+### <a name="prerequisites"></a>Ön koşullar
+* Outlook.com hesabı
 
-Before you can use your Outlook.com account in a Logic app, you must authorize the Logic app to connect to your Outlook.com account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Bir mantıksal uygulama Outlook.com hesabınızı kullanmadan önce Outlook.com hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
 
-Here are the steps to authorize your Logic app to connect to your Outlook.com account:
+Mantıksal uygulamanızı Outlook.com hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
 
-1. All Logic apps need to be started by a trigger so after you create your Logic app, the designer opens and displays a list of triggers that you can use to start your Logic app:
+1. Tüm mantıksal uygulamalar Tasarımcı açar, mantıksal uygulama oluşturma ve listesini görüntüler tetikler sonra mantıksal uygulamanızı başlatmak üzere kullanabilmeniz için bir tetikleyici tarafından başlatılması gerekir:
    
    ![](./media/connectors-create-api-outlook/office365-outlook-0.png)
-2. Enter "outlook" in the search box. Notice the list is filtered to list all the triggers with "Outlook" in the name: ![](./media/connectors-create-api-outlook/office365-outlook-0-5.png)
-3. Select **Office 365 Outlook - On new email**.   
-   If you haven't created any connections to Outlook before, you'll get prompted to provide your Outlook.com credentials. These credentials will be used to authorize your Logic app to connect to, and access your Outlook.com account's data: ![](./media/connectors-create-api-outlook/office365-outlook-1.png)
-4. Provide your credentials for Outlook and sign in: ![](./media/connectors-create-api-outlook/office365-outlook-2.png)  
-   That's it. You've now created a connection to Outlook. This connection will be available for use in any other Logic app that you create.
+2. Arama kutusuna "outlook" girin. Listenin adı "Outlook" ile tüm Tetikleyicileri listelemek için filtre dikkat edin:![](./media/connectors-create-api-outlook/office365-outlook-0-5.png)
+3. Seçin **Office 365 Outlook - yeni e-posta**.   
+   Outlook önce herhangi bir bağlantısı oluşturmadıysanız, Outlook.com kimlik bilgilerinizi sağlamanız istenir. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Outlook.com hesabınızın veri erişim:![](./media/connectors-create-api-outlook/office365-outlook-1.png)
+4. Outlook için kimlik bilgilerinizi sağlayın ve oturum açın:![](./media/connectors-create-api-outlook/office365-outlook-2.png)  
+   Bu kadar. Outlook bağlantı şimdi oluşturduğunuzu düşünün. Bu bağlantı, oluşturduğunuz herhangi bir mantıksal uygulama kullanmak için kullanılabilir.
 

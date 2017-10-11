@@ -1,17 +1,17 @@
-## <a name="load-balancer"></a>Load Balancer
-A load balancer is used when you want to scale your applications. Typical deployment scenarios involve applications running on multiple VM instances. The VM instances are fronted by a load balancer that helps to distribute network traffic to the various instances. 
+## <a name="load-balancer"></a>Yük Dengeleyici
+Bir yük dengeleyici uygulamalarınızı ölçeklendirme istediğinizde kullanılır. Tipik dağıtım senaryoları, birden çok VM örnekleri üzerinde çalışan uygulamalar içerir. VM örnekleri, ağ trafiğini çeşitli örneklerine dağıtmak için yardımcı bir yük dengeleyici tarafından fronted. 
 
-![NIC's on a single VM](./media/resource-groups-networking/figure8.png)
+![NIC kişinin tek bir VM'de](./media/resource-groups-networking/figure8.png)
 
-| Property | Description |
+| Özellik | Açıklama |
 | --- | --- |
-| *frontendIPConfigurations* |a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic and can be public IP or private IP |
-| *backendAddressPools* |these are IP addresses associated with the VM NICs to which load will be distributed |
-| *loadBalancingRules* |a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination. With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with virtual machines. The rule is one port in the front end pool to many virtual machines in the back end pool |
-| *Probes* |probes enable you to keep track of the health of VM instances. If a health probe fails, the virtual machine instance will be taken out of rotation automatically |
-| *inboundNatRules* |NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP to a specific virtual machine instance. NAT rule is one port in the front end pool to one virtual machine in the back end pool |
+| *Frontendıpconfigurations'a* |bir yük dengeleyici, aksi halde sanal IP (VIP) bilinen bir veya daha fazla ön uç IP adresi içerebilir. Bu IP adreslerine trafiği için giriş olarak hizmet ve genel IP veya özel IP olabilir. |
+| *Backendaddresspool* |VM yük dağıtılacak NIC ile ilişkili IP adreslerini bunlar |
+| *loadBalancingRules* |bir kural özelliği, belirtilen ön uç IP ve bağlantı noktası bileşimi için bir arka uç IP adresleri kümesini ve bağlantı noktası bileşimi eşler. Tek bir tanım yük dengeleyici kaynak birden çok Yük Dengeleme kuralları tanımlayabilirsiniz, her kural yalnızca bir ön bileşimini yansıtma IP ve bağlantı noktası bitiş ve bitiş IP ve sanal makinelerle ilişkili bağlantı noktası. Arka uç havuzundaki birçok sanal makineler için ön uç havuzundaki bir bağlantı noktası kuralıdır |
+| *Yoklamaları* |araştırmalar VM örnekleri durumunu izlemenize olanak sağlar. Bir sistem durumu araştırması başarısız olursa, sanal makine örneğini döndürme dışında otomatik olarak gerçekleştirilecek |
+| *inboundNatRules* |NAT kuralları önde gelen trafiği tanımlama IP sonlandırmak ve belirli bir sanal makine örneği için arka uç IP dağıtılır. NAT kuralı arka uç havuzundaki bir sanal makine için ön uç havuzundaki bir bağlantı noktasıdır |
 
-Example of load balancer template in Json format:
+Yük Dengeleyici şablonu Json biçiminde örneği:
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -186,6 +186,6 @@ Example of load balancer template in Json format:
       ]
     }
 
-### <a name="additional-resources"></a>Additional resources
-Read [load balancer REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) for more information.
+### <a name="additional-resources"></a>Ek kaynaklar
+Okuma [yük dengeleyici REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) daha fazla bilgi için.
 

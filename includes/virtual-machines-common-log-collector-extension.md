@@ -1,41 +1,41 @@
 
-Diagnosing issues with an Microsoft Azure cloud service requires collecting the service’s log files on virtual machines as the issues occur. You can use the AzureLogCollector extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs.
+Microsoft Azure bulut hizmeti ile ilgili sorunları tanılama sorunları ortaya çıktığında sanal makinelerde hizmetin günlük dosyalarını toplama gerektirir. Ağda tek seferlik günlükleri koleksiyona AzureLogCollector uzantısı isteğe bağlı bir veya daha fazla bulut hizmeti Vm'lerden (web rolleri ve çalışan rolleri) kullanın ve tüm açmadan uzaktan herhangi birini Azure depolama hesabı için – toplanan dosya aktarımı VM'ler.
 
 > [!NOTE]
-> Descriptions for most of the logged information can be found at http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+> Günlüğe kaydedilen bilgileri çoğunu açıklamalarını http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp bulunabilir.
 > 
 > 
 
-There are two modes of collection dependent on the types of files to be collected.
+Toplanacak dosyaları türlerinde bağımlı koleksiyon iki moddan vardır.
 
-* Azure Guest Agent Logs only (GA). This collection mode includes all the logs related to Azure guest agents and other Azure components.
-* All Logs (Full). This collection mode will collect all files in GA mode plus:
+* Azure Konuk Aracısı günlükleri yalnızca (GA). Bu koleksiyon modu Azure Konuk aracıları ve diğer Azure bileşenleri ile ilgili tüm günlükleri içerir.
+* Tüm günlükleri (tam). Bu koleksiyon modu artı GA modunda tüm dosyaları toplar:
   
-  * system and application event logs
-  * HTTP error logs
-  * IIS Logs
-  * Setup logs
-  * other system logs
+  * Sistem ve uygulama olay günlükleri
+  * HTTP Hata günlüklerini
+  * IIS günlükleri
+  * Kurulum günlükleri
+  * diğer sistem günlükleri
 
-In both collection modes, additional data collection folders can be specified by using a collection of the following structure:
+Her iki koleksiyon modlarında aşağıdaki yapısını koleksiyonunu kullanarak ek veri koleksiyon klasörleri belirtilebilir:
 
-* **Name**: The name of the collection, which will be used as the name of subfolder inside the zip file to be collected.
-* **Location**: The path to the folder on the virtual machine where file will be collected.
-* **SearchPattern**: The pattern of the names of files to be collected. Default is “*”
-* **Recursive**: if the files will be collected recursively under the folder.
+* **Ad**: ZIP dosyasının içinde alt klasör adı olarak toplanacak kullanılacak koleksiyonun adını.
+* **Konum**: sanal makinede burada dosya toplanacak klasörün yolu.
+* **SearchPattern**: toplanacak dosyaların adlarını düzeni. Varsayılan değer "*"
+* **Özyinelemeli**: dosyaları klasörünün altında toplanan yinelemeli olacaksa.
 
-## <a name="prerequisites"></a>Prerequisites
-* You need to have a storage account for extension to save generated zip files.
-* You must make sure that you are using Azure PowerShell Cmdlets V0.8.0 or above. For more information, see [Azure Downloads](https://azure.microsoft.com/downloads/).
+## <a name="prerequisites"></a>Ön koşullar
+* Oluşturulan ZIP dosyaları kaydetmek uzantı için bir depolama hesabı olması gerekir.
+* Azure PowerShell cmdlet'leri V0.8.0 kullandığınızdan emin olmanız gerekir veya üstü. Daha fazla bilgi için bkz: [Azure indirmeleri](https://azure.microsoft.com/downloads/).
 
-## <a name="add-the-extension"></a>Add the extension
-You can use [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlets or [Service Management REST APIs](https://msdn.microsoft.com/library/ee460799.aspx) to add the AzureLogCollector extension.
+## <a name="add-the-extension"></a>Uzantısı Ekle
+Kullanabileceğiniz [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlet'leri veya [Hizmet Yönetimi REST API'lerine](https://msdn.microsoft.com/library/ee460799.aspx) AzureLogCollector uzantısı eklemek için.
 
-For Cloud Services, the existing Azure Powershell cmdlet, **Set-AzureServiceExtension**, can be used to enable the extension on Cloud Service role instances. Every time this extension is enabled through this cmdlet, log collection is triggered on the selected role instances of selected roles.
+Bulut Hizmetleri, var olan Azure Powershell cmdlet'i için **kümesi AzureServiceExtension**, bulut hizmet rolü örneklerinin uzantısını etkinleştirmek için kullanılabilir. Bu uzantı Bu cmdlet'i etkinleştirilmiş her zaman, günlük toplama seçili roller seçili rol örneklerini tetiklenir.
 
-For Virtual Machines, the existing Azure Powershell cmdlet, **Set-AzureVMExtension**, can be used to enable the extension on Virtual Machines. Every time this extension is enabled through the cmdlets, log collection is triggered on each instance.
+Sanal makineler, mevcut Azure Powershell cmdlet'i için **kümesi AzureVMExtension**, sanal makinelerde uzantısını etkinleştirmek için kullanılabilir. Bu uzantı cmdlet'leri aracılığıyla etkinleştirilmiş her zaman, günlük toplama her örneğinde tetiklenir.
 
-Internally, this extension uses the JSON-based PublicConfiguration and PrivateConfiguration. The following is the layout of a sample JSON for public and private configuration.
+Dahili olarak, bu uzantı JSON tabanlı PublicConfiguration ve PrivateConfiguration kullanır. Ortak ve özel yapılandırması için örnek JSON düzenini verilmiştir.
 
 ### <a name="publicconfiguration"></a>PublicConfiguration
     {
@@ -65,15 +65,15 @@ Internally, this extension uses the JSON-based PublicConfiguration and PrivateCo
     }
 
 > [!NOTE]
-> This extension doesn’t need **privateConfiguration**. You can just provide an empty structure for the **–PrivateConfiguration** argument.
+> Bu uzantının gerekmez **privateConfiguration**. İçin boş bir yapı sağlar **– PrivateConfiguration** bağımsız değişkeni.
 > 
 > 
 
-You can follow one of the two following steps to add the AzureLogCollector to one or more instances of a Cloud Service or Virtual Machine of selected roles, which triggers the collections on each VM to run and send the collected files to Azure account specified.
+Bir veya daha fazla örneğini bir bulut hizmeti veya koleksiyonları çalıştırmak ve toplanan dosyaları belirtilen Azure hesabına göndermek için her bir VM üzerinde tetikler sanal makine seçilen rollerin AzureLogCollector eklemek için iki aşağıdaki adımlardan birini izleyebilirsiniz.
 
-## <a name="adding-as-a-service-extension"></a>Adding as a Service Extension
-1. Follow the instructions to connect Azure PowerShell to your subscription.
-2. Specify the service name, slot, roles, and role instances to which you want to add and enable the AzureLogCollector extension.
+## <a name="adding-as-a-service-extension"></a>Bir hizmeti uzantı olarak ekleme
+1. Azure PowerShell aboneliğinize bağlanmak için yönergeleri izleyin.
+2. Ekleme ve AzureLogCollector uzantısını etkinleştirmek istediğiniz hizmet adı, yuva, rolleri ve rol örnekleri belirtin.
    
         #Specify your cloud service name
         $ServiceName = 'extensiontest2'
@@ -89,7 +89,7 @@ You can follow one of the two following steps to add the AzureLogCollector to on
    
         #Specify the collection mode, "Full" or "GA"
         $mode = "GA"
-3. Specify the additional data folder for which files will be collected (this step is optional).
+3. Dosyaları toplanacak ek veri klasörü belirtin (Bu adım isteğe bağlıdır).
    
         #add one location
         $a1 = New-Object PSObject
@@ -103,18 +103,18 @@ You can follow one of the two following steps to add the AzureLogCollector to on
               #more locations can be added....
    
    > [!NOTE]
-   > You can use token `%roleroot%` to specify the role root drive since it doesn’t use a fixed drive.
+   > Belirteci kullanabilirsiniz `%roleroot%` bir sabit sürücü kullanmayan rol kök sürücüsünde belirtmek için.
    > 
    > 
-4. Provide the Azure storage account name and key to which collected files will be uploaded.
+4. Azure depolama hesabı adı ve toplanan dosyaları karşıya yüklenecek anahtarı sağlayın.
    
         $StorageAccountName = 'YourStorageAccountName'
         $StorageAccountKey  = ‘YouStorageAccountKey'
-5. Call the SetAzureServiceLogCollector.ps1 (included at the end of the article) as follows to enable the AzureLogCollector extension for a Cloud Service. Once the execution is completed, you can find the uploaded file under `https://YouareStorageAccountName.blob.core.windows.net/vmlogs`
+5. (Makalenin sonunda yer alan) SetAzureServiceLogCollector.ps1 AzureLogCollector uzantısı için bir bulut hizmeti etkinleştirmek için şu şekilde çağırın. Yürütme tamamlandığında, yüklenen dosya altında bulabilirsiniz`https://YouareStorageAccountName.blob.core.windows.net/vmlogs`
    
         .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
 
-The following is the definition of the parameters passed to the script. (This is copied below as well.)
+Aşağıdaki komut dosyasına iletilen parametreler tanımıdır. (Bu aşağıda da kopyalanır.)
 
     [CmdletBinding(SupportsShouldProcess = $true)]
 
@@ -144,14 +144,14 @@ The following is the definition of the parameters passed to the script. (This is
     [PSObject[]] $AdditionDataLocationList = $null
     )
 
-* *ServiceName*: Your cloud service name.
-* *Roles*: A list of roles, such as “WebRole1” or ”WorkerRole1”.
-* *Instances*: A list of the names of role instances separated by comma -- use the wildcard string (“*”) for all role instances.
-* *Slot*: Slot name. “Production” or “Staging”.
-* *Mode*: Collection mode. “Full” or “GA”.
-* *StorageAccountName*: Name of Azure storage account for storing collected data.
-* *StorageAccountKey*: Name of Azure storage account key.
-* *AdditionalDataLocationList*: A list of the following structure:
+* *ServiceName*: Bulut hizmeti adı.
+* *Rolleri*: "WebRole1" veya "WorkerRole1" gibi rollerinin bir listesi.
+* *Örnekleri*:--virgülle ayırarak rol örneklerinin adlarının bir listesini bir joker karakter dizesi kullanın ("*") tüm rol örnekleri için.
+* *Yuva*: Yuva adı. "Üretim" veya "Hazırlama".
+* *Mod*: Koleksiyon modu. "Tam" veya "GA".
+* *StorageAccountName*: toplanan verileri depolamak için ad, Azure depolama hesabı.
+* *StorageAccountKey*: ad, Azure depolama hesabı anahtarı.
+* *AdditionalDataLocationList*: aşağıdaki yapısını listesi:
   
       {
       String Name,
@@ -160,10 +160,10 @@ The following is the definition of the parameters passed to the script. (This is
       Bool   Recursive
       }
 
-## <a name="adding-as-a-vm-extension"></a>Adding as a VM Extension
-Follow the instructions to connect Azure PowerShell to your subscription.
+## <a name="adding-as-a-vm-extension"></a>Bir VM uzantısı olarak ekleme
+Azure PowerShell aboneliğinize bağlanmak için yönergeleri izleyin.
 
-1. Specify the service name, VM, and the collection mode.
+1. Hizmet adı, VM ve koleksiyon modu belirtin.
    
         #Specify your cloud service name
         $ServiceName = 'YourCloudServiceName'
@@ -186,13 +186,13 @@ Follow the instructions to connect Azure PowerShell to your subscription.
    
         $AdditionalDataList+= $a1
               #more locations can be added....
-2. Provide the Azure storage account name and key to which collected files will be uploaded.
+2. Azure depolama hesabı adı ve toplanan dosyaları karşıya yüklenecek anahtarı sağlayın.
    
         $StorageAccountName = 'YourStorageAccountName'
         $StorageAccountKey  = ‘YouStorageAccountKey'
-3. Call the SetAzureVMLogCollector.ps1 (included at the end of the article) as follows to enable the AzureLogCollector extension for a Cloud Service. Once the execution is completed, you can find the uploaded file under https://YouareStorageAccountName.blob.core.windows.net/vmlogs
+3. (Makalenin sonunda yer alan) SetAzureVMLogCollector.ps1 AzureLogCollector uzantısı için bir bulut hizmeti etkinleştirmek için şu şekilde çağırın. Yürütme tamamlandığında, yüklenen dosya https://YouareStorageAccountName.blob.core.windows.net/vmlogs altında bulabilirsiniz
 
-The following is the definition of the parameters passed to the script. (This is copied below as well.)
+Aşağıdaki komut dosyasına iletilen parametreler tanımıdır. (Bu aşağıda da kopyalanır.)
 
     [CmdletBinding(SupportsShouldProcess = $true)]
 
@@ -216,12 +216,12 @@ The following is the definition of the parameters passed to the script. (This is
       [PSObject[]] $AdditionDataLocationList = $null
       )
 
-* ServiceName: Your cloud service name.
-* VMName The name of the VM.
-* Mode: Collection mode. “Full” or “GA”.
-* StorageAccountName: Name of Azure storage account for storing collected data.
-* StorageAccountKey: Name of Azure storage account key.
-* AdditionalDataLocationList: A list of the following structure:
+* ServiceName: Bulut hizmeti adınız.
+* VMName VM adı.
+* : Koleksiyon modu. "Tam" veya "GA".
+* StorageAccountName: toplanan verileri depolamak için Azure depolama hesabının adı.
+* StorageAccountKey: Azure depolama hesabı anahtarı adı.
+* AdditionalDataLocationList: Aşağıdaki yapısını bir listesi:
 
 ```
       {
@@ -232,7 +232,7 @@ The following is the definition of the parameters passed to the script. (This is
       }
 ```
 
-## <a name="extention-powershell-script-files"></a>Extention PowerShell Script files
+## <a name="extention-powershell-script-files"></a>Uzantı PowerShell komut dosyaları
 SetAzureServiceLogCollector.ps1
 
     [CmdletBinding(SupportsShouldProcess = $true)]
@@ -480,6 +480,6 @@ SetAzureVMLogCollector.ps1
       Write-Output "VM name is not specified, the extension cannot be enabled"
     }
 
-## <a name="next-steps"></a>Next Steps
-Now you can examine or copy your logs from one very simple location.
+## <a name="next-steps"></a>Sonraki Adımlar
+Şimdi inceleyin veya çok basit bir konumdan günlüklerinizi kopyalayın.
 

@@ -1,70 +1,70 @@
 
-1. To escalate privileges, type:
+1. Ayrıcalıkları yükseltmek için şunu yazın:
    
         sudo -s
    
-    Enter your password.
-2. To install MySQL Community Server edition, type:
+    Parolanızı girin.
+2. MySQL Community Server edition'ı yüklemek için şunu yazın:
    
         zypper install mysql-community-server
    
-    Wait while MySQL downloads and installs.
-3. To set MySQL to start when the system boots, type:
+    MySQL indirilir ve yüklenir bekleyin.
+3. Sistem önyüklendiğinde başlatmak için MySQL ayarlamak için şunu yazın:
    
         insserv mysql
-4. Start the MySQL daemon (mysqld) manually with this command:
+4. MySQL arka plan programı (mysqld), bu komutla el ile başlatın:
    
         rcmysql start
    
-    To check the status of the MySQL daemon, type:
+    MySQL arka plan programı durumunu denetlemek için şunu yazın:
    
         rcmysql status
    
-    To stop the MySQL daemon, type:
+    MySQL arka plan programı durdurmak için şunu yazın:
    
         rcmysql stop
    
    > [!IMPORTANT]
-   > After installation, the MySQL root password is empty by default. We recommended that you run **mysql\_secure\_installation**, a script that helps secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. We recommended that you answer yes to all of these options and change the root password.
+   > Yükleme sonrasında, MySQL kök parola varsayılan olarak boştur. Çalıştırmanızı öneririz **mysql\_güvenli\_yükleme**, güvenli MySQL yardımcı olan bir komut dosyası. Komut dosyası MySQL kök parolasını değiştirmek, anonim kullanıcı hesaplarını kaldırın, uzak kök oturum açmalar devre dışı bırakmak, test veritabanlarını kaldırmanız ve ayrıcalıkları tablo yeniden ister. Bu seçeneklerin Tümüne Evet yanıtlayın ve kök parola değiştirme önerilir.
    > 
    > 
-5. Type this to run the script MySQL installation script:
+5. MySQL yükleme betiği komut dosyasını çalıştırmak için bunu yazın:
    
         mysql_secure_installation
-6. Log in to MySQL:
+6. MySQL için oturum açın:
    
         mysql -u root -p
    
-    Enter the MySQL root password (which you changed in the previous step) and you'll be presented with a prompt where you can issue SQL statements to interact with the database.
-7. To create a new MySQL user, run the following at the **mysql>** prompt:
+    (Önceki adımda değiştirdiğiniz) MySQL kök parola girin ve bir istemiyle, sunulur veritabanıyla etkileşim için SQL deyimleri burada verebilir.
+7. Yeni bir MySQL kullanıcı oluşturmak için aşağıdaki çalıştırın **mysql >** istemi:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Note, the semi-colons (;) at the end of the lines are crucial for ending the commands.
-8. To create a database and grant the `mysqluser` user permissions on it, issue the following commands:
+    Not, noktalı virgül (;) satırları sonunda komutları bitiş için önemli olan.
+8. Bir veritabanı oluşturmak ve vermek için `mysqluser` , kullanıcı izinlerini vermek aşağıdaki komutlar:
    
         CREATE DATABASE testdatabase;
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Note that database user names and passwords are only used by scripts connecting to the database.  Database user account names do not necessarily represent actual user accounts on the system.
-9. To log in from another computer, type:
+    Veritabanı kullanıcı adları ve parolalar yalnızca veritabanına bağlanırken komut dosyaları tarafından kullanıldığını unutmayın.  Veritabanı kullanıcı hesabı adları mutlaka gerçek kullanıcı hesapları sistem üzerindeki temsil etmiyor.
+9. Başka bir bilgisayardan oturum açmak için şunu yazın:
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    where `ip-address` is the IP address of the computer from which you will connect to MySQL.
-10. To exit the MySQL database administration utility, type:
+    Burada `ip-address` içinden, bağlanan MySQL için bilgisayarın IP adresidir.
+10. MySQL veritabanı yönetim yardımcı programı'ndan çıkmak için şunu yazın:
     
         quit
 
-## <a name="add-an-endpoint"></a>Add an endpoint
-1. After MySQL is installed, you'll need to configure an endpoint to access MySQL remotely. Log in to the [Azure  classic portal][AzurePortal]. Click **Virtual Machines**, click the name of your new virtual machine, and then click **Endpoints**.
-2. Click **Add** at the bottom of the page.
-3. Add an endpoint named "MySQL" with protocol **TCP**, and **Public** and **Private** ports set to "3306".
-4. To remotely connect to the virtual machine from your computer, type:
+## <a name="add-an-endpoint"></a>Bir uç nokta ekleme
+1. MySQL yüklendikten sonra MySQL uzaktan erişmek için bir uç nokta yapılandırmanız gerekir. Oturum [Klasik Azure portalı][AzurePortal]. Tıklatın **sanal makineleri**, yeni bir sanal makine adına tıklayın ve ardından **uç noktaları**.
+2. Tıklatın **Ekle** sayfanın sonundaki.
+3. Protokolüyle "MySQL" adlı bir uç nokta ekleyin **TCP**, ve **ortak** ve **özel** bağlantı noktası "3306" ayarlayın.
+4. Uzaktan bilgisayarınızdan sanal makineye bağlanmak için şunu yazın:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    For example, using the virual machine we created in this tutorial, type this command:
+    Örneğin, biz Bu öğreticide oluşturduğunuz sanal makine kullanarak, bu komutu yazın:
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 

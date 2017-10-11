@@ -1,5 +1,5 @@
 
-| Resource | Limit |
+| Kaynak | Sınır |
 | --- | --- |
-| Autoscale Settings |100 per region per subscription |
-| Metric Alerts |100 active alert rules per subscription |
+| Otomatik ölçeklendirme ayarları |Her Abonelikteki bölge başına 100 |
+| Ölçüm Uyarıları |Abonelik başına 100 etkin uyarı kuralları |

@@ -2,56 +2,56 @@
 
 
 
-Depending on your environment and choices, the script can create all the cluster infrastructure, including the Azure virtual network, storage accounts, cloud services, domain controller, remote or local SQL databases, head node, and additional cluster nodes. Alternatively, the script can use pre-existing Azure infrastructure and create only the HPC cluster nodes.
+Ortamınız ve Seçenekler bağlı olarak, Azure sanal ağı, depolama hesapları, bulut Hizmetleri, etki alanı denetleyicisi, uzak veya yerel SQL veritabanları, baş düğüm ve ek küme düğümlerini de dahil olmak üzere tüm küme altyapısı, komut dosyası oluşturabilirsiniz. Alternatif olarak, komut dosyasını önceden var olan Azure altyapısını kullanır ve yalnızca HPC küme düğümleri oluşturun.
 
-For background information about planning an HPC Pack cluster, see the [Product Evaluation and Planning](https://technet.microsoft.com/library/jj899596.aspx) and [Getting Started](https://technet.microsoft.com/library/jj899590.aspx) content in the HPC Pack 2012 R2 TechNet Library.
+HPC Pack küme planlama hakkında arka plan bilgileri için bkz: [ürün değerlendirme ve planlama](https://technet.microsoft.com/library/jj899596.aspx) ve [Başlarken](https://technet.microsoft.com/library/jj899590.aspx) HPC Pack 2012 R2 TechNet Kitaplığı'nda içeriği.
 
-## <a name="prerequisites"></a>Prerequisites
-* **Azure subscription**: You can use a subscription in either the Azure Global or Azure China service. Your subscription limits affect the number and type of cluster nodes you can deploy. For information, see [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
-* **Windows client computer with Azure PowerShell 0.8.10 or later installed and configured**: See [Get started with Azure PowerShell](/powershell/azureps-cmdlets-docs) for installation instructions and steps to connect to your Azure subscription.
-* **HPC Pack IaaS deployment script**: Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Check the version of the script by running `New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.5.2 of the script.
-* **Script configuration file**: Create an XML file that the script uses to configure the HPC cluster. For information and examples, see sections later in this article and the file Manual.rtf that accompanies the deployment script.
+## <a name="prerequisites"></a>Ön koşullar
+* **Azure aboneliği**: Azure genel veya Azure Çin hizmetinde bir aboneliği kullanabilirsiniz. Abonelik sınırlarınızı sayısı ve türü dağıtabilmeniz için küme düğümlerinin etkiler. Bilgi için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../articles/azure-subscription-service-limits.md).
+* **Azure PowerShell 0.8.10 ile Windows istemci bilgisayarı veya sonrası yüklü ve yapılandırılmış**: bkz [Azure PowerShell ile çalışmaya başlama](/powershell/azureps-cmdlets-docs) yükleme yönergeleri ve adımlar Azure aboneliğinize bağlanmak için.
+* **HPC Pack Iaas dağıtım betiği**: karşıdan yükle ve en son sürümünü betikten paket [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Komut dosyası sürümünü çalıştırarak denetleme `New-HPCIaaSCluster.ps1 –Version`. Bu makalede, komut dosyası sürüm 4.5.2 temel alır.
+* **Yapılandırma betiği**: HPC küme yapılandırmak için komut dosyası kullanan bir XML dosyası oluşturun. Bilgi ve örnekler için bu makalede ve dağıtım betiği eşlik Manual.rtf dosya devamındaki bölümlere bakın.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sözdizimi
 ```PowerShell
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
 > [!NOTE]
-> Run the script as an administrator.
+> Komut dosyasını bir yönetici olarak çalıştırın.
 > 
 > 
 
-### <a name="parameters"></a>Parameters
-* **ConfigFile**: Specifies the file path of the configuration file to describe the HPC cluster. See more about the configuration file in this topic, or in the file Manual.rtf in the folder containing the script.
-* **AdminUserName**: Specifies the user name. If the domain forest is created by the script, this becomes the local administrator user name for all VMs and the domain administrator name. If the domain forest already exists, this specifies the domain user as the local administrator user name to install HPC Pack.
-* **AdminPassword**: Specifies the administrator’s password. If not specified in the command line, the script prompts you to input the password.
-* **HPCImageName** (optional): Specifies the HPC Pack VM image name used to deploy the HPC cluster. It must be a Microsoft-provided HPC Pack image from the Azure Marketplace. If not specified (recommended usually), the script chooses the latest published [HPC Pack 2012 R2 image](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/). The latest image is based on Windows Server 2012 R2 Datacenter with HPC Pack 2012 R2 Update 3 installed.
+### <a name="parameters"></a>Parametreler
+* **ConfigFile**: HPC küme açıklamak için yapılandırma dosyasının dosya yolunu belirtir. Bu konuda yapılandırma dosyasında hakkında daha fazla bakın veya Manual.rtf klasöründeki dosyasındaki komut dosyasını içeren.
+* **AdminUserName**: kullanıcı adını belirtir. Etki alanı ormanı komut dosyası tarafından oluşturduysanız, bu tüm VM'ler için yerel yönetici kullanıcı adı ve etki alanı yöneticisi adı olur. Etki alanı ormanı zaten varsa, bu etki alanı kullanıcısının HPC paketini yüklemek için yerel yönetici kullanıcı adı olarak belirtir.
+* **Admınpassword**: Yönetici parolasını belirtir. Komut satırında belirtilmezse, betik parola girmesini ister.
+* **HPCImageName** (isteğe bağlı): HPC küme dağıtmak için kullanılan HPC Pack VM görüntü adı belirtir. Azure Marketi'nden Microsoft tarafından sağlanan HPC Pack bir görüntü olmalıdır. Belirtilmezse, (genellikle önerilir), komut dosyasının en son yayımlanan seçer [HPC Pack 2012 R2 görüntüsünü](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/). En son görüntünün Windows Server 2012 R2 Datacenter HPC Pack 2012 R2 güncelleştirme 3 ile temel alır.
   
   > [!NOTE]
-  > Deployment fails if you don't specify a valid HPC Pack image.
+  > Geçerli bir HPC Pack görüntüsü belirtmezseniz dağıtımı başarısız olur.
   > 
   > 
-* **LogFile** (optional): Specifies the deployment log file path. If not specified, the script creates a log file in the temp directory of the computer running the script.
-* **Force** (optional): Suppresses all the confirmation prompts.
-* **NoCleanOnFailure** (optional): Specifies that the Azure VMs that are not successfully deployed are not removed. Remove these VMs manually before rerunning the script to continue the deployment, or the deployment may fail.
-* **PSSessionSkipCACheck** (optional): For every cloud service with VMs deployed by this script, a self-signed certificate is automatically generated by Azure, and all the VMs in the cloud service use this certificate as the default Windows Remote Management (WinRM) certificate. To deploy HPC features in these Azure VMs, the script by default temporarily installs these certificates in the Local Computer\\Trusted Root Certification Authorities store of the client computer to suppress the “not trusted CA” security error during script execution. The certificates are removed when the script finishes. If this parameter is specified, the certificates are not installed in the client computer, and the security warning is suppressed.
+* **Günlük dosyası** (isteğe bağlı): dağıtım günlük dosyası yolunu belirtir. Belirtilmezse, komut dosyası komut dosyasını çalıştıran bilgisayar temp dizininde bir günlük dosyası oluşturur.
+* **Zorla** (isteğe bağlı): tüm onay komut istemlerini bastırır.
+* **NoCleanOnFailure** (isteğe bağlı): değil başarıyla dağıtılan Azure sanal makinelerini kaldırılmıyor belirtir. Dağıtım devam etmek için komut dosyası yeniden çalıştırmadan önce bu Vm'lere el ile kaldırın veya dağıtım başarısız.
+* **PSSessionSkipCACheck** (isteğe bağlı): Bu komut dosyası tarafından dağıtılan VM'ler ile her bulut hizmeti için otomatik olarak imzalanan bir sertifika Azure tarafından otomatik olarak oluşturulur ve bulut hizmetindeki tüm sanal makineleri bu sertifika varsayılan olarak Windows Uzaktan kullanın. Yönetim (WinRM) sertifikası. Bu Azure VM'de HPC özellikler dağıtmak için varsayılan komut dosyası geçici olarak bu sertifikaları yerel bilgisayara yükler\\"güvenilmedi CA" güvenlik hatası gizlemek için istemci bilgisayarın güvenilir kök sertifika yetkilileri deposuna komut dosyası yürütme sırasında. Betik tamamlandığında sertifikaları kaldırılır. Bu parametre belirtilmezse, istemci bilgisayar sertifikaları yüklü değil ve güvenlik uyarısı engellenir.
   
   > [!IMPORTANT]
-  > This parameter is not recommended for production deployments.
+  > Bu parametre, üretim dağıtımları için önerilmez.
   > 
   > 
 
-### <a name="example"></a>Example
-The following example creates an HPC Pack cluster using the configuration file *MyConfigFile.xml*, and specifies administrator credentials for installing the cluster.
+### <a name="example"></a>Örnek
+Aşağıdaki örnek yapılandırma dosyası kullanarak bir HPC Pack kümesini oluşturur *MyConfigFile.xml*, Küme yükleme için yönetici kimlik bilgilerini belirtir.
 
 ```PowerShell
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 
-### <a name="additional-considerations"></a>Additional considerations
-* The script can optionally enable job submission through the HPC Pack web portal or the HPC Pack REST API.
-* The script can optionally run custom pre- and post-configuration scripts on the head node if you want to install additional software or configure other settings.
+### <a name="additional-considerations"></a>Diğer konular
+* Komut dosyası iş gönderme HPC paketi web portalı üzerinden veya HPC Pack REST API isteğe bağlı olarak etkinleştirebilirsiniz.
+* Ek yazılım yüklemesi veya diğer ayarları yapılandırmak istiyorsanız, komut dosyası baş düğümünde özel öncesi ve sonrası yapılandırma komut dosyaları isteğe bağlı olarak çalıştırabilirsiniz.
 
-## <a name="configuration-file"></a>Configuration file
-The configuration file for the deployment script is an XML file. The schema file HPCIaaSClusterConfig.xsd is in the HPC Pack IaaS deployment script folder. **IaaSClusterConfig** is the root element of the configuration file, which contains the child elements described in detail in the file Manual.rtf in the deployment script folder.
+## <a name="configuration-file"></a>Yapılandırma dosyası
+Dağıtım komut dosyası için yapılandırma dosyasını bir XML dosyasıdır. Şema dosyası HPCIaaSClusterConfig.xsd HPC Pack Iaas dağıtım komut dosyası klasöründe bulunur. **IaaSClusterConfig** ayrıntılı dağıtım komut dosyası klasörü Manual.rtf dosyasında açıklanan alt öğelerini içeren yapılandırma dosyasının kök öğedir.
 

@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [SendGrid](https://www.SendGrid.com/) account 
+### <a name="prerequisites"></a>Ön koşullar
+* A [SendGrid](https://www.SendGrid.com/) hesabı 
 
-Before you can use your SendGrid account in a Logic app, you must authorize the Logic app to connect to your SendGrid account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Bir mantıksal uygulama SendGrid hesabınızı kullanabilmeniz için önce SendGrid hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
 
-Here are the steps to authorize your Logic app to connect to your SendGrid account:
+SendGrid hesabınıza bağlanmak için mantıksal uygulamanızı yetkilendirmek için adımlar şunlardır:
 
-1. To create a connection to SendGrid, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SendGrid* in the search box. Select the trigger or action you'll like to use:  
-   ![SendGrid step 1](./media/connectors-create-api-sendgrid/sendgrid-1.png)
-2. If you haven't created any connections to SendGrid before, you'll get prompted to provide your SendGrid credentials. These credentials will be used to authorize your Logic app to connect to, and access your SendGrid account's data:  
-   ![SendGrid step 2](./media/connectors-create-api-sendgrid/sendgrid-2.png)
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![SendGrid step 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
+1. Mantıksal Uygulama Tasarımcısı'nda SendGrid, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *SendGrid* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+   ![Adım 1'in SendGrid](./media/connectors-create-api-sendgrid/sendgrid-1.png)
+2. SendGrid önce bağlantılarına oluşturmadıysanız, SendGrid kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve SendGrid hesabınızın veri erişim:  
+   ![SendGrid adım 2](./media/connectors-create-api-sendgrid/sendgrid-2.png)
+3. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+   ![SendGrid adım 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
 

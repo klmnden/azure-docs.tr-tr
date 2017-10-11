@@ -1,21 +1,21 @@
 <!--author=SharS last changed: 11/18/16-->
 
-#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>To install regular updates via Windows PowerShell for StorSimple
-1. Open the device serial console and select option 1, **Log in with full access**. Type the password. The default password is *Password1*. 
-2. At the command prompt, type:
+#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla düzenli olarak güncelleştirmeleri yüklemek için
+1. Cihaz seri konsoluna açıp seçenek 1, **oturum oturum tam erişim**. Parolayı yazın. Varsayılan parola *Parola1*. 
+2. Komut istemine yazın:
    
      `Get-HcsUpdateAvailability`
    
-    You will be notified if updates are available and whether the updates are disruptive or non-disruptive.
-3. At the command prompt, type:
+    Güncelleştirmeler varsa ve güncelleştirmeleri kesintiye uğratan veya benzer olup bildirilir.
+3. Komut istemine yazın:
    
      `Start-HcsUpdate`
    
-    The update process will start.
+    Güncelleştirme işlemi başlar.
 
 > [!IMPORTANT]
-> * This command applies only to regular updates. You run this command on only one controller, but both controllers will be updated. 
-> * You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+> * Bu komut, yalnızca normal güncelleştirmeler için geçerlidir. Bu komut yalnızca bir denetleyicisinde çalıştırın, ancak her iki denetleyicileri güncelleştirilir. 
+> * Denetleyici yük devretmesi güncelleştirme işlemi sırasında fark edebilirsiniz; Ancak, yük devretme sistem kullanılabilirliğini veya işlem etkilemez.
 > 
 > 
 

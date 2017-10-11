@@ -1,25 +1,25 @@
-The Domain Name System (DNS) is used to locate things on the internet. For example, when you enter an address in your browser, or click a link on a web page, it uses DNS to translate the domain into an IP address. The IP address is sort of like a street address, but it's not very human friendly. For example, it is much easier to remember a DNS name like **contoso.com** than it is to remember an IP address such as 192.168.1.88 or 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+Etki alanı adı sistemi (DNS), internet'te öğeleri bulmak için kullanılır. Tarayıcınızda bir adres girin veya bir web sayfası bir bağlantıya tıklayın, örneğin, bu DNS etki alanı bir IP adresine çevirmek için kullanır. IP adresi tür sokak adresi gibi ancak çok İnsan kolay değil. Örneğin, bir DNS adı gibi unutmayın çok daha kolay **contoso.com** 192.168.1.88 veya 2001:0:4137:1f67:24a2:3888:9cce:fea3 gibi bir IP adresi anımsaması küçüktür.
 
-The DNS system is based on *records*. Records associate a specific *name*, such as **contoso.com**, with either an IP address or another DNS name. When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address. If the value it points to is an IP address, the browser will use that value. If it points to another DNS name, then the application has to do resolution again. Ultimately, all name resolution will end in an IP address.
+DNS sistem dayanır *kayıtları*. Kayıtları ilişkilendirmek belirli bir *adı*, gibi **contoso.com**, bir IP adresi ya da başka bir DNS adına sahip. Bir uygulama bir web tarayıcısı gibi bir ad DNS arar, kaydı bulur ve her adresi olarak işaret kullanır. İşaret değeri bir IP adresi varsa, tarayıcı bu değeri kullanır. Başka bir DNS adına işaret ediyorsa, uygulama çözümleme yeniden yapmanız gerekir. Sonuç olarak, tüm ad çözümlemesi bir IP adresi sona erer.
 
-When you create an Azure Website, a DNS name is automatically assigned to the site. This name takes the form of **&lt;yoursitename&gt;.azurewebsites.net**. When you add your website as an Azure Traffic Manager endpoint, your website is then accessible through the **&lt;yourtrafficmanagerprofile&gt;.trafficmanager.net** domain.
-
-> [!NOTE]
-> When your website is configured as a Traffic Manager endpoint, you will use the **.trafficmanager.net** address when creating DNS records.
-> 
-> You can only use CNAME records with Traffic Manager
-> 
-> 
-
-There are also multiple types of records, each with their own functions and limitations, but for websites configured to as Traffic Manager endpoints, we only care about one; *CNAME* records.
-
-### <a name="cname-or-alias-record"></a>CNAME or Alias record
-A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www.contoso.com**, to another (canonical) domain name. In the case of Azure Websites using Traffic Manager, the canonical domain name is the **&lt;myapp>.trafficmanager.net** domain name of your Traffic Manager profile. Once created, the CNAME creates an alias for the **&lt;myapp>.trafficmanager.net** domain name. The CNAME entry will resolve to the IP address of your **&lt;myapp>.trafficmanager.net** domain name automatically, so if the IP address of the website changes, you do not have to take any action.
-
-Once traffic arrives at Traffic Manager, it then routes the traffic to your website, using the load balancing method it is configured for. This is completely transparent to visitors to your website. They will only see the custom domain name in their browser.
+Bir Azure Web sitesi oluşturduğunuzda, bir DNS adı otomatik olarak siteye atanmış. Bu ad biçimini alır  **&lt;yoursitename&gt;. azurewebsites.net**. Web sitenizi bir Azure trafik Yöneticisi uç noktası olarak eklediğinizde, Web sitenizi üzerinden erişilebilir ise  **&lt;yourtrafficmanagerprofile&gt;. trafficmanager.net** etki alanı.
 
 > [!NOTE]
-> Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
+> Web sitenizi bir trafik Yöneticisi uç noktası olarak yapılandırıldığında, kullanacağınız **. trafficmanager.net** adresi DNS kayıtlarını oluştururken.
+> 
+> Trafik Yöneticisi ile CNAME kayıtlarına yalnızca kullanabilirsiniz
+> 
+> 
+
+Ayrıca kayıtları, her biri kendi işlevleri ve sınırlamaları, birden çok tür vardır, ancak için trafik Yöneticisi uç noktalar olarak yapılandırılmış Web sitelerinde, biz yalnızca yaklaşık bir dikkat edin; *CNAME* kaydeder.
+
+### <a name="cname-or-alias-record"></a>CNAME veya diğer ad kaydı
+Bir CNAME kaydı eşleyen bir *belirli* gibi DNS adı **mail.contoso.com** veya **www.contoso.com**, başka bir (kurallı) etki alanı adı. Azure trafik Yöneticisi'ni kullanarak Web söz konusu olduğunda kurallı etki alanı adıdır  **&lt;Uygulamam >. trafficmanager.net** Traffic Manager profilinizin etki alanı adı. Oluşturduktan sonra CNAME için diğer ad oluşturur  **&lt;Uygulamam >. trafficmanager.net** etki alanı adı. CNAME girişi IP adresine çözümleyecek,  **&lt;Uygulamam >. trafficmanager.net** etki alanı adı otomatik olarak, böylece Web sitesinin IP adresi değişirse, herhangi bir eylemde bulunmanız gerekmez.
+
+Trafik Yöneticisi trafiği geldikten sonra ardından trafiği yük dengeleyici yöntemi için yapılandırılmış Web sitenizi, yönlendirir. Bu Web sitenizin ziyaretçileri için tamamen saydamdır. Özel etki alanı adı tarayıcısında yalnızca görürler.
+
+> [!NOTE]
+> Bazı etki alanı kayıt yalnızca bir CNAME kaydı gibi kullanırken alt etki alanları eşlemeye izin **www.contoso.com**ve değil kök adları gibi **contoso.com**. CNAME kayıtları hakkında daha fazla bilgi için şirketiniz tarafından sağlanan belgelere bakın <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME kaydı Wikipedia girişinde</a>, veya <a href="http://tools.ietf.org/html/rfc1035">IETF etki alanı adları - uygulama ve belirtim</a> belge.
 > 
 > 
 

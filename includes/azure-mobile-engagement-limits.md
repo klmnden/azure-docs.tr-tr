@@ -1,11 +1,11 @@
-| Resource | Maximum Limit |
+| Kaynak | Üst Sınır |
 | --- | --- |
-| App Collection Users |5 per App Collection |
-| Average Data points |200 per Active User/Day |
-| Average App-Info set |50 per Active User/Day |
-| Average Messages pushed |20 per Active User/Day |
-| Segments |100 per app |
-| Criteria per segment |10 |
-| Active Push Campaigns |50 per app |
-| Total Push Campaigns (includes Active & Completed) |1000 per app |
+| Uygulama koleksiyonu kullanıcıları |Uygulama koleksiyonu başına 5 |
+| Ortalama veri noktaları |Etkin kullanıcı/gün başına 200 |
+| Ortalama App-Info ayarlayın |Etkin kullanıcı/gün başına 50 |
+| Gönderilen ortalama ileti |Etkin kullanıcı/gün başına 20 |
+| Kesimler |uygulama başına 100 |
+| Her segment ölçütü |10 |
+| Etkin anında iletme kampanyalarını |uygulama başına 50 |
+| Toplam itme Kampanyalar (etkin & tamamlandı içerir) |uygulama başına 1000 |
 

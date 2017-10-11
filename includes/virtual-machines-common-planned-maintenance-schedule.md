@@ -1,55 +1,55 @@
 
 
-## <a name="multi-and-single-instance-vms"></a>Multi and Single Instance VMs
-Many customers running on Azure count it critical that they can schedule when their VMs undergo planned maintenance due to the downtime--about 15 minutes--that occurs during maintenance. You can use availability sets to help control when provisioned VMs receive planned maintenance.
+## <a name="multi-and-single-instance-vms"></a>Birden çok ve tek örnek VM'ler
+Azure sayısına kritik planlı bakım nedeniyle kapalı kalma süresi--Vm'leri geçmelerini zaman bunlar zamanlayabilirsiniz çalışan pek çok müşteriniz yaklaşık 15 dakika--bu bakım sırasında oluşur. Kullanılabilirlik kümeleri, sağlanan VM'ler planlanmış bakım aldığınızda denetlemeye yardımcı olmak üzere kullanabilirsiniz.
 
-There are two possible configurations for VMs running on Azure. VMs are either configured as multi-instance or single-instance. If VMs are in an availability set, then they are configured as multi-instance. Note, even single VMs can be deployed in an availability set, so that they are treated as multi-instance. If VMs are NOT in an availability set, then they are configured as single-instance.  For details on availability sets, see [Manage the Availability of your Windows Virtual Machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the Availability of your Linux Virtual Machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure üzerinde çalışan sanal makineler için iki olası yapılandırmaları vardır. Sanal makineleri ya da çok örnekli veya tek örnek yapılandırılır. Sanal makineleri bir kullanılabilirlik kümesine varsa, bunlar birden çok örneği olarak yapılandırılır. Unutmayın, hatta VM'ler tek bir kullanılabilirlik kümesinde birden çok örneği olarak kabul edilir böylece dağıtılabilir. Ardından sanal makineleri bir kullanılabilirlik kümesine emin değilseniz, tek örnek yapılandırılır.  Kullanılabilirlik kümeleri hakkında daha fazla bilgi için bkz: [, Windows sanal makinelerin kullanılabilirliğini yönetme](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) veya [, Linux sanal makinelerin kullanılabilirliğini yönetme](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Planned maintenance updates to single-instance and multi-instance VMs happen separately. By reconfiguring your VMs to be single-instance (if they are multi-instance) or to be multi-instance (if they are single-instance), you can control when their VMs receive the planned maintenance. See [Planned maintenance for Azure Linux virtual machines](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Planned maintenance for Azure Windows virtual machines](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for details on planned maintenance for Azure VMs.
+Tek Örnekli ve çok örnekli VM'ler planlanmış bakım güncelleştirmeleri ayrı ayrı gerçekleşir. Vm'leriniz Tek Örnekli (çok örnekli olmaları durumunda) veya (tek örnek varsa) birden çok örneği olacak şekilde yeniden yapılandırarak Vm'leri planlı bakım aldığınızda kontrol edebilirsiniz. Bkz: [planlı bakım Azure Linux sanal makineleri için](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [planlı bakım Azure Windows sanal makineler için](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Azure VM'ler için planlı bakım hakkında ayrıntılı bilgi için.
 
-## <a name="for-multi-instance-configuration"></a>For Multi-instance Configuration
-You can select the time planned maintenance impacts your VMs that are deployed in an Availability Set configuration by removing these VMs from availability sets.
+## <a name="for-multi-instance-configuration"></a>Çok örnekli yapılandırması
+Bu sanal makineleri kullanılabilirlik kümesinden kaldırarak bir kullanılabilirlik kümesi yapılandırmasında dağıtılan Vm'leriniz planlı bakım etkiler zaman seçebilirsiniz.
 
-1. An email is sent to you seven calendar days before the planned maintenance to your VMs in a Multi-instance configuration. The subscription IDs and names of the affected Multi-instance VMs are included in the body of the email.
-2. During those seven days, you can choose the time your instances are updated by removing your multi-instance VMs in that region from their availability set. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
-3. You can remove the VM from its availability set in the Azure portal.
+1. Bir e-posta için çok örnekli yapılandırmasında Vm'leriniz için planlı bakım önce yedi Takvim günleri gönderilir. Abonelik kimlikleri ve etkilenen çok örnekli sanal makinelerin adlarını e-posta gövdesinde dahil edilir.
+2. Bu yedi gün boyunca örneklerinizi çok örnekli Vm'leriniz bu bölgede kendi kullanılabilirlik kümesinden kaldırarak güncelleştirildiğinde seçebilirsiniz. Sanal makinenin bakım için hedeflenmiş değil başka bir fiziksel konağa bakım için hedeflenen bir fiziksel ana bilgisayardan taşınması gibi bu yapılandırma değişikliği bir yeniden başlatma neden olur.
+3. Azure portalında, kullanılabilirlik VM kaldırabilirsiniz.
 
-   1. In the portal, select the VM to remove from the Availability Set.  
+   1. Portalda, kullanılabilirlik kümesinden kaldırmak için VM seçin.  
 
-   2. Under **settings**, click **Availability set**.
+   2. Altında **ayarları**, tıklatın **kullanılabilirlik kümesi**.
 
-      ![Availability Set Selection](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
+      ![Kullanılabilirlik kümesi seçimi](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
 
-   3. In the availability set dropdown menu, select “Not part of an availability set.”
+   3. Kullanılabilirlik kümesindeki açılır menüsünde, "Bölümünü bir kullanılabilirlik kümesinin." seçin
 
-      ![Remove from Set](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
+      ![Kümesinden Kaldır](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
 
-   4. At the top, click **Save**. Click **Yes** to acknowledge that this action restarts the VM.
+   4. En üstte tıklatın **kaydetmek**. Tıklatın **Evet** Bu eylem VM yeniden bildiremedi.
 
    >[!TIP]
-   >You can reconfigure the VM to multi-instance later by selecting one of the listed availability sets.
+   >Listelenen kullanılabilirlik kümeleri birini seçerek çok örnekli VM daha sonra yeniden yapılandırabilirsiniz.
 
-4. VMs removed from availability sets are moved to Single-Instance hosts and are not updated during the planned maintenance to Availability Set Configurations.
-5. Once the update to Availability Set VMs is complete (according to schedule outlined in the original email), you should add the VMs back into their availability sets. Becoming part of an Availability set reconfigures the VMs as multi-instance, and results in a reboot. Typically, once all multi-instance updates are completed across the entire Azure environment, single-instance maintenance follows.
+4. Kullanılabilirlik kümesinden kaldırıldı VM'ler Tek Örnekli ana taşınır ve kullanılabilirlik kümesi yapılandırmaları için planlı bakım sırasında güncelleştirilmez.
+5. Kullanılabilirlik kümesi Vm'lerine güncelleştirmeye (göre zamanlama) özgün e-postasında gösterilen tamamlandıktan sonra geri kullanılabilirlik kümeleri halinde VM'ler eklemeniz gerekir. Bir kullanılabilirlik kümesinin parçası olma VM'ler çok örneği olarak yeniden yapılandırır ve bir önyükleme sonuçlanır. Genellikle, tüm Azure ortamı genelinde tüm çok örnekli güncelleştirmeleri tamamlandığında, tek örnek bakım izler.
 
-Removing a VM from an availability set can also be achieved using Azure PowerShell:
+VM bir kullanılabilirlik kümesinden kaldırılması, ayrıca Azure PowerShell kullanarak yapabiliriz:
 
 ```
 Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureAvailabilitySet | Update-AzureVM
 ```
 
-## <a name="for-single-instance-configuration"></a>For Single-instance Configuration
-You can select the time planned maintenance impacts you VMs in a Single-instance configuration by adding these VMs into availability sets.
+## <a name="for-single-instance-configuration"></a>Tek örnek yapılandırması
+Planlı bakım, sanal makineleri tek örnek yapılandırmada kullanılabilirlik kümeleri halinde bu Vm'lere ekleyerek etkiler zaman seçebilirsiniz.
 
-Step-by-step
+Adım adım
 
-1. An email is sent to you seven calendar days before the planned maintenance to VMs in a Single-instance configuration. The subscription IDs and names of the affected Single-Instance VMs are included in the body of the email.
-2. During those seven days, you can choose the time your instance reboots by adding your Single-instance VMs to an availability set in that same region. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
-3. Follow instructions here to add existing VMs into availability sets using the Azure portal and Azure PowerShell. (See the Azure PowerShell sample that follows these steps.)
-4. Once these VMs are reconfigured as Multi-instance, they are excluded from the planned maintenance to Single-instance VMs.
-5. Once the single-instance VM update completes (according to schedule in the original email), you can return the VMs to single-instance by removing the VMs from their availability sets.
+1. Bir e-posta için yedi Takvim günleri VM'ler için planlı bakım tek örnek yapılandırmasında önce gönderilir. Abonelik kimlikleri ve etkilenen tek örnekli sanal makinelerin adlarını e-posta gövdesinde dahil edilir.
+2. Bu yedi gün boyunca kullanılabilirlik kümesi, aynı bölgede Tek Örnekli Vm'leriniz ekleyerek örneğinizi yeniden zaman seçebilirsiniz. Sanal makinenin bakım için hedeflenmiş değil başka bir fiziksel konağa bakım için hedeflenen bir fiziksel ana bilgisayardan taşınması gibi bu yapılandırma değişikliği bir yeniden başlatma neden olur.
+3. Azure portalı ve Azure PowerShell kullanarak kullanılabilirlik kümeleri var olan sanal makineleri eklemek için buraya yönergeleri izleyin. (Şu adımları izler Azure PowerShell örnek bakın.)
+4. Bu Vm'lere çok örnekli olarak yapılandırılır sonra planlı bakım için tek örnek VM'ler bırakılır.
+5. (Göre zamanlama özgün e-posta) Tek Örnekli VM güncelleştirmesi tamamlandıktan sonra bunların kullanılabilirlik kümesinden VM'ler kaldırarak sanal makineleri Tek Örnekli geri dönebilirsiniz.
 
-Adding a VM to an availability set also can be achieved using Azure PowerShell:
+Kullanılabilirlik de kümesi için bir VM ekleme, Azure PowerShell kullanarak yapabiliriz:
 
     Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 

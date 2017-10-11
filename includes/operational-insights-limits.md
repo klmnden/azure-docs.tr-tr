@@ -26,5 +26,5 @@ Aşağıdaki sınırlamalar Log Analytics çalışma alanlarının her biri içi
 | Kategori | Sınırlar | Yorumlar
 | --- | --- | --- |
 | Veri Toplayıcı API’si | Tek bir gönderi için boyut üst sınırı 30 MB'tır<br>Alan değerleri için en büyük boyut 32 KB'dir | Büyük hacimleri birden fazla gönderiye bölme<br>32 KB'den daha uzun alanlar kesilir. |
-| Arama API’si | Toplu olmayan veriler için&5000; kayıt döndürülür<br>Toplu veriler için&50000;0 kayıt döndürülür | Toplu veriler `measure` komutunu içeren bir aramadır
+| Arama API’si | Toplu olmayan veriler için 5000 kayıt döndürülür<br>Toplu veriler için 500000 kayıt döndürülür | Toplu veriler `measure` komutunu içeren bir aramadır
  

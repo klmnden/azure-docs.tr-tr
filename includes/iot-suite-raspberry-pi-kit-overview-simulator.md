@@ -1,35 +1,35 @@
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Genel Bakış
 
-In this tutorial, you complete the following steps:
+Bu öğreticide, aşağıdaki adımları tamamlayın:
 
-- Deploy an instance of the remote monitoring preconfigured solution to your Azure subscription. This step automatically deploys and configures multiple Azure services.
-- Set up your device to communicate with your computer and the remote monitoring solution.
-- Update the sample device code to connect to the remote monitoring solution, and send simulated telemetry that you can view on the solution dashboard.
+- Önceden yapılandırılmış Uzaktan izleme çözümü örneği Azure aboneliğinize dağıtın. Bu adım, otomatik olarak dağıtır ve birden çok Azure hizmetlerini yapılandırır.
+- Bilgisayarınız ve Uzaktan izleme çözümü ile iletişim kurmak için aygıtınızı ayarlayın.
+- Uzaktan izleme çözümüne bağlama için örnek aygıt kodunu güncelleştirin ve çözüm panosunda görüntüleyebilirsiniz sanal telemetriyi gönderin.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Ön koşullar
 
-To complete this tutorial, you need an active Azure subscription.
+Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir.
 
 > [!NOTE]
-> If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
+> Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk-free-trial].
 
-### <a name="required-software"></a>Required software
+### <a name="required-software"></a>Gerekli yazılım
 
-You need SSH client on your desktop machine to enable you to remotely access the command line on the Raspberry Pi.
+Komut satırı Raspberry Pi'yi üzerinde uzaktan erişim sağlamak için Masaüstü makinenizde SSH istemcisi gerekir.
 
-- Windows does not include an SSH client. We recommend using [PuTTY](http://www.putty.org/).
-- Most Linux distributions and Mac OS include the command-line SSH utility. For more information, see [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- Windows, bir SSH istemcisi içermez. Kullanmanızı öneririz [PuTTY](http://www.putty.org/).
+- Çoğu Linux dağıtımları ve Mac OS komut satırı SSH yardımcı programı içerir. Daha fazla bilgi için bkz: [SSH kullanarak Linux veya Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
-### <a name="required-hardware"></a>Required hardware
+### <a name="required-hardware"></a>Gerekli donanım
 
-A desktop computer to enable you to connect remotely to the command line on the Raspberry Pi.
+Komut satırı Raspberry Pi'yi üzerinde uzaktan bağlanmak etkinleştirmek için bir masaüstü bilgisayar.
 
-[Microsoft IoT Starter Kit for Raspberry Pi 3][lnk-starter-kits] or equivalent components. This tutorial uses the following items from the kit:
+[Microsoft IOT Starter Kit Raspberry Pi 3] [ lnk-starter-kits] veya eşdeğer bileşenleri. Bu öğretici Seti'nden aşağıdaki öğeleri kullanır:
 
-- Raspberry Pi 3
-- MicroSD Card (with NOOBS)
-- A USB Mini cable
-- An Ethernet cable
+- Böğürtlenli Pi 3
+- MicroSD kartı (ile NOOBS)
+- Bir USB Mini kablosu
+- Ethernet kablosu
 
 [lnk-starter-kits]: https://azure.microsoft.com/develop/iot/starter-kits/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

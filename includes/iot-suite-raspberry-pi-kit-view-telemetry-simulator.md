@@ -1,31 +1,31 @@
-## <a name="view-the-telemetry"></a>View the telemetry
+## <a name="view-the-telemetry"></a>Telemetriyi görüntüleyebilir
 
-The Raspberry Pi is now sending telemetry to the remote monitoring solution. You can view the telemetry on the solution dashboard. You can also send messages to your Raspberry Pi from the solution dashboard.
+Raspberry Pi'yi, artık uzaktan izleme çözümüne telemetri gönderiyor. Çözüm panosunda telemetri görüntüleyebilirsiniz. Ayrıca, Raspberry Pi'yi çözüm panodan iletisi gönderebilir.
 
-- Navigate to the solution dashboard.
-- Select your device in the **Device to View** dropdown.
-- The telemetry from the Raspberry Pi displays on the dashboard.
+- Çözüm panosuna gidin.
+- Cihazınızı seçmek **cihaz görünümüne** açılır.
+- Raspberry Pi'yi telemetrisinden Panoda görüntüler.
 
-![Display telemetry from the Raspberry Pi][img-telemetry-display]
+![Raspberry Pi'yi telemetrisini görüntüleme][img-telemetry-display]
 
-## <a name="act-on-the-device"></a>Act on the device
+## <a name="act-on-the-device"></a>Cihazda hareket
 
-From the solution dashboard, you can invoke methods on your Raspberry Pi. When the Raspberry Pi connects to the remote monitoring solution, it sends information about the methods it supports.
+Çözüm panodan, Raspberry Pi'yi yöntemleri çağırabilirsiniz. Uzaktan izleme çözümüne Raspberry Pi'yi bağlandığında, desteklediği yöntemleri hakkında bilgi gönderir.
 
-- In the solution dashboard, click **Devices** to visit the **Devices** page. Select your Raspberry Pi in the **Device List**. Then choose **Methods**:
+- Çözüm panosunda tıklatın **aygıtları** ziyaret etmek için **aygıtları** sayfası. Böğürtlenli Pi seçin **cihaz listesi**. Ardından **yöntemleri**:
 
-    ![List devices in dashboard][img-list-devices]
+    ![Panoda aygıtları listele][img-list-devices]
 
-- On the **Invoke Method** page, choose **LightBlink** in the **Method** dropdown.
+- Üzerinde **yöntemi çağırma** sayfasında, **LightBlink** içinde **yöntemi** açılır.
 
-- Choose **InvokeMethod**. The simulator prints a message in the console on the Raspberry Pi. The app on the Raspberry Pi sends an acknowledgment back to the solution dashboard:
+- Seçin **InvokeMethod**. Simulator konsolunda bir ileti üzerinde Raspberry Pi'yi yazdırır. Uygulamasını Raspberry Pi'yi çözüm panosuna geri bildirim gönderir:
 
-    ![Show method history][img-method-history]
+    ![Yöntem geçmişini göster][img-method-history]
 
-- You can switch the LED on and off using the **ChangeLightStatus** method with a **LightStatusValue** set to **1** for on or **0** for off.
+- Kullanarak açma ve kapatma LED geçebilirsiniz **ChangeLightStatus** yöntemi ile bir **LightStatusValue** kümesine **1** için üzerinde veya **0** için devre dışı.
 
 > [!WARNING]
-> If you leave the remote monitoring solution running in your Azure account, you are billed for the time it runs. For more information about reducing consumption while the remote monitoring solution runs, see [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config]. Delete the preconfigured solution from your Azure account when you have finished using it.
+> Azure hesabınızda çalıştıran uzaktan izleme çözümü bırakırsanız çalıştırıldığında için faturalandırılır. Uzaktan izleme çözümü çalışırken tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config]. Bunu kullanmayı bitirdikten sonra önceden yapılandırılmış çözümü Azure hesabınızdan silin.
 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-simulator/telemetry.png

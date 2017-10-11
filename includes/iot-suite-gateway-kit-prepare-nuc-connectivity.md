@@ -1,28 +1,28 @@
-## <a name="prepare-your-intel-nuc"></a>Prepare your Intel NUC
+## <a name="prepare-your-intel-nuc"></a>Intel NUC hazırlama
 
-To complete the hardware setup, you need to:
+Donanım kurulumu tamamlamak için aktarmanız gerekir:
 
-- Connect your Intel NUC to the power supply included in the kit.
-- Connect your Intel NUC to your network using an Ethernet cable.
+- Intel NUC Seti'nde bulunan güç kaynağı bağlayın.
+- Intel NUC Ethernet kablosu kullanarak ağınıza bağlayın.
 
-You have now completed the hardware setup of your Intel NUC gateway device.
+Intel NUC ağ geçidi cihazınız donanım Kurulumu tamamladınız.
 
-### <a name="sign-in-and-access-the-terminal"></a>Sign in and access the terminal
+### <a name="sign-in-and-access-the-terminal"></a>Oturum açma ve terminal erişim
 
-You have two options to access a terminal environment on your Intel NUC:
+Intel NUC terminal ortamda erişmek için iki seçeneğiniz vardır:
 
-- If you have a keyboard and monitor connected to your Intel NUC, you can access the shell directly. The default credentials are username **root** and password **root**.
+- Klavye ve monitör, Intel NUC bağlı varsa, kabuk doğrudan erişebilirsiniz. Varsayılan kimlik bilgileri kullanıcı adı olan **kök** ve parola **kök**.
 
-- Access the shell on your Intel NUC using SSH from your desktop machine.
+- Masaüstü makinenizden SSH kullanarak, Intel NUC Kabuğu erişin.
 
-#### <a name="sign-in-with-ssh"></a>Sign in with SSH
+#### <a name="sign-in-with-ssh"></a>Oturum SSH oturum
 
-To sign in with SSH, you need the IP address of your Intel NUC. If you have a keyboard and monitor connected to your Intel NUC, use the `ifconfig` command to find the IP address. Alternatively, connect to your router to list the addresses of devices on your network.
+SSH oturum oturum açmanız, Intel NUC IP adresi gerekiyor. Klavye ve monitör, Intel NUC bağlı varsa, `ifconfig` IP adresini bulmak için komutu. Alternatif olarak, ağınızdaki aygıtların adreslerini listelemek için yönlendiriciniz bağlayın.
 
-Sign in with username **root** and password **root**.
+Kullanıcı adıyla oturum **kök** ve parola **kök**.
 
-#### <a name="optional-share-a-folder-on-your-intel-nuc"></a>Optional: Share a folder on your Intel NUC
+#### <a name="optional-share-a-folder-on-your-intel-nuc"></a>İsteğe bağlı: Intel NUC üzerinde bir klasör paylaşın
 
-Optionally, you may want to share a folder on your Intel NUC with your desktop environment. Sharing a folder enables you to use your preferred desktop text editor (such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime Text](http://www.sublimetext.com/)) to edit files on your Intel NUC instead of using `nano` or `vi`.
+İsteğe bağlı olarak, masaüstü ortamınızı Intel NUC üzerinde bir klasör paylaşın isteyebilirsiniz. Bir klasör paylaşımı sağlar, tercih edilen Masaüstü metin düzenleyicisi kullanın (gibi [Visual Studio Code](https://code.visualstudio.com/) veya [Sublime Text](http://www.sublimetext.com/)) kullanmak yerine, Intel NUC dosyalarını düzenlemek için `nano` veya `vi`.
 
-To share a folder with Windows, configure a Samba server on the Intel NUC. Alternatively, use the SFTP server on the Intel NUC with an SFTP client on your desktop machine.
+Bir klasörü Windows ile paylaşmak için Samba sunucu üzerinde Intel NUC yapılandırın. Alternatif olarak, Masaüstü makinenizde SFTP istemci ile Intel NUC SFTP sunucusu kullanın.

@@ -1,47 +1,47 @@
-### <a name="noconnection"></a>To modify local network gateway IP address prefixes - no gateway connection
+### <a name="noconnection"></a>Yerel ağ geçidinin IP adresi ön eklerini değiştirmek için - ağ geçidi bağlantısı yok
 
-#### <a name="to-add-additional-address-prefixes"></a>To add additional address prefixes:
+#### <a name="to-add-additional-address-prefixes"></a>Başka adres ön ekleri eklemek için:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Add the IP address space in the *Add additional address range* box.
-3. Click **Save** to save your settings.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
+2. IP adres alanı Ekle *ek adres aralığı Ekle* kutusu.
+3. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
 
-#### <a name="to-remove-address-prefixes"></a>To remove address prefixes:
+#### <a name="to-remove-address-prefixes"></a>Adres ön eklerini kaldırmak için:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Click the **'...'** on the line containing the prefix you want to remove.
-3. Click **Remove**.
-4. Click **Save** to save your settings.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
+2. Tıklatın **'...'** kaldırmak istediğiniz önek içeren satırı.
+3. Tıklatın **kaldırmak**.
+4. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
 
-### <a name="withconnection"></a>To modify local network gateway IP address prefixes - existing gateway connection
+### <a name="withconnection"></a>Yerel ağ geçidinin IP adresi ön eklerini değiştirmek için - ağ geçidi bağlantısı var
 
-If you have a gateway connection and want to add or remove the IP address prefixes contained in your local network gateway, you need to do the following steps, in order. This results in some downtime for your VPN connection. When modifying IP address prefixes, you don't need to delete the VPN gateway. You only need to remove the connection.
+Ağ geçidi bağlantınız varsa ve yerel ağ geçidinizde bulunan IP adresi ön eklerini eklemek veya kaldırmak istiyorsanız aşağıdaki adımları sırasıyla uygulamanız gerekir. Bunun sonucunda, VPN bağlantınızda kesinti oluşur. IP adresi öneklerini değiştirirken, VPN ağ geçidini silmeniz gerekmez. Yalnızca bağlantıyı kaldırmanız gerekir.
 
-#### <a name="1-remove-the-connection"></a>1. Remove the connection.
+#### <a name="1-remove-the-connection"></a>1. Bağlantıyı kaldırın.
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Connections**.
-2. Click the **...** on the line for each connection, then click **Delete**.
-3. Click **Save** to save your settings.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **bağlantıları**.
+2. Tıklatın **...**  her bağlantı için satırda ardından **silmek**.
+3. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
 
-#### <a name="2-modify-the-address-prefixes"></a>2. Modify the address prefixes.
+#### <a name="2-modify-the-address-prefixes"></a>2. Adres öneklerini değiştirme.
 
-To add additional address prefixes:
+Başka adres ön ekleri eklemek için:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Add the IP address space.
-3. Click **Save** to save your settings.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
+2. IP adres alanı ekleyin.
+3. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
 
-To remove address prefixes:
+Adres ön eklerini kaldırmak için:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Click the **...** on the line containing the prefix you want to remove.
-3. Click **Remove**.
-4. Click **Save** to save your settings.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
+2. Tıklatın **...**  kaldırmak istediğiniz önek içeren satırı üzerinde.
+3. Tıklatın **kaldırmak**.
+4. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
 
-#### <a name="3-recreate-the-connection"></a>3. Recreate the connection.
+#### <a name="3-recreate-the-connection"></a>3. Bağlantısını yeniden oluşturun.
 
-1. Navigate to the Virtual Network Gateway for your VNet. (Not the Local Network Gateway.)
-2. On the Virtual Network Gateway, in the **Settings** section, click **Connections**.
-3. Click the **+ Add** to open the **Add connection** blade.
-4. Recreate your connection.
-5. Click **OK** to create the connection.
+1. Sanal ağ geçidi için sanal ağınızı gidin. (Olmayan yerel ağ geçidi.)
+2. Sanal ağ geçidi olarak **ayarları** 'yi tıklatın **bağlantıları**.
+3. Tıklatın **+ Ekle** açmak için **Bağlantı Ekle** dikey.
+4. Bağlantınızı yeniden oluşturun.
+5. Tıklatın **Tamam** bağlantı oluşturmak için.

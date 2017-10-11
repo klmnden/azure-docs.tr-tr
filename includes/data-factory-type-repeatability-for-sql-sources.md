@@ -1,7 +1,7 @@
-## <a name="repeatability-during-copy"></a>Repeatability during Copy
-When copying data to Azure SQL/SQL Server from other data stores one needs to keep repeatability in mind to avoid unintended outcomes. 
+## <a name="repeatability-during-copy"></a>Kopyalama sırasında Yinelenebilirlik
+Azure SQL/SQL Server veri kopyalamayı diğer verilerden depoladığında bir Yinelenebilirlik istenmeyen sonuçları önlemek için göz önünde bulundurmanız gerekir. 
 
-When copying data to Azure SQL/SQL Server Database, copy activity will by default APPEND the data set to the sink table by default. For example, when copying data from a CSV (comma separated values data) file source containing two records to Azure SQL/SQL Server Database, this is what the table looks like:
+Azure SQL/SQL Server veritabanına veri kopyalama, kopyalama etkinliği varsayılan APPEND havuz tablosu veri kümesi varsayılan olarak kullanacak. Örneğin, verileri Azure SQL/SQL Server veritabanına iki kayıtlarını içeren bir CSV (virgülle ayrılmış değerler veri kaynağından) dosya kopyalarken, bu tablonun benzer.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -10,7 +10,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4 in the source file. If you re-run the data slice for that period, you’ll find two new records appended to Azure SQL/SQL Server Database. The below assumes none of the columns in the table have the primary key constraint.
+Kaynak dosyasında hata buldu ve miktarını aşağı boru 2-4 kaynak dosyasında güncelleştirilmiş varsayalım. Veri dilimi belirli bir döneme ait yeniden çalıştırırsanız, Azure SQL/SQL Server veritabanına eklenen iki yeni kayıtlar bulabilirsiniz. Aşağıdaki tablodaki sütunların hiçbiri birincil anahtar kısıtlaması varsayar.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -21,15 +21,15 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-To avoid this, you will need to specify UPSERT semantics by leveraging one of the below 2 mechanisms stated below.
+Bunu önlemek için aşağıdakilerden birini yararlanarak UPSERT semantiği belirtin gerekecektir aşağıda belirtildiği 2 mekanizmaları aşağıda.
 
 > [!NOTE]
-> A slice can be re-run automatically in Azure Data Factory as per the retry policy specified.
+> Bir dilim otomatik olarak Azure Data Factory içinde belirtilen yeniden deneme ilkesi uyarınca yeniden çalıştırılabilir.
 > 
 > 
 
-### <a name="mechanism-1"></a>Mechanism 1
-You can leverage **sqlWriterCleanupScript** property to first perform cleanup action when a slice is run. 
+### <a name="mechanism-1"></a>Mekanizması 1
+Yararlanabileceğiniz **sqlWriterCleanupScript** bir dilim çalıştırıldığında ilk temizleme eylemi gerçekleştirmek için özellik. 
 
 ```json
 "sink":  
@@ -39,9 +39,9 @@ You can leverage **sqlWriterCleanupScript** property to first perform cleanup ac
 }
 ```
 
-The cleanup script would be executed first during copy for a given slice which would delete the data from the SQL Table corresponding to that slice. The activity will subsequently insert the data into the SQL Table. 
+Temizleme betiğini yürütülen hangi verileri bu dilim karşılık gelen SQL tablosundan siler belirli bir dilim için kopyalama sırasında ilk. Etkinlik sonradan verileri SQL tablosuna ekler. 
 
-If the slice is now re-run, then you will find the quantity is updated as desired.
+Dilimi yeniden çalıştırın. ardından, miktarı olarak güncelleştirilir bulacaksınız şimdi ise, istenen.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -50,25 +50,25 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Suppose the Flat Washer record is removed from the original csv. Then re-running the slice would produce the following result: 
+Düz rondela kaydı özgün csv kaldırılana varsayalım. Dilimi yeniden çalıştırmak aşağıdaki sonucu oluşturur: 
 
 ```
 ID    Product        Quantity    ModifiedDate
 ...    ...            ...            ...
 7     Down Tube    4            2015-05-01 00:00:00
 ```
-Nothing new had to be done. The copy activity ran the cleanup script to delete the corresponding data for that slice. Then it read the input from the csv (which then contained only 1 record) and inserted it into the Table. 
+Yeni bir şey yapılması gerekiyordu. Kopyalama etkinliği, dilim karşılık gelen verileri silmek için temizleme betiğini verdi. Giriş (hangi sonra yalnızca 1 kaydı bulunan) csv okuma sonra ve tabloya eklenen. 
 
-### <a name="mechanism-2"></a>Mechanism 2
+### <a name="mechanism-2"></a>Mekanizması 2
 > [!IMPORTANT]
-> sliceIdentifierColumnName is not supported for Azure SQL Data Warehouse at this time. 
+> Sliceıdentifiercolumnname Azure SQL Data Warehouse için şu anda desteklenmiyor. 
 
-Another mechanism to achieve repeatability is by having a dedicated column (**sliceIdentifierColumnName**) in the target Table. This column would be used by Azure Data Factory to ensure the source and destination stay synchronized. This approach works when there is flexibility in changing or defining the destination SQL Table schema. 
+Ayrılmış bir sütun sağlayarak Yinelenebilirlik elde etmek için başka bir mekanizma olan (**Sliceıdentifiercolumnname**) hedef tablo. Azure Data Factory tarafından bu sütun kaynak ve hedef eşitlenmesine emin olmak için kullanılır. Bu yaklaşım, değiştirme veya hedef SQL tablo şemasını tanımlama esneklik olduğunda çalışır. 
 
-This column would be used by Azure Data Factory for repeatability purposes and in the process Azure Data Factory will not make any schema changes to the Table. Way to use this approach:
+Bu sütun Azure Data Factory'nin Yinelenebilirlik amaçlar için kullanılır ve işlem sırasında tablonun herhangi bir şema değişikliği Azure Data Factory yapmaz. Bu yaklaşımı kullanmak için yol:
 
-1. Define a column of type binary (32) in the destination SQL Table. There should be no constraints on this column. Let's name this column as ‘ColumnForADFuseOnly’ for this example.
-2. Use it in the copy activity as follows:
+1. Türünde bir sütun ikili (32) hedef SQL tablosu tanımlayın. Bu sütunda hiç bir kısıtlama olması gerekir. Şimdi bu sütun bu örnekte 'ColumnForADFuseOnly' adlandırın.
+2. Kopyalama etkinliği şu şekilde kullanın:
    
     ```json
     "sink":  
@@ -79,7 +79,7 @@ This column would be used by Azure Data Factory for repeatability purposes and i
     }
     ```
 
-Azure Data Factory will populate this column as per its need to ensure the source and destination stay synchronized. The values of this column should not be used outside of this context by the user. 
+Azure Data Factory bu sütun kaynak ve hedef eşitlenmesine emin olmak için gerek göredir doldurur. Bu sütundaki değerleri dışında bu bağlamda kullanıcı tarafından kullanılmamalıdır. 
 
-Similar to mechanism 1, Copy Activity will automatically first clean up the data for the given slice from the destination SQL Table and then run the copy activity normally to insert the data from source to destination for that slice. 
+Benzer şekilde mekanizması 1, kopyalama etkinliği otomatik olarak ayarlanır hedef SQL tablosu verilen dilim için verileri ilk Temizle ve normal veri kaynağından bu dilim için hedef eklemek için kopyalama etkinliği çalıştırın. 
 

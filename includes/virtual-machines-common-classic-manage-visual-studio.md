@@ -1,133 +1,133 @@
-You can create virtual machines in Azure by using Server Explorer in Visual Studio.
+Visual Studio'da Sunucu Gezgini kullanarak Azure'da sanal makineler oluşturabilirsiniz.
 
-## <a name="create-an-azure-virtual-machine-in-server-explorer"></a>Create an Azure virtual machine in Server Explorer
-While you can create a virtual machine in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103), you can also create a virtual machine in Azure by using commands in Server Explorer. Virtual machines can be used, for example, to provide a front end behind a common load-balanced public endpoint.
+## <a name="create-an-azure-virtual-machine-in-server-explorer"></a>Sunucu Gezgini'nde bir Azure sanal makine oluşturma
+Bir sanal makine oluştururken [Azure Yönetim Portalı](http://go.microsoft.com/fwlink/?LinkID=253103), sunucu Gezgini'nde komutları kullanarak Azure'da bir sanal makine oluşturabilirsiniz. Sanal makineler, örneğin, bir ön uç ortak yük dengeli genel bir uç nokta arkasında sağlamak için kullanılabilir.
 
-### <a name="to-create-a-new-virtual-machine"></a>To create a new virtual machine
-1. In Server Explorer, open the **Azure** node and click **Virtual Machines**.
-2. On the context menu, click **Create Virtual Machine**.
+### <a name="to-create-a-new-virtual-machine"></a>Yeni bir sanal makine oluşturmak için
+1. Server Explorer'da açın **Azure** düğümü ve tıklatın **sanal makineleri**.
+2. Bağlam menüsünde **sanal makine oluşturma**.
    
-    The **Create a New Virtual Machine** wizard appears.
+    **Yeni bir sanal makine oluşturma** Sihirbazı görünür.
    
-    ![The Create Virtual Machine command](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
-3. On the **Choose a Subscription** page, select a subscription to use when creating the virtual machine and then click **Next**.
+    ![Sanal makine Oluştur komutu](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
+3. Üzerinde **bir abonelik seçin** sayfasında, sanal makine oluşturulurken kullanılacak aboneliği seçin ve ardından **sonraki**.
    
-    If you aren’t signed in to Azure, click **Sign In** to sign in. Then, select your Azure subscription in the dropdown list box if it’s not already selected.
-4. On the **Select a Virtual Machine Image** page, select an image type in the **Image type** dropdown list box, and then select a virtual machine images in the **Image name** list box. When you're done, click **Next**.
+    Azure'da oturum değil,'ı tıklatın **oturum** oturum açmak için. Ardından, henüz seçili değilse, Azure aboneliğinizin açılır liste kutusunda seçin.
+4. Üzerinde **bir sanal makine görüntüsü seçin** sayfasında, bir resim türünü seçin **görüntü türü** açılır liste kutusu ve bir sanal makine görüntülerini seçip **görüntü adı** liste kutusu . İşiniz bittiğinde tıklatın **sonraki**.
    
-    ![Select a virtual machine image page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
+    ![Bir sanal makine görüntüsü seçin sayfası](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
    
-    You can choose the following image types.
+    Şu resim türleri seçebilirsiniz.
    
-   * **Public Images** lists virtual machine images of operating systems and server software such as Windows Server and SQL Server.
-   * **MSDN Images** lists virtual machine images of software available to MSDN subscribers, such as Visual Studio and Microsoft Dynamics.
-   * **Private Images** lists specialized and generalized virtual machine images that you've created.
+   * **Ortak görüntüleri** sanal makine görüntüleri işletim sistemleri ve Windows Server ve SQL Server gibi sunucu yazılımları listeler.
+   * **MSDN görüntülerine** sanal makine görüntüleri Visual Studio ve Microsoft Dynamics gibi MSDN aboneleri için kullanılabilir yazılım listeler.
+   * **Özel resimler** listeleri özelleştirilmiş ve oluşturduğunuz sanal makine görüntülerini genelleştirilmiş.
      
-     To learn about specialized and generalized virtual machines, see [VM Image](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for information about how to turn a virtual machine into a template that you can use to quickly create new pre-configured virtual machines.
+     Özelleştirilmiş ve genelleştirilmiş sanal makineler hakkında bilgi edinmek için [VM görüntüsü](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Bkz: [Windows sanal makinesi şablon olarak kullanmak için yakalama](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) bir sanal makineyi hızlı bir şekilde yeni oluşturmak için kullanabileceğiniz bir şablona devre dışı bırakma hakkında bilgi sanal makineleri önceden yapılandırılmış için.
      
-     You can click a virtual machine image name to see information about the image on the right side of the page.
+     Sayfanın sağ tarafında görüntü hakkındaki bilgileri görmek için bir sanal makine görüntü adı tıklatabilirsiniz.
      
      > [!NOTE]
-     > You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
+     > Sanal makine görüntülerini ekleyemezsiniz **ortak görüntüleri** veya **MSDN görüntülerine** salt okunur olduğundan listeler. Oluşturduğunuz tüm sanal makineler için eklenen **özel görüntüleri** listesi.
      > 
      > 
      
-     If you're an MSDN subscriber with a Visual Studio-level subscription, you can create a pre-built Azure virtual machine that contains Visual Studio, as well as several other images. For more information, see [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.azurewebsites.net) and [MSDN subscriptions](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
-5. On the **Virtual Machine Basic Settings** page, enter a machine name and then add the specifications for the virtual machine, including the size, and a user name and password. When you're done, click **Next**.
+     Bir Visual Studio düzeyi abonelikle bir MSDN abone değilseniz, Visual Studio gibi çeşitli diğer görüntüleri içeren bir önceden oluşturulmuş Azure sanal makine oluşturabilirsiniz. Daha fazla bilgi için bkz: [bir sanal makine Visual Studio kullanarak görüntüleri Visual Studio 2013 galeri görüntüsü tarafından MSDN aboneleri için oluşturmak](http://visualstudio2013msdngalleryimage.azurewebsites.net) ve [MSDN Abonelikleri](https://www.visualstudio.com/products/msdn-subscriptions-vs). |
+5. Üzerinde **sanal makine temel ayarları** sayfasında, bir makine adı girin ve ardından boyutu ve bir kullanıcı adı ve parola gibi sanal makinenin özelliklerini ekleyin. İşiniz bittiğinde tıklatın **sonraki**.
    
-    You’ll use the new name and password to log into the machine using remote desktop, so it’s a good idea to write them down in case you forget. After you create an Azure virtual machine in Visual Studio, you can change its size and other settings in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
-   
-   > [!NOTE]
-   > If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
-   > 
-   > 
-6. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don’t already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Introduction to Microsoft Azure Storage](../articles/storage/common/storage-introduction.md) for more information.
-7. If you want to specify a virtual network (which is optional), select it in the Virtual Network and Subnet dropdown list boxes.
-   
-    Virtual machines that are members of an availability set are deployed to different fault domains. See [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) for more information.
-8. If you want your virtual machine to belong to an availability set (also optional), select the **Specify an availability set** check box and then choose an availability set in the dropdown list box. When you're done, choose the **Next** button.
-   
-    Adding your virtual machine to an availability set helps your application stay available during network failures, local disk hardware failures, and any planned downtime. You need to use the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103) to create virtual networks, subnets, and availability sets. See [Manage the Availability of Virtual Machines](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) for more information.
-9. On the **Endpoints** page, specify the public endpoints that you want available to users of your virtual machine. For example, you might choose to enable HTTP (Port 80) in addition to the Remote Desktop and PowerShell endpoints, which are enabled by default. To add an endpoint, choose one in the **Port Name** dropdown list box and then choose the **Add** button. To remove an endpoint, choose the red **X** next to the name in the endpoints list.
-   
-    ![The Endpoints page in the virtual machines wizard.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
-   
-    The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
+    Unutmanız durumunda bunları not almanız iyi bir fikirdir Uzak Masaüstü'nü kullanarak makinede oturum için yeni bir ad ve parolayı kullanacaksınız. Visual Studio'da bir Azure sanal makine oluşturduktan sonra boyutuna ve diğer ayarları değiştirebilirsiniz [Azure Yönetim Portalı](http://go.microsoft.com/fwlink/?LinkID=253103).
    
    > [!NOTE]
-   > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
+   > Sanal makine için daha büyük boyutları seçerseniz, ek ücretleri uygulanabilir. Bkz: [sanal makineler fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/virtual-machines/) daha fazla bilgi için.
    > 
    > 
-10. After you’re done configuring the virtual machine settings, choose the **Create** button to create the virtual machine.
+6. Visual Studio'da oluşturulan sanal makineler bir bulut hizmeti gerektirir. Üzerinde **bulut hizmeti ayarlarını** sayfasında, sanal makine için bir bulut hizmeti seçin veya tıklatın **< Yeni Oluştur... >** aşağı açılan listesine bir bulut hizmeti veya yeni bir tane kullanmak istediğiniz zaten yoksa. Bir depolama hesabı de gereklidir, böylece bir depolama hesabı seçin (veya yeni bir depolama hesabı oluşturun) içinde **depolama hesabı** açılır liste kutusu. Bkz: [Microsoft Azure Storage'a giriş](../articles/storage/common/storage-introduction.md) daha fazla bilgi için.
+7. (İsteğe bağlı olan) bir sanal ağ belirtmek istiyorsanız, sanal ağ ve alt açılır liste kutularını seçin.
+   
+    Bir kullanılabilirlik kümesi üyesi olan sanal makineleri farklı hata etki alanları için dağıtılır. Bkz: [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) daha fazla bilgi için.
+8. Sanal makinenize bir kullanılabilirlik kümesi (Ayrıca isteğe bağlı) ait olmasını istiyorsanız seçin **belirtin bir kullanılabilirlik kümesi** onay kutusunu işaretleyin ve ardından kullanılabilirlik açılır liste kutusunda kümesi seçin. İşiniz bittiğinde seçin **sonraki** düğmesi.
+   
+    Bir kullanılabilirlik kümesi, sanal makine eklemek, ağ hataları, yerel disk donanım hataları ve planlanan kapalı kalma süresi sırasında kullanılabilir kalmasını uygulamanızı yardımcı olur. Kullanmanız gereken [Azure Yönetim Portalı](http://go.microsoft.com/fwlink/?LinkID=253103) sanal ağlar, alt ağlar ve kullanılabilirlik oluşturmak için ayarlar. Bkz: [sanal makinelerin kullanılabilirliğini yönetme](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) daha fazla bilgi için.
+9. Üzerinde **uç noktaları** sayfasında, sanal makineniz kullanıcıları için kullanılabilir olmasını istediğiniz ortak uç noktalarını belirtin. Örneğin, Uzak Masaüstü'nü ve varsayılan olarak etkin olan PowerShell uç noktaları ek olarak HTTP (bağlantı noktası 80) etkinleştirmeyi seçebilirsiniz. Bir uç noktası eklemek için birinde seçin **bağlantı noktası adı** açılan liste kutusunu ve ardından **Ekle** düğmesi. Bir uç nokta kaldırmak için kırmızı seçin **X** uç noktalar listesinde adının yanındaki.
+   
+    ![Sanal makineler sihirbazındaki uç noktaları sayfası.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
+   
+    Kullanılabilir uç noktaları, sanal makine için seçtiğiniz bulut hizmeti bağlıdır. Bkz: [Azure hizmet uç noktaları](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) daha fazla bilgi için.
+   
+   > [!NOTE]
+   > Ortak uç noktaları Etkinleştirme Hizmetleri, sanal makinenizde Internet'e kullanılabilmesini sağlar. Uç noktaları için ayarı erişim denetim listeleri (ACL'ler) gibi yüklemek ve uç noktaları ve hizmetler, sanal makinede düzgün bir şekilde yapılandırmak emin olun. Bkz: [ayarlamak yukarı uç noktaları için bir sanal makine nasıl](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) daha fazla bilgi için.
+   > 
+   > 
+10. Bitirdikten sonra sanal makine ayarlarını yapılandırma, seçin **oluşturma** düğmesi sanal makine oluşturulamıyor.
     
-     As Azure creates the virtual machine, the **Azure Activity Log** shows the progress of the virtual machine creation operation.
+     Azure sanal makine olarak **Azure etkinlik günlüğü** sanal makine oluşturma işlemi ilerlemesini gösterir.
     
-     ![Virtual machine activity log - in progress.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
+     ![Sanal makine etkinlik günlüğü - sürüyor.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
     
-     To view only virtual machine information, choose the **Virtual Machines** tab in the **Azure Activity Log**.
+     Yalnızca sanal makine bilgilerini görüntülemek için seçin **sanal makineleri** sekmesinde **Azure etkinlik günlüğü**.
     
-     ![Virtual machine activity log - completed.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
+     ![Sanal makine etkinlik günlüğü - tamamlandı.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
     
-     If the operation completes successfully, the new virtual machine appears under the **Virtual Machines** node in Server Explorer. You can log into it by clicking the **Connect using Remote Desktop** shortcut.
+     İşlem başarıyla tamamlanırsa altında yeni bir sanal makine görünür **sanal makineleri** Sunucu Gezgininde. İçine tıklayarak oturum **Uzak Masaüstü kullanarak bağlanmak** kısayol.
     
-     ![Virtual machine appearing in Server Explorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
+     ![Server Explorer'da görünen sanal makine.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 
-## <a name="manage-your-virtual-machines"></a>Manage your virtual machines
-On the virtual machine configuration page, in addition to shutting down, connecting, refreshing, and adding checkpoints to the selected virtual machine, you can also view or change settings for the virtual machine. You can:
+## <a name="manage-your-virtual-machines"></a>Sanal makinelerinizi yönetme
+Sanal makine yapılandırma sayfasında, kapatma, bağlanma, yenileme ve seçilen sanal makine denetim noktaları eklemeyi yanı sıra görüntüleyebilir veya sanal makine ayarlarını değiştirin. Şunları yapabilirsiniz:
 
-* Change the virtual machine size.
-* Select the availability set to use with the virtual machine.
-* Add, remove, or change settings for public endpoints.
-* Add, remove, or configure virtual machine extensions.
-* View information about the disks associated with the virtual machine.
+* Sanal makine boyutunu değiştirin.
+* Sanal makine ile kullanmak üzere ayarlanmış kullanılabilirlik seçin.
+* Ekle, Kaldır veya ortak uç noktaları için ayarları değiştirin.
+* Ekleyin, kaldırın veya sanal makine uzantıları yapılandırın.
+* Sanal makine ile ilişkili disklerle ilgili bilgileri görüntüleyin.
 
-### <a name="view-or-change-virtual-machine-settings"></a>View or change virtual machine settings
-1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
-2. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
+### <a name="view-or-change-virtual-machine-settings"></a>Sanal makine ayarlarını görüntülemek veya değiştirmek
+1. Sunucu Gezgini'nde, sanal makinenizde seçin **Azure sanal makineleri** düğümü.
+2. Kısayol menüsünden seçin **yapılandırma** sanal makine yapılandırma sayfasını görüntülemek için.
    
-    ![The Azure virtual machine configuration page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
-3. View the virtual machine information or change it.
+    ![Azure sanal makine yapılandırma sayfası](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
+3. Sanal makine bilgilerini görüntüleyin veya değiştirin.
 
-### <a name="save-or-restore-the-status-of-your-virtual-machine"></a>Save or restore the status of your virtual machine
-As you configure your virtual machine and install software on it, it's a good idea to regularly save your progress by creating virtual machine checkpoints. A checkpoint is a snapshot, or image, of the current state of your virtual machine. If something goes wrong with the virtual machine, or you want to reconfigure the virtual machine, you can save time by restoring it to a previous checkpoint state rather than starting over from scratch.
+### <a name="save-or-restore-the-status-of-your-virtual-machine"></a>Kaydedin veya sanal makine durumunu geri yükle
+Sanal makinenizi yapılandırmanız ve yazılım üzerinde yükleme gibi sanal makine kontrol noktaları oluşturarak ilerleme durumunuzu düzenli olarak kaydetmek için iyi bir fikirdir. Bir denetim noktası bir anlık görüntüsü veya görüntüsü, sanal makinenin geçerli durumunu ' dir. Bir sanal makineyle yanlış giden veya sanal makine yeniden yapılandırmak isterseniz, üzerinde sıfırdan yerine önceki bir kontrol noktası durumuna geri zaman kazanabilirsiniz.
 
-### <a name="to-create-a-virtual-machine-checkpoint"></a>To create a virtual machine checkpoint
-1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
-2. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
-3. On the configuration page, choose the **Capture Image** button.
+### <a name="to-create-a-virtual-machine-checkpoint"></a>Bir sanal makine kontrol noktası oluşturmak için
+1. Sunucu Gezgini'nde, sanal makinenizde seçin **Azure sanal makineleri** düğümü.
+2. Kısayol menüsünden seçin **yapılandırma** sanal makine yapılandırma sayfasını görüntülemek için.
+3. Yapılandırma sayfasında, **görüntü yakalama** düğmesi.
    
-    ![Azure configuration page capture button](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
+    ![Azure yapılandırma sayfası yakalama düğmesi](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
    
-    The **Capture Virtual Machine** dialog appears.
+    **Sanal makine yakalama** iletişim kutusu görüntülenir.
    
-    ![Azure capture virtual machine dialog box](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
-4. Provide an image label and description. A default label and description are provided, but you can overwrite them with your own if you like.
-5. If you have already run Sysprep on this virtual machine, select the **I have run Sysprep on the virtual machine** box.
+    ![Azure yakalama sanal makine iletişim kutusu](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
+4. Bir görüntü etiketi ve açıklama girin. Bir varsayılan etiket ve açıklama sağlanır, ancak bunların kendi isterseniz üzerine yazabilirsiniz.
+5. Bu sanal makinede Sysprep zaten çalıştırdıysanız seçin **sanal makinede Sysprep'i çalıştırdım** kutusu.
    
-    Sysprep is a tool that, among other things, removes systems-specific data from the virtual machine’s version of Windows, making it template that others can use. See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for more information. Back up the VM before running Sysprep.
-6. After you’re done configuring the capture settings, choose the **Capture** button to create the checkpoint.
+    Sysprep, başka şeylerin sistemleri özgü verileri sanal makinenin diğer kullanabileceğiniz şablonu kolaylaştırarak Windows sürümünden kaldıran bir araçtır. Bkz: [Windows sanal makinesi şablon olarak kullanmak için yakalama](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) daha fazla bilgi için. VM yedeklemesi, Sysprep çalıştırılmadan önce yedekleyin.
+6. Bitirdikten sonra yakalama ayarlarını yapılandırma, seçin **yakalama** kontrol noktası oluşturmak için düğmesi.
    
-    As Azure creates the checkpoint, the **Azure Activity Log** shows the progress of the operation.
+    Azure denetim noktası olarak **Azure etkinlik günlüğü** işlemin ilerlemesini gösterir.
    
-    ![Capturing a virtual machine checkpoint](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
+    ![Bir sanal makine denetim noktası yakalama](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
    
-    When the checkpoint operation completes, you’ll see it in the **Azure Activity Log**.
+    Denetim noktası işlemi tamamlandığında içinde görürsünüz **Azure etkinlik günlüğü**.
    
-    ![Checkpoint operation completed](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
+    ![Denetim noktası işlemi tamamlandı](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
 
-## <a name="to-manage-virtual-machine-checkpoints"></a>To manage virtual machine checkpoints
-### <a name="to-restore-a-virtual-machine-to-a-previously-saved-state"></a>To restore a virtual machine to a previously saved state
-* Follow the steps outlined in [Step-by-Step: Perform Cloud Restores of Microsoft Azure Virtual Machines using PowerShell - Part 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
+## <a name="to-manage-virtual-machine-checkpoints"></a>Sanal makine kontrol noktaları yönetmek için
+### <a name="to-restore-a-virtual-machine-to-a-previously-saved-state"></a>Bir sanal makine daha önce kaydedilen bir duruma geri yüklemek için
+* Özetlenen adımları izleyin [adım adım: gerçekleştirmek bulut geri yükler, Microsoft Azure PowerShell - 2. parça kullanarak sanal makineleri](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
 
-### <a name="to-delete-a-checkpoint"></a>To delete a checkpoint
-1. Go to the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
-2. On the virtual machine configuration page, choose the **Images** tab at the top of the page.
-3. Choose the checkpoint you want to delete, and then choose the **Delete**  button at the bottom of the page.
+### <a name="to-delete-a-checkpoint"></a>Bir kontrol noktasını silmek için
+1. Git [Azure Yönetim Portalı](http://go.microsoft.com/fwlink/?LinkID=253103).
+2. Sanal makinenin yapılandırma sayfasında, **görüntüleri** sayfanın üst kısmındaki sekme.
+3. Silin ve ardından istediğiniz kontrol noktasını seçin **silmek** altındaki sayfasının düğmesini.
 
-## <a name="shut-down-your-virtual-machine"></a>Shut down your virtual machine
-1. In Server Explorer, choose the virtual machine you want to shut down in the **Azure Virtual Machines** node.
-2. On the shortcut menu, either choose the **Shutdown** command, or choose **Configure** to view the virtual machine configuration page, and then choose the **Shutdown** button.
+## <a name="shut-down-your-virtual-machine"></a>Sanal makineyi Kapat
+1. Sunucu Gezgini'nde, kapatmak istediğiniz sanal makineyi seçin **Azure sanal makineleri** düğümü.
+2. Kısayol menüsünden seçin **kapatma** komutu ya da seçin **yapılandırma** sanal makine yapılandırma sayfasını görüntüleyin ve seçin **kapatma** düğmesi.
 
-## <a name="next-steps"></a>Next steps
-To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual machine running Windows in the Azure preview portal](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="next-steps"></a>Sonraki adımlar
+Sanal makineler oluşturma hakkında daha fazla bilgi için bkz: [çalıştıran bir sanal makine Linux oluşturma](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ve [Azure Önizleme Portalı'nda Windows çalıştıran bir sanal makine oluşturma](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

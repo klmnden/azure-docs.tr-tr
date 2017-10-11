@@ -1,28 +1,28 @@
 
 <!--author=SharS last changed: 11/04/15-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>To add or modify a StorSimple backup schedule
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
-2. In the tabular listing of the policies, select and click the policy that you want to edit.
-3. Under **General**, you can modify the backup policy name.
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Eklemek veya bir StorSimple yedekleme zamanlamasını değiştirmek için
+1. Cihazın **Hızlı Başlangıç** sayfasında **Yedekleme İlkeleri** sekmesine tıklayın. Bunun yapılması sizi **Yedekleme İlkeleri** sayfasına götürür.
+2. İlkeleri Tablo listesi, seçin ve düzenlemek istediğiniz ilkeye tıklayın.
+3. Altında **genel**, yedekleme ilkesi adının değiştirebilirsiniz.
    
-     ![manage schedules](./media/storsimple-add-modify-backup-schedule-u2/AddModifyGeneral.png)
-4. Click **Manage Schedules**. 
-5. In the **Manage Schedule** dialog box, under **Add or Modify a schedule**, do the following:
+     ![Zamanlamaları Yönet](./media/storsimple-add-modify-backup-schedule-u2/AddModifyGeneral.png)
+4. Tıklatın **zamanlamalarını yönetmek**. 
+5. İçinde **yönetmek zamanlama** iletişim kutusunda **eklemek veya bir zamanlamayı değiştirmek**, aşağıdakileri yapın:
    
-   1. From the drop-down list, choose an existing schedule or select **Add** to create a new schedule.
-   2. Click the check icon ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png). 
+   1. Aşağı açılan listeden mevcut bir zamanlamayı seçin veya seçin **Ekle** yeni bir zamanlama oluşturmak için.
+   2. Onay simgesine tıklayarak ![zamanlamaları 1 değiştirme](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png). 
       
-       ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify1.png)
-   3. Select the type of backup as local or cloud snapshot.
+       ![zamanlamaları 1 değiştirme](./media/storsimple-add-modify-backup-schedule-u2/AddModify1.png)
+   3. Yerel olarak yedekleme veya Bulut anlık görüntüsü türünü seçin.
       
-       ![modify schedules 1](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png) 
-   4. Specify the backup frequency, retention, and starting time for the schedule.
-   5. Select the check box to enable or disable the schedule.
-   6. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) to save the schedule.
-6. In the **Volumes** section, choose the volumes that this policy will be applied to.
-7. At the bottom of the page, click **Save** to save the changes to this policy.
-8. You will prompted for confirmation. Click **Yes** to save the policy.
+       ![zamanlamaları 1 değiştirme](./media/storsimple-add-modify-backup-schedule-u2/AddModify2.png) 
+   4. Yedekleme sıklığını, bekletme ve zamanlama için başlangıç saatini belirtin.
+   5. Etkinleştirmek veya zamanlamasını devre dışı bırakmak için onay kutusunu seçin.
+   6. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-add-modify-backup-schedule-u2/HCS_CheckIcon-include.png) Zamanlamayı kaydetmek için.
+6. İçinde **birimleri** bölümünde, bu ilkenin uygulanacağı birimleri seçin.
+7. Sayfanın alt kısmındaki tıklatın **kaydetmek** Bu ilke değişiklikleri kaydetmek için.
+8. Size onayınız istenir. Tıklatın **Evet** ilkeyi kaydedin.
 
-The **Backup Policies** page will be updated to save the changes to the policy.
+**Yedekleme ilkeleri** sayfası, ilkeyi değişiklikleri kaydetmek için güncelleştirilir.
 

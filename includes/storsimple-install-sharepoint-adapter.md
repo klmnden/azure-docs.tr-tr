@@ -1,20 +1,20 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>To install the StorSimple Adapter for SharePoint
-1. Copy the installer to the web front end (WFE) server that is also configured to run the SharePoint Central Administration web application. 
-2. Use an account with administrator privileges to log on to the WFE server.
-3. Double-click the installer. The StorSimple Adapter for SharePoint Setup Wizard starts. Click **Next** to begin the installation.
+#### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>SharePoint için StorSimple bağdaştırıcısı yüklemek için
+1. Yükleyici, aynı zamanda SharePoint Yönetim Merkezi web uygulamasını çalıştırmak için yapılandırılmış olan web front end (WFE) sunucusuna kopyalayın. 
+2. WFE sunucusuna oturum açmak için yönetici ayrıcalıklarına sahip bir hesap kullanın.
+3. Yükleyici çift tıklayın. StorSimple bağdaştırıcısı için SharePoint Kurulum Sihirbazı'nı başlatır. Tıklatın **sonraki** yüklemeyi başlatmak için.
    
-    ![StorSimple adapter setup start page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)
-4. In the StorSimple Adapter for SharePoint setup configuration page, select an installation location, type the IP address for the DATA 0 network interface on your StorSimple device, and then click **Next**. 
+    ![StorSimple bağdaştırıcısı Kurulum başlangıç sayfası](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)
+4. İçinde StorSimple bağdaştırıcısı SharePoint Kurulum Yapılandırması sayfası için bir yükleme konumu seçin, StorSimple Cihazınızda veri 0 ağ arabirimi için IP adresini yazın ve ardından **sonraki**. 
    
-    ![StorSimple adapter setup configuration page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup2-include.png) 
-5. In the setup confirmation page, click **Install**.
+    ![StorSimple bağdaştırıcısı Kurulum Yapılandırması sayfası](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup2-include.png) 
+5. Kurulum onay sayfası tıklatın **yükleme**.
    
-    ![StorSimple adapter setup confirmation page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Confirm_Setup-include.png) 
-6. Click **Finish** to close the Setup Wizard.
+    ![StorSimple bağdaştırıcısı kurulum onay sayfası](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Confirm_Setup-include.png) 
+6. Tıklatın **son** Kurulum Sihirbazı'nı kapatın.
    
-    ![StorSimple adapter setup finished page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png) 
-7. Open the SharePoint Central Administration page. You should see a StorSimple Configuration group that contains the StorSimple Adapter for SharePoint links.
-8. Go to the next step: [Configure RBS](#configure-rbs).
+    ![StorSimple bağdaştırıcısı Kurulum Tamamlandı sayfası](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png) 
+7. SharePoint Merkezi Yönetim sayfasını açın. SharePoint bağlantıları için StorSimple bağdaştırıcısı içeren bir StorSimple yapılandırma grubu görmeniz gerekir.
+8. Sonraki adıma gidin: [yapılandırma KKY](#configure-rbs).
 

@@ -1,8 +1,8 @@
 
-| Resource | Default limit |
+| Kaynak | Varsayılan limit |
 | --- | --- |
-| Zones per subscription |100 <sup>1</sup> |
-| Record sets per zone |5000 <sup>1</sup> |
-| Records per record set |20 |
+| Abonelik başına bölgeleri |100 <sup>1</sup> |
+| Her bölge için kayıt kümeleri |5000 <sup>1</sup> |
+| Kayıt kümesi başına kayıt |20 |
 
-<sup>1</sup> Contact Azure Support in case you need to increase these limits.
+<sup>1</sup> durumda bu sınırları artırmak için Azure Destek birimine başvurun.

@@ -1,19 +1,19 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>To add or modify a StorSimple backup schedule
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Eklemek veya bir StorSimple yedekleme zamanlamasını değiştirmek için
 
-1. Go to your StorSimple device and click **Backup policy**.
+1. StorSimple cihazınıza gidin ve **Yedekleme ilkesi**’ne tıklayın.
 
-2. In the tabular listing of the policies, select and click the policy that you want to modify. Right-click to invoke the context menu and then select **Add schedule**.
+2. İlkeleri Tablo listesi, seçin ve değiştirmek istediğiniz ilkeye tıklayın. Bağlam menüsü çağırma ve ardından sağ tıklatıp **Ekle zamanlama**.
 
-    ![manage schedules](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
+    ![Zamanlamaları Yönet](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
 
-3. In the **Add schedule** blade, modify the snapshot type, backup frequency, retention, and start date and time. Click **Add**.
+3. İçinde **Ekle zamanlama** dikey penceresinde, değiştirme anlık görüntü türü, yedekleme sıklığını, bekletme ve başlangıç tarihi ve saati. **Ekle**'ye tıklayın.
 
-    ![manage schedules](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
+    ![Zamanlamaları Yönet](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 
-4. You are notified when the backup policy creation is complete. The backup policy list is also updated.
+4. Yedekleme ilkesi oluşturma işlemi tamamlandığında size bildirilir. Yedekleme ilkesi listesi de güncelleştirilir.
 
-    ![manage schedules](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
+    ![Zamanlamaları Yönet](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
 

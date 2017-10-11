@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 Log Analytics toplanan veri miktarı, verileri hangi bilgisayarların gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Log Analytics hizmetine gönderilen veri miktarını görmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
@@ -173,4 +172,3 @@ Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefle
 * [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) değiştirin
 * [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) değiştirin
 * [Syslog yapılandırmasını](log-analytics-data-sources-syslog.md) değiştirin
-

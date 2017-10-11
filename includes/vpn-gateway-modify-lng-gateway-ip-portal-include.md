@@ -1,32 +1,32 @@
-### <a name="gwipnoconnection"></a> To modify the local network gateway IP address - no gateway connection
+### <a name="gwipnoconnection"></a>Yerel ağ geçidi IP adresi - ağ geçidi bağlantı değiştirmek için
 
-Use the example to modify a local network gateway that does not have a gateway connection. When modifying this value, you can also modify the address prefixes at the same time.
+Ağ geçidi bağlantısı olmayan bir yerel ağ geçidini değiştirmek için örneği kullanın. Bu değeri değiştirirken aynı zamanda adres ön eklerini de değiştirebilirsiniz.
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. In the **IP address** box, modify the IP address.
-3. Click **Save** to save the settings.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
+2. İçinde **IP adresi** kutusunda, IP adresini değiştirin.
+3. Tıklatın **kaydetmek** ayarları kaydetmek için.
 
-### <a name="gwipwithconnection"></a>To modify the local network gateway gateway IP address - existing gateway connection
+### <a name="gwipwithconnection"></a>Var olan ağ geçidi bağlantısı yerel ağ geçidi ağ geçidi IP adresi - değiştirmek için
 
-To modify a local network gateway that has a connection, you need to first remove the connection. After the connection is removed, you can modify the gateway IP address and recreate a new connection. You can also modify the address prefixes at the same time. This results in some downtime for your VPN connection. When modifying the gateway IP address, you don't need to delete the VPN gateway. You only need to remove the connection.
+Bir bağlantısı olan bir yerel ağ geçidi değiştirmek için önce bağlantıyı kaldırmanız gerekir. Bağlantı kaldırıldıktan sonra ağ geçidi IP adresini değiştirebilir ve yeni bir bağlantı oluşturabilirsiniz. Aynı zamanda adres ön eklerini de değiştirebilirsiniz. Bunun sonucunda, VPN bağlantınızda kesinti oluşur. Ağ geçidi IP adresini değiştirirken, VPN ağ geçidini silmeniz gerekmez. Yalnızca bağlantıyı kaldırmanız gerekir.
  
-#### <a name="1-remove-the-connection"></a>1. Remove the connection.
+#### <a name="1-remove-the-connection"></a>1. Bağlantıyı kaldırın.
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Connections**.
-2. Click the **...** on the line for the connection, then click **Delete**.
-3. Click **Save** to save your settings.
+1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **bağlantıları**.
+2. Tıklatın **...**  bağlantı için satırda ardından **silmek**.
+3. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
 
-#### <a name="2-modify-the-ip-address"></a>2. Modify the IP address.
+#### <a name="2-modify-the-ip-address"></a>2. IP adresini değiştirin.
 
-You can also modify the address prefixes at the same time.
+Aynı zamanda adres ön eklerini de değiştirebilirsiniz.
 
-1. In the **IP address** box, modify the IP address.
-2. Click **Save** to save the settings.
+1. İçinde **IP adresi** kutusunda, IP adresini değiştirin.
+2. Tıklatın **kaydetmek** ayarları kaydetmek için.
 
-#### <a name="3-recreate-the-connection"></a>3. Recreate the connection.
+#### <a name="3-recreate-the-connection"></a>3. Bağlantısını yeniden oluşturun.
 
-1. Navigate to the Virtual Network Gateway for your VNet. (Not the Local Network Gateway.)
-2. On the Virtual Network Gateway, in the **Settings** section, click **Connections**.
-3. Click the **+ Add** to open the **Add connection** blade.
-4. Recreate your connection.
-5. Click **OK** to create the connection.
+1. Sanal ağ geçidi için sanal ağınızı gidin. (Olmayan yerel ağ geçidi.)
+2. Sanal ağ geçidi olarak **ayarları** 'yi tıklatın **bağlantıları**.
+3. Tıklatın **+ Ekle** açmak için **Bağlantı Ekle** dikey.
+4. Bağlantınızı yeniden oluşturun.
+5. Tıklatın **Tamam** bağlantı oluşturmak için.

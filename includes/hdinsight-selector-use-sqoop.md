@@ -1,5 +1,5 @@
 > [!div class="op_single_selector"]
-> * [Overview](../articles/hdinsight/hdinsight-use-sqoop.md)
+> * [Genel Bakış](../articles/hdinsight/hdinsight-use-sqoop.md)
 > * [SSH](../articles/hdinsight/hdinsight-use-sqoop-mac-linux.md)
 > * [Curl](../articles/hdinsight/hdinsight-hadoop-use-sqoop-curl.md)
 > * [PowerShell](../articles/hdinsight/hdinsight-hadoop-use-sqoop-powershell.md)

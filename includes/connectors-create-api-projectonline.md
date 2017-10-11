@@ -1,16 +1,16 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) account 
+### <a name="prerequisites"></a>Ön koşullar
+* A [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) hesabı 
 
-Before you can use your ProjectOnline account in a Logic app, you must authorize the Logic app to connect to your ProjectOnline account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Bir mantıksal uygulama ProjectOnline hesabınızı kullanabilmeniz için önce ProjectOnline hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
 
-Here are the steps to authorize your Logic app to connect to your ProjectOnline account:
+Mantıksal uygulamanızı ProjectOnline hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
 
-1. To create a connection to ProjectOnline, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *ProjectOnline* in the search box. Select the trigger or action you'll like to use:  
-   ![ProjectOnline step 1](./media/connectors-create-api-projectonline/projectonline-1.png)
-2. If you haven't created any connections to ProjectOnline before, you'll get prompted to provide your ProjectOnline credentials. These credentials will be used to authorize your Logic app to connect to, and access your ProjectOnline account's data:  
-   ![ProjectOnline step 2](./media/connectors-create-api-projectonline/projectonline-2.png)
-3. Provide your ProjectOnline user name and password to authorize your Logic app:  
-   ![ProjectOnline step 3](./media/connectors-create-api-projectonline/projectonline-3.png)   
-4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![ProjectOnline step 4](./media/connectors-create-api-projectonline/projectonline-4.png)   
+1. Mantıksal Uygulama Tasarımcısı'nda ProjectOnline, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *ProjectOnline* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+   ![Adım 1'in ProjectOnline](./media/connectors-create-api-projectonline/projectonline-1.png)
+2. Önce ProjectOnline bağlantılarına oluşturmadıysanız, ProjectOnline kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve ProjectOnline hesabınızın veri erişim:  
+   ![ProjectOnline adım 2](./media/connectors-create-api-projectonline/projectonline-2.png)
+3. ProjectOnline kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
+   ![Adım 3'in ProjectOnline](./media/connectors-create-api-projectonline/projectonline-3.png)   
+4. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+   ![ProjectOnline adım 4](./media/connectors-create-api-projectonline/projectonline-4.png)   
 

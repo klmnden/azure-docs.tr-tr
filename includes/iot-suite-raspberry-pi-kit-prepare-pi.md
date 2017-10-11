@@ -1,85 +1,85 @@
-## <a name="prepare-your-raspberry-pi"></a>Prepare your Raspberry Pi
+## <a name="prepare-your-raspberry-pi"></a>Böğürtlenli Pi hazırlama
 
-### <a name="install-raspbian"></a>Install Raspbian
+### <a name="install-raspbian"></a>Raspbian yükleyin
 
-If this is the first time you are using your Raspberry Pi, you need to install the Raspbian operating system using NOOBS on the SD card included in the kit. The [Raspberry Pi Software Guide][lnk-install-raspbian] describes how to install an operating system on your Raspberry Pi. This tutorial assumes you have installed the Raspbian operating system on your Raspberry Pi.
+Raspberry Pi'yi kullanarak ilk kez kullanıyorsanız Seti'nde bulunan SD kart üzerinde NOOBS kullanarak Raspbian işletim sistemini yüklemeniz gerekir. [Raspberry Pi yazılım Kılavuzu] [ lnk-install-raspbian] , Raspberry Pi'yi bir işletim sistemi yüklemeyi açıklar. Bu öğretici, Raspberry Pi'yi Raspbian işletim sisteminin yüklü olduğu varsayılır.
 
 > [!NOTE]
-> The SD card included in the [Microsoft Azure IoT Starter Kit for Raspberry Pi 3][lnk-starter-kits] already has NOOBS installed. You can boot the Raspberry Pi from this card and choose to install the Raspbian OS.
+> Dahil SD kart [Raspberry Pi 3 için Microsoft Azure IOT Starter Kit] [ lnk-starter-kits] yüklü NOOBS zaten. Bu kartından Raspberry Pi'yi önyükleme ve Raspbian işletim sistemi yüklemek seçin.
 
-### <a name="set-up-the-hardware"></a>Set up the hardware
+### <a name="set-up-the-hardware"></a>Donanımı kurma
 
-This tutorial uses the BME280 sensor included in the [Microsoft Azure IoT Starter Kit for Raspberry Pi 3][lnk-starter-kits] to generate telemetry data. It uses an LED to indicate when the Raspberry Pi processes a method invocation from the solution dashboard.
+Bu öğretici dahil BME280 algılayıcı kullanır [Raspberry Pi 3 için Microsoft Azure IOT Starter Kit] [ lnk-starter-kits] telemetri verileri oluşturmak için. Bir LED Raspberry Pi'yi bir yöntem çağırma çözüm panosundan işlediğinde göstermek için kullanır.
 
-The components on the bread board are:
+Ekmek Panosu bileşenleri şunlardır:
 
-- Red LED
-- 220-Ohm resistor (red, red, brown)
-- BME280 sensor
+- Kırmızı ışığı
+- 220 Ohm Direnci (kırmızı, kırmızı, Kahverengi)
+- BME280 algılayıcısı
 
-The following diagram shows how to connect your hardware:
+Aşağıdaki diyagramda, donanım bağlanma gösterilmektedir:
 
-![Hardware setup for Raspberry Pi][img-connection-diagram]
+![Raspberry Pi'yi için donanım Kurulumu][img-connection-diagram]
 
-The following table summarizes the connections from the Raspberry Pi to the components on the breadboard:
+Aşağıdaki tabloda Raspberry Pi'yi bağlantılarından breadboard bileşenleri için özetlenmiştir:
 
-| Raspberry Pi            | Breadboard             |Color         |
+| Raspberry Pi            | Breadboard             |Renk         |
 | ----------------------- | ---------------------- | ------------- |
-| GND (Pin 14)            | LED -ve pin (18A)      | Purple          |
-| GPCLK0 (Pin 7)          | Resistor (25A)         | Orange          |
-| SPI_CE0 (Pin 24)        | CS (39A)               | Blue          |
-| SPI_SCLK (Pin 23)       | SCK (36A)              | Yellow        |
-| SPI_MISO (Pin 21)       | SDO (37A)              | White         |
-| SPI_MOSI (Pin 19)       | SDI (38A)              | Green         |
-| GND (Pin 6)             | GND (35A)              | Black         |
-| 3.3 V (Pin 1)           | 3Vo (34A)              | Red           |
+| GND (PIN 14)            | LED - ve PIN (18A)      | Mor          |
+| GPCLK0 (PIN 7)          | Direnç (25A)         | Orange          |
+| SPI_CE0 (PIN 24)        | CS (39A)               | Mavi          |
+| SPI_SCLK (PIN 23)       | SCK (36A)              | Sarı        |
+| SPI_MISO (PIN 21)       | SDO (37A)              | Beyaz         |
+| SPI_MOSI (PIN 19)       | SDI (38A)              | Yeşil         |
+| GND (PIN 6)             | GND (35A)              | Siyah         |
+| 3.3 V (PIN 1)           | 3Vo (34A)              | Kırmızı           |
 
-To complete the hardware setup, you need to:
+Donanım kurulumu tamamlamak için aktarmanız gerekir:
 
-- Connect your Raspberry Pi to the power supply included in the kit.
-- Connect your Raspberry Pi to your network using the Ethernet cable included in your kit. Alternatively, you can set up [Wireless Connectivity][lnk-pi-wireless] for your Raspberry Pi.
+- Raspberry Pi'yi Seti'nde bulunan güç kaynağı bağlayın.
+- Raspberry Pi'yi kit içinde bulunan Ethernet kablosu kullanarak ağınıza bağlayın. Alternatif olarak, ayarlayabilirsiniz [kablosuz bağlantı] [ lnk-pi-wireless] Raspberry Pi'yi için.
 
-You have now completed the hardware setup of your Raspberry Pi.
+Raspberry Pi'yi donanım Kurulumu tamamladınız.
 
-### <a name="sign-in-and-access-the-terminal"></a>Sign in and access the terminal
+### <a name="sign-in-and-access-the-terminal"></a>Oturum açma ve terminal erişim
 
-You have two options to access a terminal environment on your Raspberry Pi:
+Raspberry Pi'yi terminal ortamda erişmek için iki seçeneğiniz vardır:
 
-- If you have a keyboard and monitor connected to your Raspberry Pi, you can use the Raspbian GUI to access a terminal window.
+- Klavye ve monitör, Raspberry Pi'yi bağlı varsa, bir terminal penceresi erişmek için Raspbian GUI kullanabilirsiniz.
 
-- Access the command line on your Raspberry Pi using SSH from your desktop machine.
+- Masaüstü makinenizden SSH kullanarak, Raspberry Pi'yi komut satırında erişin.
 
-#### <a name="use-a-terminal-window-in-the-gui"></a>Use a terminal Window in the GUI
+#### <a name="use-a-terminal-window-in-the-gui"></a>GUI içinde bir terminal penceresi kullanın
 
-The default credentials for Raspbian are username **pi** and password **raspberry**. In the task bar in the GUI, you can launch the **Terminal** utility using the icon that looks like a monitor.
+Kullanıcı adı Raspbian için varsayılan kimlik bilgileri olan **PI** ve parola **raspberry**. GUI görev çubuğunda, başlatabilirsiniz **Terminal** gibi bir izleyici arar simgesini kullanarak yardımcı programı.
 
-#### <a name="sign-in-with-ssh"></a>Sign in with SSH
+#### <a name="sign-in-with-ssh"></a>Oturum SSH oturum
 
-You can use SSH for command-line access to your Raspberry Pi. The article [SSH (Secure Shell)][lnk-pi-ssh] describes how to configure SSH on your Raspberry Pi, and how to connect from [Windows][lnk-ssh-windows] or [Linux & Mac OS][lnk-ssh-linux].
+SSH, Raspberry Pi'yi komut satırı erişimi için kullanabilirsiniz. Makaleyi [SSH (Secure Shell)] [ lnk-pi-ssh] , Raspberry Pi'yi SSH yapılandırma ve bağlanması açıklar [Windows] [ lnk-ssh-windows] veya [ Linux ve Mac OS][lnk-ssh-linux].
 
-Sign in with username **pi** and password **raspberry**.
+Kullanıcı adıyla oturum **PI** ve parola **raspberry**.
 
-#### <a name="optional-share-a-folder-on-your-raspberry-pi"></a>Optional: Share a folder on your Raspberry Pi
+#### <a name="optional-share-a-folder-on-your-raspberry-pi"></a>İsteğe bağlı: Raspberry Pi'yi üzerinde bir klasör paylaşın
 
-Optionally, you may want to share a folder on your Raspberry Pi with your desktop environment. Sharing a folder enables you to use your preferred desktop text editor (such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime Text](http://www.sublimetext.com/)) to edit files on your Raspberry Pi instead of using `nano` or `vi`.
+İsteğe bağlı olarak, masaüstü ortamınızı ile Raspberry Pi'yi üzerinde bir klasör paylaşın isteyebilirsiniz. Bir klasör paylaşımı sağlar, tercih edilen Masaüstü metin düzenleyicisi kullanın (gibi [Visual Studio Code](https://code.visualstudio.com/) veya [Sublime Text](http://www.sublimetext.com/)) kullanmak yerine, Raspberry Pi'yi dosyalarını düzenlemek için `nano` veya `vi`.
 
-To share a folder with Windows, configure a Samba server on the Raspberry Pi. Alternatively, use the built-in [SFTP](https://www.raspberrypi.org/documentation/remote-access/) server with an SFTP client on your desktop.
+Bir klasörü Windows ile paylaşmak için Samba sunucu üzerinde Raspberry Pi'yi yapılandırın. Alternatif olarak, yerleşik kullanın [SFTP](https://www.raspberrypi.org/documentation/remote-access/) masaüstünüzde SFTP istemci ile sunucu.
 
-### <a name="enable-spi"></a>Enable SPI
+### <a name="enable-spi"></a>SPI etkinleştir
 
-Before you can run the sample application, you must enable the Serial Peripheral Interface (SPI) bus on the Raspberry Pi. The Raspberry Pi communicates with the BME280 sensor device over the SPI bus. Use the following command to edit the configuration file:
+Örnek uygulamayı çalıştırmadan önce seri çevre arabirimi (SPI) veri yoluna Raspberry Pi'yi etkinleştirmeniz gerekir. Raspberry Pi'yi BME280 algılayıcı aygıtla SPI veri yolu üzerinden iletişim kurar. Yapılandırma dosyasını düzenlemek için aşağıdaki komutu kullanın:
 
 ```sh
 sudo nano /boot/config.txt
 ```
 
-Find the line:
+Satırı bulun:
 
 `#dtparam=spi=on`
 
-- To uncomment the line, delete the `#` at the start.
-- Save your changes (**Ctrl-O**, **Enter**) and exit the editor (**Ctrl-X**).
-- To enable SPI, reboot the Raspberry Pi. Rebooting disconnects the terminal, you need to sign in again when the Raspberry Pi restarts:
+- Satırı açıklamadan çıkarın, silinecek `#` başlangıç.
+- Değişikliklerinizi kaydetmek (**Ctrl-O**, **Enter**) ve düzenleyiciden çıkın (**Ctrl-X**).
+- SPI etkinleştirmek için Raspberry Pi'yi yeniden başlatın. Terminal yeniden başlatmadan bağlantısını keser, yeniden Raspberry Pi'yi yeniden başlatıldığında oturum açmanız gerekir:
 
   ```sh
   sudo reboot

@@ -1,65 +1,65 @@
 
 
 
-An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see [Manage the availability of virtual machines][Manage the availability of virtual machines].
+Yardımcı bir kullanılabilirlik kümesi sanal makinelerinizin kapalı kalma süresi sırasında kullanılabilir gibi tutmak bakımı sırasında. Bir kullanılabilirlik kümesinde iki veya daha fazla benzer şekilde yapılandırılmış sanal makine yerleştirme uygulamalar veya sanal makinenize çalışan hizmetleri kullanılabilirliğini sürdürmek için gerekli artıklık oluşturur. Bunun nasıl çalıştığı hakkında daha fazla bilgi için bkz [sanal makinelerin kullanılabilirliğini yönetme][Manage the availability of virtual machines].
 
-It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For details about load-balanced endpoints, see [Load balancing for Azure infrastructure services][Load balancing for Azure infrastructure services].
+Uygulamanızın her zaman verimli bir şekilde kullanılabilir olduğundan ve çalıştığından emin olmak için kullanılabilirlik kümeleri ve Yük Dengeleme uç noktaları kullanmak için en iyi bir uygulamadır. Yük dengeli uç noktalar hakkında daha fazla ayrıntı için bkz: [Yük Dengeleme için Azure altyapı hizmetleri][Load balancing for Azure infrastructure services].
 
-You can add classic virtual machines into an availability set by using one of two options:
+Kullanılabilirlik kümesi iki seçenekten birini kullanarak içine Klasik sanal makineleri ekleyin:
 
-* [Option 1: Create a virtual machine and an availability set at the same time][Option 1: Create a virtual machine and an availability set at the same time]. Then, add new virtual machines to the set when you create those virtual machines.
-* [Option 2: Add an existing virtual machine to an availability set][Option 2: Add an existing virtual machine to an availability set].
+* [Seçenek 1: bir sanal makine kullanılabilirlik aynı anda kümesi oluşturup][Option 1: Create a virtual machine and an availability set at the same time]. Ardından, bu sanal makineleri oluşturduğunuzda, yeni sanal makineler kümeye ekleyin.
+* [Seçenek 2: var olan bir sanal makine bir kullanılabilirlik kümesine ekleme][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
-> In the classic model, virtual machines that you want to put in the same availability set must belong to the same cloud service.
+> Klasik modelde aynı kullanılabilirlik kümesinde yerleştirmek istediğiniz sanal makineleri aynı bulut hizmetine ait olmalıdır.
 > 
 > 
 
-## <a id="createset"> </a>Option 1: Create a virtual machine and an availability set at the same time
-You can use either the Azure portal or Azure PowerShell commands to do this.
+## <a id="createset"></a>Seçenek 1: bir sanal makine ve kullanılabilirlik aynı anda kümesi oluşturma
+Bunu yapmak için Azure portalında veya Azure PowerShell komutlarını kullanabilirsiniz.
 
-To use the Azure portal:
+Azure Portalı'nı kullanmak için:
 
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. On the hub menu, click **+ New**, and then click **Virtual Machine**.
+1. Önceden yapmadıysanız, [Azure portal](https://portal.azure.com)da oturum açın
+2. Hub menüsünde **+ yeni**ve ardından **sanal makine**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
-3. Select the Marketplace virtual machine image you wish to use. You can choose to create a Linux or Windows virtual machine.
-4. For the selected virtual machine, verify that the deployment model is set to **Classic** and then click **Create**
+    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+3. Kullanmak istediğiniz Market sanal makine görüntüsü seçin. Bir Linux veya Windows sanal makine oluşturmak seçebilirsiniz.
+4. Seçili sanal makine için dağıtım modeli değerine ayarlandığını doğrulayın **Klasik** ve ardından **oluştur**
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
-5. Enter a virtual machine name, user name and password (for Windows machines) or SSH public key (for Linux machines). 
-6. Choose the VM size and then click **Select** to continue.
-7. Choose **Optional Configuration > Availability set**, and select the availability set you wish to add the virtual machine to.
+    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
+5. Bir sanal makine adı, kullanıcı adı ve parolası (Windows makineler) veya SSH ortak anahtarı (Linux makinelerde) girin. 
+6. VM boyutunu seçin ve ardından **seçin** devam etmek için.
+7. Seçin **isteğe bağlı yapılandırma > kullanılabilirlik kümesi**, ve sanal makineye eklemek istediğiniz kullanılabilirlik kümesini seçin.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
-8. Review your configuration settings. When you're done, click **Create**.
-9. While Azure creates your virtual machine, you can track the progress under **Virtual Machines** in the hub menu.
+    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
+8. Yapılandırma ayarlarınızı gözden geçirin. İşiniz bittiğinde tıklatın **oluşturma**.
+9. Azure sanal makine oluştururken altında ilerleme durumunu izleyebilirsiniz **sanal makineleri** hub menüsünde.
 
-To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Bir Azure sanal makinesi oluşturmak ve yeni veya var olan kullanılabilirlik kümesine eklemek için Azure PowerShell komutlarını kullanmak için bkz: [oluşturmak ve Windows tabanlı sanal makineleri önceden için Azure PowerShell kullanma](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set
-In the Azure portal, you can add existing classic virtual machines to an existing availability set or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
+## <a id="addmachine"></a>Seçenek 2: var olan bir sanal makine bir kullanılabilirlik kümesine ekleme
+Azure Portal'da, mevcut bir kullanılabilirlik Klasik varolan sanal makinelere veya bunları için yeni bir tane oluşturmak ekleyebilirsiniz. (Sanal makineler aynı kullanılabilirlik kümesindeki aynı bulut hizmetine ait olması gerektiğini aklınızda tutun.) Adımlar neredeyse aynıdır. Azure PowerShell ile sanal makine var olan bir kullanılabilirlik kümesine ekleyebilirsiniz.
 
-1. If you have not already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, click **Virtual Machines (classic)**.
+1. Zaten yapmadıysanız, oturum [Azure portal](https://portal.azure.com).
+2. Hub menüsünde **sanal makineleri (Klasik)**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
-3. From the list of virtual machines, select the name of the virtual machine that you want to add to the set.
-4. Choose **Availability set** from the virtual machine **Settings**.
+    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
+3. Sanal makineler listesinden kümeye eklemek istediğiniz sanal makinenin adını seçin.
+4. Seçin **kullanılabilirlik kümesi** sanal makineden **ayarları**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
-5. Select the availability set you wish to add the virtual machine to. The virtual machine must belong to the same cloud service as the availability set.
+    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
+5. Sanal makineye eklemek istediğiniz kullanılabilirlik kümesi seçin. Sanal makine kullanılabilirlik kümesi aynı bulut hizmetine ait olmalıdır.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
-6. Click **Save**.
+    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
+6. **Kaydet** düğmesine tıklayın.
 
-To use Azure PowerShell commands, open an administrator-level Azure PowerShell session and run the following command. For the placeholders (such as &lt;VmCloudServiceName&gt;), replace everything within the quotes, including the < and > characters, with the correct names.
+Azure PowerShell komutlarını kullanmak için bir yönetici düzeyi Azure PowerShell oturumu açın ve aşağıdaki komutu çalıştırın. Yer tutucuları için (gibi &lt;VmCloudServiceName&gt;), dahil olmak üzere tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri doğru adlara sahip.
 
     Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
 > [!NOTE]
-> The virtual machine might have to be restarted to finish adding it to the availability set.
+> Sanal makine kullanılabilirlik kümesine ekleme işlemini tamamlamak için yeniden başlatılması gerekebilir.
 > 
 > 
 

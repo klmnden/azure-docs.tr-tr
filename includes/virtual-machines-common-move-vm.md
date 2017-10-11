@@ -1,29 +1,29 @@
 
 
-## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Use the portal to move a VM to a different subscription
-You can move a VM and it's associated resources to a different subscription using the portal.
+## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Farklı bir abonelik için bir VM taşımak üzere portalı kullanın
+Bir VM taşıyabilirsiniz ve ilişkili kaynakları Portalı'nı kullanarak farklı bir abonelik için.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Virtual machines** and select the VM you would like to move from the list.
+1. [Azure portalı](https://portal.azure.com) açın.
+2. Tıklatın **Gözat** > **sanal makineleri** ve listeden taşımak istediğiniz VM seçin.
    
-    ![Screenshot of the Essentials section where you click the pencil icon to open the Move resources blade.](./media/virtual-machines-common-move-vm/move-button.png)
-3. In the **Essentials** section, click on the **Change subscription** pencil icon next to the subscription name. The **Move resources** blade will open.
+    ![Ekran Essentials bölümünün burada taşıma kaynaklar dikey penceresini açmak için Kalem simgesine tıklayın.](./media/virtual-machines-common-move-vm/move-button.png)
+3. İçinde **Essentials** bölümünde, tıklayın **değiştirmek abonelik** kalem adının yanındaki simge abonelik. **Taşıma kaynakları** dikey penceresi açılır.
    
-    ![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move.png)
-4. Select each of the resources to move. In most cases, you should move all of the listed optional resources.
-5. Select the **Subscription** where you want the VM to be moved.
-6. Select an existing **Resource group** or type a name to have a new resource group created.
-7. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**.
+    ![Taşıma kaynak dikey penceresinin ekran görüntüsü.](./media/virtual-machines-common-move-vm/move.png)
+4. Her taşımak istediğiniz kaynakları seçin. Çoğu durumda, tüm listelenen isteğe bağlı kaynakları taşımanız gerekir.
+5. Seçin **abonelik** istediğiniz yere taşınmasını VM.
+6. Var olan seçin **kaynak grubu** veya oluşturulan yeni bir kaynak grubu için bir ad yazın.
+7. İşiniz bittiğinde, yeni kaynak kimlikleri oluşturulacak ve bunlar taşındıktan sonra VM ile kullanılması gerektiğini anlamak seçin ardından **Tamam**.
 
-## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Use the portal to move a VM to another resource group
-You can move a VM and it's associated resources to another resource group using the portal.
+## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Bir VM başka bir kaynak grubuna taşımak üzere portalı kullanın
+Bir VM taşıyabilirsiniz ve ilişkili kaynakları Portalı'nı kullanarak başka bir kaynak grubuna.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Resource groups** and select the resource group that contains the VM.
-3. In the **Resource group** blade, select **Move** from the menu.
+1. [Azure portalı](https://portal.azure.com) açın.
+2. Tıklatın **Gözat** > **kaynak grupları** ve VM içeren kaynak grubunu seçin.
+3. İçinde **kaynak grubu** dikey penceresinde, select **taşıma** menüsünde.
    
-    ![Screenshot of the Move button on the Resource groups menu.](./media/virtual-machines-common-move-vm/move-rg.png)
-4. In the **Move resources** blade, select the resources to be moved and then either type an existing resource group name or choose to create a new resource group. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**
+    ![Kaynak grupları menüsünde taşıma düğmesinin Ekran görüntüsü.](./media/virtual-machines-common-move-vm/move-rg.png)
+4. İçinde **taşıma kaynakları** taşınmasına ve ya da var olan bir kaynak türü için kaynakları grup adı veya yeni bir kaynak grubu oluşturmayı seçin dikey penceresinde, seçin. İşiniz bittiğinde, yeni kaynak kimlikleri oluşturulacak ve bunlar taşındıktan sonra VM ile kullanılması gerektiğini anlamak seçin ardından **Tamam**
    
-    ![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move-rg-list.png)
+    ![Taşıma kaynak dikey penceresinin ekran görüntüsü.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 

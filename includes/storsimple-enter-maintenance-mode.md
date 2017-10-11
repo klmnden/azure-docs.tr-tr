@@ -1,12 +1,12 @@
 <!--author=SharS last changed: 12/01/15-->
 
-#### <a name="to-enter-maintenance-mode"></a>To enter Maintenance mode
-1. In the serial console menu, choose option 1, **Log in with full access**.
-2. Type the password. The default password is **Password1**.
-3. At the command prompt, type
+#### <a name="to-enter-maintenance-mode"></a>Bakım modu girmek için
+1. Seri konsol menüsünde seçeneği 1, **oturum oturum tam erişim**.
+2. Parolayı yazın. Varsayılan parola **Parola1**.
+3. Komut istemine yazın
    
      `Enter-HcsMaintenanceMode`
-4. You will see a warning message telling you that Maintenance mode will disrupt all I/O requests and sever the connection to the Azure classic portal, and you will be prompted for confirmation. Type **Y** to enter Maintenance mode.
+4. Bakım modu tüm g/ç istekleri kesintiye ve klasik Azure portalı bağlantısı sever ve onaylamanız istenir bildiren bir uyarı iletisi görürsünüz. Tür **Y** bakım moduna girmek için.
    
-    Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in Maintenance mode.
+    Hem denetleyicileri yeniden başlatılır. Yeniden başlatma tamamlandıktan sonra aygıtın bakım modunda olduğunu gösteren başka bir ileti görüntülenir.
 

@@ -1,27 +1,27 @@
-Follow these steps to install and run MongoDB on a virtual machine running Windows Server.
+Yüklemek ve Windows Server çalıştıran bir sanal makinede MongoDB çalıştırmak için aşağıdaki adımları izleyin.
 
 > [!IMPORTANT]
-> MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment.  For more information, see [Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
+> Kimlik doğrulaması ve IP adresi bağlama gibi MongoDB güvenlik özellikleri varsayılan olarak etkin değildir. Güvenlik özellikleri, MongoDB üretim ortamına dağıtmadan önce etkinleştirilmelidir.  Daha fazla bilgi için bkz: [güvenlik ve kimlik doğrulama](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 >
 >
 
-1. After you've connected to the virtual machine using Remote Desktop, open Internet Explorer from the **Start** menu on the virtual machine.
-2. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon, and finally click the **Sites** button. Add *https://\*.mongodb.org* to the list of trusted sites.
-3. Go to [Downloads - MongoDB](https://www.mongodb.com/download-center#community).
-4. Find the **Current Stable Release** of **Community Server**, select the latest **64-bit** version in the Windows column. Download, then run the MSI installer.
-5. MongoDB is typically installed in C:\Program Files\MongoDB. Search for Environment Variables on the desktop and add the MongoDB binaries path to the PATH variable. For example, you might find the binaries at C:\Program Files\MongoDB\Server\3.4\bin on your machine.
-6. Create MongoDB data and log directories in the data disk (such as drive **F:**) you created in the preceding steps. From **Start**, select **Command Prompt** to open a command prompt window.  Type:
+1. Uzak Masaüstü kullanarak sanal makineye bağlandıktan sonra Internet Explorer'dan açmak **Başlat** sanal makine menüsünde.
+2. Seçin **Araçları** sağ üst köşesinde düğmesini.  İçinde **Internet Seçenekleri**seçin **güvenlik** sekmesini tıklatın ve ardından **Güvenilen siteler** simgesi ve son olarak tıklayın **siteleri** düğmesi. Ekleme *https://\*. mongodb.org* Güvenilen siteler listesine.
+3. Git [yüklemeleri - MongoDB](https://www.mongodb.com/download-center#community).
+4. Bul **geçerli durağan sürümü** , **Community Server**, en son seçin **64-bit** Windows sütununda sürümü. Karşıdan yükle ve MSI yükleyicisi çalıştırın.
+5. MongoDB genellikle C:\Program Files\MongoDB yüklenir. Ortam değişkenleri için masaüstünde arayın ve PATH değişkenine MongoDB ikili dosyalarının yolunu ekleyin. Örneğin, C:\Program Files\MongoDB\Server\3.4\bin ikili dosyaları makinenizde bulabilirsiniz.
+6. MongoDB veri ve günlük dizinleri veri disketi (sürücü gibi **F:**), önceki adımlarda oluşturduğunuz. Gelen **Başlat**seçin **komut istemi** bir komut istemi penceresi açın.  Şunu yazın:
 
         C:\> F:
         F:\> mkdir \MongoData
         F:\> mkdir \MongoLogs
-7. To run the database, run:
+7. Veritabanı çalıştırmak için çalıştırın:
 
         F:\> C:
         C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-    All log messages are directed to the *F:\MongoLogs\mongolog.log* file as mongod.exe server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections. The command prompt stays focused on this task while your MongoDB instance is running.
-8. To start the MongoDB administrative shell, open another command window from **Start** and type the following commands:
+    Tüm günlük iletilerini yönlendirilir *F:\MongoLogs\mongolog.log* dosya mongod.exe sunucu başlar ve günlük dosyalarını preallocates gibi. Günlük dosyaları erişinceye ve bağlantıları dinlemeyi başlatmak MongoDB için birkaç dakika sürebilir. MongoDB örneğinizin çalışırken komut istemini bu görevde odaklanmış kalır.
+8. MongoDB Yönetim Kabuğu'nu başlatmak için başka bir komut penceresinde açın **Başlat** ve aşağıdaki komutları yazın:
 
         C:\> cd \my_mongo_dir\bin  
         C:\my_mongo_dir\bin> mongo  
@@ -36,55 +36,55 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
         ...  
         > help  
 
-    The database is created by the insert.
-9. Alternatively, you can install mongod.exe as a service:
+    Veritabanı Ekle tarafından oluşturulur.
+9. Alternatif olarak, bir hizmet olarak mongod.exe yükleyebilirsiniz:
 
         C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
 
-    A service is installed named MongoDB with a description of "Mongo DB". The `--logpath` option must be used to specify a log file, since the running service does not have a command window to display output.  The `--logappend` option specifies that a restart of the service causes output to append to the existing log file.  The `--dbpath` option specifies the location of the data directory. For more service-related command-line options, see [Service-related command-line options][MongoWindowsSvcOptions].
+    Bir hizmeti yüklendi "Mongo VT" açıklaması ile MongoDB adlı. `--logpath` Seçeneği, çalışan hizmetin çıktı görüntülemek için bir komut penceresi sahip olmadığından bir günlük dosyası belirtmek için kullanılmalıdır.  `--logappend` Seçeneği, hizmet yeniden varolan günlük dosyasına eklenecek çıkışına neden belirtir.  `--dbpath` Seçeneği veri dizininin konumunu belirtir. Daha fazla hizmeti ile ilgili komut satırı seçenekleri için bkz [hizmeti ile ilgili komut satırı seçenekleri][MongoWindowsSvcOptions].
 
-    To start the service, run this command:
+    Hizmeti başlatmak için şu komutu çalıştırın:
 
         C:\> net start MongoDB
-10. Now that MongoDB is installed and running, you need to open a port in Windows Firewall so you can remotely connect to MongoDB.  From the **Start** menu, select **Administrative Tools** and then **Windows Firewall with Advanced Security**.
-11. a) In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
+10. MongoDB yüklü ve çalışan, MongoDB için uzaktan bağlanabilmesi için bir bağlantı noktası Windows Güvenlik Duvarı'nı açmak ihtiyacınız olduğunu.  Gelen **Başlat** menüsünde, select **Yönetimsel Araçlar** ve ardından **Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı**.
+11. bir) sol bölmede seçin **gelen kuralları**.  İçinde **Eylemler** sağdaki seçin bölmesinde **yeni kural...** .
 
-    ![Windows Firewall][Image1]
+    ![Windows Güvenlik Duvarı][Image1]
 
-    b) In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+    b) içinde **yeni gelen kuralı Sihirbazı**seçin **bağlantı noktası** ve ardından **sonraki**.
 
-    ![Windows Firewall][Image2]
+    ![Windows Güvenlik Duvarı][Image2]
 
-    c) Select **TCP** and then **Specific local ports**.  Specify a port of "27017" (the default port MongoDB listens on) and click **Next**.
+    c) select **TCP** ve ardından **belirli yerel bağlantı noktaları**.  ' I tıklatın ve "27017" (MongoDB dinlediği varsayılan bağlantı noktası) bir bağlantı noktası belirtin **sonraki**.
 
-    ![Windows Firewall][Image3]
+    ![Windows Güvenlik Duvarı][Image3]
 
-    d) Select **Allow the connection** and click **Next**.
+    d) select **bağlantıya izin** tıklatıp **sonraki**.
 
-    ![Windows Firewall][Image4]
+    ![Windows Güvenlik Duvarı][Image4]
 
-    e) Click **Next** again.
+    e) tıklatın **sonraki** yeniden.
 
-    ![Windows Firewall][Image5]
+    ![Windows Güvenlik Duvarı][Image5]
 
-    f) Specify a name for the rule, such as "MongoPort", and click **Finish**.
+    f) "MongoPort" gibi kural için bir ad belirtin ve tıklatın **son**.
 
-    ![Windows Firewall][Image6]
+    ![Windows Güvenlik Duvarı][Image6]
 
-12. If you didn't configure an endpoint for MongoDB when you created the virtual machine, you can do it now. You need both the firewall rule and the endpoint to be able to connect to MongoDB remotely.
+12. Sanal makineyi oluşturduğunuzda MongoDB için bir uç nokta yapılandırmadıysanız, bunu şimdi yapabilirsiniz. Güvenlik duvarı kuralı ve uç noktası için MongoDB uzaktan bağlanabilmesi gerekir.
 
-  In the Azure portal, click **Virtual Machines (classic)**, click the name of your new virtual machine, and then click **Endpoints**.
+  Azure portalında tıklatın **sanal makineleri (Klasik)**, yeni bir sanal makine adına tıklayın ve ardından **uç noktaları**.
 
-    ![Endpoints][Image7]
+    ![Uç Noktalar][Image7]
 
-13. Click **Add**.
+13. **Ekle**'ye tıklayın.
 
-14. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". Opening this port allows MongoDB to be accessed remotely.
+14. Protokol "Mongo" adında bir uç nokta ekleyin **TCP**, her ikisi **ortak** ve **özel** bağlantı noktası "27017" ayarlayın. Bu bağlantı noktası açmak, MongoDB uzaktan erişilmesine izin verir.
 
-    ![Endpoints][Image9]
+    ![Uç Noktalar][Image9]
 
 > [!NOTE]
-> The port 27017 is the default port used by MongoDB. You can change this default port by specifying the `--port` parameter when starting the mongod.exe server. Make sure to give the same port number in the firewall and the "Mongo" endpoint in the preceding instructions.
+> Bağlantı noktası 27017 MongoDB tarafından kullanılan varsayılan bağlantı noktasıdır. Bu varsayılan bağlantı noktası belirterek değiştirebileceğiniz `--port` mongod.exe sunucunun başlatırken parametresi. Güvenlik Duvarı'nda aynı bağlantı noktası numarası ve yukarıdaki yönergeleri "Mongo" uç verdiğinizden emin olun.
 >
 >
 

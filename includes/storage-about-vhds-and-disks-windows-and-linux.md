@@ -1,59 +1,59 @@
 
-## <a name="about-vhds"></a>About VHDs
+## <a name="about-vhds"></a>VHD'ler hakkında
 
-The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/common/storage-premium-storage.md).
+Azure’da kullanılan VHD’ler, Azure’daki standart veya premium depolama hesabında sayfa blobları olarak depolanır. Sayfa blobları hakkında bilgi için bkz. [Blok bloblarını ve sayfa bloblarını anlama](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Premium depolama hakkında daha fazla ayrıntı için bkz. [Yüksek performanslı premium depolama ve Azure VM'leri](../articles/storage/common/storage-premium-storage.md).
 
-Azure supports the fixed disk VHD format. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx).
+Azure, sabit bir disk VHD biçimini destekler. Sabit biçim, mantıksal diski dosya içinde doğrusal olarak düzenlediğinden, disk farkı X'in içeriği blob farkı X konumunda depolanır. Blob'un sonundaki küçük bir alt bilgi VHD'nin özelliklerini tanımlar. Çoğunlukla, sabit biçim alanı israf eder, çünkü çoğu diskte kullanılmayan büyük aralıklar vardır. Ancak, Azure .vhd dosyalarını seyrek biçimde depoladığından aynı anda hem sabit hem de dinamik disklerin avantajlarından yararlanırsınız. Daha ayrıntılı bilgi için bkz. [Sanal sabit diskleri kullanmaya başlama](https://technet.microsoft.com/library/dd979539.aspx).
 
-All .vhd files in Azure that you want to use as a source to create disks or images are read-only. When you create a disk or image, Azure makes copies of the .vhd files. These copies can be read-only or read-and-write, depending on how you use the VHD.
+Azure’da disk veya görüntü oluşturmak için kaynak olarak kullanmak istediğiniz tüm .vhd dosyaları salt okunur özelliktedir. Bir disk veya görüntü oluşturduğunuzda, Azure .vhd dosyalarının kopyalarını oluşturur. Bu kopyalar, VHD’yi nasıl kullandığınıza bağlı olarak salt okunur veya okuma-yazma niteliktedir.
 
-When you create a virtual machine from an image, Azure creates a disk for the virtual machine that is a copy of the source .vhd file. To protect against accidental deletion, Azure places a lease on any source .vhd file that’s used to create an image, an operating system disk, or a data disk.
+Bir görüntüden sanal makine oluşturduğunuzda Azure, sanal makine için kaynak .vhd dosyasının kopyası olan bir disk oluşturur. Yanlışlıkla silmeye karşı korumak üzere Azure, bir görüntü, işletim sistemi diski ya da veri diski oluşturmak için kullanılan her kaynak .vhd dosyasına kira koyar.
 
-Before you can delete a source .vhd file, you’ll need to remove the lease by deleting the disk or image. To delete a .vhd file that is being used by a virtual machine as an operating system disk, you can delete the virtual machine, the operating system disk, and the source .vhd file all at once by deleting the virtual machine and deleting all associated disks. However, deleting a .vhd file that’s a source for a data disk requires several steps in a set order. First you detach the disk from the virtual machine, then delete the disk, and then delete the .vhd file.
+Bir kaynak .vhd dosyasını silmeden önce diski veya görüntüyü silerek kirayı kaldırmanız gerekir. Sanal makine tarafından işletim sistemi diski olarak kullanılan bir .vhd dosyasını silmek için, sanal makineyi ve ilişkili tüm diskleri silerek sanal makineyi, işletim sistemi diskini ve kaynak .vhd dosyasını tek seferde silebilirsiniz. Ancak, bir veri diskinin kaynağı olan .vhd dosyasının silinmesi, belirli bir sırada birkaç adımın uygulanmasını gerektirir. İlk olarak, diski sanal makineden ayırın, ardından diski ve sonra .vhd dosyasını silin.
 
 > [!WARNING]
-> If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
+> Kaynak .vhd dosyasını depolama alanından silerseniz veya depolama hesabınızı silerseniz, Microsoft bu verileri kurtaramaz.
 > 
 
-## <a name="types-of-disks"></a>Types of disks 
+## <a name="types-of-disks"></a>Disk türleri 
 
-Azure Disks are designed for 99.999% availability. Azure Disks have consistently delivered enterprise-grade durability, with an industry-leading ZERO% Annualized Failure Rate.
+Azure Diskleri %99,999 kullanılabilirlik sunacak şekilde tasarlanmıştır. Azure diskleri tutarlı bir şekilde endüstri lideri ile Kurumsal düzeyde dayanıklılık sıfır % Annualized hata oranı teslim.
 
-There are two performance tiers for storage that you can choose from when creating your disks -- Standard Storage and Premium Storage. Also, there are two types of disks -- unmanaged and managed -- and they can reside in either performance tier.
+Disklerinizi oluştururken depolama için seçebileceğiniz iki performans katmanı mevcuttur: Standart Depolama ve Premium Depolama. Ayrıca, yönetilmeyen ve yönetilen olmak üzere iki tür disk mevcuttur ve bunlar herhangi bir performans katmanın bulunabilir.
 
 
-### <a name="standard-storage"></a>Standard storage 
+### <a name="standard-storage"></a>Standart depolama 
 
-Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
+Standart Depolama, HDD’ler ile desteklenir ve yüksek performans sunarken uygun maliyetli depolama sağlar. Standart depolama bir veri merkezine yerel olarak çoğaltılabilir veya birincil ve ikincil veri merkezleri ile coğrafi yedekleri olabilir. Depolama çoğaltma hakkında daha fazla bilgi için bkz. [Azure Depolama çoğaltma](../articles/storage/common/storage-redundancy.md). 
 
-For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/storage/common/storage-standard-storage.md).
+VM diskleri ile Standart Depolama kullanma hakkında daha fazla bilgi için lütfen bkz. [Standart Depolama ve Diskler](../articles/storage/common/storage-standard-storage.md).
 
-### <a name="premium-storage"></a>Premium storage 
+### <a name="premium-storage"></a>Premium depolama 
 
-Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, Ls, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/common/storage-premium-storage.md).
+Premium Depolama, SSD’ler ile desteklenir ve G/Ç yoğunluklu iş yükleri için yüksek performanslı, düşük gecikme süresine sahip disk desteği sunar. Premium depolama DS, DSv2, GS, Ls veya FS serisi Azure VM'ler ile kullanabilirsiniz. Daha fazla bilgi için bkz. [Premium Depolama](../articles/storage/common/storage-premium-storage.md).
 
-### <a name="unmanaged-disks"></a>Unmanaged disks
+### <a name="unmanaged-disks"></a>Yönetilmeyen diskler
 
-Unmanaged disks are the traditional type of disks that have been used by VMs. With these, you create your own storage account and specify that storage account when you create the disk. You have to make sure you don't put too many disks in the same storage account, because you could exceed the [scalability targets](../articles/storage/common/storage-scalability-targets.md) of the storage account (20,000 IOPS, for example), resulting in the VMs being throttled. With unmanaged disks, you have to figure out how to maximize the use of one or more storage accounts to get the best performance out of your VMs.
+Yönetilmeyen diskler, VM'ler tarafından kullanılan geleneksel türdeki disklerdir. Bunları kullanarak kendi depolama hesabınızı oluşturabilir ve diski oluştururken bu depolama hesabını belirtebilirsiniz. Depolama hesabının [ölçeklendirme hedeflerini](../articles/storage/common/storage-scalability-targets.md) (örneğin, 20.000 IOPS) aşarak VM’lerin azaltılmasına neden olabileceğinden, aynı depolama hesabına çok fazla disk yerleştirmediğinizden emin olun. Yönetilmeyen disklerde, VM’lerinizden en iyi performansı elde etmek için, bir veya daha fazla depolama hesabının kullanımını nasıl en üst düzeye çıkarabileceğinizi anlamanız gerekir.
 
-### <a name="managed-disks"></a>Managed disks 
+### <a name="managed-disks"></a>Yönetilen diskler 
 
-Managed Disks handles the storage account creation/management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard/Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. 
+Yönetilen Diskler, depolama hesabı oluşturma/yönetme işlemini arka planda gerçekleştirir ve depolama hesabının ölçeklenebilirlik sınırları hakkında endişe etmeniz gerekmez. Azure’un diski oluşturup yönetebilmesi için disk boyutunu ve performans katmanını (Standart/Premium) belirtmeniz yeterlidir. Disk eklediğinizde veya VM ölçeğini artırıp azalttığınızda bile kullanılan depolama alanı konusunda endişelenmeniz gerekmez. 
 
-You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../articles/virtual-machines/windows/managed-disks-overview.md).
+Ayrıca, her Azure bölgesinde bir depolama hesabındaki özel görüntülerinizi yönetebilir ve aynı abonelikte yüzlerce VM oluşturmak için kullanabilirsiniz. Yönetilen Diskler hakkında daha fazla bilgi için bkz. [Yönetilen Disklere Genel Bakış](../articles/virtual-machines/windows/managed-disks-overview.md).
 
-We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks, to take advantage of the many features available in Managed Disks.
+Yeni VM’ler için Azure Yönetilen Diskleri kullanmanız ve Yönetilen Disklerde sunulan çok sayıda özellikten yararlanmak için önceki yönetilmeyen diskleri yönetilen disklere dönüştürmeniz önerilir.
 
-### <a name="disk-comparison"></a>Disk comparison
+### <a name="disk-comparison"></a>Disk karşılaştırması
 
-The following table provides a comparison of Premium vs Standard for both unmanaged and managed disks to help you decide what to use.
+Aşağıdaki tabloda, kullanacağınız seçeneğe karar vermenize yardımcı olmak üzere hem yönetilmeyen hem de yönetilen diskler için Premium ve Standart katmanların karşılaştırması yapılmaktadır.
 
-|    | Azure Premium Disk | Azure Standard Disk |
+|    | Azure Premium Disk | Azure Standart Disk |
 |--- | ------------------ | ------------------- |
-| Disk Type | Solid State Drives (SSD) | Hard Disk Drives (HDD)  |
-| Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment | HDD-based cost effective disk support for Dev/Test VM scenarios |
-| Scenario  | Production and performance sensitive workloads | Dev/Test, non-critical, <br>Infrequent access |
-| Disk Size | P4: 32 GB (Managed Disks only)<br>P6: 64 GB (Managed Disks only)<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Unmanaged Disks: 1 GB – 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
-| Max Throughput per Disk | 250 MB/s | 60 MB/s | 
-| Max IOPS per Disk | 7500 IOPS | 500 IOPS | 
+| Disk Türü | Katı Hal Sürücüleri (SSD) | Sabit Disk Sürücüleri (HDD)  |
+| Genel Bakış  | G/Ç yoğunluklu iş yükleri çalıştıran veya görev açısından kritik üretim ortamı barındıran VM’ler için SSD tabanlı, yüksek performans ve düşük gecikme süresi sunan disk desteği | Geliştirme/Test VM senaryoları için HDD tabanlı, uygun maliyetli disk desteği |
+| Senaryo  | Üretim ve performansa duyarlı iş yükleri | Geliştirme/Test, kritik olmayan, <br>Nadir erişim |
+| Disk Boyutu | P4: 32 GB (yalnızca yönetilen diskleri)<br>P6: 64 GB (yalnızca yönetilen diskleri)<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Yönetilmeyen diskler: 1 GB – 4 TB (4095 GB) <br><br>Yönetilen Diskler:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
+| Disk Başına En Fazla Aktarım Hızı | 250 MB/sn | 60 MB/sn | 
+| Disk başına en fazla IOPS | 7500 IOPS | 500 IOPS | 
 

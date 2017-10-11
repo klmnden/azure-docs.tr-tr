@@ -1,6 +1,6 @@
-## <a name="clean-up-deployment"></a>Clean up deployment 
+## <a name="clean-up-deployment"></a>Dağıtım temizleme 
 
-After the script sample has been run, the follow command can be used to remove the resource group, Azure Redis Cache instance, and any related resources in the resource group.
+Komut dosyası örneği çalıştırdıktan sonra kaynak grubu, Azure Redis önbelleği örneği ve ilgili kaynakları kaynak grubunu kaldırmak için izleme komutu kullanılabilir.
 
 ```azurecli
 az group delete --name contosoGroup

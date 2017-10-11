@@ -1,18 +1,18 @@
-Organizations are using more [Software as a Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) applications for productivity because cloud technology and tools are becoming more readily available. As the number of SaaS apps grows, it becomes challenging for the administrators to manage accounts and access rights, and for the users to remember their different passwords. Managing these applications individually creates extra work and is less secure.
+Kuruluşlar daha kullanıyorsanız [(SaaS) hizmet olarak yazılım](https://azure.microsoft.com/overview/what-is-saas/) üretkenlik uygulamaları için bulut teknolojisi ve araçları olma daha kullanıma hazır. SaaS uygulamaları sayısı arttıkça, yöneticilerin, hesaplarını yönetme ve erişim haklarını ve farklı parolalarını kullanıcılar için hatırlaması zor hale gelir. Bu uygulamalar ayrı ayrı yönetmek ek iş oluşturur ve daha az güvenlidir.
 
-* Employees who have to keep track of many passwords tend to use less-secure methods to remember them, either writing down passwords or using the same passwords across many accounts.
-* When a new employee arrives or one leaves, all their accounts must be individually provisioned or de-provisioned.
-* Additionally, employees may start using SaaS apps for their work without going through IT, which means they are creating their own accounts on systems that the IT administrators haven't approved and aren't monitoring.  
+* Parolalar yazma ya da birçok hesaplarında parolalarla bunları anımsaması daha az güvenli yöntemlerini kullanmayı birçok parolaları izlemek zorunda çalışanlar eğilimi gösterir.
+* Yeni bir çalışan geldiğinde veya bir bırakır, tüm hesaplarına ayrı ayrı sağlanan XML'deki sağlanan veya gerekir.
+* Ayrıca, çalışanların oluşturulmak olmadan çalışmaları için SaaS uygulamalarını kullanarak başlayabilir BT, bunlar oluşturmakta kendi hesaplarını, BT yöneticilerinin onaylamadınız ve izleme olmayan sistemlerde anlamına gelir.  
 
-A solution for all of these challenges is single sign-on (SSO). It's the simplest way to manage multiple apps and provide users with a consistent sign-on experience. Azure Active Directory (Azure AD) provides a robust SSO solution and has many available pre-integrated applications, with tutorials for admins to quickly set up a new app and start provisioning users.
+Bir bu zorluklar tamamı için çoklu oturum açma (SSO) çözümüdür. Birden fazla uygulama yönetin ve kullanıcılara tutarlı bir oturum açma deneyimi ile sağlamak için kolay yoludur. Azure Active Directory (Azure AD) güçlü bir SSO çözüm sağlar ve öğreticileri için hızla yeni bir uygulama ayarlama ve kullanıcıların sağlamaya başlayın admins ile birçok kullanılabilir önceden tümleştirilmiş uygulama sahiptir.
 
-## <a name="how-does-azure-active-directory-integrate-apps"></a>How does Azure Active Directory integrate apps?
-Azure AD allows you to integrate your apps and provisioned accounts. This can be done through either of two approaches.
+## <a name="how-does-azure-active-directory-integrate-apps"></a>Azure Active Directory uygulamaları nasıl tümleştiriliyor?
+Azure AD, uygulamaların ve sağlanan hesapları tümleştirmenize olanak sağlar. Bu da iki yaklaşım yapılabilir.
 
-* If the app is pre-integrated in the app Gallery, you can go through that portal to set up apps and configure the settings to allow SSO. For any Gallery app, you can get started by follow the simple step-by-step instructions presented in the app gallery and in the Azure portal to enable single sign-on.
-* If the app is not in the Gallery, you can still set up most apps in Azure AD as a custom app. This requires a bit more technical expertise to configure. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app.
+* Uygulama Galerisi uygulamada önceden tümleştirilmiş ise, uygulamaları ayarlamak ve SSO izin vermek için ayarları yapılandırmak için bu portalı aracılığıyla gidebilirsiniz. Herhangi bir galeri uygulama için başlama tarafından çoklu oturum açmayı etkinleştirmek için uygulama galerisinde ve Azure portalında sunulan basit adım adım yönergeleri izleyin.
+* Uygulama galerisinde değilse, özel bir uygulama olarak Azure AD hala çoğu uygulamalar ayarlayabilirsiniz. Bu yapılandırma için biraz daha teknik uzmanlığı gerektirir. SAML 2.0 federe bir uygulama olarak destekleyen herhangi bir uygulama veya bir HTML tabanlı oturum açma sayfası bir parola SSO uygulama olarak olduğu herhangi bir uygulama ekleyebilirsiniz.
 
-In the case where users have created their own accounts for SaaS apps that aren't managed by IT, the [Cloud App Discovery](../articles/active-directory/active-directory-cloudappdiscovery-whatis.md) tool provides a solution. This tool monitors the web traffic to identify which apps are being used throughout the organization, and the number of people using each of them. IT can use this information to learn what apps the users prefer and decide which to integrate into Azure AD for SSO.  
+Kullanıcıların kendi hesapları tarafından yönetilmeyen SaaS uygulamaları için oluşturmuş olduğu durumda BT [Cloud App Discovery](../articles/active-directory/active-directory-cloudappdiscovery-whatis.md) aracı, bir çözüm sağlar. Bu araç, hangi uygulamaların kuruluş ve bunların her birini kullanan kişilerin sayısı boyunca kullanılan belirlemek için web trafiği izler. BT kullanıcıların tercih ve SSO için Azure AD ile tümleştirmek karar hangi uygulamaların öğrenmek için bu bilgileri kullanabilirsiniz.  
 
-When you integrate an app into Azure AD, you can map the users' established application identities to their respective Azure AD identities.  
+Bir uygulamayı Azure AD ile tümleştirdiğinizde, kullanıcıların kurulan uygulama kimlikleri kendi ilgili eşleyebilirsiniz Azure AD kimlik.  
 

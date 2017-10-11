@@ -1,12 +1,12 @@
 ## <a name="vpn-gateway"></a>VPN Gateway
-A VPN gateway resource enables you to create a secure connection between their on-premises data center and Azure. A VPN gateway resource can be configured in three different ways:
+Bir VPN ağ geçidi kaynağı kendi şirket içi veri merkezi ve Azure arasında güvenli bir bağlantı oluşturmanıza olanak sağlar. Bir VPN ağ geçidi kaynağı üç farklı şekilde yapılandırılabilir:
 
-* **Point to Site** – you can securely access your Azure resources hosted in a VNET by using a VPN client from any computer. 
-* **Multi-site connection** – you can securely connect from your on-premises data centers to resources running in a VNET. 
-* **VNET to VNET** – you can securely connect across Azure VNETS within the same region, or across regions to build workloads with geo-redundancy.
+* **Noktası siteye** – bir VPN istemcisi herhangi bir bilgisayardan kullanarak sanal ağ içinde barındırılan Azure kaynaklarınızı güvenli bir şekilde erişebilir. 
+* **Çok siteli bağlantı** –, şirket içi veri merkezleri sanal ağ içinde çalışan kaynakları güvenli bir şekilde bağlanabilirsiniz. 
+* **VNET-VNET** – aynı bölge içindeki Azure VNET arasında veya coğrafi yedeklilik ile iş yüklerini oluşturmak için bölgeler arasında güvenli bir şekilde bağlayabilirsiniz.
 
-Key properties of a VPN gateway include:
+Bir VPN ağ geçidi anahtar özellikleri içerir:
 
-* **Gateway type** - dynamically routed or a static routed gateway. 
-* **VPN Client Address Pool Prefix** – IP addresses to be assigned to clients connecting in a point to site configuration.
+* **Ağ geçidi türü** - dinamik olarak yönlendirilmesini veya bir statik ağ geçidi yönlendirilir. 
+* **VPN istemci adresi havuzu ön** – site yapılandırması noktasına bağlanan istemciler için atanan IP adreslerinin.
 

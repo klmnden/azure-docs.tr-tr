@@ -11,7 +11,7 @@ Mobile Engagement’ın sizin adınıza Anında İletme Bildirimleri göndermesi
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Uygulamanıza bildirim gönderme
+## <a id="send"></a>Uygulamanıza bildirim gönderme
 Şimdi de, uygulamamıza Anında İletme Bildirimi gönderecek basit bir bildirim kampanyası oluşturacağız:
 
 1. Mobile Engagement portalınızın **erişim** sekmesine gidin.
@@ -39,9 +39,4 @@ Mobile Engagement’ın sizin adınıza Anında İletme Bildirimleri göndermesi
 8. Bu iOS cihazıyla eşleştirilmiş bir Apple Watch’unuz varsa, Apple Watch’unuzda bildirimi görürsünüz:
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

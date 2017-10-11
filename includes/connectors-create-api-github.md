@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [GitHub](http://GitHub.com) account 
+### <a name="prerequisites"></a>Ön koşullar
+* A [GitHub](http://GitHub.com) hesabı 
 
-Before you can use your GitHub account in a Logic app, you must authorize the Logic app to connect to your GitHub account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Bir mantıksal uygulama, GitHub hesabınızda kullanmadan önce GitHub hesabınızda bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
 
-Here are the steps to authorize your Logic app to connect to your GitHub account:
+Mantıksal uygulamanızı GitHub hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
 
-1. To create a connection to GitHub, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *GitHub* in the search box. Select the trigger or action you'll like to use:  
+1. Mantıksal Uygulama Tasarımcısı'nda GitHub, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *GitHub* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
    ![](./media/connectors-create-api-github/github-1.png)
-2. If you haven't created any connections to GitHub before, you'll get prompted to provide your GitHub credentials. These credentials will be used to authorize your Logic app to connect to, and access your GitHub account's data:  
+2. GitHub önce bağlantılarına oluşturmadıysanız, GitHub kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve GitHub hesabınızın veri erişim:  
    ![](./media/connectors-create-api-github/github-2.png)
-3. Provide your GitHub user name and password to authorize your Logic app:  
+3. GitHub kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
    ![](./media/connectors-create-api-github/github-3.png)   
-4. Confirm your intentions:  
+4. Amaçları onaylayın:  
    ![](./media/connectors-create-api-github/github-4.png)   
-5. Notice the connection has been created in the portal. You can now proceed with creating your Logic app and using GitHub in it:   
+5. Bağlantı portalda oluşturulan dikkat edin. Şimdi mantıksal uygulama oluşturma ve GitHub kullanmaya devam edebilirsiniz:   
    ![](./media/connectors-create-api-github/github-5.png)   
 

@@ -1,5 +1,5 @@
 ---
-title: "CSV dosyasından Azure SQL Veritabanı’na veri yükleme (bcp) | Microsoft Belgeleri"
+title: "Veri yükleme CSV dosyasından Azure SQL veritabanına (bcp) | Microsoft Docs"
 description: "Küçük veri boyutları için Azure SQL Veritabanına veri aktarırken bcp kullanır."
 services: sql-database
 documentationcenter: NA
@@ -8,25 +8,25 @@ manager: jhubbard
 editor: 
 ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: load & move data
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 36748312506a08ed7932a6bb355a5dc7393bb002
-ms.openlocfilehash: 5e15f8a0ebb8cab5dce5b3c1cf6b62dee362a8d0
-
-
+ms.openlocfilehash: 84bebab7763bb21f73880a6c8b367a62b0c137d3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>CSV dosyasından Azure SQL Veritabanı'na veri yükleme (düz dosyalar)
 Bir CSV dosyasından Azure SQL Database’e veri aktarmak için bcp komut satırı yardımcı programını kullanabilirsiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-### <a name="prerequisites"></a>Önkoşullar
-Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
+### <a name="prerequisites"></a>Ön koşullar
+Bu makaledeki adımları tamamlamak için gerekir:
 
 * Azure SQL Database mantıksal sunucusu ve veritabanı
 * bcp komut satırı yardımcı programının yüklü olması
@@ -75,20 +75,20 @@ Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırları
 
 (İsteğe bağlı) SQL Server veritabanından kendi verilerinizi dışarı aktarmak için bir komut istemi açın ve aşağıdaki komutu çalıştırın. TableName (Tablo Adı), ServerName (Sunucu Adı), DatabaseName (Veritabanı Adı), Username (Kullanıcı Adı) ve Password (Parola) alanlarına kendi bilgilerinizi yazın.
 
-```sql
-bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```bcp
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
 ## <a name="3-load-the-data"></a>3. Verileri yükleme
 Verileri yüklemek için bir komut satırı açın; Sunucu Adı, Veritabanı Adı, Kullanıcı Adı ve Parola alanlarına kendi bilgilerinizi yazarak aşağıdaki komutu çalıştırın.
 
-```sql
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```bcp
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
 Bu komutu kullanarak verilerin düzgün şekilde yüklendiğini doğrulayın
 
-```sql
+```bcp
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
@@ -118,9 +118,3 @@ Bir SQL Server veritabanına geçiş yapmak için bkz. [SQL Server veritabanı g
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

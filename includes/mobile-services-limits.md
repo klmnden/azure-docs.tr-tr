@@ -1,16 +1,16 @@
 
-| TIER: | FREE | BASIC | STANDARD |
+| KATMAN: | ÜCRETSİZ | TEMEL | STANDART |
 | --- | --- | --- | --- |
-| API Calls |500 K |1.5 M / unit |15 M / unit |
-| Active Devices |500 |Unlimited |Unlimited |
-| Scale |N/A |Up to 6 units |Unlimited units |
-| Push Notifications |Notification Hubs Free Tier included, up to 1 M pushes |Notification Hubs Basic Tier included, up to 10 M pushes |Notification Hubs Standard Tier included, up to 10 M pushes |
-| Real time messaging/<br/>Web Sockets |Limited |350 / mobile service |Unlimited |
-| Offline synchronizations |Limited |Included |Included |
-| Scheduled jobs |Limited |Included |Included |
-| SQL Database (required) <br/>Standard rates apply for additional capacity |20 MB included |20 MB included |20 MB included |
-| CPU capacity |60 minutes / day |Unlimited |Unlimited |
-| Outbound data transfer |165 MB per day (daily Rollover) |Included |Included |
+| API çağrıları |500 K |1.5 M / birim |15 M / birim |
+| Etkin Cihazlar |500 |Sınırsız |Sınırsız |
+| Ölçek |Yok |6 birimleri |Sınırsız birim |
+| Anında İletme Bildirimleri  |Bildirim hub'ları ücretsiz dahil katmanı, 1 M varan iter |Bildirim hub'ları temel dahil katman, en fazla 10 M iter |Bildirim hub'ları standart dahil katman, en fazla 10 M iter |
+| Gerçek zamanlı ileti /<br/>Web Yuvaları |Sınırlı |350 / mobil hizmeti |Sınırsız |
+| Çevrimdışı eşitlemeler |Sınırlı |Dahil |Dahil |
+| Zamanlanan işler |Sınırlı |Dahil |Dahil |
+| SQL veritabanı (gerekli) <br/>Ek kapasite için standart ücretler geçerlidir |20 dahil MB |20 dahil MB |20 dahil MB |
+| İşlemci kapasitesi |60 dakika / gün |Sınırsız |Sınırsız |
+| Giden veri aktarımı |165 MB günde (günlük aktarma) |Dahil |Dahil |
 
-For additional details on these limits and for information on pricing, see [Mobile Services Pricing](https://azure.microsoft.com/pricing/details/mobile-services/). 
+Bu sınırları hakkında daha fazla ayrıntı ve fiyatlandırma hakkında daha fazla bilgi için bkz: [Mobile Services fiyatlandırması](https://azure.microsoft.com/pricing/details/mobile-services/). 
 

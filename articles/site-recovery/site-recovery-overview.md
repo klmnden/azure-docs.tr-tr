@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-site-recovery"></a>Site Recovery nedir?
 
@@ -79,4 +78,3 @@ Site Recovery, şunlar için çoğaltmayı yönetebilir:
 ## <a name="next-steps"></a>Sonraki adımlar
 * [İş yükü desteği](site-recovery-workload.md) hakkında daha fazla bilgi edinin
 * [Bölgeler arasında Azure VM çoğaltma](site-recovery-azure-to-azure.md), [Azure’a VMware çoğaltma](vmware-walkthrough-overview.md) veya [Azure’a Hyper-V çoğaltma](hyper-v-site-walkthrough-overview.md) işlemlerini gerçekleştirmeye başlayın.
-

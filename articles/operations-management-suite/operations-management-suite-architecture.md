@@ -1,6 +1,6 @@
 ---
 title: Operations Management Suite (OMS) mimarisi | Microsoft Belgeleri
-description: "Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft&quot;un bulut tabanlı BT yönetim çözümüdür.  Bu makalede, OMS&quot;de yer alan farklı hizmetler tanımlanmakta ve bunların ayrıntılı içeriklerinin bağlantıları sağlanmaktadır."
+description: "Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft'un bulut tabanlı BT yönetim çözümüdür.  Bu makalede, OMS'de yer alan farklı hizmetler tanımlanmakta ve bunların ayrıntılı içeriklerinin bağlantıları sağlanmaktadır."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: df1a5b2c200b7fa69961247ac036ee35fd14f54d
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="oms-architecture"></a>OMS mimarisi
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/), şirket içi ve bulut ortamlarınızın yönetilmesine yönelik bulut tabanlı hizmetler koleksiyonudur.  Bu makalede, OMS'nin farklı şirket içi ve bulut bileşenlerinin yanı sıra bunların üst düzey bulut bilgi işlem mimarisi açıklanmaktadır.  Ayrıntılı bilgi için her bir hizmete ilişkin belgelere göz atabilirsiniz.
@@ -84,5 +83,4 @@ Azure Site Recovery için üç temel çoğaltma senaryosu söz konusudur.
 * [Azure Otomasyonu](https://azure.microsoft.com/documentation/services/automation) hakkında bilgi edinme.
 * [Azure Backup](http://azure.microsoft.com/documentation/services/backup) hakkında bilgi edinme.
 * [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) hakkında bilgi edinme.
-
 

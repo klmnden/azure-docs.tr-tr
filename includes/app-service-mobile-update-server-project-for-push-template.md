@@ -1,15 +1,15 @@
-In this section, you update code in your existing Mobile Apps back-end project to send a push notification every time a new item is added. This is powered by the [template](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs, enabling cross-platform pushes. The various clients are registered for push notifications using templates, and a single universal push can get to all client platforms.
+Bu bölümde, yeni bir öğe eklenen her zaman bir anında iletme bildirimi göndermek için var olan Mobile Apps arka uç projenizde kodunu güncelleştirin. Bu tarafından desteklenmektedir [şablonu](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) Azure Notification Hubs, platformlar arası iter etkinleştirme özelliğidir. Çeşitli istemcilere şablonları kullanarak anında iletme bildirimleri için kaydedilir ve tek bir evrensel itme tüm istemci platformları için elde edebilirsiniz.
 
-Choose one of the following procedures that matches your back-end project type&mdash;either [.NET back end](#dotnet) or [Node.js back end](#nodejs).
+Arka uç projesi türünüzle eşleşen aşağıdaki yordamlardan birini seçin&mdash;ya da [.NET geri son](#dotnet) veya [Node.js arka ucu](#nodejs).
 
-### <a name="dotnet"></a>.NET back-end project
-1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**. Search for `Microsoft.Azure.NotificationHubs`, and then click **Install**. This installs the Notification Hubs library for sending notifications from your back end.
-2. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statements:
+### <a name="dotnet"></a>.NET arka uç projesi
+1. Visual Studio'da sunucu projesi sağ tıklatın ve **NuGet paketlerini Yönet**. Arama `Microsoft.Azure.NotificationHubs`ve ardından **yükleme**. Bu arka ucunuzdan bildirim göndermek için Notification Hubs kitaplığı yükler.
+2. Sunucu projeyi açın **denetleyicileri** > **TodoItemController.cs**ve aşağıdaki using deyimlerini:
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.Mobile.Server.Config;
-3. In the **PostTodoItem** method, add the following code after the call to **InsertAsync**:  
+3. İçinde **PostTodoItem** yöntemini çağırdıktan sonra aşağıdaki kodu ekleyin **InsertAsync**:  
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -45,12 +45,12 @@ Choose one of the following procedures that matches your back-end project type&m
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    This sends a template notification that contains the item.Text when a new item is inserted.
-4. Republish the server project.
+    Bu öğeyi içeren bir şablon bildirim gönderir. Yeni bir öğe eklendiğinde, metin.
+4. Sunucu projesi yeniden yayımlayın.
 
-### <a name="nodejs"></a>Node.js back-end project
-1. If you haven't already done so, [download the quickstart back-end project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Replace the existing code in todoitem.js with the following:
+### <a name="nodejs"></a>Node.js arka uç projesi
+1. Bunu zaten bunu yapmadıysanız [hızlı başlangıç arka uç projesi indirme](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), ya da başka kullanım [Azure portalında çevrimiçi düzenleyicisini](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+2. Todoitem.js var olan kodu aşağıdakilerle değiştirin:
 
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -91,5 +91,5 @@ Choose one of the following procedures that matches your back-end project type&m
 
         module.exports = table;  
 
-    This sends a template notification that contains the item.text when a new item is inserted.
-3. When editing the file on your local computer, republish the server project.
+    Bu, yeni bir öğe eklendiğinde item.text içeren bir şablon bildirim gönderir.
+3. Yerel bilgisayarınızda dosyayı düzenlerken, sunucu projesi yeniden yayımlayın.

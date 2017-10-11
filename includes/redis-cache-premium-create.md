@@ -1,13 +1,13 @@
-To create a premium cache, sign-in to the [Azure portal](https://portal.azure.com) and click **New** > **Databases** > **Redis Cache**.
+Premium önbellek oluşturmak için [Azure portalında](https://portal.azure.com) oturum açın; **Yeni** > **Veritabanları** > **Redis Önbelleği**'ne tıklayın.
 
-![Create cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
+![Önbellek oluşturma](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Redis Cache, see [Create a cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+> Önbellekleri Azure portalında oluşturabileceğiniz gibi, Resource Manager şablonlarını, PowerShell'i veya Azure CLI'sini kullanarak da oluşturabilirsiniz. Azure Redis Önbelleği oluşturma hakkında daha fazla bilgi için bkz. [Önbellek oluşturma](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 > 
 > 
 
-To configure premium features, first select one of the premium pricing tiers in the **Pricing tier** drop-down list. For more information about each pricing tier, click **View full pricing details** and select a pricing tier from the **Choose your pricing tier** blade.
+Premium özellikleri yapılandırmak için önce premium katmanlarda fiyatlandırma birini **fiyatlandırma katmanı** aşağı açılan liste. Her fiyatlandırma katmanının hakkında daha fazla bilgi için tıklatın **görünüm fiyatlandırma ayrıntıları tam** ve bir fiyatlandırma katmanı seçin **fiyatlandırma katmanınızı seçin** dikey.
 
-![Choose your pricing tier](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
+![Fiyatlandırma katmanınızı seçin](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 

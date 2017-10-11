@@ -1,2 +1,2 @@
-To use this feature and other new Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
+Bu özellik ve diğer yeni Azure özelliklerini kullanmak için kaydolun [ücretsiz önizlemeye](https://account.windowsazure.com/PreviewFeatures).
 

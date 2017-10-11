@@ -1,5 +1,5 @@
 > [!NOTE]
-> To complete this tutorial, you need an Azure account. You can <a href="http://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/" target="_blank">activate your MSDN subscriber benefits</a> or <a href="http://www.windowsazure.com/pricing/free-trial/" target="_blank">sign up for a free trial in Azure</a>.
+> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Yapabilecekleriniz <a href="http://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/" target="_blank">MSDN abone Avantajlarınızı etkinleştirebilir</a> veya <a href="http://www.windowsazure.com/pricing/free-trial/" target="_blank">Azure ücretsiz deneme için kaydolun</a>.
 > 
 > 
 

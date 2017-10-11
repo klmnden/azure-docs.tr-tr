@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Öğretici: Portalda ilk Azure Search dizininizi oluşturma
 

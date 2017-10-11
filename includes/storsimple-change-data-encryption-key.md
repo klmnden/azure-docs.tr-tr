@@ -1,68 +1,68 @@
 <!--author=SharS last changed: 12/01/15-->
 
-### <a name="step-1-authorize-a-device-to-change-the-service-data-encryption-key-in-the-azure-classic-portal"></a>Step 1: Authorize a device to change the service data encryption key in the Azure classic portal
-Typically, the device administrator will request that the service administrator authorize a device to change service data encryption keys. The service administrator will then authorize the device to change the key.
+### <a name="step-1-authorize-a-device-to-change-the-service-data-encryption-key-in-the-azure-classic-portal"></a>1. adım: Azure Klasik Portalı'nda hizmet verileri şifreleme anahtarı değiştirmek için bir aygıt yetkilendirme
+Genellikle, cihaz yönetici Hizmet Yöneticisi hizmeti veri şifreleme anahtarları değiştirmek için bir aygıt yetkilendirmek ister. Hizmet Yöneticisi, ardından anahtarı değiştirmek için aygıtı yetkilendirecek.
 
-This step is performed in the Azure classic portal. The service administrator can select a device from a displayed list of the devices that are eligible to be authorized. The device is then authorized to start the service data encryption key change process.
+Bu adım, Azure Klasik Portalı'nda gerçekleştirilir. Hizmet Yöneticisi bir cihaz yetki verilmesi uygun olan aygıtları görüntülenen listesinden seçebilirsiniz. Cihaz sonra hizmet verileri şifreleme anahtar değiştirme işlemini başlatmak için yetkili.
 
-#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Which devices can be authorized to change service data encryption keys?
-A device must meet the following criteria before it can be authorized to initiate service data encryption key changes:
+#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Hangi cihazların hizmeti veri şifreleme anahtarları değiştirme yetkisi?
+Hizmet verileri şifreleme anahtarı değişiklikleri başlatmak için yetkili önce bir aygıt aşağıdaki ölçütleri karşılamalıdır:
 
-* The device must be online to be eligible for service data encryption key change authorization.
-* You can authorize the same device again after 30 minutes if the key change has not been initiated.
-* You can authorize a different device, provided that the key change has not been initiated by the previously authorized device. After the new device has been authorized, the old device cannot initiate the change.
-* You cannot authorize a device while the rollover of the service data encryption key is in progress.
-* You can authorize a device when some of the devices registered with the service have rolled over the encryption while others have not. In such cases, the eligible devices are the ones that have completed the service data encryption key change.
+* Aygıt hizmeti veri şifreleme anahtarı değişiklik yetkilendirme için uygun olması için çevrimiçi olması gerekir.
+* Anahtar değişikliği başlatılmaz, 30 dakika sonra yeniden aynı aygıt yetki verebilir.
+* Anahtar değişikliği daha önceden yetkili aygıt tarafından başlatılmamış olması koşuluyla farklı bir cihaz yetki verebilir. Yeni cihaz yetkilendirildikten sonra eski aygıt değişikliği başlatamaz.
+* Hizmet verileri şifreleme anahtarı geçiş işlemi sürerken bir aygıtı yetkilendirilemiyor.
+* Başkalarının olmamasına karşın bazı hizmetine kayıtlı cihazlar üzerinde şifrelemeyi gezinirken bir aygıtı yetki verebilir. Böyle durumlarda, hizmet verileri şifreleme anahtarı tamamladınız olanları değiştirmek uygun aygıtlardır.
 
 > [!NOTE]
-> In the Azure classic portal, StorSimple virtual devices are not shown in the list of devices that can be authorized to start the key change.
+> Klasik Azure portalında StorSimple sanal cihazlar anahtar değişikliği başlatmak için yetkili aygıtlar listesinde gösterilmez.
 > 
 > 
 
-Perform the following steps to select and authorize a device to initiate the service data encryption key change.
+Seçin ve hizmet verileri şifreleme anahtarı değişikliğini başlatmak için bir aygıt yetkilendirmek için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-authorize-a-device-to-change-the-key"></a>To authorize a device to change the key
-1. On the service dashboard page, click **Change service data encryption key**.
+#### <a name="to-authorize-a-device-to-change-the-key"></a>Anahtarı değiştirmek için bir aygıt yetkilendirmek için
+1. Hizmet panosu sayfasında, tıklatın **değişiklik hizmeti veri şifreleme anahtarı**.
    
-    ![Change service encryption key](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
-2. In the **Change service data encryption key** dialog box, select and authorize a device to initiate the service data encryption key change. The drop-down list has all the eligible devices that can be authorized.
-3. Click the check icon ![check icon](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
+    ![Değişiklik hizmeti şifreleme anahtarı](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
+2. İçinde **değişiklik hizmeti veri şifreleme anahtarı** iletişim kutusunda, seçin ve hizmet verileri şifreleme anahtarı değişikliğini başlatmak için bir aygıt yetkilendirmek. Aşağı açılan liste yetkilendirilebilir uygun aygıtı yok.
+3. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change
-This step is performed in the Windows PowerShell for StorSimple interface on the authorized StorSimple device.
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>2. adım: Hizmet verileri şifreleme anahtarı değişikliğini başlatmak StorSimple için Windows PowerShell'i kullanın
+Bu adım, StorSimple arabirimi yetkili StorSimple cihazında için Windows PowerShell'de gerçekleştirilir.
 
 > [!NOTE]
-> No operations can be performed in the Azure classic portal of your StorSimple Manager service until the key rollover is completed.
+> Anahtar geçişi tamamlanana kadar hiçbir işlem, StorSimple Yöneticisi hizmetiniz Azure Klasik portalında gerçekleştirilebilir.
 > 
 > 
 
-If you are using the device serial console to connect to the Windows PowerShell interface, perform the following steps.
+Windows PowerShell arabirimine bağlamak için cihaz seri konsoluna kullanıyorsanız, aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-initiate-the-service-data-encryption-key-change"></a>To initiate the service data encryption key change
-1. Select option 1 to log on with full access.
-2. At the command prompt, type:
+#### <a name="to-initiate-the-service-data-encryption-key-change"></a>Hizmet verileri şifreleme anahtarı değişikliğini başlatmak için
+1. Tam erişimle oturum açmak için 1 seçeneğini belirleyin.
+2. Komut istemine yazın:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
-3. After the cmdlet has successfully completed, you will get a new service data encryption key. Copy and save this key for use in step 3 of this process. This key will be used to update all the remaining devices registered with the StorSimple Manager service.
+3. Cmdlet başarıyla tamamlandıktan sonra yeni bir hizmet verileri şifreleme anahtarı alır. Kopyalayın ve bu anahtarı kullanmak için bu işlem 3. adımında kaydedin. Bu anahtar StorSimple Yöneticisi hizmetine kayıtlı kalan tüm aygıtlar güncelleştirmek için kullanılır.
    
    > [!NOTE]
-   > This process must be initiated within four hours of authorizing a StorSimple device.
+   > Bu işlem, StorSimple cihaz yetkilendirme dört saat içinde başlatılmalıdır.
    > 
    > 
    
-   This new key is then sent to the service to be pushed to all the devices that are registered with the service. An alert will then appear on the service dashboard. The service will disable all the operations on the registered devices, and the device administrator will then need to update the service data encryption key on the other devices. However, the I/Os (hosts sending data to the cloud) will not be disrupted.
+   Bu yeni anahtarı, ardından hizmetle kaydedilen tüm aygıtlara edilmesini hizmetine gönderilir. Bir uyarı sonra hizmet panosunda görüntülenir. Hizmet kayıtlı cihazlarda tüm işlemleri devre dışı bırakır ve cihaz Yöneticisi daha sonra diğer cihazlarda hizmet verileri şifreleme anahtarı güncelleştirmeniz gerekir. Ancak, g/ç (ana bilgisayardan verileri buluta gönderme) kesilmiş olabilir değil.
    
-   If you have a single device registered to your service, the rollover process is now complete and you can skip the next step. If you have multiple devices registered to your service, proceed to step 3.
+   Hizmete kayıtlı tek bir aygıtta varsa, geçiş işlemi tamamlanmıştır ve sonraki adıma atlayabilirsiniz. Birden çok aygıt hizmete kayıtlı varsa, 3. adıma geçin.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Step 3: Update the service data encryption key on other StorSimple devices
-These steps must be performed in the Windows PowerShell interface of your StorSimple device if you have multiple devices registered to your StorSimple Manager service. The key that you obtained in Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change must be used to update all the remaining StorSimple device registered with the StorSimple Manager service.
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>3. adım: hizmet verileri şifreleme anahtarı başka StorSimple cihazlar üzerinde güncelleştir
+StorSimple Yöneticisi hizmetinize kayıtlı birden çok aygıt varsa, bu adımları StorSimple Cihazınızı Windows PowerShell arabiriminde gerçekleştirilmesi gerekir. 2. adımda elde edilen anahtar: hizmet verileri şifreleme anahtarı değişikliğini başlatmak StorSimple için Windows PowerShell'i kullanın, StorSimple Yöneticisi hizmetine kayıtlı tüm kalan StorSimple Cihazınızı güncelleştirmek için kullanılmalıdır.
 
-Perform the following steps to update the service data encryption on your device.
+Hizmet verileri şifreleme aygıtınızda güncelleştirmek için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-update-the-service-data-encryption-key"></a>To update the service data encryption key
-1. Use Windows PowerShell for StorSimple to connect to the console. Select option 1 to log on with full access.
-2. At the command prompt, type:
+#### <a name="to-update-the-service-data-encryption-key"></a>Hizmet verileri şifreleme anahtarı güncelleştirmek için
+1. StorSimple için Windows PowerShell konsoluna bağlanmak için kullanın. Tam erişimle oturum açmak için 1 seçeneğini belirleyin.
+2. Komut istemine yazın:
    
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Provide the service data encryption key that you obtained in [Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change](#to-initiate-the-service-data-encryption-key-change).
+3. Makalesinde aldığınız hizmet verileri şifreleme anahtarı sağlayan [2. adım: hizmet verileri şifreleme anahtarı değişikliğini başlatmak StorSimple için Windows PowerShell'i kullanın](#to-initiate-the-service-data-encryption-key-change).
 

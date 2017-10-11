@@ -1,6 +1,6 @@
-| Item | Description | Link |
+| Öğe | Açıklama | Bağlantı |
 | --- | --- | --- |
-| Runtime |Script Host, Triggers & Bindings, Language Support |[File an Issue](https://github.com/Azure/azure-webjobs-sdk-script/issues) |
-| Templates |Code Issues with Creation Template |[File an Issue](https://github.com/Azure/azure-webjobs-sdk-templates/issues) |
-| Portal |User Interface or Experience Issue |[File an Issue](https://github.com/ProjectKudu/AzureFunctionsPortal/issues) |
+| Çalışma zamanı |Komut dosyası ana bilgisayarı, Tetikleyicileri ve bağlamaları, dil desteği |[Dosya bir sorun](https://github.com/Azure/azure-webjobs-sdk-script/issues) |
+| Şablonlar |Oluşturma şablonuyla kod sorunları |[Dosya bir sorun](https://github.com/Azure/azure-webjobs-sdk-templates/issues) |
+| Portal |Kullanıcı arabirimi veya deneyimi sorunu |[Dosya bir sorun](https://github.com/ProjectKudu/AzureFunctionsPortal/issues) |
 
