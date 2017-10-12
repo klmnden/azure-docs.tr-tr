@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
 ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Uyarlamalı Uygulama Denetimleri (Önizleme)
 Bu kılavuzu kullanarak Azure Güvenlik Merkezi'ndeki uygulama denetimi özelliklerini yapılandırmayı öğrenebilirsiniz.
@@ -81,7 +80,7 @@ Liste aşağıdakileri içerir:
 Seçimlerinizi tamamladıktan sonra **Oluştur** düğmesine tıklayın. Güvenlik Merkezi uygulama denetimini her zaman varsayılan olarak *Denetim* modunda çalıştırır. Beyaz listenin iş yükünüzü olumsuz etkilemeyeceği doğrulandıktan sonra *Zorunlu kıl* modunu seçebilirsiniz.
 
 > [!NOTE]
-> Güvenlik Merkezi en iyi deneyim olarak beyaz listeye alınması gereken uygulamalar için bir yayımcı kuralı oluşturmaya çalışacak ve yalnızca yayımcı bilgisi olmayan (imzalanmış olmayan) uygulamalara ait EXE dosyalarının tam yolu için bir yol kuralı oluşturulacaktır.
+> Güvenlik Merkezi, en iyi güvenlik deneyimini sunmak üzere beyaz listeye alınması gereken uygulamalar için her zaman bir yayımcı kuralı oluşturmaya çalışır ve yalnızca yayımcı bilgisi olmayan (imzalanmış olmayan) uygulamalara ait EXE dosyalarının tam yolu için bir yol kuralı oluşturulur.
 >   
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Uygulama denetimiyle yapılandırılmış bir grubu düzenleme ve izleme
@@ -111,11 +110,11 @@ Yukarıda belirtildiği gibi yeni uygulama denetimi ilkeleri her zaman *Denetim*
 
 Bu liste aşağıdakileri içerir:
 
-- **SORUNLAR**: Kaydedilmiş tüm ihlaller burada yer alır ve bunlar aşağıdakiler olabilir:
+- **SORUNLAR**: Günlüğe kaydedilmiş tüm ihlaller burada yer alır ve bunlar aşağıdakiler olabilir:
     - **ViolationsBlocked**: Çözüm, Zorunlu kıl modunda çalıştırıldığında ve beyaz listede yer almayan bir uygulama yürütülmeye çalıştığında.
     - **ViolationsAudited**: Çözüm Denetim modunda çalıştırıldığında ve beyaz listede yer almayan bir uygulama yürütüldüğünde.
     - **RulesViolatedManually**: Bir kullanıcı ASC yönetim portalı yerine VM'lerde el ile kural yapılandırmayı denediğinde.
-- **VM’LER SAYISI**: Bu sorun türündeki sanal makinelerin sayısı.
+- **VM SAYISI**: Bu sorun türündeki sanal makinelerin sayısı.
 
 Bu satırlardan birine tıkladığınızda açılacak [Azure Etkinlik Günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) sayfasında bu ihlalin bulunduğu tüm VM'ler hakkında bilgi alabilirsiniz. Satır sonundaki üç noktaya tıklayarak ilgili girişi silebilirsiniz. **Yapılandırılmış sanal makineler** bölümünde bu kuralların geçerli olduğu VM'lerin listesi yer alır. 
 
@@ -128,7 +127,7 @@ Bu satırlardan birine tıkladığınızda açılacak [Azure Etkinlik Günlüğ�
 Satır sonundaki üç noktaya tıklayarak ilgili kuralı silebilirsiniz. **Beyaz listeye yol ekleme kuralları** bölümünde, bir dijital sertifika ile imzalanmamış ancak beyaz listeye ekleme kurallarında yer alan uygulamalar için uygulama yolunun tamamı (yürütülebilir dahil) listelenir. 
 
 > [!NOTE]
-> Varsayılan ayarlarda Güvenlik Merkezi en iyi deneyim olarak beyaz listeye alınması gereken EXE dosyaları için bir yayımcı kuralı oluşturmaya çalışacak ve yalnızca yayımcı bilgisi olmayan (imzalanmış olmayan) EXE dosyalarının tam yolu için bir yol kuralı oluşturulacaktır.
+> Varsayılan olarak Güvenlik Merkezi, en iyi güvenlik deneyimini sunmak üzere beyaz listeye alınması gereken EXE dosyaları için her zaman bir yayımcı kuralı oluşturmaya çalışır ve yalnızca yayımcı bilgisi olmayan (imzalanmış olmayan) EXE dosyalarının tam yolu için bir yol kuralı oluşturulur.
 
 ![Beyaz listeye yol ekleme kuralları](./media/security-center-adaptive-application/security-center-adaptive-application-fig10.png)
 
@@ -157,5 +156,4 @@ Bu belgede, Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimlerini kul
 * [Azure Güvenlik Merkezi Sorun Giderme Kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin. 
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md). Hizmet kullanımı ile ilgili sık sorulan soruları bulun.
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/). Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.
-
 

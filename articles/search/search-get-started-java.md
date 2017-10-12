@@ -14,12 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.contentlocale: tr-tr
-ms.lasthandoff: 03/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java'da Azure Search kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -110,7 +109,7 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
 7. **Finish (Son)** düğmesine tıklayın.
 8. **Window (Pencere)** > **Preferences (Tercihler)** > **Java** > **Installed JREs (Yüklü JRE'ler)** > **Add (Ekle)** seçeneğini belirleyin.
 9. **Add JRE (JRE Ekle)** bölümünde **Standard VM (Standart VM)** öğesini seçin.
-10. **Next (İleri)** düğmesine tıklayın.
+10. **İleri**’ye tıklayın.
 11. JRE Tanımı'nda, JRE giriş alanında **Directory (Dizin)** seçeneğine tıklayın.
 12. **Program Files (Program Dosyaları)** > **Java**'ya gidin ve daha önce yüklediğiniz JDK'yı seçin. JDK'yı JRE olarak seçmek önemlidir.
 13. Yüklü JRE'ler içinde **JDK**'yı seçin. Ayarlarınız aşağıdaki ekran görüntüsüne benzer görünmelidir.
@@ -180,4 +179,3 @@ Azure Search'ü ilk kez mi kullanıyorsunuz? Neler yapabileceğinizi anlamak iç
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-

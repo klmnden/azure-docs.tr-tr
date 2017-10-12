@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Azure İçerik Teslim Ağı'na (CDN) genel bakış
 > [!NOTE]
@@ -100,5 +99,4 @@ CDN'yi uygulamalı olarak görmek için [Build 2016 oturumu videomuza](https://a
 Azure CDN’yi [.NET](cdn-app-dev-net.md) veya [Node.js](cdn-app-dev-node.md) ile nasıl otomatik hale getireceğinizi öğrenin.
 
 Fiyatlandırma bilgileri için bkz. [CDN Fiyatlandırması](https://azure.microsoft.com/pricing/details/cdn/).
-
 

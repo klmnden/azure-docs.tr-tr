@@ -19,6 +19,7 @@
 # Nasıl yapılır?
 
 ## Güvenlik ilkesi
+### [Genel Bakış](security-center-policies-overview.md)
 ### [Veri toplama](security-center-enable-data-collection.md)
 ### [Güvenlik ilkesi](security-center-policies.md)
 ### [E-posta bildirimleri](security-center-provide-security-contact-details.md)
@@ -53,7 +54,6 @@
 #### [Endpoint Protection’ı yükleyin](security-center-install-endpoint-protection.md)
 #### [Sistem güncelleştirmelerinden sonra yeniden başlatın](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [İşletim sistemi güvenlik açıklarını düzeltin](security-center-remediate-os-vulnerabilities.md)
-#### [Endpoint Protection sistem durumu uyarılarını çözümleme](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [İşletim sistemi sürümünü güncelleştirme](security-center-update-os-version.md)
 #### [Güvenlik açığı değerlendirmesi yüklü değil](security-center-vulnerability-assessment-recommendations.md)
 ### [Güvenlik durumunu izleme](security-center-monitoring.md)

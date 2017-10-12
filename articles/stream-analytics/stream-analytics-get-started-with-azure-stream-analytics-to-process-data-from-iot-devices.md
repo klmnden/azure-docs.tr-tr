@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT cihazlarından veri işlemek için Azure Stream Analytics'i kullanmaya başlama
 Bu öğreticide, Nesnelerin İnterneti (IoT) cihazlarından veri toplamak üzere akış işleme mantığı oluşturmayı öğreneceksiniz. Çözümünüzü hızlı ve ekonomik bir şekilde nasıl oluşturacağınızı göstermek için gerçek hayattaki bir Nesnelerin İnterneti (IoT) kullanım örneğinden yararlanacağız.
@@ -119,5 +118,4 @@ Burada, **LEFT OUTER** deyimini aynı veri akışı üzerinde kullanırız (kend
 
 ## <a name="conclusion"></a>Sonuç
 Bu öğreticide, farklı Akış Analizi Sorgu Dili sorgularının nasıl yazılacağı ve sonuçların tarayıcıda nasıl görüntüleneceği gösterilecek. Ancak bu sadece bir başlangıçtır. Akış Analizi ile yapabileceğiniz daha birçok şey bulunmaktadır. Akış Analizi birçok giriş ve çıkışı desteklemenin yanı sıra Azure Machine Learning'deki işlevlerden de faydalanır. Bu da onu veri akışlarının analizi için sağlam bir araç haline getirir. [Öğrenme haritamızı](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/) kullanarak Akış Analizi’ni keşfetmeye başlayabilirsiniz. Sorgu yazma hakkında daha fazla bilgi için [ortak sorgu desenleri](stream-analytics-stream-analytics-query-patterns.md) hakkındaki makaleyi okuyun.
-
 

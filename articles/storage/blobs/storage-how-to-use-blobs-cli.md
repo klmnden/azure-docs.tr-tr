@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: c37fc0b701b668ab6bb9213a487ec8baa33fe663
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Azure CLI ile Blob depolama işlemleri gerçekleştirme
 
 Azure Blob Storage; HTTP veya HTTPS aracılığıyla dünyanın her yerinde erişilebilen metin veya ikili veriler gibi büyük miktarda yapılandırılmamış nesne verilerinin depolanması için bir hizmettir. Bu öğretici, Azure Blob’da blobları karşıya yükleme, indirme ve silme gibi temel işlemleri kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
@@ -283,4 +281,3 @@ Aşağıdaki kaynaklar Azure CLI ile çalışma ve depolama hesabınızdaki kayn
   * [Azure CLI 2.0 komut başvurusu](/cli/azure/)
 * Microsoft Azure Depolama Gezgini
   * [Microsoft Azure Depolama Gezgini](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), Microsoft tarafından sunulan ve Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanıza olanak sağlayan ücretsiz bir tek başına uygulamadır.
-

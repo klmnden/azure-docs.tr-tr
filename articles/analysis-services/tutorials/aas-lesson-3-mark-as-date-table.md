@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: c62f2726fef5219155a08b70c61162c914600d1d
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 94ea44091c8a7befaf0c82349c47dce7a36c1fd8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-3-mark-as-date-table"></a>3. Ders: Tarih Tablosu olarak işaretleme
 
@@ -60,4 +59,3 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
 ## <a name="whats-next"></a>Sırada ne var?
 [4. Ders: İlişki oluşturma](../tutorials/aas-lesson-4-create-relationships.md).
   
-

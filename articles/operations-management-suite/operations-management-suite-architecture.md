@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
 ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="oms-architecture"></a>OMS mimarisi
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/), şirket içi ve bulut ortamlarınızın yönetilmesine yönelik bulut tabanlı hizmetler koleksiyonudur.  Bu makalede, OMS'nin farklı şirket içi ve bulut bileşenlerinin yanı sıra bunların üst düzey bulut bilgi işlem mimarisi açıklanmaktadır.  Ayrıntılı bilgi için her bir hizmete ilişkin belgelere göz atabilirsiniz.

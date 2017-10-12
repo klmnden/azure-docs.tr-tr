@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/10/2017
 ms.author: tomfitz
 ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio aracılığıyla Azure kaynak grupları oluşturma ve dağıtma
 Visual Studio ve [Azure SDK](https://azure.microsoft.com/downloads/) ile altyapınızı ve kodlarınızı Azure’a dağıtan bir proje oluşturabilirsiniz. Örneğin, uygulamanızın web ana bilgisayarını, web sitesini ve veritabanını tanımlayabilir ve kodlarını ve altyapısını dağıtabilirsiniz. Ayrıca, bir Sanal Makine, Sanal Ağ ve Depolama Hesabı tanımlayabilir ve bu altyapıyı ve Sanal Makinede yürütülen betiği dağıtabilirsiniz. **Azure Kaynak Grubu** dağıtım projesi gerekli tüm kaynakları tek, tekrarlanabilir bir işlemde dağıtmanıza olanak tanır. Kaynakların dağıtılması ve yönetilmesi hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md).

@@ -3,7 +3,7 @@ title: "PowerShell ile Azure Otomasyonu Farklı Çalıştır hesabı oluşturma 
 description: "Bu makalede, portaldaki ilk oluşturma sırasında bu adımı uygulamadıysanız Farklı Çalıştır hesapları oluşturmak üzere PowerShell ile Otomasyon hesabınızı yükseltme işlemi açıklanmaktadır."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d34bb4a285f77f5c21a4af2d544bda3221d59e8d
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: fb23b3ea41910687fd586f80e5dd327344991e0f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="update-automation-run-as-account-using-powershell"></a>PowerShell kullanarak Otomasyon Farklı Çalıştır hesabını güncelleştirme
 Aşağıdaki durumlarda var olan Otomasyon hesabınızı güncelleştirmek için PowerShell kullanabilirsiniz:
 
@@ -272,4 +270,3 @@ Betik başarıyla yürütüldükten sonra aşağıdakilere dikkat edin:
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hizmet Sorumluları hakkında daha fazla bilgi için bkz. [Uygulama Nesneleri ve Hizmet Sorumlusu Nesneleri](../active-directory/active-directory-application-objects.md).
 * Sertifikalar ve Azure hizmetleri hakkında daha fazla bilgi için bkz. [Azure Cloud Services sertifikalarına genel bakış](../cloud-services/cloud-services-certs-create.md).
-

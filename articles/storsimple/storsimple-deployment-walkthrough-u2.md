@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3286db40856c9f0eb2564c01f1483870952a19e6
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-2"></a>Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 2)
 > [!div class="op_single_selector"]
@@ -221,5 +220,4 @@ StorSimple cihazınızda tek bir birim için bir isteğe bağlı el ile yedeklem
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Sanal cihaz](storsimple-virtual-device-u2.md) yapılandırın.
 * StorSimple cihazınızı yönetmek için [StorSimple Yöneticisi hizmetini](storsimple-manager-service-administration.md) kullanın.
-
 

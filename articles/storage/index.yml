@@ -39,7 +39,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/storage/blobs/storage-upload-process-images">Bulutta görüntü verilerini karşıya yükleme ve kullanma</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Blob’ları işlemek için Azure İşlevleri’ni tetikleme</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Blob’ları işlemek için Azure İşlevleri’ni tetikleme</a>
           - html: <a href="/azure/storage/blobs/storage-secure-access-application">Uygulama verilerinin güvenliğini sağlama</a>
           - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Depolamayı izleme ve sorun giderme</a>
   - title: Örnekler

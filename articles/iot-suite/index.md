@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 29fb247771d662d3abcbf35e95ff0f7a8cf95af1
-ms.openlocfilehash: 461542095d9ef357460e93d65bb9f4dd8fe17c86
-ms.contentlocale: tr-tr
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 9726304918cbbc85e32e2095d2f1d4701fb8a71e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-suite-documentation"></a>IoT Paketi Belgeleri
 
 Microsoft Azure IoT Paketi’ni hemen kullanmaya başlayın. Önceden yapılandırılmış çözümleri kullanın ve Nesnelerin İnterneti (IoT) çözümünüzün geliştirilmesini hızlandırın. Linux, Windows ve gerçek zamanlı işletim sistemleri gibi birden çok platforma yönelik cihaz SDK’larını kullanarak yeni cihazlar ekleyin ve mevcut cihazlarınızı bağlayın. Yalnızca birkaç sensörden, eşzamanlı olarak bağlanan milyonlarca cihaza kolayca ölçeklendirin ve projeniz ne kadar büyük ya da küçük olursa olsun Azure’un küresel kullanılabilirliğine güvenin.&mdash;
@@ -101,6 +99,5 @@ Microsoft Azure IoT Paketi’ni hemen kullanmaya başlayın. Önceden yapıland�
         </div>
     </li>
 </ul>
-
 
 

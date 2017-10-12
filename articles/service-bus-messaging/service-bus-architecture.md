@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: b810618b485b631e1d72b24c2a9587017d635cc4
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-architecture"></a>Service Bus mimarisi
 Bu makale, Azure Service Bus hizmetinin ileti işleme mimarisini açıklar.
@@ -48,6 +47,5 @@ Service Bus mimarisine ilişkin genel bir bakış edindiğinize göre, daha fazl
 * [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
 * [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyruklarını kullanan kuyruğa alınan mesajlaşma çözümü](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
-
 
 

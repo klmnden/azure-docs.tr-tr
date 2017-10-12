@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ccfbd45def1ecf036a2464f560aa89817c37b419
-ms.openlocfilehash: 54b3ce2c8c3966ee36350fed71bdc48aa5bffa63
-ms.contentlocale: tr-tr
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 12f959376d4923e4e2481e37108ade632ac14902
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Operations Management Suite (OMS) nedir?
 Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft'un bulut tabanlı BT yönetim çözümüdür.  OMS, bulut tabanlı bir hizmet olarak uygulandığından altyapı hizmetlerine en az yatırımla onu kısa süre içinde çalışır duruma getirebilirsiniz.  Yeni özellikler otomatik olarak sunulduğu için, devam eden bakım ve yükseltme maliyetlerinden tasarruf sağlarsınız.
@@ -53,5 +52,4 @@ Güvenlik ve Uyumluluk, altyapınıza ilişkin güvenlik risklerini belirlemeniz
 * [Azure Otomasyonu](../automation/automation-intro.md) hakkında bilgi edinme.
 * [Azure Backup](http://azure.microsoft.com/documentation/services/backup) hakkında bilgi edinme.
 * [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) hakkında bilgi edinme.
-
 

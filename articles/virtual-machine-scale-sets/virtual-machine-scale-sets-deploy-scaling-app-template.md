@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/24/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Şablon kullanarak bir otomatik ölçeklendirme uygulaması dağıtma
 
 [Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment), ilgili kaynak gruplarını dağıtmanın harika bir yoludur. Bu öğretici, [Basit bir ölçek kümesi dağıtma](virtual-machine-scale-sets-mvss-start.md) öğreticisini temel alır ve Azure Resource Manager şablonu kullanılarak bir ölçek kümesinde basit bir otomatik ölçeklendirme uygulamasının nasıl dağıtılacağını açıklar.  PowerShell, CLI veya portalı kullanarak da otomatik ölçeklendirme ayarlayabilirsiniz. Daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeye genel bakış](virtual-machine-scale-sets-autoscale-overview.md).
@@ -309,4 +307,3 @@ fi
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

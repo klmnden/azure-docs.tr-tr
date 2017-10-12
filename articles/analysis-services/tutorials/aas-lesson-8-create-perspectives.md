@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 491500909b0de0360afae45e172e85999d764fe0
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 68f4e9744007bcf71c5b9239ecfb6f18cf0cd86e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-8-create-perspectives"></a>8. Ders: Perspektif oluşturma
 
@@ -34,7 +33,7 @@ Bu dersin amacı perspektiflerin nasıl oluşturulacağını açıklamak ve tabl
   
 Bu dersin tahmini tamamlanma süresi: **Beş dakika**  
   
-## <a name="prerequisites"></a>Önkoşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirebilmek için bir önceki dersi tamamlamış olmanız gerekir: [7. Ders: Ana Performans Göstergeleri Oluşturma](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
 ## <a name="create-perspectives"></a>Perspektif oluşturma  
@@ -59,4 +58,3 @@ Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğr
   
   
   
-

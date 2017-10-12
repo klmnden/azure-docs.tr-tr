@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 06/15/2017
 ms.author: maroche
 ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Azure Veri Kataloğu'nu benimseme yaklaşımı ve işlemi
 Bu makale, kuruluşunuzda **Azure Veri Kataloğu**'nu benimsemeye başlamanıza yardımcı olacaktır. **Azure Veri Kataloğu**'nu başarıyla benimseyebilmek için üç temel öğeye odaklanırsınız: vizyonunuzu tanımlama, kuruluşunuz dahilindeki önemli iş kullanımı durumlarını belirleme ve pilot proje seçme.

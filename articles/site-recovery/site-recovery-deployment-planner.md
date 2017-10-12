@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery dağıtım planlayıcısı
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
@@ -612,4 +611,3 @@ Azure Site Recovery Dağıtım Planlayıcısı genel önizleme 1.0 sürümünde 
 * Araç yalnızca VMware’den Azure’a senaryosu için çalışır, Hyper-V’den Azure’a dağıtımlar için çalışmaz. Hyper-V’den Azure’a dağıtım senaryosu için [Hyper-V kapasite planlayıcısı aracını](./site-recovery-capacity-planning-for-hyper-v-replication.md) kullanın.
 * GetThroughput işlemi, Microsoft Azure’un US Government ve Çin bölgelerinde desteklenmez.
 * vCenter sunucusu farklı ESXi ana bilgisayarları üzerinde aynı ad veya IP adresine sahip iki veya daha fazla sanal makineye sahipse araç, sanal makinelerin profilini oluşturamaz. Bu sürümde, araç VMListFile dosyasındaki yinelenen sanal makine adları veya IP adresleri için profil oluşturmayı atlar. Bunun geçici çözümü, sanal makine profillerinin vCenter sunucusu yerine bir ESXi ana bilgisayarı kullanılarak oluşturulmasıdır. Her ESXi ana bilgisayarı için bir örnek çalıştırmanız gerekir.
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: darosa;sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium ve Standart Mesajlaşma katmanları
 
@@ -80,4 +79,3 @@ Service Bus Mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağ�
 <!--Image references-->
 
 [create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png
-

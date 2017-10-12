@@ -37,8 +37,3 @@
 
 En düşük cihaz kurulumunun nasıl tamamlandığını gösteren bir videoyu izlemek için [buraya](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/) tıklayın.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

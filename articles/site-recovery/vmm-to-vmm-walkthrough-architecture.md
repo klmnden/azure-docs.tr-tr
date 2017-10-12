@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>1. Adım: İkincil siteye Hyper-V çoğaltma işleminin mimarisini inceleme
 
@@ -65,4 +64,3 @@ Hyper-V VM’lerini ikincil bir VMM sitesine çoğaltmak için aşağıdakiler g
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [2. Adım: Önkoşulları ve sınırlamaları gözden geçirme](vmm-to-vmm-walkthrough-prerequisites.md) bölümüne gidin.
-

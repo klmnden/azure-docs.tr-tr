@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 8933c77013d7b0d886d3e309dc0b1a72026eb677
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: a0a9b69824829d0b7a07583210eaddb1f39bcf88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory Belgeleri
 
 Azure Active Directory (Azure AD) ile dizinleri eşitleme ve çoklu oturum açmayı etkinleştirme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, çok faktörlü kimlik doğrulaması, cihaz kaydı, rol tabanlı erişim denetimi, güvenlik izleme ve uyarılar gibi kimlik yönetimi özelliklerini nasıl tümleştirebileceğinizle ilgili bilgiler içerir.
@@ -141,4 +139,3 @@ Azure Active Directory (Azure AD) ile dizinleri eşitleme ve çoklu oturum açma
         </div>
     </li>
 </ul>
-

@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 497beb75d1bd4c0709929948a9f857a034364f44
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Azure'da Office 365 aboneliğinize yönelik dizini yönetme
 Bu makalede klasik Azure portalı kullanılarak bir Office 365 aboneliği için oluşturulmuş bir dizinin nasıl yönetileceği açıklanmaktadır. Klasik Azure portalında oturum açmak için Hizmet Yöneticisi veya bir Azure aboneliğinin ortak yöneticisi olmanız gerekir. Henüz bir Azure aboneliğiniz yoksa hemen [30 günlük ücretsiz deneme sürümüne](https://azure.microsoft.com/trial/get-started-active-directory/) kaydolabilir ve bu bağlantıyı kullanarak ilk bulut çözümünüzü 5 dakikadan kısa bir sürede dağıtabilirsiniz. Office 365'te oturum açmak için kullandığınız iş veya okul hesabını kullandığınızdan emin olun.
@@ -33,8 +34,8 @@ Zaten bir Azure aboneliğiniz varsa ek dizin yönetme işlemi de son derece basi
 
 | Abonelik | Office 365 | Azure |
 | --- | --- | --- |
-|   Görünen ad |Contoso |Varsayılan Azure Active Directory (Azure AD) dizini |
-|   Etki alanı adı |contoso.com |msmithhotmail.onmicrosoft.com |
+|   Görünen ad | Contoso | Varsayılan Azure Active Directory (Azure AD) dizini |
+|   Etki alanı adı | contoso.com | msmithhotmail.onmicrosoft.com |
 
 Çok faktörlü kimlik doğrulaması gibi Azure AD özelliklerini etkinleştirebilmek için, Microsoft hesabıyla Azure'da oturum açmış durumdayken Contoso dizindeki kullanıcı kimliklerini yönetmek istiyor. Aşağıdaki diyagram, işlemin açıklanmasına yardımcı olabilir.
 

@@ -3,7 +3,7 @@ title: "Azure Automation’da ilk grafik runbook uygulamam | Microsoft Belgeleri
 description: "Basit bir grafik runbook uygulaması oluşturma, test etme ve yayımlama adımlarını anlatan öğretici."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "runbook, runbook şablonu, runbook otomasyonu, azure runbook"
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/17/2017
 ms.author: magoedte;bwren
+ms.openlocfilehash: b8accf16c43b7a01233742161e68db6f831a2d30
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: d06052099acbb5544581ef3e8e2007dd751a7544
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="my-first-graphical-runbook"></a>İlk grafik runbook uygulamam
 
@@ -211,5 +210,4 @@ Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekil
 * Grafik Yazma hakkında daha fazla bilgi için bkz. [Azure Automation’da grafik yazma](automation-graphical-authoring-intro.md)
 * PowerShell runbook'ları kullanmaya başlamak için bkz. [İlk PowerShell runbook uygulamam](automation-first-runbook-textual-powershell.md)
 * PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md)
-
 

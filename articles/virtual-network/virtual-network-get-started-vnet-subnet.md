@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-virtual-network"></a>İlk sanal ağınızı oluşturma
 
 İki alt ağa sahip bir sanal ağ (VNet) oluşturmayı, iki sanal makine (VM) oluşturmayı ve aşağıdaki resimde gösterildiği gibi her bir VM’yi alt ağların birine bağlamayı öğrenin:
@@ -253,4 +251,3 @@ Bu alıştırmada, bir sanal ağ ve iki VM oluşturdunuz. VM oluşturma esnasın
 - [Ağ arabirimleri](virtual-network-network-interface.md)
 - [Ağ güvenlik grupları](virtual-networks-nsg.md)
 - [Sanal makineler](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-

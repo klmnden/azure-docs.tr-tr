@@ -1,6 +1,6 @@
 ---
-title: "Windows Phone&quot;da Azure Notification Hubs ile anında iletme bildirimleri gönderme | Microsoft Belgeleri"
-description: "Bu öğreticide, bir Windows Phone 8 veya Windows Phone 8.1 Silverlight uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs&quot;ın nasıl kullanılacağını öğrenirsiniz."
+title: "Windows Phone'da Azure Notification Hubs ile anında iletme bildirimleri gönderme | Microsoft Belgeleri"
+description: "Bu öğreticide, bir Windows Phone 8 veya Windows Phone 8.1 Silverlight uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
 documentationcenter: windows
 keywords: "anında iletme bildirimi,anında iletme bildirimi,windows phone anında iletme"
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>Windows Phone'da Azure Notification Hubs ile anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -217,16 +217,10 @@ Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyo
 <!-- URLs. -->
 [Windows Phone için Visual Studio 2012 Express]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Notification Hubs Kılavuzu]: http://msdn.microsoft.com/library/jj927170.aspx
-[MPNS kimlik doğrulamalı mod]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [bildirim kataloğu]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [kutucuk kataloğu]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
-[Notification Hubs - Windows Phone Silverlight eğiticisi]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+[Notification Hubs - Windows Phone Silverlight öğreticisi]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 

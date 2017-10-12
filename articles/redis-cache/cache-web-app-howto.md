@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Redis Cache ile Web Uygulaması oluşturma
 > [!div class="op_single_selector"]
@@ -707,7 +706,7 @@ Uygulamanızı Azure’da barındırmak için önce uygulamanızın gerektirdiğ
 
 Bu hizmetleri yeni veya seçtiğiniz mevcut bir kaynak grubuna dağıtmak için, aşağıdaki **Azure’a Dağıt** düğmesine tıklayın.
 
-[![Azure’a Dağıt][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
+[![Azure’a dağıtma][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
 Bu **Azure’a Dağıt** düğmesi, bu hizmetleri hazırlamak ve SQL Database için bağlantı dizesini ve Azure Redis Cache bağlantı dizesi için uygulama ayarlarını belirlemek için [Web Uygulaması oluşturma artı Redis Cache artı SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) [Azure Hızlı Başlangıç](https://github.com/Azure/azure-quickstart-templates) şablonunu kullanır.
 
@@ -867,5 +866,4 @@ Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalınd
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
 

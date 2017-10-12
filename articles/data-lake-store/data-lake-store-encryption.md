@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 4/14/2017
 ms.author: yagupta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store'da veri şifreleme
 
 Azure Data Lake Store’da şifreleme; verilerinizi koruma, kurumsal güvenlik ilkeleri uygulama ve yasal uyumluluk gereksinimlerini karşılamaya yardımcı olur. Bu makale tasarıma genel bir bakış sunarken uygulamanın birkaç teknik yönünü ele almaktadır.
@@ -140,4 +138,3 @@ Data Lake Store hesabınızı ayarlarken kendi anahtarlarınızı kullanmayı se
     ![İleti ve Anahtarı Döndür seçenekleri vurgulanmış Data Lake Store penceresinin ekran görüntüsü](./media/data-lake-store-encryption/rotatekey.png)
 
 Bu işlem iki dakikadan kısa sürer ve anahtar döndürme nedeniyle beklenen kapalı kalma süresi yoktur. İşlem tamamlandıktan sonra anahtarın yeni sürümü kullanılır.
-

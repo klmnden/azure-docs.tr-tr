@@ -1,5 +1,5 @@
 # Genel Bakış
-## [Sanal makineler hakkında](../../virtual-machines-windows-about.md)
+## [Sanal makineler hakkında](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Diskler ve VHD’ler](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Sanal Ağlar](../../../virtual-network/virtual-networks-overview.md)
 ## [SSS](faq.md)

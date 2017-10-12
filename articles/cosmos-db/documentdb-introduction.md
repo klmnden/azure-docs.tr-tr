@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB: DocumentDB API’sine Giriş
 
@@ -111,5 +110,4 @@ Evet, Azure DocumentDB’de [Microsoft Sanal Akademi](https://mva.microsoft.com/
 Zaten bir Azure hesabınız var mı? Bundan sonra, hesap oluşturma ve Cosmos DB ile çalışmaya başlama konusunda size kılavuzluk edecek [hızlı başlangıçlarımızı](../cosmos-db/create-documentdb-dotnet.md) takip ederek Azure Cosmos DB’yi kullanmaya başlayabilirsiniz.
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
-
 

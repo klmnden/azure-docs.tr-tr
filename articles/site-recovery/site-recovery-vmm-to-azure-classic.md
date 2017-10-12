@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
 > [!div class="op_single_selector"]
@@ -348,4 +347,3 @@ Yük devretme testi çalıştırmak için şunları yapın:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Kurtarma planlarını ayarlama](site-recovery-create-recovery-plans.md) ve [yük devretme](site-recovery-failover.md) hakkında daha fazla bilgi edinin.
-

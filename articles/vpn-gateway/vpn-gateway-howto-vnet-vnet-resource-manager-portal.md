@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
+ms.openlocfilehash: cbbae06d4e5774d5fdf7bcce65dc7efddaa5f280
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 0293495a9cbdab1fc797d9948e4cbb7759b1ba54
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Azure portalı kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 
@@ -191,4 +190,3 @@ Sanal ağlar arası bağlantılar hakkında ek bilgi için SSS sayfasını gör�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Virtual Machines belgeleri](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-

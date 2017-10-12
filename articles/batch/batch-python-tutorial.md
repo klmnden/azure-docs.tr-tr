@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Python için Batch SDK'sını kullanmaya başlama
 
@@ -716,4 +715,3 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Portalda Batch kimlik bilgileri"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Portalda Depolama kimlik bilgileri"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Batch çözümü iş akışı (minimal diyagram)"
-

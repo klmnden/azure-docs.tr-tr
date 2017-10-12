@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ac58c5e8f43a1e6bab1023826818cc3641cad54a
-ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
-ms.contentlocale: tr-tr
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="media-services-documentation"></a>Media Services Belgeleri
 
 Genişletilebilir bir bulut platformu olan Media Services ile yayın kalitesindeki videoların akışını yapma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.
@@ -212,5 +210,4 @@ Genişletilebilir bir bulut platformu olan Media Services ile yayın kalitesinde
         </div>
     </li>
 </ul>
-
 

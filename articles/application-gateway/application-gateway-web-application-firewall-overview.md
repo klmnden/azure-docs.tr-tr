@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="web-application-firewall-waf"></a>Web uygulaması güvenlik duvarı (WAF)
 
 Web uygulaması güvenlik duvarı (WAF), web uygulamalarınızda açıklardan yararlanmaya ve güvenlik açıklarına karşı merkezi koruma sağlayan bir Application Gateway özelliğidir. 
@@ -173,5 +171,4 @@ WAF için faturalama 5/5/2017’den itibaren başlar; bu tarihe kadar WAF SKU a�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 WAF özellikleri hakkında daha bilgi edindikten sonra [Application Gateway üzerinde web uygulaması güvenlik duvarını yapılandırma](application-gateway-web-application-firewall-portal.md) sayfasını ziyaret edin.
-
 

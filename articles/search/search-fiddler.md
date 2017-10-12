@@ -14,14 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
-ms.contentlocale: tr-tr
-ms.lasthandoff: 12/07/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Azure Search REST API'lerini değerlendirmek ve test etmek için Fiddler'ı kullanma
 > [!div class="op_single_selector"]
 >
@@ -225,4 +223,3 @@ Azure Search hizmetini kod içermeyen bir yaklaşımla yönetmek ve kullanmak i�
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
-

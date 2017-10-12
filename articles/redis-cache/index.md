@@ -1,6 +1,6 @@
 ---
-title: "Azure Redis Cache Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Uygulamaların verilere hızla erişmesini sağlayan güvenli bir veri arabelleği ve mesajlaşma aracısı olan Azure Redis Cache’i nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve daha fazlası."
+title: "Azure Redis Önbelleği Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Uygulamaların verilere hızla erişmesini sağlayan güvenli bir veri arabelleği ve mesajlaşma aracısı olan Azure Redis Önbelleği’ni nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve daha fazlası."
 services: redis-cache
 author: czeumault
 manager: carolz
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ba5cba11b7b5ba142094e9d2c0b027386266e83a
-ms.openlocfilehash: 19756171a8831eef9ac25cfa619a815d17140257
-ms.contentlocale: tr-tr
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 6528d900ba3641189f8000db8d2535c9b215d148
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-#<a name="redis-cache-documentation"></a>Redis Cache Belgeleri
+#<a name="redis-cache-documentation"></a>Redis Önbelleği Belgeleri
 
-Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde erişmesini sağlayan güvenli bir veri arabelleği ve mesajlaşma aracısı olan Azure Redis Cache’i nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, Azure’daki herhangi bir uygulamadan Redis Cache’i nasıl kullanabileceğiniz ile ilgili bilgiler içerir.
+Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde erişmesini sağlayan güvenli bir veri arabelleği ve mesajlaşma aracısı olan Azure Redis Önbelleği’ni nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, Azure’daki herhangi bir uygulamadan Redis Önbelleği’ni nasıl kullanabileceğiniz ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -35,7 +34,7 @@ Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde eriş
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Redis Cache Premium katmanı hakkında bilgi edinin</h3>
+                        <h3>Azure Redis Önbelleği Premium katmanı hakkında bilgi edinin</h3>
                     </div>
                 </div>
             </div>
@@ -52,7 +51,7 @@ Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde eriş
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Redis Cache Video Kitaplığı</h3>
+                        <h3>Azure Redis Önbelleği Video Kitaplığı</h3>
                     </div>
                 </div>
             </div>
@@ -70,7 +69,7 @@ Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde eriş
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>.NET'i kullanarak Redis Cache ile Çalışmaya Başlama</h3>
+                        <h3>.NET'i kullanarak Redis Önbelleği ile Çalışmaya Başlama</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +87,7 @@ Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde eriş
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>ASP.NET MVC'yi kullanarak Redis Cache ile Çalışmaya Başlama</h3>
+                        <h3>ASP.NET MVC'yi kullanarak Redis Önbelleği ile Çalışmaya Başlama</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +105,7 @@ Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde eriş
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Node.js'yi kullanarak Redis Cache ile Çalışmaya Başlama</h3>
+                        <h3>Node.js'yi kullanarak Redis Önbelleği ile Çalışmaya Başlama</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +123,7 @@ Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde eriş
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Java'yı kullanarak Redis Cache ile Çalışmaya Başlama</h3>
+                        <h3>Java'yı kullanarak Redis Önbelleği ile Çalışmaya Başlama</h3>
                     </div>
                 </div>
             </div>
@@ -142,7 +141,7 @@ Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde eriş
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Python'ı kullanarak Redis Cache ile Çalışmaya Başlama</h3>
+                        <h3>Python'ı kullanarak Redis Önbelleği ile Çalışmaya Başlama</h3>
                     </div>
                 </div>
             </div>
@@ -196,6 +195,5 @@ Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde eriş
         </div>
     </li>
 </ul>
-
 
 

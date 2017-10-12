@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
+ms.openlocfilehash: d602d833286d1906a2e9bd38d3e99d737146310b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 0286d0cab7eb774a13066beb838840892dfeeda5
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mobile-apps-documentation"></a>Mobile Apps Belgeleri
 
@@ -210,4 +209,3 @@ Azure App Service’teki Mobile Apps hizmeti ile Xamarin veya Cordova’yı kull
         </div>
     </li>
 </ul>
-

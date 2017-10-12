@@ -12,8 +12,3 @@
 5. En üstteki **Cloud Messaging** sekmesine tıklayın. 
 6. Daha sonra *Android Bildirim dosyasında* kullanacağınız için **Sunucu Anahtarını** ve **Gönderen Kimliğini** not alın.  
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

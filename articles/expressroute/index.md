@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1c9d64f415a94c35bc6e41706ce78b0da34a0131
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 8c12fd74d131538e736d6357da586c5debb9929c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="expressroute-documentation"></a>ExpressRoute Belgeleri
 
 ExpressRoute’u kullanarak şirket içi altyapınızdan veya ortak yerleşim tesisinizden Microsoft bulut hizmetlerine hızlı ve özel bir bağlantı ayarlama hakkında bilgi edinin. Öğreticiler, REST API’ler ve diğer belgeler, ExpressRoute devrelerini yapılandırmanıza ve yönetmenize yardımcı olur.
@@ -112,6 +110,5 @@ ExpressRoute’u kullanarak şirket içi altyapınızdan veya ortak yerleşim te
         </div>
     </li>
 </ul>
-
 
 

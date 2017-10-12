@@ -13,14 +13,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
+ms.openlocfilehash: d78176eca6bdbf32d6b4400ad2812dea98703d67
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ebd2520813cd27280171c0e05637eb5a8bd58a29
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>.NET SDK’sını kullanarak veri fabrikası ve işlem hattı oluşturma
 Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz. 
 
@@ -29,12 +27,12 @@ Bu hızlı başlangıç, .NET SDK’sı kullanarak bir Azure veri fabrikası olu
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
-* **Azure Depolama hesabı**. Blob depolama alanını hem **kaynak** hem de **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa oluşturma bilgileri için bkz. [Depolama hesabı oluşturma]. bir tane oluşturmak için (../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın. 
-* Blob Depolama içinde bir **blob kapsayıcısı** oluşturun, kapsayıcıda bir giriş **klasörü** oluşturun ve bazı dosyaları klasöre yükleyin. 
+* **Azure Depolama hesabı**. Blob depolama alanını hem **kaynak** hem de **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa oluşturma bilgileri için bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+* Blob Depolama içinde bir **blob kapsayıcısı** oluşturun, kapsayıcıda bir giriş **klasörü** oluşturun ve bazı dosyaları klasöre yükleyin. [Azure Depolama gezgini](https://azure.microsoft.com/features/storage-explorer/) gibi araçları kullanarak Azure Blob depolama hesabına bağlanabilir, bir blob kapsayıcısı oluşturabilir, giriş dosyasını karşıya yükleyebilir ve çıktı dosyasını doğrulayabilirsiniz.
 * **Visual Studio** 2013, 2015 veya 2017. Bu makaledeki kılavuzda Visual Studio 2017 kullanılır.
 * **[Azure .NET SDK](http://azure.microsoft.com/downloads/)** indirip yükleyin.
 * **Azure Active Directory’de** [bu adımları](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) izleyerek bir uygulama oluşturun. Daha sonra kullandığınız şu değerleri not edin: **uygulama kimliği**, **kimlik doğrulama anahtarı** ve **kiracı kimliği**. Aynı makalede bulunan yönergeleri izleyerek uygulamayı "**Katkıda bulunan**" rolüne atayın. 
-* [Azure Depolama gezgini](https://azure.microsoft.com/features/storage-explorer/). Bu aracı kullanarak Azure Blob depolama hesabına bağlanabilir, bir blob kapsayıcısı oluşturabilir, giriş dosyasını karşıya yükleyebilir ve çıktı dosyasını doğrulayabilirsiniz. 
+*  
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
 
@@ -55,6 +53,7 @@ Visual Studio 2013/2015/2017'yi kullanarak bir C# .NET konsol uygulaması oluşt
     Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
     Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+
     ```
 
 ## <a name="create-a-data-factory-client"></a>Veri fabrikası istemcisi oluşturma
@@ -83,7 +82,7 @@ Visual Studio 2013/2015/2017'yi kullanarak bir C# .NET konsol uygulaması oluşt
     string resourceGroup = "<your resource group where the data factory resides>";
     // Currently, Data Factory V2 allows you to create data factories only in the East US and East US2 regions. 
     // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions
-    string region = "East US";
+    string region = "East US 2";
     string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
     string storageAccount = "<your storage account name to copy data>";
     string storageKey = "<your storage account key>";
@@ -274,13 +273,10 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
    
     List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
     resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
- 
-
     if (pipelineRun.Status == "Succeeded")
         Console.WriteLine(activityRuns.First().Output);
     else
         Console.WriteLine(activityRuns.First().Error);
-
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
@@ -409,4 +405,3 @@ Veri fabrikasını programlı olarak silmek için aşağıdaki kod satırların�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu örnekteki işlem hattı, verileri bir konumdan Azure blob depolama alanındaki başka bir konuma kopyalar. Daha fazla senaryoda Data Factory’yi kullanma hakkında bilgi almak için [öğreticileri](tutorial-copy-data-dot-net.md) okuyun. 
-

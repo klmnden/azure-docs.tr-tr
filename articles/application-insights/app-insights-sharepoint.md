@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/24/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: f8c71601d033a2897c83a3a64306a39162360946
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: a3b37674469a131016f46af590e1eee3ba4cdc73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Bir SharePoint sitesini Application Insights ile izleme
 Azure Application Insights, uygulamalarınızın kullanılabilirliğini, performansını ve kullanımını izler. Burada, bir SharePoint sitesi için nasıl ayarlayacağınızı öğreneceksiniz.
@@ -145,6 +144,5 @@ function onRequestFail(sender, args) {
 * Diğer uygulama türleri için [Application Insights](app-insights-overview.md).
 
 <!--Link references-->
-
 
 

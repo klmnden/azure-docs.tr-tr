@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/13/2017
 ms.author: ryanwi;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ad284e152dcf44f27fb53340dd641d95b103db78
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 359677972c7e1fa3f7435052021ddfae5b1ed85e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Yerel kümenizdeki uygulamaları dağıtma ve yükseltme işlemlerine giriş
 Azure Service Fabric SDK, yerel bir kümede hızlıca dağıtma ve uygulamaları yönetme işlemlerine başlamak için kullanabileceğiniz eksiksiz bir yerel geliştirme ortamı içerir. Bu makalede, yerel bir küme oluşturup var olan bir uygulamayı kümeye dağıtır, ardından uygulamayı yeni bir sürüme yükseltirsiniz ve tüm bu işlemleri Windows PowerShell'den gerçekleştirirsiniz.
@@ -32,7 +31,7 @@ Azure Service Fabric SDK, yerel bir kümede hızlıca dağıtma ve uygulamaları
 ## <a name="create-a-local-cluster"></a>Yerel bir küme oluşturma
 Service Fabric kümesi, uygulamaları dağıtabileceğiniz bir dizi donanım kaynağını ifade eder. Genel olarak, bir küme herhangi bir yerden oluşturulabilir ve en az beş olmak üzere yüzlerce makine içerebilir. Ancak Service Fabric SDK yalnızca tek bir makinede çalışabilen küme yapılandırması içerir.
 
-Service Fabric yerel kümesinin bir öykünücü veya simülatör olmadığını anlamak oldukça önemlidir. Çok makineli kümelerde bulunan aynı platform kodunu çalıştırır. Tek fark, normalde beş makineye yayılan platform işlemlerini tek bir makinede çalıştırmasıdır.
+Service Fabric yerel kümesinin bir öykünücü veya benzetici olmadığını anlamak oldukça önemlidir. Çok makineli kümelerde bulunan aynı platform kodunu çalıştırır. Tek fark, normalde beş makineye yayılan platform işlemlerini tek bir makinede çalıştırmasıdır.
 
 SDK, yerel küme ayarlamak için iki yöntem sunar: Windows PowerShell betiği ve Yerel Küme Yöneticisi sistemi tepsisi uygulaması. Bu öğreticide PowerShell betiğini kullanıyoruz.
 
@@ -193,7 +192,7 @@ Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. 
 ## <a name="one-node-and-five-node-cluster-mode"></a>Tek düğümlü ve beş düğümlü küme modu
 Uygulama geliştirirken çoğunlukla kendinizi kod yazma, hata ayıklama, kod değiştirme ve hata ayıklama işlemlerini yinelerken bulursunuz. Bu işlemi en iyi duruma getirmek için yerel küme iki modda çalışabilir: tek düğümlü veya beş düğümlü. Her iki küme modunun da faydaları vardır. Beş düğümlü küme modu gerçek bir küme ile çalışmanıza olanak tanır. Yük devretme senaryolarını test edebilir, hizmetlerinizin daha fazla örneği ve yinelemeleri ile çalışabilirsiniz. Tek düğümlü küme modu Service Fabric çalışma zamanı kullanılarak kodu hızlıca doğrulamanıza yardımcı olmak amacıyla hizmetlerin hızlı dağıtımını ve kaydını yapmak üzere en iyi hale getirilmiştir.
 
-Tek düğümlü küme de beş düğümlü küme de öykünücü veya simülatör değildir. Yerel geliştirme kümesi çok makineli kümelerde bulunan aynı platform kodunu çalıştırır.
+Tek düğümlü küme de beş düğümlü küme de öykünücü veya benzetici değildir. Yerel geliştirme kümesi çok makineli kümelerde bulunan aynı platform kodunu çalıştırır.
 
 > [!WARNING]
 > Küme modunu değiştirdiğinizde geçerli küme sisteminizden kaldırılır ve yeni bir küme oluşturulur. Küme modunu değiştirdiğinizde kümede depolanan veriler silinir.
@@ -241,4 +240,3 @@ Ya da PowerShell kullanarak küme modunu değiştirin:
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 [switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
-

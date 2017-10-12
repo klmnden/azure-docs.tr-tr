@@ -1,6 +1,6 @@
 ---
-title: "Azure Notification Hubs ile Android&quot;e anında iletme bildirimleri gönderme | Microsoft Belgeleri"
-description: "Bu öğreticide, Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs&quot;ın nasıl kullanılacağını öğrenirsiniz."
+title: "Azure Notification Hubs ile Android'e anında iletme bildirimleri gönderme | Microsoft Belgeleri"
+description: "Bu öğreticide, Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
 documentationcenter: android
 keywords: "anında iletme bildirimleri,anında iletme bildirimi,android anında iletme bildirimi"
@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
 ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Azure Notification Hubs ile Android'e anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -59,7 +59,7 @@ Bu öğreticiyi tamamlamak Android uygulamalarına ilişkin diğer tüm Notifica
 
 Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıldı. Ayrıca, uygulamanızı anında iletme bildirimleri alması ve göndermesi amacıyla kaydetmek için bağlantı dizelerine sahipsiniz.
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Uygulamanızı bildirim hub'ına bağlama
+## <a id="connecting-app"></a>Uygulamanızı bildirim hub'ına bağlama
 ### <a name="create-a-new-android-project"></a>Yeni bir Android projesi oluşturma
 1. Android Studio'da yeni bir Android Studio projesi başlatın.
    
@@ -669,9 +669,3 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: bb5897a392e500de685421769c414441ddfeb6a3
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
@@ -780,4 +779,3 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 * [Cloud Services nasıl yönetilir?](cloud-services-how-to-manage.md)
 * [Azure Depolama](/documentation/services/storage/)
 * [Bulut hizmeti sağlayıcısı seçme](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-

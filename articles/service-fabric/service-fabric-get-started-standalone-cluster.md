@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/06/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a96150a6a7f83d1c220e0450f7704634a1f6ed1b
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 5c8f4c784eed7b64810a3dd1c36c043d22a66936
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>İlk tek başına Service Fabric kümenizi oluşturma
 Şirket içinde veya bulutta Windows Server 2012 R2 ya da Windows Server 2016 çalıştıran herhangi bir sanal makinede tek başına Service Fabric kümesi oluşturabilirsiniz. Bu hızlı başlangıç kılavuzu, yalnızca birkaç dakika içerisinde tek başına bir geliştirme kümesi oluşturmanıza yardımcı olur.  Kılavuzu tamamladığınızda, uygulama dağıtabileceğiniz tek bir bilgisayarda çalışan üç düğümlü bir kümeniz olur.
 
@@ -95,4 +93,3 @@ Artık bir tek başına geliştirme kümesi ayarladığınıza göre aşağıdak
 * [PowerShell kullanarak uygulama dağıtma](service-fabric-deploy-remove-applications.md)
 
 [service-fabric-explorer]: ./media/service-fabric-get-started-standalone-cluster/sfx.png
-

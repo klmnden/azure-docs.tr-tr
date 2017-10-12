@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.contentlocale: tr-tr
-ms.lasthandoff: 03/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Depolama Gezgini’ni (Önizleme) Azure Dosya Depolama ile kullanma
 
 Azure Dosya Depolama, standart Sunucu İleti Blogu (SMB) Protokolü kullanarak bulutta dosya paylaşımı sunan bir hizmettir. SMB 2.1 ve SMB 3.0 desteklenir. Azure File Storage, Azure’a dosya paylaşımı kullanan eski uygulamaları maliyetli yeniden yazdırmaya ihtiyaç duymadan ve hızla taşıyabilmenizi sağlar. Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini özel olarak depolamak için Dosya Depolama’yı kullanabilirsiniz. Bu makalede, dosya paylaşımları ve dosyalarla çalışmak üzere Depolama Gezgini’ni (Önizleme) nasıl kullanacağınızı öğreneceksiniz.
@@ -263,4 +261,3 @@ Aşağıdaki adımlar bir dosya paylaşımındaki dosyaları (ve klasörleri) y�
 - [En son Depolama Gezgini (Önizleme) sürüm notlarını ve videolarını](http://www.storageexplorer.com/) görüntüleyin.
 
 - [Azure bloblarını, tablolarını, kuyruklarını ve dosyalarını kullanarak uygulama oluşturma](https://azure.microsoft.com/documentation/services/storage/) hakkında bilgi edinin.
-

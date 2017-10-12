@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>OMS’de Aracı Durumu çözümü
 OMS’deki Aracı Durumu çözümü, doğrudan bir OMS çalışma alanına veya OMS’ye bağlı bir System Center Operations Manager yönetim grubuna bildirimde bulunan, yanıt vermeyen ve işletimsel veriler gönderen tüm aracıları anlamanıza yardımcı olur.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
@@ -135,4 +134,3 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan kayıtlara ilişkin örne
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Log Analytics’ten uyarı oluşturma hakkında daha ayrıntılı bilgi edinmek için bkz. [Log Analytics’teki Uyarılar](../log-analytics/log-analytics-alerts.md) .
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
-ms.contentlocale: tr-tr
-ms.lasthandoff: 12/07/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-scheduler"></a>Azure Scheduler nedir?
 Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tanımlamanızı sağlar. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır.  Scheduler bunu [Azure portal](scheduler-get-started-portal.md), kod, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) ya da Azure PowerShell kullanarak yapar.
@@ -53,5 +52,4 @@ Scheduler, programlı olarak, betikleri kullanarak ve portalda işler ve [iş ko
  [Azure Scheduler sınırları, varsayılanları ve hata kodları](scheduler-limits-defaults-errors.md)
 
  [Azure Scheduler giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
-
 

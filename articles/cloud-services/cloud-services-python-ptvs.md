@@ -1,5 +1,5 @@
 ---
-title: "Python ve Azure Cloud Services kullanmaya başlama | Microsoft Docs"
+title: "Python ve Azure Cloud Services kullanmaya başlama | Microsoft Belgeleri"
 description: "Web rolleri ve çalışan rolleri dahil olmak üzere Azure Cloud Services oluşturmak üzere Visual Studio için Python Araçları’nı kullanma hakkında genel bilgi edinin."
 services: cloud-services
 documentationcenter: python
@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
+ms.openlocfilehash: 030a09c05ac4b480c9326b8a9ebc585339f312b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7d2bc89943087323e92cf06981bbacaf4b8ff060
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Visual Studio için Python web ve çalışan rolleri içeren Python Araçları
 
@@ -367,4 +366,3 @@ Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmet
 [Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/
-

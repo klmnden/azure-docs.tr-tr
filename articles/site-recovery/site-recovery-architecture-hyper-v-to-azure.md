@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Site Recovery’de Azure’a Hyper-V çoğaltması nasıl işliyor?
 
 
@@ -67,9 +64,7 @@ Hyper-V VM'lerini Azure'a çoğaltırken kullanılan çeşitli bileşenler vard�
 1. Azure portalında veya şirket içinde bir Hyper-V VM’si için koruma etkinleştirdikten sonra, **Korumayı etkinleştir** başlatılır.
 2. İş, makinenin önkoşullarla uyumlu olup olmadığını denetler, ardından, çoğaltmayı daha önce yapılandırdığınız ayarları uygulamak üzere [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) çağırır.
 3. İş, tam bir VM çoğaltması başlatmak için [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) yöntemini çağırarak ilk çoğaltmayı başlatır ve VM’lerin sanal disklerini Azure’a gönderir.
-4. **İşler** sekmesinde işi izleyebilirsiniz.
-        ![İşler listesi](media/site-recovery-hyper-v-azure-architecture/image1.png)
-        ![Koruma etkinleştir detayına git](media/site-recovery-hyper-v-azure-architecture/image2.png)
+4. **İşler** sekmesinde işi izleyebilirsiniz.      ![İşler listesi](media/site-recovery-hyper-v-azure-architecture/image1.png) ![Korumayı etkinleştir ayrıntıları](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>İlk verileri çoğaltma
 
@@ -126,4 +121,3 @@ Bir çoğaltma hatası meydana gelirse, yerleşik yeniden deneme işlevi vardır
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Destek matrisini](site-recovery-support-matrix-to-azure.md) inceleyin
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-to-azure-with-site-recovery"></a>Site Recovery ile Azure’a Geçiş
 
@@ -83,4 +81,3 @@ AWS örneklerini Azure VM’lerine geçirebilirsiniz. Bu senaryoda yalnızca ge�
 - [AWS örneklerini Azure’a geçirme](site-recovery-migrate-aws-to-azure.md)
 - Olağanüstü durum kurtarma ihtiyaçlarına yönelik olarak başka bir bölgeye [çoğaltmayı etkinleştirmek için, geçirilen makineleri hazırlayın](site-recovery-azure-to-azure-after-migration.md).
 - [Azure sanal makinelerini çoğaltarak](site-recovery-azure-to-azure.md) iş yüklerinizi korumaya başlayın.
-

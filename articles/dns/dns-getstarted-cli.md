@@ -1,6 +1,6 @@
 ---
 title: "Azure CLI 2.0 ile Azure DNS kullanmaya başlama | Microsoft Docs"
-description: "Azure DNS&quot;te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, Azure CLI 2.0 kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
+description: "Azure DNS'te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, Azure CLI 2.0 kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 6958d61b29961f59cb22f62bec55f2d467e7e7cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Azure CLI 2.0 kullanarak Azure DNS ile çalışmaya başlama
 
 > [!div class="op_single_selector"]
@@ -123,4 +121,3 @@ Azure DNS hakkında daha fazla bilgi için bkz. [Azure DNS'e genel bakış](dns-
 Azure DNS’te DNS bölgelerini yönetme hakkında daha fazla bilgi için bkz. [Azure CLI 2.0 ile Azure DNS’te DNS bölgelerini yönetme](dns-operations-dnszones-cli.md).
 
 Azure DNS’te DNS kayıtlarını yönetme hakkında daha fazla bilgi için bkz. [Azure CLI 2.0 ile Azure DNS’te DNS kayıtlarını yönetme](dns-operations-recordsets-cli.md).
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 35ca040ed123f6330f09f7fb1bc6be9ddaf61808
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 9d7e2a390adf10cbf5d88dd0084ce09136987309
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Windows Masaüstü uygulamalarında kullanımı ve performansı izleme
 
@@ -90,5 +89,4 @@ ms.lasthandoff: 04/07/2017
 * [Tanılama Araması](app-insights-diagnostic-search.md)
 * [Ölçümleri keşfetme](app-insights-metrics-explorer.md)
 * [Analytics sorguları yazma](app-insights-analytics.md)
-
 

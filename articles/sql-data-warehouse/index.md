@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: b9f5bc85d6fca466be7abbe67b400856e1635459
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/08/2017
-
+ms.openlocfilehash: fea8cd403cbf21acee2194e8e3888e4001663cdd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-data-warehouse-documentation"></a>SQL Veri Ambarı Belgeleri
 
 SQL Server ilişkisel veritabanını yüksek düzeyde paralel işleme ile birleştiren SQL Veri Ambarı’nı nasıl kullanacağınızı öğrenin. Öğreticilerde ve diğer belgelerd,e ambara veri yükleme ve yüklenen verileri çözümleme, yönetme ve dışarı aktarma ile ilgili bilgiler sağlanmıştır.
@@ -114,6 +112,5 @@ SQL Server ilişkisel veritabanını yüksek düzeyde paralel işleme ile birle�
         </div>
     </li>
 </ul>
-
 
 

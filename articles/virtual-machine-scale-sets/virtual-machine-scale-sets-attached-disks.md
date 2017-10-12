@@ -1,5 +1,5 @@
 ---
-title: "Azure Sanal Makine Ölçek Kümeleri Bağlı Veri Diskleri | Microsoft Docs"
+title: "Azure Sanal Makine Ölçek Kümeleri Bağlı Veri Diskleri | Microsoft Belgeleri"
 description: "Sanal makine ölçek kümelerinde bağlı veri disklerinin nasıl kullanılacağını öğrenin"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Azure VM ölçek kümeleri ve bağlı veri diskleri
 Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), bağlı veri diskleri olan sanal makineleri artık desteklemektedir. Veri diskleri, Azure Yönetilen Diskler ile oluşturulmuş olan ölçek kümeleri için depolama profilinde tanımlanabilir. Daha önce, ölçek kümelerindeki sanal makinelere doğrudan bağlı depolama seçeneği olarak yalnızca işletim sistemi sürücüsü ve geçici sürücüler kullanılabiliyordu.
@@ -128,6 +127,5 @@ Azure Yönetilen diskleri ve ölçek kümesi bağlı veri diskleri için destek,
 Ölçek kümeleri için bağlı disk desteğinin ilk uygulamasında, veri disklerini ölçek kümesindeki VM’lere bağlama/VM’lerden ayırma işlemini her VM için ayrı ayrı gerçekleştiremezsiniz.
 
 Ölçek kümelerindeki bağlı veri diskleri için Azure portalı desteği başlangıçta sınırlıydı. Gereksinimlerinize bağlı olarak, bağlı diskleri yönetmek için Azure şablonları, CLI, PowerShell, SDK’lar ve REST API kullanabilirsiniz.
-
 
 

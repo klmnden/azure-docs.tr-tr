@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: e641de26d47d54e1543157d788aa131fb3bd3cf3
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Azure portalı kullanılarak Geçiş ad alanı oluşturma
 Ad alanı, tüm Azure Geçişi bileşenleriniz için ortak bir kapsayıcıdır. Tek bir ad alanında birden fazla Geçiş bulunabilir ve ad alanları genellikle uygulama kapsayıcıları olarak görev yapar. Şu anda bir geçiş ad alanı oluşturmanın iki farklı yolu vardır.
 
@@ -38,5 +36,4 @@ Tebrikler! Bir geçiş ad alanı oluşturdunuz.
 * [Geçiş hakkında SSS](relay-faq.md)
 * [.NET kullanmaya başlama](relay-hybrid-connections-dotnet-get-started.md)
 * [Node kullanmaya başlama](relay-hybrid-connections-node-get-started.md)
-
 

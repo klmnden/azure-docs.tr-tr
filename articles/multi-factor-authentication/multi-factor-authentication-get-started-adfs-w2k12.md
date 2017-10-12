@@ -15,12 +15,11 @@ ms.date: 08/25/2017
 ms.author: kgremban
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 7fc6ad052e4e873be6a3e7009e9739e4a1c9ce03
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Azure Multi-Factor Authentication Sunucusunu Windows Server’da AD FS ile çalışacak şekilde yapılandırma
 Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız ve bulut ya da şirket içi kaynaklarınızı güvenli hale getirmek istiyorsanız Azure Multi-Factor Authentication Sunucusunu AD FS ile çalışmak üzere yapılandırabilirsiniz. Bu yapılandırma yüksek değerli uç noktalar için iki aşamalı doğrulamayı tetikler.
@@ -145,4 +144,3 @@ Bulut kaynağınızın güvenliğini sağlamak için, kullanıcı iki adımlı d
 
 ## <a name="related-topics"></a>İlgili konular
 Sorun giderme yardımı için bkz. [Azure Multi-Factor Authentication SSS](multi-factor-authentication-faq.md)
-

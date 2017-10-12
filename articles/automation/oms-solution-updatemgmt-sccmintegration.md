@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>System Center Configuration Manager’ı OMS Güncelleştirme Yönetimi ile Tümleştirme [Önizleme]
 
 PC, sunucu ve mobil cihazları yönetmek için System Center Configuration Manager’a yatırım yapmış müşteriler aynı zamanda yazılım güncelleştirme yönetimi (SUM) döngüsünün bir parçası olarak yazılım güncelleştirmelerini yönetme gücünden ve olgunluğundan yararlanmaktadır.  
@@ -56,5 +54,4 @@ OMS çözümüyle güncelleştirme dağıtımını tamamladıktan sonra, seçili
 Configuration Manager istemcisi olan Windows Server VM’lerinin güncelleştirmelerini yönetmek için, istemci ilkesini bu çözüm tarafından yönetilen tüm istemcilere ait Yazılım Güncelleştirme Yönetimi özelliğini devre dışı bırakacak şekilde yapılandırmanız gerekir.  Varsayılan olarak, istemci ayarları hiyerarşideki tüm cihazları hedefler.  Bu ilke ayarı ve nasıl yapılandırılacağı hakkında daha fazla bilgi için [System Center Configuration Manager'da istemci ayarlarını yapılandırma](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings) makalesini inceleyin.  
 
 Bu yapılandırma değişikliğini uyguladıktan sonra, [Güncelleştirme Dağıtımı Oluşturma](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) içinde açıklanan adımları izleyerek yeni bir dağıtım oluşturun ve açılır listeden OMS bilgisayar grubu olarak ifade edilen uygun Configuration Manager koleksiyonunu seçin. 
-
 
