@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-access-reviews-preview"></a>Azure AD erişim gözden geçirmeleri (Önizleme)
 
 Erişim incelemeleri, kuruluşların grup üyeliklerini ve kurumsal uygulamalara erişimi etkili bir şekilde yönetmesine olanak sağlar. 
@@ -41,4 +39,3 @@ Erişim incelemeleri, kuruluşların grup üyeliklerini ve kurumsal uygulamalara
 - [Azure AD erişim gözden geçirmeleri için programları ve denetimleri yönetme](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Bir grubun üyeleri veya bir uygulamaya erişim için erişim gözden geçirmesi oluşturma](active-directory-azure-ad-controls-create-access-review.md)
 - [Bir Azure AD yönetici rolündeki kullanıcılar için erişim gözden geçirmesi oluşturma](active-directory-privileged-identity-management-how-to-start-security-review.md)
-

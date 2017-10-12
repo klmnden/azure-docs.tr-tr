@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 89bf87f27fdf276068cba261fc6ae1660307e0b7
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Birden fazla Azure sanal makinesi için güncelleştirmeleri yönetme
 
 Güncelleştirme yönetimi, Azure sanal makineleriniz için güncelleştirme ve yamaları yönetmenize olanak tanır.

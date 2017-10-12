@@ -14,12 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: f5d5f238f8f57c8dcf7a3759274f9d565e73ecce
-ms.contentlocale: tr-tr
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect eşitlemesini Azure AD Connect Health ile izleme
 Aşağıdaki belgeler Azure AD Connect Health ile Azure AD Connect’in (Eşitleme) izlenmesine özgüdür.  Azure Connect Health ile AD FS'yi izleme hakkında bilgi almak için bkz. [Azure AD Connect Health'i AD FS ile kullanma](active-directory-aadconnect-health-adfs.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
@@ -68,8 +67,7 @@ Bu özellik, kimlik verileri Azure AD Connect kullanılarak Windows Server AD il
 * Rapor, eşitleme istemcisi tarafından kaydedilen hataları kapsar (Azure AD Connect 1.1.281.0 veya üzeri)
 * Eşitleme altyapısındaki son eşitleme işlemi sırasında oluşan hataları içerir. (Azure AD Bağlayıcısı üzerinde “dışarı aktarma”.)
 * Raporun en son verileri içermesi için eşitlemeye yönelik Azure AD Connect Health aracısının gerekli uç noktalara giden bağlantısının olması gerekir.
-* Rapor, eşitleme için Azure AD Connect Health aracısı tarafından yüklenen verileri kullanarak **30 dakikada bir güncelleştirilir**.
-  Aşağıdaki temel özellikleri sağlar
+* Rapor, eşitleme için Azure AD Connect Health aracısı tarafından yüklenen verileri kullanarak **30 dakikada bir güncelleştirilir**. Aşağıdaki temel özellikleri sağlar
 
   * Hataların kategorilere ayrılması
   * Kategoriye göre hatalı nesnelerin listesi

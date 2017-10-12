@@ -3,7 +3,7 @@ title: Azure Automation Nedir? | Microsoft Belgeleri
 description: "Azure Automation’ın sağladığı değerleri öğrenin ve runbook’lar oluşturmaya, kullanmaya ve Azure Automation DSC kullanmaya başlayabilmeniz için sık sorulan soruların yanıtlarını alın."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "otomasyon nedir, azure otomasyonu, azure otomasyonu örnekleri"
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
+ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/10/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-overview"></a>Azure Automation’a genel bakış
 Microsoft Azure Automation, kullanıcılara bir bulutta ve kurumsal ortamda sık olarak gerçekleştirilen el ile, uzun süreli, hatasız ve sık tekrarlanan görevleri otomatik hale getirmek için bir yol sunar. Bu zamandan tasarruf sağlar ve normal yönetim görevlerinin güvenilirliğini artırır ve hatta bunları düzenli aralıklarla otomatik olarak gerçekleştirilecek şekilde zamanlar. Runbook’ları kullanarak işlemleri otomatik hale getirebilir ya da İstenen Durum Yapılandırması’nı kullanarak yapılandırmayı otomatik hale getirebilirsiniz. Bu makale, Azure Automation’a ilişkin kısa bir genel bakış sağlar ve bazı sık sorulan soruları yanıtlar. Farklı konulara ilişkin daha ayrıntılı bilgiler için bu kitaplıktaki diğer makalelere başvurabilirsiniz.
@@ -84,5 +83,4 @@ Azure Automation ve kendi runbook'larınızı oluşturma hakkında daha fazla bi
 
 ## <a name="can-i-provide-feedback"></a>Geribildirim sağlayabilir miyim?
 **Lütfen bize geri bildirimde bulunun.** Bir Azure Automation runbook çözümü veya bir tümleştirme modülü arıyorsanız, Betik Merkezi'ne bir Betik İsteği gönderin. Azure Automation ile ilgili geribildirim ya da özellik isteğiniz varsa, [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback)’da yayınlayın. Teşekkür ederiz! 
-
 

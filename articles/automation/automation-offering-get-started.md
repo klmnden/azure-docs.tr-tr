@@ -1,9 +1,9 @@
---- 
+---
 title: "Azure Otomasyonu Kullanmaya Başlama | Microsoft Docs"
 description: "Bu makale, Azure Market tekliflerini eklemeyle ilgili tasarım ve uygulama ayrıntılarını gözden geçirerek Azure Otomasyonu hizmetine genel bakış sağlar."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-azure-automation"></a>Azure Otomasyonu’nu Kullanmaya Başlama
 
 Bu başlangıç kılavuzunda Azure Otomasyonu’nun dağıtımıyla ilgili temel kavramlar açıklanmaktadır. Azure’da Otomasyon’u kullanmaya yeni başladıysanız veya System Center Orchestrator gibi otomasyon iş akışı yazılımlarıyla ilgili deneyiminiz varsa bu kılavuz, Otomasyon’u nasıl hazırlayacağınızı ve kullanmaya başlayacağınızı anlamanıza yardımcı olur.  Ardından işlem otomasyonu ihtiyaçlarınızı karşılamak amacıyla runbook’lar geliştirmeye başlamak için hazır olacaksınız. 
@@ -191,6 +189,5 @@ Teklif eklendikten sonra runbook oluşturmaya başlayabilir, etkinleştirdiğini
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Otomasyonu Farklı Çalıştır hesabı kimlik doğrulama testi](automation-verify-runas-authentication.md) bölümünü gözden geçirerek, yeni Otomasyon hesabınızın Azure kaynaklarıyla kimlik doğrulaması yapıp yapamadığını onaylayabilirsiniz.
 * Runbook'lar oluşturmaya başlamak için yazmaya başlamadan önce desteklenen [Otomasyon runbook türlerini](automation-runbook-types.md) ve ilgili noktaları gözden geçirin.
-
 
 

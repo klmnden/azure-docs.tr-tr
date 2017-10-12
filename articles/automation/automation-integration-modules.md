@@ -1,9 +1,9 @@
---- 
+---
 title: "Azure Automation Tümleştirme Modülü Oluşturma | Microsoft Belgeleri"
 description: "Bu eğiticide, Azure Automation’da tümleştirme modüllerinin oluşturulması, test edilmesi ve kullanım örnekleri gösterilir."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: ea2ad80f348c80856c525218aad45a8fcf47bcb8
-ms.openlocfilehash: aeb06276a52e5472667ae0a741fb3007a91910fe
-
+ms.openlocfilehash: 061a9856ef4a9bc4f569b812a061fad98b044f04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-automation-integration-modules"></a>Azure Automation Tümleştirme Modülleri
 PowerShell, Azure Automation’un ardındaki temel teknolojidir. Azure Automation PowerShell üzerine kurulu olduğundan, PowerShell modülleri Azure Automation’un genişletilmesinde önemlidir. Bu makalede, Azure Automation’un "Tümleştirme modülleri" adı verilen PowerShell modüllerini nasıl kullandığı ve kendi PowerShell modüllerinizi oluştururken Azure Automation’da Tümleştirme Modülü olarak çalışmalarını sağlayacak en iyi yöntemler anlatılır. 
 
@@ -211,10 +211,4 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
 
 * PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md)
 * PowerShell Modülleri oluşturma hakkında daha fazla bilgi için bkz. [Windows PowerShell Modülü Yazma](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

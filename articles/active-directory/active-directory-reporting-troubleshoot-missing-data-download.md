@@ -15,38 +15,30 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 9109c698e4e8b43eeb7534c338adc99476012a3f
-ms.contentlocale: tr-tr
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 3d56f89035da4d1a0074256b165663f81fc2b01e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
-# İndirdiğim Azure Active Directory etkinlik günlüklerinde hiçbir veri bulamıyorum
-<a id="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded" class="xliff"></a>
+# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>İndirdiğim Azure Active Directory etkinlik günlüklerinde hiçbir veri bulamıyorum
 
 
-## Belirtiler
-<a id="symptoms" class="xliff"></a>
+## <a name="symptoms"></a>Belirtiler
 
 Etkinlik günlüklerini (denetim veya oturum açma) indirdim ve seçtiğim süre için tüm kayıtları göremiyorum. Neden? 
 
  ![Raporlama](./media/active-directory-reporting-troubleshoot-missing-data-download/01.png)
  
 
-## Nedeni
-<a id="cause" class="xliff"></a>
+## <a name="cause"></a>Nedeni
 
 Azure portalında etkinlik günlüklerini indirdiğinizde ölçek, en yeniye göre sıralanmış 120.000 kayıtla sınırlanır. 
 
-## Çözüm
-<a id="resolution" class="xliff"></a>
+## <a name="resolution"></a>Çözüm
 
 Belirli bir noktadaki bir milyon kaydı getirmek için [Azure AD Raporlama API’lerini](active-directory-reporting-api-getting-started.md) kullanabilirsiniz. Kayıtları belirli bir süre içinde (örn. günlük veya haftalık) artımlı bir şekilde getirmek üzere, belirli bir zamanlamaya göre raporlama API’lerini çağıran bir betik çalıştırmanız önerilen bir yaklaşımdır.
 
-## Sonraki adımlar
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Sonraki adımlar
 Bkz. [Azure Active Directory raporlama hakkında SSS](active-directory-reporting-faq.md).
-
 
