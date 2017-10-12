@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Operations Management Suite (OMS) adımlı tanıtımı - Hizmet Eşlemesi
 Bu adımlı tanıtımda bir web uygulamasındaki sanal bir sorunu belirleyip tanılamak üzere Operations Management Suite’te (OMS) [Hizmet Eşlemesi çözümünü](operations-management-suite-service-map.md) kullanma işlemi gösterilmektedir.  Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler.  Ayrıca, performansı çözümlemenize ve sorunları belirlemenize yardımcı olmak üzere diğer OMS hizmetleri tarafından toplanan verileri birleştirir.  Ayrıca, kök sorunu belirlemek üzere toplanan verilerin ayrıntısına inmek için [Log Analytics’teki günlük aramalarını](../log-analytics/log-analytics-log-searches.md) kullanacaksınız.

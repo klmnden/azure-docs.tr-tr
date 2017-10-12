@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM ölçek kümeleri ve yönetilen diskler
 
@@ -52,6 +51,5 @@ Bir Resource Manager şablonunu yönetilen diskler içeren ölçek kümeleri sa�
 Ölçek kümeleri ile yönetilen veri diskleri kullanma hakkında daha fazla bilgi edinmek için [bu makaleye](./virtual-machine-scale-sets-attached-disks.md) bakın.
 
 Büyük ölçek kümeleri ile çalışmaya başlamak için [bu makaleye](./virtual-machine-scale-sets-placement-groups.md) başvurun.
-
 
 

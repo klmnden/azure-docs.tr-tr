@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e5ed09ddb1556e6c76813e71bcb31cf4f792b616
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-technology-stack-and-hadoop-clusters"></a>Azure HDInsight, Hadoop teknoloji yığını ve Hadoop kümelerine giriş
  Bu makalede, Hadoop teknoloji yığınının bir bulut dağıtımı olan Azure HDInsight tanıtılmaktadır. Hadoop kümelerinin ne olduğu ve ne zaman kullanılacağı da ele alınmaktadır. 

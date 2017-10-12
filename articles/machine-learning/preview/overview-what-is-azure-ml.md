@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
+ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4919fb679eeb4d25eb0066b9bf617b057d44354
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning nedir?
 
 Azure Machine Learning tümleşik ve uçtan uca bir veri bilimi ve gelişmiş analiz çözümüdür. Bu çözüm veri bilimcilerin bulut ölçeğinde veri hazırlamasını, deneme geliştirmesini ve model dağıtmasını sağlar.
@@ -179,7 +177,7 @@ Aşağıdaki durumda Microsoft Machine Learning Sunucusu'nu kullanın:
 - R ve Python eğitimini bir Hadoop veya Spark kümesinde ölçekli olarak dağıtmak için
 
 ### <a name="data-science-virtual-machine"></a>Veri Bilimi Sanal Makinesi
-[Veri Bilimi Sanal Makinesi (DSVM)](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) veri bilimi için Microsoft Azure bulutunda derlenmiş olan özel bir sanal makine görüntüsüdür. Gelişmiş analiz için akıllı uygulamalar derlemeye hızlı giriş yapmak için önceden yüklenmiş ve önceden yapılandırılmış birçok popüler veri bilimi araçlarına ve diğer araçlara sahiptir. Windows Server ve Linux üzerinde kullanılabilir. DSVM'nin Windows sürümünü Server 2016 ve Server 2012'de sunuyoruz. DSVM'nin Linux sürümünü Ubuntu 16.04 LTS ve OpenLogic 7.2 CentOS tabanlı Linux dağıtımlarında sunuyoruz. 
+[Veri Bilimi Sanal Makinesi (DSVM)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) veri bilimi için Microsoft Azure bulutunda derlenmiş olan özel bir sanal makine görüntüsüdür. Gelişmiş analiz için akıllı uygulamalar derlemeye hızlı giriş yapmak için önceden yüklenmiş ve önceden yapılandırılmış birçok popüler veri bilimi araçlarına ve diğer araçlara sahiptir. Windows Server ve Linux üzerinde kullanılabilir. DSVM'nin Windows sürümünü Server 2016 ve Server 2012'de sunuyoruz. DSVM'nin Linux sürümünü Ubuntu 16.04 LTS ve OpenLogic 7.2 CentOS tabanlı Linux dağıtımlarında sunuyoruz. 
 
 Veri Bilimi Sanal Makinesini işlerinizi tek bir düğüm üzerinde çalıştırmanız veya barındırmanız gerektiğinde kullanın. İşlemlerinizi tek bir makinede uzaktan ölçeklendirmeniz gerektiğinde de kullanabilirsiniz. Veri Bilimi Sanal Makinesi hem Azure Machine Learning Denemesi hem de Azure Machine Learning Model Yönetimi için hedef olarak kullanılabilir. 
 
@@ -219,4 +217,3 @@ Microsoft Bilişsel Hizmetleri farklı cihaz ve platformlarda uygulama geliştir
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Azure Machine Learning'i yükleme ve içerik oluşturma](quickstart-installation.md)
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning ile ilgili sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve destek
 Aşağıda, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığıyla çözümleri faaliyete geçirmeye yönelik bir bulut hizmeti olan Azure Machine Learning hakkında sık sorulan bazı sorular (SSS) ve yanıtları verilmiştir. Bu SSS bölümlerinde faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin nasıl kullanılacağına ilişkin sorular sağlanır.
@@ -520,8 +519,7 @@ Hayır, Standart katman Machine Learning hizmetinin katmanlar sunulmadan önce m
 
 **Makine öğrenimi modellerimi, Ücretsiz katmanında API olarak dağıtabilir miyim?**
 
-Evet, makine öğrenimi modellerini 
-Ücretsiz katmanının bir parçası olarak hazırlık API hizmetlerinde operasyona dahil edebilirsiniz. Hazırlık API hizmetini üretime sokmak ve operasyona dahil edilmiş hizmet için bir üretim uç noktası edinmek istiyorsanız Standart katmanını kullanmanız gerekir.
+Evet, makine öğrenimi modellerini Ücretsiz katmanının bir parçası olarak hazırlık API hizmetlerinde operasyona dahil edebilirsiniz. Hazırlık API hizmetini üretime sokmak ve operasyona dahil edilmiş hizmet için bir üretim uç noktası edinmek istiyorsanız Standart katmanını kullanmanız gerekir.
 
 **Azure ücretsiz deneme sürümü ile Azure Machine Learning Ücretsiz katmanı arasındaki fark nedir?**
 
@@ -562,4 +560,3 @@ Konuk Erişimi kısıtlı bir deneme deneyimidir. Azure Machine Learning Studio�
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
-

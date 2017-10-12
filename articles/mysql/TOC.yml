@@ -111,6 +111,8 @@
       items:
         - name: Azure portalına
           href: howto-server-parameters.md
+        - name: Azure CLI
+          href: howto-configure-server-parameters-using-cli.md
 - name: Başvuru
   items:
     - name: Azure CLI
@@ -119,6 +121,8 @@
       href: /rest/api/mysql
 - name: Kaynaklar
   items:
+    - name: Dağıtım şablonları
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Fiyatlandırma

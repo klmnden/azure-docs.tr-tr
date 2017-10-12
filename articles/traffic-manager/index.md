@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 17727bace2ffbe77123e8d027b4a49b6ca92669e
-ms.contentlocale: tr-tr
-ms.lasthandoff: 03/17/2017
-
+ms.openlocfilehash: 10e7e7c95dc0dd614c7c01581cb746f1e854a9e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="traffic-manager-documentation"></a>Traffic Manager Belgeleri
 
@@ -133,6 +132,5 @@ En uygun uygulama performansı ve güvenilirliği için Traffic Manager’ı kul
         </div>
     </li>
 </ul>
-
 
 

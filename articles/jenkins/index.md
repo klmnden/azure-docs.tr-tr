@@ -12,12 +12,11 @@ ms.topic: landing-page
 ms.date: 06/20/2017
 ms.author: carolz
 ms.custom: Jenkins
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: e2f5caf8c4d3eab600bb015db5a4403314a4f6e3
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 <div class="content">
     <h1>Azure üzerinde Jenkins®</h1>
@@ -46,4 +45,3 @@ ms.lasthandoff: 08/31/2017
 <h4>      
 Jenkins®, Software in the Public Interest, Inc.’in tescilli ticari markasıdır. [Jenkins® logosu](https://wiki.jenkins.io/display/JENKINS/Logo), [Jenkins projesinden](https://creativecommons.org/licenses/by-sa/3.0/) [CC BY SA 3.0](https://jenkins.io) altında lisanslanmıştır.</h4>
 </div>
-

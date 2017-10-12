@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2db8af1badf908ec69e4d994755bad87e8653dee
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Azure Mobile Engagement kavramları
 Mobile Engagement, desteklenen tüm platformlar için ortak olan birkaç kavram tanımlar. Bu makalede, söz konusu kavramlar kısaca açıklanmaktadır.
@@ -87,5 +86,4 @@ Anahtar/değer çiftlerinden oluşan ağacın tamamı bir JSON nesnesi olarak de
 * [Azure Mobile Engagement için Windows Phone Silverlight SDK’sına genel bakış](mobile-engagement-windows-phone-sdk-overview.md)
 * [Azure Mobile Engagement için iOS SDK’sı](mobile-engagement-ios-sdk-overview.md)
 * [Azure Mobile Engagement için Android SDK’sı](mobile-engagement-android-sdk-overview.md)
-
 

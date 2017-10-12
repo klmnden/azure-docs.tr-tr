@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-stream-analytics"></a>Stream Analytics nedir?
 
 Azure Stream Analytics, akış verilerine gerçek zamanlı analitik hesaplamalar eklemenizi sağlayan tam yönetimli bir olay işleme sistemidir. Veriler cihazlardan, sensörlerden, web sitelerinden, sosyal medya akışlarından, uygulamalardan, altyapı sistemlerinden ve çok daha fazlasından gelebilir. 
@@ -99,5 +97,4 @@ Bulutta yönetilen bir hizmet olan Stream Analytics, veri kaybının önlenmesin
 * [Stream Analytics işlerini ölçeklendirmeyi](stream-analytics-scale-jobs.md) öğrenin. 
 * [Stream Analytics ve Azure Machine Learning hizmetlerini tümleştirmeyi](stream-analytics-machine-learning-integration-tutorial.md) öğrenin.
 * Stream Analytics sorularınıza yanıt almak için [Azure Stream Analytics forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) ziyaret edin.
-
 

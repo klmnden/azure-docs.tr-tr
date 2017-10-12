@@ -1,6 +1,7 @@
 # Genel Bakış
 ## [Linux SQL Server VM’leri](sql-server-linux-virtual-machines-overview.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+## [SSS](sql-server-linux-faq.md)
 
 # Kullanmaya Başlama
 ## [Azure portalında bir VM sağlama](provision-sql-server-linux-virtual-machine.md)

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.contentlocale: tr-tr
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Azure Mobile Engagement Uygulaması oluşturma
 Bu makale yeni bir **Azure Mobile Engagement** Uygulaması oluşturmak için **Hızlı Oluştur** yöntemini kullanmayı gösterir. Makale ayrıca uygulamalarınızı izlemeye ve yönetmeye başlamak için **Mobile Engagement** portalına nasıl gideceğinizi gösterir. 
@@ -48,5 +47,4 @@ Mobile Engagement portalındayken, segmentleri çözümleyebilir, oluşturabilir
 [Mobile Engagement stratejinizi tanımlama](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Azure Mobile Engagement kullanmaya başlama](mobile-engagement-windows-store-dotnet-get-started.md) (sayfanın üstünde diğer mobil platformları seçebilirsiniz).
-
 

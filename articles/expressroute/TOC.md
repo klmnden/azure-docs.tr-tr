@@ -35,6 +35,7 @@
 ## Microsoft eşlemesi için rota filtreleri yapılandırma
 ### [Azure portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Azure CLI](how-to-routefilter-cli.md)
 ## [Bir devreyi klasikten Resource Manager’a taşıma](expressroute-howto-move-arm.md)
 ## [İlişkili sanal ağları klasikten Resource Manager’a geçirme](expressroute-migration-classic-resource-manager.md)
 ## ExpressRoute için yönlendirici yapılandırma
@@ -45,7 +46,7 @@
 ### [Ağ güvenliği ve bulut hizmetlerine yönelik en iyi uygulamalar](../best-practices-network-security.md)
 ### [Yönlendirmeyi iyileştirme](expressroute-optimize-routing.md)
 ### [Asimetrik yönlendirme](expressroute-asymmetric-routing.md)
-### [ExpressRoute için NAT](expressroute-routing-nat.md)
+### [ExpressRoute için NAT](expressroute-nat.md)
 
 ## Sorun giderme
 ### [ExpressRoute bağlantısını doğrulama](expressroute-troubleshooting-expressroute-overview.md)

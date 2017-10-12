@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: omravi
+ms.openlocfilehash: 1814459e47280af62450a4093140ab6ab9b765fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: abd66208ab7ac30831f3f1eddb2891ed7bcd3995
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-time-series-insights"></a>Azure Zaman Serisi Görüşleri nedir?
 
 Azure Zaman Serisi Görüşleri depolama, analiz ve görselleştirme bileşenleri olan, milyarlarca olayı eşzamanlı olarak girmeyi, depolamayı, incelemeyi ve analiz etmeyi kolaylaştıran ve yönetilen bir bulut hizmetidir. Zaman Serisi Görüşleri verilerinize ilişkin genel bir görünüm sunar, gizli eğilimleri ve anormallikleri keşfetmenize ve neredeyse gerçek zamanlı olarak kök neden analizleri gerçekleştirmenize yardımcı olarak IoT Çözümlerinizi hızla doğrulamanıza ve cihazların kapalı kalma süresinden kaynaklanan maliyetleri önlemenize olanak sağlar. Zaman Serisi Görüşleri olay aracılarından (örn. IoT Hubs veya Event Hubs) zaman serisi verilerini alır, verilerin dizinini oluşturur ve yapılandırılabilir bir saklama ilkesine göre kullanım dışı bırakır. Kullanıcılar sezgisel bir UX veya REST Sorgu API’leri aracılığıyla verileri kullanır.
@@ -51,4 +49,3 @@ Azure Zaman Serisi Görüşleri depolama, analiz ve görselleştirme bileşenler
 * **Ortam**: Ortam, giriş ve depolama kapasitesi olan bir Azure kaynağıdır.  Müşteriler, Azure Portal aracılığıyla ortamları kendilerine gereken kapasiteyle hazırlar.
 * **Olay Kaynağı**: Olay Kaynağı, Azure Event Hubs gibi bir olay aracısından türetilir.  Zaman Serisi Görüşleri doğrudan Olay Kaynaklarına bağlanarak, hiç kod yazmadan veri akışını alır. Şu anda Zaman Serisi Görüşleri, Azure Event Hubs'ı ve Azure IoT Hub'larını destekler.
 * **Başvuru verileri**: Zaman Serisi Görüşleri kullanıcılara zaman serisi verilerini başvuru verileriyle birleştirme olanağı sağlar.  Başvuru verileri cihazlar hakkındaki meta verileri veya görece seyrek değişen diğer statik verileri içerebilir. Zaman Serisi Görüşleri başvuru verilerini veri akışlarıyla birleştirerek, kullanıcıların bu verileri neredeyse gerçek zamanlı olarak görselleştirmesine ve analiz etmesine olanak tanır.
-

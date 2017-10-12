@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Örnek denemeleri kopyalayarak yeni makine öğrenimi denemeleri oluşturma
 Sıfırdan makine öğrenimi denemeleri oluşturmayı öğrenmek yerine [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/)’deki örnek denemelerle nasıl çalışmaya başlayacağınızı öğrenin. Örnekleri kullanarak kendi makine öğrenimi çözümünüzü oluşturabilirsiniz.
@@ -69,4 +68,3 @@ Ayrıca, bir Galeri örneğini bir şablon olarak kullanıp Machine Learning Stu
 * [Çeşitli kaynaklardan veri alma](import-data.md)
 * [Machine Learning için R programlama diline yönelik hızlı başlangıç öğreticisi](r-quickstart.md)
 * [Machine Learning web hizmeti dağıtma](publish-a-machine-learning-web-service.md)
-

@@ -50,7 +50,7 @@
 ## [Tablosal Model Betik Dili (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Kaynaklar
-## [GitHub’daki Analysis Services kodu örnekleri](https://github.com/Microsoft/Analysis-Services)
+## [Örnekler](analysis-services-samples.md)
 ## [Analysis Services ekip blogu](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
