@@ -1,31 +1,31 @@
 
-1. Tıklatın **uygulama hizmetleri** düğmesi, Mobile Apps arka ucunuz seçin, **Hızlı Başlangıç**ve ardından, istemci Platformu (iOS, Android, Xamarin, Cordova) seçin.
+1. **Uygulama Hizmetleri** düğmesine tıklayın, Mobile Apps arka ucunuzu seçin, **Hızlı Başlangıç**’ı seçin ve ardından, istemci platformunuzu (iOS, Android, Xamarin, Cordova) seçin.
 
-    ![Azure portal ile Mobile Apps vurgulanmış hızlı başlangıç][quickstart]
+    ![Mobile Apps Hızlı Başlangıcın vurgulandığı Azure Portal][quickstart]
 
-2. Bir veritabanı bağlantısı yapılandırılmamışsa, aşağıdakileri yaparak oluşturun:
+2. Veritabanı bağlantısı yapılandırılmamışsa aşağıdakileri yaparak bir bağlantı oluşturun:
 
-    ![Azure portalına veritabanı Mobile Apps Connect ile][connect]
+    ![Mobile Apps ile Azure Portal, veritabanına bağlanma][connect]
 
-    a. Sunucu ve yeni SQL veritabanı oluşturun.
+    a. Yeni bir SQL veritabanı ve sunucusu oluşturun.
 
-    ![Mobile Apps ile Azure portalı, yeni veritabanı ve sunucu oluşturma][server]
+    ![Mobile Apps ile Azure Portal, yeni veritabanı ve sunucu oluşturma][server]
 
     b. Veri bağlantısı başarıyla oluşturulana kadar bekleyin.
 
-    ![Veri bağlantısı başarılı oluşturulma Azure portal bildirimi][notification]
+    ![Veri bağlantısının başarıyla oluşturulduğunu gösteren Azure Portal bildirimi][notification]
 
     c. Veri bağlantısının başarılı olması gerekir.
 
-    !["Bir veri bağlantısı zaten" azure portal bildirimi][already-connection]
+    ![Azure Portal bildirimi, "Bir veri bağlantınız zaten var"][already-connection]
 
 3. **2. Tablo API'si oluştur**'un altında **Arka uç dili** olarak Node.js seçeneğini belirleyin. 
  
-4. Bildirimi kabul edin ve ardından **Todoıtem tablosu oluştur**.  
-    Bu eylem, veritabanınızdaki yeni bir Yapılacaklar öğesi tablo oluşturur. 
+4. Bildirimi kabul edin ve **TodoItem tablosu oluştur**’u seçin.  
+    Böylece veritabanınızda yeni bir yapılacaklar tablosu oluşturulur. 
 
     >[!IMPORTANT]
-    > Var olan bir arka uç node.js'ye geçirilmesinin tüm içeriğinin üzerine yazar. Bunun yerine bir .NET arka ucu oluşturmak için bkz [mobil uygulamalar için .NET arka uç sunucusu SDK çalışma][instructions].
+    > Mevcut bir arka uç Node.js'ye geçirildiğinde tüm içeriğin üzerine yazılır. Bunun yerine bir .NET arka ucu oluşturmak için bkz. [Mobile Apps için .NET arka uç sunucu SDK’siyle çalışma][instructions].
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

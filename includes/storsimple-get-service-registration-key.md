@@ -20,8 +20,3 @@
 
 Hizmet kayıt anahtarının nasıl alındığını anlatan bir videoyu izlemek için [buraya](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/) tıklayın.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

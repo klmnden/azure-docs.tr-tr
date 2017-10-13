@@ -48,10 +48,6 @@ VPN tünellerinin tam verimini elde etmek zordur. IPsec ve SSTP şifrelemesi ağ
 
 Hayır. SSTP için yalnızca Windows’daki yerel VPN istemcisini ve IKEv2 için yalnızca Mac’teki yerel VPN istemcisini kullanabilirsiniz. Desteklenen istemci işletim sistemleri listesine başvurun.
 
-### <a name="can-i-access-the-internet-when-i-am-connected-over-p2s-vpn"></a>P2S VPN üzerinden bağlıyken İnternet’e erişebilir miyim?
-
-Evet, bir P2S VPN üzerindeyken İnternet’e erişebilirsiniz.
-
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure Windows ile IKEv2 VPN destekler mi?
 
 Kullanıcılar IKEv2’yi destekleyen yerleşik Windows VPN istemcisini kullanarak Azure’a bağlanabilir. Ancak bir Windows cihazından IKEv2 bağlantıları aşağıdaki senaryoda çalışmaz:

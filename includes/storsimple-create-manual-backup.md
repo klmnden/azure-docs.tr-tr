@@ -18,8 +18,3 @@
    
    Yedekleme, yedekleme kataloğunda görüntülenen yedekleme ayarları listesinde görüntülenmelidir.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

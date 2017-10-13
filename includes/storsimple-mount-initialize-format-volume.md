@@ -25,8 +25,3 @@ Bir StorSimple biriminin nasıl bağlandığını, başlatıldığını ve biçi
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
-
-<!--HONumber=Nov16_HO2-->
-
-

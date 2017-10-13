@@ -44,8 +44,3 @@
 6. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Depolama hesabı sorunsuz oluşturulduktan sonra size bildirilecek.
 7. Yeni oluşturulan depolama hesabı **Depolama hesapları** altında, **Yapılandır** sayfasında görüntülenir. Yeni depolama hesabını kaydetmek için **Kaydet**’e tıklayın. Onayınız istendiğinde **Tamam**’a tıklayın.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

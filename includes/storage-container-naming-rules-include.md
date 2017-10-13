@@ -15,8 +15,3 @@ Kapsayıcı adı, aşağıdaki adlandırma kurallarına uygun geçerli bir DNS a
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

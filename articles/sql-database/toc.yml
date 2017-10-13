@@ -169,8 +169,6 @@
           href: sql-database-operate-query-store.md
         - name: Genişletilmiş olaylar
           href: sql-database-xevent-db-diff-from-svr.md
-        - name: Uyumluluk düzeyleri
-          href: sql-database-compatibility-level-query-performance-130.md
         - name: Bellek içi izleme
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Ölçeği genişletme
@@ -266,6 +264,12 @@
         - name: PowerShell’in sanal ağ kuralları
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: İş sürekliliği
+      items:
+        - name: Kasayı yapılandırma - yedekler
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Coğrafi çoğaltma - Portal
+          href: sql-database-geo-replication-portal.md
+    - name: Verileri yükleme ve taşıma
       items:
         - name: BCP ile veri yükleme
           href: sql-database-load-from-csv-with-bcp.md

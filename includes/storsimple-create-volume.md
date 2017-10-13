@@ -30,8 +30,3 @@
 
 Bir StorSimple biriminin nasıl oluşturulduğunu gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/) tıklayın.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
