@@ -1,6 +1,6 @@
 ---
-title: "Azure AD B2C: Node.js kullanarak bir web API&quot;sinin güvenliğini sağlama | Microsoft Belgeleri"
-description: "B2C kiracısından belirteç kabul eden bir Node.js web API&quot;si oluşturma"
+title: "Azure AD B2C: Node.js kullanarak bir web API'sinin güvenliğini sağlama | Microsoft Belgeleri"
+description: "B2C kiracısından belirteç kabul eden bir Node.js web API'si oluşturma"
 services: active-directory-b2c
 documentationcenter: 
 author: dstrockis
@@ -14,13 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
-ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
-ms.contentlocale: tr-tr
-ms.lasthandoff: 02/14/2017
-
-
+ms.openlocfilehash: 2315f5d0ebb142561c65224cd9d06299466a7ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Node.js kullanarak bir web API'sinin güvenliğini sağlama
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -37,7 +35,7 @@ Azure Active Directory (Azure AD) B2C ile OAuth 2.0 erişim belirteçleri kullan
 Bu örneği uygulamanız için gerekenler şunlardır:
 
 1. Bir uygulamayı Azure AD'ye kaydedin.
-2. Passport'un `azure-ad-passport` eklentisini kullanmak için uygulamanızı ayarlayın.
+2. Passport'un `passport-azure-ad` eklentisini kullanmak için uygulamanızı ayarlayın.
 3. "Yapılacaklar listesi" web API'sini çağırmak için bir istemci uygulaması yapılandırın.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C dizini alma
@@ -762,4 +760,3 @@ Restify ve OAuth kullanarak bir REST API’si uyguladık! Hizmetinizi geliştirm
 Artık şunlar gibi daha ileri seviyeli konulara geçebilirsiniz:
 
 [B2C ile iOS kullanarak bir web API'sine bağlanma](active-directory-b2c-devquickstarts-ios.md)
-

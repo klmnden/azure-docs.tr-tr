@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
-ms.contentlocale: tr-tr
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: 50dad848cfbdab7f5b1fff0fcec3b5f754e6ae74
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Azure Active Directory mimarisini anlama
 Azure Active Directory (Azure AD), kullanıcılarınız için Azure hizmet ve kaynaklarına erişimi güvenli bir şekilde yönetmenizi sağlar. Azure AD ile birlikte eksiksiz kimlik yönetimi olanakları sunulur. Azure AD özellikleri hakkında daha fazla bilgi için bkz. [Azure Active Directory nedir?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
@@ -29,7 +28,7 @@ Azure AD ile kullanıcı ve gruplar oluşturup bunları yönetebilir, ayrıca ku
 ## <a name="azure-ad-architecture"></a>Azure AD mimarisi
 Azure AD’nin coğrafi olarak dağıtılmış mimarisi, müşterilerimize kurumsal düzeyde kullanılabilirlik ve performans sunmamızı sağlayan kapsamlı izleme, otomatik yeniden yönlendirme, yük devretme ve kurtarma özelliklerini bir araya getirir.
 
-Bu makalede aşağıdaki mimari öğeleri ele alınmaktadır:
+Bu makalede aşağıdaki mimari öğeler ele alınmaktadır:
  *  Hizmet mimarisi tasarımı
  *  Ölçeklenebilirlik 
  *  Sürekli kullanılabilirlik
@@ -46,7 +45,7 @@ Azure AD mimarisinin bileşenleri, birincil çoğaltma ve ikincil çoğaltma ö�
 
 **Birincil çoğaltma**
 
-*Birincil çoğaltma*, ait olduğu bölüm için *yazma* işlemlerini alır. Her yazma işlemi, çağırana başarılı sonucu döndürmeden önce farklı bir veri merkezindeki ikincil çoğaltmaya çoğaltılır, böylece yazma işlemlerinin coğrafi olarak yedekli dayanıklılığı sağlanır.
+*Birincil çoğaltma*, ait olduğu bölüm için *yazma* işlemlerini alır. Her yazma işlemi, çağırana başarılı sonucu döndürmeden önce hemen farklı bir veri merkezindeki ikincil çoğaltmaya çoğaltılır, böylece yazma işlemlerinin coğrafi olarak yedekli dayanıklılığı sağlanır.
 
 **İkincil çoğaltmalar**
 
@@ -64,19 +63,19 @@ Dizin uygulamaları en yakın veri merkezlerine bağlanır. Bunun yapılması pe
 
 Kullanılabilirlik (veya çalışma süresi) bir sistemin kesintisiz çalışma yeteneğini tanımlar. Azure AD’nin yüksek kullanılabilirliğinin anahtarı, hizmetlerimizin trafiği coğrafi olarak dağıtılmış birden fazla veri merkezinde hızla taşıyabilmesidir. Her veri merkezi birbirinden bağımsızdır ve bu özelliği sayesinde bağıntısız hata modları sağlar.
 
-Azure AD’nin bölüm tasarımı, kurumsal AD tasarımına kıyasla basittir ve bu özellik, sistemin ölçeğini artırmak için kritik öneme sahiptir. Dikkatlice düzenlenmiş ve belirleyici bir birincil çoğaltma yük devretme işlemi içeren tek ana tasarım benimsenmiştir.
+Azure AD’nin bölüm tasarımı, kurumsal AD tasarımına kıyasla basittir ve bu özellik, sistemin ölçeğini artırmak için kritik öneme sahiptir. Birincil çoğaltma yük devretme işleminin belirli şekilde gerçekleştirildiği, dikkatle düzenlenmiş tek ana konumlu bir tasarım uyguladık.
 
 **Hataya dayanıklılık**
 
-Bir sistem donanım, ağ ve yazılım hatalarına dayanıklı ise kullanılabilirliği daha yüksektir. Dizin üzerindeki her bölüm için yüksek oranda kullanılabilir ana çoğaltma mevcuttur: Birincil çoğaltma. Bu çoğaltma üzerinde yalnızca bölüme yazma işlemleri gerçekleştirilir. Bu çoğaltma sürekli olarak ve yakından izlenirken, bir hata algılanması durumunda yazma işlemleri hemen başka bir çoğaltmaya kaydırılabilir (bu çoğaltma yeni birincil çoğaltma olur). Yük devretme sırasında genellikle 1-2 dakikalık yazma kullanılabilirliği kaybı olabilir. Bu süre boyunca okuma kullanılabilirliği etkilenmez.
+Bir sistem donanım, ağ ve yazılım hatalarına dayanıklı ise kullanılabilirliği daha yüksektir. Dizin üzerindeki her bölüm için yüksek oranda kullanılabilir bir ana çoğaltma mevcuttur: birincil çoğaltma. Bu çoğaltma üzerinde yalnızca bölüme yazma işlemleri gerçekleştirilir. Bu çoğaltma sürekli olarak ve yakından izlenirken, bir hata algılanması durumunda yazma işlemleri hemen başka bir çoğaltmaya kaydırılabilir (bu çoğaltma yeni birincil çoğaltma olur). Yük devretme sırasında genellikle 1-2 dakikalık yazma kullanılabilirliği kaybı olabilir. Bu süre boyunca okuma kullanılabilirliği etkilenmez.
 
-Okuma işlemleri (çoğu büyüklük sırasına göre yazma işlemlerinden fazladır) yalnızca ikincil çoğaltmalara gider. İkincil çoğaltmalar bir kez etkili olduğundan, okumalar genellikle aynı veri merkezinde bulunan başka bir çoğaltmaya yönlendirilerek belirli bir bölümdeki herhangi bir çoğaltmanın kaybı kolayca telafi edilebilir.
+Okuma işlemleri (yazma işlemlerinden onlarca kat fazladır) yalnızca ikincil çoğaltmalara gider. İkincil çoğaltmalar bir kez etkili olduğundan, okumalar genellikle aynı veri merkezinde bulunan başka bir çoğaltmaya yönlendirilerek belirli bir bölümdeki herhangi bir çoğaltmanın kaybı kolayca telafi edilebilir.
 
 **Veri dayanıklılığı**
 
-Bir yazma işlemi kabul edilmeden önce en az iki veri merkezine işlenir. Bunu yapmak için ilk olarak yazma işlemi birincil çoğaltmaya işlenir, ardından en az bir diğer veri merkezine çoğaltılır. Bunun yapılması, birincil çoğaltmayı barındıran veri merkezindeki olası bir yıkıcı kaybın veri kaybıyla sonuçlanmamasını sağlar.
+Bir yazma işlemi onaylanmadan önce en az iki veri merkezine dayanıklı şekilde işlenir. Bunu yapmak için ilk olarak yazma işlemi birincil çoğaltmaya işlenir, ardından hemen en az bir başka veri merkezine çoğaltılır. Bunun yapılması, birincil çoğaltmayı barındıran veri merkezindeki olası bir yıkıcı kaybın veri kaybıyla sonuçlanmamasını sağlar.
 
-Azure AD, belirteç verme ile dizin okumaları için sıfır [Kurtarma Süresi Hedefi (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) ve dizin yazma işlemleri için dakika sırası (~5 dakika) RTO içerir. Biz de sıfır [Kurtarma Noktası Hedefine (RPO)](https://en.wikipedia.org/wiki/Recovery_point_objective) sahip olduğumuz için yük devretme sırasında veri kaybı yaşamıyoruz.
+Azure AD, belirteç verme ile dizin okumaları için sıfır [Kurtarma Süresi Hedefi (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) ve dizin yazma işlemleri için dakika düzeyinde (~5 dakika) bir RTO sağlar. Ayrıca sıfır [Kurtarma Noktası Hedefine (RPO)](https://en.wikipedia.org/wiki/Recovery_point_objective) sahip olduğumuz için yük devretme sırasında veri kaybı yaşamayız.
 
 ### <a name="data-centers"></a>Veri merkezleri
 
@@ -84,9 +83,9 @@ Azure AD çoğaltmaları, dünyanın dört bir yanında bulunan veri merkezlerin
 
 Azure AD aşağıdaki özelliklere sahip veri merkezlerinde çalışır:
 
- * Kimlik Doğrulama, Grafik ve diğer AD hizmetleri, Gateway hizmetinin arkasında bulunur. Gateway bu hizmetlerin yük dengelemesini yönetir. İşlemsel sistem durumu araştırmaları kullanılarak sistem durumu iyi olmayan sunucuların algılanması durumunda, otomatik olarak yük devretmesi yapar. Bu sistem durumu araştırmalarına göre Gateway, trafiği sağlıklı veri merkezlerine dinamik olarak yönlendirir.
+ * Kimlik Doğrulama, Graph ve diğer AD hizmetleri, Gateway hizmetinin arkasında bulunur. Gateway bu hizmetlerin yük dengelemesini yönetir. İşlemsel durum yoklamaları kullanılarak sorunlu durumda olan sunucuların algılanması halinde, otomatik olarak yük devretmesi yapar. Bu durum yoklamalarına göre Gateway, trafiği sorunsuz çalışır durumda olan veri merkezlerine dinamik olarak yönlendirir.
  * *Okumalar* için, dizin etkin-etkin bir yapılandırmada birden fazla veri merkezinde çalışan ikincil çoğaltmalara ve bunlara karşılık gelen ön uç hizmetlerine sahiptir. Tüm veri merkezinde hata oluşması durumunda, trafik otomatik olarak farklı bir veri merkezine yönlendirilir.
- *  *Yazma* işlemleri için fizin, birincil (ana) çoğaltmayı planlı (yeni birincil, eski birincil ile eşitlenir) veya acil durum yük devretme yordamları ile veri merkezlerine devreder. Veri dayanıklılığı, herhangi bir işlemenin en az iki veri merkezine çoğaltılması yoluyla elde edilir.
+ *  *Yazma* işlemleri için dizin, birincil (ana) çoğaltmayı planlı (yeni birincil, eski birincil ile eşitlenir) veya acil durum yük devretme yordamları ile veri merkezlerine devreder. Veri dayanıklılığı, herhangi bir işlemenin en az iki veri merkezine çoğaltılması yoluyla elde edilir.
 
 **Veri tutarlılığı**
 
@@ -94,7 +93,7 @@ Dizin modeli nihai tutarlılığa sahiptir. Zaman uyumsuz olarak çoğaltılan d
 
 Azure AD, yazma işlemlerini birincil çoğaltmaya yönlendirerek ve eşzamanlı olarak ikincil çoğaltmaya geri çekerek, ikincil çoğaltmayı hedefleyen uygulamalar için okuma-yazma tutarlılığı sağlar.
 
-Azure AD’nin Grafik API’sini kullanan uygulama yazma işlemleri, okuma-yazma tutarlılığı için dizin çoğaltma ile benzeşimden soyutlanır. Azure AD Graph hizmeti, okumalar için kullanılan bir ikincil çoğaltma ile benzeşimi olan mantıksal bir oturum sürdürür; benzeşim, graph hizmetinin dağıtılmış bir önbellek kullanarak önbelleğe aldığı bir “çoğaltma belirtecinde” yakalanır. Bu belirteç aynı mantıksal oturumun daha sonraki işlemleri için kullanılır. 
+Azure AD’nin Graph API’sini kullanan uygulama yazma işlemleri, okuma-yazma tutarlılığı için dizin çoğaltması ile benzeşim sağlama yönteminden yararlanır. Azure AD Graph hizmeti, okumalar için kullanılan bir ikincil çoğaltma ile benzeşimi olan mantıksal bir oturum sürdürür; benzeşim, graph hizmetinin dağıtılmış bir önbellek kullanarak önbelleğe aldığı bir “çoğaltma belirtecinde” yakalanır. Bu belirteç aynı mantıksal oturumun daha sonraki işlemleri için kullanılır. 
 
  >[!NOTE]
  >Yazma işlemleri, mantıksal oturumdaki okumaların verildiği ikincil çoğaltmaya hemen çoğaltılır.
@@ -110,13 +109,12 @@ Azure AD tüm verilerin günlük yedeklemesini yapar ve bu nedenle mantıksal si
 
 Yüksek oranda kullanılabilir bir hizmetin çalıştırılması için birinci sınıf ölçüm ve izleme özellikleri gerekir. Azure AD, temel hizmet durumu ölçümlerini ve her bir hizmetinin başarı ölçütlerini sürekli olarak analiz edip raporlar. Azure AD hizmeti içinde ve tüm hizmetlerde her bir senaryo için ölçüm, izleme ve uyarıları sürekli olarak geliştirip ayarlıyoruz.
 
-Herhangi bir Azure AD hizmeti beklendiği gibi çalışmazsa, işlevselliği mümkün olan en kısa sürede yeniden sağlamak için harekete geçiyoruz. Azure AD’nin takip ettiği en önemli ölçüm, bir müşteri veya canlı site sorununu algılama ve giderme hızımızdır. Algılama süresini azaltmak (TTD Hedefi: <5 dakika) için izleme ve uyarılara, geçiş hızını azaltmak için (TTM Hedefi: <30 dakika) işlem hazırlığına önemli ölçüde yatırım yapıyoruz.
+Herhangi bir Azure AD hizmeti beklendiği gibi çalışmazsa, işlevselliği mümkün olan en kısa sürede yeniden sağlamak için harekete geçiyoruz. Azure AD’nin takip ettiği en önemli ölçüm, bir müşteri veya canlı site sorununu algılama ve giderme hızımızdır. Algılama süresini azaltmak (TTD Hedefi: <5 dakika) için izleme ve uyarılara, önlem alma süresini azaltmak için (TTM Hedefi: <30 dakika) operasyonel hazırlığa önemli ölçüde yatırım yapıyoruz.
 
 **Güvenli işlemler**
 
-Tüm işlemler için multi-factor authentication (MFA) gibi işlem kontrollerinin yanı sıra tüm işlemlerin denetimini yapıyoruz. Ayrıca, herhangi bir talep üzerine görev için gereken geçici erişimi sürekli olarak vermek üzere zamanında yükseltme sistemi kullanıyoruz. Daha fazla bilgi için bkz. [Güvenilir Bulut](https://azure.microsoft.com/en-us/support/trust-center).
+Tüm işlemler için çok faktörlü kimlik doğrulaması (MFA) gibi operasyonel denetimlerin yanı sıra tüm işlemlerin denetimini yapıyoruz. Ayrıca, herhangi bir isteğe bağlı operasyonel görev için gereken geçici erişimi sürekli biçimde sağlamak üzere tam zamanında yükseltme sistemi kullanıyoruz. Daha fazla bilgi için bkz. [Güvenilir Bulut](https://azure.microsoft.com/en-us/support/trust-center).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure Active Directory geliştirici kılavuzu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
-
 

@@ -17,14 +17,12 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory’de uygulamalar, izinler ve onay
 Azure Active Directory’de dizininize uygulamalar ekleyebilirsiniz.  Uygulamalar, uygulama türüne bağlı olarak değişir.  Klasik portalda uygulamaları görüntülemek için bir dizin seçin ve uygulamaları belirleyin.
 
@@ -220,5 +218,4 @@ FabrikamMail örneğinde şu şekilde görünür:
 (**ClientId**, FabrikamMail’in hizmet sorumlusu nesne kimliği (yeni oluşturulan); **PrincipalId**, kullanıcı nesne kimliği (onay veren kullanıcıya ait); **ResourceId**, Exchange’in hizmet sorumlusu nesne kimliği; Scope ise Exchange içinde onay verilen izindir).
 
 Kullanıcıların onaylamasına izin verilmiyorsa kullanıcılar izin gerektiğini belirten bir ekran görür.
-
 
