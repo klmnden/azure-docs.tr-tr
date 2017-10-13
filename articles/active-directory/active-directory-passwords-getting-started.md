@@ -16,12 +16,11 @@ ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: 8497c6c6d7cfc6c4457073783d20f48a722ea18e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-azure-ad-self-service-password-reset"></a>Hızlı Başlangıç: Azure AD self servis parola sıfırlama
 
@@ -98,5 +97,4 @@ Bu hızlı başlangıçta kullanıcılarınız için self servis parola sıfırl
 
 > [!div class="nextstepaction"]
 > [Self servis parola sıfırlamayı etkinleştirme](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
-
 

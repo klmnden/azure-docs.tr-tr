@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 5/06/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: cb7a9f01e43d41eb7315cb37a41e69f044ce5566
-ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkeleri kullanarak tüketicilerinizin uygulamanıza kaydolmalarını ve oturum açmalarını sağlama
 Özel ilkeler, Azure AD B2C kiracınızın davranışlarını tanımlayan yapılandırma dosyalarıdır. Kimlik geliştiriciler bu dosyaları tamamen düzenleyerek neredeyse sayısız görev için uygun hale getirebilirler.
@@ -41,7 +40,6 @@ Belirli Azure Active Directory B2C özelliklerinin nasıl kullanılacağını ö
 
 ## <a name="whats-new"></a>Yenilikler
 Gelecekteki Azure Active Directory B2C değişiklikleri için burayı sıkça tekrar kontrol edin. @AzureAD kullanarak tüm değişiklikler hakkında tweet de göndereceğiz.
-
 
 
 
