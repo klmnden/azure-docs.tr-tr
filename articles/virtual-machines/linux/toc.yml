@@ -247,6 +247,7 @@
             - name: NVIDIA GPU sürücüleri yükleme
               href: n-series-driver-setup.md
     - name: Depolamayı yönetme
+      href: about-disks-and-vhds.md
       items:
         - name: Yönetilen Diskler hakkında bilgi edinin
           href: managed-disks-overview.md
