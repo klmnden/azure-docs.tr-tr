@@ -72,9 +72,9 @@
 ## [Java](/java/api)
 ## [Resource Manager şablonları yazma](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Topluluk şablonları](https://azure.microsoft.com/documentation/templates)
-## [İşlem REST](/rest/api/compute)
-## [Ağ REST](/rest/api)
-## [Depolama REST](/rest/api/storageservices)
+## [İşlem REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [Ağ REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [Depolama REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # Kaynaklar
