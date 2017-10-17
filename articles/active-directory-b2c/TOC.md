@@ -40,6 +40,9 @@
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
+## [Self servis parola sıfırlamayı ayarlama](active-directory-b2c-reference-sspr.md)
+## [Kullanıcı arabirimini özelleştirme](active-directory-b2c-reference-ui-customization.md)
+### [Özelleştirme için yardımcı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Azure AD Grafik API’sini kullanma](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [Erişim belirteci alma](active-directory-b2c-access-tokens.md)
 ## [E-posta doğrulamayı devre dışı bırakma](active-directory-b2c-reference-disable-ev.md)
@@ -47,30 +50,34 @@
 ## [MFA’yı etkinleştirme](active-directory-b2c-reference-mfa.md)
 ## [Özel öznitelikler kullanma](active-directory-b2c-reference-custom-attr.md)
 ## [Parola özelleştirme](active-directory-b2c-reference-password-complexity.md)
-## [Kullanıcı arabirimini özelleştirme](active-directory-b2c-reference-ui-customization.md)
-### [Özelleştirme için yardımcı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Dil özelleştirmesi](active-directory-b2c-reference-language-customization.md)
 ## [Raporlama API’sini kullanma](active-directory-b2c-reference-usage-reporting-api.md)
-## [Self servis parola sıfırlamayı ayarlama](active-directory-b2c-reference-sspr.md)
+## [Kullanıcıları geçirme](active-directory-b2c-user-migration.md)
 
 # Kimlik Deneyimi Altyapısı
 ## [Özel ilkeler](active-directory-b2c-overview-custom.md)
 ## Kılavuzlar
 ### [Kullanmaya başlama](active-directory-b2c-get-started-custom.md)
-### OIDC/OAUTH2 sağlayıcılarını yapılandırma
+### OIDC/OAUTH sağlayıcılarını yapılandırma
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft Hesabı](active-directory-b2c-custom-setup-msa-idp.md)
 #### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
+#### [LinkedIn](active-directory-b2c-custom-setup-li-idp.md)
+#### [Twitter](active-directory-b2c-custom-setup-twitter-idp.md)
 ### SAML sağlayıcılarını yapılandırma
 #### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### RESTful API’lerini tümleştirme
 #### [Kullanıcı girişini doğrulama](active-directory-b2c-rest-api-validation-custom.md)
 #### [Ek talep alma](active-directory-b2c-rest-api-step-custom.md)
+#### [Kendi RESTful API’nizi ekleme](active-directory-b2c-custom-rest-api-netfw.md)
+#### [Temel kimlik doğrulama ile RESTful API'leri koruma](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+#### [Sertifika kimlik doğrulaması ile RESTful API'leri koruma](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 ### Kullanıcı akışları
 #### [Kullanıcı erişimini yapılandırma](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Özel öznitelikler](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
-#### [Kullanıcı Arabirimini Özelleştirme](active-directory-b2c-ui-customization-custom.md)
+#### [Kullanıcı arabirimini özelleştirme](active-directory-b2c-ui-customization-custom.md)
+#### [Kullanıcı arabirimini dinamik olarak özelleştirme](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Belirteçleri özelleştirme](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Parola karmaşıklığı](active-directory-b2c-reference-password-complexity-custom.md)
 

@@ -53,6 +53,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Azure kaynakları
               href: log-analytics-azure-storage.md
+            - name: Azure depolama biriminden tanılama veya günlük verileri
+              href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager
               href: log-analytics-om-agents.md
             - name: Configuration Manager
@@ -92,6 +94,8 @@
           items:
             - name: Normal ifadeler
               href: log-analytics-log-searches-regex.md
+            - name: Çalışma alanlarında çapraz aramalar
+              href: log-analytics-cross-workspace-search.md
         - name: Arama sonuçlarına göre işlem yapma
           href: log-analytics-log-search-takeaction.md
         - name: Bilgisayar grupları
@@ -229,6 +233,10 @@
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
+    - name: Görünüm Tasarımcısı kutucuğu başvurusu
+      href: log-analytics-view-designer-tiles.md
+    - name: Görünüm Tasarımcısı görselleştirme bölümü başvurusu
+      href: log-analytics-view-designer-parts.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

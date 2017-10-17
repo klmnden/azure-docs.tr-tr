@@ -7,6 +7,7 @@
 ## [SSS](active-directory-faq.md)
 
 # başlarken
+## [Azure AD’yi kullanmaya başlama](get-started-azure-ad.md)
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
 ## [Özel bir etki alanı adı ekleme](add-custom-domain.md)
 ## [Şirket markası yapılandırma](customize-branding.md)

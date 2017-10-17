@@ -1,6 +1,7 @@
 - name: Veri Bilimi Sanal Makineleriyle ilgili belgeler
   items: null
 - name: Genel Bakış
+  expanded: true
   items:
     - name: Veri Bilimi VM nedir?
       href: overview.md
@@ -25,7 +26,10 @@
     - name: Derin Öğrenme VM’si kullanma
       href: use-deep-learning-dsvm.md
 - name: Başvuru
+  expanded: true
   items:
+    - name: DSVM’yi keşfetme
+      href: dsvm-tools-overview.md
     - name: Derin Öğrenme ve AI çerçeveleri
       href: dsvm-deep-learning-ai-frameworks.md
     - name: ML ve veri bilimi araçları

@@ -23,6 +23,8 @@
       href: tutorial-forecast-spending.md
 - name: Kaynaklar
   items:
+    - name: Maliyet Yönetimi videoları
+      href: ref-videos.md
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fiyatlandırma

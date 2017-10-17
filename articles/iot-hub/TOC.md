@@ -114,6 +114,7 @@
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-schedule-jobs.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Yönet
 ### IoT hub oluşturma 
 #### [Azure portalını kullanma](iot-hub-create-through-portal.md)
@@ -127,15 +128,24 @@
 #### [Azure portalını kullanma](iot-hub-configure-file-upload.md)
 #### [Azure PowerShell’i kullanma](iot-hub-configure-file-upload-powershell.md)
 #### [Azure CLI kullanma](iot-hub-configure-file-upload-cli.md)
-### [IoT cihazlarını toplu yönetme](iot-hub-bulk-identity-mgmt.md)
+### [Tanılama ile izleme](iot-hub-monitor-resource-health.md)
+#### [Tanılama ayarlarına geçirme](iot-hub-migrate-to-diagnostics-settings.md)
+#### [İşlemleri izleme](iot-hub-operations-monitoring.md)
 ### [Ölçümleri kullanma](iot-hub-metrics.md)
-### [İşlemleri izleme](iot-hub-operations-monitoring.md)
+### [IoT cihazlarını toplu yönetme](iot-hub-bulk-identity-mgmt.md)
 ### [IP filtrelemeyi yapılandırma](iot-hub-ip-filtering.md)
+
 ## Güvenlik
 ### [Baştan sona güvenlik](iot-hub-security-ground-up.md)
 ### [En iyi güvenlik uygulamaları](iot-hub-security-best-practices.md)
 ### [Güvenlik mimarisi](iot-hub-security-architecture.md)
 ### [IoT dağıtımınızın güvenliğini sağlama](iot-hub-security-deployment.md)
+### X.509 CA sertifikalarını kullanarak koruma
+#### [X.509 CA sertifika güvenliğine genel bakış](iot-hub-x509ca-overview.md)
+##### [X.509 CA sertifika güvenliği kavramları](iot-hub-x509ca-concept.md)
+#### [X.509 CA sertifika güvenliğini kullanmaya başlama](iot-hub-security-x509-get-started.md)
+##### [Sertifika oluşturma - PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [Genel Bakış](iot-hub-iot-edge-overview.md)
 ### başlarken

@@ -145,7 +145,7 @@
           href: prepare-for-upload-vhd-image.md
         - name: Genelleştirilmiş görüntü kullanma
           href: create-vm-generalized-managed.md
-        - name: Özelleştirilmiş görüntü kullanma
+        - name: Özelleştirilmiş disk kullanma
           href: create-vm-specialized.md
         - name: VM görüntüsü yakalama
           href: capture-image-resource.md

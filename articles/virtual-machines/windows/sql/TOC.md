@@ -1,5 +1,5 @@
 # Genel Bakış
-## [Azure Sanal Makineler üzerinde SQL Server nedir?](virtual-machines-windows-sql-server-iaas-overview.md) 
+## [Windows SQL Server VM’leri](virtual-machines-windows-sql-server-iaas-overview.md) 
 ## [Fiyatlandırma](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [SSS](virtual-machines-windows-sql-server-iaas-faq.md)
  

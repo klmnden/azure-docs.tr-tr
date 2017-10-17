@@ -27,23 +27,23 @@
       href: overview-general-concepts.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Machine Learning Workbench’i kullanma
+    - name: Workbench kullanma
       items:
         - name: Python IDE’leri ile çalışma
           href: how-to-configure-your-IDE.md
         - name: Jupyter not defterlerini kullanma
           href: how-to-use-jupyter-notebooks.md
-        - name: Git deposu ile tümleştirme
+        - name: Git depoları ile tümleştirme
           href: using-git-ml-project.md
-        - name: TDSP ile proje yapılandırma
+        - name: TDSP ile projeleri yapılandırma
           href: how-to-use-tdsp-in-azure-ml.md
-        - name: Dolaşım ve işbirliği işlemlerini geçekleştirme
+        - name: Dolaşım ve işbirliği
           href: roaming-and-collaboration.md
-    - name: Visual Studio araçlarını kullanma
+    - name: AI için Visual Studio Code Araçları kullanma
       href: quickstart-visual-studio-tools.md
     - name: İşlem ortamını yapılandırma
       items:
-        - name: Yürütme hedeflerini yapılandırma
+        - name: Deneme yapılandırma
           href: experiment-execution-configuration.md
         - name: DSVM ve HDI Spark kümesi oluşturma
           href: how-to-create-dsvm-hdi.md
@@ -51,13 +51,14 @@
           href: how-to-use-gpu.md
     - name: Veri edinme ve bu verileri anlama
       items:
-        - name: Veri Kaynağı Sihirbazı ile verilere erişme
+        - name: Veri kaynağı ekleme
           href: data-source-wizard.md
-        - name: Veri hazırlama ile çalışmaya başlama
-          href: data-prep-getting-started.md
         - name: Veri hazırlama kılavuzu
+          href: data-prep-getting-started.md
+        - name: Gelişmiş veri hazırlama
           href: data-prep-user-guide.md
         - name: Veri hazırlama dönüşümleri
+          href: data-prep-appendix3-supported-transforms.md
           items:
             - name: Sütunları örneğe göre birleştirme
               href: data-prep-combine-columns-by-example.md
@@ -73,22 +74,26 @@
           href: tutorial-iris-azure-cli.md
         - name: Çalıştırma geçmişini ve model ölçümlerini izleme
           href: how-to-use-run-history-model-metrics.md
-        - name: En yüksek doğruluğa ve en düşün süreye sahip çalıştırmaları bulma
+        - name: En yüksek doğruluk oranıyla çalıştırmaları bulma
           href: how-to-find-best-accuracy-cli.md
         - name: Dosyaları okuma ve yazma
           href: how-to-read-write-files.md
-        - name: MMLSpark kitaplığı
+        - name: MMLSpark kitaplığı kullanma
           href: how-to-use-mmlspark.md
-    - name: Modelleri dağıtma
+    - name: Modelleri kullanıma hazır hale getirin
       items:
         - name: Model Yönetimi’ni ayarlama
           href: deployment-setup-configuration.md
+        - name: Kümeleri ve hizmetleri ölçeklendirme
+          href: how-to-scale-clusters.md
         - name: Bir web hizmetini dağıtma
           href: model-management-service-deploy.md
         - name: Bir web hizmetini kullanma
           href: model-management-consumption.md
-        - name: Model verileri toplamayı kullanma
+        - name: Model verileri toplama
           href: how-to-use-model-data-collection.md
+        - name: Dağıtım sorunlarını giderme kılavuzu
+          href: how-to-deploy-troubleshooting-guide.md
     - name: Gerçek kullanım örnekleri
       items:
         - name: Belge koleksiyonu çözümleme
@@ -121,8 +126,6 @@
           href: data-prep-python-extensibility-overview.md
         - name: Desteklenen veri kaynakları
           href: data-prep-appendix2-supported-data-sources.md
-        - name: Desteklenen dönüşümler
-          href: data-prep-appendix3-supported-transforms.md
         - name: Desteklenen denetçiler
           href: data-prep-appendix4-supported-inspectors.md
         - name: Desteklenen veri hedefleri
@@ -131,7 +134,7 @@
           href: data-prep-supported-runtime-data-environments.md
         - name: Python’da filtre ifadeleri örneği
           href: data-prep-appendix6-sample-filter-expressions-python.md
-        - name: Python’da özel DataFlow dönüşümleri örneği
+        - name: Python’da özel veri akışı dönüşümleri örneği
           href: data-prep-appendix7-sample-transform-data-flow-python.md
         - name: Python’da kaynak bağlantıları örneği
           href: data-prep-appendix8-sample-source-connections-python.md
@@ -143,7 +146,7 @@
           href: data-prep-python-execution-api.md
     - name: Deneme
       items:
-        - name: Yürütme yapılandırma
+        - name: Deneme Hizmetini yapılandırma
           href: experiment-execution-configuration-reference.md
         - name: Günlüğe kaydetme API’si
           href: reference-logging-api.md
@@ -157,9 +160,9 @@
           href: model-data-collection-api-reference.md
 - name: Kaynaklar
   items:
-    - name: SSS
+    - name: Sık sorulan sorular
       href: frequently-asked-questions.md
-    - name: Bilinen sorunlar ve sorun giderme kılavuzu
+    - name: Bilinen sorunlar ve sorun giderme
       href: known-issues-and-troubleshooting-guide.md
     - name: Team Data Science Process belgeleri
       href: ../team-data-science-process/overview.md
@@ -170,7 +173,7 @@
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
     - name: MSDN forumu
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning'
+      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: Videolar

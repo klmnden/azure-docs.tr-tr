@@ -58,6 +58,7 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Kaynakları düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
+### [Yönetim gruplarıyla abonelikleri düzenleme](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [İdare örnekleri](resource-manager-subscription-examples.md)
 
 ## Erişim Denetleme

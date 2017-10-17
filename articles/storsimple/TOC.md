@@ -118,6 +118,7 @@
 ##### [Web proxy yapılandırma](storsimple-8000-configure-web-proxy.md)
 ##### [DATA 0 ayarlarını değiştirme](storsimple-8000-modify-data-0.md)
 
+#### [Azure PowerShell örnek komut dosyalarını kullanma](storsimple-8000-automation-azurerm-scripts.md)
 
 #### [StorSimple Snapshot Manager’ı kullanma](storsimple-snapshot-manager-admin.md)
 ##### [StorSimple Snapshot Manager nedir?](storsimple-what-is-snapshot-manager.md)

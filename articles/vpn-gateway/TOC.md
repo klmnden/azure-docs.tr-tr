@@ -18,7 +18,6 @@
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure portal (klasik)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [Klasik portal (klasik)](vpn-gateway-site-to-site-create.md)
 
 ## Noktada Siteye bağlantıları yapılandırma - Yerel Azure sertifika kimlik doğrulaması
 ### P2S VPN yapılandırma
@@ -57,6 +56,7 @@
 ### [Azure PowerShell](vpn-gateway-activeactive-rm-powershell.md)
 ## Bir VPN ağ geçidi için BGP yapılandırma
 ### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+### [Azure CLI](bgp-how-to-cli.md)
 ## Zorlamalı tünel yapılandırma
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (klasik)](vpn-gateway-about-forced-tunneling.md)
@@ -81,6 +81,8 @@
 ### [Noktadan Siteye bağlantı sorunu](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Siteden Siteye bağlantı aralıklı olarak kesiliyor](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Siteden Siteye bağlantı kurulamıyor](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Application Gateway oturum benzeşimi sorunları](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
+### [VNet veya VPN bağlantılarını yapılandırma ve doğrulama](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Başvuru
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

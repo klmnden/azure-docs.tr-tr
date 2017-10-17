@@ -59,17 +59,20 @@
 # Nasıl yapılır?
 ## [Azure Otomasyonu ile VPN Gateway’i izleme](network-watcher-monitor-with-azure-automation.md)
 ## [VPN Gateway aracılığıyla Şirket İçi bağlantıyı tanılama](network-watcher-diagnose-on-premises-connectivity.md)
-## [Anormallikleri bulmak için paket yakalamaları çözümleme](network-watcher-deep-packet-inspection.md)
-## [Azure İşlevleri ile öngörülü ağ izleme için paket yakalamayı kullanma](network-watcher-alert-triggered-packet-capture.md)
-## [Power BI kullanarak akış günlüklerini görselleştirme](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-## [Açık kaynak araçlar kullanarak akış günlüklerini görselleştirme](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-## [Graylog kullanarak Azure'da Akış günlüklerini görselleştirme](network-watcher-analyze-nsg-flow-logs-graylog.md)
-## [Açık kaynak araçlar kullanarak ağ trafiği desenlerini görselleştirme](network-watcher-using-open-source-tools.md)
 ## [PowerShell kullanarak ağınızda uyumluluk ve denetim gerçekleştirme](network-watcher-nsg-auditing-powershell.md)
-## [NSG akış günlüklerini okuma](network-watcher-read-nsg-flow-logs.md)
-## [Açık kaynak araçları kullanarak izinsiz giriş algılama gerçekleştirme](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Azure Log Analytics’te Application Gateway günlüklerini analiz etme](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
-## [Network Watcher ve Grafana kullanarak akış günlüklerini çözümleme](network-watcher-nsg-grafana.md)
+## Paket yakalama
+### [Anomalileri bulma](network-watcher-deep-packet-inspection.md)
+### [Azure İşlevleri ile öngörülü ağ izleme](network-watcher-alert-triggered-packet-capture.md)
+### [Açık kaynak araçları kullanarak izinsiz giriş algılama gerçekleştirme](network-watcher-intrusion-detection-open-source-tools.md)
+### [Açık kaynak araçlar kullanarak ağ trafiği desenlerini görselleştirme](network-watcher-using-open-source-tools.md)
+## NSG akış günlüklerini analiz etme
+### [NSG akış günlüklerini okuma](network-watcher-read-nsg-flow-logs.md)
+### [Power BI kullanma](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+### [Elastik Yığın kullanma](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+### [Grafana kullanma](network-watcher-nsg-grafana.md)
+### [Graylog kullanma](network-watcher-analyze-nsg-flow-logs-graylog.md)
+
 # Başvuru
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)
