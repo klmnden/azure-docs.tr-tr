@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
-ms.openlocfilehash: 4f73e27c733edae658d1ea3bdabe48076328279b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: faf17bcac66a70fc78bb171e172886fd2dcadca8
+ms.contentlocale: tr-tr
+ms.lasthandoff: 06/16/2017
+
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell'i kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -99,7 +100,7 @@ OUTPUT @a
 Betiği gönderin.
 
 ```
-$job = Submit-AdlJob -AccountName $adla –Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
 ```
 
 Alternatif olarak, betiği dosya olarak kaydedebilir ve şu komutla gönderebilirsiniz:
@@ -107,14 +108,14 @@ Alternatif olarak, betiği dosya olarak kaydedebilir ve şu komutla gönderebili
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
 ```
 
 
 Belirli bir işin durumunu alın. İş tamamlanana kadar bu cmdlet'i kullanmaya devam edin.
 
 ```
-$job = Get-AdlJob -AccountName $adla -JobId $job.JobId
+$job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 Bir iş tamamlanana kadar Get-AdlAnalyticsJob yöntemini tekrar tekrar çağırmak yerine, Wait-AdlJob cmdlet’ini kullanabilirsiniz.
@@ -126,10 +127,11 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 Çıkış dosyasını indirin.
 
 ```
-Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
+Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * Aynı öğreticiyi diğer araçları kullanarak görmek için sayfanın üst kısmındaki sekme seçicilerine tıklayın.
 * U-SQL öğrenmek için bkz. [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md).
 * Yönetim görevleri için bkz. [Azure portalı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).
+
