@@ -51,6 +51,8 @@
       href: concepts-physical-to-azure-architecture.md
     - name: Hyper-V-ikincil bir site arası mimari
       href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Azure’dan Azure’a çoğaltma için destek matrisi
+      href: site-recovery-support-matrix-azure-to-azure.md
     - name: Şirket içi-Azure arası destek
       href: site-recovery-support-matrix-to-azure.md
     - name: Şirket içi-ikincil site arası destek

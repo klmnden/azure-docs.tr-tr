@@ -135,12 +135,16 @@
           href: sql-database-disaster-recovery.md
         - name: Kurtarma tatbikatı gerçekleştirme
           href: sql-database-disaster-recovery-drills.md
-    - name: Verileri yükleme ve taşıma
+    - name: SQL Veritabanına geçiş
       items:
         - name: SQL Server DB’yi geçirme
           href: sql-database-cloud-migrate.md
         - name: T-SQL değişiklikleri
           href: sql-database-transact-sql-information.md
+        - name: Geçişten sonra veritabanını yönetme
+          href: sql-database-manage-after-migration.md
+    - name: Verileri yükleme ve taşıma
+      items:
         - name: Veritabanı kopyalama
           href: sql-database-copy.md
         - name: Veritabanını içeri aktarma

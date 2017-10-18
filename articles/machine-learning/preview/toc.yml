@@ -158,6 +158,10 @@
           href: model-management-cli-reference.md
         - name: Model veri toplama API’si
           href: model-data-collection-api-reference.md
+    - name: Sürüm notları
+      items:
+        - name: Sprint 0 - Ekim 2017
+          href: release-notes-sprint-0.md
 - name: Kaynaklar
   items:
     - name: Sık sorulan sorular

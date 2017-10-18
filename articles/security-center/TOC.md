@@ -13,15 +13,13 @@
 ## [Planlama ve işlemler](security-center-planning-and-operations-guide.md)
 ## [İzinler](security-center-permissions.md)
 ## [Desteklenen platformlar](security-center-os-coverage.md)
-## [İş ortağı tümleştirmesi](security-center-partner-integration.md)
 ## [SSS](security-center-faq.md)
 
 # Nasıl yapılır?
-
-## Güvenlik ilkesi
-### [Genel Bakış](security-center-policies-overview.md)
+## [Güvenlik ilkesi](security-center-policies-overview.md)
 ### [Veri toplama](security-center-enable-data-collection.md)
 ### [Güvenlik ilkesi](security-center-policies.md)
+### [Azure ilkesi kullanarak güvenlik ilkesi](security-center-azure-policy.md)
 ### [E-posta bildirimleri](security-center-provide-security-contact-details.md)
 ### [Fiyatlandırma katmanı](security-center-pricing.md)
 
@@ -30,6 +28,10 @@
 ## [Search](security-center-search.md)
 
 ## Önleme
+### [Güvenlik çözümleri](security-center-partner-integration.md)
+#### [Bağlantılı çözümleri izleme](security-center-partner-solutions.md)
+#### [Microsoft ATA bağlantısı kurma](security-center-ata-integration.md)
+#### [Azure AD Kimlik Koruması bağlantısı kurma](security-center-aadip-integration.md)
 ### [Güvenlik önerileri uygulama](security-center-recommendations.md)
 ### [Uygulama önerileri](security-center-application-recommendations.md)
 #### [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md)
@@ -57,7 +59,6 @@
 #### [İşletim sistemi sürümünü güncelleştirme](security-center-update-os-version.md)
 #### [Güvenlik açığı değerlendirmesi yüklü değil](security-center-vulnerability-assessment-recommendations.md)
 ### [Güvenlik durumunu izleme](security-center-monitoring.md)
-### [İş ortağı çözümlerini izleme](security-center-partner-solutions.md)
 ### [Kimlik ve Erişim](security-center-identity-access.md)
 
 ## Algılama ve Yanıtlama

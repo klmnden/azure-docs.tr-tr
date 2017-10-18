@@ -21,6 +21,12 @@
       href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: Kavramlar
+  items:
+    - name: Container Registry SKU’ları
+      href: container-registry-skus.md
+    - name: Coğrafi Çoğaltma (önizleme)
+      href: container-registry-geo-replication.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Görüntü gönderme ve çekme
@@ -43,8 +49,8 @@
       href: /powershell/module/azurerm.containerregistry
 - name: Kaynaklar
   items:
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Yol Haritası
+      href: 'https://aka.ms/acr/roadmap'
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Bölge kullanılabilirliği

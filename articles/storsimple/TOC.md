@@ -101,6 +101,7 @@
 ##### [Birim kapsayıcıları yönetme](storsimple-8000-manage-volume-containers.md)
 ##### [Birimleri yönetme - geçerli](storsimple-8000-manage-volumes-u2.md)
 ###### [SSS: Yerel olarak sabitlenmiş birimler](storsimple-8000-local-volume-faq.md)
+##### [Rol Tabanlı Erişim Denetimi](storsimple-8000-role-based-access-control.md)
 ##### [ACR’leri yönetme](storsimple-8000-manage-acrs.md)
 ##### [Bant genişliği şablonlarını yönetme](storsimple-8000-manage-bandwidth-templates.md)
 ##### [İşleri görüntüleme ve yönetme](storsimple-8000-manage-jobs-u2.md)
@@ -188,7 +189,7 @@
 #### [Güncelleştirme 0.1](storsimple-july-2014-release-notes.md)
 
 ## Başvuru
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [StorSimple cmdlet’leri için Windows PowerShell](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000 Serisi (Klasik portal)

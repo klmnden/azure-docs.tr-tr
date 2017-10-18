@@ -57,6 +57,8 @@
           href: concepts-servers.md
         - name: Desteklenen sürümler
           href: concepts-supported-versions.md
+        - name: Sunucu günlükleri
+          href: concepts-server-logs.md
     - name: Kaynaklar
       items:
         - name: Fiyatlandırma katmanları
@@ -113,6 +115,10 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+    - name: Sunucu günlüklerine erişme
+      items:
+        - name: Azure CLI
+          href: howto-configure-server-logs-in-cli.md
 - name: Başvuru
   items:
     - name: Azure CLI

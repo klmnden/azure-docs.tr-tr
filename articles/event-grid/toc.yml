@@ -6,8 +6,12 @@
       href: overview.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Özel olayları oluşturma ve yönlendirme
+    - name: Özel olay oluşturma - Azure CLI
       href: custom-event-quickstart.md
+    - name: Özel olay oluşturma - Azure PowerShell
+      href: custom-event-quickstart-powershell.md
+    - name: Özel olay oluşturma - Azure portalı
+      href: custom-event-quickstart-portal.md
 - name: Öğreticiler
   items:
     - name: Logic Apps ile sanal makine değişikliklerini izleme

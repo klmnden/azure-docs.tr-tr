@@ -16,6 +16,7 @@
 ### [VM oluşturma](devtest-lab-add-vm.md)
 ### [Talep edilebilir VM oluşturma](devtest-lab-add-claimable-vm.md)
 ### [Azure CLI ile sanal makine oluşturma ve yönetme](devtest-lab-vmcli.md)
+### [Bir VM’yi yeniden başlatma](devtest-lab-restart-vm.md)
 
 ## Ortamları laboratuvarda kullanma
 ### [Ortam oluşturma](devtest-lab-create-environment-from-arm.md)
@@ -28,6 +29,7 @@
 ### [İlke ve zamanlamalar ayarlama](devtest-lab-set-lab-policy.md)
 ### [Maliyet yönetimini yapılandırma](devtest-lab-configure-cost-management.md)
 ### [Market görüntülerini yapılandırma](devtest-lab-configure-marketplace-images.md)
+### [Lisanslı görüntü etkinleştirme](devtest-lab-enable-licensed-images.md)
 ### [Laboratuvara etiket ekleme](devtest-lab-add-tag.md)
 
 ## [Özel görüntü veya formül seçme](devtest-lab-comparing-vm-base-image-types.md)
@@ -56,8 +58,8 @@
 ## [Laboratuvarınızı ölçeklendirme](devtest-lab-scale-lab.md)
 
 # Başvuru
-## [Azure CLI](/cli/azure/lab)
-## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Laboratuvarı otomatik oluşturma veya değiştirme](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [REST API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Resource Manager şablonları](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

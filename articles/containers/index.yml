@@ -1,0 +1,102 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Kapsayıcılar için Azure
+metadata:
+  document_id: null
+  title: 'Kapsayıcılar için Azure - Öğreticiler, API Başvurusu'
+  description: 'Kapsayıcılara yönelik hızlı başlangıçlar, öğreticiler ve araçlar bulmak için aşağıdaki kaynakları kullanarak Azure ile uygulama geliştirmeye başlayın.'
+  keywords: 'Azure, Kapsayıcılar, Docker, API, Kubernetes'
+  author: bketelsen
+  ms.author: brketels
+  manager: listonb
+  ms.date: 09/14/2017
+  ms.topic: article
+  ms.prod: azure
+  featureFlags:
+    - clicktale
+  ms.technology: azure
+  ms.devlang: multiple
+  ms.service: multiple
+sections:
+  - items:
+      - type: markdown
+        text: |
+          Kapsayıcılara yönelik öğreticiler ve araçlar bulmak için aşağıdaki kaynakları kullanarak Azure ile uygulama geliştirmeye başlayın.
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
+            html: <p>Azure Container Instances ile kapsayıcılı uygulama oluşturma</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
+            title: Kullanmaya Başlama
+          - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples'
+            html: <p>Azure Container Service için Azure CLI Örnekleri</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_code-samples.svg'
+            title: Kod Örnekleri
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: Azure hizmetleriyle kapsayıcıları kullanmayı öğrenin.
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
+            title: Azure Container Instances ile kapsayıcılı uygulama oluşturma
+            image:
+              src: /azure/media/index/ContainerService.svg
+          - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
+            title: Linux Kapsayıcıları için Kubernetes kümesi oluşturma
+            image:
+              src: /azure/media/index/ContainerService.svg
+          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-swarm-walkthrough'
+            title: Docker Swarm kümesi dağıtma
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
+          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+            title: DC/OS kümesi dağıtma
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+          - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
+            title: Kapsayıcılar için Azure Web Apps ile kapsayıcılı uygulama oluşturma
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+  - title: Azure ve kapsayıcılar için Ücretsiz Pluralsight Eğitim Videosu
+    items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+            title: Microsoft Azure Sanal Makineler - Kullanmaya Başlama
+  - title: Örnekler
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">App Service’i Kullanmaya Başlama - Java’da Container Registry ile Linux Web Uygulamalarını Yönetme</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-containers/">Service Fabric Kapsayıcı Örnekleri</a>'
+          - html: '<a href="https://azure.microsoft.com/resources/samples/container-service-python-manage/">Azure kümesindeki bir Docker kapsayıcısına dağıtım yapma ve bağlanma</a>'
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: Azure kapsayıcılarını kullanmayı öğrenin
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Uygulamadan kapsayıcı görüntüsü oluşturma</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Kapsayıcı görüntülerini Azure Container Registry’ye yükleme</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Azure Container Service’te Kubernetes kümesi dağıtma</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Kubernetes’te kapsayıcı görüntülerinizi çalıştırma</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Bir uygulamayı ve Kubernetes altyapısını ölçeklendirme</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Kubernetes’te çalışan bir uygulamayı güncelleştirme</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">OMS ile Kubernetes’i izleme</a>'

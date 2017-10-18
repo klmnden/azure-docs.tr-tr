@@ -28,6 +28,8 @@
           href: storage-secure-access-application.md
         - name: 4 - Depolamayı izleme ve sorun giderme
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Bulut depolama alanında yapılandırılmamış verileri arama
+      href: storage-unstructured-search.md
 - name: Örnekler
   items:
     - name: Azure PowerShell

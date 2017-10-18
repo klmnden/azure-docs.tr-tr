@@ -68,7 +68,7 @@
 ### [Öneriler](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Çok yönlü gezinme](search-faceted-navigation.md)
 ### [Eş anlamlılar önizleme](search-synonyms.md)
-
+### [Güvenlik filtreleri](search-security-trimming-for-azure-search.md)
 # Başvuru
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)

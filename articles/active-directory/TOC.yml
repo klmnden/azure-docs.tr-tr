@@ -44,41 +44,49 @@
       href: msi-how-to-get-access-token-using-msi.md
     - name: Azure VM için MSI yapılandırma
       items:
-        - name: Azure Portal ile
+        - name: Azure Portalı’nı kullanma
           href: msi-qs-configure-portal-windows-vm.md
-        - name: PowerShell ile
+        - name: PowerShell’i kullanma
           href: msi-qs-configure-powershell-windows-vm.md
-        - name: Azure CLI ile
+        - name: Azure CLI’yı kullanma
           href: msi-qs-configure-cli-windows-vm.md
-        - name: Azure Resource Manager şablonu ile
+        - name: Azure Resource Manager şablonu kullanma
           href: msi-qs-configure-template-windows-vm.md
-        - name: Azure SDK’sı ile
+        - name: Azure SDK’sını kullanma
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Azure kaynağına MSI erişimi atama
+    - name: Resource Manager’a VM MSI erişimi verme
       items:
-        - name: Azure portal ile
+        - name: Azure portalını kullanma
           href: msi-howto-assign-access-portal.md
-        - name: PowerShell ile
+        - name: PowerShell’i kullanma
           href: msi-howto-assign-access-powershell.md
-        - name: Azure CLI ile
+        - name: Azure CLI’yı kullanma
           href: msi-howto-assign-access-cli.md
-    - name: Azure Resource Manager’a erişmek için MSI kullanma
+    - name: Azure Resource Manager’a erişmek için VM MSI kullanma
       items:
-        - name: Windows VM ile
+        - name: Windows sanal makinesinden
           href: msi-tutorial-windows-vm-access-arm.md
-        - name: Linux VM ile
+        - name: Linux sanal makinesinden
           href: msi-tutorial-linux-vm-access-arm.md
-    - name: Azure depolamaya erişmek için MSI kullanma
+    - name: Azure SQL’e erişmek için VM MSI kullanma
       items:
-        - name: Windows VM ile
+        - name: Windows sanal makinesinden
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: Azure Depolama’ya erişmek için VM MSI kullanma
+      items:
+        - name: Erişim anahtarı kullanarak bir Windows sanal makinesinden
           href: msi-tutorial-windows-vm-access-storage.md
-        - name: Linux VM ile
+        - name: SAS kullanarak bir Windows sanal makinesinden
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: Erişim anahtarı kullanarak bir Linux sanal makinesinden
           href: msi-tutorial-linux-vm-access-storage.md
-    - name: Azure olmayan AD kaynağına erişmek için MSI kullanma
+        - name: SAS kullanarak bir Linux sanal makinesinden
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: Azure Key Vault’a erişmek için VM MSI kullanma
       items:
-        - name: Windows VM ile
+        - name: Windows sanal makinesinden
           href: msi-tutorial-windows-vm-access-nonaad.md
-        - name: Linux VM ile
+        - name: Linux sanal makinesinden
           href: msi-tutorial-linux-vm-access-nonaad.md
     - name: SSS ve bilinen sorunlar
       href: msi-known-issues.md

@@ -9,6 +9,8 @@
   items:
     - name: Toplama - Azure VM’leri
       href: log-analytics-quick-collect-azurevm.md
+    - name: Toplama - Linux bilgisayarı
+      href: log-analytics-quick-collect-linux-computer.md
 - name: Öğreticiler
   items:
     - name: 1 - Verileri çözümleme

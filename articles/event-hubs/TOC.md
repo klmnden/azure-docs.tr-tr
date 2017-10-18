@@ -22,6 +22,7 @@
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
+### [Coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma](event-hubs-geo-dr.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Kimlik doğrulama ve güvenlik modeline genel bakış](event-hubs-authentication-and-security-model-overview.md)
 ### [Kullanılabilirlik ve tutarlılık](event-hubs-availability-and-consistency.md)

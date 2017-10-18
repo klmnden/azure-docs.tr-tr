@@ -44,6 +44,7 @@
 #### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
 #### [Grup tabanlı lisanslama için Azure PowerShell örnekleri](active-directory-licensing-ps-examples.md)
+#### [Azure AD’de ürünler ve hizmet planları için başvurular](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
 ### [Parola sıfırlama](active-directory-users-reset-password-azure-portal.md)
 ### [Kullanıcı iş bilgilerini yönetme](active-directory-users-work-info-azure-portal.md)
@@ -65,6 +66,7 @@
 #### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
 #### [Grup tabanlı lisanslama için Azure PowerShell örnekleri](active-directory-licensing-ps-examples.md)
+#### [Azure AD’de ürünler ve hizmet planları için başvurular](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Office 365 gruplarının süre sonlarını ayarlama](active-directory-groups-lifecycle-azure-portal.md)
 ### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
 ### [Adanmış grupları etkinleştirme](active-directory-accessmanagement-dedicated-groups.md)
@@ -137,7 +139,7 @@
 ### Görevler
 #### [Azure AD alanında kayıtlı Windows 10 cihazlarını ayarlama](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Azure AD alanına katılmış cihazları ayarlama](device-management-azuread-joined-devices-setup.md)
-#### [Karma Azure AD alanına katılmış cihazları ayarlama](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Karma Azure AD alanına katılmış cihazları ayarlama](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Şirket içi dağıtma](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD katılımı sırasında Windows 10’u ilk kez çalıştırma deneyimi](device-management-azuread-joined-devices-frx.md)
 ### Sorun giderme
@@ -204,6 +206,7 @@
 #### [Kullanıcı hesabı hazırlamayı yönetme](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Kurumsal uygulamalar için çoklu oturum açmayı yönetme](active-directory-enterprise-apps-manage-sso.md)
 #### [SAML uygulamaları için gelişmiş sertifika imzalama](active-directory-enterprise-apps-advance-certificate-options.md)
+####[ Azure Active Directory’de kullanıcı deneyimini gizleme](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
 #### [Self servis erişimi](active-directory-self-service-application-access.md)
