@@ -12,23 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: renash
+ms.openlocfilehash: 81de67334f66a61582bb2c5d5a2303cf3a1a086c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5a4a26957c115277e7558c210560777af63d2d0f
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-files"></a>Azure Dosyaları'na giriş
 Azure Dosyaları bulutta tamamen yönetilen dosya paylaşımları sunar. Bu dosyalara sektör standardı olan [Sunucu İleti Bloğu (SMB) protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (Ortak İnternet Dosya Sistemi veya CIFS olarak da bilinir) aracılığıyla erişilebilir. Azure Dosya paylaşımları Windows, Linux ve macOS bulut ve şirket içi dağıtımları tarafından aynı anda bağlanabilir. Azure Dosya paylaşımları ayrıca verilerin kullanıldığı yerin yakınlarında hızlı erişim sağlamak için Azure Dosya Eşitleme (önizleme) ile Windows sunucularında önbelleğe alınabilir.
 
 ## <a name="videos"></a>Videolar
-| Azure Dosyaları Tanıtımı (27 dk.) | Azure Dosyaları Öğreticisi (5 dk.)  |
+| Azure Dosya Eşitleme Tanıtımı (2 dk.) | Eşitleme ile Azure Dosyaları (Ignite 2017) (85 dk.)  |
 |-|-|
-| [![Azure Dosyaları'na giriş videosunun yayını - oynatmak için tıklayın!](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Azure Dosyaları Öğreticisi yayını - oynatmak için tıklayın!](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Azure Dosya Eşitleme'ye giriş videosunun yayını - oynatmak için tıklayın!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Eşitleme ile Azure Dosyaları sunumunun yayını - oynatmak için tıklayın!](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
 
 ## <a name="why-azure-files-is-useful"></a>Azure Dosyaları neden faydalıdır?
 Azure Dosya paylaşımları şunları yapmak için kullanılabilir:

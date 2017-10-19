@@ -3,7 +3,7 @@ title: "Geliştiriciler için Azure Batch’e genel bakış | Microsoft Docs"
 description: "Batch hizmeti özelliklerini ve API’lerini geliştirme açısından öğrenin."
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 06/28/2017
-ms.author: tamram
+ms.date: 010/04/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
 
@@ -46,7 +45,7 @@ Aşağıdaki üst düzey iş akışı, paralel iş yüklerini işlemek üzere Ba
 Aşağıdaki bölümlerde, bunları ve dağıtılmış hesaplama senaryonuzu etkinleştirecek Batch’in diğer kaynakları ele alınmıştır.
 
 > [!NOTE]
-> Batch hizmetini kullanmak için bir [Batch hesabı](#account) gereklidir. Ayrıca, Batch çözümlerinin çoğunda dosya depolama ve alma işlemleri için bir [Azure Depolama][azure_storage] hesabı kullanılır. Batch şu anda yalnızca, [Azure Depolama hesapları hakkında](../storage/common/storage-create-storage-account.md) belgesinin [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) adlı 5. adımında açıklanan **genel amaçlı** depolama hesabı türünü desteklemektedir.
+> Batch hizmetini kullanmak için bir [Batch hesabı](#account) gereklidir. Ayrıca, Batch çözümlerinin çoğunda dosya depolama ve alma işlemleri için ilişkilendirilmiş bir [Azure Depolama][azure_storage] hesabı kullanılır. 
 >
 >
 
@@ -71,44 +70,14 @@ Aşağıdaki kaynaklardan--hesaplar, işlem düğümleri, havuzlar, işler ve g�
 ## <a name="account"></a>Hesap
 Bir Batch hesabı Batch hizmeti dahilinde benzersiz şekilde tanımlanan bir varlıktır. Tüm işlemler bir Batch hesabıyla ilişkilendirilir.
 
-[Azure portalını](batch-account-create-portal.md) kullanarak ya da [Toplu Yönetim .NET kitaplığı](batch-management-dotnet.md) ile olduğu gibi program aracılığıyla bir Azure Batch hesabı oluşturabilirsiniz. Hesabı oluştururken bir Azure depolama hesabını ilişkilendirebilirsiniz.
+[Azure portalını](batch-account-create-portal.md) kullanarak ya da [Toplu Yönetim .NET kitaplığı](batch-management-dotnet.md) ile olduğu gibi program aracılığıyla bir Azure Batch hesabı oluşturabilirsiniz. Hesabı oluştururken işle ilgili giriş veya çıkış verilerini veya uygulamaları kaydetmek için bir Azure depolama hesabı ilişkilendirebilirsiniz.
 
-### <a name="pool-allocation-mode"></a>Havuz ayırma modu
+Tek bir Batch hesabında birden fazla Batch iş yükü çalıştırabilir ya da iş yüklerinizi aynı abonelik ve farklı Azure bölgelerindeki Batch hesapları arasında dağıtabilirsiniz.
 
-Bir Batch hesabı oluşturduğunuzda, işlem düğümleri [havuzlarının](#pool) nasıl ayrılacağını belirtebilirsiniz. İşlem düğümü havuzlarını Azure Batch tarafından yönetilen bir abonelikte veya kendi aboneliğinizde ayırmayı seçebilirsiniz. Hesabın *havuz ayırma modu* özelliği, havuzların nerede ayrılacağını belirler. 
+> [!NOTE]
+> Batch hesabı oluştururken genelde varsayılan **Batch hizmeti** modunu seçmeniz gerekir. Bu mod kullanıldığında havuzlar Azure tarafından yönetilen aboneliklerde, arka planda ayrılır. Kullanılması artık önerilmeyen alternatif **Kullanıcı aboneliği** modunda bir havuz oluşturulduğunda Batch VM'leri ve diğer kaynaklar doğrudan aboneliğinizde oluşturulur.
+>
 
-Kullanacağınız havuz ayırma modunu seçmek için hangisinin senaryonuza daha uygun olduğunu belirleyin:
-
-* **Batch Hizmeti**: Batch Hizmeti, varsayılan havuz ayırma modudur. Bu mod kullanıldığında havuzlar Azure tarafından yönetilen aboneliklerde, arka planda ayrılır. Batch Hizmeti havuz ayırma modu hakkında aşağıdaki önemli noktalara dikkat edin:
-
-    - Batch Hizmeti havuz ayırma modu, hem Bulut Hizmeti havuzlarını hem de Sanal Makine havuzlarını destekler.
-    - Batch Hizmeti havuz ayırma modu, hem paylaşılan anahtar kimlik doğrulamasını hem de [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) destekler. 
-    - Batch Hizmeti havuz ayırma moduyla ayrılan havuzlarda, adanmış veya düşük öncelikli işlem düğümlerini kullanabilirsiniz.
-    - Özel VM görüntülerinden Azure sanal makine havuzları oluşturmayı veya sanal ağ kullanmayı planlıyorsanız, Batch Hizmeti havuz ayırma modunu kullanmayın. Bunun yerine hesabınızı Kullanıcı Aboneliği havuz ayırma moduyla oluşturun.
-    - Batch Hizmeti havuz ayırma moduyla oluşturulmuş bir hesapta sağlanan Sanal Makine havuzlarının [Microsoft Azure Sanal Makineler Market görüntülerinden][vm_marketplace] oluşturulması gerekir.
-
-* **Kullanıcı aboneliği**: Kullanıcı Aboneliği havuz ayırma modunda Batch havuzları, hesabın oluşturulduğu Azure aboneliğinde ayrılır. Kullanıcı Aboneliği havuz ayırma modu hakkında aşağıdaki önemli noktalara dikkat edin:
-     
-    - Kullanıcı Aboneliği havuz ayırma modu yalnızca Sanal Makine havuzlarını destekler. Cloud Services havuzlarını desteklemez.
-    - Özel VM görüntülerinden Sanal Makine havuzları oluşturmak veya Sanal Makine havuzlarında sanal ağ kullanmak için Kullanıcı Aboneliği havuz ayırma modunu kullanmanız gerekir.  
-    - Kullanıcı aboneliğinde ayrılan havuzlarla [Azure Active Directory kimlik doğrulaması](batch-aad-auth.md) kullanmanız gerekir. 
-    - Havuz ayırma modu Kullanıcı Aboneliği olarak ayarlandıysa, Batch hesabınız için bir Azure anahtar kasası ayarlamanız gerekir. 
-    - Kullanıcı Aboneliği havuz ayırma moduyla oluşturulan havuzlarda yalnızca adanmış işlem düğümleri kullanabilirsiniz. Düşük öncelikli düğümler desteklenmez.
-    - Havuz ayırma modu olarak Kullanıcı Aboneliği kullanan bir hesapta sağlanan Sanal Makine havuzları [Microsoft Azure Sanal Makineler Market görüntülerinden][vm_marketplace] veya sağlayacağınız özel görüntülerden oluşturulabilir.
-
-Aşağıdaki tabloda, Batch Hizmeti ve Kullanıcı Aboneliği havuz ayırma modları karşılaştırılmıştır.
-
-| **Havuz ayırma modu**                 | **Batch Hizmeti**                                                                                       | **Kullanıcı Aboneliği**                                                              |
-|-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Havuzların ayrıldığı yer**               | Azure tarafından yönetilen bir abonelik                                                                           | Batch hesabının oluşturulduğu kullanıcı aboneliği                        |
-| **Desteklenen yapılandırmalar**             | <ul><li>Bulut Hizmeti Yapılandırması</li><li>Sanal Makine Yapılandırması (Linux ve Windows)</li></ul> | <ul><li>Sanal Makine Yapılandırması (Linux ve Windows)</li></ul>                |
-| **Desteklenen VM görüntüleri**                  | <ul><li>Microsoft Azure Market görüntüleri</li></ul>                                                              | <ul><li>Microsoft Azure Market görüntüleri</li><li>Özel görüntüler</li></ul>                   |
-| **Desteklenen işlem düğümü türleri**         | <ul><li>Ayrılmış düğümler</li><li>Düşük öncelikli düğümler</li></ul>                                            | <ul><li>Ayrılmış düğümler</li></ul>                                                  |
-| **Desteklenen kimlik doğrulaması**             | <ul><li>Paylaşılan Anahtar</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault gereksinimi**             | Hayır                                                                                                      | Evet                                                                                |
-| **Çekirdek kota**                           | Batch çekirdek kotasına göre belirlenir                                                                          | Abonelik çekirdek kotasına göre belirlenir                                              |
-| **Azure Sanal Ağ desteği** | Bulut Hizmeti Yapılandırmasıyla oluşturulan havuzlar                                                      | Sanal Makine Yapılandırmasıyla oluşturulan havuzlar                               |
-| **Desteklenen sanal ağ dağıtım modeli**      | Klasik dağıtım modeli kullanılarak oluşturulmuş sanal ağlar                                                             | Klasik dağıtım modeli veya Azure Resource Manager ile oluşturulan sanal ağlar |
 
 ## <a name="azure-storage-account"></a>Azure Storage hesabı
 
@@ -135,7 +104,7 @@ Azure Batch havuzları temel Azure işlem platformu üzerinde derlenir. Bu havuz
 
 Bir havuza eklenen her düğüme benzersiz bir ad ve IP adresi atanır. Bir düğüm havuzdan kaldırıldığında, işletim sistemi ya da dosyalara yapılan tüm değişiklikler kaybedilir ve düğümün adı ile IP adresi gelecekte kullanım için boşta kalır. Bir düğüm havuzdan ayrıldığında ömrü sona erer.
 
-Bir havuz oluştururken aşağıdaki öznitelikleri belirtebilirsiniz. Batch [hesabının](#account) havuz ayırma moduna bağlı olarak bazı ayarlar farklılık gösterir:
+Bir havuz oluşturduğunuzda aşağıdaki öznitelikleri belirtebilirsiniz:
 
 - İşlem düğümü işletim sistemi ve sürümü
 - İşlem düğümü türü ve hedef düğüm sayısı
@@ -150,11 +119,9 @@ Bir havuz oluştururken aşağıdaki öznitelikleri belirtebilirsiniz. Batch [he
 Bu ayarlar aşağıdaki bölümlerde ayrıntılı şekilde açıklanmıştır.
 
 > [!IMPORTANT]
-> Batch Hizmeti havuz ayırma moduyla oluşturulan Batch hesapları, Batch hesabındaki çekirdek sayısını sınırlayan varsayılan bir kotaya sahiptir. Çekirdek sayısı, işlem düğümü sayısına karşılık gelir. Varsayılan kotaları ve [kota artırma](batch-quota-limit.md#increase-a-quota) yönergelerini [Azure Batch hizmeti için kotalar ve limitler](batch-quota-limit.md) bölümünde bulabilirsiniz. Havuzunuzun hedef düğüm sayısına ulaşmamasının nedeni çekirdek kotası olabilir.
+> Batch hesaplarının bir Batch hesabında bir dizi çekirdekle sınırlanan varsayılan bir kotası vardır. Çekirdek sayısı, işlem düğümü sayısına karşılık gelir. Varsayılan kotaları ve [kota artırma](batch-quota-limit.md#increase-a-quota) yönergelerini [Azure Batch hizmeti için kotalar ve limitler](batch-quota-limit.md) bölümünde bulabilirsiniz. Havuzunuzun hedef düğüm sayısına ulaşmamasının nedeni çekirdek kotası olabilir.
 >
->Kullanıcı Aboneliği havuz ayırma moduyla oluşturulan Batch hesaplarında Batch hizmeti kotası yoktur. Bunun yerine belirtilen aboneliğe ait çekirdek kotası paylaşılır. Daha fazla bilgi için [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md) sayfasındaki [Sanal Makine limitleri](../azure-subscription-service-limits.md#virtual-machines-limits) bölümüne bakın.
->
->
+
 
 ### <a name="compute-node-operating-system-and-version"></a>İşlem düğümü işletim sistemi ve sürümü
 
@@ -174,41 +141,14 @@ Batch havuzu oluştururken Azure sanal makine yapılandırmasını ve havuzdaki 
 
 Havuz oluştururken VHD'nizin temel görüntüsünün işletim sistemine bağlı olarak uygun **nodeAgentSkuId** değerini seçmeniz gerekir. [Desteklenen Düğüm Aracısı SKU'larını Listele](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) işlemini çağırarak İşletim Sistemi Görüntüsü başvuruları için kullanılabilen düğüm aracısı SKU kimliklerinin eşlemesine ulaşabilirsiniz.
 
-Batch hesabı oluştururken havuz ayırma modunu ayarlama hakkında bilgi almak için [Hesap](#account) bölümüne bakın.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Sanal Makine havuzları için özel görüntüler
 
-Sanal Makine havuzlarınızda özel görüntüler kullanmak için, Batch hesabınızı Kullanıcı Aboneliği havuz ayırma moduyla oluşturun. Bu modu kullandığınızda Batch havuzları, hesabın bulunduğu aboneliğe ayrılır. Batch hesabı oluştururken havuz ayırma modunu ayarlama hakkında bilgi almak için [Hesap](#account) bölümüne bakın.
+Özel görüntü kullanmak için, görüntüyü genelleştirerek hazırlamanız gerekir. Azure VM'lerinden özel Linux görüntüleri hazırlama hakkında bilgi için bkz. [Sanal makine veya VHD görüntüsü oluşturma](../virtual-machines/linux/capture-image.md). Azure sanal makinelerinden özel Windows görüntüleri hazırlama hakkında daha fazla bilgi için bkz. [Azure'da genelleştirilmiş VM'nin yönetilen görüntüsünü oluşturma](../virtual-machines/windows/capture-image-resource.md). 
 
-Özel görüntü kullanmak için, görüntüyü genelleştirerek hazırlamanız gerekir. Azure sanal makinelerinden özel Linux görüntüleri hazırlama hakkında daha fazla bilgi için bkz. [Şablon olarak kullanmak için bir Azure Linux sanal makinesi yakalama](../virtual-machines/linux/capture-image-nodejs.md). Azure sanal makinelerinden özel Windows görüntüleri hazırlama hakkında daha fazla bilgi için bkz. [Azure PowerShell ile özel VM görüntüleri oluşturma](../virtual-machines/windows/tutorial-custom-images.md). 
+Ayrıntılı gereksinimler ve adımlar için bkz. [Sanal makine havuzu oluşturmak için özel görüntü kullanma](batch-custom-images.md).
 
-> [!IMPORTANT]
-> Özel görüntünüzü hazırlarken aşağıdakileri unutmayın:
-> - Batch havuzlarını sağlamak için kullandığınız temel işletim sistemi görüntüsünün, özel betik uzantıları gibi önceden yüklenmiş Azure uzantılarına sahip olmadığından emin olun. Görüntü önceden yüklenmiş bir uzantı içeriyorsa Azure, VM dağıtımı sırasında sorunla karşılaşabilir.
-> - Batch düğüm aracısı varsayılan geçici sürücüyü beklediğinden, sağladığınız temel işletim sistemi görüntüsünün varsayılan geçici sürücüyü kullandığından emin olun.
->
->
 
-Özel bir görüntü kullanarak Sanal Makine Yapılandırması havuzu oluşturmak için özel VHD görüntülerinizi depolama amacıyla bir veya daha fazla standart Azure Depolama hesabına sahip olmanız gerekir. Özel görüntüler blob olarak depolanır. Bir havuz oluşturduğunuzda özel görüntülerinize başvurmak için [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) özelliğinin [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) özelliğinde özel görüntü VHD bloblarının URI'lerini belirtin.
-
-Depolama hesaplarınızın aşağıdaki ölçütlere uygun olduğundan emin olun:   
-
-- Özel görüntü VHD bloblarını içeren depolama hesaplarının Batch hesabıyla (kullanıcı aboneliği) aynı abonelikte bulunması gerekir.
-- Belirtilen depolama hesaplarının Batch hesabıyla aynı bölgede olması gerekir.
-- Şu anda yalnızca genel amaçlı standart depolama hesapları desteklenmektedir. İleride Azure Premium depolama hesapları için de destek sunulacaktır.
-- Birden fazla özel VHD blobuna sahip tek bir depolama hesabı veya her birinde tek blob bulunan birden fazla depolama hesabı belirtebilirsiniz. Daha iyi bir performans elde etmek için birden fazla depolama hesabı kullanmanızı öneririz.
-- Tek bir benzersiz özel görüntü VHD blobu en fazla 40 Linux VM örneği veya 20 Windows VM örneği için destek sunabilir. Daha fazla VM içeren ek havuzlar oluşturmak için VHD blobunun kopyalarını oluşturmanız gerekir. Örneğin 200 Windows VM içeren bir havuz için **osDisk** özelliğinde 10 benzersiz VHD blobu belirtilmesi gerekir.
-
-Azure portalını kullanarak özel görüntüden havuz oluşturmak için:
-
-1. Azure portalında Batch hesabınıza gidin.
-2. **Ayarlar** dikey penceresinde **Havuzlar** menü öğesini seçin.
-3. **Havuzlar** dikey penceresinde **Ekle** komutunu seçin. **Havuz ekle** dikey penceresi görüntülenir.
-4. **Görüntü Türü** açılan menüsünden **Özel Görüntü (Linux/Windows)** öğesini seçin. Portalda **Özel Görüntü** seçici görüntülenir. Aynı kapsayıcıda bulunan bir veya daha fazla VHD'yi seçip **Seç** düğmesine tıklayın. 
-    İleride farklı depolama hesaplarında ve farklı kapsayıcılarda yer alan VHD'lerin eklenmesi mümkün olacaktır.
-5. Özel VHD'leriniz için doğru **Yayımcı/Teklif/Sku** değerini seçin, kullanmak istediğiniz **Önbelleğe alma** modunu belirleyin ve havuz için gerekli diğer tüm parametreleri doldurun.
-6. Bir havuzun özel görüntü kullanıp kullanmadığını belirlemek için **Havuz** dikey penceresinin kaynak özeti bölümündeki **İşletim Sistemi** özelliğine bakın. Bu özelliğin değeri **Özel VM görüntüsü** olmalıdır.
-7. Bir havuzla ilişkilendirilmiş olan tüm özel VHD'ler havuzun **Özellikler** dikey penceresinde görüntülenir.
 
 ### <a name="compute-node-type-and-target-number-of-nodes"></a>İşlem düğümü türü ve hedef düğüm sayısı
 
@@ -220,8 +160,7 @@ Bir havuz oluşturduğunuzda, istediğiniz işlem düğümü türlerini ve her b
 
     Azure’daki fazla kapasite yetersiz olduğunda, düşük öncelikli işlem düğümleri etkisiz hale getirilebilir. Görevler çalıştırılırken bir düğüm etkisiz hale getirilirse, işlem düğümü yeniden kullanılabilir olduğunda görevler yeniden kuyruğa alınır ve tekrar çalıştırılır. Düşük öncelikli düğümler, iş tamamlama süresinin esnek olduğu ve işin çok sayıda düğüme dağıtıldığı iş yükleri için iyi bir seçenektir. Senaryonuzda düşük öncelikli düğümleri kullanmaya karar vermeden önce, önalım kaynaklı iş kaybının minimum düzeyde olacağından ve kolayca yeniden oluşturulabileceğinden emin olun.
 
-    Düşük öncelikli işlem düğümleri yalnızca havuzu ayırma modu **Batch Hizmeti** olarak ayarlanarak oluşturulmuş Batch hesapları için kullanılabilir.
-
+    
 Aynı havuzda hem düşük öncelikli hem de adanmış işlem düğümleri olabilir. &mdash;Düşük öncelikli ve adanmış&mdash; düğüm türlerinin her biri, istediğiniz işlem sayısını belirtebileceğiniz kendi hedef ayarına sahiptir. 
     
 Bazı durumlarda havuzunuz istenilen düğüm sayısına ulaşmayabileceğinden işlem düğümleri sayısı *hedef* olarak adlandırılır. Örneğin, bir havuz ilk olarak Batch hesabınızın [çekirdek kotasına](batch-quota-limit.md) ulaşırsa hedefe ulaşamayabilir. Veya havuza en fazla düğüm sayısını sınırlandıran bir otomatik ölçeklendirme formülü uyguladıysanız havuz hedefe ulaşamayabilir.
@@ -447,34 +386,15 @@ Değişken ancak devam eden bir yükü işlemek için genellikle birleştirilmi�
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Sanal ağ ve güvenlik duvarı yapılandırması 
 
-Azure Batch’te işlem düğümlerinden oluşan bir havuz sağladığınızda, havuzu bir Azure [sanal ağının](../virtual-network/virtual-networks-overview.md) alt ağı ile ilişkilendirebilirsiniz. Alt ağları olan bir sanal ağ oluşturma hakkında daha fazla bilgi için bkz. [Alt ağları olan bir Azure sanal ağı oluşturma](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+Batch'te işlem düğümlerinden oluşan bir havuz sağladığınızda, havuzu bir Azure [sanal ağının](../virtual-network/virtual-networks-overview.md) alt ağı ile ilişkilendirebilirsiniz. Alt ağları olan bir sanal ağ oluşturma hakkında daha fazla bilgi için bkz. [Alt ağları olan bir Azure sanal ağı oluşturma](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
 
- * Bir havuzla ilişkilendirilen sanal ağın şu koşulları karşılaması gerekir:
+Sanal ağ gereksinimleri:
 
-   * Azure Batch hesabıyla aynı Azure **bölgesinde** olmalıdır.
-   * Azure Batch hesabıyla aynı **abonelikte** olmalıdır.
+* Sanal ağ, Azure Batch hesabıyla aynı Azure **bölgesinde** ve **aboneliğinde** olmalıdır.
 
-* Desteklenen sanal ağ türü, Batch hesabındaki havuz ayırma türüne göre değişiklik gösterir:
+* Sanal makine yapılandırması ile oluşturulan havuzlar için yalnızca Azure Resource Manager (ARM) tabanlı sanal ağlar desteklenir. Bulut hizmetleri yapılandırmasıyla oluşturulan havuzlar için hem ARM hem de klasik sanal ağlar desteklenir. 
 
-    - Batch hesabınızın havuz ayırma modu Batch Hizmeti olarak ayarlandıysa, yalnızca **Cloud Services Yapılandırması** ile oluşturulan havuzlara sanal atayabilirsiniz. Ayrıca belirtilen sanal ağın, klasik dağıtım modeliyle oluşturulması gerekir. Azure Resource Manager dağıtım modeliyle oluşturulan sanal ağlar desteklenmez.
- 
-    - Batch hesabınızın havuz ayırma modu Kullanıcı Aboneliği olarak ayarlandıysa, yalnızca **Sanal Makine Yapılandırması** ile oluşturulan havuzlara sanal ağ atayabilirsiniz. **Bulut Hizmeti Yapılandırması** ile oluşturulan havuzlar desteklenmez. İlişkili sanal ağ, Azure Resource Manager dağıtım modeli veya Klasik dağıtım modeli ile oluşturulabilir.
-
-    Havuz ayırma moduna göre sanal ağ desteğini özetleyen bir tablo için [Havuzu ayırma modu](#pool-allocation-mode) bölümünü inceleyin.
-
-* Batch hesabınızın havuz ayırma modu Batch Hizmeti olarak belirlendiyse, Batch hizmet sorumlusunun sanal ağa erişebilmesi için gerekli izinleri sağlamanız gerekir. Sanal ağ, Batch hizmet sorumlusuna [Klasik Sanal Makine Katkıda Bulunanı Rol Tabanlı Erişim Denetimi (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) rolünü atamalıdır. Belirtilen RBAC rolü mevcut değilse Batch hizmeti 400 (Hatalı İstek) hatası döndürür. Azure portalında rolü eklemek için:
-
-    1. **Sanal Ağ**’ı ve ardından **Erişim denetimi (IAM)**  > **Roller** > **Sanal Makine Katkıda Bulunanı** > **Ekle**’yi seçin.
-    2. **İzin ekle** dikey penceresinde **Sanal Makine Katkıda Bulunanı** rolünü seçin.
-    3. **İzin ekle** dikey penceresinde Batch API'sini arayın. API'yi bulana kadar aşağıdaki dizeleri sırasıyla arayın:
-        1. **MicrosoftAzureBatch**.
-        2. **Microsoft Azure Batch**. Daha yeni Azure AD kiracıları bu adı kullanıyor olabilir.
-        3. Batch API'sinin kimliği: **ddbf3205-c6bd-46ae-8127-60eb93363864**. 
-    3. Batch API’si hizmet sorumlusunu seçin. 
-    4. **Kaydet** düğmesine tıklayın.
-
-        ![Batch hizmet sorumlusuna VM Katkıda Bulunanı rolü atama](./media/batch-api-basics/iam-add-role.png)
-
+* ARM tabanlı ağ kullanmak için Batch istemci API'sinin [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanması gerekir. Klasik sanal ağ kullanmak için "MicrosoftAzureBatch" hizmet sorumlusu, belirtilen sanal ağ için "Klasik Sanal Makine Katılımcısı" Rol Tabanlı Erişim Denetimi (RBAC) rolüne sahip olmalıdır. 
 
 * Belirtilen alt ağda tüm hedef düğümler için yeterli sayıda boş **IP adresi** bulunmalıdır. Bu sayı havuzun `targetDedicatedNodes` ve `targetLowPriorityNodes` özelliklerinin toplamı kadar olacaktır. Alt ağ yeterli sayıda boş IP adresi içermiyorsa Batch hizmeti, havuzdaki işlem düğümlerini kısmen ayırır ve bir yeniden boyutlandırma hatası döndürür.
 
@@ -666,4 +586,3 @@ Bazı görevlerinizin başarısız olduğu durumlarda, Batch istemci uygulamanı
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
-

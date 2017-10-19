@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
+ms.openlocfilehash: 273b94e9a53e36d7e8c699d3b7fa4305b881a001
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f1f270b95a60e847ce7d29c2d7d60c57891924cc
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-2-build-a-model"></a>Iris sınıflandırma bölüm 2: Model derleme
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
 
@@ -38,6 +36,10 @@ Bu öğreticide kolaylık sağlamak için değişmeyen [Iris çiçeği veri küm
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğretici serisinin ilk bölümünü tamamlamış olmanız gerekir. Bu öğreticideki adımları uygulamaya başlamadan önce [Veri öğreticisini hazırlama](tutorial-classifying-iris-part-1.md) bölümündeki talimatları izleyerek Azure Machine Learning kaynaklarını oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin.
+
+İsteğe bağlı olarak betikleri yerel Docker kapsayıcısıyla çalıştırabilirsiniz. Bunun için bir Docker altyapısının (Community Edition yeterlidir) Windows veya macOS makinenizde yüklü ve başlatılmış olması gerekir. [Docker yükleme talimatları](https://docs.docker.com/engine/installation/) hakkında daha fazla bilgi edinin.
+
+Bir betiği uzak Azure VM'sindeki veya HDInsight Spark kümesindeki Docker kapsayıcısına göndermek istiyorsanız [Ubuntu tabanlı Azure Veri Bilimi Sanal Makinesi veya HDI Kümesi oluşturma talimatlarını](how-to-create-dsvm-hdi.md) inceleyebilirsiniz.
 
 ## <a name="review-irissklearnpy-and-configuration-files"></a>iris_sklearn.py dosyasını ve yapılandırma dosyalarını gözden geçirin
 1. **Azure Machine Learning Workbench** uygulamasını başlatın ve öğretici serisinin önceki bölümünde oluşturduğunuz **myIris** projesini açın.
@@ -102,7 +104,7 @@ Bu öğretici serisinin ilk bölümünü tamamlamış olmanız gerekir. Bu öğr
 
 8. İşler panelinde iş durumu metnindeki **Tamamlandı** kelimesine tıklayın. Bir pencere açılır ve çalışan betiğin standart çıktı (stdout) metni görüntülenir. stdout metnini kapatmak için açılan pencerenin sağ üst kısmındaki **X** düğmesine tıklayın.
 
-9. İşler panelindeki aynı iş durumunda **Tamamlandı** durumunun ve başlangıç zamanının hemen üzerinde yer alan mavi renkli **iris_sklearn.py [1]** metnine tıklayın. **Çalıştırma Özellikleri** sayfası açılır ve ilgili çalıştırmaya ait Çalıştırma Özellikleri bilgileri, **Çıktı** dosyaları, **Görselleştirmeler** ve **Günlükler** gösterilir. 
+9. İşler panelindeki aynı iş durumunda **Tamamlandı** durumunun ve başlangıç zamanının hemen üzerinde yer alan mavi renkli **iris_sklearn.py [n]** (_n_ çalıştırma numarasıdır) metnine tıklayın. **Çalıştırma Özellikleri** sayfası açılır ve ilgili çalıştırmaya ait Çalıştırma Özellikleri bilgileri, **Çıktı** dosyaları, **Görselleştirmeler** ve **Günlükler** gösterilir. 
 
    Çalıştırma tamamlandığında açılır pencerede aşağıdaki sonuçlar gösterilir:
 
@@ -367,4 +369,3 @@ Artık serinin üçüncü bölümüne geçmeye hazırsınız. Burada Lojistik Re
 
 > [!div class="nextstepaction"]
 > [Model dağıtma](tutorial-classifying-iris-part-3.md)
-

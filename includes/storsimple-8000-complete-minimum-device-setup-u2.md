@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/17-->
+<!--author=alkohli last changed: 09/28/17-->
 
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>En düşük StorSimple cihaz kurulumunu tamamlamak için
 
@@ -21,7 +21,7 @@
 
             ![StorSimple en düşük cihaz kurulumu ağ arabirimleri](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
-            Denetleyiciye yönelik sabit IP adresleri, cihaza güncelleştirmelerin uygulanması için kullanılır. Bu nedenle, sabit IP’lerin yönlendirilebilir ve İnternet’e bağlanabilir olması gerekir. [Test-HcsmConnection][Test] cmdlet'ini kullanarak sabit denetleyici IP'lerinizin yönlendirilebilir olup olmadığını denetleyebilirsiniz. Aşağıdaki örnekte sabit denetleyici IP'lerin İnternet'e yönlendirildiği ve Microsoft Update sunucularına erişebildiği gösterilmektedir.
+            Denetleyiciye yönelik sabit IP adresleri, cihaza güncelleştirmelerin uygulanması ve çöp toplama için kullanılır. Bu nedenle, sabit IP’lerin yönlendirilebilir ve İnternet’e bağlanabilir olması gerekir. [Test-HcsmConnection][Test] cmdlet'ini kullanarak sabit denetleyici IP'lerinizin yönlendirilebilir olup olmadığını denetleyebilirsiniz. Aşağıdaki örnekte sabit denetleyici IP'lerin İnternet'e yönlendirildiği ve Microsoft Update sunucularına erişebildiği gösterilmektedir.
 
             ![Yönlendirilebilir IP’leri gösteren Test HcsmConnection](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
 

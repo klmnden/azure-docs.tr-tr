@@ -10,15 +10,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
+ms.openlocfilehash: 2325d0ffd369d85b9a21e2274a98dcb673d240e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
-ms.openlocfilehash: 0dfcc965d96949527b3e80285061bff320872621
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Iris sınıflandırma bölüm 3: Model dağıtma
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
 
@@ -36,11 +34,15 @@ Bu öğretici üç bölümden oluşan bir serinin üçüncü bölümüdür. Öğ
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğretici serisinin ilk iki bölümünü tamamlayın:
-- Öncelikle [Veri öğreticisini hazırlama](tutorial-classifying-iris-part-1.md) bölümündeki talimatları izleyerek Azure Machine Learning kaynaklarını oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin.
-- İkinci olarak [Model derleme öğreticisi](tutorial-classifying-iris-part-2.md) adımlarını izleyerek Azure Machine Learning'de bir lojistik regresyon modeli oluşturun.
+
+1. [Veri öğreticisini hazırlama](tutorial-classifying-iris-part-1.md) bölümündeki talimatları izleyerek Azure Machine Learning kaynaklarını oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin.
+
+2. [Model derleme öğreticisi](tutorial-classifying-iris-part-2.md) adımlarını izleyerek Azure Machine Learning'de bir lojistik regresyon modeli oluşturun.
+
+3. Yerel ortamda Docker altyapısının yüklenmiş ve çalışıyor olması gerekir. Alternatif olarak Azure'daki bir Azure Container Service kümesine dağıtım yapabilirsiniz.
 
 ## <a name="download-the-model-pickle-file"></a>Model pickle dosyasını indirme
-Öğreticinin önceki bölümünde `iris_sklearn.py` betiği Azure Machine Learning Workbench'te yerel olarak çalıştırılmıştı. Bu eylem lojistik regresyon modelini popüler Python nesne seri hale getirme paketi olan **[pickle](https://docs.python.org/2/library/pickle.html)** kullanarak seri hale getirmişti. 
+Öğreticinin önceki bölümünde **iris_sklearn.py** betiği Azure Machine Learning Workbench'te yerel olarak çalıştırılmıştı. Bu eylem lojistik regresyon modelini popüler Python nesne seri hale getirme paketi olan **[pickle](https://docs.python.org/2/library/pickle.html)** kullanarak seri hale getirmişti. 
 
 1. **Azure Machine Learning Workbench** uygulamasını başlatın ve öğretici serisinin önceki bölümünde oluşturduğunuz **myIris** projesini açın.
 
@@ -50,7 +52,7 @@ Bu öğretici serisinin ilk iki bölümünü tamamlayın:
 
 4. **iris_sklearn.py** dosyasını gözden geçirerek pickle dosyasının oluşturulduğu yeri bulun. Ctrl+F kısayolunu kullanarak bul iletişim kutusunu açın ve Python kodunda **pickle** kelimesini bulun.
 
-   Bu kod parçacığı, pickle çıktı dosyasının nasıl oluşturulduğunu gösterir. pickle çıktı dosyasının diskte `model.pkl` olarak adlandırıldığında dikkat edin. 
+   Bu kod parçacığı, pickle çıktı dosyasının nasıl oluşturulduğunu gösterir. Pickle çıktı dosyasının diskte **model.pkl** olarak adlandırıldığına dikkat edin. 
 
    ```python
    print("Export the model to model.pkl")
@@ -61,7 +63,7 @@ Bu öğretici serisinin ilk iki bölümünü tamamlayın:
 
 5. Önceki bir çalıştırmanın çıktı dosyalarının arasında model pickle dosyasını bulun.
    
-   **iris_sklearn.py** betiğini çalıştırdığınızda model dosyası `outputs` klasörüne `model.pkl` adıyla kaydedilmişti. Bu klasör yerel proje klasörünüzde değil betiği çalıştırmayı seçtiğiniz yürütme ortamında bulunur. 
+   **iris_sklearn.py** betiğini çalıştırdığınızda model dosyası **outputs** klasörüne **model.pkl** adıyla kaydedilmişti. Bu klasör yerel proje klasörünüzde değil betiği çalıştırmayı seçtiğiniz yürütme ortamında bulunur. 
    
    - Dosyayı bulmak için Azure Machine Learning Workbench uygulamasını kullanın ve sol araç çubuğunda yer alan **Çalıştırmalar** düğmesine (saat simgesi) tıklayarak **Tüm Çalıştırmalar** listesini açın.  
    - **Tüm Çalıştırmalar** sekmesi açılır. Çalıştırmalar tablosunda hedefin **yerel**, betik adının ise **iris_sklearn.py** olduğu bir çalıştırmayı seçin. 
@@ -70,10 +72,10 @@ Bu öğretici serisinin ilk iki bölümünü tamamlayın:
 
    ![pickle dosyasını indirme](media/tutorial-classifying-iris/download_model.png)
 
-   `outputs` klasörü hakkında daha fazla bilgi için [Büyük veri dosyalarını okuma ve yazma](how-to-read-write-files.md) makalesine bakın.
+   **outputs** klasörü hakkında daha fazla bilgi için [Büyük veri dosyalarını okuma ve yazma](how-to-read-write-files.md) makalesine bakın.
 
 ## <a name="get-scoring-and-schema-files"></a>Puanlama ve şema dosyalarını alma
-Web hizmetini model dosyasıyla birlikte dağıtmak için puanlama betiğine ve isteğe bağlı olarak web hizmeti giriş verileri için bir şemaya ihtiyacınız vardır. Puanlama betiği geçerli klasörde yer alan `model.pkl` dosyasını yükler ve yeni tahmin edilen Iris sınıfını üretmek için kullanır.  
+Web hizmetini model dosyasıyla birlikte dağıtmak için puanlama betiğine ve isteğe bağlı olarak web hizmeti giriş verileri için bir şemaya ihtiyacınız vardır. Puanlama betiği geçerli klasörde yer alan **model.pkl** dosyasını yükler ve yeni tahmin edilen Iris sınıfını üretmek için kullanır.  
 
 1. **Azure Machine Learning Workbench** uygulamasını başlatın ve öğretici serisinin önceki bölümünde oluşturduğunuz **myIris** projesini açın.
 
@@ -81,19 +83,19 @@ Web hizmetini model dosyasıyla birlikte dağıtmak için puanlama betiğine ve 
 
 3. **iris_score.py** dosyasını seçin. Python betiği açılır. Bu dosya puanlama dosyası olarak kullanılır.
 
+   ![Puanlama Dosyası](media/tutorial-classifying-iris/model_data_collection.png)
+
 4. Şema dosyasını almak için betiği çalıştırın. Komut çubuğundan **yerel** ortamı ve **iris_score.py** betiğini seçip **Çalıştır** düğmesine tıklayın. 
 
 5. Bu betik modelin ihtiyaç duyduğu giriş verileri şemasını alan **çıktılar** klasöründe bir JSON dosyası oluşturur.
 
-   ![Puanlama Dosyası](media/tutorial-classifying-iris/model_data_collection.png)
+6. Machine Learning Workbench penceresinin sağ tarafındaki İşler bölmesine dikkat edin. En son **iris\_score.py** işinin yeşil **Tamamlandı** durumunu göstermesini bekleyin. Sonra **iris_score.py** çalıştırmasıyla ilgili çalıştırma ayrıntılarını görmek için en son iş çalıştırmasına ait **iris\_score.py [1]** bağlantısına tıklayın. 
 
-6. Machine Learning Workbench penceresinin sağ tarafındaki İşler bölmesindeki en son **iris_score.py** işinin durumu **Tamamlandı** olana kadar bekleyin. Ardından **iris_score.py** çalıştırmasıyla ilgili çalıştırma ayrıntılarını görmek için en son iş çalıştırmasına ait **iris_score.py [1]** bağlantısına tıklayın. 
+7. Çalıştırma Özellikleri sayfasının **Çıktılar** bölümünde yeni oluşturulan **service_schema.json** dosyasını seçin. Dosyayı **işaretleyin** ve **İndir**’e tıklayın. Dosyayı projenizin kök klasörüne tıklayın.
 
-7. Çalıştırma Özellikleri sayfasının **Çıktılar** bölümünde yeni oluşturulan **service_schema.json** dosyasını seçin. Dosyayı projenizin kök klasörüne tıklayın.
+8. **iris_score.py** betiğini açtığınız önceki sekmeye dönün. 
 
-8. **iris_score.py** betiğini açtığınız sekmeye dönün. 
-
-   Web hizmetinden model girişlerini ve tahminlerini almanızı sağlayan veri koleksiyonuna dikkat edin. Sonraki noktalar veri koleksiyonuyla ilgilidir.
+   Web hizmetinden model girişlerini ve tahminlerini almanızı sağlayan veri koleksiyonuna dikkat edin. Aşağıdaki noktalar veri koleksiyonuyla yakından ilgilidir:
 
 9. Dosyanın en üstünde yer alan ve model veri koleksiyonu işlevini içeren ModelDataCollector sınıfını içeri aktaran kodu gözden geçirin:
 
@@ -101,7 +103,7 @@ Web hizmetini model dosyasıyla birlikte dağıtmak için puanlama betiğine ve 
    from azureml.datacollector import ModelDataCollector
    ```
 
-10. `init()` işlevindeki ModelDataCollector örneği oluşturan aşağıdaki kod satırlarını gözden geçirin:
+10. **init()** işlevindeki ModelDataCollector örneği oluşturan aşağıdaki kod satırlarını gözden geçirin:
 
    ```python
    global inputs_dc, prediction_dc
@@ -109,7 +111,7 @@ Web hizmetini model dosyasıyla birlikte dağıtmak için puanlama betiğine ve 
    prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
    ```
 
-11. `run(input_df)` işlevindeki giriş ve tahmin verilerini toplayan aşağıdaki kod satırlarını gözden geçirin:
+11. **run(input_df)** işlevindeki giriş ve tahmin verilerini toplayan aşağıdaki kod satırlarını gözden geçirin:
 
    ```python
    global clf2, inputs_dc, prediction_dc
@@ -125,13 +127,13 @@ Yerel bilgisayarınızdaki Docker kapsayıcılarında çalıştırmak için _yer
 Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale getirmek için aşağıdaki adımları tamamlamak üzere Docker motorunun yerel ortamda çalışıyor olması gerekir. Komut yardımı için komutlarınızın sonuna `-h` bayrağı ekleyebilirsiniz.
 
 >[!NOTE]
->Yerel ortamınızda Docker altyapısı mevcut değilse bile dağıtım için Azure'da bir küme oluşturarak işleme devam edebilirsiniz. Ücret ödemeye devam etmemek için öğreticiden sonra kümeyi silmeyi unutmayın.
+>Yerel ortamınızda Docker altyapısı yoksa bile dağıtım için Azure’da bir küme oluşturarak işleme devam edebilirsiniz. Ücret ödemeye devam etmemek için öğreticiden sonra kümeyi silmeyi unutmayın.
 
 1. Azure Machine Learning Workbench'te komut satırı arabirimini açın. Bunun için Dosya menüsünden **Komut İstemi Aç**'a tıklayın.
 
-   Komut satırı istemi geçerli proje klasörünüzün bulunduğu `c:\temp\myIris>` konumunda açılır.
+   Komut satırı istemi geçerli proje klasörünüzün bulunduğu **c:\temp\myIris>** konumunda açılır.
 
-2. `Microsoft.ContainerRegistry` Azure kaynak sağlayıcısının aboneliğinize kayıtlı olduğundan emin olun. 3. adımda bir ortam oluşturabilmeniz için bu kaynak sağlayıcısını kaydetmeniz gerekir. Aşağıdaki komutu kullanarak önceden kaydedilip kaydedilmediğini kontrol edebilirsiniz:
+2. **Microsoft.ContainerRegistry** adlı Azure kaynak sağlayıcısının aboneliğinize kayıtlı olduğundan emin olun. 3. adımda bir ortam oluşturabilmeniz için bu kaynak sağlayıcısını kaydedin. Aşağıdaki komutu kullanarak önceden kaydedilip kaydedilmediğini kontrol edebilirsiniz:
    ``` 
    az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
    ``` 
@@ -147,16 +149,18 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    ... 
    ```
    
-   `Microsoft.ContainerRegistry` kayıtlı değilse aşağıdaki komutu kullanarak kaydedebilirsiniz:
+   **Microsoft.ContainerRegistry** kayıtlı değilse aşağıdaki komutu kullanarak kaydedebilirsiniz:
    ``` 
    az provider register --namespace Microsoft.ContainerRegistry 
    ```
-   Kayıt birkaç dakika sürebilir ve durumunu yukarıdaki `az provider list` komutuyla veya aşağıdaki komutla kontrol edebilirsiniz:
+   Kayıt birkaç dakika sürebilir ve durumunu yukarıdaki **az provider list** komutuyla veya aşağıdaki komutla kontrol edebilirsiniz:
    ``` 
    az provider show -n Microsoft.ContainerRegistry 
    ``` 
 
-3. Ortamı oluşturun. Bu adımın her ortam için (geliştirme veya üretim gibi) bir kez çalıştırılması gerekir. Bu ilk ortam için _yerel modu_ kullanın. (Aşağıdaki komutta `-c` veya `--cluster` anahtarını kullanarak daha sonra _küme modunda_ bir ortam oluşturabilirsiniz.)
+   Çıktının üçüncü satırında **"registrationState": "Registering"** ifadesi gösterilir. Birkaç dakika bekleyin ve çıktıda **"registrationState": "Registered"** gösterilene kadar show komutunu tekrarlayın.
+
+3. Ortamı oluşturun. Bu adımın her ortam için bir kez çalıştırılması gerekir (örneğin, geliştirme ortamı için bir kez ve üretim için bir kez). Bu ilk ortam için _yerel modu_ kullanın. (Aşağıdaki komutta `-c` veya `--cluster` anahtarını kullanarak daha sonra _küme modunda_ bir ortam oluşturabilirsiniz.)
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -164,7 +168,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    
    Ekrandaki talimatları izleyerek Docker görüntülerini depolamak için bir depolama hesabı, Docker görüntülerini listelemek için bir ACR (Azure Container Registry) hesabı ve telemetri verilerini toplamak için bir AppInsight hesabı sağlayın. `-c` anahtarını kullandıysanız bir ACS (Azure Container Service) kümesi de oluşturulur.
    
-   Küme adından ortamı tanımlayabilirsiniz ve konumun, Azure portalından oluşturduğunuz Model yönetim hesabıyla aynı konumda olması gerekir.
+   Küme adından ortamı tanımlayabilirsiniz. Konumun, Azure portalından oluşturduğunuz Model yönetim hesabıyla aynı konumda olması gerekir.
 
 4. Model Yönetimi hesabı oluşturma (bu tek seferlik bir kurulumdur)  
    ```azurecli
@@ -177,12 +181,12 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    ```
 
 6. Ortamı ayarlayın.
-Kurulum tamamlandıktan sonra aşağıdaki komutu kullanarak hazır hale getirmek için gerekli olan ortam değişkenlerini ayarlayın. Ortam adı yukarıdaki 1. adımda kullanılan addır. Kaynak grubu adı aynı işlemin çıktısıdır ve kurulum işlemi tamamlandığında komut penceresinde görünür.
+Kurulum tamamlandıktan sonra aşağıdaki komutu kullanarak hazır hale getirmek için gerekli olan ortam değişkenlerini ayarlayın. Daha önce 4. adımda kullandığınız ortam adının aynısını kullanın. Kurulum işlemi tamamlandıktan sonra komut penceresinde verilen kaynak grubu adının aynısını kullanın.
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-   Yerel web hizmeti dağıtımı için hazır hale getirme ortamınızı doğru şekilde yapılandırdığınızdan emin olmak için aşağıdaki komutu girin:
+7. Yerel web hizmeti dağıtımı için hazır hale getirme ortamınızı doğru şekilde yapılandırdığınızdan emin olmak için aşağıdaki komutu girin:
 
    ```azurecli
    az ml env show
@@ -190,15 +194,15 @@ Kurulum tamamlandıktan sonra aşağıdaki komutu kullanarak hazır hale getirme
 
 Şimdi gerçek zamanlı web hizmetini oluşturmaya hazırsınız.
 
-## <a name="create-a-real-time-web-service"></a>Gerçek zamanlı bir web hizmeti oluşturma
-Gerçek zamanlı bir web hizmeti oluşturmak için aşağıdaki komutu kullanın:
+## <a name="create-a-real-time-web-service-in-one-command"></a>Tek komutla gerçek zamanlı bir web hizmeti oluşturma
+1. Gerçek zamanlı bir web hizmeti oluşturmak için aşağıdaki komutu kullanın:
 
    ```azurecli
    az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    Bu komut daha sonra kullanabileceğiniz bir web hizmeti kimliği oluşturur.
 
-   Aşağıdaki anahtarlar `az ml service create realtime` komutuyla birlikte kullanılır:
+   **az ml service create realtime** komutuyla aşağıdaki anahtarlar kullanılır:
    * -n: uygulama adı, tamamı küçük harfle yazılmalıdır.
    * -f: puanlama betik dosyası adı
    * --model-file: model dosyası, bu örnekte pickle model.pkl dosyası
@@ -208,23 +212,26 @@ Gerçek zamanlı bir web hizmeti oluşturmak için aşağıdaki komutu kullanın
    >[!IMPORTANT]
    >Hizmet adının (aynı zamanda yeni Docker görüntüsünün adıdır) tamamının küçük harf olması gerekir, aksi halde hata alırsınız. 
 
-   Komutu çalıştırdığınızda model ve puanlama dosyası yukarıdaki ortam kurulumu sırasında oluşturduğunuz depolama hesabına yüklenir. Dağıtım işlemi modeliniz, şemanız ve içindeki puanlama dosyasıyla bir Docker görüntüsü derler ve onu ACR kayıt defterine iletir: `<ACR_name>.azureacr.io/<imagename>:<version>`. Ardından bu görüntüyü yerel bilgisayarınıza çeker ve bu görüntüyle bir Docker kapsayıcısı başlatır. (Ortamınız küme modunda yapılandırılmışsa Docker kapsayıcısı ACS Kubernetes kümesine dağıtılır.)
+2. Komutu çalıştırdığınızda model ve puanlama dosyası, ortam kurulumu sırasında oluşturduğunuz depolama hesabına yüklenir. Dağıtım işlemi; modeliniz, şemanız ve içindeki puanlama dosyasıyla bir Docker görüntüsünü derleyip ACR kayıt defterine iletir: **\<ACR_adı\>.azureacr.io/\<görüntüadı\>:\<sürüm\>**. 
+
+   Ardından bu görüntüyü yerel bilgisayarınıza çeker ve bu görüntüyle bir Docker kapsayıcısı başlatır. Ortamınız küme modunda yapılandırılmışsa Docker kapsayıcısı ACS Kubernetes kümesine dağıtılır.
 
    Dağıtımın bir parçası olarak yerel makinenizde web hizmeti için bir HTTP REST uç noktası oluşturulur. Birkaç dakika sonra komutun başarıyla tamamlandığını belirten bir ileti görüntüler ve web hizmetiniz kullanıma hazır hale gelir!
 
-   Çalışan Docker kapsayıcısını `docker ps` komutunu kullanarak görebilirsiniz:
+3. Çalışan Docker kapsayıcısını **docker ps** komutunu kullanarak görebilirsiniz:
    ```azurecli
    docker ps
    ```
-### <a name="alternative-route"></a>Alternatif yol
-Yukarıda gösterilen `az ml service create realtime` komutuna alternatif olarak model kaydı, manifest oluşturma, Docker görüntüsü derleme ve web hizmeti oluşturma adımlarını ayrı ayrı gerçekleştirebilirsiniz. Bu sayede her adımda daha fazla esnekliğe sahip olabilir ve önceki adımda oluşturulan varlıkları tekrar kullanarak yalnızca ihtiyacınız olduğunda yeniden derleyebilirsiniz. Bunu nasıl gerçekleştirebileceğinizi görmek için aşağıdaki talimatları izleyin:
+
+## <a name="create-a-real-time-web-service-using-separate-commands"></a>Ayrı komutlar kullanarak gerçek zamanlı bir web hizmeti oluşturma
+Yukarıda gösterilen **az ml service create realtime** komutunun bir alternatifi olarak, adımları ayrı ayrı da gerçekleştirebilirsiniz. İlk olarak modeli kaydedin, sonra bildirimi oluşturun, Docker görüntüsünü derleyin ve web hizmetini oluşturun. Bu adım adım yaklaşım, her adımda daha fazla esneklik sağlar. Ayrıca, önceki adımda oluşturulan varlıkları tekrar kullanarak yalnızca ihtiyacınız olduğunda yeniden derleyebilirsiniz.
 
 1. pickle dosyasının adını belirterek modeli kaydedin.
 
    ```azurecli
    az ml model register --model model.pkl --name model.pkl
    ```
-   Bu işlem bir model kimliği oluşturur.
+   Bu komut bir model kimliği oluşturur.
 
 2. Bildirim oluşturma
 
@@ -233,7 +240,7 @@ Yukarıda gösterilen `az ml service create realtime` komutuna alternatif olarak
    ```azurecli
    az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
    ```
-   Bu işlem bir bildirim kimliği oluşturur.
+   Bu komut bir bildirim kimliği oluşturur.
 
 3. Docker görüntüsü oluşturma
 
@@ -242,7 +249,7 @@ Yukarıda gösterilen `az ml service create realtime` komutuna alternatif olarak
    ```azurecli
    az ml image create -n irisimage --manifest-id <manifest ID>
    ```
-   Bu işlem bir Docker görüntüsü kimliği oluşturur.
+   Bu komut bir Docker görüntüsü kimliği oluşturur.
    
 4. Hizmeti oluşturma
 
@@ -251,15 +258,15 @@ Yukarıda gösterilen `az ml service create realtime` komutuna alternatif olarak
    ```azurecli
    az ml service create realtime --image-id <image ID> -n irisapp --collect-model-data true
    ```
-   Bu işlem bir web hizmeti kimliği oluşturur.
+   Bu komut bir web hizmeti kimliği oluşturur.
 
 Şimdi web hizmetini çalıştırmaya hazırsınız.
 
 ## <a name="run-the-real-time-web-service"></a>Gerçek zamanlı web hizmetini çalıştırma
 
-Dört rastgele sayıdan oluşan bir diziyi içeren bir JSON kodlamalı kayıt ileterek çalışan `irisapp` web hizmetini test edin.
+Dört rastgele sayıdan oluşan bir diziyi içeren JSON kodlamalı bir kayıt ileterek, çalışan **irisapp** web hizmetini test edin.
 
-1. Web hizmeti oluşturma adımları basit veriler içerir. Yerel modda çalıştırırken `az ml service show realtime` komutunu çağırarak hizmeti test etmek için kullanabileceğiniz örnek çalıştırma komutu alabilirsiniz. Bu komut ayrıca hizmeti kendi özel uygulamanıza dahil etmek için kullanabileceğiniz puanlama URL'sini verecektir:
+1. Web hizmeti oluşturma adımları basit veriler içerir. Yerel modda çalışırken **az ml service show realtime** komutunu çağırabilirsiniz. Bu çağrı, hizmeti test etmeniz için yararlı olan örnek bir run komutu alır. Bu komut ayrıca hizmeti kendi özel uygulamanıza dahil etmek için kullanabileceğiniz puanlama URL’sini alır:
 
    ```azurecli
    az ml service show realtime -i <web service ID>
@@ -268,9 +275,9 @@ Dört rastgele sayıdan oluşan bir diziyi içeren bir JSON kodlamalı kayıt il
 2. Hizmeti test etmek için döndürülen hizmet çalıştırma komutunu yürütün.
 
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}
+   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
-   Çıktı tahmin edilen sınıf olan `"2"` şeklinde olur. (Elde ettiğiniz sonuç farklı olabilir.) 
+   Çıktı tahmin edilen sınıf olan **"2"** şeklinde olur. (Elde ettiğiniz sonuç farklı olabilir.) 
 
 3. Hizmeti CLI dışından çalıştırmak isterseniz kimlik doğrulaması anahtarlarını edinmeniz gerekir:
 
@@ -278,7 +285,7 @@ Dört rastgele sayıdan oluşan bir diziyi içeren bir JSON kodlamalı kayıt il
    az ml service keys realtime -i <web service ID>
    ```
 
-## <a name="view-the-collected-data-in-azure-blob-storage"></a>Toplanan verileri Azure blob depolama alanında görüntüleyin:
+## <a name="view-the-collected-data-in-azure-blob-storage"></a>Toplanan verileri Azure blob depolama alanında görüntüleyin
 
 1. [Azure portal](https://portal.azure.com) oturum açın.
 
@@ -297,20 +304,22 @@ Dört rastgele sayıdan oluşan bir diziyi içeren bir JSON kodlamalı kayıt il
 
    Veriler aşağıdaki kapsayıcı yoluyla bloblara akar:
 
-   `/modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv`
+   ```
+   /modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv
+   ```
 
-6. Bu verileri hem Microsoft yazılımlarını hem de açık kaynak araçlarını kullanarak Azure bloblarından farklı şekillerde kullanabilirsiniz. 
+6. Bu verileri Azure bloblarından kullanabilirsiniz. Hem Microsoft yazılımlarını hem de aşağıdaki açık kaynak araçları kullanmaya yönelik çeşitli araçlar mevcuttur:
 
-   Çıktı bloblarını kullanmak için örnek yaklaşımlar:
    - Azure ML Workbench: csv dosyasını veri kaynağı olarak ekleyerek Azure ML Workbench'te açın. 
    - Excel: Günlük csv dosyalarını çalışma sayfası olarak açın.
    - [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): Bloblardaki csv verilerinden çekilen verilerle grafik oluşturun.
+   - [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): csv verilerini bir Hive tablosuna yükleyin ve doğrudan bloba SQL sorgusu gönderin.
    - [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): csv verilerinin büyük kısmıyla bir veri çerçevesi oluşturun.
 
       ```python
       var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
       ```
-   - [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): csv verilerini bir Hive tablosuna yükleyin ve doğrudan bloba SQL sorgusu gönderin.
+
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Üç bölümden oluşan öğretici serisinin bu üçüncü bölümünde Azure Machine Learning hizmetlerini kullanarak aşağıdakileri gerçekleştirmeyi öğrendiniz:
@@ -327,5 +336,4 @@ Farklı işlem ortamlarında başarıyla bir eğitim betiği çalıştırdınız
 Gelişmiş veri hazırlık adımlarına geçmeye hazırsınız:
 > [!div class="nextstepaction"]
 > [Gelişmiş veri hazırlama](tutorial-bikeshare-dataprep.md)
-
 

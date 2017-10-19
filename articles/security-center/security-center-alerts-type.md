@@ -12,21 +12,21 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama
 Bu makale Azure Güvenlik Merkezi'nde bulunan farklı güvenlik uyarısı türlerini ve ilgili öngörüleri anlamanıza yardımcı olur. Uyarıların ve olayların nasıl yönetileceği hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md).
 
+Gelişmiş algılamaları ayarlamak için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. 60 günlük ücretsiz deneme sürümü mevcuttur. Yükseltmek için [güvenlik ilkesinde](security-center-policies.md) **Fiyatlandırma Katmanı**’nı seçin. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
+
 > [!NOTE]
-> Gelişmiş algılamaları ayarlamak için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. 60 günlük ücretsiz deneme sürümü mevcuttur. Yükseltmek için [güvenlik ilkesinde](security-center-policies.md) **Fiyatlandırma Katmanı**’nı seçin. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
->
+> Güvenlik Merkezi Linux makinelerdeki kötü amaçlı davranışlarını algılamak için denetim kayıtlarını kullanan yeni bir algılama kümesi ve ortak denetim çerçevesi içeren sınırlı bir önizleme sürümüyle yayımlanmıştır. Önizlemeye katılmak için abonelik kimliklerinizi [bize](mailto:ASC_linuxdetections@microsoft.com) e-posta ile gönderin.
 
 ## <a name="what-type-of-alerts-are-available"></a>Hangi tür uyarılar mevcuttur?
 Azure Güvenlik Merkezi, ortamlarını hedefleyen potansiyel saldırılar konusunda müşterileri uyarmak için çeşitli [algılama özelliklerini](security-center-detection-capabilities.md) kullanır. Bu uyarılar uyarıyı neyin tetiklediği, hedeflenen kaynaklar ve saldırının kaynağı hakkındaki değerli bilgileri içerir. Uyarılarda bulunan bilgiler, tehdidi algılamak için kullanılan analiz türüne göre çeşitlilik gösterir. Tehdit inceleme sırasında yararlı olabilecek ek bağlamsal bilgiler olaylarda da bulunabilir.  Bu makalede aşağıdaki uyarı türleri hakkında bilgi sağlanmıştır:
@@ -44,7 +44,7 @@ Azure Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlike gi
 >
 
 ### <a name="crash-analysis"></a>Kilitlenme analizi
-Kilitlenme bellek dökümü analizi, geleneksel güvenlik çözümlerini atlatabilen karmaşık kötü amaçlı yazılımları algılamak için kullanılan bir yöntemdir. Kötü amaçlı yazılımların çeşitli türleri, diske hiçbir zaman yazmayarak veya diske yazılmış yazılım bileşenlerini şifreleyerek virüsten koruma ürünleri tarafından algılanma olasılığını azaltmaya çalışır. Bu durum, kötü amaçlı yazılımların geleneksel kötü amaçlı yazılımdan koruma yaklaşımlarıyla algılanmasını zor hale getirir. Ancak, bu tür kötü amaçlı yazılımlar çalışmak için bellekte iz bırakmak zorunda olduğundan bellek analizi kullanılarak algılanabilir.
+Kilitlenme bellek dökümü analizi, geleneksel güvenlik çözümlerini atlatabilen karmaşık kötü amaçlı yazılımları algılamak için kullanılan bir yöntemdir. Kötü amaçlı yazılımların çeşitli türleri, diske hiçbir zaman yazmayarak veya diske yazılmış yazılım bileşenlerini şifreleyerek virüsten koruma ürünleri tarafından algılanma olasılığını azaltmaya çalışır. Bu teknik, kötü amaçlı yazılımların geleneksel kötü amaçlı yazılımdan koruma yaklaşımlarıyla algılanmasını zor hale getirir. Ancak, bu tür kötü amaçlı yazılımlar çalışmak için bellekte iz bırakmak zorunda olduğundan bellek analizi kullanılarak algılanabilir.
 
 Yazılım kilitlendiğinde bir kilitlenme dökümü kilitlenme sırasında belleğin bir kısmını yakalar. Kilitlenme durumu kötü amaçlı yazılımlardan, genel uygulama veya sistem sorunlarından kaynaklanabilir. Kilitlenme dökümündeki belleği analiz eden Güvenlik Merkezi, yazılımdaki açıklardan yararlanmak, gizli verilere erişmek ve tehlikeye giren bir makineye gizlice sızmak için kullanılan teknikleri algılayabilir. Analiz Güvenlik Merkezi arka ucu tarafından gerçekleştirildiği için bu özellik, ana bilgisayarların performansına en az etki ile sağlanır.
 
@@ -61,7 +61,7 @@ Kabuk Kodu uyarısı aşağıdaki ek alanı sağlar:
 
 * ADDRESS: Kabuk kodunun bellekteki konumu.
 
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Kabuk kodu uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
@@ -77,7 +77,7 @@ Bu uyarı, daha önceki “Kabuk Kodu Bulundu” bölümünde açıklanan ortak 
 * HIJACKEDMODULEPATH: Ele geçirilen Windows sistem modülünün yolu.
 * HIJACKINGMODULEPATH: Ele geçiren modülün yolu.
 
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Modül ele geçirme uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
@@ -96,7 +96,7 @@ Bu uyarı, daha önceki “Kabuk Kodu Bulundu” bölümünde açıklanan ortak 
 
 Bu uyarı, modülün PE üst bilgisinden “CHECKSUM” ve “TIMESTAMP” gibi belirli alanları da ayıklar ve görüntüler. Bu alanlar yalnızca modülde varsa görüntülenir. Bu alanlarla ilgili ayrıntılı bilgi için bkz. [Microsoft PE ve COFF Belirtimi](https://msdn.microsoft.com/windows/hardware/gg463119.aspx).
 
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Kendini gizleyen Windows uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
@@ -110,21 +110,21 @@ Bu uyarı, daha önceki “Kabuk Kodu Bulundu” bölümünde açıklanan ortak 
 * MODULENAME: Değiştirilen sistem ikili dosyasının adı.
 * MODULEVERSION: Değiştirilen sistem ikili dosyasının sürümü.
 
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Sistem ikili dosyası uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Şüpheli işlem yürütüldü
 Güvenlik Merkezi, hedef sanal makinede yürütülen bir şüpheli işlemi tanımlar ve bir uyarı tetikler. Algılama belirli bir adı aramaz, ancak yürütülebilir dosyanın parametresini arar. Bu nedenle, saldırgan yürütülebilir dosyayı yeniden adlandırsa bile, Güvenlik Merkezi şüpheli işlemi algılayabilir.
 
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Şüpheli işlem uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### <a name="multiple-domain-accounts-queried"></a>Birden fazla etki alanı hesabı sorgulandı
+### <a name="multiple-domains-accounts-queried"></a>Birden fazla etki alanı hesabı sorgulandı
 Güvenlik Merkezi, saldırganların ağ keşfi sırasında genellikle gerçekleştirdiği bir işlem olan Active Directory etki alanı hesaplarını sorgulamaya yönelik birden fazla girişimi algılayabilir. Saldırganlar kullanıcıları, etki alanı yönetici hesaplarını, hangi bilgisayarların etki alanı denetleyicileri olduğunu ve diğer etki alanlarıyla olası etki alanı güven ilişkisini belirlemek üzere etki alanını sorgulamak için bu teknikten yararlanabilir.
 
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Birden fazla etki alanı hesabı uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
@@ -132,7 +132,7 @@ Güvenlik Merkezi, saldırganların ağ keşfi sırasında genellikle gerçekle�
 
 Güvenlik Merkezi, Windows Server 2016 ve Windows 10’da 4798 numaralı güvenlik olayı tetiklendiğinde bir uyarı tetikler. Bu durum, yerel yönetici grupları numaralandırıldığında gerçekleşir ve genellikle ağ keşfi sırasında saldırganlar tarafından gerçekleştirilir. Saldırganlar, yönetici ayrıcalıklarına sahip kullanıcıların kimliklerini sorgulamak için bu teknikten yararlanabilir.
 
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Yerel yönetici](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
 
@@ -140,7 +140,7 @@ Güvenlik Merkezi, Windows Server 2016 ve Windows 10’da 4798 numaralı güvenl
 
 Güvenlik Merkezi, komut satırında büyük ve küçük harf karışımının kullanıldığını algıladığında bir uyarı tetikler. Bazı saldırganlar büyük küçük harfe duyarlı veya karma tabanlı makine kuralından gizlenmek için bu tekniği kullanabilir.
 
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Anormal karışım](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
 
@@ -151,7 +151,7 @@ Bir saldırgan, istediği kullanıcının kimliğine bürünmesine olanak tanıy
 > [!NOTE] 
 > Kerberos Altın Bileti hakkında daha fazla bilgi için [Windows 10 kimlik bilgisi hırsızlığı azaltma kılavuzunu](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx) okuyun.
 
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Altın bilet](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
 
@@ -159,7 +159,7 @@ Bir saldırgan, istediği kullanıcının kimliğine bürünmesine olanak tanıy
 
 Yerleşik yönetici ayrıcalıklarına sahip olan mevcut bir hesaba çok benzeyen bir hesap oluşturulduğunda, Güvenlik Merkezi bir uyarı tetikler. Bu teknik, insan doğrulaması ile fark edilemeyecek bir dolandırıcı hesabı oluşturmak üzere saldırganlar tarafından kullanılabilir.
  
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Şüpheli hesap](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
 
@@ -167,7 +167,7 @@ Yerleşik yönetici ayrıcalıklarına sahip olan mevcut bir hesaba çok benzeye
 
 Saldırganlar, kötü amaçlı uygulamaların komut ve denetimle iletişim kurmasına izin veren ya da güvenliği aşılmış ana bilgisayar aracılığıyla ağ üzerinden saldırı başlatan özel güvenlik duvarı kuralları oluşturarak ana bilgisayar güvenliğini aşmayı deneyebilir. Güvenlik Merkezi, şüpheli bir konumda yürütülebilir bir dosyadan yeni bir güvenlik duvarı kuralı oluşturulduğunu algılandığında bir uyarı tetikler.
  
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Güvenlik duvarı kuralı](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
 
@@ -175,7 +175,7 @@ Saldırganlar, kötü amaçlı uygulamaların komut ve denetimle iletişim kurma
 
 Güvenlik Merkezi, bir Microsoft HTML Uygulama Ana Bilgisayarının (HTA) PowerShell komutları başlattığını algıladığında bir uyarı tetikler. Bu teknik, saldırganlar tarafından kötü amaçlı PowerShell betikleri başlatmak için kullanılır.
  
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![HTA ve PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
 
@@ -188,7 +188,7 @@ Ağ cihazları diğer sistem türlerine büyük ölçüde benzer şekilde buluna
 
 ![Şüpheli giden trafik uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-Bu uyarı, bu saldırıyı başlatmak için kullanılan kaynağı tanımlamak için kullanabileceğiniz bilgiler verir. Bu uyarı ayrıca tehlikeye giren makineyi, algılama süresini ve kullanılan protokol ile bağlantı noktasını tanımlayan bilgiler sağlar. Bu dikey pencere ayrıca bu sorunu gidermek için kullanılabilecek bir düzeltme adımları listesi verir.
+Bu uyarı, bu saldırıyı başlatmak için kullanılan kaynağı tanımlamak için kullanabileceğiniz bilgiler verir. Bu uyarı ayrıca tehlikeye giren makineyi, algılama süresini ve kullanılan protokol ile bağlantı noktasını tanımlayan bilgiler sağlar. Bu sayfa ayrıca bu sorunu gidermek için kullanılabilecek bir düzeltme adımları listesi verir.
 
 ### <a name="network-communication-with-a-malicious-machine"></a>Kötü amaçlı bir makine ile ağ iletişimi
 Microsoft tehdit bilgileri akışlarından yararlanan Azure Güvenlik Merkezi, kötü amaçlı IP adresleriyle iletişim kuran riskli makineleri algılayabilir. Kötü amaçlı adres çoğu durumda kötü amaçlı bir komut ve denetim merkezidir. Bu örnekte Güvenlik Merkezi iletişimin Pony Loader kötü amaçlı yazılımı ([Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF) olarak da bilinir) kullanılarak yapıldığını algılamıştır.
@@ -205,7 +205,7 @@ Bu uyarı bu saldırıyı başlatmak için kullanılan kaynağı, saldırıya u�
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Olası giden hizmet reddi saldırısı algılandı
 Bir sanal makineden kaynaklanan anormal ağ trafiği, Güvenlik Merkezi’nin olası bir hizmet reddi saldırı türü tetiklemesine yol açabilir.
 
-İşte bu tür bir uyarı örneği:
+Bu tür bir uyarı örneği aşağıda verilmiştir:
 
 ![Giden DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
@@ -253,4 +253,3 @@ Bu makalede Güvenlik Merkezi’ndeki farklı güvenlik uyarısı türleri hakk�
 * [Azure Güvenlik Merkezi planlama ve işlemler kılavuzu](security-center-planning-and-operations-guide.md)
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md): Hizmet kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 * [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/): Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
-

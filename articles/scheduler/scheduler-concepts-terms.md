@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
 ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Scheduler kavramları ve terminolojisi + varlık hiyerarşisi
 ## <a name="scheduler-entity-hierarchy"></a>Scheduler varlık hiyerarşisi
@@ -176,7 +176,7 @@ Scheduler işi başarısız olursa, eylemin yeniden denenip denenmeyeceğini ve 
 
 Bir yeniden deneme ilkesi ayarlamak için iki ek ayar belirtilebilir: yeniden deneme aralığı (**retryInterval**) ve yeniden deneme sayısı (**retryCount**).
 
-**retryInterval** nesnesi ile belirtilen yeniden deneme aralığı, yeniden denemeler arasındaki aralıktır. Varsayılan değer 30 saniye, minimum yapılandırılabilir değeri 15 saniye, ve maksimum değeri 18 aydır. Ücretsiz iş koleksiyonlarındaki işleri 1 saat şeklinde minimum yapılandırabilir değere sahiptir.  ISO 8601 biçiminde tanımlıdır. Benzer şekilde, yeniden deneme sayısı değeri **retryCount** nesnesiyle belirtilir; bu yeniden denemeye çalışılacak sayıdır. Varsayılan değer 4'tür ve maksimum değeri 20\ olduğu. Her ikisi de **Retryınterval** ve **retryCount** isteğe bağlıdır. **retryType** **sabit** olara ayarlanır ve açık şekilde bir değer belirtilmezse, bunlar belirtilen varsayılan değerlerdir.
+**retryInterval** nesnesi ile belirtilen yeniden deneme aralığı, yeniden denemeler arasındaki aralıktır. Varsayılan değer 30 saniye, minimum yapılandırılabilir değeri 15 saniye, ve maksimum değeri 18 aydır. Ücretsiz iş koleksiyonlarındaki işleri 1 saat şeklinde minimum yapılandırabilir değere sahiptir.  ISO 8601 biçiminde tanımlıdır. Benzer şekilde, yeniden deneme sayısı değeri **retryCount** nesnesiyle belirtilir; bu yeniden denemeye çalışılacak sayıdır. Varsayılan değer 4, maksimum değer ise 20 olarak belirlenmiştir. **retryInterval** ve **retryCount** parametreleri isteğe bağlıdır. **retryType** **sabit** olara ayarlanır ve açık şekilde bir değer belirtilmezse, bunlar belirtilen varsayılan değerlerdir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
  [Scheduler nedir?](scheduler-intro.md)

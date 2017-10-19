@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 8790bacecac0fa824189b5c212c2d803092ff4ed
-ms.contentlocale: tr-tr
-ms.lasthandoff: 01/30/2017
-
-
+ms.openlocfilehash: a41393730143b14e91318a61858d989fff3786c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI ile verileri görselleştirme
 > [!div class="op_single_selector"]
@@ -54,7 +52,7 @@ Power BI'ı açmak ve AdventureWorksDW veritabanınıza bağlanmak için şunlar
 3. "Power BI'da aç" düğmesine tıklayın.
    
     ![Power BI düğmesi][2]
-4. Bu işlemin ardından veritabanınızın web adresinin görüntülendiği SQL Data Warehouse bağlantı sayfası açılır. İleri'ye tıklayın
+4. Bu işlemin ardından veritabanınızın web adresinin görüntülendiği SQL Data Warehouse bağlantı sayfası açılır. İleri'ye tıklayın.
    
     ![Power BI bağlantısı][3]
 5. Azure SQL sunucusuna ilişkin kullanıcı adı ve parolanızı girdikten sonra SQL Data Warehouse veritabanınıza tamamen bağlanmış olursunuz.
@@ -119,4 +117,3 @@ Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza
 <!--Other-->
 [Azure portal]: https://portal.azure.com/
 [Power BI website]: http://www.powerbi.com/
-

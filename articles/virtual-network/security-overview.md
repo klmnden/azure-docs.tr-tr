@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
+ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-security"></a>Ağ güvenliği
 
@@ -59,8 +58,8 @@ Bir ağ güvenlik grubunda Azure abonelik [limitleri](../azure-subscription-serv
 
 **Dikkat edilmesi gerekenler**
 
-- **Ana bilgisayar düğümünün sanal IP'si:** DHCP, DNS ve sistem durumunu izleme gibi temel altyapı hizmetleri, 168.63.129.16 ve 169.254.169.254 numaralı sanallaştırılmış ana bilgisayar IP adresleri yoluyla sağlanır. Bu genel IP adresleri Microsoft'a aittir ve tüm bölgelerde bu amaç için kullanılan tek sanallaştırılmış IP adresleri olarak kullanılır. Bu IP adresleri, VM'yi barındıran sunucu makinesinin (ana bilgisayar düğümü) fiziksel IP adresiyle eşleşir. Ana bilgisayar düğümü, yük dengeleyici durum araştırması ve makine durumu araştırması için araştırma kaynağı, DNS özyinelemeli çözümleyici ve DHCP geçişi olarak görev yapar. Bu IP adresleri ile iletişim bir saldırı değildir. Bu IP adreslerine giden veya oradan gelen trafiği engellerseniz sanal makine düzgün çalışmayabilir.
-- **Lisanslama (Anahtar Yönetimi Hizmeti)**: VM'lerde çalışan Windows görüntülerinin lisanslanması gerekir. Lisanslama için, lisans isteği sorgularını işleyen Anahtar Yönetimi Hizmeti ana bilgisayar sunucularına bir lisans isteği gönderilir. İstek, bağlantı noktası 1688 üzerinden gönderilir.
+- **Ana bilgisayar düğümünün sanal IP'si:** DHCP, DNS ve sistem durumunu izleme gibi temel altyapı hizmetleri, 168.63.129.16 ve 169.254.169.254 numaralı sanallaştırılmış ana bilgisayar IP adresleri yoluyla sağlanır. Bu genel IP adresleri Microsoft'a aittir ve tüm bölgelerde bu amaç için kullanılan tek sanallaştırılmış IP adresleri olarak kullanılır. Bu adres, sanal makineyi barındıran sunucu makinesinin (ana bilgisayar düğümü) fiziksel IP adresiyle eşleşir. Ana bilgisayar düğümü, yük dengeleyici durum araştırması ve makine durumu araştırması için araştırma kaynağı, DNS özyinelemeli çözümleyici ve DHCP geçişi olarak görev yapar. Bu IP adresleri ile iletişim bir saldırı değildir. Bu IP adreslerine giden veya oradan gelen trafiği engellerseniz sanal makine düzgün çalışmayabilir.
+- **Lisanslama (Anahtar Yönetimi Hizmeti):** Sanal makinelerde çalışan Windows görüntülerinin lisanslanması gerekir. Lisanslama için, lisans isteği sorgularını işleyen Anahtar Yönetimi Hizmeti ana bilgisayar sunucularına bir lisans isteği gönderilir. İstek, bağlantı noktası 1688 üzerinden gönderilir.
 - **Yük dengelenmiş havuzlardaki sanal makineler**: Uygulanan kaynak bağlantı noktası ve adres aralığı, yük dengeleyiciye değil kaynak bilgisayara aittir. Hedef bağlantı noktası ve adres aralığı, yük dengeleyici değil, hedef bilgisayar içindir.
 - **Azure hizmet örnekleri**: HDInsight, Uygulama Servisi Ortamları ve Sanal Makine Ölçek Kümeleri gibi sanal ağ alt ağlarına dağıtılmış olan farklı Azure hizmeti örnekleri. Bir ağ güvenlik grubunu kaynağın dağıtılmış olduğu alt ağa uygulamadan önce hizmetlerle ilgili olan bağlantı noktası gereksinimlerini öğrendiğinizden emin olun. Gerekli bağlantı noktalarını reddetmeniz halinde hizmet düzgün çalışmaz. 
 
@@ -126,7 +125,7 @@ Varsayılan kuralları kaldıramazsınız ancak daha yüksek önceliğe sahip ku
 
 * **VirtualNetwork** (*Resource Manager) (klasik için* *VIRTUAL_NETWORK**): Bu etiket sanal ağ adres alanını (sanal ağ için tanımlanmış olan tüm CIDR aralıkları), bağlı olan tüm şirket içi adres alanlarını ve [eşlenmiş](virtual-network-peering-overview.md) sanal ağları veya bir [sanal ağ geçidine](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bağlı olan sanal ağı içerir.
 * **AzureLoadBalancer** (Resource Manager) (Klasik için **AZURE_LOADBALANCER**): Bu etiket Azure altyapı infrastructure yük dengeleyicisini belirtir. Bu etiket, Azure'ın sistem durumu araştırmalarının kaynağı olan bir [Azure veri merkezi IP adresine](https://www.microsoft.com/download/details.aspx?id=41653) çevrilir. Azure yük dengeleyiciyi kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
-* **İnternet** (Resource Manager) (klasik için **INTERNET**): Bu etiket Azure genel IP adresini belirtir. Bu etikete dahil olan adresler, düzenli olarak güncelleştirilen [Azure'un sahip olduğu genel IP alanı](https://www.microsoft.com/download/details.aspx?id=41653) belgesinde listelenmiştir.
+* **Internet** (Resource Manager) (klasik için **INTERNET**): Bu etiket, sanal ağın dışında olan ve genel İnternet ile ulaşılabilen IP adresi alanını belirtir. Adres aralığı [Azure'a ait genel IP adresi alanını](https://www.microsoft.com/download/details.aspx?id=41653) içerir.
 * **AzureTrafficManager** (yalnızca Resource Manager): Bu etiket Azure Traffic Manager hizmeti için IP adresi alanını belirtir.
 * **Storage** (yalnızca Resource Manager): Bu etiket Azure Storage hizmeti için IP adresi alanını belirtir. *Depolama* değerini belirtirseniz depolama alanına gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgedeki](https://azure.microsoft.com/regions) depolama alanına erişime izin vermek istiyorsanız bölgeyi belirtebilirsiniz. Örneğin yalnızca Doğu ABD bölgesindeki Azure Depolama hizmetine erişim izni vermek istiyorsanız *Storage.EastUS* hizmet etiketini kullanabilirsiniz. Kullanabileceğiniz ek bölgesel hizmet etiketleri şunlardır: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS ve Storage.WestUS2. Bu etiket hizmetin belirli örneklerini değil yalnızca hizmetin kendisini temsil eder. Örneğin etiket belirli bir Azure Depolama hesabını değil Azure Depolama hizmetini temsil eder.
 * **Sql** (yalnızca Resource Manager): Bu etiket Azure SQL Veritabanı ve Azure SQL Veri Ambarı hizmetlerinin adres ön eklerini belirtir. Bu hizmet etiketi için yalnızca belirli bölgeleri tercih edebilirsiniz. Örneğin yalnızca Doğu ABD bölgesindeki Azure SQL Veritabanı hizmetine erişim izni vermek istiyorsanız *Sql.EastUS* hizmet etiketini kullanabilirsiniz. Sql hizmet etiketini aynı anda tüm bölgeler için belirtemezsiniz, her bölgeyi ayrıca belirtmeniz gerekir. Kullanılabilir diğer bölgesel etiketler: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS ve Sql.WestUS2. Bu etiket hizmetin belirli örneklerini değil yalnızca hizmetin kendisini temsil eder. Örneğin etiket belirli bir Azure SQL veritabanını değil Azure SQL Veritabanı hizmetini temsil eder.
@@ -152,7 +151,7 @@ Hedef olarak başka uygulama güvenlik gruplarını belirten ek kurallar oluştu
  
 Uygulama güvenlik grubu oluşturma ve bunları güvenlik kurallarında belirtme limitleri hakkında bilgi edinmek için bkz. [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Uygulama güvenlik grupları önizleme sürümündedir. Ağ güvenlik gruplarını kullanmadan önce [Uygulama güvenlik gruplarıyla ağ güvenlik grubu oluşturma](create-network-security-group-preview.md#powershell) bölümünde yer alan 1-5 arası adımları tamamlayıp kullanmak üzere kaydolmanız ve [Önizleme özellikleri](#preview-features) bölümündeki önemli bilgileri incelemeniz gerekir. Uygulama güvenlik grupları önizleme sırasında sanal ağ kapsamıyla sınırlıdır. Bir ağ güvenlik grubu üzerindeki uygulama güvenlik gruplarına çapraz başvurularla eşlenmiş sanal ağlar geçerli olmaz. 
+Uygulama güvenlik grupları önizleme sürümündedir. Uygulama güvenlik gruplarını kullanmadan önce [Uygulama güvenlik gruplarıyla ağ güvenlik grubu oluşturma](create-network-security-group-preview.md#powershell) bölümünde yer alan 1-5 arası adımları tamamlayıp kullanmak üzere kaydolmanız ve [Önizleme özellikleri](#preview-features) bölümündeki önemli bilgileri incelemeniz gerekir. Uygulama güvenlik grupları önizleme sırasında sanal ağ kapsamıyla sınırlıdır. Bir ağ güvenlik grubu üzerindeki uygulama güvenlik gruplarına çapraz başvurularla eşlenmiş sanal ağlar geçerli olmaz. 
 
 Önizleme sürümündeki özellikler, genel sürümdeki özelliklerle aynı kullanılabilirlik ve güvenilirlik seviyesine sahip değildir. Uygulama güvenlik gruplarını kullanmadan önce kullanmak üzere kaydolmanız gerekir. Özellikler yalnızca şu bölgelerde kullanılabilir: Batı Orta ABD.
 
@@ -160,4 +159,3 @@ Uygulama güvenlik grupları önizleme sürümündedir. Ağ güvenlik grupların
 
 * [Ağ güvenlik grubu oluşturma](virtual-networks-create-nsg-arm-pportal.md) öğreticisini tamamlayın
 * [Uygulama güvenlik gruplarıyla ağ güvenlik grubu oluşturma](create-network-security-group-preview.md) öğreticisini tamamlayın
-

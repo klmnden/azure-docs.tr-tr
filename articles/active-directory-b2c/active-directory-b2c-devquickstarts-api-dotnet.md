@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.contentlocale: tr-tr
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: .NET web API'si oluşturma
 
@@ -40,7 +39,7 @@ Ardından B2C dizininizde bir web API uygulaması oluşturmanız gerekir. Bu, uy
 * Uygulamaya bir **web uygulaması** veya **web API'si** ekleyin.
 * Web uygulamasının **Yeniden Yönlendirme URI’sini** `https://localhost:44332/` kullanın. Bu konum bu kod örneği için web uygulaması sunucusunun varsayılan konumudur.
 * Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Buna daha sonra ihtiyacınız olacak.
-* **Uygulama Kimliği URI'si** alanına bir uygulama tanımlayıcısı girin.
+* **Uygulama Kimliği URI'si** alanına bir uygulama tanımlayıcısı girin. Tam **Uygulama Kimliği URI'si** değerini kopyalayın. Buna daha sonra ihtiyacınız olacak.
 * **Yayımlanmış kapsamlar** menüsü üzerinden izinler ekleyin.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -83,6 +82,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     * "Kaydolma veya Oturum açma" ilkenizin adıyla `ida:SignUpSignInPolicyId`
     * "Profil Düzenleme" ilkenizin adıyla `ida:EditProfilePolicyId`
     * "Parola Sıfırlama" ilkenizin adıyla `ida:ResetPasswordPolicyId`
+    * "Uygulama İlkesi URI'si" ile `api:ApiIdentifier`
 
 
 ## <a name="secure-the-api"></a>API güvenliğini sağlama
@@ -212,4 +212,3 @@ Son olarak hem `TaskWebApp` hem de `TaskService` öğesini oluşturup çalışt�
 ## <a name="edit-your-policies"></a>İlkelerinizi düzenleme
 
 Azure AD B2C kullanarak API güvenliğini sağladıktan sonra Kaydolma/Oturum Açma ilkelerinizi deneyebilir ve API üzerindeki etkileri (veya eksiklikleri) görüntüleyebilirsiniz. Ayrıca ilkelerdeki uygulama talepleri denetleyebilir ve web API'sinde kullanılabilen kullanıcı bilgilerini değiştirebilirsiniz. Eklediğiniz tüm talepler bu makalede daha önce açıklandığı gibi `ClaimsPrincipal` nesnesindeki .NET MVC web API'nizde kullanılabilir olacaktır.
-

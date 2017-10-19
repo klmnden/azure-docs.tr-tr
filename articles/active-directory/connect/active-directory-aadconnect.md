@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: c7aca7b67f4773cf7d19f84253487ed060e0db73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme
 Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede kullanıcılarınıza Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik sağlayabilirsiniz. Planlama, dağıtım ve işlem adımları sırasında sizi yönlendirmesi için bu konu başlığından faydalanabilirsiniz. Bu alanla ilgili konu başlıklarına yönelik bağlantılar mevcuttur.
@@ -127,6 +126,15 @@ Eşitlemedeki yapılandırma modeli, [bildirim temelli hazırlama](active-direct
 |Varsayılan yapılandırmayı değiştirme | [Varsayılan yapılandırmanın değiştirilmesine ilişkin önerilen yöntemler](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Federasyon özelliklerini yapılandırma
+
+Azure AD Connect, AD FS kullanarak Azure AD federasyonu yapılandırmayı ve federasyon güveninizi yönetmeyi kolaylaştıran birçok özellik sunar. Azure AD Connect, Windows Server 2012R2 veya üzeri için AD FS desteği sunar.
+
+Azure AD Connect'i federasyon güveninizi yönetmek için kullanmıyor olsanız dahi [AD FS grubunun SSL sertifikasını güncelleştirin](active-directory-aadconnectfed-ssl-update.md).
+
+Grubu gereken şekilde genişletmek için grubunuza [AD FS sunucusu](active-directory-aadconnect-federation-management.md#addadfsserver) ekleyin.
+
+Birkaç tıklamayla Azure AD ile [güveni onarın](active-directory-aadconnect-federation-management.md#repairthetrust).
+
 ADFS, [birden çok etki alanını](active-directory-aadconnect-multiple-domains.md) destekleyecek şekilde yapılandırılabilir. Örneğin, federasyon için kullanmanız gereken birden çok üst etki alanınız olabilir.
 
 ADFS sunucunuz sertifikaları Azure AD'den otomatik olarak güncelleştirecek şekilde yapılandırılmadıysa veya ADFS dışında bir çözüm kullanıyorsanız [sertifikaları güncelleştirmeniz](active-directory-aadconnect-o365-certs.md) gerektiğinde size bildirilir.
@@ -157,5 +165,4 @@ ADFS sunucunuz sertifikaları Azure AD'den otomatik olarak güncelleştirecek ş
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
-
 

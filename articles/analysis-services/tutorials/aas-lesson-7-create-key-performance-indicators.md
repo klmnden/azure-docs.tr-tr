@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 9671136eea4e390a7763404e402cf94f1d351cac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>7. Ders: Ana Performans Göstergeleri oluşturma
 
@@ -49,7 +48,7 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
 
     Bu ölçü, KPI için temel ölçü olarak görev yapar.  
   
-4.  **InternetCurrentQuarterSalesPerformance** > **KPI Oluştur**’a sağ tıklayın.   
+4.  Ölçü kılavuzunda **InternetCurrentQuarterSalesPerformance** > **KPI Oluştur**'a sağ tıklayın.   
   
 5.  Ana Performans Göstergesi (KPI) iletişim kutusundaki **Hedef** alanında **Mutlak Değer**’i seçin ve ardından **1.1** yazın.  
   
@@ -88,4 +87,3 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
 [8. Ders: Perspektif oluşturma](../tutorials/aas-lesson-8-create-perspectives.md).
   
   
-

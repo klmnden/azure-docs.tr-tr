@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 8f16f23928977ef6bf53f41c79375290da70a2fa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 69296eb9ac2a74a97b632d27733a6a06500b4abd
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>.NET kullanarak cihazınızı IoT hub’ınıza bağlama
 
@@ -201,7 +200,7 @@ Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim y
     Console.ReadLine();
     ```
 
-    Varsayılan olarak, .NET Framework uygulamalarında **Create** yöntemiyle IoT hub'ıyla iletişim kurmak için AMQP protokolünü kullanan bir **DeviceClient** örneği oluşturulur. MQTT veya HTTP protokolünü kullanmak için **Create** yönteminin protokolü belirtmenize olanak tanıyan geçersiz kılmasını kullanın. UWP ve PCL istemcileri varsayılan olarak HTTP protokolünü kullanır. HTTP protokolünü kullanıyorsanız **System.Net.Http.Formatting** ad alanını dahil etmek için projenize **Microsoft.AspNet.WebApi.Client** NuGet paketini de eklemeniz gerekir.
+    Varsayılan olarak, .NET Framework uygulamalarında **Create** yöntemiyle IoT hub'ıyla iletişim kurmak için AMQP protokolünü kullanan bir **DeviceClient** örneği oluşturulur. MQTT veya HTTPS protokolünü kullanmak için **Create** yönteminin protokolü belirtmenize olanak tanıyan geçersiz kılmasını kullanın. UWP ve PCL istemcileri varsayılan olarak HTTPS protokolünü kullanır. HTTPS protokolünü kullanıyorsanız **System.Net.Http.Formatting** ad alanını dahil etmek için projenize **Microsoft.AspNet.WebApi.Client** NuGet paketini de eklemeniz gerekir.
 
 Bu öğretici, IoT Hub cihaz uygulaması oluşturma adımlarında size rehberlik eder. Cihaz uygulamanıza gerekli kodu eklemek için [Azure IoT Hub için Bağlı Hizmet][lnk-connected-service] Visual Studio uzantısını da kullanabilirsiniz.
 
@@ -263,4 +262,3 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-

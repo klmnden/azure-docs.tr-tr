@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d628dc621335acf231342a6d9186079de16e85f4
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: dbfaf3b791dd44a43a2cf862819e6292b94d958a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-9-create-hierarchies"></a>9. Ders: Hiyerarşi oluşturma
 
@@ -85,4 +84,3 @@ Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğr
 [10. Ders: Bölüm oluşturma](../tutorials/aas-lesson-10-create-partitions.md). 
   
   
-

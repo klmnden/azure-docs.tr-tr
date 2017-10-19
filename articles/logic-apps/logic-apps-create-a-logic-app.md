@@ -1,7 +1,7 @@
 ---
-title: "Bulut uygulamaları ile bulut hizmetleri arasında ilk iş akışınızı oluşturma - Azure Logic Apps | Microsoft Docs"
-description: "Azure Logic Apps’te iş akışları oluşturup çalıştırarak, sistem tümleştirmeden kuruluş uygulaması tümleştirmeye (EAI) kadar tüm senaryolar için iş süreçlerini otomatik hale getirin"
-author: jeffhollan
+title: "Sistemler ile bulut hizmetleri arasında ilk otomatik iş akışınızı oluşturma - Azure Logic Apps | Microsoft Docs"
+description: "Mantıksal uygulamalar oluşturup çalıştırarak, sistem tümleştirme ve kuruluş uygulaması tümleştirmeye (EAI) senaryoları için iş süreçlerini ve iş akışlarını otomatik hale getirin"
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,161 +13,221 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/31/2017
-ms.author: LADocs; jehollan; estfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
-ms.contentlocale: tr-tr
-ms.lasthandoff: 05/17/2017
-
+ms.date: 09/18/2017
+ms.author: LADocs; estfan
+ms.openlocfilehash: d62255ba6e3d5bdfbd792a47f3a92d4c88876742
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-your-first-logic-app-for-automating-workflows-and-processes-through-the-azure-portal"></a>İş akışlarını ve işlemleri Azure portalı aracılığıyla otomatikleştirmek için ilk mantıksal uygulamanızı oluşturun
 
-# <a name="create-your-first-logic-app-workflow-to-automate-processes-between-cloud-apps-and-cloud-services"></a>Bulut uygulamaları ile bulut hizmetleri arasında süreçleri otomatik hale getirmek için ilk mantıksal uygulama iş akışınızı oluşturma
+Kod yazmanıza gerek kalmadan, [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) ile otomatik iş akışları derleyip çalıştırarak sistemleri ve hizmetleri tümleştirebilirsiniz. Bu öğreticide görevleri bir iş akışıyla otomatikleştirmenin ne kadar kolay olduğunu göstermek için bir web sitesindeki yeni içerik RSS akışını kontrol eden ve akıştaki her yeni öğe için bir e-posta gönderen basit bir mantıksal uygulama oluşturulmaktadır. 
 
-[Azure Logic Apps](logic-apps-what-are-logic-apps.md) ile iş akışları oluşturup çalıştırdığınızda, herhangi bir kod yazmadan iş süreçlerini daha kolay ve hızlı bir şekilde otomatik hale getirebilirsiniz. Bu ilk örnekte, bir web sitesindeki yeni içerikleri belirlemek için RSS akışını denetleyen temel bir mantıksal uygulama iş akışı oluşturma işlemi gösterilmektedir. Web sitesinin akışında yeni öğeler göründüğünde, mantıksal uygulama bir Outlook veya Gmail hesabından e-posta gönderir.
+![Genel bakış - ilk mantıksal uygulama örneği](./media/logic-apps-create-a-logic-app/logic-app-overview.png)
 
-Bir mantıksal uygulama oluşturup çalıştırmak için şu öğeler gerekir:
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+
+> [!div class="checklist"]
+> * Boş bir mantıksal uygulama oluşturma.
+> * RSS akış öğesi yayımlandığında mantıksal uygulamanızın başlatılması için bir tetikleyici ekleme.
+> * RSS akış öğesi hakkındaki ayrıntılı bilgileri içeren bir e-posta göndermek için bir eylem ekleme.
+> * Mantıksal uygulamanızı çalıştırma ve test etme.
+
+## <a name="prerequisites"></a>Ön koşullar
 
 * Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz bir Azure hesabı ile başlayabilirsiniz](https://azure.microsoft.com/free/). Ya da [Kullandıkça Öde aboneliğine kaydolabilirsiniz](https://azure.microsoft.com/pricing/purchase-options/).
 
-  Azure aboneliğiniz, mantıksal uygulama kullanımını faturalamak için kullanılır. [Kullanım ölçümü](../logic-apps/logic-apps-pricing.md) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps) işlemlerinin Azure Logic Apps’te nasıl işlediğini öğrenin.
+* Bildirim göndermek için [Azure Logic Apps tarafından desteklenen bir e-posta sağlayıcısından](../connectors/apis-list.md) alınmış bir e-posta hesabı. Örneğin Office 365 Outlook, Outlook.com, Gmail veya başka bir desteklenen sağlayıcı kullanabilirsiniz. Bu öğreticide Office 365 Outlook kullanılmaktadır.
 
-Ayrıca, bu örnek şu öğeleri gerektirir:
-
-* Bir Outlook.com, Office 365 Outlook veya Gmail hesabı
-
-    > [!TIP]
-    > Kişisel bir [Microsoft hesabınız](https://account.microsoft.com/account) varsa Outlook.com hesabınız vardır. Aksi takdirde, bir Azure iş veya okul hesabınız varsa **Office 365 Outlook** hesabınız vardır.
+  > [!TIP]
+  > Kişisel bir [Microsoft hesabınız](https://account.microsoft.com/account) varsa Outlook.com hesabınız vardır. Aksi takdirde, bir Azure iş veya okul hesabınız varsa Office 365 Outlook hesabınız vardır.
 
 * Web sitesinin RSS akışının bağlantısı. Bu örnekte [CNN.com web sitesindeki en önemli haberler için RSS akışı](http://rss.cnn.com/rss/cnn_topstories.rss) kullanılmıştır: `http://rss.cnn.com/rss/cnn_topstories.rss`
 
-## <a name="add-a-trigger-that-starts-your-workflow"></a>İş akışınızı başlatan bir tetikleyici ekleme
-
-[*Tetikleyici*](./logic-apps-what-are-logic-apps.md#logic-app-concepts), mantıksal uygulama iş akışınızı başlatan bir olaydır ve mantıksal uygulamanız için gereken ilk öğedir.
+## <a name="1-create-a-blank-logic-app"></a>1. Boş bir mantıksal uygulama oluşturma 
 
 1. [Azure portalı](https://portal.azure.com "Azure portalı") oturumunu açın.
 
-2. Resimde gösterildiği gibi, sol menüden **Yeni** > **Kurumsal Tümleştirme** > **Mantıksal Uygulama**’yı seçin:
+2. Azure ana menüsünden **Yeni** > **Kurumsal Tümleştirme** > **Mantıksal Uygulama**'yı seçin.
 
-     ![Azure portalı, Yeni, Kurumsal Tümleştirme, Mantıksal Uygulama](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
+   ![Azure portalı, Yeni, Kurumsal Tümleştirme, Mantıksal Uygulama](media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
-   > [!TIP]
-   > Ayrıca **Yeni**’yi seçebilir, ardından arama kutusuna `logic app` yazıp Enter tuşuna basabilirsiniz. Ardından **Mantıksal Uygulama** > **Oluştur**’u seçin.
+3. Tabloda yer alan özelliklerle mantıksal uygulamanızı oluşturun.
 
-3. Mantıksal uygulamanızı adlandırın ve Azure aboneliğinizi seçin. Şimdi, ilgili Azure kaynaklarını düzenleyip yönetmenize yardımcı olan bir Azure kaynak grubu oluşturun veya seçin. Son olarak, mantıksal uygulamanızı barındıracak veri merkezi konumunu seçin. Hazır olduğunuzda **Panoya sabitle** ve ardından **Oluştur**’u seçin.
+   ![Mantıksal uygulama ayrıntılarını sağlayın](./media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
-     ![Mantıksal uygulama ayrıntıları](media/logic-apps-create-a-logic-app/logic-app-settings.png)
+   | Ayar | Önerilen değer | Açıklama | 
+   | ------- | --------------- | ----------- | 
+   | **Ad** | *mantıksal-uygulamanızın-adı* | Mantıksal uygulama için benzersiz bir ad girin. | 
+   | **Abonelik** | *Azure-aboneliğiniz* | Kullanmak istediğiniz Azure aboneliğini seçin. | 
+   | **Kaynak grubu** | *Azure-kaynak-grubunuz* | İlgili Azure kaynaklarını düzenleyip yönetmenize yardımcı olan bir Azure kaynak grubu oluşturun veya seçin. | 
+   | **Konum** | *Azure-bölgeniz* | Mantıksal uygulamanızın dağıtılacağı veri merkezi bölgesini seçin. | 
+   |||| 
 
-   > [!NOTE]
-   > **Panoya sabitle**’yi seçtiğinizde, mantıksal uygulamanız dağıtıldıktan sonra Azure panosunda gösterilir ve otomatik olarak açılır. Mantıksal uygulamanız panoda görünmüyorsa, **Tüm kaynaklar** kutucuğunda **Daha Fazla Göster**’ü ve mantıksal uygulamanızı seçin. Veya sol menüden **Diğer hizmetler**’i seçin. **Kurumsal Tümleştirme** altında **Logic Apps**’ı belirleyip mantıksal uygulamanızı seçin.
+4. Hazır olduğunuzda **Panoya sabitle**'yi ve ardından **Oluştur**'u seçin.
 
-4. Mantıksal uygulamanızı ilk kez açtığınızda, Mantıksal Uygulama Tasarımcısı başlamak için kullanabileceğiniz şablonları gösterir. Mantıksal uygulamanızı sıfırdan oluşturabilmek için şimdilik **Boş Mantıksal Uygulama**’yı seçin.
+   Mantıksal uygulamanız için bir Azure kaynağı oluşturdunuz. 
+   Azure mantıksal uygulamanızı dağıttıktan sonra Logic Apps Tasarımcısı'nda hızlı bir başlangıç yapmanıza yardımcı olacak ortak desen şablonları gösterilir.
 
-    Mantıksal Uygulama Tasarımcısı açılır ve mantıksal uygulamanızda kullanabileceğiniz hizmetler ile *tetikleyicileri* gösterir.
+   > [!NOTE] 
+   > **Panoya sabitle**'yi seçtiğinizde, mantıksal uygulamanız dağıtıldıktan sonra Azure panosunda gösterilir ve otomatik olarak Logic Apps Tasarımcısı'nda açılır. Açılmazsa mantıksal uygulamanızı kendiniz bulup açabilirsiniz.
 
-5. Arama kutusuna `RSS` yazıp şu tetikleyiciyi seçin: **RSS - Akış öğesi yayımlandığında** 
+5. Mantıksal uygulamanızı sıfırdan oluşturabilmek için şimdilik **Şablonlar**'ın altından **Boş Mantıksal Uygulama**'yı seçin.
 
-    ![RSS tetikleyicisi](media/logic-apps-create-a-logic-app/rss-trigger.png)
+   ![Mantıksal uygulama şablonunu seçin](./media/logic-apps-create-a-logic-app/choose-logic-app-template.png)
 
-6. İzlemek istediğiniz web sitesinin RSS akışına ait bağlantıyı girin. 
+   Logic Apps Tasarımcısı'nda mantıksal uygulama iş akışınızı başlatmak için kullanacağınız uygun [*bağlayıcılar*](../connectors/apis-list.md) ve [*tetikleyicileri*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) gösterilir.
 
-     Ayrıca **Sıklık** ve **Aralık** değerlerini değiştirebilirsiniz. 
-     Bu ayarlar mantıksal uygulamanızın yeni öğeleri ne sıklıkla denetleyeceğini belirler ve bu süre boyunca bulunan tüm öğeleri döndürür.
+   ![Mantıksal uygulama tetikleyicileri](./media/logic-apps-create-a-logic-app/logic-app-triggers.png)
 
-     Bu örnekte her gün CNN web sitesinde yayımlanan en önemli haberlere bakalım.
+## <a name="2-add-a-trigger-for-starting-the-workflow"></a>2. İş akışını başlatmak için bir tetikleyici ekleme
 
-     ![Tetikleyicinin RSS akışı, sıklık ve aralık ayarını yapma](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
+Tüm mantıksal uygulamaların bir [*tetikleyici*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) ile başlatılması gerekir. Tetikleyici, belirli bir olay meydana geldiğinde veya yeni veriler belirlediğiniz bir koşulu karşıladığında etkinleştirilir. Bu işlemin ardından Logic Apps altyapısı, iş akışınızı çalıştırmak için bir mantıksal uygulama örneği oluşturur. Tetikleyici her etkinleştirildiğinde altyapı, mantıksal uygulama iş akışınızı çalıştıran ayrı bir örnek oluşturur.
 
-7. Çalışmanızı şimdilik kaydedin. (Tasarımcı komut çubuğunda **Kaydet**’i seçin.)
+1. Arama kutusuna "rss" yazın. Şu tetikleyiciyi seçin: **RSS - Akış öğesi yayımlandığında** 
 
-   ![Mantıksal uygulamanızı kaydetme](media/logic-apps-create-a-logic-app/save-logic-app.png)
+   ![Tetikleyiciyi seçin: "RSS - Akış öğesi yayımlandığında"](./media/logic-apps-create-a-logic-app/rss-trigger.png)
 
-   Mantıksal uygulamanızı kaydettiğinizde etkin hale gelir, ancak şu anda mantıksal uygulamanız yalnızca belirtilen RSS akışındaki yeni öğeleri denetler. 
-   Bu örneği daha kullanışlı hale getirmek için tetikleyici başlatıldıktan sonra mantıksal uygulamanızın gerçekleştireceği bir eylem ekliyoruz.
+2. İzlemek istediğiniz web sitesinin RSS akışına ait bağlantıyı girin. Örneğin: `http://rss.cnn.com/rss/cnn_topstories.rss`. Yinelenme aralığını ve sıklığını ayarlayın. Bu örnekte bu özellikleri akışı her gün denetleyecek şekilde düzenleyin. 
 
-## <a name="add-an-action-that-responds-to-your-trigger"></a>Tetikleyicinize yanıt veren bir eylem ekleme
+   ![Tetikleyicinin RSS akışı, sıklık ve aralık ayarını yapma](./media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
-[*Eylem*](./logic-apps-what-are-logic-apps.md#logic-app-concepts), mantıksal uygulama iş akışınız tarafından gerçekleştirilen bir görevdir. Mantıksal uygulamanıza bir tetikleyici ekledikten sonra, bu tetikleyici tarafından oluşturulan işlemleri gerçekleştirmek için bir eylem ekleyebilirsiniz. Bu örnekte, web sitesinin RSS akışında yeni öğeler göründüğünde e-posta gönderen bir eylem ekleyeceğiz.
+3. Çalışmanızı şimdilik kaydedin. Tasarımcı araç çubuğunda **Kaydet**'i seçin.
+Tetikleyicinin ayrıntılarını daraltmak ve gizlemek için tetikleyici başlık çubuğunu seçin.
 
-1. Tasarımcıda, resimde gösterildiği gibi tetikleyicinizin altındaki **Yeni adım** > **Eylem ekle** öğesini seçin:
+   ![Mantıksal uygulamanızı kaydetme](./media/logic-apps-create-a-logic-app/save-logic-app.png)
 
-   ![Eylem ekleme](media/logic-apps-create-a-logic-app/add-new-action.png)
+   Mantıksal uygulamanız artık yayında ancak iş akışına eylem ekleyene kadar RSS akışındaki yeni öğeleri denetleme dışında bir işlem gerçekleştirmeyecek. 
+
+## <a name="3-add-an-action-that-responds-to-the-trigger"></a>3. Tetikleyiciye yanıt veren bir eylem ekleme
+
+Şimdi mantıksal uygulama iş akışınızın gerçekleştirdiği görev olan bir [*eylem*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) ekleyin. Bu örnekte RSS akışında yeni bir öğe göründüğünde e-posta gönderen bir eylem ekleyeceksiniz.
+
+1. Logic Apps Tasarımcısı'nda tetikleyicinin altında **+ Yeni adım** > **Eylem ekle**'yi seçin.
+
+   ![Eylem ekleme](./media/logic-apps-create-a-logic-app/add-new-action.png)
 
    Tasarımcı, tetikleyiciniz başlatıldığında gerçekleştirilecek bir eylem seçebilmeniz için [kullanılabilir bağlayıcıları](../connectors/apis-list.md) gösterir.
 
-2. E-posta hesabınıza bağlı olarak, Outlook veya Gmail’e yönelik adımları izleyin.
+   ![Eylem listesinden seçim yapma](./media/logic-apps-create-a-logic-app/logic-app-actions.png)
 
-   * Outlook hesabınızdan e-posta göndermek için arama kutusuna `outlook` girin. **Hizmetler** altında kişisel Microsoft hesaplarınız için **Outlook.com** veya Azure iş ya da okul hesapları için **Office 365 Outlook**’u seçin. 
-   **Eylemler** altında **E-posta gönder**’i seçin.
+2. Arama kutusuna "e-posta gönder" yazın. E-posta sağlayıcınıza uygun bağlayıcıyı bulun ve seçin. Ardından bağlayıcı için "e-posta gönder" eylemini seçin. Örneğin: 
 
-       ![Outlook "E-posta gönder" eylemini seçin](media/logic-apps-create-a-logic-app/actions.png)
+   * Azure iş veya okul hesabı için Office 365 Outlook bağlayıcısını seçin. 
+   * Kişisel Microsoft hesapları için Outlook.com bağlayıcısını seçin. 
+   * Gmail hesapları için Gmail bağlayıcısını seçin. 
 
-   * Gmail hesabınızdan e-posta göndermek için arama kutusuna `gmail` girin. 
-   **Eylemler** altında **E-posta gönder**’i seçin.
+   İşleme Office 365 Outlook bağlayıcısıyla devam edeceğiz. 
+   Farklı bir sağlayıcı kullandığınızda adımlar aynı olacaktır ancak kullanıcı arabirimi farklı olabilir. 
 
-       !["Gmail - E-posta gönder" öğesini seçin](media/logic-apps-create-a-logic-app/actions-gmail.png)
+   ![Şu eylemi seçin: "Office 365 Outlook - E-posta gönder"](./media/logic-apps-create-a-logic-app/actions.png)
 
 3. Kimlik bilgileriniz istendiğinde, e-posta hesabınıza ait kullanıcı adı ve parolayla oturum açın. 
 
-4. Bu eylemin hedef e-posta adresi gibi ayrıntılarını belirtin ve e-postaya eklenecek verilerin parametrelerini seçin, örneğin:
+4. Tabloda yer alan bilgileri kullanın ve e-postaya eklenmesini istediğiniz alanları seçin.
 
-   ![E-postaya eklenecek verileri seçme](media/logic-apps-create-a-logic-app/rss-action-setup.png)
+   | Alıcı | Adımlar | 
+   | -- | ----- | 
+   | İş akışınız için kullanılabilir alanları seçin. | Düzenleme kutusunun içine tıklayarak **Dinamik içerik** listesini açın veya **Dinamik içerik ekle**'yi seçin. | 
+   | Diğer kullanılabilir alanları görüntüleyin. | **Dinamik içerik** listesinde her bölüm için **Daha fazla**'ya tıklayın.  | 
+   | Bir düzenleme kutusuna boş satırlar ekleyin. | Shift + Enter tuşlarına basın. | 
+   | **Dinamik içerik** listesini kapatın. | **Dinamik içerik ekle**'yi tekrar seçin. | 
+   ||| 
 
-    Outlook’u seçerseniz mantıksal uygulamanız bu örnektekine benzer şekilde görünür:
+   ![E-postaya eklenecek verileri seçme](./media/logic-apps-create-a-logic-app/rss-action-setup.png)
 
-    ![Tamamlanan mantıksal uygulama](media/logic-apps-create-a-logic-app/save-run-complete-logic-app.png)
+   | Ayar | Önerilen değer | Açıklama | 
+   | ------- | --------------- | ----------- | 
+   | **Alıcı** | *alıcının-e_posta-adresi* | Alıcının e-posta adresi girin. Test için kendi e-posta adresinizi kullanabilirsiniz. | 
+   | **Konu** | Yeni CNN gönderisi: **Akış başlığı** | E-posta konusunun içeriğini girin. <p>Bu öğreticide önerilen metni girin ve tetikleyicinin akış öğesinin başlığını gösteren **Akış başlığı** alanını seçin. | 
+   | **Gövde** | Başlık: **Akış başlığı** <p>Yayımlanma tarihi: **Birincil akış bağlantısı** <p>Bağlantı: **Birincil akış bağlantısı** | E-posta gövdesinin içeriğini girin. <p>Bu öğreticide önerilen metni girin ve şu tetikleyici alanlarını seçin: <p>- **Akış başlığı**: Akış öğesinin başlığını tekrar gösterir </br>- **Akış yayımlanma zamanı**: Öğenin yayımlanma tarihini ve saatini gösterir </br>- **Birincil akış bağlantısı**: Akış öğesinin URL'sini gösterir | 
+   |||| 
 
-5.    Yaptığınız değişiklikleri kaydedin. (Tasarımcı komut çubuğunda **Kaydet**’i seçin.)
+   > [!NOTE] 
+   > Dizi içeren bir alan seçerseniz tasarımcı eyleme otomatik olarak dizeye başvuran bir "For each" döngüsü ekler. Bu şekilde mantıksal uygulamanız ilgili eylemi dizideki tüm öğeler için gerçekleştirir.
 
-6. Mantıksal uygulamanızı test için el ile çalıştırabilirsiniz. Tasarımcı komut çubuğunda **Çalıştır**’ı seçin. Ya da mantıksal uygulamanızın ayarladığınız zamanlamaya göre RSS akışını denetlemesine izin verebilirsiniz.
+5. İşiniz bittiğinde yaptığınız değişiklikleri kaydedin. Tasarımcı araç çubuğunda **Kaydet**'i seçin.
 
-   Mantıksal uygulamanız yeni öğeler bulursa, mantıksal uygulama seçtiğiniz verileri içeren e-postayı gönderir. 
-   Yeni öğe bulunmazsa, mantıksal uygulamanız e-posta gönderen eylemi atlar.
+   ![Tamamlanan mantıksal uygulama](./media/logic-apps-create-a-logic-app/save-complete-logic-app.png)
 
-7. Mantıksal uygulamanızın çalışma ve tetikleyici geçmişini izlemek ve denetlemek için, mantıksal uygulama menüsünde **Genel Bakış**’ı seçin.
+   Mantıksal uygulamanızı şimdi test etmek için sonraki bölüme geçin.
 
-   ![Mantıksal uygulamanın çalışma ve tetikleyici geçmişini izleme ve görüntüleme](media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
+## <a name="4-run-and-test-your-workflow"></a>4. İş akışınızı çalıştırma ve test etme
+
+1. Mantıksal uygulamanızı test etmek üzere el ile çalıştırmak için tasarımcı araç çubuğundan **Çalıştır**'ı seçin. Ya da mantıksal uygulamanızın ayarladığınız zamanlamaya göre RSS akışını denetlemesine izin verebilirsiniz.
+
+   ![Mantıksal uygulamanızı çalıştırma](./media/logic-apps-create-a-logic-app/run-complete-logic-app.png)
+
+   Mantıksal uygulamanız yeni öğeler bulursa, mantıksal uygulama seçtiğiniz verileri içeren e-postayı gönderir. Örneğin:
+
+   ![Yeni RSS akışı öğesi için gönderilen e-posta](./media/logic-apps-create-a-logic-app/rss-feed-email.png)
+
+   Mantıksal uygulamanız yeni bir öğe bulamazsa e-posta gönderen eylemi atlar ve belirlenen aralık boyunca bekledikten sonra tekrar denetleme gerçekleştirir. 
+
+2. Mantıksal uygulamanızın çalışma ve tetikleyici geçmişini gözden geçirmek için **Genel Bakış**'ı seçin.
+Bir çalıştırma hakkında daha fazla bilgiye ulaşmak için çalıştırmayla ilgili satırı seçin.
+
+   ![Mantıksal uygulamanın çalışma ve tetikleyici geçmişini izleme ve görüntüleme](./media/logic-apps-create-a-logic-app/logic-app-run-trigger-history.png)
 
    > [!TIP]
-   > Beklediğiniz verileri bulamazsanız, komut çubuğunda **Yenile**’yi seçmeyi deneyin.
+   > Beklediğiniz verileri bulamazsanız, araç çubuğunda **Yenile**'yi seçmeyi deneyin.
 
-   Mantıksal uygulamanızın durumu veya çalışma ve tetikleyici geçmişi hakkında daha fazla bilgi almak için bkz. [Mantıksal uygulamanızla ilgili sorun giderme](logic-apps-diagnosing-failures.md).
+   Çalıştırma Ayrıntıları görünümünde çalıştırmanın başarılı veya başarısız olma durumunun yanı sıra başarılı ve başarısız olan adımlar gösterilir. 
 
-      > [!NOTE]
-      > Mantıksal uygulamanız siz kapatana kadar çalışmaya devam eder. Uygulamanızı şimdilik kapatmak için, mantıksal uygulama menüsünde **Genel Bakış**’ı seçin. Komut çubuğunda **Devre Dışı Bırak**’ı seçin.
+   ![Bir mantıksal uygulama çalıştırmasının ayrıntılarını görüntüleme](./media/logic-apps-create-a-logic-app/logic-app-run-details.png)
 
-Tebrikler, ilk temel mantıksal uygulamanızı oluşturup çalıştırdınız. Ayrıca, herhangi bir kod kullanmadan, süreçleri otomatik hale getiren iş akışlarını ne kadar kolay oluşturabileceğinizi ve bulut uygulamaları ile bulut hizmetlerini tümleştirmeyi öğrendiniz.
+   Mantıksal uygulamanızın durumu, çalıştırma geçmişi ve tetikleyici geçmişi hakkında daha fazla bilgi almak için bkz. [Mantıksal uygulamanızla ilgili sorun giderme](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## <a name="manage-your-logic-app"></a>Mantıksal uygulamanızı yönetme
+3. Her bir adımın giriş ve çıkışlarını görüntülemek için gözden geçirmek istediğiniz adımı genişletin. Bu bilgiler mantıksal uygulamanızdaki sorunları tespit etmenize ve gidermenize yardımcı olabilir. Örneğin:
 
-Uygulamanızı yönetmek için durumu denetleme, düzenleme, geçmişi görüntüleme, kapatma ya da mantıksal uygulamanızı silme gibi görevler gerçekleştirebilirsiniz.
+   ![Adım ayrıntıları görüntüleme](./media/logic-apps-create-a-logic-app/logic-app-run-details-expanded.png)
 
-1. [Azure portalı](https://portal.azure.com "Azure portalı") oturumunu açın.
+   Daha fazla bilgi için bkz. [Mantıksal uygulamanızı izleme](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
-2. Sol menüden **Diğer hizmetler**’i seçin. **Kurumsal Tümleştirme** altında **Logic Apps**’ı seçin. Mantıksal uygulamanızı seçin. 
+Tebrikler, ilk temel mantıksal uygulamanızı oluşturup çalıştırdınız. Bu örnek herhangi bir kod kullanmadan, sistemleri ve hizmetleri tümleştirme amacıyla süreçleri otomatik hale getiren iş akışlarını ne kadar kolay oluşturabileceğinizi öğrendiniz.
 
-   Mantıksal uygulama menüsünde şu mantıksal uygulama yönetim görevlerini bulabilirsiniz:
+> [!NOTE]
+> Mantıksal uygulamanız siz kapatana kadar çalışmaya devam eder. Uygulamanızı geçici olarak kapatmak için sonraki bölüme geçin.
 
-   |Görev|Adımlar| 
-   |:---|:---| 
-   | Uygulamanızın durumunu, yürütme geçmişini ve genel bilgilerini görüntüleme| **Genel Bakış**’ı seçin.| 
-   | Uygulamanızı düzenleme | **Mantıksal Uygulama Tasarımcısı**’nı seçin. | 
-   | Uygulamanızın iş akışı JSON tanımını görüntüleme | **Mantıksal Uygulama Kod Görünümü**’nü seçin. | 
-   | Mantıksal uygulamanız üzerinde gerçekleştirilen işlemleri görüntüleme | **Ekinlik günlüğü**’nü seçin. | 
-   | Mantıksal uygulamanızın geçmiş sürümlerini görüntüleme | **Sürümler**’i seçin. | 
-   | Uygulamanızı geçici olarak kapatma | **Genel Bakış**’ı seçin, ardından komut çubuğunda **Devre Dışı Bırak**’ı seçin. | 
-   | Uygulamanızı silme | **Genel Bakış**’ı seçin, ardından komut çubuğunda **Sil**’i seçin. Mantıksal uygulamanızın adını girip **Sil**’i seçin. | 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-## <a name="get-help"></a>Yardım alın
+Bu öğreticide Azure aboneliğinize ücret uygulanmasına neden olabilecek kaynaklar kullanılmakta ve eylemler gerçekleştirilmektedir. Öğreticiyi ve testlerinizi tamamladıktan sonra ücret uygulanmasını istemediğiniz kaynakları devre dışı bırakmayı veya silmeyi unutmayın.
 
-Sorular sormak, soruları yanıtlamak ve diğer Azure Logic Apps kullanıcılarının neler yaptığını öğrenmek için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+Mantıksal uygulamanızı silmeden çalışmasını ve e-posta göndermesini durdurabilirsiniz. Mantıksal uygulama menüsünden **Genel Bakış**'ı seçin. Araç çubuğunda **Devre dışı bırak**'ı seçin.
 
-Azure Logic Apps ve bağlayıcıları geliştirmeye yardımcı olmak için, [Azure Logic Apps kullanıcı geri bildirim sitesinde](http://aka.ms/logicapps-wish) oy kullanın veya fikirlerinizi paylaşın.
+![Mantıksal uygulamanızı kapatma](./media/logic-apps-create-a-logic-app/turn-off-disable-logic-app.png)
+
+## <a name="faq"></a>SSS
+
+**S:** Mantıksal uygulamamla başka neler yapabilirim? </br>
+**Y:** Gerçekleştirebileceğiniz diğer görevlere örnek olarak düzenleme, JSON tanımını görüntüleme, etkinlik günlüğünü gözden geçirme veya mantıksal uygulamanızı silme verilebilir.
+
+Diğer mantıksal uygulama yönetim görevlerini bulmak için mantıksal uygulama menüsündeki şu komutları gözden geçirin:
+
+| Görev | Adımlar | 
+| ---- | ----- | 
+| Uygulamanızın durumunu, çalıştırmalarını, tetikleyici geçmişini ve genel bilgilerini görüntüleme | **Genel Bakış**’ı seçin. | 
+| Uygulamanızı düzenleme | **Mantıksal Uygulama Tasarımcısı**’nı seçin. | 
+| Uygulamanızın iş akışı JSON tanımını görüntüleme | **Mantıksal Uygulama Kod Görünümü**’nü seçin. | 
+| Mantıksal uygulamanız üzerinde gerçekleştirilen işlemleri görüntüleme | **Ekinlik günlüğü**’nü seçin. | 
+| Mantıksal uygulamanızın geçmiş sürümlerini görüntüleme | **Sürümler**’i seçin. | 
+| Uygulamanızı geçici olarak kapatma | **Genel Bakış**'ı seçin, ardından araç çubuğunda **Devre dışı bırak**'ı seçin. | 
+| Uygulamanızı silme | **Genel Bakış**'ı seçin, ardından araç çubuğunda **Sil**'ı seçin. Mantıksal uygulamanızın adını girip **Sil**’i seçin. | 
+||| 
+
+## <a name="get-support"></a>Destek alın
+
+* Azure Logic Apps hakkındaki sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+
+* Azure Logic Apps ve bağlayıcılarını geliştirme konusunda yardımcı olmak mı istiyorsunuz? [Azure Logic Apps User Voice sitesinden](http://aka.ms/logicapps-wish) oy verin veya fikirlerinizi paylaşın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-*  [Koşul ekleme ve iş akışları çalıştırma](../logic-apps/logic-apps-use-logic-app-features.md)
-*     [Mantıksal uygulama şablonları](../logic-apps/logic-apps-use-logic-app-templates.md)
-*  [Azure Resource Manager şablonlarından mantıksal uygulama oluşturma](../logic-apps/logic-apps-arm-provision.md)
-
+* [Visual Studio ile mantıksal uygulamanızı oluşturma](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Koşul ekleme ve iş akışları çalıştırma](../logic-apps/logic-apps-use-logic-app-features.md)
+*   [Mantıksal uygulama şablonları](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [Azure Resource Manager şablonlarından mantıksal uygulama oluşturma](../logic-apps/logic-apps-arm-provision.md)
+* [Logic Apps kullanım ölçümü](../logic-apps/logic-apps-pricing.md) 
+* [Logic Apps fiyatlandırması](https://azure.microsoft.com/pricing/details/logic-apps)

@@ -9,8 +9,7 @@
   
 3. Yeni SQL Sunucusu (mantıksal sunucu) dikey penceresini açmak için **Oluştur**’a tıklayın.
 
-   <kbd> ![açık mantıksal sunucu dikey penceresi](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd>
-    <kbd>![mantıksal sunucu dikey penceresi](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
+   <kbd> ![açık mantıksal sunucu dikey penceresi](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd>![mantıksal sunucu dikey penceresi](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
   
 3. SQL Server (mantıksal sunucu) dikey penceresinin sunucu adı metin kutusunda, yeni mantıksal sunucu için geçerli bir ad belirtin. Yeşil onay işareti, geçerli bir ad sağladığınızı gösterir.
     

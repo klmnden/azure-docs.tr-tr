@@ -1,6 +1,6 @@
 ---
-title: Threat Intelligence in Azure Security Center | Microsoft Docs
-description: This document helps you to use threat intelligence capability in Azure Security Center to identify potential threats in your VMs and computers.
+title: "Azure Güvenlik Merkezi'ndeki tehdit bilgileri | Microsoft Docs"
+description: "Azure Güvenlik Merkezi'ndeki tehdit bilgilerini kullanarak VM'lerinizdeki ve bilgisayarlarınızdaki potansiyel tehditleri tanımlamayı öğrenin."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,84 +14,89 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: yurid
+ms.openlocfilehash: b5bdeb1c70893c2477413df02c7b1a4a07999e93
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 8ee8836122de607b213616739861b1653ebea596
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="threat-intelligence-in-azure-security-center"></a>Threat Intelligence in Azure Security Center
-This document helps you use Azure Security Center Threat Intelligence to address security related issues.
+# <a name="threat-intelligence-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tehdit bilgileri
+Bu makale Azure Güvenlik Merkezi'ndeki tehdit bilgilerini kullanarak güvenlikle ilgili sorunları gidermenizi sağlar.
 
-## <a name="what-is-threat-intelligence"></a>What is threat intelligence?
-By using the Threat Intelligence option available in Security Center, IT administrators can identify security threats against the environment, such as identify if a particular computer is part of a botnet. Computers can become nodes in a botnet when attackers illicitly install malware that secretly connects this computer to the command and control. It can also identify potential threats coming from underground communication channels, such as darknet.
+## <a name="what-is-threat-intelligence"></a>Tehdit bilgileri nedir?
+BT yöneticileri Güvenlik Merkezi'ndeki tehdit bilgileri seçeneğini kullanarak ortama yönelik güvenlik tehditlerini belirleyebilir. Örneğin belirli bir bilgisayarın botnetin parçası olup olmadığını saptayabilir. Bilgisayar korsanları yasa dışı yollarla bu bilgisayarı bir komut veya denetime bağlayan kökü amaçlı bir yazılım yüklediklerinde, bilgisayarlar botnette düğümlere dönüşür. Tehdit bilgileri ayrıca, dark web gibi yeraltı iletişim kanallarından gelen olası tehditleri de belirleyebilir.
 
-In order to build this threat intelligence, Security Center uses data coming from multiple sources within Microsoft. Security Center leverages this data to identify potential threats against your environment. The Threat Intelligence pane is composed by three major options:
+Güvenlik Merkezi bu tehdit bilgilerini toplamak için Microsoft içindeki farklı kaynaklardan gelen verileri kullanır. Güvenlik Merkezi bu verileri kullanarak ortamınızdaki potansiyel tehditleri tanımlar. **Tehdit bilgileri** bölmesi üç ana seçenekten oluşur:
 
-- Detected threat types
-- Threat origin
-- Threat intelligence map
+- Algılanan tehdit türleri
+- Tehdit kaynağı
+- Tehdit bilgileri haritası
 
 
-## <a name="when-should-i-use-threat-intelligence"></a>When should I use threat intelligence?
-One of the steps of a [security incident response process](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) is to identify the severity of the compromise system(s). In this phase, you should perform the following tasks:
+## <a name="when-should-you-use-threat-intelligence"></a>Tehdit bilgilerini ne zaman kullanmalısınız?
+[Güvenlik olayı yanıt süreci](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) adımlarından biri, tehlike altındaki sistemlerin önem derecesini tanımlamaktır. Bu aşamada aşağıdaki görevleri gerçekleştirmeniz gerekir:
 
-- Determine the nature of the attack
-- Determine the attack point of origin
-- Determine the intent of the attack. Was the attack specifically directed at your organization to acquire specific information, or was it random?
-- Identify the systems that have been compromised
-- Identify the files that have been accessed and determine the sensitivity of those files You can leverage Threat Intelligence information in Security Center to help with these tasks. 
+- Saldırının yapısını belirleme.
+- Saldırının kaynak noktasını belirleme.
+- Saldırının amacını belirleme. Saldırı kuruluşunuza belirli bilgileri elde etme amacıyla mı yapıldı yoksa rastgele bir saldırı mıydı?
+- Gizliliği tehlikeye girmiş sistemleri tanımlayın.
+- Erişilen dosyaları ve bu dosyaların gizlilik düzeyini tanımlayın.
 
-## <a name="how-to-access-the-threat-intelligence"></a>How to access the threat intelligence?
-To visualize the current threat intelligence for your environment, you must first select the workspace that your information resides. If you don’t have multiple workspaces you will not see the workspace selector, and it will go directly to the **Threat intelligence** dashboard. Follow the steps below to access the threat intelligence dashboard:
+Bu görevlerde yardımcı olması için Güvenlik Merkezi'ndeki tehdit bilgilerini kullanabilirsiniz. 
 
-1.  Open **Security Center** dashboard.
-2.  In the left pane, under **Detection** click **Threat intelligence**. The **Threat intelligence** dashboard appears.
+## <a name="access-the-threat-intelligence"></a>Tehdit bilgilerine erişme
+Ortamınız için güncel tehdit bilgilerini görselleştirmek için bilgilerinizin bulunduğu çalışma alanını seçmeniz gerekir. Birden fazla çalışma alanınız yoksa çalışma alanı seçicisini atlayıp doğrudan **Tehdit Bilgileri** panosuna gidersiniz. Panoya erişmek için:
 
-    ![Threat Intel](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
+1. **Güvenlik Merkezi** panosunu açın.
+
+2. Sol bölmede **Algılama**'nın altında **Tehdit bilgileri**'ni seçin. **Tehdit Bilgileri** panosu açılır.
+
+    ![Tehdit bilgileri panosu](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > If the last column shows **UPGRADE PLAN** is because this workspace is using the free subscription, and you need to upgrade to standard to use this feature. If it shows REQUIRES UPDATE is because you need to update the [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) in order to use this feature. For more information about the pricing plan, read Azure Security Center pricing. 
+    > En sağdaki sütunda **PLANI YÜKSELT** görünüyorsa çalışma alanı ücretsiz aboneliği kullanmaktadır. Bu özelliği kullanmak için Standart sürüme yükseltin. En sağdaki sütunda **YÜKSELTME GEREKİYOR** görünüyorsa bu özelliği kullanmak için [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)'i yükseltin. Fiyatlandırma planı hakkında daha fazla bilgi için Azure Güvenlik Merkezi fiyatlandırma sayfasını inceleyin. 
     > 
-3. If you have more than one workspace to investigate, you may prioritize the investigation according to the **MALICIOUS IP** column that shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and then the **Threat intelligence** dashboard appears.
+3. Araştırmanız gereken birden fazla çalışma alanı varsa **Kötü Amaçlı IP** sütununa göre araştırmada öncelik belirleyin. Bu alan çalışma alanındaki güncel kötü amaçlı IP sayısını gösterir. Kullanmak istediğiniz çalışma alanını seçtiğinizde **Tehdit bilgileri** panosu açılır.
 
-    ![Threat Intel](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
+    ![Tehdit bilgileri](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. This dashboard is divided in four tiles:
-    * **Threat types**: summarizes the type of threats were detected in the selected workspace.
-    * **Origin country**: aggregates the amount of traffic according to its source location.
-    * **Threat location**: help you to identify the current locations around the globe that communicates with your environment. There are orange (incoming) and red (outgoing) arrows in this map that identify the traffic direction, if you click in one of these arrows, it will show the type of threat and the traffic direction.
-    * **Threat details**: shows more details about the threat that you selected in the map.
+4. Pano dört kutucuğa ayrılmıştır:
 
-Regardless of which option tile you select, the dashboard that will appear is based on the Log Search  query, the only difference is the type of query and the result.
+    a.  **Tehdit türleri**. Seçilen çalışma alanında algılanan tehdit türlerinin özeti yer alır.
 
-### <a name="threat-types"></a>Threat types
-Once you click the **Threat types** tile the **Log Search** dashboard appears, and there you have the filter options on the left, and the query results in the right.
+    b.  **Çıkış ülkesi**. Trafik miktarını kaynak konuma göre gösterir.
 
-![Threat intel search](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
+    c.  **Tehdit konumu**. Dünya üzerinde ortamınızla iletişim kuran noktaları tanımlamanıza yardımcı olun. Gösterilen haritada turuncu (gelen) ve kırmızı (giden) oklar trafik yönlerini gösterir. Bu oklardan birini seçtiğinizde tehdit türü ve trafik yönü görünür.
 
-The query result shows aggregates the threats by name, You can use the left pane to select the attribute that you want to filter, for example if you want to see only the threats that are current connected to the machines, you select **Connected** in the **SESSIONSTATE**, and click **Apply** button.
+    d.  **Tehdit ayrıntıları**. Haritada seçtiğiniz tehdit hakkında ayrıntılı bilgiler gösterilir.
 
-![session state](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
+Belirlediğiniz seçenek kutucuğundan bağımsız olarak görünen pano Günlük Araması sorgusuna bağlıdır. Tek fark, sorgu türü ve sonuçtur.
 
-For Azure VMs, only the network data that flows through the agent is going to appear in the threat intelligence dashboard. The following data types are also used by threat intelligence:
+### <a name="threat-types"></a>Tehdit türleri
+**Tehdit türleri** kutucuğunu seçerek **Günlük Araması** panosunu açın. Filtre seçenekleri solda, sorgu sonuçları da sağda yer alır.
 
-- CEF Data (Type=CommonSecurityLog)
+![Günlük araması](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
+
+Sorgu sonucu tehditleri ada göre gösterir. Sol bölmeyi kullanarak filtrelemek istediğiniz özniteliği seçebilirsiniz. Örneğin yalnızda bağlı makinelerle ilgili tehditleri görmek için **SESSIONSTATE** bölümünde **Bağlı** > **Uygula**'yı seçin.
+
+![Oturum Durumu](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
+
+Azure VM'leri için **Tehdit bilgileri** panosunda yalnızca aracıdan geçen ağ verileri görüntülenir. Aşağıdaki veri türleri de tehdit bilgileri tarafından kullanılır:
+
+- CEF Verileri (Type=CommonSecurityLog)
 - WireData (Type= WireData)
-- IIS Logs (Type=W3CIISLog)
-- Windows Firewall (Type=WindowsFirewall)
-- DNS Events (Type=DnsEvents)
+- IIS Günlükleri (Type=W3CIISLog)
+- Windows Güvenlik Duvarı (Type=WindowsFirewall)
+- DNS Olayları (Type=DnsEvents)
 
 
-## <a name="see-also"></a>See also
-In this document, you learned how to use threat intelligence in Security Center to assist you identifying suspicious activity. To learn more about Azure Security Center, see the following:
+## <a name="see-also"></a>Ayrıca bkz.
+Bu makalede Güvenlik Merkezi'ndeki tehdit bilgilerini kullanarak şüpheli etkinlikleri tanımlamayı öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-* [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts, and respond to security incidents in Security Center.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
-* [Azure Security Center Troubleshooting Guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center. 
-* [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
-* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
-
+* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Güvenlik Merkezi'nde uyarıları yönetme ve güvenlik olaylarına yanıt vermeyi öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md). Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Farklı güvenlik uyarısı türleri hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi sorun giderme kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin. 
+* [Azure Güvenlik Merkezi SSS](security-center-faq.md). Hizmet kullanımı ile ilgili sık sorulan soruların yanıtlarını bulun.
+* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/). Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.
 

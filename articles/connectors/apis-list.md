@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
 ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connectors-list"></a>Bağlayıcıların listesi
 > [!TIP]
@@ -42,13 +42,13 @@ Bu bağlayıcıları kullanarak veri ve bilgileri başarılı bir şekilde işle
 
 | |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Depolama hesabınızda herhangi bir görevi otomatik hale getirmek isterseniz bu bağlayıcıya bakmanız gerekir. CRUD (create, read, update, delete) işlemlerini destekler. | [![API Icon][Azure-Functionsicon]<br/>**Azure İşlevleri**][azure-functionsdoc] | Özel C# veya node.js kod parçacıkları çalıştıran işlevler oluşturun ve sonra bu işlevleri mantıksal uygulamalarınızda kullanın.  |
-| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | En çok talep gören bağlayıcılardan biridir. Müşteri adayları ile iş akışlarını otomatikleştirmeye ve daha birçok işleme yardımcı olan tetikleyici ve eylemler içerir. | [![API Icon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Bir Olay Hub’ındaki olayları tüketin ve yayımlayın. Örneğin, Event Hubs'ı kullanarak mantıksal uygulamanızdan çıkış alabilir ve ardından söz konusu çıkışı gerçek zamanlı bir analiz sağlayıcısına gönderebilirsiniz. |
-| [![API Icon][FTPicon]<br/>**FTP**][FTPdoc] | FTP sunucunuza İnternet'ten erişilebiliyorsa, iş akışlarını dosya ve klasörlerle çalışacak şekilde otomatikleştirebilirsiniz. <br/><br/>SFTP ayrıca SFTP bağlayıcısı ile kullanılabilir. | [![API Icon][HTTPicon]<br/>**HTTP**][httpdoc] | HTTP üzerinden herhangi bir uç nokta ile iletişim kurmak için mantıksal uygulamaları kullanın. |
-| [![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | İş akışlarınızda Office 365 e-posta ve olaylarını kullanmaya yönelik çok sayıda tetikleyici ve çok daha fazla sayıda eylem. <br/><br/>Bu bağlayıcı, tatil isteklerini, gider raporlarını, vb. onaylamaya yönelik bir *onay e-postası* eylemi içerir. <br/><br/>Office 365 kullanıcıları ayrıca Office 365 Kullanıcıları bağlayıcısı ile kullanılabilir.| [![API Icon][HTTP-Requesticon]<br/>**İstek / Yanıt**][HTTP-Requestdoc] | Bu bağlayıcı bir HTTPS URL'si sağlar. Mantıksal uygulama bu URL’ye yönelik bir istek aldığında mantıksal uygulama başlatılır. |
-| [![API Icon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Müşteri Adayları gibi nesnelere ve daha fazlasına erişmek için Salesforce hesabınızla kolayca oturum açın. |  [![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Mantıksal uygulamalardaki en popüler bağlayıcı olmasının yanı sıra, zaman uyumsuz mesajlaşma ve kuyruklar, abonelikler ve konular ile yayımlama/abone olma işlemlerine yönelik tetikleyiciler ve eylemler içerir. |
-|  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | SharePoint ile bir işlem yapıyor ve otomasyondan yararlanabiliyorsanız, bu bağlayıcıya bakmanız önerilir. Şirket içi SharePoint ve SharePoint Online ile birlikte kullanılabilir. | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | En çok kullanılan bağlayıcılardan biri olmasının yanı sıra, şirket içi SQL Server ve bir Azure SQL Veritabanına bağlanabilir. | 
-| [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Bir Twitter hesabıyla kolayca oturum açın ve yeni tweet gönderildiğinde bir iş akışı başlatın. Daha sonra bu tweetleri bir SQL veritabanı veya SharePoint listesine kaydedin. | | | 
+| [![API Simgesi][AzureBlobStorageicon]<br/>**Azure Blob<br/>Depolama**][AzureBlobStoragedoc] | Depolama hesabınızda herhangi bir görevi otomatik hale getirmek isterseniz bu bağlayıcıya bakmanız gerekir. CRUD (create, read, update, delete) işlemlerini destekler. | [![API Simgesi][Azure-Functionsicon]<br/>**Azure İşlevleri**][azure-functionsdoc] | Özel C# veya node.js kod parçacıkları çalıştıran işlevler oluşturun ve sonra bu işlevleri mantıksal uygulamalarınızda kullanın.  |
+| [![API Simgesi][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | En çok talep gören bağlayıcılardan biridir. Müşteri adayları ile iş akışlarını otomatikleştirmeye ve daha birçok işleme yardımcı olan tetikleyici ve eylemler içerir. | [![API Simgesi][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Bir Olay Hub’ındaki olayları tüketin ve yayımlayın. Örneğin, Event Hubs'ı kullanarak mantıksal uygulamanızdan çıkış alabilir ve ardından söz konusu çıkışı gerçek zamanlı bir analiz sağlayıcısına gönderebilirsiniz. |
+| [![API Simgesi][FTPicon]<br/>**FTP**][FTPdoc] | FTP sunucunuza İnternet'ten erişilebiliyorsa, iş akışlarını dosya ve klasörlerle çalışacak şekilde otomatikleştirebilirsiniz. <br/><br/>SFTP ayrıca SFTP bağlayıcısı ile kullanılabilir. | [![API Simgesi][HTTPicon]<br/>**HTTP**][httpdoc] | HTTP üzerinden herhangi bir uç nokta ile iletişim kurmak için mantıksal uygulamaları kullanın. |
+| [![API Simgesi][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | İş akışlarınızda Office 365 e-posta ve olaylarını kullanmaya yönelik çok sayıda tetikleyici ve çok daha fazla sayıda eylem. <br/><br/>Bu bağlayıcı, tatil isteklerini, gider raporlarını, vb. onaylamaya yönelik bir *onay e-postası* eylemi içerir. <br/><br/>Office 365 kullanıcıları ayrıca Office 365 Kullanıcıları bağlayıcısı ile kullanılabilir.| [![API Simgesi][HTTP-Requesticon]<br/>**İstek/Yanıt**][HTTP-Requestdoc] | Bu bağlayıcı bir HTTPS URL'si sağlar. Mantıksal uygulama bu URL’ye yönelik bir istek aldığında mantıksal uygulama başlatılır. |
+| [![API Simgesi][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Müşteri Adayları gibi nesnelere ve daha fazlasına erişmek için Salesforce hesabınızla kolayca oturum açın. |  [![API Simgesi][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Mantıksal uygulamalardaki en popüler bağlayıcı olmasının yanı sıra, zaman uyumsuz mesajlaşma ve kuyruklar, abonelikler ve konular ile yayımlama/abone olma işlemlerine yönelik tetikleyiciler ve eylemler içerir. |
+|  [![API Simgesi][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | SharePoint ile bir işlem yapıyor ve otomasyondan yararlanabiliyorsanız, bu bağlayıcıya bakmanız önerilir. Şirket içi SharePoint ve SharePoint Online ile birlikte kullanılabilir. | [![API Simgesi][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | En çok kullanılan bağlayıcılardan biri olmasının yanı sıra, şirket içi SQL Server ve bir Azure SQL Veritabanına bağlanabilir. | 
+| [![API Simgesi][Twittericon]<br/>**Twitter**][Twitterdoc] | Bir Twitter hesabıyla kolayca oturum açın ve yeni tweet gönderildiğinde bir iş akışı başlatın. Daha sonra bu tweetleri bir SQL veritabanı veya SharePoint listesine kaydedin. | | | 
 
 ## <a name="integration-account-connectors"></a>Tümleştirme hesabı bağlayıcıları 
 
@@ -56,9 +56,9 @@ Enterprise Integration Pack (EIP), BizTalk Server topluluğu tarafından iyi bil
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][as2icon]<br/>**AS2</br> kod çözme**][as2decode] | [![API Icon][as2icon]<br/>**AS2</br> kodlama**][as2encode] | [![API Icon][x12icon]<br/>**EDIFACT</br> kod çözme**][EDIFACTdecode] | [![API Icon][x12icon]<br/>**EDIFACT</br> kodlama**][EDIFACTencode] |
-[![API Icon][flatfileicon]<br/>**Düz dosya</br> kodlama**][flatfiledoc] | [![API Icon][flatfiledecodeicon]<br/>**Düz dosya</br> kod çözme**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Tümleştirme<br/>hesabı**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**XML<br/>Dönüştürme**][xmltransformdoc] |
-| [![API Icon][x12icon]<br/>**X12</br> kod çözme**][x12decode] | [![API Icon][x12icon]<br/>**X12</br> kodlama**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] | |
+| [![API Simgesi][as2icon]<br/>**AS2</br> kodunu çözme**][as2decode] | [![API Simgesi][as2icon]<br/>**AS2</br> kodlama**][as2encode] | [![API Simgesi][x12icon]<br/>**EDIFACT</br> kodunu çözme**][EDIFACTdecode] | [![API Simgesi][x12icon]<br/>**EDIFACT</br> kodlama**][EDIFACTencode] |
+[![API Simgesi][flatfileicon]<br/>**Düz dosya</br> kodlama**][flatfiledoc] | [![API Simgesi][flatfiledecodeicon]<br/>**Düz dosya</br> kodunu çözme**][flatfiledecodedoc] | [![API Simgesi][integrationaccounticon]<br/>**Tümleştirme<br/>hesabı**][integrationaccountdoc] | [![API Simgesi][xmltransformicon]<br/>**Dönüştürme<br/>XML**][xmltransformdoc] |
+| [![API Simgesi][x12icon]<br/>**X12</br> kodunu çözme**][x12decode] | [![API Simgesi][x12icon]<br/>**X12</br> kodlama**][x12encode] | [![API Simgesi][xmlvalidateicon]<br/>**XML <br/>doğrulama**][xmlvalidatedoc] | |
 
 ## <a name="enterprise-connectors"></a>Kurumsal bağlayıcılar
 
@@ -66,7 +66,7 @@ Mantıksal uygulamalarınızın içinden kurumsal uygulamalarınıza bağlanın.
 
 |  |  |
 | --- | --- |
-|[![API Icon][MQicon]<br/>**MQ**][mqdoc]|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
+|[![API Simgesi][MQicon]<br/>**MQ**][mqdoc]|[![API Simgesi][SAPicon]<br/>**SAP**][sapconnector]|
 
 
 ## <a name="az"></a>A’dan Z’ye tam liste

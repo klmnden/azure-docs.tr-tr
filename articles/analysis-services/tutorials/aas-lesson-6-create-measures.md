@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: ba0030ca25adf13a3a831facec2ded9cff0bd882
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-6-create-measures"></a>6. Ders: Ölçü oluşturma
 
@@ -53,7 +52,7 @@ Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin b
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
     ```
   
-    Sol üstteki hücrenin artık **DaysCurrentQuarterToDate** şeklinde bir adı olduğuna ve adın sonuna sonucun (**92**) eklendiğine dikkat edin.
+    Sol üstteki hücrenin artık **DaysCurrentQuarterToDate** şeklinde bir adı olduğuna ve adın sonuna sonucun (**92**) eklendiğine dikkat edin. Kullanıcı filtresi uygulanmadığından sonuç bu noktada alakalı değildir.
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
@@ -102,7 +101,7 @@ Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin b
     |TaxAmt|InternetTotalTaxAmt|Toplam|=SUM([TaxAmt])|  
     |Nakliye|InternetTotalFreight|Toplam|=SUM([Freight])|  
   
-2.  Ölçü kılavuzundaki boş bir hücreye tıklayıp formül çubuğunu kullanarak aşağıdaki ölçüleri sırasıyla oluşturun ve adlandırın:  
+2.  Ölçü kılavuzundaki boş bir hücreye tıklayıp formül çubuğunu kullanarak aşağıdaki özel ölçüleri sırasıyla oluşturun:  
   
       ```
       InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
@@ -134,4 +133,3 @@ FactInternetSales tablosu için oluşturulan ölçüler, kullanıcının seçti�
 [7. Ders: Önemli Performans Göstergeleri oluşturma](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   
-

@@ -1,6 +1,6 @@
 ---
-title: "Stok toplama ile Azure VM yönetme | Microsoft Docs"
-description: "Stok toplama ile VM yönetme"
+title: "Bir Azure sanal makinesini stok toplama ile yönetme | Microsoft Docs"
+description: "Bir sanal makineyi stok toplama ile yönetme"
 services: automation
 keywords: "stok, otomasyon, değişiklik, izleme"
 author: jennyhunter-msft
@@ -8,59 +8,62 @@ ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: hero-article
 manager: carmonm
+ms.openlocfilehash: bfdd67ac1018f242e415da1a66d93f22bea8d054
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5291d112c2cdf157543fe301d5a5c80f3fe561ae
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Bir Azure sanal makinesini stok toplama ile yönetme
 
-Bir Azure sanal makinesi için makinenin kaynak sayfasından stok izlemesi etkinleştirilebilir. Bu yöntem, stok toplamayı ayarlama ve yapılandırmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar.
+Bir Azure sanal makinesinin kaynak sayfasından sanal makine için stok izlemeyi etkinleştirebilirsiniz. Bu yöntem, stok toplamayı ayarlama ve yapılandırmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar.
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
-Bir Azure sanal makineniz yoksa, başlamadan önce bir [sanal makine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) oluşturun.
+## <a name="before-you-begin"></a>Başlamadan önce
+Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
+Bir Azure sanal makineniz yoksa bir [sanal makine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) oluşturun.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
-
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Sanal makine kaynak sayfasından stok toplamayı etkinleştirme
 
-1. Soldaki ekrandan **Sanal makineler**'i seçin.
-1. Listeden bir sanal makine seçin.
-1. **İşlemler** altındaki kaynak menüsünden **Stok (Önizleme)** öğesini seçin.
-1. Sayfanın üst kısmında, çözümün etkin olmadığını bildiren bir başlık görünür. Çözümü etkinleştirmek için başlığa tıklayın.
-1. Veri günlüklerinizi depolamak için bir Log Analytics Çalışma Alanı seçin. Bu bölge için kullanabileceğiniz bir çalışma alanı yoksa, varsayılan bir çalışma alanı ve Otomasyon hesabı oluşturmanız istenir. Bilgisayarınızı eklemeye başlamak için **Etkinleştir**’e tıklayın.
+1. Azure portalının sol tarafında **Sanal makineler**'i seçin.
+2. Sanal makine listesinden bir sanal makine seçin.
+3. **Kaynak** menüsünde **İşlemler** altında **Sayım (Önizleme)** öğesini seçin.  
+    Pencerenin üst kısmında, çözümün etkin olmadığını bildiren bir başlık görünür. 
+4. Çözümü etkinleştirmek için başlığı seçin.
+5. Veri günlüklerinizi depolamak için bir Log Analytics çalışma alanı seçin.  
+    Bu bölge için kullanabileceğiniz bir çalışma alanı yoksa, varsayılan bir çalışma alanı ve otomasyon hesabı oluşturmanız istenir. 
+6. Bilgisayarınızı eklemeye başlamak için **Etkinleştir**'i seçin.
 
    ![Ekleme seçeneklerini görüntüleme](./media/automation-vm-inventory/inventory-onboarding-options.png)  
-
-1. Çözümün etkinleştirildiği durum çubuğunda bildirilir. Bu işlemin tamamlanması 15 dakika sürebilir. Bu süre boyunca dikey pencereyi kapatabilir veya açık tutabilirsiniz; çözüm etkinleştirildiğinde size bildirilecektir. Dağıtım durumunu bildirimler bölmesinden izleyebilirsiniz.
+    Çözümün etkinleştirildiği durum çubuğunda bildirilir. Bu işlemin tamamlanması 15 dakika sürebilir. Bu süre boyunca pencereyi kapatabilir veya açık tutabilirsiniz; çözüm etkinleştirildiğinde sizi bilgilendirecektir. Dağıtım durumunu bildirimler bölmesinden izleyebilirsiniz.
 
    ![Eklemeden hemen sonra stok çözümünü görüntüleme](./media/automation-vm-inventory/inventory-onboarded.png)
 
-1. Dağıtım tamamlandığında durum çubuğu kaybolur. Bu nokta sistem hala envanter verilerini toplamaktadır ve veriler henüz görünmeyebilir. Tam bir veri toplama işlemi 24 saat sürebilir.
+Dağıtım tamamlandığında durum çubuğu kaybolur. Sistem stok verilerini toplamaktadır ve veriler henüz görünmeyebilir. Tam bir veri toplama işlemi 24 saat sürebilir.
 
 ## <a name="configure-your-inventory-settings"></a>Stok ayarlarınızı yapılandırma
 
-Varsayılan olarak Yazılım, Windows Hizmetleri ve Linux Daemon’ları toplama işlemi için yapılandırılmıştır. Windows Kayıt Defteri ve Dosya stoğunu toplamak için stok toplama ayarlarını yapılandırın.
+Varsayılan olarak yazılım, Windows hizmetleri ve Linux daemon'ları toplama işlemi için yapılandırılmıştır. Windows kayıt defteri ve dosya stoğunu toplamak için stok toplama ayarlarını yapılandırın.
 
-1. **Stok (Önizleme)** görünümünde, sayfanın üst kısmındaki **Ayarları Düzenle** düğmesini seçin.
-2. Yeni bir toplama ayarı eklemek için **Windows Kayıt Defteri**, **Windows Dosyaları** ve **Linux Dosyaları** yazan sekmeleri kullanarak eklemek istediğiniz ayar kategorisine gidin. Sayfanın üstündeki **Ekle**'ye tıklayın.
-3. Her bir ayar özelliğinin ayrıntılarını ve açıklamalarını görüntülemek için [Stok belgeleri sayfasını](https://aka.ms/configinventorydocs) ziyaret edin.
+1. **Sayım (Önizleme)** görünümünde, pencerenin üst kısmındaki **Ayarları Düzenle** düğmesini seçin.
+2. Yeni bir toplama ayarı eklemek için **Windows Kayıt Defteri**, **Windows Dosyaları** ve **Linux Dosyaları** sekmelerini seçerek eklemek istediğiniz ayar kategorisine gidin. 
+3. Pencerenin en üstündeki **Ekle**'yi seçin.
+4. Her bir ayar özelliğinin ayrıntılarını ve açıklamalarını görüntülemek için [Stok belgeleri sayfasını](https://aka.ms/configinventorydocs) ziyaret edin.
 
-## <a name="disconnecting-your-virtual-machine-from-management"></a>Sanal makinenizin yönetim bağlantısını kesme
+## <a name="disconnect-your-virtual-machine-from-management"></a>Sanal makinenizin yönetim bağlantısını kesme
 
-Makinenizi stok yönetiminden kaldırmak için:
+Sanal makinenizi stok yönetiminden kaldırmak için:
 
-1. Azure portalında sol taraftaki menüden **Log Analytics**’e tıklayın ve sanal makinenizi eklerken kullandığınız çalışma alanını tıklayarak seçin.
-1. Log Analytics sayfanızda kaynak menüsündeki **Çalışma Alanı Veri Kaynakları** kategorisi altında bulunan **Sanal makineler**’i seçin. 
-1. Listeden bağlantısını kesmek istediğiniz sanal makineyi seçin. Metnin yanında, **OMS Bağlantısı** sütunda "Bu çalışma alanı" ifadesini içeren bir yeşil onay işareti bulunur. Makinenin yönetim bağlantısını kesmek için sonraki sayfanın üstündeki **Bağlantıyı Kes**’e ve onay iletişim kutusunda **Evet**’e tıklayın.
+1. Azure portalının sol tarafındaki bölmeden **Log Analytics**'i ve sanal makineyi eklerken kullandığınız çalışma alanını seçin.
+2. **Log Analytics** penceresinin **Kaynak** menüsünün **Çalışma Alanı Veri Kaynakları** kategorisinden **Sanal makineler**'i seçin. 
+3. Listeden bağlantısını kesmek istediğiniz sanal makineyi seçin. Sanal makinenin yanında, **OMS Bağlantısı** sütunda **Bu çalışma alanı** ifadesini içeren bir yeşil onay işareti bulunur. 
+4. Sonraki sayfanın en üstünde **Bağlantıyı kes**'i seçin.
+5. Onay penceresinde **Evet**'i seçin.  
+    Bu eylem makinenin yönetim paneli bağlantısını keser.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Sanal makinelerinizdeki dosya ve kayıt defteri ayarlarında yapılan değişiklikleri yönetme hakkında bilgi almak için bkz. [Değişiklik İzleme](../log-analytics/log-analytics-change-tracking.md).
-* Sanal makinelerinizde Windows ve paket güncelleştirmelerini yönetme hakkında bilgi almak için bkz. [Güncelleştirme Yönetimi](../operations-management-suite/oms-solution-update-management.md)
-
+* Sanal makinelerinizdeki dosya ve kayıt defteri ayarlarında yapılan değişiklikleri yönetme hakkında bilgi almak için bkz. [Değişiklik İzleme çözümüyle ortamınızdaki yazılım değişikliklerini izleme](../log-analytics/log-analytics-change-tracking.md).
+* Sanal makinelerinizde Windows ve paket güncelleştirmelerini yönetme hakkında bilgi almak için bkz. [OMS'de Güncelleştirme Yönetimi çözümü](../operations-management-suite/oms-solution-update-management.md).

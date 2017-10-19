@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 70812790348bbf525c7ed6299c656f7dd8e83dff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-4-create-relationships"></a>4. Ders: İlişki oluşturma
 
@@ -34,7 +33,10 @@ Bu dersin tahmini tamamlanma süresi: **10 dakika**
 Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [3. Ders: Tarih Tablosu olarak işaretleme](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Mevcut ilişkileri gözden geçirme ve yeni ilişki ekleme  
-Veri Al seçeneğini kullanarak verileri içeri aktardığınızda, AdventureWorksDW2014 veritabanından yedi tablo aldınız. İlişkisel bir veritabanındaki verileri içeri aktardığınızda, verilerle birlikte genellikle mevcut ilişkiler de otomatik olarak içeri aktarılır. Bununla birlikte, kendi modelinizi yazmaya başlamadan önce tablolar arasındaki bu ilişkilerin düzgün oluşturulduğunu doğrulamanız gerekir. Bu öğretici için üç yeni ilişki eklersiniz.  
+Veri Al seçeneğini kullanarak verileri içeri aktardığınızda, AdventureWorksDW2014 veritabanından yedi tablo aldınız. İlişkisel bir veritabanındaki verileri içeri aktardığınızda, verilerle birlikte genellikle mevcut ilişkiler de otomatik olarak içeri aktarılır. Veri Al seçeneğinin veri modelindeki ilişkileri otomatik olarak oluşturması için veri kaynağındaki tabloların arasında ilişki olması gerekir.
+
+Kendi modelinizi yazmaya başlamadan önce tablolar arasındaki bu ilişkilerin düzgün oluşturulduğunu doğrulamanız gerekir. Bu öğretici için üç yeni ilişki de ekleyeceksiniz.  
+
   
 #### <a name="to-review-existing-relationships"></a>Mevcut ilişkileri gözden geçirmek için  
   
@@ -44,7 +46,10 @@ Veri Al seçeneğini kullanarak verileri içeri aktardığınızda, AdventureWor
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
-    Model tasarımcısının sağ alt köşesindeki mini eşlem denetimlerini kullanarak olabildiğince fazla sayıda tabloyu dahil edin. Ayrıca, tabloları tıklayarak farklı konumlara sürükleme, tabloları birbirine yaklaştırma ya da belirli bir sıralamaya sokma seçeneğiniz de vardır. Tabloların taşınması, tablolar arasında zaten mevcut olan ilişkileri etkilemez. Belirli bir tablodaki tüm sütunları görüntülemek için bir tablonun kenarını tıklayıp sürükleyerek genişletin veya küçültün.  
+    > [!NOTE]
+    > Tablolar arasında ilişki olmaması veri kaynağındaki tabloların arasında da ilişki olmadığı anlamına gelir.
+
+    Model tasarımcısının sağ alt köşesindeki mini eşlem denetimlerini kullanarak olabildiğince fazla sayıda tabloyu dahil edin. Ayrıca, tabloları tıklayarak farklı konumlara sürükleme, tabloları birbirine yaklaştırma ya da belirli bir sıralamaya sokma seçeneğiniz de vardır. Tabloların taşınması, tablolar arasında mevcut olan ilişkileri etkilemez. Belirli bir tablodaki tüm sütunları görüntülemek için bir tablonun kenarını tıklayıp sürükleyerek genişletin veya küçültün.  
   
 2.  **DimCustomer** tablosu ile **DimGeography** tablosu arasındaki kesiksiz çizgiye tıklayın. Bu iki tablo arasındaki kesiksiz çizgi, bu ilişkinin etkin olduğunu, yani DAX formülleri hesaplanırken varsayılan olarak kullanıldığını gösterir.  
   
@@ -63,7 +68,7 @@ Veri Al seçeneğini kullanarak verileri içeri aktardığınızda, AdventureWor
     |Evet|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Evet|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    İlişkilerden herhangi biri eksikse modelinizin şu tabloları içerdiğini doğrulayın: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory ve FactInternetSales. Aynı veri kaynağı bağlantısından alınan tablolar farklı zamanlarda içeri aktarılmışsa, varsa bu tablolar arasındaki ilişkiler oluşturulmaz ve ilişkilerin el ile oluşturulması gerekir.  
+    İlişkilerden herhangi biri eksikse modelinizin şu tabloları içerdiğini doğrulayın: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory ve FactInternetSales. Aynı veri kaynağı bağlantısından alınan tablolar farklı zamanlarda içeri aktarılmışsa, varsa bu tablolar arasındaki ilişkiler oluşturulmaz ve ilişkilerin el ile oluşturulması gerekir. İlişki olmaması, veri kaynağında da ilişki olmadığı anlamına gelir. Bunları veri modelinde el ile oluşturmanız gerekir.
 
 ### <a name="take-a-closer-look"></a>Daha yakından bakın
 Diyagram Görünümü’nde tablolar arasındaki ilişkiyi gösteren çizgilerde bir ok, bir yıldız ve bir rakam olduğuna dikkat edin.
@@ -102,4 +107,3 @@ Bazı durumlarda, zincir iş mantığını desteklemek için modelinizdeki tablo
   
   
   
-

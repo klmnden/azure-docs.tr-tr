@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: a4b3c7543efc33d07dbd4f6c01b6e1bc354d1ed2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: a3a4a90221821de690f72260b2adca07680d30a9
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](active-directory-aadconnect-get-started-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
@@ -71,7 +70,7 @@ Genel yönetici hesabında [Privileged Identity Management](../active-directory-
 
 Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa bkz. [Bağlantı sorunlarını giderme](active-directory-aadconnect-troubleshoot-connectivity.md).
 
-## <a name="pages-under-the-section-sync"></a>Eşitleme bölümünde yer alan sayfalar
+## <a name="pages-under-the-sync-section"></a>Eşitleme bölümünde yer alan sayfalar
 
 ### <a name="connect-your-directories"></a>Dizinlerinizi bağlama
 Azure AD Connect'in, Active Directory Etki Alanı Hizmetinize bağlanabilmesi için yeterli izinlere sahip bir hesabın orman adı ve kimlik bilgilerine sahip olması gerekir.
@@ -232,9 +231,12 @@ Grup İlkesi yönetim araçlarına sahip bir bilgisayarda.
 ## <a name="configuring-federation-with-ad-fs"></a>AD FS ile federasyonu yapılandırma
 Azure AD Connect ile AD FS'yi yalnızca birkaç tıklama ile kolayca yapılandırabilirsiniz. Yapılandırma için aşağıdakiler gereklidir.
 
-* Federasyon sunucusu için uzaktan yönetimi etkinleştirilmiş bir Windows Server 2012 R2 sunucusu
-* Web Uygulaması Ara Sunucusu için uzaktan yönetimi etkinleştirilmiş bir Windows Server 2012 R2 sunucusu
+* Federasyon sunucusu için uzaktan yönetimi etkinleştirilmiş bir Windows Server 2012 R2 veya üzeri sunucu
+* Web Uygulaması Ara Sunucusu için uzaktan yönetimi etkinleştirilmiş bir Windows Server 2012 R2 veya üzeri sunucu
 * Kullanmayı düşündüğünüz federasyon hizmeti adı (örneğin, sts.contoso.com) için bir SSL sertifikası
+
+>[!NOTE]
+>Azure AD Connect bileşenini federasyon güveninizi yönetmek için kullanmıyor olsanız dahi AD FS grubunuzun SSL sertifikasını güncelleştirmek için kullanabilirsiniz.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>AD FS yapılandırması önkoşulları
 Azure AD Connect'i kullanarak AD FS grubunuzu yapılandırmak için uzak sunucularda WinRM'nin etkinleştirildiğinden emin olun. Ayrıca, [Tablo 3 - Azure AD Connect ve Federasyon Sunucuları/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap) bölümünde listelenen bağlantı noktaları gereksinimlerini inceleyin.
@@ -245,6 +247,9 @@ Var olan bir AD FS grubunu kullanabilir veya yeni bir AD FS grubu oluşturmayı 
 ![AD FS Grubu](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
 Var olan bir AD FS grubunu kullanmayı seçerseniz doğrudan AD FS ile Azure AD arasındaki güven ilişkisini yapılandırma ekranına gidersiniz.
+
+>[!NOTE]
+>Azure AD Connect tek bir AD FS grubunu yönetmek için kullanılabilir. Seçilen AD FS grubunda yapılandırılmış Azure AD federasyon güveni varsa bu güven Azure AD Connect tarafından sıfırdan yeniden oluşturulur.
 
 ### <a name="specify-the-ad-fs-servers"></a>AD FS sunucularını belirtme
 AD FS'yi yüklemek istediğiniz sunucuları girin. Kapasite planlama gereksinimlerinize göre bir veya daha fazla sunucu ekleyebilirsiniz. Bu yapılandırmayı gerçekleştirmeden önce tüm sunucuların Active Directory'ye katılmasını sağlayın. Microsoft, test ve pilot dağıtımlar için tek bir AD FS sunucusunun yüklenmesini önerir. Ardından, ölçeklendirme gereksinimlerinizi karşılamak için ilk yapılandırmadan sonra Azure AD Connect'i tekrar çalıştırarak daha fazla sunucu ekleyebilir ve dağıtabilirsiniz.
@@ -350,4 +355,3 @@ Yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [Yan
 Şu genel konu başlıkları hakkında daha fazla bilgi edinin: [Zamanlayıcı ve eşitleme tetikleme](active-directory-aadconnectsync-feature-scheduler.md).
 
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.
-

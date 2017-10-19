@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: saysa
+ms.openlocfilehash: 0fae5fe35c25f97a9eb2c0d648cfb0f66b7f0725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X’te geliştirme ortamınızı ayarlama
 > [!div class="op_single_selector"]
@@ -107,15 +106,13 @@ Java kullanarak Service Fabric hizmetleri oluşturmak için, derleme görevlerin
   sudo apt-get install gradle
 ```
 
-## <a name="set-up-the-service-fabric-cli"></a>Service Fabric CLI’sını ayarlama
+## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Mac'inizde Service Fabric CLI'sını (sfctl) ayarlama
 
-[Service Fabric CLI](service-fabric-cli.md) kümeler ve uygulamalar da dahil olmak üzere Service Fabric varlıklarıyla etkileşime yönelik komutlar içerir. Python tabanlı olduğundan aşağıdaki komutu kullanmadan önce python ve pip’in yüklü olduğundan emin olun:
+Service Fabric CLI'sını (`sfctl`) Mac'inize yüklemek için [Service Fabric CLI'sı](service-fabric-cli.md#cli-mac) talimatlarını izleyin.
+CLI kümeler, uygulamalar ve hizmetler de dahil olmak üzere Service Fabric varlıklarıyla etkileşime yönelik komutlar içerir.
 
-```bash
-pip install sfctl
-```
+## <a name="create-application-on-you-mac-using-yeoman"></a>Yeoman kullanarak Mac'inizde uygulama oluşturma
 
-## <a name="create-application-on-mac-using-yeoman"></a>Yeoman kullanarak Mac uygulaması oluşturma
 Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric uygulaması oluşturmanıza yardımcı olacak yapı iskelesi araçları sağlar. Lütfen makinenizde çalışan bir Service Fabric yeoman şablon oluşturucu olduğundan emin olmak için aşağıdaki adımları izleyin.
 
 1. Mac’inizde Node.js ve NPM yüklü olması gerekir. Yüklü değilse, Node.js ve NPM’yi Homebrew kullanarak aşağıdaki gibi yükleyebilirsiniz. Mac'inizde yüklü Node.js ve NPM sürümlerini denetlemek için ``-v`` seçeneğini kullanabilirsiniz.
@@ -165,4 +162,3 @@ Service Fabric, **Java IDE için Eclipse Neon** için Java hizmetlerini oluştur
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

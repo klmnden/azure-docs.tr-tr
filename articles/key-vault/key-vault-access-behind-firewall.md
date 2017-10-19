@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: da4d156132fba9efc98b3af441b6d095a4bb60ea
-ms.openlocfilehash: e0bc6e75fef1f3567940e30acf6f9f429258be12
-
-
+ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Güvenlik duvarının ardındayken Azure Anahtar Kasası’na erişme
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>S: Anahtar kasası istemci uygulamamın güvenlik duvarının ardında olması gerekiyor. Anahtar kasasına erişebilmek için hangi bağlantı noktaları, konaklar veya IP adreslerini açmam gerekiyor?
@@ -40,7 +40,7 @@ Anahtar kasası istemci uygulamasının, kimlik doğrulaması için Azure Active
 | --- | --- |
 | Microsoft hesabı kullanan kullanıcı<br> (örneğin, user@hotmail.com) |**Genel:**<br> login.microsoftonline.com:443<br><br> **Azure Çin:**<br> login.chinacloudapi.cn:443<br><br>**Azure ABD:**<br> login-us.microsoftonline.com:443<br><br>**Azure Almanya:**<br> login.microsoftonline.de:443<br><br> ve <br>login.live.com:443 |
 | Azure AD ile iş veya okul hesabı kullanan kullanıcı veya hizmet sorumlusu (örneğin, user@contoso.com) |**Genel:**<br> login.microsoftonline.com:443<br><br> **Azure Çin:**<br> login.chinacloudapi.cn:443<br><br>**Azure ABD:**<br> login-us.microsoftonline.com:443<br><br>**Azure Almanya:**<br> login.microsoftonline.de:443 |
-| İş veya okul hesabı ve Active Directory Federasyon Hizmetleri (AD FS) veya başka bir federasyon uç noktası kullanan kullanıcı veya hizmet sorumlusu, user@contoso.com) |İş veya okul hesabı için tüm uç noktalar ve AD FS veya diğer federasyon uç noktaları |
+| İş veya okul hesabı ve Active Directory Federasyon Hizmetleri (AD FS) veya başka bir federasyon uç noktası kullanan kullanıcı veya hizmet sorumlusu (örneğin, user@contoso.com) |İş veya okul hesabı için tüm uç noktalar ve AD FS veya diğer federasyon uç noktaları |
 
 Farklı olası karmaşık senaryolar da mevcuttur. Daha fazla bilgi için bkz. [Azure Active Directory Kimlik Doğrulaması Akışı](/documentation/articles/active-directory-authentication-scenarios/), [Uygulamaları Azure Active Directory ile Tümleştirme](/documentation/articles/active-directory-integrating-applications/) ve [Active Directory Kimlik Doğrulaması Protokolleri](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
 
@@ -64,10 +64,4 @@ Anahtar Kasası hizmeti, PaaS altyapısı gibi diğer Azure kaynaklarını kulla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Anahtar Kasası ile ilgili sorularınız varsa bkz. [Azure Anahtar Kasası Forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

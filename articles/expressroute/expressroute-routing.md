@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
+ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e6e2009717430a692528cd3ec3a2c6e46a12fe03
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:
@@ -73,10 +72,18 @@ BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanm
 ### <a name="public-peering"></a>Ortak eşleme
 Azure ortak eşleme yolu, Azure’da barındırılan tüm hizmetlere ortak IP adresleri üzerinden bağlanmanıza olanak sağlar. Bunlar [ExpessRoute hakkında SSS](expressroute-faqs.md)’de listelenen tüm hizmetleri ve ISV’ler tarafından Microsoft Azure üzerinde barındırılan hizmetleri içerir. Ortak eşleme üzerinden Microsoft Azure hizmetlerine bağlama, her zaman sizin ağınızdan Microsoft ağına doğru başlatılır. Microsoft ağını hedefleyen trafik için Genel IP adreslerini kullanmanız gerekir.
 
+> [!IMPORTANT]
+> Tüm Azure PaaS hizmetlerine Microsoft eşlemesi üzerinden de erişilebilir. Microsoft eşlemesi oluşturmanızı ve Azure PaaS hizmetlerine Microsoft eşlemesi üzerinden bağlanmanızı öneririz.  
+>   
+
+
+Genel Eşleme ile Özel AS Numarası kullanılabilir.
+
 ### <a name="microsoft-peering"></a>Microsoft eşlemesi
-Microsoft eşleme yolu, Azure ortak eşleme yolu üzerinden desteklenmeyen Microsoft bulut hizmetlerine bağlanmanızı sağlar. Bunlara Exchange Online, SharePoint Online, Skype Kurumsal ve Dynamics 365 gibi Office 365 hizmetleri dahildir. Microsoft, Microsoft eşlemesi üzerinde çift yönlü bağlantıyı destekler. Microsoft bulut hizmetlerini hedefleyen trafik, Microsoft ağına girmeden önce geçerli genel IPv4 adresleri kullanmalıdır.
+Microsoft eşlemesi, genel IP adreslerinde barındırılan tüm Microsoft bulut hizmetlerine bağlanmanızı sağlar. Bu hizmetler Office 365, Dynamics 365 ve Microsoft Azure PaaS hizmetleridir. Microsoft, Microsoft eşlemesi üzerinde çift yönlü bağlantıyı destekler. Microsoft bulut hizmetlerini hedefleyen trafik, Microsoft ağına girmeden önce geçerli genel IPv4/IPv6 adresleri kullanmalıdır.
 
 IP adresi ve AS numarasının aşağıdaki kayıt defterlerinden birinde size kayıtlı olduğundan emin olun:
+
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -85,6 +92,10 @@ IP adresi ve AS numarasının aşağıdaki kayıt defterlerinden birinde size ka
 * [RIPENCC](https://www.ripe.net/)
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
+
+Ön ekleriniz ve AS numaranız yukarıdaki kayıtlarla atanmamışsa ön eklerinizin ve ASN değerinizin el ile doğrulanması amacıyla bir destek olayı oluşturmanız gerekir. Destek ekibi kaynakları kullanma izniniz olduğunu gösteren Yetki Yazısı gibi bir belge talep edecektir.
+
+Özel AS Numarası, Microsoft Eşlemesi ile birlikte kullanılabilir ancak bunun için de el ile doğrulama yapılması gerekecektir.
 
 > [!IMPORTANT]
 > ExpressRoute üzerinden Microsoft'a tanıtılan genel IP adreslerinin İnternet’e tanıtılması gerekmez. Bu, diğer Microsoft hizmetlerine bağlantıyı kesebilir. Ancak ağınızda Microsoft içindeki O365 uç noktalarıyla iletişim kuran sunucular tarafından kullanılan Genel IP adresleri, ExpressRoute üzerinden tanıtılabilir. 
@@ -134,39 +145,40 @@ Bir jeopolitik bölge için birden fazla ExpressRoute devresi satın alabilirsin
 | **Microsoft Azure bölgesi** | **BGP topluluk değeri** |
 | --- | --- |
 | **Kuzey Amerika** | |
-| Doğu ABD |12076:51004 |
-| Doğu ABD 2 |12076:51005 |
-| Batı ABD |12076:51006 |
-| Batı ABD 2 |12076:51026 |
-| Batı Orta ABD |12076:51027 |
-| Orta Kuzey ABD |12076:51007 |
-| Orta Güney ABD |12076:51008 |
-| Orta ABD |12076:51009 |
-| Orta Kanada |12076:51020 |
-| Doğu Kanada |12076:51021 |
+| Doğu ABD | 12076:51004 |
+| Doğu ABD 2 | 12076:51005 |
+| Batı ABD | 12076:51006 |
+| Batı ABD 2 | 12076:51026 |
+| Batı Orta ABD | 12076:51027 |
+| Orta Kuzey ABD | 12076:51007 |
+| Orta Güney ABD | 12076:51008 |
+| Orta ABD | 12076:51009 |
+| Orta Kanada | 12076:51020 |
+| Doğu Kanada | 12076:51021 |
 | **Güney Amerika** | |
-| Güney Brezilya |12076:51014 |
+| Güney Brezilya | 12076:51014 |
 | **Avrupa** | |
-| Kuzey Avrupa |12076:51003 |
-| Batı Avrupa |12076:51002 |
+| Kuzey Avrupa | 12076:51003 |
+| Batı Avrupa | 12076:51002 |
 | Birleşik Krallık Güney | 12076:51024 |
 | Birleşik Krallık Batı | 12076:51025 |
 | **Asya Pasifik** | |
-| Doğu Asya |12076:51010 |
-| Güneydoğu Asya |12076:51011 |
+| Doğu Asya | 12076:51010 |
+| Güneydoğu Asya | 12076:51011 |
 | **Japonya** | |
-| Japonya Doğu |12076:51012 |
-| Japonya Batı |12076:51013 |
+| Japonya Doğu | 12076:51012 |
+| Japonya Batı | 12076:51013 |
 | **Avustralya** | |
-| Avustralya Doğu |12076:51015 |
-| Avustralya Güneydoğu |12076:51016 |
+| Avustralya Doğu | 12076:51015 |
+| Avustralya Güneydoğu | 12076:51016 |
 | **Hindistan** | |
-| Hindistan Güney |12076:51019 |
-| Hindistan Batı |12076:51018 |
-| Hindistan Orta |12076:51017 |
+| Hindistan Güney | 12076:51019 |
+| Hindistan Batı | 12076:51018 |
+| Hindistan Orta | 12076:51017 |
 | **Kore** | |
-| Kore Güney |12076:51028 |
-| Kore Orta |12076:51029 |
+| Kore Güney | 12076:51028 |
+| Kore Orta | 12076:51029 |
+
 
 Microsoft tarafından tanıtılan tüm yollar uygun topluluk değeriyle etiketlenecektir. 
 
@@ -179,11 +191,11 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 
 | **Hizmet** | **BGP topluluk değeri** |
 | --- | --- |
-| Exchange Online |12076:5010 |
-| SharePoint Online |12076:5020 |
-| Skype Kurumsal Çevrimiçi Sürüm |12076:5030 |
-| Dynamics 365 |12076:5040 |
-| Diğer Office 365 Çevrimiçi hizmetleri |12076:5100 |
+| Exchange Online | 12076:5010 |
+| SharePoint Online | 12076:5020 |
+| Skype Kurumsal Çevrimiçi Sürüm | 12076:5030 |
+| Dynamics 365 | 12076:5040 |
+| Diğer Office 365 Çevrimiçi hizmetleri | 12076:5100 |
 
 > [!NOTE]
 > Microsoft, Microsoft'a tanıtılan yollar üzerinde ayarladığınız hiçbir BGP topluluk değerini dikkate almaz.
@@ -218,5 +230,4 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
   * [Klasik dağıtım modeli için ExpressRoute devresi oluşturma](expressroute-howto-circuit-classic.md) veya [Azure Resource Manager kullanarak ExpressRoute devresi oluşturma ya da değiştirme](expressroute-howto-circuit-arm.md)
   * [Klasik dağıtım modeli için yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md) veya [Resource Manager dağıtım modeli için yönlendirmeyi yapılandırma](expressroute-howto-routing-arm.md)
   * [Klasik VNet’i ExpressRoute devresine bağlama](expressroute-howto-linkvnet-classic.md) veya [Resource Manager VNet’i ExpressRoute devresine bağlama](expressroute-howto-linkvnet-arm.md)
-
 

@@ -12,22 +12,19 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus konuları ile çalışmaya başlama
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-## <a name="what-will-be-accomplished"></a>Ne elde edilecek
-
-Bu öğretici aşağıdaki adımları kapsamaktadır:
+Bu öğreticide aşağıdaki adımlar yer almaktadır:
 
 1. Azure portalı ile Service Bus ad alanı oluşturma.
 2. Azure portalı ile Service Bus konusu oluşturma.
@@ -37,7 +34,7 @@ Bu öğretici aşağıdaki adımları kapsamaktadır:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılır.
+1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılmaktadır.
 2. Azure aboneliği.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -83,7 +80,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
 ### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet paketi ekleme
 
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
-2. **Gözat** sekmesine tıklayın, **Microsoft Azure Service Bus** araması yapın ve **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
+2. **Gözat** sekmesine tıklayın, **WindowsAzure.ServiceBus** araması yapın ve **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
    
     ![NuGet paketi seçme][nuget-pkg]
 
@@ -157,7 +154,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. `Main` yöntemine aşağıdaki kodu ekleyin. `connectionString` değişkenini, ad alanını oluştururken elde ettiğiniz bağlantı dizesine, `topicName` değerini ise konuyu oluştururken kullandığınız ada ayarlayın.
+3. `Main` yöntemine aşağıdaki kodu ekleyin. `connectionString` değişkenini, ad alanını oluştururken elde ettiğiniz bağlantı dizesine, `topicName` değerini ise konuyu oluştururken kullandığınız ada ayarlayın. `<your subscription name>` yerine 3. adımda oluşturduğunuz aboneliğin adını yazmayı unutmayın. 
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -212,7 +209,7 @@ Tebrikler! Bir konu ve abonelik oluşturdunuz, ileti gönderdiniz ve bu iletiyi 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazılarını gösteren [örneklerle GitHub depomuza](https://github.com/Azure/azure-service-bus/tree/master/samples) göz atın.
+Service Bus mesajlaşmasının daha gelişmiş özelliklerini gösteren [örneklerin bulunduğu GitHub depomuza](https://github.com/Azure/azure-service-bus/tree/master/samples) göz atın.
 
 <!--Image references-->
 
@@ -225,4 +222,3 @@ Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazılarını g�
 [createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 [azure-portal]: https://portal.azure.com
-

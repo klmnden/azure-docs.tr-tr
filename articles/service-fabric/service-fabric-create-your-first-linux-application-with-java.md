@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2017
 ms.author: ryanwi
+ms.openlocfilehash: c7625a5670aca5d105601432fedfd0d7a78bb53c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: 68f9492231d367b1ede6ab032ec1c66c75150957
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux üzerinde ilk Java Service Fabric Reliable Actors uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -34,7 +33,7 @@ Bu hızlı başlangıç, bir Linux geliştirme ortamında ilk Azure Service Fabr
 ## <a name="prerequisites"></a>Ön koşullar
 Başlamadan önce Service Fabric SDK’sı ile Service Fabric CLI aracını yükleyin ve [Linux geliştirme ortamınızda](service-fabric-get-started-linux.md) bir geliştirme kümesi kurun. Mac OS X kullanıyorsanız, [Vagrant kullanarak bir sanal makinede Linux geliştirme ortamı ayarlayabilirsiniz](service-fabric-get-started-mac.md).
 
-[Service Fabric CLI](service-fabric-cli.md)’yı de yüklemeniz gerekir.
+[Service Fabric CLI](service-fabric-cli.md)'sını da yükleyin.
 
 ### <a name="install-and-set-up-the-generators-for-java"></a>Java için oluşturucuları yükleme ve ayarlama
 Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric Java uygulaması oluşturmanıza yardımcı olacak yapı iskelesi araçları sağlar. Lütfen makinenizde çalışan bir Java için Service Fabric yeoman şablon oluşturucu olduğundan emin olmak için aşağıdaki adımları izleyin.
@@ -49,11 +48,28 @@ Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric
   ```bash
   sudo npm install -g yo
   ```
-3. NPM’den Service Fabric Yeo Java uygulama oluşturucuyu yükleme
+3. NPM'den Service Fabric Yeoman Java uygulama oluşturucuyu yükleme
 
   ```bash
   sudo npm install -g generator-azuresfjava
   ```
+
+## <a name="basic-concepts"></a>Temel kavramlar
+Reliable Actors hizmetini kullanmaya başlamak için anlamanız gereken birkaç temel kavram vardır:
+
+* **Aktör hizmeti**. Reliable Actors, Service Fabric altyapısında dağıtılabilen Reliable Services ile paketlenmiştir. Aktör örnekleri adlandırılmış hizmet örneğinde etkinleştirilir.
+* **Aktör kaydı**. Reliable Services gibi Reliable Actor hizmetinin de Service Fabric çalışma zamanıyla kaydedilmesi gerekir. Ayrıca aktör türü de Actor çalışma zamanına kaydedilmelidir.
+* **Aktör arabirimi**. Aktör arabirimi, bir aktörün baskın türdeki genel arabirimini tanımlamak için kullanılır. Reliable Actor model terminolojisinde aktör arabirimi, aktörün anlayıp işleyebileceği ileti türlerini tanımlamak için kullanılır. Aktör arabirimi diğer aktörler ve istemci uygulamaları tarafından aktöre ileti "göndermek" (zaman uyumsuz) amacıyla kullanılır. Reliable Actors birden fazla arabirim uygulayabilir.
+* **ActorProxy sınıfı**. ActorProxy sınıfı, istemci uygulamaları tarafından aktör arabirimi aracılığıyla kullanıma sunulan yöntemleri çağırmak için kullanılır. ActorProxy sınıfı iki önemli işlev sunar:
+  
+  * Ad çözümlemesi: Aktörü kümenin konumunu belirleyebilir (kümenin barındırıldığı düğümü bulabilir).
+  * Hata işleme: Yöntem çağrılarını yeniden deneyebilir ve ardından aktör konumunu yeniden çözümleyebilir. Örnek olarak aktörün küme içindeki başka bir düğüme alınmasını gerektiren hata verilebilir.
+
+Aktör arabirimlerinde geçerli olan önemli kurallar aşağıda verilmiştir:
+
+* Aktör arabirim yöntemlerine aşırı yükleme yapılamaz.
+* Aktör arabirimi yöntemleri çıkış, başvuru veya isteğe bağlı parametrelere sahip olmamalıdır.
+* Genel arabirimler desteklenmez.
 
 ## <a name="create-the-application"></a>Uygulama oluşturma
 Service Fabric uygulaması bir veya birden çok hizmet içerir ve bu hizmetlerin her biri, uygulamanın işlevselliğini sunma konusunda belirli bir role sahiptir. Son bölümde yüklediğiniz oluşturucu, ilk hizmetinizi oluşturmayı ve daha sonra hizmet eklemeyi kolaylaştırır.  Service Fabric Java uygulamalarını Eclipse’e yönelik bir eklentiyi kullanarak da oluşturabilir, derleyebilir ve dağıtabilirsiniz. Bkz. [Eclipse kullanarak ilk Java uygulamanızı oluşturma ve dağıtma](service-fabric-get-started-eclipse.md). Bu hızlı başlangıç için bir sayaç değerini alan ve depolayan tek bir hizmete sahip bir uygulama oluşturmak üzere Yeoman’ı kullanın.
@@ -62,6 +78,118 @@ Service Fabric uygulaması bir veya birden çok hizmet içerir ve bu hizmetlerin
 2. Uygulamanızı adlandırın.
 3. Birinci hizmetinizin türünü seçin ve adlandırın. Bu öğretici için bir Reliable Actor Hizmeti seçin. Diğer hizmet türleri hakkında daha fazla bilgi edinmek için bkz. [Service Fabric programlama modeline genel bakış](service-fabric-choose-framework.md).
    ![Java için Service Fabric Yeoman oluşturucusu][sf-yeoman]
+
+Uygulamaya "HelloWorldActorApplication", aktöre de "HelloWorldActor" adını verirseniz aşağıdaki yapı iskelesi oluşturulur:
+
+```bash
+HelloWorldActorApplication/
+├── build.gradle
+├── HelloWorldActor
+│   ├── build.gradle
+│   ├── settings.gradle
+│   └── src
+│       └── reliableactor
+│           ├── HelloWorldActorHost.java
+│           └── HelloWorldActorImpl.java
+├── HelloWorldActorApplication
+│   ├── ApplicationManifest.xml
+│   └── HelloWorldActorPkg
+│       ├── Code
+│       │   ├── entryPoint.sh
+│       │   └── _readme.txt
+│       ├── Config
+│       │   ├── _readme.txt
+│       │   └── Settings.xml
+│       ├── Data
+│       │   └── _readme.txt
+│       └── ServiceManifest.xml
+├── HelloWorldActorInterface
+│   ├── build.gradle
+│   └── src
+│       └── reliableactor
+│           └── HelloWorldActor.java
+├── HelloWorldActorTestClient
+│   ├── build.gradle
+│   ├── settings.gradle
+│   ├── src
+│   │   └── reliableactor
+│   │       └── test
+│   │           └── HelloWorldActorTestClient.java
+│   └── testclient.sh
+├── install.sh
+├── settings.gradle
+└── uninstall.sh
+```
+## <a name="reliable-actors-basic-building-blocks"></a>Reliable Actors temel parçaları
+Önceki bölümlerde anlatılan temel kavramlar, Reliable Actor hizmetinin temel parçalarını oluşturur.
+
+### <a name="actor-interface"></a>Aktör arabirimi
+Aktör arabirimi tanımını içerir. Bu arabirim, aktör uygulaması ve aktörü çağıran istemciler tarafından paylaşılan aktör anlaşmasını tanımlar. Bu nedenle aktör uygulamasından ayrı bir yerde tanımlayıp birden fazla hizmet veya istemci uygulamasına paylaştırmak mantıklı bir yaklaşımdır.
+
+`HelloWorldActorInterface/src/reliableactor/HelloWorldActor.java`:
+
+```java
+public interface HelloWorldActor extends Actor {
+    @Readonly   
+    CompletableFuture<Integer> getCountAsync();
+
+    CompletableFuture<?> setCountAsync(int count);
+}
+```
+
+### <a name="actor-service"></a>Aktör hizmeti
+Aktör uygulamanızı ve aktör kayıt kodunu içerir. Aktör sınıfı aktör arabirimini uygular. Aktörünüz görevini burada yapar.
+
+`HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
+
+```java
+@ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActor {
+    Logger logger = Logger.getLogger(this.getClass().getName());
+
+    protected CompletableFuture<?> onActivateAsync() {
+        logger.log(Level.INFO, "onActivateAsync");
+
+        return this.stateManager().tryAddStateAsync("count", 0);
+    }
+
+    @Override
+    public CompletableFuture<Integer> getCountAsync() {
+        logger.log(Level.INFO, "Getting current count value");
+        return this.stateManager().getStateAsync("count");
+    }
+
+    @Override
+    public CompletableFuture<?> setCountAsync(int count) {
+        logger.log(Level.INFO, "Setting current count value {0}", count);
+        return this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value);
+    }
+}
+```
+
+### <a name="actor-registration"></a>Aktör kaydı
+Aktör hizmetinin Service Fabric çalışma zamanındaki bir hizmet türüne kaydedilmesi gerekir. Aktör hizmetinin aktör örneklerinizi çalıştırması için aktör türünüzün de aktör hizmetine kaydedilmesi gerekir. `ActorRuntime` kayıt yöntemi bu işi aktörlerin yerine gerçekleştirir.
+
+`HelloWorldActor/src/reliableactor/HelloWorldActorHost`:
+
+```java
+public class HelloWorldActorHost {
+
+    public static void main(String[] args) throws Exception {
+
+        try {
+            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), Duration.ofSeconds(10));
+
+            Thread.sleep(Long.MAX_VALUE);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+}
+```
 
 ## <a name="build-the-application"></a>Uygulama oluşturma
 Service Fabric Yeoman şablonları, uygulamayı terminalden oluşturmak için kullanabileceğiniz bir [Gradle](https://gradle.org/) derleme betiği içerir.
@@ -229,4 +357,3 @@ Service Fabric Java kitaplıklarını yakın zamanda Service Fabric Java SDK’s
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
-

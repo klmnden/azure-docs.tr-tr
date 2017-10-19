@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/19/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 07151fdf79d3b06f3144fbebff9015645b1ed000
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lesson-2-get-data"></a>2. Ders: Verileri alma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
@@ -30,6 +28,9 @@ ms.lasthandoff: 06/03/2017
 Bu derste, SSDT’deki Verileri Al özelliğini kullanarak AdventureWorksDW2014 örnek veritabanına erişir, verileri seçer, önizleme ve filtreleme uygular ve sonra model çalışma alanınıza aktarırsınız.  
   
 Verileri Al’ı kullanarak birçok farklı kaynaktaki verileri içeri aktarabilirsiniz: Azure SQL Veritabanı, Oracle, Sybase, OData Feed, Teradata, dosyalar ve daha fazlası. Veriler bir Power Query M formül ifadesi kullanılarak da sorgulanabilir.
+
+> [!NOTE]
+> Bu öğreticideki görevler ve görüntüler şirket içi sunucuda AdventureWorksDW2014 veritabanına bağlanmayı gösterir. Bazı durumlarda Azure'daki AdventureWorksDW2014 veritabanı farklı olabilir.
   
 Bu dersin tahmini tamamlanma süresi: **10 dakika**  
   
@@ -71,13 +72,19 @@ AdventureWorksDW2014 örnek veritabanındaki tablolar, modelinize eklenmesi gere
   
 #### <a name="to-filter-the-table-data-before-importing"></a>İçeri aktarmadan önce tablo verilerini filtrelemek için  
   
-1.  Sorgu Düzenleyicisi’nde **DimCustomer** tablosunu seçin. Veri kaynağında (AdventureWorksDWQ2014 örnek veritabanınız) DimCustomer tablosunun bir görünümü açılır. 
+1.  Sorgu Düzenleyicisi’nde **DimCustomer** tablosunu seçin. Veri kaynağında (AdventureWorksDW2014 örnek veritabanınız) DimCustomer tablosunun bir görünümü açılır. 
   
 2.  Çoklu seçimi (Ctrl+tıklama) kullanarak **SpanishEducation**, **FrenchEducation**, **SpanishOccupation**, **FrenchOccupation**’ı seçin, sağ tıklayın ve **Sütunları Kaldır**’a tıklayın. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     Bu sütunlardaki değerler İnternet satışları analiziyle ilgili olmadığından, bu sütunların içeri aktarılması gerekmez. Gereksiz sütunların dışarıda bırakılması, modelinizin daha küçük ve daha verimli olmasını sağlar.  
+
+    > [!TIP]
+    > Hata yaparsanız **UYGULANAN ADIMLAR** içindeki adımlardan birini silerek yedekleyebilirsiniz.   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  Her tabloda aşağıdaki sütunları kaldırarak geriye kalan tabloları da filtreleyin:  
     
@@ -85,7 +92,7 @@ AdventureWorksDW2014 örnek veritabanındaki tablolar, modelinize eklenmesi gere
     
       |Sütun|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -130,11 +137,7 @@ AdventureWorksDW2014 örnek veritabanındaki tablolar, modelinize eklenmesi gere
   
     **FactInternetSales**
   
-      |Sütun|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      Hiçbir sütun kaldırılmadı.
   
 ## <a name="Import"></a>Seçilen tabloları ve sütun verilerini içeri aktarma  
 Gereksiz verilerin önizlemesini yapıp bunları filtrelediğinize göre, artık geriye kalan ve istediğiniz verileri içeri aktarabilirsiniz. Sihirbaz, tablo verilerinin yanı sıra varsa tablolar arasındaki ilişkileri içeri aktarır. Modelde yeni tablolar ile sütunlar oluşturulur ve filtrelediğiniz veriler içeri aktarılmaz.  
@@ -160,4 +163,3 @@ Model projenizi sık sık kaydetmeniz önemlidir.
 
   
   
-

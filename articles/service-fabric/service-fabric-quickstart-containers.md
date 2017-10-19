@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 10/02/2017
 ms.author: ryanwi
+ms.openlocfilehash: bc7bee3caed2eba0a3f49d79241cd8685333ba13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: c4f8c94e23a165b22533ffd74e04c9a7310f2d22
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Azure’da bir Service Fabric Windows kapsayıcı uygulaması dağıtma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
 
@@ -51,7 +49,7 @@ Visual Studio'yu “Yönetici” olarak başlatın.  **Dosya** > **Yeni** > **Pr
 
 **Hizmet şablonları** listesinden **Kapsayıcı**’yı seçin.
 
-**Görüntü Adı** olarak "nanoserver/iis" değerini [Windows Server 2016 Nano Server ve IIS temel görüntüsü](https://hub.docker.com/r/nanoserver/iis/)’nü seçin. 
+**Görüntü Adı** olarak "microsoft/iis:nanoserver" değerini [Windows Server Nano Server ve IIS temel görüntüsü](https://hub.docker.com/r/microsoft/iis/)'nü seçin. 
 
 Hizmeti "MyContainerService" olarak adlandırın ve **Tamam**’a tıklayın.
 
@@ -68,6 +66,7 @@ ApplicationManifest.xml dosyasının `ContainerHostPolicies` kısmında bir `Por
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -94,7 +93,7 @@ Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıt
 
 ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-Kümenin Bağlantı Uç Noktasını **Bağlantı Uç Noktası** alanına girin ve **Yayımla**’ya tıklayın. Grup kümesine kaydolurken Bağlantı Uç Noktası tarayıcıda sağlanır. Örneğin `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+Kümenin bağlantı uç noktasını **Bağlantı Uç Noktası** alanına girin. Grup kümesine kaydolurken bağlantı uç noktası tarayıcıda sağlanır. Örneğin: `winh1x87d1d.westus.cloudapp.azure.com:19000`.  **Yayımla**'ya tıkladığınızda uygulama dağıtılır.
 
 Bir tarayıcı penceresi açıp http://winh1x87d1d.westus.cloudapp.azure.com:80 adresine gidin. IIS varsayılan web sayfasını görmeniz gerekir: ![IIS varsayılan web sayfası][iis-default]
 
@@ -120,7 +119,7 @@ Bu hızlı başlangıçta kullanılan tam hizmet ve uygulama bildirimleri aşağ
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -198,4 +197,3 @@ Bu hızlı başlangıçta şunları öğrendiniz:
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
-

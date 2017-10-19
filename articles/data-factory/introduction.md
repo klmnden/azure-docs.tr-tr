@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: shlo
+ms.openlocfilehash: ef7055342a04057acfba9dad350f654aa4de6096
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 09e514aee503b7cb045c81d8ddcb855ced9b072b
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory'ye giriş 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,10 +57,10 @@ Veriler buluttaki merkezi bir veri deposuna sunulduktan sonra, toplanan verileri
 Ham veriler iş için kullanılabilir biçime getirildiğine göre, verileri Azure Veri Ambarı, Azure SQL DB, Azure CosmosDB’ye veya şirket kullanıcılarınızın iş zekası araçlarından işaret edebildiği herhangi bir analiz altyapısına yükleyebilirsiniz.
 
 ### <a name="monitor"></a>İzleme
-Veri tümleştirme işlem hattınızı başarıyla oluşturup dağıtarak iyileştirilmiş verilerden iş değeri elde ettikten sonra, başarı ve hata oranları için zamanlanmış etkinlikleri ve işlem hatlarını izlemeniz gerekir. Azure Data Factory; Azure İzleyici, API, PowerShell, OMS ve Azure portalındaki sistem durumu panelleri aracılığıyla işlem hattı izlemek için yerleşik destek sunmaktadır.
+Veri tümleştirme işlem hattınızı başarıyla oluşturup dağıtarak iyileştirilmiş verilerden iş değeri elde ettikten sonra, başarı ve hata oranları için zamanlanmış etkinlikleri ve işlem hatlarını izlemeniz gerekir. Azure Data Factory; Azure İzleyici, API, PowerShell, Microsoft Operations Management Suite (OMS) ve Azure portalındaki sistem durumu panelleri aracılığıyla işlem hattı izlemek için yerleşik destek sunmaktadır.
 
 ## <a name="whats-different-in-version-2"></a>Sürüm 2’nin farkları nelerdir?
-Azure Data Factory sürüm 2, özgün Azure Data Factory veri taşıma ve dönüştürme hizmetinin üzerine kurulmuştur ve daha fazla bulut öncelikli veri tümleştirme senaryosunu kapsar. Azure Data Factory V2 aşağıdaki özellikleri sunar:
+Azure Data Factory sürüm 2, özgün Azure Data Factory veri taşıma ve dönüştürme hizmetinin üzerine kurulmuştur ve daha fazla bulut öncelikli veri tümleştirme senaryosunu kapsar. Azure Data Factory Sürüm 2 aşağıdaki özellikleri sunar:
 
 - Denetim Akışı ve Ölçeklendirme
 - Azure’da SSIS paketlerini dağıtma ve çalıştırma
@@ -98,17 +97,21 @@ Daha fazla bilgi için bkz. [öğretici: denetim akışı](tutorial-control-flow
 SSIS iş yüklerinizi taşımak istiyorsanız, data factory sürüm 2 oluşturabilir ve bir Azure SSIS Tümleştirmesi Çalışma Zamanı (IR) sağlayabilirsiniz. Azure-SSIS IR, bulutta SSIS paketlerinizi çalıştırmaya ayrılmış Azure VM’lerin (düğümler) tam yönetilen bir kümesidir. Adım adım yönergeler için bkz. [SSIS paketlerini Azure'a dağıtma](tutorial-deploy-ssis-packages-azure.md). 
  
 
-## <a name="rich-cross-platform-sdks"></a>Platformlar arası zengin SDK’lar
+### <a name="sdks"></a>SDK’lar
 İleri düzey bir kullanıcıysanız ve bir programlama arabirimi arıyorsanız, sürüm 2 sık kullandığınız IDE’yi kullanarak işlem hattı oluşturmak, yönetmek ve izlemek için kullanılabilen zengin bir SDK kümesi sağlar.
 
-- .NET SDK
-- PowerShell
-- Python SDK'sı
+- .NET SDK - .NET SDK, sürüm 2 için güncelleştirilmiştir. 
+- PowerShell - PowerShell cmdlet'leri sürüm 2 için güncelleştirilmiştir. Sürüm 2 cmdlet'lerinin adında **DataFactoryV2** vardır. Örneğin: Get-AzureRmDataFactoryV2. 
+- Python SDK - Bu SDK sürüm 2 içindir.
+- REST API - REST API, sürüm 2 için güncelleştirilmiştir.  
 
-Veri fabrikaları oluşturmak için REST API de kullanabilirsiniz. 
+Sürüm 2 için güncelleştirilmiş olan SDK'lar sürüm 1 istemcileriyle uyumlu değildir. 
+
+### <a name="monitoring"></a>İzleme
+Şu anda sürüm 2 veri fabrikalarının yalnızca SDK kullanılarak izlenmesini desteklemektedir. Portal henüz sürüm 2 veri fabrikalarını izleme desteği sunmamaktadır. 
 
 ## <a name="load-the-data-into-a-lake"></a>Verileri göle yükleme
-Data Factory, verileri karma ve heterojen ortamlardan Azure’a yüklemenizi sağlayan 30’dan fazla bağlayıcıya sahiptir.  Dahili testlerin en son performans sonuçları ve ayarlama önerileri için bkz. [Performans ve Ayarlama Kılavuzu](copy-activity-performance.md). Ayrıca, kısa süre önce daha iyi kullanılabilirlik ve ölçeklenebilirlik için büyük katman 1 kurumsal müşterilerini ele almak üzere özel bir ağ ortamına yüklediğiniz şirket içi barındırılan Tümleştirme Çalışma Zamanı için Yüksek Kullanılabilirlik ve Ölçeklenebilirlik özelliğini etkinleştirdik.
+Data Factory, verileri karma ve heterojen ortamlardan Azure'a yüklemenizi sağlayan 30'dan fazla bağlayıcıya sahiptir.  Dahili testlerin en son performans sonuçları ve ayarlama önerileri için bkz. [Performans ve Ayarlama Kılavuzu](copy-activity-performance.md). Ayrıca, kısa süre önce daha iyi kullanılabilirlik ve ölçeklenebilirlik için büyük katman 1 kurumsal müşterilerini ele almak üzere özel bir ağ ortamına yüklediğiniz şirket içi barındırılan Tümleştirme Çalışma Zamanı için Yüksek Kullanılabilirlik ve Ölçeklenebilirlik özelliğini etkinleştirdik.
 
 ## <a name="top-level-concepts-in-version-2"></a>Sürüm 2’deki üst düzey kavramlar
 Azure aboneliğinin bir veya birden çok Azure Data Factory örneği (veya veri fabrikası) olabilir. Azure Data Factory, üzerinde veri taşıma ve dönüştürme adımları ile veri odaklı iş akışları oluşturabileceğiniz platformu sağlamak üzere birlikte çalışan başlıca dört bileşenden oluşur.
@@ -165,4 +168,3 @@ Data Factory yalnızca Doğu ABD ve Doğu ABD 2 bölgelerinde kullanılabilir ol
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Veri fabrikası oluşturma hakkında bilgi edinmek için şu Hızlı Başlangıçlarda verilen adım adım yönergeleri izleyin: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md) ve Azure portalı. 
-

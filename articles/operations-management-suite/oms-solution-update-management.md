@@ -3,7 +3,7 @@ title: "OMS’de Güncelleştirme Yönetimi çözümü | Microsoft Belgeleri"
 description: "Bu makale, Windows ve Linux bilgisayarlarınızın güncelleştirmelerini yönetmek için bu çözümün nasıl kullanılacağına yönelik bilgiler verir."
 services: operations-management-suite
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
-ms.author: magoedte
+ms.author: eslesar
+ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-management-solution-in-oms"></a>OMS’de Güncelleştirme Yönetimi çözümü
 
 ![Güncelleştirme Yönetimi sembolü](./media/oms-solution-update-management/update-management-symbol.png)
 
 OMS’deki Güncelleştirme Yönetimi çözümü, Azure’da, şirket içi ortamlarda veya diğer bulut sağlayıcılarında dağıtılmış Windows ve Linux bilgisayarlarınızın işletim sistemi güvenlik güncelleştirmelerini yönetmenize olanak sağlar.  Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
+
+## <a name="update-management-in-azure-automation"></a>Azure Otomasyonu'nda güncelleştirme yönetimi
+
+[Azure Otomasyonu](../automation/automation-offering-get-started.md) hesabınızdan sanal makineleriniz için Güncelleştirme yönetimini etkinleştirebilirsiniz.
+Otomasyon hesabınızdan sanal makineler için güncelleştirme yönetimini nasıl etkinleştireceğinizi öğrenmek için bkz. [Birden fazla sanal makine için güncelleştirmeleri yönetme](../automation/manage-update-multi.md).
 
 
 ## <a name="solution-overview"></a>Çözüme genel bakış
@@ -307,11 +311,17 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 | Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |Kritik veya Güvenlik türünde güvenlik açığını ele alan güncelleştirmeye sahip tüm paketlerin listesi | 
 | Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |Hangi dağıtımların bilgisayarlarda değişiklik yaptığını gösteren liste | 
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) | 
-| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Herhangi bir güncelleştirmenin mevcut olduğu tüm "Ubuntu" makinelerinin listesi | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Herhangi bir güncelleştirmenin mevcut olduğu tüm "Ubuntu" makinelerinin listesi |
+
+## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager ile tümleştirme
+
+PC, sunucu ve mobil cihazları yönetmek için System Center Configuration Manager'a yatırım yapmış müşteriler aynı zamanda yazılım güncelleştirme yönetimi (SUM) döngüsünün bir parçası olarak yazılım güncelleştirmelerini yönetme gücünden ve olgunluğundan yararlanmaktadır.
+
+OMS Güncelleştirme Yönetimi çözümünü Sytem Center Configuration Manager ile nasıl tümleştireceğinizi öğrenmek için bkz. [System Center Configuration Manager'ı OMS Güncelleştirme Yönetimi ile tümleştirme](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Bu bölümde, Güncelleştirme Yönetimi çözümüyle ilgili sorunları gidermeye yardımcı olacak bilgiler sağlanır.  
+Bu bölümde, Güncelleştirme Yönetimi çözümüyle ilgili sorunları gidermeye yardımcı olacak bilgiler sağlanır.
 
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Ekleme sorunlarını nasıl giderebilirim?
 Çözümü veya bir sanal makineyi eklemeye çalışırken sorun yaşarsanız, olay kimliği 4502 olan olaylar ve **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** içeren olay iletisi için **Uygulama ve Hizmet Günlükleri\Operations Manager** olay günlüğünü denetleyin.  Aşağıdaki tabloda belirli hata iletileri ve her birinin olası çözümü vurgulanmıştır.  
@@ -333,4 +343,3 @@ Daha fazla bilgi için bkz. [Otomasyon runbook’u çıkışı ve iletileri](../
 * Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../log-analytics/log-analytics-log-searches.md)’te Günlük Aramalarını kullanın.
 * Yönetilen bilgisayarlarınızın güncelleştirme uyumluluğunu gösteren [kendi panolarınızı oluşturun](../log-analytics/log-analytics-dashboards.md).
 * Bilgisayardan eksik kritik güncelleştirmeler algılandığında veya bilgisayarda otomatik güncelleştirmeler devre dışı olduğunda [uyarılar oluşturun](../log-analytics/log-analytics-alerts.md).  
-

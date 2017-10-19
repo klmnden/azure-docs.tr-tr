@@ -1,6 +1,6 @@
 ---
-title: "SQL veritabanı genel bakış | Microsoft Docs"
-description: "Yardım içeriği Azure portalındaki SQL veritabanı genel bakış"
+title: "SQL veritabanına genel bakış | Microsoft Docs"
+description: "Azure portalındaki SQL veritabanına genel bakış için yardım içeriği"
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: b41b4b7d302b0f3c528fa424627b4446a5e2c0ca
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-database-documentation"></a>SQL Veritabanı Belgeleri
 
@@ -28,7 +28,7 @@ SQL Veritabanı oluşturma, SQL Management Studio kullanarak yönetme ve C#, Jav
 
 ## <a name="step-by-step-tutorials"></a>Adım Adım Öğreticiler
 
-Oluşturma, yönetme ve SQL DB kullanarak veritabanlarını geçirme hakkında bilgi edinin.
+SQL veritabanı kullanarak veritabanları oluşturma, yönetme ve geçirme hakkında bilgi edinin.
 
 - [Yeni SQL Veritabanı için şema oluşturma ve tasarlama](/azure/sql-database/sql-database-design-first-database)
 - [Mevcut SQL Server Veritabanını Azure SQL Veritabanı kullanmak üzere geçirme](/azure/sql-database/sql-database-migrate-your-sql-server-database)
@@ -47,7 +47,7 @@ Genel görevleri yönetmeye yönelik betikleri bulun.
 - [Azure CLI](/azure/sql-database/sql-database-cli-samples)
 - [Azure PowerShell](/azure/sql-database/sql-database-powershell-samples)
 
-## <a name="more"></a>Diğer tüm bulut sağlayıcılarından
+## <a name="more"></a>Daha fazla
 
-- [Daha fazla bilgi için belgeleri ziyaret edin](/azure/sql-database/index)
-- [Tüm Azure hizmetleri hakkında bilgi edinin](https://aka.ms/j3wr7y)
+- [Daha fazla bilgi edinmek için belgeler sayfasını ziyaret edin](/azure/sql-database/index)
+- [Azure Hizmetleri hakkında bilgi edinin](https://aka.ms/j3wr7y)

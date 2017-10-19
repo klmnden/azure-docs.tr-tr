@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 6f4cfda6f367cb8a68d038fa0a3390442be034c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite Güvenlik ve Denetim Çözümünde Temel Değerlendirmesi
 Bu belge, izlenen kaynaklarınızın güvenlik durumuna erişmek için [Operations Management Suite (OMS) Güvenlik ve Denetim Çözümü](operations-management-suite-overview.md) temel değerlendirmesi özelliklerini kullanmanıza yardımcı olur.
@@ -40,7 +39,7 @@ Dünya çapındaki sektör ve devlet kuruluşlarıyla birlikte Microsoft, yükse
 > 
 
 ## <a name="security-baseline-assessment"></a>Güvenlik Temeli Değerlendirmesi
-Panoyu kullanarak, OMS Güvenlik ve Denetim tarafından izlenen tüm bilgisayarlar için geçerli güvenlik temeli değerlendirmenizi gözden geçirebilirsiniz.  Güvenlik temeli değerlendirmesine ilişkin panoya erişmek için aşağıdaki adımları uygulayın:
+Panoyu kullanarak, OMS Güvenlik ve Denetim tarafından izlenen tüm bilgisayarlar için geçerli güvenlik temeli değerlendirmenizi gözden geçirebilirsiniz. Güvenlik temeli değerlendirmesine ilişkin panoya erişmek için aşağıdaki adımları uygulayın:
 
 1. **Microsoft Operations Management Suite** ana panosunda, **Güvenlik ve Denetim** kutucuğuna tıklayın.
 2. **Güvenlik ve Denetim** panosunda, **Güvenlik Etki Alanları** bölümünde **Temel Değerlendirmesi**'ne tıklayın. **Güvenlik Temeli Değerlendirmesi** panosu aşağıdaki görüntüde gösterildiği gibi görünür:
@@ -85,5 +84,4 @@ Bu belgede OMS Güvenlik ve Denetim temeli değerlendirmesi hakkında bilgi edin
 * [Operations Management Suite'e (OMS) genel bakış](operations-management-suite-overview.md)
 * [Operations Management Suite Güvenlik ve Denetim Çözümünde Güvenlik Uyarılarını İzleme ve Yanıtlama](oms-security-responding-alerts.md)
 * [Operations Management Suite Güvenlik ve Denetim Çözümünde Kaynakları İzleme](oms-security-monitoring-resources.md)
-
 

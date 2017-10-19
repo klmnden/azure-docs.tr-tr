@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
-ms.contentlocale: tr-tr
-ms.lasthandoff: 12/06/2016
-
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Güvenlik ürünlerinizi Operations Management Suite (OMS) Güvenlik ve Denetim Çözümü’ne bağlama 
 Bu belge, güvenlik ürünlerinizi OMS Güvenlik ve Denetim Çözümü’ne bağlamanıza yardımcı olur. Aşağıdaki kaynaklar desteklenir:
@@ -64,7 +63,7 @@ Aracı makinede olayların syslog daemon’dan yerel 25226 numaralı yerel UDP b
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. OMS Aracısı bilgisayarda *security_events.conf* adlı dosyayı indirip */etc/opt/microsoft/omsagent/conf/omsagent.d/* dizinine ekleyin.
-4. Syslog daemon’u başlatmak için aşağıdaki komutu yazın:  *For syslog-ng run:*
+4. Syslog daemon'u başlatmak için aşağıdaki komutu yazın: *For syslog-ng run:*
     
     ```
     sudo service rsyslog restart
@@ -113,5 +112,4 @@ Bu belgede, CEF çözümünüzü OMS’ye nasıl bağlayacağınızı öğrendin
 * [Operations Management Suite'e (OMS) genel bakış](operations-management-suite-overview.md)
 * [Operations Management Suite Güvenlik ve Denetim Çözümünde Güvenlik Uyarılarını İzleme ve Yanıtlama](oms-security-responding-alerts.md)
 * [Operations Management Suite Güvenlik ve Denetim Çözümünde Kaynakları İzleme](oms-security-monitoring-resources.md)
-
 

@@ -13,15 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: 56905a457f972d1820e56dca00c42686bcad5453
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm ile çalışmaya başlama
 
@@ -44,7 +43,7 @@ Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya da
 
 HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
-1. [Azure portalı](https://portal.azure.com)’ndan **+YENİ**, **Akıllı Özellikler ve Analiz** ve ardından **HDInsight**’ı seçin.
+1. [Azure portalı](https://portal.azure.com)ndan **+YENİ**, **Veri ve Analiz** ve ardından **HDInsight**'ı seçin.
 
     ![HDInsight kümesi oluşturma](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -57,7 +56,7 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
     * **Kaynak Grubu**: Kümenin oluşturulduğu kaynak grubu.
     * **Konum**: Kümenin oluşturulacağı Azure bölgesi.
 
-    ![Abonelik seçme](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
+   ![Abonelik seçme](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
 3. **Küme türü**’nü seçin, ardından **Küme yapılandırması** dikey penceresinde aşağıdaki değerleri ayarlayın:
 
@@ -69,7 +68,7 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
     * **Küme Katmanı**: Standart
 
-    Son olarak, **Seç** düğmesini kullanarak ayarları kaydedin.
+   Son olarak, **Seç** düğmesini kullanarak ayarları kaydedin.
 
     ![Küme türü seçme](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
@@ -92,7 +91,11 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    SSH kullanıcı hesabınızın güvenliğini sağlamak için parola kullandıysanız parolayı girmeniz istenir. Bir ortak anahtar kullandıysanız eşleşen özel anahtarı belirtmek için `-i` parametresini kullanmanız gerekebilir. Örneğin, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    > [!TIP]
+    > SSH istemciniz konak bilgisayarın orijinalliğinin sağlanamadığını belirtebilir. Bu durumda devam etmek için `yes` girin.
+
+    > [!NOTE]
+    > SSH kullanıcı hesabınızın güvenliğini sağlamak için parola kullandıysanız parolayı girmeniz istenir. Bir ortak anahtar kullandıysanız eşleşen özel anahtarı belirtmek için `-i` parametresini kullanmanız gerekebilir. Örneğin, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     Bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -118,7 +121,7 @@ Storm Kullanıcı Arabirimi çalışan topolojilerle çalışmaya yönelik bir w
 
 Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki adımları kullanın:
 
-1. Storm Kullanıcı Arabirimini görüntülemek için bir web tarayıcı açarak https://CLUSTERNAME.azurehdinsight.net/stormui adresine gidin. **CLUSTERNAME** değerini kümenizin adıyla değiştirin.
+1. Storm kullanıcı arabirimini görüntülemek için bir web tarayıcısı açarak `https://CLUSTERNAME.azurehdinsight.net/stormui` adresine gidin. **CLUSTERNAME** değerini kümenizin adıyla değiştirin.
 
     > [!NOTE]
     > Bir kullanıcı adı ve parola girmeniz istenirse kümeyi oluştururken kullandığınız küme yöneticisi (yönetici) ve parolayı girin.
@@ -210,4 +213,3 @@ HDInsight üzerinde Storm ile kullanılabilecek örnek topolojiler için şu ör
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [preview-portal]: https://portal.azure.com/
-

@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
-ms.contentlocale: tr-tr
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 956c7a4fb91c1b1a45e24128e92d6a6b1213eeb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-azure-data-lake-store"></a>Azure Data Lake Store'a genel bakış
 Azure Data Lake Store, büyük veri analitik iş yükleri için kuruluş çapında hiper ölçekli bir depodur. Azure Data Lake, işletimsel ve keşifsel analiz için herhangi bir boyuta, türe ve alım hızına sahip olan verileri tek bir konumda yakalamanıza olanak sağlar.
@@ -62,9 +60,9 @@ Azure Data Lake Store, verilerinize erişimi yönetmek üzere kimlik doğrulamas
 
 | Özellik | Açıklama |
 | --- | --- |
-| Kimlik Doğrulaması |Azure Data Lake Store, Azure Data Lake Store içinde depolanan tüm verilere yönelik kimlik ve erişim yönetimi için Azure Active Directory (AAD) olanağıyla tümleştirilir. Tümleştirme sonucunda Azure Data Lake, çok faktörlü kimlik doğrulaması, koşullu erişim, rol tabanlı erişim denetimi, uygulama kullanımını izleme, güvenlik izlemesi ve uyarısı vb. özellikler de dahil olmak üzere tüm AAD özelliklerinden faydalanır. Azure Data Lake Store, REST arabirimi içinde kimlik doğrulaması için OAuth 2.0 protokolünü destekler. |
+| Kimlik Doğrulaması |Azure Data Lake Store, Azure Data Lake Store içinde depolanan tüm verilere yönelik kimlik ve erişim yönetimi için Azure Active Directory (AAD) olanağıyla tümleştirilir. Tümleştirme sonucunda Azure Data Lake, çok faktörlü kimlik doğrulaması, koşullu erişim, rol tabanlı erişim denetimi, uygulama kullanımını izleme, güvenlik izlemesi ve uyarısı vb. özellikler de dahil olmak üzere tüm AAD özelliklerinden faydalanır. Azure Data Lake Store, REST arabirimi içinde kimlik doğrulaması için OAuth 2.0 protokolünü destekler. Bkz. [Data Lake Store kimlik doğrulaması](data-lakes-store-authentication-using-azure-active-directory.md)|
 | Erişim denetimi |Azure Data Lake Store, WebHDFS protokolünün kullanıma sunduğu POSIX tipi izinleri destekleyerek erişim denetimi sağlar. Data Lake Store Public Preview’da (geçerli sürüm), ACL’ler kök klasörde, alt klasörlerde ve tek tek dosyalarda etkinleştirilebilir. Data Lake Store bağlanımda ACL’lerin nasıl çalıştığı üzerine daha fazla bilgi için bkz. [Data Lake Store’da erişim denetimi](data-lake-store-access-control.md). |
-| Şifreleme |Data Lake Store, hesapta depolanan veriler için şifreleme özelliği de sağlar. Şifreleme ayarlarını bir Data Lake Store hesabı oluşturduğunuz sırada siz belirlersiniz. Verilerinizin şifrelenmesini tercih edebilir ya da şifrelemeyi kabul etmeyebilirsiniz. Şifreleme tabanlı yapılandırmanın nasıl sağlanacağı üzerine daha fazla bilgi edinmek için bkz. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md). |
+| Şifreleme |Data Lake Store, hesapta depolanan veriler için şifreleme özelliği de sağlar. Şifreleme ayarlarını bir Data Lake Store hesabı oluşturduğunuz sırada siz belirlersiniz. Verilerinizin şifrelenmesini tercih edebilir ya da şifrelemeyi kabul etmeyebilirsiniz. Daha fazla bilgi için bkz. [Data Lake Store'da şifreleme](data-lake-store-encryption.md). Şifreleme tabanlı yapılandırma sağlama talimatları için bkz. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md). |
 
 Data Lake Store'da verilerin güvenliği sağlama konusunda daha fazla bilgi edinmek mi istiyorsunuz? Aşağıdaki bağlantıları izleyin.
 
@@ -103,5 +101,4 @@ Azure Portal'ı kullanarak Data Lake Store sağlamaya yönelik bilgiler için bk
 * [İlişkisel kaynaklar ile Azure Data Lake Store arasında veri taşımak için Apache Sqoop'u kullanma](https://mix.office.com/watch/1butcdjxmu114)
 * [Azure Data Lake Store için Azure Data Factory'yi kullanarak Veri Düzenlemesi](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Azure Data Lake Store'da Verilerin Güvenliğini Sağlama](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
 

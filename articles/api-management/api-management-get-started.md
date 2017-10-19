@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>İlk API’nizi Azure API Management’te yönetme
 ## <a name="overview"> </a>Genel Bakış
@@ -71,7 +71,7 @@ API Management ile çalışmanın ilk adımı bir hizmet örneği oluşturmaktı
 
 Hizmet örneğiniz için istediğiniz **Abonelik**, **Kaynak grubu** ve **Konum** seçeneklerini belirleyin.
 
-**Contoso Ltd.**’yi **Kuruluş Adı** olarak girin ve e-posta adresinizi **Yönetici E-postası** alanına girin.
+**Kuruluş Adı** olarak **Contoso Ltd.** yazın ve e-posta adresinizi **Yönetici E-postası** alanına girin.
 
 > [!NOTE]
 > Bu e-posta adresi API Management sisteminden gelen bildirimler için kullanılır. Daha fazla bilgi için bkz. [Azure API Management'te bildirimleri ve e-posta şablonlarını yapılandırma][How to configure notifications and email templates in Azure API Management].

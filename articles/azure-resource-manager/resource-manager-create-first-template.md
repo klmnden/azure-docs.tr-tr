@@ -10,17 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/03/2017
+ms.date: 10/02/2017
 ms.topic: get-started-article
 ms.author: tomfitz
+ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>İlk Azure Resource Manager şablonunuzu oluşturma ve dağıtma
 Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adımları gösterilmektedir. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md). Kaynaklarınız varsa ve bu kaynaklara yönelik bir şablon almak istiyorsanız bkz. [Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
 
@@ -97,58 +95,21 @@ Bu şablonu dağıtmaya hazırsınız. Bir kaynak grubu oluşturmak için PowerS
 
 Dağıtım tamamlandığında, depolama hesabınız kaynak grubunda mevcut olur.
 
-## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell'den şablon dağıtma
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-[Cloud Shell](../cloud-shell/overview.md)’i kullanarak, şablonunuzu dağıtmak için Azure CLI komutlarını çalıştırabilirsiniz. Ancak, ilk olarak şablonunuzu Cloud Shell dosya paylaşımına yüklemeniz gerekir. Daha önce Cloud Shell kullanmadıysanız, kurulumu hakkında bilgi için bkz. [Azure Cloud Shell’e Genel Bakış](../cloud-shell/overview.md).
+Azure CLI için aşağıdaki komutları kullanın:
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın.   
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+```
 
-2. Cloud Shell kaynak grubunuzu seçin. Ad deseni `cloud-shell-storage-<region>` şeklindedir.
+Şu anda PowerShell, Cloud Shell'de önizleme olarak kullanılabilir. PowerShell için aşağıdaki komutları kullanın:
 
-   ![Kaynak grubu seçin](./media/resource-manager-create-first-template/select-cs-resource-group.png)
-
-3. Cloud Shell için depolama hesabınızı seçin.
-
-   ![Depolama hesabı seçme](./media/resource-manager-create-first-template/select-storage.png)
-
-4. **Dosyalar**’ı seçin.
-
-   ![Dosya seçme](./media/resource-manager-create-first-template/select-files.png)
-
-5. Cloud Shell için dosya paylaşımı seçin. Ad deseni `cs-<user>-<domain>-com-<uniqueGuid>` şeklindedir.
-
-   ![Dosya paylaşımı seçme](./media/resource-manager-create-first-template/select-file-share.png)
-
-6. **Dizin ekle**’yi seçin.
-
-   ![Dizin ekleme](./media/resource-manager-create-first-template/select-add-directory.png)
-
-7. **Şablonlar** olarak adlandırıp **Tamam**’ı seçin.
-
-   ![Ad dizini](./media/resource-manager-create-first-template/name-templates.png)
-
-8. Yeni dizininizi seçin.
-
-   ![Dizin seçme](./media/resource-manager-create-first-template/select-templates.png)
-
-9. **Karşıya Yükle**’yi seçin.
-
-   ![Karşıya yükleme seçme](./media/resource-manager-create-first-template/select-upload.png)
-
-10. Şablonunuzu bulup karşıya yükleyin.
-
-   ![Dosya yükleme](./media/resource-manager-create-first-template/upload-files.png)
-
-11. İstemi açın.
-
-   ![Cloud Shell’i açma](./media/resource-manager-create-first-template/start-cloud-shell.png)
-
-12. Cloud Shell’e aşağıdaki komutları girin:
-
-   ```azurecli
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-   ```
+```powershell
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
+```
 
 Dağıtım tamamlandığında, depolama hesabınız kaynak grubunda mevcut olur.
 
@@ -445,4 +406,3 @@ az group delete --name examplegroup
 * Bir şablonun yapısı hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 * Bir depolama hesabının özellikleri hakkında bilgi edinmek için bkz. [depolama hesapları şablon başvurusu](/azure/templates/microsoft.storage/storageaccounts).
 * Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).
-

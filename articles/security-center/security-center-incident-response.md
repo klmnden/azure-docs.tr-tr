@@ -1,5 +1,5 @@
 ---
-title: "Azure Güvenlik Merkezi&quot;nde güvenlik olaylarını yanıtlama | Microsoft Docs"
+title: "Azure Güvenlik Merkezi'nde güvenlik olaylarını yanıtlama | Microsoft Docs"
 description: "Bu belgede bir olay yanıtı senaryosu için Azure Güvenlik Merkezi’ni kullanma işlemi açıklanmaktadır."
 services: security-center
 documentationcenter: na
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
-ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Olay yanıtı için Azure Güvenlik Merkezi’ni kullanma
 Birçok kuruluş güvenlik olaylarına nasıl yanıt vereceğini ancak bir saldırıya uğradıktan sonra öğrenir. Maliyetini ve zararını azaltmak için bir saldırı gerçekleşmeden önce olay yanıtı planınızın olması önemlidir. Bir olay yanıtının farklı aşamalarında Azure Güvenlik Merkezi’ni kullanabilirsiniz.
@@ -84,7 +83,7 @@ Zehra Azure portalında oturum açmıştır ve Güvenlik Merkezi konsolunda çal
    > Bu senaryoda Zehra, önceki şekilde görünen Kötü Amaçlı SQL etkinliği uyarısı üzerinde bir değerlendirme yapacaktır.
    >
    >
-2. **Kötü Amaçlı SQL etkinliği** uyarısına tıklayın ve **Kötü Amaçlı SQL etkinliği** dikey penceresi:  ![Olay ayrıntıları](./media/security-center-incident-response/security-center-incident-response-fig5.png) için saldırılan kaynakları gözden geçirin
+2. **Kötü Amaçlı SQL etkinliği** uyarısına tıklayın ve **Kötü Amaçlı SQL etkinliği** dikey penceresi: ![Olay ayrıntıları](./media/security-center-incident-response/security-center-incident-response-fig5.png) için saldırılan kaynakları gözden geçirin
 
     Bu dikey pencerede Zehra, saldırıya uğrayan kaynaklar, bu saldırının kaç kez gerçekleştiği ve ne zaman algılandığı ile ilgili notlar alabilir.
 3. Bu saldırı hakkında daha fazla bilgi almak için **saldırıya uğrayan kaynak** öğesine tıklayın.
@@ -101,4 +100,3 @@ Olay yanıtı ekibi de farklı rapor türlerini görmek için [Güvenlik Merkezi
 
 ## <a name="conclusion"></a>Sonuç
 Olay gerçekleşmeden önce bir ekibin toplanması kuruluşunuz için çok önemlidir ve olayların nasıl ele alındığını olumlu yönde etkiler. Kaynakları izlemek için doğru araçlara sahip olunması bu ekibin bir güvenlik olayını düzeltmek üzere doğru adımları uygulamasına yardımcı olabilir. Güvenlik Merkezi [algılama özellikleri](security-center-detection-capabilities.md), BT’nin güvenlik olaylarına hızlıca yanıt vermesine ve güvenlik sorunlarını düzeltmesine yardımcı olabilir.
-

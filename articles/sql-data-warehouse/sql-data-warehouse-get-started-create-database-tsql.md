@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
-ms.contentlocale: tr-tr
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Transact-SQL (TSQL) kullanarak SQL Data Warehouse oluşturma
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ Bu makalede T-SQL ile SQL Veri Ambarı oluşturma işlemi gösterilmektedir.
 Başlamak için gerekli olanlar:
 
 * **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme][Azure Free Trial] veya [MSDN Azure Kredileri][MSDN Azure Credits] sayfasını ziyaret edin.
-* **Azure SQL server**: Daha fazla bilgi için bkz. [Azure portalı ile Azure SQL Veritabanı mantıksal sunucusu oluşturma][Create an Azure SQL Database logical server with the Azure Portal] veya [PowerShell ile Azure SQL Veritabanı mantıksal sunucusu oluşturma][Create an Azure SQL Database logical server with PowerShell].
+* **Azure SQL sunucusu**: Daha fazla ayrıntı için bkz. [Azure portalı ile Azure SQL Veritabanı mantıksal sunucusu oluşturma][Azure portalı ile Azure SQL Veritabanı mantıksal sunucusu oluşturma] veya [PowerShell ile Azure SQL Veritabanı mantıksal sunucusu oluşturma][PowerShell ile Azure SQL Veritabanı mantıksal sunucusu oluşturma].
 * **Kaynak grubu**: Azure SQL sunucunuz ile aynı kaynak grubunu kullanın veya [kaynak grubu oluşturma][how to create a resource group] işlemine bakın.
 * **T-SQL yürütme ortamı**: T-SQL yürütmek için [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] veya [SSMS][SSMS] işlemlerini kullanabilirsiniz.
 
@@ -89,4 +87,3 @@ SQL Veri Ambarınız hazırlandıktan sonra [örnek veri yükleyebilir][load sam
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

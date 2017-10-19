@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 10/05/2017
 ms.author: sethm; babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 1a6bf0a0352e6d9e3a22586ac825558d12e1307a
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-event-hubs"></a>Event Hubs nedir?
 
-Azure Event Hubs saniyede milyonlarca olay alıp işleyebilen, ölçeklenebilirlik yüzeyi yüksek bir veri akışı platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Düşük gecikme ile yoğun ölçekte [yayımlama-abonelik özellikleri](https://msdn.microsoft.com/library/aa560414.aspx) sağlayabilen Event Hubs, Büyük Veri için "kestirme yol" işlevi görür.
+Azure Event Hubs saniyede milyonlarca olay alıp işleyebilen, ölçeklenebilirlik yüzeyi yüksek bir veri akışı platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Düşük gecikme ile yoğun ölçekte [yayımlama-abonelik özellikleri](/biztalk/core/publish-and-subscribe-architecture) sağlayabilen Event Hubs, Büyük Veri için "kestirme yol" işlevi görür.
 
 ## <a name="why-use-event-hubs"></a>Event Hubs’ı neden kullanmalıyım?
 
@@ -59,7 +58,7 @@ Bu ve diğer Event Hubs özellikleriyle ilgili teknik bilgiler için bkz. [Event
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Event Hubs ayrıntılı fiyatlandırma bilgileri için bkz. [Event Hubs Fiyatlandırması](https://azure.microsoft.com/pricing/details/event-hubs/).
+Event Hubs ayrıntılı fiyatlandırma bilgileri için bkz. [Event Hubs fiyatlandırması](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 Event Hubs hakkında daha fazla bilgi için şu bağlantıları ziyaret edin:
 
@@ -68,5 +67,4 @@ Event Hubs hakkında daha fazla bilgi için şu bağlantıları ziyaret edin:
 * [Event Hubs kullanan örnek uygulamalar](https://github.com/Azure/azure-event-hubs/tree/master/samples)
  
  
-
 

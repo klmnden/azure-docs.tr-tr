@@ -3,7 +3,7 @@ title: "Azure Otomasyonu hesabını yönetme | Microsoft Docs"
 description: "Bu makalede sertifika yenileme, silme ve yanlış yapılandırılma gibi Otomasyon hesabınızın yapılandırmasını yönetme işlemleri açıklanmaktadır."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 41efdbcacede74bac038342688362ff480cadc7e
-ms.contentlocale: tr-tr
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: fa3109f15cf14a95af35e814fb61a505d3130462
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-automation-account"></a>Azure Otomasyonu hesabını yönetme
 Otomasyon hesabınızın süresi dolmadan önce sertifikayı yenilemeniz gerekir. Farklı Çalıştır hesabının tehlikede olduğunu düşünüyorsanız, hesabı silip yeniden oluşturabilirsiniz. Bu bölümde bu işlemlerin nasıl gerçekleştirileceği ele alınmaktadır.
 
@@ -35,12 +33,13 @@ Sertifikayı yenilemek için aşağıdakileri yapın:
 
 1. Azure portalında Otomasyon hesabınızı açın.
 
-2. **Otomasyon Hesabı** dikey penceresindeki **Hesap özellikleri** bölmesinin **Hesap Ayarları** altında **Farklı Çalıştır Hesapları**’nı seçin.
+2. **Otomasyon Hesabı** bölümünde 
+3. , **Hesap Ayarları** altındaki **Hesap özellikleri** bölmesinde **Farklı Çalıştır Hesapları**'nı seçin.
 
     ![Otomasyon hesabı özellikleri bölmesi](media/automation-manage-account/automation-account-properties-pane.png)
-3. **Farklı Çalıştır Hesapları** özellikleri dikey penceresinde sertifikasını yenilemek istediğiniz Farklı Çalıştır Hesabını veya Klasik Farklı Çalıştır Hesabını seçin.
+3. **Farklı Çalıştır Hesapları** özellikleri sayfasında sertifikasını yenilemek istediğiniz Farklı Çalıştır Hesabını veya Klasik Farklı Çalıştır Hesabını seçin.
 
-4. Seçili hesabın **Özellikler** dikey penceresinde **Sertifikayı yenile**’ye tıklayın.
+4. Seçili hesabın **Özellikler** bölmesinde **Sertifikayı yenile**'ye tıklayın.
 
     ![Farklı Çalıştır hesabının sertifikasını yenileme](media/automation-manage-account/automation-account-renew-runas-certificate.png)
 
@@ -51,15 +50,15 @@ Bu bölümde bir Farklı Çalıştır veya Klasik Farklı Çalıştır hesabın�
 
 1. Azure portalında Otomasyon hesabınızı açın.
 
-2. **Otomasyon Hesabı** dikey penceresindeki hesap özellikleri bölmesinde **Farklı Çalıştır Hesapları**’nı seçin.
+2. **Otomasyon hesabı** sayfasında **Farklı Çalıştır Hesapları**'nı seçin.
 
-3. **Farklı Çalıştır Hesapları** özellikleri dikey penceresinde silmek istediğiniz Farklı Çalıştır Hesabını veya Klasik Farklı Çalıştır Hesabını seçin. Ardından, seçili hesabın **Özellikler** dikey penceresinde **Sil**’e tıklayın.
+3. **Farklı Çalıştır Hesapları** özellikleri sayfasında silmek istediğiniz Farklı Çalıştır Hesabını veya Klasik Farklı Çalıştır Hesabını seçin. Ardından, seçili hesabın **Özellikler** bölmesinde **Sil**'e tıklayın.
 
  ![Farklı Çalıştır hesabını silme](media/automation-manage-account/automation-account-delete-runas.png)
 
 4. Hesap silinirken menünün **Bildirimler** öğesi altında ilerleme durumunu izleyebilirsiniz.
 
-5. Hesap silindikten sonra **Farklı Çalıştır Hesapları** özellikler dikey penceresinde **Azure Farklı Çalıştır Hesabı** seçeneğini belirleyerek hesabı yeniden oluşturabilirsiniz.
+5. Hesap silindikten sonra **Farklı Çalıştır Hesapları** özellikler sayfasında **Azure Farklı Çalıştır Hesabı** seçeneğini belirleyerek hesabı yeniden oluşturabilirsiniz.
 
  ![Otomasyon Farklı Çalıştır hesabını yeniden oluşturma](media/automation-manage-account/automation-account-create-runas.png)
 
@@ -71,7 +70,7 @@ Bu bölümde bir Farklı Çalıştır veya Klasik Farklı Çalıştır hesabın�
 * Farklı Çalıştır hesabının katkıda bulunan rolünden kaldırılması
 * Azure AD'de hizmet sorumlusu veya uygulama
 
-Yanlış yapılandırmanın önceki ve diğer örneklerinde, Otomasyon hesabı değişiklikleri algılar ve hesabın **Farklı Çalıştır Hesapları** özellikleri dikey penceresinde *Tamamlanmadı* durumunu gösterir.
+Yanlış yapılandırmanın önceki ve diğer örneklerinde, Otomasyon hesabı değişiklikleri algılar ve hesabın **Farklı Çalıştır Hesapları** özellikleri sayfasında *Tamamlanmadı* durumunu gösterir.
 
 ![Tamamlanmamış Farklı Çalıştır hesabı yapılandırma durumu](media/automation-manage-account/automation-account-runas-incomplete-config.png)
 

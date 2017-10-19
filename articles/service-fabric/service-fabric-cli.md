@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: f246ee8aaecf3a398182debdea07832c75c1bd9c
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI'sı
 
@@ -25,11 +24,28 @@ Azure Service Fabric komut satırı arabirimi (CLI) Service Fabric varlıklarıy
 
 Yüklemeden önce ortamınızda Python ve pip uygulamalarının yüklü olduğundan emin olun. Daha fazla bilgi için [pip hızlı başlangıç belgelerine](https://pip.pypa.io/en/latest/quickstart/) ve resmi [Python yükleme belgelerine](https://wiki.python.org/moin/BeginnersGuide/Download) bakın.
 
-Python uygulamasının hem 2.7 hem de 3.6 sürümü desteklenir ancak Python 3.6 sürümünü kullanmanızı öneririz. Aşağıdaki bölümde, tüm önkoşulların ve CLI'nin nasıl yükleneceği gösterilmektedir.
+CLI, Python 2.7, 3.5 ve 3.6 sürümlerini destekler. Python 2.7'ye verilen destek kısa bir süre sonra kesileceğinden Python 3.6 sürümünü kullanmanız önerilir.
+
+### <a name="service-fabric-target-runtime"></a>Service Fabric hedef çalışma zamanı
+
+Service Fabric CLI, Service Fabric SDK'sının en son çalışma zamanı sürümünü destekleyecek şekilde tasarlanmıştır. Yüklemeniz gereken CLI sürümünü belirlemek için aşağıdaki tabloyu kullanın:
+
+| CLI sürümü   | desteklenen çalışma zamanı sürümü |
+|---------------|---------------------------|
+| En son (~=2)  | En son (~=6.0)            |
+| 1.1.0         | 5.6, 5.7                  |
+
+İsteğe bağlı olarak `pip install` komutuna `==<version>` ekleyerek yüklenecek hedef CLI sürümünü belirtebilirsiniz. Örneğin 1.1.0 sürümü için söz dizimi şu şekilde olacaktır:
+
+```
+pip install -I sfctl==1.1.0
+```
+
+Gerekli olduğunda aşağıdaki `pip install` komutunu önceden verilen komutla değiştirin.
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>pip, Python ve Service Fabric CLI'sını yükleme
 
- pip ve Python'u platformunuza yüklemek için kullanabileceğiniz birçok yol vardır. Çok kullanılan işletim sistemlerinde Python 3.6 ve pip uygulamalarını hızlıca kurmak için aşağıdaki adımlardan faydalanabilirsiniz.
+pip ve Python'u platformunuza yüklemek için kullanabileceğiniz birçok yol vardır. Çok kullanılan işletim sistemlerinde Python 3 ve pip uygulamalarını hızlıca kurmak için aşağıdaki adımlardan faydalanabilirsiniz.
 
 ### <a name="windows"></a>Windows
 
@@ -52,47 +68,45 @@ pip --version
 
 Ardından aşağıdaki komutu çalıştırarak Service Fabric CLI'sını yükleyin:
 
-```
+```bat
 pip install sfctl
 sfctl -h
 ```
 
-`sfctl` öğesinin bulunamadığını belirten bir hatayla karşılaşırsanız, aşağıdaki komutları çalıştırın:
+### <a name="ubuntu-and-windows-subsystem-for-linux"></a>Linux için Ubuntu ve Windows alt sistemi
+
+Service Fabric CLI'sını yüklemek için aşağıdaki komutları çalıştırın:
 
 ```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-### <a name="ubuntu"></a>Ubuntu
-
-Ubuntu 16.04 Desktop için üçüncü taraf bir kişisel paket arşivini (PPA) kullanarak Python 3.6'yı yükleyebilirsiniz.
-
-Terminalden aşağıdaki komutları çalıştırın:
-
-```bash
-sudo add-apt-repository ppa:jonathonf/python-3.6
-sudo apt-get update
-sudo apt-get install python3.6
+sudo apt-get install python3
 sudo apt-get install python3-pip
+pip3 install sfctl
 ```
 
-Ardından aşağıdaki komutu çalıştırarak yalnızca sizin Python 3.6 yüklemeniz için Service Fabric CLI'sını yükleyin:
+Ardından yükleme işlemini şu şekilde test edebilirsiniz:
 
 ```bash
-python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-`sfctl` öğesinin bulunamadığını belirten bir hatayla karşılaşırsanız, aşağıdaki komutları çalıştırın:
+Aşağıdakine benzer bir komut bulunamadı hatası alırsanız:
+
+`sfctl: command not found`
+
+`~/.local/bin` öğesine `$PATH` kaynağından erişim sağlandığına emin olun:
 
 ```bash
 export PATH=$PATH:~/.local/bin
 echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```
 
-Bu adımlar, sistem tarafından yüklenen Python 3.5 ve 2.7 sürümlerini etkilemez. Ubuntu kullanmaya alışık değilseniz bu yüklemeleri değiştirmeyi denemeyin.
+Linux için Windows alt sisteminin yüklemesi hatalı klasör izinleri nedeniyle başarısız olursa yükseltilmiş izinlerle tekrar denemeniz gerekebilir:
 
+```bash
+sudo pip3 install sfctl
+```
+
+<a name = "cli-mac"></a>
 ### <a name="macos"></a>macOS
 
 MacOS için [HomeBrew paket yöneticisini](https://brew.sh) kullanmanızı öneririz. HomeBrew yüklü değilse aşağıdaki komutu çalıştırarak yükleyin:
@@ -108,17 +122,6 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
-
-
-`sfctl` öğesinin bulunamadığını belirten bir hatayla karşılaşırsanız, aşağıdaki komutları çalıştırın:
-
-```bash
-export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
-```
-
-
-Bu adımlar sistem tarafından yüklenen Python 2.7 sürümünü değiştirmez.
 
 ## <a name="cli-syntax"></a>CLI söz dizimi
 
@@ -239,13 +242,11 @@ sfctl application create -h
 Service Fabric CLI’yı güncelleştirmek için aşağıdaki komutları çalıştırın (özgün yüklemenizde belirlediğiniz seçeneklere bağlı olarak `pip` öğesini `pip3` olarak değiştirin):
 
 ```bash
-pip uninstall sfctl 
-pip install sfctl 
+pip uninstall sfctl
+pip install sfctl
 ```
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Bir uygulamayı Azure Service Fabric CLI ile dağıtma](service-fabric-application-lifecycle-sfctl.md)
 * [Linux’ta Service Fabric kullanmaya başlama](service-fabric-get-started-linux.md)
-

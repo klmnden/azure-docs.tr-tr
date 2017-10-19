@@ -3,7 +3,7 @@ title: "Azure Automation’da rol tabanlı erişim denetimi | Microsoft Belgeler
 description: "Rol tabanlı erişim denetimi (RBAC), Azure kaynakları için erişim yönetimi sağlar. Bu makalede, Azure Automation’da RBAC’nin nasıl ayarlanacağı açıklanmaktadır."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "otomasyon rbac, rol tabanlı erişim denetimi, azure rbac"
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 09/30/2016
 ms.author: magoedte;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
-
-
+ms.openlocfilehash: 946d80d40ac0566db72c787f260f2d4faff01e6d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
 ## <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
-Rol tabanlı erişim denetimi (RBAC), Azure kaynakları için erişim yönetimi sağlar. [RBAC](../active-directory/role-based-access-control-configure.md) kullanarak, ekibiniz içinde görevleri ayırabilir, bu işlere gerek duyan kişilere, gruplara ve uygulamalara da sadece erişim miktarını verebilirsiniz. Kullanıcılara rol tabanlı erişim Azure portalı, Azure Komut Satırı araçları ve Azure Management API’leri kullanılarak verilebilir.
+Rol tabanlı erişim denetimi (RBAC), Azure kaynakları için erişim yönetimi sağlar. [RBAC](../active-directory/role-based-access-control-configure.md) kullanarak, ekibiniz içinde görevleri ayırabilir, bu işlere gerek duyan kişilere, gruplara ve uygulamalara da sadece erişim miktarını verebilirsiniz. Kullanıcılara rol tabanlı erişim Azure portalı, Azure Komut Satırı araçları ve Azure Management API'leri kullanılarak verilebilir.
 
 ## <a name="rbac-in-automation-accounts"></a>Automation Hesaplarında RBAC
 Azure Automation’da, otomasyon hesabı kapsamında kullanıcılara, gruplara ve uygulamalara uygun RBAC rolü atanarak erişim verilir. Aşağıda Automation hesabının desteklediği yerleşik roller bulunmaktadır:  
@@ -41,7 +41,7 @@ Azure Automation’da, otomasyon hesabı kapsamında kullanıcılara, gruplara v
 > 
 > 
 
-Bu makalede, Azure Automation’da RBAC ayarlamanıza yardımcı olacağız. Ancak, herhangi bir kişiye Otomasyon hesabı haklarını vermeden önce iyi anlamak amacıyla ilk olarak Katkı Yapan, Okuyucu, Otomasyon Operatörü ve Kullanıcı Erişimi Yöneticisi’ne verilen ayrı izinlere yakından bakalım.  Aksi takdirde istenmeyen sonuçlara neden olabilir.     
+Bu makalede, Azure Otomasyonu'nda RBAC ayarlamanıza yardımcı olacağız. Ancak, herhangi bir kişiye Otomasyon hesabı haklarını vermeden önce iyi anlamak amacıyla ilk olarak Katkı Yapan, Okuyucu, Otomasyon Operatörü ve Kullanıcı Erişimi Yöneticisi'ne verilen ayrı izinlere yakından bakalım.  Aksi takdirde istenmeyen sonuçlara neden olabilir.     
 
 ## <a name="contributor-role-permissions"></a>Katkıda Bulunan rol izinleri
 Aşağıdaki tabloda Otomasyon’daki Katkıda Bulunan rolü tarafından gerçekleştirilebilecek belirli eylemler sunulmaktadır.
@@ -126,9 +126,9 @@ Aşağıdaki tabloda Otomasyon’daki Kullanıcı Erişimi Yöneticisi rolü tar
 | Otomasyon Runbook Taslağı Test İşi |![Yeşil Durum](media/automation-role-based-access-control/green-checkmark.png) | | | |
 | Otomasyon Web Kancası |![Yeşil Durum](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
-## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Azure Portal kullanarak Automation Hesabınız için RBAC yapılandırma
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın Automation Hesapları dikey penceresinden Automation hesabınızı açın.  
-2. Sağ üst köşedeki **Erişim** denetimine tıklayın. Bu işlem, Automation hesabınızı yönetmek için yeni kullanıcı, grup ve uygulama ekleyebileceğiniz, Automation Hesabı için yapılandırılabilen mevcut rolleri görüntüleyebildiğiniz **Kullanıcılar** dikey penceresini açar.  
+## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Azure portalını kullanarak Automation Hesabınız için RBAC yapılandırma
+1. [Azure portalında](https://portal.azure.com/) oturum açın Otomasyon Hesapları sayfasından Otomasyon hesabınızı açın.  
+2. Sağ üst köşedeki **Erişim** denetimine tıklayın. Bu işlem, Otomasyon hesabınızı yönetmek için yeni kullanıcı, grup ve uygulama ekleyebileceğiniz, Otomasyon Hesabı için yapılandırılabilen mevcut rolleri görüntüleyebildiğiniz **Kullanıcılar** sayfasını açar.  
    
    ![Erişim düğmesi](media/automation-role-based-access-control/automation-01-access-button.png)  
 
@@ -138,24 +138,24 @@ Aşağıdaki tabloda Otomasyon’daki Kullanıcı Erişimi Yöneticisi rolü tar
 > 
 
 ### <a name="add-a-new-user-and-assign-a-role"></a>Yeni kullanıcı ekleme ve rol atama
-1. Kullanıcılar dikey penceresinden, kullanıcı, grup veya uygulama ekleyip bunları bir role atayabildiğiniz **Erişim ekle** dikey penceresini açmak için **Ekle**’ye tıklayın.  
+1. Kullanıcılar sayfasından, kullanıcı, grup veya uygulama ekleyip bunları bir role atayabildiğiniz **Erişim ekle** sayfasını açmak için **Ekle**'ye tıklayın.  
    
    ![Kullanıcı ekle](media/automation-role-based-access-control/automation-02-add-user.png)  
 2. Kullanılabilir roller listesinden bir rol seçin. **Okuyucu** rolünü seçeceğiz, ancak Automation Hesabı’nın desteklediği herhangi bir rolü veya tanımlamış olduğunuz özel bir rolü de seçebilirsiniz.  
    
    ![Rol seç](media/automation-role-based-access-control/automation-03-select-role.png)  
-3. **Kullanıcı ekle** dikey penceresini açmak için **Kullanıcı Ekle**’ye tıklayın. Aboneliğinizi yönetmek için herhangi bir kullanıcı, grup veya uygulama eklediyseniz, bu kullanıcılar listelenir ve erişim eklemek üzere bunları seçebilirsiniz. Listede hiç kullanıcı yoksa veya eklemekle ilgilendiğiniz kullanıcı listede yoksa, Outlook.com, OneDrive veya Xbox Live kimlikleri gibi geçerli bir Microsoft hesabı e-posta adresiyle kullanıcı davet edebildiğiniz **Konuk davet et** dikey penceresini açmak için **davet**’e tıklayın. Kullanıcının e-posta adresini girdikten sonra kullanıcı eklemek için **Seç**’e, ardından da **Tamam**’a tıklayın. 
+3. **Kullanıcı ekle** sayfasını açmak için **Kullanıcı Ekle**'ye tıklayın. Aboneliğinizi yönetmek için herhangi bir kullanıcı, grup veya uygulama eklediyseniz, bu kullanıcılar listelenir ve erişim eklemek üzere bunları seçebilirsiniz. Listede hiç kullanıcı yoksa veya eklemekle ilgilendiğiniz kullanıcı listede yoksa, Outlook.com, OneDrive veya Xbox Live kimlikleri gibi geçerli bir Microsoft hesabı e-posta adresiyle kullanıcı davet edebildiğiniz **Konuk davet et** sayfasını açmak için **davet**'e tıklayın. Kullanıcının e-posta adresini girdikten sonra kullanıcı eklemek için **Seç**’e, ardından da **Tamam**’a tıklayın. 
    
    ![Kullanıcı ekle](media/automation-role-based-access-control/automation-04-add-users.png)  
    
-   Atanan **Okuyucu** rolüyle, **Kullanıcılar** dikey penceresine eklenen kullanıcıları artık görmelisiniz.  
+   Atanan **Okuyucu** rolüyle, **Kullanıcılar** sayfasına eklenen kullanıcıları artık görmelisiniz.  
    
    ![Kullanıcıları listele](media/automation-role-based-access-control/automation-05-list-users.png)  
    
-   Kullanıcıya **Roller** dikey penceresinden rol atayabilirsiniz. 
-4. Kullanıcılar dikey penceresinden, **Roller** dikey penceresini açmak için **Roller**’e tıklayın. Bu dikey pencereden rolün adını, bu role atanan kullanıcıların ve grupların sayısını görebilirsiniz.
+   Kullanıcıya **Roller** sayfasından rol atayabilirsiniz. 
+4. Kullanıcılar sayfasından, **Roller** sayfasını açmak için **Roller**'e tıklayın. Bu sayfadan rolün adını, bu role atanan kullanıcıların ve grupların sayısını görebilirsiniz.
    
-    ![Kullanıcılar dikey penceresinden rol ata](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
+    ![Kullanıcılar sayfasından rol atama](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
    > [!NOTE]
    > Rol tabanlı erişim denetimi yalnızca Automation Hesabı düzeyinde ayarlanabilir; Automation Hesabı altındaki kaynaklarda ayarlanamaz.
@@ -169,8 +169,8 @@ Aşağıdaki tabloda Otomasyon’daki Kullanıcı Erişimi Yöneticisi rolü tar
 ### <a name="remove-a-user"></a>Kullanıcıyı kaldırma
 Automation hesabı yönetmeyen veya artık kuruluş için çalışmayan kullanıcının erişim iznini kaldırabilirsiniz. Aşağıdaki adımları kullanarak kullanıcı kaldırabilirsiniz: 
 
-1. **Kullanıcılar** dikey penceresinde kaldırmak istediğiniz rol atamasını seçin.
-2. Atama ayrıntıları dikey penceresinde **Kaldır** düğmesine tıklayın.
+1. **Kullanıcılar** sayfasında kaldırmak istediğiniz rol atamasını seçin.
+2. Atama ayrıntıları sayfasında **Kaldır** düğmesine tıklayın.
 3. Kaldırmayı onaylamak için **Evet**'e tıklayın. 
    
    ![Kullanıcıları kaldır](media/automation-role-based-access-control/automation-08-remove-users.png)  
@@ -181,7 +181,7 @@ Role atanmış kullanıcı kendi Automation hesabında oturum açtığında, art
 ![Varsayılan dizin](media/automation-role-based-access-control/automation-09-default-directory-in-role-assigned-user.png)  
 
 ### <a name="user-experience-for-automation-operator-role"></a>Automation operatörü rolü için kullanıcı deneyimi
-Otomasyon operatörü rolüne atanan kullanıcı atandığı Otomasyon hesabını görüntülediğinde, yalnızca runbook'lar listesini, runbook işlerini ve Otomasyon hesabında oluşturulan zamanlamalar listesini görüntüleyebilse de, tanımlarını görüntüleyemez. Runbook işini başlatabilir, durdurabilir, askıya alabilir, sürdürebilir veya zamanlayabilirler. Yapılandırmalar, karma çalışan grupları veya DSC düğümleri gibi diğer Automation kaynaklarına kullanıcının erişimi yoktur.  
+Otomasyon operatörü rolüne atanan kullanıcı atandığı Otomasyon hesabını görüntülediğinde, yalnızca runbook'lar listesini, runbook işlerini ve Otomasyon hesabında oluşturulan zamanlamalar listesini görüntüleyebilse de, tanımlarını görüntüleyemez. Runbook işini başlatabilir, durdurabilir, askıya alabilir, sürdürebilir veya zamanlayabilirler. Yapılandırmalar, karma çalışan grupları veya DSC düğümleri gibi diğer Otomasyon kaynaklarına kullanıcının erişimi yoktur.  
 
 ![Kaynaklara erişim yok](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)  
 
@@ -189,7 +189,7 @@ Kullanıcı runbook'a tıkladığında, Automation operatörü rolü erişilmele
 
 ![Runbook'u düzenleyecek erişim yok](media/automation-role-based-access-control/automation-11-no-access-to-edit-runbook.png)  
 
-Kullanıcının zamanlama görüntülemek ve oluşturmak için erişimi olsa da, başka türden varlık türlerine erişimi olmayacaktır.  
+Kullanıcının zamanlama görüntülemek ve oluşturmak için erişimi olsa da, başka türden varlık türlerine erişimi yoktur.  
 
 ![Varlıklara erişim yok](media/automation-role-based-access-control/automation-12-no-access-to-assets.png)  
 
@@ -229,10 +229,4 @@ Yukarıdaki örneklerde **oturum açma adını**, **abonelik kimliğini**, **kay
 * Azure Otomasyonu’nda RBAC yapılandırmak için çeşitli yollar hakkında daha fazla bilgi için bkz. [Azure PowerShell ile RBAC yönetme](../active-directory/role-based-access-control-manage-access-powershell.md).
 * Runbook başlatmak için çeşitli yollar hakkında daha fazla ayrıntı için bkz. [runbook başlatma](automation-starting-a-runbook.md)
 * Farklı runbook türleri hakkında daha fazla bilgi için bkz. [Azure Otomasyonu runbook türleri](automation-runbook-types.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: f3398e38cf7d3d28d9ca4edef5a9bca96aeaf2ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: ffc6cfaadae07cb019bc64954343dab21ed23638
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Node kullanarak sanal cihazınızı IoT hub’ınıza bağlama
 
@@ -37,7 +36,7 @@ Bu öğreticinin sonunda üç Node.js konsol uygulamanız olacak:
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Node.js 0.10.x sürümü veya sonraki bir sürüm.
+* Node.js 4.0.x sürümü veya sonraki bir sürüm.
 * Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -325,4 +324,3 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
