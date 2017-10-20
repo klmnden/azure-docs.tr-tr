@@ -1,6 +1,6 @@
 ---
-title: "Bir SQL Server Sanal Makine Sağlama | Microsoft Belgeleri"
-description: "Portal kullanarak Azure’da bir SQL Server sanal makine oluşturun ve bağlanın Bu öğretici, Resource Manager modunu kullanır."
+title: "Azure'da Windows SQL Server 2017 VM oluşturma | Microsoft Docs"
+description: "Bu öğreticide Azure portalında Windows SQL Server 2017 sanal makinesi oluşturma adımları gösterilmiştir."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -12,55 +12,54 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 10/10/2017
 ms.author: jroth
+ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: c923f9aae4c7a1b8bd4f5760d0ec4f33923b9321
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal’da bir SQL Server sanal makinesi sağlama
+# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında bir Windows SQL Server sanal makinesi sağlama
+
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> 
-> 
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
-Bu uçtan uca öğretici, SQL Server çalıştıran bir sanal makine sağlamak için Azure Portal’ın nasıl kullanılacağını gösterir.
-
-Azure Virtual Machine (VM) galerisi, Microsoft SQL Server içeren birkaç görüntüyü içerir. Birkaç tıklatmayla, galerideki SQL VM görüntülerinden birini seçebilir ve bunu Azure ortamınızda sağlayabilirsiniz.
+Bu hızlı başlangıç öğreticisinde Azure portalını kullanarak SQL Server yüklü bir Windows sanal makinesi oluşturacaksınız.
 
 Bu öğreticide şunları yapacaksınız:
 
-* [Galeriden bir SQL VM görüntüsü seçme](#select-a-sql-vm-image-from-the-gallery)
-* [VM oluşturma ve yapılandırma](#configure-the-vm)
-* [VM'yi Uzak Masaüstü ile açma](#open-the-vm-with-remote-desktop)
-* [SQL Server'a uzaktan bağlanma](#connect-to-sql-server-remotely)
+* [Galeriden bir SQL VM görüntüsü seçme](#select)
+* [VM oluşturma ve yapılandırma](#configure)
+* [VM'yi Uzak Masaüstü ile açma](#remotedesktop)
+* [SQL Server'a uzaktan bağlanma](#connect)
 
-## <a name="select-a-sql-vm-image-from-the-gallery"></a>Galeriden bir SQL VM görüntüsü seçme
+## <a id="select"></a> Galeriden bir SQL VM görüntüsü seçme
 
 1. Hesabınızı kullanarak [Azure portal](https://portal.azure.com)da oturum açın.
 
    > [!NOTE]
    > Bir Azure hesabınız yoksa, [Azure ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/)yi ziyaret edin.
 
-2. Azure portalda **Yeni**’ye tıklayın. Portalda **Yeni** penceresi açılır.
+1. Azure portalda **Yeni**’ye tıklayın. Portalda **Yeni** penceresi açılır.
 
-3. **Yeni** penceresinde **İşlem**’e ve ardından **Tümünü gör**’e tıklayın.
+1. **Yeni** penceresinde **İşlem**’e ve ardından **Tümünü gör**’e tıklayın.
 
    ![Yeni İşlem penceresi](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
-4. Arama alanına **SQL Server** yazın ve ENTER tuşuna basın.
+1. Arama alanına **SQL Server 2017** yazın ve ENTER tuşuna basın.
 
-5. Ardından **Filtre** simgesine tıklayın ve yayımcı olarak **Microsoft**’u seçin. Sonuçlarda Microsoft tarafından yayımlanan SQL Server görüntülerini filtrelemek için filtre penceresinde **Bitti**’ye tıklayın.
+1. Ardından **Filtre** simgesine tıklayın.
+
+1. Filtre penceresinde **Windows tabanlı** alt kategorisini ve **Microsoft** yayımcısını işaretleyin. Ardından sonuçlarda Microsoft tarafından yayımlanan Windows SQL Server görüntülerini filtrelemek için **Bitti**'ye tıklayın.
 
    ![Azure Sanal Makineleri penceresi](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Kullanılabilir SQL Server görüntülerini gözden geçirin. Her görüntü bir SQL Server sürümü ve işletim sistemi tanımlar.
+1. Kullanılabilir SQL Server görüntülerini gözden geçirin. Her görüntü bir SQL Server sürümü ve işletim sistemi tanımlar.
 
-6. **Ücretsiz Lisans: Windows Server 2016 üzerinde SQL Server 2016 SP1 Developer** görüntüsünü seçin.
+1. **Ücretsiz SQL Server Lisansı: Windows Server 2016 üzerinde SQL Server 2017 Developer** görüntüsünü seçin.
 
    > [!TIP]
    > Geliştirme testi amacıyla kullanım için ücretsiz olan tam özellikli SQL Server sürümü olduğundan bu öğreticide Developer sürümü kullanılmıştır. Yalnızca çalışan VM'ler için ücret ödersiniz. Ancak, bu öğreticide kullanmak üzere istediğiniz görüntüyü seçebilirsiniz.
@@ -70,13 +69,13 @@ Bu öğreticide şunları yapacaksınız:
    >
    > Bu seçeneklerle ilgili daha fazla bilgi için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-7. **Dağıtım modeli seçin** altında, **Resource Manager**’ın seçili olduğunu doğrulayın. Yeni sanal makineler için önerilen dağıtım modeli Resource Manager’dır. 
+1. **Dağıtım modeli seçin** altında, **Resource Manager**’ın seçili olduğunu doğrulayın. Yeni sanal makineler için önerilen dağıtım modeli Resource Manager’dır. 
 
-8. **Oluştur**’a tıklayın.
+1. **Oluştur**’a tıklayın.
 
     ![Resource Manager ile SQL VM oluşturma](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a name="configure-the-vm"></a>VM yapılandırma
+## <a id="configure"></a> VM'yi yapılandırma
 Bir SQL Server sanal makinesini yapılandırmak için beş pencere vardır.
 
 | Adım | Açıklama |
@@ -137,8 +136,7 @@ Makine boyutunuzu seçin ve ardından **Seç**’e tıklayın.
    > [!NOTE]
    > Microsoft, SQL Server için Yönetilen Diskleri önerir. Yönetilen Diskler, depolama alanını arka planda yönetir. Ayrıca, Yönetilen Disklere sahip sanal makineler aynı kullanılabilirlik kümesinde olduğunda Azure uygun artıklık düzeyini sağlamak için depolama kaynaklarını dağıtır. Daha fazla bilgi için bkz. [Azure Yönetilen Disklere Genel Bakış](../../../storage/storage-managed-disks-overview.md). Bir kullanılabilirlik kümesindeki yönetilen diskler hakkında daha fazla ayrıntı için bkz. [Kullanılabilirlik kümesindeki VM’ler için yönetilen diskleri kullanma](../manage-availability.md).
 
-* **Ağ** altında, otomatik olarak doldurulan değerleri kabul edebilirsiniz. <seg>
-  **Sanal ağ**, **Alt ağ**, **Genel IP adresi** ve **Ağ Güvenlik Grubu**’nu el ile yapılandırmak için her bir özelliğe de tıklayabilirsiniz..</seg> Bu öğreticinin amaçları doğrultusunda, varsayılan değerleri koruyun.
+* **Ağ** altında, otomatik olarak doldurulan değerleri kabul edebilirsiniz. **Sanal ağ**, **Alt ağ**, **Genel IP adresi** ve **Ağ Güvenlik Grubu**’nu el ile yapılandırmak için her bir özelliğe de tıklayabilirsiniz. Bu öğreticinin amaçları doğrultusunda, varsayılan değerleri koruyun.
 
 * Azure varsayılan olarak, VM için belirlenen aynı depolama hesabıyla **İzleme**’yi etkinleştirir. Burada bu ayarları değiştirebilirsiniz.
 
@@ -157,7 +155,7 @@ Yapılandırma ayarlarını tamamladığınızda, **Tamam**’a tıklayın.
 | [Otomatik Düzeltme Eki Uygulama](#automated-patching) |
 | [Otomatik Yedekleme](#automated-backup) |
 | [Azure Anahtar Kasası Tümleştirmesi](#azure-key-vault-integration) |
-| [R Hizmetleri](#r-services) |
+| [SQL Server Machine Learning Hizmetleri](#sql-server-machine-learning-services) |
 
 ### <a name="connectivity"></a>Bağlantı
 
@@ -258,14 +256,11 @@ Aşağıdaki tabloda Azure Anahtar Kasası Tümleştirmeyi yapılandırmak için
 
 Daha fazla bilgi için bkz. [Azure VM’lerde SQL Server için Azure Anahtar Kasası Tümleştirmeyi Yapılandırma](virtual-machines-windows-ps-sql-keyvault.md).
 
-### <a name="r-services"></a>R hizmetleri
+### <a name="sql-server-machine-learning-services"></a>SQL Server Machine Learning Hizmetleri
 
-[SQL Server R Hizmetleri](https://msdn.microsoft.com/library/mt604845.aspx) seçeneğini etkinleştirebilirsiniz. Bu özellik, SQL Server 2016 ile gelişmiş analizi kullanmanıza olanak sağlar. **SQL Server Ayarları** penceresinde **Etkinleştir** seçeneğini belirleyin.
+[SQL Server Machine Learning Hizmetleri](https://msdn.microsoft.com/library/mt604845.aspx) seçeneğini etkinleştirebilirsiniz. Bu özellik, SQL Server 2017 ile gelişmiş analizi kullanmanıza olanak sağlar. **SQL Server Ayarları** penceresinde **Etkinleştir** seçeneğini belirleyin.
 
-> [!NOTE]
-> SQL Server 2016 Developer sürümü için bu seçenek portal tarafından yanlış bir şekilde devre dışı bırakılmıştır. Developer sürümü için VM oluşturduktan sonra R Hizmetlerini elle etkinleştirmelisiniz.
-
-![SQL Server R Hizmetlerini Etkinleştirme](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+![SQL Server Machine Learning Hizmetlerini etkinleştirin](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
 SQL Server ayarlarını yapılandırmayı bitirdiğinizde, **Tamam**’a tıklayın.
 
@@ -276,9 +271,9 @@ SQL Server ayarlarını yapılandırmayı bitirdiğinizde, **Tamam**’a tıklay
 Azure portalından dağıtımı izleyebilirsiniz. Ekranın üst kısmındaki **Bildirimler** düğmesi dağıtımın temel durumunu gösterir.
 
 > [!NOTE]
-> Size dağıtım zamanları hakkında bir fikir vermek için,Doğu ABD bölgesinde, varsayılan ayarlarla bir SQL VM dağıttım. Bu test dağıtımının tamamlanması toplam 26 dakika sürdü. Ancak bölgeniz ve seçili ayarlarınıza göre, daha hızlı veya daha yavaş dağıtım süresiyle karşılaşabilirsiniz.
+> Size dağıtım zamanları hakkında bir fikir vermek için,Doğu ABD bölgesinde, varsayılan ayarlarla bir SQL VM dağıttım. Bu test dağıtımının tamamlanması yaklaşık 12 dakika sürdü. Ancak bölgeniz ve seçili ayarlarınıza göre, daha hızlı veya daha yavaş dağıtım süresiyle karşılaşabilirsiniz.
 
-## <a name="open-the-vm-with-remote-desktop"></a>VM’yi Uzak Masaüstü ile açma
+## <a id="remotedesktop"></a> VM’yi Uzak Masaüstü ile açma
 
 Uzak Masaüstü kullanarak SQL Server sanal makinesine bağlanmak için aşağıdaki adımları kullanın:
 
@@ -296,7 +291,7 @@ Aşağıdaki adımlarda, SQL Server Developer ve Express sürümleri için TCP/I
 
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## <a name="connect-to-sql-server-remotely"></a>SQL Server'a uzaktan bağlanma
+## <a id="connect"></a> SQL Server'a uzaktan bağlanma
 
 Bu öğreticide,sanal makine için **Genel** erişimi ve **SQL Server Kimlik Doğrulaması**’nı seçtik. Bu ayarlar, İnternet üzerinden tüm istemcilerden gelen (doğru SQL oturum açma bilgilerine sahip oldukları varsayılarak) SQL Server bağlantılarına izin verecek şekilde sanal makineyi yapılandırdı.
 
