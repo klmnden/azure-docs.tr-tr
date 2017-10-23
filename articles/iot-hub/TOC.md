@@ -109,6 +109,7 @@
 ### Cihaz üretici yazılımını güncelleştirmek için cihaz işlerini kullanma
 #### [Node arka ucu/Node cihazı](iot-hub-node-node-firmware-update.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-firmware-update.md)
+#### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java arka ucu/Java cihazı](iot-hub-java-java-firmware-update.md)
 ### İşleri zamanlama ve yayınlama
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-schedule-jobs.md)

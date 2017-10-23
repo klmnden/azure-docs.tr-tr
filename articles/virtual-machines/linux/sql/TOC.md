@@ -1,6 +1,6 @@
 # Genel Bakış
 ## [Linux SQL Server VM’leri](sql-server-linux-virtual-machines-overview.md)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+## [Fiyatlandırma](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json)
 ## [SSS](sql-server-linux-faq.md)
 
 # Kullanmaya Başlama

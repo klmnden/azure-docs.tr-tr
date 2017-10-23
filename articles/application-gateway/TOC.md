@@ -59,6 +59,7 @@
 ## Sorun giderme
 ### [Application Gateway’de sorunları giderme](application-gateway-troubleshooting-502.md)
 ### [Tanılama günlüğüne kaydetme ve ölçümler](application-gateway-diagnostics.md)
+### [Application Gateway oturum benzeşimi sorunları](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # Başvuru
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/network/application-gateway)

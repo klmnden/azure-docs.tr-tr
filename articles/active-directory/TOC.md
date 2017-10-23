@@ -97,6 +97,7 @@
 #### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)
 #### [Bildirimler](active-directory-reporting-notifications.md)
 #### [Oturum açma etkinliği hata kodları](active-directory-reporting-activity-sign-ins-errors.md)
+#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Sorun giderme
 #### [Eksik denetim verileri](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [İndirmelerde eksik veriler](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -150,8 +151,7 @@
 ### [Genel Bakış](active-directory-enable-sso-scenario.md)
 ### [Başlarken](active-directory-integrating-applications-getting-started.md)
 ### [SaaS uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Aracısız bulmayı ayarlama](cloudappdiscovery-get-started.md)
+### [Cloud App Discovery](cloudappdiscovery-get-started.md)
 #### [Anlık görüntü raporları oluşturma](cloudappdiscovery-set-up-snapshots.md)
 #### [Sürekli raporlamayı yapılandırma](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Özel günlük ayrıştırıcı kullanma](https://docs.microsoft.com/cloud-app-security/custom-log-parser)

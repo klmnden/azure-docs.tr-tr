@@ -81,7 +81,6 @@
 ### [Noktadan Siteye bağlantı sorunu](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Siteden Siteye bağlantı aralıklı olarak kesiliyor](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Siteden Siteye bağlantı kurulamıyor](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
-### [Application Gateway oturum benzeşimi sorunları](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 ### [VNet veya VPN bağlantılarını yapılandırma ve doğrulama](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Başvuru
