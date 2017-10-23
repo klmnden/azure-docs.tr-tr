@@ -3,7 +3,7 @@ title: "API’nizi Azure API Management ile koruma | Microsoft Belgeleri"
 description: "API’nizi kotalar ve azaltma (hız sınırlama) ilkeleriyle korumayı öğrenin."
 services: api-management
 documentationcenter: 
-author: vladvino
+author: juliako
 manager: erikre
 editor: 
 ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
+ms.contentlocale: tr-tr
+ms.lasthandoff: 09/14/2017
+
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>API’nizi, Azure API Management kullanarak hız sınırlarıyla koruma | Microsoft Azure
 Bu kılavuz size Azure API Management ile hız sınırı ve kota ilkeleri yapılandırarak arka uç API’niz için koruma eklemenin ne kadar kolay olduğunu gösterir.
@@ -325,3 +326,4 @@ Dakikada 10 çağrılık hız sınırı ilkesi etkinken, hız sınırı aşılma
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+
