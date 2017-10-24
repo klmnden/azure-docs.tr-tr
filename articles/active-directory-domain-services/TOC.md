@@ -16,7 +16,9 @@
 # Nasıl yapılır
 ## Yönetilen bir etki alanına katılma
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [PowerShell kullanarak Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Şablondan Windows Server VM](active-directory-ds-join-windows-vm-template.md)
+### [CentOS](active-directory-ds-join-centos-linux-vm.md)
+### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
 ### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Yönetilen etki alanını yönetme

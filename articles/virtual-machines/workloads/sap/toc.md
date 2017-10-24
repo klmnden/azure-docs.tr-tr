@@ -20,9 +20,25 @@
 ## [Windows üzerinde SAP IDES/SQL Server SAP CAL dağıtım kılavuzu](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Azure Linux VM'lerde SAP NetWeaver](suse-quickstart.md)
 ## [Azure’da SAP NetWeaver planlama ve uygulama](planning-guide.md)
-## [Windows üzerinde yüksek kullanılabilirlik](high-availability-guide.md)
-## [SUSE Linux üzerinde yüksek kullanılabilirlik](high-availability-guide-suse.md)
-## [Çoklu SID yapılandırmaları](high-availability-multi-sid.md)
+## Windows ve Linux üzerinde Yüksek Kullanılabilirlik (HA)
+### [Genel Bakış](sap-high-availability-guide-start.md)
+### Yüksek Kullanılabilirlik Mimarisi
+#### [HA Mimarisi ve Senaryolar](sap-high-availability-architecture-scenarios.md)
+#### [Yüksek Kullanılabilirlik Mimarisi ve Senaryolar](sap-higher-availability-architecture-scenarios.md)
+#### [(A)SCS Örneği için Paylaşılan Disk ile Windows’da Yüksek Kullanılabilirlik](sap-high-availability-guide-wsfc-shared-disk.md)
+#### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows’da Yüksek Kullanılabilirlik](sap-high-availability-guide-wsfc-file-share.md)
+#### [(A)SCS Örneği için SUSE Linux’ta Yüksek Kullanılabilirlik](high-availability-guide-suse.md)
+### Azure Altyapı Hazırlığı
+#### [(A)SCS Örneği için Paylaşılan Disk ile Windows](sap-high-availability-infrastructure-wsfc-shared-disk.md)
+#### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows](sap-high-availability-infrastructure-wsfc-file-share.md)
+#### [(A)SCS Örneği için NFS ile SUSE Linux](high-availability-guide-suse.md)
+### SAP Yüklemesi
+#### [(A)SCS Örneği için Paylaşılan Disk ile Windows](sap-high-availability-installation-wsfc-shared-disk.md)
+#### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows](sap-high-availability-installation-wsfc-file-share.md)
+#### [(A)SCS Örneği için NFS ile SUSE Linux](high-availability-guide-suse.md)
+### SAP Çoklu SID
+#### [(A)SCS Örneği için Paylaşılan Disk ile Windows](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
+#### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows](sap-ascs-ha-multi-sid-wsfc-file-share.md)
 ## [Dağıtım kılavuzu](deployment-guide.md)
 ## [DBMS dağıtım kılavuzu](dbms-guide.md)
 ## [SAP Olağanüstü Durum Kurtarma için Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)

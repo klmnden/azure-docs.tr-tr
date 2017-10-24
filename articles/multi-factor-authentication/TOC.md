@@ -13,6 +13,7 @@
 # Nasıl yapılır?
 ## Dağıtma ve kullanma
 ### [Ayarları yapılandırma](multi-factor-authentication-whats-next.md)
+#### [PhoneFactor portalını kullanma](multi-factor-authentication-whats-next-pfweb.md)
 ### [MFA’da raporlar](multi-factor-authentication-manage-reports.md)
 ### [Mevcut ağ ilkesi sunucularını kullanma](multi-factor-authentication-nps-extension.md)
 #### [NPS uzantısı için gelişmiş yapılandırma](nps-extension-advanced-configuration.md)

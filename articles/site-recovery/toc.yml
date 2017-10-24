@@ -73,26 +73,19 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: SSS
       href: site-recovery-faq.md
-    - name: Azure’a VMware çoğaltması için kapasite planlama
-      href: site-recovery-plan-capacity-vmware.md
-      items:
-        - name: Azure’a VMware çoğaltması için Dağıtım Planlayıcısı
-          href: site-recovery-deployment-planner.md
-    - name: Hyper-V çoğaltması için Capacity Planner
-      href: site-recovery-capacity-planner.md
 - name: Nasıl Yapılır Kılavuzları
   items:
     - name: Olağanüstü durum kurtarma
       items:
-        - name: Çok kiracı desteği bulunan VMware VM'leri için Azure’a
+        - name: Birden çok kiracıyı destekleyen VMware VM’lerinden Azure’a
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
-        - name: Hyper-V sanal makineleri için Azure'a
+        - name: Hyper-V VM’lerinden Azure’a
           href: tutorial-hyper-v-to-azure.md
-        - name: Fiziksel sunucular için Azure'a
+        - name: Fiziksel sunucuları Azure'a
           href: tutorial-physical-to-azure.md
-        - name: Hyper-V VM'leri için ikincil bir siteye
+        - name: Hyper-V VM’lerinden ikincil siteye
           href: tutorial-vmm-to-vmm.md
-        - name: VMware VM’leri ve fiziksel sunucular için ikincil bir siteye
+        - name: VMware VM’leri ve fiziksel sunuculardan ikincil siteye
           href: tutorial-vmware-to-vmware.md
         - name: Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
           href: tutorial-dr-drill-azure.md
@@ -104,6 +97,20 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Şirket içi siteler arasında yük devretme ve yeniden çalışma işlemi başlatma
           href: tutorial-vmm-to-vmm-failover-failback.md
+    - name: Kapasite ve ölçeklendirme
+      items:
+        - name: Azure’a VMware çoğaltması için kapasite planlama
+          href: site-recovery-plan-capacity-vmware.md
+        - name: Azure’a VMware çoğaltması için Dağıtım Planlayıcısı aracı
+          href: site-recovery-deployment-planner.md
+        - name: Azure’a Hyper-V çoğaltması için kapasite planlama
+          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+        - name: Azure’a Hyper-V çoğaltması için Kapasite Planlama aracı
+          href: site-recovery-capacity-planner.md
+        - name: VMware çoğaltması için işlem sunucularının ölçeğini genişletme
+          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: Şirket içi siteler arasında Hyper-V çoğaltması için performans ölçek testleri
+          href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Yapılandırma
       items:
         - name: Kaynak ortamı ayarlama
@@ -120,6 +127,8 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: Çoğaltma ayarlarını yapılandırma
           href: site-recovery-setup-replication-settings-vmware.md
+        - name: Diskleri çoğaltmanın dışında tutma
+          href: site-recovery-exclude-disk.md
         - name: VMware çoğaltma için Mobility hizmetini dağıtma
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:
@@ -157,9 +166,11 @@
         - name: Azure’dan yeniden çalışma
           items:
             - name: Azure’dan VMware’e yeniden çalışma
-              href: site-recovery-failback-azure-to-vmware.md
+              href: site-recovery-how-to-failback-azure-to-vmware.md
             - name: Azure’dan Hyper-V’ye yeniden çalışma
               href: site-recovery-failback-from-azure-to-hyper-v.md
+        - name: Yeniden çalışma için bir Linux ana hedef sunucusu ayarlama
+          href: site-recovery-how-to-install-linux-master-target.md
     - name: Otomatikleştirme
       items:
         - name: Azure’a Hyper-V çoğaltma işlemini (VMM olmadan) PowerShell kullanarak ayarlama
@@ -202,8 +213,6 @@
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Yapılandırma sunucusunu yönetme
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
-        - name: Ölçeği genişletilmiş işlem sunucularını yönetme
-          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
         - name: vCenter sunucularını yönetme
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Sunucuları kaldırma ve korumayı devre dışı bırakma

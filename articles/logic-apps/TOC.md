@@ -5,8 +5,8 @@
 
 # Başlarken
 ## [İlk mantıksal uygulamanızı oluşturma](logic-apps-create-a-logic-app.md)
-## [Mantıksal uygulamalar için şablonlar](logic-apps-use-logic-app-templates.md)
-## [Şablonlardan mantıksal uygulamalar oluşturma](logic-apps-arm-provision.md)
+## [Şablonlardan mantıksal uygulamalar oluşturma](logic-apps-create-logic-apps-from-templates.md)
+## [Resource Manager şablonlarından mantıksal uygulama oluşturma](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [MABS uygulamalarını mantıksal uygulamalara taşıma](logic-apps-move-from-mabs.md)
 
 # Nasıl yapılır?

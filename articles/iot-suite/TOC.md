@@ -37,7 +37,7 @@
 ## [Uzaktan izleme çözümündeki cihaz bilgileri](iot-suite-remote-monitoring-device-info.md)
 ## [Bağlı fabrika için ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md)
 ## [Özel bağlı fabrika](iot-suite-connected-factory-customize.md)
-
+## [Bağlı fabrika için OPC yayımcısını kullanma](iot-suite-connected-factory-publisher.md)
 # Başvuru
 ## [Güvenlik mimarisi](iot-security-architecture.md)
 ## [En iyi güvenlik uygulamaları](iot-security-best-practices.md)
