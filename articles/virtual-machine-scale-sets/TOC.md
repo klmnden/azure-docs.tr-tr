@@ -21,19 +21,20 @@
 ### [Visual Studio ile oluşturma](virtual-machine-scale-sets-vs-create.md)
 ### [Azure PowerShell veya Azure CLI ile oluşturma](virtual-machine-scale-sets-create.md)
 ### [Yönetilen diskler ile ölçek kümesi](virtual-machine-scale-sets-managed-disks.md)
-### [Otomatik ölçeklendirme içeren Linux ölçek kümesi](virtual-machine-scale-sets-linux-autoscale.md)
-### [Otomatik ölçeklendirme içeren Windows ölçek kümesi](virtual-machine-scale-sets-windows-autoscale.md)
+### [Ölçek kümesini otomatik olarak ölçeklendirme](virtual-machine-scale-sets-autoscale-overview.md)
+#### [Azure portal’ı kullanma](virtual-machine-scale-sets-autoscale-portal.md)
+#### [Azure CLI 2.0 kullanma](virtual-machine-scale-sets-autoscale-cli.md)
+#### [Azure PowerShell’i kullanma](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [Gelişmiş otomatik ölçeklendirme](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Ölçek kümelerindeki uygulamalar](virtual-machine-scale-sets-deploy-app.md)
 ### [Veri disklerini ölçek kümeleri ile kullanma](virtual-machine-scale-sets-attached-disks.md)
 ### [Büyük ölçek kümeleriyle çalışma](virtual-machine-scale-sets-placement-groups.md)
 ### [Yönetilen disk kullanmak üzere bir ölçek kümesi şablonu dönüştürme](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## Yönet
-### [Azure PowerShell kullanan Windows ölçek kümesi](virtual-machine-scale-sets-windows-manage.md)
-### [Otomatik ölçeklendirme ve ölçek kümeleri](virtual-machine-scale-sets-autoscale-overview.md)
-### [Gelişmiş otomatik ölçeklendirme](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### Genel yönetim görevleri
+#### [Azure CLI 2.0 kullanma](virtual-machine-scale-sets-manage-cli.md)
+#### [Azure PowerShell’i kullanma](virtual-machine-scale-sets-manage-powershell.md)
 ### [Ölçek kümesinde dikey ölçeklendirme](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Ölçek kümeleri için yükseltmeler](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [DSC ve ölçek kümelerini kullanma](virtual-machine-scale-sets-dsc.md)

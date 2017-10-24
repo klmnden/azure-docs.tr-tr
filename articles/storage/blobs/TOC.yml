@@ -1,3 +1,5 @@
+- name: Azure Storage Belgeleri
+  href: /azure/storage/
 - name: Genel Bakış
   items:
     - name: Giriş
@@ -16,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: Blob’larla çalışma - .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Bloblarla çalışma - Python
+      href: storage-quickstart-blobs-python.md
 - name: Öğreticiler
   items:
     - name: Görüntüyü karşıya yükleme ve işleme
@@ -28,6 +32,12 @@
           href: storage-secure-access-application.md
         - name: 4 - Depolamayı izleme ve sorun giderme
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Bulut depolama alanında yüksek kullanılabilirliği tasarlama
+      items:
+        - name: Uygulamanızı yüksek oranda kullanılabilir hale getirme
+          href: storage-create-geo-redundant-storage.md
+        - name: RA-GRS depolama alanı ile hata simülasyonu
+          href: storage-simulate-failure-ragrs-account-app.md
     - name: Bulut depolama alanında yapılandırılmamış verileri arama
       href: storage-unstructured-search.md
 - name: Örnekler

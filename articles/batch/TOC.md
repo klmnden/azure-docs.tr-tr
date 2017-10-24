@@ -20,6 +20,7 @@
 ### [Eşzamanlı düğüm görevleri](batch-parallel-node-tasks.md)
 ### [Görevleri duruma göre sayma](batch-get-task-counts.md)
 ### [Özel bir görüntü ile havuz oluşturma](batch-custom-images.md)
+### [Sanal ağ içinde havuz oluşturma](batch-virtual-network.md)
 ### [Etkili liste sorguları](batch-efficient-list-queries.md)
 ### [İş hazırlığı ve tamamlama görevleri](batch-job-prep-release.md)
 ### [Linux işlem düğümleri](batch-linux-nodes.md)
@@ -62,6 +63,7 @@
 ## [Azure Batch işlem düğümü ortam değişkenleri](batch-compute-node-environment-variables.md)
 
 # İlgili
+## [Batch AI](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Batch ve Data Factory kullanarak veri işleme](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Azure bulutta Batch ve HPC çözümleri](batch-hpc-solutions.md)

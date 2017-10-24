@@ -10,7 +10,7 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Depolama](cdn-create-a-storage-account-with-cdn.md)
 ### [Çıkış noktaları arası kaynak paylaşımı](cdn-cors.md)
-### [Özel bir etki alanını CDN ile eşleştirme](cdn-map-content-to-custom-domain.md)
+### [CDN uç noktanıza özel etki alanı ekleme](cdn-map-content-to-custom-domain.md)
 ### [Özel bir etki alanı üzerinde HTTPS'yi etkinleştirme](cdn-custom-ssl.md)
 ## İçeriği iyileştirme
 ### [İyileştirmeye genel bakış](cdn-optimization-overview.md)
@@ -39,6 +39,7 @@
 ## Çözümleme
 ### [Azure DN kullanım biçimlerini çözümleme](cdn-log-analysis.md)
 #### [Verizon'dan alınan çekirdek raporlar](cdn-analyze-usage-patterns.md)
+#### [Verizon özel raporları](cdn-verizon-custom-reports.md)
 #### [Azure tanılama günlükleri](cdn-azure-diagnostic-logs.md)
 ### Verizon'dan alınan Azure CDN için Analytics araçları
 #### [Gelişmiş HTTP raporları oluşturma](cdn-advanced-http-reports.md)

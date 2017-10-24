@@ -53,6 +53,8 @@
           href: concepts-extensions.md
         - name: Sunucu günlükleri
           href: concepts-server-logs.md
+        - name: Yüksek kullanılabilirlik
+          href: concepts-high-availability.md
     - name: Kaynaklar
       items:
         - name: Fiyatlandırma katmanları
@@ -67,6 +69,8 @@
           href: concepts-firewall-rules.md
         - name: SSL yapılandırma
           href: concepts-ssl-connection-security.md
+    - name: İzleme
+      href: concepts-monitoring.md
     - name: Geliştirme
       items:
         - name: Bağlantı kitaplıkları
@@ -91,14 +95,20 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: İçeri ve dışarı aktarma
           href: howto-migrate-using-export-and-import.md
-    - name: Sunucu yapılandırma parametrelerini özelleştirme
+    - name: Sunucu parametrelerini yapılandırma
       items:
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
-    - name: Sunucu Günlükleri
+    - name: Sunucu Günlüklerine Erişme
       items:
+        - name: Azure portalına
+          href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-using-cli.md
+    - name: İzleme
+      items:
+        - name: Ölçümler üzerinde uyarı oluşturma
+          href: howto-alert-on-metric.md
 - name: Başvuru
   items:
     - name: Azure CLI

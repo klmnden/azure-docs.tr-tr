@@ -39,7 +39,7 @@
         - name: Çoğaltma
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Ölçeklenebilirlik ve performans hedefleri
-          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+          href: storage-files-scale-targets.md
         - name: Performans ve ölçeklenebilirlik denetim listesi
           href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Eşzamanlılık
@@ -172,6 +172,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=storage'
     - name: Azure Depolama istemci araçları
       href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Forum
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
     - name: Fiyatlandırma
@@ -180,8 +182,6 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Hizmet güncelleştirmeleri
       href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Videolar
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
     - name: Azure Depolama Gezgini
@@ -224,3 +224,5 @@
           href: 'https://github.com/Azure/azure-storage-ruby'
         - name: iOS
           href: 'https://github.com/Azure/azure-storage-ios'
+    - name: Azure Dosya Eşitleme yayın notları
+      href: storage-files-release-notes.md

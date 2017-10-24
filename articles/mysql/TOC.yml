@@ -59,6 +59,8 @@
           href: concepts-supported-versions.md
         - name: Sunucu günlükleri
           href: concepts-server-logs.md
+        - name: Yüksek kullanılabilirlik
+          href: concepts-high-availability.md
     - name: Kaynaklar
       items:
         - name: Fiyatlandırma katmanları
@@ -73,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: SSL’i Yapılandırma
           href: concepts-ssl-connection-security.md
+    - name: İzleme
+      href: concepts-monitoring.md
     - name: Geliştirme
       items:
         - name: Bağlantı kitaplıkları
@@ -117,8 +121,14 @@
           href: howto-configure-server-parameters-using-cli.md
     - name: Sunucu günlüklerine erişme
       items:
+        - name: Azure portalına
+          href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-in-cli.md
+    - name: İzleme
+      items:
+        - name: Ölçümler üzerinde uyarı oluşturma
+          href: howto-alert-on-metric.md
 - name: Başvuru
   items:
     - name: Azure CLI

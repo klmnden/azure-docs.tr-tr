@@ -11,6 +11,8 @@
       href: log-analytics-quick-collect-azurevm.md
     - name: Toplama - Linux bilgisayarı
       href: log-analytics-quick-collect-linux-computer.md
+    - name: Toplama - Windows Bilgisayarı
+      href: log-analytics-quick-collect-windows-computer.md
 - name: Öğreticiler
   items:
     - name: 1 - Verileri çözümleme
@@ -25,9 +27,11 @@
       href: powershell-samples.md
 - name: Kavramlar
   items:
+    - name: Çalışma alanı yükseltme
+      href: log-analytics-log-search-upgrade.md
     - name: Log Analytics SSS
       href: log-analytics-faq.md
-    - name: Veri Tüketimi
+    - name: Veri tüketimi
       href: log-analytics-usage.md
     - name: Erişimi yönetme
       href: log-analytics-manage-access.md
@@ -35,11 +39,11 @@
       href: log-analytics-service-providers.md
     - name: Günlük araması
       items:
-        - name: Günlük Arama Hakkında SSS
-          href: log-analytics-log-search-faq.md
         - name: Günlük aramalarına genel bakış
           href: log-analytics-log-search-new.md
-        - name: Günlük araması portalları
+        - name: Günlük Arama Hakkında SSS
+          href: log-analytics-log-search-faq.md
+        - name: Günlük Araması portalları
           href: log-analytics-log-search-portals.md
 - name: Nasıl yapılır?
   items:
@@ -89,6 +93,20 @@
               href: log-analytics-custom-fields.md
     - name: Verileri sorgulama
       items:
+        - name: Dil belgeleri
+          href: 'https://docs.loganalytics.io'
+        - name: Eski dilden geçiş
+          href: log-analytics-log-search-transition.md
+        - name: Çalışma alanlarında çapraz aramalar
+          href: log-analytics-cross-workspace-search.md
+        - name: Arama sonuçlarına göre işlem yapma
+          href: log-analytics-log-search-takeaction.md
+        - name: Bilgisayar gruplarını kullanma
+          href: log-analytics-computer-groups.md
+        - name: Akış bağlayıcısı
+          href: log-analytics-flow-tutorial.md
+    - name: Eski günlük araması
+      items:
         - name: Günlük aramalarına genel bakış
           href: log-analytics-log-searches.md
         - name: Arama başvurusu
@@ -96,26 +114,18 @@
           items:
             - name: Normal ifadeler
               href: log-analytics-log-searches-regex.md
-            - name: Çalışma alanlarında çapraz aramalar
-              href: log-analytics-cross-workspace-search.md
-        - name: Arama sonuçlarına göre işlem yapma
-          href: log-analytics-log-search-takeaction.md
-        - name: Bilgisayar grupları
-          href: log-analytics-computer-groups.md
-    - name: Yeni günlük araması
-      items:
-        - name: Çalışma alanınızı yükseltme
-          href: log-analytics-log-search-upgrade.md
-        - name: Eski dilden geçiş
-          href: log-analytics-log-search-transition.md
-        - name: Akış bağlayıcısı
-          href: log-analytics-flow-tutorial.md
     - name: Verileri çözümleme
       items:
         - name: Panolar
           href: log-analytics-dashboards.md
         - name: Görünüm Tasarımcısı
-          href: log-analytics-view-designer.md
+          items:
+            - name: Genel Bakış
+              href: log-analytics-view-designer.md
+            - name: Kutucuk başvurusu
+              href: log-analytics-view-designer-tiles.md
+            - name: Görselleştirme bölümü başvurusu
+              href: log-analytics-view-designer-parts.md
         - name: Power BI
           href: log-analytics-powerbi.md
     - name: Uyarı oluşturma
@@ -231,14 +241,12 @@
           href: log-analytics-api-alerts.md
 - name: Başvuru
   items:
+    - name: Dil başvurusu
+      href: 'https://docs.loganalytics.io/docs/Language-Reference'
     - name: Azure PowerShell
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
-    - name: Görünüm Tasarımcısı kutucuğu başvurusu
-      href: log-analytics-view-designer-tiles.md
-    - name: Görünüm Tasarımcısı görselleştirme bölümü başvurusu
-      href: log-analytics-view-designer-parts.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası
