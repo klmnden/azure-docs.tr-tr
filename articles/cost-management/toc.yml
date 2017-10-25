@@ -31,3 +31,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cost-management'
     - name: Bölgesel Kullanılabilirlik
       href: 'https://azure-staging.microsoft.com/en-us/regions/services/'
+    - name: SSS
+      href: cost-mgt-faq.md
