@@ -1,6 +1,6 @@
 Cloud Shell içinde [az appservice plan create](/cli/azure/appservice/plan#create) komutu ile bir App Service planı oluşturun.
 
-[!INCLUDE [app-service-plan](app-service-plan.md)]
+[!INCLUDE [app-service-plan](app-service-plan-linux.md)]
 
 Aşağıdaki örnek, **Standart** fiyatlandırma katmanını kullanarak bir Linux kapsayıcısı içinde `myAppServicePlan` adlı bir App Service planı oluşturur:
 
