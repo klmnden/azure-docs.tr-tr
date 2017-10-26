@@ -20,6 +20,7 @@
 ### [Örnek giriş verileri](stream-analytics-sample-data-input.md)
 ### [Sık sorulan soru yapıları](stream-analytics-stream-analytics-query-patterns.md)
 ### [Pencere işlevleri](stream-analytics-window-functions.md)
+
 ### [Başvuru verilerini kullanma](stream-analytics-use-reference-data.md)
 ### [Test sorguları](stream-analytics-test-query.md)
 ### [JavaScript UDF’lerini tümleştirme](stream-analytics-javascript-user-defined-functions.md)
@@ -53,6 +54,7 @@
 ### [İş diyagramı ve ölçümleri](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO hata ayıklaması](stream-analytics-select-into.md)
 ### [Olay sırası işleme](stream-analytics-out-of-order-and-late-events.md)
+### [Olay sıralama konusunda dikkat edilmesi gerekenler](stream-analytics-out-of-order-and-late-events.md)
 ### [Olay hub’ı okuyucu limitleri](stream-analytics-event-hub-consumer-groups.md)
 ### [Tanılama günlükleri](stream-analytics-job-diagnostic-logs.md)
 

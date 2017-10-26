@@ -1,0 +1,35 @@
+- name: Genel Bakış
+  items:
+    - name: Azure üzerinde Terraform hakkında
+      href: terraform-overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Terraform’u yükleme ve yapılandırma
+      href: /azure/virtual-machines/linux/terraform-install-configure
+      maintainContext: true
+    - name: Linux VM oluşturma
+      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      maintainContext: true
+- name: Öğreticiler
+  items:
+    - name: Terraform modülleri ile VM kümesi oluşturma
+      href: terraform-create-vm-cluster-module.md
+    - name: Cloud Shell ile VM kümesi oluşturma
+      href: terraform-create-vm-cluster-with-infrastructure.md
+    - name: Altyapı ile VM ölçek kümesini sağlama
+      href: terraform-create-vm-scaleset-network-disks-hcl.md
+- name: Kavramlar
+  items:
+    - name: Cloud Shell tümleştirmesi
+      href: terraform-cloud-shell.md
+- name: Örnekler
+  items:
+    - name: Yapılandırma şablonları
+      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
+- name: Başvuru
+  items:
+    - name: Azure modülü kayıt defteri
+      href: 'https://registry.terraform.io/modules/Azure'
+    - name: Terraform başvurusu
+      href: 'http://aka.ms/terraform'

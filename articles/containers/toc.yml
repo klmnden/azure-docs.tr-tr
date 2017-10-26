@@ -1,24 +1,14 @@
 - name: Kapsayıcılar için Azure
   href: index.yml
   items:
-    - name: Kapsayıcı Hizmeti (ACS)
-      href: 'https://docs.microsoft.com/en-us/azure/container-service/'
+    - name: Container Service (AKS)
+      href: 'https://docs.microsoft.com/en-us/azure/aks/'
       expanded: true
       items:
-        - name: Kubernetes
-          href: 'https://docs.microsoft.com/azure/container-service/kubernetes/'
-          items:
-            - name: Genel Bakış - Kubernetes için Azure Container Service’e Giriş
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-intro-kubernetes'
-            - name: Hızlı Başlangıç - Linux kapsayıcıları için Kubernetes kümesi dağıtma
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
-        - name: Docker Swarm ve DC/OS
-          href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/'
-          items:
-            - name: Hızlı Başlangıç - Docker Swarm kümesi dağıtma
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-swarm-walkthrough'
-            - name: Hızlı Başlangıç - DC/OS kümesi dağıtma
-              href: 'https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+        - name: AKS’ye giriş
+          href: ../aks/intro-kubernetes.md
+        - name: AKS kümesi dağıtma
+          href: ../aks/kubernetes-walkthrough.md
     - name: Kapsayıcı Örnekleri (ACI)
       href: 'https://docs.microsoft.com/en-us/azure/container-instances/'
       items:
@@ -49,7 +39,7 @@
               href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication'
             - name: ACR web kancalarını kullanma
               href: 'https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook'
-    - name: Kapsayıcılar için Web Apps
+    - name: Kapsayıcılar için Web App
       href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro'
       items:
         - name: Kapsayıcılar için Azure Web App’e yönelik özel Docker görüntüsü kullanma
@@ -67,26 +57,11 @@
               href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine'
             - name: Docker Compose kullanma
               href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart'
-    - name: Sanal Makineler (Linux)
-      href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/overview'
-      items:
-        - name: Azure’da iş yükleri geliştirme ve çalıştırma
-          href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/containers'
-        - name: Nasıl yapılır?
-          items:
-            - name: Docker konağı oluşturma
-              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/dockerextension'
-            - name: Docker Makinesi kullanma
-              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-machine'
-            - name: Docker Compose kullanma
-              href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/docker-compose-quickstart'
-    - name: Sanal Makineler (Windows)
+    - name: Windows Kapsayıcıları
       href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview'
       items:
         - name: Hızlı Başlangıç - Windows Server’da Windows Kapsayıcıları
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
-        - name: Azure’da sanal makineler ve kapsayıcılar
-          href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/containers'
         - name: Windows Kapsayıcıları hakkında
           href: 'https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index'
     - name: Başvuru
@@ -97,7 +72,7 @@
           href: 'https://docs.microsoft.com/en-us/cli/azure/acs'
         - name: Azure Container Registry (az acr)
           href: 'https://docs.microsoft.com/en-us/cli/azure/acr'
-        - name: Kapsayıcılar için Azure Web Apps (az appservice)
+        - name: Kapsayıcılar için Web App (az appservice)
           href: 'https://docs.microsoft.com/en-us/cli/azure/appservice'
         - name: Azure App Service Web Apps (az webapp)
           href: 'https://docs.microsoft.com/en-us/cli/azure/webapp'

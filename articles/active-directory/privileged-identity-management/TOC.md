@@ -2,7 +2,7 @@
 ## [Güvenli ayrıcalıklı erişim](active-directory-securing-privileged-access.md)
 ## [Azure AD PIM nedir?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Roller](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Azure için Privileged Identity Management](azure-pim-resource-rbac.md)
+## [Azure Kaynakları için PIM (Önizleme)](azure-pim-resource-rbac.md)
 ## [Privileged Identity Management Onay iş akışları](azure-ad-pim-approval-workflow.md)
 
 # başlarken

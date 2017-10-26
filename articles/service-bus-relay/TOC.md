@@ -21,6 +21,8 @@
 ### [Kullanılabilir API’ler](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Yönet
+### [Azure İzleyici ile Azure Geçişi’ni izleme](relay-metrics-azure-monitor.md)
 
 # Başvuru
 ## .NET

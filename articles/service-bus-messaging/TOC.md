@@ -63,6 +63,7 @@
 #### [İşlem gerçekleştirme](service-bus-transactions.md)
 #### [Eşleştirilmiş ad alanı uygulama](service-bus-paired-namespaces.md)
 ## Yönet
+### [Azure İzleyici ile Service Bus’ı izleme](service-bus-metrics-azure-monitor.md)
 ### [Service Bus yönetim kitaplıkları](service-bus-management-libraries.md)
 ### [Tanılama günlükleri](service-bus-diagnostic-logs.md)
 ### [Mesajlaşma varlıklarını askıya alma ve yeniden etkinleştirme](entity-suspend.md)

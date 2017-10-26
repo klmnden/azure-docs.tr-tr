@@ -119,7 +119,7 @@
 ##### [Web proxy yapılandırma](storsimple-8000-configure-web-proxy.md)
 ##### [DATA 0 ayarlarını değiştirme](storsimple-8000-modify-data-0.md)
 
-#### [Azure PowerShell örnek komut dosyalarını kullanma](storsimple-8000-automation-azurerm-scripts.md)
+
 
 #### [StorSimple Snapshot Manager’ı kullanma](storsimple-snapshot-manager-admin.md)
 ##### [StorSimple Snapshot Manager nedir?](storsimple-what-is-snapshot-manager.md)
@@ -131,6 +131,11 @@
 ##### [StorSimple Snapshot Manager aracılığıyla yedekleme işlerini yönetme](storsimple-snapshot-manager-manage-backup-jobs.md)
 ##### [StorSimple Snapshot Manager aracılığıyla birimleri yönetme](storsimple-snapshot-manager-manage-volumes.md)
 ##### [StorSimple Snapshot Manager’da MMC eylemlerini yönetme](storsimple-snapshot-manager-mmc-menu.md)
+
+### Otomatikleştirme
+
+#### [Azure PowerShell örnek komut dosyalarını kullanma](storsimple-8000-automation-azurerm-scripts.md)
+#### [Azure Otomasyonu runbook’larını kullanma](storsimple-8000-automation-azurerm-runbook.md)
 
 ### Çözüm oluşturma
 #### [Veeam ile StorSimple](storsimple-configure-backup-target-veeam.md)

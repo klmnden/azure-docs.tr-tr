@@ -5,6 +5,8 @@
 ## [Karma kimlik çözümü seçin](choose-hybrid-identity-solution.md)
 ## [Azure aboneliklerini ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
 ## [SSS](active-directory-faq.md)
+## [Yenilikler](whats-new.md)
+
 
 # başlarken
 ## [Azure AD’yi kullanmaya başlama](get-started-azure-ad.md)
@@ -302,6 +304,7 @@
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
 #### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### Görevler
+##### [Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md)
 ##### [Cihaz tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Uygulama tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-mam.md)
 ##### [Kullanıcılar ve uygulamalar için kullanım koşullarını sağlayın](active-directory-tou.md)

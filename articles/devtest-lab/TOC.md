@@ -14,7 +14,7 @@
 # Nasıl yapılır kılavuzları
 ## Sanal makineleri bir laboratuar ortamında kullanma
 ### [VM oluşturma](devtest-lab-add-vm.md)
-### [Talep edilebilir VM oluşturma](devtest-lab-add-claimable-vm.md)
+### [Talep edilebilir VM’ler oluşturma ve yönetme](devtest-lab-add-claimable-vm.md)
 ### [Azure CLI ile sanal makine oluşturma ve yönetme](devtest-lab-vmcli.md)
 ### [Bir VM’yi yeniden başlatma](devtest-lab-restart-vm.md)
 

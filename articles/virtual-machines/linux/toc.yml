@@ -222,11 +222,25 @@
             - name: İlk uygulamanızı dağıtma
               href: cloudfoundry-deploy-your-first-app.md
         - name: OpenShift
-          href: openshift-get-started.md
+          items:
+            - name: OpenShift’e genel bakış
+              href: openshift-get-started.md
+            - name: OpenShift önkoşulları
+              href: openshift-prerequisites.md
+            - name: OpenShift Origin
+              href: openshift-origin.md
+            - name: OpenShift Kapsayıcı Platformu
+              href: openshift-container-platform.md
+            - name: OpenShift dağıtım sonrası görevleri
+              href: openshift-post-deployment.md
+            - name: Dağıtımlarla ilgili sorun giderme
+              href: openshift-troubleshooting.md
         - name: Azure’da SAP
           href: ../workloads/sap/get-started.md
         - name: Oracle
           href: ../workloads/oracle/oracle-database-quick-create.md
+        - name: Elasticsearch
+          href: tutorial-elasticsearch.md
         - name: FreeBSD Paket Filtresi
           href: freebsd-pf-nat.md
         - name: Veritabanları
@@ -247,7 +261,6 @@
             - name: NVIDIA GPU sürücüleri yükleme
               href: n-series-driver-setup.md
     - name: Depolamayı yönetme
-      href: about-disks-and-vhds.md
       items:
         - name: Yönetilen Diskler hakkında bilgi edinin
           href: managed-disks-overview.md

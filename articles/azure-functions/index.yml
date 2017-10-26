@@ -15,7 +15,7 @@ metadata:
   ms.date: 01-23-2017
   ms.author: carolz
 abstract:
-  description: 'Azure İşlevleri, açıkça sağlamak veya altyapıyı yönetmek zorunda kalmadan kodu isteğe bağlı çalıştırmanıza olanak sağlayan bir sunucusuz işlem hizmetidir. Çok çeşitli olaylara yanıt olarak bir komut dosyası veya kod parçası çalıştırmak için Azure İşlevleri’ni kullanın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure İşlevleri’ni kullanmayı öğrenin.'
+  description: 'Azure İşlevleri, açıkça sağlamak veya altyapıyı yönetmek zorunda kalmadan, isteğe bağlı olarak kod çalıştırmanıza olanak sağlayan bir <a href="https://azure.microsoft.com/overview/serverless-computing/">sunucusuz</a> işlem hizmetidir. Çok çeşitli olaylara yanıt olarak bir komut dosyası veya kod parçası çalıştırmak için Azure İşlevleri’ni kullanın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure İşlevleri’ni kullanmayı öğrenin.'
   aside:
     image:
       alt: null

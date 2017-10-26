@@ -80,16 +80,15 @@
 #### [Kullanıcı arabirimini dinamik olarak özelleştirme](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Belirteçleri özelleştirme](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Parola karmaşıklığı](active-directory-b2c-reference-password-complexity-custom.md)
-
 #### [Parola değiştirme](active-directory-b2c-reference-password-change-custom.md)
-
 #### [Oturumumu açık bırak seçeneğini etkinleştirme](active-directory-b2c-reference-kmsi-custom.md)
-
 ### Sorun giderme
 #### [Application Insights’ı kullanarak günlük toplama](active-directory-b2c-troubleshoot-custom.md)
 ## Başvuru
 ### [Sürüm notları](active-directory-b2c-developer-notes-custom.md)
+### [SSO oturum sağlayıcıları](active-directory-b2c-reference-sso-custom.md)
 ### [Güven Altyapısı tanımı](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Sözlük

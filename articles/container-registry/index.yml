@@ -38,13 +38,15 @@ sections:
   - title: Adım Adım Öğreticiler
     items:
       - type: paragraph
-        text: Azure Container Registry’yi Azure Container Instances ve Azure Container Service ile kullanma hakkında bilgi edinin.
+        text: Bu öğreticilerden yararlanarak Azure Container Registry’yi kullanmayı öğrenin.
       - type: list
         style: unordered
         className: spaced noBullet
         items:
+          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry coğrafi çoğaltma</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Azure Container Instances’a sahip Container Registry</a>
           - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Azure Container Service’e sahip Container Registry</a>
+          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Service Fabric ile Container Registry</a>
   - title: Başvuru
     items:
       - type: list

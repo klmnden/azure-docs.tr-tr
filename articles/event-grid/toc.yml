@@ -6,6 +6,8 @@
       href: overview.md
 - name: Hızlı Başlangıçlar
   items:
+    - name: Blob depolama olaylarını yönlendirme - Azure CLI
+      href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Özel olay oluşturma - Azure CLI
       href: custom-event-quickstart.md
     - name: Özel olay oluşturma - Azure PowerShell
@@ -28,8 +30,6 @@
       href: delivery-and-retry.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Blob depolama olaylarını yönlendirme
-      href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Event Hubs’tan veri ambarına veri akışı yapma
       href: event-grid-event-hubs-integration.md
 - name: Başvuru
