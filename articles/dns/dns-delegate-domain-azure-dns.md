@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 7aa26fd54bab476e798e2327d1c46afb04aa3838
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/18/2017
 ---
-
 # <a name="delegate-a-domain-to-azure-dns"></a>Azure DNS'ye bir etki alanı devretme
 
 Azure DNS, bir DNS bölgesi barındırmanızı ve Azure'de bir etki alanı için DNS kayıtlarını yönetmenizi sağlar. Bir etki alanının DNS sorgularının Azure DNS'ye erişmesi için, etki alanının Azure DNS'ye üst etki alanından devredilmiş olması gerekir. Azure DNS'nin etki alanı kayıt şirketi olmadığını unutmayın. Bu makalede etki alanınızı Azure DNS’ye devretme işlemi açıklanır.
@@ -308,4 +306,3 @@ Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları 
 [DNS bölgelerini yönetme](dns-operations-dnszones.md)
 
 [DNS kayıtlarını yönetme](dns-operations-recordsets.md)
-

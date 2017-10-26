@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 7ba8a79df39c135ef1831b46d38babeedfb722ba
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: d86e47507f7a578e8a0affb690b6d96673b6b69a
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Bir Windows cihazında bu uygulamaya buradan erişemezsiniz
 
@@ -160,5 +159,4 @@ Cihazınız etki alanına katılmamışsa ve Windows 8.1 çalıştırıyorsa Wor
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure Active Directory koşullu erişimi](active-directory-conditional-access.md)
-
 

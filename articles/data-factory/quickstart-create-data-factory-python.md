@@ -9,18 +9,18 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
-ms.devlang: dotnet
+ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 20a481443d8f456cb1109c046dbdfd42ead7c43c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea82b680213b72582667b2be15c0c2719ad7ff78
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Python kullanarak veri fabrikası ve işlem hattı oluşturma
-Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz. 
+Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz.
 
 Bu hızlı başlangıç, Python kullanarak bir Azure veri fabrikası oluşturma işlemini açıklar. Bu veri fabrikasındaki işlem hattı, verileri Azure blob depolama alanındaki bir klasörden başka bir klasöre kopyalar.
 
@@ -28,22 +28,22 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* **Azure Depolama hesabı**. Blob depolama alanını **kaynak** ve **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın. 
-* **Azure Active Directory’de** [bu yönergeyi](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) izleyerek bir uygulama oluşturun. Sonraki adımlarda kullandığınız şu değerleri not edin: **uygulama kimliği**, **kimlik doğrulama anahtarı** ve **kiracı kimliği**. Aynı makalede bulunan yönergeleri izleyerek uygulamayı "**Katkıda bulunan**" rolüne atayın. 
+* **Azure Depolama hesabı**. Blob depolama alanını **kaynak** ve **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın.
+* **Azure Active Directory’de** [bu yönergeyi](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) izleyerek bir uygulama oluşturun. Sonraki adımlarda kullandığınız şu değerleri not edin: **uygulama kimliği**, **kimlik doğrulama anahtarı** ve **kiracı kimliği**. Aynı makalede bulunan yönergeleri izleyerek uygulamayı "**Katkıda bulunan**" rolüne atayın.
 
 ### <a name="create-and-upload-an-input-file"></a>Giriş dosyası oluşturma ve yükleme
 
 1. Not Defteri'ni başlatın. Aşağıdaki metni kopyalayıp diskinizde **input.txt** dosyası olarak kaydedin.
-    
+
     ```
     John|Doe
     Jane|Doe
     ```
-2.  [Azure Depolama Gezgini](http://storageexplorer.com/) gibi araçları kullanarak **adfv2tutorial** kapsayıcısı ve kapsayıcı içinde **input** klasörü oluşturun. Sonra, **input.txt** dosyasını **input** klasörüne yükleyin. 
+2.  [Azure Depolama Gezgini](http://storageexplorer.com/) gibi araçları kullanarak **adfv2tutorial** kapsayıcısı ve kapsayıcı içinde **input** klasörü oluşturun. Sonra, **input.txt** dosyasını **input** klasörüne yükleyin.
 
 ## <a name="install-the-python-package"></a>Python paketi yükleme
-1. Yönetici ayrıcalıklarıyla bir terminal veya komut istemi açın.  
-2. İlk olarak, Azure yönetim kaynakları için Python paketini yükleyin: 
+1. Yönetici ayrıcalıklarıyla bir terminal veya komut istemi açın. 
+2. İlk olarak, Azure yönetim kaynakları için Python paketini yükleyin:
 
     ```
     pip install azure-mgmt-resource
@@ -59,7 +59,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 ## <a name="create-a-data-factory-client"></a>Veri fabrikası istemcisi oluşturma
 
 1. **datafactory.py** adlı bir dosya oluşturun. Ad alanlarına başvurular eklemek için aşağıdaki deyimleri ekleyin.
-    
+
     ```python
     from azure.common.credentials import ServicePrincipalCredentials
     from azure.mgmt.resource import ResourceManagementClient
@@ -68,7 +68,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
     from datetime import datetime, timedelta
     import time
     ```
-2. Bilgileri yazdıran aşağıdaki işlevleri ekleyin. 
+2. Bilgileri yazdıran aşağıdaki işlevleri ekleyin.
 
     ```python
     def print_item(group):
@@ -81,14 +81,14 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
             print("\tTags: {}".format(group.tags))
         if hasattr(group, 'properties'):
             print_properties(group.properties)
-    
+
     def print_properties(props):
         """Print a ResourceGroup properties instance."""
         if props and hasattr(props, 'provisioning_state') and props.provisioning_state:
             print("\tProperties:")
             print("\t\tProvisioning State: {}".format(props.provisioning_state))
         print("\n\n")
-    
+
     def print_activity_run_details(activity_run):
         """Print activity run details."""
         print("\n\tActivity run details\n")
@@ -98,8 +98,8 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
             print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))           
             print("\tCopy duration: {}".format(activity_run.output['copyDuration']))           
         else:
-            print("\tErrors: {}".format(activity_run.error['message'])) 
-  
+            print("\tErrors: {}".format(activity_run.error['message']))
+
     ```
 3. Aşağıdaki kodu DataFactoryManagementClient sınıfının bir örneğini oluşturan **Main** yöntemine ekleyin. Veri fabrikası, bağlı hizmet, veri kümeleri ve işlem hattı oluşturmak için bu nesneyi kullanırsınız. Bu nesneyi ayrıca işlem hattı ayrıntılarını izlemek için kullanabilirsiniz. **subscription_id** değişkenini Azure aboneliğinizin kimliğine ayarlayın.
 
@@ -108,25 +108,25 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
         # Azure subscription ID
         subscription_id = '<Specify your Azure Subscription ID>'
-        
+
         # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
         rg_name = 'ADFTutorialResourceGroup'
-    
-        # The data factory name. It must be globally unique. 
+
+        # The data factory name. It must be globally unique.
         df_name = '<Specify a name for the data factory. It must be globally unique>'
-    
+
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ServicePrincipalCredentials(client_id='<Active Directory application/client ID>', secret='<client secret>', tenant='<Active Directory tenant ID>')
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
-    
+
         rg_params = {'location':'eastus'}
         df_params = {'location':'eastus'}    
     ```
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
-Aşağıdaki kodu **veri fabrikası** oluşturan **Main** yöntemine ekleyin. Kaynak grubunuz zaten varsa, birinci `create_or_update` deyimine açıklama ekleyin. 
+Aşağıdaki kodu **veri fabrikası** oluşturan **Main** yöntemine ekleyin. Kaynak grubunuz zaten varsa, birinci `create_or_update` deyimine açıklama ekleyin.
 
 ```python
     # create the resource group
@@ -146,13 +146,13 @@ Aşağıdaki kodu **veri fabrikası** oluşturan **Main** yöntemine ekleyin. Ka
 
 Aşağıdaki kodu bir **Azure Depolama bağlı hizmeti** oluşturan **Main** yöntemine ekleyin.
 
-Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için veri fabrikasında bağlı hizmetler oluşturursunuz. Bu hızlı başlangıçta yalnızca bir Azure Depolama bağlı hizmetini örnekte "AzureStorageLinkedService" olarak adlandırılmış bir kopyalama kaynağı ve havuz deposu olarak oluşturmanız gerekir. `<storageaccountname>` ve `<storageaccountkey>` değerlerini Azure Depolama hesabınızın adı ve anahtarıyla değiştirin. 
+Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için veri fabrikasında bağlı hizmetler oluşturursunuz. Bu hızlı başlangıçta yalnızca bir Azure Depolama bağlı hizmetini örnekte "AzureStorageLinkedService" olarak adlandırılmış bir kopyalama kaynağı ve havuz deposu olarak oluşturmanız gerekir. `<storageaccountname>` ve `<storageaccountkey>` değerlerini Azure Depolama hesabınızın adı ve anahtarıyla değiştirin.
 
 ```python
     # Create an Azure Storage linked service
     ls_name = 'storageLinkedService'
 
-    # IMPORTANT: specify the name and key of your Azure Storage account. 
+    # IMPORTANT: specify the name and key of your Azure Storage account.
     storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<storageaccountkey>')
 
     ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
@@ -163,7 +163,7 @@ Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için 
 Bu bölümde biri kaynak, diğeri havuz için olmak üzere iki veri kümesi oluşturacaksınız.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Kaynak Azure Blob için veri kümesi oluşturma
-Aşağıdaki kodu bir Azure blob veri kümesi oluşturan Main yöntemine ekleyin. Bir Azure Blob veri kümesinin özellikleri hakkında bilgi için [Azure blob bağlayıcısı](connector-azure-blob-storage.md#dataset-properties) makalesine bakın. 
+Aşağıdaki kodu bir Azure blob veri kümesi oluşturan Main yöntemine ekleyin. Bir Azure Blob veri kümesinin özellikleri hakkında bilgi için [Azure blob bağlayıcısı](connector-azure-blob-storage.md#dataset-properties) makalesine bakın.
 
 Azure Blob’da kaynak verilerini temsil eden bir veri kümesi tanımlayın. Bu Blob veri kümesi, önceki adımda oluşturduğunuz Azure Depolama bağlı hizmetini ifade eder.
 
@@ -179,7 +179,7 @@ Azure Blob’da kaynak verilerini temsil eden bir veri kümesi tanımlayın. Bu 
 ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob"></a>Havuz Azure Blob için veri kümesi oluşturma
-Aşağıdaki kodu bir Azure blob veri kümesi oluşturan Main yöntemine ekleyin. Bir Azure Blob veri kümesinin özellikleri hakkında bilgi için [Azure blob bağlayıcısı](connector-azure-blob-storage.md#dataset-properties) makalesine bakın. 
+Aşağıdaki kodu bir Azure blob veri kümesi oluşturan Main yöntemine ekleyin. Bir Azure Blob veri kümesinin özellikleri hakkında bilgi için [Azure blob bağlayıcısı](connector-azure-blob-storage.md#dataset-properties) makalesine bakın.
 
 Azure Blob’da kaynak verilerini temsil eden bir veri kümesi tanımlayın. Bu Blob veri kümesi, önceki adımda oluşturduğunuz Azure Depolama bağlı hizmetini ifade eder.
 
@@ -197,14 +197,14 @@ Azure Blob’da kaynak verilerini temsil eden bir veri kümesi tanımlayın. Bu 
 Aşağıdaki kodu **bir kopyalama etkinliği ile işlem hattı** oluşturan **Main** yöntemine ekleyin.
 
 ```python
-    # Create a copy activity 
+    # Create a copy activity
     act_name =  'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
     dsin_ref = DatasetReference(ds_name)
     dsOut_ref = DatasetReference(dsOut_name)
     copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
-    
+
     #Create a pipeline with the copy activity
     p_name =  'copyPipeline'
     params_for_pipeline = {}
@@ -238,7 +238,7 @@ Aşağıdaki kodu **bir işlem hattı çalıştırması tetikleyen** **Main** y�
     print_activity_run_details(activity_runs_paged[0])
 ```
 
-Şimdi, program çalıştırıldığında **main** yöntemini çağırmak için aşağıdaki deyimi ekleyin: 
+Şimdi, program çalıştırıldığında **main** yöntemini çağırmak için aşağıdaki deyimi ekleyin:
 
 ```python
 # Start the main method
@@ -246,7 +246,7 @@ main()
 ```
 
 ## <a name="full-script"></a>Tam betik
-Tam Python kodu aşağıdaki gibidir: 
+Tam Python kodu aşağıdaki gibidir:
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -294,7 +294,7 @@ def main():
     # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
     rg_name = '<Azure resource group name>'
 
-    # The data factory name. It must be globally unique. 
+    # The data factory name. It must be globally unique.
     df_name = '<Your data factory name>'        
 
     # Specify your Active Directory client ID, client secret, and tenant ID
@@ -380,7 +380,7 @@ Uygulamayı derleyip başlatın, ardından işlem hattı yürütmesini doğrulay
 
 Konsol; veri fabrikası, bağlı hizmet, veri kümeleri, işlem hattı ve işlem hattı çalıştırmasının ilerleme durumunu yazdırır. Okunan/yazılan veri boyutunu içeren kopyalama etkinliği ayrıntılarını görene kadar bekleyin. Ardından, [Azure Depolama gezgini](https://azure.microsoft.com/features/storage-explorer/) gibi araçlar kullanarak, blobların değişkenlerde belirttiğiniz şekilde "inputBlobPath" yolundan "outputBlobPath" yoluna kopyalandığını doğrulayın.
 
-Örnek çıktı aşağıdaki gibidir: 
+Örnek çıktı aşağıdaki gibidir:
 
 ```json
 Name: <data factory name>
@@ -391,34 +391,34 @@ Tags: {}
 Name: storageLinkedService
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/linkedservices/storageLinkedService
 
-Name: ds_in 
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_in  
+Name: ds_in
+Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_in
 
-Name: ds_out    
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_out 
+Name: ds_out
+Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_out
 
-Name: copyPipeline  
+Name: copyPipeline
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/pipelines/copyPipeline
 
 Pipeline run status: Succeeded
 Datetime with no tzinfo will be considered UTC.
-Datetime with no tzinfo will be considered UTC. 
+Datetime with no tzinfo will be considered UTC.
 
-Activity run details    
+Activity run details
 
-Activity run status: Succeeded  
-Number of bytes read: 18    
-Number of bytes written: 18 
+Activity run status: Succeeded
+Number of bytes read: 18
+Number of bytes written: 18
 Copy duration: 4
 ```
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Veri fabrikasını silmek için aşağıdaki kodu programa ekleyin: 
+Veri fabrikasını silmek için aşağıdaki kodu programa ekleyin:
 
-```csharp
+```python
 adf_client.data_factories.delete(rg_name, df_name)
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu örnekteki işlem hattı, verileri bir konumdan Azure blob depolama alanındaki başka bir konuma kopyalar. Daha fazla senaryoda Data Factory’yi kullanma hakkında bilgi almak için [öğreticileri](tutorial-copy-data-dot-net.md) okuyun. 
+Bu örnekteki işlem hattı, verileri bir konumdan Azure blob depolama alanındaki başka bir konuma kopyalar. Daha fazla senaryoda Data Factory’yi kullanma hakkında bilgi almak için [öğreticileri](tutorial-copy-data-dot-net.md) okuyun.

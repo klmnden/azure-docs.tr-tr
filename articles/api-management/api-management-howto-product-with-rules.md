@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
+ms.openlocfilehash: c13d08c2f5ea6cfb5bed19b94c09f3d7dd37c21f
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>API’nizi, Azure API Management kullanarak hız sınırlarıyla koruma | Microsoft Azure
 Bu kılavuz size Azure API Management ile hız sınırı ve kota ilkeleri yapılandırarak arka uç API’niz için koruma eklemenin ne kadar kolay olduğunu gösterir.
@@ -326,4 +325,3 @@ Dakikada 10 çağrılık hız sınırı ilkesi etkinken, hız sınırı aşılma
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-

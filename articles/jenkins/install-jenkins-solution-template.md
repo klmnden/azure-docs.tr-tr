@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea281e9c83bb37f78c248c6c4011a7da60b45c01
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure portalından Azure Linux VM'de bir Jenkins sunucusu oluşturma
 
@@ -41,7 +41,7 @@ Web tarayıcınızda [Jenkins için mağaza görüntüsü](https://azuremarketpl
 * Bir **Kullanıcı adı** girin. Kullanıcı adı [belirli gereksinimleri](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) karşılamalıdır.
 * **Kimlik doğrulama türü** olarak **Parola**’yı seçin ve bir parola girin. Parola bir büyük harf karakter, bir sayı ve bir özel karakter içermelidir.
 * **Kaynak grubu** için **myJenkinsResourceGroup** değerini kullanın.
-* **Konum** açılır menüsünden **Doğu ABD** [Azure bölgesini](https://azure.microsoft.com/regions/) seçin.
+* **Konum** açılır menüsünden **Doğu ABD** [Azure bölgesini](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) seçin.
 
 **Ek seçenekleri yapılandırma** sekmesine geçmek için **Tamam**’ı seçin. Jenkins sunucusunu belirtecek benzersiz bir etki alanı adı girin ve **Tamam**’ı seçin.
 

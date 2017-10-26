@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aac9c9bcc609a91415438279419d4cc8e237fcb
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>Şirket içi ile bulut arasında veri kopyalama
-Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz. 
+Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz.
 
-Bu öğreticide, Azure PowerShell kullanarak verileri şirket içi SQL Server veritabanından bir Azure Blob depolama alanına kopyalayan Data Factory işlem hattı oluşturacaksınız. Şirket içi veri depoları ile bulut veri depolarının tümleştirilmesine olanak tanıyan Azure Data Factory şirket içinde barındırılan tümleştirme çalışma zamanı oluşturup kullanacaksınız.  Veri fabrikası oluşturmaya yönelik diğer araçlar/SDK’lar hakkında bilgi edinmek için bkz. [Hızlı Başlangıçlar](quickstart-create-data-factory-dot-net.md). 
+Bu öğreticide, Azure PowerShell kullanarak verileri şirket içi SQL Server veritabanından bir Azure Blob depolama alanına kopyalayan Data Factory işlem hattı oluşturacaksınız. Şirket içi veri depoları ile bulut veri depolarının tümleştirilmesine olanak tanıyan Azure Data Factory şirket içinde barındırılan tümleştirme çalışma zamanı oluşturup kullanacaksınız.  Veri fabrikası oluşturmaya yönelik diğer araçlar/SDK’lar hakkında bilgi edinmek için bkz. [Hızlı Başlangıçlar](quickstart-create-data-factory-dot-net.md).
 
 Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
 
@@ -40,7 +40,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* **SQL Server**. Bu öğreticide şirket içi SQL Server veritabanını bir **kaynak** veri deposu olarak kullanırsınız. 
+* **SQL Server**. Bu öğreticide şirket içi SQL Server veritabanını bir **kaynak** veri deposu olarak kullanırsınız.
 * **Azure Depolama hesabı**. Bu öğreticide Azure blob depolamayı bir **hedef/havuz** veri deposu olarak kullanırsınız. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın.
 * **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin.
 
@@ -115,13 +115,13 @@ Bu bölümde Şirket içinde barındırılan tümleştirme çalışma zamanı ol
    ```json
    Nodes                     : {}
    CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption : 
-   Version                   : 
+   InternalChannelEncryption :
+   Version                   :
    Capabilities              : {}
-   ScheduledUpdateDate       : 
-   UpdateDelayOffset         : 
-   LocalTimeZoneOffset       : 
-   AutoUpdate                : 
+   ScheduledUpdateDate       :
+   UpdateDelayOffset         :
+   LocalTimeZoneOffset       :
+   AutoUpdate                :
    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
@@ -135,7 +135,7 @@ Bu bölümde Şirket içinde barındırılan tümleştirme çalışma zamanı ol
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
-   Örnek çıktı aşağıdaki gibidir: 
+   Örnek çıktı aşağıdaki gibidir:
 
    ```json
    {
@@ -144,19 +144,19 @@ Bu bölümde Şirket içinde barındırılan tümleştirme çalışma zamanı ol
    }
    ```
 
-4. Şirket içinde barındırılan tümleştirme çalışma zamanını yerel Windows makinesine [indirin](https://www.microsoft.com/download/details.aspx?id=39717) ve önceki adımda elde edilen Kimlik Doğrulama Anahtarını kullanarak şirket içinde barındırılan tümleştirme çalışma zamanını el ile kaydedin. 
+4. Şirket içinde barındırılan tümleştirme çalışma zamanını yerel Windows makinesine [indirin](https://www.microsoft.com/download/details.aspx?id=39717) ve önceki adımda elde edilen Kimlik Doğrulama Anahtarını kullanarak şirket içinde barındırılan tümleştirme çalışma zamanını el ile kaydedin.
 
    ![Tümleştirme çalışma zamanını kaydetme](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-   Şirket içinde barındırılan tümleştirme çalışma zamanı başarıyla kaydedildiğinde aşağıdaki iletiyi görürsünüz: 
+   Şirket içinde barındırılan tümleştirme çalışma zamanı başarıyla kaydedildiğinde aşağıdaki iletiyi görürsünüz:
 
    ![Başarıyla kaydedildi](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-   Düğüm bulut hizmetine bağlandığında şu sayfayı görürsünüz: 
-    
+   Düğüm bulut hizmetine bağlandığında şu sayfayı görürsünüz:
+
    ![Düğüm bağlı](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
-## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma 
+## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Azure Depolama bağlı hizmeti oluşturma (hedef/havuz)
 
@@ -167,7 +167,7 @@ Bu bölümde Şirket içinde barındırılan tümleştirme çalışma zamanı ol
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": { 
+                "connectionString": {
                     "type": "SecureString",
                     "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
                 }
@@ -196,7 +196,7 @@ Bu bölümde Şirket içinde barındırılan tümleştirme çalışma zamanı ol
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>SQL Server bağlı hizmeti oluşturma ve şifreleme (kaynak)
 
-1. **C:\ADFv2Tutorial** klasöründe aşağıdaki içeriğe sahip **SqlServerLinkedService.json** adlı bir JSON dosyası oluşturun: Dosyayı kaydetmeden önce **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>** ve **&lt;password>** değerlerini SQL Server değerleriyle değiştirin. **&lt;integration** **runtime** **name>** değerlerini tümleştirme çalışma zamanınızın adıyla değiştirin. 
+1. **C:\ADFv2Tutorial** klasöründe aşağıdaki içeriğe sahip **SqlServerLinkedService.json** adlı bir JSON dosyası oluşturun: Dosyayı kaydetmeden önce **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>** ve **&lt;password>** değerlerini SQL Server değerleriyle değiştirin. **&lt;integration** **runtime** **name>** değerlerini tümleştirme çalışma zamanınızın adıyla değiştirin.
 
     ```json
     {
@@ -216,7 +216,7 @@ Bu bölümde Şirket içinde barındırılan tümleştirme çalışma zamanı ol
         "name": "SqlServerLinkedService"
     }
    ```
-2. Şirket içinde barındırılan tümleştirme çalışma zamanı üzerinde JSON yükünden alınan gizli verileri şifrelemek için, **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** komutunu çalıştırıp yukarıdaki JSON yükünü geçirebiliriz. Bu şifreleme, kimlik bilgilerinin Veri Koruma Uygulama Programlama Arabirimi (DPAPI) kullanılarak şifrelenmesini ve şirket içinde barındırılan tümleştirme çalışma zamanı düğümüne yerel olarak kaydedilmesini sağlar. Çıktı yükü, şifrelenmiş kimlik bilgilerini içeren başka bir JSON dosyasına (bu örnekte 'encryptedLinkedService.json') yönlendirilebilir. 
+2. Şirket içinde barındırılan tümleştirme çalışma zamanı üzerinde JSON yükünden alınan gizli verileri şifrelemek için, **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** komutunu çalıştırıp yukarıdaki JSON yükünü geçirebiliriz. Bu şifreleme, kimlik bilgilerinin Veri Koruma Uygulama Programlama Arabirimi (DPAPI) kullanılarak şifrelenmesini ve şirket içinde barındırılan tümleştirme çalışma zamanı düğümüne yerel olarak kaydedilmesini sağlar. Çıktı yükü, şifrelenmiş kimlik bilgilerini içeren başka bir JSON dosyasına (bu örnekte 'encryptedLinkedService.json') yönlendirilebilir.
 
     Komutu çalıştırmadan önce, **&lt;integration runtime name&gt;** değerini tümleştirme çalışma zamanınızın adıyla değiştirin.
 
@@ -227,7 +227,7 @@ Bu bölümde Şirket içinde barındırılan tümleştirme çalışma zamanı ol
 3. **SqlServerLinkedService** öğesini oluşturmak için önceki adımda yer alan JSON dosyasını kullanarak aşağıdaki komutu çalıştırın:
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json" 
+   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -315,7 +315,7 @@ Bu adımda, kopyalama işlemi için girdi ve çıktı verilerini temsil eden gir
 
 ### <a name="create-a-dataset-for-sink-azure-blob-storage"></a>Havuz Azure Blob Depolama için veri kümesi oluşturma
 
-1. **C:\ADFv2Tutorial** klasöründe aşağıdaki içeriğe sahip **AzureBlobDataset.json** adlı bir JSON dosyası oluşturun: 
+1. **C:\ADFv2Tutorial** klasöründe aşağıdaki içeriğe sahip **AzureBlobDataset.json** adlı bir JSON dosyası oluşturun:
 
     > [!IMPORTANT]
     > Bu örnek kod Azure Blob Depolamada **adftutorial** adlı bir blob kapsayıcıya sahip olduğunuzu varsayar.
@@ -436,7 +436,7 @@ Bu adımda, kopyalama işlemi için girdi ve çıktı verilerini temsil eden gir
             $result
             break
         }
-    } 
+    }
     ```
 
     Örnek çalıştırmanın çıktısı aşağıdaki gibidir:
@@ -449,7 +449,7 @@ Bu adımda, kopyalama işlemi için girdi ve çıktı verilerini temsil eden gir
     PipelineName      : SQLServerToBlobPipeline
     Input             :  
     Output            :  
-    LinkedServiceName : 
+    LinkedServiceName :
     ActivityRunStart  : 9/13/2017 1:35:22 PM
     ActivityRunEnd    : 9/13/2017 1:35:42 PM
     DurationInMs      : 20824
@@ -479,7 +479,7 @@ Bu adımda, kopyalama işlemi için girdi ve çıktı verilerini temsil eden gir
 4. Havuz Azure Blob depolama hesabınıza bağlanın ve verilerin Azure SQL Veritabanından düzgün şekilde kopyalandığını onaylayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu örnekteki işlem hattı, verileri bir konumdan Azure blob depolama alanındaki başka bir konuma kopyalar. Şunları öğrendiniz: 
+Bu örnekteki işlem hattı, verileri bir konumdan Azure blob depolama alanındaki başka bir konuma kopyalar. Şunları öğrendiniz:
 
 > [!div class="checklist"]
 > * Veri fabrikası oluşturma.

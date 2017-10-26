@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
+ms.openlocfilehash: d689fc0724b613abf2b319037dbd5555372622a8
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 73b4ae4b7baca434c6aed99a2e59a9102b0d96ed
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/22/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Anahtar Kasası kullanmaya başlama 
 Azure Anahtar Kasası çoğu bölgede kullanılabilir. Daha fazla bilgi için bkz. [Anahtar Kasası fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -234,4 +233,3 @@ Anahtar kasanızın nasıl kullanıldığını görmek için bkz. [Azure Anahtar
 Azure Anahtar Kasası'na yönelik en son Azure PowerShell cmdlet'leri listesi için bkz. [Azure Anahtar Kasası Cmdlet'leri](/powershell/module/azurerm.keyvault/#key_vault).
 
 Programlama başvuruları için bkz. [Azure Anahtar Kasası geliştirici kılavuzu](key-vault-developers-guide.md).
-
