@@ -139,6 +139,7 @@
     - name: Geliştirme
       items:
         - name: DocumentDB API’si
+          href: documentdb-index.md
           items:
             - name: Kaynaklar
               href: documentdb-resources.md
@@ -213,6 +214,7 @@
                 - name: 'S1, S2, S3’ü devre dışı bırakma'
                   href: performance-levels.md
         - name: MongoDB API’si
+          href: mongodb-index.md
           items:
             - name: MongoDB hesabınıza bağlanma
               href: connect-mongodb-account.md

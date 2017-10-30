@@ -44,7 +44,7 @@
     - name: İşlem ortamını yapılandırma
       items:
         - name: Deneme yapılandırma
-          href: experiment-execution-configuration.md
+          href: experimentation-service-configuration.md
         - name: DSVM ve HDI Spark kümesi oluşturma
           href: how-to-create-dsvm-hdi.md
         - name: GPU’lar ile eğitme
@@ -147,7 +147,7 @@
     - name: Deneme
       items:
         - name: Deneme Hizmetini yapılandırma
-          href: experiment-execution-configuration-reference.md
+          href: experimentation-service-configuration-reference.md
         - name: Günlüğe kaydetme API’si
           href: reference-logging-api.md
     - name: Model Yönetimi
@@ -175,7 +175,7 @@
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: MSDN forumu
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Stack Overflow
