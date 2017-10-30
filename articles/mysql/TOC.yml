@@ -105,6 +105,8 @@
       items:
         - name: Azure portalına
           href: howto-restore-server-portal.md
+        - name: Azure CLI
+          href: howto-restore-server-cli.md
     - name: Uygulamaları bağlama
       items:
         - name: Bağlantı dizeleri

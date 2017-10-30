@@ -99,7 +99,7 @@
       items:
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
-    - name: Sunucu Günlüklerine Erişme
+    - name: Sunucu günlüklerine erişme
       items:
         - name: Azure portalına
           href: howto-configure-server-logs-in-portal.md
