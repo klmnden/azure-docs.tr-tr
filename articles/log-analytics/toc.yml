@@ -45,8 +45,10 @@
           href: log-analytics-log-search-faq.md
         - name: Günlük Araması portalları
           href: log-analytics-log-search-portals.md
-- name: Nasıl yapılır?
+- name: Nasıl yapılır kılavuzları
   items:
+    - name: Log Analytics çalışma alanı oluşturma
+      href: log-analytics-quick-create-workspace.md
     - name: Veri toplama
       items:
         - name: Bağlı kaynaklar
@@ -154,7 +156,7 @@
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Etkinlik Günlüğü Analizi
           href: log-analytics-activity.md
-        - name: AD Değerlendirmesi
+        - name: AD Durumu Denetimi
           href: log-analytics-ad-assessment.md
         - name: AD Çoğaltma Durumu
           href: log-analytics-ad-replication-status.md
@@ -197,7 +199,7 @@
           href: log-analytics-network-performance-monitor.md
         - name: Office 365
           href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: SCOM Değerlendirmesi
+        - name: SCOM Durumu Denetimi
           href: log-analytics-scom-assessment.md
         - name: Güvenlik Denetimi
           href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
@@ -208,7 +210,7 @@
               href: log-analytics-service-fabric-azure-resource-manager.md
         - name: Hizmet Eşlemesi
           href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: SQL Değerlendirmesi
+        - name: SQL Durumu Denetimi
           href: log-analytics-sql-assessment.md
         - name: Surface Hub
           href: log-analytics-surface-hubs.md
