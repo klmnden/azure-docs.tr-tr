@@ -208,7 +208,7 @@
 #### [Kullanıcı hesabı hazırlamayı yönetme](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Kurumsal uygulamalar için çoklu oturum açmayı yönetme](active-directory-enterprise-apps-manage-sso.md)
 #### [SAML uygulamaları için gelişmiş sertifika imzalama](active-directory-enterprise-apps-advance-certificate-options.md)
-####[ Azure Active Directory’de kullanıcı deneyimini gizleme](active-directory-coreapps-hide-third-party-app.md)
+#### [Kullanıcının deneyiminde üçüncü taraf bir uygulamayı gizleme](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
 #### [Self servis erişimi](active-directory-self-service-application-access.md)

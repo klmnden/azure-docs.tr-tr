@@ -3,7 +3,6 @@
 ## [Kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md)
 ## [Resource Manager ve Klasik dağıtım](resource-manager-deployment-model.md)
 ## [Abonelik idaresi](resource-manager-subscription-governance.md)
-## [Yönetilen Uygulamalar](managed-application-overview.md)
 
 # başlarken
 ## [Şablon oluşturma ve dağıtma](resource-manager-create-first-template.md)
@@ -60,12 +59,12 @@
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
 ### [Yönetim gruplarıyla abonelikleri düzenleme](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [İdare örnekleri](resource-manager-subscription-examples.md)
+### [Yönetilen uygulamalar](../managed-applications/overview.md)
 
 ## Erişim Denetleme
 ### Hizmet sorumlusu oluşturma
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Azure portal](resource-group-create-service-principal-portal.md)
 ### [Aboneliklere erişmek için kimlik doğrulama API’si](resource-manager-api-authentication.md)
 ### [Kaynakları kilitleme](resource-group-lock-resources.md)
@@ -81,13 +80,6 @@
 #### [Depolama](resource-manager-policy-storage.md)
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
-## Yönetilen uygulamaları kullanma
-### [Hizmet kataloğu uygulaması yayımlama](managed-application-publishing.md)
-### [Hizmet kataloğu uygulamasını kullanma](managed-application-consumption.md)
-### [Market uygulaması yayımlama](managed-application-author-marketplace.md)
-### [Market uygulamasını kullanma](managed-application-consume-marketplace.md)
-### [UI tanımları oluşturma](managed-application-createuidefinition-overview.md)
 
 ## Denetim
 ### [Etkinlik günlüklerini görüntüleme](resource-group-audit.md)
@@ -125,21 +117,6 @@
 ### [Sayısal işlevler](resource-group-template-functions-numeric.md)
 ### [Kaynak işlevleri](resource-group-template-functions-resource.md)
 ### [Dize işlevleri](resource-group-template-functions-string.md)
-## [UI tanımı işlevleri](managed-application-createuidefinition-functions.md)
-## [UI tanımı öğeleri](managed-application-createuidefinition-elements.md)
-### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
-### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
-### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
-### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
-### [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
-### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
-### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
-### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
-### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
-### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
-### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
-### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
-### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
