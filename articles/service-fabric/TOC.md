@@ -358,6 +358,7 @@
 ## [Java API’si](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
+## [Hizmet modeli XML şeması](service-fabric-service-model-schema.md)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

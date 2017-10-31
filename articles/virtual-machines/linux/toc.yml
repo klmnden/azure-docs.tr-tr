@@ -205,6 +205,17 @@
               href: terraform-install-configure.md
             - name: Tam VM oluşturma
               href: terraform-create-complete-vm.md
+        - name: Jenkins
+          href: ../../jenkins/overview.md
+          items:
+            - name: Jenkins sunucusu oluşturma
+              href: ../../jenkins/install-jenkins-solution-template.md
+            - name: VM aracılarıyla ölçeklendirme
+              href: ../../jenkins/jenkins-azure-vm-agents.md
+            - name: Yapıtları Depolama alanında yayımlama
+              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+            - name: Jenkins güvenliğini sağlama
+              href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Kapsayıcıları çalıştırma
       items:
         - name: Docker konağı oluşturma
