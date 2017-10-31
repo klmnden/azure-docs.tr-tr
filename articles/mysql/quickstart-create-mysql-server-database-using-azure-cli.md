@@ -11,12 +11,14 @@ ms.devlang: azure-cli
 ms.topic: hero-article
 ms.date: 06/13/2017
 ms.custom: mvc
-ms.openlocfilehash: 3d66efa6935150c665a3f568e60c35ddbd70e8be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 3d66efa6935150c665a3f568e60c35ddbd70e8be
+ms.contentlocale: tr-tr
+ms.lasthandoff: 09/09/2017
+
 ---
+
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI aracını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
 Bu hızlı başlangıçta, Azure CLI aracını kullanarak bir Azure kaynak grubunda yaklaşık beş dakikada nasıl MySQL için Azure Veritabanı sunucusu oluşturabileceğiniz açıklanır. Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır.
 
@@ -63,7 +65,7 @@ Varsayılan olarak sunucunuz ile istemci uygulamaları arasında SSL bağlantıl
 Aşağıdaki örnekte, MySQL sunucunuzda SSL’yi zorunlu tutma ayarı devre dışı bırakılır.
  
  ```azurecli-interactive
- az mysql server update --resource-group myresourcegroup --name myserver4demo -g -n --ssl-enforcement Disabled
+ az mysql server update --resource-group myresourcegroup --name myserver4demo --ssl-enforcement Disabled
  ```
 
 ## <a name="get-the-connection-information"></a>Bağlantı bilgilerini alma
@@ -188,3 +190,4 @@ az group delete --name myresourcegroup
 
 > [!div class="nextstepaction"]
 > [Azure CLI ile bir MySQL Veritabanı tasarlama](./tutorial-design-database-using-cli.md)
+
