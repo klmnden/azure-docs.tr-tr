@@ -3,7 +3,7 @@ title: "Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketle
 description: "Azure Active Directory'de dış ve yeni konuk kullanıcılar dahil olmak üzere kullanıcıların eklenmesini veya kullanıcı bilgilerinin değiştirilmesini açıklar."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: 564a04ec-53c1-470b-9ab9-f3db57da0a89
@@ -16,11 +16,12 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 30dbd21c6d21aa55c2c7e84c315fba098674ddd8
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
+ms.contentlocale: tr-tr
+ms.lasthandoff: 07/26/2017
+
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleme
 
@@ -79,3 +80,4 @@ Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal
 * [Azure AD'yi yönetme](active-directory-administer.md)
 * [Azure AD'de parolaları yönetme](active-directory-manage-passwords.md)
 * [Azure AD'de grupları yönetme](active-directory-manage-groups.md)
+
