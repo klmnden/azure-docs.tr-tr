@@ -86,6 +86,7 @@
 ### Cihazlardan karşıya dosya yükleme
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### Cihaz ikizlerini kullanmaya başlama
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-twin-getstarted.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-twin-getstarted.md)

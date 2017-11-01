@@ -15,7 +15,7 @@
       href: container-registry-get-started-powershell.md
 - name: Öğreticiler
   items:
-    - name: Coğrafi çoğaltma
+    - name: Coğrafi Çoğaltma (önizleme)
       items:
         - name: 1 - Kapsayıcı kayıt defterini hazırlama
           href: container-registry-tutorial-prepare-registry.md
