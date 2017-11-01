@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure Dosya paylaşımını bağlama ve Windows’da paylaşıma erişme
 [Azure Dosyaları](storage-files-introduction.md), Windows'un kolay kullanılan bulut dosya sistemidir. Azure Dosya paylaşımları, Windows ve Windows Server’a bağlanabilir. Bu makale Windows’da Azure Dosya paylaşımının üç farklı yolla bağlanmasını gösterir: Dosya Gezgini kullanıcı arabirimi ile, Powershell ve Komut İstemi aracılığıyla. 
@@ -29,7 +29,8 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 
 | Windows Sürümü        | SMB Sürümü | Azure VM'de Bağlanabilir | Şirket İçinde Bağlanabilir |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | Evet | Evet |
+| Windows Server yarı yıllık kanal<sup>1</sup> | SMB 3.0 | Evet | Evet |
+| Windows 10<sup>2</sup>  | SMB 3.0 | Evet | Evet |
 | Windows Server 2016    | SMB 3.0     | Evet                   | Evet                  |
 | Windows 8.1            | SMB 3.0     | Evet                   | Evet                  |
 | Windows Server 2012 R2 | SMB 3.0     | Evet                   | Evet                  |
@@ -37,7 +38,8 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 | Windows 7              | SMB 2.1     | Evet                   | Hayır                   |
 | Windows Server 2008 R2 | SMB 2.1     | Evet                   | Hayır                   |
 
-<sup>1</sup>Windows 10 1507, 1511, 1607, 1703 ve 1709 sürümleri.
+<sup>1</sup>Windows Server sürüm 1709.  
+<sup>2</sup>Windows 10 sürüm 1507, 1607, 1703 ve 1709.
 
 > [!Note]  
 > Her zaman Windows sürümünüz için en yeni KB’yi almanızı öneririz.

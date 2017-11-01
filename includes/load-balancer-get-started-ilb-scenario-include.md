@@ -1,11 +1,11 @@
-## <a name="scenario"></a>Senaryo
+## <a name="configuration-scenario"></a>Yapılandırma senaryosu
 
-Aşağıdaki senaryoya göre bir iç yük dengeleyici oluşturuyorsunuz
+Bu senaryoda aşağıdaki şekilde gösterildiği gibi bir sanal ağ içinde iç yük dengeleyici oluşturacağız:
 
-![GÖRÜNTÜ AÇIKLAMASI](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+![İç yük dengeleyici senaryosu](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-Sanal ağ içinde bir iç yük dengeleyici yapılandırılmaktadır
+Bu senaryo için yapılandırma aşağıdaki şekildedir:
 
-* DB1 ve DB2 adlı 2 sanal makine
-* Uç Noktalar
-* İç yük dengeleyici
+* **DB1** ve **DB2** adlı iki sanal makine
+* İç yük dengeleyici için uç noktalar
+* Bir iç yük dengeleyici

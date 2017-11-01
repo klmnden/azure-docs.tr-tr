@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-security"></a>Ağ güvenliği
 
@@ -151,7 +151,10 @@ Hedef olarak başka uygulama güvenlik gruplarını belirten ek kurallar oluştu
  
 Uygulama güvenlik grubu oluşturma ve bunları güvenlik kurallarında belirtme limitleri hakkında bilgi edinmek için bkz. [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Uygulama güvenlik grupları önizleme sürümündedir. Uygulama güvenlik gruplarını kullanmadan önce [Uygulama güvenlik gruplarıyla ağ güvenlik grubu oluşturma](create-network-security-group-preview.md#powershell) bölümünde yer alan 1-5 arası adımları tamamlayıp kullanmak üzere kaydolmanız ve [Önizleme özellikleri](#preview-features) bölümündeki önemli bilgileri incelemeniz gerekir. Uygulama güvenlik grupları önizleme sırasında sanal ağ kapsamıyla sınırlıdır. Bir ağ güvenlik grubu üzerindeki uygulama güvenlik gruplarına çapraz başvurularla eşlenmiş sanal ağlar geçerli olmaz. 
+Uygulama güvenlik grupları önizleme sürümündedir. Uygulama güvenlik gruplarını kullanmadan önce [Uygulama güvenlik gruplarıyla ağ güvenlik grubu oluşturma](create-network-security-group-preview.md#powershell) bölümünde yer alan 1-5 arası adımları tamamlayıp kullanmak üzere kaydolmanız ve [Önizleme özellikleri](#preview-features) bölümündeki önemli bilgileri incelemeniz gerekir. Uygulama güvenlik grupları aşağıdaki sınırlamalara sahiptir:
+
+-   Bir uygulama güvenlik grubu içindeki tüm ağ arabirimlerinin aynı sanal ağda olması gerekir. Bir uygulama güvenlik grubuna farklı ağlarda bulunan ağ arabirimlerini ekleyemezsiniz. Uygulama güvenlik grubuna atanmış olan ilk ağ arabiriminin bulunduğu sanal ağ, sonraki ağ arabirimlerinin de bulunması gereken sanal ağı belirtir.
+- Uygulama güvenlik gruplarını bir güvenlik kuralında kaynak ve hedef olarak belirtirseniz iki uygulama güvenlik grubundaki ağ arabirimlerinin de aynı sanal ağda bulunması gerekir. Örneğin ASG1 içinde VNet1 içinde bulunan ağ arabirimleri, ASG2 içinde de VNet2 içinde bulunan ağ arabirimleri varsa bir kural içinde ASG1 grubunu kaynak, ASG2 grubunu da hedef olarak belirleyemezsiniz. Tüm ağ arabirimlerinin VNet1 içinde olması gerekir. 
 
 Önizleme sürümündeki özellikler, genel sürümdeki özelliklerle aynı kullanılabilirlik ve güvenilirlik seviyesine sahip değildir. Uygulama güvenlik gruplarını kullanmadan önce kullanmak üzere kaydolmanız gerekir. Özellikler yalnızca şu bölgelerde kullanılabilir: Batı Orta ABD.
 

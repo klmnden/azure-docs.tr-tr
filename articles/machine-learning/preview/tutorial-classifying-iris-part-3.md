@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 2325d0ffd369d85b9a21e2274a98dcb673d240e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Iris sınıflandırma bölüm 3: Model dağıtma
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
@@ -193,6 +193,9 @@ Kurulum tamamlandıktan sonra aşağıdaki komutu kullanarak hazır hale getirme
    ```
 
 Şimdi gerçek zamanlı web hizmetini oluşturmaya hazırsınız.
+
+>[!NOTE]
+>Sonraki web hizmeti dağıtımları için Model Yönetimi hesabınızı ve ortamınızı tekrar kullanabilirsiniz. Her web hizmeti için tekrar oluşturmanıza gerek yoktur. Bir hesap veya ortamla ilişkilendirilmiş birden fazla web hizmeti olabilir.
 
 ## <a name="create-a-real-time-web-service-in-one-command"></a>Tek komutla gerçek zamanlı bir web hizmeti oluşturma
 1. Gerçek zamanlı bir web hizmeti oluşturmak için aşağıdaki komutu kullanın:

@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus kuyruklarını kullanan çok katmanlı .NET uygulaması
-## <a name="introduction"></a>Giriş
+
 Visual Studio ve .NET için ücretsiz Azure SDK kullanarak Microsoft Azure'a yönelik geliştirme işlemleri oldukça kolaydır. Bu öğretici, yerel ortamınızda çalışan birden çok Azure kaynağı kullanan bir uygulama oluşturmak için sizi adım adım yönlendirir.
 
 Şunları öğreneceksiniz:
@@ -68,7 +68,7 @@ Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliş
 5. Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir.
 
 ## <a name="create-a-namespace"></a>Ad alanı oluşturma
-İlk adım, bir hizmet ad alanı oluşturmak ve Paylaşılan Erişim İmzası (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Bir ad alanı oluşturulduğunda sistem tarafından bir SAS anahtarı oluşturulur. Ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
+İlk adım, bir *ad alanı* oluşturmak ve bu ad alanı için [Paylaşılan Erişim İmzası (SAS) anahtarı](service-bus-sas.md) edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Bir ad alanı oluşturulduğunda sistem tarafından bir SAS anahtarı oluşturulur. Ad alanı adı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -83,7 +83,7 @@ Daha sonra, Service Bus kuyruğuna öğe gönderen ve kuyruk hakkındaki durum b
 2. **Yüklü Şablonlar**'da **Visual C#** kısmında **Bulut** seçeneğine ve ardından **Azure Bulut Hizmeti**'ne tıklayın. Projeyi **MultiTierApp** olarak adlandırın. Daha sonra, **Tamam**'a tıklayın.
    
    ![][9]
-3. **.NET Framework 4.5** rollerinden **ASP.NET Web Rolü**'ne çift tıklayın.
+3. **Roller** bölmesinde **ASP.NET Web Rolü**'ne çift tıklayın.
    
    ![][10]
 4. **Azure Bulut Hizmeti çözümü** kısmında **WebRole1** öğesinin üzerine gelin, kurşun kalem simgesine tıklayın ve web rolünü **FrontendWebRole** olarak yeniden adlandırın. Daha sonra, **Tamam**'a tıklayın. ("Frontend" öğesini "FrontEnd" olarak değil de küçük 'e' ile yazdığınızdan emin olun.)
@@ -92,12 +92,12 @@ Daha sonra, Service Bus kuyruğuna öğe gönderen ve kuyruk hakkındaki durum b
 5. **Yeni ASP.NET Projesi** iletişim kutusundaki **Bir şablon seçin** listesinde **MVC**'ye tıklayın.
    
    ![][12]
-6. Yine **Yeni ASP.NET projesi** iletişim kutusunda **Kimlik Doğrulamayı Değiştir** düğmesine tıklayın. **Kimlik Doğrulamayı Değiştir** iletişim kutusunda **Kimlik Doğrulama Yok**’a ve ardından **Tamam**’a tıklayın. Bu öğreticide kullanıcının oturum açmasını gerektirmeyen bir uygulamayı dağıtıyorsunuz.
+6. Yine **Yeni ASP.NET projesi** iletişim kutusunda **Kimlik Doğrulamayı Değiştir** düğmesine tıklayın. **Kimlik Doğrulamayı Değiştir** iletişim kutusunda **Kimlik Doğrulama Yok** seçeneğinin belirlendiğinden emin olun ve ardından **Tamam**'a tıklayın. Bu öğreticide kullanıcının oturum açmasını gerektirmeyen bir uygulamayı dağıtıyorsunuz.
    
     ![][16]
 7. **Yeni ASP.NET Projesi** iletişim kutusuna geri döndükten sonra projeyi oluşturmak için **Tamam**'a tıklayın.
 8. **Çözüm Gezgini**'ndeki, **FrontendWebRole** projesinde **Başvurular** seçeneğine ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
-9. **Gözat** sekmesine tıklayıp `Microsoft Azure Service Bus` için arama yapın. **WindowsAzure.ServiceBus** paketini seçin, **Yükle**’ye tıklayın ve kullanım koşullarını kabul edin.
+9. **Gözat** sekmesine tıklayıp **WindowsAzure.ServiceBus** için arama yapın. **WindowsAzure.ServiceBus** paketini seçin, **Yükle**’ye tıklayın ve kullanım koşullarını kabul edin.
    
    ![][13]
    
@@ -182,12 +182,12 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 5. Şimdi daha önceden oluşturduğunuz `Submit()` yöntemi görünümünü oluşturun. `Submit()` yöntemi içinde sağ tıklayın (parametre almayan `Submit()` aşırı yükü) ve ardından **Görünüm Ekle**'yi seçin.
    
    ![][14]
-6. Görünüm oluşturmanız için bir iletişim kutusu belirir. **Şablon** listesinde **Oluştur** seçeneğini belirleyin. **Model sınıfı** listesinde **OnlineOrder** sınıfına tıklayın.
+6. Görünüm oluşturmanız için bir iletişim kutusu belirir. **Şablon** listesinde **Oluştur** seçeneğini belirleyin. **Model sınıfı** listesinde **OnlineOrder** sınıfını seçin.
    
    ![][15]
 7. **Ekle**'ye tıklayın.
 8. Şimdi, uygulamanızın görüntülenen adını değiştirin. **Çözüm Gezgini**'nde, **Views\Shared\\_Layout.cshtml** dosyasına çift tıklayarak dosyayı Visual Studio düzenleyicisinde açın.
-9. **My ASP.NET Application** uygulamasının tüm örneklerini **LITWARE's Products** olarak değiştirin.
+9. **My ASP.NET Application** uygulamasının tüm örneklerini **Northwind Traders Products** olarak değiştirin.
 10. **Home**, **About** ve **Contact** bağlantılarını kaldırın. Vurgulanmış kodu silme:
     
     ![][28]
@@ -361,9 +361,9 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:  
 
-* [Azure Service Bus belgeleri][sbdocs]  
+* [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus kuyruklarını kullanmaya başlama][sbacomqhowto]
 * [Service Bus hizmet sayfası][sbacom]  
-* [Service Bus Kuyruklarını kullanma][sbacomqhowto]  
 
 Çok katmanlı senaryolar hakkında daha fazla bilgi için bkz.  
 
@@ -390,7 +390,6 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

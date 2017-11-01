@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 42a2542b7564f1692146b3e3927792ac339f30be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure'da bir Azure Service Fabric Linux kapsayıcı uygulaması dağıtma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -29,7 +29,7 @@ Bu hızlı başlangıçta Linux kapsayıcıları bir Service Fabric kümesine na
 
 Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 > [!div class="checklist"]
-> * Linux kapsayıcıları Service Fabric'e dağıtma
+> * Kapsayıcıları bir Azure Linux Service Fabric kümesine dağıtma
 > * Service Fabric'teki kapsayıcıları ölçekleme ve yük devretme
 
 ## <a name="prerequisite"></a>Önkoşul
@@ -52,6 +52,10 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Kapsayıcıları Azure'daki bir Service Fabric kümesine dağıtma
 Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi veya bir Grup kümesi kullanın.
+
+> [!Note]
+> Uygulamanın yerel geliştirme makinenizdeki Service Fabric kümesine değil Azure'daki bir kümeye dağıtılması gerekir. 
+>
 
 Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Bakımı Service Fabric ekibi tarafından yapılan bu kümelere herkes uygulama dağıtarak platform hakkında bilgi alabilir. Bir Grup kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
 

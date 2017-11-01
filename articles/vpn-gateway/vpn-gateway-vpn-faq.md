@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2017
+ms.date: 10/19/2017
 ms.author: cherylmc,yushwang
-ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8af984a7321d99faecb9d79903a442c938460919
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway SSS
 
@@ -70,6 +70,15 @@ VPN ağ geçidi bir sanal ağ geçidi türüdür. VPN ağ geçidi, şifrelenmiş
 
 Rota tabanlı ağ geçitleri yol tabanlı VPN'leri uygular. Rota temelli VPN'ler, paketleri kendi ilgili arabirimlerine yönlendirmek için IP iletme veya yönlendirme tablosunda "yolları" seçeneğini kullanır. Bundan sonra tünel arabirimleri, paketleri tünellerin içinde veya dışında şifreler veya şifrelerini çözer. Rota temelli VPN’lerle ilgili ilke veya trafik seçici herhangi birinden herhangi birine (veya joker karakterler) olarak yapılandırılır.
 
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>İlke temelli VPN ağ geçidimi Rota temelli olarak güncelleştirebilir miyim?
+Hayır. Bir Azure sanal ağ geçidi türü ilke temelli veya rota temelli olarak değiştirilemez. Ağ geçidinin silinip yeniden oluşturulması gerekir ve bu işlem yaklaşık 60 dakika sürer. Ağ geçidinin IP adresi veya Önceden Paylaşılan Anahtar (PSK) korunmaz.
+1. Silinecek ağ geçidiyle ilişkilendirilmiş bağlantıları silin.
+2. Ağ geçidini silin:
+* [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+* [Azure Powershell - klasik](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+3. [İstenen türde yeni bir ağ geçidi oluşturun ve VPN kurulumunu tamamlayın](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+
 ### <a name="do-i-need-a-gatewaysubnet"></a>'GatewaySubnet' gerekli mi?
 
 Evet. Ağ geçidi alt ağı, sanal ağ geçidi hizmetlerinin kullandığı IP adreslerini içerir. Bir sanal ağ geçidi yapılandırmak için sanal ağınıza yönelik bir ağ geçidi alt ağı oluşturmanız gerekir. Tüm ağ geçidi alt ağlarının düzgün çalışması için GatewaySubnet şeklinde adlandırılması gerekir. Ağ geçidi alt ağını başka şekilde adlandırmayın. VM’leri veya herhangi başka bir şeyi de ağ geçidi alt ağına dağıtmayın.
@@ -110,7 +119,6 @@ Evet, Önceden Paylaşılan Anahtar API’sini ve PowerShell cmdlet’ini Ayarla
 #### <a name="classic-deployment-model"></a>Klasik dağıtım modeli
 
 * Azure portalı: Klasik sanal ağ > VPN bağlantıları > Siteden siteye VPN bağlantıları > Yerel site adı > Yerel site > İstemci adres alanı yolunu izleyin. 
-* Klasik portal: Ağlar sayfasında Yerel Ağlar altında sanal ağınız için ağ geçidinden göndermek istediğiniz aralıkları ekleyin. 
 
 ### <a name="can-i-configure-force-tunneling"></a>Zorlamalı Tüneli yapılandırabilir miyim?
 
@@ -160,9 +168,13 @@ Endüstri standardı IPsec uygulamalarıyla uyumlu olana kadar diğer yazılım 
 
 ## <a name="P2S"></a>Noktadan Siteye - Yerel Azure sertifika doğrulaması
 
+Bu bölüm Resource Manager dağıtım modeli için geçerlidir.
+
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="P2SRADIUS"></a>Noktadan Siteye - RADIUS kimlik doğrulaması
+
+Bu bölüm Resource Manager dağıtım modeli için geçerlidir.
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

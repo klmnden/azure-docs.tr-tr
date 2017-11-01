@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: adegeo
-ms.openlocfilehash: 3601b73872bbea4b4e5324382eb97b7384ca6e13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f63cf0baf7636d0294ced7c2dc6b3112fa9900ee
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Node.js uygulamasını Azure Service Fabric'te barındırma
 
@@ -43,7 +43,7 @@ Visual Studio'yu **yönetici** olarak başlatın.
 Uygulamaya **MyGuestApp** adını verin ve **Tamam**'a basın.
 
 >[!IMPORTANT]
->Node.js, Windows'un yollara getirdiği 260 karakter sınırını kolayca aşabilir. Projenin kendisi için kısa bir yol (örneğin, **c:\code\svc1**) kullanın.
+>Node.js, Windows'un yollara getirdiği 260 karakter sınırını kolayca aşabilir. Projenin kendisi için kısa bir yol (örneğin, **c:\code\svc1**) kullanın. İsteğe bağlı olarak [bu yönergeleri](https://stackoverflow.com/a/41687101/1664231) izleyerek Windows 10'da uzun dosya yollarını etkinleştirebilirsiniz.
    
 ![Visual Studio'da yeni proje iletişim kutusu][new-project]
 

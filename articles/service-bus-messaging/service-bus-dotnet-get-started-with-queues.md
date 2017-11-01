@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c381489c3cb5b42505d0cdf01618edb370793304
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus kuyrukları ile çalışmaya başlama
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -56,7 +56,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
 
 ### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet paketi ekleme
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
-2. **Gözat** sekmesine tıklayın, **Microsoft Azure Service Bus** araması yapın ve **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
+2. **Gözat** sekmesine tıklayın, **WindowsAzure.ServiceBus** araması yapın ve **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
    
     ![NuGet paketi seçme][nuget-pkg]
 
@@ -115,7 +115,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
         }
     }
     ```
-3. Programı çalıştırın ve Azure portalını denetleyin: Ad alanına ilişkin **Genel Bakış** dikey penceresinde kuyruğunuzun adına tıklayın. Kuyruğa ilişkin **Temel Parçalar** dikey penceresi görüntülenir. **Etkin Mesaj Sayısı** değerinin 1 olduğuna dikkat edin. Gönderen uygulamayı iletileri almadan her çalıştırdığınızda bu değer 1 artar. Ayrıca uygulama kuyruğa her ileti eklediğinde kuyruğun geçerli boyutunun artış gösterdiğine dikkat edin.
+3. Programı çalıştırın ve Azure portalını denetleyin: Ad alanına ilişkin **Genel Bakış** penceresinde kuyruğunuzun adına tıklayın. Kuyruğa ilişkin **Temel Parçalar** penceresi görüntülenir. **Etkin Mesaj Sayısı** değerinin 1 olduğuna dikkat edin. Gönderen uygulamayı iletileri almadan her çalıştırdığınızda bu değer 1 artar. Ayrıca uygulama kuyruğa her ileti eklediğinde kuyruğun geçerli boyutunun artış gösterdiğine dikkat edin.
    
       ![İleti boyutu][queue-message]
 
@@ -178,7 +178,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
    
     ![Kuyruk uzunluğu][queue-message-receive]
 
-Tebrikler! Bir kuyruk oluşturdunuz, ileti gönderdiniz ve ileti aldınız.
+Tebrikler! Bir kuyruk oluşturdunuz, o kuyruğa ileti gönderdiniz ve aynı kuyruktan ileti aldınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -189,4 +189,4 @@ Service Bus mesajlaşmasının daha gelişmiş özelliklerini gösteren [örnekl
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 881ce13b6e4b10064294e590431434b29da3fb33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24552ef153f5aa601b2998129a7bbacc8f9da6bf
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Buluttaki şirket içi kimlik altyapınızı ve eşitleme hizmetlerini izleyin
 Azure Active Directory (Azure AD) Connect Health, şirket içi kimlik altyapınızı ve eşitleme hizmetlerini izlemenize ve daha iyi kavramanıza yardımcı olur. Active Directory Federasyon Hizmetleri (AD FS) sunucuları, Azure AD Connect sunucuları (diğer adıyla eşitleme altyapısı), Active Directory etki alanı denetleyicileri gibi anahtar kimlik bileşenlerinizi izleme işlevleri sağlayarak Office 365 ve Microsoft Online Services ile güvenilir bir bağlantı sürdürmenizi sağlar. Aynı zamanda, bu bileşenlere ait önemli veri noktalarını kolayca erişilebilir hale getirir. Böylece, bilgiye dayalı kararlar almak için kullanım bilgilerini ve diğer önemli öngörüleri almayı kolaylaştırır.
@@ -27,8 +27,8 @@ Bilgiler, [Azure AD Connect Health Portalı](https://aka.ms/aadconnecthealth)'nd
 
 ![Azure AD Connect Health nedir?](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
 
-Azure AD Connect Health özellikleri arttıkça portal, kimlik odaklı tek bir pano sunar. Kullanıcılarınızın iş yapma olanaklarını artırmanızı sağlayacak daha sağlam, iyi durumda ve tümleşik bir ortam sağlar.
 
+Azure AD Connect Health özellikleri arttıkça portal, kimlik odaklı tek bir pano sunar. Kullanıcılarınızın iş yapma olanaklarını artırmanızı sağlayacak daha sağlam, iyi durumda ve tümleşik bir ortam sağlar.
 ## <a name="why-use-azure-ad-connect-health"></a>Azure AD Connect Health neden kullanılır?
 Şirket içi dizinlerinizi Azure AD ile tümleştirdiğinizde, kullanıcılarınızın hem bulut kaynaklarına hem de şirket içi kaynaklara erişmesi için ortak bir kimlik oluşturulur ve kullanıcıların daha üretken olmaları sağlanır. Ancak kullanıcıların herhangi bir cihazdan şirket içi ve buluttaki kaynaklara güvenilir bir şekilde erişmeleri için bu ortamın sağlıklı olup olmadığından emin olma testleri de bu tümleştirmeyle oluşturulur. Azure AD Connect Health, Office 365 veya diğer Azure AD uygulamalarına erişmek için kullanılan şirket içi kimlik altyapınızı izlemeniz ve altyapınıza ilişkin öngörüler elde etmenize yardımcı olur. Her bir şirket içi kimlik sunucunuza bir aracı yüklemek kadar basittir.
 
@@ -40,11 +40,14 @@ AD FS'ye ilişkin Azure AD Connect Health Windows Server 2008 R2, Windows Server
 * AD FS kapasite planlaması için yararlı olan performans verilerindeki eğilimler
 * AD FS'nin nasıl kullanıldığını anlama konusunda yararlı olan özetlere sahip (uygulamalar, kullanıcılar, ağ konumu vb.) AD FS oturum açma işlemlerine yönelik kullanım analizi
 * Son IP adresi ile hatalı kullanıcı adı/parola denemesi yapan ilk 50 kullanıcı gibi AD FS raporları
+  
+Daha fazla bilgi için bkz. [Azure AD Connect Health'i AD FS ile kullanma](active-directory-aadconnect-health-adfs.md)
 
 Aşağıdaki video, AD FS için Azure AD Connect Health hakkında genel bakış sağlar.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Connect-Health--Monitor-you-identity-bridge/player]
 >
+
 >
 
 ## <a name="azure-ad-connect-health-for-syncactive-directory-aadconnect-health-syncmd"></a>[Eşitleme için Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
@@ -55,6 +58,8 @@ Eşitleme için Azure AD Connect Health, şirket içi Active Directory'niz ve Az
 * Ekleme, güncelleştirme, silme gibi farklı işlemlerdeki eğilimlere ve eşitleme işlemlerine ilişkin gecikme süresi grafikleri de dahil olmak üzere, eşitlemeyle ilgili operasyonel öngörüler
 * Eşitleme özelliklerine hızlı bakış bilgileri ve Azure AD'ye son başarılı aktarma
 * Nesne düzeyinde eşitleme hatalarıyla ilgili raporlar için \(Azure AD Premium gerekli değildir\)
+
+Daha fazla bilgi için bkz. [Eşitleme için Azure AD Connect Health'i kullanma](active-directory-aadconnect-health-sync.md)
 
 Aşağıdaki video, Eşitleme için Azure AD Connect Health ile ilgili genel bakış sağlar.
 
@@ -69,6 +74,8 @@ Active Directory Domain Services (AD DS) için Azure AD Connect Health, Windows 
 * Etki alanı denetleyicilerinizin durumunu ve işlem durumunu hızlıca görüntülemenizi sağlayan Etki Alanı Denetleyicileri panosu
 * Hatalar algılandığında sorun giderme kılavuzlarının bağlantılarını ve en son çoğaltma bilgilerini içeren Çoğaltma Durumu panosu
 * Sorun giderme ve izleme için gerekli olan popüler performans sayaçlarının performans veri grafiklerine her yerden hızlı erişim
+
+Daha fazla bilgi için bkz. [Azure AD Connect Health'i AD DS ile kullanma](active-directory-aadconnect-health-adds.md)
 
 Aşağıdaki video, AD DS için Azure AD Connect Health ile ilgili genel bakış sağlar.
 

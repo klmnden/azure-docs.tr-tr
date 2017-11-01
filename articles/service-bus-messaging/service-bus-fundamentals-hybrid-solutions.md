@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/15/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -58,15 +58,15 @@ Service Bus hizmeti bulutta (Microsoft'un Azure veri merkezlerinde) çalışıyo
 
 Her ileti iki bölümden oluşur: özellikler kümesi (her biri anahtar/değer çifti olmak üzere) ve ileti yükü. Yük ikili değer, metin, hatta XML olabilir. Bunların nasıl kullanıldığı, uygulama tarafından gerçekleştirilmeye çalışılan işleme bağlıdır. Örneğin, yakın zamandaki bir satış hakkında bir ileti gönderen uygulama **Seller="Ava"** ve **Amount=10000** özelliklerini içerebilir. İleti gövdesi, satışın imzalı sözleşmesinin taranmış bir görüntüsünü içerebilir veya görüntü mevcut değilse bu kısım boş bırakılır.
 
-Bir alıcı iki farklı şekilde Service Bus kuyruğundaki iletileri okuyabilir. *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)* olarak adlandırılan ilk seçenek, kuyruktan iletiyi kaldırır ve anında siler. Bu seçenek basittir ancak alıcı, iletiyi işlemeyi tamamlamadan bir çökme gerçekleşirse ileti kaybolur. Kuyruktan kaldırılmış olduğundan başka bir alıcı bu iletiye erişemez. 
+Bir alıcı iki farklı şekilde Service Bus kuyruğundaki iletileri okuyabilir. *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)* olarak adlandırılan ilk seçenek, kuyruktan bir ileti alır ve anında siler. Bu seçenek basittir ancak alıcı, iletiyi işlemeyi tamamlamadan bir çökme gerçekleşirse ileti kaybolur. Kuyruktan kaldırılmış olduğundan başka bir alıcı bu iletiye erişemez. 
 
-*[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)* olan ikinci seçenek ise bu soruna çözüm bulmak için tasarlanmıştır. **ReceiveAndDelete** gibi, **PeekLock** yöntemindeki okuma işlemi de iletiyi kuyruktan kaldırır. Ancak iletiyi silmez. Bunun yerine, iletiyi kilitleyerek diğer alıcılar için görünmez yapar ve aşağıdaki olaylardan birinin gerçekleşmesini bekler:
+*[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)* olan ikinci seçenek ise bu soruna çözüm bulmak için tasarlanmıştır. **ReceiveAndDelete** gibi, **PeekLock** yöntemindeki okuma işlemi de iletiyi kuyruktan kaldırır. Ancak iletiyi silmez. Bunun yerine, iletiyi kilitleyerek diğer alıcılar için görünmez yapar ve aşağıdaki olaylardan birinin gerçekleşmesini bekler:
 
-* Alıcı iletiyi başarıyla işlediğinde [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) çağrısı yapar ve kuyruk iletiyi siler. 
-* Alıcı, iletiyi başarıyla işleyemediğine karar verirse [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) çağrısını yapar. Daha sonra kuyruk iletinin kilidini açar ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
+* Alıcı iletiyi başarıyla işlediğinde [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) çağrısı yapar ve kuyruk iletiyi siler. 
+* Alıcı, iletiyi başarıyla işleyemediğine karar verirse [Abandon()](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) çağrısını yapar. Daha sonra kuyruk iletinin kilidini açar ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
 * Alıcı, yapılandırılabilir bir süre içinde (varsayılan olarak 60 saniyedir) bu yöntemlerden hiçbirini çağırmazsa kuyruk, alıcının başarısız olduğunu varsayar. Bu durumda, alıcının **Abandon** çağrısı yaptığını varsayarak hareket eder ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
 
-Burada gerçekleşebilecek şu duruma dikkat edin: Aynı ileti iki kez (belki de iki farklı alıcıya) teslim edilebilir. Service Bus kuyruklarını kullanan uygulamalar bu durum için hazırlıklı olmalıdır. Yinelenen öğe algılamasını daha kolay hale getirmek için her iletinin benzersiz [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) özelliği vardır. Bu özellik, iletinin kuyruktan kaç kez okunduğuna bakılmaksızın varsayılan olarak sürekli aynıdır. 
+Burada gerçekleşebilecek şu duruma dikkat edin: Aynı ileti iki kez (belki de iki farklı alıcıya) teslim edilebilir. Service Bus kuyruklarını kullanan uygulamalar bu durum için hazırlıklı olmalıdır. Yinelenen öğe algılamasını daha kolay hale getirmek için her iletinin benzersiz [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId) özelliği vardır. Bu özellik, iletinin kuyruktan kaç kez okunduğuna bakılmaksızın varsayılan olarak sürekli aynıdır. 
 
 Kuyruklar birçok durumda oldukça faydalıdır. Kuyruklar sayesinde aynı anda çalışmayan uygulamaların bile iletişim kurmasına olanak sağlanır; özellikle toplu işlem ve mobil uygulamalarda olmak üzere bu özellik oldukça kullanışlıdır. Ayrıca, birden çok alıcısı bulunan bir kuyruk otomatik olarak yük dengelemesi sunar. Bu durum, gönderilen iletilerin tüm alıcılara dağıtılmasından kaynaklanır.
 
@@ -84,7 +84,7 @@ Ne kadar faydalı olsalar da kuyruklar her zaman doğru çözüm değildir. Baz�
 * Abone 2 ise *Seller="Ruby"* ve/veya değeri 100.000'den fazla olan *Amount* özelliklerini içeren iletileri alır. Satış müdürü olduğunu varsaydığımız Ruby, hem kendi satışlarını hem de kimin yaptığı fark etmeksizin tüm büyük satışları görmek isteyebilir.
 * Abone 3, filtresini *True* olarak ayarlar ve tüm iletileri alır. Örneğin, bu uygulama bir denetim kaydı tutmakla görevlendirilmiştir ve tüm iletileri görmesi gerekir.
 
-Kuyruklarda olduğu gibi, bir konu başlığının aboneleri de iletileri [ReceiveAndDelete veya PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) kullanarak okuyabilir. Ancak kuyrukların aksine, konu başlığına gönderilen tek bir ileti birden çok abonelik tarafından alınabilir. Yaygın şekilde *yayımla ve abone ol* (veya *pub/sub*) olarak adlandırılan bu yaklaşım, aynı iletilerin birden çok uygulamanın ilgi alanına girmesi durumunda faydalıdır. Her abone, doğru filtreyi tanımlayarak ileti akışının yalnızca görmesi gereken kısmını seçebilir.
+Kuyruklarda olduğu gibi, bir konu başlığının aboneleri de iletileri [ReceiveAndDelete veya PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) kullanarak okuyabilir. Ancak kuyrukların aksine, konu başlığına gönderilen tek bir ileti birden çok abonelik tarafından alınabilir. Yaygın şekilde *yayımla ve abone ol* (veya *pub/sub*) olarak adlandırılan bu yaklaşım, aynı iletilerin birden çok uygulamanın ilgi alanına girmesi durumunda faydalıdır. Her abone, doğru filtreyi tanımlayarak ileti akışının yalnızca görmesi gereken kısmını seçebilir.
 
 ## <a name="relays"></a>Geçişler
 

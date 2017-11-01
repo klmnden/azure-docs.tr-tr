@@ -1,3 +1,5 @@
+Bu SSS, klasik dağıtım modelini kullanan P2S bağlantıları için geçerlidir.
+
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Noktadan Siteye ile hangi istemci işletim sistemlerini kullanabilirim?
 
 Aşağıdaki istemci işletim sistemleri desteklenmektedir:
