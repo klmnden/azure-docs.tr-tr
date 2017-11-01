@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 010/04/2017
+ms.date: 10/12/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f277f59982251eb66ca02e72b4ced7f765935b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
 
@@ -75,7 +75,7 @@ Bir Batch hesabı Batch hizmeti dahilinde benzersiz şekilde tanımlanan bir var
 Tek bir Batch hesabında birden fazla Batch iş yükü çalıştırabilir ya da iş yüklerinizi aynı abonelik ve farklı Azure bölgelerindeki Batch hesapları arasında dağıtabilirsiniz.
 
 > [!NOTE]
-> Batch hesabı oluştururken genelde varsayılan **Batch hizmeti** modunu seçmeniz gerekir. Bu mod kullanıldığında havuzlar Azure tarafından yönetilen aboneliklerde, arka planda ayrılır. Kullanılması artık önerilmeyen alternatif **Kullanıcı aboneliği** modunda bir havuz oluşturulduğunda Batch VM'leri ve diğer kaynaklar doğrudan aboneliğinizde oluşturulur.
+> Batch hesabı oluştururken genelde varsayılan **Batch hizmeti** modunu seçmeniz gerekir. Bu mod kullanıldığında havuzlar Azure tarafından yönetilen aboneliklerde, arka planda ayrılır. Kullanılması artık önerilmeyen alternatif **Kullanıcı aboneliği** modunda bir havuz oluşturulduğunda Batch VM'leri ve diğer kaynaklar doğrudan aboneliğinizde oluşturulur. Kullanıcı aboneliği modunda Batch hesabı oluşturmak için hesabı bir Azure Key Vault ile ilişkilendirmeniz de gerekir.
 >
 
 
@@ -129,7 +129,7 @@ Batch havuzu oluştururken Azure sanal makine yapılandırmasını ve havuzdaki 
 
 - **Sanal Makine Yapılandırması**, havuzun Azure sanal makinelerinden oluştuğunu belirtir. Bu VM'ler Linux veya Windows görüntülerinden oluşturulabilir. 
 
-    Sanal Makine Yapılandırmasını temel alan bir havuz oluşturduğunuzda, yalnızca düğümlerin boyutunu ve onları oluşturmak için kullanılan görüntülerin kaynağını değil, aynı zamanda **sanal makine görüntü başvurusunu** ve düğümlere yüklenecek Batch **düğümü aracı SKU'sunu** da belirtmeniz gerekir. Bu havuz özelliklerini belirtme hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
+    Sanal Makine Yapılandırmasını temel alan bir havuz oluşturduğunuzda, yalnızca düğümlerin boyutunu ve onları oluşturmak için kullanılan görüntülerin kaynağını değil, aynı zamanda **sanal makine görüntü başvurusunu** ve düğümlere yüklenecek Batch **düğümü aracı SKU'sunu** da belirtmeniz gerekir. Bu havuz özelliklerini belirtme hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md). İsteğe bağlı olarak Market görüntülerinden oluşturulmuş havuz VM'lerine bir veya daha fazla boş veri diski ekleyebilir veya VM'leri oluşturmak için kullanılan özel görüntülere veri diskleri dahil edebilirsiniz.
 
 - **Cloud Services Yapılandırması**, havuzun Azure Cloud Services düğümlerinden oluştuğunu belirtir. Cloud Services *yalnızca* Windows işlem düğümleri sunar.
 
@@ -148,9 +148,11 @@ Havuz oluştururken VHD'nizin temel görüntüsünün işletim sistemine bağlı
 
 Ayrıntılı gereksinimler ve adımlar için bkz. [Sanal makine havuzu oluşturmak için özel görüntü kullanma](batch-custom-images.md).
 
+#### <a name="container-support-in-virtual-machine-pools"></a>Sanal Makine havuzlarında kapsayıcı desteği
 
+Batch API'lerini kullanarak Sanal Makine Yapılandırma havuzu oluştururken havuzu görevleri Docker kapsayıcılarında çalıştıracak şekilde ayarlayabilirsiniz. Şu anda havuzu Azure Market'teki Windows Server 2016 Datacenter with Containers görüntüsünü kullanarak oluşturmanız veya Docker Community Edition ile gerekli sürücüleri içeren özel bir VM görüntüsü sağlamanız gerekir. Havuz ayarları, kapsayıcı görüntülerini havuz oluşturulduğunda VM'lere kopyalayan bir [kapsayıcı yapılandırması](/rest/api/batchservice/pool/add#definitions_containerconfiguration) içermelidir. Havuzda çalışan görevler, kapsayıcı görüntülerine ve kapsayıcı çalıştırma seçeneklerine başvurabilir.
 
-### <a name="compute-node-type-and-target-number-of-nodes"></a>İşlem düğümü türü ve hedef düğüm sayısı
+## <a name="compute-node-type-and-target-number-of-nodes"></a>İşlem düğümü türü ve hedef düğüm sayısı
 
 Bir havuz oluşturduğunuzda, istediğiniz işlem düğümü türlerini ve her biri için hedeflenen sayıyı belirtebilirsiniz. İki tür işlem düğümü vardır:
 
@@ -258,6 +260,7 @@ Bir görev oluşturduğunuzda aşağıdakileri belirtebilirsiniz:
 * Uygulamanızın gerektirdiği **ortam değişkenleri**. Daha fazla bilgi için [Görevler için ortam ayarları](#environment-settings-for-tasks) bölümüne bakın.
 * Görev yürütülürken tabi olunan **kısıtlamalar**. Örneğin, görevin çalışmasına izin verilen en uzun süre, başarısız olan bir görevin en fazla yeniden deneme sayısı ve görevin çalışma dizinindeki dosyaların elde tutulduğu en uzun süre kısıtlamalardan bazılarıdır.
 * Görevin çalışmak üzere zamanlandığı işlem düğümünü dağıtmak için kullanılan **uygulama paketleri**. [Uygulama paketleri](#application-packages), görevlerinizin çalıştırdığı uygulamaların dağıtımını ve sürüm oluşturma işlemlerini basitleştirir. Görev düzeyinde uygulama paketleri, özellikle paylaşılan havuz ortamlarında çok yararlıdır. Bu ortamlarda, tek havuzda farklı işler çalıştırılır ve bir iş tamamlandığında havuz silinmez. İşinizin havuzdaki görevleri, düğümlerinden azsa uygulamanız yalnızca görevleri çalıştıran düğümlere dağıtıldığı için görev uygulama paketleri veri aktarımını azaltabilir.
+* Düğümdeki görevin çalıştığı Docker kapsayıcısını oluşturmak için Docker Hub içinde bir **kapsayıcı görüntüsü** başvurusu veya özel kayıt defteri ile ek ayarlar. Bu bilgileri yalnızca havuz kapsayıcı yapılandırmasıyla kurulduysa belirtmeniz gerekir.
 
 Bir düğümde hesaplama yapmak üzere tanımladığınız görevlere ek olarak, aşağıdaki özel görevler de Batch hizmeti tarafından sağlanır:
 
@@ -386,39 +389,12 @@ Değişken ancak devam eden bir yükü işlemek için genellikle birleştirilmi�
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Sanal ağ ve güvenlik duvarı yapılandırması 
 
-Batch'te işlem düğümlerinden oluşan bir havuz sağladığınızda, havuzu bir Azure [sanal ağının](../virtual-network/virtual-networks-overview.md) alt ağı ile ilişkilendirebilirsiniz. Alt ağları olan bir sanal ağ oluşturma hakkında daha fazla bilgi için bkz. [Alt ağları olan bir Azure sanal ağı oluşturma](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+Batch'te işlem düğümlerinden oluşan bir havuz sağladığınızda, havuzu bir Azure [sanal ağının](../virtual-network/virtual-networks-overview.md) alt ağı ile ilişkilendirebilirsiniz. Azure sanal ağı kullanmak için Batch istemci API'sinin Azure Active Directory (AD) kimlik doğrulamasını kullanması gerekir. Azure AD için Azure Batch desteği, [Batch hizmeti çözümlerinin kimliğini Active Directory ile doğrulama](batch-aad-auth.md) makalesinde belirtilmiştir.  
 
-Sanal ağ gereksinimleri:
+### <a name="vnet-requirements"></a>Sanal ağ gereksinimleri
+[!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-* Sanal ağ, Azure Batch hesabıyla aynı Azure **bölgesinde** ve **aboneliğinde** olmalıdır.
-
-* Sanal makine yapılandırması ile oluşturulan havuzlar için yalnızca Azure Resource Manager (ARM) tabanlı sanal ağlar desteklenir. Bulut hizmetleri yapılandırmasıyla oluşturulan havuzlar için hem ARM hem de klasik sanal ağlar desteklenir. 
-
-* ARM tabanlı ağ kullanmak için Batch istemci API'sinin [Azure Active Directory kimlik doğrulamasını](batch-aad-auth.md) kullanması gerekir. Klasik sanal ağ kullanmak için "MicrosoftAzureBatch" hizmet sorumlusu, belirtilen sanal ağ için "Klasik Sanal Makine Katılımcısı" Rol Tabanlı Erişim Denetimi (RBAC) rolüne sahip olmalıdır. 
-
-* Belirtilen alt ağda tüm hedef düğümler için yeterli sayıda boş **IP adresi** bulunmalıdır. Bu sayı havuzun `targetDedicatedNodes` ve `targetLowPriorityNodes` özelliklerinin toplamı kadar olacaktır. Alt ağ yeterli sayıda boş IP adresi içermiyorsa Batch hizmeti, havuzdaki işlem düğümlerini kısmen ayırır ve bir yeniden boyutlandırma hatası döndürür.
-
-* İşlem düğümlerinde görev zamanlanabilmesi için belirtilen alt ağın Batch hizmetinden gelen iletişimlere izin vermesi gerekir. İşlem düğümleriyle iletişim kurulması, sanal ağ ile ilişkili bir **Ağ Güvenlik Grubu (NSG)** tarafından reddedilirse Batch hizmeti, işlem düğümlerinin durumunu **kullanılamıyor** olarak ayarlar.
-
-* Belirtilen sanal ağ ile ilişkilendirilmiş **Ağ Güvenlik Grupları (NSG’ler)** veya **güvenlik duvarı** varsa, ayrılmış sistem bağlantı noktalarından bazılarının gelen iletişim istekleri için etkinleştirilmesi gerekir:
-
-- Sanal makine yapılandırmasıyla oluşturulan havuzlar için 29876 ve 29877 numaralı bağlantı noktalarına ek olarak Linux için 22 numaralı ve Windows için de 3389 numaralı bağlantı noktalarını etkinleştirin. 
-- Bulut hizmeti yapılandırmasıyla oluşturulan havuzlar için 10100, 20100 ve 30100 numaralı bağlantı noktalarını etkinleştirin. 
-- 443 numaralı bağlantı noktasında Azure Depolama’ya yönelik giden bağlantıları etkinleştirin. Ayrıca, Azure Depolama uç noktanızın sanal ağınızda kullanılan özel DNS sunucuları tarafından çözümlenebildiğinden emin olun. `<account>.table.core.windows.net` biçimindeki URL’ler çözümlenebilir.
-
-    Aşağıdaki tabloda sanal makine yapılandırmasıyla oluşturduğunuz havuzlar için etkinleştirmeniz gereken gelen bağlantı noktaları gösterilmiştir:
-
-    |    Hedef Bağlantı Noktaları    |    Kaynak IP adresi      |    Batch, NSG ekliyor mu?    |    VM'nin kullanılabilmesi için gerekli mi?    |    Kullanıcı eylemi   |
-    |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
-    |    <ul><li>Sanal makine yapılandırmasıyla oluşturulan havuzlar için: 29876, 29877</li><li>Bulut hizmeti yapılandırmasıyla oluşturulan havuzlar için: 10100, 20100, 30100</li></ul>         |    Yalnızca Batch hizmeti rolü IP adresleri |    Evet. Batch, VM'lere eklenmiş olan ağ arabirimleri (NIC) düzeyinde NSG'ler ekler. Bu NSG'ler yalnızca Batch hizmeti rolü IP adreslerinden gelen trafiğe izin verir. Bu bağlantıları tüm Web için açsanız dahi trafik NIC üzerinde engellenir. |    Evet  |  Batch yalnızca Batch IP adreslerine izin verdiğinden NSG belirtmeniz gerekmez. <br /><br /> Ancak bir NSG belirtirseniz bu bağlantı noktalarının gelen trafiğe açık olduğundan emin olun. <br /><br /> NSG'de kaynak IP olarak * belirttiğinizde de Batch, VM'lere eklenmiş olan NIC düzeyinde NSG'ler ekler. |
-    |    3389, 22               |    VM'e uzaktan erişebilmeniz için hata ayıklama amacıyla kullanılan kullanıcı bilgisayarları.    |    Hayır                                    |    Hayır                     |    VM için uzaktan erişime (RDP/SSH) izin vermek istiyorsanız NSG ekleyin.   |                 
-
-    Aşağıdaki tabloda Azure Depolama erişimine izin vermek için etkinleştirmeniz gereken giden bağlantı noktaları gösterilmiştir:
-
-    |    Giden Bağlantı Noktaları    |    Hedef    |    Batch, NSG ekliyor mu?    |    VM'nin kullanılabilmesi için gerekli mi?    |    Kullanıcı eylemi    |
-    |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-    |    443    |    Azure Storage    |    Hayır    |    Evet    |    NSG eklerseniz bu bağlantı noktasının giden trafik için açık olduğundan emin olun.    |
-
+Bir sanal ağda Batch havuzu oluşturma hakkında daha fazla bilgi için bkz. [Sanal ağınızda sanal makine havuzu oluşturma](batch-virtual-network.md).
 
 ## <a name="scaling-compute-resources"></a>İşlem kaynaklarını ölçeklendirme
 [Otomatik ölçeklendirme](batch-automatic-scaling.md) kullanarak, Batch hizmetinin, bir havuzdaki işlem düğümleri sayısını mevcut iş yüküne ve işlem senaryonuzun kaynak kullanımına göre dinamik olarak ayarlamasını sağlayabilirsiniz. Bu, yalnızca ihtiyacınız olan kaynakları kullanarak ve ihtiyacınız olmayanları bırakarak uygulamanızı çalıştırmaya ilişkin genel maliyeti düşürmenizi sağlar.
@@ -525,11 +501,7 @@ Bazı görevlerinizin başarısız olduğu durumlarda, Batch istemci uygulamanı
 ## <a name="next-steps"></a>Sonraki adımlar
 * Batch çözümleri oluşturmak için kullanılabilen [Batch API’leri ve araçları](batch-apis-tools.md) hakkında bilgi alın.
 * [.NET için Azure Batch Kitaplığını kullanmaya başlama](batch-dotnet-get-started.md) bölümünde örnek bir Batch uygulaması hakkında adım adım yönergeler alın. Öğreticinin ayrıca Linux işlem düğümleri üzerinde iş yükü çalıştıran bir [Python sürümü](batch-python-tutorial.md) vardır.
-* Batch çözümlerinizi geliştirirken kullanmak üzere [Batch Gezgini][github_batchexplorer] örnek projesini indirin ve derleyin. Batch Explorer’ı kullanarak, aşağıdakileri ve daha fazlasını gerçekleştirebilirsiniz:
-
-  * Batch hesabınızdaki havuzlar, işler ve görevleri izleme ve düzenleme
-  * Düğümlerden `stdout.txt`, `stderr.txt` ve diğer dosyaları indirme
-  * Düğümlerde kullanıcı oluşturma ve uzaktan oturum açma için RDP dosyalarını indirme
+* Batch çözümlerinizi geliştirirken kullanmak üzere [BatchLabs][batch_labs] uygulamasını indirin ve yükleyin. BatchLabs; Azure uygulamalarıyla ilgili oluşturma, hata ayıklama ve izleme işlemlerinde yardımcı olabilir. 
 * [Linux işlem düğümü havuzlarını oluşturma](batch-linux-nodes.md) hakkında bilgi edinin.
 * MSDN'de [Azure Batch forumunu][batch_forum] ziyaret edin. Forum, Batch hizmetinde yeni veya uzman olmanıza bakılmaksızın sorular sormak için uygun bir yerdir.
 
@@ -541,7 +513,7 @@ Bazı görevlerinizin başarısız olduğu durumlarda, Batch istemci uygulamanı
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

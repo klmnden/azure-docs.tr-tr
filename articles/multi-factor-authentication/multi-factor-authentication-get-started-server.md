@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a0eec19eea1a75b67f314f204fb769e6eff162
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama
 
@@ -89,26 +89,42 @@ Olay Onayı özelliğini kullanmıyorsanız ve kullanıcılarınız şirket ağ�
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu indirme
+## <a name="download-the-mfa-server---public-preview"></a>MFA Sunucusu'nu indirme - Genel önizleme
+
+Azure portalından Azure Multi-Factor Authentication Sunucusu'nu indirmek için aşağıdaki adımları izleyin:
+
+1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
+2. **Active Directory** > **Multi-Factor Authentication**'ı seçin.
+3. **Sunucu ayarları**'nı seçin.
+4. **İndir**'i seçin ve indirme sayfasındaki talimatları izleyerek yükleyiciyi kaydedin. 
+
+   ![MFA sunucusu indirme](./media/multi-factor-authentication-get-started-server/downloadportal.png)
+
+5. Yükleyiciyi çalıştırdıktan sonra bakacağımızdan bu sayfayı açık tutun.
+
+
+## <a name="download-the-mfa-server"></a>MFA Sunucusu'nu indirme
+
+pfweb portalından Azure Multi-Factor Authentication Sunucusu'nu indirmek için aşağıdaki adımları izleyin:
 
 1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
 2. Sol taraftaki **Active Directory** öğesini seçin.
-3. **Kullanıcılar ve gruplar**’a tıklayın.
-4. **Tüm kullanıcılar**’a tıklayın.
-5. **Multi-Factor Authentication**’a tıklayın.
+3. **Kullanıcı ve gruplar**'ı seçin
+4. **Tüm kullanıcılar**'ı seçin
+5. **Multi-Factor Authentication**'ı seçin
 6. **Multi-factor authentication** altında, **Hizmet ayarları**'nı seçin
 
    ![Hizmet ayarları sayfası](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 
 6. Hizmetleri ayarları sayfasında, ekranın alt kısmında **Portal'a git**’e tıklayın. Yeni bir sayfa açılır.
-7. **İndirmeler**’e tıklayın.
+7. **İndirmeler**'i seçin.
 8. **İndir** bağlantısına tıklayıp yükleyici kaydedin.
 
    ![MFA sunucusu indirme](./media/multi-factor-authentication-get-started-server/download4.png)
 
 9. Yükleyiciyi çalıştırdıktan sonra bakacağımızdan bu sayfayı açık tutun.
 
-## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu yükleme ve yapılandırma
+## <a name="install-and-configure-the-mfa-server"></a>MFA Sunucusu'nu yükleme ve yapılandırma
 
 Artık sunucuyu indirdiğinize göre, yükleyebilir ve yapılandırabilirsiniz. Yükleme yaptığınız sunucunun, planlama bölümünde listelenen gereksinimleri karşıladığından emin olun.
 
@@ -119,7 +135,7 @@ Artık sunucuyu indirdiğinize göre, yükleyebilir ve yapılandırabilirsiniz. 
 
    ![Bulut](./media/multi-factor-authentication-get-started-server/skip2.png)
 
-5. Sunucuyu indirdiğimiz sayfaya dönerek, **Etkinleştirme Kimlik Bilgileri Oluştur** düğmesine tıklayın. Bu bilgileri verilen kutularda Azure MFA Sunucusu’na kopyalayın ve **Etkinleştir**’e tıklayın.
+5. Sunucuyu indirdiğiniz sayfaya dönerek, **Etkinleştirme Kimlik Bilgileri Oluştur** düğmesine tıklayın. Bu bilgileri verilen kutularda Azure MFA Sunucusu’na kopyalayın ve **Etkinleştir**’e tıklayın.
 
 ## <a name="send-users-an-email"></a>Kullanıcılara e-posta gönderme
 

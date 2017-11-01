@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure’daki sanal makine ölçek kümeleri nedir?
 Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini dağıtıp yönetmek için kullanabileceğiniz bir Azure işlem kaynağıdır. Tüm sanal makinelerin aynı şekilde yapılandırıldığı ölçek kümeleri, gerçek otomatik ölçeklendirmeyi destekleyecek şekilde tasarlanmıştır ve sanal makinelerin önceden hazırlanması gerekmez. Bu nedenle büyük işlem, büyük veri ve kapsayıcı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolaylaştırır.
@@ -33,12 +33,12 @@ Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kü
 * [Guy Bowerman ile Sanal Makine Ölçek Kümeleri](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Ölçek kümeleri oluşturma ve yönetme
-[Azure portalında](https://portal.azure.com) **yeni** öğesini seçip arama çubuğuna **ölçek** yazarak bir ölçek kümesi oluşturabilirsiniz. Sonuçlar arasında **Sanal makine ölçek kümesi** seçeneği listelenir. Buradan gerekli alanları doldurarak ölçek kümenizi özelleştirip dağıtabilirsiniz. Portalda CPU kullanımına göre temel otomatik ölçeklendirme kurallarını ayarlamaya yönelik seçenekler de mevcuttur. 
+[Azure portalında](https://portal.azure.com) **yeni** öğesini seçip arama çubuğuna **ölçek** yazarak bir ölçek kümesi oluşturabilirsiniz. Sonuçlar arasında **Sanal makine ölçek kümesi** seçeneği listelenir. Buradan gerekli alanları doldurarak ölçek kümenizi özelleştirip dağıtabilirsiniz. Portalda CPU kullanımına göre temel otomatik ölçeklendirme kurallarını ayarlamaya yönelik seçenekler de mevcuttur. Ölçek kümenizi yönetmek için Azure portalını, [Azure PowerShell cmdlet'lerini](virtual-machine-scale-sets-windows-manage.md) veya Azure CLI 2.0'ı kullanabilirsiniz.
 
 Ölçek kümeleri bir [kullanılabilirlik alanına](../availability-zones/az-overview.md) dağıtılabilir.
 
 > [!NOTE]
-> Şu anda Sanal Makine Ölçek Kümeleri yalnızca tek bir kullanılabilirlik alanına dağıtmayı desteklemektedir. İleride birden fazla alana dağıtım desteği eklenecektir.
+> Şu anda sanal makine ölçek kümeleri yalnızca tek bir kullanılabilirlik alanına dağıtmayı desteklemektedir. İleride birden fazla alana dağıtım desteği eklenecektir.
 
 Tıpkı tek Azure Resource Manager VM’lerinde olduğu gibi JSON şablonları ve [REST API’leri](https://msdn.microsoft.com/library/mt589023.aspx) kullanarak da ölçek kümeleri tanımlayıp dağıtabilirsiniz. Bu nedenle, tüm standart Azure Resource Manager dağıtım yöntemlerini kullanabilirsiniz. Şablonlar hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -46,8 +46,23 @@ Sanal makine ölçek kümelerine ilişkin örnek şablon kümesini [Azure Hızl�
 
 Hızlı Başlangıç şablon örneklerinde, her bir şablona yönelik Benioku belgesinde bulunan "Azure'a dağıtın" düğmesi, portal dağıtım özelliğine bağlantı sağlar. Ölçek kümesini dağıtmak için düğmeye tıklayın ve ardından portalda gerekli olan tüm parametreleri doldurun. 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>Ölçek kümesinin ölçeğini artırma veya azaltma
-Azure portalında bir ölçek kümesinin kapasitesini **Ayarlar** altında **Ölçeklendirme** bölümüne tıklayarak değiştirebilirsiniz. 
+
+## <a name="autoscale"></a>Otomatik Ölçeklendirme
+Uygulama performansının tutarlı olması için ölçek kümenizdeki VM örneği sayısını otomatik olarak artırabilir ve azaltabilirsiniz. Otomatik ölçeklendirme özelliği, zaman içinde değişen müşteri talebini izlemek ve buna göre ayarlama yapmak için gerekli yönetim maliyetini azaltır. Kuralları performans ölçümleri, uygulama yanıtı veya sabit bir plana göre tanımlarsınız ve ölçek kümeniz ihtiyaçlara göre otomatik olarak ölçeklendirilir.
+
+Temel otomatik ölçeklendirme kuralları için CPU kullanımı veya disk G/Ç gibi konak tabanlı performans ölçümlerini kullanabilirsiniz. Bu konak tabanlı ölçümler ek aracı veya uzantı yükleyip yapılandırmaya gerek olmadan ilk günden itibaren kullanılabilir. Konak tabanlı ölçümleri kullanan otomatik ölçeklendirme kuralları aşağıdaki araçlarla oluşturulabilir:
+
+- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+
+Daha ayrıntılı performans ölçümleri kullanmak için ölçek kümenizdeki VM örneklerine Azure tanılama uzantısını yükleyebilir ve yapılandırabilirsiniz. Azure tanılama uzantısı her VM örneğinden bellek tüketimi gibi ek performans ölçümlerini toplamanızı sağlar. Bu performans ölçümleri bir Azure depolama hesabına aktarılır ve bu verileri kullanan otomatik ölçeklendirme kuralları oluşturursunuz. Daha fazla bilgi için Azure tanılama uzantısını [Linux VM](../virtual-machines/linux/diagnostic-extension.md) veya [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md) için etkinleştirme makalelerini inceleyebilirsiniz.
+
+Doğrudan uygulama performansını izlemek için uygulamanıza App Insights için küçük bir izleme paketi yükleyebilir ve yapılandırabilirsiniz. Bu işlemin ardından uygulama yanıt süresi veya oturum sayısı için ayrıntılı performans ölçümleri uygulamanızdan geri aktarılabilir. Daha sonra uygulama düzeyinde performans için tanımlanan eşiklere göre otomatik ölçeklendirme kuralları oluşturabilirsiniz. App Insights hakkında daha fazla bilgi için bkz. [Application Insights nedir?](../application-insights/app-insights-overview.md).
+
+
+## <a name="manually-scaling-a-scale-set-out-and-in"></a>Ölçek kümesinin ölçeğini el ile artırma veya azaltma
+Azure portalında bir ölçek kümesinin kapasitesini **Ayarlar** altında **Ölçeklendirme** bölümüne tıklayarak el ile değiştirebilirsiniz. 
 
 Ölçek kümesi kapasitesini komut satırında değiştirmek için, [Azure CLI’da](https://github.com/Azure/azure-cli) **scale** komutunu kullanın. Örneğin, bir ölçek kümesini 10 VM kapasitesine ayarlamak için şu komutu kullanın:
 
@@ -67,26 +82,6 @@ Azure Resource Manager şablonu kullanarak bir ölçek kümesindeki sanal makine
 
 Kapasiteyi değiştirmek için bir Azure Resource Manager şablonunu yeniden dağıtıyorsanız, yalnızca güncel kapasiteli **SKU** özellik paketini içeren çok daha küçük bir şablon tanımlayabilirsiniz. [Bir örneği aşağıda verilmiştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## <a name="autoscale"></a>Otomatik Ölçeklendirme
-
-Bir ölçek kümesi Azure portalında oluşturulurken isteğe bağlı olarak otomatik ölçeklendirme ayarlarıyla da yapılandırılabilir. VM sayısı daha sonra ortalama CPU kullanımına göre artırılabilir veya azaltılabilir. 
-
-[Azure Hızlı Başlangıç şablonlarındaki](https://github.com/Azure/azure-quickstart-templates) birçok ölçek kümesi şablonu otomatik ölçeklendirme ayarlarını tanımlar. Mevcut bir ölçek kümesine de otomatik ölçeklendirme ayarları ekleyebilirsiniz. Örneğin, aşağıdaki Azure PowerShell betiği bir ölçek kümesine CPU tabanlı otomatik ölçeklendirme ekler:
-
-```PowerShell
-
-$subid = "yoursubscriptionid"
-$rgname = "yourresourcegroup"
-$vmssname = "yourscalesetname"
-$location = "yourlocation" # e.g. southcentralus
-
-$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionValue 1
-$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator LessThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionValue 1
-$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "autoprofile1"
-Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
-```
-
-Ölçeklendirme için geçerli ölçümlerin bir listesini “Microsoft.Compute/virtualMachineScaleSets” başlığı altında [Azure İzleyici ile desteklenen ölçümler](../monitoring-and-diagnostics/monitoring-supported-metrics.md) içinde bulabilirsiniz. Zamanlama tabanlı ölçeklendirme ve uyarı sistemleri ile tümleştirme için web kancalarını kullanma gibi daha gelişmiş otomatik ölçeklendirme seçenekleri de sunulur.
 
 ## <a name="monitoring-your-scale-set"></a>Ölçek kümenizi izleme
 [Azure portalı](https://portal.azure.com) ölçek kümelerini listeler ve özelliklerini gösterir. Portal ayrıca yönetim işlemlerini destekler. Yönetim işlemlerini hem ölçek kümeleri hem de bir ölçek kümesindeki tek VM’ler üzerinde gerçekleştirebilirsiniz. Portal ayrıca özelleştirilebilir bir kaynak kullanımı grafiği sağlar. 

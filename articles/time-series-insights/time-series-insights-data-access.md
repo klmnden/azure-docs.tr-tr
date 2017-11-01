@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 5258bf5de6f7aa1ea246f1235e7d362b1b7d0181
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Azure Portal’ı kullanarak Zaman Serisi Görüşleri ortamına veri erişimi verme
 
@@ -42,12 +42,13 @@ Veri erişimi ilkeleri, veri sorguları gönderme, ortamdaki başvuru verilerini
 Aşağıdaki adımlar, bir kullanıcı asıl adına veri erişimi verme işlemini gösterir:
 
 1.  [Azure Portal](https://portal.azure.com) oturum açın.
-2.  Azure Portal'ın sol tarafındaki menüde "Tüm kaynaklar"a tıklayın.
-3.  Zaman Serisi Görüşleri ortamınızı seçin.
+2.  Arama penceresine "Zaman Serisi" yazın.
+3.  Zaman Serisi ortamına tıklayın
+4.  Listeden Zaman Serisi Görüşleri ortamınızı seçin.
 
   ![Zaman Serisi Görüşleri kaynağını yönetme - ortam](media/data-access/getstarted-grant-data-access1.png)
 
-4.  “Veri Düzlemi Erişimi” öğesini seçin, “Ekle” düğmesine tıklayın
+4.  "Veri Erişim İlkeleri"ni seçin ve ardından "Ekle"ye tıklayın
 
   ![Zaman Serisi Görüşleri kaynağını yönetme - ekleme](media/data-access/getstarted-grant-data-access2.png)
 

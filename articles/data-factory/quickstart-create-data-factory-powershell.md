@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 1e9109581a1943a77e91e7fa034873dc2a15a5e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efcdcac0edcdc3e3bd87dae89609e04985a3579e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-powershell"></a>PowerShell kullanarak veri fabrikası ve işlem hattı oluşturma
 Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz. 
@@ -78,7 +78,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
         ```
 
     * Data Factory örnekleri oluşturmak için Azure aboneliğinde katkıda bulunan veya yönetici rolünüz olmalıdır.
-    * Şu anda, Data Factory V2 yalnızca Doğu ABD bölgesinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
+    * Şu anda, Data Factory V2 yalnızca **Doğu ABD** veya **Doğu ABD 2** bölgesinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
 ## <a name="create-a-linked-service"></a>Bağlı hizmet oluşturma
 
@@ -165,7 +165,7 @@ Bir kaynaktan havuza kopyalanacak verileri temsil eden bir veri kümesi tanımla
     ```
 
 ## <a name="create-a-pipeline"></a>İşlem hattı oluşturma
-
+  
 Bu örnekte, işlem hattı bir etkinlik içerir ve giriş blob yolu ve çıkış blob yolu şeklinde iki parametre alır. Bu parametrelerin değerleri, işlem hattı tetiklendiğinde/çalıştırıldığında ayarlanır. Kopyalama etkinliği, önceki adımda girdi ve çıktı olarak oluşturulmuş blob veri kümesini ifade eder. Veri kümesi bir girdi veri kümesi olarak kullanıldığında girdi yolu belirtilir. Ayrıca, veri kümesi bir çıktı veri kümesi olarak kullanıldığında çıktı yolu belirtilir. 
 
 1. **C:\ADFv2QuickStartPSH** klasöründe aşağıdaki içeriğe sahip **Adfv2QuickStartPipeline.json** adlı bir JSON dosyası oluşturun:
@@ -184,7 +184,7 @@ Bu örnekte, işlem hattı bir etkinlik içerir ve giriş blob yolu ve çıkış
                             "parameters": {
                                 "path": "@pipeline().parameters.inputPath"
                             },
-                        "type": "DatasetReference"
+                            "type": "DatasetReference"
                         }
                     ],
                     "outputs": [

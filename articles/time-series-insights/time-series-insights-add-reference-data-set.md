@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: 574f3c5b3a889733f47d729c795ec39009f2ef4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94ca172dba71b407ee5e9a40c283a97602efd17
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Ibiza portalını kullanarak Zaman Serisi Görüşleri ortamınız için bir başvuru veri kümesi oluşturma
 
@@ -27,8 +27,8 @@ Başvuru Veri Kümesi, olay kaynağınızdan alınan olaylarla genişletilen bir
 
 ## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Ortamınıza başvuru veri kümesi ekleme adımları
 
-1. [Ibiza portalında](https://portal.azure.com) oturum açın.
-2. Ibiza portalının sol tarafındaki menüde bulunan "Tüm kaynaklar" seçeneğine tıklayın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Azure Portal'ın sol tarafındaki menüde "Tüm kaynaklar"a tıklayın.
 3. Zaman Serisi Görüşleri ortamınızı seçin.
 
     ![Zaman Serisi Görüşleri başvuru veri kümenizi oluşturma](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
@@ -38,7 +38,7 @@ Başvuru Veri Kümesi, olay kaynağınızdan alınan olaylarla genişletilen bir
     ![Zaman Serisi Görüşleri başvuru veri kümesi oluşturma - ayrıntılar](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
 
 5. Başvuru veri kümesinin adını belirtin.
-6. Anahtar adını ve türünü belirtin. Bu ad ve tür, olay kaynağınızdaki olaydan doğru özelliği seçmek için kullanılır. Örneğin, adı "DeviceId" ve türü "Dize" olarak belirlerseniz Zaman Serisi Görüşleri giriş altyapısı, gelen olayda "Dize" türüne sahip "DeviceId" adlı bir özellik arar. Olay ile birleştirilecek birden fazla anahtar sağlayabilirsiniz. Özellik adı eşleştirmesi büyük/küçük harfe duyarlıdır.
+6. Anahtar adını ve türünü belirtin. Bu ad ve tür, olay kaynağınızdaki olaydan doğru özelliği seçmek için kullanılır. Örneğin, adı "DeviceId" ve türü "Dize" olarak belirlerseniz Zaman Serisi Görüşleri giriş altyapısı, gelen olayda "Dize" türüne sahip "DeviceId" adlı bir özellik arar. Olay ile birleştirilecek birden fazla anahtar sağlayabilirsiniz. Anahtar adı eşleştirmesi büyük/küçük harfe duyarlıdır.
 
      ![Zaman Serisi Görüşleri başvuru veri kümesi oluşturma - ayrıntılar](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
 

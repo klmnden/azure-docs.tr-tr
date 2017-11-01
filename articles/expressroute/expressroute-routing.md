@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
-ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:
@@ -47,14 +47,14 @@ Eşlikleri yapılandırmak için özel IP adresleri veya ortak IP adresleri kull
 #### <a name="example-for-private-peering"></a>Özel eşleme örneği
 Eşlik oluşturmak için a.b.c.d/29 kullanmayı seçerseniz iki /30 alt ağına bölünür. Aşağıdaki örnekte, a.b.c.d/29 alt ağının nasıl kullanıldığına bakacağız. 
 
-a.b.c.d/29; a.b.c.d/30 ve a.b.c.d+4/30 olarak ayrılır ve sağlama API’leri yoluyla Microsoft’a geçirilir. a.b.c.d+1’i Birincil PE’nin VRF IP’si olarak kullanırsınız ve Microsoft birincil MSEE’nin VRF IP’si olarak a.b.c.d+2 kullanır. a.b.c.d+5’i ikincil PE’nin VRF IP’si olarak kullanırsınız ve Microsoft ikincil MSEE’nin VRF IP’si olarak a.b.c.d+6 kullanır.
+a.b.c.d/29; a.b.c.d/30 ve a.b.c.d+4/30 olarak ayrılır ve sağlama API'leri yoluyla Microsoft'a geçirilir. a.b.c.d+1'i Birincil PE'nin VRF IP'si olarak kullanırsınız ve Microsoft birincil MSEE'nin VRF IP'si olarak a.b.c.d+2 kullanır. a.b.c.d+5'i ikincil PE'nin VRF IP'si olarak kullanırsınız ve Microsoft ikincil MSEE'nin VRF IP'si olarak a.b.c.d+6 kullanır.
 
 Özel eşleme oluşturmak için 192.168.100.128/29’u seçtiğiniz bir durum düşünün. 192.168.100.128/29 adresi 192.168.100.128 ile 192.168.100.135 arasındaki adresleri içerir, bunlar arasında:
 
 * 192.168.100.128/30 adresi bağlantı 1’e atanır, sağlayıcı 192.168.100.129 ve Microsoft 192.168.100.130 kullanır.
 * 192.168.100.132/30 adresi bağlantı 2’ye atanır, sağlayıcı 192.168.100.133 ve Microsoft 192.168.100.134 kullanır.
 
-### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>Azure genel ve Microsoft eşlemesi için kullanılan IP adresleri
+### <a name="ip-addresses-used-for-azure-public-peering"></a>Azure genel eşlemesi için kullanılan IP adresleri
 BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanmanız gerekir. Microsoft, IP adreslerinin sahipliğini Routing Internet Registries ve Internet Routing Registries ile doğrulayabilmelidir. 
 
 * Bir ExpressRoute devresindeki her eşleme (birden fazla varsa) için BGP eşliği oluşturmak üzere benzersiz bir /29 alt ağı veya iki /30 alt ağı kullanmanız gerekir. 
@@ -62,6 +62,18 @@ BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanm
   * Birinci /30 alt ağı birincil bağlantı ve ikinci /30 alt ağı ikincil bağlantı için kullanılır.
   * /30 alt ağın her biri için yönlendiriciniz üzerindeki /30 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu ayarlamak için /30 alt ağının ikinci IP adresini kullanır.
   * [Kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/)’sının geçerli olması için her iki BGP oturumunu da ayarlamanız gerekir.
+
+### <a name="ip-addresses-used-for-microsoft-peering"></a>Microsoft eşlemesi için kullanılan IP adresleri
+BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanmanız gerekir. Microsoft, IP adreslerinin sahipliğini Routing Internet Registries ve Internet Routing Registries ile doğrulayabilmelidir.
+
+* Bir ExpressRoute devresindeki her eşleme (birden fazla varsa) için BGP eşliği oluşturmak üzere benzersiz bir /29 (IPv4) veya /125 (IPv6) alt ağı veya iki /30 (IPv4) veya /126 (IPv6) alt ağı kullanmanız gerekir.
+* Bir /29 alt ağı kullanıldığında iki /30 alt ağına bölünür.
+* Birinci /30 alt ağı birincil bağlantı ve ikinci /30 alt ağı ikincil bağlantı için kullanılır.
+* /30 alt ağın her biri için yönlendiriciniz üzerindeki /30 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu ayarlamak için /30 alt ağının ikinci IP adresini kullanır.
+* Bir /125 alt ağı kullanıldığında iki /126 alt ağına bölünür.
+* Birinci /126 alt ağı birincil bağlantı ve ikinci /126 alt ağı ikincil bağlantı için kullanılır.
+* /126 alt ağın her biri için yönlendiriciniz üzerindeki /126 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu ayarlamak için /126 alt ağının ikinci IP adresini kullanır.
+* [Kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/)’sının geçerli olması için her iki BGP oturumunu da ayarlamanız gerekir.
 
 ## <a name="public-ip-address-requirement"></a>Genel IP adresi gereksinimi
 
@@ -80,7 +92,7 @@ Azure ortak eşleme yolu, Azure’da barındırılan tüm hizmetlere ortak IP ad
 Genel Eşleme ile Özel AS Numarası kullanılabilir.
 
 ### <a name="microsoft-peering"></a>Microsoft eşlemesi
-Microsoft eşlemesi, genel IP adreslerinde barındırılan tüm Microsoft bulut hizmetlerine bağlanmanızı sağlar. Bu hizmetler Office 365, Dynamics 365 ve Microsoft Azure PaaS hizmetleridir. Microsoft, Microsoft eşlemesi üzerinde çift yönlü bağlantıyı destekler. Microsoft bulut hizmetlerini hedefleyen trafik, Microsoft ağına girmeden önce geçerli genel IPv4/IPv6 adresleri kullanmalıdır.
+Microsoft eşleme yolu, Azure ortak eşleme yolu üzerinden desteklenmeyen Microsoft bulut hizmetlerine bağlanmanızı sağlar. Bunlara Exchange Online, SharePoint Online, Skype Kurumsal ve Dynamics 365 gibi Office 365 hizmetleri dahildir. Microsoft, Microsoft eşlemesi üzerinde çift yönlü bağlantıyı destekler. Microsoft bulut hizmetlerini hedefleyen trafik, Microsoft ağına girmeden önce geçerli genel IPv4 adresleri kullanmalıdır.
 
 IP adresi ve AS numarasının aşağıdaki kayıt defterlerinden birinde size kayıtlı olduğundan emin olun:
 
@@ -227,7 +239,6 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 ## <a name="next-steps"></a>Sonraki adımlar
 * ExpressRoute bağlantınızı yapılandırın.
   
-  * [Klasik dağıtım modeli için ExpressRoute devresi oluşturma](expressroute-howto-circuit-classic.md) veya [Azure Resource Manager kullanarak ExpressRoute devresi oluşturma ya da değiştirme](expressroute-howto-circuit-arm.md)
-  * [Klasik dağıtım modeli için yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md) veya [Resource Manager dağıtım modeli için yönlendirmeyi yapılandırma](expressroute-howto-routing-arm.md)
-  * [Klasik VNet’i ExpressRoute devresine bağlama](expressroute-howto-linkvnet-classic.md) veya [Resource Manager VNet’i ExpressRoute devresine bağlama](expressroute-howto-linkvnet-arm.md)
-
+  * [Bağlantı hattı oluşturma ve değiştirme](expressroute-howto-circuit-arm.md)
+  * [Eşleme yapılandırması oluşturma ve değiştirme](expressroute-howto-routing-arm.md)
+  * [ExpressRoute bağlantı hattına bir Sanal Ağ bağlama](expressroute-howto-linkvnet-arm.md)

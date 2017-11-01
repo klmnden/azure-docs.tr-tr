@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f43196b88cf22aab66c913d0bd659b3d654cef0
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış bağlı fabrika çözüm kılavuzu
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 Çözümü kendi uygulamanız için bir başlangıç noktası olarak kullanabilir ve özel iş gereksinimlerinizi karşılayacak şekilde [özelleştirebilirsiniz][lnk-customize].
 
-Bu makalede bağlı fabrika çözümünün nasıl çalıştığını anlamanız için çözümün temel öğelerinden bazıları açıklanmaktadır. Bu bilgiler şunları yapmanıza yardımcı olur:
+Bu makalede bağlı fabrika çözümünün nasıl çalıştığını anlamanız için çözümün temel öğelerinden bazıları açıklanmaktadır. Makale aynı zamanda çözümdeki veri akışını açıklar. Bu bilgiler şunları yapmanıza yardımcı olur:
 
 * Çözümdeki sorunları giderme.
 * Çözümü kendinize özel gereksinimleri karşılayacak şekilde nasıl özelleştireceğinizi planlama.
@@ -124,12 +124,116 @@ IoT Hub çözümde aynı zamanda şunları yapar:
 ## <a name="web-app"></a>Web uygulaması
 Önceden yapılandırılmış çözümün bir parçası olarak dağıtılan web uygulaması; tümleşik OPC UA istemcisi, uyarı işleme ve telemetri görselleştirmesinden oluşur.
 
+## <a name="telemetry-data-flow"></a>Telemetri veri akışı
+
+![Telemetri veri akışı](media/iot-suite-connected-factory-walkthrough/telemetry_dataflow.png)
+
+### <a name="flow-steps"></a>Akış adımları
+
+1. OPC Publisher, yerel sertifika depolama alanından gerekli OPC UA X509 sertifikalarını ve IoT Hub güvenlik kimlik bilgilerini okur.
+    - OPC Publisher gerekirse sertifika depolama alanında eksik olan sertifikaları veya kimlik bilgilerini oluşturur ve depolar.
+
+2. OPC Publisher kendini IoT Hub'a kaydeder.
+    - Yapılandırılmış protokolü kullanır. IoT Hub istemci SDK'sı destekli tüm protokolleri kullanabilir. Varsayılan MQTT olarak belirlenmiştir.
+    - Protokol iletişiminin güvenliği TLS tarafından sağlanır.
+
+3. OPC Publisher yapılandırma dosyasını okur.
+
+4. OPC Publisher, yapılandırılmış olan her bir OPC UA Server için bir OPC Session oluşturur.
+    - TCP bağlantısını kullanır.
+    - OPC Publisher ve OPC UA Server, X509 sertifikalarını kullanarak birbirlerinin kimliğini doğrular.
+    - Sonraki tüm OPC UA trafiği, yapılandırılmış olan OPC UA şifreleme mekanizması tarafından şifrelenir.
+    - OPC Publisher, yapılandırılmış olan her yayımlama aralığı için OPC Session içinde bir OPC Subscription oluşturur.
+    - OPC Subscription içinde yayımlamak üzere OPC Nodes için OPC Monitored öğeleri oluşturur.
+
+5. İzlenen bir OPC Node değeri değişirse OPC UA Server güncelleştirmeleri OPC Publisher'a gönderir.
+
+6. OPC Publisher yeni değeri dönüştürür.
+    - Toplu işleme etkinse birden fazla değişikliği toplu olarak işler.
+    - Bir IoT Hub iletisi oluşturur.
+
+7. OPC Publisher, IoT Hub'a bir ileti gönderir.
+    - Yapılandırılmış protokolü kullanır.
+    - İletişim güvenliği TLS tarafından sağlanır.
+
+8. Zaman Serisi Öngörüleri (TSI), IoT Hub iletilerini okur.
+    - TCP/TLS üzerinden AMQP kullanır.
+    - Bu adım veri merkezi içinde gerçekleştirilir.
+
+9. TSI içindeki bekleyen veriler.
+
+10. Azure AppService içindeki bağlı fabrika WebApp, gerekli verileri TSI kaynağından sorgular.
+    - TCP/TLS güvenli iletişimini kullanır.
+    - Bu adım veri merkezi içinde gerçekleştirilir.
+
+11. Web tarayıcısı bağlı fabrika WebApp öğesine bağlanır.
+    - Bağlı fabrika panosunu oluşturur.
+    - HTTPS üzerinden bağlanır.
+    - Bağlı fabrika uygulaması erişimi için kullanıcının Azure Active Directory kimlik doğrulamasından geçmesi gerekir.
+    - Bağlı fabrika uygulamasına giden WebApi çağrılarının güvenliği, Sahtekarlığı Önleme Belirteçleri ile sağlanır.
+
+12. Veri güncelleştirmelerinde bağlı fabrika WebApp girişi güncel verileri web tarayıcısına gönderir.
+    - SignalR protokolünü kullanır.
+    - Güvenliği TCP/TLS ile sağlanır.
+
+## <a name="browsing-data-flow"></a>Göz atma veri akışı
+
+![Göz atma veri akışı](media/iot-suite-connected-factory-walkthrough/browsing_dataflow.png)
+
+### <a name="flow-steps"></a>Akış adımları
+
+1. OPC Proxy (sunucu bileşeni) başlatılır.
+    - Paylaşılan erişim anahtarlarını yerel depolama alanından okur.
+    - Gerekirse depolama alanındaki eksik erişim anahtarlarını depolar.
+
+2. OPC Proxy (sunucu bileşeni) kendisini IoT Hub'a kaydeder.
+    - Bilinen cihazların tümünü IoT Hub'dan okur.
+    - Socket veya Websocket üzerinden TLS üzerinden MQTT kullanır.
+
+3. Web tarayıcısı bağlı fabrika WebApp öğesine bağlanır ve bağlı fabrika panosunu oluşturur.
+    - HTTPS kullanır.
+    - Kullanıcı bağlanmak istediği OPC UA sunucusunu seçer.
+
+4. Bağlı fabrika WebApp öğesi, seçilen OPC UA sunucusu ile bir OPC UA Session oluşturur.
+    - OPC UA yığınını kullanır.
+
+5. OPC Proxy taşıma işlemi, OPC UA yığınından bir istek alarak OPC UA sunucusuyla bir TCP yuva bağlantısı kurar.
+    - Yalnızca TCP yükünü alır ve değiştirmeden kullanır.
+    - Bu adım bağlı fabrika WebApp öğesi içinde gerçekleştirilir.
+
+6. OPC Proxy (istemci bileşeni), IoT Hub cihaz kaydında OPC Proxy (sunucu bileşeni) girişini arar. Ardından IoT Hub içinde OPC Proxy (sunucu bileşeni) cihazının bir cihaz yöntemini çağırır.
+    - OPC Proxy araması için TCP/TLS üzerinden HTTPS kullanır.
+    - OPC UA sunucusuyla TCP yuvası bağlantısı için TCP/TLS üzerinden HTTPS kullanır.
+    - Bu adım veri merkezi içinde gerçekleştirilir.
+
+7. IoT Hub, OPC Proxy (sunucu bileşeni) cihazında bir cihaz yöntemi çağırır.
+    - OPC UA sunucusuyla TCP yuvası bağlantısı kurmak için Socket veya Secure Websocket bağlantısı üzerinden TLS üzerinden MQTT kullanır.
+
+8. OPC Proxy (sunucu bileşeni), TCP yükünü atölye ağına gönderir.
+
+9. OPC UA sunucusu yükü işler ve yanıtı geri gönderir.
+
+10. Yanıt OPC Proxy (sunucu bileşeni) yuvası tarafından alınır.
+    - OPC Proxy verileri cihaz yönteminin dönüş değeri olarak IoT Hub ve OPC Proxy (istemci bileşeni) öğelerine gönderir.
+    - Bu veriler bağlı fabrika uygulamasındaki OPC UA yığınına gönderilir.
+
+11. Bağlı fabrika WebApp, OPC Browser UX değerini OPC UA sunucusundan aldığı özgün OPC UA verileriyle zenginleştirmiş bir şekilde oluşturulmak üzere Web Tarayıcısına döndürür.
+    - OPC Browser IX istemci tarafı OPC adres alanına göz atarken ve OPC adres alanındaki düğümlere işlevleri uygularken verileri bağlı fabrika WebApp kaynağından almak için güvenliği Sahtekarlığı Önleme Belirteçleriyle sağlanan HTTPS üzerinden AJAX çağrıları kullanır.
+    - İstemci gerekirse OPC UA sunucusuyla bilgi alışverişi yapmak için 4-10 arasındaki iletişim adımlarını kullanır.
+
+> [!NOTE]
+> OPC Proxy (sunucu bileşeni) ve OPC Proxy (istemci) bileşeni OPC UA iletişimiyle ilgili tüm TCP trafiği için 4-10 arası adımları gerçekleştirir.
+
+> [!NOTE]
+> Bağlı fabrika WebApp öğesi içindeki OPC UA sunucusu ve OPC UA yığını için OPC Proxy iletişimi şeffaftır ve tüm OPC UA kimlik doğrulama ve şifreleme güvenlik özellikleri geçerlidir.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
 
 * [azureiotsuite.com sitesindeki izinler][lnk-permissions]
 * [Connected factory önceden yapılandırılmış çözümü için Windows veya Linux için bir ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md)
+* [OPC Publisher başvuru uygulaması](iot-suite-connected-factory-publisher.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 

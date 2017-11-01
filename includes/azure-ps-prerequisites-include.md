@@ -1,6 +1,6 @@
-## <a name="prerequisite-install-the-azure-powershell-module"></a>Önkoşul: Azure PowerShell Modülü’nü yükleyin
+## <a name="prerequisite-install-the-azure-powershell-module"></a>Önkoşul: Azure PowerShell modülünü yükleyin
 
-Bu makaledeki adımları gerçekleştirmek için [Azure PowerShell’i yüklemeniz ve yapılandırmanız](/powershell/azureps-cmdlets-docs), Azure'da oturum açıp aboneliğinizi seçene kadar da tüm bu süreç boyunca tüm talimatları uygulamanız gerekir.
+Bu makaledeki adımları gerçekleştirmek için [Azure PowerShell modülünü yüklemeniz ve yapılandırmanız](/powershell/azureps-cmdlets-docs) gerekir. Tüm yönergeleri tamamladığınızdan emin olun. Yükleme işlemi tamamlandıktan sonra Azure'da oturum açın ve aboneliğinizi seçin.
 
 > [!NOTE]
-> Azure hesabınız yoksa bir tane gerekecektir. [Buradaki ücretsiz deneme sürümüyle](../articles/active-directory/sign-up-organization.md) kaydolun.
+> Bu adımları tamamlamak için bir Azure hesabınızın olması gerekir. Azure hesabınız yoksa [ücretsiz denemeye](../articles/active-directory/sign-up-organization.md) kaydolabilirsiniz.
