@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 10/24/2017
 ms.author: juliako
-ms.openlocfilehash: 9144407ed530921904458a7249473eaea26c66b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c28ccb10f5b2e52fd4dd5d5b99683b7d78d1bb6
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Media Services geliştirme ortamınızı ayarlama
 
@@ -41,7 +41,10 @@ REST geliştirme ortamını ayarlamak için [bu konu başlığını](media-servi
 
 Azure Media Services API’sine bağlanmak için bkz. [Azure AD kimlik doğrulamasıyla Azure Media Services API’sine erişim](media-services-use-aad-auth-to-access-ams-api.md).  
 
-## <a name="next-steps-azure-media-services-learning-paths"></a>Sonraki adımlar: Azure Media Services’i öğrenme yolları
+## <a name="next-steps"></a>Sonraki adımlar
+
+Birden fazla kod örneği için **Azure Kod Örnekleri** galerisine bakın: [Azure Media Services kod örnekleri](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma

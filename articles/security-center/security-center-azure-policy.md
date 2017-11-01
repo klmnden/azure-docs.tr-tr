@@ -1,12 +1,12 @@
 ---
-title: "Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama | Microsoft Belgeleri"
-description: "Bu belge, Azure Güvenlik Merkezi'nde güvenlik ilkelerini yapılandırmanıza yardımcı olur."
+title: "Azure İlkesi ile Azure Güvenlik Merkezi güvenlik ilkesi tümleştirmesi | Microsoft Docs"
+description: "Bu belge, Azure İlkesi ile Azure Güvenlik Merkezi güvenlik ilkeleri tümleştirmesini yapılandırmanıza yardımcı olur."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
 editor: 
-ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
+ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,36 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 1cebb6edecd13c6ab32c6854bfd6fe908c1f71f4
+ms.openlocfilehash: 5e07cd6891a5ab04012f819b5f6b9379312e530d
 ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/13/2017
 ---
-# <a name="set-security-policies-in-security-center"></a>Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama
-Bu belge, bu görevi gerçekleştirmeye ilişkin gerekli adımlarda size kılavuzluk ederek Güvenlik Merkezi'nde güvenlik ilkelerini yapılandırmanıza yardımcı olur. 
+# <a name="set-security-policies-in-security-center-powered-by-azure-policy"></a>Güvenlik Merkezi'nde Azure İlkesi destekli güvenlik ilkeleri belirleme
+Bu belge, bu görevi gerçekleştirmeye ilişkin gerekli adımlarda size kılavuzluk ederek Güvenlik Merkezi'nde Azure İlkesi destekli güvenlik ilkeleri yapılandırmanıza yardımcı olur. 
 
 
 ## <a name="how-security-policies-work"></a>Güvenlik ilkeleri nasıl çalışır?
-Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsayılan bir güvenlik ilkesi oluşturur. Güvenlik Merkezi'nde ilkeyi düzenleyebilir ve ilkenin uyumluluk durumunu izleyebilirsiniz. 
+Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsayılan bir güvenlik ilkesi oluşturur. İlkeyi Güvenlik Merkezi'nde düzenleyebilir veya [Azure İlkesi](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)'ni kullanarak yeni ilke tanımları oluşturabilir, ilkeleri farklı Yönetim Gruplarına (kuruluşun tamamı, tek bir iş birimi vs. olabilir) atayabilir ve ilkelere uyum sağlanıp sağlanmadığını izleyebilirsiniz.
 
 > [!NOTE]
-> Artık Güvenlik Merkezi'ni sınırlı önizleme sürümündeki Azure İlkesi'ni kullanarak genişletebilirsiniz. Önizlemeye katılmak için [buraya](http://aka.ms/getpolicy), belgeleri incelemek için ise [buraya](security-center-azure-policy.md) tıklayın.
-
-Örneğin, geliştirme veya test için kullanılan kaynaklar, üretim uygulamaları için kullanılan kaynaklardan farklı güvenlik gereksinimlerine sahip olabilir. Benzer şekilde, kişisel bilgiler gibi düzenlenen veriler kullanan uygulamalar daha yüksek bir güvenlik düzeyi gerektirebilir. Azure Güvenlik Merkezi'nde etkinleştirilen güvenlik ilkeleri, olası güvenlik açıklarını tanımlamanıza ve tehdit risklerini azaltmanıza yardımcı olmak için güvenlik önerilerini ve izlemeyi yürütür. Hangi seçeneğin size uygun olduğuna karar vermeye yönelik daha fazla bilgi için [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md)’nu okuyun.
+> Azure İlkesi sınırlı önizleme aşamasındadır. Katılmak için [buraya](https://aka.ms/getpolicy) tıklayın. Azure İlkeleri hakkında daha fazla bilgi için bkz. [Uyumluluğu zorlamak için ilke oluşturma ve yönetme](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
 
 ## <a name="edit-security-policies"></a>Güvenlik ilkelerini düzenleme
-Güvenlik Merkezi'nde tüm Azure aboneliklerinizin varsayılan güvenlik ilkesini düzenleyebilirsiniz. Güvenlik ilkesini değiştirmek için o aboneliğin sahibi, katkıda bulunanı veya Güvenlik Yöneticisi olmanız gerekir. Azure portalında oturum açın ve aşağıdaki adımları izleyerek Güvenlik Merkezi'nde güvenlik ilkeleri yapılandırın: 
+Güvenlik Merkezi'nde tüm Azure aboneliklerinizin varsayılan güvenlik ilkesini düzenleyebilirsiniz. Bir güvenlik ilkesini değiştirmek için abonelikte veya ilkeyi içeren Yönetim Grubunda sahip, katkıda bulunan veya Güvenlik Yöneticisi rolüne sahip olmanız gerekir. Azure portalında oturum açın ve aşağıdaki adımları izleyerek Güvenlik Merkezi'nde güvenlik ilkelerini görüntüleyin:
 
-1.  **Güvenlik Merkezi** panosunun **Genel** bölümünde **Güvenlik İlkesi**'ne tıklayın.
-2.  Güvenlik ilkesini etkinleştirmek istediğiniz aboneliği seçin.
-3.  **İLKE BİLEŞENLERİ** bölümünde **Güvenlik ilkesi**'ne tıklayın.
-4.  Bu Güvenlik Merkezi tarafından atanmış olan varsayılan ilkedir. Kullanılabilir ilke önerilerini açabilir/kapatabilirsiniz.
-5.  Düzenlemeyi tamamladığınızda **Kaydet**'e tıklayın.
+1. **Güvenlik Merkezi** panosunun **Genel** bölümünde **Güvenlik İlkesi**'ne tıklayın.
+2. Güvenlik ilkesini etkinleştirmek istediğiniz aboneliği seçin.
 
-## <a name="available-security-policy-options"></a>Kullanılabilir güvenlik ilkesi seçenekleri
+    ![İlke Yönetimi](./media/security-center-policies/security-center-policies-fig10.png)
 
-Her bir seçeneği anlamak için aşağıdaki tabloyu kullanın:
+3. **İLKE BİLEŞENLERİ** bölümünde **Güvenlik ilkesi**'ne tıklayın.
+
+    ![İlke bileşenleri](./media/security-center-policies/security-center-policies-fig12.png)
+
+4. Bu, Azure İlkesi aracılığıyla Güvenlik Merkezi'ne atanmış olan varsayılan ilkedir. **İLKELER VE PARAMETRELER** altındaki öğeleri silebilir veya **KULLANILABİLİR SEÇENEKLER** altına başka ilke tanımları ekleyebilirsiniz. Bunun için tanım adının yanındaki artı işaretine tıklamanız yeterlidir.
+
+    ![İlke tanımları](./media/security-center-policies/security-center-policies-fig11.png)
+
+5. İlke hakkında daha ayrıntılı bir açıklamaya ihtiyacınız varsa üzerine tıklayarak ayrıntıları ve [ilke tanımı](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure) yapısını içeren JSON kodunun bulunduğu sayfanın açılmasını sağlayabilirsiniz:
+
+    ![Json](./media/security-center-policies/security-center-policies-fig14.png)
+
+6. Düzenlemeyi tamamladığınızda **Kaydet**'e tıklayın.
+
+
+## <a name="available-security-policy-definitions"></a>Kullanılabilir güvenlik ilkesi tanımları
+
+Varsayılan güvenlik ilkesinde mevcut olan ilke tanımlarını anlamak için aşağıdaki tabloyu kullanabilirsiniz: 
 
 | İlke | Durum açık olduğunda |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
 title: "Azure CDN kullanmaya başlama | Microsoft Docs"
-description: "Bu konu başlığında, Azure İçerik Teslim Ağı'nın (CDN) nasıl etkinleştirileceği gösterilmektedir. Öğretici, yeni bir CDN profili ve uç noktası oluşturma işlemi boyunca size yol gösterecektir."
+description: "Bu konu başlığında, Azure Content Delivery Network’ün (CDN) nasıl etkinleştirileceği gösterilmektedir. Öğretici, yeni bir CDN profili ve uç noktası oluşturma işlemi boyunca size yol gösterecektir."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Azure CDN kullanmaya başlama
-Bu konu başlığında, yeni bir CDN profili ve uç noktası oluşturarak Azure CDN'yi etkinleştirme işlemi boyunca size yol gösterilecektir.
+Bu makalede yeni bir CDN profili ve uç noktası oluşturarak Azure CDN'yi nasıl etkinleştireceğiniz anlatılmaktadır.
 
 > [!IMPORTANT]
-> CDN'nin nasıl çalıştığına ilişkin giriş bilgileri ve özelliklerin listesi için bkz. [CDN'ye Genel Bakış](cdn-overview.md).
+> CDN tanıtımı ve özellik listesi için bkz. [CDN'ye Genel Bakış](cdn-overview.md).
 > 
 > 
 
@@ -64,7 +64,7 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
 4. **Başlangıç noktası türü** açılan menüsünde, başlangıç noktası türünüzü seçin.  Azure Storage hesabı için **Depolama**, Azure Bulut Hizmeti için **Bulut hizmeti**, Azure Web Uygulaması için **Web Uygulaması** veya genel olarak erişilebilen herhangi bir web sunucusu kaynağı (Azure'da veya başka bir konumda barındırılan) için **Özel kaynak** seçeneğini belirleyin.
    
     ![CDN kaynak türü](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. **Kaynak ana bilgisayar adı** açılan menüsünde, kaynak etki alanınızı seçin veya yazın.  4. Adım'da belirttiğiniz türdeki tüm kullanılabilir kaynaklar açılır listede listelenir.  **Kaynak türü** tercihiniz olarak *Özel kaynak* öğesini seçtiyseniz özel kaynağınızın etki alanını yazmanız gerekir.
+5. **Kaynak ana bilgisayar adı** açılan menüsünde, kaynak etki alanınızı seçin veya yazın.  4. Adım'da belirttiğiniz türdeki tüm kullanılabilir kaynaklar açılır listede listelenir.  **Çıkış noktası türünüz** olarak *Özel çıkış noktasını* seçtiyseniz, özel çıkış noktanızın etki alanını girin.
 6. **Kaynak yolu** metin kutusunda, önbelleğe almak istediğiniz kaynakların yolunu girin veya 5. adımda belirttiğiniz etki alanındaki herhangi bir kaynağın önbelleğe alınmasına izin vermek için bu alanı boş bırakın.
 7. **Kaynak ana bilgisayar üst bilgisi** içinde, CDN'nin her bir istekle göndermesini istediğiniz ana bilgisayar üst bilgisini girin veya varsayılan değeri bırakın.
    
@@ -72,7 +72,7 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
    > Azure Storage ve Web Apps gibi bazı kaynak türleri, ana bilgisayar üst bilgisinin kaynağın etki alanı ile eşleşmesini gerektirir. Etki alanından farklı ana bilgisayar üst bilgisi gerektiren bir kaynağa sahip değilseniz varsayılan değeri bırakmanız gerekir.
    > 
    > 
-8. **Protokol** ve **Kaynak bağlantı noktası** alanında, kaynak üzerindeki kaynaklarınıza erişmek için kullanılan protokolleri ve bağlantı noktalarını belirtin.  En az bir protokol (HTTP veya HTTPS) seçilmelidir.
+8. **Protokol** ve **Kaynak bağlantı noktası** alanında, kaynak üzerindeki kaynaklarınıza erişmek için kullanılan protokolleri ve bağlantı noktalarını belirtin. En az bir protokol (HTTP veya HTTPS) seçilmelidir. HTTPS içeriğine erişmek için CDN tarafından sağlanan etki alanını (`<endpointname>.azureedge.net`) kullanın. 
    
    > [!NOTE]
    > **Kaynak bağlantı noktası** yalnızca, uç noktanın kaynaktan bilgi almak için hangi bağlantı noktasını kullanacağını etkiler.  Uç noktanın kendisi, **Kaynak bağlantı noktasından** bağımsız olarak, yalnızca varsayılan HTTP ve HTTPS bağlantı noktalarındaki (80 ve 443) uç istemciler tarafından kullanılabilir.  
@@ -82,20 +82,18 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
    > CDN içeriğine HTTPS kullanarak erişilmesi şu kısıtlamalara tabidir:
    > 
    > * CDN tarafından sağlanan SSL sertifikasını kullanmanız gerekir. Üçüncü taraf sertifikalar desteklenmez.
-   > * Azure CDN özel etki alanları için HTTPS desteği yalnızca **Azure CDN from Verizon** ürünleri (Standard ve Premium) için mevcuttur. **Azure CDN from Akamai**'de desteklenmez. Daha fazla bilgi için bkz. [Azure CDN özel etki alanı üzerinde HTTPS'yi etkinleştirme](cdn-custom-ssl.md).
-
-HTTPS içeriğine erişmek için CDN tarafından sağlanan etki alanını (`<endpointname>.azureedge.net`) kullanın. CDN şu an için özel sertifikaları desteklemediğinden özel etki alanı adları (CNAME'ler) için HTTPS desteği mevcut değildir.
-   > 
-   > 
+   > * Azure CDN özel etki alanları için HTTPS desteği yalnızca **Azure CDN from Verizon** ürünleri (Standard ve Premium) için mevcuttur. **Azure CDN from Akamai** ürünlerinde desteklenmez. Daha fazla bilgi için bkz. [Azure CDN özel etki alanı üzerinde HTTPS'yi etkinleştirme veya devre dışı bırakma](cdn-custom-ssl.md).
+  
 9. Yeni uç noktayı oluşturmak için **Ekle** düğmesine tıklayın.
-10. Uç nokta oluşturulduktan sonra, profile yönelik uç noktalar listesinde görünür. Liste görünümünde, kaynak etki alanının yanı sıra, önbelleğe alınan içeriğe erişmek için kullanılacak URL gösterilir.
+   
+   Uç nokta oluşturulduktan sonra, profile yönelik uç noktalar listesinde görünür.
     
-    ![CDN uç noktası][cdn-endpoint-success]
+   ![CDN uç noktası][cdn-endpoint-success]
     
-    > [!IMPORTANT]
-    > Kaydın CDN'de yayılması zaman alacağından, uç nokta hemen kullanılabilir olmaz.  <b>Akamai'den Azure CDN</b> profilleri için yayma işlemi genellikle bir dakika içinde tamamlanır.  <b>Verizon'dan Azure CDN</b> profilleri için yayma işlemi genellikle 90 dakika içinde tamamlanır ancak bazı durumlarda daha uzun sürebilir.
+   > [!IMPORTANT]
+   > Kaydın yayılması zaman alacağından, uç nokta hemen kullanılabilir olmaz.  <b>Akamai'den Azure CDN</b> profilleri için yayma işlemi genellikle bir dakika içinde tamamlanır. <b>Verizon'dan Azure CDN</b> profilleri için yayma işlemi genellikle 90 dakika içinde tamamlanır ancak bazı durumlarda daha uzun sürebilir.
     > 
-    > Uç nokta yapılandırması POP'lere yayılmadan önce CDN etki alanı adını kullanmayı deneyen kullanıcılar, HTTP 404 yanıt kodlarını alır.  Uç noktanızı oluşturmanızın ardından birkaç saat geçmesine karşın 404 yanıtlarını almaya devam ediyorsanız lütfen bkz. [404 durumu döndüren CDN uç noktası sorunlarını giderme](cdn-troubleshoot-endpoint.md).
+    > Uç nokta yapılandırması POP'lere yayılmadan önce CDN etki alanı adını kullanmayı deneyen kullanıcılar, HTTP 404 yanıt kodlarını alabilir.  Uç noktanızı oluşturmanızın ardından birkaç saat geçmesine karşın 404 yanıtlarını almaya devam ediyorsanız bkz. [404 durumu döndüren CDN uç noktası sorunlarını giderme](cdn-troubleshoot-endpoint.md).
     > 
     > 
 

@@ -8,4 +8,4 @@ Aşağıdaki örnek *Batı Avrupa* konumunda *myResourceGroup* adlı bir kaynak 
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-Genellikle kaynak grubunuzu ve kaynakları kendinize yakın bir bölgede oluşturursunuz. Azure Web Apps için desteklenen tüm konumları görüntülemek için `az appservice list-locations` komutunu çalıştırın. 
+Genellikle kaynak grubunuzu ve kaynakları kendinize yakın bir bölgede oluşturursunuz. App Service planları için desteklenen tüm konumları görüntülemek için `az appservice list-locations` komutunu çalıştırın.

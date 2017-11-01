@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 123ecca28f0d970851487827d0d18e244ce6d98e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Ibiza portalını kullanarak Zaman Serisi Görüşleri ortamınız için olay kaynağı oluşturma
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal’ı kullanarak Zaman Serisi Görüşleri ortamınız için olay kaynağı oluşturma
 
 Zaman Serisi Görüşleri Olay Kaynağı, Azure Event Hubs gibi bir olay aracısından türetilir. Zaman Serisi Görüşleri doğrudan Olay Kaynaklarına bağlanarak, kullanıcının tek bir kod satırı bile yazmasına gerek kalmadan veri akışını alır. Şu anda Zaman Serisi Görüşleri, Azure Event Hubs'ı ve Azure IoT Hub'larını destekler. İleride daha fazla Olay Kaynağı eklenecektir.
 
 ## <a name="steps-to-add-an-event-source-to-your-environment"></a>Ortamınıza olay kaynağı ekleme adımları
 
-1.  [Ibiza portalında](https://portal.azure.com) oturum açın.
-2.  Ibiza portalının sol tarafındaki menüde bulunan "Tüm kaynaklar" seçeneğine tıklayın.
+1.  [Azure Portal](https://portal.azure.com) oturum açın.
+2.  Azure Portal'ın sol tarafındaki menüde "Tüm kaynaklar"a tıklayın.
 3.  Zaman Serisi Görüşleri ortamınızı seçin.
 
   ![Zaman Serisi Görüşleri oluşturma olay kaynağı](media/add-event-source/getstarted-create-event-source-1.png)
