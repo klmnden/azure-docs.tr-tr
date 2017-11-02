@@ -35,9 +35,9 @@
 ### [Office 365 kiracısını bağlama](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Abonelikler için fatura ile ödeme](billing-how-to-pay-by-invoice.md)
 ## Sorun giderme
-### [Kaydolma sorunları](billing-troubleshoot-azure-sign-up-issues.md)
-### [Reddedilen kart](billing-credit-card-fails-during-azure-sign-up.md)
-### [Oturum açma sorunları](billing-cannot-login-subscription.md)
+### [Kaydolma sorunları](https://support.microsoft.com/en-us/help/4042959)
+### [Reddedilen kart](https://support.microsoft.com/en-us/help/4042960)
+### [Oturum açma sorunları](https://support.microsoft.com/en-us/help/4042961)
 ### [Abonelik bulunamadı](billing-no-subscriptions-found.md)
 ### [Kurumsal maliyet görünümü devre dışı](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

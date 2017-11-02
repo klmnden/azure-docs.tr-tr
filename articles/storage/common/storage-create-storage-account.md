@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Azure Storage hesapları hakkında
 
@@ -79,7 +79,7 @@ Ayrıca depolama hesabınız ile birlikte kullanmak üzere özel bir etki alanı
 
 5. Depolama hesabı türünü seçin: **Genel amaçlı** veya **Blob Storage**. Varsayılan seçenek **Genel amaçlı**’dır.
    
-    **Genel amaçlı** seçeneği belirlenirse **Standart** veya **Premium** performans katmanlarından birini belirtin. Varsayılan seçenek **Standart**’tır. Standart ve premium depolama hesapları hakkında daha fazla bilgi için bkz. [Microsoft Azure Storage’a Giriş](storage-introduction.md) ve [Premium Storage: Azure Virtual Machineİş Yükleri için Yüksek Performanslı Depolama](storage-premium-storage.md).
+    **Genel amaçlı** seçeneği belirlenirse **Standart** veya **Premium** performans katmanlarından birini belirtin. Varsayılan seçenek **Standart**’tır. Standart ve premium depolama hesapları hakkında daha fazla bilgi için bkz. [Microsoft Azure Storage’a Giriş](storage-introduction.md) ve [Premium Storage: Azure Virtual Machineİş Yükleri için Yüksek Performanslı Depolama](../../virtual-machines/windows/premium-storage.md).
    
     **Blob Storage** seçeneği belirlendiyse, erişim katmanını belirtin: **Sık Erişimli** veya **Seyrek Erişimli**. Varsayılan seçenek **Sık Erişimli**’dir. Daha fazla ayrıntı için bkz. [Azure Blob Storage: Seyrek erişimli ve Sık erişimli katmanlar](../blobs/storage-blob-storage-tiers.md).
 6. Depolama hesabı için çoğaltma seçeneğini seçin: **LRS**, **GRS**, **RA-GRS** veya **ZRS**. Varsayılan seçenek **RA-GRS**’dir. Azure Storage çoğaltma seçenekleri ile ilgili ayrıntılar için bkz. [Azure Storage çoğaltma](storage-redundancy.md).
