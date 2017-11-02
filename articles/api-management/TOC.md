@@ -50,6 +50,7 @@
 ### [Git kullanarak yapılandırma](api-management-configuration-repository-git.md)
 ### [Azure İzleyicisi’ni kullanarak izleme](api-management-howto-use-azure-monitor.md)
 ### [Rol tabanlı erişim denetimi kullanma](api-management-role-based-access-control.md)
+### [Yönetilen Hizmet Kimliğini Kullanma](api-management-howto-use-managed-service-identity.md)
 ### Service Fabric ile tümleştirme
 #### [Genel Bakış](../service-fabric/service-fabric-api-management-overview.md)
 #### [Hızlı başlangıç](../service-fabric/service-fabric-api-management-quick-start.md)

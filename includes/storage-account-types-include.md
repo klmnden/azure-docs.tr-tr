@@ -4,7 +4,7 @@
 Genel amaçlı depolama hesabı, tek bir hesap altında Tablolar, Kuyruklar, Dosyalar, Bloblar ve Azure sanal makinesi diskleri gibi Azure Storage hizmetlerine erişim sağlar. Bu tür depolama hesabında iki performans katmanı bulunur:
 
 * Tabloları, Kuyrukları, Dosyaları, Blobları ve Azure sanal makinesi disklerini depolamanızı sağlayan standart depolama performans katmanı.
-* Şu anda yalnızca Azure Sanal Makinesi disklerini destekleyen Premium Storage performans katmanı. Premium Storage’a yönelik ayrıntılı genel bakış için bkz. [Premium Storage: Azure Virtual Machine İş Yükleri için Yüksek Performanslı Depolama](../articles/storage/common/storage-premium-storage.md).
+* Şu anda yalnızca Azure Sanal Makinesi disklerini destekleyen Premium Storage performans katmanı. Premium Storage’a yönelik ayrıntılı genel bakış için bkz. [Premium Storage: Azure Virtual Machine İş Yükleri için Yüksek Performanslı Depolama](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="blob-storage-accounts"></a>Blob Storage Hesapları
 Blob Storage hesabı, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesabıdır. Blob Storage hesapları, varolan genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Yalnızca blok veya engelleme blobunun gerektiği uygulamalar için Blob Storage hesaplarının kullanılmasını öneririz.

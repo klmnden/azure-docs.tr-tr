@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Azure’da StorSimple sanal cihazını dağıtma ve yönetme
 ## <a name="overview"></a>Genel Bakış
@@ -33,7 +33,7 @@ StorSimple sanal cihazı, standart 8010 (önceden 1100 olarak biliniyordu) ve pr
 | **Azure VM** |Standard_A3 (4 çekirdek, 7 GB bellek) |Standard_DS3 (4 çekirdek, 14 GB bellek) |
 | **Sürüm uyumluluğu** |Güncelleştirme 2 ya da üst sürümü öncesini çalıştıran sürümler |Güncelleştirme 2 ya da üst sürümünü çalıştıran sürümler |
 | **Bölge kullanılabilirliği** |Tüm Azure bölgeleri |Premium Depolama ve DS3 Azure VM’lerini destekleyen tüm Azure bölgeleri<br></br> Bölgenizde hem *Sanal Makineler > DS serisi* hem de *Depolama > Disk depolamanın* mevcut olup olmadığını görmek için [bu listeyi](https://azure.microsoft.com/en-us/regions/services) kullanın. |
-| **Depolama türü** |Yerel diskler için Azure Standard Storage kullanır.<br></br> [Standart Depolama hesabı oluşturmayı](../storage/common/storage-create-storage-account.md) öğrenin. |Yerel diskler için Azure Premium Depolama kullanır<sup>2</sup> <br></br>[Premium Storage hesabı oluşturmayı](../storage/common/storage-premium-storage.md) öğrenin. |
+| **Depolama türü** |Yerel diskler için Azure Standard Storage kullanır.<br></br> [Standart Depolama hesabı oluşturmayı](../storage/common/storage-create-storage-account.md) öğrenin. |Yerel diskler için Azure Premium Depolama kullanır<sup>2</sup> <br></br>[Premium Storage hesabı oluşturmayı](../virtual-machines/windows/premium-storage.md) öğrenin. |
 | **İş yükü kılavuzu** |Yedeklerden dosya alma öğe düzeyi |Bulut geliştirme ve test senaryoları, düşük gecikme, daha yüksek performans iş yükleri <br></br>Olağanüstü durum kurtarma için ikincil cihaz |
 
 <sup>1</sup> *Önceden 1100 olarak biliniyordu*.
@@ -82,7 +82,7 @@ Sanal cihaz sağlamadan önce, Azure ortamınızda aşağıdaki hazırlıkları 
 Sanal cihaz oluşturmadan önce, Azure StorSimple hizmetinize aşağıdaki güncelleştirmeleri uygulayın:
 
 * Sanal cihazınız için barındırma sunucuları olacak sanal makineler için [erişim denetimi kayıtları](storsimple-manage-acrs.md) ekleyin.
-* Sanal cihazla aynı bölgede bir [depolama hesabı](storsimple-manage-storage-accounts.md#add-a-storage-account) kullanın. Farklı bölgelerdeki Depolama hesapları performansın düşmesine neden olabilir. Sanal cihazla Standart veya Premium Storage hesabı kullanabilirsiniz. [Standard Storage hesabı](../storage/common/storage-create-storage-account.md) ya da [Premium Storage hesabı](../storage/common/storage-premium-storage.md) oluşturma hakkında daha fazla bilgi
+* Sanal cihazla aynı bölgede bir [depolama hesabı](storsimple-manage-storage-accounts.md#add-a-storage-account) kullanın. Farklı bölgelerdeki Depolama hesapları performansın düşmesine neden olabilir. Sanal cihazla Standart veya Premium Storage hesabı kullanabilirsiniz. [Standard Storage hesabı](../storage/common/storage-create-storage-account.md) ya da [Premium Storage hesabı](../virtual-machines/windows/premium-storage.md) oluşturma hakkında daha fazla bilgi
 * Verileriniz için oluşturduğunuzdan sanal cihaz oluşturma için farklı bir depolama hesabı kullanın. Aynı depolama hesabı kullanmak performansın düşmesine neden olabilir.
 
 Başlamadan önce aşağıdaki bilgilere sahip olduğunuzdan emin olun:
