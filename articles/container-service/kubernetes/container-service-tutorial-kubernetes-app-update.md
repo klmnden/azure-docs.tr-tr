@@ -1,0 +1,180 @@
+---
+title: "Azure kapsayıcı hizmeti Öğreticisi - güncelleştirme uygulaması | Microsoft Docs"
+description: "Azure kapsayıcı hizmeti Öğreticisi - güncelleştirme uygulaması"
+services: container-service
+documentationcenter: 
+author: neilpeterson
+manager: timlt
+editor: 
+tags: acs, azure-container-service
+keywords: "Docker, Container’lar, Mikro hizmetler, Kumernetes, DC/OS, Azure"
+ms.assetid: 
+ms.service: container-service
+ms.devlang: aurecli
+ms.topic: tutorial
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/14/2017
+ms.author: nepeters
+ms.custom: mvc
+ms.openlocfilehash: a8011f98b810c07982ad877b4bcf05daff5df222
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/24/2017
+---
+# <a name="update-an-application-in-kubernetes"></a>Bir uygulamada Kubernetes güncelleştir
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
+Bir uygulama içinde Kubernetes dağıtıldıktan sonra yeni kapsayıcı resim veya görüntü sürümü belirterek güncelleştirilebilir. Yalnızca bir kısmını dağıtım eşzamanlı olarak güncelleştirilebilmesi için Bunun yapılması, güncelleştirme hazırlanır. Hazırlanan bu güncelleştirme güncelleştirme sırasında çalışmaya devam uygulama sağlar. Bir dağıtım hatası oluşursa, ayrıca bir geri alma mekanizması sağlar. 
+
+Bu öğreticide, bir parçası altı yedi, örnek Azure oylama uygulaması güncelleştirilir. Tamamlamanız görevler aşağıdakileri içerir:
+
+> [!div class="checklist"]
+> * Ön uç uygulamasındaki kod güncelleştiriliyor
+> * Güncelleştirilmiş kapsayıcı görüntü oluşturma
+> * Azure kapsayıcı kayıt defterine kapsayıcı görüntü iletme
+> * Güncelleştirilmiş kapsayıcı görüntü dağıtma
+
+Sonraki öğreticilerde Kubernetes küme izlemek için Operations Management Suite yapılandırılır.
+
+## <a name="before-you-begin"></a>Başlamadan önce
+
+Önceki eğitimlerine bir uygulama bir kapsayıcı görüntü, Azure kapsayıcı kayıt defterine yüklenen görüntü ve oluşturulan Kubernetes küme paketlenmiştir. Uygulama sonra Kubernetes kümede çalıştırıldı. 
+
+Bir uygulama havuzu da uygulamanın kaynak koduna ve Bu öğreticide kullanılan önceden oluşturulmuş bir Docker Compose dosya içeren kopyalandı. Depodaki bir kopyasını oluşturduktan ve kopyalanan dizine dizinleri değiştirilmediğini doğrulayın. İç olan adlı bir dizin `azure-vote` ve adlı bir dosya `docker-compose.yml`.
+
+Bu adımları tamamladıysanız henüz ve izlemek istediğiniz dönmek [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./container-service-tutorial-kubernetes-prepare-app.md). 
+
+## <a name="update-application"></a>Uygulamayı güncelleştirme
+
+Bu öğreticide, bir değişiklik uygulama ve Kubernetes kümeye dağıtılan güncelleştirilmiş uygulama yapılır. 
+
+Uygulama kaynak koduna içinde bulunabilir `azure-vote` dizin. Açık `config_file.cfg` herhangi bir kod ya da metin düzenleyicisi ile dosya. Bu örnekte `vi` kullanılır.
+
+```bash
+vi azure-vote/azure-vote/config_file.cfg
+```
+
+Değerlerini değiştirmek `VOTE1VALUE` ve `VOTE2VALUE`ve ardından dosyayı kaydedin.
+
+```bash
+# UI Configurations
+TITLE = 'Azure Voting App'
+VOTE1VALUE = 'Blue'
+VOTE2VALUE = 'Purple'
+SHOWHOST = 'false'
+```
+
+Dosyasını kaydedin ve kapatın.
+
+## <a name="update-container-image"></a>Güncelleştirme kapsayıcı resmi
+
+Kullanım [docker compose'u](https://docs.docker.com/compose/) ön uç görüntüyü yeniden oluşturun ve güncelleştirilmiş uygulamayı çalıştırın. `--build` Bağımsız değişkeni uygulama görüntüsünü yeniden oluşturmak için Docker Compose'u istemek için kullanılır.
+
+```bash
+docker-compose up --build -d
+```
+
+## <a name="test-application-locally"></a>Uygulamayı yerel olarak test etme
+
+Güncelleştirilmiş uygulamayı görmek için http://localhost: 8080 için göz atın.
+
+![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-tutorials/vote-app-updated.png)
+
+## <a name="tag-and-push-images"></a>Etiket ve anında iletme görüntüleri
+
+Etiket `azure-vote-front` kapsayıcı kayıt defteri loginServer görüntüsüyle. 
+
+Oturum açma sunucu adıyla alma [az acr listesi](/cli/azure/acr#list) komutu.
+
+```azurecli
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+```
+
+Kullanım [docker etiketi](https://docs.docker.com/engine/reference/commandline/tag/) görüntü etiketlemek için. Değiştir `<acrLoginServer>` Azure kapsayıcı kayıt defteri oturum açma sunucu adı veya ortak kayıt defteri ana bilgisayar adı. Ayrıca Image sürüm için güncelleştirilen bildirim `redis-v2`.
+
+```bash
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
+```
+
+Kullanım [docker itme](https://docs.docker.com/engine/reference/commandline/push/) kayıt defterine görüntüyü karşıya yüklemek için. Değiştir `<acrLoginServer>` , Azure kapsayıcı kayıt defteri oturum açma sunucu adına sahip.
+
+```bash
+docker push <acrLoginServer>/azure-vote-front:redis-v2
+```
+
+## <a name="deploy-update-application"></a>Güncelleştirme uygulaması dağıtma
+
+En fazla çalışma süresi emin olmak için uygulama pod birden çok örneğini çalıştırması gerekir. Bu yapılandırma ile doğrulayın [kubectl alma pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu.
+
+```bash
+kubectl get pod
+```
+
+Çıktı:
+
+```bash
+NAME                               READY     STATUS    RESTARTS   AGE
+azure-vote-back-217588096-5w632    1/1       Running   0          10m
+azure-vote-front-233282510-b5pkz   1/1       Running   0          10m
+azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
+azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
+```
+
+Birden çok pod'ları azure oy ön görüntüsünü çalıştıran yoksa ölçeklendirme `azure-vote-front` dağıtım.
+
+
+```azurecli-interactive
+kubectl scale --replicas=3 deployment/azure-vote-front
+```
+
+Uygulamayı güncelleştirmek için [kubectl kümesi](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) komutu. Güncelleştirme `<acrLoginServer>` kapsayıcı kaydınız oturum açma sunucusu veya ana bilgisayar adı.
+
+```azurecli-interactive
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
+```
+
+Dağıtımını izlemek için kullanmak [kubectl alma pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu. Güncelleştirilmiş uygulamayı dağıtılan gibi pod'ları sonlandırıldı ve yeni kapsayıcı görüntüsü ile yeniden oluşturulacak.
+
+```azurecli-interactive
+kubectl get pod
+```
+
+Çıktı:
+
+```bash
+NAME                               READY     STATUS    RESTARTS   AGE
+azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
+azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
+azure-vote-front-1297194256-tptnx   1/1       Running   0         5m
+azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
+```
+
+## <a name="test-updated-application"></a>Güncelleştirilmiş uygulamayı test etme
+
+Dış IP adresi al `azure-vote-front` hizmet.
+
+```azurecli-interactive
+kubectl get service azure-vote-front
+```
+
+Güncelleştirilmiş uygulamayı görmek için IP adresine göz atın.
+
+![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide, bir uygulamanın güncelleştirilmiş ve bu güncelleştirmeyi Kubernetes kümeye alındı. Aşağıdaki görevler tamamlandı:
+
+> [!div class="checklist"]
+> * Ön uç uygulamasındaki kod güncelleştirildi
+> * Güncelleştirilmiş kapsayıcı görüntüyü oluşturuldu
+> * Azure kapsayıcı kayıt defterine kapsayıcı görüntü gönderilir
+> * Dağıtılan güncelleştirilmiş uygulama
+
+Operations Management Suite ile Kubernetes izleme hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+
+> [!div class="nextstepaction"]
+> [OMS ile Kubernetes’i izleme](./container-service-tutorial-kubernetes-monitor.md)

@@ -1,13 +1,13 @@
-## <a name="scenario"></a>Scenario
-A VM with a single NIC is created and connected to a virtual network. The VM requires three different *private* IP addresses and two *public* IP addresses. The IP addresses are assigned to the following IP configurations:
+## <a name="scenario"></a>Senaryo
+Tek bir NIC ile VM oluşturulur ve sanal bir ağa bağlı. VM üç farklı gerektirir *özel* IP adresleri ve iki *ortak* IP adresleri. IP adreslerini aşağıdaki IP yapılandırmaları atanır:
 
-* **IPConfig-1:** Assigns a *static* private IP address and a *static* public IP address.
-* **IPConfig-2:** Assigns a *static* private IP address and a *static* public IP address.
-* **IPConfig-3:** Assigns a *static* private IP address and no public IP address.
+* **Ipconfig-1:** atayan bir *statik* özel IP adresi ve bir *statik* genel IP adresi.
+* **Ipconfig-2:** atayan bir *statik* özel IP adresi ve bir *statik* genel IP adresi.
+* **Ipconfig-3:** atayan bir *statik* özel IP adresi ve ortak IP adresi yok.
   
-    ![Multiple IP addresses](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
+    ![Birden çok IP adresi](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
 
-The IP configurations are associated to the NIC when the NIC is created and the NIC is attached to the VM when the VM is created. The types of IP addresses used for the scenario are for illustration. You can assign whatever IP address and assignment types you require.
+NIC oluşturulduğunda ve VM oluşturulduğunda NIC VM'ye bağlı olduğu IP yapılandırmaları NIC'ye ilişkilendirilir. Çizim için bu senaryo için kullanılan IP adresleri türleridir. İhtiyaç duyduğunuz hangi IP adresi ve atama türleri atayabilirsiniz.
 
 > [!NOTE]
-> Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, read the [Create a VM with multiple NICs](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) article.
+> Bu makaledeki adımları atar ancak tüm IP yapılandırmaları için tek bir NIC birden fazla IP yapılandırması bir multi-NIC VM herhangi bir NIC atayabilirsiniz. Bir VM ile birden çok NIC oluşturmayı öğrenmek için okuma [bir VM ile birden çok NIC oluşturma](../articles/virtual-machines/windows/multiple-nics.md) makalesi.

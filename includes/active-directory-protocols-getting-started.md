@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
-ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
-
+ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-## <a name="register-your-application-with-your-ad-tenant"></a>Uygulamanızı AD kiracınıza kaydetme
+## Uygulamanızı AD kiracınıza kaydetme
 İlk olarak, uygulamanızı Azure Active Directory (Azure AD) kiracısına kaydetmeniz gerekir. Bu, uygulamanıza bir Uygulama Kimliği verir ve uygulamanızın belirteçleri alabilmesini sağlar.
 
 * [Azure Portal](https://portal.azure.com)’da oturum açın.
@@ -30,9 +31,3 @@ ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Yerel Uygulamalar için, Azure AD’nin belirteç yanıtlarını döndürmek için kullanacağı bir **Yeniden Yönlendirme URI’si** sağlayın. Uygulamanıza özgü bir değer girin, örn. `http://MyFirstAADApp`
 * Kayıt tamamlandıktan sonra Azure AD, uygulamanıza benzersiz bir istemci tanımlayıcısı olan Uygulama Kimliği’ni atar. Bu değeri sonraki bölümlerde kullanacağınız için, uygulama sayfasından kopyalayın.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

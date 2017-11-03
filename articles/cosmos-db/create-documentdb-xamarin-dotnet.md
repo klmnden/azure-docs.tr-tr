@@ -12,16 +12,14 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4ea97c2aca6769843d0210ffeae6f95531a21f10
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: ed1d30be780e0882b8e75c01bc7822c3350f3fee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: .NET, Xamarin ve Facebook kimlik doğrulaması ile web uygulaması derleme
 
@@ -34,6 +32,7 @@ Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB
 Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
@@ -108,7 +107,7 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 
 4. Xamarin projesini açıp TodoItemManager.cs dosyasına gidin. Kaynak belirteci aracı web sitesi için accountURL, collectionId, databaseId değerlerinin yanı sıra taban https url’si olarak resourceTokenBrokerURL değerini girin.
 
-5. Facebook kimlik doğrulamasını ayarlamak ve ResourceTokenBroker web sitesini yapılandırmak için [App Service uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) öğreticisini tamamlayın.
+5. Facebook kimlik doğrulamasını ayarlamak ve ResourceTokenBroker web sitesini yapılandırmak için [App Service uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md) öğreticisini tamamlayın.
 
     Xamarin uygulamasını çalıştırın.
 
@@ -129,4 +128,3 @@ Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB hesabınıza veri aktarma](import-data.md)
-

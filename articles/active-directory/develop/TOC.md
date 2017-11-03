@@ -108,5 +108,6 @@
 #### [Sertifika kimlik bilgileri](active-directory-certificate-credentials.md)
 ### [Kapsamlar](active-directory-v2-scopes.md)
 # Kaynaklar
+## [Yardım Alma](active-directory-develop-help-support.md)
 ## [Azure yol haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

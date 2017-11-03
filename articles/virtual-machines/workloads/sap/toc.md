@@ -9,6 +9,7 @@
 ## [Sorun giderme ve izleme](troubleshooting-monitoring.md)
 ## Nasıl yapılır?
 ### [STONITH ile HA Kurulumu](ha-setup-with-stonith.md)
+### [Type II SKU’lara yönelik İşletim Sistemi Yedeklemesi](os-backup-type-ii-skus.md)
 # Azure Sanal Makinelerde SAP HANA
 ## [Tek örnek SAP HANA](hana-get-started.md)
 ## [S/4 HANA veya BW/4 HANA SAP CAL dağıtım kılavuzu](cal-s4h.md)

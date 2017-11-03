@@ -1,3 +1,3 @@
-This sample requires the Azure PowerShell module version 4.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+Bu örnek, Azure PowerShell modülü sürüm 4.0 veya üstünü gerektiriyor. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps). 
 
-Run `Login-AzureRmAccount` to create a connection with Azure. 
+Çalıştırma `Login-AzureRmAccount` Azure ile bir bağlantı oluşturmak için. 

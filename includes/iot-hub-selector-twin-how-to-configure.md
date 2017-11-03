@@ -1,27 +1,27 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
-> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md)
 > 
 > 
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Giriş
 
-In [Get started with IoT Hub device twins][lnk-twin-tutorial], you learned how to set device metadata from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
+İçinde [IOT Hub cihaz çiftlerini ile çalışmaya başlama][lnk-twin-tutorial], cihaz meta verilerini kullanarak, çözüm arka ucu ayarlama öğrendiniz *etiketleri*, rapor cihaz uygulaması cihaz koşulları kullanarak *özellikleri bildirilen*ve SQL benzeri bir dil kullanarak bu bilgileri sorgulayabilirsiniz.
 
-In this tutorial, you learn how to use the device twin's *desired properties* along with *reported properties*, to remotely configure device apps. More specifically, this tutorial shows how a device twin's reported and desired properties enable a multi-step configuration of a device application, and provide the visibility to the solution back end of the status of this operation across all devices. You can find more information regarding the role of device configurations in [Overview of device management with IoT Hub][lnk-dm-overview].
+Bu öğreticide, cihaz çifti 's kullanmayı öğrenin *özelliklerini istenen* ile birlikte *özellikleri bildirilen*, uzaktan cihaz uygulamalarını yapılandırmak için. Daha belirgin olarak Bu öğretici, bir cihaz çifti 's nasıl bildirilen gösterir ve istenen özellikleri cihaz uygulamasının çok adımlı yapılandırmasını etkinleştir ve bu işlemin durumunu çözüm arka ucu için görünürlük cihazlara sağlayın. Cihaz yapılandırmaları rolü ile ilgili daha fazla bilgi bulabilirsiniz [cihaz yönetimine genel bakış IOT Hub ile][lnk-dm-overview].
 
-At a high level, using device twins enables the solution back end to specify the desired configuration for the managed devices, instead of sending specific commands. This puts the device in charge of setting up the best way to update its configuration (important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the solution back end the current state and potential error conditions of the update process. This pattern is instrumental to the management of large sets of devices, as it enables the solution back end to have full visibility of the state of the configuration process across all devices.
+Yüksek bir düzeyde cihaz çiftlerini kullanarak belirli komutları göndermek yerine yönetilen cihazlar için istenen yapılandırmayı belirtmek çözüm arka ucu sağlar. Bu cihaz (burada belirli cihaz koşullar etkileyen hemen belirli komutları yürütmek olanağı IOT senaryolarda önemli), yapılandırmasını güncelleştirmek için en iyi şekilde ayarlama sorumlu koyar sürekli olarak çözüm arka ucuna raporlama oluştu Güncelleştirme işlemini olası hata koşulları ve geçerli durumu. Bu desen büyük kümeleri, cihazların yönetimi için enstrümental aynıdır çözüm arka ucu yapılandırma işleminin durumunu tam görünürlüğünü cihazlara sahip olmasını sağlar.
 
 > [!NOTE]
-> In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [direct methods][lnk-methods].
+> Burada aygıtları denetlenir daha etkileşimli bir şekilde (kullanıcı tarafından denetlenen bir uygulamadan fan etkinleştirin) senaryolarında kullanmayı [doğrudan yöntemleri][lnk-methods].
 > 
 > 
 
-In this tutorial, the solution back end changes the telemetry configuration of a target device and, as a result of that, the device app follows a multi-step process to apply a configuration update (for example, requiring a software module restart, which this tutorial simulates with a simple delay).
+Bu öğreticide, bir hedef cihaz telemetri yapılandırmasını çözüm arka ucu değiştirir ve sonuç olarak, cihaz uygulaması yapılandırmasını güncelleştirme uygulamak için çok adımlı bir işlemi izler (örneğin, bir yazılım modülü yeniden, bu gerektiren Öğreticisi Basit bir gecikmeyle taklit eder).
 
-The solution back end stores the configuration in the device twin's desired properties in the following way:
+Çözüm arka ucu yapılandırmasını cihaz çifti'nın istenen özelliklerinde aşağıdaki şekilde depolar:
 
         {
             ...
@@ -39,11 +39,11 @@ The solution back end stores the configuration in the device twin's desired prop
         }
 
 > [!NOTE]
-> Since configurations can be complex objects, they are assigned unique IDs (hashes or [GUIDs][lnk-guid]) to simplify their comparisons.
+> Yapılandırmaları karmaşık nesneler olabileceği için benzersiz kimlikler atanan (karmaları veya [GUID'ler][lnk-guid]) kendi karşılaştırmaları basitleştirmek için.
 > 
 > 
 
-The device app reports its current configuration mirroring the desired property **telemetryConfig** in the reported properties:
+Cihaz uygulaması istenen özelliği yansıtma geçerli yapılandırması raporları **telemetryConfig** bildirilen özellikleri:
 
         {
             "properties": {
@@ -59,9 +59,9 @@ The device app reports its current configuration mirroring the desired property 
             }
         }
 
-Note how the reported **telemetryConfig** has an additional property **status**, used to report the state of the configuration update process.
+Not nasıl bildirilen **telemetryConfig** ek bir özelliğe sahiptir **durum**, yapılandırma güncelleştirme işleminin durumunu bildirmek için kullanılan.
 
-When a new desired configuration is received, the device app reports a pending configuration by changing the information:
+Yeni bir istenen yapılandırma alındığında, cihaz uygulaması bekleyen yapılandırma bilgileri değiştirerek raporları:
 
         {
             "properties": {
@@ -81,13 +81,13 @@ When a new desired configuration is received, the device app reports a pending c
             }
         }
 
-Then, at some later time, the device app reports the success or failure of this operation by updating the above property.
-Note how the solution back end is able, at any time, to query the status of the configuration process across all the devices.
+Ardından, sonraki bir zamanda, cihaz uygulaması başarı veya başarısızlık bu işlemin yukarıdaki özellik güncelleştirerek bildirir.
+Nasıl çözüm arka ucu cihazlara yapılandırma işleminin durumunu sorgulamak için istediğiniz zaman, bulabildiği unutmayın.
 
-This tutorial shows you how to:
+Bu öğretici şunların nasıl yapıldığını gösterir:
 
-* Create a simulated device app that receives configuration updates from the solution back end, and reports multiple updates as *reported properties* on the configuration update process.
-* Create a back-end app that updates the desired configuration of a device, and then queries the configuration update process.
+* Çözüm arka ucu yapılandırma güncelleştirmeleri alıp olarak birden çok güncelleştirme raporları bir sanal cihaz uygulaması oluşturma *özellikleri bildirilen* işlem yapılandırmasını güncelleştirin.
+* Bir aygıt, istenen yapılandırma güncelleştirir ve daha sonra yapılandırma güncelleştirme işlemi sorgular bir arka uç uygulaması oluşturun.
 
 <!-- links -->
 

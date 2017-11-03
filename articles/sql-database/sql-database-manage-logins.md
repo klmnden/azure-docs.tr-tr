@@ -10,18 +10,18 @@ editor:
 tags: 
 ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: Active
 ms.date: 01/23/2017
 ms.author: rickbyh
-translationtype: Human Translation
-ms.sourcegitcommit: baf3adaa0bb1e93cccd592648018c84353496cb7
-ms.openlocfilehash: cf2cc63d9b0abbca79e4da340cd76ddb348b6679
-
-
+ms.openlocfilehash: 0e66eec6c1843df49d3dc323cd109fb9eeb708c3
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="controlling-and-granting-database-access"></a>Denetleme ve veritabanına erişim izni verme
 
@@ -29,6 +29,12 @@ Güvenlik duvarı kuralları yapılandırıldığında kullanıcılar, bir SQL V
 
 >  [!NOTE]  
 >  Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır. 
+>
+
+> [!TIP]
+> Bir öğretici için bkz: [Azure SQL veritabanınıza güvenli](sql-database-security-tutorial.md).
+>
+
 
 ## <a name="unrestricted-administrative-accounts"></a>Kısıtlanmamış yönetici hesapları
 Yönetici işlevlerine sahip iki yönetici hesabı (**Sunucu yöneticisi** ve **Active Directory yöneticisi**) vardır. SQL sunucunuzda bu yönetici hesaplarını tanımlamak için Azure portalını açın ve SQL sunucunuzun özelliklerine gidin.
@@ -50,10 +56,8 @@ Ayrıca, Azure Active Directory’deki bir adet kişi veya güvenlik grubu hesab
 - Bu hesaplar, `dbmanager` ve `loginmanager` rollerine üye ekleyebilir ve bu rollerdeki üyeleri kaldırabilir.
 - Bu hesaplar, `sys.sql_logins` sistem tablosunu görüntüleyebilir.
 
-
-
 ### <a name="configuring-the-firewall"></a>Güvenlik duvarını yapılandırma
-Sunucu düzeyinde güvenlik duvarı tek bir IP adresi veya aralığı için yapılandırıldığında **SQL sunucu yöneticisi** ve **Azure Active Directory yöneticisi**, ana veritabanına ve tüm kullanıcı veritabanlarına bağlanabilir. İlk sunucu düzeyi güvenlik duvarı [Azure portalı](sql-database-configure-firewall-settings.md) üzerinden [PowerShell](sql-database-configure-firewall-settings-powershell.md) veya [REST API](sql-database-configure-firewall-settings-rest.md) kullanılarak yapılandırılabilir. Bağlantı kurulduktan sonra [Transact-SQL](sql-database-configure-firewall-settings-tsql.md) kullanarak ek sunucu düzeyi güvenlik duvarı kuralları yapılandırılabilir.
+Sunucu düzeyinde güvenlik duvarı tek bir IP adresi veya aralığı için yapılandırıldığında **SQL sunucu yöneticisi** ve **Azure Active Directory yöneticisi**, ana veritabanına ve tüm kullanıcı veritabanlarına bağlanabilir. İlk sunucu düzeyi güvenlik duvarı [Azure portalı](sql-database-get-started-portal.md) üzerinden [PowerShell](sql-database-get-started-powershell.md) veya [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx) kullanılarak yapılandırılabilir. Bağlantı kurulduktan sonra [Transact-SQL](sql-database-configure-firewall-settings.md) kullanarak ek sunucu düzeyi güvenlik duvarı kuralları yapılandırılabilir.
 
 ### <a name="administrator-access-path"></a>Yönetici erişim yolu
 Sunucu düzeyi güvenlik duvarı doğru şekilde yapılandırıldığında **SQL sunucu yöneticisi** ve **Azure Active Directory yöneticisi**, SQL Server Management Studio veya SQL Server Veri Araçları gibi istemci araçlarını kullanarak bağlantı kurabilir. Tüm özellikler ve yetenekler yalnızca en güncel araçlar tarafından sunulur. Aşağıdaki şemada iki yönetici hesabı için tipik yapılandırma gösterilmektedir.
@@ -63,7 +67,7 @@ Sunucu düzeyi güvenlik duvarı doğru şekilde yapılandırıldığında **SQL
 Yöneticiler, sunucu düzeyi güvenlik duvarındaki açık bağlantı noktalarından birini kullanarak tüm SQL Veritabanlarına bağlanabilir.
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>SQL Server Management Studio kullanarak bir veritabanına bağlanma
-Sunucu, veritabanı, sunucu düzeyi güvenlik duvarı kuralları oluşturma ve SQL Server Management Studio kullanarak bir veritabanını sorgulama adımları için bkz. [Azure portalını ve SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucuları, veritabanları ve güvenlik duvarı kurallarını oluşturmaya başlayın](sql-database-get-started.md).
+Sunucu, veritabanı, sunucu düzeyi güvenlik duvarı kuralları oluşturma ve SQL Server Management Studio kullanarak bir veritabanını sorgulama adımları için bkz. [Azure portalını ve SQL Server Management Studio’yu kullanarak Azure SQL Veritabanı sunucuları, veritabanları ve güvenlik duvarı kurallarını oluşturmaya başlayın](sql-database-get-started-portal.md).
 
 > [!IMPORTANT]
 > Microsoft Azure ve SQL Veritabanı güncelleştirmeleriyle aynı sürümde olmak için her zaman en güncel Management Studio sürümünü kullanmanız önerilir. [SQL Server Management Studio’yu güncelleyin](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -185,14 +189,6 @@ SQL Veritabanında oturum açma bilgilerini ve kullanıcıları yönetirken aşa
 
 - Güvenlik duvarı kuralları hakkında daha fazla bilgi için bkz. [Azure SQL Veritabanı Güvenlik Duvarı](sql-database-firewall-configure.md).
 - SQL Veritabanı güvenlik özelliklerinin tümüne genel bakış için bkz. [SQL Veritabanı güvenliğine genel bakış](sql-database-security-overview.md).
-- Öğretici için bkz. [SQL güvenliğini kullanmaya başlayın](sql-database-control-access-sql-authentication-get-started.md)
+- Bir öğretici için bkz: [Azure SQL veritabanınıza güvenli](sql-database-security-tutorial.md).
 - Görünümler ve saklı yordamlar hakkında bilgi için bkz. [Görünüm ve saklı yordam oluşturma](https://msdn.microsoft.com/library/ms365311.aspx)
 - Bir veritabanı nesnesine erişim verme hakkında bilgi için bkz. [Bir veritabanı nesnesine erişim verme](https://msdn.microsoft.com/library/ms365327.aspx)
-- SQL Server kimlik doğrulamasını kullanma öğreticisi için bkz. [Öğretici: SQL Server kimlik doğrulaması](sql-database-control-access-sql-authentication-get-started.md).
-- Azure Active Directory kimlik doğrulamasını kullanma öğreticisi için bz. [Öğretici: AAD kimlik doğrulaması](sql-database-control-access-aad-authentication-get-started.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-

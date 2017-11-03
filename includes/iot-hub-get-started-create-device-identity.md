@@ -1,26 +1,26 @@
-## <a name="create-a-device-identity"></a>Create a device identity
+## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
 
-In this section, you use a Node.js tool called [iothub-explorer][iot-hub-explorer] to create a device identity for this tutorial. Device IDs are case sensitive.
+Bu bölümde, kullandığınız adı verilen bir Node.js aracı [iothub-explorer] [ iot-hub-explorer] Bu öğretici için bir cihaz kimliği oluşturmak için. Cihaz Kimlikleri büyük/küçük harfe duyarlıdır.
 
-1. Run the following in your command-line environment:
+1. Aşağıdaki komut satırı ortamınızda çalıştırın:
 
     `npm install -g iothub-explorer@latest`
 
-1. Then, run the following command to login to your hub. Substitute `{iot hub connection string}` with the IoT Hub connection string you previously copied:
+1. Ardından, hub'ınıza oturum açmak için aşağıdaki komutu çalıştırın. Yedek `{iot hub connection string}` daha önce kopyaladığınız IOT Hub bağlantı dizesine sahip:
 
     `iothub-explorer login "{iot hub connection string}"`
 
-1. Finally, create a new device identity called `myDeviceId` with the command:
+1. Son olarak, adlı yeni bir cihaz kimliği oluşturma `myDeviceId` komutu ile:
 
     `iothub-explorer create myDeviceId --connection-string`
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-Make a note of the device connection string from the result. This device connection string is used by the device app to connect to your IoT Hub as a device.
+Sonuç cihaz bağlantı dizesinden not edin. Bu cihaz bağlantı dizesi, bir cihaz olarak IOT hub'ınıza bağlanmak için cihaz uygulama tarafından kullanılır.
 
 ![][img-identity]
 
-Refer to [Getting started with IoT Hub][lnk-getstarted] to programmatically create device identities.
+Başvurmak [IOT Hub ile çalışmaya başlama] [ lnk-getstarted] program aracılığıyla cihaz kimlikleri oluşturmak için.
 
 <!-- images and links -->
 [img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png

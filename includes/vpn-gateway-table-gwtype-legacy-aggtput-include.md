@@ -1,24 +1,24 @@
-The following table shows the gateway types and the estimated aggregate throughput by gateway SKU. This table applies to the Resource Manager and classic deployment models. 
+Aşağıdaki tabloda ağ geçidi türleri ve ağ geçidi SKU’suna göre tahmini toplam verimlilik gösterilmiştir. Bu tablo Resource Manager ve klasik dağıtım modellerine uygulanır. 
 
-Pricing differs between gateway SKUs. For more information, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
+Ağ geçidi SKU'ları arasında fiyatlandırma farklılık gösterir. Daha fazla bilgi için bkz. [VPN Gateway Fiyatlandırması](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
-Note that the UltraPerformance gateway SKU is not represented in this table. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+UltraPerformance ağ geçidi SKU’sunun bu tabloda temsil edilmediğini unutmayın. UltraPerformance SKU’su hakkında bilgi edinmek için [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) belgelerine bakın.
 
-|  | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist** |
+|  | **VPN Gateway performansı (1)** | **VPN Gateway maks. IPsec tüneli (2)** | **ExpressRoute Gateway performansı** | **VPN Gateway ve ExpressRoute bir arada** |
 | --- | --- | --- | --- | --- |
-| **Basic SKU (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |No |
-| **Standard SKU (4)(5)** |100 Mbps |10 |1000 Mbps |Yes |
-| **High Performance SKU (4)** |200 Mbps |30 |2000 Mbps |Yes |
+| **Temel SKU (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |Hayır |
+| **Standart SKU (4)(5)** |100 Mbps |10 |1000 Mb/sn |Evet |
+| **Yüksek Performanslı SKU (4)** |200 Mbps |30 |2000 Mb/sn |Yes |
 
 
-(1) The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guaranteed throughput for cross-premises connections across the Internet. It is the maximum possible throughput measurement.
+(1) VPN işlemesi aynı Azure bölgesinde yer alan Vnet'ler arasındaki ölçümleri temel alan kaba bir tahmindir. Bu seçenek, İnternet üzerinden kurulan şirket içi ve şirket dışı karışık bağlantılar için garantili bir verimlilik değildir. Mümkün olan en yüksek verimlilik ölçümüdür.
 
-(2) The number of tunnels refer to RouteBased VPNs. A PolicyBased VPN can only support one Site-to-Site VPN tunnel.
+(2) RouteBased VPN’lere başvuran tünel sayısı. PolicyBased VPN yalnızca tek bir Siteden Siteye VPN tünelini destekleyebilir.
 
-(3) BGP is not supported for the Basic SKU.
+(3) BGP, Temel SKU için desteklenmez.
 
-(4) PolicyBased VPNs are not supported for this SKU. They are supported for the Basic SKU only.
+(4) PolicyBased VPN'ler bu SKU için desteklenmez. Bunlar yalnızca Temel SKU için desteklenir.
 
-(5) Active-active S2S VPN Gateway connections are not supported for this SKU. Active-active is supported on the HighPerformance SKU only.
+(5) Etkin-etkin S2S VPN Gateway bağlantıları bu SKU için desteklenmiyor. Etkin-etkin, yalnızca Yüksek Performanslı SKU üzerinde desteklenir.
 
-(6) Basic SKU is deprecated for use with ExpressRoute.
+(6) temel SKU ExpressRoute ile kullanmak için kullanım dışıdır.

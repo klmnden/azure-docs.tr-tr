@@ -1,51 +1,51 @@
 
 <a name="cs_0_csharpprogramexample_h2"/>
 
-## <a name="c-program-example"></a>C# program example
+## <a name="c-program-example"></a>C# programı örneği
 
-The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL statements to the SQL database. The C# program performs the following actions:
+Bu makalenin sonraki bölümlerinde, SQL veritabanı Transact-SQL deyimlerini göndermek için ADO.NET kullanan bir C# programı sunar. C# programı aşağıdaki eylemleri gerçekleştirir:
 
-1. [Connects to our SQL database using ADO.NET](#cs_1_connect).
-2. [Creates tables](#cs_2_createtables).
-3. [Populates the tables with data, by issuing T-SQL INSERT statements](#cs_3_insert).
-4. [Updates data by use of a join](#cs_4_updatejoin).
-5. [Deletes data by use of a join](#cs_5_deletejoin).
-6. [Selects data rows by use of a join](#cs_6_selectrows).
-7. Closes the connection (which drops any temporary tables from tempdb).
+1. [ADO.NET kullanarak bizim SQL veritabanına bağlanan](#cs_1_connect).
+2. [Tablolar oluşturur](#cs_2_createtables).
+3. [Veri tabloları T-SQL INSERT deyimleri vererek doldurur](#cs_3_insert).
+4. [Bir birleştirme kullanımıyla veri güncelleştirmeleri](#cs_4_updatejoin).
+5. [Bir birleşim kullanarak verileri siler](#cs_5_deletejoin).
+6. [Bir birleştirme kullanımıyla veri satırları seçer](#cs_6_selectrows).
+7. (Bu, herhangi bir geçici tablo tempdb üzerinden bırakır) bağlantıyı kapatır.
 
-The C# program contains:
+C# programı içerir:
 
-- C# code to connect to the database.
-- Methods that return the T-SQL source code.
-- Two methods that submit the T-SQL to the database.
+- Veritabanına bağlanmak için C# kodu.
+- T-SQL kaynak kodunu döndüren yöntemler.
+- T-SQL veritabanına gönderme iki yöntem.
 
-#### <a name="to-compile-and-run"></a>To compile and run
+#### <a name="to-compile-and-run"></a>Derlemek ve çalıştırmak için
 
-This C# program is logically one .cs file. But here the program is physically divided into several code blocks, to make each block easier to see and understand. To compile and run this program, do the following:
+Bu C# programı mantıksal bir .cs dosyasıdır. Ancak burada program blokların görebilir ve anlamak daha kolay hale getirmek için birkaç kod blokları içinde fiziksel olarak ayrılır. Derleme ve bu programı çalıştırmak için aşağıdakileri yapın:
 
-1. Create a C# project in Visual Studio.
-    - The project type should be a *console* application, from something like the following hierarchy: **Templates** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
-3. In the file **Program.cs**, erase the small starter lines of code.
-3. Into Program.cs, copy and paste each of the following blocks, in the same sequence they are presented here.
-4. In Program.cs, edit the following values in the **Main** method:
+1. Visual Studio'da bir C# projesi oluşturun.
+    - Proje türü olmalıdır. bir *konsol* uygulama aşağıdaki hiyerarşi şöyle gelen: **şablonları** > **Visual C#** >  **Windows Klasik Masaüstü** > **konsol uygulaması (.NET Framework)**.
+3. Dosyasındaki **Program.cs**, kod küçük starter satırları silme.
+3. Program.cs, içine kopyalayın ve her biri aşağıdaki blokları burada verildikleri sırada yapıştırın.
+4. Program.cs içinde aşağıdaki değerleri Düzenle **ana** yöntemi:
 
-   - **cb.DataSource**
-   - **cd.UserID**
-   - **cb.Password**
+   - **cb. Veri kaynağı**
+   - **CD. Kullanıcı Kimliği**
+   - **cb. Parola**
    - **InitialCatalog**
 
-5. Verify that the assembly **System.Data.dll** is referenced. To verify, expand the **References** node in the **Solution Explorer** pane.
-6. To build the program in Visual Studio, click the **Build** menu.
-7. To run the program from Visual Studio, click the **Start** button. The report output is displayed in a cmd.exe window.
+5. Doğrulayın derleme **System.Data.dll** başvuruluyor. Doğrulamak için Genişlet **başvuruları** düğümünde **Çözüm Gezgini** bölmesi.
+6. Visual Studio'da programı oluşturmak için tıklatın **yapı** menüsü.
+7. Visual Studio'dan programı çalıştırmak için tıklatın **Başlat** düğmesi. Rapor çıktısı cmd.exe penceresinde görüntülenir.
 
 > [!NOTE]
-> You have the option of editing the T-SQL to add a leading **#** to the table names, which creates them as temporary tables in **tempdb**. This can be useful for demonstration purposes, when no test database is available. Temporary tables are deleted automatically when the connection closes. Any REFERENCES for foreign keys are not enforced for temporary tables.
+> Başında eklemek için T-SQL düzenleme seçeneği sahip  **#**  tablo adları için oluşturan bunları olarak geçici tablolarda **tempdb**. Test veritabanı kullanılabilir olduğunda bu tanıtım amacıyla yararlı olabilir. Bağlantıyı kapatır, geçici tablolar otomatik olarak silinir. Yabancı anahtarlar için tüm başvuruları geçici tablolar için zorunlu değildir.
 >
 
 <a name="cs_1_connect"/>
-### <a name="c-block-1-connect-by-using-adonet"></a>C# block 1: Connect by using ADO.NET
+### <a name="c-block-1-connect-by-using-adonet"></a>C# blok 1: ADO.NET kullanarak bağlanma
 
-- [Next](#cs_2_createtables)
+- [Sonraki](#cs_2_createtables)
 
 
 ```csharp
@@ -99,9 +99,9 @@ namespace csharp_db_test
 
 
 <a name="cs_2_createtables"/>
-### <a name="c-block-2-t-sql-to-create-tables"></a>C# block 2: T-SQL to create tables
+### <a name="c-block-2-t-sql-to-create-tables"></a>C# blok 2: Tablo oluşturmak için T-SQL
 
-- [Previous](#cs_1_connect) &nbsp; / &nbsp; [Next](#cs_3_insert)
+- [Önceki](#cs_1_connect) &nbsp;  /  &nbsp; [sonraki](#cs_3_insert)
 
 ```csharp
       static string Build_2_Tsql_CreateTables()
@@ -131,19 +131,19 @@ CREATE TABLE tabEmployee
       }
 ```
 
-#### <a name="entity-relationship-diagram-erd"></a>Entity Relationship Diagram (ERD)
+#### <a name="entity-relationship-diagram-erd"></a>Varlık ilişki diyagramı (ERD)
 
-The preceding CREATE TABLE statements involve the **REFERENCES** keyword to create a *foreign key* (FK) relationship between two tables.  If you are using tempdb, comment out the `--REFERENCES` keyword using a pair of leading dashes.
+Önceki CREATE TABLE deyimleri içeren **başvuruları** oluşturmak için anahtar sözcüğü bir *yabancı anahtar* iki tablo arasındaki ilişki (FK).  Out tempdb kullanıyorsanız, açıklama `--REFERENCES` başında tire çifti kullanarak anahtar sözcüğü.
 
-Next is an ERD that displays the relationship between the two tables. The values in the #tabEmployee.DepartmentCode *child* column are limited to the values present in the #tabDepartment.Department *parent* column.
+Sonraki iki tablo arasındaki ilişkiyi görüntüler ERD'yi olduğu. #TabEmployee.DepartmentCode değerleri *alt* sütun #tabDepartment.Department mevcut değerleri için sınırlı *üst* sütun.
 
-![ERD showing foreign key](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
+![ERD gösteren yabancı anahtar](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 
 <a name="cs_3_insert"/>
-### <a name="c-block-3-t-sql-to-insert-data"></a>C# block 3: T-SQL to insert data
+### <a name="c-block-3-t-sql-to-insert-data"></a>C# Blok 3: veri eklemek için T-SQL
 
-- [Previous](#cs_2_createtables) &nbsp; / &nbsp; [Next](#cs_4_updatejoin)
+- [Önceki](#cs_2_createtables) &nbsp;  /  &nbsp; [sonraki](#cs_4_updatejoin)
 
 
 ```csharp
@@ -173,9 +173,9 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
-### <a name="c-block-4-t-sql-to-update-join"></a>C# block 4: T-SQL to update-join
+### <a name="c-block-4-t-sql-to-update-join"></a>C# blok 4: T-SQL güncelleştirme katılma
 
-- [Previous](#cs_3_insert) &nbsp; / &nbsp; [Next](#cs_5_deletejoin)
+- [Önceki](#cs_3_insert) &nbsp;  /  &nbsp; [sonraki](#cs_5_deletejoin)
 
 
 ```csharp
@@ -201,9 +201,9 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
-### <a name="c-block-5-t-sql-to-delete-join"></a>C# block 5: T-SQL to delete-join
+### <a name="c-block-5-t-sql-to-delete-join"></a>C# blok 5: T-SQL delete katılma
 
-- [Previous](#cs_4_updatejoin) &nbsp; / &nbsp; [Next](#cs_6_selectrows)
+- [Önceki](#cs_4_updatejoin) &nbsp;  /  &nbsp; [sonraki](#cs_6_selectrows)
 
 
 ```csharp
@@ -233,9 +233,9 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
-### <a name="c-block-6-t-sql-to-select-rows"></a>C# block 6: T-SQL to select rows
+### <a name="c-block-6-t-sql-to-select-rows"></a>C# blok 6: satırları seçmek için T-SQL
 
-- [Previous](#cs_5_deletejoin) &nbsp; / &nbsp; [Next](#cs_6b_datareader)
+- [Önceki](#cs_5_deletejoin) &nbsp;  /  &nbsp; [sonraki](#cs_6b_datareader)
 
 
 ```csharp
@@ -261,11 +261,11 @@ SELECT
 
 
 <a name="cs_6b_datareader"/>
-### <a name="c-block-6b-executereader"></a>C# block 6b: ExecuteReader
+### <a name="c-block-6b-executereader"></a>C# blok 6b: ExecuteReader
 
-- [Previous](#cs_6_selectrows) &nbsp; / &nbsp; [Next](#cs_7_executenonquery)
+- [Önceki](#cs_6_selectrows) &nbsp;  /  &nbsp; [sonraki](#cs_7_executenonquery)
 
-This method is designed to run the T-SQL SELECT statement that is built by the **Build_6_Tsql_SelectEmployees** method.
+Bu yöntem tarafından oluşturulmuş T-SQL SELECT deyimi çalışmak üzere tasarlanmıştır **Build_6_Tsql_SelectEmployees** yöntemi.
 
 
 ```csharp
@@ -297,11 +297,11 @@ This method is designed to run the T-SQL SELECT statement that is built by the *
 
 
 <a name="cs_7_executenonquery"/>
-### <a name="c-block-7-executenonquery"></a>C# block 7: ExecuteNonQuery
+### <a name="c-block-7-executenonquery"></a>C# blok 7: ExecuteNonQuery
 
-- [Previous](#cs_6b_datareader) &nbsp; / &nbsp; [Next](#cs_8_output)
+- [Önceki](#cs_6b_datareader) &nbsp;  /  &nbsp; [sonraki](#cs_8_output)
 
-This method is called for operations that modify the data content of tables without returning any data rows.
+Bu yöntem, hiçbir veri satırı dönmeden tabloların veri içeriğini değiştirme işlemleri için çağrılır.
 
 
 ```csharp
@@ -335,11 +335,11 @@ This method is called for operations that modify the data content of tables with
 
 
 <a name="cs_8_output"/>
-### <a name="c-block-8-actual-test-output-to-the-console"></a>C# block 8: Actual test output to the console
+### <a name="c-block-8-actual-test-output-to-the-console"></a>C# blok 8: konsoluna gerçek test çıkışı
 
-- [Previous](#cs_7_executenonquery)
+- [Önceki](#cs_7_executenonquery)
 
-This section captures the output that the program sent to the console. Only the guid values vary between test runs.
+Bu bölüm, konsola program gönderilen çıkış yakalar. Yalnızca GUID değerleri test çalışmaları arasında farklılık gösterir.
 
 
 ```text

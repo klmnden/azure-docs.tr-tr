@@ -1,5 +1,5 @@
-## <a name="scenario"></a>Scenario
-This document will walk through a deployment that uses multiple NICs in VMs in a specific scenario. In this scenario, you have a two-tiered IaaS workload hosted in Azure. Each tier is deployed in its own subnet in a virtual network (VNet). The front end tier is composed of several web servers, grouped together in a load balancer set for high availability. The back end tier is composed of several database servers. These database servers will be deployed with two NICs each, one for database access, the other for management. The scenario also includes Network Security Groups (NSGs) to control what traffic is allowed to each subnet, and NIC in the deployment. The figure below shows the basic architecture of this scenario.  
+## <a name="scenario"></a>Senaryo
+Bu belge, birden çok NIC Vm'lerde belirli bir senaryoda kullanan bir dağıtım size yol gösterecek. Bu senaryoda, Azure üzerinde barındırılan bir iki katmanlı Iaas iş yükü vardır. Her katman kendi alt ağda bir sanal ağ (VNet) dağıtılır. Bir yük dengeleyici için yüksek kullanılabilirlik kümesi içinde bir arada gruplandırılmış birkaç web sunucuları, ön uç katmanından oluşur. Birkaç veritabanı sunucularının arka uç katmanından oluşur. Bu veritabanı sunucuları, iki NIC içeren her birini diğer yönetim için veritabanı erişimi için dağıtılır. Senaryo, dağıtımda ağ güvenlik her alt ağda hangi trafiğe izin denetlemek için grupları (Nsg'ler) ve NIC de içerir. Aşağıdaki şekilde, bu senaryo temel mimarisini gösterir.  
 
-![MultiNIC scenario](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
+![MultiNIC senaryosu](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
 

@@ -1,10 +1,10 @@
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Add a consumer group to your IoT hub
+## <a name="add-a-consumer-group-to-your-iot-hub"></a>Bir tüketici grubu IOT hub'ınızı ekleyin
 
-Consumer groups are used by applications to pull data from Azure IoT Hub. In this tutorial, you create a consumer group to be used by a coming Azure service to read data from your IoT hub.
+Tüketici grupları, Azure IOT Hub'ından veri çekmek için uygulamalar tarafından kullanılır. Bu öğreticide, IOT hub'ından veri okumak için gelecek bir Azure hizmeti tarafından kullanılacak bir tüketici grubu oluşturun.
 
-To add a consumer group to your IoT hub, follow these steps:
+IOT hub'ınıza bir tüketici grubu eklemek için aşağıdaki adımları izleyin:
 
-1. In the [Azure portal](https://ms.portal.azure.com/), open your IoT hub.
-2. In the left pane, click **Endpoints**, select **Events** on the middle pane, enter a name under **Consumer groups** on the right pane, and then click **Save**.
+1. [Azure portalında](https://ms.portal.azure.com/) IoT hub'ınızı açın.
+2. Sol bölmede **uç noktaları**seçin **olayları** Orta bölmede, bir ad altında girin **tüketici grupları** sağ bölmede ve ardından **Kaydet** .
 
-   ![Create a consumer group in your IoT hub](../articles/iot-hub/media/iot-hub-create-consumer-group/1_iot-hub-create-consumer-group-azure.png)
+   ![IOT hub'ınıza bir tüketici grubu oluştur](../articles/iot-hub/media/iot-hub-create-consumer-group/1_iot-hub-create-consumer-group-azure.png)

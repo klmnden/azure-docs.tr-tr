@@ -1,17 +1,17 @@
-You can now use the Data Explorer tool in the Azure portal to create a graph database. 
+Şimdi bir grafik veritabanı oluşturmak için Azure portalında Veri Gezgini aracını kullanabilirsiniz. 
 
-1. In the Azure portal, in the menu on the left, select **Data Explorer (Preview)**.
+1. Azure portalında sol taraftaki menüyü seçin **Veri Gezgini (Önizleme)**.
 
-2. Under **Data Explorer (Preview)**, select **New Graph**. Then fill in the page by using the following information:
+2. Altında **Veri Gezgini (Önizleme)**seçin **yeni bir grafik**. Ardından sayfasında aşağıdaki bilgileri kullanarak doldurun:
 
-    ![Data Explorer in the Azure portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+    ![Azure portalında Veri Gezgini](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
-    Setting|Suggested value|Description
+    Ayar|Önerilen değer|Açıklama
     ---|---|---
-    Database id|sample-database|The ID for your new database. Database names must be between 1 and 255 characters and can't contain `/ \ # ?` or a trailing space.
-    Graph id|sample-graph|The ID for your new graph. Graph names have the same character requirements as database IDs.
-    Storage capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
-    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
-    Partition key|/userid|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant graph. For more information, see [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
+    Veritabanı kimliği|sample-database|Yeni veritabanınızın kimliği. Veritabanı adı 1 ila 255 karakter arasında olmalıdır ve içeremez `/ \ # ?` veya sonunda boşluk.
+    Grafik kimliği|sample-graph|Yeni grafiğinizin kimliği. Grafik adları veritabanı kimlikleri aynı karakter gereksinimlerine sahip.
+    Depolama kapasitesi| 10 GB|Varsayılan değeri değiştirmeyin. Bu, veritabanının depolama kapasitesidir.
+    Aktarım hızı|400 RU|Varsayılan değeri değiştirmeyin. Daha sonra gecikme süresini azaltmak isterseniz, aktarım hızının ölçeğini artırabilirsiniz.
+    Bölüm anahtarı|/firstName|Verileri her bölüme eşit şekilde dağıtan bir bölüm anahtarı. Doğru bölüm anahtarı seçerek bir kullanıcı grafik oluşturmada önemlidir. Daha fazla bilgi için bkz: [bölümleme için tasarlama](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
-3. After the form is filled out, select **OK**.
+3. Formun doldurulur sonra seçin **Tamam**.

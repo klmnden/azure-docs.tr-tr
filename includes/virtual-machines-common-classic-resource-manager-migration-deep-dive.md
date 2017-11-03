@@ -1,154 +1,154 @@
-## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrate IaaS resources from the classic deployment model to Azure Resource Manager
-First, it's important to understand the difference between data-plane and management-plane operations on the infrastructure as a service (IaaS) resources.
+## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Iaas kaynaklarını Klasik dağıtım modelinden Azure Resource Manager geçirme
+İlk olarak, hizmet (Iaas) kaynaklar olarak altyapı veri düzlemi ve Yönetim düzeyi işlemleri arasındaki farkı anlamak önemlidir.
 
-* *Management/control plane* describes the calls that come into the management/control plane or the API for modifying resources. For example, operations like creating a VM, restarting a VM, and updating a virtual network with a new subnet manage the running resources. They don't directly affect connecting to the VMs.
-* *Data plane* (application) describes the runtime of the application itself, and involves interaction with instances that don’t go through the Azure API. For example, accessing your website, or pulling data from a running SQL Server instance or a MongoDB server, are data plane or application interactions. Other examples include copying a blob from a storage account, and accessing a public IP address to use Remote Desktop Protocol (RDP) or Secure Shell (SSH) into the virtual machine. These operations keep the application running across compute, networking, and storage.
+* *Yönetim/denetim düzlemi* Yönetimi/denetim düzlemi veya kaynakları değiştirme API uygulamasına gelen çağrıları açıklar. Örneğin, VM oluşturma, bir sanal makineyi yeniden başlatma ve çalışmakta olan kaynakları yönetmek için bir sanal ağı yeni alt ağla güncelleştirme gibi işlemler. Bunlar Vm'lere bağlanması doğrudan etkilemez.
+* *Veri düzlemi* (uygulama) uygulamanın çalışma zamanı açıklar ve Azure API aracılığıyla geçmez, örnekleri ile etkileşimi içerir. Örneğin, Web sitenizi erişimi veya çalışan bir SQL Server örneği ya da bir MongoDB sunucudan veri çekme verilerdir düzlemi veya uygulama etkileşimler. Bir blob depolama hesabından kopyalama ve sanal makinede Uzak Masaüstü Protokolü (RDP) veya güvenli Kabuk (SSH) kullanmak için bir ortak IP adresi erişme diğer örnekleri içerir. Bu işlemler, uygulamanın işlem, ağ ve depolama kaynaklarında çalışmaya devam etmesini sağlar.
 
-The data plane is the same between the classic deployment model and Resource Manager stacks. The difference is that during the migration process, Microsoft translates the representation of the resources from the classic deployment model to that in the Resource Manager stack. As a result, you need to use new tools, APIs, and SDKs to manage your resources in the Resource Manager stack.
+Veri düzlemi Klasik dağıtım modeli ve Resource Manager yığınları arasında aynıdır. Geçiş işlemi sırasında Microsoft kaynaklardan Klasik dağıtım modeli, kaynak yöneticisi yığınında gösterimini çevirir farktır. Sonuç olarak, kaynak yöneticisi yığınında kaynaklarınızı yönetmek için yeni araçlar, API'ler ve SDK'ları kullanmanız gerekebilir.
 
-![Diagram that shows the difference between management/control plane and data plane](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Yönetim/denetim düzlemi ve veri düzlemi arasındaki farkı gösteren diyagram](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
-> In some migration scenarios, the Azure platform stops, deallocates, and restarts your virtual machines. This causes a brief data-plane downtime.
+> Bazı geçiş senaryolarında, Azure platformu sanal makinenizi durdurur, serbest bırakır ve yeniden başlatır. Bu kısa bir veri düzlemi kapalı kalma neden olur.
 >
 
-## <a name="the-migration-experience"></a>The migration experience
-Before you start the migration:
+## <a name="the-migration-experience"></a>Geçiş deneyimi
+Geçişe başlamadan önce:
 
-* Ensure that the resources that you want to migrate don't use any unsupported features or configurations. Usually the platform detects these issues and generates an error.
-* If you have VMs that are not in a virtual network, they are stopped and deallocated as part of the prepare operation. If you don't want to lose the public IP address, consider reserving the IP address before triggering the prepare operation. If the VMs are in a virtual network, they are not stopped and deallocated.
-* Plan your migration during non-business hours to accommodate for any unexpected failures that might happen during migration.
-* Download the current configuration of your VMs by using PowerShell, command-line interface (CLI) commands, or REST APIs to make it easier for validation after the prepare step is complete.
-* Update your automation and operationalization scripts to handle the Resource Manager deployment model, before you start the migration. You can optionally do GET operations when the resources are in the prepared state.
-* Evaluate the Role-Based Access Control (RBAC) policies that are configured on the IaaS resources in the classic deployment model, and plan for after the migration is complete.
+* Geçirmek istediğiniz kaynakların desteklenmeyen özellikleri veya yapılandırmaları olmadığından emin olun. Bu sorunlar genellikle platform tarafından algılanır ve bir hata oluşturulur.
+* Bir sanal ağda olmayan VM'ler varsa, bunlar durduruldu ve hazırlama işleminin bir parçası olarak serbest bırakıldı. Genel IP adresi kaybetmek istemiyorsanız, hazırlama işlemi tetiklemeden önce IP adresi ayırma göz önünde bulundurun. Sanal makineleri bir sanal ağ varsa, bunlar durduruldu serbest ve değil.
+* Geçiş sırasında gerçekleşebilecek beklenmeyen hataları göz önünde bulundurarak geçişinizi çalışma saatleri dışına gerçekleşecek şekilde planlayın.
+* Hazırlama adımı tamamlandıktan sonra doğrulamayı kolaylaştırmak için PowerShell’i, komut satırı arabirimi (CLI) komutlarını veya REST API’leri kullanarak VM’lerinizin geçerli yapılandırmasını indirin.
+* Geçişe başlamadan önce Resource Manager dağıtım modeli işlemek için Otomasyonu ve operationalization komut dosyalarınızı güncelleştirin. İsteğe bağlı olarak, kaynaklar hazırlanmış durumdayken GET işlemleri gerçekleştirebilirsiniz.
+* Iaas kaynaklarına Klasik dağıtım modelinde yapılandırılır ve geçiş tamamlandıktan sonra planlama rol tabanlı erişim denetimi (RBAC) İlkeleri değerlendirin.
 
-The migration workflow is as follows:
+Geçiş iş akışı aşağıdaki gibidir:
 
-![Diagram that shows the migration workflow](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Geçiş iş akışını gösteren diyagram](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
-> The operations described in the following sections are all idempotent. If you have a problem other than an unsupported feature or a configuration error, retry the prepare, abort, or commit operation. Azure tries the action again.
+> Aşağıdaki bölümlerde açıklanan tüm ıdempotent işlemleridir. Desteklenmeyen bir özellik veya bir yapılandırma hatası başka bir sorun varsa, hazırlama yeniden, veya tamamlanmaya işlemi. Azure eylemi yeniden dener.
 >
 >
 
-### <a name="validate"></a>Validate
-The validate operation is the first step in the migration process. The goal of this step is to analyze the state of the resources you want to migrate in the classic deployment model. The operation evaluates whether the resources are capable of migration (success or failure).
+### <a name="validate"></a>Doğrulama
+Doğrulama işlemi, geçiş sürecinin ilk adımıdır. Bu adımın amacı, Klasik dağıtım modelinde geçirmek istediğiniz kaynakların durumunu analiz etmektir. İşlem kaynakları (başarılı veya başarısız) geçişini yeteneğine sahip olup olmadığını değerlendirir.
 
-You select the virtual network or a cloud service (if it’s not in a virtual network) that you want to validate for migration. If the resource is not capable of migration, Azure lists the reasons why.
+(Sanal bir ağa değilse) sanal ağ veya bir bulut hizmeti seçin, geçiş için doğrulamak istediğiniz. Kaynağın geçiş uyumlu değilse, Azure nedenleri neden listeler.
 
-#### <a name="checks-not-done-in-the-validate-operation"></a>Checks not done in the validate operation
+#### <a name="checks-not-done-in-the-validate-operation"></a>Doğrulama işlemi yapılmadı denetler
 
-The validate operation only analyzes the state of the resources in the classic deployment model. It can check for all failures and unsupported scenarios due to various configurations in the classic deployment model. It is not possible to check for all issues that the Azure Resource Manager stack might impose on the resources during migration. These issues are only checked when the resources undergo transformation in the next step of migration (the prepare operation). The following table lists all the issues not checked in the validate operation:
+Doğrulama işlemi, yalnızca klasik dağıtım modelinde kaynakların durumunu analiz eder. Tüm hataları ve desteklenmeyen senaryolar Klasik dağıtım modelinde çeşitli yapılandırmaları nedeniyle kontrol. Azure Kaynak Yöneticisi yığınında kaynaklardaki geçiş sırasında zorunlu tuttukları tüm sorunları olup olmadığını denetlemek mümkün değildir. Geçiş (Hazırlama işlemi) bir sonraki adımda dönüştürme kaynakları uygulanabilecek olduğunda bu sorunlar yalnızca denetlenir. Aşağıdaki tabloda doğrulama işlemi denetlenmedi tüm sorunları listeler:
 
 
-|Networking checks not in the validate operation|
+|Doğrulama işleminde ağ denetimleri|
 |-|
-|A virtual network having both ER and VPN gateways.|
-|A virtual network gateway connection in a disconnected state.|
-|All ER circuits are pre-migrated to Azure Resource Manager stack.|
-|Azure Resource Manager quota checks for networking resources. For example: static public IP, dynamic public IPs, load balancer, network security groups, route tables, and network interfaces. |
-| All load balancer rules are valid across deployment and the virtual network. |
-| Conflicting private IPs between stop-deallocated VMs in the same virtual network. |
+|ER ve VPN ağ geçitleri sahip bir sanal ağ.|
+|Bir sanal ağ ağ geçidi bağlantı kesildi durumunda.|
+|Tüm ER bağlantı hatları Azure Kaynak Yöneticisi yığını tarafından önceden geçirilir.|
+|Ağ kaynakları için Azure Kaynak Yöneticisi kota denetler. Örneğin: statik genel IP, dinamik genel IP'ler, yük dengeleyici, ağ güvenlik grupları, yol tablolarını ve ağ arabirimleri. |
+| Tüm yük dengeleyici kuralları, dağıtım ve sanal ağ arasında geçerli değil. |
+| Aynı sanal ağda Dur serbest VM'ler arasında çakışan özel IP. |
 
-### <a name="prepare"></a>Prepare
-The prepare operation is the second step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from the classic deployment model to Resource Manager resources. Further, the prepare operation presents this side-by-side for you to visualize.
+### <a name="prepare"></a>Hazırlama
+Hazırlama işlemi, geçiş sürecinin ikinci adımıdır. Bu adımın amacı, Iaas kaynaklarına Klasik dağıtım modelinden Resource Manager kaynaklarını dönüşümü benzetimini yapmaktır. Ayrıca, hazırlama işlemi bu yan yana görselleştirmek size gösterir.
 
 > [!NOTE] 
-> Your resources in the classic deployment model are not modified during this step. It's a safe step to run if you're trying out migration. 
+> Kaynaklarınızın Klasik dağıtım modelinde, bu adım sırasında değiştirilmez. Geçiş çalışıyorsanız çalıştırmak için güvenli bir adımdır. 
 
-You select the virtual network or the cloud service (if it’s not a virtual network) that you want to prepare for migration.
+(Bir sanal ağ değilse), sanal ağ veya Bulut hizmeti geçişe hazırlamak istediğinizi seçin.
 
-* If the resource is not capable of migration, Azure stops the migration process and lists the reason why the prepare operation failed.
-* If the resource is capable of migration, Azure locks down the management-plane operations for the resources under migration. For example, you are not able to add a data disk to a VM under migration.
+* Kaynağın geçiş uyumlu değilse, Azure geçiş işlemi durdurur ve hazırlama işlemi neden başarısız neden listeler.
+* Kaynak geçişini yeteneğine sahipse, geçiş kaynaklarınıza Yönetim düzeyi işlemlerinde aşağı Azure kilitler. Örneğin, geçirilmekte olan bir VM’ye veri diski ekleyemezsiniz.
 
-Azure then starts the migration of metadata from the classic deployment model to Resource Manager for the migrating resources.
+Azure sonra meta veri geçişini Klasik dağıtım modelinden Resource Manager geçirme kaynaklarını başlatır.
 
-After the prepare operation is complete, you have the option of visualizing the resources in both the classic deployment model and Resource Manager. For every cloud service in the classic deployment model, the Azure platform creates a resource group name that has the pattern `cloud-service-name>-Migrated`.
-
-> [!NOTE]
-> It is not possible to select the name of a resource group created for migrated resources (that is, "-Migrated"). After migration is complete, however, you can use the move feature of Azure Resource Manager to move resources to any resource group you want. For more information, see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md).
-
-The following two screenshots show the result after a succesful prepare operation. The first one shows a resource group that contains the original cloud service. The second one shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
-
-![Screenshot that shows original cloud service](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
-
-![Screenshot that shows Azure Resource Manager resources in the prepare operation](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
-
-Here is a behind-the-scenes look at your resources after the completion of the prepare phase. Note that the resource in the data plane is the same. It's represented in both the management plane (classic deployment model) and the control plane (Resource Manager).
-
-![Diagram of the prepare phase](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+Hazırlama işlemi tamamlandıktan sonra Klasik dağıtım modeli ve Resource Manager kaynakları görselleştirme seçeneğiniz vardır. Azure platformu, klasik dağıtım modelindeki her bulut hizmeti için `cloud-service-name>-Migrated` deseninde bir kaynak grubu adı oluşturur.
 
 > [!NOTE]
-> VMs that are not in a virtual network in the classic deployment model are stopped and deallocated in this phase of migration.
+> Geçirilen kaynakları için oluşturulan bir kaynak grubu adını seçmek mümkün değildir (diğer bir deyişle, "-geçişi"). Ancak, geçiş işlemi tamamlandıktan sonra kaynakları istediğiniz herhangi bir kaynak grubuna taşımak için Azure Kaynak Yöneticisi'nin taşıma özelliğini kullanabilirsiniz. Daha fazla bilgi için bkz. [Kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../articles/resource-group-move-resources.md).
+
+Aşağıdaki iki ekran görüntüleri bir yürütmeye hazırladıktan sonra işlem sonucu gösterir. Birinci özgün bulut hizmeti içeren bir kaynak grubu gösterir. İkinci yeni gösterir "-geçişi" eşdeğer Azure Resource Manager kaynaklarını içeren kaynak grubu.
+
+![Özgün bulut hizmeti gösteren ekran görüntüsü](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
+
+![Azure Resource Manager kaynaklarını Hazırlama işlemi gösteren ekran görüntüsü](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
+
+Hazırlık aşaması tamamlandıktan sonra kaynaklarınızı Perde Arkası göz aşağıdadır. Veri düzlemi kaynağında aynı olduğunu unutmayın. (Klasik dağıtım modeli) yönetim düzeyi ve denetim düzlemi (Resource Manager) gösterilir.
+
+![Hazırlık aşaması diyagramı](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+
+> [!NOTE]
+> Klasik dağıtım modelinde bir sanal ağ içinde olmayan VM'ler durdurulur ve bu geçiş aşamasında serbest bırakıldı.
 >
 
-### <a name="check-manual-or-scripted"></a>Check (manual or scripted)
-In the check step, you have the option to use the configuration that you downloaded earlier to validate that the migration looks correct. Alternatively, you can sign in to the portal, and spot check the properties and resources to validate that metadata migration looks good.
+### <a name="check-manual-or-scripted"></a>Denetim (el ile veya betikle)
+Onay adımda geçiş doğru görünüyorsa doğrulamak için daha önce indirdiğiniz yapılandırma kullanma seçeneğiniz vardır. Alternatif olarak, portal ve nokta onay özelliklerini ve kaynaklarını meta veri geçiş iyi göründüğünü doğrulamak için oturum açabilirsiniz.
 
-If you are migrating a virtual network, most configuration of virtual machines is not restarted. For applications on those VMs, you can validate that the application is still running.
+Sanal ağ geçişi yapıyorsanız, sanal makinelerin çoğu yapılandırması yeniden başlatılmaz. Bu vm'lerde uygulamalar için uygulama hala çalıştığını doğrulayabilirsiniz.
 
-You can test your monitoring and operational scripts to see if the VMs are working as expected, and if your updated scripts work correctly. Only GET operations are supported when the resources are in the prepared state.
+Sanal makinelerin beklendiği gibi çalıştığını ve güncelleştirilmiş komut dosyalarınızı düzgün çalışması görmek için izleme ve işletimsel komut dosyalarınızı test edebilirsiniz. Kaynaklar hazırlanmış durumdayken yalnızca GET işlemleri desteklenir.
 
-There is no set window of time before which you need to commit the migration. You can take as much time as you want in this state. However, the management plane is locked for these resources until you either abort or commit.
+Önce geçiş yürütmek gereken süreyi kümesi penceresi yok. Bu durumdayken dilediğiniz kadar bekleyebilirsiniz. Bununla birlikte, bu kaynaklar için geçişi durdurana veya işleyene kadar yönetim düzlemi kilitli kalır.
 
-If you see any issues, you can always abort the migration and go back to the classic deployment model. After you go back, Azure opens the management-plane operations on the resources, so that you can resume normal operations on those VMs in the classic deployment model.
+Herhangi bir sorun yaşarsanız dilediğiniz zaman geçişi durdurabilir ve klasik dağıtım modeline dönebilirsiniz. Geri dönün sonra Azure Klasik dağıtım modelinde bu vm'lerde normal işlemleri devam edebilmeniz için kaynaklar üzerinde yönetim düzeyi işlemlerine açar.
 
-### <a name="abort"></a>Abort
-This is an optional step if you want to revert your changes to the classic deployment model and stop the migration. This operation deletes the Resource Manager metadata (created in the prepare step) for your resources. 
+### <a name="abort"></a>Durdurma
+Klasik dağıtım modeli için yaptığınız değişiklikleri geri almak ve geçiş durdurmak istiyorsanız, bu isteğe bağlı bir adımdır. Bu işlem, Kaynak Yöneticisi'ni (hazırlama adımda oluşturulan) meta veri kaynaklarınız için siler. 
 
-![Diagram of abort step](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Abort adım diyagramı](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
-> This operation can't be done after you have triggered the commit operation.     
+> Yürütme işlemi tetiklemesi sonra bu işlemi gerçekleştirilemez.     
 >
 
-### <a name="commit"></a>Commit
-After you finish the validation, you can commit the migration. Resources do not appear anymore in the classic deployment model, and are available only in the Resource Manager deployment model. The migrated resources can be managed only in the new portal.
+### <a name="commit"></a>İşleme
+Doğrulama adımını tamamladıktan sonra geçişi işleyebilirsiniz. Kaynaklar Klasik dağıtım modelinde artık görünmez ve yalnızca Resource Manager dağıtım modelinde kullanılabilir. Geçirilen kaynaklar yalnızca yeni portalda yönetilebilir.
 
 > [!NOTE]
-> This is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or create a forum post with a "ClassicIaaSMigration" tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+> Bu, bir kere etkili olan bir işlemdir. Başarısız olursa, işlemi yeniden deneyin. Başarısız, destek bileti oluşturun veya oluşturmak devam ederse "ClassicIaaSMigration" ile bir forum gönderisi etiketi bizim [VM Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
 >
 >
 
-![Diagram of commit step](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Yürütme adım diyagramı](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
-## <a name="migration-flowchart"></a>Migration flowchart
+## <a name="migration-flowchart"></a>Geçiş akış çizelgesi
 
-Here is a flowchart that shows how to proceed with migration:
+Geçirme işlemine devam etmek nasıl oluşturulduğunu gösteren bir akış çizelgesi şöyledir:
 
-![Screenshot that shows the migration steps](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Geçiş adımlarını gösteren ekran görüntüsü](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Translation of the classic deployment model to Resource Manager resources
-You can find the classic deployment model and Resource Manager representations of the resources in the following table. Other features and resources are not currently supported.
+## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Resource Manager kaynaklarını Klasik dağıtım modeline çevirisi
+Aşağıdaki tabloda Klasik dağıtım modeli ve Resource Manager kaynakları gösterimlerini bulabilirsiniz. Diğer özellikler ve kaynaklar şu an desteklenmemektedir.
 
-| Classic representation | Resource Manager representation | Notes |
+| Klasik gösterim | Resource Manager gösterimi | Notlar |
 | --- | --- | --- |
-| Cloud service name |DNS name |During migration, a new resource group is created for every cloud service with the naming pattern `<cloudservicename>-migrated`. This resource group contains all your resources. The cloud service name becomes a DNS name that is associated with the public IP address. |
-| Virtual machine |Virtual machine |VM-specific properties are migrated unchanged. Certain osProfile information, like computer name, is not stored in the classic deployment model, and remains empty after migration. |
-| Disk resources attached to VM |Implicit disks attached to VM |Disks are not modeled as top-level resources in the Resource Manager deployment model. They are migrated as implicit disks under the VM. Only disks that are attached to a VM are currently supported. Resource Manager VMs can now use storage accounts in the classic deployment model, which allows the disks to be easily migrated without any updates. |
-| VM extensions |VM extensions |All the resource extensions, except XML extensions, are migrated from the classic deployment model. |
-| Virtual machine certificates |Certificates in Azure Key Vault |If a cloud service contains service certificates, the migration creates a new Azure key vault per cloud service, and moves the certificates into the key vault. The VMs are updated to reference the certificates from the key vault. <br><br> Do not delete the key vault. This can cause the VM to go into a failed state. |
-| WinRM configuration |WinRM configuration under osProfile |Windows Remote Management configuration is moved unchanged, as part of the migration. |
-| Availability-set property |Availability-set resource | Availability-set specification is a property on the VM in the classic deployment model. Availability sets become a top-level resource as part of the migration. The following configurations are not supported: multiple availability sets per cloud service, or one or more availability sets along with VMs that are not in any availability set in a cloud service. |
-| Network configuration on a VM |Primary network interface |Network configuration on a VM is represented as the primary network interface resource after migration. For VMs that are not in a virtual network, the internal IP address changes during migration. |
-| Multiple network interfaces on a VM |Network interfaces |If a VM has multiple network interfaces associated with it, each network interface becomes a top-level resource as part of the migration, along with all the properties. |
-| Load-balanced endpoint set |Load balancer |In the classic deployment model, the platform assigned an implicit load balancer for every cloud service. During migration, a new load-balancer resource is created, and the load-balancing endpoint set becomes load-balancer rules. |
-| Inbound NAT rules |Inbound NAT rules |Input endpoints defined on the VM are converted to inbound network address translation rules under the load balancer during the migration. |
-| VIP address |Public IP address with DNS name |The virtual IP address becomes a public IP address, and is associated with the load balancer. A virtual IP can only be migrated if there is an input endpoint assigned to it. |
-| Virtual network |Virtual network |The virtual network is migrated, with all its properties, to the Resource Manager deployment model. A new resource group is created with the name `-migrated`. |
-| Reserved IPs |Public IP address with static allocation method |Reserved IPs associated with the load balancer are migrated, along with the migration of the cloud service or the virtual machine. Unassociated reserved IP migration is not currently supported. |
-| Public IP address per VM |Public IP address with dynamic allocation method |The public IP address associated with the VM is converted as a public IP address resource, with the allocation method set to static. |
-| NSGs |NSGs |Network security groups associated with a subnet are cloned as part of the migration to the Resource Manager deployment model. The NSG in the classic deployment model is not removed during the migration. However, the management-plane operations for the NSG are blocked when the migration is in progress. |
-| DNS servers |DNS servers |DNS servers associated with a virtual network or the VM are migrated as part of the corresponding resource migration, along with all the properties. |
-| UDRs |UDRs |User-defined routes associated with a subnet are cloned as part of the migration to the Resource Manager deployment model. The UDR in the classic deployment model is not removed during the migration. The management-plane operations for the UDR are blocked when the migration is in progress. |
-| IP forwarding property on a VM's network configuration |IP forwarding property on the NIC |The IP forwarding property on a VM is converted to a property on the network interface during the migration. |
-| Load balancer with multiple IPs |Load balancer with multiple public IP resources |Every public IP associated with the load balancer is converted to a public IP resource, and associated with the load balancer after migration. |
-| Internal DNS names on the VM |Internal DNS names on the NIC |During migration, the internal DNS suffixes for the VMs are migrated to a read-only property named “InternalDomainNameSuffix” on the NIC. The suffix remains unchanged after migration, and VM resolution should continue to work as previously. |
-| Virtual network gateway |Virtual network gateway |Virtual network gateway properties are migrated unchanged. The VIP associated with the gateway does not change either. |
-| Local network site |Local network gateway |Local network site properties are migrated unchanged to a new resource called a local network gateway. This represents on-premises address prefixes and the remote gateway IP. |
-| Connections references |Connection |Connectivity references between the gateway and the local network site in network configuration is represented by a new resource called Connection. All properties of connectivity reference in network configuration files are copied unchanged to the Connection resource. Connectivity between virtual networks in the classic deployment model is achieved by creating two IPsec tunnels to local network sites representing the virtual networks. This is transformed to the virtual-network-to-virtual-network connection type in the Resource Manager model, without requiring local network gateways. |
+| Bulut hizmeti adı |DNS adı |Geçiş sırasında, her bulut hizmeti için `<cloudservicename>-migrated` adlandırma deseni kullanılarak yeni bir kaynak grubu oluşturulur. Bu kaynak grubu tüm kaynaklarınızı içerir. Bulut hizmeti adı, genel IP adresiyle ilişkili bir DNS adı olur. |
+| Sanal makine |Sanal makine |Sanal makineye özgü özellikler değiştirilmeden geçirilir. Bilgisayar adı gibi belirli osProfile bilgileri Klasik dağıtım modelinde depolanmaz ve geçiş sonrasında boş kalır. |
+| Sanal makineye bağlı disk kaynakları |Sanal makineye bağlı örtük diskler |Resource Manager dağıtım modelinde diskler en üst düzey kaynaklar olarak modellenmez. Diskler, VM altındaki örtük diskler olarak geçirilir. Şu anda yalnızca sanal makineye bağlı diskler desteklenmektedir. Kaynak Yöneticisi Vm'leri artık herhangi bir güncelleştirme kolayca geçirilmesi için diskleri verir Klasik dağıtım modelinde depolama hesapları'nı kullanabilirsiniz. |
+| VM uzantıları |VM uzantıları |Klasik dağıtım modelinden XML uzantıları dışındaki tüm kaynak uzantıları geçirilir. |
+| Sanal makine sertifikaları |Azure Key Vault’ta Sertifikalar |Bir bulut hizmeti hizmet sertifikaları içeriyorsa, geçiş yeni bir Azure anahtar kasası başına bulut hizmeti oluşturur ve sertifika anahtar kasasını taşır. VM’ler, anahtar kasasındaki sertifikalara başvuracak şekilde güncelleştirilir. <br><br> Anahtar kasası silmeyin. Bu, başarısız bir duruma dönmek VM neden olabilir. |
+| WinRM yapılandırması |osProfile altındaki WinRM yapılandırması |Windows Uzaktan Yönetimi yapılandırması, geçiş kapsamında değiştirilmeden taşınır. |
+| Kullanılabilirlik kümesi özelliği |Kullanılabilirlik kümesi kaynağı | Kullanılabilirlik kümesi belirtimi, Klasik dağıtım modelinde VM üzerindeki bir özelliktir. Kullanılabilirlik kümeleri, geçiş kapsamında en üst düzey kaynağa dönüşür. Şu yapılandırmalar desteklenmez: bulut hizmeti başına birden çok kullanılabilirlik kümesi veya bir bulut hizmetindeki herhangi bir kullanılabilirlik kümesinde olmayan VM’lerle birlikte bir veya daha fazla kullanılabilirlik kümesi. |
+| Bir VM’deki ağ yapılandırması |Birincil ağ arabirimi |Bir VM’deki ağ yapılandırması, geçişten sonra birincil ağ arabirimi kaynağı olarak gösterilir. Bir sanal ağda olmayan VM’lerin iç IP adresi geçiş sırasında değişir. |
+| Bir VM’de birden çok ağ arabirimi |Ağ arabirimleri |Bir VM ile ilişkili birden çok ağ arabirimi varsa, her bir ağ arabirimine en üst düzey bir kaynak tüm özelliklerinin yanı sıra geçişin parçası olarak haline gelir. |
+| Yük dengeli uç nokta kümesi |Yük dengeleyici |Klasik dağıtım modelinde, platform tarafından her bulut hizmetine örtük bir yük dengeleyici atanıyordu. Geçiş sırasında yeni bir yük dengeleyici kaynağı oluşturulur ve yük dengeleme uç noktası kümesi, yük dengeleyici kurallarına dönüşür. |
+| Gelen NAT kuralları |Gelen NAT kuralları |VM’de tanımlanmış giriş uç noktaları, geçiş sırasında yük dengeleyici altındaki gelen ağ adresi çevirisi kurallarına dönüştürülür. |
+| VIP adresi |DNS adına sahip genel IP adresi |Sanal IP adresi genel bir IP adresi olur ve yük dengeleyici ile ilişkilidir. Yalnızca giriş uç noktası atanmış sanal IP’ler geçirilebilir. |
+| Sanal ağ |Sanal ağ |Sanal ağ, tüm özellikleriyle birlikte Resource Manager dağıtım modeline geçirilir. `-migrated` adlı yeni bir kaynak grubu oluşturulur. |
+| Ayrılmış IP’ler |Statik ayırma yöntemi kullanan genel IP adresi |Yük dengeleyiciyle ilişkili ayrılmış IP’ler, bulut hizmetinin veya sanal makinenin geçişiyle birlikte geçirilir. İlişkili olmayan ayrılmış IP geçişi şu an desteklenmemektedir. |
+| VM başına genel IP adresi |Dinamik ayırma yöntemi kullanan genel IP adresi |VM’le ilişkili genel IP adresi, ayırma yöntemi statik olarak ayarlanarak bir genel IP adresi kaynağı olarak dönüştürülür. |
+| NSG'ler |NSG'ler |Bir alt ağla ilişkili ağ güvenlik grupları, geçiş kapsamında Resource Manager dağıtım modeline kopyalanır. Geçiş sırasında, klasik dağıtım modelindeki NSG kaldırılmaz. Bununla birlikte, geçiş sürdüğü sırada NSG için yönetim düzlemi işlemleri engellenir. |
+| DNS sunucuları |DNS sunucuları |Bir sanal ağ veya VM’le ilişkili DNS sunucuları, kendilerine karşılık gelen kaynağın geçişi kapsamında, tüm özellikleriyle birlikte geçirilir. |
+| UDR’ler |UDR’ler |Bir alt ağla ilişkili kullanıcı tanımlı rotalar, geçiş kapsamında Resource Manager dağıtım modeline kopyalanır. Geçiş sırasında, klasik dağıtım modelindeki UDR kaldırılmaz. Geçiş sürdüğü sırada UDR için yönetim düzlemi işlemleri engellenir. |
+| Bir sanal makinenin ağ yapılandırmasında IP iletme özelliği |NIC’de IP iletme özelliği |Bir VM’deki IP iletme özelliği, geçiş sırasında ağ arabirimindeki bir özelliğe dönüştürülür. |
+| Birden çok IP’si olan yük dengeleyici |Birden çok genel IP kaynağı olan yük dengeleyici |Yük Dengeleyici ile ilişkili her genel IP için genel IP kaynağı dönüştürülür ve geçişten sonra Yük Dengeleyici ile ilişkili. |
+| VM’deki iç DNS adları |NIC’deki iç DNS adları |Geçiş sırasında, VM’lerin iç DNS son ekleri NIC’deki “InternalDomainNameSuffix” adlı salt okunur bir özelliğe geçirilir. Geçişten sonra soneki değişmez ve VM çözümleme olarak daha önce çalışmaya devam etmelidir. |
+| Sanal ağ geçidi |Sanal ağ geçidi |Sanal ağ geçidi özellikleri değişmeden geçirilir. Ağ geçidiyle ilişkili VIP de değişmez. |
+| Yerel ağ sitesi |Yerel ağ geçidi |Yerel ağ sitesi özellikleri bir yerel ağ geçidi olarak adlandırılan yeni bir kaynak için değişmeden geçirilir. Bu, şirket içi adres öneklerini ve uzak ağ geçidi IP temsil eder. |
+| Bağlantı başvuruları |Bağlantı |Ağ geçidi ile ağ yapılandırmasında yerel ağ sitesi arasındaki bağlantı başvuruları bağlantı adlı yeni bir kaynak temsil edilir. Ağ yapılandırma dosyalarında bağlantı başvurusu tüm özelliklerini bağlantı kaynağı değişmeden kopyalanır. Klasik dağıtım modelinde sanal ağlar arasında bağlantı yerel ağ sitelerine sanal ağlar temsil eden iki IPSec tüneli oluşturarak elde edilir. Bu sanal ağ-sanal-ağa bağlantı türüne Resource Manager modelinde, yerel ağ geçitleri gerek kalmadan dönüştürüldüğünde. |
 
-## <a name="changes-to-your-automation-and-tooling-after-migration"></a>Changes to your automation and tooling after migration
-As part of migrating your resources from the classic deployment model to the Resource Manager deployment model, you must update your existing automation or tooling to ensure that it continues to work after the migration.
+## <a name="changes-to-your-automation-and-tooling-after-migration"></a>Geçiş sonrası otomasyon ve araçlarınızda gerçekleşecek değişiklikler
+Kaynaklarınızın Klasik dağıtım modelinden Resource Manager dağıtım modeline geçiş işleminin parçası olarak, var olan Otomasyon veya geçişten sonra çalışmaya devam ettiğinden emin olmak için araç güncelleştirmeniz gerekir.

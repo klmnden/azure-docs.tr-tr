@@ -5,47 +5,46 @@ keywords: "sql veritabanı öğreticisi"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
-ms.workload: data-management
+ms.custom: scale out apps
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 19d02229781186053a0063af1c7e1a3280179f46
-ms.contentlocale: tr-tr
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 14912df26074b525585594cc1b5d32c85ce9094f
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wtp-saas-application"></a>WTP SaaS uygulamasında birden fazla kiracı için şemayı yönetme
+# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Veritabanı’nı kullanan çok kiracılı bir uygulamada birden fazla kiracı için Şemayı yönetme
 
-WTP Uygulamasına giriş öğreticisinde, WTP uygulamasının kiracı veritabanına ilk şemasını sağlaması ve bunu kataloğa kaydetmesi gösterilmiştir. Herhangi bir uygulamada olduğu gibi, WTP uygulaması zamanla gelişecek ve bazen veritabanında değişiklikler yapılmasını gerektirecektir. Değişiklikler; yeni veya değiştirilmiş şema, yeni ya da değiştirilmiş başvuru verileri ve en iyi uygulama performansını sağlayan rutin veritabanı bakım görevlerini içerebilir. SaaS uygulamasıyla, bu değişikliklerin oldukça büyük olabilecek bir kiracı veritabanı filosunda eşgüdümlü şekilde dağıtılması gerekir. Değişiklikler, gelecekteki kiracı veritabanları için sağlama işlemine de eklenmelidir.
+[İlk Wingtip SaaS öğretici](sql-database-saas-tutorial.md) nasıl uygulama bir kiracı veritabanı sağlamak ve kataloğa kaydetmek gösterir. Herhangi bir uygulama gibi Wingtip SaaS uygulama zamanla gelişmesi ve bazen, veritabanı için değişiklik yapılmasını gerektirir. Değişiklikler; yeni veya değiştirilmiş şema, yeni ya da değiştirilmiş başvuru verileri ve en iyi uygulama performansını sağlayan rutin veritabanı bakım görevlerini içerebilir. SaaS uygulamasıyla, bu değişikliklerin oldukça büyük olabilecek bir kiracı veritabanı filosunda eşgüdümlü şekilde dağıtılması gerekir. Bu değişiklikler Kiracı veritabanları gelecekte olmasını sağlama işlemine yapılması ihtiyaç duyar.
 
-Bu öğreticide iki senaryo incelenmektedir: tüm kiracılar için başvuru verisi güncelleştirmelerini dağıtma ve başvuru verilerini içeren tabloda bir dizin döndürme. [Esnek işler](sql-database-elastic-jobs-overview.md) özelliği, tüm kiracılar genelinde bu işlemleri ve yeni veritabanlarının şablonu olarak kullanılan *altın* kiracı veritabanını yürütmek amacıyla kullanılır.
+Bu öğreticide iki senaryo incelenmektedir: tüm kiracılar için başvuru verisi güncelleştirmelerini dağıtma ve başvuru verilerini içeren tabloda bir dizin döndürme. [Esnek iş](sql-database-elastic-jobs-overview.md) özelliği, tüm kiracılar arasında işlemlerini yürütmek için kullanılır ve *altın* yeni veritabanları için şablon olarak kullanılan Kiracı veritabanı.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 
-> * Birden fazla kiracı genelinde sorgulama yapmak için bir iş hesabı oluşturma
+> * Bir iş hesabı oluşturun
+> * Birden çok Kiracı arasında sorgu
 > * Tüm kiracı veritabanlarında verileri güncelleştirme
 > * Tüm kiracı veritabanlarında bir tabloda dizin oluşturma
 
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
-* WTP uygulamasının dağıtıldığından. Beş dakikadan daha kısa sürede dağıtmak için [WTP SaaS uygulamasını dağıtma ve keşfetme](sql-database-saas-tutorial.md) bölümünü inceleyin
+* Wingtip SaaS uygulaması dağıtılır. Beş dakikadan daha kısa bir süre içinde dağıtmak için bkz: [dağıtma ve Wingtip SaaS uygulamasına keşfedin.](sql-database-saas-tutorial.md)
 * Azure PowerShell’in yüklendiğinden. Ayrıntılar için bkz. [Azure PowerShell’i kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * SQL Server Management Studio’nun (SSMS) en son sürümünün yüklendiğinden. [SSMS’yi İndirin ve Yükleyin](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*Bu öğretici, SQL Veritabanı hizmetinin sınırlı önizleme (Elastik Veritabanı işleri) olarak sunulan özelliklerini kullanır. Bu öğreticiyi tamamlamak istiyorsanız konu satırına Esnek İşler Önizlemesi yazarak abonelik kimliğinizi SaaSFeedback@microsoft.com adresine gönderin. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu sınırlı bir önizleme olduğundan, ilgili sorular veya destek için SaaSFeedback@microsoft.com ile iletişim kurmanız gerekir.*
+*Bu öğretici, SQL Veritabanı hizmetinin sınırlı önizleme (Elastik Veritabanı işleri) olarak sunulan özelliklerini kullanır. Bu öğreticiyi tamamlamak istiyorsanız konu satırına Esnek İşler Önizlemesi yazarak abonelik kimliğinizi SaaSFeedback@microsoft.com adresine gönderin. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun SaaSFeedback@microsoft.com ile ilgili sorular veya destek.*
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS Şema Yönetimi düzenlerine giriş
@@ -60,11 +59,11 @@ Veritabanı başına tek kiracı SaaS düzeni, elde edilen veri yalıtımından 
 Esnek İşler’in artık Azure SQL Veritabanı’nın (ek hizmet veya bileşen gerektirmeyen) tümleşik bir özelliği olan yeni bir sürümü vardır. Esnek İşler’in bu yeni sürümü, şu anda sınırlı önizlemeyle sunulmaktadır. Bu sınırlı önizleme, iş hesapları oluşturmak için PowerShell’i ve işleri oluşturmak ve yönetmek için T-SQL’i desteklemektedir.
 
 > [!NOTE]
-> *Bu öğretici, SQL Veritabanı hizmetinin sınırlı önizleme (Elastik Veritabanı işleri) olarak sunulan özelliklerini kullanır. Bu öğreticiyi tamamlamak istiyorsanız konu satırına Esnek İşler Önizlemesi yazarak abonelik kimliğinizi SaaSFeedback@microsoft.com adresine gönderin. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu sınırlı bir önizleme olduğundan, ilgili sorular veya destek için SaaSFeedback@microsoft.com ile iletişim kurmanız gerekir.*
+> *Bu öğretici, SQL Veritabanı hizmetinin sınırlı önizleme (Elastik Veritabanı işleri) olarak sunulan özelliklerini kullanır. Bu öğreticiyi tamamlamak istiyorsanız konu satırına Esnek İşler Önizlemesi yazarak abonelik kimliğinizi SaaSFeedback@microsoft.com adresine gönderin. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun SaaSFeedback@microsoft.com ile ilgili sorular veya destek.*
 
 ## <a name="get-the-wingtip-application-scripts"></a>Wingtip uygulama betiklerini alma
 
-Wingtip Bilet betikleri ve uygulama kaynağı kodu, [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github deposunda bulunabilir. Betik dosyaları, [Öğrenme Modülleri klasöründe](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules) yer alır. **Öğrenme Modülleri** klasörünü, klasör yapısını koruyarak yerel bilgisayarınıza indirin.
+Wingtip SaaS komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github depo. [Wingtip SaaS komut dosyalarını karşıdan yüklemek için adımları](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>İş hesabı veritabanı ve yeni bir iş hesabı oluşturma
 
@@ -89,14 +88,14 @@ Yeni bir iş oluşturmak için iş hesabı oluşturulduğunda jobaccount veritab
 1. tenants1-\<user\>.database.windows.net kiracı sunucusuna da bağlanın
 1. *tenants1* sunucusunda *contosoconcerthall* veritabanına göz atın ve *Motosiklet Yarışı* ve *Yüzme Kulübü*’nün sonuç listesinde **yer almadığını** onaylamak için *VenueTypes* tablosunu sorgulayın.
 1. …\\Öğrenme Modülleri\\Şema Yönetimi\\DeployReferenceData.sql öğesini açın
-1. Betikteki 3 konumda da WTP uygulamasını dağıtırken kullandığınız kullanıcı adını kullanarak \<user\> öğesini değiştirin
+1. Deyim değiştirin: AYARLAMAK @wtpUser = &lt;kullanıcı&gt; ve Wingtip uygulama dağıtıldığında kullanılan kullanıcı değerini değiştirin
 1. jobaccount veritabanına bağlandığınızdan emin olun ve betiği çalıştırmak için **F5**’e basın
 
 * **sp\_add\_target\_group**, hedef grubu adı DemoServerGroup’u oluşturur, artık hedef üyeleri eklememiz gerekiyor.
-* **sp\_add\_target\_group\_member**, sunucu (bu, kiracı veritabanlarını içeren customer1-&lt;WtpUser&gt; sunucusudur) içindeki tüm veritabanlarının iş yürütülürken işe dahil edilmesi gerektiğini varsayan *server* hedef üyesini ekler. İkinci olarak *database* hedef üyesi türü, özellikle de “altın” veritabanı olan ve catalog-&lt;WtpUser&gt; sunucusunda bulunan baseTenantDB ve son olarak sonraki öğreticide kullanılan adhocanalytics veritabanını içeren başka bir *database* hedef grup üye türü eklenir.
+* **SP\_eklemek\_hedef\_grup\_üye** ekler bir *server* hedef sunucu içindeki tüm veritabanları uymak açısından gerekli olduğunu üye türü (Bu tenants1 - Not&lt;kullanıcı&gt; server Kiracı veritabanları içeren) işi aynı anda yürütme işinde ikinci ekleme eklenmesi gereken bir *veritabanı* hedef üye türü, katalog - üzerinde bulunan özellikle 'Altın' veritabanına (basetenantdb)&lt;kullanıcı&gt; sunucu ve son olarak başka bir *veritabanı* hedef sonraki öğreticide kullanılan adhocanalytics veritabanına eklemek için grubu üye türü.
 * **sp\_add\_job**, “Başvuru Verileri Dağıtımı” adında bir iş oluşturur
-* **sp\_add\_jobstep**, VenueTypes başvuru tablosunu güncelleştirecek T-SQL komut metnini içeren iş adımını oluşturur
-* Betikteki kalan görünümler, nesnelerin varlığını gösterir ve işin yürütülüşünü izler. **Yaşam döngüsü** sütunundaki durum değerini gözden geçirin. İş, tüm kiracı veritabanlarında ve başvuru tablosunu içeren iki ek veritabanında başarıyla tamamlanmıştır.
+* **SP\_ekleme\_iş** VenueTypes başvuru tablosu güncelleştirmek için T-SQL komut metni içeren işi adımı oluşturur
+* Betikteki kalan görünümler, nesnelerin varlığını gösterir ve işin yürütülüşünü izler. Durum değeri gözden geçirmek için bu sorguları kullanmak **yaşam döngüsü** zaman işi başarıyla tüm Kiracı veritabanları ve başvuru tablosu içeren iki ek veritabanları tamamlandı belirlemek için sütun.
 
 1. SSMS’de, *tenants1* sunucusundaki *contosoconcerthall* veritabanına göz atın ve *Motosiklet Yarışı* ve *Yüzme Kulübü*’nün sonuç listesinde **yer aldığını** onaylamak için *VenueTypes* tablosunu sorgulayın.
 
@@ -107,9 +106,9 @@ Yeni bir iş oluşturmak için iş hesabı oluşturulduğunda jobaccount veritab
 
 Aynı iş “sistem” saklı yordamlarını kullanarak bir iş oluşturun.
 
-1. SSMS’yi açın ve catalog-&lt;WtpUser&gt;.database.windows.net sunucusuna bağlanın
+1. SSMS açın ve Katalog için bağlantı&lt;kullanıcı&gt;. database.windows.net sunucu
 1. …\\Öğrenme Modülleri\\Şema Yönetimi\\OnlineReindex.sql dosyasını açın
-1. Sağ tıklayıp Bağlantı’yı seçin ve henüz bağlı değilseniz catalog-&lt;WtpUser&gt;.database.windows.net sunucusuna bağlanın
+1. Sağ tıklayın, bağlantıyı seçin ve Katalog için bağlantı&lt;kullanıcı&gt;. database.windows.net sunucusu zaten bağlıysa,
 1. jobaccount veritabanına bağlandığınızdan emin olun ve betiği çalıştırmak için F5’e basın
 
 * sp\_add\_job, “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885” adlı yeni bir iş oluşturur
@@ -133,6 +132,6 @@ Bu öğreticide, şunları öğrendiniz:
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Wingtip Bilet Platformu (WTP) uygulamasının ilk dağıtımına dayalı ek öğreticiler](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Derleme Wingtip SaaS uygulama dağıtımı sırasında ek öğreticileri](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Ölçeği artırılmış bulut veritabanlarını yönetme](sql-database-elastic-jobs-overview.md)
 * [Ölçeği artırılmış bulut veritabanları oluşturma ve yönetme](sql-database-elastic-jobs-create-and-manage.md)

@@ -1,18 +1,18 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-create-a-manual-backup"></a>To create a manual backup
-1. On the **Devices** page, go to the **Backup Policies** tab. This tab lists all the backup policies in a tabular format, including the policy for the volume that you want to back up.
-2. Select the policy by clicking anywhere in the corresponding row except for the first column. At the bottom of the page, click **Take backup**. The button will expand to show the backup options: local snapshot and cloud snapshot. 
-3. When you choose either of these options, you will be prompted for confirmation. Click **Yes**. 
+#### <a name="to-create-a-manual-backup"></a>El ile yedekleme oluşturmak için
+1. **Cihazlar** sayfasında **Yedekleme ilkeleri** sekmesine gidin. Bu sekme, yedeklemek istediğiniz birimle ilgili ilke de aralarında olmak üzere yedekleme ilkelerini tablosal biçimde listeler.
+2. Karşılık gelen satırda, ilk sütun dışında herhangi bir yere tıklayarak ilkeyi seçin. Sayfanın alt kısmındaki **Yedek al**'a tıklayın. Düğme, yedekleme seçeneklerini gösterecek şekilde genişletir: Yerel anlık görüntü ve bulut anlık görüntüsü. 
+3. Bu seçeneklerden birini seçtiğinizde onaylamanız istenir. **Evet**'e tıklayın. 
    
-    ![Create manual backup1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
+    ![El ile yedekleme oluşturun 1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
    
-    This will start a job to create a snapshot. You will see a notification at the bottom of the page after the job is successfully created.
-4. To monitor the job, click **View Job** in the notification area (at the bottom of the page). 
+    Anlık görüntü oluşturmak için bir iş başlatır. İş başarıyla oluşturulduktan sonra sayfanın altında bir bildirim göreceksiniz.
+4. İşi izlemek için bildirim alanında (sayfanın alt kısmında) **İşi Görüntüle**’ye tıklayın. 
    
-    ![Create manual backup2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
-5. After the backup job is finished, go to the **Backup catalog** tab.
-6. Set the filter selections to the appropriate device, backup policy, and time range. Click the check icon ![check icon](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) after setting the filters.
+    ![El ile yedek 2 oluşturma](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
+5. Yedekleme işi tamamlandıktan sonra **Yedekleme kataloğu** sekmesine gidin.
+6. Filtre seçimlerini uygun aygıt, yedekleme İlkesi ve zaman aralığına ayarlayın. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) filtreleri ayarladıktan sonra tıklayın.
    
-   The backup should appear in the list of backup sets that is displayed in the catalog.
+   Yedekleme, yedekleme kataloğunda görüntülenen yedekleme ayarları listesinde görüntülenmelidir.
 

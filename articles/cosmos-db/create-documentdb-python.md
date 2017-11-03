@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Python ve DocumentDB API&quot;si ile bir uygulama derleme | Microsoft Docs'
-description: "Azure Cosmos DB DocumentDB API&quot;sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Python kodu örneği sunar"
+title: 'Azure Cosmos DB: Python ve DocumentDB API''si ile bir uygulama derleme | Microsoft Docs'
+description: "Azure Cosmos DB DocumentDB API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Python kodu örneği sunar"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -8,20 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
-ms.date: 05/13/2017
+ms.topic: quickstart
+ms.date: 10/16/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 08d467ea27484e7d1d07d6c21b2e04b6525fbcd8
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: 8a5c9b7861e63ef76ec338072eafcd7905c258f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Python ve Azure portalı ile bir DocumentDB API'si uygulaması derleme
 
@@ -32,11 +30,12 @@ Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB
 ## <a name="prerequisites"></a>Ön koşullar
 
 * Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
-    * [Visual Studio 2015](http://www.visualstudio.com/) veya üzeri.
+    * Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
     * [GitHub](http://microsoft.github.io/PTVS/)'dan Visual Studio için Python Araçları. Bu öğreticide, VS 2015 için Python Araçları kullanır.
     * [python.org](https://www.python.org/downloads/release/python-2712/) adresinden Python 2.7
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
@@ -132,11 +131,11 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 3. Portaldaki URI değerinizi kopyalayın (kopyalama düğmesini kullanarak) ve `DocumentDBGetStarted.py` dosyasına uç nokta değeri olarak yapıştırın. 
 
-    `config.ENDPOINT : "https://FILLME.documents.azure.com"`
+    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
 4. Ardından portaldaki BİRİNCİL ANAHTAR değerinizi kopyalayıp `DocumentDBGetStarted.py` dosyasına `config.MASTERKEY` değeri olarak yapıştırın. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
 
-    `config.MASTERKEY : "FILLME"`
+    `'MASTERKEY': 'FILLME',`
     
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 1. Visual Studio'nun **Çözüm Gezgini** bölümünde projeye sağ tıklayın, geçerli Python ortamını seçin ve sağ tıklayın.
@@ -164,6 +163,5 @@ Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni
 
 > [!div class="nextstepaction"]
 > [DocumentDB API'si için Azure Cosmos DB içine veri aktarma](import-data.md)
-
 
 

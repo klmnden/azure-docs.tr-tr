@@ -1,6 +1,6 @@
 ---
 title: "Azure HDInsight’a üçüncü taraf Hadoop uygulamaları yükleme | Microsoft Docs"
-description: "Azure HDInsight&quot;a üçüncü taraf Hadoop uygulamaları yükleme hakkında bilgi alın."
+description: "Azure HDInsight'a üçüncü taraf Hadoop uygulamaları yükleme hakkında bilgi alın."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -9,22 +9,22 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: eaf5904d-41e2-4a5f-8bec-9dde069039c2
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 08/16/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 8e7911a3a8080ef8fa125779aa1f6778b9655cde
-ms.openlocfilehash: 8780c193c6aa4b6b183723f88d67ac0990347d1e
-ms.lasthandoff: 02/15/2017
-
-
+ms.openlocfilehash: 3b3ff8d33959978ddd648e59a6a301f00c247964
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight'a üçüncü taraf Hadoop uygulamaları yükleme
 
-Bu makalede, daha önce yayımlanmış bir üçüncü taraf Hadoop uygulamasını Azure HDInsight’a yükleme hakkında bilgi edineceksiniz. Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
+Bu makalede, Azure Hdınsight üzerinde zaten yayımlanmış üçüncü taraf Hadoop uygulama yüklemek öğrenin. Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
 
 HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükleyebileceği bir uygulamadır. Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir.  
 
@@ -33,8 +33,11 @@ HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükl
 * **HDInsight üzerinde DATAIKU DDS**: Dataiku DSS (Data Science Studio), veri uzmanlarının (veri araştırmacıları, iş analizi uzmanları, geliştiriciler...), ham verileri etkili iş tahminlerine dönüştüren yüksek oranda ayrıntılı hizmetler için prototip oluşturma, derleme ve dağıtma işlemlerini gerçekleştirmesine olanak tanıyan bir yazılımdır.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft), analiz uzmanlarına Büyük Veri üzerinde sonuçları bulma, çözümleme ve görselleştirme için etkileşimli bir yol sunar. Yeni ilişkileri keşfetmek ve ihtiyaç duyduğunuz yanıtları almak için ek veri kaynaklarını kolayca alın.
 * **HDnsight için Akış Kümeleri Veri Toplayıcısı**, tam özellikli bir tümleşik geliştirme ortamı (IDE) sağlar. Bu ortam, akış ve toplu işlem verileri arasında ağ oluşturan “herhangi birinden herhangi birine” alma işlem hatlarını tasarlamanıza, test etmenize, dağıtmanıza ve yönetmenize olanak tanır. Üstelik hiçbiri için özel kod yazmanız gerekmez. 
-* **HDInsight için Cask CDAP 3.5**, büyük veriler için veri uygulamaları ve veri göllerinin üretim süresini %80 azaltan ilk birleşik tümleştirme platformunu sağlar. Bu uygulama yalnızca Standart HBase 3.4 kümelerini destekler.
-
+* **Hdınsight için CDAP cask** % 80'üretime veri uygulamaları ve verileri Göller süresini keser büyük veri için ilk Birleşik tümleştirme platformu sağlar. Bu uygulama yalnızca Standart HBase 3.4 kümelerini destekler.
+* **Hdınsight (Beta) için H2O yapay zeka** H2O Sparkling su aşağıdaki dağıtılmış algoritmalarını destekler: GLM, Naïve Bayes, dağıtılmış rasgele orman, gradyan artırmanın makine, derin öğrenme derin sinir ağları, K-ortalamaları, PCA, genelleştirilmiş düşük derece modelleri, Anomali algılama ve Autoencoders.
+* **Kyligence analiz platformu** Kyligence analizi Platformu (KAP) Apache Kylin ve Apache Hadoop tarafından desteklenen bir kurumsal kullanıma hazır veri ambarı; büyük ölçekli veri kümesi üzerinde saniyeden sorgu gecikmesi güçlendirir ve veri analizi için işletme kullanıcılarının ve analistleri basitleştirir. 
+* **SnapLogic Hadooplex** SnapLogic Hadooplex Hdınsight üzerinde çalışan Self Servis veri alımı ve neredeyse tüm kaynak hazırlık Microsoft Azure bulut platformu sağlayarak iş bilgileri daha hızlı elde etmek müşteriler sağlar.
+* **KNIME Spark Yürütücü için Spark iş sunucusu** KNIME Spark Yürütücü için Spark iş sunucusu KNIME analiz platformu Hdınsight kümelerine bağlanmak için kullanılır.
 
 Bu makalede verilen yönergeler Azure portalı kullanmaktadır. Ayrıca portaldan Azure Resource Manager şablonunu dışarı aktarabilir veya satıcılardan Resource Manager şablonunun bir kopyasını edinebilir ve Azure PowerShell ile Azure CLI kullanarak şablonu dağıtabilirsiniz.  Bkz. [HDInsight’ta Resource Manager şablonları kullanarak Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -49,7 +52,7 @@ Aşağıdaki yordamda var olan bir HDInsight kümesine HDInsight uygulamaların�
 1. [Azure portalında](https://portal.azure.com) oturum açın.
 2. Soldaki menüde **HDInsight Kümeleri**’ne tıklayın.  Bu seçeneği görmüyorsanız **Diğer Hizmetler** ve ardından **HDInsight Kümeleri**’ne tıklayın.
 3. Bir HDInsight kümesine tıklayın.  Henüz yoksa öncelikle bir tane oluşturmanız gerekir.  bkz. [Küme oluşturma](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. **Yapılandırmalar** kategorisinden **Uygulamalar**‘a tıklayın. Yüklü uygulamalar varsa bunların listesini görebilirsiniz. Uygulamalar seçeneğini bulamıyorsanız bu, HDInsight kümesinin bu sürümü için bir uygulama olmadığı anlamına gelir.
+4. **Yapılandırmalar** kategorisinden **Uygulamalar**‘a tıklayın. Yüklü uygulamaların bir listesini görebilirsiniz. Uygulamalar seçeneğini bulamıyorsanız bu, HDInsight kümesinin bu sürümü için bir uygulama olmadığı anlamına gelir.
    
     ![HDInsight uygulamaları portal menüsü](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Dikey pencere menüsünden **Ekle**’ye tıklayın. 
@@ -71,7 +74,7 @@ Bir küme oluştururken HDInsight uygulamaları yükleme seçeneğine sahipsiniz
 1. [Azure portalında](https://portal.azure.com) oturum açın.
 2. **YENİ** öğesine, **Veri + Analiz** öğesine ve ardından **HDInsight**'a tıklayın.
 3. **Küme Adı** girin: Bu ad genel olarak benzersiz olmalıdır.
-4. **Abonelik** öğesine tıklayarak küme için kullanılacak Azure aboneliğini seçin.
+4. Tıklatın **abonelik** kümesi için kullanılan Azure aboneliğini seçin.
 5. **Küme Türü Seçin**’e tıklayın ve ardından şunu seçin:
    
    * **Küme Türü**: Neyi seçeceğinizi bilmiyorsanız **Hadoop** seçeneğini belirleyin. En popüler küme türü budur.
@@ -79,8 +82,8 @@ Bir küme oluştururken HDInsight uygulamaları yükleme seçeneğine sahipsiniz
    * **Sürüm**: Neyi seçeceğinizi bilmiyorsanız varsayılan sürümü kullanın. Daha fazla bilgi için bkz. [HDInsight küme sürümleri](hdinsight-component-versioning.md).
    * **Küme Katmanı**: Azure HDInsight iki kategoride büyük veri bulutu teklifleri sunar: Standart katmanı ve Premium katmanı. Daha fazla bilgi için bkz. [Küme katmanları](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
 6. **Uygulamalar**’a tıklayın, yayımlanmış uygulamalardan birine ve ardından **Seç**’e tıklayın.
-7. **Kimlik Bilgileri**’ne tıklayın ve ardından yönetici kullanıcı için bir parola girin. Ayrıca SSH kullanıcısının kimliğini doğrulayacak bir **SSH Kullanıcı Adı** ve bir **PAROLA** ya da **ORTAK ANAHTAR** girmeniz gerekir. Ortak anahtar kullanılması önerilen yaklaşımdır. Alt kısımdaki **Seç**’e tıklayarak kimlik bilgileri yapılandırmasını kaydedin.
-8. **Veri Kaynağı**’na tıklayın, var olan depolama hesaplarından birini seçin ya da küme için varsayılan hesap olarak kullanılacak yeni bir depolama hesabı oluşturun.
+7. **Kimlik Bilgileri**’ne tıklayın ve ardından yönetici kullanıcı için bir parola girin. Girmeniz gereken bir **SSH kullanıcı adı** ve ya da bir **parola** veya **ortak anahtar**, SSH kullanıcı kimlik doğrulaması için kullanılır. Ortak anahtar kullanılması önerilen yaklaşımdır. Alt kısımdaki **Seç**’e tıklayarak kimlik bilgileri yapılandırmasını kaydedin.
+8. Tıklatın **veri kaynağı**, var olan depolama hesaplarından birini seçin veya kümenin varsayılan depolama hesabı olarak kullanılacak yeni bir depolama hesabı oluşturun.
 9. Var olan bir kaynak grubunu seçmek için **Kaynak Grubu**’na tıklayın ya da **Yeni**’ye tıklayarak yeni bir kaynak grubu oluşturun
 10. **Yeni HDInsight Kümesi** dikey penceresinde **Başlangıç Panosuna Sabitle** seçiminin yapıldığından emin olun ve ardından **Oluştur**’a tıklayın. 
 
@@ -99,13 +102,13 @@ Portal bir küme için yüklü HDInsight uygulamalarının listesini ve yüklü 
    
    * Uygulama adı: uygulamanın adı.
    * Durum: uygulamanın durumu. 
-   * Web sayfası: Varsa herhangi bir kenar düğümüne dağıttığınız web uygulamasının URL'si. Kimlik bilgisi, küme için yapılandırdığınız HTTP kullanıcısı kimlik bilgileri ile aynıdır.
+   * Web sayfası: Kenar düğümüne dağıttığınız web uygulamasının URL'si. Kimlik bilgisi, küme için yapılandırdığınız HTTP kullanıcısı kimlik bilgileri ile aynıdır.
    * HTTP uç noktası: Kimlik bilgisi, küme için yapılandırdığınız HTTP kullanıcısı kimlik bilgileri ile aynıdır. 
-   * SSH uç noktası: Kenar düğümüne bağlanmak için [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) kullanabilirsiniz. SSH kimlik bilgileri, küme için yapılandırdığınız SSH kullanıcısı kimlik bilgileriyle aynıdır.
-6. Bir uygulamayı silmek için uygulamaya sağ tıklayın ve ardından kısayol menüsünden **Sil**’e tıklayın.
+   * SSH uç noktası: kenar düğümüne bağlanmak için SSH kullanabilirsiniz. SSH kimlik bilgileri, küme için yapılandırdığınız SSH kullanıcısı kimlik bilgileriyle aynıdır. Bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+6. Bir uygulamayı silmek için uygulamaya sağ tıklayın ve ardından **silmek** ve bağlam menüsünden.
 
 ## <a name="connect-to-the-edge-node"></a>Kenar düğümüne bağlanma
-HTTP ve SSH kullanarak kenar düğümüne bağlanabilirsiniz. Uç nokta bilgileri [portalda](#list-installed-hdinsight-apps-and-properties) bulunabilir. SSH kullanma hakkında daha fazla bilgi için bkz. [Linux, Unix veya OS X işletim sistemlerinden HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). 
+HTTP ve SSH kullanarak kenar düğümüne bağlanabilirsiniz. Uç nokta bilgileri [portalda](#list-installed-hdinsight-apps-and-properties) bulunabilir. Bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 HTTP uç noktası kimlik bilgileri, HDInsight kümesi için yapılandırdığınız HTTP kullanıcı kimlik bilgileridir; SSH uç noktası kimlik bilgileri, HDInsight kümesi için yapılandırdığınız SSH kimlik bilgileridir.
 
@@ -113,11 +116,10 @@ HTTP uç noktası kimlik bilgileri, HDInsight kümesi için yapılandırdığın
 Bkz. [Yükleme sorunlarını giderme](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md): yayımlanmamış bir HDInsight uygulamasının HDInsight’a nasıl yükleneceğini öğrenin.
+* [Özel Hdınsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md): yayımlanmamış bir Hdınsight uygulamasının Hdınsight'a nasıl yükleneceğini öğrenin.
 * [HDInsight uygulamalarını yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi’nde nasıl yayımlayacağınızı öğrenin.
 * [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
 * [Betik Eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirme](hdinsight-hadoop-customize-cluster-linux.md): ek uygulamalar yüklemek için Betik Eyleminin nasıl kullanılacağını öğrenin.
 * [Resource Manager şablonları kullanarak HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md): HDInsight kümeleri oluşturmak için Resource Manager şablonlarının nasıl çağrılacağını öğrenin.
 * [HDInsight’ta boş kenar düğümleri kullanma](hdinsight-apps-use-edge-node.md): HDInsight kümesine erişmek, HDInsight uygulamalarını test etmek ve HDInsight uygulamalarını barındırmak için boş bir kenar düğümünü kullanmayı öğrenin.
-
 

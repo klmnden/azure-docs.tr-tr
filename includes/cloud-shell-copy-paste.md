@@ -1,3 +1,3 @@
-* Windows: `Ctrl-insert` to copy and `Shift-insert` to paste. Right-click dropdown can also enable copy/paste.
-  * FireFox/IE may not support clipboard permissions properly.
-* Mac OS: `Cmd-c` to copy and `Cmd-v` to paste. Right-click dropdown can also enable copy/paste.
+* Windows: `Ctrl-insert` kopyalamak için ve `Shift-insert` yapıştırın. Sağ açılır, kopyala/yapıştır etkinleştirebilirsiniz.
+  * FireFox/IE Pano izinleri düzgün desteklemiyor olabilir.
+* Mac OS: `Cmd-c` kopyalamak için ve `Cmd-v` yapıştırın. Sağ açılır, kopyala/yapıştır etkinleştirebilirsiniz.

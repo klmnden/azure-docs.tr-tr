@@ -1,18 +1,18 @@
-#### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* A [Dynamics CRM Online](https://www.microsoft.com/en-us/dynamics/crm-free-trial-overview.aspx) account 
+#### <a name="prerequisites"></a>Ön koşullar
+* Bir Azure hesabı; oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free)
+* A [Dynamics CRM Online](https://www.microsoft.com/en-us/dynamics/crm-free-trial-overview.aspx) hesabı 
 
-Before using your Dynamics account in a logic app, authorize the logic app to connect to your CRM Online account. You can do this easily within your logic app on the Azure portal. 
+Bir mantıksal uygulama Dynamics hesabınızı kullanmadan önce CRM Online hesabınıza bağlanmak için mantıksal uygulama yetkilendirin. Kolayca Azure portalındaki mantıksal uygulama içinde bunu yapabilirsiniz. 
 
-Authorize your logic app to connect to your CRM Online account using the following steps:
+Aşağıdaki adımları kullanarak CRM Online hesabınıza bağlanmak için mantıksal uygulamanızı yetkilendirin.
 
-1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "dynamics" in the search box. Select one of the triggers or actions:  
+1. Bir mantıksal uygulama oluşturun. Logic Apps Tasarımcısı'nda seçin **Göster Microsoft yönetilen API'ler** açılır listesinde ve ardından arama kutusuna "dynamics" girin. Tetikleyiciler veya Eylemler birini seçin:  
    ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
-2. If you haven't previously created any connections to Dynamics, you are prompted to sign in using your Dynamics credentials:  
+2. Dynamics bağlantılarına daha önce oluşturmadıysanız, Dynamics kimlik bilgilerinizi kullanarak oturum açmanız istenir:  
    ![](./media/connectors-create-api-crmonline/dynamics-signin.png)
-3. Select **Sign in**, and enter your user name and password. Select **Sign in**. 
+3. Seçin **oturum**, kullanıcı adı ve parolayı girin. Seçin **oturum**. 
    
-    These credentials are used to authorize your logic app to connect to, and access the data in your Dynamics account. 
-4. Notice the connection has been created. Now, proceed with the other steps in your logic app:  
+    Bu kimlik bilgileri bağlanın ve Dynamics hesabınızdaki verilere erişmek için mantıksal uygulamanızı yetkilendirmek için kullanılır. 
+4. Bağlantıyı oluşturan dikkat edin. Şimdi, mantıksal uygulamanızı diğer adımlarla devam edin:  
    ![](./media/connectors-create-api-crmonline/dynamics-properties.png)
 

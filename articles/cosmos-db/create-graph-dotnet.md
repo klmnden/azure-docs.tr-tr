@@ -1,6 +1,6 @@
 ---
-title: "Grafik API'sini kullanarak Azure Cosmos DB .NET uygulaması derleme | Microsoft Docs"
-description: "Azure Cosmos DB’ye bağlanmak ve veritabanını sorgulamak için kullanabileceğiniz bir .NET kod örneği sunar"
+title: "Grafik API'sini kullanarak Azure Cosmos DB .NET Framework veya çekirdek uygulama oluşturma | Microsoft Docs"
+description: "Bağlanmak ve Azure Cosmos DB sorgulamak için kullanabileceğiniz bir .NET Framework/Core kod örneği gösterir"
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -12,17 +12,16 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 07/28/2017
+ms.topic: quickstart
+ms.date: 10/06/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: a973b81ea5b06c5826cc31c399aae9dec43f5b72
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/28/2017
-
+ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB: Grafik API'sini kullanarak bir .NET uygulaması derleme
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: grafik API'sini kullanarak bir .NET Framework veya çekirdek uygulaması oluşturma
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
@@ -31,6 +30,8 @@ Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB
 ## <a name="prerequisites"></a>Ön koşullar
 
 Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+
+Visual Studio yüklü 2017 zaten varsa, en fazla yüklenecek emin olun [Visual Studio 2017 güncelleştirme 3'ü](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,7 +45,11 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi GitHub'dan bir Grafik API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Şimdi GitHub'dan bir Grafik API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+
+Bu örnek proje .NET Core proje biçimini kullanarak ve aşağıdaki çerçevelerini hedefleyecek şekilde yapılandırılır:
+ - netcoreapp2.0
+ - net461
 
 1. Git bash gibi bir git terminal penceresi açın ve `cd` ile çalışma dizinine gidin.  
 
@@ -103,35 +108,37 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Program.cs dos
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
 
-1. Visual Studio 2017'de App.config dosyasını açın. 
+1. Visual Studio 2017 içinde appsettings.json dosyası açın. 
 
 2. Azure portalında, Azure Cosmos DB hesabınızın sol gezinti menüsünden **Anahtarlar**'a tıklayın. 
 
     ![Azure portalının Anahtarlar sayfasında birincil anahtarı görüntüleme ve kopyalama](./media/create-graph-dotnet/keys.png)
 
-3. Portaldaki **URI** değerinizi kopyalayın ve bunu App.config dosyasındaki Endpoint anahtarının değeri yapın. Değeri kopyalamak için önceki ekran görüntüsünde gösterilen şekilde kopyala düğmesini kullanabilirsiniz.
+3. Kopyalama, **URI** değerini portaldan ve uç nokta anahtarının değerini appsettings.json içinde yapın. Değeri kopyalamak için önceki ekran görüntüsünde gösterilen şekilde kopyala düğmesini kullanabilirsiniz.
 
-    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+    `"endpoint": "https://FILLME.documents.azure.com:443/",`
 
 4. Portaldaki **BİRİNCİL ANAHTAR** değerinizi kopyalayın ve App.config dosyasındaki AuthKey anahtarının değeri yaptıktan sonra değişikliklerinizi kaydedin. 
 
-    `<add key="AuthKey" value="FILLME" />`
+    `"authkey": "FILLME"`
 
 Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
 
 ## <a name="run-the-console-app"></a>Konsol uygulamasını çalıştırma
 
+Uygulamayı çalıştırmadan önce güncelleştirmeniz önerilir *Microsoft.Azure.Graphs* en son sürüme paket.
+
 1. Visual Studio'nun **Çözüm Gezgini** bölümünde **GraphGetStarted** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın. 
 
-2. NuGet **Gözat** kutusuna *Microsoft.Azure.Graphs* yazın ve **Ön Sürümü Dahil Et** kutusunu işaretleyin. 
+2. NuGet Paket Yöneticisi'nde **güncelleştirmeleri** sekmesinde, yazın *Microsoft.Azure.Graphs* ve denetleme **içeren yayın öncesi** kutusu. 
 
-3. Sonuçlardan **Microsoft.Azure.Graphs** kitaplığını yükleyin. Bu işlem Azure Cosmos DB grafik uzantısı kitaplık paketini ve tüm bağımlılıklarını yükler.
+3. Sonuçlardan güncelleştirme **Microsoft.Azure.Graphs** paketinin en son sürümünü kitaplığa. Bu işlem Azure Cosmos DB grafik uzantısı kitaplık paketini ve tüm bağımlılıklarını yükler.
 
     Çözümdeki değişiklikleri gözden geçirme hakkında iletiler alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
 
 4. Uygulamayı çalıştırmak için CTRL+F5 tuşlarına basın.
 
-   Konsol penceresinde grafiğe eklenmekte olan kenarlar ve köşeler gösterilir. Betik tamamlandığında, ENTER tuşuna iki kez basarak konsol penceresini kapatın. 
+   Konsol penceresinde grafiğe eklenmekte olan kenarlar ve köşeler gösterilir. Betik tamamlandığında, ENTER tuşuna iki kez basarak konsol penceresini kapatın.
 
 ## <a name="browse-using-the-data-explorer"></a>Veri Gezgini'ni kullanarak göz atma
 
@@ -162,5 +169,4 @@ Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni
 
 > [!div class="nextstepaction"]
 > [Gremlin kullanarak sorgulama](tutorial-query-graph.md)
-
 

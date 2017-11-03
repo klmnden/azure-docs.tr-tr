@@ -1,6 +1,8 @@
 # Genel Bakış
 ## [Azure AD Etki Alanı Hizmetleri nedir?](active-directory-ds-overview.md)
-## [Bu sizin için geçerli mi?](active-directory-ds-comparison.md)
+## Bu sizin için geçerli mi?
+### [Windows Server AD ile karşılaştırma](active-directory-ds-comparison.md)
+### [Azure AD katılma ile karşılaştırma](active-directory-ds-compare-with-azure-ad-join.md)
 ## [Özellikler](active-directory-ds-features.md)
 ## [Senaryolar](active-directory-ds-scenarios.md)
 ## [Eşitleme nasıl çalışır?](active-directory-ds-synchronization.md)
@@ -36,6 +38,7 @@
 ### [SharePoint Server için profil eşitleme desteğini yapılandırma](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Kerberos Kısıtlanmış Temsilini Yapılandırma](active-directory-ds-enable-kcd.md)
 ### [Azure AD Uygulama Proxy’si Dağıtma](active-directory-ds-deploy-azure-app-proxy.md)
+## [Yönetilen bir etki alanını silme](active-directory-ds-disable-aadds.md)
 ## Sorun giderme
 ### [SSS’ler](active-directory-ds-faqs.md)
 ### [Sorun giderme kılavuzu](active-directory-ds-troubleshooting.md)

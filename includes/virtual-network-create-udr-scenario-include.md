@@ -1,14 +1,14 @@
-## <a name="scenario"></a>Scenario
-To better illustrate how to create UDRs, this document will use the scenario below.
+## <a name="scenario"></a>Senaryo
+Udr'ler oluşturmak nasıl daha iyi anlamak için bu belge aşağıdaki senaryoyu kullanır.
 
-![IMAGE DESCRIPTION](./media/virtual-network-create-udr-scenario-include/figure1.png)
+![GÖRÜNTÜ AÇIKLAMASI](./media/virtual-network-create-udr-scenario-include/figure1.png)
 
-In this scenario you will create one UDR for the *Front end subnet* and another UDR for the *Back end subnet* , as described below: 
+Bu senaryoda bir UDR için oluşturacağınız *ön uç alt* ve için başka bir UDR *arka uç alt* , aşağıda açıklandığı gibi: 
 
-* **UDR-FrontEnd**. The front end UDR will be applied to the *FrontEnd* subnet, and contain one route:    
-  * **RouteToBackend**. This route will send all traffic to the back end subnet to the **FW1** virtual machine.
-* **UDR-BackEnd**. The back end UDR will be applied to the *BackEnd* subnet, and contain one route:    
-  * **RouteToFrontend**. This route will send all traffic to the front end subnet to the **FW1** virtual machine.
+* **Ön uç UDR**. UDR uygulanacak ön uç *ön uç* alt ağı ve bir rota içerir:    
+  * **RouteToBackend**. Bu rota tüm trafik arka uç alt ağına göndereceği **FW1** sanal makine.
+* **Arka uç UDR**. UDR uygulanacak arka uç *arka uç* alt ağı ve bir rota içerir:    
+  * **RouteToFrontend**. Bu rota tüm trafik için ön uç alt göndereceği **FW1** sanal makine.
 
-The combination of these routes will ensure that all traffic destined from one subnet to another will be routed to the **FW1** virtual machine, which is being used as a virtual appliance. You also need to turn on IP forwarding for that VM, to ensure it can receive traffic destined to other VMs.
+Bu yollar bileşimi için bir alt ağdan diğerine giden tüm trafiği yönlendirilmesini sağlamak **FW1** sanal gereç olarak kullanılan sanal makine. Ayrıca diğer VM'ler için hedefleyen trafik alabilir emin olmak için bu VM için IP iletimini etkinleştirmek gerekir.
 

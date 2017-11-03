@@ -1,2 +1,2 @@
-If you don’t already have Visual Studio 2017 installed, you can download and use the **free** 
-[Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+Visual Studio yüklü 2017 yoksa kullanın karşıdan yükleyip **ücretsiz** 
+[Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.

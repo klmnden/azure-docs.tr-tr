@@ -1,5 +1,5 @@
-Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
+Azure bulut Kabuk, yönetmek ve Azure kaynaklarını geliştirmek için bir tarayıcı tabanlı kabuk deneyimidir.
 
-Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
+Bulut Kabuk, sürümü, yükleme ve bir makineyi kendiniz koruma yükünü olmadan Azure kaynaklarını yönetmek için bir tarayıcı erişilebilir, önceden yapılandırılmış Kabuk deneyimi sunar.
 
-Cloud Shell provisions machines on a per-request basis and as a result machine state will not persist across sessions. Since Cloud Shell is built for interactive sessions, shells automatically terminate after 20 minutes of shell inactivity.
+İstek başına temelinde makineler bulut Kabuk sağlar ve sonuç olarak makine durumu oturumlarında kalıcı olmaz. Bulut Kabuk etkileşimli oturumları için kurulu olduğundan Kabukları Kabuğu kaldıktan 20 dakika sonra otomatik olarak sonlanır.

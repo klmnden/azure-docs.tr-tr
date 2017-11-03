@@ -63,6 +63,27 @@
       href: regions-and-availability.md
     - name: VM türleri ve boyutları
       href: sizes.md
+      items:
+        - name: Genel amaçlı
+          href: sizes-general.md
+          items:
+            - name: B-series burstable
+              href: b-series-burstable.md
+        - name: İşlem için iyileştirilmiş
+          href: sizes-compute.md
+        - name: Bellek için iyileştirilmiş
+          href: sizes-memory.md
+        - name: Depolama için iyileştirilmiş
+          href: sizes-storage.md
+        - name: GPU için iyileştirilmiş
+          href: sizes-gpu.md
+          items:
+            - name: GPU sürücülerini kurma
+              href: n-series-driver-setup.md
+        - name: Yüksek performanslı işlem
+          href: sizes-hpc.md
+        - name: Azure işlem birimleri (ACU)
+          href: sizes-general.md
     - name: Doğrulanan dağıtımlar
       href: endorsed-distros.md
     - name: Bakım ve güncelleştirmeler

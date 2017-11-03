@@ -1,5 +1,5 @@
-**[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com)** is a community-driven site for discovering and sharing solutions built with Cortana Intelligence Suite.
-The Gallery has a variety of resources that you can use to develop your own analytics solutions.
+**[Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com)**  bulmak için topluluk odaklı bir site ve çözümleri paylaşımı Cortana Intelligence Suite ile oluşturulmuş.
+Galeri, kendi analiz çözümleri geliştirmek için kullanabileceğiniz kaynakları çeşitli vardır.
 
 <!-- On the new DOCS platform, this is a drop-down list, not tabs, which doesn't work well in this context. So I'm just removing it for now.
 

@@ -1,9 +1,9 @@
 > [!div class="op_single_selector"]
-> * [Spark with PySpark & Scala](../articles/machine-learning/team-data-science-process/walkthroughs-spark.md)
-> * [Hive with HDInsight Hadoop](../articles/machine-learning/team-data-science-process/walkthroughs-hdinsight-hadoop.md)
-> * [U-SQL with Azure Data Lake](../articles/machine-learning/team-data-science-process/walkthroughs-azure-data-lake.md)
-> * [R, Python & T-SQL with SQL Server](../articles/machine-learning/team-data-science-process/walkthroughs-sql-server.md)
-> * [T-SQL & Python with SQL DW](../articles/machine-learning/team-data-science-process/walkthroughs-sql-data-warehouse.md)
+> * [PySpark & Scala ile Spark](../articles/machine-learning/team-data-science-process/walkthroughs-spark.md)
+> * [HDInsight Hadoop ile Hive](../articles/machine-learning/team-data-science-process/walkthroughs-hdinsight-hadoop.md)
+> * [Azure Data Lake ile U-SQL](../articles/machine-learning/team-data-science-process/walkthroughs-azure-data-lake.md)
+> * [R, Python ve SQL Server ile T-SQL](../articles/machine-learning/team-data-science-process/walkthroughs-sql-server.md)
+> * [T-SQL ve Python SQL DW ile](../articles/machine-learning/team-data-science-process/walkthroughs-sql-data-warehouse.md)
 > 
 > 
 

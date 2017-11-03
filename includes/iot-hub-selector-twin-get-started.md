@@ -1,37 +1,37 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
+> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 
-Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it.
+Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve koşullar) depolayan JSON belgelerdir. IOT Hub cihaz çifti ona bağlanan her aygıt için devam ettirir.
 
-Use device twins to:
+Cihaz çiftlerini kullanın:
 
-* Store device metadata from your solution back end.
-* Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
-* Synchronize the state of long-running workflows (such as firmware and configuration updates) between a device app and a back-end app.
-* Query your device metadata, configuration, or state.
+* Çözüm arka ucunuz cihaz meta verilerini depolar.
+* Kullanılabilir özellikler ve koşullar (örneğin, kullanılan bağlantı yöntemi) gibi geçerli durumu bilgileri, cihaz uygulamanızdan bildirin.
+* Cihaz uygulama ve arka uç uygulama arasında uzun süre çalışan iş akışları (örneğin, bellenim ve yapılandırma güncelleştirmeleri) durumunu eşitleyin.
+* Cihaz meta verilerini, yapılandırma veya durumu sorgu.
 
 > [!NOTE]
-> Device twins are designed for synchronization and for querying device configurations and conditions. More informations on when to use device twins can be found in [Understand device twins][lnk-twins].
+> Cihaz çiftlerini cihaz yapılandırmalarını ve koşullar sorgulamak için ve eşitleme için tasarlanmıştır. Zaman cihaz çiftlerini kullanılacağı hakkında daha fazla bilgiler bulunabilir [cihaz çiftlerini anlamak][lnk-twins].
 
-Device twins are stored in an IoT hub and contain:
+Cihaz çiftlerini bir IOT hub ' depolanır ve içerir:
 
-* *tags*, device metadata accessible only by the solution back end;
-* *desired properties*, JSON objects modifiable by the solution back end and observable by the device app; and
-* *reported properties*, JSON objects modifiable by the device app and readable by the solution back end. Tags and properties cannot contain arrays, but objects can be nested.
+* *Etiketler*, cihaz meta verilerini yalnızca çözüm arka ucu tarafından; erişilebilir
+* *Özellikler istenen*, JSON nesnelerinin çözümü tarafından değiştirilebilir, cihaz uygulaması tarafından; uç ve observable yedekleyin ve
+* *Özellikler bildirilen*, JSON nesnelerini cihaz uygulaması tarafından değiştirilebilir ve çözüm arka ucu tarafından okunabilir. Etiketleri ve özellikleri diziler içeremez, ancak nesneleri iç içe olamaz.
 
 ![][img-twin]
 
-Additionally, the solution back end can query device twins based on all the above data.
-Refer to [Understand device twins][lnk-twins] for more information about device twins, and to the [IoT Hub query language][lnk-query] reference for querying.
+Ayrıca, çözüm arka ucu yukarıdaki tüm verilere dayalı cihaz çiftlerini sorgulayabilirsiniz.
+Başvurmak [cihaz çiftlerini anlamak] [ lnk-twins] ve cihaz çiftlerini hakkında daha fazla bilgi için [IOT hub'ı sorgu dili] [ lnk-query] için başvuru sorgulama.
 
 
-This tutorial shows you how to:
+Bu öğretici şunların nasıl yapıldığını gösterir:
 
-* Create a back-end app that adds *tags* to a device twin, and a simulated device app that reports its connectivity channel as a *reported property* on the device twin.
-* Query devices from your back-end app using filters on the tags and properties previously created.
+* Ekler bir arka uç uygulaması oluşturma *etiketleri* cihaz çifti ve kendi bağlantı kanalı olarak raporları bir sanal cihaz uygulamasının bir *özelliği bildirilen* cihaz çifti üzerinde.
+* Filtreler etiketler ve daha önce oluşturduğunuz özellikleri kullanarak arka uç uygulamanızı aygıtlardan sorgu.
 
 <!-- images -->
 [img-twin]: media/iot-hub-selector-twin-get-started/twin.png

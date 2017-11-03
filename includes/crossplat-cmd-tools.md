@@ -59,7 +59,7 @@ Ardından, aşağıdaki komutta `{path to .publishsettings file}` ifadesini `.pu
 
     azure account import {path to .publishsettings file}
 
-<code>import</code> komutu tarafından depolanan tüm bilgileri <code>account clear</code> komutunu kullanarak kaldırabilirsiniz:
+Tarafından depolanan bilgilerin tümünü Kaldır <code>import</code> komutunu kullanarak <code>account clear</code> komutu:
 
     azure account clear
 

@@ -25,7 +25,8 @@
 #### [Azure AD ile bağlayıcıların güvenliğini sağlama](custom-connector-azure-active-directory-authentication.md)
 #### [Postman ile API'leri açıklama](custom-connector-api-postman-collection.md)
 #### [Özel bağlayıcılar için OpenAPI’yi genişletme](custom-connector-openapi-extensions.md)
-#### [Bağlayıcınızı kaydetme](logic-apps-custom-connector-register.md)
+#### [OpenAPI bağlayıcısı oluşturma ve kaydetme](logic-apps-custom-connector-register.md)
+#### [SOAP bağlayıcısı oluşturma ve kaydetme](logic-apps-soap-connector-create-register.md)
 #### [Bağlayıcınızı onaylama](custom-connector-submit-certification.md)
 #### [Özel bağlayıcılarla ilgili SSS](custom-connector-faq.md)
 ### Özel API'ler geliştirme

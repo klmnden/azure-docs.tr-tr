@@ -62,6 +62,12 @@
           href: msi-howto-assign-access-powershell.md
         - name: Azure CLI’yı kullanma
           href: msi-howto-assign-access-cli.md
+    - name: Azure Data Lake Store’a erişmek için VM MSI kullanma
+      items:
+        - name: Windows sanal makinesinden
+          href: msi-tutorial-windows-vm-access-datalake.md
+        - name: Linux sanal makinesinden
+          href: msi-tutorial-linux-vm-access-datalake.md
     - name: Azure Resource Manager’a erişmek için VM MSI kullanma
       items:
         - name: Windows sanal makinesinden

@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* An [RSS](https://wikipedia.org/wiki/RSS) account  
+### <a name="prerequisites"></a>Ön koşullar
+* Bir [RSS](https://wikipedia.org/wiki/RSS) hesabı  
 
-Before you can use your RSS account in a Logic app, you must authorize the Logic app to connect to your RSS account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Bir mantıksal uygulama RSS hesabınızı kullanmadan önce RSS hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
 
-Here are the steps to authorize your Logic app to connect to your RSS account:  
+Mantıksal uygulamanızı RSS hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:  
 
-1. To create a connection to RSS, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *RSS* in the search box. Select the trigger or action you'll like to use:  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-1.png)  
-2. Select **Create connection** :  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-3.png)  
+1. Mantıksal Uygulama Tasarımcısı'nda RSS, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *RSS* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+   ![RSS bağlantı oluşturma adım](./media/connectors-create-api-rss/rss-1.png)  
+2. Seçin **bağlantı oluşturmak** :  
+   ![RSS bağlantı oluşturma adım](./media/connectors-create-api-rss/rss-2.png)  
+3. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+   ![RSS bağlantı oluşturma adım](./media/connectors-create-api-rss/rss-3.png)  
 

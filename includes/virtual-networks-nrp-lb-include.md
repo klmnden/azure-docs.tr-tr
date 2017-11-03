@@ -1,4 +1,4 @@
-## <a name="load-balancer"></a>Yük Dengeleyici
+## <a name="load-balancer"></a>Load Balancer
 Bir yük dengeleyici uygulamalarınızı ölçeklendirme istediğinizde kullanılır. Tipik dağıtım senaryoları, birden çok VM örnekleri üzerinde çalışan uygulamalar içerir. VM örnekleri, ağ trafiğini çeşitli örneklerine dağıtmak için yardımcı bir yük dengeleyici tarafından fronted. 
 
 ![NIC kişinin tek bir VM'de](./media/resource-groups-networking/figure8.png)

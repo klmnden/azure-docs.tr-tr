@@ -24,6 +24,7 @@
 ### [Başvuru verilerini kullanma](stream-analytics-use-reference-data.md)
 ### [Test sorguları](stream-analytics-test-query.md)
 ### [JavaScript UDF’lerini tümleştirme](stream-analytics-javascript-user-defined-functions.md)
+### [JavaScript UDA’larını tümleştirme](stream-analytics-javascript-user-defined-aggregates.md)
 ### [REST API ve Machine Learning tümleştirme](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Çıktıları oluştur](stream-analytics-define-outputs.md)
 ### [Data Lake Store’a çıktı sağlama](stream-analytics-data-lake-output.md)

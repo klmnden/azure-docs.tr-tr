@@ -1,30 +1,30 @@
-Azure will determine that your application uses Python **if both of these conditions are true**:
+Azure, uygulamanızın **bu koşulların her ikisi de doğruysa** Python kullandığını saptayacaktır:
 
-* requirements.txt file in the root folder
-* any .py file in the root folder OR a runtime.txt that specifies python
+* requirements.txt dosyası kök klasöründe
+* .py dosyaları VEYA python belirten runtime.txt dosyası kök klasöründe
 
-When that's the case, it will use a Python specific deployment script, which performs the standard synchronization of files, as well as additional Python operations such as:
+Durum böyle olduğunda, aşağıdaki ek Python işlemlerinin yanı sıra dosyaların standart eşitlemesini gerçekleştiren Python’a özel bir dağıtım betiğini de kullanacaktır:
 
-* Automatic management of virtual environment
-* Installation of packages listed in requirements.txt using pip
-* Creation of the appropriate web.config based on the selected Python version.
-* Collect static files for Django applications
+* Sanal ortamın otomatik yönetimi
+* PIP kullanarak requirements.txt dosyasında listelenen paketlerin yüklenmesi
+* Seçili Python sürümü temelinde uygun web.config oluşturun.
+* Django uygulamaları için statik dosyaları toplama
 
-You can control certain aspects of the default deployment steps without having to customize the script.
+Betiği özelleştirmek zorunda kalmadan, varsayılan dağıtım adımlarının bazı yönlerini denetleyebilirsiniz.
 
-If you want to skip all Python specific deployment steps, you can create this empty file:
+Python’a özel dağıtım adımlarını atlamak istiyorsanız bu boş dosyayı oluşturabilirsiniz:
 
     \.skipPythonDeployment
 
-For more control over deployment, you can override the default deployment script by creating the following files:
+Dağıtım üzerinde daha fazla denetim için aşağıdaki dosyaları oluşturarak varsayılan dağıtım betiğini geçersiz kılabilirsiniz:
 
     \.deployment
     \deploy.cmd
 
-You can use the [Azure command-line interface][Azure command-line interface] to create the files.  Use this command from your project folder:
+Kullanabileceğiniz [Azure komut satırı arabirimi] [ Azure command-line interface] dosyaları oluşturmak için.  Bu komutu proje klasörünüzden kullanın:
 
     azure site deploymentscript --python
 
-When these files don't exist, Azure creates a temporary deployment script and runs it.  It is identical to the one you create with the command above.
+Bu dosyalar olmadığında, Azure geçici bir dağıtım betiği oluşturur ve bunu çalıştırır.  Yukarıdaki komutla oluşturduğunuzun aynısıdır.
 
 [Azure command-line interface]: http://azure.microsoft.com/downloads/

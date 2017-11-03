@@ -1,112 +1,112 @@
-# <a name="using-cdn-for-azure"></a>Using CDN for Azure
-The Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content by caching blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia and South America. For a current list of CDN node locations, see [Azure CDN Node Locations].
+# <a name="using-cdn-for-azure"></a>Azure için CDN kullanma
+Azure içerik teslim ağı (CDN) geliştiriciler BLOB'ları ve işlem örnekleri ABD, Avrupa, Asya, Avustralya ve Güney Amerika fiziksel düğümlerde, statik içeriği önbelleğe alarak yüksek bant genişliği içeriği teslimi için genel bir çözüm sunar. CDN düğümü konumları güncel bir listesi için bkz: [Azure CDN düğümü konumları].
 
-This task includes the following steps:
+Bu görev aşağıdaki adımları içerir:
 
-* [Step 1: Create a storage account](#Step1)
-* [Step 2: Create a new CDN endpoint for your storage account](#Step2)
-* [Step 3: Access your CDN content](#Step3)
-* [Step 4: Remove your CDN content](#Step4)
+* [1. adım: depolama hesabı oluşturma](#Step1)
+* [2. adım: depolama hesabınız için yeni bir CDN uç noktası oluşturma](#Step2)
+* [3. adım: CDN içeriğinize erişebilirsiniz](#Step3)
+* [4. adım: CDN içeriğinizi Kaldır](#Step4)
 
-The benefits of using CDN to cache Azure data include:
+Azure veriyi önbelleğe almak için CDN kullanmanın avantajları şunlardır:
 
-* Better performance and user experience for end users who are far from a content source, and are using applications where many 'internet trips' are required to load content
-* Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch
+* Son kullanıcılar için bir içerik kaynağı gölgeden uzak ve burada birçok 'Internet dönüşleri' içerik yüklemek için gerekli uygulamaları kullanarak, daha iyi performans ve kullanıcı deneyimi
+* Bir ürün sunumu gibi bir olay başlangıcında daha iyi anlık yüksek düzeyde yükü işlemek için dağıtılmış büyük ölçekli söyleyin
 
-Existing CDN customers can now use the Azure CDN in the [Azure classic portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
+Var olan CDN müşterileri artık Azure CDN'de kullanmak [Klasik Azure portalı]. CDN bir eklenti aboneliğinizde bir özelliktir ve ayrı bir sahip [fatura planı].
 
 <a id="Step1"> </a>
 
-<h2>Step 1: Create a storage account</h2>
+<h2>1. adım: depolama hesabı oluşturma</h2>
 
-Use the following procedure to create a new storage account for a Azure subscription. A storage account gives access to Azure storage services. The storage account represents the highest level of the namespace for accessing each of the Azure storage service components: Blob services, Queue services, and Table services. For more information about the Azure storage services, see [Using the Azure Storage Services](http://msdn.microsoft.com/library/azure/gg433040.aspx).
+Bir Azure aboneliği için yeni bir depolama hesabı oluşturmak için aşağıdaki yordamı kullanın. Bir depolama hesabı için Azure storage hizmetlerine erişmenizi sağlar. Depolama hesabı Azure depolama hizmeti bileşenlerinin her biri erişmek için ad alanı en yüksek düzeyde temsil eder: Blob Hizmetleri, kuyruk Hizmetleri ve Tablo Hizmetleri. Azure depolama hizmetleri hakkında daha fazla bilgi için bkz: [Azure Storage Hizmetleri kullanarak](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 
-To create a storage account, you must be either the service administrator or a co-administrator for the associated subscription.
+Bir depolama hesabı oluşturmak için Hizmet Yöneticisi veya ilişkili abonelik için bir ortak yönetici olması gerekir.
 
 > [!NOTE]
-> For information about performing this operation by using the Azure Service Management API, see the [Create Storage Account](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) reference topic.
+> Azure Hizmet Yönetimi API'sini kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [depolama hesabı oluştur](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) başvuru konusu.
 > 
 > 
 
-**To create a storage account for an Azure subscription**
+**Bir Azure aboneliği için bir depolama hesabı oluşturmak için**
 
-1. Log into the [Azure classic portal].
-2. In the lower left corner, click **New**. In the **New** Dialog, select **Data Services**, then click **Storage**, then **Quick Create**.
+1. [Klasik Azure portalı] oturum açın.
+2. Sol alt köşede tıklatın **yeni**. İçinde **yeni** iletişim kutusunda **Veri Hizmetleri**, ardından **depolama**, ardından **hızlı Oluştur**.
    
-   The **Create Storage Account** dialog appears.
+   **Depolama hesabı oluştur** iletişim kutusu görüntülenir.
    
-   ![Create Storage Account][create-new-storage-account]
-3. In the **URL** field, type a subdomain name. This entry can contain from 3-24 lowercase letters and numbers.
+   ![Depolama hesabı oluşturma][create-new-storage-account]
+3. İçinde **URL** alan, bir alt etki alanı adı yazın. Bu giriş, 3-24 küçük harfler ve sayılar içerebilir.
    
-    This value becomes the host name within the URI that is used to address Blob, Queue, or Table resources for the subscription. To address a container resource in the Blob service, you would use a URI in the following format, where *&lt;StorageAccountLabel&gt;* refers to the value you typed in **Enter a URL**:
+    Bu değer aboneliği için Blob, kuyruk veya tablo kaynak adres için kullanılan URI içindeki konak adına dönüşür. Blob hizmetinde kapsayıcı kaynak adres için aşağıdaki biçimde bir URI kullanırsınız. burada  *&lt;StorageAccountLabel&gt;*  , yazdığınız değer başvurduğu **birURLgirin**:
    
     http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
    
-    **Important:** The URL label forms the subdomain of the storage  account URI and must be unique among all hosted services in  Azure.
+    **Önemli:** URL depolama hesabının URI alt etki alanı forms etiket ve azure'da barındırılan tüm hizmetler arasında benzersiz olması gerekir.
    
-    This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
-4. From the **Region/Affinity Group** drop-down list, select a region or affinity group for the storage account. Select an affinity group instead of a region if you want your storage services to be in the same data center with other Windows Azure services that you are using. This can improve performance, and no charges are incurred for egress.  
+    Bu değer, aynı zamanda bu hesabı program aracılığıyla erişirken Portalı'nda veya bu depolama hesabı adı olarak kullanılır.
+4. Gelen **bölge/benzeşim grubu** bir bölge veya benzeşim grubunda depolama hesabı için aşağı açılan listesinde seçin. Depolama hizmetlerinizi kullandığınız diğer Windows Azure hizmetleriyle aynı veri merkezinde olmasını istiyorsanız bir bölge yerine bir benzeşim grubu seçin. Performansı geliştirebilir ve çıkışı için hiçbir Ücret tahakkuk eden.  
    
-   **Note:** To create an affinity group, open the **Settings** area of the Management Portal, click **Affinity Groups**, and then click either **Add an affinity group** or **Add**. You can also create and manage affinity groups using the Windows Azure Service Management API. For more information, see [Operations on Affinity Groups].
-5. From the **Subscription** drop-down list, select the subscription that the storage account will be used with.
-6. Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
-7. To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
+   **Not:** bir benzeşim grubu oluşturmak için açık **ayarları** Yönetim Portalı'nı bölümünü tıklatın **benzeşim grupları**ve ardından ya da **benzeşimgrubuEkle** veya **eklemek**. Ayrıca, oluşturun ve Windows Azure Hizmet Yönetimi API'sini kullanarak benzeşim grupları yönetin. Daha fazla bilgi için [benzeşim gruplarında işlemler] bakın.
+5. Gelen **abonelik** aşağı açılan listesinde, depolama hesabı ile kullanılacak aboneliği seçin.
+6. **Depolama Hesabı Oluştur**’a tıklayın. Depolama hesabı oluşturma işleminin tamamlanması birkaç dakika sürebilir.
+7. Depolama hesabı başarıyla oluşturulduğunu doğrulamak için hesap için listelenen öğeleri göründüğünü doğrulayın **depolama** durumuyla **çevrimiçi**.
 
 <a id="Step2"> </a>
 
-<h2>Step 2: Create a new CDN endpoint for your storage account</h2>
+<h2>2. adım: depolama hesabınız için yeni bir CDN uç noktası oluşturma</h2>
 
-Once you enable CDN access to a storage account or hosted service, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
+Bir depolama hesabı için CDN erişimi etkinleştirmek ya da barındırılan hizmetin sonra genel olarak kullanılabilir tüm nesneler CDN uç önbelleğe alma için uygundur. CDN şu anda önbelleğe alınmış nesneyi değiştirirseniz, yaşam süresi önbelleğe alınan içerik süresi sona erdiğinde, CDN içeriğini yeniler kadar yeni içerik CDN kullanılabilir olmayacaktır.
 
-**To create a new CDN endpoint for your storage account**
+**Depolama hesabınız için yeni bir CDN uç noktası oluşturmak için**
 
-1. In the [Azure classic portal], in the navigation pane, click **CDN**.
-2. On the ribbon, click **New**. In the **New** dialog, select **App Services**, then **CDN**, then **Quick Create**.
-3. In the **Origin Domain** dropdown, select the storage account you created in the previous section from the list of your available storage accounts. 
-4. Click the **Create** button to create the new endpoint.
-5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
+1. İçinde [Klasik Azure portalı], Gezinti bölmesinde **CDN**.
+2. Şerit'te tıklatın **yeni**. İçinde **yeni** iletişim kutusunda **uygulama hizmetleri**, ardından **CDN**, ardından **hızlı Oluştur**.
+3. İçinde **kaynak etki alanı** açılan listesinde, depolama birimi seçin önceki bölümde, kullanılabilir depolama hesapları listesinden oluşturduğunuz hesap. 
+4. ' I tıklatın **oluşturma** düğmesi yeni uç noktası oluşturun.
+5. Uç nokta oluşturulduktan sonra abonelik için uç noktalar listesinde görünür. Liste görünümünde, kaynak etki alanının yanı sıra, önbelleğe alınan içeriğe erişmek için kullanılacak URL gösterilir. 
    
-    The origin domain is the location from which the CDN caches content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. 
+    Kaynak etki alanı içinden CDN içeriği önbelleğe alan konumdur. Kaynak etki alanı, bir depolama hesabı veya bir bulut hizmeti olabilir; bir depolama hesabı bu örnek amacıyla kullanılır. Depolama içeriği belirttiğiniz bir ön bellek denetimi ayarı, veya varsayılan buluşsal yöntemler önbelleğe alma ağın göre uç sunucularına önbelleğe alınır. 
 
-    > [AZURE.NOTE] The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
+    > [AZURE.NOTE]Uç nokta için oluşturulan yapılandırma hemen kullanılabilir olmaz; kaydın CDN ağ üzerinden yayılması için 60 dakika kadar sürebilir. İçerik CDN kullanılabilir hale gelene kadar hemen CDN etki alanı adını kullanmayı deneyen kullanıcılar durum kodu 400 (Hatalı istek) alabilir.
 
 <a id="Step3"> </a>
 
-<h2>Step 3: Access CDN content</h2> 
+<h2>Adım 3: Erişim CDN içerik</h2> 
 
-To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob will be similar to the following:
+CDN önbelleğe alınmış içeriğe erişmek için CDN Portal'da sağlanan URL'yi kullanın. Önbelleğe alınan bir blob adresi aşağıdakine benzer olacaktır:
 
-http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*CDNNamespace*\>.vo.msecnd.net/ <*myPublicContainer*\>/<*BlobName*\>
 
 <a id="Step4"> </a>
 
-<h2>Step 4: Remove content from the CDN</h2>
+<h2>4. adım: içerik CDN Kaldır</h2>
 
-If you no longer wish to cache an object in the Azure Content Delivery Network (CDN), you can take one of the following steps:
+Artık bir nesne içinde Azure içerik teslim ağı (CDN) önbelleğe almak istiyorsanız, aşağıdaki adımlardan birini gerçekleştirebilirsiniz:
 
-* For an Azure blob, you can delete the blob from the public container.
-* You can make the container private instead of public. See [Restrict Access to Containers and Blobs](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) for more information.
-* You can disable or delete the CDN endpoint using the Management Portal.
-* You can modify your hosted service to no longer respond to requests for the object.
+* Bir Azure blob'u için ortak kapsayıcıdan blob silebilirsiniz.
+* Kapsayıcı yapabileceğiniz ortak yerine özel. Bkz: [kapsayıcılara ve Blob'lara erişimi kısıtla](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) daha fazla bilgi için.
+* Yönetim Portalı'nı kullanarak CDN uç noktasını silmek ya da devre dışı bırakın.
+* Barındırılan hizmet artık nesne için isteklere yanıt verecek şekilde değiştirebilirsiniz.
 
-An object already cached in the CDN will remain cached until the time-to-live period for the object expires. When the time-to-live period expires, the CDN will check to see whether the CDN endpoint is still valid and the object still anonymously accessible. If it is not, then the object will no longer be cached.
+Zaten CDN önbelleğe alınmış bir nesne, nesne yaşam süresi boyunca süresi doluncaya kadar önbelleğe alınmış olarak kalır. Yaşam süresi süresi sona erdiğinde, CDN CDN uç noktası hala geçerli olup olmadığını ve hala anonim olarak erişilebilir nesne görmek için kontrol eder. Değilse, ardından nesne artık önbelleğe alınır.
 
-The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](https://azure.microsoft.com/support/options/)  if you need to immediately purge content. 
+Hemen içerik temizleme olanağı Azure Yönetim Portalı'ndaki şu anda desteklenmiyor. Temasa [Azure Destek](https://azure.microsoft.com/support/options/) hemen içeriği temizlenecek gerekiyorsa. 
 
-## <a name="additional-resources"></a>Additional resources
-* [How to Create an Affinity Group in Azure]
-* [How to: Manage Storage Accounts for an Azure Subscription]
-* [About the Service Management API]
-* [How to Map CDN Content to a Custom Domain]
+## <a name="additional-resources"></a>Ek kaynaklar
+* [Azure'da bir benzeşim grubu oluşturma]
+* [Nasıl yapılır: Azure aboneliği için depolama hesaplarını yönetme]
+* [Hizmet Yönetimi API hakkında]
+* [CDN İçeriğini Özel Etki Alanı ile Eşleme]
 
 [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
-[Azure CDN Node Locations]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
-[Azure classic portal]: https://manage.windowsazure.com/
-[billing plan]: /pricing/calculator/?scenario=full
-[How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
+[Azure CDN düğümü konumları]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
+[Klasik Azure portalı]: https://manage.windowsazure.com/
+[fatura planı]: /pricing/calculator/?scenario=full
+[Azure'da bir benzeşim grubu oluşturma]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
-[About the Service Management API]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
-[How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
+[Hizmet Yönetimi API hakkında]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
+[CDN İçeriğini Özel Etki Alanı ile Eşleme]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
 
 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png

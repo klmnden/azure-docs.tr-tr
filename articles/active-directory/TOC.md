@@ -112,24 +112,23 @@
 #### [Oturum açma örnekleri](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Sertifikaları kullanma](active-directory-reporting-api-with-certificates.md)
 
-## [Parolaları yönetme](active-directory-passwords-overview.md)
+## Parolaları yönetme
+### [Parolalara genel bakış](active-directory-passwords-overview.md)
 ### Kullanıcı belgeleri
 #### [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
 #### [Parolalarla ilgili en iyi yöntemler](active-directory-secure-passwords.md)
 #### [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
-### [SSPR lisanslama](active-directory-passwords-licensing.md)
-### [SSPR dağıtma](active-directory-passwords-best-practices.md)
+### [SSPR Nasıl çalışır?](active-directory-passwords-how-it-works.md)
+### [SSPR Dağıtım kılavuzu](active-directory-passwords-best-practices.md)
+### [SSPR İlkeleri ](active-directory-passwords-policy.md)
+### [SSPR’yi Özelleştirme](active-directory-passwords-customize.md)
+### [SSPR Veri gereksinimleri](active-directory-passwords-data.md)
+### [SSPR Raporlama](active-directory-passwords-reporting.md)
 ### BT Yöneticileri: Parolaları sıfırlama
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
 #### [Klasik Azure Portalı](active-directory-create-users-reset-password.md)
-### [SSPR ilkelerini anlama](active-directory-passwords-policy.md)
-### [Parola sıfırlamayı anlama](active-directory-passwords-how-it-works.md)
-### [SSPR özelleştirme](active-directory-passwords-customize.md)
-### [SSPR tarafından kullanılan veriler](active-directory-passwords-data.md)
-### [SSPR üzerinde raporlama](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [SSPR lisanslama](active-directory-passwords-licensing.md)
 ### [Parola geri yazma](active-directory-passwords-writeback.md)
-### [Parola karması eşitleme](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [Sorun giderme](active-directory-passwords-troubleshoot.md)
 ### [SSS](active-directory-passwords-faq.md)
 
@@ -313,8 +312,6 @@
 ##### [Düzeltme](active-directory-conditional-access-device-remediation.md)
 #### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)
 #### [SSS](active-directory-conditional-faqs.md)
-#### [Klasik portal](active-directory-conditional-access.md)
-##### [Kullanmaya başlama](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [Parolasız kimlik doğrulama](active-directory-azureadjoin-passport.md)

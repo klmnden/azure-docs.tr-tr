@@ -15,25 +15,25 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
-2. In the left banner, click **BROWSE ALL**. The **Browse** blade is displayed.
-3. Scroll and click **SQL servers**. The **SQL servers** blade is displayed.
+1. Oturum [Azure portal](https://portal.azure.com/) http://portal.azure.com/ adresindeki.
+2. Sol başlığında tıklatın **TÜMÜNE Gözat**. **Gözat** dikey penceresi görüntülenir.
+3. Kaydırın ve tıklatın **SQL sunucuları**. **SQL sunucuları** dikey penceresi görüntülenir.
    
-    ![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
-4. For convenience, click the minimize control on the earlier **Browse** blade.
-5. In the filter text box, start typing the name of your server. Your row is displayed.
-6. Click the row for your server. A blade for your server is displayed.
-7. On your server blade, click **Settings**. The **Settings** blade is displayed.
-8. Click **Firewall**. The **Firewall Settings** blade is displayed.
+    ![Portalda Azure SQL veritabanı sunucunuzun Bul][b21-FindServerInPortal]
+4. Kolaylık olması için önceki simge durumuna küçült denetiminde tıklatın **Gözat** dikey.
+5. Filtre metin kutusuna, sunucunuzun adını yazmaya başlayın. Satır görüntülenir.
+6. Sunucunuz için satıra tıklayın. Sunucunuz için bir dikey pencerede görüntülenir.
+7. Sunucu dikey penceresinde **ayarları**. **Ayarları** dikey penceresi görüntülenir.
+8. Tıklatın **Güvenlik Duvarı**. **Güvenlik duvarı ayarlarını** dikey penceresi görüntülenir.
    
-    ![Click Settings > Firewall][b31-SettingsFirewallNavig]
-9. Click **Add Client IP**. Type in a name for your new rule into the first text box.
-10. Type in the low and high IP address values for the range you want to enable.
+    ![Ayarlar > Güvenlik Duvarı][b31-SettingsFirewallNavig]
+9. Tıklatın **istemcisi ekleme IP**. İlk metin kutusuna, yeni kural için bir ad yazın.
+10. Etkinleştirmek istediğiniz aralığı için düşük ve yüksek IP adresi değerlerini yazın.
     
-    * It can be handy to have the low value end with **.0** and the high with **.255**.
+    * Düşük değer end ile sağlamak için kullanışlı olabilir **.0** ve yüksek ile **.255**.
     
-    ![Add an IP address range to allow][b41-AddRange]
-11. Click **Save**.
+    ![İzin vermek için bir IP adres aralığı Ekle][b41-AddRange]
+11. **Kaydet** düğmesine tıklayın.
 
 <!-- Image references. -->
 

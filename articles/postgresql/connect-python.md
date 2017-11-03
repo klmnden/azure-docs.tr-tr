@@ -6,20 +6,19 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
-ms.custom: mvc
+ms.service: postgresql
+ms.custom: mvc, devcenter
 ms.devlang: python
-ms.topic: hero-article
-ms.date: 08/10/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/10/2017
-
+ms.topic: quickstart
+ms.date: 08/15/2017
+ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Python'ı kullanma
-Bu hızlı başlangıç kılavuzunda, PostgreSQL için Azure Veritabanı'na bağlanmak üzere [Python](https://python.org)'ı kullanma ve ardından SQL deyimlerini kullanarak macOS, Ubuntu, Linux ve Windows platformlarındaki veritabanı verilerini sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanmıştır. Bu makaledeki adımlarda, Python kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+Bu hızlı başlangıçta [Python](https://python.org) kullanarak PostgreSQL için bir Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. macOS, Ubuntu Linux ve Windows platformlarındaki veritabanında yer alan verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanıldığını da gösterir. Bu makaledeki adımlarda, Python kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
@@ -28,29 +27,43 @@ Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birin
 
 Şunları da yapmanız gerekir:
 - [Python](https://www.python.org/downloads/)'ı yükleme
-- [PIP](https://pip.pypa.io/en/stable/installing/) paketini yükleme ([python.org](https://python.org) adresinden indirilen Python 2 >=2.7.9 veya Python 3 >=3.4 ikililerini kullanıyorsanız PIP zaten yüklüdür ancak paketi yükseltmeniz gerekir.)
+- [pip](https://pip.pypa.io/en/stable/installing/) paketi yüklü ([python.org](https://python.org) adresinden indirilen Python 2 >=2.7.9 veya Python 3 >=3.4 ikili dosyalarıyla çalışıyorsanız pip zaten yüklüdür).
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>PostgreSQL için Python bağlantı kitaplıklarını yükleme
-Veritabanına bağlanmanızı ve bu veritabanını sorgulamanızı sağlayan [psycopg2](http://initd.org/psycopg/docs/install.html) paketini yükleyin. psycopg2 paketi, en yaygın platformlar (Linux, OSX, Windows) için [wheel](http://pythonwheels.com/) paketi biçiminde [PyPI'de mevcuttur](https://pypi.python.org/pypi/psycopg2/). Bu nedenle tüm bağımlılıklar da dahil olmak üzere modülün ikili sürümünü almak için pip install komutunu kullanabilirsiniz:
+Veritabanına bağlanmanızı ve bu veritabanını sorgulamanızı sağlayan [psycopg2](http://initd.org/psycopg/docs/install.html) paketini yükleyin. psycopg2, en yaygın platformlar (Linux, OSX, Windows) için [wheel](http://pythonwheels.com/) paketleri biçiminde [PyPI üzerinde sağlanmaktadır](https://pypi.python.org/pypi/psycopg2/). Tüm bağımlılıklar dahil olmak üzere modülün ikili sürümünü almak için pip yüklemesini kullanın.
 
-```cmd
-pip install psycopg2
-```
-PIP'nin güncel bir sürümünü kullandığınızdan emin olun. (PIP'yi yükseltmek için şunun gibi bir komut kullanabilirsiniz: `pip install -U pip`)
+1. Kendi bilgisayarınızda bir komut satırı arabirimi başlatın:
+    - Linux’ta Bash kabuğunu başlatın.
+    - macOS’ta Terminal’i başlatın.
+    - Windows’da, Başlat Menüsünden Komut İstemi’ni başlatın.
+2. Aşağıdaki gibi bir komut çalıştırarak en son pip sürümünü kullandığınızdan emin olun:
+    ```cmd
+    pip install -U pip
+    ```
+
+3. psycopg2 paketini yüklemek için şu komutu çalıştırın:
+    ```cmd
+    pip install psycopg2
+    ```
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve kısa süre önce oluşturduğunuz **mypgserver-20170401** sunucusunu aratın.
+2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve **mypgserver-20170401** sunucusunu (yeni oluşturduğunuz sunucu) aratın.
 3. **mypgserver-20170401** sunucu adına tıklayın.
-4. Sunucunun **Genel Bakış** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
+4. Sunucunun **Genel Bakış** sayfasını seçin ve **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın.
  ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma Bilgileri](./media/connect-python/1-connection-string.png)
 5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
 
 ## <a name="how-to-run-python-code"></a>Python kodu çalıştırma
-- En sevdiğiniz metin düzenleyiciyi kullanarak postgres.py adlı yeni bir dosya oluşturun ve dosyayı proje klasörüne kaydedin. Aşağıda gösterilen bir kod örneğini kopyalayıp metin dosyasına yapıştırın. host, dbname, user ve password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. Ardından dosyayı kaydedin. Dosyayı Windows işletim sisteminde kaydediyorsanız UTF-8 kodlamasını seçtiğinizden emin olun. 
-- Kodu çalıştırmak için komut istemi veya bash kabuğu başlatın. Dizini, proje klasörünüzle değiştirin; örneğin, `cd postgresql`. Sonra python komutunu ve ardından dosya adını yazın; örneğin, `python postgres.py`.
+Bu konu, her biri belirli bir işlevi gerçekleştiren toplam dört kod örneği içerir. Aşağıdaki yönergelerde metin dosyası oluşturma, kod bloğu ekleme ve daha sonra çalıştırmak üzere dosyayı kaydetme gösterilir. Her kod bloğu için birer tane olmak üzere dört ayrı dosya oluşturduğunuzdan emin olun.
+
+- Sık kullandığınız metin düzenleyicisini kullanarak yeni bir dosya oluşturun.
+- Aşağıdaki bölümlerde yer alan kod örneklerinden birini kopyalayın ve metin dosyasına yapıştırın. **host**, **dbname**, **user** ve **password** parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
+- Dosyayı .py uzantısıyla (örneğin postgres.py) proje klasörünüze kaydedin. Windows üzerinde çalıştırıyorsanız, Dosya kaydedilirken UTF-8 kodlaması seçtiğinizden emin olun. 
+- Komut isteminde, Terminal veya Bash Kabuğu'nu başlatın ve dizini proje klasörünüzdeki örneğin değiştirmek `cd postgres`.
+-  Kodu çalıştırmak için Python komutunu ve ardından dosya adını yazın; örneğin `Python postgres.py`.
 
 > [!NOTE]
 > Python sürüm 3’ten başlayarak, aşağıdaki kod bloklarını çalıştırırken `SyntaxError: Missing parentheses in call to 'print'` hatasıyla karşılaşabilirsiniz. Bu hatayla karşılaşırsanız, her `print "string"` komutu çağrısını parantez kullanan bir işlev çağrısıyla değiştirin; örneğin, `print("string")`.
@@ -94,6 +107,10 @@ conn.commit()
 cursor.close()
 conn.close()
 ```
+
+Kod başarıyla çalıştıktan sonra çıktı aşağıdaki gibi görünür:
+
+![Komut satırı çıktısı](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Verileri okuma
 **SELECT** SQL deyimi ile [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) işlevini kullanarak, eklenen verileri okumak için aşağıdaki kodu kullanın. Bu işlev bir sorguyu kabul eder ve [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall) kullanılarak yinelenebilen bir sonuç kümesi döndürür. host, dbname, user ve password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
@@ -192,4 +209,3 @@ conn.close()
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [Dışarı Aktarma ve İçeri Aktarma seçeneğini kullanarak veritabanınızı geçirme](./howto-migrate-using-export-and-import.md)
-

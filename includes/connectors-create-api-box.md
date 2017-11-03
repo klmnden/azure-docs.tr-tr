@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [box](http://box.com) account  
+### <a name="prerequisites"></a>Ön koşullar
+* A [kutusunu](http://box.com) hesabı  
 
-Before you can use your box account in a Logic app, you must authorize the Logic app to connect to your box account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Bir mantıksal uygulama kutusunu hesabınızı kullanabilmeniz için önce kutusunu hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
 
-Here are the steps to authorize your Logic app to connect to your box account:  
+Mantıksal uygulamanızı kutusunu hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:  
 
-1. To create a connection to box, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *box* in the search box. Select the trigger or action you'll like to use:  
-   ![box connection creation step](./media/connectors-create-api-box/box-1.png)  
-2. If you haven't created any connections to box before, you'll get prompted to provide your box credentials. These credentials will be used to authorize your Logic app to connect to, and access your box account's data:  
-   ![box connection creation step](./media/connectors-create-api-box/box-2.png)  
-3. Provide your box user name and password to authorize your Logic app:  
-   ![box connection creation step](./media/connectors-create-api-box/box-3.png)  
-4. Allow us to connect to box:  
-   ![box connection creation step](./media/connectors-create-api-box/box-4.png)  
-5. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![box connection creation step](./media/connectors-create-api-box/box-5.png)  
+1. Mantıksal Uygulama Tasarımcısı'nda kutusuna bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *kutusunu* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+   ![kutusunu bağlantı oluşturma adım](./media/connectors-create-api-box/box-1.png)  
+2. Önce kutusu için herhangi bir bağlantısı oluşturmadıysanız, kutusunu kimlik bilgilerinizi sağlamanız istenir. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve kutusunu hesabınızın veri erişim:  
+   ![kutusunu bağlantı oluşturma adım](./media/connectors-create-api-box/box-2.png)  
+3. Kutusunu kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
+   ![kutusunu bağlantı oluşturma adım](./media/connectors-create-api-box/box-3.png)  
+4. Bize kutusuna bağlanmasına izin ver:  
+   ![kutusunu bağlantı oluşturma adım](./media/connectors-create-api-box/box-4.png)  
+5. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+   ![kutusunu bağlantı oluşturma adım](./media/connectors-create-api-box/box-5.png)  
 

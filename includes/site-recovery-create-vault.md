@@ -1,10 +1,10 @@
 
-1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
-3. In **Name**, specify a friendly name to identify the vault. If you have more than one subscription, select the appropriate one.
-4. [Create a resource group](../articles/azure-resource-manager/resource-group-template-deploy-portal.md), or select an existing one. Specify an Azure region. 
-5. To quickly access the vault from the dashboard, click **Pin to dashboard** > **Create**.
+1. [Azure Portal](https://portal.azure.com) > **Kurtarma Hizmetleri**’nde oturum açın.
+2. **Yeni** > **İzleme ve Yönetim** > **Backup ve Site Recovery** seçeneğine tıklayın.
+3. **Ad** alanında, kasayı tanımlamak için bir kolay ad belirtin. Birden fazla aboneliğiniz varsa, uygun olanı seçin.
+4. [Kaynak grubu oluşturun](../articles/azure-resource-manager/resource-group-template-deploy-portal.md) veya var olan bir grubu seçin. Bir Azure bölgesi belirtin. 
+5. Kasa panodan hızlı bir şekilde erişmek için tıklatın **panoya Sabitle** > **oluşturma**.
 
-   ![New vault](./media/site-recovery-create-vault/new-vault-settings.png)
+   ![Yeni kasa](./media/site-recovery-create-vault/new-vault-settings.png)
 
-   The new vault will appear on the **Dashboard** > **All resources**, and on the main **Recovery Services vaults** page.
+   Yeni kasa görünür **Pano** > **tüm kaynakları**ve ana **kurtarma Hizmetleri kasaları** sayfası.

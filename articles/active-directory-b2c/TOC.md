@@ -1,6 +1,9 @@
 # [Genel Bakış](active-directory-b2c-overview.md)
 
 # başlarken
+## [Azure AD B2C web uygulamasında test sürüşü yapma](active-directory-b2c-quickstarts-web-app.md)
+## [Azure AD B2C masaüstü uygulamasında test sürüşü yapma](active-directory-b2c-quickstarts-desktop-app.md)
+## [Azure AD B2C tek sayfa uygulamasında test sürüşü yapma](active-directory-b2c-quickstarts-spa.md)
 ## [Azure AD B2C dizini oluşturma](active-directory-b2c-get-started.md)
 ## [Uygulamanızı kaydetme](active-directory-b2c-app-registration.md)
 ## [Yerleşik ilkeler](active-directory-b2c-reference-policies.md)
