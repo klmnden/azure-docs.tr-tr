@@ -1,4 +1,4 @@
-Aşağıdaki sınırlar Azure Resource Manager ve Azure kaynak grupları yalnızca kullanılırken uygulanır.
+Aşağıdaki sınırlar, yalnızca Azure Kaynak Yöneticisi'ni kullanarak yönetim işlemlerini gerçekleştirirken uygulayın.
 
 | Kaynak | Varsayılan Sınır |
 | --- | --- |

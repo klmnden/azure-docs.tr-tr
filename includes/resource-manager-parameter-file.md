@@ -1,4 +1,4 @@
-If you use a parameter file to pass parameter values during deployment, you need to create a JSON file with a format similar to the following example:
+Dağıtım sırasında parametre değerleri geçirmek için bir parametre dosyası kullanmak, bir JSON dosyası formatı ile aşağıdaki örneğe benzer şekilde oluşturmanız gerekir:
 
 ```json
 {
@@ -26,7 +26,7 @@ If you use a parameter file to pass parameter values during deployment, you need
 }
 ```
 
-The size of the parameter file cannot be more than 64 KB.
+Parametre dosyanın boyutu 64 KB'den büyük olamaz.
 
-If you need to provide a sensitive value for a parameter (such as a password), add that value to a key vault. Retrieve the key vault during deployment as shown in the previous example. For more information, see [Pass secure values during deployment](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
+Bir parametre (örneğin, parola) için önemli bir değer sağlamanız gerekiyorsa, bu değer bir anahtar Kasası'na ekleyin. Anahtar kasası, önceki örnekte gösterildiği gibi dağıtım sırasında alın. Daha fazla bilgi için bkz: [dağıtımı sırasında güvenli değerlerini geçirin](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
 

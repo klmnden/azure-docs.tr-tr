@@ -1,8 +1,8 @@
 
-1. In the [Azure portal](https://portal.azure.com/), click **Browse All** > **App Services**, and click your Mobile Apps back end. Under **Settings**, click **App Service Push**, and then click your notification hub name.
-2. Go to **Google (GCM)**, enter the FCM server key you obtained from the Firebase console, and then click **Save**.
+1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **tümüne Gözat** > **uygulama hizmetleri**, Mobile Apps arka uç'a tıklayın. Altında **ayarları**, tıklatın **App Service anında**ve bildirim hub'ı adı'ı tıklatın.
+2. Git **Google (GCM)**Firebase konsolundan elde ettiğiniz FCM sunucu anahtarını girin ve ardından **kaydetmek**.
 
-Your service is now configured to work with Firebase Cloud Messaging.
+Hizmetinizi şimdi Firebase bulut Mesajlaşma ile çalışmak üzere yapılandırıldı.
 
 <!-- URLs. -->
 

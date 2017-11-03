@@ -1,10 +1,10 @@
-## <a name="java-sample-code-repositories"></a>Java sample code repositories
+## <a name="java-sample-code-repositories"></a>Java örnek kodu depoları
 
-Here is a list of all our sample repositories for the Azure Storage Java client library.
+Burada, Azure depolama Java istemci kitaplığı için tüm bizim örnek depoları listesi verilmiştir.
 
-* [Getting Started with Storage - Manage Storage Account in Java](https://azure.microsoft.com/resources/samples/storage-java-manage-storage-accounts/)
-* [Getting Started with Azure Blob Service in Java](https://azure.microsoft.com/resources/samples/storage-blob-java-getting-started/)
-* [Getting Started with Azure File Service in Java](https://azure.microsoft.com/resources/samples/storage-file-java-getting-started/)
-* [Getting Started with Azure Queue Service in Java](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
-* [Getting Started with Azure Table Service in Java](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
-* [Storage Java Client Library Samples](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)
+* [Alma Java depolama hesabında yönetmek depolama ile - başlatıldı](https://azure.microsoft.com/resources/samples/storage-java-manage-storage-accounts/)
+* [Java'da Azure Blob hizmeti ile çalışmaya başlama](https://azure.microsoft.com/resources/samples/storage-blob-java-getting-started/)
+* [Java'da Azure dosya hizmeti ile çalışmaya başlama](https://azure.microsoft.com/resources/samples/storage-file-java-getting-started/)
+* [Java'da Azure kuyruk hizmeti ile çalışmaya başlama](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
+* [Java'da Azure tablo hizmeti ile çalışmaya başlama](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
+* [Depolama Java istemci kitaplığı örnekleri](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)

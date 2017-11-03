@@ -1,6 +1,6 @@
-## <a name="webapi-project"></a>WebAPI Project
-1. In Visual Studio, open the **AppBackend** project that you created in the **Notify Users** tutorial.
-2. In Notifications.cs, replace the whole **Notifications** class with the following code. Be sure to replace the placeholders with your connection string (with full access) for your notification hub, and the hub name. You can obtain these values from the [Azure Classic Portal](http://manage.windowsazure.com). This module now represents the different secure notifications that will be sent. In a complete implementation, the notifications will be stored in a database; for simplicity, in this case we store them in memory.
+## <a name="webapi-project"></a>Webapı proje
+1. Visual Studio'da açın **AppBackend** oluşturduğunuz proje **kullanıcılara bildirme** Öğreticisi.
+2. Tüm Notifications.cs içinde Değiştir **bildirimleri** aşağıdaki kodla sınıfı. Yer tutucuları bağlantı dizenizi (tam erişimli) için bildirim hub'ınızı ve hub adı ile değiştirdiğinizden emin olun. Bu değerleri elde edebilirsiniz [Klasik Azure portalı](http://manage.windowsazure.com). Bu modül şimdi gönderilecek farklı güvenli bildirimleri temsil eder. Tam bir uygulama bildirimleri bir veritabanında depolanır; Kolaylık olması için bu durumda bunları bellekte depolarız.
    
         public class Notification
         {
@@ -40,7 +40,7 @@
             }
         }
 
-1. In NotificationsController.cs, replace the code inside the **NotificationsController** class definition with the following code. This component implements a way for the device to retrieve the notification securely, and also provides a way (for the purposes of this tutorial) to trigger a secure push to your devices. Note that when sending the notification to the notification hub, we only send a raw notification with the ID of the notification (and no actual message):
+1. Kod içinde NotificationsController.cs içinde değiştirin **NotificationsController** sınıf tanımını aşağıdaki kod ile. Bu bileşen, cihazın güvenli bir şekilde bildirim almak bir yol uygular ve ayrıca cihazlarınıza güvenli push tetiklemek için (Bu öğreticinin amaçları doğrultusunda) bir yol sağlar. Bildirim hub'ına bildirimi gönderirken, biz yalnızca ham bildirim kimliği bildirim (ve gerçek ileti yok) göndermek olduğunu unutmayın:
    
        public NotificationsController()
        {
@@ -75,8 +75,8 @@
         }
 
 
-Note that the `Post` method now does not send a toast notification. It sends a raw notification that contains only the notification ID, and not any sensitive content. Also, make sure to comment the send operation for the platforms for which you do not have credentials configured on your notification hub, as they will result in errors.
+Unutmayın `Post` yöntemi şimdi göndermez bildirim. Yalnızca bildirim kimliği ve hassas olmayan tüm içeriği içeren bir ham bildirim gönderir. Ayrıca, gönderme işlemi hatalarına neden şekilde, bildirim hub'ına, yapılandırılmış kimlik bilgilerine sahip olduğunuz değil platformlar için açıklama emin olun.
 
-1. Now we will re-deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
-2. Select Azure Website as your publish target. Log in with your Azure account and select an existing or new Website, and make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
+1. Şimdi Biz bu uygulamayı bir Azure Web sitesine tüm cihazlar üzerinden erişilebilir olması için yeniden dağıtır. **AppBackend** projesine sağ tıklayıp **Yayımla**’yı seçin.
+2. Azure Web sitesi yayımlama hedefi olarak seçin. Azure hesabınızla oturum açın ve mevcut veya yeni bir Web sitesini seçin ve Not **hedef URL** özelliğinde **bağlantı** sekmesi. Bu URL'ye bu öğreticinin sonraki bölümlerinde *arka uca ait uç nokta* olarak başvuracağız. **Yayımla**’ta tıklayın.
 

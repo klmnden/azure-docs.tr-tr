@@ -6,21 +6,19 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
-ms.custom: mvc
+ms.service: postgresql
+ms.custom: mvc, devcenter
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/23/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: ddc364f2a0b8a8bb0a4a2c3a563c007470415991
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/10/2017
-
+ms.openlocfilehash: c16705c89c36452a28ab0547dc6b5277f57dd6d5
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Node.js’yi kullanma
-Bu hızlı başlangıçta, Windows, Ubuntu Linux ve Mac platformlarından [Node.js](https://nodejs.org/) kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makaledeki adımlarda, Node.js kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+Bu hızlı başlangıç PostgreSQL kullanmak için bir Azure veritabanına bağlanmak nasıl gösteren bir [Node.js](https://nodejs.org/) uygulama. Ayrıca veritabanında veri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini nasıl kullanacağınız da gösterilmiştir. Bu makaledeki adımları Node.js kullanarak geliştirme ile tanıdık ve PostgreSQL için Azure veritabanı ile çalışmaya yeni varsayalım.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
@@ -31,7 +29,7 @@ Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birin
 - [Node.js](https://nodejs.org)’yi yükleme
 
 ## <a name="install-pg-client"></a>pg istemcisini yükleme
-node.js için eksiksiz bir engellemeye yol açmayan JavaScript istemcisi olan [pg](https://www.npmjs.com/package/pg)’yi yükleyin. Bu, PostgreSQL’e bağlanmak ve PostgreSQL’i sorgulamak için kullanışlı bir istemcidir.
+Yükleme [pg](https://www.npmjs.com/package/pg), Node.js için PostgreSQL istemci olduğu.
 
 Bunu yapmak için komut satırından JavaScript’e yönelik düğüm paketi yöneticisini (npm) çalıştırarak pg istemcisini yükleyin.
 ```bash
@@ -42,26 +40,19 @@ Yüklü paketleri listeleyerek yüklemeyi doğrulayın.
 ```bash
 npm list
 ```
-Liste komut çıktısı, her bileşenin sürümünü onaylar. 
-```
-`-- pg@6.2.3
-  +-- buffer-writer@1.0.1
-  +-- packet-reader@0.3.1
-etc...
-```
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve kısa süre önce oluşturduğunuz **mypgserver-20170401** sunucusunu aratın.
-3. **mypgserver-20170401** sunucu adına tıklayın.
+2. Azure portalında sol taraftaki menüden **tüm kaynakları** ve yeni oluşturduğunuz sunucu arayın.
+3. Sunucunun adına tıklayın.
 4. Sunucunun **Genel Bakış** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
  ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma Bilgileri](./media/connect-nodejs/1-connection-string.png)
 5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Node.js’de JavaScript kodunu çalıştırma
-`node` yazarak Node.js’yi bash kabuğundan veya windows komut isteminden başlatabilir, ardından isteme kopyalayıp yapıştırarak örnek JavaScript kodunu etkili bir şekilde çalıştırabilirsiniz. Alternatif olarak, JavaScript kodunu bir metin dosyasına kaydedebilir ve `node filename.js` öğesini, bunu çalıştıracak bir parametre olarak dosya adıyla başlatabilirsiniz.
+Yazarak Bash Kabuk, Terminal veya Windows komut istemi Node.js başlatabilir `node`, ardından JavaScript kodu örneği tarafından kopya etkileşimli olarak çalıştırmak ve istemi yapıştırma. Alternatif olarak, JavaScript kodunu bir metin dosyasına kaydedebilir ve `node filename.js` öğesini, bunu çalıştıracak bir parametre olarak dosya adıyla başlatabilirsiniz.
 
 ## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
 Aşağıdaki kodu kullanarak bağlanın ve **CREATE TABLE** ve **INSERT INTO** SQL deyimlerini kullanarak verileri yükleyin.
@@ -73,10 +64,12 @@ Ana bilgisayar, veritabanı adı, kullanıcı ve parola parametrelerini, sunucuy
 const pg = require('pg');
 
 const config = {
-    host: 'mypgserver-20170401.postgres.database.azure.com',
-    user: 'mylogin@mypgserver-20170401',
-    password: '<server_admin_password>',
-    database: '<name_of_database>',
+    host: '<your-db-server-name>.postgres.database.azure.com',
+    // Do not hard code your username and password.
+    // Consider using Node environment variables.
+    user: '<your-db-username>',     
+    password: '<your-password>',
+    database: '<name-of-database>',
     port: 5432,
     ssl: true
 };
@@ -122,10 +115,12 @@ Ana bilgisayar, veritabanı adı, kullanıcı ve parola parametrelerini, sunucuy
 const pg = require('pg');
 
 const config = {
-    host: 'mypgserver-20170401.postgres.database.azure.com',
-    user: 'mylogin@mypgserver-20170401',
-    password: '<server_admin_password>',
-    database: '<name_of_database>',
+    host: '<your-db-server-name>.postgres.database.azure.com',
+    // Do not hard code your username and password.
+    // Consider using Node environment variables.
+    user: '<your-db-username>',     
+    password: '<your-password>',
+    database: '<name-of-database>',
     port: 5432,
     ssl: true
 };
@@ -168,10 +163,12 @@ Ana bilgisayar, veritabanı adı, kullanıcı ve parola parametrelerini, sunucuy
 const pg = require('pg');
 
 const config = {
-    host: 'mypgserver-20170401.postgres.database.azure.com',
-    user: 'mylogin@mypgserver-20170401',
-    password: '<server_admin_password>',
-    database: '<name_of_database>',
+    host: '<your-db-server-name>.postgres.database.azure.com',
+    // Do not hard code your username and password.
+    // Consider using Node environment variables.
+    user: '<your-db-username>',     
+    password: '<your-password>',
+    database: '<name-of-database>',
     port: 5432,
     ssl: true
 };
@@ -186,19 +183,20 @@ client.connect(err => {
 });
 
 function queryDatabase() {
-    const query = `UPDATE inventory 
-                   SET quantity= 1000 WHERE name='banana';`;
+    const query = `
+        UPDATE inventory 
+        SET quantity= 1000 WHERE name='banana';
+    `;
 
     client
         .query(query)
-        .then(() => {
-            console.log('Update completed succesfully!');
-            client.end(console.log('Closed client connection'));
+        .then(result => {
+            console.log('Update completed');
+            console.log(`Rows affected: ${result.rowCount}`);
         })
-        .catch(err => console.log(err))
-        .then(() => {
-            console.log('Finished execution, exiting now');
-            process.exit();
+        .catch(err => {
+            console.log(err);
+            throw err;
         });
 }
 ```
@@ -212,46 +210,45 @@ Ana bilgisayar, veritabanı adı, kullanıcı ve parola parametrelerini, sunucuy
 const pg = require('pg');
 
 const config = {
-  host: '<your-db-server-name>.postgres.database.azure.com',
-  // Do not hard code your username and password.
-  // Consider using Node environment variables.
-  user: '<your-db-username>',     
-  password: '<your-password>',
-  database: '<name-of-database>',
-  port: 5432,
-  ssl: true
+    host: '<your-db-server-name>.postgres.database.azure.com',
+    // Do not hard code your username and password.
+    // Consider using Node environment variables.
+    user: '<your-db-username>',     
+    password: '<your-password>',
+    database: '<name-of-database>',
+    port: 5432,
+    ssl: true
 };
 
 const client = new pg.Client(config);
 
 client.connect(err => {
-  if (err) {
-    throw err;
-  } else {
-    queryDatabase();
-  }
+    if (err) {
+        throw err;
+    } else {
+        queryDatabase();
+    }
 });
 
 function queryDatabase() {
-  const query = `
-    DELETE FROM inventory 
-    WHERE name = 'apple';
-  `;
+    const query = `
+        DELETE FROM inventory 
+        WHERE name = 'apple';
+    `;
 
-  client
-    .query(query)
-    .then(result => {
-      console.log('Delete completed');
-      console.log(`Rows affected: ${result.rowCount}`);
-    })
-    .catch(err => {
-      console.log(err);
-      throw err;
-    });
+    client
+        .query(query)
+        .then(result => {
+            console.log('Delete completed');
+            console.log(`Rows affected: ${result.rowCount}`);
+        })
+        .catch(err => {
+            console.log(err);
+            throw err;
+        });
 }
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [Dışarı Aktarma ve İçeri Aktarma seçeneğini kullanarak veritabanınızı geçirme](./howto-migrate-using-export-and-import.md)
-

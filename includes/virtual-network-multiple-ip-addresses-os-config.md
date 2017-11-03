@@ -1,67 +1,67 @@
-## <a name="os-config"></a>Add IP addresses to a VM operating system
+## <a name="os-config"></a>Bir VM işletim sistemine IP adresleri ekleme
 
-Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the following steps for your VM operating system:
+Birden fazla özel IP adresi ile oluşturduğunuz sanal makineye bağlanın ve oturum açın. Sanal makineye eklediğiniz tüm özel IP adreslerini (birincil adres dahil) el ile eklemeniz gerekir. VM işletim sisteminiz için aşağıdaki adımları tamamlayın:
 
 ### <a name="windows"></a>Windows
 
-1. From a command prompt, type *ipconfig /all*.  You only see the *Primary* private IP address (through DHCP).
-2. Type *ncpa.cpl* in the command prompt to open the **Network connections** window.
-3. Open the properties for the appropriate adapter: **Local Area Connection**.
-4. Double-click Internet Protocol version 4 (IPv4).
-5. Select **Use the following IP address** and enter the following values:
+1. Bir komut isteminde *ipconfig/all* yazın.  Yalnızca *Birincil* özel IP adresini (DHCP üzerinden) görürsünüz.
+2. Komut istemine *ncpa.cpl* yazarak **Ağ bağlantıları** penceresini açın.
+3. Uygun bağdaştırıcının özelliklerini açın: **Yerel Ağ Bağlantısı**.
+4. İnternet Protokolü sürüm 4 (IPv4) öğesine çift tıklayın.
+5. **Aşağıdaki IP adresini kullan**’ı seçip aşağıdaki değerleri girin:
 
-    * **IP address**: Enter the *Primary* private IP address
-    * **Subnet mask**: Set based on your subnet. For example, if the subnet is a /24 subnet then the subnet mask is 255.255.255.0.
-    * **Default gateway**: The first IP address in the subnet. If your subnet is 10.0.0.0/24, then the gateway IP address is 10.0.0.1.
-    * Click **Use the following DNS server addresses** and enter the following values:
-        * **Preferred DNS server**: If you are not using your own DNS server, enter 168.63.129.16.  If you are using your own DNS server, enter the IP address for your server.
-    * Click the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses listed in step 8 to the NIC with the same subnet specified for the primary IP address.
+    * **IP adresi**: *Birincil* özel IP adresini girin
+    * **Alt ağ maskesi**: Alt ağınıza göre ayarlanır. Örneğin, alt ağ bir /24 alt ağı ise alt ağ maskesi 255.255.255.0 şeklindedir.
+    * **Varsayılan ağ geçidi**: Alt ağdaki ilk IP adresi. Alt ağınız 10.0.0.0/24 ise ağ geçidi IP adresi 10.0.0.1 şeklindedir.
+    * **Aşağıdaki DNS sunucusu adreslerini kullan**’a tıklayıp aşağıdaki değerleri girin:
+        * **Tercih edilen DNS sunucusu**: Kendi DNS sunucunuzu kullanmıyorsanız 168.63.129.16 girin.  Kendi DNS sunucunuzu kullanıyorsanız kendi sunucunuzun IP adresini girin.
+    * **Gelişmiş** düğmesine tıklayın ve diğer IP adreslerini ekleyin. 8. adımda listelenen ikincil IP adreslerinin her birini, birincil IP adresi için belirtilen aynı alt ağ ile NIC’ye ekleyin.
         >[!WARNING] 
-        >If you do not follow the steps above correctly, you may lose connectivity to your VM. Ensure the information entered for step 5 is accurate before proceeding.
+        >Yukarıdaki adımları doğru şekilde izlemezseniz VM’niz ile bağlantıyı kaybedebilirsiniz. Devam etmeden önce 5. adım için girilen bilgilerin doğru olduğundan emin olun.
 
-    * Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
+    * **Tamam**’a tıklayarak TCP/IP ayarlarını kapatın ve ardından tekrar **Tamam**’a tıklayarak bağdaştırıcı ayarlarını kapatın. RDP bağlantınız yeniden kurulur.
 
-6. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
+6. Bir komut isteminde *ipconfig/all* yazın. Eklediğiniz tüm IP adresleri gösterilir ve DHCP kapatılır.
 
 
-### <a name="validation-windows"></a>Validation (Windows)
+### <a name="validation-windows"></a>Doğrulama (Windows)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, once you have added it correctly using steps above, use the following command:
+İkincil IP yapılandırmanızdan, ona bağlı genel IP ile internet’e bağlanabildiğinizden emin olmak için, yukarıdaki adımları doğru şekilde kullanarak ekledikten sonra aşağıdaki komutu kullanın:
 
 ```bash
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+>Yapılandırma ile ilgili genel bir IP adresi varsa, ikincil IP yapılandırmaları için yalnızca Internet'e ping işlemi yapabilirsiniz. Birincil IP yapılandırmaları için bir ortak IP adresi, Internet'e ping işlemi yapmak için gerekli değildir.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. Open a terminal window.
-2. Make sure you are the root user. If you are not, enter the following command:
+1. Bir terminal penceresi açın.
+2. Kök kullanıcı olduğunuzdan emin olun. Kök kullanıcı değilseniz aşağıdaki komutu girin:
 
     ```bash
     sudo -i
     ```
 
-3. Update the configuration file of the network interface (assuming ‘eth0’).
+3. Ağ arabiriminin yapılandırma dosyasını güncelleştirin (‘eth0’ olduğu varsayılır).
 
-    * Keep the existing line item for dhcp. The primary IP address remains configured as it was previously.
-    * Add a configuration for an additional static IP address with the following commands:
+    * Dhcp için var olan satır öğesini tutun. Birincil IP adresi daha önce olduğu gibi yapılandırılmış olarak kalır.
+    * Aşağıdaki komutları kullanarak başka bir statik IP adresi için yapılandırma ekleyin:
 
         ```bash
         cd /etc/network/interfaces.d/
         ls
         ```
 
-    You should see a .cfg file.
-4. Open the file. You should see the following lines at the end of the file:
+    Bir .cfg dosyası görmeniz gerekir.
+4. Dosyayı açın. Dosyanın sonunda aşağıdaki satırları görmeniz gerekir:
 
     ```bash
     auto eth0
     iface eth0 inet dhcp
     ```
 
-5. Add the following lines after the lines that exist in this file:
+5. Bu dosyada mevcut satırların sonuna aşağıdaki satırları ekleyin:
 
     ```bash
     iface eth0 inet static
@@ -69,66 +69,66 @@ ping -S 10.0.0.5 hotmail.com
     netmask <your subnet mask>
     ```
 
-6. Save the file by using the following command:
+6. Aşağıdaki komutu kullanarak dosyayı kaydedin:
 
     ```bash
     :wq
     ```
 
-7. Reset the network interface with the following command:
+7. Aşağıdaki komutu kullanarak ağ arabirimini sıfırlayın:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
     > [!IMPORTANT]
-    > Run both ifdown and ifup in the same line if using a remote connection.
+    > Uzak bağlantı kullanıyorsanız aynı satırda hem ifdown hem de ifup komutunu çalıştırın.
     >
 
-8. Verify the IP address is added to the network interface with the following command:
+8. IP adresinin ağ arabirimine eklendiğini aşağıdaki komutla doğrulayın:
 
     ```bash
     ip addr list eth0
     ```
 
-    You should see the IP address you added as part of the list.
+    Listenin bir parçası olarak eklediğiniz IP adresini görmeniz gerekir.
 
-### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS, and others)
+### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS ve diğerleri)
 
-1. Open a terminal window.
-2. Make sure you are the root user. If you are not, enter the following command:
+1. Bir terminal penceresi açın.
+2. Kök kullanıcı olduğunuzdan emin olun. Kök kullanıcı değilseniz aşağıdaki komutu girin:
 
     ```bash
     sudo -i
     ```
 
-3. Enter your password and follow instructions as prompted. Once you are the root user, navigate to the network scripts folder with the following command:
+3. Parolanızı girin ve istenen yönergeleri izleyin. Kök kullanıcı olduktan sonra aşağıdaki komutla ağ betikleri klasörüne gidin:
 
     ```bash
     cd /etc/sysconfig/network-scripts
     ```
 
-4. List the related ifcfg files using the following command:
+4. Aşağıdaki komutu kullanarak ilgili ifcfg dosyalarını listeleyin:
 
     ```bash
     ls ifcfg-*
     ```
 
-    You should see *ifcfg-eth0* as one of the files.
+    Gördüğünüz dosyalardan biri *ifcfg-eth0* olmalıdır.
 
-5. To add an IP address, create a configuration file for it as shown below. Note that one file must be created for each IP configuration.
+5. Bir IP adresi eklemek için aşağıda gösterildiği gibi bir yapılandırma dosyası oluşturun. Her IP yapılandırması için bir dosya oluşturulmalıdır.
 
     ```bash
     touch ifcfg-eth0:0
     ```
 
-6. Open the *ifcfg-eth0:0* file with the following command:
+6. *ifcfg-eth0:0* dosyasını aşağıdaki komutla açın:
 
     ```bash
     vi ifcfg-eth0:0
     ```
 
-7. Add content to the file, *eth0:0* in this case, with the following command. Be sure to update information based on your IP address.
+7. Dosyaya (bu örnekte *eth0:0*) aşağıdaki komutla içerik ekleyin. Bilgileri IP adresine göre güncelleştirdiğinizden emin olun.
 
     ```bash
     DEVICE=eth0:0
@@ -138,32 +138,32 @@ ping -S 10.0.0.5 hotmail.com
     NETMASK=255.255.255.0
     ```
 
-8. Save the file with the following command:
+8. Aşağıdaki komutla dosyayı kaydedin:
 
     ```bash
     :wq
     ```
 
-9. Restart the network services and make sure the changes are successful by running the following commands:
+9. Ağ hizmetlerini yeniden başlatın ve aşağıdaki komutları kullanarak değişikliklerin başarılı olduğundan emin olun:
 
     ```bash
     /etc/init.d/network restart
     ifconfig
     ```
 
-    You should see the IP address you added, *eth0:0*, in the list returned.
+    Döndürülen listede eklemiş olduğunuz *eth0:0* IP adresini görmeniz gerekir.
 
-### <a name="validation-linux"></a>Validation (Linux)
+### <a name="validation-linux"></a>Doğrulama (Linux)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
+İkincil IP yapılandırmanızla ilişkili genel IP aracılığıyla İnternet’e bağlanabildiğinizden emin olmak için aşağıdaki komutu kullanın:
 
 ```bash
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+>Yapılandırma ile ilgili genel bir IP adresi varsa, ikincil IP yapılandırmaları için yalnızca Internet'e ping işlemi yapabilirsiniz. Birincil IP yapılandırmaları için bir ortak IP adresi, Internet'e ping işlemi yapmak için gerekli değildir.
 
-For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
+Linux sanal makineleri için, ikincil bir NIC’den giden bağlantıyı doğrulamaya çalışırken uygun yolları eklemeniz gerekebilir. Bunu yapmanın çok sayıda yolu vardır. Lütfen Linux dağıtımınız için uygun belgelere bakın. Bunu gerçekleştirmeye yönelik bir yöntem aşağıdaki gibidir:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
@@ -172,7 +172,7 @@ ip rule add from 10.0.0.5 lookup custom
 ip route add default via 10.0.0.1 dev eth2 table custom
 
 ```
-- Be sure to replace:
-    - **10.0.0.5** with the private IP address that has a public IP address associated to it
-    - **10.0.0.1** to your default gateway
-    - **eth2** to the name of your secondary NIC
+- Şunu değiştirdiğinizden emin olun:
+    - **10.0.0.5** adresini ilişkili bir genel IP adresi olan özel IP adresiyle
+    - **10.0.0.1** adresini varsayılan ağ geçidiniz ile
+    - **eth2** değerini ikincil NIC’nin adı ile

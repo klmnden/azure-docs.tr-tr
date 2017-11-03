@@ -1,3 +1,3 @@
-Name-value collection of custom properties. This collection is used to extend standard telemetry with the custom dimensions. Examples are deployment slot that produced telemetry or telemetry-item specific property like order number. 
+Özel özellikler koleksiyonu ad-değer. Bu koleksiyon, özel boyutlarla standart telemetri genişletmek için kullanılır. Sipariş numarası gibi belirli özelliği telemetri veya telemetri öğesi üretilen dağıtım yuvası örnektir. 
 
-Max key length: 150 Max value length: 8192
+En fazla anahtar uzunluğu: 150 en büyük değer uzunluğu: 8192

@@ -6,28 +6,29 @@ author: Durgaprasad-Budhwani
 manager: jhubbard
 editor: mimig1
 ms.service: cosmos-db
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: a7da42f4b84b77ad0a82004a56f7712c31567449
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: cb123107178f5e7c0207524c19331a6fa4658739
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Golang ve Azure portalıyla bir MongoDB API'si konsol uygulaması oluşturma
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz.
 
-Bu hızlı başlangıçta, [Golang](https://golang.org/) dilinde yazılmış mevcut bir [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) uygulamasını kullanma ve MongoDB istemci bağlantılarını destekleyen Azure Cosmos DB veritabanınıza bağlama işlemi gösterilmektedir.
+Bu hızlı başlangıçta, [Golang](https://golang.org/) dilinde yazılmış mevcut bir [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) uygulamasını kullanma ve MongoDB istemci bağlantılarını destekleyen Azure Cosmos DB veritabanınıza bağlama işlemi gösterilmektedir.
 
 Diğer bir deyişle, Golang uygulamanız yalnızca MongoDB API’lerini kullanarak bir veritabanına bağlandığını bilir. Verilerin Azure Cosmos DB'de depolandığı uygulamaya açıkça gösterilir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturun.
+- Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturun. 
+
+  [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 - [Go](https://golang.org/dl/) ve [Go](https://golang.org/) dilinde temel bilgi düzeyi.
 - Bir IDE: Jetbrains tarafından sağlanan [Gogland](https://www.jetbrains.com/go/), Microsoft tarafından sağlanan [Visual Studio Code](https://code.visualstudio.com/) veya [Atom](https://atom.io/). Bu öğreticide Goglang’i kullanıyorum.
 
@@ -244,4 +245,3 @@ Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı ve MongoDB API�
 
 > [!div class="nextstepaction"]
 > [MongoDB API'si için Azure Cosmos DB’ye veri aktarma](mongodb-migrate.md)
-

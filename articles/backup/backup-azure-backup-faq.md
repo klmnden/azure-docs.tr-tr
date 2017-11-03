@@ -1,4 +1,3 @@
-
 ---
 title: Azure Backup ile ilgili SSS | Microsoft Belgeleri
 description: "Kurtarma Hizmetleri kasaları, neleri yedekleyebilir, nasıl çalışır, şifreleme ve limitlerin dahil olduğu Azure Backup özellikleriyle ilgili yaygın soruların yanıtları. "
@@ -13,15 +12,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 7/21/2017
-ms.author: markgal;arunak;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/09/2017
-
+ms.author: markgal;arunak;trinadhk;sogup;
+ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede Azure Backup bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -47,7 +45,7 @@ Hayır. Kasa abonelik düzeyinde oluşturulur ve oluşturulduktan sonra başka b
 [Klasik portaldaki](https://manage.windowsazure.com) tüm mevcut Backup kasaları desteklenmeye devam etmektedir. Ancak, bundan böyle yeni Backup kasaları dağıtmak için klasik portalı kullanamazsınız. Gelecekteki iyileştirmeler yalnızca Kurtarma Hizmetleri kasaları için geçerli olacağından, Microsoft tüm dağıtımlar için Kurtarma Hizmetleri kasalarının kullanılmasını önerir. Klasik portalda bir Backup kasası oluşturmayı denerseniz, [Azure portalına](https://portal.azure.com) yönlendirilirsiniz.
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Bir Backup kasasının Kurtarma Hizmetleri kasasına geçişini sağlayabilir miyim? <br/>
-Ne yazık ki hayır, bir Backup kasasının içeriğini Kurtarma Hizmetleri kasasına geçiremezsiniz. Bu işlevi eklemeye yönelik çalışmalarımız devam ediyor ancak işlev şu anda kullanılamıyor.
+Evet, bir kurtarma Hizmetleri kasasına yedekleme kasası şimdi yükseltebilirsiniz. Ayrıntılar için makalesine başvurun [bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme](backup-azure-upgrade-backup-to-recovery-services.md).
 
 ### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Klasik VM’lerimi bir Backup kasasına yedekledim. VM’lerimi klasik moddan Resource Manager moduna geçirip bunları bir Kurtarma Hizmetleri kasasında koruyabilir miyim?
 Bir VM’yi klasikten Resource Manager moduna taşıdığınızda yedekleme kasasındaki klasik VM kurtarma noktaları, Kurtarma Hizmetleri kasasına otomatik olarak geçirilmez. VM yedeklerinizi aktarmak için bu adımları izleyin:
@@ -185,4 +183,3 @@ Azure Backup aracısını kullanırken şifreleme anahtarı en az 16 karakter ol
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>Şifreleme anahtarını kaybedersem ne olur? Verileri kurtarabilir miyim?/Microsoft, verileri kurtarabilir mi? <br/>
 Yedekleme verilerini şifrelemek için kullanılan anahtar yalnızca müşterinin şirketinde bulunur. Microsoft, Azure üzerinde anahtarın bir kopyasını tutmaz ve anahtara erişim sahibi değildir. Müşteri, anahtarı kaybederse Microsoft, yedekleme verilerini kurtaramaz.
-

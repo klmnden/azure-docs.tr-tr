@@ -1,6 +1,6 @@
-In Copy Activity, when source is of type **FileSystemSource**, the following properties are available in typeProperties section:
+Kopyalama etkinliğinde kaynak türü olduğunda, **FileSystemSource**, typeProperties bölümünde aşağıdaki özellikler kullanılabilir:
 
-| Property | Description | Allowed values | Required |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True, False (default) |No |
+| Özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |TRUE, False (varsayılan) |Hayır |
 

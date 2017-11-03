@@ -3,25 +3,25 @@ title: Azure Application Insights nedir? | Microsoft Belgeleri
 description: "Uygulama Performansı Yönetimi ve canlı web uygulamanızın kullanımını izleme.  Sorunları algılayın, önceliklendirin ve tanılayın; kullanıcıların uygulamanızı nasıl kullandığını anlayın."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
+ms.custom: mvc
 ms.date: 05/14/2017
-ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: d06bb37ba38ad7bc2b9b3c5c09b45be6c7fd17bb
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/17/2017
-
+ms.author: mbullwin
+ms.openlocfilehash: 7910540add4092e1b5822a7525bec912befd80e7
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-is-application-insights"></a>Application Insights nedir?
-Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. devOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır.
+Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. DevOps işleminizi ile tümleşir ve geliştirme araçları, çeşitli bağlantı noktalarına sahiptir. Bunu izlemek ve Visual Studio mobil merkezi ve HockeyApp ile tümleştirerek mobil uygulamalarından telemetri çözümleyebilirsiniz.
 
 ![Kullanıcı etkinliği istatistiklerinin grafiğini oluşturun veya belirli olayları ayrıntısına gidin.](./media/app-insights-overview/00-sample.png)
 
@@ -117,6 +117,7 @@ Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yönt
   * [Node.js](app-insights-nodejs.md)
   * [Diğer platformlar](app-insights-platforms.md)
 * Sayfa görütüleme, AJAX ve diğer istemci tarafı telemetri verileri bakımından **[web sayfalarınızı izleyin](app-insights-javascript.md)**.
+* **[Mobil uygulama kullanımı çözümlemek](app-insights-mobile-center-quickstart.md)**  Visual Studio mobil Center ile tümleştirme tarafından.
 * **[Kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md)**: Sunucularımızdan web sitenize düzenli aralıklarla ping gönderin.
 
 
@@ -163,4 +164,3 @@ Geliştirme zamanında şunlarla kullanmaya başlayın:
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-

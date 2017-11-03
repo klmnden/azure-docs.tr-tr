@@ -1,4 +1,4 @@
 |  |
 |--|
-|Managed Service Identity (MSI) is currently a preview feature of Azure Active Directory and is for evaluation purposes only. MSI is deploying to regions globally and may take time to appear in your region. Make sure you review the [known issues](/azure/active-directory/msi-known-issues) before you begin. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|Yönetilen Hizmet Kimliği (MSI), Azure Active Directory’nin bir önizleme özelliğidir.  Gözden geçirmeniz emin olun [bilinen sorunlar](/azure/active-directory/msi-known-issues) başlamadan önce. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları'nı Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |  |

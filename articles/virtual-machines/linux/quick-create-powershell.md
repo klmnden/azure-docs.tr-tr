@@ -10,20 +10,18 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 6c9a50c1f3dcd55cd03a694c7d4e13b8a55c3cd4
-ms.contentlocale: tr-tr
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: fdd83f2386055fa9fac1ad50f4b01bf4419342b5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/16/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>PowerShell ile Linux sanal makinesi oluşturma
 
 Azure PowerShell modülü, PowerShell komut satırından veya betik içinden Azure kaynakları oluşturmak ve yönetmek için kullanılır. Bu kılavuzda Ubuntu sunucusu çalıştıran bir sanal makineyi Azure PowerShell modülü kullanarak dağıtma işleminin ayrıntıları verilmektedir. Sunucu dağıtıldıktan sonra bir SSH bağlantısı oluşturulur ve bir NGINX web sunucusu yüklenir.
@@ -33,6 +31,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
 
 Son olarak, Windows kullanıcı profilinizin *.ssh* dizininde *id_rsa.pub* adlı bir ortak SSH anahtarının depolanması gerekir. Azure için SSH anahtarları oluşturma hakkında ayrıntılı bilgi için bkz. [Azure için SSH anahtarları oluşturma](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -140,16 +139,14 @@ Sorulduğunda, kullanıcı adı *azureuser* olarak girilmelidir. SSH anahtarlar�
 
 ## <a name="install-nginx"></a>NGINX yükleme
 
-Paket kaynaklarını güncelleştirmek ve en son NGINX paketini yüklemek için aşağıdaki bash betiğini kullanın. 
+Paket kaynaklarını güncelleştirmek ve en son NGINX paketini yüklemek için aşağıdaki komutları kullanın. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## <a name="view-the-ngix-welcome-page"></a>NGIX karşılama sayfasını görüntüleme
@@ -172,4 +169,3 @@ Bu hızlı başlangıçta basit bir sanal makine ve bir ağ güvenlik grubu kura
 
 > [!div class="nextstepaction"]
 > [Azure Linux sanal makine öğreticileri](./tutorial-manage-vm.md)
-

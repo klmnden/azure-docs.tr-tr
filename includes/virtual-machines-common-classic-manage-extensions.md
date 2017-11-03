@@ -1,37 +1,37 @@
 
 
 
-## <a name="using-vm-extensions"></a>Using VM Extensions
-Azure VM Extensions implement behaviors or features that either help other programs work on Azure VMs (for example, the **WebDeployForVSDevTest** extension allows Visual Studio to Web Deploy solutions on your Azure VM) or provide the ability for you to interact with the VM to support some other behavior (for example, you can use the VM Access extensions from PowerShell, the Azure CLI, and REST clients to reset or modify remote access values on your Azure VM).
+## <a name="using-vm-extensions"></a>VM uzantıları kullanma
+Azure VM uzantıları uygulamak davranışları veya ya da Azure Vm'lerde iş diğer programları yardımcı olan özellikleri (örneğin, **WebDeployForVSDevTest** uzantısı Visual Studio Web dağıtımı çözümleri, Azure VM'de izin verir) veya sağlayın başka bir davranışı destek yeteneği, VM ile etkileşim kurmak (örneğin, PowerShell, Azure CLI ve REST istemcilerden VM erişim uzantıları sıfırlama veya Azure VM üzerinde uzaktan erişim değerlerini değiştirmek için kullanabileceğiniz).
 
 > [!IMPORTANT]
-> For a complete list of extensions by the features they support, see [Azure VM Extensions and Features](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Because each VM extension supports a specific feature, exactly what you can and cannot do with an extension depends on the extension. Therefore, before modifying your VM, make sure you have read the documentation for the VM Extension you want to use. Removing some VM Extensions is not supported; others have properties that can be set that change VM behavior radically.
+> Uzantılar destekledikleri özellikleri için tam bir listesi için bkz: [Azure VM uzantıları ve özellikleri](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Her VM uzantısı belirli bir özelliği desteklediğinden, tam olarak ne yapıp uzantılı olamaz uzantısı bağlıdır. Bu nedenle, VM değiştirmeden önce kullanmak istediğiniz VM uzantısı belgelerini okuyun emin olun. Bazı VM uzantıları kaldırma desteklenmiyor; diğer VM davranışı tüketicisinin değiştirmek ayarlanabilir özelliklere sahiptir.
 > 
 > 
 
-The most common tasks are:
+En yaygın görevleri şunlardır:
 
-1. Finding Available Extensions
-2. Updating Loaded Extensions
-3. Adding Extensions
-4. Removing Extensions
+1. Kullanılabilir uzantılar bulma
+2. Yüklenen uzantıları güncelleştiriliyor
+3. Uzantılar ekleme
+4. Uzantılarını kaldırma
 
-## <a name="find-available-extensions"></a>Find Available Extensions
-You can locate extension and extended information using:
+## <a name="find-available-extensions"></a>Kullanılabilir uzantılar bulun
+Uzantı ve genişletilmiş bilgileri kullanarak bulabilirsiniz:
 
 * PowerShell
-* Azure Cross-Platform Command Line Interface (Azure CLI)
-* Service Management REST API
+* Azure platformlar arası komut satırı arabirimi (Azure CLI)
+* Hizmet Yönetimi REST API'si
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Some extensions have PowerShell cmdlets that are specific to them, which may make their configuration from PowerShell easier; but the following cmdlets work for all VM extensions.
+Bazı uzantılar yapılandırmalarını Powershell'den daha kolay hale getirebilir kendilerine özgü PowerShell cmdlet'lerini; yine de sahip istiyor musunuz? ancak tüm VM uzantıları için aşağıdaki cmdlet'leri çalışma.
 
-You can use the following cmdlets to obtain information about available extensions:
+Kullanılabilir uzantılar hakkında bilgi edinmek için aşağıdaki cmdlet'leri kullanın:
 
-* For instances of web roles or worker roles, you can use the [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) cmdlet.
-* For instances of Virtual Machines, you can use the [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/library/azure/dn722480.aspx) cmdlet.
+* İçin kullanabileceğiniz web rolleri veya çalışan rolleri örneklerini, [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) cmdlet'i.
+* İçin kullanabileceğiniz sanal makineleri örnekleri, [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/library/azure/dn722480.aspx) cmdlet'i.
   
-   For example, the following code example shows how to list the information for the **IaaSDiagnostics** extension using PowerShell.
+   Örneğin, aşağıdaki kod örneğinde bilgilerini listelemek gösterilmiştir **IaaSDiagnostics** PowerShell kullanarak uzantısı.
   
       PS C:\> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
   
@@ -54,12 +54,12 @@ You can use the following cmdlets to obtain information about available extensio
       PublishedDate               :
       CompanyName                 :
 
-### <a name="azure-command-line-interface-azure-cli"></a>Azure Command Line Interface (Azure CLI)
-Some extensions have Azure CLI commands that are specific to them (the Docker VM Extension is one example), which may make their configuration easier; but the following commands work for all VM extensions.
+### <a name="azure-command-line-interface-azure-cli"></a>Azure komut satırı arabirimi (Azure CLI)
+Kendilerine özgü Azure CLI komutlarının bazı uzantılar vardır (Docker VM uzantısı bir örnek, yapılandırmalarını daha kolay hale getirebilir olması); Ancak, aşağıdaki komutlar için tüm VM uzantıları çalışır.
 
-You can use the **azure vm extension list** command to obtain information about available extensions, and use the **–-json** option to display all available information about one or more extensions. If you do not use an extension name, the command returns a JSON description of all available extensions.
+Kullanabileceğiniz **azure vm uzantısı listesinde** kullanılabilir uzantıları hakkında bilgi edinme ve kullanma komutu **–-json** bir veya daha fazla uzantıları hakkında tüm kullanılabilir bilgi görüntülemek için seçeneği. Bir uzantı adı kullanmıyorsanız komutu tüm kullanılabilir uzantıları JSON açıklamasını döndürür.
 
-For example, the following code example shows how to list the information for the **IaaSDiagnostics** extension using the Azure CLI **azure vm extension list** command and uses the **–-json** option to return complete information.
+Örneğin, aşağıdaki kod örneğinde bilgilerini listelemek gösterilmiştir **IaaSDiagnostics** uzantısını Azure CLI kullanarak **azure vm uzantısı listesinde** komut ve kullandığı **–-json**  tam bilgi almak için seçeneği.
 
     $ azure vm extension list -n IaaSDiagnostics --json
     [
@@ -76,33 +76,33 @@ For example, the following code example shows how to list the information for th
 
 
 
-### <a name="service-management-rest-apis"></a>Service Management REST APIs
-You can use the following REST APIs to obtain information about available extensions:
+### <a name="service-management-rest-apis"></a>Hizmet Yönetimi REST API'leri
+Kullanılabilir uzantılar hakkında bilgi edinmek için aşağıdaki REST API'ler kullanabilirsiniz:
 
-* For instances of web roles or worker roles, you can use the [List Available Extensions](https://msdn.microsoft.com/library/dn169559.aspx) operation. To list the versions of available extensions, you can use [List Extension Versions](https://msdn.microsoft.com/library/dn495437.aspx).
-* For instances of Virtual Machines, you can use the [List Resource Extensions](https://msdn.microsoft.com/library/dn495441.aspx) operation. To list the versions of available extensions, you can use [List Resource Extension Versions](https://msdn.microsoft.com/library/dn495440.aspx).
+* İçin kullanabileceğiniz web rolleri veya çalışan rolleri örneklerini, [listesi kullanılabilir uzantıları](https://msdn.microsoft.com/library/dn169559.aspx) işlemi. Kullanılabilir uzantılar sürümleri listelemek için kullanabileceğiniz [listesi uzantısı sürümleri](https://msdn.microsoft.com/library/dn495437.aspx).
+* İçin kullanabileceğiniz sanal makineleri örnekleri, [listesi kaynak uzantıları](https://msdn.microsoft.com/library/dn495441.aspx) işlemi. Kullanılabilir uzantılar sürümleri listelemek için kullanabileceğiniz [listesi kaynak uzantısı sürümleri](https://msdn.microsoft.com/library/dn495440.aspx).
 
-## <a name="add-update-or-disable-extensions"></a>Add, Update, or Disable Extensions
-Extensions can be added when an instance is created or they can be added to a running instance. Extensions can be updated, disabled, or removed. You can perform these actions by using Azure PowerShell cmdlets or by using the Service Management REST API operations. Parameters are required to install and set up some extensions. Public and private parameters are supported for extensions.
+## <a name="add-update-or-disable-extensions"></a>Ekleme, güncelleştirme ya da uzantılarını devre dışı bırakma
+Uzantıları örneği oluşturulduğunda veya çalışan bir örneğine eklenen eklenebilir. Uzantıları güncelleştirildi, devre dışı veya kaldırılabilir. Azure PowerShell cmdlet'lerini kullanarak veya hizmet yönetimi REST API işlemleri kullanarak bu eylemleri gerçekleştirebilir. Parametreleri yüklemek ve bazı uzantılar ayarlamak için gereklidir. Ortak ve özel parametreleri uzantılar için desteklenir.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Using Azure PowerShell cmdlets is the easiest way to add and update extensions. When you use the extension cmdlets, most of the configuration of the extension is done for you. At times, you may need to programmatically add an extension. When you need to do this, you must provide the configuration of the extension.
+Azure PowerShell cmdlet'lerini kullanarak, Ekle ve uzantıları güncelleştirmek için kolay bir yoludur. Uzantı cmdlet'leri kullandığınızda, uzantı yapılandırmasını çoğunu yapılır sizin için. Bazen, bir uzantı programlı olarak eklemeniz gerekebilir. Bunu yapmak gereksinim duyduğunuzda uzantısı yapılandırma sağlamanız gerekir.
 
-You can use the following cmdlets to know whether an extension requires a configuration of public and private parameters:
+Uzantı genel ve özel parametrelerinin yapılandırması gerekli olup olmadığını öğrenmek için aşağıdaki cmdlet'leri kullanın:
 
-* For instances of web roles or worker roles, you can use the **Get-AzureServiceAvailableExtension** cmdlet.
-* For instances of Virtual Machines, you can use the **Get-AzureVMAvailableExtension** cmdlet.
+* İçin kullanabileceğiniz web rolleri veya çalışan rolleri örneklerini, **Get-AzureServiceAvailableExtension** cmdlet'i.
+* İçin kullanabileceğiniz sanal makineleri örnekleri, **Get-AzureVMAvailableExtension** cmdlet'i.
 
-### <a name="service-management-rest-apis"></a>Service Management REST APIs
-When you retrieve a listing of available extensions by using the REST APIs, you receive information about how the extension is to be configured. The information that is returned might show parameter information represented by a public schema and private schema. Public parameter values are returned in queries about the instances. Private parameter values are not returned.
+### <a name="service-management-rest-apis"></a>Hizmet Yönetimi REST API'leri
+REST API'lerini kullanarak kullanılabilir uzantıları listesini almak için uzantı nasıl yapılandırılması hakkında bilgi alıyorsunuz. Döndürülen bilgilerin bir ortak şema ve özel şema tarafından temsil edilen parametre bilgilerini gösterebilir. Ortak parametre değerlerini örnekleri hakkında sorgularda döndürülür. Özel parametre değerlerini döndürülmez.
 
-You can use the following REST APIs to know whether an extension requires a configuration of public and private parameters:
+Uzantı genel ve özel parametrelerinin yapılandırması gerekli olup olmadığını öğrenmek için aşağıdaki REST API'ler kullanabilirsiniz:
 
-* For instances of web roles or worker roles, the **PublicConfigurationSchema** and **PrivateConfigurationSchema** elements contain the information in the response from the [List Available Extensions](https://msdn.microsoft.com/library/dn169559.aspx) operation.
-* For instances of Virtual Machines, the **PublicConfigurationSchema** and **PrivateConfigurationSchema** elements contain the information in the response from the [List Resource Extensions](https://msdn.microsoft.com/library/dn495441.aspx) operation.
+* İçin web rolleri veya çalışan rolleri örneklerini **PublicConfigurationSchema** ve **PrivateConfigurationSchema** öğeleri içeren yanıttan bilgileri [listesi kullanılabilir Uzantıları](https://msdn.microsoft.com/library/dn169559.aspx) işlemi.
+* İçin sanal makine örneklerini **PublicConfigurationSchema** ve **PrivateConfigurationSchema** öğeleri içeren yanıttan bilgileri [listesi kaynak Uzantıları](https://msdn.microsoft.com/library/dn495441.aspx) işlemi.
 
 > [!NOTE]
-> Extensions can also use configurations that are defined with JSON. When these types of extensions are used, only the **SampleConfig** element is used.
+> Uzantılar, JSON ile tanımlanan yapılandırmaları da kullanabilirsiniz. Bu tür uzantıları kullanıldığında, yalnızca **SampleConfig** öğe kullanılır.
 > 
 > 
 

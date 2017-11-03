@@ -1,22 +1,22 @@
-## <a name="customize-and-extend-the-device-management-actions"></a>Customize and extend the device management actions
+## <a name="customize-and-extend-the-device-management-actions"></a>Özelleştirme ve aygıt yönetimi eylemleri genişletme
 
-Your IoT solutions can expand the defined set of device management patterns or enable custom patterns by using the device twin and cloud-to-device method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.
+IOT çözümlerinizi aygıt yönetimi desenleri tanımlı kümesini genişletin veya özel desenler cihaz çifti ve bulut-cihaz yöntemi temelleri kullanarak etkinleştirin. Aygıt Yönetimi eylemleri diğer örnekleri Fabrika sıfırlaması, ürün yazılımı güncelleştirmesi, yazılım güncelleştirmesi, güç yönetimi, ağ ve bağlantı yönetimi ve veri şifrelemesi içerir.
 
-## <a name="device-maintenance-windows"></a>Device maintenance windows
+## <a name="device-maintenance-windows"></a>Cihaz bakım pencereleri
 
-Typically, you configure devices to perform actions at a time that minimizes interruptions and downtime. Device maintenance windows are a commonly used pattern to define the time when a device should update its configuration. Your back-end solutions can use the desired properties of the device twin to define and activate a policy on your device that enables a maintenance window. When a device receives the maintenance window policy, it can use the reported property of the device twin to report the status of the policy. The back-end app can then use device twin queries to attest to compliance of devices and each policy.
+Genellikle, cihazların kesintiler ve kapalı kalma süresini en aza indiren aynı anda eylemleri gerçekleştirmek üzere yapılandırın. Cihaz bakım pencereleri zaman bir aygıt yapılandırmasını güncelleştirmeniz gerekir zaman tanımlamak için yaygın olarak kullanılan bir desen ' dir. Arka uç çözümlerinizi cihaz çifti istenen özelliklerini tanımlamak ve bir ilke bir bakım penceresi sağlar, Cihazınızda etkinleştirmek için kullanabilirsiniz. Bir aygıt bakım penceresi İlkesi aldığında, bu ilkenin durumunu bildirmek için cihaz çiftinin bildirilen özelliğini kullanabilirsiniz. Arka uç uygulama için cihazlar ve her ilke uyumluluğunu şifreli olarak cihaz çiftine sorguları daha sonra kullanabilirsiniz.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-In this tutorial, you used a direct method to trigger a remote reboot on a device. You used the reported properties to report the last reboot time from the device, and queried the device twin to discover the last reboot time of the device from the cloud.
+Bu öğreticide, bir cihazda Uzaktan yeniden başlatma tetiklemek için doğrudan bir yöntem kullanılır. Son yeniden başlatma zamanı aygıttan raporlamak için bildirilen özellikler kullanılan ve buluttan cihaza son yeniden başlatma zamanı bulmak için cihaz çifti sorgulanan.
 
-To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see:
+IOT Hub ve Uzaktan gibi cihaz yönetim düzenleri hava bellenim güncelleştirme kullanmaya Başlarken devam etmek için bkz:
 
-[Tutorial: How to do a firmware update][lnk-fwupdate]
+[Öğretici: bir üretici yazılımı güncelleştirmesi yapma][lnk-fwupdate]
 
-To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
+Çözüm ve zamanlama yöntemini çağıran birden fazla cihazda, IOT genişletmek öğrenmek için bkz: [zamanlama ve yayın işleri] [ lnk-tutorial-jobs] Öğreticisi.
 
-To continue getting started with IoT Hub, see [Getting started with IoT Edge][lnk-iot-edge].
+IOT Hub ile çalışmaya başlama devam etmek için bkz: [IOT Edge ile çalışmaya başlama][lnk-iot-edge].
 
 [lnk-fwupdate]: ../articles/iot-hub/iot-hub-node-node-firmware-update.md
 [lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md

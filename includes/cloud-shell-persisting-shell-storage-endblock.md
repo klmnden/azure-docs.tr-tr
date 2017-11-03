@@ -1,19 +1,19 @@
-## <a name="transfer-local-files-to-cloud-shell"></a>Transfer local files to Cloud Shell
-The `clouddrive` directory syncs with the Azure portal storage blade. Use this blade to transfer local files to or from your file share. Updating files from within Cloud Shell is reflected in the file storage GUI when you refresh the blade.
+## <a name="transfer-local-files-to-cloud-shell"></a>Bulut kabuğu için yerel dosya aktarımı
+`clouddrive` Dizin eşitlemeler Azure portal depolama dikey ile. Bu dikey veya dosya paylaşımından yerel dosyalar aktarmak için kullanın. Dikey yenilediğinizde bulut Kabuk içinde dosyalar dosya depolama GUI yansıtılır.
 
-### <a name="download-files"></a>Download files
+### <a name="download-files"></a>Dosyaları indirme
 
-![List of local files](../articles/cloud-shell/media/persisting-shell-storage/download.png)
-1. In the Azure portal, go to the mounted file share.
-2. Select the target file.
-3. Select the **Download** button.
+![Yerel dosya listesi](../articles/cloud-shell/media/persisting-shell-storage/download.png)
+1. Azure portalında bağlı dosya paylaşımına gidin.
+2. Hedef dosya seçin.
+3. Seçin **karşıdan** düğmesi.
 
-### <a name="upload-files"></a>Upload files
+### <a name="upload-files"></a>Dosyaları karşıya yükleme
 
-![Local files to be uploaded](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
-1. Go to your mounted file share.
-2. Select the **Upload** button.
-3. Select the file or files that you want to upload.
-4. Confirm the upload.
+![Karşıya yüklenecek yerel dosyaları](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
+1. Bağlı dosya paylaşımına gidin.
+2. Seçin **karşıya** düğmesi.
+3. Dosya veya karşıya yüklemek istediğiniz dosyaları seçin.
+4. Karşıya yükleme onaylayın.
 
-You should now see the files that are accessible in your `clouddrive` directory in Cloud Shell.
+İçinde erişilebilir olan dosyaların görmelisiniz, `clouddrive` bulut Kabuğu'nda dizin.

@@ -1,32 +1,32 @@
 <!--author=alkohli last changed: 07/05/2017-->
 
 > [!NOTE] 
-> You cannot modify the encryption settings and the storage account credentials associated with a volume container after it is created.
+> Şifreleme ayarları ve oluşturulduktan sonra bir birim kapsayıcısı ile ilişkili depolama hesabının kimlik bilgilerini değiştiremezsiniz.
 
-#### <a name="to-modify-a-volume-container"></a>To modify a volume container
+#### <a name="to-modify-a-volume-container"></a>Birim kapsayıcısı değiştirmek için
 
-1. Go to your StorSimple Device Manager service and then navigate to **Management > Volume containers**.
+1. StorSimple cihaz Yöneticisi hizmetinize gidin ve ardından gidin **Yönetim > birim kapsayıcıları**.
 
-2. From the tabular list of volume containers, select the volume container you want to modify. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
+2. Birim kapsayıcıları Tablo listesinden değiştirmek istediğiniz birim kapsayıcısı seçin. Üzerinde **aygıtları** sayfasında, cihazı seçin, çift tıklayın ve ardından **birim kapsayıcıları** sekmesi.
 
-2. In the tabular listing of the volume containers, select the volume container that you want to modify. In the blade that opens up, click **Modify** from the command bar.
+2. Birim kapsayıcıları Tablo listesinde değiştirmek istediğiniz birim kapsayıcısı seçin. Açılan dikey penceresinde, tıklayın **Değiştir** komut çubuğundan.
 
-    ![Modify volume container](./media/storsimple-8000-modify-volume-container/modify-vol-container1.png)
+    ![Birim kapsayıcısı değiştirme](./media/storsimple-8000-modify-volume-container/modify-vol-container1.png)
 
-3. In the **Modify Volume container** blade, do the following steps:
+3. İçinde **değiştirmek birim kapsayıcısı** dikey penceresinde, aşağıdaki adımları uygulayın:
    
-   1. The name, encryption key, and storage account associated with the volume container cannot be changed after they are specified. Change the associated bandwidth setting.
+   1. Belirtilen sonra adı, şifreleme anahtarı ve birim kapsayıcısı ile ilişkili depolama hesabı değiştirilemez. İlişkili bant genişliği ayarı değiştirin.
       
-       ![Change bandwidth setting](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
+       ![Bant genişliği ayarı Değiştir](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
 
-   2.  Click **OK**.
-4. In the next page of the **Modify Volume Container** dialog box:
+   2.  **Tamam** düğmesine tıklayın.
+4. Sonraki sayfada **değiştirmek birim kapsayıcısı** iletişim kutusunda:
    
-   1. From the drop-down list, choose an existing bandwidth template.
-   2. Review the schedule settings for the specified bandwidth template.
-   3. Click **Save** and confirm the changes.
+   1. Aşağı açılan listeden var olan bir bant genişliği şablonu seçin.
+   2. Belirtilen bant genişliği şablonu zamanlama ayarlarını gözden geçirin.
+   3. Tıklatın **kaydetmek** ve değişiklikleri onaylayın.
       
-       ![Confirm changes](./media/storsimple-8000-modify-volume-container/modify-vol-container3.png)
+       ![Değişiklikleri onaylamak](./media/storsimple-8000-modify-volume-container/modify-vol-container3.png)
 
-   3. The **Volume containers** blade is updated to reflect the changes.
+   3. **Birim kapsayıcıları** dikey değişiklikleri yansıtacak şekilde güncelleştirilir.
 

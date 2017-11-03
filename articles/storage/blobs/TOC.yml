@@ -18,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: Blob’larla çalışma - .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Blob’larla çalışma - Java
+      href: storage-quickstart-blobs-java.md
     - name: Bloblarla çalışma - Python
       href: storage-quickstart-blobs-python.md
 - name: Öğreticiler

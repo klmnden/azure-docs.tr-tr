@@ -1,19 +1,19 @@
-The following table lists the limits that apply to IoT Hub Device Provisioning Service resources:
+Aşağıdaki tabloda, IOT Hub cihaz hizmeti sağlama kaynaklara uygulamak sınırları listelenmektedir:
 
-| Resource | Limit |
+| Kaynak | Sınır |
 | --- | --- |
-| Maximum Device Provisioning Services per Azure subscription | 10 |
-| Maximum number of enrollments | 10,000 |
-| Maximum number of registrations | 10,000 |
-| Maximum number of enrollment groups | 100 |
-| Maximum number of CAs | 10 |
+| En fazla cihaz hizmetleri sağlama Azure abonelik başına | 10 |
+| Kayıtları maksimum sayısı | 10,000 |
+| Kayıtlar maksimum sayısı | 10,000 |
+| En fazla sayıda kayıt grubu | 100 |
+| En çok sayıda CA | 10 |
 
 > [!NOTE]
-> These limits are for public preview. Once the service is generally available, you can contact [Microsoft Support](https://azure.microsoft.com/support/options/) to increase the number of instances in your subscription.
+> Bu sınırı genel önizlemesi için mevcuttur. Hizmeti genel olarak kullanılabilir olduğunda başvurabilirsiniz [Microsoft Support](https://azure.microsoft.com/support/options/) aboneliğinizde örneklerinin sayısını artırmak için.
 
-The Device Provisioning Service throttles requests when the following quotas are exceeded:
+Aşağıdaki kotalar aşıldığında aygıtı sağlama hizmeti istek kısıtlar:
 
-| Throttle | Per-service value |
+| Kısıtlama | Hizmet başına değer |
 | --- | --- |
-| Operations | 100/min |
-| Device registrations | 100/min |
+| İşlemler | 100/dak |
+| Cihaz kayıtları | 100/dak |

@@ -1,18 +1,18 @@
-In this step, you create a firewall rule to open the probe port for the load-balanced endpoint (59999, as specified earlier) and another rule to open the availability group listener port. Because you created the load-balanced endpoint on the VMs that contain availability group replicas, you need to open the probe port and the listener port on the respective VMs.
+Bu adımda, yük dengeli uç nokta için (daha önce belirtildiği gibi 59999) araştırma bağlantı noktasını açmak için bir güvenlik duvarı kuralı oluşturun ve kullanılabilirlik grubu dinleyicisinin bağlantı noktası açmak için başka bir kural. Kullanılabilirlik grubu çoğaltmalarının içeren sanal makinelerin yük dengeli uç nokta oluşturduğundan sonda bağlantı noktası ve ilgili VM'ler dinleyicisi bağlantı noktası açmanız gerekir.
 
-1. On VMs that host replicas, start **Windows Firewall with Advanced Security**.
+1. Çoğaltmaları barındıran Vm'lerinde Başlat **Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı**.
 
-2. Right-click **Inbound Rules**, and then click **New Rule**.
+2. Sağ **gelen kuralları**ve ardından **yeni kural**.
 
-3. On the **Rule Type** page, select **Port**, and then click **Next**.
+3. Üzerinde **kural türü** sayfasında, **bağlantı noktası**ve ardından **sonraki**.
 
-4. On the **Protocol and Ports** page, select **TCP**, type **59999** in the **Specific local ports** box, and then click **Next**.
+4. Üzerinde **protokol ve bağlantı noktaları** sayfasında, **TCP**, türü **59999** içinde **belirli yerel bağlantı noktaları** kutusuna ve ardından  **Sonraki**.
 
-5. On the **Action** page, keep **Allow the connection** selected, and then click **Next**.
+5. Üzerinde **eylem** sayfasında, tutmak **bağlantıya izin** seçili ve ardından **sonraki**.
 
-6. On the **Profile** page, accept the default settings, and then click **Next**.
+6. Üzerinde **profil** sayfasında, varsayılan ayarları kabul edin ve ardından **sonraki**.
 
-7. On the **Name** page, in the **Name** text box, specify a rule name, such as **Always On Listener Probe Port**, and then click **Finish**.
+7. Üzerinde **adı** sayfasında **adı** metin kutusunda, bir kural adı gibi belirtin **her zaman dinleyicisi yoklama bağlantı noktası**ve ardından **son**.
 
-8. Repeat the preceding steps for the availability group listener port (as specified earlier in the $EndpointPort parameter of the script), and then specify an appropriate rule name, such as **Always On Listener Port**.
+8. Kullanılabilirlik grubu dinleyicisinin bağlantı noktası (daha önce komut dosyasının $EndpointPort parametresinde belirtildiği şekilde) için önceki adımları yineleyin ve uygun kural adı gibi belirtin **her zaman dinleyicisi bağlantı noktası**.
 

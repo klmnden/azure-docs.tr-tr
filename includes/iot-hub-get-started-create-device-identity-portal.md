@@ -1,27 +1,27 @@
-## <a name="create-a-device-identity"></a>Create a device identity
+## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
 
-In this section, you use the [Azure portal][lnk-azure-portal] to create a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide][lnk-devguide-identity]. The **Device Explorer** in the portal helps you generate a unique device ID and key that your device can use to identify itself when it connects to IoT Hub. Device IDs are case sensitive.
+Bu bölümde, kullandığınız [Azure portal] [ lnk-azure-portal] IOT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği oluşturmak için. Kimlik kayıt defterinde girişi olmayan bir cihaz IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub geliştirici kılavuzunun][lnk-devguide-identity] "Kimlik kayıt defteri" bölümüne bakın. **Aygıt Explorer** benzersiz cihaz kimliği ve Cihazınızı IOT Hub'ına bağlandığında, kendini tanıtmak için kullanabileceğiniz anahtar portal yardımcı olur, oluşturur. Cihaz Kimlikleri büyük/küçük harfe duyarlıdır.
 
-1. Make sure you are signed in to the [Azure portal][lnk-azure-portal].
+1. Emin olun oturum açmaya için [Azure portal][lnk-azure-portal].
 
-1. In the Jumpbar, click **All resources** and find your IoT hub resource.
+1. Çubuğunda **tüm kaynakları** ve IOT hub'ı kaynağınız bulabilirsiniz.
 
-    ![Navigate to your Iot hub][img-find-iothub]
+    ![IOT hub'ına gidin][img-find-iothub]
 
-1. When your IoT hub resource is opened, click the **Device Explorer** tool, and then click **Add** at the top. Provide the name for your new device, such as **myDeviceId**, and click **Save**.
+1. IOT hub'ı kaynağınız açıldığında tıklatın **aygıt Explorer** aracı ve ardından **Ekle** üstünde. İçin yeni Cihazınızı gibi ad **myDeviceId**, tıklatıp **kaydetmek**.
 
-    ![Create device identity in portal][img-create-device]
+    ![Portalda cihaz kimliği oluşturma][img-create-device]
 
-   This creates a new device identity for your IoT hub.
+   Bu IOT hub'ınız için yeni bir cihaz kimliği oluşturur.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. In the **Device Explorer**'s device list, click the newly created device and make note of the **Connection string---primary key**. 
+1. İçinde **aygıt Explorer**'s aygıt listesinde yeni oluşturulan cihaz ve Not **bağlantı dizesi---birincil anahtar**. 
 
-    ![Device connection string][img-connection-string]
+    ![Cihaz bağlantı dizesi][img-connection-string]
 
 > [!NOTE]
-> The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials, and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. For more information, see [IoT Hub developer guide][lnk-devguide-identity].
+> IoT Hub kimlik kayıt defteri, yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz kimliklerini depolar. Güvenlik kimlik bilgileri olarak kullanılmak üzere cihaz kimliklerini ve anahtarlarını ve tek bir cihaza erişimi devre dışı bırakmak için kullanabileceğiniz etkin/devre dışı bayrağını depolar. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir. Daha fazla bilgi için bkz. [IoT Hub geliştirici kılavuzu][lnk-devguide-identity].
 
 <!-- Images. -->
 [img-find-iothub]: ./media/iot-hub-get-started-create-device-identity-portal/find-iothub.png

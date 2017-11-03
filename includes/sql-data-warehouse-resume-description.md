@@ -10,10 +10,10 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-powershell
 articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 -->
-When you resume a database:
+Ne zaman bir veritabanı sürdürülemedi:
 
-* SQL Data Warehouse acquires compute and memory resources for your DWU setting.
-* Compute charges for your DWUs resume.
-* Your data will be available.
-* You will need to restart your workload queries.
+* SQL veri ambarı DWU ayarınız için bilgi işlem ve bellek kaynakları alır.
+* Dwu'larınızı ücretleri devam işlem.
+* Verilerinizi kullanılabilir.
+* İş yükü sorgularınızı yeniden başlatmanız gerekir.
 

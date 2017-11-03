@@ -1,25 +1,25 @@
-| Type | Service | Trigger* | Input | Output |  
+| Tür | Hizmet | Tetikleyici * | Girdi | Çıktı |  
 | --- | --- | --- | --- | --- |  
-| [Schedule](../articles/azure-functions/functions-bindings-timer.md)  |Azure Functions |✔ | | |  
-| [HTTP (REST or webhook)](../articles/azure-functions/functions-bindings-http-webhook.md) |Azure Functions |✔ |  |✔\** |  
-| [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md) |Azure Storage |✔ |✔ |✔ |  
-| [Events](../articles/azure-functions/functions-bindings-event-hubs.md) |Azure Event Hubs |✔ | |✔ |  
-| [Queues](../articles/azure-functions/functions-bindings-storage-queue.md) |Azure Storage |✔ | |✔ |  
-| [Queues and topics](../articles/azure-functions/functions-bindings-service-bus.md) |Azure Service Bus |✔ | |✔ |  
-| [Storage tables](../articles/azure-functions/functions-bindings-storage-table.md) |Azure Storage | |✔ |✔ |  
-| [SQL tables](../articles/azure-functions/functions-bindings-mobile-apps.md) |Azure Mobile Apps | |✔ |✔ |  
+| [Zamanlama](../articles/azure-functions/functions-bindings-timer.md)  |Azure İşlevleri |✔ | | |  
+| [HTTP (REST veya Web kancası)](../articles/azure-functions/functions-bindings-http-webhook.md) |Azure İşlevleri |✔ |  |✔\** |  
+| [Blob Depolama](../articles/azure-functions/functions-bindings-storage-blob.md) |Azure Storage |✔ |✔ |✔ |  
+| [Olaylar](../articles/azure-functions/functions-bindings-event-hubs.md) |Azure Event Hubs |✔ | |✔ |  
+| [Kuyruklar](../articles/azure-functions/functions-bindings-storage-queue.md) |Azure Storage |✔ | |✔ |  
+| [Kuyruklar ve konu başlıkları](../articles/azure-functions/functions-bindings-service-bus.md) |Azure Service Bus |✔ | |✔ |  
+| [Depolama tabloları](../articles/azure-functions/functions-bindings-storage-table.md) |Azure Storage | |✔ |✔ |  
+| [SQL tabloları](../articles/azure-functions/functions-bindings-mobile-apps.md) |Azure Mobile Apps | |✔ |✔ |  
 | [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB |✔ |✔ |✔ |  
-| [Push Notifications](../articles/azure-functions/functions-bindings-notification-hubs.md) |Azure Notification Hubs | | |✔ |  
-| [Twilio SMS Text](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
-| [SendGrid email](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |
-| [Excel tables](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
-| [OneDrive files](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
-| [Outlook email](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | | |✔ |
-| [Microsoft Graph events](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph |✔ |✔ |✔ |
-| [Auth tokens](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ | |
+| [Anında İletme Bildirimleri](../articles/azure-functions/functions-bindings-notification-hubs.md) |Azure Notification Hubs | | |✔ |  
+| [Twilio SMS metni](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
+| [SendGrid e-posta](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |
+| [Excel tabloları](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
+| [OneDrive dosyalarını](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
+| [Outlook e-posta](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | | |✔ |
+| [Microsoft Graph olayları](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph |✔ |✔ |✔ |
+| [Kimlik doğrulama belirteçleri](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ | |
 
-(\* - All triggers have associated input data)
+(\* -Tüm Tetikleyicileri giriş verisi ilişkilendirdiğiniz)
 
-(\** - The HTTP output binding requires an HTTP trigger)
+(\**-HTTP bağlama çıktı bir HTTP tetikleyicisi gerektirir)
 
 

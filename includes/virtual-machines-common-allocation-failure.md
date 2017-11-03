@@ -1,210 +1,210 @@
 
-If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
+Bu makalede Azure sorunu ele alınmamışsa ziyaret [MSDN ve yığın taşması Azure forumları](https://azure.microsoft.com/support/forums/). Bu forumları veya çok sorununuzu nakledebilirsiniz @AzureSupport Twitter'da. Ayrıca, size bir Azure destek isteği seçerek dosya **alma desteği** üzerinde [Azure Destek](https://azure.microsoft.com/support/options/) site.
 
-## <a name="general-troubleshooting-steps"></a>General troubleshooting steps
-### <a name="troubleshoot-common-allocation-failures-in-the-classic-deployment-model"></a>Troubleshoot common allocation failures in the classic deployment model
-These steps can help resolve many allocation failures in virtual machines:
+## <a name="general-troubleshooting-steps"></a>Genel sorun giderme adımları
+### <a name="troubleshoot-common-allocation-failures-in-the-classic-deployment-model"></a>Klasik dağıtım modelinde ortak ayırma hatalarını giderme
+Bu adımlar, sanal makinelerde birçok ayırma hatalarını gidermek yardımcı olabilir:
 
-* Resize the VM to a different VM size.<br>
-    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
-* Delete all VMs from the cloud service and re-create VMs.<br>
-    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **New** > **Compute** > [virtual machine image].
+* Farklı bir VM boyutu VM'i yeniden boyutlandırın.<br>
+    Tıklatın **tümüne Gözat** > **sanal makineleri (Klasik)** > sanal makineniz > **ayarları** > **boyutu**. Ayrıntılı adımlar için bkz: [sanal makine yeniden boyutlandırma](https://msdn.microsoft.com/library/dn168976.aspx).
+* Bulut hizmetinden tüm sanal makineleri silin ve sanal makineleri yeniden oluşturun.<br>
+    Tıklatın **tümüne Gözat** > **sanal makineleri (Klasik)** > sanal makineniz > **silmek**. Ardından **yeni** > **işlem** > [sanal makine görüntüsü].
 
-### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Troubleshoot common allocation failures in the Azure Resource Manager deployment model
-These steps can help resolve many allocation failures in virtual machines:
+### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager dağıtım modelinde ortak ayırma hatalarını giderme
+Bu adımlar, sanal makinelerde birçok ayırma hatalarını gidermek yardımcı olabilir:
 
-* Stop (deallocate) all VMs in the same availability set, then restart each one.<br>
-    To stop: Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
+* Durdur (deallocate) tüm sanal makineleri aynı kullanılabilirlik ayarlayın, sonra her birini yeniden başlatın.<br>
+    Durdurmak için: tıklatın **kaynak grupları** > kaynak grubunuz > **kaynakları** > kullanılabilirlik kümesi > **sanal makineleri** > sanal makineniz >  **Durdur**.
   
-    After all VMs stop, select the first VM and click **Start**.
+    Tüm sanal makineleri sonra durdurmak, ilk VM seçin ve tıklatın **Başlat**.
 
-## <a name="background-information"></a>Background information
-### <a name="how-allocation-works"></a>How allocation works
-The servers in Azure datacenters are partitioned into clusters. Normally, an allocation request is attempted in multiple clusters, but it's possible that certain constraints from the allocation request force the Azure platform to attempt the request in only one cluster. In this article, we'll refer to this as "pinned to a cluster." Diagram 1 below illustrates the case of a normal allocation that is attempted in multiple clusters. Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 or availability set is hosted.
-![Allocation Diagram](./media/virtual-machines-common-allocation-failure/Allocation1.png)
+## <a name="background-information"></a>Arka plan bilgileri
+### <a name="how-allocation-works"></a>Ayırma nasıl çalışır?
+Sunucuları Azure veri merkezlerinde kümeler halinde bölümlenir. Normalde, bir ayırma isteği birden çok kümelerde çalıştı, ancak bazı kısıtlamalar ayırma istek istekte yalnızca bir küme girişiminde Azure platformu zorla mümkündür. Bu makalede, biz buna "bir kümeye sabitlenmiş gibi." başvuruyor Aşağıda 1 diyagram birden çok kümelerde denenir normal bir ayırma durumunu gösterir. Diyagram 2 bir ayırma durumunun gösterir, varolan bir bulut hizmeti CS_1 veya kullanılabilirlik kümesini barındırıldığı olduğu için küme 2'ye sabitlenmiş.
+![Ayırma diyagramı](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
-### <a name="why-allocation-failures-happen"></a>Why allocation failures happen
-When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resources. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
+### <a name="why-allocation-failures-happen"></a>Ayırma hatalarının neden olması
+Ayırma isteği bir kümeye sabitlenmiş, kullanılabilir kaynak havuzu daha küçük olduğundan boş kaynakları bulmak başarısız olan, daha yüksek bir fırsat yok. Küme kaynakları serbest bırakmak olsa bile Ayrıca, bir kümeye ayırma isteği sabitlenmiş ancak, istenen kaynak türü, küme tarafından desteklenmiyor, isteğiniz başarısız olur. Aşağıdaki diyagram 3 yalnızca adayı küme kaynakları serbest bırakmak olmadığından burada Sabitlenmiş ayırma başarısız durumda gösterir. Diyagram 4 yalnızca adayı küme istenen VM boyutu desteklemediği için küme kaynakları serbest bırakmak sahip olsa bile burada Sabitlenmiş ayırma başarısız durumda gösterir.
 
-![Pinned Allocation Failure](./media/virtual-machines-common-allocation-failure/Allocation2.png)
+![Sabitlenmiş ayırma hatası](./media/virtual-machines-common-allocation-failure/Allocation2.png)
 
-## <a name="detailed-troubleshoot-steps-specific-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Detailed troubleshoot steps specific allocation failure scenarios in the classic deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
+## <a name="detailed-troubleshoot-steps-specific-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Ayrıntılı adımları belirli ayırma hatası senaryoları Klasik dağıtım modelinde sorun giderme
+Sabitlenmelidir ayırma isteği neden ortak ayırma senaryolar verilmiştir. Her senaryo bu makalenin sonraki bölümlerinde içine dalın.
 
-* Resize a VM or add VMs or role instances to an existing cloud service
-* Restart partially stopped (deallocated) VMs
-* Restart fully stopped (deallocated) VMs
-* Staging/production deployments (platform as a service only)
-* Affinity group (VM/service proximity)
-* Affinity-group-based virtual network
+* Bir VM'yi yeniden boyutlandırın veya sanal makineleri veya rol örnekleri olan bir bulut hizmetini ekleme
+* Kısmen durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın
+* Tam olarak durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın
+* Hazırlama/üretim dağıtımları (yalnızca bir hizmet olarak platform)
+* Benzeşim grubu (VM/hizmet yakınlık)
+* Benzeşim grubu tabanlı sanal ağ
 
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
+Ayırma hatası aldığınızda, açıklanan senaryoların herhangi biri, hata geçerli değilse bakın. Azure platformu tarafından döndürülen ayırma hatası ilgili senaryoyu tanımlamak için kullanın. İsteğiniz sabitlenmiş, daha fazla kümeler, böylece ayırma Başarı şansı artırma isteğinizi açmak için sabitleme kısıtlamaları bazılarını kaldırın.
 
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, try a different VM size. Otherwise, the only option is to remove the pinning constraint.
+Hata "istenen VM boyutu desteklenmiyor" bildirmediği sürece, yeterli kaynak isteğiniz uyum sağlayacak şekilde kümede serbest bırakılmış olabilir gibi genel olarak, size her zaman daha sonraki bir zamanda yeniden deneyebilir. İstenen VM boyutu desteklenmiyor sorunsa, farklı bir VM boyutu deneyin. Aksi durumda, tek seçenek sabitleme kısıtlaması kaldırmaktır.
 
-Two common failure scenarios are related to affinity groups. In the past, an affinity group was used to provide close proximity to VMs/service instances, or it was used to enable the creation of a virtual network. With the introduction of regional virtual networks, affinity groups are no longer required to create a virtual network. With the reduction of network latency in Azure infrastructure, the recommendation to use affinity groups for VM/service proximity has changed.
+İki ortak hatası senaryoları için benzeşim grupları ilişkilidir. Geçmişte, yakınında VM'ler/hizmet örneklerine sağlamak için kullanılan bir benzeşim grubu veya bir sanal ağ oluşturulmasını sağlamak üzere kullanıldı. Bölgesel sanal ağlar başlanmasıyla, benzeşim grupları artık bir sanal ağ oluşturmak için gerekli değildir. Azure altyapı içindeki ağ gecikme süresi azaltma ile VM/hizmet yakınlık için benzeşim grupları kullanmak için öneri değişti.
 
-Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
-![Pinned Allocation Taxonomy](./media/virtual-machines-common-allocation-failure/Allocation3.png)
+Aşağıdaki çizime 5 (sabitlenmiş) ayırma senaryoları sınıflandırma gösterir.
+![Sabitlenmiş ayırma sınıflandırma](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
 > [!NOTE]
-> The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
+> Her bir ayırma senaryo listelenen hata kısa bir biçimidir. Başvurmak [hata dizesi arama](#Error string lookup) ayrıntılı hata dizeleri.
 > 
 > 
 
-## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Allocation scenario: Resize a VM or add VMs or role instances to an existing cloud service
-**Error**
+## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Ayırma senaryo: bir VM'yi yeniden boyutlandırın veya sanal makineleri veya rol örnekleri olan bir bulut hizmetini ekleme
+**Hata**
 
-Upgrade_VMSizeNotSupported or GeneralError
+Upgrade_VMSizeNotSupported veya GeneralError
 
-**Cause of cluster pinning**
+**Küme sabitleme nedeni**
 
-A request to resize a VM or add a VM or a role instance to an existing cloud service has to be attempted at the original cluster that hosts the existing cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+Mevcut bulut hizmetini barındıran özgün kümesine denenmesi bir VM'yi yeniden boyutlandırın veya bir VM veya rol örneği var olan bir bulut hizmetine eklemek için bir istek aldı. Yeni bir bulut hizmeti oluşturulması, istenen VM boyutu destekler veya kaynakları serbest bırakmak sahip başka bir küme bulmak Azure platformu sağlar.
 
-**Workaround**
+**Geçici çözüm**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, but if it's acceptable to use a different virtual IP address (VIP), create a new cloud service to host the new VM and add the new cloud service to the regional virtual network where the existing VMs are running. If your existing cloud service does not use a regional virtual network, you can still create a new virtual network for the new cloud service, and then connect your [existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Hata Upgrade_VMSizeNotSupported * varsa, farklı bir VM boyutu deneyin. Farklı bir VM boyutu kullanarak bir seçenek değilse, ancak farklı bir sanal IP adresi (VIP) kullanmak için kabul edilebilir ise, yeni VM barındırmak ve var olan VM'ler çalıştırdığı bölgesel sanal ağ için yeni bulut hizmeti eklemek için yeni bir bulut hizmeti oluşturun. Mevcut bulut hizmetiniz bölgesel bir sanal ağ kullanmıyorsa, hala yeni bulut hizmeti için yeni bir sanal ağ oluşturduğunuzda ve ardından bağlanmak, [yeni bir sanal ağ mevcut sanal ağa](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Daha fazla gördükleri hakkında [bölgesel sanal ağlar](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. Similar to the above scenario, add the desired compute resource through creating a new cloud service (note that the new cloud service has to use a different VIP) and use a regional virtual network to connect your cloud services.
+Hata GeneralError * varsa, (örneğin, belirli bir VM boyutu) kaynak türü küme tarafından desteklenir, ancak küme şu anda kaynakları serbest bırakmak yok olasıdır. Yukarıdaki senaryosu benzer yeni bir bulut hizmeti (yeni bulut hizmeti farklı bir VIP kullanmak olduğunu unutmayın) oluşturma aracılığıyla istenen işlem kaynak ekleyin ve bulut hizmetlerinizi bağlanmak için bir bölgesel sanal ağ kullanın.
 
-## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Allocation scenario: Restart partially stopped (deallocated) VMs
-**Error**
+## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Ayırma senaryo: yeniden başlatma kısmen durduruldu (serbest bırakıldığında) VM'ler
+**Hata**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Küme sabitleme nedeni**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in a cloud service. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated cloud service is equivalent to adding VMs to an existing cloud service. The allocation request has to be attempted at the original cluster that hosts the existing cloud service. Creating a different cloud service allows the Azure platform to find another cluster that has free resource or supports the VM size that you requested.
+Kısmi ayırmayı kaldırma (serbest bırakıldığında) bir veya daha fazlasını ancak değil tüm VM'lerin bir bulut hizmetinde durduruldu anlamına gelir. Ne zaman durdurup (deallocate) VM, bir ilişkili kaynakları serbest bırakılır. Bu durduruldu (serbest bırakıldığında) VM'yi yeniden başlatırken bu nedenle yeni ayırma isteğidir. VM'ler kısmen deallocated bulut hizmetinde yeniden başlatma var olan bir bulut hizmetini VM'ler ekleme ile eşdeğerdir. Mevcut bulut hizmetini barındıran özgün kümesine denenmesi ayırma isteğini sahiptir. Farklı bir bulut hizmeti oluşturulması, istenen VM boyutu destekler veya ücretsiz kaynağa sahip başka bir küme bulmak Azure platformu sağlar.
 
-**Workaround**
+**Geçici çözüm**
 
-If it's acceptable to use a different VIP, delete the stopped (deallocated) VMs (but keep the associated disks) and add the VMs back through a different cloud service. Use a regional virtual network to connect your cloud services:
+Farklı bir VIP kullanın, durduruldu (serbest bırakıldığında) sanal makineleri silin (ancak ilişkili diskler tutmak için) kabul edilebilir ve eklerseniz farklı bir bulut hizmeti sanal makineleri yedekleyin. Bulut hizmetlerinizi bağlanmak için bir bölgesel sanal ağ kullanın:
 
-* If your existing cloud service uses a regional virtual network, simply add the new cloud service to the same virtual network.
-* If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+* Mevcut bulut hizmetiniz bölgesel bir sanal ağ kullanıyorsa, yeni bulut hizmeti aynı sanal ağa eklemeniz yeterlidir.
+* Mevcut bulut hizmetiniz bölgesel bir sanal ağ kullanmıyorsa, yeni bulut hizmeti için yeni bir sanal ağ oluşturun ve ardından [yeni bir sanal ağa varolan sanal ağınıza bağlamak](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Daha fazla gördükleri hakkında [bölgesel sanal ağlar](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Allocation scenario: Restart fully stopped (deallocated) VMs
-**Error**
+## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Ayırma senaryo: yeniden başlatma tam olarak durduruldu (serbest bırakıldığında) VM'ler
+**Hata**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Küme sabitleme nedeni**
 
-Full deallocation means that you stopped (deallocated) all VMs from a cloud service. The allocation requests to restart these VMs have to be attempted at the original cluster that hosts the cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+Durduruldu tam ayırmayı kaldırma anlamına gelir (tüm sanal makineler bir bulut hizmetinden serbest). Bu sanal makineleri yeniden başlatmayı ayırma isteklerini bulut hizmetini barındıran özgün kümesine denenmesi gerekir. Yeni bir bulut hizmeti oluşturulması, istenen VM boyutu destekler veya kaynakları serbest bırakmak sahip başka bir küme bulmak Azure platformu sağlar.
 
-**Workaround**
+**Geçici çözüm**
 
-If it's acceptable to use a different VIP, delete the original stopped (deallocated) VMs (but keep the associated disks) and delete the corresponding cloud service (the associated compute resources were already released when you stopped (deallocated) the VMs). Create a new cloud service to add the VMs back.
+Farklı bir VIP kullanın, özgün durduruldu (serbest bırakıldığında) sanal makineleri silin (ancak ilişkili diskler tutmak için) kabul edilebilir ise ve karşılık gelen bulut hizmetini silin ((serbest bırakıldığında) durduğunda ilişkili işlem kaynaklarını zaten yayımlanan VM'ler). Sanal makineleri geri eklemek için yeni bir bulut hizmeti oluşturun.
 
-## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Allocation scenario: Staging/production deployments (platform as a service only)
-**Error**
+## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Ayırma senaryo: hazırlama/üretim dağıtımları (yalnızca bir hizmet olarak platform)
+**Hata**
 
-New_General* or New_VMSizeNotSupported*
+New_General * veya New_VMSizeNotSupported *
 
-**Cause of cluster pinning**
+**Küme sabitleme nedeni**
 
-The staging deployment and the production deployment of a cloud service are hosted in the same cluster. When you add the second deployment, the corresponding allocation request will be attempted in the same cluster that hosts the first deployment.
+Hazırlama dağıtımı ve bir bulut hizmeti Üretim dağıtımı aynı küme içinde barındırılır. İkinci dağıtımı eklediğinizde, ilk dağıtım barındıran aynı küme içinde karşılık gelen ayırma isteğini denenir.
 
-**Workaround**
+**Geçici çözüm**
 
-Delete the first deployment and the original cloud service and redeploy the cloud service. This action may land the first deployment in a cluster that has enough free resources to fit both deployments or in a cluster that supports the VM sizes that you requested.
+İlk dağıtımı silin ve özgün bulut hizmeti ve bulut hizmeti yeniden dağıtın. Bu eylem, her iki dağıtım sığması için ücretsiz yeterli kaynaklara sahip bir küme veya istediğiniz VM boyutları destekleyen bir küme ilk dağıtım güden.
 
-## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Allocation scenario: Affinity group (VM/service proximity)
-**Error**
+## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Ayırma senaryo: benzeşim grubu (VM/hizmet yakınlık)
+**Hata**
 
-New_General* or New_VMSizeNotSupported*
+New_General * veya New_VMSizeNotSupported *
 
-**Cause of cluster pinning**
+**Küme sabitleme nedeni**
 
-Any compute resource assigned to an affinity group is tied to one cluster. New compute resource requests in that affinity group are attempted in the same cluster where the existing resources are hosted. This is true whether the new resources are created through a new cloud service or through an existing cloud service.
+Herhangi bir benzeşim grubuna atanan kaynak bir kümeye bağlanır işlem. Benzeşim grubu çalıştı varolan kaynakları barındırıldığı kümede, yeni işlem kaynağı ister. Yeni kaynaklar var olan bir bulut hizmetini veya yeni bir bulut hizmeti aracılığıyla oluşturulan bu geçerlidir.
 
-**Workaround**
+**Geçici çözüm**
 
-If an affinity group is not necessary, do not use an affinity group, or group your compute resources into multiple affinity groups.
+Bir benzeşim grubu gerekli değilse, olmayan bir benzeşim grubu kullanın veya işlem kaynaklarınızı birden çok benzeşim gruplar halinde gruplandırabilirsiniz.
 
-## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Allocation scenario: Affinity-group-based virtual network
-**Error**
+## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Ayırma senaryo: benzeşim grubuna bağlı sanal ağ
+**Hata**
 
-New_General* or New_VMSizeNotSupported*
+New_General * veya New_VMSizeNotSupported *
 
-**Cause of cluster pinning**
+**Küme sabitleme nedeni**
 
-Before regional virtual networks were introduced, you were required to associate a virtual network with an affinity group. As a result, compute resources placed into an affinity group are bound by the same constraints as described in the "Allocation scenario: Affinity group (VM/service proximity)" section above. The compute resources are tied to one cluster.
+Bölgesel sanal ağlar sunulmadan önce bir sanal ağ bir benzeşim grubu ile ilişkilendirmek için gerekli olmuştur. Sonuç olarak, bir benzeşim grubu yerleştirilen kaynakları açıklandığı gibi aynı kısıtlamalar tarafından bağlı işlem "ayırma senaryo: benzeşim grubu (VM/hizmet yakınlık)" Yukarıdaki bölümde. İşlem kaynaklarını kümeye bağlıdır.
 
-**Workaround**
+**Geçici çözüm**
 
-If you do not need an affinity group, create a new regional virtual network for the new resources you're adding, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Bir benzeşim grubu gerekmiyorsa ekleyeceğiniz, yeni kaynaklar için yeni bir bölgesel sanal ağ oluşturun ve ardından [yeni bir sanal ağa varolan sanal ağınıza bağlamak](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Daha fazla gördükleri hakkında [bölgesel sanal ağlar](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then add the desired resources again.
+Alternatif olarak, [benzeşim grubu tabanlı sanal ağınızı bölgesel bir sanal ağa geçirmeniz](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)ve ardından istenen kaynakları yeniden ekleyin.
 
-## <a name="detailed-troubleshooting-steps-specific-allocation-failure-scenarios-in-the-azure-resource-manager-deployment-model"></a>Detailed troubleshooting steps specific allocation failure scenarios in the Azure Resource Manager deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
+## <a name="detailed-troubleshooting-steps-specific-allocation-failure-scenarios-in-the-azure-resource-manager-deployment-model"></a>Ayrıntılı adımları belirli ayırma hatası senaryoları Azure Resource Manager dağıtım modelinde sorun giderme
+Sabitlenmelidir ayırma isteği neden ortak ayırma senaryolar verilmiştir. Her senaryo bu makalenin sonraki bölümlerinde içine dalın.
 
-* Resize a VM or add VMs or role instances to an existing cloud service
-* Restart partially stopped (deallocated) VMs
-* Restart fully stopped (deallocated) VMs
+* Bir VM'yi yeniden boyutlandırın veya sanal makineleri veya rol örnekleri olan bir bulut hizmetini ekleme
+* Kısmen durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın
+* Tam olarak durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın
 
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned to an existing cluster, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
+Ayırma hatası aldığınızda, açıklanan senaryoların herhangi biri, hata geçerli değilse bakın. Azure platformu tarafından döndürülen ayırma hatası ilgili senaryoyu tanımlamak için kullanın. İsteğiniz varolan bir kümeye sabitlenmiş, daha fazla kümeler, böylece ayırma Başarı şansı artırma isteğinizi açmak için sabitleme kısıtlamaları bazılarını kaldırın.
 
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, see below for workarounds.
+Hata "istenen VM boyutu desteklenmiyor" bildirmediği sürece, yeterli kaynak isteğiniz uyum sağlayacak şekilde kümede serbest bırakılmış olabilir gibi genel olarak, size her zaman daha sonraki bir zamanda yeniden deneyebilir. Aşağıda sorun istenen VM boyutu desteklenmiyor ise, geçici çözümler için bkz.
 
-## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Allocation scenario: Resize a VM or add VMs to an existing availability set
-**Error**
+## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Ayırma senaryo: bir VM'yi yeniden boyutlandırın veya VM'ler var olan bir kullanılabilirlik kümesine ekleme
+**Hata**
 
-Upgrade_VMSizeNotSupported* or GeneralError*
+Upgrade_VMSizeNotSupported * veya GeneralError *
 
-**Cause of cluster pinning**
+**Küme sabitleme nedeni**
 
-A request to resize a VM or add a VM to an existing availability set has to be attempted at the original cluster that hosts the existing availability set. Creating a new availability set allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+Varolan bir kullanılabilirlik kümesini barındıran özgün kümesine denenmesi bir VM'yi yeniden boyutlandırın veya VM var olan bir kullanılabilirlik kümesine eklemek için bir istek aldı. Yeni bir kullanılabilirlik kümesi oluşturmak istediğiniz VM boyutu destekler veya kaynakları serbest bırakmak sahip başka bir küme bulmak Azure platformu sağlar.
 
-**Workaround**
+**Geçici çözüm**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, stop all VMs in the availability set. You can then change the size of the virtual machine that will allocate the VM to a cluster that supports the desired VM size.
+Hata Upgrade_VMSizeNotSupported * varsa, farklı bir VM boyutu deneyin. Farklı bir VM boyutu kullanarak bir seçenek değilse, tüm sanal makineleri kullanılabilirlik kümesinde durdurun. İstenen VM boyutu destekleyen bir kümeye VM ayırır sanal makine boyutunu daha sonra değiştirebilirsiniz.
 
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. If the VM can be part of a different availability set, create a new VM in a different availability set (in the same region). This new VM can then be added to the same virtual network.  
+Hata GeneralError * varsa, (örneğin, belirli bir VM boyutu) kaynak türü küme tarafından desteklenir, ancak küme şu anda kaynakları serbest bırakmak yok olasıdır. VM farklı bir kullanılabilirlik kümesinin bir parçası olabilir, farklı bir kullanılabilirlik (aynı bölgede) kümesinde yeni bir VM oluşturun. Bu yeni VM sonra aynı sanal ağa eklenebilir.  
 
-## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Allocation scenario: Restart partially stopped (deallocated) VMs
-**Error**
+## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Ayırma senaryo: yeniden başlatma kısmen durduruldu (serbest bırakıldığında) VM'ler
+**Hata**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Küme sabitleme nedeni**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in an availability set. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated availability set is equivalent to adding VMs to an existing availability set. The allocation request has to be attempted at the original cluster that hosts the existing availability set.
+Kısmi ayırmayı kaldırma (serbest bırakıldığında) bir veya daha fazla durduruldu ancak tümü, sanal makineleri bir kullanılabilirlik kümesi anlamına gelir. Ne zaman durdurup (deallocate) VM, bir ilişkili kaynakları serbest bırakılır. Bu durduruldu (serbest bırakıldığında) VM'yi yeniden başlatırken bu nedenle yeni ayırma isteğidir. Kısmen deallocated kullanılabilirlik kümesindeki sanal makineleri yeniden başlatmayı VM'ler var olan bir kullanılabilirlik kümesine ekleme ile eşdeğerdir. Varolan bir kullanılabilirlik kümesini barındıran özgün kümesine denenmesi ayırma isteğini sahiptir.
 
-**Workaround**
+**Geçici çözüm**
 
-Stop all VMs in the availability set before restarting the first one. This will ensure that a new allocation attempt is run and that a new cluster can be selected that has available capacity.
+Kullanılabilirlik kümesindeki ilk yeniden başlatmadan önce tüm sanal makineleri durdurun. Bu yeni bir ayırma girişimi çalıştırılır ve yeni bir küme kullanılabilir kapasiteye sahip seçilebilir emin olun.
 
-## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Allocation scenario: Restart fully stopped (deallocated)
-**Error**
+## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Ayırma senaryo: yeniden başlatma tam olarak durduruldu (serbest bırakıldığında)
+**Hata**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Küme sabitleme nedeni**
 
-Full deallocation means that you stopped (deallocated) all VMs in an availability set. The allocation request to restart these VMs will target all clusters that support the desired size.
+Durduruldu tam ayırmayı kaldırma anlamına gelir (tüm sanal makineleri bir kullanılabilirlik kümesinde serbest). Bu sanal makineleri yeniden başlatmayı ayırma isteği istenen boyut destekleyen tüm kümeleri hedefleyecektir.
 
-**Workaround**
+**Geçici çözüm**
 
-Select a new VM size to allocate. If this does not work, please try again later.
+Ayırmak için yeni bir VM boyutunu seçin. Bu işe yaramazsa, lütfen daha sonra yeniden deneyin.
 
 <a name="Error string lookup"></a>
 
-## <a name="error-string-lookup"></a>Error string lookup
+## <a name="error-string-lookup"></a>Hata dizesi arama
 **New_VMSizeNotSupported***
 
-"The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region."
+"VM boyutu (veya VM boyutları birleşimi) bu dağıtımın gerektirdiği dağıtım isteği kısıtlamaları nedeniyle sağlanamıyor. Mümkünse, başka bir dağıtım içindeki ve farklı bir benzeşim grubuna ya da hiçbir benzeşim grubuna barındırılan bir hizmete sanal ağ bağlamaları gibi kısıtlamaları gevşetme deneyin veya farklı bir bölgeye dağıtmayı deneyin."
 
 **New_General***
 
-"Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an affinity group, or it targets a virtual network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+"Ayırma başarısız oldu; İstekteki kısıtlamalar karşılamak kurulamıyor. İstenen yeni hizmet dağıtımı bir benzeşim grubuna bağlı veya bir sanal ağ hedefler ya da bu barındırılan hizmet altında varolan bir dağıtım yok. Bu koşulların herhangi biri yeni dağıtımı belirli Azure kaynaklarına kısıtlar. Lütfen daha sonra yeniden deneyin veya VM boyutunu veya rol örneklerinin sayısını azaltmayı deneyin. Alternatif olarak, mümkünse, daha önce bahsedilen kısıtlamaları kaldırın veya farklı bir bölgeye dağıtmayı deneyin."
 
 **Upgrade_VMSizeNotSupported***
 
-"Unable to upgrade the deployment. The requested VM size XXX may not be available in the resources supporting the existing deployment. Please try again later, try with a different VM size or smaller number of role instances, or create a deployment under an empty hosted service with a new affinity group or no affinity group binding."
+"Dağıtım yükseltme yapılamıyor. İstenen VM boyutu XXX mevcut dağıtımını destekleyen kaynaklarda kullanılamayabilir. Lütfen daha sonra yeniden deneyin, farklı bir VM boyutu veya daha az sayıda rol örneği ile deneyin veya yeni bir benzeşim grubu ya da benzeşim grubu bağlaması olmadan boş bir barındırılan hizmet altında dağıtım oluşturun."
 
 **GeneralError***
 
-"The server encountered an internal error. Please retry the request." Or "Failed to produce an allocation for the service."
+"Sunucu bir iç hatayla karşılaştı. Lütfen isteği yeniden deneyin." Veya "hizmeti için bir ayırma üretmek başarısız oldu."
 

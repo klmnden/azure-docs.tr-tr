@@ -1,32 +1,32 @@
 ## <a name="nic"></a>NIC
-A network interface card (NIC) resource provides network connectivity to an existing subnet in a VNet resource. Although you can create a NIC as a stand alone object, you need to associate it to another object to actually provide connectivity. A NIC can be used to connect a VM to a subnet, a public IP address, or a load balancer.  
+Bir ağ arabirimi kartı (NIC) kaynak VNet kaynak mevcut bir alt ağ bağlantısını sağlar. Tek başına nesne olarak bir NIC oluşturabilirsiniz, ancak gerçekte bağlantı sağlamak için başka bir nesneye ilişkilendirmeniz gerekir. Bir NIC VM bir alt ağ, bir ortak IP adresi veya bir yük dengeleyici bağlanmak için kullanılabilir.  
 
-| Property | Description | Sample values |
+| Özellik | Açıklama | Örnek değerler |
 | --- | --- | --- |
-| **virtualMachine** |VM the NIC is associated with. |/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1 |
-| **macAddress** |MAC address for the NIC |any value between 4 and 30 |
-| **networkSecurityGroup** |NSG associated to the NIC |/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1 |
-| **dnsSettings** |DNS settings for the NIC |see [PIP](#Public-IP-address) |
+| **sanal makinesi** |VM NIC ile ilişkili. |/Subscriptions/{guid}/../microsoft.COMPUTE/virtualMachines/VM1 |
+| **macAddress** |NIC MAC adresi |4 ile 30 arasında herhangi bir değer |
+| **networkSecurityGroup** |NIC'ye ilişkili NSG |/Subscriptions/{guid}/../microsoft.Network/networkSecurityGroups/myNSG1 |
+| **dnsSettings** |NIC için DNS ayarları |bkz: [PIP](#Public-IP-address) |
 
-A Network Interface Card, or NIC, represents a network interface that can be associated to a virtual machine (VM). A VM can have one or more NICs.
+Bir ağ arabirim kartı veya NIC, sanal makine (VM) ilişkilendirilebilir bir ağ arabirimi temsil eder. Bir VM, bir veya birden çok NIC olabilir.
 
-![NIC's on a single VM](./media/resource-groups-networking/Figure3.png)
+![NIC kişinin tek bir VM'de](./media/resource-groups-networking/Figure3.png)
 
-### <a name="ip-configurations"></a>IP configurations
-NICs have a child object named **ipConfigurations** containing the following properties:
+### <a name="ip-configurations"></a>IP yapılandırması
+Nıc'lerinin adlı bir alt nesne **Ipconfigurations** aşağıdaki özellikleri içeren:
 
-| Property | Description | Sample values |
+| Özellik | Açıklama | Örnek değerler |
 | --- | --- | --- |
-| **subnet** |Subnet the NIC is onnected to. |/subscriptions/{guid}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
-| **privateIPAddress** |IP address for the NIC in the subnet |10.0.0.8 |
-| **privateIPAllocationMethod** |IP allocation method |Dynamic or Static |
-| **enableIPForwarding** |Whether the NIC can be used for routing |true or false |
-| **primary** |Whether the NIC is the primary NIC for the VM |true or false |
-| **publicIPAddress** |PIP associated with the NIC |see [DNS Settings](#DNS-settings) |
-| **loadBalancerBackendAddressPools** |Back end address pools the NIC is associated with | |
-| **loadBalancerInboundNatRules** |Inbound load balancer NAT rules the NIC is associated with | |
+| **alt ağ** |Alt NIC onnected için değil. |/Subscriptions/{guid}/../microsoft.Network/virtualNetworks/myvnet1/Subnets/mysub1 |
+| **privateIPAddress** |NIC alt ağdaki IP adresi |10.0.0.8 |
+| **privateıpallocationmethod değeri** |IP ayırma yöntemi |Dinamik veya statik |
+| **enableIPForwarding** |NIC yönlendirme için kullanılıp kullanılamayacağını |TRUE veya false |
+| **birincil** |NIC VM birincil NIC olup olmadığı |TRUE veya false |
+| **Publicıpaddress** |PIP NIC ile ilişkili |bkz: [DNS ayarları](#DNS-settings) |
+| **loadBalancerBackendAddressPools** |Bitiş adresi havuzları NIC ile ilişkili geri | |
+| **Loadbalancerınboundnatrules** |Gelen NIC ile ilişkili yük dengeleyicisi NAT kuralları | |
 
-Sample public IP address in JSON format:
+Örnek genel IP adresi JSON biçiminde:
 
     {
         "name": "lb-nic1-be",
@@ -72,6 +72,6 @@ Sample public IP address in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163579.aspx) for NICs.
+### <a name="additional-resources"></a>Ek kaynaklar
+* Okuma [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt163579.aspx) NIC'ler için.
 

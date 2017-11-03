@@ -1,7 +1,7 @@
 
-1. Open the project in Android Studio.
+1. Projeyi Android Studio'da açın.
 
-2. In **Project Explorer** in Android Studio, open the ToDoActivity.java file and add the following import statements:
+2. İçinde **Proje Gezgini** Android Studio'da ToDoActivity.java dosyasını açın ve aşağıdaki içeri aktarma deyimlerini ekleyin:
 
         import java.util.concurrent.ExecutionException;
         import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,7 +13,7 @@
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-3. Add the following method to the **ToDoActivity** class:
+3. Aşağıdaki yöntemi ekleyin **ToDoActivity** sınıfı:
 
         // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
         public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
@@ -43,18 +43,18 @@
             }
         }
 
-    This code creates a method to handle the Google authentication process. A dialog displays the ID of the authenticated user. You can only proceed on a successful authentication.
+    Bu kod, Google kimlik doğrulama işlemi işlemek için bir yöntem oluşturur. Bir iletişim kutusu, kimliği doğrulanmış kullanıcının Kimliğini görüntüler. Yalnızca başarılı bir kimlik doğrulaması devam edebilirsiniz.
 
     > [!NOTE]
-    > If you are using an identity provider other than Google, change the value passed to the **login** method to one of the following values: _MicrosoftAccount_, _Facebook_, _Twitter_, or _windowsazureactivedirectory_.
+    > Google dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değerini değiştirmek **oturum açma** yöntemi aşağıdaki değerlerden birine: _MicrosoftAccount_, _Facebook_, _Twitter_, veya _windowsazureactivedirectory_.
 
-4. In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
+4. İçinde **onCreate** yöntemi, sonra başlatır kodu aşağıdaki kod satırını ekleyin `MobileServiceClient` nesnesi.
 
         authenticate();
 
-    This call starts the authentication process.
+    Bu çağrı, kimlik doğrulama işlemi başlatır.
 
-5. Move the remaining code after `authenticate();` in the **onCreate** method to a new **createTable** method:
+5. Kalan koddan sonra taşıma `authenticate();` içinde **onCreate** yöntemi yeni bir **createTable** yöntemi:
 
         private void createTable() {
 
@@ -72,7 +72,7 @@
             refreshItemsFromTable();
         }
 
-6. To ensure redirection works as expected, add the following snippet of _RedirectUrlActivity_ to _AndroidManifest.xml_:
+6. Yeniden yönlendirme works beklendiği gibi sağlamak için aşağıdaki kod parçacığını ekleyin _RedirectUrlActivity_ için _AndroidManifest.xml_:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
             <intent-filter>
@@ -84,7 +84,7 @@
             </intent-filter>
         </activity>
 
-7. Add redirectUriScheme to _build.gradle_ of your Android application.
+7. Eklemek için redirectUriScheme _build.gradle_ Android uygulamanızın.
 
         android {
             buildTypes {
@@ -99,13 +99,13 @@
             }
         }
 
-8. Add com.android.support:customtabs:23.0.1 to the dependencies in your build.gradle:
+8. Bağımlılıklar, build.gradle com.Android.support:customtabs:23.0.1 ekleyin:
 
-      dependencies {        // ...        compile 'com.android.support:customtabs:23.0.1'    }
+      bağımlılıklar {/ /... 'com.android.support:customtabs:23.0.1' derleme}
 
-9. From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.
+9. Gelen **çalıştırmak** menüsünde tıklatın **uygulama çalıştırma** uygulama ve seçilen kimlik sağlayıcınız ile oturum başlatmak için.
 
 > [!WARNING]
-> The URL Scheme mentioned is case-sensitive.  Ensure that all occurrences of `{url_scheme_of_you_app}` use the same case.
+> Belirtilen URL şeması büyük/küçük harf duyarlıdır.  Emin tüm oluşumlarını `{url_scheme_of_you_app}` aynı durumda kullanın.
 
-When you are successfully signed in, the app should run without errors, and you should be able to query the back-end service and make updates to data.
+Başarıyla oturum açtığında, uygulama hatasız çalışması gerektiğini ve arka uç hizmetine sorgu ve veri güncelleştirmeleri yapabilirler olmalıdır.

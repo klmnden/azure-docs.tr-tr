@@ -1,3 +1,3 @@
-If you're unfamiliar with MSI, check out the [Managed Service Identity overview](../articles/active-directory/msi-overview.md).
+MSI değilseniz, kullanıma [yönetilen hizmet Kimliği'ne genel bakış](../articles/active-directory/msi-overview.md).
 
-If you don't already have an Azure account, be sure to [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+Bir Azure hesabınız yoksa [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.

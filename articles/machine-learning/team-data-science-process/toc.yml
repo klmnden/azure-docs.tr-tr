@@ -31,7 +31,7 @@
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
 - name: Proje yürütme
   href: project-execution.md
-- name: Öğreticiler
+- name: Örnekler
   href: walkthroughs.md
   items:
     - name: Azure Machine Learning
@@ -60,6 +60,12 @@
       href: walkthroughs-sql-server.md
     - name: SQL DW ile T-SQL ve Python
       href: walkthroughs-sql-data-warehouse.md
+- name: Eğitim
+  items:
+    - name: Veri bilim insanlarına yönelik TDSP
+      href: team-data-science-process-for-data-scientists.md
+    - name: DevOps’a yönelik TDSP
+      href: team-data-science-process-for-devops.md
 - name: Nasıl yapılır?
   items:
     - name: Azure ML’de TDSP kullanma

@@ -4,7 +4,7 @@ title: Azure Stack Kullanıcı Belgeleri
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: 'Azure Stack Belgeleri - Öğreticiler, API Başvurusu'
-  description: Azure Stack önizleme sürümünü kullanarak veri merkezinizden Azure hizmetleri sunmayı öğrenin. Bir kavram kanıtı ortamından özellikleri öğrenin ve tanıtın.
+  description: Azure yığını için uygulamalar oluşturmak nasıl Azure yığın hizmetlerini nasıl kullanacağınızı öğrenin.
   services: azure-stack
   author: carolz
   manager: carolz
@@ -12,12 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: 'Azure Stack, şirketinizin veya hizmet sağlayıcınızın veri merkezinden Azure hizmetleri sağlama olanağı sunan bir hibrit bulut platformudur. Bir geliştirici olarak Azure Stack’te uygulama derleyebilirsiniz. Daha sonra bu uygulamaları Azure Stack’te dağıtabilir veya Azure Stack bulut ve Azure arasındaki bağlantıdan yararlanan tamamen karma uygulamalar derleyebilirsiniz.  Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kaynak oluşturma ve uygulamaları dağıtma hakkında bilgi edinin.'
+  description: 'Azure Stack, şirketinizin veya hizmet sağlayıcınızın veri merkezinden Azure hizmetleri sağlama olanağı sunan bir hibrit bulut platformudur. Bir geliştirici olarak Azure Stack’te uygulama derleyebilirsiniz. Daha sonra bu uygulamaları Azure Stack’te dağıtabilir veya Azure Stack bulut ve Azure arasındaki bağlantıdan yararlanan tamamen karma uygulamalar derleyebilirsiniz. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kaynak oluşturma ve uygulamaları dağıtma hakkında bilgi edinin.<br/><br/>Altyapı yöneten ve hizmetleri sunan bir Azure yığın işleç değilseniz, bkz bizim <a href="/azure/azure-stack/">işleci belgelerine</a>.'
 sections:
-  - title: Hızlı Başlangıç
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
       - type: paragraph
         text: 'Windows sanal makinesini Azure Stack’te dağıtma hakkında bilgi edinin:'
@@ -53,10 +53,10 @@ sections:
               src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
             text: CLI
             href: azure-stack-quick-create-vm-linux-cli.md
-  - title: Adım adım öğreticiler
+  - title: Adım Adım Öğreticiler
     items:
       - type: paragraph
-        text: 'Azure ve Azure Stack arasında uygulama dağıtma:'
+        text: 'Uygulamaları, hem Azure hem de Azure yığın üzerinden dağıtın.'
       - type: list
         style: ordered
         items:
@@ -68,4 +68,4 @@ sections:
         className: cardsD
         items:
           - title: Komut Satırı
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Azure CLI yığını</a></p>

@@ -15,8 +15,7 @@ En son Azure PowerShell SDK'sı yüklediğinizden emin olun. Daha fazla bilgi i�
 
 Ardından, bir uygulamanın AAD ile kaydedin. Bu, VM ihtiyaç duyacağı anahtar kasanızı erişimi olan bir hizmet sorumlusu hesabı verir. Azure anahtar kasası makalede, bu adımları bulabilirsiniz [bir uygulamayı Azure Active Directory ile kaydetme](../articles/key-vault/key-vault-get-started.md#register) bölüm veya ekran görüntüleri ile adımları görebilirsiniz **uygulama bölümü için bir kimlik alma**  , [bu blog gönderisine](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Bu adımları gerçekleştirmeden önce SQL VM üzerinde Azure anahtar kasası tümleştirmeyi etkinleştirdiğinizde, daha sonra gerekli bu kaydı sırasında aşağıdaki bilgileri toplamak gerektiğini unutmayın.
 
-* Uygulama eklendikten sonra bulma **istemci kimliği** üzerinde **yapılandırma** sekmesi. 
-    ![Azure Active Directory istemci kimliği](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* Uygulama eklendikten sonra bulma **istemci kimliği** üzerinde **yapılandırma** sekmesi.   ![Azure Active Directory istemci kimliği](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
     İstemci Kimliğini daha sonra atanan **$spName** Azure anahtar kasası tümleştirmeyi etkinleştirmek için PowerShell betiğini parametresinde (hizmet asıl adı). 
 * Ayrıca, anahtarınızı oluşturduğunuzda, bu adımları sırasında gizli anahtarınız için aşağıdaki ekran görüntüsünde gösterildiği gibi kopyalayın. Bu anahtar sırrı daha sonra atanan **$spSecret** PowerShell Betiği parametresinde (hizmet sorumlusu gizli).  

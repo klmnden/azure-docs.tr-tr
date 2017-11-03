@@ -1,20 +1,20 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-direct-methods.md)
-> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-direct-methods.md)
+> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-direct-methods.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-direct-methods.md)
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. IoT Hub also gives you the ability to invoke non-durable methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout) to let the user know the status of the call. [Invoke a direct method on a device][lnk-devguide-methods] describes direct methods in more detail and offers guidance about when to use direct methods rather than cloud-to-device messages or desired properties.
+Azure IOT Hub güvenilir sağlayan tam olarak yönetilen bir hizmettir ve arka uç milyonlarca cihaza ve çözüm arasında güvenli çift yönlü iletişim. Önceki öğreticileri ([IOT Hub ile çalışmaya başlama] ve [IOT Hub ile bulut cihaza ileti gönderme]) IOT Hub'ın temel cihaz Bulut ve bulut-cihaz Mesajlaşma işlevlerini gösterilmektedir. IOT Hub ayrıca bulutta cihazlarda dayanıklı olmayan yöntemlerini çağırmasına olanak sağlar. Başarılı veya çağrı durumunu bilmeniz kullanıcı izin vermek hemen (bir kullanıcı tarafından belirtilen zaman aşımından sonra) başarısız doğrudan yöntemleri bir HTTPS çağrısına benzer bir cihaz istek-yanıt etkileşim temsil eder. [Bir cihazda doğrudan bir yöntem çağırma] [ lnk-devguide-methods] doğrudan yöntemler daha ayrıntılı açıklanır ve ne zaman doğrudan yöntemleri yerine bulut-cihaz iletilerini ya da istenen özellikleri kullanılacağı hakkında yönergeler sunar.
 
-This tutorial shows you how to:
+Bu öğretici şunların nasıl yapıldığını gösterir:
 
-* Use the Azure portal to create an IoT hub and create a device identity in your IoT hub.
-* Create a simulated device app that has a direct method which can be called by the cloud.
-* Create a console app that calls a direct method in the simulated device app through your IoT hub.
+* IOT hub'ı oluşturun ve IOT hub'ınızda bir cihaz kimliği oluşturma için Azure Portalı'nı kullanın.
+* Bulut tarafından çağrılan doğrudan bir yönteme sahip bir sanal cihaz uygulaması oluşturursunuz.
+* Sanal cihaz uygulama IOT hub'ınız aracılığıyla doğrudan bir yöntem çağırır bir konsol uygulaması oluşturun.
 
 
 [lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
 
-[Send Cloud-to-Device messages with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
-[Get started with IoT Hub]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
+[IOT Hub ile bulut cihaza ileti gönderme]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
+[IOT Hub ile çalışmaya başlama]: ../articles/iot-hub/iot-hub-node-node-getstarted.md

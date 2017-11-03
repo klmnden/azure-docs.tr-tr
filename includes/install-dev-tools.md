@@ -1,8 +1,8 @@
 
 > [!NOTE]
-> To successfully complete this section, you must have a working installation of Node.js and the Azure SDK for Node.js for your platform.
+> Bu bölümde başarıyla tamamlamak için Node.js ve Azure SDK'sını çalışan yüklemesine platformunuz için Node.js için olması gerekir.
 > 
-> * Install the Azure SDK for Node.js: [Windows installer](http://go.microsoft.com/fwlink/?LinkId=254279) | [Mac installer](http://go.microsoft.com/fwlink/?LinkId=253471) | [Linux download](http://go.microsoft.com/fwlink/?LinkId=253472)
-> * If you are using Mac or Linux, install Node.js from [http://nodejs.org](http://nodejs.org). The Windows installer already includes Node.js.
+> * Node.js için Azure SDK'yı yükleme: [Windows Installer](http://go.microsoft.com/fwlink/?LinkId=254279) | [Mac yükleyici](http://go.microsoft.com/fwlink/?LinkId=253471) | [Linux indirme](http://go.microsoft.com/fwlink/?LinkId=253472)
+> * Mac veya Linux kullanıyorsanız adresinden node.js'yi yükleyin [http://nodejs.org](http://nodejs.org). Windows Installer zaten Node.js içerir.
 > 
 > 

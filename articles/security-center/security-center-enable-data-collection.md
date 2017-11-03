@@ -1,0 +1,142 @@
+---
+title: "Azure Güvenlik Merkezi veri toplama | Microsoft Docs"
+description: " Azure Güvenlik Merkezi'nde veri koleksiyonunu etkinleştirme hakkında bilgi edinin. "
+services: security-center
+documentationcenter: na
+author: TerryLanfear
+manager: MBaldwin
+editor: 
+ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
+ms.service: security-center
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/11/2017
+ms.author: terrylan
+ms.openlocfilehash: 226fc82abf7aa24a0aa1bd3c21279158e1ce8e95
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
+---
+# <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi veri toplama
+Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve güvenlik açıkları ve tehditleri izlemek üzere Azure olmayan bilgisayarları veri toplar. Microsoft izleme çeşitli güvenlikle ilgili yapılandırmaları ve olay günlüklerini makineden okur ve verileri analiz için çalışma alanınızda kopyalar aracısı kullanarak verileri toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri), çalışan işlemler, makine adı, IP adresleri, oturum açmış kullanıcı ve kiracı kimliği. Microsoft Monitoring Agent ayrıca alanınıza kilitlenme bilgi döküm dosyaları kopyalar.
+
+## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Microsoft Monitoring Agent ' otomatik sağlamayı etkinleştir     
+Otomatik sağlama etkinleştirilmişse, Güvenlik Merkezi sağlarken Microsoft Monitoring Agent tüm Azure Vm'leri ve oluşturulan yeni bir tane desteklenir. Otomatik sağlama önemle tavsiye edilir ve Güvenlik Merkezi'nin standart katmanında abonelikler için gereklidir.
+
+> [!NOTE]
+> Otomatik sağlama sınırları güvenlik kaynaklarınız için izleme devre dışı bırakılıyor. Daha fazla bilgi için bkz: [otomatik sağlamayı devre dışı](security-center-enable-data-collection.md#disable-automatic-provisioning) bu makalede. Otomatik sağlamayı devre dışı bırakılmış olsa VM disk anlık görüntüler ve yapı toplama etkinleştirilir.
+>
+>
+
+Microsoft Monitoring Agent ' otomatik sağlamayı etkinleştirmek için:
+1. Güvenlik Merkezi ana menüsündeki seçin **Güvenlik İlkesi**.
+2. Aboneliği seçin.
+3. Altında **Güvenlik İlkesi**seçin **veri toplama**.
+4. Altında **Onboarding**seçin **üzerinde** otomatik sağlamayı etkinleştirmek için.
+5. **Kaydet**’i seçin.
+
+![Otomatik sağlamayı etkinleştir][1]
+
+## <a name="default-workspace-configuration"></a>Varsayılan çalışma alanı yapılandırması
+Güvenlik Merkezi tarafından toplanan verileri günlük analizi çalışma alanları depolanır.  Azure Güvenlik Merkezi tarafından oluşturulan çalışma alanları veya oluşturduğunuz var olan bir çalışma depolanan Vm'lerine toplanan verileri seçebilirler.
+
+Var olan günlük analizi çalışma alanınızı kullanmak için:
+- Çalışma alanı, seçili Azure aboneliğiniz ile ilişkilendirilmiş olması gerekir.
+- En azından, çalışma alanına erişmek için Okuma izinleriniz olmalıdır.
+
+Varolan bir günlük analizi çalışma alanını seçmek için:
+
+1. Altında **güvenlik ilkesi – veri toplama**seçin **başka bir çalışma alanını kullanın**.
+
+   ![Mevcut çalışma alanını seçin][2]
+
+2. Aşağı açılır menüden, toplanan verileri depolamak için bir çalışma alanı seçin.
+
+> [!NOTE]
+> Açılır menü, erişimi ve Azure aboneliğinizde olan çalışma alanları gösterilir.
+>
+>
+
+3. **Kaydet**’i seçin.
+4. Seçtikten sonra **kaydetmek**, izlenen RECONFIGURE VM'ler isteyip istemediğinizi istenir.
+
+   - Seçin **Hayır** yalnızca yeni Vm'lere uygulamak için yeni çalışma alanı ayarları istiyorsanız. Yeni çalışma alanı ayarları yalnızca yeni aracı yüklemeleri için geçerlidir; Microsoft izleme aracısı yüklü olmayan yeni bulunan VM'ler.
+   - Seçin **Evet** tüm sanal makinelerin uygulamak için yeni çalışma alanı ayarları istiyorsanız. Ayrıca, çalışma alanı oluşturulduğunda Güvenlik Merkezi'ne bağlı her VM için yeni hedef çalışma alanına bağlanır.
+
+   > [!NOTE]
+   > Evet'i seçerseniz, yeni hedef çalışma alanına tüm sanal makineleri yeniden bağlanması kadar Güvenlik Merkezi tarafından oluşturulan çalışma alanları silmemelisiniz. Bir çalışma alanı çok erken silinirse, bu işlem başarısız olur.
+   >
+   >
+
+   - Seçin **iptal** işlemi iptal etmek için.
+
+   ![Mevcut çalışma alanını seçin][3]
+
+## <a name="data-collection-tier"></a>Veri toplama katmanı
+Güvenlik Merkezi, araştırma, Denetim ve tehdit algılama için yeterli olayları korurken, olayı azaltabilir. Aracı tarafından toplanacak olayların dört kümelerinden çalışma alanları ve abonelikler için ilke filtreleme sağa seçebilirsiniz.
+
+- **Tüm olayları** – toplanan tüm olayları emin olmak için isteyen müşteriler için. Varsayılan değer budur.
+- **Ortak** – müşterilerin çoğu karşılayan ve tam denetim deneme sağlayan bir dizi olayları budur.
+- **En az** – olayları olay birimin en aza indirmek isteyen müşteriler için daha küçük bir dizi.
+- **Hiçbiri** – güvenlik ve App Locker Günlükleri güvenlik olay toplama devre dışı bırakın. Bu seçeneği olan müşteriler için kendi güvenlik Panolar yalnızca Windows Güvenlik Duvarı günlüklerini ve kötü amaçlı yazılımdan koruma, temel ve güncelleştirme gibi öngörülü değerlendirmeleri sahiptir.
+
+> [!NOTE]
+> Bu ayarlar, tipik senaryolar için tasarlanmıştır. Hangisinin çözümü uygulamadan önce ihtiyaçlarınıza uygun değerlendirmek emin olun.
+>
+>
+
+Ait olayları belirlemek için **ortak** ve **en az** olay kümeleri, biz çalışılan müşteriler ve endüstri standartları filtrelenmemiş sıklığını her olay ve kullanımı hakkında bilgi edinmek için. Bu işlemde aşağıdaki yönergeleri kullandık:
+
+- **En az** -Bu, başarılı bir ihlal gösterebilir olayları ve çok düşük bir biriminiz önemli olayları kapsadığından emin olun. Örneğin, kullanıcı başarılı ve başarısız oturum açma (olay kimlikleri 4624 4625) bu küme içeriyor, ancak denetlemek için önemli, ancak algılama için anlamlı ve görece yüksek hacimli içeren oturum kapatma içermiyor. Bu kümesinin veri hacmi çoğunu, oturum açma olayları ve işlem oluşturma olayı (olay kimliği 4688).
+- **Ortak** -tam kullanıcı denetim izi bu kümesindeki sağlayın. Örneğin, bu küme, kullanıcı oturumu ve kullanıcı oturumu (olay kimliği 4634) içerir. Güvenlik grubu değişikliklerini, anahtar etki alanı denetleyicisi Kerberos işlemleri ve endüstri kuruluşlar tarafından önerilen diğer olaylar gibi eylemleri denetim içerir.
+
+Çok düşük birim olayları birimi küçültmek ve belirli olayları da filtre olduğu tüm olayları üzerinden seçmek için ana motivasyon yap ortak eklendi.
+
+Güvenlik ve App Locker olay kimlikleri her küme için tam bir dökümünü şöyledir:
+
+   ![Olay kimlikleri][4]
+
+Filtreleme ilkeniz seçmek için:
+1. Üzerinde **güvenlik ilkesi & ayarları** dikey penceresinde filtreleme ilkesi altında seçin **güvenlik olaylarını**.
+2. **Kaydet**’i seçin.
+
+   ![İlke filtreleme seçin][5]
+
+## <a name="disable-automatic-provisioning"></a>Otomatik sağlamayı devre dışı bırak
+Otomatik kaynaklardan herhangi bir zamanda Güvenlik İlkesi'nde bu ayarı devre dışı bırakarak sağlamayı devre dışı bırakabilirsiniz. Otomatik sağlama güvenlik uyarıları ve sistem güncelleştirmeleri, işletim sistemi güvenlik açıkları ve endpoint protection hakkında öneriler alabilmek için önerilir.
+
+> [!NOTE]
+> Otomatik sağlamayı devre dışı bırakma, Microsoft Monitoring Agent aracı bir yere sağlanan Azure VM'lerin kaldırmaz.
+>
+>
+
+1. Güvenlik Merkezi ana menüye dönmek ve güvenlik ilkesini seçin.
+
+   ![Otomatik sağlamayı devre dışı bırak][6]
+
+2. Otomatik sağlamayı devre dışı bırakmak istediğiniz aboneliği seçin.
+3. Üzerinde **güvenlik ilkesi – veri toplama** dikey altında **Onboarding** seçin **kapalı** otomatik sağlamayı devre dışı bırakmak için.
+4. **Kaydet**’i seçin.  
+
+## <a name="next-steps"></a>Sonraki adımlar
+Bu makalede gösterilen, nasıl veri toplama ve Güvenlik Merkezi çalışır otomatik sağlama. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --nasıl önerilerin Azure kaynaklarınızı korumanıza yardımcı öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) - Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+- [Azure Güvenlik Merkezi veri güvenliği](security-center-data-security.md) -verilerin yönetilmesi ve diğer Güvenlik Merkezi'nde korunması nasıl öğrenin.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) - En son Azure güvenlik haberlerini ve bilgilerini edinin.
+
+<!--Image references-->
+[1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
+[2]: ./media/security-center-enable-data-collection/use-another-workspace.png
+[3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
+[4]: ./media/security-center-enable-data-collection/event-id.png
+[5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
+[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png

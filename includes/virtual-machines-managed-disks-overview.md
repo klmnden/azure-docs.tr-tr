@@ -1,142 +1,142 @@
-# <a name="azure-managed-disks-overview"></a>Azure Managed Disks Overview
+# <a name="azure-managed-disks-overview"></a>Azure yönetilen diskleri genel bakış
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](../articles/storage/common/storage-premium-storage.md) or [Standard](../articles/storage/common/storage-standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
+Azure yönetilen diskleri yöneterek Azure Iaas VM'ler için disk yönetimi basitleştirir [depolama hesapları](../articles/storage/common/storage-introduction.md) VM disklerle ilişkilendirilmiş. Yalnızca türü belirtmek zorunda ([Premium](../articles/virtual-machines/windows/premium-storage.md) veya [standart](../articles/virtual-machines/windows/standard-storage.md)) ihtiyacınız diskin boyutunu ve Azure oluşturur ve disk tarafından yönetilir.
 
-## <a name="benefits-of-managed-disks"></a>Benefits of managed disks
+## <a name="benefits-of-managed-disks"></a>Yönetilen diskleri yararları
 
-Let's take a look at some of the benefits you gain by using managed disks, starting with this Channel 9 video, [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
+Geçirmesine yönetilen diskleri kullanarak bu Channel 9 video ile başlayan avantajlarından bazıları bir göz atalım [daha iyi Azure VM dayanıklılık yönetilen disklerle](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 <br/>
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
-### <a name="simple-and-scalable-vm-deployment"></a>Simple and scalable VM deployment
+### <a name="simple-and-scalable-vm-deployment"></a>Basit ve ölçeklenebilir VM dağıtımı
 
-Managed Disks handles storage for you behind the scenes. Previously, you had to create storage accounts to hold the disks (VHD files) for your Azure VMs. When scaling up, you had to make sure you created additional storage accounts so you didn't exceed the IOPS limit for storage with any of your disks. With Managed Disks handling storage, you are no longer limited by the storage account limits (such as 20,000 IOPS / account). You also no longer have to copy your custom images (VHD files) to multiple storage accounts. You can manage them in a central location – one storage account per Azure region – and use them to create hundreds of VMs in a subscription.
+Diskleri tanıtıcılarını depolama sizin için arka planda yönetilen. Daha önce Azure Vm'leriniz için diskleri (VHD dosyaları) tutmak için storage hesapları oluşturmanız gerekirdi. Yukarı ölçeklendirilirken tüm disklerinizi depolama IOPS sınırı aşan kaydetmedi için ek depolama hesapları oluşturulan emin olmak zorunda kaldı. Yönetilen depolama işleme diskler ile depolama hesabı sınırları tarafından artık sınırlıdır (20.000 IOPS gibi / hesabını). Ayrıca artık birden çok depolama hesabı için kendi özel görüntülerinizi (VHD dosyaları) kopyalamanız gerekir. Bunları merkezi bir konumda – Azure bölgesi başına bir depolama hesabı – yönetebilir ve bunları bir abonelikte VM'ler yüzlerce oluşturmak için kullanın.
 
-Managed Disks will allow you to create up to 10,000 VM **disks** in a subscription, which will enable you to create thousands of **VMs** in a single subscription. This feature also further increases the scalability of [Virtual Machine Scale Sets (VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) by allowing you to create up to a thousand VMs in a VMSS using a Marketplace image.
+Yönetilen diskleri etmenizi sağlar 10.000 VM oluşturmak **diskleri** bir abonelikte hangi etkinleştirecek binlerce oluşturmanızı **VM'ler** içinde tek bir abonelik. Bu özellik ayrıca ölçeklenebilirliğini artırır [sanal makine ölçek kümeleri (VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) bir Market görüntüsü kullanarak bir VMSS kadar binlerce VM'ler oluşturmanızı sağlayarak.
 
-### <a name="better-reliability-for-availability-sets"></a>Better reliability for Availability Sets
+### <a name="better-reliability-for-availability-sets"></a>Kullanılabilirlik kümeleri için daha iyi güvenilirlik
 
-Managed Disks provides better reliability for Availability Sets by ensuring that the disks of [VMs in an Availability Set](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage scale units (stamps). If a stamp fails due to hardware or software failure, only the VM instances with disks on those stamps fail. For example, let's say you have an application running on five VMs, and the VMs are in an Availability Set. The disks for those VMs won't all be stored in the same stamp, so if one stamp goes down, the other instances of the application continue to run.
+Yönetilen diskleri sağlar daha iyi güvenilirlik için kullanılabilirlik kümesi, disklerinin sağlayarak [bir kullanılabilirlik kümesindeki sanal makineleri](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) yeterince tek hata noktaları bulundurmaktan önlemek için birbirinden yalıtılır. Bunu diskleri otomatik olarak farklı depolama ölçek birimlerinin (Damgalar) koyarak yapar. Bir damga donanım veya yazılım arızasından dolayı başarısız olursa bu Damgalar disklerde yalnızca VM örnekleriyle başarısız. Örneğin, beş Vm'lerinde çalışan bir uygulamanız varsa ve bir kullanılabilirlik kümesindeki sanal makineleri olan varsayalım. Bu VM'lerin tümü aynı damgaya kaydedilmeyecektir için bir damga uygulamanın diğer örnekleri aşağı kalırsa diskleri kadar çalışmaya devam eder.
 
-### <a name="highly-durable-and-available"></a>Highly durable and available
+### <a name="highly-durable-and-available"></a>Yüksek oranda dayanıklı ve kullanılabilir
 
-Azure Disks are designed for 99.999% availability. Rest easier knowing that you have three replicas of your data that enables high durability. If one or even two replicas experience issues, the remaining replicas help ensure persistence of your data and high tolerance against failures. This architecture has helped Azure consistently deliver enterprise-grade durability for IaaS disks, with an industry-leading ZERO% Annualized Failure Rate. 
+Azure Diskleri %99,999 kullanılabilirlik sunacak şekilde tasarlanmıştır. Daha kolay verilerinizin yüksek dayanıklılık sağlayan üç çoğaltmaları olduğunu bilmek bekletin. Çoğaltmaların birinde hatta ikisinde sorunlarla karşılaşılırsa, kalan çoğaltmalar verilerinizin kalıcı olmasını ve başarısızlıklara karşı yüksek tolerans gösterilmesini sağlar. Azure bu mimari sayesinde IaaS diskleri için tutarlı bir şekilde kurumsal düzeyde dayanıklılık sunarak sektördeki en başarılı %SIFIR Yıllık Hata Oranını elde etmektedir. 
 
-### <a name="granular-access-control"></a>Granular access control
+### <a name="granular-access-control"></a>Ayrıntılı erişim denetimi
 
-You can use [Azure Role-Based Access Control (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, and retrieving a [shared access signature (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don't want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don't want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
+Kullanabileceğiniz [Azure rol tabanlı erişim denetimi (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) bir veya daha fazla kullanıcılara yönetilen bir disk için belirli izinler atamak için. Yönetilen diskleri işlemleri dahil olmak üzere, çeşitli okuma çıkarır, yazma (oluşturma/güncelleştirme), silme ve alınırken bir [paylaşılan erişim imzası (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) disk. Yalnızca bir kişinin işini gerçekleştirmek için gereken işlemleri için erişim izni verebilir. Örneğin, yönetilen bir disk bir depolama hesabına kopyalamak için bir kişinin istemiyorsanız, bu yönetilen disk verme eylemi için erişim vermek seçebilirsiniz. Benzer şekilde, yönetilen bir diske kopyalamak için bir SAS URI'sini kullanmak için bir kişinin istemiyorsanız, bu yönetilen disk izni olmayan seçebilirsiniz.
 
-### <a name="azure-backup-service-support"></a>Azure Backup service support
-Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For regional disaster recovery, you must backup your VM disks in a different region using [Azure Backup service](../articles/backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Currently Azure Backup supports data disk sizes up to 1TB for backup. Read more about this at [Using Azure Backup service for VMs with Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+### <a name="azure-backup-service-support"></a>Azure yedekleme hizmeti desteği
+Azure Backup hizmeti yönetilen disklerle zaman tabanlı yedeklemeler, kolay VM geri yükleme ve yedekleme bekletme ilkeleri ile bir yedekleme işi oluşturmak için kullanın. Yönetilen diskler, yalnızca yerel olarak yedekli depolama (LRS) çoğaltma seçeneği olarak destekler; başka bir deyişle, tek bir bölge içinde verileri üç kopyasını tutar. Bölgesel olağanüstü durum kurtarma için farklı bir bölgeye kullanarak VM disklerinizi yedekleme gerekir [Azure Backup hizmeti](../articles/backup/backup-introduction-to-azure-backup.md) ve yedekleme kasası olarak GRS depolama hesabı. Şu anda Azure yedekleme desteklediği veri diski yedekleme için 1 TB'ye kadar boyutları. Şu anda hakkında daha fazla bilgiyi [kullanarak Azure Backup hizmeti yönetilen diskleri olan VM'ler için](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
-## <a name="pricing-and-billing"></a>Pricing and Billing
+## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
 
-When using Managed Disks, the following billing considerations apply:
-* Storage Type
+Yönetilen diskleri kullanırken, aşağıdaki fatura değerlendirmeleri geçerlidir:
+* Depolama türü
 
-* Disk Size
+* Disk Boyutu
 
-* Number of transactions
+* İşlem sayısı
 
-* Outbound data transfers
+* Giden veri aktarımları
 
-* Managed Disk Snapshots (full disk copy)
+* Disk anlık görüntüler (tam disk kopyası) yönetilen
 
-Let's take a closer look at these.
+Bunlar daha yakın bir göz atalım.
 
-**Storage Type:** Managed Disks offers 2 performance tiers: [Premium](../articles/storage/common/storage-premium-storage.md) (SSD-based) and [Standard](../articles/storage/common/storage-standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+**Depolama türü:** yönetilen diskleri 2 performans katmanı sunar: [Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD tabanlı) ve [standart](../articles/virtual-machines/windows/standard-storage.md) (HDD tabanlı). Hangi tür depolama için disk üzerinde seçmiş olduğunuz yönetilen bir disk faturalama bağlıdır.
 
 
-**Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S20 Disk type.
+**Disk boyutu**: yönetilen diskleri için fatura sağlanan disk boyutuna bağlıdır. Azure, aşağıdaki tabloda belirtildiği gibi yakın yönetilen diskleri seçeneğine (yuvarlanan) sağlanan boyutu eşler. Yönetilen her disk desteklenen sağlanan boyutlarından birini eşler ve buna göre faturalandırılır. Örneğin, standart yönetilen disk oluşturma ve 200 GB sağlanan boyutunu belirtirseniz, fiyatlandırma S20'in Disk türüne göre faturalandırılır.
 
-Here are the disk sizes available for a premium managed disk:
+Premium yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
-| **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
+| **Yönetilen premium <br>Disk türü** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Disk Boyutu        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
-Here are the disk sizes available for a standard managed disk:
+Standart yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
-| **Standard Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
+| **Standart yönetilen <br>Disk türü** | **S4** | **S6** | **S10** | **S20'NİN** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Disk Size        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Disk Boyutu        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
-**Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
+**İşlem sayısı**: standart yönetilen disk üzerinde gerçekleştirdiğiniz işlem sayısı için faturalandırılır. Premium yönetilen disk işlemleri için ücret ödemeden yoktur.
 
-**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
+**Giden veri aktarımları**: [giden veri aktarımları](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure veri merkezlerinde dışında giderek veri) bant genişliği kullanımı için fatura doğurur.
 
-For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
-
-
-## <a name="managed-disk-snapshots"></a>Managed Disk Snapshots
-
-A Managed Snapshot is a read-only full copy of a managed disk which is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new Managed Disks. They are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GB and actual used data size of 10 GB, snapshot will be billed only for the used data size of 10 GB.  
-
-[Incremental snapshots](../articles/virtual-machines/windows/incremental-snapshots.md) are currently not supported for Managed Disks, but will be supported in the future.
-
-To learn more about how to create snapshots with Managed Disks, please check out these resources:
-
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+Yönetilen diskler için fiyatlandırma hakkında ayrıntılı bilgi için bkz: [yönetilen diskleri fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
 
 
-## <a name="images"></a>Images
+## <a name="managed-disk-snapshots"></a>Yönetilen Disk anlık görüntüler
 
-Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a generalized (sys-prepped) VM. This captures in a single image all managed disks associated with a VM, including both the OS and data disks. This enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
+Salt okunur tam bir kopyasını, varsayılan olarak standart yönetilen disk olarak depolanan yönetilen bir disk yönetilen anlık görüntüsüdür. Anlık görüntüleri ile yönetilen disklerinizi herhangi bir noktada zamanında yedekleyebilirsiniz. Bu anlık görüntüler kaynak disk bağımsız var ve yeni yönetilen diskleri oluşturmak için kullanılabilir. Bunlar, kullanılan boyutuna göre faturalandırılır. Sağlanan kapasite 64 GB ve 10 GB gerçek kullanılan veri boyutunu ile yönetilen bir disk görüntüsünü oluşturursanız, örneğin, anlık görüntü yalnızca kullanılan veri boyutu 10 GB için faturalandırılır.  
 
-For information on creating images, please check out the following articles:
-* [How to capture a managed image of a generalized VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../articles/virtual-machines/linux/capture-image.md)
+[Artımlı anlık görüntüleri](../articles/virtual-machines/windows/incremental-snapshots.md) şu anda yönetilen disklerde desteklenmez, ancak gelecekte desteklenecektir.
 
-## <a name="images-versus-snapshots"></a>Images versus snapshots
+Yönetilen disklerle anlık görüntüleri oluşturma hakkında daha fazla bilgi için aşağıdaki kaynaklara gözatın:
 
-You often see the word "image" used with VMs, and now you see "snapshots" as well. It's important to understand the difference between these. With Managed Disks, you can take an image of a generalized VM that has been deallocated. This image will include all of the disks attached to the VM. You can use this image to create a new VM, and it will include all of the disks.
-
-A snapshot is a copy of a disk at the point in time it is taken. It only applies to one disk. If you have a VM that only has one disk (the OS), you can take a snapshot or an image of it and create a VM from either the snapshot or the image.
-
-What if a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks – the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported.
-
-## <a name="managed-disks-and-encryption"></a>Managed Disks and Encryption
-
-There are two kinds of encryption to discuss in reference to managed disks. The first one is Storage Service Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption, which you can enable on the OS and data disks for your VMs.
-
-### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
-
-[Azure Storage Service Encryption](../articles/storage/common/storage-service-encryption.md) provides encryption-at-rest and safeguard your data to meet your organizational security and compliance commitments. SSE is enabled by default for all Managed Disks, Snapshots and Images in all the regions where managed disks is available. Starting June 10th, 2017, all new managed disks/snapshots/images and new data written to existing managed disks are automatically encrypted-at-rest with keys managed by Microsoft.  Visit the [Managed Disks FAQ page](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
+* [Windows’da Anlık Görüntüler kullanılarak Yönetilen Disk olarak depolanmış VHD kopyası oluşturma](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Linux’ta Anlık Görüntüler kullanılarak Yönetilen Disk olarak depolanmış VHD kopyası oluşturma](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
-### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
+## <a name="images"></a>Görüntüler
 
-Azure Disk Encryption allows you to encrypt the OS and Data disks used by an IaaS Virtual Machine. This includes managed disks. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys. For more information, please see [Azure Disk Encryption for Windows and Linux IaaS VMs](../articles/security/azure-security-disk-encryption.md).
+Yönetilen özel görüntü oluşturma yönetilen diskleri de destekler. Genelleştirilmiş bir (sys prepped) VM, özel bir VHD bir depolama hesabında ya da doğrudan bir görüntü oluşturabilirsiniz. Bu işletim sistemi ve veri diskleri de dahil olmak üzere bir VM ile ilişkili disk tüm yönetilen tek bir görüntü yakalar. Bu, kopyalama veya herhangi bir depolama hesabı yönetmek için özel görüntünüzü gerek kalmadan kullanarak VM'ler oluşturma yüzlerce sağlar.
 
-## <a name="next-steps"></a>Next steps
+Görüntüleri oluşturma hakkında daha fazla bilgi için lütfen aşağıdaki makalelere bakın:
+* [Genelleştirilmiş bir Azure VM'de yönetilen bir görüntüsünü yakalama](../articles/virtual-machines/windows/capture-image-resource.md)
+* [Generalize ve Azure CLI 2.0 kullanarak bir Linux sanal makine yakalama](../articles/virtual-machines/linux/capture-image.md)
 
-For more information about Managed Disks, please refer to the following articles.
+## <a name="images-versus-snapshots"></a>Görüntüleri anlık görüntüleri karşılaştırması
 
-### <a name="get-started-with-managed-disks"></a>Get started with Managed Disks
+Genellikle "VM ile birlikte kullanılan görüntü" word bakın ve şimdi "anlık" de görebilirsiniz. Bunlar arasındaki farkı anlamak önemlidir. Yönetilen disklerle serbest bıraktı genelleştirilmiş bir VM görüntüsü alabilir. Bu görüntü VM'ye bağlı disklerin tümünü içerir. Yeni bir VM oluşturmak için bu görüntüyü kullanabilirsiniz ve tüm diskler dahil edilir.
 
-* [Create a VM using Resource Manager and PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
+Bir anlık görüntü bir noktada bir disk, geçen süre içinde kopyasıdır. Yalnızca bir diske uygulanır. Yalnızca tek bir disk (OS) sahip bir VM'niz varsa, bir anlık görüntüsü veya bir görüntüsü alın ve anlık görüntü veya görüntü bir VM oluşturun.
 
-* [Create a Linux VM using the Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+Ne VM beş disk vardır ve bunlar şeritli? Disklerin her biri bir anlık görüntüsünü, ancak anlık görüntülerin yalnızca tek bir disk hakkında bilmeniz hiçbir şeyin – disklerin durumunu VM dahilinde olduğu. Bu durumda, anlık görüntüleri birbirleri ile uyumlu olması gerekir ve bu şu anda desteklenmiyor.
 
-* [Attach a managed data disk to a Windows VM using PowerShell](../articles/virtual-machines/windows/attach-disk-ps.md)
+## <a name="managed-disks-and-encryption"></a>Yönetilen diskleri ve şifreleme
 
-* [Add a managed disk to a Linux VM](../articles/virtual-machines/linux/add-disk.md)
+Şifreleme bağlamında yönetilen diskleri tartışmak için iki tür vardır. İlk Depolama hizmeti tarafından gerçekleştirilen depolama hizmeti Şifrelemesi'ne (SSE) sağlayıcıdır. İkincisi, işletim sistemi ve veri diskleri VM'ler için etkinleştirebilirsiniz Azure Disk Şifrelemesi ' dir.
 
-* [Managed Disks PowerShell Sample Scripts](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
+### <a name="storage-service-encryption-sse"></a>Depolama hizmeti şifrelemesi (SSE)
 
-* [Use Managed Disks in Azure Resource Manager templates](../articles/virtual-machines/windows/using-managed-disks-template-deployments.md)
+[Azure depolama hizmeti şifrelemesi](../articles/storage/common/storage-service-encryption.md) rest sırasında şifreleme sağlar ve Kuruluş güvenliği ve uyumluluğu taahhüt karşılamak için verilerinizi koruyun. SSE tüm yönetilen diskler, anlık görüntüler ve yönetilen diskleri olduğu kullanılabilir tüm bölgelerde görüntüleri için varsayılan olarak etkindir. 10 Haziran 2017 başlayan tüm yeni disk/anlık görüntüler/görüntüleri yönetilen ve otomatik olarak şifrelenmiş çalışmıyorken-Microsoft tarafından yönetilen anahtarlarla varolan yönetilen diske yazılan yeni veriler.  Ziyaret [yönetilen diskleri SSS sayfasını](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) daha fazla ayrıntı için.
 
-### <a name="compare-managed-disks-storage-options"></a>Compare Managed Disks storage options
 
-* [Premium storage and disks](../articles/storage/common/storage-premium-storage.md)
+### <a name="azure-disk-encryption-ade"></a>Azure Disk şifrelemesi (ADE)
 
-* [Standard storage and disks](../articles/storage/common/storage-standard-storage.md)
+Azure Disk şifrelemesi bir Iaas sanal makine tarafından kullanılan işletim sistemi ve veri diskleri şifrelemenizi sağlar. Bu yönetilen disklerini de içerir. Windows için sürücüleri, endüstri standardı BitLocker şifreleme teknolojisi kullanılarak şifrelenir. Linux için DM-Crypt teknolojisini kullanan diskleri şifrelenir. Bu, denetlemek ve disk şifreleme anahtarlarını yönetmek izin vermek için Azure anahtar kasası ile tümleşiktir. Daha fazla bilgi için lütfen bkz [için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler](../articles/security/azure-security-disk-encryption.md).
 
-### <a name="operational-guidance"></a>Operational guidance
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Migrate from AWS and other platforms to Managed Disks in Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
+Yönetilen diskler hakkında daha fazla bilgi için lütfen aşağıdaki makalelere bakın.
 
-* [Convert Azure VMs to managed disks in Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)
+### <a name="get-started-with-managed-disks"></a>Yönetilen Diskler’i kullanmaya başlama
+
+* [Resource Manager ve PowerShell kullanarak VM oluşturma](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
+
+* [Azure CLI 2.0 kullanarak bir Linux VM oluşturma](../articles/virtual-machines/linux/quick-create-cli.md)
+
+* [Bir Windows PowerShell kullanarak bir VM için bir yönetilen veri diski Ekle](../articles/virtual-machines/windows/attach-disk-ps.md)
+
+* [Linux VM’ye yönetilen disk ekleme](../articles/virtual-machines/linux/add-disk.md)
+
+* [Diskler PowerShell örnek betikler yönetilen](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
+
+* [Azure Resource Manager şablonlarını yönetilen diskleri kullanın](../articles/virtual-machines/windows/using-managed-disks-template-deployments.md)
+
+### <a name="compare-managed-disks-storage-options"></a>Yönetilen diskleri depolama seçenekleri Karşılaştır
+
+* [Premium depolama ve diskleri](../articles/virtual-machines/windows/premium-storage.md)
+
+* [Standart depolama ve diskleri](../articles/virtual-machines/windows/standard-storage.md)
+
+### <a name="operational-guidance"></a>İşlemsel kılavuz
+
+* [Azure yönetilen disklere AWS ve diğer platformlar geçirme](../articles/virtual-machines/windows/on-prem-to-azure.md)
+
+* [Azure yönetilen diskleri Azure VM'ler Dönüştür](../articles/virtual-machines/windows/migrate-to-managed-disks.md)

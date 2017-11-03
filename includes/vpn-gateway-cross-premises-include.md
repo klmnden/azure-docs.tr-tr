@@ -1,13 +1,13 @@
-|  | **Point-to-Site** | **Site-to-Site** | **ExpressRoute** |
+|  | **Noktadan siteye** | **Siteden siteye** | **ExpressRoute** |
 | --- | --- | --- | --- |
-| **Azure Supported Services** |Cloud Services and Virtual Machines |Cloud Services and Virtual Machines |[Services list](../articles/expressroute/expressroute-faqs.md#supported-services) |
-| **Typical Bandwidths** |Typically < 100 Mbps aggregate |Typically < 1 Gbps aggregate |50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
-| **Protocols Supported** |Secure Sockets Tunneling Protocol (SSTP) |IPsec |Direct connection over VLANs, NSP's VPN technologies (MPLS, VPLS,...) |
-| **Routing** |RouteBased (dynamic) |We support PolicyBased (static routing) and RouteBased (dynamic routing VPN) |BGP |
-| **Connection resiliency** |active-passive |active-passive or active-active |active-active |
-| **Typical use case** |Prototyping, dev / test / lab scenarios for cloud services and virtual machines |Dev / test / lab scenarios and small scale production workloads for cloud services and virtual machines |Access to all Azure services (validated list), Enterprise-class and mission critical workloads, Backup, Big Data, Azure as a DR site |
+| **Azure Hizmetleri desteklenmez** |Cloud Services ve Virtual Machines |Cloud Services ve Virtual Machines |[Hizmetler listesi](../articles/expressroute/expressroute-faqs.md#supported-services) |
+| **Tipik bant genişlikleri** |Tipik olarak < 100 Mb/sn toplu |Genellikle < 1 GB/sn toplama |50 Mb/sn, 100 Mb/sn, 200 Mb/sn, 500 Mb/sn, 1 Gb/sn, 2 Gb/sn, 5 Gb/sn, 10 Gb/sn |
+| **Desteklenen protokoller** |Güvenli Yuva Tünel Protokolü (SSTP) |IPsec |VLAN, NSP'nin VPN’si teknolojileri (MPLS, VPLS,...) üzerinden doğrudan bağlantı |
+| **Yönlendirme** |RouteBased (dinamik) |PolicyBased (statik yönlendirme) ve RouteBased (dinamik yönlendirme VPN) destekliyoruz |BGP |
+| **Bağlantı dayanıklılığı** |Etkin-Edilgen |Etkin-pasif veya aktif-aktif |etkin-edilgen |
+| **Tipik kullanım örneği** |Prototip oluşturma, Cloud Services ve Virtual Machines için geliştirme / test / laboratuvar senaryoları |Cloud Services ve Virtual Machines için geliştirme / test / laboratuvar senaryoları ve küçük ölçekli üretim iş yükleri |Tüm Azure hizmetlerine erişim (doğrulanmış liste), Kurumsal sınıfta ve görev açısından kritik iş yükleri, Yedekleme, Büyük Veri, DR sitesi olarak Azure |
 | **SLA** |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |[SLA](https://azure.microsoft.com/support/legal/sla/) |
-| **Pricing** |[Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Pricing](https://azure.microsoft.com/pricing/details/expressroute/) |
-| **Technical Documentation** |[VPN Gateway Documentation](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[VPN Gateway Documentation](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[ExpressRoute Documentation](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **FAQ** |[VPN Gateway FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[VPN Gateway FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[ExpressRoute FAQ](../articles/expressroute/expressroute-faqs.md) |
+| **Fiyatlandırma** |[Fiyatlandırma](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Fiyatlandırma](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/) |
+| **Teknik belgeler** |[VPN ağ geçidi belgeleri](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[VPN ağ geçidi belgeleri](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[ExpressRoute belgeleri](https://azure.microsoft.com/documentation/services/expressroute/) |
+| **SSS** |[VPN Gateway ile ilgili SSS](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[VPN Gateway ile ilgili SSS](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[ExpressRoute ile ilgili SSS](../articles/expressroute/expressroute-faqs.md) |
 

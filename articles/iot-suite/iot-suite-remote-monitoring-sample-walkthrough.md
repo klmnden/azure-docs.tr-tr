@@ -1,6 +1,6 @@
 ---
-title: "Önceden yapılandırılmış Uzaktan İzleme çözümünde gezinme | Microsoft Belgeleri"
-description: "Azure IOT önceden yapılandırılmış çözümü uzaktan izlemenin ve mimarisinin açıklaması."
+title: "Uzaktan izleme çözümü - Azure Mimarisi | Microsoft Docs"
+description: "Önceden yapılandırılmış Uzaktan izleme çözümü mimarisi bir kılavuz."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -10,275 +10,136 @@ editor:
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: b28105f300723b542fa6d1aebc569439d5c73dc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış uzaktan izleme çözümünde gezinme
+# <a name="remote-monitoring-preconfigured-solution-architecture"></a>Önceden yapılandırılmış Uzaktan izleme çözümü mimarisi
 
-IoT Paketi önceden yapılandırılmış [uzaktan izleme çözümü][lnk-preconfigured-solutions], uzak konumlarda çalışan birden fazla makine için uçtan uca izleme çözümünün bir uygulamasıdır. Bu çözüm, iş senaryosunun genel uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir. Çözümü kendi uygulamanız için bir başlangıç noktası olarak kullanabilir ve özel iş gereksinimlerinizi karşılayacak şekilde [özelleştirebilirsiniz][lnk-customize].
+IOT paketi Uzaktan izleme [önceden yapılandırılmış çözüm](iot-suite-what-are-preconfigured-solutions.md) uzak konumlarda birden fazla makine için uçtan uca bir izleme çözümü uygular. Bu çözüm, iş senaryosunun genel uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir. Çözümü kendi uygulamanız için bir başlangıç noktası olarak kullanabilirsiniz ve [özelleştirme](iot-suite-remote-monitoring-customize.md) kendi belirli iş gereksinimlerinizi karşılamak üzere onu.
 
 Bu makalede uzaktan izleme çözümünün nasıl çalıştığını anlamanız için çözümün temel öğelerinden bazıları açıklanmaktadır. Bu bilgiler şunları yapmanıza yardımcı olur:
 
 * Çözümdeki sorunları giderme.
-* Çözümü kendinize özel gereksinimleri karşılayacak şekilde nasıl özelleştireceğinizi planlama. 
+* Çözümü kendinize özel gereksinimleri karşılayacak şekilde nasıl özelleştireceğinizi planlama.
 * Azure hizmetlerini kullanan kendi IoT çözümünüzü tasarlama.
 
 ## <a name="logical-architecture"></a>Mantıksal mimari
 
-Aşağıdaki diyagram önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
+Aşağıdaki diyagram yayılan Uzaktan izleme önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir [IOT mimarisi](iot-suite-what-is-azure-iot.md):
 
 ![Mantıksal mimari](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## <a name="simulated-devices"></a>Sanal cihazlar
+## <a name="why-microservices"></a>Neden mikro?
 
-Önceden yapılandırılmış çözümde, sanal cihaz bir soğutma cihazını temsil eder (örneğin, bir yapının klimaları veya bir tesisin havalandırma birimi). Önceden yapılandırılmış çözümü dağıttığınızda bir [Azure WebJob][lnk-webjobs] içinde çalışan dört sanal cihazı da otomatik olarak sağlamış olursunuz. Sanal cihazlar herhangi bir fiziksel cihaza dağıtmaya gerek olmadan çözümün davranışını keşfetmenizi kolaylaştırır. Gerçek bir fiziksel cihaz dağıtmak için [Cihazınızı önceden yapılandırılmış uzaktan izleme çözümüne bağlama][lnk-connect-rm] öğreticisine bakın.
+Microsoft ilk önceden yapılandırılmış çözümler yayımlanan bu yana bulut mimarisi gelişmiştir. [Mikro](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) ölçek ve esneklik geliştirme hızını ödün vermeden elde etmek için kanıtlanmış yöntem olarak ortaya çıkmıştır. Birkaç Microsoft Hizmetleri bu tasarım örüntüsü mükemmel güvenilirlik ve ölçeklendirilebilirlik sonuçları ile dahili olarak kullanın. Ayrıca bunları yararlanabilir şekilde güncelleştirilmiş önceden yapılandırılmış çözümler bu learnings yöntem içine yerleştirin.
 
-### <a name="device-to-cloud-messages"></a>Cihazdan buluta iletiler
+> [!TIP]
+> Mikro hizmet mimarisi hakkında daha fazla bilgi için bkz: [.NET uygulama mimarisi](https://www.microsoft.com/net/learn/architecture) ve [mikro: Bulut tarafından desteklenen bir uygulama revolution](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
-Her sanal cihaz IoT Hub'ına aşağıdaki ileti türlerini gönderebilir:
+## <a name="device-connectivity"></a>Cihaz bağlantısı
 
-| İleti | Açıklama |
-| --- | --- |
-| Başlangıç |Cihaz başlatıldığında, arka uca kendisiyle ilgili bilgiler içeren bir **device-info** iletisi gönderir. Bu veriler, cihaz kimliği ile cihazın desteklediği komut ve yöntemlerin listesini içerir. |
-| Varlık |Bir cihaz, cihazın bir sensörün varlığını algılayıp algılamadığını bildirmek üzere düzenli aralıklarla bir **varlık** iletisi gönderir. |
-| Telemetri |Bir cihaz, düzenli aralıklarla cihazın sanal sensörlerinden toplanan sıcaklık ve nem sanal değerlerini bildiren bir **telemetri** iletisi gönderir. |
+Çözüm mantıksal mimarisi cihaz bağlantısı parçası aşağıdaki bileşenleri içerir:
 
-> [!NOTE]
-> Çözüm, cihaz tarafından desteklenen komutların listesini cihaz ikizinde değil, Cosmos DB veritabanında depolar.
+### <a name="simulated-devices"></a>Sanal cihazlar
 
-### <a name="properties-and-device-twins"></a>Özellikler ve cihaz ikizleri
+Çözüm, çözümdeki uçtan uca akış sınamak için sanal cihazları havuzu yönetmenize olanak sağlayan bir mikro hizmet içerir. Sanal cihazlar:
 
-Sanal cihazlar IoT hub içindeki [ikize][lnk-device-twins] aşağıdaki cihaz özelliklerini *bildirilen özellikler* olarak gönderir. Cihaz başlangıçta ve bir **Cihaz Durumunu Değiştir** komut ya da yöntemine yanıt olarak bildirilen özellikleri gönderir.
+* Cihaz bulut telemetri oluşturmak.
+* Bulut cihaz yöntem çağrıları için IOT Hub'ından yanıt.
 
-| Özellik | Amaç |
-| --- | --- |
-| Config.TelemetryInterval | Cihazın telemetri gönderme sıklığı (saniye) |
-| Config.TemperatureMeanValue | Sanal sıcaklık telemetrisi için ortalama değeri belirtir |
-| Device.DeviceID |Çözümde cihaz oluşturulduğunda sağlanan veya atanan kimlik |
-| Device.DeviceState | Cihaz tarafından bildirilen durum |
-| Device.CreatedTime |Çözümde cihazın oluşturulduğu zaman |
-| Device.StartupTime |Cihazın başlatıldığı saat |
-| Device.LastDesiredPropertyChange |En son istenen özellik değişikliğinin sürüm numarası |
-| Device.Location.Latitude |Cihazın enlem konumu |
-| Device.Location.Longitude |Cihazın boylam konumu |
-| System.Manufacturer |Cihaz üreticisi |
-| System.ModelNumber |Cihazın model numarası |
-| System.SerialNumber |Cihazın seri numarası |
-| System.FirmwareVersion |Geçerli cihazdaki üretici yazılımı sürümü |
-| System.Platform |Cihazın platform mimarisi |
-| System.Processor |Cihazı çalıştıran işlemci |
-| System.InstalledRAM |Cihazda yüklü RAM miktarı |
+Mikro hizmet RESTful bir uç noktası oluşturma, başlatma ve durdurma benzetimleri olanak sağlar. Her benzetimi telemetri göndermesine ve yöntem çağrıları için yanıt farklı türdeki sanal cihazlar oluşur.
 
-Benzetici, örnek değerlerle sanal cihazlarda bu özelliklerin çekirdeğini oluşturur. Simülatör sanal cihazı her başlattığında, cihaz IoT Hub'ına önceden tanımlanmış meta verileri bildirilen özellik olarak gönderir. Bildirilen özellikler yalnızca cihaz tarafından güncelleştirilebilir. Bildirilen bir özelliği değiştirmek için çözüm portalında istenen bir özelliği ayarlayın. Aşağıdaki işlemler cihazın sorumluluğundadır:
+Sanal cihazlar çözüm Portalı'nda panodan sağlayabilirsiniz.
 
-1. İstenen özellikleri IoT hub'ından düzenli olarak alma.
-2. Yapılandırmasını istenen özellik değeriyle güncelleştirme.
-3. Yeni değeri bildirilen özellik olarak hub’a geri gönderme.
+### <a name="physical-devices"></a>Fiziksel cihazlar
 
-Çözüm panosundan, [cihaz ikizini][lnk-device-twins] kullanarak bir cihaz üzerindeki özellikleri ayarlamak üzere *istenen özellikleri* kullanabilirsiniz. Genellikle, cihaz iç durumunu güncelleştirmek üzere istenen özellik değerini hub’dan okur ve değişikliği bildirilen bir özellik olarak geri bildirir.
+Fiziksel aygıtların çözümüne bağlayabilirsiniz. Azure IOT cihaz SDK'ları kullanarak sanal cihazlarınızın davranışını uygulayabilirsiniz.
 
-> [!NOTE]
-> Sanal cihaz kodu, IoT Hub’ına geri gönderilen bildirilen özellikleri güncelleştirmek üzere yalnızca istenen **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** özelliklerini kullanır. Diğer tüm istenen özellik değişiklik istekleri, sanal cihazda yok sayılır.
+Çözüm Portalı'nda panodan fiziksel aygıtların sağlayabilirsiniz.
 
-### <a name="methods"></a>Yöntemler
+### <a name="iot-hub-and-the-iot-manager-microservice"></a>IOT hub'ı ve IOT Yöneticisi mikro hizmet
 
-Sanal cihazlar IoT hub aracılığıyla çözüm portalından çağrılan aşağıdaki yöntemleri ([doğrudan yöntemler][lnk-direct-methods]) işleyebilir:
-
-| Yöntem | Açıklama |
-| --- | --- |
-| InitiateFirmwareUpdate |Cihazdan üretici yazılımı güncelleştirmesi yapmasını ister |
-| Yeniden başlatma |Cihazdan yeniden başlatma ister |
-| FactoryReset |Cihazdan fabrika sıfırlaması yapmasını ister |
-
-Bazı yöntemler ilerleme durumunu bildirmek üzere bildirilen özellikleri kullanır. Örneğin, **InitiateFirmwareUpdate** yöntemi, güncelleştirmeyi cihaz üzerinde zaman uyumsuz olarak çalıştırma işlemini taklit eder. Yöntem cihaz üzerinde hemen döndürülürken, zaman uyumsuz görev bildirilen özellikleri kullanarak çözüm panosuna durum güncelleştirmeleri göndermeye devam eder.
-
-### <a name="commands"></a>Komutlar
-
-Sanal cihazlar IoT hub aracılığıyla çözüm portalından gönderilen aşağıdaki komutları (buluttan cihaza iletiler) işleyebilir:
-
-| Komut | Açıklama |
-| --- | --- |
-| PingDevice |Canlı olup olmadığını denetlemek için cihaza bir *ping* gönderir |
-| StartTelemetry |Cihazın telemetri göndermesini başlatır |
-| StopTelemetry |Cihazın telemetri göndermesini durdurur |
-| ChangeSetPointTemp |Çevresinde rastgele verilerin oluşturulduğu ayar noktası değerini değiştirir |
-| DiagnosticTelemetry |Ek bir telemetri değeri (externalTemp) göndermek için cihaz benzeticisini tetikler |
-| ChangeDeviceState |Cihazla ilgili genişletilmiş durum özelliğini değiştirir ve cihazdan cihaz bilgi iletisi gönderir |
-
-> [!NOTE]
-> Bu komutlar (buluttan cihaza iletiler) ile yöntemlerin (doğrudan yöntemler) bir karşılaştırması için bkz. [Buluttan cihaza iletişim kılavuzu][lnk-c2d-guidance].
-
-## <a name="iot-hub"></a>IoT Hub’ı
-
-[IoT hub][lnk-iothub], cihazlardan buluta gönderilen verileri alır ve Azure Stream Analytics (ASA) işlerinde kullanılabilir hale getirir. ASA işinin kullandığı her akış, cihazlarınızdaki ileti akışını okumak için ayrı bir IoT Hub tüketici grubu kullanır.
+[IOT hub'ı](../iot-hub/index.md) cihazlardan buluta gönderilen verileri alır ve için kullanılabilir hale getirir `telemetry-agent` mikro hizmet.
 
 IoT hub çözümde aynı zamanda şunları yapar:
 
-- Portala bağlanmasına izin verilen tüm cihazların kimliklerini ve kimlik doğrulama anahtarlarını depolayan bir kimlik kayıt defteri tutar. Cihazları kimlik kayıt defterinden etkinleştirebilir ve devre dışı bırakabilirsiniz.
-- Çözüm portalı adına cihazlarınıza komut gönderir.
-- Çözüm portalı adına cihazlarınızda komut çağırır.
-- Tüm kayıtlı cihazlar için cihaz ikizlerini tutar. Cihaz ikizi bir cihaz tarafından bildirilen özellik değerlerini depolar. Cihaz ikizi ayrıca cihaz bir kez daha bağlandığında alabilmesi için çözüm portalında ayarlanmış istenen özellikleri depolar.
-- Birden fazla cihaza ait özellikleri ayarlamak veya birden fazla cihaz üzerinde yöntem çağırmak için işleri zamanlar.
+* Kimlikleri ve Portalı'na bağlanmasına izin verilen tüm cihazların kimlik doğrulama anahtarlarını depolayan bir kimlik kayıt defteri tutar. Cihazları kimlik kayıt defterinden etkinleştirebilir ve devre dışı bırakabilirsiniz.
+* Çözüm portalı adına cihazlarınızda komut çağırır.
+* Tüm kayıtlı cihazlar için cihaz ikizlerini tutar. Cihaz ikizi bir cihaz tarafından bildirilen özellik değerlerini depolar. Cihaz ikizi ayrıca cihaz bir kez daha bağlandığında alabilmesi için çözüm portalında ayarlanmış istenen özellikleri depolar.
+* Birden fazla cihaza ait özellikleri ayarlamak veya birden fazla cihaz üzerinde yöntem çağırmak için işleri zamanlar.
 
-## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+Çözüm içeren `iot-manager` mikro IOT hub'ınızı ile etkileşim gibi işlemek için:
 
-Uzaktan izleme çözümünde [Azure Stream Analytics ][lnk-asa] (ASA), IoT hub tarafından alınan cihaz iletilerini işleme veya depolama amacıyla diğer arka uç bileşenlerine gönderir. Farklı ASA işleri, iletilerin içeriğine göre belirli işlevler gerçekleştirir.
+* Oluşturma ve IOT cihazları yönetme.
+* Cihaz çiftlerini yönetme.
+* Cihazlarda yöntemlerini çağırma.
+* IOT kimlik bilgilerini yönetme.
 
-**İş 1: Cihaz bilgileri** gelen ileti akışından cihaz bilgileri iletilerine filtre uygular ve bunları olay hub'ı uç noktasına gönderir. Cihaz, başlangıçta ve **SendDeviceInfo** komutuna yanıt olarak cihaz bilgi iletileri gönderir. Bu iş **device-info** iletilerini tanımlamak için aşağıdaki sorgu tanımını kullanır:
+Bu hizmet, kullanıcı tanımlı gruplarına ait cihazları almak için sorguları IOT hub'ı da çalışır.
 
-```
-SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
-```
+Mikro hizmet cihazları ve cihaz çiftlerini yönetme yöntemleri çağırma ve IOT hub'ı sorguları çalıştırmak için bir RESTful uç noktası sağlar.
 
-Bu iş daha ayrıntılı işleme için Olay Hub’ına çıktısını gönderir.
+## <a name="data-processing-and-analytics"></a>Veri işleme ve analizi
 
-**İş 2: Kurallar** cihaz başına eşiklere karşılık gelen sıcaklık ve nem telemetrisi değerlerini değerlendirir. Eşik değerleri çözüm portalında yer alan kurallar düzenleyicisinde ayarlanır. Her cihaz/değer çifti, Akış Analizi’nin **Başvuru Verileri** olarak okuduğu blob’daki zaman damgası tarafından depolanır. İş, boş olmayan değerleri cihaz için ayarlanan eşikle karşılaştırır. ' >' koşulunu aşarsa, iş eşiğin aşıldığını belirten bir **alarm** olayı verir; cihaz, değer ve zaman damgası değerlerini de sağlar. Bu iş bir alarm tetiklemesi gereken telemetri iletilerini belirlemek üzere aşağıdaki sorgu tanımını kullanır:
+Çözüm veri işleme ve analizi mantıksal mimarisi parçası aşağıdaki bileşenleri içerir:
 
-```
-WITH AlarmsData AS 
-(
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Temperature' as ReadingType,
-     Stream.Temperature as Reading,
-     Ref.Temperature as Threshold,
-     Ref.TemperatureRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+### <a name="device-telemetry"></a>Cihaz telemetrisi
 
-UNION ALL
+Çözüm cihaz telemetri işlemek için iki mikro içerir.
 
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Humidity' as ReadingType,
-     Stream.Humidity as Reading,
-     Ref.Humidity as Threshold,
-     Ref.HumidityRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
-)
+[Telemetri aracısını](https://github.com/Azure/telemetry-agent-dotnet) mikro hizmet:
 
-SELECT *
-INTO DeviceRulesMonitoring
-FROM AlarmsData
+* Telemetri Cosmos DB içinde depolar.
+* Cihazlara ait telemetri akışına analiz eder.
+* Tanımlı kurallara göre uyarılar oluşturur.
 
-SELECT *
-INTO DeviceRulesHub
-FROM AlarmsData
-```
+Alarmlar Cosmos DB içinde depolanır.
 
-İş daha ayrıntılı işleme için çıktısını Olay Hub’ına gönderir ve her bir uyarının ayrıntılarını, çözüm portalının uyarı bilgilerini okuyabileceği blob depolamaya kaydeder.
+`telemetry-agent` Mikro hizmet aygıtlardan gönderilen telemetriyi okumak çözüm portalı sağlar. Çözüm portalı da bu hizmete kullanır:
 
-**ş 3: Telemetri**, gelen cihaz telemetrisi akışını iki yolla çalıştırır. İlk olarak tüm telemetri iletilerini cihazlardan uzun süreli depolama için kalıcı blob depolamaya gönderir. İkincisi beş dakikalık bir kayan pencerede ortalama, en düşük ve en yüksek nem değerlerini ölçer ve bu verileri blob depolamaya gönderir. Çözüm portalı blob depolama alanından telemetri verilerini okuyarak grafikleri doldurur. Bu iş şu sorgu tanımını kullanır:
+* Alarmlar tetiklemek eşikleri gibi izleme kurallarını tanımlayın
+* Son uyarıları listesini alır.
 
-```
-WITH 
-    [StreamData]
-AS (
-    SELECT
-        *
-    FROM [IoTHubStream]
-    WHERE
-        [ObjectType] IS NULL -- Filter out device info and command responses
-) 
+Telemetri, kuralları ve Uyarıları yönetmek için bu mikro hizmet tarafından sağlanan RESTful uç noktası kullan.
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    Temperature,
-    Humidity,
-    ExternalTemperature,
-    EventProcessedUtcTime,
-    PartitionId,
-    EventEnqueuedUtcTime,
-    * 
-INTO
-    [Telemetry]
-FROM
-    [StreamData]
+### <a name="storage"></a>Depolama
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    AVG (Humidity) AS [AverageHumidity],
-    MIN(Humidity) AS [MinimumHumidity],
-    MAX(Humidity) AS [MaxHumidity],
-    5.0 AS TimeframeMinutes 
-INTO
-    [TelemetrySummary]
-FROM [StreamData]
-WHERE
-    [Humidity] IS NOT NULL
-GROUP BY
-    IoTHub.ConnectionDeviceId,
-    SlidingWindow (mi, 5)
-```
+[Depolama bağdaştırıcısı](https://github.com/Azure/pcs-storage-adapter-dotnet) mikro hizmet olan bir bağdaştırıcı için önceden yapılandırılmış çözümü kullanılan ana depolama hizmeti önünde. Basit bir koleksiyonun ve anahtar-değer depolama sağlar.
 
-## <a name="event-hubs"></a>Event Hubs
+Önceden yapılandırılmış çözümün standart dağıtımı Cosmos DB kendi ana depolama hizmeti kullanır.
 
-ASA işleri **cihaz bilgisi** ve **kurallar** verilerini, WebJob’da çalışan **Olay İşleyicisi**’ne güvenli bir şekilde iletmek üzere Event Hubs’a gönderir.
+Cosmos DB veritabanını önceden yapılandırılmış çözümde verileri depolar. **Depolama bağdaştırıcısı** mikro hizmet çözümü depolama hizmetlerine erişmek için diğer mikro hizmetler için bir bağdaştırıcı görür.
 
-## <a name="azure-storage"></a>Azure Storage
+## <a name="presentation"></a>Sunu
 
-Çözüm, çözümdeki cihazlarda bulunan tüm ham ve özet telemetri verilerini kalıcı hale getirmek için Azure Blob Depolama kullanır. Portal, blob depolama alanından telemetri verilerini okuyarak grafikleri doldurur. Uyarıları görüntülemek için çözüm portalı, telemetri değerleri yapılandırılmış eşik değerlerini aştığında kayıt altına alan blob depolama alanından verileri okur. Çözüm, çözüm portalında sizin ayarladığınız eşik değerlerini kaydetmek için de blob depolama alanını kullanır.
+Çözüm mantıksal mimarisi sunu parçası aşağıdaki bileşenleri içerir:
 
-## <a name="webjobs"></a>WebJobs
+[Web kullanıcı arabirimi olan React Javascript uygulama](https://github.com/Azure/pcs-remote-monitoring-webui). Uygulama:
 
-WebJobs cihaz benzeticilerini barındırmaya ek olarak çözüm içinde komut yanıtlarını işleyen bir Azure WebJob içinde çalışan **Olay İşleyicisi**’ni de barındırır. Cihaz komut geçmişini (Cosmos DB veritabanında depolanır) güncelleştirmek için komut yanıtı iletilerini kullanır.
+* JavaScript tepki yalnızca kullanır ve tamamen tarayıcıda çalıştırır.
+* CSS stili.
+* Genel kullanıma yönelik mikro AJAX çağrıları aracılığıyla ile etkileşim kurar.
 
-## <a name="cosmos-db"></a>Cosmos DB
+Kullanıcı arabirimi tüm önceden yapılandırılmış çözüm işlevselliği sunar ve diğer hizmetlerle gibi etkileşim kurar:
 
-Çözüm, kendisine bağlı cihazlarla ilgili bilgileri depolamak için bir Cosmos DB veritabanı kullanır. Bu bilgiler çözüm portalından cihazlara gönderilen komutların ve çözüm portalından çağrılan yöntemlerin geçmişini içerir.
+* [Kimlik doğrulaması](https://github.com/Azure/pcs-auth-dotnet) kullanıcı verilerini korumak için mikro hizmet.
+* [İothub-manager](https://github.com/Azure/iothub-manager-dotnet) listelemek ve IOT cihazları yönetmek için mikro hizmet.
 
-## <a name="solution-portal"></a>Çözüm portalı
-
-Çözüm portalı, önceden yapılandırılmış çözümün bir parçası olarak dağıtılan bir web uygulamasıdır. Çözüm portalındaki temel sayfalar pano ve cihaz listesidir.
-
-### <a name="dashboard"></a>Pano
-
-Web uygulamasındaki bu sayfa, cihazlardaki telemetri verilerini görselleştirmek için PowerBI javascript denetimlerini kullanır (bkz. [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)). Çözüm, blob depolama alanına telemetri verilerini yazmak için ASA telemetri işini kullanır.
-
-### <a name="device-list"></a>Cihaz listesi
-
-Çözüm portalındaki bu sayfadan şunları yapabilirsiniz:
-
-* Yeni bir cihaz hazırlayın. Bu eylem, benzersiz cihaz kimliğini ayarlar ve kimlik doğrulaması anahtarını oluşturur. Hem IoT Hub kimlik kayıt defterine hem de çözüme özel Cosmos DB veritabanına cihaz hakkındaki bilgileri yazar.
-* Cihaz özelliklerini yönetin. Bu eylem, mevcut özellikleri görüntülemeyi ve yeni özelliklerle güncelleştirmeyi kapsar.
-* Cihaza komut gönderme.
-* Cihaz için komut geçmişini görüntüleme.
-* Cihazları etkinleştirin ve devre dışı bırakın.
+[UI-config](https://github.com/Azure/pcs-config-dotnet) mikro hizmet depolamak ve yapılandırma ayarlarını almak kullanıcı arabirimi sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki TechNet blog gönderileri önceden yapılandırılmış uzaktan izleme çözümü hakkında daha ayrıntılı bilgi sağlar:
+Kaynak kodu ve geliştirici belgeleri araştırmak istiyorsanız, biriyle iki ana GitHub depolarının başlatın:
 
-* [IoT Paketi - Başlık Altında - Uzaktan İzleme](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
-* [IoT Paketi - Uzaktan İzleme - Canlı ve Sanal Cihaz Ekleme](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+* [Önceden yapılandırılmış Uzaktan izleme ile Azure IOT (.NET) için çözüm](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Önceden yapılandırılmış Uzaktan izleme Azure IOT (Java) için çözüm](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
-Aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
-
-* [Cihazınızı önceden yapılandırılmış uzaktan izleme çözümüne bağlama][lnk-connect-rm]
-* [azureiotsuite.com sitesindeki izinler][lnk-permissions]
-
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
-[lnk-connect-rm]: iot-suite-connecting-devices.md
-[lnk-permissions]: iot-suite-permissions.md
-[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
-[lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+Önceden yapılandırılmış Uzaktan izleme çözümü hakkında daha fazla kavramsal bilgi için bkz: [önceden yapılandırılmış çözümü özelleştirme](iot-suite-remote-monitoring-customize.md).

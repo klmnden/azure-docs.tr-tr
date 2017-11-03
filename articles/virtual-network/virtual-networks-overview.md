@@ -1,96 +1,93 @@
 ---
-title: "Azure Sanal Ağları | Microsoft Belgeleri"
-description: "Azure&quot;daki sanal ağlar hakkında bilgi edinin."
+title: "Azure sanal ağı | Microsoft Docs"
+description: "Azure Virtual Network kavramları ve özellikler hakkında bilgi edinin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
-editor: tysonn
+manager: timlt
+editor: 
+tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 03/23/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
-ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
-
-
+ms.openlocfilehash: 6d6afd2b9b956138ed400fbd6cabd3b480fde0f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="virtual-networks"></a>Sanal ağlar
-Azure sanal ağ (VNet) buluttaki kendi ağınızın bir gösterimidir.  Azure bulutunun aboneliğinize adanmış mantıksal bir yalıtımıdır. Bu ağ içindeki IP adres bloklarını, DNS ayarlarını, güvenlik ilkelerini ve yol tablolarını tam olarak denetleyebilirsiniz. Ayrıca sanal ağınızı alt ağlara ayırabilir ve Azure IaaS sanal makinelerini (VM'ler) ve/veya [Bulut hizmetlerini (PaaS rol örnekleri)](../cloud-services/cloud-services-choose-me.md) başlatabilirsiniz. Bunun yanı sıra, Azure'ın sunduğu [bağlantı seçeneklerinden](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) birini kullanarak sanal ağı şirket içi ağınıza bağlayabilirsiniz. Özetle, IP adres blokları üzerinde tam bir kontrol sahibi olarak ve Azure'ın sunduğu kurumsal ölçek avantajıyla, ağınızı Azure'a genişletebilirsiniz.
+# <a name="azure-virtual-network"></a>Azure Sanal Ağ
 
-Sanal ağları daha iyi anlayabilmek için basitleştirilmiş bir şirket içi ağını gösteren aşağıdaki şekle göz atın.
+Azure sanal ağ hizmeti, güvenli bir şekilde Azure kaynaklarını birbirlerine sanal ağlar (Vnet'ler) bağlanmanıza olanak sağlar. Bir VNet kendi ağ bulutta gösterimidir. Bir VNet Azure bulutunun aboneliğinize adanmış mantıksal bir yalıtım ' dir. Ayrıca, sanal ağlar, şirket içi ağınıza bağlanabilir. Aşağıdaki resimde bazı Azure Virtual Network service özelliklerini gösterir:
 
-![Şirket içi ağı](./media/virtual-networks-overview/figure01.png)
+![Ağ Diyagramı](./media/virtual-networks-overview/virtual-network-overview.png)
 
-Yukarıdaki şekilde, bir yönlendirici yoluyla genel İnternet'e bağlanan bir şirket içi ağı gösterilmektedir. Bir DNS sunucusunu ve bir web sunucusu grubunu barındıran bir çevre ağı ile yönlendirici arasında güvenlik duvarı bulunduğunu da görebilirsiniz. Web sunucusu grubunda İnternet'te kullanıma sunulan bir donanım yük dengeleyicisi kullanılarak yük dengelemesi yapılmıştır ve iç alt ağdan kaynak kullanmaktadır. İç alt ağ çevre ağından başka bir güvenlik duvarı ile ayrılmıştır ve Active Directory Etki Alanı Denetleyicileri’ni, veritabanı sunucularını ve uygulama sunucularını barındırır.
+Aşağıdaki Azure sanal ağ özellikleri hakkında daha fazla bilgi edinmek için özellik tıklatın:
+- **[Yalıtım:](#isolation)**  sanal ağlar birbirinden yalıtılmış. Geliştirme, test ve üretim için aynı CIDR adres bloklarını kullanan ayrı Vnet'ler oluşturabilirsiniz. Buna karşılık, ağları birbirine bağlamak ve farklı CIDR adres bloklarını kullanan birden çok sanal ağlar oluşturabilirsiniz. Bir sanal ağ birden çok alt ağa bölebilirsiniz. Azure, bir sanal ağa bağlı VM'ler ve bulut Hizmetleri rol örnekleri için dahili ad çözümlemesi sağlar. İsteğe bağlı olarak bir VNet Azure dahili ad çözümlemesi kullanmak yerine kendi DNS sunucularını kullanmak için yapılandırabilirsiniz.
+- **[Internet bağlantısı:](#internet)**  bir sanal ağa bağlı tüm Azure sanal makineler (VM) ve bulut Hizmetleri rol örnekleri varsayılan olarak, Internet erişimi vardır. Belirli kaynaklara gelen erişim gerektiğinde de etkinleştirebilirsiniz.
+- **[Azure kaynak bağlantısı:](#within-vnet)**  bulut Hizmetleri ve sanal makineleri gibi Azure kaynaklarını aynı Vnet'e bağlı. Farklı alt ağlarda olsalar bile, kaynakları birbirlerine özel IP adresleri kullanarak bağlanabilir. Azure, yapılandırmak ve yollar yönetmek zorunda kalmamak için varsayılan alt ağlar, sanal ağlar ve şirket içi ağlar arasında yönlendirme sağlar.
+- **[VNet bağlantısı:](#connect-vnets)**  sanal ağlar bağlanması birbirine herhangi bir kaynak başka bir VNet ile iletişim kurmak için hiçbir sanal ağa bağlı kaynaklar etkinleştirme.
+- **[Şirket içi bağlantı:](#connect-on-premises)**  sanal ağlara bağlanabilir ağınız ve Azure arasında özel ağ bağlantıları üzerinden veya siteden siteye VPN bağlantısı üzerinden şirket içi ağlar Internet üzerinden.
+- **[Trafik filtreleme:](#filtering)**  VM ve bulut Hizmetleri rol örneklerini ağ trafiği filtre gelen ve giden kaynak IP adresi ve bağlantı noktası, hedef IP adresi ve bağlantı noktası ve protokolü tarafından.
+- **[Yönlendirme:](#routing)**  isteğe bağlı olarak, kendi yolları yapılandırmak veya bir ağ geçidi üzerinden BGP yollarını kullanarak yönlendirme Azure'un varsayılan ayarlarını geçersiz kılabilir.
 
-Aynı ağ aşağıdaki şekilde gösterilen biçimde Azure'da barındırılabilir.
+## <a name = "isolation"></a>Ağ yalıtımı ve kesimleme
 
-![Azure sanal ağı](./media/virtual-networks-overview/figure02.png)
+Her Azure içinde birden çok sanal ağlar uygulayabilirsiniz [abonelik](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) ve Azure [bölge](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region). Her sanal ağ, diğer sanal ağlardan yalıtılır. Her sanal ağ için şunları yapabilirsiniz:
+- Ortak ve özel (RFC 1918) adreslerini kullanarak özel bir özel IP adres alanını belirtin. Azure atar kaynakları Vnet'e özel bir IP adresi atadığınız adres alanından bağlı.
+- Sanal ağ bir veya daha fazla alt ağlara ayırabilir ve her alt ağ için sanal ağ adres alanının bir bölümü ayırın.
+- Azure tarafından sağlanan ad çözümlemesi kullanın veya bir sanal ağa bağlı kaynaklar tarafından kullanmak için kendi DNS sunucusu belirtin. Sanal ağlar ad çözümleme hakkında daha fazla bilgi için okuma [VM'ler ve bulut Hizmetleri için ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md) makalesi.
 
-Azure altyapısının yönlendirici rolünü üstlendiğine ve herhangi bir yapılandırma gerektirmeden sanal ağınızdan genel İnternet'e erişime olanak sağladığına dikkat edin. Güvenlik duvarları yerine tek tek her alt ağa uygulanan Ağ Güvenlik Grupları (NSG'ler) kullanılabilir. Ayrıca Azure'da yük dengeleyiciler yerine internete yönelik iç yük dengeleyiciler kullanılır.
+## <a name = "internet"></a>Internet'e bağlanmak
+Bir sanal ağa bağlı tüm kaynakları, varsayılan olarak giden Internet bağlantısı vardır. Özel IP adresi kaynağının çevrilmiş kaynak ağ adresine (SNAT) genel bir IP adresi Azure altyapısı tarafından ' dir. Giden Internet bağlantısı hakkında daha fazla bilgi için okuma [azure'da giden bağlantılar anlama](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) makalesi. Varsayılan bağlantı özel Yönlendirme ve trafik filtreleme uygulayarak değiştirebilirsiniz.
 
-> [!NOTE]
-> Azure'da iki dağıtım modeli vardır: klasik (Hizmet Yönetimi olarak da bilinir) ve Azure Resource Manager (ARM). Klasik sanal ağlar bir benzeşim grubuna eklenebilir veya bölgesel bir sanal ağ olarak oluşturulabilir. Benzeşim grubunda bulunan bir sanal ağınız varsa [bunu bölgesel bir sanal ağa geçirmeniz](virtual-networks-migrate-to-regional-vnet.md) önerilir.
->
+Azure kaynaklarına Internet'ten gelen bağlantı kurmak veya SNAT olmadan Internet'e giden iletişim kurmak için bir kaynak genel bir IP adresi atanması gerekir. Genel IP adresleri hakkında daha fazla bilgi için okuma [ortak IP adresleri](virtual-network-public-ip-address.md) makalesi.
 
-## <a name="benefits"></a>Avantajlar
-* **Yalıtım**. Sanal ağlar birbirlerinden tamamen yalıtılmıştır. Bu sayede geliştirme, test ve üretim için aynı CIDR adres bloklarını kullanan ayrı ağlar oluşturabilirsiniz.
-* **Genel İnternet'e erişim**. Bir sanal ağda yer alan tüm IaaS VM'leri ve PaaS rol örnekleri varsayılan olarak genel İnternet'e erişebilir. Ağ Güvenlik Gruplarını (NSG'ler) kullanarak erişimi denetleyebilirsiniz.
-* **Sanal ağ içinden VM'lere erişim**. PaaS rolü örnekleri ve IaaS VM'leri aynı sanal ağda başlatılabilir ve farklı alt ağlarda olsalar bile bir ağ geçidini yapılandırmayı veya genel IP adresleri kullanmayı gerektirmeden, özel IP adresleri kullanılarak birbirlerine bağlanabilirler.
-* **Ad çözümlemesi**. Azure, sanal ağınızda dağıtılan IaaS VM'leri ve PaaS rolü örnekleri için [iç ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md) sağlar. Ayrıca kendi DNS sunucularınızı dağıtabilir ve sanal ağı bunları kullanmak üzere yapılandırabilirsiniz.
-* **Güvenlik**. Bir sanal ağdaki sanal makinelere ve PaaS rolü örneklerine gelen ve giden trafik, Ağ Güvenliği grupları kullanılarak denetlenebilir.
-* **Bağlantı**. Sanal ağlar, ağ geçitleri veya sanal ağ eşlemesi kullanılarak birbirine bağlanabilir. Sanal ağlar, siteden siteye VPN ağları veya Azure ExpressRoute aracılığıyla şirket içi veri merkezlerine bağlanabilir. Siteden siteye VPN bağlantısı hakkında daha fazla bilgi edinmek için bkz. [VPN ağ geçitleri hakkında](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections). ExpressRoute hakkında daha fazla bilgi edinmek için bkz. [ExpressRoute'a teknik genel bakış](../expressroute/expressroute-introduction.md). Sanal ağ eşlemesi hakkında daha fazla bilgi edinmek için bkz. [Sanal ağ eşlemesi](virtual-network-peering-overview.md).
+## <a name="within-vnet"></a>Azure kaynaklarına bağlanma
+Sanal makineler (VM), bulut Hizmetleri, uygulama hizmeti ortamları ve sanal makine ölçek kümeleri gibi bir VNet birkaç Azure kaynaklarına bağlanabilir. Bir alt ağ bir ağ arabirimi (NIC) aracılığıyla bir sanal ağ içindeki VM'ler bağlayın. NIC hakkında daha fazla bilgi için okuma [ağ arabirimleri](virtual-network-network-interface.md) makalesi.
 
-  > [!NOTE]
-  > Bir IaaS VM'si veya PaaS rolü örneğini Azure ortamınıza dağıtmadan önce bir sanal ağ oluşturduğunuzdan emin olun. ARM tabanlı VM'ler için bir sanal ağ gereklidir ve var olan bir sanal ağı belirtmemeniz durumunda Azure varsayılan bir sanal ağ oluşturur, bu da şirket içi ağınızda CIDR adres bloğu çakışmasına neden olabilir. Bu durumda sanal ağınızın şirket içi ağınıza bağlanması imkansız hale gelir.
-  >
+## <a name="connect-vnets"></a>Sanal ağlara bağlanabilir
 
-## <a name="subnets"></a>Alt ağlar
-Alt ağ, sanal ağdaki IP adresleri aralığıdır ve sanal ağı kuruluşunuz ve güvenliğiniz için birden çok alt ağa bölebilirsiniz. Bir sanal ağ içindeki alt ağlara (aynı veya farklı) dağıtılan VM'ler ve PaaS rolü örnekleri, ek bir yapılandırma gerektirmeden birbirleriyle iletişim kurabilir. Ayrıca yol tablolarını ve NSG'leri bir alt ağ için yapılandırabilirsiniz.
+Sanal ağlar birbirlerine Vnet'lerde birbirleri ile iletişim kurmak için herhangi bir Vnet'e bağlı kaynakları etkinleştirme bağlayabilirsiniz. Sanal ağları birbirine bağlama veya her ikisini aşağıdaki seçenekleri kullanabilirsiniz:
+- **Eşliği:** farklı Azure birbirleri ile iletişim kurmak için sanal ağlar aynı Azure konumunda içinde bağlı kaynaklar sağlar. Sanal ağlar arasında gecikme süresi ve bant genişliği aynıdır kaynaklar aynı Vnet'e bağlıymış gibi. Eşleme hakkında daha fazla bilgi için okuma [sanal ağ eşlemesi](virtual-network-peering-overview.md) makalesi.
+- **VNet-VNet bağlantısı:** farklı Azure sanal ağ içinde aynı veya farklı Azure konumu için bağlı kaynaklar sağlar. Bir Azure VPN ağ geçidi üzerinden trafik akışı gerekir çünkü eşliği farklı olarak, bant genişliği sanal ağlar arasında sınırlıdır. VNet-VNet bağlantısı ile sanal ağlara bağlanma hakkında daha fazla bilgi için okuma [VNet-VNet bağlantı yapılandırma](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi.
 
-## <a name="ip-addresses"></a>IP adresleri
-Azure'daki kaynaklara atanan iki tür IP adresi bulunur: *genel* ve *özel*. Genel IP Adresleri, Azure kaynaklarının İnternet ile ve [Azure Redis Önbelleği](https://azure.microsoft.com/services/cache/), [Azure Olay Hub’ları](https://azure.microsoft.com/documentation/services/event-hubs/) gibi genel kullanıma yönelik diğer Azure hizmetleriyle iletişim kurmasına imkan tanır. Özel IP Adresleri, bir sanal ağdaki kaynakların yanı sıra İnternet’ten yönlendirilebilen IP adresleri kullanmadan bir VPN üzerinden bağlanan kaynaklar arasında iletişim olanağı sağlar.
+## <a name="connect-on-premises"></a>Bir şirket ağına bağlanma
 
-Azure'daki IP adresleri hakkında daha fazla bilgi edinmek için bkz. [sanal ağdaki IP adresleri](virtual-network-ip-addresses-overview-arm.md)
+Şirket içi ağınıza aşağıdaki seçeneklerden herhangi bir bileşimini kullanarak bir sanal ağa bağlanabilir:
+- **Noktadan siteye sanal özel ağ (VPN):** , ağ ve sanal ağ için bağlı tek bir bilgisayar arasında kurulan. Varolan ağınız çok az kayıpla veya hiç değişiklik gerektirmediği Bu bağlantı türü, yalnızca Azure ile ya da geliştiricileri için başlıyorsanız mükemmeldir. Bağlantı, PC ve sanal ağ arasında Internet üzerinden şifreli iletişim sağlamak için SSTP protokolünü kullanır. Bir noktadan siteye VPN için gecikme süresini tahmin edilemez, olduğu Internet trafiği erişir.
+- **Siteden siteye VPN:** VPN cihazınız arasındaki bir Azure VPN ağ geçidi kuruldu. Bu bağlantı türü bir VNet erişmek üzere yetkilendirmek herhangi bir şirket içi kaynak sağlar. Şirket içi Cihazınızı ve Azure VPN ağ geçidi arasında Internet üzerinden şifrelenmiş iletişimi sağlayan bir IPSec/IKE VPN bağlantısıdır. Siteden siteye bağlantı için gecikme süresini tahmin edilemez, olduğu Internet trafiği erişir.
+- **Azure ExpressRoute:** ağınız ve Azure arasında bir expressroute bağlantı ortağı ile oluşturulmuş. Bu bağlantı özeldir. Trafik Internet'e erişmez. ExpressRoute bağlantısı için gecikme süresini tahmin edilebilir, olduğu trafik Internet'e çapraz geçiş değil.
 
-## <a name="azure-load-balancers"></a>Azure yük dengeleyicileri
-Bir Sanal ağda yer alan sanal makineler ve bulut hizmetleri, Azure Yük dengeleyicileri kullanılarak İnternet'te kullanıma sunulabilir. İç kullanıma yönelik İş Kolu uygulamalarında yalnızca İç yük dengeleyici kullanılarak yük dengeleme yapılabilir.
+Önceki tüm bağlantı seçenekleri hakkında daha fazla bilgi için okuma [bağlantı topoloji diyagramları](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams) makalesi.
 
-* **Dış yük dengeleyici**. Bir dış yük dengeleyici kullanarak genel İnternet'ten erişilen IaaS VM'leri ve PaaS rol örnekleri için yüksek bir kullanılabilirlik sağlayabilirsiniz.
-* **İç yük dengeleyici**. Bir iç yük dengeleyici kullanarak sanal ağınızdaki diğer hizmetlerden erişilen IaaS VM'leri ve PaaS rol örnekleri için yüksek bir kullanılabilirlik sağlayabilirsiniz.
+## <a name="filtering"></a>Ağ trafiği filtreleme
+Veya aşağıdaki seçeneklerden birini ikisini birden kullanarak alt ağlar arasında ağ trafiğinin filtreleyebilirsiniz:
+- **Ağ güvenlik grubu (NSG):** her NSG trafiğine kaynak ve hedef IP adresi, bağlantı noktası ve protokol göre filtre uygulamak için etkinleştirmeniz birden fazla gelen ve giden güvenlik kuralları içerebilir. Her NIC'nin bir VM için bir NSG uygulayabilirsiniz. Bir NSG'yi bir NIC alt ağına uygulayabilirsiniz veya diğer Azure kaynak bağlı. Nsg'ler hakkında daha fazla bilgi için okuma [ağ güvenlik grupları](virtual-networks-nsg.md) makalesi.
+- **Ağ sanal Gereçleri (NVA):** bir NVA olan bir güvenlik duvarı gibi bir ağ işlevi gerçekleştiren yazılımı çalıştıran bir VM. İçinde kullanılabilir NVAs listesini görüntülemek [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). NVAs WAN iyileştirmesi ve diğer ağ trafiği işlevleri sağlayan de kullanılabilir durumdadır. NVAs, kullanıcı tanımlı ile genellikle kullanılır ya da BGP yolları. Bir NVA, sanal ağlar arasında trafiği filtrelemek için de kullanabilirsiniz.
 
-Azure'daki yük dengeleme hakkında daha fazla bilgi edinmek için bkz. [Yük dengeleyiciye genel bakış](../load-balancer/load-balancer-overview.md).
+## <a name="routing"></a>Ağ trafiği yönlendirme
 
-## <a name="network-security-groups-nsg"></a>Ağ Güvenlik Grupları (NSG)
-Ağ arabirimlerine (NIC'ler), VM'lere ve alt ağlara gelen ve giden erişimi denetlemek için NSG'ler oluşturabilirsiniz. Her NSG'de kaynak IP adresine, kaynak bağlantı noktasına, hedef IP adresine ve hedef bağlantı noktasına göre trafiğe izin verileceğini veya trafiğin reddedileceğini belirten bir veya daha fazla kural bulunur. NSG'ler hakkında daha fazla bilgi edinmek için bkz. [Ağ Güvenlik Grubu nedir?](virtual-networks-nsg.md)
-
-## <a name="virtual-appliances"></a>Sanal gereçler
-Sanal gereç, yazılım tabanlı bir gereç işlevini (örneğin; güvenlik duvarı, WAN iyileştirmesi veya yetkisiz erişim algılama) çalıştıran sanal ağınızdaki diğer bir VM'dir. Bir sanal gerecin işlevlerini kullanmak üzere sanal ağ trafiğinizi bu sanal gerece yönlendirmek için Azure'da bir yol oluşturabilirsiniz.
-
-Örneğin, NSG'ler sanal ağınızda güvenlik sağlamak için kullanılabilir. Ancak NSG'ler gelen ve giden paketler için katman 4 Erişim Denetim Listesi (ACL) sağlar. Katman 7 güvenlik modelini kullanmak istiyorsanız bir güvenlik duvarı gerecini kullanmanız gerekir.
-
-Sanal gereçler [kullanıcı tanımlı yollara ve IP iletimine](virtual-networks-udr-overview.md) bağımlıdır.
-
-## <a name="limits"></a>Sınırlar
-Bir abonelikte izin verilen Virtual Network'ün sayısına yönelik sınırlar vardır, daha fazla bilgi için lütfen [Azure Ağ sınırlarına](../azure-subscription-service-limits.md#networking-limits) bakın.
+Azure varsayılan olarak birbirleri ile iletişim kurmak için herhangi bir VNet içindeki herhangi bir alt ağa bağlı kaynaklar etkinleştirmek yönlendirme tabloları oluşturur. Ya da Azure oluşturduğu varsayılan yolların geçersiz kılmak için aşağıdaki seçenekleri uygulayabilirsiniz:
+- **Kullanıcı tanımlı yollar:** özel yol tablolarını burada trafik yönlendirilir için her alt ağ için bu denetim yollar oluşturabilirsiniz. Kullanıcı tanımlı yollar hakkında daha fazla bilgi için, [Kullanıcı tanımlı yollar](virtual-networks-udr-overview.md) makalesini okuyun.
+- **BGP yolları:** bir Azure VPN ağ geçidi veya ExpressRoute bağlantısı kullanarak şirket içi ağınıza ağınızı bağlanırsanız, sanal ağlar için BGP yollarını yayabilir.
 
 ## <a name="pricing"></a>Fiyatlandırma
-Azure'da Virtual Network'ü kullanmanın ek bir maliyeti yoktur. Sanal ağ içinde başlatılan işlem örnekleri için [Azure VM Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/)'da açıklanan şekilde standart fiyatlar uygulanır. Sanal ağda kullanılan [VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/) ve [Genel IP Adresleri](https://azure.microsoft.com/pricing/details/ip-addresses/) için de standart fiyatlar uygulanır.
+
+Güvenlik grupları sanal ağlar, alt ağlar, yol tablolarını veya ağ için ücret ödemeden yoktur. Giden Internet bant genişliği kullanımı, ortak IP adresleri, sanal ağ eşlemesi, VPN ağ geçitleri ve ExpressRoute her kendi fiyatlandırma yapılarına sahip. Görünüm [sanal ağ](https://azure.microsoft.com/pricing/details/virtual-network), [VPN ağ geçidi](https://azure.microsoft.com/pricing/details/vpn-gateway), ve [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) sayfalar daha fazla bilgi için fiyatlandırma.
+
+## <a name="faq"></a>SSS
+
+Sanal ağ ile ilgili sık sorulan soruları gözden geçirmek için bkz: [Virtual Network SSS](virtual-networks-faq.md) makalesi.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Alt ağlar ve [bir sanal ağ oluşturun](virtual-networks-create-vnet-arm-pportal.md).
-* [Sanal ağ içinde bir VM oluşturun](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-* [NSG'ler](virtual-networks-nsg.md) hakkında bilgi edinin.
-* [Kullanıcı tanımlı yollar ve IP iletimi](virtual-networks-udr-overview.md) hakkında bilgi edinin.
 
-
-
-<!--HONumber=Feb17_HO4-->
-
-
+- İlk sanal ağınızı oluşturun ve birkaç VM'ler, içindeki adımları tamamlayarak bağlanmak [ilk sanal ağınızı oluşturmak](virtual-network-get-started-vnet-subnet.md) makalesi.
+- İçindeki adımları tamamlayarak bir sanal ağa noktadan siteye bağlantı oluşturmak [noktadan siteye bağlantı yapılandırma](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi.
+- Başka bir anahtar bazıları hakkında bilgi edinin [ağ yeteneklerini](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.

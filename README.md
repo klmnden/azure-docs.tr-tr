@@ -1,94 +1,54 @@
-# Azure Teknik Belgeler - Katkıda Bulunanlar Kılavuzu
-[http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) adresindeki Azure Belge Merkezi’nde yayımlanan teknik belgelere ilişkin kaynakları barındıran GitHub deposuna ulaştınız.
+## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft açık kaynak kullanım kuralları
 
-Bu depo, teknik belgelerimize katkıda bulunmanıza yardımcı olan yönergeleri de içerir.  Katkıda bulunanlar kılavuzundaki makalelerin listesi için [dizine](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) bakın.
+Bu proje [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Açık Kaynak Kullanım Kuralları) belgesinde listelenen kurallara uygundur.
+Daha fazla bilgi için bkz: [kod kuralları hakkında SSS](https://opensource.microsoft.com/codeofconduct/faq/) veya başvurun [ opencode@microsoft.com ](mailto:opencode@microsoft.com) sorularınızı ya da görüşlerinizi.
 
-## Azure belgelerine katkıda bulunun
-Azure belgelerine gösterdiğiniz ilgi için teşekkür ederiz!
+## <a name="contribute-to-azure-technical-documentation"></a>Azure teknik belgelerine katkıda bulunun
+Biz topluluğumuz (kullanıcılar, müşteriler, iş ortakları, çekirdek Azure ürün birimleri, vb. dışında MSFT çalışanlar) yanı sıra çekirdek Azure ürün birimlerinde çalışanların Katkıları Hoş Geldiniz. Nasıl katkıda kimin size bağlıdır:
 
-* [Katkıda bulunma yolları](#ways-to-contribute)
-* [Kullanım kuralları](#code-of-conduct)
-* [Azure içeriğine katkılarınız hakkında](#about-your-contributions-to-azure-content)
-* [Depo düzeni](#repository-organization)
-* [GitHub, Git ve bu depoyu kullanma](#use-github-git-and-this-repository)
-* [Konunuzu biçimlendirmek için markdown kullanma](#how-to-use-markdown-to-format-your-topic)
-* [Geri bildirim, yorumlar ve destek](./contributor-guide/feedback-and-comments.md)
-* [Diğer kaynaklar](#more-resources)
-* [atkıda bulunanlar kılavuzundaki tüm makalelerin dizini](./contributor-guide/contributor-guide-index.md) (Yeni bir sayfada açılır)
+* **Topluluk - küçük güncelleştirmeler**: tutarak güzelliklerine dışında küçük güncelleştirmeler katkısı olan, makaleyi bu depoda bulun, veya makaleyi ziyaret [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) ve'ı tıklatın **Düzenle** makale için GitHub kaynağına giden makalede bağlantı. Ardından, güncelleştirmelerinin olması için yalnızca GitHub kullanıcı arabirimini kullanın. Veya çatalı depo Hoş Geldiniz ve güncelleştirmeler, çatalı gönderin.
 
-## Katkıda bulunma yolları
-[Azure belgelerine](http://azure.microsoft.com/documentation/) birkaç farklı şekilde katkıda bulunabilirsiniz:
+* **Topluluk - yeni makaleler**: parçası değilseniz Azure topluluk ve yeni bir makale oluşturmak istiyorsanız, bu yeni bir ortak iş bir birleşimiyle içeriği ve özel havuz taşımanıza yardımcı olmak için bir çalışan ile çalışmak için gerekir.
 
-* Bir [forum tartışmasına](http://social.msdn.microsoft.com/Forums/windowsazure/home) katkıda bulunun.
-* Makalelerin altında Disqus yorumları gönderin.
-* GitHub kullanıcı arabiriminde teknik makalelere kolayca katkıda bulunabilirsiniz. Makaleyi bu depoda bulun veya [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) adresinde ilgili makaleye giderek makalenin GitHub kaynağına giden bağlantıya tıklayın.
-* Mevcut bir makalede önemli değişiklikler yapıyor, resim ekliyor ya da değiştiriyor veya yeni bir makale ekliyorsanız bu depoyu çatallaştırmanız, Git Bash ile Markdown Pad’i yüklemeniz ve bazı git komutlarını öğrenmeniz gerekir.
+* **Çalışanlar**: bir teknik yazar, program yöneticisi olduğunuz ya da bir Azure hizmeti ve bu ürün ekibinin Geliştirici işinizi katkıda veya teknik makaleleri yazmak için ise, özel deposu (https://github.com/ kullanmanız gerekir MicrosoftDocs/azure-docs-pr). Var olan bir makalede önemli değişiklikler yapacaksanız ekleme veya görüntüleri değiştirme veya yeni bir makale, bu depoyu çatallaştırmanız, Git Bash ile markdown Düzenleyicisi yüklemeniz ve bazı git komutlarını öğrenmeniz gerekir. Bkz: [iç katkıda bulunanlar Kılavuzu](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) daha fazla bilgi için.
 
-## Kullanım kuralları
-Bu proje [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Açık Kaynak Kullanım Kuralları) belgesinde listelenen kurallara uygundur. Daha fazla bilgi için [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Kullanım Kuralları Hakkında SSS) konusuna bakın veya sorularınızı ya da görüşlerinizi bildirmek için [opencode@microsoft.com](mailto:opencode@microsoft.com) adresinden bize ulaşın.
 
-## Azure içeriğine katkılarınız hakkında
-### Küçük düzeltmeler
-Bu depodaki belge veya kod örneklerinde yaptığınız küçük düzeltmeler veya açıklamalar [Azure Web Sitesi Kullanım Koşulları (ToU)](http://azure.microsoft.com/support/legal/website-terms-of-use/) kapsamındadır.
+## <a name="about-your-contributions-to-azure-content"></a>Azure içeriğine katkılarınız hakkında
+### <a name="minor-corrections"></a>Küçük düzeltmeler
+Yaptığınız küçük düzeltmeler veya açıklamalar, belge veya kod örnekleri bu depodaki kapsamındadır [docs.microsoft.com Kullanım Koşulları'nı](https://docs.microsoft.com/legal/termsofuse).
 
-### Daha büyük gönderiler
-Belge ve kod örneklerinde yeni veya önemli değişiklikler içeren bir çekme isteği gönderdiğinizde, aşağıdaki gruplardan birindeyseniz GitHub’da size bir yorum göndererek çevrimiçi bir Katkı Lisansı Sözleşmesi (CLA) göndermenizi isteriz:
+### <a name="larger-submissions"></a>Daha büyük gönderiler
+Belge ve kod örneklerinde yeni veya önemli değişiklikler içeren bir çekme isteği gönderirseniz, yorum Github'da çevrimiçi bir katkı lisansı Sözleşmesi (CLA) bir çalışan Microsoft değilse gönderme isteyen göndereceğiz. Çekme isteğiniz kabul edilmeden önce çevrimiçi formu doldurmanız gerekir.
 
-* Microsoft Open Technologies grubunun üyeleri.
-* Microsoft çalışanı olmayan katkıda bulunanlar.
+## <a name="tools-and-setup"></a>Araçlar ve Kurulum
+Topluluğa katkıda bulunanlar GitHub kullanıcı arabirimini veya katkıda depoyu çatallaştırma kullanabilirsiniz. Çalışanlar ziyaret [iç katkıda bulunanlar Kılavuzu](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) teknik belgelerine katkıda bulunma hakkında daha fazla bilgi için ayarlayın.
 
-Çekme isteğiniz kabul edilmeden önce çevrimiçi formu doldurmanız gerekir.
+## <a name="repository-organization"></a>Depo düzeni
+Azure belgeleri deposundaki içerik üzerinde https://docs.microsoft.com/azure belgeleri izler. Bu depo iki kök klasör içerir:
 
-İlgili tüm ayrıntıları [http://azure.github.io/guidelines/#cla](http://azure.github.io/guidelines/#cla) adresinde bulabilirsiniz.
+### <a name="articles"></a>\articles
+*\articles* klasörü *.md* uzantılı markdown dosyaları olarak biçimlendirilmiş belge makalelerini içerir. Makaleler, genellikle Azure hizmeti tarafından gruplandırılır.
 
-## Depo düzeni
-Azure-content deposundaki içerik, [Azure.Microsoft.com](http://azure.microsoft.com) üzerindeki belgelerin düzenini izler. Bu depo iki kök klasör içerir:
+*\Articles* klasörde *\media* klasöründe için kök dizini makale medyası dosyaları, hangi içinde her makaleye ilişkin resimlerin alır.  Hizmet klasörleri, her bir hizmet klasörünün içindeki makaleler için ayrı bir medya klasörü içerir. Makale resmi klasörleri, *.md* dosya uzantısı dışında makale dosyasıyla aynı ada sahiptir.
 
-### \articles
-*\articles* klasörü *.md* uzantılı markdown dosyaları olarak biçimlendirilmiş belge makalelerini içerir.
+### <a name="includes"></a>\includes
+Bir veya daha fazla makaleye dahil edilecek yeniden kullanılabilir içerik bölümleri oluşturabilirsiniz. 
 
-Kök dizindeki makaleler *http://azure.microsoft.com/documentation/articles/{md-olmadan-makale-adı}/* yolunda Azure.Microsoft.com’da yayımlanır.
-
-* **Makale dosya adları:** [Dosya adlandırma kılavuzumuza](./contributor-guide/file-names-and-locations.md) bakın.
-
-Belirli bir hizmet klasöründeki makaleler *http://azure.microsoft.com/documentation/articles/service-folder/{md-olmadan-makale-adı}/* yolunda Azure.Microsoft.com’da yayımlanır.
-
-* **Medya alt klasörleri:** *\articles* klasörü, kök dizindeki makalelere ait medya dosyalarının tutulduğu *\media* klasörünü içerir. Bu klasörün içinde her makaleye ilişkin resimlerin yer aldığı alt klasörler bulunur.  Hizmet klasörleri, her bir hizmet klasörünün içindeki makaleler için ayrı bir medya klasörü içerir. Makale resmi klasörleri, *.md* dosya uzantısı dışında makale dosyasıyla aynı ada sahiptir.
-
-### \includes
-Bir veya daha fazla makaleye dahil edilecek yeniden kullanılabilir içerik bölümleri oluşturabilirsiniz. Bkz. [Teknik içeriklerimizde kullanılan özel uzantılar](./contributor-guide/custom-markdown-extensions.md).
-
-### \markdown templates
-Bu klasör, makaleler için gereken temel markdown biçimlendirmesine sahip standart markdown şablonumuzu içerir.
-
-### \contributor-guide
-Bu klasör, katkıda bulunanlar kılavuzumuzun parçası olan makaleleri içerir.  
-
-## GitHub, Git ve bu depoyu kullanma
-Katkıda bulunma, küçük değişiklikler yapmak için GitHub kullanıcı arabirimini kullanma, daha önemli değişiklikler yapmak üzere depoyu çatallaştırma ve kopyalama hakkında bilgi almak için bkz. [Install and set up tools for authoring in GitHub](./contributor-guide/tools-and-setup.md) (GitHub’da yazma araçlarını yükleme ve kurma).
-
-Git Bash’i yükler ve yerel olarak çalışmayı seçerseniz, yeni bir yerel çalışma dalı oluşturmak, değişiklikler yapmak ve değişiklikleri ana dala geri göndermek için kullanılan adımlar [Git commands for creating a new article or updating an existing article](./contributor-guide/git-commands-for-master.md) (Yeni bir makale oluşturmak veya mevcut bir makaleyi güncelleştirmek için kullanılan Git komutları) bölümünde listelenmiştir.
-
-### Dallar
-Belirli bir değişiklik kapsamını hedefleyen yerel çalışma dalları oluşturmanızı öneririz. İş akışını kolaylaştırmak ve birleştirme sırasında ortaya çıkabilecek çakışmaları azaltmak için her dalın tek bir kavramla/makaleyle sınırlandırılmasını öneririz.  Aşağıdaki çalışmalar yeni bir dal için uygun kapsama sahiptir:
-
-* Yeni bir makale (ve ilişkili resimler)
-* Bir makale üzerinde yazım ve dil bilgisi düzenlemeleri.
-* Büyük bir makale kümesine bir biçimlendirme değişikliği uygulama (örneğin yeni bir telif hakkı alt bilgisi).
-
-## Konunuzu biçimlendirmek için markdown kullanma
+## <a name="how-to-use-markdown-to-format-your-topic"></a>Konunuzu biçimlendirmek için markdown kullanma
 Bu depodaki tüm makaleler GitHub’a uygun markdown kullanır.  Kaynakların listesi aşağıda verilmiştir.
 
-* [Markdown temelleri](https://help.github.com/articles/markdown-basics/)
+* [Markdown temel bilgileri](https://help.github.com/articles/markdown-basics/)
 * [Yazdırılabilir markdown başvuru sayfası](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
-* Markdown düzenleyicilerimizin listesi için [araçlar ve kurulum konusuna](./contributor-guide/tools-and-setup.md#install-a-markdown-editor) bakın.
 
-## Makale meta verileri
-Makale meta verileri, azure.microsoft.com web sitesinde yazar bilgisi, katkıda bulunan bilgisi, içerik haritaları, makale açıklamaları ve SEO iyileştirmelerinin yanı sıra Microsoft’un içerik performansını değerlendirmek için kullandığı raporlama gibi belirli işlevlerin kullanılmasını sağlar. Bu nedenle, meta veriler önemlidir! [Meta verilerinizin doğru biçimlendirildiğinden emin olmak için kullanabileceğiniz kaynakları burada bulabilirsiniz](./contributor-guide/article-metadata.md).
 
-## Diğer kaynaklar
-Kılavuzdaki tüm konular için [katkıda bulunanlar kılavuzu dizinimize](./contributor-guide/contributor-guide-index.md) bakın.
+## <a name="labels"></a>Etiketler
+Ortak azure belgeleri deposunda istekleri çekme isteği iş akışı yönetmenize yardımcı olmak için ve çekme isteğinize neler olduğunu size bildirmek amacıyla çıkarmak için otomatik etiketleri atanır:
 
-<!--HONumber=Aug16_HO1-->
+* İlgili katkı lisansı Sözleşmesi
+  * cla değil gerekli: değişiklik görece küçük ve bir CLA oturum gerektirmez.
+  * cla gerekli: değişikliğin kapsamını görece büyük ve bir CLA oturum gerektirir.
+  * cla imzalı: çekme isteği şimdi İleri gözden geçirilmek üzere taşımak üzere katkıda bulunan CLA imzalanmış.
+* Değişiklik yazmak için gönderilen: Yazar bekleyen çekme isteği bildirildi.
+* hazır birleştirme: çekme isteği gözden geçirme ekibimiz tarafından gözden geçirme için hazır.
 
 

@@ -1,58 +1,58 @@
-## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Prepare to authenticate Azure Resource Manager requests
-You must authenticate all the operations that you perform on resources using the [Azure Resource Manager][lnk-authenticate-arm] with Azure Active Directory (AD). The easiest way to configure this is to use PowerShell or Azure CLI.
+## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Azure Resource Manager isteklerinin kimlik doğrulaması hazırlama
+Kaynakları kullanarak gerçekleştirdiğiniz tüm işlemleri kimlik doğrulaması yapmalıdır [Azure Resource Manager] [ lnk-authenticate-arm] ile Azure Active Directory (AD). Bunu yapılandırmak için en kolay yolu, PowerShell veya Azure CLI kullanmaktır.
 
-Install the [Azure PowerShell cmdlets][lnk-powershell-install] before you continue.
+Yükleme [Azure PowerShell cmdlet'lerini] [ lnk-powershell-install] devam etmeden önce.
 
-The following steps show how to set up password authentication for an AD application using PowerShell. You can run these commands in a standard PowerShell session.
+Aşağıdaki adımlar PowerShell kullanarak bir AD uygulaması için parola kimlik doğrulaması kurma gösterir. Standart bir PowerShell oturumunda aşağıdaki komutları çalıştırabilirsiniz.
 
-1. Log in to your Azure subscription using the following command:
+1. Aşağıdaki komutu kullanarak Azure aboneliğinizde oturum açın:
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-1. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:
+1. Birden çok Azure aboneliğiniz varsa, Azure'da oturum açma kimlik bilgileriyle ilişkili tüm Azure abonelikleri için size erişim verir. Azure aboneliklerini kullanabilmeniz için kullanılabilir listelemek için aşağıdaki komutu kullanın:
 
     ```powershell
     Get-AzureRMSubscription
     ```
 
-    Use the following command to select subscription that you want to use to run the commands to manage your IoT hub. You can use either the subscription name or ID from the output of the previous command:
+    IOT hub'ınızı yönetmek için komutları çalıştırmak için kullanmak istediğiniz aboneliği seçmek için aşağıdaki komutu kullanın. Önceki komut çıktısı abonelik adı veya kimliği kullanabilirsiniz:
 
     ```powershell
     Select-AzureRMSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
-2. Make a note of your **TenantId** and **SubscriptionId**. You need them later.
-3. Create a new Azure Active Directory application using the following command, replacing the place holders:
+2. Not, **Tenantıd** ve **Subscriptionıd**. Daha sonra gereksinim duyarsınız.
+3. Yer tutucu değiştirerek aşağıdaki komutu kullanarak yeni bir Azure Active Directory uygulaması oluşturun:
    
-   * **{Display name}:** a display name for your application such as **MySampleApp**
-   * **{Home page URL}:** the URL of the home page of your app such as **http://mysampleapp/home**. This URL does not need to point to a real application.
-   * **{Application identifier}:** A unique identifier such as **http://mysampleapp**. This URL does not need to point to a real application.
-   * **{Password}:** A password that you use to authenticate with your app.
+   * **{Görünen adı}:** gibi uygulamanız için bir görünen ad **MySampleApp**
+   * **{Giriş sayfası URL'si}:** gibi uygulamanızın giriş sayfasının URL'sini **http://mysampleapp/home**. Bu URL için gerçek bir uygulamada noktası gerekmez.
+   * **{Uygulama tanımlayıcısı}:** gibi benzersiz bir tanımlayıcı **http://mysampleapp**. Bu URL için gerçek bir uygulamada noktası gerekmez.
+   * **{Parola}:** uygulamanız ile kimlik doğrulaması için kullandığınız parola.
      
      ```powershell
      New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
      ```
-4. Make a note of the **ApplicationId** of the application you created. You need this later.
-5. Create a new service principal using the following command, replacing **{MyApplicationId}** with the **ApplicationId** from the previous step:
+4. Not **ApplicationId** , oluşturduğunuz uygulamanın. Bu daha sonra ihtiyacınız var.
+5. Aşağıdaki komutu kullanarak, değiştirerek yeni bir hizmet sorumlusu oluşturmak **{MyApplicationId}** ile **ApplicationId** önceki adımdan:
    
     ```powershell
     New-AzureRmADServicePrincipal -ApplicationId {MyApplicationId}
     ```
-6. Set up a role assignment using the following command, replacing **{MyApplicationId}** with your **ApplicationId**.
+6. Aşağıdaki komutu kullanarak, değiştirerek bir rol ataması ayarlamak **{MyApplicationId}** ile **ApplicationId**.
    
     ```powershell
     New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
-You have now finished creating the Azure AD application that enables you to authenticate from your custom C# application. You need the following values later in this tutorial:
+Şimdi, özel C# uygulamanızın kimlik doğrulaması sağlayan Azure AD uygulaması oluşturma tamamladınız. Bu öğreticinin ilerleyen bölümlerinde aşağıdaki değerleri gerekir:
 
-* TenantId
+* Tenantıd
 * SubscriptionId
 * ApplicationId
-* Password
+* Parola
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps

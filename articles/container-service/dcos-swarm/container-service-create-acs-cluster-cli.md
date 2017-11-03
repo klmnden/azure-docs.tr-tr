@@ -11,18 +11,17 @@ keywords:
 ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
 ms.devlang: azurecli
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2017
 ms.author: saudas
-ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: a165cb9248274a97b242707bb96a1c4ad7d4716b
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/25/2017
-
+ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: ecac5c255735b588ebb512b183e8a8bbbdcc905f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanarak Docker kapsayıcısı barındırma çözümü dağıtma
 

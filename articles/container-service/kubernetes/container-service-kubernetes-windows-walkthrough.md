@@ -10,21 +10,21 @@ keywords:
 ms.assetid: 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9211b28debc2f0df194eded564e2a4d52303f3e6
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/25/2017
-
+ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.openlocfilehash: 7dd58ae747a1009b5db99e0fec741272d98b36ad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Windows kapsayıcıları için Kubernetes kümesi dağıtma
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu kılavuzda, [Azure Container Service](../container-service-intro.md)'te [Kubernetes](https://kubernetes.io/docs/home/) kümesi dağıtmak için Azure CLI'yi nasıl kullanacağınız ayrıntılı olarak açıklanmaktadır. Küme dağıtıldıktan sonra, Kubernetes `kubectl` komut satırı aracı ile kümeye bağlanır ve ilk Windows kapsayıcınızı dağıtırsınız.
 
@@ -110,7 +110,7 @@ Bir veya daha fazla kapsayıcı içeren bir Kubernetes *pod*'unun içinde Docker
 
 Bu temel örnekte Microsoft Internet Information Server (IIS) kapsayıcısı belirtmek için bir JSON dosyası kullanılmış ve ardından `kubctl apply` komutu kullanılarak pod oluşturulmuştur. 
 
-`iis.json` adlı bir yerel dosya oluşturun ve aşağıdaki metni kopyalayın. Bu dosya Kubernetes'e, Windows Server 2016 Nano Server üzerinde, [Docker Hub](https://hub.docker.com/r/nanoserver/iis/)'daki genel bir görüntüyü kullanarak IIS çalıştırmasını söyler. Kapsayıcı 80 numaralı bağlantı noktasını kullanır, ancak başlangıçta yalnızca küme ağından erişim sağlanabilir.
+`iis.json` adlı bir yerel dosya oluşturun ve aşağıdaki metni kopyalayın. Bu dosya Kubernetes'e, Windows Server 2016 Nano Server üzerinde, [Docker Hub](https://hub.docker.com/r/microsoft/iis/)'daki genel bir görüntüyü kullanarak IIS çalıştırmasını söyler. Kapsayıcı 80 numaralı bağlantı noktasını kullanır, ancak başlangıçta yalnızca küme ağından erişim sağlanabilir.
 
  ```JSON
  {
@@ -126,7 +126,7 @@ Bu temel örnekte Microsoft Internet Information Server (IIS) kapsayıcısı bel
     "containers": [
       {
         "name": "iis",
-        "image": "nanoserver/iis",
+        "image": "microsoft/iis:nanoserver",
         "ports": [
           {
           "containerPort": 80
@@ -168,7 +168,7 @@ Pod'u genel bir IP adresiyle herkesin kullanımına sunmak için aşağıdaki ko
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Bu komutla Kubernetes, hizmet için genel bir IP adresiyle birlikte bir hizmet ve [Azure yük dengeleyici kuralı](container-service-kubernetes-load-balancing.md) oluşturur. 
+Bu komutla Kubernetes hizmet ve hizmet için genel bir IP adresi ile bir Azure yük dengeleyici kuralı oluşturur. 
 
 Hizmetin durumunu görmek için aşağıdaki komutu çalıştırın.
 
@@ -203,4 +203,3 @@ Bu hızlı başlangıçta, `kubectl` bağlantılı bir Kubernetes kümesi ve IIS
 
 > [!div class="nextstepaction"]
 > [ACS Kubernetes kümesini yönetme](container-service-tutorial-kubernetes-prepare-app.md)
-

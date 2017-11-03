@@ -24,10 +24,16 @@
     - name: Hizmet ilkesi
       href: azure-stack-servicing-policy.md
     - name: Sürüm notları
-      href: azure-stack-asdk-release-notes.md
+      items:
+        - name: Geliştirme Seti sürüm notları
+          href: azure-stack-asdk-release-notes.md
+        - name: Tümleşik sistemleri sürüm notları
+          items:
+            - name: 1710 güncelleştirme
+              href: azure-stack-update-1710.md
     - name: Önemli özellikler ve kavramlar
       href: azure-stack-key-features.md
-    - name: Azure Stack Geliştirme Seti mimarisi
+    - name: Geliştirme Seti mimarisi
       href: azure-stack-architecture.md
     - name: Yönetim temel bilgileri
       href: azure-stack-manage-basics.md
@@ -39,6 +45,8 @@
           href: azure-stack-deploy.md
         - name: Dağıtma
           href: azure-stack-run-powershell-script.md
+        - name: PowerShell yükleme
+          href: azure-stack-powershell-configure-quickstart.md
         - name: Kaydolma
           href: azure-stack-register.md
         - name: Azure Stack'e Bağlanma
@@ -49,10 +57,14 @@
           href: azure-stack-provision-vm.md
     - name: Veri merkezi tümleştirmesi
       items:
-        - name: DNS tümleştirme
+        - name: DNS
           href: azure-stack-integrate-dns.md
+        - name: Kimlik
+          href: azure-stack-integrate-identity.md
         - name: Uç noktalarını yayımlama
           href: azure-stack-integrate-endpoints.md
+        - name: Güvenlik
+          href: azure-stack-integrate-security.md
     - name: Yönet
       items:
         - name: Bölge yönetimi
@@ -81,6 +93,8 @@
               href: azure-stack-updates.md
             - name: Güncelleştirme uygulama
               href: azure-stack-apply-updates.md
+            - name: Güncelleştirme durumunu izleyin
+              href: azure-stack-monitor-update.md
         - name: Sistem durumu ve uyarıları izleme
           href: azure-stack-monitor-health.md
         - name: Ağ kaynaklarını yönetme
@@ -91,8 +105,14 @@
           href: azure-stack-manage-windows-azure-pack.md
         - name: Donanım değiştirme
           items:
+            - name: Düğüm Eylemler
+              href: azure-stack-node-actions.md
+            - name: Düğüm değiştirin
+              href: azure-stack-replace-node.md
             - name: Disk değiştirme
               href: azure-stack-replace-disk.md
+            - name: Bileşeni Değiştir
+              href: azure-stack-replace-component.md
     - name: 'Güvenlik, uyumluluk ve kimlik'
       items:
         - name: Güvenliğe genel bakış
@@ -135,10 +155,16 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: SQL kaynak sağlayıcısı dağıtma
               href: azure-stack-sql-resource-provider-deploy.md
+            - name: SQL veritabanı oluşturma
+              href: azure-stack-sql-resource-provider-databases.md
+            - name: Barındırma sunucuları ekleme
+              href: azure-stack-sql-resource-provider-hosting-servers.md
         - name: PaaS olarak App Service teklifi
           items:
             - name: Azure Stack’te App Service’e genel bakış
               href: azure-stack-app-service-overview.md
+            - name: Kapasite planlaması
+              href: azure-stack-app-service-capacity-planning.md
             - name: Başlamadan önce
               href: azure-stack-app-service-before-you-get-started.md
             - name: App Service kaynak sağlayıcısı dağıtma

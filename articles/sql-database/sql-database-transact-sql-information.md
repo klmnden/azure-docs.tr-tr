@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Veritabanında desteklenmeyen T-SQL deyimleri | Microsoft Belgeleri"
+title: "T-SQL farkları geçiş Azure SQL veritabanı çözme | Microsoft Docs"
 description: "Azure SQL Veritabanında tam olarak desteklenmeyen Transact-SQL deyimleri"
 services: sql-database
 documentationcenter: 
@@ -9,76 +9,69 @@ editor:
 tags: 
 ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
 ms.service: sql-database
-ms.custom: overview
+ms.custom: migrate
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 11/28/2016
+ms.workload: On Demand
+ms.date: 10/23/2017
 ms.author: rickbyh
-translationtype: Human Translation
-ms.sourcegitcommit: 7db5939c88045ab59d7d9fb4b58f07374d7bca01
-ms.openlocfilehash: ebec6ca87cfd5e9d2c4ea726d5d31d20998ef33f
-
-
+ms.openlocfilehash: 5d9cfce0453bb32bf3512b5b8e3ed25c9c2fdbdf
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="azure-sql-database-transact-sql-differences"></a>Azure SQL Database Transact-SQL farklılıkları   
-Uygulamaların bağımlı olduğu Transact-SQL özelliklerinin çoğu hem Microsoft SQL Server hem de Azure SQL Veritabanında desteklenmektedir. Örneğin veri türleri, işleçler, dize, aritmetik, mantıksal ve imleç işlevleri gibi temel SQL bileşenleri SQL Server'da olduğu şekilde çalışır.
+# <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>SQL veritabanı geçiş sırasında Transact-SQL farkları çözme   
+Zaman [veritabanınızı geçirme](sql-database-cloud-migrate.md) Azure SQL Server için SQL Server'dan veritabanınızı SQL Server geçirilebilecek önce bazı yeniden mühendislik gerektirdiğini fark edebilirsiniz. Bu makalede hem bu yeniden mühendislik gerçekleştirme ve yeniden mühendislik neden gerekli olduğu temel nedeni anlamak yardımcı olan yönergeler sağlar. Uyumsuzlukları algılamak için kullanmak [veri geçiş Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
-## <a name="why-some-transact-sql-is-not-supported"></a>Bazı Transact-SQL deyimlerinin desteklenmemesinin nedeni
-Azure SQL Veritabanı, ana veritabanında ve işletim sisteminde özellikleri bağımlılıklardan ayıracak şekilde tasarlanmıştır. Sonuç olarak birçok sunucu düzeyi etkinlik, SQL Veritabanı için uygun değildir. Genelde sunucu düzeyi seçenekleri ve işletim sistemi bileşenlerini yapılandıran veya dosya sistemi yapılandırmasını belirten Transact-SQL deyimleri kullanım dışıdır. Kullanıcı veritabanı haricinde özellikler gerekli olduğunda, SQL Veritabanı veya başka bir Azure özelliği ya da hizmeti tarafından uygun bir alternatif sunulmaktadır. 
+## <a name="overview"></a>Genel Bakış
+Uygulamaları kullanan çoğu Transact-SQL özelliklerini hem Microsoft SQL Server hem de Azure SQL veritabanı tam olarak desteklenir. Örneğin, veri türleri, işleçler, dize, aritmetik, mantıksal ve imleci işlevleri gibi çekirdek SQL bileşenleri aynı SQL Server ve SQL veritabanı çalışır. Ancak bazı T-SQL farklılıklar vardır DDL (veri tanımlama dili) ve T-SQL deyimlerini ve yalnızca kısmen desteklenen sorgu DML (veri işleme dili) öğeleri (, biz bu makalenin sonraki bölümlerinde ele alınmıştır).
 
-Örneğin Her Zaman Açık yerine Etkin Coğrafi Çoğaltma kullanılmaktadır. Bu nedenle kullanılabilirlik gruplarıyla ilgili Transact-SQL deyimleri SQL Veritabanı tarafından desteklenmez ve Her Zaman Açık özelliğiyle ilgili dinamik yönetimi görünümleri için destek sunulmaz.  
+Ayrıca, bazı özellikleri ve Azure SQL veritabanı ana veritabanı ve işletim sistemi bağımlılıkları özelliklerinden yalıtmak için tasarlandığından, hiç desteklenmeyen sözdizimi vardır. Bu nedenle, sunucu düzeyi etkinliklerin çoğu SQL veritabanı için uygun. Sunucu düzeyinde seçeneklerini, işletim sistemi bileşenleri yapılandırmak veya dosya sistemi yapılandırması belirtin T-SQL deyimlerini ve seçenekler kullanılamaz. Aşağıdakiler gibi özelliklerinden gerekli olduğunda, uygun bir alternatif genellikle diğer herhangi bir yolla kullanılabilir SQL veritabanı veya başka bir Azure özellik veya hizmet. 
 
-SQL Veritabanı tarafından desteklenen ve desteklenmeyen özelliklerin listesi için bkz. [Azure SQL Veritabanı hakkında dikkat edilmesi gereken noktalar, kılavuzlar ve özellikler](sql-database-features.md).
+Örneğin, yüksek kullanılabilirlik (aktif coğrafi çoğaltma daha hızlı kurtarma için bir olağanüstü durumda yapılandırmak istediğiniz ancak) her zaman açık yapılandırma gerekli değildir Azure oluşturulmuştur. Bu nedenle, kullanılabilirlik gruplarıyla ilgili T-SQL deyimleri SQL veritabanı tarafından desteklenmiyor ve için her zaman açık ilgili dinamik yönetim görünümlerini de desteklenmez.
 
-SQL Server'da kullanım dışı bırakılmış söz dizimleri genelde SQL Veritabanında desteklenmez.
+Desteklenen ve SQL veritabanı tarafından desteklenmeyen özelliklerin listesi için bkz: [Azure SQL veritabanı özellik karşılaştırması](sql-database-features.md). Bu sayfada listesinde bu yönergeleri ve özellikleri makale tamamlayan ve Transact-SQL deyimlerini temel odaklanır.
 
-## <a name="transact-sql-syntax-partially-supported-in-sql-database"></a>SQL Veritabanında kısmen desteklenen Transact-SQL söz dizimleri
-SQL Veritabanı, karşılık gelen SQL Server 2016 Transact-SQL deyimlerinde mevcut olan bağımsız değişkenlerin hepsini olmasa da bir kısmını destekler. Örneğin `CREATE PROCEDURE` deyimi kullanılabilir ancak tüm `CREATE PROCEDURE` seçenekleri kullanılamaz. Burada tüm söz dizimlerini anlatmak kafa karıştırıcı ve gereksiz olacaktır. Her deyimin desteklenen bölümleriyle ilgili ayrıntılı bilgi için bağlantı verilen söz dizimi konularına başvurun.
+## <a name="transact-sql-syntax-statements-with-partial-differences"></a>Kısmi farklarla birlikte Transact-SQL söz dizimi deyimleri
+Çekirdek (veri tanımlama dili) DDL deyimleri kullanılabilir, ancak bazı DDL deyimleri disk yerleştirme ilgili ve desteklenmeyen uzantılı özellikleri. 
 
-- Veritabanları: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER DATABASE](https://msdn.microsoft.com/library/ms174269.aspx)   
-- İşlevler: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)   
-- Oturum açma bilgileri: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)   
-- Saklı yordamlar: [CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)   
-- Tablolar: [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)   
-- Türler (özel): [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)   
-- Kullanıcılar: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)   
-- Görünümler: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)   
+- OLUŞTURMA ve ALTER DATABASE deyimleri üzerinde üç düzine seçeneğiniz vardır. İfadeler, dosya yerleştirme, FILESTREAM ve yalnızca SQL Server için geçerli hizmet Aracısı seçenekleri içerir. Geçiş, ancak veritabanları oluşturuyorsa T-SQL kodunu geçiriyorsanız karşılaştırmanız gerekir önce veritabanları oluşturursanız, bu önemli değil [CREATE DATABASE (Azure SQL veritabanı)](https://msdn.microsoft.com/library/dn268335.aspx) SQL Server sözdizimiyle [CREATE DATABASE (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) kullandığınız tüm seçenekleri desteklenir emin olmak için. Azure SQL veritabanı için veritabanı oluşturma, hizmet hedefi ve yalnızca SQL veritabanı için geçerli esnek ölçek seçenekleri de vardır.
+- OLUŞTURMA ve ALTER TABLE deyimleri FILESTREAM desteklenmediği için SQL veritabanında kullanılamaz FileTable seçeneğiniz vardır.
+- CREATE ve ALTER oturum açma ifadeleri desteklenir, ancak SQL veritabanı seçenekleri sağlamaz. Veritabanınızı daha taşınabilir yapmak için mümkün olduğunda oturumları yerine kapsanan veritabanı kullanıcıları kullanarak SQL veritabanı önerir. Daha fazla bilgi için bkz: [CREATE/ALTER oturum açma](https://msdn.microsoft.com/library/ms189828.aspx) ve [denetleme ve veritabanı erişimi verme](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
-## <a name="transact-sql-syntax-not-supported-in-sql-database"></a>SQL Veritabanında desteklenmeyen Transact-SQL söz dizimleri   
-[Azure SQL Veritabanı hakkında dikkat edilmesi gereken noktalar, kılavuzlar ve özellikler](sql-database-features.md) sayfasında açıklanan desteklenmeyen özelliklerle ilgili Transact-SQL deyimlerine ek olarak aşağıdaki deyim ve deyim grupları da desteklenmemektedir.
+## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Azure SQL veritabanı'nda desteklenmeyen transact-SQL söz dizimi   
+Transact-SQL deyimleri açıklanan desteklenmeyen özellikler ilgili ek olarak [Azure SQL veritabanı özellik karşılaştırması](sql-database-features.md), aşağıdaki deyimleri ve gruplara deyimleri desteklenmiyor. Bu nedenle, bu T-SQL özelliklerini ve deyimleri ortadan kaldırmak için T-SQL geçirilmesi için veritabanınızın aşağıdaki özelliklerden herhangi birini kullanıyorsanız, yeniden mühendislik.
+
 - Harmanlanmış sistem nesneleri
-- Bağlantıyla ilişkili: Uç nokta deyimleri, `ORIGINAL_DB_NAME`. SQL Veritabanı Windows kimlik doğrulamasını desteklemez ancak ona benzer olan Azure Active Directory kimlik doğrulamasını destekler. Bazı kimlik doğrulaması türleri için SSMS'nin en son sürümü gerekir. Daha fazla bilgi için bkz. [Azure Active Directory Kimlik Doğrulamasını Kullanarak SQL Veritabanına veya SQL Veri Ambarına Bağlanma](sql-database-aad-authentication.md).
+- İlgili bağlantı: uç nokta deyimleri. SQL Veritabanı Windows kimlik doğrulamasını desteklemez ancak ona benzer olan Azure Active Directory kimlik doğrulamasını destekler. Bazı kimlik doğrulaması türleri için SSMS'nin en son sürümü gerekir. Daha fazla bilgi için bkz. [Azure Active Directory Kimlik Doğrulamasını Kullanarak SQL Veritabanına veya SQL Veri Ambarına Bağlanma](sql-database-aad-authentication.md).
 - Üç veya dört bölüm adı kullanan veritabanları arası sorgular. (Salt okunur veritabanları arası sorgular [elastik veritabanı sorgusu](sql-database-elastic-query-overview.md) kullanılarak desteklenir.)
 - Veritabanları arası sahiplik zinciri, `TRUSTWORTHY` ayarı
-- `DATABASEPROPERTY` Bunun yerine `DATABASEPROPERTYEX` kullanın.
 - `EXECUTE AS LOGIN` Bunun yerine "EXECUTE AS USER" kullanın.
 - Genişletilebilir anahtar yönetimi haricinde şifreleme desteklenir
-- Olay: olaylar, olay bildirimleri, sorgu bildirimleri
-- Veritabanı dosya yerleşimi, boyut ve Microsoft Azure tarafından otomatik olarak yönetilen veritabanı dosyalarıyla ilgili söz dizimi.
-- Microsoft Azure hesabınız aracılığıyla yönetilen yüksek kullanılabilirlikle ilgili söz dizimi. Buna yedekleme, geri yükleme, Her Zaman Açık, veritabanı yansıtması, günlük aktarma ve kurtarma modları için söz dizimleri dahildir.
-- SQL Veritabanında bulunmayan günlük okuyucusuna bağlı söz dizimleri: Gönderme Temelli Çoğaltma, Veri Yakalamayı Değiştir. SQL Veritabanı gönderme temelli çoğaltma gönderisinin abonesi olabilir.
-- SQL Server Agent veya MSDB veritabanına bağımlı söz dizimleri: uyarılar, işleçler, merkezi yönetim sunucuları. Bunun yerine Azure PowerShell gibi betik uygulamaları kullanın.
+- Olay: Olaylar, olay bildirimleri, sorgu bildirimleri
+- Dosya yerleştirme: sözdizimi ilgili veritabanı dosyası yerleşimi, boyutu ve Microsoft Azure tarafından otomatik olarak yönetilir veritabanı dosyaları.
+- Yüksek Kullanılabilirlik: sözdizimi ilgili Microsoft Azure hesabınız üzerinden yönetilen yüksek kullanılabilirlik için. Buna yedekleme, geri yükleme, Her Zaman Açık, veritabanı yansıtması, günlük aktarma ve kurtarma modları için söz dizimleri dahildir.
+- Günlük Okuyucusu: SQL veritabanı üzerinde kullanılabilir değil günlük okuyucu üzerine dayanır sözdizimi: itme çoğaltma, değişiklik verilerini yakalama. SQL Veritabanı gönderme temelli çoğaltma gönderisinin abonesi olabilir.
 - İşlevler: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
-- Genel geçici tablolar
-- Sunucu donanımı ayarlarıyla ilgili söz dizimleri: bellek, çalışan iş parçacığı, CPU benzeşimi, izleme bayrakları vs. Bunun yerine hizmet düzeylerini kullanın.
-- `HAS_DBACCESS`
+- Donanım: Sözdizimi donanımla ilgili sunucu ayarlarıyla ilgili: bellek, çalışan iş parçacığı, CPU benzeşimi gibi izleme bayrakları. Bunun yerine hizmet düzeylerini kullanın.
 - `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, `BULK INSERT` ve dört kısımlı adlar
-- .NET Framework [SQL Server ile CLR tümleştirmesi](http://msdn.microsoft.com/library/ms254963.aspx)
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`ve dört bölümden oluşan adları
+- .NET framework: SQL Server CLR tümleştirme
 - Anlamsal arama
-- Sunucu kimlik bilgileri. Bunun yerine veritabanı kapsamlı kimlik bilgilerini kullanın.
-- Sunucu düzeyi öğeler: Sunucu rolleri, `IS_SRVROLEMEMBER`, `sys.login_token`. `GRANT`, `REVOKE` ve `DENY` sunucu düzeyi izinler kullanılamaz ancak bazıları veritabanı düzeyi izinlerle değiştirilmiştir. Sunucu düzeyi kullanışlı DMV'lerden bazıları, eşdeğer veritabanı düzeyi DMV'lerine sahiptir.
+- Sunucu kimlik bilgileri: kullanım [veritabanı kapsamlı kimlik bilgileri](https://msdn.microsoft.com/library/mt270260.aspx) yerine.
+- Sunucu düzeyinde öğeleri: sunucu rolleri `sys.login_token`. `GRANT`, `REVOKE` ve `DENY` sunucu düzeyi izinler kullanılamaz ancak bazıları veritabanı düzeyi izinlerle değiştirilmiştir. Sunucu düzeyi kullanışlı DMV'lerden bazıları, eşdeğer veritabanı düzeyi DMV'lerine sahiptir.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
 - `sp_configure` seçenekleri ve `RECONFIGURE`. Bazı seçenekler [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx) ile kullanılabilir.
 - `sp_helpuser`
 - `sp_migrate_user_to_contained`
-- SQL Server denetimi. Bunun yerine SQL Veritabanı denetimini kullanın.
+- SQL Server Agent: SQL Server Agent veya MSDB veritabanı güvenen söz dizimi: uyarıları, işleçler, merkezi yönetim sunucuları. Bunun yerine Azure PowerShell gibi betik uygulamaları kullanın.
+- SQL Server audit: SQL veritabanını kullan yerine denetleme.
 - SQL Server izleme
-- İzleme bayrakları. Bazı izleme bayrağı öğeleri uyumluluk modlarına taşınmıştır.
+- İzleme bayrakları: bazı izleme bayrağı öğeleri için Uyumluluk modları taşınmıştır.
 - Transact-SQL hata ayıklama
 - Tetikleyiciler: Sunucu kapsamlı veya oturum açma tetikleyicileri
 - `USE` deyimi: Veritabanı bağlamını farklı bir veritabanıyla değiştirmek için yeni veritabanıyla yeni bir bağlantı kurmanız gerekir.
@@ -87,12 +80,11 @@ SQL Veritabanı, karşılık gelen SQL Server 2016 Transact-SQL deyimlerinde mev
 Transact-SQL dil bilgisi, kullanımı ve örnekleri için SQL Server Çevrimiçi Kitapları sayfasında [Transact-SQL Başvurusu (Veritabanı Altyapısı)](https://msdn.microsoft.com/library/bb510741.aspx) bölümüne bakın. 
 
 ### <a name="about-the-applies-to-tags"></a>"Uygulandığı öğe" etiketleri hakkında
-Transact-SQL başvurusu, SQL Server 2008'den güncel sürümlere kadar olan konu başlıklarını içerir. Konu başlığının altındaki simge çubuğunda dört SQL Server platformu listelenir ve uygulanabilirliği belirtilir. Örneğin kullanılabilirlik grupları SQL Server 2012'de tanıtılmıştır. [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) konu başlığı, deyimin **SQL Server (2012'den itibaren)** için geçerli olduğunu belirtir. Deyim SQL Server 2008, SQL Server 2008 R2, Azure SQL Veritabanı, Azure SQL Veri Ambarı veya Paralel Veri Ambarı için geçerli değildir.
+Transact-SQL başvurusu geçerli için SQL Server sürümleri 2008 ilgili makaleler vardır. Var. makale başlığı bir simge çubuğu, dört SQL sunucu platformları listeleme ve uygulanabilirliğini belirten. Örneğin kullanılabilirlik grupları SQL Server 2012'de tanıtılmıştır. [AVAILABILTY grubu oluşturma](https://msdn.microsoft.com/library/ff878399.aspx) makale gösterir deyim için geçerli olduğunu **SQL Server'ın (2012'den başlayarak)**. Deyim SQL Server 2008, SQL Server 2008 R2, Azure SQL Veritabanı, Azure SQL Veri Ambarı veya Paralel Veri Ambarı için geçerli değildir.
 
-Bazı durumlarda bir konu başlığının üst başlığı bir üründe kullanılıyor olabilir ancak ürünler arasında küçük farklar vardır. Farklar, konu başlığının içinde uygun yerlerde belirtilmiştir.
+Bazı durumlarda, bir makalenin Genel konu bir üründe kullanılabilir, ancak ürünleri arasında küçük farklılıklar vardır. Farkları Orta noktalar uygun şekilde makaledeki sırasında belirtilir. Bazı durumlarda, bir makalenin Genel konu bir üründe kullanılabilir, ancak ürünleri arasında küçük farklılıklar vardır. Farkları Orta noktalar uygun şekilde makaledeki sırasında belirtilir. Örneğin CREATE TRIGGER makaleyi SQL veritabanında kullanılabilir. Ancak **tüm sunucu** seçeneği için sunucu düzeyi tetikleyiciler, sunucu düzeyi Tetikleyiciler SQL veritabanında kullanılamaz olduğunu gösterir. Bunun yerine veritabanı düzeyi tetikleyicilerin kullanın.
 
+## <a name="next-steps"></a>Sonraki adımlar
 
-
-<!--HONumber=Dec16_HO3-->
-
+Desteklenen ve SQL veritabanı tarafından desteklenmeyen özelliklerin listesi için bkz: [Azure SQL veritabanı özellik karşılaştırması](sql-database-features.md). Bu sayfada listesinde bu yönergeleri ve özellikleri makale tamamlayan ve Transact-SQL deyimlerini temel odaklanır.
 

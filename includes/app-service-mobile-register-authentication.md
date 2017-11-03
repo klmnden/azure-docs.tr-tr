@@ -1,14 +1,14 @@
 
-First, you need to register your app at an identity provider's site, and then you will set the provider-generated credentials in the Mobile Apps back end.
+İlk olarak, uygulamanızı bir kimlik sağlayıcısının sitesinde kaydetmeniz gerekir ve Mobile Apps arka uç sağlayıcısı oluşturulan kimlik bilgilerine sonra ayarlayın.
 
-1. Configure your preferred identity provider by following the provider-specific instructions:
+1. Tercih edilen kimlik sağlayıcınızı, sağlayıcıya özgü yönergeleri izleyerek yapılandırın:
 
    * [Azure Active Directory](../articles/app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)
    * [Facebook](../articles/app-service/app-service-mobile-how-to-configure-facebook-authentication.md)
    * [Google](../articles/app-service/app-service-mobile-how-to-configure-google-authentication.md)
    * [Microsoft](../articles/app-service/app-service-mobile-how-to-configure-microsoft-authentication.md)
    * [Twitter](../articles/app-service/app-service-mobile-how-to-configure-twitter-authentication.md)
-2. Repeat the previous steps for each provider you want to support in your app.
+2. Uygulamanızı desteklemek istediğiniz her bir sağlayıcı için önceki adımları yineleyin.
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com/

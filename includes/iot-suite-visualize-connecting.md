@@ -1,40 +1,40 @@
-## <a name="view-device-telemetry-in-the-dashboard"></a>Cihaz telemetrisini panoda görüntüleme
-Uzaktan izleme çözümündeki pano, cihazlarınızın IoT Hub'a gönderdiği telemetriyi görüntülemenizi sağlar.
+## <a name="view-device-telemetry"></a>Cihaz telemetrisini görüntüleme
 
-1. Tarayıcınızda uzaktan izleme çözümü panosuna dönün, sol taraftaki **Cihazlar** paneline tıklayın ve **Cihaz listesi** sayfasına gidin.
-2. **Cihaz listesinde** cihazınızın durumu **Çalışıyor** olmalıdır. Değilse **Cihaz Ayrıntıları** panelinden **Cihazı Etkinleştir**'e tıklayın.
-   
-    ![Cihaz durumunu görüntüle][18]
-3. **Pano**'ya tıklayarak panoya dönün ve telemetrisini görüntülemek için **Görüntülenecek Cihaz** açılır menüsünden cihazınızı seçin. Örnek uygulamadan gelen telemetri iç ortam sıcaklığı için 50 birim, dış ortam sıcaklığı için 55 birim ve nem için 50 birim şeklindedir.
-   
-    ![Cihaz telemetrisini görüntüleme][img-telemetry]
+Cihazınızı gönderilen telemetriyi görüntüleyebilir **aygıtları** çözümdeki sayfası.
 
-## <a name="invoke-a-method-on-your-device"></a>Cihazınızda bir yöntem çağırma
-Uzaktan izleme çözümündeki pano, IoT Hub aracılığıyla cihazlarınızda yöntem çağırmanızı sağlar. Örneğin uzaktan izleme çözümünde cihazın yeniden başlatılması benzetimini yapmak için bir yöntem çağırabilirsiniz.
+1. Üzerinde aygıtlar listesinde sağladığınız cihazı seçin **aygıtları** sayfası. Bölmenin çizim cihaz telemetri dahil olmak üzere Cihazınızı hakkında bilgileri görüntüler:
 
-1. Uzaktan izleme çözümü panosunda, sol taraftaki **Cihazlar** paneline tıklayın ve **Cihaz listesi** sayfasına gidin.
-2. **Cihaz listesi** bölümünde cihazınızın **Cihaz kimliğine** tıklayın.
-3. **Cihaz ayrıntıları** panelinde **Yöntemler**'e tıklayın.
-   
-    ![Cihaz yöntemleri][13]
-4. **Yöntem** açılır menüsünde **InitiateFirmwareUpdate** seçin ve **FWPACKAGEURI** alanına işlevsiz bir URL girin. Yöntemi cihazda çağırmak için **Yöntemi Çağır**'a tıklayın.
-   
-    ![Cihaz yöntemi çağırma][14]
-   
+    ![Cihaz ayrıntıları](media/iot-suite-visualize-connecting/devicesdetail.png)
 
-5. Cihaz yöntemi işlediğinde cihazınızın kodunu çalıştıran konsolda bir ileti göreceksiniz. Yöntemin sonuçları, çözüm portalındaki geçmişe eklenir:
+1. Seçin **baskısı** telemetri görünümünü değiştirmek için:
 
-    ![Yöntem geçmişini görüntüleme][img-method-history]
+    ![Görünüm baskısı telemetri](media/iot-suite-visualize-connecting/devicespressure.png)
+
+1. Cihazınızla ilgili tanılama bilgilerini görüntülemek için ekranı aşağı kaydırarak **tanılama**:
+
+    ![Görünüm aygıt tanılama](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
+
+## <a name="act-on-your-device"></a>Cihazınızda hareket
+
+Cihazlarınızda yöntemleri çağırmak için **aygıtları** Uzaktan izleme çözümü sayfasında. Örneğin, Uzaktan izleme çözümü içinde **Soğutucu** aygıtları uygulayan bir **yeniden** yöntemi.
+
+1. Seçin **aygıtları** gitmek için **aygıtları** çözümdeki sayfası.
+
+1. Üzerinde aygıtlar listesinde sağladığınız cihazı seçin **aygıtları** sayfa:
+
+    ![Fiziksel Cihazınızı seçin](media/iot-suite-visualize-connecting/devicesselect.png)
+
+1. Cihazınızda çağırabilir yöntemlerinin listesini görüntülemek için seçin **zamanlama**. Birden fazla cihazda çalıştırmak için bir yöntem zamanlamak için listede birden çok aygıt seçebilirsiniz. **Zamanlama** paneli yöntemi türlerini seçtiğiniz tüm cihazların ortak gösterir.
+
+1. Seçin **yeniden**, iş adı ayarlamak **RebootPhysicalChiller**ve seçin **Uygula**:
+
+    ![Zamanlama yeniden başlatma](media/iot-suite-visualize-connecting/deviceschedule.png)
+
+1. Bir ileti, cihaz yöntemi işlediğinde aygıt kodunuzu çalıştırmaya görüntülemez.
+
+> [!NOTE]
+> Çözümdeki işinin durumunu izlemek için tercih **Görünüm**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Önceden yapılandırılmış çözümleri özelleştirme][lnk-customize] makalesinde bu örneği bir adım ileri taşımak için kullanabileceğiniz adımlar anlatılmaktadır. Gerçek sensörler kullanma ve ek komutlar uygulama gibi eklemeler yapabilirsiniz.
 
-İzinler hakkında daha fazla bilgi için [azureiotsuite.com sitesini][lnk-permissions] inceleyebilirsiniz.
-
-[13]: ./media/iot-suite-visualize-connecting/suite4.png
-[14]: ./media/iot-suite-visualize-connecting/suite7-1.png
-[18]: ./media/iot-suite-visualize-connecting/suite10.png
-[img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
-[img-method-history]: ./media/iot-suite-visualize-connecting/history.png
-[lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
+Makaleyi [önceden yapılandırılmış Uzaktan izleme çözümü özelleştirme](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) önceden yapılandırılmış çözümü özelleştirme için bazı yollar açıklanmaktadır.

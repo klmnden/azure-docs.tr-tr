@@ -1,4 +1,4 @@
 > [!TIP]
 >
-> If you plan to use the HTTP or WebHook bindings, plan to avoid port exhaustion that can be caused by improper instantiation of `HttpClient`. For more information, review the article [Improper Instantiation antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).
+> Yanlış örnek oluşturma tarafından kaynaklanabilir bağlantı noktası Tükenme önlemek HTTP veya Web kancası bağlamaları kullanmayı planlıyorsanız, planlama `HttpClient`. Daha fazla bilgi için makaleyi gözden [hatalı örneklemesi antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).
 >

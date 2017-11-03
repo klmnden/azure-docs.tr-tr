@@ -1,229 +1,229 @@
-# <a name="internet-of-things-security-architecture"></a>Internet of Things security architecture
-When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is particularly important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning. 
+# <a name="internet-of-things-security-architecture"></a>Nesnelerin interneti güvenlik mimarisi
+Sistem tasarlanırken, bu sistemde olası tehditler anlamak ve sistem tasarlanmış ve tasarlanmış gibi uygun savunma buna göre eklemek önemlidir. Nasıl bir saldırganın bir sistemden olabilir emin uygun Azaltıcı Etkenler hale getirir anlama olduğundan başlangıçtan itibaren yerinde göz önünde bulundurularak ile başlangıç ürün tasarlamak özellikle önemlidir. 
 
-## <a name="security-starts-with-a-threat-model"></a>Security starts with a threat model
-Microsoft has long used threat models for its products and has made the company’s threat modeling process publically available. The company experience demonstrates that the modelling has unexpected benefits beyond the immediate understanding of what threats are the most concerning. For example, it also creates an avenue for an open discussion with others outside the development team, which can lead to new ideas and improvements in the product.
+## <a name="security-starts-with-a-threat-model"></a>Bir tehdit modeli ile güvenlik başlar
+Microsoft tehdit modelleri ürünlerinden için uzun kullandı ve herkese açık işlem modelleme şirketin tehdit sunmuştur. Şirket deneyimi modelleme olduğunu gösteren tehditleri en nelerdir hemen anlamak ötesinde beklenmeyen avantajları ilgili. Örneğin, ayrıca bir açık tartışma için bir avenue başkalarıyla yeni fikirleri ve ürün yenilikleri açabilir ve geliştirme ekibi dışında oluşturur.
 
-The objective of threat modeling is to understand how an attacker might be able to compromise a system and then make sure appropriate mitigations are in place. Threat modeling forces the design team to consider mitigations as the system is designed rather than after a system is deployed. This fact is critically important, because retrofitting security defenses to a myriad of devices in the field is infeasible, error prone and will leave customers at risk.
+Tehdit modelleme amacı, nasıl bir saldırganın bir sistemden ve uygun Azaltıcı Etkenler karşılandığından emin olabilir anlamaktır. Tasarım ekibi Azaltıcı Etkenler sistem tasarlandığı gibi yerine bir sistem sonra dikkate alınması gereken tehdit modelleme zorlar dağıtılır. Aygıtları alanındaki çok sayıda güvenlik savunmaları retrofitting uyuşmazlığa, olgunun kritik düzeyde önemli olduğundan hataya ve müşteriler risk bırakır.
 
-Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why. Threat modeling is a structured process that creates a discussion about the security design decisions in the system, as well as changes to the design that are made along the way that impact security. While a threat model is simply a document, this documentation also represents an ideal way to ensure continuity of knowledge, retention of lessons learned, and help new team onboard rapidly. Finally, an outcome of threat modeling is to enable you to consider other aspects of security, such as what security commitments you wish to provide to your customers. These commitments in conjunction with threat modeling will inform and drive testing of your Internet of Things (IoT) solution.
+Birçok geliştirme ekiplerinin müşteriler yararlanan işlevsel sistemi gereksinimleri yakalama mükemmel iş yapın. Ancak, birisi sistemin kötüye belirgin olmayan yolları tanımlayan daha zordur. Tehdit modelleme geliştirme ekiplerinin bir saldırgan ne anlamanıza yardımcı olabilir ve neden. Tehdit modelleme yol boyunca bu etkisi güvenlik yapılan tasarım değişiklikleri yanı sıra güvenlik hakkında tartışma tasarım kararları sistemde oluşturur, yapılandırılmış bir işlemdir. Yalnızca bir belge bir tehdit modeli olmakla birlikte, bu belge bilgi, dersleri bekletme sürekliliği öğrenilen ve hızlı bir şekilde Yardım yeni yerleşik takım emin olmak için ideal bir yöntem de temsil eder. Son olarak, bir tehdit modelleme sonucunu müşterileriniz için sağlamak istediğiniz hangi güvenlik taahhütleri gibi güvenlik diğer yönlerini dikkate almanız gereken sağlamaktır. Tehdit modelleme ile birlikte bu taahhüt bildirin ve nesnelerin interneti (IOT) çözümünüzün sınama sürücü.
 
-### <a name="when-to-threat-model"></a>When to threat model
-[Threat modeling](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) offers the greatest value if it is incorporated into the design phase. When you are designing, you have the greatest flexibility to make changes to eliminate threats. Eliminating threats by design is the desired outcome. It is much easier than adding mitigations, testing them, and ensuring they remain current and moreover, such elimination is not always possible. It becomes harder to eliminate threats as a product becomes more mature, and in turn will ultimately require more work and a lot harder tradeoffs than threat modeling early on in the development.
+### <a name="when-to-threat-model"></a>Model tehdit zamanı
+[Tehdit modelleme](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) tasarım aşaması dahil edilmiş, büyük değer sunar. Tasarlarken, tehditleri ortadan kaldırmak için değişiklik yapmak için en büyük esnekliği sahip. Tehditler tasarım gereği ortadan istenen sonuca olur. Azaltıcı Etkenler ekleme, bunları test etme ve geçerli kalır ve ayrıca, bu tür eleme her zaman mümkün değildir sağlayarak daha çok daha kolay olur. Bir ürünün daha da olgun olur ve sırayla sonuçta daha fazla iş ve önceden geliştirme modelleme tehdit daha çok daha zor dengelemeden gerektirir olarak tehditleri ortadan kaldırmak daha zor hale gelir.
 
-### <a name="what-to-threat-model"></a>What to threat model
-You should thread model the solution as a whole and also focus in the following areas:
+### <a name="what-to-threat-model"></a>Tehdit modeli gerekenler
+İş parçacığı modeli bir bütün olarak çözüm ve ayrıca aşağıdaki alanlarda odaklanın:
 
-* The security and privacy features
-* The features whose failures are security relevant
-* The features that touch a trust boundary 
+* Güvenlik ve gizlilik özellikleri
+* Hataları ilgili güvenlik özellikleri
+* Güven sınırının touch özellikleri 
 
-### <a name="who-threat-models"></a>Who threat models
-Threat modeling is a process like any other.  It is a good idea to treat the threat model document like any other component of the solution and validate it. Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why.
+### <a name="who-threat-models"></a>Kimin modelleri tehdit
+Tehdit modelleme gibi başka bir işlemdir.  Tehdit modeli belgenin çözümün herhangi bir bileşeni gibi ele alın ve bunu doğrulamak için iyi bir fikirdir. Birçok geliştirme ekiplerinin müşteriler yararlanan işlevsel sistemi gereksinimleri yakalama mükemmel iş yapın. Ancak, birisi sistemin kötüye belirgin olmayan yolları tanımlayan daha zordur. Tehdit modelleme geliştirme ekiplerinin bir saldırgan ne anlamanıza yardımcı olabilir ve neden.
 
-### <a name="how-to-threat-model"></a>How to threat model
-The threat modeling process is composed of four steps; the steps are:
+### <a name="how-to-threat-model"></a>Nasıl yapılır tehdit modeli
+İşlem modelleme tehdit dört adımdan oluşur; adımlar şunlardır:
 
-* Model the application
-* Enumerate Threats
-* Mitigate threats
-* Validate the mitigations
+* Uygulama modeli
+* Tehditler listeleme
+* Tehditlerin azaltılmasına
+* Azaltıcı doğrula
 
-#### <a name="the-process-steps"></a>The process steps
-Three rules of thumb to keep in mind when building a threat model:
+#### <a name="the-process-steps"></a>İşlem adımları
+Üç kuralları bir tehdit modeli oluşturulurken göz önünde bulundurmanız altın:
 
-1. Create a diagram out of reference architecture. 
-2. Start breadth-first. Get an overview, and understand the system as a whole, before deep-diving.  This helps ensure that you deep-dive in the right places.
-3. Drive the process, don’t let the process drive you. If you find an issue in the modeling phase and want to explore it, go for it!  Don’t feel you need to follow these steps slavishly.  
+1. Referans Mimarisi dışında bir diyagram oluşturun. 
+2. Avantajlarına ilk başlatın. Genel bir bakış elde ve derin girmeden önce bir bütün olarak sistem anlayın.  Bu sağlamaya yardımcı olur. Bu, ayrıntılı-Dalış doğru yerde.
+3. İşlem sürücü, sürücüsü işlem izin vermeyin. Modelleme aşamasında bir sorun bulmak ve onu keşfetmek istediğiniz, bunun için Git!  Bu adımları slavishly gerek düşündüğünüz yok.  
 
-#### <a name="threats"></a>Threats
-The four core elements of a threat model are:
+#### <a name="threats"></a>Tehditleri
+Bir tehdit modeli dört temel öğeleri şunlardır:
 
-* Processes (web services, Win32 services, *nix daemons, etc. Note that some complex entities (for example field gateways and sensors) can be abstracted as a process when a technical drill down in these areas is not possible.
-* Data stores (anywhere data is stored, such as a configuration file or database)
-* Data flow (where data moves between other elements in the application)
-* External Entities (anything that interacts with the system, but is not under the control of the application, examples include users and satellite feeds)
+* İşlemler (web Hizmetleri, Win32 hizmetleri * nix Daemon, vs. Bir işlem teknik Detaya Gitmeyi olduğunda bu alanlarda mümkün değil gibi bazı karmaşık varlıklar (örneğin alan ağ geçitleri ve algılayıcılar) soyutlanması unutmayın.
+* Verileri (her yerden bir yapılandırma dosyası veya veritabanı gibi veriler depolanır) depolar
+* Veri akışı (burada veri uygulamadaki diğer öğeler arasında taşır)
+* Dış varlıklar (sistem ile etkileşimde bulunan herhangi bir şey ancak uygulama denetimi altında örnekler kullanıcıları eklemek ve uydu akışları)
 
-All elements in the architectural diagram are subject to various threats; we will use the STRIDE mnemonic. Read [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) to know more about the STRIDE elements.
+Mimari diyagramı tüm öğeler çeşitli tehditlere maruz; yine de uygun istiyor musunuz? STRIDE anımsatıcı kullanacağız. Okuma [yeniden tehdit modelleme, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) STRIDE öğeler hakkında daha fazla bilgi edinmek için.
 
-Different elements of the application diagram are subject to certain STRIDE threats:
+Uygulama diyagramı farklı öğeler belirli STRIDE tehditlere maruz şunlardır:
 
-* Processes are subject to STRIDE
-* Data flows are subject to TID
-* Data stores are subject to TID, and sometimes R, if the data stores are log files.
-* External entities are subject to SRD
+* STRIDE tabi işlemlerdir
+* Veri akışları KOMUTU tabi olan
+* Veri depoları günlük dosyalarını veri depolarına KOMUTU ve R, tabi bazen bağlanırlar.
+* Dış varlığı SRD tabi şunlardır:
 
-## <a name="security-in-iot"></a>Security in IoT
-Connected special-purpose devices have a significant number of potential interaction surface areas and interaction patterns, all of which must be considered to provide a framework for securing digital access to those devices. The term “digital access” is used here to distinguish from any operations that are carried out through direct device interaction where access security is provided through physical access control. For example, putting the device into a room with a lock on the door. While physical access cannot be denied using software and hardware, measures can be taken to prevent physical access from leading to system interference. 
+## <a name="security-in-iot"></a>IOT güvenlik
+Bağlı özel amaçlı cihazlar çok sayıda olası etkileşim yüzey alanlarını ve her biri, bu cihazlar dijital erişimin güvenliğini sağlamak için bir çerçeve sağlamak üzere düşünülmelidir etkileşim düzenleri sahip. "Dijital erişim" terimi burada doğrudan aygıt etkileşiminin gerçekleştirilen herhangi bir işlem ayırmak için erişim güvenliği fiziksel erişim denetimi aracılığıyla burada sağlanan kullanılır. Örneğin, cihaz kilit bir odada içine kapısı koyma. Fiziksel erişim, yazılım ve donanım kullanarak kısıtlanamaz olsa da, sistem kesintiye gelen başında fiziksel erişimi önlemek için ölçüler alınabilir. 
 
-As we explore the interaction patterns, we will look at “device control” and “device data” with the same level of attention. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment.
+Biz etkileşim desenleri keşfetmenizde biz "aygıt denetimi" ve "cihaz verileri" dikkat aynı düzeyiyle arar. "Aygıt denetimi" bir aygıta değiştirme veya davranışını durumuna veya kendi ortamı durumunu doğru etkileyen amacı ile herhangi bir şirket tarafından sağlanan herhangi bir bilgi olarak sınıflandırılabilir. "Cihaz verileri" durumuna ve kendi ortamı gözlemlenen durumu hakkında herhangi bir taraf için bir aygıt yayar herhangi bir bilgi olarak sınıflandırılabilir.
 
-In order to optimize security best practices, it is recommended that a typical IoT architecture be divided into several component/zones as part of the threat modeling exercise. These zones are described fully throughout this section and include:
+En iyi güvenlik en iyi duruma getirmek için tipik bir IOT mimarisinin alıştırma modelleme tehdit bir parçası olarak birkaç bileşen/bölgelere ayrılmasına önerilir. Bu bölgeler tam olarak bu bölümde açıklanan ve şunları içerir:
 
-* Device,
-* Field Gateway,
-* Cloud gateways, and
-* Services.
+* Cihazı
+* Alan ağ geçidi
+* Bulut, ağ geçitleri ve
+* Hizmetler.
 
-Zones are broad way to segment a solution; each zone often has its own data and authentication and authorization requirements. Zones can also be used to isolation damage and restrict the impact of low trust zones on higher trust zones.
+Bölgeleri şekilde bir çözüm segmentlere ayırmak için geniş; her bölge genellikle kendi veri ve kimlik doğrulama ve yetkilendirme gereksinimlerine sahiptir. Bölgeleri de yalıtım zarar görmesine kullanılması ve düşük güven bölgeleri daha yüksek güven bölgelerinde etkisini kısıtlayın.
 
-Each zone is separated by a Trust Boundary, which is noted as the dotted red line in the diagram below. It represents a transition of data/information from one source to another. During this transition, the data/information could be subject to Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service and Elevation of Privilege (STRIDE).
+Her bölge bir güven, aşağıdaki çizimde kırmızı noktalı çizgi belirtildiği sınır ile ayrılır. Veri/bilgileri geçişin bir kaynak sunucudan diğerine temsil eder. Bu geçiş sırasında veri/bilgileri sahtekarlık, kurcalama, ret, bilgi açıklama, hizmet reddi ve ayrıcalık yükseltme (STRIDE) tabi olabilir.
 
-![IoT Security Zones](media/iot-security-architecture/iot-security-architecture-fig1.png) 
+![IOT güvenlik bölgeleri](media/iot-security-architecture/iot-security-architecture-fig1.png) 
 
-The components depicted within each boundary are also subjected to STRIDE, enabling a full 360 threat modeling view of the solution. The sections below elaborate on each of the components and specific security concerns and solutions that should be put into place.
+Her bir sınır içinde tanımlanan bileşenleri de tam 360 etkinleştirme STRIDE için tabi çözüm görünümünü modelleme tehdit. Aşağıdaki bölümlerde ayrıntılı şekilde her bileşenleri ve belirli güvenlik sorunlarının yerine sokulmalıdır çözümler.
 
-The sections that follows will discuss standard components typically found in these zones.
+Aşağıdaki bölümler genellikle bölgelerinde bulunan standart bileşenleri ele alınacaktır.
 
-### <a name="the-device-zone"></a>The Device Zone
-The device environment is the immediate physical space around the device where physical access and/or “local network” peer-to-peer digital access to the device is feasible. A “local network” is assumed to be a network that is distinct and insulated from – but potentially bridged to – the public Internet, and includes any short-range wireless radio technology that permits peer-to-peer communication of devices. It does *not* include any network virtualization technology creating the illusion of such a local network and it does also not include public operator networks that require any two devices to communicate across public network space if they were to enter a peer-to-peer communication relationship.
+### <a name="the-device-zone"></a>Cihaz bölge
+Aygıt aygıt hemen fiziksel boşluk fiziksel burada ortamıdır erişim ve/veya "yerel ağ" eşler arası sayısal erişim aygıta uygulanabilir. "Yerel ağ" ayrı ve gelen – yalıtılmış ancak büyük olasılıkla genel Internet'e – bağlantı ve aygıtların eşler arası iletişime izin verir herhangi mesafeli Kablosuz radyo teknolojisi içeren bir ağ olduğu varsayılır. Mevcut *değil* yerel bir ağ atmosferini oluşturma herhangi bir ağ sanallaştırma teknolojisini içerir ve ortak ağ alanı arasında iletişim için herhangi iki aygıtları gerektiren genel işleç ağları da içermez bir eşler arası iletişim ilişkisi girmek için yoktu.
 
-### <a name="the-field-gateway-zone"></a>The Field Gateway Zone
-Field gateway is a device/appliance or some general-purpose server computer software that acts as communication enabler and, potentially, as a device control system and device data processing hub. The field gateway zone includes the field gateway itself and all devices that are attached to it. As the name implies, field gateways act outside dedicated data processing facilities, are usually location bound, are potentially subject to physical intrusion, and will have limited operational redundancy. All to say that a field gateway is commonly a thing one can touch and sabotage while knowing what its function is. 
+### <a name="the-field-gateway-zone"></a>Alan ağ geçidi bölge
+Alan ağ geçidi aygıtı/gereç ya da iletişim etkinleştiricisi olarak ve da potansiyel olarak, aygıt denetim sistemi ve aygıt veri işleme hub gibi davranan bazı genel amaçlı sunucu bilgisayar yazılımı olur. Alan ağ geçidi bölge, alan ağ geçidi kendisi ve ona bağlı olan tüm aygıtları içerir. Adından da anlaşılacağı gibi alan ağ geçitleri dış özel veri işleme tesis hareket, genellikle konumu bağlı olan, olası fiziksel yetkisiz erişim tabi olan ve işletimsel artıklık sınırlı. Tüm bir alan ağ geçidi genellikle bir şey olduğunu söylemek için bir touch ve onun işlevini nedir bilerek sabotage. 
 
-A field gateway is different from a mere traffic router in that it has had an active role in managing access and information flow, meaning it is an application addressed entity and network connection or session terminal. An NAT device or firewall, in contrast, do not qualify as field gateways since they are not explicit connection or session terminals, but rather a route (or block) connections or sessions made through them. The field gateway has two distinct surface areas. One faces the devices that are attached to it and represents the inside of the zone, and the other faces all external parties and is the edge of the zone.   
+Bir alan ağ geçidi erişimi yönetme etkin bir rol oluşturdu ve bilgi akışını uygulama olduğu anlamına gelir, varlık ve ağ bağlantınızı veya terminal oturumu ele yalnızca trafik yönlendiriciden farklıdır. Bir NAT cihazı veya güvenlik duvarı, buna karşılık, uygun değil alan ağ geçidi olarak değil açık bir bağlantı veya oturum Terminal, ancak bunun yerine bir yol (veya blok) bağlantıları olduğu veya bunları yapılan oturumları. Alan ağ geçidi iki ayrı yüzey alanı yok. Bir bağlı aygıtları bakarken ve bölgenin iç temsil eder ve diğer tüm dış tarafların bakarken ve bölgenin ucunun.   
 
-### <a name="the-cloud-gateway-zone"></a>The cloud gateway zone
-Cloud gateway is a system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways. Also in a Cloud Zone, operational measures prevent targeted physical access and is not necessarily exposed to a “public cloud” infrastructure.  
+### <a name="the-cloud-gateway-zone"></a>Bulut ağ geçidi bölge
+Bulut ağ geçidi genellikle bir bulut tabanlı denetim ve veri analizi sistem, bu sistemlere Federasyonu doğrultusunda ortak ağ alanı boyunca ilk ve son aygıtları veya alan ağ geçitleri birkaç farklı sitelerin uzaktan iletişimi sağlayan bir sistemdir. Bazı durumlarda, bir bulut ağ geçidi hemen erişim için özel amaçlı cihazlar Terminal tabletler veya telefonlar gibi gelen kolaylaştırabilir. Burada tartışılan bağlamında "bulut" ekli cihazlara veya alan ağ geçitleri aynı sitede bağlı olmayan bir özel veri işleme sistemine başvurmak için tasarlanmıştır. Ayrıca bir bulut bölgedeki işletimsel ölçüleri hedeflenen fiziksel erişimi engellemek ve mutlaka bir "Genel bulut" altyapısı gösterilmez.  
 
-A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is neither a device control system nor a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it. The edge of the zone is a distinct surface area where all external parties communicate through.
+Bulut ağ geçidi, bir ağ sanallaştırma katmana bulut ağ geçidi ve tüm bağlı aygıtları veya alan ağ geçitleri üzerinden diğer ağ trafiğinden verenlerden içine potansiyel olarak eşlenebilir. Bulut ağ geçidinin kendisi ne aygıt denetim sistem ya da bir işleme veya depolama tesisi cihaz verileri için olan; Bu olanakları ile bulut Ağ Geçidi Arabirimi. Bulut ağ geçidi bölge bulut ağ geçidinin tüm alan ağ geçitleri ve doğrudan veya dolaylı olarak kendisine bağlı cihazların yanı sıra içerir. Kenarın bölgenin, tüm dış tarafların üzerinden iletişim kurduğu ayrı bir yüzey alanıdır.
 
-### <a name="the-services-zone"></a>The services zone
-A “service” is defined for this context as any software component or module that is interfacing with devices through a field- or cloud gateway for data collection and analysis, as well as for command and control.  Services are mediators. They act under their identity towards gateways and other subsystems, store and analyze data, autonomously issue commands to devices based on data insights or schedules and expose information and control capabilities to authorized end-users.
+### <a name="the-services-zone"></a>Hizmetleri bölge
+"Hizmet" Bu bağlamda herhangi bir yazılım bileşeni veya cihazlara sahip bir alan veya Bulut ağ geçidi üzerinden veri toplama ve analiz için yanı sıra komut ve denetim için arabirim modülü olarak tanımlanmıştır.  Ortam araçları hizmetleridir. Bunların altında kimliklerini ağ geçitleri ve diğer alt sistemleri doğrultusunda hareket, depolamak ve verileri çözümlemek, sınırlarına sorunu komutları cihazlara veri Öngörüler veya zamanlamaları göre ve bilgi kullanıma ve yetkili son kullanıcılara özellikleri denetlemek.
 
-### <a name="information-devices-vs-special-purpose-devices"></a>Information-devices vs. special-purpose devices
-PCs, phones, and tablets are primarily interactive information devices. Phones and tablets are explicitly optimized around maximizing battery lifetime. They preferably turn off partially when not immediately interacting with a person, or when not providing services like playing music or guiding their owner to a particular location. From a systems perspective, these information technology devices are mainly acting as proxies towards people. They are “people actuators” suggesting actions and “people sensors” collecting input. 
+### <a name="information-devices-vs-special-purpose-devices"></a>Özel amaçlı cihazlar ve aygıtlarını bilgiler
+Bilgisayarlar, telefonlar ve tabletler öncelikle etkileşimli bilgi aygıtlardır. Telefonlar ve tabletler açıkça pil ömrü en üst düzeye çıkarma geçici hale getirilmiştir. Bunlar tercihen kısmen hemen bir kişiyle kullanılırken ya da müzik çalma veya belirli bir konuma kendi sahibi yönlendirmede gibi hizmetleri sağlayan değil kapatın. Sistemleri açısından bakıldığında, bu bilgi teknolojisi cihazlar proxy'leri kişiler doğru olarak esas olarak çalışıyor. "Kişiler erişim düzenekleri eylemleri ve"kişiler algılayıcılar giriş toplama"öneren" oldukları. 
 
-Special-purpose devices, from simple temperature sensors to complex factory production lines with thousands of components inside them, are different. These devices are much more scoped in purpose and even if they provide some user interface, they are largely scoped to interfacing with or be integrated into assets in the physical world. They measure and report environmental circumstances, turn valves, control servos, sound alarms, switch lights, and do many other tasks. They help to do work for which an information device is either too generic, too expensive, too big, or too brittle. The concrete purpose immediately dictates their technical design as well the available monetary budget for their production and scheduled lifetime operation. The combination of these two key factors constrains the available operational energy budget, physical footprint, and thus available storage, compute, and security capabilities.  
+Basit sıcaklık algılayıcıları karmaşık Üreteç üretim satırlarına bileşenleri içerdikleri, binlerce ile özel amaçlı cihazlar farklıdır. Bu cihazlar çok daha amacı kapsamlı ve bazı kullanıcı arabirimi sağladıkları olsa bile, arabirim ile büyük ölçüde kapsamına veya Fiziksel dünyadaki varlıklar içine tümleştirilmiştir. Bunlar ölçmek ve ortam koşullar raporu, vanalar açın, servos denetlemek, alarmlar ses, ışık geçin ve birçok diğer görevleri yapmak. İş için bir bilgi cihaz çok genel, çok pahalı, çok büyük veya çok kırılır yardımcı olurlar. Somut amacı teknik tasarımlarını, üretim ve zamanlanmış ömrü işlemi için de kullanılabilir parasal bütçe olarak hemen belirler. Bu iki önemli faktör birleşimi kullanılabilir işletimsel enerji bütçe, fiziksel ayak izini ve böylece kullanılabilir depolama, hesaplama ve güvenlik özellikleri kısıtlar.  
 
-If something “goes wrong” with automated or remote controllable devices, for example, physical defects or control logic defects to willful unauthorized intrusion and manipulation. The production lots may be destroyed, buildings may be looted or burned down, and people may be injured or even die. This is, of course, a whole different class of damage than someone maxing out a stolen credit card's limit. The security bar for devices that make things move, and also for sensor data that eventually results in commands that cause things to move, must be higher than in any e-commerce or banking scenario. 
+Bir şey varsa "gelecek yanlış" otomatik olarak veya uzaktan denetlenebilir aygıtlarla, örneğin, fiziksel hataları veya Denetim mantığı willful yetkisiz yetkisiz erişim ve işleme hataları. Üretim çok yok edilmesi, binalar looted veya Yakılan ve kişiler yaralı ve hatta özel olabilir. Bu, doğal olarak, bir tam farklı birisi bir çalınan Kredi kartının sınırı maxing daha kesimin sınıftır. Taşıma şeyler yapın cihazlar için ve ayrıca sonunda taşımak şey neden komutlarda sonuçları algılayıcı verileri için güvenlik çubuğunu herhangi bir e-ticaret veya banka senaryosu daha yüksek olmalıdır. 
 
-### <a name="device-control-and-device-data-interactions"></a>Device control and device data interactions
-Connected special-purpose devices have a significant number of potential interaction surface areas and interaction patterns, all of which must be considered to provide a framework for securing digital access to those devices. The term “digital access” is used here to distinguish from any operations that are carried out through direct device interaction where access security is provided through physical access control. For example, putting the device into a room with a lock on the door. While physical access cannot be denied using software and hardware, measures can be taken to prevent physical access from leading to system interference. 
+### <a name="device-control-and-device-data-interactions"></a>Aygıt denetimi ve aygıt veri etkileşimleri
+Bağlı özel amaçlı cihazlar çok sayıda olası etkileşim yüzey alanlarını ve her biri, bu cihazlar dijital erişimin güvenliğini sağlamak için bir çerçeve sağlamak üzere düşünülmelidir etkileşim düzenleri sahip. "Dijital erişim" terimi burada doğrudan aygıt etkileşiminin gerçekleştirilen herhangi bir işlem ayırmak için erişim güvenliği fiziksel erişim denetimi aracılığıyla burada sağlanan kullanılır. Örneğin, cihaz kilit bir odada içine kapısı koyma. Fiziksel erişim, yazılım ve donanım kullanarak kısıtlanamaz olsa da, sistem kesintiye gelen başında fiziksel erişimi önlemek için ölçüler alınabilir. 
 
-As we explore the interaction patterns, we will look at “device control” and “device data” with the same level of attention while threat modeling. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment. 
+Biz etkileşim desenleri keşfetmenizde biz "aygıt denetimi" ve "cihaz verileri" ile aynı düzeyde tehdit modelleme çalışırken dikkat arar. "Aygıt denetimi" bir aygıta değiştirme veya davranışını durumuna veya kendi ortamı durumunu doğru etkileyen amacı ile herhangi bir şirket tarafından sağlanan herhangi bir bilgi olarak sınıflandırılabilir. "Cihaz verileri" durumuna ve kendi ortamı gözlemlenen durumu hakkında herhangi bir taraf için bir aygıt yayar herhangi bir bilgi olarak sınıflandırılabilir. 
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Threat modeling the Azure IoT reference architecture
-Microsoft uses the framework outlined above to do threat modelling for Azure IoT. In the section below we therefore use the concrete example of Azure IoT Reference Architecture to demonstrate how to think about threat modelling for IoT and how to address the threats identified. In our case we identified four main areas of focus:
+## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Tehdit modelleme Azure IOT başvuru mimarisi
+Microsoft Azure IOT modelleme tehdit için yukarıda özetlenen çerçevesi kullanır. Bölümde bu nedenle Azure IOT başvuru mimarisi somut örneği için IOT modelleme tehdit düşünün ve tanımlanan tehditlere göstermek için kullanırız. Örneğimizde dört ana odak alanı belirledik:
 
-* Devices and Data Sources,
-* Data Transport,
-* Device and Event Processing, and
-* Presentation
+* Cihazlar ve veri kaynakları
+* Veri taşıma
+* Cihaz ve olay işleme ve
+* Sunu
 
-![Threat Modeling for Azure IoT](media/iot-security-architecture/iot-security-architecture-fig2.png) 
+![Tehdit için Azure IOT modelleme](media/iot-security-architecture/iot-security-architecture-fig2.png) 
 
-The diagram below provides a simplified view of Microsoft’s IoT Architecture using a Data Flow Diagram model that is used by the Microsoft Threat Modeling Tool:
+Aşağıdaki diyagramda Microsoft tehdit modelleme aracı tarafından kullanılan bir veri akış diyagramı modeli kullanılarak Microsoft'un IOT mimarisinin basitleştirilmiş bir görünümünü sağlar:
 
-![Threat Modeling for Azure IoT using MS Threat Modeling Tool](media/iot-security-architecture/iot-security-architecture-fig3.png)
+![Tehdit MS tehdit modelleme aracını kullanarak Azure IOT için modelleme](media/iot-security-architecture/iot-security-architecture-fig3.png)
 
-It is important to note that the architecture separates the device and gateway capabilities. This allows the user to leverage gateway devices that are more secure: they are capable of communicating with the cloud gateway using secure protocols, which typically requires greater processing overhead that a native device  - such as a thermostat - could provide on its own. In the Azure services zone, we assume that the Cloud Gateway is represented by the Azure IoT Hub service.
+Mimari cihaz ve ağ geçidi özellikleri ayıran dikkate almak önemlidir. Bu kullanıcının daha güvenli olan ağ geçidi aygıtlarını yararlanan olanak sağlar: - thermostat gibi-yerel bir cihaz üzerinde sağlayabilir büyük yükü işlemi genellikle gerektiren güvenli protokolleri kullanılarak bulut ağ geçidi ile iletişim kurabilen kendi. Azure Hizmetleri bölgesinde bulut ağ geçidi Azure IOT Hub hizmeti tarafından temsil edilen varsayalım.
 
-### <a name="device-and-data-sourcesdata-transport"></a>Device and data sources/data transport
-This section explores the architecture outlined above through the lens of threat modeling and gives an overview of how we are addressing some of the inherent concerns. We will focus on the core elements of a threat model:
+### <a name="device-and-data-sourcesdata-transport"></a>Aygıt ve veri kaynakları/veri aktarımı
+Bu bölümde, tehdit modelleme Mercek yukarıda özetlenen mimarisi inceler ve nasıl biz bazı devralınmış sorunları ele alır genel bir bakış sağlar. Biz bir tehdit modeli çekirdek öğelerde odaklanır:
 
-* Processes (those under our control and external items)
-* Communication (also called data flows)
-* Storage (also called data stores)
+* İşlemler (bizim denetim ve dış öğeler altında olanlar)
+* (Veri akışları olarak da bilinir) iletişimi
+* Depolama (veri depoları olarak da bilinir)
 
-#### <a name="processes"></a>Processes
-In each of the categories outlined in the Azure IoT architecture, we try to mitigate a number of different threats across the different stages data/information exists in: process, communication, and storage. Below we give an overview of the most common ones for the “process” category, followed by an overview of how these could be best mitigated: 
+#### <a name="processes"></a>İşlemler
+Veri/bilgileri bulunmaktadır farklı aşamaları boyunca bir dizi farklı tehditleri azaltmak her Azure IOT mimarisinde özetlenen kategorileri, biz deneyin: işlem, iletişim ve depolama. Aşağıda en yaygın olanları nasıl bu en iyi şekilde azaltılması gereken genel bir bakış tarafından izlenen "işlem" kategorisi için genel bir bakış sunuyoruz: 
 
-**Spoofing (S)**: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from. A good illustration is remote controls that can turn any TV and that are popular prankster tools.
+**(S) yanıltma**: bir saldırganın bir aygıttan yazılım veya donanım düzeyinde ya da şifreleme anahtar malzemesi ayıklamak ve daha sonra anahtar malzemesi cihaz kimliği altında farklı bir fiziksel veya sanal cihaz ile sistemine erişim gelen alınmış. Uzaktan herhangi TV kapatabilirsiniz ve popüler prankster araçları olan denetimleri buna iyi bir çizimidir.
 
-**Denial of Service (D)**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out will not report data, at all.
+**Engelleme, hizmet (D)**: bir aygıt çalışmıyor veya radyo frekansları veya kesme kablolarını uğratarak iletişim kuramadığı oluşturulabilir. Örneğin, özellikle gizleyen güç veya ağ bağlantısı olan bir izleme kamera verileri hiç bildirmez.
 
-**Tampering (T)**: An attacker may partially or wholly replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program. For example, an attacker may leverage extracted key material to intercept and suppress data from the device on the communication path and replace it with false data that is authenticated with the stolen key material.
+**(T) oynama**: bir saldırgan kısmen veya tamamen cihazda çalışan yazılım olası anahtar malzemesi veya bulunduran şifreleme tesis anahtarı cihaz kimliğini yararlanmak değiştirilen yazılım izin vererek değiştirebilir malzemeleri yasadışı programın kullanılabilir. Örneğin, bir saldırganın müdahale ve iletişim yolunun aygıtta verilerden bastırmak ve çalınan anahtar malzemesi ile kimlik doğrulaması yanlış verilerle değiştirmek için ayıklanan anahtar malzemesi yararlanın.
 
-**Information Disclosure (I)**: If the device is running manipulated software, such manipulated software could potentially leak data to unauthorized parties. For example, an attacker may leverage extracted key material to inject itself into the communication path between the device and a controller or field gateway or cloud gateway to siphon off information.
+**Bilgilerin açığa çıkmasına (ı)**: cihaz yönetilebilen yazılım çalışıyorsa yönetilebilen yazılımla olası yetkisiz taraflara veri sızıntısı. Örneğin, bir saldırganın kendisini cihaz denetleyicisi veya alan ağ geçidi veya bilgi siphon için bulut ağ geçidi arasındaki iletişim yolunun içine eklemesine ayıklanan anahtar malzemesi yararlanın.
 
-**Elevation of Privilege (E)**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
+**Yükseltme, ayrıcalık (E)**: başka bir şey yapmak için belirli bir işlevi gerçekleştiren bir aygıtı zorlanabilir. Örneğin, yarı yol açmak üzere programlanmış Vana tüm açmak için sağladı.
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Bileşen** | **Tehdit** | **Azaltma** | **Riski** | **Uygulama** |
 | --- | --- | --- | --- | --- |
-| Device |S |Assigning identity to the device and authenticating the device |Replacing device or part of the device with some other device. How do we know we are talking to the right device? |Authenticating the device, using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
-| TRID |Apply tamperproof mechanisms to the device for example by making it very hard to impossible to extract keys and other cryptographic material from the device. |The risk is if someone is tampering the device (physical interference). How are we sure, that device has not tampered with. |The most effective mitigation is a trusted platform module (TPM) capability that allows storing keys in special on-chip circuitry from which the keys cannot be read, but can only be used for cryptographic operations that use the key but never disclose the key. Memory encryption of the device. Key management for the device. Signing the code. | |
-| E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it will allow the attack to perform operations not otherwise accessible. |Having authorization scheme for the device | |
-| Field Gateway |S |Authenticating the Field gateway to Cloud Gateway (cert based, PSK, Claim based,..) |If someone can spoof Field Gateway, then it can present itself as any device. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). All the same key storage and attestation concerns of devices in general – best case is use TPM. 6LowPAN extension for IPSec to support Wireless Sensor Networks (WSN). |
-| TRID |Protect the Field Gateway against tampering (TPM?) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. | |
-| E |Access control mechanism for Field Gateway | | | |
+| Cihaz |S |Cihaz kimlik doğrulaması ve kimlik cihaza atama |Aygıt veya aygıtın başka bir aygıt ile değiştirin. Biz doğru cihaza Konuşmayı nasıl biliyoruz? |Aktarım Katmanı Güvenliği (TLS) veya IPSec kullanarak cihaz kimlik doğrulaması. Altyapı önceden paylaşılan anahtar (PSK) kullanarak tam asimetrik şifreleme işleyemiyor bu cihazlarda desteklemelidir. Azure AD yararlanan [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
+| TRID |Tamperproof mekanizmaları çok zor anahtarları ve diğer şifreleme malzeme aygıttan ayıklamak imkansız için kolaylaştırarak cihaza örneğin uygulayın. |Birisi (fiziksel girişim) cihaz oynama, riski oluşturur. Gerçekleştirildiğine nasıl emin olun, bu cihaz üzerinde oynama değil. |En etkili Azaltıcı içinden anahtarları okunamıyor, ancak yalnızca anahtar kullanan ancak hiç anahtar ifşa şifreleme işlemleri için kullanılabilir özel yongadaki devresi anahtarlarını depolamak izin veren bir güvenilir platform Modülü (TPM) bir özelliktir. Aygıt bellek şifreleme. Cihaz için anahtar yönetimi. Kod imzalama. | |
+| E |Cihazın erişim denetimi sahip. Yetkilendirme düzeni. |Tek tek eylemlerin gerçekleştirilmesini cihaz komutları bir dış kaynaktan ya da güvenliği aşılmış algılayıcılar temel alınarak izin veriyorsa, Bu saldırının aksi işlemleri için erişilebilir izin verir. |Cihaz için Yetkilendirme düzeni sahip | |
+| Alan ağ geçidi |S |Bulut ağ geçidi (bağlı olarak, sertifika PSK, bağlı olarak, talep..) için alan ağ geçidi kimlik doğrulaması |Ardından, birisi alan ağ geçidi taklit edebilir, kendisini herhangi bir aygıtı sunabilir. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Aynı genel – aygıtların temel depolama ve kanıtlama sorunlarının en iyi durum kullanın TPM. Kablosuz algılayıcı ağları (WSN) desteklemek IPSec 6LowPAN uzantısı. |
+| TRID |Alan ağ geçidi'ni (TPM?) oynama karşı koruma |Sahtekarlığı alan ağ geçidi Konuşmayı bulut ağ geçidi düşünmeye kandırarak saldırıları bilgilerin açığa çıkması ve verileri izinsiz neden olabilir |Bellek şifreleme, TPM bilgisayarın, kimlik doğrulaması. | |
+| E |Alan ağ geçidi için erişim denetimi mekanizması | | | |
 
-Here are some examples of threats in this category:
+Bu kategorideki tehditleri bazı örnekleri şunlardır:
 
-Spoofing: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from.
+Kimlik sahtekarlığı: Bir saldırgan şifreleme anahtar malzemesi bir aygıtı yazılım veya donanım düzeyinde ve daha sonra anahtar malzemesi cihazın kimlik altında farklı bir fiziksel veya sanal cihaz sistemiyle runbook'undan alınan erişim Al.
 
-**Denial of Service**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out will not report data, at all.
+**Hizmet reddi**: bir aygıt çalışmıyor veya radyo frekansları veya kesme kablolarını uğratarak iletişim kuramadığı oluşturulabilir. Örneğin, özellikle gizleyen güç veya ağ bağlantısı olan bir izleme kamera verileri hiç bildirmez.
 
-**Tampering**: An attacker may partially or wholly replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program.
+**İzinsiz**: bir saldırgan kısmen veya tamamen cihazda çalışan yazılım olası anahtar malzemesi veya bulunduran şifreleme tesis anahtarı cihaz kimliğini yararlanmak değiştirilen yazılım izin vererek değiştirebilir malzemeleri yasadışı programın kullanılabilir.
 
-**Tampering**: A surveillance camera that’s showing a visible-spectrum picture of an empty hallway could be aimed at a photograph of such a hallway. A smoke or fire sensor could be reporting someone holding a lighter under it. In either case, the device may be technically fully trustworthy towards the system, but it will report manipulated information.
+**İzinsiz**: boş koridor spektrumun görünür resmini gösteren bir izleme kamera böyle bir koridor fotoğrafı amaçlayan. Duman veya yangın algılayıcı birisi altındaki bir açık tutarak raporlama. Her iki durumda da aygıt teknik olarak doğru sistem tam olarak güvenilir olabilir, ancak yönetilebilen bilgi rapor eder.
 
-**Tampering**: An attacker may leverage extracted key material to intercept and suppress data from the device on the communication path and replace it with false data that is authenticated with the stolen key material.
+**İzinsiz**: bir saldırgan müdahale ve iletişim yolunun aygıtta verilerden bastırmak ve çalınan anahtar malzemesi ile kimlik doğrulaması yanlış verilerle değiştirmek için ayıklanan anahtar malzemesi yararlanan.
 
-**Tampering**: An attacker may partially or completely replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program.
+**İzinsiz**: bir saldırgan kısmen veya tamamen cihazda çalışan yazılım potansiyel olarak, cihaz kimliğini yararlanacağınızı değiştirilen yazılım izin vererek değiştirebilir anahtar malzeme veya bulunduran şifreleme özellikleri anahtar malzeme yasadışı programın kullanılabilir.
 
-**Information Disclosure**: If the device is running manipulated software, such manipulated software could potentially leak data to unauthorized parties.
+**Bilgilerin açığa çıkmasına**: cihaz yönetilebilen yazılım çalışıyorsa yönetilebilen yazılımla olası yetkisiz taraflara veri sızıntısı.
 
-**Information Disclosure**: An attacker may leverage extracted key material to inject itself into the communication path between the device and a controller or field gateway or cloud gateway to siphon off information.
+**Bilgilerin açığa çıkmasına**: bir saldırgan kendisini cihaz denetleyicisi veya alan ağ geçidi veya devre dışı bilgi siphon için bulut ağ geçidi arasındaki iletişim yolunun içine eklemesine ayıklanan anahtar malzemesi yararlanan.
 
-**Denial of Service**: The device can be turned off or turned into a mode where communication is not possible (which is intentional in many industrial machines).
+**Hizmet reddi**: aygıt devre dışı ya da bir moduna iletişimi (olduğu birçok endüstriyel makinelerinizde kasıtlı) mümkün olduğu açık.
 
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted
+**İzinsiz**: cihaz kontrol sistemine (dışında bilinen ayarlama parametreleri) bilinmeyen bir durumda çalışır ve böylece yorumlanabilir veri sağlamak için yeniden yapılandırılması
 
-**Elevation of Privilege**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
+**Ayrıcalık yükseltme**: başka bir şey yapmak için belirli bir işlevi gerçekleştiren bir aygıtı zorlanabilir. Örneğin, yarı yol açmak üzere programlanmış Vana tüm açmak için sağladı.
 
-**Denial of Service**: The device can be turned into a state where communication is not possible.
+**Hizmet reddi**: cihaz iletişimi olduğu olası bir duruma açılabilir.
 
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted.
+**İzinsiz**: cihaz kontrol sistemine (dışında bilinen ayarlama parametreleri) bilinmeyen bir durumda çalışır ve böylece yorumlanabilir veri sağlamak için yeniden yapılandırılması.
 
-**Spoofing/Tampering/Repudiation**: If not secured (which is rarely the case with consumer remote controls) an attacker can manipulate the state of a device anonymously. A good illustration is remote controls that can turn any TV and that are popular prankster tools.
+**Kimlik sahtekarlığı/kurcalama/ret**: güvenli değilse (olduğu nadiren tüketici uzaktan denetimleri durumuyla) bir saldırganın aygıtın durumunu anonim olarak değiştirebilirsiniz. Uzaktan herhangi TV kapatabilirsiniz ve popüler prankster araçları olan denetimleri buna iyi bir çizimidir.
 
-#### <a name="communication"></a>Communication
-Threats around communication path between devices, devices and field gateways and device and cloud gateway. The table below has some guidance around open sockets on the device/VPN:
+#### <a name="communication"></a>İletişim
+Cihazlar, aygıtları ve alan ağ geçitleri ve cihaz ve bulut ağ geçidi arasındaki iletişim yolunun geçici tehditleri. Aşağıdaki tablo bazı yönergeler aygıt/VPN açık yuva geçici sahiptir:
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Bileşen** | **Tehdit** | **Azaltma** | **Riski** | **Uygulama** |
 | --- | --- | --- | --- | --- |
-| Device IoT Hub |TID |(D)TLS (PSK/RSA) to encrypt the traffic |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level. With custom protocols, we need to figure out how to protect them. In most cases, the communication takes place from the device to the IoT Hub (device initiates the connection). |
-| Device Device |TID |(D)TLS (PSK/RSA) to encrypt the traffic. |Reading data in transit between devices. Tampering with the data. Overloading the device with new connections |Security on the protocol level (MQTT/AMQP/HTTP/CoAP. With custom protocols, we need to figure out how to protect them. The mitigation for the DoS threat is to peer devices through a cloud or field gateway and have them only act as clients towards the network. The peering may result in a direct connection between the peers after having been brokered by the gateway |
-| External Entity Device |TID |Strong pairing of the external entity to the device |Eavesdropping the connection to the device. Interfering the communication with the device |Securely pairing the external entity to the device NFC/Bluetooth LE. Controlling the operational panel of the device (Physical) |
-| Field Gateway Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, we need to figure out how to protect them. |
-| Device Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, we need to figure out how to protect them. |
+| Cihaz IOT hub'ı |KOMUTU |(D) TLS (trafiğini şifrelemek için PSK/RSA) |Gizli dinleme veya cihaz ve ağ geçidi arasındaki iletişimi engelliyor |Güvenlik protokolü düzeyi. Özel protokollerle onları korumak nasıl bağlayacağınızı ihtiyacımız. Çoğu durumda, iletişimin aygıttan (aygıt bağlantı başlatır) IOT Hub'ına gerçekleşir. |
+| Aygıtın aygıt |KOMUTU |(D) TLS (trafiğini şifrelemek için PSK/RSA). |Cihazlar arasında Aktarımdaki verileri okunuyor. Verilerinize müdahale. Yeni bağlantıları aygıtla aşırı yüklemesi |Güvenlik protokolü düzeyinde (MQTT/AMQP/HTTP/CoAP. Özel protokollerle onları korumak nasıl bağlayacağınızı ihtiyacımız. Azaltma DoS tehdit için bir bulut ya da alan ağ geçidi üzerinden cihazları eş ve bunları ağ doğrultusunda istemcileri olarak yalnızca act sahip olmaktır. Eşlemeyi ağ geçidiyle aracılı sonra eşler arasında doğrudan bağlantı ile sonuçlanabilir |
+| Dış varlık cihaz |KOMUTU |Dış varlık cihaz için güçlü eşleştirme |Cihaz bağlantısı gizli dinleme. Aygıtla iletişimi engelliyor |Güvenli bir şekilde NFC/Bluetooth LE aygıta Dış varlık çifti. Aygıt (fiziksel) işletimsel panelinin denetleme |
+| Alan ağ geçidi bulut ağ geçidi |KOMUTU |TLS (trafiğini şifrelemek için PSK/RSA). |Gizli dinleme veya cihaz ve ağ geçidi arasındaki iletişimi engelliyor |Güvenlik protokolü düzeyinde (MQTT/AMQP/HTTP/CoAP). Özel protokollerle onları korumak nasıl bağlayacağınızı ihtiyacımız. |
+| Cihaz bulut ağ geçidi |KOMUTU |TLS (trafiğini şifrelemek için PSK/RSA). |Gizli dinleme veya cihaz ve ağ geçidi arasındaki iletişimi engelliyor |Güvenlik protokolü düzeyinde (MQTT/AMQP/HTTP/CoAP). Özel protokollerle onları korumak nasıl bağlayacağınızı ihtiyacımız. |
 
-Here are some examples of threats in this category:
+Bu kategorideki tehditleri bazı örnekleri şunlardır:
 
-**Denial of Service**: Constrained devices are generally under DoS threat when they actively listen for inbound connections or unsolicited datagrams on a network, because an attacker can open many connections in parallel and not service them or service them very slowly, or the device can be flooded with unsolicited traffic. In both cases, the device can effectively be rendered inoperable on the network.
+**Hizmet reddi**: kısıtlanmış aygıtlardır genellikle DoS tehlike altında bir saldırganın birçok bağlantıları paralel olarak açabilir ve değil bunları hizmet veya hizmet çünkü bunlar etkin olarak gelen bağlantıları veya bir ağ üzerindeki istenmeyen veri birimleri için dinlerken bunları çok yavaş veya aygıt ile istenmeyen trafiği yayılmamış olabilir. Her iki durumda da, cihaz etkili bir şekilde ağda kullanılamaz hale getirilebilir.
 
-**Spoofing, Information Disclosure**: Constrained devices and special-purpose devices often have one-for-all security facilities like password or PIN protection, or they wholly rely on trusting the network, meaning they will grant access to information when a device is on the same network, and that network is often only protected by a shared key. That means that when the shared secret to device or network is disclosed, it is possible to control the device or observe data emitted from the device.  
+**Yanıltma, bilgi İfşası**: kısıtlanmış aygıtları ve özel amaçlı cihazlar genellikle parola veya PIN koruma gibi tüm için bir güvenlik tesis sahiptir veya bunlar tamamen bunlar erişimine için anlamı ağ güvenen kullanır aynı ağ ve o ağ üzerindeki bir aygıt olduğunda bilgiler genellikle yalnızca bir paylaşılan anahtar tarafından korunur. Aygıt ya da ağ paylaşılan gizliliği duyurulmuş olduğunda cihazı denetlemek veya aygıttan yayılan verileri gözlemlemek mümkündür, anlamına gelir.  
 
-**Spoofing**: an attacker may intercept or partially override the broadcast and spoof the originator (man in the middle)
+**Kimlik sahtekarlığı**: bir saldırgan kesebilen veya kısmen yayın geçersiz kılmak ve gönderenin (ADAM ortada) aldatma
 
-**Tampering**: an attacker may intercept or partially override the broadcast and send false information 
+**İzinsiz**: bir saldırgan müdahale veya kısmen yayın geçersiz kılabilir ya da yanlış bilgi gönder 
 
-**Information Disclosure:** an attacker may eavesdrop on a broadcast and obtain information without authorization **Denial of Service:** an attacker may jam the broadcast signal and deny information distribution
+**Bilgi İfşası:** bir saldırganın bir yayın üzerinde misafiri ve yetkilendirme bilgileri elde **hizmet reddi:** bir saldırganın yayın sinyal jam ve bilgi dağıtım Reddet
 
-#### <a name="storage"></a>Storage
-Every device and field gateway has some form of storage (temporary for queuing the data, operating system (OS) image storage).
+#### <a name="storage"></a>Depolama
+Her cihaz ve alan ağ geçidi (işletim sistemi (OS) görüntüsü depolama, veri queuing geçici) depolama çeşit vardır.
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Bileşen** | **Tehdit** | **Azaltma** | **Riski** | **Uygulama** |
 | --- | --- | --- | --- | --- |
-| Device storage |TRID |Storage encryption, signing the logs |Reading data from the storage (PII data), tampering with telemetry data. Tampering with queued or cached command control data. Tampering with configuration or firmware update packages while cached or queued locally can lead to OS and/or system components being compromised |Encryption, message authentication code (MAC) or digital signature. Where possible, strong access control through resource access control lists (ACLs) or permissions. |
-| Device OS image |TRID | |Tampering with OS /replacing the OS components |Read-only OS partition, signed OS image, Encryption |
-| Field Gateway storage (queuing the data) |TRID |Storage encryption, signing the logs |Reading data from the storage (PII data), tampering with telemetry data, tampering with queued or cached command control data. Tampering with configuration or firmware update packages (destined for devices or field gateway) while cached or queued locally can lead to OS and/or system components being compromised |BitLocker |
-| Field Gateway OS image |TRID | |Tampering with OS /replacing the OS components |Read-only OS partition, signed OS image, Encryption |
+| Cihaz depolama |TRID |Depolama şifrelemesi, günlükleri imzalama |Depolama (PII veri) verileri telemetri verilerinize müdahale okuma. Değiştirilmesine sıraya veya komut denetim verileri önbelleğe alınmış. Yapılandırma veya bellenimi güncelleştirme paketleriyle oynama önbelleğe alınmış veya yerel olarak kuyruğa sırada güvenliğinin bozulması riskini işletim sistemi ve/veya sistem bileşenleri için yol açabilir |Şifreleme, ileti kimlik doğrulama kodu (MAC) veya dijital imza. Burada kaynak erişimi aracılığıyla olası, güçlü erişim denetim listeleri (ACL'ler) veya izinleri denetler. |
+| Cihaz işletim sistemi görüntüsü |TRID | |İşletim sistemiyle oynama / işletim sistemi bileşenleri değiştirme |Salt okunur işletim sistemi bölümü, imzalı işletim sistemi görüntüsü, şifreleme |
+| (Verileri queuing) ağ geçidi depolama alanı |TRID |Depolama şifrelemesi, günlükleri imzalama |Depolama (PII veri) telemetri verilerinize müdahale verileri okuma, sıraya değiştirilmesine veya komut denetim verileri önbelleğe alınmış. (Aygıtlar veya alan ağ geçidi için hedefleyen) yapılandırması veya bellenimi güncelleştirme paketleriyle oynama önbelleğe alınmış veya yerel olarak kuyruğa sırada güvenliğinin bozulması riskini işletim sistemi ve/veya sistem bileşenleri için yol açabilir |BitLocker'ı |
+| Alan ağ geçidi işletim sistemi görüntüsü |TRID | |İşletim sistemiyle oynama / işletim sistemi bileşenleri değiştirme |Salt okunur işletim sistemi bölümü, imzalı işletim sistemi görüntüsü, şifreleme |
 
-### <a name="device-and-event-processingcloud-gateway-zone"></a>Device and event processing/cloud gateway zone
-A cloud gateway is system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways, and where operational measures prevent targeted physical access but is not necessarily to a “public cloud” infrastructure.  A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is neither a device control system nor a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it.
+### <a name="device-and-event-processingcloud-gateway-zone"></a>Aygıt ve olay işleme/bulut ağ geçidi bölge
+Bulut ağ geçidi genellikle bir bulut tabanlı denetim ve veri analizi sistem, bu sistemlere Federasyonu doğrultusunda ortak ağ alanı boyunca ilk ve son aygıtları veya alan ağ geçitleri birkaç farklı sitelerin uzaktan iletişimi sağlayan sistemidir. Bazı durumlarda, bir bulut ağ geçidi hemen erişim için özel amaçlı cihazlar Terminal tabletler veya telefonlar gibi gelen kolaylaştırabilir. Ele alınan bağlamda burada "bulut" bağlı olmayan aynı siteye bağlı aygıtları veya alan ağ geçitleri olarak ve burada hedeflenen fiziksel erişimi engelle işletimsel ölçüler bir özel veri işleme sistemine başvurmak için tasarlanmıştır ancak mutlaka çok değil bir " Genel bulut"altyapısı.  Bulut ağ geçidi, bir ağ sanallaştırma katmana bulut ağ geçidi ve tüm bağlı aygıtları veya alan ağ geçitleri üzerinden diğer ağ trafiğinden verenlerden içine potansiyel olarak eşlenebilir. Bulut ağ geçidinin kendisi ne aygıt denetim sistem ya da bir işleme veya depolama tesisi cihaz verileri için olan; Bu olanakları ile bulut Ağ Geçidi Arabirimi. Bulut ağ geçidi bölge bulut ağ geçidinin tüm alan ağ geçitleri ve doğrudan veya dolaylı olarak kendisine bağlı cihazların yanı sıra içerir.
 
-Cloud gateway is mostly custom built piece of software running as a service with exposed endpoints to which field gateway and devices connect. As such it must be designed with security in mind. Please follow [SDL](http://www.microsoft.com/sdl) process for designing and building this service. 
+Bulut ağ geçidi genellikle özel yerleşik bir hizmet olarak çalışması için alan ağ geçidi ve aygıtları bağlamak gösterilen uç noktaları ile yazılım parçasıdır. Bu nedenle ile göz önünde bulundurularak tasarlanmalıdır. Lütfen izleyin [SDL](http://www.microsoft.com/sdl) tasarlama ve bu hizmet oluşturmak için işlem. 
 
-#### <a name="services-zone"></a>Services zone
-A control system (or controller) is a software solution that interfaces with a device, or a field gateway, or cloud gateway for the purpose of controlling one or multiple devices and/or to collect and/or store and/or analyze device data for presentation, or subsequent control purposes. Control systems are the only entities in the scope of this discussion that may immediately facilitate interaction with people. The exception are intermediate physical control surfaces on devices, like a switch that allows a person to turn the device off or change other properties, and for which there is no functional equivalent that can be accessed digitally. 
+#### <a name="services-zone"></a>Hizmetleri bölge
+Bir denetim sistemi (veya denetleyicisi) bir cihaz veya alan ağ geçidi veya bir veya birden çok aygıt denetlemek amacıyla ve/veya toplamanıza ve/veya depolamak ve/veya sunum, cihaz verileri çözümlemek için bulut ağ geçidi arabirimleri bir yazılım çözümü olan veya izleyen denetim amaçlar. Denetim sistemleri kişilerle etkileşim hemen kolaylaştırabilir bu tartışma kapsamında yalnızca varlıklardır. Özel durum olan ara fiziksel denetim yüzeyleri cihazlarda, cihazı kapatmak veya diğer özelliklerini değiştirmek bir kişi izin veren bir anahtar gibi ve hangi dijital olarak erişilebilen işlevsel bir eşdeğeri yoktur. 
 
-Intermediate physical control surfaces are those where any sort of governing logic constrains the function of the physical control surface such that an equivalent function can be initiated remotely or input conflicts with remote input can be avoided – such intermediated control surfaces are conceptually attached to a local control system that leverages the same underlying functionality as any other remote control system that the device may be attached to in parallel. Top threats to the cloud computing can be read at [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) page.
+Ara fiziksel denetim yüzeyleri bilgilerdir burada mantığını yöneten, herhangi bir biçimini kısıtlar fiziksel denetim yüzeyini işlevi sağlayacak şekilde eşdeğer bir işlevi uzaktan başlatılabilir veya hükümsüz kılınan – bu tür uzaktan giriş giriş çakışıyor olabilir intermediated denetim yüzeyleri cihaz paralel olarak eklenmiş diğer uzaktan denetim sistemi olarak aynı temel işlevsellikten yararlanan bir yerel kontrol sistemine kavramsal olarak eklenir. Olabilir, okuma bulut üst tehditleri [bulut güvenlik Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) sayfası.
 
-## <a name="additional-resources"></a>Additional resources
-Refer to the following articles for additional information:
+## <a name="additional-resources"></a>Ek kaynaklar
+Ek bilgi için aşağıdaki makalelere bakın:
 
-* [SDL Threat Modeling Tool](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-* [Microsoft Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
+* [SDL tehdit modelleme aracı](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
+* [Microsoft Azure IOT başvuru mimarisi](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
 

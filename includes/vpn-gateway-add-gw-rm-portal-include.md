@@ -2,16 +2,23 @@
 2. **Sanal ağ geçidi oluştur** sayfasında, sanal ağ geçidinize ait değerleri girin.
 
   ![Sanal ağ geçidi oluştur sayfasının alanları](./media/vpn-gateway-add-gw-rm-portal-include/gw.png "Sanal ağ geçidi oluştur sayfasının alanları")
-3. **Ad**: Ağ geçidinizi adlandırın. Ağ geçidinizi adlandırma, ağ geçidi alt ağını adlandırmayla aynı değildir. Bu ad, oluşturduğunuz ağ geçidi nesnesinin adıdır.
-4. **Ağ geçidi türü**: **VPN**’i seçin. VPN ağ geçitleri, **VPN** sanal ağ geçidi türünü kullanır.
-5. **VPN türü**: Yapılandırmanızla ilgili belirtilen VPN türünü seçin. Çoğu yapılandırma, Yol Tabanlı bir VPN türü gerektirir.
-6. **SKU**: Açılır listeden ağ geçidi SKU’sunu seçin. Açılır listede sıralanan SKU’lar seçtiğiniz VPN türüne bağlıdır.
-7. **Konum**: Konum alanına kaydırın ve ayarlayın. **Konum** alanı, sanal ağınızın bulunduğu konumu işaret eder. Konum, sanal ağınızın bulunduğu bölgeye işaret etmiyorsa, 'Sanal ağ seçin' açılır menüsünde sanal ağ görüntülenmez.
-8. Ağ geçidi eklemek istediğiniz sanal ağı seçin. **Sanal ağ**'a tıklayarak **Sanal ağ seçin** sayfasını açın. VNet'i seçin. Sanal ağınızı görmüyorsanız **Konum** alanının, sanal ağınızın bulunduğu bölgeyi işaret ettiğinden emin olun.
-9. **İlk IP yapılandırması**: Dinamik olarak bir genel IP adresinin atanacağı bir genel IP adresi nesnesi oluşturun. **Ağ geçidi IP yapılandırması oluştur**'a tıklayarak **Ortak IP adresi seç** sayfasını açın. **+Yeni Oluştur**'a tıklayarak **Ortak IP adresi oluştur** sayfasını açın. Ortak IP adresi nesneniz için bir ad girin. Değiştirmek için belirli bir nedeniniz yoksa SKU alanını **Temel** olarak bırakın. Değişikliklerinizi kaydetmek için **Tamam**’a tıklayın. VPN ağ geçidi oluşturulurken, IP adresi dinamik olarak atanır. VPN Gateway hizmeti şu anda yalnızca *Dinamik* Genel IP adresi ayırmayı desteklemektedir. Ancak, bu durum IP adresinin VPN ağ geçidinize atandıktan sonra değiştiği anlamına gelmez. Genel IP adresi, yalnızca ağ geçidi silinip yeniden oluşturulduğunda değişir. VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
-11. **Abonelik**: Doğru aboneliğin seçildiğini doğrulayın.
-12. **Kaynak Grubu**: Kaynak Grubu ayarı, seçtiğiniz Sanal Ağa göre belirlenir.
-1. Önceki ayarları belirttikten sonra **Konum**'u ayarlamayın.
-2. Ayarları doğrulayın. Ağ geçidinizin panoda görünmesini istiyorsanız sayfanın en altında yer alan **Panoya sabitle** seçeneğini belirleyebilirsiniz.
-3. Ağ geçidi oluşturmaya başlamak için **Oluştur**’a tıklayın. Ayarlar doğrulanır ve ağ geçidi dağıtılır. Bir ağ geçidi oluşturma 45 dakika kadar sürebilir.
-4. Ağ geçidi oluşturulduktan sonra, sanal ağ sayfasına bakarak bu ağ geçidine atanan IP adresini görüntüleyin. Ağ geçidi bağlı bir cihaz gibi görüntülenir. Daha fazla bilgi görüntülemek için bağlı cihaza (sanal ağ geçidiniz) tıklayabilirsiniz.
+3. Üzerinde **sanal ağ geçidi Oluştur** sayfasında, sanal ağ geçidiniz için değerleri belirtin.
+
+  - **Ad**: Ağ geçidinizi adlandırın. Bir ağ geçidi alt ağını adlandırmayla aynı değildir. Bu ad, oluşturduğunuz ağ geçidi nesnesinin adıdır.
+  - **Ağ geçidi türü**: **VPN**’i seçin. VPN ağ geçitleri, **VPN** sanal ağ geçidi türünü kullanır. 
+  - **VPN türü**: Yapılandırmanızla ilgili belirtilen VPN türünü seçin. Çoğu yapılandırma, Yol Tabanlı bir VPN türü gerektirir.
+  - **SKU**: Açılır listeden ağ geçidi SKU’sunu seçin. Açılır listede sıralanan SKU’lar seçtiğiniz VPN türüne bağlıdır. Ağ geçidi SKU’ları hakkında bilgi için bkz. [Ağ geçidi SKU’ları](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+  - **Konum**: Konumu görmek için kaydırmanız gerekebilir. **Konum** alanını, sanal ağınızın bulunduğu konumu işaret edecek şekilde ayarlayın. Konum sonraki adımda bir sanal ağı seçtiğinizde sanal ağınız, bulunduğu bölgeye işaret etmiyor, aşağı açılan listede görünmez.
+  - **Sanal ağ**: Bu ağ geçidini eklemek istediğiniz sanal ağı seçin. Tıklatın **sanal ağ** 'sanal ağ seçin' sayfasını açın. VNet'i seçin. VNet'inizi görmüyorsanız Konum alanının, sanal ağınızın bulunduğu bölgeyi işaret ettiğinden emin olun.
+  - **Ağ geçidi alt ağ adres aralığı**: bir ağ geçidi alt ağı için sanal ağınıza daha önce oluşturmadıysanız Bu ayar yalnızca görürsünüz. Daha önce geçerli bir ağ geçidi alt ağı oluşturduysanız, bu ayar görünmez.
+  - **İlk IP yapılandırması**: 'genel IP adresi seçin' sayfasına VPN ağ geçidi için ilişkili alır bir ortak IP adresi nesnesi oluşturur. VPN ağ geçidi oluşturulduğunda, bu nesne için genel IP adresi dinamik olarak atanır. VPN Gateway hizmeti şu anda yalnızca *Dinamik* Genel IP adresi ayırmayı desteklemektedir. Ancak, bu durum IP adresinin VPN ağ geçidinize atandıktan sonra değiştiği anlamına gelmez. Genel IP adresi, yalnızca ağ geçidi silinip yeniden oluşturulduğunda değişir. VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
+
+    - Önce tıklatın **oluşturma ağ geçidi IP yapılandırması** 'genel IP adresi seçin' sayfasını açın ve ardından için **+ Yeni Oluştur** 'ortak IP adresi oluştur' sayfasını açın.
+    - Ardından, Giriş bir **adı** ortak IP adresi için. SKU olarak bırakın **temel** başka bir şey için değiştirmek için özel bir nedeniniz olmadıkça ardından **Tamam** yaptığınız değişiklikleri kaydetmek için bu sayfanın sonundaki.
+
+      ![Genel IP oluşturma](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "PIP oluşturma")
+
+4. Ayarları doğrulayın. Seçebileceğiniz **panoya Sabitle** geçidinizin Panoda görünmesini istiyorsanız, sayfanın sonundaki. 
+5. VPN ağ geçidi oluşturmaya başlamak için **Oluştur**'a tıklayın. Ayarları doğrulanır ve "dağıtma sanal ağ geçidi" görürsünüz döşeme Panoda. Bir ağ geçidi oluşturma 45 dakika kadar sürebilir. Tamamlanma durumunu görmek için portal sayfanızı yenilemeniz gerekebilir.
+
+Ağ geçidi oluşturulduktan sonra, portalda sanal ağa bakarak bu ağ geçidine atanmış IP adresini görüntüleyin. Ağ geçidi bağlı bir cihaz gibi görüntülenir. Daha fazla bilgi görüntülemek için bağlı cihaza (sanal ağ geçidiniz) tıklayabilirsiniz.

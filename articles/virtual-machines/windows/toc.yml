@@ -39,7 +39,9 @@
       href: tutorial-azure-security.md
     - name: 12 - Team Services CI/CD
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 - SSL ile web sunucusunun güvenliğini sağlama
+    - name: 13 - SQL\IIS\.NET yığını kurma
+      href: tutorial-iis-sql.md
+    - name: 14 - SSL ile web sunucusunun güvenliğini sağlama
       href: tutorial-secure-web-server.md
 - name: Örnekler
   items:
@@ -55,6 +57,27 @@
       href: regions-and-availability.md
     - name: VM türleri ve boyutları
       href: sizes.md
+      items:
+        - name: Genel amaçlı
+          href: sizes-general.md
+          items:
+            - name: B-series burstable
+              href: b-series-burstable.md
+        - name: İşlem için iyileştirilmiş
+          href: sizes-compute.md
+        - name: Bellek için iyileştirilmiş
+          href: sizes-memory.md
+        - name: Depolama için iyileştirilmiş
+          href: sizes-storage.md
+        - name: GPU için iyileştirilmiş
+          href: sizes-gpu.md
+          items:
+            - name: GPU sürücülerini kurma
+              href: n-series-driver-setup.md
+        - name: Yüksek performanslı işlem
+          href: sizes-hpc.md
+        - name: Azure işlem birimleri (ACU)
+          href: sizes-general.md
     - name: Bakım ve güncelleştirmeler
       href: maintenance-and-updates.md
     - name: Depolama

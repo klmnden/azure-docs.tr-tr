@@ -1,46 +1,48 @@
 ---
-title: "Azure Container Instances öğreticisi - Uygulamanızı hazırlama | Azure Docs"
+title: "Azure kapsayıcı örnekleri Öğreticisi - uygulamanızı hazırlama"
 description: "Azure Container Instances’a dağıtılacak uygulamayı hazırlama"
 services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
-ms.service: 
+ms.service: container-instances
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 10/26/2017
 ms.author: seanmck
-ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 07ad1a6edbcb4d6160b37b4923586e23058f3c04
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/02/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 52d99411b2dc9ae9c3f2ebd3b9f346973a91e7c9
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Azure Container Instances’a dağıtılacak kapsayıcıyı oluşturma
 
-Azure Container Instances, Docker kapsayıcılarının herhangi bir sanal makine sağlama veya herhangi bir üst düzey hizmet benimsenmesi gerekmeden Azure altyapısına dağıtılmasını sağlar. Bu öğreticide, Node.js içinde basit bir web uygulaması oluşturacak ve bu uygulamayı Azure Container Instances kullanılarak çalıştırılabilir bir kapsayıcıda paketleyeceksiniz. Şu konular yer almaktadır:
+Azure Container Instances, Docker kapsayıcılarının herhangi bir sanal makine sağlama veya herhangi bir üst düzey hizmet benimsenmesi gerekmeden Azure altyapısına dağıtılmasını sağlar. Bu öğreticide Node.js içinde küçük web uygulaması oluşturma ve Azure kapsayıcı örneği kullanılarak çalıştırılabilir bir kapsayıcıda paket. Kapsanan konular:
 
 > [!div class="checklist"]
-> * GitHub’dan uygulama kaynağını kopyalama  
+> * GitHub’dan uygulama kaynağını kopyalama
 > * Uygulama kaynağından kapsayıcı görüntüsü oluşturma
 > * Görüntüleri yerel bir Docker ortamında test etme
 
-Sonraki öğreticilerde, görüntülerinizi Azure Container Registry’ye yükleyecek ve Azure Container Instances’a dağıtacaksınız.
+Sonraki öğreticilerde, Azure kapsayıcı kayıt defterine görüntünüzü karşıya yükleyin ve ardından Azure kapsayıcı örnekleri dağıtın.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu öğreticide kapsayıcılar, kapsayıcı görüntüleri ve temel docker komutları gibi temel Docker kavramları hakkında bilgi sahibi olduğunuz varsayılmıştır. Gerekirse kapsayıcı temelleri hakkında bilgi için bkz. [Docker ile çalışmaya başlama]( https://docs.docker.com/get-started/). 
+Bu öğretici, Azure CLI Sürüm 2.0.20 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli).
+
+Bu öğretici Docker kavramları kapsayıcıları, kapsayıcı görüntüler ve basic gibi çekirdek temel bir anlayış varsayar `docker` komutları. Gerekirse kapsayıcı temelleri hakkında bilgi için bkz. [Docker ile çalışmaya başlama]( https://docs.docker.com/get-started/).
 
 Bu öğreticiyi tamamlamak için Docker geliştirme ortamı gerekir. Docker, [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) veya [Linux](https://docs.docker.com/engine/installation/#supported-platforms)’ta Docker’ı kolayca yapılandırmanızı sağlayan paketler sağlar.
+
+Azure bulut Kabuk her adımı tamamlamak için gereken Docker bileşenleri Bu öğretici içermez. Bu nedenle, Azure CLI ve Docker geliştirme ortamı yerel bir yüklemesini öneririz.
 
 ## <a name="get-application-code"></a>Uygulama kodunu alma
 
@@ -58,7 +60,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 Örnek deposunda sağlanan Dockerfile, kapsayıcının nasıl yapılandırıldığını gösterir. Kapsayıcılarla kullanmaya uygun küçük bir dağıtım olan [Alpine Linux](https://alpinelinux.org/) tabanlı [resmi bir Node.js görüntüsünden][dockerhub-nodeimage] başlatılır. Ardından uygulama dosyalarını kapsayıcıya kopyalar, Node Package Manager’ı kullanarak bağımlılıkları yükler ve son olarak uygulamayı başlatır.
 
-```
+```Dockerfile
 FROM node:8.2.0-alpine
 RUN mkdir -p /usr/src/app
 COPY ./app/* /usr/src/app/
@@ -103,9 +105,9 @@ Kapsayıcının çalışır durumda olduğunu doğrulamak için tarayıcıda htt
 Bu öğreticide, Azure Container Instances’a dağıtılabilir bir kapsayıcı görüntüsü oluşturdunuz. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
-> * GitHub’dan uygulama kaynağını kopyalama  
-> * Uygulama kaynağından kapsayıcı görüntüsü oluşturma
-> * Kapsayıcıyı yerel olarak test etme
+> * Uygulama kaynağı github'dan kopyalanamıyor
+> * Uygulama kaynağı oluşturulan kapsayıcı görüntüleri
+> * Kapsayıcı yerel olarak test
 
 Kapsayıcı görüntülerini bir Azure Container Registry’de depolama hakkında bilgi edinmek için sonraki öğreticiye geçin.
 
@@ -113,7 +115,7 @@ Kapsayıcı görüntülerini bir Azure Container Registry’de depolama hakkınd
 > [Azure Container Registry’ye görüntüleri gönderme](./container-instances-tutorial-prepare-acr.md)
 
 <!-- LINKS -->
-[dockerhub-nodeimage]: https://hub.docker.com/r/library/node/tags/8.2.0-alpine/
+[dockerhub-nodeimage]: https://store.docker.com/images/node
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png

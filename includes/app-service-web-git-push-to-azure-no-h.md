@@ -1,4 +1,4 @@
-Yerel terminal penceresinde yerel Git deponuza bir Azure uzak deposu ekleyin.
+Yerel terminal penceresinde yerel Git deponuza bir Azure uzak deposu ekleyin. Bu Azure uzaktan uygulamasında oluşturulan [bir web uygulaması oluşturma](#create-a-web-app).
 
 ```bash
 git remote add azure <URI from previous step>

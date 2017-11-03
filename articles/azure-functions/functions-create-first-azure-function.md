@@ -4,28 +4,27 @@ description: "Azure portalını kullanarak sunucusuz yürütme için ilk Azure �
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 10/17/2017
 ms.author: glenga
-ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: d7d3aef1e713cf080b23575f56321e00a0b4af1f
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/07/2017
-
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 638c3bfb5a312c196d09216f3f7bf95bbc983c10
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure portalında ilk işlevinizi oluşturma
 
-Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu sunucusuz bir ortamda yürütmenize olanak tanır. Bu konu başlığında, Azure portalında İşlevler’i kullanarak bir "hello world" işlevi oluşturmayı öğrenebilirsiniz.
+Azure işlevleri sağlar, kodunuzda yürütme bir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) önce bir VM oluşturun veya bir web uygulaması yayımlamak zorunda kalmadan ortamı. Bu konu başlığında, Azure portalında İşlevler’i kullanarak bir "hello world" işlevi oluşturmayı öğrenebilirsiniz.
 
 ![Azure portalında işlev uygulaması oluşturma](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -40,8 +39,6 @@ Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayım
 İşlevlerinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, kaynakların daha kolay yönetilmesi, dağıtılması ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-![İşlev uygulaması başarıyla oluşturuldu.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -84,7 +81,6 @@ HTTP ile tetiklenen basit bir işlevi kullanarak işlev uygulaması oluşturdunu
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md).
-
 
 
 

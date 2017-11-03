@@ -1,19 +1,19 @@
-The following table describes each of the major quotas, limits, defaults, and throttles in Azure Scheduler.
+Aşağıdaki tabloda her ana kotaları, sınırları, Varsayılanları ve Azure Scheduler kısıtlamaları açıklar.
 
-| Resource | Limit Description |
+| Kaynak | Sınır açıklaması |
 | --- | --- |
-| **Job size** |Maximum job size is 16K. If a PUT or a PATCH results in a job larger than these limits, a 400 Bad Request status code is returned. |
-| **Request URL size** |Maximum size of the request URL is 2048 chars. |
-| **Aggregate header size** |Maximum aggregate header size is 4096 chars. |
-| **Header count** |Maximum header count is 50 headers. |
-| **Body size** |Maximum body size is 8192 chars. |
-| **Recurrence span** |Maximum recurrence span is 18 months. |
-| **Time to start time** |Maximum “time to start time” is 18 months. |
-| **Job history** |Maximum response body stored in job history is 2048 bytes. |
-| **Frequency** |The default max frequency quota is 1 hour in a free job collection and 1 minute in a standard job collection. The max frequency is configurable on a job collection to be lower than the maximum. All jobs in the job collection are limited the value set on the job collection. If you attempt to create a job with a higher frequency than the maximum frequency on the job collection then request will fail with a 409 Conflict status code. |
-| **Jobs** |The default max jobs quota is 5 jobs in a free job collection and 50 jobs in a standard job collection. The maximum number of jobs is configurable on a job collection. All jobs in the job collection are limited the value set on the job collection. If you attempt to create more jobs than the maximum jobs quota, then the request fails with a 409 Conflict status code. |
-| **Job collections** |Maximum number of job collection per subscription is 200,000. |
-| **Job history retention** |Job history is retained for up to 2 months or up to the last 1000 executions. |
-| **Completed and faulted job retention** |Completed and faulted jobs are retained for 60 days. |
-| **Timeout** |There’s a static (not configurable) request timeout of 60 seconds for HTTP actions. For longer running operations, follow HTTP asynchronous protocols; for example, return a 202 immediately but continue working in the background. |
+| **İş boyutu** |Maksimum iş boyutu 16 K'dır. PUT veya bir düzeltme eki bu sınırlardan daha büyük bir işin sonuçlanırsa, 400 Hatalı istek durum kodu döndürülür. |
+| **İstek URL boyutu** |En fazla istek URL'si 2048 karakter boyutudur. |
+| **Toplam üstbilgi boyutu** |En fazla toplam üstbilgi boyutu 4096 karakter değil. |
+| **Üstbilgi sayısı** |En fazla üstbilgi, 50 üstbilgileri sayısıdır. |
+| **Gövde boyutu** |En fazla gövdesi, 8192 karakter boyutudur. |
+| **Yineleme aralığı** |En fazla yineleme aralığı 18 ay ' dir. |
+| **Başlangıç zamanı** |"Başlangıç saati için zaman" en fazla 18 ay ' dir. |
+| **İş geçmişi** |İş geçmişinde depolanan en büyük yanıt gövdesi 2048 bayttır. |
+| **Sıklık** |Varsayılan max sıklığı kota, 1 saat içinde bir ücretsiz iş koleksiyonu ve 1 dakika içinde bir standart iş koleksiyonu ' dir. Max sıklığı en yüksek değerden daha düşük olacak şekilde bir iş koleksiyonu üzerinde yapılandırılabilir. İş koleksiyonundaki tüm işleri sınırlı iş koleksiyonu üzerinde ayarlanan değer. İş koleksiyonu üzerinde en fazla sıklığından daha yüksek bir sıklıkta bir iş oluşturmayı denerseniz, isteği 409 çakışma durum kodu ile başarısız olur. |
+| **İşler** |Varsayılan en büyük iş kotası ücretsiz iş koleksiyonu 5 işler ve 50 işler standart iş koleksiyonu ' dir. Maksimum sayıda işi bir iş koleksiyonu yapılandırılabilir. İş koleksiyonundaki tüm işleri sınırlı iş koleksiyonu üzerinde ayarlanan değer. En büyük iş kotası'den daha fazla iş oluşturmayı denerseniz, istek 409 çakışma durum kodu ile başarısız olur. |
+| **İş koleksiyonları** |En fazla iş koleksiyonu abonelik başına 200.000 sayısıdır. |
+| **İş Geçmişi bekletme** |İş geçmişi, en çok 2 ay için veya son 1000 yürütmeleri kadar korunur. |
+| **Tamamlanan ve hatalı iş bekletme** |Tamamlanan ve hatalı işler 60 gün boyunca saklanır. |
+| **Zaman aşımı** |Bir statik (yapılandırılamaz) istek zaman aşımı süresi 60 saniye HTTP eylemler için yoktur. Uzun çalışan işlemleri için zaman uyumsuz HTTP protokolleri izleyin; Örneğin, bir 202 hemen geri ancak arka planda çalışmaya devam edin. |
 

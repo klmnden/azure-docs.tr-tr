@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit deployment quickstart | Microsoft Docs
-description: Learn how to deploy the Azure Stack Development Kit
+title: "Azure yığın Geliştirme Seti dağıtım hızlı başlangıç | Microsoft Docs"
+description: "Azure yığın Geliştirme Seti dağıtmayı öğrenin"
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -11,30 +11,30 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 81b6282addd1e88e4146367c4dd9a2ee7b8c84bf
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack Development Kit deployment quickstart
+# <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack Geliştirme Seti dağıtımına hızlı başlangıç
 
-The [Azure Stack Development Kit](azure-stack-poc.md) is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you’ll need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and tenant portals to manage Azure Stack and test offers. 
+*Uygulandığı öğe: Azure yığın Geliştirme Seti*
 
-1. [**Plan your hardware, software, and network**](azure-stack-deploy.md). The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory or Active Directory Federation Services. Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
+[Azure yığın Geliştirme Seti](azure-stack-poc.md) değerlendirmek ve Azure yığın özelliklerin ve hizmetler için dağıtabileceğiniz bir test ve geliştirme ortamıdır. Bunu almak için hazır ve çalışır, ortam donanımını hazırlayın ve (Bu işlem birkaç saat sürebilir) bazı kodlar çalıştırmak gerekir. Bundan sonra Azure yığın yönetmek ve teklifleri test etmek için yönetici ve kullanıcı portalı için oturum açabilirsiniz. 
 
-2. [**Download and extract the deployment package**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). You can download the deployment package to the development kit host or to a another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
+1. [**Donanım, yazılım ve ağ planlama**](azure-stack-deploy.md). Geliştirme Seti (Geliştirme Seti ana bilgisayarı) barındıran bilgisayarın donanım, yazılım ve ağ gereksinimleri karşılaması gerekir. Ayrıca, Azure Active Directory veya Active Directory Federasyon Hizmetleri'ni kullanma arasında seçmeniz gerekir. Yükleme işlemi sorunsuz çalışır dağıtımınıza başlamadan önce bu önkoşulları yerine uyumlu emin olun. 
 
-3. [**Prepare the development kit host**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) by using the installer. After this step, the development kit host will boot to the Cloudbuilder.vhdx (a virtual hard drive that includes a bootable operating system and the Azure Stack install files).
+2. [**Karşıdan yükleme ve dağıtım paketi ayıklayın**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). Dağıtım paketi Geliştirme Seti ana bilgisayara veya başka bir bilgisayara yükleyebilirsiniz. Başka bir bilgisayar kullanılarak Geliştirme Seti ana bilgisayar için donanım gereksinimlerini azaltmaya yardımcı olacak ayıklanan dağıtım dosyaları 60 GB boş disk alanı alın.
 
-4. [**Deploy the development kit**](azure-stack-run-powershell-script.md#deploy-the-development-kit) on the development kit host.
+3. [**Geliştirme Seti konak hazırlama** ](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) yükleyici kullanarak. Bu adımdan sonra Geliştirme Seti ana bilgisayar (önyüklenebilir bir işletim sistemi ve Azure yığını içeren sanal bir sabit sürücüye yükleme dosyaları) Cloudbuilder.vhdx önyükleme yapmaz.
 
-5. If your Azure Stack deployment uses Azure Active Directory, you must [register Azure Stack with Azure](azure-stack-register.md) so that you can [download Azure marketplace items](azure-stack-download-azure-marketplace-item.md) to Azure Stack.
+4. [**Geliştirme Seti dağıtmak** ](azure-stack-run-powershell-script.md#deploy-the-development-kit) Geliştirme Seti konaktaki.
 
-After completing these steps, you’ll have a development kit environment with both administrator and tenant portals. Next, you can [connect and sign in](azure-stack-connect-azure-stack.md) to the portal. You can then start deploying resource providers, creating [offers](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions), and populating the Azure Stack [marketplace](azure-stack-marketplace.md).
+5. Azure yığın dağıtımınızı Azure Active Directory kullanıyorsa, yapmanız gerekenler [Azure yığın Azure ile kaydedin](azure-stack-register.md) yapabilmeniz [Azure Market öğesi karşıdan](azure-stack-download-azure-marketplace-item.md) Azure yığınına.
 
+Bu adımları tamamladıktan sonra yönetici ve Kullanıcı Portalı ile Geliştirme Seti ortamını sahip olacaksınız. Ardından, şunları yapabilirsiniz [bağlanma ve oturum açma](azure-stack-connect-azure-stack.md) portalı. Daha sonra başlatabilirsiniz kaynak sağlayıcıları dağıtma, oluşturma [sunar](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions)ve Azure yığın doldurmak [Market](azure-stack-marketplace.md).

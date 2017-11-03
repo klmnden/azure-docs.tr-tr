@@ -1,18 +1,18 @@
-In this walk-through, you will learn how to use the **Salesforce - When an object is created** trigger to initiate a logic app workflow when a new lead is created in your Salesforce.
+Bu kılavuz, nasıl kullanılacağını öğreneceksiniz **bir nesne oluşturulduğunda Salesforce -** Salesforce içinde yeni bir sağlama oluşturulduğunda bir mantıksal uygulama iş akışını başlatmak için tetikleyici.
 
 > [!NOTE]
-> You will get prompted to sign into your Salesforce account if you have not already created a *connection* to Salesforce.  
+> Değil zaten oluşturduysanız Salesforce hesabınızda oturum açın istenir bir *bağlantı* Salesforce için.  
 > 
 > 
 
-1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created**  trigger.  
-   ![Salesforce trigger image 1](./media/connectors-create-api-salesforce/trigger-1.png)   
-2. The **When an object is created** control is displayed.  
-   ![Salesforce trigger image 2](./media/connectors-create-api-salesforce/trigger-2.png)   
-3. Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.   
-   ![Salesforce trigger image 3](./media/connectors-create-api-salesforce/trigger-3.png)   
-4. That's it. You've created the trigger. However, you need to create at least one action in order to make this a valid logic app.    
-   ![Salesforce trigger image 4](./media/connectors-create-api-salesforce/trigger-4.png)   
+1. Girin *salesforce* arama kutusuna logic apps tasarımcısında seçip **bir nesne oluşturulduğunda Salesforce -** tetikleyici.  
+   ![Salesforce tetikleyici görüntü 1](./media/connectors-create-api-salesforce/trigger-1.png)   
+2. **Bir nesne oluşturulduğunda** denetim görüntülenir.  
+   ![Salesforce tetikleyici görüntü 2](./media/connectors-create-api-salesforce/trigger-2.png)   
+3. Seçin **nesne türü** seçip *neden* nesneleri listesinde. Bu adımda, her bir yeni sağlama Salesforce'ta oluşturulduğunda, mantıksal uygulamanızı uyarır tetikleyici oluşturmakta olduğunuz belirten.   
+   ![Salesforce tetikleyici görüntü 3](./media/connectors-create-api-salesforce/trigger-3.png)   
+4. Bu kadar. Tetikleyici oluşturduğunuzu düşünün. Ancak, bu geçerli bir mantıksal uygulama yapmak için en az bir eylemin oluşturmanız gerekir.    
+   ![Salesforce tetikleyici görüntü 4](./media/connectors-create-api-salesforce/trigger-4.png)   
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a new item is created in your Salesforce.  
+Bu noktada, mantıksal uygulamanızı yeni bir öğe içinde Salesforce oluşturulduğunda, diğer tetikleyiciler ve Eylemler iş akışı bir farklı çalıştır başlayacak bir tetikleyici ile yapılandırıldı.  
 

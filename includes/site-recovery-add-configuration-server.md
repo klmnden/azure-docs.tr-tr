@@ -1,40 +1,40 @@
-1. Run the Unified Setup installation file.
-2. In **Before You Begin**, select **Install the configuration server and process server**.
+1. Birleşik Kurulum yükleme dosyasını çalıştırın.
+2. İçinde **başlamadan önce**seçin **işlem sunucusu ve yapılandırma sunucusu yüklemek**.
 
-    ![Before you start](./media/site-recovery-add-configuration-server/combined-wiz1.png)
+    ![Başlamadan önce](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 
-3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
+3. MySQL indirip yüklemek için **Üçüncü Taraf Yazılım Lisansı** bölümünde **Kabul Ediyorum**’a tıklayın.
 
-    ![Third-party software](./media/site-recovery-add-configuration-server/combined-wiz2.png)
-4. In **Registration**, select the registration key you downloaded from the vault.
+    ![Üçüncü taraf yazılım](./media/site-recovery-add-configuration-server/combined-wiz2.png)
+4. **Kayıt** menüsünde kasadan indirdiğiniz kayıt defteri anahtarını seçin.
 
-    ![Registration](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the Internet. Make sure you've allowed the required URLs.
+    ![Kayıt](./media/site-recovery-add-configuration-server/combined-wiz3.png)
+5. **İnternet Ayarları** alanında, yapılandırma sunucusunda çalışan Sağlayıcının Azure Site Recovery'ye İnternet üzerinden nasıl bağlanacağını belirtin. Gerekli URL'lere izin verdiğiniz emin olun.
 
-    - If you want to connect with the proxy that's currently set up on the machine, select **Connect to Azure Site Recovery using a proxy server**.
-    - If you want the Provider to connect directly, select **Connect directly to Azure Site Recovery without a proxy server**.
-    - If the existing proxy requires authentication, or if you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**, and specify the address, port, and credentials.
-     ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
-6. In **Prerequisites Check**, Setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check**, verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
+    - Şu anda makinede select ayarlanıp proxy ile bağlanmak isterseniz **Azure Site Recovery proxy sunucu kullanma Bağlan**.
+    - Sağlayıcı doğrudan bağlanmasını istiyorsanız seçin **Azure Site Recovery bir proxy sunucu olmadan doğrudan bağlan**.
+    - Mevcut proxy kimlik doğrulaması gerektiriyorsa veya özel bir ara sunucu sağlayıcısı bağlantılarında kullanmak istiyorsanız, **özel proxy ayarlarıyla Bağlan**, adresini, bağlantı noktası ve kimlik bilgilerini belirtin.
+     ![Güvenlik duvarı](./media/site-recovery-add-configuration-server/combined-wiz4.png)
+6. **Önkoşul Denetimi** menüsünde Kurulum, yüklemenin çalışabildiğinden emin olmak üzere bir denetim gerçekleştirir. **Genel saat eşitleme denetimi** hakkında bir uyarı görünürse, sistem saatindeki zamanın (**Tarih ve Saat** ayarları) saat dilimiyle aynı olduğunu doğrulayın.
 
-    ![Prerequisites](./media/site-recovery-add-configuration-server/combined-wiz5.png)
-7. In **MySQL Configuration**, create credentials for logging on to the MySQL server instance that is installed.
+    ![Ön koşullar](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+7. **MySQL Yapılandırması** menüsünde, yüklü MySQL sunucu örneğinde oturum açmak için kimlik bilgileri oluşturun.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. In **Environment Details**, select whether you're going to replicate VMware VMs. If you are, then Setup checks that PowerCLI 6.0 is installed.
+8. **Ortam Ayrıntıları**’nda VMware sanal makinelerini çoğaltıp çoğaltmayacağınızı seçin. Varsa, Kurulum Powerclı 6.0 yüklü olduğunu denetler.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
 
-9. In **Install Location**, select where you want to install the binaries and store the cache. The drive you select must have at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.
+9. **Yükleme Konumu** alanında ikili dosyaları yüklemek ve önbelleği depolamak istediğiniz konumu seçin. Seçtiğiniz sürücü en az 5 GB kullanılabilir disk alanına sahip olmalıdır, ancak en az 600 GB boş alanı olan bir önbellek sürücüsü seçmeniz önerilir.
 
-    ![Install location](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server sends and receives replication data. Port 9443 is the default port used for sending and receiving replication traffic, but you can modify this port number to suit your environment's requirements. In addition to the port 9443, we also open port 443, which is used by a web server to orchestrate replication operations. Do not use port 443 for sending or receiving replication traffic.
+    ![Yükleme konumu](./media/site-recovery-add-configuration-server/combined-wiz8.png)
+10. **Ağ Seçimi** menüsünde, yapılandırma sunucusunun çoğaltma verilerini gönderip aldığı dinleyiciyi (ağ bağdaştırıcısı ve SSL bağlantı noktası) seçin. Bağlantı noktası 9443, çoğaltma trafiğini gönderip almak için kullanılan varsayılan bağlantı noktasıdır, ancak bu bağlantı noktası numarasını ortamınızın gereksinimlerine uyacak şekilde değiştirebilirsiniz. Bağlantı noktası 9443’e ek olarak, çoğaltma işlemlerini düzenlemek için web sunucusu tarafından kullanılan bağlantı noktası 443 de açılır. Bağlantı noktası 443 gönderirken ya da çoğaltma trafiğini alırken için kullanmayın.
 
-    ![Network selection](./media/site-recovery-add-configuration-server/combined-wiz9.png)
+    ![Ağ seçimi](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 
 
-11. In **Summary**, review the information and click **Install**. When installation finishes, a passphrase is generated. You will need this when you enable replication, so copy it and keep it in a secure location.
+11. **Özet** alanındaki bilgileri gözden geçirin ve **Yükle**’ye tıklayın. Yükleme tamamlandığında bir parola oluşturulur. Çoğaltmayı etkinleştirdiğinizde bu parola gerekli olacaktır; bu yüzden kopyalayıp güvenli bir yerde saklayın.
 
-    ![Summary](./media/site-recovery-add-configuration-server/combined-wiz10.png)
+    ![Özet](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-After registration finishes, the server is displayed on the **Settings** > **Servers** blade in the vault.
+Kayıt tamamlandıktan sonra, sunucu kasadaki **Ayarlar** > **Sunucular** dikey penceresinde görüntülenir.

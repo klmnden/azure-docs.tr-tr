@@ -73,6 +73,7 @@ sections:
           - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">VM’leri izleme</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">VM’lerde güvenliği yönetme</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Visual Studio ile sürekli tümleştirme işlem hattı oluşturma</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-iis-sql">SQL\IIS\.NET yığını</a> kurma
           - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">SSL ile bir web sunucusunun güvenliğini sağlama</a>
   - title: Ücretsiz Pluralsight Video Eğitimi
     items:

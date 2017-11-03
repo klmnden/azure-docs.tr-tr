@@ -10,15 +10,14 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/27/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: 9755446d2c01313db9fd80b4f2a7f46f8bec500c
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma
 
@@ -28,7 +27,7 @@ Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Cosmos DB hesab
 
 ![Apache Gremlin konsolunda Azure Cosmos DB](./media/create-graph-gremlin-console/gremlin-console.png)
 
-Gremlin konsolu, Groovy/Java tabanlıdır ve Linux, Mac ve Windows üzerinde çalışır. Konsolu [Apache TinkerPop sitesinden](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip) indirebilirsiniz.
+Gremlin konsolu, Groovy/Java tabanlıdır ve Linux, Mac ve Windows üzerinde çalışır. Konsolu [Apache TinkerPop sitesinden](http://tinkerpop.apache.org/downloads.html) indirebilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -47,7 +46,7 @@ Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Uygulama hizmetinize bağlanma
-1. Gremlin Konsolu’nu başlatmadan önce apache-tinkerpop-gremlin-console-3.2.5/conf dizininde remote-secure.yaml yapılandırma dosyasını oluşturun veya değiştirin.
+1. Gremlin konsol başlamadan oluşturmak veya uzaktan secure.yaml yapılandırma dosyasında değiştirmek `apache-tinkerpop-gremlin-console-3.2.5/conf` dizin.
 2. *ana bilgisayar*, *bağlantı noktası*, *kullanıcı adı*, *parola*, *bağlantı havuzu* ve *serileştirici* değerlerini girin:
 
     Ayar|Önerilen değer|Açıklama
@@ -63,6 +62,18 @@ Ayrıca [Gremlin konsolunu](http://tinkerpop.apache.org/) yüklemeniz gerekir. 3
 
     Password değeri için, **Anahtarlar** sayfasından **Birincil Anahtar**’ı kopyalayın: ![Azure portalındaki Anahtarlar sayfasında bulunan birincil anahtarı görüntüleme ve kopyalama](./media/create-graph-gremlin-console/keys.png)
 
+Uzaktan secure.yaml dosyanız aşağıdaki gibi görünmelidir:
+
+```
+hosts: [your_database_server.graphs.azure.com]
+port: 443
+username: /dbs/your_database_account/colls/your_collection
+password: your_primary_key
+connectionPool: {
+  enableSsl: true
+}
+serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+```
 
 3. Terminalinizde [Gremlin Konsolunu](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/) başlatmak için `bin/gremlin.bat` veya `bin/gremlin.sh` çalıştırın.
 4. Terminalinizde uygulama hizmetinize bağlanmak için `:remote connect tinkerpop.server conf/remote-secure.yaml` çalıştırın.
@@ -307,4 +318,3 @@ Bu hızlı başlangıçta bir Azure Cosmos DB hesabı oluşturmayı, Veri Gezgin
 
 > [!div class="nextstepaction"]
 > [Gremlin kullanarak sorgulama](tutorial-query-graph.md)
-

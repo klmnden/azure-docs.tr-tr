@@ -1,46 +1,46 @@
-## <a name="typical-output"></a>Typical output
+## <a name="typical-output"></a>Normal çıktı
 
-The following example shows the output written to the log file by the Hello World sample. The output is formatted for legibility:
+Aşağıdaki örnek günlük dosyasına Hello World örneği tarafından yazılmış çıkış gösterir. Çıktı daha okunaklı olması için biçimlendirilir:
 
 ```json
 [{
-    "time": "Mon Apr 11 13:48:07 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "content": "Log started"
 }, {
-    "time": "Mon Apr 11 13:48:48 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:48:55 2016",
+    "time": "Mon Apr 11 13:42:55 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:01 2016",
+    "time": "Mon Apr 11 13:43:00 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:04 2016",
+    "time": "Mon Apr 11 13:45:00 2016",
     "content": "Log stopped"
 }]
 ```
 
-## <a name="code-snippets"></a>Code snippets
+## <a name="code-snippets"></a>Kod parçacıkları
 
-This section discusses some key sections of the code in the hello\_world sample.
+Bu bölümde merhaba\_dünya örneğindeki kodun bazı önemli bölümleri ele alınmaktadır.
 
-### <a name="iot-edge-gateway-creation"></a>IoT Edge gateway creation
+### <a name="iot-edge-gateway-creation"></a>IOT sınır ağ geçidi oluşturma
 
-You must implement a *gateway process*. This program creates the internal infrastructure (the broker), loads the IoT Edge modules, and configures the gateway process. IoT Edge provides the **Gateway\_Create\_From\_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway\_Create\_From\_JSON** function, pass it the path to a JSON file that specifies the IoT Edge modules to load.
+Bir ağ geçidi oluşturmak için uygulaması bir *ağ geçidi işlem*. Bu program, iç altyapı (Aracısı) oluşturur, IOT kenar modüllerini yükler ve ağ geçidi işlem yapılandırır. IoT Edge, bir JSON dosyasından ağ geçidini önyüklemenizi sağlayan **Gateway\_Create\_From\_JSON** işlevini sağlar. Kullanılacak **ağ geçidi\_oluşturma\_gelen\_JSON** işlev, yüklemek için IOT kenar modülleri belirten bir JSON dosyası yolu geçirin.
 
-You can find the code for the gateway process in the *Hello World* sample in the [main.c][lnk-main-c] file. For legibility, the following snippet shows an abbreviated version of the gateway process code. This example program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway.
+Ağ geçidi işleminde kodu bulabilirsiniz *Hello World* içinde örnek [main.c] [ lnk-main-c] dosya. Okunaklılık için aşağıdaki kod parçacığında ağ geçidi işlem kodunun kısaltılmış sürümü gösterilmektedir. Bu örnek program bir ağ geçidi oluşturur ve ağ geçidini çıkarmadan önce kullanıcının **ENTER** tuşuna basmasını bekler.
 
-```c
+```C
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -59,16 +59,16 @@ int main(int argc, char** argv)
 }
 ```
 
-The JSON settings file contains a list of IoT Edge modules to load and the links between the modules. Each IoT Edge module must specify a:
+JSON ayarları dosyasını yüklemek için IOT kenar modülleri ve modülleri arasındaki bağlantıları listesini içerir. Her IOT kenar modülü a: belirtmeniz gerekir
 
-* **name**: a unique name for the module.
-* **loader**: a loader that knows how to load the desired module. Loaders are an extension point for loading different types of modules. IoT Edge provides loaders for use with modules written in native C, Node.js, Java, and .NET. The Hello World sample only uses the native C loader because all the modules in this sample are dynamic libraries written in C. For more information about how to use IoT Edge modules written in different languages, see the [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample), or [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) samples.
-    * **name**: the name of the loader used to load the module.
-    * **entrypoint**: the path to the library containing the module. On Linux this library is a .so file, on Windows this library is a .dll file. The entry point is specific to the type of loader being used. The Node.js loader entry point is a .js file. The Java loader entry point is a classpath and a class name. The .NET loader entry point is an assembly name and a class name.
+* **name**: Modül için benzersiz bir ad.
+* **loader**: İstenen modülün nasıl yükleneceğini bilen bir yükleyici. Yükleyiciler, farklı türlerdeki modüllerin yüklenmesi için bir uzantı noktasıdır. IOT kenar yükleyicilerini kullanım için yerel C, Node.js, Java ve .NET içinde yazılmış modüller sağlar. Hello World örneği bu örnekteki tüm modülleri dinamik kitaplıkları c dilinde yazılmış olduğundan yalnızca yerel C yükleyicisi kullanır. Farklı dillerde yazılmış IOT kenar modüllerini kullanma hakkında daha fazla bilgi için bkz: [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample), veya [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) örnekleri.
+    * **ad**: modülünü yüklemek için kullanılan yükleyici adı.
+    * **entrypoint**: Modülü içeren kitaplığın yolu. Linux üzerinde bu kitaplığı .so dosya, Windows bu kitaplığı bir .dll dosyası. Bu giriş noktası kullanılan yükleyici türüne özeldir. Node.js yükleyicisi giriş noktası bir .js dosyasıdır. Java yükleyicisi giriş noktası bir sınıf ve sınıf adı ' dir. .NET yükleyicisi giriş noktası bir derleme adı ve bir sınıf adıdır.
 
-* **args**: any configuration information the module needs.
+* **args**: modül için gereken tüm yapılandırma bilgileri.
 
-The following code shows the JSON used to declare all the IoT Edge modules for the Hello World sample on Linux. Whether a module requires any arguments depends on the design of the module. In this example, the logger module takes an argument that is the path to the output file and the hello\_world module has no arguments.
+Aşağıdaki kod, tüm IOT kenar Hello World örnek modülleri Linux'ta bildirmek için kullanılan JSON gösterir. Bir modülün herhangi bir bağımsız değişken gerektirip gerektirmediği modülün tasarımına bağlıdır. Bu örnekte günlükçü modülü, çıkış dosyasının yolu olan bir bağımsız değişkeni alır ve merhaba\_dünya modülü herhangi bir bağımsız değişken içermez.
 
 ```json
 "modules" :
@@ -96,14 +96,14 @@ The following code shows the JSON used to declare all the IoT Edge modules for t
 ]
 ```
 
-The JSON file also contains the links between the modules that are passed to the broker. A link has two properties:
+JSON dosyası ayrıca aracıya geçirilen modüller arasındaki bağlantıları içerir. Bir bağlantı iki özelliğe sahiptir:
 
-* **source**: a module name from the `modules` section, or `\*`.
-* **sink**: a module name from the `modules` section.
+* **Kaynak**: Modül adı `modules` bölümünde veya `\*`.
+* **havuz**: `modules` bölümünden bir modül adı.
 
-Each link defines a message route and direction. Messages from the **source** module are delivered to the **sink** module. You can set the **source** module to `\*`, which indicates that the **sink** module receives messages from any module.
+Her bağlantı bir ileti yolu ve yönü tanımlar. Gelen iletileri **kaynak** modülü için teslim edilir **havuz** modülü. Ayarlayabileceğiniz **kaynak** modülüne `\*`, hangi gösterir **havuz** modülü herhangi bir modül iletileri alır.
 
-The following code shows the JSON used to configure links between the modules used in the hello\_world sample on Linux. Every message produced by the `hello_world` module is consumed by the `logger` module.
+Aşağıdaki kod, Linux’ta merhaba\_dünya örneğinde kullanılan modüller arasında bağlantı yapılandırmak için kullanılan JSON’u göstermektedir. `hello_world` modülü tarafından üretilen her ileti `logger` modülü tarafından kullanılır.
 
 ```json
 "links":
@@ -115,11 +115,11 @@ The following code shows the JSON used to configure links between the modules us
 ]
 ```
 
-### <a name="helloworld-module-message-publishing"></a>Hello\_world module message publishing
+### <a name="helloworld-module-message-publishing"></a>Merhaba\_dünya modülü ileti yayımlama
 
-You can find the code used by the hello\_world module to publish messages in the ['hello_world.c'][lnk-helloworld-c] file. The following snippet shows an amended version of the code with comments added and some error handling code removed for legibility:
+Merhaba\_dünya modülü tarafından ileti yayımlamak amacıyla kullanılan modülü ['hello_world.c'][lnk-helloworld-c] dosyasında bulabilirsiniz. Aşağıdaki kod parçacığı, okunaklılık için açıklama eklenen ve bazı hata kodlarının kaldırıldığı değiştirilmiş bir kod sürümünü göstermektedir:
 
-```c
+```C
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -165,24 +165,22 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="helloworld-module-message-processing"></a>Hello\_world module message processing
+Merhaba\_world modülü hiçbir zaman diğer IOT kenar modüller Aracısı yayımlama iletileri işler. Bu nedenle, merhaba\_dünya modülünde ileti geri çağırma işleminin uygulanması işlemsiz bir işlevdir.
 
-The hello\_world module never processes messages that other IoT Edge modules publish to the broker. Therefore, the implementation of the message callback in the hello\_world module is a no-op function.
-
-```c
+```C
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
 }
 ```
 
-### <a name="logger-module-message-publishing-and-processing"></a>Logger module message publishing and processing
+### <a name="logger-module-message-processing"></a>Günlükçü modülü ileti işleme
 
-The logger module receives messages from the broker and writes them to a file. It never publishes any messages. Therefore, the code of the logger module never calls the **Broker_Publish** function.
+Günlükçü modülü iletileri aracıdan alır ve bir dosyaya yazar. Hiçbir zaman bir ileti yayımlamaz. Bu nedenle, günlükçü modülünün kodu **Broker_Publish** işlevini hiçbir zaman çağırmaz.
 
-The **Logger_Receive** function in the [logger.c][lnk-logger-c] file is the callback the broker invokes to deliver messages to the logger module. The following snippet shows an amended version with comments added and some error handling code removed for legibility:
+**Logger_Receive** işlevi [logger.c] [ lnk-logger-c] dosyasıdır Aracısı çağırır Günlükçü modülüne iletileri sunmak için geri çağırma. Aşağıdaki kod parçacığı, okunaklılık için açıklama eklenen ve bazı hata kodlarının kaldırıldığı değiştirilmiş bir sürümü göstermektedir:
 
-```c
+```C
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -221,9 +219,12 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-In this article, you ran a simple IoT Edge gateway that writes messages to a log file. To run a sample that sends messages to IoT Hub, see [IoT Edge – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated-linux] or [IoT Edge – send device-to-cloud messages with a simulated device using Windows][lnk-gateway-simulated-windows].
+Bu makalede, iletileri bir günlük dosyasına yazar basit bir IOT sınır ağ geçidi verdi. IOT Hub'ına iletileri gönderen bir örneği çalıştırmak için bkz:
+
+- [IOT kenar – Linux kullanarak sanal bir cihaz ile cihaz-bulut iletileri gönderme][lnk-gateway-simulated-linux] 
+- [IOT kenar – Windows kullanımı için sanal bir cihaz cihaz bulut iletilerini göndermek][lnk-gateway-simulated-windows].
 
 
 <!-- Links -->

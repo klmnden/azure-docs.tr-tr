@@ -1,16 +1,16 @@
-Here's how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is sent to a Service Bus queue.  
+Nasıl kullanılacağını işte **bir sırada bir ileti alındığında, Service Bus -** yeni bir öğe için Service Bus kuyruğuna gönderildiğinde, bir mantıksal uygulama iş akışını başlatmak için tetikleyici.  
 
 > [!NOTE]
-> You will be prompted to sign in with your Service Bus connection string if you have not already created a connection to Service Bus.  
+> Hizmet veri yolu bağlantı zaten oluşturmadıysanız, hizmet veri yolu bağlantı dizenizi oturum oturum istenir.  
 > 
 > 
 
-1. In the search box on the logic apps designer, enter **service bus**. Then select the **Service Bus - When a message is received in a queue** trigger.  
-   ![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-2. The **When a message is received in a queue** dialog box is displayed.  
-   ![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-3. Enter the name of the Service Bus queue you would like the trigger to monitor.   
-   ![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. Logic apps Tasarımcısı arama kutusuna girin **hizmet veri yolu**. Ardından **bir sırada bir ileti alındığında, Service Bus -** tetikleyici.  
+   ![Hizmet veri yolu tetikleyici görüntü 1](./media/connectors-create-api-servicebus/trigger-1.png)   
+2. **Ne zaman bir ileti alındığında bir sırada** iletişim kutusu görüntülenir.  
+   ![Hizmet veri yolu tetikleyici görüntü 2](./media/connectors-create-api-servicebus/trigger-2.png)   
+3. Tetikleyici izlemek istediğiniz Service Bus kuyruğuna adını girin.   
+   ![Hizmet veri yolu tetikleyici görüntü 3](./media/connectors-create-api-servicebus/trigger-3.png)   
 
-At this point, your logic app has been configured with a trigger. When a new item is received in the queue you selected, the trigger will begin a run of the other triggers and actions in the workflow.    
+Bu noktada, mantıksal uygulamanızı tetikleyici ile yapılandırıldı. Yeni bir öğe seçtiğiniz sıraya alındığında, tetikleyici diğer tetikleyiciler ve Eylemler iş akışı bir farklı çalıştır başlar.    
 
