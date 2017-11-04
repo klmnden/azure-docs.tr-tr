@@ -1,12 +1,12 @@
-Use the procedure that matches your back-end project type&mdash;either [.NET back end](#dotnet) or [Node.js back end](#nodejs).
+Arka uç projesi türünüzle eşleşen yordamı&mdash;ya da [.NET son geri](#dotnet) veya [Node.js arka ucu](#nodejs).
 
-### <a name="dotnet"></a>.NET back-end project
-1. In Visual Studio, right-click the server project, and click **Manage NuGet Packages**. Search for `Microsoft.Azure.NotificationHubs`, and then click **Install**. This installs the Notification Hubs client library.
-2. In the Controllers folder, open TodoItemController.cs and add the following `using` statements:
+### <a name="dotnet"></a>.NET arka uç projesi
+1. Visual Studio'da sunucu projesi sağ tıklayın ve **NuGet paketlerini Yönet**. Arama `Microsoft.Azure.NotificationHubs`ve ardından **yükleme**. Bu, bildirim hub'ları istemci kitaplığı yükler.
+2. Denetleyicileri klasöründe TodoItemController.cs açın ve aşağıdakileri ekleyin `using` deyimleri:
 
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
-3. Replace the `PostTodoItem` method with the following code:  
+3. Değiştir `PostTodoItem` aşağıdaki kod ile yöntemi:  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -46,11 +46,11 @@ Use the procedure that matches your back-end project type&mdash;either [.NET bac
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-4. Republish the server project.
+4. Sunucu projesi yeniden yayımlayın.
 
-### <a name="nodejs"></a>Node.js back-end project
-1. If you haven't already done so, [download the quickstart project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Replace the existing code in the todoitem.js file with the following:
+### <a name="nodejs"></a>Node.js arka uç projesi
+1. Bunu zaten bunu yapmadıysanız [hızlı başlangıç projesi indirme](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), ya da başka kullanım [Azure portalında çevrimiçi düzenleyicisini](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+2. Todoitem.js dosyasındaki var olan kodu aşağıdakilerle değiştirin:
 
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -95,5 +95,5 @@ Use the procedure that matches your back-end project type&mdash;either [.NET bac
 
         module.exports = table;  
 
-    This sends a GCM notification that contains the item.text when a new todo item is inserted.
-3. When editing the file in your local computer, republish the server project.
+    Bu, yeni bir Yapılacaklar öğesi eklendiğinde item.text içeren bir GCM bildirim gönderir.
+3. Yerel bilgisayarınızda dosyayı düzenlerken, sunucu projesi yeniden yayımlayın.

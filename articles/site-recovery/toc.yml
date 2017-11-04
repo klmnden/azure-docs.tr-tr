@@ -79,8 +79,6 @@
   items:
     - name: Olağanüstü durum kurtarma
       items:
-        - name: Birden çok kiracıyı destekleyen VMware VM’lerinden Azure’a
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Hyper-V VM’lerinden Azure’a
           href: tutorial-hyper-v-to-azure.md
         - name: Fiziksel sunucuları Azure'a
@@ -99,6 +97,8 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Şirket içi siteler arasında yük devretme ve yeniden çalışma işlemi başlatma
           href: tutorial-vmm-to-vmm-failover-failback.md
+        - name: Birden çok kiracıyı destekleyen VMware VM’lerinden Azure’a
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Kapasite ve ölçeklendirme
       items:
         - name: Azure’a VMware çoğaltması için kapasite planlama
@@ -203,6 +203,8 @@
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP
           href: site-recovery-sap.md
+        - name: Dosya Sunucusu
+          href: file-server-disaster-recovery.md
         - name: IIS tabanlı web uygulamaları
           href: site-recovery-iis.md
         - name: Citrix XenApp ve XenDesktop

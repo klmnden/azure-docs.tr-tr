@@ -1,4 +1,4 @@
-The storage emulator supports a single fixed account and a well-known authentication key for Shared Key authentication. This account and key are the only Shared Key credentials permitted for use with the storage emulator. They are:
+Depolama öykünücüsü paylaşılan anahtar kimlik doğrulaması için tek bir sabit hesap ve bilinen bir kimlik doğrulama anahtarı destekler. Bu hesabı ve anahtarı depolama öykünücüsünü ile kullanmak için izin verilen yalnızca paylaşılan anahtar kimlik bilgileridir. Bunlar:
 
 ```
 Account name: devstoreaccount1
@@ -6,13 +6,13 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 ```
 
 > [!NOTE]
-> The authentication key supported by the storage emulator is intended only for testing the functionality of your client authentication code. It does not serve any security purpose. You cannot use your production storage account and key with the storage emulator. You should not use the development account with production data.
+> Depolama öykünücüsü tarafından desteklenen kimlik doğrulama anahtarı, yalnızca istemci kimlik doğrulama kodunuzu işlevselliğini test etmek için tasarlanmıştır. Herhangi bir güvenlik amaçla sunmuyor. Üretim depolama hesabı ve anahtarı ile depolama öykünücüsünü kullanamazsınız. Üretim verileri ile geliştirme hesap kullanmamalısınız.
 > 
-> The storage emulator supports connection via HTTP only. However, HTTPS is the recommended protocol for accessing resources in a production Azure storage account.
+> Depolama öykünücüsü yalnızca bağlantı HTTP üzerinden destekler. Ancak, HTTPS üretimde Azure depolama hesabı kaynaklarına erişim için önerilen protokolüdür.
 > 
 
-#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Connect to the emulator account using a shortcut
-The easiest way to connect to the storage emulator from your application is to configure a connection string in your application's configuration file that references the shortcut `UseDevelopmentStorage=true`. Here's an example of a connection string to the storage emulator in an *app.config* file: 
+#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Kısayol kullanarak öykünücüsü hesabına bağlanma
+Kısayol başvuruyor, uygulamanızın yapılandırma dosyasında bağlantı dizesini yapılandırmak için depolama öykünücüsünü uygulamanızdan bağlanmak için en kolay yolu olan `UseDevelopmentStorage=true`. Depolama öykünücüsünde için bir bağlantı dizesi örneği bir *app.config* dosyası: 
 
 ```xml
 <appSettings>
@@ -20,8 +20,8 @@ The easiest way to connect to the storage emulator from your application is to c
 </appSettings>
 ```
 
-#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>Connect to the emulator account using the well-known account name and key
-To create a connection string that references the emulator account name and key, you must specify the endpoints for each of the services you wish to use from the emulator in the connection string. This is necessary so that the connection string will reference the emulator endpoints, which are different than those for a production storage account. For example, the value of your connection string will look like this:
+#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>İyi bilinen hesap adı ve anahtarı kullanarak öykünücüsü hesabına bağlanma
+Öykünücü hesap adı ve anahtar başvuruda bulunan bir bağlantı dizesi oluşturmak için bağlantı dizesindeki öykücüsünden kullanmak istediğiniz hizmetlerinin her biri için uç noktalar belirtmeniz gerekir. Bağlantı dizesi bir üretim depolama hesabı için farklı öykünücüsü uç noktaları başvurur böylece, bu gereklidir. Örneğin, bağlantı dizenizi değerini şuna benzeyecektir:
 
 ```
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
@@ -31,10 +31,10 @@ TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
 QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 
-This value is identical to the shortcut shown above, `UseDevelopmentStorage=true`.
+Bu değer, yukarıda gösterilen kısayol özdeş olur `UseDevelopmentStorage=true`.
 
-#### <a name="specify-an-http-proxy"></a>Specify an HTTP proxy
-You can also specify an HTTP proxy to use when you're testing your service against the storage emulator. This can be useful for observing HTTP requests and responses while you're debugging operations against the storage services. To specify a proxy, add the `DevelopmentStorageProxyUri` option to the connection string, and set its value to the proxy URI. For example, here is a connection string that points to the storage emulator and configures an HTTP proxy:
+#### <a name="specify-an-http-proxy"></a>Bir HTTP Ara sunucusunu belirtin
+Depolama öykünücüsü karşı hizmet sınarken kullanmak için bir HTTP proxy de belirtebilirsiniz. Bu işlem depolama hizmetleri karşı hatalarını ayıkladığınız sırada HTTP istekleri ve yanıtları Gözlemleme için yararlı olabilir. Bir proxy belirtmek için add `DevelopmentStorageProxyUri` seçeneği ile bağlantı dizesi ve bir proxy URI'si değerini ayarlayın. Örneğin, depolama öykünücüsünü işaret eder ve bir HTTP proxy yapılandıran bir bağlantı dizesi şöyledir:
 
 ```
 UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri

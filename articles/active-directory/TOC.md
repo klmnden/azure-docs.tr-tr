@@ -48,7 +48,6 @@
 #### [Grup tabanlı lisanslama için Azure PowerShell örnekleri](active-directory-licensing-ps-examples.md)
 #### [Azure AD’de ürünler ve hizmet planları için başvurular](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
-### [Parola sıfırlama](active-directory-users-reset-password-azure-portal.md)
 ### [Kullanıcı iş bilgilerini yönetme](active-directory-users-work-info-azure-portal.md)
 ### [Hesapları paylaşma](active-directory-sharing-accounts.md)
 
@@ -126,7 +125,6 @@
 ### [SSPR Raporlama](active-directory-passwords-reporting.md)
 ### BT Yöneticileri: Parolaları sıfırlama
 #### [Azure portal](active-directory-users-reset-password-azure-portal.md)
-#### [Klasik Azure Portalı](active-directory-create-users-reset-password.md)
 ### [SSPR lisanslama](active-directory-passwords-licensing.md)
 ### [Parola geri yazma](active-directory-passwords-writeback.md)
 ### [Sorun giderme](active-directory-passwords-troubleshoot.md)

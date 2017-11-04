@@ -1,48 +1,48 @@
-# <a name="persist-files-in-azure-cloud-shell"></a>Persist files in Azure Cloud Shell
-Cloud Shell utilizes Azure File storage to persist files across sessions.
+# <a name="persist-files-in-azure-cloud-shell"></a>Azure bulut Kabuk dosyalarında Sürdür
+Bulut Kabuk oturumlarında dosyaları kalıcı hale getirmek için Azure File storage kullanır.
 
-## <a name="set-up-a-clouddrive-file-share"></a>Set up a clouddrive file share
-On initial start, Cloud Shell prompts you to associate a new or existing file share to persist files across sessions.
+## <a name="set-up-a-clouddrive-file-share"></a>Clouddrive dosya paylaşımı ayarlama
+İlk Başlat, bulut Kabuk oturumlarında dosyaları kalıcı hale getirmek için yeni veya varolan bir dosya paylaşımı ilişkilendirmek isteyip istemediğinizi sorar.
 
 > [!NOTE]
-> Bash and PowerShell share the same file share. Only one file share can be associated with automatic mounting in Cloud Shell.
+> Bash ve PowerShell aynı dosya paylaşımını paylaşır. Yalnızca bir dosya paylaşımı bulut Kabuğu'nda otomatik olarak bağlama ile ilişkili olabilir.
 
-### <a name="create-new-storage"></a>Create new storage
+### <a name="create-new-storage"></a>Yeni depolama alanı oluşturma
 
-When you use basic settings and select only a subscription, Cloud Shell creates three resources on your behalf in the supported region that's nearest to you:
-* Resource group: `cloud-shell-storage-<region>`
-* Storage account: `cs<uniqueGuid>`
-* File share: `cs-<user>-<domain>-com-<uniqueGuid>`
+Temel ayarlar kullanın ve yalnızca bir abonelik seçin, bulut Kabuk üç kaynakları en yakın olan desteklenen bölgede sizin adınıza oluşturur:
+* Kaynak grubu:`cloud-shell-storage-<region>`
+* Depolama hesabı:`cs<uniqueGuid>`
+* Dosya Paylaşımı:`cs-<user>-<domain>-com-<uniqueGuid>`
 
-![The Subscription setting](../articles/cloud-shell/media/persisting-shell-storage/basic-storage.png)
+![Abonelik ayarı](../articles/cloud-shell/media/persisting-shell-storage/basic-storage.png)
 
-The file share mounts as `clouddrive` in your `$Home` directory. This is a one-time action, and the file share mounts automatically in subsequent sessions. 
+Dosya Paylaşımı bağladığı olarak `clouddrive` içinde `$Home` dizin. Bu tek seferlik bir işlemdir ve dosya paylaşımı sonraki oturumlarda otomatik olarak bağlar. 
 
-In Bash, the file share also contains a 5-GB image that is created for you which automatically persists data in your `$Home` directory. 
+Bash'te, dosya paylaşımı ayrıca sizin için otomatik olarak oluşturulduğu bir 5 GB görüntüsünü içeren veri devam ederse, `$Home` dizin. 
 
-### <a name="use-existing-resources"></a>Use existing resources
+### <a name="use-existing-resources"></a>Var olan kaynakları kullanın
 
-By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. The drop-down menus are filtered for your assigned Cloud Shell region and the locally redundant storage and geo-redundant storage accounts.
+Gelişmiş seçeneğini kullanarak, var olan kaynakların ilişkilendirebilirsiniz. Depolama Kurulum istemi belirdiğinde seçin **Göster Gelişmiş ayarları** ek seçenekleri görüntülemek için. Aşağı açılır menüler atanan bulut Kabuk bölgeniz ve yerel olarak yedekli depolama ve coğrafi olarak yedekli depolama hesapları için filtrelenir.
 
-In Bash, existing file shares receive a 5-GB image created for you to persist your `$Home` directory.
+Bash'te, varolan dosya paylaşımları için kalıcı hale getirmek oluşturduğunuz bir 5 GB görüntüsü almak, `$Home` dizin.
 
-![The Resource group setting](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
+![Kaynak grubu ayarı](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
-### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restrict resource creation with an Azure resource policy
-Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) that are triggered by this specific tag.
+### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Bir Azure kaynak İlkesi ile kaynak oluşturma kısıtla
+Bulut Kabuğu'nda oluşturduğunuz depolama hesapları ile etiketlenmiş `ms-resource-usage:azure-cloud-shell`. Bulut Kabuğu'nda depolama hesapları oluşturma kullanıcıların engellemek istiyorsanız oluşturma bir [etiketleri için Azure kaynak İlkesi](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) bu belirli etiketi tarafından tetiklenir.
 
-## <a name="supported-storage-regions"></a>Supported storage regions
-Associated Azure storage accounts must reside in the same region as the Cloud Shell machine that you're mounting them to.
+## <a name="supported-storage-regions"></a>Desteklenen depolama bölgeleri
+İlişkili Azure depolama hesapları için takma bulut Kabuk makine ile aynı bölgede bulunmalıdır.
 
-To find your assigned region you may:
-* View the note on the "Advanced storage settings" dialog
-* Refer to the name of the storage account created for you (ex: `cloud-shell-storage-westus`)
-* Run `env` and locate the variable `ACC_LOCATION`
+Atanan bölgenizi bulmak için olabilir:
+* Not "Gelişmiş Depolama ayarları" iletişim kutusunda görüntüleyin
+* Sizin için oluşturulan depolama hesabının adına bakın (örn: `cloud-shell-storage-westus`)
+* Çalıştırma `env` ve değişken bulun`ACC_LOCATION`
 
-Cloud Shell machine exist in the following regions:
-|Area|Region|
+Bulut Kabuk makine aşağıdaki bölgelerde var:
+|Alan|Bölge|
 |---|---|
-|Americas|East US, South Central US, West US|
-|Europe|North Europe, West Europe|
-|Asia Pacific|India Central, Southeast Asia|
+|Kuzey ve Güney Amerika|Doğu ABD, Orta Güney ABD, Batı ABD|
+|Avrupa|Kuzey Avrupa, Batı Avrupa|
+|Asya Pasifik|Hindistan Orta, Güneydoğu Asya|
 

@@ -1,117 +1,117 @@
 ---
-title: "Azure portalı: PostgreSQL için Azure Veritabanı oluşturma | Microsoft Belgeleri"
-description: "Azure portalı kullanıcı arabirimini kullanarak PostgreSQL için Azure Veritabanı oluşturma ve yönetmeye yönelik hızlı başlangıç kılavuzu."
+title: "Azure portal: PostgreSQL sunucu için bir Azure veritabanı oluşturma | Microsoft Docs"
+description: "Hızlı Başlangıç Kılavuzu oluşturma ve Azure veritabanı PostgreSQL server için Azure portalı kullanıcı arabirimini kullanarak yönetme."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
-ms.topic: hero-article
-ms.date: 08/04/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: e89058a500aeb542ae4c7dc6bb4a9b9ae54db7f2
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/09/2017
-
+ms.topic: quickstart
+ms.date: 08/10/2017
+ms.openlocfilehash: 3a76e816f9b1fa484789f548899d7e8e7043febb
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/24/2017
 ---
+# <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Azure portalında bir Azure veritabanı PostgreSQL sunucu için oluşturma
 
-# <a name="create-an-azure-database-for-postgresql-in-the-azure-portal"></a>Azure portalında PostgreSQL için Azure Veritabanı oluşturma
+Azure veritabanı PostgreSQL için çalıştırın, yönetmek ve yüksek oranda kullanılabilir PostgreSQL veritabanları bulutta ölçeklendirmek için kullandığınız yönetilen bir hizmettir. Bu Hızlı Başlangıç, PostgreSQL sunucu için bir Azure veritabanı yaklaşık beş dakika içinde Azure portalını kullanarak oluşturulacağını gösterir.
 
-PostgreSQL için Azure Veritabanı, bulutta son derece kullanılabilir olan PostgreSQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Bu hızlı başlangıçta, Azure portalını kullanarak nasıl PostgreSQL için Azure Veritabanı sunucusu oluşturacağınız gösterilir.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
+Web tarayıcınızı açın ve gidin [portal](https://portal.azure.com/). Portalda oturum açmak için kimlik bilgilerinizi girin. Varsayılan görünüm hizmet panonuzu içerir.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
-
-[Azure Portal](https://portal.azure.com)’da oturum açın.
-
-## <a name="create-an-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı oluşturma
+## <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı sunucusu oluşturma
 
 PostgreSQL için Azure Veritabanı sunucusu, tanımlı bir dizi [işlem ve depolama kaynağı](./concepts-compute-unit-and-storage.md) ile oluşturulur. Sunucu, [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) içinde oluşturulur.
 
-PostgreSQL için Azure veritabanı sunucusu oluşturmak üzere şu adımları uygulayın:
-1.  Azure portalının sol üst köşesinde bulunan **Yeni** (+) düğmesine tıklayın.
-2.  **Yeni** sayfasından **Veritabanları**’nı seçin ve **Veritabanları** sayfasından **PostgreSQL için Azure Veritabanı**’nı seçin.
- ![PostgreSQL için Azure Veritabanı - Veritabanı oluşturma](./media/quickstart-create-database-portal/1-create-database.png)
+Bir PostgreSQL server Azure veritabanı oluşturmak için aşağıdaki adımları uygulayın:
+1. Portalın sol üst köşesinde bulunan **Yeni** düğmesini (+) seçin.
 
-3.  Yeni sunucu ayrıntıları formunu, bir önceki resimde gösterildiği gibi aşağıdaki bilgilerle doldurun:
+2. Seçin **veritabanları** > **PostgreSQL için Azure veritabanı**.
+
+    !["PostgreSQL için Azure veritabanı" seçeneği](./media/quickstart-create-database-portal/1-create-database.png)
+
+3. Yeni sunucu ayrıntıları formunu, bir önceki resimde gösterildiği gibi aşağıdaki bilgilerle doldurun:
 
     Ayar|Önerilen değer|Açıklama
     ---|---|---
-    Sunucu adı |*mypgserver-20170401*|Azure veritabanınızı PostgreSQL sunucusuna tanıtan benzersiz bir ad seçin. *postgres.database.azure.com* etki alanı adı, uygulamaların bağlanması için sağladığınız sunucu adına eklenir. Sunucu adı yalnızca küçük harf, sayı ve kısa çizgi (-) karakterini içerebilir ve 3 ila 63 karakterden oluşmalıdır.
-    Abonelik|*Aboneliğiniz*|Sunucunuz için kullanmak istediğiniz Azure aboneliği. Birden fazla aboneliğiniz varsa kaynağın faturalanacağı uygun aboneliği seçin.
-    Kaynak Grubu|*myresourcegroup*| Yeni bir kaynak grubu adı oluşturabilir veya mevcut bir aboneliğinizi kullanabilirsiniz.
-    Sunucu yöneticisi oturum açma |*mylogin*| Sunucuya bağlanırken kullanılacak kendi oturum açma hesabınızı yapın. Yönetici oturum açma adı 'azure_superuser', 'azure_pg_admin', 'admin', 'administrator', 'root', 'guest' veya 'public' olamaz ve 'pg_' ile başlayamaz.
-    Parola |*Tercih ettiğiniz* | Sunucu yönetici hesabı için yeni bir parola oluşturun. 8 ila 128 karakter arası içermelidir. Parolanız şu üç kategoride yer alan karakterlerden oluşmalıdır – İngilizce büyük ve küçük harfler, sayılar (0-9) ve alfasayısal olmayan karakterler (!, $, #, %, vb.).
-    Konum|*Kullanıcılarınıza en yakın bölge*| Kullanıcılarınız için en yakın konumu seçin.
-    PostgreSQL Sürümü|*En son sürümü seçin*| Belirli gereksinimleriniz yoksa en son sürümü seçin.
-    Fiyatlandırma Katmanı | **Temel**, **50 İşlem Birimi** **50 GB** | Yeni veritabanınıza ait hizmet katmanını ve performans düzeyini belirtmek için **Fiyatlandırma katmanı**’na tıklayın. En üstteki sekmede Temel katmanı seçin. Bu hızlı başlangıç için, İşlem Birimleri kaydırıcısının sol ucuna tıklayarak değeri mümkün olan en düşük değere ayarlayın. Fiyatlandırma katmanını kaydetmek için **Tamam**’a tıklayın. Aşağıdaki ekran görüntüsüne bakın.
-    | Panoya sabitle | İşaretli | Azure Portal'ın ön pano sayfasında sunucunuzun kolayca izlenmesine izin vermek için **Panoya Sabitle** seçeneğini işaretleyin.
+    Sunucu adı |*mypgserver-20170401*|Azure veritabanınız PostgreSQL sunucu için tanımlayan benzersiz bir ad. Etki alanı adı *postgres.database.azure.com* sağladığınız sunucu adı eklenir. Sunucu, yalnızca küçük harf, sayı ve tire (-) karakterini içerebilir. En az 3-63 karakter içermelidir.
+    Abonelik|Aboneliğiniz|Sunucunuz için kullanmak istediğiniz Azure aboneliği. Birden çok aboneliğiniz varsa, kaynak için fatura abonelik seçin.
+    Kaynak grubu|*myresourcegroup*| Yeni bir kaynak grubu adı veya mevcut bir aboneliğiniz.
+    Sunucu yöneticisi oturum açma |*mylogin*| Sunucuya bağlandığınızda kullanılacak kendi oturum açma hesabı. Yönetici oturum açma adı olamaz **azure_superuser,** **azure_pg_admin,** **yönetici,** **yönetici,** **kök,** **konuk,** veya **ortak.** İle başlayamaz **pg_**.
+    Parola |Tercih ettiğiniz | Sunucu yönetici hesabı için yeni bir parola. 8 ila 128 karakter arası içermelidir. Parolanızı aşağıdaki kategoriden üçünden karakterler içermelidir: İngilizce büyük harfler, küçük harfler, sayılar (0-9) ve alfasayısal olmayan karakterler (!, $, #, %, vs.).
+    Konum|Kullanıcılarınız için en yakın bölgeyi| Kullanıcılarınız için en yakın konumu.
+    PostgreSQL sürüm|En son sürümü| En son sürümünü belirli gereksinimlere sahip değilse.
+    Fiyatlandırma katmanı | **Temel**, **50 İşlem Birimi** **50 GB** | Yeni veritabanınızın hizmet katmanı ve performans düzeyi. Seçin **fiyatlandırma katmanı**. Ardından, **temel** sekmesi. Sol sonuna seçme **işlem birimleri** Bu Hızlı Başlangıç için en düşük miktarı değerine ayarlamak için kaydırıcıyı. Fiyatlandırma katmanı seçimi kaydetmeyi seçin **Tamam**. Daha fazla bilgi için aşağıdaki ekran görüntüsüne bakın. 
+    Panoya sabitle | İşaretli | Ön pano sayfası portalınızdaki sunucunuzun kolay izlemeyi etkinleştirir.
 
-  > [!IMPORTANT]
-  > Burada belirttiğiniz sunucu yöneticisi kullanıcı adı ve parolası, bu hızlı başlangıcın sonraki bölümlerinde sunucuda ve veritabanlarında oturum açmak için gereklidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.
+    > [!IMPORTANT]
+    > Sunucu Yöneticisi oturum açma ve burada belirttiğiniz parola, sunucu ve veritabanlarını Bu hızlı başlangıç devamındaki oturum açmak için gereklidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.
 
-    ![PostgreSQL için Azure Veritabanı - fiyatlandırma katmanını seçme](./media/quickstart-create-database-portal/2-service-tier.png)
+    !["Fiyatlandırma katmanı" bölmesi](./media/quickstart-create-database-portal/2-service-tier.png)
 
-4.  Sunucuyu sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika, en fazla 20 dakika alır.
+4. Sunucuyu sağlamak için **Oluştur**’u seçin. Hazırlama işlemi 20 dakika kadar sürebilir.
 
-5.  Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
- ![PostgreSQL için Azure Veritabanı - Bildirimleri inceleme](./media/quickstart-create-database-portal/3-notifications.png)
+5. Araç çubuğunda seçin **bildirimleri** dağıtım işlemi izlemek için simge.
+
+    !["Bildirimler" bölmesi](./media/quickstart-create-database-portal/3-notifications.png)
    
-  Varsayılan olarak, **postgres** veritabanı sunucunuz altında oluşturulur. [Postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) veritabanı; kullanıcılar, yardımcı programlar ve üçüncü taraf uygulamalar tarafından kullanılmak üzere geliştirilmiş varsayılan bir veritabanıdır. 
+  Varsayılan olarak, bir **postgres** veritabanı sunucunuz altında oluşturulur. [Postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) kullanıcılar, yardımcı programlar ve üçüncü taraf uygulamalar tarafından kullanılmak üzere tasarlanmıştır ve varsayılan bir veritabanı bir veritabanıdır. 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Sunucu düzeyinde güvenlik duvarı kuralı oluşturma
 
-PostgreSQL için Azure Veritabanı hizmeti, sunucu düzeyinde bir güvenlik duvarı oluşturur. Bu güvenlik duvarı, belirli IP adresleri için güvenlik duvarını açmak üzere bir güvenlik duvarı kuralı oluşturulmadıkça, dış uygulama ve araçların sunucuya ve sunucu üzerindeki herhangi bir veritabanına bağlanmasını engeller. 
+Azure veritabanı PostgreSQL için sunucu düzeyinde güvenlik duvarı oluşturur. Belirli IP adresleri için Güvenlik Duvarı'nı açmak için bir kural oluşturmadan, harici uygulamalar ve araçları sunucu ve sunucu üzerindeki herhangi bir veritabanına bağlanmasını engeller. 
 
-1.  Dağıtım tamamlandıktan sonra sunucunuzu bulun. Gerekirse arama yapabilirsiniz. Örneğin, sol taraftaki menüden **Tüm Kaynaklar**’a tıklayın ve yeni oluşturduğunuz sunucuyu aramak için sunucu adını (ör. mypgserver-20170401) yazın. Arama sonucunda listelenen sunucu adına tıklayın. Sunucunuzun Genel bakış sayfası açılır ve daha fazla yapılandırma seçeneği sunulur.
+1. Dağıtım tamamlandıktan sonra sunucunuzu bulun. Gerekirse arama yapabilirsiniz. Örneğin, sol taraftaki menüsünden seçin **tüm kaynakları**. Örnek gibi sunucu adınızı yazın **mypgserver 20170401**, yeni oluşturulan sunucunuz için aranacak. Arama sonuç listesinden sunucunuzun adını seçin. Sunucunuzun **Genel bakış** sayfası açılır ve daha fazla yapılandırma seçenekleri sunulur.
  
-    ![PostgreSQL için Azure Veritabanı - Sunucu arama ](./media/quickstart-create-database-portal/4-locate.png)
+    ![Sunucu adı arama](./media/quickstart-create-database-portal/4-locate.png)
 
-2.  Sunucu sayfasında **Bağlantı Güvenliği**’ni seçin. 
-    ![PostgreSQL için Azure Veritabanı - Güvenlik Duvarı Kuralı Oluşturma](./media/quickstart-create-database-portal/5-firewall-2.png)
+2. Sunucu sayfasında **Bağlantı güvenliği**’ni seçin.
 
-3.  **Güvenlik Duvarı Kuralları** başlığı altında, güvenlik duvarı kuralı oluşturmaya başlamak için **Kural Adı** sütunundaki boş metin kutusuna tıklayın. 
+    !["Bağlantı güvenliği" ayarını](./media/quickstart-create-database-portal/5-firewall-2.png)
 
-    Bu hızlı başlangıçta, tüm sütunlardaki metin kutularını aşağıdaki değerlerle doldurarak tüm IP adreslerinin sunucuya bağlanmasına izin verelim:
+3. Altında **güvenlik duvarı kuralları** başlık, buna **kural adı** boş bir metin kutusunda güvenlik duvarı kuralı oluşturmaya başlamak için sütun seçin. 
 
-    Kural Adı | Başlangıç IP’si | Bitiş IP’si 
+    Bu Hızlı Başlangıç için şimdi Server'a tüm IP adreslerini verin. Metin kutusuna her sütunda aşağıdaki değerlerle doldurun:
+
+    Kural adı | Başlangıç IP’si | Bitiş IP’si 
     ---|---|---
-    AllowAllIps |  0.0.0.0 | 255.255.255.255
+    AllowAllIps | 0.0.0.0 | 255.255.255.255
 
-4. Bağlantı güvenliği sayfasının üst araç çubuğunda **Kaydet**’e tıklayın. Ardından **X**’e tıklayarak Bağlantı Güvenliği sayfasını kapatın.
+4. **Bağlantı güvenliği** sayfasının üst araç çubuğunda **Kaydet**’i seçin. Devam etmeden önce bağlantı güvenlik güncelleştirmesi başarıyla tamamlandığını belirten bildirim görünene kadar bekleyin.
 
     > [!NOTE]
-    > Azure PostgreSQL sunucusu, 5432 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 5432 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, BT departmanınız 5432 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
-  >
+    > PostgreSQL sunucusu için Azure Veritabanınıza yönelik bağlantılar 5432 bağlantı noktası üzerinden iletişim kurar. Şirket ağı içinde bağlanması çalışırsanız, bağlantı noktası 5432 üzerinden giden trafik, ağınızın güvenlik duvarı tarafından izin verilmeyebilir. BT departmanınız 5432 bir bağlantı noktası açar sürece bu durumda, sunucunuza bağlanamıyor.
+    >
 
 ## <a name="get-the-connection-information"></a>Bağlantı bilgilerini alma
 
-PostgreSQL sunucusu için Azure Veritabanımızı oluşturduğumuzda, **postgres** adlı varsayılan veritabanı da oluşturulur. Veritabanı sunucusuna bağlanmak için tam sunucu adını ve yönetici oturum açma kimlik bilgilerini hatırlamanız gerekir. Bu değerleri hızlı başlangıç makalesinde daha önce not almış olabilirsiniz. Almadıysanız, Azure portalında sunucuya Genel Bakış sayfasında sunucu adını ve oturum açma bilgilerini kolayca bulabilirsiniz.
+Azure veritabanınızı PostgreSQL sunucusu oluşturduğunuzda, varsayılan bir veritabanı adlı **postgres** oluşturulur. Veritabanı sunucusuna bağlanmak için tam sunucu adı ve yönetici oturum açma kimlik bilgilerinizi gerekir. Bu değerleri Hızlı Başlangıç makalesinde daha önce not almış olabilirsiniz. Almadıysanız, sunucu adını ve oturum açma bilgileri sunucuda kolayca bulabilirsiniz **genel bakış** portalında sayfası.
 
-1. Sunucunuzun **Genel Bakış** sayfasını açın. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
-    İmlecinizi her bir alanın üzerine getirin, metnin sağ tarafında Kopyala simgesi görünür. Değerleri kopyalamak için gerektiği şekilde Kopyala simgesine tıklayın.
+Sunucunuzun **Genel Bakış** sayfasını açın. Not **sunucu adı** ve **sunucu yönetici oturum açma adı**. İmleç her bir alan getirin ve metnin sağ Kopyala simgesi görünür. Kopya sembol değerleri kopyalamak için gerektiği şekilde seçin.
 
- ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma](./media/quickstart-create-database-portal/6-server-name.png)
+ ![Sunucu "Genel bakış" sayfası](./media/quickstart-create-database-portal/6-server-name.png)
 
-## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Cloud Shell’de psql’i kullanarak PostgreSQL veritabanına bağlanma
+## <a name="connect-to-the-postgresql-database-by-using-psql-in-cloud-shell"></a>Bulut Kabuğu'nda psql kullanarak PostgreSQL veritabanına bağlan
 
-PostgreSQL sunucusu için Azure veritabanınıza çeşitli uygulamalar kullanarak bağlanabilirsiniz. İlk olarak sunucuya nasıl bağlanılacağını göstermek için psql komut satırı yardımcı programını kullanalım.  Burada açıklandığı şekliyle bir web tarayıcısını ve Azure Cloud Shell’i herhangi bir ek yazılım yüklemeniz gerekmeden kullanabilirsiniz. Kendi makinede yerel olarak yüklü psql yardımcı programı varsa, oradan da bağlanabilirsiniz.
+PostgreSQL sunucusu için Azure veritabanınıza çeşitli uygulamalar kullanarak bağlanabilirsiniz. İlk olarak sunucuya nasıl bağlanılacağını göstermek için psql komut satırı yardımcı programını kullanalım. Bir web tarayıcısı ve Azure bulut Kabuk gerek olmadan burada açıklandığı gibi ek yazılım yüklemek için kullanabilirsiniz. Kendi makinede yerel olarak yüklü psql yardımcı programı varsa, oradan da bağlanabilirsiniz.
 
-1. Sol gezinme bölmesindeki terminal simgesiyle Azure Cloud Shell’i başlatın.
+1. Üst Gezinti Bölmesi'nde bulut Kabuğu'nu açmak için terminal simgeyi seçin.
 
-   ![PostgreSQL için Azure Veritabanı - Azure Cloud Shell terminal simgesi](./media/quickstart-create-database-portal/7-cloud-console.png)
+   ![Azure bulut Kabuk terminal simgesi](./media/quickstart-create-database-portal/7-cloud-console.png)
 
-2. Azure Cloud Shell, tarayıcınızda açılarak bash kabuk komutları yazmanıza imkan tanır.
+2. Bulut Kabuğu'nu Bash Kabuk komutları yazabileceğiniz tarayıcınızda açar.
 
-   ![PostgreSQL için Azure Veritabanı - Azure Shell Bash İstemi](./media/quickstart-create-database-portal/8-bash.png)
+   ![Bulut Kabuk Bash istemi](./media/quickstart-create-database-portal/8-bash.png)
 
-3. Cloud Shell isteminde, yeşil istemde psql komut satırını yazarak PostgreSQL için Azure Veritabanı sunucunuzdaki bir veritabanına bağlanın.
+3. Azure veritabanınızı PostgreSQL sunucusu için veritabanında psql komut satırı yazarak bulut Kabuk isteminde bağlayın.
 
-    Aşağıdaki biçim, [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) yardımcı programıyla PostgreSQL için Azure Veritabanı sunucusuna bağlanmak amacıyla kullanılır:
+    PostgreSQL sunucusu için bir Azure veritabanına bağlanmak için [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) yardımcı programı, aşağıdaki biçimi kullanın:
     ```bash
     psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
     ```
@@ -124,76 +124,116 @@ PostgreSQL sunucusu için Azure veritabanınıza çeşitli uygulamalar kullanara
 
     psql parametresi |Önerilen değer|Açıklama
     ---|---|---
-    --host | *sunucu adı* | PostgreSQL için Azure Veritabanını oluştururken kullandığınız sunucu adı değerini belirtin. Gösterilen örnek sunucumuz: mypgserver-20170401.postgres.database.azure.com. Örnekte gösterildiği gibi tam etki alanı adını kullanın (\*. postgres.database.azure.com). Sunucu adınızı anımsamıyorsanız bağlantı bilgilerini almak için önceki bölümü takip edin. 
-    --port | **5432** | PostgreSQL Azure veritabanına bağlanırken her zaman bağlantı noktası olarak 5432 kullanın. 
-    --username | *sunucu yöneticisi oturum açma adı* |PostgreSQL için Azure Veritabanını oluştururken girdiğiniz sunucu yöneticisi oturum açma kullanıcı adını yazın. Kullanıcı adını anımsamıyorsanız bağlantı bilgilerini almak için önceki bölümü takip edin.  Biçim şöyledir: *username@servername*.
-    --dbname | **postgres** | İlk bağlantı için, sistem tarafından oluşturulan varsayılan veritabanı adını (*postgres*) kullanın. Daha sonra kendi veritabanınızı oluşturun.
+    --host | Sunucu adı | Daha önce PostgreSQL sunucu için Azure veritabanı oluştururken kullandığınız sunucu adı değeri. Gösterilen bizim örnek sunucu **mypgserver 20170401.postgres.database.azure.com.** Tam etki alanı adını kullanın (**\*. postgres.database.azure.com**) örnekte gösterildiği gibi. Sunucu adınızı anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. 
+    --port | 5432 | PostgreSQL server için Azure veritabanına bağlanırken kullanılacak bağlantı noktası. 
+    --username | Sunucu yönetici oturum açma adı |Daha önce PostgreSQL sunucu için Azure veritabanı oluşturduğunuzda, sağladığınız sunucu yönetici oturum açma kullanıcı adı. Kullanıcı adınızı hatırlamıyorsanız bağlantı bilgilerini almak için önceki bölümdeki adımları izleyin. Biçim şöyledir: *username@servername*.
+    --dbname | *postgres* | Varsayılan, ilk bağlantı için oluşturulmuş sistem tarafından oluşturulan veritabanı adı. Daha sonra kendi veritabanı oluşturun.
 
-    Kendi parametre değerleriniz ile psql komutu çalıştırdıktan sonra sunucu yöneticisi parolasını yazmanız istenir. Bu, sunucuyu oluştururken belirttiğiniz paroladır. 
+    Sonra kendi parametre değerleri ile psql komutunu çalıştırın, sunucu yöneticisi parolasını girmeniz istenir. Bu parola sunucu oluşturduğunuzda, verdiğiniz adla aynı değil. 
 
     psql parametresi |Önerilen değer|Açıklama
     ---|---|---
-    password | *yönetici parolanız* | Yazılan parola karakterlerinin bash isteminde gösterilmeyeceğini unutmayın. Kimlik doğrulaması yapmak ve bağlanmak için tüm karakterleri yazdıktan sonra enter tuşuna basın.
+    password | Yönetici parolası | Yazılan parola karakterlerini bash satırına gösterilmeyen. Tüm karakterleri yazdıktan sonra seçin **Enter** kimlik doğrulaması ve bağlanmak için anahtarı.
 
-4.  Sunucuya bağlandıktan sonra, aşağıdaki komutu yazarak istemde boş bir veritabanı oluşturun.
+    Bağlandıktan sonra psql yardımcı programı sql komutlarını girildiği postgres istemini görüntüler. Bulut Kabuğu'nda psql PostgreSQL server sürümü için Azure veritabanına sürümünden farklı bir sürüm olabileceğinden ilk bağlantı çıktıda bir uyarı görüntülenebilir. 
+    
+    Örnek psql çıktısı:
+    ```bash
+    psql (9.5.7, server 9.6.2)
+    WARNING: psql major version 9.5, server major version 9.6.
+        Some psql features might not work.
+    SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
+    Type "help" for help.
+   
+    postgres=> 
+    ```
+
+    > [!TIP]
+    > Güvenlik Duvarı bulut Kabuk IP adresine izin vermek için yapılandırılmamışsa, aşağıdaki hata oluşur:
+    > 
+    > "psql: Önemli: pg_hba.conf giriş ana"138.91.195.82"kullanıcı"mylogin"veritabanı"postgres", önemli SSL: SSL bağlantısı gereklidir. SSL seçenekleri belirtin ve yeniden deneyin.
+    > 
+    > Hatayı gidermek için sunucu yapılandırması, bu makalenin "Sunucu düzeyinde güvenlik duvarı kuralı yapılandırma" bölümündeki adımları eşleştiğinden emin olun.
+
+4. Aşağıdaki komutu yazarak istemde boş bir veritabanı oluşturun:
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
+    Komutun tamamlanması için birkaç dakika sürebilir. 
 
-5.  İstemde, bağlantıyı yeni oluşturulan **mypgsqldb** veritabanına geçirmek için aşağıdaki komutu yürütün.
+5. İsteminde bağlantıları yeni oluşturulan veritabanına geçiş yapmak için aşağıdaki komutu yürütün **mypgsqldb**:
     ```bash
     \c mypgsqldb
     ```
 
-6.  psql’den çıkmak için \q yazıp ENTER tuşuna basın. Artık Azure Cloud Shell’i kapatabilirsiniz.
+6. Tür `\q`ve ardından **Enter** psql çıkmak için anahtar. Tamamlanmış sonra bulut Kabuk kapatabilirsiniz.
 
-Böylece Azure Veritabanını PostgreSQL’ye bağladınız ve boş bir kullanıcı veritabanı oluşturdunuz. Başka bir ortak araç olan pgAdmin’i kullanarak bağlanmak için sonraki bölüme geçin.
+Şimdi PostgreSQL server için Azure veritabanı bağlandınız ve boş kullanıcı veritabanı oluşturuldu. Başka bir ortak aracı, pgAdmin kullanarak bağlanmak için sonraki bölüme geçin.
 
-## <a name="connect-to-postgresql-database-using-pgadmin"></a>pgAdmin’i kullanarak PostgreSQL veritabanına bağlanma
+## <a name="connect-to-the-postgresql-database-by-using-pgadmin"></a>PgAdmin kullanarak PostgreSQL veritabanına bağlan
 
-_pgAdmin_ GUI aracını kullanarak Azure PostgreSQL sunucusuna bağlanmak için
-1.  İstemci bilgisayarınızda _pgAdmin_ uygulamasını başlatın. _pgAdmin_’i http://www.pgadmin.org/ adresinden yükleyebilirsiniz.
-2.  **Hızlı Bağlantılar** menüsünden **Yeni Sunucu Ekle**’yi seçin.
-3.  **Oluştur - Sunucu** iletişim kutusunun **Genel** sekmesinde, sunucu için **Azure PostgreSQL Sunucusu** gibi benzersiz ve kolay bir ad girin.
-![pgAdmin aracı - oluştur - sunucu](./media/quickstart-create-database-portal/9-pgadmin-create-server.png)
-4.  **Oluştur - Sunucu** iletişim kutusunun **Bağlantı** sekmesinde belirtilen ayarları kullanın ve **Kaydet**’e tıklayın.
-   ![pgAdmin - Oluştur - Sunucu](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
-    - **Ana Bilgisayar Adı/Adresi**: mypgserver-20170401.postgres.database.azure.com 
-        - Tam sunucu adı.
-    - **Bağlantı noktası:** 5432
-        - Bu veritabanı sunucusu tarafından kullanılan bağlantı noktası numarası 5432'dir.
-    - **Bakım Veritabanı**: postgres 
-        - Sistem tarafından oluşturulan varsayılan veritabanı adı.
-    - **Kullanıcı Adı:** mylogin@mypgserver-20170401 
-        - Bu hızlı başlangıçta daha önce elde edilen Sunucu yöneticisi oturum açma bilgileri (user@mypgserver).
-    - **Parola**: Bu hızlı başlangıçta daha önce sunucuyu oluştururken seçtiğiniz parola.
-    - **SSL Modu**: Gerekli kıl
-        - Tüm Azure PostgreSQL sunucuları, varsayılan olarak SSL’yi zorunla tutma seçeneği AÇIK konumundayken oluşturulur. SSL’yi zorunlu tutma seçeneğini KAPALI konumuna getirmek için [SSL’yi zorunlu tutma](./concepts-ssl-connection-security.md) bölümündeki ayrıntıları inceleyin.
-5.  **Kaydet** düğmesine tıklayın.
-6.  Tarayıcı sol bölmesinde **Sunucu Grupları**’nı genişletin. **Azure PostgreSQL Sunucusu** adlı sunucunuzu seçin.
-7.  Bağlandığınız **Sunucu**’yu ve ardından altındaki **Veritabanları**’nı seçin. 
-8.  Veritabanı oluşturmak için **Veritabanları**’na sağ tıklayın.
-9.  Veritabanı adı için **mypgsqldb**’yi ve sahibi için sunucu yöneticisi oturum açma bilgileri olarak **mylogin**’i seçin.
-10. Boş bir veritabanı oluşturmak için **Kaydet**’e tıklayın.
-11. **Tarayıcı**’da **Sunucu**’yu genişletin. Oluşturduğunuz sunucuyu genişletin ve altındaki **mypgsqldb** veritabanını bulun.
- ![pgAdmin - Oluştur - Veritabanı](./media/quickstart-create-database-portal/11-pgadmin-database.png)
+GUI aracı pgAdmin kullanarak Azure PostgreSQL sunucuya bağlanmak için:
+1. İstemci bilgisayarınızda pgAdmin uygulamasını açın. Gelen pgAdmin yükleyebilirsiniz [pgAdmin Web sitesi](http://www.pgadmin.org/).
+
+2. Pano sayfasındaki altında **hızlı bağlantılar** bölümünde, select **yeni sunucu Ekle** simgesi.
+
+3. İçinde **Create - Server** iletişim kutusundaki **genel** sekmesinde, sunucu için benzersiz bir kolay ad girin **Azure PostgreSQL sunucusu**.
+
+    !["Genel" sekmesindeki](./media/quickstart-create-database-portal/9-pgadmin-create-server.png)
+
+4. İçinde **Create - Server** iletişim kutusundaki **bağlantı** sekmesinde ayarları belirtildiği şekilde kullanın ve ardından **kaydetmek**.
+
+   !["Bağlantı" sekmesi](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
+
+    pgAdmin parametresi |Önerilen değer|Açıklama
+    ---|---|---
+    Konak Adı/Adresi | Sunucu adı | Daha önce PostgreSQL sunucu için Azure veritabanı oluştururken kullandığınız sunucu adı değeri. Bizim örnek sunucu **mypgserver 20170401.postgres.database.azure.com.** Tam etki alanı adını kullanın (**\*. postgres.database.azure.com**) örnekte gösterildiği gibi. Sunucu adınızı anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. 
+    Bağlantı noktası | 5432 | PostgreSQL server için Azure veritabanına bağlanırken kullanılacak bağlantı noktası. 
+    Bakım veritabanı | *postgres* | Varsayılan sistem tarafından oluşturulan veritabanı adı.
+    Kullanıcı adı | Sunucu yönetici oturum açma adı | Daha önce PostgreSQL sunucu için Azure veritabanı oluşturduğunuzda, sağladığınız sunucu yönetici oturum açma kullanıcı adı. Kullanıcı adını anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. Biçim şöyledir: *username@servername*.
+    Parola | Yönetici parolası | Parola, seçtiğiniz bu Quickstart önceki sunucu oluşturduğunuzda.
+    Rol | Boş bırakın | Rol adı bu noktada sağlamaya gerek yoktur. Alanı boş bırakın.
+    SSL modu | Gerekli | Varsayılan olarak, tüm Azure PostgreSQL sunucularının SSL ile oluşturulan zorlamayı açık. SSL zorlamayı devre dışı bırakmak için bkz: [Zorla SSL](./concepts-ssl-connection-security.md).
+    
+5. **Kaydet**’i seçin.
+
+6. İçinde **tarayıcı** sol bölmesinde **sunucuları** düğümü. Örneğin, sunucunuzun seçin **Azure PostgreSQL sunucusu**. Bağlanmak için tıklatın.
+
+7. Sunucu düğümünü ve ardından onun altındaki **Veritabanları**’nı genişletin. Var olan içermelidir *postgres* veritabanı ve herhangi bir yeni oluşturulan kullanıcı veritabanı gibi **mypgsqldb**, önceki bölümde oluşturduğumuz. Sunucu başına birden çok veritabanı için PostgreSQL Azure veritabanı oluşturabilirsiniz dikkat edin.
+
+8. Sağ **veritabanları**, seçin **oluşturma** menüsüne ve ardından **veritabanı**.
+
+9. Tercih ettiğiniz bir veritabanı adı yazın **veritabanı** gibi alan **mypgsqldb**, örnekte gösterildiği gibi.
+
+10. Seçin **sahibi** liste kutusundan veritabanı için. Bizim örneğimizde gibi yönetici oturum açma adı sunucunuzu seçin **mylogin**.
+
+11. Seçin **kaydetmek** yeni bir boş veritabanı oluşturmak için.
+
+12. İçinde **tarayıcı** bölmesinde veritabanları listesinde, sunucu adı altında oluşturulan veritabanı bakın.
+
+    !["Tarayıcı" bölmesi](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-[Azure kaynak grubunu](../azure-resource-manager/resource-group-overview.md) silerek hızlı başlangıçta oluşturduğunuz tüm kaynakları temizleyin.
+Hızlı Başlangıç iki yoldan biriyle oluşturduğunuz kaynakları temizleyebilirsiniz. Kaynak grubundaki tüm kaynakları içeren [Azure kaynak grubunu](../azure-resource-manager/resource-group-overview.md) silebilirsiniz. Diğer kaynaklar korumanız istiyorsanız, yalnızca tek bir sunucu kaynak silin.
 
 > [!TIP]
-> Bu koleksiyondaki diğer hızlı başlangıçlar, bu hızlı başlangıcı temel alır. Sonraki hızlı başlangıçlarla çalışmaya devam etmeyi planlıyorsanız bu hızlı başlangıçta oluşturulan kaynakları temizlemeyin. Devam etmeyi planlamıyorsanız Azure portalında bu hızlı başlangıç ile oluşturulan tüm kaynakları silmek için aşağıdaki adımları kullanın.
+> Bu koleksiyondaki diğer Hızlı Başlangıçlar, bu Hızlı Başlangıcı temel alır. Hızlı başlangıçlarla çalışmaya devam etmeyi planlıyorsanız bu hızlı başlangıçta oluşturulan kaynakları temizlemeyin. Devam etmek düşünmüyorsanız bu hızlı başlangıç portalında tarafından oluşturulan kaynakları silmek için aşağıdaki adımları izleyin.
 
-1.  Azure portalında sol taraftaki menüden, **Kaynak grupları**’na ve ardından **myresourcegroup**’a tıklayın.
-2.  Kaynak grubu sayfanızda **Sil**’e tıklayın, metin kutusuna **myresourcegroup** yazıp Sil’e tıklayın.
+Yeni oluşturulan server dahil olmak üzere tüm kaynak grubunu silmek için:
+1. Kaynak grubunuzun portalda bulun. Sol taraftaki menüden seçin **kaynak grupları**. Bizim örneğimizde gibi kaynak grubunuzun adını seçip **myresourcegroup**.
 
-Yalnızca yeni oluşturulan sunucuyu silmek istiyorsanız:
-1.  Azure portalında sol taraftaki menüden PostgreSQL sunucuları’na tıklayın ve kısa süre önce oluşturduğunuz sunucuyu aratın
-2.  Genel bakış sayfasında, ![PostgreSQL için Azure Veritabanı - Sunucuyu silme](./media/quickstart-create-database-portal/12-delete.png) üst bölmesinde Sil düğmesine tıklayın
-3.  Silmek istediğiniz sunucu adını onaylayın ve altındaki etkilenen veritabanlarını gösterin. Metin kutusuna **mypgserver-20170401** yazıp Sil’e tıklayın.
+2. Kaynak grubunuzun sayfasında **Sil**’i seçin. Bizim örneğimizde gibi kaynak grubunuzun adını yazın **myresourcegroup**, silmeyi onaylamak için metin kutusundaki. **Sil**’i seçin.
+
+Yalnızca yeni oluşturulan sunucusunu silmek için:
+1. Açık sahip değilseniz, sunucunuzun Portalı'nda bulun. Sol taraftaki menüden seçin **tüm kaynakları**. Ardından, oluşturduğunuz sunucuyu arayın.
+
+2. **Genel Bakış** sayfasında **Sil**’i seçin.
+
+    !["Sil" düğmesini](./media/quickstart-create-database-portal/12-delete.png)
+
+3. Silmek istediğiniz sunucu adını doğrulayın ve altındaki etkilenen veritabanlarını görüntüleyin. Bizim örneğimizde gibi metin kutusuna sunucunuzun adını yazın **mypgserver 20170401**. **Sil**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [Dışarı Aktarma ve İçeri Aktarma seçeneğini kullanarak veritabanınızı geçirme](./howto-migrate-using-export-and-import.md)
-

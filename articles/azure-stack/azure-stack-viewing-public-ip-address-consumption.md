@@ -1,6 +1,6 @@
 ---
-title: View public IP address consumption in Azure Stack | Microsoft Docs
-description: Administrators can view the consumption of public IP addresses in a region
+title: "Ortak IP adresi tüketim Azure yığınında görüntülemek | Microsoft Docs"
+description: "Yöneticiler, bir bölgede genel IP adresleri tüketiminin görüntüleyebilir"
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,55 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7651565eebf6272f307a4ce4790ca19b41bfa826
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="view-public-ip-address-consumption-in-azure-stack"></a>View public IP address consumption in Azure Stack
+# <a name="view-public-ip-address-consumption-in-azure-stack"></a>Ortak IP adresi tüketim Azure yığınında görüntüleyin
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-As a cloud administrator, you can view the number of public IP addresses that have been allocated to tenants, the number of public IP addresses that are still available for allocation, and the percentage of public IP addresses that have been allocated in that location.
+Bulut Yöneticisi olarak, kiracılar, ayırma için hala kullanılabilir genel IP adresleri sayısını ve söz konusu konumda ayrılmış genel IP adresleri yüzdesini ayrılmış genel IP adresleri sayısını görebilirsiniz.
 
-The **Public IP pools usage** tile shows the total number of public IP addresses that have been consumed across all public IP address pools on the fabric, whether they have been used for tenant IaaS VM instances, fabric infrastructure services, or public IP address resources that were explicitly created by tenants.
+**Genel IP havuzları kullanım** döşeme Iaas VM örnekleri, Kiracı doku altyapınız için kullanılmış olup olmadığını doku tüm ortak IP adresi havuzundaki genelinde kullanılan genel IP adresleri toplam sayısını gösterir Hizmetleri veya açıkça kiracılar tarafından oluşturulan ortak IP adresi kaynakları.
 
-The purpose of this tile is to give Azure Stack administrators a sense of the overall number of public IP addresses that have been consumed in this location. This helps administrators determine whether they are running low on this resource.
+Bu kutucuğu amacı, bu konumda tüketilen genel IP adresleri genel sayısını duygusu Azure yığın Yöneticiler vermektir. Bu, bunlar Bu kaynakta düşük çalışıp çalışmadığını belirleme Yöneticiler yardımcı olur.
 
-On the **Resource providers**, **Network** blade, the **Public IP addresses** menu item under **Tenant Resources** lists only those public IP addresses that have been *explicitly created by tenants*. As such, the number of **Used** public IP addresses on the **Public IP pools usage** tile is always different from (larger than) the number on the **Public IP Addresses** tile under **Tenant Resources**.
+Üzerinde **kaynak sağlayıcıları**, **ağ** dikey penceresinde **ortak IP adresleri** menü öğesi altında **Kiracı kaynaklarına** yalnızca bu genel listeler Silinmiş IP adreslerini *kiracılar tarafından oluşturulan açıkça*. Şekilde sayısını **kullanılan** genel IP adresleri **genel IP havuzları kullanım** kutucuğu (büyük) öğesinden farklı her zaman üzerinde sayı **genel IP adresleri** döşeme altında **Kiracı kaynaklarını**.
 
-## <a name="view-the-public-ip-address-usage-information"></a>View the public IP address usage information
-To view the total number of public IP addresses that have been consumed in the region:
+## <a name="view-the-public-ip-address-usage-information"></a>Ortak IP adresi kullanım bilgilerini görüntüleme
+Bölgede tüketilen genel IP adresleri toplam sayısını görüntülemek için:
 
-1. In the Azure Stack administrator portal, click **More services**, under **Administrative Resources**, click **Resource providers**.
-2. From the list of **Resource Providers**, select **Network**.
-3. The **Network** blade displays the **Public IP pools usage** tile in the **Overview** section.
+1. Azure yığın Yönetici portalı'nda tıklatın **daha fazla hizmet**altında **yönetim kaynaklarının**, tıklatın **kaynak sağlayıcıları**.
+2. Listesinden **kaynak sağlayıcıları**seçin **ağ**.
+3. **Ağ** dikey penceresinde görüntüler **genel IP havuzları kullanım** parçasında **genel bakış** bölümü.
 
-![Network Resource Provider blade](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+![Ağ kaynak sağlayıcısı dikey penceresi](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
-Keep in mind that the **Used** number represents the number of public IP addresses from all public IP address pools in that location that are assigned. The **Free** number represents the number of public IP addresses from all public IP address pools that have not been assigned and are still available. The **% Used** number represents the number of used or assigned addresses as a percentage of the total number of public IP addresses in all public IP address pools in that location.
+Aklınızda **kullanılan** numarasını atanan tüm ortak IP adresi havuzlarını o konumda ortak IP adresi sayısı temsil eder. **Serbest** tüm ortak bir IP adresi genel IP sayısı sayı temsil adresi henüz atanmamış ve hala kullanılabilir havuzları. **% Kullanılan** numarasını kullanılan veya bu konumda bulunan tüm genel IP adresi havuzları genel IP adresleri toplam sayısı yüzdesi olarak atanmış adresleri sayısını temsil eder.
 
-## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>View the public IP addresses that were created by tenant subscriptions
-To see a list of public IP addresses that were explicitly created by tenant subscriptions in a specific region, click **Public IP addresses** under **Tenant Resources**.
+## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Kiracı abonelik tarafından oluşturulan ortak IP adreslerini görüntüleme
+Belirli bir bölgede Kiracı abonelikleri tarafından açıkça oluşturulan genel IP adresleri listesini görmek için tıklatın **ortak IP adresleri** altında **Kiracı kaynaklarına**.
 
-![Tenant public IP addresses](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![Kiracı genel IP adresleri](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
 
-You might notice that some public IP addresses that have been dynamically allocated appear in the list but do not have an address associated with them yet. This is because the address resource has been created in the Network Resource Provider, but not in the Network Controller yet.
+Dinamik olarak ayrılan bazı ortak IP adresleri listede görünür ancak henüz ilişkili bir adresi yoksa fark edebilirsiniz. Adres kaynak ağ kaynak sağlayıcısı, ancak Ağ denetleyicisi henüz oluşturulmamış olmasıdır.
 
-The Network Controller does not assign an address to this resource until it is actually bound to an interface, a network interface card (NIC), a load balancer, or a virtual network gateway. When the public IP address is bound to an interface, the Network Controller allocates an IP address to it, and it appears in the **Address** field.
+Ağ denetleyicisi, bir arabirim, bir ağ arabirimi kartı (NIC), bir yük dengeleyici veya bir sanal ağ geçidi için gerçekten bağlı olduğu kadar bir adresi bu kaynağa atamaz. Genel IP adresi için bir arabirim bağlanır, ona bir IP adresi ağ denetleyicisi ayırdığında ve görünür **adresi** alan.
 
-## <a name="view-the-public-ip-address-information-summary-table"></a>View the public IP address information summary table
-There are a number of different cases in which public IP addresses are assigned that determine whether the address appears in one list or another.
+## <a name="view-the-public-ip-address-information-summary-table"></a>Ortak IP adresi bilgileri Özet tablosunu görüntüleme
+Adres listesi veya başka bir görünür olup olmadığını belirlemek genel IP adresleri atanan farklı durumlarda mevcuttur.
 
-| **Public IP address assignment case** | **Appears in usage summary** | **Appears in tenant public IP addresses list** |
+| **Ortak IP adresi ataması durumu** | **Kullanım Özeti görüntülenir** | **Kiracı ortak IP adresleri listesinde görüntülenir** |
 | --- | --- | --- |
-| Dynamic public IP address not yet assigned to an NIC or load balancer (temporary) |No |Yes |
-| Dynamic public IP address assigned to an NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a tenant NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a fabric infrastructure service endpoint. |Yes |No |
-| Public IP address implicitly created for IaaS VM instances and used for outbound NAT on the virtual network. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. |Yes |No |
+| Henüz bir NIC veya yük dengeleyiciye (geçici) atanan dinamik genel IP adresi |Hayır |Evet |
+| Dinamik genel IP adresi için bir NIC veya yük dengeleyici atanmış. |Evet |Evet |
+| Statik genel IP adresi için bir kiracı NIC veya yük dengeleyici atanmış. |Evet |Evet |
+| Statik genel IP adresi yapı altyapı Hizmeti uç noktası için atanmış. |Evet |Hayır |
+| Genel IP adresi örtük olarak Iaas VM örnekleri için oluşturulur ve sanal ağda giden NAT için kullanılır. Kiracı VM örneği oluşturur ve böylece VM'ler bilgilerini Internet'e gönderebilirsiniz olduğunda bunlar arka planda oluşturulur. |Evet |Hayır |
 
-## <a name="next-steps"></a>Next steps
-[Manage Storage Accounts in Azure Stack](azure-stack-manage-storage-accounts.md)
+## <a name="next-steps"></a>Sonraki adımlar
+[Depolama hesaplarını Azure yığınında yönetme](azure-stack-manage-storage-accounts.md)

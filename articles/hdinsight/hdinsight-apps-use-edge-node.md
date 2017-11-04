@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jgao
-ms.openlocfilehash: e21dabcc6999b1f1047d334e782f723d0c03c2cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ad161ada875ab30ed8de24506ed27265f26e994a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Hdınsight'ta Hadoop kümeleri üzerinde boş kenar düğümleri kullanın
 
@@ -76,7 +76,7 @@ Bu bölümde, bir kenar düğümü olan bir Hdınsight kümesine eklemek için b
 
 **Bir boş kenar düğümüne varolan bir kümeye eklemek için**
 
-1. Henüz yoksa, Hdınsight kümesi oluşturun.  Bkz: [Hadoop Öğreticisi: Hdınsight'ta Hadoop kullanmaya başlamanıza](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Henüz yoksa, Hdınsight kümesi oluşturun.  Bkz: [Hadoop Öğreticisi: Hdınsight'ta Hadoop kullanmaya başlamanıza](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Azure'da oturum açın ve Azure portalında Azure Resource Manager şablonunu açmak için aşağıdaki görüntüye tıklayın. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
@@ -99,7 +99,7 @@ Bu bölümde, bir kenar düğümüne ile Hdınsight kümesi oluşturmak için Re
 
 **Bir boş kenar düğümüne varolan bir kümeye eklemek için**
 
-1. Henüz yoksa, Hdınsight kümesi oluşturun.  Bkz: [Hdınsight'ta Hadoop kullanmaya başlamanıza](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Henüz yoksa, Hdınsight kümesi oluşturun.  Bkz: [Hdınsight'ta Hadoop kullanmaya başlamanıza](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Azure'da oturum açın ve Azure portalında Azure Resource Manager şablonunu açmak için aşağıdaki görüntüye tıklayın. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>

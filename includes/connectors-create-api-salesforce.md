@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [Salesforce](https://salesforce.com) account  
+### <a name="prerequisites"></a>Ön koşullar
+* A [Salesforce](https://salesforce.com) hesabı  
 
-Before you can use your Salesforce account in a logic app, you must authorize the logic app to connect to your Salesforce account.Fortunately, you can do this easily from within your logic app on the Azure Portal.  
+Salesforce hesabınızda bir mantıksal uygulama kullanmadan önce Salesforce hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
 
-Here are the steps to authorize your logic app to connect to your Salesforce account:  
+Salesforce hesabınıza bağlanmak için mantıksal uygulamanızı yetkilendirmek için adımlar şunlardır:  
 
-1. To create a connection to Salesforce, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Salesforce* in the search box. Select the trigger or action you'll like to use:  
-   ![Salesforce connection image 1](./media/connectors-create-api-salesforce/salesforce-1.png)  
-2. If you haven't created any connections to Salesforce before, you'll get prompted to provide your Salesforce credentials. These credentials will be used to authorize your logic app to connect to, and access your Salesforce account's data:  
-   ![Salesforce connection image 2](./media/connectors-create-api-salesforce/salesforce-2.png)  
-3. Provide your Salesforce user name and password to authorize your logic app:  
-   ![Salesforce connection image 3](./media/connectors-create-api-salesforce/salesforce-3.png)  
-4. Allow us to connect to Salesforce:  
-   ![Salesforce connection image 4](./media/connectors-create-api-salesforce/salesforce-4.png)  
-5. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
-   ![Salesforce connection image 5](./media/connectors-create-api-salesforce/salesforce-5.png)  
+1. Mantıksal Uygulama Tasarımcısı'nda Salesforce, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Salesforce* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+   ![Salesforce bağlantı görüntü 1](./media/connectors-create-api-salesforce/salesforce-1.png)  
+2. Salesforce önce bağlantılarına oluşturmadıysanız, Salesforce kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Salesforce hesabınızın veri erişim:  
+   ![Salesforce bağlantı görüntü 2](./media/connectors-create-api-salesforce/salesforce-2.png)  
+3. Salesforce kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
+   ![Salesforce bağlantısının resmi 3](./media/connectors-create-api-salesforce/salesforce-3.png)  
+4. Bize Salesforce bağlanmasına izin ver:  
+   ![Salesforce bağlantısının resmi 4](./media/connectors-create-api-salesforce/salesforce-4.png)  
+5. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+   ![Salesforce bağlantısının resmi 5](./media/connectors-create-api-salesforce/salesforce-5.png)  
 

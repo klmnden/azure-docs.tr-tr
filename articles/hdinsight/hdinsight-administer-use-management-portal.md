@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portalı'nı kullanarak Windows tabanlı Hadoop kümeleri hdınsight'ta yönetme
 
@@ -61,7 +61,7 @@ Hdınsight geniş Hadoop bileşenleri ile çalışır. Doğrulandı ve desteklen
 
 * Küme yapılandırmasını değiştirmek veya Giraph veya Solr gibi özel bileşenleri yüklemek için bir küme özelleştirebilirsiniz özel komut dosyaları çalıştırmak için betik eylemi kullanın. Daha fazla bilgi için bkz: [betik eylemi kullanarak özelleştirme Hdınsight kümesi](hdinsight-hadoop-customize-cluster.md).
 * Küme oluşturma sırasında Hdınsight .NET SDK veya Azure PowerShell küme özelleştirme parametrelerini kullanın. Bu yapılandırma değişikliklerini kümenin kullanım ömrü sonra korunur ve Azure platformu düzenli olarak bakımını gerçekleştirir küme düğümü reimages etkilenmez. Küme özelleştirme parametreleri kullanma hakkında daha fazla bilgi için bkz: [Hdınsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
-* Mahout ve basamaklama, gibi yerel bazı Java bileşenleri kümede JAR dosyaları olarak çalıştırabilirsiniz. Bu JAR dosyalarını Azure Blob depolama alanına dağıtılmış ve Hdınsight kümeleri için Hadoop iş gönderme mekanizmalar aracılığıyla gönderildi. Daha fazla bilgi için bkz: [gönderme Hadoop işleri program aracılığıyla](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Mahout ve basamaklama, gibi yerel bazı Java bileşenleri kümede JAR dosyaları olarak çalıştırabilirsiniz. Bu JAR dosyalarını Azure Blob depolama alanına dağıtılmış ve Hdınsight kümeleri için Hadoop iş gönderme mekanizmalar aracılığıyla gönderildi. Daha fazla bilgi için bkz: [gönderme Hadoop işleri program aracılığıyla](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
   > Hdınsight kümelerinde JAR dosyalarını çağırma başvurun veya Hdınsight kümelerine JAR dosyalarını dağıtma sorunları varsa [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -213,7 +213,7 @@ Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. 
 * Kullanıcı Azure Data Factory. Bkz: [Azure Hdınsight bağlı hizmeti](../data-factory/compute-linked-services.md) ve [dönüştürme ve Azure Data Factory kullanarak Analiz](../data-factory/transform-data.md) Hizmetleri için isteğe bağlı ve otomatik olarak tanımlanan Hdınsight bağlı.
 * Azure PowerShell kullanın.  Bkz: [uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md).
 * Azure CLI kullanın. Bkz: [Azure CLI kullanarak Hdınsight kümelerini yönetme](hdinsight-administer-use-command-line.md).
-* Hdınsight .NET SDK'yı kullanın. Bkz: [gönderme Hadoop işlerini](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Hdınsight .NET SDK'yı kullanın. Bkz: [gönderme Hadoop işlerini](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Fiyatlandırma bilgileri için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/). Portaldan bir kümeyi silmek için bkz: [küme silme](#delete-clusters)
 
@@ -271,7 +271,7 @@ Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>Hdınsight sorgu Konsolu'nu Aç
 Hdınsight sorgu Konsolu aşağıdaki özellikleri içerir:
 
-* **Düzenleyici hive**: Hive işlerini göndermenin bir GUI web arabirimi.  Bkz: [sorgu konsolunu kullanarak Hive sorgularını çalıştırma](hdinsight-hadoop-use-hive-query-console.md).
+* **Düzenleyici hive**: Hive işlerini göndermenin bir GUI web arabirimi.  Bkz: [sorgu konsolunu kullanarak Hive sorgularını çalıştırma](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![Hdınsight portal hive Düzenleyicisi](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **İş Geçmişi**: İzleyici Hadoop işler.  
@@ -371,8 +371,8 @@ Bu makalede, Portal kullanarak bir Hdınsight kümesi oluşturma ve Hadoop komut
 * [Hdınsight Azure PowerShell kullanarak yönetme](hdinsight-administer-use-powershell.md)
 * [Hdınsight Azure CLI kullanarak yönetme](hdinsight-administer-use-command-line.md)
 * [Hdınsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md)
-* [Hadoop işlerini programlı olarak gönderme](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Azure Hdınsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Hadoop işlerini programlı olarak gönderme](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Azure Hdınsight kullanmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Azure Hdınsight'ta Hadoop hangi sürümünün mi?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

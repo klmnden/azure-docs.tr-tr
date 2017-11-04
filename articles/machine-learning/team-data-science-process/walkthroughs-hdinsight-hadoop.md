@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 5dbfd043f1809f407baf6aa4ca5c5272af425012
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cef2dac8651933765c83410579eafb23460960f9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Hdınsight Hadoop veri bilimi Azure üzerinde Hive kullanarak izlenecek yollar 
 
-Bu izlenecek yollar Tahmine dayalı analiz yapmak için bir Hdınsight Hadoop kümesi ile Hive kullanma. Bunlar takım veri bilimi işleminde açıklanan adımları izleyin. Takım veri bilimi işlemine genel bakış için bkz: [veri bilimi işlemi](overview.md). Azure Hdınsight giriş için bkz: [Azure Hdınsight giriş, Hadoop teknoloji yığınının ve Hadoop kümeleri](../../hdinsight/hdinsight-hadoop-introduction.md).
+Bu izlenecek yollar Tahmine dayalı analiz yapmak için bir Hdınsight Hadoop kümesi ile Hive kullanma. Bunlar takım veri bilimi işleminde açıklanan adımları izleyin. Takım veri bilimi işlemine genel bakış için bkz: [veri bilimi işlemi](overview.md). Azure Hdınsight giriş için bkz: [Azure Hdınsight giriş, Hadoop teknoloji yığınının ve Hadoop kümeleri](../../hdinsight/hadoop/apache-hadoop-introduction.md).
 
 Takım veri bilimi işlemi yürütmek ek veri bilimi talimatlara göre gruplandırılır **platform** kullandıkları. Bkz: [takım veri bilimi işlemi yürütülürken izlenecek yollar](walkthroughs.md) bir döküm Bu örnekler için.
 

@@ -8,5 +8,5 @@
 | Birim başına Karma Bağlantı Veri Aktarımı (GB) |5 |5 |50 |250 |500 |
 | BizTalk bağdaştırıcı hizmeti birim başına kullanarak bağlantı sayısı |Yok |1 |2 |5 |25 |
 | Arşivleme |Yok |Kullanılabilir |Yok |Yok |Kullanılabilir |
-| Yüksek kullanılabilirlik |Yok |Yok |Kullanılabilir |Kullanılabilir |Kullanılabilir |
+| Yüksek Kullanılabilirlik |Yok |Yok |Kullanılabilir |Kullanılabilir |Kullanılabilir |
 

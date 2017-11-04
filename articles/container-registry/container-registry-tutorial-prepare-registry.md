@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 88feffc13690a3a33f757a43972c5ef1fe967b7f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 75408dc88b23b615971a23dc6235c563229d75aa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Coğrafi olarak çoğaltılmış Azure kapsayıcı kayıt defteri hazırlama
 
@@ -247,10 +247,10 @@ Bu öğreticide, bir kapsayıcı görüntüsü yerleşik bir özel, coğrafi ola
 > * Uygulama kaynağı Docker kapsayıcısı görüntüden yerleşik
 > * Kayıt defterine kapsayıcı görüntü gönderilir
 
-Görüntüleri yerel olarak hizmet vermek için coğrafi çoğaltma'yı kullanarak birden çok Azure App Service örneği, kapsayıcı dağıtma hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Birden çok Web görüntüleri yerel olarak hizmet vermek için coğrafi çoğaltma'yı kullanarak uygulamaları için kapsayıcı örnekleri için kapsayıcı dağıtma hakkında bilgi edinmek için sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Azure App Services kapsayıcıları dağıtın](container-registry-tutorial-deploy-app.md)
+> [Azure kapsayıcı kayıt defterinden Web uygulaması dağıtma](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

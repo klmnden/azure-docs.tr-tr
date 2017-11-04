@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/26/2016
 ms.author: jgao
-ms.openlocfilehash: edbf797e6277a65b5311e4939f5ab72776b11557
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 56c00c3ea885bd1f431613ea90868dc65c98818b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure hdınsight'ta Hive sorguları en iyi duruma getirme
 
@@ -180,11 +180,11 @@ Daha fazla bilgi için bkz: [sorgu yürütme Vectorized](https://cwiki.apache.or
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, birçok yaygın Hive sorgusu en iyi duruma getirme yöntemleri öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Hdınsight'ta Apache Hive kullanma](hdinsight-use-hive.md)
+* [Hdınsight'ta Apache Hive kullanma](hadoop/hdinsight-use-hive.md)
 * [Hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md)
 * [Twitter verilerini hdınsight'ta Hive kullanma çözümleme](hdinsight-analyze-twitter-data.md)
-* [Hdınsight'ta Hadoop Hive sorgusu Konsolu kullanarak algılayıcı verilerini çözümleme](hdinsight-hive-analyze-sensor-data.md)
-* [Web sitesi günlüklerini çözümlemek için Hdınsight ile Hive kullanma](hdinsight-hive-analyze-website-log.md)
+* [Hdınsight'ta Hadoop Hive sorgusu Konsolu kullanarak algılayıcı verilerini çözümleme](hadoop/apache-hive-analyze-sensor-data.md)
+* [Web sitesi günlüklerini çözümlemek için Hdınsight ile Hive kullanma](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

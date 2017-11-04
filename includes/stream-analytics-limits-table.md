@@ -1,11 +1,11 @@
 ---
-| Limit identifier | Limit | Comments |
+| Sınır tanımlayıcı | Sınır | Yorumlar |
 | --- | --- | --- |
-| Maximum number of Streaming Units per subscription per region |200 |A request to increase streaming units for your subscription beyond 200 can be made by contacting [Microsoft Support](https://support.microsoft.com/en-us). |
-| Maximum number of inputs per job |60 |There is a hard limit of 60 inputs per Stream Analytics job. |
-| Maximum number of outputs per job |60 |There is a hard limit of 60 outputs per Stream Analytics job. |
-| Maximum number of functions per job |60 |There is a hard limit of 60 functions per Stream Analytics job. |
-| Maximum number of Streaming Units per job |120 |There is a hard limit of 120 Streaming Units per Stream Analytics job. |
-| Maximum number of jobs per region |1500 |Each subscription may have up to 1500 jobs per geographical region. |
-| Reference data blob MB | 100 | Reference data blobs cannot be larger than 100 MB each. |
+| Her bölgede abonelik başına en fazla Akış Birimi sayısı |200 |Akış birimleri başvurarak aboneliğinizi 200 ötesinde yapılamaz artırmak için bir istek [Microsoft Support](https://support.microsoft.com/en-us). |
+| İş başına en fazla girdi sayısı |60 |Stream Analytics işi başına 60 girdilik sabit bir sınır vardır. |
+| İş başına en fazla çıktı sayısı |60 |Stream Analytics işi başına 60 çıktılık sabit bir sınır vardır. |
+| İş başına en fazla işlev sayısı |60 |Stream Analytics işi başına 60 işlevlik sabit bir sınır vardır. |
+| İş başına en fazla sayısını akış birimleri |120 |Stream Analytics işi başına 120 akış birim sabit bir sınırı yoktur. |
+| Bölge başına en fazla işi sayısı |1500 |Her abonelik bir coğrafi bölgede en fazla 1500 iş içerebilir. |
+| MB cinsinden başvuru veri blob’u | 100 | Başvuru veri blob’larının her biri en fazla 100 MB olabilir. |
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 85424a00b34b4bccf7dc38b2bae1cfe31b2507d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9ff633b4543fbc537ffdb721756706e8de5e8e88
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark yerleşik makine öğrenimi modellerini faaliyete
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -118,7 +118,7 @@ Bazı önceden tanımlanmış "sihirleri" ile çağırabilir özel komutlar oldu
 * **%% sql -o<variable name>** 
 * Bir Hive sorgusu sqlContext yürütür. -O parametre verilmezse, sorgunun sonucu kalıcı hale getirilir %% Pandas dataframe olarak yerel Python bağlamı.
 
-Tekrar Jupyter not defterlerini ve önceden tanımlanmış hakkında daha fazla bilgi "magics için" sağladıkları, bkz: [Jupyter not defterlerinde kullanılabilen çekirdekler Hdınsight Spark Linux kümeleri Hdınsight'ta](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Tekrar Jupyter not defterlerini ve önceden tanımlanmış hakkında daha fazla bilgi "magics için" sağladıkları, bkz: [Jupyter not defterlerinde kullanılabilen çekirdekler Hdınsight Spark Linux kümeleri Hdınsight'ta](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Veri alma ve Temizlenen veri çerçeve oluşturma
 Bu bölümde belirtmek için veri alma için gereken görevleri bir dizi kodunu içerir. Bir birleştirilmiş % 0,1 örnek (.tsv dosyası olarak depolanır) ücreti seyahat ve ücreti dosyanın biçimi verileri okuma ve ardından temiz veri çerçevesi oluşturur.
@@ -527,7 +527,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Bir web arabirimi üzerinden Spark modelleri kullanma
-Spark uzaktan Livy adlı bir bileşen ile toplu işler veya bir REST arabiriminden etkileşimli sorguları göndermek için bir mekanizma sağlar. Livy Hdınsight Spark kümenizin üzerinde varsayılan olarak etkindir. Livy hakkında daha fazla bilgi için bkz: [uzaktan Livy kullanarak Spark gönderme işleri](../../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
+Spark uzaktan Livy adlı bir bileşen ile toplu işler veya bir REST arabiriminden etkileşimli sorguları göndermek için bir mekanizma sağlar. Livy Hdınsight Spark kümenizin üzerinde varsayılan olarak etkindir. Livy hakkında daha fazla bilgi için bkz: [uzaktan Livy kullanarak Spark gönderme işleri](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Bir Azure blob depolanır ve ardından sonuçları için başka bir blob yazan bir dosya uzaktan puanları toplu bir işi göndermek için Livy kullanabilirsiniz. Bunu yapmak için Python komut dosyasını karşıya yükleyin.  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) Spark kümesi blob için. Gibi bir araç kullanabilirsiniz **Microsoft Azure Storage Gezgini** veya **AzCopy** küme blob komut dosyasını kopyalamak için. Örneğimizde sorundan betiğe karşıya ***wasb:///example/python/ConsumeGBNYCReg.py***.   

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Platformlar ve veri bilimi takım projeleri için Araçlar
 
@@ -61,7 +61,7 @@ Apache Spark büyük veri analizi uygulamalarının performansını artırmak ü
 
 HDInsight’ta Spark kümesi oluşturduğunuzda, Spark yüklenmiş ve yapılandırılmış olarak Azure işlem kaynakları oluşturursunuz. Hdınsight'ta Spark kümesi oluşturmak için yaklaşık 10 dakika sürer. Azure Blob depolama alanına işlenmesi için verileri depolar. Bir küme ile Azure Blob Storage kullanma hakkında daha fazla bilgi için bkz: [HDFS uyumlu Azure Blob storage kullanma hdınsight'ta Hadoop ile](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-TDSP takım Microsoft Azure Hdınsight Spark kümeleri veri bilimi çözümleri oluşturmak için nasıl kullanılacağı hakkında iki uçtan uca izlenecek yollar yayımlanan Python ve diğer Scala kullanarak bir tane. Azure Hdınsight hakkında daha fazla bilgi için **Spark kümeleri**, bkz: [genel bakış: Hdınsight Linux üzerinde Apache Spark](../../hdinsight/hdinsight-apache-spark-overview.md). Bir veri bilimi çözümünü kullanarak oluşturmayı öğrenmek için **Python** bir Azure Hdınsight Spark kümesinde bkz [genel bakış, verileri Azure Hdınsight'ta Spark kullanmanın Bilim](spark-overview.md). Bir veri bilimi çözümünü kullanarak oluşturmayı öğrenmek için **Scala** bir Azure Hdınsight Spark kümesinde bkz [Scala ve Spark Azure üzerinde kullanarak veri bilimi](scala-walkthrough.md). 
+TDSP takım Microsoft Azure Hdınsight Spark kümeleri veri bilimi çözümleri oluşturmak için nasıl kullanılacağı hakkında iki uçtan uca izlenecek yollar yayımlanan Python ve diğer Scala kullanarak bir tane. Azure Hdınsight hakkında daha fazla bilgi için **Spark kümeleri**, bkz: [genel bakış: Hdınsight Linux üzerinde Apache Spark](../../hdinsight/spark/apache-spark-overview.md). Bir veri bilimi çözümünü kullanarak oluşturmayı öğrenmek için **Python** bir Azure Hdınsight Spark kümesinde bkz [genel bakış, verileri Azure Hdınsight'ta Spark kullanmanın Bilim](spark-overview.md). Bir veri bilimi çözümünü kullanarak oluşturmayı öğrenmek için **Scala** bir Azure Hdınsight Spark kümesinde bkz [Scala ve Spark Azure üzerinde kullanarak veri bilimi](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı
@@ -86,7 +86,7 @@ Hive, büyük ölçüde yapılandırılmamış veriler üzerinde proje yapısın
 
 Veri bilimcilerine için Hive Python User-Defined işlevler (UDF'ler) kayıtlarını işlemek için Hive sorguları çalıştırabilirsiniz. Bu özelliği, veri analizi Hive sorguları yeteneğini önemli ölçüde genişletir. Özellikle, bunlar çoğunlukla aşina dillerde ölçeklenebilir özellik Mühendisliği yürütmek veri bilimcilerine sağlar: SQL benzeri HiveQL ve Python. 
 
-Azure Hdınsight Hive kümeleri hakkında daha fazla bilgi için bkz: [Hive ve HiveQL hdınsight'ta Hadoop ile](../../hdinsight/hdinsight-use-hive.md). Azure Hdınsight Hive kümeleri ile ölçeklenebilir uçtan uca veri bilimi çözüm oluşturmayı öğrenmek için bkz: [takım veri bilimi işleminde eylemi: Hdınsight Hadoop kümeleri kullanarak](hive-walkthrough.md).
+Azure Hdınsight Hive kümeleri hakkında daha fazla bilgi için bkz: [Hive ve HiveQL hdınsight'ta Hadoop ile](../../hdinsight/hadoop/hdinsight-use-hive.md). Azure Hdınsight Hive kümeleri ile ölçeklenebilir uçtan uca veri bilimi çözüm oluşturmayı öğrenmek için bkz: [takım veri bilimi işleminde eylemi: Hdınsight Hadoop kümeleri kullanarak](hive-walkthrough.md).
 
 
 ## <a name="azure-file-storage"></a>Azure dosya depolama 

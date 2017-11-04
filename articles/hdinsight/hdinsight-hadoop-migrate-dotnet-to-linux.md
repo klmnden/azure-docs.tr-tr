@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: df931d0f76498506cfc946501e4d385d0dfead80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 978606aa5f16842f8198ee67a65b476b4f560ab7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows tabanlı Hdınsight Linux tabanlı hdınsight'a için .NET çözümleri geçirme
 
@@ -33,7 +33,7 @@ Mono sürüm 4.2.1 Hdınsight sürüm 3.5 ile dahil edilir. Hdınsight ile dahil
 Mono ve .NET uyumluluğu hakkında daha fazla bilgi için bkz: [Mono uyumluluk (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) belge.
 
 > [!IMPORTANT]
-> SCP.NET framework Mono ile uyumludur. SCP.NET Mono ile kullanma hakkında daha fazla bilgi için bkz: [Hdınsight üzerinde Apache Storm için C# topolojileri geliştirme için Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+> SCP.NET framework Mono ile uyumludur. SCP.NET Mono ile kullanma hakkında daha fazla bilgi için bkz: [Hdınsight üzerinde Apache Storm için C# topolojileri geliştirme için Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="automated-portability-analysis"></a>Otomatik taşınabilirlik çözümleme
 
@@ -74,8 +74,8 @@ Günlükleri erişme ile ilgili daha fazla bilgi için aşağıdaki belgelere ba
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [C# ile MapReduce hdınsight'ta kullanma](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [C# ile MapReduce hdınsight'ta kullanma](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [C# kullanıcı tanımlı işlevler Hive veya Pig kullanın](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [C# kullanıcı tanımlı işlevler Hive veya Pig kullanın](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Hdınsight üzerinde Storm için C# topolojileri geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Hdınsight üzerinde Storm için C# topolojileri geliştirme](storm/apache-storm-develop-csharp-visual-studio-topology.md)

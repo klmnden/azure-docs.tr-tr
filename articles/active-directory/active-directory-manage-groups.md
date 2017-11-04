@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 3a4764ddf2dea68bf25bd46b9691429ad3341678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: aba231a91efafa48837e45435efd51769b12374b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Azure Active Directory grupları ile kaynaklara erişimi yönetme
 Azure Active Directory (Azure AD), güçlü bir şirket içi ve bulut uygulamalarını ve Office 365 ve Microsoft olmayan SaaS uygulamaları dünyasına gibi Microsoft Çevrimiçi hizmetler gibi kaynakları erişimi yönetmek için özellikler kümesi sağlayan kapsamlı bir kimlik ve erişim yönetimi çözüm olduğu. Bu makalede genel bir bakış sağlar, ancak başlatmak istiyorsanız Azure AD kullanarak gruplar şu anda,'ndaki yönergeleri izleyin [Azure AD'deki güvenlik gruplarını yönetme](active-directory-accessmanagement-manage-groups.md). Azure Active Directory'deki grupları yönetmek için PowerShell nasıl kullanabileceğiniz görmek istiyorsanız, daha fazla bilgiyi [Grup Yönetimi için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
@@ -66,7 +66,7 @@ Bir grubun sahibi, ayrıca bu grubun Self Servis isteklerine için kullanılabil
 ## <a name="getting-started-with-access-management"></a>Access management ile çalışmaya başlama
 Başlamaya hazır mısınız? Azure AD grupları ile yapabileceğiniz temel görevlerden bazıları çıkışı denemelisiniz. Kuruluşunuzdaki farklı kaynaklar için farklı kişi grupları için özel erişim sağlamak için bu özellikleri kullanın. Temel ilk adımlar listesi aşağıda listelenmektedir.
 
-* [Dinamik bir grup üyeliklerini yapılandırmak için basit bir kural oluşturma](active-directory-accessmanagement-manage-groups.md#how-can-i-manage-the-membership-of-a-group-dynamically)
+* [Dinamik bir grup üyeliklerini yapılandırmak için basit bir kural oluşturma](active-directory-accessmanagement-manage-groups.md)
 * [SaaS uygulamalarına erişimi yönetmek için bir grup kullanma](active-directory-accessmanagement-group-saasapps.md)
 * [Bir grup için son kullanıcı Self Servis kullanıma](active-directory-accessmanagement-self-service-group-management.md)
 * [Azure AD Connect kullanan Azure şirket içi gruba eşitleniyor](active-directory-aadconnect.md)

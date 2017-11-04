@@ -1,10 +1,10 @@
-This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps); for Cloud Services, see [Configuring a custom domain name for an Azure cloud service](../articles/cloud-services/cloud-services-custom-domain-name.md).
+Bu makalede Azure uygulama hizmeti (Web Apps, API Apps, Mobile Apps, Logic Apps); içindir Bulut Hizmetleri için bkz: [bir Azure bulut hizmeti için bir özel etki alanı adı yapılandırma](../articles/cloud-services/cloud-services-custom-domain-name.md).
 
 > [!NOTE]
-> If you app is load-balanced by [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), click the selector at the top of this article to get specific steps.
+> Uygulamanızı yük dengeli tarafından ise [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), belirli adımları almak için bu makalenin üst seçicisini tıklatın.
 > 
-> **Custom domain names are not enabled for Free tier**. You must [scale up to a higher pricing tier](../articles/app-service/web-sites-scale.md), which may change how much you are billed for your subscription. 
-> See [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/) for more information.
+> **Özel etki alanı adları etkin ücretsiz katmanı**. Yapmanız gerekenler [tarihine kadar daha yüksek bir fiyatlandırma katmanı](../articles/app-service/web-sites-scale.md), hangi aboneliğiniz için ne kadar faturalandırılır değişebilir. 
+> Bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/) daha fazla bilgi için.
 > 
 > 
 

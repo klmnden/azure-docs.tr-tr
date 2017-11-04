@@ -4,33 +4,30 @@ description: "Visual Studio için Azure İşlevleri Araçları’nı kullanarak 
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure işlevleri, işlevler, olay işleme, işlem, sunucusuz mimari"
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 10/16/2017
 ms.author: glenga
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 016179372d69dc63f5e5226723d87ac6e74b31fd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 4a6b706b63c4e1b0df3c46bce4ff6877efca4ead
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Visual Studio kullanarak ilk işlevinizi oluşturma
 
-Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu sunucusuz bir ortamda yürütmenize olanak tanır.
+Azure işlevleri sağlar, kodunuzda yürütme bir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) önce bir VM oluşturun veya bir web uygulaması yayımlamak zorunda kalmadan ortamı.
 
-> [!IMPORTANT]
-> Bu konu başlığı altında, adımları tamamlamak için Visual Studio’nun Önizleme Sürümü kullanılır. Devam etmeden önce lütfen [Visual Studio 2017 Önizleme sürümü 15.3](https://www.visualstudio.com/vs/preview/)’ü yüklediğinizden emin olun.
-
-Bu konuda, yerel olarak bir “merhaba dünya” işlevini oluşturmak ve test etmek amacıyla Visual Studio 2017 için Azure İşlevleri Araçları’nı nasıl kullanacağınızı öğreneceksiniz. Ardından işlev kodunu Azure’da yayımlayacaksınız.
+Bu konuda, oluşturma ve bir "hello world" işlevi yerel olarak test etmek için Azure işlevleri için Visual Studio 2017 araçlarını kullanmayı öğrenin. Ardından işlev kodunu Azure’da yayımlayacaksınız. Bu araçlar, Visual Studio 2017 sürüm 15,3 veya üzeri bir sürümde Azure geliştirme iş yükünün parçası olarak kullanılabilir.
 
 ![Visual Studio projesinde Azure İşlevleri kodu](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -38,17 +35,13 @@ Bu konuda, yerel olarak bir “merhaba dünya” işlevini oluşturmak ve test e
 
 Bu öğreticiyi tamamlamak için şunları yükleyin:
 
-* **Azure geliştirme** iş yükü dahil [Visual Studio 2017 Önizleme sürümü 15.3](https://www.visualstudio.com/vs/preview/).
+* [Visual Studio 2017 sürüm 15.3](https://www.visualstudio.com/vs/preview/) veya sonraki bir sürümü de dahil olmak üzere **Azure geliştirme** iş yükü.
 
     ![Azure geliştirme iş yüküyle Visual Studio 2017’yi yükleyin](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+    
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="install-azure-functions-tools-for-visual-studio-2017"></a>Visual Studio 2017 için Azure İşlevleri Araçları’nı yükleyin
-
-Başlamadan önce, Visual Studio 2017 için Azure İşlevleri Araçları’nı indirip yüklemeniz gerekir. Bu araçlar, yalnızca Visual Studio 2017 Önizleme sürümü 15.3 veya sonraki bir sürümüyle kullanılabilir. Azure İşlevleri Araçları’nı zaten yüklediyseniz bu bölümü atlayabilirsiniz.
-
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)]   
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## <a name="create-an-azure-functions-project-in-visual-studio"></a>Visual Studio'da bir Azure İşlevleri projesi oluşturma
 
@@ -64,6 +57,10 @@ Projeyi oluşturduğunuza göre, artık ilk işlevinizi oluşturabilirsiniz.
 
     ![Yeni bir Azure İşlevi oluşturma](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
+    Kod dosyası projenize işlevi kodunuzu uygulayan bir sınıf içerir eklenir. Bu kod adı değeri ve geri kırmak alan bir şablona temel alır. **FunctionName** özniteliği, işlevin adını ayarlar. **HttpTrigger** öznitelik işlevi tetikler iletisi gösterir. 
+
+    ![İşlev kod dosyası](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+
 HTTP ile tetiklenen işlev oluşturduğunuza göre, artık bunu yerel bilgisayarınızda test edebilirsiniz.
 
 ## <a name="test-the-function-locally"></a>İşlevi yerel olarak test etme
@@ -76,7 +73,7 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 
     ![Azure yerel çalışma zamanı](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-3. HTTP isteğinin URL’sini tarayıcınızın adres çubuğuna yapıştırın. `&name=<yourname>` sorgu dizesini bu URL’ye ekleyip isteği yürütün. İşlevin döndürdüğü yerel GET isteğine tarayıcıda verilen yanıt aşağıda gösterilmiştir: 
+3. HTTP isteğinin URL’sini tarayıcınızın adres çubuğuna yapıştırın. `?name=<yourname>` sorgu dizesini bu URL’ye ekleyip isteği yürütün. İşlevin döndürdüğü yerel GET isteğine tarayıcıda verilen yanıt aşağıda gösterilmiştir: 
 
     ![Tarayıcıdaki işlev localhost yanıtı](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
@@ -92,7 +89,7 @@ Projenizi yayımlayabilmeniz için önce Azure aboneliğinizde bir işlev uygula
 
 ## <a name="test-your-function-in-azure"></a>Azure'da işlevinizi test etme
 
-1. Yayımlama profili sayfasından işlev uygulamasının temel URL'sini kopyalayın. İşlevi yerel olarak test ederken kullandığınız URL’nin `localhost:port` kısmını, yeni temel URL ile değiştirin. Daha önce olduğu gibi, `&name=<yourname>` sorgu dizesini bu URL’ye ekleyip isteği yürütmeyi unutmayın.
+1. Yayımlama profili sayfasından işlev uygulamasının temel URL'sini kopyalayın. İşlevi yerel olarak test ederken kullandığınız URL’nin `localhost:port` kısmını, yeni temel URL ile değiştirin. Daha önce olduğu gibi, `?name=<yourname>` sorgu dizesini bu URL’ye ekleyip isteği yürütmeyi unutmayın.
 
     HTTP ile tetiklenen işlevinizi çağıran URL şunun gibi görünür:
 
@@ -109,5 +106,4 @@ HTTP ile tetiklenen basit bir işlevi kullanarak C# işlev uygulaması oluşturm
 + Projenizi diğer tetikleyici ve bağlama türlerini destekleyecek şekilde yapılandırma hakkında bilgi almak için, [Visual Studio için Azure İşlevleri Araçları](functions-develop-vs.md) makalesindeki [Yerel geliştirme için proje yapılandırma](functions-develop-vs.md#configure-the-project-for-local-development) bölümüne bakın.
 + Azure İşlevleri Temel Araçları ile yerel test ve hata ayıklama hakkında daha fazla bilgi için bkz. [Kod ve Azure İşlevleri’nin yerel olarak test edilmesi](functions-run-local.md). 
 + .NET sınıf kitaplıkları olarak işlevleri geliştirme hakkında daha fazla bilgi için bkz. [.NET sınıf kitaplıklarını Azure İşlevleri ile kullanma](functions-dotnet-class-library.md). 
-
 

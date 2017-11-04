@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: dc2ed59d6adaca97b23dddcb7ec968d90171b483
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2af214a9aa3c67818e8ce64f204ebda32c35abc7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="sfctl-cluster"></a>sfctl küme
 Seçin, yönetmek ve Service Fabric kümeleri çalışmayabilir.
@@ -54,36 +54,12 @@ Service Fabric kümesi durumunu alır. Sistem durumu olayları sistem durumuna b
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --uygulamaları Sistem Durumu Filtresi| Uygulama sistem durumu filtrelemeye izin verir
-                                                    objects returned in the result of cluster health
-                                                    query based on their health state. The possible
-                                                    values for this parameter include integer value
-                                                    obtained from members or bitwise operations on
-                                                    members of HealthStateFilter enumeration. Only
-                                                    applications that match the filter are returned.
-                                                    All applications are used to evaluate the
-                                                    aggregated health state. If not specified, all
-                                                    entries are returned. The state values are flag
-                                                    based enumeration, so the value could be a
-                                                    combination of these values obtained using
-                                                    bitwise 'OR' operator. For example, if the
-                                                    provided value is 6 then health state of
-                                                    applications with HealthState value of OK (2)
-                                                    and Warning (4) are returned. - Default -
-                                                    Default value. Matches any HealthState. The
-                                                    value is zero. - None - Filter that doesn't
-                                                    match any HealthState value. Used in order to
-                                                    return no results on a given collection of
-                                                    states. The value is 1. - Ok - Filter that
-                                                    matches input with HealthState value Ok. The
-                                                    value is 2. - Warning - Filter that matches
-                                                    input with HealthState value Warning. The value
-                                                    is 4. - Error - Filter that matches input with
-                                                    HealthState value Error. The value is 8. - All -
-                                                    Filter that matches input with any HealthState value. The value is 65535.|
-| --Sağlık Durumu Filtresi olayları | Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir şekilde bayrağı numaralandırma, tabanlı durumu değerlerdir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer.
-Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. 65535 değeridir. | |--Dışlama sağlık istatistikleri | Sistem durumu istatistikleri sorgu sonucu bir parçası olarak döndürülüp döndürülmeyeceğini gösterir. Varsayılan değer false. Sistem durumu Tamam, uyarı ve hata alt sayısını istatistiklerini varlıklar göster. | |   --dahil-sistem-uygulama-sistem durumu-istatistikleri | Doku sistem durumu istatistikleri içerip içermeyeceğini gösterir: / Sistem uygulaması sağlık istatistikleri. Varsayılan değer false. IncludeSystemApplicationHealthStatistics ayarlanmışsa, true olarak sistem istatistikleri dokuya ait varlıkları içerir: / Sistem uygulaması. Aksi takdirde, sorgu sonucu kullanıcı uygulamaları için yalnızca sistem durumu istatistikleri içerir. Sistem durumu istatistikleri uygulanacak bu parametre için sorgu sonucu bulunması gerekir. | | --düğümler sağlık Durumu Filtresi | Kendi sistem durumuna bağlıdır küme durumu sorgusunun sonucu döndürdü düğümü sağlık durumu nesnelerin filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen düğümleri döndürülür. Tüm düğümleri toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Örneğin, "6" sağlanan değer ise ardından düğümler sistem durumunu Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer.
-Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. 65535 değeridir. | | --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60. |
+| --uygulamaları Sistem Durumu Filtresi| Kendi sistem durumuna bağlıdır küme durumu sorgusunun sonucu döndürdü uygulama sistem durumu nesnelerinin filtrelemeye izin verir. Bu parametre için olası değerler üyeleri veya HealthStateFilter numaralandırma üyeleri üzerinde bit düzeyinde işlemler alınan tamsayı değeri içerir. Filtreyle eşleşen uygulamaları döndürülür.  Tüm uygulamalar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir bayrağı numaralandırma, dayalı, bu yüzden durumu değerlerdir. Örneğin, 6 sağlanan değer ise, ardından Tamam (2) ve uyarı (4), HealthState değeriyle uygulamaların sistem durumu döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
+| --Sağlık Durumu Filtresi olayları   | Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir şekilde bayrağı numaralandırma, tabanlı durumu değerlerdir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer.  Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
+|--Dışlama sağlık istatistikleri                   | Sistem durumu istatistikleri sorgu sonucu bir parçası olarak döndürülüp döndürülmeyeceğini gösterir. Varsayılan değer false. Sistem durumu Tamam, uyarı ve hata istatistiklerini varlıklar alt sayısını gösterir.|
+ |   --dahil-sistem-uygulama-sistem durumu-istatistikleri| Doku sistem durumu istatistikleri içerip içermeyeceğini gösterir: / Sistem uygulaması sağlık istatistikleri. Varsayılan değer false. IncludeSystemApplicationHealthStatistics ayarlanmışsa, true olarak sistem istatistikleri dokuya ait varlıkları içerir: / Sistem uygulaması. Aksi takdirde, sorgu sonucu kullanıcı uygulamaları için yalnızca sistem durumu istatistikleri içerir. Sistem durumu istatistikleri uygulanacak bu parametre için sorgu sonucu eklenmesi gerekir.|
+| --düğümler sağlık Durumu Filtresi    | Kendi sistem durumuna bağlıdır küme durumu sorgusunun sonucu döndürdü düğümü sağlık durumu nesnelerin filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen düğümleri döndürülür. Tüm düğümleri toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Örneğin, "6" sağlanan değer ise ardından düğümler sistem durumunu Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer.  Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
+| --zaman aşımı -t                   | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
@@ -118,8 +94,7 @@ Service Fabric küme bildirimi alırsınız. Küme bildiriminde küme, güvenlik
 
 ## <a name="sfctl-cluster-provision"></a>sfctl küme sağlama
 Service Fabric kümesi kod veya yapılandırma paketleri sağlayın.
-
-        Validate and provision the code or configuration packages of a Service Fabric cluster.
+Doğrulama ve Service Fabric kümesi kod veya yapılandırma paketleri sağlayın.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
@@ -169,7 +144,7 @@ Güvenli kümesine bağlanma, hem (.pem) bir sertifika (.crt) ve anahtar dosyas�
 ## <a name="sfctl-cluster-unprovision"></a>sfctl küme sağlamayı kaldırma
 Service Fabric kümesi kod veya yapılandırma paketleri sağlama.
 
-        Unprovision the code or configuration packages of a Service Fabric cluster.
+Service Fabric kümesi kod veya yapılandırma paketleri sağlama.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 |Bağımsız değişken|Açıklama|
@@ -184,43 +159,46 @@ Service Fabric kümesi kod veya yapılandırma paketleri sağlama.
 |--hata ayıklama         | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
  |   ---h Yardım       | Bu yardım iletisini ve çıkış gösterir.|
  |   ---o çıktı     | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
- |   --Sorgu         | JMESPath sorgu dizesi. Daha fazla bilgi için http://jmespath.org/ bakın ve
-                      örnekler.|
+ |   --Sorgu         | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
  |   --ayrıntılı       | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 
 ## <a name="sfctl-cluster-upgrade"></a>sfctl Küme yükseltme
 Service Fabric kümesi kod veya yapılandırma sürümüne yükseltme başlatın.
-
-        Validate the supplied upgrade parameters and start upgrading the code or configuration
-        version of a Service Fabric cluster if the parameters are valid.
+Sağlanan yükseltme parametreleri doğrulayın ve parametreleri geçerli ise bir Service Fabric kümesi kod veya yapılandırma sürümüne yükseltme başlatın.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-|    --Uygulama sistem durumu eşleme                      | Uygulama adı çiftleri JSON olarak kodlanmış sözlüğü ve
-                                            hata oluşmadan önce sağlıklı en yüksek yüzde.|
- |   --uygulama türü sistem durumu eşleme                 | Uygulama türü çiftlerini sözlüğü JSON kodlanmış
-                                            name and maximum percentage unhealthy before raising
-                                            error.|
- |   --kod sürümü | Küme kod sürümü. | |   --config sürümü | Küme yapılandırması sürümü. | |   --delta sistem durumu değerlendirmesi | Her bir yükseltme etki alanı tamamlanmasından sonra mutlak sistem durumu değerlendirmesi yerine delta sistem durumu değerlendirmesi etkinleştirir. | |   --delta sağlıksız-düğümleri | En düğümlerinin yüzdesi Küme yükseltme sırasında izin verilen sistem durumu düşüşü izin verilir.  Varsayılan: 10.
-Delta yükseltme işleminin başında düğümlerinin durumunu ve sistem durumu değerlendirmesi zaman düğümlerin durumunun arasında ölçülür. Onay kümenin genel durumunu toleranslı sınırlarda olduğundan emin olmak için her yükseltme etki alanı yükseltme tamamlandıktan sonra gerçekleştirilen. | |   --hatası eylemi | Olası değerler şunlardır: 'Geçersiz', 'Geri', 'Manual'. | |   --zorla yeniden | Yeniden başlatma. | |   --Sistem durumu denetimi yeniden | Sistem durumu denetimi yeniden deneme zaman aşımı milisaniye cinsinden ölçülür. | |   --Sistem durumu denetimi kararlı | Sistem durumu denetimi kararlı süresinin milisaniye cinsinden ölçülür. | |  --Sistem durumu denetimi bekleme | Sistem durumu denetimi bekleme süresini milisaniye olarak ölçülür. | |  --çoğaltma kümesi onay aşımı | Yükseltme kopya kümesi onay zaman aşımı saniye cinsinden ölçülen. | |   --çalışırken yükseltme-modu | Olası değerler şunlardır: 'Geçersiz', 'UnmonitoredAuto', 'UnmonitoredManual', 'İzlenen'.  Varsayılan: UnmonitoredAuto. | |  --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60. | |  --sağlıksız uygulamaları | Sağlıksız uygulamaları yüzdesi hata raporlamadan önce izin verilen en fazla.
-Örneğin, %10 sağlıksız uygulamalarının izin vermek için bu değer 10 olur. Yüzdesini küme hata olarak kabul edilmeden önce sağlıksız uygulamaları maksimum toleranslı yüzdesini temsil eder. Yüzde dikkate ancak en az bir düzgün çalışmayan uygulama olduğundan, sistem durumu uyarı olarak değerlendirilir. Bu uygulama örnekleri ApplicationTypeHealthPolicyMap içerdiği uygulama türleri uygulamaların hariç kümedeki toplam sayısı üzerinden sağlıksız uygulamaları sayısının bölünmesiyle hesaplanır. Küçük sayıda uygulamalar üzerinde bir hatasını tolere için hesaplama yukarı yuvarlar. | |   --sağlıksız düğümleri | Sağlıksız düğümleri yüzdesi hata raporlamadan önce izin verilen en fazla.
-Örneğin, %10 sağlıksız düğümlerinin izin vermek için bu değer 10 olur. Yüzde küme hata olarak kabul edilmeden önce sağlıksız düğümleri maksimum toleranslı yüzdesini temsil eder. Yüzde dikkate halde en az bir sağlıksız düğüm yoksa, sistem durumu uyarı olarak değerlendirilir. Yüzde, kümedeki düğümler toplam sayısı üzerinden sağlıksız düğüm sayısını bölünmesiyle hesaplanır. Küçük sayıda düğüm üzerinde bir hatasını tolere için hesaplama yukarı yuvarlar. Bu yüzde, tolerans şekilde yapılandırılmalıdır büyük kümelerinde, bazı düğümler her zaman aşağı veya çıkışı onarım için olacağından. | |   --Yükseltme etki alanı-delta-sağlıksız-düğümler | Sistem durumu düşüşü Küme yükseltme sırasında izin izin verilen en fazla yükseltme etki alanı düğümleri yüzdesi.
-Varsayılan: 15.
-Delta yükseltme işleminin başında yükseltme etki alanı düğümleri durumunu ve sistem durumu değerlendirmesi zaman yükseltme etki alanı düğümleri durumunu arasında ölçülür. Tüm tamamlanan yükseltme etki alanlarının durumunu emin olmak için yükseltme etki alanları için her yükseltme etki alanı yükseltme tamamlama toleranslı sınırlarda sonra denetimi gerçekleştirilir. | |   --Yükseltme etki alanı timeout | Yükseltme etki alanı zaman aşımı milisaniye cinsinden ölçülür. | |   --Yükseltme zaman aşımı | Yükseltme zaman aşımı milisaniye cinsinden ölçülür. | |   --hata olarak uyarı | Uyarılar aynı önem derecesi hata olarak kabul edilir. |
+|    --Uygulama sistem durumu eşleme                      | Uygulama adı ve en yüksek yüzde hata oluşmadan önce sağlıklı çiftleri JSON olarak kodlanmış sözlüğü.|
+ |   --uygulama türü sistem durumu eşleme                 | Uygulama türü adı ve en yüksek yüzde hata oluşmadan önce sağlıklı çiftleri JSON olarak kodlanmış sözlüğü.|
+ |   --kod sürümü                        | Küme kod sürümü.|
+ |   --config sürümü                      | Küme yapılandırması sürümü.|
+ |   --delta sistem durumu değerlendirmesi             | Her bir yükseltme etki alanı tamamlanmasından sonra mutlak sistem durumu değerlendirmesi yerine delta sistem durumu değerlendirmesi sağlar.|
+ |   --delta sağlıksız-düğümler               | En düğümlerinin yüzdesi Küme yükseltme sırasında izin verilen sistem durumu düşüşü izin verilir.  Varsayılan: 10. Delta yükseltme işleminin başında düğümlerinin durumunu ve sistem durumu değerlendirmesi zaman düğümlerin durumunun arasında ölçülür. Onay, kümenin genel durumunu toleranslı sınırlarda olduğundan emin olmak için her yükseltme etki alanı yükseltme tamamlandıktan sonra gerçekleştirilir.|
+ |   --hatası eylemi                      | Olası değerler şunlardır: 'Geçersiz', 'Geri', 'Manual'.|
+ |   --zorla yeniden başlatma                       | Yeniden başlatma.|
+ |   --Sistem durumu denetimi yeniden                  | Sistem durumu denetimi yeniden deneme zaman aşımı, milisaniye cinsinden ölçülür.|
+ |   --Sistem durumu denetimi kararlı                 | Sistem durumu denetimi kararlı süresini milisaniye olarak ölçülür.|
+  |  --Sistem durumu denetimi bekleme                   | Sistem durumu denetimi bekleme süresini milisaniye olarak ölçülür.|
+  |  --çoğaltma kümesi onay aşımı           | Yükseltme çoğaltma onay zaman aşımı saniye cinsinden ölçülen ayarlayın.|
+ |   --çalışırken yükseltme-modu                | Olası değerler şunlardır: 'Geçersiz', 'UnmonitoredAuto', 'UnmonitoredManual', 'İzlenen'.  Varsayılan: UnmonitoredAuto.|
+  |  --zaman aşımı -t                          | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
+  |  --sağlıksız uygulamaları              | Sağlıksız uygulamaları yüzdesi hata raporlamadan önce izin verilen en fazla. Örneğin, %10 sağlıksız uygulamalarının izin vermek için bu değer 10 olur. Yüzdesini küme hata olarak kabul edilmeden önce sağlıksız uygulamaları maksimum toleranslı yüzdesini temsil eder. Yüzde dikkate ancak en az bir düzgün çalışmayan uygulama olduğundan, sistem durumu uyarı olarak değerlendirilir. Bu uygulama örnekleri ApplicationTypeHealthPolicyMap içerdiği uygulama türleri uygulamaların hariç kümedeki toplam sayısı üzerinden sağlıksız uygulamaları sayısının bölünmesiyle hesaplanır. Küçük sayıda uygulamalar üzerinde bir hatasını tolere için hesaplama yukarı yuvarlar.|
+ |   --sağlıksız düğümleri                     | Sağlıksız düğümleri yüzdesi hata raporlamadan önce izin verilen en fazla. Örneğin, %10 sağlıksız düğümlerinin izin vermek için bu değer 10 olur. Yüzde küme hata olarak kabul edilmeden önce sağlıksız düğümleri maksimum toleranslı yüzdesini temsil eder. Yüzde dikkate halde en az bir sağlıksız düğüm yoksa, sistem durumu uyarı olarak değerlendirilir. Yüzde, kümedeki düğümler toplam sayısı üzerinden sağlıksız düğüm sayısını bölünmesiyle hesaplanır. Küçük sayıda düğüm üzerinde bir hatasını tolere için hesaplama yukarı yuvarlar. Bu yüzde, tolerans şekilde yapılandırılmalıdır büyük kümelerinde, bazı düğümler her zaman aşağı veya çıkışı onarım için olacağından.|
+ |   --Yükseltme etki alanı-delta-sağlıksız-düğümler| Sistem durumu düşüşü Küme yükseltme sırasında izin izin verilen en fazla yükseltme etki alanı düğümleri yüzdesi. Varsayılan: 15. Delta yükseltme işleminin başında yükseltme etki alanı düğümleri durumunu ve sistem durumu değerlendirmesi zaman yükseltme etki alanı düğümleri durumunu arasında ölçülür. Yükseltme etki alanlarının durumunu toleranslı sınırlarda olduğundan emin olmak için yükseltme etki alanlarının her bir yükseltme etki alanı yükseltme tamamlama tüm tamamlandıktan sonra denetimi gerçekleştirilir.|
+ |   --Yükseltme etki alanı timeout              | Yükseltme etki alanı zaman aşımı, milisaniye cinsinden ölçülür.|
+ |   --Yükseltme zaman aşımı                     | Yükseltme zaman aşımı, milisaniye cinsinden ölçülür.|
+ |   --hata olarak uyarı                    | Uyarılar aynı önem derecesi hata olarak kabul edilir.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
-    |Bağımsız değişken|Açıklama|
+|Bağımsız değişken|Açıklama|
 | --- | --- |
 |--hata ayıklama                               | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 |    ---h Yardım                             | Bu yardım iletisini ve çıkış gösterir.|
-|    ---o çıktı                           | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.
-                                            Varsayılan: json.|
-|    --Sorgu                               | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi için bkz.
-                                            bilgi ve örnekler.|
-|    --ayrıntılı                             | Günlüğün ayrıntı düzeyini artırın. Kullanım--tam hata ayıklama için hata ayıklama
-                                            günlüğe kaydeder.|
+|    ---o çıktı                           | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv. Varsayılan: json.|
+|    --Sorgu                               | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
+|    --ayrıntılı                             | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Kurulum](service-fabric-cli.md) Service Fabric CLI.

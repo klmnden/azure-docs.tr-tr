@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/7/2017
 ms.author: raviperi
 ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Storm Azure Hdınsight kullanarak sorun giderme
 

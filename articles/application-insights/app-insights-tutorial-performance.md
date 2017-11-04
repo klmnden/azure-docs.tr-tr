@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 1176e6ac33db5b9428a323c3a6271818807afc72
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights ile performans sorunlarını tanılamak ve Bul
 
@@ -35,7 +35,7 @@ Bu öğreticiyi tamamlamak için:
     - ASP.NET ve web geliştirme
     - Azure geliştirme
 - .NET uygulaması azure'a dağıtma ve [Application Insights SDK'sı etkinleştirmek](app-insights-asp-net.md).
-- [Application Insights profil oluşturucu etkinleştirmek](app-insights-profiler.md#enable-the-profiler) uygulamanız için.
+- [Application Insights profil oluşturucu etkinleştirmek](app-insights-profiler.md#installation) uygulamanız için.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 Oturum açtığınızda Azure portalında [https://portal.azure.com](https://portal.azure.com).

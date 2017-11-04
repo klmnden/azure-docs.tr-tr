@@ -1,35 +1,35 @@
-## <a name="install-the-prerequisites"></a>Install the prerequisites
+## <a name="install-the-prerequisites"></a>Yükleme önkoşulları
 
-The steps in this tutorial assume you are running Ubuntu Linux.
+Bu öğreticideki adımlardan Ubuntu Linux çalıştırdığınızı varsayın.
 
-Open a shell and run the following commands to install the prerequisite packages:
+Önkoşul yüklemek için bir Kabuğu'nu açın ve aşağıdaki komutları çalıştırın:
 
 ```bash
 sudo apt-get update
-sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
+sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake pkg-config libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
 ```
 
-In the shell, run the following command to clone the Azure IoT Edge GitHub repository to your local machine:
+Kabuğu'nda yerel makinenize Azure IOT kenar GitHub deposuna kopyalamak için aşağıdaki komutu çalıştırın:
 
 ```bash
 git clone https://github.com/Azure/iot-edge.git
 ```
 
-## <a name="how-to-build-the-sample"></a>How to build the sample
+## <a name="how-to-build-the-sample"></a>Örnek oluşturma
 
-You can now build the IoT Edge runtime and samples on your local machine:
+Artık IOT kenar çalışma zamanı ve örnekleri yerel makinenizde oluşturabilirsiniz:
 
-1. Open a shell.
+1. Bir kabuk açın.
 
-1. Navigate to the root folder in your local copy of the **iot-edge** repository.
+1. **iot-edge** deposunun yerel kopyasındaki kök klasöre gidin.
 
-1. Run the build script as follows:
+1. Yapı betiği aşağıdaki gibi çalıştırın:
 
     ```sh
     tools/build.sh --disable-native-remote-modules
     ```
 
-This script uses the **cmake** utility to create a folder called **build** in the root folder of your local copy of the **iot-edge** repository and generate a makefile. The script then builds the solution, skipping unit tests and end to end tests. If you want to build and run the unit tests, add the `--run-unittests` parameter. If you want to build and run the end to end tests, add the `--run-e2e-tests`.
+Bu betik **cmake** yardımcı programını kullanarak **iot-edge** deposu yerel kopyasının kök klasöründe **build** adlı bir klasör ve bir derleme görevleri dosyası oluşturur. Betik daha sonra çözümü derler ve birim testleri ile uçtan uca testleri atlar. İstiyorsanız derleme ve birim testleri çalıştırma, ekleme `--run-unittests` parametresi. Derleme ve uçtan uca testler, eklemek istiyorsanız, `--run-e2e-tests`.
 
 > [!NOTE]
-> Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **iot-edge** repository.
+> **build.sh** betiğini her çalıştırdığınızda betik **iot-edge** deposu yerel kopyasının kök klasöründe bulunan **build** klasörünü siler ve yeniden oluşturur.

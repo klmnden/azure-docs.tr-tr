@@ -1,6 +1,6 @@
 ---
-title: "SQL (PaaS) Veritabanı ile VM&quot;lerdeki bulutta bulunan SQL Server (IaaS) karşılaştırması | Microsoft Docs"
-description: "Hangi bulut SQL Server seçeneğinin uygulamanıza uygun olduğunu öğrenin: Azure SQL (PaaS) Veritabanı veya Azure Virtual Machines&quot;deki bulutta bulunan SQL Server."
+title: "SQL (PaaS) Veritabanı ile VM'lerdeki bulutta bulunan SQL Server (IaaS) karşılaştırması | Microsoft Docs"
+description: "Hangi bulut SQL Server seçeneğinin uygulamanıza uygun olduğunu öğrenin: Azure SQL (PaaS) Veritabanı veya Azure Virtual Machines'deki bulutta bulunan SQL Server."
 services: sql-database, virtual-machines
 keywords: "SQL Server bulut, bulutta SQL Server, PaaS veritabanı, bulut SQL Server, DBaaS"
 documentationcenter: 
@@ -9,19 +9,18 @@ manager: jhubbard
 editor: cjgronlund
 ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
 ms.service: sql-database
-ms.custom: compare
-ms.workload: data-management
+ms.custom: DBs & servers
+ms.workload: Active
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 48e95d51cb9414fb5ff50e587645ee6fd46abd5b
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: 436166fcb0fa9103c6b702b63d93a0b222d536d0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Bir bulut SQL Server seçeneği seçin: Azure SQL (PaaS) Veritabanı ya da Azure VM'lerde SQL Server (IaaS)
 Azure, SQL Server iş yüklerini Microsoft Azure’da barındırmaya yönelik iki seçenek içerir:
@@ -64,13 +63,12 @@ Aşağıdaki tabloda, SQL Database ve Azure VM'lerinde SQL Server'ın temel öze
 | --- | --- | --- |
 |  |Geliştirme ve pazarlama alanında zaman kısıtlamaları olan yeni bulut tasarımlı uygulamalar. |Minimum değişiklikle buluta hızlı geçiş gerektiren var olan uygulamalar. Şirket içi üretim dışı SQL Server donanımı satın almak istemediğinizde hızlı geliştirme ve test senaryoları. |
 |  | Veritabanı için yerleşik yüksek kullanılabilirlik, olağanüstü durum kurtarma ve yükseltme mekanizmalarına gereksinim duyan ekipler. |SQL Server için yüksek kullanılabilirlik, olağanüstü durum kurtarma ve düzeltme eki uygulamayı yapılandırıp yönetebilen ekipler. Sağlanan bazı otomatik özellikler bunu önemli ölçüde basitleştirir. | |
-|  | Altta yatan işletim sistemi ve yapılandırma ayarlarını yönetmek istemeyen ekipler. |Tam yönetici haklarına sahip özelleştirilmiş bir ortama ihtiyaç duyuyorsanız. | |
-|  | 1 TB’ye kadar olan veritabanları veya ölçek genişletme düzeni kullanılarak [yatay ya da dikey yönde bölümlenebilen](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) daha büyük veritabanları. |64 TB’ye varan depolama alanına sahip SQL Server örnekleri. Örnek gereken sayıda veritabanını destekleyebilir. | |
-|  | [Hizmet olarak Yazılım (SaaS) uygulamaları oluşturma](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Kuruluş uygulamalarını ve karma uygulamaları geçirme ve derleme. | |
+|  | Altta yatan işletim sistemi ve yapılandırma ayarlarını yönetmek istemeyen ekipler. |Tam yönetici haklarına sahip bir özelleştirilmiş ortamı gerekir. | |
+|  | En fazla 4 TB'lık veritabanları veya olabilir büyük veritabanları [yatay veya dikey olarak bölümlenmiş](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) genişleme desenini kullanarak. |64 TB’ye varan depolama alanına sahip SQL Server örnekleri. Örnek gereken sayıda veritabanını destekleyebilir. | |
 |  | | |
 | **Kaynaklar:** |Temel alınan altyapının yapılandırma ve yönetimi için BT kaynakları kullanmak istemiyorsunuz, ancak uygulama katmanına odaklanmak istiyorsunuz. |Yapılandırma ve yönetim için bazı BT kaynaklarına sahipsiniz. Sağlanan bazı otomatik özellikler bunu önemli ölçüde basitleştirir. |
 | **Toplam sahip olma maliyeti:** |Donanım maliyetlerini ortadan kaldırır ve yönetim maliyetlerini azaltır. |Donanım maliyetlerini ortadan kaldırır. |
-| **İş sürekliliği:** |Azure SQL Database, yerleşik hata toleransı altyapı özelliklerine ek olarak, iş sürekliliğini artırmak üzere [otomatik yedeklemeler](sql-database-automated-backups.md), [Belirli Bir Noktaya Geri Yükleme](sql-database-recovery-using-backups.md#point-in-time-restore), [Coğrafi Geri Yükleme](sql-database-recovery-using-backups.md#geo-restore) ve [Etkin Coğrafi Çoğaltma](sql-database-geo-replication-overview.md) gibi özellikler içerir. Daha fazla bilgi için bkz. [SQL Database iş sürekliliğine genel bakış](sql-database-business-continuity.md). |Azure VM’lerde SQL Server, veritabanınızın belirli gereksinimleri için bir yüksek kullanılabilirlik ve olağanüstü durum kurtarma çözümü ayarlamanıza olanak sağlar. Böylece, uygulamanız için en iyi hale getirilmiş bir sisteme sahip olabilirsiniz. Yük devretme işlemlerini ihtiyaç duyulduğunda kendi kendinize test edebilir ve çalıştırabilirsiniz. Daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server için Yüksek Kullanılabilirlik ve Olağanüstü Durum Kurtarma](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
+| **İş sürekliliği:** |Gibi özellikleri, yerleşik hata toleransı altyapı özelliklerine ek olarak, Azure SQL veritabanı sağlar [yedeklemeleri otomatik](sql-database-automated-backups.md), [noktası zaman geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore), [coğrafi geri yükleme](sql-database-recovery-using-backups.md#geo-restore), ve [aktif coğrafi çoğaltma](sql-database-geo-replication-overview.md) iş sürekliliğini artırmak üzere. Daha fazla bilgi için bkz. [SQL Database iş sürekliliğine genel bakış](sql-database-business-continuity.md). |Azure VM’lerde SQL Server, veritabanınızın belirli gereksinimleri için bir yüksek kullanılabilirlik ve olağanüstü durum kurtarma çözümü ayarlamanıza olanak sağlar. Böylece, uygulamanız için en iyi hale getirilmiş bir sisteme sahip olabilirsiniz. Yük devretme işlemlerini ihtiyaç duyulduğunda kendi kendinize test edebilir ve çalıştırabilirsiniz. Daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server için Yüksek Kullanılabilirlik ve Olağanüstü Durum Kurtarma](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Karma bulut:** |Şirket içi uygulamanız, Azure SQL Database'deki verilere erişebilir. |Azure VM'lerinde SQL Server ile kısmen bulutta ve kısmen şirket içinde çalıştırılan uygulamalara sahip olabilirsiniz. Örneğin, şirket içi ağınızı ve Active Directory Etki Alanı'nı [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) üzerinden buluta genişletebilirsiniz. Ek olarak, [Azure'da SQL Server Veri Dosyaları](http://msdn.microsoft.com/library/dn385720.aspx)'nı kullanarak şirket içi veri dosyalarını Azure Storage'da depolayabilirsiniz. Daha fazla bilgi için bkz. [SQL Server 2014 Karma Bulutu'na giriş](http://msdn.microsoft.com/library/dn606154.aspx). |
 |  | Verileri çoğaltmak için abone olarak [SQL Server işlem çoğaltmayı](https://msdn.microsoft.com/library/mt589530.aspx) destekler. |Verileri çoğaltmak için [SQL Server işlem çoğaltma](https://msdn.microsoft.com/library/mt589530.aspx), [AlwaysOn Kullanılabilirlik Grupları](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services ve Günlük aktarmayı tam destekler. Ayrıca, geleneksel SQL Server yedeklemeleri tam olarak desteklenir | |
 |  | | |
@@ -139,12 +137,11 @@ Bu makalede, SQL Database ve Azure Virtual Machines'de (VM'ler) SQL Server işle
 
 **Azure VM'lerinde SQL Server**'ı aşağıdaki koşullar geçerli olduğunda tercih edin:
 
-* Buluta geçirmek veya genişletmek istediğiniz şirket içi uygulamalarınız var ya da 1 TB’den büyük kuruluş uygulamaları oluşturmak istiyorsunuz. Bu yaklaşım %100 SQL uyumluluğu, büyük veritabanı kapasitesi, SQL Server ve Windows üzerinde tam denetim ve şirket içi ile güvenli tünel avantajlarını sağlar. Bu yaklaşım var olan uygulamaların geliştirme ve değişiklik maliyetlerini azaltır.
+* Geçiş veya buluta genişletmek istediğiniz şirket içi uygulamalara sahip veya 4 TB'den büyük kurumsal uygulamalar oluşturmak istiyorsanız. Bu yaklaşım %100 SQL uyumluluğu, büyük veritabanı kapasitesi, SQL Server ve Windows üzerinde tam denetim ve şirket içi ile güvenli tünel avantajlarını sağlar. Bu yaklaşım var olan uygulamaların geliştirme ve değişiklik maliyetlerini azaltır.
 * BT kaynaklarınız var ve sonuçta kendi düzeltme eki uygulama, yedekleme ve veritabanı yüksek kullanılabilirlik özelliklerinize sahip olabilirsiniz. Otomatik özelliklerin bazıları bu işlemleri önemli ölçüde basitleştirebilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * SQL Veritabanı’nı kullanmaya başlamak için bkz. [İlk Azure SQL Veritabanınız](sql-database-get-started-portal.md).
 * Bkz. [SQL Veritabanı Fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
 * Azure VM'lerinde SQL Server'ı kullanmaya başlamak için bkz. [Azure'da SQL Server sanal makinesi sağlama](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md).
-
 

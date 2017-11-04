@@ -1,20 +1,20 @@
 <!--author=SharS last changed: 11/04/15-->
 
 
-#### <a name="to-create-a-custom-backup-policy"></a>To create a custom backup policy
-1. On the **Devices** page, click **Backup Policies** and then click **Add**.
-2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
+#### <a name="to-create-a-custom-backup-policy"></a>Özel bir yedekleme ilkesi oluşturmak için
+1. Üzerinde **aygıtları** sayfasında, **yedekleme ilkeleri** ve ardından **Ekle**.
+2. İçinde **bir yedekleme ilkesi ekleme** iletişim kutusunda **yedekleme ilkenizi tanımlayın**:
    
-   1. Specify a backup policy name.
-   2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting multiple check boxes.
-   3. Click the arrow icon ![check icon](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
-3. Under **Define a Schedule**:
+   1. Bir yedekleme ilkesi adı belirtin.
+   2. Bu ilkeye eklenecek birimleri seçin. Birden çok onay kutularını işaretleyerek birden çok birim eklemeyi seçebilirsiniz.
+   3. Ok simgesine tıklama ![onay simgesi](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
+3. Altında **zamanlama tanımla**:
    
-   1. Select the **Type of backup** (**Local Snapshot** or **Cloud Snapshot**).
-   2. Specify the backup frequency in minutes, hours, days, or weeks.
-   3. Select a retention schedule from the drop-down list. The retention choices depend on the backup frequency. 
-   4. Select the starting time and date for the policy.
-   5. Select the check box to enable the policy.
-4. Click the check icon ![check icon](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) to finish.
-5. You will return to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the custom policy.
+   1. Seçin **yedekleme türünü** (**yerel anlık görüntü** veya **bulut anlık görüntüsü**).
+   2. Yedekleme sıklığını dakika, saat, gün veya hafta cinsinden belirtin.
+   3. Bekletme zamanlaması aşağı açılan listeden seçin. Elde tutma seçimleri yedekleme sıklığına bağlıdır. 
+   4. Başlangıç saatini ve tarihini ilkesi için seçin.
+   5. İlkeyi etkinleştirmek için onay kutusunu seçin.
+4. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) bitirmek için.
+5. Dönersiniz **yedekleme ilkeleri** sayfası. Özel ilke görüntülemek için yedekleme ilkelerini Tablo listesi güncelleştirilir.
 

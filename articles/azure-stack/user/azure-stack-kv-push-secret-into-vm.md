@@ -1,6 +1,6 @@
 ---
-title: Deploy a virtual machine with a securely stored certificate on Azure Stack | Microsoft Docs
-description: Learn how to deploy a virtual machine and push a certificate onto it by using a key vault in Azure Stack
+title: "Azure yığında güvenli şekilde depolanan bir sertifika ile bir sanal makine dağıtma | Microsoft Docs"
+description: "Bir sanal makine dağıtma ve Azure yığınında bir anahtar kasası kullanarak anında iletme sertifikası üzerine hakkında bilgi edinin"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,36 +14,35 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 29ccdc9eca9911b2f550f9e09da83d0b1d30f9db
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Create a virtual machine and include certificate retrieved from a key vault
+# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Bir sanal makine oluşturun ve bir anahtar Kasası'nı alınan sertifika içerir
 
-This article helps you to create a virtual machine in Azure Stack and push certificates onto it. 
+Bu makalede, Azure yığını ve anında iletme sertifikaların bir sanal makine oluşturmak için yardımcı olur. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Ön koşullar
 
-* You must must subscribe to an offer that includes the Key Vault service. 
-* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
+* Anahtar kasası hizmetindeki içeren bir teklif abone olmalısınız gerekir. 
+* [PowerShell için Azure yığın yükleyin.](azure-stack-powershell-install.md)  
+* [Azure yığın kullanıcının PowerShell ortamını yapılandırma](azure-stack-powershell-configure-user.md)
 
-A key vault in Azure Stack is used to store certificates. Certificates are helpful in many different scenarios. For example, consider a scenario where you have a virtual machine in Azure Stack that is running an application that needs a certificate. This certificate can be used for encrypting, for authenticating to Active Directory, or for SSL on a website. Having the certificate in a key vault helps make sure that it's secure.
+Bir anahtar kasası Azure yığınında sertifikaları depolamak için kullanılır. Sertifikalar birçok farklı senaryolarda yardımcı olur. Örneğin, bir sanal makine bir sertifika gerektiren bir uygulama çalıştıran Azure yığına sahip olduğu bir senaryo düşünün. Bu sertifika için şifreleme, Active Directory ile kimlik doğrulaması için ya da SSL için bir Web sitesinde kullanılabilir. Bir anahtar kasası yardımcı sertifikada emin olun sahip olan güvenlidir.
 
-In this article, we walk you through the steps required to push a certificate onto a Windows virtual machine in Azure Stack. You can use these steps either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
+Bu makalede, sizi, bir Windows sanal makine sertifikası Azure yığınında göndermek için gereken adımlarda size yol. VPN üzerinden bağlandığı sırada Azure yığın Geliştirme Setinden veya Windows tabanlı bir dış istemci bu adımları kullanabilirsiniz.
 
-The following steps describe the process required to push a certificate onto the virtual machine:
+Aşağıdaki adımlarda, bir sanal makine sertifikası göndermek için gereken işlemi açıklanmaktadır:
 
-1. Create a Key Vault secret.
-2. Update the azuredeploy.parameters.json file.
-3. Deploy the template
+1. Gizli bir anahtar kasası oluşturun.
+2. Azuredeploy.parameters.json dosyasını güncelleştirin.
+3. Şablonu dağıtma
 
-## <a name="create-a-key-vault-secret"></a>Create a Key Vault secret
+## <a name="create-a-key-vault-secret"></a>Gizli bir anahtar kasası oluşturma
 
-The following script creates a certificate in the .pfx format, creates a key vault, and stores the certificate in the key vault as a secret. You must use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
+Aşağıdaki komut dosyası .pfx biçiminde bir sertifika oluşturur, bir anahtar kasası oluşturur ve sertifika anahtar kasası gizli olarak depolar. Kullanmalısınız `-EnabledForDeployment` anahtar kasası oluşturulurken parametre. Bu parametre, anahtar kasası Azure Resource Manager şablonlarını başvurulabilir emin olur.
 
 ```powershell
 
@@ -106,13 +105,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-When you run the previous script, the output includes the secret URI. Make a note of this URI. You have to reference it in the [Push certificate to Windows Resource Manager template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Download the [vm-push-certificate-windows template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) folder onto your development computer. This folder contains the `azuredeploy.json` and `azuredeploy.parameters.json` files, which you will need in the next steps.
+Önceki komut dosyasını çalıştırdığınızda, çıktı gizli URI içerir. Bu URI not edin. İçinde başvurmak zorunda [Windows Resource Manager şablonu itme sertifikaya](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Karşıdan [itme sertifika windows vm şablonu](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) geliştirme bilgisayarınıza klasör. Bu klasörde `azuredeploy.json` ve `azuredeploy.parameters.json` sonraki adımlarda gerekir dosyaları.
 
-Modify the `azuredeploy.parameters.json` file according to your environment values. The parameters of special interest are the vault name, the vault resource group, and the secret URI (as generated by the previous script). The following file is an example of a parameter file:
+Değiştirme `azuredeploy.parameters.json` ortamı değerlerinizi göre dosya. Özel ilgi kasa adını, kasa kaynak grubu ve gizli anahtarı (önceki komut dosyası tarafından oluşturulan gibi) URI parametreleridir. Aşağıdaki dosya, bir parametre dosyası örneğidir:
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Update the azuredeploy.parameters.json file
+## <a name="update-the-azuredeployparametersjson-file"></a>Azuredeploy.parameters.json dosyasını güncelleştirme
 
-Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmName, and other values as per your environment. The following JSON file shows an example of the template parameters file: 
+VaultName, gizli URI, VmName ve diğer değerleri ortamınıza uygun şekilde azuredeploy.parameters.json dosyasını güncelleştirin. Aşağıdaki JSON dosyası şablon parametreleri dosyası örneği gösterilmektedir: 
 
 ```json
 {
@@ -147,9 +146,9 @@ Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmNa
 }
 ```
 
-## <a name="deploy-the-template"></a>Deploy the template
+## <a name="deploy-the-template"></a>Şablonu dağıtma
 
-Now deploy the template by using the following PowerShell script:
+Şimdi aşağıdaki PowerShell betiğini kullanarak şablonu dağıtma:
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret onto it
@@ -160,24 +159,23 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-When the template is deployed successfully, it results in the following output:
+Şablonu başarıyla dağıtıldığında, şunlara sebep olur:
 
-![Deployment output](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![Dağıtım çıktı](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-When this virtual machine is deployed, Azure Stack pushes the certificate onto the virtual machine. In Windows, the certificate is added to the LocalMachine certificate location, with the certificate store that the user provided. In Linux, the certificate is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for the private key.
+Bu sanal makine dağıtılırken sanal makine sertifikası Azure yığın iter. Windows, LocalMachine sertifika konumla kullanıcı tarafından sağlanan sertifika deposuna sertifika eklenir. Linux sertifika dosya adı ile /var/lib/waagent dizinde altına yerleştirilmiş &lt;UppercaseThumbprint&gt;X509 .crt Sertifika dosyası ve &lt;UppercaseThumbprint&gt;.prv özel anahtar için .
 
-## <a name="retire-certificates"></a>Retire certificates
+## <a name="retire-certificates"></a>Sertifikaları devre dışı bırakma
 
-In the preceding section, we showed you how to push a new certificate onto a virtual machine. Your old certificate is still on the virtual machine, and it can't be removed. However, you can disable the older version of the secret by using the `Set-AzureKeyVaultSecretAttribute` cmdlet. The following is an example usage of this cmdlet. Make sure to replace the vault name, secret name, and version values according to your environment:
+Önceki bölümde, biz, bir sanal makine üzerine yeni bir sertifika göndermek nasıl oluşturulacağını gösterir. Eski sertifikanızı hala sanal makinede olması ve kaldırılamaz. Ancak, eski sürüm gizli kullanarak devre dışı bırakabilirsiniz `Set-AzureKeyVaultSecretAttribute` cmdlet'i. Bu cmdlet kullanım örneği verilmiştir. Kasa adı, gizli anahtar adı ve sürüm değerlerini ortamınıza göre değiştirdiğinizden emin olun:
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
-* [Allow an application to access Key Vault](azure-stack-kv-sample-app.md)
-
+* [Anahtar Kasası parolası ile VM dağıtma](azure-stack-kv-deploy-vm-with-secret.md)
+* [Anahtar kasası erişmek bir uygulama izin verme](azure-stack-kv-sample-app.md)
 
 

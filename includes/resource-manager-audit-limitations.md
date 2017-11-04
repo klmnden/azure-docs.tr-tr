@@ -1,4 +1,4 @@
-The activity log contains all write operations (PUT, POST, DELETE) performed on your resources. It does not include read operations (GET). You can use the audit logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+Etkinlik günlüğü kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE) içerir. Okuma işlemleri (GET) içermez. Denetim günlüklerini hata sorunlarını giderirken bulmak için veya bir kullanıcı, kuruluşunuzdaki bir kaynak nasıl değişiklik izlemek için kullanabilirsiniz.
 
-Activity logs are retained for 90 days. You can query for any range of dates, as long as the starting date is not more than 90 days in the past.
+Etkinlik günlükleri 90 gün boyunca saklanır. Başlangıç tarihi geçmiş 90 günden fazla değil sürece herhangi bir tarih aralığı için sorgulayabilirsiniz.
 

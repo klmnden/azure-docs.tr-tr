@@ -1,10 +1,10 @@
-| Resource | Limit |
+| Kaynak | Sınır |
 | --- | --- |
-| API Calls (per unit of scale) |32 million per day<sup>1</sup> |
-| Data transfer (per unit of scale) |161 GB per day<sup>1</sup> |
-| Cache |5 GB<sup>1</sup> |
-| Units of scale |Unlimited<sup>1</sup> |
-| Azure Active Directory Integration |Unlimited User Accounts<sup>1</sup> |
+| API çağrıları (her bir ölçek birimi) |gün başına 32 milyon<sup>1</sup> |
+| Veri aktarımı (her bir ölçek birimi) |Gün başına 161 GB<sup>1</sup> |
+| Önbellek |5 GB<sup>1</sup> |
+| Ölçek birimleri |Sınırsız<sup>1</sup> |
+| Azure Active Directory Tümleştirmesi |Sınırsız kullanıcı hesapları<sup>1</sup> |
 
-<sup>1</sup>API Management limits are different for each pricing tier. To see the pricing tiers and their associated limits and scaling options, see [API Management Pricing](https://azure.microsoft.com/pricing/details/api-management/).
+<sup>1</sup>API Management sınırları her fiyatlandırma katmanının için farklıdır. Fiyatlandırma katmanlarına ve bunların ilişkili sınırlarını ve ölçeklendirme seçenekleri görmek için bkz: [API Management fiyatlandırması](https://azure.microsoft.com/pricing/details/api-management/).
 

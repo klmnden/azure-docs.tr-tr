@@ -1,95 +1,95 @@
-# <a name="secure-your-iot-deployment"></a>Secure your IoT deployment
-This article provides the next level of detail for securing the Azure IoT-based Internet of Things (IoT) infrastructure. It links to implementation level details for configuring and deploying each component. It also provides comparisons and choices between various competing methods.
+# <a name="secure-your-iot-deployment"></a>IoT dağıtımınızın güvenliğini sağlama
+Bu makalede, Azure IOT tabanlı nesnelerin interneti (IOT) altyapısı güvenliğini sağlamak için sonraki ayrıntı düzeyi sağlar. Yapılandırma ve dağıtma her bileşen için uygulama düzeyi ayrıntılarını bağlar. Karşılaştırmaları ve çeşitli rakip yöntemleri arasında seçenekleri de sağlar.
 
-Securing the Azure IoT deployment can be divided into the following three security areas:
+Azure IOT dağıtım güvenli hale getirme, aşağıdaki üç güvenlik alanlara ayrılabilir:
 
-* **Device Security**: Securing the IoT device while it is deployed in the wild.
-* **Connection Security**: Ensuring all data transmitted between the IoT device and IoT Hub is confidential and tamper-proof.
-* **Cloud Security**: Providing a means to secure data while it moves through, and is stored in the cloud.
+* **Cihaz güvenliği**: joker dağıtılırken IOT cihaz güvenli hale getirme.
+* **Bağlantı güvenliği**: gizli ve yetkisiz değiştirmeye karşı kanıt IOT hub'ı ve IOT cihaz arasında aktarılan tüm verileri sağlama.
+* **Bulut güvenlik**: aracılığıyla taşır ve bulutta depolanan verilerin güvenliğini sağlamak için bir yol sağlar.
 
-![Three security areas][img-overview]
+![Üç güvenlik alanları][img-overview]
 
-## <a name="secure-device-provisioning-and-authentication"></a>Secure device provisioning and authentication
-The Azure IoT Suite secures IoT devices by the following two methods:
+## <a name="secure-device-provisioning-and-authentication"></a>Güvenli aygıt sağlama ve kimlik doğrulama
+Azure IOT paketi, aşağıdaki iki yöntemle IOT cihazları güvenliğini sağlar:
 
-* By providing a unique identity key (security tokens) for each device, which can be used by the device to communicate with the IoT Hub.
-* By using an on-device [X.509 certificate][lnk-x509] and private key as a means to authenticate the device to the IoT Hub. This authentication method ensures that the private key on the device is not known outside the device at any time, providing a higher level of security.
+* IOT Hub ile iletişim kurmak için aygıt tarafından kullanılan her aygıt için benzersiz kimlik anahtarı (güvenlik belirteçleri) sağlayarak.
+* Bir aygıt kullanarak [X.509 sertifikası] [ lnk-x509] ve cihazın IOT hub'ına kimlik doğrulaması için bir yol olarak özel anahtar. Bu kimlik doğrulama yöntemi, aygıtta özel anahtar cihaz dışında herhangi bir zamanda, daha yüksek düzeyde güvenlik sağlayan bilinmediğini sağlar.
 
-The security token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the TLS connection establishment. The security-token-based method can be used without the X.509 authentication which is a less secure pattern. The choice between the two methods is primarily dictated by how secure the device authentication needs to be, and availability of secure storage on the device (to store the private key securely).
+Güvenlik belirteci yöntemi her çağrı için simetrik anahtar ilişkilendirerek IOT Hub'ına cihaz tarafından yapılan her çağrı için kimlik doğrulaması sağlar. X.509 tabanlı kimlik doğrulama IOT cihaz TLS bağlantı kurulurken bir parçası olarak fiziksel katmanında olanak sağlar. Güvenlik belirteci tabanlı yöntemi daha az güvenli bir desen olan X.509 kimlik doğrulaması olmadan kullanılabilir. İki yöntem arasında seçim öncelikle nasıl güvenli olması için cihaz kimlik doğrulama gereksinimlerini ve güvenli depolama (özel anahtarı güvenli bir şekilde depolamak için) cihazın kullanılabilirliğini tarafından dikte edilir.
 
-## <a name="iot-hub-security-tokens"></a>IoT Hub security tokens
-IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the network. Additionally, security tokens are limited in time validity and scope. Azure IoT SDKs automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These include the direct use of the MQTT, AMQP, or HTTP surfaces, or the implementation of the token service pattern.
+## <a name="iot-hub-security-tokens"></a>IoT Hub güvenlik belirteçleri
+IOT Hub, aygıtları ve ağ üzerinde anahtarları göndermekten kaçınmanız Hizmetleri kimlik doğrulaması için güvenlik belirteçlerini kullanır. Ayrıca, güvenlik belirteçlerini geçerlilik tarihi ve kapsam sınırlıdır. Azure IOT SDK'ları otomatik olarak özel bir yapılandırma gerektirmeden belirteçleri oluşturur. Bazı senaryolar ancak oluşturmak ve güvenlik belirteçlerini doğrudan kullanmak kullanıcının gerektirir. Bunlar, MQTT, AMQP veya HTTP yüzeyleri doğrudan kullanımını ya da belirteci hizmeti düzeni uyarlamasını içerir.
 
-More details on the structure of the security token and its usage can be found in the following articles:
+Güvenlik belirteci ve kullanım yapısı hakkında daha ayrıntılı bilgi aşağıdaki makalelerde bulunabilir:
 
-* [Security token structure][lnk-security-tokens]
-* [Using SAS tokens as a device][lnk-sas-tokens]
+* [Güvenlik belirteci yapısı][lnk-security-tokens]
+* [SAS belirteci bir aygıt olarak kullanma][lnk-sas-tokens]
 
-Each IoT Hub has an [identity registry][lnk-identity-registry] that can be used to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages, and to allow access to the device-facing endpoints. The IoT Hub identity registry provides secure storage of device identities and security keys for a solution. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access. The following articles provide more details on the structure of the identity registry and supported operations.
+Her IOT hub'ı olan bir [kimlik kayıt defteri] [ lnk-identity-registry] kullanılabilecek yürütülen bulut-cihaz iletilerini içeren bir kuyruk gibi hizmet aygıt başına kaynakları oluşturmak ve erişmesine izin vermek için Aygıt'e yönelik uç noktalar. IOT Hub kimlik kayıt cihaz kimliklerini ve güvenlik anahtarları bir çözüm için güvenli depolama sağlar. Tek tek veya grup cihaz kimlikleri bir izin verilenler listesi veya Engellenenler listesi, cihaz erişimi üzerinde tam denetimi etkinleştirme eklenebilir. Aşağıdaki makaleler yapısını kimlik kayıt defteri ve desteklenen işlemler hakkında daha fazla ayrıntı sağlar.
 
-[IoT Hub supports protocols such as MQTT, AMQP, and HTTP][lnk-protocols]. Each of these protocols use security tokens from the IoT device to IoT Hub differently:
+[IOT hub'ı destekleyen MQTT, AMQP ve HTTP gibi protokoller][lnk-protocols]. Bu protokollerin her kullanın IOT Hub'ına IOT cihaz gelen güvenlik belirteçleri farklı:
 
-* AMQP: SASL PLAIN and AMQP Claims-based security ({policyName}@sas.root.{iothubName} in the case of IoT hub-level tokens; {deviceId} in case of device-scoped tokens).
-* MQTT: CONNECT packet uses {deviceId} as the {ClientId}, {IoThubhostname}/{deviceId} in the **Username** field and a SAS token in the **Password** field.
-* HTTP: Valid token is in the authorization request header.
+* AMQP: SASL DÜZ ve AMQP talep tabanlı güvenlik ({policyName}@sas.root. { iothubName} IOT hub düzeyindeki belirteçleri; söz konusu olduğunda {DeviceID} belirteçleri aygıt kapsamlı durumunda).
+* MQTT: {ClientID}, {DeviceID} paket kullanır BAĞLANMAK {IoThubhostname} / {DeviceID} içinde **kullanıcıadı** alanı ve SAS belirteci içinde **parola** alan.
+* HTTP: Geçerli, yetkilendirme istek üstbilgisinde belirtecidir.
 
-IoT Hub identity registry can be used to configure per-device security credentials and access control. However, if an IoT solution already has a significant investment in a [custom device identity registry and/or authentication scheme][lnk-custom-auth], it can be integrated into an existing infrastructure with IoT Hub by creating a token service.
+IOT Hub kimlik kayıt defteri cihaz başına güvenlik kimlik bilgilerini yapılandırmak ve erişim denetimi için kullanılabilir. Ancak, bir IOT Çözüm zaten önemli yatırımınız varsa bir [özel cihaz kimlik kayıt defteri ve/veya kimlik doğrulama düzeni][lnk-custom-auth], IOT Hub ile varolan altyapısıyla tümleştirilebilir bir belirteci hizmeti oluşturarak.
 
-### <a name="x509-certificate-based-device-authentication"></a>X.509 certificate-based device authentication
-The use of a [device-based X.509 certificate][lnk-use-x509] and its associated private and public key pair allows additional authentication at the physical layer. The private key is stored securely in the device and is not discoverable outside the device. The X.509 certificate contains information about the device, such as device ID, and other organizational details. A signature of the certificate is generated by using the private key.
+### <a name="x509-certificate-based-device-authentication"></a>X.509 cihaz sertifika tabanlı kimlik doğrulaması
+Kullanımını bir [aygıt tabanlı X.509 sertifikası] [ lnk-use-x509] ve ilişkili özel ve ortak anahtar çiftini fiziksel katmanında ek kimlik doğrulaması sağlar. Özel anahtarı aygıtı güvenli bir şekilde depolanır ve cihaz dışında bulunabilirlik değil. X.509 sertifikası cihaz kimliği gibi cihaz ve diğer kuruluş ayrıntıları hakkında bilgi içerir. İmza sertifikasının özel anahtarı kullanılarak oluşturulur.
 
-High-level device provisioning flow:
+Üst düzey cihaz sağlama akışı:
 
-* Associate an identifier to a physical device – device identity and/or X.509 certificate associated to the device during device manufacturing or commissioning.
-* Create a corresponding identity entry in IoT Hub – device identity and associated device information in the IoT Hub identity registry.
-* Securely store X.509 certificate thumbprint in IoT Hub identity registry.
+* Fiziksel bir aygıtı – cihaz kimliği ve/veya üretim veya commissioning aygıt sırasında cihaza ilişkili X.509 sertifikası için bir tanımlayıcı ilişkilendirin.
+* IOT hub – cihaz kimliği ve ilişkili aygıt bilgileri IOT Hub kimlik kayıt defterinde karşılık gelen bir kimlik giriş oluşturun.
+* X.509 sertifika parmak izi IOT Hub kimlik kayıt defterinde kaybedilebilir.
 
-### <a name="root-certificate-on-device"></a>Root certificate on device
-While establishing a secure TLS connection with IoT Hub, the IoT device authenticates IoT Hub using a root certificate which is part of the device SDK. For the C client SDK the certificate is located under the folder "\\c\\certs" under the root of the repo. Though these root certificates are long-lived, they still may expire or be revoked. If there is no way of updating the certificate on the device, the device may not be able to subsequently connect to the IoT Hub (or any other cloud service). Having a means to update the root certificate once the IoT device is deployed will effectively mitigate this risk.
+### <a name="root-certificate-on-device"></a>Cihaz üzerinde kök sertifikası
+IOT Hub ile güvenli TLS bağlantı kurulurken IOT cihaz IOT Hub'ın cihaz SDK'sı parçası olan bir kök sertifikayı kullanarak doğrular. C istemci SDK'sı için sertifika klasörünün altında bulunan "\\c\\sertifikaları" depo kökündeki altında. Bu kök sertifikaları uzun süreli olmakla birlikte, bunlar hala dolabilir veya iptal edilebilir. Aygıtlardaki sertifikanın güncelleştirme hiçbir şekilde varsa, cihaz IOT hub'ı (veya diğer herhangi bir bulut hizmeti) sonradan bağlanabilmek için olmayabilir. IOT cihaz dağıtıldıktan sonra bir kök sertifikayı güncelleştirmek için bir yol olması etkili bir şekilde Bu riskin azaltılmasına.
 
-## <a name="securing-the-connection"></a>Securing the connection
-Internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports [TLS 1.2][lnk-tls12], TLS 1.1 and TLS 1.0, in this order. Support for TLS 1.0 is provided for backward compatibility only. It is recommended to use TLS 1.2 since it provides the most security.
+## <a name="securing-the-connection"></a>Bağlantının güvenliğini sağlama
+Internet bağlantısı IOT hub'ı ve IOT cihaz arasında Aktarım Katmanı Güvenliği (TLS) standardını kullanarak güvenlik altına alınır. Azure IOT destekler [TLS 1.2][lnk-tls12], TLS 1.1 ve TLS 1.0, bu sırada. TLS 1.0 desteği yalnızca geriye dönük uyumluluk için sağlanır. En yüksek güvenliği sağlar beri TLS 1.2 kullanılması önerilir.
 
-Azure IoT Suite supports the following Cipher Suites, in this order.
+Azure IOT paketi aşağıdaki şifre paketleri, bu sırada destekler.
 
-| Cipher Suite | Length |
+| Şifre paketi | uzunluğu |
 | --- | --- |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 (0xc028) ECDH secp384r1 (eq. 7680 bits RSA) FS |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (eq. 3072 bits RSA) FS |128 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (eq. 7680 bits RSA) FS |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (eq. 3072 bits RSA) FS |128 |
-| TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (0x9d) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256 (0x9c) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256 (0x3d) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0x3c) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA (0x35) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA (0x2f) |128 |
-| TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
+| TLS\_ECDHE\_RSA\_ile\_AES\_256\_CBC\_SHA384 (0xc028) ECDH secp384r1 (eq. 7680 bit RSA) FS |256 |
+| TLS\_ECDHE\_RSA\_ile\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (eq. 3072 bit RSA) FS |128 |
+| TLS\_ECDHE\_RSA\_ile\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (eq. 7680 bit RSA) FS |256 |
+| TLS\_ECDHE\_RSA\_ile\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (eq. 3072 bit RSA) FS |128 |
+| TLS\_RSA\_ile\_AES\_256\_GCM\_SHA384 (0x9d) |256 |
+| TLS\_RSA\_ile\_AES\_128\_GCM\_SHA256 (0x9c) |128 |
+| TLS\_RSA\_ile\_AES\_256\_CBC\_SHA256 (0x3d) |256 |
+| TLS\_RSA\_ile\_AES\_128\_CBC\_SHA256 (0x3c) |128 |
+| TLS\_RSA\_ile\_AES\_256\_CBC\_SHA (0x35) |256 |
+| TLS\_RSA\_ile\_AES\_128\_CBC\_SHA (0x2f) |128 |
+| TLS\_RSA\_ile\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
 
-## <a name="securing-the-cloud"></a>Securing the cloud
-Azure IoT Hub allows definition of [access control policies][lnk-protocols] for each security key. It uses the following set of permissions to grant access to each of IoT Hub's endpoints. Permissions limit the access to an IoT Hub based on functionality.
+## <a name="securing-the-cloud"></a>Bulut güvenliğini sağlama
+Azure IOT Hub verir tanımını [erişim denetimi ilkeleri] [ lnk-protocols] her güvenlik anahtarı için. Her IOT Hub'ın uç noktalar için erişim vermek için aşağıdaki izinler kümesini kullanır. İzinleri işlevselliğine dayalı bir IOT Hub'ına erişimi sınırlayın.
 
-* **RegistryRead**. Grants read access to the identity registry. For more information, see [identity registry][lnk-identity-registry].
-* **RegistryReadWrite**. Grants read and write access to the identity registry. For more information, see [identity registry][lnk-identity-registry].
-* **ServiceConnect**. Grants access to cloud service-facing communication and monitoring endpoints. For example, it grants permission to back-end cloud services to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments.
-* **DeviceConnect**. Grants access to device-facing endpoints. For example, it grants permission to send device-to-cloud messages and receive cloud-to-device messages. This permission is used by devices.
+* **RegistryRead**. Okuma kimlik kayıt defterine erişim verir. Daha fazla bilgi için bkz: [kimlik kayıt defteri][lnk-identity-registry].
+* **RegistryReadWrite**. Verir okuma ve yazma erişimi kimlik kayıt defterine. Daha fazla bilgi için bkz: [kimlik kayıt defteri][lnk-identity-registry].
+* **ServiceConnect**. Hizmet dönük iletişim ve uç nokta izleme buluta verir erişin. Örneğin, cihaz bulut iletilerini, bulut-cihaz iletilerini göndermek ve karşılık gelen teslim alındı bildirimleri almak için arka uç bulut hizmetlerine izin verir.
+* **DeviceConnect**. Aygıt'te Uç noktalara erişimi verir. Örneğin, cihaz bulut iletilerini göndermek ve bulut-cihaz iletilerini izni verir. Bu izin, cihazlar tarafından kullanılır.
 
-There are two ways to obtain **DeviceConnect** permissions with IoT Hub with [security tokens][lnk-sas-tokens]: using a device identity key, or a shared access key. Moreover, it is important to note that all functionality accessible from devices is exposed by design on endpoints with prefix `/devices/{deviceId}`.
+Almak için iki yolla **DeviceConnect** IOT Hub ile izinlerle [güvenlik belirteçleri][lnk-sas-tokens]: cihaz kimlik anahtar veya bir paylaşılan erişim anahtarı kullanarak. Ayrıca, tüm işlevlere aygıtlardan erişilebilir önekiyle uç noktalarda tasarıma göre sunulur dikkat edilecek önemli `/devices/{deviceId}`.
 
-[Service components can only generate security tokens][lnk-service-tokens] using shared access policies granting the appropriate permissions.
+[Hizmet bileşenleri yalnızca güvenlik belirteçleri oluşturmak] [ lnk-service-tokens] paylaşılan erişim ilkeleri uygun izinleri verme kullanma.
 
-Azure IoT Hub and other services which may be part of the solution allow management of users using the Azure Active Directory.
+Azure IOT Hub ve çözümün parçası olabilecek diğer hizmetler Azure Active Directory kullanarak kullanıcı yönetimi izin verir.
 
-Data ingested by Azure IoT Hub can be consumed by a variety of services such as Azure Stream Analytics and Azure blob storage. These services allow management access. Read more about these services and available options below:
+Azure IOT Hub tarafından alınan verilerin çeşitli Azure akış analizi ve Azure blob depolama gibi hizmetler tarafından kullanılabilecek. Bu hizmetler yönetim erişimi sağlar. Bu hizmetleri ve aşağıdaki kullanılabilir seçenekler hakkında daha fazlasını okuyun:
 
-* [Azure Cosmos DB][lnk-cosmosdb]: A scalable, fully-indexed database service for semi-structured data that manages metadata for the devices you provision, such as attributes, configuration, and security properties. Azure Cosmos DB offers high-performance and high-throughput processing, schema-agnostic indexing of data, and a rich SQL query interface.
-* [Azure Stream Analytics][lnk-asa]: Real-time stream processing in the cloud that enables you to rapidly develop and deploy a low-cost analytics solution to uncover real-time insights from devices, sensors, infrastructure, and applications. The data from this fully-managed service can scale to any volume while still achieving high throughput, low latency, and resiliency.
-* [Azure App Services][lnk-appservices]: A cloud platform to build powerful web and mobile apps that connect to data anywhere; in the cloud or on-premises. Build engaging mobile apps for iOS, Android, and Windows. Integrate with your Software as a Service (SaaS) and enterprise applications with out-of-the-box connectivity to dozens of cloud-based services and enterprise applications. Code in your favorite language and IDE (.NET, Node.js, PHP, Python, or Java) to build web apps and APIs faster than ever.
-* [Logic Apps][lnk-logicapps]: The Logic Apps feature of Azure App Service helps integrate your IoT solution to your existing line-of-business systems and automate workflow processes. Logic Apps enables developers to design workflows that start from a trigger and then execute a series of steps—rules and actions that use powerful connectors to integrate with your business processes. Logic Apps offers out-of-the-box connectivity to a vast ecosystem of SaaS, cloud-based, and on-premises applications.
-* [Azure blob storage][lnk-blob]: Reliable, economical cloud storage for the data that your devices send to the cloud.
+* [Azure Cosmos DB][lnk-cosmosdb]: cihazlar için meta verileri yönetir yarı yapılandırılmış veriler için ölçeklenebilir, tam olarak dizine veritabanı hizmeti, öznitelikler, yapılandırma ve güvenlik özellikleri gibi sağlamanız. Azure Cosmos DB yüksek performanslı ve yüksek verimlilik işleme, veri ve zengin bir SQL sorgu arabirimi şema belirsiz dizin sunar.
+* [Azure Stream Analytics][lnk-asa]: Gerçek Zamanlı Akış hızlı bir şekilde geliştirmek ve cihazlar, algılayıcılar, altyapı, gerçek zamanlı Öngörüler ortaya çıkarmak için düşük maliyetli analiz çözümü dağıtmak sağlayan bulutta işleme ve uygulamaları. Bu tam olarak yönetilen hizmet verilerden herhangi bir birime yüksek performans, düşük gecikme süresi ve dayanıklılık hala elde ederken ölçeklendirebilirsiniz.
+* [Azure uygulama hizmetleri][lnk-appservices]: güçlü web ve bağlanmak için herhangi bir yerde veri; bulutta veya şirket içi mobil uygulamaları oluşturmak için bir bulut platformu. iOS, Android ve Windows için ilgi çekici mobil uygulamalar oluşturun. Hizmet (SaaS) ve bulut tabanlı Hizmetleri düzinelerce Giden kutusu bağlantı Kurumsal uygulamaları ve kuruluş uygulamaları olarak, yazılım ile tümleştirin. Sık kullanılan dil ve IDE (.NET, Node.js, PHP, Python veya Java) web uygulamaları ve API'leri her zamankinden daha hızlı oluşturmak için kod.
+* [Logic Apps][lnk-logicapps]: Azure App Service Logic Apps özelliğini IOT çözümünüzü mevcut iş kolu satır sistemlerinize tümleştirmek ve iş akışı işlemlerini otomatikleştirmenize yardımcı olur. Logic Apps, geliştiricilerin; bir tetikleyiciyle başlayan ve bir dizi adımı yürütürken iş akışları tasarlamasına sağlar — kurallar ve Eylemler, iş süreçlerini tümleştirmek için güçlü bağlayıcıları kullanın. Logic Apps SaaS, bulut tabanlı büyük ekosistemi Giden kutusu bağlantısını sunar ve şirket içi uygulamalar.
+* [Azure blob depolama][lnk-blob]: aygıtlarınızı buluta Gönder verileri için güvenilir ve ekonomik bulut depolama.
 
-## <a name="conclusion"></a>Conclusion
-This article provides overview of implementation level details for designing and deploying an IoT infrastructure using Azure IoT. Configuring each component to be secure is key in securing the overall IoT infrastructure. The design choices available in Azure IoT provide some level of flexibility and choice; however, each choice may have security implications. It is recommended that each of these choices be evaluated through a risk/cost assessment.
+## <a name="conclusion"></a>Sonuç
+Bu makalede tasarlama ve Azure IOT kullanarak bir IOT altyapı dağıtma için düzeyi Ayrıntılar uygulama genel bakış sağlar. Güvenli olacak şekilde her bileşen yapılandırma genel IOT altyapısını koruma içinde anahtardır. Azure IOT ve tasarım tercihlerinin esneklik ve tercih bazı düzeyi sağlamak; Bununla birlikte, her seçenek güvenlik etkileri olabilir. Bu seçenek her risk/maliyeti değerlendirmesi değerlendirilmesi önerilir.
 
 [img-overview]: media/iot-secure-your-deployment/overview.png
 

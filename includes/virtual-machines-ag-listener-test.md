@@ -1,18 +1,18 @@
-In this step, you test the availability group listener by using a client application that's running on the same network.
+Bu adımda, kullanılabilirlik grubu dinleyicisi aynı ağ üzerinde çalışan bir istemci uygulaması kullanarak sınayın.
 
-Client connectivity has the following requirements:
+İstemci bağlantısı aşağıdaki gereksinimlere sahiptir:
 
-* Client connections to the listener must come from machines that reside in a different cloud service than the one that hosts the Always On availability replicas.
-* If the Always On replicas are in different subnets, clients must specify *MultisubnetFailover=True* in the connection string. This condition results in parallel connection attempts to replicas in the various subnets. This scenario includes a cross-region Always On availability group deployment.
+* İstemci bağlantıları dinleyicisi olandan farklı bir bulut hizmeti barındıran Always On kullanılabilirlik çoğaltmalarının bulunan makinelerden gelmelidir.
+* İstemciler her zaman açık çoğaltmaları farklı alt ağlarda olup olmadığını belirtmeniz *MultisubnetFailover = True* bağlantı dizesinde. Bu durum çeşitli alt çoğaltmaları için paralel bağlantı denemelerinde sonuçlanır. Bu senaryo bir çapraz bölge Always On kullanılabilirlik grubu dağıtımı içerir.
 
-One example is to connect to the listener from one of the VMs in the same Azure virtual network (but not one that hosts a replica). An easy way to complete this test is to try to connect SQL Server Management Studio to the availability group listener. Another simple method is to run [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx), as follows:
+Sanal makineleri aynı Azure sanal ağı (ancak bir çoğaltmasını barındıran bir değil) birinden dinleyiciye bağlanmak bir örnektir. Kullanılabilirlik grubu dinleyicisi için SQL Server Management Studio bağlanmayı denemek için bu test tamamlamak için kolay bir yol değil. Başka bir basit yöntem çalıştırmaktır [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx)aşağıdaki gibi:
 
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
 > [!NOTE]
-> If the EndpointPort value is *1433*, you are not required to specify it in the call. The previous call also assumes that the client machine is joined to the same domain and that the caller has been granted permissions on the database by using Windows authentication.
+> EndpointPort değer ise *1433*, çağrıda belirtmeniz gerekmez. Önceki ayrıca istemci makine aynı etki alanına katılmışsa ve Windows kimlik doğrulaması kullanarak arayan veritabanı izinleri verildi varsayar.
 > 
 > 
 
-When you test the listener, be sure to fail over the availability group to make sure that clients can connect to the listener across failovers.
+Dinleyici test ettiğinizde istemciler arasında yük devretmeler dinleyiciye bağlanabildiğinden emin olmak için kullanılabilirlik grubu yük devri emin olun.
 

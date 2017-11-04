@@ -37,6 +37,8 @@
       href: kubernetes-helm.md
     - name: Draft ile uygulama geliştirme
       href: kubernetes-draft.md
+    - name: Azure Dosyaları ile verileri kalıcı hale getirme
+      href: azure-files.md
     - name: Kubernetes panosunu kullanma
       href: kubernetes-dashboard.md
     - name: Hizmet sorumlusu oluşturma

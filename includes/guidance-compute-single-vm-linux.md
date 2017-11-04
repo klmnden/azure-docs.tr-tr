@@ -155,7 +155,7 @@ Sağlama eylemlerini ve diğer sanal makine olaylarını görmek için [denetim 
    * **Kaynak grubu** adı dosyada zaten tanımlanmış olduğundan, **Yeni Oluştur**’u seçip metin kutusuna `ra-single-vm-rg` yazın.
    * **Konum** açılan kutusundan bölgeyi seçin.
    * **Şablon Kök Uri’si** veya **Parametre Kök Uri’si** metin kutularını düzenlemeyin.
-.   * **İşletim Sistemi Türü** açılan kutusundan **linux**’u seçin.
+.   * Select **linux** içinde **işletim sistemi türü** açılan kutusu.
    * Hüküm ve koşulları gözden geçirin ve ardından **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum** onay kutusuna tıklayın.
    * **Satın al** düğmesine tıklayın.
 3. Dağıtımın tamamlanmasını bekleyin.
@@ -188,7 +188,7 @@ Daha yüksek kullanılabilirlik elde etmek için bir yük dengeleyicisinin arkas
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
-[premium-storage]:../articles/storage/common/storage-premium-storage.md
+[premium-storage]:../articles/virtual-machines/windows/premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user

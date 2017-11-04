@@ -9,19 +9,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview
+ms.custom: overview, mvc
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 06/30/2017
+ms.workload: Active
+ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 54aa8c2f738ef92c211462498103d368e4cb4c5c
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/28/2017
-
+ms.openlocfilehash: f97a1e7977e28765985991ba9e38ed4618e00bda
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Veritabanı hizmeti nedir? 
 
@@ -85,16 +84,20 @@ Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafı
 
 SQL Veritabanı ile veritabanı çalıştırma ve yönetim maliyetlerini önemli ölçüde azaltmanıza yardımcı olan ve uygulamanızı hem performans hem de güvenlik açısından üst düzeye taşıyan yerleşik zekaya sahip olursunuz. Her saniye milyonlarca müşterinin iş yükünü çalıştıran SQL Veritabanı çok büyük miktarlarda telemetri verilerini toplayıp işlemenin yanı sıra arka planda müşteri gizliliğini de korumaktadır. Telemetri verilerini sürekli değerlendiren çok farklı algoritmalar sayesinde hizmet uygulamanızı öğrenip kendini ona göre uyarlayabilir. Hizmet bu analize dayalı olarak iş yükünüze özel performans geliştirme önerileri sunar. 
 
-### <a name="automatic-performance-tuning"></a>Otomatik performans ayarlama
+### <a name="automatic-performance-monitoring-and-tuning"></a>Otomatik performans izleme ve ayarlama
 
-SQL Veritabanı izlemeniz gereken sorgularla ilgili ayrıntılı öngörüler sunar. SQL Veritabanı'nın veritabanı desenleriniz hakkında öğrendikleri sayesinde veritabanı şemanızı iş yükünüze uyarlayabilirsiniz. SQL Veritabanı, [SQL Veritabanı Danışmanı](sql-database-advisor.md),'nı kullanarak performans ayarlama önerilerinde bulunur. Siz de bu ayarları gözden geçirebilir ve uygulayabilirsiniz. Ancak özellikle birden fazla veritabanıyla ilgilenirken bir veritabanını sürekli izlemek zor ve yorucu bir görevdir. Çok sayıda veritabanını yönetmek SQL Veritabanı ve Azure portalı tarafından sunulan araçlarla bile verimli şekilde yapılması imkanız bir görev haline gelebilir. Veritabanınızı el ile izlemek ve ayarlamak yerine izleme ve ayarlama işlerinin bazılarını SQL Veritabanı'na bırakarak otomatik ayarlama özelliğini kullanabilirsiniz. SQL Veritabanı önerileri otomatik olarak uygular, test eder ve yapılan tüm ayarları doğrulayarak performansın arttığından emin olur. SQL Veritabanı bu şekilde iş yükünüze kontrollü ve güvenli bir şekilde ayak uydurur. Otomatik ayarlama, veritabanınızın performansının dikkatli bir şekilde izlenmesi ve her ayar işleminden önce ve sonraki durumunun karşılaştırılarak performans artışı görülmediği durumlarda ayarların geri alındığı bir durumdur.
+SQL Veritabanı izlemeniz gereken sorgularla ilgili ayrıntılı öngörüler sunar. SQL Veritabanı'nın veritabanı desenleriniz hakkında öğrendikleri sayesinde veritabanı şemanızı iş yükünüze uyarlayabilirsiniz. SQL veritabanı sağlar [performans ayarlama önerileri](sql-database-advisor.md), burada ayarlama eylemleri gözden geçirin ve bunları uygulayabilirsiniz. 
+
+Ancak özellikle birden fazla veritabanıyla ilgilenirken bir veritabanını sürekli izlemek zor ve yorucu bir görevdir. [Akıllı Öngörüler](sql-database-intelligent-insights.md) olmadığından bu iş sizin için otomatik olarak ölçekte SQL veritabanı performansı izleyerek ve performans düşüşünü sorunların bildirir, sorunun kök nedenini tanımlar ve performans geliştirmesi sağlar mümkün olduğunda öneriler.
+
+Çok sayıda veritabanını yönetmek SQL Veritabanı ve Azure portalı tarafından sunulan araçlarla bile verimli şekilde yapılması imkanız bir görev haline gelebilir. İzleme ve veritabanınızı el ile ayarlama yerine bazı izleme için temsilci seçme ve SQL veritabanı kullanarak eylemleri ayarlama düşünebilirsiniz [otomatik ayarlama](sql-database-automatic-tuning.md). SQL Veritabanı önerileri otomatik olarak uygular, test eder ve yapılan tüm ayarları doğrulayarak performansın arttığından emin olur. SQL Veritabanı bu şekilde iş yükünüze kontrollü ve güvenli bir şekilde ayak uydurur. Otomatik ayarlama, veritabanınızın performansının dikkatli bir şekilde izlenmesi ve her ayar işleminden önce ve sonraki durumunun karşılaştırılarak performans artışı görülmediği durumlarda ayarların geri alındığı bir durumdur.
 
 Bugün SQL Veritabanı üzerinde [çok kiracılı SaaS multi-tenant uygulamaları](sql-database-design-patterns-multi-tenancy-saas-applications.md) çalıştıran iş ortaklarımızın çoğu uygulamalarının kararlı ve tahmin edilebilir performansa sahip olduğundan emin olmak için otomatik performans ayarlarına güveniyor. İş ortaklarımız bu özelliğin gecenin ortasında performans sorunu yaşama riskini önemli ölçüde azalttığını söylüyor. Ayrıca müşterilerinin belirli bölümü SQL Server kullandığından SQL Server müşterilerine yardımcı olmak için SQL Veritabanı tarafından sunulan dizinleme önerilerinden faydalanıyorlar.
 
-SQL Veritabanında iki otomatik ayarlama yöntemi mevcuttur:
+Olan iki otomatik ayarlama nokta [kullanılabilir SQL veritabanında](sql-database-automatic-tuning.md):
 
-- **[Otomatik dizin yönetimi](sql-database-automatic-tuning.md#automatic-index-management)**: Veritabanınıza eklenmesi ve veritabanınızdan kaldırılması gereken dizinleri tanımlar.
-- **[Otomatik plan düzeltme](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**: Sorunlu planları tanımlar ve SQL planı performans sorunlarını düzeltir (çok yakında, SQL Server 2017 ile kullanılabilir).
+- **Otomatik dizin yönetimi**: veritabanınızda eklenmelidir dizinler ve kaldırılmalıdır dizinleri tanımlar.
+- **Otomatik planı düzeltme**: sorunlu planları tanımlar ve SQL planı performans sorunlarını giderir (, yakında zaten bulunan SQL Server 2017).
 
 ### <a name="adaptive-query-processing"></a>Uyarlamalı sorgu işleme
 
@@ -114,7 +117,7 @@ SQL Veritabanı, uygulamanızın çeşitli güvenlik ve uyumluluk gereksinimleri
 
 ### <a name="data-encryption-at-rest"></a>Bekleme sırasında veri şifrelemesi
 
-SQL Veritabanı [saydam veri şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) özelliği bekleme sırasında veritabanını, ilişkili yedekleri ve işlem günlüğü dosyalarını uygulamada değişiklik gerektirmeden gerçek zamanlı olarak şifreleyip şifresini çözerek kötü amaçlı etkinlik tehditlerine karşı koruma konusunda yardımcı olur. Mayıs 2017'den itibaren oluşturulan tüm yeni Azure SQL veritabanları otomatik olarak saydam veri şifrelemesi (TDE) ile korunmaktadır. TDE, SQL'in depolama medyalarını hırsızlıktan koruma amacıyla birçok uyumluluk standardı tarafından talep edilen bekleme sırasında şifreleme teknolojisidir. Müşteriler Azure Key Vault sayesinde TDE şifreleme anahtarı ve diğer gizli dizilerini güvenli ve mevzuatla uyumlu bir şekilde saklayabilir.
+SQL Veritabanı [saydam veri şifrelemesi](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) özelliği bekleme sırasında veritabanını, ilişkili yedekleri ve işlem günlüğü dosyalarını uygulamada değişiklik gerektirmeden gerçek zamanlı olarak şifreleyip şifresini çözerek kötü amaçlı etkinlik tehditlerine karşı koruma konusunda yardımcı olur. Mayıs 2017'den itibaren oluşturulan tüm yeni Azure SQL veritabanları otomatik olarak saydam veri şifrelemesi (TDE) ile korunmaktadır. TDE, SQL'in depolama medyalarını hırsızlıktan koruma amacıyla birçok uyumluluk standardı tarafından talep edilen bekleme sırasında şifreleme teknolojisidir. Müşteriler Azure Key Vault sayesinde TDE şifreleme anahtarı ve diğer gizli dizilerini güvenli ve mevzuatla uyumlu bir şekilde saklayabilir.
 
 ### <a name="data-encryption-in-motion"></a>Hareket halinde veri şifrelemesi
 
@@ -147,6 +150,14 @@ SQL Veritabanı uygulama oluşturma ve uygulamaların bakımını yapma işlemle
 
 SQL Veritabanı MacOS, Linux ve Windows üzerinde Python, Java, Node.js, PHP, Ruby ve .NET ile uygulama oluşturmayı destekler. SQL Veritabanı, SQL Server ile aynı [bağlantı kitaplıklarını destekler](sql-database-libraries.md).
 
+## <a name="engage-with-the-sql-server-engineering-team"></a>SQL Server mühendislik ekibi ile iletişime geçme
+
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Veritabanı yönetimi hakkında sorular için
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Geliştirme hakkında sorular için
+- [MSDN Forumları](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): Teknik sorular için
+- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): Hata bildirimleri ve özellik istekleri için
+- [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server’ı tartışmak için
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Tek veritabanı ve elastik havuz maliyet karşılaştırmaları ve hesaplayıcıları için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).
@@ -160,4 +171,3 @@ SQL Veritabanı MacOS, Linux ve Windows üzerinde Python, Java, Node.js, PHP, Ru
 - Azure CLI ve PowerShell örnekleri için bkz.:
   - [SQL Veritabanı için Azure CLI örnekleri](sql-database-cli-samples.md)
   - [SQL Veritabanı için Azure PowerShell örnekleri](sql-database-powershell-samples.md)
-

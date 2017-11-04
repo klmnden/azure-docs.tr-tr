@@ -1,47 +1,47 @@
 >[!NOTE]
->For resources that are not fixed, you may ask for the quotas to be raised, by opening a support ticket. Do **not** create additional Azure Media Services accounts in an attempt to obtain higher limits.
+>Sabitlenmemiş kaynaklar için bir destek bileti açarak kotaların yükseltilmesini isteyebilirsiniz. Daha yüksek sınırlar elde etmek için başka Azure Media Services hesapları **oluşturmayın**.
 
-| Resource | Default Limit | 
+| Kaynak | Varsayılan Sınır | 
 | --- | --- | 
-| Azure Media Services (AMS) accounts in a single subscription | 25 (fixed) |
-| Media Reserved Units (RUs) per AMS account |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
-| Jobs per AMS account | 50,000<sup>(2)</sup> |
-| Chained tasks per job | 30 (fixed) |
-| Assets per AMS account | 1,000,000|
-| Assets per task | 50 |
-| Assets per job | 100 |
-| Unique locators associated with an asset at one time | 5<sup>(4)</sup> |
-| Live channels per AMS account |5|
-| Programs in stopped state per channel |50|
-| Programs in running state per channel |3|
-| Streaming endpoints in running state per AMS account|2|
-| Streaming units per streaming endpoint |10 |
-| Storage accounts | 1,000<sup>(5)</sup> (fixed) |
-| Policies | 1,000,000<sup>(6)</sup> |
-| File size| In some scenarios there is a limit on the maximum file size supported for processing in Media Services. <sup>7</sup> |
+| Tek bir abonelikte Azure Media Services (AMS) hesabı sayısı | 25 (sabit) |
+| AMS hesabı başına Medya Ayrılmış Birimleri (RU’lar) |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| AMS hesabı başına iş sayısı | 50,000<sup>(2)</sup> |
+| İş başına zincirleme görev sayısı | 30 (sabit) |
+| AMS hesabı başına varlık sayısı | 1.000.000|
+| Görev başına varlık sayısı | 50 |
+| İş başına varlık sayısı | 100 |
+| Tek seferde bir varlıkla ilişkilendirilen benzersiz bulucu sayısı | 5<sup>(4)</sup> |
+| AMS hesabı başına canlı kanal sayısı |5|
+| Kanal başına durdurulmuş durumdaki program sayısı |50|
+| Kanal başına çalışır durumdaki program sayısı |3|
+| AMS hesabı başına çalışır durumdaki akış uç noktaları|2|
+| Akış uç noktası başına akış birimleri |10 |
+| Depolama hesapları | 1,000<sup>(5)</sup> (sabit) |
+| İlkeler | 1,000,000<sup>(6)</sup> |
+| Dosya boyutu| Bazı senaryolarda, Media Services ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. <sup>7</sup> |
   
-<sup>1</sup> S3 RUs are not available in India West. The max RU limits get reset if the customer changes the type (for example, from S2 to S1). 
+<sup>1</sup> S3 RU’ları Hindistan Batı bölgesinde kullanılamaz. Müşteri türünden (örneğin, S1 S2) değişirse max RU sınırları sıfırlama. 
 
-<sup>2</sup> This number includes queued, finished, active, and canceled jobs. It does not include deleted jobs. You can delete the old jobs using **IJob.Delete** or the **DELETE** HTTP request.
+<sup>2</sup> Bu sayı kuyruğa alınan, tamamlanan, etkin ve iptal edilmiş işleri içerir. Silinmiş işleri içermez. **IJob.Delete** veya **DELETE** HTTP isteğini kullanarak eski işleri silebilirsiniz.
 
-Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. If you need to archive the job/task information, you can use the code described [here](../articles/media-services/media-services-dotnet-manage-entities.md).
+1 Nisan 2017’den itibaren, hesabınızdaki 90 günden eski olan tüm İş kayıtları, toplam kayıt sayısı üst kota sınırının altında olsa bile ilişkili Görev kayıtlarıyla birlikte otomatik olarak silinecektir. İş/görev bilgilerini arşivlemeniz gerekiyorsa, [burada](../articles/media-services/media-services-dotnet-manage-entities.md) açıklanan kodu kullanabilirsiniz.
 
-<sup>3</sup> When making a request to list Job entities, a maximum of 1,000 will be returned per request. If you need to keep track of all submitted Jobs, you can use top/skip as described in [OData system query options](http://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup> İş varlıklarını listeleme isteği yaparken istek başına en fazla 1.000 adet döndürülür. Gönderilen tüm işleri izlemeniz gerekiyorsa, [OData sorgu seçeneklerinde](http://msdn.microsoft.com/library/gg309461.aspx) açıklandığı gibi üste/atla seçeneğini kullanabilirsiniz.
 
-<sup>4</sup> Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions. For more information, see [this](../articles/media-services/media-services-content-protection-overview.md) section.
+<sup>4</sup> Bulucular kullanıcı başına erişim denetimini yönetmek için tasarlanmamıştır. Ayrı kullanıcılara farklı erişim hakları vermek için Digital Rights Management (DRM) çözümlerini kullanın. Daha fazla bilgi için [bu](../articles/media-services/media-services-content-protection-overview.md) bölüme bakın.
 
-<sup>5</sup> The storage accounts must be from the same Azure subscription.
+<sup>5</sup> Depolama hesapları aynı Azure aboneliğine ait olmalıdır.
 
-<sup>6</sup> There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). 
+<sup>6</sup> Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu politikası veya ContentKeyAuthorizationPolicy için). 
 
 >[!NOTE]
-> You should use the same policy ID if you are always using the same days / access permissions / etc. For information and an example, see [this](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) section.
+> Kullandığınız günler / erişim izinleri / vb. her zaman aynıysa, aynı ilke kimliğini kullanmanız gerekir. Bilgi ve bir örnek için [bu](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) bölüme bakın.
 
-<sup>7</sup>If you are uploading content to an Asset in Azure Media Services with the intent to process it with one of the media processors in our service (i.e. encoders like Media Encoder Standard and Media Encoder Premium Workflow, or analysis engines like Face Detector), then you should be aware of the constraint on the maximum size. 
+<sup>7</sup>içerik Azure Media Services bir varlık için hizmetimizi medya işlemciler biri ile işlem yapma ile karşıya yüklemekte olduğunuz varsa (yani kodlayıcılar ister yüz gibi Medya Kodlayıcısı standart ve Medya Kodlayıcısı Premium iş akışı veya Analiz altyapıları Algılayıcı), en büyük boyutunu kısıtlama farkında olması gerekir. 
 
-As of May 15, 2017, the maximum size supported for a single blob is 195 TB - with file largers than this limit, your Task will fail. We are working a fix to address this limit. In addition, the constraint on the maximum size of the Asset is as follows.
+15 Mayıs 2017'dan sonra tek bir blob için desteklenen en büyük boyutu 195 TB - bu sınırından dosya largers olan, görev başarısız olur. Bu sınır adresi için bir düzeltme çalışıyoruz. Ayrıca, varlık en büyük boyutunu kısıtlama gibidir.
 
-| Media Reserved Unit type | Maximum Input Size (GB)| 
+| Medya Ayrılmış Birimi türü | En büyük giriş boyutu (GB)| 
 | --- | --- | 
 |S1 | 325|
 |S2 | 640|

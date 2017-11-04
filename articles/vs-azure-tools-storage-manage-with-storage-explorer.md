@@ -3,23 +3,22 @@ title: "Depolama Gezgini (Önizleme) ile çalışmaya başlama | Microsoft Docs"
 description: "Depolama Gezgini (Önizleme) ile Azure Storage kaynaklarını yönetme"
 services: storage
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/17/2017
-ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/21/2017
-
+ms.date: 07/17/2017
+ms.author: cawa
+ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Depolama Gezgini (Önizleme) ile çalışmaya başlama
 ## <a name="overview"></a>Genel Bakış
@@ -43,6 +42,7 @@ Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 * [Dış depolama birimine ekleme](#attach-or-detach-an-external-storage-account): Depolama hesabının adını, anahtarını ve uç noktalarını kullanarak başka bir Azure aboneliğine ait olan veya ulusal Azure bulutlarında bulunan depolama kaynaklarını yönetin.
 * [SAS kullanarak depolama hesabı ekleme](#attach-storage-account-using-sas): Paylaşılan erişim imzası (SAS) kullanarak başka bir Azure aboneliğine ait olan depolama kaynaklarını yönetin.
 * [SAS kullanarak hizmet ekleme](#attach-service-using-sas): SAS kullanarak başka bir Azure aboneliğine ait belirli bir depolama hizmetini (blob kapsayıcısı, kuyruk veya tablo) yönetin.
+* [Bir bağlantı dizesi kullanarak bir Azure Cosmos DB hesabına bağlanma](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): bir bağlantı dizesi kullanarak yönetmek Cosmos DB hesabı.
 
 ## <a name="connect-to-an-azure-subscription"></a>Bir Azure aboneliğine Bağlanma
 > [!NOTE]
@@ -68,7 +68,7 @@ Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Bir Azure Stack aboneliğine bağlanma
 
-Azure Stack aboneliğine bağlanma hakkında bilgi için bkz. [Depolama Gezgini’ni Azure Stack aboneliğine bağlama](azure-stack/azure-stack-storage-connect-se.md).
+Azure Stack aboneliğine bağlanma hakkında bilgi için bkz. [Depolama Gezgini’ni Azure Stack aboneliğine bağlama](azure-stack/user/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Yerel geliştirme deposu ile çalışma
 Depolama Gezgini (Önizleme) ile Azure Depolama Öykünücüsü kullanarak yerel depolamaya karşı çalışabilirsiniz. Bu yaklaşım, (depolama hesabı Azure Depolama Öykünücüsü tarafından öykündüğü için) depolama hesabını Azure’a dağıtmadan hesaba karşı kod yazıp test edebilmenizi sağlar.
@@ -223,6 +223,17 @@ Bu bağlamda bir hizmet, bir blob kapsayıcısı, sıra veya tablo olabilir. Lis
 
     ![SAS kullanarak paylaşılan hizmete ekleme sonucu][20]
 
+## <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Bir bağlantı dizesi kullanarak bir Azure Cosmos DB hesabına bağlanma
+Bir bağlantı dizesi kullanmak için bir Azure Cosmos DB bağlayan alternatif bir yolu, yanında Azure aboneliği ile Azure Cosmos DB hesaplarını yönetin. Bir bağlantı dizesi kullanarak bağlanmak için aşağıdaki adımları kullanın.
+
+1. Bul **yerel ve iliştirildiği** sol ağacında sağ **Azure Cosmos DB hesapları**, seçin **Azure Cosmos DB Bağlan...**
+
+    ![Bağlantı dizesi tarafından Azure Cosmos Veritabanına bağlanın][33]
+
+2. Azure Cosmos DB API'ı seçin, yapıştırın, **bağlantı dizesi**ve ardından **Tamam** Azure Cosmos DB hesap bağlanmak için. Bağlantı dizesi alma hakkında daha fazla bilgi için bkz: [bağlantı dizesini almak](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+
+    ![bağlantı dizesi][32]
+
 ## <a name="search-for-storage-accounts"></a>Depolama hesapları arama
 Depolama hesaplarından oluşan uzun bir listeniz varsa, sol bölmenin üzerindeki arama kutusunu kullanmak belirli bir depolama hesabını bulmak için hızlı bir yöntemdir.
 
@@ -232,6 +243,7 @@ Arama kutusuna yazarken sol bölmede o noktaya kadar girdiğiniz arama değeriyl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Depolama Gezgini (Önizleme) ile Azure Blob Depolama kaynaklarını yönetme](vs-azure-tools-storage-explorer-blobs.md)
+* [Azure Depolama Gezgini (Önizleme) Azure Cosmos DB yönetme](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -260,4 +272,5 @@ Arama kutusuna yazarken sol bölmede o noktaya kadar girdiğiniz arama değeriyl
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
 [31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
-
+[32]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.PNG
+[33]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.PNG

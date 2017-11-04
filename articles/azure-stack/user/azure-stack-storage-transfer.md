@@ -1,6 +1,6 @@
 ---
-title: Tools for Azure Stack storage
-description: Learn about Azure Stack storage data transfer tools
+title: "Azure yığın depolama için Araçlar"
+description: "Aktarım araçları Azure yığın depolama birimi verileri hakkında bilgi edinin"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,81 +14,80 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9799498a11449a9ed496d0fdb40312603eda064e
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tools-for-azure-stack-storage"></a>Tools for Azure Stack Storage
+# <a name="tools-for-azure-stack-storage"></a>Azure yığın depolama için Araçlar
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functionality. You can use a set of Azure Storage tools if you want to manage or move data to or from Azure Stack Storage. This article provides a quick overview of the tools available.
+Microsoft Azure yığın diskleri, BLOB'lar, tablolar, kuyruklar ve hesap yönetim işlevselliği için depolama hizmetleri kümesi sağlar. Yönetmek veya için veya Azure yığın depolama biriminden verileri taşımak istiyorsanız, bir dizi Azure Storage araçları kullanabilirsiniz. Bu makalede kullanılabilen araçlar hızlı bir bakış sağlar.
 
-The tool that works best for you depends on your requirements:
+Gereksinimlerinize en uygun aracı bağlıdır:
 * [AzCopy](#azcopy)
 
-    A storage-specific command-line utility that you can download to copy data from one object to another within your storage account, or between storage accounts.
+    Verileri bir nesneden başka depolama hesabınızda veya depolama hesapları arasında kopyalamak için karşıdan yükleyebileceğiniz bir depolama özgü komut satırı yardımcı programı.
 
 * [Azure PowerShell](#azure-powershell)
 
-    A task-based command-line shell and scripting language designed especially for system administration.
+    Bir görev tabanlı komut satırı kabuğu ve betik dilidir özellikle sistem yönetimi için tasarlanmıştır.
 
 * [Azure CLI](#azure-cli)
 
-    An open-source, cross-platform tool that provides a set of commands for working with the Azure and Azure Stack platforms.
+    Azure ve Azure yığın platformları ile çalışmak için bir komut kümesi sağlayan bir açık kaynak, platformlar arası aracı.
 
-* [Microsoft Storage Explorer (Preview)](#microsoft-azure-storage-explorer)
+* [Microsoft Depolama Gezgini (Önizleme)](#microsoft-azure-storage-explorer)
 
-    An easy to use standalone app with a user interface.
+    Kullanımı kolay tek başına uygulama kullanıcı arabirimi ile.
 
-Due to the Storage services differences between Azure and Azure Stack, there might be some specific requirements for each tool described in the following sections. For a comparison between Azure Stack storage and Azure storage, see [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md).
+Depolama Hizmetleri nedeniyle arasındaki farklar Azure ve Azure yığını, aşağıdaki bölümlerde açıklanan her aracı için bazı belirli gereksinimleri olabilir. Azure yığın depolama ve Azure depolama birimi arasında bir karşılaştırma için bkz: [Azure yığın depolama: farklar ve konuları](azure-stack-acs-differences.md).
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy is a command-line utility designed to copy data to and from Microsoft Azure Blob and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts. There are two version of the AzCopy: AzCopy on Windows and AzCopy on Linux. Azure Stack only supports the Windows version. 
+AzCopy ve Microsoft Azure Blob ve en uygun performans ile basit komutları kullanarak Table storage veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Verileri bir nesneden diğerine depolama hesabınızda veya depolama hesapları arasında kopyalayabilirsiniz. AzCopy iki sürümü vardır: Windows ve Linux üzerinde AzCopy AzCopy. Azure yığını yalnızca Windows sürümünü destekler. 
  
-### <a name="download-and-install-azcopy"></a>Download and install AzCopy 
-[Download](https://aka.ms/azcopyforazurestack) the supported Windows version of AzCopy for Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../../storage/common/storage-use-azcopy.md). 
+### <a name="download-and-install-azcopy"></a>AzCopy yükleyip 
+[Karşıdan](https://aka.ms/azcopyforazurestack) AzCopy Azure yığını için desteklenen bir Windows sürümü. Yükleyin ve AzCopy Azure yığında Azure aynı şekilde kullanın. Daha fazla bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](../../storage/common/storage-use-azcopy.md). 
 
-### <a name="azcopy-command-examples-for-data-transfer"></a>AzCopy command examples for data transfer
-The following examples demonstrate a few typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../../storage/storage-use-azcopy.md). 
-#### <a name="download-all-blobs-to-local-disk"></a>Download all blobs to local disk
+### <a name="azcopy-command-examples-for-data-transfer"></a>Veri aktarımı için AzCopy komut örnekleri
+Aşağıdaki örnekler ve Azure yığın blob'lara ait veriler kopyalama için birkaç tipik senaryolar gösterilmektedir. Daha fazla bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](../../storage/storage-use-azcopy.md). 
+#### <a name="download-all-blobs-to-local-disk"></a>Tüm BLOB'lar yerel diske yükle
 ```azcopy
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
 ```
-#### <a name="upload-single-file-to-virtual-directory"></a>Upload single file to virtual directory 
+#### <a name="upload-single-file-to-virtual-directory"></a>Sanal dizin için tek dosya karşıya yükleme 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
-#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Move data between Azure and Azure Stack Storage 
-Asynchronous data transfer between Azure Storage and Azure Stack is not supported. you need to specify the transfer with the `/SyncCopy` option. 
+#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Verileri Azure yığın depolama ve Azure arasında taşıma 
+Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. aktarıma belirtmek zorunda `/SyncCopy` seçeneği. 
 ```azcopy 
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ```
 
-### <a name="azcopy-known-issues"></a>Azcopy Known issues
-* Any AzCopy operation on File storage is not available because File Storage is not yet available in Azure Stack.
-* Asynchronous data transfer between Azure Storage and Azure Stack is not supported. You can specify the transfer with the `/SyncCopy` option to copy the data.
-* The Linux version of Azcopy is not supported for Azure Stack Storage. 
+### <a name="azcopy-known-issues"></a>Azcopy bilinen sorunlar
+* Dosya depolama henüz Azure yığın içinde kullanılabilir olmadığından dosya depolama üzerinde herhangi bir AzCopy işlemi kullanılabilir değil.
+* Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. Aktarıma belirtebilirsiniz `/SyncCopy` verileri kopyalamak için seçeneği.
+* Azcopy Linux sürümü için Azure yığın depolama desteklenmiyor. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Azure PowerShell is a module that provides cmdlets for managing services on both Azure and Azure Stack. It's a task-based command-line shell and scripting language designed especially for system administration.
+Azure PowerShell cmdlet'leri hem Azure hem de Azure yığın hizmetleri yönetmek için sağlayan bir modüldür. Sistem yönetimi için özel olarak tasarlanan görev tabanlı bir komut satırı kabuğu ve betik dili olarak tanımlanır.
 
-### <a name="install-and-configure-powershell-for-azure-stack"></a>Install and Configure PowerShell for Azure Stack
-Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) to learn more.
+### <a name="install-and-configure-powershell-for-azure-stack"></a>PowerShell'i yükleme ve Azure yığını için yapılandırma
+Azure yığın uyumlu Azure PowerShell modülleri Azure yığın ile çalışmak için gereklidir. Daha fazla bilgi için bkz: [Azure yığını için PowerShell yükleme](azure-stack-powershell-install.md) ve [Azure yığın kullanıcının PowerShell ortamını yapılandırmak](azure-stack-powershell-configure-user.md) daha fazla bilgi için.
 
-### <a name="powershell-sample-script-for-azure-stack"></a>PowerShell Sample script for Azure Stack 
-This sample assume you have successfully [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). This script will help you conplete the configuration and ask your Azure Stack tenant credentials to add your account to the local PowerShell environemnt. Then, the script will set the default Azure subscription, create a new storage account in Azure, create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory in your local computer and download the image file.
+### <a name="powershell-sample-script-for-azure-stack"></a>Azure yığınının PowerShell örnek betiği 
+Bu örnek, başarılı bir şekilde sahip olduğunuzu varsayar [Azure yığını için PowerShell yükleme](azure-stack-powershell-install.md). Bu komut dosyasını yapılandırma conplete yardımcı olmak ve Azure yığın kiracınız yerel PowerShell environemnt hesabınızı eklemek için kimlik bilgileri isteyin. Sonra komut dosyası varsayılan Azure aboneliği ayarlamak, yeni bir depolama hesabı oluşturma, yeni bir kapsayıcı bu yeni depolama hesabı oluşturur ve varolan bir görüntü dosyası (blob) kapsayıcıya karşıya yükleme. Bu kapsayıcıdaki tüm blob'lara komut dosyasını listeler sonra yerel bilgisayarınızda yeni bir hedef dizin oluşturun ve görüntü dosyasını indirin.
 
-1. Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-2. Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
-3. Open **Windows PowerShell ISE** and **Run as Administrator**, click **File** > **New** to create a new script file.
-4. Copy the script below and paste to the new script file.
-5. Update the script variables based on your configuration settings. 
-6. Note: this script has to be run under the root of downloaded **AzureStack_Tools**. 
+1. Yükleme [Azure yığın uyumlu Azure PowerShell modülleri](azure-stack-powershell-install.md).  
+2. Karşıdan [Azure yığın ile çalışmak için gereken araçları](azure-stack-powershell-download.md).  
+3. Açık **Windows PowerShell ISE** ve **yönetici olarak çalıştır**, tıklatın **dosya** > **yeni** yeni bir komut dosyası oluşturmak için.
+4. Aşağıdaki betiği kopyalayıp yeni betik dosyasına yapıştırın.
+5. Yapılandırma ayarlarınızı temel alan komut dosyası değişkenleri güncelleştirin. 
+6. Not: Bu komut dosyası kök altında çalıştırılması gereken indirilen **AzureStack_Tools**. 
 
 ```PowerShell 
 # begin
@@ -155,10 +154,10 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 # end
 ```
 
-### <a name="powershell-known-issues"></a>PowerShell Known Issues 
-The current compatible Azure PowerShell module version for Azure Stack is 1.2.10. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
+### <a name="powershell-known-issues"></a>PowerShell bilinen sorunlar 
+Geçerli uyumlu Azure PowerShell modülü Azure yığınının 1.2.10 sürümüdür. En son Azure PowerShell sürümünden farklıdır. Bu fark depolama hizmetleri işlemi etkiler:
 
-* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.10 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
+* Dönüş değeri biçimi `Get-AzureRmStorageAccountKey` sürümünde 1.2.10 iki özelliği vardır: `Key1` ve `Key2`, geçerli Azure sürümü tüm hesap anahtarları içeren bir dizi döndürür.
    ```
    # This command gets a specific key for a Storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
@@ -171,22 +170,22 @@ The current compatible Azure PowerShell module version for Azure Stack is 1.2.10
    -AccountName "MyStorageAccount").Key1
 
    ```
-   For more information, see [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
+   Daha fazla bilgi için bkz: [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
 
 ## <a name="azure-cli"></a>Azure CLI
-The Azure CLI is Azure’s command-line experience for managing Azure resources. You can install it on macOS, Linux, and Windows and run it from the command line. 
+Azure CLI Azure kaynaklarını yönetmek için Azure komut satırı deneyimidir. MacOS, Linux ve Windows yükleme ve komut satırından çalıştırın. 
 
-Azure CLI is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager. It provides many of the same functions found in the Azure Stack portal, including rich data access.
+Azure CLI, yönetmek ve komut satırından Azure kaynaklarını yönetme ve Azure Resource Manager karşı iş otomasyon komut dosyaları oluşturmak için optimize edilmiştir. Birçok zengin veri erişimi de dahil olmak üzere Azure yığın portalda bulunan aynı işlevleri sağlar.
 
-Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-connect-cli.md). For more information about how to use the Azure CLI 2.0 to perform several tasks working with resources in your Azure Stack Storage account, see [Using the Azure CLI2.0 with Azure Storage](../../storage/storage-azure-cli.md)
+Azure yığını, Azure CLI Sürüm 2.0 gerektirir. Yükleme ve Azure CLI Azure yığın ile yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure yığın CLI yapılandırma](azure-stack-connect-cli.md). Azure CLI 2.0 ile Azure yığın depolama hesabınızdaki kaynaklara çalışma çeşitli görevleri gerçekleştirmek için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Azure CLI2.0 Azure Storage ile kullanma](../../storage/storage-azure-cli.md)
 
-### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure CLI sample script for Azure Stack 
-Once you complete the CLI installation and configuration, you can try the following steps to work with a small shell sample script to interact with Azure Stack Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container, lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify. Before you run this script, make sure you successfully connect and login to the target Azure Stack. 
-1. Open your favorite text editor, then copy and paste the preceding script into the editor.
-2. Update the script's variables to reflect your configuration settings. 
-3. After you've updated the necessary variables, save the script and exit your editor. The next steps assume you've named your script my_storage_sample.sh.
-4. Mark the script as executable, if necessary: `chmod +x my_storage_sample.sh`
-5. Execute the script. For example, in Bash: `./my_storage_sample.sh`
+### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure CLI örnek komut dosyasında Azure yığını 
+CLI yükleme ve yapılandırmasını tamamladıktan sonra Azure yığın depolama kaynakları ile etkileşim kurmak için bir küçük Kabuk örnek betiği çalışmak için aşağıdaki adımları deneyebilirsiniz. Betik önce depolama hesabınıza yeni bir kapsayıcı oluşturur sonra varolan bir dosyayı (blob) bu kapsayıcıya yükler, kapsayıcıdaki tüm blob'lara listeler ve son olarak, yerel bilgisayarınızda belirttiğiniz bir hedefe dosyasını indirir. Bu komut dosyasını çalıştırmadan önce başarılı bir şekilde bağlandığınızdan emin olun ve hedef Azure yığın oturum açın. 
+1. Sık kullandığınız metin düzenleyicisinde açın, sonra kopyalayın ve önceki komut düzenleyiciye yapıştırın.
+2. Komut dosyanızın değişken yapılandırma ayarlarınızı yansıtacak şekilde güncelleştirin. 
+3. Gerekli değişkenleri güncelleştirdikten sonra komut dosyasını kaydedin ve düzenleyicinizi çıkın. Sonraki adımlar komut dosyası my_storage_sample.sh adlı varsayılmıştır.
+4. Komut dosyası yürütülebilir, olarak gerekiyorsa işaretleyin:`chmod +x my_storage_sample.sh`
+5. Betiğini yürütün. Örneğin, Bash içinde:`./my_storage_sample.sh`
 
 ```bash
 #!/bin/bash
@@ -221,18 +220,17 @@ az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --a
 echo "Done"
 ```
 
-## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
+## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Depolama Gezgini
 
-Microsoft Azure Storage Explorer is a standalone app from Microsoft. It allows you to easily work with both Azure Storage and Azure Stack Storage data on Windows, macOS and Linux. If you want an easy way to manage your Azure Stack Storage data, then consider using Microsoft Azure Storage Explorer.
+Microsoft Azure Storage Gezgini, Microsoft'tan bir tek başına uygulamadır. Windows, macOS ve Linux Azure Storage ve Azure yığın depolama verileri ile kolayca çalışmanızı sağlar. Azure yığın depolama verilerinizi yönetmek için kolay bir yol istiyorsanız, ardından Microsoft Azure Storage Gezgini kullanmayı düşünün.
 
-For more information about configuring Azure Storage Explorer to work with Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
+Azure Storage Gezgini Azure yığın ile çalışmak için yapılandırma hakkında daha fazla bilgi için bkz: [Depolama Gezgini Azure yığın abonelik](azure-stack-storage-connect-se.md).
 
-For more information about Microsoft Azure Storage Explorer, see [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+Microsoft Azure Storage Gezgini hakkında daha fazla bilgi için bkz: [Depolama Gezgini (Önizleme) ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
-## <a name="next-steps"></a>Next steps
-* [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
-* [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
-* [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
-
+## <a name="next-steps"></a>Sonraki adımlar
+* [Depolama Gezgini bir Azure yığın aboneliğine bağlanma](azure-stack-storage-connect-se.md)
+* [Depolama Gezgini (Önizleme) ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Azure tutarlı Depolama: farklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences.md)
+* [Microsoft Azure Depolama'ya Giriş](../../storage/common/storage-introduction.md)
 

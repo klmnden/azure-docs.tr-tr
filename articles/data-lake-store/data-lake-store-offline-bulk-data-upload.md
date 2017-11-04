@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Data Lake Store için çevrimdışı veri kopyası için Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, büyük veri kümeleri kopyalamak nasıl öğreneceksiniz (> 200 GB) gibi çevrimdışı kopya yöntemleri kullanarak bir Azure Data Lake Store içine [Azure içeri/dışarı aktarma hizmeti](../storage/common/storage-import-export-service.md). Özellikle, bu makaledeki örnek olarak kullanılan 339,420,860,416 bayt ya da yaklaşık 319 GB disk üzerindeki dosyasıdır. Şimdi bu dosya 319GB.tsv çağırın.
@@ -58,7 +58,7 @@ Bölme işlemi aşağıdaki adlarla dosyaları oluşturur.
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
     Bkz: [Azure içeri/dışarı aktarma hizmeti kullanma](../storage/common/storage-import-export-service.md) daha fazla örnek kod parçacıkları için.
-4. Yukarıdaki komut, belirtilen konumda bir günlük dosyası oluşturur. İçeri aktarma işleminden oluşturmak için bu günlük dosyası kullanmak [Klasik Azure portalı](https://manage.windowsazure.com).
+4. Yukarıdaki komut, belirtilen konumda bir günlük dosyası oluşturur. İçeri aktarma işleminden oluşturmak için bu günlük dosyası kullanmak [Azure portal](https://portal.azure.com).
 
 ## <a name="create-an-import-job"></a>Bir içeri aktarma işi oluşturma
 İçindeki yönergeleri kullanarak, bir içeri aktarma işi şimdi oluşturabilirsiniz [Azure içeri/dışarı aktarma hizmeti kullanma](../storage/common/storage-import-export-service.md) (altında **içeri aktarma işi** bölümü). Bu içeri aktarma işi için diğer ayrıntılarla disk sürücülerini hazırlanırken oluşturulan günlük dosyasını da sağlar.

@@ -1,28 +1,53 @@
-Data factory is a multi-tenant service that has the following default limits in place to make sure customer subscriptions are protected from each other's workloads. Many of the limits can be easily raised for your subscription up to the maximum limit by contacting support.
+Veri Fabrikası aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için yerinde aşağıdaki varsayılan sınırları sahip çok kiracılı bir hizmettir. Birçok sınırları kolayca sınırına kadar aboneliğiniz için desteğe başvurarak yükseltilebilir.
 
-| **Resource** | **Default Limit** | **Maximum Limit** |
+### <a name="version-2"></a>Sürüm 2
+
+| Kaynak | Varsayılan Sınır | Üst Sınır | 
+| -------- | ------------- | ------------- | 
+| bir Azure aboneliğinizin Data factory'leri | 50 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| data factory içinde komut zincirleri | 2500 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| data factory içinde veri kümeleri | 2500 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Data factory içinde Tetikleyiciler | 2500 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Bağlı hizmetler data factory içinde | 2500 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Data factory içinde tümleştirme çalışma zamanları <sup>4</sup> | 2500 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Ardışık Düzen eşzamanlı ardışık düzen çalışır | 20 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Ardışık Düzen başına en fazla etkinlikleri | 20 | 30 |
+| Ardışık Düzen başına en fazla parametreleri | 20 | 30 |
+| Ardışık Düzen nesneleri için nesne başına bayt <sup>1</sup> | 200 KB | 200 KB |
+| veri kümesi için nesne ve bağlantılı hizmet nesneleri başına bayt <sup>1</sup> | 100 KB | 2000 KB |
+| Bulut veri taşıma birimleri <sup>3</sup> | 32 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Yeniden deneme sayısı ardışık düzen etkinlik çalışması | 1 day(timeout) | 1 gün (zaman aşımı) |
+| API çağrıları yazma | 2500/İK<br/><br/> Bu sınır, Azure Resource Manager Azure Data Factory sınırlamasıdır. | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Okuma API çağrıları | 12.500/İK<br/><br/> Bu sınır, Azure Resource Manager Azure Data Factory sınırlamasıdır. | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+
+
+### <a name="version-1"></a>Sürüm 1
+
+| **Kaynak** | **Varsayılan Sınır** | **Üst Sınır** |
 | --- | --- | --- |
-| data factories in an Azure subscription |50 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| pipelines within a data factory |2500 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| datasets within a data factory |5000 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| concurrent slices per dataset |10 |10 |
-| bytes per object for pipeline objects <sup>1</sup> |200 KB |200 KB |
-| bytes per object for dataset and linked service objects <sup>1</sup> |100 KB |2000 KB |
-| HDInsight on-demand cluster cores within a subscription <sup>2</sup> |60 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Cloud data movement unit <sup>3</sup> |32 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Retry count for pipeline activity runs |1000 |MaxInt (32 bit) |
+| bir Azure aboneliğinizin Data factory'leri |50 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| data factory içinde komut zincirleri |2500 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| data factory içinde veri kümeleri |5000 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| veri kümesi başına eşzamanlı dilimleri |10 |10 |
+| Ardışık Düzen nesneleri için nesne başına bayt <sup>1</sup> |200 KB |200 KB |
+| veri kümesi için nesne ve bağlantılı hizmet nesneleri başına bayt <sup>1</sup> |100 KB |2000 KB |
+| Bir abonelik içindeki Hdınsight isteğe bağlı küme çekirdeği <sup>2</sup> |60 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Bulut veri taşıma birimleri <sup>3</sup> |32 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Yeniden deneme sayısı ardışık düzen etkinlik çalışması |1000 |MAXINT (32 bit) |
 
-<sup>1</sup> Pipeline, dataset, and linked service objects represent a logical grouping of your workload. Limits for these objects do not relate to amount of data you can move and process with the Azure Data Factory service. Data factory is designed to scale to handle petabytes of data.
+<sup>1</sup> ardışık düzeni, veri kümesi ve bağlantılı hizmet nesneleri temsil eden İş yükünüzün mantıksal bir gruplandırması. Bu nesneler için sınırları taşıyın ve Azure Data Factory hizmetiyle işlem veri miktarı ile ilgili değildir. Veri Fabrikası petabaytlarca verileri işlemek için ölçeklendirmek için tasarlanmıştır.
 
-<sup>2</sup> On-demand HDInsight cores are allocated out of the subscription that contains the data factory. As a result, the above limit is the Data Factory enforced core limit for on-demand HDInsight cores and is different from the core limit associated with your Azure subscription.
+<sup>2</sup> isteğe bağlı Hdınsight çekirdek, veri fabrikası içeren abonelik dışında ayrılır. Sonuç olarak, yukarıdaki Data Factory isteğe bağlı Hdınsight çekirdek çekirdek sınırını zorunlu ve Azure aboneliğinizle ilişkili çekirdek sınırına farklıdır sınırlıdır.
 
-<sup>3</sup> Cloud data movement unit (DMU) is being used in a cloud-to-cloud copy operation. It is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. You can achieve higher copy throughput by leveraging more DMUs for some scenarios. Refer to [Cloud data movement units](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) section on details.
+<sup>3</sup> bulut veri taşıma birimi (DMU) bir Bulut Bulut kopyalama işleminde kullanılıyor. Veri Fabrikası'nda tek bir birimi (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüsüdür. Bazı senaryolar için daha fazla DMUs kullanarak daha yüksek kopyalama verimlilik elde edebilirsiniz. Başvurmak [bulut veri taşıma birimleri](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) ayrıntıları bölümü.
 
-| **Resource** | **Default lower limit** | **Minimum limit** |
+<sup>4</sup> tümleştirmesi çalışma zamanı (IR) olan farklı ağ ortamlar genelinde aşağıdaki veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan bilgi işlem altyapısı: veri taşıma etkinlikleri işlem Hizmetleri, gönderme SSIS paketleri yürütme. Daha fazla bilgi için bkz: [tümleştirme çalışma zamanına genel bakış](../articles/data-factory/concepts-integration-runtime.md).
+
+| **Kaynak** | **Varsayılan alt sınırı** | **Alt sınırı** |
 | --- | --- | --- |
-| Scheduling interval |15 minutes |15 minutes |
-| Interval between retry attempts |1 second |1 second |
-| Retry timeout value |1 second |1 second |
+| Zamanlama aralığı |15 dakika |15 dakika |
+| Yeniden deneme girişimleri arasındaki aralığı |1 saniye |1 saniye |
+| Zaman aşımı değeri yeniden deneyin |1 saniye |1 saniye |
 
-### <a name="web-service-call-limits"></a>Web service call limits
-Azure Resource Manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-subscription-service-limits.md#resource-group-limits).
+#### <a name="web-service-call-limits"></a>Web hizmeti çağrısı sınırları
+Azure Resource Manager API çağrıları için sınırları vardır. İçinde bir hızda API çağrıları yapma [Azure Kaynak Yöneticisi API'si sınırlar](../articles/azure-subscription-service-limits.md#resource-group-limits).

@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Service Fabric ile etkileşim kurmak için kullanılan iki PowerShell modülleri vardır. [Azure PowerShell](/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) bir Azure barındırılan Service Fabric kümesi gibi Azure kaynaklarını yönetmek için kullanılır. [Azure Service Fabric SDK](../articles/service-fabric/service-fabric-get-started.md) doğrudan (bağımsız olarak, barındırıldığı) Service Fabric kümesi bağlanmak ve küme, uygulamaları ve hizmetleri yönetmek için kullanılır. 

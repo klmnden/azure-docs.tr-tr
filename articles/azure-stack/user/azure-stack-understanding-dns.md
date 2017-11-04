@@ -1,6 +1,6 @@
 ---
-title: Understanding DNS in Azure Stack | Microsoft Docs
-description: Understanding DNS features and capabilities in Azure Stack
+title: "DNS Azure yığınında anlama | Microsoft Docs"
+description: "DNS özellikleri ve yetenekleri Azure yığınında anlama"
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,45 +14,43 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introducing-idns-for-azure-stack"></a>Introducing iDNS for Azure Stack
+# <a name="introducing-idns-for-azure-stack"></a>IDN'ler için Azure yığınına Tanıtımı
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-iDNS is a feature in Azure Stack that allows you to resolve external DNS names (such as http://www.bing.com).
-It also allows you to register internal virtual network names. By doing so, you can resolve VMs on the same virtual network by name rather than IP address, without having to provide custom DNS server entries.
+IDN'ler yığında Azure (örneğin, http://www.bing.com) dış DNS adlarını çözümlemek izin veren bir özelliktir.
+Ayrıca, iç sanal ağ adları kaydetmenize olanak sağlar. Bunu yaparak, sanal makineleri aynı sanal ağda IP adresi yerine adına göre özel DNS sunucusu girdileri sağlamasına gerek kalmadan çözebilirsiniz.
 
-It’s something that’s always been there in Azure, but it's available in Windows Server 2016 and Azure Stack too.
+Her zaman Azure'da var olmuştur bir şey olduğunu, ancak çok Windows Server 2016 ve Azure yığın de kullanılabilir.
 
-## <a name="what-does-idns-do"></a>What does iDNS do?
-With iDNS in Azure Stack, you get the following capabilities, without having to specify custom DNS server entries.
+## <a name="what-does-idns-do"></a>IDN'ler ne yapar?
+Azure yığınında IDN'ler ile özel DNS sunucusu girdileri belirtmek zorunda kalmadan aşağıdaki özellikleri alır.
 
-* Shared DNS name resolution services for tenant workloads.
-* Authoritative DNS service for name resolution and DNS registration within the tenant virtual network.
-* Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (for example, www.bing.com).
+* Kiracı İş yükleri için DNS ad çözümleme hizmetleri paylaşılan.
+* Ad çözümlemesi ve Kiracı sanal ağ içinde DNS kaydı için yetkili DNS hizmeti.
+* Kiracı VM'ler Internet adlarından çözümlenmesi için yinelemeli DNS hizmeti. Kiracılar, artık Internet adları (örneğin, www.bing.com) çözümlemek için özel DNS girişlerini belirtmeniz gerekir.
 
-You can still bring your own DNS and use custom DNS servers if you want. But now, if you just want to be able to resolve Internet DNS names and be able to connect to other virtual machines in the same virtual network, you don’t need to specify anything and it will just work.
+Hala kendi DNS getirin ve istiyorsanız, özel DNS sunucuları kullanın. Ancak henüz artık, Internet DNS adları ve diğer sanal makinelerle aynı sanal ağda bağlanabilmek için herhangi bir şey belirtmenize gerek yoktur ve yalnızca çalışır çözümleyebilmesi istiyorsanız.
 
-## <a name="what-does-idns-not-do"></a>What does iDNS not do?
-What iDNS does not allow you to do is create a DNS record for a name that can be resolved from outside the virtual network.
+## <a name="what-does-idns-not-do"></a>Ne IDN'ler işe yarar?
+Hangi IDN'ler yapmanıza olanak sağlar, sanal ağ dışında çözümlenebilir bir ad DNS kaydı oluşturmaktır.
 
-In Azure, you have the option of specifying a DNS name label that can be associated with a public IP address. You can choose the label (prefix), but Azure chooses the suffix, which is based on the region in which you create the public IP address.
+Azure'da, bir ortak IP adresi ile ilişkilendirilebilir bir DNS ad etiketi belirtme seçeneğiniz vardır. Etiket (önek) seçebilirsiniz, ancak Azure genel IP adresi oluşturma bölgeye göre soneki seçer.
 
-![Screenshot of DNS name label](media/azure-stack-understanding-dns-in-tp2/image3.png)
+![Ekran görüntüsü, DNS ad etiketi](media/azure-stack-understanding-dns-in-tp2/image3.png)
 
-In the image above, Azure will create an “A” record in DNS for the DNS name label specified under the zone **westus.cloudapp.azure.com**. The prefix and the suffix together compose a Fully Qualified Domain Name (FQDN) that can be resolved from anywhere on the public Internet.
+Yukarıdaki resimde bir "A" kaydı DNS bölge altında belirtilen DNS ad etiketi için Azure oluşturacak **westus.cloudapp.azure.com**. Önek ve sonek birlikte bir tam etki alanı adı (genel Internet'te herhangi bir yere çözümlenebilen FQDN) oluşturun.
 
-Azure Stack only supports iDNS for internal name registration, so it cannot do the following.
+Aşağıdakileri yapamazsınız şekilde azure yığını IDN'ler dahili ad kaydı için yalnızca destekler.
 
-* Create a DNS record under an existing hosted DNS zone (for example, local.azurestack.external).
-* Create a DNS zone (such as Contoso.com).
-* Create a record under your own custom DNS zone.
-* Support the purchase of domain names.
-
+* Varolan barındırılan bir DNS bölgesi (örneğin, local.azurestack.external) altında bir DNS kaydı oluşturun.
+* Bir DNS bölgesi (Contoso.com gibi) oluşturur.
+* Kendi özel DNS bölgesi altında bir kayıt oluşturun.
+* Etki alanı adları satın destekler.
 

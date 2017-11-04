@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7273ae6a698f2af52e78ea2aae9ca5cd80f6a2b1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Azure Search bir .NET uygulamasında kullanma
 Bu makale ile çalışır almak için bir kılavuz olan [Azure Search .NET SDK'sı](https://aka.ms/search-sdk). .NET SDK kullanarak Azure Search uygulamanızda zengin arama deneyimi uygulamak için kullanabilirsiniz.
@@ -33,7 +33,7 @@ Bir istemci Kitaplığı'nın SDK oluşur `Microsoft.Azure.Search`. Dizinleri, v
 
 Geçerli sürümü Azure Search .NET SDK'sı, genellikle kullanıma sunulmuştur. Ziyaret için bir sonraki sürümde birleştirmek için bize geri bildirim sağlamak istiyorsanız, lütfen bizim [görüş sayfası](https://feedback.azure.com/forums/263029-azure-search/).
 
-.NET SDK'sı sürüm destekler `2016-09-01` , [Azure Search REST API'sini](https://docs.microsoft.com/rest/api/searchservice/). Bu sürümü artık özel Çözümleyicileri ve Azure Blob ve Azure Table dizin oluşturucu desteği içerir. Önizleme özellikleri *değil* JSON ve CSV dosyalarını dizin oluşturma için destek gibi bu sürümü bir parçası olan [Önizleme](search-api-2015-02-28-preview.md) ve eski aracılığıyla kullanılabilen [.NET SDK'sı2.0-Önizlemesürümü](https://aka.ms/search-sdk-preview).
+.NET SDK'sı sürüm destekler `2016-09-01` , [Azure Search REST API'sini](https://docs.microsoft.com/rest/api/searchservice/). Bu sürümü artık özel Çözümleyicileri ve Azure Blob ve Azure Table dizin oluşturucu desteği içerir. Önizleme özellikleri *değil* JSON ve CSV dosyalarını dizin oluşturma için destek gibi bu sürümü bir parçası olan [Önizleme](search-api-2016-09-01-preview.md) ve aracılığıyla kullanılabilen [.NET SDK'sı4.0.1-previewsürümü](https://aka.ms/search-sdk-preview).
 
 Bu SDK desteklemediği [yönetim işlemlerini](https://docs.microsoft.com/rest/api/searchmanagement/) oluşturma ve arama hizmetleri ölçekleme ve API anahtarlarını yönetme gibi. Bir .NET uygulamasından arama kaynaklarınızı yönetmek gerekiyorsa, kullanabileceğiniz [Azure Search .NET Yönetim SDK](https://aka.ms/search-mgmt-sdk).
 

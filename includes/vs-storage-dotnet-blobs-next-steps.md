@@ -1,10 +1,10 @@
 
-Now that you've learned the basics of Azure Blob storage, follow these links to learn about more complex storage tasks.
+Artık Azure Blob storage'nın temellerini öğrendiğinize göre daha karmaşık depolama görevleri hakkında bilgi edinmek için aşağıdaki bağlantıları izleyin.
 
-* View the Blob service reference documentation in the [Azure Storage Client Library for .NET](http://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.
-* To learn how to simplify the code you write to work with Azure Storage, check out [What is the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
-* View more feature guides to learn about additional options for storing data in Azure.
-  * To work with Azure Storage Tables, see [Get Started with Azure Table storage using .NET](../articles/cosmos-db/table-storage-how-to-use-dotnet.md).
-  * To work with Azure Storage Queues, [Get started with Azure Queue storage using .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
-  * To store relational data, see [Connect to SQL Database by using .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
+* Blob hizmeti başvuru belgelerini görüntüleyin [.NET için Azure Storage istemci Kitaplığı](http://go.microsoft.com/fwlink/?LinkID=390731) kullanılabilir API'ler ile ilgili tam Ayrıntılar için başvuru.
+* Azure Storage ile çalışmak üzere yazdığınız kodları nasıl sadeleştireceğinizi öğrenin kullanıma [Azure WebJobs SDK nedir](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* Azure’da veri depolama ile ilgili ek seçenekler hakkında daha fazla bilgi edinmek için daha fazla özellik kılavuzu görüntüleyin.
+  * Azure depolama tabloları ile çalışmak için bkz: [.NET kullanarak Azure Table storage ile çalışmaya başlama](../articles/cosmos-db/table-storage-how-to-use-dotnet.md).
+  * Azure depolama kuyruklarla çalışmaya [.NET kullanarak Azure kuyruk depolamaya başlayın](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
+  * İlişkisel veri depolamak için bkz: [.NET (C#) kullanarak SQL veritabanına bağlanma](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 

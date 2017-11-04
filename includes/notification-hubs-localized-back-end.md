@@ -2,7 +2,7 @@
 
 
 
-When you send template notifications you only need to provide a set of properties, in our case we will send the set of properties containing the localized version of the current news, for instance:
+Yalnızca bir özellikler kümesi sağlamanız gereken Şablon Bildirimleri gönderirken örneğimizde örneği için güncel haberleri yerelleştirilmiş sürümünü içeren özellikler kümesini göndereceğiz:
 
     {
         "News_English": "World News in English!",
@@ -11,12 +11,12 @@ When you send template notifications you only need to provide a set of propertie
     }
 
 
-This section shows how to send notifications using a console app
+Bu bölümde bir konsol uygulaması kullanarak bildirim göndermek nasıl gösterir
 
-The included code broadcasts to both Windows Store and iOS devices, since the backend can broadcast to any of the supported devices.
+Arka uç'ın herhangi bir desteklenen aygıtlar için yayın beri Windows mağazası ve iOS aygıtları için eklenen kod yayınlar.
 
-### <a name="to-send-notifications-using-a-c-console-app"></a>To send notifications using a C# console app
-Modify the `SendTemplateNotificationAsync` method in the console app you previously created with the following code. Notice how in this case there is no need to send multiple notifications for different locales and platforms.
+### <a name="to-send-notifications-using-a-c-console-app"></a>Bir C# konsol uygulaması kullanarak bildirim göndermek için
+Değiştirme `SendTemplateNotificationAsync` aşağıdaki kod ile daha önce oluşturduğunuz konsol uygulaması yöntemi. Nasıl bu durumda farklı yerel ayarlara ve platformlar için birden fazla bildirim göndermek için gerek yoktur dikkat edin.
 
         private static async void SendTemplateNotificationAsync()
         {
@@ -52,10 +52,10 @@ Modify the `SendTemplateNotificationAsync` method in the console app you previou
         }
 
 
-Note that this simple call will deliver the localized piece of news to **all** your devices, irrespective of the platform, as your Notification Hub builds and delivers the correct native payload to all the devices subscribed to a specific tag.
+Bu basit aramayı haberleri ile yerelleştirilmiş parçası dağıtılacak Not **tüm** aygıtlarınızın platformunun, bildirim Hub'ınızı oluşturur ve tüm aygıtlar için belirli bir abone doğru yerel yükü teslim gibi belirtilmediğine etiketi.
 
-### <a name="sending-the-notification-with-mobile-services"></a>Sending the notification with Mobile Services
-In your Mobile Service scheduler, you can use the following script:
+### <a name="sending-the-notification-with-mobile-services"></a>Mobile Services bildirim gönderme
+Mobil hizmeti Zamanlayıcısı'nda aşağıdaki betiği kullanabilirsiniz:
 
     var azure = require('azure');
     var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string with full access>');

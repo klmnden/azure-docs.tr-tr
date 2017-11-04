@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: b73bfc7703d79681f0de345f4ec994da540aa2a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fc1aa4d778a6232258470fc9a58a98906c86ec7b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Dağıtım senaryoları ve kullanım örnekleri
 Bu bölümde, birkaç senaryo ve Azure Active Directory (AD) etki alanı Hizmetleri'nden yararlanan kullanım örnekleri ele.
@@ -85,4 +85,4 @@ Bu dağıtım senaryosu hakkında daha fazla bilgi için bkz: nasıl yapılır [
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>Etki alanına katılmış Hdınsight kümeleri (Önizleme)
 Apache bırakabilmenizi etkin bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılmış Azure Hdınsight kümesi ayarlayabilirsiniz. Oluşturun ve Apache bırakabilmenizi aracılığıyla Hive ilkeleri uygulanır ve kullanıcıların (örneğin, veri bilimcilerine) için Hive ODBC tabanlı araçlar, örneğin Excel, Tableau vb. kullanarak bağlanmasına izin vermek. Microsoft, HBase, Spark ve Storm, gibi diğer iş yüklerinin en kısa sürede etki alanına katılmış Hdınsight için ekleme çalışmaktadır.
 
-Bu dağıtım senaryosu hakkında daha fazla bilgi için bkz: nasıl yapılır [etki alanına katılmış Hdınsight kümeleri yapılandırma](../hdinsight/hdinsight-domain-joined-configure.md)
+Bu dağıtım senaryosu hakkında daha fazla bilgi için bkz: nasıl yapılır [etki alanına katılmış Hdınsight kümeleri yapılandırma](../hdinsight/domain-joined/apache-domain-joined-configure.md)

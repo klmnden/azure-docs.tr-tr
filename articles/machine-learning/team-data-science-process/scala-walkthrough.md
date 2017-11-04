@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;deguhath
-ms.openlocfilehash: 8f1d9ab5186684c4aac806ace4ebfd38ca1fb306
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 19e963a56e8f905bb89d0162c65e893ae7515a97
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure üzerinde Scala ve Spark kullanan Veri Bilimi
 Bu makalede Scala için denetimli makine öğrenimi görevlerini Spark ölçeklenebilir Mllib'i ve Spark ML paketleri ile bir Azure Hdınsight Spark kümesinde nasıl kullanıldığını gösterir. Oluşturduğunu görevlerinde anlatılmaktadır [veri bilimi işlem](http://aka.ms/datascienceprocess): veri alımı ve keşfi, görselleştirme, özellik Mühendisliği, model ve model tüketim. Makaleyi modellerinde Lojistik ve doğrusal regresyon, rastgele ormanları ve gradyan boosted ağaçları (GBTs) yanı sıra iki ortak denetimli makine öğrenimi görevlerini içerir:
@@ -32,7 +32,7 @@ Model oluşturma işlemi, eğitim ve sınama veri kümesi ve ilgili doğruluğu 
 
 [Spark](http://spark.apache.org/) büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen bir açık kaynak paralel işleme altyapısıdır. Spark işleme altyapısı hızı, kullanımı kolay, gelişmiş analizler için yerleşik olarak bulunur. Spark'ın bellek içi dağıtılmış hesaplama özellikleri machine learning ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim yapın. [Spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) paket yardımcı olabilecek çerçeveleri oluşturmak ve ardışık düzen öğrenme pratik makine ayarlamak veri üstünde yerleşik yüksek düzey API'leri Tekdüzen kümesi sağlar. [Mllib'i](http://spark.apache.org/mllib/) dağıtılmış bu ortama modelleme yetenekleri getirir Spark'ın ölçeklenebilir machine learning kitaplığı.
 
-[Hdınsight Spark](../../hdinsight/hdinsight-apache-spark-overview.md) açık kaynak Spark Azure barındırılan sunulması değil. Ayrıca Spark kümesinde Jupyter Scala dizüstü bilgisayarlar için destek içerir ve dönüştürmek için filtre ve Azure Blob depolamada depolanan verileri görselleştirmek için Spark SQL etkileşimli sorguları çalıştırabilirsiniz. Çözümler sunar ve verileri görselleştirmek için ilgili çizimleri Göster Scala kod parçacıkları bu makalede yüklü üzerinde Spark kümeleri Jupyter not defterleri çalıştırın. Bu konularda modelleme adımlarda eğitmek için değerlendirmek, kaydetme ve her türde bir model tüketen gösterir koduna sahip.
+[Hdınsight Spark](../../hdinsight/spark/apache-spark-overview.md) açık kaynak Spark Azure barındırılan sunulması değil. Ayrıca Spark kümesinde Jupyter Scala dizüstü bilgisayarlar için destek içerir ve dönüştürmek için filtre ve Azure Blob depolamada depolanan verileri görselleştirmek için Spark SQL etkileşimli sorguları çalıştırabilirsiniz. Çözümler sunar ve verileri görselleştirmek için ilgili çizimleri Göster Scala kod parçacıkları bu makalede yüklü üzerinde Spark kümeleri Jupyter not defterleri çalıştırın. Bu konularda modelleme adımlarda eğitmek için değerlendirmek, kaydetme ve her türde bir model tüketen gösterir koduna sahip.
 
 Bu makaledeki kod ve kurulum adımları için Azure Hdınsight 3.4 Spark 1.6 var. Ancak, bu makalede ve buna kod [Scala Jupyter not defteri](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) geneldir ve tüm Spark kümesi üzerinde çalışması gerekir. Küme kurulumu ve Yönetimi adımları Hdınsight Spark kullanmıyorsanız ne bu makalede gösterilenden biraz farklı olabilir.
 
@@ -43,7 +43,7 @@ Bu makaledeki kod ve kurulum adımları için Azure Hdınsight 3.4 Spark 1.6 var
 
 ## <a name="prerequisites"></a>Ön koşullar
 * Bir Azure aboneliğinizin olması gerekir. Zaten bir yoksa [Azure ücretsiz deneme sürümünü edinin](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Aşağıdaki yordamları tamamlamak için bir Azure Hdınsight 3.4 Spark 1.6 kümesi gerekir. Bir küme oluşturmak için deki yönergelere bakın [Başlarken: Azure hdınsight'ta Apache Spark oluşturma](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Küme türü ve sürümü Ayarla **küme türü seçin** menüsü.
+* Aşağıdaki yordamları tamamlamak için bir Azure Hdınsight 3.4 Spark 1.6 kümesi gerekir. Bir küme oluşturmak için deki yönergelere bakın [Başlarken: Azure hdınsight'ta Apache Spark oluşturma](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Küme türü ve sürümü Ayarla **küme türü seçin** menüsü.
 
 ![Hdınsight küme türü yapılandırma](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -86,7 +86,7 @@ Bazı önceden tanımlanmış "sihirleri" ile çağırabilir özel komutlar oldu
 * `%%local`sonraki satırların kodda yerel olarak yürütülecek belirtir. Kod geçerli Scala kodu olmalıdır.
 * `%%sql -o <variable name>`bir Hive sorgusu yürütür `sqlContext`. Varsa `-o` parametresi geçirilir, sorgunun sonucu kalıcı hale getirilir `%%local` Scala bağlamı Spark veri çerçeve olarak.
 
-İle arama, tekrar Jupyter not defterlerini ve bunların önceden tanımlanmış hakkında daha fazla bilgi "magics için" `%%` (örneğin, `%%local`), bkz: [Jupyter not defterlerinde kullanılabilen çekirdekler Hdınsight Spark Linux kümeleri Hdınsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+İle arama, tekrar Jupyter not defterlerini ve bunların önceden tanımlanmış hakkında daha fazla bilgi "magics için" `%%` (örneğin, `%%local`), bkz: [Jupyter not defterlerinde kullanılabilen çekirdekler Hdınsight Spark Linux kümeleri Hdınsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ### <a name="import-libraries"></a>Kitaplıkları içeri aktarma
 Spark, Mllib'i ve aşağıdaki kodu kullanarak gerekir diğer kitaplıkları içeri aktarın.

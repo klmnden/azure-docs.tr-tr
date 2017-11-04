@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Sorgu performans Azure Cosmos DB ile ayarlama
 Azure Cosmos DB sağlayan bir [SQL veri sorgulama için API](documentdb-sql-query.md), şema veya ikincil dizinler gerektirmeden. Bu makalede, geliştiriciler için aşağıdaki bilgileri sağlar:
@@ -253,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milisaniye | Belgeleri yüklenirken harcanan süre  | 
 | `systemFunctionExecuteTimeInMs` | milisaniye | Yürütülen sistem (yerleşik) işlevleri milisaniye cinsinden toplam süre  | 
 | `userFunctionExecuteTimeInMs` | milisaniye | Milisaniye cinsinden yürütme kullanıcı tanımlı işlevler için harcanan toplam süre | 
-| `retrievedDocumentCount` | milisaniye | Toplam alınan belge sayısı  | 
+| `retrievedDocumentCount` | Sayısı | Toplam alınan belge sayısı  | 
 | `retrievedDocumentSize` | Bayt | Alınan belgeleri bayt olarak toplam boyutu  | 
 | `outputDocumentCount` | Sayısı | Çıktı belge sayısı | 
 | `writeOutputTimeInMs` | milisaniye | Milisaniye cinsinden sorgu yürütme süresi | 

@@ -32,9 +32,9 @@ Hayır. Yakın zamanda [ExpressRoute devrelerini klasikten Resource Manager dağ
 
 Geçiş sırasında kaynaklar klasikten Resource Manager’a dönüşür. Bu nedenle geçişten sonra gerçekleşmesi gereken RBAC İlkesi güncelleştirmelerini planlamanızı öneririz.
 
-## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Klasik VM’lerimi bir Backup kasasına yedekledim. VM’lerimi klasik moddan Resource Manager moduna geçirip bunları bir Kurtarma Hizmetleri kasasında koruyabilir miyim? 
+## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Klasik VM’lerimi bir Backup kasasına yedekledim. VM’lerimi klasik moddan Resource Manager moduna geçirip bunları bir Kurtarma Hizmetleri kasasında koruyabilir miyim?
 
-Bir VM’yi klasikten Resource Manager moduna taşıdığınızda yedekleme kasasındaki klasik VM kurtarma noktaları, Kurtarma Hizmetleri kasasına otomatik olarak geçirilmez. VM yedeklerinizi aktarmak için bu adımları izleyin:
+<a name="vault">Klasik</a> VM kurtarma noktaları bir yedekleme kasasına yok otomatik olarak geçirmek için bir kurtarma Hizmetleri kasası, VM Klasikten Resource Manager moduna geçtiğinizde. VM yedeklerinizi aktarmak için bu adımları izleyin:
 
 1. Backup kasasında **Korunan Öğeler** sekmesine gidin ve VM’yi seçin. [Korumayı Durdur](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın.
 2. Yedekleme/anlık görüntü uzantısını VM'den silin.
@@ -61,6 +61,6 @@ Klasik dağıtım modelinde adlarını özellikle belirttiğiniz tüm kaynaklar 
 
 Çapraz abonelik yetkilendirme bağlantılar kullanan ExpressRoute devreleri kapalı kalma süresi olmadan otomatik olarak geçirilemez. Bunları elle nasıl geçirebileceğiniz hakkında yönergelerimiz vardır. Adımlar ve daha fazla bilgi için bkz. [ExpressRoute devrelerini ve ilgili sanal ağları klasikten Resource Manager dağıtım modeline geçirme](../articles/expressroute/expressroute-migration-classic-resource-manager.md).
 
-## <a name="i-got-a-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated-"></a>Şöyle bir ileti alıyorum: *"VM, genel aracı durumunun hazır olmadığını bildiriyor. Bu nedenle VM geçirilemiyor. VM Aracısının genel aracı durumunu Hazır olarak bildirdiğinden emin olun"* veya *"VM, sanal makineden Durumu bildirilmeyen bir Uzantı içeriyor. Bu nedenle bu VM geçirilemez.” *
+## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>İleti aldı *"VM genel aracı durumu raporlama hazır olarak değil. Bu nedenle VM geçirilemiyor. VM Aracısı hazır olarak genel aracı durumu raporlama emin olun"* veya *"VM uzantısı durumu bildirilmedi sanal makineden içerir. Bu nedenle, bu VM geçirilemez."*
 
 Bu ileti, VM’nin giden İnternet bağlantısı olmadığında alınır. VM aracısı, aracı durumunu güncelleştirmek için, giden bağlantı üzerinden her beş dakikada bir Azure depolama hesabına erişir.

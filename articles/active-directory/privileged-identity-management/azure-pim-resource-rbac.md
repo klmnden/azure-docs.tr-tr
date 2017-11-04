@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barclayn
-ms.openlocfilehash: abaf78428cb12235a659bad5c13d64e8e51f4ba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 114ef434e6167ef2b25b040e35ab3ce1b85151a9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="pim-for-azure-resources-preview"></a>PIM için Azure kaynaklarını (Önizleme)
 
@@ -43,11 +43,12 @@ Azure AD PIM (ancak bunlarla sınırlı değil) dahil olmak üzere özel (RBAC) 
 - Güvenlik Yöneticisi ve daha fazla bilgi
 
 >[!NOTE]
-Kullanıcılar veya sahibi ya da kullanıcı erişimi yöneticisi rolü ve Azure AD içinde abonelik yönetimini etkinleştirme genel Yöneticiler atanmış bir grubun üyeleri kaynak yöneticileri olur. Bu yöneticileri, Rolleri Ata, rol ayarlarını yapılandırmak ve Azure kaynakları için PIM kullanarak erişimi gözden geçirin. Listesini görüntülemek [Azure kaynakları için yerleşik roller](../role-based-access-built-in-roles.md)
+Kullanıcılar veya sahibi ya da kullanıcı erişimi yöneticisi rolü ve Azure AD içinde abonelik yönetimini etkinleştirme genel Yöneticiler atanmış bir grubun üyeleri kaynak yöneticileri olur. Bu yöneticileri, Rolleri Ata, rol ayarlarını yapılandırmak ve Azure kaynakları için PIM kullanarak erişimi gözden geçirin. Listesini görüntülemek [Azure kaynakları için yerleşik roller](../role-based-access-built-in-roles.md).
 
 ## <a name="tasks"></a>Görevler
 
 PIM rolleri etkinleştirmek için bekleyen etkinleştirmeleri/istekler, bekleyen onayları görüntülemek için uygun erişim sağlar (için [Azure AD directory rolleri](azure-ad-pim-approval-workflow.md)) ve yanıtınız sol gezinti menüsünde görevleri bölümünden bekleyen inceler.
+
 Görevler menüsü öğeleri genel bakış giriş noktasından erişirken, sonuçta elde edilen görünümü sonuçları Azure AD directory roller ve Azure kaynak rolleri (Önizleme) içerir. 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
@@ -56,7 +57,7 @@ My rolleri Azure AD directory rolleri ve Azure kaynak rolleri (Önizleme), etkin
 
 ## <a name="activate-roles"></a>Rollerini etkinleştir
 
-(Önizleme) Azure kaynakları için rol etkinleştirme, etkinleştirme için gelecekteki bir tarih/saat zamanlayın ve belirli etkinleştirme süresi (yöneticiler tarafından yapılandırılmış) maksimum içinde seçmek uygun Rol üyeleri izin veren yeni bir deneyim sunar. Hakkında bilgi edinin [burada Azure AD rolleri etkinleştirme](../active-directory-privileged-identity-management-how-to-activate-role.md)
+(Önizleme) Azure kaynakları için rol etkinleştirme, etkinleştirme için gelecekteki bir tarih/saat zamanlayın ve belirli etkinleştirme süresi (yöneticiler tarafından yapılandırılmış) maksimum içinde seçmek uygun Rol üyeleri izin veren yeni bir deneyim sunar. Hakkında bilgi edinin [burada Azure AD rolleri etkinleştirme](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 

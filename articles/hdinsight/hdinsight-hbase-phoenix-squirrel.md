@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 04392b535965edd785bbb66a52eb6b41b768553e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 64a4c5b158ebe0119f2f0133587a743fd2dbf0ff
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Hdınsight'ta Windows tabanlı HBase kümeleriyle Apache ve SQuirreL kullanma
 Nasıl kullanacağınızı öğrenin [Apache Phoenix](http://phoenix.apache.org/) ve yükleme ve SQuirreL istasyonunuzu hdınsight'ta HBase kümesi bağlanmak için yapılandırın. Phoenix hakkında daha fazla bilgi için bkz: [Phoenix 15 dakika veya daha az](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix dilbilgisi için bkz: [Phoenix Dilbilgisi](http://phoenix.apache.org/language/index.html).
@@ -29,7 +29,7 @@ Nasıl kullanacağınızı öğrenin [Apache Phoenix](http://phoenix.apache.org/
 >
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar, yalnızca Windows tabanlı Hdınsight kümeleri için geçerlidir. Hdınsight yalnızca Windows'da Hdınsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Phoenix Linux tabanlı Hdınsight kullanma hakkında daha fazla bilgi için bkz: [Hdınsight'ta Linux tabanlı HBase ile kullanım Apache Phoenix kümeleri](hdinsight-hbase-phoenix-squirrel-linux.md).
+> Bu belgede yer alan adımlar, yalnızca Windows tabanlı Hdınsight kümeleri için geçerlidir. Hdınsight yalnızca Windows'da Hdınsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Phoenix Linux tabanlı Hdınsight kullanma hakkında daha fazla bilgi için bkz: [Hdınsight'ta Linux tabanlı HBase ile kullanım Apache Phoenix kümeleri](hbase/apache-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -269,7 +269,7 @@ Bu makalede, Hdınsight'ta Apache Phoenix kullanmayı öğrendiniz.  Daha fazla 
 
 * [HDInsight HBase'e genel bakış][hdinsight-hbase-overview]: HBase büyük miktarda yapılandırılmamış ve yarı yapılandırılmış veri için rastgele erişim ve güçlü tutarlılık sağlayan, Hadoop'ta yerleşik bir Apache, açık kaynak, NoSQL veritabanıdır.
 * [Azure Virtual Network HBase kümelerine sağlamak][hdinsight-hbase-provision-vnet]: uygulamalar HBase ile iletişim kurabilmesi için sanal ağ tümleştirmesinin ile HBase kümeleri aynı sanal ağ, uygulamalarınızın dağıtılabilir doğrudan.
-* [Hdınsight'ta HBase çoğaltmayı yapılandırma](hdinsight-hbase-replication.md): HBase çoğaltmayı iki Azure veri merkezi arasında yapılandırmayı öğrenin.
+* [Hdınsight'ta HBase çoğaltmayı yapılandırma](hbase/apache-hbase-replication.md): HBase çoğaltmayı iki Azure veri merkezi arasında yapılandırmayı öğrenin.
 
 
 [azure-portal]: https://portal.azure.com
@@ -278,8 +278,8 @@ Bu makalede, Hdınsight'ta Apache Phoenix kullanmayı öğrendiniz.  Daha fazla 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
-[hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-[hdinsight-hbase-overview]: hdinsight-hbase-overview.md
+[hdinsight-hbase-provision-vnet]:hbase/apache-hbase-provision-vnet.md
+[hdinsight-hbase-overview]:hbase/apache-hbase-overview.md
 
 [hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
 [img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png

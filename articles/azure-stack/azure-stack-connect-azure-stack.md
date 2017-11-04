@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Stack | Microsoft Docs
-description: Learn how to connect Azure Stack
+title: "Azure yığınına bağlanma | Microsoft Docs"
+description: "Azure yığınına bağlamayı öğrenin."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,57 +14,58 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 09c626e97832821009ce2da360ceea2b54273ffa
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: ba2359739b1d9cd265879227a499c94f93d8e4c6
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/18/2017
 ---
-# <a name="connect-to-azure-stack"></a>Connect to Azure Stack
+# <a name="connect-to-azure-stack"></a>Azure Stack'e Bağlanma
 
-*Applies to: Azure Stack Development Kit*
+*Uygulandığı öğe: Azure yığın Geliştirme Seti*
 
-To manage resources, you must connect to the Azure Stack Development Kit. This topic details the steps required to connect to the development kit. You can use either of the following connection options:
+Kaynakları yönetmek için Azure yığın Geliştirme Seti için önce bağlanmanız gerekir. Bu makalede, Geliştirme Seti bağlanmak için attığınız adımlar açıklanmaktadır. Aşağıdaki bağlantı seçeneklerden birini kullanabilirsiniz:
 
-* [Remote Desktop](#connect-with-remote-desktop): lets a single concurrent user quickly connect from the development kit.
-* [Virtual Private Network (VPN)](#connect-with-vpn): lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
+* [Uzak Masaüstü Bağlantısı](#connect-with-remote-desktop). Uzak Masaüstü bağlantısı kullanarak bağlandığında, tek bir kullanıcı Hızlı geliştirme Seti'nden bağlanabilir.
+* [Sanal özel ağ (VPN)](#connect-with-vpn). VPN kullanarak bağlandığında, birden çok kullanıcı aynı anda (Kurulum gerektirir) Azure yığın altyapı dışında istemcilerden bağlanabilir.
 
-## <a name="connect-to-azure-stack-with-remote-desktop"></a>Connect to Azure Stack with Remote Desktop
-With a Remote Desktop connection, a single concurrent user can work with the portal to manage resources.
+<a name="connect-to-azure-stack-with-remote-desktop"></a>
+##  <a name="connect-to-azure-stack-by-using-remote-desktop-connection"></a>Uzak Masaüstü bağlantısı kullanarak Azure yığınına bağlanma
+Tek bir eş zamanlı kullanıcı işleci Portalı'nı veya Kullanıcı Portalı Uzak Masaüstü bağlantısı üzerinden kaynakları yönetebilir.
 
-1. Open a Remote Desktop Connection and connect to the development kit. Enter **AzureStack\AzureStackAdmin** as the username, and the operator's password that you provided during Azure Stack setup.  
+1. Uzak Masaüstü Bağlantısı'nı açın ve Geliştirme Seti bağlanın. Kullanıcı adı için girin **AzureStack\AzureStackAdmin**. Azure yığınına ayarlandığında belirtilen işleci parola kullanın.  
 
-2. From the development kit computer, open Server Manager, click **Local Server**, turn off Internet Explorer Enhanced Security, and then close Server Manager.
+2. Geliştirme Seti bilgisayarda Sunucu Yöneticisi'ni açın. Seçin **yerel sunucu**, Temizle **Internet Explorer Artırılmış Güvenlik** onay kutusunu işaretleyin ve ardından Sunucu Yöneticisi'ni kapatın.
 
-3. To open the user [portal](azure-stack-key-features.md#portal), navigate to (https://portal.local.azurestack.external/) and sign in using user credentials. To open the Azure Stack operator's [portal](azure-stack-key-features.md#portal), navigate to (https://adminportal.local.azurestack.external/) and sign in using the Azure Active Directory credentials specified during installation.
+3. Açmak için [kullanıcı portalı](azure-stack-key-features.md#portal)https://portal.local.azurestack.external/ gidin. Kullanıcı kimlik bilgilerini kullanarak oturum açın. Azure yığın açmak için [işleci portal](azure-stack-key-features.md#portal)https://adminportal.local.azurestack.external/ gidin. Yükleme sırasında belirtilen Azure Active Directory (Azure AD) kimlik bilgilerini kullanarak oturum açın.
 
-## <a name="connect-to-azure-stack-with-vpn"></a>Connect to Azure Stack with VPN
+<a name="connect-to-azure-stack-with-vpn"></a>
+## <a name="connect-to-azure-stack-by-using-vpn"></a>Azure yığınına VPN kullanarak bağlanan
 
-You can establish a split tunnel Virtual Private Network (VPN) connection to an Azure Stack Development Kit. Through the VPN connection, you can access the Azure Stack operator's portal, user portal, and locally installed tools such as Visual Studio and PowerShell to manage Azure Stack resources. VPN connectivity is supported in both Azure Active Directory(AAD) and Active Directory Federation Services(AD FS) based deployments. VPN connections enable multiple clients to connect to Azure Stack at the same time. 
+Bölünmüş tünel için bir Azure yığın Geliştirme Seti VPN bağlantısı kurabilirsiniz. Azure yığın işleci portalı, kullanıcı portalı ve Azure yığın kaynakları yönetmek için Visual Studio ve PowerShell gibi yerel olarak yüklenen araçlar erişmek için bir VPN bağlantısı kullanın. VPN bağlantısı, Azure AD hem de Active Directory Federasyon Hizmetleri (AD FS) dağıtımlar desteklenir. VPN bağlantıları aynı anda Azure yığınına bağlanmak birden çok istemci mümkün kılar. 
 
 > [!NOTE] 
-> This VPN connection does not provide connectivity to Azure Stack infrastructure VMs. 
+> Bir VPN bağlantısı Azure yığın altyapı VM'ler bağlantı sağlamaz. 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Ön koşullar
 
-* Install [Azure Stack compatible Azure PowerShell](azure-stack-powershell-install.md) on your local computer.  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
+1. Yükleme [Azure yığın uyumlu Azure PowerShell](azure-stack-powershell-install.md) , yerel bilgisayarınızda.  
+2. Karşıdan [Azure yığın ile çalışmak için gereken araçları](azure-stack-powershell-download.md). 
 
-### <a name="configure-vpn-connectivity"></a>Configure VPN connectivity
+### <a name="set-up-vpn-connectivity"></a>VPN bağlantısı
 
-To create a VPN connection to the development kit, open an elevated PowerShell session from your local Windows-based computer and run the following script (make sure to update the the IP address and password values for your environment):
+Geliştirme Seti için bir VPN bağlantısı oluşturmak için Windows PowerShell'i yerel bilgisayarınızdaki Windows tabanlı bir yönetici olarak açın. Ardından, aşağıdaki komut dosyası (IP adresi ve parola değerlerini, ortamınız için güncelleştirme) çalıştırın:
 
 ```PowerShell 
-# Configure winrm if it's not already configured
+# Configure Windows Remote Management (WinRM), if it's not already configured.
 winrm quickconfig  
 
 Set-ExecutionPolicy RemoteSigned
 
-# Import the Connect module
+# Import the Connect module.
 Import-Module .\Connect\AzureStack.Connect.psm1 
 
-# Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the the IP address and password values for your environment. 
+# Add the development kit computer’s host IP address and certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment. 
 
 $hostIP = "<Azure Stack host IP address>"
 
@@ -77,38 +78,37 @@ Set-Item wsman:\localhost\Client\TrustedHosts `
   -Value $hostIP `
   -Concatenate
 
-# Create a VPN connection entry for the local user
+# Create a VPN connection entry for the local user.
 Add-AzsVpnConnection `
   -ServerAddress $hostIP `
   -Password $Password
 
 ```
 
-If the set up succeeds, you should see **azurestack** in your list of VPN connections.
+Kurulum başarılı olursa, **azurestack** VPN bağlantıları listesinde görüntülenir.
 
-![Network connections](media/azure-stack-connect-azure-stack/image3.png)  
+![Ağ bağlantıları](media/azure-stack-connect-azure-stack/image3.png)  
 
-### <a name="connect-to-azure-stack"></a>Connect to Azure Stack
+### <a name="connect-to-azure-stack"></a>Azure Stack'e Bağlanma
 
-Connect to the Azure Stack instance by using either of the following two methods:  
+Aşağıdaki yöntemlerden birini kullanarak Azure yığın örneğine bağlan:  
 
-* By using the `Connect-AzsVpn ` command: 
+* Kullanım `Connect-AzsVpn ` komutu: 
     
   ```PowerShell
   Connect-AzsVpn `
     -Password $Password
   ```
 
-  When prompted, trust the Azure Stack host and install the certificate from **AzureStackCertificateAuthority** onto your local computer’s certificate store. (the prompt might appear behind the PowerShell session window). 
+  İstendiğinde, Azure yığın konak güven ve sertifika yükleme **AzureStackCertificateAuthority** yerel bilgisayar sertifika deposunda. (İstemi PowerShell penceresi tarafından gizlenmiş olabilir.) 
 
-* Open your local computer’s **Network Settings** > **VPN** > click **azurestack** > **connect**. At the sign-in prompt, enter the username (AzureStack\AzureStackAdmin) and the password.
+* Yerel bilgisayarınızda seçin **ağ ayarlarını** > **VPN** > **azurestack** > **Bağlan**. Oturum açma isteminde kullanıcı adını girin (**AzureStack\AzureStackAdmin**) ve parolanızı.
 
-### <a name="test-the-vpn-connectivity"></a>Test the VPN connectivity
+### <a name="test-vpn-connectivity"></a>VPN bağlantısını test etme
 
-To test the portal connection, open an Internet browser and navigate to either the user portal (https://portal.local.azurestack.external/) or the operator portal (https://adminportal.local.azurestack.external/), sign in and create resources.  
+Portal bağlantıyı sınamak için bir web tarayıcısı açın ve kullanıcı portalı (https://portal.local.azurestack.external/) ya da işleç portal (https://adminportal.local.azurestack.external/) gidin. Oturum açabilir ve kaynakları oluşturun.  
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-[Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md)
-
+[Sanal makineler Azure yığın kullanıcılarınızın kullanımına sunun](azure-stack-tutorial-tenant-vm.md)
 

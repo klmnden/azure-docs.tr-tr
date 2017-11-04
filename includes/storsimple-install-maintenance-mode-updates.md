@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>To install Maintenance mode updates via Windows PowerShell for StorSimple
-1. If you haven't done so already, access the device serial console and select option 1, **Log in with full access**. 
-2. Type the password. The default password is **Password1**.
-3. At the command prompt, type:
+#### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla Bakım modu güncelleştirmeleri yüklemek için
+1. Henüz yapmadıysanız, seçenek 1 ve cihaz seri konsoluna erişim **oturum oturum tam erişim**. 
+2. Parolayı yazın. Varsayılan parola **Parola1**.
+3. Komut istemine yazın:
    
      `Get-HcsUpdateAvailability` 
-4. You will be notified if updates are available and whether the updates are disruptive or non-disruptive. To apply disruptive updates, you need to put the device into Maintenance mode. See [Step 2: Enter Maintenance mode](../articles/storsimple/storsimple-update-device.md#step2) for instructions.
-5. When your device is in Maintenance mode, at the command prompt, type: `Start-HcsUpdate`
-6. You will be prompted for confirmation. After you confirm the updates, they will be installed on the controller that you are currently accessing. After the updates are installed, the controller will restart. 
-7. Monitor the status of updates. Type:
+4. Güncelleştirmeler varsa ve güncelleştirmeleri kesintiye uğratan veya benzer olup bildirilir. Kesintiye uğratan güncelleştirmeleri uygulamak için aygıt bakım moduna almanız gerekir. Bkz: [2. adım: girin Bakım modu](../articles/storsimple/storsimple-update-device.md#step2) yönergeler için.
+5. Cihazınızı bakım modunda olduğunda komut istemine yazın:`Start-HcsUpdate`
+6. Onayınız istenir. Güncelleştirmeleri onayladıktan sonra şu anda erişen denetleyicisine yüklenir. Güncelleştirmeler yüklendikten sonra denetleyici yeniden başlatılır. 
+7. Güncelleştirmelerinin durumunu izleyin. Şunu yazın:
    
     `Get-HcsUpdateStatus`
    
-    If the `RunInProgress` is `True`, the update is still in progress. If `RunInProgress` is `False`, it indicates that the update has completed.  
-8. When the update is installed on the current controller and it has restarted, connect to the other controller and perform steps 1 through 6.
-9. After both controllers are updated, exit Maintenance mode. See [Step 4: Exit Maintenance mode](../articles/storsimple/storsimple-update-device.md#step4) for instructions.
+    Varsa `RunInProgress` olan `True`, güncelleştirme devam ediyor. Varsa `RunInProgress` olan `False`, güncelleştirme tamamlandı gösterir.  
+8. Güncelleştirme geçerli denetleyicisine yüklenir ve yeniden başlatıldı, diğer denetleyicisine bağlanmak ve 1 ile 6 arasındaki adımları gerçekleştirin.
+9. Hem denetleyicileri güncelleştirildikten sonra bakım modundan çıkın. Bkz: [4. adım: çıkış Bakım modu](../articles/storsimple/storsimple-update-device.md#step4) yönergeler için.
 

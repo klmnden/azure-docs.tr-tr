@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: 8118570071aa5af6ec74c971a711b2eab07fb1b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama
 
@@ -76,13 +76,13 @@ Azure Hdınsight şu anda aşağıdaki küme türü, her biri belirli işlevleri
 
 | Küme türü | İşlev |
 | --- | --- |
-| [Hadoop](hdinsight-hadoop-introduction.md) |Toplu sorgu ve depolanan veri analizi |
-| [HBase](hdinsight-hbase-overview.md) |Büyük miktarlarda şemasız, NoSQL veri işleme |
-| [Storm](hdinsight-storm-overview.md) |Gerçek zamanlı olay işleme |
-| [Spark](hdinsight-apache-spark-overview.md) |Bellek içi işleme, etkileşimli sorgular mikro toplu iş akışı işleme |
-| [Kafka (Önizleme)](hdinsight-apache-kafka-introduction.md) | Gerçek Zamanlı Akış veri ardışık düzen ve uygulamaları oluşturmak için kullanılan dağıtılmış bir akış platformu |
-| [R Server](hdinsight-hadoop-r-server-overview.md) |Çeşitli büyük veri istatistikleri, Tahmine dayalı modelleme ve makine öğrenimi özellikleri |
-| [Etkileşimli sorgu](hdinsight-hadoop-use-interactive-hive.md) |Etkileşimli ve daha hızlı Hive sorguları için bellek içi önbelleğe alma |
+| [Hadoop](hadoop/apache-hadoop-introduction.md) |Toplu sorgu ve depolanan veri analizi |
+| [HBase](hbase/apache-hbase-overview.md) |Büyük miktarlarda şemasız, NoSQL veri işleme |
+| [Storm](storm/apache-storm-overview.md) |Gerçek zamanlı olay işleme |
+| [Spark](spark/apache-spark-overview.md) |Bellek içi işleme, etkileşimli sorgular mikro toplu iş akışı işleme |
+| [Kafka (Önizleme)](kafka/apache-kafka-introduction.md) | Gerçek Zamanlı Akış veri ardışık düzen ve uygulamaları oluşturmak için kullanılan dağıtılmış bir akış platformu |
+| [R Server](r-server/r-server-overview.md) |Çeşitli büyük veri istatistikleri, Tahmine dayalı modelleme ve makine öğrenimi özellikleri |
+| [Etkileşimli sorgu](./interactive-query/apache-interactive-query-get-started.md) |Etkileşimli ve daha hızlı Hive sorguları için bellek içi önbelleğe alma |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Her küme türü için düğüm sayısı
 Her küme türü düğümleri, düğümleri ve varsayılan VM boyutu terminolojisi kendi sayısına sahip. Aşağıdaki tabloda, her düğüm türü için düğümleri parantez içinde sayısıdır.
@@ -208,7 +208,7 @@ Hdınsight uygulamalarının çoğunu bir boş kenar düğümüne yüklenir.  Bi
 
 Ek bileşenleri yüklemek veya oluşturma sırasında komut dosyalarını kullanarak küme yapılandırmasını özelleştirebilirsiniz. Bu tür komut dosyaları aracılığıyla çağrılır **betik eylemi**, Azure portal, Hdınsight Windows PowerShell cmdlet'lerini veya Hdınsight .NET SDK'sı kullanılabilir bir yapılandırma seçeneği değil. Daha fazla bilgi için bkz: [betik eylemi kullanarak özelleştirme Hdınsight kümesi](hdinsight-hadoop-customize-cluster-linux.md).
 
-Mahout ve basamaklama, gibi yerel bazı Java bileşenleri kümede Java arşiv (JAR) dosyaları olarak çalıştırabilirsiniz. Bu JAR dosyalarını Azure depolama alanına dağıtılmış ve Hdınsight kümeleri için Hadoop iş gönderme mekanizmaları ile gönderilir. Daha fazla bilgi için bkz: [gönderme Hadoop işleri program aracılığıyla](hdinsight-submit-hadoop-jobs-programmatically.md).
+Mahout ve basamaklama, gibi yerel bazı Java bileşenleri kümede Java arşiv (JAR) dosyaları olarak çalıştırabilirsiniz. Bu JAR dosyalarını Azure depolama alanına dağıtılmış ve Hdınsight kümeleri için Hadoop iş gönderme mekanizmaları ile gönderilir. Daha fazla bilgi için bkz: [gönderme Hadoop işleri program aracılığıyla](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
 > Hdınsight kümelerine JAR dosyalarını dağıtma sorunları var veya Hdınsight kümelerinde JAR dosyalarını çağırma başvurun [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -242,7 +242,7 @@ Daha fazla bilgi için bkz: [önyükleme kullanarak özelleştirme Hdınsight k�
 
 Hdınsight ile Azure sanal ağı kullanma hakkında daha fazla bilgi için bkz: [genişletmek Hdınsight Azure sanal ağlar ile](hdinsight-extend-hadoop-virtual-network.md).
 
-Bir Azure sanal ağı içindeki iki küme türleri kullanma örneği için bkz: [Storm ve HBase ile algılayıcı verilerini çözümleme](hdinsight-storm-sensor-data-analysis.md). Sanal ağ için belirli yapılandırma gereksinimlerini içeren bir sanal ağ ile Hdınsight kullanma hakkında daha fazla bilgi için bkz: [Azure Virtual Network kullanarak genişletme Hdınsight yetenekleri](hdinsight-extend-hadoop-virtual-network.md).
+Bir Azure sanal ağı içindeki iki küme türleri kullanma örneği için bkz: [Storm ve HBase ile algılayıcı verilerini çözümleme](storm/apache-storm-sensor-data-analysis.md). Sanal ağ için belirli yapılandırma gereksinimlerini içeren bir sanal ağ ile Hdınsight kullanma hakkında daha fazla bilgi için bkz: [Azure Virtual Network kullanarak genişletme Hdınsight yetenekleri](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="troubleshoot-access-control-issues"></a>Erişim denetimi sorunlarını giderme
 
@@ -250,6 +250,6 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Hdınsight, Hadoop ekosistemi ve Hadoop kümeleri nedir?](hdinsight-hadoop-introduction.md)
-- [HDInsight'ta Hadoop kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Hdınsight, Hadoop ekosistemi ve Hadoop kümeleri nedir?](hadoop/apache-hadoop-introduction.md)
+- [HDInsight'ta Hadoop kullanmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Bir Windows PC Hdınsight'ta Hadoop ile çalışma](hdinsight-hadoop-windows-tools.md)

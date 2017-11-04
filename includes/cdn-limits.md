@@ -1,11 +1,11 @@
 
-| Resource | Default limit | Maximum limit | 
+| Kaynak | Varsayılan limit | Üst sınır | 
 | --- | --- | --- |
-| CDN profiles |8 |25 |
-| CDN endpoints per profile |10 |25 |
-| Custom domains per endpoint |10 |25 |
+| CDN profili |8 |25 |
+| Her profil CDN uç noktası |10 |25 |
+| Uç nokta başına özel etki alanları |10 |25 |
 
-A CDN subscription can contain one or more CDN profiles and a CDN profile can contain one or more CDN endpoints. You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria. 
+CDN abonelik içerebilir veya daha fazla CDN profili ve bir CDN profili bir veya daha fazla CDN uç noktası içerebilir. CDN uç noktalarınızı İnternet etki alanı, web uygulaması veya başka ölçütlere göre düzenlemek için birden çok profil kullanmak isteyebilirsiniz. 
 
-To request an update to your subscription's default limits, open a support ticket. 
+Aboneliğinizin varsayılan sınır için bir güncelleştirme isteği için bir destek bileti açın. 
 

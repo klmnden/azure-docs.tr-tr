@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: b3bab57f5ca6627b4532284376a9809d5ab543f2
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: 1ac5ca34e412aeb8b24e657abfe8eca04943799d
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Azure sanal ağda bir doku Windows hizmeti kümesini dağıtma
 Bu öğretici bir dizi birini bir parçasıdır. Mevcut bir Azure sanal ağı (VNET) Windows Service Fabric kümesine dağıtmak ve PowerShell kullanarak alt net öğreneceksiniz. İşlemi tamamladığınızda, uygulamaları dağıtabileceğiniz bulutta çalıştıran bir kümeye sahip.  Azure CLI kullanarak bir Linux kümesi oluşturmak için bkz: [Azure'da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -78,44 +78,42 @@ Aşağıdaki Resource Manager şablonu ve parametre dosyasını karşıdan yükl
 Ağ Kurulumu Resource Manager şablonu ve parametre dosyalarını dağıtmak için aşağıdaki PowerShell komutunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile C:\winclustertutorial\network.json -TemplateParameterFile C:\winclustertutorial\network.parameters.json -Verbose
 ```
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## <a name="deploy-the-service-fabric-cluster"></a>Service Fabric kümesi dağıtma
-Ağ kaynaklarını dağıtma tamamladıktan sonra sonraki adım bir Service Fabric kümesi sanal ağ alt ağındaki ve Service Fabric kümesi için belirlenmiş NSG dağıtmaktır. Var olan bir VNET ve alt ağ (Bu makalede daha önce dağıttığınız) için bir küme dağıtımı Resource Manager şablonu gerektirir.  Daha fazla bilgi için bkz: [Azure Resource Manager kullanarak bir küme oluşturma](service-fabric-cluster-creation-via-arm.md). Bu öğretici seri için şablon sanal ağ, alt ağ ve bir önceki adımda ayarladığınız NSG adları kullanmak üzere önceden yapılandırılmıştır.  Aşağıdaki Resource Manager şablonu ve parametre dosyasını karşıdan yükleyin:
+Ağ kaynaklarını dağıtma tamamladıktan sonra sonraki adım bir Service Fabric kümesi sanal ağ alt ağındaki ve Service Fabric kümesi için belirlenmiş NSG dağıtmaktır. Var olan bir VNET ve alt ağ (Bu makalede daha önce dağıttığınız) için bir küme dağıtımı Resource Manager şablonu gerektirir.  Bu öğretici seri için şablon sanal ağ, alt ağ ve bir önceki adımda ayarladığınız NSG adları kullanmak üzere önceden yapılandırılmıştır.  
+
+Aşağıdaki Resource Manager şablonu ve parametre dosyasını karşıdan yükleyin:
 - [Cluster.JSON][cluster-arm]
 - [Cluster.Parameters.JSON][cluster-parameters-arm]
 
-Bir sertifika, küme düğümü, düğümü iletişimin güvenliğini sağlamak için ve Service Fabric kümesi kullanıcı erişimini yönetmek için kullanılır. API Management Ayrıca hizmet bulma için Service Fabric adlandırma hizmetine erişim için bu sertifikayı kullanır. 
+Güvenli bir küme oluşturmak için bu şablonu kullanın.  Küme düğümü, düğümü iletişimi güvenli hale getirmek ve bir yönetim istemcisi için küme yönetim uç noktalarının kimliğini doğrulamak için kullanılan bir X.509 sertifikası sertifikasıdır.  Küme sertifika ayrıca bir SSL HTTPS yönetim API'si ve Service Fabric Explorer için HTTPS üzerinden sağlar. Azure anahtar kasası, Azure Service Fabric kümeleri sertifikalarını yönetmek için kullanılır.  Bir küme Azure'da dağıtıldığında, Azure kaynak sağlayıcısı Service Fabric kümeleri oluşturmak için sorumlu sertifikaları anahtar Kasası'nı çeker ve VM'ler kümede yükler. 
 
-Aşağıdaki komut dosyası kullanan [yeni AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) azure'da yeni bir küme dağıtmak için cmdlet. Cmdlet ayrıca Azure anahtar kasası oluşturur, bir kendinden imzalı bir sertifika ve anahtar kasası oluşturur ve sertifika dosyasını yerel olarak indirir.   
+Küme sertifikası veya test amacıyla bir sertifika yetkilisinden (CA) bir sertifika kullanmak, otomatik olarak imzalanan bir sertifika oluşturun. Küme sertifika gerekir:
+
+- özel anahtarı içerir.
+- bir kişisel bilgi değişimi (.pfx) dosyası verilebilir anahtar değişimi için oluşturulamıyor.
+- Service Fabric kümesi erişmek için kullandığınız etki alanı ile eşleşen bir konu adına sahip. Bu eşleştirme, kümenin HTTPS yönetim uç noktaları ve Service Fabric Explorer için SSL sağlamak için gereklidir. İçin bir sertifika yetkilisinden (CA) bir SSL sertifikası alınamıyor. cloudapp.azure.com etki alanı. Özel etki alanı adı, kümeniz için edinmeniz gerekir. Bir CA'dan bir sertifika isteme, sertifikanın konu adı, kümeniz için kullandığınız özel etki alanı adı eşleşmelidir.
+
+Boş dolgu *konumu*, *clusterName*, *adminUserName*, ve *Admınpassword* parametrelerinde  *Cluster.Parameters.JSON* dağıtımınız için dosya.  Bırakın *certificateThumbprint*, *certificateUrlValue*, ve *sourceVaultValue* parametreleri otomatik olarak imzalanan bir sertifika oluşturmak için boş.  Daha önce bir anahtar Kasası'na yüklenen var olan bir sertifikayı kullanmak istiyorsanız, bu parametre değerlerini doldurun.
+
+Aşağıdaki komut dosyası kullanan [yeni AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet'i ve azure'da yeni bir küme dağıtmak için şablon. Cmdlet ayrıca Azure'da yeni bir anahtar kasası oluşturur, anahtar Kasası'na yeni bir otomatik olarak imzalanan sertifika ekler ve sertifika dosyasını yerel olarak indirir. Diğer parametreleri kullanarak, varolan bir sertifikayı ve/veya anahtar kasası belirtebilirsiniz [yeni AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet'i.
 
 ```powershell
-# Certificate variables.
+# Variables.
 $certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
 $certfolder="c:\mycertificates\"
-
-# Variables for VM admin.
-$adminuser="vmadmin"
-$adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-
-# Variables for common values
 $clustername = "mysfcluster"
-$vmsku = "Standard_D2_v2"
-$vaultname = "clusterkeyvault"
-$vaultgroupname="clusterkeyvaultgroup"
+$vaultname = "clusterkeyvault111"
+$vaultgroupname="clusterkeyvaultgroup111"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
-# Set the number of cluster nodes. Possible values: 1, 3-99
-$clustersize=5 
-
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
--ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
--CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
--OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname `
--TemplateFile .\cluster.json -ParameterFile .\cluster.parameters.json
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile 'C:\winclustertutorial\cluster.json' `
+-ParameterFile 'C:\winclustertutorial\cluster.parameters.json' -CertificatePassword $certpwd `
+-CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Güvenli kümeye bağlanın

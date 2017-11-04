@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 93e6c87a9d445ca448509a256247fb5e4749ec1c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: 3b51276fe074282339d30d075547160277bee53f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Azure’da giden bağlantıları anlama
 
@@ -93,4 +93,4 @@ Azure havuz boyutuna göre kullanılabilir SNAT bağlantı noktası sayısını 
 
 Giden bağlantılar 4 dakikalık boşta kalma zaman aşımı vardır.  Bu ayarlanabilir değildir.
 
-Kullanılabilir SNAT bağlantı noktası sayısını doğrudan bağlantı sayısını tercüme etmez rememember önemlidir. Lütfen nasıl ve ne zaman SNAT bağlantı noktalarını ayrılır ve bu exhaustible kaynak yönetme özellikleri için yukarıya bakın.
+Kullanılabilir SNAT bağlantı noktası sayısını doğrudan bağlantı sayısını tercüme etmez unutmamak önemlidir. Lütfen nasıl ve ne zaman SNAT bağlantı noktalarını ayrılır ve bu exhaustible kaynak yönetme özellikleri için yukarıya bakın.

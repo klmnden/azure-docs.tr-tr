@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: b2542af86be236b8d575fcaf7687222cd74af661
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: 983abcd103a58be63053e466c767015c0835eaba
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Azure sanal ağda bir Service Fabric Linux kümesi dağıtma
 Bu öğretici bir dizi birini bir parçasıdır. Mevcut bir Azure sanal ağı (VNET) Linux Service Fabric kümesine dağıtmak ve Azure CLI kullanarak alt net öğreneceksiniz. İşlemi tamamladığınızda, uygulamaları dağıtabileceğiniz bulutta çalıştıran bir kümeye sahip. PowerShell kullanarak bir Windows kümesi oluşturmak için bkz: [Azure'da güvenli bir Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -84,17 +84,27 @@ az group deployment create \
 ```
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## <a name="deploy-the-service-fabric-cluster"></a>Service Fabric kümesi dağıtma
-Ağ kaynaklarını dağıtma tamamladıktan sonra sonraki adım bir Service Fabric kümesi sanal ağ alt ağındaki ve Service Fabric kümesi için belirlenmiş NSG dağıtmaktır. Var olan bir VNET ve alt ağ (Bu makalede daha önce dağıttığınız) için bir küme dağıtımı Resource Manager şablonu gerektirir.  Daha fazla bilgi için bkz: [Azure Resource Manager kullanarak bir küme oluşturma](service-fabric-cluster-creation-via-arm.md). Bu öğretici seri için şablon sanal ağ, alt ağ ve bir önceki adımda ayarladığınız NSG adları kullanmak üzere önceden yapılandırılmıştır.  Aşağıdaki Resource Manager şablonu ve parametre dosyasını karşıdan yükleyin:
+Ağ kaynaklarını dağıtma tamamladıktan sonra sonraki adım bir Service Fabric kümesi sanal ağ alt ağındaki ve Service Fabric kümesi için belirlenmiş NSG dağıtmaktır. Var olan bir VNET ve alt ağ (Bu makalede daha önce dağıttığınız) için bir küme dağıtımı Resource Manager şablonu gerektirir.  Daha fazla bilgi için bkz: [Azure Resource Manager kullanarak bir küme oluşturma](service-fabric-cluster-creation-via-arm.md). Bu öğretici seri için şablon sanal ağ, alt ağ ve bir önceki adımda ayarladığınız NSG adları kullanmak üzere önceden yapılandırılmıştır.  
+
+Aşağıdaki Resource Manager şablonu ve parametre dosyasını karşıdan yükleyin:
 - [linuxcluster.JSON][cluster-arm]
 - [linuxcluster.Parameters.JSON][cluster-parameters-arm]
 
-Boş dolgu **clusterName**, **adminUserName**, ve **Admınpassword** parametrelerinde *linuxcluster.parameters.json* dosyası Dağıtımınız için.  Bırakın **certificateThumbprint**, **certificateUrlValue**, ve **sourceVaultValue** parametreler boş otomatik olarak imzalanan sertifika oluşturmak istiyorsanız.  Daha önce bir anahtar Kasası'na yüklenen var olan bir sertifikayı varsa, bu parametre değerlerini doldurun.
+Güvenli bir küme oluşturmak için bu şablonu kullanın.  Küme düğümü, düğümü iletişimi güvenli hale getirmek ve bir yönetim istemcisi için küme yönetim uç noktalarının kimliğini doğrulamak için kullanılan bir X.509 sertifikası sertifikasıdır.  Küme sertifika ayrıca bir SSL HTTPS yönetim API'si ve Service Fabric Explorer için HTTPS üzerinden sağlar. Azure anahtar kasası, Azure Service Fabric kümeleri sertifikalarını yönetmek için kullanılır.  Bir küme Azure'da dağıtıldığında, Azure kaynak sağlayıcısı Service Fabric kümeleri oluşturmak için sorumlu sertifikaları anahtar Kasası'nı çeker ve VM'ler kümede yükler. 
 
-Resource Manager şablonu ve parametre dosyalarını kullanarak küme dağıtmak için aşağıdaki komut dosyasını kullanın.  Kendinden imzalı bir sertifika içinde belirtilen anahtar kasası oluşturulur ve küme güvenliğini sağlamak için kullanılır.  Sertifikanın da yerel olarak yüklenir.
+Küme sertifikası veya test amacıyla bir sertifika yetkilisinden (CA) bir sertifika kullanmak, otomatik olarak imzalanan bir sertifika oluşturun. Küme sertifika gerekir:
+
+- özel anahtarı içerir.
+- bir kişisel bilgi değişimi (.pfx) dosyası verilebilir anahtar değişimi için oluşturulamıyor.
+- Service Fabric kümesi erişmek için kullandığınız etki alanı ile eşleşen bir konu adına sahip. Bu eşleştirme, kümenin HTTPS yönetim uç noktaları ve Service Fabric Explorer için SSL sağlamak için gereklidir. İçin bir sertifika yetkilisinden (CA) bir SSL sertifikası alınamıyor. cloudapp.azure.com etki alanı. Özel etki alanı adı, kümeniz için edinmeniz gerekir. Bir CA'dan bir sertifika isteme, sertifikanın konu adı, kümeniz için kullandığınız özel etki alanı adı eşleşmelidir.
+
+Boş dolgu **clusterName**, **adminUserName**, ve **Admınpassword** parametrelerinde *linuxcluster.parameters.json* dosyası Dağıtımınız için.  Bırakın **certificateThumbprint**, **certificateUrlValue**, ve **sourceVaultValue** parametreleri otomatik olarak imzalanan bir sertifika oluşturmak için boş.  Daha önce bir anahtar Kasası'na yüklenen var olan bir sertifikayı kullanmak istiyorsanız, bu parametre değerlerini doldurun.
+
+Aşağıdaki komut dosyası kullanan [az BT küme oluşturmak](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) komutu ve şablon azure'da yeni bir küme dağıtmak için. Cmdlet ayrıca Azure'da yeni bir anahtar kasası oluşturur, anahtar Kasası'na yeni bir otomatik olarak imzalanan sertifika ekler ve sertifika dosyasını yerel olarak indirir. Diğer parametreleri kullanarak, varolan bir sertifikayı ve/veya anahtar kasası belirtebilirsiniz [az BT küme oluşturmak](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) komutu.
 
 ```azurecli
 Password="q6D7nN%6ck@6"
-Subject="aztestcluster.southcentralus.cloudapp.azure.com"
+Subject="mysfcluster.southcentralus.cloudapp.azure.com"
 VaultName="linuxclusterkeyvault"
 az group create --name $ResourceGroupName --location $Location
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4b4cb2d168676d52a90942a116905e6669b16639
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="api-versions-in-azure-search"></a>Azure Search'te API sürümleri
 Azure arama özellik güncelleştirmeleri düzenli olarak yapar. Bazen, ancak her zaman, bu güncelleştirmeleri bize API'mize geriye dönük uyumluluğu korumak için yeni bir sürümünü yayımlamak gerektirir. Yeni bir sürüm yayımlama nasıl ve ne zaman kodunuzda arama hizmet güncelleştirmeleri tümleştirmek denetlemenize olanak verir.
@@ -36,9 +36,9 @@ Aşağıda bir anlık görüntü sürümlerinin geçerli tüm Azure arama için 
 | Arabirimleri | Son ana sürümle | Durum |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |3.0 |Genellikle Kasım 2016 yayımlanan kullanılabilir |
-| [.NET SDK Önizleme](https://aka.ms/search-sdk-preview) |2.0-Önizleme |Ağustos 2016 yayımlanan Önizleme |
+| [.NET SDK Önizleme](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Mayıs 2017 yayımlanan Önizleme |
 | [Hizmet REST API'si](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Genel olarak kullanılabilir |
-| [Hizmet REST API Önizleme](search-api-2015-02-28-preview.md) |2015-02-28-Önizleme |Önizleme |
+| [Hizmet REST API Önizleme](search-api-2016-09-01-preview.md) |2016-09-01-Önizleme |Önizleme |
 | [.NET Yönetim SDK'sı](https://aka.ms/search-mgmt-sdk) |2015-08-19 |Genel olarak kullanılabilir |
 | [Yönetim REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Genel olarak kullanılabilir |
 

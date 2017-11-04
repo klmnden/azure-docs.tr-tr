@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 44d2ac2fd35621ab8cd8d7584744139ee3bab5c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7f5c034df3410fc5563a5ed657f7c1aa0f4135ec
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Azure bulut Kabuğu (Önizleme) genel bakış
 Azure bulut Kabuk Azure kaynaklarını yönetmek için etkileşimli, tarayıcı erişilebilir bir kabuk ' dir.
@@ -44,7 +44,7 @@ Bulut Kabuk popüler komut satırı araçları ile önceden yüklü olarak gelen
 Tam araç listesini görüntülemek [Bash deneyimi](features.md#tools) ve [PowerShell deneyimi.](features-powershell.md#tools)
 
 ### <a name="automatic-authentication"></a>Otomatik kimlik doğrulama
-Bulut Kabuğu güvenli bir şekilde otomatik olarak her oturum için anlık kaynaklarınıza erişmek için Azure CLI 2.0 aracılığıyla üzerinde kimliğini doğrular.
+Bulut Kabuğu güvenli bir şekilde otomatik olarak her oturum için anlık kaynaklarınıza erişmek için PowerShell cmdlet'leri ve Azure CLI 2.0 aracılığıyla üzerinde kimliğini doğrular.
 
 ### <a name="connect-your-azure-file-storage"></a>Azure dosya depolama birimini bağlayın
 Bulut Kabuk makine geçicidir ve sonuç olarak Azure dosya paylaşımının olarak bağlanmasını gerektiren `clouddrive` $Home dizininize kalıcı hale getirmek için.

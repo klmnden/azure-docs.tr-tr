@@ -1,9 +1,9 @@
-Collection of custom measurements. Use this collection to report named measurement associated with the telemetry item. Typical use cases are:
-- the size of Dependency Telemetry payload
-- the number of queue items processed by Request Telemetry
-- time that customer took to complete the step in wizard step completion Event Telemetry.
+Özel ölçüler koleksiyonu. Bu koleksiyona telemetri öğeyle ilişkili ölçüm adlı raporu kullanın. Genel kullanım örnekleri şunlardır:
+- Bağımlılık Telemetrisi yükü boyutu
+- Telemetri isteği tarafından işlenen sıra öğelerin sayısı
+- zaman o müşteri sürdü Sihirbazı Adım tamamlama olayı Telemetri adımda tamamlamak için.
 
-You can query [custom measurements](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) in Application Analytics:
+Sorgulayabileceğiniz [özel ölçümleri](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) uygulama analytics'te:
 
 ```
 customEvents
@@ -12,6 +12,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Custom measurements are associated with the telemetry item they belong to. They are subject to sampling with the telemetry item containing those measurements. To track a measurement that has a value independent from other telemetry types, use [Metric telemetry](../articles/application-insights/app-insights-api-custom-events-metrics.md).
+ > Özel ölçüler ait telemetri öğesi ile ilişkilendirilmiş. Bu ölçümler içeren telemetri öğesiyle tabi örnekleme oldukları. Diğer telemetri türlerinden bağımsız bir değere sahip bir ölçü izlemek için [ölçüm telemetri](../articles/application-insights/app-insights-api-custom-events-metrics.md).
 
-Max key length: 150
+En fazla anahtar uzunluğu: 150

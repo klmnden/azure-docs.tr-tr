@@ -1,7 +1,7 @@
-1. Open a web browser and browse to [http://www.windowsazure.com][].
-2. To get started with a free account, click **Free Trial** in the upper-right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.
+1. Bir web tarayıcısı açın ve [http://www.windowsazure.com] [] için göz atın.
+2. Ücretsiz bir hesap ile kullanmaya başlamak için tıklayın **ücretsiz deneme** sağ üst köşe ve aşağıdaki adımları izleyin. Kredi kartı numarası ve cep telefonu numarası kimlik kanıtı için gerekir, ancak değil Fatura edilecek.
    
-   ![Azure Web Site][0]
+   ![Azure Web Sitesi][0]
 
 [0]: ./media/create-azure-account/freetrialonwindowsazurehomepage.png
 

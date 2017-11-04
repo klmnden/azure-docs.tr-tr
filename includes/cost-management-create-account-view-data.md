@@ -31,3 +31,5 @@ Aşağıdaki resimde Contoso'nun ödemesi gereken Azure kaynakları maliyeti gö
 Bir kaynağı tüketen maliyet varlıklarını ve hizmetleri görüntülemek için kaynak türüne sağ tıklayıp **Cost Entities** (Maliyet Varlıkları) öğesini seçin. Bu örnekte DevOps içindeki Sanal Makine ve Çalışanlar hizmetleri için sırasıyla $486,60 ve $435,71 harcamıştır. İkisinin toplamı $922 olmuştur.
 
 ![maliyet varlıkları ve hizmetler](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+Veri faturalandırma, bulut görüntüleme hakkında öğretici bir video izlemek için bkz: [Azure maliyeti Yönetimi Cloudyn tarafından verilerle faturalandırma, bulut çözümleme](https://youtu.be/G0pvI3iLH-Y).

@@ -1,28 +1,28 @@
-### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An [Azure Blob Storage account](../articles/storage/common/storage-create-storage-account.md) including the storage account name, and its access key. This information is listed in the properties of the storage account in the Azure portal. Read more about [Azure Storage](../articles/storage/common/storage-introduction.md).
+### <a name="prerequisites"></a>Ön koşullar
+* Bir Azure hesabı; oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free)
+* Bir [Azure Blob Storage hesabı](../articles/storage/common/storage-create-storage-account.md) depolama hesabı adı ve erişim anahtarını dahil olmak üzere. Bu bilgiler, Azure Portal'da depolama hesabı özelliklerinde listelenir. Daha fazla bilgi edinin [Azure Storage](../articles/storage/common/storage-introduction.md).
 
-Before using your Azure Blob Storage account in a logic app, connect to your Azure Blob Storage account. You can do this easily within your logic app on the Azure  portal.  
+Azure Blob Storage hesabınıza bir mantıksal uygulama kullanmadan önce Azure Blob Storage hesabınıza bağlanın. Kolayca Azure portalındaki mantıksal uygulama içinde bunu yapabilirsiniz.  
 
-Connect to your Azure Blob Storage account using the following steps:  
+Aşağıdaki adımları kullanarak Azure Blob Storage hesabınıza bağlanın:  
 
-1. Create a logic app. In the Logic Apps designer, add a trigger, and then add an action. Select **Show Microsoft managed APIs** in the drop down list, and then enter "blob" in the search box. Select one of the actions:  
+1. Bir mantıksal uygulama oluşturun. Logic Apps Tasarımcısı'nda bir tetikleyici ekleyin ve ardından bir eylem ekleyin. Seçin **Göster Microsoft yönetilen API'ler** açılır listesinde ve ardından arama kutusuna "blob" girin. Eylemlerden birini seçin:  
    
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
-2. If you haven't previously created any connections to Azure storage, you are prompted for the connection details:   
+    ![Azure Blob Depolama bağlantısı oluşturma adım](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
+2. Daha önce Azure depolama herhangi bir bağlantısı oluşturmadıysanız, bağlantı ayrıntılarını istenir:   
    
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/connection-details.png)  
-3. Enter the storage account details. Properties with an asterisk are required.
+    ![Azure Blob Depolama bağlantısı oluşturma adım](./media/connectors-create-api-azureblobstorage/connection-details.png)  
+3. Depolama hesabı ayrıntılarını girin. Bir yıldız işareti özelliklerle gereklidir.
    
-   | Property | Details |
+   | Özellik | Ayrıntılar |
    | --- | --- |
-   | Connection Name * |Enter any name for your connection. |
-   | Azure Storage Account Name * |Enter the storage account name. The storage account name is displayed in the storage properties in the Azure portal. |
-   | Azure Storage Account Access Key * |Enter the storage account key. The access keys are displayed in the storage properties in the Azure portal. |
+   | Bağlantı adı * |Bağlantınız için herhangi bir ad girin. |
+   | Azure depolama hesabı adı * |Depolama hesabı adı girin. Depolama hesabı adı, Azure portalında depolama özellikleri'nde görüntülenir. |
+   | Azure depolama hesabı erişim tuşu * |Depolama hesabı anahtarı girin. Erişim tuşları Azure portalında depolama özellikleri görüntülenir. |
    
-    These credentials are used to authorize your logic app to connect, and access your data. 
-4. Select **Create**.
-5. Notice the connection has been created. Now, proceed with the other steps in your logic app: 
+    Bu kimlik bilgileri, mantıksal uygulamanızı bağlanmak ve verilerinize erişmek üzere yetkilendirmek için kullanılır. 
+4. **Oluştur**’u seçin.
+5. Bağlantıyı oluşturan dikkat edin. Şimdi, mantıksal uygulamanızı diğer adımlarla devam edin: 
    
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
+    ![Azure Blob Depolama bağlantısı oluşturma adım](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
 

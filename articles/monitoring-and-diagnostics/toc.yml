@@ -134,6 +134,8 @@
       items:
         - name: Arşiv
           href: monitoring-archive-diagnostic-logs.md
+        - name: Log Analytics’e gönderme
+          href: monitor-stream-diagnostic-logs-log-analytics.md
         - name: Event Hubs’a akış sağlama
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Resource Manager şablonlarını kullanarak tanılama ayarlarını etkinleştirme

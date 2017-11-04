@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Neden ve nasıl uygulamaları için Azure AD eklenir
 Uygulamaların bir listesini, Azure Active Directory örneğinde görüntülerken başlangıçta puzzling özelliklerinden biri, uygulamaları nereden geldiğini ve orada bulunma anlamaktır.  Bu makalede uygulamaların nasıl dizininde sunulur ve nasıl dizininizde olması için bir uygulama gelen anlaşılmasına yardımcı olacak bağlamına sahip sağlayan bir üst düzey genel bakış sağlar.
@@ -84,8 +84,8 @@ Kendinizi ekleyin uygulamalar şunlardır:
   * Talep dönüştürme kuralları
   * Özellik eşlemeleri (kullanıcı hazırlama)
 * İçin hizmet sorumlusu hakkında ayrıntılı bilgi ve uygulama nesneleri Lütfen Azure AD grafik REST API Başvurusu belgelerine başvurun.  *İpucu*: Azure AD Graph API belgesidir şema başvurusu için en yakın bir şey için şu anda Azure AD.  
-  * [Uygulama](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-  * [Hizmet sorumlusu](https://msdn.microsoft.com/library/azure/dn194452.aspx)
+  * [Uygulama](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Hizmet sorumlusu](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="how-are-apps-added-to-my-azure-ad-instance"></a>Nasıl uygulamaları my Azure AD örneğinde eklenir?
 Bir uygulama için Azure AD eklenebilir birçok yolu vardır:

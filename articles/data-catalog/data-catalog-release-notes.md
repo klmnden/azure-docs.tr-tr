@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: d3db9bee0558cac5fb4f5b8fb4ab67a35ce0f141
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ba79bf465fc7775c44b370de287bfca5e29beccd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-data-catalog-release-notes"></a>Azure veri Kataloğu sürüm notları
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Sürüm Notları 20 Kasım 2015 için Azure veri Kataloğu

@@ -1,11 +1,11 @@
 
-Now that you've learned the basics of Azure queue storage, follow these links to learn about more complex storage tasks.
+Artık Azure kuyruk depolamanın temellerini öğrendiğinize göre daha karmaşık depolama görevleri hakkında bilgi edinmek için aşağıdaki bağlantıları izleyin.
 
-* View the Queue service reference documentation in the [Azure Storage Client Library for .NET](http://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.
-* Learn more about using Queue storage at [Get started with Azure Queue storage using .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md)
-* To learn how to simplify the code you write to work with Azure Storage, check out [What is the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
-* View more feature guides to learn about additional options for storing data in Azure.
-  * To work with Azure Storage Tables, see [Get Started with Azure Table storage using .NET](../articles/cosmos-db/table-storage-how-to-use-dotnet.md).
-  * To work with Azure Storage Blobs, [Get started with Azure Blob storage using .NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
-  * To store relational data, see [Connect to SQL Database by using .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
+* Kuyruk hizmeti başvuru belgelerini görüntüleyin [.NET için Azure Storage istemci Kitaplığı](http://go.microsoft.com/fwlink/?LinkID=390731) kullanılabilir API'ler ile ilgili tam Ayrıntılar için başvuru.
+* Konumundaki kuyruk depolama kullanma hakkında daha fazla bilgi edinin [.NET kullanarak Azure kuyruk depolamaya başlayın](../articles/storage/queues/storage-dotnet-how-to-use-queues.md)
+* Azure Storage ile çalışmak üzere yazdığınız kodları nasıl sadeleştireceğinizi öğrenin kullanıma [Azure WebJobs SDK nedir](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* Azure’da veri depolama ile ilgili ek seçenekler hakkında daha fazla bilgi edinmek için daha fazla özellik kılavuzu görüntüleyin.
+  * Azure depolama tabloları ile çalışmak için bkz: [.NET kullanarak Azure Table storage ile çalışmaya başlama](../articles/cosmos-db/table-storage-how-to-use-dotnet.md).
+  * Azure Storage Bloblarında ile çalışmak için [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
+  * İlişkisel veri depolamak için bkz: [.NET (C#) kullanarak SQL veritabanına bağlanma](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 

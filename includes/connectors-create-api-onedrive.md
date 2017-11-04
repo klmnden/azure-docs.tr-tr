@@ -1,21 +1,21 @@
-#### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* A [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) account 
+#### <a name="prerequisites"></a>Ön koşullar
+* Bir Azure hesabı; oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free)
+* A [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) hesabı 
 
-Before you can use your OneDrive account in a logic app, authorize the logic app to connect to your OneDrive account.  You can do this easily within your logic app on the Azure portal. 
+Bir mantıksal uygulama OneDrive hesabınıza kullanmadan önce OneDrive hesabınıza bağlanmak için mantıksal uygulama yetkilendirin.  Kolayca Azure portalındaki mantıksal uygulama içinde bunu yapabilirsiniz. 
 
-Authorize your logic app to connect to your OneDrive account using the following steps:
+Aşağıdaki adımları kullanarak OneDrive hesabınıza bağlanmak için mantıksal uygulamanızı yetkilendirin.
 
-1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "onedrive" in the search box. Select one of the triggers or actions:  
+1. Bir mantıksal uygulama oluşturun. Logic Apps Tasarımcısı'nda seçin **Göster Microsoft yönetilen API'ler** açılır listesinde ve ardından arama kutusuna "onedrive" girin. Tetikleyiciler veya Eylemler birini seçin:  
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
-2. If you haven't previously created any connections to OneDrive, you are prompted to sign in using your OneDrive credentials:  
+2. Daha önce onedrive herhangi bir bağlantısı oluşturmadıysanız, OneDrive kimlik bilgilerinizi kullanarak oturum açmanız istenir:  
    ![](./media/connectors-create-api-onedrive/onedrive-2.png)
-3. Select **Sign in**, and enter your user name and password. Select **Sign in**:  
+3. Seçin **oturum**, kullanıcı adı ve parolayı girin. Seçin **oturum**:  
    ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
    
-    These credentials are used to authorize your logic app to connect to, and access the data in your OneDrive account. 
-4. Select **Yes** to authorize the logic app to use your OneDrive account:  
+    Bu kimlik bilgileri bağlanmak ve OneDrive hesabınızdaki verilere erişmek için mantıksal uygulamanızı yetkilendirmek için kullanılır. 
+4. Seçin **Evet** OneDrive hesabınızı kullanmak için mantıksal uygulama yetkilendirmek için:  
    ![](./media/connectors-create-api-onedrive/onedrive-4.png)   
-5. Notice the connection has been created. Now, proceed with the other steps in your logic app:  
+5. Bağlantıyı oluşturan dikkat edin. Şimdi, mantıksal uygulamanızı diğer adımlarla devam edin:  
    ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 

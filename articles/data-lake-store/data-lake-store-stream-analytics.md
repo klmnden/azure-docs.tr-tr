@@ -12,21 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Azure Akış Analizi’ni kullanarak Azure Depolama Blobundan Data Lake Store’a veri akışı gerçekleştirme
 Bu makalede Azure Data Lake Store için Azure Stream Analytics işi çıkış olarak kullanmak üzere öğreneceksiniz. Bu makale bir Azure Storage blobundan (giriş) veri okuyan ve Data Lake Store (çıktı) verileri yazar basit bir senaryo gösterir.
-
-> [!NOTE]
-> Şu anda oluşturma ve Data Lake Store yapılandırmasını çıkaran Stream Analytics yalnızca desteklenen [Klasik Azure portalı](https://manage.windowsazure.com). Bu nedenle, bu öğreticinin bazı bölümleri Azure Klasik Portalı'nı kullanır.
->
->
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:

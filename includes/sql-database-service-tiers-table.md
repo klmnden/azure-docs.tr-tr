@@ -4,70 +4,70 @@ sql-database-performance-guidance.md
 sql-database-single-database-resources.md 
 -->
 
-### <a name="basic-service-tier"></a>Basic service tier
-| **Performance level** | **Basic** |
+### <a name="basic-service-tier"></a>Temel hizmet katmanı
+| **Performans düzeyi** | **Temel** |
 | :--- | --: |
-| Max DTUs | 5 |
-| Included storage (GB) | 2 |
-| Max storage choices (GB) | 2 |
-| Max in-memory OLTP storage (GB) |N/A |
-| Max concurrent workers (requests) | 30 |
-| Max concurrent logins | 30 |
-| Max concurrent sessions | 300 |
+| Maks. DTU | 5 |
+| Eklenen depolama (GB) | 2 |
+| En fazla depolama seçenekleri (GB) | 2 |
+| Maks. bellek içi OLTP depolama alanı (GB) |Yok |
+| En fazla eşzamanlı çalışan (istek sayısı) | 30 |
+| Maks. eş zamanlı oturum | 30 |
+| Maks. eş zamanlı oturum | 300 |
 |||
 
-### <a name="standard-service-tier"></a>Standard service tier
-| **Performance level** | **S0** | **S1** | **S2** | **S3** |
+### <a name="standard-service-tier"></a>Standart hizmet katmanı
+| **Performans düzeyi** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| Max DTUs** | 10 | 20 | 50 | 100 |
-| Included storage (GB) | 250 | 250 | 250 | 250 |
-| Max storage choices (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |
-| Max concurrent workers (requests)| 60 | 90 | 120 | 200 |
-| Max concurrent logins | 60 | 90 | 120 | 200 |
-| Max concurrent sessions |600 | 900 | 1200 | 2400 |
+| Maksimum Dtu ** | 10 | 20 | 50 | 100 |
+| Eklenen depolama (GB) | 250 | 250 | 250 | 250 |
+| En fazla depolama seçenekleri (GB) * | 250 | 250 | 250 | 250, 500, 750, 1024 |
+| Maks. bellek içi OLTP depolama alanı (GB) | Yok | Yok | Yok | Yok |
+| En fazla eşzamanlı çalışan (istek sayısı)| 60 | 90 | 120 | 200 |
+| Maks. eş zamanlı oturum | 60 | 90 | 120 | 200 |
+| Maks. eş zamanlı oturum |600 | 900 | 1200 | 2400 |
 ||||||
 
-### <a name="standard-service-tier-continued"></a>Standard service tier (continued)
-| **Performance level** | **S4** | **S6** | **S7** | **S9** | **S12** |
+### <a name="standard-service-tier-continued"></a>Standart hizmet katmanında (devam)
+| **Performans düzeyi** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| Max DTUs** | 200 | 400 | 800 | 1600 | 3000 |
-| Included storage (GB) | 250 | 250 | 250 | 250 | 250 |
-| Max storage choices (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |N/A |
-| Max concurrent workers (requests)| 400 | 800 | 1600 | 3200 |6000 |
-| Max concurrent logins | 400 | 800 | 1600 | 3200 |6000 |
-| Max concurrent sessions |4800 | 9600 | 19200 | 30000 |30000 |
+| Maksimum Dtu ** | 200 | 400 | 800 | 1600 | 3000 |
+| Eklenen depolama (GB) | 250 | 250 | 250 | 250 | 250 |
+| En fazla depolama seçenekleri (GB) * | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
+| Maks. bellek içi OLTP depolama alanı (GB) | Yok | Yok | Yok | Yok |Yok |
+| En fazla eşzamanlı çalışan (istek sayısı)| 400 | 800 | 1600 | 3200 |6000 |
+| Maks. eş zamanlı oturum | 400 | 800 | 1600 | 3200 |6000 |
+| Maks. eş zamanlı oturum |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
-### <a name="premium-service-tier"></a>Premium service tier 
-| **Performance level** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
+### <a name="premium-service-tier"></a>Premium hizmet katmanı 
+| **Performans düzeyi** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | :--- |---:|---:|---:|---:|---:|---:|
-| Max DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Included storage (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
-| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
-| Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
-| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Max concurrent logins | 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Maks. DTU | 125 | 250 | 500 | 1000 | 1750 | 4000 |
+| Eklenen depolama (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
+| En fazla depolama seçenekleri (GB) * | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
+| Maks. bellek içi OLTP depolama alanı (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
+| En fazla eşzamanlı çalışan (istek sayısı)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Maks. eş zamanlı oturum | 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Maks. eş zamanlı oturum | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-### <a name="premium-rs-service-tier"></a>Premium RS service tier 
-| **Performance level** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
+### <a name="premium-rs-service-tier"></a>Premium RS hizmet katmanı 
+| **Performans düzeyi** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
 | :--- |---:|---:|---:|---:|---:|---:|
-| Max DTUs | 125 | 250 | 500 | 1000 |
-| Included storage (GB) | 500 | 500 | 500 | 500 |
-| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 |
-| Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 |
-| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 |
-| Max concurrent logins | 200 | 400 | 800 | 1600 |
-| Max concurrent sessions | 30000 | 30000 | 30000 | 30000 |
+| Maks. DTU | 125 | 250 | 500 | 1000 |
+| Eklenen depolama (GB) | 500 | 500 | 500 | 500 |
+| En fazla depolama seçenekleri (GB) * | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 |
+| Maks. bellek içi OLTP depolama alanı (GB) | 1 | 2 | 4 | 8 |
+| En fazla eşzamanlı çalışan (istek sayısı)| 200 | 400 | 800 | 1600 |
+| Maks. eş zamanlı oturum | 200 | 400 | 800 | 1600 |
+| Maks. eş zamanlı oturum | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
 > [!IMPORTANT]
-> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+> \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>\* Premium katmanlarda 1 TB’den fazla depolama alanı şu bölgelerde sunulmaktadır: ABD Doğu2, Batı ABD, US Gov Virginia, Batı Avrupa, Almanya Orta, Güneydoğu Asya, Japonya Doğu, Avustralya Doğu, Kanada Orta ve Kanada Doğu. Bkz. [P11 P15 Geçerli Sınırlamalar](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
->\*\* Max DTUs per database starting at 200 DTUs and higher in Standard are in preview.
+>\*\*200 Dtu'lar ve daha yüksek standart başlangıç veritabanı başına maksimum Dtu önizlemede.
 >

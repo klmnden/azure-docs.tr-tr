@@ -1,28 +1,28 @@
 ## <a name="azure-dns"></a>Azure DNS
-Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.
+Azure DNS barındırma için bir DNS etki alanı, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlamanın hizmetidir.
 
-| Property | Description | Sample Value |
+| Özellik | Açıklama | Örnek değer |
 | --- | --- | --- |
-| **DNSzones** |Domain zone information to host DNS records of a particular domain |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com" |
+| **DNSzones** |Belirli bir etki alanı ana bilgisayar DNS kayıtları etki alanı bölgesi bilgileri |/ subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com " |
 
-### <a name="dns-record-sets"></a>DNS record sets
-DNS zones have a child object named record set. Record sets are a collection of host records by type for a DNS zone. Record types are A, AAAA, CNAME, MX, NS, SOA,SRV and TXT.
+### <a name="dns-record-sets"></a>DNS kayıt kümeleri
+DNS bölgeleri kayıt kümesi adında bir alt nesne vardır. Kayıt kümeleri, ana bilgisayar kayıtları bir DNS bölgesi için türüne göre koleksiyonudur. Kayıt türleri: A, AAAA, CNAME, MX, NS, SOA, SRV ve TXT.
 
-| Property | Description | Sample value |
+| Özellik | Açıklama | Örnek değer |
 | --- | --- | --- |
-| A |IPv4 record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
-| AAAA |IPv6 record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
-| CNAME |canonical name record type <sup>1</sup> |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
-| MX |mail record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
-| NS |name server record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
-| SOA |Start of Authority record type <sup>2</sup> |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
-| SRV |service record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV |
+| A |IPv4 kayıt türü |/Subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| AAAA |IPv6 kayıt türü |/Subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
+| CNAME |kurallı ad kayıt türü <sup>1</sup> |/Subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
+| MX |posta kayıt türü |/Subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/Mail |
+| NS |ad sunucusu kaydı türü |/Subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
+| SOA |Başlangıç yetkilisi kayıt türünün <sup>2</sup> |/Subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
+| SRV |Hizmet kayıt türü |/Subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV |
 
-<sup>1</sup> only allows one value per record set.
+<sup>1</sup> yalnızca kayıt kümesi başına bir değer verir.
 
-<sup>2</sup> only allows one record type SOA per DNS zone. 
+<sup>2</sup> yalnızca bir kayıt türü SOA DNS bölgesi başına izin verir. 
 
-Sample of DNS zone in Json format:
+Json biçimindeki DNS bölgesini örneği:
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
@@ -77,8 +77,8 @@ Sample of DNS zone in Json format:
           ]
     }
 
-## <a name="additional-resources"></a>Additional resources
-Read the [REST API documentation for DNS zones ](https://msdn.microsoft.com/library/azure/mt130626.aspx) for more information.
+## <a name="additional-resources"></a>Ek kaynaklar
+Okuma [DNS bölgeleri için REST API belgeleri ](https://msdn.microsoft.com/library/azure/mt130626.aspx) daha fazla bilgi için.
 
-Read the [REST API documentation for DNS record sets](https://msdn.microsoft.com/library/azure/mt130627.aspx) for more information.
+Okuma [DNS kayıt kümelerini için REST API belgeleri](https://msdn.microsoft.com/library/azure/mt130627.aspx) daha fazla bilgi için.
 

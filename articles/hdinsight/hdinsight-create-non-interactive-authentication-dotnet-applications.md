@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jgao
-ms.openlocfilehash: c1aeed8c6fe4f83b170838e4efb9d9c4744fb951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 00eb9f6e13035ba5827b70e911be4afeafd442a2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Etkileşimli olmayan kimlik doğrulama .NET Hdınsight uygulaması oluşturma
 Microsoft .NET Azure Hdınsight uygulamanızı ya da uygulamanın kendi kimliğini (etkileşimli olmayan) (etkileşimli) uygulamasının oturum açmış kullanıcının kimliğini altında ya da çalıştırabilirsiniz. Bu makalede etkileşimli olmayan kimlik doğrulaması için Azure bağlanmak ve Hdınsight yönetmek için .NET uygulaması oluşturulacağını gösterir. Etkileşimli bir uygulamanın bir örnek için bkz: [Azure Hdınsight Bağlan](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -32,7 +32,7 @@ Etkileşimli olmayan .NET uygulamanızdan, aşağıdakiler gerekir:
 * Azure AD uygulama gizli anahtarı. Bkz: [Get uygulama kimlik doğrulama anahtarı](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## <a name="prerequisites"></a>Ön koşullar
-* Hdınsight kümesi. Bkz: [başlama Öğreticisi](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+* Hdınsight kümesi. Bkz: [başlama Öğreticisi](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Azure AD uygulaması rol atama
 Azure AD uygulama atama bir [rol](../active-directory/role-based-access-built-in-roles.md), eylemleri gerçekleştirmek için izinleri vermek için. Abonelik, kaynak grubu ya da kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam devralınan izinleri. (Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme uygulama kaynak grubunu ve tüm kaynaklarında okuyabileceği anlamına gelir.) Bu öğreticide kaynak grubu düzeyinde kapsamı ayarlayın. Daha fazla bilgi için bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../active-directory/role-based-access-control-configure.md).

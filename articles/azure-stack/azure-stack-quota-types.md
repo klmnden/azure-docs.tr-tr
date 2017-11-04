@@ -1,6 +1,6 @@
 ---
-title: Quota types in Azure Stack | Microsoft Docs
-description: Review the different quota types available for services and resources in Azure Stack.
+title: "Kota türleri Azure yığınında | Microsoft Docs"
+description: "Kullanılabilir hizmet ve kaynakları Azure yığınındaki farklı kota türlerini gözden geçirin."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,53 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 9c65abd596b1a67175a4f91558c318f16ddbb11f
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/24/2017
-
+ms.openlocfilehash: d9bb048ece32bf5b34e05d7459488aa0f24d0d44
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="quota-types-in-azure-stack"></a>Quota types in Azure Stack
-[Quotas](azure-stack-plan-offer-quota-overview.md#plans) define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. Each resource can have its own types of quotas.
+# <a name="quota-types-in-azure-stack"></a>Azure yığınında kota türleri
 
-## <a name="compute-quota-types"></a>Compute quota types
-| **Type** | **Default value** | **Description** |
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+
+[Kotalar](azure-stack-plan-offer-quota-overview.md#plans) , bir kullanıcı abonelik sağlamak veya tüketmek kaynakları sınırlarını tanımlayın. Örneğin, kota en fazla beş VM'ler oluşturmak bir kullanıcı izin verebilir. Her kaynak kendi tip kotalar olabilir.
+
+## <a name="compute-quota-types"></a>Kota türleri işlem
+| **Tür** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| Max number of virtual machines |50 | The maximum number of virtual machines that a subscription can create in this location. |
-| Max number of virtual machine cores |100 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
-| Max number of availability sets |10 | The maximum number of availability sets that can be created in this location. |
-| Max number of virtual machine scale sets |100 | The maximum number of virtual machine scale sets that can be created in this location. |
+| Sanal makineler sayısı üst sınırı | 20 | Bu konumda bir abonelik oluşturan sanal makineleri maksimum sayısı. |
+| Sanal makine çekirdek sayısı üst sınırı | 50 | En yüksek abonelik bu konumda oluşturabilirsiniz çekirdek sayısı (örneğin, bir A3 VM dört çekirdek yoktur). |
+| Kullanılabilirlik kümesi sayısı maks. | 10 | Bu konumda oluşturulan kullanılabilirlik kümesi maksimum sayısı. |
+| Sanal makine ölçek maksimum sayısını ayarlar | 20 | Bu konumda oluşturulan sanal makine ölçek kümeleri maksimum sayısı. |
 
 > [!NOTE]
-> Compute quotas are not enforced in this technical preview.
+> Kotalar bu teknik önizlemede zorlanmaz işlem.
 > 
 > 
 
-## <a name="storage-quota-types"></a>Storage quota types
-| **Item** | **Default value** | **Description** |
+## <a name="storage-quota-types"></a>Depolama kotası türleri
+| **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| Maximum capacity (GB) |500 |Total storage capacity that can be consumed by a subscription in this location. |
-| Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
+| Maksimum Kapasite (GB) |500 |Bu konumda bulunan abonelik tarafından kullanılan toplam depolama kapasitesi. |
+| Depolama hesaplarının toplam sayısına |20 |Bu konumda bir abonelik oluşturduğunuz depolama hesapları maksimum sayısı. |
 
-## <a name="network-quota-types"></a>Network quota types
-| **Item** | **Default value** | **Description** |
+## <a name="network-quota-types"></a>Ağ kota türleri
+| **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| Max public IPs |50 |The maximum number of public IPs that a subscription can create in this location. |
-| Max virtual networks |50 |The maximum number of virtual networks that a subscription can create in this location. |
-| Max virtual network gateways |1 |The maximum number of virtual network gateways (VPN Gateways) that a subscription can create in this location. |
-| Max network connections |2 |The maximum number of network connections (point-to-point or site-to-site) that a subscription can create across all virtual network gateways in this location. |
-| Max load balancers |50 |The maximum number of load balancers that a subscription can create in this location. |
-| Max NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
-| Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
+| Max genel IP'ler |50 |Bu konumda bir abonelik oluşturduğunuz genel IP'ler maksimum sayısı. |
+| En büyük sanal ağlar |50 |Bu konumda bir abonelik oluşturduğunuz sanal ağlar maksimum sayısı. |
+| En fazla sanal ağ geçitleri |1 |Bu konumda bir abonelik oluşturduğunuz sanal ağ geçitleri (VPN ağ geçitleri) maksimum sayısı. |
+| En fazla ağ bağlantıları |2 |(Noktadan noktaya veya siteden siteye) bir aboneliğiniz bu konumdaki tüm sanal ağ geçitleri arasında oluşturabilirsiniz ağ bağlantılarının maksimum sayısı. |
+| En fazla yük dengeleyici |50 |Bu konumda bir abonelik oluşturduğunuz yük Dengeleyiciler maksimum sayısı. |
+| En fazla NIC |100 |Bu konumda bir abonelik oluşturduğunuz ağ arabirimleri sayısı. |
+| En fazla ağ güvenlik grupları |50 |Bu konumda bir abonelik oluşturduğunuz ağ güvenlik grupları maksimum sayısı. |
 
-## <a name="view-an-existing-quota"></a>View an existing quota
-1. Click **More services** > **Resource Providers**.
-2. Select the service with the quota that you want to view.
-3. Click **Quotas**, and select the quota you want to view.
+## <a name="view-an-existing-quota"></a>Var olan bir kota görüntüleyin
+1. Tıklatın **daha fazla hizmet** > **kaynak sağlayıcıları**.
+2. Görüntülemek istediğiniz kota hizmetiyle seçin.
+3. Tıklatın **kotaları**, görüntülemek istediğiniz kota seçin.
 
-## <a name="next-steps"></a>Next steps
-[Learn more about plans, offers, and quotas.](azure-stack-plan-offer-quota-overview.md)
+## <a name="next-steps"></a>Sonraki adımlar
+[Daha fazla hakkında planları, teklifleri ve kotalar öğrenin.](azure-stack-plan-offer-quota-overview.md)
 
-[Create quotas while creating a plan.](azure-stack-create-plan.md)
-
+[Kotalar bir plan oluştururken oluşturun.](azure-stack-create-plan.md)

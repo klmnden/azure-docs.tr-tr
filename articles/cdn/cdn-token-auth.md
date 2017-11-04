@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/11/2016
 ms.author: mezha
-ms.openlocfilehash: 42b182c314795b1ebf69639ec7ac5583208dc7c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 88956b324a543c5347e16b1278f6b2179a3b9c24
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Azure CDN varlıklar belirteci kimlik doğrulaması ile güvenli hale getirme
+# <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Azure içerik teslim ağı varlıklar belirteci kimlik doğrulaması ile güvenli hale getirme
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-##<a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel Bakış
 
-Belirteç kimlik doğrulama varlıklar yetkisiz istemcilerine hizmet veren Azure CDN önlemek izin veren bir mekanizmadır.  Bu genellikle, içeriğin "hotlinking" önlemek için burada ileti panosu genellikle, farklı bir Web varlıklarınızı izniniz olmadan kullanan gerçekleştirilir.  Bu içerik teslim maliyetleriniz üzerinde etkisi olabilir. Bu özelliği CDN etkinleştirerek, istekleri CDN kenarı içerik teslim etmeden POP tarafından doğrulanır. 
+Belirteç kimlik doğrulama varlıklar yetkisiz istemcilerine hizmet veren Azure içerik teslim ağı (CDN) önlemek izin veren bir mekanizmadır. Belirteç kimlik doğrulama, genellikle ileti panosu genellikle, farklı bir Web varlıklarınızı izniniz olmadan kullanan içeriğinin "hotlinking" önlemek için yapılır. Hotlinking içerik teslim maliyetleriniz üzerinde bir etkisi olabilir. Bu özelliği CDN etkinleştirerek, CDN içerik sunan önce istekleri POP CDN uç tarafından doğrulanır. 
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Belirteç kimlik doğrulama istekleri istek sahibinin kodlanmış bilgilerini içeren bir belirteç değeri içeren isteklerine gerektirerek güvenilen bir site tarafından oluşturulan doğrular. Kodlanmış bilgi gereksinimleri karşıladığında içeriği yalnızca istemciye sunulacak, aksi takdirde isteği reddedilir. Aşağıdaki bir veya birden çok parametre kullanarak gereksinimini ayarlayabilirsiniz.
+Belirteç kimlik doğrulama istekleri istek sahibinin bu kodlanmış ayrı tutma bilgilerini belirteç değeri içeren isteklerine gerektirerek güvenilen bir site tarafından oluşturulan doğrular. Yalnızca kodlanmış bilgi gereksinimleri karşılıyorsa içerik için bir istek sunulan; Aksi takdirde, istek reddedilir. Bir veya daha fazla aşağıdaki parametreleri kullanarak gereksinimleri ayarlayabilirsiniz:
 
 - Ülke: izin ver veya belirtilen ülkelerden kaynaklanan istekleri reddedin.  [Geçerli ülke kodlarının listesi.](https://msdn.microsoft.com/library/mt761717.aspx) 
 - URL: yalnızca belirtilen varlık veya yolu istemek izin verir.  
@@ -40,27 +40,29 @@ Belirteç kimlik doğrulama istekleri istek sahibinin kodlanmış bilgilerini i�
 - Protokol: izin verin veya içeriği istemek için kullanılan protokolünü temel isteklerini engellemek.
 - Süre sonu: bağlantı yalnızca sınırlı bir süre için geçerli olmaya devam ettiğinden emin olmak için bir tarih ve saat dönemi atayabilir.
 
-Her bir parametreyi ayrıntılı yapılandırma örneği bakın.
+Daha fazla bilgi için her parametre için ayrıntılı yapılandırma örneklerini görmek [belirteç kimlik doğrulamayı ayarlama](#setting-up-token-authentication).
+
+Şifrelenmiş bir simge oluşturduktan sonra bu URL yolun sonuna bir sorgu dizesi olarak ekler. Örneğin, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 
 ## <a name="reference-architecture"></a>Başvuru mimarisi
 
-Web uygulamanızın üzerinde çalışmak için CDN belirteci kimlik doğrulamasını ayarlama referans mimarisi aşağıya bakın.
+Aşağıdaki iş akışı diyagramı belirteci kimlik doğrulaması CDN web uygulamanız ile çalışmak için nasıl kullandığını açıklar.
 
-![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-token-auth/cdn-token-auth-workflow2.png)
+![CDN belirteç kimlik doğrulama iş akışı](./media/cdn-token-auth/cdn-token-auth-workflow2.png)
 
 ## <a name="token-validation-logic-on-cdn-endpoint"></a>CDN uç noktasında belirteci Doğrulama mantığı
     
-Bu grafik, nasıl Azure CDN belirteci kimlik doğrulaması CDN uç yapılandırıldığında, istemci isteği doğrular açıklar.
+Aşağıdaki akış çizelgesi, nasıl Azure CDN belirteci kimlik doğrulaması CDN uç yapılandırıldığında, istemci isteği doğrular açıklar.
 
-![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
+![CDN belirteci Doğrulama mantığı](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
 
 ## <a name="setting-up-token-authentication"></a>Belirteç kimlik doğrulamayı ayarlama
 
-1. Gelen [Azure portal](https://portal.azure.com), CDN profilinize gidin ve ardından **Yönet** ek Portalı'nı başlatmak için düğmesi.
+1. Gelen [Azure portal](https://portal.azure.com), CDN profilinize gidin ve ardından **Yönet** ek Portalı'nı başlatmak için.
 
-    ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![CDN profili Yönet düğmesi](./media/cdn-rules-engine/cdn-manage-btn.png)
 
-2. Üzerine gelerek **HTTP büyük**ve ardından **belirteci Auth** çıkma içinde. Şifreleme anahtarı ve bu sekmedeki şifreleme parametreleri ayarlayacaksınız.
+2. Üzerine gelerek **HTTP büyük**ve ardından **belirteci Auth** çıkma içinde. Şifreleme anahtarı ve bu sekmedeki şifreleme parametreleri ayarlayın.
 
     1. Benzersiz bir şifreleme anahtarı için girin **birincil anahtar**.  İçin başka bir girin **yedekleme anahtarı**
 
@@ -68,11 +70,11 @@ Bu grafik, nasıl Azure CDN belirteci kimlik doğrulaması CDN uç yapılandır�
     
     2. Şifreleme parametreleri şifreleme aracıyla ayarlayın (izin ver veya Reddet istekleri göre süre sonu, ülke, başvuran, protokol, istemci IP. "Herhangi bir birleşimini kullanabilirsiniz.)
 
-        ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+        ![CDN şifrelemek aracı](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
-        - EC-sona: bir belirteç sona erme süresi belirli bir süre sonra atar. Sona erme zamanı reddedilir sonra gönderilen istek sayısı. Bu parametre UNIX zaman damgası kullanır (standart dönemi: 1/1/1970'ten beri geçen saniye göre 00:00:00 GMT. Çevrimiçi araçları Standart Saati ve UNIX saat arasında dönüştürme sağlamak için kullanabilirsiniz.)  Örneğin, 31/12/2016 süresinin belirtecin ayarlamak istiyorsanız, 12:00:00 GMT, UNIX saat: 1483185600 aşağıdaki gibi kullanın:
+        - EC-sona: bir belirteç sona erme süresi belirli bir süre sonra atar. Sona erme zamanı engellenir sonra gönderilen istek sayısı. Bu parametre UNIX zaman damgası kullanır (standart dönemi: 1/1/1970'ten beri geçen saniye göre 00:00:00 GMT. Çevrimiçi araçları Standart Saati ve UNIX saat arasında dönüştürme sağlamak için kullanabilirsiniz.) Örneğin, belirtecin anda süresi dolacak şekilde ayarlamak istiyorsanız `12/31/2016 12:00:00 GMT`, UNIX zaman damgası değeri kullanmak `1483185600`aşağıdaki gibi.
     
-        ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-token-auth/cdn-token-auth-expire2.png)
+        ![CDN ec_expire örneği](./media/cdn-token-auth/cdn-token-auth-expire2.png)
     
         - EC url izin: belirli bir varlık veya yolu belirteçleri uyarlamak olanak tanır. URL'si Başlat belirli bir göreli yol isteklerine erişimi sınırlandırır. Her yol virgül ile ayırarak birden fazla yol girebilirsiniz. URL'leri büyük/küçük harfe duyarlıdır. Gereksinim bağlı olarak farklı erişim düzeyini sağlamak için farklı değeri ayarlayabilirsiniz. Aşağıda birkaç senaryo vardır:
         
@@ -87,40 +89,46 @@ Bu grafik, nasıl Azure CDN belirteci kimlik doğrulaması CDN uç yapılandır�
             3. Giriş değeri "/ resimler /": /pictures/ izin verilmesi yalnızca istekleri
             4. Giriş değeri "/ pictures/city/strasbourg.png": yalnızca bu varlık için istek sağlar
     
-        ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
+        ![CDN ec_url_allow örneği](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
     
         - AB Ülke izin: yalnızca bir veya daha fazla belirtilen ülkelerden kaynaklanan isteklere izin verir. Diğer tüm ülkelerden kaynaklı istekler reddedilir. Her ülke kodu virgül ile ayırarak ve ülke kodu parametrelerini ayarlamak için kullanın. Örneğin, Amerika Birleşik Devletleri ve Fransa erişimine izin vermek istiyorsanız, BİZE FR sütununda girin.  
         
-        ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-token-auth/cdn-token-auth-country-allow.png)
+        ![CDN ec_country_allow örneği](./media/cdn-token-auth/cdn-token-auth-country-allow.png)
 
         - AB Ülke reddetme: bir veya daha fazla belirtilen ülkelerden kaynaklanan istekleri reddeder. Diğer tüm ülkelerden kökenli isteklerine izin verilir. Her ülke kodu virgül ile ayırarak ve ülke kodu parametrelerini ayarlamak için kullanın. Örneğin, Amerika Birleşik Devletleri ve Fransa erişimini engellemek istiyorsanız, BİZE sütun FR girin.
     
-        - EC ref izin: yalnızca belirtilen başvuran isteklere izin verir. Bir başvuran istenen kaynak bağlı web sayfasının URL'sini tanımlar. Başvuran parametre değeri Protokolü içermemelidir. Bir ana bilgisayar adı ve/veya bu ana bilgisayar üzerinde belirli bir yol girebilirsiniz. Ayrıca, her biri virgül ile ayırarak tek bir parametre içinde birden çok başvuran ekleyebilirsiniz. Bir başvuran değer belirttiniz, ancak bazı tarayıcı yapılandırması nedeniyle isteği başvuran bilgi gönderilmez, bu istekleri varsayılan olarak reddedilir. Başvuran bilgileri eksik olan bu isteklere izin vermek için "Eksik" veya parametresinde boş bir değer atayabilirsiniz. Aynı zamanda "*. consoto.com" consoto.com tüm alt etki alanlarına izin vermek için.  Örneğin, www.consoto.com, consoto2.com ve boş veya eksik reffers ile erquests altındaki tüm alt etki gelen istekleri erişime izin vermek istiyorsanız, aşağıda değeri giriş:
+        - ec_ref_allow: yalnızca belirtilen başvuran isteklere izin verir. Bir başvuran istenen kaynak bağlı web sayfasının URL'sini tanımlar. Protokol başvuran parametre değeri içermez. Giriş aşağıdaki türleri için parametre değeri verilir:
+           - Bir ana bilgisayar adı veya bir ana bilgisayar adı ve yolu.
+           - Birden çok başvuran. Birden çok başvuran eklemek için her başvuran virgül ile ayırın. Başvuran değeri belirtin, ancak tarayıcı yapılandırması nedeniyle isteği başvuran bilgi gönderilmez, bu istekleri varsayılan olarak reddedilir. 
+           - Başvuran bilgileri eksik olan istek sayısı. Bu tür istekleri izin vermek için metin "eksik" girin veya boş bir değer girin. 
+           - Alt etki alanları. Alt etki alanları izin vermek için bir yıldız işareti (*) girin. Örneğin, tüm alt etki alanlarına izin vermek için `consoto.com` girin `*.consoto.com`. 
+           
+          Aşağıdaki örnek, gelen istekleri için erişime izin vermek için giriş gösterir `www.consoto.com`, altındaki tüm alt etki `consoto2.com`ve boş veya eksik başvuran istekleri.
         
-        ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
+          ![CDN ec_ref_allow örneği](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
     
         - EC ref reddetme: Belirtilen başvuran istekleri reddeder. Ayrıntılar ve "AB-ref-izin ver" parametresi örnekte bakın.
          
         - EC proto izin: yalnızca belirtilen protokol gelen isteklere izin verir. Örneğin, http veya https.
         
-        ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
+        ![CDN ec_proto_allow örneği](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
             
         - EC proto reddetme: Belirtilen protokolünden istekleri reddeder. Örneğin, http veya https.
     
         - EC clientip: Belirtilen sahibinin IP adresine erişimi kısıtlar. IPv4 ve IPv6 desteklenir. Tek istek IP adresi veya IP alt ağı belirtebilirsiniz.
             
-        ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-token-auth/cdn-token-auth-clientip.png)
+        ![CDN ec_clientip örneği](./media/cdn-token-auth/cdn-token-auth-clientip.png)
         
-    3. Belirtecinizi tanımı aracıyla test edebilirsiniz.
+    3. Açıklama aracıyla belirtecinizi test edebilirsiniz.
 
     4. İstek reddedildiğinde kullanıcıya döndürülecek yanıtının türünü özelleştirebilirsiniz. Varsayılan olarak 403 kullanırız.
 
-3. Şimdi **kurallar altyapısı** altında sekmesinde **HTTP büyük**. Bu sekme özelliği geçerli, belirteç kimlik doğrulama özelliğini etkinleştirmek ve etkinleştirmek için yollarını tanımlamak için kullanacağınız ek belirteci kimlik doğrulaması ile ilgili özellikler.
+3. Şimdi **kurallar altyapısı** altında sekmesinde **HTTP büyük**. Özelliği geçerli, belirteç kimlik doğrulama özelliğini etkinleştirmek ve ek belirteç kimlik doğrulamayla ilgili özellikler etkinleştirmek için yollarını tanımlamak için bu sekmeyi kullanın.
 
     - Varlık veya belirteci kimlik doğrulaması uygulamak istediğiniz yolu tanımlamak için "IF" sütunu kullanın. 
     - "Belirteç Auth" belirteci kimlik doğrulamasını etkinleştirmek için özellik aşağı açılır listeden eklemek için tıklatın.
         
-    ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
+    ![CDN kurallar altyapısı belirteci kimlik doğrulamasını etkinleştir örnek](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. İçinde **kurallar altyapısı** sekmesinde, etkinleştirebilirsiniz birkaç ek özellikler vardır.
     
@@ -128,7 +136,7 @@ Bu grafik, nasıl Azure CDN belirteci kimlik doğrulaması CDN uç yapılandır�
     - Belirteç kimlik doğrulama yoksay: belirteci doğrulamak için kullanılan URL büyük küçük harfe duyarlı olup olmayacağını belirler.
     - Belirteç kimlik doğrulama parametresi: İstenen URL'de gösteren belirteci auth sorgu dizesi parametresi yeniden adlandırın. 
         
-    ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-token-auth/cdn-rules-engine2.png)
+    ![Belirteç kimlik doğrulama ayarları örnek CDN kurallar altyapısı](./media/cdn-token-auth/cdn-rules-engine2.png)
 
 5. Belirteç tabanlı kimlik doğrulama özellikleri için belirteci oluşturan bir uygulama olan belirtecinizi özelleştirebilirsiniz. Kaynak kodu erişilebilir burada içinde [GitHub](https://github.com/VerizonDigital/ectoken).
 Kullanılabilir diller şunlardır:

@@ -1,18 +1,18 @@
-| Resource | Default limit | Note |
+| Kaynak | Varsayılan limit | Not |
 | --- | --- | --- |
-| Application Gateway |50 per subscription | Maximum 100 |
-| Frontend IP Configurations |2 |1 public and 1 private |
-| Frontend Ports |20 | |
-| Backend Address Pools |20 | |
-| Backend Servers per pool |100 | |
-| HTTP Listeners |20 | |
-| HTTP load balancing rules |200 |# of HTTP Listeners * n, n=10 Default |
-| Backend HTTP settings |20 |1 per Backend Address Pool |
-| Instances per gateway |10 | |
-| SSL certificates |20 |1 per HTTP Listeners |
-| Authentication certificates |5 | Maximum 10 |
-| Request time out min |1 second | |
-| Request time out max |24 hrs | |
-| Number of sites |20 |1 per HTTP Listeners |
-| URL Maps per listener |1 | |
+| Application Gateway |Abonelik başına 50 | En fazla 100 |
+| Ön Uç IP Yapılandırmaları |2 |1 ortak ve 1 özel |
+| Ön Uç Bağlantı Noktaları |20 | |
+| Arka Uç Adres Havuzları |20 | |
+| Havuz Başına Arka Uç Sunucuları |100 | |
+| HTTP Dinleyicileri |20 | |
+| HTTP yük dengeleme kuralları |200 |HTTP dinleyicileri sayısı * n, n = 10 varsayılan |
+| Arka uç HTTP ayarları |20 |Arka Uç Adres Havuzu başına 1 |
+| Ağ geçidi başına örnek |10 | |
+| SSL sertifikaları |20 |HTTP Dinleyicileri başına 1 |
+| Kimlik doğrulama sertifikaları |5 | En fazla 10 |
+| Zaman aşımı min isteği |1 saniye | |
+| İstek zaman aşımına max |24 saat | |
+| Site sayısı |20 |HTTP Dinleyicileri başına 1 |
+| Dinleyici başına URL Eşlemeleri |1 | |
 

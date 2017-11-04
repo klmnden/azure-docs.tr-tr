@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 42d617ffeb8c2fee6be6d747b39d80b09774a1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9ca91721e691eca239478c4ac8b85e2652babdfd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-user-permissions-at-the-file-and-folder-levels"></a>Dosya ve klasör düzeyinde kullanıcı izinlerini Yönet
 
-[Etki alanına katılmış Hdınsight kümeleri](hdinsight-domain-joined-introduction.md) Azure Active Directory (Azure AD) kullanıcılar, güçlü kimlik doğrulaması kullanmak ve aynı zamanda *rol tabanlı erişim denetimi* YARN ve Hive gibi çeşitli hizmetler için (RBAC) ilkeleri. Varsayılan veri deponuza kümeniz için Azure Storage veya Windows Azure depolama BLOB'lar (WASB) ise, dosya ve klasör düzeyinde izinler zorunlu kılabilir. Apache bırakabilmenizi, eşitlenen kümenin dosyalara erişimi denetlemek için kullanabileceğiniz Azure AD kullanıcıları ve grupları.
+[Etki alanına katılmış Hdınsight kümeleri](./domain-joined/apache-domain-joined-introduction.md) Azure Active Directory (Azure AD) kullanıcılar, güçlü kimlik doğrulaması kullanmak ve aynı zamanda *rol tabanlı erişim denetimi* YARN ve Hive gibi çeşitli hizmetler için (RBAC) ilkeleri. Varsayılan veri deponuza kümeniz için Azure Storage veya Windows Azure depolama BLOB'lar (WASB) ise, dosya ve klasör düzeyinde izinler zorunlu kılabilir. Apache bırakabilmenizi, eşitlenen kümenin dosyalara erişimi denetlemek için kullanabileceğiniz Azure AD kullanıcıları ve grupları.
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 Etki alanına katılmış Hdınsight kümeleri için Apache bırakabilmenizi örneği bırakabilmenizi WASB hizmeti ile önceden yapılandırılmış olarak gelir. Bırakabilmenizi-HDFS için benzer bir ilke yönetimi altyapısı bırakabilmenizi WASB hizmetidir ancak farklı bir uygulama bırakabilmenizi'nın erişim ilkeleri. Gelen bir kaynak isteği eşleşen bırakabilmenizi İlkesi yoksa bırakabilmenizi WASB hizmet REDDETME varsayılan yanıt vermiyor. Bırakabilmenizi hizmeti için WASB denetimi iznini geçmez.
@@ -69,7 +69,7 @@ Joker karakter olduğunda (`*`) mevcut bir ilke yolu joker yol ve tüm alt ağac
 
 ## <a name="manage-file-and-folder-level-permissions-with-apache-ranger"></a>Dosya ve klasör düzeyinde izinler Apache bırakabilmenizi ile yönetme
 
-Zaten yapmadıysanız, izleyin [bu yönergeleri](hdinsight-domain-joined-configure.md) yeni bir etki alanına katılmış kümesi sağlamak için.
+Zaten yapmadıysanız, izleyin [bu yönergeleri](./domain-joined/apache-domain-joined-configure.md) yeni bir etki alanına katılmış kümesi sağlamak için.
 
 Açık bırakabilmenizi WASB göz atarak `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/`. Küme Yönetici kullanıcı adı ve kümenizi oluşturulurken tanımlanan parolayı girin.
 
@@ -117,8 +117,8 @@ Apache bırakabilmenizi [ilke değerlendirme akış](#permission-and-policy-mode
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Etki alanına katılmış Hdınsight'ta Hive ilkelerini yapılandırma](hdinsight-domain-joined-run-hive.md)
-* [Etki alanına katılmış Hdınsight kümelerini yönetme](hdinsight-domain-joined-manage.md)
+* [Etki alanına katılmış Hdınsight'ta Hive ilkelerini yapılandırma](./domain-joined/apache-domain-joined-run-hive.md)
+* [Etki alanına katılmış Hdınsight kümelerini yönetme](./domain-joined/apache-domain-joined-manage.md)
 * [Ambari yönetme - Ambari için Kullanıcıları yetkilendirmek](hdinsight-authorize-users-to-ambari.md)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

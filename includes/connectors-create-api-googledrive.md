@@ -1,20 +1,20 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [GoogleDrive](https://www.google.com/drive/) account  
+### <a name="prerequisites"></a>Ön koşullar
+* A [Googledrive'a](https://www.google.com/drive/) hesabı  
 
-Before you can use your GoogleDrive account in a Logic app, you must authorize the Logic app to connect to your GoogleDrive account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Bir mantıksal uygulama Googledrive'a hesabınızı kullanabilmeniz için önce Googledrive'a hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
 
-Here are the steps to authorize your Logic app to connect to your GoogleDrive account:  
+Mantıksal uygulamanızı Googledrive'a hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:  
 
-1. To create a connection to GoogleDrive, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *GoogleDrive* in the search box. Select the trigger or action you'll like to use:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-1.png)  
-2. If you haven't created any connections to GoogleDrive before, you'll get prompted to provide your GoogleDrive credentials. These credentials will be used to authorize your Logic app to connect to, and access your GoogleDrive account's data:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-2.png)  
-3. Provide your GoogleDrive email address:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-3.png)  
-4. Provide your GoogleDrive password to authorize your Logic app:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-4.png)
-5. Allow the connection to GoogleDrive  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-5.png)  
-6. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-6.png)  
+1. Mantıksal Uygulama Tasarımcısı'nda Googledrive'a, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Googledrive'a* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-1.png)  
+2. Önce Googledrive'a bağlantılarına oluşturmadıysanız, Googledrive'a kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Googledrive'a hesabınızın veri erişim:  
+   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-2.png)  
+3. Googledrive'a e-posta adresinizi girin:  
+   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-3.png)  
+4. Mantıksal uygulamanızı yetkilendirmek için Googledrive'a parolanızı sağlayın:  
+   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-4.png)
+5. Googledrive'a bağlanın bağlantıya izin ver  
+   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-5.png)  
+6. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-6.png)  
 

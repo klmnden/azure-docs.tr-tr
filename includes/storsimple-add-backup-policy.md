@@ -1,14 +1,14 @@
 
 <!--author=alkohli last changed: 9/11/15-->
 
-#### <a name="to-add-a-storsimple-backup-policy"></a>To add a StorSimple backup policy
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
-2. At the bottom of the page, click **Add**.
-3. In the **Add Backup Policy** dialog box, do the following:
+#### <a name="to-add-a-storsimple-backup-policy"></a>Bir StorSimple yedekleme ilkesi eklemek için
+1. Cihazın **Hızlı Başlangıç** sayfasında **Yedekleme İlkeleri** sekmesine tıklayın. Bunun yapılması sizi **Yedekleme İlkeleri** sayfasına götürür.
+2. Sayfanın alt kısmındaki tıklatın **Ekle**.
+3. İçinde **yedekleme ilkesi ekleme** iletişim kutusunda, aşağıdakileri yapın:
    
-   1. Specify a backup policy name that contains between 3 and 150 characters.
-   2. Assign one or more volumes to this backup policy. If you are using other cloud service providers, based on your first selection, the drop-down list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.
-   3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to save the policy.
+   1. 3 ila 150 karakter içeren bir yedekleme ilkesi adı belirtin.
+   2. Bir veya daha fazla birim, bu yedekleme ilkesi atayın. İlk seçiminize bağlı diğer bulut hizmeti sağlayıcıları kullanıyorsanız, aşağı açılan listesi yalnızca bu bulut hizmeti sağlayıcısına ait birimleri gösterir. Bu, bir anlık görüntü almak için bir tek bulut hizmeti sağlayıcısına ait grup birimlere olanak tanır.
+   3. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) tıklayarak ilkeyi kaydedin.
 
-The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
+Yeni eklenen ilke, **Yedekleme İlkeleri** sayfasının tablosal görünümünde gösterilir.
 

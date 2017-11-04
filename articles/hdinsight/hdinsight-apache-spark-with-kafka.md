@@ -4,7 +4,7 @@ description: "İçine veya dışına Apache DStreams kullanarak Kafka Spark Apac
 keywords: "kafka örnek, kafka zookeeper spark kafka, kafka örnek Spark Akış akış"
 services: hdinsight
 documentationcenter: 
-author: Blackmist
+author: maxluk
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
-ms.author: larryfr
-ms.openlocfilehash: 788ba828d1380b17913cabf18827c1abcc83c725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: maxluk
+ms.openlocfilehash: 6608363f90b61fe60f26d3f9fafd77b1e2232838
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>Apache Spark Hdınsight üzerinde Kafka (Önizleme) ile (DStream) örnek akış
 
@@ -97,7 +97,7 @@ Bu belgede yer alan adımlar her iki kümeleri aynı Azure kaynak grubu oluştur
 
 Bu örnekte, Spark okumak ve yazmak için Kafka için nasıl kullanılacağı hakkında bilgi edindiniz. Kafka ile çalışmak için diğer yollarını keşfetmek için aşağıdaki bağlantıları kullanın:
 
-* [Hdınsight üzerinde Apache Kafka kullanmaya başlama](hdinsight-apache-kafka-get-started.md)
-* [MirrorMaker kullanarak HDInsight üzerinde Kafka kopyası oluşturma](hdinsight-apache-kafka-mirroring.md)
+* [Hdınsight üzerinde Apache Kafka kullanmaya başlama](kafka/apache-kafka-get-started.md)
+* [MirrorMaker kullanarak HDInsight üzerinde Kafka kopyası oluşturma](kafka/apache-kafka-mirroring.md)
 * [Apache Storm’u HDInsight üzerinde Kafka ile kullanma](hdinsight-apache-storm-with-kafka.md)
 

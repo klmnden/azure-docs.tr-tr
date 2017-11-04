@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) account  
+### <a name="prerequisites"></a>Ön koşullar
+* A [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) hesabı  
 
-Before you can use your SMTP account in a logic app, you must authorize the logic app to connect to your SMTP account.Fortunately, you can do this easily from within your logic app on the Azure Portal.  
+Bir mantıksal uygulama SMTP hesabınızı kullanabilmeniz için önce SMTP hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
 
-Here are the steps to authorize your logic app to connect to your SMTP account:  
+Mantıksal uygulamanızı SMTP hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:  
 
-1. To create a connection to SMTP, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *SMTP* in the search box. Select the trigger or action you'll like to use:  
+1. Mantıksal Uygulama Tasarımcısı'nda, SMTP bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *SMTP* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
    ![](./media/connectors-create-api-smtp/smtp-1.png)  
-2. If you haven't created any connections to SMTP before, you'll get prompted to provide your SMTP credentials. These credentials will be used to authorize your logic app to connect to, and access your SMTP account's data:  
+2. Önce SMTP bağlantılarına oluşturmadıysanız, SMTP kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılan ve SMTP hesabınızın veri erişim:  
    ![](./media/connectors-create-api-smtp/smtp-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
+3. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
    ![](./media/connectors-create-api-smtp/smtp-3.png)  
 

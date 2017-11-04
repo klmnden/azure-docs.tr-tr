@@ -1,6 +1,6 @@
 ---
-title: Create an offer in Azure Stack | Microsoft Docs
-description: As a cloud administrator, learn how to create an offer for your tenants in Azure Stack.
+title: "Bir teklifi Azure yığınında oluşturun | Microsoft Docs"
+description: "Bulut Yöneticisi olarak, kullanıcılarınız için bir teklif Azure yığınında oluşturmayı öğrenin."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,45 +14,43 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 76d038a0eb53cf5f22ed377354f5f09de2dc9c1b
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 269a6106f657536ba74be366f842b2f9cd86c5dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-an-offer-in-azure-stack"></a>Create an offer in Azure Stack
+# <a name="create-an-offer-in-azure-stack"></a>Azure Stack'te teklif oluşturma
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-[Offers](azure-stack-key-features.md) are groups of one or more plans that providers present to tenants to purchase or subscribe to. This document shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
+[Sunar](azure-stack-key-features.md) satın alma veya abone olmak için kullanıcılara sağlayıcılardan bir veya daha fazla plan gruplarıdır. Bu belge içeren bir teklifi oluşturmak gösterilmiştir [oluşturduğunuz planı](azure-stack-create-plan.md) son adımda. Bu teklif aboneleri sanal makineler sağlamak için olanak sağlar.
 
-1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external) > click **New** > **Tenant Offers + Plans** > **Offer**.
+1. Azure yığın Yönetici portalı (https://adminportal.local.azurestack.external) oturum açma > tıklatın **yeni** > **Kiracı sunar + planları**  >   **Teklif**.
 
    ![](media/azure-stack-create-offer/image01.png)
-2. In the **New Offer** blade, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name and is the only information about the offer that the users will see when subscribing. Therefore, be sure to use an intuitive name that helps the user understand what comes with the offer. Only the admin can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
+2. İçinde **yeni teklif** dikey penceresinde, doldurun **görünen adı** ve **kaynak adı**ve ardından yeni veya varolan bir seçin **kaynak grubu**. Görünen ad teklif ait kolay ad ve abone olurken kullanıcıların göreceği teklif hakkında bilgiler. Bu nedenle, hangi teklifi geldiğini anlamak kullanıcı yardımcı olan bir sezgisel adı kullandığınızdan emin olun. Kaynak Adını yalnızca yönetici görebilir. Bu ad, yöneticilerin teklifle Azure Resource Manager kaynağı olarak çalışmak için kullandıkları addır.
 
    ![](media/azure-stack-create-offer/image01a.png)
-3. Click **Base plans** and, in the **Plan** blade, select the plans you want to include in the offer, and then click **Select**. Click **Create** to create the offer.
+3. **Base plans** (Temel planlar) seçeneğine tıklayın ve **Plan** dikey penceresinde teklife eklemek istediğiniz planları seçip **Select** (Seç) öğesine tıklayın. Teklifi oluşturmak için **Create** (Oluştur) seçeneğine tıklayın.
 
    ![](media/azure-stack-create-offer/image02.png)
-4. Click **All Resources**, search for your new offer, click on the new offer, click **Change State**, and then click **Public**.
+4. Tıklatın **tüm kaynakları**, arama yeni teklifiniz için yeni teklifini tıklatın, **durum değiştirme**ve ardından **ortak**.
 
    ![](media/azure-stack-create-offer/image03.png)
 
-Offers must be made public for tenants to get the full view when subscribing. Offers can be:
+Teklifler, kullanıcıların abone olurken tam görünümünü almak için genel yapılmalıdır. Teklifler olabilir:
 
-* **Public**: Visible to tenants.
-* **Private**: Only visible to the cloud administrators. Useful while drafting the plan or offer, or if the cloud administrator wants to approve every subscription.
-* **Decommissioned**: Closed to new subscribers. The cloud administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
+* **Ortak**: kullanıcılar için görünür.
+* **Özel**: Bulut yöneticileri yalnızca görünür. Plan veya teklif taslağı oluşturma sırasında kullanışlı veya Bulut Yöneticisi her abonelik onaylanacak isterse.
+* **Yetkisi Alınmış**: Yeni abonelere kapalıdır. Bulut yöneticisine kullanabilirsiniz gelecekteki abonelikleri engellemek, ancak geçerli aboneleri dokunulmadan bırakmak için yetkisi alınmış.
 
-Changes to the offer are not immediately visible to the tenant. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
+Teklif değişiklikleri kullanıcıya hemen görünür değildir. Değişiklikleri görmek için "abonelik Seçici" Yeni Abonelik görmek için oturum kapatma/oturum açma gerekebilir kaynakları/kaynak grupları oluştururken.
 
 > [!NOTE]
->You can also create default offers, plans, and quotas by using PowerShell as explained in the [Azure Stack Service Administrator readme](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
+>Açıklandığı gibi PowerShell kullanarak varsayılan teklifler, planları ve kotalar ayrıca oluşturabilirsiniz [Azure yığın Hizmet Yöneticisi Benioku](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
 >
 
 
-## <a name="next-steps"></a>Next steps
-[Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)
-
+### <a name="next-steps"></a>Sonraki adımlar
+[Teklife abone ve bir VM sağlama](azure-stack-subscribe-plan-provision-vm.md)

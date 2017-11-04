@@ -1,13 +1,10 @@
-Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon tüm parametre değerleri içeren parametre adlı bir bölüm içerir.
-Dağıttığınız projesini temel alan veya dağıttığınız ortamı dayanarak değişir bu değerleri için bir parametre tanımlamanız gerekir. Her zaman aynı kalır değerleri parametrelerini tanımlamayın. Her parametre değeri şablonda dağıtmak olan kaynakları tanımlamak için kullanılır. 
+Azure Resource Manager ile şablonu dağıtırken kullanılacak değerler için parametreleri tanımlayabilirsiniz. Şablon içeren bir `parameters` tüm parametre değerleri içeren bölümü. Her parametre değeri, dağıtmak istediğiniz kaynakları tanımlamak için şablon tarafından kullanılır.
 
-Parametreleri tanımlarken kullanın **allowedValues** hangi kullanıcı değerleri belirtmek için alanını dağıtımı sırasında sağlayabilir. Kullanım **defaultValue** dağıtımı sırasında herhangi bir değer sağlanmazsa parametresi için bir değer atamaya alan.
+> [!NOTE]
+> Her zaman aynı kalan değerler için parametre tanımlamayın. Dağıttığınız projesini temel alan veya dağıttığınız ortamına bağlı yalnızca farklılık, değerleri parametrelerini tanımlayın.
 
-Biz şablondaki her bir parametreyi anlatmaktadır.
+Ne zaman parametrelerini tanımlayın:
 
-### <a name="logicappname"></a>logicAppName
-Oluşturmak için mantıksal uygulama adı.
+* Bir kullanıcı dağıtım sırasında sağlayabileceğiniz izin verilen değerler belirtmek için kullanın **allowedValues** alan.
 
-    "logicAppName": {
-        "type": "string"
-    }
+* Dağıtım sırasında hiçbir değer sağlandığında parametresi için varsayılan değerleri atamak için kullandığınız **defaultValue** alan. 

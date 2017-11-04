@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Service Fabric kümesi ayarlarını ve yapı yükseltme İlkesi özelleştirme
 Bu belge çeşitli doku ayarlarını özelleştirmek anlatır ve yapı Service Fabric kümesi için ilke yükseltin. Aralarında özelleştirebilirsiniz [Azure portal](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak.
@@ -596,7 +596,7 @@ PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
 | PeriodicApiSlowTraceInterval | Zamanı saniye cinsinden, varsayılan değer 5 dakikadır |Dinamik| TimeSpan saniye cinsinden belirtin. PeriodicApiSlowTraceInterval üzerinden yavaş API çağrıları API İzleyici tarafından yeniden taranma aralığı tanımlar. |
 | NodeDeactivationMaxReplicaCloseDuration | Zamanı saniye cinsinden 900 varsayılandır |Dinamik|TimeSpan saniye cinsinden belirtin. İçinde takılmış çoğaltmaları olan hizmet ana bilgisayarlar sonlandırmadan önce sistemin bekleyeceği süre düğümü devre dışı bırakma sırasında kapatın. |
 | FabricUpgradeMaxReplicaCloseDuration | Zamanı saniye cinsinden 900 varsayılandır |Dinamik| TimeSpan saniye cinsinden belirtin. İçinde takılmış çoğaltmaları olan hizmet ana bilgisayarlar sonlandırmadan önce sistemin bekleyeceği süre fabric yükseltmesi sırasında kapatın. |
-|GracefulReplicaShutdownMaxDuration|TimeSpan, Common::TimeSpan::FromSeconds(120) varsayılandır|Dinamik|TimeSpan saniye cinsinden belirtin. İçinde takılmış çoğaltmaları olan hizmet ana bilgisayarlar sonlandırmadan önce sistemin bekleyeceği süre kapatın.|
+|GracefulReplicaShutdownMaxDuration|TimeSpan, Common::TimeSpan::FromSeconds(120) varsayılandır|Dinamik|TimeSpan saniye cinsinden belirtin. İçinde takılmış çoğaltmaları olan hizmet ana bilgisayarlar sonlandırmadan önce sistemin bekleyeceği süre kapatın. Bu değer 0 olarak ayarlarsanız, çoğaltmaları kapatmak için istenecek değil.|
 |ReplicaChangeRoleFailureRestartThreshold|Int, varsayılan 10'dur|Dinamik| Tam sayı. Otomatik azaltma eylemi (çoğaltma yeniden) sonra uygulanacak olan birincil yükseltmesi sırasında API hatalarının sayısını belirtin. |
 |ReplicaChangeRoleFailureWarningReportThreshold|int, varsayılan değer 2147483647'dir|Dinamik| Tam sayı. Daha sonra sistem durumu raporu uyarı gerçekleştirilecektir birincil yükseltmesi sırasında API hatalarının sayısını belirtin.|
 

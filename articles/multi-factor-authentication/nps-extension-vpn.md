@@ -16,17 +16,17 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8ac4c5d88e724febf21fe6bcc8ecf939283f361e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>VPN altyapınız ile Azure çok faktörlü kimlik doğrulaması (Azure için ağ ilkesi sunucusu (NPS) uzantısını kullanarak MFA) tümleştirme
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure Ağ İlkesi Hizmeti (NPS) uzantısı kuruluşların Uzaktan Kimlik Doğrulama Çevirmeli Kullanıcı Hizmeti (RADIUS) istemci kimlik doğrulaması kullanarak bulut tabanlı korumaya izin veren [Azure çok faktörlü kimlik doğrulama (MFA)](multi-factor-authentication-get-started-server-rdg.md), iki aşamalı doğrulama sağlar.
+Azure ağ ilkesi sunucusu (NPS) uzantısı kuruluşların Uzaktan Kimlik Doğrulama Çevirmeli Kullanıcı Hizmeti (RADIUS) istemci kimlik doğrulaması kullanarak bulut tabanlı korumaya izin veren [Azure çok faktörlü kimlik doğrulama (MFA)](multi-factor-authentication-get-started-server-rdg.md), iki aşamalı doğrulama sağlar.
 
 Bu makalede, bir VPN kullanarak ağınıza bağlanmak deneyen kullanıcılar için güvenli iki aşamalı doğrulamayı etkinleştirmek için Azure için NPS uzantısını kullanarak NPS altyapı Azure MFA ile tümleştirmek için yönergeler sağlar. 
 
@@ -88,11 +88,11 @@ NPS rol hizmetinin, RADIUS sunucusu ve istemci işlevselliği sağlar. Bu makale
 
 NPS rolü yükleme hakkında bilgi için Windows Server 2012 hizmet veya üzeri, bkz: [bir NAP sistem durumu ilkesi sunucusu yükleme](https://technet.microsoft.com/library/dd296890.aspx). Ağ erişim ilkesi (NAP), Windows Server 2016'da kullanım dışıdır. Bir etki alanı denetleyicisinde NPS yüklemek için öneri dahil olmak üzere NPS için en iyi uygulamaları bir açıklaması için bkz: [NPS için en iyi uygulamaları](https://technet.microsoft.com/library/cc771746).
 
-### <a name="licenses"></a>Lisansları
+### <a name="azure-mfa-license"></a>Azure MFA lisans
 
 Gerekli bir Azure AD Premium, Enterprise Mobility artı güvenlik (EMS) veya bir MFA abonelik kullanılabilir olan Azure MFA bir lisans kullanılır. Daha fazla bilgi için bkz: [Azure çok faktörlü kimlik doğrulama alma](multi-factor-authentication-versions-plans.md). Test amacıyla bir deneme aboneliği kullanabilirsiniz.
 
-### <a name="software"></a>Yazılım
+### <a name="windows-server-software"></a>Windows Server yazılımı
 
 Windows Server 2008 R2 SP1 NPS uzantısı gerektirir veya üstü yüklü NPS rol hizmetine sahip. Bu kılavuzdaki tüm adımları, Windows Server 2016 kullanılarak gerçekleştirilen.
 
@@ -111,7 +111,7 @@ NPS uzantısını kullanmak için şirket içi kullanıcıları Azure Active Dir
 Azure AD hakkında bilgi için bağlanmak, bkz: [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../active-directory/connect/active-directory-aadconnect.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID kimliği 
-NPS'yi yüklemek için Azure Active Directory GUID bilmeniz gerekir. Sonraki bölümde Azure Active Directory GUID bulmak için yönergeler sağlanmaktadır.
+NPS uzantıyı yüklemek için Azure Active Directory GUID bilmeniz gerekir. Sonraki bölümde Azure Active Directory GUID bulmak için yönergeler sağlanmaktadır.
 
 ## <a name="configure-radius-for-vpn-connections"></a>VPN bağlantıları için RADIUS yapılandırın
 
@@ -369,11 +369,11 @@ NPS uzantısı Ağ İlkesi ve Erişim Hizmetleri (NPS) rolü yüklü olan bir su
 1. NPS uzantısını [https://aka.ms/npsmfa](https://aka.ms/npsmfa). 
 2. Kurulum yürütülebilir dosya (NpsExtnForAzureMfaInstaller.exe) NPS sunucusuna kopyalayın.
 3. NPS sunucusunda, çift **NpsExtnForAzureMfaInstaller.exe**. İstenirse, tıklatın **çalıştırmak**.
-4. Azure MFA iletişim kutusu için NPS uzantısında Yazılımı Lisans Koşulları'nı gözden denetleyin **lisans şart ve koşullarını kabul ediyorum**, tıklatıp **yükleme**.
+4. Azure MFA kurulumu için NPS uzantısı iletişim kutusunda Yazılımı Lisans Koşulları'nı gözden denetleyin **lisans şart ve koşullarını kabul ediyorum**, tıklatıp **yükleme**.
 
  ![NPS uzantısı](./media/nps-extension-vpn/image36.png)
  
-5. Azure MFA iletişim kutusu için NPS uzantısına tıklayın **Kapat**.  
+5. Azure MFA kurulumu için NPS uzantısı iletişim kutusunda tıklatın **Kapat**.  
 
  ![Kurulum başarılı](./media/nps-extension-vpn/image37.png) 
  
@@ -388,7 +388,7 @@ Komut dosyası, aşağıdaki eylemleri gerçekleştirir:
 * Sertifikanın özel anahtarı ağ kullanıcı erişimi verir
 * Ağ İlkesi Sunucusu hizmetini yeniden başlatır
 
-Kendi sertifikalarını kullanmak istiyorsanız, üzerinde Azure AD hizmet ilkesi sertifikanızı ortak ilişkilendirmek ve benzeri gerekir.
+Kendi sertifikalarını kullanmak istiyorsanız, üzerinde Azure AD hizmet sorumlusu için sertifikanın ortak anahtarının ilişkilendirmek ve benzeri gerekir.
 Betik kullanmak için Azure Active Directory yönetici kimlik bilgilerinizi ve daha önce kopyaladığınız Azure Active Directory Kiracı kimliği ile uzantısı sağlar. Komut dosyası, NPS uzantısı yüklediğiniz her NPS sunucusunda çalıştırın.
 
 1. Bir yönetici Windows PowerShell komut istemini açın.
@@ -417,7 +417,7 @@ Yapılandırmasını doğrulamak için VPN sunucusu ile yeni bir VPN bağlantıs
 
  ![Yapılandırmayı doğrulama](./media/nps-extension-vpn/image42.png)
 
-Başarılı bir şekilde Azure MFA önceden yapılandırılmış ikincil doğrulama yöntemi, kimlik doğrulaması, kaynağa bağlanır. Ancak, ikincil kimlik doğrulaması başarılı olmazsa, kaynağa erişimi reddedilir. 
+Başarılı bir şekilde Azure MFA önceden yapılandırılmış ikincil doğrulama yöntemi, kimlik doğrulaması, kaynağa bağlanır. Ancak, ikincil kimlik doğrulaması başarılı olmazsa, kaynak için erişim engellenir. 
 
 Aşağıdaki örnekte, bir Windows Phone Doğrulayıcı uygulama ikincil kimlik doğrulaması sağlamak için kullanılır.
 

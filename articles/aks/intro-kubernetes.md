@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: fa46d16e2105c0354cc533c58fb9e0093c129ced
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
-ms.translationtype: HT
+ms.openlocfilehash: a8ac18464d0efcc0db96e1667f18f2f853208573
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="introduction-to-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) giriş
 
@@ -48,13 +48,13 @@ Kubernetes, kapsayıcılı uygulamaların dağıtımını, ölçeklendirmesini v
 
 ## <a name="videos"></a>Videolar
 
-Azure Container Services'daki Kubernetes Desteği (Azure Friday, Ocak 2017):
+Azure kapsayıcı hizmeti (AKS) - Azure Cuma Ekim 2017:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Kubernetes-Support-in-Azure-Container-Services/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Container-Orchestration-Simplified-with-Managed-Kubernetes-in-Azure-Container-Service-AKS/player]
 >
 >
 
-Kubernetes’te Uygulama Geliştirme ve Dağıtma Araçları (Azure OpenDev, Haziran 2017):
+Geliştirmek ve Kubernetes - Azure OpenDev Haziran 2017 uygulamaları dağıtmak için Araçlar:
 
 > [!VIDEO https://channel9.msdn.com/Events/AzureOpenDev/June2017/Tools-for-Developing-and-Deploying-Applications-on-Kubernetes/player]
 >

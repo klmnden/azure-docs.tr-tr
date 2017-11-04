@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: a6124a8fa630424558c0812edbf12d5ad25d6bf6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+ms.openlocfilehash: 5ea254110a24ea3315d614ebca2d43bda0e1a674
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve sınama için Azure Cosmos DB öykünücüsünü kullanma
 
@@ -86,7 +86,7 @@ Azure Cosmos DB öykünücüsü donanım ve yazılım gereksinimleri şunlardır
   * 10 GB kullanılabilir sabit disk alanı
 
 ## <a name="installation"></a>Yükleme
-Azure Cosmos DB Öykünücüsünden yükleyip [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) veya Windows için Docker öykünücü çalıştırabilirsiniz. Windows için Docker öykünücü kullanma ile ilgili yönergeler için bkz: [Docker üzerinde çalışan](#running-on-docer). 
+Azure Cosmos DB Öykünücüsünden yükleyip [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) veya Windows için Docker öykünücü çalıştırabilirsiniz. Windows için Docker öykünücü kullanma ile ilgili yönergeler için bkz: [Docker üzerinde çalışan](#running-on-docker). 
 
 > [!NOTE]
 > Yüklemek, yapılandırmak ve Azure Cosmos DB öykünücüsü çalıştırmak için bilgisayarda yönetici ayrıcalıkları olmalıdır.

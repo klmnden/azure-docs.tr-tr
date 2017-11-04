@@ -90,6 +90,13 @@
       href: maintenance-and-updates.md
     - name: Depolama
       href: azure-vm-storage-overview.md
+      items:
+        - name: Premium depolama
+          href: premium-storage.md
+        - name: Premium depolama performansı
+          href: premium-storage-performance.md
+        - name: Standart depolama
+          href: standard-storage.md
     - name: Ağ
       href: network-overview.md
     - name: Uygulamaları otomatik ölçeklendirme
@@ -310,6 +317,8 @@
           href: expand-disks.md
         - name: Bir diskin anlık görüntüsünü alma
           href: snapshot-copy-managed-disk.md
+        - name: Diskler için yedekleme ve olağanüstü durum kurtarma
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Yönetilmeyen diskleri yedekleme
           href: incremental-snapshots.md
         - name: Yönetilen Disklere dönüştürme
@@ -318,6 +327,8 @@
           href: convert-disk-storage.md
         - name: Dosyaları bir VM’ye kopyalama
           href: copy-files-to-linux-vm-using-scp.md
+        - name: Azure Site Recovery ile Premium depolamaya geçiş
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Dosya depolamayı kullanma
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Şablon ile diskleri dağıtma

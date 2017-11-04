@@ -1,23 +1,23 @@
 
 > [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> This preview is limited to the following regions:
-> - US - West 2
-> - US - East
-> - Europe - West
-> - Asia Pacific - Southeast
+> Kullanım koşullarını kabul ediyorum koşuluyla önizlemeleri için kullanılabilir hale getirilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Bu önizleme aşağıdaki bölgeler sınırlıdır:
+> - ABD - Batı 2
+> - ABD - Doğu
+> - Europe - Batı
+> - Asya Pasifik - Southeast
 
 
-The B-series VM family allows you to choose which VM size provides you the necessary base level performance for your workload, with the ability to burst CPU performance up to 100% of an Intel® Broadwell E5-2673 v4 2.3GHz, or an Intel® Haswell 2.4 GHz E5-2673 v3 processor vCPU.
+B-serisi VM ailesi, hangi VM boyutu en fazla % 100'ünü Intel® Broadwell E5-2673 v4 CPU performans veri bloğu olanağı, iş yükü için gerekli temel düzey performans sağlar seçmenize olanak verir 2.3 GHz veya bir Intel® Haswell 2.4 GHz E5-2673 v3 işlemcisi vCPU.
 
-The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and the VM instance builds up credits when it is using less than its baseline. When the VM has accumulated credit, it VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
+B-serisi VM'ler CPU tam performansını sürekli olarak, web sunucuları gibi küçük veritabanları ve geliştirme gerekir ve ortamlarında test iş yükleri için idealdir. Bu iş yükleri genellikle burstable performans gereksinimleri vardır. B-serisi, bir VM boyutu taban çizgisi performansı ile satın almanıza olanak sağlar ve taban sayısından az kullanırken VM örneği kredilerinizin tamamını oluşturur. VM kredi birikmiş, VM uygulamanız daha yüksek CPU performans gerektirdiğinde % 100 vCPU, kullanarak temel veri bloğu.
 
-The B-series comes in the following six VM sizes:
+B-serisi aşağıdaki altı VM boyutları sunar:
 
-| Size          | vCPU's | Memory: GiB | Local SSD: GiB | Base CPU Perf of VM | Max CPU Perf of VM | Credits Banked / Hour | Max Banked Credits |
+| Boyut          | vCPU'ın | Bellek: GiB | Yerel SSD: GiB | VM temel CPU performans | En fazla CPU performans VM | Bankaya nakledilen krediler / saat | Max krediler Bankaya nakledilen |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
-| Standard_B1s  | 1      | 1           | 4              | 10%                            | 100%                      | 6                     | 144                |
-| Standard_B1ms | 1      | 2           | 4              | 20%                            | 100%                      | 12                    | 288                |
+| Standard_B1s  | 1      | 1           | 4              | %10                            | 100%                      | 6                     | 144                |
+| Standard_B1ms | 1      | 2           | 4              | %20                            | 100%                      | 12                    | 288                |
 | Standard_B2s  | 2      | 4           | 8              | 40%                            | 200%                      | 24                    | 576                |
 | Standard_B2ms | 2      | 8           | 16             | 60%                            | 200%                      | 36                    | 864                |
 | Standard_B4ms | 4      | 16          | 32             | 90%                            | 400%                      | 54                    | 1296               |
@@ -26,46 +26,46 @@ The B-series comes in the following six VM sizes:
 
 
 
-## <a name="q--a-about-this-preview"></a>Q & A about this preview
+## <a name="q--a-about-this-preview"></a>Bu önizleme hakkında soru- cevap
 
-### <a name="q-how-can-i-participate-in-this-preview"></a>Q: How can I participate in this preview?
-**A**: Request quota for the B-series in one of the supported regions.  After your quota has been approved then you can use the portal or the APIs to do your deployment as you normally would. For more information, see [Resource Manager core quota increase requests](../articles/azure-supportability/resource-manager-core-quotas-request.md).
+### <a name="q-how-can-i-participate-in-this-preview"></a>S: Bu Önizleme'de nasıl katılabilmesi için?
+**A**: İstek kota desteklenen bölgeler birinde B seri için.  Kota onaylandıktan sonra portal kullanabilir veya dağıtımınızı yazarken normalde yapmak için API'ler gerekir. Daha fazla bilgi için bkz: [Resource Manager çekirdek Kotayı artırmak istekleri](../articles/azure-supportability/resource-manager-core-quotas-request.md).
 
-### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q: How do you get 135% baseline performance from a VM?
-**A**: The 135% is shared amongst the 8 vCPU’s that make up the VM size. For example, if your application leverages 4 of the 8 cores working on batch processing and each of those 4 vCPU’s are running at 30% utilization the total amount of VM CPU performance would equal 120%.  Meaning that your VM would be building credit time based on the 15% delta from your baseline performance.  But it also means that when you have credits available that same VM can use 100% of all 8 vCPU’s giving that VM a Max CPU performance of 800%.
+### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>S: nasıl bir sanal makineden %135 temel performans elde?
+**A**: %135 VM boyutu hale 8 vCPU's arasında paylaşılır. Örneğin, uygulamanız üzerindeki toplu işleme çalışma 8 çekirdek 4 yararlanır ve % 30 kullanımı sırasında çalışan her bu 4 vCPU ait bir VM CPU performans toplam miktarı %120 eşit.  VM kredi zamanını temel performans % 15 delta dayalı derleme anlamına gelir.  Ancak, ayrıca, aynı VM tüm 8 vCPU % 100'ünü kullanabileceğiniz krediler varken bu VM %800 en fazla CPU performansını vermiş olduğunu gösterir.
 
-### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>Q: Is there a discount on price during the preview?
-**A**: Yes, the preview prices can be viewed on our [pricing page](http://aka.ms/vmsizes).
+### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>S: bir indirimli fiyat Önizleme süresince var?
+**A**: Önizleme fiyatları Evet, görüntülenebilir bizim [fiyatlandırma sayfası](http://aka.ms/vmsizes).
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q: How can I monitor my credit balance and consumption
-**A**: We will be introducing 2 new metrics in the coming weeks, the **Credit** metric will allow you to view how many credits your VM has banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>S: nasıl ı my kredi bakiyesi ve tüketim izleyebilir mi
+**A**: biz 2 yeni ölçümleri önümüzdeki haftalarda Tanıtımı **kredi** ölçüm etmenizi sağlar, VM Bankaya nakledilen kaç krediler görüntülemek ve **ConsumedCredit** ölçüm kaç gösterir CPU krediler VM banka tüketti.    Bu ölçümler ölçümleri bölmesinden portalında veya Azure İzleyici API'ler aracılığıyla programlı olarak görüntülemek kuramaz.
 
-For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Ölçüm verilerini Azure için erişim hakkında daha fazla bilgi için bkz: [Microsoft Azure ölçümlerini genel bakış](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-### <a name="q-how-are-credits-accumulated"></a>Q: How are credits accumulated?
-**A**: The VM accumulation and consumption rates are set such that a VM running at exactly its base performance level will have neither a net accumulation or consumption of bursting credits.  A VM will have a net increase in credits whenever it is running below its base performance level and will have a net decrease in credits whenever the VM is utilizing the CPU more than its base performance level.
+### <a name="q-how-are-credits-accumulated"></a>S: nasıl krediler toplanır?
+**A**: VM Birikme ve tüketim ücretleri en temel performans düzeyde tam olarak çalışan bir VM ne net Birikme ya da krediler emniyeti, tüketim sağlayacak şekilde ayarlanır.  Bir VM temel performans düzeyiyle çalıştığında net bir artış krediler içinde sahip olur ve VM temel performans düzeyiyle'birden fazla CPU kullanan her krediler net bir düşüş gerekir.
 
-**Example**:  I deploy a VM using the B1ms size for my small time and attendance database application. This size allows my application to use up to 20% of a vCPU as my baseline, which is .2 credits per minute I can use or bank. 
+**Örnek**: küçük zaman ve katılımcı veritabanı Uygulamam için B1ms boyutu kullanarak bir VM'i dağıtma. Bu boyutta bir vCPU % 20'ye kadar banka veya kullanabilirim dakika başına.2 krediler my taban çizgisi olarak kullanılacak Uygulamam sağlar. 
 
-My application is busy at the beginning and end of my employees work day, between 7:00-9:00 AM and 4:00 - 6:00PM. During the other 20 hours of the day, my application is typically at idle, only using 10% of the vCPU. For the non-peak hours I earn 0.2 credits per minute but only consume 0.l credits per minute, so my VM will bank .1 x 60 = 6 credits per hour.  For the 20 hours that I am off-peak, I will bank 120 credits.  
+Uygulamam başına ve 7:00-09:00:00 ve 4:00-06:00 saatleri arasında my çalışanların iş günü sonunda meşgul. Diğer 20 sırasında günün, Uygulamam genellikle saattir adresindeki, yalnızca % 10 ' vCPU kullanarak boş. Yoğun olmayan saatler ı dakikada 0.2 krediler kazanma ancak VM'im 60 x.1 banka şekilde, dakikada 0.l iadeleri yalnızca tüketen saat başına 6 krediler =.  20, ı yoğun olmayan saatler için ı 120 krediler banka.  
 
-During peak hours my application averages 60% vCPU utilization, I still earn 0.2 credits per minute but I consume 0.6 credits per minute, for a net cost of .4 credits a minute or .4 x 60 = 24 credits per hour. I have 4 hours per day of peak usage, so it costs 4 x 24 = 96 credits for my peak usage.
+Yoğun saatlerde Uygulamam % 60 vCPU kullanımı ortalama, ı hala dakikada 0.2 krediler kazanma ancak dakikada 0,6 krediler kullanmak, net maliyetini.4 krediler için bir dakika veya.4 x 60 = 24 saat başına KREDİLERİ. 4 x 24 = 96 maliyetleri için en yüksek kullanım, günde 4 saat sahip my en yüksek kullanımı için iadeleri.
 
-If I take the 120 credits I earned off-peak and subtract the 96 credits I used for my peak times, I bank an additional 24 credits per day that I can use for other bursts of activity.
+I kazanılan 120 krediler yoğun olmayan almak ve my yoğun saatlerde için kullanılan 96 krediler çıkarma, diğer etkinlik WINS'e için kullanabileceğim günde bir ek 24 krediler banka.
 
 
-### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>Q: Does the B-Series support Premium Storage data disks?
-**A**: Yes, all B-Series sizes support Premium Storage data disks.   
+### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>S: B-serisi Premium depolama veri diskleri destekliyor mu?
+**A**: Evet, tüm B-serisi boyutları Premium depolama veri disklerini destekler.   
     
 
-### <a name="q-which-regions-can-i-access-the-preview-from"></a>Q: Which regions can I access the preview from?
-**A**:  The B-series preview will be available in the following regions:
-- US - West 2
-- US - East
-- Europe - West
-- Asia Pacific - Southeast
+### <a name="q-which-regions-can-i-access-the-preview-from"></a>S: hangi bölgeleri Önizlemesi'nden erişebilirim?
+**A**: B-serisi Önizleme aşağıdaki bölgelerde kullanılabilir:
+- ABD - Batı 2
+- ABD - Doğu
+- Europe - Batı
+- Asya Pasifik - Southeast
 
-After the preview has completed we will release the B-series to all remaining regions.
+Önizleme tamamlandıktan sonra biz kalan tüm bölgelere B serisi serbest bırakır.
     
 
     

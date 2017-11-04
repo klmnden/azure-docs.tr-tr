@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: d9964ace6b59fa65f0f5d4caff28a4291047c8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be3bbad11632f3af257239f6b10b1b22951073f7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Azure Hdınsight'ta Spark kullanarak veri bilimi genel bakış
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -29,7 +29,7 @@ Bu paketi konuları Hdınsight Spark veri alımı, özellik Mühendisliği, mode
 [Spark](http://spark.apache.org/) büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi destekleyen bir açık kaynaklı bir paralel işleme altyapısıdır işleme değil. Spark işleme altyapısı hızı, kullanımı kolay, gelişmiş analizler için yerleşik olarak bulunur. Spark'ın bellek içi dağıtılmış hesaplama özellikleri onu kullanılan machine learning ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçimdir haline getirir. [Mllib'i](http://spark.apache.org/mllib/) algoritmik getirir Spark'ın ölçeklenebilir machine learning kitaplığı modelleme yetenekleri Bu dağıtılmış bir ortama. 
 
 ## <a name="hdinsight-spark"></a>Hdınsight Spark
-[Hdınsight Spark](../../hdinsight/hdinsight-apache-spark-overview.md) açık kaynak Spark Azure barındırılan sunulması değil. İçin destek de içerir **Jupyter PySpark not defterlerini** Spark kümesinde dönüştürme, filtreleme ve Azure BLOB'ları (WASB) içinde depolanan verileri görselleştirmek için Spark SQL etkileşimli sorguları çalıştırabilirsiniz. PySpark Spark Python API'dir. Çözümleri sağlamak ve burada yüklü üzerinde Spark kümeleri Jupyter not defterleri çalıştırmanız verileri görselleştirmek için ilgili çizimleri Göster kod parçacıkları. Bu konularda modelleme adımlarda eğitmek, değerlendirmek, kaydetme ve her türde bir model kullanmasına gösterilmektedir kodu içerir. 
+[Hdınsight Spark](../../hdinsight/spark/apache-spark-overview.md) açık kaynak Spark Azure barındırılan sunulması değil. İçin destek de içerir **Jupyter PySpark not defterlerini** Spark kümesinde dönüştürme, filtreleme ve Azure BLOB'ları (WASB) içinde depolanan verileri görselleştirmek için Spark SQL etkileşimli sorguları çalıştırabilirsiniz. PySpark Spark Python API'dir. Çözümleri sağlamak ve burada yüklü üzerinde Spark kümeleri Jupyter not defterleri çalıştırmanız verileri görselleştirmek için ilgili çizimleri Göster kod parçacıkları. Bu konularda modelleme adımlarda eğitmek, değerlendirmek, kaydetme ve her türde bir model kullanmasına gösterilmektedir kodu içerir. 
 
 ## <a name="setup-spark-clusters-and-jupyter-notebooks"></a>Kurulum: Spark kümeleri ve Jupyter Not Defterleri
 Kurulum adımlarını ve kod bu kılavuzda bir Hdınsight Spark 1.6 kullanmak için sağlanır. Ancak Jupyter not defterleri Hdınsight Spark 1.6 ve Spark 2.0 kümeleri için sağlanır. Not defterlerini ve bağlantılarını bir açıklaması verilmiştir [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) bunları içeren GitHub deposunu için. Ayrıca, kodu buraya ve bağlantılı not defterlerini geneldir ve tüm Spark kümesi üzerinde çalışması gerekir. Hdınsight Spark kullanmıyorsanız küme kurulum ve yönetim adımlar ne burada gösterilenden biraz farklı olabilir. Kolaylık olması için Spark (Jupyter not defteri sunucunun pySpark Çekirdeği'nde çalıştırılacak) 1.6 ve Spark 2. 0'ı (Jupyter not defteri sunucunun pySpark3 Çekirdeği'nde çalıştırılacak) için Jupyter not defterleri bağlantılar şunlardır:
@@ -75,7 +75,7 @@ Aşağıdaki yordamlar için Spark 1.6 ilişkilidir. Spark 2.0 sürümü için a
 
 1. bir Azure aboneliğinizin olması gerekir. Zaten bir yoksa, bkz: [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2., bu kılavuzu tamamlamak için bir Spark 1.6 kümesi gerekir. Oluşturmak için sağlanan yönergelere bakın [Başlarken: Azure Hdınsight'ta Apache Spark oluşturma](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Küme türü ve sürümü belirtilen gelen **küme türü seçin** menüsü. 
+2., bu kılavuzu tamamlamak için bir Spark 1.6 kümesi gerekir. Oluşturmak için sağlanan yönergelere bakın [Başlarken: Azure Hdınsight'ta Apache Spark oluşturma](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Küme türü ve sürümü belirtilen gelen **küme türü seçin** menüsü. 
 
 ![Küme yapılandırma](./media/spark-overview/spark-cluster-on-portal.png)
 

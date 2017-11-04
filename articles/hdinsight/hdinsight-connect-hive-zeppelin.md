@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jgao
-ms.openlocfilehash: b44321619f2aa94a6d98624ab1ee35a598fb6fc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4b2ca9dd60187904d9d22e8308e31ed46b1213e6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın 
 
@@ -29,7 +29,7 @@ Hdınsight etkileşimli sorgu kümeleri etkileşimli Hive sorguları çalıştı
 ## <a name="prerequisites"></a>Ön koşullar
 Bu makalede geçmeden önce aşağıdaki öğeleri sahip olmanız gerekir:
 
-* **Hdınsight etkileşimli sorgu küme**. Bkz: [küme oluştur](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster) bir Hdınsight kümesi oluşturmak için.  Etkileşimli sorgu türü seçtiğinizden emin olun. 
+* **Hdınsight etkileşimli sorgu küme**. Bkz: [küme oluştur](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) bir Hdınsight kümesi oluşturmak için.  Etkileşimli sorgu türü seçtiğinizden emin olun. 
 
 ## <a name="create-a-zeppelin-note"></a>Zeppelin not oluşturma
 
@@ -76,9 +76,9 @@ Bu makalede geçmeden önce aşağıdaki öğeleri sahip olmanız gerekir:
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Hdınsight Power BI kullanarak verileri Görselleştir öğrendiniz.  Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Microsoft Power BI'ı Azure hdınsight'ta Hive görselleştirmek](./hdinsight-connect-hive-power-bi.md).
-* [Excel'i Microsoft Hive ODBC sürücüsü ile Hdınsight bağlama](./hdinsight-connect-excel-hive-odbc-driver.md).
-* [Excel'i Power Query kullanarak Hadoop için bağlama](./hdinsight-connect-excel-power-query.md).
-* [Azure Hdınsight bağlanmak ve Visual Studio için Data Lake Araçları'nı kullanarak Hive sorguları çalıştırmak](./hdinsight-hadoop-visual-studio-tools-get-started.md).
+* [Microsoft Power BI'ı Azure hdınsight'ta Hive görselleştirmek](hadoop/apache-hadoop-connect-hive-power-bi.md).
+* [Excel'i Microsoft Hive ODBC sürücüsü ile Hdınsight bağlama](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
+* [Excel'i Power Query kullanarak Hadoop için bağlama](hadoop/apache-hadoop-connect-excel-power-query.md).
+* [Azure Hdınsight bağlanmak ve Visual Studio için Data Lake Araçları'nı kullanarak Hive sorguları çalıştırmak](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 * [Visual Studio kodunu Azure Hdınsight aracını](hdinsight-for-vscode.md).
 * [Verileri Hdınsight'a yükleme](./hdinsight-upload-data.md).

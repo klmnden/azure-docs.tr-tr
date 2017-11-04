@@ -1,9 +1,9 @@
 
-1. In the MainPage.xaml.cs project file, add the following **using** statements:
+1. MainPage.xaml.cs proje dosyasında aşağıdaki ekleyin **kullanarak** deyimleri:
    
         using System.Linq;        
         using Windows.Security.Credentials;
-2. Replace the **AuthenticateAsync** method with the following code:
+2. Değiştir **AuthenticateAsync** aşağıdaki kod ile yöntemi:
    
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
@@ -72,13 +72,13 @@
             return success;
         }
    
-    In this version of **AuthenticateAsync**, the app tries to use credentials stored in the **PasswordVault** to access the service. A regular sign-in is also performed when there is no stored credential.
+    Bu sürümünde **AuthenticateAsync**, uygulama içinde depolanan kimlik bilgilerini kullanmayı dener **PasswordVault** hizmete erişmek için. Hiçbir depolanmış kimlik bilgisi olduğunda bir normal oturum açma da gerçekleştirilir.
    
    > [!NOTE]
-   > A cached token may be expired, and token expiration can also occur after authentication when the app is in use. To learn how to determine if a token is expired, see [Check for expired authentication tokens](http://aka.ms/jww5vp). For a solution to handling authorization errors related to expiring tokens, see the post [Caching and handling expired tokens in Azure Mobile Services managed SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+   > Önbelleğe alınan bir belirteç süresi dolmuş olabilir ve uygulama kullanımda olduğunda belirteci süre sonu kimlik doğrulamasından sonra da oluşabilir. Belirtecin süresi varsa belirlemek öğrenmek için bkz: [denetlemek için süresi dolmuş kimlik doğrulama belirteçleri](http://aka.ms/jww5vp). Post süresi dolan belirteçleri ile ilgili yetkilendirme hataları işleme için bir çözüm için bkz: [önbelleğe alma ve Azure Mobile Services belirteçlerin süresinin işleme yönetilen SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
    > 
    > 
-3. Restart the app twice.
+3. Uygulamayı iki kez yeniden başlatın.
    
-    Notice that on the first start-up, sign-in with the provider is again required. However, on the second restart the cached credentials are used and sign-in is bypassed. 
+    İlk başlatma oturum açma sağlayıcısı ile yeniden gerekli olduğuna dikkat edin. Ancak, önbelleğe alınmış kimlik bilgilerini ikinci bir yeniden başlatma sırasında kullanılır ve oturum açma atlanır. 
 

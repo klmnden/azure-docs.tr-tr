@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: c0ea91ae6e03429b197eeb3767b709fb03aa0dc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e0df58c24653d60e7594a70b911540662548a236
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Tez işlerinde hdınsight'ta hata ayıklamak için Ambari görünümleri kullanma
 
@@ -30,7 +30,7 @@ Hdınsight için Ambari Web kullanıcı arabirimini anlama ve Tez kullanan işle
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Linux tabanlı Hdınsight kümesi. Küme oluşturma adımları için bkz: [Linux tabanlı Hdınsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md).
+* Linux tabanlı Hdınsight kümesi. Küme oluşturma adımları için bkz: [Linux tabanlı Hdınsight kullanmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * HTML5'i destekleyen modern bir web tarayıcısı.
 
 ## <a name="understanding-tez"></a>Tez anlama
@@ -106,7 +106,7 @@ Tez kullanan bir Hive sorgusu çalıştırmak için aşağıdaki adımları kull
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Tez görünümü kullanmak öğrendiniz, daha fazla bilgi edinmek [hdınsight'ta Hive kullanarak](hdinsight-use-hive.md).
+Tez görünümü kullanmak öğrendiniz, daha fazla bilgi edinmek [hdınsight'ta Hive kullanarak](hadoop/hdinsight-use-hive.md).
 
 Daha ayrıntılı Tez teknik bilgi için bkz: [Hortonworks Tez sayfanın](http://hortonworks.com/hadoop/tez/).
 

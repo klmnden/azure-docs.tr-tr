@@ -1,11 +1,11 @@
-Locally redundant storage (LRS) replicates your data three times within a storage scale unit, which is hosted in a datacenter in the region in which you created your storage account. A write request returns successfully only once it has been written to all three replicas. These three replicas each reside in separate fault domains and upgrade domains within one storage scale unit.
+Yerel olarak yedekli depolama (LRS), depolama hesabınız oluşturuldu bölgede bir veri merkezinde barındırılır üç kez bir depolama ölçek birimi içindeki verilerinizi çoğaltır. Yalnızca tüm üç çoğaltmalar için yazıldıktan sonra Yazma isteği başarıyla döndürür. Bu üç çoğaltmaların her ayrı hata etki alanları ve bir depolama ölçek birimi içinde yükseltme etki alanları bulunur.
 
-A storage scale unit is a collection of racks of storage nodes. A fault domain (FD) is a group of nodes that represent a physical unit of failure and can be considered as nodes belonging to the same physical rack. An upgrade domain (UD) is a group of nodes that are upgraded together during the process of a service upgrade (rollout). The three replicas are spread across UDs and FDs within one storage scale unit to ensure that data is available even if hardware failure impacts a single rack or when nodes are upgraded during a rollout.
+Bir depolama ölçek birimi depolama düğümleri raflarının koleksiyonudur. Hata etki alanı (FD) hata fiziksel bir birimi temsil eder ve aynı fiziksel raf ait düğümleri olarak kabul düğümlerinin bir gruptur. Bir yükseltme etki alanına (UD), hizmet yükseltmesi (sunum) işlemi sırasında birlikte yükseltilir düğümleri grubudur. Üç çoğaltmaları verileri tek bir rafa donanım arızası etkiler olsa bile veya düğümler piyasaya sürme sırasında yükseltildiğinde olduğundan emin olmak için bir depolama ölçek birimi içinde UDs ve FDs yayılır.
 
-LRS is the lowest cost option and offers least durability compared to other options. In the event of a datacenter level disaster (fire, flooding etc.) all three replicas might be lost or unrecoverable. To mitigate this risk, Geo Redundant Storage (GRS) is recommended for most applications.
+LRS en düşük maliyeti seçeneği ve diğer seçenekleri karşılaştırıldığında en az düzeyde dayanıklılık sunar. Bir veri merkezi düzeyi olağanüstü (vb. taşmasını yangın) durumda, tüm üç çoğaltmaları kayıp veya kurtarılamaz olabilir. Bu riski azaltmak için coğrafi olarak yedekli depolama (GRS) çoğu uygulama için önerilir.
 
-Locally redundant storage may still be desirable in certain scenarios:
+Yerel olarak yedekli depolama hala belirli senaryolarda istenebilir:
 
-* Provides highest maximum bandwidth of Azure Storage replication options.
-* If your application stores data that can be easily reconstructed, you may opt for LRS.
-* Some applications are restricted to replicating data only within a country due to data governance requirements. A paired region could be in another country. For more information on region pairs, see [Azure regions](https://azure.microsoft.com/regions/).
+* En yüksek bant genişliği üst sınırı Azure Storage çoğaltma seçenekleri sağlar.
+* Uygulamanızı kolayca canlandırılabilir veri depoluyorsa, LRS için tercih edebilirsiniz.
+* Bazı uygulamalar, yalnızca veri idare gereksinimleri nedeniyle bir ülke içinde veri çoğaltmak için kısıtlanır. Eşleştirilmiş bir bölge başka bir ülkede olabilir. Bölge çiftleri hakkında daha fazla bilgi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/).

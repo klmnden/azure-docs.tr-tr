@@ -1,7 +1,7 @@
 
-1. In the [Azure portal](https://portal.azure.com/), click **Browse All** > **App Services**, and click your Mobile Apps back end. Under **Settings**, click **App Service Push**, and then click your notification hub name.
-2. Go to **Windows (WNS)**, enter the **Security key** (client secret) and **Package SID** that you obtained from the Live Services site, and then click **Save**.
+1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **tümüne Gözat** > **uygulama hizmetleri**, Mobile Apps arka uç'a tıklayın. Altında **ayarları**, tıklatın **App Service anında**ve bildirim hub'ı adı'ı tıklatın.
+2. Git **Windows (WNS)**, girin **güvenlik anahtarı** (gizli) ve **paket SID'si** Live Services sitesinden alınan ve ardından **Kaydet** .
 
-    ![Set the WNS key in the portal](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
+    ![Portalda WNS anahtarı ayarlayın](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
 
-Your back end is now configured to use WNS to send push notifications.
+Arka uç WNS anında iletme bildirimleri göndermek için kullanmak üzere yapılandırılmıştır.

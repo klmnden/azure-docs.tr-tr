@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: ashishtha
-ms.openlocfilehash: d08a9a7cc82095b0a90abd98bd4f6d13cdadb671
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 704d76808fbc5f7bde98d2fca291ac7c2796db88
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak hdınsight'ta Hadoop kümelerini yönetme
 
@@ -163,7 +163,7 @@ Her tür Hdınsight tarafından desteklenen küme için veri düğüm sayısın�
     >balancer
     ```
 
-    HBase kabuğunu kullanma hakkında daha fazla bilgi için bkz: [hdınsight'ta Apache HBase örneği kullanmaya başlama](hdinsight-hbase-tutorial-get-started-linux.md).
+    HBase kabuğunu kullanma hakkında daha fazla bilgi için bkz: [hdınsight'ta Apache HBase örneği kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md).
 
 * Storm
 
@@ -209,7 +209,7 @@ Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. 
 * Kullanıcı Azure Data Factory. Bkz: [oluşturma isteğe bağlı Linux tabanlı Hadoop kümeleri Azure Data Factory kullanarak Hdınsight'ta](hdinsight-hadoop-create-linux-clusters-adf.md) isteğe bağlı Hdınsight oluşturmak için bağlantılı Hizmetleri.
 * Azure PowerShell kullanın.  Bkz: [uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md).
 * Azure CLI kullanın. Bkz: [Azure CLI kullanarak Hdınsight kümelerini yönetme](hdinsight-administer-use-command-line.md).
-* Hdınsight .NET SDK'yı kullanın. Bkz: [gönderme Hadoop işlerini](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Hdınsight .NET SDK'yı kullanın. Bkz: [gönderme Hadoop işlerini](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Fiyatlandırma bilgileri için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/). Portaldan bir kümeyi silmek için bkz: [küme silme](#delete-clusters)
 
@@ -341,7 +341,7 @@ Azure Portalı'nı kullanarak, varsayılan kapsayıcı içeriğini göz atabilir
 
 ## <a name="connect-to-a-cluster"></a>Bir kümeye bağlanın
 
-* [HDInsight ile Hive kullanma](hdinsight-hadoop-use-hive-ambari-view.md)
+* [HDInsight ile Hive kullanma](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -353,10 +353,10 @@ Bu makalede, bazı temel yönetim işlevleri öğrendiniz. Daha fazla bilgi içi
 * [Hdınsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md)
 * [Ambari Web kullanıcı arabirimini kullanma hakkında daha fazla bilgi için](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST API kullanımıyla ilgili ayrıntılar](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [Hdınsight'ta Hive kullanma](hdinsight-use-hive.md)
-* [Hdınsight'ta pig kullanma](hdinsight-use-pig.md)
-* [Hdınsight'ta Sqoop kullanma](hdinsight-use-sqoop.md)
-* [Azure Hdınsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Hdınsight'ta Hive kullanma](hadoop/hdinsight-use-hive.md)
+* [Hdınsight'ta pig kullanma](hadoop/hdinsight-use-pig.md)
+* [Hdınsight'ta Sqoop kullanma](hadoop/hdinsight-use-sqoop.md)
+* [Azure Hdınsight kullanmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Azure Hdınsight'ta Hadoop hangi sürümünün mi?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

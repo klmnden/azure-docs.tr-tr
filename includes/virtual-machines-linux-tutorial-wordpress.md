@@ -1,27 +1,27 @@
-## <a name="install-wordpress"></a>Install WordPress
+## <a name="install-wordpress"></a>WordPress yükleme
 
-If you want to try your stack, install a sample app. As an example, the following steps install the open source [WordPress](https://wordpress.org/) platform to create websites and blogs. Other workloads to try include [Drupal](http://www.drupal.org) and [Moodle](https://moodle.org/). 
+Yığın denemek istiyorsanız, örnek bir uygulama yükleyin. Örnek olarak, aşağıdaki adımları açık kaynak yüklemek [WordPress](https://wordpress.org/) Web siteleri ve Web günlükleri oluşturmak için platform. Denemek için diğer iş yükleri içerir [Drupal](http://www.drupal.org) ve [Moodle](https://moodle.org/). 
 
-This WordPress setup is for proof of concept. For more information and settings for production installation, see the [WordPress documentation](https://codex.wordpress.org/Main_Page). 
+Kavram kanıtı için bu WordPress kurulur. Daha fazla bilgi ve üretim yüklemesine yönelik ayarlar için bkz: [WordPress belgelerine](https://codex.wordpress.org/Main_Page). 
 
 
 
-### <a name="install-the-wordpress-package"></a>Install the WordPress package
+### <a name="install-the-wordpress-package"></a>WordPress paketini yükle
 
-Run the following command:
+Şu komutu çalıştırın:
 
 ```bash
 sudo apt install wordpress
 ```
 
-### <a name="configure-wordpress"></a>Configure WordPress
+### <a name="configure-wordpress"></a>WordPress’i yapılandırma
 
-Configure WordPress to use MySQL and PHP. Run the following command to open a text editor of your choice and create the file `/etc/wordpress/config-localhost.php`:
+WordPress MySQL ve PHP kullanacak şekilde yapılandırın. Tercih ettiğiniz bir metin düzenleyicisinde açın ve dosyayı oluşturmak için aşağıdaki komutu çalıştırın `/etc/wordpress/config-localhost.php`:
 
 ```bash
 sudo sensible-editor /etc/wordpress/config-localhost.php
 ```
-Copy the following lines to the file, substituting your database password for *yourPassword* (leave other values unchanged). Then save the file.
+Veritabanı parolasını değiştirme dosyası aşağıdaki satırları kopyalamak *yourPassword* (diğer değerleri değiştirmeden bırakın). Ardından dosyayı kaydedin.
 
 ```php
 <?php
@@ -33,13 +33,13 @@ define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
 ?>
 ```
 
-In a working directory, create a text file `wordpress.sql` to configure the WordPress database: 
+Bir çalışma dizini içinde bir metin dosyası oluşturun `wordpress.sql` WordPress veritabanını yapılandırmak için: 
 
 ```bash
 sudo sensible-editor wordpress.sql
 ```
 
-Add the following commands, substituting your database password for *yourPassword* (leave other values unchanged). Then save the file.
+Veritabanı parolasını değiştirerek aşağıdaki komutları ekleme *yourPassword* (diğer değerleri değiştirmeden bırakın). Ardından dosyayı kaydedin.
 
 ```sql
 CREATE DATABASE wordpress;
@@ -51,15 +51,15 @@ FLUSH PRIVILEGES;
 ```
 
 
-Run the following command to create the database:
+Veritabanını oluşturmak için aşağıdaki komutu çalıştırın:
 
 ```bash
 cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
 ```
 
-After the command completes, delete the file `wordpress.sql`.
+Komut tamamlandığında, dosyayı silin `wordpress.sql`.
 
-Move the WordPress installation to the web server document root:
+WordPress yükleme için web sunucusu belge kökü Taşı:
 
 ```bash
 sudo ln -s /usr/share/wordpress /var/www/html/wordpress
@@ -67,6 +67,6 @@ sudo ln -s /usr/share/wordpress /var/www/html/wordpress
 sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ```
 
-Now you can complete the WordPress setup and publish on the platform. Open a browser and go to `http://yourPublicIPAddress/wordpress`. Substitute the public IP address of your VM. It should look similar to this image.
+Şimdi WordPress Kurulumu tamamlamak ve platformda yayımlayın. Bir tarayıcı açın ve gidin `http://yourPublicIPAddress/wordpress`. VM ortak IP adresini değiştirin. Bu görüntüsüne benzer görünmelidir.
 
-![WordPress installation page](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)
+![WordPress yükleme sayfası](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)

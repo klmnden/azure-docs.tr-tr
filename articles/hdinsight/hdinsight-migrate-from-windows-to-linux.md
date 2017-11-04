@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: f2695d4f15fe984cd02cba9ff66033b90d0a4dc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e3bba2cfd765505a167fe4776f81d06445a8c39c
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Bir Windows tabanlı Hdınsight kümeden Linux tabanlı bir kümeye geçirme
 
@@ -188,8 +188,8 @@ Pig ve MapReduce iş yükleri, Linux tabanlı kümelerde benzerdir. Ancak, Linux
 Linux tabanlı Hdınsight Uzak Masaüstü işlevselliği sağlamaz. Bunun yerine, küme baş düğümler uzaktan bağlanmak için SSH kullanabilirsiniz. Daha fazla bilgi için aşağıdaki belgelere bakın:
 
 * [SSH ile Hive kullanma](hdinsight-hadoop-use-hive-ssh.md)
-* [SSH ile pig kullanma](hdinsight-hadoop-use-pig-ssh.md)
-* [SSH ile MapReduce kullanma](hdinsight-hadoop-use-mapreduce-ssh.md)
+* [SSH ile pig kullanma](hadoop/apache-hadoop-use-pig-ssh.md)
+* [SSH ile MapReduce kullanma](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
 
@@ -200,11 +200,11 @@ Aşağıdaki grafikte, Hive iş yüklerinizi geçirme hakkında yönergeler sağ
 
 | Üzerinde Windows tabanlı kullanmam... | Linux tabanlı... |
 | --- | --- |
-| **Hive düzenleyicisinin** |[Ambari Hive görünümünü](hdinsight-hadoop-use-hive-ambari-view.md) |
+| **Hive düzenleyicisinin** |[Ambari Hive görünümünü](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;`Tez etkinleştirmek için |Tez Linux tabanlı kümeler için varsayılan yürütme altyapısı olduğundan set deyimi artık gerekli değildir. |
 | C# kullanıcı tanımlı işlevler | C# Linux tabanlı Hdınsight bileşenleriyle doğrulama hakkında daha fazla bilgi için bkz: [Linux tabanlı Hdınsight geçirmek .NET çözümleri](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD dosyaları veya bir Hive işi bir parçası olarak çağrılan sunucuda komut dosyaları |Bash betiklerini kullanın |
-| `hive`komut Uzak Masaüstü |Kullanım [Beeline](hdinsight-hadoop-use-hive-beeline.md) veya [Hive bir SSH oturumunda](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive`komut Uzak Masaüstü |Kullanım [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) veya [Hive bir SSH oturumunda](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -233,7 +233,7 @@ C# uygulama kullanan bir iş akışı varsa, bu uygulamalar Linux ortamında do�
 
 | Üzerinde Windows tabanlı kullanmam... | Linux tabanlı... |
 | --- | --- |
-| Storm Panosu |Storm panosunu kullanılabilir değil. Bkz: [dağıtma ve yönetme Storm topolojileri Linux tabanlı Hdınsight üzerinde](hdinsight-storm-deploy-monitor-topology-linux.md) topolojileri göndermek yöntemleri |
+| Storm Panosu |Storm panosunu kullanılabilir değil. Bkz: [dağıtma ve yönetme Storm topolojileri Linux tabanlı Hdınsight üzerinde](storm/apache-storm-deploy-monitor-topology-linux.md) topolojileri göndermek yöntemleri |
 | Storm kullanıcı Arabirimi |Storm kullanıcı Arabirimi https://CLUSTERNAME.azurehdinsight.net/stormui kullanılabilir |
 | Visual Studio oluşturmak, dağıtmak ve C# veya karma topolojiler yönetmek için |Visual Studio oluşturmak, dağıtmak ve C# (SCP.NET) ya da karma topolojiler hdınsight'ta Linux tabanlı Storm üzerinde yönetmek için kullanılabilir. Yalnızca, 28/10/2016 sonrasında oluşturulan kümeleri ile de kullanılabilir. |
 

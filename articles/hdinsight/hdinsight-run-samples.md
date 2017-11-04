@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 741cce6f2c81efed1e4bd0547fcb46a231815263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6e4dbf1fa32f916a206e4f8d796218ab809835ad
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Hadoop MapReduce Windows tabanlı Hdınsight'ta örneklerini çalıştırma
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -37,14 +37,14 @@ ms.lasthandoff: 10/11/2017
 
 Java tabanlı MapReduce programlama ve akış ve Windows PowerShell içinde kullanılan cmdlet'ler hakkında belgeler gibi Hadoop ilgili teknolojileri için Web'de çok ek belgeler mevcut betik oluşturma. Bu kaynaklar hakkında daha fazla bilgi için bkz:
 
-* [Hdınsight'ta Hadoop için Java MapReduce programlar geliştirmek](hdinsight-develop-deploy-java-mapreduce-linux.md)
-* [HDInsight'ta Hadoop işlerini gönderme](hdinsight-submit-hadoop-jobs-programmatically.md)
+* [Hdınsight'ta Hadoop için Java MapReduce programlar geliştirmek](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [HDInsight'ta Hadoop işlerini gönderme](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Azure Hdınsight giriş][hdinsight-introduction]
 
 Günümüzde, çoğu kişi Hive veya Pig MapReduce seçin.  Daha fazla bilgi için bkz.
 
-* [Hdınsight'ta Hive kullanma](hdinsight-use-hive.md)
-* [Hdınsight'ta pig kullanma](hdinsight-use-pig.md)
+* [Hdınsight'ta Hive kullanma](hadoop/hdinsight-use-hive.md)
+* [Hdınsight'ta pig kullanma](hadoop/hdinsight-use-pig.md)
 
 **Önkoşullar**:
 
@@ -62,7 +62,7 @@ MapReduce projesini gönderme için önce bir MapReduce işi tanımı oluşturun
 
 Kaynak kodu bulunabilir [ek A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Java MapReduce geliştirme yordamı için program için bkz: - [hdınsight'ta Hadoop için Java MapReduce geliştirmek programlar](hdinsight-develop-deploy-java-mapreduce-linux.md)
+Java MapReduce geliştirme yordamı için program için bkz: - [hdınsight'ta Hadoop için Java MapReduce geliştirmek programlar](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 **Word sayısı MapReduce işi göndermek için**
 
@@ -127,7 +127,7 @@ Java MapReduce geliştirme yordamı için program için bkz: - [hdınsight'ta Ha
 Hadoop harita yazma ve Java dışındaki dillerde işlevleri azaltmak sağlar MapReduce akış bir API sağlar.
 
 > [!NOTE]
-> Bu öğreticideki adımlar, yalnızca Windows tabanlı Hdınsight kümeleri için geçerlidir. Linux tabanlı Hdınsight kümeleri için akış örneği için bkz: [programları Hdınsight için akış Python geliştirme](hdinsight-hadoop-streaming-python.md).
+> Bu öğreticideki adımlar, yalnızca Windows tabanlı Hdınsight kümeleri için geçerlidir. Linux tabanlı Hdınsight kümeleri için akış örneği için bkz: [programları Hdınsight için akış Python geliştirme](hadoop/apache-hadoop-streaming-python.md).
 
 Örnekte, Eşleyici ve reducer girdiden okunan yürütülebilir dosyalar [stdin] [ stdin-stdout-stderr] (--satır) ve çıktıyı yayma [stdout] [ stdin-stdout-stderr]. Program metindeki tüm sözcükleri sayar.
 
@@ -986,12 +986,12 @@ public class TeraSort extends Configured implements Tool {
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-introduction]: hdinsight-hadoop-introduction.md
+[hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
+[hdinsight-introduction]:hadoop/apache-hadoop-introduction.md
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 
 [hdinsight-samples]: hdinsight-run-samples.md
 [hdinsight-sample-10gb-graysort]: #hdinsight-sample-10gb-graysort
@@ -999,8 +999,8 @@ public class TeraSort extends Configured implements Tool {
 [hdinsight-sample-pi-estimator]: #hdinsight-sample-pi-estimator
 [hdinsight-sample-wordcount]: #hdinsight-sample-wordcount
 
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-hive]: hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]: hadoop/hdinsight-use-pig.md
 
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline

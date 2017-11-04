@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/05/2017
+ms.date: 10/01/2017
 ms.author: spelluru
-ms.openlocfilehash: 6ba88885805f1a206f01015f7eec5236da517403
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bda20280e755c69f3d76e5c7dad345b313bd1cc5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="data-catalog-developer-samples"></a>Veri Kataloğu geliştirici örnekleri
 Veri Kataloğu REST API'sini kullanarak veri Kataloğu uygulamaları geliştirmeye başlayın. Veri Kataloğu REST API'si, kaydetme, açıklama ve veri varlıklarını program aracılığıyla arama için veri Kataloğu kaynaklarına programlı erişim sağlayan bir REST tabanlı bir API'dir.

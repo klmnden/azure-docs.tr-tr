@@ -1,222 +1,222 @@
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
+# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas sanal diskler ve yönetilen ve yönetilmeyen premium diskler hakkında sık sorulan sorular
 
-This article answers some frequently asked questions about Azure Managed Disks and Azure Premium Storage.
+Bu makalede Azure yönetilen diskleri ve Azure Premium Storage hakkında sık sorulan bazı sorular yanıtlanmaktadır.
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Yönetilen Diskler
 
-**What is Azure Managed Disks?**
+**Azure yönetilen diskleri nedir?**
 
-Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by handling storage account management for you. For more information, see the [Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md).
+Yönetilen diskleri depolama hesabı yönetimini işleyerek Azure Iaas VM'ler için disk yönetimi basitleştiren bir özelliktir. Daha fazla bilgi için bkz: [yönetilen diskleri genel bakış](../articles/virtual-machines/windows/managed-disks-overview.md).
 
-**If I create a standard managed disk from an existing VHD that's 80 GB, how much will that cost me?**
+**Standart yönetilen disk 80 GB olan varolan bir VHD'yi oluşturursanız, ne kadar bana maliyeti ne olacak?**
 
-A standard managed disk created from an 80-GB VHD is treated as the next available standard disk size, which is an S10 disk. You're charged according to the S10 disk pricing. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+80 GB VHD'den oluşturulan standart yönetilen disk S10 disk olan bir sonraki kullanılabilir standart disk boyutu olarak kabul edilir. S10 disk fiyatlandırma göre ücret ödersiniz. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
 
-**Are there any transaction costs for standard managed disks?**
+**Standart yönetilen disk için herhangi bir işlem maliyetleri vardır?**
 
-Yes. You're charged for each transaction. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+Evet. Her işlem için ücret ödersiniz. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
 
-**For a standard managed disk, will I be charged for the actual size of the data on the disk or for the provisioned capacity of the disk?**
+**Standart yönetilen disk için sağlanan disk kapasitesini veya disk üzerindeki verileri gerçek boyutu için t ücretlendirilir?**
 
-You're charged based on the provisioned capacity of the disk. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+Sağlanan disk kapasitesine göre ücret ödersiniz. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
 
-**How is pricing of premium managed disks different from unmanaged disks?**
+**Nasıl yönetilen premium diskleri yönetilmeyen disklerden farklı fiyatlandırma olduğu?**
 
-The pricing of premium managed disks is the same as unmanaged premium disks.
+Yönetilen premium diskleri fiyatlandırma yönetilmeyen premium diskleri aynı değil.
 
-**Can I change the storage account type (Standard or Premium) of my managed disks?**
+**Depolama hesabı türünü (standart veya Premium) yönetilen disklerim değiştirebilir miyim?**
 
-Yes. You can change the storage account type of your managed disks by using the Azure portal, PowerShell, or the Azure CLI.
+Evet. Azure portalı, PowerShell veya Azure CLI kullanarak yönetilen disklerinizi depolama hesabı türünü değiştirebilirsiniz.
 
-**Is there a way that I can copy or export a managed disk to a private storage account?**
+**I kopyalayın veya böylelikle bir özel depolama hesabına yönetilen bir disk verme bir yolu var mı?**
 
-Yes. You can export your managed disks by using the Azure portal, PowerShell, or the Azure CLI.
+Evet. Azure portalı, PowerShell veya Azure CLI kullanarak yönetilen disklerinizi dışarı aktarabilirsiniz.
 
-**Can I use a VHD file in an Azure storage account to create a managed disk with a different subscription?**
+**Farklı bir abonelik ile yönetilen bir disk oluşturmak için Azure storage hesabı VHD dosyasında kullanabilir miyim?**
 
-No.
+Hayır.
 
-**Can I use a VHD file in an Azure storage account to create a managed disk in a different region?**
+**Farklı bir bölgede yönetilen bir disk oluşturmak için Azure storage hesabı VHD dosyasında kullanabilir miyim?**
 
-No.
+Hayır.
 
-**Are there any scale limitations for customers that use managed disks?**
+**Yönetilen diskler kullanan müşteriler için ölçek sınırlamalar var mı?**
 
-Managed Disks eliminates the limits associated with storage accounts. However, the number of managed disks per subscription is limited to 2,000 by default. You can call support to increase this number.
+Yönetilen diskleri depolama hesaplarıyla ilişkili sınırları ortadan kaldırır. Ancak, yönetilen disk başına abonelik sayısı 2. 000'varsayılan olarak sınırlıdır. Bu sayıyı artırmak için destek çağırabilirsiniz.
 
-**Can I take an incremental snapshot of a managed disk?**
+**Yönetilen bir diskin artımlı bir anlık görüntüsünü alın?**
 
-No. The current snapshot capability makes a full copy of a managed disk. However, we are planning to support incremental snapshots in the future.
+Hayır. Geçerli anlık görüntü özelliği yönetilen bir disk tam bir kopyasını oluşturur. Ancak, biz artımlı anlık görüntüleri gelecekte destekler planlıyorsanız.
 
-**Can VMs in an availability set consist of a combination of managed and unmanaged disks?**
+**Sanal makineleri bir kullanılabilirlik kümesinde yönetilen ve yönetilmeyen diskleri birleşiminden oluşabilir?**
 
-No. The VMs in an availability set must use either all managed disks or all unmanaged disks. When you create an availability set, you can choose which type of disks you want to use.
+Hayır. Sanal makineleri bir kullanılabilirlik kümesinde, tüm yönetilen diskleri veya tüm yönetilmeyen diskler kullanmanız gerekir. Bir kullanılabilirlik kümesi oluşturduğunuzda, kullanmak istediğiniz disk türünü seçebilirsiniz.
 
-**Is Managed Disks the default option in the Azure portal?**
+**Yönetilen diskleri Azure portalında varsayılan seçenektir?**
 
-Not currently, but it will become the default in the future.
+Evet. 
 
-**Can I create an empty managed disk?**
+**Boş bir yönetilen diski oluşturabilir miyim?**
 
-Yes. You can create an empty disk. A managed disk can be created independently of a VM, for example, without attaching it to a VM.
+Evet. Boş bir disk oluşturabilirsiniz. Yönetilen bir disk için bir VM eklemeden VM bağımsız olarak, örneğin, oluşturulabilir.
 
-**What is the supported fault domain count for an availability set that uses Managed Disks?**
+**Bir kullanılabilirlik için desteklenen hata etki alanı sayısı yönetilen diskleri kullanan ne ayarlı?**
 
-Depending on the region where the availability set that uses Managed Disks is located, the supported fault domain count is 2 or 3.
+Yönetilen diskleri kullanan kullanılabilirlik kümesi bulunduğu bağlı olarak, desteklenen hata etki alanı sayısı 2 veya 3 bölgedir.
 
-**How is the standard storage account for diagnostics set up?**
+**Nasıl Tanılama ayarlamak için standart depolama hesabı mı?**
 
-You set up a private storage account for VM diagnostics. In the future, we plan to switch diagnostics to Managed Disks as well.
+VM tanılama için özel depolama hesabı ayarlayın. Gelecekte, tanılama yönetilen disklere de geçiş planlıyoruz.
 
-**What kind of Role-Based Access Control support is available for Managed Disks?**
+**Ne tür bir rol tabanlı erişim denetimi desteğini yönetilen disklerde var mı?**
 
-Managed Disks supports three key default roles:
+Diskleri desteklediği üç anahtar varsayılan rol yönetilen:
 
-* Owner: Can manage everything, including access
-* Contributor: Can manage everything except access
-* Reader: Can view everything, but can't make changes
+* Sahibi: erişim dahil her şeyi yönetebilir
+* Katkıda bulunan: erişim dışında her şeyi yönetebilir
+* Okuyucu: her şeyi görüntüleyebilir ancak değişiklik yapamaz
 
-**Is there a way that I can copy or export a managed disk to a private storage account?**
+**I kopyalayın veya böylelikle bir özel depolama hesabına yönetilen bir disk verme bir yolu var mı?**
 
-You can get a read-only shared access signature URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage.
+Yönetilen disk için bir salt okunur paylaşılan erişim imzası URI alın ve içeriği özel depolama hesabı veya şirket içi depolama birimine kopyalamak için kullanın.
 
-**Can I create a copy of my managed disk?**
+**Yönetilen my disk kopyasını oluşturabilir miyim?**
 
-Customers can take a snapshot of their managed disks and then use the snapshot to create another managed disk.
+Müşteriler kendi yönetilen diskleri bir anlık görüntüsünü ve sonra yönetilen başka bir disk oluşturmak için anlık görüntüyü kullanın.
 
-**Are unmanaged disks still supported?**
+**Yönetilmeyen diskleri hala desteklenmektedir?**
 
-Yes. We support unmanaged and managed disks. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
+Evet. Yönetilen ve yönetilmeyen diskleri destekliyoruz. Yönetilen diskleri yeni iş yükleri için kullanın ve geçerli iş yüklerinizi yönetilen disklere geçirmenizi öneririz.
 
 
-**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (512 GB)?**
+**128 GB disk oluşturun ve ardından 130 GB boyutunu artırın, ı sonraki disk boyutu (512 GB) ücretlendirilir?**
 
-Yes.
+Evet.
 
-**Can I create locally redundant storage, geo-redundant storage, and zone-redundant storage managed disks?**
+**Yerel olarak yedekli depolama, coğrafi olarak yedekli depolama, oluşturabiliyorum ve bölge olarak yedekli depolama yönetilen disklerde?**
 
-Azure Managed Disks currently supports only locally redundant storage managed disks.
+Azure yönetilen diskleri şu anda yönetilen yalnızca yerel olarak yedekli depolama disklerini destekler.
 
-**Can I shrink or downsize my managed disks?**
+**Daraltma veya miyim yönetilen disklerim downsize?**
 
-No. This feature is not supported currently. 
+Hayır. Bu özellik şu anda desteklenmiyor. 
 
-**Can I change the computer name property when a specialized (not created by using the System Preparation tool or generalized) operating system disk is used to provision a VM?**
+**Bilgisayar adı özelliği değiştirmek bir özel (Sistem Hazırlama aracı kullanılarak oluşturulan veya genelleştirilmiş) işletim sistemi diski VM sağlamak için kullanılır?**
 
-No. You can't update the computer name property. The new VM inherits it from the parent VM, which was used to create the operating system disk. 
+Hayır. Bilgisayar adı özelliği güncelleştirilemiyor. Yeni VM, işletim sistemi diski oluşturmak için kullanılan VM üstten devralmaz. 
 
-**Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
-* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+**Yönetilen disklerle VM'ler oluşturmak için örnek Azure Resource Manager şablonları nereden bulabilirim?**
+* [Yönetilen diskleri kullanarak şablonları](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks and Storage Service Encryption 
+## <a name="managed-disks-and-storage-service-encryption"></a>Diskler ve depolama hizmeti şifrelemesi yönetilen 
 
-**Is Azure Storage Service Encryption enabled by default when I create a managed disk?**
+**Azure depolama hizmeti şifrelemesi, yönetilen bir disk oluşturduğunuzda, varsayılan olarak etkindir?**
 
-Yes.
+Evet.
 
-**Who manages the encryption keys?**
+**Şifreleme anahtarları yöneten?**
 
-Microsoft manages the encryption keys.
+Microsoft şifreleme anahtarları yönetir.
 
-**Can I disable Storage Service Encryption for my managed disks?**
+**I depolama hizmeti şifrelemesi yönetilen disklerim için devre dışı bırakabilirim?**
 
-No.
+Hayır.
 
-**Is Storage Service Encryption only available in specific regions?**
+**Depolama hizmeti şifrelemesi, yalnızca belirli bölgelerde kullanılabilir?**
 
-No. It's available in all the regions where Managed Disks is available. Managed Disks is available in all public regions and Germany.
+Hayır. Tarafından yönetilen diskleri kullanılabilir olduğu tüm bölgelerde kullanılabilir. Yönetilen diskleri kullanılabilir tüm genel bölgeler ve Almanya.
 
-**How can I find out if my managed disk is encrypted?**
+**Nasıl ı yönetilen my disk şifrelenir öğrenebilirsiniz?**
 
-You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted. 
+Yönetilen bir disk Azure portalı, Azure CLI ve PowerShell oluşturulduğu zaman bulabilirsiniz. Saat 9 Haziran 2017 sonra ise, disk şifrelenir. 
 
-**How can I encrypt my existing disks that were created before June 10, 2017?**
+**10 Haziran 2017 önce oluşturulan mevcut disklerim nasıl şifreleyebilir mi?**
 
-As of June 10, 2017, new data written to existing managed disks is automatically encrypted. We are also planning to encrypt existing data, and the encryption will happen asynchronously in the background. If you must encrypt existing data now, create a copy of your disk. New disks will be encrypted.
+10 Haziran 2017 sürümünden itibaren varolan yönetilen diske yazılan yeni veriler otomatik olarak şifrelenir. Biz de var olan verileri şifrelemek planladığınıza ve şifreleme zaman uyumsuz olarak arka planda gerçekleşir. Var olan verileri artık şifrelemeniz gerekir, diskinizin bir kopyasını oluşturun. Yeni disk şifrelenir.
 
-* [Copy managed disks by using the Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copy managed disks by using PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+* [Azure CLI kullanarak yönetilen diskleri kopyalama](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+* [PowerShell kullanarak yönetilen diskleri kopyalama](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-**Are managed snapshots and images encrypted?**
+**Yönetilen anlık görüntüler ve şifrelenmiş görüntüleri misiniz?**
 
-Yes. All managed snapshots and images created after June 9, 2017, are automatically encrypted. 
+Evet. Yönetilen tüm anlık görüntüler ve 9 Haziran 2017 sonra oluşturulan görüntüleri otomatik olarak şifrelenir. 
 
-**Can I convert VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
+**Sanal makineleri veya yönetilen diskleri daha önce şifrelenmiş depolama hesaplarında yer alan yönetilmeyen disklerle dönüştürebilirsiniz?**
 
-Yes
+Evet
 
-**Will an exported VHD from a managed disk or a snapshot also be encrypted?**
+**Yönetilen bir disk veya bir anlık görüntü dışarı aktarılan bir VHD'den de şifrelenir mi?**
 
-No. But if you export a VHD to an encrypted storage account from an encrypted managed disk or snapshot, then it's encrypted. 
+Hayır. Ancak, bir VHD şifrelenmiş depolama hesabı için bir şifrelenmiş dışa varsa disk veya anlık görüntü yönetilen sonra şifrelenir. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Premium disks: Managed and unmanaged
+## <a name="premium-disks-managed-and-unmanaged"></a>Premium diskler: yönetilen ve yönetilmeyen
 
-**If a VM uses a size series that supports Premium Storage, such as a DSv2, can I attach both premium and standard data disks?** 
+**VM bir DSv2 gibi Premium Storage destekleyen bir boyutu serisi kullanıyorsa ı premium ve standart veri diskleri ekleyebilir miyim?** 
 
-Yes.
+Evet.
 
-**Can I attach both premium and standard data disks to a size series that doesn't support Premium Storage, such as D, Dv2, G, or F series?**
+**I premium ve standart veri diskleri Premium depolama D, Dv2, G veya F serisi gibi desteklemiyor boyutu seriye ekleyebilir miyim?**
 
-No. You can attach only standard data disks to VMs that don't use a size series that supports Premium Storage.
+Hayır. Premium Storage destekleyen bir boyutu serisi kullanmayan sanal makineleri yalnızca standart veri diskleri ekleyebilirsiniz.
 
-**If I create a premium data disk from an existing VHD that was 80 GB, how much will that cost?**
+**80 GB varolan bir VHD'den premium veri diski oluşturursanız, ne kadar maliyeti ne olacak?**
 
-A premium data disk created from an 80-GB VHD is treated as the next-available premium disk size, which is a P10 disk. You're charged according to the P10 disk pricing.
+80 GB VHD'den oluşturulan bir premium veri diski P10 disk sonraki kullanılabilir premium disk boyutu kabul edilir. P10 disk fiyatlandırma göre ücret ödersiniz.
 
-**Are there transaction costs to use Premium Storage?**
+**Premium depolama kullanmak için işlem maliyetleri vardır?**
 
-There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+IOPS ve üretilen iş ile belirli sınırları sağlanan gelen her disk boyutu için sabit bir maliyeti yoktur. Diğer maliyetlerin giden bant genişliği ve anlık görüntü kapasite varsa ' dir. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
 
-**What are the limits for IOPS and throughput that I can get from the disk cache?**
+**IOPS ve disk önbellekten elde edebilirsiniz işleme sınırları nelerdir?**
 
-The combined limits for cache and local SSD for a DS series are 4,000 IOPS per core and 33 MB per second per core. The GS series offers 5,000 IOPS per core and 50 MB per second per core.
+Önbellek için birleşik sınırları ve DS serisi için yerel SSD çekirdek başına 4.000 IOPS ve çekirdek saniyede 33 MB kümesidir. GS serisi çekirdek başına 5.000 IOPS'yi ve çekirdek saniyede 50 MB sunar.
 
-**Is the local SSD supported for a Managed Disks VM?**
+**Yerel SSD yönetilen diskleri VM için destekleniyor mu?**
 
-The local SSD is temporary storage that is included with a Managed Disks VM. There is no extra cost for this temporary storage. We recommend that you do not use this local SSD to store your application data because it isn't persisted in Azure Blob storage.
+Yerel SSD yönetilen diskleri VM ile birlikte sağlanan geçici depolama ' dir. Var. ek bu geçici depolama için bir maliyeti yoktur. Azure Blob depolama alanına kalıcı değildir çünkü, uygulama verilerini depolamak için bu yerel SSD kullanmamanızı öneririz.
 
-**Are there any repercussions for the use of TRIM on premium disks?**
+**Premium disklerde KIRPMA kullanılmak herhangi varsa var mı?**
 
-There is no downside to the use of TRIM on Azure disks on either premium or standard disks.
+KIRPMA kullanın ya da premium Azure disklerde veya standart diskler üzerinde hiçbir dezavantajı yoktur.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>New disk sizes: Managed and unmanaged
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Yeni disk boyutları: yönetilen ve yönetilmeyen
 
-**What is the largest disk size supported for operating system and data disks?**
+**İşletim sistemi ve veri diskleri için desteklenen en büyük disk boyutu nedir?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TB. The largest size that Azure supports for an operating system disk is 2 TB. Azure supports up to 4 TB for data disks. 
+Bir işletim sistemi diski için Azure destekleyen bölüm ana önyükleme kaydı (MBR) türüdür. MBR biçimini destekleyen bir diski 2 TB boyut. Bir işletim sistemi diski için Azure desteklediği en büyük boyutu 2 TB'tır. Azure veri diskleri için en fazla 4 TB destekler. 
 
-**What is the largest page blob size that's supported?**
+**Desteklenen en büyük sayfa blob boyutu nedir?**
 
-The largest page blob size that Azure supports is 8 TB (8,191 GB). We don't support page blobs larger than 4 TB (4,095 GB) attached to a VM as data or operating system disks.
+Azure desteklediği en büyük sayfa blob boyutu 8 TB (8191 GB) ' dir. Sayfa bloblarını 4 TB veri veya işletim sistemi disklerinde olarak bir VM'ye bağlı (4.095 GB) büyük desteklemiyoruz.
 
-**Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TB?**
+**Azure Araçları'nın yeni bir sürüm oluşturma, ekleme, yeniden boyutlandırma ve 1 TB'den büyük olan diskler karşıya yükleme için kullanılacak gerekiyor mu?**
 
-You don't need to upgrade your existing Azure tools to create, attach, or resize disks larger than 1 TB. To upload your VHD file from on-premises directly to Azure as a page blob or unmanaged disk, you need to use the latest tool sets:
+Oluşturma, ekleme veya 1 TB'den büyük diskleri yeniden boyutlandırmak için varolan Azure Araçları yükseltmeniz gerekmez. VHD dosyasına şirket içi doğrudan Azure sayfa blobu veya yönetilmeyen disk olarak karşıya yükleme için en son aracı kümeleri kullanmanız gerekir:
 
-|Azure tools      | Supported versions                                |
+|Azure Araçları      | Desteklenen sürümler                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Version number 4.1.0: June 2017 release or later|
-|Azure CLI v1     | Version number 0.10.13: May 2017 release or later|
-|AzCopy           | Version number 6.1.0: June 2017 release or later|
+|Azure PowerShell | Sürüm numarası 4.1.0'da: Haziran 2017 sürüm veya daha yenisi|
+|Azure CLI v1     | Sürüm numarası 0.10.13: May 2017 sürüm veya daha yenisi|
+|AzCopy           | Sürüm numarası 6.1.0: Haziran 2017 sürüm veya daha yenisi|
 
-The support for Azure CLI v2 and Azure Storage Explorer is coming soon. 
+Azure CLI v2 ve Azure Storage Gezgini desteği yakında geliyor. 
 
-**Are P4 and P6 disk sizes supported for unmanaged disks or page blobs?**
+**P4 ve P6 disk boyutları yönetilmeyen diskleri veya sayfa BLOB'ları için destekleniyor mu?**
 
-No. P4 (32 GB) and P6 (64 GB) disk sizes are supported only for managed disks. Support for unmanaged disks and page blobs is coming soon.
+Hayır. P4 (32 GB) ve P6 (64 GB) disk boyutları, yalnızca yönetilen diskler için desteklenir. Yönetilmeyen diskleri ve sayfa bloblarını desteği yakında geliyor.
 
-**If my existing premium managed disk less than 64 GB was created before the small disk was enabled (around June 15, 2017), how is it billed?**
+**Nasıl yönetilen my varolan premium (15 Haziran 2017) küçük bir disk etkinleştirilmeden önce 64 GB oluşturulduğu daha az disk varsa, onu faturalandırılır?**
 
-Existing small premium disks less than 64 GB continue to be billed according to the P10 pricing tier. 
+Var olan küçük premium göre P10 fiyatlandırma katmanı faturalandırılmaya devam 64 GB daha az diskler. 
 
-**How can I switch the disk tier of small premium disks less than 64 GB from P10 to P4 or P6?**
+**64 GB P10 ile P4 veya P6 değerinden küçük premium diskler, disk katmanı nasıl geçiş yapabilirim?**
 
-You can take a snapshot of your small disks and then create a disk to automatically switch the pricing tier to P4 or P6 based on the provisioned size. 
+Küçük disklerinizi bir anlık görüntüsünü ve fiyatlandırma katmanı P4 veya P6 sağlanan boyutuna göre otomatik olarak geçiş yapmak için bir diski oluşturun. 
 
 
-## <a name="what-if-my-question-isnt-answered-here"></a>What if my question isn't answered here?
+## <a name="what-if-my-question-isnt-answered-here"></a>Ne sorumun cevabı burada cevaplanıp değil mi?
 
-If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the MSDN [Azure Storage forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+Sorunuzun yanıtını burada listelenmiyorsa, bize bildirin ve yanıt bulmanıza yardımcı olacağız. Bir soru bu makalenin sonunda yer alan yorumlara nakledebilirsiniz. Azure depolama ekibi ve diğer topluluk üyeleri bu makale hakkında ile etkileşim için MSDN kullanın [Azure depolama Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 
-To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).
+Özellik isteğinde, istekleri ve için fikirleri göndermek için [Azure Storage geri bildirim Forumunda](https://feedback.azure.com/forums/217298-storage).

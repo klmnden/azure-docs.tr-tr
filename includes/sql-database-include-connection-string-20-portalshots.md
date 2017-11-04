@@ -8,22 +8,22 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtain the connection string from the Azure portal
-Use the [Azure portal](https://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database: 
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Bağlantı dizesi Azure portaldan alın
+Kullanım [Azure portal](https://portal.azure.com/) istemci programınız Azure SQL veritabanı ile etkileşim kurmak için gerekli bağlantı dizesini almak için: 
 
-1. Click **BROWSE** > **SQL databases**.
-2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
-3. Click the row for your database.
-4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering. 
+1. Tıklatın **Gözat** > **SQL veritabanları**.
+2. Sol üst köşesindeki yakın filtre metni kutusuna veritabanınızın adını girin **SQL veritabanları** dikey.
+3. Veritabanınız için satıra tıklayın.
+4. Veritabanınız için dikey göründükten sonra visual kolaylık sağlamak için gözatma ve veritabanı filtreleme için kullanılan Kanatlar daraltmak için standart simge durumuna küçült denetimleri tıklatabilirsiniz. 
    
-    ![Filter to isolate your database][10-FilterDatabase]
-5. On the blade for your database, click **Show database connection strings**.
-6. If you intend to use the ADO.NET connection library, copy the string labeled **ADO**. 
+    ![Veritabanınızı yalıtmak için filtre][10-FilterDatabase]
+5. Veritabanınız için dikey penceresinde **veritabanı bağlantı dizelerini Göster**.
+6. ADO.NET bağlantı kitaplığı kullanmak istiyorsanız, etiketli dizesi kopyalama **ADO**. 
    
-    ![Copy the ADO connection string for your database][20-CopyAdoConnectionString]
-7. In one format or another, paste the connection string information into your client program code.
+    ![Veritabanınız için ADO bağlantı dizesini kopyalayın][20-CopyAdoConnectionString]
+7. Bir veya başka bir biçiminde, bağlantı dizesi bilgilerini istemci program kodunuza yapıştırın.
 
-For more information, see:<br/>[Connection Strings and Configuration Files](http://msdn.microsoft.com/library/ms254494.aspx).
+Daha fazla bilgi için bkz.<br/>[Bağlantı dizeleri ve yapılandırma dosyalarını](http://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 

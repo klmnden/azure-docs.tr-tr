@@ -1,181 +1,182 @@
-Organizations have large-scale computing needs. These Big Compute workloads include engineering design and analysis, financial risk calculations, image rendering, complex modeling, Monte Carlo simulations, and more. 
+Kuruluşların büyük ölçekli bilgi işlem gereksinimleri vardır. Bu Big Compute iş yükleri, mühendislik tasarımı ve analizi, finansal risk hesaplamaları, görüntü işleme, karmaşık modelleme, Monte Carlo benzetimleri ve daha fazla bilgi içerir. 
 
-Use the Azure cloud to efficiently run compute-intensive Linux and Windows workloads, from parallel batch jobs to traditional HPC simulations. Run your HPC and batch workloads on Azure infrastructure, with your choice of compute services, grid managers, Marketplace solutions, and vendor-hosted (SaaS) applications. Azure provides flexible solutions to distribute work and scale to thousands of VMs or cores and then scale down when you need fewer resources. 
-
-
-
-## <a name="solution-options"></a>Solution options
+Azure bulut verimli bir şekilde işlem yoğunluklu Linux ve Windows iş yükleri, geleneksel HPC benzetimleri paralel toplu işlerini çalıştırmak için kullanın. HPC çalıştırın ve toplu iş yükleri seçiminizi ile Azure altyapı hizmetleri, kılavuz yöneticileri, Market çözümleri ve satıcı barındırılan (SaaS) uygulamaları işlem. Azure iş dağıtmak ve sanal makineleri veya çekirdek binlerce için ölçeklendirme ve daha az kaynak gerektiğinde de ölçeklendirmeyi azaltın için esnek çözümler sağlar. 
 
 
 
-* **Do-it-yourself solutions**
-    * Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
-    * Lift and shift an on-premises cluster, or deploy a new cluster in Azure for additional capacity. 
-    * Use Azure Resource Manager templates to deploy leading [workload managers](#workload-managers), infrastructure, and [applications](#hpc-applications). 
-    * Choose [HPC and GPU VM sizes](#hpc-and-gpu-sizes) that include specialized hardware and network connections for MPI or GPU workloads. 
-    * Add [high performance storage](#hpc-storage) for I/O-intensive workloads.
-* **Hybrid solutions**
-    * Extend your on-premises solution to offload ("burst") peak workloads to Azure infrastructure
-    * Use cloud compute on-demand with your existing [workload manager](#workload-manager).
-    * Take advantage of [HPC and GPU VM sizes](#hpc-and-gpu-sizes) for MPI or GPU workloads.
-* **Big Compute solutions as a service**
-    * Develop custom Big Compute solutions and workflows using [Azure Batch](#azure-batch) and related [Azure services](#related-azure-services).
-    * Run Azure-enabled engineering and simulation solutions from vendors including [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/), and [Cycle Computing](https://cyclecomputing.com/) (now [joined with Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
-* **Marketplace solutions**
-    * Use the scale of [HPC applications](#hpc-applications) and [solutions](#marketplace-solutions) offered in the [Azure Marketplace](https://azuremarketplace.microsoft.com/). 
+## <a name="solution-options"></a>Çözüm seçenekleri
+
+
+
+* **Yazılanları çözümleri**
+    * Kendi Azure sanal makineleri küme ortamında ayarlama veya [sanal makine ölçek kümeleri](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
+    * Yükselt ve şirket içi küme shift veya yeni bir Azure kümede ek kapasite dağıtabilirsiniz. 
+    * Önde gelen dağıtmak için Azure Resource Manager şablonlarını kullanma [iş yükü yöneticileri](#workload-managers), altyapı ve [uygulamaları](#hpc-applications). 
+    * Seçin [HPC ve GPU VM boyutları](#hpc-and-gpu-sizes) MPI veya GPU iş yükleri için özel donanım ve ağ bağlantılarını içerir. 
+    * Ekleme [yüksek performanslı depolama](#hpc-storage) g/Ç kullanımı yoğun iş yükleri için.
+* **Karma çözümleri**
+    * ("Veri bloğu") yoğun iş yükleri için Azure altyapı boşaltmak için şirket içi çözümünüzü genişletme
+    * Bulut bilgi işlem isteğe bağlı, var olan kullanmak [iş yükü Yöneticisi](#workload-manager).
+    * Yararlanmak [HPC ve GPU VM boyutları](#hpc-and-gpu-sizes) MPI veya GPU iş yükleri için.
+* **Bir hizmet olarak Big Compute çözümleri**
+    * Özel Big Compute çözümleri ve iş akışlarını kullanarak geliştirme [Azure Batch](#azure-batch) ve ilgili [Azure Hizmetleri](#related-azure-services).
+    * Azure etkin mühendislik ve benzetimi çözümlerin de dahil olmak üzere satıcılardan çalıştırılması [Altair](http://www.altair.com/), [yeniden Ölçeklendir](https://www.rescale.com/azure/), ve [Cycle Computing](https://cyclecomputing.com/) (şimdi [ile birleştirilmiş Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
+* **Market çözümleri**
+    * Ölçek kullanmak [HPC uygulamaları](#hpc-applications) ve [çözümleri](#marketplace-solutions) içinde sunulan [Azure Marketi](https://azuremarketplace.microsoft.com/). 
     
 
 
-The following sections provide more information about the supporting technologies and links to guidance.
+Aşağıdaki bölümler destek teknolojiler ve yönergelere bağlantılar hakkında daha fazla bilgi sağlar.
 
 
 
-## <a name="marketplace-solutions"></a>Marketplace solutions
+## <a name="marketplace-solutions"></a>Market çözümleri
 
-Visit the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) for Linux and Windows VM images and solutions designed for HPC. Examples include:
+Ziyaret [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/) Linux ve Windows VM görüntüleri ve HPC için tasarlanmış çözümler. Örneklere şunlar dahildir:
 
-* [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
-* [SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
-*  [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
-* [Azure Data Science VM for Windows and Linux](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
-* [D3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
+* [RogueWave CentOS tabanlı HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
+* [SUSE Linux Enterprise Server HPC için](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
+*  [TIBCO kılavuz sunucu altyapısı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
+* [Azure veri bilimi Windows ve Linux için VM](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
+* [D3vıew](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 * [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
-* [Intel Cloud Edition for Lustre](https://azuremarketplace.microsoft.com/marketplace/apps/intel.lustre-cloud-edition-eval?tab=Overview)
+* [Lustre için Intel bulut Edition](https://azuremarketplace.microsoft.com/marketplace/apps/intel.lustre-cloud-edition-eval?tab=Overview)
 
 
  
-## <a name="hpc-applications"></a>HPC applications
+## <a name="hpc-applications"></a>HPC uygulamaları
 
-Run custom or commercial HPC applications in Azure. Several examples in this section are benchmarked to scale efficiently with additional VMs or compute cores. Visit the [Azure Marketplace](https://marketplace.azure.com) for ready-to-deploy solutions.
+Ticari veya özel HPC uygulamaları Azure üzerinde çalışır. Bu bölümdeki birkaç örnekleri, ek VM ile birlikte ölçeklendirilmesine veya çekirdek işlem benchmarked. Ziyaret [Azure Marketi](https://marketplace.azure.com) çözümlerini dağıtmak için hazır.
 
 > [!NOTE]
-> Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud. Not all vendors offer pay-as-you-go licensing. You might need a licensing server in the cloud for your solution, or connect to an on-premises license server.
+> Herhangi bir ticari uygulama bulutta çalıştırmak için lisans ya da başka kısıtlamalar için satıcıyla denetleyin. Satıcıların tümü kullandıkça öde lisansı sunmaz. Çözümünüz için bulutta bir lisans sunucusuna ihtiyacınız olabilir veya bir şirket içi lisans sunucusuna bağlanın.
 
-### <a name="engineering-applications"></a>Engineering applications
+### <a name="engineering-applications"></a>Mühendislik uygulamaları
 
 
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
 * [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/)
-* [MATLAB Distributed Computing Server](../articles/virtual-machines/windows/matlab-mdcs-cluster.md)
-* [StarCCM+](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
+* [MATLAB dağıtılmış bilgi işlem sunucusu](../articles/virtual-machines/windows/matlab-mdcs-cluster.md)
+* [StarCCM +](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
 * [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
 
-### <a name="graphics-and-rendering"></a>Graphics and rendering
+### <a name="graphics-and-rendering"></a>Grafikler ve işleme
 
-* [Autodesk Maya, 3ds Max, and Arnold](../articles/batch/batch-rendering-service.md) on Azure Batch (preview)
+* [Autodesk Maya, 3ds Max ve Arnold](../articles/batch/batch-rendering-service.md) Azure Batch (Önizleme)
 
-### <a name="ai-and-deep-learning"></a>AI and deep learning
+### <a name="ai-and-deep-learning"></a>AI ve derin öğrenme
 
-* [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
-* [Deep learning toolkit for Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
-* [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
-
-
-
+* [Toplu AI](../articles/batch-ai/overview.md) derin öğrenme modelleri için eğitim
+* [Microsoft Bilişsel Araç Seti](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
+* [Derin VM öğrenme](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
+* [Toplu Shipyard tarif derin öğrenme için](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 
 
-## <a name="hpc-and-gpu-vm-sizes"></a>HPC and GPU VM sizes
-Azure offers a range of sizes for [Linux](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Windows](../articles/virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VMs, including sizes designed for compute-intensive workloads. For example, H16r and H16mr VMs can connect to a high throughput back-end RDMA network. This cloud network can improve the performance of tightly coupled parallel applications running under [Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) or Intel MPI. 
 
-N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-intensive applications including artificial intelligence (AI) learning and visualization. 
 
-Learn more:
 
-* High performance compute sizes for [Linux](../articles/virtual-machines/linux/sizes-hpc.md) and [Windows](../articles/virtual-machines/windows/sizes-hpc.md) VMs 
-* GPU-enabled sizes for [Linux](../articles/virtual-machines/linux/sizes-gpu.md) and [Windows](../articles/virtual-machines/windows/sizes-gpu.md) VMs 
+## <a name="hpc-and-gpu-vm-sizes"></a>HPC ve GPU VM boyutları
+Azure'un sunduğu boyutları için bir aralığı [Linux](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ve [Windows](../articles/virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) yoğun iş yükleri için tasarlanmış boyutları dahil olmak üzere sanal makineleri,. Örneğin, H16r ve H16mr VM'ler yüksek verimlilik arka uç RDMA ağa bağlanabilir. Bu bulut ağ altında çalışan sıkı şekilde bağlı paralel uygulamaların performansı [Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) veya Intel MPI. 
 
-Learn how to:
+N-serisi VM'ler NVIDIA yapay Intelligence (AI) öğrenme ve görselleştirme dahil olmak üzere işlem yoğunluklu veya grafik yoğun uygulamalar için tasarlanmış GPU özelliği. 
 
-* [Set up a Linux RDMA cluster to run MPI applications](../articles/virtual-machines/linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](../articles/virtual-machines/windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Use compute-intensive VMs in Batch pools](../articles/batch/batch-pool-compute-intensive-sizes.md)
+Daha fazla bilgi edinin:
+
+* Yüksek performanslı işlem boyutları [Linux](../articles/virtual-machines/linux/sizes-hpc.md) ve [Windows](../articles/virtual-machines/windows/sizes-hpc.md) VM'ler 
+* GPU etkin boyutları [Linux](../articles/virtual-machines/linux/sizes-gpu.md) ve [Windows](../articles/virtual-machines/windows/sizes-gpu.md) VM'ler 
+
+Şunları nasıl yapacağınızı öğrenin:
+
+* [MPI uygulamaları çalıştırmak için Linux RDMA küme ayarlama](../articles/virtual-machines/linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [MPI uygulamaları çalıştırmak için Microsoft HPC Pack ile Windows RDMA kümesi ayarlama](../articles/virtual-machines/windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Batch havuzlarında kullanımı yoğun VM'ler](../articles/batch/batch-pool-compute-intensive-sizes.md)
 
 
 
 ## <a name="azure-batch"></a>Azure Batch
-[Batch](../articles/batch/batch-technical-overview.md) is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs. 
+[Toplu](../articles/batch/batch-technical-overview.md) (HPC) uygulamalarını bulutta verimli bir şekilde bir platform için büyük ölçekli paralel çalıştırmak için hizmet ve yüksek performanslı bilgi işlem. Sanal makineler yönetilen bir havuz çalıştırmak için Azure Batch zamanlamaları işlem yoğunluklu iş ve ölçek işleriniz ihtiyaçlarını karşılamak için kaynakları işlem otomatik olarak. 
 
-SaaS providers or developers can use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines. 
+SaaS sağlayıcısı veya geliştiriciler, HPC uygulamaları veya kapsayıcı iş yükleri, Azure, aşama verileri Azure ile tümleştirmek için Batch SDK'ları ve Araçları'nı kullanın ve iş yürütme işlem hatları oluşturabilir. 
 
-Learn how to:
+Şunları nasıl yapacağınızı öğrenin:
 
-* [Get started developing with Batch](../articles/batch/batch-dotnet-get-started.md)
-* [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
-* [Use low-priority VMs with Batch (preview)](../articles/batch/batch-low-pri-vms.md)
-* [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
-* [Use the R language with Batch](https://github.com/Azure/doAzureParallel)
+* [Batch ile geliştirme kullanmaya başlama](../articles/batch/batch-dotnet-get-started.md)
+* [Azure Batch kod örnekleri kullanın](https://github.com/Azure/azure-batch-samples)
+* [Düşük öncelikli sanal makineleri Batch ile kullanma](../articles/batch/batch-low-pri-vms.md)
+* [Kapsayıcılı HPC iş yükleri ile toplu Shipyard çalıştırın](https://github.com/Azure/batch-shipyard)
+* [Batch ile R dilini kullanma](https://github.com/Azure/doAzureParallel)
 
-## <a name="workload-managers"></a>Workload managers
+## <a name="workload-managers"></a>İş yükü yöneticileri
 
-The following are examples of cluster and workload managers that can run in Azure infrastructure. Create stand-alone clusters in Azure VMs or burst to Azure VMs from an on-premises cluster. 
+Azure altyapısı için çalıştırabilirsiniz küme ve iş yükü yöneticileri örnekleri verilmiştir. Tek başına kümeleri Azure VM'ler veya veri bloğu içinde bir şirket içi kümeden Azure Vm'lerine oluşturun. 
 * [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/) 
-* [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
-* [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
+* [Açık Küme Yöneticisi](http://www.brightcomputing.com/technology-partners/microsoft)
+* [IBM Spektrumun Symphony ve Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 * [PBS Pro](http://pbspro.org)
-* [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx) - see options to run in [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)  and [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VMs 
+* [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx) -çalıştırmak için seçenekleri görmek [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ve [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM'ler 
 
 
 
-## <a name="hpc-storage"></a>HPC storage
+## <a name="hpc-storage"></a>HPC depolama
 
-Large-scale Batch and HPC workloads have demands for data storage and access that exceed the capabilities of traditional cloud file systems. Implement parallel file system solutions in Azure such as [Lustre](http://lustre.org/) and [BeeGFS](http://www.beegfs.com/content/).
+Veri depolama ve erişim için geleneksel bulut dosya sistemleri özelliklerini aşan taleplerini büyük ölçekli Batch ve HPC iş yükleri vardır. Paralel dosya sistemi Azure'da gibi çözümlerin [Lustre](http://lustre.org/) ve [BeeGFS](http://www.beegfs.com/content/).
 
-Learn more:
+Daha fazla bilgi edinin:
 
-* [Parallel file systems for HPC storage on Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* [Azure üzerinde HPC depolama için paralel dosya sistemleri](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
 
 
-## <a name="related-azure-services"></a>Related Azure services
+## <a name="related-azure-services"></a>İlgili Azure Hizmetleri
 
-Azure virtual machines, virtual machine scale sets, Batch, and related compute services are the foundation of most Azure HPC solutions. However, your solution can take advantage of many related Azure services. Here is a partial list:
+Azure sanal makineler, sanal makine ölçek kümeleri, toplu ve ilgili işlem Hizmetleri çoğu Azure HPC çözümleri temelidir. Çözümünüzü, ancak birçok ilgili Azure hizmetlerinin avantajından yararlanabilirsiniz. Kısmi bir liste aşağıda verilmiştir:
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Depolama
 
-* [Blob, table, and queue storage](../articles/storage/storage-introduction.md)
-* [File storage](../articles/storage/storage-files-introduction.md)
+* [BLOB, tablo ve kuyruk depolama](../articles/storage/storage-introduction.md)
+* [Dosya depolama](../articles/storage/storage-files-introduction.md)
 
-### <a name="data-and-analytics"></a>Data and analytics
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) for Hadoop clusters on Azure
+### <a name="data-and-analytics"></a>Veri ve analiz
+* [Hdınsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) Azure üzerinde Hadoop kümeleri için
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
-* [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
+* [SQL Veritabanı](../articles/sql-database/sql-database-technical-overview.md)
 
-### <a name="networking"></a>Networking
-* [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
+### <a name="networking"></a>Ağ
+* [Sanal Ağ](../articles/virtual-network/virtual-networks-overview.md)
 * [ExpressRoute](../articles/expressroute/expressroute-introduction.md)
 
-### <a name="containers"></a>Containers
-* [Container Service](../articles/container-service/dcos-swarm/container-service-intro.md)
+### <a name="containers"></a>Kapsayıcılar
+* [Kapsayıcı Hizmeti](../articles/container-service/dcos-swarm/container-service-intro.md)
 * [Container Registry](../articles/container-registry/container-registry-intro.md)
 
 
 
-## <a name="customer-stories"></a>Customer stories
+## <a name="customer-stories"></a>Müşteri hikayeleri
 
-Here are examples of customers that have solved business problems with Azure HPC solutions:
+İş sorunlarını Azure HPC çözümleri ile Çözüldü müşteriler örnekleri şunlardır:
 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
-* [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
+* [AXA genel P & C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
-* [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [d3vıew](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
 * [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
-* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
+* [Mitsubishi UFJ senedi uluslararası](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
 * [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 
-## <a name="next-steps"></a>Next steps
-* Learn more about Big Compute solutions for [engineering simulation](https://simulation.azure.com/), [rendering](https://simulation.azure.com/), [banking and capital markets](https://finance.azure.com/), and [genomics](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
-* For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
+## <a name="next-steps"></a>Sonraki adımlar
+* Big Compute çözümleri hakkında daha fazla bilgi [benzetimi mühendislik](https://simulation.azure.com/), [işleme](https://simulation.azure.com/), [bankacılık ve büyük harf pazarda](https://finance.azure.com/), ve [genomics](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
+* Son duyurular için bkz. [Microsoft HPC ve Batch ekip blogu](http://blogs.technet.com/b/windowshpc/) ve [Azure blogu](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Use the managed and scalable Azure [Batch](https://azure.microsoft.com/services/batch/) service to run compute-intensive workloads, without managing underlying infrastructure [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Yönetilen ve ölçeklenebilir Azure kullanmak [toplu](https://azure.microsoft.com/services/batch/) altyapının yönetmek zorunda kalmadan işlem yoğunluklu iş yüklerini çalıştırmak için hizmeti [daha fazla bilgi edinin](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
 
 
 
