@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Web hizmeti ön uç için ASP.NET Core kullanarak uygulamanızı oluşturun
 Varsayılan olarak, Azure Service Fabric Hizmetleri Web ortak bir arabirim sağlamaz. HTTP istemcilere, uygulamanın işlevselliğini kullanıma sunmak için bir giriş noktası olarak davranmasına ve tek tek hizmetlerinizi buradan iletişim kurmak için bir web projesi oluşturmanız gerekir.
@@ -210,12 +210,6 @@ Durum bilgisi olan hizmetimizi artık trafiği üzerinden RPC hizmetlerinden alm
     ![Tarayıcıda görüntülenen durum bilgisi olan bir sayaç değeri][browser-aspnet-counter-value]
    
     Düzenli aralıklarla güncelleştirme sayaç değeri görmek için tarayıcıyı yenileyin.
-
-## <a name="kestrel-and-weblistener"></a>Kestrel ve WebListener
-
-Kestrel bilinen varsayılan ASP.NET Core web sunucusunun [doğrudan Internet trafiğini işlemek için şu anda desteklenmeyen](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). Sonuç olarak, Service Fabric için ASP.NET Core durum bilgisiz hizmet şablonu kullanan [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) varsayılan olarak. 
-
-Service Fabric Hizmetleri'nde Kestrel ve WebListener hakkında daha fazla bilgi edinmek için lütfen [Service Fabric Reliable Services ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="connecting-to-a-reliable-actor-service"></a>Bir güvenilir aktör hizmetine bağlanılıyor
 Bu öğretici bir durum bilgisi olan hizmeti ile iletişim web ön ucu ekleme odaklanır. Ancak, aktörler için anlaşmak için çok benzer bir model izleyebilirsiniz. Bir güvenilir aktör projesi oluşturduğunuzda, Visual Studio, sizin için otomatik olarak bir arabirim projesi oluşturur. Bu arabirimi gerçekleştiren proxy aktör ile iletişim kurmak için web projesi oluşturmak için kullanabilirsiniz. Bir iletişim kanalı otomatik olarak sağlanır. Oluşturulmasında eşdeğer olan bir şey yapmanız gerekmez şekilde bir `ServiceRemotingListener` Bu öğreticide durum bilgisi olan hizmeti için yaptığınız gibi.

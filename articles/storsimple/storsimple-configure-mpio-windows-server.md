@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/03/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f870df32bed8213f6252c70b2f687f436dbd71b8
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Çok yollu g/ç StorSimple cihazınız için yapılandırma
+> [!NOTE]
+> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Bu makalede yeni Azure portalına için sürümünü görüntülemek için şu adrese gidin [yapılandırma çok yollu g/ç StorSimple cihazınız için](storsimple-8000-configure-mpio-windows-server.md). Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+
 Microsoft Windows Server Yardım derleme yüksek oranda kullanılabilir, hataya dayanıklı SAN yapılandırmaları için çok yollu g/ç (MPIO) özelliği için destek yerleşiktir. MPIO yedek fiziksel yol bileşenlerini kullanır — bağdaştırıcılar, kablolar ve anahtarlar — sunucu ile depolama cihazı arasında mantıksal yollar oluşturmak için. Bir mantıksal yol başarısız olmasına neden olan bir bileşen hata olduğunda çoklu yol oluşturma mantığı g/ç için alternatif bir yol böylece uygulamaların verilerine erişmeye devam kullanır. Ayrıca yapılandırmanıza bağlı olarak, MPIO de bu yollar genelinde yeniden yük dengeleyerek performansı artırabilir. Daha fazla bilgi için bkz: [MPIO genel bakış](https://technet.microsoft.com/library/cc725907.aspx "MPIO genel bakış ve özellikleri").  
 
 Yüksek kullanılabilirlik için StorSimple çözümünüzün, MPIO, StorSimple Cihazınızda yapılandırılması gerekir. Windows Server 2012 R2 çalıştıran, ana bilgisayar sunucuları üzerinde MPIO yüklendiğinde sunucuları bağlantı, ağ veya arabirim hatalarına sonra dayanabilir. 

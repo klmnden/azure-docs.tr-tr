@@ -4,23 +4,26 @@ description: "Günlük analizi günlük arama API günlük analizi çalışma al
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8a4ec7a6ddf2daeca6ead11460fa076a7eb5c94
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Bir Python betiği ile günlük Analytics'ten verileri
 [Günlük analizi günlük arama API](log-analytics-log-search-api.md) günlük analizi çalışma alanından veri almak herhangi bir REST API istemcisi sağlar.  Bu makalede günlük analizi günlük arama API'sini kullanan bir örnek Python komut dosyası gösterir.  
+
+>[!NOTE]
+> Bu makalede, günlük analizi eski sorgu dilinde için günlük arama API'sini kullanır.  Bir güncelleştirme yükseltilmiştir çalışma alanları için bu makalede sağlanacak [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md).
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 Bu komut dosyası için çalışma alanına kimlik doğrulaması için Azure Active Directory'de Hizmet sorumlusu kullanır.  Hizmet sorumluları istemci hesap adı yoksa bile hizmetinde bir hesap kimlik doğrulaması istemek bir istemci uygulaması izin verin. Bu komut dosyasını çalıştırmadan önce işlemi kullanarak bir hizmet sorumlusu oluşturmalısınız [bir Azure Active Directory kaynaklara erişebilir uygulama ve hizmet sorumlusu oluşturmak için kullanım portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).  Uygulama kimliği, Kiracı kimliği ve kimlik doğrulama anahtarı için betik sağlamak gerekir. 

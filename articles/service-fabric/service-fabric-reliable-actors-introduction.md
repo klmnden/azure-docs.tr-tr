@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 640e051a909b1b9457b20cbd507b418342297c6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors hizmetine giriş
 Güvenilir aktörler dayalı bir çerçevedir Service Fabric uygulaması [sanal aktör](http://research.microsoft.com/en-us/projects/orleans/) düzeni. Güvenilir aktörler API Service Fabric tarafından sağlanan ölçeklenebilirlik ve güvenilirlik garantileri üzerine kurulu bir tek iş parçacıklı programlama modeli sağlar.
@@ -143,7 +143,7 @@ Aktör çalışma zamanı yeniden giriş varsayılan olarak izin verir. Bu olmas
 Aktör çalışma zamanı bu yöntemleri çağırma olduğu denetlediği durumlarda bu eşzamanlılık garantileri sağlar. Örneğin, Zamanlayıcı ve anımsatıcı geri aramalar yanı sıra, bir istemci isteğine yanıt olarak gerçekleştirilen yöntem çağrılarına için bu garantileri sağlar. Ancak, aktör kodu doğrudan aktörler çalışma zamanı tarafından sağlanan mekanizmaları dışında bu yöntemleri çağırırsa, çalışma zamanı eşzamanlılık garanti sağlayamaz. Örneğin, aktör yöntemler tarafından döndürülen görev ile ilişkili değil bazı görev bağlamında yöntemi çağrıldıysa, çalışma zamanı eşzamanlılık garanti sağlayamaz. Aktör, kendi oluşturduğu akıştan yöntemi çağrıldıysa, çalışma zamanı da eşzamanlılık garanti sağlayamaz. Bu nedenle, arka plan işlemleri gerçekleştirmek için aktörler kullanması gereken [aktör zamanlayıcılar ve aktör anımsatıcıları](service-fabric-reliable-actors-timers-reminders.md) Aç tabanlı eşzamanlılık saygılı olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* İlk Reliable Actors hizmetiniz oluşturarak başlayın:
+İlk Reliable Actors hizmetiniz oluşturarak başlayın:
    * [.NET üzerinde Reliable Actors ile çalışmaya başlama](service-fabric-reliable-actors-get-started.md)
    * [Üzerinde Java Reliable Actors ile çalışmaya başlama](service-fabric-reliable-actors-get-started-java.md)
 

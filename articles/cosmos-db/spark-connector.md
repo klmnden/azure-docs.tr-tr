@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: denlee
-ms.openlocfilehash: 8ecbb478c81cde25bbd0d1c9ee07ae02b07f8cc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7500ed798519671ba864cc185efffa0f93a8be70
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Spark ile gerçek zamanlı büyük veri analizi Azure Cosmos DB bağlayıcıya hızlandırmak
 
@@ -44,7 +44,7 @@ Bağlayıcı aşağıdaki bileşenleri kullanır:
 
 * [Apache Spark](http://spark.apache.org/) hızı, kullanımı kolay, gelişmiş analizler yerleşik bir güçlü açık kaynaklı işleme altyapısıdır.
 
-* [Azure hdınsight'ta Apache Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) , Apache Spark kritik dağıtımlar için bulutta kullanarak dağıtabileceğiniz [Azure Hdınsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
+* [Azure hdınsight'ta Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) , Apache Spark kritik dağıtımlar için bulutta kullanarak dağıtabileceğiniz [Azure Hdınsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
 
 Resmi olarak desteklenen sürümler:
 
@@ -351,4 +351,4 @@ Henüz yapmadıysanız, Spark Azure Cosmos DB bağlayıcısından karşıdan [az
 * [Dağıtılmış toplamalar örnekleri](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [Örnek komut dosyaları ve dizüstü bilgisayarlar](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-Gözden geçirmek isteyebilirsiniz [Apache Spark SQL, DataFrames ve veri kümeleri Kılavuzu](http://spark.apache.org/docs/latest/sql-programming-guide.html) ve [Azure hdınsight'ta Apache Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) makalesi.
+Gözden geçirmek isteyebilirsiniz [Apache Spark SQL, DataFrames ve veri kümeleri Kılavuzu](http://spark.apache.org/docs/latest/sql-programming-guide.html) ve [Azure hdınsight'ta Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) makalesi.

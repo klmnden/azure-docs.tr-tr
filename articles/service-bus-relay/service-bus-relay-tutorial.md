@@ -1,6 +1,6 @@
 ---
 title: "Azure hizmet veri yolu WCF geçiş Öğreticisi | Microsoft Docs"
-description: "Service Bus istemci uygulaması ve hizmeti WCF geçiş kullanarak oluşturun."
+description: "WCF geçiş kullanarak bir istemci ve hizmet uygulaması oluşturma."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF geçiş Öğreticisi
 
-Bu öğretici basit bir WCF geçiş istemci uygulaması ve hizmeti Azure geçişi kullanarak nasıl oluşturulacağını açıklar. Kullanıldığı benzer bir öğretici [Service Bus Mesajlaşma hizmeti](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), bkz: [Service Bus kuyrukları ile çalışmaya başlama](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Bu öğretici basit bir WCF geçiş istemci uygulaması ve hizmeti Azure geçişi kullanarak nasıl oluşturulacağını açıklar. Kullanıldığı benzer bir öğretici [Service Bus Mesajlaşma](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), bkz: [Service Bus kuyrukları ile çalışmaya başlama](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Bu öğreticide, bir anlayış WCF geçiş istemci ve hizmet uygulaması oluşturmak için gereken adımları sağlar. Özgün WCF hizmetindeki benzerlerinde gibi bir hizmet her biri bir veya daha fazla hizmet işlemini kullanıma sunar, bir veya daha fazla uç noktaları, kullanıma sunan bir yapıdır. Bir hizmetin uç noktası hizmetin bulunabileceği bir adres, istemcinin hizmetle iletişiminde paylaşması gereken bilgileri içeren bir bağlama ve hizmet tarafından istemcilerine sağlanan işlevselliği tanımlayan bir sözleşme belirtir. WCF ve WCF geçiş arasındaki temel fark, uç noktanın yerel olarak bilgisayarınızda yerine bulutta sunulur ' dir.
 
@@ -54,7 +54,7 @@ Hizmet sözleşmesi hangi işlemleri belirtir (yöntemler ve işlevlere web hizm
 
 3. Service Bus NuGet paketini yükleyin. Bu paket otomatik olarak Service Bus kitaplıklarının yanı sıra WCF **System.ServiceModel** öğesine de başvurular ekler. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx), WCF'nin temel özelliklerine programlamayla erişmenizi sağlayan ad alanıdır. Service Bus, hizmet sözleşmelerini tanımlamak için WCF'nin birçok nesnesini ve özniteliklerini kullanır.
 
-    Çözüm Gezgini'nde projeye sağ tıklayın ve ardından **NuGet paketlerini Yönet...** . **Gözat** sekmesine tıklayıp `Microsoft Azure Service Bus` için arama yapın. **Sürüm(ler)** kutusunda proje adının seçili olduğundan emin olun. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
+    Çözüm Gezgini'nde projeye sağ tıklayın ve ardından **NuGet paketlerini Yönet...** . **Gözat** sekmesine tıklayıp **WindowsAzure.ServiceBus** için arama yapın. **Sürüm(ler)** kutusunda proje adının seçili olduğundan emin olun. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
 
     ![][3]
 4. Çözüm Gezgini'nde, zaten açılmamışsa Program.cs dosyasına çift tıklayarak dosyayı düzenleyicide açın.

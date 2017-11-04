@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1ac5ca34e412aeb8b24e657abfe8eca04943799d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 31e35432ecc10b06c7a6400a1e0904e7bc2cd8c9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Azure sanal ağda bir doku Windows hizmeti kümesini dağıtma
 Bu öğretici bir dizi birini bir parçasıdır. Mevcut bir Azure sanal ağı (VNET) Windows Service Fabric kümesine dağıtmak ve PowerShell kullanarak alt net öğreneceksiniz. İşlemi tamamladığınızda, uygulamaları dağıtabileceğiniz bulutta çalıştıran bir kümeye sahip.  Azure CLI kullanarak bir Linux kümesi oluşturmak için bkz: [Azure'da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -97,7 +97,16 @@ Küme sertifikası veya test amacıyla bir sertifika yetkilisinden (CA) bir sert
 - bir kişisel bilgi değişimi (.pfx) dosyası verilebilir anahtar değişimi için oluşturulamıyor.
 - Service Fabric kümesi erişmek için kullandığınız etki alanı ile eşleşen bir konu adına sahip. Bu eşleştirme, kümenin HTTPS yönetim uç noktaları ve Service Fabric Explorer için SSL sağlamak için gereklidir. İçin bir sertifika yetkilisinden (CA) bir SSL sertifikası alınamıyor. cloudapp.azure.com etki alanı. Özel etki alanı adı, kümeniz için edinmeniz gerekir. Bir CA'dan bir sertifika isteme, sertifikanın konu adı, kümeniz için kullandığınız özel etki alanı adı eşleşmelidir.
 
-Boş dolgu *konumu*, *clusterName*, *adminUserName*, ve *Admınpassword* parametrelerinde  *Cluster.Parameters.JSON* dağıtımınız için dosya.  Bırakın *certificateThumbprint*, *certificateUrlValue*, ve *sourceVaultValue* parametreleri otomatik olarak imzalanan bir sertifika oluşturmak için boş.  Daha önce bir anahtar Kasası'na yüklenen var olan bir sertifikayı kullanmak istiyorsanız, bu parametre değerlerini doldurun.
+Bu boş parametreleri doldurmanız *cluster.parameters.json* dosya dağıtımınız için:
+
+|Parametre|Değer|
+|---|---|
+|Admınpassword|Parola #1234|
+|adminUserName|vmadmin|
+|clusterName|mysfcluster|
+|location|southcentralus|
+
+Bırakın *certificateThumbprint*, *certificateUrlValue*, ve *sourceVaultValue* parametreleri otomatik olarak imzalanan bir sertifika oluşturmak için boş.  Daha önce bir anahtar Kasası'na yüklenen var olan bir sertifikayı kullanmak istiyorsanız, bu parametre değerlerini doldurun.
 
 Aşağıdaki komut dosyası kullanan [yeni AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet'i ve azure'da yeni bir küme dağıtmak için şablon. Cmdlet ayrıca Azure'da yeni bir anahtar kasası oluşturur, anahtar Kasası'na yeni bir otomatik olarak imzalanan sertifika ekler ve sertifika dosyasını yerel olarak indirir. Diğer parametreleri kullanarak, varolan bir sertifikayı ve/veya anahtar kasası belirtebilirsiniz [yeni AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet'i.
 
@@ -165,9 +174,9 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * PowerShell kullanarak kümeye bağlanma
 > * Bir küme Kaldır
 
-Ardından, API Management Service Fabric ile dağıtma hakkında bilgi edinmek için aşağıdaki öğreticiyi ilerleyin.
+Ardından, kümenizi ölçeklendirme öğrenmek için aşağıdaki öğretici ilerleyin.
 > [!div class="nextstepaction"]
-> [API Yönetimi dağıtma](service-fabric-tutorial-deploy-api-management.md)
+> [Küme ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
 
 
 [network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json

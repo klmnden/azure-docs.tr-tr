@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2016
+ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: 56c00c3ea885bd1f431613ea90868dc65c98818b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure hdınsight'ta Hive sorguları en iyi duruma getirme
 
@@ -51,9 +51,9 @@ Tez daha hızlı nedeni:
 * **Gereksiz yazma önler**. MapReduce altyapısındaki aynı Hive sorgusu için başlar birden çok iş nedeniyle her iş çıktısı için Ara verileri HDFS için yazılır. Tez her Hive sorgusu için iş sayısını en aza indirir beri gereksiz yazma kaçınabilirsiniz.
 * **Başlangıç gecikmeleri en aza indirir**. Tez başlatmak için gereken mappers sayısını azaltmayı ve ayrıca boyunca iyileştirme iyileştirme başlangıç gecikme en aza indirmek için iyidir.
 * **Kapsayıcıları yeniden kullanır**. Her olası Tez kapsayıcıları başlangıç nedeniyle gecikme süresi azalır emin olmak için kapsayıcıları yeniden kullanabilirsiniz.
-* **Sürekli iyileştirme tekniklerini**. En iyi duruma getirme derleme aşamasında geleneksel olarak gerçekleştirilir. Girişleri hakkında daha fazla bilgi kullanılabilir ancak, çalışma zamanı sırasında daha iyi iyileştirme izin verir. Tez planına daha fazla çalışma zamanı aşaması en iyi duruma getirme imkan tanıyan sürekli iyileştirme teknikleri kullanır.
+* **Sürekli iyileştirme tekniklerini**. En iyi duruma getirme derleme aşamasında geleneksel olarak gerçekleştirilir. Girişleri hakkında daha fazla bilgi kullanılabilir ancak, çalışma zamanı sırasında daha iyi iyileştirme izin verir. Tez planına daha fazla çalışma zamanı aşaması iyileştirmek izin sürekli iyileştirme teknikleri kullanır.
 
-Bu kavramlarla ilgili daha fazla ayrıntı için bkz: [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+Bu kavramlarla ilgili daha fazla bilgi için bkz: [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 
 Bir Hive sorgusu ayarlarla sorgu ekleyerek etkin Tez yapabilirsiniz:
 
@@ -110,7 +110,7 @@ Bölümlenmiş tablo oluşturulduktan sonra statik bölümleme veya dinamik böl
               L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
              L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as           L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as           L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as      L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
 
-Daha fazla ayrıntı için bkz: [bölümlenmiş tabloları](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
+Daha fazla bilgi için bkz: [bölümlenmiş tabloları](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
 ## <a name="use-the-orcfile-format"></a>ORCFile biçimini kullanın
 Hive farklı dosya biçimleri destekler. Örneğin:

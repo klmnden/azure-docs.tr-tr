@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 98e75e11b54aea677b8ca1b6f303a48190c6fce8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 237b8396b56fdec86cc005c121646556825d8e98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric programlama modeline genel bakış
 Service Fabric yazma ve hizmetlerinizi yönetmek için birden çok yol sunar. Hizmetleri platformun özellikleri ve uygulama çerçeveleri tam anlamıyla yararlanabilmek için Service Fabric API'ları kullanmayı seçebilirsiniz. Hizmetleri herhangi bir dil veya basit bir Service Fabric kümesi üzerinde barındırılan bir kapsayıcıda çalışan kodu yazılmış derlenmiş bir yürütülebilir program da olabilir.
@@ -42,6 +42,11 @@ Güvenilir hizmetler de durum bilgisi olabilir Service Fabric özel, burada duru
 
 [Reliable Services hakkında daha fazla bilgi](service-fabric-reliable-services-introduction.md) veya başlayın [ilk güvenilir hizmetiniz yazma](service-fabric-reliable-services-quick-start.md).
 
+## <a name="aspnet-core"></a>ASP.NET Çekirdeği
+ASP.NET Core modern bulut tabanlı Internet'e bağlı uygulamaları, web uygulamaları, IOT uygulamaları ve mobil arka uçlarını gibi oluşturmak için yeni bir açık kaynaklı ve çapraz platform framework kümesidir. Durum bilgisiz ve durum bilgisi olan ASP.NET Core güvenilir koleksiyonlarını ve Service Fabric'ın gelişmiş orchestration yetenekleri yararlanan uygulamalar yazma için Service Fabric ASP.NET Core ile tümleşir.
+
+[Service Fabric ASP.NET çekirdek hakkında daha fazla bilgi](service-fabric-reliable-services-communication-aspnetcore.md) veya başlayın [ilk ASP.NET Core Service Fabric uygulamanızı yazma](service-fabric-add-a-web-frontend.md).
+
 ## <a name="reliable-actors"></a>Reliable Actors
 Güvenilir hizmetler en üstünde oluşturulan güvenilir aktör aktör tasarım deseni temel alınarak sanal aktör deseni uygulayan bir uygulama çerçevesi çerçevedir. Güvenilir aktör çerçevesi yürütme aktörler olarak adlandırılan tek iş parçacıklı işlem ve durumunun bağımsız bir birim kullanır. Güvenilir aktör framework aktörler ve önceden ayarlanmış durumu kalıcılığını ve genişleme yapılandırmaları için yerleşik iletişim sağlar.
 
@@ -49,8 +54,6 @@ Reliable Actors kendisini Reliable Services üzerinde bir uygulama altyapısıd�
 
 [Reliable Actors hakkında daha fazla bilgi](service-fabric-reliable-actors-introduction.md) veya başlayın [ilk güvenilir aktör hizmetiniz yazma](service-fabric-reliable-actors-get-started.md)
 
-## <a name="aspnet-core"></a>ASP.NET Çekirdeği
-Service Fabric tümleşir [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) için Web ve API hizmetleri oluşturmaya uygulamanızın veya bir parçası olarak dahil edilebilir. 
 
 [ASP.NET Core kullanarak bir ön uç hizmet oluşturma](service-fabric-add-a-web-frontend.md)
 

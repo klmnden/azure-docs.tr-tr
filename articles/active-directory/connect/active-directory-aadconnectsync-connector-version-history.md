@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connector-version-release-history"></a>Bağlayıcı Sürümü Yayınlama Geçmişi
 Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) bağlayıcıları sık sık güncelleştirilir.
 
 > [!NOTE]
 > Bu konuda FIM ve MIM yalnızca bilinmiyor. Bu bağlayıcıların üzerinde Azure AD Connect yüklemesi için desteklenmiyor. Yükseltme yapı belirtildiğinde yayımlanan bağlayıcılar AADConnect üzerinde önceden yüklenmiş.
+
 
 Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
 
@@ -37,6 +38,29 @@ Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
 * [PowerShell Bağlayıcısı](active-directory-aadconnectsync-connector-powershell.md) başvuru belgelerini
 * [Lotus Domino Bağlayıcısı](active-directory-aadconnectsync-connector-domino.md) başvuru belgelerini
 
+## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
+
+### <a name="fixed-issues"></a>Giderilen sorunlar:
+
+* Lotus Notes:
+  * Özel certifiers seçeneği filtreleme
+  * İçeri aktarma ImportOperations sınıfının hangi işlemleri 'Görünümleri' modu ve hangi 'Arama' modunda çalıştırılabilir tanım giderilmiştir.
+* Genel LDAP:
+  * OpenLDAP Directory DN entryUUI yerine bağlantı olarak kullanır. Bağlantı değiştirilecek veren GLDAP bağlayıcıya yeni seçeneği
+* Genel SQL:
+  * Sabit verme varbinary(max) türünde alanına.
+  * İkili veriler CSEntry nesnesine bir veri kaynağından eklerken, çevirmelerinde işlevi sıfır bayt üzerinde başarısız oldu. CSEntryOperationBase sınıfının sabit çevirmelerinde işlev.
+
+
+
+
+### <a name="enhancements"></a>Geliştirmeleri:
+
+* Genel SQL:
+  * Yürütme modunu yapılandırma yeteneğini saklı yordamı adlandırılmış parametreleri ile veya adlandırılmamış 'Genel parametrelerini' sayfasındaki Genel SQL Yönetim Aracısı'nın bir yapılandırma penceresinde eklenir. Sayfanın 'Genel parametrelerini' yok 'execute depolanan yordamla modu sorumlu bir saklı yordamı yürütmek için adlandırılmış parametreleri Kullan' etiketli onay kutusu parametreleri veya adı verilir.
+    * Şu anda, adlandırılmış parametreleri içeren saklı yordamı yürütme olanağı yalnızca veritabanları için IBM DB2 ve MSSQL çalışır. Oracle ve MySQL veritabanları için bu yaklaşım çalışmıyor: 
+      * MySQL, SQL sözdizimi, adlandırılmış parametreleri depolanmış yordamları desteklemiyor.
+      * Oracle için ODBC sürücüsü, saklı yordamlar adlandırılmış parametreleri için adlandırılmış parametreleri desteklemiyor)
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -203,6 +227,22 @@ Mart 2016 öncesinde bağlayıcıları destek konuları yayımlanmıştır.
 * [KB2932635](https://support.microsoft.com/kb/2932635) -5.3.1003, Şubat 2014  
 * [KB2899874](https://support.microsoft.com/kb/2899874) -5.3.0721, Ekim 2013
 * [KB2875551](https://support.microsoft.com/kb/2875551) -5.3.0534, 2013 Ağustos
+
+## <a name="troubleshooting"></a>Sorun giderme 
+
+> [!NOTE]
+> Microsoft Identity Manager veya AADConnect kullanımı ECMA2 bağlayıcılar hiçbirini ile güncelleştirirken. 
+
+Eşleştirilecek yükseltme sırasında bağlayıcı tanımı yenilemeniz gerekir veya kimliği 6947 uyarı rapor için uygulama olay günlüğü Başlat şu hatayla karşılaşırsınız: "derleme sürümünü AAD Bağlayıcı yapılandırması ("X.X.XXX. "X") ("X.X.XXX. gerçek sürümden daha eski "X"), "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".
+
+Tanımı yenilemek için:
+* Bağlayıcı örneği özelliklerini açın
+* Bağlantıyı tıklatın / bağlanmak için sekmesi
+  * Bağlayıcı hesabı için parolayı girin
+* Özellik sekmelerin her birini sırayla tıklatın
+  * Bu bağlayıcı türü bir bölüm sekme varsa Yenile düğmesini ile bu sekmedeki Yenile düğmesini tıklatın.
+* Tüm özellik sekmeleri eriştikten sonra değişiklikleri kaydetmek için Tamam düğmesini tıklatın.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi edinmek [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md) yapılandırma.

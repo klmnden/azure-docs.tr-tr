@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: f27f038e0507270c0bfe200cb8c86622ebac5372
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Günlük analizi bilgisayar gruplarında aramaları oturum
 
@@ -109,13 +109,29 @@ Tıklatın **x** içinde **kaldırmak** bilgisayar grubunu silmek için sütun. 
 
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>Bir bilgisayar grubu günlük aramada kullanma
-Genellikle aşağıdaki sözdizimi ile birlikte bir işlevi olarak diğer adını düşünerek sorguda bir bilgisayar grubu kullanın:
+Genellikle aşağıdaki sözdizimi ile birlikte bir işlevi olarak diğer adını düşünerek günlük arama sorguda oluşturulan bir bilgisayar grubu kullanın:
 
   `Table | where Computer in (ComputerGroup)`
 
 Örneğin, yalnızca bilgisayarlar için UpdateSummary kayıtları mycomputergroup adlı bir bilgisayar grubunda döndürmek için aşağıdaki kullanabilirsiniz.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+İçeri aktarılan bilgisayar grupları ve dahil edilen bilgisayarlarında depolanır **ComputerGroup** tablo.  Örneğin, aşağıdaki sorguyu bilgisayarların bir listesini Active Directory'den etki alanı bilgisayarları grubunda döndürecektir. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+Aşağıdaki sorgu UpdateSummary kayıtları yalnızca bilgisayarlar için etki alanı bilgisayarları döndürür.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > Çalışma alanınızı hala kullanıyorsa [eski günlük analizi sorgu dili](log-analytics-log-search-upgrade.md)>, sonra da günlük aramada bilgisayar grubuna başvurmak için aşağıdaki sözdizimini kullanın.  Belirtme **kategori** > isteğe bağlıdır ve yalnızca bilgisayar grupları aynı ada sahip farklı kategorilerde varsa gerekli değil. 

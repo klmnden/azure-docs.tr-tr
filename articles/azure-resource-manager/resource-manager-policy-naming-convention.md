@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 11/03/2017
 ms.author: tomfitz
-ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 955b04517c3ccdbe530eb982e6aa1255b69e1edd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Kaynak adları ve metin için geçerlidir
-Bu konu çeşitli gösterir [kaynak ilkeleri](resource-manager-policy.md) adlandırma ve metin kuralları oluşturmak için geçerli olabilir. Bu ilkeler kaynak adları ve etiket değerleri için tutarlılık emin olun. 
+Bu makalede birkaç gösterilmektedir [kaynak ilkeleri](resource-manager-policy.md) adlandırma ve metin kuralları oluşturmak için geçerli olabilir. Bu ilkeler kaynak adları ve etiket değerleri için tutarlılık emin olun. 
 
 ## <a name="set-naming-convention-with-wildcard"></a>Joker karakter ile adlandırma kuralı ayarlayın
 Aşağıdaki örnek tarafından desteklenen joker karakter kullanımı gösterilmiştir **gibi** koşulu. Adı belirtilen desen eşleşirse bildiren koşul (namePrefix\*nameSuffix) isteği reddeder:
@@ -71,6 +71,34 @@ Kaynak adları bir desenle eşleşen belirtmek için eşleşme koşul kullanın.
   "then": {
     "effect": "deny"
   }
+}
+```
+
+## <a name="set-multiple-naming-patterns"></a>Birden çok adlandırma modelleri ayarlayın
+
+Birden fazla adlandırma kuralı izin belirtmek için kullanın **tümü** ve **değil** işleçler. Sağlanan ad ya da Desen eşleşmiyorsa, aşağıdaki örnekte, reddedildi.
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "not": {
+                    "field": "name",
+                    "match": "contoso??????"
+                }
+            },
+            {
+                "not": {
+                    "field": "name",
+                    "match": "contoso-???-##"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }
 ```
 

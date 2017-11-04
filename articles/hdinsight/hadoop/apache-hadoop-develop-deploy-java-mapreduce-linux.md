@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 11/03/2017
 ms.author: larryfr
-ms.openlocfilehash: c8871dd59dd6974d5263f925d0638beb28847f21
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 75f52e09d141cd009127d46acf93cbab7fc6a4f6
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Hdınsight'ta Hadoop için Java MapReduce programlar geliştirmek
 

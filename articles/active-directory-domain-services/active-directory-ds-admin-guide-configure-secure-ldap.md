@@ -4,7 +4,7 @@ description: "Güvenli LDAP (LDAPS) bir Azure AD etki alanı Hizmetleri yönetil
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 93afa49166c5b31d23237c308b9d34f6d6f3507d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05af1ccc9702891980e60a1c1db4c527ffbed0fa
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) Azure AD etki alanı Hizmetleri yönetilen etki alanı için yapılandırma
 Bu makalede, Azure AD etki alanı Hizmetleri yönetilen etki alanınız için Güvenli Basit Dizin Erişim Protokolü (LDAPS) nasıl etkinleştirebilirsiniz gösterilmektedir. Güvenli LDAP olduğu olarak da bilinen ' Basit Dizin Erişim Protokolü (LDAP) Güvenli Yuva Katmanı (SSL) üzerinden / Aktarım Katmanı Güvenliği (TLS)'.
@@ -55,31 +55,36 @@ Güvenli LDAP etkinleştirmeden önce aşağıdaki yönergeleri başına geçerl
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Görev 1 - güvenli LDAP için bir sertifika edinin
 İlk görev, yönetilen etki alanına güvenli LDAP erişim için kullanılan bir sertifika edinme içerir. İki seçeneğiniz vardır:
 
-* Bir sertifika yetkilisinden bir sertifika edinin. Yetkili bir ortak sertifika yetkilisi olabilir.
+* Bir ortak sertifika yetkilisinden bir sertifika edinin.
 * Kendinden imzalı bir sertifika oluşturun.
-
-### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>(Önerilen). seçenek - bir sertifika yetkilisinden bir güvenli LDAP sertifikası alın
-Kuruluşunuz bir ortak sertifika yetkilisi sertifikalarını alırsa, bu ortak sertifika yetkilisinden güvenli LDAP sertifika edinmeniz gerekir.
-
-Anlatılan tüm gereksinimleri karşılayan bir sertifika isterken olun [güvenli LDAP sertifika için gereksinimler](#requirements-for-the-secure-ldap-certificate).
 
 > [!NOTE]
 > Güvenli LDAP kullanarak yönetilen etki alanına bağlanmak için gereken istemci bilgisayarlar güvenli LDAP sertifikayı veren güvenmesi gerekir.
 >
+
+### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>(Önerilen). seçenek - bir sertifika yetkilisinden bir güvenli LDAP sertifikası alın
+Kuruluşunuz bir ortak sertifika yetkilisi sertifikalarını alırsa, bu ortak sertifika yetkilisinden güvenli LDAP sertifika edinin.
+
+> [!TIP]
+> **İle yönetilen etki alanları için otomatik olarak imzalanan sertifikalar kullanmak '. onmicrosoft.com' etki alanı sonekleri.**
+> Yönetilen etki alanınızın DNS etki alanı adı ile biten, '. onmicrosoft.com', bir ortak sertifika yetkilisinden bir güvenli LDAP sertifika elde edemiyor. Microsoft 'onmicrosoft.com' etki alanına sahip olduğundan, bir güvenli LDAP sertifikası için bir etki alanı için bu sonekiyle vermek ortak sertifika yetkilileri reddeder. Bu senaryoda, kendinden imzalı bir sertifika oluşturun ve bu güvenli LDAP yapılandırmak için kullanın.
 >
 
+Ortak sertifika yetkilisinden elde sertifika anlatılan tüm gereksinimleri karşılayan olun [güvenli LDAP sertifika için gereksinimler](#requirements-for-the-secure-ldap-certificate).
+
+
 ### <a name="option-b---create-a-self-signed-certificate-for-secure-ldap"></a>Seçeneği B - güvenli LDAP için otomatik olarak imzalanan sertifika oluşturma
-Bir ortak sertifika yetkilisinden bir sertifika kullanmayı düşünmüyorsanız güvenli LDAP için otomatik olarak imzalanan bir sertifika oluşturmak tercih edebilirsiniz.
+Bir ortak sertifika yetkilisinden bir sertifika kullanmayı düşünmüyorsanız güvenli LDAP için otomatik olarak imzalanan bir sertifika oluşturmak tercih edebilirsiniz. Yönetilen etki alanınızın DNS etki alanı adı ile biten varsa bu seçeneği seçin '. onmicrosoft.com'.
 
 **PowerShell kullanarak otomatik olarak imzalanan bir sertifika oluşturun**
 
 Windows bilgisayarınızda olarak yeni bir PowerShell penceresi açın **yönetici** ve yeni bir otomatik olarak imzalanan sertifika oluşturmak için aşağıdaki komutları yazın.
+```
+$lifetime=Get-Date
+New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
+```
 
-    $lifetime=Get-Date
-
-    New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
-
-Önceki örnekte, Değiştir '*. contoso100.com', yönetilen etki alanınızın DNS etki alanı adına sahip. 'Contoso100.onmicrosoft.com' adında yönetilen bir etki alanı oluşturduysanız, for example, Değiştir '*. contoso100.com' ile yukarıdaki komut dosyasındaki ' *. contoso100.onmicrosoft.com').
+Önceki örnekte, Değiştir '*. contoso100.com', yönetilen etki alanınızın DNS etki alanı adına sahip. 'Contoso100.onmicrosoft.com' adında yönetilen bir etki alanı oluşturduysanız, for example, Değiştir '*. contoso100.com' ile önceki betikteki ' *. contoso100.onmicrosoft.com').
 
 ![Azure AD Dizini Seçme](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

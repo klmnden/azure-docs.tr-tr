@@ -3,7 +3,7 @@ title: "Azure MFA yapılandırma | Microsoft Docs"
 description: "Bu yapılacaklar sonraki MFA ile açıklayan Azure multi-Factor authentication sayfasıdır.  Bu raporlar, sahtekarlık Uyarısı, bir kerelik atlama, özel sesli mesajları, önbelleğe alma, güvenilen IP'leri ve uygulama parolaları içerir."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
-ms.author: kgremban
-ms.openlocfilehash: 9d77b9329116afcf2fdde48d672c95020738138c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: 527bdd492561ab11784a0b23384d17e055cb3f5c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure çok faktörlü kimlik doğrulama ayarlarını yapılandırın
 Bu makalede Azure çok faktörlü kimlik doğrulaması ve çalışıyor olduğundan göre yönetmenize yardımcı olur.  En Azure multi-Factor Authentication dışında elde size yardımcı çeşitli konuları kapsar.  Tüm bu özellikler Azure çok faktörlü kimlik doğrulaması her sürümünde kullanılabilir.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Oluşturun ve Azure'a FreeBSD VHD yükleyin
 Bu makalede nasıl oluşturulacağı ve bir sanal sabit FreeBSD işletim sistemini içeren disk (VHD) yüklemek gösterilmektedir. Karşıya yüklediğiniz sonra bunu kendi görüntünüzü Azure'da bir sanal makine (VM) oluşturmak için kullanabilirsiniz.
@@ -39,7 +39,7 @@ Bu makalede, aşağıdaki öğelerin bulunduğunu varsayar:
 >
 >
 
-Bu görev aşağıdaki beş adımı içerir:
+Bu görev aşağıdaki dört adımları içerir:
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>1. adım: görüntüyü karşıya yükleme için hazırlama
 FreeBSD işletim sisteminin yüklü olduğu sanal makine üzerinde aşağıdaki yordamları tamamlayın:
@@ -114,66 +114,21 @@ FreeBSD işletim sisteminin yüklü olduğu sanal makine üzerinde aşağıdaki 
 
     Şimdi, VM kapatma.
 
-## <a name="step-2-create-a-storage-account-in-azure"></a>2. adım: Azure depolama hesabı oluşturma
-Bir sanal makine oluşturmak için kullanılabilmesi için bir .vhd dosyası karşıya yüklemek için Azure depolama hesabı gerekir. Bir depolama hesabı oluşturmak için Klasik Azure portalını kullanabilirsiniz.
+## <a name="step-2-prepare-the-connection-to-azure"></a>2. adım: Azure bağlantısı hazırlama
+Azure CLI Klasik dağıtım modelinde kullandığınızdan emin olun (`azure config mode asm`), hesabınızda oturum açın:
 
-1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
-2. Komut çubuğunda seçin **yeni**.
-3. Seçin **Veri Hizmetleri** > **depolama** > **hızlı Oluştur**.
+```azurecli
+azure login
+```
 
-    ![Hızlı bir depolama hesabı oluşturma](./media/freebsd-create-upload-vhd/Storage-quick-create.png)
-4. Alanları aşağıdaki gibi doldurun:
 
-   * İçinde **URL** alanında, depolama hesabı URL'de kullanılacak bir alt etki alanı adı yazın. Giriş, 3-24 sayılar ve küçük harfleri içerebilir. Bu ad Azure Blob storage, Azure kuyruk depolama veya Azure Table storage kaynaklarını abonelik için gidermek için kullanılan URL içindeki konak adına dönüşür.
-   * İçinde **konum/benzeşim grubu** açılır menü seçin **konumu ya da benzeşim grubu** depolama hesabı için. Bir benzeşim grubu, aynı veri merkezinde bulut Hizmetleri ve depolama yerleştirmenizi sağlar.
-   * İçinde **çoğaltma** alan, kullanıp kullanmamaya karar verin **coğrafi olarak yedekli** depolama hesabı için çoğaltma. Coğrafi çoğaltma varsayılan olarak açıktır. Böylece birincil konumda önemli bir hata oluşursa, depolama alanınızın bu konuma yöneltilir bu seçenek, verilerinizi size, herhangi bir ücret ödemeden ikincil bir konuma çoğaltır. İkincil konum otomatik olarak atanır ve değiştirilemez. Yasal gereksinimler veya kuruluş ilkesi nedeniyle, bulut tabanlı depolama konumu hakkında daha fazla denetime ihtiyacınız varsa, coğrafi çoğaltma devre dışı bırakabilir. Bununla birlikte, coğrafi çoğaltma üzerinde daha sonra etkinleştirirseniz, varolan verilerinizi ikincil konuma çoğaltmak için tek seferlik veri aktarımı ücreti ücretlendirilir olduğunu unutmayın. Depolama Hizmetleri coğrafi çoğaltma olmadan indirimli fiyatla sunulur. Coğrafi çoğaltma depolama hesaplarını yönetme hakkında daha fazla bilgi şurada bulunabilir: [Azure Storage çoğaltma](../../../storage/common/storage-redundancy.md).
+<a id="upload"> </a>
 
-     ![Depolama hesabı ayrıntılarını girin](./media/freebsd-create-upload-vhd/Storage-create-account.png)
-5. Seçin **depolama hesabı oluşturma**. Hesap altında artık görünür **depolama**.
 
-    ![Depolama hesabı başarıyla oluşturuldu](./media/freebsd-create-upload-vhd/Storagenewaccount.png)
-6. Ardından, karşıya yüklenen .vhd dosyaları için bir kapsayıcı oluşturun. Depolama hesabı adı seçin ve ardından **kapsayıcıları**.
+## <a name="step-3-upload-the-vhd-file"></a>3. adım: .vhd dosyasını karşıya yükle
 
-    ![Depolama hesabı ayrıntısı](./media/freebsd-create-upload-vhd/storageaccount_detail.png)
-7. Seçin **bir kapsayıcı oluşturmak**.
+VHD dosyanızı karşıya yüklemek için bir depolama hesabı gerekir. Mevcut bir depolama hesabını ya da seçebilirsiniz veya [yeni bir tane oluşturun](../../../storage/common/storage-create-storage-account.md).
 
-    ![Depolama hesabı ayrıntısı](./media/freebsd-create-upload-vhd/storageaccount_container.png)
-8. İçinde **adı** alanında, kapsayıcı için bir ad yazın. Ardından **erişim** ne tür istediğiniz erişim ilkesi aşağı açılan menüsünde seçin.
-
-    ![Kapsayıcı adı](./media/freebsd-create-upload-vhd/storageaccount_containervalues.png)
-
-   > [!NOTE]
-   > Varsayılan olarak, kapsayıcı özeldir ve yalnızca hesap sahibi tarafından erişilebilir. BLOB kapsayıcısında, ancak değil kapsayıcı özellikleri ve meta veriler için herkese okuma erişimi sağlamak için kullanın **ortak Blob** seçeneği. BLOB'ları ve kapsayıcısı için tam herkese okuma erişimi sağlamak için kullanın **ortak kapsayıcı** seçeneği.
-   >
-   >
-
-## <a name="step-3-prepare-the-connection-to-azure"></a>3. adım: Azure bağlantısı hazırlama
-Bir .vhd dosyası yükleyebilir önce bilgisayarınızı Azure aboneliğinize arasında güvenli bir bağlantı kurmak gerekir. Yapmak için Azure Active Directory (Azure AD) veya sertifika yöntemini kullanabilirsiniz.
-
-### <a name="use-the-azure-ad-method-to-upload-a-vhd-file"></a>.Vhd dosyasını karşıya yüklemek için Azure AD yöntemini kullanın
-1. Azure PowerShell konsolunu açın.
-2. Aşağıdaki komutu yazın:  
-    `Add-AzureAccount`
-
-    Bu komut, bir oturum açma penceresi burada iş veya Okul hesabınızla oturum açar.
-
-    ![PowerShell penceresi](./media/freebsd-create-upload-vhd/add_azureaccount.png)
-3. Azure kimlik doğrulaması ve kimlik bilgileri kaydeder. Ardından penceresini kapatır.
-
-### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>.Vhd dosyasını karşıya yüklemek için sertifika yöntemini kullanın
-1. Azure PowerShell konsolunu açın.
-2. Tür: `Get-AzurePublishSettingsFile`.
-3. Bir tarayıcı penceresi açar ve .publishsettings dosyasını karşıdan yüklemek isteyip istemediğinizi sorar. Bu dosya bilgileri ve Azure aboneliğiniz için bir sertifika içerir.
-
-    ![Tarayıcı indirme sayfası](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
-4. .Publishsettings dosyasını kaydedin.
-5. Tür: `Import-AzurePublishSettingsFile <PathToFile>`, burada `<PathToFile>` .publishsettings dosyasının tam yoludur.
-
-   Daha fazla bilgi için bkz: [Azure cmdlet'leri kullanmaya başlama](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
-
-   Yükleme ve PowerShell yapılandırma hakkında daha fazla bilgi için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
-
-## <a name="step-4-upload-the-vhd-file"></a>4. adım: .vhd dosyasını karşıya yükle
 İçinde Blob Depolama alanınızın .vhd dosyasını karşıya yüklediğinde, herhangi bir yere yerleştirebilirsiniz. Dosyayı karşıya yüklediğinizde kullanacağınız bazı şartları şunlardır:
 
 * **BlobStorageURL** 2. adımda oluşturduğunuz depolama hesabı için URL.
@@ -185,7 +140,7 @@ Bir .vhd dosyası yükleyebilir önce bilgisayarınızı Azure aboneliğinize ar
 
         Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
-## <a name="step-5-create-a-vm-with-the-uploaded-vhd-file"></a>5. adım: karşıya yüklenen .vhd dosyası bir VM oluşturma
+## <a name="step-4-create-a-vm-with-the-uploaded-vhd-file"></a>4. adım: karşıya yüklenen .vhd dosyası bir VM oluşturma
 .Vhd dosyasını yükledikten sonra bunu bir görüntü olarak aboneliğinizle ilişkili olan ve bu özel görüntü ile bir sanal makine oluşturmak özel resimler listesine ekleyebilirsiniz.
 
 1. Önceki adımda kullanılan Azure PowerShell penceresinden yazın:

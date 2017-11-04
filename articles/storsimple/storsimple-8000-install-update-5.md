@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: e9b2f8b225c6b9ed0f0622e6a51a48cdfada28bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple Cihazınızda güncelleştirme 5 yükleyin
 
@@ -30,7 +30,7 @@ Güncelleştirme 5 içerir aygıt yazılımı, Storport ve Spaceport, işletim s
 
 > [!IMPORTANT]
 > * Elle ve otomatik ön denetimleri kümesini donanım durumu ve ağ bağlantısı bakımından cihaz durumunu belirlemek için yükleme öncesinde gerçekleştirilir. Azure portalından güncelleştirmeleri uygularsanız, bu ön denetimleri gerçekleştirilir.
-> * Güncelleştirme 3'den önceki sürümleri çalıştıran bir cihazda güncelleştirirken düzeltme yöntemi kullanarak güncelleştirmeleri yüklemeniz önerilir. Update aracılığıyla Kılavuzu Destek'e yardımcı olmak için [bir destek bileti oturum](storsimple-8000-contact-microsoft-support.md).
+> * Güncelleştirme 3'den önceki sürümleri çalıştıran bir cihazda güncelleştirirken düzeltme yöntemi kullanarak güncelleştirmeleri yüklemeniz önerilir. Herhangi bir sorunla karşılaşırsanız [bir destek bileti oturum](storsimple-8000-contact-microsoft-support.md).
 > * Yazılım ve diğer düzenli güncelleştirmeler Azure Portalı aracılığıyla yüklemenizi öneririz. Portalda güncelleştirme öncesi ağ geçidi denetimi başarısız olursa (güncelleştirmeleri yüklemek için) cihazın Windows PowerShell arabirimine yalnızca gitmeniz gerekir. Gelen güncelleştirdiğiniz sürümüne bağlı olarak, güncelleştirmeleri 4 saat sürebilir (veya daha büyük) yüklemek için. Bakım modu güncelleştirmeleri aygıtı Windows PowerShell arabirimi yüklenmesi gerekir. Bakım modu kesintiye uğratan güncelleştirmelerdir gibi bu cihazınız için aşağı zaman sonuçlanır.
 > * İsteğe bağlı StorSimple Snapshot Manager çalışıyorsa, anlık görüntü Yöneticisi'ni sürümünüzü güncelleştirme 5 aygıtı güncelleştirme önce yükselttikten emin olun.
 

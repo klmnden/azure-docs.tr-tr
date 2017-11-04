@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: willzhan;juliako
-ms.openlocfilehash: 1c62857699fb29b3583363e1c6f2dc7874635f40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.author: willzhan;juliako;johndeu
+ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure Media Services API REST ile erişmek için Azure AD kimlik doğrulaması kullanın
 
@@ -86,21 +86,14 @@ JWT ve özniteliklere dört uygulamalar veya hizmetler önceki tabloda arasında
 |Uygulama türü |Uygulama |JWT özniteliği |
 |---|---|---|
 |İstemci |Müşteri uygulama ya da çözüm |AppID: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6". Bir uygulamanın istemci Kimliğini sonraki bölümde Azure AD ile kaydeder. |
-|Kimlik sağlayıcıyı (IDP) | IDP olarak Azure AD |IDP: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/".  Microsoft kimlik Kiracı (microsoft.onmicrosoft.com) GUID'dir. Her bir kiracı kendi, benzersiz kimliği vardır. |
+|Kimlik sağlayıcıyı (IDP) | IDP olarak Azure AD |IDP: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/" GUID olan Microsoft kimliği Kiracı (microsoft.onmicrosoft.com). Her bir kiracı kendi, benzersiz kimliği vardır. |
 |Belirteç Hizmeti (STS) güvenli / OAuth sunucu |STS olarak Azure AD | ISS: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/". Microsoft kimlik Kiracı (microsoft.onmicrosoft.com) GUID'dir. |
 |Kaynak | Media Services REST API'si |aud: "https://rest.media.azure.net". Alıcı ya da erişim belirteci İzleyici. |
 
 ## <a name="steps-for-setup"></a>Kurulum adımları
 
-Kaydolun ve Azure AD kimlik doğrulaması için Azure AD uygulaması ayarlayın ve Azure Media Services REST API uç noktası çağrılmadan için bir erişim belirteci edinmek için aşağıdaki adımları tamamlayın:
+Kaydolun ve Azure Active Directory (AAD) uygulama ayarlama ve Azure Media Services REST API uç noktası çağrılmadan tuşları edinmek için makalesine başvurun [Azure portalını kullanarak Azure AD kimlik doğrulaması ile çalışmaya başlama](media-services-portal-get-started-with-aad.md)
 
-1.  İçinde [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885), Azure AD uygulaması (örneğin, wzmediaservice) Azure AD kiracısı (örneğin, microsoft.onmicrosoft.com) kaydedin. Web uygulaması veya yerel uygulama kayıtlı olup olmadığını önemli değildir. Ayrıca, tüm oturum açma URL'si ve yanıt URL'si (örneğin, her ikisi için de http://wzmediaservice.com) seçebilirsiniz.
-2. İçinde [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885)gidin **yapılandırma** uygulamanızın sekmesi. Not **istemci kimliği**. Ardından, altında **anahtarları**, Oluştur bir **istemci anahtar** (gizli). 
-
-    > [!NOTE] 
-    > İstemci gizli anahtarı not edin. Yeniden gösterilmeyecektir.
-    
-3.  İçinde [Azure portal](http://ms.portal.azure.com)Media Services hesabı'na gidin. Seçin **erişim denetimi** (IAM) bölmesi. Sahibi veya katkıda bulunan rolü sahip yeni bir üye ekleyin. Asıl için (Bu örnekte, wzmediaservice) 1. adımda kaydettiğiniz uygulama adını arayın.
 
 ## <a name="info-to-collect"></a>Bilgi toplamak için
 
@@ -138,9 +131,9 @@ Daha sonra kodunuzda kullanmak için web.config veya app.config dosyasını, bu 
 
 Bazı okuyucular isteyebilir: yenileme belirtecini nerede? Neden bir yenileme belirteci burada kullanabilir?
 
-Bir yenileme belirteci amacı, bir erişim belirteci yenileme değil olmaktır. Bunun yerine, son kullanıcı kimlik doğrulaması veya kullanıcı müdahalesi atlamak ve bir önceki belirteç süresi dolduğunda hala geçerli erişim belirteci almak için tasarlanmıştır. Bir yenileme belirteci için daha iyi bir adı "kullanıcı yeniden-oturumu açma belirteci atlama."gibi bir şey olabilir
+Bir yenileme belirteci amacı, bir erişim belirteci yenileme değil olmaktır. Son kullanıcı kimlik doğrulamasını atlamak ve bir önceki belirtecinin süresi dolduğunda hala geçerli erişim belirteci almak için tasarlanmıştır. Bir yenileme belirteci için daha iyi bir adı "kullanıcı yeniden-oturumu açma belirteci atlama."gibi bir şey olabilir
 
-Yetki akış (kullanıcı adı ve parola, bir kullanıcı adına hareket) OAuth 2.0 kullanıyorsanız, yenileme belirteci, kullanıcı müdahalesi gerektirmeden yenilenmiş bir erişim belirteci almak yardımcı olur. Ancak, biz bu makalede açıklamak akış istemci kimlik bilgileri vermenizi OAuth 2.0 için istemci kendi adına hareket eder. Hiçbir kullanıcı etkileşimi gerekmez ve yetkilendirme sunucusu, bir yenileme belirteci vermek gerekmez ve olmaz. Hata ayıklama, **GetUrlEncodedJWT** yöntemi, fark belirteç uç noktası yanıttan bir erişim belirteci ancak herhangi bir yenileme belirteci sahiptir.
+Yetki akış (kullanıcı adı ve parola, bir kullanıcı adına hareket) OAuth 2.0 kullanıyorsanız, yenileme belirteci, kullanıcı müdahalesi gerektirmeden yenilenmiş bir erişim belirteci almak yardımcı olur. Ancak, bu makalede açıklanan akış istemci kimlik bilgileri vermenizi OAuth 2.0 için istemci kendi adına hareket eder. Hiçbir kullanıcı etkileşimi gerekmez ve bir yenileme belirteci vermek yetkilendirme sunucusu gerekmez. Hata ayıklama, **GetUrlEncodedJWT** yöntemi, fark belirteç uç noktası yanıttan bir erişim belirteci ancak herhangi bir yenileme belirteci sahiptir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

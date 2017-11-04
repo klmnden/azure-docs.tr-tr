@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Hive Azure Hdınsight kullanarak sorun giderme
 
 Üst sorular ve bunların çözümleri hakkında Apache Ambari, Apache Hive yükü ile çalışırken öğrenin.
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Nasıl bir Hive meta depo dışarı aktarma ve başka bir kümede alma
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Nasıl bir Hive meta depo dışarı aktarma ve başka bir kümede alma?
 
 
 ### <a name="resolution-steps"></a>Çözüm adımları
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 - [SSH kullanarak bir Hdınsight kümesine bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Bir kümede nasıl Hive günlüklerini bulun
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Bir kümede nasıl Hive günlüklerini bulun?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 - [SSH kullanarak bir Hdınsight kümesine bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Bir kümede belirli yapılandırmalarla Hive kabuğunu nasıl başlatma
+## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Bir kümede belirli yapılandırmalarla Hive kabuğunu nasıl başlatma?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 10/11/2017
 - [Hive yapılandırma özellikleri](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Küme kritik yolunda Tez DAG verileri nasıl çözümlemek
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Küme kritik yolunda Tez DAG verileri nasıl çözümlemek?
 
 
 ### <a name="resolution-steps"></a>Çözüm adımları
@@ -150,7 +150,7 @@ ms.lasthandoff: 10/11/2017
 - [SSH kullanarak bir Hdınsight kümesine bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Bir kümeden nasıl Tez DAG veri karşıdan
+## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Bir kümeden nasıl Tez DAG veri karşıdan?
 
 
 #### <a name="resolution-steps"></a>Çözüm adımları
@@ -177,6 +177,8 @@ Tez DAG verileri toplamak için iki yolu vardır:
 [SSH kullanarak bir Hdınsight kümesine bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
+### <a name="see-also"></a>Ayrıca Bkz.
+[Azure Hdınsight kullanarak sorun giderme](hdinsight-troubleshoot-guide.md)
 
 
 

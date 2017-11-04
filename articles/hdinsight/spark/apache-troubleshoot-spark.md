@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/31/2017
+ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 03094a37185909855127a92d7dd10ad27e54c3f9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b75aca7d9f78cb425099cc33034b44a80d7b6b81
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Spark Azure Hdınsight kullanarak sorun giderme
 
 Apache Ambari, Apache Spark yükü ile çalışırken, üst sorunları ve bunların çözümleri hakkında bilgi edinin.
 
-## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Spark uygulama kümelerinde Ambari kullanarak nasıl yapılandırırım
+## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Spark uygulama kümelerinde Ambari kullanarak nasıl yapılandırırım?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
@@ -94,7 +94,7 @@ Bu değişiklikler, küme çapında ancak Spark iş gönderdiğinizde geçersiz 
 [Hdınsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Spark uygulama kümelerinde Jupyter Not Defteri kullanarak nasıl yapılandırırım
+## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Spark uygulama kümelerinde Jupyter Not Defteri kullanarak nasıl yapılandırırım?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
@@ -109,7 +109,7 @@ Bu değişiklikler, küme çapında ancak Spark iş gönderdiğinizde geçersiz 
 [Hdınsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Spark uygulama kümelerinde Livy kullanarak nasıl yapılandırırım
+## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Spark uygulama kümelerinde Livy kullanarak nasıl yapılandırırım?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
@@ -126,7 +126,7 @@ Bu değişiklikler, küme çapında ancak Spark iş gönderdiğinizde geçersiz 
 [Hdınsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Kümelerinde nasıl kullanarak uygulama spark gönderme Spark yapılandırırım
+## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Kümelerinde nasıl kullanarak uygulama spark gönderme Spark yapılandırırım?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
@@ -143,7 +143,7 @@ Bu değişiklikler, küme çapında ancak Spark iş gönderdiğinizde geçersiz 
 [Hdınsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Ne bir Spark uygulama OutofMemoryError özel duruma neden olur
+## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Bir Spark uygulama OutofMemoryError özel durum nedeni nedir?
 
 ### <a name="detailed-description"></a>Ayrıntılı açıklama
 
@@ -226,4 +226,8 @@ Büyük olasılıkla bu özel durum yığın bellek yetersiz Java sanal makinele
 
 - [Spark bellek yönetimine genel bakış](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [Bir Hdınsight kümesi üzerinde Spark uygulamanızın hatalarını ayıklama](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+
+
+### <a name="see-also"></a>Ayrıca Bkz.
+[Azure Hdınsight kullanarak sorun giderme](../../hdinsight/hdinsight-troubleshoot-guide.md)
 

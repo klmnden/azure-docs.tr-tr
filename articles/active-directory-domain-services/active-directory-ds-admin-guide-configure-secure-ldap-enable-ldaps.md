@@ -4,7 +4,7 @@ description: "Güvenli LDAP (LDAPS) bir Azure AD etki alanı Hizmetleri yönetil
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 245ad4948cf4b8c2d44a0dafb61923b0b4267856
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2ef65bb4dc8e12a18265ae8264def2bb32e191f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) Azure AD etki alanı Hizmetleri yönetilen etki alanı için yapılandırma
 
@@ -48,8 +48,8 @@ Güvenli LDAP etkinleştirmek için aşağıdaki yapılandırma adımlarını ge
     ![Güvenli LDAP etkinleştir](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. Varsayılan olarak, internet üzerinden yönetilen etki alanınız için güvenli LDAP erişim devre dışıdır. İki durumlu **Internet üzerinden güvenli LDAP erişim izni** için **etkinleştirmek**istenirse. 
 
-    > [!TIP]
-    > Internet üzerinden güvenli LDAP erişimi etkinleştirirseniz, bir NSG gerekli kaynak IP adresi aralıklarını erişimi kilitleme ayarlama öneririz. Yönergeler için bkz: [LDAPS erişim internet üzerinden yönetilen etki alanınız için kilitleme](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet).
+    > [!WARNING]
+    > Etki alanınızı Internet üzerinden güvenli LDAP erişimi etkinleştirdiğinizde, Internet üzerinden parola deneme yanılma saldırılarına açıktır. Bu nedenle, bir NSG gerekli kaynak IP adresi aralıklarını erişimi kilitleme ayarlama öneririz. Yönergeler için bkz: [LDAPS erişim internet üzerinden yönetilen etki alanınız için kilitleme](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
     >
 
 6. Klasör simgesine aşağıdaki **. Güvenli LDAP Sertifika PFX dosyası**. Güvenli LDAP erişim yönetilen etki alanı için sertifikayla PFX dosyasının yolunu belirtin.
@@ -79,7 +79,7 @@ Bu görev başlamadan önce özetlenen adımları tamamladığınızdan emin olu
 
 Güvenli LDAP erişim internet üzerinden yönetilen etki alanınız için etkinleştirdikten sonra DNS istemci bilgisayarları Bu yönetilen etki alanı bulabilmesi için güncelleştirmeniz gerekir. Dış IP adresini gösterilir görev 3 sonunda **özellikleri** sekmesinde **dış IP adresi için LDAPS erişim**.
 
-(Örneğin, ' ldaps.contoso100.com') yönetilen etki alanının DNS adı bu dış IP adresine işaret eden dış DNS sağlayıcınız yapılandırın. Bizim örneğimizde aşağıdaki DNS girişini oluşturmak üzere ihtiyacımız var:
+(Örneğin, ' ldaps.contoso100.com') yönetilen etki alanının DNS adı bu dış IP adresine işaret eden dış DNS sağlayıcınız yapılandırın. Örneğin, aşağıdaki DNS girişi oluşturun:
 
     ldaps.contoso100.com  -> 52.165.38.113
 
@@ -91,9 +91,9 @@ Güvenli LDAP erişim internet üzerinden yönetilen etki alanınız için etkin
 >
 
 
-## <a name="task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet"></a>Görev 5 - internet üzerinden yönetilen etki alanınız için kilitleme LDAPS erişim
+## <a name="task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Görev 5 - internet üzerinden yönetilen etki alanınız için güvenli LDAP erişim kilitleme
 > [!NOTE]
-> **İsteğe bağlı görev** - internet üzerinden yönetilen etki alanına LDAPS erişim etkinleştirmediyseniz, bu yapılandırma görevi atlayın.
+> İnternet üzerinden yönetilen etki alanına LDAPS erişim etkinleştirmediyseniz, bu yapılandırma görevi atlayın.
 >
 >
 
@@ -101,13 +101,28 @@ Bu görev başlamadan önce özetlenen adımları tamamladığınızdan emin olu
 
 Yönetilen etki alanınız LDAPS erişim için internet üzerinden kullanıma sunan bir güvenlik tehdidi temsil eder. Yönetilen etki alanı güvenli LDAP için kullanılan bağlantı noktası Internet'ten erişilebilir olduğundan (diğer bir deyişle, bağlantı noktası 636). Bu nedenle, belirli bilinen IP adreslerini yönetilen etki alanına erişimi kısıtlamak seçebilirsiniz. Gelişmiş güvenlik için bir ağ güvenlik grubu (NSG) oluşturun ve Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz alt ağı ile ilişkilendirin.
 
-Aşağıdaki tabloda bir örnek, internet üzerinden güvenli LDAP erişim kilitlemek için yapılandırabileceğiniz NSG gösterilmektedir. NSG gelen LDAPS erişim TCP bağlantı noktası IP adreslerinin üzerinden 636 belirtilen kümesinden yalnızca izin veren kurallar kümesini içerir. Varsayılan 'DenyAll' kural, internet'ten diğer gelen trafik için geçerlidir. Belirtilen IP adreslerini Internet üzerinden LDAPS erişime izin verecek şekilde NSG kuralı DenyAll NSG kural daha yüksek önceliğe sahip.
+Aşağıdaki tabloda bir örnek, internet üzerinden güvenli LDAP erişim kilitlemek için yapılandırabileceğiniz NSG gösterilmektedir. NSG gelen güvenli LDAP erişim TCP bağlantı noktası IP adreslerinin üzerinden 636 belirtilen kümesinden yalnızca izin veren kurallar kümesini içerir. Varsayılan 'DenyAll' kural, internet'ten diğer gelen trafik için geçerlidir. Belirtilen IP adreslerini Internet üzerinden LDAPS erişime izin verecek şekilde NSG kuralı DenyAll NSG kural daha yüksek önceliğe sahip.
 
 ![Örnek internet üzerinden LDAPS erişimi güvenli hale getirmek için NSG](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
 **Daha fazla bilgi** - [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md).
 
 <br>
+
+
+## <a name="troubleshooting"></a>Sorun giderme
+Güvenli LDAP kullanarak yönetilen etki alanına bağlanma konusunda sorun yaşıyorsanız, aşağıdaki sorun giderme adımları gerçekleştirin:
+* Güvenli LDAP sertifika veren zincirine istemcide güvenilir kabul edildiğinden emin olun. Kök sertifika yetkilisi güven sağlamak için istemcide güvenilen kök sertifika deposuna eklemek tercih edebilirsiniz.
+* Güvenli LDAP sertifika, varsayılan olarak yeni windows makinede güvenilir değil bir ara sertifika yetkilisi tarafından verilmedi doğrulayın.
+* LDAP istemcisi (örneğin, ldp.exe) bir DNS adı, IP adresi kullanarak güvenli LDAP uç noktasına bağlandığını doğrulayın.
+* LDAP istemcisi ortak IP adresine çözümlenecek şekilde yönetilen etki alanı güvenli LDAP bağlanır DNS adını doğrulayın.
+* Yönetilen etki alanınız için güvenli LDAP sertifikası konu veya konu alternatif adlarını özniteliği DNS adına sahip doğrulayın.
+
+Güvenli LDAP kullanarak yönetilen etki alanına bağlanırken sorun yaşamaya devam ediyorsanız [ürün ekibine başvurun](active-directory-ds-contact-us.md) Yardım. Sorunu daha iyi tanılamaya yardımcı olması için aşağıdaki bilgileri içerir:
+* Bağlantı yapma ve başarısız olan Ldp.exe'yi ekran görüntüsü.
+* Azure AD Kiracı Kimliğinizi ve yönetilen etki alanınızın DNS etki alanı adı.
+* Olarak bağlamaya çalıştığınız tam kullanıcı adı.
+
 
 ## <a name="related-content"></a>İlgili içerik
 * [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](active-directory-ds-getting-started.md)

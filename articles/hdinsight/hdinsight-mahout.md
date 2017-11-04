@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: larryfr
-ms.openlocfilehash: 569aeef58e601174aa9f28dc3ba39ebae17c17f8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8f40beb4e3eb8020a65eac6e43ffefe4fedfcee2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>(PowerShell) hdınsight'ta Hadoop ile Apache Mahout kullanarak film önerileri oluşturma
 
@@ -56,11 +56,11 @@ Aşağıdaki örnek öneri işleminin nasıl çalıştığı, Basitleştirilmiş
 
 ### <a name="understanding-the-data"></a>Veri anlama
 
-[GroupLens araştırma] [ movielens] Mahout ile uyumlu bir biçimde film derecelendirme veri sağlar. Bu verilerin varsayılan depolama konumunda kümenize için kullanılabilir `/HdiSamples//HdiSamples/MahoutMovieData`.
+[GroupLens araştırma] [ movielens] Mahout ile uyumlu bir biçimde film derecelendirme veri sağlar. Bu verilerin varsayılan depolama konumunda kümenize için kullanılabilir `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 İki dosya vardır `moviedb.txt` (filmler hakkındaki bilgiler) ve `user-ratings.txt`. `user-ratings.txt` Dosyası Çözümleme sırasında kullanılır. `moviedb.txt` Dosya çözümleme sonuçlarını görüntülerken, kullanımı kolay metin sağlamak için kullanılır.
 
-Kullanıcı-ratings.txt bulunan verileri yapısını sahip `userID`, `movieID`, `userRating`, ve `timestamp`, söyleyen bize nasıl yüksek oranda her kullanıcı bir filmi derecelendirilir. Verileri bir örneği burada verilmiştir:
+Kullanıcı-ratings.txt bulunan verileri yapısını sahip `userID`, `movieID`, `userRating`, ve `timestamp`, her kullanıcı bir filmi nasıl yüksek oranda derecelendirilmiş söyler. Verileri bir örneği burada verilmiştir:
 
     196    242    3    881250949
     186    302    3    891717742

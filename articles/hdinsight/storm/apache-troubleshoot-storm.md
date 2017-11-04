@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Storm Azure Hdınsight kullanarak sorun giderme
 
 Üst sorunları ve bunların çözümleri için Apache Ambari, Apache Storm yükü ile çalışma hakkında bilgi edinin.
 
-## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Bir küme üzerindeki Storm kullanıcı arabirimini nasıl erişirim
+## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Bir küme üzerindeki Storm kullanıcı arabirimini nasıl erişirim?
 Storm kullanıcı Arabirimi bir tarayıcıdan erişirken için iki seçeneğiniz vardır:
 
 ### <a name="ambari-ui"></a>Ambari kullanıcı Arabirimi
@@ -42,7 +42,7 @@ https://\<küme DNS adına\>/stormui
 
  https://stormcluster.azurehdinsight.NET/stormui
 
-## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Nasıl ı Storm olay hub'ı spout denetim noktası bilgilerini bir topoloji başka bir bilgisayara aktarmak
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Nasıl ı Storm olay hub'ı spout denetim noktası bilgilerini bir topoloji başka bir bilgisayara aktarmak?
 
 Azure olay hub'larından okumayı topolojileri geliştirirken .jar dosyasına spout Hdınsight Storm olay hub'ı kullanarak, yeni kümede aynı ada sahip bir topoloji dağıtmanız gerekir. Ancak, Apache ZooKeeper eski kümede kaydedilen denetim noktası verileri korumanız gerekir.
 
@@ -86,14 +86,14 @@ Dışa Aktar komutunu bir Apache Hadoop dağıtılmış dosya sistemi (HDFS) yol
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
     ```
 
-## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Bir kümede nasıl Storm ikili dosyaları bulun
+## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Bir kümede nasıl Storm ikili dosyaları bulun?
 Geçerli HDP yığını için Storm ikili dosyalarını /usr/hdp/current/storm-client içinde ' dir. Konumun baş düğümler ve çalışan düğümleri için aynıdır.
  
 Birden çok ikili dosyaları /usr/hdp (örneğin, /usr/hdp/2.5.0.1233/storm) belirli HDP sürümlerde için olabilir. Küme üzerinde çalışan en son sürüme symlinked /usr/hdp/current/storm-client klasörüdür.
 
 Daha fazla bilgi için bkz: [SSH kullanarak Hdınsight kümesine bağlanma](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) ve [Storm](http://storm.apache.org/).
  
-## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Bir Storm kümesine dağıtım topolojisi nasıl belirlerim
+## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Bir Storm kümesine dağıtım topolojisi nasıl belirlerim?
 İlk olarak, Hdınsight Storm ile yüklenen tüm bileşenler tanımlayın. Storm kümesi dört düğüm kategorilerini oluşur:
 
 * Ağ geçidi düğümleri
@@ -122,7 +122,7 @@ Storm çalışan düğümleri aşağıdaki hizmetleri çalıştırın:
 * Çalışan Java topolojileri çalıştırmak için makineleri (JVMs)
 * Ambari aracı
  
-## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Geliştirme için Storm olay hub'ı spout ikili dosyalarını nasıl bulun
+## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Geliştirme için Storm olay hub'ı spout ikili dosyalarını nasıl bulun?
  
 Storm olay hub'ı spout .jar dosyaları topolojinizi ile kullanma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın.
  
@@ -138,7 +138,7 @@ Hdınsight 3.5 + Linux Storm kümeleri ile çalışır son Storm olay hub'ı spo
 ### <a name="source-code-examples"></a>Kaynak kodu örnekleri
 Bkz: [örnekler](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) okuma ve Azure Event Hub'ın bir Azure Hdınsight kümesinde (Java'da yazılmış) bir Apache Storm topolojisini kullanarak gelen yazma konusunda.
  
-## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Storm Log4J yapılandırma dosyalarını kümelerde nasıl bulun
+## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Storm Log4J yapılandırma dosyalarını kümelerde nasıl bulun?
  
 Apache Log4J yapılandırma dosyalarını Storm hizmetleri tanımlamak için.
  
@@ -152,3 +152,5 @@ Yönetici Log4J yapılandırma okunur/usr/hdp/\<HDP sürüm\>/storm/log4j2/clust
  
 Örnekler: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
+### <a name="see-also"></a>Ayrıca Bkz.
+[Azure Hdınsight kullanarak sorun giderme](../../hdinsight/hdinsight-troubleshoot-guide.md)

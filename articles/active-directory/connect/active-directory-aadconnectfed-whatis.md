@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: anandy
-ms.openlocfilehash: 6822320c92d106d28607289a90f2f08a51e04070
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc5ef81704423c5a1bc136fb2d51d79a9265e20
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect ve federasyon
 Federasyon ile yapılandırmanıza azure Active Directory (Azure AD) Bağlan olanak şirket içi Active Directory Federasyon Hizmetleri (AD FS) ve Azure AD. Federasyon ile oturum açma, kullanıcıların parolalarını yeniden girmek zorunda kalmadan şirket ağ üzerindeyken, Azure AD tabanlı hizmetlere ile şirket içi parolalarını--ve oturum açmak etkinleştirebilirsiniz. AD FS ile Federasyon seçeneğini kullanarak, yeni bir AD FS yüklemesini dağıtabilir veya bir Windows Server 2012 R2 grubunda varolan bir yüklemesini belirtebilirsiniz.
@@ -40,6 +40,7 @@ Bu konu, Azure AD Connect Federasyon ile ilgili işlevler hakkında bilgi için 
 | [Yeni bir AD FS WAP Sunucusu Ekle](active-directory-aadconnect-federation-management.md#addwapserver) |İlk yüklemeden sonra ek bir Web uygulaması Ara sunucusu (WAP) sunucu içeren bir AD FS grubunu genişletin. |
 | [Yeni bir Federasyon etki alanına ekleme](active-directory-aadconnect-federation-management.md#addfeddomain) |Azure AD ile birleştirilecek başka bir etki alanına ekleyin. |
 | [SSL sertifikasını güncelleştir](active-directory-aadconnectfed-ssl-update.md)| SSL sertifikası için bir AD FS grubunu güncelleştirin. |
+| [Office 365 ve Azure AD için Federasyon sertifikalarını yenileme](active-directory-aadconnect-o365-certs.md)|Azure AD ile O365 sertifikanızı yenileyin.|
 | **Başka bir Federasyon yapılandırma** | |
 | [Azure AD’nin birden çok örneğini tek bir AD FS örneği ile birleştirme](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | Birden çok Azure AD ile tek bir AD FS grubunu birleştirmek| 
 | [Bir özel şirket logosu/çizim Ekle](active-directory-aadconnect-federation-management.md#customlogo) |Oturum açma deneyimi, AD FS oturum açma sayfasında gösterilen özel logo belirterek değiştirin. |

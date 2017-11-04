@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>İç yük dengeleyici için yüksek kullanılabilirlik bağlantı noktalarını yapılandırma
 
-Bu makalede örnek dağıtımı için yüksek kullanılabilirlik (HA) bir iç yük dengeleyici bağlantı noktaları sağlar. Ağ sanal gereçlerine belirli yapılandırmaları için karşılık gelen sağlayıcı Web sitelerine bakın.
+Bu makalede örnek dağıtımı için yüksek kullanılabilirlik (HA) bir iç yük dengeleyici bağlantı noktaları sağlar. Ağ sanal Gereçleri (NVAs) belirli yapılandırmaları için karşılık gelen sağlayıcı Web sitelerine bakın.
 
 >[!NOTE]
 > Yüksek kullanılabilirlik bağlantı noktalarını özelliği şu anda önizlemede değil. Önizleme sırasında bu özellik genel kullanılabilirlik sunumundaki özelliklerle aynı seviyede kullanılabilirliğe ve güvenilirliğe sahip olmayabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Şekil 1, bu makalede açıklanan dağıtım örneği aşağıdaki yapılandırma gösterilmektedir:
 - Bir iç yük dengeleyici arkasında HA bağlantı noktalarını yapılandırma arka uç havuzundaki NVAs dağıtılır. 
-- UDR üzerinde DMZ alt ağ yollarını tüm trafiği <>? sonraki atlama iç yük dengeleyici sanal IP olarak yaparak uygulanır. 
+- UDR üzerinde DMZ alt ağ yollarını tüm trafik için NVAs sonraki atlama iç yük dengeleyici sanal IP olarak yaparak uygulanır. 
 - İç yük dengeleyici LB algoritması göre etkin NVAs birine trafiği dağıtır.
 - NVA trafiği işler ve arka uç alt özgün hedef iletir.
 - Karşılık gelen UDR arka uç alt ağda yapılandırılmışsa dönüş yolu da aynı yol alabilir. 
@@ -41,19 +41,13 @@ Bu makalede örnek dağıtımı için yüksek kullanılabilirlik (HA) bir iç y�
 
 ## <a name="preview-sign-up"></a>Önizleme kaydolma
 
-Yük Dengeleyici standart SKU HA bağlantı noktalarını özelliğinde önizlemede katılmak için PowerShell veya Azure CLI 2.0 kullanarak erişmek için aboneliğinizi kaydedin.
+Yük Dengeleyici standart HA bağlantı noktalarını özelliği Önizlemesi'na katılmak için Azure CLI 2.0 veya PowerShell kullanarak erişmek için aboneliğinizi kaydedin.  Lütfen, aboneliğiniz için kaydolun
 
-- PowerShell kullanarak kaydolun
+1. [Yük Dengeleyici Standard Önizleme](https://aka.ms/lbpreview#preview-sign-up) ve 
+2. [HA bağlantı noktalarını Önizleme](https://aka.ms/haports#preview-sign-up).
 
-   ```powershell
-   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-
-- Azure CLI 2.0 kullanan kaydolun
-
-    ```cli
-  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
-    ```
+>[!NOTE]
+>Bu özelliği kullanmak için ayrıca kaydolma yük dengeleyici için gereken [Standard Önizleme](https://aka.ms/lbpreview#preview-sign-up) HA bağlantı noktalarının yanı sıra. HA bağlantı noktaları veya yük dengeleyici standart önizlemeleri kaydı için bir saat sürebilir.
 
 ## <a name="configuring-ha-ports"></a>HA bağlantı noktalarını yapılandırma
 
@@ -68,6 +62,39 @@ Azure portalı içerir **HA bağlantı noktaları** bu yapılandırma için bir 
 ![Ha yapılandırması Azure portal aracılığıyla bağlantı noktaları](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
 Şekil 2 - HA Portalı aracılığıyla bağlantı noktalarını yapılandırma
+
+### <a name="configure-ha-ports-lb-rule-via-resource-manager-template"></a>Resource Manager şablonu aracılığıyla HA bağlantı noktalarını LB kuralı yapılandırma
+
+2017-08-01 API sürümü Microsoft.Network/loadBalancers için yük dengeleyici kaynak kullanarak HA bağlantı noktalarını yapılandırabilirsiniz. Aşağıdaki JSON parçacığı HA bağlantı noktaları için REST API aracılığıyla yük dengeleyici yapılandırmasında değişiklik gösterir.
+
+```json
+    {
+        "apiVersion": "2017-08-01",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        "sku":
+        {
+            "name": "Standard"
+        },
+        ...
+        "properties": {
+            "frontendIpConfigurations": [...],
+            "backendAddressPools": [...],
+            "probes": [...],
+            "loadBalancingRules": [
+             {
+                "properties": {
+                    ...
+                    "protocol": "All",
+                    "frontendPort": 0,
+                    "backendPort": 0
+                }
+             }
+            ],
+       ...
+       }
+    }
+```
 
 ### <a name="configure-ha-ports-load-balancer-rule-with-powershell"></a>PowerShell ile HA bağlantı noktalarını yük dengeleyici kuralı yapılandırma
 
