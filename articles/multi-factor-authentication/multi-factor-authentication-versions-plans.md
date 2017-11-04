@@ -4,7 +4,7 @@ description: "Çok faktörlü kimlik doğrulaması istemci farklı yöntemler ve
 keywords: 
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
-ms.openlocfilehash: 159e56c7ba1e0c27cd854f7d835611d5707c7a23
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: joflore
+ms.openlocfilehash: e2f13f34d5707f3f7b6707fd6100e88ee9783059
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication alma
 

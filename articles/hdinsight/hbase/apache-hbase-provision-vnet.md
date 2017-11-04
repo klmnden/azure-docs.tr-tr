@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/17/2017
+ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: ba77e158b3a3ca4f6bb5914858b06db39f92fff8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1d3dba645acf51a7dcdd42fa23c82db962244b62
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure sanal ağındaki hdınsight'ta HBase kümeleri oluşturma
 Azure Hdınsight HBase kümelerini oluşturmayı öğrenin bir [Azure Virtual Network][1].

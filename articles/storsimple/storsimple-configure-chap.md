@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83ad256522ca19a19b3fe46fcc48e9cb37cbe246
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple cihazınız için CHAP yapılandırma
+> [!NOTE]
+> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Bu makalede yeni Azure portalına için sürümünü görüntülemek için şu adrese gidin [StorSimple cihazınız için CHAP yapılandırma](storsimple-8000-configure-chap.md). Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+
 Bu öğretici, StorSimple cihazınız için CHAP yapılandırma açıklanmaktadır. Bu makalede ayrıntılı yordam StorSimple 1200 aygıtların yanı sıra StorSimple 8000 serisi için geçerlidir.
 
 CHAP karşılıklı kimlik doğrulama protokolü için anlamına gelir. Bu sunucuları tarafından uzak istemcilerin kimliğini doğrulamak için kullanılan bir kimlik doğrulama düzeni olur. Doğrulama bir paylaşılan parola veya gizli temel alır. CHAP tek yönlü olabilir (tek yönlü) veya karşılıklı (çift yönlü). Hedef Başlatıcı doğruladığında tek yönlü CHAP türüdür. Karşılıklı veya ters CHAP, diğer yandan, hedef, başlatıcı kimlik doğrulaması yapmak ve Başlatıcı Hedef kimlik doğrulaması yapmak gerektirir. Başlatıcı kimlik doğrulaması olmadan hedef kimlik doğrulaması uygulanabilir. Ancak, yalnızca başlatıcı kimlik doğrulaması aynı zamanda uygulanırsa, hedef kimlik doğrulama uygulanabilir. 

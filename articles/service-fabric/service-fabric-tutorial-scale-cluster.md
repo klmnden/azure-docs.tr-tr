@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: e1d35bcd51349e6460d50acec0d9706fcd291e89
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b8b1ac04c20cf9fe6d6d8ea58571af05010461d9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Ölçek Service Fabric kümesi
 
@@ -48,6 +48,11 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
+```azurecli
+az login
+az account set --subscription <guid>
+```
+
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 
 Öğreticinin bu bölümü başarıyla tamamlamak için Service Fabric kümesi ve (küme barındıran) sanal makine ölçek kümesi için bağlanmanız gerekir. Sanal makine ölçek kümesi Azure Service Fabric barındıran Azure kaynak değil.
@@ -67,7 +72,12 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $endpoint `
 Get-ServiceFabricClusterHealth
 ```
 
-İle `Get-ServiceFabricClusterHealth` durumu döndürülür, kümedeki her düğüm durumu hakkında ayrıntılarla komutu.
+```azurecli
+sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
+--pem ./aztestcluster201709151446.pem --no-verify
+```
+
+Bağlı değilseniz, kümedeki her düğümün durumunu almak için bir komutu kullanabilirsiniz. İçin PowerShell kullanın `Get-ServiceFabricClusterHealth` komutu ve **sfctl** kullanmak '' komutu.
 
 ## <a name="scale-out"></a>Ölçeği genişletme
 
@@ -80,7 +90,15 @@ $scaleset.Sku.Capacity += 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-Güncelleştirme işlemi tamamlandıktan sonra çalıştırmak `Get-ServiceFabricClusterHealth` yeni düğümü bilgileri görmek için komutu.
+Bu kod, kapasitesi 6 ayarlar.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
+```
 
 ## <a name="scale-in"></a>İçinde ölçeklendirme
 
@@ -91,22 +109,29 @@ Güncelleştirme işlemi tamamlandıktan sonra çalıştırmak `Get-ServiceFabri
 > [!NOTE]
 > Bu bölümü yalnızca uygular *Bronz* dayanıklılık katmanı. Dayanıklılık hakkında daha fazla bilgi için bkz: [Service Fabric kümesi kapasite planlaması][durability].
 
-Bir sanal makine ölçek kümesindeki ölçeklendirdiğinizde ölçeği (çoğu durumda) ayarla en son oluşturulan sanal makine örneğini kaldırır. Bu nedenle, oluşturulan en son service fabric düğümü eşleşen bulmanız gerekir. Bu son düğüm biggest denetleyerek bulabileceğiniz `NodeInstanceId` service fabric düğümlerinde özellik değeri. 
+Bir sanal makine ölçek kümesindeki ölçeklendirdiğinizde ölçeği (çoğu durumda) ayarla en son oluşturulan sanal makine örneğini kaldırır. Bu nedenle, oluşturulan en son service fabric düğümü eşleşen bulmanız gerekir. Bu son düğüm biggest denetleyerek bulabileceğiniz `NodeInstanceId` service fabric düğümlerinde özellik değeri. Bir düğüm tarafından sıralama aşağıda kod örnekleri örneği ve en büyük kimliği değerine sahip örnek ayrıntılarını döndürür. 
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
+```azurecli
+`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+```
+
 Service fabric kümesi, bu düğüm kaldırılacak gittiği bilmek ister. Atmanız gereken üç adım vardır:
 
 1. Böylece artık replicate verileri için olan düğüm devre dışı bırakın.  
-`Disable-ServiceFabricNode`
+PowerShell:`Disable-ServiceFabricNode`  
+sfcli:`sfctl node disable`
 
 2. Düğüm, böylece service fabric çalışma zamanı düzgün bir şekilde kapanır ve uygulamanızı bir sonlandırma isteği alır durdurun.  
-`Start-ServiceFabricNodeTransition -Stop`
+PowerShell:`Start-ServiceFabricNodeTransition -Stop`  
+sfcli:`sfctl node transition --node-transition-type Stop`
 
 2. Düğümü kümeden kaldırın.  
-`Remove-ServiceFabricNodeState`
+PowerShell:`Remove-ServiceFabricNodeState`  
+sfcli:`sfctl node remove-state`
 
 Bu üç adımı düğüme uygulandıktan sonra ölçek kümesinden kaldırılabilir. Herhangi bir dayanıklılık katmanı yanı sıra kullanıyorsanız [Bronz][durability], Ölçek kümesi örneği olduğunda kaldırılır için şu adımları yapılır.
 
@@ -169,6 +194,30 @@ else
 }
 ```
 
+İçinde **sfctl** aşağıdaki kod, aşağıdaki komut almak için kullanılan **düğüm adı** ve **düğümü örnek kimliği** son oluşturulan düğümünün değerler:`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+
+```azurecli
+# Inform the node that it is going to be removed
+sfctl node disable --node-name _nt1vm_5 --deactivation-intent 4 -t 300
+
+# Stop the node using a random guid as our operation id
+sfctl node transition --node-instance-id 131541348482680775 --node-name _nt1vm_5 --node-transition-type Stop --operation-id c17bb4c5-9f6c-4eef-950f-3d03e1fef6fc --stop-duration-in-seconds 14400 -t 300
+
+# Remove the node from the cluster
+sfctl node remove-state --node-name _nt1vm_5
+```
+
+> [!TIP]
+> Aşağıdaki **sfctl** her adımının durumunu denetlemek için sorgular
+>
+> **Devre dışı bırakma durumunu denetleme**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+>
+> **Stop durumunu denetleme**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+>
+
+
 ### <a name="scale-in-the-scale-set"></a>Ölçek kümesindeki ölçeklendirme
 
 Service fabric düğümü kümeden kaldırılmış, sanal makine ölçek kümesi içinde genişletilebilir. Aşağıdaki örnekte, 1 ile ölçek kümesi kapasitesi azalır.
@@ -179,6 +228,17 @@ $scaleset.Sku.Capacity -= 1
 
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
+
+Bu kod, kapasitesi 5'e ayarlar.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
+```
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

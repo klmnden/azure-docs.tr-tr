@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 79d4084deb6d8c028918690c339c21c720e63594
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2879e72636ffc7603e29fe8f8233a065fe6f897c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="restore-an-app-in-azure"></a>Uygulamanızı Azure’a geri yükleme
-Bu makalede, bir uygulamada geri yükleme gösterilmektedir [Azure App Service](../app-service/app-service-web-overview.md) önceden yedeklediğiniz (bkz [uygulamanızı Azure yedekleme](web-sites-backup.md)). Uygulamanızı kendi bağlantılı veritabanı isteğe bağlı bir önceki durumuna geri yüklemek veya özgün uygulamanızın yedekleme birini temel alan yeni bir uygulama oluşturun. Azure uygulama hizmeti, yedekleme ve geri yükleme için aşağıdaki veritabanlarını destekler:
+Bu makalede, bir uygulamada geri yükleme gösterilmektedir [Azure App Service](../app-service/app-service-web-overview.md) önceden yedeklediğiniz (bkz [uygulamanızı Azure yedekleme](web-sites-backup.md)). Uygulamanızı kendi bağlantılı veritabanı isteğe bağlı bir önceki durumuna geri yüklemek veya özgün uygulamanızın yedekleri birini temel alan yeni bir uygulama oluşturun. Azure uygulama hizmeti, yedekleme ve geri yükleme için aşağıdaki veritabanlarını destekler:
 - [SQL Veritabanı](https://azure.microsoft.com/en-us/services/sql-database/)
 - [Azure veritabanı için MySQL (Önizleme)](https://azure.microsoft.com/en-us/services/mysql)
 - [Azure veritabanı için PostgreSQL (Önizleme)](https://azure.microsoft.com/en-us/services/postgres)
@@ -33,10 +33,10 @@ Yedeklerden geri yükleme, çalışan uygulamalar için kullanılabilir **standa
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>Bir uygulama olan bir yedekten geri yükleme
-1. Üzerinde **ayarları** Azure Portal'da uygulamanızın dikey tıklayın **yedeklemeleri** görüntülemek için **yedeklemeleri** dikey. Ardından **geri**.
+1. Üzerinde **ayarları** sayfa Azure portalında uygulamanızı tıklatın **yedeklemeleri** görüntülemek için **yedeklemeleri** sayfası. Ardından **geri**.
    
     ![Şimdi Geri Yükle'yi seçin][ChooseRestoreNow]
-2. İçinde **geri** dikey penceresinde, ilk yedekleme kaynağını seçin.
+2. İçinde **geri** sayfasında, ilk yedekleme kaynak seçin.
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
    
@@ -59,9 +59,9 @@ Yedeklerden geri yükleme, çalışan uygulamalar için kullanılabilir **standa
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>İndirme veya depolama hesabından bir yedek Sil
-1. Ana **Gözat** select Azure portalı dikey **depolama hesapları**. Varolan depolama hesaplarınızı listesi görüntülenir.
-2. İndirme veya silmek istediğiniz yedeği içeren depolama hesabı seçin. Depolama hesabı dikey penceresinde görüntülenir.
-3. Depolama hesabı dikey penceresinde istediğiniz kapsayıcıyı seçin
+1. Ana **Gözat** select Azure portalının sayfasında **depolama hesapları**. Varolan depolama hesaplarınızı listesi görüntülenir.
+2. İndirme veya silmek istediğiniz yedeği içeren depolama hesabı seçin. Depolama hesabı için sayfası görüntülenir.
+3. Depolama hesabı sayfasında istediğiniz kapsayıcıyı seçin
    
     ![Görünüm kapsayıcıları][ViewContainers]
 4. İndirme veya silmek istediğiniz yedekleme dosyasını seçin.
@@ -72,12 +72,21 @@ Yedeklerden geri yükleme, çalışan uygulamalar için kullanılabilir **standa
 <a name="OperationLogs"></a>
 
 ## <a name="monitor-a-restore-operation"></a>İzleyici bir geri yükleme işlemi
-Başarı veya başarısızlık uygulama geri yükleme işleminin ayrıntılarını görmek için gidin **etkinlik günlüğü** Azure portaldaki dikey pencere.  
+Başarı veya başarısızlık uygulama geri yükleme işleminin ayrıntılarını görmek için gidin **etkinlik günlüğü** Azure portalında sayfası.  
  
 
 İstenen geri yükleme işlemi ve seçmek için tıklatın bulmak için aşağı kaydırın.
 
-Ayrıntılar dikey geri yükleme işlemiyle ilgili mevcut bilgileri görüntüler.
+Ayrıntılar sayfası geri yükleme işlemiyle ilgili mevcut bilgileri görüntüler.
+
+## <a name="automate-with-scripts"></a>Komut dosyalarıyla otomatikleştirme
+
+Yedekleme yönetimi komut dosyaları ile kullanarak otomatikleştirebilirsiniz [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview).
+
+Örnekler için bkz:
+
+- [Azure CLI örnekleri](app-service-cli-samples.md)
+- [Azure PowerShell örnekleri](app-service-powershell-samples.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

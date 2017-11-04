@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/08/2017
+ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric ters proxy
 Azure Service Fabric yerleşik ters proxy bulmak ve http uç noktaları olan diğer hizmetleri ile iletişim Service Fabric kümede çalışan mikro yardımcı olur.
@@ -114,9 +114,7 @@ Ağ geçidi, ardından bu istekleri hizmetin URL'sine iletir:
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## <a name="special-handling-for-port-sharing-services"></a>Bağlantı noktası paylaşımı için bir özel işleme Hizmetleri
-Azure uygulama ağ geçidi hizmeti adresi yeniden çözün ve bir hizmet erişildiğinde isteği yeniden deneyin dener. Kendi hizmet çözümlemesi uygulamak ve döngüsü çözmek istemci kodu gereksinimi olmadığından önemli bir avantajı uygulama ağ geçidi budur.
-
-Genellikle, ne zaman bir hizmet, farklı bir düğüme, normal yaşam döngüsü kapsamında taşınmış hizmet örneği veya çoğaltma erişilemiyor. Bu durumda, uygulama ağ geçidi bir uç nokta artık ilk olarak çözümlenmiş adresinde açık olduğunu belirten bir ağ bağlantısı hatası alabilirsiniz.
+Service Fabric ters proxy hizmeti adresi yeniden çözün ve bir hizmet erişildiğinde isteği yeniden deneyin dener. Genellikle, ne zaman bir hizmet, farklı bir düğüme, normal yaşam döngüsü kapsamında taşınmış hizmet örneği veya çoğaltma erişilemiyor. Bu gerçekleştiğinde, ters proxy bir uç nokta artık ilk olarak çözümlenmiş adresinde açık olduğunu belirten bir ağ bağlantısı hatası alabilirsiniz.
 
 Ancak, çoğaltmalar veya hizmet örneklerinin bir ana bilgisayar işlemi paylaşabilir ve ayrıca bir http.sys tabanlı bir web sunucusu tarafından barındırılan bir bağlantı noktası paylaşabilen dahil olmak üzere:
 
@@ -124,21 +122,21 @@ Ancak, çoğaltmalar veya hizmet örneklerinin bir ana bilgisayar işlemi payla�
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-Bu durumda, web sunucusunun ana bilgisayar işlemi ve isteklere yanıt kullanılabilir, ancak çözümlenen hizmet örneği ya da çoğaltma artık ana bilgisayarda kullanılabilir değildir. Bu durumda, ağ geçidi web sunucusundan bir HTTP 404 yanıtı alırsınız. Bu nedenle, bir HTTP 404 iki ayrı anlama gelir:
+Bu durumda, web sunucusunun ana bilgisayar işlemi ve isteklere yanıt kullanılabilir, ancak çözümlenen hizmet örneği ya da çoğaltma artık ana bilgisayarda kullanılabilir değildir. Bu durumda, ağ geçidi web sunucusundan bir HTTP 404 yanıtı alırsınız. Bu nedenle, bir HTTP 404 yanıt iki ayrı anlama sahip olabilir:
 
 - #1: Hizmet adresi doğru durumdur, ancak kullanıcının istenen kaynak yok.
 - Durum #2: Hizmet adresi yanlış ve kullanıcının istenen kaynak üzerinde farklı bir düğüme mevcut.
 
-İlk olarak bir normal HTTP kullanıcı hata olarak kabul edilen 404, olur. Ancak, İkinci durumda, mevcut bir kaynak kullanıcı istedi. Uygulama ağ geçidi hizmeti taşınmış olduğundan dosyasını bulamadı. Uygulama ağ geçidi adresini yeniden çözümlemek ve isteği yeniden deneyin gerekir.
+İlk olarak bir normal HTTP kullanıcı hata olarak kabul edilen 404, olur. Ancak, İkinci durumda, mevcut bir kaynak kullanıcı istedi. Ters proxy hizmeti taşınmış olduğundan dosyasını bulamadı. Ters proxy adresini yeniden çözümlemek ve isteği yeniden deneyin gerekir.
 
-Uygulama ağ geçidi, bu nedenle bu iki örnekleri arasında ayrım yapmak için bir yol gerekir. Bu ayrım yapmak için sunucudan bir ipucu gereklidir.
+Ters proxy, bu nedenle bu iki örnekleri arasında ayrım yapmak için bir yol gerekir. Bu ayrım yapmak için sunucudan bir ipucu gereklidir.
 
-* Varsayılan olarak, uygulama ağ geçidi örneği #2 varsayar ve çözümleyin ve isteği yeniden gönderin dener.
-* Uygulama ağ geçidi #1 talebine belirtmek için hizmet aşağıdaki HTTP yanıtı üstbilgisini döndürmesi gerekir:
+* Varsayılan olarak, ters proxy durum #2 varsayar ve çözümleyin ve isteği yeniden gönderin dener.
+* Hizmet durum #1 ters proxy belirtmek için aşağıdaki HTTP yanıt üstbilgisi döndürmesi gerekir:
 
   `X-ServiceFabric : ResourceNotFound`
 
-Bu bir HTTP yanıt üstbilgisi istenen kaynak yok ve uygulama ağ geçidi hizmeti adresi yeniden çözümlemeyi dener olmayan normal bir HTTP 404 durumu gösterir.
+Bu bir HTTP yanıt üstbilgisi istenen kaynak yok ve ters proxy hizmeti adresi yeniden çözümlemeyi dener olmayan normal bir HTTP 404 durumu gösterir.
 
 ## <a name="setup-and-configuration"></a>Kurulum ve yapılandırma
 

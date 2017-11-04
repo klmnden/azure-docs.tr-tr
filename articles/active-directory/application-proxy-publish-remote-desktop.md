@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/03/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: fa8f63c8da5019ed42ea8ec067d3d3d174976dd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5eb681e5f5c3b5944ff2d101056ae7c7cd60fac2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si ile Uzak Masaüstü yayımlama
 
@@ -49,9 +49,6 @@ RDS dağıtımında, RD Web rolü ve RD Ağ Geçidi rol Internet'e yönelik maki
 - Zaten yüklü olmalıdır [RDS dağıtılan](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), ve [uygulama Proxy etkin](active-directory-application-proxy-enable.md).
 
 - Bu senaryo, son kullanıcılarınız RD Web sayfası aracılığıyla bağlanan Windows 7 veya Windows 10 Masaüstü üzerinde Internet Explorer aracılığıyla Git varsayar. Diğer işletim sistemlerinin desteklemeniz gerekiyorsa, bkz: [desteklemek için diğer istemci yapılandırmaları](#support-for-other-client-configurations).
-
-  >[!NOTE]
-  >Windows 10 oluşturanın güncelleştirmesi şu anda desteklenmiyor.
 
 - Internet Explorer, RDS ActiveX eklenti etkinleştirin.
 

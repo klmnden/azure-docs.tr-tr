@@ -3,7 +3,7 @@ title: "Java'da ilk, güvenilir Azure mikro hizmet oluşturma | Microsoft Docs"
 description: "Durum bilgisiz ve durum bilgisi olan Hizmetleri ile Microsoft Azure Service Fabric uygulaması oluşturma giriş."
 services: service-fabric
 documentationcenter: java
-author: vturecek
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
-ms.author: vturecek
-ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.author: suhuruli
+ms.openlocfilehash: 59b58e9d9bdb044c81261fd19338c3f95bd409b3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services özelliğini kullanmaya başlayın
 > [!div class="op_single_selector"]

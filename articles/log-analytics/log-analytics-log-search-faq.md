@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Yeni günlük analizi oturum arama SSS ve bilinen sorunlar
 
@@ -38,13 +38,6 @@ Hayır, bazı değişiklikler vardır yükü işleminin nasıl değişiklik yapm
 
 ### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>Soru: hatalar bilgisayar gruplarını kullanmak çalışırken alıyorum.  Kendi sözdizimi değişti mi?
 Evet, çalışma alanınızı yükseltildiğinde kullanarak bilgisayar söz dizimi değişiklikleri gruplandırır.  Bkz: [günlük analizi bilgisayar gruplarında oturum aramaları](log-analytics-computer-groups.md) Ayrıntılar için.
-
-### <a name="known-issue-groups-imported-from-active-directory"></a>Bilinen sorun: Active Directory'den içe gruplar
-Active Directory'den içe aktarılan bir bilgisayar grubu kullanan bir sorgu şu anda oluşturulamıyor.  Geçici bir çözüm olarak bu sorun düzeltilene kadar içeri aktarılan Active Directory grubunu kullanarak yeni bir bilgisayar grubu oluşturun ve sonra bu yeni grubun sorgunuzda kullanın.
-
-İçeri aktarılan bir Active Directory grubu içeren yeni bir bilgisayar grubu oluşturmak için örnek bir sorgu aşağıdaki gibidir:
-
-    ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## <a name="dashboards"></a>Panolar
@@ -76,11 +69,6 @@ Minify arama sonuçlarınızı özetlenen bir görünümünü sağlayan bir öze
     | evaluate autocluster_v2()
 
 
-### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Bilinen sorun: bir liste arama sonuçlarında, veri içermeyen özellikler içerebilir
-Günlük arama sonuçları listesinde veri içermeyen özelliklerini görüntüleyebilir.  Yükseltmeden önce bu özellikleri dahil değildir.  Bu sorun, böylece boş özellikler görüntülenmez düzeltilecektir.
-
-### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>Bilinen sorun: bir grafikte bir değer seçerek ayrıntılı sonuçları görüntüler değil
-Yükseltmeden önce bir değer grafikte seçildiğinde seçilen değerle eşleşen kayıtları ayrıntılı bir listesi döndürecektir.  Yükseltmeden sonra yalnızca tek özetlenen satır döndürülür.  Bu sorun şu anda incelenmektedir.
 
 ## <a name="log-search-api"></a>Log Arama API’si
 
@@ -109,11 +97,9 @@ Tarayıcınızı yükseltmeden sonra günlük analizi sorguları çalıştırmak
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Soru: hiçbir şey Powerbı tümleşme değişiyor mu?
-Evet.  Çalışma alanınızı yükseltildikten sonra Power BI için günlük analizi verileri dışarı aktarma işlemi artık çalışmaz.  Yükseltmeden önce oluşturulan tüm var olan zamanlamalar devre dışı bırakılacaktır.  Yükseltme sonrasında Azure günlük analizi aynı platformu Application Insights kullanır ve günlük analizi sorguları Power BI dışarı aktarmak için aynı işlemi kullanmak [Power BI için Application Insights sorguları dışarı aktarma işlemi](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Evet.  Çalışma alanınızı yükseltildikten sonra Power BI için günlük analizi verileri dışarı aktarma işlemi artık çalışmaz.  Yükseltmeden önce oluşturulan tüm var olan zamanlamalar devre dışı bırakılacaktır.  
 
-### <a name="known-issue-power-bi-request-size-limit"></a>Bilinen sorun: Power BI isteği boyut sınırı
-Şu anda Power BI aktarılabilir bir günlük analizi sorgu için 8 MB boyut sınırı yoktur.  Bu sınır yakında artırılır.
-
+Yükseltme sonrasında Azure günlük analizi aynı platformu Application Insights kullanır ve günlük analizi sorguları Power BI dışarı aktarmak için aynı işlemi kullanmak [Power BI için Application Insights sorguları dışarı aktarma işlemi](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  Power BI Excel'e şimdi API uç noktası doğrudan çağırır. Bu sayede en fazla 500.000 satırları veya 64,000,000 bayt veri almak, uzun sorguları dışarı aktarma ve sorgu zaman aşımı özelleştirmek (varsayılan zaman aşımı süresi 3 dakika ve en uzun zaman aşımı 10 dakika).
 
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet'leri
 
@@ -153,14 +139,11 @@ Evet.  2017-03-15-Önizleme API sürümünü kullanın ve içeren bir **özellik
 ### <a name="question-will-my-solutions-continue-to-work"></a>Soru: my çözümleri çalışmaya devam eder?
 Yeni sorgu dili dönüştürülürse kendi performansını artırır ancak tüm çözümleri yükseltilen bir çalışma alanında, çalışmaya devam eder.  Bu bölümde açıklanan bazı varolan çözümleri ile ilgili sorunları bilinen vardır.
 
-### <a name="known-issue-capacity-and-performance-solution"></a>Bilinen sorun: kapasite ve performans çözümü
-Bazı bölümlerinde [kapasite ve performans](log-analytics-capacity.md) görünümü boş.  Bu sorun için düzeltme kısa bir süre sonra kullanılabilir olacak.
-
-### <a name="known-issue-application-insights-connector"></a>Bilinen sorun: Application Insights Bağlayıcısı
-Açılardan [uygulama Öngörüler Bağlayıcısı çözüm](log-analytics-app-insights-connector.md) yükseltilmiş bir çalışma alanında şu anda desteklenmemektedir.  Bu sorun için düzeltme şu anda altında çözümlemenin anlamına gelir.
+### <a name="known-issue-perspectives-in-application-insights-connector"></a>Bilinen sorun: Perspektifler Application Insights Bağlayıcısı
+Açılardan [uygulama Öngörüler Bağlayıcısı çözüm](log-analytics-app-insights-connector.md) Application Insights Bağlayıcısı çözümde artık desteklenmemektedir.  Görünüm Tasarımcısı Application Insights verilerle özel görünümler oluşturmak için kullanabilirsiniz.
 
 ### <a name="known-issue-backup-solution"></a>Bilinen sorun: yedekleme çözümü
-Yedekleme çözümü yükseltilen bir çalışma alanında veri toplamaz. Yükseltilen çalışma alanıyla çalışır yeni bir yedekleme çözümü kısa süre içinde duyurulacaktır.
+Yedekleme çözümü veri bir çalışma alanı yükseltmeden önce yüklenmişse, toplayabilir değil. Çözüm kaldırın ve en son sürümünü yükleyin.  Çözüm kullanmaya devam etmek için kurtarma Hizmetleri kasalarının yükseltmeniz gerekir böylece çözümü yeni sürümü Klasik yedekleme kasaları desteklemiyor.
 
 ## <a name="upgrade-process"></a>Yükseltme işlemi
 
@@ -182,9 +165,6 @@ Genel kullanıma açılmadan önce yükselttikten sonra çalışma alanınızda 
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Soru: Nasıl yeni bir görünüm Görünüm Tasarımcısı ile oluşturulur?
 Yükseltmeden önce ana Panoda bir kutucuğu öğesinden Görünüm Tasarımcısı ile yeni bir görünüm oluşturabilirsiniz.  Çalışma alanınızı yükseltildiğinde bu kutucuğu kaldırılır.  Yeşil + düğmesini soldaki menüde üzerinde tıklatarak yararlı OMS portalında Görünüm Tasarımcısı ile yeni bir görünüm oluşturabilirsiniz.
-
-### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>Bilinen sorun: çizgi grafiklerde görünümleri için tüm seçeneği bir çizgi grafiğine neden değil bakın
-Tıkladığınızda *tümünü görmek* seçeneği bir çizgi grafiği bölümünü bir görünümde alt kısmındaki içeren bir tablo sunulur.  Yükseltmeden önce bir çizgi grafiği ile sunulan.  Bu sorun için olası bir değişiklik analiz edilir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

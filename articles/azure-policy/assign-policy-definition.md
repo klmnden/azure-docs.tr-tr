@@ -5,24 +5,26 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e0962ae02dd8132d878792634abc1f63b2c29a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Azure ortamınızda uyumlu olmayan kaynakları tanımlamak için bir ilke atamasını oluşturma
-Azure'da anlama uyumluluk ilk adımı, kendi geçerli kaynaklarla göze burada bilmektir. Bu hızlı başlangıç SQL Server sürüm 12.0 kullanmıyorsanız kaynakları tanımlamak için bir ilke atamasını oluşturma sürecinde adımları. Bu işlem sonunda başarıyla sunucuları farklı bir sürümünü nelerdir tanımladığınız ve bu nedenle *uyumlu olmayan*.
+Azure'da anlama uyumluluk ilk adımı, kendi geçerli kaynaklarla göze burada bilmektir. Bu hızlı başlangıç yönetilen diskleri kullanmıyorsanız sanal makineleri tanımak amacıyla bir ilke atamasını oluşturma sürecinde adımları.
+
+Bu işlemin sonunda, başarılı bir şekilde yönetilen diskleri kullanmıyorsanız ve bu nedenle sanal makineleri tanımladınız *uyumlu olmayan*.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="opt-in-to-azure-policy"></a>Azure ilke kabul
 
-Erişim isteğinde bulunmak için kaydetmeniz gerekir böylece azure ilke sınırlı Önizleme'de kullanıma sunulmuştur.
+Azure ilke genel Önizleme'de kullanıma sunulmuştur ve erişim isteyen kaydetmeniz gerekir.
 
 1. Git Azure ilke https://aka.ms/getpolicy ve select **kaydolun** sol bölmede.
 
@@ -32,11 +34,11 @@ Erişim isteğinde bulunmak için kaydetmeniz gerekir böylece azure ilke sını
 
    ![Azure ilke kullanmayı kabulü](media/assign-policy-definition/preview-opt-in.png)
 
-   Birkaç bize talebe göre kayıt İsteğiniz kabul etmek için gün sürebilir. İsteğiniz kabul sonra size e-posta aracılığıyla hizmet kullanmaya başlayabilirsiniz bildirilecek.
+   İsteğiniz Önizleme için otomatik olarak onaylanır. Lütfen sisteme kaydınızı işlemek 30 dakika bekleyin.
 
 ## <a name="create-a-policy-assignment"></a>Bir ilke atamasını oluşturma
 
-Bu hızlı başlangıç biz bir ilke ataması oluşturmak ve atamak *gerektiren SQL Server sürümü 12.0* tanımı. 
+Bu hızlı başlangıç biz bir ilke ataması oluşturmak ve atamak *yönetilen diski olmayan sanal makineler denetim* ilke tanımı.
 
 1. Seçin **atamaları** Azure İlkesi sayfasının sol bölmede.
 2. Seçin **atama İlkesi** üstünden **atamaları** bölmesi.
@@ -53,11 +55,11 @@ Bu hızlı başlangıç biz bir ilke ataması oluşturmak ve atamak *gerektiren 
    - Etiket ve değerini Uygula
    - SQL Server sürümü 12.0 gerektirir
 
-4. Arama bulmak için İlke tanımları aracılığıyla *gerektiren SQL Server sürümü 12.0* tanımı. Bu ilkenin üzerine tıklayın ve tıklayın **seçin**.
+4. Arama bulmak için İlke tanımları aracılığıyla *yönetilen diskleri kullanmayın denetim VM'ler* tanımı. Bu ilkenin üzerine tıklayın ve tıklayın **atamak**.
 
    ![Doğru ilke tanımı bulunamadı](media/assign-policy-definition/select-available-definition.png)
 
-5. Bir görüntü sağlamak **adı** ilke ataması için. Bu durumda, kullanalım *gerektiren SQL Server sürümü 12.0*. Ayrıca, isteğe bağlı bir ekleyebilirsiniz **açıklama**. Bu ilke ataması bu ortamda oluşturulan tüm SQL sunucuları nasıl sağlar hakkında ayrıntılar sürüm 12.0 olan açıklama sağlar.
+5. Bir görüntü sağlamak **adı** ilke ataması için. Bu durumda, kullanalım *yönetilen diskleri kullanmayın denetim VM'ler*. Ayrıca, isteğe bağlı bir ekleyebilirsiniz **açıklama**. Açıklama, bu ilke ataması tüm bu ortamda oluşturulan sanal yönetilen diskleri kullanmayan makineleri nasıl tanımlayan hakkında ayrıntılı bilgi sağlar.
 6. Fiyatlandırma katmanını değiştirmek **standart** ilkesi var olan kaynaklara uygulanma emin olmak için.
 
    Azure ilke içinde– iki fiyatlandırma katmanı vardır *serbest* ve *standart*. Ücretsiz katmanı ile ilkeleri yalnızca uygulayabilirsiniz gelecekteki kaynaklardaki standart sırada, ayrıca bunları uyumluluk durumu daha iyi anlamak için var olan kaynakların zorunlu kılabilir. Biz sınırlı önizlemede olduğundan seçmek için bir fatura almaz için henüz bir fiyatlandırma modelini yayımlandı değil *standart*. Daha fazla bilgi için fiyatlandırma hakkında bakın: [fiyatlandırma Azure İlkesi](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
@@ -108,4 +110,3 @@ Emin olmak için ilke atama hakkında daha fazla bilgi edinmek için **gelecekte
 
 > [!div class="nextstepaction"]
 > [Oluşturma ve ilkelerini yönetme](./create-manage-policy.md)
-

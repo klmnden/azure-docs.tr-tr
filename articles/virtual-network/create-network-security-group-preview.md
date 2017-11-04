@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Ağ ve uygulama güvenlik grupları (Önizleme) ile ağ trafiği filtreleme
 
@@ -44,6 +44,7 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
     
     ```azurecli-interactive
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    az provider register --namespace Microsoft.Network
     ``` 
 
 5. Aşağıdaki komutu girerek Önizleme için kayıtlı olduklarını doğrulayın:
@@ -52,7 +53,9 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    Kadar kalan adımlara devam etmeyin *kayıtlı* görünür **durumu** önceki komuttan döndürülen çıkışı. Kayıtlı önce devam ederseniz, kalan adımları başarısız.
+    > [!WARNING]
+    > Kaydı tamamlamak için bir saat sürebilir. Kadar kalan adımlara devam etmeyin *kayıtlı* görünür **durumu** önceki komuttan döndürülen çıkışı. Kayıtlı önce devam ederseniz, kalan adımları başarısız.
+
 6. Bir kaynak grubu oluşturmak için aşağıdaki bash betiğini çalıştırın:
 
     ```azurecli-interactive
@@ -160,7 +163,6 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "WebServers" "AppServers"
 
@@ -169,7 +171,6 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "AppServers"
 
@@ -178,12 +179,11 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "DatabaseServers"
     ```
 
-    Ağ arabirimi bir üyesi olan uygulama güvenlik grubunu temel alan ağ arabirimi, yalnızca 9. adımda oluşturduğunuz karşılık gelen güvenlik kuralı uygulanır. Örneğin, yalnızca *WebRule* için etkilidir *myWebNic*, ağ arabiriminin bir üyesi olduğundan *Web sunucuları* uygulama güvenlik grubu ve kural belirtir *Web sunucuları* hedefi olarak uygulama güvenlik grubu. *AppRule* ve *DatabaseRule* için kuralları uygulanmaz *myWebNic*, ağ arabirimi üyesi olmadığından *AppServers*ve *DatabaseServers* uygulama güvenlik grupları.
+    Ağ arabirimi bir üyesi olan uygulama güvenlik grubunu temel alan ağ arabirimi, yalnızca 9. adımda oluşturduğunuz karşılık gelen güvenlik kuralı uygulanır. Örneğin, yalnızca *WebRule* için etkilidir *myNic1*, ağ arabiriminin bir üyesi olduğundan *Web sunucuları* uygulama güvenlik grubu ve kural belirtir *Web sunucuları* hedefi olarak uygulama güvenlik grubu. *AppRule* ve *DatabaseRule* için kuralları uygulanmaz *myNic1*, ağ arabirimi üyesi olmadığından *AppServers*ve *DatabaseServers* uygulama güvenlik grupları.
 
 13. İlgili ağ arabiriminin, her sanal makineye ekleniyor her sunucu türü için bir sanal makine oluşturun. Bu örnek, Windows sanal makineleri oluşturur, ancak değiştirebileceğiniz *win2016datacenter* için *UbuntuLTS* Linux sanal makineleri yerine oluşturmak için.
 
@@ -239,7 +239,8 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    Kadar kalan adımlara devam etmeyin *kayıtlı* görünür **RegistrationState** çıkış sütunu döndürülen önceki komutu. Kayıtlı önce devam ederseniz, kalan adımları başarısız.
+    > [!WARNING]
+    > Kaydı tamamlamak için bir saat sürebilir. Kadar kalan adımlara devam etmeyin *kayıtlı* görünür **RegistrationState** önceki komuttan döndürülen çıkışı. Kayıtlı önce devam ederseniz, kalan adımları başarısız.
         
 6. Kaynak grubu oluşturun:
 
@@ -343,7 +344,6 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
     $nic2 = New-AzureRmNetworkInterface `
@@ -351,7 +351,6 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
     $nic3 = New-AzureRmNetworkInterface `
@@ -359,11 +358,10 @@ Windows, Linux veya macOS komutlar yürütülürken olup azure CLI komutları ay
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Ağ arabirimi bir üyesi olan uygulama güvenlik grubunu temel alan ağ arabirimi, yalnızca adım 8'de oluşturulan karşılık gelen güvenlik kuralı uygulanır. Örneğin, yalnızca *WebRule* için etkilidir *myWebNic*, ağ arabiriminin bir üyesi olduğundan *Web sunucuları* uygulama güvenlik grubu ve kural belirtir *Web sunucuları* hedefi olarak uygulama güvenlik grubu. *AppRule* ve *DatabaseRule* için kuralları uygulanmaz *myWebNic*, ağ arabirimi üyesi olmadığından *AppServers*ve *DatabaseServers* uygulama güvenlik grupları.
+    Ağ arabirimi bir üyesi olan uygulama güvenlik grubunu temel alan ağ arabirimi, yalnızca adım 8'de oluşturulan karşılık gelen güvenlik kuralı uygulanır. Örneğin, yalnızca *WebRule* için etkilidir *myNic1*, ağ arabiriminin bir üyesi olduğundan *Web sunucuları* uygulama güvenlik grubu ve kural belirtir *Web sunucuları* hedefi olarak uygulama güvenlik grubu. *AppRule* ve *DatabaseRule* için kuralları uygulanmaz *myNic1*, ağ arabirimi üyesi olmadığından *AppServers*ve *DatabaseServers* uygulama güvenlik grupları.
 
 13. İlgili ağ arabiriminin, her sanal makineye ekleniyor her sunucu türü için bir sanal makine oluşturun. Bu örnek, Windows sanal makineleri oluşturur, ancak komut dosyasını çalıştırmadan önce değiştirebilirsiniz *-Windows* için *- Linux*, *MicrosoftWindowsServer* için*Kurallı*, *Windows Server* için *UbuntuServer* ve *2016 Datacenter* için *14.04.2-LTS*Linux sanal makineleri yerine oluşturmak için.
 

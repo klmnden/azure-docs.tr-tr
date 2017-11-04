@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2017
+ms.date: 11/03/2017
 ms.author: anbacker
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c000a642aa088ac80cc7077453b87e9a47f96900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5778d54060c9be1b0c90c34bcf7c8e9bacb414d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>Devre dışı bırakın ve StorSimple Yöneticisi hizmeti üzerinden bir StorSimple 8000 serisi aygıtı silme
+> [!NOTE]
+> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Bu makalede yeni Azure portalına için sürümünü görüntülemek için şu adrese gidin [devre dışı bırakma ve silme StorSimple 8000 serisi cihaz StorSimple Yöneticisi hizmeti üzerinden](storsimple-8000-deactivate-and-delete-device.md). Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Genel Bakış
 Hizmet dışına StorSimple cihazı (örneğin, değiştirme veya Cihazınızı yükseltmek veya StorSimple artık kullanıyorsanız) almak isteyebilirsiniz. Bu durumda, silebilmek için önce cihazın devre dışı bırakılması gerekir. Devre dışı bırakma, aygıt ve karşılık gelen StorSimple Yöneticisi hizmeti arasındaki bağlantı sunucularının. Bu öğretici, bir StorSimple cihazı ilk onu devre dışı bırakma ve silme hizmetten kaldırmak açıklanmaktadır. 
 

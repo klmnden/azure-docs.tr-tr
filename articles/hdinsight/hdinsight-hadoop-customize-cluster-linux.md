@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.openlocfilehash: 7c8c10f96a742092bb7b8453698d498707b0b2c2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 549582b0282a7b0382496b89dbcb4330ab67192a
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Betik eylemi kullanarak Linux tabanlı Hdınsight kümelerini özelleştirme
 
@@ -140,7 +140,7 @@ Aksine, bir komut dosyasında hata küme oluşturma sırasında kullanılan eyle
 >
 > Kümenize uygulamadan önce bir komut dosyası yaptığı anladığınızdan emin olmanız gerekir böylece komut dosyalarını eylemleri kök ayrıcalıkları ile çalıştırın.
 
-Bir komut dosyası bir kümeye uygularken, küme durumunu için değişiklikleri **çalıştıran** için **kabul edilen**, ardından **Hdınsight yapılandırma**ve son olarak yeniden **çalıştıran** başarılı bir komut dosyası. Komut durumu betik eylemi geçmişinde kaydedilir ve komut başarılı veya başarısız olup olmadığını belirlemek için bu bilgileri kullanın. Örneğin, `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet, bir komut dosyası durumunu görüntülemek için kullanılabilir. Bilgi aşağıdaki metni benzer döndürür:
+Bir komut dosyası bir kümeye uygularken, küme durumu değişiklikleri **çalıştıran** için **kabul edilen**, ardından **Hdınsight yapılandırma**ve son olarak yeniden  **Çalışan** başarılı bir komut dosyası. Komut durumu betik eylemi geçmişinde kaydedilir ve komut başarılı veya başarısız olup olmadığını belirlemek için bu bilgileri kullanın. Örneğin, `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet, bir komut dosyası durumunu görüntülemek için kullanılabilir. Bilgi aşağıdaki metni benzer döndürür:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -213,227 +213,27 @@ Bu bölümde, betik eylemleri bir Hdınsight kümesi oluştururken kullanabilece
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Azure Resource Manager şablonları bir betik eylemi kullanın
 
-Bu bölümdeki örnek betik eylemleri Azure Resource Manager şablonları ile kullanmak nasıl ekleyebileceğiniz gösterilmektedir.
+Betik eylemleri Azure Resource Manager şablonları ile kullanılabilir. Bir örnek için bkz: [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
 
-#### <a name="before-you-begin"></a>Başlamadan önce
+Bu örnekte, aşağıdaki kodu kullanarak betik eylemi eklenir:
 
-* Hdınsight Powershell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
-* Şablonlarının nasıl oluşturulacağı hakkında yönergeler için bkz [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
-* Resource Manager ile daha önce Azure PowerShell kullanmadıysanız, bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](../azure-resource-manager/powershell-azure-resource-manager.md).
-
-#### <a name="create-clusters-using-script-action"></a>Betik eylemi kullanarak kümeleri oluşturma
-
-1. Aşağıdaki şablonu bilgisayarınızdaki bir konuma kopyalayın. Bu şablon Giraph headnodes ve çalışan düğümleri yükler. Ayrıca, JSON şablonunu geçerli olup olmadığını doğrulayabilirsiniz. Şablonunuzu içerik içine yapıştırma [JSONLint](http://jsonlint.com/), bir çevrimiçi JSON doğrulama aracı.
-
-            {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-                "clusterLocation": {
-                    "type": "string",
-                    "defaultValue": "West US",
-                    "allowedValues": [ "West US" ]
-                },
-                "clusterName": {
-                    "type": "string"
-                },
-                "clusterUserName": {
-                    "type": "string",
-                    "defaultValue": "admin"
-                },
-                "clusterUserPassword": {
-                    "type": "securestring"
-                },
-                "sshUserName": {
-                    "type": "string",
-                    "defaultValue": "username"
-                },
-                "sshPassword": {
-                    "type": "securestring"
-                },
-                "clusterStorageAccountName": {
-                    "type": "string"
-                },
-                "clusterStorageAccountResourceGroup": {
-                    "type": "string"
-                },
-                "clusterStorageType": {
-                    "type": "string",
-                    "defaultValue": "Standard_LRS",
-                    "allowedValues": [
-                        "Standard_LRS",
-                        "Standard_GRS",
-                        "Standard_ZRS"
-                    ]
-                },
-                "clusterStorageAccountContainer": {
-                    "type": "string"
-                },
-                "clusterHeadNodeCount": {
-                    "type": "int",
-                    "defaultValue": 1
-                },
-                "clusterWorkerNodeCount": {
-                    "type": "int",
-                    "defaultValue": 2
-                }
-            },
-            "variables": {
-            },
-            "resources": [
-                {
-                    "name": "[parameters('clusterStorageAccountName')]",
-                    "type": "Microsoft.Storage/storageAccounts",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-05-01-preview",
-                    "dependsOn": [ ],
-                    "tags": { },
-                    "properties": {
-                        "accountType": "[parameters('clusterStorageType')]"
-                    }
-                },
-                {
-                    "name": "[parameters('clusterName')]",
-                    "type": "Microsoft.HDInsight/clusters",
-                    "location": "[parameters('clusterLocation')]",
-                    "apiVersion": "2015-03-01-preview",
-                    "dependsOn": [
-                        "[concat('Microsoft.Storage/storageAccounts/', parameters('clusterStorageAccountName'))]"
-                    ],
-                    "tags": { },
-                    "properties": {
-                        "clusterVersion": "3.2",
-                        "osType": "Linux",
-                        "clusterDefinition": {
-                            "kind": "hadoop",
-                            "configurations": {
-                                "gateway": {
-                                    "restAuthCredential.isEnabled": true,
-                                    "restAuthCredential.username": "[parameters('clusterUserName')]",
-                                    "restAuthCredential.password": "[parameters('clusterUserPassword')]"
-                                }
-                            }
-                        },
-                        "storageProfile": {
-                            "storageaccounts": [
-                                {
-                                    "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
-                                    "isDefault": true,
-                                    "container": "[parameters('clusterStorageAccountContainer')]",
-                                    "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
-                                }
-                            ]
-                        },
-                        "computeProfile": {
-                            "roles": [
-                                {
-                                    "name": "headnode",
-                                    "targetInstanceCount": "[parameters('clusterHeadNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installGiraph",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "workernode",
-                                    "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
-                                    "hardwareProfile": {
-                                        "vmSize": "Large"
-                                    },
-                                    "osProfile": {
-                                        "linuxOperatingSystemProfile": {
-                                            "username": "[parameters('sshUserName')]",
-                                            "password": "[parameters('sshPassword')]"
-                                        }
-                                    },
-                                    "scriptActions": [
-                                        {
-                                            "name": "installR",
-                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
-                                            "parameters": ""
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    }
-                }
-            ],
-            "outputs": {
-                "cluster":{
-                    "type" : "object",
-                    "value" : "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
-                }
-            }
+    "scriptActions": [
+        {
+            "name": "setenvironmentvariable",
+            "uri": "[parameters('scriptActionUri')]",
+            "parameters": "headnode"
         }
-2. Azure PowerShell ve oturum açma Azure hesabınızda başlatın. Kimlik bilgilerinizi girdikten sonra komutu, hesabınız hakkında bilgiler döndürür.
+    ]
 
-        Add-AzureRmAccount
+Şablon dağıtma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-        Id                             Type       ...
-        --                             ----
-        someone@example.com            User       ...
-3. Birden çok aboneliğiniz varsa, dağıtım için kullanmak istediğiniz abonelik kimliği sağlayın.
+* [Kaynak şablonları ve Azure PowerShell ile dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
-        Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
-
-    > [!NOTE]
-    > Kullanabileceğiniz `Get-AzureRmSubscription` her biri için abonelik Kimliğini içeren, hesabınızla ilişkili tüm Aboneliklerin listesini almak için.
-
-4. Varolan bir kaynak grubu yoksa, bir kaynak grubu oluşturun. Çözümünüz için gereksinim duyduğunuz konumu ve kaynak grubu adını sağlayın. Yeni kaynak grubu özetini döndürülür.
-
-        New-AzureRmResourceGroup -Name myresourcegroup -Location "West US"
-
-        ResourceGroupName : myresourcegroup
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              :
-        Permissions       :
-                            Actions  NotActions
-                            =======  ==========
-                            *
-        ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
-
-5. Kaynak grubunuz için bir dağıtım oluşturmak için çalıştırın **New-AzureRmResourceGroupDeployment** komut ve gerekli parametreleri belirtin. Parametreler aşağıdaki veriler şunları içerir:
-
-    * Dağıtımınız için bir ad
-    * Kaynak grubu adı
-    * Yolu veya URL'si, oluşturduğunuz şablon.
-
-  Şablonunuzu herhangi bir parametre gerektiriyorsa, bu parametreler de geçmesi gerekir. Bu durumda, küme üzerinde R yüklemek için betik eylemi herhangi bir parametre gerektirmez.
-
-        New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
-
-    Şablonda tanımlanan parametreler için değerler sağlamanız istenir.
-
-1. Kaynak grubu dağıttığınızda dağıtımın bir özeti gösterilir.
-
-          DeploymentName    : mydeployment
-          ResourceGroupName : myresourcegroup
-          ProvisioningState : Succeeded
-          Timestamp         : 8/14/2017 7:00:27 PM
-          Mode              : Incremental
-          ...
-
-2. Dağıtımınızı başarısız olursa hatalar hakkında bilgi almak için aşağıdaki cmdlet'leri kullanabilirsiniz.
-
-        Get-AzureRmResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
+* [Şablonlar ve Azure CLI kaynaklarla dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Azure PowerShell üzerinden küme oluşturma sırasında bir betik eylemi kullanın
 
-Bu bölümde, kullanırız [Ekle AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) bir küme özelleştirmek için betik eylemi kullanarak komut dosyalarını çağrılacak cmdlet'i. Devam etmeden önce Azure PowerShell'i yükleyip yapılandırdığınızdan emin olun. Hdınsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
+Bu bölümde, kullandığınız [Ekle AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) bir küme özelleştirmek için betik eylemi kullanarak komut dosyalarını çağrılacak cmdlet'i. Devam etmeden önce Azure PowerShell'i yükleyip yapılandırdığınızdan emin olun. Hdınsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
 
 Aşağıdaki komut dosyası, PowerShell kullanarak bir küme oluştururken, bir komut dosyası eylemi uygulanacak gösterilmiştir:
 
@@ -703,7 +503,7 @@ SSH kümeye bağlanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH 
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>Küme oluşturma sırasında kullanılan komut geçmişi göstermiyor
 
-Kümenizi 15 Mart 2016'dan önce oluşturulduysa, bir giriş betik eylemi geçmişinde göremeyebilirsiniz. 15 Mart 2016'dan sonra kümeyi yeniden boyutlandırmak, bunlar yeni düğümleri yeniden boyutlandırma işlemi bir parçası olarak uygulanır olarak küme oluşturma sırasında kullanarak komut geçmişinde görünür.
+Kümenizi 15 Mart 2016'dan önce oluşturulduysa, bir giriş betik eylemi geçmişinde göremeyebilirsiniz. 15 Mart 2016'dan sonra kümeyi yeniden boyutlandırmak, bunlar yeni düğümleri yeniden boyutlandırma işlemi sırasında uygulanır olarak küme oluşturma sırasında kullanarak komut geçmişinde görünür.
 
 İki istisna mevcuttur:
 

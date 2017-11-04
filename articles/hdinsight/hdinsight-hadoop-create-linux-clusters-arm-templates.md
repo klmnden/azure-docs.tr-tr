@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: jgao
-ms.openlocfilehash: 82733e2a3025f932961122bad9d70c26896837b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25a45a380db06808db352fa26b88235d6e4b8fd4
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonları kullanarak Hdınsight'ta Hadoop kümeleri oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -34,8 +34,6 @@ Bu makaledeki yönergeleri izlemek için ihtiyacınız vardır:
 
 * Bir [Azure aboneliği](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell ve/veya Azure CLI.
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ### <a name="resource-manager-templates"></a>Resource Manager şablonları
 Resource Manager şablonu uygulamanız için aşağıdakileri tek ve eşgüdümlü bir işlemle oluşturmak kolay hale getirir:
@@ -58,8 +56,7 @@ Azure Portalı'nı kullanarak, bir kümenin tüm özelliklerini yapılandırmak 
 **Azure portalını kullanarak bir şablon oluşturmak için**
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Tıklatın **yeni** sol menüsünde **Intelligence + analiz**ve ardından **Hdınsight**.
-3. Özellikler girmek için yönergeleri izleyin. Kullanabilirsiniz **hızlı Oluştur** veya **özel** seçeneği.
+2. Tıklatın **kaynak oluşturma** sol menüsünde **veri + analiz**ve ardından **Hdınsight**.
 4. Üzerinde **Özet** sekmesini tıklatın, **karşıdan şablonu ve parametre**:
 
     ![Hdınsight Hadoop kümesi Resource Manager şablonu indirme oluşturma](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download.png)
@@ -169,6 +166,7 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Hdınsight kümesi oluşturmanın birkaç yolu öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
+* Daha fazla Hdınsight için ilgili şablonları için bkz: [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * .NET istemci kitaplığını kaynaklarına dağıtma ilişkin bir örnek için bkz: [kaynakları .NET kitaplıkları ve bir şablon kullanarak dağıtmak](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Bir uygulama dağıtımının ayrıntılı örneği için bkz: [sağlamak ve mikro beklendiği azure'da dağıtmak](../app-service/app-service-deploy-complex-application-predictably.md).
 * Çözümünüzü farklı ortamlarda dağıtmaya yönelik kılavuz için bkz. [Microsoft Azure’da geliştirme ve test ortamları](../solution-dev-test-environments.md).
@@ -176,7 +174,7 @@ Bu makalede, Hdınsight kümesi oluşturmanın birkaç yolu öğrendiniz. Daha f
 * Bir Azure Resource Manager şablonunda kullanabileceğiniz işlevleri bir listesi için bkz: [şablon işlevleri](../azure-resource-manager/resource-group-template-functions.md).
 
 ## <a name="appendix-resource-manager-template-to-create-a-hadoop-cluster"></a>Ek: Hadoop kümesi oluşturmak için Resource Manager şablonu
-Aşağıdaki Azure Resource Manager şablonu ile bağımlı Azure depolama hesabı Linux tabanlı Hadoop kümesi oluşturur.
+Aşağıdaki Azure Resource Manager şablonu ile bağımlı Azure depolama hesabı Hadoop kümesi oluşturur.
 
 > [!NOTE]
 > Bu örnek Hive meta depo ve Oozie meta depo için yapılandırma bilgilerini içerir. Aşağıdaki bölümü silmek veya Şablon kullanmadan önce bölüm yapılandırın.
@@ -289,7 +287,7 @@ Aşağıdaki Azure Resource Manager şablonu ile bağımlı Azure depolama hesab
 
         },
         "properties": {
-            "clusterVersion": "3.4",
+            "clusterVersion": "3.6",
             "osType": "Linux",
             "tier": "standard",
             "clusterDefinition": {
@@ -420,7 +418,7 @@ Herhangi bir parametre bir bölümde şablonunun parçası olarak ayarlarsanız,
         },
         "clusterVersion": {
             "type": "string",
-            "defaultValue": "3.5",
+            "defaultValue": "3.6",
             "metadata": {
                 "description": "HDInsight cluster version."
             }

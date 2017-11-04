@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8031c9bae923e19574b7189a97cb71a148b63d77
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>İsteğe bağlı "aşırı" düğümleri Azure HPC Pack kümede ekleyin
 Ayarladığınız varsa bir [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) küme Azure üzerinde bir şekilde kolayca küme kapasite yukarı veya aşağı, önceden yapılandırılmış işlem düğümü VM'ler kümesi korumadan ölçek isteyebilirsiniz. Bu makalede, isteğe bağlı "aşırı" düğümleri (çalışan rolü örnekleri bir bulut hizmetinde çalışan) eklemek baş düğümüne Azure işlem kaynakları olarak gösterilmiştir. 
@@ -42,10 +42,10 @@ Bu makaledeki adımları Azure düğümleri bir bulut tabanlı HPC paketi üstbi
 * **Çekirdek kota** -özellikle çok çekirdekli boyutlarıyla birkaç Azure düğümleri dağıtmak isterseniz, çekirdek, Kotayı artırmak gerekebilir. Bir Kotayı artırmak için [bir çevrimiçi müşteri destek isteği açma](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) herhangi bir ücret alınmaz.
 
 ## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>1. adım: bir bulut hizmeti ve Azure düğümleri için bir depolama hesabı oluşturma
-Klasik Azure portalından veya eşdeğer Araçlar Azure düğümleriniz dağıtmak için gereken aşağıdaki kaynaklarını yapılandırmak için kullanın:
+Azure Portalı'nı veya eşdeğer Araçlar Azure düğümleriniz dağıtmak için gereken aşağıdaki kaynaklarını yapılandırmak için kullanın:
 
-* Yeni bir Azure bulut hizmeti
-* Yeni bir Azure depolama hesabı
+* Yeni bir Azure bulut hizmeti (Klasik)
+* Yeni bir Azure depolama hesabı (Klasik)
 
 > [!NOTE]
 > Aboneliğinizde var olan bir bulut hizmeti yeniden yok. 
@@ -60,7 +60,11 @@ Klasik Azure portalından veya eşdeğer Araçlar Azure düğümleriniz dağıtm
 ## <a name="step-2-configure-an-azure-management-certificate"></a>2. adım: Azure yönetim sertifikası yapılandırma
 İşlem kaynakları Azure düğümleri eklemek için karşılık gelen bir sertifika dağıtımı için kullanılan Azure aboneliğine baş düğüm ve karşıya bir yönetim sertifikası gerekir.
 
-Bu senaryo için seçtiğiniz **varsayılan HPC Azure yönetim sertifikası** HPC paketi yükler ve baş düğümünde otomatik olarak yapılandırır. Bu sertifika, amaçları ve kavram kanıtı dağıtımları test etmek için kullanışlıdır. Bu sertifikanın kullanılması için aboneliğe dosyası C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer VM baş düğümünden karşıya yükleyin. Sertifikayı karşıya yüklemek için [Klasik Azure portalı](https://manage.windowsazure.com), tıklatın **ayarları** > **yönetim sertifikaları**.
+Bu senaryo için seçtiğiniz **varsayılan HPC Azure yönetim sertifikası** HPC paketi yükler ve baş düğümünde otomatik olarak yapılandırır. Bu sertifika, amaçları ve kavram kanıtı dağıtımları test etmek için kullanışlıdır. Bu sertifikanın kullanılması için aboneliğe dosyası C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer VM baş düğümünden karşıya yükleyin. Sertifikayı karşıya yüklemek için [Azure portal](https://portal.azure.com):
+
+1. Tıklatın **abonelikleri** > *your_subscription_name*.
+
+2. Tıklatın **yönetim sertifikaları** > **karşıya**.
 
 Yönetim sertifikası yapılandırmak için ek seçenekler için bkz: [Azure veri bloğu dağıtımları için Azure yönetim sertifikası yapılandırmak için senaryolar](http://technet.microsoft.com/library/gg481759.aspx).
 

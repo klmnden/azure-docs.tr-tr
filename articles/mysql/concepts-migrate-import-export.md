@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 2164562af60442375b96a51f820a65d4d4a6f257
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.openlocfilehash: 36ffa7082ce60093cbd90d0c12187e28f517646d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>İçeri aktarma kullanarak MySQL veritabanınızı geçirin ve dışarı aktarma
 Bu makalede, iki ortak yaklaşımlar açıklanmaktadır içeri aktarma ve verileri MySQL çalışma ekranı kullanarak MySQL sunucusu için bir Azure veritabanı dışarı aktarma. 
@@ -45,7 +45,7 @@ Bağlantı bilgilerini MySQL çalışma ekranına ekleyin.
 MySQL araçlarını almak ve veritabanları aşağıdaki senaryolarda Azure MySQL veritabanına vermek için kullanın. Diğer senaryolarda kullanımından yararlanabilir [dökümü ve geri yükleme](concepts-migrate-dump-restore.md) yerine yaklaşımını. 
 
 - Varolan bir MySQL veritabanından Azure MySQL veritabanına aktarmak için birkaç tablo seçmeli olarak seçmeniz gerektiğinde, içe aktarma işlemi kullanın ve teknik dışarı aktarmak en iyisidir.  Bunu yaparak, zaman ve kaynak kaydetmek için geçiş gereksiz tüm tablolardan atlayabilirsiniz. Örneğin, `--include-tables` veya `--exclude-tables` anahtarı ile [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) ve `--tables` anahtarı ile [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
-- Açıkça tablolar dışındaki veritabanı nesnelerini taşırken bunları oluşturun. Kısıtlamalar (birincil anahtar, yabancı anahtar, dizinler), görünümleri, işlevleri, yordamlar, tetikleyiciler ve geçirmek istediğiniz herhangi bir veritabanı nesnesini içerir.
+- Açıkça tablolar dışındaki veritabanı nesnelerini taşırken, bu nesneler oluşturun. Kısıtlamalar (birincil anahtar, yabancı anahtar, dizinler), görünümleri, işlevleri, yordamlar, tetikleyiciler ve geçirmek istediğiniz herhangi bir veritabanı nesnesini içerir.
 - Bir MySQL veritabanı dışında dış veri kaynaklarından veri geçişini, düz dosyalarını oluşturmak ve bunları kullanarak içeri [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 Azure veritabanına veri MySQL için yüklemekte olduğunuz zaman veritabanındaki tüm tabloların InnoDB depolama altyapısı kullandığınızdan emin olun. Azure veritabanı için MySQL yalnızca InnoDB depolama altyapısı destekler, bu nedenle alternatif depolama altyapılarını desteklemiyor. Alternatif depolama altyapılarını tablolarınızı ihtiyacınız varsa bunları Azure veritabanı geçiş işleminden önce InnoDB altyapısı biçimi için MySQL kullanmak için dönüştürmek emin olun. 

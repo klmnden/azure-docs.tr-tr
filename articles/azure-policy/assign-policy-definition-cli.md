@@ -5,31 +5,32 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 92b532691986e72eca68d9bc3033e20ff8ffef3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 764554a6afcc7912c53fc5000a6af44abb2adc99
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Azure CLI ile Azure ortamınızda uyumlu olmayan kaynakları tanımlamak için bir ilke atamasını oluşturma
 
-Azure'da anlama uyumluluk ilk adımı, burada geçerli kaynaklarınızla göze bilmektir. Bu hızlı başlangıç bir ilkesi oluşturma işlemi boyunca adımları ilke tanımıyla – uyumlu olmayan kaynakları tanımlamak için atama *gerektiren SQL Server sürümü 12.0*. Bu işlemin sonunda, başarılı bir şekilde farklı bir sürümü, aslında uyumlu olmayan sunucuları nelerdir tanımladınız.
+Azure'da anlama uyumluluk ilk adımı, kendi geçerli kaynaklarla göze burada bilmektir. Bu hızlı başlangıç yönetilen diskleri kullanmıyorsanız sanal makineleri tanımak amacıyla bir ilke atamasını oluşturma sürecinde adımları.
 
-Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu kılavuz, Azure ortamınızda uyumlu olmayan kaynakları tanımlamak için bir ilke ataması oluşturmak için Azure CLI kullanarak ayrıntıları.
+Bu işlemin sonunda hangi sanal makineleri yönetilen diskleri kullanmıyorsanız başarıyla tanımladınız ve bu nedenle *uyumlu olmayan*.
+.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
- 
+
 ## <a name="opt-in-to-azure-policy"></a>Azure ilke kabul
 
-Erişim isteğinde bulunmak için kaydetmeniz gerekir böylece azure ilke sınırlı Önizleme'de kullanıma sunulmuştur.
+Azure ilke genel Önizleme'de kullanıma sunulmuştur ve erişim isteyen kaydetmeniz gerekir.
 
 1. Git Azure ilke https://aka.ms/getpolicy ve select **kaydolun** sol bölmede.
 
@@ -39,15 +40,15 @@ Erişim isteğinde bulunmak için kaydetmeniz gerekir böylece azure ilke sını
 
    ![Azure ilke kullanmayı kabulü](media/assign-policy-definition/preview-opt-in.png)
 
-   Birkaç bize talebe göre kayıt İsteğiniz kabul etmek için gün sürebilir. İsteğiniz kabul sonra hizmeti kullanmaya başlamak e-posta aracılığıyla bildirilir.
+   İsteğiniz Önizleme için otomatik olarak onaylanır. Lütfen sisteme kaydınızı işlemek 30 dakika bekleyin.
 
 ## <a name="create-a-policy-assignment"></a>Bir ilke atamasını oluşturma
 
-Bu hızlı başlangıç içinde bir ilke ataması oluşturun ve SQL Server sürümü 12.0 gerektiren tanımı atayın. Bu ilke tanımı ilke tanımı'nda ayarlanan koşulları ile uyumlu olmayan kaynakları tanımlar.
+Bu hızlı başlangıç içinde bir ilke ataması oluşturun ve yönetilen diskleri tanımı olmadan denetim sanal makineleri atayın. Bu ilke tanımı ilke tanımı'nda ayarlanan koşulları ile uyumlu olmayan kaynakları tanımlar.
 
 Yeni bir ilke ataması oluşturmak için aşağıdaki adımları izleyin.
 
-Tüm ilke tanımları görüntüleyebilir ve "SQL Server sürümü 12.0 gerektiren" ilke tanımı bulunamadı:
+Tüm ilke tanımları görüntüleyebilir ve "Yönetilen diskleri olmadan denetim sanal makineler" ilke tanımı bulunamadı:
 
 ```azurecli
 az policy definition list
@@ -61,16 +62,16 @@ Azure ilke ile birlikte gelen zaten yerleşik ilke tanımlarında kullanabilirsi
 
 Ardından, aşağıdaki bilgileri sağlayın ve ilke tanımı atamak için aşağıdaki komutu çalıştırın:
 
-- Görüntü **adı** ilke ataması için. Bu durumda, kullanalım *gerektiren SQL Server sürümü 12.0 atama*.
-- **İlke** – devre dışı, kullanmakta olduğunuz atamayı oluşturmak için temel ilke tanımı, budur. Bu durumda, ilke tanımı – olduğu *SQL Server sürümü 12.0 gerektirir*
+- Görüntü **adı** ilke ataması için. Bu durumda, kullanalım *yönetilen diski olmayan sanal makineler denetim*.
+- **İlke** – devre dışı, kullanmakta olduğunuz atamayı oluşturmak için temel ilke tanımı, budur. Bu durumda, ilke tanımı – olduğu *denetim yönetilen diski olmayan sanal makineler*
 - A **kapsam** - hangi kaynakların bir kapsamı belirler veya kaynakları gruplandırma ilke ataması üzerinde zorlanan. Bir abonelik için kaynak gruplarını aralığında.
 
-  Bu abonelik kimliği - kullanarak Biz bu örnekte, daha önce kaydettiğiniz Azure ilkesine seçti zaman abonelik (veya kaynak grubu) kullanmak **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** ve kaynak grubu adı - **FabrikamOMS**. Bu abonelik Kimliğini ve çalıştığınız kaynak grubunun adı ile değiştirdiğinizden emin olun. 
+  Bu abonelik kimliği - kullanarak Biz bu örnekte, daha önce kaydettiğiniz Azure ilkesine seçti zaman abonelik (veya kaynak grubu) kullanmak **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** ve kaynak grubu adı - **FabrikamOMS**. Bu abonelik Kimliğini ve çalıştığınız kaynak grubunun adı ile değiştirdiğinizden emin olun.
 
 Bu komut aşağıdaki gibi görünmelidir.
 
 ```azurecli
-az policy assignment create --name Require SQL Server version 12.0 Assignment --policy Require SQL Server version 12.0 --scope /subscriptions/ 
+az policy assignment create --name Audit Virtual Machines without Managed Disks Assignment --policy Audit Virtual Machines without Managed Disks --scope /subscriptions/
 bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
@@ -92,7 +93,7 @@ Bu yeni atama altında uyumlu olmayan kaynakları görüntülemek için:
 Bu koleksiyondaki diğer kılavuzlarını Bu hızlı başlangıç oluşturun. Sonraki öğreticilerde ile çalışmaya devam etmeyi planlıyorsanız, temiz bu quickstart oluşturulan kaynakları yukarı değil. Devam etmek düşünmüyorsanız, şu komutu çalıştırarak oluşturduğunuz atamasını silin:
 
 ```azurecli
-az policy assignment delete –name Require SQL Server version 12.0 Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS
+az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -103,4 +104,3 @@ Kaynakları oluşturduğunuz emin olmak için ilke atama hakkında daha fazla bi
 
 > [!div class="nextstepaction"]
 > [Oluşturma ve ilkelerini yönetme](./create-manage-policy.md)
-

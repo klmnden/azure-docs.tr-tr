@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.openlocfilehash: f661aa5eb6ba87671a83b41aa25621da405aa335
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cd6315c192ad3c33d43406993b1a3e6bd6ec7e4d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Azure Hdınsight kullanarak HBase sorun giderme
 
 Apache Ambari, Apache HBase yükü ile çalışırken, üst sorunları ve bunların çözümleri hakkında bilgi edinin.
 
-## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Birden çok atanmamış bölgeleri ile nasıl hbck komutu raporları çalıştırılsın mı
+## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Birden çok atanmamış bölgeleri ile nasıl hbck komutu raporları çalıştırılsın mı?
 
 Çalıştırdığınızda görebilirsiniz genel bir hata iletisi `hbase hbck` komuttur "birden çok atanmamış bölgeler veya bölgeler zincirindeki delik."
 
@@ -41,7 +41,7 @@ Atanmamış bölgeler normal bir duruma getirmek için aşağıdaki adımları t
 6. Çalıştırma `hbase hbck` komutunu yeniden (seçenekleri olmadan). Tüm bölgeler atanmış olmadığından emin olmak için bu komutun çıktısı denetleyin.
 
 
-## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Zaman aşımı sorunları nasıl hbck komutlarını bölge atamaları kullanırken düzeltme
+## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Zaman aşımı sorunları nasıl hbck komutlarını bölge atamaları kullanırken düzeltme?
 
 ### <a name="issue"></a>Sorun
 
@@ -56,7 +56,7 @@ Kullandığınızda zaman aşımı sorunlarıyla ilgili olası bir nedeni `hbck`
 5. Ambari Arabiriminde etkin HBase ana hizmetini yeniden başlatın.
 6. Çalıştırma `hbase hbck -fixAssignments` yeniden komutu.
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Nasıl ı zorla-küme güvenli modda HDFS devre dışı bırak
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Nasıl ı zorla-küme güvenli modda HDFS devre dışı bırak?
 
 ### <a name="issue"></a>Sorun
 
@@ -211,7 +211,7 @@ Hdınsight kümesi aşağı ölçeklendirilmiş bir çok az sayıda düğüm. A�
    ```
 
 
-## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Nasıl JDBC veya SQLLine bağlantısı düzeltirim Apache Phoenix ile ilgili sorunları
+## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Nasıl JDBC veya SQLLine bağlantısı düzeltirim Apache Phoenix ile ilgili sorunları?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
@@ -262,7 +262,7 @@ HBase ana hizmeti Sabitle ve kurtarma işlemini tamamlamak beş dakika kadar sü
 Zaman sistem. KATALOG tablo normal olarak, Phoenix için bağlantı sorunu otomatik olarak çözülmesi gerekir.
 
 
-## <a name="what-causes-a-master-server-to-fail-to-start"></a>Ne ana sunucu başlatmak başarısız olmasına neden olur
+## <a name="what-causes-a-master-server-to-fail-to-start"></a>Başlayamaz ana sunucu nedeni nedir?
 
 ### <a name="error"></a>Hata 
 
@@ -344,7 +344,7 @@ Bu, HMaster hizmetiyle bilinen bir sorundur. Genel küme başlangıç görevleri
 2. Gerekli hizmetler (HMaster ve muhtemelen diğer HBase Hizmetleri) yeniden başlatın.  
 
 
-## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Bir bölge sunucu üzerinde bir yeniden başlatma hatası nedeni nedir
+## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Bir yeniden başlatma hatası bir bölge sunucuda nedeni nedir?
 
 ### <a name="issue"></a>Sorun
 
@@ -421,3 +421,5 @@ Bölge sunucu işlemi durdurulmuş olsa bile ani kapatma nedeniyle, işlemle ili
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
+### <a name="see-also"></a>Ayrıca Bkz.
+[Azure Hdınsight kullanarak sorun giderme](../../hdinsight/hdinsight-troubleshoot-guide.md)

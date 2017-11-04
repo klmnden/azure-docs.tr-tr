@@ -1,10 +1,10 @@
 ---
-title: "NPS uzantısı kullanılarak Azure MFA ile VPN tümleştirme | Microsoft Docs"
-description: "Bu makalede, Microsoft Azure için ağ ilkesi sunucusu (NPS) uzantısını kullanarak Azure MFA ile VPN altyapınız tümleştirme anlatılmaktadır."
+title: "VPN ağ ilkesi sunucusu uzantısı kullanılarak Azure MFA ile tümleştirme | Microsoft Docs"
+description: "Bu makalede, Microsoft Azure için ağ ilkesi sunucusu uzantısını kullanarak VPN altyapınız Azure MFA ile tümleştirme anlatılmaktadır."
 services: active-directory
 keywords: "Azure MFA, VPN, Azure Active Directory, ağ ilkesi sunucusu uzantısı tümleştirme"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -13,463 +13,541 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 8ac4c5d88e724febf21fe6bcc8ecf939283f361e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 92b95b91073ef0a53a936bea53a7c63fe37f1746
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>VPN altyapınız ile Azure çok faktörlü kimlik doğrulaması (Azure için ağ ilkesi sunucusu (NPS) uzantısını kullanarak MFA) tümleştirme
+# <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısını kullanarak VPN altyapınız Azure MFA ile tümleştirme
 
 ## <a name="overview"></a>Genel Bakış
 
 Azure ağ ilkesi sunucusu (NPS) uzantısı kuruluşların Uzaktan Kimlik Doğrulama Çevirmeli Kullanıcı Hizmeti (RADIUS) istemci kimlik doğrulaması kullanarak bulut tabanlı korumaya izin veren [Azure çok faktörlü kimlik doğrulama (MFA)](multi-factor-authentication-get-started-server-rdg.md), iki aşamalı doğrulama sağlar.
 
-Bu makalede, bir VPN kullanarak ağınıza bağlanmak deneyen kullanıcılar için güvenli iki aşamalı doğrulamayı etkinleştirmek için Azure için NPS uzantısını kullanarak NPS altyapı Azure MFA ile tümleştirmek için yönergeler sağlar. 
+Bu makalede, Azure için NPS uzantısını kullanarak NPS altyapı MFA ile tümleştirmek için yönergeler sağlar. Bu işlem bir VPN kullanarak ağa bağlanma girişiminde kullanıcılar için güvenli iki aşamalı doğrulamayı etkinleştirir. 
 
-Ağ İlkesi ve Erişim Hizmetleri (NPS) kuruluşlar aşağıdaki yetenekleri sağlar:
+Ağ İlkesi ve Erişim Hizmetleri imkanı kuruluşlar için:
 
-* Yönetim ve ağ isteklerinin kimin, ne zaman bağlantılara izin verilir, günün bağlantıları süresini ve istemcilerin bağlanmanız ve benzeri güvenlik düzeyini bağlanabileceğini belirtmek için denetim merkezi konumlarını belirtin. Bu ilkelerin her VPN veya Uzak Masaüstü (RD) Ağ Geçidi sunucusunda belirtmek yerine, bu ilkeler merkezi bir konumda bir kez belirtilebilir. RADIUS protokolü merkezi kimlik doğrulama, yetkilendirme ve hesap oluşturma (AAA) sağlamak için kullanılır. 
+* Merkezi bir konum belirtmek için ağ isteklerinin denetim ve Yönetim için ata:
+
+    * Kimin bağlayabilir miyim 
+    
+    * Gün bağlantıların ne zaman izin verilir 
+    
+    * Bağlantı süresi
+    
+    * İstemcileri bağlanmak için kullanmaları gereken güvenlik düzeyi
+
+    Merkezi bir konumda olduklarını sonra her VPN veya Uzak Masaüstü Ağ Geçidi sunucusunda ilkeleri belirtmek yerine bunu yapar. RADIUS protokolü merkezi kimlik doğrulama, yetkilendirme ve hesap oluşturma (AAA) sağlamak için kullanılır. 
+
 * Kurmak ve cihazları ağ kaynaklarına Kısıtlanmamış veya kısıtlanmış erişim izni olup olmadığını belirleyen Ağ Erişim Koruması (NAP) istemci sistem durumu ilkeleri zorlayın.
-* Kimlik doğrulama ve yetkilendirme access 802.1 zorlamak için sağladıkları x özellikli kablosuz erişim noktaları ve Ethernet anahtarları.    
 
-Daha fazla bilgi için bkz: [ağ ilkesi sunucusu (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
+* Kimlik doğrulama ve yetkilendirme access 802.1 zorlamak için bir yol sağlamak x özellikli kablosuz erişim noktaları ve Ethernet anahtarları.   
+Daha fazla bilgi için bkz: [ağ ilkesi sunucusu](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
 
-Güvenliği artırmak ve yüksek düzeyde uyumluluk sağlamak için kuruluşlar tümleştirebilirsiniz NPS kullanıcılar için iki aşamalı doğrulamayı kullandığınızdan emin olmak için Azure MFA ile bağlanmak için VPN sunucuda sanal bağlantı noktası. Kullanıcıların erişim verilmesi için kullanıcının kendi denetiminde sahip bilgilerle kendi kullanıcı adı/parola bileşimi sağlamanız gerekir. Bu bilgiler güvenilir ve kolayca çoğaltılması, cep telefonu numarası, telefona numarası, uygulama, bir mobil cihaz ve benzerleri gibi.
+Güvenliği artırmak ve yüksek bir uyumluluk düzeyini sağlamak için kuruluşlar NPS kullanıcıların VPN sunucuda sanal bağlantı noktasına bağlanmak için iki aşamalı doğrulamayı kullandığınızdan emin olmak için Azure multi-Factor Authentication ile tümleştirebilirsiniz. Kullanıcıların erişim verilmesi için kullanıcı adı ve parola birleşimi ve bunların denetim diğer bilgileri sağlamaları gerekir. Bu bilgileri güvenilir ve kolayca çoğaltılması gerekir. Cep telefonu numarası, telefona numarası veya bir uygulamayı bir mobil cihazda içerebilir.
 
-Azure NPS uzantısı kullanıma açılmadan önce tümleşik NPS ve Azure MFA ortamlar için iki aşamalı doğrulamayı uygulamak istediğinizde müşteriler yapılandırıp ayrı bir MFA sunucusu şirket içi ortamda açıklandığı gibi gerekiyordu Uzak Masaüstü Ağ geçidi ve Azure multi-Factor Authentication sunucusu RADIUS kullanma.
+Azure NPS uzantısı kullanılabilirliği önce NPS için iki aşamalı doğrulamayı uygulayan isteyen müşteriler tümleşik ve MFA ortamları yapılandırmak ve bir şirket içi ortamda ayrı bir MFA sunucusu korumak gerekiyordu. Bu kimlik doğrulama türü, Azure multi-Factor Authentication sunucusu RADIUS kullanan Uzak Masaüstü Ağ geçidi ile sunulur.
 
-Azure NPS uzantısı kullanılabilirliğini şimdi kuruluşlar için güvenli RADIUS istemci kimlik doğrulaması şirket tabanlı MFA çözümünü veya bulut tabanlı bir MFA çözümü dağıtmak için seçmenizi sağlar.
+NPS ile Azure uzantısı, kuruluşların şirket içi dayalı MFA çözümünü veya bulut tabanlı bir MFA çözümü dağıtarak RADIUS istemci kimlik doğrulaması güvenliğini sağlayabilirsiniz.
  
 ## <a name="authentication-flow"></a>Kimlik doğrulama akışı
-Bir kullanıcı bir VPN sunucusu üzerindeki bir sanal bağlantı noktasına bağlandığında, bunlar ilk kullanıcı adı/parola ve sertifika tabanlı kimlik doğrulama yöntemlerinin bir birleşimini kullanılmasına izin protokolleri çeşitli kullanarak kimliğini doğrulaması gerekir. 
+Kullanıcılar VPN sunucusu üzerindeki bir sanal bağlantı noktasına bağlandığında, bunlar ilk çeşitli protokollerini kullanarak kimlik doğrulaması gerekir. Protokolleri kullanıcı adı ve parola ve sertifika tabanlı kimlik doğrulama yöntemlerinin bir birleşimini kullanılmasına izin verin. 
 
-Kimlik doğrulaması ve kimlik doğrulama ek olarak, kullanıcıların uygun arama izinleri olmalıdır. Basit uygulamalarında, erişim izni bu çevirmeli izinler doğrudan Active Directory kullanıcı nesneleri üzerinde ayarlanır. 
+Kimlik doğrulaması ve kendi kimlik doğrulama ek olarak, kullanıcıların uygun arama izinleri olmalıdır. Basit uygulamalarında, erişim izni arama izinleri doğrudan Active Directory kullanıcı nesneleri ayarlanır. 
 
- ![Kullanıcı özellikleri](./media/nps-extension-vpn/image1.png)
+![Kullanıcı özellikleri](./media/nps-extension-vpn/image1.png)
 
-Basit uygulamalar için her VPN sunucusu verir veya erişimi her yerel VPN sunucusunda tanımlanan ilkelere bağlı olarak reddeder.
+Basit uygulamalarında her VPN sunucusu verir veya erişimi her yerel VPN sunucusunda tanımlanan ilkelere bağlı olarak reddeder.
 
-Daha büyük ve daha fazla ölçeklenebilir uygulamalarında, bu verme ilkeleri veya VPN erişimi RADIUS sunucularına merkezi reddedin. Bu durumda, VPN sunucusu bağlantı isteklerini ve hesap iletilerini bir RADIUS sunucusuna iletir bir erişim sunucusu (RADIUS istemcisi) gibi davranır. VPN sunucuda sanal bağlantı noktası bağlanmak için kullanıcıların kimliğinin doğrulanması gerekir ve RADIUS sunucularına merkezi olarak tanımlanmış koşullara uyan. 
+Daha büyük ve daha fazla ölçeklenebilir uygulamalarında VPN erişim vermek veya reddetmek ilkeleri RADIUS sunucularına merkezi olarak kullanılır. Bu durumlarda, VPN sunucusu bağlantı isteklerini ve hesap iletilerini bir RADIUS sunucusuna iletir bir erişim sunucusu (RADIUS istemcisi) gibi davranır. VPN sunucuda sanal bağlantı noktası bağlanmak için kullanıcıların kimliğinin doğrulanması gerekir ve RADIUS sunucularında merkezi olarak tanımlanmış koşullara uyan. 
 
-Azure NPS uzantısı NPS ile tümleştirildiğinde, başarılı kimlik doğrulaması akışı aşağıdaki gibidir:
+Azure NPS uzantısı NPS ile tümleştirildiğinde, başarılı kimlik doğrulama akışı, aşağıdaki gibi olur:
 
 1. VPN sunucusu kullanıcı adı ve Uzak Masaüstü oturumu gibi bir kaynağa bağlanmak için parola içeren bir VPN kullanıcı kimlik doğrulama isteği alır. 
-2. Bir RADIUS istemcisi olarak işlev gören, VPN sunucusunun RADIUS Erişim-İstek iletisi için istek dönüştürür ve iletiyi gönderir (parola şifrelenir) NPS uzantısı yüklü olduğu RADIUS (NPS) sunucusuna. 
-3. Kullanıcı adı ve parola birleşimini Active Directory'de doğrulanır. Kullanıcı adı / parola yanlış olduğundan, RADIUS sunucusu bir erişim reddi iletisi gönderir. 
-4. Ağ ilkeleri ve NPS bağlantı isteğini belirtildiği gibi tüm koşullar karşılanıyorsa (örneğin, süresi gün veya grup üyeliği kısıtlamaları), NPS uzantısı Azure MFA ile ikincil kimlik doğrulama isteği tetikler. 
-5. Azure MFA, Azure Active Directory ile iletişim kurar, kullanıcının ayrıntılarını alır ve (SMS mesajı, mobil uygulama ve benzeri) kullanıcı tarafından yapılandırılan yöntemini kullanarak ikincil kimlik doğrulaması gerçekleştirir. 
-6. MFA testini Başarı sonucu NPS uzantısı sonucu Azure MFA ile iletişim kurar.
-7. Bağlantı denemesi kimliği doğrulanmış ve yetkilendirilmiş sonra uzantısı yüklendiği NPS sunucusunun RADIUS Erişim Kabul iletisi VPN sunucusu (RADIUS istemcisi) gönderir.
+
+2. Bir RADIUS istemcisi olarak işlev gören, VPN sunucusu isteği için bir RADIUS dönüştürür *erişim isteği* iletisi ve RADIUS sunucusuna (şifrelenmiş parola ile), NPS uzantısı yüklendiği gönderir. 
+
+3. Kullanıcı adı ve parola birleşimini Active Directory'de doğrulanır. Kullanıcı adı veya parola yanlış ise, RADIUS sunucusu gönderir bir *erişim reddi* ileti. 
+
+4. Ağ ilkeleri ve NPS bağlantı isteğini belirtildiği gibi tüm koşullar karşılanıyorsa (örneğin, süresi gün veya grup üyeliği kısıtlamaları), Azure multi-Factor Authentication ile ikincil kimlik doğrulama isteği NPS uzantısı tetikler. 
+
+5. Azure çok faktörlü kimlik doğrulaması Azure Active Directory ile iletişim kurar, kullanıcının ayrıntılarını alır ve ikincil kimlik doğrulama (hücre telefon araması, SMS mesajı veya mobil uygulama) kullanıcı tarafından yapılandırılan yöntemini kullanarak gerçekleştirir. 
+
+6. MFA testini başarılı olduğunda, Azure multi-Factor Authentication NPS uzantısı sonucu iletişim kurar.
+
+7. Bağlantı denemesi kimliği doğrulanmış ve yetkilendirilmiş sonra uzantısı yüklü olduğu NPS bir RADIUS gönderir *erişim kabul* (RADIUS istemcisi) VPN sunucusuna ileti.
+
 8. Kullanıcı VPN sunucuda sanal bağlantı noktası erişimi verilir ve şifreli bir VPN tüneli oluşturur.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu bölümde, Uzak Masaüstü Ağ geçidi ile Azure MFA tümleştirme önce gerekli önkoşulları ayrıntıları verilmektedir. Başlamadan önce aşağıdaki önkoşulların yerinde olması gerekir.
+Bu bölümde, MFA Uzak Masaüstü Ağ geçidi ile tümleştirebilirsiniz önce tamamlanması gereken önkoşulları ayrıntılarını verir. Başlamadan önce aşağıdaki önkoşulların yerinde olmalıdır:
 
 * VPN altyapısı
-* Ağ İlkesi ve Erişim Hizmetleri (NPS) rol
-* Azure MFA lisans
+* Ağ İlkesi ve Erişim Hizmetleri rolü
+* Azure çok faktörlü kimlik doğrulama lisansı
 * Windows Server yazılımı
 * Kitaplıkları
-* Azure AD synched ile şirket içi AD 
+* Azure Active Directory (Azure AD) ile eşitlenen şirket içi Active Directory 
 * Azure Active Directory GUID kimliği
 
 ### <a name="vpn-infrastructure"></a>VPN altyapısı
-Bu makalede, Microsoft Windows Server 2016 yerinde kullanarak bir çalışma VPN altyapısına sahip ve VPN sunucusu şu anda bağlantı isteklerini iletmek için bir RADIUS sunucusuna yapılandırılmadığını varsayar. Bu kılavuzda merkezi bir RADIUS sunucusuna kullanmak için VPN altyapısı yapılandırır.
+Bu makalede, Microsoft Windows Server 2016 kullanan bir çalışma VPN altyapısına sahip ve VPN sunucunuzun şu anda bağlantı isteklerini iletmek için bir RADIUS sunucusuna yapılandırılmadığını varsayar. Makalede, merkezi bir RADIUS sunucusu kullanmak üzere VPN altyapıyı yapılandırın.
 
-Yerinde bir çalışma altyapısı yoksa Microsoft ve üçüncü taraf sitelere bulabilirsiniz çok sayıda VPN Kurulumu öğreticileri sağlanan yönergeleri izleyerek, hızlı bir şekilde bu altyapı oluşturabilirsiniz. 
+Yerinde bir çalışma VPN altyapısı yoksa Microsoft ve üçüncü taraf sitelere bulabileceğiniz çok sayıda VPN Kurulumu öğreticileri yer alan yönergeleri izleyerek bir hızlı bir şekilde oluşturabilirsiniz. 
 
-### <a name="network-policy-and-access-services-nps-role"></a>Ağ İlkesi ve Erişim Hizmetleri (NPS) rol
+### <a name="the-network-policy-and-access-services-role"></a>Ağ İlkesi ve Erişim Hizmetleri rolü
 
-NPS rol hizmetinin, RADIUS sunucusu ve istemci işlevselliği sağlar. Bu makalede, NPS rol bir üye sunucu veya etki alanı denetleyicisinde ortamınızda yüklediğiniz varsayılır. Bu kılavuzdaki VPN yapılandırması için RADIUS yapılandırır. NPS rolü bir sunucuya yüklemek _diğer_ VPN sunucunuzun daha.
+Ağ İlkesi ve Erişim Hizmetleri, RADIUS sunucusu ve İstemcisi işlevselliği sağlar. Bu makalede, Ağ İlkesi ve Erişim Hizmetleri rolünün bir üye sunucu veya etki alanı denetleyicisinde ortamınızda yüklediğinizi varsayar. Bu kılavuzda, RADIUS VPN yapılandırması için yapılandırın. Ağ İlkesi ve Erişim Hizmetleri rolünün bir sunucuya yüklemek *dışında* VPN sunucunuzun.
 
-NPS rolü yükleme hakkında bilgi için Windows Server 2012 hizmet veya üzeri, bkz: [bir NAP sistem durumu ilkesi sunucusu yükleme](https://technet.microsoft.com/library/dd296890.aspx). Ağ erişim ilkesi (NAP), Windows Server 2016'da kullanım dışıdır. Bir etki alanı denetleyicisinde NPS yüklemek için öneri dahil olmak üzere NPS için en iyi uygulamaları bir açıklaması için bkz: [NPS için en iyi uygulamaları](https://technet.microsoft.com/library/cc771746).
+Ağ İlkesi ve Erişim Hizmetleri rolünü yükleme hakkında bilgi için Windows Server 2012 hizmet veya daha sonra bkz: [bir NAP sistem durumu ilkesi sunucusu yükleme](https://technet.microsoft.com/library/dd296890.aspx). NAP, Windows Server 2016'da kullanım dışıdır. Bir etki alanı denetleyicisinde NPS yüklemek için öneri dahil olmak üzere NPS için en iyi uygulamaları bir açıklaması için bkz: [en iyi uygulamalar için NPS](https://technet.microsoft.com/library/cc771746).
 
 ### <a name="azure-mfa-license"></a>Azure MFA lisans
 
-Gerekli bir Azure AD Premium, Enterprise Mobility artı güvenlik (EMS) veya bir MFA abonelik kullanılabilir olan Azure MFA bir lisans kullanılır. Daha fazla bilgi için bkz: [Azure çok faktörlü kimlik doğrulama alma](multi-factor-authentication-versions-plans.md). Test amacıyla bir deneme aboneliği kullanabilirsiniz.
+Azure çok faktörlü kimlik doğrulaması için bir lisansı gereklidir ve bir Azure AD Premium, Enterprise Mobility + güvenlik veya çok faktörlü kimlik doğrulaması abonelik ile kullanılabilir. Daha fazla bilgi için bkz: [Azure çok faktörlü kimlik doğrulama alma](multi-factor-authentication-versions-plans.md). Test amacıyla bir deneme aboneliği kullanabilirsiniz.
 
 ### <a name="windows-server-software"></a>Windows Server yazılımı
 
-Windows Server 2008 R2 SP1 NPS uzantısı gerektirir veya üstü yüklü NPS rol hizmetine sahip. Bu kılavuzdaki tüm adımları, Windows Server 2016 kullanılarak gerçekleştirilen.
+Daha sonra Ağ İlkesi ve Erişim Hizmetleri rolü yüklü veya Windows Server 2008 R2 SP1 NPS uzantısı gereklidir. Bu kılavuzdaki tüm adımları Windows Server 2016 ile gerçekleştirilmiştir.
 
 ### <a name="libraries"></a>Kitaplıkları
 
-Bu kitaplıklar uzantısı ile otomatik olarak yüklenir.
+Aşağıdaki kitaplıklar NPS uzantısı ile otomatik olarak yüklenir:
 
 -   [Visual Studio 2013 (X64) için Visual C++ yeniden dağıtılabilir paketleri](https://www.microsoft.com/download/details.aspx?id=40784)
 -   [Microsoft Azure Active Directory için Windows PowerShell modülü sürümü 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
-Microsoft Azure Active Directory için Windows PowerShell modülü, zaten var, Kurulum işleminin bir parçası olarak çalışan bir yapılandırma komut dosyası aracılığıyla değilse yüklenir. Zaten yüklü değilse bu modül önceden yüklemeye gerek yoktur.
+Microsoft Azure Active Directory PowerShell modülü mevcut değilse, Kurulum işleminin bir parçası olarak çalışan bir yapılandırma betiğini birlikte yüklenir. Zaten yüklü değilse önceden modülünü yüklemek için gerek yoktur.
 
-### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Şirket içi Active Directory ile Azure Active Directory synched 
+### <a name="azure-active-directory-synced-with-on-premises-active-directory"></a>Şirket içi Active Directory ile eşitlenmiş Azure Active Directory 
 
-NPS uzantısını kullanmak için şirket içi kullanıcıları Azure Active Directory ile eşitlenen ve çok faktörlü kimlik doğrulaması için etkinleştirilmiş olmalıdır. Bu kılavuz, şirket içi kullanıcıları Azure AD Connect kullanarak Active Directory'e ile eşitlenir varsayar. Kullanıcılara MFA için etkinleştirmeye yönelik yönergeler aşağıda verilmiştir.
-Azure AD hakkında bilgi için bağlanmak, bkz: [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../active-directory/connect/active-directory-aadconnect.md). 
+NPS uzantısını kullanmak için şirket içi kullanıcıları Azure Active Directory ile eşitlenen ve MFA için etkinleştirilmiş olmalıdır. Bu kılavuz, şirket içi kullanıcıları Azure AD Connect yoluyla Azure Active Directory ile eşitlenen varsayar. Kullanıcılara MFA için etkinleştirmeye yönelik yönergeler aşağıda verilmiştir.
+
+Azure AD Connect hakkında daha fazla bilgi için bkz: [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../active-directory/connect/active-directory-aadconnect.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID kimliği 
+
 NPS uzantıyı yüklemek için Azure Active Directory GUID bilmeniz gerekir. Sonraki bölümde Azure Active Directory GUID bulmak için yönergeler sağlanmaktadır.
 
 ## <a name="configure-radius-for-vpn-connections"></a>VPN bağlantıları için RADIUS yapılandırın
 
-Bir üye sunucuda NPS sunucusu rolünü yüklediyseniz, kimlik doğrulaması ve bu isteği VPN bağlantılarını VPN istemcisi yetkilendirmek için yapılandırmanız gerekir. 
+NPS rol bir üye sunucuda yüklü değilse, kimlik doğrulaması ve bu istekleri VPN bağlantılarını VPN istemcisi yetkilendirmek için yapılandırmanız gerekir. 
 
-Bu bölümde, ağ ilkesi sunucusu rolünü yüklediyseniz ancak kullanım için altyapınızda yapılandırmadınız varsayar.
+Bu bölümde, Ağ İlkesi ve Erişim Hizmetleri rolünü yüklediyseniz ancak kullanım için altyapınızda yapılandırmadınız varsayar.
 
->[!NOTE]
->Merkezi bir RADIUS sunucusuna kimlik doğrulaması için kullandığı bir çalışma VPN sunucusu zaten varsa, bu bölümü atlayabilirsiniz.
+> [!NOTE]
+> Merkezi bir RADIUS sunucusuna kimlik doğrulaması için kullandığı bir çalışma VPN sunucusu zaten varsa, bu bölümü atlayabilirsiniz.
 >
 
 ### <a name="register-server-in-active-directory"></a>Sunucusu Active Directory'de Kaydettir
-Bu senaryoda düzgün çalışması için NPS sunucusunun Active Directory'de kayıtlı olması gerekir.
+Bu senaryoda düzgün çalışması için NPS sunucusunun Active Directory'de kayıtlı olmalıdır.
 
 1. Sunucu Yöneticisi'ni açın.
-2. Sunucu Yöneticisi'nde **Araçları**ve ardından **ağ ilkesi sunucusu**. 
-3. Ağ İlkesi Sunucusu konsolunda sağ **NPS (yerel)**ve ardından **Active Directory'de kayıt sunucusu**. Tıklatın **Tamam** iki kez.
 
- ![Ağ İlkesi Sunucusu](./media/nps-extension-vpn/image2.png)
+2. Sunucu Yöneticisi'nde seçin **Araçları**ve ardından **ağ ilkesi sunucusu**. 
+
+3. Ağ İlkesi Sunucusu konsolunda sağ **NPS (yerel)**ve ardından **Active Directory'de kayıt sunucusu**. Seçin **Tamam** iki kez.
+
+    ![Ağ İlkesi Sunucusu](./media/nps-extension-vpn/image2.png)
 
 4. Konsolunu sonraki yordam için açık bırakın.
 
-### <a name="use-wizard-to-configure-radius-server"></a>RADIUS sunucusu Yapılandırma Sihirbazı'nı kullanın
-Standart (Sihirbaz tabanlı) kullanabilirsiniz veya gelişmiş yapılandırma seçeneği RADIUS sunucusunu yapılandırmak için. Bu bölümde, sihirbaz tabanlı standart yapılandırma seçeneğinin kullanımını varsayar.
+### <a name="use-wizard-to-configure-the-radius-server"></a>RADIUS sunucusu Yapılandırma Sihirbazı'nı kullanın
+Standart (Sihirbaz tabanlı) kullanabilirsiniz veya gelişmiş yapılandırma seçeneği RADIUS sunucusunu yapılandırmak için. Bu bölümde, sihirbaz tabanlı standart yapılandırma seçeneği kullandığınız varsayılır.
 
-1. Ağ İlkesi Sunucusu konsolunda **NPS (yerel)**.
-2. Standart yapılandırmada seçin **çevirmeli veya VPN bağlantıları için RADIUS sunucusu**ve ardından **yapılandırma VPN veya çevirmeli**.
+1. Ağ İlkesi Sunucusu konsolunda seçin **NPS (yerel)**.
 
- ![VPN bağlantısını yapılandırma](./media/nps-extension-vpn/image3.png)
+2. Altında **standart yapılandırma**seçin **çevirmeli veya VPN bağlantıları için RADIUS sunucusu**ve ardından **yapılandırma VPN veya çevirmeli**.
 
-3. Select çevirmeli veya sanal özel ağ bağlantıları türü sayfasında, seçin **sanal özel ağ bağlantıları**, tıklatıp **sonraki**.
+    ![VPN bağlantısını yapılandırma](./media/nps-extension-vpn/image3.png)
 
- ![Sanal özel ağ](./media/nps-extension-vpn/image4.png)
+3. İçinde **çevirmeli veya sanal özel ağ bağlantı türünü seçin** penceresinde, seçin **sanal özel ağ bağlantıları**ve ardından **sonraki**.
 
-4. Belirtin çevirmeli veya VPN sunucusu sayfasında, tıklatın **Ekle**.
-5. İçinde **yeni RADIUS istemcisi** iletişim kutusu, kolay bir ad sağlayın, çözümlenebilir adını veya VPN sunucusunun IP adresini girin ve paylaşılan gizli bir parola girin. Bu paylaşılan gizli parola uzun ve karmaşık olun. Sonraki bölümdeki adımları için gerek duyduğunuz bu parolayı kaydedin.
+    ![Sanal özel ağ](./media/nps-extension-vpn/image4.png)
 
- ![Yeni RADIUS istemcisi](./media/nps-extension-vpn/image5.png)
+4. İçinde **belirtin çevirmeli veya VPN sunucusu** penceresinde, seçin **Ekle**.
 
-6. Tıklatın **Tamam**ve ardından **sonraki**.
-7. Üzerinde **kimlik doğrulama yöntemleri yapılandırma** sayfasında, varsayılan seçimi (Microsoft Şifreli kimlik doğrulaması sürüm 2 (MS-CHAPv2) veya başka bir seçenek belirleyin ve **sonraki**.
+5. İçinde **yeni RADIUS istemcisi** penceresinde, kolay bir ad sağlayın, çözümlenebilir adını veya VPN sunucusunun IP adresini girin ve ardından paylaşılan gizli bir parola girin.  
+    Paylaşılan gizli parola uzun ve karmaşık olun. Sonraki bölümde gerekir çünkü bunu kaydedin.
 
-  >[!NOTE]
-  >Genişletilebilir Kimlik Doğrulama Protokolü (EAP) yapılandırırsanız, MS CHAPv2 veya PEAP kullanmanız gerekir. Diğer bir EAP desteklenir.
+    ![Yeni RADIUS istemcisi](./media/nps-extension-vpn/image5.png)
+
+6. Seçin **Tamam**ve ardından **sonraki**.
+
+7. İçinde **kimlik doğrulama yöntemleri yapılandırma** penceresinde, varsayılan seçim kabul (**Microsoft Şifreli kimlik doğrulaması sürüm 2 [MS-CHAPv2])** veya başka bir seçenek belirleyin ve işaretleyin **sonraki** .
+
+    > [!NOTE]
+    > Genişletilebilir Kimlik Doğrulama Protokolü (EAP) yapılandırırsanız, Microsoft Karşılıklı Kimlik Doğrulama Protokolü (CHAPv2) veya Korumalı Genişletilebilir Kimlik Doğrulama Protokolü (PEAP) kullanmanız gerekir. Diğer bir EAP desteklenir.
  
-8. Kullanıcı grupları belirtin sayfasında, tıklatın **Ekle** ve varsa, uygun bir grup seçin. Aksi takdirde, seçim tüm kullanıcılara erişim vermek için boş bırakın.
+8. İçinde **kullanıcı gruplarını belirtmek** penceresinde, seçin **Ekle**ve ardından uygun bir grup seçin.  
+    Seçimi hiçbir grup zaten varsa, tüm kullanıcılara erişim vermek için boş bırakın.
 
- ![Kullanıcı gruplarını belirtin](./media/nps-extension-vpn/image7.png)
+    ![Kullanıcı gruplarını belirtmek penceresi](./media/nps-extension-vpn/image7.png)
 
-9. **İleri**’ye tıklayın.
-10. IP filtreleri belirtin sayfasında, tıklatın **sonraki**.
-11. Şifreleme ayarlarını belirtin sayfasında, varsayılan ayarları kabul edin ve **sonraki**.
+9. Seçin **sonraki**.
 
- ![Şifreleme belirtin](./media/nps-extension-vpn/image8.png)
+10. İçinde **belirtin IP filtreleri** penceresinde, seçin **sonraki**.
 
-12. Bölge adı belirtin sayfasında adını boş bırakın, varsayılan ayarı kabul etmek ve tıklayın **sonraki**.
+11. İçinde **şifreleme ayarlarını belirt** penceresinde, varsayılan ayarları kabul edin ve ardından **sonraki**.
 
- ![Bir bölge adı belirtin](./media/nps-extension-vpn/image9.png)
+    ![Şifreleme ayarları belirtmek penceresi](./media/nps-extension-vpn/image8.png)
 
-13. Tamamlanıyor yeni çevirmeli veya sanal özel ağ bağlantıları ve RADIUS istemcileri sayfasında tıklatın **son**.
+12. İçinde **bir bölge adı belirtin** penceresinde, bölge adını boş bırakın, varsayılan ayarı kabul edin ve ardından **sonraki**.
 
- ![Tam bağlantıları](./media/nps-extension-vpn/image10.png)
+    ![Bir bölge adı penceresi belirtin](./media/nps-extension-vpn/image9.png)
 
-### <a name="verify-radius-configuration"></a>RADIUS yapılandırmasını doğrulayın.
-Bu bölümde, Sihirbazı'nı kullanarak oluşturduğunuz yapılandırma ayrıntılarını verir.
+13. İçinde **Tamamlanıyor yeni çevirmeli veya sanal özel ağ bağlantıları ve RADIUS istemcileri** penceresinde, seçin **son**.
 
-1. NPS sunucusunda, NPS (yerel) konsolunda, RADIUS istemcileri'ni genişletin ve seçin **RADIUS istemcileri**.
-2. Sihirbazı kullanılarak oluşturulan RADIUS İstemcisi'nin ayrıntılar bölmesinde, sağ tıklayın ve **özellikleri**. RADIUS istemciniz (VPN sunucusu) için özellikler kayıtlarla aşağıda gösterilen benzer olmalıdır.
+    !["Tamamlanıyor yeni çevirmeli veya sanal özel ağ bağlantıları ve RADIUS istemcileri" penceresi](./media/nps-extension-vpn/image10.png)
 
- ![VPN özellikleri](./media/nps-extension-vpn/image11.png)
+### <a name="verify-the-radius-configuration"></a>RADIUS yapılandırmasını doğrulayın.
+Bu bölümde Sihirbazı'nı kullanarak oluşturduğunuz yapılandırma ayrıntılarını verir.
 
-3. Tıklatın **iptal**.
-4. NPS (yerel) konsolunda, NPS sunucusunu genişletin **ilkeleri**seçip **bağlantı isteği ilkeleri**. Aşağıdaki görüntü benzer VPN bağlantıları İlkesi görmeniz gerekir.
+1. NPS (yerel) konsolunda Ağ İlkesi sunucusundaki genişletin **RADIUS istemcileri**ve ardından **RADIUS istemcileri**.
 
- ![Bağlantı istekleri](./media/nps-extension-vpn/image12.png)
+2. Ayrıntılar bölmesinde, oluşturduğunuz ve ardından RADIUS istemcisi sağ **özellikleri**.  
+    RADIUS istemciniz (VPN sunucusu) özelliklerini olanlar aşağıda gösterildiği gibi olmalıdır:
 
-5. İlkeleri altında seçin **ağ ilkeleri**. Aşağıdaki görüntü benzer bir sanal özel ağ (VPN) bağlantıları İlkesi gerekir.
+    ![VPN özellikleri](./media/nps-extension-vpn/image11.png)
 
- ![Ağ Özellikleri](./media/nps-extension-vpn/image13.png)
+3. Seçin **iptal**.
 
-## <a name="configure-vpn-server-to-use-radius-authentication"></a>VPN sunucusunu, RADIUS kimlik doğrulaması kullanacak şekilde yapılandırın
-Bu bölümde, VPN sunucusunun RADIUS kimlik doğrulaması kullanacak şekilde yapılandırın. Bu bölümde VPN sunucusunun çalışma yapılandırmaya sahip ancak VPN sunucusunun RADIUS kimlik doğrulaması kullanacak şekilde yapılandırılmamış olduğu varsayılır. VPN sunucusunu yapılandırdıktan sonra yapılandırmanızı beklendiği gibi çalıştığını doğrulayın.
+4. NPS (yerel) konsolunda Ağ İlkesi sunucusundaki genişletin **ilkeleri**ve ardından **bağlantı isteği ilkeleri**.  
+    VPN bağlantıları ilke aşağıdaki görüntüde gösterildiği gibi görüntülenir:
 
->[!NOTE]
->RADIUS kimlik doğrulaması kullanan çalışan bir VPN sunucusu yapılandırması zaten varsa, bu bölümü atlayabilirsiniz.
+    ![Bağlantı istekleri](./media/nps-extension-vpn/image12.png)
+
+5. Altında **ilkeleri**seçin **ağ ilkeleri**.  
+    Aşağıdaki görüntüde gösterildiği ilke benzer bir sanal özel ağ (VPN) bağlantıları İlkesi görmeniz gerekir:
+
+    ![Ağ ilkeleri](./media/nps-extension-vpn/image13.png)
+
+## <a name="configure-your-vpn-server-to-use-radius-authentication"></a>VPN RADIUS kimlik doğrulaması kullanacak şekilde yapılandırın
+Bu bölümde, VPN sunucunuzu, RADIUS kimlik doğrulaması kullanacak şekilde yapılandırın. Yönergeleri bir VPN sunucusu bir çalışma yapılandırmasını sahip ancak RADIUS kimlik doğrulaması kullanacak şekilde yapılandırılmamış olduğu varsayılır. VPN sunucusunu yapılandırdıktan sonra yapılandırma beklendiği gibi çalıştığını doğrulayın.
+
+> [!NOTE]
+> RADIUS kimlik doğrulaması kullanan çalışan bir VPN sunucusu yapılandırması zaten varsa, bu bölümü atlayabilirsiniz.
 >
 
 ### <a name="configure-authentication-provider"></a>Kimlik doğrulama sağlayıcısı yapılandırma
 1. VPN sunucusunda, Sunucu Yöneticisi'ni açın.
-2. Sunucu Yöneticisi'nde **Araçları**ve ardından **Yönlendirme ve Uzaktan erişim**.
-3. Yönlendirme ve Uzaktan erişim konsolunda sağ  **\[sunucu adı\] (yerel)**ve ardından **özellikleri**.
 
- ![Yönlendirme ve Uzaktan erişim](./media/nps-extension-vpn/image14.png)
- 
-4. İçinde **[sunucu adı} (yerel) özellikleri** iletişim kutusu, tıklatın **güvenlik** sekmesi. 
-5. Üzerinde **güvenlik** kimlik doğrulama sağlayıcısı altında sekmesini **RADIUS kimlik doğrulaması**ve ardından **yapılandırma**.
+2. Sunucu Yöneticisi'nde seçin **Araçları**ve ardından **Yönlendirme ve Uzaktan erişim**.
 
- ![RADIUS Kimlik Doğrulaması](./media/nps-extension-vpn/image15.png)
+3. İçinde **Yönlendirme ve Uzaktan erişim** penceresinde sağ  **\<sunucu adı > (yerel)**ve ardından **özellikleri**.
+
+    ![Yönlendirme ve Uzaktan erişim penceresi](./media/nps-extension-vpn/image14.png)
  
-6. RADIUS kimlik doğrulaması iletişim kutusunda tıklatın **Ekle**.
-7. Adı veya IP adresi önceki bölümde yapılandırılmış RADIUS sunucusunun RADIUS sunucusu Ekle, sunucu adı ekleyin.
-8. Paylaşılan gizlilik tıklatın **değişiklik** ve oluşturulan ve daha önce kaydedilmiş paylaşılan gizli parola ekleyin.
-9. Zaman aşımı (saniye)'de, değeri arasında bir değer olarak değiştirin. **30** ve **60**. Bu ikinci kimlik doğrulama faktörü tamamlamak için yeterli zamana izin vermek gereklidir.
+4. İçinde  **\<sunucu adı > (yerel) özellikleri** penceresinde, seçin **güvenlik** sekmesi. 
+
+5. Üzerinde **güvenlik** sekmesinde, altında **kimlik doğrulama sağlayıcısı**seçin **RADIUS kimlik doğrulaması**ve ardından **yapılandırma**.
+
+    ![RADIUS Kimlik Doğrulaması](./media/nps-extension-vpn/image15.png)
  
- ![RADIUS sunucusu Ekle](./media/nps-extension-vpn/image16.png)
+6. İçinde **RADIUS kimlik doğrulaması** penceresinde, seçin **Ekle**.
+
+7. İçinde **RADIUS sunucusu Ekle** penceresinde aşağıdakileri yapın:
+
+    a. İçinde **sunucu adı** kutusunda, adı veya önceki bölümde yapılandırılmış RADIUS sunucusunun IP adresini girin.
+
+    b. İçin **paylaşılan gizlilik**seçin **değişiklik**ve ardından oluşturduğunuz ve daha önce kaydedilmiş paylaşılan gizli parolayı girin.
+
+    c. İçinde **zaman aşımı (saniye)** kutusunda, bir değer seçerek **30** aracılığıyla **60**.  
+    Zaman aşımı değeri ikinci kimlik doğrulama faktörü tamamlamak için yeterli zamana izin vermek gereklidir.
  
-10. Tıklatın **Tamam** tüm iletişim kutularını kapatma işlemi tamamlanana kadar.
+    ![RADIUS sunucusu Ekle penceresi](./media/nps-extension-vpn/image16.png)
+ 
+8. **Tamam**’ı seçin.
 
 ### <a name="test-vpn-connectivity"></a>VPN bağlantısını test etme
-Bu bölümde, VPN istemci kimlik doğrulaması ve VPN sanal bağlantı noktasına bağlanmayı denediğinizde RADIUS sunucusu tarafından yetkili olduğunu onaylayın. Bu bölümde, bir VPN istemci olarak Windows 10 kullandığınızı varsayar. 
+Bu bölümde, VPN istemci kimlik doğrulaması ve VPN sanal bağlantı noktasına bağlanmayı denediğinizde RADIUS sunucusu tarafından yetkili olduğunu onaylayın. Yönergeleri, VPN istemci olarak Windows 10 kullandığınızı varsayar. 
 
->[!NOTE]
->VPN sunucusuna bağlanmak ve kaydedilmiş ayarları için bir VPN istemcisi zaten yapılandırdıysanız, bir VPN bağlantısı nesnesi kaydetme ve yapılandırma ile ilgili adımları atlayabilirsiniz.
+> [!NOTE]
+> VPN sunucusuna bağlanmak ve kaydedilmiş ayarları için bir VPN istemcisi zaten yapılandırdıysanız, bir VPN bağlantısı nesnesi kaydetme ve yapılandırma ile ilgili adımları atlayabilirsiniz.
 >
 
-1. VPN istemci bilgisayarında **Başlat**ve ardından **ayarları** (dişli simgesi).
-2. Pencere ayarlar'ı **ağ ve Internet**.
-3. Tıklatın **VPN**.
-4. Tıklatın **bir VPN bağlantısı Ekle**.
-5. Bir VPN bağlantısı Ekle, VPN sağlayıcısı olarak Windows (yerleşik) belirtmek sonra uygun şekilde kalan alanları doldurun ve tıklatın **kaydetmek**. 
+1. VPN istemci bilgisayarınızda seçin **Başlat** düğmesine tıklayın ve ardından **ayarları** düğmesi.
 
- ![VPN bağlantısı Ekle](./media/nps-extension-vpn/image17.png)
+2. İçinde **Windows ayarları** penceresinde, seçin **ağ ve Internet**.
+
+3. Seçin **VPN**.
+
+4. Seçin **bir VPN bağlantısı Ekle**.
+
+5. İçinde **bir VPN bağlantısı Ekle** penceresi, **VPN sağlayıcısı** kutusunda **Windows (yerleşik)**, uygun şekilde kalan alanları doldurun ve ardından seçin**Kaydetmek**. 
+
+    !["Bir VPN bağlantısı Ekle" penceresi](./media/nps-extension-vpn/image17.png)
  
-6. Açık **ağ ve Paylaşım Merkezi** Denetim Masası'nda.
-7. Tıklatın **Bağdaştırıcı ayarlarını değiştir**.
+6. Git **Denetim Masası**ve ardından **ağ ve Paylaşım Merkezi**.
 
- ![Bağdaştırıcı ayarlarını değiştir](./media/nps-extension-vpn/image18.png)
+7. Seçin **Bağdaştırıcı ayarlarını değiştir**.
 
-8. VPN ağ bağlantısına sağ tıklayın ve Özellikler'i tıklatın. 
+    ![Bağdaştırıcı ayarlarını değiştir](./media/nps-extension-vpn/image18.png)
 
- ![VPN ağ özellikleri](./media/nps-extension-vpn/image19.png)
+8. VPN ağ bağlantısına sağ tıklayın ve ardından **özellikleri**. 
 
-9. VPN Özellikleri iletişim kutusunda tıklatın **güvenlik** sekmesi. 
-10. Güvenlik sekmesinde, yalnızca olun **Microsoft CHAP Version 2 (MS-CHAP v2)** seçilir ve Tamam'ı tıklatın.
+    ![VPN ağ özellikleri](./media/nps-extension-vpn/image19.png)
 
- ![Protokollere izin ver](./media/nps-extension-vpn/image20.png)
+9. VPN Özellikleri penceresinde seçin **güvenlik** sekmesi. 
 
-11. VPN bağlantısı sağ tıklayın ve **Bağlan**.
-12. Ayarlar sayfasında, tıklatın **Bağlan**.
+10. Üzerinde **güvenlik** sekmesinde, yalnızca olun **Microsoft CHAP Version 2 (MS-CHAP v2)** seçili ve ardından **Tamam**.
 
-Aşağıda gösterildiği gibi RADIUS sunucusu olarak olay kimliği 6272'in, güvenlik günlüğüne başarılı bir bağlantı görüntülenir.
+    !["Bu protokollere izin ver" seçeneği](./media/nps-extension-vpn/image20.png)
 
- ![Olay Özellikleri](./media/nps-extension-vpn/image21.png)
+11. VPN bağlantısına sağ tıklayın ve ardından **Bağlan**.
 
-## <a name="troubleshoot-guide"></a>Sorun giderme kılavuzu
-VPN sunucusu kimlik doğrulama ve yetkilendirme için merkezi bir RADIUS sunucusu kullanmak üzere yapılandırılmış önce VPN yapılandırmanızı çalışır durumda olduğunu varsayalım. Bu durumda, RADIUS sunucusu yanlış yapılandırılması veya geçersiz kullanıcı adı veya parola kullanımını sorunu kaynaklanabilir olasıdır. Örneğin, kullanıcı alternatif UPN soneki kullanırsanız, oturum açma denemesi başarısız olabilir (en iyi sonuçlar için aynı hesabı adı kullanmanız gerekir). 
+12. İçinde **ayarları** penceresinde, seçin **Bağlan**.  
+    Aşağıda gösterildiği gibi RADIUS sunucusu olarak olay kimliği 6272'in, güvenlik günlüğüne başarılı bir bağlantı görüntülenir:
 
-Bu sorunları gidermek için başlatmak için bir ideal RADIUS sunucusunda güvenlik olay günlüklerini incelemek için yerdir. Zaman olayları arama kaydetmek için aşağıdaki Göster Olay Görüntüleyicisi'nde rol tabanlı ağ ilkesi ve erişim sunucusu özel görünüm kullanabilirsiniz. Olay Kimliği 6273 burada ağ ilkesi sunucusu bir kullanıcının erişimini reddetti olayları gösterir. 
+    ![Olay Özellikler penceresi](./media/nps-extension-vpn/image21.png)
 
- ![Olay Görüntüleyicisi](./media/nps-extension-vpn/image22.png)
+## <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
+VPN sunucusu kimlik doğrulama ve yetkilendirme için merkezi bir RADIUS sunucusu kullanmak üzere yapılandırılmış önce VPN yapılandırmanızı çalışır durumda olduğunu varsayalım. Yapılandırma çalışıyorsanız sorunu RADIUS sunucusu yanlış yapılandırılması veya geçersiz kullanıcı adı veya parola kullanımını kaynaklanır olasıdır. Örneğin, kullanıcı alternatif UPN soneki kullanırsanız, oturum açma girişimi başarısız olabilir. En iyi sonuçlar için aynı hesabı adı kullanın. 
+
+Bu sorunları gidermek için başlatmak için bir ideal RADIUS sunucusunda güvenlik olay günlüklerini incelemek için yerdir. Zaman olayları arama kaydetmek için rol tabanlı ağ ilkesi ve erişim sunucusu özel görünüm Olay Görüntüleyicisi'nde, aşağıda gösterildiği gibi kullanabilirsiniz. "Olay kimliği 6273" nerede NPS bir kullanıcının erişimini reddetti olayları gösterir. 
+
+![Olay Görüntüleyicisi](./media/nps-extension-vpn/image22.png)
  
 ## <a name="configure-multi-factor-authentication"></a>Çok faktörlü kimlik doğrulamasını yapılandırma
 Bu bölümde, mfa ve iki aşamalı doğrulama için hesapları kurma için kullanıcıları etkinleştirme için yönergeler sağlar. 
 
 ### <a name="enable-multi-factor-authentication"></a>Multi-factor authentication’ı etkinleştirme
-Bu bölümde, Azure AD hesapları için MFA etkinleştirin. Kullanım **Klasik portal** kullanıcılar için MFA'yı etkinleştirmek için. 
+Bu bölümde, Azure AD hesapları için MFA etkinleştirin. Kullanıcılar için MFA'yı etkinleştirmek için Klasik Azure portalını kullanın. 
 
-1. Bir tarayıcı açın ve gidin [https://manage.windowsazure.com](https://manage.windowsazure.com). 
+1. Git [Microsoft Azure](https://manage.windowsazure.com) Web sitesi. 
+
 2. Yönetici olarak oturum açın.
-3. Portalında, sol gezinti bölmesinde tıklatın **ACTIVE DIRECTORY**.
 
- ![Varsayılan dizini](./media/nps-extension-vpn/image23.png)
+3. Sol bölmede seçin **Active Directory**.
 
-4. Ad sütununda tıklatın **varsayılan dizin** (veya başka bir dizin (uygunsa).
-5. Hızlı Başlangıç sayfasında, tıklatın **yapılandırma**.
+    ![Varsayılan dizin](./media/nps-extension-vpn/image23.png)
 
- ![Varsayılan yapılandırma](./media/nps-extension-vpn/image24.png)
+4. İçinde **adı** sütun, select **varsayılan dizin** (veya başka bir dizin (uygunsa).
 
-6. YAPILANDIRMA sayfasında aşağı kaydırın ve çok faktörlü kimlik doğrulaması bölümünde tıklayın **hizmet ayarlarını Yönet**.
+5. İçinde **varsayılan dizin** penceresinde, seçin **yapılandırma**.
 
- ![MFA ayarları yönetme](./media/nps-extension-vpn/image25.png)
+    ![Varsayılan dizin yapılandırın](./media/nps-extension-vpn/image24.png)
+
+6. İçinde **yapılandırma** penceresi altında **çok faktörlü kimlik doğrulaması**seçin **hizmet ayarlarını Yönet**.
+
+    ![Çok faktörlü kimlik doğrulaması ayarlarını yönet](./media/nps-extension-vpn/image25.png)
  
-7. Çok faktörlü kimlik doğrulama sayfasında, varsayılan hizmet ayarlarını gözden geçirin ve ardından **kullanıcılar**. 
+7. İçinde **çok faktörlü kimlik doğrulaması** penceresinde, varsayılan hizmet ayarları ve ardından gözden geçirme **kullanıcılar** sekmesi. 
 
- ![MFA Kullanıcıları](./media/nps-extension-vpn/image26.png)
+    ![Çok faktörlü kimlik doğrulaması kullanıcılar sekmesi](./media/nps-extension-vpn/image26.png)
  
-8. Kullanıcılar sayfasında için MFA'yı etkinleştirin ve ardından istediğiniz kullanıcıları seçin **etkinleştirmek**.
+8. Üzerinde **kullanıcılar** sekmesinde, için MFA'yı etkinleştirin ve ardından istediğiniz kullanıcıları seçin **etkinleştirmek**.
 
- ![Özellikler](./media/nps-extension-vpn/image27.png)
+    ![Özellikler](./media/nps-extension-vpn/image27.png)
  
-9. İstendiğinde, tıklatın **etkinleştirmek çok öğeli kimlik doğrulama**.
+9. İstendiğinde, seçin **etkinleştirmek çok öğeli kimlik doğrulama**.
 
- ![MFA'yı etkinleştirin](./media/nps-extension-vpn/image28.png)
+    ![Multi-factor authentication’ı etkinleştirme](./media/nps-extension-vpn/image28.png)
  
-10. **Kapat**’a tıklayın. 
-11. Sayfayı yenileyin. MFA durum etkin olarak değiştirilir.
+10. Seçin **Kapat**. 
 
-Kullanıcılar çok faktörlü kimlik doğrulamasını etkinleştirme hakkında daha fazla bilgi için bkz: [bulutta Azure multi-Factor Authentication kullanmaya Başlarken](multi-factor-authentication-get-started-cloud.md). 
+11. Sayfayı yenileyin.  
+    Çok faktörlü kimlik doğrulama durumu olarak değiştirildiğinde *etkin*.
+
+Kullanıcılar için MFA etkinleştirme hakkında daha fazla bilgi için bkz: [bulutta Azure multi-Factor Authentication kullanmaya başlama](multi-factor-authentication-get-started-cloud.md). 
 
 ### <a name="configure-accounts-for-two-step-verification"></a>İki aşamalı doğrulama için hesaplarını yapılandırma
-Bir hesap MFA için etkinleştirildikten sonra kullanıcıların iki aşamalı doğrulamayı kullanılan ikinci kimlik doğrulama faktörü için kullanılacak güvenilir bir aygıt başarılı bir şekilde yapılandırmadığınız sürece MFA İlkesi tarafından yönetilen kaynaklara oturum açmak mümkün değildir.
+Bir hesap MFA için etkinleştirildikten sonra kullanıcılar için ikinci kimlik doğrulama faktörü kullanmak için güvenilir bir aygıt başarılı bir şekilde yapılandırmadığınız sürece MFA İlkesi tarafından yönetilen kaynaklara oturum açmak sorunu yaşıyor.
 
-Bu bölümde, iki aşamalı doğrulamayla birlikte kullanmak için güvenilir bir aygıt yapılandırın. Bunlar, aşağıdakiler de dahil olmak üzere yapılandırmak kullanabileceğiniz birkaç seçenek vardır:
+Bu bölümde, iki aşamalı doğrulamayla birlikte kullanmak için güvenilir bir aygıt yapılandırın. Aşağıdakiler de dahil olmak üzere çeşitli aygıt seçeneğiniz vardır:
 
-* **Mobil uygulama**. Bir Windows Phone, Android veya iOS aygıtında Microsoft Authenticator uygulamasını yükleyin. Kuruluşunuzun ilkelerine bağlı olarak, uygulamayı iki moddan birini kullanmak için gereklidir: (aygıtınıza bir bildirim gönderilir) bildirimlerin Doğrulamalar için veya (olduğunuz güncelleştiren bir doğrulama kodu girmek için gerekli doğrulama kodunu kullan Her 30 saniye). 
-* **Cep telefonu araması veya SMS**. Bir otomatik telefon çağrısı veya SMS mesajı ya da alabilir. Telefon araması seçeneğiyle aramayı yanıtlayın ve kimlik doğrulaması yapmak için # işaretini tuşuna basın. Metin seçeneğiyle için SMS mesajını yanıtlayın veya oturum açma arabirimine doğrulama kodunu girin.
-* **Ofis telefonu araması**. Bu işlem otomatik telefon aramaları için yukarıda açıklanan aynıdır.
+* **Mobil uygulama**: bir Windows Phone, Android veya iOS aygıtında Microsoft Authenticator uygulamasını yükleyin. Kuruluşunuzun ilkelerine bağlı olarak, uygulamayı iki moddan birini kullanmak için gereklidir: 
+    * Doğrulamalar için (aygıtınıza bir bildirim gönderilir) bildirim alırsınız.
+    * (Her 30 saniyede güncelleştiren bir doğrulama kodu girmek için gerekli olan) bir doğrulama kodu kullanın. 
 
-Mobil uygulama doğrulama için anında iletme bildirimi almak için kullanılacak bir aygıtı ayarlamak için bu yönergeleri izleyin.
+* **Cep telefonu araması veya SMS**: bir otomatik telefon çağrısı veya SMS mesajı alabilirsiniz. Telefon araması seçeneğiyle aramayı yanıtlayın ve kimlik doğrulaması için pound işareti (#) seçin. Metin seçeneğiyle için SMS mesajını yanıtlayın veya oturum açma arabiriminde doğrulama kodunu girin.
 
-1. Oturum [https://aka.ms/mfasetup](https://aka.ms/mfasetup) veya herhangi bir sitede gibi [https://portal.azure.com](https://portal.azure.com), burada MFA etkin kimlik bilgilerinizi kullanarak kimlik doğrulaması için gerekli. 
-2. Kullanıcı adı ve parola ile imzalama sırasında ek güvenlik doğrulaması için hesap ayarlamak ister bir ekrana sahip sunulur.
+* **Ofis telefonu araması**: Bu işlem otomatik telefon aramaları için daha önce açıklanan süreci ile aynıdır.
 
- ![Ek güvenlik](./media/nps-extension-vpn/image29.png)
+Mobil uygulama doğrulama için anında iletme bildirimi almak için kullanılacak bir aygıtı ayarlamak için aşağıdakileri yapın:
 
-3. Tıklatın **şimdi kurmak**.
-4. Ek güvenlik doğrulama sayfasında, bir kişi bir türü (kimlik doğrulama telefon, ofis telefonu veya mobil uygulama) seçin. Ardından bir ülke veya bölgeyi seçin ve bir yöntem seçin. Yöntemi, seçtiğiniz kişi türüne göre değişir. Örneğin, mobil uygulama seçerseniz, doğrulama için bildirimlerin mi, yoksa bir doğrulama kodu kullanmayı seçebilirsiniz. Seçtiğiniz adımları varsayın **mobil uygulama** kişi türü.
+1. Oturum [Microsoft Azure](https://aka.ms/mfasetup) veya herhangi bir sitede gibi [Azure portal](https://portal.azure.com), burada MFA etkin kimlik bilgilerinizi kullanarak kimlik doğrulaması için gerekli.  
+    Aşağıda gösterildiği gibi ek güvenlik doğrulaması için hesabı ayarlamanız istenir:
 
- ![Telefon kimlik doğrulama](./media/nps-extension-vpn/image30.png)
+    ![Ek güvenlik](./media/nps-extension-vpn/image29.png)
 
-5. Mobil uygulama seçin, **doğrulama için bildirimlerin**ve ardından **ayarlanan**. 
+2. Seçin **şimdi kurmak**.
 
- ![Mobil uygulama doğrulama](./media/nps-extension-vpn/image31.png)
+3. İçinde **ek güvenlik doğrulaması** penceresinde, bir kişi seçin (**kimlik doğrulama telefon**, **ofis telefonu**, veya **mobil uygulama** ), bir ülke veya bölgeyi seçin ve ardından bir yöntem seçin. Seçmeyin **kişi benim** henüz.  
+    Yöntemi, kişi türüne göre değişir. Örneğin, seçtiğiniz **mobil uygulama**, doğrulama için bildirimlerin mi, yoksa bir doğrulama kodu kullanmayı seçebilirsiniz. 
+
+    !["Ek güvenlik doğrulaması" penceresi](./media/nps-extension-vpn/image30.png)
+
+    Adımları, seçmiş olduğunuz varsayılmıştır **mobil uygulama** kişi türü.
+
+4. Seçin **mobil uygulama**seçin **doğrulama için bildirimlerin**ve ardından **ayarlanan**. 
+
+    !["Ek güvenlik doğrulaması" penceresi](./media/nps-extension-vpn/image31.png)
  
-6. Henüz yapmadıysanız, authenticator mobil uygulamasında cihazınıza yükleyin. 
-7. Sunulan barkod tarama veya bilgileri el ile girin ve ardından mobil uygulama'ndaki yönergeleri izleyin **Bitti**.
+5. Henüz yapmadıysanız, Cihazınızda Microsoft Authenticator mobil uygulamayı yükleyin. 
 
- ![Mobil uygulama yapılandırma](./media/nps-extension-vpn/image32.png)
+6. Mobil uygulamasında görüntülenen barkod tarama veya bilgileri el ile girin ve ardından **Bitti**.
 
-8. Ek güvenlik doğrulama sayfasında, tıklatın **kişi benim** ve cihazınız için gönderilen bildirimi yanıtlayın.
-9. Durumda mobil uygulamaya erişimi kaybetmek ve'ı tıklatın ek güvenlik doğrulama sayfasında kişi bir sayı girin **sonraki**.
+    ![Microsoft Authenticator mobil uygulamayı yapılandırın](./media/nps-extension-vpn/image32.png)
 
- ![Cep telefonu numarası](./media/nps-extension-vpn/image33.png)
+7. İçinde **ek güvenlik doğrulaması** penceresinde, seçin **kişi benim**ve ardından aygıtınıza gönderilen bildirimi yanıtlayın.
+
+8. İçinde **ek güvenlik doğrulaması** penceresi altında **3. adım: Mobil uygulamaya erişimi kaybetmeniz durumunda**, mobil uygulamaya erişimi kaybetmek ve ardından olursa çağrılacak kişi bir sayı girin  **Sonraki**.
+
+    !["Ek güvenlik doğrulaması" penceresi](./media/nps-extension-vpn/image33.png)
  
-10. Ek güvenlik doğrulama tıklatın **Bitti**.
+9. İçinde **ek güvenlik doğrulaması** penceresinde, seçin **Bitti**.
 
 Cihaz ikinci bir doğrulama yöntemi sağlamak üzere yapılandırılmıştır. İki aşamalı doğrulama hesaplarını ayarlama hakkında daha fazla bilgi için bkz: [Hesabımı iki aşamalı doğrulama için ayarlama](./end-user/multi-factor-authentication-end-user-first-time.md).
 
-## <a name="install-and-configure-nps-extension"></a>Yükleme ve NPS uzantısı yapılandırma
+## <a name="install-and-configure-the-nps-extension"></a>Yükleme ve NPS uzantısı yapılandırma
 
-Bu bölümde VPN sunucusu ile istemci kimlik doğrulaması için Azure MFA kullanmaya VPN yapılandırma için yönergeler sağlar.
+Bu bölümde VPN sunucusu ile istemci kimlik doğrulaması için MFA kullanmak için VPN yapılandırma için yönergeler sağlar.
 
-Yükleyip NPS uzantısı yapılandırdıktan sonra bu sunucu tarafından işlenen tüm RADIUS tabanlı istemci kimlik doğrulaması Azure MFA kullanmak için gereklidir. Aksi takdirde tüm VPN kullanıcıları Azure MFA kaydedilen, MFA kullanmak üzere yapılandırılmamış olan kullanıcıların kimliklerini doğrulamak için başka bir RADIUS sunucusunu ayarlayın. Veya yalnızca MFA'kaydedilirse, ikinci bir kimlik doğrulama faktörü sağlamak kullanıcıların yüküyle sağlayan bir kayıt defteri girdisi oluşturabilirsiniz. 
+Yükleyip NPS uzantısı yapılandırdıktan sonra bu sunucu tarafından işlenen tüm RADIUS tabanlı istemci kimlik doğrulaması MFA kullanmak için gereklidir. Tüm VPN kullanıcıları Azure çok faktörlü kimlik doğrulamasına kayıtlı olmayan istiyorsanız, aşağıdakilerden birini yapabilirsiniz:
 
-Adlı yeni bir dize değeri oluşturun _HKLM\SOFTWARE\Microsoft\AzureMfa REQUIRE_USER_MATCH_ve TRUE veya FALSE değerini ayarlayın. 
+* MFA kullanmak üzere yapılandırılmamış olan kullanıcıların kimliklerini doğrulamak için başka bir RADIUS sunucusu ayarlayın. 
 
- ![Kullanıcı eşleşmesi iste](./media/nps-extension-vpn/image34.png)
+* Azure çok faktörlü kimlik doğrulaması kaydedilirse, ikinci bir kimlik doğrulama faktörü sağlamak kullanıcıların kimlik doğrulaması sağlayan bir kayıt defteri girişi oluşturun. 
+
+Adlı yeni bir dize değeri oluşturun _HKLM\SOFTWARE\Microsoft\AzureMfa REQUIRE_USER_MATCH_ve değeri *True* veya *False*. 
+
+!["Kullanıcı eşleşmesi iste" ayarı](./media/nps-extension-vpn/image34.png)
  
-Değeri TRUE olarak ayarlayın ya da ayarlı değil, tüm kimlik doğrulama isteklerini bir MFA sınaması tabi demektir. Değeri FALSE olarak ayarlarsanız, MFA zorluklar MFA'kaydedilen kullanıcılarına verilir. FALSE ayarı yalnızca sınama veya üretim ortamlarında ekleme süre boyunca kullanın.
+Değer ayarlanmışsa *doğru* veya tüm kimlik doğrulama isteklerini bir MFA sınaması tabi boştur. Değer ayarlanmışsa *yanlış*, MFA zorluklar yalnızca Azure çok faktörlü kimlik doğrulamasına kayıtlı olan kullanıcılara verilir. Kullanım *False* ekleme süresi boyunca yalnızca sınama veya üretim ortamları ayarlama.
 
-### <a name="acquire-azure-active-directory-guid-id"></a>Azure Active Directory GUID kimliği alma
+### <a name="obtain-the-azure-active-directory-guid-id"></a>Azure Active Directory GUID kimliği elde
 
-Yapılandırma NPS uzantısı'nın bir parçası olarak, Azure AD kiracınız için yönetici kimlik bilgileri ve Azure Active Directory kimliği sağlamanız gerekir. Aşağıdaki adımlar Kiracı kimliğini alma Göster
+Yapılandırma NPS uzantısı'nın bir parçası olarak, yönetici kimlik bilgilerini ve Azure AD kiracınıza Kimliğini sağlamanız gerekir. Aşağıdakileri yaparak kimliği alın:
 
-1. Oturum açmak için Azure portalında [https://portal.azure.com](https://portal.azure.com) Azure kiracının genel Yöneticisi olarak.
-2. Sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
-3. **Özellikler**'e tıklayın.
-4. Dizin Kimliğinizi panoya kopyalamak için seçin **kopyalama** simgesi.
+1. Oturum [Azure portal](https://portal.azure.com) Azure kiracının genel Yöneticisi olarak.
+
+2. Sol bölmede seçin **Azure Active Directory** düğmesi.
+
+3. Seçin **özellikleri**.
+
+4. Azure AD Kimliğinizi kopyalamak için seçin **kopyalama** düğmesi.
  
- ![Dizin kimliği](./media/nps-extension-vpn/image35.png)
+    ![Azure AD kimliği](./media/nps-extension-vpn/image35.png)
 
 ### <a name="install-the-nps-extension"></a>NPS uzantısını yükleyin
-NPS uzantısı Ağ İlkesi ve Erişim Hizmetleri (NPS) rolü yüklü olan bir sunucuyu ve bu işlevler tasarımınızda RADIUS sunucusu olarak yüklenmesi gerekir. NPS uzantısı, Uzak Masaüstü sunucusuna yüklemeyin.
+NPS uzantısı, Ağ İlkesi ve Erişim Hizmetleri rolü yüklü olan bir sunucuyu ve bu işlevleri tasarımınızda RADIUS sunucusu olarak yüklenmelidir. Yapmak *değil* NPS uzantısı, Uzak Masaüstü sunucusuna yükleyin.
 
-1. NPS uzantısını [https://aka.ms/npsmfa](https://aka.ms/npsmfa). 
-2. Kurulum yürütülebilir dosya (NpsExtnForAzureMfaInstaller.exe) NPS sunucusuna kopyalayın.
-3. NPS sunucusunda, çift **NpsExtnForAzureMfaInstaller.exe**. İstenirse, tıklatın **çalıştırmak**.
-4. Azure MFA kurulumu için NPS uzantısı iletişim kutusunda Yazılımı Lisans Koşulları'nı gözden denetleyin **lisans şart ve koşullarını kabul ediyorum**, tıklatıp **yükleme**.
+1. NPS uzantısını [Microsoft Download Center](https://aka.ms/npsmfa). 
 
- ![NPS uzantısı](./media/nps-extension-vpn/image36.png)
+2. Kurulum yürütülebilir dosyasını kopyalayın (*NpsExtnForAzureMfaInstaller.exe*) NPS sunucusu için.
+
+3. NPS sunucusunda, çift **NpsExtnForAzureMfaInstaller.exe** ve istenirse, seçin **çalıştırmak**.
+
+4. İçinde **Azure MFA kurulumu için NPS uzantısı** penceresinde, gözden geçirme Yazılımı Lisans Koşulları'nı seçin **lisans şart ve koşullarını kabul ediyorum** onay kutusunu işaretleyin ve ardından **Yükleme**.
+
+    !["NPS uzantısı için Azure MFA Kurulum" penceresi](./media/nps-extension-vpn/image36.png)
  
-5. Azure MFA kurulumu için NPS uzantısı iletişim kutusunda tıklatın **Kapat**.  
+5. İçinde **Azure MFA kurulumu için NPS uzantısı** penceresinde, seçin **Kapat**.  
 
- ![Kurulum başarılı](./media/nps-extension-vpn/image37.png) 
+    !["Kurulum başarılı" onay penceresi](./media/nps-extension-vpn/image37.png) 
  
-### <a name="configure-certificates-for-use-with-the-nps-extension-using-a-powershell-script"></a>Sertifikaları kullanmak için bir PowerShell Betiği kullanılarak NPS uzantısı ile yapılandırma
-Güvenli iletişimler ve güvence emin olmak için NPS uzantısı tarafından sertifikaları kullanmak için yapılandırmanız gerekir. NPS bileşenler, NPS ile otomatik olarak imzalanan bir sertifika kullanmak için yapılandırır bir Windows PowerShell komut dosyası içerir. 
+### <a name="configure-certificates-for-use-with-the-nps-extension-by-using-a-powershell-script"></a>Bir PowerShell komut dosyası kullanarak NPS uzantısı ile sertifikalar kullanmak için yapılandırma
+Güvenli iletişimler ve güvence emin olmak için NPS uzantısı tarafından kullanım için sertifikaları yapılandırın. NPS bileşenler, NPS ile otomatik olarak imzalanan bir sertifika kullanmak için yapılandırır bir Windows PowerShell komut dosyası içerir. 
 
 Komut dosyası, aşağıdaki eylemleri gerçekleştirir:
 
-* Kendinden imzalı bir sertifika oluşturur
-* Hizmet üzerinde Azure AD sorumlusu sertifikasının ortak anahtarı ilişkilendirir
-* Sertifika yerel makine deposunda saklar
-* Sertifikanın özel anahtarı ağ kullanıcı erişimi verir
-* Ağ İlkesi Sunucusu hizmetini yeniden başlatır
+* Otomatik olarak imzalanan bir sertifika oluşturur.
+* Üzerinde Azure AD asıl hizmet sertifikasının ortak anahtarı ilişkilendirir.
+* Sertifika yerel makine deposunda saklar.
+* Sertifikanın özel anahtarı ağ kullanıcı erişimi verir.
+* NPS hizmetini yeniden başlatır.
 
-Kendi sertifikalarını kullanmak istiyorsanız, üzerinde Azure AD hizmet sorumlusu için sertifikanın ortak anahtarının ilişkilendirmek ve benzeri gerekir.
+Kendi sertifikalarını kullanmak istiyorsanız, sertifikanın ortak anahtarının üzerinde Azure AD hizmet sorumlusu ile ilişkilendirmek ve benzeri.
+
 Betik kullanmak için Azure Active Directory yönetici kimlik bilgilerinizi ve daha önce kopyaladığınız Azure Active Directory Kiracı kimliği ile uzantısı sağlar. Komut dosyası, NPS uzantısı yüklediğiniz her NPS sunucusunda çalıştırın.
 
-1. Bir yönetici Windows PowerShell komut istemini açın.
-2. PowerShell komut isteminde yazın _cd 'c:\Program Files\Microsoft\AzureMfa\Config'_ve basın **ENTER**.
-3. Tür _.\AzureMfsNpsExtnConfigSetup.ps1_ve basın **ENTER**. 
- * Azure Active Directory PowerShell Modülü yüklü olup olmadığını görmek için komut dosyasını denetler. Yüklenmemişse, betik modülü yükler.
+1. Windows PowerShell'i yönetici olarak çalıştırın.
+
+2. PowerShell komut isteminde girin **cd c:\Program Files\Microsoft\AzureMfa\Config**ve ardından Enter seçin.
+
+3. Sonraki komut isteminde girin **.\AzureMfsNpsExtnConfigSetup.ps1**ve ardından Enter seçin.  
+    Azure AD PowerShell Modülü yüklü olup olmadığını görmek için komut dosyasını denetler. Yüklenmemişse, betik modülü yükler.
  
- ![PowerShell](./media/nps-extension-vpn/image38.png)
+    ![PowerShell](./media/nps-extension-vpn/image38.png)
  
-4. PowerShell modülünü yükleme komut dosyası doğruladıktan sonra Azure Active Directory PowerShell modülü iletişim kutusunu görüntüler. İletişim kutusunda, Azure AD yönetim kimlik bilgilerini ve parolanızı girin ve tıklatın **oturum**. 
+    PowerShell modülü yükleme komut dosyası doğruladıktan sonra oturum açma Azure Active Directory PowerShell modülü penceresinde görüntüler. 
+
+4. Azure AD yönetici kimlik bilgileri ve parolanızı girin ve ardından **oturum**. 
  
- ![PowerShell oturum açma](./media/nps-extension-vpn/image39.png)
+    ![Oturum açma PowerShell penceresi](./media/nps-extension-vpn/image39.png)
  
-5. İstendiğinde, kopyaladığınız panoya önceki Kiracı kimliği yapıştırın ve tuşuna basın **ENTER**. 
+5. Komut isteminde, daha önce kopyaladığınız Kiracı kimliği yapıştırın ve ardından Enter seçin. 
 
- ![Kiracı Kimliği](./media/nps-extension-vpn/image40.png)
+    ![Kiracı Kimliği](./media/nps-extension-vpn/image40.png)
 
-6. Komut dosyası otomatik olarak imzalanan bir sertifika oluşturur ve başka yapılandırma değişiklikleri yapar. Çıktı, görüntünün aşağıda gösterildiği gibi şeklindedir.
+    Komut dosyası otomatik olarak imzalanan bir sertifika oluşturur ve başka yapılandırma değişiklikleri yapar. Çıktısı gibi aşağıdaki görüntüde şöyledir:
 
- ![Otomatik olarak imzalanan sertifika](./media/nps-extension-vpn/image41.png)
+    ![Otomatik olarak imzalanan sertifika](./media/nps-extension-vpn/image41.png)
 
-7. Sunucuyu yeniden başlatın.
- 
-### <a name="verify-configuration"></a>Yapılandırmayı doğrulama
-Yapılandırmasını doğrulamak için VPN sunucusu ile yeni bir VPN bağlantısı yapmanız gerekir. Kimlik bilgilerinizi birincil kimlik doğrulaması için başarıyla girildikten sonra VPN bağlantısı ikincil kimlik doğrulama bağlantı kurulmadan önce aşağıda gösterildiği gibi başarılı olması bekler. 
+6. Sunucuyu yeniden başlatın.
 
- ![Yapılandırmayı doğrulama](./media/nps-extension-vpn/image42.png)
+### <a name="verify-the-configuration"></a>yapılandırıldığını doğrulayın
+Yapılandırmasını doğrulamak için VPN sunucusu ile yeni bir VPN bağlantısı oluşturmanız gerekir. Birincil kimlik doğrulaması için kimlik bilgileriniz başarıyla girdikten sonra VPN bağlantısı ikincil kimlik doğrulama bağlantı kurulmadan önce aşağıda gösterildiği gibi başarılı olması bekler. 
 
-Başarılı bir şekilde Azure MFA önceden yapılandırılmış ikincil doğrulama yöntemi, kimlik doğrulaması, kaynağa bağlanır. Ancak, ikincil kimlik doğrulaması başarılı olmazsa, kaynak için erişim engellenir. 
+![Windows ayarlarını VPN penceresi](./media/nps-extension-vpn/image42.png)
 
-Aşağıdaki örnekte, bir Windows Phone Doğrulayıcı uygulama ikincil kimlik doğrulaması sağlamak için kullanılır.
+Başarılı bir şekilde Azure MFA önceden yapılandırılmış ikincil doğrulama yöntemi, kimlik doğrulaması, kaynağa bağlanır. Ancak, ikincil kimlik doğrulama başarısız olursa, kaynak için erişim engellenir. 
 
- ![Kullanıcı hesabının doğrulanması](./media/nps-extension-vpn/image43.png)
+Aşağıdaki örnekte, bir Windows Phone Microsoft Authenticator uygulamasını ikincil kimlik doğrulama sağlar:
 
-İkincil bir yöntem kullanarak başarıyla doğrulandıktan sonra VPN sunucuda sanal bağlantı noktası erişimi verilir. Ancak, güvenilen bir cihazda bir mobil uygulama kullanarak bir ikincil kimlik doğrulama yöntemini kullanmak için gerekli olduğundan, işlem günlüğünde yalnızca bir kullanıcı adı kullanarak daha daha güvenli olan / parola bileşimi.
+![Kullanıcı hesabının doğrulanması](./media/nps-extension-vpn/image43.png)
 
-### <a name="view-event-viewer-logs-for-successful-logon-events"></a>Başarılı oturum açma olayları için Olay Görüntüleyicisi'ni günlüklerini görüntüle
-Başarılı oturum açma olaylarını Windows Olay Görüntüleyicisi günlüklerinde görüntülemek için NPS sunucusu üzerindeki Windows Güvenlik günlüğü sorgulamak için aşağıdaki Windows PowerShell komutu yayımlayabilir.
+İkincil bir yöntem kullanarak başarıyla doğruladınız sonra VPN sunucuda sanal bağlantı noktası erişimi verilir. Güvenilen bir cihazda bir mobil uygulama kullanarak bir ikincil kimlik doğrulama yöntemi için gerekli için oturum açma işlemi yalnızca bir kullanıcı adı ve parola birleşimi kullanmakta olduğunuz varsa daha daha güvenlidir.
 
-Başarılı oturum açma olaylarını Güvenlik Olay Görüntüleyicisi günlüklerinde sorgulamak için aşağıdaki komutu kullanın,
-* _Get-WinEvent - günlükadı güvenlik_ | burada {$_.ID - eq '6272'in '} | FL 
+### <a name="view-event-viewer-logs-for-successful-sign-in-events"></a>Başarılı oturum açma olayları için Olay Görüntüleyicisi'ni günlüklerini görüntüle
+Başarılı oturum açma olaylarını Windows Olay Görüntüleyicisi günlüklerinde görüntülemek için sorgu Windows güvenliği oturum NPS sunucusunda aşağıdaki PowerShell komutunu girerek:
 
- ![Güvenlik Olay Görüntüleyicisi](./media/nps-extension-vpn/image44.png)
+    _Get-WinEvent -Logname Security_ | where {$_.ID -eq '6272'} | FL 
+
+![PowerShell Güvenlik Olay Görüntüleyicisi](./media/nps-extension-vpn/image44.png)
  
 Aşağıda gösterildiği gibi güvenlik günlüğü ya da Ağ İlkesi ve Erişim Hizmetleri özel görünüm de görüntüleyebilirsiniz:
 
- ![Ağ İlkesi erişimi](./media/nps-extension-vpn/image45.png)
+![Ağ ilkesi sunucusu günlük](./media/nps-extension-vpn/image45.png)
 
-Azure MFA için NPS uzantısı yüklendiği sunucuda Olay Görüntüleyicisi'ni uygulama günlüklerini uzantısına özgü bulabileceğiniz **uygulama ve Hizmetleri Logs\Microsoft\AzureMfa**. 
+Azure çok faktörlü kimlik doğrulaması için NPS uzantısı yüklendiği sunucuda uzantısına özgü Olay Görüntüleyicisi'ni uygulama günlüklerini bulabilirsiniz *uygulama ve Hizmetleri Logs\Microsoft\AzureMfa*. 
 
-* _Get-WinEvent - günlükadı güvenlik_ | burada {$_.ID - eq '6272'in '} | FL
+    _Get-WinEvent -Logname Security_ | where {$_.ID -eq '6272'} | FL
 
- ![Olay (Event) Sayısı](./media/nps-extension-vpn/image46.png)
+![Olay Görüntüleyicisi'ni "Olay sayısı" bölmesi](./media/nps-extension-vpn/image46.png)
 
-## <a name="troubleshoot-guide"></a>Sorun giderme kılavuzu
-Yapılandırma beklendiği gibi çalışmıyorsa, sorun giderme başlamak için uygun bir kullanıcı Azure MFA kullanmak için yapılandırıldığını doğrulamak için yerdir. Bağlanmak için kullanıcının sahip [https://portal.azure.com](https://portal.azure.com). İkincil kimlik doğrulaması için istenir ve başarıyla için kimlik doğrulaması, Azure mfa yapılandırması hatalı ortadan kaldırabilirsiniz.
+## <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
+Yapılandırma beklendiği gibi çalışmıyor olursa, kullanıcı MFA kullanmak için yapılandırıldığını doğrulayarak sorun giderme başlar. Bağlanmak için kullanıcının sahip [Azure portal](https://portal.azure.com). Kullanıcı ikincil kimlik doğrulaması için istenir ve başarılı şekilde bağlantı kurup kimlik doğrulaması, bir sorun olarak mfa yapılandırması hatalı ortadan kaldırabilirsiniz.
 
-Azure MFA için kullanıcıları çalışıyorsa, ilgili olay günlüklerini gözden geçirmelidir. Bunlar, güvenlik olayı, ağ geçidi işletimsel ve önceki bölümde tartışılan Azure MFA günlükleri içerir. 
+MFA kullanıcı için çalışıyorsa, ilgili Olay Görüntüleyici günlüklerini gözden geçirin. Günlükler güvenlik olayı, ağ geçidi işletimsel ve önceki bölümde tartışılan Azure multi-Factor Authentication günlükleri içerir. 
 
-Güvenlik günlüğü başarısız oturum açma olayı (olay kimliği 6273) gösteren bir örnek çıktı aşağıdadır:
+Bir başarısız oturum açma olayı (olay kimliği 6273) görüntüleyen bir güvenlik günlüğü örneği aşağıda gösterilmiştir:
 
- ![Güvenlik günlüğü](./media/nps-extension-vpn/image47.png)
+![Başarısız oturum açma olayı gösteren güvenlik günlüğü](./media/nps-extension-vpn/image47.png)
 
-İlgili olay AzureMFA günlüklerinden aşağıdadır:
+Azure multi-Factor Authentication günlüğünden ilgili olay burada gösterilir:
 
- ![Azure MFA günlükleri](./media/nps-extension-vpn/image48.png)
+![Azure multi-Factor Authentication günlüğe kaydeder](./media/nps-extension-vpn/image48.png)
 
-Gerçekleştirmek için Gelişmiş Seçenekleri sorun giderme, NPS hizmetinin yüklü olduğu NPS veritabanı biçimi günlük dosyalarına bakın. Bu günlük dosyaları oluşturulur _%SystemRoot%\System32\Logs_ klasörü virgülle ayrılmış metin dosyalarını olarak. Bu bir açıklaması için günlük dosyaları, bkz: [NPS veritabanı biçimi günlük dosyalarını yorumlama](https://technet.microsoft.com/library/cc771748.aspx). 
+Gelişmiş sorun giderme yapmak için NPS hizmetinin yüklendiği NPS veritabanı biçimi günlük dosyalarına bakın. Günlük dosyaları oluşturulur _%SystemRoot%\System32\Logs_ klasörü virgülle ayrılmış metin dosyalarını olarak. Günlük dosyaları açıklaması için bkz: [NPS veritabanı biçimi günlük dosyalarını yorumlama](https://technet.microsoft.com/library/cc771748.aspx). 
 
-Bir elektronik tablo veya bir veritabanına almadan yorumlamak bu günlük dosyaları yer alan girişleri zordur. Günlük dosyaları yorumlama yardımcı olmak için çevrimiçi IAS ayrıştırıcıları sayısı bulabilirsiniz. Bir çıkış aşağıdadır böyle indirilebilir [paylaşılan yazılım uygulama](http://www.deepsoftware.com/iasviewer): 
+Bunları bir elektronik tablo veya bir veritabanı için dışarı aktarılmadığı sürece yorumlamak bu günlük dosyaları yer alan girişleri zordur. Birçok Internet Kimlik Doğrulama Hizmeti (günlük dosyalarını yorumlama yardımcı olmak için çevrimiçi araçları ayrıştırma IAS) bulabilirsiniz. Bir çıkış böyle indirilebilir [paylaşılan yazılım uygulama](http://www.deepsoftware.com/iasviewer) burada gösterilir: 
 
- ![Paylaşılan yazılım uygulama](./media/nps-extension-vpn/image49.png)
+![Paylaşılan yazılım uygulama](./media/nps-extension-vpn/image49.png)
 
-Son olarak, için ek seçenekleri sorun giderme, Wireshark gibi bir iletişim kuralı çözümleyicisi kullanabilir veya [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). Wireshark aşağıdaki görüntüden VPN sunucusu arasındaki NPS sunucusunun RADIUS iletileri gösterir.
+Ek sorun giderme işlemleri yapmak için Wireshark gibi bir iletişim kuralı çözümleyicisi kullanabilir veya [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). Wireshark aşağıdaki görüntüden VPN sunucusu ile NPS arasında RADIUS iletileri gösterir.
 
- ![Microsoft Message Analyzer](./media/nps-extension-vpn/image50.png)
+![Microsoft Message Analyzer](./media/nps-extension-vpn/image50.png)
 
-Daha fazla bilgi için bkz: [varolan NPS altyapınızı Azure çok faktörlü kimlik doğrulamasıyla tümleştirmek](multi-factor-authentication-nps-extension.md).  
+Daha fazla bilgi için bkz: [varolan NPS altyapınızı Azure çok faktörlü kimlik doğrulamasıyla tümleştirmek](multi-factor-authentication-nps-extension.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure Multi-Factor Authentication’ı edinme](multi-factor-authentication-versions-plans.md)
+[Azure çok faktörlü kimlik doğrulama Al](multi-factor-authentication-versions-plans.md)
 
 [RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu](multi-factor-authentication-get-started-server-rdg.md)
 

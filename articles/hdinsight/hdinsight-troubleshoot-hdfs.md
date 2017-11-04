@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 58f3d160c1f2a32025b706f10863e0055d67bfcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c9d555130d806728f9d3a82f49e81b18c1e5125
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>HDFS Azure Hdınsight kullanarak sorun giderme
 
 Apache Ambari Hadoop dağıtılmış dosya sistemi (HDFS) yükleri ile çalışırken, üst sorunları ve bunların çözümleri hakkında bilgi edinin.
 
-## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Bir küme içindeki yerel HDFS gelen nasıl erişirim
+## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Bir küme içindeki yerel HDFS gelen nasıl erişirim?
 
 ### <a name="issue"></a>Sorun
 
@@ -79,7 +79,7 @@ Azure Blob storage veya Azure Data Lake Deposu'ndan veri Hdınsight kümesi içi
     ```
 
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Nasıl ı zorla-küme güvenli modda HDFS devre dışı bırak
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Nasıl ı zorla-küme güvenli modda HDFS devre dışı bırak?
 
 ### <a name="issue"></a>Sorun
 
@@ -232,3 +232,6 @@ Hdınsight kümesi aşağı ölçeklendirilmiş bir çok az sayıda düğüm. A�
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
+
+### <a name="see-also"></a>Ayrıca Bkz.
+[Azure Hdınsight kullanarak sorun giderme](hdinsight-troubleshoot-guide.md)
