@@ -1,31 +1,31 @@
-## <a name="set-up-the-development-environment"></a>Set up the development environment
+## <a name="set-up-the-development-environment"></a>Geliştirme ortamını ayarlama
 
-This section walks you setting up your development environment, including creating an ASP.NET MVC app, adding a Connected Services connection, adding a controller, and specifying the required namespace directives.
+Bu bölümde, bir ASP.NET MVC uygulaması oluşturma, bağlantılı hizmetler bağlantısı ekleme, bir denetleyicisi ekleme ve gerekli ad alanı yönergeleri belirtme dahil olmak üzere, geliştirme ortamını ayarlama açıklanmaktadır.
 
-### <a name="create-an-aspnet-mvc-app-project"></a>Create an ASP.NET MVC app project
+### <a name="create-an-aspnet-mvc-app-project"></a>Bir ASP.NET MVC uygulaması projesi oluşturma
 
-1. Open Visual Studio.
+1. Visual Studio'yu açın.
 
-1. Select **File->New->Project** from the main menu
+1. Seçin **Dosya -> Yeni Proje ->** ana menüden
 
-1. On the **New Project** dialog, specify the options as highlighted in the following figure:
+1. Üzerinde **yeni proje** iletişim kutusunda, aşağıdaki şekilde vurgulandığı gibi seçenekleri belirtin:
 
-    ![Create ASP.NET project](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
+    ![ASP.NET projesi oluşturma](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
-1. Select **OK**.
+1. **Tamam**’ı seçin.
 
-1. On the **New ASP.NET Project** dialog, specify the options as highlighted in the following figure:
+1. Üzerinde **yeni ASP.NET projesi** iletişim kutusunda, aşağıdaki şekilde vurgulandığı gibi seçenekleri belirtin:
 
-    ![Specify MVC](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
+    ![MVC belirtin](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
-1. Select **OK**.
+1. **Tamam**’ı seçin.
 
-### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Use Connected Services to connect to an Azure storage account
+### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Bir Azure depolama hesabına bağlanmak üzere bağlantılı hizmetler kullanın
 
-1. In the **Solution Explorer**, right-click the project, and from the context menu, select **Add->Connected Service**.
+1. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve bağlam menüsünden seçin **Ekle -> Hizmet bağlı**.
 
-1. On the **Add Connected Service** dialog, select **Azure Storage**, and then select **Configure**.
+1. Üzerinde **bağlı hizmet Ekle** iletişim kutusunda **Azure Storage**ve ardından **yapılandırma**.
 
-    ![Connected Service dialog](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
+    ![Bağlı hizmet iletişim kutusu](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
-1. On the **Azure Storage** dialog, select the desired Azure storage account with which you want to work, and select **Add**.
+1. Üzerinde **Azure Storage** iletişim kutusunda, istediğiniz çalışma ve seçmek istenen Azure depolama hesabı seçin **Ekle**.

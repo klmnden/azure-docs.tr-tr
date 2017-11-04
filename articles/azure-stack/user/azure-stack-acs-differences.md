@@ -1,6 +1,6 @@
 ---
-title: 'Azure Stack Storage: Differences and considerations'
-description: Understand the differences between Azure Stack Storage and Azure Storage, along with Azure Stack deployment considerations.
+title: "Azure yığın depolama: Farklar ve ilgili önemli noktalar"
+description: "Azure yığın depolama ve Azure Storage arasındaki farklar Azure yığın dağıtımında dikkat edilecek noktalar birlikte anlayın."
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,52 +14,51 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 381950321ac3a5ea8a43b76f3fba868da4be4682
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Differences and considerations
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure yığın depolama: Farklar ve ilgili önemli noktalar
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Azure Stack Storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
+Azure yığın depolama Microsoft Azure yığın depolama bulut hizmetleri kümesidir. Azure yığın depolama blob, tablo, kuyruk ve Azure tutarlı semantiği ile hesabı yönetimi işlevselliğini sağlar.
 
-This article summarizes the known Azure Stack Storage differences from Azure Storage. It also summarizes other considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+Bu makalede, Azure depolama biriminden bilinen Azure yığın depolama farkları özetler. Ayrıca, Azure yığın dağıtırken göz önünde bulundurmanız gereken diğer noktalar özetlenmektedir. Azure yığını ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için [anahtar konuları](azure-stack-considerations.md) konu.
 
-## <a name="cheat-sheet-storage-differences"></a>Cheat sheet: Storage differences
+## <a name="cheat-sheet-storage-differences"></a>Kopya sayfası: depolama farklar
 
-| Feature | Azure (global) | Azure Stack |
+| Özellik | Azure (Genel) | Azure Stack |
 | --- | --- | --- |
-|File storage|Cloud-based SMB file shares supported|Not yet supported
-|Data at rest encryption|256-bit AES encryption|Not yet supported
-|Storage account type|General-purpose and Azure Blob storage accounts|General-purpose only
-|Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage
-|Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee
-|Managed disks|Premium and standard supported|Not yet supported
-|Blob name|1,024 characters (2,048 bytes)|880 characters (1,760 bytes)
-|Block blob max size|4.75 TB (100 MB X 50,000 blocks)|50,000 X 4 MB (approx. 195 GB)
-|Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported
-|Page blob max size|8 TB|1 TB
-|Page blob page size|512 bytes|4 KB
-|Table partition key and row key size|1,024 characters (2,048 bytes)|400 characters (800 bytes)
+|Dosya depolama|Bulut tabanlı SMB dosya paylaşımları desteklenen|Henüz desteklenmiyor
+|Veri bekleyen şifreleme|256 bit AES şifreleme|Henüz desteklenmiyor
+|Depolama hesabı türü|Genel amaçlı ve Azure Blob storage hesapları|Genel amaçlı yalnızca
+|Çoğaltma seçenekleri|Yerel olarak yedekli depolama, coğrafi olarak yedekli depolama, coğrafi olarak yedekli depolamaya okuma erişimi ve bölge olarak yedekli depolama|Yerel olarak yedekli depolama
+|Premium depolama|Tam olarak desteklenir|Performans sınır sağlanabilir veya garanti
+|Yönetilen diskler|Premium ve standart desteklenen|Henüz desteklenmiyor
+|BLOB adı|1024 karakter (2.048 bayt)|880 karakterleri (1,760 bayt)
+|Blok blobu en büyük boyutu|4.75 TB (100 MB X 50.000 blok)|50.000 x 4 MB (yaklaşık 195 GB)
+|Sayfa blob anlık görüntü kopyalama|Desteklenen bir çalışan VM'ye ekli yedekleme Azure yönetilmeyen VM diskleri|Henüz desteklenmiyor
+|Sayfa blob artımlı anlık görüntü kopyalama|Premium ve desteklenen standart Azure sayfa BLOB'ları|Henüz desteklenmiyor
+|Sayfa blob en büyük boyutu|8 TB|1 TB
+|Sayfa blob sayfa boyutu|512 bayt|4 KB
+|Tablo bölüm anahtarını ve satır anahtar boyutu|1024 karakter (2.048 bayt)|400 karakter (800 bayt)
 
-### <a name="metrics"></a>Metrics
-There are also some differences with storage metrics:
-* The transaction data in storage metrics does not differentiate internal or external network bandwidth.
-* The transaction data in storage metrics does not include virtual machine access to the mounted disks.
+### <a name="metrics"></a>Ölçümler
+Depolama ölçümleri ile bazı farklar vardır:
+* Depolama ölçümleri işlem verilerinde iç veya dış ağ bant genişliği ayırt etmez.
+* Depolama ölçümleri işlem verilerde bağlı diskler sanal makine erişimi içermez.
 
-## <a name="api-version"></a>API version
-The following versions are supported with Azure Stack Storage:
+## <a name="api-version"></a>API sürümü
+Aşağıdaki sürümler ile Azure yığın depolama desteklenir:
 
-* Azure Storage data services: [2015-04-05 REST API version](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
-* Azure Storage management services: [2015-05-01-preview, 2015-06-15, and 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
+* Azure Storage Veri Hizmetleri: [2015-04-05 REST API sürümü](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
+* Azure Storage Yönetimi Hizmetleri: [2015-05-01-Önizleme, 2015-06-15 ve 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Get started with Azure Stack Storage development tools](azure-stack-storage-dev.md)
-* [Introduction to Azure Stack Storage](azure-stack-storage-overview.md)
-
+* [Azure yığın depolama geliştirme araçları ile çalışmaya başlama](azure-stack-storage-dev.md)
+* [Azure yığın depolama giriş](azure-stack-storage-overview.md)
 

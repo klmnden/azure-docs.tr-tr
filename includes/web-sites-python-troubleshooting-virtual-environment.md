@@ -18,8 +18,3 @@ Burada, Python’un istenen sürümüyle eşleşmediğinde dağıtım betiğinin
 ### <a name="option-3-customize-deployment-script"></a>Seçenek 3: Dağıtım betiğini özelleştirme
 Dağıtım betiğini özelleştirdiyseniz, env klasörünü silmesi amacıyla zorlamak için deploy.cmd dosyasında kodu değiştirebilirsiniz.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

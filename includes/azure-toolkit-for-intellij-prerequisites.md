@@ -1,17 +1,17 @@
-## <a name="prerequisites"></a>Prerequisites
-The Azure Toolkit for IntelliJ requires the following software components:
+## <a name="prerequisites"></a>Ön koşullar
+Intellij için Azure araç seti, aşağıdaki yazılım bileşenleri gerektirir:
 
-* IntelliJ IDEA Ultimate Edition, which can be downloaded from the [JetBrains website](https://www.jetbrains.com/idea/download/).
+* Intellij Idea Ultimate yüklenebilir Edition [JetBrains Web sitesi](https://www.jetbrains.com/idea/download/).
 
-* A Java Developer Kit (JDK), version 1.8 or later.
+* Bir Java Geliştirme Seti (JDK), 1.8 veya sonraki bir sürümü.
 
-* An Azure subscription, which can be acquired from <https://azure.microsoft.com/free/> or <http://azure.microsoft.com/pricing/purchase-options/>.
+* Öğesinden alınan bir Azure aboneliği <https://azure.microsoft.com/free/> veya <http://azure.microsoft.com/pricing/purchase-options/>.
 
-* An operating system. The Azure Toolkit for IntelliJ has been tested on the following operating systems:
+* Bir işletim sistemi. Intellij için Azure Araç Seti aşağıdaki işletim sistemlerinde test edilmiştir:
   
-  * Windows 10, Windows 8.1, Windows 8, and Windows 7
-  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, and Windows Server 2008
-  * [Mac OS X](http://www.apple.com/osx) version "Yosemite" or later
-  * [Ubuntu Linux](http://www.ubuntu.com) version 14, 15, and 16
+  * Windows 10, Windows 8.1, Windows 8 ve Windows 7
+  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ve Windows Server 2008
+  * [Mac OS X](http://www.apple.com/osx) sürüm "Yosemite" veya üzeri
+  * [Ubuntu Linux](http://www.ubuntu.com) sürüm 14, 15 ve 16
 
-For more information, see the [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) page at the JetBrains Plugin Repository.
+Daha fazla bilgi için bkz: [Intellij için Azure Araç Seti](https://plugins.jetbrains.com/plugin/8053) JetBrains eklentisi deposunda sayfası.

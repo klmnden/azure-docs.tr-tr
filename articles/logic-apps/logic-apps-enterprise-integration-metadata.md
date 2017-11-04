@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Tümleştirme hesapları logic apps için yapı meta verilerini yönetme
 
-Bu meta veri çalışma zamanı sırasında mantıksal uygulamanızı almak ve tümleştirme hesaplarında yapıları için özel meta verileri tanımlayın. Örneğin, iş ortakları, anlaşmalar, şemalar ve haritalar gibi yapıları için meta veri belirtebilirsiniz - tüm anahtar-değer çiftleri kullanarak meta verileri depolama. Şu anda kullanıcı Arabirimi aracılığıyla meta veri yapıları oluşturulamıyor, ancak meta verileri oluşturmak için REST API'ler kullanabilirsiniz. Oluşturduğunuzda ya da bir iş ortağı, anlaşma ya da şema Azure portalında seçin meta veri eklemek için **JSON olarak Düzenle**. Logic apps içinde yapı meta verilerini almak için tümleştirme hesap yapı arama özelliğini kullanabilirsiniz.
+Bu meta veri çalışma zamanı sırasında mantıksal uygulamanızı almak ve tümleştirme hesaplarında yapıları için özel meta verileri tanımlayın. Örneğin, iş ortakları, anlaşmalar, şemalar ve haritalar gibi yapıları için meta veri belirtebilirsiniz - tüm anahtar-değer çiftleri kullanarak meta verileri depolama. Şu anda kullanıcı Arabirimi aracılığıyla meta veri yapıları oluşturulamıyor, ancak meta verileri oluşturmak için REST API'ler kullanabilirsiniz. Oluşturduğunuzda ya da bir iş ortağı, anlaşma ya da şema Azure portalında seçin meta veri eklemek için **Düzenle**. Logic apps içinde yapı meta verilerini almak için tümleştirme hesap yapı arama özelliğini kullanabilirsiniz.
 
 ## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Meta veri yapıları tümleştirme hesapları ekleyin
 
@@ -31,7 +31,7 @@ Bu meta veri çalışma zamanı sırasında mantıksal uygulamanızı almak ve t
 
 2. Örneğin bir yapı tümleştirme hesabınıza ekleyin, bir [iş ortağı](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), [sözleşmesi](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements), veya [şema](logic-apps-enterprise-integration-schemas.md).
 
-3.  Yapıyı seçin, **JSON olarak Düzenle**ve meta veri ayrıntılarını girin.
+3.  Yapıyı seçin, **Düzenle**ve meta veri ayrıntılarını girin.
 
     ![Meta veri girin](media/logic-apps-enterprise-integration-metadata/image1.png)
 

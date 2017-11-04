@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure Stack storage
-description: Learn about Azure Stack storage
+title: "Azure yığın depolama giriş"
+description: "Azure yığın depolama hakkında bilgi edinin"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,80 +14,78 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8777aa486a627cf8b2d8ba443e115638354d10da
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introduction-to-azure-stack-storage"></a>Introduction to Azure Stack storage
+# <a name="introduction-to-azure-stack-storage"></a>Azure yığın depolama giriş
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-## <a name="overview"></a>Overview
-Azure Stack Storage is a set of cloud storage services including Blobs, Tables and Queues which are consistent with Azure Storage services.
+## <a name="overview"></a>Genel Bakış
+Azure yığın depolama, BLOB'lar, tablolar ve Azure Storage Hizmetleri ile tutarlı olan sıraları dahil bulut depolama hizmetleri kümesidir.
 
-## <a name="azure-stack-storage-services"></a>Azure Stack Storage services
-Azure Stack storage provides the following three services:
+## <a name="azure-stack-storage-services"></a>Azure yığın depolama hizmetleri
+Azure yığın depolama aşağıdaki üç hizmetleri sağlar:
 
-* **Blob Storage** 
+* **Blob Depolama** 
 
-    Blob storage stores unstructured object data. A blob can be any type of text or binary data, such as a document, media file, or application installer.
-* **Table Storage** 
+    BLOB storage yapılandırılmamış nesne verilerini depolar. Blob; bir belge, ortam dosyası veya uygulama yükleyici gibi herhangi bir türde metin veya ikili veri olabilir.
+* **Tablo depolama** 
 
-    Table storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
-* **Queue Storage** 
+    Table storage yapılandırılmış veri kümelerini depolar. Table Storage, yüksek miktarda verinin hızla dağıtılmasını ve verilere hızla erişilebilmesini sağlayan NoSQL anahtar özniteliği veri deposudur.
+* **Kuyruk depolama** 
 
-    Queue storage provides reliable messaging for workflow processing and for communication between components of cloud services.
+    Kuyruk depolama, iş akışı işleme ve bulut Hizmetleri bileşenleri arasındaki iletişim için güvenilir Mesajlaşma sağlar.
 
-An Azure Stack storage account is a secure account that gives you access to services in Azure Stack Storage. Your storage account provides the unique namespace for your storage resources. The following diagram shows the relationships between the Azure Stack storage resources in a storage account:
+Bir Azure yığın depolama Azure yığın depolama Hizmetleri'nde erişmenizi sağlayan güvenli bir hesap hesabıdır. Depolama hesabınız depolama kaynaklarınız için benzersiz ad alanı sağlar. Aşağıdaki diyagramda bir depolama hesabı Azure yığın depolama kaynakları arasındaki ilişkiler gösterilmektedir:
 
-![Azure Stack Storage overview](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
-
-
-### <a name="blob-storage"></a>Blob storage
-
-For users with a large amount of unstructured object data to store in the cloud, Blob storage offers an effective and scalable solution. You can use Blob storage to store content such as:
-
-* Documents
-* Social data such as photos, videos, music, and blogs
-* Backups of files, computers, databases, and devices
-* Images and text for web applications
-* Configuration data for cloud applications
-* Big data, such as logs and other large datasets
-
-Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the limit of storage account.
-
-Blob storage offers three types of blobs: 
-* **Block blobs** 
-
-    Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc.
-* **Append blobs** 
-
-    Append blobs are similar to block blobs, but are optimized for append operations. An append blob can be updated only by adding a new block to the end. Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob.
-* **Page blobs** 
-
-    Page blobs are optimized for representing IaaS disks and supporting random writes which is up to 1 TB in size. An Azure Stack virtual machine attached IaaS disk is a VHD stored as a page blob.
+![Azure yığın depolama genel bakış](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 
-### <a name="table-storage"></a>Table storage
-Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required. Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft's NoSQL key/attribute store – it has a schemaless design, making it different from traditional relational databases. With a schemaless data store, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly.
+### <a name="blob-storage"></a>Blob depolama
 
-Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name. The property name can be used for filtering and specifying selection criteria. A collection of properties and their values comprise an entity. Since Table storage is schemaless, two entities in the same table can contain different collections of properties, and those properties can be of different types.
+Bulutta depolamak kullanıcılar için büyük miktarda yapılandırılmamış nesne veri, Blob storage etkili ve ölçeklenebilir bir çözüm sunar. Blob Storage’ı kullanarak şu içerikleri depolayabilirsiniz:
 
-You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. For today's Internet-based applications, NoSQL databases like Table storage offer a popular alternative to traditional relational databases.
+* Belgeler
+* Fotoğraf, video, müzik ve blog gibi sosyal veriler
+* Dosyaların, bilgisayarların, veritabanlarının ve cihazların yedekleri
+* Web uygulamaları için görüntüler ve metinler
+* Bulut uygulamaları için yapılandırma verileri
+* Günlükler ve diğer büyük veri kümeleri gibi büyük veriler
 
-A storage account can contain any number of tables, and a table can contain any number of entities, up to the capacity limit of the storage account.
+Her blob bir kapsayıcı halinde düzenlenmiştir. Kapsayıcılar ayrıca nesne gruplarına güvenlik ilkeleri atamaya ilişkin kullanışlı bir yöntem sunar. Bir kapsayıcı herhangi bir sayıda depolama hesabının sınırını dolduracak kadar BLOB içerebilir ve bir depolama hesabı kapsayıcıların herhangi bir sayı içerebilir.
 
-### <a name="queue-storage"></a>Queue storage
-In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
+BLOB storage üç tür BLOB sunar: 
+* **Blok blobları** 
 
-A storage account can contain any number of queues, and a queue can contain any number of messages, up to the capacity limit of the storage account. Individual messages may be up to 64 KB in size.
+    Blok blobları bulut nesnelerinin akış ve depolanması için en iyi duruma getirilmiştir ve belge, ortam dosyaları ve yedekler vb. öğelerin depolanması için uygun bir seçenektir.
+* **Ekleme blobları** 
 
-## <a name="next-steps"></a>Next steps
-* [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
+    Ekleme blobları blok bloblarına benzer ancak ekleme işlemleri için en iyi duruma getirilmiştir. Bir ekleme blobu yalnızca sonuna yeni bir blok eklenerek güncelleştirilebilir. Ekleme blobları, yeni verilerin yalnızca blobun sonuna yazılması gereken günlüğe kaydetme gibi senaryolar için iyi bir seçenektir.
+* **Sayfa BLOB'ları** 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+    Sayfa blobları Iaas disklerini temsil etmek için en iyi duruma getirilir ve rastgele destekleme boyutu 1 TB'ye kadar olan yazar. Bir Azure yığın sanal makineye disk bir sayfa blob'u olarak kaydedilen bir vhd'dir Iaas eklendi.
 
+
+### <a name="table-storage"></a>Table Storage
+Modern uygulamalar genellikle eski nesil yazılımların gerektirdiğinden daha fazla ölçeklenebilirlik ve esneklik özelliklerine sahip veri depoları gerektirir. Table Storage yüksek seviyede kullanılabilir ve ölçeklenebilir depolama sunar, böylece uygulamanız kullanıcı taleplerini karşılayacak şekilde otomatik olarak ölçeklendirilir. Tablo depolama, Microsoft’un NoSQL anahtar/öznitelik deposudur ve geleneksel ilişkisel veritabanlarından farklı olarak şemasız bir tasarıma sahiptir. Şemasız veri deposu sayesinde, uygulamanızın ihtiyaçları geliştikçe verilerinizi uyarlamak da kolaylaşır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir.
+
+Table Storage bir anahtar öznitelik deposudur; bu, bir tablodaki her değerin türü belirtilmiş bir özellik adıyla depolandığı anlamına gelir. Özellik adı filtreleme ve seçim kriterlerinin belirlenmesi için kullanılabilir. Özellik ve değerlerinin toplamı bir varlığı oluşturur. Table Storage şemasız olduğu için aynı tablodaki iki varlık farklı özellik koleksiyonları içerebilir ve bu özellikler farklı türde olabilir.
+
+Web uygulamaları için kullanıcı verileri, adres defterleri, cihaz bilgileri ve hizmetiniz için gerekli olan tüm diğer meta veri türleri gibi esnek veri kümelerini depolamak üzere Table Storage’ı kullanabilirsiniz. Bugünün İnternet tabanlı uygulamaları için Table Storage gibi NoSQL veri tabanları geleneksel veri tabanlarına göre popüler bir alternatif oluşturur.
+
+Herhangi bir sayıda varlıklar, depolama hesabının kapasite sınırına kadar tablo içerebilir ve bir depolama hesabı tabloları herhangi bir sayıda içerebilir.
+
+### <a name="queue-storage"></a>Kuyruk depolama
+Ölçeklendirmek üzere uygulama tasarlarken, uygulama bileşenleri birbirinden bağımsız şekilde ölçeklenebilmek için genellikle birbirinden ayrılır. Kuyruk depolama bulutta, masaüstünde, şirket içi sunucuda veya mobil bir cihazda çalışan uygulama bileşenleri arasındaki zaman uyumsuz iletişim için güvenilir bir mesajlaşma çözümü sunar. Kuyruk depolama zaman uyumsuz görevlerin yönetilmesini ve süreç iş akışlarının oluşturulmasını da destekler.
+
+Bir sıranın depolama hesabının kapasite sınırını kadar ileti herhangi bir sayı içerebilir ve bir depolama hesabı sıraların herhangi bir sayı içerebilir. Tek bir ileti boyut olarak en fazla 64 KB olabilir.
+
+## <a name="next-steps"></a>Sonraki adımlar
+* [Azure tutarlı Depolama: farklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences.md)
+
+* Azure Storage hakkında daha fazla bilgi için bkz: [Microsoft Azure Storage'a giriş](../../storage/common/storage-introduction.md)
 

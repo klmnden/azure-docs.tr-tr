@@ -1,14 +1,14 @@
 * PDF
-* Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
+* Microsoft Office biçimleri: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook e-postalar)  
 * HTML
 * XML
 * ZIP
 * EML
 * RTF
-* Plain text files (see also [Indexing plain text](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
-* JSON (see [Indexing JSON blobs](../articles/search/search-howto-index-json-blobs.md))
-* CSV (see [Indexing CSV blobs](../articles/search/search-howto-index-csv-blobs.md) preview feature)
+* Düz metin dosyaları (Ayrıca bkz. [dizin düz metin](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
+* JSON (bkz [dizin JSON BLOB'ların](../articles/search/search-howto-index-json-blobs.md))
+* CSV (bkz [dizin oluşturma CSV BLOB'ların](../articles/search/search-howto-index-csv-blobs.md) önizleme özelliği)
 
 > [!IMPORTANT]
-> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2016-09-01-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> CSV ve JSON dizileri desteği şu anda önizlemede değil. Bu biçim yalnızca sürüm kullanılarak kullanılabilir **2016-09-01-Önizleme** REST API veya sürüm 2.x-Önizleme .NET SDK'ın. Lütfen unutmayın, Önizleme API'leri sınama ve değerlendirme için tasarlanmıştır ve üretim ortamlarında kullanılmamalıdır.
 >

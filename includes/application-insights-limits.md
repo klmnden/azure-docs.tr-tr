@@ -1,19 +1,19 @@
-There are some limits on the number of metrics and events per application (that is, per instrumentation key). Limits depend on the [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) that you choose.
+Uygulama başına (yani, izleme anahtarı başına) ölçüm ve olay sayısı için bazı limitler mevcuttur. Limitler seçtiğiniz [fiyatlandırma planına](https://azure.microsoft.com/pricing/details/application-insights/) bağlıdır.
 
-| **Resource** | **Default limit** | **Note**
+| **Kaynak** | **Varsayılan sınır** | **Not**
 | --- | --- | --- |
-| Total data per day | 500 GB | You can reduce data by setting a cap. If you need more, mail AIDataCap@microsoft.com.
-| Free data per month<br/> (Basic price plan) | 1 GB | Additional data is charged per gigabyte.
-| Throttling | 32 k events/second | The limit is measured over a minute.
-| Data retention | 90 days | This resource is for [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md), and [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md).
-| [Availability multi-step test](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) detailed results retention | 90 days | This resource provides detailed results of each step.
-| Maximum event size | 64 K | 
-| Property and metric name length | 150 | See [type schemas](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| Property value string length | 8,192 | See [type schemas](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| Trace and exception message length | 10 k | See [type schemas](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| [Availability tests](../articles/application-insights/app-insights-monitor-web-app-availability.md) count per app  | 10 |
-| [Profiler](../articles/application-insights/app-insights-profiler.md) data retention | 5 days |
-| [Profiler](../articles/application-insights/app-insights-profiler.md) data sent per day | 10GB |
+| Günlük toplam veri | 500 GB | Bir uç ayarlayarak verileri azaltabilirsiniz. Daha fazla gerekirse AIDataCap@microsoft.com adresine posta gönderin.
+| Aylık ücretsiz veri<br/> (Temel fiyat planı) | 1 GB | Ek veriler gigabayt başına ücretlendirilir.
+| Azaltma | 32 bin olay/saniye | Sınır bir dakika içinde ölçülür.
+| Veri saklama | 90 gün | Bu kaynak [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) ve [Ölçüm Gezgini](../articles/application-insights/app-insights-metrics-explorer.md) içindir.
+| [Çok adımlı kullanılabilirlik testi](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) ayrıntılı sonuçlarını saklama | 90 gün | Bu kaynak her adımın ayrıntılı sonuçlarını verir.
+| En fazla olay boyutu | 64 K | 
+| Özellik ve ölçüm adı uzunluğu | 150 | Bkz: [yazın şemaları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
+| Özellik değeri dize uzunluğu | 8,192 | Bkz: [yazın şemaları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
+| İzleme ve özel durum iletisi uzunluğu | 10 bin | Bkz: [yazın şemaları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
+| Uygulama başına [kullanılabilirlik testi](../articles/application-insights/app-insights-monitor-web-app-availability.md) sayısı  | 10 |
+| [Profil Oluşturucu](../articles/application-insights/app-insights-profiler.md) veri saklama | 5 gün |
+| [Profil Oluşturucu](../articles/application-insights/app-insights-profiler.md) gün başına gönderilen veriler | 10GB |
 
-For more information, see [About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md).
+Daha fazla bilgi için bkz. [Application Insights fiyatlandırma ve kotaları hakkında](../articles/application-insights/app-insights-pricing.md).
 

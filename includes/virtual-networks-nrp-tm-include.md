@@ -10,7 +10,7 @@ Trafik Yöneticisi ve onun alt uç nokta kaynağının Azure ve Azure dışında
 | **Path** |izleme yolu |
 | **Uç noktaları** |uç nokta kaynaklar için kapsayıcı |
 
-### <a name="endpoint"></a>Uç nokta
+### <a name="endpoint"></a>Uç Nokta
 Bir uç nokta Traffic Manager profilinin bir alt kaynaktır. Kullanıcı trafiğinin dağıtılmış web uç noktası trafik Yöneticisi profili kaynak yapılandırılmış ilkesini temel alarak veya bir hizmet temsil eder. 
 
 | Özellik | Açıklama |

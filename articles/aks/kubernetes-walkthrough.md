@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: a25f91d092c2f72ea1cbc174d1bf8bf48885788a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 89d469b330644b8f5b82a343ea4408d5b8d10b12
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Bir Azure kapsayıcı hizmeti (AKS) kümeyi dağıtma
 
@@ -77,7 +77,7 @@ Aşağıdaki örnek adlı bir küme oluşturur *myK8sCluster* bir düğümü.
 az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
 ```
 
-Birkaç dakika sonra komut tamamlanır ve küme hakkında json tarafından biçimlendirilmiş bilgiler gösterilir.
+Birkaç dakika sonra komut tamamlanır ve küme hakkında JSON tarafından biçimlendirilmiş bilgiler gösterilir.
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 
@@ -93,7 +93,7 @@ az aks install-cli
 Kubernetes kümenize bağlanmak için kubectl yapılandırmak için aşağıdaki komutu çalıştırın. Bu adım kimlik bilgilerini indirir ve Kubernetes CLI’yi bunları kullanacak şekilde yapılandırır.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
 ```
 
 Kümenize bağlantıyı doğrulamak için [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutunu kullanarak küme düğümleri listesini alın.
@@ -113,7 +113,7 @@ k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
 
 Kubernetes bildirim dosyası, hangi kapsayıcı görüntülerinin çalıştırılması gerektiği de dahil olmak üzere, küme için istenen durumu tanımlar. Bu örnekte, Azure Vote uygulamasını çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır.
 
-`azure-vote.yml` adlı bir dosya oluşturun ve dosyayı aşağıdaki YAML’ye kopyalayın. Azure Cloud Shell'de çalışıyorsanız, bu dosya bir sanal veya fiziksel sistemde olduğu gibi vi veya Nano kullanılarak oluşturulabilir.
+Adlı bir dosya oluşturun `azure-vote.yml` ve aşağıdaki YAML kodu buraya kopyalayın. Azure Cloud Shell'de çalışıyorsanız, bu dosya bir sanal veya fiziksel sistemde olduğu gibi vi veya Nano kullanılarak oluşturulabilir.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,7 +211,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 Bir kez *dış IP* adresi değiştiğini *bekleyen* için bir *IP adresi*, kullanın `CTRL-C` kubectl izleme işlemi durdurmak için.
 
 ```
-azure-vote-front   LoadBalancer   10.0.37.27   52.175.236.185   80:30572/TCP   2m
+azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 Artık Azure Vote Uygulamasını görmek için dış IP adresine göz atabilirsiniz.
@@ -227,7 +227,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Kodu alma
 
-Bu hızlı başlangıçta, Kubernetes dağıtımı oluşturmak için önceden oluşturulmuş kapsayıcı görüntüleri kullanılır. İlgili uygulama kodu, Dockerfile ve Kubernetes bildirim dosyası GitHub'da bulunur.
+Bu hızlı başlangıç önceden oluşturulmuş kapsayıcı görüntüleri Kubernetes dağıtımı oluşturmak için kullanılmış. İlgili uygulama kodu, Dockerfile ve Kubernetes bildirim dosyası GitHub'da bulunur.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 

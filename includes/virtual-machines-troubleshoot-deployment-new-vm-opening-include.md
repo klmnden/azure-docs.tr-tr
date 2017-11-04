@@ -1,5 +1,5 @@
-When you try to create a new Azure Virtual Machine (VM), the common errors you encounter are provisioning failures or allocation failures.
+Yeni bir Azure sanal makine (VM) oluşturmayı denediğinizde, karşılaştığınız sık karşılaşılan hataları veya ayırma hataları sağlama.
 
-* A provisioning failure happens when the OS image fails to load either due to incorrect preparatory steps or because of selecting the wrong settings during the image capture from the portal.
-* An allocation failure results when the cluster or region either does not have resources available or cannot support the requested VM size.
+* İşletim sistemi görüntüsü yüklenmemesi yanlış hazırlık adımlarını nedeniyle veya yanlış ayarları portalından görüntü yakalama sırasında seçerek nedeniyle sağlama başarısız olur.
+* Küme veya bölgede kullanılabilir kaynak yok veya istenen VM boyutu destekleyemez ayırma hatası oluşur.
 

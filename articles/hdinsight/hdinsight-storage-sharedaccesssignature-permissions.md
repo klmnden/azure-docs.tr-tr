@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/11/2017
+ms.date: 11/02/2017
 ms.author: larryfr
-ms.openlocfilehash: 2e4b1a307fae06c0639d93b9804c6f0f703d5900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Hdınsight'ta verilere erişimi kısıtlamak için Azure Storage paylaşılan erişim imzaları kullanın
 
 Hdınsight kümesi ile ilişkili Azure depolama hesaplarındaki veri tam erişimi vardır. Blob kapsayıcısında paylaşılan erişim imzaları verilere erişimi kısıtlamak için kullanabilirsiniz. Örneğin, verileri salt okunur erişim sağlamak için. Paylaşılan erişim imzaları (SAS) veri erişimi sınırlamak izin veren bir Azure depolama hesapları özelliğidir. Örneğin, verilere salt okunur erişim sağlama.
 
 > [!IMPORTANT]
-> Apache bırakabilmenizi kullanarak bir çözüm için etki alanına katılmış Hdınsight kullanmayı düşünün. Daha fazla bilgi için bkz: [etki alanına katılmış Hdınsight yapılandırma](hdinsight-domain-joined-configure.md) belge.
+> Apache bırakabilmenizi kullanarak bir çözüm için etki alanına katılmış Hdınsight kullanmayı düşünün. Daha fazla bilgi için bkz: [etki alanına katılmış Hdınsight yapılandırma](./domain-joined/apache-domain-joined-configure.md) belge.
 
 > [!WARNING]
 > Hdınsight kümesi için varsayılan depolama tam erişimi olmalıdır.
@@ -304,8 +304,8 @@ Kümeye bağlantı kurulduktan sonra yalnızca okuma ve liste öğeleri SAS depo
 
 Hdınsight kümenize sınırlı erişim depolama eklemek öğrendiniz, kümenizde verilerle çalışmak için diğer yollarını öğrenmek:
 
-* [HDInsight ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](hdinsight-use-pig.md)
-* [Hdınsight ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight ile Hive kullanma](hadoop/hdinsight-use-hive.md)
+* [HDInsight ile Pig kullanma](hadoop/hdinsight-use-pig.md)
+* [Hdınsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

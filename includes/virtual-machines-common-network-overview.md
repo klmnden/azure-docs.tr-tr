@@ -1,157 +1,157 @@
-When you create an Azure virtual machine (VM), you must create a [virtual network](../articles/virtual-network/virtual-networks-overview.md) (VNet) or use an existing VNet. You also need to decide how your VMs are intended to be accessed on the VNet. It is important to [plan before creating resources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure that you understand the [limits of networking resources](../articles/azure-subscription-service-limits.md#networking-limits).
+Azure sanal makinesi (VM) oluştururken bir [sanal ağ](../articles/virtual-network/virtual-networks-overview.md) (VNet) oluşturmanız ya da mevcut bir VNet’i kullanmanız gerekir. Sanal ağda VM’lerinize nasıl erişilmesini istediğinize de karar vermeniz gerekir. [Kaynakları oluşturmadan önce planlama yapmak](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) ve [ağ kaynaklarının sınırlarını](../articles/azure-subscription-service-limits.md#networking-limits) anladığınızdan emin olmak önemlidir.
 
-In the following figure, VMs are represented as web servers and database servers. Each set of VMs are assigned to separate subnets in the VNet.
+Aşağıdaki şekilde VM’ler web sunucuları ve veritabanı sunucuları olarak temsil edilmektedir. Her VM kümesi, sanal ağdaki farklı alt ağlara atanmıştır.
 
-![Azure virtual network](./media/virtual-machines-common-network-overview/vnetoverview.png)
+![Azure sanal ağı](./media/virtual-machines-common-network-overview/vnetoverview.png)
 
-You can create a VNet before you create a VM or you can as you create a VM. You create these resources to support communication with a VM:
+Bir VM oluşturun veya bir VM oluştururken şunları yapabilirsiniz önce bir sanal ağ oluşturabilirsiniz. Bir VM ile iletişimi desteklemek için şu kaynakları oluşturursunuz:
 
-- Network interfaces
-- IP addresses
-- Virtual network and subnets
+- Ağ arabirimleri
+- IP adresleri
+- Sanal ağ ve alt ağlar
 
-In addition to those basic resources, you should also consider these optional resources:
+Bu temel kaynaklara ek olarak şu isteğe bağlı kaynakları da göz önünde bulundurmalısınız:
 
-- Network security groups
-- Load balancers 
+- Ağ güvenlik grupları
+- Yük dengeleyiciler 
 
-## <a name="network-interfaces"></a>Network interfaces
+## <a name="network-interfaces"></a>Ağ arabirimleri
 
-A [network interface (NIC)](../articles/virtual-network/virtual-network-network-interface.md) is the interconnection between a VM and a virtual network (VNet). A VM must have at least one NIC, but can have more than one, depending on the size of the VM you create. Learn about how many NICs each VM size supports for [Windows](../articles/virtual-machines/windows/sizes.md) or [Linux](../articles/virtual-machines/linux/sizes.md).
+[Ağ arabirimi (NIC)](../articles/virtual-network/virtual-network-network-interface.md), bir VM ile bir sanal ağ (VNet) arasındaki çift yönlü bağlantıdır. Bir VM en az bir NIC içermelidir, ancak oluşturduğunuz VM’nin boyutuna bağlı olarak birden fazla NIC içerebilir. Her VM kaç NIC hakkında bilgi edinmek için boyutu destekliyorsa [Windows](../articles/virtual-machines/windows/sizes.md) veya [Linux](../articles/virtual-machines/linux/sizes.md).
 
-You can create a VM with multiple NICs, and add or remove NICs through the lifecycle of a VM. Multiple NICs allow a VM to connect to different subnets and send or receive traffic over the most appropriate interface. Learn more about how to use multiple NICs with a [Windows](../articles/virtual-machines/windows/multiple-nics.md) or [Linux](../articles/virtual-machines/linux/multiple-nics.md) VM.
+Birden çok NIC bir VM oluşturun ve ekleyebilir veya NIC VM yaşam döngüsü ile kaldırabilirsiniz. Birden çok NIC VM farklı alt ağlara bağlanmak ve göndermek veya en uygun arabirimi üzerinden trafik almasına izin verir.
 
-If the VM is added to an availability set, all VMs within the availability set must have one or multiple NICs. VMs with more than one NIC aren’t required to have the same number of NICs, but they must all have at least two.
+VM bir kullanılabilirlik kümesine eklenmişse, kullanılabilirlik kümesindeki VM’lerin tamamı bir veya birden çok NIC içermelidir. Birden çok NIC içeren VM’lerin aynı sayıda NIC içermesi gerekmez, ancak hepsinin en az iki tane NIC’si olmalıdır.
 
-Each NIC attached to a VM must exist in the same location and subscription as the VM. Each NIC must be connected to a VNet that exists in the same Azure location and subscription as the NIC. You can change the subnet a VM is connected to after it's created, but you cannot change the VNet. Each NIC attached to a VM is assigned a MAC address that doesn’t change until the VM is deleted.
+Bir VM’ye bağlı her NIC’nin VM ile aynı konum ve abonelikte bulunması gerekir. Her NIC’nin NIC ile aynı Azure konumunda ve aboneliğinde bulunan bir VNet’e bağlanması gerekir. Oluşturulduktan sonra bir VM bağlı alt ağ değiştirebilirsiniz, ancak sanal ağ değiştirilemez. Bir VM’ye bağlı her NIC’ye VM silinene kadar değişmeyen bir MAC adresi atanır.
 
-This table lists the methods that you can use to create a network interface.
+Bu tabloda bir ağ arabirimi oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
 
-| Method | Description |
+| Yöntem | Açıklama |
 | ------ | ----------- |
-| Azure portal | When you create a VM in the Azure portal, a network interface is automatically created for you (you cannot use a NIC you create separately). The portal creates a VM with only one NIC. If you want to create a VM with more than one NIC, you must create it with a different method. |
-| [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) | Use [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) with the **-PublicIpAddressId** parameter to provide the identifer of the public IP address that you previously created. |
-| [Azure CLI](../articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md) | To provide the identifer of the public IP address that you previously created, use [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) with the **--public-ip-address** parameter. |
-| [Template](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | Use [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) as a guide for deploying a network interface using a template. |
+| Azure portalına | Azure portalında bir VM oluşturduğunuzda, sizin için otomatik olarak bir ağ arabirimi oluşturulur (ayrı olarak oluşturduğunuz bir NIC’yi kullanamazsınız). Portal yalnızca tek NIC’li bir VM oluşturur. Birden fazla NIC içeren bir VM oluşturmak istiyorsanız VM’yi farklı bir yöntemle oluşturmanız gerekir. |
+| [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Daha önce oluşturduğunuz genel IP adresinin tanımlayıcısını sağlamak için [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) komutunu **-PublicIpAddressId** parametresiyle birlikte kullanın. |
+| [Azure CLI](../articles/virtual-machines/linux/multiple-nics.md) | Daha önce oluşturduğunuz genel IP adresinin tanımlayıcısını sağlamak için [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) komutunu **--public-ip-address** parametresi ile birlikte kullanın. |
+| [Şablon](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | Bir şablon kullanarak ağ arabirimi dağıtmak için [Genel IP Adresli bir Sanal Ağda Ağ Arabirimi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) konusunu bir kılavuz olarak kullanın. |
 
-## <a name="ip-addresses"></a>IP addresses 
+## <a name="ip-addresses"></a>IP adresleri 
 
-You can assign these types of [IP addresses](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) to a NIC in Azure:
+Azure’daki bir NIC’ye şu tür [IP adresleri](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) atayabilirsiniz:
 
-- **Public IP addresses** - Used to communicate inbound and outbound (without network address translation (NAT)) with the Internet and other Azure resources not connected to a VNet. Assigning a public IP address to a NIC is optional. Public IP addresses have a nominal charge, and there's a maximum number that can be used per subscription.
-- **Private IP addresses** - Used for communication within a VNet, your on-premises network, and the Internet (with NAT). You must assign at least one private IP address to a VM. To learn more about NAT in Azure, read [Understanding outbound connections in Azure](../articles/load-balancer/load-balancer-outbound-connections.md).
+- **Genel IP adresleri**: İnternet’le ve bir VNet’e bağlı olmayan diğer Azure kaynaklarıyla gelen ve giden (ağ adresi çevirisi (NAT) olmadan) iletişimleri gerçekleştirmek için kullanılır. Bir NIC’ye genel IP adresi atanıp atanmayacağı isteğe bağlıdır. Nominal bir ücret ortak IP adresine sahip ve abonelik başına kullanılabilir bir sayısı yoktur.
+- **Özel IP adresleri**: Bir VNet, şirket içi ağınız ve İnternet (NAT ile) içerisinde iletişim için kullanılır. VM’ye en az bir özel IP adresi atamalısınız. Azure’da NAT ile ilgili bilgi edinmek için [Azure’da giden bağlantıları anlama](../articles/load-balancer/load-balancer-outbound-connections.md) konusunu okuyun.
 
-You can assign public IP addresses to VMs or internet-facing load balancers. You can assign private IP addresses to VMs and internal load balancers. You assign IP addresses to a VM using a network interface.
+VM’lere veya internet’e yönelik yük dengeleyicilere genel IP adresleri atayabilirsiniz. VM’lere ve iç yük dengeleyicilere özel IP adresleri atayabilirsiniz. VM’ye IP adresleri atamak için bir ağ arabirimi kullanılır.
 
-There are two methods in which an IP address is allocated to a resource - dynamic or static. The default allocation method is dynamic, where an IP address is not allocated when it's created. Instead, the IP address is allocated when you create a VM or start a stopped VM. The IP address is released when you stop or delete the VM. 
+Bir kaynağa IP adresi ayırmak için iki yöntem vardır: Dinamik veya statik. Varsayılan ayırma yöntemi, bir IP adresinin oluşturulduğu sırada ayrılmadığı yöntem olan dinamik yöntemdir. Bunun yerine, IP adresi bir VM oluşturduğunuzda bir VM’yi durdurduğunuzda ayrılır. VM’yi durdurduğunuzda veya sildiğinizde IP adresi serbest kalır. 
 
-To ensure the IP address for the VM remains the same, you can set the allocation method explicitly to static. In this case, an IP address is assigned immediately. It is released only when you delete the VM or change its allocation method to dynamic.
+VM’nin IP adresinin aynı kalmasını sağlamak için ayırma yöntemini açıkça statik olarak ayarlayabilirsiniz. Bu durumda, anında bir IP adresi atanır. Adres, yalnızca VM’yi sildiğinizde veya ayırma yöntemini dinamik olarak değiştirdiğinizde serbest kalır.
     
-This table lists the methods that you can use to create an IP address.
+Bu tabloda bir IP adresi oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
 
-| Method | Description |
+| Yöntem | Açıklama |
 | ------ | ----------- |
-| [Azure portal](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | By default, public IP addresses are dynamic and the address associated to them may change when the VM is stopped or deleted. To guarantee that the VM always uses the same public IP address, create a static public IP address. By default, the portal assigns a dynamic private IP address to a NIC when creating a VM. You can change this IP address to static after the VM is created.|
-| [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | You use [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) with the **-AllocationMethod** parameter as Dynamic or Static. |
-| [Azure CLI](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | You use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) with the **--allocation-method** parameter as Dynamic or Static. |
-| [Template](../articles/virtual-network/virtual-network-deploy-static-pip-arm-template.md) | Use [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) as a guide for deploying a public IP address using a template. |
+| [Azure portal](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Varsayılan olarak, genel IP adresleri dinamiktir ve VM durdurulduğunda ya da silindiğinde VM ile ilişkili adres değişebilir. VM’nin her zaman aynı genel IP adresini kullanmasını sağlamak için statik bir genel IP adresi oluşturun. Varsayılan olarak, bir VM oluşturulurken NIC’ye portal tarafından dinamik özel IP adresi atanır. VM oluşturulduktan sonra bu IP adresi statik olarak değiştirebilirsiniz.|
+| [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) komutunu **-AllocationMethod** parametresi Dinamik veya Statik olacak şekilde kullanırsınız. |
+| [Azure CLI](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) komutunu **--allocation-method** parametresi Dinamik veya Statik olacak şekilde kullanırsınız. |
+| [Şablon](../articles/virtual-network/virtual-network-deploy-static-pip-arm-template.md) | Bir şablon kullanarak genel IP adresi dağıtmak için [Genel IP Adresli bir Sanal Ağda Ağ Arabirimi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) konusunu bir kılavuz olarak kullanın. |
 
-After you create a public IP address, you can associate it with a VM by assigning it to a NIC.
+Genel bir IP adresi oluşturduktan sonra bu adresi bir NIC’ye atayarak bir VM ile ilişkilendirebilirsiniz.
 
-## <a name="virtual-network-and-subnets"></a>Virtual network and subnets
+## <a name="virtual-network-and-subnets"></a>Sanal ağ ve alt ağlar
 
-A subnet is a range of IP addresses in the VNet. You can divide a VNet into multiple subnets for organization and security. Each NIC in a VM is connected to one subnet in one VNet. NICs connected to subnets (same or different) within a VNet can communicate with each other without any extra configuration.
+Alt ağ, sanal ağ içindeki bir IP adresleri aralığıdır. Bir sanal ağı organizasyon ve güvenlik için birden çok alt ağa bölebilirsiniz. Bir VM’deki her NIC, bir VNet’teki bir alt ağa bağlanır. Bir VNet içindeki alt ağlara (aynı veya farklı) bağlı NIC’ler, ek bir yapılandırma gerektirmeden birbirleriyle iletişim kurabilir.
 
-When you set up a VNet, you specify the topology, including the available address spaces and subnets. If the VNet is to be connected to other VNets or on-premises networks, you must select address ranges that don't overlap. The IP addresses are private and can't be accessed from the Internet, which was true only for the non-routeable IP addresses such as 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16. Now, Azure treats any address range as part of the private VNet IP address space that is only reachable within the VNet, within interconnected VNets, and from your on-premises location. 
+Bir VNet ayarlarken kullanılabilir adres alanları ve alt ağlar da dahil olmak üzere ağın topolojisini siz belirtirsiniz. VNet diğer VNet’lere veya şirket içi ağlara bağlanacaksa birbiriyle çakışmayan adres aralıkları seçmeniz gerekir. IP adresleri özeldir ve bu ağlara İnternet’ten erişilemez (yalnızca 10.0.0.0/8, 172.16.0.0/12 veya 192.168.0.0/16 gibi yönlendirilemeyen IP adresleri için geçerli). Azure artık tüm adres aralıklarını yalnızca VNet içerisinden, birbirine bağlı VNet’lerden ve şirket içi konumunuzdan erişilebilen özel VNet IP adresi alanının bir parçası olarak görür. 
 
-If you work within an organization in which someone else is responsible for the internal networks, you should talk to that person before selecting your address space. Make sure there is no overlap and let them know the space you want to use so they don’t try to use the same range of IP addresses. 
+İç ağlardan başka birinin sorumlu olduğu bir kurumda çalışıyorsanız adres alanınızı seçmeden önce bu kişiyle konuşmalısınız. Herhangi bir çakışma olmadığından emin olun ve sorumlu kişinin aynı IP adresi aralığını kullanmaya çalışmaması için bu kişiye hangi alanı kullanmak istediğinizi bildirin. 
 
-By default, there is no security boundary between subnets, so VMs in each of these subnets can talk to one another. However, you can set up Network Security Groups (NSGs), which allow you to control the traffic flow to and from subnets and to and from VMs. 
+Varsayılan olarak alt ağlar arasında herhangi bir güvenlik sınırı olmadığından, bu alt ağların her birindeki VM’ler birbiriyle iletişim kurabilir. Bununla birlikte, alt ağların ve VM’lerin birbirleri arasındaki trafik akışını denetlemenize imkan sağlayan Ağ Güvenlik Grupları (NSG) ayarlayabilirsiniz. 
 
-This table lists the methods that you can use to create a VNet and subnets. 
+Bu tabloda, bir VNet ve alt ağlar oluşturmak için kullanabileceğiniz yöntemler listelenmiştir. 
 
-| Method | Description |
+| Yöntem | Açıklama |
 | ------ | ----------- |
-| [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md) | If you let Azure create a VNet when you create a VM, the name is a combination of the resource group name that contains the VNet and **-vnet**. The address space is 10.0.0.0/24, the required subnet name is **default**, and the subnet address range is 10.0.0.0/24. |
-| [Azure PowerShell](../articles/virtual-network/virtual-networks-create-vnet-arm-ps.md) | You use [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) and [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) to create a subnet and a VNet. You can also use [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) to add a subnet to an existing VNet. |
-| [Azure CLI](../articles/virtual-network/virtual-networks-create-vnet-arm-cli.md) | The subnet and the VNet are created at the same time. Provide a **--subnet-name** parameter to [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) with the subnet name. |
-| [Template](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | The easiest way to create a VNet and subnets is to download an existing template, such as [Virtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), and modify it for your needs. |
+| [Azure Portal](../articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md) | Bir VM oluştururken VNet oluşturma işlemini Azure’a bırakırsanız, ad VNet’i ve **-vnet**’i içeren kaynak grubunun adının bir birleşimi olur. Adres alanı 10.0.0.0/24, gerekli alt ağ adı **default** ve alt ağ adres aralığı 10.0.0.0/24’tür. |
+| [Azure PowerShell](../articles/virtual-network/virtual-networks-create-vnet-arm-ps.md) | Bir alt ağ ve VNet oluşturmak için [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) ve [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) komutlarını kullanırsınız. Ayrıca, mevcut bir VNet’e alt ağ eklemek için [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) komutunu da kullanabilirsiniz. |
+| [Azure CLI](../articles/virtual-network/virtual-networks-create-vnet-arm-cli.md) | Alt ağ ve VNet aynı anda oluşturulur. [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) komutuna alt ağın adını içeren bir **--subnet-name** parametresi sağlayın. |
+| [Şablon](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | VNet ve alt ağlar oluşturmanın en kolay yolu, [İki Alt Ağlı Sanal Ağ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets) gibi mevcut bir şablonu indirerek kendi gereksinimlerinize göre değiştirmektir. |
 
-## <a name="network-security-groups"></a>Network security groups
+## <a name="network-security-groups"></a>Ağ güvenlik grupları
 
-A [network security group (NSG)](../articles/virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. In addition, traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
+[Ağ güvenlik grubu (NSG)](../articles/virtual-network/virtual-networks-nsg.md), alt ağlara, NIC’lere veya her ikisine yönelik ağ trafiğine izin veren veya trafiği reddeden Erişim Denetimi Listesi (ACL) kurallarının bir listesini içerir. NSG’ler alt ağlarla veya bir alt ağa bağlı tekil NIC’lerle örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM’ler için geçerli olur. Ayrıca, tekil bir NIC’ye yönelik trafik, bir NSG’nin doğrudan bu NIC ile ilişkilendirilmesi yoluyla sınırlanabilir.
 
-NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. Each rule has properties of protocol, source and destination port ranges, address prefixes, direction of traffic, priority, and access type. 
+NSG'ler iki kural kümesi içerir: gelen ve giden. Bir kurala ait öncelik her küme içinde benzersiz olmalıdır. Her kuralın protokol, kaynak ve hedef bağlantı noktası aralıkları, adres ön ekleri, trafik yönü, öncelik ve erişim türü özellikleri vardır. 
 
-All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. 
+Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Varsayılan kurallar silinemez ancak en düşük önceliğe atanmış oldukları için sizin oluşturduğunuz kurallar tarafından geçersiz kılınabilirler. 
 
-When you associate an NSG to a NIC, the network access rules in the NSG are applied only to that NIC. If an NSG is applied to a single NIC on a multi-NIC VM, it does not affect traffic to the other NICs. You can associate different NSGs to a NIC (or VM, depending on the deployment model) and the subnet that a NIC or VM is bound to. Priority is given based on the direction of traffic.
+Bir NSG'yi bir NIC ile ilişkilendirdiğinizde, NSG'deki ağ erişim kuralları yalnızca bu NIC'ye uygulanır. Çok NIC’li bir VM’de bir NSG tek bir NIC’ye uygulandığı zaman diğer NIC’lere giden trafik etkilenmez. Farklı NSG’leri bir NIC ile (veya dağıtım modeline bağlı olarak VM ile) ve NIC’nin veya VM’nin bağlı olduğu ağ ile ilişkilendirebilirsiniz. Trafiğin yönüne bağlı olarak öncelik verilir.
 
-Be sure to [plan](../articles/virtual-network/virtual-networks-nsg.md#planning) your NSGs when you plan your VMs and VNet.
+VM’leriniz ve VNet’inizle ilgili plan yaptığınız sırada NSG’lerinizi de mutlaka [planlayın](../articles/virtual-network/virtual-networks-nsg.md#planning).
 
-This table lists the methods that you can use to create a network security group.
+Bu tabloda bir ağ güvenlik grubu oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
 
-| Method | Description |
+| Yöntem | Açıklama |
 | ------ | ----------- |
-| [Azure portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | When you create a VM in the Azure portal, an NSG is automatically created and associated to the NIC the portal creates. The name of the NSG is a combination of the name of the VM and **-nsg**. This NSG contains one inbound rule with a priority of 1000, service set to RDP, the protocol set to TCP, port set to 3389, and action set to Allow. If you want to allow any other inbound traffic to the VM, you must add additional rules to the NSG. |
-| [Azure PowerShell](../articles/virtual-network/virtual-networks-create-nsg-arm-ps.md) | Use [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) and provide the required rule information. Use [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) to create the NSG. Use [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) to configure the NSG for the subnet. Use [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) to add the NSG to the VNet. |
-| [Azure CLI](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md) | Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) to initially create the NSG. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) to add rules to the NSG. Use [az network vnet subnet update](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#update) to add the NSG to the subnet. |
-| [Template](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md) | Use [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) as a guide for deploying a network security group using a template. |
+| [Azure portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Azure portalında bir VM oluşturduğunuzda otomatik olarak bir NSG oluşturulur ve portalın oluşturduğu NIC ile ilişkilendirilir. NSG’nin adı, VM’nin adı ile **-nsg**’nin birleşiminde oluşur. Bu NSG, önceliği 1000 olan, hizmeti RDP olarak, protokolü TCP olarak, bağlantı noktası 3389 olarak ve eylemi İzin ver olarak ayarlanmış bir gelen kural içerir. VM’ye yönelik başka bir gelen trafiğe izin vermek istiyorsanız NSG’ye ek kurallar eklemeniz gerekir. |
+| [Azure PowerShell](../articles/virtual-network/virtual-networks-create-nsg-arm-ps.md) | [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) komutunu kullanın ve gerekli kural bilgilerini sağlayın. NSG’yi oluşturmak için [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) komutunu kullanın. NSG’yi alt ağa yönelik olarak yapılandırmak için [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) komutunu kullanın. NSG’yi VNet’e eklemek için [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) komutunu kullanın. |
+| [Azure CLI](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md) | NSG’yi ilk olarak oluşturmak için [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) komutunu kullanın. NSG’ye kural eklemek için [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) komutunu kullanın. NSG’yi alt ağa eklemek için [az network vnet subnet update](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#update) komutunu kullanın. |
+| [Şablon](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md) | Bir şablon kullanarak ağ güvenlik grubu dağıtmak için [Ağ Güvenlik Grubu Oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) konusunu kılavuz olarak kullanın. |
 
-## <a name="load-balancers"></a>Load balancers
+## <a name="load-balancers"></a>Yük dengeleyiciler
 
-[Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. A load balancer can be configured to [balance incoming Internet traffic](../articles/load-balancer/load-balancer-internet-overview.md) to VMs or [balance traffic between VMs in a VNet](../articles/load-balancer/load-balancer-internal-overview.md). A load balancer can also balance traffic between on-premises computers and VMs in a cross-premises network, or forward external traffic to a specific VM.
+[Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md), uygulamalarınıza yüksek düzeyde kullanılabilirlik ve ağ performansı sağlar. Bir yük dengeleyici, VM’lere yönelik [gelen İnternet trafiğini dengeleme](../articles/load-balancer/load-balancer-internet-overview.md) veya [bir VNet’teki VM’ler arasında trafiği dengeleme](../articles/load-balancer/load-balancer-internal-overview.md) rolünü üstlenecek şekilde yapılandırılabilir. Ayrıca, bir yük dengeleyici şirket içi bilgisayarlar ile şirketler arası VM’ler arasındaki trafiği dengeleme ya da dış trafiği belirli bir VM’ye yönlendirme rollerini üstlenebilir.
 
-The load balancer maps incoming and outgoing traffic between the public IP address and port on the load balancer and the private IP address and port of the VM.
+Yük dengeleyici, genel IP adresi ile yük dengeleyicideki bağlantı noktası arasında ve özel IP adresi ile VM’nin bağlantı noktası arasında gelen ve giden trafiği eşler.
 
-When you create a load balancer, you must also consider these configuration elements:
+Bir yük dengeleyici oluştururken şu yapılandırma öğelerini de dikkate almanız gerekir:
 
-- **Front-end IP configuration** – A load balancer can include one or more front-end IP addresses, otherwise known as virtual IPs (VIPs). These IP addresses serve as ingress for the traffic.
-- **Back-end address pool** – IP addresses that are associated with the NIC to which load is distributed.
-- **NAT rules** - Defines how inbound traffic flows through the front-end IP and distributed to the back-end IP.
-- **Load balancer rules** - Maps a given front-end IP and port combination to a set of back-end IP addresses and port combination. A single load balancer can have multiple load balancing rules. Each rule is a combination of a front-end IP and port and back-end IP and port associated with VMs.
-- **[Probes](../articles/load-balancer/load-balancer-custom-probe-overview.md)** - Monitors the health of VMs. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy VM. The existing connections are not affected, and new connections are sent to healthy VMs.
+- **Ön uç IP yapılandırması**: Bir yük dengeleyici, sanal IP’ler (VIP) olarak da bilinen bir veya daha fazla ön uç IP adresi içerebilir. Bu IP adresleri trafik için bir giriş işlevi görür.
+- **Arka uç adres havuzu**: Yükün dağıtıldığı NIC ile ilişkili IP adresleri.
+- **NAT kuralları**: Gelen trafik akışının ön uç IP’sinden geçip arka uç IP’sine nasıl dağıtılacağını tanımlar.
+- **Yük dengeleyici kuralları**: Belirli bir ön uç IP’si ve bağlantı noktası birleşimini bir dizi arka uç IP adresi ve bağlantı noktası bileşimiyle eşler. Tek bir yük dengeleyici birden çok dengeleme kuralına sahip olabilir. Her kural, bir ön uç IP’si ile bağlantı noktasının ve arka uç IP’si ile VM’lerle ilişkilendirilmiş bağlantı noktasının birleşiminden oluşur.
+- **[Araştırmalar](../articles/load-balancer/load-balancer-custom-probe-overview.md)**: VM’lerin durumunu izler. Bir araştırma yanıt veremediğinde, yük dengeleyici sağlıksız VM’ye yeni bağlantı göndermeyi durdurur. Mevcut bağlantılar bu durumdan etkilenmez ve yeni bağlantılar sağlıklı VM’lere gönderilir.
 
-This table lists the methods that you can use to create an internet-facing load balancer.
+Bu tabloda İnternet’e yönelik bir yük dengeleyici oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
 
-| Method | Description |
+| Yöntem | Açıklama |
 | ------ | ----------- |
-| Azure portal | You can't currently create an internet-facing load balancer using the Azure portal. |
-| [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-internet-arm-ps.md) | To provide the identifer of the public IP address that you previously created, use [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) with the **-PublicIpAddress** parameter. Use [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) to create the configuration of the back-end address pool. Use [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) to create inbound NAT rules associated with the front-end IP configuration that you created. Use [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) to create the probes that you need. Use [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) to create the load balancer configuration. Use [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) to create the load balancer.|
-| [Azure CLI](../articles/load-balancer/load-balancer-get-started-internet-arm-cli.md) | Use [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) to create the initial load balancer configuration. Use [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) to add the public IP address that you previously created. Use [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) to add the configuration of the back-end address pool. Use [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) to add NAT rules. Use [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) to add the load balancer rules. Use [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) to add the probes. |
-| [Template](../articles/load-balancer/load-balancer-get-started-internet-arm-template.md) | Use [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-natrules) as a guide for deploying a load balancer using a template. |
+| Azure portalına | Şu anda Azure portalını kullanarak İnternet’e yönelik bir yük dengeleyici oluşturamazsınız. |
+| [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-internet-arm-ps.md) | Daha önce oluşturduğunuz genel IP adresinin tanımlayıcısını sağlamak için [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) komutunu **-PublicIpAddress** parametresiyle birlikte kullanın. Arka uç adres havuzunun yapılandırmasını oluşturmak için [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) komutunu kullanın. Oluşturduğunuz ön uç IP yapılandırmasıyla ilişkili gelen NAT kuralları oluşturmak için [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) komutunu kullanın. İhtiyacınız olan araştırmaları oluşturmak için [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) komutunu kullanın. Yük dengeleyici yapılandırmasını oluşturmak için [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) komutunu kullanın. Yük dengeleyiciyi oluşturmak için [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) komutunu kullanın.|
+| [Azure CLI](../articles/load-balancer/load-balancer-get-started-internet-arm-cli.md) | İlk yük dengeleyici yapılandırmasını oluşturmak için [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) komutunu kullanın. Daha önce oluşturduğunuz genel IP adresini eklemek için [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) komutunu kullanın. Arka uç adres havuzunun yapılandırmasını eklemek için [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) komutunu kullanın. NAT kuralları eklemek için [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) komutunu kullanın. Yük dengeleyici kurallarını eklemek için [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) komutunu kullanın. Araştırmaları eklemek için [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) komutunu kullanın. |
+| [Şablon](../articles/load-balancer/load-balancer-get-started-internet-arm-template.md) | Bir şablon kullanarak yük dengeleyici dağıtmak için [Bir Yük Dengeleyici’de 2 VM ve LB’de NAT kuralları yapılandırma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-natrules) konusunu kılavuz olarak kullanın. |
     
-This table lists the methods that you can use to create an internal load balancer.
+Bu tabloda bir iç yük dengeleyici oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
 
-| Method | Description |
+| Yöntem | Açıklama |
 | ------ | ----------- |
-| Azure portal | You can't currently create an internal load balancer using the Azure portal. |
-| [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md) | To provide a private IP address in the network subnet, use [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) with the **-PrivateIpAddress** parameter. Use [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) to create the configuration of the back-end address pool. Use [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) to create inbound NAT rules associated with the front-end IP configuration that you created. Use [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) to create the probes that you need. Use [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) to create the load balancer configuration. Use [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) to create the load balancer.|
-| [Azure CLI](../articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Use the [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) command to create the initial load balancer configuration. To define the private IP address, use [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) with the **--private-ip-address** parameter. Use [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) to add the configuration of the back-end address pool. Use [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) to add NAT rules. Use [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) to add the load balancer rules. Use [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) to add the probes.|
-| [Template](../articles/load-balancer/load-balancer-get-started-ilb-arm-template.md) | Use [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) as a guide for deploying a load balancer using a template. |
+| Azure portalına | Şu anda Azure portalını kullanarak bir iç yük dengeleyici oluşturamazsınız. |
+| [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Ağ alt ağında özel bir IP adresi sağlamak için [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) komutunu **-PrivateIpAddress** parametresiyle birlikte kullanın. Arka uç adres havuzunun yapılandırmasını oluşturmak için [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) komutunu kullanın. Oluşturduğunuz ön uç IP yapılandırmasıyla ilişkili gelen NAT kuralları oluşturmak için [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) komutunu kullanın. İhtiyacınız olan araştırmaları oluşturmak için [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) komutunu kullanın. Yük dengeleyici yapılandırmasını oluşturmak için [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) komutunu kullanın. Yük dengeleyiciyi oluşturmak için [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) komutunu kullanın.|
+| [Azure CLI](../articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md) | İlk yük dengeleyici yapılandırmasını oluşturmak için [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) komutunu kullanın. Özel IP adresini tanımlamak için [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) komutunu **--private-ip-address** parametresiyle birlikte kullanın. Arka uç adres havuzunun yapılandırmasını eklemek için [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) komutunu kullanın. NAT kuralları eklemek için [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) komutunu kullanın. Yük dengeleyici kurallarını eklemek için [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) komutunu kullanın. Araştırmaları eklemek için [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) komutunu kullanın.|
+| [Şablon](../articles/load-balancer/load-balancer-get-started-ilb-arm-template.md) | Bir şablon kullanarak yük dengeleyici dağıtmak için [Bir Yük Dengeleyici’de 2 VM ve LB’de NAT kuralları yapılandırma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) konusunu kılavuz olarak kullanın. |
 
-## <a name="vms"></a>VMs
+## <a name="vms"></a>VM'ler
 
-VMs can be created in the same VNet and they can connect to each other using private IP addresses. They can connect even if they are in different subnets without the need to configure a gateway or use public IP addresses. To put VMs into a VNet, you create the VNet and then as you create each VM, you assign it to the VNet and subnet. VMs acquire their network settings during deployment or startup.  
+VM’ler aynı sanal ağda oluşturulabilir ve özel IP adreslerini kullanarak birbirine bağlanabilir. VM’ler, farklı alt ağlarda olsalar bile bir ağ geçidi yapılandırma ya da genel IP adresleri yapılandırma gerekstirmeden birbirine bağlanabilir. VM’leri bir VNet’e eklemek için VNet’i oluşturursunuz ve her VM’yi oluşturduğunuz sırada VNet’e ve alt ağa atarsınız. VM’ler ağ ayarlarını dağıtım veya başlatma sırasında alır.  
 
-VMs are assigned an IP address when they are deployed. If you deploy multiple VMs into a VNet or subnet, they are assigned IP addresses as they boot up. A dynamic IP address (DIP) is the internal IP address associated with a VM. You can allocate a static DIP to a VM. If you allocate a static DIP, you should consider using a specific subnet to avoid accidentally reusing a static DIP for another VM.  
+VM’ler dağıtıldığı sırada VM’lere bir IP adresi atanır. Bir VNet veya alt ağa birden çok VM dağıtırsanız, bunlara başlatıldıkları sırada IP adresleri atanır. Bir VM ile ilişkili iç IP adresi dinamik bir IP adresidir (DIP). Bir VM’ye statik bir DIP ayırabilirsiniz. Statik bir DIP ayırmanız durumunda, yanlışlıkla başka bir VM’nin statik DIP’sini kullanmaktan kaçınmak için belirli bir alt ağı kullanmayı göz önünde bulundurun.  
 
-If you create a VM and later want to migrate it into a VNet, it is not a simple configuration change. You must redeploy the VM into the VNet. The easiest way to redeploy is to delete the VM, but not any disks attached to it, and then re-create the VM using the original disks in the VNet. 
+Bir VM oluşturur ve daha sonra bu VM’yi bir VNet’e geçirmek isterseniz bu işlem basit bir yapılandırma değişikliği değildir. VM’yi yeniden VNet’e dağıtmanız gerekir. Yeniden dağıtmanın en kolay yolu VM’ye bağlı diskleri silmeden VM’yi silmek ve özgün diskleri kullanarak VM’yi VNet’te yeniden oluşturmaktır. 
 
-This table lists the methods that you can use to create a VM in a VNet.
+Bu tabloda, bir VNet’te VM oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
 
-| Method | Description |
+| Yöntem | Açıklama |
 | ------ | ----------- |
-| [Azure portal](../articles/virtual-machines/windows/quick-create-portal.md) | Uses the default network settings that were previously mentioned to create a VM with a single NIC. To create a VM with multiple NICs, you must use a different method. |
-| [Azure PowerShell](../articles/virtual-machines/windows/tutorial-manage-vm.md) | Includes the use of [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) to add the NIC that you previously created to the VM configuration. |
-| [Azure CLI](../articles/virtual-machines/linux/create-cli-complete.md) | Create and connect a VM to a Vnet, subnet, and NIC that build as individual steps. |
-| [Template](../articles/virtual-machines/windows/ps-template.md) | Use [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) as a guide for deploying a VM using a template. |
+| [Azure portal](../articles/virtual-machines/windows/quick-create-portal.md) | Daha önce bahsedilen varsayılan ayarlarını kullanarak tek NIC’li bir VM oluşturur. Birden çok NIC içeren bir VM oluşturmak için farklı bir yöntem kullanmalısınız. |
+| [Azure PowerShell](../articles/virtual-machines/windows/tutorial-manage-vm.md) | Daha önce oluşturduğunuz NIC’nin VM yapılandırmasına eklenmesi için [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) komutunun kullanılmasını gerektirir. |
+| [Azure CLI](../articles/virtual-machines/linux/create-cli-complete.md) | Oluşturun ve bir VM sanal ağ, alt ağ ve derleme tek tek adımları NIC bağlayın. |
+| [Şablon](../articles/virtual-machines/windows/ps-template.md) | Bir şablon kullanarak VM dağıtmak için [Çok basit Windows VM dağıtımı](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) konusunu kılavuz olarak kullanın. |
 
-## <a name="next-steps"></a>Next steps
-For VM-specific steps on how to manage Azure virtual networks for VMs, see the [Windows](../articles/virtual-machines/windows/tutorial-virtual-network.md) or [Linux](../articles/virtual-machines/linux/tutorial-virtual-network.md) tutorials.
+## <a name="next-steps"></a>Sonraki adımlar
+VM'ler için Azure sanal ağlarını yönetmek nasıl VM özel adımlar için bkz: [Windows](../articles/virtual-machines/windows/tutorial-virtual-network.md) veya [Linux](../articles/virtual-machines/linux/tutorial-virtual-network.md) öğreticileri.
 
-There are also tutorials on how to load balance VMs and create highly available applications for [Windows](../articles/virtual-machines/windows/tutorial-load-balancer.md) or [Linux](../articles/virtual-machines/linux/tutorial-load-balancer.md).
+Ayrıca vardır öğreticileri için yüksek oranda kullanılabilir uygulamalar oluşturmak ve Yük Dengelemesi VM'ler hakkında [Windows](../articles/virtual-machines/windows/tutorial-load-balancer.md) veya [Linux](../articles/virtual-machines/linux/tutorial-load-balancer.md).
 
-- Learn how to configure [user-defined routes and IP forwarding](../articles/virtual-network/virtual-networks-udr-overview.md). 
-- Learn how to configure [VNet to VNet connections](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- Learn how to [Troubleshoot routes](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md).
+- [Kullanıcı tanımlı yollar ve IP iletimi](../articles/virtual-network/virtual-networks-udr-overview.md) yapılandırma hakkında bilgi edinin. 
+- [VNet’ten VNet’e bağlantılar](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) yapılandırma hakkında bilgi edinin.
+- [Yollarla ilgili sorunları giderme](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md) hakkında bilgi edinin.

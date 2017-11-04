@@ -10,7 +10,7 @@
 | Abonelik başına ayrılmış IP |20 |100 |
 | Abonelik başına barındırılan hizmet sertifikaları |400 |400 |
 | Abonelik başına [benzeşim grubu](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) sayısı |256 |256 |
-| Abonelik başına uyarı kuralları |250 |250 |
+
 
 <sup>1</sup>ek küçük örneklerin sayısı bir çekirdek kısmi bir çekirdek kullanan rağmen çekirdek sınırına doğru olarak.
 

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
-ms.openlocfilehash: 5c862dbf46a30dd6811faeea447d559dca493991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9cdf41bd5c15abca3570a08584dc0958497848a7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>HDInsight'ta Hadoop işleri için veri yükleme
 
@@ -188,7 +188,7 @@ Azure Storage ile çalışmak için bir grafik arabirim sağlayan birkaç uygula
 
 | İstemci | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Hdınsight için Microsoft Visual Studio Araçları](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Hdınsight için Microsoft Visual Studio Araçları](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
 | [Azure Depolama Gezgini](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Bulut depolama Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
@@ -196,7 +196,7 @@ Azure Storage ile çalışmak için bir grafik arabirim sağlayan birkaç uygula
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Hdınsight için Visual Studio Araçları
-Daha fazla bilgi için bkz: [bağlı kaynaklara gitme](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+Daha fazla bilgi için bkz: [bağlı kaynaklara gitme](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
 #### <a id="storageexplorer"></a>Azure Storage Gezgini
 *Azure Storage Gezgini* inceleme ve BLOB verileri değiştirme için yararlı bir araçtır. Bu, yüklenebilir bir ücretsiz, açık kaynak aracıdır [http://storageexplorer.com/](http://storageexplorer.com/). Kaynak kodu, bu bağlantıdan kullanılabilir.
@@ -307,14 +307,14 @@ Verileri Hdınsight'a alma nasıl anladığınıza göre Analiz gerçekleştirme
 [azure-azcopy-download]:../storage/common/storage-use-azcopy.md
 [azure-azcopy]:../storage/common/storage-use-azcopy.md
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 

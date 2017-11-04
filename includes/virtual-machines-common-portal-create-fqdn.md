@@ -1,14 +1,14 @@
 
-1. Select your VM in the portal. The *DNS name* is currently blank. Select **Public IP address**:
+1. VM portalda seçin. *DNS adı* şu anda boştur. Seçin **genel IP adresi**:
    
-   ![Click Public IP resource in the portal](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
+   ![Portaldaki genel IP kaynağı tıklatın](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2. Enter the desired DNS name and then select **Save**.
+2. İstenen DNS adını girin ve ardından **kaydetmek**.
    
-   ![Enter a DNS name label for your public IP resource](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
+   ![Ortak IP kaynağınız için bir DNS ad etiketi girin](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
  
 
-3. To return to the VM overview blade, close the *Public IP address* blade. Verify that the *DNS name* is now shown.
+3. VM genel bakış dikey penceresine dönmek için Kapat *genel IP adresi* dikey. Doğrulayın *DNS adı* şimdi gösterilir.
    
-   ![Confirm your new DNS label is set](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
+   ![Yeni DNS etiketi ayarlamak onaylayın](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 

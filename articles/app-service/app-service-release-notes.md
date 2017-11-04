@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0a422b02623a18ac6a1eef460bbada681672e69f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>2.5.1 .NET için Azure SDK sürüm notları
 Bu belge .NET 2.5.1 yayın için sürüm notları için Azure SDK'sı içerir. 
@@ -33,18 +33,18 @@ Aşağıdaki yeni özellikleri ve güncelleştirmelerini 2.5.1 .NET için Azure 
   * Sunucu Gezgininde Web siteleri kaynak grup tabanlı Azure API Apps, Mobile Apps ve Web uygulamaları gruplandırma için destek içerir Azure uygulama hizmeti düğümünde yerine kullanım dışıdır.
   * Böylece müşteriler yeni Mobile Apps projeleri oluşturma, Mobile Apps denetleyicileri ekleme, projeleri yayımlamak ve uygulamaları uzaktan hata ayıklama azure Mobile Apps (Önizleme) desteği eklendi.
   * Ekle > Azure API uygulama istemcisi hareketi Web API geliştiricilere Swagger oluşturmak veya el ile oluşturmak için Swashbuckle gibi üçüncü taraf NuGets kullanabilmeniz için yerel Swagger JSON dosyaları, artık destekler. Bu şekilde, istemci geliştiriciler C# projelerine herhangi bir Swagger uç nokta kullanmak için kod oluşturma özellikleri kullanabilir. 
-  * Web uygulama ve API uygulaması yayımlama iletişim kutularındaki gruplandırma kaynak Azure Portal kavramı desteklemek üzere geliştirilmiştir ve seçimi/oluşturulmasını Azure kaynak gruplarını ve App Service planları yeni Web uygulaması ve API uygulaması sağlama iletişim kutusunda gösterilir. 
-  * Azure API uygulaması Sunucu Gezgini düğümleri günlük akış ve uzaktan hata ayıklama gibi diğer özelliklerin yanı sıra Azure Portal, API uygulamaları ayrıntılı bağlantısı için bağlantılar sağlar.
+  * Web uygulaması ve API uygulaması yayımlama iletişim kutuları gruplandırma kaynak Azure portal kavramını ve seçim/Azure kaynak gruplarını ve App Service planları oluşturulmasını desteklemek üzere geliştirilmiştir yeni Web uygulaması ve API uygulaması sağlama iletişim kutusunda gösterilir. 
+  * Azure API uygulaması Sunucu Gezgini düğümleri günlük akış ve uzaktan hata ayıklama gibi diğer özelliklerin yanı sıra Azure portal, API uygulamaları ayrıntılı bağlantısı için bağlantılar sağlar.
     
     Bilinen sorunlar ve geçerli sınırlamalar Azure SDK .NET 2.5.1 içinde [bu](app-service-release-notes.md#known_issues_2_5_1) bölümüne bakın.
 * Yeni features\scenarios ilgili **Hdınsight Araçları** Visual Studio'da bu sürümde etkinleştirilir. 
   
   * Yerel doğrulama hive komut dosyaları. Betiğinizde herhangi bir hata olup olmadığını görmek için araç çubuğunda Doğrula komut düğmesini tıklatın. 
-  * Hive işleri hata ayıklama geliştirildi. Hive işleri Yarn günlüklerini Visual Studio'da erişerek şimdi ayıklayabilirsiniz. Uygulamanızın performans sorunları varsa, YARN günlüklerini araştırma yararlı bilgiler sağlayan...
+  * Hive işleri hata ayıklama geliştirildi. Hive işleri Yarn günlüklerini Visual Studio'da erişerek şimdi ayıklayabilirsiniz. Uygulamanızın performans sorunları varsa, araştırma YARN günlüklerini yararlı bilgiler sağlayan...
   * (Genel Önizleme) Anahtar sözcüğü otomatik tamamlama ve IntelliSense için Hive'ı destekler. Yardımcı olmak için Hive komut dosyaları yazmak, Visual Studio için Hdınsight araçları eklenen anahtar sözcüğü otomatik tamamlama ve IntelliSense desteği için Hive.
   * Storm desteği. Artık, Storm topolojileri/Spout'lar/Cıvatalar C# geliştirmek için Visual Studio için Hdınsight araçları da kullanabilirsiniz. Bir Storm kümesine geliştirilen topolojiye göndermek ve topoloji/Cıvata/spout durumunu görmek. Storm topolojileri/Cıvatalar/Spout'lar gidermek için sistem ve müşteri günlükleri'ni kullanabilirsiniz. Ayrıca, Hdınsight üzerinde Storm varolan JAVA varlıkları de kullanabilirsiniz.
     
-    Daha fazla bilgi için bkz: [Visual Studio için Hdınsight Hadoop araçlarını kullanmaya başlamanıza](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
+    Daha fazla bilgi için bkz: [Visual Studio için Hdınsight Hadoop araçlarını kullanmaya başlamanıza](../hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 ## <a id="known_issues_2_5_1"></a>Azure SDK'sı 2.5.1 .NET için bilinen sorunlar ve sınırlamalar
 * Azure API uygulamaları, mobil uygulamalar için dağıtım hedefi olarak görülebilir. Web uygulamaları yalnızca hedef mobil uygulamalar için kadar sonraki bir sürüm olmalıdır. 
@@ -57,7 +57,7 @@ Aşağıdaki yeni özellikleri ve güncelleştirmelerini 2.5.1 .NET için Azure 
 * Web uygulamaları için mobil uygulama projeleri yayımlanması gerekir, ancak mobil uygulama projeleri bir veritabanı gerektirir beri Azure portalında mobil uygulama olarak oluşturulmuş bir site seçmeniz gerekir. 
 * Başlangıç sayfası mobil uygulamalar için "mobil uygulamalar" yerine "mobil hizmeti" terimini kullanır 
 * Mobil uygulama projesi oluşturma oluşturmak için bir dakika sürebilir. 
-* API uygulaması sırasında bir hata (bazı durumlarda) sağlama Azure API API uygulaması düzgün şekilde sağlandığını ve kullanıma hazırdır izinleri düzgün şekilde ayarlanamadı, yansıtma öğesinden gelir. Azure Portalı'nı kullanarak izinlerini el ile ayarlayabilirsiniz.
+* API uygulaması sırasında bir hata (bazı durumlarda) sağlama Azure API API uygulaması düzgün şekilde sağlandığını ve kullanıma hazırdır izinleri düzgün şekilde ayarlanamadı, yansıtma öğesinden gelir. Azure portalını kullanarak izinlerini el ile ayarlayabilirsiniz.
 * Application Insights API'si uygulama şablonları ve mobil uygulama şablonları desteklenmiyor.
 * API uygulaması projeleri, bulut hizmeti projeleri ile birlikte kullanılamaz.
 * API uygulaması proje şablonları yalnızca C# dilinde kullanılabilir.

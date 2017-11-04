@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: e779aab97a1b96d4a0e327865e957ecd0d97a278
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 25fa8d03a206452c17e5d4ad38211203aeb5dd65
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Otomatik SQL veritabanını yedekleme hakkında bilgi edinin
 
@@ -43,7 +43,7 @@ Bu yedeklemeler için kullanabilirsiniz:
 > 
 
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Yedek depolama alanı miktarını hiçbir ücret bulunur?
-SQL veritabanı en fazla %200 en fazla sağlanan veritabanı deponuzda hiçbir ek ücret ödemeden yedekleme depolama sağlar. Örneğin, bir standart DB örneğini sağlanan bir veritabanı boyutu ile 250 GB varsa ek ücret ödemeden 500 GB yedekleme depolama gerekir. Sağlanan yedekleme depolama veritabanınızı aşarsa, Azure desteği ile iletişim kurarak bekletme süresini azaltmak seçebilirsiniz. Standart okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) oranı faturalandırılır fazladan Yedekleme depolaması için ödeme başka bir seçenektir. 
+SQL veritabanı en fazla %200 en fazla sağlanan veritabanı deponuzda hiçbir ek ücret ödemeden yedekleme depolama sağlar. Örneğin, bir standart DB örneğini sağlanan bir veritabanı boyutu ile 250 GB varsa ek ücret ödemeden 500 GB yedekleme depolama gerekir. 
 
 ## <a name="how-often-do-backups-happen"></a>Yedeklemelerin ne sıklıkta meydana?
 Tam veritabanı yedeklemeleri, haftalık, artımlı veritabanı yedeklemeleri genellikle her birkaç saat ve işlem günlüğü yedeklemeleri genellikle 5-10 dakikada bir gerçekleşir durum gerçekleşir. Hemen bir veritabanı oluşturulduktan sonra ilk tam yedeklemede zamanlanır. Genellikle 30 dakika içinde tamamlanır ancak veritabanı önemli boyutunu olduğunda uzun sürebilir. Örneğin, ilk yedekleme geri yüklenen veritabanı veya veritabanı kopyası üzerinde daha uzun sürebilir. İlk tam yedeklemeden sonra başka yedeklemelerinin de tümünü otomatik olarak zamanlanmış ve arka planda sessizce yönetilen. Genel sistem iş yükünü dengeleyen gibi tüm veritabanı yedeklemeleri tam zamanlamasını SQL veritabanı hizmeti tarafından belirlenir. 

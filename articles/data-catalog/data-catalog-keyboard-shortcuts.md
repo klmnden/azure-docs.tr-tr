@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/17/2017
+ms.date: 10/01/2017
 ms.author: spelluru
-ms.openlocfilehash: d498eac2d0dfe7d271bdb5e47159faa113545ab4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 68727976358e81094e2d841948ae09c2c4949e35
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Azure Veri Kataloğu için klavye kısayolları
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Kayıt Aracı veri Kataloğu verileri için klavye kısayolları kaynağı

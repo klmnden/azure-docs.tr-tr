@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Azure Data Factory kullanarak Hdınsight'ta isteğe bağlı Hadoop kümeleri oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -564,7 +564,7 @@ Kaynak grubu sildiğinizde depolama hesabını silmek istemediğiniz durumda aş
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Azure Data Factory Hive işleri işlemek için isteğe bağlı Hdınsight kümesi oluşturmak için nasıl kullanılacağını öğrendiniz. Daha fazla bilgi için:
 
-* [Hadoop Öğreticisi: Hdınsight'ta Linux tabanlı Hadoop ile çalışmaya başlamak](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Hadoop Öğreticisi: Hdınsight'ta Linux tabanlı Hadoop ile çalışmaya başlamak](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Hdınsight'ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md)
 * [Hdınsight belgeleri](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [Veri Fabrikası belgeleri](https://azure.microsoft.com/documentation/services/data-factory/)

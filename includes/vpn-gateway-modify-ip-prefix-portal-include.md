@@ -9,7 +9,7 @@
 #### <a name="to-remove-address-prefixes"></a>Adres ön eklerini kaldırmak için:
 
 1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
-2. Tıklatın **'...'** kaldırmak istediğiniz önek içeren satırı.
+2. Tıklatın **'...'** kaldırmak istediğiniz önek içeren satırı üzerinde.
 3. Tıklatın **kaldırmak**.
 4. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
 

@@ -1,4 +1,3 @@
-# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Container Service kümesindeki aracı düğümlerini ölçekleme
 [Azure Container Service kümesini dağıttıktan](../articles/container-service/dcos-swarm/container-service-deployment.md) sonra aracı düğüm sayısını değiştirmeniz gerekebilir. Örneğin, daha fazla kapsayıcı uygulaması veya örneği çalıştırmak için daha fazla aracı gerekebilir. 
 
 Azure Portal’ı veya Azure CLI 2.0’ı kullanarak bir DC/OS, Docker Swarm veya Kubernetes kümesindeki Aracısı düğüm sayısını değiştirebilirsiniz. 

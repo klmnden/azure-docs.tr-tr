@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 5220ca664d5c7584f3aada0bb707099f91d5650f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 0eff48ec65a01a2fc3fa9f7652dd8e1a0fc8dd2a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory işlem hatlarını Spark programlardan çağırma
 
@@ -56,7 +56,7 @@ Spark etkinliği ile bir Data Factory işlem hattı oluşturmak için genel adı
 
 ### <a name="prerequisites"></a>Ön koşullar
 1. Create bir **genel amaçlı Azure depolama hesabı** Kılavuzu'ndaki yönergeleri izleyen tarafından: [depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account).  
-2. Create bir **Azure hdınsight'ta Apache Spark kümesi** öğreticideki yönergeler aşağıdaki tarafından: [Azure hdınsight'ta Apache Spark oluşturma küme](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Bu kümeyle #1. adımda oluşturduğunuz Azure depolama hesabı ilişkilendirin.  
+2. Create bir **Azure hdınsight'ta Apache Spark kümesi** öğreticideki yönergeler aşağıdaki tarafından: [Azure hdınsight'ta Apache Spark oluşturma küme](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Bu kümeyle #1. adımda oluşturduğunuz Azure depolama hesabı ilişkilendirin.  
 3. Karşıdan yükle ve python komut dosyasını gözden **test.py** konumunda bulunan: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Karşıya yükleme **test.py** için **pyFiles** klasöründe **adfspark** , Azure Blob depolamada kapsayıcı. Bunlar yoksa kapsayıcıyı ve klasör oluşturun.
 
@@ -234,7 +234,7 @@ Bu adımda oluşturduğunuz sahip işlem hattı bir **HDInsightSpark** etkinlik.
     ![Jupyter sorgu sonuçları](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Bkz: [bir Spark SQL sorgusu çalıştırmanız](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) bölüm ayrıntılı yönergeler için. 
+Bkz: [bir Spark SQL sorgusu çalıştırmanız](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) bölüm ayrıntılı yönergeler için. 
 
 ### <a name="troubleshooting"></a>Sorun giderme
 Ayarladığınız bu yana **Getdebugınfo** için **her zaman**, gördüğünüz bir **günlük** alt klasöründe **pyFiles** klasörü, Azure Blob kapsayıcısında. Günlük dosyası günlük klasöründeki ek ayrıntılar sağlar. Bu günlük dosyası bir hata olduğunda özellikle yararlıdır. Bir üretim ortamında ayarlamak isteyebilirsiniz **hatası**.

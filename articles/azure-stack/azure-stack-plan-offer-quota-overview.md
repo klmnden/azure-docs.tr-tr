@@ -1,6 +1,6 @@
 ---
-title: Azure Stack plan, offer, quota, and subscription overview | Microsoft Docs
-description: As a cloud operator, I want to understand Azure Stack plans, offers, quotas, and subscriptions.
+title: "Azure yığın planı, teklif, kota ve abonelik genel bakış | Microsoft Docs"
+description: "Bulut operatörü Azure yığın planları, tekliflerini, kotalarını ve abonelikleri anlamak istiyorum."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,69 +14,67 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bfed4c557a420eda14cafe5b1cf8ad11476e2d79
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="plan-offer-quota-and-subscription-overview"></a>Plan, offer, quota, and subscription overview
+# <a name="plan-offer-quota-and-subscription-overview"></a>Plan, teklif, kota ve aboneliğe genel bakış
 
-*Applies to: Azure Stack Development Kit*
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-[Azure Stack](azure-stack-poc.md) lets you deliver a wide variety of services, like virtual machines, SQL Server databases, SharePoint, Exchange, and even [Azure Marketplace items](azure-stack-marketplace-azure-items.md). As a cloud operator, you configure and deliver such services in Azure Stack by using plans, offers, and quotas.
+[Azure yığın](azure-stack-poc.md) çok çeşitli teslim sağlar, SQL Server veritabanları, SharePoint, Exchange, sanal makineler gibi hizmetleri ve hatta [Azure Market öğesi](azure-stack-marketplace-azure-items.md). Bir Azure yığın işleç olarak yapılandırın ve planları, teklifleri ve kotaları kullanarak Azure yığınında gibi hizmetleri sunmak.
 
-Offers contain one or more plans, and each plan includes one or more services. By creating plans and combining them into different offers, you control
-- which services and resources users can access
-- the amount of those resources that users can consume
-- which regions have access to the resources
+Bir veya daha fazla plan teklifleri içerir ve bir veya daha fazla hizmet her plan içerir. Planları oluşturma ve bunları farklı teklifleri birleştirilmesi denetim
+- hangi hizmet ve kaynakları kullanıcılar erişebilir
+- Kullanıcıların tüketebileceği kaynaklarla miktarı
+- hangi bölgeleri kaynaklara erişimi
 
-When you deliver a service, you'll follow these high-level steps:
+Bir hizmet sunmak, üst düzey adımları izleyeceksiniz:
 
-1. Add a service that you want to deliver to your users.
-2. Create a plan that contains one or more services. When creating a plan, you will select or create quotas that define the resource limits of each service in the plan.
-3. Create an offer that contains one or more plans (including base plans and optional add-on plans).
+1. Kullanıcılarınız için teslim etmek istediğiniz bir hizmet ekleyin.
+2. Bir veya daha fazla hizmet içeriyor bir plan oluşturun. Bir plan oluştururken seçin veya planda her hizmetin kaynak sınırlarını tanımlamak kotaları oluşturun.
+3. (Temel planları ve isteğe bağlı eklenti planları dahil) bir veya daha fazla plan içeren bir teklif oluşturun.
 
-After you have created the offer, your users can subscribe to it to access the services and resources it provides. Users can subscribe to as many offers as they want. The following diagram shows a simple example of a user who has subscribed to two offers. Each offer has a plan or two, and each plan gives them access to services.
+Teklif oluşturduktan sonra kullanıcılarınızın Hizmetleri ve sağladığı kaynaklarına erişmek için abone olabilirsiniz. Kullanıcıların istedikleri gibi sayıda teklifleri için abone olabilirsiniz. Aşağıdaki diyagramda iki teklifleri abone bir kullanıcının basit bir örnek gösterilmektedir. Bir plan veya iki her teklif varsa ve her plan bunları erişim hizmetlerini sağlar.
 
 ![](media/azure-stack-key-features/image4.png)
 
-## <a name="plans"></a>Plans
+## <a name="plans"></a>Planlar
 
-Plans are groupings of one or more services. As a cloud operator, you [create plans](azure-stack-create-plan.md) to offer to your users. In turn, your users subscribe to your offers to use the plans and services they include. When creating plans, make sure to set your quotas, define your base plans, and consider including optional add-on plans.
+Bir veya daha fazla hizmet gruplandırmaları planlarının. Bir Azure yığın operatör olarak, [planları oluşturma](azure-stack-create-plan.md) kullanıcılarınıza sunmak için. Buna karşılık, kullanıcılarınızın planları ve içerirler Hizmetleri'ni kullanmak için Teklifleriniz için abone olun. Planları oluştururken, kotalar ayarlamak için temel planlarınızı tanımlayın ve isteğe bağlı eklenti planları dahil etmeyi düşünün emin olun.
 
-### <a name="quotas"></a>Quotas
+### <a name="quotas"></a>Kotalar
 
-To help you manage your cloud capacity, you select or create a quota for each service in a plan. Quotas define the upper resource limits that a user subscription can provision or consume. For example, a quota might allow a user to create up to five virtual machines. Quotas can limit a variety of resources, like virtual machines, RAM, and CPU limits.
+Bulut kapasitesi yönetmenize yardımcı olmak üzere seçin veya bir plandaki her hizmet için bir kota oluşturun. Kotalar bir kullanıcı abonelik sağlamak veya tüketmek üst kaynak sınırlarını tanımlayın. Örneğin, kota en fazla beş sanal makineler oluşturmak bir kullanıcı izin verebilir. Kotalar, sanal makineler, RAM ve CPU gibi kaynakları çeşitli sınırlandırabilir sınırlar.
 
-Quotas can be configured by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4-GB RAM, and 10 CPU cores. In the Azure Stack Development Kit, only one region (named *local*) is available.
+Kotalar bölgeye göre yapılandırılabilir. Örneğin, A bölgesinden işlem hizmetleri içeren bir planı iki sanal makine, 4 GB RAM ve 10 CPU çekirdek kotası olabilir. Azure yığın Geliştirme Seti, yalnızca tek bir bölge içinde (adlı *yerel*) kullanılabilir.
 
-### <a name="base-plan"></a>Base plan
+### <a name="base-plan"></a>Temel plan
 
-When creating an offer, the service administrator can include a base plan. These base plans are included by default when a user subscribes to that offer. When a user subscribes, they have access to all the resource providers specified in those base plans (with the corresponding quotas).
+Hizmet Yöneticisi, bir teklifi oluştururken, temel plan dahil edebilirsiniz. Bu teklif için bir kullanıcı abone olduğunda bu temel planları varsayılan olarak dahil edilir. Bir kullanıcı abone olduğunda, bu temel planlarıyla (karşılık gelen kotaları) içinde belirtilen tüm kaynak sağlayıcıları erişimi.
 
-### <a name="add-on-plans"></a>Add-on plans
+### <a name="add-on-plans"></a>Eklenti planları
 
-You can also include optional add-on plans in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (with quotas) available in an offer that a subscriber can add to their subscriptions. For example, you can offer a base plan with limited resources for a trial, and an add-on plan with more substantial resources to customers who decide to adopt the service.
+Ayrıca, isteğe bağlı eklenti planları bir teklif içerebilir. Eklenti planları Abonelikteki varsayılan olarak dahil edilmez. Eklenti, ek planlarıyla (kotaları) abone, abonelik ekleyebileceğiniz teklif bulunan planlarının. Örneğin, hizmet benimsemeye karar müşteriler için bir deneme sürümü için sınırlı kaynaklarla temel plan ve daha önemli kaynağı olan bir eklenti plana sunabilir.
 
-## <a name="offers"></a>Offers
+## <a name="offers"></a>Teklifler
 
-Offers are groups of one or more plans that you create so that users can subscribe to them. For example, Offer Alpha can contain Plan A containing a set of compute services and Plan B containing a set of storage and network services. 
+Teklifler oluşturduğunuz ve böylece kullanıcılar bunlara abone olabilir bir veya daha fazla plan gruplarıdır. Örneğin, teklif alfa planı A içerebilir içeren bir dizi işlem Hizmetleri ve depolama ve ağ hizmetleri kümesini içeren B planlayın. 
 
-When you [create an offer](azure-stack-create-offer.md), you must include at least one base plan, but you can also create add-on plans that users can add to their subscription.
-
-
-## <a name="subscriptions"></a>Subscriptions
-
-A subscription is how users access your offers. If you’re a cloud operator at a service provider, your users (tenants) buy your services by subscribing to your offers. If you’re a cloud operator at an organization, your users (employees) can subscribe to the services you offer without paying. Each combination of a user with an offer is a unique subscription. Thus, a user can have subscriptions to multiple offers, but each subscription applies to only one offer. Plans, offers, and quotas apply only to each unique subscription – they can’t be shared between subscriptions. Each resource that a user creates is associated with one subscription.
+Olduğunda, [teklifi oluşturmak](azure-stack-create-offer.md), en az bir temel plan içermelidir, ancak kendi aboneliğe kullanıcı eklemek eklenti planları oluşturabilirsiniz.
 
 
-### <a name="default-provider-subscription"></a>Default provider subscription
+## <a name="subscriptions"></a>Abonelikler
 
-The Default Provider Subscription is automatically created when you deploy the Azure Stack Development Kit. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for users. For security and licensing reasons, it should not be used to run customer workloads and applications. 
+Abonelik, kullanıcıların Teklifleriniz erişme ' dir. Bir hizmet sağlayıcısında bir Azure yığın işleç değilseniz, kullanıcılarınızın (kiracılar) Teklifleriniz için abone olarak hizmetlerinizin satın alın. Bir kuruluştaki bir Azure yığın işleç değilseniz, kullanıcılarınızın (çalışanlar) ödeme olmadan sunduğunuz hizmetler için abone olabilirsiniz. Her bir teklif sahip bir kullanıcı bir benzersiz abonelik birleşimidir. Bu nedenle, bir kullanıcı birden fazla teklifleri için abonelik olabilir, ancak her abonelik için yalnızca bir teklif geçerlidir. Planları, teklifleri ve kotaları yalnızca benzersiz her aboneliğiniz için geçerli – abonelikler arasında paylaşılamaz. Bir kullanıcının oluşturduğu her bir kaynağın bir abonelik ile ilişkilidir.
 
-## <a name="next-steps"></a>Next steps
 
-[Create a plan](azure-stack-create-plan.md)
+### <a name="default-provider-subscription"></a>Varsayılan sağlayıcı abonelik
 
+Azure yığın Geliştirme Seti dağıttığınızda varsayılan sağlayıcı abonelik otomatik olarak oluşturulur. Bu abonelik Azure yığın yönetmek, daha fazla kaynak sağlayıcıları dağıtmak ve planları ve kullanıcılar için teklifleri oluşturmak için kullanılabilir. Güvenlik ve lisans nedenleriyle, müşteri iş yüklerini ve uygulamaları çalıştırmak için kullanılmamalıdır. 
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+[Plan oluşturma](azure-stack-create-plan.md)

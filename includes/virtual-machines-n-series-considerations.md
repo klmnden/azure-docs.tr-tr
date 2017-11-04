@@ -1,18 +1,18 @@
-## <a name="deployment-considerations"></a>Deployment considerations
+## <a name="deployment-considerations"></a>Dağıtma konuları
 
-* For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/).
+* N-serisi VM'ler kullanılabilirlik için bkz: [bölgeye göre ürünleri](https://azure.microsoft.com/en-us/regions/services/).
 
-* N-series VMs can only be deployed in the Resource Manager deployment model.
+* N-serisi VM'ler yalnızca Resource Manager dağıtım modelinde dağıtılabilir.
 
-* When creating an N-series VM using the Azure portal, on the **Basics** blade, select a **VM disk type** of **HDD**. To choose an available N-series size, on the **Size** blade, click **View all**.
+* Azure portal kullanarak bir N-serisi VM oluştururken **Temelleri** dikey penceresinde, select bir **VM disk türü** , **HDD**. Üzerinde bir kullanılabilir, N-serisi bir boyut, seçmek için **boyutu** dikey penceresinde tıklatın **tüm görüntüle**.
 
-* N-series VMs do not support VM disks that are backed by Azure Premium storage.
+* N-serisi VM'ler Azure Premium storage tarafından yedeklenen VM diskleri desteklemez.
 
-* If you want to deploy more than a few N-series VMs, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
+* Birden fazla birkaç N-serisi sanal makineleri dağıtmak istiyorsanız, Kullandıkça Öde aboneliğine veya diğer satın alma seçenekleri göz önünde bulundurun. [Ücretsiz Azure hesabı](https://azure.microsoft.com/free/) kullanıyorsanız, yalnızca sınırlı sayıda Azure işlem çekirdeği kullanabilirsiniz.
 
-* You might need to increase the cores quota (per region) in your Azure subscription, and increase the separate quota for NC or NV cores. To request a quota increase, [open an online customer support request](../articles/azure-supportability/how-to-create-azure-support-request.md) at no charge. Default limits may vary depending on your subscription category.
+* Azure aboneliğinizde (her bölge) çekirdeğini Kotayı artırmak ve NC veya NV çekirdekleri ayrı Kotayı artırmak gerekebilir. Bir kota artışı isteği göndermek üzere [bir çevrimiçi müşteri destek isteği açma](../articles/azure-supportability/how-to-create-azure-support-request.md) herhangi bir ücret alınmaz. Varsayılan sınır abonelik kategoriye göre farklılık gösterebilir.
 
-* One VM image you can deploy on N-series VMs is the [Azure Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md). The Data Science Virtual Machine preinstalls and configures many popular data science and deep learning tools. It also preinstalls NVIDIA Tesla GPU drivers for NC instances.
+* N-serisi sanal makineler dağıtabileceğiniz bir VM görüntü [Azure veri bilimi sanal makine](../articles/machine-learning/data-science-virtual-machine/overview.md). Veri bilimi sanal makine, önceden yükleyen ve birçok popüler veri bilimi ve araçları öğrenme derin yapılandırır. NC örnekleri için NVIDIA Tesla GPU sürücülerinin çalışmasını engeller.
 
 
 

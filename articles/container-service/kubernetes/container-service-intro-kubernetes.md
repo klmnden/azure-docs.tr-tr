@@ -11,20 +11,22 @@ keywords: "Kubernetes, Docker, Kapsayıcılar, Mikro Hizmetler, Azure"
 ms.assetid: 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2017
 ms.author: gamonroy
-ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: ed3193cce078b4b81f269fe01a40d3aa4465782d
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/25/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 65658985e3d09215578d50e39bbc1146d1bd81f9
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="introduction-to-azure-container-service-for-kubernetes"></a>Kubernetes için Azure Container Service’e Giriş
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 Kubernetes için Azure Container Service, kapsayıcı uygulamalarda çalışmak üzere önceden yapılandırılmış sanal makine kümesi oluşturma, yapılandırma ve yönetim süreçlerini basitleştirir. Bu sayede Microsoft Azure’daki kapsayıcı tabanlı uygulamaları dağıtmak ve yönetmek için mevcut becerilerinizi kullanabilir veya kapsamlı ve gelişmeye devam eden topluluk uzmanlığından faydalanabilirsiniz.
 
 Azure Container Service’i kullanarak Azure’un kuruluş düzeyindeki özelliklerinden faydalanırken Kubernetes ve Docker görüntü biçimi aracılığıyla uygulama taşınabilirliğini koruyabilirsiniz.

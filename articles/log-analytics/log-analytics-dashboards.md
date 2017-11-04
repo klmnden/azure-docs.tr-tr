@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 22cc516c15353e39c73e762d2b8fa0d787a05ef4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Günlük analizi kullanmak için özel bir pano oluşturun
 
->[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), sonra yeni panolar oluşturun veya varolan Pano düzenleyin. 
-
 Bu kılavuz, günlük analizi panolar tüm kaydedilmiş günlük işlemlerinizin nasıl görselleştirebilirsiniz anlamanıza ortamınızı görüntülemek için tek bir mercek vermiş yardımcı olur.
+
+>[!NOTE]
+> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), var olan düzenleyemezsiniz sonra **My Pano**. Çalışma alanınızı herhangi değilse **My Pano** eklenen görmezsiniz sonra döşeme **My Pano** yükseltilmiş alanınızdaki. 
 
 ![Örnek Pano](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 

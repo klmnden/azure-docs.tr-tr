@@ -1,0 +1,5 @@
+| SKU | Açıklama |
+|---|---|
+| Temel | Azure kapsayıcı kayıt defteri hakkında öğrenme geliştiriciler için maliyet iyileştirilmiş giriş noktası. Temel kayıt defterleri standart ve Premium (Azure Active Directory kimlik doğrulama tümleştirme, görüntü silme ve web kancaları) aynı programlama özelliklerine sahip, ancak, boyutu ve kullanım kısıtlamaları vardır. |
+| Standart | Standart kayıt defteri temel olarak, ancak daha yüksek depolama sınırları ve görüntü işleme ile aynı yetenekleri sunar. Standart kayıt defterleri, çoğu üretim senaryosu gereksinimlerini karşılaması gerekir. |
+| Premium | Depolama ve eşzamanlı işlemleri dahil olmak üzere, yüksek hacimli senaryoları desteklemek için depolama özellikleri geliştirilmiştir gibi premium kayıt defterleri kısıtlamalar, daha yüksek sınırlara sahiptir. Daha yüksek görüntü işleme kapasitesi yanı sıra her dağıtımın ağ Kapat kayıt defterine koruma Premium birden çok bölgeler arasında tek bir kayıt defteri yönetmek için coğrafi çoğaltma gibi özellikler ekler. |

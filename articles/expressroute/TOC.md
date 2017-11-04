@@ -41,6 +41,7 @@
 ## ExpressRoute için yönlendirici yapılandırma
 ### [Yönlendirici yapılandırma](expressroute-config-samples-routing.md)
 ### [NAT için yönlendirici yapılandırma örnekleri](expressroute-config-samples-nat.md)
+## [ExpressRoute için Ağ Performansı İzleyicisini Yapılandırma](how-to-npm.md)
 
 ## En İyi Uygulamalar
 ### [Ağ güvenliği ve bulut hizmetlerine yönelik en iyi uygulamalar](../best-practices-network-security.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 68031d548bdbeda9a83d1bceaaea7c5bbcab3188
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2ad497a0244f9c7cdad34faf807cc9ed10ea704d
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Uzak Masaüstü kullanarak bir Microsoft Azure Linux VM’ye bağlanma
 > [!IMPORTANT] 
@@ -79,7 +79,7 @@ OpenSUSE için kullanın:
     #sudo systemctl start xrdp
     #sudo systemctl enable xrdp
 
-Ubuntu için xrdp başlatılır ve yüklemeden sonra otomatik olarak önyükleme yukarı adresindeki eanbled.
+Ubuntu için xrdp başlatıldı ve olması önyükleme-yukarı yüklemeden sonra otomatik olarak etkinleştirilir.
 
 ## <a name="using-xfce-if-you-are-using-an-ubuntu-version-later-than-ubuntu-1204lts"></a>Ubuntu 12.04LTS'den sonraki bir Ubuntu sürümü kullanıyorsanız xfce kullanma
 Xrdp geçerli sürümü Gnome Masaüstü Ubuntu sürümleri için daha sonraki Ubuntu 12.04LTS desteklemediğinden, kullanacağız `xfce` Masaüstü yerine.

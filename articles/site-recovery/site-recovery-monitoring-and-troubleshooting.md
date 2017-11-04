@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2d033e5af13660c99aba813c58b743bf94a6b95a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>İzleme ve sanal makineleri ve fiziksel sunucuları için koruması sorunlarını giderme
 Bu izleme ve sorun giderme kılavuzu, çoğaltma durumunu izlemek ve Azure Site Recovery için sorun giderme teknikleri hakkında bilgi edinin yardımcı olur.
@@ -55,7 +55,7 @@ Hata ayrıntılarını bir olası neden ve sorunu için öneri belirlemenize yar
 
 ![Belirli bir iş için hata ayrıntılarını gösteren iletişim kutusu](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-Önceki örnekte, devam eden başka bir işlem koruma yapılandırması başarısız olmasına neden görünüyor. Öneriye dayalı sorunu çözün ve ardından **RESART** işlemi yeniden başlatmak için.
+Önceki örnekte, devam eden başka bir işlem koruma yapılandırması başarısız olmasına neden görünüyor. Öneriye dayalı sorunu çözün ve ardından **yeniden** işlemi yeniden başlatmak için.
 
 ![İŞLER sekmesinde Yeniden Başlat düğmesi](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 

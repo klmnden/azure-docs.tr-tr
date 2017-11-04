@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Eş anlamlıları Azure Search'te (Önizleme)
 
 Arama motorları eş anlamlı örtük olarak terimi aslında sağlamaya gerek olmadan kullanıcı bir sorgu kapsamını genişletmek eşdeğer terimler ilişkilendirin. Örneğin, "canine" ve "köpek yavrusu" terimi "köpek" ve eş ilişkileri "köpek" içeren tüm belgeleri verildiğinde, "köpek" veya "köpek yavrusu" sorgu kapsamında döner.
 
-Azure Search'te sorgu zamanında eş genişletme yapılır. Var olan işlemler hiç kesintiye hizmetiyle eş eşlemeleri ekleyebilirsiniz. Ekleyebileceğiniz bir **synonymMaps** dizini yeniden oluşturmak zorunda kalmadan bir alan tanımı özelliğine. Daha fazla bilgi için bkz: [güncelleştirme dizin](https://docs.microsoft.com/rest/api/searchservice/update-index).
+Azure Search'te sorgu zamanında eş genişletme yapılır. Var olan işlemler hiç kesintiye hizmetiyle eş eşlemeleri ekleyebilirsiniz. Ekleyebileceğiniz bir **synonymMaps** dizini yeniden oluşturmak zorunda kalmadan bir alan tanımı özelliğine.
 
 ## <a name="feature-availability"></a>Özellik kullanılabilirliği
 
@@ -78,14 +78,14 @@ Alternatif olarak, PUT kullanın ve URI üzerinde eş eşleme adı belirtin. Eş
 
 Solr biçimi eşdeğer ve açık eş eşlemeleri destekler. Eşleştirme kurallarına Apache Solr, bu belgede açıklanan açık kaynak eş filtre belirtimi için: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Aşağıda bir örnek için eşdeğer eş anlamlıları kuralıdır.
 ```
-              USA, United States, United States of America
+USA, United States, United States of America
 ```
 
 Yukarıdaki, bir arama sorgusu kuralla "ABD", "ABD" veya "ABD" veya "Amerika Birleşik Devletleri" genişletilir.
 
 Açık eşleme bir okla gösterilen "= >". Belirtildiğinde, sol tarafındaki eşleşen bir arama sorgusu terimi bir dizi "= >" sağ tarafındaki alternatifleri ile değiştirilecek. Aşağıdaki kural verildiğinde, arama sorgularını "Washington", "Wash." veya "WA" tümü "WA" yazılacaktır. Açık eşleme yalnızca belirtilen yönde uygular ve "WA" "Washington" için sorgu bu durumda yeniden değil.
 ```
-              Washington, Wash., WA => WA
+Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Liste eş hizmetinizi altında eşler.
@@ -160,7 +160,7 @@ Eş anlamlı genişletmeleri joker arama terimleri için geçerli değildir; ön
 
 - Arama uygulamanız için birden çok eş eşlemeleri (çok dilli müşteri tabanı uygulamanız destekliyorsa, örneğin, dil tarafından) oluşturabilirsiniz. Şu anda bir alana yalnızca bunlardan birini kullanabilirsiniz. Herhangi bir anda bir alanın synonymMaps özelliği güncelleştirebilirsiniz.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 - Varolan bir dizini geliştirme (üretim olmayan) ortamında varsa, eş anlamlıları eklenmesi profilleri Puanlama üzerinde etkisi de dahil olmak üzere, bir arama deneyimi nasıl değiştiğini görmek için isabet vurgulama küçük bir sözlük ve öneriler deneyin.
 

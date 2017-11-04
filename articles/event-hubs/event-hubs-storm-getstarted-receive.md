@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm kullanarak Event Hubs'dan olayları alma
 
@@ -30,7 +30,7 @@ Alma desenleri Event Hubs hakkında daha fazla bilgi için bkz: [Event Hubs'a ge
 
 Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] zaten kullanılabilir Event Hubs spout ile birlikte gelen yükleme.
 
-1. İzleyin [Hdınsight Storm - Get Started](../hdinsight/hdinsight-storm-overview.md) yeni bir Hdınsight kümesi oluşturma ve Uzak Masaüstü aracılığıyla bağlanmak için yordamı.
+1. İzleyin [Hdınsight Storm - Get Started](../hdinsight/storm/apache-storm-overview.md) yeni bir Hdınsight kümesi oluşturma ve Uzak Masaüstü aracılığıyla bağlanmak için yordamı.
 2. Kopya `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` yerel geliştirme ortamınızı dosyasına. Bu olaylar storm spout içerir.
 3. Paketi yerel Maven deposuna yüklemek için aşağıdaki komutu kullanın. Bu, sonraki adımda Storm projesi başvuru olarak eklemenize olanak sağlar.
 
@@ -246,8 +246,8 @@ Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi e
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-[Hdınsight algılayıcı analiz öğretici]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
+[Hdınsight algılayıcı analiz öğretici]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
 
 <!-- Images -->
 

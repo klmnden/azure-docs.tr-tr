@@ -1,59 +1,59 @@
 
 
 
-## <a name="attach-an-empty-disk"></a>Attach an empty disk
-Attaching an empty disk is a simple way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.
+## <a name="attach-an-empty-disk"></a>Boş disk ekleme
+Boş bir diski ekleme, çünkü Azure .vhd dosyası sizin için oluşturur ve depolama hesabında depolayan bir veri diski eklemek için basit bir yoludur.
 
-1. Click **Virtual Machines (classic)**, and then select the appropriate VM.
+1. Tıklatın **sanal makineleri (Klasik)**ve ardından uygun VM seçin.
 
-2. In the Settings menu, click **Disks**.
+2. Ayarlar menüsünde tıklatın **diskleri**.
 
-   ![Attach a new empty disk](./media/howto-attach-disk-windows-linux/menudisksattachnew.png)
+   ![Yeni bir boş diski kullanıma açın](./media/howto-attach-disk-windows-linux/menudisksattachnew.png)
 
-3. On the command bar, click **Attach new**.  
-    The **Attach new disk** dialog box appears.
+3. Komut çubuğunda **Attach yeni**.  
+    **Attach yeni disk** iletişim kutusu görüntülenir.
 
-    ![Attach a new disk](./media/howto-attach-disk-windows-linux/newdiskdetail.png)
+    ![Yeni bir diski kullanıma açın](./media/howto-attach-disk-windows-linux/newdiskdetail.png)
 
-    Fill in the following information:
-    - In **File Name**, accept the default name or type another one for the .vhd file. The data disk uses an automatically generated name, even if you type another name for the .vhd file.
-    - Select the **Type** of the data disk. All virtual machines support standard disks. Many virtual machines also support premium disks.
-    - Select the **Size (GB)** of the data disk.
-    - For **Host caching**, choose none or Read Only.
-    - Click OK to finish.
+    Aşağıdaki bilgileri girin:
+    - İçinde **dosya adı**, varsayılan adı kabul edin veya başka bir .vhd dosyası için yazın. .Vhd dosyası için başka bir ad yazın olsa bile veri diski otomatik olarak oluşturulan bir ad kullanır.
+    - Seçin **türü** veri diski. Tüm sanal makineler standart diskler destekler. Çok sayıda sanal makineler ayrıca premium diskleri destekler.
+    - Seçin **boyutu (GB)** veri diski.
+    - İçin **ana bilgisayar önbelleğe alma**, hiçbiri seçin veya salt okunur.
+    - Bitirmek için Tamam'ı tıklatın.
 
-4. After the data disk is created and attached, it's listed in the disks section of the VM.
+4. Veri diski oluşturduktan ve bağlı sonra VM diskleri bölümünde listelenir.
 
-   ![New and empty data disk successfully attached](./media/howto-attach-disk-windows-linux/newdiskemptysuccessful.png)
+   ![Yeni ve boş veri diski başarıyla eklendi](./media/howto-attach-disk-windows-linux/newdiskemptysuccessful.png)
 
 > [!NOTE]
-> After you add a data disk, you need to log on to the VM and initialize the disk so that it can be used.
+> Bir veri diski ekledikten sonra VM'de oturum açma ve böylece bu kullanılabilir disk başlatma gerekir.
 
-## <a name="how-to-attach-an-existing-disk"></a>How to: Attach an existing disk
-Attaching an existing disk requires that you have a .vhd available in a storage account. Use the [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet to upload the .vhd file to the storage account. After you've created and uploaded the .vhd file, you can attach it to a VM.
+## <a name="how-to-attach-an-existing-disk"></a>Nasıl yapılır: varolan bir diski kullanıma açın
+Var olan bir diskin eklenmesi için depolama hesabında bir .vhd olmalıdır. Kullanım [Ekle AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) .vhd dosyası depolama hesabına yüklemek için cmdlet'i. Oluşturulan ve .vhd dosyasını karşıya sonra bir VM'ye ekleyebilirsiniz.
 
-1. Click **Virtual Machines (classic)**, and then select the appropriate virtual machine.
+1. Tıklatın **sanal makineleri (Klasik)**ve ardından uygun sanal makine seçin.
 
-2. In the Settings menu, click **Disks**.
+2. Ayarlar menüsünde tıklatın **diskleri**.
 
-3. On the command bar, click **Attach existing**.
+3. Komut çubuğunda **Attach varolan**.
 
-    ![Attach data disk](./media/howto-attach-disk-windows-linux/menudisksattachexisting.png)
+    ![Veri diski ekleme](./media/howto-attach-disk-windows-linux/menudisksattachexisting.png)
 
-4. Click **Location**. The available storage accounts display. Next, select an appropriate storage account from those listed.
+4. Tıklatın **konumu**. Kullanılabilir depolama hesaplarını görüntüler. Ardından, uygun depolama hesabı listeden seçin.
 
-    ![Provide disk storage account](./media/howto-attach-disk-windows-linux/existdiskstorageaccounts.png)
+    ![Disk depolama hesabı sağlayın](./media/howto-attach-disk-windows-linux/existdiskstorageaccounts.png)
 
-5. A **Storage account** holds one or more containers that contain disk drives (vhds). Select the appropriate container from those listed.
+5. A **depolama hesabı** disk sürücülerini (VHD) içeren bir veya daha fazla kapsayıcıları tutar. Uygun bir kapsayıcı listeden seçin.
 
-    ![Provide container of virtual-machines-windows](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
+    ![Makineler windows sanal kapsayıcının sağlayın](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
 
-6. The **vhds** panel lists the disk drives held in the container. Click one of the disks, and then click Select.
+6. **VHD'ler** paneli kapsayıcısında tutulan disk sürücüleri listeler. Disklerden birini tıklatın ve Seç'i tıklatın.
 
-    ![Provide disk image for virtual-machines-windows](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
+    ![Sanal makineler-windows için disk görüntüsü belirtin](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
 
-7. The **Attach existing disk** panel displays again, with the location containing the storage account, container, and selected hard disk (vhd) to add to the virtual machine.
+7. **Varolan bir diski İlişti** paneli görüntüler yeniden, depolama hesabı, kapsayıcı ve seçilen sabit sanal makineye eklemek için disk (vhd) bulunduğu konum.
 
-  Set **Host caching** to none or Read only, then click OK.
+  Ayarlama **ana bilgisayar önbelleğe alma** yok veya okuma yalnızca, ardından Tamam'ı tıklatın.
 
-    ![Data disk successfully attached](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)
+    ![Veri diski başarıyla eklendi](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)

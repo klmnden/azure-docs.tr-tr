@@ -1,9 +1,9 @@
 <!--author=SharS last changed: 9/16/15-->
 
-#### <a name="to-delete-a-volume-container"></a>To delete a volume container
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
-2. Select the volume container you want to delete.
-3. If a volume container has no associated volumes, then it can be deleted. Click **Delete** at the bottom of the page to delete this container. When prompted for confirmation, click **Yes**. This will delete the volume container.
+#### <a name="to-delete-a-volume-container"></a>Birim kapsayıcısı silmek için
+1. Üzerinde **aygıtları** sayfasında, cihazı seçin, çift tıklayın ve ardından **birim kapsayıcıları** sekmesi.
+2. Silmek istediğiniz birim kapsayıcısı seçin.
+3. Birim kapsayıcısı ilişkili birim varsa, silinebilir. Tıklatın **silmek** bu kapsayıcısını silmek için sayfanın altındaki. Onayınız istendiğinde **Evet**’e tıklayın. Bu birim kapsayıcısı siler.
 
-If the volume container has associated volumes, you will first need to take those volumes offline by following the steps in [Take a volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). After the volumes are offline, you can delete them. When the volume container has no associated volumes, delete the volume container as described above.
+Birim kapsayıcısı birimleri ilişkili varsa, ilk içindeki adımları izleyerek bu birimlerin Çevrimdışına Al gerekecektir [bir birim çevrimdışına](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Birimleri çevrimdışı olduktan sonra bunları silebilirsiniz. Birim kapsayıcısı ilişkili birim olduğunda, birim kapsayıcısı yukarıda açıklandığı gibi silin.
 

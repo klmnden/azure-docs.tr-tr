@@ -1,9 +1,9 @@
-When installing a client certificate, you need the password that was created when the client certificate was exported.
+Bir istemci sertifikası yüklenirken, istemci sertifikası dışarı aktarılırken oluşturulan parola gerekir.
 
-1. Locate the .pfx certificate file and copy it to your Mac. You can get the certificate to the Mac in several ways, for example, you can email the certificate file.
-2. After the certificate copied to the Mac, double-click the certificate to open the **Add Certificates** box, the click **Add** to begin the install.
+1. .Pfx sertifika dosyasını bulun ve Mac için kopyalayın Çeşitli yollarla Mac için sertifika elde edebilirsiniz, örneğin, sertifika dosyasını e-posta gönderebilirsiniz.
+2. Mac için sertifika kopyaladıktan sonra açmak için sertifikayı çift tıklatın **eklemek sertifikaları** kutusunda tıklatın **Ekle** yüklemeye başlamak için.
 
-  ![Add certificates](./media/vpn-gateway-certificates-install-mac-client-cert-include/addcert.png)
-3. Enter the password that you created when the client certificate was exported. The password protects the private key of the certificate. Click **OK** to complete the installation.
+  ![Sertifikaları Ekle](./media/vpn-gateway-certificates-install-mac-client-cert-include/addcert.png)
+3. İstemci sertifikasını dışarı aktarılırken oluşturduğunuz parolayı girin. Parola sertifikanın özel anahtarı korur. Tıklatın **Tamam** yüklemeyi tamamlayın.
 
-  ![Password](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)
+  ![Parola](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)

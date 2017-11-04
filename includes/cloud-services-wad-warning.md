@@ -1,5 +1,5 @@
 > [!WARNING]
-> Mevcut bir rolü üzerinde tanılamayı etkinleştirdiğinizde, paket dağıtıldığında etkinleştirdiğiniz tüm uzantıları devre dışı bırakılır. Bunlar:
+> Mevcut bir rolü için tanılama etkinleştirdiğinizde, paket dağıtıldığında, önceden ayarladığınız tüm uzantıları devre dışı bırakılır. Bunlar:
 >
 > * Microsoft İzleme Aracısı tanılama
 > * Microsoft Azure güvenlik izleme
@@ -11,5 +11,5 @@
 > * Windows Azure Uzak Masaüstü uzantısı
 > * Windows Azure günlük Toplayıcı
 >
-> Güncelleştirilmiş rol dağıttıktan sonra uzantılarınızın Azure Portal veya PowerShell aracılığıyla yeniden etkinleştirebilir.
+> Güncelleştirilmiş rol dağıttıktan sonra Azure portal veya PowerShell aracılığıyla uzantılarınızın sıfırlayabilirsiniz.
 >

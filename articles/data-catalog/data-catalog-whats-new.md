@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/06/2017
+ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure veri Kataloğu'ndaki Yenilikler
 Güncelleştirmeleri **Azure veri Kataloğu** düzenli olarak kullanıma sunulur. Bazı sürümler arka uç hizmeti özellikleri üzerine odaklanan gibi her sürüm yeni kullanıcı yönelik özellikler içerir. Bu sayfa Azure veri Kataloğu hizmetine eklenen yeni kullanıcı dönük özelliklerini vurgular.
@@ -239,7 +239,7 @@ Eylül 2015'ten itibaren Azure veri kataloğu için aşağıdaki özellikleri ek
 * Kaydetme ve Azure SQL veri ambarı nesneleri ve veritabanları keşfetmek için destek. Azure SQL Data Warehouse hakkında ek bilgi için bkz: [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Kaydetme ve SQL Server Analysis Services modelleri ve SQL Server Reporting Services sunucuları kapsayıcılar olarak keşfetmek için destek. SSAS ve SSRS nesneleri kaydederken, Azure veri Kataloğu SSAS modeli ve SSRS sunucusuna ve raporlar ve diğer nesneleri için bir giriş oluşturur. Kapsayıcılar keşfedilmesini ve Azure veri Kataloğu Portalı'nı kullanarak açıklama. Kullanıcılar ayrıca arama ve filtre bir model veya arama ve filtreleme katalog içeriğinin yanı sıra sunucu içeriği.
 * Kaydetme ve HTTP/HTTPS üzerinden SQL Server Analysis Services nesneleri bulmak için destek. Kullanıcılar artık SSAS sunucuları bir sunucu adı yerine bir URL (örneğin, https://servername/olap/msmdpump.dll) kullanarak bağlanabilir ve temel kimlik doğrulaması ve anonim bağlantılara ek olarak Windows kimlik doğrulaması kullanabilirsiniz. SSAS HTTP/HTTPS bağlantıları hakkında ek bilgi için bkz: [Analysis Services HTTP erişimi Yapılandır](https://msdn.microsoft.com/library/gg492140.aspx).
-* Hdınsight'ta Hive veri kaynakları için destek. Kullanıcılar artık kaydedebilir ve Apache Hive hadoop'ta Hdınsight veri kaynaklarında için Hive tablolarını keşfedin. Hdınsight'ta Hive hakkında ek bilgi için bkz: [Hdınsight Belge Merkezi](../hdinsight/hdinsight-use-hive.md).
+* Hdınsight'ta Hive veri kaynakları için destek. Kullanıcılar artık kaydedebilir ve Apache Hive hadoop'ta Hdınsight veri kaynaklarında için Hive tablolarını keşfedin. Hdınsight'ta Hive hakkında ek bilgi için bkz: [Hdınsight Belge Merkezi](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Kaydetme ve Oracle veritabanları ve kapsayıcı olarak HDFS kümeleri keşfetmek için destek. Oracle tabloları ve görünümleri veya HDFS kaydederken, Azure veri Kataloğu veritabanı, tabloları ve görünümleri için bir giriş oluşturur. Veritabanı keşfedilmesini ve Azure veri Kataloğu Portalı'nı kullanarak açıklama. Kullanıcılar ayrıca arama ve filtre bir veritabanı veya arama ve filtreleme katalog içeriğinin yanı sıra küme içeriği.
 * Bilinmeyen veri kaynağı türlerini el ile kaydetme desteği. Kullanıcılar, böylece açıkça veri kaynağı kayıt aracını tarafından desteklenen veri kaynakları açıklama ve bulunan Azure veri Kataloğu Portalı'nı kullanarak veri kaynağı bilgilerini el ile girebilirsiniz.
 * Kaydetme ve SQL Server veritabanlarını kapsayıcı olarak keşfetmek için destek. SQL Server tabloları ve görünümleri kaydederken, Azure veri Kataloğu veritabanı, tabloları ve görünümleri için bir giriş oluşturur. Veritabanı keşfedilmesini ve Azure veri Kataloğu Portalı'nı kullanarak açıklama. Kullanıcılar ayrıca arayın ve arama ve filtreleme katalog içeriğinin yanı sıra bir veritabanının içeriğini filtre.

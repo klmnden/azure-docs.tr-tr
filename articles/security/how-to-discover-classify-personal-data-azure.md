@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 6ccb064a9a76e7041d4f365b3997673dc9182e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d60a5ca6229939e5d368c216688e4964261f85c7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Bulmak, tanımlamak ve Microsoft Azure kişisel verileri sınıflandırmak
 
@@ -150,13 +150,13 @@ Azure hdınsight'ta Hadoop kümelerinin ilişkilendirilmiş kişisel verileri Ex
 
 #### <a name="how-do-i-use-excel-power-query-to-import-hadoop-clusters-in-azure-hdinsight-into-excel"></a>Azure hdınsight'ta Hadoop kümeleri Excel'e aktarmak için Excel'in Power Query nasıl kullanırım?
 
-Bir Hdınsight Öğreticisi tüm bu işlemde size yol gösterir. Önkoşulları açıklar ve bir bağlantı içeren bir [Azure Hdınsight kullanmaya başlama](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) Öğreticisi. Yönergeleri kapsar Excel 2016 yanı sıra 2013 ve 2010 (adımları Excel daha eski sürümleri için biraz farklı). Öğretici Excel Power Query eklentisini yoksa, nasıl gösterir. Öğretici Excel'de başlayacaksınız ve kümenizle ilişkilendirilmiş Azure Blob Depolama hesabınız olması gerekir.
+Bir Hdınsight Öğreticisi tüm bu işlemde size yol gösterir. Önkoşulları açıklar ve bir bağlantı içeren bir [Azure Hdınsight kullanmaya başlama](../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md) Öğreticisi. Yönergeleri kapsar Excel 2016 yanı sıra 2013 ve 2010 (adımları Excel daha eski sürümleri için biraz farklı). Öğretici Excel Power Query eklentisini yoksa, nasıl gösterir. Öğretici Excel'de başlayacaksınız ve kümenizle ilişkilendirilmiş Azure Blob Depolama hesabınız olması gerekir.
 
   ![Excel sorgusu](media/how-to-discover-classify-personal-data-azure/excel.png)
 
-Bunun nasıl yapılacağını öğrenmek için ziyaret edin [bağlanmak Excel için Power Query kullanarak Hadoop](../hdinsight/hdinsight-connect-excel-power-query.md) Öğreticisi.
+Bunun nasıl yapılacağını öğrenmek için ziyaret edin [bağlanmak Excel için Power Query kullanarak Hadoop](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md) Öğreticisi.
 
-Kaynak: [Bağlan Excel için Power Query kullanarak Hadoop](../hdinsight/hdinsight-connect-excel-power-query.md)
+Kaynak: [Bağlan Excel için Power Query kullanarak Hadoop](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md)
 
 ## <a name="azure-information-protection-personal-data-classification-for-documents-and-email"></a>Azure Information Protection: belgeler ve e-posta kişisel veri sınıflandırması
 

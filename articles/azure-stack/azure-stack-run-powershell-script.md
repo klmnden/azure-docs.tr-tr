@@ -1,6 +1,6 @@
 ---
-title: Deploy the Azure Stack Development Kit | Microsoft Docs
-description: Learn how to prepare the Azure Stack Development Kit and run the PowerShell script to deploy it.
+title: "Azure yığın Geliştirme Seti dağıtma | Microsoft Docs"
+description: "Azure yığın Geliştirme Seti hazırlamak ve bunu dağıtmak için PowerShell betiğini çalıştırmak öğrenin."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,56 +14,55 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/17/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 530a9558df2323e1aa49d9f4b974c142ee5ecf37
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: b67cabf0ecdb48f137bfcfbce95eee568a1c298d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="deploy-the-azure-stack-development-kit"></a>Deploy the Azure Stack Development Kit
+# <a name="deploy-the-azure-stack-development-kit"></a>Azure yığın Geliştirme Seti dağıtma
 
-*Applies to: Azure Stack Development Kit*
+*Uygulandığı öğe: Azure yığın Geliştirme Seti*
 
-To deploy the [Azure Stack Development Kit](azure-stack-poc.md), you must complete the following steps:
+Dağıtmak için [Azure yığın Geliştirme Seti](azure-stack-poc.md), aşağıdaki adımları tamamlamanız gerekir:
 
-1. [Download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try) to get the Cloudbuilder.vhdx.
-2. [Prepare the cloudbuilder.vhdx](#prepare-the-development-kit-host) by running the asdk-installer.ps1 script to configure the computer (the development kit host) on which you want to install development kit. After this step, the development kit host will boot to the Cloudbuilder.vhdx.
-3. [Deploy the development kit](#deploy-the-development-kit) on the development kit host.
-
-> [!NOTE]
-> For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 evaluation version can be activated at deployment time. If the Windows Server 2016 evaluation version is not activated within 10 days, it shuts down.
-> 
-> 
-
-## <a name="download-and-extract-the-development-kit"></a>Download and extract the development kit
-1. Before you start the download, make sure that your computer meets the following prerequisites:
-
-   * The computer must have at least 60 GB of free disk space.
-   * [.NET Framework 4.6 (or a later version)](https://aka.ms/r6mkiy) must be installed.
-
-2. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
-3. Under **Download the software**, click **Azure Stack Development Kit**.
-4. Run the downloaded AzureStackDownloader.exe file.
-5. In the **Azure Stack Development Kit Downloader** window, follow steps 1 through 5.
-6. After the download completes, click **Run** to launch the MicrosoftAzureStackPOC.exe.
-7. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
-8. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
-9. Select the Destination for the files to be extracted, click **Next**.
-   * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack
-10. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~25 GB) and ThirdPartyLicenses.rtf files. This process will take some time to complete.
+1. [Dağıtım paketini karşıdan](https://azure.microsoft.com/overview/azure-stack/try/?v=try) Cloudbuilder.vhdx alınamıyor.
+2. [Cloudbuilder.vhdx hazırlama](#prepare-the-development-kit-host) üzerinde Geliştirme Seti yüklemek istediğiniz bilgisayarı (Geliştirme Seti ana bilgisayarı) yapılandırmak için asdk installer.ps1 komut dosyası çalıştırarak. Bu adımdan sonra Geliştirme Seti konak Cloudbuilder.vhdx önyükleme yapmaz.
+3. [Geliştirme Seti dağıtmak](#deploy-the-development-kit) Geliştirme Seti konaktaki.
 
 > [!NOTE]
-> After you extract the files, you can delete the exe and bin files to recover space on the machine. Or, you can move these files to another location so that if you need to redeploy you don’t need to download the files again.
+> Bağlantısı kesilmiş bir Azure yığın ortam kullanmak istiyorsanız bile, en iyi sonuçlar için internet'e bağlı değilken dağıtmak en iyisidir. Bu şekilde, Windows Server 2016 Değerlendirme sürümü, dağıtım sırasında etkinleştirilebilir.
 > 
 > 
 
-## <a name="prepare-the-development-kit-host"></a>Prepare the development kit host
-1. Make sure that you can physically connect to the development kit host, or have physical console access (such as KVM). You must have such access after you reboot the development kit host in step 13 below.
-2. Make sure the development kit host meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm your requirements.
-3. Sign in as the Local Administrator to your development kit host.
-4. Copy or move the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx).
-5. Run the following script to download the development kit installer file (asdk-installer.ps1) to the c:\AzureStack_Installer folder on your development kit host.
+## <a name="download-and-extract-the-development-kit"></a>İndirmeyi ve ayıklamayı Geliştirme Seti
+1. Yükleme başlamadan önce bilgisayarınızın aşağıdaki önkoşulları karşıladığından emin olun:
+
+   * Bilgisayarda en az 60 GB boş disk alanı olmalıdır.
+   * [.NET framework 4.6 (veya sonraki bir sürümünü)](https://aka.ms/r6mkiy) yüklü olması gerekir.
+
+2. [Gidilecek Başlarken sayfa](https://azure.microsoft.com/overview/azure-stack/try/?v=try)bilgilerinizi verin ve tıklatın **gönderme**.
+3. Altında **yazılımı yüklemek**, tıklatın **Azure yığın Geliştirme Seti**.
+4. İndirilen AzureStackDownloader.exe dosyasını çalıştırın.
+5. İçinde **Azure yığın Geliştirme Seti yükleyici** penceresinde, 5 1 adımlarını izleyin.
+6. Yükleme tamamlandıktan sonra **çalıştırmak** MicrosoftAzureStackPOC.exe başlatmak için.
+7. Lisans Sözleşmesi ekranında ve ayıklayıcısı Sihirbazı'nın bilgileri gözden geçirin ve ardından **sonraki**.
+8. Gizlilik bildirimi ekran ve ayıklayıcısı Sihirbazı'nın bilgileri gözden geçirin ve ardından **sonraki**.
+9. Ayıklanması için dosyaları için hedef seçin **sonraki**.
+   * Varsayılan değer: <drive letter>:\<geçerli klasörde > \Microsoft Azure yığını
+10. Hedef konumu ekran ve ayıklayıcısı Sihirbazı'nın bilgileri gözden geçirin ve ardından **ayıklamak** CloudBuilder.vhdx (~ 25 GB) ve ThirdPartyLicenses.rtf dosyaları ayıklayın. Bu işlemin tamamlanması biraz zaman alır.
+
+> [!NOTE]
+> Dosyaları ayıkla sonra makinedeki alanını kurtarmak için exe ve depo dosyaları silebilirsiniz. Veya bu dosyaları olması durumunda, yeniden dağıtmak gereken şekilde başka bir konuma dosyaları yeniden karşıdan yüklemeniz gerekmez taşıyabilirsiniz.
+> 
+> 
+
+## <a name="prepare-the-development-kit-host"></a>Geliştirme Seti konak hazırlama
+1. Fiziksel olarak Geliştirme Seti ana bilgisayarına bağlanmak veya kullanabilirsiniz (KVM gibi) fiziksel konsol erişimi olduğundan emin olun. 13. adım Geliştirme Seti konak yeniden başlatıldıktan sonra bu tür erişimi olması gerekir.
+2. Geliştirme Seti konak karşıladığından emin olun [minimum gereksinimleri](azure-stack-deploy.md). Kullanabileceğiniz [Azure yığını için dağıtım denetleyicisi](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) gereksinimlerinizi onaylamak için.
+3. Geliştirme Seti barındırmak için yerel yönetici olarak oturum açın.
+4. Kopyalama veya CloudBuilder.vhdx dosyayı C:\ sürücüsü (C:\CloudBuilder.vhdx) kök dizinine taşıyın.
+5. Geliştirme Seti yükleyici dosyasını (asdk-installer.ps1) karşıdan yüklemek için aşağıdaki betiği c:\AzureStack_Installer klasörüne Geliştirme Seti konağınız üzerinde çalıştırın.
     ```powershell
     # Variables
     $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
@@ -75,82 +74,88 @@ To deploy the [Azure Stack Development Kit](azure-stack-poc.md), you must comple
     # Download file
     Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
     ```
-6. Open an elevated PowerShell console > run the C:\AzureStack_Installer\asdk-installer.ps1 script > click **Prepare vhdx**.
-7. On the **Select Cloudbuilder vhdx** page of the installer, browse to and select the cloudbuilder.vhdx file that you downloaded in the previous steps.
-8. Optional: Check the **Add drivers** box to specify a folder containing additional drivers that you want on the host.
-9. On the **Optional settings** page, provide the local administrator account for the development kit host. If you don't provide these credentials, you'll need KVM access to the host during the install process below.
-10. Also on the **Optional settings** page, you have the option to set the following:
-    - **Computername**: This option sets the name for the development kit host. The name must comply with FQDN requirements and must be 15 characters or less in length. The default is a random computer name generated by Windows.
-    - **Time zone**: Sets the time zone for the development kit host. The default is (UTC-8:00) Pacific Time (US & Canada).
-    - **Static IP configuration**: Sets your deployment to use a static IP address. Otherwise, when the installer reboots into the cloudbuilder.vhx, the network interfaces are configured with DHCP.
-11. Click **Next**.
-12. If you chose a static IP configuration in the previous step, you must now:
-    - Select a network adapter. Make sure you can connect to the adapter before you click **Next**.
-    - Make sure that the **IP address**, **Gateway**, and **DNS** values are correct and then click **Next**.
-13. Click **Next** to start the preparation process.
-14. When the preparation indicates **Completed**, click **Next**.
-15. Click **Reboot now** to boot into the cloudbuilder.vhdx and continue the deployment process.
+6. Yükseltilmiş bir PowerShell Konsolu > C:\AzureStack_Installer\asdk-installer.ps1 komut dosyasını çalıştırmak >'ı tıklatın **hazırlama ortamı**.
+7. Üzerinde **seçin Cloudbuilder vhdx** sayfasında yükleyici, göz atın ve önceki adımda indirdiğiniz cloudbuilder.vhdx dosyasını seçin.
+8. İsteğe bağlı: Denetleyin **sürücüleri ekleme** kutusunu konakta istediğiniz ek sürücülerini içeren klasörü belirtin.
+9. Üzerinde **isteğe bağlı ayarlar** sayfasında, Geliştirme Seti ana bilgisayar için yerel yönetici hesabı sağlayın. Bu kimlik bilgileri sağlamazsanız, aşağıdaki yükleme işlemi sırasında konağa KVM erişim gerekir.
+10. Ayrıca **isteğe bağlı ayarlar** sayfasında, aşağıdakileri ayarlayın seçeneğiniz vardır:
+    - **ComputerName**: Bu seçenek Geliştirme Seti ana bilgisayar adını ayarlar. Ad FQDN gereksinimlere uygun olmalıdır ve 15 karakter veya daha az olmalıdır. Varsayılan Windows tarafından oluşturulan bir rastgele bilgisayar adıdır.
+    - **Saat dilimi**: Geliştirme Seti ana bilgisayar için saat dilimini ayarlar. Varsayılan değer (UTC-8:00) Pasifik Saati (ABD ve Kanada).
+    - **Statik IP yapılandırması**: dağıtımınızı statik bir IP adresi kullanacak şekilde ayarlar. Aksi takdirde, yükleyici cloudbuilder.vhx yeniden başlatıldığında, ağ arabirimleri DHCP ile yapılandırılır.
+11. **İleri**’ye tıklayın.
+12. Bir statik IP yapılandırması önceki adımda seçtiğiniz istiyorsanız, artık gerekir:
+    - Bir ağ bağdaştırıcısı seçin. Tıklamadan önce bağdaştırıcıya bağlanabilir emin olun **sonraki**.
+    - Olduğundan emin olun **IP adresi**, **ağ geçidi**, ve **DNS** değerleri doğru olduğundan ve ardından **sonraki**.
+13. Tıklatın **sonraki** hazırlama işlemini başlatmak için.
+14. Zaman hazırlık gösterdiği **tamamlandı**, tıklatın **sonraki**.
+15. ' I tıklatın **artık yeniden** cloudbuilder.vhdx önyükleme ve dağıtım işlemine devam edin.
 
-## <a name="deploy-the-development-kit"></a>Deploy the development kit
-1. Sign in as the Local Administrator to the development kit host. Use the credentials specified in the previous steps.
+## <a name="deploy-the-development-kit"></a>Geliştirme Seti dağıtma
+1. Geliştirme Seti barındırmak için yerel yönetici olarak oturum açın. Önceki adımlarda belirtilen kimlik bilgilerini kullanın.
 
     > [!IMPORTANT]
-    > For Azure Active Directory deployments, Azure Stack requires access to the Internet, either directly or through a transparent proxy. The deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
+    > Azure Active Directory dağıtımları için Azure yığın doğrudan ya da saydam bir proxy üzerinden Internet erişimi gerektirir. Dağıtımı tam olarak bir NIC için ağ iletişimi destekler. Birden çok NIC varsa, yalnızca bir etkin (ve diğer tüm kullanıcılar devre dışı bırakılır) bir sonraki bölümde dağıtım betiği çalıştırmadan önce emin olun.
     
-2. Open an elevated PowerShell console > run the \AzureStack_Installer\asdk-installer.ps1 script (which may be on a different drive in the Cloudbuilder.vhdx) > click **Install**.
-3. In the **Type** box, select **Azure Cloud** or **ADFS**.
-    - **Azure Cloud**: Azure Active Directory is the identity provider. Use this parameter to specify a specific directory where the AAD account has global admin permissions. Full name of an AAD Directory tenant in the format of .onmicrosoft.com. 
-    - **ADFS**: The default stamp Directory Service is the identity provider, the default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of the setup.
-4. Under **Local administrator password**, in the **Password** box, type the local administrator password (which must match the current configured local administrator password), and then click **Next**.
-5. Select a network adapter to use for the development kit and then click **Next**.
-6. Select DHCP or static network configuration for the BGPNAT01 virtual machine.
-    - **DHCP** (default): The virtual machine gets the IP network configuration from the DHCP server.
-    - **Static**: Only use this option if DHCP can’t assign a valid IP address for Azure Stack to access the Internet. A static IP address must be specified with the subnetmask length (for example, 10.0.0.5/24).
-7. Optionally, set the following values:
-    - **VLAN ID**: Sets the VLAN ID. Only use this option if the host and AzS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). 
-    - **DNS forwarder**: A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.
-    - **Time server**: Sets a specific time server. 
-8. Click **Next**. 
-9. On the **Verifying network interface card properties** page, you'll see a progress bar. 
-    - If it says **An update cannot be downloaded**, follow the instructions on the page.
-    - When it says **Completed**, click **Next**.
-10. On **Summary** page, click **Deploy**.
-11. If you're using an Azure Active Directory deployment, you'll be asked to enter your Azure Active Directory global administrator account credentials.
-12. The deployment process can take a few hours, during which the system automatically reboots once.
+2. Yükseltilmiş bir PowerShell Konsolu > (olabilen Cloudbuilder.vhdx farklı bir sürücüde) \AzureStack_Installer\asdk-installer.ps1 komut dosyasını çalıştırmak > tıklatın **yüklemek**.
+3. İçinde **türü** kutusunda **Azure bulut** veya **ADFS**.
+    - **Azure bulut**: Azure Active Directory kimlik sağlayıcısı değil. AAD hesap genel yönetici izinlerine sahip olduğu belirli bir dizin belirtmek için bu parametreyi kullanın. Bir AAD dizini Kiracı tam adı. Örneğin,. onmicrosoft.com. 
+    - **ADFS**: dizin hizmeti varsayılan damga kimlik sağlayıcısı, oturum açmak için varsayılan hesap azurestackadmin@azurestack.local, ve kullanmak için kurulumunun bir parçası sağlanan bir paroladır.
+4. Altında **yerel yönetici parolasını**, **parola** kutusuna (hangi geçerli yapılandırılmış yerel yönetici parolası eşleşmelidir) yerel yönetici parolasını yazın ve ardından**Sonraki**.
+5. Geliştirme Seti için kullanın ve ardından bir ağ bağdaştırıcısı seçin **sonraki**.
+6. DHCP veya BGPNAT01 sanal makine için statik ağ yapılandırması seçin.
+    - **DHCP** (varsayılan): sanal makine IP ağ yapılandırması DHCP sunucusundan alır.
+    - **Statik**: DHCP Internet'e erişmek için Azure yığın için geçerli bir IP adresi atanamıyor, yalnızca bu seçeneği kullanın. Statik bir IP adresi alt ağ maskesi uzunluğunu (örneğin, 10.0.0.5/24) belirtilmelidir.
+7. İsteğe bağlı olarak, aşağıdaki değerleri ayarlayın:
+    - **VLAN kimliği**: VLAN kimliğini ayarlar Yalnızca AzS BGPNAT01 ve konak fiziksel ağ (ve Internet) erişmek için VLAN kimliği yapılandırmanız gerekir, bu seçeneği kullanın. 
+    - **DNS ileticisi**: bir DNS sunucusu, Azure yığın dağıtımının bir parçası oluşturulur. Damga dışında adları çözümlemek için çözüm içinde izin vermek için mevcut altyapısını DNS sunucunuzun sağlar. Damga DNS sunucusu Bilinmeyen ad çözümleme isteklerinin bu sunucusuna iletir.
+    - **Saat sunucusu**: Bu gerekli alan saat sunucusu ayarlar ve bir IP adresi olmalıdır. Bir saat sunucusu IP adresini bulmak için ziyaret [pool.ntp.org](http:\\pool.ntp.org) veya time.windows.com ping işlemi yapın. 
+8. **İleri**’ye tıklayın. 
+9. Üzerinde **ağ arabirimi kartı özelliklerini doğrulama** sayfasında, bir ilerleme çubuğu görürsünüz. 
+    - Bunu diyorsa **bir güncelleştirme karşıdan**, sayfasındaki yönergeleri izleyin.
+    - Ne zaman yazacaktır **tamamlandı**, tıklatın **sonraki**.
+10. Üzerinde **Özet** sayfasında, **dağıtma**.
+11. Bir Azure Active Directory dağıtımı kullanıyorsanız, Azure Active Directory genel yönetici hesabı kimlik bilgilerinizi girmeniz istenir.
+12. Dağıtım işlemi sırasında sistem otomatik olarak bir kez yeniden birkaç saat sürebilir.
    
    > [!IMPORTANT]
-   > If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin. If you sign in as a local admin after the machine is joined to the domain, you won't see the deployment progress. Do not rerun deployment, instead sign in as azurestack\AzureStackAdmin to validate that it's running.
+   > Dağıtımının ilerleme durumunu izlemek isterseniz, azurestack\AzureStackAdmin oturum açın. Makine etki alanına katılan sonra yerel yönetici oturum açarsanız, dağıtımının ilerleme durumunu göremezsiniz. Dağıtımı yeniden çalıştır bulunamadı, bunun yerine azurestack\AzureStackAdmin çalıştığını doğrulamak oturum açın.
    > 
    > 
    
-    When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**.
+    Dağıtım başarılı olduğunda, PowerShell konsolunda görüntüler: **tamamlandı: eylem 'Dağıtım'**.
    
-If the deployment fails, you can use the following PowerShell rerun script from the same elevated PowerShell window:
+Dağıtım başarısız olursa aynı yükseltilmiş PowerShell penceresinden aşağıdaki yeniden PowerShell betiğini kullanabilirsiniz:
 
 ```powershell
 cd c:\CloudDeployment\Setup
 .\InstallAzureStackPOC.ps1 -Rerun
 ```
 
-This script will restart the deployment from the last step that succeeded.
+Bu komut dosyasını başarıyla son adımı dağıtımından yeniden başlatılır.
 
-Or, you can [redeploy](azure-stack-redeploy.md) from scratch.
-
-
-## <a name="reset-the-password-expiration-to-180-days"></a>Reset the password expiration to 180 days
-
-To make sure that the password for the development kit host doesn't expire too soon, follow these steps after you deploy:
-
-1. On the development kit host, open **Group Policy Management** and navigate to **Group Policy Management** – **Forest: azurestack.local** – **Domains** – **azurestack.local**.
-2. Right click on **MemberServer** and click **Edit**.
-3. In the Group Policy Management Editor, navigate to **Computer Configuration** – **Policies** – **Windows Settings** – **Security Settings** – **Account Policies** – **Password Policy**.
-4. In the right pane, double-click on **Maximum password age**.
-5. In the **Maximum password age Properties** dialog box, change the **Password will expire in** value to 180, then Click **OK**.
+Veya, [dağıtmanız](azure-stack-redeploy.md) sıfırdan.
 
 
-## <a name="next-steps"></a>Next steps
-[Register Azure Stack with your Azure subscription](azure-stack-register.md)
+## <a name="reset-the-password-expiration-to-180-days"></a>180 gün olarak parola geçerlilik süresi Sıfırla
 
-[Connect to Azure Stack](azure-stack-connect-azure-stack.md)
+Geliştirme Seti konak parolasını çok yakında sona değil emin olmak için dağıttıktan sonra aşağıdaki adımları izleyin:
 
+Parola süre sonu ilkesi Powershell'den değiştirmek için:
+1. Powershell penceresinden komutunu çalıştırın; Set-ADDefaultDomainPasswordPolicy - MaxPasswordAge 180.00:00:00-kimlik azurestack.local
+
+Parola süre sonu ilkesi el ile değiştirmek için:
+1. Geliştirme Seti konakta açmak **Grup İlkesi Yönetimi** gidin **Grup İlkesi Yönetimi** – **orman: azurestack.local** – **etkialanları** – **azurestack.local**.
+2. Sağ tıklayın **varsayılan etki alanı ilkesi** tıklatıp **Düzenle**.
+3. Grup İlkesi Yönetimi Düzenleyicisi'nde gidin **Bilgisayar Yapılandırması** – **ilkeleri** – **Windows ayarları** – **güvenlik ayarları**– **Hesap ilkeleri** – **parola ilkesi**.
+4. Sağ bölmede, çift **en uzun parola geçerlilik süresi**.
+5. İçinde **en uzun parola geçerlilik süresi özellikleri** iletişim kutusu, değişiklik **parola içinde dolacak** değeri için 180 ve ardından **Tamam**.
+
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+[PowerShell yükleme](azure-stack-powershell-configure-quickstart.md)
+
+[Azure yığını, Azure aboneliğiniz ile kaydetme](azure-stack-register.md)
+
+[Azure Stack’e bağlanma](azure-stack-connect-azure-stack.md)
 

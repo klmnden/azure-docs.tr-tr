@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Kapsayıcıları için Web uygulaması için özel bir Docker görüntü kullanın
 
@@ -48,7 +48,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Docker dosyasından yansıması oluştur
 
-Git deposunda bir göz atalım _Dockerfile_. Bu dosya, uygulamamız çalıştırmak için gereken Python ortamı tanımlar. Ayrıca, görüntünün ayarlayan bir [SSH](https://www.ssh.com/ssh/protocol/) kapsayıcı ve ana bilgisayar arasında güvenli iletişim için sunucu.
+Git deposunda bir göz atalım _Dockerfile_. Bu dosya, uygulamanızı çalıştırmak için gereken Python ortamı tanımlar. Ayrıca, görüntünün ayarlayan bir [SSH](https://www.ssh.com/ssh/protocol/) kapsayıcı ve ana bilgisayar arasında güvenli iletişim için sunucu.
 
 ```docker
 FROM python:3.4
@@ -279,7 +279,7 @@ SSH bir kapsayıcı ve istemci arasında güvenli iletişim sağlar. SSH destekl
     > [!NOTE]
     > Bu yapılandırma, kapsayıcıya dış bağlantılara izin vermiyor. SSH yalnızca Kudu/SCM sitesi üzerinden kullanılabilir. Kudu/SCM site yayımlama kimlik bilgileri ile doğrulanır.
 
-* A [kopya](https://docs.docker.com/engine/reference/builder/#copy) kopyalamak için Docker altyapısına bildirir yönerge [sshd_config](http://man.openbsd.org/sshd_config) dosya */vb./ssh/* dizin. Yapılandırma dosyanızı dayanmalıdır [bu sshd_config dosya](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+* A [kopya](https://docs.docker.com/engine/reference/builder/#copy) kopyalamak için Docker altyapısına bildirir yönerge [sshd_config](http://man.openbsd.org/sshd_config) dosya */vb./ssh/* dizin. Yapılandırma dosyanızı dayanmalıdır [bu sshd_config dosya](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -493,7 +493,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Bulut Kabuğu'nda çalıştırmak [az webapp config kapsayıcı kümesi](/cli/azure/webapp/config/container#az_webapp_config_container_set) özel Docker görüntü web uygulaması'na atamak için komutu. Değiştir  *\<app_name >*,  *\<docker-kayıt defteri-server-url >*, _< kayıt defteri-username >_, ve  _<password>_ . Azure kapsayıcı kayıt defteri,  *\<docker-kayıt defteri-server-url >* biçimde `https://<azure-container-registry-name>.azurecr.io`. 
+Bulut Kabuğu'nda çalıştırmak [az webapp config kapsayıcı kümesi](/cli/azure/webapp/config/container#az_webapp_config_container_set) özel Docker görüntü web uygulaması'na atamak için komutu. Değiştir  *\<app_name >*,  *\<docker-kayıt defteri-server-url >*,  _\<kayıt defteri-username >_ve  _\<parola >_. Azure kapsayıcı kayıt defteri,  *\<docker-kayıt defteri-server-url >* biçimde `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -534,4 +534,5 @@ Komut yapılandırma değişikliği başarılı olduğunu gösteren aşağıdaki
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure uygulama hizmeti Linux SSS](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Azure'da Docker Python ve PostgreSQL bir web uygulaması oluşturma](tutorial-docker-python-postgresql-app.md)

@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### <a name="to-modify-a-volume-container"></a>To modify a volume container
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
-2. In the tabular listing of the volume containers, select the setting that you want to modify, and click **Modify**.
-3. In the **Modify Volume container** dialog box, do the following:
+#### <a name="to-modify-a-volume-container"></a>Birim kapsayıcısı değiştirmek için
+1. Üzerinde **aygıtları** sayfasında, cihazı seçin, çift tıklayın ve ardından **birim kapsayıcıları** sekmesi.
+2. Birim kapsayıcıları Tablo listesini tıklatın ve değiştirmek için istediğiniz ayarı seçin **Değiştir**.
+3. İçinde **değiştirmek birim kapsayıcısı** iletişim kutusunda, aşağıdakileri yapın:
    
-   1. Change the name of the volume container and modify the associated bandwidth setting. 
+   1. Birim kapsayıcısı adını değiştirin ve ilişkili bant genişliği ayarı değiştirin. 
       
-       ![Modify Volume Container with Bandwidth Template 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
-   2. The encryption key and storage account cannot be changed after they are specified. If you specified **Select a bandwidth template**, click the arrow to proceed to the next page.
-4. In the next page of the **Modify Volume Container** dialog box:
+       ![1 bant genişliği şablonuyla birim kapsayıcı değiştirme](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
+   2. Belirtilen sonra şifreleme anahtarını ve depolama hesabı değiştirilemez. Belirttiyseniz **bant genişliği şablonu seçin**, sonraki sayfaya devam etmek için oka tıklayın.
+4. Sonraki sayfada **değiştirmek birim kapsayıcısı** iletişim kutusunda:
    
-   1. From the drop-down list, choose an existing bandwidth template.
-   2. Review the schedule settings for the specified bandwidth template.
+   1. Aşağı açılan listeden var olan bir bant genişliği şablonu seçin.
+   2. Belirtilen bant genişliği şablonu zamanlama ayarlarını gözden geçirin.
       
-       ![Modify Volume Container with Bandwidth Template 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
-   3. Click the check icon ![check icon](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) to save the updated settings. The **Volume containers** page will be updated to reflect the changes.
+       ![2 bant genişliği şablonuyla birim kapsayıcı değiştirme](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
+   3. Onay simgesine ![onay simgesi](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) güncelleştirilmiş ayarları kaydetmek için. **Birim kapsayıcıları** sayfası, değişiklikleri yansıtacak şekilde güncelleştirilir.
 

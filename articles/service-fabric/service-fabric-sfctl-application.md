@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: dc57c813a6aecabc21ac3931b7294bce909778d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 82d2024f567768e784d9d8697784d06b56bc08ed
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="sfctl-application"></a>sfctl uygulama
 Oluşturma, silme ve uygulama ve uygulama türlerini yönetme.
@@ -30,25 +30,21 @@ Oluşturma, silme ve uygulama ve uygulama türlerini yönetme.
 | oluşturmaya       | Belirtilen açıklaması kullanarak bir Service Fabric uygulaması oluşturur.|
 | Sil       | Var olan bir Service Fabric uygulamasını siler.|
 | Dağıtılan     | Service Fabric düğümde dağıtılan bir uygulamayla ilgili bilgileri alır.|
-| dağıtılan durumu | Sistem durumu hizmeti üzerinde dağıtılmış bir uygulama bilgilerini alır
-                      Fabric düğümü.|
+| dağıtılan durumu | Service Fabric düğümde dağıtılan bir uygulama sistem durumu bilgilerini alır.|
 | dağıtılan listesi| Service Fabric düğümde dağıtılan uygulamalar listesini alır.|
 | Sistem durumu       | Service fabric uygulaması durumunu alır.|
 | bilgileri         | Service Fabric uygulaması hakkındaki bilgileri alır.|
-| Liste         | Eşleşen Service Fabric kümesi içinde oluşturulan uygulamaların listesini alır
-                      parametre olarak belirtilen filtreler.|
+| Liste         | Parametre olarak belirtilen filtrelerle eşleşen Service Fabric kümesi içinde oluşturulan uygulamaların listesini alır.|
 | yükleme | Yük Service Fabric uygulaması hakkında bilgileri alır. |
 | Bildirimi     | Bir uygulama türünü tanımlayan bildirimi alır.|
 | Sağlama    | Hükümler veya kasaların Service Fabric uygulaması kümeyle yazın.|
 | Sistem Durumu raporu| Service Fabric uygulaması bir sistem durumu raporu gönderir.|
-| type         | Service Fabric eşleşen küme içinde uygulama türleri listesini alır
-                      tam olarak belirtilen adı.|
+| type         | Uygulama türleri listesini tam olarak belirtilen adla eşleşen Service Fabric kümesi içinde alır.|
 | tür listesi    | Service Fabric kümesi uygulama türlerinin bir listesini alır.|
 | Sağlamayı kaldırma  | Kaldırır veya kümeden bir Service Fabric uygulama türü kaydını siler.|
 | Yükseltme      | Service Fabric kümesi uygulamada yükseltmeyi başlatır.|
 | Yükseltme devam et  | Service Fabric kümesi uygulamada yükseltme devam eder.|
-| Yükseltmeyi geri alma| Bir uygulamada şu anda devam eden yükseltmesini geri başlatır
-                      Service Fabric kümesi.|
+| Yükseltmeyi geri alma| Uygulama şu anda devam eden yükseltmesini Service Fabric kümesi geri başlatır.|
 | Yükseltme durumu  | Bu uygulamaya yapılan en son yükseltme için ayrıntıları alır.|
 | Karşıya yükleme       | Service Fabric uygulama paketi görüntü deposuna kopyalama.|
 
@@ -87,12 +83,9 @@ Var olan bir Service Fabric uygulamasını siler. Uygulamanın silinebilmesi iç
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Başlayarak
-                                 version 6.0, hierarchical names are delimited with the "~"
-                                 character. For example, if the application name is
-                                 "fabric://myapp/app1", the application identity would be
-                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
-| --zorla Kaldır | Bir Service Fabric uygulaması veya hizmeti zorla kapama sırası geçmeden kaldırın. Hizmet için hangi silmeyi zaman aşımına uğramadan engelleyen hizmet kodda sorunları nedeniyle normal olduğundan çoğaltmalarının kapatın veya bu parametre zorla bir uygulamayı silmek için kullanılabilir. | | --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60. |
+| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, uygulama adı "fabric://myapp/app1" ise, uygulama kimliği olması "Uygulamam ~ app1" 6.0 + ve "myapp/app1" önceki sürümlerinde.|
+| --zorla Kaldır          | Bir Service Fabric uygulaması veya hizmeti zorla kapama sırası geçmeden kaldırın. Bu parametre zorla bir uygulamayı silmek için kullanılan veya hizmet için hangi silmeyi zaman aşımına uğramadan engelleyen hizmet kodda sorunları nedeniyle normal olduğundan kopyaları kapatın.|
+| --zaman aşımı -t            | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
@@ -105,18 +98,15 @@ Var olan bir Service Fabric uygulamasını siler. Uygulamanın silinebilmesi iç
 | --ayrıntılı               | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-deployed"></a>dağıtılan sfctl uygulaması
-Service Fabric düğümde dağıtılan bir uygulamayla ilgili bilgileri alır.|
-|     
+Service Fabric düğümde dağıtılan bir uygulamayla ilgili bilgileri alır.
+     
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Başlayarak
-                                 version 6.0, hierarchical names are delimited with the "~"
-                                 character. For example, if the application name is
-                                 "fabric://myapp/app1", the application identity would be
-                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
-| --düğüm adı [gerekli] | Düğümün adı. | | --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60. |
+| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, uygulama adı "fabric://myapp/app1" ise, uygulama kimliği olması "Uygulamam ~ app1" 6.0 + ve "myapp/app1" önceki sürümlerinde.|
+| --düğüm adı [gerekli]| Düğümün adı.|
+| --zaman aşımı -t            | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
@@ -137,13 +127,12 @@ Service fabric uygulaması sistem durumu durumunu döndürür. Yanıt Tamam, hat
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak,
-                                                 hierarchical names are delimited with the "~"
-                                                 character. For example, if the application name is
-                                                 "fabric://myapp/app1", the application identity
-                                                 would be "myapp~app1" in 6.0+ and "myapp/app1" in
-                                                 previous versions.|
-| --dağıtılan uygulamalar-sistem durumu-durumu-filtre | Dağıtılan uygulamaları sistem durumu nesnelerini filtreleme kendi sistem durumuna bağlıdır uygulama sistem durumu sorgusunun sonucu döndürdü sağlar. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen dağıtılan uygulamalar döndürülür. Tüm dağıtılmış uygulamalar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir.                        Örneğin, 6 sağlanan değer ise, ardından Tamam (2) ve uyarı (4), HealthState değeriyle dağıtılan uygulamalar, sistem durumu döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir.                        Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır.                        Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. 65535 değeridir. | | --Sağlık Durumu Filtresi olayları | Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür.                        Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. 65535 değeridir. | | --Dışlama sağlık istatistikleri | Sistem durumu istatistikleri sorgu sonucu bir parçası olarak döndürülüp döndürülmeyeceğini gösterir. Varsayılan değer false. Sistem durumu Tamam, uyarı ve hata alt sayısını istatistiklerini varlıklar göster. | | --Hizmetleri Sistem Durumu Filtresi | Kendi sistem durumuna bağlı Hizmetleri sistem durumu sorgusu sonucu döndürdü Hizmetleri sistem durumu nesnelerini filtreleme sağlar. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen Hizmetleri döndürülür. Tüm hizmetler toplanan sistem durumunu değerlendirmek için kullanılır.                        Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından Tamam (2) ve uyarı (4), HealthState değeriyle sistem durumu hizmetlerinin döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur.                        -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. 65535 değeridir. | | --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60. |
+| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, uygulama adı "fabric://myapp/app1" ise, uygulama kimliği olması "Uygulamam ~ app1" 6.0 + ve "myapp/app1" önceki sürümlerinde.|
+| --dağıtılan uygulamalar-sistem durumu-Durumu-Filtresi| Dağıtılan uygulamaları sistem durumu nesnelerini filtreleme kendi sistem durumuna bağlıdır uygulama sistem durumu sorgusunun sonucu döndürdü sağlar. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen dağıtılan uygulamalar döndürülür. Tüm dağıtılmış uygulamalar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Örneğin, 6 sağlanan değer ise, ardından Tamam (2) ve uyarı (4), HealthState değeriyle dağıtılan uygulamalar, sistem durumu döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
+| --Sağlık Durumu Filtresi olayları            | Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
+| --Dışlama sağlık istatistikleri | Sistem durumu istatistikleri sorgu sonucu bir parçası olarak döndürülüp döndürülmeyeceğini gösterir. Varsayılan değer false. Sistem durumu Tamam, uyarı ve hata istatistiklerini varlıklar alt sayısını gösterir.|
+| --Hizmetleri Sistem Durumu Filtresi          | Kendi sistem durumuna bağlı Hizmetleri sistem durumu sorgusu sonucu döndürdü Hizmetleri sistem durumu nesnelerini filtreleme sağlar. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen Hizmetleri döndürülür. Tüm hizmetler toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından Tamam (2) ve uyarı (4), HealthState değeriyle sistem durumu hizmetlerinin döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
+| --zaman aşımı -t                            | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
@@ -164,11 +153,9 @@ Service Fabric kümesi ve parametre olarak belirtilen bir adı eşleşen oluştu
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ayrılmış
-                                      with the "~" character. For example, if the application name
-                                      is "fabric://myapp/app1", the application identity would be
-                                      "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
-| --Dışlama uygulama parametreleri | Uygulama parametreleri sonucundan dışlanan olup olmadığını belirten bayrak. | | --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60. |
+| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, uygulama adı "fabric://myapp/app1" ise, uygulama kimliği olması "Uygulamam ~ app1" 6.0 + ve "myapp/app1" önceki sürümlerinde.|
+| --Dışlama uygulama parametreleri| Uygulama parametreleri sonucundan dışlanan olup olmadığını belirten bayrak.|
+| --zaman aşımı -t                 | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
@@ -189,19 +176,11 @@ Oluşturulan veya Service Fabric oluşturulan sürecinde küme ve parametre olar
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-|--tanım türü filtre uygulama| ApplicationDefinitionKind için filtre uygulamak için kullanılan
-                                          application query operations. - Default - Default value.
-                                          Filter that matches input with any
-                                          ApplicationDefinitionKind value. The value is 0. - All -
-                                          Filter that matches input with any
-                                          ApplicationDefinitionKind value. The value is 65535. -
-                                          ServiceFabricApplicationDescription - Filter that matches
-                                          input with ApplicationDefinitionKind value
-                                          ServiceFabricApplicationDescription. The value is 1. -
-                                          Compose - Filter that matches input with
-                                          ApplicationDefinitionKind value Compose. The value is 2.
-                                          Default: 65535.|
-| --uygulama türü adı | Filtre için sorgulamak üzere uygulamalar için kullanılan uygulama türü adı. Bu değeri uygulama türü sürümü içermemesi gerekir. | | --devamlılık belirteci | Devamlılık belirteci parametresi, bir sonraki sonuç kümesi elde etmek için kullanılır. Sistem sonuçlarından tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değere sahip API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı API sonraki sonuç kümesi döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri URL kodlanmış olmamalıdır. | | --Dışlama uygulama parametreleri | Uygulama parametreleri sonucundan hariç tutulan olup olmadığını belirten bayrak. | | --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60. |
+|--tanım türü filtre uygulama| Uygulama sorgu işlemleri için üzerinde ApplicationDefinitionKind filtrelemek için kullanılır. -Varsayılan - varsayılan değer. Giriş herhangi bir ApplicationDefinitionKind değeri ile eşleşen Filtresi. Değeri 0'dır. -Tüm - giriş herhangi bir ApplicationDefinitionKind değeri ile eşleşen filtre. Değer, 65535 ' dir. -ServiceFabricApplicationDescription - giriş ServiceFabricApplicationDescription ApplicationDefinitionKind değeriyle eşleşen Filtresi. Değer 1'dir. Giriş Oluştur ApplicationDefinitionKind değeriyle eşleşen - Oluştur - Filtresi. Değer 2'dir. Varsayılan: 65535.|
+| --uygulama türü adı      | Filtre için sorgulamak üzere uygulamalar için kullanılan uygulama türü adı. Bu değeri uygulama türü sürümü içermemesi gerekir.|
+| --devamlılık belirteci         | Devamlılık belirteci parametresi, bir sonraki sonuç kümesi elde etmek için kullanılır. Sistem sonuçlarından tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değere sahip API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı API sonraki sonuç kümesi döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır.|
+| --Dışlama uygulama parametreleri| Uygulama parametreleri sonucundan hariç tutulan olup olmadığını belirten bayrak.|
+| --zaman aşımı -t                 | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
@@ -216,32 +195,21 @@ Oluşturulan veya Service Fabric oluşturulan sürecinde küme ve parametre olar
 ## <a name="sfctl-application-load"></a>sfctl uygulama yükleme
 Yük Service Fabric uygulaması hakkında bilgileri alır.
 
-        Returns the load information about the application that was created or in the process of
-        being created in the Service Fabric cluster and whose name matches the one specified as the
-        parameter. The response includes the name, minimum nodes, maximum nodes, the number of nodes
-        the app is occupying currently, and application load metric information about the
-        application.
+Yükleme hakkında bilgi oluşturulmuş uygulama veya Service Fabric kümesi ve parametre olarak belirtilen bir adı eşleşen oluşturulmakta sürecinde döndürür. Yanıt adı, en az düğüm, en fazla düğüm sayısı, uygulama şu anda kullandığı düğümleri ve uygulama hakkında uygulama yük ölçüm bilgi sayısını içerir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-|--Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam adıdır
-                                 the application without the 'fabric:' URI scheme. Starting from
-                                 version 6.0, hierarchical names are delimited with the "~"
-                                 character. For example, if the application name is
-                                 "fabric://myapp/app1", the application identity would be
-                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60. |
+|--Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, uygulama adı "fabric://myapp/app1" ise, uygulama kimliği olması "Uygulamam ~ app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
+| --zaman aşımı -t               | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 |Bağımsız değişken|Açıklama|
 | --- | --- |
 |--hata ayıklama                    | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
     ---h Yardım                  | Bu yardım iletisini ve çıkış gösterir.|
-    ---o çıktı                | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan:
-                                 JSON.|
-    --Sorgu                    | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi için bkz.
-                                 bilgi ve örnekler.|
+    ---o çıktı                | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
+    --Sorgu                    | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
     --ayrıntılı                  | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-manifest"></a>sfctl uygulama bildirimi
@@ -347,10 +315,23 @@ Sağlanan uygulama yükseltme parametreleri doğrular ve parametreleri geçerliy
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile sınırlandırılmıştır ' ~' karakter. için
-        example, if the application name is 'fabric://myapp/app1', the application identity would be
-        'myapp~app1' in 6.0+ and 'myapp/app1' in previous versions.|
-| --app sürümlü [gerekli] | Hedef uygulama sürümü. | | --Parametreler [gerekli] | Uygulama yükseltme sırasında uygulanacak JSON olarak kodlanmış listesini uygulama parametresi geçersiz kılar. | | --Varsayılan hizmet sistem durumu ilkesi | JSON olarak kodlanmış bir hizmet türünün durumunu değerlendirmek için varsayılan olarak kullanılan sistem durumu ilkesi belirtimi. | | --hatası eylemi | İzlenen yükseltme İzleme İlkesi veya sistem durumu ilkesi ihlali karşılaştığında gerçekleştirilecek eylem. | | --zorla yeniden | Kod sürümü değişmediğini olduğunda işlemler yükseltme sırasında bile zorla yeniden. | | --Sistem durumu denetimi yeniden deneme aşımı | Uygulama ya da küme önce hatası eylemi sağlıksız olduğunda sistem durumu değerlendirmesini yeniden denemek için süre miktarını yürütülür. Milisaniye cinsinden ölçülür.  Varsayılan: PT0H10M0S. | | --Sistem durumu denetimi kararlı süre | Süre miktarını bir sonraki yükseltme etki alanına yükseltmeye devam etmeden önce uygulama veya küme sağlıklı kalmaları gerekir.            Milisaniye cinsinden ölçülür.  Varsayılan: PT0H2M0S. | | --Sistem durumu denetimi bekleme süresi | Sistem durumu ilkeleri uygulanmadan önce bir yükseltme etki alanına tamamladıktan sonra beklenecek süre miktarı. Milisaniye cinsinden ölçülür.            Varsayılan: 0. | | --max sağlıksız-apps | Sağlıksız dağıtılmış uygulamalar yüzdesi izin verilen en fazla. 0 ile 100 arasında bir sayı olarak gösterilen. | | --modu | Yükseltme sırasında durumunu izlemek için kullanılan modu.            Varsayılan: UnmonitoredAuto. | | --çoğaltma kümesi onay aşımı | En uzun süreyi bir yükseltme etki alanına işlenmesini engelleyebilir veya beklenmeyen sorunlar olduğunda kullanılabilirlik kaybını önlemek için. Saniye cinsinden ölçülen. | | --Hizmet sistem durumu ilkesi | JSON service type durum ilkesi hizmet türü adı başına Haritası kodlanmış. Harita boştur varsayılan. | | --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60. | | --Yükseltme etki alanı timeout | Süre miktarını FailureAction yürütülmeden önce tamamlamak her bir yükseltme etki alanı vardır. Milisaniye cinsinden ölçülür.  Varsayılan: P10675199DT02H48M05.4775807S. | | --Yükseltme zaman aşımı | Süre miktarını FailureAction yürütülmeden önce tamamlamak genel yükseltme vardır. Milisaniye cinsinden ölçülür.  Varsayılan: P10675199DT02H48M05.4775807S. | | --hata olarak uyarı | Aynı önem derecesi sistem durumu değerlendirme uyarıları hata ele. |
+| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile sınırlandırılmıştır ' ~' karakter. Örneğin, uygulama adı 'fabric://myapp/app1' ise, uygulama kimliği olması ' Uygulamam ~ app1' 6.0 + ve ' myapp/app1' in önceki sürümlerindeki.|
+| --app sürümlü [gerekli]| Hedef uygulama sürümü.|
+| --Parametreler [gerekli]| Uygulama yükseltme sırasında uygulanacak JSON olarak kodlanmış listesini uygulama parametre değerini geçersiz kılar.|
+| --Varsayılan hizmet sistem durumu ilkesi| JSON varsayılan olarak bir hizmet türünün durumunu değerlendirmek için kullanılan sistem durumu ilkesi belirtimi kodlanmış.|
+| --hatası eylemi            | İzlenen yükseltme İzleme İlkesi veya sistem durumu ilkesi ihlali karşılaştığında gerçekleştirilecek eylem.|
+| --zorla yeniden başlatma             | Zorla kod sürümü değil değiştiğinde işlemleri yükseltme sırasında bile yeniden başlatın.|
+| --onay yeniden deneme aşımı sistem durumu| Uygulama ya da küme önce hatası eylemi sağlıksız olduğunda sistem durumu değerlendirmesini yeniden denemek için süre miktarını yürütülür. Milisaniye cinsinden ölçülür.  Varsayılan: PT0H10M0S.|
+| --Sistem durumu denetimi kararlı süre | Süre miktarını bir sonraki yükseltme etki alanına yükseltmeye devam etmeden önce uygulama veya küme sağlıklı kalmaları gerekir.            Milisaniye cinsinden ölçülür.  Varsayılan: PT0H2M0S.|
+| --Sistem durumu denetimi bekleme süresi| Sistem durumu ilkeleri uygulanmadan önce bir yükseltme etki alanına tamamladıktan sonra beklenecek süre miktarı. Milisaniye cinsinden ölçülür.            Varsayılan: 0.|
+| --max sağlıksız-uygulamalar        | Sağlıksız dağıtılmış uygulamalar yüzdesi izin verilen en fazla. 0 ile 100 arasında bir sayı olarak temsil.|
+| --modu                      | Yükseltme sırasında durumunu izlemek için kullanılan modu.            Varsayılan: UnmonitoredAuto.|
+| --çoğaltma kümesi onay aşımı | En uzun süreyi bir yükseltme etki alanına işlenmesini engelleyebilir veya beklenmeyen sorunlar olduğunda kullanılabilirlik kaybını önlemek için. Saniye cinsinden ölçülür.|
+| --Hizmet sistem durumu ilkesi     | JSON service type durum ilkesi hizmet türü adı başına Haritası kodlanmış. Harita boştur varsayılan olabilir.|
+| --zaman aşımı -t                | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
+| --Yükseltme etki alanı timeout    | Süre miktarını FailureAction yürütülmeden önce tamamlamak her bir yükseltme etki alanı vardır. Milisaniye cinsinden ölçülür.  Varsayılan: P10675199DT02H48M05.4775807S.|
+| --Yükseltme zaman aşımı           | Süre miktarını FailureAction yürütülmeden önce tamamlamak genel yükseltme vardır. Milisaniye cinsinden ölçülür.  Varsayılan: P10675199DT02H48M05.4775807S.|
+| --hata olarak uyarı          | Sistem durumu değerlendirme aynı önem uyarılarla hata olarak kabul eder.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
@@ -372,8 +353,7 @@ Service Fabric uygulama paketi görüntü deposuna kopyalama.
 |Bağımsız değişken|Açıklama|
 | --- | --- |
 | --yolu [gerekli]| Yerel uygulama paketin yolu.|
-|--Görüntü dizesi| Hedef görüntü depolamak için uygulama paketini karşıya yüklemek için.  Varsayılan:
-                         Doku: görüntü.|
+|--Görüntü dizesi| Hedef görüntü depolamak için uygulama paketini karşıya yüklemek için.  Varsayılan: doku: görüntü.|
 | --ilerleme durumunu göster  | Büyük paketler için dosya karşıya yükleme ilerlemesini gösterir.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
@@ -383,8 +363,7 @@ Service Fabric uygulama paketi görüntü deposuna kopyalama.
 | --hata ayıklama       | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | ---h Yardım     | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı   | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu       | JMESPath sorgu dizesi. Daha fazla bilgi için http://jmespath.org/ bakın ve
-                       örnekler.|
+| --Sorgu       | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
 | --ayrıntılı     | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="next-steps"></a>Sonraki adımlar

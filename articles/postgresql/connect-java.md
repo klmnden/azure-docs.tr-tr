@@ -6,24 +6,22 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 93ee612764e8f74943e0a847969fb1220b3bdee1
-ms.contentlocale: tr-tr
-ms.lasthandoff: 06/26/2017
-
+ms.openlocfilehash: ca51cc33561817e36ebaba9a9146bebf9d5d5d96
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Java’yı kullanma
-Bu hızlı başlangıçta, Java uygulaması kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makaledeki adımlarda, Java kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+Bu hızlı başlangıçta, Java uygulaması kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Ayrıca veritabanında veri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini nasıl kullanacağınız da gösterilmiştir. Bu makaledeki adımları Java kullanarak geliştirme ile tanıdık ve PostgreSQL için Azure veritabanı ile çalışmaya yeni varsayalım.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu hızlı başlangıç, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynakları kullanır:
+Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
 - [DB Oluşturma - Portal](quickstart-create-server-database-portal.md)
 - [DB Oluşturma - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
@@ -32,17 +30,17 @@ Bu hızlı başlangıç, başlangıç noktası olarak şu kılavuzlardan birinde
 - PostgreSQL JDBC jar dosyasını (örneğin, postgresql-42.1.1.jar) uygulama sınıf yolunuza ekleyin. Daha fazla bilgi için bkz. [sınıf yolu ayrıntıları](https://jdbc.postgresql.org/documentation/head/classpath.html).
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
-PostgreSQL için Azure Veritabanı’na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
+PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve oluşturduğunuz sunucuyu, örneğin **mypgserver-20170401**’i aratın.
+2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **mypgserver-20170401**) arayın.
 3. **mypgserver-20170401** sunucu adına tıklayın.
 4. Sunucunun **Genel Bakış** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
- ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma](./media/connect-java/1-connection-string.png)
+ ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma Bilgileri](./media/connect-java/1-connection-string.png)
 5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
 
 ## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
-Aşağıdaki kodu kullanarak bağlanın ve **INSERT** SQL deyimiyle işlevi kullanarak verileri yükleyin. Tabloyu bağlamak, bırakmak ve oluşturmak için [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) ve [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) yöntemleri kullanılır. Parametre değerlerini bağlamak için kullanılan setString() ve setInt() ile birlikte ekleme komutlarını oluşturmak için [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) nesnesi kullanılır. [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) yöntemi, her parametre kümesi için komutu çalıştırır. 
+Bağlanıp işlevi kullanılarak veritabanına verileri yüklemek için aşağıdaki kodu kullanın bir **Ekle** SQL deyimi. Yöntemleri [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), ve [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) olan veritabanına bağlanmak için kullanılan, bırakma ve tablo oluşturun. Parametre değerlerini bağlamak için kullanılan setString() ve setInt() ile birlikte ekleme komutlarını oluşturmak için [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) nesnesi kullanılır. [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) yöntemi, her parametre kümesi için komutu çalıştırır. 
 
 Ana bilgisayar, veritabanı, kullanıcı ve parola parametrelerini, sunucunuzu ve veritabanınızı oluştururken belirttiğiniz değerlerle değiştirin.
 
@@ -142,9 +140,9 @@ public class CreateTableInsertRows {
 ```
 
 ## <a name="read-data"></a>Verileri okuma
-**SELECT** SQL deyimiyle verileri okumak için aşağıdaki kodu kullanın. Select deyimini bağlamak, oluşturmak ve çalıştırmak için [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) ve [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) yöntemleri kullanılır. Sonuçlar, [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html) nesnesi kullanılarak işlenir. 
+**SELECT** SQL deyimiyle verileri okumak için aşağıdaki kodu kullanın. Yöntemleri [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), ve [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) veritabanına bağlanmak, oluşturmak ve select deyimi çalıştırmak için kullanılır. Sonuçlar [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html) nesnesi kullanılarak işlenir. 
 
-Ana bilgisayar, veritabanı, kullanıcı ve parola parametrelerini, sunucunuzu ve veritabanınızı oluştururken belirttiğiniz değerlerle değiştirin.
+host, database, user ve password parametrelerini kendi sunucunuzu ve veritabanınızı oluştururken belirttiğiniz değerlerle değiştirin.
 
 ```java
 import java.sql.*;
@@ -229,9 +227,9 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Verileri güncelleştirme
-**UPDATE** SQL deyimiyle verileri değiştirmek için aşağıdaki kodu kullanın. Update deyimini bağlamak, hazırlamak ve çalıştırmak için [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) ve [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) yöntemleri kullanılır. 
+**UPDATE** SQL deyimiyle verileri değiştirmek için aşağıdaki kodu kullanın. Yöntemleri [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), ve [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) veritabanına bağlanmak, hazırlamak ve update deyiminin çalıştırmak için kullanılır. 
 
-Ana bilgisayar, veritabanı, kullanıcı ve parola parametrelerini, sunucunuzu ve veritabanınızı oluştururken belirttiğiniz değerlerle değiştirin.
+host, database, user ve password parametrelerini kendi sunucunuzu ve veritabanınızı oluştururken belirttiğiniz değerlerle değiştirin.
 
 ```java
 import java.sql.*;
@@ -309,9 +307,9 @@ public class UpdateTable {
 }
 ```
 ## <a name="delete-data"></a>Verileri silme
-**DELETE** SQL deyimiyle verileri kaldırmak için aşağıdaki kodu kullanın. Delete deyimini bağlamak, hazırlamak ve çalıştırmak için [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) ve [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) yöntemleri kullanılır. 
+**DELETE** SQL deyimiyle verileri kaldırmak için aşağıdaki kodu kullanın. Yöntemleri [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), ve [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) veritabanına bağlanmak, hazırlamak ve delete deyimini çalıştırmak için kullanılır. 
 
-Ana bilgisayar, veritabanı, kullanıcı ve parola parametrelerini, sunucunuzu ve veritabanınızı oluştururken belirttiğiniz değerlerle değiştirin.
+host, database, user ve password parametrelerini kendi sunucunuzu ve veritabanınızı oluştururken belirttiğiniz değerlerle değiştirin.
 
 ```java
 import java.sql.*;
@@ -390,5 +388,4 @@ public class DeleteTable {
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
-> [Dışarı aktarma ve İçeri aktarmayı kullanarak veritabanınızı geçirme](./howto-migrate-using-export-and-import.md)
-
+> [Dışarı Aktarma ve İçeri Aktarma seçeneğini kullanarak veritabanınızı geçirme](./howto-migrate-using-export-and-import.md)

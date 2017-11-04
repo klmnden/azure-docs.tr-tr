@@ -1,4 +1,4 @@
-## <a name="clean-up-deployment"></a>Dağıtım temizleme 
+## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
 Komut dosyası örneği çalıştırdıktan sonra kaynak grubu, Azure Redis önbelleği örneği ve ilgili kaynakları kaynak grubunu kaldırmak için izleme komutu kullanılabilir.
 

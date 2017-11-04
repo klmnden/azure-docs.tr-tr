@@ -1,7 +1,7 @@
 ---
-title: "SQL Veritabanı performansı: Hizmet katmanları | Microsoft Belgeleri"
-description: "SQL Veritabanı hizmet katmanlarını karşılaştırın."
-keywords: "veritabanı seçenekleri,veritabanı performansı"
+title: "Azure SQL veritabanı hizmetinin | Microsoft Docs"
+description: "Tek hizmet katmanları ve performans düzeyleri ve depolama boyutları sağlamak için havuz veritabanları hakkında bilgi edinin."
+keywords: 
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -9,80 +9,74 @@ manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
-ms.custom: overview
+ms.custom: DBs & servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 01/11/2017
-ms.author: carlrab; janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 0a00aff343bfd31c956f6cbc831e89cc1cc84b23
-ms.openlocfilehash: 95ae4bd67b7d08755035e7b5559ca9648d45bdaa
-
-
+ms.workload: Active
+ms.date: 08/20/2017
+ms.author: carlrab
+ms.openlocfilehash: 55f59fddee008eb42b7252d6368a56873a6abd16
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>SQL Database seçenekleri ve performansı: Her hizmet katmanında nelerin kullanılabildiğini anlama
-[Azure SQL Veritabanı](sql-database-technical-overview.md), farklı iş yüklerini işlemek üzere birden çok performans düzeyine sahip üç hizmet katmanı (**Temel**, **Standart** ve **Premium**) sunar. Yüksek performans düzeyi, gittikçe artan bir işleme hacmi sağlamak üzere tasarlanmış bir şekilde bir önceki düzeye göre daha fazla sayıda kaynak sağlar. [Hizmet katmanlarını ve performans düzeylerini kapalı kalma süresi olmadan dinamik olarak](sql-database-scale-up.md) değiştirebilirsiniz. Temel, Standart ve Premium hizmet katmanlarının tümü için %99,99 oranında çalışma süresi SLA'sı vardır. Hizmet katmanları; esnek iş sürekliliği seçenekleri, güvenlik özellikleri ve saatlik faturalandırma olanağı sunar. 
+# <a name="what-are-azure-sql-database-service-tiers"></a>Azure SQL Database hizmet katmanları nelerdir
 
-Seçili [performans düzeyi](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) üzerinde ayrılmış kaynak ile tek veritabanları oluşturabilirsiniz. Ayrıca, kaynakların veritabanları arasında paylaşıldığı bir [elastik havuzda](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) birden çok veritabanını yönetebilirsiniz. Tek veritabanlarının kullanılabileceği kaynaklar, Veritabanı İşlem Birimleri (DTU'lar) ve elastik havuzlar için esnek DTU'lar (eDTU) cinsinden ifade edilir. DTU'lar ve eDTU'lar hakkında daha fazla bilgi edinmek için bkz. [DTU nedir?](sql-database-what-is-a-dtu.md). 
-
-Her iki durumda da **Temel**, **Standart** ve **Premium** hizmet katmanları mevcuttur. 
+[Azure SQL veritabanı](sql-database-technical-overview.md) sunar **temel**, **standart**, **Premium**, ve **Premium RS** hizmet katmanları için her iki [tek veritabanlarını](sql-database-single-database-resources.md) ve [esnek havuzlar](sql-database-elastic-pool.md). Hizmet katmanları öncelikle bir dizi performans düzeyini ve depolama boyutu seçenekleri ve fiyat tarafından ayrılır.  Tüm hizmet katmanları performans düzeyini ve depolama boyutunu değiştirme esneklik sağlar.  Tek veritabanları ve esnek havuzlar saatlik hizmet katmanı, performans düzeyi ve depolama boyutuna göre faturalandırılır.   
 
 ## <a name="choosing-a-service-tier"></a>Hizmet katmanı seçme
-Aşağıdaki tabloda farklı uygulama iş yükleri için en uygun katman örnekleri verilmiştir.
 
-| Hizmet katmanı | Hedef iş yükleri |
-| :--- | --- |
-| **Temel** | Genellikle belirli bir zamanda tek bir işlemin etkin olmasını destekler ve küçük veritabanları için uygundur. Geliştirme veya test amaçlı kullanılan veritabanları ya da küçük ölçekli ve az sıklıkta kullanılan uygulamalar örnek olarak verilebilir. |
-| **Standart** |Birden çok eşzamanlı sorguyu destekleyen ve G/Ç performansı gereksinimleri düşük veya orta olan bulut uygulamaları için en uygun seçenektir. Çalışma grupları ve web uygulamaları örnek olarak verilebilir. |
-| **Premium** | Çok sayıda eşzamanlı kullanıcıyı destekleyen ve G/Ç performansı gereksinimleri yüksek olan, yüksek işlem hacimleri için tasarlanmıştır. İş açısından önemli uygulamaları destekleyen veritabanları örnek olarak verilebilir. |
+Bir hizmet katmanı seçme özelliği öncelikle iş sürekliliği, depolama ve performans gereksinimlerine bağlıdır.
+| | **Temel** | **Standart** |**Premium** |**Premium RS** |
+| :-- | --: |--:| --:| --:| 
+|Hedef iş yükü|Geliştirme ve üretim|Geliştirme ve üretim|Geliştirme ve üretim|Hizmet hatası nedeniyle 5 dakika kadar veri kaybı dayanabileceği iş yükü|
+|Çalışma Süresi SLA'sı|%99,99|%99,99|%99,99|Önizleme sırasında yok|
+|Yedekleri bekletme|7 gün|35 gün|35 gün|35 gün|
+|CPU|Düşük|Düşük, Orta, yüksek|Orta, yüksek|Orta|
+|G/ç işleme|Düşük  | Orta | Büyüklük standart yüksek|Premium aynı|
+|G/ç gecikmesi|Premium değerinden yüksek|Premium değerinden yüksek|Temel ve standart değerinden daha düşük|Premium aynı|
+|Columnstore dizinini ve bellek içi OLTP|Yok|Yok|Destekleniyor|Destekleniyor|
+|||||
 
-Öncelikle, tek veritabanı çalıştırma ya da kaynakları paylaşan veritabanlarını gruplandırma seçeneklerinden hangisini kullanacağınıza karar verin. [Elastik havuz hakkında dikkat edilmesi gereken konuları](sql-database-elastic-pool-guidance.md) gözden geçirin. Bir hizmet katmanına karar vermek için, ihtiyacınızı olan en düşük veritabanı özelliklerini belirleyerek başlayın:
+## <a name="performance-level-and-storage-size-limits"></a>Performans düzeyini ve depolama boyutu sınırları
 
-* Tek başına veritabanları için en büyük veritabanı boyutu (yüksek performans düzeylerinde Temel için maksimum 2 GB, Standart için maksimum 250 GB ve Premium için maksimum 500 GB ila 1 TB)
-* Elastik havuz kullanıldığında toplam depolama alanı için üst sınır (Temel için 117 GB, Standart için 1200 GB ve Premium için 750 GB)
-* Havuz başına en fazla veritabanı sayısı (Temel için 400, Standart için 400 ve Premium için 50)
-* Veritabanı yedeği saklama dönemi (Temel için 7 gün, Standart ve Premium için 35 gün)
+Performans düzeyleri tek veritabanları için veritabanı işlem birimleri (Dtu'lar) ve esnek havuzlar için esnek veritabanı işlem birimleri (Edtu'lar) cinsinden ifade edilir. Dtu ve Edtu hakkında daha fazla bilgi için bkz: [Dtu ve Edtu nelerdir?](sql-database-what-is-a-dtu.md).
 
-Minimum hizmet katmanını belirledikten sonra, veritabanının performans düzeyini belirlemeye (DTU sayısı) hazır olursunuz. Çoğu durumda standart S2 ve S3 performans düzeyleri iyi bir başlangıç noktasıdır. Yüksek CPU veya G/Ç gereksinimlerine sahip veritabanları için, Premium performans düzeyleri doğru başlangıç noktasıdır. Premium, daha fazla CPU sunar ve en yüksek Standart performans düzeyine kıyasla 10 kat daha fazla G/Ç ile başlar.
+### <a name="single-databases"></a>Tek veritabanları
 
-Başlangıçta bir performans düzeyi seçtikten sonra gerçek deneyime bağlı olarak, [elastik havuzunuzun](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) [tek başına veritabanının](sql-database-scale-up.md) ölçeğini artırabilir veya azaltabilirsiniz. Geçiş senaryoları için, gerekli DTU sayısını yaklaşık olarak belirlemenizi sağlayan [DTU Hesaplayıcıyı](http://dtucalculator.azurewebsites.net/) da kullanabilirsiniz. 
+|  | **Temel** | **Standart** | **Premium** | **Premium RS**|
+| :-- | --: | --: | --: | --: |
+| Maksimum depolama boyutu * | 2 GB | 1 TB | 4 TB  | 1 TB  |
+| Maksimum Dtu | 5 | 3000 | 4000 | 1000 |
+||||||
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+### <a name="elastic-pools"></a>Esnek havuzlar
+
+| | **Temel** | **Standart** | **Premium** | **Premium RS**|
+| :-- | --: | --: | --: | --: |
+| Veritabanı * başına en fazla depolama boyutunu  | 2 GB | 1 TB | 1 TB | 1 TB |
+| En fazla depolama boyutunu başına havuzu * | 156 GB | 4 TB | 4 TB | 1 TB |
+| Veritabanı başına maksimum Edtu | 5 | 3000 | 4000 | 1000 |
+| Havuz başına maksimum Edtu | 1600 | 3000 | 4000 | 1000 |
+| Veritabanı havuz başına maksimum sayısı | 500  | 500 | 100 | 100 |
+||||||
+
+> [!IMPORTANT]
+> \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
-
-## <a name="single-database-service-tiers-and-performance-levels"></a>Tek veritabanı hizmet katmanları ve performans düzeyleri
-Tek veritabanları için her bir hizmet katmanında birden çok performans düzeyi vardır. İş yükünüzün taleplerini en iyi karşılayan düzeyi seçme esnekliğine sahipsiniz. Ölçeği artırmanız veya azaltmanız gerekiyorsa veritabanınızın katmanlarını kolaylıkla değiştirebilirsiniz. Ayrıntılı bilgi için bkz. [Veritabanı Hizmet Katmanlarını ve Performans Düzeylerini Değiştirme](sql-database-scale-up.md).
-
-Barındırılan veritabanı sayısı göz önünde bulundurulmaksızın, veritabanınız kesin olarak belirlenmiş bir kaynak kümesini alır ve veritabanınızdan beklenen performans özellikleri etkilenmez.
-
-[!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
-
-> [!NOTE]
-> Bu hizmet katmanları tablosundaki diğer tüm satırların ayrıntılı bir açıklaması için bkz. [Hizmet katmanı özellikleri ve sınırları](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+> \* Premium katmanlarda 1 TB’den fazla depolama alanı şu bölgelerde sunulmaktadır: ABD Doğu2, Batı ABD, US Gov Virginia, Batı Avrupa, Almanya Orta, Güneydoğu Asya, Japonya Doğu, Avustralya Doğu, Kanada Orta ve Kanada Doğu. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
-## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>eDTU'lardaki esnek havuz hizmet katmanları ve performansı
-
-Havuzlar, veritabanlarının havuzdaki her bir veritabanına belirli bir performans düzeyi atanmasına gerek kalmadan eDTU kaynaklarını paylaşıp kullanmasına olanak sağlar. Örneğin, Standart havuzdaki tek veritabanı için eDTU kullanımı, 0 ila havuzu yapılandırdığınız sırada ayarladığınız maksimum veritabanı eDTU sayısı arasında değişiklik gösterebilir. Havuzlar, çeşitli iş yüklerine sahip birden çok veritabanının tüm havuz için kullanılabilir eDTU kaynaklarını verimli bir şekilde kullanmasına olanak sağlar. Ayrıntılı bilgi için bkz. [Esnek havuzlar için fiyat ve performans ile ilgili dikkat edilmesi gerekenler](sql-database-elastic-pool-guidance.md).
-
-Aşağıdaki tabloda havuz hizmet katmanlarının özellikleri açıklanmıştır.
-
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-Bir havuz içindeki her bir veritabanı, aynı zamanda ilgili katmanın tek veritabanı özelliklerine de bağlı kalır. Örneğin, Temel havuzun havuz başına maksimum oturum sayısı 4800 ile 28.800 arasında değişir ancak Temel havuz içindeki tek veritabanı için veritabanı sınırı 300 oturumdur.
+Belirli performans düzeylerini ve kullanılabilir depolama boyutu seçenekleri hakkında daha fazla bilgi için bkz: [SQL veritabanı kaynak sınırları](sql-database-resource-limits.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Esnek havuzlar](sql-database-elastic-pool-guidance.md) ve [esnek havuzlara ilişkin fiyat ve performans ile ilgili dikkat edilmesi gerekenler](sql-database-elastic-pool-guidance.md) hakkında ayrıntılı bilgi edinin.
-* [Esnek havuzlarını izleme, yönetme ve yeniden boyutlandırma](sql-database-elastic-pool-manage-portal.md) ve [Tek veritabanlarının performansını izleme](sql-database-single-database-monitor.md) işlemleri hakkında bilgi edinin.
-* Artık SQL Database katmanları hakkında bilgi edindiğinize göre öğrendiklerinizi bir [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) kullanarak deneyin ve [ilk SQL veritabanınızı nasıl oluşturacağınızı](sql-database-get-started.md) öğrenin.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+- Hakkında bilgi edinin [tek veritabanı kaynakları](sql-database-single-database-resources.md).
+- Esnek havuzları hakkında bilgi edinmek için bkz: [esnek havuzlar](sql-database-elastic-pool.md).
+- Hakkında bilgi edinin [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md)
+* Daha fazla bilgi edinmek [Dtu ve Edtu](sql-database-what-is-a-dtu.md).
+* DTU kullanımı izleme hakkında bilgi edinmek için bkz: [izleme ve performans ayarlama](sql-database-troubleshoot-performance.md).
 

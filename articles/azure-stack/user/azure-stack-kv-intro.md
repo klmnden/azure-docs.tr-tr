@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Key Vault introduction | Microsoft Docs
-description: Learn how Azure Stack Key Vault manages keys and secrets
+title: "Azure anahtar kasası yığın giriş | Microsoft Docs"
+description: "Anahtarları ve gizli anahtarları Azure yığın anahtar kasası nasıl yönettiğini öğrenin"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,57 +14,60 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/04/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecb542e967669fc4e4465ae59b3e9c37e4a5c332
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 621a0cb865d0c050d7271d10bd14076f9f0c6f67
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="introduction-to-key-vault-in-azure-stack"></a>Introduction to Key Vault in Azure Stack
+# <a name="introduction-to-key-vault-in-azure-stack"></a>Anahtar kasası Azure yığınında giriş
 
-## <a name="before-you-start"></a>Before you start
-This article assumes the following:
+## <a name="prerequisites"></a>Ön koşullar 
 
-* You must must subscribe to an offer that includes the Key Vault service.  
-* [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md) 
+* Azure anahtar kasası hizmetindeki içeren bir teklif abone olmalısınız.  
+* [PowerShell Azure yığını ile kullanılmak üzere yapılandırılmış](azure-stack-powershell-configure-user.md).
  
-## <a name="key-vault-basics"></a>Key Vault basics
-Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .pfx files, and passwords).
+## <a name="key-vault-basics"></a>Anahtar kasası temelleri
+Anahtar kasası Azure yığınında şifreleme anahtarları korumaya yardımcı olur ve uygulamaları ve Hizmetleri bulut gizlilikleri kullanın. Anahtar Kasası'nı kullanarak anahtarları ve gizli anahtarları, gibi şifreleme:
+   * Kimlik doğrulama anahtarları 
+   * Depolama hesabı anahtarları
+   * Veri şifreleme anahtarları
+   * .pfx dosyaları
+   * Parolaları
 
-Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
+Anahtar Kasası anahtar yönetimi işlemini kolaylaştırır ve verilerinize erişen ve bunları şifreleyen anahtarları denetiminizde tutmanıza olanak sağlar. Geliştiriciler, geliştirme ve test için dakikalar içinde anahtar oluşturabilir ve ardından bunları üretim anahtarlarına sorunsuz bir şekilde geçirebilir. Güvenlik yöneticileri gerektiğinde anahtarlara izin verebilir (ve iptal edebilir).
 
-Anybody with an Azure Stack subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by the operator who manages other Azure Stack services for an organization. For example, the Azure Stack operator can sign in with an Azure Stack subscription, create a vault for the organization in which to store keys, and then be responsible for these operational tasks:
+Bir Azure yığın abonelik herkesle oluşturabilir ve anahtar kasalarını kullanabilirsiniz. Anahtar kasası geliştiricilere ve güvenlik yöneticilerine avantaj sağlasa da, bir kuruluş için diğer Azure yığın Hizmetleri yöneten işleci uygulamak ve yönetmek. Örneğin, Azure işleci bir Azure yığın abonelikle oturum açmak yığın anahtarları depolamak ve bu işlemsel görevlerden sorumlu kuruluş için bir kasa oluşturun:
 
-* Create or import a key or secret
-* Revoke or delete a key or secret
-* Authorize users or applications to access the key vault, so they can   then manage or use its keys and secrets
-* Configure key usage (for example, sign or encrypt)
+* Oluşturun veya bir anahtar veya gizli içeri aktarın.
+* İptal etmek veya bir anahtar veya gizli silin.
+* Kullanıcılar veya uygulamalar bunlar ardından yönetebilir veya ve gizli anahtarları kullanmak için anahtar kasasına erişim yetkisi verir.
+* Anahtar kullanımı yapılandırın (örneğin, imzalama veya şifreleme).
 
-The operator can then provide developers with URIs to call from their applications, and provide a security administrator with key usage logging information.
+İşleç Tekdüzen Kaynak Tanımlayıcıları (URI'ler) uygulamalarından çağırmaları için geliştiricilere sonra sağlayabilirsiniz. İşleçler, ayrıca güvenlik yöneticileri anahtar kullanımı günlüğü bilgilerini sağlayabilir.
 
-Developers can also manage the keys directly, by using APIs. For more information, see the Key Vault developer's guide.
+Geliştiriciler ayrıca anahtarları doğrudan API'lerini kullanarak yönetebilir. Daha fazla bilgi için anahtar kasası Geliştirici Kılavuzu'na bakın.
 
-## <a name="scenarios"></a>Scenarios
-The following table depicts some of the scenarios where Key Vault can help meet the needs of developers and security administrators:
+## <a name="scenarios"></a>Senaryolar
+Anahtar kasası geliştiricilere ve güvenlik yöneticilerinin ihtiyaçlarını karşılamak nasıl yardımcı olabileceğini aşağıdaki senaryolar açıklanmaktadır.
 
-### <a name="developer-for-an-azure-stack-application"></a>Developer for an Azure Stack application
-**Problem**: I want to write an application for Azure Stack that uses keys for signing and encryption, but I want these to be external from my application so that the solution is suitable for an application that is geographically distributed.
+### <a name="developer-for-an-azure-stack-application"></a>Bir Azure yığın uygulama geliştiricisi
+**Sorun:** için imzalama ve şifreleme için anahtarları kullanan Azure yığın uygulama yazmak istiyorum. Çözümün coğrafi olarak dağıtılmış bir uygulama için uygun olmasını sağlamak my uygulamasından harici olarak bu anahtarları istiyorum.
 
-**Statement**: Keys are stored in a vault and invoked by URI when needed.
+**Deyimi:** anahtarlar bir kasada depolanır ve gerektiğinde URI tarafından çağrılır.
 
-### <a name="developer-for-software-as-a-service-saas"></a>Developer for software as a service (SaaS)
-**Problem:** I don’t want the responsibility or potential liability for my customer's keys and secrets.
+### <a name="developer-for-software-as-a-service-saas"></a>Yazılım geliştirici olarak hizmet (SaaS)
+**Sorun:** my Müşteri'nin anahtarları ve gizli anahtarları için sorumluluk veya olası yükümlülük istemiyorum. En iyi olan çekirdek yazılım özelliklerini sağlamaya ne yapabilirim yapmayı yoğunlaşmak amacıyla, müşterilerin kendi ve bunların anahtarlarını yönetmek istiyorsunuz.
 
-**Statement:** Customers can import their own keys into Azure Stack, and manage them. I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features.
+**Deyimi:** müşteriler kendi anahtarları Azure yığına almak ve bunları yönetebilir. 
 
-### <a name="chief-security-officer-cso"></a>Chief Security Officer (CSO)
-**Problem:** I want to make sure that my organization is in control of the key life cycle and can monitor key usage.
+### <a name="chief-security-officer-cso"></a>Baş güvenlik Başkanı (CSO)
+**Sorun:** kuruluşumun anahtar yaşam döngüsü denetiminde ve anahtar kullanımını izleyebildiğinden emin olmak istiyorum.
 
-**Statement** Key Vault is designed so that Microsoft does not see or extract your keys.  When an application needs to perform cryptographic operations by using customers’ keys, Key Vault does this on behalf of the application. The application does not see the customers’ keys.  Although we use multiple Azure Stack services and resources, I want to manage the keys from a single location in Azure Stack. The vault provides a single interface, regardless of how many vaults you have in Azure Stack, which regions they support, and which applications use them.
+**Deyimi:** anahtar kasası, böylece Microsoft bakın veya anahtarlarınızı ayıklamak tasarlanmıştır. Bir uygulama müşterilerin anahtarlarını kullanarak şifreleme işlemleri gerçekleştirmesi gerektiğinde, anahtar kasası uygulama adına anahtarları kullanır. Uygulama, müşterilerin anahtarlarını görmez. Birden çok Azure yığın Hizmetleri ve kaynakları kullanırız rağmen Azure yığınında tek bir konumdan anahtarları yönetebilir. Kasa, destek ve hangi uygulamaların bunları kullandığına kaç kasanız sahip olduğunuz Azure yığını, hangi bölgelerin bunlar bağımsız olarak tek bir arabirim sağlar.
 
-## <a name="next-steps"></a>Next Steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Manage Key Vault in Azure Stack using the portal](azure-stack-kv-manage-portal.md)  
-* [Manage Key Vault in Azure Stack using PowerShell](azure-stack-kv-manage-powershell.md)
+* [Anahtar kasası Azure yığınında Portalı'nı kullanarak yönetme](azure-stack-kv-manage-portal.md)  
+* [Anahtar kasası Azure yığınında PowerShell kullanarak yönetme](azure-stack-kv-manage-powershell.md)
 

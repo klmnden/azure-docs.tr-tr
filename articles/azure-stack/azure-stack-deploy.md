@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit deployment prerequisites| Microsoft Docs
-description: View the environment and hardware requirements for Azure Stack Development Kit (cloud operator).
+title: "Azure yığın Geliştirme Seti dağıtımının önkoşulları | Microsoft Docs"
+description: "Azure yığın Geliştirme Seti (bulut işleci) için ortamı ve donanım gereksinimlerini görüntüleyin."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,95 +14,94 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/11/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4a53065f76cef7b711f4a656b437cbefaf47c5d0
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-deployment-prerequisites"></a>Azure Stack deployment prerequisites
+# <a name="azure-stack-deployment-prerequisites"></a>Azure Stack dağıtım önkoşulları
 
-*Applies to: Azure Stack Development Kit*
+*Uygulandığı öğe: Azure yığın Geliştirme Seti*
 
-Before you deploy [Azure Stack Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements:
+Dağıtmadan önce [Azure yığın Geliştirme Seti](azure-stack-poc.md), bilgisayarınızın aşağıdaki gereksinimleri karşıladığından emin olun:
 
 
-## <a name="hardware"></a>Hardware
-| Component | Minimum | Recommended |
+## <a name="hardware"></a>Donanım
+| Bileşen | Minimum | Önerilen |
 | --- | --- | --- |
-| Disk drives: Operating System |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General development kit data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
-| Compute: CPU |Dual-Socket: 12 Physical Cores (total) |Dual-Socket: 16 Physical Cores (total) |
-| Compute: Memory |96 GB RAM |128 GB RAM (This is the minimum to support PaaS resource providers.)|
-| Compute: BIOS |Hyper-V Enabled (with SLAT support) |Hyper-V Enabled (with SLAT support) |
-| Network: NIC |Windows Server 2012 R2 Certification required for NIC; no specialized features required |Windows Server 2012 R2 Certification required for NIC; no specialized features required |
-| HW logo certification |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| Disk sürücüleri: İşletim Sistemi |Sistem bölümü için en az 200 GB'lık kullanılabilir alana sahip 1 işletim sistemi diski (SSD veya HDD) |Sistem bölümü için en az 200 GB'lık kullanılabilir alana sahip 1 işletim sistemi diski (SSD veya HDD) |
+| Disk sürücüleri: Genel Geliştirme Seti veri * |4 disk. Her disk, en az 140 GB'lık kapasiteye (SSD veya HDD) sahiptir. Mevcut tüm diskler kullanılır. |4 disk. Her disk, en az 250 GB'lık kapasiteye (SSD veya HDD) sahiptir. Mevcut tüm diskler kullanılır. |
+| İşlem: CPU |Çift Yuvalı: 12 Fiziksel Çekirdek (toplam) |Çift Yuvalı: 16 Fiziksel Çekirdek (toplam) |
+| İşlem: Bellek |96 GB RAM |128 GB RAM (PaaS kaynak sağlayıcıları desteklemek için en düşük gereksinimdir.)|
+| İşlem: BIOS |Hyper-V Etkin (SLAT desteğiyle) |Hyper-V Etkin (SLAT desteğiyle) |
+| Ağ: NIC |NIC için Windows Server 2012 R2 Sertifikası gerekir; özelleştirilmiş herhangi bir özellik gerekmez |NIC için Windows Server 2012 R2 Sertifikası gerekir; özelleştirilmiş herhangi bir özellik gerekmez |
+| Donanım logosu sertifikası |[Windows Server 2012 R2 için sertifikalıdır](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2012 R2 için sertifikalıdır](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
-\*You will need more than this recommended capacity if you plan on adding many of the [marketplace items](azure-stack-download-azure-marketplace-item.md) from Azure.
+\*Birçok eklemeyi düşünüyorsanız, bu kapasite önerilen fazlasını gerekir [Market öğesi](azure-stack-download-azure-marketplace-item.md) azure'dan.
 
-**Data disk drive configuration:** All data drives must be of the same type (all SAS or all SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
+**Veri disk sürücüsü yapılandırması:** Tüm veri sürücüleri aynı türde (tümü SAS veya tümü SATA) ve kapasitede olmalıdır. SAS disk sürücüleri kullanılıyorsa disk sürücülerinin (MPIO kullanılmaz, çok yollu destek sağlanır) tek bir yolla bağlanması gerekir.
 
-**HBA configuration options**
+**HBA yapılandırma seçenekleri**
 
-* (Preferred) Simple HBA
-* RAID HBA – Adapter must be configured in “pass through” mode
-* RAID HBA – Disks should be configured as Single-Disk, RAID-0
+* (Tercih edilen) Basit HBA
+* RAID HBA - Bağdaştırıcının "geçiş" modunda yapılandırılmış olması gerekir
+* RAID HBA - Disklerin Tek Disk ve RAID-0 olarak yapılandırılmış olması gerekir
 
-**Supported bus and media type combinations**
+**Desteklenen veri yolu ve ortam birleşimleri yazın**
 
 * SATA HDD
 * SAS HDD
 * RAID HDD
-* RAID SSD (If the media type is unspecified/unknown\*)
+* RAID SSD (Medya türü belirtilmemişse/bilinmiyorsa\*)
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
 
-\* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the development kit on those SSDs.
+\*RAID denetleyiciler geçiş yetenek olmadan medya türü tanıyamıyor. Bu tür denetleyiciler, hem HDD'yi hem de SSD'yi Belirtilmemiş olarak işaretler. Bu durumda, kalıcı depolama alanı olarak önbelleğe alma cihazları yerine SSD kullanılır. Bu nedenle, bu SSD Geliştirme Seti dağıtabilirsiniz.
 
-**Example HBAs**: LSI 9207-8i, LSI-9300-8i, or LSI-9265-8i in pass-through mode
+**Örnek HBA'lar**: geçiş modunda LSI 9207-8i, LSI-9300-8i veya LSI-9265-8i
 
-Sample OEM configurations are available.
+Örnek OEM yapılandırmaları kullanılabilir.
 
-## <a name="operating-system"></a>Operating system
-|  | **Requirements** |
+## <a name="operating-system"></a>İşletim sistemi
+|  | **Gereksinimleri** |
 | --- | --- |
-| **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the development kit. |
+| **İşletim sistemi sürümü** |Windows Server 2012 R2 veya sonraki bir sürümü. Dağıtıma başlamadan önce işletim sistemi sürümü Azure yığın yüklemede VHD içine ana bilgisayar önyükleme gibi kritik değildir. İşletim sistemi ve tüm gerekli düzeltme eklerini zaten görüntüsüne tümleşiktir. Tüm anahtarları development Kit'te kullanılan herhangi bir Windows Server örneklerini etkinleştirmek için kullanmayın. |
 
-## <a name="deployment-requirements-check-tool"></a>Deployment requirements check tool
-After installing the operating system, you can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all the requirements.
+## <a name="deployment-requirements-check-tool"></a>Aracı dağıtım gereksinimlerini denetleyin
+İşletim sisteminin yükledikten sonra kullanabilirsiniz [Azure yığını için dağıtım denetleyicisi](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) donanımınız tüm gereksinimleri karşıladığını onaylamak için.
 
-## <a name="account-requirements"></a>Account requirements
-Typically, you deploy the development kit with internet connectivity, where you can connect to Microsoft Azure. In this case, you must configure an Azure Active Directory (Azure AD) account to deploy the development kit.
+## <a name="account-requirements"></a>Hesap gereksinimleri
+Genellikle, burada, Microsoft Azure bağlanabilirsiniz internet bağlantısıyla Geliştirme Seti dağıtın. Bu durumda, Geliştirme Seti dağıtmak için bir Azure Active Directory (Azure AD) hesabı yapılandırmanız gerekir.
 
-If your environment is not connected to the internet, or you don't want to use Azure AD, you can deploy Azure Stack by using Active Directory Federation Services (AD FS). The development kit includes its own AD FS and Active Directory Domain Services instances. If you deploy by using this option, you don't have to set up accounts ahead of time.
+Ortamınız internet'e bağlı değil veya Azure AD kullanmak istemiyorsanız, Active Directory Federasyon Hizmetleri (AD FS) kullanarak Azure yığın dağıtabilirsiniz. Geliştirme Seti kendi AD FS ve Active Directory etki alanı Hizmetleri örnekleri içerir. Bu seçeneği kullanarak dağıtırsanız, önceden hesapları ayarlamanız gerekmez.
 
 >[!NOTE]
-If you deploy by using the AD FS option, you must redeploy Azure Stack to switch to Azure AD.
+AD FS seçeneğini kullanarak dağıtırsanız, Azure AD ile geçiş yapmak için Azure yığını yeniden dağıtmanız gerekir.
 
-### <a name="azure-active-directory-accounts"></a>Azure Active Directory accounts
-To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD account before you run the deployment PowerShell script. This account becomes the Global Admin for the Azure AD tenant. It's used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graph API. It's also used as the owner of the default provider subscription (which you can later change). You can log in to your Azure Stack system’s administrator portal by using this account.
+### <a name="azure-active-directory-accounts"></a>Azure Active Directory hesapları
+Bir Azure AD hesabı kullanarak Azure yığın dağıtmak için dağıtım PowerShell komut dosyasını çalıştırmadan önce bir Azure AD hesabının hazırlamanız gerekir. Bu hesap, Azure AD Kiracı için genel yönetici olur. Sağlamak ve uygulamalar ve hizmet asıl adı Azure Active Directory ve grafik API'si etkileşime tüm Azure yığın hizmetlerini temsilci seçmek için kullanılır. (Bu, daha sonra değiştirebilirsiniz) varsayılan sağlayıcı aboneliğin sahibi da kullanılır. Azure yığın sisteminizin Yönetici portalına bu hesabı kullanarak oturum.
 
-1. Create an Azure AD account that is the directory administrator for at least one Azure AD. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead). If you plan to later [register Azure Stack with Azure](azure-stack-register.md), you must also have a subscription in this newly created account.
+1. İçin en az bir Azure AD directory yönetici olan bir Azure AD hesabı oluşturun. Zaten bir hesabınız varsa bu hesabı kullanabilirsiniz. Aksi takdirde, bir ücretsiz oluşturabilirsiniz [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (Çin'de ziyaret <http://go.microsoft.com/fwlink/?LinkID=717821> yerine). İçin daha sonra planlıyorsanız [Azure yığın Azure ile kaydedin](azure-stack-register.md), ayrıca bir abonelik bu hesap yeni oluşturulmuş olması gerekir.
    
-    Save these credentials for use in step 6 of [Deploy the development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
-2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the development kit as a tenant.
+    6. adımda bu kimlik bilgilerini kullanmak için kaydetme [Geliştirme Seti dağıtmak](azure-stack-run-powershell-script.md#deploy-the-development-kit). Bu *hizmet yöneticisi* hesabı; kaynak bulutlarını, kullanıcı hesaplarını, kiracı planlarını, kotaları ve fiyatlandırmayı yapılandırıp yönetebilir. Portalda web sitesi bulutları, sanal makine özel bulutları ve planlar oluşturup kullanıcı aboneliklerini yönetebilir.
+2. [Oluşturma](azure-stack-add-new-user-aad.md) en az bir hesabı böylece Kiracı Geliştirme Seti için oturum açabilirsiniz.
    
-   | **Azure Active Directory account** | **Supported?** |
+   | **Azure Active Directory hesabı** | **Destekleniyor mu?** |
    | --- | --- |
-   | Work or school account with valid Public Azure Subscription |Yes |
-   | Microsoft Account with valid Public Azure Subscription |Yes |
-   | Work or school account with valid China Azure Subscription |Yes |
-   | Work or school account with valid US Government Azure Subscription |Yes |
+   | Geçerli ortak Azure aboneliği ile iş veya Okul hesabı |Evet |
+   | Geçerli Genel Azure Aboneliğine sahip Microsoft Hesabı |Evet |
+   | Geçerli Çin Azure aboneliği ile iş veya Okul hesabı |Evet |
+   | Geçerli US Government Azure aboneliği ile iş veya Okul hesabı |Evet |
 
-## <a name="network"></a>Network
-### <a name="switch"></a>Switch
-One available port on a switch for the development kit machine.  
+## <a name="network"></a>Ağ
+### <a name="switch"></a>Anahtar
+Kullanılabilir bir bağlantı noktasına Geliştirme Seti makine için bir anahtar.  
 
-The development kit machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+Geliştirme Seti makine anahtarı erişim bağlantı noktası veya santral bağlantı noktasına bağlanmayı destekler. Anahtar üzerinde özelleştirilmiş herhangi bir özellik gerekmez. Santral bağlantı noktası kullanıyorsanız veya VLAN kimliği yapılandırmanız gerekiyorsa dağıtım parametresi olarak VLAN kimliğini sağlamanız gerekir. Örneklere bakın [dağıtım parametrelerin listesi](azure-stack-run-powershell-script.md).
 
-### <a name="subnet"></a>Subnet
-Do not connect the development kit machine to the following subnets:
+### <a name="subnet"></a>Alt ağ
+Geliştirme Seti makine aşağıdaki alt ağlara bağlanma:
 
 * 192.168.200.0/24
 * 192.168.100.0/27
@@ -111,52 +110,52 @@ Do not connect the development kit machine to the following subnets:
 * 192.168.103.0/25
 * 192.168.104.0/25
 
-These subnets are reserved for the internal networks within the development kit environment.
+Bu alt Geliştirme Seti ortamında iç ağlar için ayrılmıştır.
 
 ### <a name="ipv4ipv6"></a>IPv4/IPv6
-Only IPv4 is supported. You cannot create IPv6 networks.
+Yalnızca IPv4 desteklenir. IPv6 ağı oluşturamazsınız.
 
 ### <a name="dhcp"></a>DHCP
-Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and gateway as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+Ağ üzerinde NIC'nin bağlanabileceği kullanılabilir bir DHCP sunucusunun olduğundan emin olun. Kullanılabilir bir DHCP sunucusu yoksa ana bilgisayar tarafından kullanılanın dışında ek bir statik IPv4 ağı hazırlamanız gerekir. Dağıtım parametresi olarak bu IP adresini ve ağ geçidini sağlamanız gerekir. Örneklere bakın [dağıtım parametrelerin listesi](azure-stack-run-powershell-script.md).
 
-### <a name="internet-access"></a>Internet access
-Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.microsoftonline.com domains.
+### <a name="internet-access"></a>İnternet erişimi
+Azure yığını, doğrudan ya da saydam bir proxy üzerinden Internet erişimi gerektirir. Azure yığın Internet erişimi etkinleştirmek için bir web proxy yapılandırmasını desteklemez. Hem ana bilgisayar IP hem de (DHCP veya statik IP) için MAS BGPNAT01 atanan yeni IP Internet erişimine sahip olmalıdır. 80 ve 443 numaralı bağlantı noktalarını altındaki graph.windows.net ve login.microsoftonline.com etki alanları kullanılır.
 
-## <a name="telemetry"></a>Telemetry
+## <a name="telemetry"></a>Telemetri
 
-Telemetry helps us shape future versions of Azure Stack. It lets us respond quickly to feedback, provide new features, and improve quality. Microsoft Azure Stack includes Windows Server 2016 and SQL Server 2014. Neither of these products are changed from default settings and both are described by the Microsoft Enterprise Privacy Statement. Azure Stack also contains open source software which has not been modified to send telemetry to Microsoft. Here are some examples of Azure Stack telemetry data:
+Telemetri Azure yığın gelecek sürümlerinde şekil yardımcı olur. Bize geri bildirim için hızlı yanıt, yeni özellikleri sağlar ve kalitesini artırmak sağlar. Microsoft Azure yığın Windows Server 2016 ve SQL Server 2014'ü içerir. Bu ürünler hiçbiri varsayılan ayarlardan değiştirilir ve her ikisi tarafından Microsoft Enterprise gizlilik bildirimi açıklanmıştır. Azure yığını telemetri Microsoft'a göndermeyi değiştirilmemiş açık kaynak yazılımının de içerir. Azure yığın telemetri verilerini bazı örnekleri şunlardır:
 
-- deployment registration information
-- when an alert is opened and closed
-- the number of network resources
+- Dağıtım kayıt bilgileri
+- bir uyarı zaman açık ve kapalı
+- ağ kaynaklarının sayısı
 
-To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
+Telemetri veri akışı desteklemek için bağlantı noktası 443 (HTTPS), ağınızdaki açık olması gerekir. İstemci uç noktası https://vortex-win.data.microsoft.com'dur.
 
-If you don’t want to provide telemetry for Azure Stack, you can turn it off on the development kit host and the infrastructure virtual machines as explained below.
+Azure yığını için telemetri sağlamak istemiyorsanız, Geliştirme Seti konağı ve aşağıda açıklandığı gibi altyapı sanal makineler üzerinde kapatabilirsiniz.
 
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Turn off telemetry on the development kit host (optional)
+### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Geliştirme Seti konak telemetriyi (isteğe bağlı) Kapat
 
 >[!NOTE]
-If you want to turn off telemetry for the development kit host, you must do so before you run the deployment script.
+Telemetriyi Geliştirme Seti konağını etkinleştirmek istiyorsanız, bunu, dağıtım komut dosyası çalıştırılmadan önce yapmalısınız.
 
-Before [running the asdk-installer.ps1 script]() to deploy the development kit host, boot into the CloudBuilder.vhdx and run the following script in an elevated PowerShell window:
+Önce [asdk installer.ps1 komut dosyası çalıştırarak]() Geliştirme Seti konak dağıtmak için önyükleme CloudBuilder.vhdx ve yükseltilmiş bir PowerShell penceresinde aşağıdaki betiği çalıştırın:
 ```powershell
 ### Get current AllowTelmetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name "AllowTelemetry" -Value '0'  
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ```
 
-Setting **AllowTelemetry** to 0 turns off telemetry for both Windows and Azure Stack deployment. Only critical security events from the operating system are sent. The setting controls Windows telemetry across all hosts and infrastructure VMs, and is reapplied to new nodes/VMs when scale-out operations occur.
+Ayarı **AllowTelemetry** telemetri 0 kapatır hem Windows hem de Azure yığın dağıtılmak için. Yalnızca kritik güvenlik olayları işletim sisteminden gönderilir. Ayar Windows telemetri tüm tüm konaklar ve altyapı VM'ler denetler ve ölçek genişletme işlemleri oluştuğunda yeni düğümler/VM'ler için yeniden.
 
 
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Turn off telemetry on the infrastructure virtual machines (optional)
+### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Telemetri altyapı sanal makinelerde (isteğe bağlı) Kapat
 
-After the deployment is successful, run the following script in an elevated PowerShell window (as the AzureStack\AzureStackAdmin user) on the development kit host:
+Dağıtım başarılı olduktan sonra aşağıdaki komut dosyasını (olarak AzureStack\AzureStackAdmin kullanıcı) yükseltilmiş bir PowerShell penceresinde Geliştirme Seti konakta çalıştırın:
 
 ```powershell
 $AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
@@ -170,18 +169,17 @@ invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
 "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
 ```
 
-To configure SQL Server telemetry, see [How to configure SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
+SQL Server telemetri yapılandırmak için bkz: [SQL Server 2016 yapılandırma](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
 
-### <a name="usage-reporting"></a>Usage reporting
+### <a name="usage-reporting"></a>Kullanım raporlaması
 
-Through registration, Azure Stack is also configured to forward usage information to Azure. Usage reporting is controlled independently from telemetry. You can turn off usage reporting when [registering](azure-stack-register.md) by using the script on Github. Just set the **$reportUsage** parameter to **$false**.
+Kayıt Azure yığın Azure iletme kullanım bilgilerini de yapılandırılır. Kullanım raporlama telemetrisinden bağımsız olarak denetlenir. Ne zaman raporlama kullanım bırakabilir [kaydetme](azure-stack-register.md) Github'da komut dosyası kullanarak. Ayarlamanız yeterlidir **$reportUsage** parametresi **$false**.
 
-Usage data is formatted as detailed in the [Report Azure Stack usage data to Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure Stack Development Kit users are not actually charged. This functionality is included in the development kit so that you can test to see how usage reporting works. 
+Kullanım verileri biçimlendirilmiş içinde ayrıntılı olarak [rapor Azure yığın kullanım verilerini Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure yığın Geliştirme Seti kullanıcılar gerçekte ücretlendirilen değil. Bu işlevsellik, böylece kullanım raporlama nasıl çalıştığını görmek için test Geliştirme Seti dahil edilir. 
 
 
-## <a name="next-steps"></a>Next steps
-[Download the Azure Stack development kit deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
+## <a name="next-steps"></a>Sonraki adımlar
+[Azure yığın Geliştirme Seti dağıtım paketini karşıdan yükle](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
-[Deploy Azure Stack development kit](azure-stack-run-powershell-script.md)
-
+[Azure yığın Geliştirme Seti dağıtma](azure-stack-run-powershell-script.md)
 

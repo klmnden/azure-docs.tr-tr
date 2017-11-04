@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: e8ac4bef5af7a98857278b82304bb58f1ac6e342
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 534bf37cc70420dc30fcd5c994ae7d9beb654072
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -376,7 +376,7 @@ Azure Cosmos DB, performansı ve gecikme süresi, üst sınır işlemi ile garan
 
 ### <a name="azure-storage-sdk-has-been-very-inexpensive-for-me-because-i-pay-only-to-store-the-data-and-i-rarely-query-the-new-azure-cosmos-db-offering-seems-to-be-charging-me-even-though-i-have-not-performed-a-single-transaction-or-stored-anything-can-you-please-explain"></a>I yalnızca depolamak veri ve nadiren sorgu ödeme olduğundan azure depolama SDK'sı benim için çok pahalı olmayan olmuştur. Yeni Azure Cosmos DB sunum ı değil tek bir işlem gerçekleştirilen veya hiçbir şey depolanan olsa bile bana şarj gibi görünüyor. Lütfen açıklayabilir?
 
-Azure Cosmos DB garanti kullanılabilirlik, gecikme ve verimlilik için Genel dağıtılmış, SLA tabanlı sistemiyle olacak şekilde tasarlanmıştır. Azure Cosmos veritabanı işleme ayırdığınızda, bu, diğer sistemler üretimini farklı olarak sağlanır. Azure Cosmos DB müşteriler, ikincil dizinler ve genel dağıtım gibi istediniz ek özellikler sağlar. Önizleme dönemi sırasında işleme için iyileştirilmiş bir model sağladığımız ve sonuç olarak, müşterilerimizin gereksinimlerini karşılamak için bir depolama iyileştirilmiş modeli sağlar planlıyoruz. 
+Azure Cosmos DB garanti kullanılabilirlik, gecikme ve verimlilik için Genel dağıtılmış, SLA tabanlı sistemiyle olacak şekilde tasarlanmıştır. Azure Cosmos veritabanı işleme ayırdığınızda, bu, diğer sistemler üretimini farklı olarak sağlanır. Azure Cosmos DB müşteriler, ikincil dizinler ve genel dağıtım gibi istediniz ek özellikler sağlar.  
 
 ### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-table-storage-with-the-table-api-preview-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Hiçbir zaman (bir bölüm dolu belirten) bir "Kota tam" bildirim alıyorum zaman ı alma veri tablo depolama alanına. Bu ileti tablo API ile (Önizleme) alıyorum. Bana sınırlandırma ve bana varolan Uygulamam değiştirmek için zorlama tanıyor mu?
 

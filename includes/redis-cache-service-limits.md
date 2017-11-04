@@ -1,14 +1,14 @@
-| Resource | Limit |
+| Kaynak | Sınır |
 | --- | --- |
-| Cache size |530 GB |
-| Databases |64 |
-| Max connected clients |40,000 |
-| Redis Cache replicas (for high availability) |1 |
-| Shards in a premium cache with clustering |10 |
+| Önbellek boyutu |530 GB |
+| Veritabanları |64 |
+| En büyük bağlı istemcilerini |40,000 |
+| Redis önbelleği çoğaltmaları (yüksek kullanılabilirlik) |1 |
+| Kümeleme ile bir premium önbellekte parça |10 |
 
-Azure Redis Cache limits and sizes are different for each pricing tier. To see the pricing tiers and their associated sizes, see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/).
+Azure Redis önbelleği sınırlar ve boyutları her fiyatlandırma katmanının için farklıdır. Fiyatlandırma katmanlarına ve bunların ilişkili boyutları görmek için bkz: [Azure Redis önbelleği fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/).
 
-For more information on Azure Redis Cache configuration limits, see [Default Redis server configuration](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
+Azure Redis önbelleği yapılandırması sınırları hakkında daha fazla bilgi için bkz: [varsayılan Redis sunucu yapılandırması](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
-Because configuration and management of Azure Redis Cache instances is done by Microsoft, not all Redis commands are supported in Azure Redis Cache. For more information, see [Redis commands not supported in Azure Redis Cache](../articles/redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
+Microsoft tarafından yapılandırma ve Azure Redis önbelleği örnekleri yönetimini yapılır olduğundan tüm Redis komutları Azure Redis Önbelleği'nde desteklenmektedir. Daha fazla bilgi için bkz: [Redis Azure Redis Önbelleği'nde desteklenmeyen komutlar](../articles/redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
 

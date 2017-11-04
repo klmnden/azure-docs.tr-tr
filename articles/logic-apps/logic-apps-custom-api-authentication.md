@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6ccd8728697040b4c783d8a1e51bc68c09ef7001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Özel Apı'lerinizi mantığı uygulamalardan güvenli çağrılar
 
@@ -49,7 +49,7 @@ Bu yöntem için genel adımlar şunlardır:
 
 #### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>1. Kısım: mantıksal uygulamanız için bir Azure AD uygulama kimliği oluşturma
 
-Mantıksal uygulamanızı Azure AD karşı kimlik doğrulaması için bu Azure AD uygulama kimliğini kullanır. Yalnızca bu kimliği dizininiz için bir kez ayarlamanız gerekir. Örneğin, her mantıksal uygulama için benzersiz kimlik Oluştur olsa bile, tüm mantıksal uygulamalar için aynı kimlik kullanmayı seçebilirsiniz. Azure portalında bu kimlikleri ayarlayabilirsiniz [Klasik Azure portalı](#app-identity-logic-classic), veya [PowerShell](#powershell).
+Mantıksal uygulamanızı Azure AD karşı kimlik doğrulaması için bu Azure AD uygulama kimliğini kullanır. Yalnızca bu kimliği dizininiz için bir kez ayarlamanız gerekir. Örneğin, her mantıksal uygulama için benzersiz kimlik Oluştur olsa bile, tüm mantıksal uygulamalar için aynı kimlik kullanmayı seçebilirsiniz. Azure portalında bu kimlikleri ayarlayın veya kullanmak [PowerShell](#powershell).
 
 **Azure portalda mantıksal uygulamanızı için uygulama kimliği oluşturma**
 
@@ -94,34 +94,6 @@ Mantıksal uygulamanızı Azure AD karşı kimlik doğrulaması için bu Azure A
 
    ![Kopyalayın ve anahtarı için daha sonra kaydedin](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
-<a name="app-identity-logic-classic"></a>
-
-**Azure Klasik Portalı'nda mantığı uygulamanız için uygulama kimliği oluşturma**
-
-1. Klasik Azure portalında seçin [ **Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2. Web uygulaması veya API uygulaması için kullandığınız aynı dizini seçin.
-
-3. Üzerinde **uygulamaları** sekmesinde, seçin **Ekle** sayfanın sonundaki.
-
-4. Uygulama kimliğinizi bir ad verin ve seçin **sonraki** (sağ ok).
-
-5. Altında **uygulama özellikleri**, benzersiz bir sağlamak için bir etki alanı olarak biçimlendirilmiş dize **oturum açma URL'si** ve **uygulama kimliği URI'si**ve seçin **tam** (onay işareti).
-
-6. Üzerinde **yapılandırma** sekmesinde, kopyalamak ve kaydetme **istemci kimliği** bölümü 3'te kullanmak mantığı uygulamanız için.
-
-7. Altında **anahtarları**, açık **seçin süresi** listesi. Anahtarınız için bir süre seçin.
-
-   Oluşturmakta olduğunuz anahtar uygulama kimliğin "gizli" veya parolasını mantıksal uygulamanızı olarak görev yapar.
-
-8. Sayfanın alt kısmındaki seçin **kaydetmek**. Birkaç saniye beklemeniz gerekebilir.
-
-9. Altında **anahtarları**kopyaladığınızdan emin olun ve anahtarı kaydetme artık görünür. 
-
-   Mantıksal uygulamanızı bölümü 3'te yapılandırdığınızda, bu anahtarı parola ya da "gizli" olarak belirtin.
-
-Daha fazla bilgi için bilgi nasıl [uygulama hizmeti uygulamanızı Azure Active Directory oturum açma kullanacak şekilde yapılandırma](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
-
 <a name="powershell"></a>
 
 **PowerShell'de mantığı uygulamanız için uygulama kimliği oluşturma**
@@ -156,7 +128,7 @@ Web uygulaması veya API uygulama zaten dağıtılmışsa, kimlik doğrulamasın
 
 4. Üzerinde **kimlik doğrulama / yetkilendirme** sayfasında, **kaydetmek**.
 
-Artık web uygulaması veya API uygulaması ile ilişkili olan uygulama kimliği için istemci kimliği ve Kiracı kimliği bulmanız gerekir. Bu kimlikleri bölümü 3'te kullanın. Bu nedenle Azure portalı için aşağıdaki adımları devam veya [Klasik Azure portalı](#find-id-classic).
+Artık web uygulaması veya API uygulaması ile ilişkili olan uygulama kimliği için istemci kimliği ve Kiracı kimliği bulmanız gerekir. Bu kimlikleri bölümü 3'te kullanın. Bu nedenle Azure portalı için aşağıdaki adımları devam edin.
 
 **Web uygulaması veya API uygulaması için uygulama kimliği'nin istemci kimliği ve Kiracı kimliği Azure portalında Bul**
 
@@ -177,32 +149,6 @@ Artık web uygulaması veya API uygulaması ile ilişkili olan uygulama kimliği
 
 5. Değişikliklerinizi kaydetmeden kapatın **Azure Active Directory ayarları** sayfası.
 
-<a name="find-id-classic"></a>
-
-**Uygulama Kimliği'nin istemci kimliği ve Kiracı kimliği web uygulamanızı veya API uygulaması için Azure Klasik Portalı'nda bulunamıyor**
-
-1. Klasik Azure portalında seçin [ **Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2.  Web uygulaması veya API uygulaması için kullandığınız dizini seçin.
-
-3. İçinde **arama** kutusunda bulmak ve web uygulaması veya API uygulaması için uygulama kimliği seçin.
-
-4. Üzerinde **yapılandırma** sekmesinde, kopya **istemci kimliği**ve bölüm 3'te kullanmak için bu GUID'i kaydedin.
-
-5. İstemci kimliği alt kısmındaki aldıktan sonra **yapılandırma** sekmesinde, seçin **uç noktaları görüntülemek**.
-
-6. URL'sini kopyalayın **Federasyon meta veri belgesi**ve bu URL'sine gidin.
-
-7. Kök açar meta veri belgesi bulabilir **EntityDescriptor kimliği** var öğesi bir **Entityıd** özniteliği bu formda:`https://sts.windows.net/{GUID}` 
-
-   Bu öznitelik belirli kiracının GUID (Kiracı kimliği) olarak GUID'dir.
-
-8. Kiracı kimliği kopyalayın ve gerekirse kullanmak için bu kimliği bölümü 3'te ve web uygulamanızı veya API uygulamasının dağıtım şablonu kullanmak üzere kaydedin.
-
-Daha fazla bilgi için şu konulara bakın:
-
-* [Kimlik doğrulama ve yetkilendirme Azure uygulama hizmeti](../app-service/app-service-authentication-overview.md)
-
 <a name="authen-deploy"></a>
 
 **Bir Azure Resource Manager şablonu ile dağıtırken kimlik doğrulamasını etkinleştirmek**
@@ -212,7 +158,7 @@ Hala mantığı uygulamanız için uygulama kimliği web uygulaması veya farkl�
 Ayrıca, 1. Bölüm adımları ancak web uygulamanızı veya API uygulamasının gerçek kullandığınızdan emin olun `https://{URL}` için **oturum açma URL'si** ve **uygulama kimliği URI'si**. Bu adımları, istemci kimliği ve Kiracı kimliği, uygulamanızın dağıtım şablonu kullanmak için ve ayrıca bölümü 3 kaydetmek gerekir.
 
 > [!NOTE]
-> Web uygulaması veya API uygulaması için Azure AD uygulama kimliği oluşturduğunuzda, Azure portalında veya Klasik Azure portalı yerine PowerShell kullanmanız gerekir. PowerShell komutunu kullanıcılar bir Web sitesine oturum için gerekli izinleri ayarlayın değil.
+> Web uygulaması veya API uygulaması için Azure AD uygulama kimliği oluşturduğunuzda, Azure portalı, değil PowerShell kullanmanız gerekir. PowerShell komutunu kullanıcılar bir Web sitesine oturum için gerekli izinleri ayarlayın değil.
 
 İstemci kimliği ve Kiracı kimliği aldıktan sonra bu kimlikleri subresource web uygulaması veya API uygulaması için dağıtım şablonunda olarak şunları içerir:
 

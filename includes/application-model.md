@@ -1,44 +1,44 @@
-# <a name="compute"></a>Compute
-Azure enables you to deploy and monitor your application code running inside a Microsoft data center. When you create an application and run it on Azure, the code and configuration together is called an Azure hosted service. Hosted services are easy to manage, scale up and down, reconfigure, and update with new versions of your application's code. This article focuses on the Azure hosted service application model.<a id="compare" name="compare"></a>
+# <a name="compute"></a>İşlem
+Azure, dağıtmanıza ve bir Microsoft Veri Merkezi içinde çalışan uygulama kodunuz izlemenize olanak sağlar. Bir uygulama oluşturduğunuzda ve Azure üzerinde çalıştırmak, kod ve yapılandırma birlikte adlı bir Azure hizmeti barındırılan. Barındırılan hizmetler, yönetme, yukarı ve aşağı doğru ölçeklendirme, yeniden yapılandırın ve uygulamanızın kodu yeni sürümlerle güncelleştirmek kolaydır. Bu makalede Azure üzerinde barındırılan odaklanır hizmet uygulaması modeli.<a id="compare" name="compare"></a>
 
-## Table of Contents<a id="_GoBack" name="_GoBack"></a>
-* [Azure Application Model Benefits][Azure Application Model Benefits]
-* [Hosted Service Core Concepts][Hosted Service Core Concepts]
-* [Hosted Service Design Considerations][Hosted Service Design Considerations]
-* [Designing your Application for Scale][Designing your Application for Scale]
-* [Hosted Service Definition and Configuration][Hosted Service Definition and Configuration]
-* [The Service Definition File][The Service Definition File]
-* [The Service Configuration File][The Service Configuration File]
-* [Creating and Deploying a Hosted Service][Creating and Deploying a Hosted Service]
-* [References][References]
+## İçindekiler tablosu<a id="_GoBack" name="_GoBack"></a>
+* [Azure uygulama modeli avantajları][Azure Application Model Benefits]
+* [Barındırılan hizmet temel kavramlar][Hosted Service Core Concepts]
+* [Barındırılan hizmet tasarım konuları][Hosted Service Design Considerations]
+* [Ölçek için uygulamanızı tasarlama][Designing your Application for Scale]
+* [Barındırılan Hizmet tanım ve yapılandırma][Hosted Service Definition and Configuration]
+* [Hizmet tanımı dosyası][The Service Definition File]
+* [Hizmet yapılandırma dosyası][The Service Configuration File]
+* [Oluşturma ve bir barındırılan hizmet dağıtma][Creating and Deploying a Hosted Service]
+* [Başvuruları][References]
 
-## <a id="benefits"> </a>Azure Application Model Benefits
-When you deploy your application as a hosted service, Azure creates one or more virtual machines (VMs) that contain your application's code, and boots the VMs on physical machines residing in one of the Azure data centers. As client requests to your hosted application enter the data center, a load balancer distributes these requests equally to the VMs. While your application is hosted in Azure, it gets three key benefits:
+## <a id="benefits"></a>Azure uygulama modeli avantajları
+Uygulamanızı bir barındırılan hizmet olarak dağıttığınızda, Azure bir veya daha fazla uygulama kodu içeren makineleri (VM'ler) oluşturur ve sanal makineleri bir Azure veri merkezlerinde bulunan fiziksel makinelerde önyüklenir. İstemci isteklerini barındırılan uygulamanız için veri merkezi girerken, bir yük dengeleyici bu istekleri VM'ler için eşit olarak dağıtır. Uygulamanızı Azure'da barındırılan olsa da, üç avantajları alır:
 
-* **High availability.** High availability means Azure ensures that your application is running as much as possible and is able to respond to client requests. If your application terminates (due to an unhandled exception, for example), then Azure will detect this, and it will automatically re-start your application. If the machine your application is running on experiences some kind of hardware failure, then Azure will also detect this and automatically create a new VM on another working physical machine and run your code from there. NOTE: In order for your application to get Microsoft's Service Level Agreement of 99.95% available, you must have at least two VMs running your application code. This allows one VM to process client requests while Azure moves your code from a failed VM to a new, good VM.
-* **Scalability.** Azure lets you easily and dynamically change the number of VMs running your application code to handle the actual load being placed on your application. This allows you to adjust your application to the workload that your customers are placing on it while paying only for the VMs you need when you need them. When you want to change the number of VMs, Azure responds within minutes making it possible to dynamically change the number of VMs running as often as desired.
-* **Manageability.** Because Azure is a Platform as a Service (PaaS) offering, it manages the infrastructure (the hardware itself, electricity, and networking) required to keep these machines running. Azure also manages the platform, ensuring an up-to-date operating system with all the correct patches and security updates, as well as component updates such as the .NET Framework and Internet Information Server. Because all the VMs are running Windows Server 2008, Azure provides additional features such as diagnostic monitoring, remote desktop support, firewalls, and certificate store configuration. All these features are provided at no extra cost. In fact, when you run your application in Azure, the Windows Server 2008 operating system (OS) license is included. Since all of the VMs are running Windows Server 2008, any code that runs on Windows Server 2008 works just fine when running in Azure.
+* **Yüksek kullanılabilirlik.** Yüksek kullanılabilirlik Azure uygulamanızı mümkün olduğunca çalıştıran istemci isteklerine yanıt verip olmasını sağlar ve anlamına gelir. (İşlenmeyen bir özel durum nedeniyle, örneğin), uygulamanızın sonlandırır sonra Azure bunu algılar ve otomatik olarak ayarlanır, uygulamanızı yeniden başlatın. Makine uygulamanızı donanım arızası çeşit deneyimleri üzerinde çalışıyorsa, ardından Azure de bu algılamak ve otomatik olarak yeni bir VM başka bir çalışma fiziksel makine oluşturur ve buradan kodunuzu çalıştırmak. Not: Microsoft'un hizmet düzeyi sözleşmesi kullanılabilir 99,95 oranında almak, uygulamanız için sırada uygulama kodu çalıştıran en az iki VM olması gerekir. Bu, Azure, kodunuzu yeni, iyi bir VM için başarısız bir VM'den taşırken istemci isteklerini işlemek bir VM sağlar.
+* **Ölçeklenebilirlik.** Azure kolayca sağlar ve uygulamanızda yerleştirilen gerçek yükü işlemek üzere uygulama kodunuz çalışan VM sayısı dinamik olarak değiştirin. Bu, müşterilerinizin üzerinde gereksinim duyduğunuzda ihtiyacınız VM'ler için ödeme sırasında yerleştirdiğinizi iş yükü uygulamanıza ayarlamanıza olanak sağlar. VM sayısını değiştirmek istediğinizde, Azure dinamik olarak değiştirmek istediğiniz gibi sık olarak çalışan VM sayısı edinerek dakika içinde yanıt verir.
+* **Yönetilebilirlik.** Azure platformu bir hizmet olarak platform'dur (PaaS) olduğundan, bu makineleri çalışır durumda tutmak için gerekli altyapının (donanım kendisi, elektrik ve ağ) yönetir. Azure, ayrıca tüm doğru düzeltme ekleri ve güvenlik güncelleştirmeleri, hem de .NET Framework ve Internet Information Server gibi bileşen güncelleştirmeleri ile güncel bir işletim sistemi sağlama platform yönetir. Windows Server 2008 çalıştıran tüm sanal makineleri olduğundan Azure Tanılama izleme, Uzak Masaüstü desteği, güvenlik duvarları ve sertifika deposu yapılandırma gibi ek özellikler sağlar. Bu özelliklerin tümü olarak sağlanan ekstra maliyet. Aslında, Azure'da uygulamanızı çalıştırdığınızda, Windows Server 2008 işletim sistemi (OS) lisans dahil edilir. Windows Server 2008 çalıştıran tüm sanal makineleri olduğundan, Windows Server 2008 üzerinde çalışan herhangi bir kod Azure içinde çalışırken düzgün çalışır.
 
-## <a id="concepts"> </a>Hosted Service Core Concepts
-When your application is deployed as a hosted service in Azure, it runs as one or more *roles.* A *role* simply refers to application files and configuration. You can define one or more roles for your application, each with its own set of application files and configuration. For each role in your application, you can specify the number of VMs, or *role instances*, to run. The figure below show two simple examples of an application modeled as a hosted service using roles and role instances.
+## <a id="concepts"></a>Barındırılan hizmeti temel kavramlar
+Uygulamanızı azure'da barındırılan bir hizmet olarak dağıtıldığında, bir veya daha fazla olarak çalıştırdığı *rolleri.* A *rol* yalnızca uygulama dosyalarını ve yapılandırmasını gösterir. Uygulamanız için her uygulama dosyaları ve yapılandırması, kendi kümesiyle bir veya daha fazla rolü tanımlayabilirsiniz. Uygulamanızdaki her rol için VM sayısını belirtebilirsiniz veya *rol örnekleri*, çalıştırmak için. Aşağıdaki şekilde rolleri ve rol örnekleri kullanan bir barındırılan hizmet olarak Modellenen uygulamanın iki basit örnekleri göster.
 
-##### <a name="figure-1-a-single-role-with-three-instances-vms-running-in-an-azure-data-center"></a>Figure 1: A single role with three instances (VMs) running in an Azure data center
-![image][0]
+##### <a name="figure-1-a-single-role-with-three-instances-vms-running-in-an-azure-data-center"></a>Şekil 1: Tek bir rol çalıştıran bir Azure veri merkezinde üç örnekleri (VM'ler) ile
+![Görüntü][0]
 
-##### <a name="figure-2-two-roles-each-with-two-instances-vms-running-in-an-azure-data-center"></a>Figure 2: Two roles, each with two instances (VMs), running in an Azure data center
-![image][1]
+##### <a name="figure-2-two-roles-each-with-two-instances-vms-running-in-an-azure-data-center"></a>Şekil 2: İki roller, bir Azure veri merkezinde çalışan her iki örnekli (VM'ler)
+![Görüntü][1]
 
-Role instances typically process Internet client requests entering the data center through what is called an *input endpoint*. A single role can have 0 or more input endpoints. Each endpoint indicates a protocol (HTTP, HTTPS, or TCP) and a port. It is common to configure a role to have two input endpoints: HTTP listening on port 80 and HTTPS listening on port 443. The figure below shows an example of two different roles with different input endpoints directing client requests to them.
+Rol örnekleri genellikle ne adlı aracılığıyla veri merkezi girme Internet istemcisi isteklerini işleme bir *giriş uç noktası*. Tek bir rol, 0 veya daha fazla giriş uç noktaları olabilir. Her uç nokta bir protokol (HTTP, HTTPS veya TCP) ve bir bağlantı noktasını belirtir. İki giriş uç noktaları için bir rolünü yapılandırmak için ortaktır: HTTP bağlantı noktası 80 ve 443 numaralı bağlantı noktasını dinlemeye HTTPS dinleme. Aşağıdaki şekilde, bunları istemci isteklerine yönlendiren farklı giriş uç noktaları ile iki farklı rol örneği gösterilmektedir.
 
-![image][2]
+![Görüntü][2]
 
-When you create a hosted service in Azure, it is assigned a publicly addressable IP address that clients can use to access it. Upon creating the hosted service you must also select a URL prefix that is mapped to that IP address. This prefix must be unique as you are essentially reserving the *prefix*.cloudapp.net URL so that no one else can have it. Clients communicate with your role instances by using the URL. Usually, you will not distribute or publish the Azure *prefix*.cloudapp.net URL. Instead, you will purchase a DNS name from your DNS registrar of choice and configure your DNS name to redirect client requests to the Azure URL. For more details, see [Configuring a Custom Domain Name in Azure][Configuring a Custom Domain Name in Azure].
+Azure üzerinde barındırılan bir hizmet oluşturduğunuzda, istemcilerin erişmek için kullandığı genel olarak adreslenebilir bir IP adresi atanır. Barındırılan hizmet oluşturma sırasında bu IP adresine eşlenmiş bir URL öneki de seçmeniz gerekir. Temelde ayırma gibi bu öneki benzersiz olmalıdır *önek*. başka bir bulunabilir şekilde cloudapp.net URL. İstemciler, URL'yi kullanarak rolü örneklerinizi ile iletişim kurar. Genellikle, değil dağıtmak veya kaldıracak Azure yayımlama *önek*. cloudapp.net URL. Bunun yerine, bir DNS adı seçim, DNS kayıt şirketinden satın alma ve Azure URL'sine istemci isteklerini yeniden yönlendirmek için DNS adını yapılandırın. Daha fazla ayrıntı için bkz: [Azure'da bir özel etki alanı adı yapılandırma][Configuring a Custom Domain Name in Azure].
 
-## <a id="considerations"> </a>Hosted Service Design Considerations
-When designing an application to run in a cloud environment, there are several considerations to think about such as latency, high-availability, and scalability.
+## <a id="considerations"></a>Barındırılan hizmet tasarım konuları
+Bulut ortamında çalıştırmak için bir uygulama tasarlarken, gecikme, yüksek kullanılabilirlik ve ölçeklenebilirlik gibi dikkat etmeniz gereken bazı noktalar vardır.
 
-Deciding where to locate your application code is an important consideration when running a hosted service in Azure. It is common to deploy your application to data centers that are closest to your clients to reduce latency and get the best performance possible.
-However, you might choose a data center closer to your company or closer to your data if you have some jurisdictional or legal concerns about your data and where it resides. There are six data centers around the globe capable of hosting your application code. The table below shows the available locations:
+Uygulama kodunuz bulunacağı yere karar verme önemli bir barındırılan hizmet Azure'da çalışırken konudur. Gecikme süresini azaltmak ve olası en iyi performansı elde için müşterilerinize en yakın olan veri merkezlerinde uygulamanızı dağıtmak için yaygın bir durumdur.
+Ancak, bazı verileriniz hakkında yasal veya yasal sorunları ve şu bulunduğu varsa, şirketinizin yakın veya verilerinize daha yakın bir veri merkezi seçebilirsiniz. Uygulama kodunuz barındırma özellikli dünya altı veri merkezleri vardır. Aşağıdaki tabloda kullanılabilir konumlarını gösterilmektedir:
 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
 
@@ -47,12 +47,12 @@ However, you might choose a data center closer to your company or closer to your
 <tr>
 
 <td style="width: 100px;">
-**Country/Region**
+**Ülke/bölge**
 
 </td>
 
 <td style="width: 200px;">
-**Sub-regions**
+**Alt bölgeleri**
 
 </td>
 </tr>
@@ -60,25 +60,12 @@ However, you might choose a data center closer to your company or closer to your
 <tr>
 
 <td>
-United States
+Amerika Birleşik Devletleri
 
 </td>
 
 <td>
-South Central & North Central
-
-</td>
-</tr>
-
-<tr>
-
-<td>
-Europe
-
-</td>
-
-<td>
-North & West
+Güney Orta & Kuzey Orta
 
 </td>
 </tr>
@@ -86,50 +73,63 @@ North & West
 <tr>
 
 <td>
-Asia
+Avrupa
 
 </td>
 
 <td>
-Southeast & East
+Kuzey ve Batı
+
+</td>
+</tr>
+
+<tr>
+
+<td>
+Asya
+
+</td>
+
+<td>
+Güneydoğu & Doğu
 
 </td>
 </tr>
 </tbody>
 </table>
-When creating a hosted service, you select a sub-region indicating the location in which you want your code to execute.
+Barındırılan hizmet oluştururken, kodunuzu çalıştırmak istediğiniz konumu belirten bir alt bölge seçin.
 
-To achieve high availability and scalability, it is critically important that your application's data be kept in a central repository accessible to multiple role instances. To help with this, Azure offers several storage options such as blobs, tables, and SQL Database. Please see the [Data Storage Offerings in Azure][Data Storage Offerings in Azure] article for more information about these storage technologies. The figure below shows how the load balancer inside the Azure data center distributes client requests to different role instances all of which have access to the same data storage.
+Yüksek kullanılabilirlik ve ölçeklenebilirlik elde etmek için uygulamanızın veri merkezi bir depoya birden çok rol örneklerine erişilebilir tutulması oldukça önemlidir. Bu konuda yardımcı olmak için Azure BLOB'ları, tabloları ve SQL veritabanı gibi çeşitli depolama seçenekleri sunar. Lütfen bakın [azure'da veri depolama teklifleri] [ Data Storage Offerings in Azure] bu depolama teknolojileri hakkında daha fazla bilgi için makalenin. Aşağıdaki şekilde, Azure veri merkezi içinde yük dengeleyici istemci isteklerini tümü aynı veri depolama erişimi farklı rol örneklerine nasıl dağıtır gösterilmektedir.
 
-![image][3]
+![Görüntü][3]
 
-Usually, you want to locate your application code and your data in the same data center as this allows for low latency (better performance) when your application code accesses the data. In addition, you are not charged for bandwidth when data is moved around within the same data center.
+Genellikle, bu düşük gecikme süresi (daha iyi performans) için izin verdiği ölçüde uygulama kodunuz ve verileriniz aynı veri merkezinde bulmak istediğiniz uygulama kodunuz, verileri eriştiği. Veri içinde aynı veri merkezinde taşındığında Ayrıca, bant genişliği için sizden ücret istenmese.
 
-## <a id="scale"> </a>Designing your Application for Scale
-Sometimes, you may want to take a single application (like a simple web site) and have it hosted in Azure. But frequently, your application may consist of several roles that all work together. For example, in the figure below, there are two instances of the Website role, three instances of the Order Processing role, and one instance of the Report Generator role. These roles are all working together and the code for all of them can be packaged together and deployed as a single unit up to Azure.
+## <a id="scale"></a>Ölçek için uygulamanızı tasarlama
+Bazı durumlarda, tek bir uygulama (gibi basit bir web sitesi) alır ve Azure üzerinde barındırılan sağlamak isteyebilirsiniz. Ancak tüm birlikte çalıştığını uygulamanızı birkaç rolleri sık oluşabilir. Örneğin, aşağıdaki şekilde vardır iki Web Sitesi Rol örnekleri, sipariş işleme rol üç örneklerini ve Rapor Oluşturucu rol bir örneği. Bu rolleri tüm birlikte çalışıyorsanız ve bunların tümünün kodunu bir arada paketlenmiş ve Azure kadar tek bir birim olarak dağıtılabilir.
 
-![image][4]
+![Görüntü][4]
 
-The main reason to split an application into different roles each running on its own set of role instances (that is, VMs) is to scale the roles independently. For example, during the holiday season, many customers may be purchasing products from your company, so you might want to increase the number of role instances running your Website role as well as the number of role instances running your Order Processing role. After the holiday season, you may get a lot of products returned, so you may still need a lot of Website instances but fewer Order Processing instances. During the rest of the year, you may only need a few Website and Order Processing instances. Throughout all of this, you may need only one Report Generator instance. The flexibility of role-based deployments in Azure enables you to easily adapt your application to your business needs.
+Her rol örnekleri (VM'ler) kendi kümesi üzerinde çalışan bir uygulamaya farklı roller bölmek için ana nedeni, rollerden bağımsız olarak ölçeklendirebilirsiniz olmasıdır. Sipariş işleme rolünü çalıştıran rol örneği sayısı yanı sıra, Web sitesi rolü çalıştıran rol örneklerinin sayısını artırmak isteyebilirsiniz örneğin, tatil sezonu sırasında birçok müşteri ürünler, şirketten satın. Tatilde sonra Web sitesi örnekleri ancak daha az sipariş işleme örnek çok hala gerekebilir şekilde döndürdü, ürünlerin çok elde edebilirsiniz. Yılın rest sırasında birkaç Web sitesi ve sipariş işleme örnekleri yalnızca gerekebilir. Tüm bu yalnızca bir rapor oluşturucu örneği gerekebilir. Azure rol tabanlı dağıtımlarda esnekliğini iş gereksinimlerinizi uygulamanıza kolayca uyum sağlar.
 
-It's common to have the role instances within your hosted service communicate with each other. For example, the website role accepts a customer's order but then it offloads the order processing to the Order Processing role instances. The best way to pass work form one set of role instances to another set of instances is using the queuing technology provided by Azure, either the Queue Service or Service Bus Queues. The use of a queue is a critical part of the story here. The queue allows the hosted service to scale its roles independently allowing you to balance the workload against cost. If the number of messages in the queue increases over time, then you can scale up the number of Order Processing role instances. If the number of messages in the queue decreases over time, then you can scale down the number of Order Processing role instances. This way, you are only paying for the instances required to handle the actual workload.
+Barındırılan hizmet içindeki örnekleri birbirleriyle iletişim rolüne sahip yaygındır. Örneğin, bir müşterinin siparişi Web sitesi rolü kabul ancak sipariş işleme rol örneklerine işlem sırası boşaltır. Başka bir örnek kümesini rol örneklerine bir dizi Azure tarafından sağlanan queuing teknolojisi kullanarak iş formunu geçirmek için en iyi yolu sıra hizmet veya hizmet veri yolu kuyrukları. Bir kuyruk kullanımını buraya yazıdaki kritik bir parçasıdır. Sıranın bağımsız olarak Maliyet karşı iş yükünü dengelemek sağlayarak rollerini ölçeklendirmek barındırılan hizmet sağlar. Sonra sıradaki iletilerin sayısını zaman içinde yükseliyorsa, sipariş işleme rol örneklerinin sayısını ölçeklendirebilirsiniz. Zaman içinde sırasındaki ileti sayısını azaltır, sipariş işleme rol örneklerinin sayısını ölçekleme yapabilirsiniz. Bu şekilde, gerçek iş yükünü işlemek için gerekli örnekleri için yalnızca ödeme yapıyorsanız.
 
-The queue also provides reliability. When scaling down the number of Order Processing role instances, Azure decides which instances to terminate. It may decide to terminate an instance that is in the middle of processing a queue message. However, because the message processing does not complete successfully, the message becomes visible again to another Order Processing role instance that picks it up and processes it. Because of queue message visibility, messages are guaranteed to eventually get processed. The queue also acts as a load balancer by effectively distributing its messages to any and all role instances that request messages from it.
+Sıranın güvenilirlik de sağlar. Sipariş işleme rol örneklerinin sayısını ölçekleme sırasında Azure sonlandırmak için hangi örnekleri karar verir. Bir kuyruk iletisi işleme ortasında olan bir örneği sonlandırmaya karar verebilirsiniz. Ancak, ileti işleme başarıyla tamamlanmazsa olduğundan ileti, alır ve işler yeniden başka bir sipariş işleme rol örneği için görünür hale gelir. Kuyruk iletisi görünürlük nedeniyle iletileri garanti sonunda işlenir. Sıranın de iletileri iletileri istekte tüm rol örnekleri için etkili bir şekilde dağıtarak yük dengeleyici olarak işlev görür.
 
-For the Website role instances, you can monitor the traffic coming into them and decide to scale the number of them up or down as well. The queue allows you to scale the number of Website role instances independently of the Order Processing role instances. This is very powerful and gives you a lot of flexibility. Of course, if your application consists of additional roles, you could add additional queues as the conduit to communicate between them in order to leverage the same scaling and cost benefits.
+Web Sitesi Rol örnekleri için bunlara gelen trafik izleyebilir ve bunları sayısını ölçeklendirmek karar yukarı veya aşağı de. Sıra, sipariş işleme rol örnekleri bağımsız olarak Web Sitesi Rol örnekleri sayısını ölçeklendirmek sağlar. Bu çok güçlü ve bir büyük esneklik sağlar. Elbette, uygulamanızın ek roller oluşuyorsa, avantajları maliyet ve aynı ölçeklendirme yararlanın için aralarında iletişim kurmak için conduit olarak ek sıraları ekleyebilirsiniz.
 
-## <a id="defandcfg"> </a>Hosted Service Definition and Configuration
-Deploying a hosted service to Azure requires you to also have a service definition file and a service configuration file. Both of these files are XML files, and they allow you to declaratively specify deployment options for your hosted service. The service definition file describes all of the roles that make up your hosted service and how they communicate. The service configuration file describes the number of instances for each role and settings used to configure each role instance.
+## <a id="defandcfg"></a>Barındırılan hizmet tanımı ve yapılandırma
+Azure için barındırılan hizmet dağıtma Hizmet tanım dosyası ve bir hizmet yapılandırma dosyası da olmasını gerektirir. Bu dosyaların her ikisini de XML dosyalarıdır ve bildirimli olarak barındırılan hizmet için dağıtım seçeneklerini belirtmenizi sağlar. Hizmet tanımı dosyası barındırılan hizmet ve bunların nasıl iletişim kuracağını oluşturan rollerinin tümünü açıklar. Hizmet yapılandırma dosyası, her bir rolü ve her rol örneği yapılandırmak için kullanılan ayarları için örnek sayısını tanımlar.
 
-## <a id="def"> </a>The Service Definition File
-As I mentioned earlier, the service definition (CSDEF) file is an XML file that describes the various roles that make up your complete application. The complete schema for the XML file can be found here: [http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][].
-The CSDEF file contains a WebRole or WorkerRole element for each role that you want in your application. Deploying a role as a web role (using the WebRole element) means that the code will run on a role instance containing Windows Server 2008 and Internet Information Server (IIS).
-Deploying a role as a worker role (using the WorkerRole element) means that the role instance will have Windows Server 2008 on it (IIS will not be installed).
+## <a id="def"></a>Hizmet tanımı dosyası
+Daha önce hizmet tanımı (CSDEF) belirtildiği gibi dosyası tam uygulamayı oluşturan çeşitli rolleri tanımlayan bir XML dosyasıdır. XML dosyası için tam şeması şurada bulunabilir: [http://msdn.microsoft.com/library/windowsazure/ee758711.aspx] ['].
+CSDEF dosya uygulamanızda istediğiniz her rol için WebRole veya örn bir öğe içeriyor. Bir rolü (WebRole öğesi kullanarak) bir web rolü olarak dağıtma kod Windows Server 2008 ve Internet Information Server (IIS) içeren bir rol örneği üzerinde çalışacağı anlamına gelir.
+Bir rol (örn öğesi kullanarak) bir çalışan rolü rol örneği Windows Server 2008 üzerinde olacağı anlamına gelir olarak dağıtma (IIS yüklenmez).
 
-You can certainly create and deploy a worker role that uses some other mechanism to listen for incoming web requests (for example, your code could create and use a .NET HttpListener). Since the role instances are all running Windows Server 2008, your code can perform any operations that are normally available to an application running on Windows Server
+Kesinlikle oluşturma ve gelen web isteklerini dinlemek için başka bir mekanizma kullanan çalışan rolü dağıtma (örneğin, kodunuzu oluşturma ve .NET HttpListener kullanın). Rol örnekleri tüm Windows Server 2008 çalıştıran olduğundan, normal Windows sunucusu üzerinde çalışan bir uygulama tarafından kullanılabilir herhangi bir işlem kodunuzu gerçekleştirebilirsiniz
 2008.
 
-For each role, you indicate the desired VM size that instances of that role should use. The table below shows the various VM sizes available today and the attributes of each:
+Her rol için bu rolün örneğini kullanması gereken istenen VM boyutu belirtin. Aşağıdaki tabloda, günümüzün çeşitli VM boyutları ve her özniteliklerini gösterilmektedir:
 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
 
@@ -138,7 +138,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 <tr align="left" valign="top">
 
 <td>
-**VM Size**
+**VM boyutu**
 
 </td>
 
@@ -158,7 +158,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 </td>
 
 <td>
-**Peak Network I/O**
+**En yüksek ağ g/ç**
 
 </td>
 </tr>
@@ -166,7 +166,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 <tr align="left" valign="top">
 
 <td>
-**Extra Small**
+**Ek çok küçük**
 
 </td>
 
@@ -186,7 +186,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 </td>
 
 <td>
-\~5 Mbps
+\~5 MB/sn
 
 </td>
 </tr>
@@ -194,7 +194,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 <tr align="left" valign="top">
 
 <td>
-**Small**
+**Küçük**
 
 </td>
 
@@ -204,7 +204,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 </td>
 
 <td>
-1.75 GB
+1,75 GB
 
 </td>
 
@@ -214,7 +214,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 </td>
 
 <td>
-\~100 Mbps
+\~100 MB/sn
 
 </td>
 </tr>
@@ -222,7 +222,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 <tr align="left" valign="top">
 
 <td>
-**Medium**
+**Orta**
 
 </td>
 
@@ -232,7 +232,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 </td>
 
 <td>
-3.5 GB
+3,5 GB
 
 </td>
 
@@ -242,7 +242,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 </td>
 
 <td>
-\~200 Mbps
+\~200 MB/sn
 
 </td>
 </tr>
@@ -250,7 +250,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 <tr align="left" valign="top">
 
 <td>
-**Large**
+**Büyük**
 
 </td>
 
@@ -270,7 +270,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 </td>
 
 <td>
-\~400 Mbps
+\~400 MB/sn
 
 </td>
 </tr>
@@ -278,7 +278,7 @@ For each role, you indicate the desired VM size that instances of that role shou
 <tr align="left" valign="top">
 
 <td>
-**Extra Large**
+**Çok büyük**
 
 </td>
 
@@ -298,50 +298,50 @@ For each role, you indicate the desired VM size that instances of that role shou
 </td>
 
 <td>
-\~800 Mbps
+\~800 MB/sn
 
 </td>
 </tr>
 </tbody>
 </table>
-You are charged hourly for each VM you use as a role instance and you are also charged for any data that your role instances send outside the data center. You are not charged for data entering the data center. For more information, see [Azure Pricing][Azure Pricing]. In general, it is advisable to use many small role instances as opposed to a few large instances so that your application is more resilient to failure. After all, the fewer role instances you have, the more disastrous a failure in one of them is to your overall application. Also, as mentioned before, you must deploy at least two instances for each role in order to get the 99.95% service level agreement Microsoft provides.
+Saatlik bir rol örneği olarak kullanın ve rolü örneklerinizi veri merkezi dışında göndermek için herhangi bir veri ücretlendirilen her VM için ücretlendirilirsiniz. Veri Merkezi girme veri için ücret değil. [Azure fiyatlandırması] [Azure fiyatlandırması] daha fazla bilgi için bkz. Genel olarak, uygulamanızın arızalarına karşı daha esnek olmasını sağlamak birkaç büyük örnekleri aksine çok sayıda küçük rol örnekleri kullanmanız önerilir. Tüm daha az sayıda rol örneği olması, fazla felaket niteliğinde bir tanesine hatası bir genel uygulamanıza. Ayrıca, önceden belirtildiği gibi Microsoft sağlar %99,95 hizmet düzeyi sözleşmesi alabilmek için her rolün en az iki örnek dağıtmalısınız.
 
-The service definition (CSDEF) file is also where you would specify many attributes about each role in your application. Here are some of the more useful items available to you:
+Hizmet tanımı (CSDEF) de burada uygulamanızda birçok öznitelikler her rol hakkında belirtirsiniz dosyasıdır. Burada daha kullanışlı öğelerin bazıları için kullanılabilir:
 
-* **Certificates**. You use certificates for encrypting data or if your web service supports SSL. Any certificates need to be uploaded to Azure. For more information, see [Managing Certificates in Azure][Managing Certificates in Azure]. This XML setting installs previously-uploaded certificates into the role instance's certificate store so that they are usable by your application code.
-* **Configuration Setting Names**. For values that you want your application(s) to read while running on a role instance. The actual value of the configuration settings is set in the service configuration (CSCFG) file which can be updated at any time without requiring you to redeploy your code. In fact, you can code your applications in such a way to detect the changed configuration values without incurring any downtime.
-* **Input Endpoints**. Here you specify any HTTP, HTTPS, or TCP endpoints (with ports) that you want to expose to the outside world via your *prefix*.cloadapp.net URL. When Azure deploys your role, it will configure the firewall on the role instance automatically.
-* **Internal Endpoints**. Here you specify any HTTP or TCP endpoints that you want exposed to other role instances that are deployed as part of your application. Internal endpoints allow all the role instances within your application to talk to each other but are not accessible to any role instances that are outside your application.
-* **Import Modules**. These optionally install useful components on your role instances. Components exist for diagnostic monitoring, remote desktop, and Azure Connect (which allows your role instance to access on-premises resources through a secure channel).
-* **Local Storage**. This allocates a subdirectory on the role instance for your application to use. It is described in more detail in the [Data Storage Offerings in Azure][Data Storage Offerings in Azure] article.
-* **Startup Tasks**. Startup tasks give you a way to install prerequisite components on a role instance as it boots up. The tasks can run elevated as an administrator if required.
+* **Sertifikaları**. Veri ya da web hizmetini SSL destekleyip desteklemediğini şifrelemek için sertifikalar kullanır. Azure için yüklenecek herhangi bir sertifika gerekir. Daha fazla bilgi için bkz: [Azure sertifikaları yönetme][Managing Certificates in Azure]. Bu XML ayarı, daha önce yüklenen sertifika rol örneğinin sertifika deposuna yüklenir, böylece uygulama kodu tarafından kullanılabilir.
+* **Yapılandırma ayarı adları**. Rol örneği üzerinde çalıştığı sırada okumak için uygulamaları istediğiniz değerleri. Yapılandırma ayarları gerçek değeri kodunuzu yeniden dağıtmak gerek kalmadan herhangi bir zamanda güncelleştirilebilir hizmet yapılandırma (CSCFG) dosyası olarak ayarlanır. Aslında, uygulamalarınızın kapalı kalma süresi yansıtılmasını olmadan değiştirilen yapılandırma değerlerini algılamak için şekilde kodlayabilirsiniz.
+* **Giriş uç noktaları**. Dış dünya kullanıma sunmak istediğiniz tüm HTTP, HTTPS veya TCP uç (ile bağlantı noktaları) burada belirtin, *önek*. cloadapp.net URL. Azure rolünüze dağıtırken, güvenlik duvarı rol örneği üzerinde otomatik olarak yapılandırır.
+* **İç uç noktalar**. Burada, uygulamanızın bir parçası dağıtılan diğer rol örneklerine maruz istediğiniz HTTP veya TCP uç nokta belirtin. İç uç noktalar birbirleriyle iletişim kurmalarını uygulamanıza içindeki tüm rol örnekleri ver, ancak uygulamanızı dışında olan tüm rol örnekleri için erişilebilir değil.
+* **Modülleri içe**. Bu isteğe bağlı olarak, rol örneklerinde yararlı bileşenlerini yükleyin. Tanılama izleme, Uzak Masaüstü ve Azure (güvenli bir kanal şirket içi kaynaklara erişmek, rol örneği sağlayan) bağlanmak için bileşenleri yok.
+* **Yerel depolama**. Bu rol örneğinde kullanmak, uygulamanız için bir alt ayırır. Daha ayrıntılı olarak açıklanmıştır [azure'da veri depolama teklifleri] [ Data Storage Offerings in Azure] makalesi.
+* **Başlangıç görevi**. Başlangıç görevi yukarı önyükleme gibi bir rol örneğinde Önkoşul bileşenlerini yüklemek için bir yol sağlar. Görevler gerekirse yönetici olarak yükseltilmiş çalıştırabilirsiniz.
 
-## <a id="cfg"> </a>The Service Configuration File
-The service configuration (CSCFG) file is an XML file that describes settings that can be changed without redeploying your application. The complete schema for the XML file can be found here: [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][http://msdn.microsoft.com/library/windowsazure/ee758710.aspx].
-The CSCFG file contains a Role element for each role in your application. Here are some of the items you can specify in the CSCFG file:
+## <a id="cfg"></a>Hizmet yapılandırma dosyası
+Hizmet yapılandırma (CSCFG) dosyası, uygulamanızın yeniden dağıtmadan değiştirilebilir ayarları tanımlayan bir XML dosyasıdır. XML dosyası için tam şeması şurada bulunabilir: [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][http://msdn.microsoft.com/library/windowsazure/ee758710.aspx].
+CSCFG dosyası, uygulamanızda her rol için bir rol öğesi içerir. CSCFG dosyasında belirtebilir öğelerin bazıları şunlardır:
 
-* **OS Version**. This attribute allows you to select the operating system (OS) version you want used for all the role instances running your application code. This OS is known as the *guest OS*, and each new version includes the latest security patches and updates available at the time the guest OS is released. If you set the osVersion attribute value to "\*", then Azure automatically updates the guest OS on each of your role instances as new guest OS versions become available. However, you can opt out of automatic updates by selecting a specific guest OS version. For example, setting the osVersion attribute to a value of "WA-GUEST-OS-2.8\_201109-01" causes all your role instances to get what is described on this web page: [http://msdn.microsoft.com/library/hh560567.aspx][http://msdn.microsoft.com/library/hh560567.aspx]. For more information about guest OS versions, see [Managing Upgrades to the Azure Guests OS].
-* **Instances**. This element's value indicates the number of role instances you want provisioned running the code for a particular role. Since you can upload a new CSCFG file to Azure (without redeploying your application), it is trivially simple to change the value for this element and upload a new CSCFG file to dynamically increase or decrease the number of role instances running your application code. This allows you to easily scale your application up or down to meet actual workload demands while also controlling how much you are charged for running the role instances.
-* **Configuration Setting Values**. This element indicates values for settings (as defined in the CSDEF file). Your role can read these values while it is running. These configuration settings values are typically used for connection strings to SQL Database or to Azure Storage, but they can be used for any purpose you desire.
+* **İşletim sistemi sürümü**. Bu öznitelik, uygulama kodu çalıştıran tüm rol örnekleri için kullanılan istediğiniz işletim sistemi (OS) sürümünü seçmenize olanak sağlar. Bu işletim sistemi olarak bilinen *konuk işletim sistemi*, ve her yeni sürümü en son güvenlik düzeltme eki ve konuk işletim sistemini yayımlanır aynı anda kullanılabilir güncelleştirmeleri içerir. OsVersion öznitelik değeri ayarlamak, "\*", sonra da yeni konuk işletim sistemi sürümleri kullanılabilir duruma geldiğinde Azure konuk işletim sistemi her rolü örneklerinizi otomatik olarak güncelleştirir. Ancak, belirli bir konuk işletim sistemi sürümü seçerek Otomatik Güncelleştirmeler dışında tercih edebilirsiniz. Örneğin, osVersion özniteliği için bir değer ayarlamak "WA-GUEST-OS-2.8\_201109-01" Bu web sayfasında açıklanan almak tüm rolü örneklerinizi neden olur: [http://msdn.microsoft.com/library/hh560567.aspx] [http://msdn.microsoft.com/library/hh560567.aspx]. Konuk işletim sistemi sürümleri hakkında daha fazla bilgi için bkz: [Azure konuk işletim sistemi yükseltmeleri yönetme].
+* **Örnekleri**. Bu öğenin değeri, belirli bir rol için bir kod çalıştırmasını sağlanan istediğiniz rol örneklerinin sayısını gösterir. Yeni bir CSCFG dosyası (uygulamanızın gerek olmadan) Azure'a karşıya yükleyebilir olduğundan, bu öğenin değerini değiştirin ve dinamik olarak artırmak veya uygulama kodunuz çalışan rol örneklerinin sayısını azaltmak için yeni bir CSCFG dosyası karşıya yüklemek trivially basit kalır . Bu yukarı veya aşağı ayrıca ne kadar rol örnekleri çalıştırmak için ücretlendirilirsiniz denetleme sırasında karşılayan gerçek iş yükü taleplerini uygulamanızı kolayca ölçeklendirmenizi sağlar.
+* **Yapılandırma değerleri ayarı**. Bu öğe (CSDEF dosyasında tanımlanan) ayarları için değerleri gösterir. Çalışırken sizin rolünüz bu değerleri okuyabilir. Bu yapılandırma ayarlarının değerleri genellikle SQL veritabanına veya Azure Storage bağlantı dizelerini için kullanılır, ancak istediğiniz herhangi bir amaç için kullanılabilir.
 
-## <a id="hostedservices"> </a>Creating and Deploying a Hosted Service
-Creating a hosted service requires that you first go to the [Azure Management Portal] and provision a hosted service by specifying a DNS prefix and the data center you ultimately want your code running in. Then in your development environment, you create your service definition (CSDEF) file, build your application code and package (zip) all these files into a service package (CSPKG) file. You must also prepare your service configuration (CSCFG) file. To deploy your role, you upload the CSPKG and CSCFG files with the Azure Service Management API. Once deployed, Azure, will provision role instances in the data center (based upon the configuration data), extract your application code from the package, copy it to the role instances, and boot the instances. Now, your code is up and running.
+## <a id="hostedservices"></a>Oluşturma ve bir barındırılan hizmet dağıtma
+Barındırılan bir hizmet oluşturmak için gerekir, ilk gidin [Azure Yönetim Portalı] ve bir DNS öneki ve verileri belirterek bir barındırılan hizmet Merkezi'nden sağlama sonuçta kodunuzu çalışır durumda. Ardından, geliştirme ortamında, hizmet tanımı (CSDEF) dosyanızı oluşturun, uygulama kodu ve bunlar tüm dosyalar paket (ZIP) bir hizmet paketi (CSPKG) dosyasına yapı. Ayrıca, hizmet yapılandırma (CSCFG) dosyanızı hazırlamanız gerekir. Rolünüzün dağıtılacağı Azure Hizmet Yönetimi API'si ile CSPKG ve CSCFG dosyaları karşıya yükleme. Dağıtıldığında, Azure, sağlama rol örnekleri (yapılandırma verilerine göre) veri merkezindeki Uygulama kodunuz paketinden ayıklayın, rol örneklerine kopyalayın ve örnekleri önyükleme. Şimdi, kodunuzu çalışır durumda.
 
-The figure below shows the CSPKG and CSCFG files you create on your development computer. The CSPKG file contains the CSDEF file and the code for two roles. After uploading the CSPKG and CSCFG files with the Azure Service Management API, Azure creates the role instances in the data center. In this example, the CSCFG file indicated that Azure should create three instances of role \#1 and two instances of Role \#2.
+Aşağıdaki şekilde geliştirme bilgisayarınızda oluşturduğunuz CSPKG ve CSCFG dosyaları gösterir. CSPKG dosyası CSDEF dosya ve iki rolü kodunu içerir. Azure Hizmet Yönetimi API'si ile CSPKG ve CSCFG dosyaları karşıya yükleme sonrasında, Azure veri merkezinde rol örneği oluşturur. Bu örnekte, Azure üç rol örneklerini oluşturmalısınız CSCFG dosyası belirtilen \#rolün 1 ve iki örneğini \#2.
 
-![image][5]
+![Görüntü][5]
 
-For more information about deploying, upgrading, and reconfiguring your roles, see the [Deploying and Updating Azure Applications][Deploying and Updating Azure Applications] article.<a id="Ref" name="Ref"></a>
+Yükseltme ve rollerinizi, yeniden dağıtma hakkında daha fazla bilgi için bkz: [dağıtma ve güncelleştirme Azure uygulamaları] [ Deploying and Updating Azure Applications] makalesi.<a id="Ref" name="Ref"></a>
 
-## <a id="references"> </a>References
-* [Creating a Hosted Service for Azure][Creating a Hosted Service for Azure]
-* [Managing Hosted Services in Azure][Managing Hosted Services in Azure]
-* [Migrating Applications to Azure][Migrating Applications to Azure]
-* [Configuring an Azure Application][Configuring an Azure Application]
+## <a id="references"></a>Başvuruları
+* [Azure için barındırılan bir hizmet oluşturma][Creating a Hosted Service for Azure]
+* [Azure'da barındırılan hizmetleri yönetme][Managing Hosted Services in Azure]
+* [Azure uygulamalarını geçirme][Migrating Applications to Azure]
+* [Bir Azure uygulamanızı yapılandırma][Configuring an Azure Application]
 
 <div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">
 
-<p>Written by Jeffrey Richter (Wintellect)</p>
+<p>Gamze Richter (Wintellect) tarafından yazılmış</p>
 
 </div>
 
@@ -366,8 +366,8 @@ For more information about deploying, upgrading, and reconfiguring your roles, s
 [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
 [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
-[Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
-[Azure Management Portal]: http://manage.windowsazure.com/
+[Azure konuk işletim sistemi yükseltmeleri yönetme]: http://msdn.microsoft.com/library/ee924680.aspx
+[Azure Yönetim Portalı]: http://manage.windowsazure.com/
 [5]: ./media/application-model/application-model-8.jpg
 [Deploying and Updating Azure Applications]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
 [Creating a Hosted Service for Azure]: http://msdn.microsoft.com/library/gg432967.aspx

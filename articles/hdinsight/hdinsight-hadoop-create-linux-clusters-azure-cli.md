@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/26/2017
 ms.author: larryfr
-ms.openlocfilehash: 791edd4e56c7957458d49f6f3bd87b67e96db7a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3ad8d9b90f78d8b36f48ec8743658a9e464a9f87
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI kullanarak Hdınsight kümeleri oluşturma
 
@@ -133,17 +133,17 @@ Azure CLI kullanarak bir Hdınsight kümesi başarıyla oluşturuldu, kümenizi 
 
 ### <a name="hadoop-clusters"></a>Hadoop kümeleri
 
-* [HDInsight ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](hdinsight-use-pig.md)
-* [Hdınsight ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight ile Hive kullanma](hadoop/hdinsight-use-hive.md)
+* [HDInsight ile Pig kullanma](hadoop/hdinsight-use-pig.md)
+* [Hdınsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase kümeleri
 
-* [Hdınsight'ta HBase kullanmaya başlama](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Hdınsight'ta HBase için Java uygulamaları geliştirme](hdinsight-hbase-build-java-maven-linux.md)
+* [Hdınsight'ta HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Hdınsight'ta HBase için Java uygulamaları geliştirme](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm kümeleri
 
-* [Hdınsight üzerinde Storm için Java topolojisi geliştirme](hdinsight-storm-develop-java-topology.md)
-* [Hdınsight üzerinde Storm Python bileşenleri kullanma](hdinsight-storm-develop-python-topology.md)
-* [Dağıtma ve hdınsight'ta Storm topolojileri izleme](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Hdınsight üzerinde Storm için Java topolojisi geliştirme](storm/apache-storm-develop-java-topology.md)
+* [Hdınsight üzerinde Storm Python bileşenleri kullanma](storm/apache-storm-develop-python-topology.md)
+* [Dağıtma ve hdınsight'ta Storm topolojileri izleme](storm/apache-storm-deploy-monitor-topology-linux.md)

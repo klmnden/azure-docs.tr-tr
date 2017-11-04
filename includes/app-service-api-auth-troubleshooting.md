@@ -1,21 +1,21 @@
-Most of the time authentication errors result from incorrect or inconsistent configuration settings. Here are some specific suggestions for things to check.
+Çoğu zaman kimlik doğrulama hataları, tutarsız veya hatalı yapılandırma ayarları neden. Denetlenecek öğeler için belirli bazı öneriler şunlardır.
 
-* Make sure that you didn't miss the **Save** button anywhere. This is often easy to do, and the result is that you'll be looking at the correct values on a portal page but they haven't actually been saved in the Azure environment or Azure AD application.
-* For settings configured in the **Application Settings** blade of the Azure portal, make sure that the correct API app or web app was selected when the settings were entered.  Also make sure that the settings were entered as **App settings** and not **Connection strings**, as the format of the two sections is similar.
-* For authentication to a JavaScript front end, download the manifest again to verify that `oauth2AllowImplicitFlow` was successfully changed to `true`.
-* Verify that you used HTTPS wherever you configured URLs:
+* Kaçırılması kaydetmedi emin olun **kaydetmek** her yerden düğmesine tıklayın. Bu genellikle yapmak kolaydır ve portal sayfasında doğru değerlere aramanız, ancak bunlar gerçekten Azure ortamı ya da Azure AD uygulaması kaydedilmemiş sonucudur.
+* Yapılandırılan ayarları için **uygulama ayarları** Azure portal dikey ayarları girildiğinde seçili doğru API uygulaması veya web uygulaması olduğundan emin olun.  Ayrıca ayarları olarak girildiğinden emin olun **uygulama ayarları** ve **bağlantı dizeleri**, iki bölüme biçimi benzer şekilde.
+* JavaScript ön uç için kimlik doğrulaması için yeniden doğrulamak için bildirimini karşıdan `oauth2AllowImplicitFlow` başarıyla değiştirildi `true`.
+* HTTPS URL'leri yapılandırılmış her yerde kullanılan doğrulayın:
   
-  * In project code
-  * In CORS
-  * In Azure environment App settings for each API app and web app
-  * In Azure AD application settings.
+  * Proje kodda
+  * CORS içinde
+  * Her bir API uygulaması ve web uygulaması için Azure ortamı uygulaması ayarları içinde
+  * Azure AD uygulama ayarları.
     
-    Note that if you copy an API app's URL from the portal, it often has `http://` and you have to manually change it to `https://`.
-* Make sure that any code changes were successfully deployed. For example, in a multiple-project solution it's possible to change a project's code and accidentally choose one of the others when you intend to deploy the change.
-* Make sure that you are going to HTTPS URLs in your browser, not HTTP URLs. By default, Visual Studio creates publish profiles with HTTP URLs, and that's what opens in the browser after you deploy a project.
-* For authentication to a JavaScript front end, make sure that CORS is correctly configured on the API app that the JavaScript code calls. If in doubt about whether the problem is CORS-related, try "*" as the allowed origin URL. 
-* For a JavaScript front end, open your browser's Developer Tools Console tab to get more error information, and examine HTTP requests on the Network. However, Console error messages may be misleading. If you get a message indicating a CORS error, the real issue may be authentication. You can check if this is the case by running the app with authentication temporarily temporarily disabled.
-* For a .NET API app, make sure you are getting as much information in error messages as possible by setting [customErrors mode to Off](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
-* For a .NET API app, start a [remote debugging session](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), and examine the values of the variables that are passed to code that uses ADAL to acquire a bearer token, or code that checks claims against the expected service principal ID. Note that your code can pick up configuration values from many different sources, so it's possible to find surprises this way. For example, if you mistype `ida:ClientId` as `ida:ClientID` when configuring Azure App Service environment settings, the code might get the `ida:ClientId` value that it's looking for from the Web.config file, ignoring the Azure App Service setting. 
-* If things don't work in a normal Internet Explorer window, an existing log-in may be interfering; try InPrivate and try Chrome or Firefox.
+    Portaldan bir API uygulamasının URL'si kopyalarsanız, genellikle olduğunu unutmayın `http://` ve el ile değiştirmek zorunda `https://`.
+* Kod değişiklikleri başarıyla dağıtıldı emin olun. Örneğin, bir birden çok proje çözümü bir projenin kod değiştirmek ve değişiklik dağıtmayı planladığınız durumlarda yanlışlıkla diğer birini mümkündür.
+* Tarayıcınızda HTTP URL'lerini HTTPS URL'lere gitme emin olun. Varsayılan olarak, Visual Studio oluşturur HTTP URL'lerini profilleriyle yayımlama ve proje dağıttıktan sonra ne tarayıcısında açar.
+* JavaScript ön uç için kimlik doğrulaması için CORS JavaScript kodu çağırır API uygulaması üzerinde doğru şekilde yapılandırıldığından emin olun. CORS ile ilgili sorun olup olmadığı hakkında emin değilseniz, deneyin "*" izin verilen kaynağı URL'si olarak. 
+* JavaScript ön uç için daha fazla hata bilgilerini almak için tarayıcınızın geliştirici araçları konsolunu sekmesini açın ve ağ üzerindeki HTTP isteklerini inceleyin. Ancak, konsol hata iletileri yanıltıcı olabilir. CORS hata belirten bir ileti alırsanız, kimlik doğrulaması gerçek sorunu olabilir. Geçici olarak geçici olarak devre dışı kimlik doğrulaması ile uygulamayı çalıştırarak bu durum geçerli olup olmadığını kontrol edebilirsiniz.
+* .NET API uygulaması için elde kadar bilgi hata iletilerinde mümkün olduğunca ayarlayarak emin olun [kapalı customErrors moduna](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
+* .NET API uygulaması için Başlat bir [uzaktan hata ayıklama oturumunun](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)ve bir taşıyıcı belirtecini almak üzere ADAL kullanan kodu ya da talep beklenen hizmet asıl kimliği karşı denetler kod geçirilen değişkenlerin değerleri inceleyin Bu şekilde beklenmeyen durumları bulmak olası böylece kodunuzu yapılandırma değerleri birçok farklı kaynaktan, seçim yapabilirsiniz unutmayın. Örneğin, yanlış yazdınız, `ida:ClientId` olarak `ida:ClientID` Azure uygulama hizmeti ortamı ayarlarını yapılandırırken kodu alabilirsiniz `ida:ClientId` Azure uygulama hizmeti ayarı yoksayılıyor Web.config dosyasından aradığı değeri. 
+* Normal bir Internet Explorer penceresinde şeyler işe yaramazsa, bir varolan oturum açma engel olabilen; InPrivate ve Chrome ya da Firefox deneyin.
 

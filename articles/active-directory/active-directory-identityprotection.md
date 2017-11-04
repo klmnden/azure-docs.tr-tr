@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a4473f25fefd65de75996240955302abb08762da
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Kimlik Koruması
 
@@ -34,7 +34,7 @@ Azure Active Directory kimlik koruması sağlayan Azure AD Premium P2 edition ö
 
 ## <a name="getting-started"></a>Başlarken
 
-Microsoft bulut tabanlı kimlikleri birden fazla bir süredir güvenliğini sağlar. Azure Active Directory kimlik koruması ile ortamınızda Microsoft kimlikleri güvenli hale getirmek için kullandığı aynı koruma sistemleri kullanabilirsiniz.
+Microsoft bulut tabanlı kimlikleri birden fazla bir süredir güvenli. Azure Active Directory kimlik koruması ile ortamınızda Microsoft kimlikleri güvenli hale getirmek için kullandığı aynı koruma sistemleri kullanabilirsiniz.
 
 Güvenlik ihlallerini çoğunluğu saldırganlar bir ortamda bir kullanıcının kimliğini çalarak erişmek zaman yer ayırın. Yıllar içinde saldırganlar üçüncü taraf ihlallerini yararlanan ve Gelişmiş kimlik avı saldırıları kullanarak giderek etkin hale getirildi. Bir saldırgan düşük ayrıcalıklı kullanıcı hesaplarına bile erişim elde hemen bunları yanal hareket önemli şirket kaynaklarına erişim kazanmak daha kolay olduğundan.
 
@@ -67,7 +67,7 @@ Azure Active Directory kimlik koruması izleme ve Raporlama Aracı büyük. Kuru
 
 **Risk bağlı olarak koşullu erişim ilkeleri:**
 
-* Oturum açma işlemleri engelleme veya çok faktörlü kimlik doğrulaması zorluklarını gerektirerek riskli oturum açma işlemlerini azaltmak için ilke.
+* Oturum açma işlemleri engelleme veya çok faktörlü kimlik doğrulaması zorluklarını gerektirerek riskli oturum açma işlemlerini azaltmak için ilke
 * Blok veya güvenli riskli kullanıcı hesapları için ilke
 * Çok faktörlü kimlik doğrulaması için kullanıcıların İlkesi
 
@@ -81,7 +81,7 @@ Yük Dengelemesi için kimlik koruması uygulamanız geçici yönetimi etkinlikl
 | :--                          | ---                                |  ---   |
 | Genel yönetici         | Kimlik koruması, yerleşik kimlik koruması için tam erişim| |
 | Güvenlik yöneticisi       | Kimlik koruması için tam erişim | Yerleşik kimlik koruması, bir kullanıcı parolalarını sıfırlama |
-| Güvenlik okuyucusu              | Kimlik koruması yalnızca hazır erişimi | Yerleşik kimlik koruması, remidiate kullanıcılar, ilkelerini yapılandırmak, parolaları sıfırlama |
+| Güvenlik okuyucusu              | Salt okunur erişim için kimlik koruması | Yerleşik kimlik koruması, remidiate kullanıcılar, ilkelerini yapılandırmak, parolaları sıfırlama |
 
 
 

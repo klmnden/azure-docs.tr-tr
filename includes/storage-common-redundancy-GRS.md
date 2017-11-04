@@ -1,55 +1,55 @@
-Geo-redundant storage (GRS) replicates your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region is not recoverable.
+Coğrafi olarak yedekli depolama (GRS) verileriniz birincil bölge çıktığınızda mil yüzlerce olan ikincil bir bölgeye çoğaltır. Etkin GRS depolama hesabınız varsa, verilerinizi bile tam bölgesel bir kesintinin veya bir olağanüstü durumda birincil bölge kurtarılabilir değil söz konusu olduğunda dayanıklı.
 
-For a storage account with GRS enabled, an update is first committed to the primary region, where it is replicated three times. Then the update is replicated asynchronously to the secondary region, where it is also replicated three times.
+Etkin GRS ile bir depolama hesabı için bir güncelleştirme burada üç kez çoğaltılır birincil bölge için ilk kararlıdır. Daha sonra güncelleştirmeyi zaman uyumsuz olarak burada bunu da üç kez çoğaltılır ikincil bölgeye çoğaltılır.
 
-With GRS, both the primary and secondary regions manage replicas across separate fault domains and upgrade domains within a storage scale unit as described with LRS.
+GRS ile birincil ve ikincil bölgeler çoğaltmalar ayrı hata etki alanlarında yönetmek ve etki alanı ile LRS açıklandığı gibi bir depolama ölçek birimi içinde yükseltin.
 
-Considerations:
+Dikkate alınacak noktalar:
 
-* Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* The replica is not available unless Microsoft initiates failover to the secondary region. If Microsoft does initiate a failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](../articles/storage/common/storage-disaster-recovery-guidance.md). 
-* If an application wants to read from the secondary region, the user should enable RA-GRS.
+* Zaman uyumsuz çoğaltma bir gecikme gerektirdiğinden, bölgesel bir olağanüstü durumda birincil bölgesinden veri kurtarılamazsa, ikincil bölge'ye henüz çoğaltılmamış değişiklikler kaybolacak mümkündür.
+* Microsoft yük devretme ikincil bölge başlatır sürece çoğaltma kullanılamıyor. Microsoft bir yük devretme ikincil bölge başlatın varsa, okuduğunuz ve yük devretme sonrasında bu verilere yazma erişimi tamamlandı. Daha fazla bilgi için lütfen bkz [olağanüstü durum kurtarma Kılavuzu](../articles/storage/common/storage-disaster-recovery-guidance.md). 
+* Kullanıcı, bir uygulama ikincil bölgesinden okumak isterse, RA-GRS etkinleştirmeniz gerekir.
 
-When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region, and cannot be changed. The following table shows the primary and secondary region pairings.
+Bir depolama hesabı oluşturduğunuzda, hesap için birincil bölge seçin. İkincil bölge birincil bölgeye göre belirlenir ve değiştirilemez. Aşağıdaki tabloda birincil ve ikincil bölge eşleştirmeleri gösterilir.
 
-| Primary | Secondary |
+| Birincil | İkincil |
 | --- | --- |
-| North Central US | South Central US |
-| South Central US | North Central US |
-| East US | West US |
-| West US | East US |
-| US East 2 | Central US |
-| Central US | US East 2 |
-| North Europe | West Europe |
-| West Europe | North Europe |
-| South East Asia | East Asia |
-| East Asia | South East Asia |
-| East China | North China |
-| North China | East China |
-| Japan East | Japan West |
-| Japan West | Japan East |
-| Brazil South | South Central US |
-| Australia East | Australia Southeast |
-| Australia Southeast | Australia East |
-| India South | India Central |
-| India Central | India South |
-| India West | India South |
-| US Gov Iowa | US Gov Virginia |
-| US Gov Virginia | US Gov Texas |
-| US Gov Texas | US Gov Arizona |
-| US Gov Arizona | US Gov Texas |
-| Canada Central | Canada East |
-| Canada East | Canada Central |
-| UK West | UK South |
-| UK South | UK West |
-| Germany Central | Germany Northeast |
-| Germany Northeast | Germany Central |
-| West US 2 | West Central US |
-| West Central US | West US 2 |
+| Orta Kuzey ABD | Orta Güney ABD |
+| Orta Güney ABD | Orta Kuzey ABD |
+| Doğu ABD | Batı ABD |
+| Batı ABD | Doğu ABD |
+| ABD Doğu 2 | Orta ABD |
+| Orta ABD | ABD Doğu 2 |
+| Kuzey Avrupa | Batı Avrupa |
+| Batı Avrupa | Kuzey Avrupa |
+| Güneydoğu Asya | Doğu Asya |
+| Doğu Asya | Güneydoğu Asya |
+| Doğu Çin | Kuzey Çin |
+| Kuzey Çin | Doğu Çin |
+| Japonya Doğu | Japonya Batı |
+| Japonya Batı | Japonya Doğu |
+| Güney Brezilya | Orta Güney ABD |
+| Avustralya Doğu | Avustralya Güneydoğu |
+| Avustralya Güneydoğu | Avustralya Doğu |
+| Hindistan Güney | Hindistan Orta |
+| Hindistan Orta | Hindistan Güney |
+| Hindistan Batı | Hindistan Güney |
+| ABD Devleti Iowa | ABD Devleti Virginia |
+| ABD Devleti Virginia | ABD Devleti Texas |
+| ABD Devleti Texas | ABD Devleti Arizona |
+| ABD Devleti Arizona | ABD Devleti Texas |
+| Orta Kanada | Doğu Kanada |
+| Doğu Kanada | Orta Kanada |
+| Birleşik Krallık Batı | Birleşik Krallık Güney |
+| Birleşik Krallık Güney | Birleşik Krallık Batı |
+| Almanya Orta | Almanya Kuzeydoğu |
+| Almanya Kuzeydoğu | Almanya Orta |
+| Batı ABD 2 | Batı Orta ABD |
+| Batı Orta ABD | Batı ABD 2 |
 
-For up-to-date information about regions supported by Azure, see [Azure regions](https://azure.microsoft.com/regions/).
+Azure tarafından desteklenen bölgeler hakkında güncel bilgiler için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/).
 
 >[!NOTE]  
-> US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a seconday region. 
+> ABD kamu Virginia ikincil BİZE kamu Texas bölgedir. Daha önce BİZE kamu Virginia BİZE kamu Iowa bir ikincil bölge ' kullanılan. Depolama hesapları hala bir ikincil bölge'olarak BİZE kamu Iowa yararlanan bir ikincil bölge BİZE kamu Texas Geçirilmekte olan. 
 > 
 > 

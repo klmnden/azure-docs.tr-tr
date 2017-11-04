@@ -1,13 +1,13 @@
-You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or VM network interface. You place these filters, which control both inbound and outbound traffic, on a Network Security Group attached to the resource that receives the traffic.
+Bir bağlantı noktasını açmak veya bir alt ağ veya VM ağ arabirimine bir ağ filtre oluşturarak Azure'da sanal makine (VM) için bir uç nokta oluşturun. Trafiği alır kaynağa bağlı bir ağ güvenlik grubu hem gelen hem de giden trafiği denetleyen bu filtreler yerleştir.
 
-Let's use a common example of web traffic on port 80. Once you have a VM that is configured to serve web requests on the standard TCP port 80 (remember to start the appropriate services and open any OS firewall rules on the VM as well), you:
+Bağlantı noktası 80 üzerinde web trafiği yaygın bir örneği kullanalım. Sunmak için yapılandırılmış bir VM olduktan sonra web isteklerinde standart TCP bağlantı noktası 80, (unutmayın uygun hizmetleri başlatmak ve tüm işletim sistemi güvenlik duvarı kurallarını VM'de de açmak için):
 
-1. Create a Network Security Group.
-2. Create an inbound rule allowing traffic with:
-   * the destination port range of "80"
-   * the source port range of "*" (allowing any source port)
-   * a priority value of less 65,500 (to be higher in priority than the default catch-all deny inbound rule)
-3. Associate the Network Security Group with the VM network interface or subnet.
+1. Ağ güvenlik grubu oluşturun.
+2. Trafiğe izin bir gelen kuralı oluşturun:
+   * "80" hedef bağlantı noktası aralığı
+   * Kaynak bağlantı noktası aralığını "*" (tüm kaynak bağlantı izin verme)
+   * daha az 65,500 (olması önceliği varsayılan catch tümünü daha yüksek reddetmek için gelen kuralı) öncelik değeri
+3. Ağ güvenlik grubu VM ağ arabirimine veya alt ağ ile ilişkilendirin.
 
-You can create complex network configurations to secure your environment using Network Security Groups and rules. Our example uses only one or two rules that allow HTTP traffic or remote management. For more information, see the following ['More Information'](#more-information-on-network-security-groups) section or [What is a Network Security Group?](../articles/virtual-network/virtual-networks-nsg.md)
+Ağ güvenlik gruplarını ve kurallarını kullanarak ortamınızın güvenliğini sağlamak için karmaşık ağ yapılandırmaları oluşturabilirsiniz. Bizim örneğimizde HTTP trafiği veya uzaktan yönetim izin yalnızca bir veya iki kurallarını kullanır. Daha fazla bilgi için aşağıdakilere bakın ['Daha fazla bilgi'](#more-information-on-network-security-groups) bölüm veya [bir ağ güvenlik grubu nedir?](../articles/virtual-network/virtual-networks-nsg.md)
 

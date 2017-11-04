@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 25488640e4a1e129f06dffbe5e7896f5ace8facc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 13e681ec8893aa2cbd97f6c4e2ca66be634c9cb9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="team-data-science-structured-projects-in-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı projelerinde takım veri bilimi yapılandırılmış
 
-Bu öğreticiler ve örnekleri takım veri bilimi yapılandırılmış projeleri ile Azure Machine Learning çalışma ekranı oluşturmayı gösterir. Takım veri bilimi işlemine genel bakış için bkz: [veri bilimi işlemi](overview.md). Hdınsight'ta Spark genel bakış için bkz: [hdınsight'ta Spark giriş](../../hdinsight/hdinsight-apache-spark-overview.md).
+Bu öğreticiler ve örnekleri takım veri bilimi yapılandırılmış projeleri ile Azure Machine Learning çalışma ekranı oluşturmayı gösterir. Takım veri bilimi işlemine genel bakış için bkz: [veri bilimi işlemi](overview.md). Hdınsight'ta Spark genel bakış için bkz: [hdınsight'ta Spark giriş](../../hdinsight/spark/apache-spark-overview.md).
 
 Takım veri bilimi işlemi yürütmek ek veri bilimi talimatlara göre gruplandırılır **platform** kullandıkları. Bkz: [takım veri bilimi işlemi yürütülürken izlenecek yollar](walkthroughs.md) bir döküm Bu örnekler için.
 

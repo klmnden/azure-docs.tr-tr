@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.openlocfilehash: 934de9ca2df48b29ef7a56d5729d59d77875ea7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 569aeef58e601174aa9f28dc3ba39ebae17c17f8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>(PowerShell) hdınsight'ta Hadoop ile Apache Mahout kullanarak film önerileri oluşturma
 
@@ -42,7 +42,7 @@ Nasıl kullanacağınızı öğrenin [Apache Mahout](http://mahout.apache.org) m
 > [!WARNING]
 > Bu bölümde iş Azure PowerShell kullanarak çalışır. Mahout ile sağlanan sınıfların çoğu Azure PowerShell ile şu anda çalışmıyor. Azure PowerShell ile çalışmaz sınıfları listesi için bkz: [sorun giderme](#troubleshooting) bölümü.
 >
-> Hdınsight ve çalışma Mahout örnekler küme üzerinde doğrudan bağlanmak için SSH kullanarak bir örnek için bkz: [Mahout ve Hdınsight (SSH) kullanarak film önerileri oluşturma](hdinsight-hadoop-mahout-linux-mac.md).
+> Hdınsight ve çalışma Mahout örnekler küme üzerinde doğrudan bağlanmak için SSH kullanarak bir örnek için bkz: [Mahout ve Hdınsight (SSH) kullanarak film önerileri oluşturma](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 Mahout tarafından sağlanan işlevleri bir öneri altyapısı biridir. Bu altyapı biçiminde verilerini kabul eden `userID`, `itemId`, ve `prefValue` (kullanıcılar tercih öğesi için). Mahout veri önerileri yapmak için kullanılan benzer öğe Tercihler kullanıcılarla belirlemek için kullanır.
 
@@ -208,21 +208,21 @@ Aşağıdaki sınıfları kullanan mahout işleri Windows Powershell'den kullan�
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-Bu sınıfları kullanan işlerini çalıştırmak için SSH kullanarak Hdınsight kümesine bağlanma ve komut satırından işleri çalıştırın. Mahout işlerini çalıştırmak için SSH kullanarak bir örnek için bkz: [Mahout ve Hdınsight (SSH) kullanarak film önerileri oluşturma](hdinsight-hadoop-mahout-linux-mac.md).
+Bu sınıfları kullanan işlerini çalıştırmak için SSH kullanarak Hdınsight kümesine bağlanma ve komut satırından işleri çalıştırın. Mahout işlerini çalıştırmak için SSH kullanarak bir örnek için bkz: [Mahout ve Hdınsight (SSH) kullanarak film önerileri oluşturma](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Mahout kullanmayı öğrendiniz, Hdınsight'ta veri ile çalışmanın diğer yolları Bul:
 
-* [Hdınsight ile hive](hdinsight-use-hive.md)
-* [Hdınsight ile pig](hdinsight-use-pig.md)
-* [Hdınsight ile MapReduce](hdinsight-use-mapreduce.md)
+* [Hdınsight ile hive](hadoop/hdinsight-use-hive.md)
+* [Hdınsight ile pig](hadoop/hdinsight-use-pig.md)
+* [Hdınsight ile MapReduce](hadoop/hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: /powershell/azureps-cmdlets-docs
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: hdinsight-hadoop-linux-tutorial-get-started.md
+[getstarted]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest

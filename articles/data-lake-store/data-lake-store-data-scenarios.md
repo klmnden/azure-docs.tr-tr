@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c48c0931ede6d17078c64cbb1e1dacd21098f792
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Azure Data Lake Store için büyük veri gereksinimleri kullanma
 Büyük veri işleme, dört anahtar aşamaları şunlardır:
@@ -49,7 +49,7 @@ Bu uygulamalar, cihazlar, algılayıcılar, vb. gibi çeşitli kaynaklardan tara
 Kullanabileceğiniz araçlar şunlardır:
 
 * [Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md) -Event Hubs'a alınan olayları yazılabilir Azure Data Lake Azure Data Lake Store çıkış kullanan.
-* [Azure Hdınsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) -Storm kümeden doğrudan Data Lake Store'a veri yazabilirsiniz.
+* [Azure Hdınsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) -Storm kümeden doğrudan Data Lake Store'a veri yazabilirsiniz.
 * [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – olayları olay hub'larından almak ve Data Lake Store kullanmaya yazma [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>İlişkisel veri

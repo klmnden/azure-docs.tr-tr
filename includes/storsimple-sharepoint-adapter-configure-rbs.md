@@ -1,54 +1,54 @@
 <!--author=SharS last changed: 1/14/2016 -->
 
 > [!NOTE]
-> When making changes to the StorSimple Adapter for SharePoint RBS configuration, you must be logged on with a user account that belongs to the Domain Admins group. Additionally, you must access the configuration page from a browser running on the same host as Central Administration.
+> StorSimple bağdaştırıcısını SharePoint KKY yapılandırma için değişiklik yaparken, Domain Admins grubuna ait bir kullanıcı hesabıyla oturum. Ayrıca, merkezi yönetim olarak aynı ana bilgisayarda çalışan bir tarayıcıdan yapılandırma sayfası erişmeniz gerekir.
 > 
 > 
 
-#### <a name="to-configure-rbs"></a>To configure RBS
-1. Open the SharePoint Central Administration page, and browse to **System Settings**. 
-2. In the **Azure StorSimple** section, click **Configure StorSimple Adapter**.
+#### <a name="to-configure-rbs"></a>KKY yapılandırmak için
+1. SharePoint Merkezi Yönetim sayfasını açın ve gidin **sistem ayarlarını**. 
+2. İçinde **Azure StorSimple** 'yi tıklatın **StorSimple bağdaştırıcısı yapılandırma**.
    
-    ![Configure the StorSimple Adapter](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
-3. On the **Configure StorSimple Adapter** page:
+    ![StorSimple bağdaştırıcısını yapılandırın](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
+3. Üzerinde **StorSimple bağdaştırıcısını yapılandırın** sayfa:
    
-   1. Make sure that the **Enable editing path** check box is selected.
-   2. In the text box, type the Universal Naming Convention (UNC) path of the BLOB store.
+   1. Olduğundan emin olun **düzenleme yolu etkinleştir** onay kutusu seçilidir.
+   2. Metin kutusuna BLOB deposu Evrensel Adlandırma Kuralı (UNC) yolunu yazın.
       
       > [!NOTE]
-      > The BLOB store volume must be hosted on an iSCSI volume configured on the StorSimple device.
+      > BLOB Depolama Birimi StorSimple cihazında yapılandırılmış bir iSCSI birim üzerinde barındırılması gerekir.
 
-   3. Click the **Enable** button below each of the content databases that you want to configure for remote storage.
+   3. Tıklatın **etkinleştirmek** her bir uzak depolama için yapılandırmak istediğiniz içerik veritabanı aşağıdaki düğmesine.
       
       > [!NOTE]
-      > The BLOB store must be shared and reachable by all web front-end (WFE) servers, and the user account that is configured for the SharePoint server farm must have access to the share.
+      > BLOB deposu tüm web ön uç (WFE) sunucuları tarafından paylaşılan ve erişilebilir olmalıdır ve SharePoint sunucu grubu için yapılandırılan kullanıcı hesabı bu paylaşıma erişiminiz olmalıdır.
       
-      ![Enable the RBS provider](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
+      ![KKY sağlayıcısını etkinleştirin](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
       
-      When you enable or disable RBS, you will also see the following message.
+      Etkinleştirmek veya KKY devre dışı bıraktığınızda, ayrıca aşağıdaki iletiyi görürsünüz.
       
-      ![Configure StorSimple Adapter Enable Disable](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
+      ![StorSimple bağdaştırıcısı etkinleştirme devre dışı bırakma yapılandırın](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-   4. Click the **Update** button to apply the configuration. When you click the **Update** button, the RBS configuration status will be updated on all WFE servers, and the entire farm will be RBS-enabled. The following message appears.
+   4. Tıklatın **güncelleştirme** yapılandırmayı uygulamak için düğmesi. Tıkladığınızda **güncelleştirme** düğmesi tüm WFE sunucularında KKY yapılandırma durumu güncelleştirilir ve tüm Grup KKY etkin olacaktır. Aşağıdaki ileti görüntülenir.
       
-      ![Adapter configuration message](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
+      ![Bağdaştırıcı yapılandırma iletisi](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
       > [!NOTE]
-      > If you are configuring RBS for a SharePoint farm with a very large number of databases (greater than 200), the SharePoint Central Administration web page might time out. If that occurs, refresh the page. This does not affect the configuration process.
+      > Bir çok sayıda (200'den büyük) veritabanları bir SharePoint çiftliği için KKY yapılandırıyorsanız, SharePoint Yönetim Merkezi web sayfası zaman aşımı olabilir. Bu gerçekleşirse, sayfayı yenileyin. Bu yapılandırma işlemi etkilemez.
 
-4. Verify the configuration:
+4. Yapılandırmasını doğrulayın:
    
-   1. Log on to the SharePoint Central Administration website, and browse to the **Configure StorSimple Adapter** page.
-   2. Check the configuration details to make sure that they match the settings that you entered. 
-5. Verify that RBS works correctly:
+   1. SharePoint Yönetim Merkezi Web sitesinde oturum açın ve gidin **StorSimple bağdaştırıcısını yapılandırın** sayfası.
+   2. Girdiğiniz ayarları eşleştiğinden emin olmak için yapılandırma ayrıntılarını kontrol edin. 
+5. KKY düzgün çalıştığını doğrulayın:
    
-   1. Upload a document to SharePoint. 
-   2. Browse to the UNC path that you configured. Make sure that the RBS directory structure was created and that it contains the uploaded object.
-6. (Optional) You can use the Microsoft RBS `Migrate()` PowerShell cmdlet included with SharePoint to migrate existing BLOB content to the StorSimple device. For more information, see [Migrate content into or out of RBS in SharePoint 2013][6] or [Migrate content into or out of RBS (SharePoint Foundation 2010)][7].
-7. (Optional) On test installations, you can verify that the BLOBs were moved out of the content database as follows: 
+   1. Belge SharePoint'te yükleyin. 
+   2. Yapılandırdığınız UNC yoluna göz atın. KKY dizin yapısını oluşturulduğunu ve karşıya yüklenen nesne içeren emin olun.
+6. (İsteğe bağlı) Microsoft RBS kullanabileceğiniz `Migrate()` SharePoint için StorSimple cihazı mevcut BLOB İçerik Geçişi ile birlikte gelen PowerShell cmdlet'i. Daha fazla bilgi için bkz: [içine veya SharePoint 2013'te KKY dışında İçerik Geçişi] [ 6] veya [içine veya dışına KKY (SharePoint Foundation 2010) İçerik Geçişi] [7].
+7. (İsteğe bağlı) Test yüklemelerinde BLOB dışında içerik veritabanı gibi taşındı doğrulayabilirsiniz: 
    
-   1. Start SQL Management Studio.
-   2. Run the ListBlobsInDB_2010.sql or ListBlobsInDB_2013.sql query, as follows.
+   1. SQL Management Studio'yu başlatın.
+   2. Listblobsındb_2010.SQL veya Listblobsındb_2013.SQL sorgu aşağıdaki gibi çalıştırın.
       
       ```
       **ListBlobsInDB_2013.sql**
@@ -91,18 +91,18 @@
         GO
       ```
       
-      If RBS was configured correctly, a NULL value should appear in the SizeOfContentInDB column for any object that was uploaded and successfully externalized with RBS.
-8. (Optional) After you configure RBS and move all BLOB content to the StorSimple device, you can move the content database to the device. If you choose to move the content database, we recommend that you configure the content database storage on the device as a primary volume. Then, use established SQL Server best practices to migrate the content database to the StorSimple device. 
+      KKY doğru şekilde yapılandırıldıysa, bir NULL değer karşıya ve başarıyla KKY ile externalized herhangi bir nesnenin SizeOfContentInDB Sütun görüntülenmelidir.
+8. (İsteğe bağlı) KKY yapılandırmak ve StorSimple cihazı için tüm BLOB içeriğinin taşıma sonra içerik veritabanını cihaza taşıyabilirsiniz. İçerik veritabanını taşımak seçerseniz, birincil bir birim olarak aygıtta içerik veritabanı depolama yapılandırmanızı öneririz. Daha sonra kullanmak için StorSimple cihazı içerik veritabanını taşımak için SQL Server en iyi yöntemler kurdu. 
    
    > [!NOTE]
-   > Moving the content database to the device is only supported for the StorSimple 8000 series (it is not supported for the 5000 or 7000 series).
+   > Cihaza içerik veritabanını taşıma (Bunun 5000 veya 7000 Serisi için desteklenmiyor) StorSimple 8000 serisi için yalnızca desteklenir.
    
-   If you store BLOBs and the content database in separate volumes on the StorSimple device, we recommend that you configure them in the same volume container. This ensures that they will be backed up together.
+   StorSimple cihazı ayrı birimlerde içinde BLOB'ları ve içerik veritabanını depolarsanız, aynı birim kapsayıcısı içinde yapılandırmadan öneririz. Bu, bunlar birlikte yedeklenecek olmasını sağlar.
    
    > [!WARNING]
-   > If you have not enabled RBS, we do not recommend moving the content database to the StorSimple device. This is an untested configuration.
+   > KKY etkinleştirmediyseniz, StorSimple cihazı içerik veritabanını taşıma önermiyoruz. Bu sınanmamış bir yapılandırmadır.
    
-9. Go to the next step: [Configure garbage collection](#configure-garbage-collection).
+9. Sonraki adıma gidin: [çöp toplama yapılandırma](#configure-garbage-collection).
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx

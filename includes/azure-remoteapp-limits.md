@@ -1,22 +1,22 @@
 
-| Resource | Default limit |
+| Kaynak | Varsayılan limit |
 | --- | --- |
-| Collections per user |1 |
-| Published apps per collection |100 |
-| Paid collections |3 |
-| Paid template images |25 |
-| Users - basic tier |800 maximum |
-| Users - standard tier |500 maximum |
-| Users- premium tier |100 maximum |
-| Users - premium plus tier |50 maximum |
-| User data storage (UPD) per user per collection |50 GB |
-| Idle timeout |4 hours |
-| Disconnected timeout |4 hours |
+| Kullanıcı başına koleksiyonları |1 |
+| Koleksiyon başına yayımlanan uygulamalar |100 |
+| Ücretli koleksiyonları |3 |
+| Ücretli şablon görüntüleri |25 |
+| Kullanıcılar - temel katmanı |en fazla 800 |
+| Kullanıcılar - standart katmanı |en fazla 500 |
+| Kullanıcıların premium katmanı |en fazla 100 |
+| Kullanıcılar - artı premium katmanı |en çok 50 |
+| Koleksiyon başına kullanıcı başına kullanıcı veri depolama (UDP) |50 GB |
+| Boşta kalma zaman aşımı |4 saat |
+| Bağlantısı kesilmiş zaman aşımı |4 saat |
 
-The number of users is determined by the number of VMs used for your collection:
+Kullanıcı sayısı, koleksiyonunuz için kullanılan VM sayısı tarafından belirlenir:
 
-* Basic = 16 users per VM
-* Standard = 10 users per VM
-* Premium = 4 users per VM
-* Premium plus = 2 users per VM
+* Temel VM başına 16 kullanıcı =
+* Standart VM başına 10 kullanıcı =
+* Premium VM başına 4 kullanıcı =
+* Premium plus VM başına 2 kullanıcı =
 

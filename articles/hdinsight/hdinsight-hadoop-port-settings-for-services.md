@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Hdınsight'ta Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları
 
@@ -48,17 +48,17 @@ Bir Hdınsight kümesindeki tüm düğümlere bir Azure sanal ağında bulunan v
 | sshd |23 |SSH |İstemciler ikincil headnode üzerinde sshd bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Ambari web kullanıcı Arabirimi. Bkz: [Ambari Web kullanıcı arabirimini kullanarak Hdınsight yönetme](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. Bkz: [Ambari REST API kullanarak Hdınsight'ta yönetme](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API. Bkz: [Curl ile Hive kullanma](hdinsight-hadoop-use-pig-curl.md), [Curl ile Pig kullanma](hdinsight-hadoop-use-pig-curl.md), [Curl ile MapReduce kullanma](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBC |ODBC kullanarak Hive bağlanır. Bkz: [Hdınsight için Microsoft ODBC sürücüsü ile bağlanma Excel'e](hdinsight-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |JDBC kullanarak Hive bağlanır. Bkz: [Hive JDBC sürücüsü kullanarak hdınsight'ta Hive Bağlan](hdinsight-connect-hive-jdbc-driver.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API. Bkz: [Curl ile Hive kullanma](hadoop/apache-hadoop-use-pig-curl.md), [Curl ile Pig kullanma](hadoop/apache-hadoop-use-pig-curl.md), [Curl ile MapReduce kullanma](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| HiveServer2 |443 |ODBC |ODBC kullanarak Hive bağlanır. Bkz: [Hdınsight için Microsoft ODBC sürücüsü ile bağlanma Excel'e](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 |443 |JDBC |JDBC kullanarak Hive bağlanır. Bkz: [Hive JDBC sürücüsü kullanarak hdınsight'ta Hive Bağlan](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 Aşağıdakiler için belirli küme türleri kullanılabilir:
 
 | Hizmet | Bağlantı noktası | Protokol | Küme türü | Açıklama |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API. Bkz: [HBase kullanmaya başlama](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST API. Bkz: [uzaktan Livy kullanarak Spark gönderme işleri](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |Storm web kullanıcı Arabirimi. Bkz: [dağıtma ve Hdınsight üzerinde Storm topolojilerini yönetme](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST API. Bkz: [HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST API. Bkz: [uzaktan Livy kullanarak Spark gönderme işleri](spark/apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |Storm web kullanıcı Arabirimi. Bkz: [dağıtma ve Hdınsight üzerinde Storm topolojilerini yönetme](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 

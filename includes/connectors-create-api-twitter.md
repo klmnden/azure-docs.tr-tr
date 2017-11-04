@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Prerequisites
-* A Twitter account 
+### <a name="prerequisites"></a>Ön koşullar
+* Bir Twitter hesabı 
 
-Before you can use your Twitter account in a logic app, you must authorize the logic app to connect to your Twitter account. Fortunately, you can do this easily from within your logic app on the Azure Portal. 
+Bir mantıksal uygulama Twitter hesabınızı kullanmadan önce Twitter hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
 
-Here are the steps to authorize your logic app to connect to your Twitter account:
+Mantıksal uygulamanızı Twitter hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
 
-1. To create a connection to Twitter, in the logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Twitter* in the search box. Select the trigger or action you'll like to use:  
-   ![Twitter connection image 0](./media/connectors-create-api-twitter/twitter-0.png)
-2. If you haven't created any connections to Twitter before, you'll get prompted to provide your Twitter credentials. These credentials will be used to authorize your logic app to connect to, and access your Twitter account's data:  
-   ![Twitter connection image 1](./media/connectors-create-api-twitter/twitter-1.png)  
-3. Provide your Twitter user name and password to authorize your logic app:  
-   ![Twitter connection image 2](./media/connectors-create-api-twitter/twitter-2.png)  
-4. Confirm your authorization:  
-   ![Twitter connection image 3](./media/connectors-create-api-twitter/twitter-3.png)  
-5. Notice the connection has been created and you are now free to proceed with the other steps in your logic app:  
-   ![Twitter connection image 4](./media/connectors-create-api-twitter/twitter-4.png)
+1. Mantıksal Uygulama Tasarımcısı'nda Twitter, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Twitter* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+   ![Twitter bağlantı görüntüsü 0](./media/connectors-create-api-twitter/twitter-0.png)
+2. Twitter önce bağlantılarına oluşturmadıysanız, Twitter kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Twitter hesabınızın veri erişim:  
+   ![Twitter bağlantı görüntüsü 1](./media/connectors-create-api-twitter/twitter-1.png)  
+3. Twitter kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
+   ![Twitter bağlantı görüntüsü 2](./media/connectors-create-api-twitter/twitter-2.png)  
+4. Yetkilendirme onaylayın:  
+   ![Twitter bağlantı görüntüsü 3](./media/connectors-create-api-twitter/twitter-3.png)  
+5. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+   ![Twitter bağlantı görüntüsü 4](./media/connectors-create-api-twitter/twitter-4.png)
 

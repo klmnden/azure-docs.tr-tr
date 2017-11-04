@@ -1,19 +1,19 @@
 
 
-In order to connect to **SharePoint Online**, you need to provide your identity (username and password, smart card credentials, etc.) to SharePoint Online. Once you've been authenticated, you can proceed to use the SharePoint Online connector  in your logic app. 
+Bağlanmak için **SharePoint Online**, kimliğinizi (kullanıcı adı ve parola, akıllı kart kimlik bilgileri, vb.) SharePoint Online'a sağlamanız gerekir. Kimlik doğruladınız sonra mantıksal uygulamanızı SharePoint çevrimiçi Bağlayıcısı'nı kullanmaya devam edebilirsiniz. 
 
-While on the designer of your logic app, follow these steps to sign into SharePoint to create the **connection** for use in your logic app:
+Tasarımcısı mantıksal uygulamanızı karşın, oluşturmak için SharePoint ile imzalamak için bu adımları takip **bağlantı** mantıksal uygulamanızı kullanmak için:
 
-1. Enter SharePoint in the search box and wait for the search to return all triggers and actions related to SharePoint Online:   
-   ![Configure SharePoint][1]  
-2. Select the **SharePoint Online - When a file is created** trigger  
-3. Select **Sign in to SharePoint Online**:   
-   ![Configure SharePoint][2]    
-4. Provide your SharePoint credentials to sign in to authenticate with SharePoint   
-   ![Configure SharePoint][3]     
-5. After the authentication completes you'll be redirected to your logic app. That's it, the connection has been created. Notice the message at the bottom that indicates that you are now connected to SharePoint.  
-   ![Configure SharePoint][4]  
-6. You can then add other triggers and actions that you need to complete your logic app.   
+1. SharePoint arama kutusuna girin ve tüm tetikleyiciler ve SharePoint Online'a ilgili eylemler döndürmek arama bekleyin:   
+   ![SharePoint'i yapılandırma][1]  
+2. Seçin **SharePoint bir dosyayı oluştururken çevrimiçi -** tetikleyici  
+3. Seçin **oturum SharePoint'e çevrimiçi**:   
+   ![SharePoint'i yapılandırma][2]    
+4. SharePoint ile kimlik doğrulaması oturum açmak için SharePoint kimlik bilgilerinizi sağlayın   
+   ![SharePoint'i yapılandırma][3]     
+5. Kimlik doğrulama tamamlandıktan sonra mantıksal uygulamanızı yeniden yönlendirilen. İşte bu kadar bağlantı oluşturuldu. İletinin SharePoint'e şimdi bağlandığını belirten altındaki dikkat edin.  
+   ![SharePoint'i yapılandırma][4]  
+6. Daha sonra diğer tetikleyiciler ve mantıksal uygulamanızı tamamlamanız gereken eylemler ekleyebilirsiniz.   
 
 [1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png 

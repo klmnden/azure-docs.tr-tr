@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/11/2017
 ms.author: larryfr
-ms.openlocfilehash: 574ccaa8b2d9448a60ddf8adc7f92fa3683b1d61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 53db03029ffca724638871b22a12dfa7f160fc64
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox ile Visual Studio için Azure Data Lake araçları kullanın
 
@@ -29,7 +29,7 @@ Hortonworks Sandbox kullanarak Hadoop ile yerel olarak geliştirme ortamınızı
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Hortonworks geliştirme ortamınızı bir sanal makinede çalışan korumalı alan. Bu belge yazılmış ve Oracle VirtualBox çalıştıran korumalı alan ile test. Korumalı alan ayarlama hakkında daha fazla bilgi için bkz: [Hortonworks sandbox ile başlayın.](hdinsight-hadoop-emulator-get-started.md) Belge.
+* Hortonworks geliştirme ortamınızı bir sanal makinede çalışan korumalı alan. Bu belge yazılmış ve Oracle VirtualBox çalıştıran korumalı alan ile test. Korumalı alan ayarlama hakkında daha fazla bilgi için bkz: [Hortonworks sandbox ile başlayın.](hadoop/apache-hadoop-emulator-get-started.md) Belge.
 
 * Visual Studio 2013, Visual Studio 2015 ve Visual Studio 2017 (herhangi bir sürümünü).
 
@@ -39,7 +39,7 @@ Hortonworks Sandbox kullanarak Hadoop ile yerel olarak geliştirme ortamınızı
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Korumalı alan için parolaları yapılandırın
 
-Hortonworks Sandbox çalıştığından emin olun. Ardından adımları [Hortonworks korumalı alanda başlamak](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) belge. Bu adımları SSH için parolayı yapılandırmak `root` hesabı ve Ambari `admin` hesabı. Bu parolalar, Visual Studio'dan korumalı alanda bağlandığınızda kullanılır.
+Hortonworks Sandbox çalıştığından emin olun. Ardından adımları [Hortonworks korumalı alanda başlamak](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) belge. Bu adımları SSH için parolayı yapılandırmak `root` hesabı ve Ambari `admin` hesabı. Bu parolalar, Visual Studio'dan korumalı alanda bağlandığınızda kullanılır.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Korumalı alan için Araçlar Bağlan
 

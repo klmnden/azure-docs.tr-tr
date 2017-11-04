@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 29f245fdeaadd6f95755f7fd7564dfa7f6b2981f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux'ta Hdınsight kullanma hakkında bilgi
 
@@ -39,9 +39,9 @@ Bu belgede yer alan adımlar birçoğu, sisteminizde yüklü gereken aşağıdak
 
 ## <a name="users"></a>Kullanıcılar
 
-Sürece [etki alanına katılmış](hdinsight-domain-joined-introduction.md), Hdınsight sayılacağı bir **tek kullanıcı** sistem. Tek bir SSH kullanıcı hesabı, yönetici düzeyi izinleri olan bir küme ile oluşturulur. Ek SSH hesapları oluşturulabilir, ancak bunlar ayrıca küme için yönetici erişimine sahip.
+Sürece [etki alanına katılmış](./domain-joined/apache-domain-joined-introduction.md), Hdınsight sayılacağı bir **tek kullanıcı** sistem. Tek bir SSH kullanıcı hesabı, yönetici düzeyi izinleri olan bir küme ile oluşturulur. Ek SSH hesapları oluşturulabilir, ancak bunlar ayrıca küme için yönetici erişimine sahip.
 
-Etki alanına katılmış Hdınsight birden çok kullanıcı ve daha ayrıntılı izni ve rol ayarlarını destekler. Daha fazla bilgi için bkz: [yönetmek etki alanına katılmış Hdınsight kümeleri](hdinsight-domain-joined-manage.md).
+Etki alanına katılmış Hdınsight birden çok kullanıcı ve daha ayrıntılı izni ve rol ayarlarını destekler. Daha fazla bilgi için bkz: [yönetmek etki alanına katılmış Hdınsight kümeleri](./domain-joined/apache-domain-joined-manage.md).
 
 ## <a name="domain-names"></a>Etki alanı adları
 
@@ -277,6 +277,6 @@ Bir bileşenin farklı bir sürümünü kullanmak için gereken ve işlerinizde 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Windows tabanlı Hdınsight'ta Linux tabanlı geçirme](hdinsight-migrate-from-windows-to-linux.md)
-* [HDInsight ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](hdinsight-use-pig.md)
-* [HDInsight ile MapReduce işleri kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight ile Hive kullanma](hadoop/hdinsight-use-hive.md)
+* [HDInsight ile Pig kullanma](hadoop/hdinsight-use-pig.md)
+* [HDInsight ile MapReduce işleri kullanma](hadoop/hdinsight-use-mapreduce.md)

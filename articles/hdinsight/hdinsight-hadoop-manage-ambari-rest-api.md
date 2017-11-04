@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/07/2017
+ms.date: 11/02/2017
 ms.author: larryfr
-ms.openlocfilehash: 7960d83bce22d4f671d61e9aaf55561bc24308f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 33ff4b69a4a914e6c183b10bc47a077eea537e61
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Ambari REST API kullanarak Hdınsight kümelerini yönetme
 
@@ -32,16 +32,16 @@ Apache Ambari, yönetim ve kolay bir web kullanıcı Arabirimi ve REST API kulla
 
 ## <a id="whatis"></a>Ambari nedir
 
-[Apache Ambari](http://ambari.apache.org) web sağlamak, yönetmek ve Hadoop kümeleri izlemek için kullanılan kullanıcı Arabirimi sağlar. Geliştiriciler tümleştirebilir Bu yetenekler uygulamalarına kullanarak [Ambari REST API'leri](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) web Hadoop kümeleri izlemek ve yönetmek için kullanılan kullanıcı Arabirimi sağlar. Geliştiriciler tümleştirebilir Bu yetenekler uygulamalarına kullanarak [Ambari REST API'leri](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari, Linux tabanlı Hdınsight kümeleri ile varsayılan olarak sağlanır.
 
 ## <a name="how-to-use-the-ambari-rest-api"></a>Ambari REST API kullanma
 
 > [!IMPORTANT]
-> Bu belgedeki örneklerde ve bilgi Linux işletim sistemi kullanan bir Hdınsight kümesi gerektirir. Daha fazla bilgi için bkz: [Hdınsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md).
+> Bu belgedeki örneklerde ve bilgi Linux işletim sistemi kullanan bir Hdınsight kümesi gerektirir. Daha fazla bilgi için bkz: [Hdınsight kullanmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-Bu belgedeki örneklerde Uluç Kabuğu (bash) ve PowerShell için sağlanır. Örnekler GNU ile test edilmiş bash 4.3.11 bash, ancak diğer UNIX Kabukları ile çalışması gerekir. PowerShell örneklerini PowerShell 5.0 ile test edilmiş, ancak PowerShell 3.0 veya üstünü çalışması gerekir.
+Bu belgedeki örneklerde Uluç Kabuğu (bash) ve PowerShell için sağlanır. Bash örnekler GNU bash sürüm 4.3.11 test edilmiş, ancak diğer UNIX Kabukları ile çalışması gerekir. PowerShell örneklerini PowerShell 5.0 ile test edilmiş, ancak PowerShell 3.0 veya üstünü çalışması gerekir.
 
 Kullanıyorsanız __Uluç Kabuk__ (Bash) aşağıdakilerin yüklü olması gerekir:
 
@@ -75,15 +75,15 @@ Hdınsight üzerinde Ambari bağlanma HTTPS gerektirir. Yönetici hesabı adı k
 Aşağıdaki örnekler bir GET isteği temel Ambari REST API'sine karşı nasıl yapılacağını göstermek:
 
 ```bash
-curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
+curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
 ```
 
 > [!IMPORTANT]
 > Bu belgedeki Bash örnekler aşağıdaki varsayımlar olun:
 >
 > * Küme için oturum açma adı varsayılan değeri `admin`.
-> * `$PASSWORD`Hdınsight oturum açma komut parolasını içerir. Bu değer kullanılarak ayarlanır `PASSWORD='mypassword'`.
 > * `$CLUSTERNAME`Küme adını içerir. Bu değer kullanılarak ayarlanır`set CLUSTERNAME='clustername'`
+> * İstendiğinde, küme oturum açma (Yönetici) için parolayı girin.
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
@@ -124,7 +124,7 @@ $resp.Content
 Aşağıdaki örnek kullanır `jq` JSON yanıt belge ayrıştırma ve yalnızca görüntülemek için `health_report` sonuçları bilgileri.
 
 ```bash
-curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME" \
+curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME" \
 | jq '.Clusters.health_report'
 ```
 
@@ -149,7 +149,7 @@ Hdınsight ile çalışırken, bir küme düğümü tam etki alanı adını (FQD
 * **Tüm düğümler**
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" \
     | jq '.items[].Hosts.host_name'
     ```
 
@@ -163,7 +163,7 @@ Hdınsight ile çalışırken, bir küme düğümü tam etki alanı adını (FQD
 * **Baş düğümler**
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/HDFS/components/NAMENODE" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/HDFS/components/NAMENODE" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -177,7 +177,7 @@ Hdınsight ile çalışırken, bir küme düğümü tam etki alanı adını (FQD
 * **Çalışan düğümü**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/HDFS/components/DATANODE" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -191,7 +191,7 @@ Hdınsight ile çalışırken, bir küme düğümü tam etki alanı adını (FQD
 * **Zookeeper düğümleri**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -214,10 +214,13 @@ IP adresini bulmak için küme düğümleri iç tam etki alanı adını (FQDN) b
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
 do
-    IP=$(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts/$HOSTNAME" | jq -r '.Hosts.ip')
+    IP=$(curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts/$HOSTNAME" | jq -r '.Hosts.ip')
   echo "$HOSTNAME <--> $IP"
 done
 ```
+
+> [!TIP]
+> Önceki örneklerde parolasını ister. Bu örnekte çalışan `curl` parola olarak sağlanan şekilde birden çok kez komutu `$PASSWORD` birden çok istemleri önlenir.
 
 ```powershell
 $uri = "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts"
@@ -240,7 +243,7 @@ Bir Hdınsight kümesi oluştururken, varsayılan depolama alanı olarak bir Azu
 Aşağıdaki örnekler, varsayılan depolama yapılandırması kümeden Al:
 
 ```bash
-curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
+curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
 | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
 ```
 
@@ -263,7 +266,7 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
     Data Lake Store hesap adını bulmak için aşağıdaki örneklerde kullanın:
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
     | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'
     ```
 
@@ -279,7 +282,7 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
     Küme için depolama alanını içeren bir Data Lake Store içinde dizin bulmak için aşağıdaki örneklerde kullanın:
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
     | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'
     ```
 
@@ -301,7 +304,7 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
 1. Kümeniz için kullanılabilir olan yapılandırmaları alın.
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
     ```
 
     ```powershell
@@ -333,7 +336,7 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
 2. İlgilendiğiniz bileşeni için yapılandırma alın. Aşağıdaki örnekte `INITIAL` etiket değeri ile önceki istekten döndürdü.
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
     ```
 
     ```powershell
@@ -349,7 +352,7 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
 1. "İstenen yapılandırma" Ambari depolar geçerli yapılandırmasını alın:
 
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
     ```
 
     ```powershell
@@ -382,7 +385,7 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
 2. Etiket ve Bileşen yapılandırmasını aşağıdaki komutları kullanarak Al:
    
     ```bash
-    curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
+    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
     | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     ```
 
@@ -438,7 +441,7 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
 4. Ambari güncelleştirilmiş yapılandırmaya göndermek için aşağıdaki komutları kullanın.
    
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
+    curl -u admin -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
     ```
 
     ```powershell
@@ -460,7 +463,7 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
 1. Bir Spark hizmeti için bakım modunu etkinleştirmek için aşağıdakileri kullanın:
 
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     -X PUT -d '{"RequestInfo": {"context": "turning on maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}' \
     "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```
@@ -477,7 +480,7 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
     Bu komutlar bir JSON belgesi bakım modunu açar sunucusuna gönderir. Hizmet artık aşağıdaki isteği kullanarak bakım modunda olduğunu doğrulayabilirsiniz:
    
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/SPARK" \
     | jq .ServiceInfo.maintenance_state
     ```
@@ -494,7 +497,7 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
 2. Ardından, hizmeti kapatmak için aşağıdakileri kullanın:
 
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     -X PUT -d '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"INSTALLED"}}}' \
     "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```
@@ -526,7 +529,7 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
     Aşağıdaki komutları isteğinin durumunu al:
 
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/requests/29" \
     | jq .Requests.request_status
     ```
@@ -543,7 +546,7 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
 3. Önceki istek tamamlandığında, hizmeti başlatmak için aşağıdakileri kullanın.
    
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     -X PUT -d '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}' \
     "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```
@@ -560,7 +563,7 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
 4. Son olarak, bakım modunu devre dışı bırakmak için aşağıdakileri kullanın.
    
     ```bash
-    curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
+    curl -u admin -sS -H "X-Requested-By: ambari" \
     -X PUT -d '{"RequestInfo": {"context": "turning off maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}' \
     "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/SPARK"
     ```

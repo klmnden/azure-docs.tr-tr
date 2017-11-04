@@ -1,26 +1,42 @@
-You must create a VNet and a gateway subnet first, before working on the following tasks. See the article [Configure a Virtual Network using the classic portal](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) for more information.   
+VNet ve bir ağ geçidi alt ağı önce aşağıdaki görevlere çalışmaya başlamadan önce oluşturmanız gerekir. Makalesine bakın [Klasik portalı kullanarak bir sanal ağ yapılandırma](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) daha fazla bilgi için.
 
-## <a name="add-a-gateway"></a>Add a gateway
-Use the command below to create a gateway. Be sure to substitute any values for your own.
+> [!NOTE]
+> Bu örnekler S2S/ExpressRoute için geçerli olmayan yapılandırmalar bir arada.
+> Coexist yapılandırmasında ağ geçitleri ile çalışma hakkında daha fazla bilgi için bkz: [arada var olabilen bağlantılar yapılandırmak](../articles/expressroute/expressroute-howto-coexist-classic.md#gw)
 
-    New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
+## <a name="add-a-gateway"></a>Bir ağ geçidi Ekle
 
-## <a name="verify-the-gateway-was-created"></a>Verify the gateway was created
-Use the command below to verify that the gateway has been created. This command also retrieves the gateway ID, which you need for other operations.
+Bir ağ geçidi oluşturmak için aşağıdaki komutu kullanın. Kendi ilgili tüm değerleri değiştirdiğinizden emin olun.
 
-    Get-AzureVirtualNetworkGateway
+```powershell
+New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
+```
 
-## <a name="resize-a-gateway"></a>Resize a gateway
-There are a number of [Gateway SKUs](../articles/expressroute/expressroute-about-virtual-network-gateways.md). You can use the following command to change the Gateway SKU at any time.
+## <a name="verify-the-gateway-was-created"></a>Ağ geçidinin oluşturulduğunu doğrulayın
+
+Ağ geçidinin oluşturulduğunu doğrulamak için aşağıdaki komutu kullanın. Bu komut ayrıca diğer işlemleri için gereken ağ geçidi kimliği alır.
+
+```powershell
+Get-AzureVirtualNetworkGateway
+```
+
+## <a name="resize-a-gateway"></a>Bir ağ geçidi yeniden boyutlandırma
+
+Bir dizi vardır [ağ geçidi SKU'ları](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Ağ geçidi SKU'su herhangi bir zamanda değiştirmek için aşağıdaki komutu kullanabilirsiniz.
 
 > [!IMPORTANT]
-> This command doesn't work for UltraPerformance gateway. To change your gateway to an UltraPerformance gateway, first remove the existing ExpressRoute gateway, and then create a new UltraPerformance gateway. To downgrade your gateway from an UltraPerformance gateway, first remove the UltraPerformance gateway, and then create a new gateway. 
-> 
-> 
+> Bu komut için UltraPerformance ağ geçidi çalışmıyor. UltraPerformance ağ geçidi için ağ geçidiniz değiştirmek için önce varolan ExpressRoute ağ geçidi kaldırın ve yeni UltraPerformance ağ geçidi oluşturmak. Ağ geçidiniz UltraPerformance geçidinden düşürmek için ilk UltraPerformance ağ geçidi kaldırın ve ardından yeni bir ağ geçidi oluşturun. 
+>
+>
 
-    Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```powershell
+Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
 
-## <a name="remove-a-gateway"></a>Remove a gateway
-Use the command below to remove a gateway
+## <a name="remove-a-gateway"></a>Bir ağ geçidi kaldırma
 
-    Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+Bir ağ geçidini kaldırmak için aşağıdaki komutu kullanın
+
+```powershell
+Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+```

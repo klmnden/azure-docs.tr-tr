@@ -1,44 +1,44 @@
 <!--author=alkohli last changed: 08/04/17-->
 
-#### <a name="to-install-an-update-from-the-azure-portal"></a>To install an update from the Azure portal
+#### <a name="to-install-an-update-from-the-azure-portal"></a>Azure portalından bir güncelleştirmeyi yüklemek için
 
-1. On the StorSimple service page, select your device.
+1. StorSimple hizmet sayfasında cihazınızı seçin.
 
-    ![Select device](./media/storsimple-8000-install-update5-via-portal/update1.png)
+    ![Cihazı seçin](./media/storsimple-8000-install-update5-via-portal/update1.png)
 
-2. Navigate to **Device settings** > **Device updates**.
+2. Gidin **aygıt ayarları** > **aygıt güncelleştirmeleri**.
 
-    ![Click Device updates](./media/storsimple-8000-install-update5-via-portal/update2.png)
+    ![Cihaz güncelleştirmeleri tıklatın](./media/storsimple-8000-install-update5-via-portal/update2.png)
 
-2. A notification appears if new updates are available. Alternatively, in the **Device updates** blade, click **Scan Updates**. A job is created to scan for available updates. You are notified when the job completes successfully.
+2. Yeni güncelleştirmeler varsa bir bildirim görüntülenir. Alternatif olarak, içinde **aygıt güncelleştirmeleri** dikey penceresinde tıklatın **Güncelleştirmeleri tara**. Kullanılabilir güncelleştirmeleri taramak için bir iş oluşturulur. İş başarıyla tamamlandığında size bildirilir.
 
-    ![Click Device updates](./media/storsimple-8000-install-update5-via-portal/update3.png)
+    ![Cihaz güncelleştirmeleri tıklatın](./media/storsimple-8000-install-update5-via-portal/update3.png)
 
-3. We recommend that you review the release notes before you apply an update on your device. To apply updates, click **Install updates**. In the **Confirm regular updates** blade, review the prerequisites to complete before you apply updates. Select the checkbox to indicate that you are ready to update the device and then click **Install**.
+3. Bir güncelleştirmeyi cihazınıza uygulamadan önce sürüm notlarını gözden geçirmeniz önerilir. Güncelleştirmeleri uygulamak için tıklatın **güncelleştirmelerini yükleme**. İçinde **düzenli olarak güncelleştirmeleri Onayla** dikey penceresinde, güncelleştirmeleri uygulamadan önce tamamlamak için önkoşulları gözden geçirin. Cihaz güncelleştirin ve ardından hazır olduğunu belirtmek için onay kutusunu işaretleyin **yükleme**.
 
-    ![Click Device updates](./media/storsimple-8000-install-update5-via-portal/update4.png)
+    ![Cihaz güncelleştirmeleri tıklatın](./media/storsimple-8000-install-update5-via-portal/update4.png)
 
-6. A set of prerequisite checks starts. These checks include:
+6. Bir dizi önkoşul denetimi başlatılır. Bu denetimler şunlardır:
    
-   * **Controller health checks** to verify that both the device controllers are healthy and online.
-   * **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
-   * **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you must enable it and then retry.
+   * Her iki cihaz denetleyicisinin de sağlıklı ve çevrimiçi olduğunu doğrulamaya yönelik **denetleyici durumu denetimleri**.
+   * StorSimple cihazınızdaki tüm donanım bileşenlerinin sağlıklı olduğunu doğrulamaya yönelik **donanım bileşeni durum denetimleri**.
+   * DATA 0’ın cihazınızda etkin olduğunu doğrulamaya yönelik **DATA 0 denetimleri**. Bu arabirim etkin değilse etkinleştirmeniz ve sonra yeniden denemeniz gerekir.
 
-    The update is downloaded and installed only if all the checks are successfully completed. You are notified when the checks are in progress. If the prechecks fail, then you will be provided with the reasons for failure. Address those issues and then retry the operation. You may need to contact Microsoft Support if you cannot address these issues by yourself.
+    Güncelleştirme karşıdan ve yüklü değilse yalnızca tüm denetimlerden başarıyla tamamlanır. Denetimler devam ederken size bildirilir. Ardından prechecks başarısız olursa hatanın nedenlerini ile sağlanacaktır. Bu sorunları giderin ve işlemi yeniden deneyin. Bu sorunları kendi başınıza çözemiyorsanız Microsoft Desteği’ne başvurmanız gerekebilir.
 
-7. After the prechecks are successfully completed, an update job is created. You are notified when the update job is successfully created.
+7. Prechecks başarıyla tamamlandıktan sonra bir güncelleştirme işi oluşturulur. Güncelleştirme işi başarıyla oluşturulduğunda size bildirilir.
    
-    ![Update job creation](./media/storsimple-8000-install-update5-via-portal/update6.png)
+    ![Güncelleştirme işi oluşturma](./media/storsimple-8000-install-update5-via-portal/update6.png)
    
-    The update is then applied on your device.
+    Bundan sonra güncelleştirme, cihazınıza uygulanır.
 
-9. The update takes a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
+9. Güncelleştirmenin tamamlanması birkaç saat sürer. Güncelleştirme işini seçin ve **Ayrıntılar**’a tıklayarak dilediğiniz zaman işin ayrıntılarını görüntüleyin.
 
-    ![Update job creation](./media/storsimple-8000-install-update5-via-portal/update8.png)
+    ![Güncelleştirme işi oluşturma](./media/storsimple-8000-install-update5-via-portal/update8.png)
 
-     You can also monitor the progress of the update job from **Device settings > Jobs**. On the **Jobs** blade, you can see the update progress.
+     Ayrıca güncelleştirme işten ilerlemesini izleyebilirsiniz **Aygıt Ayarları > işleri**. Üzerinde **işleri** dikey penceresinde, güncelleştirme ilerleme durumunu görebilirsiniz.
 
-     ![Update job creation](./media/storsimple-8000-install-update5-via-portal/update7.png)
+     ![Güncelleştirme işi oluşturma](./media/storsimple-8000-install-update5-via-portal/update7.png)
 
-10. After the job is complete, navigate to the **Device settings > Device updates**. The software version should now be updated.
+10. İş tamamlandıktan sonra gidin **Aygıt Ayarları > aygıt güncelleştirmeleri**. Yazılım sürümü şimdi güncelleştirilmesi gerekir.
 

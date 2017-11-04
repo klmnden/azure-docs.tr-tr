@@ -1,16 +1,16 @@
-## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Specifying structure definition for rectangular datasets
-The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. You will use the structure section for either providing type information for type conversions or doing column mappings. The following sections describe these features in detail. 
+## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Yapı tanımı dikdörtgen veri kümeleri için belirtme
+JSON veri kümesi yapısı bölümünde bir **isteğe bağlı** bölümünde dikdörtgen tablolar için (satırlar ve sütunlar) ve tablonun sütunlarını koleksiyonunu içerir. Yapısı bölüm iki tür bilgi sağlayan tür dönüştürmeleri için veya sütun eşlemelerini yapmak için kullanır. Aşağıdaki bölümlerde bu özellikler ayrıntılı açıklanmaktadır. 
 
-Each column contains the following properties:
+Her sütun aşağıdaki özellikleri içerir:
 
-| Property | Description | Required |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| name |Name of the column. |Yes |
-| type |Data type of the column. See type conversions section below for more details regarding when should you specify type information |No |
-| culture |.NET based culture to be used when type is specified and is .NET type Datetime or Datetimeoffset. Default is “en-us”. |No |
-| format |Format string to be used when type is specified and is .NET type Datetime or Datetimeoffset. |No |
+| ad |Sütunun adı. |Evet |
+| type |Sütunun veri türü. Zaman tür bilgileri belirtmelisiniz için aşağıdaki türü dönüşümleri bölümüne daha ayrıntılı bakın |Hayır |
+| Kültür |.NET türü belirtilir ve .NET türü Datetime veya Datetimeoffset olduğunda kullanılacak kültürü temel. Varsayılan değer "en-us". |Hayır |
+| Biçimi |Türü belirtilmiş ve .NET olduğunda kullanılacak biçim dizesi Datetime veya Datetimeoffset yazın. |Hayır |
 
-The following sample shows the structure section JSON for a table that has three columns userid, name, and lastlogindate.
+Aşağıdaki örnek, üç sütun UserID, adı ve lastlogindate sahip bir tablo yapısı bölüm JSON gösterir.
 
 ```json
 "structure": 
@@ -21,31 +21,31 @@ The following sample shows the structure section JSON for a table that has three
 ],
 ```
 
-Please use the following guidelines for when to include “structure” information and what to include in the **structure** section.
+Lütfen "yapı" bilgileri içerecek şekilde ne zaman ve ne dahil etmek için aşağıdaki kılavuzları kullanın **yapısı** bölümü.
 
-* **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want do column mapping of specific source columns to specific columns in sink and their names are not the same (see details in column mapping section below). 
+* **Yapılandırılmış veri kaynakları için** deposu veri şeması ve türü bilgileri verilerin kendisini (yalnızca istiyorsanız "yapısı" bölümü belirtmelidir kaynakları SQL Server, Oracle, Azure tablo vb. gibi), yanı sıra belirli bir kaynak sütun eşlemesi yapın Havuz ve adları belirli sütunlardaki sütunları (sütun eşleme bölümünde aşağıdaki ayrıntılarına bakın) aynı değildir. 
   
-    As mentioned above, the type information is optional in “structure” section. For structured sources, type information is already available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.
-* **For schema on read data sources (specifically Azure blob)**  you can choose to store data without storing any schema or type information with the data. For these types of data sources you should include “structure” in the following 2 cases:
-  * You want to do column mapping.
-  * When the dataset is a source in a Copy activity, you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink. See [Move data to and from Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) article for more information.
+    Yukarıda belirtildiği gibi tür bilgisi "yapısı" bölümünde isteğe bağlıdır. Yapılandırılmış kaynakları için tür bilgileri zaten kullanılabilir veri kümesi tanımı veri deposundaki bir parçası olarak, bu nedenle dahil türü bilgileri "yapısı" bölümünde eklediğinizde.
+* **Şema okuma veri kaynaklarında (özellikle Azure blob) için** herhangi bir şema veya türü bilgi verilerle depolamadan veri depolamayı seçebilirsiniz. Bu veri kaynağı türleri için aşağıdaki 2 durumlarda "yapısı" içermelidir:
+  * Sütun eşlemesi yapmak istiyor.
+  * Veri kümesi kopyalama etkinliğinde bir kaynak olduğunda, "yapısındaki" türü bilgileri sağlayabilir ve veri fabrikası dönüştürme havuz için yerel türleri için bu tür bilgileri kullanır. Bkz: [için ve Azure Blob veri taşıma](../articles/data-factory/v1/data-factory-azure-blob-connector.md) daha fazla bilgi için makalenin.
 
-### <a name="supported-net-based-types"></a>Supported .NET-based types
-Data factory supports the following CLS compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
+### <a name="supported-net-based-types"></a>Desteklenir. NET tabanlı türleri
+Veri Fabrikası okuma veri kaynaklarında Azure blob gibi şema "yapısındaki" türü bilgileri sağlamak için aşağıdaki CLS uyumlu dayalı .NET türü değerleri destekler.
 
 * Int16
 * Int32 
 * Int64
-* Single
-* Double
-* Decimal
-* Byte[]
-* Bool
-* String 
-* Guid
-* Datetime
+* Tek
+* Çift
+* Ondalık
+* Byte]
+* bool
+* Dize 
+* GUID
+* Tarih saat
 * Datetimeoffset
 * Timespan 
 
-For Datetime & Datetimeoffset you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string. See sample for type conversion below.
+DateTime ve Datetimeoffset için de isteğe bağlı olarak, özel Datetime dizesini ayrıştırma kolaylaştırmak için "kültür" & "format" dizesini belirtebilirsiniz. Tür dönüşümü aşağıdaki örneğe bakın.
 

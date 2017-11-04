@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: larryfr
-ms.openlocfilehash: 17059c5861962a56ed2011a8f8874fc23673ed68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5835d4ac83b54648b4f7885de577f90008018baa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Bir Azure sanal ağı kullanarak Azure Hdınsight genişletme
 
@@ -671,8 +671,8 @@ Bu adımları tamamladıktan sonra tam etki alanı adları (FQDN) kullanarak san
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bir şirket ağına bağlanmak için Hdınsight yapılandırma uçtan uca örneği için bkz: [bir şirket içi ağınıza bağlanmak Hdınsight](./connect-on-premises-network.md).
-* Hbase kümeleri Azure sanal ağları yapılandırmak için bkz: [oluşturma HBase kümeleri Azure sanal ağındaki hdınsight'ta](./hdinsight-hbase-provision-vnet.md).
-* HBase coğrafi çoğaltma yapılandırmak için bkz: [HBase kümesi çoğaltma Azure sanal ağlarda ayarlama](./hdinsight-hbase-replication.md).
+* Hbase kümeleri Azure sanal ağları yapılandırmak için bkz: [oluşturma HBase kümeleri Azure sanal ağındaki hdınsight'ta](hbase/apache-hbase-provision-vnet.md).
+* HBase coğrafi çoğaltma yapılandırmak için bkz: [HBase kümesi çoğaltma Azure sanal ağlarda ayarlama](hbase/apache-hbase-replication.md).
 * Azure sanal ağlar hakkında daha fazla bilgi için bkz: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
 
 * Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md).

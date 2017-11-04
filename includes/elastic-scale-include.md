@@ -1,2 +1,2 @@
-## <a name="additional-resources"></a>Additional resources
-Not using elastic database tools yet? Check out our [Getting Started Guide](../articles/sql-database/sql-database-elastic-scale-get-started.md).  For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+## <a name="additional-resources"></a>Ek kaynaklar
+Esnek veritabanı araçlarını henüz kullanmıyor musunuz? Kullanıma bizim [Başlarken Kılavuzu](../articles/sql-database/sql-database-elastic-scale-get-started.md).  Sorular için lütfen bize üzerinde ulaşmak [SQL veritabanı Forumu](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) ve özellik istekler için lütfen bunları Ekle [SQL veritabanı geri bildirim Forumunda](https://feedback.azure.com/forums/217321-sql-database/).

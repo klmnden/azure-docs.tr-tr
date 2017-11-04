@@ -1,8 +1,8 @@
 > [!TIP]
 > 
-> **Try Microsoft Azure Storage Explorer**
+> **Microsoft Azure Storage Gezgini deneyin**
 > 
-> [Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft. You can use it to work visually with Azure Storage data on Windows, macOS, and Linux.
+> [Microsoft Azure Storage Gezgini](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) Microsoft'un ücretsiz, bir tek başına uygulamadır. Windows, macOS ve Linux görsel olarak Azure Storage verilerle çalışmak için kullanabilirsiniz.
 > 
 > 
 

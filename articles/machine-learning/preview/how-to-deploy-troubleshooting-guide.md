@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2017
-ms.openlocfilehash: b9287c7151c96aaccbcda81c111cfe36ead5ab38
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
-ms.translationtype: HT
+ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Hizmet dağıtımı ve ortam Kurulumu sorunlarını giderme
 Aşağıdaki bilgiler model yönetim ortamını ayarlarken hatalarının nedeninin belirlenmesine yardımcı olabilir.
@@ -30,13 +30,13 @@ Ayrıca bir küme dağıtımı, web hizmetleri için ayarlamak üzere sahibi izn
 Ortam kaynakları sağlamak için aboneliğinizde kullanılabilir yeterli kaynak olması gerekir.
 
 ### <a name="subscription-caps"></a>Abonelik Caps
-Aboneliğinizi hangi, ortam kaynakları sağlama önleyebilir faturalama üzerinde bir cap olabilir. Sağlamayı etkinleştirmek için cap Removet.
+Aboneliğinizi hangi, ortam kaynakları sağlama önleyebilir faturalama üzerinde bir cap olabilir. Sağlamayı etkinleştirmek için bu CAP'ye kaldırın.
 
 ### <a name="enable-debug-and-verbose-options"></a>Hata ayıklama ve ayrıntılı seçenekleri etkinleştirme
 Kullanım `--debug` ve `--verbose` bayrakları ortamı sağlanan olarak hata ayıklama ve izleme bilgilerini görüntülemek için Kurulum komutu.
 
 ```
-az ml env setup -l <loation> -n <name> -c --debug --verbose 
+az ml env setup -l <location> -n <name> -c --debug --verbose 
 ```
 
 ## <a name="service-deployment"></a>Hizmet dağıtımı
@@ -89,7 +89,9 @@ Python örnek:
 ```
 
 ## <a name="other-common-problems"></a>Diğer yaygın sorunlar
-- Varsa `env setup` komutu başarısız, yeterli çekirdek aboneliğinizde kullanılabilir olduğundan emin olun.
-- Alt çizgi (_) web hizmeti adını kullanmayın (olarak *my_webservice*).
-- Alırsanız yeniden deneme bir **502 hatalı ağ geçidi** web hizmeti çağrılırken hata. Normalde, kapsayıcı kümeye henüz dağıtılan kurmadı anlamına gelir.
-- Alırsanız **CrashLoopBackOff** bir hizmet oluşturma sırasında hata günlüklerinizi denetleyin. Genellikle eksik bağımlılıklar sonucu olan **init** işlevi.
+- Varsa `env setup` komutu başarısız ile `LocationNotAvailableForResourceType`, öğrenme kaynakları makine için büyük olasılıkla yanlış konum (bölge) kullanıyorsanız. İle belirtilen konumunuz emin olun `-l` parametresi `eastus2`, `westcentralus`, veya `australiaeast`.
+- Varsa `env setup` komutu başarısız ile `Resource quota limit exceeded`, aboneliğinizde kullanılabilir yeterli çekirdek varsa ve kaynaklarınızı kullanılmayan yukarı diğer işlemleri emin olun.
+- Varsa `env setup` komutu başarısız ile `Invalid environment name. Name must only contain lowercase alphanumeric characters`, hizmet adı büyük harfler, simgeler veya alt çizgi (_) içermediğinden emin olun (olarak *my_environment*).
+- Varsa `service create` komutu başarısız ile `Service Name: [service_name] is invalid. The name of a service must consist of lower case alphanumeric characters (etc.)`, hizmet adı uzunluğu 3 ile 32 karakter arasında olan; başlatır ve küçük harf alfasayısal karakterlerle; sona erer ve büyük harfler, semboller tire (-) ve süre dışında içermediğinden emin olun ( . ), veya alt çizgi (_) (olarak *my_webservice*).
+- Alırsanız yeniden deneme bir `502 Bad Gateway` web hizmeti çağrılırken hata. Normalde, kapsayıcı kümeye henüz dağıtılan kurmadı anlamına gelir.
+- Alırsanız `CrashLoopBackOff` bir hizmet oluşturma sırasında hata günlüklerinizi denetleyin. Genellikle eksik bağımlılıklar sonucu olan **init** işlevi.

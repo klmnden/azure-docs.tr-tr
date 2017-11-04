@@ -1,7 +1,7 @@
 
 ## <a name="about-vhds"></a>VHD'ler hakkında
 
-Azure’da kullanılan VHD’ler, Azure’daki standart veya premium depolama hesabında sayfa blobları olarak depolanır. Sayfa blobları hakkında bilgi için bkz. [Blok bloblarını ve sayfa bloblarını anlama](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Premium depolama hakkında daha fazla ayrıntı için bkz. [Yüksek performanslı premium depolama ve Azure VM'leri](../articles/storage/common/storage-premium-storage.md).
+Azure’da kullanılan VHD’ler, Azure’daki standart veya premium depolama hesabında sayfa blobları olarak depolanır. Sayfa blobları hakkında bilgi için bkz. [Blok bloblarını ve sayfa bloblarını anlama](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Premium depolama hakkında daha fazla ayrıntı için bkz. [Yüksek performanslı premium depolama ve Azure VM'leri](../articles/virtual-machines/windows/premium-storage.md).
 
 Azure, sabit bir disk VHD biçimini destekler. Sabit biçim, mantıksal diski dosya içinde doğrusal olarak düzenlediğinden, disk farkı X'in içeriği blob farkı X konumunda depolanır. Blob'un sonundaki küçük bir alt bilgi VHD'nin özelliklerini tanımlar. Çoğunlukla, sabit biçim alanı israf eder, çünkü çoğu diskte kullanılmayan büyük aralıklar vardır. Ancak, Azure .vhd dosyalarını seyrek biçimde depoladığından aynı anda hem sabit hem de dinamik disklerin avantajlarından yararlanırsınız. Daha ayrıntılı bilgi için bkz. [Sanal sabit diskleri kullanmaya başlama](https://technet.microsoft.com/library/dd979539.aspx).
 
@@ -26,11 +26,11 @@ Disklerinizi oluştururken depolama için seçebileceğiniz iki performans katma
 
 Standart Depolama, HDD’ler ile desteklenir ve yüksek performans sunarken uygun maliyetli depolama sağlar. Standart depolama bir veri merkezine yerel olarak çoğaltılabilir veya birincil ve ikincil veri merkezleri ile coğrafi yedekleri olabilir. Depolama çoğaltma hakkında daha fazla bilgi için bkz. [Azure Depolama çoğaltma](../articles/storage/common/storage-redundancy.md). 
 
-VM diskleri ile Standart Depolama kullanma hakkında daha fazla bilgi için lütfen bkz. [Standart Depolama ve Diskler](../articles/storage/common/storage-standard-storage.md).
+VM diskleri ile Standart Depolama kullanma hakkında daha fazla bilgi için lütfen bkz. [Standart Depolama ve Diskler](../articles/virtual-machines/windows/standard-storage.md).
 
 ### <a name="premium-storage"></a>Premium depolama 
 
-Premium Depolama, SSD’ler ile desteklenir ve G/Ç yoğunluklu iş yükleri için yüksek performanslı, düşük gecikme süresine sahip disk desteği sunar. Premium depolama DS, DSv2, GS, Ls veya FS serisi Azure VM'ler ile kullanabilirsiniz. Daha fazla bilgi için bkz. [Premium Depolama](../articles/storage/common/storage-premium-storage.md).
+Premium Depolama, SSD’ler ile desteklenir ve G/Ç yoğunluklu iş yükleri için yüksek performanslı, düşük gecikme süresine sahip disk desteği sunar. Premium depolama DS, DSv2, GS, Ls veya FS serisi Azure VM'ler ile kullanabilirsiniz. Daha fazla bilgi için bkz. [Premium Depolama](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Yönetilmeyen diskler
 

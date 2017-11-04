@@ -1,28 +1,28 @@
-If you want a domain, you can buy domains on [Azure Management Portal](https://portal.azure.com) directly. Use the following steps to buy domain names and assign to your web app.
+Bir etki alanı isterseniz, üzerinde etki alanı satın alabilir [Azure Yönetim Portalı](https://portal.azure.com) doğrudan. Etki alanı adları satın alın ve web uygulamanıza atamak için aşağıdaki adımları kullanın.
 
-1. In your browser, open the [Azure Management Portal](https://portal.azure.com).
-2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains and SSL**
+1. Tarayıcınızda açın [Azure Yönetim Portalı](https://portal.azure.com).
+2. İçinde **Web Apps** sekmesini seçin, web uygulamanızın adını tıklatın, **ayarları**ve ardından **özel etki alanları ve SSL**
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
-3. In the **Custom domains and SSL** blade, click **Buy domains**.
+3. İçinde **özel etki alanları ve SSL** dikey penceresinde tıklatın **satın etki alanları**.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-1.png)
-4. In the **Buy Domains** blade, use the text box to enter the domain name you want to buy. The suggested available domains will be shown just blow the text box. Select what domain you want to buy.
+4. İçinde **satın etki alanları** dikey penceresinde, satın almak istediğiniz etki alanı adı girmek için metin kutusunu kullanın. Önerilen kullanılabilir etki alanlarını gösterilen yalnızca metin kutusu kadar güzel. Satın almak istediğiniz hangi etki alanını seçin.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-2.png)
-5. Click the **Contact Information** and fill the domain's contact information form.
+5. Tıklatın **iletişim bilgileri** ve etki alanı bilgilerini formu doldurun.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-3.png)
-6. Click the **Select** on **Buy Domains** blade, then you will see the purchase information on **Purchase confirmation** blade. If you accept the legal terms and click **Buy**, your order will be submitted and you can monitor the purchasing process on **Notification**.
+6. Tıklatın **seçin** üzerinde **satın etki alanları** dikey penceresinde, ardından görürsünüz satın alma bilgileri üzerinde **satın alma onayı** dikey. Yasal koşulları kabul edin ve'ı tıklatırsanız **satın**, siparişinizi gönderilir ve satın alma işlemi izleyebilirsiniz **bildirim**.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-4.png)
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-5.png)
-7. If you successfully ordered a domain, you can manage the domain and assign to your web app. Click the **"..."** at the right side of your domain. Then you can **Cancel purchase** or **Manage domain**. Click **Manage domain**, then we can bind **subdomain** to our web app on **Manage domain** blade.
+7. Bir etki alanı başarıyla sipariş, etki alanını yönetme ve web uygulamanıza atayın. Tıklatın **"..."** etki alanınızı sağ tarafındaki. Yapabilecekleriniz sonra **iptal satın alma** veya **Yönet etki alanı**. Tıklatın **Yönet etki alanı**, biz bağlayabilirsiniz sonra **alt etki alanı** web uygulamamız için **Yönet etki alanı** dikey.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-6.png)
    
-    Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
+    Yapılandırma tamamlandıktan sonra özel etki alanı adı listelenir **konak adı bağlamaları** , web uygulamanızın bölümü.
 
-At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
+Bu noktada, tarayıcınızda özel etki alanı adı girin ve başarılı bir şekilde, web uygulamanıza sürdüğünü olduğunu görmek mümkün olması gerekir.
 

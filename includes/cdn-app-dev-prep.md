@@ -1,53 +1,53 @@
-## <a name="prerequisites"></a>Prerequisites
-Before we can write CDN management code, we need to do some preparation to enable our code to interact with the Azure Resource Manager.  To do this, you'll need to:
+## <a name="prerequisites"></a>Ön koşullar
+Biz CDN yönetim kod yazmadan önce Azure Kaynak Yöneticisi ile etkileşim kurmak kodumuza etkinleştirmek için bazı hazırlıklar yapmanız gerekir.  Bunu yapmak için yapmanız:
 
-* Create a resource group to contain the CDN profile we create in this tutorial
-* Configure Azure Active Directory to provide authentication for our application
-* Apply permissions to the resource group so that only authorized users from our Azure AD tenant can interact with our CDN profile
+* Bu öğreticide oluşturuyoruz CDN profili içermesi için bir kaynak grubu oluştur
+* Kimlik doğrulaması uygulamamız için Azure Active Directory yapılandırma
+* Böylece yalnızca yetkili kullanıcıların bizim Azure AD kiracısı bizim CDN profili ile etkileşim kurabilir kaynak grubu için izinleri uygula
 
-### <a name="creating-the-resource-group"></a>Creating the resource group
-1. Log into the [Azure Portal](https://portal.azure.com).
-2. Click the **New** button in the upper left, and then **Management**, and **Resource Group**.
+### <a name="creating-the-resource-group"></a>Kaynak grubu oluşturma
+1. İçine oturum [Azure Portal](https://portal.azure.com).
+2. Tıklatın **yeni** sol üst köşedeki düğmesine ve ardından **Yönetim**, ve **kaynak grubu**.
 
-    ![Creating a new resource group](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
-3. Call your resource group *CdnConsoleTutorial*.  Select your subscription and choose a location near you.  If you wish, you may click the **Pin to dashboard** checkbox to pin the resource group to the dashboard in the portal.  This will make it easier to find later.  After you've made your selections, click **Create**.
+    ![Yeni bir kaynak grubu oluşturma](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
+3. Kaynak grubunuzun çağrısı *CdnConsoleTutorial*.  Aboneliğinizi seçin ve yakın bir konum seçin.  İsterseniz,'ı tıklatabilirsiniz **panoya Sabitle** portalda kaynak grubu panoya sabitlemek için onay kutusunu.  Bu, daha sonra bulmak daha kolay hale getirir.  Seçimlerinizi yaptıktan sonra tıklatın **oluşturma**.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
-4. After the resource group is created, if you didn't pin it to your dashboard, you can find it by clicking **Browse**, then **Resource Groups**.  Click the resource group to open it.  Make a note of your **Subscription ID**.  We'll need it later.
+    ![Kaynak grubu adlandırma](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+4. Panonuza sabitlemek alamadık, kaynak grubu oluşturduktan sonra bunu tıklayarak bulabilirsiniz **Gözat**, ardından **kaynak grupları**.  Kaynak grubu açmak için tıklatın.  Not, **abonelik kimliği**.  Biz bunu daha sonra ihtiyacınız olacak.
 
-    ![Naming the resource group](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+    ![Kaynak grubu adlandırma](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
-### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Creating the Azure AD application and applying permissions
-There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, we instead grant the permissions to the service principal.  Service principals are generally used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
+### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Azure AD uygulaması oluşturma ve izinleri uygulama
+Azure Active Directory ile uygulama kimlik doğrulamasına iki yaklaşım vardır: tek tek kullanıcılara veya bir hizmet sorumlusu. Bir hizmet sorumlusu Windows hizmet hesabında benzer.  Belirli bir kullanıcının CDN profilleri ile etkileşim kurmasına izin verme yerine, biz yerine hizmet sorumlusu için izinleri verin.  Hizmet asıl adı, genellikle otomatik, etkileşimli olmayan işlemleri için kullanılır.  Bu öğretici bir etkileşimli konsol uygulaması yazma olsa bile, biz hizmet asıl yaklaşıma odak.
 
-Creating a service principal consists of several steps, including creating an Azure Active Directory application.  To do this, we're going to [follow this tutorial](../articles/resource-group-create-service-principal-portal.md).
-
-> [!IMPORTANT]
-> Be sure to follow all the steps in the [linked tutorial](../articles/resource-group-create-service-principal-portal.md).  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **tenant domain name** (commonly a *.onmicrosoft.com* domain unless you've specified a custom domain), **client ID**, and **client authentication key**, as we will need these later.  Be very careful to guard your **client ID** and **client authentication key**, as these credentials can be used by anyone to execute operations as the service principal.
->
-> When you get to the step named Configure multi-tenant application, select **No**.
->
-> When you get to the step [Assign application to role](../articles/azure-resource-manager/resource-group-create-service-principal-portal.md#assign-application-to-role), use the resource group we created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
->
->
-
-Once you've created your service principal and assigned the **CDN Profile Contributor** role, the **Users** blade for your resource group should look similar to this.
-
-![Users blade](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
-
-### <a name="interactive-user-authentication"></a>Interactive user authentication
-If, instead of a service principal, you'd rather have interactive individual user authentication, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
+Bir hizmet sorumlusu oluşturma Azure Active Directory Uygulama oluşturma dahil olmak üzere birkaç adımdan oluşur.  Bunu yapmak için oluşturacağız [Bu öğreticiyi izleyin](../articles/resource-group-create-service-principal-portal.md).
 
 > [!IMPORTANT]
-> Only follow these next steps if you are choosing to use individual user authentication instead of a service principal.
+> Tüm adımları izlediğinizden emin olun [bağlantılı Öğreticisi](../articles/resource-group-create-service-principal-portal.md).  Bu *son derece önemli* , tam olarak açıklandığı gibi tamamlayın.  Not emin olun, **kimliği Kiracı**, **Kiracı etki alanı adı** (genellikle bir *. onmicrosoft.com* etki alanı özel bir etki alanı belirtmediğiniz sürece), **istemci kimliği** , ve **istemci kimlik doğrulama anahtarı**bunları daha sonra ihtiyacımız gibi.  Koruma sağlamak çok dikkatli olun, **istemci kimliği** ve **istemci kimlik doğrulama anahtarı**gibi bu kimlik bilgileri herkes tarafından hizmet sorumlusu işlemlerini yürütmek için kullanılabilir.
+>
+> Yapılandırma çok kiracılı uygulama adlı adım aldığınızda, seçin **Hayır**.
+>
+> Adım ulaştıklarında [uygulama rol atama](../articles/azure-resource-manager/resource-group-create-service-principal-portal.md#assign-application-to-role), daha önce oluşturduğumuz kaynak grubunu kullanmak *CdnConsoleTutorial*, ancak yerine **okuyucu** rolü atayın **CDN profili katkıda bulunan** rol.  Uygulama atadıktan sonra **CDN profili katkıda bulunan** , kaynak grubu, Bu öğretici için dönüş rolü. 
 >
 >
 
-1. When creating your application, instead of **Web Application**, choose **Native application**.
+Hizmet sorumlusu oluşturup atanan sonra **CDN profili katkıda bulunan** rolü **kullanıcılar** kaynak grubunuz için dikey penceresinde şuna benzer görünmelidir.
 
-    ![Native application](./media/cdn-app-dev-prep/cdn-native-application-include.png)
-2. On the next page, you will be prompted for a **redirect URI**.  The URI won't be validated, but remember what you entered.  You'll need it later.
-3. There is no need to create a **client authentication key**.
-4. Instead of assigning a service principal to the **CDN Profile Contributor** role, we're going to assign individual users or groups.  In this example, you can see that I've assigned  *CDN Demo User* to the **CDN Profile Contributor** role.  
+![Kullanıcılar dikey penceresi](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
 
-    ![Individual user access](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
+### <a name="interactive-user-authentication"></a>Etkileşimli kullanıcı kimlik doğrulaması
+Bir hizmet sorumlusu yerine etkileşimli tek tek kullanıcı kimlik doğrulaması yerine olurdu varsa, bir hizmet sorumlusu için çok benzer bir işlemdir.  Aslında, aynı yordamı izleyin, ancak bazı küçük değişiklikler yapmak gerekecek.
+
+> [!IMPORTANT]
+> Yalnızca bir hizmet sorumlusu yerine tek tek kullanıcı kimlik doğrulaması kullanmayı tercih sonraki adımları izleyin.
+>
+>
+
+1. Uygulamanızın, yerine oluştururken **Web uygulaması**, seçin **yerel uygulama**.
+
+    ![Yerel uygulama](./media/cdn-app-dev-prep/cdn-native-application-include.png)
+2. Sonraki sayfada, istenir bir **yeniden yönlendirme URI'si**.  URI doğrulanması çalışmaz, ancak ne girdiğiniz unutmayın.  Buna daha sonra ihtiyacınız olacak.
+3. Oluşturmak için gerekli bir **istemci kimlik doğrulama anahtarı**.
+4. Bir hizmet sorumlusu atama yerine **CDN profili katkıda bulunan** rolü yapmamız bireysel kullanıcıları veya grupları atamak için.  Bu örnekte, ı atadığınız görebilirsiniz *CDN Demo kullanıcı* için **CDN profili katkıda bulunan** rol.  
+
+    ![Tek tek kullanıcı erişimi](./media/cdn-app-dev-prep/cdn-aad-user-include.png)

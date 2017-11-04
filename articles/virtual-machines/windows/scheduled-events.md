@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 7198fa8d1a512d10ca7022078aa2ea7bde3a4c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 76179b6a8eb7066c90828d33729b557f5e37c17a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure meta veri hizmeti: Windows VM'ler zamanlanmış olaylar (Önizleme)
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 Zamanlanmış olaylar biridir alt Servisleri Azure meta veri hizmeti altında. Yaklaşan olayları ile ilgili bilgiler görünmesini sorumludur (örneğin, yeniden başlatma) uygulamanız için hazırlamak ve sınırlamak için kesintisi. PaaS ve Iaas dahil olmak üzere tüm Azure sanal makine türleri için kullanılabilir. Zamanlanmış olayları olay etkisini en aza indirmek için önleyici görevleri gerçekleştirmek için sanal makine zaman verir. 
 
-Zamanlanmış olaylar hem Linux hem de Windows VM'ler için kullanılabilir. Linux üzerinde zamanlanmış olaylar hakkında bilgi için bkz: [Linux VM'ler için zamanlanmış olayları](../windows/scheduled-events.md).
+Zamanlanmış olaylar hem Linux hem de Windows VM'ler için kullanılabilir. Linux üzerinde zamanlanmış olaylar hakkında bilgi için bkz: [Linux VM'ler için zamanlanmış olayları](../linux/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>Neden zamanlanmış olayları?
 

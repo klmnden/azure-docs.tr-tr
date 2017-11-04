@@ -1,18 +1,18 @@
-## <a name="prerequisites"></a>Prerequisites
-The Azure Toolkit for Eclipse requires the following software components:
+## <a name="prerequisites"></a>Ön koşullar
+Eclipse için Azure araç seti, aşağıdaki yazılım bileşenleri gerektirir:
 
-* Eclipse IDE for Java EE Developers, Mars, or later. You can download it from the [Eclipse website](http://www.eclipse.org/downloads/).
+* Mars, olan Java EE geliştiricileri için Eclipse IDE veya sonraki bir sürümü. Buradan indirebilirsiniz [Eclipse Web sitesi](http://www.eclipse.org/downloads/).
 
-* A Java Developer Kit (JDK), version 1.8 or later.
+* Bir Java Geliştirme Seti (JDK), 1.8 veya sonraki bir sürümü.
 
-* An operating system. The Azure Toolkit for Eclipse has been tested on the following operating systems:
+* Bir işletim sistemi. Eclipse için Azure Araç Seti aşağıdaki işletim sistemlerinde test edilmiştir:
   
-  * Windows 10, Windows 8.1, Windows 8, and Windows 7
-  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, and Windows Server 2008
-  * [Mac OS X](http://www.apple.com/osx) version "Yosemite" and later
-  * [Ubuntu Linux](http://www.ubuntu.com) version 14, 15, and 16
+  * Windows 10, Windows 8.1, Windows 8 ve Windows 7
+  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ve Windows Server 2008
+  * [Mac OS X](http://www.apple.com/osx) sürüm "Yosemite" ve sonraki sürümler
+  * [Ubuntu Linux](http://www.ubuntu.com) sürüm 14, 15 ve 16
 
-For more information, see the [Azure Toolkit for Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) page at the Eclipse Marketplace.
+Daha fazla bilgi için bkz: [Eclipse için Azure Araç Seti](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) Eclipse Market'teki sayfası.
 
 <!--
 > [!IMPORTANT]

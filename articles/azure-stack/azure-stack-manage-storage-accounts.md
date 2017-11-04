@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Stack storage accounts  | Microsoft Docs
-description: Learn how to find, manage, recover and reclaim Azure Stack storage accounts
+title: "Azure yığın depolama hesaplarını yönetme | Microsoft Docs"
+description: "Bulma, yönetme, kurtarmak ve Azure yığın depolama hesapları geri hakkında bilgi edinin"
 services: azure-stack
 documentationcenter: 
 author: AniAnirudh
@@ -14,203 +14,201 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/6/2017
 ms.author: anirudha
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 6e14bd6312135b45984a82099e68a934ec2a4a70
-ms.contentlocale: tr-tr
-ms.lasthandoff: 07/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>Manage Storage Accounts in Azure Stack
-Learn how to manage storage accounts in Azure Stack to find, recover, and reclaim storage capacity based on business needs.
+# <a name="manage-storage-accounts-in-azure-stack"></a>Depolama hesaplarını Azure yığınında yönetme
+Azure bulmak, kurtarmak ve iş ihtiyaçlarına göre depolama kapasiteyi geri kazanmak için yığın depolama hesaplarında yönetmeyi öğrenin.
 
-## <a name="find"></a>Find a storage account
-The list of storage accounts in the region can be viewed in Azure Stack by:
+## <a name="find"></a>Bir depolama hesabı bulunamadı
+Bölgede depolama hesaplarının listesini Azure yığını tarafından görüntülenebilir:
 
-1. In an Internet browser, navigate to https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as a cloud operator (using the credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and click the region you want to explore. For example **(local**).
+1. Bir Internet tarayıcısında için https://adminportal.local.azurestack.external gidin.
+2. Bir bulut işleci (dağıtım sırasında sağladığınız kimlik bilgilerini kullanarak) olarak Azure yığın yönetim portalında oturum açın
+3. Varsayılan Panoda – Bul **bölge Yönetimi** listelemek ve keşfetmek istediğiniz bölgesini'ı tıklatın. Örneğin **(yerel**).
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. Select **Storage** from the **Resource Providers** list.
+4. Seçin **depolama** gelen **kaynak sağlayıcıları** listesi.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Now, on the storage Resource Provider administrator blade – scroll down to the **Storage accounts** tab and click it.
+5. Şimdi, depolama kaynak sağlayıcısı yönetici dikey penceresini – aşağı kaydırarak **depolama hesapları** sekmesinde ve tıklatın.
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
-   The resulting page is the list of storage accounts in that region.
+   Bu bölgede depolama hesaplarının listesi sonuçta elde edilen sayfasıdır.
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
-By default, the first 10 accounts are displayed. You can choose to fetch more by clicking the  **Load more** link at the bottom of the list.
+Varsayılan olarak, ilk 10 hesapları görüntülenir. Daha fazla bilgi almak seçebileceğiniz tıklayarak **daha fazla yük** listesinin altındaki bağlantıyı.
 
 OR
 
-If you are interested in a particular storage account – you can **filter and fetch the relevant accounts** only.
+Bir depolama hesabında – ilgileniyorsanız yapabilecekleriniz **filtre ve ilgili hesapları fetch** yalnızca.
 
 
-**To filter for accounts:**
+**Hesapları için filtre uygulamak için:**
 
-1. Click **Filter** at the top of the blade.
-2. On the Filter blade, it allows you to specify **account name**, **subscription ID** or **status** to fine-tune the list of storage accounts to be displayed. Use them as appropriate.
-3. Click **Update**. The list should refresh accordingly.
+1. Tıklatın **filtre** dikey pencerenin üstündeki.
+2. Filtre dikey penceresinde, belirtmenize olanak tanır **hesap adı**, **abonelik kimliği** veya **durum** görüntülenecek depolama hesaplarının listesini ince ayar yapmak için. Bunları uygun şekilde kullanın.
+3. Tıklatın **güncelleştirme**. Listeden uygun şekilde yenilemeniz gerekir.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
-4. To reset the filter: click **Filter**, clear out the  selections and update.
+4. Filtreyi sıfırlamak için: tıklatın **filtre**, seçimlerini temizlemek ve güncelleştirme.
 
-The search text box (on the top of the storage accounts list blade) lets you highlight the selected text in the list of accounts. This is really handy in the case when the full name or id is not easily available.
+Arama metin kutusuna (üst kısmında depolama hesapları listesi dikey) hesaplar listesinde seçili metni vurgulama olanak sağlar. Tam adı veya kimliği kolayca kullanılabilir olmadığında bu durumda gerçekten kullanışlıdır.
 
-You can use free text here to help find the account you are interested in.
+Burada serbest metin ilgilendiğiniz hesabını bulmak amacıyla kullanabilirsiniz.
 
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
-## <a name="look-at-account-details"></a>Look at account details
-Once you have located the accounts you are interested in viewing, you can click the particular account to view certain details. A new blade opens with the account details such as: the type of the account, creation time, location, etc.
+## <a name="look-at-account-details"></a>Hesap ayrıntılarını inceleyin
+Görüntüleme ilgilendiğiniz hesapları bulduktan sonra bazı ayrıntıları görüntülemek için belirli hesap tıklatabilirsiniz. Hesabı ayrıntıları gibi yeni bir dikey pencere açılır: hesap, oluşturulma zamanı, konum vb. türü.
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
-## <a name="recover-a-deleted-account"></a>Recover a deleted account
-You may be in a situation where you need to recover a deleted account.
+## <a name="recover-a-deleted-account"></a>Silinmiş bir hesabı Kurtar
+Burada, silinmiş bir hesabı kurtarmanız gereken bir durumda olabilir.
 
-In Azure Stack there is a very simple way to do that:
+Azure yığınında Bunu yapmak için çok basit bir yolu yoktur:
 
-1. Browse to the storage accounts list. See [Find a storage account](#find) in this topic for more information.
-2. Locate that particular account in the list. You may need to filter.
-3. Check the *state* of the account. It should say **Deleted**.
-4. Click the account which opens the account details blade.
-5. On top of this blade, locate the **Recover** button and click it.
-6. Click **Yes** to confirm.
+1. Depolama hesapları listesine göz atın. Bkz: [bir depolama hesabını bulmak](#find) daha fazla bilgi için bu konudaki.
+2. Belirli bir hesabındaki listesinde bulun. Filtre gerekebilir.
+3. Denetleme *durumu* hesabı. Yazması gerekir **silinmiş**.
+4. Hesap Ayrıntılar dikey penceresini açan hesabı'nı tıklatın.
+5. Bu dikey pencerenin en üstünde bulun **kurtarmak** düğmesine tıklayın ve tıklatın.
+6. Onaylamak için **Evet**’e tıklayın.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
-7. The recovery is now in *process…wait* for an indication that it was successful.
-   You can also click the “bell” icon at the top of the portal to view progress indications.
+7. Kurtarma olduğunu *bekleyin... işlem* için başarılı olduğunu göstergesidir.
+   İlerleme göstergeleri görüntülemek için portalı üstündeki "zil" simgeye tıklayın.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
    
-   Once the recovered account is successfully synchronized, it can be used again.
+   Kurtarılan hesabı başarıyla eşitlendi sonra yeniden kullanılabilir.
 
-### <a name="some-gotchas"></a>Some Gotchas
-* Your deleted account shows state as **out of retention**.
+### <a name="some-gotchas"></a>Bazı FRİKİKLERİNDEN
+* Silinen hesabınız olarak durumunu gösterir **bekletme dışında**.
   
-  This means that the deleted account has exceeded the retention period and may not be recoverable.
-* Your deleted account does not show in the accounts list.
+  Bunun anlamı silinen hesabın bekletme süresini aştı ve kurtarılabilir durumda olmayabilir.
+* Silinen hesabınızı hesaplar listesinde göstermez.
   
-  This could mean that the deleted account has already been garbage collected. In this case it cannot be recovered. See [Reclaim capacity](#reclaim) in this topic.
+  Bu, silinen hesap toplanacak zaten yapıldı anlamına gelebilir. Bu durumda kurtarılamıyor. Bkz: [geri kapasite](#reclaim) bu konuda.
 
-## <a name="set-the-retention-period"></a>Set the retention period
-The retention period setting allows a cloud operator to specify a time period in days (between 0 and 9999 days) during which any deleted account can potentially be recovered. The default retention period is set to 15 days. Setting the value to “0” means that any deleted account is immediately out of retention and marked for periodic garbage collection.
+## <a name="set-the-retention-period"></a>Bekletme süresini ayarlama
+Saklama dönemi ayarı sırasında olası tüm silinen hesabın kurtarılabilir gün içinde (0 ve 9999 gün arasında) bir süre belirtmek bir bulut operatörü sağlar. Varsayılan saklama dönemi 15 gün olarak ayarlanır. Değer, silinen tüm hesap hemen dışında tutma olduğu ve düzenli atık toplama için işaretlenmiş "0" anlamına gelir için ayarlama.
 
-**To change the retention period:**
+**Saklama dönemi değiştirmek için:**
 
-1. In an internet browser, navigate to https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as a cloud operator (using the credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and click the region you want to explore – for example **(local**).
-4. Select **Storage** from the **Resource Providers** list.
-5. Click **Settings** at the top to open the setting blade.
-6. Click **Configuration** then edit the retention period value.
+1. Bir internet tarayıcısında için https://adminportal.local.azurestack.external gidin.
+2. Bir bulut işleci (dağıtım sırasında sağladığınız kimlik bilgilerini kullanarak) olarak Azure yığın yönetim portalında oturum açın
+3. Varsayılan Panoda – Bul **bölge Yönetimi** listesinde ve – örneğin keşfetmek istediğiniz bölgeyi tıklatın **(yerel**).
+4. Seçin **depolama** gelen **kaynak sağlayıcıları** listesi.
+5. Tıklatın **ayarları** üst ayar dikey penceresini açın.
+6. Tıklatın **yapılandırma** saklama dönemi değerini düzenleyin.
 
-   Set the number of days and then save it.
+   Gün sayısını ayarlayın ve sonra kaydedin.
    
-   This value is immediately effective and is set for your entire region.
+   Bu değer hemen etkili olur ve tüm bölgeniz için ayarlanır.
 
    ![](media/azure-stack-manage-storage-accounts/image10.png)
 
-## <a name="reclaim"></a>Reclaim capacity
-One of the side effects of having a retention period is that a deleted account continues to consume capacity until it comes out of the retention period. As a cloud operator you may need a way to reclaim the deleted account space even though the retention period has not yet expired.
+## <a name="reclaim"></a>Kapasiteyi geri kazanmak
+Bir bekletme dönemi yan etkileri silinmiş bir hesabı dışında tutma süresi gelene kadar kapasite tüketmeye devam biridir. Bulut operatör olarak Bekletme dönemi henüz süresi olsa da silinen hesabın alanı geri kazanmak için bir yol gerekebilir.
 
-You can reclaim capacity using either the portal or PowerShell.
+Kapasite portal veya PowerShell kullanarak geri kazanabilirsiniz.
 
-**To reclaim capacity using the portal:**
-1. Navigate to the storage accounts blade. See [Find a storage account](#find).
-2. Click **Reclaim space** at the top of the blade.
-3. Read the message and then click **OK**.
+**Portalı kullanarak kapasiteyi geri kazanmak için:**
+1. Depolama hesapları dikey penceresine gidin. Bkz: [bir depolama hesabını bulmak](#find).
+2. Tıklatın **geri alanı** dikey pencerenin üstündeki.
+3. İletisini okuyun ve ardından **Tamam**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
-4. Wait for success notification See the bell icon on the portal.
+4. Başarı bildirimi bakın portalındaki zil simgesine bekleyin.
 
     ![](media/azure-stack-manage-storage-accounts/image12.png)
-5. Refresh the Storage accounts page. The deleted accounts are no longer shown in the list because they have been purged.
+5. Depolama hesapları sayfayı yenileyin. Bunlar temizlenmiş olduğundan silinen hesap artık listesinde gösterilir.
 
-You can also use PowerShell to explicitly override the retention period and immediately reclaim capacity.
+Hemen kapasiteyi geri kazanmak ve aynı zamanda açıkça bekletme süresini geçersiz kılmak için PowerShell kullanın.
 
-**To reclaim capacity using PowerShell:**   
+**Kapasiteyi geri kazanmak için PowerShell kullanarak:**   
 
-1. Confirm that you have Azure PowerShell installed and configured. If not, use the following instructions: 
-   * To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-   For more information about Azure Resource Manager cmdlets, see [Using Azure PowerShell with Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Run the following cmdlet:
+1. Azure PowerShell yüklenmiş ve yapılandırılmış olduğunu doğrulayın. Aksi durumda, aşağıdaki yönergeleri kullanın: 
+   * En son Azure PowerShell sürümü yükleyin ve Azure aboneliğinizle ilişkilendirmek için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   Azure Resource Manager cmdlet'leri hakkında daha fazla bilgi için bkz: [Azure PowerShell'i Azure Resource Manager ile kullanma](http://go.microsoft.com/fwlink/?LinkId=394767)
+2. Aşağıdaki cmdlet'i çalıştırın:
 
 > [!NOTE]
-> If you run this cmdlet you permanently delete the account and its contents. It is not recoverable. Use this with care.
+> Bu cmdlet'i çalıştırmak, hesap ve içeriği kalıcı olarak sil. Kurtarılabilir değil. Dikkatli kullanın.
 
 
         Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
 
 
-For more details, refer to [Azure Stack powershell documentation.](https://msdn.microsoft.com/library/mt637964.aspx)
+Daha fazla ayrıntı için başvurmak [Azure yığın powershell belgeleri.](https://msdn.microsoft.com/library/mt637964.aspx)
  
 
-## <a name="migrate-a-container"></a>Migrate a container
-Due to uneven storage use by tenants, an cloud operator may find one or more underlying tenant shares using more space than others. If this occurs, the cloud operator can attempt to free up some space on the stressed share by manually migrating some blob containers to another share. 
+## <a name="migrate-a-container"></a>Bir kapsayıcı geçirme
+Düzensiz depolama kullanımı kiracılar tarafından nedeniyle bulut operatörün aşağıdakilerden bulabilirsiniz veya diğerlerinden daha fazla alan kullanarak daha temel Kiracı paylaşır. Bu gerçekleşirse, bulut operatörü bazı blob kapsayıcıları için başka bir paylaşım el ile geçiş yaparak vurgulu paylaşımında biraz alan boşaltın deneyebilirsiniz. 
 
-You must use PowerShell to migrate containers.
+Kapsayıcıları geçirmek için PowerShell kullanmanız gerekir.
 > [!NOTE]
->Blob container migration does not support live migration and currently is an offline operation. During migration and until it is complete the underlying blobs in that container cannot be used and are “offline”. 
+>BLOB kapsayıcı geçiş dinamik geçişi desteklemez ve şu anda çevrimdışı bir işlemdir. Geçiş sırasında ve arka plandaki BLOB'ları bu kapsayıcıda işlemi tamamlanana kadar kullanılamaz ve "Çevrimdışı". 
 
-**To migrate containers using PowerShell:**
+**PowerShell kullanarak kapsayıcıları geçirmek için:**
 
-1. Confirm that you have Azure PowerShell installed and configured. If not, use the following instructions:
-    * To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). For more information about Azure Resource Manager cmdlets, see [Using Azure PowerShell with Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Get the farm name: 
+1. Azure PowerShell yüklenmiş ve yapılandırılmış olduğunu doğrulayın. Aksi durumda, aşağıdaki yönergeleri kullanın:
+    * En son Azure PowerShell sürümü yükleyin ve Azure aboneliğinizle ilişkilendirmek için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Azure Resource Manager cmdlet'leri hakkında daha fazla bilgi için bkz: [Azure PowerShell'i Azure Resource Manager ile kullanma](http://go.microsoft.com/fwlink/?LinkId=394767)
+2. Grup adı alın: 
       
       `$farm = Get-ACSFarm -ResourceGroupName system.local`
-3. Get the shares: 
+3. Paylaşımlar alın: 
 
    `$shares = Get-ACSShare -ResourceGroupName system.local -FarmName $farm.FarmName`
 
-4. Get the containers for a given share. Note that count and intent are optional parameters:
+4. Kapsayıcıları için belirli bir paylaşım alın. Sayı ve amacı isteğe bağlı parametreler olduğuna dikkat edin:
             
    `$containers = Get-ACSContainer -ResourceGroupName system.local -FarmName $farm.FarmName -ShareName $shares[0].ShareName -Count 4 -Intent Migration`  
 
-   Then examine $containers:
+   Ardından $containers inceleyin:
 
    `$containers`
 
     ![](media/azure-stack-manage-storage-accounts/image13.png)
-5. Get the best destination shares for the container migration:
+5. Kapsayıcı geçiş için en iyi hedef paylaşımları alın:
 
     `$destinationshares= Get-ACSSharesForMigration  -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName`
 
-    Then examine $destinationshares:
+    Ardından $destinationshares inceleyin:
 
     `$destinationshares`
 
     ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Kick off migration for a container, notice this is an async implementation, so one can loop all containers in a share and track the status using the returned job id.
+6. Geçiş için bir kapsayıcı kapalı kazandırın, biri bir paylaşımda tüm kapsayıcıları döngü ve döndürülen iş kimliğini kullanarak durumunu izlemek için bu zaman uyumsuz uygulama olduğuna dikkat edin.
 
     `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
 
-    Then examine $jobId:
+    Ardından $jobId inceleyin:
 
    ```
    $jobId
    d1d5277f-6b8d-4923-9db3-8bb00fa61b65
    ```
-7. Check status of the migration job by its job id. When the container migration finishes, MigrationStatus is set to “Completed”.
+7. Geçiş işinin durumunu iş kimliğiyle denetleyin. Kapsayıcı geçiş tamamlandığında MigrationStatus "Tamamlandı" olarak ayarlanır.
 
     `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 
     ![](media/azure-stack-manage-storage-accounts/image15.png)
 
-8. You can cancel an in-progress migration job. This again is an async operation and can be tracked using $jobid:
+8. Devam eden geçiş işi iptal edebilirsiniz. Bu yeniden zaman uyumsuz bir işlem ve $jobid kullanarak izlenebilir:
 
     `Stop-ACSContainerMigration-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId-Verbose`
 
     ![](media/azure-stack-manage-storage-accounts/image16.png)
 
-    You can check the status of the migration cancel again:
+    Geçiş iptal durumunu yeniden denetleyebilirsiniz:
 
     `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 

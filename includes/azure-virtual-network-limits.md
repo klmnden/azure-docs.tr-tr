@@ -1,57 +1,62 @@
-<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the classic deployment model per subscription.
+<a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir.
 
-| Resource | Default limit | Maximum limit |
+| Kaynak | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
-| Virtual networks |50 |100 |
-| Local network sites |20 |contact support |
-| DNS Servers per virtual network |20 |100 |
-| Private IP Addresses per virtual network |4096 |4096 |
-| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
-| Network Security Groups (NSG) |100 |200 |
-| NSG rules per NSG |200 |400 |
-| User defined route tables |100 |200 |
-| User defined routes per route table |100 |400 |
-| Public IP addresses (dynamic) |5 |contact support |
-| Reserved public IP addresses |20 |contact support |
-| Public VIP per deployment |5 |contact support |
-| Private VIP (ILB) per deployment |1 |1 |
-| Endpoint Access Control Lists (ACLs) |50 |50 |
+| Sanal ağlar |50 |100 |
+| Yerel ağ siteleri |20 |desteğe başvurun |
+| Sanal ağ başına DNS sunucusu sayısı |20 |100 |
+| Sanal ağ başına özel IP Adresi sayısı |4096 |4096 |
+| Bir sanal makine veya rol örneği NIC eşzamanlı TCP veya UDP akışlar |500K |500K |
+| Ağ Güvenlik Grupları (NSG) |100 |200 |
+| NSG başına NSG kuralları |200 |400 |
+| Kullanıcı tanımlı yol tabloları |100 |200 |
+| Yol tablosu başına kullanıcı tanımlı yol sayısı |100 |400 |
+| Genel IP adresleri (dinamik) |5 |desteğe başvurun |
+| Ayrılmış genel IP adresleri |20 |desteğe başvurun |
+| Dağıtım başına genel VIP |5 |desteğe başvurun |
+| Dağıtım başına özel VIP (ILB) |1 |1 |
+| Uç Nokta Erişim Denetim Listeleri (ACL’ler) |50 |50 |
 
-#### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking Limits - Azure Resource Manager
-The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription.
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>Ağ Limitleri - Azure Resource Manager
+Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resource Manager ile yönetilen ağ kaynakları için geçerlidir.
 
-| Resource | Default limit | Maximum Limit |
+| Kaynak | Varsayılan limit | Üst Sınır |
 | --- | --- | --- |
-| Virtual networks |50 |1000 |
-| Subnets per virtual network |1000 |10000 |
-| Virtual network peerings per Virtual Network |10 |50 |
-| DNS Servers per virtual network |9 |25 |
-| Private IP Addresses per virtual network |4096 |8192 |
-| Private IP Addresses per network interface |256 |1024 |
-| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
-| Network Interfaces (NIC) |350 |20000 |
-| Network Security Groups (NSG) |100 |5000 |
-| NSG rules per NSG |200 |500 |
-| IP addresses and ranges specified for source or destination in a security rule |2000 |4000 |
-| Application security groups |200 |500 |
-| Application security groups per IP configuration, per NIC |10 |20 |
-| IP configurations per application security group |1000 |4000 |
-| Application security groups that can be specified within all security rules of a network security group |50 |100 |
-| User defined route tables |100 |200 |
-| User defined routes per route table |100 |400 |
-| Public IP addresses - dynamic |(Basic) |60 |contact support |
-| Public IP addresses - static |(Basic) 20 |contact support |
-| Public IP addresses - static |(Standard) 20 |contact support |
-| Load Balancers (internal and internet facing, Basic and Standard) |100 |1000 |
-| Load Balancer (Basic) rules per load balancer |150 |250 |
-| Load Balancer (Standard) rules per load balancer | 1250 | 1500|
-| Load Balancer (Basic) rules per IP configuration |250 |250 |
-| Public front end IP per Load Balancer (Basic) |10 |30 |
-| Public front end IP per Load Balancer (Standard) | 10 | 600 |
-| Private front end IP per Load Balancer (Basic) |10 |contact support |
-| Private front end IP per Load Balancer (Standard) | 10 | 600 |
-| Point-to-Site Root Certificates per VPN Gateway |20 |20 |
+| Sanal ağlar |50 |1000 |
+| Sanal ağ başına alt ağ sayısı |1000 |10000 |
+| Sanal ağ başına sanal ağ eşlemesi bulunabilir |10 |50 |
+| Sanal ağ başına DNS sunucusu sayısı |9 |25 |
+| Sanal ağ başına özel IP Adresi sayısı |4096 |8192 |
+| Ağ arabirimi başına özel IP Adresleri |256 |1024 |
+| Bir sanal makine veya rol örneği NIC eşzamanlı TCP veya UDP akışlar |500K |500K |
+| Ağ Arabirimleri (NIC) |350 |20000 |
+| Ağ Güvenlik Grupları (NSG) |100 |5000 |
+| NSG başına NSG kuralları |200 |500 |
+| IP adresleri ve aralıkları için kaynak veya hedef güvenlik kuralı olarak belirtilmiş |2000 |4000 |
+| Uygulama güvenliği grupları |200 |500 |
+| NIC başına IP yapılandırması başına uygulama güvenlik grupları |10 |20 |
+| Uygulama güvenlik grubu başına IP yapılandırmaları |1000 |4000 |
+| Ağ güvenlik grubunun tüm güvenlik kuralları içinde belirtilen uygulama güvenlik grupları |50 |100 |
+| Kullanıcı tanımlı yol tabloları |100 |200 |
+| Yol tablosu başına kullanıcı tanımlı yol sayısı |100 |400 |
+| Genel IP adresleri - dinamik |(Temel) 60 |desteğe başvurun |
+| Genel IP adresleri - statik |(Temel) 20 |desteğe başvurun |
+| Genel IP adresleri - statik |(Standart) 20 |desteğe başvurun |
+| VPN Ağ Geçidi başına Noktadan Siteye Kök Sertifika Sayısı |20 |20 |
 
+#### <a name="load-balancer"></a>Yük Dengeleyici sınırları
 
-[Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
+| Kaynak | Varsayılan limit | Üst Sınır |
+| --- | --- | --- |
+| Yük Dengeleyici | 100 | 1000 |
+| Her bir kaynak, Basic kuralları | 150 | 250 |
+| Her bir kaynak, standart kuralları | 1250 | 1500 |
+| IP yapılandırması başına kuralı | 299 |299 |
+| Ön uç IP yapılandırmaları, Basic | 10 | desteğe başvurun |
+| Ön uç IP yapılandırmaları, standart | 10 | 600 |
+| Arka uç havuzu, Basic | 100, tek bir kullanılabilirlik kümesi | - |
+| Arka uç havuzu, standart | VNet 1000 tek | desteğe başvurun |
+| HA bağlantı noktaları, standart | İç ön uç başına 1 | - |
+
+Varsayılan sınırları artırmanız gerekirse [desteğe başvurun](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

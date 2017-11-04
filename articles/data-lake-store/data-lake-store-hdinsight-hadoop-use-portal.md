@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/14/2017
 ms.author: nitinme
-ms.openlocfilehash: 9dd56efb89e07ea61ae431d1ea2accd721cd6502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 88fd608a02364000699224f0f2df5b4df8a29e11
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Azure portalını kullanarak Data Lake Store ile Hdınsight kümeleri oluşturma
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ Data Lake Store ile küme, depolama alanı olarak ayarladıktan sonra bu Data La
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-store-as-primary-storage"></a>(Birincil depolama) bir Data Lake Store'da verileri karşı Hive sorgusu çalıştırma
 
-Bir Hive sorgusu çalıştırmak için Ambari portal Hive görünümleri arabiriminde kullanın. Ambari Hive görünümleri kullanma hakkında daha fazla yönerge için bkz: [hdınsight'ta Hadoop ile Hive görünümünü kullanın](../hdinsight/hdinsight-hadoop-use-hive-ambari-view.md).
+Bir Hive sorgusu çalıştırmak için Ambari portal Hive görünümleri arabiriminde kullanın. Ambari Hive görünümleri kullanma hakkında daha fazla yönerge için bkz: [hdınsight'ta Hadoop ile Hive görünümünü kullanın](../hdinsight/hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 Bir Data Lake Store'da verilerle çalışırken, değiştirmek için birkaç dizeleri vardır.
 
@@ -199,11 +199,11 @@ Blob depolama alanından bir Data Lake Store'a veri kopyalama hakkında daha faz
 * [Azure Storage bloblarından Data Lake Store'a veri kopyalamak için AdlCopy kullanın](data-lake-store-copy-data-azure-storage-blob.md)
 
 ### <a name="use-data-lake-store-with-a-spark-cluster"></a>Kullanım Data Lake Store ile Spark kümesi
-Spark kümesi, bir Data Lake Store'da depolanan veriler üzerinde Spark işlerini çalıştırmak için kullanabilirsiniz. Daha fazla bilgi için bkz: [Data Lake Store'da verileri çözümlemek üzere Hdınsight Spark kullanma küme](../hdinsight/hdinsight-apache-spark-use-with-data-lake-store.md).
+Spark kümesi, bir Data Lake Store'da depolanan veriler üzerinde Spark işlerini çalıştırmak için kullanabilirsiniz. Daha fazla bilgi için bkz: [Data Lake Store'da verileri çözümlemek üzere Hdınsight Spark kullanma küme](../hdinsight/spark/apache-spark-use-with-data-lake-store.md).
 
 
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>Data Lake Store'da Storm topolojisini kullan
-Data Lake Store, bir Storm topolojisinin veri yazmak için kullanabilirsiniz. Bu senaryo elde etmek yönergeler için bkz: [kullanım Azure Data Lake Store Hdınsight ile Apache Storm ile](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+Data Lake Store, bir Storm topolojisinin veri yazmak için kullanabilirsiniz. Bu senaryo elde etmek yönergeler için bkz: [kullanım Azure Data Lake Store Hdınsight ile Apache Storm ile](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [PowerShell: Data Lake Store kullanmak için bir Hdınsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-powershell.md)

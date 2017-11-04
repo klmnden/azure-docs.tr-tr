@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Hadoop bileşenleri ve Hdınsight ile kullanılabilir sürümlerini nelerdir?
 
@@ -174,7 +174,7 @@ Azure Hdınsight iki kategoride büyük veri Bulutu teklifleri sunar: _standart_
 
 | Hdınsight Premium özelliği | Açıklama |
 | --- | --- |
-| Etki alanına katılmış Hdınsight kümeleri |Hdınsight kümeleri, kurumsal düzeyde güvenlik için Azure Active Directory (Azure AD) etki alanına katılın. Hdınsight Premium içinde bir Hdınsight kümesine oturum açmak için Azure AD ile doğrulayabilir, kuruluş çalışanların bir listesini yapılandırabilirsiniz. Kuruluş Yöneticisi Hive güvenlik için rol tabanlı erişim denetimi kullanarak yapılandırabilirsiniz [Apache bırakabilmenizi](http://hortonworks.com/apache/ranger/) ve yalnızca gerektiği kadar kullanmak için veri erişimi kısıtlayabilirsiniz. Son olarak, yönetici denetim ilkeleri, böylece şirket kaynaklarını İdaresi yüksek derecede elde erişmek için çalışanlar ve değişiklikleri tarafından erişilen veri denetleyebilirsiniz. Daha fazla bilgi için bkz: [etki alanına katılmış Hdınsight kümeleri yapılandırma](hdinsight-domain-joined-configure.md). |
+| Etki alanına katılmış Hdınsight kümeleri |Hdınsight kümeleri, kurumsal düzeyde güvenlik için Azure Active Directory (Azure AD) etki alanına katılın. Hdınsight Premium içinde bir Hdınsight kümesine oturum açmak için Azure AD ile doğrulayabilir, kuruluş çalışanların bir listesini yapılandırabilirsiniz. Kuruluş Yöneticisi Hive güvenlik için rol tabanlı erişim denetimi kullanarak yapılandırabilirsiniz [Apache bırakabilmenizi](http://hortonworks.com/apache/ranger/) ve yalnızca gerektiği kadar kullanmak için veri erişimi kısıtlayabilirsiniz. Son olarak, yönetici denetim ilkeleri, böylece şirket kaynaklarını İdaresi yüksek derecede elde erişmek için çalışanlar ve değişiklikleri tarafından erişilen veri denetleyebilirsiniz. Daha fazla bilgi için bkz: [etki alanına katılmış Hdınsight kümeleri yapılandırma](./domain-joined/apache-domain-joined-configure.md). |
 
 ### <a name="cluster-types-supported-in-hdinsight-premium"></a>Hdınsight Premium içinde desteklenen küme türleri
 Aşağıdaki tabloda, Hdınsight Premium içinde desteklenen küme türleri listelenmektedir.

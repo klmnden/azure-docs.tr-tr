@@ -1,16 +1,16 @@
-## <a name="repeatability-during-copy"></a>Repeatability during Copy
-When copying data from and to relational stores, you need to keep repeatability in mind to avoid unintended outcomes. 
+## <a name="repeatability-during-copy"></a>Kopyalama sırasında Yinelenebilirlik
+İlk ve son ilişkisel depoları veri kopyalama işlemi sırasında Yinelenebilirlik istenmeyen sonuçları önlemek için göz önünde bulundurmanız gerekir. 
 
-A slice can be rerun automatically in Azure Data Factory as per the retry policy specified. We recommend that you set a retry policy to guard against transient failures. Hence repeatability is an important aspect to take care of during data movement. 
+Bir dilim otomatik olarak Azure Data Factory içinde belirtilen yeniden deneme ilkesi uyarınca yeniden çalıştırılabilir. Geçici arızaya karşı koruma sağlamak için bir yeniden deneme ilkesi ayarlamanızı öneririz. Bu nedenle Yinelenebilirlik, veri taşıma sırasında halletmeniz için önemli bir yönü ' dir. 
 
-**As a source:**
+**Bir kaynak olarak:**
 
 > [!NOTE]
-> The following samples are for Azure SQL but are applicable to any data store that supports rectangular datasets. You may have to adjust the **type** of source and the **query** property (for example: query instead of sqlReaderQuery) for the data store.   
+> Aşağıdaki örnekler için Azure SQL ancak dikdörtgen veri kümeleri destekleyen herhangi bir veri deposuna uygulanabilir. Ayarlamanız gerekebilir **türü** kaynağının ve **sorgu** özelliği (örneğin: Sorgu sqlReaderQuery yerine) verilerini depolamak.   
 > 
 > 
 
-Usually, when reading from relational stores, you would want to read only the data corresponding to that slice. A way to do so would be by using the WindowStart and WindowEnd variables available in Azure Data Factory. Read about the variables and functions in Azure Data Factory here in the [Scheduling and Execution](../articles/data-factory/v1/data-factory-scheduling-and-execution.md) article. Example: 
+Genellikle, ilişkisel depoları okunurken, yalnızca o dilim karşılık gelen verileri okumak istersiniz. Bunu yapmanın bir yolu, Azure Data Factory WindowStart ve WindowEnd değişkenlerinin kullanarak olacaktır. Azure Data Factory'de burada işlevleri ve değişkenler hakkında bilgi [zamanlama ve yürütme](../articles/data-factory/v1/data-factory-scheduling-and-execution.md) makalesi. Örnek: 
 
 ```json
 "source": {
@@ -18,9 +18,9 @@ Usually, when reading from relational stores, you would want to read only the da
 "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 },
 ```
-This query reads data from ‘MyTable’ that falls in the slice duration range. Rerun of this slice would also always ensure this behavior. 
+Bu sorgu 'dilim süresi aralığının MyTable' verileri okur. Bu dilimin yeniden çalıştırın, ayrıca her zaman bu davranışı sağlamak. 
 
-In other cases, you may wish to read the entire Table (suppose for one time move only) and may define the sqlReaderQuery as follows:
+Diğer durumlarda, tüm tablo bölümünü okumanız önerilir (bir kez taşımak için yalnızca varsayalım) ve sqlReaderQuery gibi tanımlayın:
 
 ```json
 "source": 

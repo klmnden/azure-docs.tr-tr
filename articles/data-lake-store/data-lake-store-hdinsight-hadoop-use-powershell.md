@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 0e2e0d02677013252b0806558535fe970b5c50b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2d601cfa6e2e89ef26d4a2d7824b239a2f6ca7a7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Data Lake Store (olarak ek depolama alanı) ile bir Hdınsight kümesi oluşturmak için Azure PowerShell'i kullanma
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ Bir Data Lake Store oluşturmak için aşağıdaki adımları izleyin.
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>Data Lake Store için rol tabanlı erişim için kimlik doğrulaması ayarlama
-Her Azure aboneliği bir Azure Active Directory ile ilişkilidir. İlk kullanıcı ve Azure Klasik portalında veya Azure Resource Manager API'yı kullanan abonelik kaynaklarına erişim Hizmetleri, Azure Active Directory ile kimliğini doğrulaması gerekir. Erişim Azure abonelikleri ve Hizmetleri için bir Azure kaynak üzerinde uygun rol atama tarafından verilir.  Hizmetler için bir hizmet sorumlusu hizmeti Azure Active Directory (AAD) de tanımlar. Bu bölümde, Hdınsight, bir Azure kaynağı (daha önce oluşturduğunuz Azure Data Lake Store hesabı) erişimi gibi bir uygulama hizmet vermek verilmektedir uygulama için bir hizmet sorumlusu oluşturarak ve rolleri için Azure PowerShell atama.
+Her Azure aboneliği bir Azure Active Directory ile ilişkilidir. Önce kullanıcılar Azure portalında veya Azure Kaynak Yöneticisi API'si kullanılarak aboneliğin kaynaklarını erişen ve Hizmetleri bu Azure Active Directory ile kimlik doğrulaması gerekir. Erişim Azure abonelikleri ve Hizmetleri için bir Azure kaynak üzerinde uygun rol atama tarafından verilir.  Hizmetler için bir hizmet sorumlusu hizmeti Azure Active Directory (AAD) de tanımlar. Bu bölümde, Hdınsight, bir Azure kaynağı (daha önce oluşturduğunuz Azure Data Lake Store hesabı) erişimi gibi bir uygulama hizmet vermek verilmektedir uygulama için bir hizmet sorumlusu oluşturarak ve rolleri için Azure PowerShell atama.
 
 Active Directory kimlik doğrulaması için Azure Data Lake ayarlamak için aşağıdaki görevleri gerçekleştirmeniz gerekir.
 

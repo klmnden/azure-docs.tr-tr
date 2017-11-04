@@ -6,22 +6,17 @@ keywords:
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 08/18/2017
-ms.topic: hero-article
+ms.topic: article
 ms.service: storage
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: a68d5c4ee8ad69cd888765a96566a7ca6c13cff3
-ms.contentlocale: tr-tr
-ms.lasthandoff: 08/29/2017
-
+ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2017
 ---
-
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Blob depolama olaylarını bir özel web uç noktasına (önizleme) yönlendirme
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure CLI aracını kullanarak Blob depolama olaylarına abone olur ve sonucu görüntülemek için olayı tetiklersiniz. 
-
-> [!IMPORTANT]
-> Bu öğreticiyi tamamlamak için Blob depolama olayları önizlemesine kayıtlı olmanız gerekir.  Önizleme programı hakkında daha fazla bilgiye [buradan](storage-blob-event-overview.md#join-the-preview) ulaşabilirsiniz.
 
 Normalde olayları olaya yanıt veren bir uç noktaya (web kancası veya Azure İşlevi gibi) gönderirsiniz. Bu makalede yer alan örneği basitleştirmek amacıyla olayları yalnızca iletileri toplayan bir URL’ye göndereceğiz. Bu URL’yi [RequestBin](https://requestb.in/) adlı açık kaynak, üçüncü taraf bir aracı kullanarak oluşturursunuz.
 
@@ -57,7 +52,7 @@ Azure Depolama kullanmak için bir depolama hesabınız olması gerekir.  Blob d
 Blob Storage hesabı, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesabıdır. Blob Storage hesapları, varolan genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Yalnızca blok veya engelleme blobunun gerektiği uygulamalar için Blob Storage hesaplarının kullanılmasını öneririz.
 
 > [!NOTE]
-> Önizleme sürümünde Blob depolama olayları yalnızca **westcentralus** konumundaki depolama hesapları için kullanılabilir.
+> Olay kılavuz şu anda Önizleme ve yalnızca depolama hesaplarında kullanılabilir **westcentralus** ve **westus2** bölgeleri.
 
 `<storage_account_name>` değerini depolama hesabınız için benzersiz bir ad ile ve `<resource_group_name>` değerini daha önce oluşturduğunuz kaynak grubu ile değiştirin.
 
@@ -145,4 +140,3 @@ Artık konu oluşturma ve olay aboneliklerini öğrendiğinize göre, Blob depol
 
 - [Blob depolama olaylarına yanıt verme](storage-blob-event-overview.md)
 - [Event Grid Hakkında](../../event-grid/overview.md)
-

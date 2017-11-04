@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure hdınsight'ta Hadoop bileşenleri için sürüm notları
 
@@ -61,7 +61,7 @@ Bu makalede, hakkında bilgi sağlar. **en son** Azure Hdınsight sürüm günce
 
 * **Yeni özellikler kovanında**. Bkz: [Hortonworks belgelerine](https://hortonworks.com/apache/hive/#section_4).
 
-* **CLI kullanımdan hive**: Hive CLI kaldırılmış olan ve müşterileri Beeline kullanmanız önerilir. Daha fazla bilgi için bkz: [Apache belgelerine](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Hdınsight ile Beeline kullanma hakkında daha fazla yönerge için bkz: [kullanmak Beeline Hdınsight Hadoop ile kümeleri](hdinsight-hadoop-use-hive-beeline.md).
+* **CLI kullanımdan hive**: Hive CLI kaldırılmış olan ve müşterileri Beeline kullanmanız önerilir. Daha fazla bilgi için bkz: [Apache belgelerine](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Hdınsight ile Beeline kullanma hakkında daha fazla yönerge için bkz: [kullanmak Beeline Hdınsight Hadoop ile kümeleri](hadoop/apache-hadoop-use-hive-beeline.md).
 
 * **Apache Phoenix ve HBase yeni özellikleri**.
     * Depolama kotası desteği: çok kiracılı ortamlarda, Sınırlı depolama alanı üzerinde izin verme yaygın olarak kullanılan bir ad alanı düzeyinde ve tablo başına.

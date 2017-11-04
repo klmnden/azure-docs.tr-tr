@@ -1,55 +1,55 @@
 <!--author=alkohli last changed: 11/07/16 -->
 
-#### <a name="to-install-updates-via-the-azure-portal"></a>To install updates via the Azure portal
+#### <a name="to-install-updates-via-the-azure-portal"></a>Azure portalı aracılığıyla güncelleştirmeleri yüklemek için
 
-1. Go to your StorSimple Device Manager and select **Devices**. From the list of devices connected to your service, select and click the device you want to update. 
+1. StorSimple Cihaz Yöneticinize gidip **Cihazlar**’ı seçin. Hizmetinize bağlı cihazların listesinden güncelleştirmek istediğiniz cihazı seçip tıklayın. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate1m.png) 
+    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate1m.png) 
 
-2. In the **Settings** blade, click **Device updates**. 
+2. **Ayarlar** dikey penceresinde **Cihaz güncelleştirmeleri**'ne tıklayın. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate2m.png)  
+    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate2m.png)  
 
-3. You see a message if the software updates are available. To check for updates, you can also click **Scan**.
+3. Yazılım güncelleştirmeleri varsa bir ileti görürsünüz. Güncelleştirmeleri denetlemek için **Tara**’ya da tıklayabilirsiniz.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate3m.png)
+    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate3m.png)
 
-    You will be notified when the scan starts and completes successfully.
+    Tarama başlayıp başarıyla tamamlandığında size bildirilir.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate5m.png)
+    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate5m.png)
 
-4. Once the updates are scanned, click **Download updates**. 
+4. Güncelleştirmeleri tarandıktan sonra **Güncelleştirmeleri indir**’e tıklayın. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate6m.png)
+    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate6m.png)
 
-5. In the **New updates** blade, review the information that after the updates are downloaded, you need to confirm the installation. Click **OK**.
+5. **Yeni güncelleştirmeler** dikey penceresinde güncelleştirmeler indirildikten sonra bilgileri gözden geçirin; yüklemeyi onaylamanız gerekir. **Tamam** düğmesine tıklayın.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate7m.png)
+    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate7m.png)
 
-6. You are notified when the upload starts and completes successfully.
+6. Karşıya yükleme başlayıp başarıyla tamamlandığında size bildirilir.
 
-     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate8m.png)
+     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate8m.png)
 
-5. In the **Device updates** blade, click **Install**.
+5. **Cihaz güncelleştirmeleri** dikey penceresinde **Yükle**’ye tıklayın.
 
-     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate11m.png)   
+     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate11m.png)   
 
-6. In the **New updates** blade, you are warned that the update is disruptive. As virtual array is a single node device, the device restarts after it is updated. This disrupts any IO in progress. Click **OK** to install the updates. 
+6. **Yeni güncelleştirmeler** dikey penceresinde güncelleştirmenin kesintiye uğratacağı konusunda uyarı alırsınız. Sanal dizi tek düğümlü bir cihaz olduğundan, cihaz güncelleştirildikten sonra yeniden başlatılır. Bu işlem devam eden G/Ç işlemlerini kesintiye uğratır. Güncelleştirmeleri yüklemek için **Tamam**’a tıklayın. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate12m.png) 
+    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate12m.png) 
 
-7. You are notified when the install job starts. 
+7. Yükleme işi başladığında size bildirilir. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate13m.png)
+    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate13m.png)
 
-8.  After the install job completes successfully, click **View Job** link in the **Device updates** blade to monitor the installation. 
+8.  Yükleme işi başarıyla tamamlandıktan sonra yüklemeyi izlemek için **Cihaz güncelleştirmeleri** dikey penceresindeki **İşi Görüntüle** bağlantısına tıklayın. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate15m.png)
+    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate15m.png)
 
-    This takes you to the **Install Updates** blade. You can view detailed information about the job here.
+    Bu işlem sizi **Güncelleştirmeleri Yükle** dikey penceresine götürür. İşle ilgili ayrıntılı bilgileri burada görüntüleyebilirsiniz.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
+    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
 
-9. After the updates are successfully installed, you see a message to this effect in the Device updates blade. The software version also changes to **10.0.10288.0**. 
+9. Güncelleştirmeler başarıyla yüklendikten sonra aygıt güncelleştirmeleri dikey penceresinde bu etkili olması için bir ileti görür. Değişikliklerini Ayrıca yazılım sürümü **10.0.10288.0**. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)
+    ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)

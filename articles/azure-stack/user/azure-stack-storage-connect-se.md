@@ -1,6 +1,6 @@
 ---
-title: Connect Storage Explorer to an Azure Stack subscription
-description: Learn how to connect Storage Exporer to an  Azure Stack subscription
+title: "Depolama Gezgini bir Azure yığın aboneliğine bağlanma"
+description: "Bir Azure yığın aboneliğine depolama Exporer bağlanma öğrenin"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,97 +14,96 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8cd52e9561f2ad92664c01959df8919aa56e8738
-ms.contentlocale: tr-tr
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/12/2017
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Connect Storage Explorer to an Azure Stack subscription
+# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Depolama Gezgini bir Azure yığın aboneliğine bağlanma
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. There are several tools avaialble to move data to and from Azure Stack Storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
+Azure Depolama Gezgini (Önizleme), Windows, macOS ve Linux Azure yığın depolama verilerle kolayca çalışmanızı sağlayan bir tek başına uygulamadır. Azure yığın depolama gelen ve giden veri taşımak için çeşitli araçlar kullanılabilir vardır. Daha fazla bilgi için bkz: [veri aktarımı için Azure yığın depolama Araçları](azure-stack-storage-transfer.md).
 
-In this article, you learn how to connect to your Azure Stack storage accounts using Storage Explorer. 
+Bu makalede, Azure yığın depolama hesaplarınıza Depolama Gezgini'ni kullanarak bağlanmak nasıl öğrenin. 
 
-If you haven't installed Storage Explorer yet, [download](http://www.storageexplorer.com/) and and install it.
+Depolama Gezgini henüz yüklemediyseniz [karşıdan](http://www.storageexplorer.com/) ve yükleyin.
 
-After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
+Azure yığın aboneliğinize bağlandıktan sonra kullanabileceğiniz [Azure Storage Gezgini makaleleri](../../vs-azure-tools-storage-manage-with-storage-explorer.md) Azure yığın verilerle çalışmak için. 
 
-## <a name="prepare-an-azure-stack-subscription"></a>Prepare an Azure Stack subscription
+## <a name="prepare-an-azure-stack-subscription"></a>Bir Azure yığın abonelik hazırlama
 
-You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Azure yığın ana makinenin Masaüstü veya bir VPN bağlantısı Azure yığın abonelik erişmek Depolama Gezgini için erişimin gerekir. Azure Stack ile VPN bağlantısı kurma hakkında bilgi edinmek için bkz. [VPN ile Azure Stack’e Bağlanma](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
+Azure yığın Geliştirme Seti için Azure yığın yetkilisi kök sertifikasını dışarı aktarmanız gerekmez.
 
-### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>To export and then import the Azure Stack certificate
+### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>Azure yığın sertifika almak ve vermek için
 
-1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
+1. Açık `mmc.exe` bir Azure yığın ana makine ya da Azure yığın VPN bağlantısı olan yerel makine üzerinde. 
 
-2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **Computer account** of **Local Computer**.
-
-
-
-3. Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** find **AzureStackSelfSignedRootCert**.
-
-    ![Load the Azure Stack root certificate through mmc.exe][25]
-
-4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
-
-    The exported certificate will be used in the next step.
-5. Start Storage Explorer (Preview), and if you see the **Connect to Azure Storage** dialog box, cancel it.
-
-6. On the **Edit** menu, point to **SSL Certificates**, and then click **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.
-
-    After importing, you are prompted to restart Storage Explorer.
-
-    ![Import the certificate into Storage Explorer (Preview)][27]
-
-Now you are ready to connect Storage Explorer to an Azure Stack subscription.
-
-### <a name="to-connect-an-azure-stack-subscription"></a>To connect an Azure Stack subscription
+2. İçinde **dosya**seçin **Ekle/Kaldır ek bileşenini**ve ardından ekleyin **sertifikaları** yönetmek için **kullanıcı hesabım**.
 
 
-1. After Storage Explorer (Preview) restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
-    ![Ensure Target Azure Stack is selected][28]
+3. Altında **konsol Root\Certificated (yerel bilgisayar) \Trusted Root Certification Authorities\Certificates** Bul **AzureStackSelfSignedRootCert**.
 
-7. In the left pane, select **Manage Accounts**.  
-    All the Microsoft accounts that you are signed in to are displayed.
+    ![mmc.exe dosyası ile Azure Stack kök sertifikasını yükleme][25]
 
-8. To connect to the Azure Stack account, select **Add an account**.
+4. Sertifikayı sağ tıklatın, seçin **tüm görevler** > **verme**ve ardından sertifikayı dışarı aktarmak için yönergeleri izleyin **Base-64 ile kodlanmış X.509 (. CER)**.  
 
-    ![Add an Azure Stack account][29]
+    Dışarı aktarılan sertifika sonraki adımda kullanılır.
+5. Depolama Gezgini (Önizleme) başlatın ve görürseniz **Azure Storage Bağlan** iletişim kutusunda, iptal edin.
 
-9. In the **Connect to Azure Storage** dialog box, under **Azure environment**, select **Use Azure Stack Environment**, and then click **Next**.
+6. Üzerinde **Düzenle** menüsündeki **SSL sertifikalarını**ve ardından **alma sertifikaları**. Dosya seçici iletişim kutusunu kullanarak, önceki adımda dışarı aktardığınız sertifikayı açın.
 
-10. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to Azure Stack Environment** dialog box.  
+    İçeri aktardıktan sonra Depolama Gezgini'ni yeniden başlatmanız istenir.
 
-    The details for each field are as follows:
+    ![Depolama Gezgini’ne (Önizleme) sertifika aktarma][27]
 
-    * **Environment name**: The field can be customized by user.
-    * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
+Şimdi bir Azure yığın abonelik için Depolama Gezgini bağlanmak hazırsınız.
 
-        * For cloud operator:<br> https://adminmanagement.local.azurestack.external   
-        * For tenant:<br> https://management.local.azurestack.external
+### <a name="to-connect-an-azure-stack-subscription"></a>Bir Azure yığın abonelik bağlanmak için
+
+
+1. Depolama Gezgini (Önizleme) yeniden başlatıldıktan sonra **Düzenle** menüsünü seçin ve **Hedef Azure Stack** seçeneğinin işaretli olduğundan emin olun. İşaretli değilse işaretleyin ve değişikliğin etkili olması için Depolama Gezgini’ni yeniden başlatın. Bu yapılandırma, Azure Stack ortamınıza uyum için gereklidir.
+
+    ![Hedef Azure Stack’in seçili olduğundan emin olun][28]
+
+7. Sol bölmede **Hesapları Yönet**’i seçin.  
+    Oturum açtığınız tüm Microsoft hesapları görüntülenir.
+
+8. Azure Stack hesabına bağlanmak için **Hesap ekle**’yi seçin.
+
+    ![Azure Stack hesabı ekleme][29]
+
+9. İçinde **Azure Storage Bağlan** iletişim kutusunda **Azure ortamı**seçin **kullanım Azure yığın ortamını**ve ardından **sonraki**.
+
+10. En az bir etkin Azure yığın aboneliği ile ilişkili Azure yığın hesabınızla oturum açın doldurun **Azure yığın ortamına oturum** iletişim kutusu.  
+
+    Her bir alanın ayrıntıları aşağıdaki gibidir:
+
+    * **Ortam adı**: Bu alan kullanıcı tarafından özelleştirilebilir.
+    * **ARM kaynak uç noktası**: Azure Resource Manager kaynak uç noktası örnekleri:
+
+        * Bulut işleci için:<br> https://adminmanagement.Local.azurestack.external   
+        * Kiracı için:<br> https://Management.Local.azurestack.external
  
-    * **Tenant Id**: Optional. The value is given only when the directory must be specified.
+    * **Kiracı kimliği**: isteğe bağlı. Değer yalnızca dizinin belirtilmesi zorunlu olduğunda verilir.
 
-12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions that you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box toggles selecting all or none of the listed Azure Stack subscriptions.)
+12. Bir Azure Stack hesabı ile başarıyla oturum açtıktan sonra sol bölme ilgili hesapla ilişkili Azure Stack abonelikleriyle doldurulur. Birlikte çalışmak istediğiniz Azure Stack aboneliklerini belirleyin ve ardından **Uygula**’yı seçin. (**Tüm abonelikler** onay kutusunun işaretlenmesi veya temizlenmesi, listelenen Azure Stack aboneliklerinin tamamının seçilmesini veya hiçbirinin seçilmemesini sağlar.)
 
-    ![Select the Azure Stack subscriptions after filling out the Custom Cloud Environment dialog box][30]  
-    The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
+    ![Özel Bulut Ortamı iletişim kutusunu doldurduktan sonra Azure Stack aboneliklerini seçin][30]  
+    Sol bölmede seçili Azure Stack abonelikleriyle ilişkili depolama hesapları gösterilir.
 
-    ![List of storage accounts including Azure Stack subscription accounts][31]
+    ![Azure Stack abonelik hesaplarını içeren depolama hesaplarının listesi][31]
 
-## <a name="next-steps"></a>Next steps
-* [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md)
+## <a name="next-steps"></a>Sonraki adımlar
+* [Depolama Gezgini (Önizleme) ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Azure yığın depolama: farklar ve ilgili önemli noktalar](azure-stack-acs-differences.md)
 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* Azure Storage hakkında daha fazla bilgi için bkz: [Microsoft Azure Storage'a giriş](../../storage/common/storage-introduction.md)
 
 [25]: ./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png
 [26]: ./media/azure-stack-storage-connect-se/export-root-cert-azure-stack.png
@@ -113,4 +112,3 @@ Now you are ready to connect Storage Explorer to an Azure Stack subscription.
 [29]: ./media/azure-stack-storage-connect-se/add-azure-stack-account.png
 [30]: ./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png
 [31]: ./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png
-
