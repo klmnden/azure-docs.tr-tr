@@ -71,15 +71,10 @@
 
 ## Kaynak ilkeleri ayarlama
 ### [Kaynak ilkeleri nelerdir?](resource-manager-policy.md)
-### [İlke atamak için Azure portalını kullanma](resource-manager-policy-portal.md)
 ### [İlke atamak için betikleri kullanma](resource-manager-policy-create-assign.md)
 ### Örnekler
 #### [Etiketler](resource-manager-policy-tags.md)
 #### [Adlandırma kuralları](resource-manager-policy-naming-convention.md)
-#### [Ağ](resource-manager-policy-network.md)
-#### [Depolama](resource-manager-policy-storage.md)
-#### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Denetim
 ### [Etkinlik günlüklerini görüntüleme](resource-group-audit.md)
