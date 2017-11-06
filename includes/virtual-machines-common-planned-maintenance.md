@@ -1,50 +1,50 @@
-Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
+Azure güvenilirliği, performansı ve sanal makineler için konak altyapısının güvenliğini artırmak için güncelleştirmeleri düzenli olarak gerçekleştirir. Bu güncelleştirmeleri aralığı (örneğin, işletim sistemi, hiper yönetici ve konakta dağıtılan çeşitli aracılar), bir barındırma ortamında yazılım bileşenleri düzeltme eki uygulama gelen donanım yetkisini için ağ bileşenleri yükseltiliyor. Bu güncelleştirmeler çoğunluğu barındırılan sanal makineler için herhangi bir etkisi olmadan gerçekleştirilir. Ancak, güncelleştirmeler bir etkiye sahip olduğu durumlar vardır:
 
-- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
+- Bakım yeniden başlatma gerektirmez, Azure VM konak güncelleştirilirken duraklatmak için yerinde geçiş kullanır.
 
-- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll also be given a time window where you can start the maintenance yourself, at a time that works for you.
+- Bakım bir yeniden başlatma gerektirirse, ne zaman bunu planlı bakım, bir bildirim alın. Bu durumlarda, ayrıca bakım kendiniz, uygun bir zaman başlayabileceğiniz bir zaman penceresi verilir.
 
-This page describes how Microsoft Azure performs both types of maintenance. For more information about unplanned events (outages), see Manage the availability of virtual machines for [Windows] (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Bu sayfa Microsoft Azure bakım her iki tür nasıl gerçekleştireceğini açıklar. Planlanmamış olaylar (kesintileri) hakkında daha fazla bilgi için sanal makinelerin kullanılabilirliğini yönetme [Windows] bakın (../articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Applications running in a virtual machine can gather information about upcoming updates by using the Azure Metadata Service for [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) or [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
+Bir sanal makinede çalışan uygulamalar için Azure meta veri hizmeti kullanarak gelecek güncelleştirmeleri hakkında bilgi toplayabilir [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) veya [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
 
-For "how-to" information on managing planned maintence, see "Handling planned maintenance notifications" for [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+"Nasıl yapılır" yönetme planlanan maintence üzerinde "İşleme planlı bakım bildirimleri" için bilgi için [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) veya [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="in-place-vm-migration"></a>In-place VM migration
+## <a name="in-place-vm-migration"></a>Yerinde VM geçiş
 
-When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.
+Güncelleştirmeleri tam bir yeniden başlatma gerektirmez, bir yerinde dinamik geçiş kullanılır. Güncelleştirme sırasında yaklaşık 30 barındırma ortamı gerekli güncelleştirmeleri ve düzeltme eklerini uygularken RAM bellek koruma saniye için sanal makine duraklatıldı. Sanal makine sonra sürdürülür ve sanal makine saati otomatik olarak eşitlenir.
 
-For VMs in availability sets, update domains are updated one at a time. All VMs in one update domain (UD) are paused, updated and then resumed before planned maintenance moves on to the next UD.
+Kullanılabilirlik kümelerinde VM'ler için güncelleştirilmiş birer birer güncelleştirme etki alanlarıdır. Bir güncelleştirme etki alanında (UD) tüm sanal makineleri duraklatıldı, güncelleştirilmiş ve planlı bakım için sonraki UD taşıyan önce sonra sürdürüldü.
 
-Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> 
+Bazı uygulamalar, bu tür güncelleştirmeler tarafından etkilenebilir. Gerçek zamanlı Olay işleme, akış veya kod veya yüksek verimlilik senaryoları, ağ gibi gerçekleştiren uygulamaları 30 saniyelik duraklamalar tolerans için tasarlanmamış olabilir. <!-- sooooo, what should they do? --> 
 
 
-## <a name="maintenance-requiring-a-reboot"></a>Maintenance requiring a reboot
+## <a name="maintenance-requiring-a-reboot"></a>Yeniden başlatma gerektiren bakım
 
-When VMs need to be rebooted for planned maintenance, you are notified in advance. Planned maintenance has two phases: the self-service window and a scheduled maintenance window.
+Sanal makineleri planlı bakım için yeniden başlatılması gerektiğinde, önceden bildirilir. Planlı bakım iki aşaması vardır: Self Servis ve zamanlanmış bakım penceresinde.
 
-The **self-service window** lets you initiate the maintenance on your VMs. During this time, you can query each VM to see their status and check the result of your last maintenance request.
+**Self Servis penceresi** bakım, sanal makineleri üzerinde başlatmak olanak tanır. Bu süre boyunca bakım isteğiniz sonucunu denetleyin ve bunların durumunu görmek için her bir VM sorgulayabilirsiniz.
 
-When you start self-service maintenance, your VM is moved to a node that has already been updated and then powers it back on. Because the VM reboots, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated.
+Self Servis bakım başlattığınızda, VM zaten güncelleştirildi ve geri çalıştırır bir düğüme taşınır. VM yeniden çünkü geçici disk kaybolur ve sanal ağ arabirimiyle ilişkilendirilmiş dinamik IP adreslerini güncelleştirilir.
 
-If you start self-service maintenance and there is an error during the process, the operation is stopped, the VM is not updated and it is also removed from the planned maintenance iteration. You will be contacted in a later time with a new schedule and offered a new opportunity to do self-service maintenance. 
+Self Servis bakım başlatın ve işlemi sırasında bir hata ise, işlem durduruldu, VM güncelleştirilmez ve planlı bakım yinelemeden diğerine de kaldırılır. Daha sonra yeni bir zamanlama ile temas ve olması Self Servis bakım yapmak için yeni bir fırsat sunulan. 
 
-When the self-service window has passed, the **scheduled maintenance window** begins. During this time window, you can still query for the maintenance window, but no longer be able to start the maintenance yourself.
+Self Servis penceresi geçtiğinde **zamanlanmış bakım penceresi** başlar. Bu zaman penceresi sırasında hala sorgu için bakım penceresi, ancak artık bakım kendiniz başlatılamaz.
 
-## <a name="availability-considerations-during-planned-maintenance"></a>Availability Considerations during Planned Maintenance 
+## <a name="availability-considerations-during-planned-maintenance"></a>Planlı bakım sırasında kullanılabilirlik konuları 
 
-If you decide to wait until the planned maintenance window, there are a few things to consider for maintaining the highest availabilty of your VMs. 
+Planlı Bakım penceresini beklemek karar verirseniz, VM'lerin yüksek availabilty sürdürmek için dikkate alınması gereken birkaç şey vardır. 
 
-### <a name="paired-regions"></a>Paired Regions
+### <a name="paired-regions"></a>Eşleştirilmiş bölgeleri
 
-Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Her Azure bölgesi başka bir bölge içinde aynı coğrafi konum ile eşleştirilmiş, bölgesel çifti birlikte yaptıkları. Planlı bakım sırasında Azure yalnızca tek bir bölgedeki bir bölge çiftinin VM'ler güncelleştirir. Örneğin, Orta Kuzey ABD’de Sanal Makineler güncelleştirilirken Azure aynı anda Orta Güney ABD’deki bir Sanal Makineyi güncelleştirmez. Ancak, Kuzey Avrupa gibi diğer bölgelerde, Doğu ABD ile aynı zamanda bakım yapılabilir. Bölge çiftleri nasıl yardımcı olabilecek anlama bölgeler arasında daha iyi Vm'leriniz dağıtın. Daha fazla bilgi için bkz: [Azure bölgesi çiftleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-### <a name="availability-sets-and-scale-sets"></a>Availability sets and scale sets
+### <a name="availability-sets-and-scale-sets"></a>Kullanılabilirlik kümeleri ve ölçek kümeleri
 
-When deploying a workload on Azure VMs, you can create the VMs within an availability set to provide high availability to your application. This ensures that during either an outage or maintenance events, at least one virtual machine is available.
+Bir iş yükü Azure vm'lerinde dağıtırken, uygulamanız için yüksek kullanılabilirlik sağlamak üzere bir kullanılabilirlik kümesi içindeki sanal makineleri oluşturabilirsiniz. Bu bir kesinti veya bakım olayları sırasında en az bir sanal makinenin kullanılabilir olmasını sağlar.
 
-Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During planned maintenance, only a single update domain is impacted at any given time. Be aware that the order of update domains being impacted does not necessarily happen sequentially. 
+Bir kullanılabilirlik kümesinde en fazla 20 güncelleştirme etki alanları arasında (UDs) tek tek sanal makineleri yayılır. Planlı bakım sırasında herhangi bir anda yalnızca bir tek güncelleştirme etki alanı etkilenmez. Güncelleme etki alanına etkilenip sırasını mutlaka sıralı olarak gerçekleşmez olduğunu unutmayın. 
 
-Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. Just like with availability sets, with scale sets only a single update domain is impacted at any given time.
+Sanal makine ölçek kümeleri dağıtmak ve aynı sanal makineleri bir küme tek bir kaynak olarak yönetmenize olanak sağlayan bir Azure işlem kaynaktır. Ölçek kümesi, bir kullanılabilirlik kümesindeki sanal makineleri gibi güncelleştirme etki alanları arasında otomatik olarak dağıtılır. Gibi kullanılabilirlik kümeleri ile ölçek kümeleri ile yalnızca bir tek güncelleştirme etki alanı herhangi bir zamanda etkilenmez.
 
-For more information about configuring your virtual machines for high availability, see Manage the availability of your virtual machines for Windows (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Sanal makinelerinizin yüksek kullanılabilirlik için yapılandırma hakkında daha fazla bilgi için Windows için sanal makinelerin kullanılabilirliğini yönetme bakın (../articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).
