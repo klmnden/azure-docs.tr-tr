@@ -1,0 +1,173 @@
+---
+title: "Birden çok model bir deneme oluşturma | Microsoft Docs"
+description: "Birden çok Machine Learning modellerini ve web hizmeti uç noktaları aynı algoritmanın ancak farklı eğitim veri kümeleri oluşturmak için PowerShell kullanın."
+services: machine-learning
+documentationcenter: 
+author: hning86
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/04/2017
+ms.author: garye;haining
+ms.openlocfilehash: cc938fdaa6843f7c9e974d9b88a9b682b4678493
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
+---
+# <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>PowerShell kullanarak bir denemeden çok sayıda Machine Learning modeli ve web hizmeti uç noktası oluşturma
+Bir ortak makine öğrenimi sorun şudur: giriş olarak farklı eğitim veri kümeleri aynı eğitim iş akışı varsa ve aynı algoritmayı ancak birçok modelleri oluşturmak istediğiniz. Bu makalede yalnızca tek bir deneme kullanarak Azure Machine Learning Studio'da ölçekte bunu kullanmayı gösterir.
+
+Örneğin, bir genel bisiklet kiralama Acentelik işletme sahibi varsayalım. Geçmiş verilere dayanan kiralama talep tahmin etmek için bir regresyon modeli oluşturmak istiyorsunuz. Dünya genelinde 1.000 kiralama konumunuz varsa ve her tarih, saat, hava durumu gibi önemli özellikler içeren konumu ve her konum için belirli trafiği için bir veri kümesi derledik.
+
+Bir kez tüm konumlar arasında tüm veri kümelerinin birleştirilmiş bir sürümünü kullanarak modelinizi eğitmek. Ancak her konumlarınıza benzersiz bir ortamı olduğundan, daha iyi bir yaklaşım ayrı ayrı her konum için veri kümesini kullanarak, regresyon modeli eğitmek için olacaktır. Bu şekilde, her eğitilen model dikkate ele geçirebilir farklı depolama boyutları, birim, coğrafi konum, popülasyon, bisiklet kolay trafiği ortamı *vb.*.
+
+En iyi yaklaşım olabilir, ancak Azure Machine Learning ile her bir benzersiz bir konumu temsil eden 1.000 eğitim denemeler oluşturmak istemediğiniz. Bunaltıcı görev olmasının yanı sıra, aynı zamanda olup her deneme hepsi aynı eğitim veri kümesi dışında bileşenleri olacağından oldukça verimsiz gibi görünüyor.
+
+Neyse ki, biz bu kullanarak gerçekleştirebilirsiniz [Azure Machine Learning yeniden eğitme API](retrain-models-programmatically.md) ve görevle otomatikleştirme [Azure Machine Learning PowerShell](powershell-module.md).
+
+> [!NOTE]
+> Örneğimizde daha hızlı çalışır hale getirmek için biz 1.000 konumlardan 10 sayısını azaltın. Ancak aynı ilkeleri ve yordamları 1.000 konumlara uygulanır. Tek fark, 1.000 veri kümeleri eğitmek istiyorsanız, paralel olarak aşağıdaki PowerShell komut dosyaları çalıştırmak düşünme istemenizdir ' dir. Bunun nasıl yapılacağını bu makalenin kapsamı dışındadır, ancak PowerShell örnekleri çoklu iş parçacığı İnternette bulabilirsiniz.  
+> 
+> 
+
+## <a name="set-up-the-training-experiment"></a>Eğitim denemenizi ayarlayın
+Bir örnek kullanacak şekilde yapacağız [eğitim denemenizi](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) , biz de zaten oluşturmuş [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com). Bu deneme açın, [Azure Machine Learning Studio](https://studio.azureml.net) çalışma.
+
+> [!NOTE]
+> Bu örnek ile birlikte takip etmek için ücretsiz bir çalışma alanı yerine standart bir çalışma alanı kullanmak isteyebilirsiniz. Biz bir uç nokta - 10 uç noktaları - toplam her müşteri için oluşturursunuz ve boş bir çalışma alanı 3 uç noktalar ile sınırlı olduğundan, standart bir çalışma alanı gerektirir. Yalnızca bir ücretsiz çalışma alanı varsa, yalnızca 3 konumları için izin vermek için aşağıdaki komut yalnızca değiştirin.
+> 
+> 
+
+Denemeyi kullanan bir **veri almak** eğitim veri kümesi almak için Modülü *customer001.csv* bir Azure depolama hesabından. Biz tüm bisiklet kiralama konumlardan toplanan eğitim veri kümeleri ve bunları arasında değişen dosya adları aynı blob depolama konumunda depolanan varsayalım *rentalloc001.csv* için *rentalloc10.csv*.
+
+![Görüntü](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+
+Unutmayın bir **Web hizmeti çıkış** modülü eklenmiştir **Train Model** modülü.
+Bu deneme bir web hizmeti olarak dağıtıldığında, uç nokta çıktı .ilearner dosyası biçiminde eğitilen model döndürülecek ilişkili.
+
+Ayrıca bir web hizmeti parametresini URL'sini ayarlarız Not, **veri içeri aktarma** modülü kullanır. Bu parametreyi her konum için modeli eğitmek için tek tek eğitim veri kümesi belirtmek için kullanın olanak tanır.
+Biz yapılan bu, bir SQL sorgusu bir web hizmeti parametresi ile bir SQL Azure veritabanından veri almak için veya yalnızca kullanarak gibi diğer yolları bir **Web hizmeti girişi** modülü bir veri kümesinde web hizmetine iletmek için.
+
+![Görüntü](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+
+Şimdi, varsayılan değerini kullanarak bu eğitim denemenizi Şimdi Çalıştır *rental001.csv* eğitim veri kümesi olarak. Çıktısını görüntülerseniz **değerlendir** Modülü (seçin ve çıktı tıklatın **Görselleştir**), biz alma, iyi bir performans görebilirsiniz *AUC* 0.91 =. Bu noktada, biz Bu eğitim denemenizi dışında bir web hizmeti dağıtmak hazırsınız.
+
+## <a name="deploy-the-training-and-scoring-web-services"></a>Eğitim ve puanlama web hizmetlerini dağıtma
+Eğitim web hizmeti dağıtmak için **Web hizmetinin ayarı** deneme tuvalinin düğmesine tıklayın ve ardından **Web hizmeti Dağıt**. "" Bisiklet kiralama Eğitim". Bu web hizmeti çağrısı
+
+Şimdi biz Puanlama web hizmeti dağıtmanız gerekir.
+Bunu yapmak için biz tıklatabilirsiniz **Web hizmetinin ayarı** seçin ve tuvalin altındaki **Tahmine dayalı Web hizmeti**. Bu bir Puanlama deneme oluşturur.
+Etiket sütunu "cnt" kaldırma gibi bir web hizmeti olarak gelen giriş verilerinin çalışması için birkaç küçük ayarlamalar yapmanız gerekir ve tahmin değeri yalnızca örnek kimliği ve karşılık gelen çıktıyı sınırlama.
+
+Kendiniz o işi kaydetmek için açabilirler [Tahmine dayalı denemeye](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) zaten hazırlanır galerisinde.
+
+Web hizmetini dağıtma için Tahmine dayalı denemeyi çalıştırın, ardından **Web hizmeti Dağıt** tuvale aşağıdaki düğmesine. Puanlama web hizmeti "Bisiklet kiralama Puanlama" adı ".
+
+## <a name="create-10-identical-web-service-endpoints-with-powershell"></a>PowerShell ile 10 aynı web hizmeti uç noktalarını oluşturma
+Bu web Hizmeti'nin varsayılan uç noktası ile birlikte gelir. Ancak güncelleştirilemiyor bu yana varsayılan uç olarak ilgi değiliz. Yapmak ihtiyacımız 10 ek uç noktalar, her konum için bir tane oluşturmaktır. Biz bu PowerShell ile gerçekleştirirsiniz.
+
+İlk olarak, PowerShell ortamımızda ayarlayın:
+
+    Import-Module .\AzureMLPS.dll
+    # Assume the default configuration file exists and is properly set to point to the valid Workspace.
+    $scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
+    $trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
+
+Ardından, aşağıdaki PowerShell komutunu çalıştırın:
+
+    # Create 10 endpoints on the scoring web service.
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $endpointName = 'rentalloc' + $seq;
+        Write-Host ('adding endpoint ' + $endpointName + '...')
+        Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
+    }
+
+Şimdi 10 uç noktaları oluşturduk ve üzerinde eğitilmiş aynı eğitilen model içerirler *customer001.csv*. Bunları Azure Yönetim Portalı'nda görüntüleyebilirsiniz.
+
+![Görüntü](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+
+## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>PowerShell kullanarak eğitim veri kümelerini kullanan uç güncelleştir
+Sonraki adım benzersiz olarak her müşterinin ayrı veri üzerinde eğitilmiş modeller ile uç noktaları güncelleştirmektir. Ancak önce bu modellerden üretmek ihtiyacımız **bisiklet kiralama eğitim** web hizmeti. Geri dönelim **bisiklet kiralama eğitim** web hizmeti. 10 farklı modelleri oluşturmak için BES uç noktasında 10 kez veri kümeleriyle 10 farklı eğitim çağırmak gerekir. Kullanacağız **InovkeAmlWebServiceBESEndpoint** Bunu yapmak için PowerShell cmdlet.
+
+Blob depolama hesabınızda kimlik bilgilerini sağlamanız gerekecektir `$configContent`, yani, alanlarını `AccountName`, `AccountKey` ve `RelativeLocation`. `AccountName` De görüldüğü gibi hesap adlarını biri olabilir **Klasik Azure Yönetim Portalı** (*depolama* sekmesi). Bir depolama hesabında tıkladığınızda, `AccountKey` basarak bulunabilir **erişim anahtarlarını Yönet** düğmesini kısımda ve kopyalama *birincil erişim anahtarını*. `RelativeLocation` Depolama alanınızın göre yeni bir model depolanacağı yoludur. Örneğin, yol `hai/retrain/bike_rental/` adlı bir kapsayıcı noktalarına aşağıda betikteki `hai`, ve `/retrain/bike_rental/` alt klasörler. Şu anda, alt klasörler UI portal üzerinden oluşturamaz, ancak vardır [birkaç Azure depolama gezginleri](../../storage/common/storage-explorers.md) bunu izin verir. Depolama alanınızı yeni eğitilmiş modeller (.ilearner dosyaları) gibi depolamak yeni bir kapsayıcı oluşturmanız önerilir: depolama sayfanızdan tıklayın **Ekle** düğmesini kısımda ve adlandırın `retrain`. Özet olarak, aşağıdaki komut dosyası için gerekli değişiklikleri ilgilidir `AccountName`, `AccountKey` ve `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+
+    # Invoke the retraining API 10 times
+    # This is the default (and the only) endpoint on the training web service
+    $trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
+    $submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
+    $apiKey = $trainingSvcEp.PrimaryKey;
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $inputFileName = 'https://bostonmtc.blob.core.windows.net/hai/retrain/bike_rental/BikeRental' + $seq + '.csv';
+        $configContent = '{ "GlobalParameters": { "URI": "' + $inputFileName + '" }, "Outputs": { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=<myaccount>;AccountKey=<mykey>", "RelativeLocation": "hai/retrain/bike_rental/model' + $seq + '.ilearner" } } }';
+        Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
+        Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
+    }
+
+> [!NOTE]
+> BES uç nokta bu işlem için yalnızca desteklenen moddur. RRS eğitilmiş modeller üretmek için kullanılamaz.
+> 
+> 
+
+10 farklı BES iş yapılandırma json dosyalarını oluşturmak yerine, yukarıda gördüğünüz gibi biz dinamik olarak yapılandırma dizesi oluşturun ve ona akış *jobConfigString* parametresinin **InvokeAmlWebServceBESEndpoint** gerçekten diskte bir kopyasını tutmak için gerekli olduğundan cmdlet'i.
+
+Her şey yolunda giderse, bir süre sonra 10 .ilearner dosyaları, gelen görmelisiniz *model001.ilearner* için *model010.ilearner*, Azure depolama hesabınızdaki. Web hizmeti uç noktalarını kullanarak bu modeller ile Puanlama bizim 10 güncelleştirmeye hazır değiliz artık **düzeltme eki AmlWebServiceEndpoint** PowerShell cmdlet'i. Yeniden biz yalnızca programlı olarak daha önce oluşturduğumuz varsayılan olmayan uç noktaları düzeltme eki olduğunu unutmayın.
+
+    # Patch the 10 endpoints with respective .ilearner models
+    $baseLoc = 'http://bostonmtc.blob.core.windows.net/'
+    $sasToken = '<my_blob_sas_token>'
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $endpointName = 'rentalloc' + $seq;
+        $relativeLoc = 'hai/retrain/bike_rental/model' + $seq + '.ilearner';
+        Write-Host ('Patching endpoint ' + $endpointName + '...');
+        Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
+    }
+
+Bu oldukça hızlı bir şekilde çalıştırmanız gerekir. Yürütme sona erdiğinde, başarılı bir şekilde her benzersiz şekilde bir kiralama konuma tek eğitim denemenizi tümünden belirli veri kümesi eğitilmiş bir modeli içeren 10 Tahmine dayalı web hizmeti uç oluşturduk. Bunu doğrulamak için kullanarak bu uç noktalarını çağırma deneyebilirsiniz **InvokeAmlWebServiceRRSEndpoint** cmdlet ile aynı sağlayarak, giriş verileri ve modeller farklı eğitim kümeleriyle eğitilmiş beri farklı tahmin sonuçlarını görmek beklemeniz gerekir.
+
+## <a name="full-powershell-script"></a>Tam PowerShell Betiği
+Burada, tam kaynak kodunu listesi verilmiştir:
+
+    Import-Module .\AzureMLPS.dll
+    # Assume the default configuration file exists and properly set to point to the valid workspace.
+    $scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
+    $trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
+
+    # Create 10 endpoints on the scoring web service
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $endpointName = 'rentalloc' + $seq;
+        Write-Host ('adding endpoint ' + $endpontName + '...')
+        Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
+    }
+
+    # Invoke the retraining API 10 times to produce 10 regression models in .ilearner format
+    $trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
+    $submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
+    $apiKey = $trainingSvcEp.PrimaryKey;
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $inputFileName = 'https://bostonmtc.blob.core.windows.net/hai/retrain/bike_rental/BikeRental' + $seq + '.csv';
+        $configContent = '{ "GlobalParameters": { "URI": "' + $inputFileName + '" }, "Outputs": { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=<myaccount>;AccountKey=<mykey>", "RelativeLocation": "hai/retrain/bike_rental/model' + $seq + '.ilearner" } } }';
+        Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
+        Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
+    }
+
+    # Patch the 10 endpoints with respective .ilearner models
+    $baseLoc = 'http://bostonmtc.blob.core.windows.net/'
+    $sasToken = '?test'
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $endpointName = 'rentalloc' + $seq;
+        $relativeLoc = 'hai/retrain/bike_rental/model' + $seq + '.ilearner';
+        Write-Host ('Patching endpoint ' + $endpointName + '...');
+        Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
+    }
