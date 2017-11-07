@@ -1,111 +1,114 @@
 ---
-title: "Bir kutuda SaaS (Azure SQL Veritabanı’nı kullanan örnek SaaS uygulaması) | Microsoft Belgeleri"
-description: "SQL Veritabanı’nı kullanan SaaS uygulamaları oluşturma"
+title: "Azure SQL veritabanı çok kiracılı uygulama örneği - Wingtip SaaS | Microsoft Docs"
+description: "Azure SQL Database, Wingtip SaaS örnek kullanan örnek bir çok kiracılı uygulama kullanarak bilgi edinin"
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
-ms.custom: tutorial
-ms.workload: data-management
+ms.custom: scale out apps
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bf5745a788cd9ab6bf2ea8d5d97b8c04f083fc5d
-ms.contentlocale: tr-tr
-ms.lasthandoff: 05/10/2017
-
-
+ms.topic: article
+ms.date: 06/09/2017
+ms.author: sstein
+ms.openlocfilehash: 46c9a3eadc2c23959b4d08649c6c0215d44b493e
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="introduction-to-the-wingtip-tickets-platform-wtp-sample-saas-application"></a>Wingtip Bilet Platformu (WTP) örnek SaaS uygulamasına giriş
+# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Bir SQL veritabanı çok kiracılı SaaS uygulama örneği giriş
 
-Wingtip Bilet Platformu (WTP) SaaS uygulaması, SQL Veritabanı’nın benzersiz avantajlarını gösteren bir örnek çok kiracılı uygulamadır. Uygulama, birden fazla kiracıya hizmet vermek için SaaS uygulama düzeni olan kiracı başına veritabanını kullanır. WTP uygulaması, Azure SQL Veritabanı’nın SaaS senaryolarını (SaaS tasarımı ve yönetimi düzenleri) mümkün kılan özelliklerini göstermek için tasarlanmıştır. Hızla çalışmaya başlamanız için [WTP uygulaması beş dakikadan daha kısa sürede dağıtılır](sql-database-saas-tutorial.md)!
+*Wingtip SaaS* SQL veritabanı benzersiz avantajları gösteren örnek bir çok kiracılı uygulama, bir uygulamadır. Uygulama, birden fazla kiracıya hizmet vermek için SaaS uygulama düzeni olan kiracı başına veritabanını kullanır. Uygulama, birçok SaaS tasarım ve yönetim desenleri dahil olmak üzere, SaaS senaryoları etkinleştirmek Azure SQL veritabanı özelliklerini göstermek için tasarlanmıştır. Hızlıca başlamak ve çalıştırmak için beş dakikadan daha kısa bir süre içinde Wingtip SaaS uygulamayı dağıtır!
 
-WTP uygulamasını dağıttıktan sonra, ilk dağıtımın gösterildiği [öğretici koleksiyonunu](#sql-database-saas-tutorials) keşfedin. Her öğretici, SaaS uygulamalarında uygulanan genel görevlere odaklanır. Görevler, SQL Veritabanı’nın yerleşik özelliklerinden yararlanan SaaS düzenleri kullanılarak uygulanır. Açıklanan düzenlere; yeni kiracılar sağlama, kiracı veritabanlarını geri yükleme, tüm kiracılar genelinde dağıtılmış sorgular çalıştırma ve tüm kiracı veritabanlarına şema değişikliklerini kullanıma sunma dahildir. Her öğretici, SaaS yönetim düzenlerini anlamanızı ve uygulamalarınızda aynılarını kullanmanızı büyük ölçüde kolaylaştıran ayrıntılı açıklamalar içeren yeniden kullanılabilir betikler içerir.
+Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github depo. Komut dosyalarını çalıştırmak için [indirme öğrenme modülleri klasörü](#download-and-unblock-the-wingtip-saas-scripts) yerel bilgisayarınıza.
 
-WTP uygulaması bir örnek uygulama kadar eksiksiz ve ilgi uyandırıcı olsa da veri katmanıyla ilişkili olduklarından temel SaaS düzenlerine odaklanmak önem taşır. Başka bir deyişle, veri katmanına odaklanın ve uygulamanın kendisini gereğinden fazla analiz etmeyin. Bu temel SaaS düzenlerinin nasıl uygulandığını anlamanız, bu düzenleri uygulamalarınıza kendi iş gereksinimlerinize yönelik gerekli değişiklikleri göz önünde bulundurarak uygulamanız için kritik bir öneme sahiptir.
+## <a name="sql-database-wingtip-saas-tutorials"></a>SQL veritabanı Wingtip SaaS öğreticileri
+
+Uygulamayı dağıttıktan sonra ilk dağıtım sırasında yapı aşağıdaki öğreticileri keşfedin. SQL veritabanı, SQL veri ambarı ve diğer Azure hizmetleriyle yerleşik özelliklerden yararlanmak ortak SaaS desenler bu öğreticileri keşfedin. Öğreticiler anlama ve uygulamalarınızda aynı SaaS Yönetimi desenleri uygulama büyük ölçüde kolaylaştırma ayrıntılı açıklamalar, PowerShell komut dosyaları içerir.
+
+
+| Öğretici | Açıklama |
+|:--|:--|
+|[Dağıtma ve Wingtip SaaS uygulamasına keşfedin](sql-database-saas-tutorial.md)| **BURADAN BAŞLAYIN!** Dağıtma ve Azure aboneliğinize Wingtip SaaS uygulamasına keşfedin. |
+|[Sağlama ve Katalog kiracılar](sql-database-saas-tutorial-provision-and-catalog.md)| Uygulama Kataloğu veritabanı kullanarak kiracılara nasıl bağlandığını ve Katalog kiracılar verilerini nasıl eşlendiğini öğrenin. |
+|[İzleme ve performansı yönetme](sql-database-saas-tutorial-performance-monitoring.md)| SQL veritabanı'nın İzleme özelliklerini kullanmayı ve performans eşikler aşıldığında uyarıları ayarlamak nasıl öğrenin. |
+|[Günlük analizi (OMS) ile izleme](sql-database-saas-tutorial-log-analytics.md) | Kullanma hakkında bilgi edinin [günlük analizi](../log-analytics/log-analytics-overview.md) kaynakları, büyük miktarlarda birden çok havuzlardaki izlemek için. |
+|[Tek bir kiracı geri yükleme](sql-database-saas-tutorial-restore-single-tenant.md)| Bir kiracı veritabanı zaman içinde önceki bir noktaya geri öğrenin. Varolan Kiracı veritabanı çevrimiçi bırakarak paralel bir veritabanına geri yükleme için adımlar da dahil edilir. |
+|[Kiracı şema yönetme](sql-database-saas-tutorial-schema-management.md)| Şemayı Güncelleştir ve tüm Wingtip SaaS kiracılar arasında başvuru verileri güncelleştirmek hakkında bilgi edinin. |
+|[Geçici analizler çalıştırır](sql-database-saas-tutorial-adhoc-analytics.md) | Bir geçici analytics veritabanı oluşturun ve tüm kiracılar arasında gerçek zamanlı dağıtılmış sorgular çalıştırın.  |
+|[Kiracı analizler çalıştırır](sql-database-saas-tutorial-tenant-analytics.md) | Kiracı veri ambarında çevrimdışı analitik sorguları çalıştırmak için bir analytics veritabanı veya veri ayıklayın. |
 
 
 
 ## <a name="application-architecture"></a>Uygulama mimarisi
 
-WTP uygulaması, verimliliği en üst düzeye çıkarmak için kiracı başına veritabanı düzenini ve SQL elastik havuzlarını kullanır.
-Yönetim ve bağlantı sağlamak için kiracı kataloğu kullanımı.
-Tümleşik uygulama, havuz, veritabanı izleme ve uyarma (OMS).
-Kiracılar arası şema ve başvuru verileri yönetimi (elastik veritabanı işleri).
-Kiracılar arası sorgu, işlem analizi (esnek sorgu).
-Genişletilmiş erişim için coğrafi olarak dağıtılmış veriler kullanma.
-Kendi kendine oluşan hatalardan kurtarmak için iş sürekliliği Tek kiracılı kurtarma (PITR) Ölçekli DR (coğrafi geri yükleme, coğrafi çoğaltma, otomatik DR) Kiracı self servis yönetimi (Yönetim API'leriyle) PITR.
-
-Temel Wingtip uygulaması, üç örnek kiracı bulunan bir havuz ve katalog veritabanı kullanır.
-
-![WTP mimarisi](media/sql-database-wtp-overview/wtp-architecture.png)
+Wingtip SaaS uygulama Kiracı başına veritabanı modeli kullanır ve verimliliğini en üst düzeye çıkarmak için SQL esnek havuzu kullanır. Sağlama ve verilerine eşleme kiracılar için bir katalog veritabanı kullanılır. Wingtip SaaS uygulamasına çekirdek üç örnek kiracılar havuzuyla yanı sıra, Katalog veritabanı kullanır. Öğreticiler eklentileri ilk dağıtıma neden Wingtip SaaS çoğunu Tamamlanıyor, analitik veritabanları sunarak veritabanları arası şema yönetimi, vb..
 
 
-## <a name="sql-database-wtp-saas-tutorials"></a>SQL Veritabanı WTP SaaS öğreticileri
-
-Aşağıdaki öğreticiler, [Wingtip Bilet Platformu SaaS uygulama örneğinin](sql-database-saas-tutorial.md) ilk dağıtımına yöneliktir:
-
-| Alan | Açıklama | Betik konumu |
-|:--|:--|:--|
-|[Kiracıları sağlama ve kataloğa kaydetme öğreticisi](sql-database-saas-tutorial-provision-and-catalog.md)| Yeni kiracılar sağlama ve bunları kataloğa kaydetme | [Github'da betikler](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Provision%20and%20Catalog) |
-|[Performansı izleme ve yönetme öğreticisi](sql-database-saas-tutorial-performance-monitoring.md)| Veritabanı ve havuz performansını izleme ve yönetme | [Github'da betikler](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management) |
-|[Tek bir kiracıyı geri yükleme öğreticisi](sql-database-saas-tutorial-restore-single-tenant.md)| Kiracı veritabanlarını geri yükleme | [Github'da betikler](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Business%20Continuity%20and%20Disaster%20Recovery/RestoreTenant) |
-|[Kiracı şemasını yönetme öğreticisi](sql-database-saas-tutorial-schema-management.md)| Tüm kiracılar genelinde sorgu yürütme  | [Github'da betikler](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Schema%20Management) |
-|[Geçici analiz çalıştırma öğreticisi](sql-database-saas-tutorial-adhoc-analytics.md) | Geçici analiz veritabanı oluşturma ve tüm kiracılar genelinde sorgu çalıştırma  | [Github'da betikler](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Operational%20Analytics/Adhoc%20Analytics) |
-|[Log Analytics (OMS) ile Yönetme öğreticisi](sql-database-saas-tutorial-log-analytics.md) | Log Analytics’i yapılandırma ve keşfetme | [Github'da betikler](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management/LogAnalytics) |
-|[Kiracı analizi çalıştırma öğreticisi](sql-database-saas-tutorial-tenant-analytics.md) | Kiracı analiz sorguları oluşturma ve çalıştırma | [Github'da betikler](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Operational%20Analytics/Tenant%20Analytics) |
-
-## <a name="get-the-wingtip-application-scripts"></a>Wingtip uygulama betiklerini alma
-
-Wingtip Bilet betikleri ve uygulama kaynağı kodu, [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github deposunda bulunabilir. Betik dosyaları, [Öğrenme Modülleri klasöründe](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules) yer alır. **Öğrenme Modülleri** klasörünü, klasör yapısını koruyarak yerel bilgisayarınıza indirin.
-
-## <a name="working-with-the-wtp-powershell-scripts"></a>WTP PowerShell Betikleriyle Çalışma
-
-Sağlanan betikleri ayrıntılı olarak incelemek ve farklı SaaS düzenlerinin nasıl uygulandığını incelemek, WTP uygulamasıyla çalışmanın avantajları arasında yer alır.
-
-Sağlanan betikleri ve modülleri görüntülemek ve daha iyi anlamak amacıyla bunlarda ilerlemeyi kolaylaştırmak için [Windows PowerShell ISE’yi](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise) kullanın. Önünde *Demo-* ifadesi bulunan betiklerin çoğu çalıştırılmadan önce değiştirebileceğiniz değişkenler içerdiğinden, PowerShell ISE’nin kullandığınızda bu betiklerle daha kolay çalışabilirsiniz.
-
-Her WTP uygulama dağıtımında, dağıtım sırasında tanımladığınız kaynak grubunu ve kullanıcı adı değerlerini ayarlamak için iki parametre içeren **UserConfig.psm1** dosyası bulunur. Dağıtım tamamlandıktan sonra, _ResourceGroupName_ ve _Name_ parametrelerini ayarlayarak **UserConfig.psm1** modülünü düzenleyin. Bu değerler, başarılı şekilde çalışmak üzere diğer betikler tarafından kullanılır, bu nedenle dağıtım tamamlandığında bunların ayarlanması önerilir!
+![Wingtip SaaS mimarisi](media/sql-database-wtp-overview/app-architecture.png)
 
 
+Şu öğreticileri giderek ve uygulama ile birlikte çalışma sırasında veri katmanı ilgili olarak SaaS düzenlerini esas odaklanmak önemlidir. Başka bir deyişle, veri katmanına odaklanın ve uygulamanın kendisini gereğinden fazla analiz etmeyin. Bu SaaS uygulamasının anlamak desenleri, belirli iş gereksinimlerinizi için gerekli tüm değişiklikleri ınızın uygulamalarınızda bu desenleri uygulama için anahtar.
+
+## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>Karşıdan yükleme ve Wingtip SaaS betikleri Engellemeyi Kaldır
+
+ZIP dosyaları bir dış kaynaktan yüklediğiniz ve açtığınız zaman yürütülebilir içeriği (komut dosyaları, DLL'ler) Windows tarafından engellenmiş olabilir. Komut dosyaları zip dosyasından çıkarılırken ***ayıklanıyor önce .zip dosyası engellemesini kaldırmak için aşağıdaki adımları izleyin***. Bu komut dosyalarını çalıştırma izni sağlar.
+
+1. Gözat [Wingtip SaaS github deposuna](https://github.com/Microsoft/WingtipSaaS).
+1. Tıklatın **Kopyala veya indir**.
+1. Tıklatın **ZIP'i indir** ve dosyayı kaydedin.
+1. Sağ **WingtipSaaS-master.zip** dosyasını bulun ve seçin **özellikleri**.
+1. Üzerinde **genel** sekmesine **Engellemeyi Kaldır**.
+1. **Tamam** düğmesine tıklayın.
+1. Dosyaları ayıklayın.
+
+Komut dosyaları içinde bulunur *... \\WingtipSaaS ana\\öğrenme modülleri* klasör.
+
+
+## <a name="working-with-the-wingtip-saas-powershell-scripts"></a>Wingtip SaaS PowerShell komut dosyaları ile çalışma
+
+En iyi örnek almak için sağlanan komut dosyalarına daha yakından inceleyin gerekir. Farklı SaaS desenleri nasıl uygulandığını ayrıntılarını inceleyerek komut dosyalarıyla adım ve kesme noktaları kullanın. Sağlanan komut dosyalarını ve modülleri için en iyi anlama aracılığıyla kolayca adım için kullanmanızı öneririz [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
+
+### <a name="update-the-configuration-file-for-your-deployment"></a>Dağıtımınız için yapılandırma dosyasını güncelleştir
+
+Düzen **UserConfig.psm1** dosya dağıtımı sırasında ayarladığınız kaynak grubu ve kullanıcı değerine sahip:
+
+1. Açık *PowerShell ISE* ve yükle... \\Modülleri öğrenme\\*UserConfig.psm1* 
+1. Güncelleştirme *ResourceGroupName* ve *adı* (10 ve 11 yalnızca satırlarındaki) dağıtımınız belirli değerleri içeren.
+1. Değişiklikleri kaydedin!
+
+Bu değerleri ayarı burada basitçe, her komut dosyası bu dağıtım özgü değerleri güncelleştirmek zorunda kalmaktan tutar.
 
 ### <a name="execute-scripts-by-pressing-f5"></a>F5’e basarak Betikleri çalıştırma
 
-Birçok betik, klasörlerde gezinmeye imkan tanımak için *$PSScriptRoot*’u kullanır ve bu değişken, yalnızca betik **F5** tuşuna basılarak çalıştırıldığında değerlendirilir.  Bir seçimin vurgulanması ve çalıştırılması (**F8**), hatalara yol açabilir. Bu nedenle, WTP betiklerini çalıştırırken **F5**’e basın.
+Birkaç betiklerini kullanın *$PSScriptRoot* klasörleri gidin ve *$PSScriptRoot* tuşuna basarak komut yürütüldüğünde yalnızca değerlendirilir **F5**.  Vurgulama ve bir seçim çalıştıran (**F8**) neden hataları, bu nedenle basın **F5** betikleri çalışırken.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Uygulamayı incelemek üzere betiklerde ilerleme
 
-Betikleri incelemenin en büyük avantajı, ne gibi işlemler gerçekleştirdiklerini görmek üzere betiklerde ilerlemektir. Her bir görevi gerçekleştirmek üzere gereken adımları gösteren okunması kolay üst düzey bir iş akışı sağlayan birinci düzey _Demo-_ betiklerini gözden geçirin. Farklı SaaS düzenlerinin uygulama ayrıntılarını görmek için çağrıları tek tek ayrıntılı olarak inceleyin.
+Komut dosyalarını anlamak için en iyi ne yaptıklarını görmek için aralarında adımla yoludur. Dahil edilen denetleyin **Demo -** kolay bir üst düzey iş akışı izleyin sunmak komut dosyaları. **Demo -** komut dosyaları göster her görevi, kesme noktaları olacak şekilde ayarlamanız ve incelemek için gerekli adımları derin farklı SaaS desenler için uygulama ayrıntılarını görmek için tek tek çağrıları içine.
 
-PowerShell betikleriyle çalışmaya [ve bu betiklerde hata ayıklamaya](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise) yönelik ipuçları:
+Keşfetmek ve PowerShell komut dosyalarıyla Adımlama ipuçları:
 
-* PowerShell ISE’de demo- betiklerini açıp yapılandırın.
-* Çalıştırın veya **F5** ile devam edin. Betik seçimleri çalıştırılırken *$PSScriptRoot* değerlendirilmediğinden **F8**’in kullanılması önerilmez.
+* Açık **Demo -** PowerShell ISE komut.
+* Execute veya devam **F5** (kullanarak **F8** çünkü önerilmez *$PSScriptRoot* seçimleri komut dosyası çalıştırılırken değerlendirilmez).
 * Bir çizgiye tıklayarak veya çizgiyi seçerek ve **F9**’a basarak kesme noktaları yerleştirin.
 * **F10**’u kullanarak bir işlev veya betiği atlayın.
 * **F11**’i kullanarak bir işlev veya betiğe gidin.
 * **Shift + F11**’i kullanarak geçerli işlev veya betikten çıkın.
 
 
-
-
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>Veritabanı şemasını keşfetme ve SSMS kullanarak SQL sorguları yürütme
 
-WTP sunucularını ve veritabanlarını bağlamak ve bu sunuculara göz atmak için [SQL Server Management Studio’yu (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) kullanın.
+Kullanım [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmayı ve uygulama sunucuları ve veritabanları göz atın.
 
-WTP örnek uygulamasının başlangıçta bağlanacak iki SQL Veritabanı sunucusu vardır: *tenants1* ve *katalog* sunucusu:
+Dağıtım - bağlanmak için iki SQL veritabanı sunucularının başlangıçta sahip *tenants1 -&lt;kullanıcı&gt;*  sunucu ve *katalog -&lt;kullanıcı&gt;*  Sunucu. Başarılı demo bağlantı sağlamak için her iki sunucuyu sahip bir [güvenlik duvarı kuralı](sql-database-firewall-configure.md) aracılığıyla tüm IP'ler izin verme.
 
 
 1. *SSMS*’yi açın ve *tenants1-&lt;User&gt;.database.windows.net* sunucusuna bağlanın.
-2. **Bağlan** > **Veritabanı Altyapısı...**:
+1. **Bağlan** > **Veritabanı Altyapısı...**:
 
    ![katalog sunucusu seçeneğine tıklayın](media/sql-database-wtp-overview/connect.png)
 
@@ -115,7 +118,7 @@ WTP örnek uygulamasının başlangıçta bağlanacak iki SQL Veritabanı sunucu
 
 1. 2-3. adımları tekrarlayın ve *catalog-&lt;User&gt;.database.windows.net* sunucusuna bağlanın.
 
-Başarıyla bağlandıktan sonra her iki sunucuyu da görmeniz gerekir. Sağladığınız kiracı sayısına bağlı olarak daha fazla veya daha az veritabanı görebilirsiniz:
+Başarıyla bağlandıktan sonra her iki sunucuyu da görmeniz gerekir. Veritabanlarının listesini sağlanan kiracılar bağlı olarak farklı olabilir:
 
 ![nesne gezgini](media/sql-database-wtp-overview/object-explorer.png)
 
@@ -123,4 +126,4 @@ Başarıyla bağlandıktan sonra her iki sunucuyu da görmeniz gerekir. Sağlad�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Wingtip Bilet SaaS uygulaması örneği dağıtma](sql-database-saas-tutorial.md)
+[Wingtip SaaS uygulamasına dağıtmak](sql-database-saas-tutorial.md)
