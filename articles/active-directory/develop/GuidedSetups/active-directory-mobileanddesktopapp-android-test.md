@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 6df64f4820f8409bd8897d5ac24f81bffeeef102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b59c44e351c3b3aa74557d0d1625495277b1bc1a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 ## <a name="test-your-code"></a>Kodunuzu test
 
@@ -45,3 +45,5 @@ Microsoft Graph API çağrısının sonuçlarını 'me' görmelisiniz uç noktas
 Microsoft Graph API gerektiriyor `user.read` kullanıcının profilini okumak için kapsam. Bu kapsam, varsayılan olarak, kayıt portal Kaydedilmekte her uygulama otomatik olarak eklenir. Microsoft Graph için diğer bazı API'leri ve aynı zamanda, arka uç sunucusu için özel API'leri ek kapsamlar gerektirebilir. Örneğin, Microsoft Graph, kapsam `Calendars.Read` kullanıcının takvimleri listelemek için gereklidir. Kullanıcının Takvim bir uygulama bağlamında erişmek için eklemeniz gerekir `Calendars.Read` izin uygulama kayıt ait bilgileri için temsilci ve ardından ekleyin `Calendars.Read` için kapsam `acquireTokenSilentAsync` çağırın. Kapsam sayısı arttıkça, kullanıcı için ek onayları istenebilir.
 
 <!--end-collapse-->
+
+[!INCLUDE  [Help and Support Options](../../../../includes/active-directory-develop-help-support-include.md)]

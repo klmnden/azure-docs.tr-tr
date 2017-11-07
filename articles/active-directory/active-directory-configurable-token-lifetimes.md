@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: d23721eba308096a05211eb6e26e1338a69cae0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f1c601f5de440346d35e25299f6f800f3e3c10d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) yapılandırılabilir belirteci yaşam süresi
 Azure Active Directory (Azure AD) tarafından verilmiş bir belirteç ömrü belirtebilirsiniz. Kuruluşunuzdaki tüm uygulamalar, kuruluşunuzda, çok kiracılı (çok kuruluş) uygulama veya belirli hizmet sorumlusu belirteci yaşam süresi ayarlayabilirsiniz.
@@ -58,9 +58,9 @@ Ortak istemcileri güvenli bir şekilde bir istemci parolası (gizli) depolanam�
 Kimlik belirteçlerini Web siteleri ve yerel istemcilerine geçirilir. Kimlik belirteçlerini bir kullanıcı profili bilgilerini içerir. Bir kimliği belirteci kullanıcı ve istemci belirli bir birleşim bağlıdır. Kimlik belirteçlerini kendi süre sonu kadar geçerli kabul edilir. Genellikle, bir kullanıcının bir web uygulaması eşleşip kimliği belirteç ömrü için uygulamada oturum yaşam kullanıcı için verilen. Ne sıklıkta web uygulaması uygulama oturum sona erer ve ne sıklıkta Azure AD ile (Sessiz veya etkileşimli) kimliğinin yeniden doğrulanması kullanıcının gerektiren denetlemek için bir kimliği belirteç ömrü ayarlayabilirsiniz.
 
 ### <a name="single-sign-on-session-tokens"></a>Tek oturum açma oturumu belirteçleri
-Ne zaman bir kullanıcı Azure AD ile doğrular ve seçer **Oturumumu açık bırak** onay kutusu, bir tek oturum açma (SSO) kullanıcının tarayıcı ve Azure AD ile oturumun. Bir tanımlama bilgisi biçiminde SSO belirtecin bu oturumu temsil eder. SSO Oturum belirteci bir belirli bir kaynak/istemci uygulaması ilişkilendirilmediğinden unutmayın. SSO oturum belirteçleri iptal edilebilir ve kullanıldıkları her zaman geçerliliği denetlenir.
+Bir kullanıcı Azure AD ile doğruladığında, tek bir oturum açma oturumu (SSO) kullanıcının tarayıcı ve Azure AD ile kurulur. Bir tanımlama bilgisi biçiminde SSO belirtecin bu oturumu temsil eder. SSO Oturum belirteci bir belirli bir kaynak/istemci uygulaması ilişkilendirilmediğinden unutmayın. SSO oturum belirteçleri iptal edilebilir ve kullanıldıkları her zaman geçerliliği denetlenir.
 
-Azure AD iki tür SSO oturum belirteçleri kullanır: kalıcı ve kalıcı olmayan. Kalıcı oturum belirteç kalıcı tanımlama bilgileri tarayıcı tarafından depolanır. Kalıcı olmayan oturum belirteç oturum tanımlama bilgileri depolanır. (Tarayıcı kapatıldığında oturum tanımlama bilgileri yok.)
+Azure AD iki tür SSO oturum belirteçleri kullanır: kalıcı ve kalıcı olmayan. Kalıcı oturum belirteç kalıcı tanımlama bilgileri tarayıcı tarafından depolanır. Kalıcı olmayan oturum belirteç oturum tanımlama bilgileri depolanır. (Tarayıcı kapatıldığında oturum tanımlama bilgileri yok.) Genellikle, kalıcı olmayan oturum belirteci depolanır. Ancak, kullanıcı seçtiğinde **Oturumumu açık bırak** onay kutusunu kalıcı Oturum belirteci kimlik doğrulaması sırasında depolanır.
 
 Kalıcı olmayan oturum belirteçleri 24 saatlik bir ömrü vardır. Kalıcı belirteçleri 180 gün ömrü vardır. SSO Oturum belirteci, geçerlilik süresi içinde kullanılan dilediğiniz zaman, başka bir 24 saat veya belirteç türüne bağlı olarak 180 gün geçerlilik süresini genişletilir. SSO Oturum belirteci, geçerlilik süresi içinde kullanılmazsa, olarak kabul süresi doldu ve artık kabul edilir.
 

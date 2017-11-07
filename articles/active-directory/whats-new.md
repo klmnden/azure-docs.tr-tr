@@ -1,6 +1,6 @@
 ---
 title: "Yenilikler neler? Azure Active Directory için sürüm notları | Microsoft Docs"
-description: "Bu sürüm son sürümler olmanızı sağlar, bilinen sorunlar kalmak için hata düzeltmeleri, kullanım dışı bırakılan işlevler notlar ve için planları kullanın, Azure Active Directory (Azure AD) değiştirir."
+description: "Azure Active en son sürüm notları, bilinen sorunlar, hata düzeltmeleri, kullanım dışı bırakılan işlevsellik ve yaklaşan değişiklikleri de dahil olmak üzere dizinle (Azure AD) yenilikleri öğrenin."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,23 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 54a6f197de82e5c4ae93d196a532aec7793bbd4c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0fd0ee5bb0bc3e9dcda9db291a1f9dbac6a2e7dc
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
 
 
----
 
-Bu abone olarak Azure Active Directory'de yenilikler ile güncel kalmasını [akış](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3%22&locale=en-us) bir RSS Okuyucu sık kullanılan olarak.
 
----
+> Bu abone olarak Azure Active Directory'de yenilikler ile güncel kalmasını [akış](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) bir RSS Okuyucu sık kullanılan olarak.
+
 
 
 Biz, sürekli olarak Azure Active Directory geliştirme. En son gelişmeler ile güncel kalmasını sağlamak için bu konuda, hakkında bilgi sağlar:

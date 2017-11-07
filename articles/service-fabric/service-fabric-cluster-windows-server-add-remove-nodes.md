@@ -12,19 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/02/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 9c6035e97de38ff63ef074109afd9f3c7484f828
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 252dcdf0ff9e1fecd6665808bfe7978a4417018b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server'da çalışan bir tek başına Service Fabric kümesi düğümlerine Ekle Kaldır
-Sonra [Windows Server makinelerde tek başına Service Fabric kümesi oluşturulan](service-fabric-cluster-creation-for-windows-server.md), iş gereksinimlerinize değiştirebilir ve ekleme veya kaldırma, küme düğümlerine gerekebilir. Bu makalede, bunu başarmak için ayrıntılı adımlar sağlanmaktadır. Lütfen Ekle/Kaldır düğümü işlevselliği yerel geliştirme kümelerinde desteklenmez unutmayın.
+Sonra [Windows Server makinelerde tek başına Service Fabric kümesi oluşturulan](service-fabric-cluster-creation-for-windows-server.md)(iş) gereksinimlerinizi değiştirebilir ve, küme düğümlerine ekleyip gerekir. Bu makalede, bunu başarmak için ayrıntılı adımlar sağlanmaktadır. Lütfen Ekle/Kaldır düğümü işlevselliği yerel geliştirme kümelerinde desteklenmez unutmayın.
 
 ## <a name="add-nodes-to-your-cluster"></a>İçin küme düğümleri Ekle
-1. Belirtilen adımları izleyerek, kümeye eklemek istediğiniz VM/makineyi hazırlama [Küme dağıtımı için Önkoşullar karşılamak üzere makineler hazırlama](service-fabric-cluster-creation-for-windows-server.md) bölümü
+
+1. Özetlenen adımları izleyerek, kümeye eklemek istediğiniz VM/makineyi hazırlama [planlama ve Service Fabric kümesi dağıtımınızı hazırlama](service-fabric-cluster-creation-for-windows-server.md)
 2. Hangi hata etki alanı ve bu VM/makineye eklemek için kalacaklarını yükseltme etki alanını tanımlayın
 3. Kümeye eklemek istediğiniz VM/makinede Uzak Masaüstü (RDP)
 4. Kopyalama veya [Windows Server için Service Fabric tek başına paketini karşıdan](http://go.microsoft.com/fwlink/?LinkId=730690) VM/makineye ve paketin sıkıştırmasını açın

@@ -309,6 +309,10 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Otomasyonu
           href: sql-database-manage-automation.md
+        - name: SQL Data Sync için en iyi deneyimler
+          href: sql-database-best-practices-data-sync.md
+        - name: SQL Data Sync sorunlarını giderme
+          href: sql-database-troubleshoot-data-sync.md
     - name: Ölçeği genişletme
       items:
         - name: Parçalı uygulama oluşturma

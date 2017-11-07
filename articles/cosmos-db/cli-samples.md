@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 06/07/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 189034b049e776a3b929930be937ec60bc1db241
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 989ef9915028c42a4da817bf2dd3aa5ad2beb2ef
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Azure Cosmos DB için Azure CLI örnekleri
 
@@ -28,7 +28,7 @@ Aşağıdaki tabloda Azure Cosmos DB için örnek Azure CLI komutlar bağlantıl
 | |  |
 |---|---|
 |**Azure Cosmos DB hesap, veritabanı ve kapsayıcıları oluşturma**||
-|[Bir DocumentDB API, grafik veya tablo API hesabı oluşturun](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Bir tek Azure Cosmos DB API hesabını, veritabanını ve kullanmak için kapsayıcı DocumentDB, grafik veya tablo API'ler oluşturur. |
+|[Bir DocumentDB API hesabı oluşturun](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Bir tek Azure Cosmos DB API hesabını, veritabanını ve kullanmak için kapsayıcı DocumentDB API'si ile oluşturur. |
 | [MongoDB API hesabı oluşturma](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Bir tek Azure Cosmos DB MongoDB API hesap, veritabanı ve koleksiyonu oluşturur. |
 |**Azure Cosmos DB ölçeklendirme**||
 | [Ölçek kapsayıcı işleme](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Bir kapsayıcı üzerinde sağlanan througput değiştirir.|

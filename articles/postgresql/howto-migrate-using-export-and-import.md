@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/14/2017
-ms.openlocfilehash: 5c3a642940bbaf766b87c74522a97b145632291f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 937423d0b844f6ce30e532bbae12b85071a6f8d4
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Dışarı aktarma kullanarak PostgreSQL veritabanınızı geçirin ve içeri aktarma
 Kullanabileceğiniz [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) bir komut dosyasına bir PostgreSQL veritabanına ayıklamak için ve [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) bu dosyayı hedef veritabanından veri almak için.
@@ -37,7 +37,7 @@ pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sq
 ```
 
 ## <a name="import-the-data-on-target-azure-database-for-postrgesql"></a>PostrgeSQL için hedef Azure veritabanı üzerindeki verileri alma
-Psql komut satırı ve -d, verileri Azure oluşturduğumuz PostrgeSQL için veritabanına ve veri sql dosyadan yüklemek için--dbname parametresini kullanabilirsiniz.
+Psql komut satırı ve--dbname parametre kullanabilirsiniz (-d) sql dosyasındaki PostgreSQL sunucu ve yük verileri için Azure veritabanına veri almak için.
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```

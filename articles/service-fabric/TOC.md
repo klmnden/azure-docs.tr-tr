@@ -6,6 +6,7 @@
 ## [.NET uygulaması oluşturma](service-fabric-quickstart-dotnet.md)
 ## [Bir Linux kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers-linux.md)
 ## [Bir Windows kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers.md)
+## [Java uygulaması dağıtma](service-fabric-quickstart-java.md)
 
 # Öğreticiler
 ## .NET uygulaması dağıtma
@@ -28,7 +29,9 @@
 ### 1 - Azure’da küme oluşturma
 #### [1a- Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2- Service Fabric ile API Management dağıtma](service-fabric-tutorial-deploy-api-management.md)
+### [2- Kümeyi ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
+### [3- API Management’ı Service Fabric ile dağıtma](service-fabric-tutorial-deploy-api-management.md)
+
 
 # Örnekler
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=service-fabric)

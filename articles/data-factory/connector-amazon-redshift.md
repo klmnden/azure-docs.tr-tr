@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: e96e5649d5ffa2b136c767bc40b79196fe040d02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 598e7c0c60c82c6f752ec37676dae52488cccb21
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Amazon Azure Data Factory kullanarak Redshift veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de bir Amazon Redshift verileri 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1, Amazon Redshift connnector](v1/data-factory-amazon-redshift-connector.md).
 
-## <a name="supported-scenarios"></a>Desteklenen senaryolar
+## <a name="supported-capabilities"></a>Desteklenen özellikler
 
 Verileri Amazon Redshift tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 

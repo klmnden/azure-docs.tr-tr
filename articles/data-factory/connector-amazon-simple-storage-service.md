@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 1263f2cdf6a6467d973f838bb380bd00ce52ba1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c066aab8641377705047f6b0ebd0e18c2afbac8
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Amazon basit depolama Azure Data Factory kullanarak hizmetinden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -26,7 +26,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de ve Azure Blob depolama birimi
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1, Amazon S3 connnector](v1/data-factory-amazon-simple-storage-service-connector.md).
 
-## <a name="supported-scenarios"></a>Desteklenen senaryolar
+## <a name="supported-capabilities"></a>Desteklenen özellikler
 
 Azure Data Lake Store için tüm desteklenen kaynak veri deposundan veri kopyalama veya verileri Azure Data Lake Store tüm desteklenen havuz veri deposuna kopyalamak. Kaynakları veya havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 

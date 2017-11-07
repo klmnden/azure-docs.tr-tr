@@ -1,30 +1,35 @@
 ---
 title: "Azure Market seller Kılavuzu | Microsoft Docs"
-description: "Bu kılavuzu işletme kullanıcılarının ve BT profesyonelleri ve geliştiricilerin kendi Azure sertifikalı sanal makine görüntülerini satış içinde ilgilenen, bağımsız yazılım satıcılarının (ISV'ler), ürün yöneticileri içindir."
+description: "Bu kılavuzu işletme kullanıcılarının ve bunların Azure sertifikalı sanal makine görüntüleri ve BT profesyonelleri ve geliştiricilerin yönetilen uygulamaları çok satılan ilgilenen, bağımsız yazılım satıcılarının (ISV'ler), ürün yöneticileri içindir."
 documentationcenter: 
-author: rupeshazure
-manager: hamidm
+author: divacc
+manager: prkumar
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: rupesk@microsoft.com
-ms.robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.author: divacc@microsoft.com
+ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Azure Market satıcı kılavuzu
 
-Azure Market seller Kılavuzu'na Hoş Geldiniz. Bu kılavuz, iş kullanıcılar ve BT profesyonelleri ve geliştiricilerin kendi Azure sertifikalı sanal makine görüntülerini satış içinde ilgilenen, bağımsız yazılım satıcılarının (ISV'ler), ürün yöneticileri için tasarlanmıştır. Tüm dünyada bulunan Azure müşterilerle [Market](https://azuremarketplace.microsoft.com/) harika ulaşma ve Etkilenme ürünlerinizin sağlayabilir.
-
+Azure Market seller Kılavuzu'na Hoş Geldiniz. Bu kılavuz, iş kullanıcıları ve bunların Azure sertifikalı sanal makine görüntüleri ve BT profesyonelleri ve geliştiricilerin yönetilen uygulamaları çok satılan ilgilenen, bağımsız yazılım satıcılarının (ISV'ler), ürün yöneticileri için tasarlanmıştır. Tüm dünyada bulunan Azure müşterilerle [Azure Marketi](https://azuremarketplace.microsoft.com/) harika ulaşma ve Etkilenme ürünlerinizin sağlayabilir.
 
 > [!NOTE]
-> Tamamlanmış yazılımınızı hizmet (SaaS) ürünleri olarak iş kullanıcılara satış atmak istiyorsanız, bunları listelemek için seçenekleri araştırabilirsiniz [AppSource](https://appsource.microsoft.com).
+> Satış içinde düşünüyorsanız, [yönetilen uygulama](https://docs.microsoft.com/en-us/azure/managed-applications/overview), Azure Marketi'nde listelemek için yönergeleri izlemeniz gereken [burada](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> Bir hizmet (SaaS) ürünleri olarak tamamlanmış yazılımınızı satış düşünüyorsanız _BT uzmanlarının ve geliştiricilerin_, sizin için ulaşmak saas-on-amp@microsoft.com seçenekleriniz hakkında daha fazla bilgi edinmek için.
+
+> [!NOTE]
+> Bir hizmet (SaaS) ürünleri olarak tamamlanmış yazılımınızı satış düşünüyorsanız _iş kullanıcıları_, bunları listelemek için seçenekleri araştırabilirsiniz [AppSource](https://appsource.microsoft.com).
+
 
 Bu kılavuz ucu tarafından bu konular hakkında daha ayrıntılı bilgi nerede bulacağını anlarsınız:
 
@@ -43,9 +48,9 @@ Haydi başlayalım.
 
 ## <a name="whats-the-azure-marketplace"></a>Azure Market nedir?
 
-Azure Market üzerinde ISV'ler--işletmelere--başlatmalar gelen çözümleri müşterilere Azure dünyanın sunmak bir çevrimiçi uygulamalar ve hizmetler Market ' dir. Market üzerinden Azure yayımcılar dağıtabilir ve hızlı bir şekilde kendi bulut tabanlı uygulamalar ve Azure mobil çözümleri geliştirmek için isteyen diğer uzmanlarının kendi sanal makine görüntülerini satmak. Market tekliflerine--veri işleme, veri depolama ve analiz katmanlar ile uçtan uca veri analizi uygulamalardan katmanlı e-ticaret uygulamaları (verileri, hizmet ve Internet) çeşitli destekler.
+Azure Market üzerinde ISV'ler--işletmelere--başlatmalar gelen çözümleri müşterilere Azure dünyanın sunmak bir çevrimiçi uygulamalar ve hizmetler Market ' dir. Market üzerinden Azure yayımcılar dağıtın ve sanal makine resimlerinin satmak, yönetilen uygulamaları ve SaaS uygulamaları için hızlı bir şekilde isteyen diğer uzmanlarının kendi bulut tabanlı uygulamalar ve Azure mobil çözümlerinde geliştirin. Azure Market tekliflerine--veri işleme, veri depolama ve analiz katmanlar ile uçtan uca veri analizi uygulamalardan katmanlı e-ticaret uygulamaları (verileri, hizmet ve Internet) çeşitli destekler.
 
-Bulut müşterilerin benzersiz gereksinimlerine uyacak şekilde çözümleri için arama yaparken birkaç güçlüklerle karşılaşır. Market aşağıdaki tabloda açıklandığı gibi bu sorunları çözmek ve yenilikçi ISV çözümleriyle müşteriler bağlanmak için bir yol sağlar:
+Bulut müşterilerin benzersiz gereksinimlerine uyacak şekilde çözümleri için arama yaparken birkaç güçlüklerle karşılaşır. Azure Market aşağıdaki tabloda açıklandığı gibi bu sorunları çözmek ve yenilikçi ISV çözümleriyle müşteriler bağlanmak için bir yol sağlar:
 
 | Müşteri gereksinimi | Azure Market çözümü |
 | --- | --- |
@@ -54,14 +59,14 @@ Bulut müşterilerin benzersiz gereksinimlerine uyacak şekilde çözümleri iç
 | Üçüncü taraf uygulamalar ve hizmetler için ölçeklenebilir dağıtım mekanizması gerekiyor | Oluşturma ve üçüncü taraf uygulamalar ve hizmetler için ölçeklenebilir dağıtımlar yapılandırılmasını sağlar |
 | Yeni uygulamaları ve Hizmetleri Tümleştirme ve var olan çözümler ile çalışmak için gerektirir | Azure üzerinde var olan çözümler ile üçüncü taraf uygulamaları ve Hizmetleri kolayca tümleşir |
 
-Market kalitesini, seçim ve Azure iş ortağı ekosistemi gücünü genel müşterilere getirir. Başlıca yararları şunlardır:
+Azure Market kalitesini, seçim ve Azure iş ortağı ekosistemi gücünü genel müşterilere getirir. Başlıca yararları şunlardır:
 
 - Microsoft ve ortaklarından Azure tabanlı teklifleri için birleşik konumu.
 - 5. 000'den fazla sunar.
 - Tümleşik platform deneyimi.
 - Kolaylaştırılmış yapılandırma, dağıtımı ve yönetimi.
 
-## <a name="is-the-marketplace-right-for-my-business"></a>İşimi için Market hangisi?
+## <a name="is-azure-marketplace-right-for-my-business"></a>Azure Market sağ İşimi için mi?
 
 Artık Azure Marketi işletmeniz için doğru uygun olup olmadığını merak ediyor olabilirsiniz. Ve ise, hangi, dışında alır? Market sizin için yeni satış fırsatları oluşturur:
 
@@ -74,23 +79,32 @@ Artık Azure Marketi işletmeniz için doğru uygun olup olmadığını merak ed
 
 Market müşteriler farklı. Ayrıca, Azure tüm bulut sağlayıcılarının hızlı büyüyen müşteri tabanları birini sahiptir. BT uzmanları ve kuruluşlar için start-ups endüstriler ve hem genel hem de özel kesimler arasında değişen şirketlerde çalışan geliştiricilere erişin.
 
-## <a name="how-does-the-marketplace-work"></a>Market nasıl çalışır?
+## <a name="how-does-marketplace-work"></a>Market nasıl çalışır?
 
-&#39; teki oldukça kolaydır. Re &#39; sonra onaylanır Azure sertifikalı sanal makine görüntünüzü oluşturmak ve Marketinde yayımlama. Burada, Azure müşterileri bulabilirsiniz, satın alma ve dakika cinsinden ürününüzü dağıtın. Hatta daha iyi, müşterilerin çözümünüzü güvenle dağıtın. Bunlar, ortamın Azure başarı için yapılandırıldığını ve altyapı birkaç dakika içinde gitmek hazır olduğunu bilirsiniz.
+&#39; teki oldukça kolaydır. &#39; sonra yeniden onaylanmış, sanal makine görüntüsü Azure sertifikalı veya yönetilen uygulama oluşturun ve Marketinde yayımlama. Burada, Azure müşterileri bulabilirsiniz, satın alma ve dakika cinsinden ürününüzü dağıtın. Hatta daha iyi, müşterilerin çözümünüzü güvenle dağıtın. Bunlar, ortamın Azure başarı için yapılandırıldığını ve altyapı birkaç dakika içinde gitmek hazır olduğunu bilirsiniz.
 
-Bulut iş ortağı portalını teklifiniz Market'te oluşturmak için hub ' dir. Sanal makine görüntülerini tam olarak yüklenmiş bir işletim sistemi ve bir veya daha fazla uygulama ile önceden yapılandırılmıştır. Görüntünüzü böylece onaylamak için BT &#39; teki yayın için hazır belirli önkoşulları karşılaması gerekir. Bu sonraki bölümde aşağıdakiler ele.
+Bulut iş ortağı portalını teklifiniz Market'te oluşturmak için hub ' dir. Teklifiniz böylece onaylamak için BT &#39; teki yayın için hazır belirli önkoşulları karşılaması gerekir. Bu sonraki bölümde aşağıdakiler ele.
 
 
 ## <a name="whats-next"></a>Sırada ne var?
 
-Azure Market gerçekten ürününüzü sağ uygun olduğunu düşünmelidir. Bu nedenle, çalışmaya nasıl başlayabilirim? Bu bölüm, düzenleme ve tarafından Market (Şekil 1) üzerinde çalışan hakkında değildir: 
+Azure Market gerçekten ürününüzü sağ uygun olduğunu düşünmelidir. Bu nedenle, çalışmaya nasıl başlayabilirim? Bu bölümde hazır ve sanal makine görüntülerini tarafından Market (Şekil 1) üzerinde çalışan odaklanmıştır: 
 * Sertifikalı olma Azure.
 * Ürün satmak için onaylanmış.
-* Teklifiniz bulut iş ortağı Portalı'nda oluşturma. 
+* Oluşturma ve teklifiniz bulut iş ortağı Portalı aracılığıyla yayımlama. 
 
 ![Azure Market satış süreci](./media/cloud-partner-portal-seller-guide/processforselling.png)
 
 Şekil 1: Azure Marketi satış süreci
+
+(Sanal makine ya da yönetilen uygulamayı) yüküne bağlı olarak yayımlamak planlama, teklifiniz yayımlamak için farklı bir işlem izler. Aşağıdaki içerik yayımlama odaklanmıştır _sanal makine teklifleri_.
+
+> [!NOTE]
+> Satış içinde düşünüyorsanız, [yönetilen uygulama](https://docs.microsoft.com/en-us/azure/managed-applications/overview), Azure Marketi'nde listelemek için yönergeleri izlemeniz gereken [burada](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> Bir hizmet (SaaS) ürünleri olarak tamamlanmış yazılımınızı satış düşünüyorsanız _BT uzmanlarının ve geliştiricilerin_, sizin için ulaşmak saas-on-amp@microsoft.com seçenekleriniz hakkında daha fazla bilgi edinmek için.
+
 
 İlk teknik ve yedeğin önkoşulları karşılaması ve sanal makine görüntüsünü hazırlama. Ardından, ürün belirler ve bir satıcı olarak kaydedin. Son olarak, pazarlama içerik ekleme ve yayımlama için gönderin. Önizleme/hazırlama kullanımınız teklifinize gözden geçirebilirsiniz yapma ortamı öncesinde Market'te Canlı.
 
@@ -103,6 +117,7 @@ Teklifiniz için Azure Marketi oluşturmanın ilk adımı Azure sertifikalı hal
 ![Azure sertifikalı olma gereksinimleri](./media/cloud-partner-portal-seller-guide/azurecertified.png)
 
 Şekil 2: Azure sertifikalı olma gereksinimleri
+
 
 ### <a name="technical-prerequisites"></a>Teknik önkoşulları
 
@@ -147,13 +162,15 @@ Getirisi _Azure sertifikalı_ durum ekleme işleminin başarılı tamamlama tems
 
 ## <a name="how-do-i-nominate-my-product-and-get-approved"></a>Ne ı belirler my ürün ve onay almanız?
 
-Şimdi ürününüzü (Şekil 3) Market'te satmak için onay almak için zaman yapılır. Microsoft ürününüzün belirler, yayımlama işlemi tamamlayın ve bir satıcı olarak kaydetmek kolaylaştırır.
+Şimdi ürününüzü (Şekil 3) Market'te satmak için onay almak için zaman yapılır. 
+
+Microsoft ürününüzün belirler, yayımlama işlemi tamamlayın ve bir satıcı olarak kaydetmek kolaylaştırır. (Sanal makine ya da yönetilen uygulamayı) yüküne bağlı olarak yayımlamak planlama, farklı Adaylığı sürecini takip eder.
 
 ![Azure Market satmak için onaylanmış](./media/cloud-partner-portal-seller-guide/gettingapprovedsteps.png)
 
 Şekil 3: Azure Marketi satmak için onaylanmış adımları
 
-İlk adım onay doğru [belirler](https://createopportunity.azurewebsites.net/) ürününüzü kaydı ve yayın önce. Onay alabilir _en çok üç iş günü_.
+Yayımlamak isterseniz bir _sanal makine teklif_, ürününüzü belirler [burada](https://createopportunity.azurewebsites.net/). Onay alabilir _en çok üç iş günü_.
 
 Onay sonrasında, aşağıdaki alırsınız:
 
@@ -172,17 +189,19 @@ Son olarak, [hesabınızı kaydetmeniz](https://docs.microsoft.com/azure/marketp
 
 ## <a name="what-about-best-practices"></a>En iyi uygulamalar hakkında neler?
 
-Bazı araçlar şunlardır ve satıcının Market'te olması dışında en çok yardımcı olabilecek en iyi yöntemler alın.
+Market'te satıcının olması dışında en yardımcı olabilecek bazı en iyi uygulamalar şunlardır.
 
 ### <a name="azure-test-drives"></a>Azure test sürücüler
 
 [Azure test sürücüleri](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/test-drives?page=1) ürününüzü olası müşterilere sergiler ve bunlar satın almadan önce deneyin seçeneğine vermek için kullanışlı bir yoludur. Test sürücüleri dönüştürme artırmak ve müşteri adayları oluşturmak yardımcı olabilir.
 
-Kişi bilgileri girdikten sonra müşteriler, önceden oluşturulmuş test sürücünüzün erişebilir. Bunlar, ürününüzü &#39; s anahtar özellikleri ve gerçek dünya senaryoları'nın faydalarını uygulamalı kendinize yönlendireceğiniz bir deneme karşılaşırsınız.
+Kişi bilgileri girdikten sonra müşteriler, önceden oluşturulmuş test sürücünüzün erişebilir. Bunlar, ürününüzü &#39; s anahtar özellikleri ve gerçek dünya senaryoları'nın faydalarını uygulamalı kendinize yönlendireceğiniz bir deneme karşılaşırsınız. Hatta daha iyi? % 36'ye kadar daha fazla müşteri adayları sınamayı yayımlayarak, teklifle ilgili alabilirsiniz.
 
-Şu anda, ürününüzü sınamayı yayımlama yalnızca klasik yayımlama portalı üzerinde kullanılabilir. Belgelerine giderek daha fazla bilgi edinin [yeni bir test sürücüye yayımlama](https://github.com/Azure/AzureTestDrive/wiki).
+Onboarding işlemi sırasında bir test yayımlamak için gereken tüm yönlendirme ile bulut iş ortağı Portalı'nda sürücü sağlar. Daha fazla bilgi edinmek [Azure test sürücüleri](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
 
-Daha fazla bilgi edinmek [Azure test sürücüleri](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
+###<a name="lead-generation"></a>Sağlama oluşturma
+
+Azure Market'te ürününüzü listeleme, anahtar değeri özellik size, ilgilendiğiniz veya ürününüzü dağıtmış olan müşteriler için yüksek oranda müşteri adayları tam göndereceğiz biridir. Dahası eylemi gerçekleştirin ve daha fazla fırsatları oluşturma ve daha fazla anlaşmalar kapatma izlenmesi hızlı bir şekilde, böylece Biz bu müşteri adayları doğrudan CRM Gönder ' dir. Tümleştirme sağlama oluşturma için birkaç dakika sürer ve bulut iş ortağı portalını yayımlama işlemi sırasında gerçekleştirilir.
 
 ### <a name="go-to-market-checklist"></a>Git Pazar denetim listesi
 
@@ -198,21 +217,20 @@ Daha fazla bilgi edinmek bizim [go market programları](https://partner.microsof
 
 ## <a name="what-about-reports"></a>Raporlar hakkında neler?
 
-Market siparişler, kullanım ve Market erişilebilir müşteriler raporlar sunar [yayımcı raporlama portal](https://reports.azure.com). Yararlı bilgiler ve analizi, ek olarak ham verileri gezinebilir bir tabloda sağlanan ve bir CSV ya da XLS dosyası olarak indirilebilir.
+Market siparişler, kullanım ve bulut iş ortağı portalı Öngörüler bölümü erişilebilir müşteriler raporlar sunar. Yararlı bilgiler ve analizi, ek olarak ham verileri gezinebilir bir tabloda sağlanan ve bir CSV ya da XLS dosyası olarak indirilebilir.
 
-[Bu videoyu](https://player.vimeo.com/video/200859918) gözlem fişini rapor özellikleri ve yararlar sağlar:
+Bazı incelemeler özellikler ve sunduğu yararlar şunlardır:
 
-- Rapor türleri: siparişler, kullanım ve müşteri eğilimleri giriş sayfasında Özet anlık görüntü.
+- Rapor türleri: Özet anlık görüntü siparişler, kullanım, deployements ve müşteri eğilimlerin Öngörüler giriş sayfasında.
 - Ayrıntılı siparişler, kullanım ve müşteri verileri.
 - Siparişler ve aylık özet veya altı aylık eğilimi görünüm olarak gösterilen kullanımı.
-- Bir standart olarak görüntülenen birkaç Öngörüler.
 - Kullanım/siparişleri göre:
   - Market
   - Kanal
   - Teklifler eğilim
   - Market lisans türü
 
-Müşterilerinizi karşılaştırma için ayrıntılı raporlar müşteri bilgileri, şirket adı ve coğrafi konumuna posta kodu gibi gösterir. Aşağıdaki listede, müşterilerinizin hakkında sağladığımız özel öznitelikler içerir:
+Müşterilerinizi karşılaştırma ve, satıcıları dengelemek için ayrıntılı raporlar müşteri bilgileri, şirket adı ve coğrafi konumuna posta kodu gibi gösterir. Aşağıdaki listede, müşterilerinizin hakkında sağladığımız özel öznitelikler içerir:
 
 - Satıcı
 - FirstName
@@ -221,7 +239,7 @@ Müşterilerinizi karşılaştırma için ayrıntılı raporlar müşteri bilgil
 - Şirket adı
 - TransactionDate
 - varlığıyla subscriptionName
-- Azuresubscriptionıd
+- Azuresubscriptionıd (yalnızca PAYG Müşteriler)
 - CloudInstanceName
 - OrderCount
 - CustomerCountryRegion
@@ -229,7 +247,7 @@ Müşterilerinizi karşılaştırma için ayrıntılı raporlar müşteri bilgil
 - CustomerCommunicationCulture
 - CustomerZipCode
 
-Eğitim Yardım belgelerine, bir sözlük ve kaydedilen demo da sunuyoruz. Yardım veya destek raporlarınızı ile, açabilirsiniz bir [destek bileti](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=636233723471685249).
+Eğitim Yardım belgelerine, bir sözlük ve kaydedilen demo da sunuyoruz. Yardım veya raporlarınızı ile destek, herhangi bir anda bir destek bileti bulut iş ortağı Portalı aracılığıyla açabilirsiniz.
 
 Biz ISV satıcılara topluluğumuz'na Hoş Geldiniz ve teklifiniz görmeyi duyacağız.
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Azure Web uygulamaları için var olan özel bir SSL sertifikası bağlama
 
@@ -151,13 +151,13 @@ IIS kullandıysanız veya _Certreq.exe_ , sertifika isteği oluşturmak için se
 
 SSL sertifikanızı karşıya yüklemek için tıklayın **SSL sertifikalarını** , web uygulamanızın sol gezinti bölmesinde.
 
-Tıklatın **karşıya sertifika**.
+Tıklatın **karşıya sertifika**. 
 
 İçinde **PFX sertifika dosyanızı**, PFX dosyasını seçin. İçinde **sertifika parolası**, PFX dosyasını dışarı aktardığınızda, oluşturduğunuz parolayı yazın.
 
 **Karşıya Yükle**'ye tıklayın.
 
-![Sertifikayı karşıya yükleme](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Sertifikayı karşıya yükleme](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 Uygulama hizmeti sertifikanızı karşıya yükleme tamamlandığında, görünür **SSL sertifikalarını** sayfası.
 
@@ -311,6 +311,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## <a name="public-certificates-optional"></a>Ortak sertifikaları (isteğe bağlı)
+Karşıya yüklediğiniz [ortak sertifikaları](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) web uygulamanız için. Uygulama hizmeti veya uygulama hizmeti ortamı (ana) Web uygulamalarıyla ortak sertifikaları kullanabilirsiniz. Sertifikayı LocalMachine sertifika deposunda depolamak gerekiyorsa, bir web uygulaması üzerinde uygulama hizmeti ortamı kullanmanız gerekebilir. Daha fazla ayrıntı için bkz: [Web uygulamanız için ortak sertifikaları yapılandırma](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+
+![Ortak sertifikasını karşıya yükle](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

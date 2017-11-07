@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 534bf37cc70420dc30fcd5c994ae7d9beb654072
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 091446fd45b09913dee70dbb4c7e5ebbca02819b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -81,7 +81,7 @@ Try Azure Cosmos DB abonelikleri Azure portalında sonraki kullanıcı kimliği 
 
 Aşağıdaki koşullar deneyin Azure Cosmos DB abonelikler için geçerlidir:
 
-* Bir kapsayıcı SQL (DocumentDB API), Gremlin (grafik API'si) ve tablo hesapları için abonelik başına.
+* Bir kapsayıcı SQL (DocumentDB API), Gremlin (grafik API'si) ve tablo API hesapları için abonelik başına.
 * MongoDB hesapları için abonelik başına en fazla 3 koleksiyonları.
 * 10 GB depolama kapasitesi.
 * Aşağıda, genel çoğaltma kullanılabilir [Azure bölgeleri](https://azure.microsoft.com/regions/): Orta ABD, Kuzey Avrupa ve Güneydoğu Asya
@@ -181,9 +181,7 @@ Ortak MongoDB hata kodları ek olarak, kendi özel hata kodlarını MongoDB API 
 ## <a name="develop-with-the-table-api-preview"></a>Tablo API (Önizleme) ile geliştirme
 
 ### <a name="terms"></a>Koşullar 
-DB Azure Cosmos: Derleme 2017 duyurdu tablo desteği için Azure Cosmos DB tarafından sunumu premium tablosu API (Önizleme) başvuruyor. 
-
-Standart tablo SDK var olan Azure Storage SDK tablodur. 
+Yapı 2017 duyurdu bir tablo veri modeli tarafından Azure Cosmos DB sunumu premium Azure Cosmos DB tablo API (Önizleme) başvuruyor. 
 
 ### <a name="how-can-i-use-the-new-table-api-preview-offering"></a>Yeni Tablo API (Önizleme) sunumu nasıl kullanabilir miyim? 
 Azure Cosmos DB tablo API kullanılabilir [Azure portal][azure-portal]. Önce Azure aboneliği için kaydolmanız gerekir. Oturum açtığınız sonra Azure Cosmos DB tablo API'si hesabınız Azure aboneliğinize ekleyin ve ardından tabloları hesabınıza ekleyin. 
@@ -191,7 +189,7 @@ Azure Cosmos DB tablo API kullanılabilir [Azure portal][azure-portal]. Önce Az
 Önizleme dönemi sırasında zaman [SDK'ları](../cosmos-db/table-sdk-dotnet.md) olan .NET için kullanılabilir, tamamlayarak başlayabiliriz [tablo API](../cosmos-db/create-table-dotnet.md) hızlı başlangıç makalesi.
 
 ### <a name="do-i-need-a-new-sdk-to-use-the-table-api-preview"></a>Tablo API (Önizleme) kullanmak için yeni bir SDK gerekiyor mu? 
-Evet, [Windows Azure depolama Premium tablosu (Önizleme) SDK](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) NuGet üzerinde kullanılabilir. Ek bilgi edinilebilir [Azure Cosmos DB tablo .NET API: indirme ve sürüm notları](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md) sayfası. 
+Evet, [Windows Azure depolama Premium tablosu (Önizleme) SDK](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) NuGet üzerinde kullanılabilir olduğunu ve Azure Cosmos DB tablo API kullanmak için gereklidir. Ek bilgi edinilebilir [Azure Cosmos DB tablo .NET API: indirme ve sürüm notları](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md) sayfası. 
 
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>SDK veya hatalar hakkında geri bildirim nasıl sağlıyor mu?
 Geri bildiriminiz aşağıdaki yollardan biriyle paylaşabilirsiniz:
@@ -219,8 +217,8 @@ Yapılandırma ayarları hakkında daha fazla bilgi için bkz: [Azure Cosmos DB 
     </appSettings>
 
 
-### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-standard-table-sdk"></a>Var olan standart tablo SDK kullanan müşteriler için herhangi bir değişiklik var mı?
-yok. Var olan standart tablo SDK kullanan mevcut veya yeni müşteriler için bir değişiklik bulunmamaktadır. 
+### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdk"></a>Var olan Azure Table storage'ı SDK kullanan müşteriler için herhangi bir değişiklik var mı?
+yok. Var olan Azure Table storage'ı SDK'ları kullanan mevcut veya yeni müşteriler için bir değişiklik bulunmamaktadır. 
 
 ### <a name="how-do-i-view-table-data-that-is-stored-in-azure-cosmos-db-for-use-with-the-table-api-review"></a>Tablo API (revıew) ile kullanmak için Azure Cosmos DB içinde depolanan tablo verileri nasıl görüntüleyebilirim? 
 Veri göz atmak için Azure portalını kullanabilirsiniz. Tablo API (Önizleme) kod veya sonraki yanıtında belirtilen araçları da kullanabilirsiniz. 
@@ -239,11 +237,11 @@ Evet, iyimser eşzamanlılık ETag mekanizması kullanımı aracılığıyla sa�
 ### <a name="is-the-odata-query-model-supported-for-entities"></a>OData sorgu modelini varlıklar için destekleniyor mu? 
 Evet, OData sorgu ve LINQ sorgusu tablo API (Önizleme) destekler. 
 
-### <a name="can-i-connect-to-the-standard-azure-table-and-the-new-premium-table-api-preview-side-by-side-in-the-same-application"></a>Standart Azure tablosu ve tablo API (Önizleme) aynı uygulamada yan yana yeni premium bağlanabilir miyim? 
+### <a name="can-i-connect-to-the-azure-table-storage-and-the-azure-cosmos-db-table-api-preview-side-by-side-in-the-same-application"></a>Azure Table depolama ve Azure Cosmos DB tablo API (Önizleme) yan yana aynı uygulamada bağlanabilir miyim? 
 Evet, her bağlantı dizesi aracılığıyla kendi URI işaret CloudTableClient, iki ayrı ayrı örnekleri oluşturarak bağlanabilir.
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-new-offering"></a>Bu yeni sunum var olan bir Azure Table depolama uygulamayı nasıl geçişini?
-Var olan tablo depolama verilerinizde tablo API yenilik yararlanmak için başvurun [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com). 
+Var olan tablo depolama verilerinizde Azure Cosmos DB tablo API yenilik yararlanmak için başvurun [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com). 
 
 ### <a name="what-is-the-roadmap-for-this-service-and-when-will-you-offer-other-standard-table-api-functionality"></a>Bu hizmet için yol haritası nedir ve ne zaman diğer standart tablo API işlevleri sunacaktır?
 Biz doğru İST ilerlemeden gibi SAS belirteci, ServiceContext, istatistikleri, istemci tarafı şifreleme, analiz ve diğer özellikler için destek eklemeyi planlama Bize geri bildirim üzerinde verebilirsiniz [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api). 
@@ -252,7 +250,7 @@ Biz doğru İST ilerlemeden gibi SAS belirteci, ServiceContext, istatistikleri, 
 Azure Cosmos DB yatay ölçekleme kullanımı aracılığıyla sınırsız depolama sağlamak için tasarlanmıştır. Hizmet izlemek ve etkili bir şekilde depolama alanınızın artırın. 
 
 ### <a name="how-do-i-monitor-the-table-api-preview-offering"></a>Tablo API (Önizleme) teklifinin nasıl izlerim?
-Tablo API (Önizleme) kullanabilirsiniz **ölçümleri** istekleri ve depolama alanı kullanımı izlemek için bölmesi. 
+Tablo API (Önizleme) kullanabilirsiniz **ölçümleri** istekleri ve depolama alanı kullanımı izlemek için Azure portalında bölmesi. 
 
 ### <a name="how-do-i-calculate-the-throughput-i-require"></a>I gerektiren verimlilik nasıl hesaplar?
 İşlemler için gerekli olan TableThroughput hesaplamak için kapasite tahmin kullanabilirsiniz. Daha fazla bilgi için bkz: [tahmin istek birimleri ve veri depolama](https://www.documentdb.com/capacityplanner). Genel olarak, JSON olarak, varlığı temsil eder ve işlemleri için sayıları sağlayın. 
@@ -264,16 +262,16 @@ Evet, yeni bir SDK kullandığınızda yerel öykünücü ile tablo API (Önizle
 DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`. 
 ```
 
-### <a name="can-my-existing-application-work-with-the-table-api-preview"></a>Varolan Uygulamam tablo API (Önizleme) ile çalışabilir mi? 
-Yeni Tablo API (Önizleme)'ın yüzey alanını varolan Azure standart tablo SDK oluştur, Sil, güncelleştirme ve .NET API'sindeki sorgu işlemleri arasında ile uyumludur. Tablo API (Önizleme) hem Bölüm anahtarı hem de satır anahtarını gerektirdiğinden satır anahtarı olduğundan emin olun. Ayrıca bu hizmet sunumu GA doğru ilerlemeden daha fazla SDK destek eklemeyi planlıyoruz.
+### <a name="can-my-existing-azure-table-storage-application-work-with-the-table-api-preview"></a>Var olan Azure Table depolama Uygulamam tablo API (Önizleme) ile çalışabilir mi? 
+Yeni Tablo API (Önizleme)'ın yüzey alanını oluşturma, silme, güncelleştirme ve .NET API'sindeki sorgu işlemleri arasında var olan Azure Table depolama SDK'sı ile uyumludur. Tablo API (Önizleme) hem Bölüm anahtarı hem de satır anahtarını gerektirdiğinden satır anahtarı olduğundan emin olun. Ayrıca bu hizmet sunumu GA doğru ilerlemeden daha fazla SDK destek eklemeyi planlıyoruz.
 
-### <a name="do-i-need-to-migrate-my-existing-azure-table-based-applications-to-the-new-sdk-if-i-do-not-want-to-use-the-table-api-preview-features"></a>Tablo API (Önizleme) özellikleri kullanmak istemediğiniz mevcut Azure tablo tabanlı uygulamalarım yeni SDK'ye geçirmeniz gerekiyor mu?
-Hayır, oluşturabilir ve varolan standart tablo varlıkları herhangi bir türde kesintisiz kullanın. Ancak, yeni tablo API (Önizleme) kullanmıyorsanız, otomatik dizin, ek tutarlılık seçeneği veya genel dağıtım kazancı olmaz. 
+### <a name="do-i-need-to-migrate-my-existing-azure-table-storage-applications-to-the-new-sdk-if-i-do-not-want-to-use-the-table-api-preview-features"></a>Tablo API (Önizleme) özellikleri kullanmak istemediğiniz için yeni bir SDK var olan Azure Table depolama uygulamalarım geçirmeniz gerekiyor mu?
+Hayır, oluşturabilir ve varolan Azure Table depolama varlıkları herhangi bir türde kesintisiz kullanın. Ancak, yeni tablo API (Önizleme) kullanmıyorsanız, otomatik dizin, ek tutarlılık seçeneği veya genel dağıtım kazancı olmaz. 
 
-### <a name="how-do-i-add-replication-of-the-data-in-the-premium-table-api-preview-across-multiple-regions-of-azure"></a>Veri çoğaltma işlemi birden çok bölgede Azure premium tablo API (Önizleme) içinde nasıl ekleyebilirim?
+### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-preview-across-multiple-regions-of-azure"></a>Nasıl veri çoğaltma işlemi tablo API (Önizleme) birden çok Azure bölgeler arasında ekleyebilirim?
 Cosmos DB Azure portal'ın kullanabilirsiniz [genel çoğaltma ayarları](tutorial-global-distribution-documentdb.md#portal) uygulamanız için uygun bölgeler eklemek için. Genel olarak dağıtılmış bir uygulama geliştirmek için PreferredLocation bilgi okuma düşük gecikme süresi sağlamak için yerel bölge kümesi ile uygulamanızı eklemelisiniz. 
 
-### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-premium-table-api-preview"></a>Tablo API (Önizleme) premium hesap için birincil yazma bölge nasıl değişiyor?
+### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api-preview"></a>Tablo API (Önizleme) hesap için birincil yazma bölge nasıl değişiyor?
 Bir bölge ekleyin ve ardından gerekli bölgeye yük devri için Azure Cosmos DB genel çoğaltma portal bölmesinde kullanabilirsiniz. Yönergeler için bkz: [bölgeli Azure Cosmos DB hesaplarıyla geliştirme](regional-failover.md). 
 
 ### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>Verilerimi dağıttığınızda nasıl düşük gecikme süresi için tercih edilen my okuma bölgeler yapılandırırım? 
@@ -286,26 +284,26 @@ Tablo API (Önizleme) ile "kendi yazma varsayılan olarak oturum tutarlılığı
 
 Varsayılan olarak, Azure Table storage bir bölgedeki güçlü tutarlılık ve ikincil konumlarda Eventual tutarlılık sağlar. 
 
-### <a name="does-azure-cosmos-db-offer-more-consistency-levels-than-standard-tables"></a>Azure Cosmos DB standart tablolar'den daha fazla tutarlılık düzeyleri sunar?
+### <a name="does-the-azure-cosmos-db-table-api-offer-more-consistency-levels-than-azure-table-storage"></a>Azure Cosmos DB tablo API Azure Table storage'den daha fazla tutarlılık düzeyleri sunar?
 Evet, için dağıtılan yapı Azure Cosmos DB, yararlı hakkında daha fazla bilgi için bkz: [tutarlılık düzeylerini](consistency-levels.md). Tutarlılık düzeylerini garanti sağlamadığı güvenle kullanabilirsiniz. Daha fazla bilgi için bkz: [Azure Cosmos DB yetenekleri](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
 
 ### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>Genel dağıtım etkinleştirildiğinde, ne kadar veri çoğaltmak için sürer?
-Biz yerel bölge verilerde işlemi yürütme ve verileri diğer bölgelerde hemen sağlasa da, milisaniye iletin. Bu çoğaltma yalnızca gidiş dönüş süresi veri merkezinin üzerinde (RTT) bağlıdır. Genel dağıtım Özelliği Azure Cosmos DB'nin hakkında daha fazla bilgi için bkz: [Azure Cosmos DB: Azure ile ilgili genel dağıtılmış veritabanı hizmeti](distribute-data-globally.md).
+Azure Cosmos DB yerel bölge verilerde işlemi tamamlar ve diğer bölgelerinde hemen sağlasa da, milisaniye veri iter. Bu çoğaltma yalnızca gidiş dönüş süresi veri merkezinin üzerinde (RTT) bağlıdır. Genel dağıtım Özelliği Azure Cosmos DB'nin hakkında daha fazla bilgi için bkz: [Azure Cosmos DB: Azure ile ilgili genel dağıtılmış veritabanı hizmeti](distribute-data-globally.md).
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>Okuma isteği tutarlılık düzeyi değiştirilebilir mi?
 Azure Cosmos DB ile (tablo) kapsayıcı düzeyinde tutarlılık düzeyi ayarlayabilirsiniz. SDK'yı kullanarak, app.config dosyasında TableConsistencyLevel anahtarı için değer sağlayarak düzeyini değiştirebilirsiniz. Olası değerler şunlardır: güçlü, sınırlanmış eskime durumu, oturum, tutarlı öneki ve Eventual. Daha fazla bilgi için bkz: [veri ince ayarlanabilir tutarlılık düzeyleri Azure Cosmos veritabanı](consistency-levels.md). Anahtar, istek tutarlılık birden çok tablo ayarını adresindeki düzeyinde ayarlayamazsınız emin olur. Örneğin, tablo için tutarlılık düzeyi Eventual ve güçlü isteği tutarlılık düzeyinde ayarlayamazsınız. 
 
-### <a name="how-does-the-premium-table-api-preview-account-handle-failover-if-a-region-goes-down"></a>Nasıl bir bölge kullanılamaz hale gelirse premium tablo API (Önizleme) hesabı yük devretme ele alıyor? 
-Premium Azure Cosmos DB Genel dağıtılmış platformundan tablo API (Önizleme) taşır. Uygulamanızı datacenter kapalı kalma süresi etkilenmemesini sağlamak için Azure Cosmos DB Portalı'ndaki hesap için en az bir daha fazla bölge etkinleştirin [bölgeli Azure Cosmos DB hesaplarıyla geliştirme](regional-failover.md). Portalı kullanarak bölge önceliğini ayarlayabilirsiniz [bölgeli Azure Cosmos DB hesaplarıyla geliştirme](regional-failover.md). 
+### <a name="how-does-the-table-api-preview-account-handle-failover-if-a-region-goes-down"></a>Nasıl bir bölge kullanılamaz hale gelirse tablo API (Önizleme) hesap yük devretme ele alıyor? 
+Azure Cosmos DB tablo API (Önizleme) Azure Cosmos DB Genel dağıtılmış platformundan taşır. Uygulamanızı datacenter kapalı kalma süresi etkilenmemesini sağlamak için Azure Cosmos DB Portalı'ndaki hesap için en az bir daha fazla bölge etkinleştirin [bölgeli Azure Cosmos DB hesaplarıyla geliştirme](regional-failover.md). Portalı kullanarak bölge önceliğini ayarlayabilirsiniz [bölgeli Azure Cosmos DB hesaplarıyla geliştirme](regional-failover.md). 
 
 Hesap için istediğiniz ve burada bu için bir yük devretme öncelik sağlayarak yük devredebildiğini kontrol sayıda bölgeleri ekleyebilirsiniz. Elbette, veritabanını kullanmak için bir uygulama var. çok vermeniz gerekir. Bunu yaptığınızda, müşterilerinizin kapalı kalma süresi karşılaşmazsınız. SDK olan istemci otomatik olarak giriş. Diğer bir deyişle, kapalı ve yeni bölge için otomatik olarak yük bölgeyi algılayabilir.
 
-### <a name="is-the-premium-table-api-preview-enabled-for-backups"></a>Tablo API (Önizleme) premium yedeklemeler için etkin mi?
-Evet, premium yedeklemeler için Azure Cosmos DB platformdan tablo API (Önizleme) taşır. Yedeklemeleri otomatik olarak yapılır. Daha fazla bilgi için bkz: [çevrimiçi yedekleme ve geri yükleme Azure Cosmos DB ile](online-backup-and-restore.md).
+### <a name="is-the-table-api-preview-enabled-for-backups"></a>Tablo API (Önizleme) yedeklemeler için etkin mi?
+Evet, yedeklemeler için Azure Cosmos DB platformdan Azure Cosmos DB tablo API (Önizleme) taşır. Yedeklemeleri otomatik olarak yapılır. Daha fazla bilgi için bkz: [çevrimiçi yedekleme ve geri yükleme Azure Cosmos DB ile](online-backup-and-restore.md).
 
  
 ### <a name="does-the-table-api-preview-index-all-attributes-of-an-entity-by-default"></a>Tablo API (Önizleme) bir varlığın tüm öznitelikleri varsayılan dizin mu?
-Evet, bir varlığın tüm öznitelikleri varsayılan olarak dizine alınır. Daha fazla bilgi için bkz: [Azure Cosmos DB: ilkeleri dizin](indexing-policies.md). 
+Evet, bir varlığın tüm öznitelikleri varsayılan olarak Azure Cosmos DB dizine alınır. Daha fazla bilgi için bkz: [Azure Cosmos DB: ilkeleri dizin](indexing-policies.md). 
 
 ### <a name="does-this-mean-i-do-not-have-to-create-multiple-indexes-to-satisfy-the-queries"></a>Değil sahibim sorguları karşılamak için birden çok dizin oluşturmak için bu ortalama mu? 
 Evet, Azure Cosmos DB herhangi bir şema tanımı olmadan tüm özniteliklerin otomatik dizin oluşturma sağlar. Bu Otomasyon odak uygulama yerine dizin oluşturma ve yönetme için geliştiricilere boşaltır. Daha fazla bilgi için bkz: [Azure Cosmos DB: ilkeleri dizin](indexing-policies.md).
@@ -358,16 +356,16 @@ Evet, üretilen iş ölçeklendirmek için Azure Cosmos DB Portalı'nın ölçek
 ### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>Varsayılan eylem TableThroughput için yeni sağlanan tabloları kümesi mi?
 Evet, app.config aracılığıyla TableThroughput geçersiz kılmaz ve önceden oluşturulmuş bir kapsayıcı Azure Cosmos DB'de kullanmayın, hizmet 400 işleme ile bir tablo oluşturur.
  
-### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-standard-table-api"></a>Standart tablo API mevcut müşteriler için fiyatlandırma herhangi bir değişiklik var mı?
-yok. Var olan standart tablo API müşterileri için fiyatı değişiklik yoktur. 
+### <a name="is-there-any-change-of-pricing-for-existing-customers-of-azure-table-storage"></a>Azure Table depolama mevcut müşteriler için fiyatlandırma herhangi bir değişiklik var mı?
+yok. Var olan Azure Table depolama müşterileri için fiyatı değişiklik yoktur. 
 
 ### <a name="how-is-the-price-calculated-for-the-table-api-preview"></a>Fiyat tablosu için (Önizleme) API nasıl hesaplanır? 
-Fiyat üzerinde ayrılmış TableThroughput bağlıdır. 
+Azure Cosmos DB tablo API (Önizleme) fiyat üzerinde ayrılmış TableThroughput bağlıdır. 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-preview-offering"></a>Tablo API (Önizleme) içinde sunumu tablolarda azaltma nasıl işleneceğini? 
+### <a name="how-do-i-handle-any-throttling-in-table-api-preview-offering"></a>Tablo API (Önizleme) Sunumda azaltma nasıl işleneceğini? 
 Sağlanan işleme kapasitesi temeldeki kapsayıcısı için istek oranı aşarsa, bir hata alırsınız ve yeniden deneme ilkesi uygulayarak çağrı SDK'yı yeniden deneyecek.
 
-### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-premium-table-api-preview-offering-of-azure-cosmos-db"></a>Üretilen iş PartitionKey ve RowKey Azure Cosmos DB premium tablo API (Önizleme) sunulması yararlanmak için dışında seçmek neden gerekiyor mu?
+### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-azure-cosmos-db-table-api-preview"></a>Üretilen iş PartitionKey ve RowKey Azure Cosmos DB tablo API (Önizleme) yararlanmak için dışında seçmek neden gerekiyor mu?
 Bir app.config dosyasında belirtmezseniz, azure Cosmos DB, kapsayıcı için bir varsayılan işleme ayarlar. 
 
 Azure Cosmos DB, performansı ve gecikme süresi, üst sınır işlemi ile garantileri sağlar. Bu garantisi mümkün olduğunda altyapısı kiracının işlemlerini İdaresi uygulayabilirsiniz. TableThroughput ayarı platform bu kapasite ayırır ve işletimsel başarı güvence altına alır çünkü garantili üretilen iş ve gecikmeyi, edinmenizi sağlar. 
@@ -378,15 +376,15 @@ Azure Cosmos DB, performansı ve gecikme süresi, üst sınır işlemi ile garan
 
 Azure Cosmos DB garanti kullanılabilirlik, gecikme ve verimlilik için Genel dağıtılmış, SLA tabanlı sistemiyle olacak şekilde tasarlanmıştır. Azure Cosmos veritabanı işleme ayırdığınızda, bu, diğer sistemler üretimini farklı olarak sağlanır. Azure Cosmos DB müşteriler, ikincil dizinler ve genel dağıtım gibi istediniz ek özellikler sağlar.  
 
-### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-table-storage-with-the-table-api-preview-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Hiçbir zaman (bir bölüm dolu belirten) bir "Kota tam" bildirim alıyorum zaman ı alma veri tablo depolama alanına. Bu ileti tablo API ile (Önizleme) alıyorum. Bana sınırlandırma ve bana varolan Uygulamam değiştirmek için zorlama tanıyor mu?
+### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-preview-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Hiçbir zaman (bir bölüm dolu belirten) bir "Kota tam" bildirim alıyorum zaman ı alma verileri Azure Table depolama alanına. Bu ileti tablo API ile (Önizleme) alıyorum. Bana sınırlandırma ve bana varolan Uygulamam değiştirmek için zorlama tanıyor mu?
 
 Azure Cosmos DB sınırsız ölçek gecikme süresi, performans, kullanılabilirlik ve tutarlılığı garanti sağlayan bir SLA tabanlı bir sistemdir. Garantili premium performans sağlamak için veri boyutu ve dizin yönetilebilir ve ölçeklenebilir olduğundan emin olun. Varlıklar veya bölüm anahtarı başına öğe sayısı 10 GB sınırını harika arama ve sorgu performansı sağladığımız sağlamaktır. Uygulamanızı Azure Storage için bile iyi ölçeklendirir emin olmak için öneririz, *değil* bölümde tüm bilgileri depolamak ve onu sorgulama hot bir bölüm oluşturun. 
 
 ### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-new-table-api-preview"></a>Bu nedenle PartitionKey ve RowKey yeni tablo API ile (Önizleme) hala gereklidir? 
-Evet. Tablo API (Önizleme)'ın yüzey alanını tablo depolama SDK'sı benzer olduğundan bölüm anahtarı verileri dağıtmak için etkili bir yol sağlar. Satır anahtarını Bu bölüm içinde benzersizdir. Satır anahtarını bulunması gerekir ve olduğu gibi standart SDK null olamaz. RowKey uzunluğu 255 bayt ve PartitionKey uzunluğunu 100 (en kısa sürede 1 KB ile artırılacak) bayt. 
+Evet. Tablo API (Önizleme)'ın yüzey alanını Azure Table depolama SDK'sı benzer olduğundan bölüm anahtarı verileri dağıtmak için etkili bir yol sağlar. Satır anahtarını Bu bölüm içinde benzersizdir. Satır anahtarını bulunması gerekir ve olduğu gibi standart SDK null olamaz. RowKey uzunluğu 255 bayt ve PartitionKey uzunluğunu 100 (en kısa sürede 1 KB ile artırılacak) bayt. 
 
 ### <a name="what-are-the-error-messages-for-the-table-api-preview"></a>Tablo API (Önizleme) için hata iletileri nelerdir?
-Bu önizleme standart tablo ile uyumlu olduğundan, hataların çoğu hataları standart tablosundan eşleyin. 
+Bu önizleme Azure Table storage ile uyumlu olduğundan, hataların çoğu hataları standart tablosundan eşleyin. 
 
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api-preview"></a>Tabloları miktarda birbiri ardından tablo API (Önizleme) oluşturmak çalıştığınızda neden ı kısıtlanan?
 Azure Cosmos DB gecikme süresi, performans, kullanılabilirlik ve tutarlılık sağlayan bir SLA tabanlı bir sistemdir. Sağlanan sistem olduğundan, bu gereksinimleri güvence altına almak için kaynakları ayırır. Tabloları oluşturulmasını hızlı oranını algıladı ve daraltma. Tablo oluşturma hızında arayın ve az 5 dakika başına alt öneririz. Tablo API (Önizleme) sağlanan sistem olduğunu unutmayın. Şu anda bunu sağlamak için ödeme başlar. 
@@ -411,7 +409,7 @@ Azure Cosmos DB 2010 Microsoft içindeki büyük ölçekli uygulamalar oluşturm
 
 O zamandan bu yana, eklenen yeni özellikler artık ve önemli yeni özellikler sunulmuştur. Azure Cosmos DB sonucudur. Bu sürümde bir parçası olarak verileriyle, DocumentDB müşterilerin Azure Cosmos DB müşteriler otomatik olarak ve sorunsuz bir şekilde haline gelir. Bu özellikler temel veritabanı motoru yanı sıra genel dağıtım, esnek ölçeklenebilirlik ve endüstri lideri, kapsamlı SLA alanlarıdır. Özellikle, biz verimli bir şekilde tüm popüler veri modelleri, türü sistemleri ve API'ları Azure Cosmos DB temel alınan veri modeline eşlemek için Azure Cosmos DB veritabanı altyapısı gelişim göstermiştir. 
 
-Bu çalışmanın geçerli Geliştirici dönük göstergeleri yeni desteğidir [Gremlin](../cosmos-db/graph-introduction.md) ve [depolama API'leri tablo](../cosmos-db/table-introduction.md). Ve yalnızca başlangıç budur. Daha fazla performans ve küresel ölçekli depolama gelişmeleri, zaman içinde diğer popüler API'ler ve yeni veri modelleri eklemek planlıyoruz. 
+Bu çalışmanın geçerli Geliştirici dönük göstergeleri yeni desteğidir [Gremlin](../cosmos-db/graph-introduction.md) ve [tablo API'leri](../cosmos-db/table-introduction.md). Ve yalnızca başlangıç budur. Daha fazla performans ve küresel ölçekli depolama gelişmeleri, zaman içinde diğer popüler API'ler ve yeni veri modelleri eklemek planlıyoruz. 
 
 DocumentDB noktasındaki önemlidir [SQL dialect](../documentdb/documentdb-sql-query.md) her zaman temel Azure Cosmos DB destekleyebileceği birçok API'ları yalnızca biri olmuştur. Azure Cosmos DB gibi tam olarak yönetilen bir hizmet kullanan geliştiriciler için yalnızca hizmet hizmeti tarafından sunulan API'leri arabirimidir. Hiçbir şey gerçekten var olan DocumentDB müşteriler için değiştirir. Azure Cosmos DB içinde tam olarak aynı SQL DocumentDB sunan API alın. Ve şimdi (ve gelecekte), daha önce erişilemez diğer capabilities erişebilirsiniz 
 

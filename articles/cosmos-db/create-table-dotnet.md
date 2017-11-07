@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: arramac
-ms.openlocfilehash: 0ce99a4754d7ec6f35bda63af6fc0166cf7e0eb4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9b1d41fe185f4c3d5fdce13ab8f0136bc961f013
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: Tablo API'sini kullanarak bir .NET uygulaması derleme
 
@@ -43,7 +43,7 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
 ## <a name="add-sample-data"></a>Örnek verileri ekleme
 
-Artık Veri Gezgini'ni (Önizleme) kullanarak yeni tablonuza veri ekleyebilirsiniz.
+Şimdi Veri Gezgini'ni kullanarak yeni tablonuza veri ekleyebilirsiniz.
 
 1. Veri Gezgini'nde **sample-table** seçeneğini genişletin, **Varlıklar**'a ve ardından **Varlık Ekle**'ye tıklayın.
 

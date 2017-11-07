@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/15/2017
-ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Python'ı kullanma
 Bu hızlı başlangıçta [Python](https://python.org) kullanarak PostgreSQL için bir Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. macOS, Ubuntu Linux ve Windows platformlarındaki veritabanında yer alan verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanıldığını da gösterir. Bu makaledeki adımlarda, Python kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
@@ -50,14 +50,14 @@ Veritabanına bağlanmanızı ve bu veritabanını sorgulamanızı sağlayan [ps
 PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve **mypgserver-20170401** sunucusunu (yeni oluşturduğunuz sunucu) aratın.
+2. Azure portalında sol taraftaki menüden **tüm kaynakları** arayın ve **mypgserver 20170401** (oluşturduğunuz sunucu).
 3. **mypgserver-20170401** sunucu adına tıklayın.
 4. Sunucunun **Genel Bakış** sayfasını seçin ve **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın.
  ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma Bilgileri](./media/connect-python/1-connection-string.png)
 5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
 
 ## <a name="how-to-run-python-code"></a>Python kodu çalıştırma
-Bu konu, her biri belirli bir işlevi gerçekleştiren toplam dört kod örneği içerir. Aşağıdaki yönergelerde metin dosyası oluşturma, kod bloğu ekleme ve daha sonra çalıştırmak üzere dosyayı kaydetme gösterilir. Her kod bloğu için birer tane olmak üzere dört ayrı dosya oluşturduğunuzdan emin olun.
+Bu makale, her biri belirli bir işlev gerçekleştirir toplam dört kod örnekleri içerir. Aşağıdaki yönergelerde metin dosyası oluşturma, kod bloğu ekleme ve daha sonra çalıştırmak üzere dosyayı kaydetme gösterilir. Her kod bloğu için birer tane olmak üzere dört ayrı dosya oluşturduğunuzdan emin olun.
 
 - Sık kullandığınız metin düzenleyicisini kullanarak yeni bir dosya oluşturun.
 - Aşağıdaki bölümlerde yer alan kod örneklerinden birini kopyalayın ve metin dosyasına yapıştırın. **host**, **dbname**, **user** ve **password** parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
@@ -66,7 +66,7 @@ Bu konu, her biri belirli bir işlevi gerçekleştiren toplam dört kod örneği
 -  Kodu çalıştırmak için Python komutunu ve ardından dosya adını yazın; örneğin `Python postgres.py`.
 
 > [!NOTE]
-> Python sürüm 3’ten başlayarak, aşağıdaki kod bloklarını çalıştırırken `SyntaxError: Missing parentheses in call to 'print'` hatasıyla karşılaşabilirsiniz. Bu hatayla karşılaşırsanız, her `print "string"` komutu çağrısını parantez kullanan bir işlev çağrısıyla değiştirin; örneğin, `print("string")`.
+> Python sürüm 3 başlayarak, hatayı görebilirsiniz `SyntaxError: Missing parentheses in call to 'print'` aşağıdaki kod blokları çalıştırılırken: Bu durumda, her çağrı komutu yerine `print "string"` parantez, gibi kullanılarak bir işlev çağrısı ile `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
 Bağlanmak ve **INSERT** SQL deyimiyle [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) işlevini kullanarak verileri yüklemek için aşağıdaki kodu kullanın. PostgreSQL veritabanında SQL sorgusu yürütmek için [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) işlevi kullanılır. host, dbname, user ve password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
@@ -110,7 +110,7 @@ conn.close()
 
 Kod başarıyla çalıştıktan sonra çıktı aşağıdaki gibi görünür:
 
-![Komut satırı çıktısı](media/connect-python/2-example-python-output.png)
+![Komut satırı çıkışı](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Verileri okuma
 **SELECT** SQL deyimi ile [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) işlevini kullanarak, eklenen verileri okumak için aşağıdaki kodu kullanın. Bu işlev bir sorguyu kabul eder ve [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall) kullanılarak yinelenebilen bir sonuç kümesi döndürür. host, dbname, user ve password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.

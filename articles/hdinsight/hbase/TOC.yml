@@ -1,0 +1,120 @@
+- name: Azure HDInsight Belgeleri
+  href: /azure/hdinsight
+- name: HDInsight'ta HBase
+  items:
+    - name: Genel Bakış
+      href: apache-hbase-overview.md
+    - name: Bileşen sürümü oluşturma
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
+- name: başlarken
+  items:
+    - name: HBase ve NoSQL’i kullanmaya başlama
+      href: apache-hbase-tutorial-get-started-linux.md
+    - name: Kapasite planlaması
+      href: ../hdinsight-capacity-planning.md
+      maintainContext: true
+- name: Nasıl yapılır?
+  items:
+    - name: Sanal ağda küme oluşturma
+      href: apache-hbase-provision-vnet.md
+    - name: HBase çoğaltmasını yapılandırma
+      href: apache-hbase-replication.md
+    - name: Phoenix ve SQLLine kullanma
+      href: apache-hbase-phoenix-squirrel-linux.md
+    - name: Java uygulamaları geliştirme
+      href: apache-hbase-build-java-maven-linux.md
+    - name: HBase sorunlarını giderme
+      href: apache-troubleshoot-hbase.md
+- name: Başvuru
+  items:
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.hdinsight
+    - name: .NET (Hadoop)
+      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet'
+    - name: .NET (HBase)
+      href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
+    - name: .NET (Avro)
+      href: 'https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library'
+    - name: REST
+      href: /rest/api/hdinsight/
+    - name: REST (Spark)
+      href: /rest/api/hdinsightspark/
+- name: İlgili
+  items:
+    - name: Windows kümeleri
+      items:
+        - name: Linux kümelerine Windows kümelerini geçirme
+          href: ../hdinsight-migrate-from-windows-to-linux.md
+          maintainContext: true
+        - name: .NET çözümlerini Linux kümelerine geçirme
+          href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
+          maintainContext: true
+        - name: Hadoop MapReduce örneklerini çalıştırma
+          href: ../hdinsight-run-samples.md
+          maintainContext: true
+        - name: Kümeler üzerinde Solr kullanma
+          href: ../hdinsight-hadoop-solr-install-linux.md
+          maintainContext: true
+        - name: Büyük ölçekli grafikleri işlemek için Giraph kullanma
+          href: ../hdinsight-hadoop-giraph-install.md
+          maintainContext: true
+        - name: İş akışları için Oozie kullanma
+          href: ../hdinsight-use-oozie.md
+          maintainContext: true
+        - name: Storm topolojilerini dağıtma ve yönetme
+          href: ../storm/apache-storm-deploy-monitor-topology.md
+          maintainContext: true
+        - name: Java uygulamaları oluşturmak için Maven kullanma
+          href: ../hdinsight-hbase-build-java-maven.md
+          maintainContext: true
+        - name: Tez kullanıcı arabirimi kullanarak Tez İşlerinin hatalarını ayıklama
+          href: ../hdinsight-debug-tez-ui.md
+          maintainContext: true
+        - name: Script Action kullanarak özelleştirme
+          href: ../hdinsight-hadoop-customize-cluster.md
+          maintainContext: true
+        - name: YARN uygulama günlüklerine erişim
+          href: ../hdinsight-hadoop-access-yarn-app-logs.md
+          maintainContext: true
+        - name: Apache Phoenix ve SQuirreL kullanma
+          href: ../hdinsight-hbase-phoenix-squirrel.md
+          maintainContext: true
+        - name: Mahout kullanarak film önerileri oluşturma
+          href: ../hdinsight-mahout.md
+          maintainContext: true
+        - name: Uçuş gecikme verilerini çözümleme
+          href: ../hdinsight-analyze-flight-delay-data.md
+          maintainContext: true
+        - name: Betik eylemleri geliştirme
+          href: ../hdinsight-hadoop-script-actions.md
+          maintainContext: true
+        - name: Twitter verilerini çözümleme
+          href: ../hdinsight-analyze-twitter-data.md
+          maintainContext: true
+        - name: Azure portalı ile küme yönetme
+          href: ../hdinsight-administer-use-management-portal.md
+          maintainContext: true
+        - name: Ambari API’sini kullanarak kümeleri izleme
+          href: ../hdinsight-monitor-use-ambari-api.md
+          maintainContext: true
+- name: Kaynaklar
+  items:
+    - name: Sürüm notları
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+    - name: Forumdan yardım alma
+      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight'
+    - name: Öğrenme yolu
+      href: 'https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/'
+    - name: Büyük Veri için Microsoft Professional Program
+      href: 'https://academy.microsoft.com/en-us/professional-program/big-data/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: HDInsight için Windows araçları
+      href: ../hdinsight-hadoop-windows-tools.md
+      maintainContext: true

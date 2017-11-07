@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/17/2017
+ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: f9885a9c99288208445d661e1c29ce680c245b43
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 78d5c2f37add456fbb5891f76039b453e731a4a8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>.NET SDK kullanarak Hdınsight'ta Linux tabanlı kümeleri oluşturma
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 11/03/2017
             private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
             private const OSType NewClusterOSType = OSType.Linux;
             private const string NewClusterType = "Hadoop";
-            private const string NewClusterVersion = "3.5";
+            private const string NewClusterVersion = "3.6";
             private const string NewClusterUsername = "admin";
             private const string NewClusterPassword = "<Enter HTTP User Password>";
             private const string NewClusterSshUserName = "sshuser";

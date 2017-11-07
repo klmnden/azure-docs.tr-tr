@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 7396b8f66dc65cfad497e336887978fa487c42f6
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 11/03/2017
+ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure veritabanı için MySQL seçenekleri ve performansı: her fiyatlandırma katmanında nelerin kullanılabildiğini anlama
 MySQL sunucusu için bir Azure veritabanı oluşturduğunuzda, bu sunucu için ayrılan kaynaklar yapılandırmak için üç ana seçeneğiniz bağlı karar verin. Bu seçenek, performansı ve sunucunun ölçeği etkileyebilir.
@@ -96,10 +96,10 @@ Azure veritabanı için MySQL oluşturduğunuzda, başlangıçta fiyatlandırma 
 
 İşlem birimleri ölçeklendirme seçmiş olduğunuz en fazla depolama boyutunu bağımsız olarak gerçekleştirilir.
 
-Arka planda bir veritabanı performans düzeyini değiştirme, yeni performans düzeyinde özgün veritabanının bir kopyasını oluşturur ve ardından kopyalanan sunucuya bağlantıları geçer. Hiçbir veri bu işlem sırasında kaybolur. Yürütülen bazı işlemler geri alınamaz böylece sunucunun yeni kopya için ne zaman sistem geçer kısa süre sırasında veritabanı bağlantılarını, devre dışı bırakılır. Bu pencere değişir, ancak ortalama olarak 4 saniyenin altındadır ve örneklerin %99’undan fazlasında 30 saniyeden daha kısadır. Bağlantıların devre dışı bırakıldığı sırasında uçuşta çok fazla işlem varsa, bu süre uzayabilir.
+Arka planda bir sunucu performans düzeyini değiştirme, yeni performans düzeyinde özgün sunucunun bir kopyasını oluşturur ve ardından kopyalanan sunucuya bağlantıları geçer. Hiçbir veri bu işlem sırasında kaybolur. Yürütülen bazı işlemler geri alınamaz böylece sunucunun yeni kopya için ne zaman sistem geçer kısa süre sırasında veritabanı bağlantılarını, devre dışı bırakılır. Bu pencere değişir, ancak ortalama olarak 4 saniyenin altındadır ve örneklerin %99’undan fazlasında 30 saniyeden daha kısadır. Bağlantıların devre dışı bırakıldığı sırasında uçuşta çok fazla işlem varsa, bu süre uzayabilir.
 
 Hem boyutu hem de önce ve fiyatlandırma katmanı sunucusunun değişiklikten sonra tüm ölçek işleminin süresi bağlıdır. Örneğin, işlem birimleri standart fiyatlandırma katmanı içinde değiştiriyor. bir sunucu tamamlamanız gereken birkaç dakika içinde. Sunucu için yeni özellikleri değişiklikler tamamlanana kadar uygulanmaz.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 - İşlem birimleri hakkında daha fazla bilgi için bkz: [açıklayan işlem birimleri](concepts-compute-unit-and-storage.md)
 - Bilgi edinmek için nasıl [İzleyici ve ölçek Azure CLI kullanarak MySQL sunucusu için bir Azure veritabanı](scripts/sample-scale-server.md)

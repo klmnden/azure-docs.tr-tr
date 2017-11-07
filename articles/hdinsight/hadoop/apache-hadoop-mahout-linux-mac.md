@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: c8a992e84d770295a6c7008cfa85ca947fb8fca5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 65d6dc7bf96666f004038c6dae00d2f4e9ea5d7f
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Hdınsight (SSH) Linux tabanlı Hadoop ile Apache Mahout kullanarak film önerileri oluşturma
 
@@ -59,9 +59,9 @@ Aşağıdaki iş akışı film verilerini kullanan basitleştirilmiş bir örnek
 
 Uygun şekilde, [GroupLens araştırma] [ movielens] Mahout ile uyumlu bir biçimde film derecelendirme veri sağlar. Bu veriler, kümenin varsayılan depolama kullanılabilir `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-İki dosya vardır `moviedb.txt` ve `user-ratings.txt`. Çözümleme sonuçlarını görüntülerken, kullanımı kolay metin bilgileri sağlamak için moviedb.txt kullanılırken kullanıcı ratings.txt dosyası Çözümleme sırasında kullanılır.
+İki dosya vardır `moviedb.txt` ve `user-ratings.txt`. `user-ratings.txt` Dosyası Çözümleme sırasında kullanılır. `moviedb.txt` Sonuçları görüntülerken kullanıcı dostu metin bilgileri sağlamak için kullanılır.
 
-Kullanıcı-ratings.txt bulunan verileri yapısını sahip `userID`, `movieID`, `userRating`, ve `timestamp`, söyleyen bize nasıl yüksek oranda her kullanıcı bir filmi derecelendirilir. Verileri bir örneği burada verilmiştir:
+Kullanıcı-ratings.txt bulunan verileri yapısını sahip `userID`, `movieID`, `userRating`, ve `timestamp`, her kullanıcı bir filmi nasıl yüksek oranda derecelendirilmiş gösterir. Verileri bir örneği burada verilmiştir:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -97,7 +97,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     İlk sütun `userID`. İçinde yer alan değerler ' [' ve ']' olan `movieId`:`recommendationScore`.
 
-2. Moviedb.txt birlikte çıkış öneriler hakkında daha fazla bilgi sağlamak için kullanabilirsiniz. İlk olarak, yerel olarak aşağıdaki komutları kullanarak dosyaları kopyalamak ihtiyacımız var:
+2. Moviedb.txt birlikte çıkış öneriler hakkında daha fazla bilgi sağlamak için kullanabilirsiniz. İlk olarak, yerel olarak aşağıdaki komutları kullanarak dosyaları kopyalayın:
 
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt

@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 549582b0282a7b0382496b89dbcb4330ab67192a
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Betik eylemi kullanarak Linux tabanlı Hdınsight kümelerini özelleştirme
+# <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Betik eylemleri kullanarak Linux tabanlı Hdınsight kümelerini özelleştirme
 
 Hdınsight adlı bir yapılandırma seçeneği sağlar **betik eylemi** küme özelleştirme özel komut dosyaları çağırır. Bu komut dosyalarını ek bileşenler yükleme ve yapılandırma ayarlarını değiştirmek için kullanılır. Betik eylemleri, sırasında veya Küme oluşturulduktan sonra kullanılabilir.
 
@@ -53,9 +53,9 @@ Erişim yönetimiyle çalışma hakkında daha fazla bilgi için aşağıdaki be
 * [Azure portalında erişim yönetimi ile çalışmaya başlama](../active-directory/role-based-access-control-what-is.md)
 * [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../active-directory/role-based-access-control-configure.md)
 
-## <a name="understanding-script-actions"></a>Anlama betik eylemleri
+## <a name="understanding-script-actions"></a>Betik eylemleri anlama
 
-Bir komut dosyası yalnızca bir URI sağlayın Bash komut dosyası ve parametreleri bir eylemdir. Hdınsight küme düğümlerinde komut dosyasını çalıştırır. Aşağıdaki özellikleri ve betik eylemleri özelliklerini geçerlidir.
+Bir komut dosyası için bir URI sağlayın Bash komut dosyası ve parametreleri eylemdir. Hdınsight küme düğümlerinde komut dosyasını çalıştırır. Aşağıdaki özellikleri ve betik eylemleri özelliklerini geçerlidir.
 
 * Hdınsight küme erişilebilen bir URI üzerinde depolanmalıdır. Olası depolama konumları şunlardır:
 
@@ -150,7 +150,7 @@ Bir komut dosyası bir kümeye uygularken, küme durumu değişiklikleri **çal�
 > [!NOTE]
 > Küme oluşturulduktan sonra küme kullanıcı (Yönetici) parolasını değiştirdiyseniz, bu küme karşı eylemler çalışan betik başarısız olabilir. Bu hedef çalışan düğümleri kalıcı betik eylemleri varsa, küme ölçeklendirdiğinizde bu komut dosyaları başarısız olabilir.
 
-## <a name="example-script-action-scripts"></a>Örnek betik eylemi betikler
+## <a name="example-script-action-scripts"></a>Örnek komut dosyası eylemi betikler
 
 Betik eylemi komut dosyaları aşağıdaki yardımcı programlar kullanılabilir:
 
@@ -233,7 +233,7 @@ Bu örnekte, aşağıdaki kodu kullanarak betik eylemi eklenir:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Azure PowerShell üzerinden küme oluşturma sırasında bir betik eylemi kullanın
 
-Bu bölümde, kullandığınız [Ekle AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) bir küme özelleştirmek için betik eylemi kullanarak komut dosyalarını çağrılacak cmdlet'i. Devam etmeden önce Azure PowerShell'i yükleyip yapılandırdığınızdan emin olun. Hdınsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
+Bu bölümde, kullandığınız [Ekle AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) bir küme özelleştirmek için betikler çağrılacak cmdlet'i. Devam etmeden önce Azure PowerShell'i yükleyip yapılandırdığınızdan emin olun. Hdınsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
 
 Aşağıdaki komut dosyası, PowerShell kullanarak bir küme oluştururken, bir komut dosyası eylemi uygulanacak gösterilmiştir:
 
@@ -335,7 +335,7 @@ Devam etmeden önce Azure CLI yükleyip yapılandırdığınızdan emin olun. Da
 
 ### <a name="apply-a-script-action-to-a-running-cluster-using-rest-api"></a>REST API kullanarak çalışan bir küme için bir betik eylemi Uygula
 
-Bkz: [çalıştırmak betik eylemleri çalıştıran bir kümede](https://msdn.microsoft.com/library/azure/mt668441.aspx).
+Bkz: [betik eylemleri çalıştıran bir kümede çalışan](https://msdn.microsoft.com/library/azure/mt668441.aspx).
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Betik eylemi çalıştıran bir kümeye Hdınsight .NET SDK uygulayın.
 
@@ -362,7 +362,7 @@ Bir kümeye betikleri uygulamak için .NET SDK kullanarak bir örnek için bkz: 
 
     ![Betik eylemleri özellikleri](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. Aynı zamanda **...**  eylemleri gerçekleştirmek için betik eylemleri bölümünde girişleri sağındaki.
+6. Aynı zamanda **...**  eylemleri gerçekleştirmek için betik eylemleri bölümünde girişlerde sağındaki.
 
     ![Eylemler... komut dosyası kullanımı](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 
@@ -447,7 +447,7 @@ Betik eylemleri tarafından günlüğe kaydedilen bilgi görüntülemek için Am
 
 ### <a name="access-logs-from-the-default-storage-account"></a>Varsayılan depolama hesabı erişim günlükleri
 
-Küme oluşturma bir betik eylemi hatası nedeniyle başarısız olursa, günlükleri küme depolama hesabından erişilebilir.
+Küme oluşturma bir komut dosyası hatası nedeniyle başarısız olursa, günlükleri küme depolama hesabında saklanır.
 
 * Depolama günlüklerine kullanılabilir `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
@@ -503,7 +503,7 @@ SSH kümeye bağlanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH 
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>Küme oluşturma sırasında kullanılan komut geçmişi göstermiyor
 
-Kümenizi 15 Mart 2016'dan önce oluşturulduysa, bir giriş betik eylemi geçmişinde göremeyebilirsiniz. 15 Mart 2016'dan sonra kümeyi yeniden boyutlandırmak, bunlar yeni düğümleri yeniden boyutlandırma işlemi sırasında uygulanır olarak küme oluşturma sırasında kullanarak komut geçmişinde görünür.
+Kümenizi 15 Mart 2016'dan önce oluşturulduysa, betik eylemi geçmişi bir girişe göremeyebilirsiniz. Küme yeniden boyutlandırma, betik eylemi geçmişinde görünmesi betikleri neden olur.
 
 İki istisna mevcuttur:
 

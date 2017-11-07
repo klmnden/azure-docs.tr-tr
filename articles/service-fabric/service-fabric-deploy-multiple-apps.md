@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.openlocfilehash: 53614d4d2e3101e8ea0bfa6a29256cc817055843
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a37d7c04f85e9031cab52fa86026e56315c882
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>Konuk tarafından yürütülebilir birden çok uygulama dağıtma
 Bu makalede, paket ve birden çok Konuk yürütülebilir dosyalar için Azure Service Fabric dağıtma gösterilmektedir. Derleme ve tek bir Service Fabric paketi dağıtmak için okuma nasıl için [yürütülebilir Konuk dağıtmak için Service Fabric](service-fabric-deploy-existing-app.md).
@@ -29,7 +29,7 @@ Birden çok Konuk yürütülebilir dosyaları içeren uygulama paketini oluştur
 
 ## <a name="samples"></a>Örnekler
 * [Paketleme ve dağıtma bir konuk yürütülebilir dosyası için örnek](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>El ile birden çok Konuk yürütülebilir uygulama paketi
 Bunun yerine el ile yürütülebilir Konuk paketleyebilirsiniz. El ile paketleme için bu makalede şu adresten edinilebilir Service Fabric paketleme aracı kullanan [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
@@ -217,4 +217,4 @@ Bu öğreticide, kolayca bir Service Fabric uygulaması olarak iki uygulamaları
 ## <a name="next-steps"></a>Sonraki adımlar
 * İle kapsayıcıları dağıtma hakkında bilgi edinin [Service Fabric ve kapsayıcıları genel bakış](service-fabric-containers-overview.md)
 * [Paketleme ve dağıtma bir konuk yürütülebilir dosyası için örnek](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-containers)

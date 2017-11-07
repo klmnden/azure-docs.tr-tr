@@ -1,14 +1,14 @@
 # Genel Bakış
 ## [Sanal ağlar](virtual-networks-overview.md)
-## [Kullanıcı tanımlı yollar ve IP iletme](virtual-networks-udr-overview.md)
+## [Yönlendirme](virtual-networks-udr-overview.md)
 ## [Sanal ağ eşleme](virtual-network-peering-overview.md)
 ## [Sanal ağ hizmeti uç noktaları](virtual-network-service-endpoints-overview.md)
 ## [Azure hizmetleri için sanal ağ](virtual-network-for-azure-services.md)
 ## [Güvenlik](security-overview.md)
 ## [İş sürekliliği](virtual-network-disaster-recovery-guidance.md)
-## [SSS](virtual-networks-faq.md)
 ## [IP adresleme](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS Koruması](ddos-protection-overview.md)
+## [SSS](virtual-networks-faq.md)
 ## Klasik
 ### [IP adresleme](virtual-network-ip-addresses-overview-classic.md)
 ### [Erişim denetim listeleri](virtual-networks-acl.md)

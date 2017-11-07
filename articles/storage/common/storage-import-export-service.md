@@ -1,6 +1,6 @@
 ---
-title: "Azure içeri/dışarı aktarma kullanarak depolamaya ve blob depolamadan veri aktarmak | Microsoft Docs"
-description: "Alma oluşturma ve depolamaya ve blob depolamadan veri aktarmak için Azure portalında işleri dışarı aktarma hakkında bilgi edinin."
+title: "Azure Storage gelen ve giden veri aktarımı için Azure içeri/dışarı aktarma kullanma | Microsoft Docs"
+description: "Alma oluşturma ve işleri Azure portalında Azure Storage veri aktarma için dışarı aktarma hakkında bilgi edinin."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: fb5b059ad8dc87f445bd84a5fe3bb90822d13f94
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
-Bu makalede, adım adım yönergeler bir Azure veri merkezi disk sürücülerine sevkiyat tarafından Azure blob ve dosya depolama alanına güvenli bir şekilde büyük miktarlarda veri aktarmak için Azure içeri/dışarı aktarma hizmetini kullanmayı sunuyoruz. Bu hizmet, verileri Azure blob depolama alanından sabit disk sürücülerine aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri alınabilir ya da Azure blob depolama veya Azure dosya depolama. 
+Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
 
 > [!IMPORTANT] 
-> Bu hizmet yalnızca iç SATA HDD veya SSD yalnızca kabul eder. Başka bir aygıtı desteklenir. Bunlar mümkün olduğunda döndürülen veya kaldırılacak atılan gibi dış HDD ya da NAS cihazları vb. göndermeyin.
+> Bu hizmet yalnızca iç SATA HDD veya SSD yalnızca kabul eder. Başka bir aygıtı desteklenir. Bunlar mümkünse ya da başka atılan döndüreceği gibi dış HDD, NAS cihazları, vb. göndermeyin.
 >
 >
 
-İzleyin aşağıdaki disk üzerindeki verileri Azure Blob depolama alanına aktarılması ise adımları.
+İzleyin aşağıdaki disk üzerindeki verileri Azure depolama alanına aktarılması ise adımları.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>1. adım: WAImportExport aracını kullanarak sürücü/s hazırlamak ve günlük dosyası/s oluşturun.
 
-1.  Azure blob depolama alanına aktarılması verileri tanımlamak. Bu, dizinler ve tek başına dosyalar yerel bir sunucu veya ağ paylaşımında olabilir.
+1.  Azure depolama alanına aktarılması verileri tanımlamak. Bu, dizinler ve tek başına dosyalar yerel bir sunucu veya ağ paylaşımında olabilir.
 2.  Toplam veri boyutuna bağlı olarak, gerekli 2,5 inç SSD veya 2,5" veya sayısını 3,5" SATA II veya III sabit disk sürücüsü temin edin.
 3.  Kullanarak doğrudan SATA sabit sürücüleri eklemek veya bir windows makinesine dış USB bağdaştırıcısı ile.
 4.  Her sabit sürücü üzerinde tek bir NTFS birimi oluşturun ve birime bir sürücü harfi atama. Hiçbir bağlama.
@@ -80,7 +80,7 @@ Bu hizmet gibi senaryolarda kullanabilirsiniz:
 
 * Bulut için veri geçişi: büyük miktarlarda verinin hızla Azure'a taşımak ve düşük maliyetle.
 * İçerik dağıtım: hızla müşteri sitelerinize veri gönderme.
-* : Azure blob storage'da depolamak için şirket içi verilerinizin yedekleri yedekleyin.
+* : Azure Storage'da depolamak için şirket içi verilerinizin yedekleri yedekleyin.
 * Veri kurtarma: kurtarmak büyük miktarda veri depolama alanına depolanır ve şirket içi konumunuz teslim sahip.
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -90,13 +90,13 @@ Bu bölümde bu hizmeti kullanmak için gereken önkoşulları listeler. Lütfen
 Var olan bir Azure aboneliği ve içeri/dışarı aktarma hizmetini kullanmak için bir veya daha fazla depolama hesabı olması gerekir. Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullanılabilir. Diğer bir deyişle, bir tek içeri/dışarı aktarma işi birden çok depolama hesaplarında yayılamaz. Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz: [bir depolama hesabı oluşturmak nasıl](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Veri türleri
-Azure içeri/dışarı aktarma hizmeti verileri kopyalamak için kullanabileceğiniz **blok** BLOB'lar veya **sayfa** BLOB'lar veya **dosyaları**. Buna karşılık, yalnızca verebilirsiniz **blok** BLOB'lar, **sayfa** BLOB'lar veya **Append** bu hizmeti kullanarak Azure storage bloblarından. Hizmet verme Azure dosyaların desteklemez ve dosyaları Azure depolama alanına yalnızca içeri aktarabilirsiniz.
+Azure içeri/dışarı aktarma hizmeti verileri kopyalamak için kullanabileceğiniz **blok** BLOB'lar, **sayfa** BLOB'lar, veya **dosyaları**. Buna karşılık, yalnızca verebilirsiniz **blok** BLOB'lar, **sayfa** BLOB'lar veya **Append** bu hizmeti kullanarak Azure storage bloblarından. Yalnızca Azure dosyaları içe Azure depolama hizmeti destekler. Azure dosyaları dışarı aktarma şu anda desteklenmiyor.
 
 ### <a name="job"></a>İş
 Alma işlemini veya depodan dışarı aktarma işlemini başlatmak için önce bir iş oluşturun. Bir iş, bir içeri aktarma işi veya bir dışarı aktarma işinin olabilir:
 
-* Şirket içi BLOB'lar için Azure depolama hesabınızdaki sahip verileri aktarmak istediğinizde bir alma işi oluşturun.
-* Şu anda bize gönderilen sabit sürücüler için depolama hesabınızdaki BLOB'lar olarak depolanan verileri aktarmak istediğinizde bir dışarı aktarma işinin oluşturun. Bir proje oluşturduğunuzda, bir Azure veri merkezi için bir veya daha fazla sabit sürücüler sevkiyat olmalıdır, içeri/dışarı aktarma hizmeti bildirin.
+* Şirket içi Azure depolama hesabınıza olan verileri aktarmak istediğinizde bir alma işi oluşturun.
+* Depolama hesabınız için bize gönderilen sabit sürücüler için şu anda depolanan verileri aktarmak istediğinizde bir dışarı aktarma işinin oluşturun. Bir proje oluşturduğunuzda, bir Azure veri merkezi için bir veya daha fazla sabit sürücüler sevkiyat olmalıdır, içeri/dışarı aktarma hizmeti bildirin.
 
 * Bir içeri aktarma işi için verilerinizi içeren sabit sürücüler sevkiyat.
 * Bir dışarı aktarma işi için boş sabit disk sürücüler sevkiyat.
@@ -107,7 +107,7 @@ Bir alma oluşturma veya Azure portalını kullanarak iş dışarı aktarma veya
 ### <a name="waimportexport-tool"></a>WAImportExport aracı
 Oluşturmanın ilk adımı bir **alma** iş sevk edilen sürücülerinizin alma için hazırlamak için. Sürücülerinizin hazırlamak için yerel bir sunucuya bağlanın ve yerel sunucuda WAImportExport aracını çalıştırın. Bu WAImportExport aracı verilerinizi diske kopyalama, sürücüde BitLocker ile verileri şifrelemek ve sürücü günlük dosyaları oluşturma kolaylaştırır.
 
-Günlük dosyaları, iş ve sürücü sürücü seri numarası ve depolama hesabı adı gibi ilgili temel bilgileri saklar. Bu günlük dosyası sürücüsünde depolanmaz. İçeri aktarma işi oluşturma sırasında kullanılır. Adım adım iş oluşturma hakkındaki ayrıntıları bu makalenin sonraki bölümlerinde sağlanır.
+Günlük dosyaları, iş ve sürücü sürücü seri numarası ve depolama hesabı adı gibi ilgili temel bilgileri saklar. Bu günlük dosyası sürücüsünde depolanmaz. İçeri aktarma işi oluşturma sırasında kullanılır. Bu makalenin sonraki bölümlerinde iş oluşturma hakkında adım adım ayrıntılar verilmiştir.
 
 WAImportExport aracı yalnızca 64-bit Windows işletim sistemiyle uyumlu değil. Bkz: [işletim sistemi](#operating-system) desteklenen belirli işletim sistemi sürümleri için bölüm.
 
@@ -294,7 +294,7 @@ Diskleri Azure'a sevk ettiğinizde, Sevkiyat taşıyıcı sevkiyat maliyet ücre
 
 **İşlem maliyetleri**
 
-Blob depolama alanına veri içe aktarırken hiçbir işlem maliyetleri vardır. Blob depolama alanından verileri verildiğinde standart çıkış ücretleri uygulanabilir. İşlem maliyetleri hakkında daha fazla bilgi için bkz: [veri aktarımı fiyatlandırmasını.](https://azure.microsoft.com/pricing/details/data-transfers/)
+Verileri Azure depolama alanına alırken hiçbir işlem maliyetleri vardır. Blob depolama alanından verileri verildiğinde standart çıkış ücretleri uygulanabilir. İşlem maliyetleri hakkında daha fazla bilgi için bkz: [veri aktarımı fiyatlandırmasını.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 
@@ -304,7 +304,6 @@ Azure içeri/dışarı aktarma hizmetini kullanarak veri aktarırken ilk WAImpor
 
 1. Azure dosya depolama alanına aktarılması verileri tanımlamak. Bu, dizinler ve tek başına dosya yerel sunucuda veya bir ağ paylaşımı olabilir.  
 2. Toplam veri boyutuna bağlı olarak gerekir sürücü sayısını belirler. 2,5 inç SSD veya 2,5" ya da 3,5" gereken sayıda SATA II veya III sabit disk sürücüsü temin edin.
-3. Hedef depolama hesabı, kapsayıcı, sanal dizinleri ve blobları tanımlayın.
 4. Dizinler ve/veya her sabit disk sürücüsüne kopyalanacak bağımsız dosyaları belirler.
 5. Veri kümesi ve driveset için CSV dosyaları oluşturun.
     
@@ -498,11 +497,11 @@ Verileri Azure depolama hesabınızın altında Azure portalı üzerinden erişi
 
 **İçeri aktarma işi tamamlandıktan sonra ne depolama hesabında my veri görünümü ister? Belgelerim dizini hiyerarşi korunur?**
 
-Bir sabit sürücü içeri aktarma işi için hazırlık yaparken, hedef veri kümesi CSV DstBlobPathOrPrefix alanında belirtilir. Bu sabit sürücüsünden veri kopyalanır depolama hesabındaki hedef kapsayıcıdır. Bu hedef kapsayıcı içindeki sabit sürücüden klasörler için oluşturulan sanal dizinleri ve blobları dosyaları için oluşturulur. 
+Bir sabit sürücü içeri aktarma işi için hazırlık yaparken, hedef CSV kümesindeki DstBlobPathOrPrefix alan belirtilir. Bu sabit sürücüsünden veri kopyalanır depolama hesabındaki hedef kapsayıcıdır. Bu hedef kapsayıcı içindeki sabit sürücüden klasörler için oluşturulan sanal dizinleri ve blobları dosyaları için oluşturulur. 
 
-**Hizmet sürücüsünde depolama Hesabımı zaten mevcut dosyaların varsa, varolan depolama Hesabımı blobları üzerine mi Yazar?**
+**Sürücü depolama Hesabımı zaten mevcut dosyaların varsa, hizmet mevcut BLOB'ları veya depolama Hesabımı dosyaları üzerine yazar?**
 
-Sürücü hazırlanırken hedef dosyaların üzerine ya da yoksayılan alanını dataset CSV dosyası kullanarak adlı değerlendirme belirtebilirsiniz: < yeniden adlandırma | Hayır üzerine | üzerine >. Varsayılan olarak, hizmet yeni dosyaları yeniden adlandırmak yerine mevcut bloblarının üzerine yazmayı.
+Sürücü hazırlanırken hedef dosyaların üzerine ya da yoksayılan alanını dataset CSV dosyası kullanarak adlı değerlendirme belirtebilirsiniz: < yeniden adlandırma | Hayır üzerine | üzerine >. Varsayılan olarak, hizmet yeni dosyaları yeniden adlandırmak yerine mevcut BLOB veya dosyaların üzerine.
 
 **WAImportExport aracının 32-bit işletim sistemleriyle uyumlu mu?**
 Hayır. WAImportExport aracı yalnızca 64-bit Windows işletim sistemleriyle uyumlu değil. İşletim sistemleri bölümünde lütfen [ön koşullar](#pre-requisites) desteklenen işletim sistemi sürümleri tam bir listesi.

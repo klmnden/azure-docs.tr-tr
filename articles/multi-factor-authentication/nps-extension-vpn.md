@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 92b95b91073ef0a53a936bea53a7c63fe37f1746
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 8bb4c754f7bf22198b997ded7a994ccf0e4ad265
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısını kullanarak VPN altyapınız Azure MFA ile tümleştirme
 
@@ -99,7 +99,7 @@ Bu bölümde, MFA Uzak Masaüstü Ağ geçidi ile tümleştirebilirsiniz önce t
 Bu makalede, Microsoft Windows Server 2016 kullanan bir çalışma VPN altyapısına sahip ve VPN sunucunuzun şu anda bağlantı isteklerini iletmek için bir RADIUS sunucusuna yapılandırılmadığını varsayar. Makalede, merkezi bir RADIUS sunucusu kullanmak üzere VPN altyapıyı yapılandırın.
 
 Yerinde bir çalışma VPN altyapısı yoksa Microsoft ve üçüncü taraf sitelere bulabileceğiniz çok sayıda VPN Kurulumu öğreticileri yer alan yönergeleri izleyerek bir hızlı bir şekilde oluşturabilirsiniz. 
-
+            
 ### <a name="the-network-policy-and-access-services-role"></a>Ağ İlkesi ve Erişim Hizmetleri rolü
 
 Ağ İlkesi ve Erişim Hizmetleri, RADIUS sunucusu ve İstemcisi işlevselliği sağlar. Bu makalede, Ağ İlkesi ve Erişim Hizmetleri rolünün bir üye sunucu veya etki alanı denetleyicisinde ortamınızda yüklediğinizi varsayar. Bu kılavuzda, RADIUS VPN yapılandırması için yapılandırın. Ağ İlkesi ve Erişim Hizmetleri rolünün bir sunucuya yüklemek *dışında* VPN sunucunuzun.
@@ -108,7 +108,7 @@ Ağ İlkesi ve Erişim Hizmetleri rolünü yükleme hakkında bilgi için Window
 
 ### <a name="azure-mfa-license"></a>Azure MFA lisans
 
-Azure çok faktörlü kimlik doğrulaması için bir lisansı gereklidir ve bir Azure AD Premium, Enterprise Mobility + güvenlik veya çok faktörlü kimlik doğrulaması abonelik ile kullanılabilir. Daha fazla bilgi için bkz: [Azure çok faktörlü kimlik doğrulama alma](multi-factor-authentication-versions-plans.md). Test amacıyla bir deneme aboneliği kullanabilirsiniz.
+Azure çok faktörlü kimlik doğrulaması için bir lisansı gereklidir ve bir Azure AD Premium, Enterprise Mobility + güvenlik veya çok faktörlü kimlik doğrulaması abonelik ile kullanılabilir. Tüketim tabanlı lisansları kullanıcı başına veya başına kimlik doğrulama lisansı gibi Azure MFA için NPS uzantısı ile uyumlu değildir. Daha fazla bilgi için bkz: [Azure çok faktörlü kimlik doğrulama alma](multi-factor-authentication-versions-plans.md). Test amacıyla bir deneme aboneliği kullanabilirsiniz.
 
 ### <a name="windows-server-software"></a>Windows Server yazılımı
 

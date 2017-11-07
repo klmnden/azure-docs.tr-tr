@@ -8,14 +8,16 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/06/2017
-ms.openlocfilehash: cdc8f570c66630e210efa3163f8ee419337df3a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 646e95f5c3c7bc9bb175a5532435b28bb998b49b
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="supported-postgresql-database-versions"></a>Desteklenen PostgreSQL veritabanı sürümleri
+Microsoft Azure şu anda yayımlanmış ana sürüm (n) ve iki önceki ana sürüm (-2) anlamına veritabanında PostgreSQL hizmeti PostgreSQL altyapısı n-2 sürümleri desteklemek için amaçlar.
+
 Azure veritabanı PostgreSQL için şu anda aşağıdaki sürümlerini destekler:
 
 ## <a name="postgresql-version-962"></a>PostgreSQL sürüm 9.6.2
