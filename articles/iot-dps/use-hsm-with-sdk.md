@@ -1,6 +1,6 @@
 ---
-title: "Azure ile Nasıl Yapılır? Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı donanım güvenlik modelleri kullanma | Microsoft Docs"
-description: "Azure ile Nasıl Yapılır? Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı donanım güvenlik modelleri kullanma"
+title: "Azure ile Nasıl Yapılır? - Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı Donanım Güvenlik Modülü kullanma | Microsoft Docs"
+description: "Azure ile Nasıl Yapılır? - Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı Donanım Güvenlik Modülü kullanma"
 services: iot-dps
 keywords: 
 author: yzhong94
@@ -12,11 +12,11 @@ documentationcenter:
 manager: 
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 620d86b62cf43c3e1a5f7f5c724fcf00174f30e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 184bbdc0a6bef74d0e5ac79afe3858354c6b1695
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı Donanım Güvenlik Modülleri kullanma
 Bu adımlar C içinde Cihaz Sağlama Hizmeti İstemci SDK'sı ile fiziksel cihaz ve simülatör kullanan farklı [Donanım Güvenlik Modülü (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) kullanımını göstermektedir.  Sağlama hizmeti iki kimlik doğrulaması modunu destekler: X**.**509 ve Güvenilir Platform Modülü (TPM).

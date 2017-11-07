@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5535433c478b989e255451a0bf882dfb8ba8f8fe
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning nedir?
 
@@ -105,7 +105,7 @@ Kolay yapılandırma sayesinde denemelerinizi farklı işlem ortamı seçenekler
 
 Deneme Hizmeti betiğinizin ayrı bir şekilde ve tekrarlanabilir sonuçlarla yürütüldüğünden emin olmak için sanal ortamlar oluşturur. Çalıştırma geçmişi bilgilerini kaydeder ve geçmişi görsel olarak sunar. Bu sayede deneme çalıştırmalarınızın arasından en iyi modeli kolayca seçebilirsiniz. 
 
-Daha fazla bilgi için bkz. [Deneme Yürütme Yapılandırması](experiment-execution-configuration.md).
+Daha fazla bilgi için [Deneme Hizmeti Yapılandırması](experimentation-service-configuration.md) konusunu inceleyin.
 
 ## <a name="azure-machine-learning-model-management-service"></a>Azure Machine Learning Model Yönetimi Hizmeti
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/13/2017
+ms.date: 10/17/2017
 ms.author: samacha
-ms.openlocfilehash: 57437875da80bb5eece650063b7c5c2b0ffd65f7
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 889aaa697a04a81075b85c834d534bfeb4faf79b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-is-stream-analytics"></a>Stream Analytics nedir?
 
@@ -63,7 +63,7 @@ Stream Analytics, akış alımı için doğrudan [Azure Olay Hub'larına](https:
 
 Stream Analytics iş çıktısını birçok yöne yönlendirme. Azure Blob, Azure SQL Veritabanı, Azure Data Lake Stores veya Azure Cosmos DB gibi depolama alanlarına yazabilirsiniz. Bu konumlardan Azure HDInsight ile toplu analiz gerçekleştirebilirsiniz. Ya da çıktıyı başka bir işlem tarafından kullanılmak üzere başka bir hizmete gönderebilirsiniz (görselleştirme için olay hub'ları, Azure Service Bus, kuyruklar veya Power BI).
 
-### <a name="easy-to-use"></a>Kullanımı kolay
+### <a name="simple-to-use"></a>Kullanımı kolay
 
 Dönüşümleri tanımlamak için programlama bilgisine ihtiyaç duymadan gelişmiş analizler oluşturmanızı sağlayan basit ve bildirim temelli [Stream Analytics sorgu dilini](https://msdn.microsoft.com/library/azure/dn834998.aspx) kullanırsınız. Sorgu dili, girdi olarak veri akışını kullanır. Ardından verileri filtreleyip sıralayabilir, değerleri toplayabilir, hesaplamalar yapabilir, verileri birleştirebilir (akış veya başvuru verileriyle) ve jeo-uzamsal işlevleri kullanabilirsiniz. IntelliSense ve söz dizimi denetimini kullanarak sorguları portalda düzenleyebilir ve sorguları canlı akıştan ayıklayabileceğiniz örnek verilerle test edebilirsiniz.
 
@@ -71,22 +71,21 @@ Dönüşümleri tanımlamak için programlama bilgisine ihtiyaç duymadan geliş
 
 Ek işlevler tanımlayıp çağırarak sorgu dilinin yapabileceklerini artırabilirsiniz. Azure Machine Learning hizmetinde işlev çağrıları tanımlayarak Azure Machine Learning çözümlerinden faydalanabilirsiniz. Ayrıca JavaScript kullanıcı tanımlı işlevlerini (UDF) tümleştirerek Stream Analytics sorgusunun bir parçası olarak karmaşık hesaplamalar gerçekleştirebilirsiniz.
 
-### <a name="scalability"></a>Ölçeklenebilirlik
+### <a name="scalable"></a>Ölçeklenebilir
 
 Stream Analytics saniyede 1 GB gelen veri işleyebilir. [Azure Olay Hub'ları](https://azure.microsoft.com/services/event-hubs/) ve [Azure IoT Hub'ı](https://azure.microsoft.com/services/iot-hub/) ile tümleştirme; bağlı cihazlar, tıklama dizileri ve günlük dosyaları gibi çeşitli kaynaklardan gelen, saniyede milyonlarca olayın işler tarafından alınmasını sağlar. Olay hub'larının bölümleme özelliğini kullanarak hesaplamaları mantıksal adımlara ayırabilir, her birini bölümlere ayırarak ölçeklenebilirliği artırabilirsiniz.
 
 ### <a name="low-cost"></a>Düşük maliyet
 
-Bir bulut hizmeti olan Stream Analytics, maliyetlerinizi düşürmeniz için iyileştirilmiştir. Akış birimi kullanımına ve sistemin işlediği veri miktarına göre kullandıkça ödersiniz. Kullanım miktarı, Stream Analytics işlerinin işlenmesi için küme içinde sağlanan işlem gücü miktarına ve işlenen olayların hacmine göre belirlenir.
+Bir bulut hizmeti olan Stream Analytics, maliyet için iyileştirilmiştir. Akış birimi kullanımına ve işlenen veri miktarına göre ödeyin. Kullanım miktarı, iş kümesi içinde sağlanan işlem gücü miktarına ve işlenen olayların hacmine göre belirlenir.
 
-### <a name="reliability-quick-recovery-and-repeatability"></a>Güvenilirlik, hızlı kurtarma ve tekrarlama
+### <a name="reliable"></a>Güvenilir
 
-Bulutta yönetilen bir hizmet olan Stream Analytics, veri kaybının önlenmesine yardımcı olur ve iş sürekliliği sağlar. Hata oluşması halinde hizmetin sunduğu yerleşik kurtarma özelliklerinden faydalanabilirsiniz. Dahili olarak durumunu koruma özelliği sayesinde, hizmet tekrarlanabilir sonuçlar sunar ve gelecekte işlemenin yeniden uygulanmasını ve olayların arşivlenmesini, böylelikle de her zaman için aynı sonuçların alınmasını sağlar. Bu sayede kök neden analizi, durum çözümlemesi vb. gerçekleştirirken zamanda geriye giderek hesaplamaları araştırabilirsiniz.
+Yönetilen bir hizmet olan Stream Analytics, veri kaybının önlenmesine yardımcı olur ve iş sürekliliği sağlar. Hata oluşması halinde hizmetin sunduğu yerleşik kurtarma özelliklerinden faydalanabilirsiniz. Dahili olarak durumunu koruma özelliği sayesinde, hizmet tekrarlanabilir sonuçlar sunar ve gelecekte işlemenin yeniden uygulanmasını ve olayların arşivlenmesini, böylelikle de her zaman için aynı sonuçların alınmasını sağlar. Bu sayede kök neden analizi, durum çözümlemesi vb. gerçekleştirirken zamanda geriye giderek hesaplamaları araştırabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [IoT cihazlarından gelen girdiler ve sorgularla çalışmayı deneyerek](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md) başlangıç yapın.
 * Dolandırıcılık amaçlı çağrıları bulmak için telefon meta verilerini inceleyen [uçtan uca Stream Analytics çözümü](stream-analytics-real-time-fraud-detection.md) oluşturun.
-* Stream Analytics'in SQL benzeri sorgu dili ve [pencere işlevleri](stream-analytics-window-functions.md) gibi benzersiz kavramları hakkında bilgi edinin.
 * Stream Analytics sorularınıza yanıt almak için [Azure Stream Analytics forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) ziyaret edin.
 

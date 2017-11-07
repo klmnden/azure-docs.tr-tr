@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 19f9686de9face1e53fc84eac23381eadc9fb5cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c4fb60bde7599daa0ac9d7704c398adcdb0d471
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Öğretici: Azure portal kullanarak ilk Azure data factory’nizi derleme
 > [!div class="op_single_selector"]
@@ -30,6 +30,9 @@ ms.lasthandoff: 10/11/2017
 > * [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+
+> [!NOTE]
+> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Data Factory hizmetinin önizleme aşamasında olan 2. sürümünü kullanıyorsanız [Hızlı Başlangıç: Azure Data Factory sürüm 2’yi kullanarak veri fabrikası oluşturma](../quickstart-create-data-factory-dot-net.md) konusunu inceleyin.
 
 Bu makalede, ilk Azure veri fabrikanızı oluşturmak için [Azure portalını](https://portal.azure.com/) nasıl kullanacağınızı öğreneceksiniz. Diğer araçları/SDK’ları kullanarak öğreticiyi uygulamak için açılır listedeki seçeneklerden birini belirleyin. 
 

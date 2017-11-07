@@ -3,8 +3,8 @@ title: "Etki alanınızı Azure DNS'ye devretme | Microsoft Belgeleri"
 description: "Etki alanı temsilcisi seçiminin nasıl değiştirileceğini ve etki alanı barındırma sağlamak üzere Azure DNS ad sunucularının nasıl kullanılacağını anlayın."
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: gwallace
-ms.openlocfilehash: 7aa26fd54bab476e798e2327d1c46afb04aa3838
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.author: kumud
+ms.openlocfilehash: d73a42fd0f41c20b516c0348c86b40202fd06f53
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Azure DNS'ye bir etki alanı devretme
 
@@ -30,11 +30,11 @@ Bir kayıt şirketinden satın alınan etki alanları için, kayıt şirketiniz 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
 1. Azure portalında oturum açın
-1. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak DNS bölgesi oluştur dikey penceresini açın.
+1. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak DNS bölgesi oluştur sayfasını açın.
 
     ![DNS bölgesi](./media/dns-domain-delegation/dns.png)
 
-1. **DNS bölgesi oluştur** dikey penceresinde aşağıdaki değerleri girin ve **Oluştur**’a tıklayın:
+1. **DNS bölgesi oluştur** sayfasında aşağıdaki değerleri girin ve **Oluştur**’a tıklayın:
 
    | **Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
@@ -50,9 +50,9 @@ Bir kayıt şirketinden satın alınan etki alanları için, kayıt şirketiniz 
 
 DNS bölgenizi Azure DNS'ye devretmeden önce, bölgenizin ad sunucusu adlarını bilmeniz gerekir. Azure DNS, her bölge oluşturmada bir havuzdan ad sunucuları ayırır.
 
-1. Oluşturulan DNS bölgesiyle, Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. **Tüm kaynaklar** dikey penceresinde **contoso.net** DNS bölgesine tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, uygulama ağ geçidine kolaylıkla erişmek için Ada göre filtrele... kutusuna **contoso.net** girebilirsiniz. 
+1. Oluşturulan DNS bölgesiyle, Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. **Tüm kaynaklar** sayfasında **contoso.net** DNS bölgesine tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, uygulama ağ geçidine kolaylıkla erişmek için Ada göre filtrele... kutusuna **contoso.net** girebilirsiniz. 
 
-1. DNS bölgesi dikey penceresinden ad sunucularını alın. Bu örnekte, "contoso.net" bölgesine "ns1-01.azure-dns.com", "ns2-01.azure-dns.net", "ns3-01.azure-dns.org" ve "ns4-01.azure-dns.info" ad sunucuları atanmıştır:
+1. DNS bölgesi sayfasından ad sunucularını alın. Bu örnekte, "contoso.net" bölgesine "ns1-01.azure-dns.com", "ns2-01.azure-dns.net", "ns3-01.azure-dns.org" ve "ns4-01.azure-dns.info" ad sunucuları atanmıştır:
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -122,7 +122,7 @@ Artık DNS bölgesi oluşturulduğuna ve ad sunucularınız olduğuna göre, üs
 
 Bir etki alanını Azure DNS'ye devrederken Azure DNS tarafından sağlanan ad sunucusu adlarını kullanmanız gerekir. Etki alanınızın adından bağımsız olarak her zaman dört sunucu adını da kullanmanız önerilir. Etki alanı temsilcisi, sunucu adının etki alanınızla aynı üst düzey etki alanını kullanmasını gerektirmez.
 
-Azure DNS ad sunucusu IP adresleri gelecekte değişebileceği için, bu IP adreslerine işaret ederken "birleştirici kayıtlar"ı kullanmamanız gerekir. Kendi bölgenizdeki ad sunucusu adlarını kullanan ve bazen "gösterim ad sunucuları" olarak adlandırılan temsilci seçimleri, Azure DNS'de şu anda desteklenmemektedir.
+Azure DNS ad sunucusu IP adresleri gelecekte değişebileceği için, bu IP adreslerine işaret ederken "birleştirici kayıtlar"ı kullanmayın. Kendi bölgenizdeki ad sunucusu adlarını kullanan ve bazen "gösterim ad sunucuları" olarak adlandırılan temsilci seçimleri, Azure DNS'de şu anda desteklenmemektedir.
 
 ## <a name="verify-name-resolution-is-working"></a>Ad çözümlemesinin çalıştığını doğrulama
 
@@ -161,11 +161,11 @@ Ayrı bir alt bölge kurmak istiyorsanız Azure DNS'de bir alt etki alanını de
 ### <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
 1. Azure portalında oturum açın
-1. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak DNS bölgesi oluştur dikey penceresini açın.
+1. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak DNS bölgesi oluştur sayfasını açın.
 
     ![DNS bölgesi](./media/dns-domain-delegation/dns.png)
 
-1. **DNS bölgesi oluştur** dikey penceresinde aşağıdaki değerleri girin ve **Oluştur**’a tıklayın:
+1. **DNS bölgesi oluştur** sayfasında aşağıdaki değerleri girin ve **Oluştur**’a tıklayın:
 
    | **Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
@@ -179,9 +179,9 @@ Ayrı bir alt bölge kurmak istiyorsanız Azure DNS'de bir alt etki alanını de
 
 ### <a name="retrieve-name-servers"></a>Ad sunucularını alma
 
-1. Oluşturulan DNS bölgesiyle, Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. **Tüm kaynaklar** dikey penceresinde **partners.contoso.net** DNS bölgesine tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, DNS bölgesine kolaylıkla erişmek için Ada göre filtrele... kutusuna **partners.contoso.net** girebilirsiniz.
+1. Oluşturulan DNS bölgesiyle, Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. **Tüm kaynaklar** sayfasında **partners.contoso.net** DNS bölgesine tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, DNS bölgesine kolaylıkla erişmek için Ada göre filtrele... kutusuna **partners.contoso.net** girebilirsiniz.
 
-1. DNS bölgesi dikey penceresinden ad sunucularını alın. Bu örnekte, "contoso.net" bölgesine "ns1-01.azure-dns.com", "ns2-01.azure-dns.net", "ns3-01.azure-dns.org" ve "ns4-01.azure-dns.info" ad sunucuları atanmıştır:
+1. DNS bölgesi sayfasından ad sunucularını alın. Bu örnekte, "contoso.net" bölgesine "ns1-01.azure-dns.com", "ns2-01.azure-dns.net", "ns3-01.azure-dns.org" ve "ns4-01.azure-dns.info" ad sunucuları atanmıştır:
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -191,7 +191,7 @@ Azure DNS, atanan ad sunucularını içeren yetkili NS kayıtlarını bölgenizd
 
 1. Azure Portal’da **contoso.net** DNS bölgesine gidin.
 1. **+ Kayıt kümesi**’ne tıklayın
-1. **Kaynak kümesi ekle** dikey penceresinde aşağıdaki değerleri girin, ardından **Tamam**’a tıklayın:
+1. **Kaynak kümesi ekle** sayfasında aşağıdaki değerleri girin, ardından **Tamam**’a tıklayın:
 
    | **Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
@@ -297,8 +297,8 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları tamamlayın:
 
-1. Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. Tüm kaynaklar dikey penceresinde **contosorg** kaynak grubuna tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, kaynak grubuna kolaylıkla erişmek için **Ada göre filtrele...** kutusuna **contosorg** girebilirsiniz.
-1. **contosorg** dikey penceresinde **Sil** düğmesine tıklayın.
+1. Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. Tüm kaynaklar sayfasında **contosorg** kaynak grubuna tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, kaynak grubuna kolaylıkla erişmek için **Ada göre filtrele...** kutusuna **contosorg** girebilirsiniz.
+1. **contosorg** sayfasında **Sil** düğmesine tıklayın.
 1. Portal, silmek istediğinizi onaylamak için kaynak grubunun adını yazmanızı gerektirir. Kaynak grubu adı için *contosorg* yazın ve **Sil**'e tıklayın. Bir kaynak grubunun silinmesiyle, kaynak grubu içerisindeki tüm kaynaklar silinir, bu nedenle, silmeden önce kaynak grubunun içeriğini onaylamayı hiçbir zaman unutmayın. Portal, kaynak grubu içinde yer alan tüm kaynakları siler ve sonra kaynak grubunu siler. Bu işlem birkaç dakika sürer.
 
 ## <a name="next-steps"></a>Sonraki adımlar

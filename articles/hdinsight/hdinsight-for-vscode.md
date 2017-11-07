@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 36ce117076ed5c15ddff850485d8f8912ec53caf
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 9c1d0e0520df30306c1647cf1f3ec86c8a4fd8f5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-hdinsight-tool-for-visual-studio-code"></a>Visual Studio kodunu Azure Hdınsight aracını kullanın
 
@@ -243,33 +243,33 @@ Hdınsight VSCode için aşağıdaki özellikleri destekler:
 * Hdınsight için VScode: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
+
+* [Spark uygulamalarında VPN üzerinden uzaktan hata ayıklamak için Azure araç Intellij için kullanma](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Spark uygulamalarında SSH üzerinden uzaktan hata ayıklamak için Azure araç Intellij için kullanma](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Korumalı alan Hortonworks ile Intellij için Hdınsight araçları kullanma](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
+* [Hdınsight araçları Azure araç setini Eclipse için Spark uygulamaları oluşturmak için kullanın](spark/apache-spark-eclipse-tool-plugin.md)
+* [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](spark/apache-spark-zeppelin-notebook.md)
+* [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](spark/apache-spark-jupyter-notebook-kernels.md)
+* [Jupyter not defterleri ile dış paketleri kullanma](spark/apache-spark-jupyter-notebook-use-external-packages.md)
+* [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](spark/apache-spark-jupyter-notebook-install-locally.md)
+* [Microsoft Power BI'ı Azure hdınsight'ta Hive görselleştirmek](hadoop/apache-hadoop-connect-hive-power-bi.md).
 * [Visual Studio kodunu PySpark etkileşimli ortamını ayarlama](set-up-pyspark-interactive-environment.md)
-* [Oluşturma ve Spark Scala uygulamaları göndermek amacıyla Intellij için Azure araç seti kullanın](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Spark uygulamalarında SSH üzerinden uzaktan hata ayıklamak için Azure araç Intellij için kullanma](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Spark uygulamalarında VPN üzerinden uzaktan hata ayıklamak için Azure araç Intellij için kullanma](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Hdınsight araçları Azure araç setini Eclipse için Spark uygulamaları oluşturmak için kullanın](hdinsight-apache-spark-eclipse-tool-plugin.md)
-* [Korumalı alan Hortonworks ile Intellij için Hdınsight araçları kullanma](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](hdinsight-apache-spark-zeppelin-notebook.md)
-* [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter not defterleri ile dış paketleri kullanma](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-* [Microsoft Power BI'ı Azure hdınsight'ta Hive görselleştirmek](./hdinsight-connect-hive-power-bi.md).
-* [Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın ](./hdinsight-connect-hive-zeppelin.md).
+* [Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](hdinsight-apache-spark-use-bi-tools.md)
-* [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark akış: Gerçek zamanlı akış uygulamaları oluşturmak için hdınsight'ta Spark kullanma](hdinsight-apache-spark-eventhub-streaming.md)
-* [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
+* [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark akış: Gerçek zamanlı akış uygulamaları oluşturmak için hdınsight'ta Spark kullanma](spark/apache-spark-eventhub-streaming.md)
+* [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Oluşturma ve uygulamaları çalıştırma
-* [Scala kullanarak tek başına uygulama oluşturma](hdinsight-apache-spark-create-standalone-application.md)
-* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](hdinsight-apache-spark-livy-rest-interface.md)
+* [Scala kullanarak tek başına uygulama oluşturma](spark/apache-spark-create-standalone-application.md)
+* [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
 
 ### <a name="managing-resources"></a>Kaynakları yönetme
-* [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
-* [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](hdinsight-apache-spark-job-debugging.md)
+* [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](spark/apache-spark-resource-manager.md)
+* [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](spark/apache-spark-job-debugging.md)
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery nedir? | Microsoft Docs
+title: Azure Site Recovery nedir? | Microsoft Belgeleri
 description: "Bu sayfada, Azure Site Recovery hizmetine genel bir bakış sağlanmış ve dağıtım senaryoları özetlenmiştir."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/25/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="what-is-site-recovery"></a>Site Recovery nedir?
+# <a name="about-site-recovery"></a>Site Recovery Hakkında
 
 Azure Site Recovery hizmetine hoş geldiniz! Bu makalede hizmet, genel hatlarıyla kısaca ele alınmaktadır.
 
@@ -62,19 +63,15 @@ Site Recovery, şunlar için çoğaltmayı yönetebilir:
 
 **Destekleniyor** | **Ayrıntılar**
 --- | ---
-**Neleri çoğaltabilirim?** | Azure bölgeleri arasında Azure VM’lerini çoğaltma (önizlemede)<br/><br/>  Şirket içi VMware VM’lerinden, Hyper-V VM’lerinden, fiziksel sunuculardan (Windows ve Linux) Azure’a<br/<br/> Şirket içi VMware VM’lerinden, Hyper-V VM’lerinden, fiziksel sunuculardan ikincil bir siteye. Hyper-V VM’leri için ikincil bir siteye çoğaltma, yalnızca Hyper-V konakları System Center VMM tarafından yönetiliyorsa desteklenir.
+**Neleri çoğaltabilirim?** | Azure bölgeleri arasında Azure VM’leri.<br/><br/>  Şirket içi VMware VM’lerinden, Hyper-V VM’lerinden, fiziksel sunuculardan (Windows ve Linux) Azure’a.<br/><br/> Şirket içi VMware VM’lerinden, Hyper-V VM’lerinden, fiziksel sunuculardan Virtual Machine Manager’a (VMM).
 **Hangi bölgeler Site Recovery için desteklenir?** | [Desteklenen bölgeler](https://azure.microsoft.com/regions/services/) |
-**Çoğaltılan makineler için hangi işletim sistemleri gerekir?** | [Azure VM gereksinimleri](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)<br></br>[VMware VM gereksinimleri](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Hyper-V VM’ler için Azure ve Hyper-V tarafından desteklenen tüm [konuk işletim sistemleri](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) desteklenir.<br/><br/> [Fiziksel sunucu gereksinimleri](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
-**Hangi VMware sunucularına/ana bilgisayarlarına ihtiyacımız var?** | VMware VM’leri [desteklenen vSphere konaklarında/vCenter sunucularında](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) bulunabilir
+**Çoğaltılan makineler için hangi işletim sistemleri gerekir?** | [Azure VM gereksinimleri](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[VMware VM gereksinimleri](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Hyper-V VM’ler için Azure ve Hyper-V tarafından desteklenen tüm [konuk işletim sistemleri](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) desteklenir.<br/><br/> [Fiziksel sunucu gereksinimleri](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+**Hangi VMware sunucularına/ana bilgisayarlarına ihtiyacımız var?** | VMware VM’leri [desteklenen vSphere konaklarında/vCenter sunucularında](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) bulunabilir.
+
 **Hangi iş yüklerini çoğaltabilirim?** | Desteklenen bir çoğaltma makinesinde çalışan tüm iş yüklerini çoğaltabilirsiniz. Ayrıca, Site Recovery ekibi [çeşitli uygulamalar](site-recovery-workload.md#workload-summary) için uygulamaya özgü testler gerçekleştirdi.
 
 
-## <a name="azure-portal-considerations"></a>Azure portalı hakkında dikkat edilmesi gerekenler
-
-* Site Recovery [Azure portalında](https://portal.azure.com) dağıtılabilir.
-* Klasik Azure portalında, klasik hizmet yönetim modeliyle Site Recovery’yi yönetebilirsiniz.
-- Klasik portal yalnızca var olan Site Recovery dağıtımlarının bakımını yapmak için kullanılmalıdır. Klasik portalda yeni kasalar oluşturamazsınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [İş yükü desteği](site-recovery-workload.md) hakkında daha fazla bilgi edinin
-* [Bölgeler arasında Azure VM çoğaltma](site-recovery-azure-to-azure.md), [Azure’a VMware çoğaltma](vmware-walkthrough-overview.md) veya [Azure’a Hyper-V çoğaltma](hyper-v-site-walkthrough-overview.md) işlemlerini gerçekleştirmeye başlayın.
+* [İş yükü desteği](site-recovery-workload.md) hakkında daha fazla bilgi edinin.
+* [Bölgeler arasında Azure VM çoğaltma](azure-to-azure-quickstart.md) ile çalışmaya başlayın. 

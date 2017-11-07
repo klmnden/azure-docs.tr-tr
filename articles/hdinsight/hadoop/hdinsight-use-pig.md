@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: cca748eafc547d808a3bee6bb8dedcec821f6cb5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 5f5b34c6610a1c07687f0681480f7422986d6f20
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Hdınsight'ta Hadoop ile pig kullanma
 

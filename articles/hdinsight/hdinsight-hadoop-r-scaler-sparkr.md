@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b84c365defbaadbc83c86e6e387c15a63e0f17ce
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>ScaleR ve hdınsight'ta SparkR birleştirin
 
@@ -552,7 +552,7 @@ Bu makalede, biz nasıl SparkR kullanım modeli geliştirme Hadoop Spark ScaleR 
 
 - R Server hakkında genel bilgi için bkz: [R ile çalışmaya başlama](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) makalesi.
 
-- Hdınsight'ta R Server hakkında daha fazla bilgi için bkz: [Azure Hdınsight genel bakış R Server'a](hdinsight-hadoop-r-server-overview.md) ve [Azure hdınsight'ta R Server](hdinsight-hadoop-r-server-get-started.md).
+- Hdınsight'ta R Server hakkında daha fazla bilgi için bkz: [Azure Hdınsight genel bakış R Server'a](r-server/r-server-overview.md) ve [Azure hdınsight'ta R Server](r-server/r-server-get-started.md).
 
 SparkR kullanımı hakkında daha fazla bilgi için bkz:
 

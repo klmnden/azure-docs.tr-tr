@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dcdd8b5830edb542cb99d07f1b0087629d374264
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 3b8653b3bddd8bf2ee01c2e68da763e803711633
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları
 
@@ -58,16 +58,17 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 
 | Hata| Açıklama |
 | --- | --- |
-| 50001| X adlı hizmet sorumlusu Y adlı kiracıda bulunamadı. Uygulama, kiracının yöneticisi tarafından yüklenmediyse bu durum ortaya çıkabilir. Ayrıca, kaynak sorumlusu dizinde bulunamamış veya geçersiz de olabilir|
+| 50001| X adlı hizmet sorumlusu Y adlı kiracıda bulunamadı. Uygulama, kiracının yöneticisi tarafından yüklenmediyse bu durum ortaya çıkabilir. Ayrıca, kaynak sorumlusu dizinde bulunamamış veya geçersiz de olabilir.|
 | 50008| SAML onay deyimi eksik veya belirteçte yanlış yapılandırılmış.|
 | 50011| Yanıt adresi eksik, yanlış yapılandırılmış veya uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor.|
+| 50012| Kullanıcı Çok Faktörlü kimlik doğrulaması sırasında sahtekarlık bildirdi.|
 | 50053| Kullanıcı, yanlış kullanıcı kimliği veya parola ile çok fazla kez oturum açmaya çalıştığı için hesap kilitlendi.|
 | 50054| Kimlik doğrulaması için eski parola kullanıldı.|
 | 50055| Geçersiz parola, süresi dolmuş parola girildi.|
 | 50057| Kullanıcı hesabı devre dışı bırakıldı.|
 | 50058| Sağlanan kimlik bilgilerinde kullanıcının kimliğiyle ilgili hiçbir bilgi bulunamadı veya Kullanıcı, kiracıda bulunamadı veya Sessiz bir oturum açma isteği gönderildi ancak hiçbir kullanıcı oturum açmadı veya Hizmet, kullanıcının kimliğini doğrulayamadı.|
-| 50074| Güçlü Kimlik Doğrulaması (ikinci faktör) gereklidir|
-| 50079| Kullanıcının ikinci faktör kimlik doğrulamasına kaydolması gerekir|
+| 50074| Kullanıcı MFA testini geçemedi.|
+| 50079| Kullanıcının ikinci faktör kimlik doğrulamasına kaydolması gerekir.|
 | 50126| Geçersiz kullanıcı adı veya parola ya da Geçersiz şirket içi kullanıcı adı veya parola.|
 | 50131| Çeşitli koşullu erişim hatalarında kullanılır. Örneğin: Hatalı Windows cihazı durumu, şüpheli etkinlik nedeniyle istek engellendi, erişim ilkesi ve güvenlik ilkesi kararları.|
 | 50133| Süresi dolduğu veya yakın zamanda parola değiştirildiği için oturum geçersiz.|
@@ -75,13 +76,14 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 | 65001| X uygulamasının Y uygulamasına erişim izni yok veya erişim izni iptal edildi. Veya Kullanıcı ya da yönetici X kimliğiyle uygulamanın kullanılmasını onaylamadı. Bu kullanıcı veya kaynak için etkileşimli yetkilendirme isteği gönderin. Veya Kullanıcı ya da yönetici X kimliğiyle uygulamanın kullanılmasını onaylamadı. Kaynak: Z için Uygulama: Y adına işlem yapmak üzere kiracı yöneticinize bir yetkilendirme isteği gönderin.|
 | 65005| Uygulamaya gereken kaynak erişim listesi, kaynak tarafından bulunabilen uygulamaları içermiyor veya İstemci uygulaması kendi gerekli kaynak erişim listesinde belirtilmemiş bir kaynağa erişim isteğinde bulundu veya Graph hizmeti hatalı istek döndürdü veya kaynak bulunamadı.|
 | 70001| X adlı uygulama Y adlı kiracıda bulunamadı. Uygulama, kiracının yöneticisi tarafından yüklenmediyse veya kiracıdaki herhangi bir kullanıcı tarafından onaylanmadıysa bu durum ortaya çıkabilir. Kimlik doğrulaması isteğinizi yanlış kiracıya göndermiş olabilirsiniz.|
-| 80001| Kullanılabilir Kimlik Doğrulama Aracısı yok.|
+| 80001| Kimlik Doğrulama Aracısı Active Directory'ye bağlanamadı.|
 | 80002| Kimlik Doğrulama Aracısı'nın parola doğrulama isteği zaman aşımına uğradı.|
 | 80003| Kimlik Doğrulama Aracısı tarafından geçersiz yanıt alındı.|
 | 80004| Oturum açma isteğinde yanlış Kullanıcı Asıl Adı (UPN) kullanıldı.|
 | 80005| Kimlik Doğrulama Aracısı: Hata oluştu.|
-| 80007| Kimlik Doğrulama Aracısı Active Directory'ye bağlanamadı.|
+| 80007| Kimlik Doğrulama Aracısı kullanıcının parolasını doğrulayamıyor.|
 | 80010| Kimlik Doğrulama Aracısı parolanın şifresini çözemedi.|
+| 80011| Kimlik Doğrulama Aracısı şifre çözme anahtarını alamıyor.|
 | 81001| Kullanıcının Kerberos anahtarı fazla büyük.|
 | 81002| Kullanıcının Kerberos anahtarı doğrulanamadı.|
 | 81003| Kullanıcının Kerberos anahtarı doğrulanamadı.|
@@ -94,6 +96,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 | 81013| Kullanıcının Kerberos anahtarındaki bilgiler temel alınarak kullanıcı nesnesi bulunamadı.|
 | 90014| Kimlik bilgilerinde beklenen bir alanın bulunamadığı çeşitli durumlarda kullanılır.|
 | 90093| Graph istek için yasak hata kodu döndürdü.|
+
 
 
 

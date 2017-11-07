@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
-ms.openlocfilehash: 5d86f3bdf19603d2f92fc1a704376beefd7323c0
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 976407daee45e2f3a8360c1316227cc3399ad43e
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-2-build-a-model"></a>Iris sınıflandırma bölüm 2: Model derleme
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
@@ -198,11 +198,11 @@ Azure ML, Docker gibi ek yürütme ortamlarını kolayca yapılandırmanızı ve
 
 5. Şimdi Spark'ı deneyelim. Docker temel görüntüsünde önceden yüklenmiş ve yapılandırılmış bir Spark örneği bulunur. Bu sayede içinde bir PySpark betiği yürütebilirsiniz. Bu, Spark'ı yükleyip yapılandırmanıza gerek kalmadan Spark programınızı geliştirmek ve test etmek için kullanacağınız kolay bir yöntemdir. 
 
-   `iris_pyspark.py` dosyasını açın. Bu betik `iris.csv` veri dosyasını yükler ve Spark ML kitaplığındaki Lojistik Regresyon algoritmasını kullanarak Iris veri kümesini sınıflandırır. Şimdi çalıştırma ortamını **docker-spark**, betiği ise **iris_pyspark.py** olarak değiştirin ve tekrar çalıştırın. Docker kapsayıcısı içinde Spark oturumunun oluşturulması ve başlatılması gerektiğinden bu işlem biraz daha uzun sürer. stdout değerinin `iris_pyspark.py` için stdout değerinden farklı olduğunu görebilirsiniz.
+   `iris_spark.py` dosyasını açın. Bu betik `iris.csv` veri dosyasını yükler ve Spark ML kitaplığındaki Lojistik Regresyon algoritmasını kullanarak Iris veri kümesini sınıflandırır. Şimdi çalıştırma ortamını **docker-spark**, betiği ise **iris_spark.py** olarak değiştirin ve tekrar çalıştırın. Docker kapsayıcısı içinde Spark oturumunun oluşturulması ve başlatılması gerektiğinden bu işlem biraz daha uzun sürer. stdout değerinin `iris_spark.py` için stdout değerinden farklı olduğunu görebilirsiniz.
 
 6. Birkaç çalıştırma daha gerçekleştirin ve farklı bağımsız değişkenler kullanın. 
 
-7. Spark ML kitaplığı kullanılarak derlenen basit Lojistik Regresyon modelini görmek için `iris_pyspark.py` dosyasını açın. 
+7. Spark ML kitaplığı kullanılarak derlenen basit Lojistik Regresyon modelini görmek için `iris_spark.py` dosyasını açın. 
 
 8. **İşler** paneliyle etkileşimde bulunarak farklı yürütme ortamlarında gerçekleştirdiğiniz çalıştırmaların çalıştırma geçmişi liste görünümü ve çalıştırma ayrıntıları görünümünü inceleyin.
 
@@ -249,8 +249,8 @@ Azure ML, Docker gibi ek yürütme ortamlarını kolayca yapılandırmanızı ve
    REM Execute iris_sklearn.py in local Docker container Python environment.
    az ml experiment submit -c docker-python .\iris_sklearn.py 0.01
    
-   REM Execute iris_pyspark.py in local Docker container Spark environment.
-   az ml experiment submit -c docker-spark .\iris_pyspark.py 0.1
+   REM Execute iris_spark.py in local Docker container Spark environment.
+   az ml experiment submit -c docker-spark .\iris_spark.py 0.1
    ```
 6. Azure Machine Learning Workbench'te sol araç çubuğundaki Klasör simgesine tıklayarak proje dosyalarını listeleyin ve **run.py** adlı Python betiğini açın. 
 
@@ -320,8 +320,8 @@ Betiğinizi bir Linux uzak makinesinde bulunan Docker kapsayıcısında yürütm
 
 5. Uzak Docker kapsayıcısındaki Spark örneğinde çalıştırmak için aşağıdaki komutu yazın:
    ```azureli
-   REM execute iris_pyspark.py in Spark instance on remote Docker container
-   az ml experiment submit -c myvm-spark .\iris_pyspark.py
+   REM execute iris_spark.py in Spark instance on remote Docker container
+   az ml experiment submit -c myvm-spark .\iris_spark.py
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Betiği bir HDInsight kümesinde yürütme
@@ -345,8 +345,8 @@ Bu betiği gerçek bir Spark kümesinde de çalıştırabilirsiniz.
 2. Aşağıdaki komutu çalıştırdığınızda betik HDInsight kümesinde çalışır:
 
    ```azurecli
-   REM execute iris_pyspark on the HDI cluster
-   az ml experiment submit -c myhdi .\iris_pyspark.py
+   REM execute iris_spark on the HDI cluster
+   az ml experiment submit -c myhdi .\iris_spark.py
    ```
 
    >[!NOTE]

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/03/2017
+ms.date: 10/15/2017
 ms.author: spelluru
-ms.openlocfilehash: f48eb610b47820e6d7438520a00a5e6dfe879e01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e3c26c2358c15d18c71b82fe1f389c039ecbd97b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure veri Kataloğu Geliştirici kavramları
 Microsoft **Azure veri Kataloğu** kitle kaynak veri kaynağı meta verilerini ve veri kaynağı bulma için özellikleri sağlayan bir tam olarak yönetilen bir bulut hizmetidir. Geliştiriciler kendi REST API'leri aracılığıyla hizmetini kullanabilirsiniz. Hizmetinde uygulanan kavramları anlama başarıyla ile tümleştirmek geliştiricilere yönelik önemli **Azure veri Kataloğu**.
@@ -181,7 +181,7 @@ Genel türleri özelliklerini türleri olarak kullanılabilir, ancak öğeleri d
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>Protokolü</td><td>Dize</td><td>Gereklidir. Veri kaynağı ile iletişim kurmak için kullanılan bir protokol açıklar. Örneğin: SQl Server, Oracle, vb. için "oracle" için "tds". Başvurmak [veri kaynağı başvurusu belirtimi - DSL yapısı](data-catalog-dsr.md) şu anda desteklenen protokollerin listesi için.</td></tr>
 <tr><td></td><td>Adres</td><td>Sözlük<string, object></td><td>Gereklidir. Başvurulan veri kaynağı tanımlamak için kullanılan protokol belirli veri kümesini adresidir. Belirli bir protokol için kapsamlı adresi, yani Protokolü bilmeden anlamsız veridir.</td></tr>
-<tr><td></td><td>Kimlik doğrulaması</td><td>Dize</td><td>İsteğe bağlı. Veri kaynağı ile iletişim kurmak için kullanılan kimlik doğrulama düzeni. ..Örneğin: windows, oauth vb.</td></tr>
+<tr><td></td><td>Kimlik doğrulaması</td><td>Dize</td><td>İsteğe bağlı. Veri kaynağı ile iletişim kurmak için kullanılan kimlik doğrulama düzeni. Örneğin: windows, oauth vb.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Sözlük<string, object></td><td>İsteğe bağlı. Bir veri kaynağına bağlanma hakkında ek bilgiler.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>Arka uç tüm AAD karşı sağlanan özellikler doğrulama yayımlama sırasında gerçekleştirmez.</td></tr>
